@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B63ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 06:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5DEC54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 06:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3YCR1UdFyIdOSUdq3WML1Y3qyuv7Tv2KWvLAKN0uwU=; b=Dk62sRJiz2O0DiqKzu63AmTdC1
-	l3osveH4t+cuR7jxTr+rdTNIAuPKEydexNi1ktrkS+/vLWwNphcFxjjHRBOKUYC9r9pg59pHDoHDE
-	zPKmVWOFPvSluATZA9/BNVuyPENlI0ktm8fwb+FSTzap6A45993xPsLZrw7McCC/LWnjF5zlqW8wL
-	0vH0V3ZxUPfu/hT4sbETS2kJjfWnlIFQQGUuqc/nvgueiU/1rCPLztWPYWtBAOtz3ObBWzvLVcNyz
-	N7JEAqUgNmIh9fVQp6Tm8xOVJ/quS9RKH0NB3xrBCVaMzKHx0iIWn7W7M50YUmrB72c5PtoD0vxrz
-	CQ2CKlaA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ru3vyvoArwnGDf2dgASlRyjeyAR+Tl4PGbx5yVNsa7k=; b=cccnwRyAHYu9eo
+	unblGL5IW3pV3/Zg+n5biVcj9r/vNr/TpIRTR+vJDHnQzAc77gkucIKswfmD1lGmIYF9JPiBvpa99
+	GjkZaGSudJq6nhKJz+/jBIbeYYqxNmilqx99FOPJEItLLrAp85bLNJGL/XZ1Kpl7c13p8RM5s3byl
+	oGTI4CBKOdsC6R1mqQdInpd7s1PEwMIaj1qXe79p2eezf03xT2GQc3jLTet4Wu0M5f6yfEXVMQGf2
+	Hyv5ySIVOa8ykrEYDuPetpUwKheEVi/5BzZvht/U7jMykYwNv9/QNQXHHnucpvN6i7SGmAZMhHz7D
+	hYRFSAmromdPGUT8hORQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaWWt-000vOy-4l; Tue, 20 Sep 2022 06:14:47 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oaWsG-0012Tb-BV; Tue, 20 Sep 2022 06:36:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaWWq-000vLS-Pv
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 06:14:46 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oaWWm-00024b-80; Tue, 20 Sep 2022 08:14:40 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oaWWm-001o7S-1M; Tue, 20 Sep 2022 08:14:38 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oaWWj-0028m5-Op; Tue, 20 Sep 2022 08:14:37 +0200
-Date: Tue, 20 Sep 2022 08:14:34 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Olof Johansson <olof@lixom.net>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH] serial: sifive: enable clocks for UART when probed
-Message-ID: <20220920061434.ettul5ae2bw6mxme@pengutronix.de>
-References: <20220919223915.5146-1-olof@lixom.net>
+	id 1oaWsC-0012Rb-N1
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 06:36:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 35BC0623F9
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 06:36:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E7EC4314A
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 06:36:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663655806;
+	bh=UasumqK8JDy4QUm3XOKDPKXpUz8MeHWEZlWpEge7SHk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IeT0Ow0e2gryqHF+YZVhz5RDYHB+9l7X0sWxU4OdZ7kVADENteCdIKKy8BgnyDs+g
+	 aX98x7IBRoo21LQ3YvCERTFpt2YhZxQRGozW1cMEJTcr3n7deMKW9gvXgNFaU0LBNK
+	 VBDFyN+SMs91kM2qpUgFawzOBTibAgIHgio83adRp67LXn+tEB/6HhwWaTne0YsUn+
+	 SvyNHbYDkZyJr+Xmg0kZ+/H4SNO+/dzpCIPgpOyLWcJmTbJGuzUvKUiUJNGp+yMODB
+	 4PI/UDtE1UvhtdaoPSIYRk0lpzXhlKwwFHZWBSI06BC7EVePaPZsiJt0bCzZsBBMXu
+	 Oo/s0hwlUESoQ==
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-12b542cb1d3so2781535fac.13
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 23:36:46 -0700 (PDT)
+X-Gm-Message-State: ACrzQf2GpvFfkiylgh2wem/2YJe/N3mzGzsSCZHM63RJbJsdMXwNWPUL
+	XLSIW6SRCOTKEhDXYWs97xBq17Wb6V5LmWvrD7o=
+X-Google-Smtp-Source: AMsMyM6uHFgQjuLTZDoq4Wi16bBED+ipq/0qPmivsB6oIlMREURn4RpqQ/Co7zUtuew7caXA1KRyrH6dB1OH9wPOjsU=
+X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
+ x14-20020a056870a78e00b0012b542be5b2mr1178610oao.112.1663655805409; Mon, 19
+ Sep 2022 23:36:45 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220919223915.5146-1-olof@lixom.net>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-8-guoren@kernel.org>
+ <Yyhv4UUXuSfvMOw+@hirez.programming.kicks-ass.net>
+In-Reply-To: <Yyhv4UUXuSfvMOw+@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 20 Sep 2022 14:36:33 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRdkmemEWsDYhVXb8KD0PS6b1VAPu_MfeZ+Rmf2qEGa6Q@mail.gmail.com>
+Message-ID: <CAJF2gTRdkmemEWsDYhVXb8KD0PS6b1VAPu_MfeZ+Rmf2qEGa6Q@mail.gmail.com>
+Subject: Re: [PATCH V5 07/11] riscv: convert to generic entry
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
+	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_231444_860176_BBAAC057 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20220919_233648_838286_2FB2EA8E 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,109 +82,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8969422195461334105=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 19, 2022 at 9:34 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Sun, Sep 18, 2022 at 11:52:42AM -0400, guoren@kernel.org wrote:
+>
+> > @@ -123,18 +126,22 @@ int handle_misaligned_store(struct pt_regs *regs);
+> >
+> >  asmlinkage void __trap_section do_trap_load_misaligned(struct pt_regs *regs)
+> >  {
+> > +     irqentry_state_t state = irqentry_enter(regs);
+> >       if (!handle_misaligned_load(regs))
+> >               return;
+> >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+> >                     "Oops - load address misaligned");
+> > +     irqentry_exit(regs, state);
+> >  }
+> >
+> >  asmlinkage void __trap_section do_trap_store_misaligned(struct pt_regs *regs)
+> >  {
+> > +     irqentry_state_t state = irqentry_enter(regs);
+> >       if (!handle_misaligned_store(regs))
+> >               return;
+> >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+> >                     "Oops - store (or AMO) address misaligned");
+> > +     irqentry_exit(regs, state);
+> >  }
+> >  #endif
+> >  DO_ERROR_INFO(do_trap_store_fault,
+> > @@ -158,6 +165,8 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
+> >
+> >  asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+> >  {
+> > +     irqentry_state_t state = irqentry_enter(regs);
+> > +
+> >  #ifdef CONFIG_KPROBES
+> >       if (kprobe_single_step_handler(regs))
+> >               return;
+>
+> FWIW; on x86 I've classified many of the 'from-kernel' traps as
+> NMI-like, since those traps can happen from any context, including with
+> IRQs disabled.
+The do_trap_break is for ebreak instruction, not NMI. RISC-V NMI has
+separate CSR. ref:
 
---===============8969422195461334105==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="esuswvtwlxfa63tf"
-Content-Disposition: inline
+This proposal adds support for resumable non-maskable interrupts
+(RNMIs) to RISC-V. The extension adds four new CSRs (`mnepc`,
+`mncause`, `mnstatus`, and `mnscratch`) to hold the interrupted state,
+and a new instruction to resume from the RNMI handler.
 
+>
+> The basic shape of the trap handlers looks a little like:
+>
+>         if (user_mode(regs)) {
+If nmi comes from user_mode, why we using
+irqenrty_enter/exit_from/to_user_mode instead of
+irqentry_nmi_enter/exit?
 
---esuswvtwlxfa63tf
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>                 irqenrty_enter_from_user_mode(regs);
+>                 do_user_trap();
+>                 irqentry_exit_to_user_mode(regs);
+>         } else {
+>                 irqentry_state_t state = irqentry_nmi_enter(regs);
+>                 do_kernel_trap();
+>                 irqentry_nmi_exit(regs, state);
+>         }
+>
+> Not saying you have to match Risc-V in this patch-set, just something to
+> consider.
+I think the shape of the riscv NMI handler looks a little like this:
 
-Hello,
+asmlinkage __visible __trap_section void do_trap_nmi(struct pt_regs *regs)
+{
+                 irqentry_state_t state = irqentry_nmi_enter(regs);
+                 do_nmi_trap();
+                 irqentry_nmi_exit(regs, state);
+}
 
-On Mon, Sep 19, 2022 at 03:39:15PM -0700, Olof Johansson wrote:
-> When the PWM driver was changed to disable clocks if no PWMs are enabled,
-> it ended up also disabling the shared parent with the UART, since the
-> UART doesn't do any clock enablement on its own.
->=20
-> To avoid these surprises, add clk_prepare_enable/clk_disable_unprepare
-> calls.
->=20
-> Fixes: ace41d7564e655 ("pwm: sifive: Ensure the clk is enabled exactly on=
-ce per running PWM")
-> Cc: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-> Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Signed-off-by: Olof Johansson <olof@lixom.net>
-> ---
->  drivers/tty/serial/sifive.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-> index 5c3a07546a58..751f98068806 100644
-> --- a/drivers/tty/serial/sifive.c
-> +++ b/drivers/tty/serial/sifive.c
-> @@ -950,23 +950,28 @@ static int sifive_serial_probe(struct platform_devi=
-ce *pdev)
->  		dev_err(&pdev->dev, "unable to find controller clock\n");
->  		return PTR_ERR(clk);
->  	}
-> +	clk_prepare_enable(clk);
-
-The return code of clk_prepare_enable() must be checked. Also there is a
-simpler patch to fix that problem. I didn't test but I expect just doing=20
-
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index 5c3a07546a58..4b1d4fe8458e 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -945,7 +945,7 @@ static int sifive_serial_probe(struct platform_device *=
-pdev)
- 		return PTR_ERR(base);
- 	}
-=20
--	clk =3D devm_clk_get(&pdev->dev, NULL);
-+	clk =3D devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(clk)) {
- 		dev_err(&pdev->dev, "unable to find controller clock\n");
- 		return PTR_ERR(clk);
-
-would be enough and also cares for disabling the clock on remove.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---esuswvtwlxfa63tf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmMpWkYACgkQwfwUeK3K
-7AnywQf7BdspOW1w2yf0sn2zzN7vZ8uTyeaUdaeAPp30OHYQrYxG8NItdzcFeAjQ
-SgP7GV52s0NzSYLquIRHJ60xVOfS15fnJaJkzHu9P0Bq9I3dRqVE1KmB7+VNF0jh
-eMfr+DyWJan6s2EjS3U1AwnDP5lkZz+S81RSxgEnlGSxoFnuIYS5lrQeLNBWx3dv
-1vGSPC2qKbHBNuAAMCSFoJvvG0fljA5iUcXolnmL0bWsoywEY5tq0PpfVRLvQltx
-gDqi7XshrO5YjTux/MMEWHLnLD+LtpCt+lerGnVkw1t5rNdBIvP/b5UqSUmlCWPg
-7EkuwFzXLwZiUTyZfYqlIeTkxGc+mw==
-=1mpl
------END PGP SIGNATURE-----
-
---esuswvtwlxfa63tf--
-
-
---===============8969422195461334105==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8969422195461334105==--
-
