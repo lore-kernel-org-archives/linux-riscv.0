@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B4FC6FA82
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 20:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CF7C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 20:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zOo/UbYmSngAFIgba9gx9FkPR9iitSrGAhiO6GW65H0=; b=Kq+3Jp95QwKOwE
-	2V6udDlh/FX6F2Go6jTYuVUhL42GKbe1qKUJreUt6HmK2kgiPECAyyio473WCaVDNhAsTwK5V3VKF
-	Gb+Cg+BtLLXNLxZaP1Gx/ISVJdROgp4J/hTO+0KHFnzXJ5uz4OplC033BetH0HwM584EYFQoxu6+b
-	IDdEeMtl+oCTXfmCchzRpUhXwVbiYka8OxrMAw3arUFktMwyxMrUc/2ypB824j6xeL8FFi2wrkAYw
-	o5jhdD+CJyWcajR+IQ5Jt5kp0CEFtNhXYEC3NoE/kQjyETd8zvLZgjB0tRHnMvArKycNYBgZg8Jti
-	N7FQd8R6SaRmS5JpPglA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=pkeLYJ31TYhH2tRAAZ5yKH60FKa6j3Vpow1Od+xtgIs=; b=weoN+rqtPDWzO3Xudqh6wk7LtT
+	FnHW9FeLCUwNawdYBacuymcjHqNoqkLGOlIVvlYzhVhEJ01kfYfVYNacU7/BEOXcevXOgiz16Rkmy
+	t0LzBkLTULjMIywZXzJQ5p5gQv12D4J9g86pp0zDNh6Krefdbj1ALfBV+yju6sytIxGy9Iccol0kO
+	7HGY6RBKrZs6h/mi86Eaay7NSsqeUeGos6qRrcAINmITO2OgfSD1vqv/vaKX7NLNbrEo4ijEwLoek
+	6xD+XdFMFYccXNhEHFUQ41pkWoIe+GXLcRaifXfOcw1TRHn9mgsUfI/WA964hATG5PVZTeOsqXzj3
+	cM5pjbAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oajVY-006BJ7-ED; Tue, 20 Sep 2022 20:06:16 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1oajrP-006I8y-Do; Tue, 20 Sep 2022 20:28:51 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oajVV-006BHU-OZ
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 20:06:15 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id iw17so3552623plb.0
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 13:06:12 -0700 (PDT)
+	id 1oajnq-006GFD-9r
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 20:25:20 +0000
+Received: by mail-pl1-x629.google.com with SMTP id p18so3544037plr.8
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 13:25:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date;
-        bh=a0u1RkGkXEJ7b+a+7Cjla/gKJa3zrHUt+cUx/R7q3L4=;
-        b=VoqxGoi3u0ylwrnNO74oTq7qBAOYkSkP66B5V2eDJp/U0GxtmvKwGvfuPka5Zrc9+5
-         fPTdCxA9w61olUeeXEhXCxN+62FIjbDX5C6bz+pRYgVDPdXuVQ8zW7gAu40Z/NwWMqgp
-         S5D0Tv/AeanPVGPAuiiiqRTzYBuS6ojTb1SQn7HuUXyBGuDNGQ08SPpwGTkV8CMfsgjz
-         V8kgL+L0nx+u0zbPg+wY0vV45JMq9xqapP1Yk/sDTbqoydP+k4cnGXDIEKTM2rVYfs7o
-         9jT/QAgxhegkMU78STJN6+XiT1CDJaU6ZRpwC7u1siBRSEXz38NB8QonhCjw/yCSvabq
-         Li7w==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date;
+        bh=Hhzw/+V9iVrvl5RWt8Pn/WRdDYAxI/t2BJb6Fd4obMg=;
+        b=8Diilrodc7suR4h15QOFnAbn0scp0txZFNuN2MUeFaRTkHy4mFRpHsIOZoV5KcTNDX
+         ISCJimTPQHfhEqeGAmXJ5HEuV+L374kX6Ol+YHqeTPVrivmBj42qYPJG6YQpxWD6y1Dp
+         flrOfhaZhwXLKwlijv2SmnwvSNwWZneJpNui2c6uUGXVjR/X+IYdBw+F9m+fpQrsG7Cp
+         WckFZUjfrZsD8lAi54zqLYHkPjcvEDNIZMLN2GL5yumCkc1klHk48neH8Q9Bq+jrZFFw
+         xWVOGMbC6PnxP3TNOGSZ2gt/sldfsz5Oh8VzuG7ELUpPtsnKmJjKSkrI/BgMMivodPeB
+         YTOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date;
-        bh=a0u1RkGkXEJ7b+a+7Cjla/gKJa3zrHUt+cUx/R7q3L4=;
-        b=68sps03U8m+cd5csjmkyRYPHxV2T4Jn/ecy6yO5HUCdGG3K+/Bu7yrJO2CfvVOovqW
-         TEITOermWCF5Z8j+bWPoYbu9qt7RJn9zgvRGCEdGAW/w6jNrTPWxr1OyxuFqDbjqNujk
-         uwkFKFHDOGFLiT7HZ9GrGeTp1L0zTgT+oPyHMWZEIwpNMXC19vYN8aKgwj5cINVD+6OA
-         Ek5nlFpsI0ug0jvX3S10OKV3Jc2HBFFGW+ixl98yuhRu2XWGcH0qGgwJWqB8vZtqdI8B
-         qfyFvHQOq2coHyags2Z10Un1UVwf8wOqy3lNm4VKI+TvmBTifyGRfbVT+hJ4btuu0aFY
-         rVIQ==
-X-Gm-Message-State: ACrzQf19vqfaHVjn5a13BY7gamLPbqrO3mFBnoscZJfp/6lTBRZ6YQQJ
-	Tpao2UOq3Sct4Qn49MWKVPNY1A==
-X-Google-Smtp-Source: AMsMyM59FYn7tLU7vNTosMKRAVV7JN9jKaRpu6W55RYQhaa/A2zSz9QJp9PUJu5DduaoHYi7CDdnkg==
-X-Received: by 2002:a17:90b:224a:b0:203:d20:b92b with SMTP id hk10-20020a17090b224a00b002030d20b92bmr5503257pjb.17.1663704372168;
-        Tue, 20 Sep 2022 13:06:12 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=Hhzw/+V9iVrvl5RWt8Pn/WRdDYAxI/t2BJb6Fd4obMg=;
+        b=l8gpE37wuyoALw01tNnOqunk9GkbSrbF1Dm6MRTSpCXzlZA7pqPdFg6QrK839nUJul
+         r7JfbVvazoMoydVJWpNJMKt0RoerVHvfOnAWSFRXlE4l/FL8RsSkmxjObTzl5U+Hyih0
+         AXitlnRfN9Gjk+RFTtRGx3VMYAbb/K2Wea/kR5B5Cjymp0dPT/C4AhzVtv3hlkrPXcth
+         yYfOJ8bokMJ9YRYWK3NCOfI0zH7FAAT33joUkoRH/V2PLFWEliB/iFtf9Jb8JteZ65Yd
+         yOvdwyCY+imYe8X52UL1qwI4T7PgZtRwWArGvvt5hlu/NjwOw6wtVIk8Z2q+nyUL1BuE
+         UxIA==
+X-Gm-Message-State: ACrzQf2Nn88cVGLNZ7AhdOKFFl9gZMlA2hucS6iEIgwZILdHgsUnUzHq
+	8Kf1V224bfaIAA4Klmq2godnYg==
+X-Google-Smtp-Source: AMsMyM4MPKUkOwANVIDYJ65PwXYIOWMWuodaHX0rAgRNrWcRpMAbq+HyXA2xEgq5R+eQl8k1+dqotg==
+X-Received: by 2002:a17:902:e74e:b0:178:b4c4:5ac4 with SMTP id p14-20020a170902e74e00b00178b4c45ac4mr1315799plf.11.1663705502349;
+        Tue, 20 Sep 2022 13:25:02 -0700 (PDT)
 Received: from localhost (p57a238e9.dip0.t-ipconnect.de. [87.162.56.233])
-        by smtp.gmail.com with ESMTPSA id m17-20020a62a211000000b0053bf1f90188sm291010pff.176.2022.09.20.13.06.09
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902e54300b001768517f99esm282541plf.244.2022.09.20.13.25.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Sep 2022 13:06:10 -0700 (PDT)
-Subject: [PATCH] RISC-V: Avoid dereferening NULL regs in die()
-Date: Tue, 20 Sep 2022 13:00:37 -0700
-Message-Id: <20220920200037.6727-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, kernel test robot <lkp@intel.com>,
-  Dan Carpenter <dan.carpenter@oracle.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+        Tue, 20 Sep 2022 13:25:01 -0700 (PDT)
+Date: Tue, 20 Sep 2022 13:25:01 -0700 (PDT)
+X-Google-Original-Date: Tue, 20 Sep 2022 13:24:57 PDT (-0700)
+Subject: Re: [PATCH 1/1] riscv: enable Docker requirements in defconfig
+In-Reply-To: <20220813155851.GA187510@roeck-us.net>
+CC: heinrich.schuchardt@canonical.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, apatel@ventanamicro.com, Atish Patra <atishp@rivosinc.com>, guoren@kernel.org,
+  mchitale@ventanamicro.com, arnaud.pouliquen@foss.st.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: linux@roeck-us.net
+Message-ID: <mhng-3d4c5572-e386-45d8-9ed5-fd6971a60237@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_130614_065212_8DC74AAD 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20220920_132514_517336_210EE041 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,55 +84,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I don't think we can actually die() without a regs pointer, but the
-compiler was warning about a NULL check after a dereference.  It seems
-prudent to just avoid the possibly-NULL dereference, given that when
-die()ing the system is already toast so who knows how we got there.
+On Sat, 13 Aug 2022 08:58:51 PDT (-0700), linux@roeck-us.net wrote:
+> On Wed, Jun 08, 2022 at 02:02:51AM +0200, Heinrich Schuchardt wrote:
+>> The defconfig kernel should be able to run Docker.
+>>
+>> Enable the missing settings according to [1].
+>> make savedefconfig eliminates CONFIG_STACKTRACE
+>> which is enabled by default.
+>>
+>> Many of the settings are also needed to run a defconfig kernel
+>> on default distro installations or to run snaps.
+>>
+>> [1] https://github.com/moby/moby/blob/master/contrib/check-config.sh
+>>
+>> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+>
+> This patch results in (or exposes) the following boot warning with all
+> riscv32 and riscv64 qemu boots.
+>
+> [   12.278014] DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
+> [   12.278218] WARNING: CPU: 0 PID: 140 at kernel/locking/lockdep.c:5510 check_flags+0xe2/0x1c2
+> [   12.278446] Modules linked in:
+> [   12.278623] CPU: 0 PID: 140 Comm: S01syslogd Tainted: G                 N 5.19.0-14184-g69dac8e431af #1
+> [   12.278791] Hardware name: riscv-virtio,qemu (DT)
+> [   12.278931] epc : check_flags+0xe2/0x1c2
+> [   12.279024]  ra : check_flags+0xe2/0x1c2
+> [   12.279092] epc : ffffffff80a8ea50 ra : ffffffff80a8ea50 sp : ff200000107f3cb0
+> [   12.279180]  gp : ffffffff819fec50 tp : ff600000049895c0 t0 : ffffffff81833520
+> [   12.279287]  t1 : 0000000000000001 t2 : 2d2d2d2d2d2d2d2d s0 : ff200000107f3cd0
+> [   12.279395]  s1 : ffffffff81a00130 a0 : 0000000000000030 a1 : ffffffff818925e8
+> [   12.279502]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 : 0000000000000000
+> [   12.279608]  a5 : 0000000000000000 a6 : ffffffff80066d80 a7 : 0000000000000038
+> [   12.279714]  s2 : ffffffff81a024e0 s3 : ffffffff818935b0 s4 : ff200000107f3e28
+> [   12.279825]  s5 : ffffffff80e27708 s6 : 0000000200000022 s7 : ffffffffffffffff
+> [   12.279932]  s8 : ffffffff8249da18 s9 : 0000000000001000 s10: 0000000000000001
+> [   12.280037]  s11: 0000000000000001 t3 : ffffffff824740af t4 : ffffffff824740af
+> [   12.280142]  t5 : ffffffff824740b0 t6 : ff200000107f3aa8
+> [   12.280227] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+> [   12.280382] [<ffffffff80a8eba8>] lock_is_held_type+0x78/0x14a
+> [   12.280505] [<ffffffff8003d648>] __might_resched+0x26/0x232
+> [   12.280608] [<ffffffff8003d892>] __might_sleep+0x3e/0x66
+> [   12.280690] [<ffffffff8002262c>] get_signal+0xa6/0x8f6
+> [   12.280771] [<ffffffff800051da>] do_notify_resume+0x68/0x418
+> [   12.280863] [<ffffffff80003af4>] ret_from_exception+0x0/0x10
+> [   12.280978] irq event stamp: 2900
+> [   12.281041] hardirqs last  enabled at (2899): [<ffffffff80a9761c>] _raw_spin_unlock_irqrestore+0x54/0x62
+> [   12.281176] hardirqs last disabled at (2900): [<ffffffff8000812c>] __trace_hardirqs_off+0xc/0x14
+> [   12.281303] softirqs last  enabled at (1860): [<ffffffff80a98092>] __do_softirq+0x3e2/0x51c
+> [   12.281435] softirqs last disabled at (1843): [<ffffffff80016fc8>] __irq_exit_rcu+0xb4/0xdc
+> [   12.281564] ---[ end trace 0000000000000000 ]---
+> [   12.281735] possible reason: unannotated irqs-on.
+> [   12.281815] irq event stamp: 2900
+> [   12.281875] hardirqs last  enabled at (2899): [<ffffffff80a9761c>] _raw_spin_unlock_irqrestore+0x54/0x62
+> [   12.282004] hardirqs last disabled at (2900): [<ffffffff8000812c>] __trace_hardirqs_off+0xc/0x14
+> [   12.282125] softirqs last  enabled at (1860): [<ffffffff80a98092>] __do_softirq+0x3e2/0x51c
+> [   12.282242] softirqs last disabled at (1843): [<ffffffff80016fc8>] __irq_exit_rcu+0xb4/0xdc
+>
+> Reverting this patch fixes the problem. Bisect log attached.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/kernel/traps.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Sorry for having missed this report, but I don't see this now and don't 
+remember having seen it before.  Are you still seeing the issue?
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 635e6ec26938..f3e96d60a2ff 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -33,6 +33,7 @@ void die(struct pt_regs *regs, const char *str)
- {
- 	static int die_counter;
- 	int ret;
-+	long cause;
- 
- 	oops_enter();
- 
-@@ -42,11 +43,13 @@ void die(struct pt_regs *regs, const char *str)
- 
- 	pr_emerg("%s [#%d]\n", str, ++die_counter);
- 	print_modules();
--	show_regs(regs);
-+	if (regs)
-+		show_regs(regs);
- 
--	ret = notify_die(DIE_OOPS, str, regs, 0, regs->cause, SIGSEGV);
-+	cause = regs ? regs->cause : -1;
-+	ret = notify_die(DIE_OOPS, str, regs, 0, cause, SIGSEGV);
- 
--	if (regs && kexec_should_crash(current))
-+	if (kexec_should_crash(current))
- 		crash_kexec(regs);
- 
- 	bust_spinlocks(0);
--- 
-2.34.1
-
+>
+> Guenter
+>
+> ---
+> # bad: [69dac8e431af26173ca0a1ebc87054e01c585bcc] Merge tag 'riscv-for-linus-5.20-mw2' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux
+> # good: [6614a3c3164a5df2b54abb0b3559f51041cf705b] Merge tag 'mm-stable-2022-08-03' of git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
+> git bisect start 'HEAD' '6614a3c3164a'
+> # bad: [24cb958695724ffb4488ef4f65892c0767bcd2f2] Merge tag 's390-5.20-1' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux
+> git bisect bad 24cb958695724ffb4488ef4f65892c0767bcd2f2
+> # good: [a3b5d4715fd5a839857f8b7be78dff258a8d5a47] Merge tag 'asoc-v5.20-2' of https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound into for-linus
+> git bisect good a3b5d4715fd5a839857f8b7be78dff258a8d5a47
+> # good: [1d239c1eb873c7d6c6cbc80d68330c939fd86136] Merge tag 'iommu-updates-v5.20-or-v6.0' of git://git.kernel.org/pub/scm/linux/kernel/git/joro/iommu
+> git bisect good 1d239c1eb873c7d6c6cbc80d68330c939fd86136
+> # good: [4cfa6ff24a9744ba484521c38bea613134fbfcb3] powerpc/64e: Fix kexec build error
+> git bisect good 4cfa6ff24a9744ba484521c38bea613134fbfcb3
+> # good: [ea0c39260d0c1d8e11d89c9d42ca48e172d1c868] Merge tag '9p-for-5.20' of https://github.com/martinetd/linux
+> git bisect good ea0c39260d0c1d8e11d89c9d42ca48e172d1c868
+> # bad: [d77771c926671e0362af3fe792391be66072b242] Merge tag 'mips_6.0' of git://git.kernel.org/pub/scm/linux/kernel/git/mips/linux
+> git bisect bad d77771c926671e0362af3fe792391be66072b242
+> # good: [3f1901110a89b0e2e13adb2ac8d1a7102879ea98] RISC-V: Add fast call path of crash_kexec()
+> git bisect good 3f1901110a89b0e2e13adb2ac8d1a7102879ea98
+> # good: [d3164e2f3b0ac003c401d419cda2da0571724352] MIPS: Remove VR41xx support
+> git bisect good d3164e2f3b0ac003c401d419cda2da0571724352
+> # good: [534ea58b3ceb41d668adf18c4e68a846e770a6c8] Revert "MIPS: octeon: Remove vestiges of CONFIG_CAVIUM_RESERVE32"
+> git bisect good 534ea58b3ceb41d668adf18c4e68a846e770a6c8
+> # bad: [ba6cfef057e1c594c456627aad81c2343fdb5d13] riscv: enable Docker requirements in defconfig
+> git bisect bad ba6cfef057e1c594c456627aad81c2343fdb5d13
+> # good: [9c2ea4a36364bfb5cf068c6fbea5c40292b119a5] riscv: convert the t-head pbmt errata to use the __nops macro
+> git bisect good 9c2ea4a36364bfb5cf068c6fbea5c40292b119a5
+> # good: [f4361718f7654f31fee6bf323147e7062d825599] riscv: Add macro for multiple nop instructions
+> git bisect good f4361718f7654f31fee6bf323147e7062d825599
+> # first bad commit: [ba6cfef057e1c594c456627aad81c2343fdb5d13] riscv: enable Docker requirements in defconfig
 
 _______________________________________________
 linux-riscv mailing list
