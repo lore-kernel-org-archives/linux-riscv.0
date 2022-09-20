@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B212CC6FA82
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 20:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D299C6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 20:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=QnIsAJUtmeD1m97IEOsv8Nz57K6JMRoNJ1KaVtWdTLU=; b=vfJBZ0Ag5WN1k59b1ZBFfXPQ8m
-	VIyjbJyq4aRAch5QXuO44iAdxxJTBBsOJoAsmune6Mu4i8AFTHIfjlukLQDsawXsj9/UcwAYMvmkN
-	HPAU4eHjxCiiNlRMpCiVwnkz7u4lBn7M9xdlNvME/VgL7Jv8a0f+dl+aazPwIZ/PXAmIY82q/kNlu
-	HPOyMsff98PSkzNpXqLGWeoPAh4DGzcC2BZoMwfF16vslXRzzZphPCzL+TJ27GRsoURGnuY9095LB
-	Si3L/XYFR4WOfz01aH9eJZEtZ0H5H2rXiwqs4MbjhphiOOo3Qpq0NcY0TwHfgs7Z0b+2uYSqsruBN
-	gEUkF7ww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RJNEUrwWGdP1Zh9/ojqnAjGGJO/aQIwIi5QeMhDVr1M=; b=ZeT1B9t/I2LgkC
+	dr0mAnWHVNGBomAVkNynf/WCeRKnv5NSW6eKrtLcyPksgIXaruHjNN7NLGfjRYhHornQtvtP9up/y
+	Ie7yKQ2jfJfnIdLmSy+JZGHVnK4/q7zVb8NtpAC+YcDcvlI+sApaVtiFyoN9BD2GbPv/27ZAwZTmx
+	gjR7NcCgAoRu33THI/k7ueM3i9MSy8G6rHdhjCXuqYKMCdwxWtzsZ+oCtss4D6gcZuzzXXxoE/0qW
+	u3lVdZnxwKj9mvJA7O9OMteY6gWRTlpYWxGJh+FEutah0TpRBXcifOqA4ISiYwJh8pjIUn1OcGIbY
+	9sFDiA5oDpbHwzkEwHzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oajzq-006MEw-T2; Tue, 20 Sep 2022 20:37:34 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1oak5s-006POO-AC; Tue, 20 Sep 2022 20:43:48 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oajzm-006MAx-RP
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 20:37:32 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id y11so4308663pjv.4
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 13:37:27 -0700 (PDT)
+	id 1oak5o-006PN4-U8
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 20:43:46 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id r18so9013038eja.11
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 13:43:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=V/X2NQANvTDmkPd1F0YWtdFn++b8aCyFunzORsYrONQ=;
-        b=TCs7kqkPQVrLQkRrAFwXm+g+FHBRWFoV2esGT6hmslFrkA05qpUHyeFUnJDyZ8ulQr
-         I4Amixm2yJcjeuv90ODZ6IhHDPAJzeuzYkzc7zYTE1QIa8e5V/hPHIDbS5i6nOokcfr9
-         cqTJAihIHVduLLHltI6VpNfxj96TgvybwBWvZKOaOI2jrMZv/U4vfBhHbr9MJYzXU839
-         AqHOKNc90ry76qNuFowv999TixYYFmsATpgrYh2jV9fnUMdfFMOFi9KIVFjtEUqSJu6V
-         MHzBlJB1f8iy1JgS2kMS7JK8WNIjtV1p+dvq1Z9q5xm1OfbrSw73pE/m1TpFIxsclOpR
-         oh1g==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=jBYi/prDHJ/YGLg3ZKqzYTis+OjXr+YK/sv9ncXaUME=;
+        b=f/j4uuGL/tiflOwbHSPnTfIVpPgul7i097N3hMDMg4++9IX/1bDaTHNvhOBfyAkZEN
+         jKIcyIOZMs4Kh/yrkIPYLZR6IO8fC6C+GrfWs6Sx0FPUg7Jj2+skO6lRjCzZLMnOWzG1
+         8Qtcf4zKz/H1K2M3LmtxkN5dcrBh26fSP3P6mP4cJeSfVCBGNDJGq3Yd5E04/8YcSwCh
+         ByyD+vJokLDEs2sjcMtyD9ctOSMd7EfxeYwkqxWfAHG6jDWJflhQRkY1SFhCTkfUZOF5
+         xQNC9teg/8VczSx+4nekCCX9QOLGtLm9oRXR8HKXiB0Pt6gjk4IvvSEXOETQ08GcVgq3
+         nKmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=V/X2NQANvTDmkPd1F0YWtdFn++b8aCyFunzORsYrONQ=;
-        b=jQM0oEY6+xBYW9RKsRduwxrxZ9EFIY3B6Ug694Xf3yiEQIvDDwGE99kpDwIXwmHD24
-         4Eew3uIwLW7dju09cY6c4HE4BCh9+3o5HZ3YKtdluiAiIU5AKpjpj8dSC/7uMYqJQ5Av
-         R/7wdNIBo4hcnfNxl4eprIrLRFesjmHh2iEnCPucBdMNperflfZZYHknd0eSX5TPJZ4D
-         uHvKZms4LJx/jOn+urx53IhoUmo6jxyHAPTuPWZkPjoPI/qtGiBUdq02HD+aUyX1aCC5
-         jM/LLi0p/Xf2dFZXAECXtjDj5xLROQ8lePZ8sEEDUbH9TnRqPMS60IY+M4d+nbnrLkRg
-         l9CQ==
-X-Gm-Message-State: ACrzQf2Hl1JD7QgbSBFk21ebk4Hjb1XIF/gRWGmaKE5zkjLAziSc3KzD
-	FENqHq4KtLeJi0Yf3qQ4g6E56g==
-X-Google-Smtp-Source: AMsMyM5sO4QMKnmIY21SZBsYUOz5HOAORsSvtVv/tBwcJEPQCvY+0Ll0j6T6ybkTXVyiPd865ztNaA==
-X-Received: by 2002:a17:90a:4f4f:b0:202:7ab1:46ec with SMTP id w15-20020a17090a4f4f00b002027ab146ecmr5857272pjl.32.1663706247087;
-        Tue, 20 Sep 2022 13:37:27 -0700 (PDT)
-Received: from localhost (p57a238e9.dip0.t-ipconnect.de. [87.162.56.233])
-        by smtp.gmail.com with ESMTPSA id x68-20020a623147000000b0053b850b17c8sm319621pfx.152.2022.09.20.13.37.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Sep 2022 13:37:26 -0700 (PDT)
-Date: Tue, 20 Sep 2022 13:37:26 -0700 (PDT)
-X-Google-Original-Date: Tue, 20 Sep 2022 13:37:20 PDT (-0700)
-Subject: Re: [PATCH v2] serial: sifive: enable clocks for UART when probed
-In-Reply-To: <20220920160017.7315-1-olof@lixom.net>
-CC: Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org,
-  linux-serial@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  Olof Johansson <olof@lixom.net>, u.kleine-koenig@pengutronix.de, emil.renner.berthing@canonical.com,
-  Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Olof Johansson <olof@lixom.net>
-Message-ID: <mhng-48b61fc8-ae88-4ebe-8d91-b49f13c5ba0f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=jBYi/prDHJ/YGLg3ZKqzYTis+OjXr+YK/sv9ncXaUME=;
+        b=T1kY68XgviBdCNDTuusy6p4JmYyvVQgyGNXD2qYRBq+PSIcVPE7ZGA1qxSAkagv89Q
+         i6lmH8C26Us5n7aGuPWRPQ4NR9hEoW2jdz3Ry3MFVU97q8nTXlC3aiPfAMOW5aXrkCOx
+         bU5B/lD+zAHDt4hjeaEH8f3UqmVeNO3WtzUUtgfxVjK58SGi0T4dMDPLJ1Jk/B/MIYlW
+         JkRmngOW/XYEh5ECQ8mWNT7mzRCqO3R9+oqOv9OZsYTaozfAeQbCSkwsMkq6dLQ6EU+C
+         hU93Y7FVuRU5Uq9kOErPWOwbscRtcHII5bfHPYeOAaE8+/agpi5M88SV+pNPquzaGh+m
+         Q9Rg==
+X-Gm-Message-State: ACrzQf2YC8397f4mZXqt0OFq7eKA7w1keWYwdbg8hzK0YtBU+hjqsSlj
+	PxsUCmxjnGnG6V1u11M9N+7C41qhl13i2XRG4WhQWSu/vwg=
+X-Google-Smtp-Source: AMsMyM6FV3L2vQq/kixJuKIe7/X+wQ6X2iewUO6IInLUgnMmhdJnYUKGmuB5aDLmUdLhuC3e/QjxVBFENBPqjleSzlk=
+X-Received: by 2002:a17:907:3f93:b0:780:1b17:1160 with SMTP id
+ hr19-20020a1709073f9300b007801b171160mr18182563ejc.196.1663706621629; Tue, 20
+ Sep 2022 13:43:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <YyoSgGlkIB8GMog8@spud> <CAMuHMdXfkX-AOusfOn-6fmaJavWWoD1mW8QNqUCUdkHuz=3FsA@mail.gmail.com>
+ <YyoWlSQPWVnkaU+T@spud>
+In-Reply-To: <YyoWlSQPWVnkaU+T@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 20 Sep 2022 21:43:14 +0100
+Message-ID: <CA+V-a8uLD4zbxuN0GJ+Augwiu=oH_FnQ7+muQU30zdoxMxrBAw@mail.gmail.com>
+Subject: Re: [PATCH v4 00/10] Add support for Renesas RZ/Five SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
+	Atish Patra <atishp@rivosinc.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_133730_924731_8C817E57 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20220920_134345_530616_3FF8C8F7 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +89,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMCBTZXAgMjAyMiAwOTowMDoxOCBQRFQgKC0wNzAwKSwgT2xvZiBKb2hhbnNzb24g
-d3JvdGU6Cj4gV2hlbiB0aGUgUFdNIGRyaXZlciB3YXMgY2hhbmdlZCB0byBkaXNhYmxlIGNsb2Nr
-cyBpZiBubyBQV01zIGFyZSBlbmFibGVkLAo+IGl0IGVuZGVkIHVwIGFsc28gZGlzYWJsaW5nIHRo
-ZSBzaGFyZWQgcGFyZW50IHdpdGggdGhlIFVBUlQsIHNpbmNlIHRoZQo+IFVBUlQgZG9lc24ndCBk
-byBhbnkgY2xvY2sgZW5hYmxlbWVudCBvbiBpdHMgb3duLgo+Cj4gVG8gYXZvaWQgdGhlc2Ugc3Vy
-cHJpc2VzLCBzd2l0Y2ggdG8gY2xrX2dldF9lbmFibGVkKCkuCj4KPiBGaXhlczogYWNlNDFkNzU2
-NGU2NTUgKCJwd206IHNpZml2ZTogRW5zdXJlIHRoZSBjbGsgaXMgZW5hYmxlZCBleGFjdGx5IG9u
-Y2UgcGVyIHJ1bm5pbmcgUFdNIikKPiBDYzogVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtv
-ZW5pZ0BwZW5ndXRyb25peC5kZT4KPiBDYzogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVu
-bmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+Cj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJA
-ZGFiYmVsdC5jb20+Cj4gQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZlLmNv
-bT4KPiBTaWduZWQtb2ZmLWJ5OiBPbG9mIEpvaGFuc3NvbiA8b2xvZkBsaXhvbS5uZXQ+Cj4KPiAt
-LS0KPgo+IHYyOiBTd2l0Y2ggdG8gZGV2bV9jbGtfZW5hYmxlZCgpIHBlciBVd2UncyBzdWdnZXN0
-aW9uLgo+Cj4gLS0tCj4gIGRyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYyB8IDIgKy0KPiAgMSBm
-aWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0
-IGEvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jIGIvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2
-ZS5jCj4gaW5kZXggNWMzYTA3NTQ2YTU4Li40YjFkNGZlODQ1OGUgMTAwNjQ0Cj4gLS0tIGEvZHJp
-dmVycy90dHkvc2VyaWFsL3NpZml2ZS5jCj4gKysrIGIvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2
-ZS5jCj4gQEAgLTk0NSw3ICs5NDUsNyBAQCBzdGF0aWMgaW50IHNpZml2ZV9zZXJpYWxfcHJvYmUo
-c3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiAgCQlyZXR1cm4gUFRSX0VSUihiYXNlKTsK
-PiAgCX0KPgo+IC0JY2xrID0gZGV2bV9jbGtfZ2V0KCZwZGV2LT5kZXYsIE5VTEwpOwo+ICsJY2xr
-ID0gZGV2bV9jbGtfZ2V0X2VuYWJsZWQoJnBkZXYtPmRldiwgTlVMTCk7Cj4gIAlpZiAoSVNfRVJS
-KGNsaykpIHsKPiAgCQlkZXZfZXJyKCZwZGV2LT5kZXYsICJ1bmFibGUgdG8gZmluZCBjb250cm9s
-bGVyIGNsb2NrXG4iKTsKPiAgCQlyZXR1cm4gUFRSX0VSUihjbGspOwoKSSBoYXZlIG9uZSBvZiB0
-aGVzZSBseWluZyBhcm91bmQgc29tZXdoZXJlIGlmIHlvdSBuZWVkIHNvbWVvbmUgdG8gdGVzdCAK
-aXQsIGJ1dCBzb3VuZHMgbGlrZSB5b3UgaGFkIGZyb20gdGhlIHYxIGVtYWlsLiAgRWl0aGVyIHdh
-eQoKQWNrZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgpSZXZpZXdl
-ZC1ieTogUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+CgphcyB0aGlzIHNlZW1z
-IGJldHRlciB0aGFuIHdoYXQgd2FzIHRoZXJlLgoKVGhhbmtzIQoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Conor,
+
+Thank you for the review.
+
+On Tue, Sep 20, 2022 at 8:38 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Tue, Sep 20, 2022 at 09:24:05PM +0200, Geert Uytterhoeven wrote:
+> > Hi Conor,
+> >
+> > On Tue, Sep 20, 2022 at 9:20 PM Conor Dooley <conor@kernel.org> wrote:
+> > > On Tue, Sep 20, 2022 at 07:48:54PM +0100, Prabhakar wrote:
+> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
+> > > > 1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
+> > > > as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
+> > > > entry-class social infrastructure gateway control and industrial gateway
+> > > > control.
+> > > >
+> > > > This patch series adds initial SoC DTSi support for Renesas RZ/Five
+> > > > (R9A07G043) SoC and updates the bindings for the same. Below is the list
+> > > > of IP blocks added in the initial SoC DTSI which can be used to boot via
+> > > > initramfs on RZ/Five SMARC EVK:
+> > > > - AX45MP CPU
+> > > > - CPG
+> > > > - PINCTRL
+> > > > - PLIC
+> > > > - SCIF0
+> > > > - SYSC
+> > >
+> > > Ran into one complaint from dtbs_check:
+> > > arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: usb-phy@11c50200: '#phy-cells' is a required property
+> > >         From schema: /home/conor/.local/lib/python3.10/site-packages/dtschema/schemas/phy/phy-provider.yaml
+> > > arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: usb-phy@11c70200: '#phy-cells' is a required property
+> > >         From schema: /home/conor/.local/lib/python3.10/site-packages/dtschema/schemas/phy/phy-provider.yaml
+> > >
+> > > Other than that which should be a trivial fix the whole lot looks good
+> > > to me...
+> >
+> > That's due to the placeholders...
+>
+> Right, but #phy-cells will be added into the usb-phys once you (plural)
+> figure out how to integrate with the existing CMO stuff?
+>
+Yes indeed.
+
+> > Currently it is not yet a requirement that "make dtbs_check" is warning-free.
+>
+> I was really hoping that it could be a requirement for 6.1 onwards. I've
+> managed to clear all of the other ones from arch/riscv.
+>
+Maybe i'll fix it and respin the series (along with the Kconfig.socs sorted).
+
+Cheers,
+Prabhakar
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
