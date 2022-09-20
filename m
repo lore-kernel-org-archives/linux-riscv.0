@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0857EC6FA8B
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82852C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 01:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xs+pifBLvPMi6njUo0tGliwxHXXULLHTdKmjk4Ya7xk=; b=S3XgqGjHx3myi5
-	O3Gb1EhvV2ibiLrKJ9c3pwSeYm/me948NvLVa8Gm07sFtC65ml66mukB1v9WlpY7hRIdohr1Acuak
-	QTJTJp6IbZ/d42+54SLfXl8zA23pgBK4RN+HyPo5K2CEW9nPgWg9q4BWse/TW0zpekshIj011IMrU
-	AqyFvM9tdsjN9Ok8b7VDCnIndkzAskBmtU2eiUkTiGO/2g2e6X8aUY9gow20LhuZsMTrHRYPQwiaC
-	MtS2nItCPD1cIqeT2A48/40DVxmukxfObDu1iEPIJog6r+Sgj+Lv3nZewZfZRT8QosCL2ZTTnvrCq
-	rMuXF2XTsmlYGJBByTUQ==;
+	List-Owner; bh=Mb81FPzpnIypi3r1pyfe3xqVBKln4sQZvZb6x6FiPQI=; b=tE9VckmHa422NI
+	qcyynI7ECmif8Eqit2a2LT6wj/Cc69Rk78OuDgSVqYccMA99L8Bww9EJSzW3b+QdNMVbOAOEPikEd
+	6bW8ZR12LMkBAEjkBDiAvF3Z1kFSLytITEoMf97dHbpty/Or2FvkYwlPff4BVvpz6NDsCUvavsxCS
+	uCu6eAh29SDgi7LG3sUcX7Wv/2bmgQInTzOvMf/jkV8ptWhsmWPOFQ6aFcw6Yh+WnBRWnjjcniGRY
+	rO0eYI+cV0k+qYlQyUxCJuQ5BMqpQ3YiwnGlibX1/siyaQuw0ApwPLfmk5Cojg5nnXvGapTwvxBZQ
+	I6eQJQjNssk7nEd9uPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaRQ2-00GoDG-AG; Tue, 20 Sep 2022 00:47:22 +0000
+	id 1oaSKB-00H6FQ-3K; Tue, 20 Sep 2022 01:45:23 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaRPy-00Go8Y-Ub
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 00:47:20 +0000
+	id 1oaSK7-00H6Dw-J5
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 01:45:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0F7F4B80AC0
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7260C43143
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:47:09 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id BE552B823AD
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 01:45:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D06C43142
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 01:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663634829;
-	bh=xP/qeVjxP9D7WAylNWjp5M1UVyW3ePRF51jsVQNhb6M=;
+	s=k20201202; t=1663638315;
+	bh=hM4ARRwu7HP3L22Jz7ahem9ASH5TM4RTeIReN46ib0A=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QQPHDA/rmZeGmg4vRVdL3NsKvKD3TaRcKVna3BdM9JeoVwJ6pke7eJjtIOObQLXBA
-	 dE5ROwWuXKUWG7GOnz04IIjOyMupp2IFSCY1Qan2zdiKbx2FGE9jerCSbvTDFu1xM8
-	 O1kHOBLOteHXQZUqVd+UVtNVlh7OPQ1/moZMl0j6u2oIX9zbuCmnPdBzr8u/ywNvC8
-	 85vzoTPsiDHQR1yy5Grq5sc9gXaMGfiQxx76yRqq4p/6QsRSFAA8K43CeYIpmdXQgN
-	 /pTP6BTHaYfm+DQjfDIFPgU6bOYKu37RyUbGQB1BueeYM1IuKOo17bnnCuocyvX5n9
-	 fEDuwptUghy0g==
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-1274ec87ad5so2068219fac.0
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 17:47:09 -0700 (PDT)
-X-Gm-Message-State: ACrzQf14w5ya1A7libHedSjBN9wwWlfrnXrY9PiwYEjbcl00Pxwm1rjk
-	JA8fqTkSYF+cZ227pXw8CpRkarY0hUenIE+AfB8=
-X-Google-Smtp-Source: AMsMyM6SzMrhnEnurC88o5RK3FSySIO2geSRWmUq+5Zhq2V6q1TFt+qBpX29RTKP8TzwzNGJDD/k5Zn/L7dXo+SaQoU=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr557154oao.112.1663634828649; Mon, 19
- Sep 2022 17:47:08 -0700 (PDT)
+	b=GK+KksYrXL4Ui2VP52zrPYdiVEstBK3nMfuUi+rtYNamsgNKbqqaulzkhPWE6zjdr
+	 ycq9HWRHSg5D86Y5TGLNjonhwqX6bJ9musEyBzhR5wSmnyB2jUaYShH8CZlwQlV+Yi
+	 ywibChefBfA6DMNmzn30SwPqghkoqKyCWk4e8tTSkHvMKYm+ObAP7CFdZQecJeEc2E
+	 z24ZLh9N6C+/KVRayNZ5wpITp77mGFC3Jo+R/Kt5bf9KhL9OzLWrwOFPeOdNJGMVRs
+	 EaWR2IK622Dhd8tuIFSJyjQ9K07AKl4m16ACYYFqXNlKVHCc+GRAm2zI6UjA39C81g
+	 9qN8Vbu4saG7A==
+Received: by mail-oi1-f177.google.com with SMTP id o184so1838929oif.13
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 18:45:15 -0700 (PDT)
+X-Gm-Message-State: ACrzQf3zI2Ngu4BKCcelRwndtiO+IMxD7bgu+zqP2zEYUmTbygiHJFTn
+	L6RPr62D1WiI9+yCIlKi+0RNYlfX/bc3MMukg5k=
+X-Google-Smtp-Source: AMsMyM7uitoWQ2wP2lLplABVBobqc5ORHtBKx+vIP5fl4T3iv6x3SGzJf91sDczKyJfzzmEFljNZDO3ZNZVx2oQu7Jc=
+X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
+ u31-20020a056808151f00b003501b5e2380mr513697oiw.112.1663638314437; Mon, 19
+ Sep 2022 18:45:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
- <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
- <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
-In-Reply-To: <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
+References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-7-guoren@kernel.org>
+ <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net>
+In-Reply-To: <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net>
 From: Guo Ren <guoren@kernel.org>
-Date: Tue, 20 Sep 2022 08:46:55 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
-Message-ID: <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
-Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	"Conor.Dooley" <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, lazyparser@gmail.com, falcon@tinylab.org, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Linux-Arch <linux-arch@vger.kernel.org>, 
+Date: Tue, 20 Sep 2022 09:45:02 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
+Message-ID: <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
+Subject: Re: [PATCH V5 06/11] entry: Prevent DEBUG_PREEMPT warning
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
+	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_174719_297566_6B42E2E5 
-X-CRM114-Status: GOOD (  39.00  )
+X-CRM114-CacheID: sfid-20220919_184519_930252_3DD4CA4F 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,162 +87,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 19, 2022 at 4:35 PM Guo Ren <guoren@kernel.org> wrote:
+On Mon, Sep 19, 2022 at 7:59 PM Peter Zijlstra <peterz@infradead.org> wrote:
 >
-> On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> On Sun, Sep 18, 2022 at 11:52:41AM -0400, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
 > >
-> > On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
-> > > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
-> > >> > From: Guo Ren <guoren@linux.alibaba.com>
-> > >> - When VMAP_STACK is set, make it possible to select non-power-of-two
-> > >>   stack sizes. Most importantly, 12KB should be a really interesting
-> > >>   choice as 8KB is probably still not enough for many 64-bit workloads,
-> > >>   but 16KB is often more than what you need. You probably don't
-> > >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
-> > >>   makes it really hard to debug, so hiding the option when VMAP_STACK
-> > >>   is disabled may also be a good idea.
-> > > I don't want this config to depend on VMAP_STACK. Some D1 chips would
-> > > run with an 8K stack size and !VMAP_STACK.
+> > When DEBUG_PREEMPT=y,
+> >       exit_to_user_mode_prepare
+> >       ->tick_nohz_user_enter_prepare
+> >         ->tick_nohz_full_cpu(smp_processor_id())
+> >           ->smp_processor_id()
+> >             ->debug_smp_processor_id()
+> >               ->check preempt_count() then:
 > >
-> > That sounds like a really bad idea, why would you want to risk
-> > using such a small stack without CONFIG_VMAP_STACK?
+> > [    5.717610] BUG: using smp_processor_id() in preemptible [00000000]
+> > code: S20urandom/94
+> > [    5.718111] caller is debug_smp_processor_id+0x24/0x38
+> > [    5.718417] CPU: 1 PID: 94 Comm: S20urandom Not tainted
+> > 6.0.0-rc3-00010-gfd0a0d619c63-dirty #238
+> > [    5.718886] Hardware name: riscv-virtio,qemu (DT)
+> > [    5.719136] Call Trace:
+> > [    5.719281] [<ffffffff800055fc>] dump_backtrace+0x2c/0x3c
+> > [    5.719566] [<ffffffff80ae6cb0>] show_stack+0x44/0x5c
+> > [    5.720023] [<ffffffff80aee870>] dump_stack_lvl+0x74/0xa4
+> > [    5.720557] [<ffffffff80aee8bc>] dump_stack+0x1c/0x2c
+> > [    5.721033] [<ffffffff80af65c0>]
+> > check_preemption_disabled+0x104/0x108
+> > [    5.721538] [<ffffffff80af65e8>] debug_smp_processor_id+0x24/0x38
+> > [    5.722001] [<ffffffff800aee30>] exit_to_user_mode_prepare+0x48/0x178
+> > [    5.722355] [<ffffffff80af5bf4>] irqentry_exit_to_user_mode+0x18/0x30
+> > [    5.722685] [<ffffffff80af5c70>] irqentry_exit+0x64/0xa4
+> > [    5.722953] [<ffffffff80af52f4>] do_page_fault+0x1d8/0x544
+> > [    5.723291] [<ffffffff80003310>] ret_from_exception+0x0/0xb8
 > >
-> > Are you worried about increased memory usage or something else?
+> > (Above is found in riscv platform with generic_entry)
 > >
-> > >  /* thread information allocation */
-> > > -#ifdef CONFIG_64BIT
-> > > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> > > -#else
-> > > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> > > -#endif
-> > > +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
-> > >  #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> > The smp_processor_id() needs irqs disable or preempt_disable, so use
+> > preempt dis/in protecting the tick_nohz_user_enter_prepare().
 > >
-> > This doesn't actually allow additional THREAD_SIZE values, as you
-> > still round up to the nearest power of two.
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > ---
+> >  kernel/entry/common.c | 2 ++
+> >  1 file changed, 2 insertions(+)
 > >
-> > I think all the non-arch code can deal with non-power-of-2
-> > sizes, so you'd just need
+> > diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+> > index 063068a9ea9b..36e4cd50531c 100644
+> > --- a/kernel/entry/common.c
+> > +++ b/kernel/entry/common.c
+> > @@ -194,8 +194,10 @@ static void exit_to_user_mode_prepare(struct pt_regs *regs)
 > >
-> > #define THREAD_SIZE round_up(CONFIG_THREAD_SIZE, PAGE_SIZE)
-> >
-> > and fix up the risc-v specific code to do the right thing
-> > as well. I now see that THREAD_SIZE_ORDER is not actually
-> > used anywhere with CONFIG_VMAP_STACK, so I suppose that
-> > definition can be skipped, but you still need a THREAD_ALIGN
-> > definition that is a power of two and at least a page larger
-> > than THREAD_SIZE.
-> Sorry, I missed this part. I would RESEND v5
-
-Hi Arnd,
-
-How about this one: (only THREAD_SIZE, no THREAD_ORDER&SHIFT.)
-
-commit 447cddede7898c35a9a3b8ab3d7bdb7b0de0714d (HEAD)
-Author: Guo Ren <guoren@kernel.org>
-Date:   Mon Sep 5 22:53:06 2022 -0400
-
-    riscv: Add config of thread stack size
-
-    0cac21b02ba5 ("riscv: use 16KB kernel stack on 64-bit") increase the
-    thread size mandatory, but some scenarios, such as D1 with a small
-    memory footprint, would suffer from that. After independent irq stack
-    support, let's give users a choice to determine their custom stack size.
-
-    Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-    Signed-off-by: Guo Ren <guoren@kernel.org>
-    Cc: Andreas Schwab <schwab@suse.de>
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index dfe600f3526c..8def456f328c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -442,6 +442,16 @@ config IRQ_STACKS
-          Add independent irq & softirq stacks for percpu to prevent
-kernel stack
-          overflows. We may save some memory footprint by disabling IRQ_STACKS.
-
-+config THREAD_SIZE
-+       int "Kernel stack size (in bytes)" if EXPERT
-+       range 4096 65536
-+       default 8192 if 32BIT && !KASAN
-+       default 32768 if 64BIT && KASAN
-+       default 16384
-+       help
-+         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-+         affects irq stack size, which is equal to thread stack size.
-+
- endmenu # "Platform type"
-
- menu "Kernel features"
-diff --git a/arch/riscv/include/asm/thread_info.h
-b/arch/riscv/include/asm/thread_info.h
-index 043da8ccc7e6..181fdfbd5e99 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -11,24 +11,12 @@
- #include <asm/page.h>
- #include <linux/const.h>
-
--#ifdef CONFIG_KASAN
--#define KASAN_STACK_ORDER 1
--#else
--#define KASAN_STACK_ORDER 0
--#endif
--
- /* thread information allocation */
--#ifdef CONFIG_64BIT
--#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
--#else
--#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
--#endif
--#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
-+#define THREAD_SIZE            CONFIG_THREAD_SIZE
-
- /*
-  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-- * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-- * assembly.
-+ * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
-  */
- #ifdef CONFIG_VMAP_STACK
- #define THREAD_ALIGN            (2 * THREAD_SIZE)
-@@ -36,7 +24,6 @@
- #define THREAD_ALIGN            THREAD_SIZE
- #endif
-
--#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
- #define OVERFLOW_STACK_SIZE     SZ_4K
- #define SHADOW_OVERFLOW_STACK_SIZE (1024)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 426529b84db0..1e35fb3bdae5 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -29,8 +29,8 @@ _restore_kernel_tpsp:
-
- #ifdef CONFIG_VMAP_STACK
-        addi sp, sp, -(PT_SIZE_ON_STACK)
--       srli sp, sp, THREAD_SHIFT
--       andi sp, sp, 0x1
-+       srli sp, sp, PAGE_SHIFT
-+       andi sp, sp, (THREAD_SIZE >> PAGE_SHIFT)
-        bnez sp, handle_kernel_stack_overflow
-        REG_L sp, TASK_TI_KERNEL_SP(tp)
- #endif
-
+> >       lockdep_assert_irqs_disabled();
+>
+>     Observe ^^^^
+Thanks! I would enable PROVE_LOCKING for test.
 
 >
 > >
-> >      Arnd
+> > +     preempt_disable();
+> >       /* Flush pending rcuog wakeup before the last need_resched() check */
+> >       tick_nohz_user_enter_prepare();
+> > +     preempt_enable();
 >
+> This makes no sense; if IRQs are disabled, check_preemption_disabled()
+> should bail early per:
 >
->
-> --
-> Best Regards
->  Guo Ren
-
+>         if (irqs_disabled())
+>                 goto out;
+Ditto.
 
 
 -- 
