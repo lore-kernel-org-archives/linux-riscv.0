@@ -4,79 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1A2ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 22:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D62FC6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M4x7Z6R09/afjiErkAgOJ/mu/alcAKe+h04cR80jizo=; b=afnr6DzqTRpvsA
-	SyjsOjMusX6y3g8GnyCXRUn/hqfYHCaSkMI/0p/kvejjNoe1GXuLb026uEY1wtjn3Zn7/q5sTb3jp
-	xhC4Zv3e9F+N+2sbR9QPAzfQ6ssFXRHyllgMNXzVK6vmdTUl4VdzVzfpY1/Uf1bdoteBBRtYf7bps
-	VpqVena3sPEQZk7vN5ZHmzNuA6DO8KcT1TFlnhc5itqG6tdax7DPuapDnY2olfBNvxEcLnnjdaJf3
-	rLvd/+5bH2Zz7ctNSc7Rpn6MVBOxEW4cF1bSjjepQaCh7GQhKb8EvS3WmnpTips8YvIwbU28pB01M
-	Hf+QhLFv9j1eOBNQNccA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KAIr/+vbYC/HhLUtcYp0HeeTFmjpO3YDqbWMRmhcSkU=; b=HWPnHtsz2RpWCc
+	hk7+VZqMvVtyU3xyLJYK1B7VAyqoNBZo9VUX/Irq8cf68ThpRN3+2ccxBvqV60gO4q+YNuirtlGag
+	+dQ9JRF+VyDw07W/z8zPoycEyENn6DORxneAQRML56F1pji8LRdXMv+MSBPM210omtJDQuO3yWQ37
+	oSHlGIRJSHpmnAzAPJvTT5knBs+02G9i6SiqvXA6dt3SIMqG5C2XjIy6+ge/TsG2Bkw+J6TNQ7dpi
+	g0n6Vs+Ma2ESFbI/UBkXNkEeAik+0iL2xlCiF5Cadhj1y5r+7Oi2zIuj1Mk43xBcJuU/kThDXR63l
+	trMozi2dC3U9PvqZTX5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaPQN-00FvIY-3Z; Mon, 19 Sep 2022 22:39:35 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1oaQs8-00GgWi-4H; Tue, 20 Sep 2022 00:12:20 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaPQJ-00FvIF-71
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 22:39:32 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 3so718815pga.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 15:39:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=fFcLaIdKXlgDGkA95O0lHl/2ZQsYb6rituY3HQNR/Cw=;
-        b=KYcfCDEi4vF8hV/a+u7f57iqAAJ4vl/lQfGYkx27RywtgANIRwbfXfN5pAkDZs2F6N
-         o1or1G779iRYXIfEL+QSHX9L9DzHSjh8QQv1wptf1THJA09U3hqVpHWBsh9GcY0PizSN
-         zRXb8gMxH3ECXOPMRLdYAUL/7BbMtDyv8b8T1CgqRKOpGjnStB9MUUQfUeQ45Q75P9Vb
-         eFxOkF3sns5d29ooDP09ItoyeViXWsIdfLM48+AzcIX5KoxOFXYur8/Jv6ZgoR2UceN4
-         FQXK3bKK0+CfigkDXfsNUo6Z+pUguhpB5a9Jzf+8aC0SkDSoh0zwyjc8sfEgqMhDCxId
-         52fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=fFcLaIdKXlgDGkA95O0lHl/2ZQsYb6rituY3HQNR/Cw=;
-        b=B5tUExj6V3F1elK6SSBK9DFq5BX2lRlRu5dISO04COch4F9tOMtqEiw8flD0HwWxcv
-         6CDVxgxuIDJXvEC3ShdOHW6t2T4kYUXVZ9qzUmKFOSBSGyNZ9/mySMZdOCtppPrUYDIP
-         NhM2K9+EmBHTWcirJQv/g//NGW1DM0mNc9xR9k3O2XSxksCFkWGxPrf0u/Fn8dtWDOFT
-         HyN1nxRXxYL5iFg5Uv+kHh9hkzRliZ5Z3V1u2QcIWmRDpf87vcRnM2YyRAvbOqvjcVTB
-         hUVP/teAiTcNBPRE2Vk1F2vUuLiBYepuJOaCsSNggeiltd2jCtuJOiDx9t5jn9MpPpsh
-         tFpA==
-X-Gm-Message-State: ACrzQf2rg26XC8XQL9GMtLlYqPPPRVRs2Jlr/4zOCnkQ1o5aLAF1rerQ
-	T0JKuqnenvQlNLBaOKIi9ocqbQ==
-X-Google-Smtp-Source: AMsMyM7DR/q1kUqDv3ej5C4oQEc0xUujKbwn4sZlKKHP//4c/iOs4jcquF4XZadj+kHrp9ciHVQrhw==
-X-Received: by 2002:a63:4243:0:b0:439:2031:be87 with SMTP id p64-20020a634243000000b004392031be87mr17659366pga.592.1663627170148;
-        Mon, 19 Sep 2022 15:39:30 -0700 (PDT)
-Received: from lx2k.lixom.net (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
-        by smtp.gmail.com with ESMTPSA id l5-20020a170903244500b00177f32b1a32sm21074410pls.271.2022.09.19.15.39.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Sep 2022 15:39:29 -0700 (PDT)
-From: Olof Johansson <olof@lixom.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>,
-	linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Olof Johansson <olof@lixom.net>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH] serial: sifive: enable clocks for UART when probed
-Date: Mon, 19 Sep 2022 15:39:15 -0700
-Message-Id: <20220919223915.5146-1-olof@lixom.net>
-X-Mailer: git-send-email 2.30.2
+	id 1oaQs4-00GgU9-KF
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 00:12:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 96E3BB81C99
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:12:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390ACC4347C
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:12:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663632729;
+	bh=jGh6Z/8o8phkxD6Q5ZaClfS96enuq/pckZpmt/gSUKw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=QxfSf0QTdMROv8kOD4YiiscBiAFwlo9PR57pV30gJmTUhrNpU/yWDrH7eLYMgP6jK
+	 4AElYiaGpjieblpx1ymUfRCCwpdsuhxmRdDBBVCtNUk0JULVG7i6Tk8r8czAHGn08j
+	 MBBSR5x1J3eJKDggrNpdTb7tjQ+pjnSxHlCwGTWe7w/PYA2UXRli85h6LKs+fhbjT6
+	 VZx80+WFkDW30LgD7SETB2DCnkd6Krj0/cFx3zmmtk+SNp1YtBxiso4SFiIgiNvkte
+	 uR3c+udyxrbhe308ZeBZELRHAlq41d1lMahVvd0r8cqTN3VJ1uvQ0eiLq32Q/8wMfa
+	 Sl8TXtoN4T7og==
+Received: by mail-oi1-f169.google.com with SMTP id u131so1661535oie.5
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 17:12:09 -0700 (PDT)
+X-Gm-Message-State: ACrzQf3JPTD7xwzOcC96MtRelw/KxinrTHynb+Hbsald9YQwc5BFjoQ3
+	z/DI4sWqnOzqaXOu/A+bL/nefm9XEhgr6ZRAjow=
+X-Google-Smtp-Source: AMsMyM7q6m74X81UqNxrOeCx3Dxj/WxoLF1r3ltRRUbJziqD0ESkxDrh6zD8VT0RsW27eG0Uex4S1P+7jPii4oPq1r0=
+X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
+ q31-20020a056808201f00b0034f9fdfdbbfmr356862oiw.19.1663632728293; Mon, 19 Sep
+ 2022 17:12:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-10-guoren@kernel.org>
+In-Reply-To: <20220918155246.1203293-10-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 20 Sep 2022 08:11:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRtRzeDqr3=AUkGadPMmMA6kwU86+zSNn8+0qXSk8zmVQ@mail.gmail.com>
+Message-ID: <CAJF2gTRtRzeDqr3=AUkGadPMmMA6kwU86+zSNn8+0qXSk8zmVQ@mail.gmail.com>
+Subject: Re: [PATCH V5 09/11] riscv: Support HAVE_SOFTIRQ_ON_OWN_STACK
+To: arnd@arndb.de, guoren@kernel.org, palmer@rivosinc.com, tglx@linutronix.de, 
+	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
+	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
+	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com, 
+	zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_153931_484398_3F1326F3 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20220919_171216_962516_36C88935 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +80,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2hlbiB0aGUgUFdNIGRyaXZlciB3YXMgY2hhbmdlZCB0byBkaXNhYmxlIGNsb2NrcyBpZiBubyBQ
-V01zIGFyZSBlbmFibGVkLAppdCBlbmRlZCB1cCBhbHNvIGRpc2FibGluZyB0aGUgc2hhcmVkIHBh
-cmVudCB3aXRoIHRoZSBVQVJULCBzaW5jZSB0aGUKVUFSVCBkb2Vzbid0IGRvIGFueSBjbG9jayBl
-bmFibGVtZW50IG9uIGl0cyBvd24uCgpUbyBhdm9pZCB0aGVzZSBzdXJwcmlzZXMsIGFkZCBjbGtf
-cHJlcGFyZV9lbmFibGUvY2xrX2Rpc2FibGVfdW5wcmVwYXJlCmNhbGxzLgoKRml4ZXM6IGFjZTQx
-ZDc1NjRlNjU1ICgicHdtOiBzaWZpdmU6IEVuc3VyZSB0aGUgY2xrIGlzIGVuYWJsZWQgZXhhY3Rs
-eSBvbmNlIHBlciBydW5uaW5nIFBXTSIpCkNjOiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUt
-a29lbmlnQHBlbmd1dHJvbml4LmRlPgpDYzogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVu
-bmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+CkNjOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRh
-YmJlbHQuY29tPgpDYzogUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPgpT
-aWduZWQtb2ZmLWJ5OiBPbG9mIEpvaGFuc3NvbiA8b2xvZkBsaXhvbS5uZXQ+Ci0tLQogZHJpdmVy
-cy90dHkvc2VyaWFsL3NpZml2ZS5jIHwgMTQgKysrKysrKysrKy0tLS0KIDEgZmlsZSBjaGFuZ2Vk
-LCAxMCBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMv
-dHR5L3NlcmlhbC9zaWZpdmUuYyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYwppbmRleCA1
-YzNhMDc1NDZhNTguLjc1MWY5ODA2ODgwNiAxMDA2NDQKLS0tIGEvZHJpdmVycy90dHkvc2VyaWFs
-L3NpZml2ZS5jCisrKyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYwpAQCAtOTUwLDIzICs5
-NTAsMjggQEAgc3RhdGljIGludCBzaWZpdmVfc2VyaWFsX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9k
-ZXZpY2UgKnBkZXYpCiAJCWRldl9lcnIoJnBkZXYtPmRldiwgInVuYWJsZSB0byBmaW5kIGNvbnRy
-b2xsZXIgY2xvY2tcbiIpOwogCQlyZXR1cm4gUFRSX0VSUihjbGspOwogCX0KKwljbGtfcHJlcGFy
-ZV9lbmFibGUoY2xrKTsKIAogCWlkID0gb2ZfYWxpYXNfZ2V0X2lkKHBkZXYtPmRldi5vZl9ub2Rl
-LCAic2VyaWFsIik7CiAJaWYgKGlkIDwgMCkgewogCQlkZXZfZXJyKCZwZGV2LT5kZXYsICJtaXNz
-aW5nIGFsaWFzZXMgZW50cnlcbiIpOwotCQlyZXR1cm4gaWQ7CisJCXIgPSBpZDsKKwkJZ290byBw
-cm9iZV9vdXQxOwogCX0KIAogI2lmZGVmIENPTkZJR19TRVJJQUxfU0lGSVZFX0NPTlNPTEUKIAlp
-ZiAoaWQgPiBTSUZJVkVfU0VSSUFMX01BWF9QT1JUUykgewogCQlkZXZfZXJyKCZwZGV2LT5kZXYs
-ICJ0b28gbWFueSBVQVJUcyAoJWQpXG4iLCBpZCk7Ci0JCXJldHVybiAtRUlOVkFMOworCQlyID0g
-LUVJTlZBTDsKKwkJZ290byBwcm9iZV9vdXQxOwogCX0KICNlbmRpZgogCiAJc3NwID0gZGV2bV9r
-emFsbG9jKCZwZGV2LT5kZXYsIHNpemVvZigqc3NwKSwgR0ZQX0tFUk5FTCk7Ci0JaWYgKCFzc3Ap
-Ci0JCXJldHVybiAtRU5PTUVNOworCWlmICghc3NwKSB7CisJCXIgPSAtRU5PTUVNOworCQlnb3Rv
-IHByb2JlX291dDE7CisJfQogCiAJc3NwLT5wb3J0LmRldiA9ICZwZGV2LT5kZXY7CiAJc3NwLT5w
-b3J0LnR5cGUgPSBQT1JUX1NJRklWRV9WMDsKQEAgLTEwMjgsNiArMTAzMyw3IEBAIHN0YXRpYyBp
-bnQgc2lmaXZlX3NlcmlhbF9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogcHJv
-YmVfb3V0MjoKIAljbGtfbm90aWZpZXJfdW5yZWdpc3Rlcihzc3AtPmNsaywgJnNzcC0+Y2xrX25v
-dGlmaWVyKTsKIHByb2JlX291dDE6CisJY2xrX2Rpc2FibGVfdW5wcmVwYXJlKGNsayk7CiAJcmV0
-dXJuIHI7CiB9CiAKLS0gCjIuMzAuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On Sun, Sep 18, 2022 at 11:53 PM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> Add the HAVE_SOFTIRQ_ON_OWN_STACK feature for the IRQ_STACKS config. The
+> irq and softirq use the same independent irq_stack of percpu by time
+> division multiplexing.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> ---
+>  arch/riscv/Kconfig      |  7 ++++---
+>  arch/riscv/kernel/irq.c | 16 ++++++++++++++++
+>  2 files changed, 20 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 75db47a983f2..dfe600f3526c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -434,12 +434,13 @@ config FPU
+>           If you don't know what to do here, say Y.
+>
+>  config IRQ_STACKS
+> -       bool "Independent irq stacks" if EXPERT
+> +       bool "Independent irq & softirq stacks" if EXPERT
+>         default y
+>         select HAVE_IRQ_EXIT_ON_IRQ_STACK
+> +       select HAVE_SOFTIRQ_ON_OWN_STACK
+>         help
+> -         Add independent irq stacks for percpu to prevent kernel stack overflows.
+> -         We may save some memory footprint by disabling IRQ_STACKS.
+> +         Add independent irq & softirq stacks for percpu to prevent kernel stack
+> +         overflows. We may save some memory footprint by disabling IRQ_STACKS.
+>
+>  endmenu # "Platform type"
+>
+> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> index 5ad4952203c5..6dc9ccd01470 100644
+> --- a/arch/riscv/kernel/irq.c
+> +++ b/arch/riscv/kernel/irq.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/seq_file.h>
+>  #include <asm/smp.h>
+>  #include <asm/vmap_stack.h>
+> +#include <asm/softirq_stack.h>
+>
+>  #ifdef CONFIG_IRQ_STACKS
+>  static DEFINE_PER_CPU(ulong *, irq_stack_ptr);
+> @@ -38,6 +39,21 @@ static void init_irq_stacks(void)
+>                 per_cpu(irq_stack_ptr, cpu) = per_cpu(irq_stack, cpu);
+>  }
+>  #endif /* CONFIG_VMAP_STACK */
+> +
+> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+Sorry, it should be. If you compiled an error, please modify it manually,
++#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+
+> +static void do_riscv_softirq(struct pt_regs *regs)
+> +{
+> +       __do_softirq();
+> +}
+> +
+> +void do_softirq_own_stack(void)
+> +{
+> +       ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id());
+> +
+> +       call_on_stack(NULL, sp, do_riscv_softirq, 0);
+> +}
+> +#endif /* CONFIG_SOFTIRQ_ON_OWN_STACK */
+> +
+>  #else
+>  static void init_irq_stacks(void) {}
+>  #endif /* CONFIG_IRQ_STACKS */
+> --
+> 2.36.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
