@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30803ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 12:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F39C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 13:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JDasBx2FqvnxOsJfjNK53e7P7LgNXW9RyEyqi+4Ma90=; b=UB0gxPD30oNh8M
-	p4j31Ficsvr8K4MGFw7Fjnnw0XVFM7hDbS50ZLQ6lQQ5BUlRV+nuxkq4Hjpf3WDzKbQB7yEnNndRS
-	z71saF7pQOO5OB1ntTo2vhDyapVVXck37sDuXCMKRH9+8BfhGcNIVzvjnjV0nFCGQQOYR0a6O1Rn1
-	X1pbvMSIKcOo9/wcR3sewateIun35yB1exkIyyHL+EORyzCl/lGOtMkujvUuvys6JezmH9osoIbGL
-	ccFiSODAP9LEVxny11DAv+LkWhfPpc6LnlwUtz7yUzPTwo6vKZRO76/nlLuf3mFkem+T8In20pTjZ
-	I2S4+83TWSES5tOXrCVg==;
+	List-Owner; bh=SKfIIyGdYBOx2ErUCo8XXF28Jf2IeHZt3nzklEyYmuk=; b=h+JLbs0PyujtQf
+	rKJgOTYdBQOODTysilfjWp3xpDtX2ZvPT9hzwBeapJsBqfROeLjssIvCo5LY9fZ4MDvGoRVjTuaDm
+	G9PBQmc5lWwZ/SCHuYrE7RPNkQ8za4Pt3ey6h27jB64ba5BcAuW9hjSf2M8kCwspobOR2moWcAGJG
+	d4/J3NMYi5/Di0DlISoK2xgFKzigL7N6KkxdCkJWrQYBz+H8p358AKaBbFYP4FiyoMkVODhmrQb/z
+	30keFmiCMdRFsHzj/qX8T4ACGVA8mejExyd1iFqXrHW02HIgktRHF/bDU4vH+ssBt1NXys9ke0ejU
+	pIOyuU9VELqbJy0IpD6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oacSk-003jvj-6o; Tue, 20 Sep 2022 12:34:54 +0000
-Received: from mail-qt1-f179.google.com ([209.85.160.179])
+	id 1oadb1-004Dk6-99; Tue, 20 Sep 2022 13:47:31 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oacSh-003jtO-S0
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 12:34:53 +0000
-Received: by mail-qt1-f179.google.com with SMTP id s18so1543369qtx.6
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 05:34:48 -0700 (PDT)
+	id 1oadau-004DcY-04
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 13:47:28 +0000
+Received: by mail-ej1-x634.google.com with SMTP id dv25so6191531ejb.12
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 06:47:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=FIfv7ldS0YkRlbgUcQzoAtfI4poeYBTKR3ilCVR4L44=;
+        b=Ib4LtlPrWnMKsLSranL8+d9s8BraCoSk8vC38PSPG45HunaEjF8J+E7X0fZ87WYJ1T
+         YexlNUct7PIKUbSlqgCUBv5ecfQOZpLeD7P1/K2BPLk+UTiBRGMsIRLtGti9asAtn/41
+         6k5vyMnMTcb/o9pFgCacfYFq7yNJvXdYUYRy8NkOiBwlmYFVSOR6saJaJtjGE7RjSmBg
+         U1B1HRDT8He6dxCAimHvMReIJOZoBlHIWYiQeITjAFS2zQs7+MBsSWP+OHJ69pTb28mT
+         sG47+kawwNL6JJ6Lx4hgTLKH0ZssKBtnrcAku3GFT8Mizcf+D5Ogz6HE1OZCeSMwQtXA
+         +ubg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=DScy5TK0GP5AqTqFl701GW46IDwtxGgy76xOd2cvfOc=;
-        b=l+5jx/iwH/VYXssvyKZ6BW0YZHz05FcRL3Oor2l3pp264lNFdXlWmxvBsVwLve2uAW
-         kOKMQ9Z5ePzKWcdIJj2jNCbWntc5qitjGsPRhbLC5yl/IKYVJ8vF9KjA1ZKCYCZB8BvZ
-         BXsAPDB6RRbgdjZw4sA1iQz9dia/kEZ8hL+jftuTgPsYcMCiRnCCVPnCQWNk/vyn2FH4
-         697EthAiAxVJ8GgKw5vaf48sa/wfYy+/mqgT5kRIbdjQyfTkFXYdF+1vI2jj7JzCDY9g
-         rtHcNZNoQX5J/qgoSgSSL2Qb1b2XkNuD/tTfTmZ3Oxkkw+47AxKZFUAgySUj8fspeX6E
-         7qNg==
-X-Gm-Message-State: ACrzQf3GrEYccR3tT+QKY9FJuhWyUKLyM0xax8p8VuzQjAAFTAb2OzeJ
-	F2Yh7w1wZhqGZYpPYPQFSJPInTjPAJHKxQ==
-X-Google-Smtp-Source: AMsMyM7A1/pj1OBKbcVRMobEHaDU0TuN6N4Kn4W25pBXC466+vNVlD9Ow575XKsbinMdU8IcGvKAfw==
-X-Received: by 2002:a05:622a:28d:b0:35c:feca:1dbe with SMTP id z13-20020a05622a028d00b0035cfeca1dbemr825351qtw.52.1663677287424;
-        Tue, 20 Sep 2022 05:34:47 -0700 (PDT)
-Received: from mail-yb1-f177.google.com (mail-yb1-f177.google.com. [209.85.219.177])
-        by smtp.gmail.com with ESMTPSA id q17-20020a37f711000000b006ceb8f36302sm40921qkj.71.2022.09.20.05.34.46
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Sep 2022 05:34:47 -0700 (PDT)
-Received: by mail-yb1-f177.google.com with SMTP id a67so3169293ybb.3
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 05:34:46 -0700 (PDT)
-X-Received: by 2002:a25:3746:0:b0:6b1:4a12:b2d5 with SMTP id
- e67-20020a253746000000b006b14a12b2d5mr16262084yba.89.1663677286562; Tue, 20
- Sep 2022 05:34:46 -0700 (PDT)
+        bh=FIfv7ldS0YkRlbgUcQzoAtfI4poeYBTKR3ilCVR4L44=;
+        b=NlQN7MzxMPFJ9QWPi5EWFC9EAI7/LCAsWixSwqEEzhC2ub4Syv6mlqyKDDxidxHh1f
+         xI+QyLocfQ3itSdj4lMkePDzUSLCRkqijjFwosuFiEfS/hk5cecfdpJGtRXUXaRklwHc
+         8320nwHoWBHpAHScO8zIXDfI+zAlvbmgCNS6PDG5dr7ITLZWZ8In8b5dcgbjvHQFESMI
+         ugS27efu3n3RyOmIFvazklT8g3n6XXA7XoSNv4AXJsvFcd7evXfLmm5QyPGhZR5desPk
+         UisHSpBQyMz5DvC3c9dv5ew0OgHb1Huh5Ni7vCxjmY2BAIkg17JnpcIWTDsYEvx3nfDC
+         PzGw==
+X-Gm-Message-State: ACrzQf1Y7JPgMZyStADSX+uuVtVzsNBEd45Ooz/qRZuUVlpBV23PB6tN
+	3F1fSg4PsM1IU9xKWCyS+nTfCemMb76G0OtaXTk=
+X-Google-Smtp-Source: AMsMyM5HgTh+5QojTUeIrgHbwGkUKtpIcdqU9tP/gHB3cveUpRK1tcUB+nxOzNhlHbkx+N7yPSGymD5FZc6WqDCbsRo=
+X-Received: by 2002:a17:907:6d90:b0:77c:68a8:a5b with SMTP id
+ sb16-20020a1709076d9000b0077c68a80a5bmr17470946ejc.342.1663681639186; Tue, 20
+ Sep 2022 06:47:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20220915181558.354737-10-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20220915181558.354737-10-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 20 Sep 2022 14:34:35 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUWOGRpdG5=GLHc=fySqn7ErHtO0c91bJsgOO+Bp1ZUoA@mail.gmail.com>
-Message-ID: <CAMuHMdUWOGRpdG5=GLHc=fySqn7ErHtO0c91bJsgOO+Bp1ZUoA@mail.gmail.com>
-Subject: Re: [PATCH v3 09/10] MAINTAINERS: Add entry for Renesas RISC-V architecture
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220915181558.354737-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <3693a3a1-5a2a-4cc5-fb55-f6ad9a4b3f72@microchip.com> <CA+V-a8u87tqhC69qGD2zq_gT9jc_cSWd+NRn_u0bPTdmmk+j4A@mail.gmail.com>
+ <e15f3e2a-2761-84d9-c5c9-118717e0bb83@conchuod.ie> <CAMuHMdUGD9s96JJafsYdfnPqvg6KLvmC9GUS4yjaaXi2hYrJYQ@mail.gmail.com>
+ <Yymyh+UlIICacxeV@wendy>
+In-Reply-To: <Yymyh+UlIICacxeV@wendy>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 20 Sep 2022 14:46:49 +0100
+Message-ID: <CA+V-a8u3LcDhOYqWSOJUUeSMX+o=12pAcFJ0xArYSPy+=uT9NA@mail.gmail.com>
+Subject: Re: [PATCH v3 07/10] riscv: boot: dts: r9a07g043: Add placeholder nodes
+To: Conor Dooley <conor.dooley@microchip.com>, Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Conor Dooley <mail@conchuod.ie>, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	heiko@sntech.de, atishp@rivosinc.com, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, biju.das.jz@bp.renesas.com, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_053451_921745_79705A06 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20220920_064724_110466_77D109E3 
+X-CRM114-Status: GOOD (  31.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +92,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 15, 2022 at 8:17 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hi Conor and Geert,
+
+On Tue, Sep 20, 2022 at 1:31 PM Conor Dooley <conor.dooley@microchip.com> wrote:
 >
-> Add RISC-V architecture as part of ARM/Renesas architecture, as they have
-> the same maintainers, use the same development collaboration
-> infrastructure, and share many files.
+> On Tue, Sep 20, 2022 at 02:17:50PM +0200, Geert Uytterhoeven wrote:
+> > Hi Conor,
+> >
+> > On Fri, Sep 16, 2022 at 12:40 AM Conor Dooley <mail@conchuod.ie> wrote:
+> > > On 15/09/2022 23:26, Lad, Prabhakar wrote:
+> > > > On Thu, Sep 15, 2022 at 10:36 PM <Conor.Dooley@microchip.com> wrote:
+> > > >> On 15/09/2022 19:15, Prabhakar wrote:
+> > > >>> riscv: boot: dts: r9a07g043: Add placeholder nodes
+> > > >>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >>> Add empty placeholder nodes to RZ/Five (R9A07G043) SoC DTSI.
+> > > >> Can you explain why do you need placeholder nodes for this and
+> > > >> cannot just directly include the other dtsis?
+> > > >>
+> > > > Since the RZ/G2UL SoC is ARM64 where it has a GIC and on RZ/Five SoC
+> > > > we have PLIC for interrupts. Also the interrupt numbering for RZ/Five
+> > > > SoC differs from RZ/G2UL SoC hence we are not directly using the
+> > > > RZ/G2UL SoC DTSI [0].
+> > > >
+> > > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/r9a07g043.dtsi?h=v6.0-rc5
+> > > >
+> > > > For the RZ/Five SMARC EVK I am re-using the below files [1] (SoM) and
+> > > > [2] (Carrier board) as the RZ/Five SMARC EVK is pin compatible.  Since
+> > > > I am re-using these when trying to compile the RZ/Five DTB I get
+> > > > compilation errors since the nodes dont exist (and there is no way
+> > > > currently we can delete the node reference when the actual node itself
+> > > > isn't present) hence these place holders.
+> > > >
+> > > > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi?h=v6.0-rc5
+> > > > [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi?h=v6.0-rc5
+> > >
+> > > If this method is acceptable to Geert, this explanation 100% needs to
+> > > go into the commit message.
+> >
+> > We've been using these placeholders a lot in Renesas SoC-specific
+> > .dtsi files, as they allow us to introduce gradually support for a new SoC
+> > that is mounted on an existing PCB, and thus shares a board-specific
+> > .dtsi file.  Hence I'm fine with this.
 >
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> v2->v3
-> * Merged as part of ARM
+> Aye, if you're happy with it then I am too...
+> >
+> > However, I think more properties can be dropped from the placeholders.
+> > There is no need to have e.g. 'reg-names' and 'status = "disabled"'
+> > (there is no compatible value, so no matching is done).
+>
+> ...and this makes a lot of sense. I'd still like a comment in the
+> commit message though explaining why placeholder nodes are needed as
+> opposed to just leaving it blank etc.
+>
+I will drop the status and reg-names properties and also update the
+commit message while sending the v4
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
