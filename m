@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963E9ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 03:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E06ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 06:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ybtaoOSEfny4ho3lDLQYSEkttcFA+GC4Azbsy8/PrvA=; b=U9XGTXWhP1Hr5d
-	xEcLVZHJl6efulPk5ExH2EJ3w2ICDknzYzmMOf+fPKHJ+h/Yts/KzUWMz1XPbGAwmWkAFmknoIdzu
-	GABw28dJVCt9k7bE3CkYxlGb3FYT6agDwDvy+uimtZh+MqiTHasUbatMaqZm9biffhBUJk51fQAIR
-	RnSH5FyFYkOgBHnv4WgVKlbalw/eOH49YblEdZe+Jc+Uu8/kd33jps+Gb5v6H8sxuxRsZ3hWO6gUt
-	ZMaUhXtTECOIc6YVsT8LEZIFu7qD8/ABJqb5dQBpFyjQ4U0UK+BipAvQevYvmIbv8F9nvG2B/JQIM
-	rdYfTD/1a7dyZglrwaFg==;
+	List-Owner; bh=PGBP6gx7PIdwqrSMCC/SJ/jN98OCUvYKaCxK6ZBLEmo=; b=G4JOi4NbazT4KF
+	rzKdJ7/w5cIZJXuL+3tprEf+UiwPJ7BrmR0Q6aBMMdoqpahmINtJS6gROn/RL2cXQnweKXycK60P2
+	lTHpNkuAIj/flEkHdW8+CQvpO47k5TER229u1pTL36SixjpV7coWZEw9USJGB5Iv7JXKBMkPAgUgB
+	7mBiy9DH3/BrW6MEf1XmAsDrMyS34/vpuxx0v1gLm8rmDk6Egr/IfIYJtmvZeQlz/Cj7v9IuuWcKr
+	8WiKwwhWUugEbO86WRQHp+7NplN/m3u4LmEBdz5xXHCbHAAQX2lzXjzp/SsV6vD3eqpbEllHn7+Dd
+	I58HHPOYIWOHTrWUyQew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaU7B-0005MA-SY; Tue, 20 Sep 2022 03:40:05 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1oaWRY-000tfa-2K; Tue, 20 Sep 2022 06:09:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaU6z-000575-Ms; Tue, 20 Sep 2022 03:39:55 +0000
-Received: by mail-ed1-x530.google.com with SMTP id w28so1953120edi.7;
-        Mon, 19 Sep 2022 20:39:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=G999qRJ3ZYDAwyPJfqHMd90vcXhx8IHao6Ql7QiFPDQ=;
-        b=a1adS1ECR642XvCjjjLjLzQ6JfBYYWC6Zjk4Ayb0GPq1HNHS6cqyiHrOVDg6U66sl0
-         oRwS5IaWQZ+A5oOC1m7PxvHbKpXhbG7+ITj7+GYBrhpBh9xKw8vK67u8q6EX1Xki8DUo
-         CDP74oWnx9ZaM60n/aZKsxAgdaJUVTWMaF9yFWNxcQkdtfYRxgwyEspizTHzaFbOCzgV
-         ow1iuQ8bKgJYPcLGUqqzxM7BgkoIsKCZhQGQhb9cCsywveib9s1aSgybsdN2E41GWeXS
-         rALuCfC8AzbIeVWaRYMIHWZdHmEgrfViS3GY5sZGLUldXsqTqQIWHrw+E1895ArI8ghu
-         cFYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=G999qRJ3ZYDAwyPJfqHMd90vcXhx8IHao6Ql7QiFPDQ=;
-        b=FMdB+kIpE+f9X4VtFnDQwtRUGRWl4zxD68euaiL0CweoHnPfrJXriCkb4rLE/Ff5q4
-         6ugoCxoine/bigZ/byQX2dkjrPw1w5EXpFe1dDCasRZZ+nDOsLfj5FefNWbaV9K1X91j
-         PFEDDz+RsdrEj5Bv7xYdKx2EmMv8q4h/PcdOp1JIbz1uhp4/+pzDWxGSHgO0gxjP2Pd5
-         CM16Kmol14BBJ89zVLwm0eF6g9kJKdh1jE6sDlGfEs0HcyCKSpci3Ua1yxixagqtOG9Y
-         5ybRqb+Jr67fgB0A/1MUSSmzhrhG4Opk4EhJqIx4rlwil/j5E0cOxapSLPCSiWpiw80H
-         rddw==
-X-Gm-Message-State: ACrzQf1V+xfcI4YJOr5khqCSc8xvY4prx5nevWwi4wDw0dCIZG4KP+zE
-	SjULsDt4+ElwDdjsCD05GSHkoTlmtGRERrOd+fM=
-X-Google-Smtp-Source: AMsMyM6UiGVnTD/J8ryFZQsJHTbdkIhpQZQxOdBwdC1toRqikXsXkHg47dV0ojfdIgLd8MUR/GxUavW0TPpgHSHF44M=
-X-Received: by 2002:aa7:cb87:0:b0:43b:e650:6036 with SMTP id
- r7-20020aa7cb87000000b0043be6506036mr18386887edt.350.1663645189918; Mon, 19
- Sep 2022 20:39:49 -0700 (PDT)
+	id 1oaWRU-000tdL-As
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 06:09:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9FDCE62392
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 06:09:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF4C8C4314D
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 06:09:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663654149;
+	bh=zfzusDb14FFN7gQb0UhtuJazqWZoNGqu03mLfuxOeXs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ps1PsyGxPrAcs2wOCrD5ibE2AUuAVG0yYa8JdBws8Ab39LUmVPlXjkGv5ScivJ6jp
+	 IS9vZAyDQtDT+sBUS/w8sLz3fAkCBjU9lUtUK7hlnswcZsxJtoUNZji9UMAmmb7TvV
+	 OAN9YaaS7qElJXllpsv0U3B+Bgd9G/jsPhw5kVQV1a2dm//RT4a3g3NzZLfTJp8L2h
+	 t5EydDGiCjR3LZBAtIxanXELJ2bxg/igljlCB6QjKOF0RvCiwd17uDghMKdnM21nIl
+	 R6BEQIdv+iQ3baMyQJfWrkL2s72fDiRTvwu6z9q4mnwiZIG9+xvArEcXMKaccvsONb
+	 7i4WrJZMAyEXQ==
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-12c8312131fso2792264fac.4
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 23:09:08 -0700 (PDT)
+X-Gm-Message-State: ACrzQf3H2Er5NMl2I2TwfqQNs1sLFHugLISX4/CvIErSXOnXOTNHOqB3
+	6+6Y9JVFrOgdUkfPmETs29SSkLUvQXgtKTklepU=
+X-Google-Smtp-Source: AMsMyM5/BTTDa5v+eF4g4y/fFcD46UVeV81LVzz0xqS4N4SXQrDzkSWMO2JEIpuBTgQQr/IPW3RpNyik4vHqQmdADDU=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr1079696oap.19.1663654147825; Mon, 19 Sep
+ 2022 23:09:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220822082120.8347-1-yangyicong@huawei.com> <20220822082120.8347-5-yangyicong@huawei.com>
- <302febae-508c-d73e-8676-d51752946645@arm.com>
-In-Reply-To: <302febae-508c-d73e-8676-d51752946645@arm.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 20 Sep 2022 15:39:38 +1200
-Message-ID: <CAGsJ_4ywwFJFi+q3Ra5UE3twzS9eExtvuXgoGK-8u4c1ZdXCBw@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] arm64: support batched/deferred tlb shootdown
- during page reclamation
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, catalin.marinas@arm.com, 
-	will@kernel.org, linux-doc@vger.kernel.org, corbet@lwn.net, 
-	peterz@infradead.org, arnd@arndb.de, linux-kernel@vger.kernel.org, 
-	darren@os.amperecomputing.com, yangyicong@hisilicon.com, huzhanyuan@oppo.com, 
-	lipeifeng@oppo.com, zhangshiming@oppo.com, guojian@oppo.com, 
-	realmz6@gmail.com, linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com, 
-	xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
-	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
+References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-9-guoren@kernel.org>
+ <Yyhyap+Xi3UtV+T0@hirez.programming.kicks-ass.net>
+In-Reply-To: <Yyhyap+Xi3UtV+T0@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 20 Sep 2022 14:08:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTS9rFTndZXvDG+XNOOEwZYC_Hbu9TOO_F+4gQo1mRF2bQ@mail.gmail.com>
+Message-ID: <CAJF2gTS9rFTndZXvDG+XNOOEwZYC_Hbu9TOO_F+4gQo1mRF2bQ@mail.gmail.com>
+Subject: Re: [PATCH V5 08/11] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
+	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>, keescook@chromium.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_203953_763803_7951D874 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20220919_230912_619389_AF382C59 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +87,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 3:00 PM Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
+On Mon, Sep 19, 2022 at 9:45 PM Peter Zijlstra <peterz@infradead.org> wrote:
 >
+> On Sun, Sep 18, 2022 at 11:52:43AM -0400, guoren@kernel.org wrote:
 >
-> On 8/22/22 13:51, Yicong Yang wrote:
-> > +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> > +{
-> > +     return true;
-> > +}
+> > +ENTRY(call_on_stack)
+> > +     /* Create a frame record to save our ra and fp */
+> > +     addi    sp, sp, -RISCV_SZPTR
+> > +     REG_S   ra, (sp)
+> > +     addi    sp, sp, -RISCV_SZPTR
+> > +     REG_S   fp, (sp)
+> > +
+> > +     /* Save sp in fp */
+> > +     move    fp, sp
+> > +
+> > +     /* Move to the new stack and call the function there */
+> > +     li      a3, IRQ_STACK_SIZE
+> > +     add     sp, a1, a3
+> > +     jalr    a2
+> > +
+> > +     /*
+> > +      * Restore sp from prev fp, and fp, ra from the frame
+> > +      */
+> > +     move    sp, fp
+> > +     REG_L   fp, (sp)
+> > +     addi    sp, sp, RISCV_SZPTR
+> > +     REG_L   ra, (sp)
+> > +     addi    sp, sp, RISCV_SZPTR
+> > +     ret
+> > +ENDPROC(call_on_stack)
 >
-> This needs to be conditional on systems, where there will be performance
-> improvements, and should not just be enabled all the time on all systems.
-> num_online_cpus() > X, which does not hold any cpu hotplug lock would be
-> a good metric ?
+> IIRC x86_64 moved away from a stack-switch function like this because it
+> presents a convenient exploit gadget.
+I found:
+https://lore.kernel.org/all/20210204204903.350275743@linutronix.de/
 
-for a small system, i don't see how this patch will help, e.g. cpus <= 4;
-so we can actually disable tlb-batch on small systems.
-just need to check if we will have any race condition since hotplug will
-make the condition true and false dynamically.
+  - The fact that the stack switching code ended up being an easy to find
+    exploit gadget.
 
-Thanks
-Barry
+What's the exploit gadget? Do you have a ref link? Thx.
+
+>
+> I'm not much of an exploit writer and I've no idea how effective our
+> inline stategy is, perhaps other can comment.
+It seems that I should move to an inline flavor. a0cfc74d0b00
+("x86/irq: Provide macro for inlining irq stack switching")
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
