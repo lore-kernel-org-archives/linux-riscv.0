@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43333ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 12:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51830C6FA8B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 12:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xj7h3CZrJxkF1mfciAAKMXXbaxZXklsWwxZ+Nbg88Tk=; b=GrF3WjuOQSlwk1
-	7m6f+2eQFG4rHqr7nblyAAcZemO0lIGXEU26q7W4nGBXNfofSBe3NsiNyURBh7C5NJ0iFQJ6lJ33L
-	oDMWy696thWWhOs9gXDjpYRS4v1mm+aA5oWfHBdo5k1gwaj+3fUZa5OVf6VWgFVL8zdixqCAKue5v
-	91MSUbVATMIc8Dquw9ugmGJ3tPrEDGobR9eyO9WkOElQEzMztrb9Yl7lIz5iLLV4cGtyIXjz5uV8c
-	sSojIRKrBa2bGCHhiMZyUQmn73ont+eSv84VAJPWfjKHqRK2AiNOHgSkmU0C3YezSx8LlgV2M3O2C
-	wMj57MC3Lw/zg9yVv43w==;
+	List-Owner; bh=wHz5N/OSvpsH5xX2v6tsjpX3jdGsn562Kygzf/3djNU=; b=rXRCCruYsrAyx+
+	QCUoGQrDKPHqrMJ0SpmokDTnfIDBtiJ+ftoFJeLXKsspZuRSf5W6uFDzRW1Xxk4Stlcmko/+/dZ0Q
+	5z2XmG3YNPrRsmfEU5WYyw2J0tN7CRhErayOoggGORNRQCsPxlDFK5QcCcMYAKFSXLBYBGHw3hvJZ
+	UHbvqeMuspzxWgpGHTSPH40psTy9+rSeqQTPBLh9xMhVs6QTE+2q71cpzDNT6qVBEH+LbPXheGDVo
+	QjY46rltG65jtHwi2RVfiMOq4p1JZzsZwhKmeh5lZVVwJQdNaOXRBZT//BoWhRhvJ321+FcRVVEKd
+	BDEvpRIXlLjzwNfFy4Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oacPZ-003ifG-Fd; Tue, 20 Sep 2022 12:31:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oacQd-003j4N-E8; Tue, 20 Sep 2022 12:32:43 +0000
+Received: from mail-qk1-f172.google.com ([209.85.222.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oacPW-003ibn-IW
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 12:31:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1663677094; x=1695213094;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=q/fZbisIvw+4RruEs9TBl1W84JkX1r956syzCxEZ1v4=;
-  b=SkD+HOngaGFz7PPwyzesQvx6tTza2/i+p6pRKT4PiztR/c7n8oMEvcLe
-   2QRu5ldt4YJLH+fma5bjteMrsgWvU8arvz0Q0vzXVUIep0QLLzj/EDM55
-   VXd2Rkt7YwB1ttyjesvybuJc4ELsWipbllHNRrAqpcWgvo9mxE+UDPSHE
-   0NrjZ0DKX0lbrHybu3cHcTeUnUsSV5++7Xysz5StBOUxS5b3+QJH6R1yG
-   XmCVl5qfaO3BXarSBcNlmwrocAWnT/pMF7Kwa7oqOe/4b8Dps0wZO9sP1
-   QXU4k5JBG7r9BLEDGPMuGEBBrq8fW6mDi1zGian8YluzYDNdeeqlvPRTA
-   w==;
-X-IronPort-AV: E=Sophos;i="5.93,330,1654585200"; 
-   d="scan'208";a="178026134"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Sep 2022 05:31:27 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 20 Sep 2022 05:31:26 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 20 Sep 2022 05:31:24 -0700
-Date: Tue, 20 Sep 2022 13:31:03 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-CC: Conor Dooley <mail@conchuod.ie>, "Lad, Prabhakar"
-	<prabhakar.csengg@gmail.com>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <heiko@sntech.de>,
-	<atishp@rivosinc.com>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <biju.das.jz@bp.renesas.com>,
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v3 07/10] riscv: boot: dts: r9a07g043: Add placeholder
- nodes
-Message-ID: <Yymyh+UlIICacxeV@wendy>
-References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220915181558.354737-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <3693a3a1-5a2a-4cc5-fb55-f6ad9a4b3f72@microchip.com>
- <CA+V-a8u87tqhC69qGD2zq_gT9jc_cSWd+NRn_u0bPTdmmk+j4A@mail.gmail.com>
- <e15f3e2a-2761-84d9-c5c9-118717e0bb83@conchuod.ie>
- <CAMuHMdUGD9s96JJafsYdfnPqvg6KLvmC9GUS4yjaaXi2hYrJYQ@mail.gmail.com>
+	id 1oacQa-003j1g-BG
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 12:32:41 +0000
+Received: by mail-qk1-f172.google.com with SMTP id d17so1419528qko.13
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 05:32:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=Wf+OpOOgKm2MQUZNT6fzDTc2lerh5dFGABEYb4COJ4Y=;
+        b=GsaehqKYj0JKE2sD1aTuT/APjVKpQAqCAd2n6VJhtZ3cZqNjiS6dPc4n3+Lnod/949
+         PZU4h0f7P7asnogOa4TDubVZXdMV1YVmqXET8ibu4+Zz+VOyqub10fceDlU2VW8Yks/l
+         vqTITVKYn9E3+qIALmWdWqAZTnadCQ7LV/BoPZscEy5C1VmguPB9tTyOMZIQrOtSpOuF
+         QjCodgO3W1tcDjjBEAsM7YmRWm4+xCOkEWCxY0yWQZrgoHM7g0p2wT4PytEOnjE5ek5O
+         VvQuPRU6mURG9wrcdEnahCQZuKGVHWmZ5uu5rauvs6Yx4vwqN0YZ9vZKFjn2g5l4YaCu
+         sReA==
+X-Gm-Message-State: ACrzQf2BEy4ifRMklsfkK4zy/CPxup8qECx/CUVEQYEwEF029RB8rvVk
+	GNIhr7kh43dqxVbDKuDiDKIugabgpb5JUw==
+X-Google-Smtp-Source: AMsMyM4Gx3Z6V9XX32WjnUCADZVSzZBpezoI17RuOSl+fmolGp1Riy8W3D1QYQ6mwa9yfjso0jRQhg==
+X-Received: by 2002:a05:620a:21c7:b0:6cd:52bc:b578 with SMTP id h7-20020a05620a21c700b006cd52bcb578mr16030159qka.385.1663677157838;
+        Tue, 20 Sep 2022 05:32:37 -0700 (PDT)
+Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com. [209.85.128.169])
+        by smtp.gmail.com with ESMTPSA id c27-20020a05620a269b00b006b5bf5d45casm74491qkp.27.2022.09.20.05.32.37
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Sep 2022 05:32:37 -0700 (PDT)
+Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-345528ceb87so24772907b3.11
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 05:32:37 -0700 (PDT)
+X-Received: by 2002:a81:6756:0:b0:345:525e:38 with SMTP id b83-20020a816756000000b00345525e0038mr19491451ywc.47.1663677157058;
+ Tue, 20 Sep 2022 05:32:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdUGD9s96JJafsYdfnPqvg6KLvmC9GUS4yjaaXi2hYrJYQ@mail.gmail.com>
+References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 20 Sep 2022 14:32:25 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdW99EutciosPtOTU9AztfvfMdKTaS+YRmpmS4VnhZ9KAA@mail.gmail.com>
+Message-ID: <CAMuHMdW99EutciosPtOTU9AztfvfMdKTaS+YRmpmS4VnhZ9KAA@mail.gmail.com>
+Subject: Re: [PATCH v3 08/10] riscv: dts: renesas: Add minimal DTS for Renesas
+ RZ/Five SMARC EVK
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
+	Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_053134_706993_EDB9DE2F 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20220920_053240_406345_C8759280 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +90,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 02:17:50PM +0200, Geert Uytterhoeven wrote:
-> Hi Conor,
-> 
-> On Fri, Sep 16, 2022 at 12:40 AM Conor Dooley <mail@conchuod.ie> wrote:
-> > On 15/09/2022 23:26, Lad, Prabhakar wrote:
-> > > On Thu, Sep 15, 2022 at 10:36 PM <Conor.Dooley@microchip.com> wrote:
-> > >> On 15/09/2022 19:15, Prabhakar wrote:
-> > >>> riscv: boot: dts: r9a07g043: Add placeholder nodes
-> > >>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >>> Add empty placeholder nodes to RZ/Five (R9A07G043) SoC DTSI.
-> > >> Can you explain why do you need placeholder nodes for this and
-> > >> cannot just directly include the other dtsis?
-> > >>
-> > > Since the RZ/G2UL SoC is ARM64 where it has a GIC and on RZ/Five SoC
-> > > we have PLIC for interrupts. Also the interrupt numbering for RZ/Five
-> > > SoC differs from RZ/G2UL SoC hence we are not directly using the
-> > > RZ/G2UL SoC DTSI [0].
-> > >
-> > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/r9a07g043.dtsi?h=v6.0-rc5
-> > >
-> > > For the RZ/Five SMARC EVK I am re-using the below files [1] (SoM) and
-> > > [2] (Carrier board) as the RZ/Five SMARC EVK is pin compatible.  Since
-> > > I am re-using these when trying to compile the RZ/Five DTB I get
-> > > compilation errors since the nodes dont exist (and there is no way
-> > > currently we can delete the node reference when the actual node itself
-> > > isn't present) hence these place holders.
-> > >
-> > > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/rzg2ul-smarc-som.dtsi?h=v6.0-rc5
-> > > [2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/renesas/rzg2ul-smarc.dtsi?h=v6.0-rc5
-> >
-> > If this method is acceptable to Geert, this explanation 100% needs to
-> > go into the commit message.
-> 
-> We've been using these placeholders a lot in Renesas SoC-specific
-> .dtsi files, as they allow us to introduce gradually support for a new SoC
-> that is mounted on an existing PCB, and thus shares a board-specific
-> .dtsi file.  Hence I'm fine with this.
+Hi Prabhakar,
 
-Aye, if you're happy with it then I am too...
-> 
-> However, I think more properties can be dropped from the placeholders.
-> There is no need to have e.g. 'reg-names' and 'status = "disabled"'
-> (there is no compatible value, so no matching is done).
+On Thu, Sep 15, 2022 at 8:17 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Enable the minimal blocks required for booting the Renesas RZ/Five
+> SMARC EVK with initramfs.
+>
+> Below are the blocks enabled:
+> - CPG
+> - CPU0
+> - DDR (memory regions)
+> - PINCTRL
+> - PLIC
+> - SCIF0
+>
+> Note we have deleted the nodes from the DT for which support needs to be
+> added for RZ/Five SoC and are enabled by RZ/G2UL SMARC EVK SoM/carrier
+> board DTS/I.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v2->v3
+> * Dropped RB tags from Conor and Geert
+> * Now re-using the SoM and carrier board DTS/I from RZ/G2UL
 
-...and this makes a lot of sense. I'd still like a comment in the
-commit message though explaining why placeholder nodes are needed as
-opposed to just leaving it blank etc.
+Thanks for the update!
 
-Thanks,
-Conor.
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
+> @@ -0,0 +1,27 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/*
+> + * Device Tree Source for the RZ/Five SMARC EVK
+> + *
+> + * Copyright (C) 2022 Renesas Electronics Corp.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +/*
+> + * DIP-Switch SW1 setting
+> + * 1 : High; 0: Low
+> + * SW1-2 : SW_SD0_DEV_SEL      (0: uSD; 1: eMMC)
+> + * SW1-3 : SW_ET0_EN_N         (0: ETHER0; 1: CAN0, CAN1, SSI1, RSPI1)
+> + * Please change below macros according to SW1 setting on SoM
+
+"on the SoM" (like in r9a07g043u11-smarc.dts)?
+
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+> @@ -0,0 +1,42 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +/*
+> + * Device Tree Source for the RZ/Five SMARC EVK SOM
+> + *
+> + * Copyright (C) 2022 Renesas Electronics Corp.
+> + */
+> +
+> +#include <arm64/renesas/rzg2ul-smarc-som.dtsi>
+> +
+> +/ {
+> +       aliases {
+> +               /delete-property/ ethernet0;
+> +               /delete-property/ ethernet1;
+
+OK
+
+> +       };
+> +
+> +       chosen {
+> +               bootargs = "ignore_loglevel";
+> +       };
+> +};
+> +
+> +#if (SW_SW0_DEV_SEL)
+> +/delete-node/ &adc;
+> +#endif
+> +
+> +#if (!SW_ET0_EN_N)
+> +/delete-node/ &eth0;
+> +#endif
+> +/delete-node/ &eth1;
+> +
+> +/delete-node/ &ostm1;
+> +/delete-node/ &ostm2;
+
+Given they are all placeholders, do you really need to delete them?
+(more below)
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
