@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66D5C54EE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E680C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PiZ5C2zF3fhzlgXRxcNpSAkBaio+8B/KTLIQtl54+ZA=; b=v8y1NeN4ax1l8n
-	Pmq75yfqCMLq4boeEW1vi1da2NcN/n7ZRDrE/AUMvYryIZN/wKxTXSbgzsbra0JSupd322nYwDh2a
-	j/Vmmg6CXumumglJ8Amtk3COaUqzTPainVHlFE/GQLlPApFQx/YMoIbpSyqQdSQqvHvJd1DpThnr0
-	dlbgKrAngdwSEZ05cmb3uGdHo13ducCVcSa68z4rOsf155BOBHqiUeb82DjXVuqtylTM2MVdHxKx2
-	Ycegb3IemlRdYhExHy9l5eUD/aoLFqfkaf6+yCyzNwPNXIZrP/vRroOdPHyPDBleMx4PRTP4edVC5
-	mgHL5g6cXZoWblFLEBHQ==;
+	List-Owner; bh=Ly1KHz8bnlz36p8u5VMCEp+tcoJt7fCYx3lqok4G5tU=; b=lrKjV/auTZorCE
+	v9qLMQQtgqVW8nFAnTlS+PzjdxOPM9epo6J97bd4rwplCfHtM6qNaDhDdpWgERikSUja9eVuyvQdX
+	053j+rBamIOOzNKARHbMY5AEu2vN2uhr6FQ9bMXl0GMDRbgMQBiBxN1VU2KPue7s91izdhOtH3GMc
+	25XvwfjwzPp+zJLh111T3Q6zS+2j8VxwrHmru8BE+JP+lj6OVC9Zi1XIrzq/n3WHXmcjv26nT4LMt
+	S37/zO9fFqpal6em/c3ku01TRTMIuSvFbdURzRscCWV7AxG4vDgz2J+QKe3clCEaLyzgtBCCvte6B
+	ECiD6CNBNYglfGX58sUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oahzN-005izb-6H; Tue, 20 Sep 2022 18:28:57 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1oaiK5-005pXz-Oq; Tue, 20 Sep 2022 18:50:21 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oahzJ-005ixK-Vt
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:28:55 +0000
-Received: by mail-lf1-x133.google.com with SMTP id z25so5290869lfr.2
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:28:47 -0700 (PDT)
+	id 1oaiJy-005pRQ-Cl
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:50:15 +0000
+Received: by mail-wm1-x334.google.com with SMTP id o20-20020a05600c4fd400b003b4a516c479so2336720wmq.1
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:50:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=JYYtvIt6iM9mPdTfxCc9AnnwheqgzsbjEn3HbjOUnNA=;
-        b=jgnRxfxr4BHiMOCV8HgXfxNKuMHNtv1RyScbBPYEuQbphG1b3Dh9O8nB/uvl+ny680
-         F3ExNJdTgF5nE6YGAErR9t9t8dcc8Dq+UG1LSzvJoYHt/5kdRKZ8acPwMqhHYeWH2oBI
-         LC/wcy6wv4Q054O6YtDaApEwlOJmjfZm2aYU7rqerI9cMyjbnYM5K2eT+q/JUMV3myQ8
-         OQbQoyEatbEJfxLx6pQooAUSDG2SUNSRLpVSaY4cF9FKyYrzEq1SBkfQ90wfY9Z3Ebg9
-         ZnlOWuzArpvjg7xjBMPY6oT5HVlaJOUzhnpIsK6NFjZSjeGWdt+yOe9RgSwtmZm2hwCU
-         keAA==
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
+        bh=i0mZzaQm6+l7tL7CHpRvjbgnVX+wPMwIm1qv0xCs4s8=;
+        b=OEBmL0IbJg2zcJRYGPljfxLtxYeL6YJrqrfndtFclS9FAIyhmaJZ3zl8/WfjaHw8+z
+         L/Kor5vnC1+IiEtHNY5L5EgQEIw4JLedb9pfqwvbBIXFemYh1qmCl9xE2rIdOw6wWkOr
+         qP+ZkR+s/GM4xSSoIVS+WKm055sWd0EKPa/UsajIpCR2ZxzfQvE4Rl+aQDAVBUe4KaR3
+         RicMais/DYLBk/nGCQzYIalPt+PjtSSje0B+JlRlQSMcV6L8EwB4cITUTDYrycdm2he/
+         d9HdFj++ZOVP2rLb8xukP7Ao1aXtVI+Ys2LhId86b9dFcSjx+WLjWX3bup+OmtNgYltn
+         0WAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=JYYtvIt6iM9mPdTfxCc9AnnwheqgzsbjEn3HbjOUnNA=;
-        b=jgEOu9R8exi1rj70YEsJVJrSCrF0dO3hCVc5TuxpV3ejf0AmakUHdQf1SsNU2ro6Bp
-         oesPsJMR0ZyZaaa53OQ1yN4TQPjNwOXPhIVFk95N7aaQDK4FoMeWysb8iS2+4/nasHvS
-         bcL6sHjs1MvB1G1UjyLUo9MrF1eP6VFFancloaD1wabh9TtWVJGG4QEfElxDT5sVLyHP
-         X0NdTEGSHstX/AwF3S+mWgjz8UTJbGyAOK5ikewDVcd+fJFsFY5PorQQPUeLC95fr7LX
-         Uzfo5T5RKkooGjAAT14Z5n3JHSb6tSdd3+3k5DWPwoqbTkrnLB58ffQIJJ6TVqF717AS
-         PWzA==
-X-Gm-Message-State: ACrzQf3bx3HpNbwQVdd9D+VZbq75q20I/e2I//0X6IsnkVXyDKpE2TyW
-	2LrViU0bkjPzNcVRG367WI9tgyZ4tYHZNkweBmIUfA==
-X-Google-Smtp-Source: AMsMyM7GDObk78jF+nCePzMRdp+C7t8prCuS0BITZApohU4CcLlrxIS95F0F/aRxInsHE47XGpcgQ0nowFgFTne7rjU=
-X-Received: by 2002:a05:6512:401f:b0:49e:ea65:cd49 with SMTP id
- br31-20020a056512401f00b0049eea65cd49mr8435164lfb.419.1663698526077; Tue, 20
- Sep 2022 11:28:46 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=i0mZzaQm6+l7tL7CHpRvjbgnVX+wPMwIm1qv0xCs4s8=;
+        b=0qqR9hYPionh3LG51VNFuErg9adMEHzsuBjS5L94dezsly30y14M1FgSe7+j40Yi5O
+         zkNqIYzgQRr2Jj9vOY9jH1rRENcj4meinWbhRMd3yhl64W1JZ4kQHaGB0U3zQMTJ5OA4
+         dsmLcSX2hazBILcjYe6/LlYIR3zMJCAlPGQULDk4Sc+QVW5u51MdWocQ/b0pqX9SQvWo
+         MGknARfTGWjF7Snmf8iNseQ5khcBAw9YyAE+E/mkaDyTZB2eLGJ9KcpcTz4Dzp3afhBr
+         GaQ0dkG2Th6456FeiH9UWhoo0yadyEsaKRrdtVs9kLbXkrPyi2cSrfY/+m8iUqIFWIL2
+         oJ8w==
+X-Gm-Message-State: ACrzQf1s7hgoPj0HcbOCzeeuG6D9LIA+r6HCcdgUS/bQhtpO4EUbU53O
+	BbCGt7nlOcZ1cYYOKub4He4=
+X-Google-Smtp-Source: AMsMyM52d4NzTqDtmW2Bvy/qewCqt1i/HUIQSyOLLldvhyGClnlQSHpWhiIESwW5LglFU3AM1rPD7A==
+X-Received: by 2002:a05:600c:5028:b0:3a8:4349:153c with SMTP id n40-20020a05600c502800b003a84349153cmr3433382wmr.130.1663699810715;
+        Tue, 20 Sep 2022 11:50:10 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:e9a4:d6c9:505d:20d0])
+        by smtp.gmail.com with ESMTPSA id cc4-20020a5d5c04000000b00228de351fc0sm582722wrb.38.2022.09.20.11.50.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Sep 2022 11:50:10 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 02/10] dt-bindings: riscv: Sort the CPU core list alphabetically
+Date: Tue, 20 Sep 2022 19:48:56 +0100
+Message-Id: <20220920184904.90495-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-References: <20220916054637.24133-1-mchitale@ventanamicro.com>
-In-Reply-To: <20220916054637.24133-1-mchitale@ventanamicro.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 20 Sep 2022 23:58:34 +0530
-Message-ID: <CAK9=C2UhaRo6idT3xXLUx52UHyTeHVfMQczXyYQRPboNxjXiFQ@mail.gmail.com>
-Subject: Re: [PATCH v1] RISC-V: KVM: Allow Guest use Zihintpause extension
-To: Mayuresh Chitale <mchitale@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_112854_072638_15FF9D8B 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20220920_115014_485276_D68D23F2 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,65 +106,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 16, 2022 at 11:17 AM Mayuresh Chitale
-<mchitale@ventanamicro.com> wrote:
->
-> We should advertise Zihintpause ISA extension to KVM user-space whenever
-> host supports it. This will allow KVM user-space (i.e. QEMU or KVMTOOL)
-> to pass on this information to Guest via ISA string.
->
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-I have queued this patch for 6.1
+Sort the CPU cores list alphabetically for maintenance.
 
-Thanks,
-Anup
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+---
+v3 -> v4
+* Included RB tag from Heiko
 
-> ---
->  arch/riscv/include/uapi/asm/kvm.h | 1 +
->  arch/riscv/kvm/vcpu.c             | 2 ++
->  2 files changed, 3 insertions(+)
->
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index b6770ee08872..9085b90cf324 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -99,6 +99,7 @@ enum KVM_RISCV_ISA_EXT_ID {
->         KVM_RISCV_ISA_EXT_SVPBMT,
->         KVM_RISCV_ISA_EXT_SSTC,
->         KVM_RISCV_ISA_EXT_SVINVAL,
-> +       KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
->         KVM_RISCV_ISA_EXT_MAX,
->  };
->
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 901bb5c0cb50..0de0dd22e734 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -54,6 +54,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
->         RISCV_ISA_EXT_SVPBMT,
->         RISCV_ISA_EXT_SSTC,
->         RISCV_ISA_EXT_SVINVAL,
-> +       RISCV_ISA_EXT_ZIHINTPAUSE,
->  };
->
->  static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
-> @@ -89,6 +90,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
->         case KVM_RISCV_ISA_EXT_M:
->         case KVM_RISCV_ISA_EXT_SSTC:
->         case KVM_RISCV_ISA_EXT_SVINVAL:
-> +       case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
->                 return false;
->         default:
->                 break;
-> --
-> 2.34.1
->
->
-> --
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+v2 -> v3
+* Included RB tag from Geert
+
+v1 -> v2
+* Included RB tag from Krzysztof
+---
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 873dd12f6e89..2a1c5ae5b0aa 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -27,17 +27,17 @@ properties:
+     oneOf:
+       - items:
+           - enum:
+-              - sifive,rocket0
++              - canaan,k210
+               - sifive,bullet0
+               - sifive,e5
+               - sifive,e7
+               - sifive,e71
+-              - sifive,u74-mc
+-              - sifive,u54
+-              - sifive,u74
++              - sifive,rocket0
+               - sifive,u5
++              - sifive,u54
+               - sifive,u7
+-              - canaan,k210
++              - sifive,u74
++              - sifive,u74-mc
+           - const: riscv
+       - items:
+           - enum:
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
