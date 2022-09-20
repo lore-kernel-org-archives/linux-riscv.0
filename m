@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4659C6FA82
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF04C6FA90
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l/mkvljDT2V53R63gFnpDBvYhbIsfbYsnWASuuX9jKg=; b=Wa09kU2YxP1Yp0
-	cSHFjV/HDCU1OOPTyZmQq7Fc2SGjG8l+f3rMQUL9QdVe6RCQCT+Z+wDsQ5R6W+yVoS4uUBF8c8C/p
-	IvWkpYwajrP/aSBuTslnKUbVZGA2Xad4sOohqRAWndOSpTlVeEc/HQfHNHD2MtemYuo+tAv62p8Sr
-	vQutZI0e11ERwo1fjUpcXZud+khcYM1Eb2rtmnXleLsN5DaqRW++x41jnahKRpdpDbyPXSNO8UimS
-	liNzDcakPRE5WA7twllV7b8wRPa6PKsaJ8ctPSN09GdZEYqWVzasrxw3FchXcCuFBonZAtLqXo+Q2
-	BT5hiSqAsPL8Mep08CgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wfG6V9UVxw2Ouei8BBoKCQWgquPCG0GZYr0bgfGGpPo=; b=bMZUCNqa3Qqhg0
+	LxErAHKRRUvQESZ2IP0qyxLRA8OPze1ASTtskbvH2N28YKLXwFMpyej+LVbiCVmHroIChsvnBhVr1
+	p11s0tngVJyLG8jpGu55u1LD71N51HsFTUIMEpjvnVcoU4vLgBhDQK9X3agXU2/WL7w48y//o5RqX
+	hGpZq0oJR6E/Plhtvfat7eohRTlxl+xuaN6FjnEp4oe9VVcPsSicw+qucluil3aBON0sZ4KgyLCi0
+	O/XWnYSNNEXVbKzGq8imOevKizopIdj+j3qBBGeK3NXM0pZlesCdaN3eOTtvAH0a9egPUfh7JIUGx
+	VOMijHMwIsbP3jFMrnjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaiJz-005pUC-QV; Tue, 20 Sep 2022 18:50:15 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1oaiKF-005pdr-1n; Tue, 20 Sep 2022 18:50:31 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaiJw-005pQh-7k
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:50:14 +0000
-Received: by mail-wm1-x329.google.com with SMTP id d12-20020a05600c3acc00b003b4c12e47f3so2314668wms.4
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:50:09 -0700 (PDT)
+	id 1oaiJz-005pRk-BI
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:50:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id s14so4007249wro.0
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:50:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=mBOhVS+5AmDZQ1vXaz/tmCZ6rhsPVwcL735FkJnxU34=;
-        b=CWTzIiv9GsktkvLu74bcLVeSUxuVuQnjlEzc7Xb6NjEVxNcsCQs8KXr0XM01BdCxsY
-         SSLgJ5apgaoPcuKEgHV8yGqBP5mvuUpgi+lF6OgWZ33yenx4oeQNJaODHF0YvtLCNXQ6
-         NhSIK/IJ/7NJ5dK2xn3KdNzF7YCSLVyJ/vMZb9e08hOcLziB0yesBouJlCCk1VtrNfTG
-         d8CJB94d1XsAeqHr5VnllpieFar4tq5tbJUKrkoUgZWZjQsxwWmJg/hJaVcAC3T3SCnz
-         JDf1HqM5BSRZQ3SKBVX/X16SgVzj+cuXRrIXp5cKoWUP/suPOTH0Q9Lfa8zGva1WhyHU
-         YDEg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
+        bh=PvYfwd2nPuMUYkxu6YqzbYYwaZvTVZWZRcfAOAojG1g=;
+        b=XvqfCxUWw7Ob93m1pCW+Yo3ZDVF8JTbPLKM+69O0aP8qjXz8rQoXy9zm9mAboPkuDs
+         wFptWyweOJhrxbhrsloM2xwYI2b8pGPhzbIxJKL9X0rvGNf3z/VJ5eD7WQyzGxSran5c
+         fQlS67sZZUYeAtrT5VYuopmyaAASMcZ7EPQPoNv0ugP8hxMAE7OCuM3Dlkq1ocROp3VL
+         d2Dn8OGyXQTMi2gbGPBg5lgtDlwyDqdO05ohE9Hv1gdkt7khCjd+3Xwiv2Enr6C8lf9r
+         mR3vfwHlK6h837Oe8tchU7jJLWdFYrhsK2G8MW+yQbzVuS20p/1LltM5U+1vwCo/VQI/
+         rRxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=mBOhVS+5AmDZQ1vXaz/tmCZ6rhsPVwcL735FkJnxU34=;
-        b=idCUV2TsldNSklYyGvcsiOSI0r4wp6JnfbLx14mTuuGYeJZvN6zBz2bAat5OZsWGGM
-         oNOE9rN5orVOQRz7uoUslocYHT8F+Ro0FXA15P3S8WtkKNMqzXA8s/IpSveMgG9rPpdb
-         DM820snk1V8tXvJUOmPYijZweQr/8dyCsbN1wo/8SUTgASaGIDDvYBE6nFaJyUnAmb29
-         GzQoUgDe0QwiQe++w5hO+jf4dz+g08162Ye9GEmFOml+5R+Am1LSiXIE5NQdjYI1BuXw
-         fcljdFfQcr4uJj61v/bLahXW+sYqvcHj5mBIWpVQ5HUwAbLnIRhl16MGDp5xFzfc4DZV
-         xrXA==
-X-Gm-Message-State: ACrzQf3zaezrqMSiYtFrhUbp41/OEFZaDhNMFpPEIHQIVkhc7lYb7MY9
-	ONdTy9PJh9qTay+EGbPcH64=
-X-Google-Smtp-Source: AMsMyM4FJ3g8Fg1rTzFVkG/C+GJTOwYE7yfxbQaxX7io2eIVBOUCCe5YEykEPYpYKOAk/kmjHhpQCg==
-X-Received: by 2002:a05:600c:524a:b0:3b4:8db0:1cc9 with SMTP id fc10-20020a05600c524a00b003b48db01cc9mr3398530wmb.202.1663699808329;
-        Tue, 20 Sep 2022 11:50:08 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=PvYfwd2nPuMUYkxu6YqzbYYwaZvTVZWZRcfAOAojG1g=;
+        b=fEmHcVEhCHYba7XIo3MGRPzRHiqsVojmNrHpfQlP7wEy1BMph0RvLzxWbmTRO4xmO9
+         nyy1xVUZkBl+t8aNBaQGCkYN/J+kEavW8ZEoUhv7K7/b1wugD0k/b4NUqa+BTsH3l2TH
+         MwWPNC3nJDgtg90gLC2krKkul3WKtkM/N/3emufUm6B0TZ3p2h1Pm5buZcm0dqYjMWNC
+         rMozgYTCw3aWHayEdzkObOz4Cq/XEeJ7E4GHWlMYqHZk3lOUxq4UEs4oN7Wz6ZMPEInO
+         3kAIEfdplLanuLwnWk4Lvx+ZHUxcyBx7SRuzVY4WAOsomnTLTfzvMs+NdndR6w4Lg33p
+         3RlQ==
+X-Gm-Message-State: ACrzQf0zCj1ZPzhUJOyOHJkEnaZB7ZshOI4hdkGTo/26Zes67nNbEuKh
+	aHnsn0apuv2qLOQlkRMjhUg=
+X-Google-Smtp-Source: AMsMyM76OQSXwK5sY+9A35aBFOAgfcDsYqF2PChfuGlLLSZuTZZv7QbLJ2jvApEs1oRsa52efQYETQ==
+X-Received: by 2002:a5d:598f:0:b0:22a:f77e:869a with SMTP id n15-20020a5d598f000000b0022af77e869amr9719128wri.357.1663699811661;
+        Tue, 20 Sep 2022 11:50:11 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:e9a4:d6c9:505d:20d0])
-        by smtp.gmail.com with ESMTPSA id cc4-20020a5d5c04000000b00228de351fc0sm582722wrb.38.2022.09.20.11.50.07
+        by smtp.gmail.com with ESMTPSA id cc4-20020a5d5c04000000b00228de351fc0sm582722wrb.38.2022.09.20.11.50.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Sep 2022 11:50:07 -0700 (PDT)
+        Tue, 20 Sep 2022 11:50:11 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Rob Herring <robh+dt@kernel.org>,
@@ -77,15 +78,18 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	linux-renesas-soc@vger.kernel.org,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 00/10] Add support for Renesas RZ/Five SoC
-Date: Tue, 20 Sep 2022 19:48:54 +0100
-Message-Id: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 03/10] dt-bindings: riscv: Add Andes AX45MP core to the list
+Date: Tue, 20 Sep 2022 19:48:57 +0100
+Message-Id: <20220920184904.90495-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_115012_306295_4365E775 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20220920_115015_427572_C2346F86 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,160 +108,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi All,
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. In preparation to add support for RZ/Five SoC add
+the Andes AX45MP core to the list.
 
-The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
-1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
-as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
-entry-class social infrastructure gateway control and industrial gateway
-control.
+More details about Andes AX45MP core can be found here:
+[0] http://www.andestech.com/en/products-solutions/andescore-processors/riscv-ax45mp/
 
-This patch series adds initial SoC DTSi support for Renesas RZ/Five
-(R9A07G043) SoC and updates the bindings for the same. Below is the list
-of IP blocks added in the initial SoC DTSI which can be used to boot via
-initramfs on RZ/Five SMARC EVK:
-- AX45MP CPU
-- CPG
-- PINCTRL
-- PLIC
-- SCIF0
-- SYSC
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+v3 -> v4
+* No change
 
-Useful links:
--------------
-[0] https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
-[1] http://www.andestech.com/en/products-solutions/andescore-processors/riscv-ax45mp/
+v2 -> v3
+* Included RB tag from Geert
 
-Patch series depends on the below (which are already in -next apart from the last one):
---------------------------------------------------
-[0] https://patchwork.kernel.org/project/linux-renesas-soc/patch/20220914134211.199631-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-[1] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220915165256.352843-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-[2] https://patchwork.kernel.org/project/linux-renesas-soc/patch/20220919104606.96553-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+v1 -> v2
+* Included ack from Krzysztof
+---
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-v3 -> v4:
--------
-* Rebased patches on -next
-* Included RB tags
-* Fixed review comments pointed by Conor and Geert
-
-v3: https://lore.kernel.org/lkml/20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-v2: https://lore.kernel.org/all/20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-v1: https://lore.kernel.org/lkml/20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Below are the logs from RZ/Five SMARC EVK:
-------------------------------------------
-/ # uname -ra
-Linux (none) 6.0.0-rc6-next-20220920-00025-gc002c40ce550-dirty #136 SMP Tue Sep 20 13:47:31 BST 2022 riscv64 GNU/Linux
-/ # cat /proc/cpuinfo 
-processor       : 0
-hart            : 0
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : andestech,ax45mp
-mvendorid       : 0x31e
-marchid         : 0x8000000000008a45
-mimpid          : 0x500
-
-/ # for i in machine family soc_id revision; do echo -n "$i: ";cat /sys/devices/
-soc0/$i; done
-machine: Renesas SMARC EVK based on r9a07g043f01
-family: RZ/Five
-soc_id: r9a07g043
-revision: 0
-/ # 
-/ # cat /proc/interrupts 
-           CPU0       
-  1:          0  SiFive PLIC 412 Level     1004b800.serial:rx err
-  2:         33  SiFive PLIC 414 Level     1004b800.serial:rx full
-  3:        919  SiFive PLIC 415 Level     1004b800.serial:tx empty
-  4:          0  SiFive PLIC 413 Level     1004b800.serial:break
-  5:      44106  RISC-V INTC   5 Edge      riscv-timer
-  6:         62  SiFive PLIC 416 Level     1004b800.serial:rx ready
-IPI0:         0  Rescheduling interrupts
-IPI1:         0  Function call interrupts
-IPI2:         0  CPU stop interrupts
-IPI3:         0  IRQ work interrupts
-IPI4:         0  Timer broadcast interrupts
-/ # 
-/ # cat /proc/meminfo 
-MemTotal:         882308 kB
-MemFree:          861440 kB
-MemAvailable:     859188 kB
-Buffers:               0 kB
-Cached:             1796 kB
-SwapCached:            0 kB
-Active:                0 kB
-Inactive:             84 kB
-Active(anon):          0 kB
-Inactive(anon):       84 kB
-Active(file):          0 kB
-Inactive(file):        0 kB
-Unevictable:        1796 kB
-Mlocked:               0 kB
-SwapTotal:             0 kB
-SwapFree:              0 kB
-Dirty:                 0 kB
-Writeback:             0 kB
-AnonPages:           120 kB
-Mapped:             1200 kB
-Shmem:                 0 kB
-KReclaimable:       6732 kB
-Slab:              12088 kB
-SReclaimable:       6732 kB
-SUnreclaim:         5356 kB
-KernelStack:         636 kB
-PageTables:           32 kB
-NFS_Unstable:          0 kB
-Bounce:                0 kB
-WritebackTmp:          0 kB
-CommitLimit:      441152 kB
-Committed_AS:        592 kB
-VmallocTotal:   67108864 kB
-VmallocUsed:         840 kB
-VmallocChunk:          0 kB
-Percpu:               84 kB
-HugePages_Total:       0
-HugePages_Free:        0
-HugePages_Rsvd:        0
-HugePages_Surp:        0
-Hugepagesize:       2048 kB
-Hugetlb:               0 kB
-/ # 
-
--------------------
-
-
-Lad Prabhakar (10):
-  dt-bindings: soc: renesas: Move renesas.yaml from arm to soc
-  dt-bindings: riscv: Sort the CPU core list alphabetically
-  dt-bindings: riscv: Add Andes AX45MP core to the list
-  dt-bindings: soc: renesas: renesas.yaml: Document Renesas RZ/Five SoC
-  riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
-  riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
-  riscv: dts: r9a07g043: Add placeholder nodes
-  riscv: dts: renesas: Add minimal DTS for Renesas RZ/Five SMARC EVK
-  MAINTAINERS: Add entry for Renesas RISC-V architecture
-  riscv: configs: defconfig: Enable Renesas RZ/Five SoC
-
- .../devicetree/bindings/riscv/cpus.yaml       |  11 +-
- .../{arm => soc/renesas}/renesas.yaml         |   5 +-
- MAINTAINERS                                   |   4 +-
- arch/riscv/Kconfig.socs                       |   5 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/renesas/Makefile          |   2 +
- arch/riscv/boot/dts/renesas/r9a07g043.dtsi    | 270 ++++++++++++++++++
- .../boot/dts/renesas/r9a07g043f01-smarc.dts   |  27 ++
- .../boot/dts/renesas/rzfive-smarc-som.dtsi    |  19 ++
- arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi |  15 +
- arch/riscv/configs/defconfig                  |   3 +
- 11 files changed, 353 insertions(+), 9 deletions(-)
- rename Documentation/devicetree/bindings/{arm => soc/renesas}/renesas.yaml (98%)
- create mode 100644 arch/riscv/boot/dts/renesas/Makefile
- create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043.dtsi
- create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
- create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
- create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
-
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 2a1c5ae5b0aa..1681767790c5 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -27,6 +27,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              - andestech,ax45mp
+               - canaan,k210
+               - sifive,bullet0
+               - sifive,e5
 -- 
 2.25.1
 
