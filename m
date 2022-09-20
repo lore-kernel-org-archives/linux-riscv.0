@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837F3ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 15:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FE7C6FA90
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 15:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+34DBrj2/aW3nwojG+HCOLyriTbrJCYtcvJQT5Zpezg=; b=t+UZ6tfUEmPCJ1
-	zi1OoaMxkb/pmMdCgJpRkQZKARrypkeyBz8VBPiHASKoKNj/x9reepFDEK1vjEpyObRuZa+eEaFL+
-	s56C1n1pozwq7MIV26HhQu0w0rvcv+8BnjmruhhChb4Apx6avFHgwtZjCIpYP+Igy1/b24E/OCoTu
-	Qm42O6G9/RLtFRNSgEPdPHJlYDVcATTNKZbFtE4OMZLDTDGLR7hwqkF5A2Whtp/3jnCOz4FFQ6A4y
-	bqbSov2nOnaywPRpjhoHzfvE7oAGNkPjOm5qfGA5aOK4G5AnYont+ZcTkPPgARWbgPMVkuzRNUjjF
-	lETGvL2NsTN69uykAbdg==;
+	List-Owner; bh=k0COTWPJQvw69zE1Lkev1Hu0cK0jjnCscEfFbE5V6KA=; b=zkoGVZVkW5r9qc
+	wotO7wjLoRTn9knm7G1oDCYAnrZkO90shp2cRezklfdT+MyIdVlAtaOr9MqqOiXuuvUea5H/Gr29S
+	gayIjus7R+R9yckJMyhz2J0tvVb9UE5fZctSUeBhekVlyudGrw4FN+F9BNtxXXfZVbYQT6Wvr44UZ
+	pFwyv4Axmm1wDfJhGCgo94Lw1uwdrJ4RVuFFYxUJ4OCfyDrsESa3kSjuhulbhVo1uCe0FE2aWwg6y
+	coatE73c5uhQoRi5OHQxbSt8f72/a58IMF3pfIKoksgooY1VdqmCky+ajTYeLAF169ItpgU+29oAX
+	IjPWUkjzapEspxOvD6xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaeqY-004ihR-IO; Tue, 20 Sep 2022 15:07:38 +0000
-Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	id 1oaeye-004mez-BC; Tue, 20 Sep 2022 15:16:00 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaeqV-004ieg-Re
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 15:07:37 +0000
-Received: by mail-qk1-f176.google.com with SMTP id o7so1790794qkj.10
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 08:07:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=beo87QLkKwCHQVFvRevjYmIvSu6gsEO9BIku51wSlXE=;
-        b=xPnDa3ZFaimyvrOxe6LA+slTD7UKl1TYq5Qk7d42ZWvG1XSDg1Mv7jZ2RWbaukaPcX
-         4h5QzpM9+z7oAQ162N7N4x2UsTh8phgG6CDdSlZAN1YGqtoE+qwk2hnFLjUKfVyf++5i
-         IlaK45AXtFwdHmoZ5GMWkI5idlC4HWVlwJaCX/FjYfIMJ54XfPCYB0d+wTcXEo6lI94d
-         LkTydcXkTolOuArT62FvrgwBSZfpUHrBqIrT6jAE8df3749Ou7biV5At/92tWtNPUgEd
-         WinU1xz7Y4RmQmMAxPcKmg0hQaMJ8ISbeeVnKRJHZIMnvzrlMfYWJG9AZdnOSr+4WGSe
-         A5Ow==
-X-Gm-Message-State: ACrzQf2fOirZ5BWmJmlKbOCmKH4jOk6OKaqmTMkC/PHMEyuw02+ksafl
-	o6SasP/TpZfpuKieedu6G548m6f1p6uP6g==
-X-Google-Smtp-Source: AMsMyM7DSbFBWeavGdtmDmC4eI5ntcBYAo1XUy7+z8RWgEbOAKL2pevPMMtcuYjl5yORL8XWuPCZfw==
-X-Received: by 2002:a05:620a:424f:b0:6b6:7a9d:c5c7 with SMTP id w15-20020a05620a424f00b006b67a9dc5c7mr16407133qko.479.1663686451968;
-        Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
-        by smtp.gmail.com with ESMTPSA id y16-20020ac85250000000b0035badb499c7sm136531qtn.21.2022.09.20.08.07.31
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-3450990b0aeso30169887b3.12
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
-X-Received: by 2002:a81:8d3:0:b0:34d:1215:fb4b with SMTP id
- 202-20020a8108d3000000b0034d1215fb4bmr7135561ywi.383.1663686450814; Tue, 20
- Sep 2022 08:07:30 -0700 (PDT)
+	id 1oaeyW-004mYC-55
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 15:15:54 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.57])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4MX4mV3FPczpTJm;
+	Tue, 20 Sep 2022 23:12:58 +0800 (CST)
+Received: from dggpemm500013.china.huawei.com (7.185.36.172) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 20 Sep 2022 23:15:46 +0800
+Received: from ubuntu1804.huawei.com (10.67.175.36) by
+ dggpemm500013.china.huawei.com (7.185.36.172) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 20 Sep 2022 23:15:46 +0800
+From: Chen Zhongjin <chenzhongjin@huawei.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+	<namhyung@kernel.org>, <jolsa@kernel.org>, <guoren@kernel.org>,
+	<nsaenzju@redhat.com>, <frederic@kernel.org>, <changbin.du@intel.com>,
+	<vincent.chen@sifive.com>, <ardb@kernel.org>, <mhiramat@kernel.org>,
+	<rostedt@goodmis.org>, <keescook@chromium.org>, <catalin.marinas@arm.com>,
+	<chenzhongjin@huawei.com>
+Subject: [PATCH -next 3/7] riscv: stacktrace: Save pt_regs in encoded fp on irq entry
+Date: Tue, 20 Sep 2022 23:11:58 +0800
+Message-ID: <20220920151202.180057-4-chenzhongjin@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220920151202.180057-1-chenzhongjin@huawei.com>
+References: <20220920151202.180057-1-chenzhongjin@huawei.com>
 MIME-Version: 1.0
-References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdW99EutciosPtOTU9AztfvfMdKTaS+YRmpmS4VnhZ9KAA@mail.gmail.com> <CA+V-a8s9y0Jq4TJk9E_ptsZTW3iCoysaBSrUeQV8qfDFO3wzeQ@mail.gmail.com>
-In-Reply-To: <CA+V-a8s9y0Jq4TJk9E_ptsZTW3iCoysaBSrUeQV8qfDFO3wzeQ@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 20 Sep 2022 16:07:18 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
-Message-ID: <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
-Subject: Re: [PATCH v3 08/10] riscv: dts: renesas: Add minimal DTS for Renesas
- RZ/Five SMARC EVK
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Originating-IP: [10.67.175.36]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500013.china.huawei.com (7.185.36.172)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_080735_916735_F5E73332 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20220920_081552_645175_19FAD927 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,65 +77,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
+To support stack unwinding at irq entry, the position of pt_regs saved
+on stack is nessesary. Because for some functions, compiler only push
+s0/fp on stack without ra.
 
-On Tue, Sep 20, 2022 at 3:05 PM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
-> On Tue, Sep 20, 2022 at 1:32 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Thu, Sep 15, 2022 at 8:17 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Enable the minimal blocks required for booting the Renesas RZ/Five
-> > > SMARC EVK with initramfs.
-> > >
-> > > Below are the blocks enabled:
-> > > - CPG
-> > > - CPU0
-> > > - DDR (memory regions)
-> > > - PINCTRL
-> > > - PLIC
-> > > - SCIF0
-> > >
-> > > Note we have deleted the nodes from the DT for which support needs to be
-> > > added for RZ/Five SoC and are enabled by RZ/G2UL SMARC EVK SoM/carrier
-> > > board DTS/I.
-> > >
-> > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+As the situation described in
+commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
 
-> > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-> > > @@ -0,0 +1,42 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +/*
-> > > + * Device Tree Source for the RZ/Five SMARC EVK SOM
-> > > + *
-> > > + * Copyright (C) 2022 Renesas Electronics Corp.
-> > > + */
-> > > +
-> > > +#include <arm64/renesas/rzg2ul-smarc-som.dtsi>
-> > > +
-> > > +/ {
-> > > +       aliases {
-> > > +               /delete-property/ ethernet0;
-> > > +               /delete-property/ ethernet1;
-> >
-> > OK
-> >
-> I assume you are OK with dropping the above too?
+When irq happens there, the the function frame looks like:
 
-I did intend to delete these properties (hence the "OK"), as their
-presence may confuse U-Boot.
+prev function	|       ...       |
+		|                 |
+normal function +-----------------+
+		| ra to prev      |
+		| s0 of prev      |
+		|       ...       |<-+
+leaf function	+-----------------+  |
+		| s0 of normal    |  |
+		| empty slot      |  |
+irq pt_regs	+-----------------+  |
+		| epc (ra to leaf)|  |
+		| ra  (ra to norm)|  |
+		| ...             |  |
+                | s0 of leaf      |--+
+		| ...             |
+		+-----------------+
 
-Gr{oetje,eeting}s,
+If the position of register in pt_regs is {epc, s0}, we can easily
+unwind from irq frame to leaf function, as normal functions do.
 
-                        Geert
+However when unwinding from unwinding from leaf to normal, beacause
+(ra to norm) is saved in pt_regs, but not stackframe of leaf, we
+have to get pt_regs for that.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+To get pt_regs position on stack, we can save the encoded *pt_regs
+in s0, as x86 architecture did. Then we can get s0, epc and ra
+easily.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
+---
+ arch/riscv/include/asm/frame.h | 45 ++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/entry.S      |  3 +++
+ 2 files changed, 48 insertions(+)
+ create mode 100644 arch/riscv/include/asm/frame.h
+
+diff --git a/arch/riscv/include/asm/frame.h b/arch/riscv/include/asm/frame.h
+new file mode 100644
+index 000000000000..2a1f45cf3a4e
+--- /dev/null
++++ b/arch/riscv/include/asm/frame.h
+@@ -0,0 +1,45 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_FRAME_H
++#define _ASM_RISCV_FRAME_H
++
++#include <asm/asm.h>
++
++#ifdef CONFIG_FRAME_POINTER
++
++#ifdef __ASSEMBLY__
++
++/*
++ * This is a sneaky trick to help the unwinder find pt_regs on the stack.  The
++ * frame pointer is replaced with an encoded pointer to pt_regs.  The encoding
++ * is just setting the LSB, which makes it an invalid stack address and is also
++ * a signal to the unwinder that it's a pt_regs pointer in disguise.
++ *
++ * This macro must be used when sp point to pt_regs
++ */
++.macro ENCODE_FRAME_POINTER
++	add s0, sp, 0x1
++.endm
++
++#else /* !__ASSEMBLY__ */
++
++#define ENCODE_FRAME_POINTER			\
++	"add s0, sp, 0x1\n\t"
++
++#endif /* __ASSEMBLY__ */
++
++#else /* !CONFIG_FRAME_POINTER */
++
++#ifdef __ASSEMBLY__
++
++.macro ENCODE_FRAME_POINTER ptregs_offset=0
++.endm
++
++#else /* !__ASSEMBLY */
++
++#define ENCODE_FRAME_POINTER
++
++#endif /* !__ASSEMBLY */
++
++#endif /* CONFIG_FRAME_POINTER */
++
++#endif /* _ASM_RISCV_FRAME_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index b9eda3fcbd6d..ecb15c7430b4 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -13,6 +13,7 @@
+ #include <asm/thread_info.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/errata_list.h>
++#include <asm/frame.h>
+ 
+ #if !IS_ENABLED(CONFIG_PREEMPTION)
+ .set resume_kernel, restore_all
+@@ -95,6 +96,8 @@ _save_context:
+ 	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
+ 
++	ENCODE_FRAME_POINTER
++
+ 	/*
+ 	 * Set the scratch register to 0, so that if a recursive exception
+ 	 * occurs, the exception vector knows it came from the kernel
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
