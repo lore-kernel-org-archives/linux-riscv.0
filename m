@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82852C54EE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 01:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF90C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 02:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mb81FPzpnIypi3r1pyfe3xqVBKln4sQZvZb6x6FiPQI=; b=tE9VckmHa422NI
-	qcyynI7ECmif8Eqit2a2LT6wj/Cc69Rk78OuDgSVqYccMA99L8Bww9EJSzW3b+QdNMVbOAOEPikEd
-	6bW8ZR12LMkBAEjkBDiAvF3Z1kFSLytITEoMf97dHbpty/Or2FvkYwlPff4BVvpz6NDsCUvavsxCS
-	uCu6eAh29SDgi7LG3sUcX7Wv/2bmgQInTzOvMf/jkV8ptWhsmWPOFQ6aFcw6Yh+WnBRWnjjcniGRY
-	rO0eYI+cV0k+qYlQyUxCJuQ5BMqpQ3YiwnGlibX1/siyaQuw0ApwPLfmk5Cojg5nnXvGapTwvxBZQ
-	I6eQJQjNssk7nEd9uPuA==;
+	List-Owner; bh=7Ahql1Ix9rnxCWcwL0peevWtFgc5nDTEHGwlh1ROZVQ=; b=lRr1Uv/Jyqn+NH
+	fo9BiMKsfRKF2VXYw2zkqCvp0De9fIvmTyex3tG5nz2r3B3DwJEcC1uVIai1xgNE97FYHRSw0/Ggm
+	icIULGQPcl4frx8cdUoPbjtrcCovCwWgiJpw9mcn5XrFEwG3GHHfIQlWJV7KolgsRTiRHuwYqRDCw
+	wuVk9ngH0GtKMoun9+u+iBAyhR8bqCYJtVE3ro2LdE1R+hW7Bz3n2GdIqM9AwbryjDTD3Dgd0C7ii
+	IPTLdoQRI7ZI7KX2PsJcPHlBcQxW4K4PKhc+yRQ7yhuPwhMQGfXrtaaNZp4QAl6RZlNzxkPh2Hnjx
+	E9GIxu60oWbKIRyqz6tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaSKB-00H6FQ-3K; Tue, 20 Sep 2022 01:45:23 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oaSwW-00HGCT-RJ; Tue, 20 Sep 2022 02:25:00 +0000
+Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaSK7-00H6Dw-J5
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 01:45:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id BE552B823AD
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 01:45:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D06C43142
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 01:45:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663638315;
-	bh=hM4ARRwu7HP3L22Jz7ahem9ASH5TM4RTeIReN46ib0A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GK+KksYrXL4Ui2VP52zrPYdiVEstBK3nMfuUi+rtYNamsgNKbqqaulzkhPWE6zjdr
-	 ycq9HWRHSg5D86Y5TGLNjonhwqX6bJ9musEyBzhR5wSmnyB2jUaYShH8CZlwQlV+Yi
-	 ywibChefBfA6DMNmzn30SwPqghkoqKyCWk4e8tTSkHvMKYm+ObAP7CFdZQecJeEc2E
-	 z24ZLh9N6C+/KVRayNZ5wpITp77mGFC3Jo+R/Kt5bf9KhL9OzLWrwOFPeOdNJGMVRs
-	 EaWR2IK622Dhd8tuIFSJyjQ9K07AKl4m16ACYYFqXNlKVHCc+GRAm2zI6UjA39C81g
-	 9qN8Vbu4saG7A==
-Received: by mail-oi1-f177.google.com with SMTP id o184so1838929oif.13
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 18:45:15 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3zI2Ngu4BKCcelRwndtiO+IMxD7bgu+zqP2zEYUmTbygiHJFTn
-	L6RPr62D1WiI9+yCIlKi+0RNYlfX/bc3MMukg5k=
-X-Google-Smtp-Source: AMsMyM7uitoWQ2wP2lLplABVBobqc5ORHtBKx+vIP5fl4T3iv6x3SGzJf91sDczKyJfzzmEFljNZDO3ZNZVx2oQu7Jc=
-X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
- u31-20020a056808151f00b003501b5e2380mr513697oiw.112.1663638314437; Mon, 19
- Sep 2022 18:45:14 -0700 (PDT)
+	id 1oaSwR-00HG8h-Rd
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 02:24:58 +0000
+Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-1280590722dso2266376fac.1
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 19:24:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=ahvfoUz46EIH0p9PQ3+GR9m+Tby1Ryu5RSohLSbh2bo=;
+        b=c7Rm3Xkcar/IqV0+lmB2jnbrMuMJZOlY3eW4xlJ6WgIxbb5Kk4ZivO1GM/ba5H+1KV
+         ws8e3jkK/3ZTb2DM6yKGDc1fHt5cb/8gvqHfGoi33gEcHUoK9Yt+IEBhFlKE+K4E4scj
+         bWNO4pFNWNUCY1GXVBiPj9wIwNbCzXq5KgjG1U3MKW2oCEie4b6wo4uYx/dUMbhWr6Wt
+         FASi69CNVDgsY7byIZQGBNjfeW0ycWfv/0gmjwbvli2EENj1LBCUu2ByYbwShZqBS/kJ
+         QZai4aPVn/8D/okd2yTwPhliEZUetJRgI8EaBZFekbrUDEo085J21XGhzIRgtP1VPnD3
+         5hvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=ahvfoUz46EIH0p9PQ3+GR9m+Tby1Ryu5RSohLSbh2bo=;
+        b=kY7dnxk0LFo2od28D/VUTnkTA1CiOO4Uh0h+tqqpP9jm9dpU/5Kkrlj+Dt9SNIXrKU
+         Fw4kbjokk0qVT9I08cqAIzYoUuamgcvxDZPSuF+2In4gm5bC+vAnS53VEP5eXEOcAJeI
+         DlFouJkHtJ53gjgjp6TzFoPXxGsUMdPkhIBapBgJxt9Ec7obFT7fAZx+OS5MjMp6VqSD
+         P0rwy2giJ0GSHclHPnM9lyJddfuUZLj6uw7HneWDxBJOsJEYx+ri1j5yEVVLZHqnEvCp
+         bnGp0YF/me2w2SJfPVYbbYKiIUpIxsM3lhClOjVH6XugzuvLlukCtPHRd3j7d/hzfYpU
+         v/pA==
+X-Gm-Message-State: ACrzQf2433W68LUyd5JUiK96+pniiegj6BAJGleKpGxpKhaOCrMSuFYh
+	79bfQsmPVVSoTkxt4xDdtG7IMlkC5eIAiYWCDDHzDQ==
+X-Google-Smtp-Source: AMsMyM6kk7VxmpUoWe5wFh983h6XL7XS9+GRw9h/epLsF+RMyUvSlqyfwdEcvFD76saXQeAnBXo2+GP+Wo1GkY3nn0Y=
+X-Received: by 2002:a05:6870:a411:b0:122:84e4:ad75 with SMTP id
+ m17-20020a056870a41100b0012284e4ad75mr671081oal.259.1663640688414; Mon, 19
+ Sep 2022 19:24:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-7-guoren@kernel.org>
- <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net>
-In-Reply-To: <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 20 Sep 2022 09:45:02 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
-Message-ID: <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
-Subject: Re: [PATCH V5 06/11] entry: Prevent DEBUG_PREEMPT warning
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
-	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
-	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
-	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
-	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-9-atishp@rivosinc.com>
+In-Reply-To: <20220718170205.2972215-9-atishp@rivosinc.com>
+From: Eric Lin <eric.lin@sifive.com>
+Date: Tue, 20 Sep 2022 10:24:34 +0800
+Message-ID: <CAPqJEFp2NamR0hOA1HGAW7aPtn2OYw0N8ir=xQQ3AdEJU15dtQ@mail.gmail.com>
+Subject: Re: [RFC 8/9] RISC-V: KVM: Implement perf support
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_184519_930252_3DD4CA4F 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20220919_192456_019755_AA20BE02 
+X-CRM114-Status: GOOD (  33.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,79 +88,471 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 19, 2022 at 7:59 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Sun, Sep 18, 2022 at 11:52:41AM -0400, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > When DEBUG_PREEMPT=y,
-> >       exit_to_user_mode_prepare
-> >       ->tick_nohz_user_enter_prepare
-> >         ->tick_nohz_full_cpu(smp_processor_id())
-> >           ->smp_processor_id()
-> >             ->debug_smp_processor_id()
-> >               ->check preempt_count() then:
-> >
-> > [    5.717610] BUG: using smp_processor_id() in preemptible [00000000]
-> > code: S20urandom/94
-> > [    5.718111] caller is debug_smp_processor_id+0x24/0x38
-> > [    5.718417] CPU: 1 PID: 94 Comm: S20urandom Not tainted
-> > 6.0.0-rc3-00010-gfd0a0d619c63-dirty #238
-> > [    5.718886] Hardware name: riscv-virtio,qemu (DT)
-> > [    5.719136] Call Trace:
-> > [    5.719281] [<ffffffff800055fc>] dump_backtrace+0x2c/0x3c
-> > [    5.719566] [<ffffffff80ae6cb0>] show_stack+0x44/0x5c
-> > [    5.720023] [<ffffffff80aee870>] dump_stack_lvl+0x74/0xa4
-> > [    5.720557] [<ffffffff80aee8bc>] dump_stack+0x1c/0x2c
-> > [    5.721033] [<ffffffff80af65c0>]
-> > check_preemption_disabled+0x104/0x108
-> > [    5.721538] [<ffffffff80af65e8>] debug_smp_processor_id+0x24/0x38
-> > [    5.722001] [<ffffffff800aee30>] exit_to_user_mode_prepare+0x48/0x178
-> > [    5.722355] [<ffffffff80af5bf4>] irqentry_exit_to_user_mode+0x18/0x30
-> > [    5.722685] [<ffffffff80af5c70>] irqentry_exit+0x64/0xa4
-> > [    5.722953] [<ffffffff80af52f4>] do_page_fault+0x1d8/0x544
-> > [    5.723291] [<ffffffff80003310>] ret_from_exception+0x0/0xb8
-> >
-> > (Above is found in riscv platform with generic_entry)
-> >
-> > The smp_processor_id() needs irqs disable or preempt_disable, so use
-> > preempt dis/in protecting the tick_nohz_user_enter_prepare().
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > ---
-> >  kernel/entry/common.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> > index 063068a9ea9b..36e4cd50531c 100644
-> > --- a/kernel/entry/common.c
-> > +++ b/kernel/entry/common.c
-> > @@ -194,8 +194,10 @@ static void exit_to_user_mode_prepare(struct pt_regs *regs)
-> >
-> >       lockdep_assert_irqs_disabled();
->
->     Observe ^^^^
-Thanks! I would enable PROVE_LOCKING for test.
+Hi Atish,
 
+On Tue, Jul 19, 2022 at 2:01 AM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> >
-> > +     preempt_disable();
-> >       /* Flush pending rcuog wakeup before the last need_resched() check */
-> >       tick_nohz_user_enter_prepare();
-> > +     preempt_enable();
+> RISC-V SBI PMU & Sscofpmf ISA extension allows supporting perf in
+> the virtualization enviornment as well. KVM implementation
+> relies on SBI PMU extension for most of the part while traps
+> & emulates the CSRs read for counter access.
 >
-> This makes no sense; if IRQs are disabled, check_preemption_disabled()
-> should bail early per:
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/kvm/vcpu_pmu.c | 318 ++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 301 insertions(+), 17 deletions(-)
 >
->         if (irqs_disabled())
->                 goto out;
-Ditto.
+> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> index 5434051f495d..278c261efad3 100644
+> --- a/arch/riscv/kvm/vcpu_pmu.c
+> +++ b/arch/riscv/kvm/vcpu_pmu.c
+> @@ -11,9 +11,163 @@
+>  #include <linux/kvm_host.h>
+>  #include <linux/perf/riscv_pmu.h>
+>  #include <asm/csr.h>
+> +#include <asm/bitops.h>
+>  #include <asm/kvm_vcpu_pmu.h>
+>  #include <linux/kvm_host.h>
+>
+> +#define get_event_type(x) ((x & SBI_PMU_EVENT_IDX_TYPE_MASK) >> 16)
+> +#define get_event_code(x) (x & SBI_PMU_EVENT_IDX_CODE_MASK)
+> +
+> +static inline u64 pmu_get_sample_period(struct kvm_pmc *pmc)
+> +{
+> +       u64 counter_val_mask = GENMASK(pmc->cinfo.width, 0);
+> +       u64 sample_period;
+> +
+> +       if (!pmc->counter_val)
+> +               sample_period = counter_val_mask;
+> +       else
+> +               sample_period = pmc->counter_val & counter_val_mask;
 
+I think sample_period should be =>
+sample_period = (-pmc->counter_val) & counter_val_mask
 
--- 
-Best Regards
- Guo Ren
+When we are doing event counting, the pmu counter initial value comes
+from the guest kernel is 0x800000000000000X.
+If we let the sample period be the (pmc->counter_val) &
+counter_val_mask, the sample_period will be 0x800000000000000X.
+After we pass this sample_period to the host pmu driver, in
+riscv_pmu_event_set_period(), it will make the final pmu counter
+initial value be 0xffffffffffXX.
+This will make the pmu counter overflow interrupt frequently and
+trigger soft lockup in kvm guest.
+
+I also checked the arm64 kvm perf implementation as below, its
+sample_period is attr.sample_period = (-counter) & GENMASK(63, 0)
+
+ 624 static void kvm_pmu_create_perf_event(struct kvm_vcpu *vcpu, u64
+select_idx)
+ 625 {
+....
+ 688                 /* The initial sample period (overflow count) of
+an event. */
+ 689                 if (kvm_pmu_idx_is_64bit(vcpu, pmc->idx))
+ 690                         attr.sample_period = (-counter) & GENMASK(63, 0);
+ 691                 else
+ 692                         attr.sample_period = (-counter) & GENMASK(31, 0);
+
+After I apply the patch as below, no occur counter overflow interrupt
+and the pmu counter initial value is the same as we do event counting
+in the host.
+
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -26,7 +26,7 @@ static inline u64 pmu_get_sample_period(struct kvm_pmc *pmc)
+        if (!pmc->counter_val)
+                sample_period = counter_val_mask;
+        else
+-               sample_period = pmc->counter_val & counter_val_mask;
++               sample_period = (-pmc->counter_val) & counter_val_mask;
+
+Thanks,
+Eric Lin
+
+> +
+> +       return sample_period;
+> +}
+> +
+> +static u32 pmu_get_perf_event_type(unsigned long eidx)
+> +{
+> +       enum sbi_pmu_event_type etype = get_event_type(eidx);
+> +       u32 type;
+> +
+> +       if (etype == SBI_PMU_EVENT_TYPE_HW)
+> +               type = PERF_TYPE_HARDWARE;
+> +       else if (etype == SBI_PMU_EVENT_TYPE_CACHE)
+> +               type = PERF_TYPE_HW_CACHE;
+> +       else if (etype == SBI_PMU_EVENT_TYPE_RAW || etype == SBI_PMU_EVENT_TYPE_FW)
+> +               type = PERF_TYPE_RAW;
+> +       else
+> +               type = PERF_TYPE_MAX;
+> +
+> +       return type;
+> +}
+> +
+> +static inline bool pmu_is_fw_event(unsigned long eidx)
+> +{
+> +       enum sbi_pmu_event_type etype = get_event_type(eidx);
+> +
+> +       return (etype == SBI_PMU_EVENT_TYPE_FW) ? true : false;
+> +}
+> +
+> +static void pmu_release_perf_event(struct kvm_pmc *pmc)
+> +{
+> +       if (pmc->perf_event) {
+> +               perf_event_disable(pmc->perf_event);
+> +               perf_event_release_kernel(pmc->perf_event);
+> +               pmc->perf_event = NULL;
+> +       }
+> +}
+> +
+> +static u64 pmu_get_perf_event_hw_config(u32 sbi_event_code)
+> +{
+> +       /* SBI PMU HW event code is offset by 1 from perf hw event codes */
+> +       return (u64)sbi_event_code - 1;
+> +}
+> +
+> +static u64 pmu_get_perf_event_cache_config(u32 sbi_event_code)
+> +{
+> +       u64 config = U64_MAX;
+> +       unsigned int cache_type, cache_op, cache_result;
+> +
+> +       /* All the cache event masks lie within 0xFF. No separate masking is necesssary */
+> +       cache_type = (sbi_event_code & SBI_PMU_EVENT_CACHE_ID_CODE_MASK) >> 3;
+> +       cache_op = (sbi_event_code & SBI_PMU_EVENT_CACHE_OP_ID_CODE_MASK) >> 1;
+> +       cache_result = sbi_event_code & SBI_PMU_EVENT_CACHE_RESULT_ID_CODE_MASK;
+> +
+> +       if (cache_type >= PERF_COUNT_HW_CACHE_MAX ||
+> +           cache_op >= PERF_COUNT_HW_CACHE_OP_MAX ||
+> +           cache_result >= PERF_COUNT_HW_CACHE_RESULT_MAX)
+> +               goto out;
+> +       config = cache_type | (cache_op << 8) | (cache_result << 16);
+> +out:
+> +       return config;
+> +}
+> +
+> +static u64 pmu_get_perf_event_config(unsigned long eidx, uint64_t edata)
+> +{
+> +       enum sbi_pmu_event_type etype = get_event_type(eidx);
+> +       u32 ecode = get_event_code(eidx);
+> +       u64 config = U64_MAX;
+> +
+> +       if (etype == SBI_PMU_EVENT_TYPE_HW)
+> +               config = pmu_get_perf_event_hw_config(ecode);
+> +       else if (etype == SBI_PMU_EVENT_TYPE_CACHE)
+> +               config = pmu_get_perf_event_cache_config(ecode);
+> +       else if (etype == SBI_PMU_EVENT_TYPE_RAW)
+> +               config = edata & RISCV_PMU_RAW_EVENT_MASK;
+> +       else if ((etype == SBI_PMU_EVENT_TYPE_FW) && (ecode < SBI_PMU_FW_MAX))
+> +               config = (1ULL << 63) | ecode;
+> +
+> +       return config;
+> +}
+> +
+> +static int pmu_get_fixed_pmc_index(unsigned long eidx)
+> +{
+> +       u32 etype = pmu_get_perf_event_type(eidx);
+> +       u32 ecode = get_event_code(eidx);
+> +       int ctr_idx;
+> +
+> +       if (etype != SBI_PMU_EVENT_TYPE_HW)
+> +               return -EINVAL;
+> +
+> +       if (ecode == SBI_PMU_HW_CPU_CYCLES)
+> +               ctr_idx = 0;
+> +       else if (ecode == SBI_PMU_HW_INSTRUCTIONS)
+> +               ctr_idx = 2;
+> +       else
+> +               return -EINVAL;
+> +
+> +       return ctr_idx;
+> +}
+> +
+> +static int pmu_get_programmable_pmc_index(struct kvm_pmu *kvpmu, unsigned long eidx,
+> +                                         unsigned long cbase, unsigned long cmask)
+> +{
+> +       int ctr_idx = -1;
+> +       int i, pmc_idx;
+> +       int min, max;
+> +
+> +       if (pmu_is_fw_event(eidx)) {
+> +               /* Firmware counters are mapped 1:1 starting from num_hw_ctrs for simplicity */
+> +               min = kvpmu->num_hw_ctrs;
+> +               max = min + kvpmu->num_fw_ctrs;
+> +       } else {
+> +               /* First 3 counters are reserved for fixed counters */
+> +               min = 3;
+> +               max = kvpmu->num_hw_ctrs;
+> +       }
+> +
+> +       for_each_set_bit(i, &cmask, BITS_PER_LONG) {
+> +               pmc_idx = i + cbase;
+> +               if ((pmc_idx >= min && pmc_idx < max) &&
+> +                   !test_bit(pmc_idx, kvpmu->used_pmc)) {
+> +                       ctr_idx = pmc_idx;
+> +                       break;
+> +               }
+> +       }
+> +
+> +       return ctr_idx;
+> +}
+> +
+> +static int pmu_get_pmc_index(struct kvm_pmu *pmu, unsigned long eidx,
+> +                            unsigned long cbase, unsigned long cmask)
+> +{
+> +       int ret;
+> +
+> +       /* Fixed counters need to be have fixed mapping as they have different width */
+> +       ret = pmu_get_fixed_pmc_index(eidx);
+> +       if (ret >= 0)
+> +               return ret;
+> +
+> +       return pmu_get_programmable_pmc_index(pmu, eidx, cbase, cmask);
+> +}
+> +
+>  int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+>                                 unsigned long *out_val)
+>  {
+> @@ -43,7 +197,6 @@ int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+>
+>         if (!kvpmu)
+>                 return KVM_INSN_EXIT_TO_USER_SPACE;
+> -       //TODO: Should we check if vcpu pmu is initialized or not!
+>         if (wr_mask)
+>                 return KVM_INSN_ILLEGAL_TRAP;
+>         cidx = csr_num - CSR_CYCLE;
+> @@ -81,14 +234,62 @@ int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
+>  int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+>                                  unsigned long ctr_mask, unsigned long flag, uint64_t ival)
+>  {
+> -       /* TODO */
+> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +       int i, num_ctrs, pmc_index;
+> +       struct kvm_pmc *pmc;
+> +
+> +       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+> +       if (ctr_base + __fls(ctr_mask) >= num_ctrs)
+> +               return -EINVAL;
+> +
+> +       /* Start the counters that have been configured and requested by the guest */
+> +       for_each_set_bit(i, &ctr_mask, RISCV_MAX_COUNTERS) {
+> +               pmc_index = i + ctr_base;
+> +               if (!test_bit(pmc_index, kvpmu->used_pmc))
+> +                       continue;
+> +               pmc = &kvpmu->pmc[pmc_index];
+> +               if (flag & SBI_PMU_START_FLAG_SET_INIT_VALUE)
+> +                       pmc->counter_val = ival;
+> +               if (pmc->perf_event) {
+> +                       perf_event_period(pmc->perf_event, pmu_get_sample_period(pmc));
+> +                       perf_event_enable(pmc->perf_event);
+> +               }
+> +       }
+> +
+>         return 0;
+>  }
+>
+>  int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+>                                  unsigned long ctr_mask, unsigned long flag)
+>  {
+> -       /* TODO */
+> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +       int i, num_ctrs, pmc_index;
+> +       u64 enabled, running;
+> +       struct kvm_pmc *pmc;
+> +
+> +       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+> +       if ((ctr_base + __fls(ctr_mask)) >= num_ctrs)
+> +               return -EINVAL;
+> +
+> +       /* Stop the counters that have been configured and requested by the guest */
+> +       for_each_set_bit(i, &ctr_mask, RISCV_MAX_COUNTERS) {
+> +               pmc_index = i + ctr_base;
+> +               if (!test_bit(pmc_index, kvpmu->used_pmc))
+> +                       continue;
+> +               pmc = &kvpmu->pmc[pmc_index];
+> +               if (pmc->perf_event) {
+> +                       /* Stop counting the counter */
+> +                       perf_event_disable(pmc->perf_event);
+> +                       if (flag & SBI_PMU_STOP_FLAG_RESET) {
+> +                               /* Relase the counter if this is a reset request */
+> +                               pmc->counter_val += perf_event_read_value(pmc->perf_event,
+> +                                                                         &enabled, &running);
+> +                               pmu_release_perf_event(pmc);
+> +                               clear_bit(pmc_index, kvpmu->used_pmc);
+> +                       }
+> +               }
+> +       }
+> +
+>         return 0;
+>  }
+>
+> @@ -96,14 +297,85 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+>                                      unsigned long ctr_mask, unsigned long flag,
+>                                      unsigned long eidx, uint64_t edata)
+>  {
+> -       /* TODO */
+> -       return 0;
+> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +       struct perf_event *event;
+> +       struct perf_event_attr attr;
+> +       int num_ctrs, ctr_idx;
+> +       u32 etype = pmu_get_perf_event_type(eidx);
+> +       u64 config;
+> +       struct kvm_pmc *pmc;
+> +
+> +       num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+> +       if ((etype == PERF_TYPE_MAX) || ((ctr_base + __fls(ctr_mask)) >= num_ctrs))
+> +               return -EINVAL;
+> +
+> +       if (pmu_is_fw_event(eidx))
+> +               return -EOPNOTSUPP;
+> +       /*
+> +        * SKIP_MATCH flag indicates the caller is aware of the assigned counter
+> +        * for this event. Just do a sanity check if it already marked used.
+> +        */
+> +       if (flag & SBI_PMU_CFG_FLAG_SKIP_MATCH) {
+> +               if (!test_bit(ctr_base, kvpmu->used_pmc))
+> +                       return -EINVAL;
+> +               ctr_idx = ctr_base;
+> +               goto match_done;
+> +       }
+> +
+> +       ctr_idx = pmu_get_pmc_index(kvpmu, eidx, ctr_base, ctr_mask);
+> +       if (ctr_idx < 0)
+> +               return -EOPNOTSUPP;
+> +
+> +match_done:
+> +       pmc = &kvpmu->pmc[ctr_idx];
+> +       pmu_release_perf_event(pmc);
+> +       pmc->idx = ctr_idx;
+> +
+> +       config = pmu_get_perf_event_config(eidx, edata);
+> +       memset(&attr, 0, sizeof(struct perf_event_attr));
+> +       attr.type = etype;
+> +       attr.size = sizeof(attr);
+> +       attr.pinned = true;
+> +
+> +       /*
+> +        * It should never reach here if the platform doesn't support sscofpmf extensio
+> +        * as mode filtering won't work without it.
+> +        */
+> +       attr.exclude_host = true;
+> +       attr.exclude_hv = true;
+> +       attr.exclude_user = flag & SBI_PMU_CFG_FLAG_SET_UINH ? 1 : 0;
+> +       attr.exclude_kernel = flag & SBI_PMU_CFG_FLAG_SET_SINH ? 1 : 0;
+> +       attr.config = config;
+> +       attr.config1 = RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS;
+> +       if (flag & SBI_PMU_CFG_FLAG_CLEAR_VALUE) {
+> +               //TODO: Do we really want to clear the value in hardware counter
+> +               pmc->counter_val = 0;
+> +       }
+> +       /*
+> +        * Set the default sample_period for now. The guest specified value
+> +        * will be updated in the start call.
+> +        */
+> +       attr.sample_period = pmu_get_sample_period(pmc);
+> +
+> +       event = perf_event_create_kernel_counter(&attr, -1, current, NULL, pmc);
+> +       if (IS_ERR(event)) {
+> +               pr_err("kvm pmu event creation failed event %pe for eidx %lx\n", event, eidx);
+> +               return -EOPNOTSUPP;
+> +       }
+> +
+> +       set_bit(ctr_idx, kvpmu->used_pmc);
+> +       pmc->perf_event = event;
+> +       if (flag & SBI_PMU_CFG_FLAG_AUTO_START)
+> +               perf_event_enable(pmc->perf_event);
+> +
+> +       return ctr_idx;
+>  }
+>
+>  int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+>  {
+>         int i = 0, num_hw_ctrs, num_fw_ctrs, hpm_width;
+>         struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +       struct kvm_pmc *pmc;
+>
+>         if (!kvpmu)
+>                 return -EINVAL;
+> @@ -120,6 +392,7 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+>                 return -EINVAL;
+>         }
+>
+> +       bitmap_zero(kvpmu->used_pmc, RISCV_MAX_COUNTERS);
+>         kvpmu->num_hw_ctrs = num_hw_ctrs;
+>         kvpmu->num_fw_ctrs = num_fw_ctrs;
+>         /*
+> @@ -132,38 +405,49 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+>                 /* TIME CSR shouldn't be read from perf interface */
+>                 if (i == 1)
+>                         continue;
+> -               kvpmu->pmc[i].idx = i;
+> -               kvpmu->pmc[i].vcpu = vcpu;
+> +               pmc = &kvpmu->pmc[i];
+> +               pmc->idx = i;
+> +               pmc->counter_val = 0;
+> +               pmc->vcpu = vcpu;
+>                 if (i < kvpmu->num_hw_ctrs) {
+>                         kvpmu->pmc[i].cinfo.type = SBI_PMU_CTR_TYPE_HW;
+>                         if (i < 3)
+>                                 /* CY, IR counters */
+> -                               kvpmu->pmc[i].cinfo.width = 63;
+> +                               pmc->cinfo.width = 63;
+>                         else
+> -                               kvpmu->pmc[i].cinfo.width = hpm_width;
+> +                               pmc->cinfo.width = hpm_width;
+>                         /*
+>                          * The CSR number doesn't have any relation with the logical
+>                          * hardware counters. The CSR numbers are encoded sequentially
+>                          * to avoid maintaining a map between the virtual counter
+>                          * and CSR number.
+>                          */
+> -                       kvpmu->pmc[i].cinfo.csr = CSR_CYCLE + i;
+> +                       pmc->cinfo.csr = CSR_CYCLE + i;
+>                 } else {
+> -                       kvpmu->pmc[i].cinfo.type = SBI_PMU_CTR_TYPE_FW;
+> -                       kvpmu->pmc[i].cinfo.width = BITS_PER_LONG - 1;
+> +                       pmc->cinfo.type = SBI_PMU_CTR_TYPE_FW;
+> +                       pmc->cinfo.width = BITS_PER_LONG - 1;
+>                 }
+>         }
+>
+>         return 0;
+>  }
+>
+> -void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu)
+> +void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu)
+>  {
+> -       /* TODO */
+> +       struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +       struct kvm_pmc *pmc;
+> +       int i;
+> +
+> +       if (!kvpmu)
+> +               return;
+> +
+> +       for_each_set_bit(i, kvpmu->used_pmc, RISCV_MAX_COUNTERS) {
+> +               pmc = &kvpmu->pmc[i];
+> +               pmu_release_perf_event(pmc);
+> +       }
+>  }
+>
+> -void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu)
+> +void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu)
+>  {
+> -       /* TODO */
+> +       kvm_riscv_vcpu_pmu_deinit(vcpu);
+>  }
+> -
+> --
+> 2.25.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
