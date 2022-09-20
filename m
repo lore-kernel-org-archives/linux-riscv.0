@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C66E9ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 16:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA733C6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 16:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DMGwSDTU0PzoGKntyLE+jwUlmWtdPJJ3SGvNgztmERE=; b=4izGVCO+xSuZMV
-	mmxN2/VUrR7Cap5wWwCpOd9MCyhatszJ4HxiHCLBMQmFr5jtVi6pWbjVKadPXWELtVRNuePeLMkNZ
-	Eb1Q6rri53wnz6vNgfGo2RPVV7pS9vvuQ3zVAM1JASBp5UkysOqHQf3ytuNusRH1kIeIQO6DrcBcY
-	pH6uaPJ7uo8XZSmDucxxLjxuUUvU+ozJjjrI+Q+fK3PsZW2IDap8fU859z4D3Vbndf6Y+b328z4P8
-	c5NAFYBBLPMnQr258c8hCjUWXkEHxNzyK/o0Yq0tYVNgadYBhzlYUejkO1JkH7GeihkcZbApen6xv
-	L2pKc3/dh88bKFjqdmrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MFmYMN1FWFoTRvEJhfNr0CP81sXFJ62CX/LS2E8+8RM=; b=thTkuY2BDkSUN+gf7fUMORRnAD
+	yqCVYUWFDRfkhi+MokaXnDURGj1EOmIJswqnOpXRmxsC3fkY+5G3haD+XW5ykJJNh2YbXJwVlskm3
+	LuDo6UhMpoEYEZk21eZ+LdlpkRSOtGBasuK9uGkJqhU6PwRdF1+mUYAdttnVbrGJj9Tw2ILvPLKUe
+	EX/2OaYm+zh+L47Wpz18b6A+krp0n/u/noPgPH1FMTHqaeAow4Ohxw9llybmDsxFwqhy0WCXAKgtv
+	AesTrYZnPKdh4XzaPXWXvH4p47NoxjWElXH3QbwHQlTE+kztm5h0MfB/FgkJgJje935Sv9dXIS0C8
+	Mxyq/2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oafkl-0054Bj-P8; Tue, 20 Sep 2022 16:05:43 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1oagJh-005DCH-Cp; Tue, 20 Sep 2022 16:41:49 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oafkj-00549u-IE
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 16:05:42 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id y3so7377939ejc.1
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 09:05:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=Eoj+9YVS7ZbvdHxGcn08+V7ecurW5KQvPgCOMjMH010=;
-        b=kjU9hV8Jl2mKbVH0atog7MEskvKVMD9stVp5tTaogMS7eA8whFWkcxzC+ndpdlRoSz
-         cWOcC81rhxeIZlNl+1hokFH0dloCkV8m3p9yuNQ/ntyMPQER7kSoOamT1FdxqAIJu8D3
-         mxnuecSURZO7Dcyysr9OiVWReIXxdHGAY5YE699JnvYLJts5wLhTrSgioCIFZEELwkYv
-         q9l9TB8snGKAlRqCq7IpvZqxL40MeP+aGrBDEZuI7lrj/RSsupPYZg6YgzLXxB+IufbA
-         6AZmL+8kM/E1FVR61Agrk3g28pwSc4vsAGB0BpvOf1cs5WUPsR7yYRJeskbsuZesVTcF
-         /rkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=Eoj+9YVS7ZbvdHxGcn08+V7ecurW5KQvPgCOMjMH010=;
-        b=4atKgYi7IDlkDOOS/DPILNjgVBnj4fyauGRN2iPla9P1Gk6biLsebZdwN/KfOiFRCu
-         lt1hPrXF/ht8RniByHKClU+YLnCRYVPWHdgaKfMvAL8XlsgmxQlv4vQ2NxGoZuOCOtkJ
-         rgPQeNGbUJ7TEZQSs9trLYufqt0h2zpznZcqf38ZiRfzq9a+JIIl9sYZds5Jnz1iiUQS
-         mnns8gYCKw+MlUbrwxgn+U8uyzh+es69MNXf+jL4x62NCsjwzivnOsYVri0H6DRPZiz0
-         F/6Ogr66aF0FD9k9d0vB0KvUxZAPb+NPMPiL9NGRPLDjYVvmKRNCogfuF0dWlAQBlnJT
-         dqEg==
-X-Gm-Message-State: ACrzQf0duQkNE074s4e+HvPVN9anQg+/9qrKq+qH4fXo6gnuEDmp8S64
-	cNXTGDPoMlBrLVjTFWeE5PnTCp4e5SXpCgho9U4=
-X-Google-Smtp-Source: AMsMyM48vhimTOMy7qPE4/TDwKwjy1/XnY2/SRfe6v6ZGuZqQeW9NiA4wGt5KXErXoSujh/QByRFk32JRBhed8tP15k=
-X-Received: by 2002:a17:907:847:b0:77f:f489:cc25 with SMTP id
- ww7-20020a170907084700b0077ff489cc25mr17227555ejb.80.1663689939190; Tue, 20
- Sep 2022 09:05:39 -0700 (PDT)
+	id 1oagJe-005DB8-Dj
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 16:41:47 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oagJY-0005mP-QD; Tue, 20 Sep 2022 18:41:40 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oagJZ-001tcg-8N; Tue, 20 Sep 2022 18:41:39 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oagJX-002H6n-0M; Tue, 20 Sep 2022 18:41:39 +0200
+Date: Tue, 20 Sep 2022 18:41:35 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Olof Johansson <olof@lixom.net>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: Re: [PATCH v2] serial: sifive: enable clocks for UART when probed
+Message-ID: <20220920164135.7hjewp2kyi6zp5o7@pengutronix.de>
+References: <20220920160017.7315-1-olof@lixom.net>
 MIME-Version: 1.0
-References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdW99EutciosPtOTU9AztfvfMdKTaS+YRmpmS4VnhZ9KAA@mail.gmail.com>
- <CA+V-a8s9y0Jq4TJk9E_ptsZTW3iCoysaBSrUeQV8qfDFO3wzeQ@mail.gmail.com> <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
-In-Reply-To: <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 20 Sep 2022 17:05:12 +0100
-Message-ID: <CA+V-a8uQ1XOq4v+nmoxOKk=K5tmahXeAttvE8BdbMBoU8GHr-A@mail.gmail.com>
-Subject: Re: [PATCH v3 08/10] riscv: dts: renesas: Add minimal DTS for Renesas
- RZ/Five SMARC EVK
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
-	Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20220920160017.7315-1-olof@lixom.net>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_090541_622114_C5BFF5BF 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20220920_094146_502488_554177C4 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +69,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1592760003205320118=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
 
-On Tue, Sep 20, 2022 at 4:07 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Tue, Sep 20, 2022 at 3:05 PM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> > On Tue, Sep 20, 2022 at 1:32 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > On Thu, Sep 15, 2022 at 8:17 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > Enable the minimal blocks required for booting the Renesas RZ/Five
-> > > > SMARC EVK with initramfs.
-> > > >
-> > > > Below are the blocks enabled:
-> > > > - CPG
-> > > > - CPU0
-> > > > - DDR (memory regions)
-> > > > - PINCTRL
-> > > > - PLIC
-> > > > - SCIF0
-> > > >
-> > > > Note we have deleted the nodes from the DT for which support needs to be
-> > > > added for RZ/Five SoC and are enabled by RZ/G2UL SMARC EVK SoM/carrier
-> > > > board DTS/I.
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> > > > --- /dev/null
-> > > > +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
-> > > > @@ -0,0 +1,42 @@
-> > > > +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > +/*
-> > > > + * Device Tree Source for the RZ/Five SMARC EVK SOM
-> > > > + *
-> > > > + * Copyright (C) 2022 Renesas Electronics Corp.
-> > > > + */
-> > > > +
-> > > > +#include <arm64/renesas/rzg2ul-smarc-som.dtsi>
-> > > > +
-> > > > +/ {
-> > > > +       aliases {
-> > > > +               /delete-property/ ethernet0;
-> > > > +               /delete-property/ ethernet1;
-> > >
-> > > OK
-> > >
-> > I assume you are OK with dropping the above too?
->
-> I did intend to delete these properties (hence the "OK"), as their
-> presence may confuse U-Boot.
->
-Thank you for the clarification.
+--===============1592760003205320118==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lrbdrldkip7w62to"
+Content-Disposition: inline
 
-Cheers,
-Prabhakar
+
+--lrbdrldkip7w62to
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Tue, Sep 20, 2022 at 09:00:18AM -0700, Olof Johansson wrote:
+> When the PWM driver was changed to disable clocks if no PWMs are enabled,
+> it ended up also disabling the shared parent with the UART, since the
+> UART doesn't do any clock enablement on its own.
+>=20
+> To avoid these surprises, switch to clk_get_enabled().
+>=20
+> Fixes: ace41d7564e655 ("pwm: sifive: Ensure the clk is enabled exactly on=
+ce per running PWM")
+> Cc: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+Reviewed-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--lrbdrldkip7w62to
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmMp7T0ACgkQwfwUeK3K
+7AknbwgAidqEwlEPF6FyfKvgD30uVgZYJzrAa2GklHNToKfFbYIP/KAmbMUAROdU
+DSl4HX/GMirbjcttlXI5mcxCQ9V5M0NDwWnDSfy6iZuTmO08ftRBAumEdq9MaJtU
+e2mG5WG8MMHqv8IyoVl//VNEEzijDiq93nslyjtaVI+xvhhefxe0+IGt3noXgH71
+aRArAwESn7fATUuZK0XjhlQ/10TId6hjz9Slwkr+7uYU3jGvMdA0ZbQ46BtY7EZj
+xy+GMUAe0Nbaq0NAcgn96W5TEs4a957umPqgoyVXDxhHic/LogWcm7rdIEEE8oht
+xTL5C7pnyaxn3YGoL5W+GnRRodC6Bw==
+=x2AC
+-----END PGP SIGNATURE-----
+
+--lrbdrldkip7w62to--
+
+
+--===============1592760003205320118==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1592760003205320118==--
+
