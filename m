@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA733C6FA82
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 16:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8802C54EE9
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 16:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFmYMN1FWFoTRvEJhfNr0CP81sXFJ62CX/LS2E8+8RM=; b=thTkuY2BDkSUN+gf7fUMORRnAD
-	yqCVYUWFDRfkhi+MokaXnDURGj1EOmIJswqnOpXRmxsC3fkY+5G3haD+XW5ykJJNh2YbXJwVlskm3
-	LuDo6UhMpoEYEZk21eZ+LdlpkRSOtGBasuK9uGkJqhU6PwRdF1+mUYAdttnVbrGJj9Tw2ILvPLKUe
-	EX/2OaYm+zh+L47Wpz18b6A+krp0n/u/noPgPH1FMTHqaeAow4Ohxw9llybmDsxFwqhy0WCXAKgtv
-	AesTrYZnPKdh4XzaPXWXvH4p47NoxjWElXH3QbwHQlTE+kztm5h0MfB/FgkJgJje935Sv9dXIS0C8
-	Mxyq/2mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iTei7+1jesHzBTzakF09RsjJEjxR8g+TJS8TXQ//7CU=; b=T0ezFG3sstmfRM
+	X8Qh7MzaHx+vGEwRdo6WUksZ0XMn45hDsHlO+T3FApYl1nQtXMjactth3qm00uBit2V7bdqmy+ENR
+	L9Tdz00s0NknWVCnFN2akZx2m+bpJ6PAH/aDo9K+I+Cscv+mDj5IMhpqCZPI8u5uxBb4t9cH+pqRy
+	PYXVH7x4Sd+Evy4atdPen6QZUgcdsCDZ2TRUpmvAHFgm9C8Bd9ftZw3odXnXCuNV05hc3hwZPhPvy
+	zzxn5MFQoe1b4CUYsEW+/s247uav6NzofYMAAPfOIISYpRUGd920jApKEQIqQuZeu8DsPwY3luYRW
+	T0PCKxEyl1SNwOKsautQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oagJh-005DCH-Cp; Tue, 20 Sep 2022 16:41:49 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oagYb-005HK9-FE; Tue, 20 Sep 2022 16:57:13 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oagJe-005DB8-Dj
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 16:41:47 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oagJY-0005mP-QD; Tue, 20 Sep 2022 18:41:40 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oagJZ-001tcg-8N; Tue, 20 Sep 2022 18:41:39 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oagJX-002H6n-0M; Tue, 20 Sep 2022 18:41:39 +0200
-Date: Tue, 20 Sep 2022 18:41:35 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Olof Johansson <olof@lixom.net>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v2] serial: sifive: enable clocks for UART when probed
-Message-ID: <20220920164135.7hjewp2kyi6zp5o7@pengutronix.de>
-References: <20220920160017.7315-1-olof@lixom.net>
+	id 1oagYY-005HIU-8e
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 16:57:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 15D63CE19CD;
+	Tue, 20 Sep 2022 16:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF674C433C1;
+	Tue, 20 Sep 2022 16:57:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663693023;
+	bh=90qrbtTDZSrLP+0IRejeJNo4OYKsU9a720uvmW8b7UM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rc79zwJmsfbix8+q++BIS5ydiePVNvX84CMPmGRtpu+h+dS/XS8wz/eqKPuHMI0yP
+	 AKmNliPVlbMECRsG6AwfOAjQjO3U6t360mW0IcaC8BEzkq0+7oeQpF1/DJsYuz6Of8
+	 2pQd+kJGzhvUDnb5fT/amu0uj8CfOSHPbU1Ww49XUwiAm9ufo2JMwzYSEWjcswA94f
+	 uAXl2Sb2ksR2cjt/nPuEdPEDnqh8kR8QEuumU9SYtKt1evHHN2+EockhHdix+TLtlN
+	 kM4CVGRddtkyHBhV2/6qjnlmGK4ORGmxzoxOGLrwO459pM+x0SnDE18DSjYMtDTKnk
+	 KhION+L0SvCYA==
+Date: Tue, 20 Sep 2022 17:56:59 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/3] Documentation: RISC-V: Fix a typo in patch-acceptance
+Message-ID: <Yynw26jVIvHSSQ+6@spud>
+References: <20220920140138.27210-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20220920160017.7315-1-olof@lixom.net>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20220920140138.27210-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_094146_502488_554177C4 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20220920_095710_513783_1B12B045 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,72 +66,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1592760003205320118=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 20, 2022 at 07:01:37AM -0700, Palmer Dabbelt wrote:
+> I just stumbled on this when modifying the docs.
+> 
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  Documentation/riscv/patch-acceptance.rst | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
+> index dfe0ac5624fb..5da6f9b273d6 100644
+> --- a/Documentation/riscv/patch-acceptance.rst
+> +++ b/Documentation/riscv/patch-acceptance.rst
+> @@ -29,7 +29,7 @@ their own custom extensions.  These custom extensions aren't required
+>  to go through any review or ratification process by the RISC-V
+>  Foundation.  To avoid the maintenance complexity and potential
+>  performance impact of adding kernel code for implementor-specific
 
---===============1592760003205320118==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lrbdrldkip7w62to"
-Content-Disposition: inline
+s/implementor/implementer no? Or is this an American spelling?
 
-
---lrbdrldkip7w62to
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Tue, Sep 20, 2022 at 09:00:18AM -0700, Olof Johansson wrote:
-> When the PWM driver was changed to disable clocks if no PWMs are enabled,
-> it ended up also disabling the shared parent with the UART, since the
-> UART doesn't do any clock enablement on its own.
->=20
-> To avoid these surprises, switch to clk_get_enabled().
->=20
-> Fixes: ace41d7564e655 ("pwm: sifive: Ensure the clk is enabled exactly on=
-ce per running PWM")
-> Cc: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-Reviewed-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---lrbdrldkip7w62to
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmMp7T0ACgkQwfwUeK3K
-7AknbwgAidqEwlEPF6FyfKvgD30uVgZYJzrAa2GklHNToKfFbYIP/KAmbMUAROdU
-DSl4HX/GMirbjcttlXI5mcxCQ9V5M0NDwWnDSfy6iZuTmO08ftRBAumEdq9MaJtU
-e2mG5WG8MMHqv8IyoVl//VNEEzijDiq93nslyjtaVI+xvhhefxe0+IGt3noXgH71
-aRArAwESn7fATUuZK0XjhlQ/10TId6hjz9Slwkr+7uYU3jGvMdA0ZbQ46BtY7EZj
-xy+GMUAe0Nbaq0NAcgn96W5TEs4a957umPqgoyVXDxhHic/LogWcm7rdIEEE8oht
-xTL5C7pnyaxn3YGoL5W+GnRRodC6Bw==
-=x2AC
------END PGP SIGNATURE-----
-
---lrbdrldkip7w62to--
-
-
---===============1592760003205320118==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> -RISC-V extensions, we'll only to accept patches for extensions that
+> +RISC-V extensions, we'll only accept patches for extensions that
+>  have been officially frozen or ratified by the RISC-V Foundation.
+>  (Implementors, may, of course, maintain their own Linux kernel trees
+>  containing code for any custom extensions that they wish.)
+> -- 
+> 2.34.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1592760003205320118==--
-
