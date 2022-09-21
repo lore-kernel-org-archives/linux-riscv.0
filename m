@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3D3ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28B9C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZWiCxcL/7+pPbUHMksUn10ESIHc7p5LYAo7kTBZRwa0=; b=jppz7rOP+iRQIo
-	8b7vdgchjO0wMFgoowtse5Ba8kxQeUconm2BX9WexKTJB0grbRlb1y8tAigzVzgqt2FXQ9UZ/WNd6
-	NJ5F0RqBPy9bvxuXh0H7jDmCz4w0mFA04vJQqlcFfPPxm9uThXSQaPdeoz5sw53w22XhzPs+AvVkA
-	6kEhlBsLdK3+/oMk6iVuzNRlFnQQYe0/OpmJRYldYmL51R3JTpaZ0aNZfhryMp2wnIROlG7gsTNCm
-	FY7TMYT6EzZcBFno1jVEtsMpgB/RIaX+PVqyx+QlSQQXjk8EYX2xVBNul2648wzEGPEQCf/8lxKys
-	b/jnzgR+Yl5RXuhfvsFg==;
+	List-Owner; bh=jiC7NDyMk+4gbZhpy7Bw1dHJOe25Q8D1hQdMfijG4zg=; b=f4jSBiskIr47e2
+	v1ioorHt2cJUAy2DJ0uZIaxMBwZXtZx7A1by1JC555ZuXRF2rk2N58X9hV0Aau8uHfX4GkAsHpdW1
+	pbvy5MsQU2uUQJjh809178edcddlY2UBCteH21eW9I/jWViliw0gBOOr+S3/EnsOCOiH5m5PIf2V5
+	1exOO+mv9E2TlPEAtIPXDNbq68WnqxrWYQEspHUkqo2a5lyGgx+qjY3LlJR6GttgDzMpmj3IOSkQ+
+	MTSelcFYLGo8K7aENzjuwP8boWdhglz+9q+DjkLT2e8RLEBVR43no+WInxr0abZ5lziA9A7Es1bFg
+	88QaL6Iev4+aqTipeqQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawgc-00AkQA-SU; Wed, 21 Sep 2022 10:10:34 +0000
-Received: from mail-qt1-f176.google.com ([209.85.160.176])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawgP-00AkM6-J9; Wed, 21 Sep 2022 10:10:23 +0000
-Received: by mail-qt1-f176.google.com with SMTP id g23so3695786qtu.2;
-        Wed, 21 Sep 2022 03:10:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=/SSEuwrmJLJj9UMZKTCar/0/cGO6w/t/L7XekBxJJtM=;
-        b=EqjPWqEAe7lZkFcfb+qzraAOvDGLqzkcaa3knFrQeWwSXrAWXXDKWO+oes5UiaNgGn
-         lamFNepT9CQc5petYl54Zr8tMDN0M9hHfF8E0swe+D1MirFRre3FHdkrHVBHionvruP1
-         Cy4GVlSpmg00UQX7gQvLDCUGcboMEDrBL2U9GK2XPbYo4+sfPykiqqyiQVSIpLQC9I/A
-         LwRpODFfe0Otrm10VNxe9k7nHaPch+bD6xycLlqODmQ7od0LJOC0aIJnNq5R5S2/ex85
-         Gko71Y2pHvf+UmGX1nfMTyfhQFO75bLFc7tGuOzjeDvSRavqdPWUsn+VWDzAHGm9FTJJ
-         r+7A==
-X-Gm-Message-State: ACrzQf1A6jtpqG5r4q8tJHnaOneBfQVFfSL/CEPr4q+GyMc+npJKjQbx
-	oxEK0pWsI0cfaO4EJv9iTTKTRfg7iPSDMLOb
-X-Google-Smtp-Source: AMsMyM4fAWNDLWUh94aI1n4eGvHWuhbbyma6jhLyQ3XgJBd91XKF47Zk5kmx0McG6nwZM3pVGu17ug==
-X-Received: by 2002:ac8:7c52:0:b0:35c:e867:e5dc with SMTP id o18-20020ac87c52000000b0035ce867e5dcmr12173514qtv.433.1663755019248;
-        Wed, 21 Sep 2022 03:10:19 -0700 (PDT)
-Received: from mail-yb1-f170.google.com (mail-yb1-f170.google.com. [209.85.219.170])
-        by smtp.gmail.com with ESMTPSA id ff14-20020a05622a4d8e00b003445bb107basm1412521qtb.75.2022.09.21.03.10.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Sep 2022 03:10:17 -0700 (PDT)
-Received: by mail-yb1-f170.google.com with SMTP id a67so7339520ybb.3;
-        Wed, 21 Sep 2022 03:10:16 -0700 (PDT)
-X-Received: by 2002:a05:6902:2c1:b0:6b2:8bb0:79a0 with SMTP id
- w1-20020a05690202c100b006b28bb079a0mr18992385ybh.202.1663755016378; Wed, 21
- Sep 2022 03:10:16 -0700 (PDT)
+	id 1oawkR-00Alhg-PA; Wed, 21 Sep 2022 10:14:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oawkE-00AldU-2A; Wed, 21 Sep 2022 10:14:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2E9313D5;
+	Wed, 21 Sep 2022 03:14:20 -0700 (PDT)
+Received: from [10.57.18.118] (unknown [10.57.18.118])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71CA13F73D;
+	Wed, 21 Sep 2022 03:14:11 -0700 (PDT)
+Message-ID: <567e9e6c-e34c-4ded-9622-9ad8387dd24b@arm.com>
+Date: Wed, 21 Sep 2022 11:14:10 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
+Subject: Re: Similar SoCs with different CPUs and interrupt bindings
+Content-Language: en-GB
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Andre Przywara <andre.przywara@arm.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Samuel Holland <samuel@sholland.org>, Biju Das <biju.das.jz@bp.renesas.com>,
+ Chris Paterson <Chris.Paterson2@renesas.com>,
+ Atish Patra <atishp@atishpatra.org>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
 References: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
  <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
-In-Reply-To: <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 21 Sep 2022 12:10:05 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVKcikM0b97G99UhVtSwrxc07asB0nBqB6OL9XNXFb-gw@mail.gmail.com>
-Message-ID: <CAMuHMdVKcikM0b97G99UhVtSwrxc07asB0nBqB6OL9XNXFb-gw@mail.gmail.com>
-Subject: Re: Similar SoCs with different CPUs and interrupt bindings
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel@sholland.org>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, Chris Paterson <Chris.Paterson2@renesas.com>, 
-	Atish Patra <atishp@atishpatra.org>, 
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Olof Johansson <olof@lixom.net>
+ <CA+V-a8t3ukpa1PNz=5fP+BTjWkFJmwDo_EJJYjO9YctF2=K1Vg@mail.gmail.com>
+ <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+In-Reply-To: <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_031021_690587_BAD21BA6 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20220921_031418_248933_1E100C0F 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +74,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 2022-09-21 10:26, Krzysztof Kozlowski wrote:
+> On 21/09/2022 11:20, Lad, Prabhakar wrote:
+>>>
+>>> What do you mean? Macros support string concatenation and simple
+>>> arithmetic like adding numbers. I just tested it.
+>>>
+>> I did try the below:
+>>
+>> diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+>> b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+>> index 689aa4ba416b..0f923c276cd3 100644
+>> --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+>> +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+>> @@ -8,6 +8,8 @@
+>>   #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>   #include <dt-bindings/clock/r9a07g043-cpg.h>
+>>
+>> +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr na
+>> +
+>>   / {
+>>       compatible = "renesas,r9a07g043";
+>>       #address-cells = <2>;
+>> @@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
+>>               compatible = "renesas,r9a07g043-ssi",
+>>                        "renesas,rz-ssi";
+>>               reg = <0 0x1004a000 0 0x400>;
+>> -            interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
+>> +            interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
+>>                        <GIC_SPI 331 IRQ_TYPE_EDGE_RISING>,
+>>                        <GIC_SPI 332 IRQ_TYPE_EDGE_RISING>,
+>>                        <GIC_SPI 333 IRQ_TYPE_EDGE_RISING>;
+>>
+>> This worked as expected, but couldn't get the arithmetic operation
+>> working. Could you please provide an example?
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> index ff6aab388eb7..0ecca775fa3f 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> @@ -8,6 +8,8 @@
+>   #include <dt-bindings/interrupt-controller/arm-gic.h>
+>   #include <dt-bindings/clock/r9a07g043-cpg.h>
+>   
+> +#define SOC_PERIPHERAL_IRQ_NUMBER(na)  (na + 32)
+> +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr SOC_PERIPHERAL_IRQ_NUMBER(na)
+>   / {
+>          compatible = "renesas,r9a07g043";
+>          #address-cells = <2>;
+> @@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
+>                          compatible = "renesas,r9a07g043-ssi",
+>                                       "renesas,rz-ssi";
+>                          reg = <0 0x1004a000 0 0x400>;
+> -                       interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
+> +                       interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
+> 
+> 
+> 
+> Or any other method like that....
 
-On Wed, Sep 21, 2022 at 10:49 AM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> On 21/09/2022 09:46, Geert Uytterhoeven wrote:
-> > This is a topic that came up at the RISC-V BoF at Plumbers, and it was
-> > suggested to bring it up with you.
->
-> I guess you also need SoC maintainers as well (+Cc Arnd and Olof). :)
+Which will generate the text:
 
-Indeed, I had intended to include them, but forgot in the end.
-Thanks for adding!
+	"interrupts = <GIC_SPI 330 (IRQ_TYPE_LEVEL_HIGH + 32)>,"
 
-Gr{oetje,eeting}s,
+(give or take some whitespace)
 
-                        Geert
+CPP supports constant expressions in #if and #elif directives, but 
+macros are purely literal text replacement. It might technically be 
+achievable with some insane CPP metaprogramming, but for all practical 
+purposes this is a non-starter unless dtc itself grows the ability to 
+process arithmetic expressions.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
