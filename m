@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4E1ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 21:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B924ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 21:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oa8Q63MKvN+z2i7HhBgEpvKIx4dGwQrvAfXB3tqvW/U=; b=eYdb+WdFT1G8mX
-	MpYCHvw8kMR3e9Has0IBrHGqrAcoG3dnJAyMvHy9LY69oLOBTDo2oW1Knl7RK+1tkA5QjyuOdOoVC
-	olJ4MGYjQ2z8kL6r/Eoke5t4s48LVFFS54xDr+UQRtJQe6ko9AYixF7AZSkidMX3i3uFY/pcIFEiW
-	3z53Dk/alIW4vkSAVphIJfMCgo5/Ywlhy3RqMLDLfev5n/pwXwYhBUkUKRZmBCir+Xe0msNIatbXg
-	wXnn8j6G6n2vTZyzsToRpzsXh7YwOo5kqwyIk+CBCANfnXP5+BBAFv4g1Ivb/4Tlag6V7WZsNSjSk
-	Ldx62221a/kNhXRBdGew==;
+	List-Owner; bh=1cRtUxlDf1ZHqBhzTdi4qRImYY+Q+XjICprUqCjBUVs=; b=4dmGazTjqz/FZU
+	N/LG8Zq7zcRIjWP9jSVyQUjuqmWTPnXxj1Lo102FM/YaUFFX/heRoXih8xLd0gWrV3bBN1DEFolgx
+	JeldTSQrcXwW7MFi4AfAluSgDDAUMc93cC6Hdsydj8fOx8TzWr0oatJxYIk6BOTAZu9Pc6OwXopqE
+	ieoLbRb5Oc786HhRO5nRYv2H2HHV0WW5tFCNU3UBBTLnTrjypWrD5CYb37+ijCwYN1R7DSZMcz0EK
+	Wf4jhTB/TuwYpl/fd7ujnFyhX+BOTWcN9B2GjIOsSbUtI0nS9U7u3tT5D9VBptJ4MOjpMe7efOZKs
+	t0R9J/1snkDr6lBofUFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob6vD-00Ceyq-W1; Wed, 21 Sep 2022 21:06:20 +0000
+	id 1ob7Lw-00CjPG-MP; Wed, 21 Sep 2022 21:33:56 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob6uz-00Cewm-FT; Wed, 21 Sep 2022 21:06:10 +0000
+	id 1ob7Lt-00CjOc-Np; Wed, 21 Sep 2022 21:33:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CAD01B831EA;
-	Wed, 21 Sep 2022 21:06:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C545EC433C1;
-	Wed, 21 Sep 2022 21:05:58 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 09B3BB82965;
+	Wed, 21 Sep 2022 21:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D539DC433C1;
+	Wed, 21 Sep 2022 21:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663794362;
-	bh=4pEno27AZYa4mJMVJgAgsAXTI/+40ZvutoCLEOhJzGM=;
+	s=k20201202; t=1663796030;
+	bh=/o/C8WBjZU0WtQ0lZ7PQqvBy0u0PM9V+gpKwcGhMpdk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sDQSjVHV+zbK4QkKWAC0QEE3eleBlrxAN/lUEQ5+rlQRQ8/bSOSzaqbLEQulF+nml
-	 7s+TcuZGAnf/JkUt5g4ywB3NSBlS2B6tt/4DXjig42OddiO9OeK1x0zCdGCU8OM3sO
-	 LUQ9IYbV+QND4jdV4/Gkhakzqz4ohno535eWT03xlFMdGj2mj2j0MaqRGwdaCMC63J
-	 iCWm/AqP2rr6PVKVVoaq2SL+Cu5FwRhLjEyJ3PEqQMni6BL1zOpx9lLLHXxc4cP2wp
-	 Gte9njqBesBn2vyIwu8t7Y4w/WzUIMXbmeMVGLK+XKgXIy5ESVh1xqu/P4GAFlEqjq
-	 qCvJXSBwUD7bg==
-Date: Wed, 21 Sep 2022 22:05:55 +0100
+	b=muhOV/8U1MntF0rfcYR+7I7EiBzki5VmmYk9z5mvm6+JKMbPsQQtUS9ZvR2ZKcbqw
+	 x704QFWHe/Fod/KyotBkc78uI8vxyh/4MhMK4A/cCCdrwM0wDhglJB1MSIEeVm8P64
+	 LmFnz5zeT5hhaeQG6nnm7WXK2IcBI84HRa5GmdQXKCicV7ZjdUDQwIJJtKGLKFM7Uf
+	 Pc0UozbcVhiUnMkMP7yZR6yWZLhehX2I2N75BOKf7kmQU6vv5vcyANSHCTRHzZAP6M
+	 SpPmAa6wXXjLeV4/jBSTm7BM0aR5cAA0pNlK75haWSIm/zhV9z3RZtffcaaxLHnHRY
+	 F2W+LYmEtWh0g==
+Date: Wed, 21 Sep 2022 22:33:46 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Chris Paterson <Chris.Paterson2@renesas.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
-Subject: Re: Similar SoCs with different CPUs and interrupt bindings
-Message-ID: <Yyt8s5+pyoysVNeC@spud>
-References: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
- <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
- <CA+V-a8t3ukpa1PNz=5fP+BTjWkFJmwDo_EJJYjO9YctF2=K1Vg@mail.gmail.com>
- <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
- <CAMuHMdXaWz4zP-Zrc4drxwVmbMjmGZHABVbUtO91fZXKawathw@mail.gmail.com>
+To: Chris Stillson <stillson@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	kvm-riscv@lists.infradead.org, Guo Ren <ren_guo@c-sky.com>,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Anup Patel <anup@brainfault.org>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH 02/17] riscv: Extending cpufeature.c to detect V-extension
+Message-ID: <YyuDOr5dMospSNzF@spud>
+References: <20220921194629.1480202-1-stillson@rivosinc.com>
+ <20220921194629.1480202-3-stillson@rivosinc.com>
+ <YytwBzdgCSWSPRNB@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdXaWz4zP-Zrc4drxwVmbMjmGZHABVbUtO91fZXKawathw@mail.gmail.com>
+In-Reply-To: <YytwBzdgCSWSPRNB@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_140605_845254_B3A0F09C 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20220921_143353_959490_2EDCCED7 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 12:08:11PM +0200, Geert Uytterhoeven wrote:
-> Hi Krzysztof,
-> > > This worked as expected, but couldn't get the arithmetic operation
-> > > working. Could you please provide an example?
-> >
-> > diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-> > index ff6aab388eb7..0ecca775fa3f 100644
-> > --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-> > +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-> > @@ -8,6 +8,8 @@
-> >  #include <dt-bindings/interrupt-controller/arm-gic.h>
-> >  #include <dt-bindings/clock/r9a07g043-cpg.h>
-> >
-> > +#define SOC_PERIPHERAL_IRQ_NUMBER(na)  (na + 32)
-> > +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr SOC_PERIPHERAL_IRQ_NUMBER(na)
+On Wed, Sep 21, 2022 at 09:11:56PM +0100, Conor Dooley wrote:
+> On Wed, Sep 21, 2022 at 12:46:14PM -0700, Chris Stillson wrote:
 > 
-> #define SOC_PERIPHERAL_IRQ(nr, flags) GIC_SPI
-> SOC_PERIPHERAL_IRQ_NUMBER(nr) flags
+> Hey Chris,
 > 
-> >  / {
-> >         compatible = "renesas,r9a07g043";
-> >         #address-cells = <2>;
-> > @@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
-> >                         compatible = "renesas,r9a07g043-ssi",
-> >                                      "renesas,rz-ssi";
-> >                         reg = <0 0x1004a000 0 0x400>;
-> > -                       interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
-> > +                       interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
-> >
-> >
-> >
-> > Or any other method like that....
-> 
-> Oh cool, seems like arithmetic is supported.
-> No idea what I did wrong last time I tried...
+> Looks like this only partially made it to the list. The cover letter is
+> missing as are a bunch of the patches in the middle, see:
+> https://lore.kernel.org/linux-riscv/20220921194629.1480202-3-stillson@rivosinc.com/T/#t
 
-Oh sick, it does actually work??? So, am I missing something or is this
-sort of approach now a no-brainer?
+nvm, rest of it seems to have finally made it through now.
+
+> Also, when you run format-patch to generate the patches, please add the
+> `-v` flag with a number so that the patchset gets the version number
+> added to it.
+> 
+> Ohh, and Palmer's non-rivos email looks wrong?
+
+Rest still applies though & rerolling as v12 would be nice so that the
+tools don't get confused about which version is which since you've now
+sent a pair of v1s.
+
+Your SoB is still missing from the individual patches too.
+
+Getting there though, this one is at least threaded & the patches are
+not whitespace damaged/line wrapped anymore AFAICT.
+
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
