@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DF2C32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 09:28:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A22ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 09:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DvHB3rdcR+mFyE5nZckww/ip4jj3wRMkN1fPRrfLhUs=; b=tar3zWTDM60Yc+
-	AxSPZxxwT7rY3mviTXqaHmk9nL658S9gP05W9r9ITtnV846cG/493BoLhhbhZ/CJlWDc6qbXUpT96
-	7g8KMmONMyqVd9TKABEEJm3dzlnyiUFMgt3pjjG9e1AsQH8e4uazzccFxHPAp8d61rkN0zej2eBQF
-	vidUCIDc1QK7K3G4MW32xKbJukqIAnsPyArxLRnXjjttchYk6slKLz7xV9FTYnYsnlJkiFC/VafMD
-	bFG9Ry+0Zxjrn4rSLCaF3+6nIsau+aiBA2PaHM0u0pIymGpv9tyTDMegDlIuOgaRzVsNMqwjQ+Qr8
-	5U2TWvCbu4GY0C1J7Iig==;
+	List-Owner; bh=qahJl4Nzq94/2B1C6niGsn/UyeKgtQKx4vKT7uwyZkc=; b=uCUzO6C874D8LM
+	Mf3FBU6TXLjdEHOswZO+mZSH9BtW3/klFs99Q2ICvkKT64f/CX8VIPLk5nZeGKdnyCd6/n4ZAta2D
+	30pd7Utpazsf4CuqY66R8zP0978EYi63z3AlSm+q5oc5JdaYzqZyHNRCn2S8XaDOu4QJolrL+JNKj
+	BCz9iO1fwQiPfJ7J0/NueMxC/Sc/66CfaMQa/5Tm8j0j2EQhcre4JavELZu2TjWNpDo5dMBO9VwLW
+	3PTd/LD9m0n1lC0R/de9LC16rm/vfGIxSB6NTuHvcVc0HzRjPqm/ROh8rPEToN2mhx8Zh2IANZ3bd
+	8iyzxP15J1zc40xZv7YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaw1P-00AOsd-2E; Wed, 21 Sep 2022 09:27:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oavty-00AL49-UZ; Wed, 21 Sep 2022 09:20:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22BC2139F;
-	Wed, 21 Sep 2022 02:20:23 -0700 (PDT)
-Received: from [10.57.18.118] (unknown [10.57.18.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 661D83F73D;
-	Wed, 21 Sep 2022 02:20:14 -0700 (PDT)
-Message-ID: <45d2e6c2-3b4b-5720-0431-002c74b1f9cc@arm.com>
-Date: Wed, 21 Sep 2022 10:20:08 +0100
+	id 1oaw1q-00AP4G-Bs; Wed, 21 Sep 2022 09:28:26 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oavv6-00ALgQ-IK; Wed, 21 Sep 2022 09:21:30 +0000
+Received: by mail-ed1-x536.google.com with SMTP id f20so7695534edf.6;
+        Wed, 21 Sep 2022 02:21:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=GLpNbv2dDZs2ELKJfedbPTLfT2mNSjQrTpD1eCAo9R4=;
+        b=mdAeRwbFj19Rzs/mqgRFM2d7927buI86UH/L76robThQCURIrMdVolDmohaWuKLt8F
+         ZfJGEFoE5VoyRUdHha0+3lArmu35lorSe0gugTFVVrKQJBPKvNZmq7HbVEpBfkHTjfKx
+         X+FRub5EJupwXhVdt7yIy/jkz30YU74pYcMEwqsMB3xrL+wzsWAbmla2uTv3ihCuU9J9
+         eYWlTb67MOkHBcKQiT1i4XFrIn0KbAbBlMUPVD6NqznG8+UVojtf1f5yeFMb/wlgHwda
+         3soPAwF9S213cC9McMt9xZ7Rq8GJhxlCiJxhBSldfOIvj0jbxFmFKTZioJDYlrxq2UlP
+         iSLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=GLpNbv2dDZs2ELKJfedbPTLfT2mNSjQrTpD1eCAo9R4=;
+        b=M9854mwmVo/YACRsTJzv/PezikaYWGgJCcgUNfXiiWfmnk2TXNHNm17vSDN9egPzg7
+         8KiI8oQELg98AOMt+5MmiGYl5VeCTZ+QGRoJKPg1C1VvWQgry49jdJBvZvIlSNsB8gp0
+         zpgwdrbG8yYdUcD9VlewwMC//rjZdSHToFweQLNfGrTL/4LxtTRWoxuqy9cbdBTnIcKF
+         fWGGfsfxcAfnBqmfwksDi53l8I2MAzS/FxiycRkFXITJ1WmXhzYH/XGOfsPYGLG9oWan
+         rvA76udPmxC+cOxkrk3/mV88rvYTWo1nv/z8omY8JVN4frp3PZiZSMn+VijHtKDkG5tH
+         Mtaw==
+X-Gm-Message-State: ACrzQf0mooSa0by+vqlhIMXCCgjh/4nvQrH7ka69DcvQPAtGMqpSDxIf
+	Jxv/VpsL7qdL3Uy54V+XVLzvG2ADdy+rJx6V5gs=
+X-Google-Smtp-Source: AMsMyM7+OZ810UA2mZJt2QSEYSd2Q9iA3wdNG3qKqnIkRmmrozXEWttDQZsMNbbQC6kq39c2WPA+h5udMhfxXLYzak8=
+X-Received: by 2002:a05:6402:350b:b0:452:2b68:90db with SMTP id
+ b11-20020a056402350b00b004522b6890dbmr23967840edd.255.1663752085609; Wed, 21
+ Sep 2022 02:21:25 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: Similar SoCs with different CPUs and interrupt bindings
-Content-Language: en-GB
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Samuel Holland <samuel@sholland.org>, Biju Das <biju.das.jz@bp.renesas.com>,
- Chris Paterson <Chris.Paterson2@renesas.com>,
- Atish Patra <atishp@atishpatra.org>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 References: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-In-Reply-To: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
+ <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
+In-Reply-To: <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 21 Sep 2022 10:20:58 +0100
+Message-ID: <CA+V-a8t3ukpa1PNz=5fP+BTjWkFJmwDo_EJJYjO9YctF2=K1Vg@mail.gmail.com>
+Subject: Re: Similar SoCs with different CPUs and interrupt bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andre Przywara <andre.przywara@arm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Chris Paterson <Chris.Paterson2@renesas.com>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Olof Johansson <olof@lixom.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_022019_138289_6B25436B 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20220921_022128_646092_34DC7DCD 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,90 +88,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-09-21 08:46, Geert Uytterhoeven wrote:
->          Hi Rob, Krzysztof,
-> 
-> This is a topic that came up at the RISC-V BoF at Plumbers, and it was
-> suggested to bring it up with you.
-> 
-> The same SoC may be available with either RISC-V or other (e.g. ARM) CPU
-> cores (an example of this are the Renesas RZ/Five and RZ/G2UL SoCs).
-> To avoid duplication, we would like to have:
->    - <riscv-soc>.dtsi includes <base-soc>.dtsi,
->    - <arm-soc>.dtsi includes <base-soc>.dtsi.
-> 
-> Unfortunately RISC-V and ARM typically use different types of interrupt
-> controllers, using different bindings (e.g. 2-cell vs. 3-cell), and
-> possibly using different interrupt numbers.  Hence the interrupt-parent
-> and interrupts{-extended} properties should be different, too.
-> 
-> Possible solutions[1]:
->    1. interrupt-map
-> 
->    2. Use a SOC_PERIPHERAL_IRQ() macro in interrupts properties in
->       <base-soc>.dtsi, with
->         - #define SOC_PERIPHERAL_IRQ(nr, na) nr          // RISC-V
->         - #define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI na  // ARM
->       Note that the cpp/dtc combo does not support arithmetic, so even
->       the simple case where nr = 32 + na cannot be simplified.
-> 
->    3. Wrap inside RISCV() and ARM() macros, e.g.:
-> 
->          RISCV(interrupts = <412 IRQ_TYPE_LEVEL_HIGH>;)
->          ARM(interrupts = <GIC_SPI 380 IRQ_TYPE_LEVEL_HIGH>;)
-> 
->       Cfr. ARM() and THUMB() in arch/arm/include/asm/unified.h, as used
->       to express the same operation using plain ARM or ARM Thumb
->       instructions.
+Hi Krzysztof,
 
-4. Put all the "interrupts" properties in the SoC-specific DTSI at the 
-same level as the interrupt controller to which they correspond. Works 
-out of the box with no horrible mystery macros, and is really no more or 
-less error-prone than any other approach. Yes, it means replicating a 
-bit of structure and/or having labels for everything (many of which may 
-be wanted anyway), but that's not necessarily a bad thing for 
-readability anyway. Hierarchical definitions are standard FDT practice 
-and should be well understood, so this is arguably the simplest and 
-least surprising approach :)
+On Wed, Sep 21, 2022 at 9:53 AM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 21/09/2022 09:46, Geert Uytterhoeven wrote:
+> >         Hi Rob, Krzysztof,
+> >
+> > This is a topic that came up at the RISC-V BoF at Plumbers, and it was
+> > suggested to bring it up with you.
+>
+> I guess you also need SoC maintainers as well (+Cc Arnd and Olof). :)
+>
+> >
+> > The same SoC may be available with either RISC-V or other (e.g. ARM) CPU
+> > cores (an example of this are the Renesas RZ/Five and RZ/G2UL SoCs).
+> > To avoid duplication, we would like to have:
+> >   - <riscv-soc>.dtsi includes <base-soc>.dtsi,
+> >   - <arm-soc>.dtsi includes <base-soc>.dtsi.
+> >
+> > Unfortunately RISC-V and ARM typically use different types of interrupt
+> > controllers, using different bindings (e.g. 2-cell vs. 3-cell), and
+> > possibly using different interrupt numbers.  Hence the interrupt-parent
+> > and interrupts{-extended} properties should be different, too.
+> >
+> > Possible solutions[1]:
+> >   1. interrupt-map
+> >
+> >   2. Use a SOC_PERIPHERAL_IRQ() macro in interrupts properties in
+> >      <base-soc>.dtsi, with
+> >        - #define SOC_PERIPHERAL_IRQ(nr, na) nr          // RISC-V
+> >        - #define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI na  // ARM
+> >      Note that the cpp/dtc combo does not support arithmetic, so even
+> >      the simple case where nr = 32 + na cannot be simplified.
+>
+> What do you mean? Macros support string concatenation and simple
+> arithmetic like adding numbers. I just tested it.
+>
+I did try the below:
+
+diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+index 689aa4ba416b..0f923c276cd3 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+@@ -8,6 +8,8 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/r9a07g043-cpg.h>
+
++#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr na
++
+ / {
+     compatible = "renesas,r9a07g043";
+     #address-cells = <2>;
+@@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
+             compatible = "renesas,r9a07g043-ssi",
+                      "renesas,rz-ssi";
+             reg = <0 0x1004a000 0 0x400>;
+-            interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
++            interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
+                      <GIC_SPI 331 IRQ_TYPE_EDGE_RISING>,
+                      <GIC_SPI 332 IRQ_TYPE_EDGE_RISING>,
+                      <GIC_SPI 333 IRQ_TYPE_EDGE_RISING>;
+
+This worked as expected, but couldn't get the arithmetic operation
+working. Could you please provide an example?
 
 Cheers,
-Robin.
-
-> Personally, I'm leaning towards the third solution, as it is the most
-> flexible, and allows us to extend to more than 2 interrupt controllers.
-> 
-> Note that this is actually not a new issue.  For years, ARM SoCs have
-> existed with multiple types of cores on the same die, using Cortex-A
-> cores for the application, and Cortex-R/SuperH/V850/... cores for
-> real-time and/or baseband operation.  So far this wasn't an issue, as
-> only the Cortex-A cores ran Linux, and we ignored the other cores (and
-> the related interrupt controllers and hierarchy) in DT.
-> 
-> What do you think?
-> Thanks for your comments!
-> 
-> [1] https://lore.kernel.org/lkml/20220815050815.22340-7-samuel@sholland.org
-> 
-> Gr{oetje,eeting}s,
-> 
->                          Geert
-> 
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                  -- Linus Torvalds
-> 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
