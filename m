@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7881ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C80AC6FA82
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5EL3GWxiTTtyfd4+F5rZsSNYk3IIDcXT0xMHcLi3B3k=; b=AbeKjaXVJT9oiu
-	l//MCktMc5VPcOfWRoohMAWJtwUeOUVDMy63FMn76d7mK/1KO+1hvvMzfZQO/n0j9/9t8jHsyRU8N
-	7+5g9WDP1bqGwOVqk0KmDGOYmVw3N3+ma6CBnWVKoVTTmBXUv/FnkQqsCtKK8YOIrE3J5NOmIO/L5
-	SKquub4cYnUJuSm0iGxT1OdrDwoa3yM5QufZPKOhGqw6UU5MpQB90TgjQQyg5V31nI9BrbEdeXxLT
-	0jACS1TTSz9NhD3u9+bhUQPpSV0W2qznzD5ajSoLQPuF8Zgsn1VLpzlFDYEMNFAyn2sRpupDnz83q
-	bq8dY77IlSbg7lBPVvpA==;
+	List-Owner; bh=baY4sJ0azBfLKFQoZ7SH9gQlD+zXZ0MJjl128nDCbGY=; b=owgj76F5g67qco
+	StZ12/Qvrh5Atpppxi2BFy9tQr+2hedbJb7S2tbTzLpnxpnAHNcqChxksqobXYvUkaJxImJL2AGyY
+	Y1ZIrBkoJPZKj3t28bsZMI8Lhftrc8fpTiCcWVBYndC0J2CuXoTrnBLdhZSppR7XIqHpBTN59c4xd
+	MU+WZ6U6cNObsLytdhZKvuv1QAH+lmLc+UYpvSj2hw/sLTEBuGAx+SPcN6xD81PwH5VeBtWk4tI5s
+	jG9/oNJk32nO9GWsJ1hpC9Y8mRstx/00Hu2Dpmo9USCaBQTYpuIYgfHvh2Gb05jR2ROUH+AUPHTcf
+	W1J/yNzbZydZzZsgN6KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2sj-00C2TV-Hz; Wed, 21 Sep 2022 16:47:29 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1ob2t2-00C2dV-40; Wed, 21 Sep 2022 16:47:48 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2sg-00C2QX-UI
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:47:28 +0000
-Received: by mail-wr1-x434.google.com with SMTP id y5so10910346wrh.3
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:47:24 -0700 (PDT)
+	id 1ob2sz-00C2bx-QW
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:47:47 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id t14so10850740wrx.8
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:47:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
          :date;
-        bh=SfPOL29gvKfJCXS2UHaX/u5ZZWYH7zgP7jlLqWnd/Ds=;
-        b=Ys43HplyPAH2OimY3/+SAvtATb42EFFeFFwUaIv53YGZtCWV02x8QeS/rcczF/2d2M
-         62JkJlpxzuBcKkDULSkDSC2sEgPcd0VLseRi+E4IxnNg/R8GvcLpLSTtS0wTfhHdzMvi
-         CdzZU1NB/iX3/oLDupobdE1j4w1UsolFFma6ffsbFpqE3PCydR7iXwdxn4/xP8qDnjO9
-         rInjANPy7rx627Kgce6PxLOsSslEk0eFxjhdAVmSE/XSYC1Zn3eNBgn5B/HbOnBfaI4V
-         4wrAMoJbyWqPrdFwUarCEH6xx2p2jha40nzhyzfGDUPrdwLsiEYIADa60ZSw3S3PM2wc
-         Peew==
+        bh=OQfg0vHlGZAcqp1vCrJ92OrmG/vN4V+b6Jsl+hTmAIg=;
+        b=pdGoYuOwx5DRYGSfzFyEKt1SIzRLSlYt0AH/lnNM4mV/nAeBTrPtNki0ju9YvB9Pov
+         DvB83tOQJgt6ktyTzTzh7EWL8/1Llk4t+Pw0/737ZQX4kJZoNU2KAFws7BmD+DW+kEh4
+         8BU9Yw/mUeHca4reinffWHDSH7QgzBU1D/0glbo7sMQUsPWs7h4e2Dz9WtEAEaM2mX4R
+         aJJz+Krd6wW8DUL3KJNdNzGANyaz9U1EoqiTtwhjvO8c2wwWvoMWXR2UwE9bHyomVYj8
+         mgf/gg/EL6L1fIwG/qsJi8RYYSK7//zhEBsoui2ItB3kxOW8OZPUfYaYFDjXf2witTMd
+         GWdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
          :from:to:cc:subject:date;
-        bh=SfPOL29gvKfJCXS2UHaX/u5ZZWYH7zgP7jlLqWnd/Ds=;
-        b=njhQ1JfSQJPYficMDGdvcQTadPgomv22SApgyCEXzapAr81ybFoTmSDjG40NIRFgyA
-         XvD4j7HVYNkDt+1y15VyeMfxVq5rUezJMGibbic6EdHG6Z18FW1OczCmFoe9HALi6Dt2
-         qqvYhjhdiMRjXK3muOc8eUdTKCshWEpQa/CnlwaEp2SP8T475OXkf8NVn4ipLO7gEp7Q
-         M9LOex2GlOEyq+9pN/7xUngUV59QWDAir0Tmc++iKK1GnkSAainNINA4PA0rpG0qflpb
-         3gos0b0HozzZwFLPAzGdMJbkpuylFH88mHVS/CMzUimoZUYBebcKkuTaSk9H1wXDj7+W
-         C6ag==
-X-Gm-Message-State: ACrzQf2hcFIgWPe3Y1nZ7pAGeBIyOApnIgYo/jrQUTfsC+jSeMQf6+VA
-	gtIIn5/MqbuDO3onqDlhyB96LPYe3OHdUHGpUj4pzvSHrQ85sQ==
-X-Google-Smtp-Source: AMsMyM7NQZoEgDMWXgGtxSKkvcPa/gwF02Vef1WSEnyMddUo+J6Q/uArjxyi//tn6IM8O/DcvdfysDY/ONADduJ5rcs=
-X-Received: by 2002:adf:dcc8:0:b0:22a:b9e3:bab8 with SMTP id
- x8-20020adfdcc8000000b0022ab9e3bab8mr17948321wrm.341.1663778843031; Wed, 21
- Sep 2022 09:47:23 -0700 (PDT)
+        bh=OQfg0vHlGZAcqp1vCrJ92OrmG/vN4V+b6Jsl+hTmAIg=;
+        b=y8UWvgGPK+CnJkJjrNXNbxKFdfYhf9yM9N1J9J7osLJDrjRYzktPIhH3dvEzHXC1OI
+         I7bxXwqL7iMZtKwNLVDwz49vD+rpn6d2GLZeIV0mS6bPWDMTsLpMMbuAsdzDgzVE//yV
+         Rg8MAO1lA1dKT8TcEmDh5nx3KLiYulkw4uVwKmzFGbpqFmtaFmGMpYNtG5FiIvKJig0E
+         6nchHGEKTPpLCNBlW6WVeqwVUt4sdGTCHzsQEMu61LkMOUXDwIt+ygO7UIJRK7fIVgYg
+         /NyfeyRQ72ZcCWC9QWGUF31pDkXYJ8lwPWfKPkUov3bGGdckx4cVrHn21o3up/Ovpp4I
+         wM2A==
+X-Gm-Message-State: ACrzQf03MyTxPac+Tl6/VFjvUJsvvRfVlevWxO8tdOeyZPHc+C4HzS3L
+	leow4fBppEWYD33z9EICmMRhntMELHY2WcvusyCGLyFy96IEaA==
+X-Google-Smtp-Source: AMsMyM4k1FZ5lHKI9gbfA8Xh+YXoymj5pjr6SD3REsoCNgCjzEpjNlpjR28QJXxV9kzeLeR1TLCDBiQkwS2M+QR07Qo=
+X-Received: by 2002:a05:6000:243:b0:226:d241:11e6 with SMTP id
+ m3-20020a056000024300b00226d24111e6mr17453615wrz.187.1663778864114; Wed, 21
+ Sep 2022 09:47:44 -0700 (PDT)
 MIME-Version: 1.0
 From: Chris Stillson <stillson@rivosinc.com>
-Date: Wed, 21 Sep 2022 09:46:47 -0700
-Message-ID: <CAM2SziXS6hBELhGAO53UpZ_=K=pwZMCWQUzNS6OOtWLVmBQwjg@mail.gmail.com>
-Subject: [PATCH 03/17] riscv: Add new csr defines related to vector extension
+Date: Wed, 21 Sep 2022 09:47:08 -0700
+Message-ID: <CAM2SziULUhiERdo2m8jSHu7jCN9bHXUmvjPO1P_MP1wLrD__Xg@mail.gmail.com>
+Subject: [PATCH 04/17] riscv: Add vector feature to compile
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_094726_999812_75922B25 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220921_094745_884649_72F19C01 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +81,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Follow the riscv vector spec to add new csr numbers.
+This patch adds a new config option which could enable assembler's
+vector feature.
 
-[guoren@linux.alibaba.com: first porting for new vector related csr]
-Acked-by: Guo Ren <guoren@kernel.org>
-Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig  | 15 +++++++++++++--
+ arch/riscv/Makefile |  1 +
+ 2 files changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 0e571f6483d9..78a68f29c3ba 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -24,6 +24,12 @@
- #define SR_FS_CLEAN    _AC(0x00004000, UL)
- #define SR_FS_DIRTY    _AC(0x00006000, UL)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ed66c31e4655..e294d85bfb7d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -432,7 +432,17 @@ config FPU
 
-+#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
-+#define SR_VS_OFF       _AC(0x00000000, UL)
-+#define SR_VS_INITIAL   _AC(0x00000200, UL)
-+#define SR_VS_CLEAN     _AC(0x00000400, UL)
-+#define SR_VS_DIRTY     _AC(0x00000600, UL)
+          If you don't know what to do here, say Y.
+
+-endmenu # "Platform type"
++config VECTOR
++       bool "VECTOR support"
++       depends on GCC_VERSION >= 120000 || CLANG_VERSION >= 130000
++       default n
++       help
++         Say N here if you want to disable all vector related procedure
++         in the kernel.
 +
- #define SR_XS          _AC(0x00018000, UL) /* Extension Status */
- #define SR_XS_OFF      _AC(0x00000000, UL)
- #define SR_XS_INITIAL  _AC(0x00008000, UL)
-@@ -31,9 +37,9 @@
- #define SR_XS_DIRTY    _AC(0x00018000, UL)
-
- #ifndef CONFIG_64BIT
--#define SR_SD          _AC(0x80000000, UL) /* FS/XS dirty */
-+#define SR_SD          _AC(0x80000000, UL) /* FS/VS/XS dirty */
- #else
--#define SR_SD          _AC(0x8000000000000000, UL) /* FS/XS dirty */
-+#define SR_SD          _AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
- #endif
-
- #ifdef CONFIG_64BIT
-@@ -297,6 +303,12 @@
- #define CSR_MIMPID             0xf13
- #define CSR_MHARTID            0xf14
-
-+#define CSR_VSTART             0x8
-+#define CSR_VCSR               0xf
-+#define CSR_VL                 0xc20
-+#define CSR_VTYPE              0xc21
-+#define CSR_VLENB              0xc22
++         If you don't know what to do here, say Y.
 +
- #ifdef CONFIG_RISCV_M_MODE
- # define CSR_STATUS    CSR_MSTATUS
- # define CSR_IE                CSR_MIE
++endmenu
+
+ menu "Kernel features"
+
+@@ -556,6 +566,7 @@ config CMDLINE_EXTEND
+          cases where the provided arguments are insufficient and
+          you don't want to or cannot modify them.
+
++
+ config CMDLINE_FORCE
+        bool "Always use the default kernel command string"
+        help
+@@ -648,7 +659,7 @@ config XIP_PHYS_ADDR
+          be linked for and stored to.  This address is dependent on your
+          own flash usage.
+
+-endmenu # "Boot options"
++endmenu
+
+ config BUILTIN_DTB
+        bool
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 3fa8ef336822..1ec17f3d6d09 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -50,6 +50,7 @@ riscv-march-$(CONFIG_ARCH_RV32I)      := rv32ima
+ riscv-march-$(CONFIG_ARCH_RV64I)       := rv64ima
+ riscv-march-$(CONFIG_FPU)              := $(riscv-march-y)fd
+ riscv-march-$(CONFIG_RISCV_ISA_C)      := $(riscv-march-y)c
++riscv-march-$(CONFIG_VECTOR)           := $(riscv-march-y)v
+
+ # Newer binutils versions default to ISA spec version 20191213 which moves some
+ # instructions from the I extension to the Zicsr and Zifencei extensions.
 --
 2.25.1
 
