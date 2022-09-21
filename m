@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3C6C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 20:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EABDC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 21:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=LVCbPzUrNOFT9TJaCqk6DqYsDyZwjVi1JV58N0XVwtU=; b=CyO5PbV3dljuERzNw91UpQZ6Pv
-	LQdXy+H20vbM9oSmqBzf5HUpkXyf+n3ttz/LZt7pt/vp2A0FYU06o1cowF5rSOyGhELOQVhZK+PjS
-	OUMg6njuZsBdesy6K+KkU8AZSxv9jS1cT6pMZHCyeilRr/o2yNqeif3cwV/fizyEW5Egu9E9Cf+kZ
-	FZrxfGA3ejVvdYGyDeHE5yE14e8xqLYqWgo0J55JOledJ5eyR7ukxVobdiAirp0bugASrCZQywGws
-	q8BZU8X7LtuBoZ9Tlv/7vCGwSOByQzdOHInFRRSKRHWRvQ16JhNwmOExh8MwuJ5DvYMKpClDEQcCV
-	IuUHxPfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=v27QrMpOusijG8LiFfsMqCx31WfwVw+0mJXyh/R9KUg=; b=ELlWxJP4/+wz7y
+	HQMDLdqNUHm8TBn+QfxGiY619pUfqFu7IdvyiZnExks05SzApBjhAvxx+M2HzC/AtF3fG9dLlJI5V
+	FivWZUKTDBXEtmXVPyN1Pb+c67k59OF4vvelTC2tXdq1F8qfysF6fSL+I1NpJSSM6IjAxmFGakhE9
+	B36kETgOL6WoNi5MOw4/A2eWnHiWXO4lmBBBr2G0ammkbvfpNKqmpFSiD0YYiqDPRAAQ3OLuEdpO5
+	yIsp3+HfTpvrpSe8Ok3TdNsBXE29XmWPHf+eHrRpGv+xcF0gSC6KBqFCgaj03h8ohshDJYQVIzbYy
+	/vYWNLVM2Z0k9xGWh2vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob6HQ-00CaJp-Qo; Wed, 21 Sep 2022 20:25:12 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1ob6qh-00CdXH-GI; Wed, 21 Sep 2022 21:01:39 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob6HL-00CaJK-J7
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 20:25:11 +0000
-Received: by mail-pf1-x432.google.com with SMTP id l65so7101777pfl.8
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 13:25:06 -0700 (PDT)
+	id 1ob5gH-00CUSp-Dj
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 19:46:54 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id q3so7538811pjg.3
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 12:46:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=sqG2AIDQKKDIE+aKBMVPmM2IG52evSEYbtT3naoareY=;
-        b=BBSldU+bSB4OlpR9ZugkdEuCgPBnKNc+8QbIKCogH4mDwvWJ9SnKnG2omcEjKB4djJ
-         Tih3+qSVPrty+9QPwr2RGb/XzY++8EKchwWodpep1/VYX3d6IO41WIL7wK3js2pSq1je
-         tXfGQwpOgAWMDbIov1mD+/XnKLu0nQzYOom2W+IwKC8+Oq/pn2qAQKAMb2ApWwFd+SIT
-         HsWpb5ULu6TZqVKmW44N2UeOxmqFihUWiChncYu3TOvzxVznBE/CW+cQz83GqpUQkVkg
-         q6Mi0tGHmMuVGrXSFiXABJooHQr0egYvAIZ3MYbprwMJERtGe+okOe/oMz1w7zprMfc6
-         xRbw==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date;
+        bh=J9b9l3yY2m8G7A07w4tzSkwufsM0I3mO38JP9h/2N5I=;
+        b=qT3rG4+UY6ZHueV4pwdtaLQ5y5MOqL1qfXgYw6Fdk748lJ5EwZIT7elmx6WouvRTKs
+         dAajgCe7AXjYlc63ZN1THzdNvS6oQK1U44m9RRm5IifyAlOahrgDNZCH/MJ3fSoWSykO
+         coPsK7sLIYG4JI26CDvX6hln0m2PzBx5OR3rgc5epoC9ELrxwLQvlt20rKsk/5eOTM2m
+         AP7fv01CnFTto6+d6moX3VQi5zESmFecDC4YfdXL8r/EKrdyOaroy5t2JNllsnOnF6FV
+         oA5MNMwMom0ls65rNq/DwoGCDqLDTTwPjqyy57Q7J7AbbNJW5azvv/Ev7jCZZNqRqPjo
+         hf2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=sqG2AIDQKKDIE+aKBMVPmM2IG52evSEYbtT3naoareY=;
-        b=awbYEWaHg6Hhz/GIZPlpmfZicXx6SkLt6xHQ6rgWwpd5p+5+HWm+8YOZkPw6saW+xU
-         VyA/4ZZcb3Lkxl7spAbpzh7ZOcmKXmkZSGElPznx90xuZ8arTdIgi3xYs3zTyJ7NKwhx
-         Gmx9ZGADeeroG6pdPfqoVOXZTCk4FOPv26NdiXjpSuu8lFf+43dhl0ci6Y8Pvmt/+1mX
-         sojDrEyyK3MqPjiUbayzsPXhM/C0bPpCqZqMzYIo7fLeURM9cGqTRLJo5T8pWH3LDzm3
-         UXrTzLBCwgentvv6FIlOuayUb4Bzu4b6gY+U4XKwPlqbV9SOOCvvM7d3TvHrKQJIuR4m
-         lqKg==
-X-Gm-Message-State: ACrzQf1SHowHmMelu1WTIor47l5Q5IePTNiXpc97jnoqK+gg98NC/JOb
-	c0JqdXU3NJoCDywVG20n1Ziq9Q==
-X-Google-Smtp-Source: AMsMyM6o8G1z4hT/AOp7wIZTc+0oakeB6QJKQLscLYOK+iFgjuptTVMCsMqJ0+ePeCH5Dpd7ApeZtQ==
-X-Received: by 2002:a05:6a00:3392:b0:547:f861:1fad with SMTP id cm18-20020a056a00339200b00547f8611fadmr31009348pfb.16.1663791905942;
-        Wed, 21 Sep 2022 13:25:05 -0700 (PDT)
-Received: from localhost (p200300ee3707fe003af25da13a798889.dip0.t-ipconnect.de. [2003:ee:3707:fe00:3af2:5da1:3a79:8889])
-        by smtp.gmail.com with ESMTPSA id s17-20020a170902ea1100b00176b5035045sm2419819plg.202.2022.09.21.13.25.03
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date;
+        bh=J9b9l3yY2m8G7A07w4tzSkwufsM0I3mO38JP9h/2N5I=;
+        b=n+t/kMu13V4BzcLarSQ5fZoY2r2tKpceh30sJ1L2tqPsBwaBCAg9ygeOacE2ccG8rM
+         nJVbwBqkUYnNk9P2nrwtqp7UwuPkTDEaNnohxT37E3TbpGuyup2BzllEts+xmDwNJcFg
+         /GwhygaoSfhbBj0UazICN9dn7BBXElijCI3EH7ACxJGOLr8MUdVMRXhxZEyoD0q9siFp
+         UNLcLMEqU0RW3nn027RO9mjmz1Y7ZgeCWCPUHsP+vKcc5ry4u5UZLQhJeFJOuNyiaGUv
+         Shmx6dTZ2kEFrQ7ep+VFkuBSoJzegIC2UH66nAaCaIKToqcD/akP8T3Yd1Mtc08KlQ2E
+         rUyQ==
+X-Gm-Message-State: ACrzQf2scgw9EgyUThe/Xb/UojAqVZPex+QTCjBHdIwz+5rueXVyKnwy
+	G1c5SwDg9TfrLtN4uXMticlD/NiapmNOAg==
+X-Google-Smtp-Source: AMsMyM5Q1ud1GqAUFfaSMp8EZvAG6pOyphxNIZ+JSc9R4ZHjsLnnuEYQeXL0g0hwMz3XO54QzCnxTg==
+X-Received: by 2002:a17:90b:1d8c:b0:202:c689:fa33 with SMTP id pf12-20020a17090b1d8c00b00202c689fa33mr11379236pjb.58.1663789602169;
+        Wed, 21 Sep 2022 12:46:42 -0700 (PDT)
+Received: from stillson.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id o2-20020aa79782000000b0054aa69bc192sm2551057pfp.72.2022.09.21.12.46.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Sep 2022 13:25:04 -0700 (PDT)
-Date: Wed, 21 Sep 2022 13:25:04 -0700 (PDT)
-X-Google-Original-Date: Wed, 21 Sep 2022 08:31:52 PDT (-0700)
-Subject: Re: [PATCH -next v2 2/2] riscv: extable: add new extable type EX_TYPE_KACCESS_ERR_ZERO support
-In-Reply-To: <301cd27e-d003-584b-2eb0-8fa025348cff@huawei.com>
-CC: ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, Conor.Dooley@microchip.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com, guohanjun@huawei.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: tongtiangen@huawei.com
-Message-ID: <mhng-b5608339-68e0-4706-9002-50ba006b4d05@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Wed, 21 Sep 2022 12:46:41 -0700 (PDT)
+From: Chris Stillson <stillson@rivosinc.com>
+To: linux-riscv@lists.infradead.org,
+	jpalmer@dabbelt.com,
+	kvm-riscv@lists.infradead.org
+Cc: Chris Stillson <stillson@rivosinc.com>
+Subject: [PATCH 00/17] Prctl to enable vector commands, previous vector patches rebased
+Date: Wed, 21 Sep 2022 12:46:12 -0700
+Message-Id: <20220921194629.1480202-1-stillson@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_132507_652704_B66FB19A 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20220921_124649_484368_9B89E7EF 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,56 +82,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAyNyBBdWcgMjAyMiAwMzozOTozOCBQRFQgKC0wNzAwKSwgdG9uZ3RpYW5nZW5AaHVh
-d2VpLmNvbSB3cm90ZToKPgo+Cj4g5ZyoIDIwMjIvOC8yNiAxNjoxNiwgQW5kcmV3IEpvbmVzIOWG
-memBkzoKPj4gT24gRnJpLCBBdWcgMjYsIDIwMjIgYXQgMDI6NDQ6NDhQTSArMDgwMCwgVG9uZyBU
-aWFuZ2VuIHdyb3RlOgo+Pj4KPj4+Cj4+PiDlnKggMjAyMi84LzI1IDE5OjA2LCBBbmRyZXcgSm9u
-ZXMg5YaZ6YGTOgo+Pj4+IE9uIE1vbiwgQXVnIDE1LCAyMDIyIGF0IDAzOjIwOjI1QU0gKzAwMDAs
-IFRvbmcgVGlhbmdlbiB3cm90ZToKPj4+Pj4gQ3VycmVudGx5LCBUaGUgZXh0YWJsZSB0eXBlIEVY
-X1RZUEVfVUFDQ0VTU19FUlJfWkVSTyBpcyB1c2VkIGJ5Cj4+Pj4+IF9fZ2V0L3B1dF9rZXJuZWxf
-bm9mYXVsdCgpLCBidXQgdGhvc2UgaGVscGVycyBhcmUgbm90IHVhY2Nlc3MgdHlwZSwgc28gd2UK
-Pj4+Pj4gYWRkIGEgbmV3IGV4dGFibGUgdHlwZSBFWF9UWVBFX0tBQ0NFU1NfRVJSX1pFUk8gd2hp
-Y2ggY2FuIGJlIHVzZWQgYnkKPj4+Pj4gX19nZXQvcHV0X2tlcm5lbF9ub19mYXVsdCgpLgo+Pj4+
-Pgo+Pj4+PiBPbmx5IHJlZmFjdG9yIGNvZGUgd2l0aG91dCBhbnkgZnVuY3Rpb25hbCBjaGFuZ2Vz
-Lgo+Pj4+Cj4+Pj4gVGhpcyBpc24ndCBxdWl0ZSB0cnVlLiBfX2dldC9wdXRfa2VybmVsX25vZmF1
-bHQgbm93IHNldHMgYSBkaWZmZXJlbnQKPj4+PiBleHRhYmxlIHR5cGUgKGFzIHRoZSBjb21taXQg
-bWVzc2FnZSBzYXlzKS4gQnV0LCBub3RoaW5nIHNwZWNpYWwgc2VlbXMKPj4+PiB0byBiZSBkb25l
-IHdpdGggdGhhdCwgc28gdGhlcmUncyBlZmZlY3RpdmVseSBubyBmdW5jdGlvbmFsIGNoYW5nZS4g
-Q2FuCj4+Pj4geW91IHBsZWFzZSBlbGFib3JhdGUgb24gdGhlIG1vdGl2YXRpb24gZm9yIHRoaXMg
-Y2hhbmdlPyBXaGVyZSB3aWxsIHRoZQo+Pj4+IEtBQ0NFU1MgdHlwZSBuZWVkIHRvIGJlIGRpc3Rp
-bmd1aXNoZWQgZnJvbSB0aGUgVUFDQ0VTUyB0eXBlPwo+Pj4KPj4+IFRoZSBpbnRyb2R1Y3Rpb24g
-b2YgRVhfVFlQRV9LQUNDRVNTX0VSUl9aRVJPIGRvZXMgbm90IGNoYW5nZSBhbnkgZnVuY3Rpb24s
-Cj4+PiBidXQgbWFrZXMgYSBjb3JyZWN0IGRpc3RpbmN0aW9uIGluIHRoZSBhY3R1YWwgdHlwZSwg
-aW5kaWNhdGluZyB0aGF0IHRoZXJlCj4+PiBhcmUgaW5kZWVkIHNvbWUga2FjY2VzcyBlbnRyaWVz
-IGluIGV4dGFibGUuIEkgdGhpbmsgdGhpcyBvcHRpbWl6YXRpb24gaXMKPj4+IG1vcmUgY2xlYXIg
-YW5kIHJlYXNvbmFibGUuCj4+Cj4+IFdlbGwsIGNyZWF0aW5nIG5ldyB0eXBlcywganVzdCBmb3Ig
-bmV3IHR5cGUgc2FrZSwganVzdCBibG9hdHMgY29kZS4KPj4KPj4+Cj4+PiBBIGZldyB3ZWVrcyBh
-Z28sIEkgZGlkIHNvbWV0aGluZyBzaW1pbGFyIG9uIGFybTY0WzFdLiBJIHRoaW5rIHRoaXMKPj4+
-IG9wdGltaXphdGlvbiBjYW4gYWxzbyBiZSB1c2VkIG9uIHJpc2N2Lgo+Pj4KPj4+IFdlIGNhbiBk
-byBzb21lIGZlYXR1cmVzIHRoYXQgYXJlIHVzZWQgb24gdWFjY3NzIGJ1dCBub3QgYXBwbGljYWJs
-ZSBvbgo+Pj4ga2FjY2VzcyBpbiB0aGUgZnV0dXJlWzJdLgo+Pj4KPj4+IFsxXQo+Pj4gaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIyMDYyMTA3MjYzOC4xMjczNTk0LTItdG9uZ3RpYW5n
-ZW5AaHVhd2VpLmNvbS8KPj4+IFsyXWh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMjA4
-MTIwNzA1NTcuMTAyODQ5OS00LXRvbmd0aWFuZ2VuQGh1YXdlaS5jb20vCj4+Pgo+Pgo+PiBUaGlz
-IGlzIHBhcnQgb2YgdGhlIGluZm9ybWF0aW9uLCBidXQgSSBoYWQgYWxyZWFkeSBmb3VuZCB0aGlz
-LiBXaGF0J3MKPj4gc3RpbGwgbWlzc2luZyB0byBtZSBhcmUgdGhlIHJpc2N2IHBhdGNoZXMsIG9y
-IGF0IGxlYXN0IGEgcmlzY3YgcGxhbiwgZm9yCj4+IGFjdHVhbGx5IGltcGxlbWVudGluZyBzb21l
-dGhpbmcgd2hpY2ggcmVxdWlyZXMga2FjY2VzcyBhbmQgdWFjY2VzcyB0byBoYXZlCj4+IGRpc3Rp
-bmN0IHR5cGVzLgo+Pgo+PiBUaGFua3MsCj4+IGRyZXcKPgo+IEF0IHByZXNlbnQsIHRoZXJlIGlz
-IG5vIHN1Y2ggcGxhbiBvbiByaXNjdiwgYmVjYXVzZSBpdCBpcyByZWx5IG9uCj4gaGFyZHdhcmUg
-c3VwcG9ydC4KPiBJIHRoaW5rIHRoaXMgcGF0Y2ggY2FuIGJlIG1lcmdlZCBhcyBhIHNtYWxsIGNv
-ZGUgb3B0aW1pemF0aW9uIGFuZAo+IHdpdGhvdXQgYW55IGZ1bmN0aW9uIGNoYW5nZS4KCkdlbmVy
-YWxseSB3ZSBuZWVkIHNvbWUgdXNlIG9mIHRoZSBjb2RlIGluIHRoZSB1cHN0cmVhbSBrZXJuZWwg
-dG8ganVzdGlmeSAKaXRzIGV4aXN0ZW5jZS4gIEluIHRoaXMgY2FzZSBJIGRvbid0IHJlYWxseSBz
-ZWUgdGhhdDogaXQncyBqdXN0IGFub3RoZXIgCnR5cGUgdGhhdCdzIGV4YWN0bHkgdGhlIHNhbWUg
-YXMgdGhlIGV4aXN0aW5nIG9uZSwgaGF2aW5nIHNvbWUgb3V0IG9mIAp0cmVlIGNvZGUgdGhhdCBk
-ZXBlbmRzIG9uIG1ha2luZyB0aGVzZSB0eXBlcyBkbyBzb21ldGhpbmcgZGlmZmVyZW50IAppc24n
-dCBhIHN1ZmZpY2llbnQganVzdGlmaWNhdGlvbi4KCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+This patch adds a prctl to enable, disable, or query whether vectors are enabled or not.  This is to allow a process to "opt out" of the overhead incurred by using vectors. Because this is build on top of an existing set of patches to work with vectors, they have been rebased to Linux 6.0-rc1.  
+
+
+Chris Stillson (1):
+  riscv: prctl to enable vector commands
+
+Greentime Hu (9):
+  riscv: Add new csr defines related to vector extension
+  riscv: Add has_vector/riscv_vsize to save vector features.
+  riscv: Add vector struct and assembler definitions
+  riscv: Add task switch support for vector
+  riscv: Add ptrace vector support
+  riscv: Add sigcontext save/restore for vector
+  riscv: Add support for kernel mode vector
+  riscv: Add vector extension XOR implementation
+  riscv: Fix a kernel panic issue if $s2 is set to a specific value
+    before entering Linux
+
+Guo Ren (4):
+  riscv: Rename __switch_to_aux -> fpu
+  riscv: Extending cpufeature.c to detect V-extension
+  riscv: Add vector feature to compile
+  riscv: Reset vector register
+
+Vincent Chen (3):
+  riscv: signal: Report signal frame size to userspace via auxv
+  riscv: Add V extension to KVM ISA allow list
+  riscv: KVM: Add vector lazy save/restore support
+
+ arch/riscv/Kconfig                       |  15 +-
+ arch/riscv/Makefile                      |   1 +
+ arch/riscv/configs/defconfig             |   6 +
+ arch/riscv/include/asm/csr.h             |  16 ++-
+ arch/riscv/include/asm/elf.h             |  47 +++---
+ arch/riscv/include/asm/hwcap.h           |   1 +
+ arch/riscv/include/asm/kvm_host.h        |   2 +
+ arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
+ arch/riscv/include/asm/processor.h       |   9 ++
+ arch/riscv/include/asm/switch_to.h       |  83 ++++++++++-
+ arch/riscv/include/asm/vector.h          |  17 +++
+ arch/riscv/include/asm/xor.h             |  82 +++++++++++
+ arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+ arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+ arch/riscv/include/uapi/asm/kvm.h        |   7 +
+ arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
+ arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
+ arch/riscv/kernel/Makefile               |   2 +
+ arch/riscv/kernel/asm-offsets.c          |  15 ++
+ arch/riscv/kernel/cpufeature.c           |  21 +++
+ arch/riscv/kernel/entry.S                |   6 +-
+ arch/riscv/kernel/head.S                 |  37 ++++-
+ arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
+ arch/riscv/kernel/process.c              |  61 ++++++++
+ arch/riscv/kernel/ptrace.c               |  71 ++++++++++
+ arch/riscv/kernel/riscv_ksyms.c          |   6 +
+ arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
+ arch/riscv/kernel/vector.S               | 102 +++++++++++++
+ arch/riscv/kvm/Makefile                  |   1 +
+ arch/riscv/kvm/vcpu.c                    |  32 +++++
+ arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
+ arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
+ arch/riscv/lib/Makefile                  |   1 +
+ arch/riscv/lib/xor.S                     |  81 +++++++++++
+ include/uapi/linux/elf.h                 |   1 +
+ include/uapi/linux/prctl.h               |   6 +
+ kernel/sys.c                             |   7 +
+ 37 files changed, 1355 insertions(+), 42 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
+ create mode 100644 arch/riscv/include/asm/vector.h
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+ create mode 100644 arch/riscv/kernel/vector.S
+ create mode 100644 arch/riscv/kvm/vcpu_vector.c
+ create mode 100644 arch/riscv/lib/xor.S
+
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
