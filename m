@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D65C32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128EFC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8LO38wxJQr64GL096RB6tyXEORr8lQ1SiEXc2l8UOcU=; b=blhEz35YKW1aJf
-	yl/NuukqGOLSj0/fnVvqKQ8+VQpm5VL7iXUQiMdOCmVXrfYzOf4vIUyaRzHYzYfKE842MGKQ+Qp1A
-	+jD9WHb/6WXabjpyCz4rwuZqch2BqOdUIbTKPZyD/mqzhoAwZpXw7Hku7EK6gegv1z8fIW031q4nJ
-	F24NRZZZrgomqMmvOucq8rSj47EwPeI4aeeMW7DoRLy36dPaQlois35hIZrcLx608zTrJxF/QHJWs
-	KKh04bhDt+6EnrUXpWD+OQ4uiaLggVog3TBsAXAEtOQvhlIN6HkJRn0xQVPwrYeTLwIWMOsFXYEOR
-	jsZ+YyBmeEZDmTXhKhXA==;
+	List-Owner; bh=FysVhXaxy4JUxuvt9y/7A28RtFyLbl7aOzmbPA5PcEE=; b=SaCjd+VxQh/afh
+	R5BCF6Xv7rb8/rnfyFUymf7Ta5Q/mnQeclS9hG9PZ1cypGNeAAXAdSLWAKuwrERoWcIU7qegkTkm5
+	jFEOOUpRFNgZM8rn1hYPLft+kAqUNLVJyhBjV0aawJBPSpb9WeR6wmfQqYQXvgpncEJsoVfbVnviR
+	Za/BoZNqM/aKmz0aVjt2/GgG4J/KzogOejPtlIiNPajbCLiG8KwXhI3XsWlURR5R8MFdgQtouNY/0
+	PYxKj/beTrNlGl6oeQEl77kP3UKDOG5SHDOFdmUo3tXIaZsa2eeExbJbDcVOdmDYAXKOhHYupJVlQ
+	xQUBb60zuqp6w7lJ/RJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqTV-008ZGV-C6; Wed, 21 Sep 2022 03:32:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oaqTo-008ZTA-3y; Wed, 21 Sep 2022 03:32:56 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqSw-008Z1M-9E; Wed, 21 Sep 2022 03:32:06 +0000
+	id 1oaqT2-008Z3V-E6; Wed, 21 Sep 2022 03:32:09 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BEBBA62F21;
+	by ams.source.kernel.org (Postfix) with ESMTPS id C7DA3B82DA0;
+	Wed, 21 Sep 2022 03:32:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9C1FC43470;
 	Wed, 21 Sep 2022 03:32:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5B73C4347C;
-	Wed, 21 Sep 2022 03:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663731121;
-	bh=PqtTeTuX/9cuTV4f8ppEtuFHBczU7wArbGTDlrJgeWU=;
+	s=k20201202; t=1663731125;
+	bh=MxNuze7CJb1Pmp8L25+DA/brD4eP/MM76a60K8U4Mcs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nldOaCBpVw+C+u8TmKEqYZhhSaCX2zQBHYnsztEFpbDtw4ZpzaAQyFaXislCWDIcI
-	 3xWCJ70+m/yKVADuEPGTE/kyzj1c8IPnawBARucJCBzW9KgSA4Ftqw+hvAn71lsw0p
-	 5dRRwAKx207iFs3INCyKoTGCgqWxMtqOJxoPPjJlmuPxJL2wdYxZhEp/JHp3CK970B
-	 QM+EXvLmlwy9dSUWyKc7X5pKJ1PtmhbvlHMKbCkIIetUFT4MEzWGCWchzCMwqVEa6L
-	 hKbZEtTKGfl/qcDMcSczaLH614kCQJlQuz7UuKqa1k5HaSvoDDrOAYNvmlnpY3+JBJ
-	 tkG9h6e9iAG/g==
+	b=FRxeTfpE+CmJ/UHg18U/YEKM1cdw9Nd3/ZrMO+2WFlPQcIVZmG+oLxSeOIhiqj56m
+	 30PUkA8R4skrh/squVPaUW2yj1m6I8Fo5mLX3/pyuNyIY0OMQbhrQluBMmcoKAjmu2
+	 Zp9XtC37CjSARm5j/qE2CdK2w6c/YsSL57SNs8KPW0ZFXTLDliXZx30woV5Knoc4aO
+	 Y4fy+5wVX9wUM83y8byyhaKmtUaLVvmFLCg4E3MWPFgbYzy8ihHsV+AxJ4PVnE7ja0
+	 e/nLwc2DtA6WcmfvtE/jt0kHwDO9FPdhe6hUBQ+s/2HzV96A/6IIm2nnsA3rIs9ogo
+	 gnPzMokyo8yAA==
 From: guoren@kernel.org
 To: xianting.tian@linux.alibaba.com,
 	palmer@dabbelt.com,
@@ -56,17 +56,18 @@ Cc: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>,
-	Nick Kossifidis <mick@ics.forth.gr>
-Subject: [PATCH V4 2/3] riscv: kexec: Fixup crash_smp_send_stop without multi cores
-Date: Tue, 20 Sep 2022 23:31:33 -0400
-Message-Id: <20220921033134.3133319-3-guoren@kernel.org>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH V4 3/3] arch: crash: Remove duplicate declaration in smp.h
+Date: Tue, 20 Sep 2022 23:31:34 -0400
+Message-Id: <20220921033134.3133319-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220921033134.3133319-1-guoren@kernel.org>
 References: <20220921033134.3133319-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_203202_497804_C082CE4B 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20220920_203208_631422_2306C40F 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,230 +86,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Current crash_smp_send_stop is the same as the generic one in
-kernel/panic and misses crash_save_cpu in percpu. This patch is inspired
-by 78fd584cdec0 ("arm64: kdump: implement machine_crash_shutdown()")
-and adds the same mechanism for riscv.
+Remove crash_smp_send_stop declarations in arm64, x86 asm/smp.h which
+has been done in include/linux/smp.h.
 
-Fixes: ad943893d5f1 ("RISC-V: Fixup schedule out issue in machine_crash_shutdown()")
-Reviewed-by: Xianting Tian <xianting.tian@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Nick Kossifidis <mick@ics.forth.gr>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>
 ---
- arch/riscv/include/asm/smp.h      |  3 +
- arch/riscv/kernel/machine_kexec.c | 21 ++-----
- arch/riscv/kernel/smp.c           | 97 ++++++++++++++++++++++++++++++-
- 3 files changed, 103 insertions(+), 18 deletions(-)
+ arch/arm64/include/asm/smp.h | 1 -
+ arch/x86/include/asm/crash.h | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index d3443be7eedc..3831b638ecab 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -50,6 +50,9 @@ void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops);
- /* Clear IPI for current CPU */
- void riscv_clear_ipi(void);
+diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+index fc55f5a57a06..a108ac93fd8f 100644
+--- a/arch/arm64/include/asm/smp.h
++++ b/arch/arm64/include/asm/smp.h
+@@ -141,7 +141,6 @@ static inline void cpu_panic_kernel(void)
+  */
+ bool cpus_are_stuck_in_kernel(void);
  
-+/* Check other CPUs stop or not */
-+bool smp_crash_stop_failed(void);
-+
- /* Secondary hart entry */
- asmlinkage void smp_callin(void);
+-extern void crash_smp_send_stop(void);
+ extern bool smp_crash_stop_failed(void);
+ extern void panic_smp_self_stop(void);
  
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index db41c676e5a2..2d139b724bc8 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -140,22 +140,6 @@ void machine_shutdown(void)
- #endif
- }
+diff --git a/arch/x86/include/asm/crash.h b/arch/x86/include/asm/crash.h
+index 8b6bd63530dc..6a9be4907c82 100644
+--- a/arch/x86/include/asm/crash.h
++++ b/arch/x86/include/asm/crash.h
+@@ -7,6 +7,5 @@ struct kimage;
+ int crash_load_segments(struct kimage *image);
+ int crash_setup_memmap_entries(struct kimage *image,
+ 		struct boot_params *params);
+-void crash_smp_send_stop(void);
  
--/* Override the weak function in kernel/panic.c */
--void crash_smp_send_stop(void)
--{
--	static int cpus_stopped;
--
--	/*
--	 * This function can be called twice in panic path, but obviously
--	 * we execute this only once.
--	 */
--	if (cpus_stopped)
--		return;
--
--	smp_send_stop();
--	cpus_stopped = 1;
--}
--
- static void machine_kexec_mask_interrupts(void)
- {
- 	unsigned int i;
-@@ -230,6 +214,11 @@ machine_kexec(struct kimage *image)
- 	void *control_code_buffer = page_address(image->control_code_page);
- 	riscv_kexec_method kexec_method = NULL;
- 
-+#ifdef CONFIG_SMP
-+	WARN(smp_crash_stop_failed(),
-+		"Some CPUs may be stale, kdump will be unreliable.\n");
-+#endif
-+
- 	if (image->type != KEXEC_TYPE_CRASH)
- 		kexec_method = control_code_buffer;
- 	else
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 760a64518c58..8c3b59f1f9b8 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -12,6 +12,7 @@
- #include <linux/clockchips.h>
- #include <linux/interrupt.h>
- #include <linux/module.h>
-+#include <linux/kexec.h>
- #include <linux/profile.h>
- #include <linux/smp.h>
- #include <linux/sched.h>
-@@ -22,11 +23,13 @@
- #include <asm/sbi.h>
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
-+#include <asm/cpu_ops.h>
- 
- enum ipi_message_type {
- 	IPI_RESCHEDULE,
- 	IPI_CALL_FUNC,
- 	IPI_CPU_STOP,
-+	IPI_CPU_CRASH_STOP,
- 	IPI_IRQ_WORK,
- 	IPI_TIMER,
- 	IPI_MAX
-@@ -71,6 +74,32 @@ static void ipi_stop(void)
- 		wait_for_interrupt();
- }
- 
-+#ifdef CONFIG_KEXEC_CORE
-+static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
-+
-+static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+{
-+	crash_save_cpu(regs, cpu);
-+
-+	atomic_dec(&waiting_for_crash_ipi);
-+
-+	local_irq_disable();
-+
-+#ifdef CONFIG_HOTPLUG_CPU
-+	if (cpu_has_hotplug(cpu))
-+		cpu_ops[cpu]->cpu_stop();
-+#endif
-+
-+	for(;;)
-+		wait_for_interrupt();
-+}
-+#else
-+static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+{
-+	unreachable();
-+}
-+#endif
-+
- static const struct riscv_ipi_ops *ipi_ops __ro_after_init;
- 
- void riscv_set_ipi_ops(const struct riscv_ipi_ops *ops)
-@@ -124,8 +153,9 @@ void arch_irq_work_raise(void)
- 
- void handle_IPI(struct pt_regs *regs)
- {
--	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
--	unsigned long *stats = ipi_data[smp_processor_id()].stats;
-+	unsigned int cpu = smp_processor_id();
-+	unsigned long *pending_ipis = &ipi_data[cpu].bits;
-+	unsigned long *stats = ipi_data[cpu].stats;
- 
- 	riscv_clear_ipi();
- 
-@@ -154,6 +184,10 @@ void handle_IPI(struct pt_regs *regs)
- 			ipi_stop();
- 		}
- 
-+		if (ops & (1 << IPI_CPU_CRASH_STOP)) {
-+			ipi_cpu_crash_stop(cpu, get_irq_regs());
-+		}
-+
- 		if (ops & (1 << IPI_IRQ_WORK)) {
- 			stats[IPI_IRQ_WORK]++;
- 			irq_work_run();
-@@ -176,6 +210,7 @@ static const char * const ipi_names[] = {
- 	[IPI_RESCHEDULE]	= "Rescheduling interrupts",
- 	[IPI_CALL_FUNC]		= "Function call interrupts",
- 	[IPI_CPU_STOP]		= "CPU stop interrupts",
-+	[IPI_CPU_CRASH_STOP]	= "CPU stop (for crash dump) interrupts",
- 	[IPI_IRQ_WORK]		= "IRQ work interrupts",
- 	[IPI_TIMER]		= "Timer broadcast interrupts",
- };
-@@ -235,6 +270,64 @@ void smp_send_stop(void)
- 			   cpumask_pr_args(cpu_online_mask));
- }
- 
-+#ifdef CONFIG_KEXEC_CORE
-+/*
-+ * The number of CPUs online, not counting this CPU (which may not be
-+ * fully online and so not counted in num_online_cpus()).
-+ */
-+static inline unsigned int num_other_online_cpus(void)
-+{
-+	unsigned int this_cpu_online = cpu_online(smp_processor_id());
-+
-+	return num_online_cpus() - this_cpu_online;
-+}
-+
-+void crash_smp_send_stop(void)
-+{
-+	static int cpus_stopped;
-+	cpumask_t mask;
-+	unsigned long timeout;
-+
-+	/*
-+	 * This function can be called twice in panic path, but obviously
-+	 * we execute this only once.
-+	 */
-+	if (cpus_stopped)
-+		return;
-+
-+	cpus_stopped = 1;
-+
-+	/*
-+	 * If this cpu is the only one alive at this point in time, online or
-+	 * not, there are no stop messages to be sent around, so just back out.
-+	 */
-+	if (num_other_online_cpus() == 0)
-+		return;
-+
-+	cpumask_copy(&mask, cpu_online_mask);
-+	cpumask_clear_cpu(smp_processor_id(), &mask);
-+
-+	atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
-+
-+	pr_crit("SMP: stopping secondary CPUs\n");
-+	send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
-+
-+	/* Wait up to one second for other CPUs to stop */
-+	timeout = USEC_PER_SEC;
-+	while ((atomic_read(&waiting_for_crash_ipi) > 0) && timeout--)
-+		udelay(1);
-+
-+	if (atomic_read(&waiting_for_crash_ipi) > 0)
-+		pr_warn("SMP: failed to stop secondary CPUs %*pbl\n",
-+			cpumask_pr_args(&mask));
-+}
-+
-+bool smp_crash_stop_failed(void)
-+{
-+	return (atomic_read(&waiting_for_crash_ipi) > 0);
-+}
-+#endif
-+
- void smp_send_reschedule(int cpu)
- {
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
+ #endif /* _ASM_X86_CRASH_H */
 -- 
 2.36.1
 
