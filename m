@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EEFEECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 14:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A70C6FA82
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xhVvD9UpzOfk9BYfA7wjl82dja5rMFhXkMId7dsDELw=; b=uOkBhfKqjFchEO
-	0txqwE7+7eC4Lu9maN/sk7k+gutvT0+WjlSYPrVr1eKkuxWf9vdJ/EdrwoygtY4/nIemmg1/5/hRL
-	dYYde5zs3TWX+vU45pjdbD0jYILo2xDez+0CctTpniflRizr8RMVXvt1VGexq315UqHY1tFXm1wU/
-	83Nub6xrdLDK3xbRD3vEXw4di59ItOzgTequHQpo9cHxmIhoJueCThw6PFxxuvIGAYz+AVJ7hlePs
-	haiCUr2ZHE4KbLMdkAfoDuSoXWmbXzVNwgRPLkMl50a+MeosAvSrUm66SXe7V6dQO5k4dkRCu+7sw
-	eelk0F7D+rl5W0mwJFGw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ePTwznnZrj9Zk347dxs+517gGKtEUw4hJP3ntBBj6Ko=; b=UPeTTxiy07SDw9
+	xqSo+yJRvTjoal/xTMI0As3HOK1A/PTS1zciMP96+rvjkgyxBvQPd58Cg6SOI9RZnceuPjnNKqYIW
+	4JuClfBwIiibX3VV9lYIx2yZsnWANdOhR1Sbt6jWNHFKnMLw32t3iVD3bPs4pRzvxR9wfV+co6BGK
+	tWo7h/qq1+TBhgzaK7+86wJCh1fIULH62WxZAocWwU0xNR5ah4/8zp+0RFLK+CbLuIV17XIzV04E8
+	TZ+13+/F0vdWSugoZT1yCFY/j8SVQj0JJusOL5MNAm8vabPfaKs6QkqV5Wtl3Z9lW8rweeqgpXR6a
+	O8qcY3R/tUoiepYeMKow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob0JZ-00BVFF-Li; Wed, 21 Sep 2022 14:03:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob0JW-00BVDL-GC
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 14:03:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B6F88139F;
-	Wed, 21 Sep 2022 07:03:00 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DAADC3F73B;
-	Wed, 21 Sep 2022 07:02:50 -0700 (PDT)
-Date: Wed, 21 Sep 2022 15:02:39 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Chen Zhongjin <chenzhongjin@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, peterz@infradead.org,
-	mingo@redhat.com, acme@kernel.org,
-	alexander.shishkin@linux.intel.com, namhyung@kernel.org,
-	jolsa@kernel.org, guoren@kernel.org, frederic@kernel.org,
-	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org,
-	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com
-Subject: Re: [PATCH for-next v2 0/4] riscv: Improvments for stacktrace
-Message-ID: <YysZf2Y37QMBDt8n@FVFF77S0Q05N>
-References: <20220921125128.33913-1-chenzhongjin@huawei.com>
+	id 1ob2qk-00C1sE-Rm; Wed, 21 Sep 2022 16:45:26 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ob2qi-00C1rS-0P
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:45:26 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id fn7-20020a05600c688700b003b4fb113b86so1252927wmb.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:45:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date;
+        bh=maY7kzPHhfOL6zo3BmzT6qOiBQ7Fki1aPrDYWudhkyM=;
+        b=c+oKe5GQ0lFHDR/sMWCjRwxwLwpvGvSr57ny7NZfyENkJ9qshx0VaFnQ0mSLaOgxvC
+         z+PpO1P5p7Hcug+QkyIvRHgQTO3txqBMkvY9EZpRjtrRFNpSevqH4bC3rku0NR09d+UQ
+         fMRkIAbBMcZO4FN1N1ZYACGg5oudi4wdJNOt+Z9ndRVTn5V6fxqjCiiAsUwetYDkT1my
+         PAuo1wpxb4qIYhvtGWrRoqsFu0xsfWX7i2gzMefN4KZ6uNMnHp/WUwUWNWLDE8DS9fs5
+         tGrJMnAIav3GJ9MZ5a2/nuuU+Js7j2LUb3OQE3Gw8ul22nWXSGFAesxnYZZKItifRXxY
+         SI7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date;
+        bh=maY7kzPHhfOL6zo3BmzT6qOiBQ7Fki1aPrDYWudhkyM=;
+        b=7HGpbeCSwZUCm68RK7aBekAOPpYDjsiJU4kHpTPr8GTuWX8ISiH4H+FgDERskhyGAC
+         YUF8Jz6IBYIs0f+mpNtQUy8UzNU8uwQi6evwN4yNV0pX/kF0dZxtG4Ncrtd5vQ2Hq3tJ
+         EW57GHNai9MKYzFWHSnVPtugwnUkPR1+fBeG47FKspoC7m+G6og5jFv5wD77Jmv2mugR
+         cojS4EPSlpg+CL2ubhVrIhSnzo5mtx5Wv/AYjSam/5nIUP25G+maqoUtgczzFYUPBAIS
+         rpx+IYX7/FqV+9wPS9DcQFNhHp0ZdvUFjq1uc6CES56uG1Sw1X5XXXd+WlhB9ckRtp50
+         X+1w==
+X-Gm-Message-State: ACrzQf0a+2oDly7MFN3JReNCccDDtj0pulmBCNaj7x8hp6RA35c0c/DC
+	6ko7FPhZgX7MBZIvfxhuUpkcgtxZtJFWho116QARxHeld4OrYQ==
+X-Google-Smtp-Source: AMsMyM4OSLkMCJVnryNhB9HkkjYXVz+/9r6KK30K7OSK2bv+cFt1m1adqX8CavoMyh+AM2U2c7dUB7U5FcQVhuCAN5g=
+X-Received: by 2002:a1c:4b05:0:b0:3b4:90c1:e249 with SMTP id
+ y5-20020a1c4b05000000b003b490c1e249mr6673063wma.201.1663778720053; Wed, 21
+ Sep 2022 09:45:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220921125128.33913-1-chenzhongjin@huawei.com>
+From: Chris Stillson <stillson@rivosinc.com>
+Date: Wed, 21 Sep 2022 09:44:43 -0700
+Message-ID: <CAM2SziVKzk1zpEZJ4h1+pG90=V7d-bYLySxh2-ZCAHOzNy54yQ@mail.gmail.com>
+Subject: [PATCH 00/17] Prctl to enable vector commands, previous vector
+ patches rebased
+To: linux-riscv@lists.infradead.org
+Cc: palmer@dabbelt.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_070258_675377_AE8FF7CD 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20220921_094524_297597_24561DC4 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,128 +82,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 08:51:23PM +0800, Chen Zhongjin wrote:
-> Currently, the stacktrace with FRAME_POINTER on riscv has some problem:
-> 
-> 1. stacktrace will stop at irq so it can't get the stack frames before
-> irq entry.
-> 2. stacktrace can't unwind all the real stack frames when there is
-> k{ret}probes or ftrace.
-> 
-> These are mainly becase when there is a pt_regs on stack, we can't unwind
-> the stack frame as normal function.
-> 
-> Some architectures (e.g. arm64) create a extra stackframe inside pt_regs.
-> However this doesn't work for riscv because the ra is not ensured to be
-> pushed to stack. As explained in:
-> commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
+This patch adds a prctl to enable, disable, or query whether vectors
+are enabled or not.
+This is to allow a process to "opt out" of the overhead incurred by
+using vectors. Because this
+is build on top of an existing set of patches to work with vectors,
+they have been rebased to
+Linux 6.0-rc1.
 
-FWIW, this is also a latent problem on arm64, since we don't know whether the
-LR is live at an exception boundary (and we currently always ignore it).
 
-My plan to fix that on arm64 is to push an empty frame record to the stack upon
-an exception, and use that to find the pt_regs, from which we can get the PC
-and LR (and then we can report the later as unreliable). That should be roughly
-equivalent to what you do in this series (where use use the LSB to identify
-that the pointer is actually a pt_regs).
+Chris Stillson (1):
+  riscv: prctl to enable vector commands
 
-One important thing to note is that when crossing an exception boundary you
-won't know whether RA is live, and so you might try to consume an address twice
-(if it has also been pushed to the stack). That could be problematic for
-unwinding ftrace or kretprobes. On arm64 we had to implement
-HAVE_FUNCTION_GRAPH_RET_ADDR_PTR so that we could reliably unwind ftrace. See
-commit:
+Greentime Hu (9):
+  riscv: Add new csr defines related to vector extension
+  riscv: Add has_vector/riscv_vsize to save vector features.
+  riscv: Add vector struct and assembler definitions
+  riscv: Add task switch support for vector
+  riscv: Add ptrace vector support
+  riscv: Add sigcontext save/restore for vector
+  riscv: Add support for kernel mode vector
+  riscv: Add vector extension XOR implementation
+  riscv: Fix a kernel panic issue if $s2 is set to a specific value
+    before entering Linux
 
-  c6d3cd32fd0064af ("arm64: ftrace: use HAVE_FUNCTION_GRAPH_RET_ADDR_PTR")
+Guo Ren (4):
+  riscv: Rename __switch_to_aux -> fpu
+  riscv: Extending cpufeature.c to detect V-extension
+  riscv: Add vector feature to compile
+  riscv: Reset vector register
 
-... and we haven't yet come up with something similar for kretprobes (though I
-suspect we'll need to).
+Vincent Chen (3):
+  riscv: signal: Report signal frame size to userspace via auxv
+  riscv: Add V extension to KVM ISA allow list
+  riscv: KVM: Add vector lazy save/restore support
 
-Thanks,
-Mark.
+ arch/riscv/Kconfig                       |  15 +-
+ arch/riscv/Makefile                      |   1 +
+ arch/riscv/configs/defconfig             |   6 +
+ arch/riscv/include/asm/csr.h             |  16 ++-
+ arch/riscv/include/asm/elf.h             |  47 +++---
+ arch/riscv/include/asm/hwcap.h           |   1 +
+ arch/riscv/include/asm/kvm_host.h        |   2 +
+ arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
+ arch/riscv/include/asm/processor.h       |   9 ++
+ arch/riscv/include/asm/switch_to.h       |  83 ++++++++++-
+ arch/riscv/include/asm/vector.h          |  17 +++
+ arch/riscv/include/asm/xor.h             |  82 +++++++++++
+ arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+ arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+ arch/riscv/include/uapi/asm/kvm.h        |   7 +
+ arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
+ arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
+ arch/riscv/kernel/Makefile               |   2 +
+ arch/riscv/kernel/asm-offsets.c          |  15 ++
+ arch/riscv/kernel/cpufeature.c           |  21 +++
+ arch/riscv/kernel/entry.S                |   6 +-
+ arch/riscv/kernel/head.S                 |  37 ++++-
+ arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
+ arch/riscv/kernel/process.c              |  61 ++++++++
+ arch/riscv/kernel/ptrace.c               |  71 ++++++++++
+ arch/riscv/kernel/riscv_ksyms.c          |   6 +
+ arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
+ arch/riscv/kernel/vector.S               | 102 +++++++++++++
+ arch/riscv/kvm/Makefile                  |   1 +
+ arch/riscv/kvm/vcpu.c                    |  32 +++++
+ arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
+ arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
+ arch/riscv/lib/Makefile                  |   1 +
+ arch/riscv/lib/xor.S                     |  81 +++++++++++
+ include/uapi/linux/elf.h                 |   1 +
+ include/uapi/linux/prctl.h               |   6 +
+ kernel/sys.c                             |   7 +
+ 37 files changed, 1355 insertions(+), 42 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
+ create mode 100644 arch/riscv/include/asm/vector.h
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+ create mode 100644 arch/riscv/kernel/vector.S
+ create mode 100644 arch/riscv/kvm/vcpu_vector.c
+ create mode 100644 arch/riscv/lib/xor.S
 
-> So, I choosed the method of x86 that, if there is a pt_regs on stack,
-> we encoded the frame pointer and save it. When unwinding stack frame,
-> we can get pt_regs and registers required for unwinding stacks.
-> 
-> In addition, the patch set contains some refactoring of stacktrace.c to
-> keep the stacktrace code on riscv consistent with other architectures.
-> 
-> Stacktrace before for kretprobes:
-> 
->   Call Trace:
->   ...
->   [<ffffffff800d5d48>] __kretprobe_trampoline_handler+0xc2/0x13e
->   [<ffffffff808b766c>] trampoline_probe_handler+0x30/0x46
->   [<ffffffff800070de>] __kretprobe_trampoline+0x52/0x92
->   [<ffffffff0163809c>] kprobe_init+0x9c/0x1000 [kprobe_unwind]
->   [<ffffffff800027c8>] do_one_initcall+0x4c/0x1f2
->   ...
-> 
-> Stacktrace after:
-> 
->   Call Trace:
->   ...
->   [<ffffffff800d5d48>] __kretprobe_trampoline_handler+0xc2/0x13e
->   [<ffffffff808b766c>] trampoline_probe_handler+0x30/0x46
->   [<ffffffff800070de>] __kretprobe_trampoline+0x52/0x92
-> + [<ffffffff01633076>] the_caller+0x2c/0x38 [kprobe_unwind]
->   [<ffffffff0163809c>] kprobe_init+0x9c/0x1000 [kprobe_unwind]
->   [<ffffffff800027c8>] do_one_initcall+0x4c/0x1f2
->   ...
-> 
-> Stacktrace before for ftrace:
-> 
->   Call Trace:
->   ...
->   [<ffffffff80006df0>] kprobe_ftrace_handler+0x13e/0x188
->   [<ffffffff80008e7e>] ftrace_regs_call+0x8/0x10
->   [<ffffffff80002540>] do_one_initcall+0x4c/0x1f2
->   [<ffffffff8008a4e6>] do_init_module+0x56/0x210
->   ...
-> 
->   Stacktrace after:
-> 
->   Call Trace:
->   ...
->   [<ffffffff016150e0>] handler_pre+0x30/0x4a [kprobe_unwind]
->   [<ffffffff800bce96>] aggr_pre_handler+0x60/0x94
->   [<ffffffff80006df0>] kprobe_ftrace_handler+0x13e/0x188
->   [<ffffffff80008e82>] ftrace_regs_call+0x8/0x10
-> + [<ffffffff01615000>] traced_func+0x0/0x1e [kprobe_unwind]
->   [<ffffffff80002540>] do_one_initcall+0x4c/0x1f2
->   [<ffffffff8008a4ea>] do_init_module+0x56/0x210
->   ...
-> 
-> Noticed that the caller of ftrace and probed func of kretprobe
-> cannot be unwind because they are inside function pro/epilogue.
-> 
-> ---
-> v1 -> v2:
-> - Merge three patches which add ENCODE_FRAME_POINTER together
-> - Update commit message
-> - Delete the KRETPORBES stuff added in unwind_state, we don't need them
-> to recover the kretporbes ret_addr because we can get it in pt_regs
-> ---
-> Chen Zhongjin (4):
->   riscv: stacktrace: Replace walk_stackframe with arch_stack_walk
->   riscv: stacktrace: Introduce unwind functions
->   riscv: stacktrace: Save pt_regs in ENCODE_FRAME_POINTER
->   riscv: stacktrace: Implement stacktrace for irq
-> 
->  arch/riscv/include/asm/frame.h                |  45 ++++++
->  arch/riscv/include/asm/stacktrace.h           |   9 +-
->  arch/riscv/kernel/entry.S                     |   3 +
->  arch/riscv/kernel/mcount-dyn.S                |   7 +
->  arch/riscv/kernel/perf_callchain.c            |   2 +-
->  arch/riscv/kernel/probes/kprobes_trampoline.S |   7 +
->  arch/riscv/kernel/stacktrace.c                | 150 ++++++++++++------
->  7 files changed, 174 insertions(+), 49 deletions(-)
->  create mode 100644 arch/riscv/include/asm/frame.h
-> 
-> -- 
-> 2.17.1
-> 
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
