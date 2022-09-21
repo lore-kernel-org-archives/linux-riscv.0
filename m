@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF4BECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 12:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB63ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 12:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oX3HAUcMJLK8cHcC8thWQjzDxheoNR6/C7Y2wZPs9R8=; b=Ybr87me4NOeKQr
-	L7Z3YGnN6/gVzJB7NaCmd3UMnoLod3z1NUWkz4HCBqSysZXDt2XPC2o380m4QCVIcuCera+QhL05O
-	hSsRQsEofbxv3fGNcC7QeLz15v6eu1AE9krBVFU7shvyWFsy4x4qsOWb3mHGXpZQom5Mn3+nEvsqJ
-	zusKbAmxmS03t5xWGDx/KGpochcbdg5d592pHsMuAn7LIV/LWxQt4Sld2UOsjgFRnFLZBZw6oyrS2
-	44bF0lI0JkKixGXrbHCcUSlFARTLtkQHBHpH2tRCqyErO0TBYcsQ3Hu/XKkx+bJkMvEe7TOmXN8n2
-	mgR2t+0bONhFTaPN8a8w==;
+	List-Owner; bh=Ixfjs3PIqShKlh0OPsOV+LI8V310+iXMdgtVbvSu+UQ=; b=lIQGCbsWo5O2W9
+	eTJnnW/JphtSLRiy0PuQrlxYFjbUWQyoGmmOM/tpgbW5l9hjbx40A42N3uxp06VTnux19Q4HEFcki
+	hEoSHfGaOn+b45vwHao/0A8CN3/9jeluYGrb1v7qnAZDbeyPDAGSTO7bIXr3VZRIOOZZzTFAOkZ5H
+	4LUMyxqIEKQSeDuCmgioVges5C8NCxHo7HlgkWGLx8R51kWykXbOj/LHiNsIYkWRbxunTeS4M1qPl
+	9cJlsCZg3oEX7pEzikVIy7rm1ovDjSQTrjbl6lox8I8LGt5Rzb32OTVbEeGHU1bng/tNoJ60Q6AWR
+	bsQYFGhSPyZoUB0CP8Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oayvO-00BIMp-OJ; Wed, 21 Sep 2022 12:33:58 +0000
+	id 1oazG2-00BMoM-3V; Wed, 21 Sep 2022 12:55:18 +0000
 Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oayvK-00BIJF-On
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 12:33:57 +0000
-Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4MXd5b1YqHz14Qhw;
-	Wed, 21 Sep 2022 20:29:39 +0800 (CST)
+	id 1oazFw-00BMlB-Pq
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 12:55:16 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4MXdZH14Zxz14RgJ;
+	Wed, 21 Sep 2022 20:51:03 +0800 (CST)
 Received: from dggpemm500013.china.huawei.com (7.185.36.172) by
- dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Wed, 21 Sep 2022 20:33:46 +0800
-Received: from [10.67.108.67] (10.67.108.67) by dggpemm500013.china.huawei.com
- (7.185.36.172) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.31; Wed, 21 Sep
- 2022 20:33:45 +0800
-Message-ID: <7618e500-5368-f271-44f0-81fb43527389@huawei.com>
-Date: Wed, 21 Sep 2022 20:33:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.0
-Subject: Re: [PATCH -next 0/7] riscv: Improvments for stacktrace
-Content-Language: en-US
-To: Guo Ren <guoren@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <peterz@infradead.org>,
-	<mingo@redhat.com>, <acme@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <namhyung@kernel.org>,
-	<jolsa@kernel.org>, <frederic@kernel.org>, <vincent.chen@sifive.com>,
-	<ardb@kernel.org>, <mhiramat@kernel.org>, <rostedt@goodmis.org>,
-	<keescook@chromium.org>, <catalin.marinas@arm.com>
-References: <20220920151202.180057-1-chenzhongjin@huawei.com>
- <CAJF2gTRUh6RiMypEm=b=iJruXDWXoqXpXwn1YaUChgyJ0v2gxw@mail.gmail.com>
+ 15.1.2375.31; Wed, 21 Sep 2022 20:55:10 +0800
+Received: from ubuntu1804.huawei.com (10.67.175.36) by
+ dggpemm500013.china.huawei.com (7.185.36.172) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Wed, 21 Sep 2022 20:55:09 +0800
 From: Chen Zhongjin <chenzhongjin@huawei.com>
-In-Reply-To: <CAJF2gTRUh6RiMypEm=b=iJruXDWXoqXpXwn1YaUChgyJ0v2gxw@mail.gmail.com>
-X-Originating-IP: [10.67.108.67]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<mark.rutland@arm.com>, <alexander.shishkin@linux.intel.com>,
+	<namhyung@kernel.org>, <jolsa@kernel.org>, <guoren@kernel.org>,
+	<frederic@kernel.org>, <vincent.chen@sifive.com>, <ardb@kernel.org>,
+	<mhiramat@kernel.org>, <rostedt@goodmis.org>, <keescook@chromium.org>,
+	<catalin.marinas@arm.com>, <chenzhongjin@huawei.com>
+Subject: [PATCH for-next v2 3/4] riscv: stacktrace: Save pt_regs in ENCODE_FRAME_POINTER
+Date: Wed, 21 Sep 2022 20:51:26 +0800
+Message-ID: <20220921125128.33913-4-chenzhongjin@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220921125128.33913-1-chenzhongjin@huawei.com>
+References: <20220921125128.33913-1-chenzhongjin@huawei.com>
+MIME-Version: 1.0
+X-Originating-IP: [10.67.175.36]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  dggpemm500013.china.huawei.com (7.185.36.172)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_053355_188367_0A076044 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20220921_055513_262197_55507A58 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,87 +71,184 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+To support stack unwinding when there is a pt_regs on stack, the position
+of pt_regs is nessesary. Because for some functions, compiler only push
+s0/fp on stack without ra.
 
-On 2022/9/21 10:30, Guo Ren wrote:
-> Some modifications are related to the patch series [1] [2], please take a look.
->
-> [1] https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
-> [2] https://lore.kernel.org/linux-riscv/20220916103817.9490-1-guoren@kernel.org/
+As the situation described in
+commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
 
-I have tested my patch on your branches.
+When irq happens there, the function frame looks like:
 
-For the ftrace one it works properly and passed FTRACE_STARTUP_TEST.
+prev function	|       ...       |
+		|                 |
+normal function +-----------------+
+		| ra to prev      |
+		| s0 of prev      |
+		|       ...       |<-+
+leaf function	+-----------------+  |
+		| s0 of normal    |  |
+		| empty slot      |  |
+irq pt_regs	+-----------------+  |
+		| epc (ra to leaf)|  |
+		| ra  (ra to norm)|  |
+		| ...             |  |
+                | s0 of leaf      |--+
+		| ...             |
+		+-----------------+
 
-For the entry one I proposed some advice in another reply, with that my 
-patch also works well.
+When unwinding from unwinding from leaf to normal, beacause (ra to norm)
+is saved in pt_regs, but not stackframe of leaf, we have to get pt_regs
+for that.
 
+To get pt_regs position on stack, we can save the encoded *pt_regs
+in s0, as x86 architecture did. Then we can get s0, epc and ra
+easily.
 
-I'll post v2 patch which is totally dependent to yours. And after your 
-patch applied, the stacktrace
+Add ENCODE_FRAME_POINTER in irq, ftrace and kretprobe trampoline entries.
+For ftrace and kretprobes we should also set pt_regs as kernel mode
+so that they are not mistaken as user_mode pt_regs.
 
-may need to be updated again, for example, print the type of current 
-unwinding stack.
+Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/include/asm/frame.h                | 45 +++++++++++++++++++
+ arch/riscv/kernel/entry.S                     |  3 ++
+ arch/riscv/kernel/mcount-dyn.S                |  7 +++
+ arch/riscv/kernel/probes/kprobes_trampoline.S |  7 +++
+ 4 files changed, 62 insertions(+)
+ create mode 100644 arch/riscv/include/asm/frame.h
 
+diff --git a/arch/riscv/include/asm/frame.h b/arch/riscv/include/asm/frame.h
+new file mode 100644
+index 000000000000..2a1f45cf3a4e
+--- /dev/null
++++ b/arch/riscv/include/asm/frame.h
+@@ -0,0 +1,45 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_FRAME_H
++#define _ASM_RISCV_FRAME_H
++
++#include <asm/asm.h>
++
++#ifdef CONFIG_FRAME_POINTER
++
++#ifdef __ASSEMBLY__
++
++/*
++ * This is a sneaky trick to help the unwinder find pt_regs on the stack.  The
++ * frame pointer is replaced with an encoded pointer to pt_regs.  The encoding
++ * is just setting the LSB, which makes it an invalid stack address and is also
++ * a signal to the unwinder that it's a pt_regs pointer in disguise.
++ *
++ * This macro must be used when sp point to pt_regs
++ */
++.macro ENCODE_FRAME_POINTER
++	add s0, sp, 0x1
++.endm
++
++#else /* !__ASSEMBLY__ */
++
++#define ENCODE_FRAME_POINTER			\
++	"add s0, sp, 0x1\n\t"
++
++#endif /* __ASSEMBLY__ */
++
++#else /* !CONFIG_FRAME_POINTER */
++
++#ifdef __ASSEMBLY__
++
++.macro ENCODE_FRAME_POINTER ptregs_offset=0
++.endm
++
++#else /* !__ASSEMBLY */
++
++#define ENCODE_FRAME_POINTER
++
++#endif /* !__ASSEMBLY */
++
++#endif /* CONFIG_FRAME_POINTER */
++
++#endif /* _ASM_RISCV_FRAME_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index b9eda3fcbd6d..ecb15c7430b4 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -13,6 +13,7 @@
+ #include <asm/thread_info.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/errata_list.h>
++#include <asm/frame.h>
+ 
+ #if !IS_ENABLED(CONFIG_PREEMPTION)
+ .set resume_kernel, restore_all
+@@ -95,6 +96,8 @@ _save_context:
+ 	REG_S s4, PT_CAUSE(sp)
+ 	REG_S s5, PT_TP(sp)
+ 
++	ENCODE_FRAME_POINTER
++
+ 	/*
+ 	 * Set the scratch register to 0, so that if a recursive exception
+ 	 * occurs, the exception vector knows it came from the kernel
+diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+index d171eca623b6..a362521e030e 100644
+--- a/arch/riscv/kernel/mcount-dyn.S
++++ b/arch/riscv/kernel/mcount-dyn.S
+@@ -10,6 +10,8 @@
+ #include <asm/asm-offsets.h>
+ #include <asm-generic/export.h>
+ #include <asm/ftrace.h>
++#include <asm/frame.h>
++#include <asm/csr.h>
+ 
+ 	.text
+ 
+@@ -172,6 +174,11 @@ ENDPROC(ftrace_caller)
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+ ENTRY(ftrace_regs_caller)
+ 	SAVE_ALL
++#ifdef CONFIG_FRAME_POINTER
++	li s0, SR_PP
++	REG_S s0, PT_STATUS(sp)
++	ENCODE_FRAME_POINTER
++#endif
+ 
+ 	addi	a0, ra, -FENTRY_RA_OFFSET
+ 	la	a1, function_trace_op
+diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/kprobes_trampoline.S
+index 7bdb09ded39b..70760a16784f 100644
+--- a/arch/riscv/kernel/probes/kprobes_trampoline.S
++++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
+@@ -6,6 +6,8 @@
+ 
+ #include <asm/asm.h>
+ #include <asm/asm-offsets.h>
++#include <asm/frame.h>
++#include <asm/csr.h>
+ 
+ 	.text
+ 	.altmacro
+@@ -78,6 +80,11 @@
+ ENTRY(__kretprobe_trampoline)
+ 	addi sp, sp, -(PT_SIZE_ON_STACK)
+ 	save_all_base_regs
++#ifdef CONFIG_FRAME_POINTER
++	li s0, SR_PP
++	REG_S s0, PT_STATUS(sp)
++	ENCODE_FRAME_POINTER
++#endif
+ 
+ 	move a0, sp /* pt_regs */
+ 
+-- 
+2.17.1
 
-Best,
-
-Chen
-
-> On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
->> Currently, the stacktrace with FRAME_POINTER on riscv has some problem:
->>
->> 1. stacktrace will stop at irq so it can't get the stack frames before
->> irq entry.
->> 2. stacktrace can't unwind all the real stack frames when there is
->> k{ret}probes or ftrace.
->>
->> These are mainly becase when there is a pt_regs on stack, we can't unwind
->> the stack frame as normal function.
->>
->> Some architectures (e.g. arm64) create a extra stackframe inside pt_regs.
->> However this doesn't work for riscv because the ra is not ensured to be
->> pushed to stack. As explained in:
->> commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
->>
->> So, I choosed the method of x86 that, if there is a pt_regs on stack,
->> we encoded the frame pointer and save it. When unwinding stack frame,
->> we can get pt_regs and registers required for unwinding stacks.
->>
->> In addition, the patch set contains some refactoring of stacktrace.c to
->> keep the stacktrace code on riscv consistent with other architectures.
->>
->> Chen Zhongjin (7):
->>    riscv: stacktrace: Replace walk_stackframe with arch_stack_walk
->>    riscv: stacktrace: Introduce unwind functions
->>    riscv: stacktrace: Save pt_regs in encoded fp on irq entry
->>    riscv: syscall: Don't clobber s0 when syscall
->>    riscv: stacktrace: Implement stacktrace for irq
->>    riscv: stacktrace: Fix unwinding on ftrace_regs_call
->>    riscv: stacktrace: Fix unwinding on __kretporbe_trampoline
->>
->>   arch/riscv/include/asm/frame.h                |  45 +++++
->>   arch/riscv/include/asm/stacktrace.h           |  13 +-
->>   arch/riscv/kernel/entry.S                     |  23 +--
->>   arch/riscv/kernel/mcount-dyn.S                |   8 +
->>   arch/riscv/kernel/perf_callchain.c            |   2 +-
->>   arch/riscv/kernel/probes/kprobes_trampoline.S |   8 +
->>   arch/riscv/kernel/stacktrace.c                | 155 ++++++++++++------
->>   7 files changed, 195 insertions(+), 59 deletions(-)
->>   create mode 100644 arch/riscv/include/asm/frame.h
->>
->> --
->> 2.17.1
->>
->
-> --
-> Best Regards
->   Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
