@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66A0C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 02:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0D8C54EE9
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 02:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kYdwF2IrQsy3txsyBd2+0SU9meWpqXwdFpX05qSYaw8=; b=NwACTh+ZlOyZOM
-	hm2orTyb9+EPUmyadzI2m6lAWHZCHheekRQej/vsfkl7CkJHjq6mfJMlo8KqiKz5D7xDy6YK7eWDW
-	ZL2W/PpLe/jN6zohTRljZggDkUbmEm8Invbxx7QsPhfvhG2Y/C2qWOgLr/cFi0RCZUCVcZ+qZBvti
-	D1bqZFk5qY8vk238QRu9pFZY+aZlQDk/ozIBFD6b+9t7eJennn7HFnDMLsBmX+FmnlhHPctK+rJyp
-	pMn6Rosthljf0HSaWMq2Q+qutGPwKyTuuX0Ydwi9xGEYUnRM9SzZdHW5vW1mmf/m8zF2Zld3i5Hi/
-	vMX2DgoXdeocDwZK4pIw==;
+	List-Owner; bh=CGNLYXAXw5Z2qJwddP9Qh2CTbryaq4rlWZnKpjsVI4I=; b=HhERDZHCSNU2hY
+	TFDTRYZZ8TggrWB1/dZ2T5u3GtDn2TAor/Vml3ujZp+SU6yGp4Uz8c4ElN98avrDzElINzcqzst4O
+	avfAjzQhVGHDi37Isw9g8zWhuVpcwqPNijgVtK3zpCOy1Un34gkq2USZX1Gfb+AHXwoiP5lXwUyRR
+	C/ynChOQSfPPEVDPSnXXk+aajxJKkyCAhDF3rwsJmFwGJAPgHzHgtNJORd4QDfYrGHx+vYHF57bGA
+	mQhufXcylHLO8+4YydE4+JnpJEwB17WE2AXvHFf1PLtVa5pWTVZORuU372uQ3CofhTcFwwkczJP+I
+	ku5sARIsvR5wtVklQm7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oapHl-008Dvd-6R; Wed, 21 Sep 2022 02:16:25 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oapVr-008HNt-V1; Wed, 21 Sep 2022 02:30:59 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oapHi-008Dtj-6w
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 02:16:23 +0000
+	id 1oapVo-008HME-Ht
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 02:30:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 818A8B81EF6
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:16:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A407C433D6
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:16:19 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 06BA9B81A60
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:30:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C54A7C4347C
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663726579;
-	bh=EYEPB7TctVK1MJOFaPpqMASLveB5MBcqgaEPceOISKA=;
+	s=k20201202; t=1663727453;
+	bh=IlG0gnyjYzJPRT4Op43nB8mTf1EWR65qF0nnc5/7Th4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UPgdWs2V0JbFash3XhbsDpjDpCf8Z+AoAs0PuEfcKm6Juh03KDEYySri2S/PGE9eU
-	 iZ7/w1RTQ/1sAgOTAD19Mv2MQ23tMeFKOdWszAQQGSOREm6LveUJVoHlNIj2gVG/z4
-	 3+RxB6r2eRXQybzONRJgSKkmP40YrmP59SWsVVw7ARVSwBFyle2IF7G0gy/hXHlRfZ
-	 AUbzomiQ7JIfN3wxg+QafHkLFamqq934ed94FkLBt3CrQ6it6jIEOmMXS74PLDoYYE
-	 Ujjjvs715MFDrdBFW1GCP87ZZqF3/fzL1EUFOHuZTqjRQ+wzudViDEfh+odjCkqCqP
-	 maDnu3bPmhgTA==
-Received: by mail-oi1-f180.google.com with SMTP id r125so6252150oia.8
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 19:16:19 -0700 (PDT)
-X-Gm-Message-State: ACrzQf0SLKH9z1K8EqR8W9VsrqgbACmKHmJ2EnyeD+DfTVJ2QTvclz6w
-	q5HlAfbiMpQq4GYRnxLStok+XjFjhWUbK3UfZ0s=
-X-Google-Smtp-Source: AMsMyM79uqv3q186U8l25rFsKp6OWiPSshPlAPeAcre5Lg5KA8hmj9fN2O7iIcIDbbomULyKQ8h1AaVqvre1A4I9U2c=
-X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
- u31-20020a056808151f00b003501b5e2380mr2991346oiw.112.1663726578207; Tue, 20
- Sep 2022 19:16:18 -0700 (PDT)
+	b=tMGhK/2IZ34IEAE7WzLcYamKLmk06jbH4IFNJQnMU6TGZbYlF7RUMRGGMA/sVcttm
+	 lZgKgDXCpNaeQZ+GdJsmhOSJQpestwA/Av81YfXEP8b7kHthbixCDu3Is+zFy6nIyv
+	 6mtJSbQvbNSel4sNNTfqZsaj31CVLgqv01W3aj9huRUBd5Vf7s0aK0whq9a3gzQQZE
+	 b3abvqdXmpvXQceVd9F4ExQsmbEh9t7V155jugOaxheIUIv3FKahdoOR9NCgVzGYIM
+	 dsAKv3kcZ7qALWG3S3DvBaiumsr9mOnyvkCmfHvq7y130Ak1dytFUr+qntWeywEl2N
+	 BpctILw3/KzLg==
+Received: by mail-oi1-f179.google.com with SMTP id o184so6249455oif.13
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 19:30:53 -0700 (PDT)
+X-Gm-Message-State: ACrzQf1HAbRSvbkyyES+7WMRU7rW+7AjaAnpxtgZZ7XPxV3XZ97ZZsiE
+	mqXxt13rmQVrQ/xd/ucZAhNCSG7HuBJyi6npjDY=
+X-Google-Smtp-Source: AMsMyM6KrdR2Wv3e6RoF6x1x7BI4T9AH7ddVRa6LgIcQDLrWFR5/Eo+BTY5lQTB1EzIbHQmoX0DKqBvD5AFUJvDkE9o=
+X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
+ q31-20020a056808201f00b0034f9fdfdbbfmr2887695oiw.19.1663727452972; Tue, 20
+ Sep 2022 19:30:52 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220920151202.180057-1-chenzhongjin@huawei.com>
- <20220920151202.180057-5-chenzhongjin@huawei.com> <CAJF2gTQ8QjUiRhQiM67SET=bCpppG2opcN3_ch7GEqdAkBnBUA@mail.gmail.com>
-In-Reply-To: <CAJF2gTQ8QjUiRhQiM67SET=bCpppG2opcN3_ch7GEqdAkBnBUA@mail.gmail.com>
+In-Reply-To: <20220920151202.180057-1-chenzhongjin@huawei.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 21 Sep 2022 10:16:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSR5A1vxz_5SSK207SaC-3QHLcKFvcy35VtrKEk4-D9iQ@mail.gmail.com>
-Message-ID: <CAJF2gTSR5A1vxz_5SSK207SaC-3QHLcKFvcy35VtrKEk4-D9iQ@mail.gmail.com>
-Subject: Re: [PATCH -next 4/7] riscv: syscall: Don't clobber s0 when syscall
+Date: Wed, 21 Sep 2022 10:30:40 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRUh6RiMypEm=b=iJruXDWXoqXpXwn1YaUChgyJ0v2gxw@mail.gmail.com>
+Message-ID: <CAJF2gTRUh6RiMypEm=b=iJruXDWXoqXpXwn1YaUChgyJ0v2gxw@mail.gmail.com>
+Subject: Re: [PATCH -next 0/7] riscv: Improvments for stacktrace
 To: Chen Zhongjin <chenzhongjin@huawei.com>
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com, 
@@ -69,8 +68,8 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org, 
 	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_191622_537904_7E1A8DD2 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20220920_193056_909786_93D7C6D3 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +86,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 9:30 AM Guo Ren <guoren@kernel.org> wrote:
->
-> On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
-> >
-> > syscall uses s0 to load address of sys_call_table.
-> >
-> > Since now we uses s0 to save pt_regs for unwinding, clobber
-> > s0 can make unwinder treat s0 as pt_regs address. Use s1 for
-> > this job.
-> This patch does not make sense. Why couldn't we use s1 for pt_regs?
-Seems s0->fp can't be replaced. I take back the question.
+Some modifications are related to the patch series [1] [2], please take a look.
 
+[1] https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
+[2] https://lore.kernel.org/linux-riscv/20220916103817.9490-1-guoren@kernel.org/
+
+On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
 >
-> No need to modify the entry.S here.
+> Currently, the stacktrace with FRAME_POINTER on riscv has some problem:
 >
-> >
-> > Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
-> > ---
-> >  arch/riscv/kernel/entry.S | 20 ++++++++++----------
-> >  1 file changed, 10 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index ecb15c7430b4..a3b14a649782 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -205,33 +205,33 @@ handle_syscall:
-> >  check_syscall_nr:
-> >         /* Check to make sure we don't jump to a bogus syscall number. */
-> >         li t0, __NR_syscalls
-> > -       la s0, sys_ni_syscall
-> > +       la s1, sys_ni_syscall
-> >         /*
-> >          * Syscall number held in a7.
-> >          * If syscall number is above allowed value, redirect to ni_syscall.
-> >          */
-> >         bgeu a7, t0, 3f
-> >  #ifdef CONFIG_COMPAT
-> > -       REG_L s0, PT_STATUS(sp)
-> > -       srli s0, s0, SR_UXL_SHIFT
-> > -       andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
-> > +       REG_L s1, PT_STATUS(sp)
-> > +       srli s1, s1, SR_UXL_SHIFT
-> > +       andi s1, s1, (SR_UXL >> SR_UXL_SHIFT)
-> >         li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
-> > -       sub t0, s0, t0
-> > +       sub t0, s1, t0
-> >         bnez t0, 1f
-> >
-> >         /* Call compat_syscall */
-> > -       la s0, compat_sys_call_table
-> > +       la s1, compat_sys_call_table
-> >         j 2f
-> >  1:
-> >  #endif
-> >         /* Call syscall */
-> > -       la s0, sys_call_table
-> > +       la s1, sys_call_table
-> >  2:
-> >         slli t0, a7, RISCV_LGPTR
-> > -       add s0, s0, t0
-> > -       REG_L s0, 0(s0)
-> > +       add s1, s1, t0
-> > +       REG_L s1, 0(s1)
-> >  3:
-> > -       jalr s0
-> > +       jalr s1
-> >
-> >  ret_from_syscall:
-> >         /* Set user a0 to kernel a0 */
-> > --
-> > 2.17.1
-> >
+> 1. stacktrace will stop at irq so it can't get the stack frames before
+> irq entry.
+> 2. stacktrace can't unwind all the real stack frames when there is
+> k{ret}probes or ftrace.
 >
+> These are mainly becase when there is a pt_regs on stack, we can't unwind
+> the stack frame as normal function.
+>
+> Some architectures (e.g. arm64) create a extra stackframe inside pt_regs.
+> However this doesn't work for riscv because the ra is not ensured to be
+> pushed to stack. As explained in:
+> commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
+>
+> So, I choosed the method of x86 that, if there is a pt_regs on stack,
+> we encoded the frame pointer and save it. When unwinding stack frame,
+> we can get pt_regs and registers required for unwinding stacks.
+>
+> In addition, the patch set contains some refactoring of stacktrace.c to
+> keep the stacktrace code on riscv consistent with other architectures.
+>
+> Chen Zhongjin (7):
+>   riscv: stacktrace: Replace walk_stackframe with arch_stack_walk
+>   riscv: stacktrace: Introduce unwind functions
+>   riscv: stacktrace: Save pt_regs in encoded fp on irq entry
+>   riscv: syscall: Don't clobber s0 when syscall
+>   riscv: stacktrace: Implement stacktrace for irq
+>   riscv: stacktrace: Fix unwinding on ftrace_regs_call
+>   riscv: stacktrace: Fix unwinding on __kretporbe_trampoline
+>
+>  arch/riscv/include/asm/frame.h                |  45 +++++
+>  arch/riscv/include/asm/stacktrace.h           |  13 +-
+>  arch/riscv/kernel/entry.S                     |  23 +--
+>  arch/riscv/kernel/mcount-dyn.S                |   8 +
+>  arch/riscv/kernel/perf_callchain.c            |   2 +-
+>  arch/riscv/kernel/probes/kprobes_trampoline.S |   8 +
+>  arch/riscv/kernel/stacktrace.c                | 155 ++++++++++++------
+>  7 files changed, 195 insertions(+), 59 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/frame.h
 >
 > --
-> Best Regards
->  Guo Ren
+> 2.17.1
+>
 
 
-
--- 
+--
 Best Regards
  Guo Ren
 
