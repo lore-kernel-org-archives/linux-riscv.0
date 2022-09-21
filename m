@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128EFC32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CEBC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FysVhXaxy4JUxuvt9y/7A28RtFyLbl7aOzmbPA5PcEE=; b=SaCjd+VxQh/afh
-	R5BCF6Xv7rb8/rnfyFUymf7Ta5Q/mnQeclS9hG9PZ1cypGNeAAXAdSLWAKuwrERoWcIU7qegkTkm5
-	jFEOOUpRFNgZM8rn1hYPLft+kAqUNLVJyhBjV0aawJBPSpb9WeR6wmfQqYQXvgpncEJsoVfbVnviR
-	Za/BoZNqM/aKmz0aVjt2/GgG4J/KzogOejPtlIiNPajbCLiG8KwXhI3XsWlURR5R8MFdgQtouNY/0
-	PYxKj/beTrNlGl6oeQEl77kP3UKDOG5SHDOFdmUo3tXIaZsa2eeExbJbDcVOdmDYAXKOhHYupJVlQ
-	xQUBb60zuqp6w7lJ/RJA==;
+	List-Owner; bh=lttXe00nn0mSVi3T29rgxIwvD+R1UaxsaKWx2M+6vgc=; b=PGhsAgx9QaUBgv
+	dYEqBDVIgcsehWiaQd1V7GIG+J1vuC2/KKuD3bQFWV33yEmLU4GPG7Tu2bpPA95LUq+eObjemYQfp
+	ValFkHU6cNYYSPW8HCKXa5UgA6iJo+5qpSM9PSeCzi57TWnxZywjHC9l0W0AFGMWpxkRuE8SweuT5
+	7R965BmZy69TWAjKuJ6A3TFEGCvV2BtZ2ZdE/4Q7jXUUbmJsIV5fdquxf5m3PQF8YnFengpH0kB6W
+	D/8/L9VBy8lajaj0AUNBiuKiKjVFmuwNSFRpA/6Q20jObVPgC+0K9XHcRXDoB+wcOi+m+EEmVo87Z
+	eJANkdAb7ZRNYT3Pg5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqTo-008ZTA-3y; Wed, 21 Sep 2022 03:32:56 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqT2-008Z3V-E6; Wed, 21 Sep 2022 03:32:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C7DA3B82DA0;
-	Wed, 21 Sep 2022 03:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9C1FC43470;
-	Wed, 21 Sep 2022 03:32:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663731125;
-	bh=MxNuze7CJb1Pmp8L25+DA/brD4eP/MM76a60K8U4Mcs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FRxeTfpE+CmJ/UHg18U/YEKM1cdw9Nd3/ZrMO+2WFlPQcIVZmG+oLxSeOIhiqj56m
-	 30PUkA8R4skrh/squVPaUW2yj1m6I8Fo5mLX3/pyuNyIY0OMQbhrQluBMmcoKAjmu2
-	 Zp9XtC37CjSARm5j/qE2CdK2w6c/YsSL57SNs8KPW0ZFXTLDliXZx30woV5Knoc4aO
-	 Y4fy+5wVX9wUM83y8byyhaKmtUaLVvmFLCg4E3MWPFgbYzy8ihHsV+AxJ4PVnE7ja0
-	 e/nLwc2DtA6WcmfvtE/jt0kHwDO9FPdhe6hUBQ+s/2HzV96A/6IIm2nnsA3rIs9ogo
-	 gnPzMokyo8yAA==
-From: guoren@kernel.org
-To: xianting.tian@linux.alibaba.com,
-	palmer@dabbelt.com,
-	palmer@rivosinc.com,
-	heiko@sntech.de,
-	liaochang1@huawei.com,
-	jszhang@kernel.org,
-	arnd@arndb.de
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Guo Ren <guoren@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH V4 3/3] arch: crash: Remove duplicate declaration in smp.h
-Date: Tue, 20 Sep 2022 23:31:34 -0400
-Message-Id: <20220921033134.3133319-4-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220921033134.3133319-1-guoren@kernel.org>
-References: <20220921033134.3133319-1-guoren@kernel.org>
+	id 1oaqUw-008aDa-WF; Wed, 21 Sep 2022 03:34:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oaqUX-008Zxs-Ko; Wed, 21 Sep 2022 03:33:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AB9513D5;
+	Tue, 20 Sep 2022 20:33:42 -0700 (PDT)
+Received: from [10.162.41.8] (unknown [10.162.41.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A77B3F5A1;
+	Tue, 20 Sep 2022 20:33:26 -0700 (PDT)
+Message-ID: <41b48f0a-c001-9a8c-3017-4b2e06b44e34@arm.com>
+Date: Wed, 21 Sep 2022 09:03:23 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH v3 4/4] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+Content-Language: en-US
+To: Barry Song <21cnbao@gmail.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org,
+ corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, darren@os.amperecomputing.com,
+ yangyicong@hisilicon.com, huzhanyuan@oppo.com, lipeifeng@oppo.com,
+ zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com,
+ xhao@linux.alibaba.com, prime.zeng@hisilicon.com,
+ Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>,
+ Mel Gorman <mgorman@suse.de>
+References: <20220822082120.8347-1-yangyicong@huawei.com>
+ <20220822082120.8347-5-yangyicong@huawei.com>
+ <302febae-508c-d73e-8676-d51752946645@arm.com>
+ <CAGsJ_4ywwFJFi+q3Ra5UE3twzS9eExtvuXgoGK-8u4c1ZdXCBw@mail.gmail.com>
+ <8c4f103b-8f04-d0ad-b30a-2db7e52b36a3@arm.com>
+ <CAGsJ_4xCpSFneh7dPriGeM2_z5njB71cXKGfrarc8Kq0CA37CQ@mail.gmail.com>
+ <CAGsJ_4y0HrWd90ApAn=eDpYrkCigM6MyH=3cYnSuunZ5QpsD3w@mail.gmail.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <CAGsJ_4y0HrWd90ApAn=eDpYrkCigM6MyH=3cYnSuunZ5QpsD3w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_203208_631422_2306C40F 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20220920_203341_830746_8052E8FB 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +80,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
 
-Remove crash_smp_send_stop declarations in arm64, x86 asm/smp.h which
-has been done in include/linux/smp.h.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>
----
- arch/arm64/include/asm/smp.h | 1 -
- arch/x86/include/asm/crash.h | 1 -
- 2 files changed, 2 deletions(-)
+On 9/21/22 07:21, Barry Song wrote:
+> On Wed, Sep 21, 2022 at 1:50 PM Barry Song <21cnbao@gmail.com> wrote:
+>>
+>> On Tue, Sep 20, 2022 at 8:45 PM Anshuman Khandual
+>> <anshuman.khandual@arm.com> wrote:
+>>>
+>>>
+>>>
+>>> On 9/20/22 09:09, Barry Song wrote:
+>>>> On Tue, Sep 20, 2022 at 3:00 PM Anshuman Khandual
+>>>> <anshuman.khandual@arm.com> wrote:
+>>>>>
+>>>>>
+>>>>> On 8/22/22 13:51, Yicong Yang wrote:
+>>>>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>>>>>> +{
+>>>>>> +     return true;
+>>>>>> +}
+>>>>>
+>>>>> This needs to be conditional on systems, where there will be performance
+>>>>> improvements, and should not just be enabled all the time on all systems.
+>>>>> num_online_cpus() > X, which does not hold any cpu hotplug lock would be
+>>>>> a good metric ?
+>>>>
+>>>> for a small system, i don't see how this patch will help, e.g. cpus <= 4;
+>>>> so we can actually disable tlb-batch on small systems.
+>>>
+>>> Do not subscribe ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH based on NR_CPUS ?
+>>> That might not help much as the default value is 256 for NR_CPUS.
+>>>
+>>> OR
+>>>
+>>> arch_tlbbatch_should_defer() checks on
+>>>
+>>> 1. online cpus                  (dont enable batched TLB if <= X)
+>>> 2. ARM64_WORKAROUND_REPEAT_TLBI (dont enable batched TLB)
+>>>
+>>>> just need to check if we will have any race condition since hotplug will
+>>>> make the condition true and false dynamically.
+>>>
+>>> If should_defer_flush() evaluate to be false, then ptep_clear_flush()
+>>> clears and flushes the entry right away. This should not race with other
+>>> queued up TLBI requests, which will be flushed separately. Wondering how
+>>> there can be a race here !
+>>
+>> Right. How about we make something as below?
+>>
+>> static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>> {
+>>     /* for a small system very small number of CPUs, TLB shootdown is cheap */
+>>     if (num_online_cpus() <= 4 ||
+>> unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+>>           return false;
+>>
+>> #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+>>     if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+>>          return false;
+>> #endif
+>>
+>>     return true;
+>> }
+> 
+> sorry, i mean
+> 
+> static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+> {
+>     /* for a small system very small number of CPUs, TLB shootdown is cheap */
+>     if (num_online_cpus() <= 4)
+>             return false;
+> 
+> #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+>     if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+>             return false;
+> #endif
+> 
+>     return true;
+> }
 
-diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index fc55f5a57a06..a108ac93fd8f 100644
---- a/arch/arm64/include/asm/smp.h
-+++ b/arch/arm64/include/asm/smp.h
-@@ -141,7 +141,6 @@ static inline void cpu_panic_kernel(void)
-  */
- bool cpus_are_stuck_in_kernel(void);
- 
--extern void crash_smp_send_stop(void);
- extern bool smp_crash_stop_failed(void);
- extern void panic_smp_self_stop(void);
- 
-diff --git a/arch/x86/include/asm/crash.h b/arch/x86/include/asm/crash.h
-index 8b6bd63530dc..6a9be4907c82 100644
---- a/arch/x86/include/asm/crash.h
-+++ b/arch/x86/include/asm/crash.h
-@@ -7,6 +7,5 @@ struct kimage;
- int crash_load_segments(struct kimage *image);
- int crash_setup_memmap_entries(struct kimage *image,
- 		struct boot_params *params);
--void crash_smp_send_stop(void);
- 
- #endif /* _ASM_X86_CRASH_H */
--- 
-2.36.1
-
+This is a good starting point.
 
 _______________________________________________
 linux-riscv mailing list
