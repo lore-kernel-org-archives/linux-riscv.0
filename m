@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE18ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 09:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD83ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1SKONe0Dy4r/jVPi+t3F6Tt59qMCugUyqbK2+sH0b8c=; b=ToWKH9ZYWbWYQC
-	qB0EX2JHoggIz1XraFD+qq4LGez98jLCvLQHERg/OeY2mbg0dnAIKLiiPJvosbDlTiAiJY2PCIY8d
-	cKU9gMzDSLFjBvOiamiBDr7ILQs2p4wqcNekRyBx5gM3Hi8xC3XcJVUweREnnywXD6R8f3EO/zqtL
-	3PPLQ7IJm/mfJgAKitJyQmh2vYDt0hlbXf+XRJ8WGxvVM0LGAD9mz96M8gJxvvuIR4GBoGnZhK0HM
-	lShL6+ZC+oAvRDNOCUd6+rZceomGW7YyuoNaaz5XceKQ+/66LheLA+xTO+6Zbq4PuRuEZ+b+POhCy
-	5sGcM+ZOwW2dmgfPbxgg==;
+	List-Owner; bh=XHGkTvLAA/zftoIYL+bMbDnDXcaaQuRrUyCc4W1lwRQ=; b=vSzIWSup3uz0qP
+	7CcQVfL4nd8336CoO+xMbXRgucb70/U5ATul0MkQAfdbE02+z0eRu5uJOGlQnYykyo7VGBZY0DXvA
+	rgcV0OcIxYkPgHrQ3Q/nr6w/JXrRkb/ciYrFm970WyCD2hPCTVf6tOn54TTbwuU0DAg5ZoNolJVJr
+	G5lEOXlSKhviaJip4Bq2LOsB0p9MMNHAmoGMpeukX4z5YeRF+k5F0u8Z7wbNs/f2w3gqfBrphGuva
+	MjfjfoLuhKXmVz7LihLAus76HwbEuAocb56/61DGHUhvtFwphgQw+DshsvsWWRTZhokyhrrGhLSQT
+	U1GEX0tfWxAgndgpp7hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawQd-00AeTy-85; Wed, 21 Sep 2022 09:54:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oaweM-00AjUf-0z; Wed, 21 Sep 2022 10:08:14 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawQU-00AePV-Ej
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 09:54:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D4B8F63087
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:53:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42DC1C43141
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:53:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663754033;
-	bh=M7t6IiqXpQGB9XaRaXvCXP2eKsC0VvYqKrHAX2BqmOU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=HFF9B8PKG4sjnwYn/qRsqkY5pL/Avw/xcwxmQNH3bGXcYw0XgvT/7vdbeMgPt0L+y
-	 ZtidYy6WjfWnnASa18lptSACPl9vGw452nq1nd4+wt6EOS/gfIEduAXmd2gZcbc0x8
-	 VwqHMXTOE1Tb7RAgR5ghqNuqYbgTli5nEXvmsUw9uXhlIIBcOBdEqRweGeJ9/ETyZD
-	 7FT1xJeLiEwsB8KcV0Et3Hy5hN1SAcZE6UJyR1qEghkydOQJoPuapbTnNxM4Wki8YZ
-	 rTdejngZAzw7IwT+03z6g0QZWTGISoeTnCYeuDzhEr+V/eiX5hSmycbKwmu5oYt+l4
-	 QgZmEJo51EK/g==
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-12803ac8113so8249043fac.8
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:53:53 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2SCpoMAFsYuoN/4WFOUuY8Jgovzoc15DyJ8t8nyXUXbRumU64k
-	5gaAA6lq8CqWWKzKh9erttqo6qrapK4eBAiUU98=
-X-Google-Smtp-Source: AMsMyM491vQRywb4wDvkWp07dXKdsU6sntPmf24mps+H/A/7DIMj4uinS1kC9vZIpoBWnuepOdlaOPlfaWKaVAl63Ik=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr4555356oao.112.1663754032361; Wed, 21
- Sep 2022 02:53:52 -0700 (PDT)
+	id 1oaweI-00AjNm-EO; Wed, 21 Sep 2022 10:08:11 +0000
+Received: by mail-ej1-x630.google.com with SMTP id y17so12457918ejo.6;
+        Wed, 21 Sep 2022 03:07:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=16JHpy8HOV5zOjzO41UWCeQsc//VdSkHGlgOJLsMd8k=;
+        b=W2nsBUXvxZW4u9Vlf0bwCXbGqjxzpcwSk+491KYGNutwKR5iVS/4+r1ZWnYID/AMjB
+         XMXv5w2GMh6+F8QGi7Io73MQA5tSGqmG2x/3U2WZN7mB/C3zCUl0vt1c7Li5kpJ5ieNe
+         r8r2OyPJyAxFaQXePEK0wOHZpVDUuuj7DJjhSGHEzNN9tpj70q+o/+LJhw5u9sVksOQr
+         T/FBkTX5G9QjyXlKxw1cBnk2Z5yk3gkHGF0DZ2+UvaT/knvTFCAVHRVNnH91qBVrvo8H
+         80e0lk7XR3ChVikb17npTnmpn70MchyWfxrtsQAYXUWDsUZhSg0+lJ+n9WpY5F7UyvaE
+         pQiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=16JHpy8HOV5zOjzO41UWCeQsc//VdSkHGlgOJLsMd8k=;
+        b=uzwmIXNg8Ca9wJLpLNNNwtS443wA/FeqMqb5knTrtT5a85/4ODEN3pAJ1MNqAX0UEu
+         fpfV7Yavm5+Ma/tz7wlEAwLRtGJpDhaZxDq0qiEYQyEJDkQhR6WHtaA13xTtUceCFhT+
+         L8rTtTQ7RZSSnprYMP5e3vHFHB1F4wC2O+13uELY/kB/f/e77s91G+o/xnY1QkCSeQZt
+         4fVtE2EI4jlq+OULjHJDYUFP80GUuIb1ybAR5LZMiRKEjT0Em0lGE8Y3XzJHuvSV5jFB
+         UIxfu8NYZCscUJnt5RvdknPh+nlcebCKLna2bc793oR7G5wBhc9gaTX/dXErOkLRiDp5
+         kyFA==
+X-Gm-Message-State: ACrzQf07vm0A7rD8p9d1tP8b5DHjmCJSD9Ex4K+WIdqRhUYvXzNHUBN0
+	svAamkTAT/bjkJfnM5zWP6G8se1QBsyMPSKCZyM=
+X-Google-Smtp-Source: AMsMyM5rh1KQ7KgFpMv+pJ3tu52sOsSxVxHqI6HzSneUdWNk74IBai04tZfLSooyjz4dTz8BOkizUbI1Qgl4nYk8Jqs=
+X-Received: by 2002:a17:906:591:b0:73d:c3ef:84ae with SMTP id
+ 17-20020a170906059100b0073dc3ef84aemr20462081ejn.155.1663754876285; Wed, 21
+ Sep 2022 03:07:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-9-guoren@kernel.org>
- <afa17bdd-2d11-4015-6e2a-7a39db931d09@huawei.com>
-In-Reply-To: <afa17bdd-2d11-4015-6e2a-7a39db931d09@huawei.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 21 Sep 2022 17:53:39 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRMt4zDQcvBOxge-4+6o1mqhWds_AiFKamdCzKJZfoKPw@mail.gmail.com>
-Message-ID: <CAJF2gTRMt4zDQcvBOxge-4+6o1mqhWds_AiFKamdCzKJZfoKPw@mail.gmail.com>
-Subject: Re: [PATCH V5 08/11] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
-To: Chen Zhongjin <chenzhongjin@huawei.com>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, 
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
-	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com, 
-	zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+References: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
+ <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org> <CA+V-a8t3ukpa1PNz=5fP+BTjWkFJmwDo_EJJYjO9YctF2=K1Vg@mail.gmail.com>
+ <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
+In-Reply-To: <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 21 Sep 2022 11:07:29 +0100
+Message-ID: <CA+V-a8svcTXceeLSVD4D9VazTc9nN5MXsFmvcFaDd2mM0REDhg@mail.gmail.com>
+Subject: Re: Similar SoCs with different CPUs and interrupt bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andre Przywara <andre.przywara@arm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Chris Paterson <Chris.Paterson2@renesas.com>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Olof Johansson <olof@lixom.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_025354_605883_8EED807E 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20220921_030810_500090_9D865189 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,66 +94,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 4:34 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
+On Wed, Sep 21, 2022 at 10:26 AM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 >
-> Hi,
->
-> On 2022/9/18 23:52, guoren@kernel.org wrote:
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index 5f49517cd3a2..426529b84db0 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -332,6 +332,33 @@ ENTRY(ret_from_kernel_thread)
-> >       tail syscall_exit_to_user_mode
-> >   ENDPROC(ret_from_kernel_thread)
+> On 21/09/2022 11:20, Lad, Prabhakar wrote:
+> >>
+> >> What do you mean? Macros support string concatenation and simple
+> >> arithmetic like adding numbers. I just tested it.
+> >>
+> > I did try the below:
 > >
-> > +#ifdef CONFIG_IRQ_STACKS
-> > +ENTRY(call_on_stack)
-> > +     /* Create a frame record to save our ra and fp */
-> > +     addi    sp, sp, -RISCV_SZPTR
-> > +     REG_S   ra, (sp)
-> > +     addi    sp, sp, -RISCV_SZPTR
-> > +     REG_S   fp, (sp)
+> > diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> > b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> > index 689aa4ba416b..0f923c276cd3 100644
+> > --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> > +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> > @@ -8,6 +8,8 @@
+> >  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >  #include <dt-bindings/clock/r9a07g043-cpg.h>
+> >
+> > +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr na
 > > +
-> > +     /* Save sp in fp */
-> > +     move    fp, sp
-> > +
-> > +     /* Move to the new stack and call the function there */
-> > +     li      a3, IRQ_STACK_SIZE
-> > +     add     sp, a1, a3
-> > +     jalr    a2
-> > +
-> > +     /*
-> > +      * Restore sp from prev fp, and fp, ra from the frame
-> > +      */
-> > +     move    sp, fp
-> > +     REG_L   fp, (sp)
-> > +     addi    sp, sp, RISCV_SZPTR
-> > +     REG_L   ra, (sp)
-> > +     addi    sp, sp, RISCV_SZPTR
-> > +     ret
-> > +ENDPROC(call_on_stack)
-> > +#endif
+> >  / {
+> >      compatible = "renesas,r9a07g043";
+> >      #address-cells = <2>;
+> > @@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
+> >              compatible = "renesas,r9a07g043-ssi",
+> >                       "renesas,rz-ssi";
+> >              reg = <0 0x1004a000 0 0x400>;
+> > -            interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
+> > +            interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
+> >                       <GIC_SPI 331 IRQ_TYPE_EDGE_RISING>,
+> >                       <GIC_SPI 332 IRQ_TYPE_EDGE_RISING>,
+> >                       <GIC_SPI 333 IRQ_TYPE_EDGE_RISING>;
+> >
+> > This worked as expected, but couldn't get the arithmetic operation
+> > working. Could you please provide an example?
 >
-> Seems my compiler (riscv64-linux-gnu-gcc 8.4.0, cross compiling from
-> x86) cannot recognize the register `fp`.
-The whole entry.S uses s0 instead of fp, so I approve of your advice. Thx.
+> diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> index ff6aab388eb7..0ecca775fa3f 100644
+> --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+> @@ -8,6 +8,8 @@
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/clock/r9a07g043-cpg.h>
+>
+> +#define SOC_PERIPHERAL_IRQ_NUMBER(na)  (na + 32)
+> +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr SOC_PERIPHERAL_IRQ_NUMBER(na)
+>  / {
+>         compatible = "renesas,r9a07g043";
+>         #address-cells = <2>;
+> @@ -128,7 +130,7 @@ ssi1: ssi@1004a000 {
+>                         compatible = "renesas,r9a07g043-ssi",
+>                                      "renesas,rz-ssi";
+>                         reg = <0 0x1004a000 0 0x400>;
+> -                       interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
+> +                       interrupts = <SOC_PERIPHERAL_IRQ(330, IRQ_TYPE_LEVEL_HIGH)>,
+>
+>
+>
+> Or any other method like that....
+>
+Thanks for the pointer! (Ive tested the above and it works)
 
->
-> After I changed it to `s0` this can pass compiling.
->
->
-> Seems there is nowhere else using `fp`, can this just using `s0` instead?
->
-> Best,
->
-> Chen
->
-
-
--- 
-Best Regards
- Guo Ren
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
