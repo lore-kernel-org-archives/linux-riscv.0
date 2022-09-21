@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E21DC32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 08:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DB5ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 08:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qlN3c5Lu/Hq7tuWGNtl8rp1zijFriVmVGeTfYdh6Jk=; b=LpPwYLcmqd55Bt
-	8YSSAJksnLZWmyf8cXFrVqzjwWZ00vtoN7rHGvKKvbKgJUX6N9iXDvigwkibB4WDbbmOh+PHMzhjt
-	MCqNkZYEfRO0K1MqyC04iLsXtlopCN2nCFYoCTScc+lUUCAqzRFptRX/WWFppdM4kWzS7jI90sWvc
-	GyfpAk/ev7HjAByAPmug2YRV6fy3IP19pMgXe3K/TyVW4yipTOcIH0Gv16on8sL55DLvhHJC9nI8+
-	yEwr/AZUvHCbD2Mmv6eT6jx7K0LswL9YfKx9gTvgbM9cD9OTs8sanYKQmsdqcmJbp0pW9ffRXDi1t
-	ADHhEVpugzxXaPwrbDQQ==;
+	List-Owner; bh=ZubcgfvUtmRRvv08yh1dueCtGfpkUx5jiPirjFefgGA=; b=bHCqnqR2mXtM1r
+	ubJ7xj56i5/OwxMAYyamQi/5qBy77ZwLoY0620wPU7ErvW/8fPGlOc4dBUjjNiTJE8e7sDAA+WRpk
+	61O8b/wRaFltF7chF94YHcnRYOJq7de5Oq+5n9jGwsRlb/baMeIQoEcNrNzbjgNAV3HD4kklyAEnS
+	VSsPYSBwKpmTp9XLHWUWBh3UWj7Ou5Wsmuv1Wv1WSNAmFgrrqle3TA2FDe0V/xb5GmxfLviVRVCpk
+	Un0h4wmUTmmuHMJ20rI2y1AXD/5bco9UtNGn+9GlhAtNUnwbyKorXuIoF3E7xCN/Kzj329YpwUAn/
+	0NWAOmO+Yd56JEdDnkkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oavGj-00A26a-Au; Wed, 21 Sep 2022 08:39:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1oavJQ-00A3Vi-6M; Wed, 21 Sep 2022 08:42:32 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oav2x-009w6f-Bo; Wed, 21 Sep 2022 08:25:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=N+sWBwv5MxF+6L51ydEyB/jrgY323m4Yuf+2/IegXt4=; b=O7cVp4ViyjbDED2MT57s8CArTF
-	J7kYu9tRk1fnkzTktLGQXVs586llVSIWhD/yW4lryR7aPAkol4HRjkMiV1t+Nfz9hueTNgekkURIO
-	z+yUMSQ4OFaWQ49/SUgLunFG49kuif1zJp57EW1uIukdqKgKpI9GO4fpdunpOPVTBXTrTBQGnwGsf
-	9bAE3n5MrZFnNnLHrJSJcljwllDRsasEoah/KhT0pzpT2pyRAq40XdRB+k90yJo5u67lLd/SZYvLE
-	ii/M9BMy5W8s49SjqmvD/EfTCTVa7WuFktvF8/eE5sreUcEjbU8lWm+6fGBXDyYtVxJinG5S6czIU
-	wYN6zxEA==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oav2u-0069Vh-1E; Wed, 21 Sep 2022 08:25:28 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 948DD300074;
-	Wed, 21 Sep 2022 10:25:23 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 775192BB085DD; Wed, 21 Sep 2022 10:25:23 +0200 (CEST)
-Date: Wed, 21 Sep 2022 10:25:23 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
-Cc: anil.s.keshavamurthy@intel.com, borntraeger@linux.ibm.com,
-	catalin.marinas@arm.com, dave.hansen@linux.intel.com,
-	gor@linux.ibm.com, guoren@kernel.org, hca@linux.ibm.com,
-	hpa@zytor.com, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, mark.rutland@arm.com,
-	mhiramat@kernel.org, namit@vmware.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, x86@kernel.org,
-	Yipeng Zou <zouyipeng@huawei.com>, chris.zjh@huawei.com,
-	liaochang1@huawei.com
-Subject: Re: [PATCH 0/2] make weak attributes in {k,u}probes
-Message-ID: <YyrKc/tpLllEBH/m@hirez.programming.kicks-ass.net>
-References: <20220917015522.44583-1-zouyipeng@huawei.com>
- <1663692878.h3l8c563n8.naveen@linux.ibm.com>
+	id 1oavC5-00A0BP-T4
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 08:34:59 +0000
+Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.54])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4MXWnH3N6hzMn6D;
+	Wed, 21 Sep 2022 16:30:11 +0800 (CST)
+Received: from dggpemm500013.china.huawei.com (7.185.36.172) by
+ dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Wed, 21 Sep 2022 16:34:53 +0800
+Received: from [10.67.108.67] (10.67.108.67) by dggpemm500013.china.huawei.com
+ (7.185.36.172) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.31; Wed, 21 Sep
+ 2022 16:34:52 +0800
+Message-ID: <afa17bdd-2d11-4015-6e2a-7a39db931d09@huawei.com>
+Date: Wed, 21 Sep 2022 16:34:52 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1663692878.h3l8c563n8.naveen@linux.ibm.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.0
+Subject: Re: [PATCH V5 08/11] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+Content-Language: en-US
+To: <guoren@kernel.org>, <arnd@arndb.de>, <palmer@rivosinc.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
+	<conor.dooley@microchip.com>, <heiko@sntech.de>, <jszhang@kernel.org>,
+	<lazyparser@gmail.com>, <falcon@tinylab.org>, <chenhuacai@kernel.org>,
+	<apatel@ventanamicro.com>, <atishp@atishpatra.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <mark.rutland@arm.com>, <zouyipeng@huawei.com>,
+	<bigeasy@linutronix.de>, <David.Laight@aculab.com>
+CC: <linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>
+References: <20220918155246.1203293-1-guoren@kernel.org>
+ <20220918155246.1203293-9-guoren@kernel.org>
+From: Chen Zhongjin <chenzhongjin@huawei.com>
+In-Reply-To: <20220918155246.1203293-9-guoren@kernel.org>
+X-Originating-IP: [10.67.108.67]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500013.china.huawei.com (7.185.36.172)
+X-CFilter-Loop: Reflected
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220921_013458_156389_6A0DB9C7 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +75,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 10:32:46PM +0530, Naveen N. Rao wrote:
-> Yipeng Zou wrote:
-> > We have some function implementation under some arch does nothing.
-> > We can mark it with weak attributes to improve.
-> 
-> That's not always an improvement. See [1] for an example, among many other
-> patches to reduce use of __weak functions in the kernel.
+Hi,
 
-More weak 'fun':
+On 2022/9/18 23:52, guoren@kernel.org wrote:
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 5f49517cd3a2..426529b84db0 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -332,6 +332,33 @@ ENTRY(ret_from_kernel_thread)
+>   	tail syscall_exit_to_user_mode
+>   ENDPROC(ret_from_kernel_thread)
+>   
+> +#ifdef CONFIG_IRQ_STACKS
+> +ENTRY(call_on_stack)
+> +	/* Create a frame record to save our ra and fp */
+> +	addi	sp, sp, -RISCV_SZPTR
+> +	REG_S	ra, (sp)
+> +	addi	sp, sp, -RISCV_SZPTR
+> +	REG_S	fp, (sp)
+> +
+> +	/* Save sp in fp */
+> +	move	fp, sp
+> +
+> +	/* Move to the new stack and call the function there */
+> +	li	a3, IRQ_STACK_SIZE
+> +	add	sp, a1, a3
+> +	jalr	a2
+> +
+> +	/*
+> +	 * Restore sp from prev fp, and fp, ra from the frame
+> +	 */
+> +	move	sp, fp
+> +	REG_L	fp, (sp)
+> +	addi	sp, sp, RISCV_SZPTR
+> +	REG_L	ra, (sp)
+> +	addi	sp, sp, RISCV_SZPTR
+> +	ret
+> +ENDPROC(call_on_stack)
+> +#endif
 
-  https://lkml.kernel.org/r/20220419203807.655552918@infradead.org
+Seems my compiler (riscv64-linux-gnu-gcc 8.4.0, cross compiling from 
+x86) cannot recognize the register `fp`.
+
+After I changed it to `s0` this can pass compiling.
+
+
+Seems there is nowhere else using `fp`, can this just using `s0` instead?
+
+Best,
+
+Chen
+
 
 _______________________________________________
 linux-riscv mailing list
