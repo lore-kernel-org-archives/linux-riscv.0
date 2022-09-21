@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71938C32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F095C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 11:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qlPM/YNAeItY8NJhiKVe9ft1OxzPbLas8RAotnzzoH4=; b=JuX7CAEEY4l90o
-	gClYHm9HliD+1NWT56gi1h0w+C+o9/EXmultqGtwb+AxPCpos0su6I230VFYDZ8hAYChofx74gfH+
-	pC8OAoFC+BHTZhbTZGotCnfkNnmxYFuNVtvIc3sbN+wS24MUxFT2q7HDDZqoUHZ9ObSK6XEgYBk5V
-	MYVHyNiU7QM0zylVCD2Fa/B5YGBArtkfaPHQf2TTD7b0tejObf6XE0q0bDgGgJqZ9WsBK4lK7/eTQ
-	GeOH72KTBiQHUT0kJDO1GlUWEZJD+KiIrSHsVPpk1npwr2eZKy8ETzaoEFc/0jrC26z1b1WWbeCEC
-	PnPfO0akN+LmzzuTFL8g==;
+	List-Owner; bh=G48wH9W9YIvAPLZLSXYF+SebRplcNdCX+9Mj5b1aiWY=; b=rz6I4SyG1ksB5z
+	pZUPOyWNXAQeRC+AnTgBQdYkbg7CbmPeI6kjsS57ZVBQ1vqOQo6/Mde/N3H0sbgRoYm3IJFCmY2Na
+	G1aZrMDNUVy8ocI5JRuR6r8D14FObiJ86hegpCwUm3JBlbPR/4yspXiT4JE8djgqSvHV0/YnMaqb2
+	wHx+ABl6LWXYzc8GS/ZsoebiH6xxa37cCsGahoDxvin8OFB4/OmWAaHENU4L6HvUGXA8WBo0KbjRO
+	joZlXbxs8okW2vuuf7KvCk8+QNH5Ac1OG4SZnAcuf37WG8n8Xqt8n3kbGsHGuVHeGWbn+Df+j5eqw
+	wNm1tND7RIjYuU3ADpqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaxHy-00AxgO-Ra; Wed, 21 Sep 2022 10:49:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oayD6-00BAit-F7; Wed, 21 Sep 2022 11:48:12 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaxFP-00AwGX-B8
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 10:46:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 95250B818E4
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B692FC43140
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:46:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663757187;
-	bh=r2QJhJDb7OEmRY1nC5kgUhM9pWFecNffGY9a5gN+oQ4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ofCFeD1RzvMmvaNFUt5O0mIW3ef1U52jewiuDAJfWuWtIs/YRVpNVSSIMFTa2q2dl
-	 4GUyvV30ABnkLu+miSBu/RAAMDpseIjmlIpEo5GNB9tqUBzUunPMm0WwwsTJ+n34xA
-	 aPWoUUgBBgdmuZtAsrJmjf2///m+oHqfbdowsFhj7j1PkQzifJQVDtM1ZOLMuWUKYd
-	 +Lj5wnkjpUYEmAp+A4or9k7nbSAkTicllGKxRshj1vPyIPgyYmY8RW0/zD8FDjAOun
-	 dPrpePAs0/bZdWf7dyvpxFledfxR0gY0VcPSWvUohyX1b/khL+iFF1I6s2aPeAuiBn
-	 nJnDL7g4nnRDw==
-Received: by mail-oi1-f181.google.com with SMTP id v130so7512991oie.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 03:46:27 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3rduajaJ/oLeXY/lYZNDFboNavtB19FeR7eleJvlOn8+qAfsRN
-	rHvGm6YtWrHuPcKCCQHlXpJLtKAZMCMnd1cx3Ck=
-X-Google-Smtp-Source: AMsMyM5qckO5Xq0E3Wo1OYKkFZUKkYyWM9uiO2xPT1vQPFsGkwmiMwz0DewGGVhDMGOwdCD27+YY3YRMc6Q3rThL/G8=
-X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
- q31-20020a056808201f00b0034f9fdfdbbfmr3480217oiw.19.1663757186803; Wed, 21
- Sep 2022 03:46:26 -0700 (PDT)
+	id 1oayD3-00BAhJ-MZ
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 11:48:11 +0000
+Received: by mail-lf1-x135.google.com with SMTP id k10so8756124lfm.4
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 04:48:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=/bkvkg6Y/dOHYzJXqWmZEeA+K66PQILGYp9YS1M0cwc=;
+        b=D+kbMAIHUt/hAXJQ6YNcDB6QBMkRX0C8kmsmq3Zi7dg+BbSNqXSYABQsDRRaLoSn5l
+         kCYvIKo7l4keR2NYazOrzeSfULco6eGEf+lmP7fiddz/byTQQbqX4vheOUm0TOFGwrPx
+         HEjnlRmZGm2MeOv4/OjZNgwRihWw7TMJ6vqqRS0cqHujjc+r+RyPOgh6mxwDXxGEy5bZ
+         qSvp5AropTw3Ibh8WO/8UurNMMQgjYFjBWJIUYrS8oIQ7VK8MTSJBfyCKcJ0zR1yZKn9
+         3oj4Tv5qKdLeeOPbpTeBYvlE7JSv22TjcmYkRKTH3JDHR7xOIzi8mPUUKk54zpAnoQWW
+         Xkgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=/bkvkg6Y/dOHYzJXqWmZEeA+K66PQILGYp9YS1M0cwc=;
+        b=wq5GqETcKQcjNhbmCL0qg4Wn4YVmwWWBbFT85qRpltr2VMk2s+ir7u3SqJ7MOhtH74
+         PvfOt2N4Db/5/1GW5SDYzu+B0dkC0Mbm0kzUMjcscboohyP1NRVl7bvywQ+N4hY4vIJ8
+         5DyGvB1xLG+xNIy+De5QegJNXICUQaPxMIWi2WCFGm0vE9xjqTP7NUVj9HvXLgIaE6Mf
+         KTTsjyGljcT9Op1StIqpWpDO4B1kFmuiML2dzJigc7JGQmY+KxGlHBK9WYrH9IQQf3N8
+         yLtg/MgXvV3exT5afFdV6lr0a+SD0zBK/RmZCm2DwBoBMxL9h5IfdjR1LkMKhxST2+PD
+         6vwQ==
+X-Gm-Message-State: ACrzQf3rsas9bI/hUgDVX+inAMYrH6gviykkvoNbaoNbY9G202Zoj7JO
+	xdIjr3feiHwgQcT64aBXdHMT2HCb/3MWW/2W+e09WA==
+X-Google-Smtp-Source: AMsMyM4kPRwu7Whg21VqI/2ELsxh4kcFhn3kO6akAghoUVhGsD9+JwZdbUmGbgo1xU0h3C55Xlj95l76mF+xYgafF50=
+X-Received: by 2002:a05:6512:a86:b0:499:f794:5cc2 with SMTP id
+ m6-20020a0565120a8600b00499f7945cc2mr9323922lfu.100.1663760885551; Wed, 21
+ Sep 2022 04:48:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
- <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
- <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
- <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
- <7a2379cf-c1cf-46af-9172-334d2b9b88d5@www.fastmail.com> <CAJF2gTSvaNh_m_hrub5Z=kqLAYJfRbpYzB1Mc5aOgdN+Bm8bag@mail.gmail.com>
- <CAJF2gTQGB97kh=47dsZ8MFpTTpy7pxYyd=MoLOUzgF9kTm1wdA@mail.gmail.com> <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
-In-Reply-To: <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 21 Sep 2022 18:46:14 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSR9CMxda3Zjz9Ovg5bhXa_Ro622LVT+spHqTTE5zUKDA@mail.gmail.com>
-Message-ID: <CAJF2gTSR9CMxda3Zjz9Ovg5bhXa_Ro622LVT+spHqTTE5zUKDA@mail.gmail.com>
-Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	"Conor.Dooley" <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, lazyparser@gmail.com, falcon@tinylab.org, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Linux-Arch <linux-arch@vger.kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
+References: <20220903161309.32848-1-apatel@ventanamicro.com>
+In-Reply-To: <20220903161309.32848-1-apatel@ventanamicro.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 21 Sep 2022 17:17:54 +0530
+Message-ID: <CAK9=C2WxjFD27HhqCWEtyZSXFrwsqpWjqvU1HFwN5pAnbc0zmg@mail.gmail.com>
+Subject: Re: [PATCH v9 0/7] RISC-V IPI Improvements
+To: Marc Zyngier <maz@kernel.org>
+Cc: Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
+	Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_034631_704207_9DB28A92 
-X-CRM114-Status: GOOD (  34.49  )
+X-CRM114-CacheID: sfid-20220921_044809_767967_B3E4A0D7 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,288 +87,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hi Marc,
 
-No more coding conventions for the patch, THREAD_ALIGN &
-THREAD_SIZE_ORDER are used by vmlinux.lds.S and common code. So here
-is my considerable version:
+On Sat, Sep 3, 2022 at 9:43 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> This series aims to improve IPI support in Linux RISC-V in following ways:
+>  1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+>     specific hooks. This also makes Linux RISC-V IPI support aligned with
+>     other architectures.
+>  2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+>     of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+>     IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+>     IPIs without any assistance from M-mode runtime firmware.
+>
+> These patches were originally part of the "Linux RISC-V ACLINT Support"
+> series but this now a separate series so that it can be merged independently
+> of the "Linux RISC-V ACLINT Support" series.
+> (Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
+>
+> These patches are also a preparatory patches for the up-coming:
+>  1) Linux RISC-V AIA support
+>  2) Linux RISC-V SWI support
+>
+> These patches can also be found in riscv_ipi_imp_v9 branch at:
+> https://github.com/avpatel/linux.git
+>
+> Changes since v8:
+>  - Rebased on Linux-6.0-rc3
+>  - Use dummy percpu data as parameter for request_percpu_irq() in PATCH4.
+>
+> Changes since v7:
+>  - Rebased on Linux-6.0-rc1
+>  - Use atomic operations to track per-CPU pending and enabled IPIs in PATCH3.
+>    (Note: this is inspired from IPI muxing implemented in
+>     drivers/irqchip/irq-apple-aic.c)
+>  - Made "struct ipi_mux_ops" (added by PATCH3) flexible so that
+>    drivers/irqchip/irq-apple-aic.c can adopt it in future.
+>
+> Changes since v6:
+>  - Rebased on Linux-5.19-rc7
+>  - Added documentation for struct ipi_mux_ops in PATCH3
+>  - Dropped dummy irq_mask()/unmask() in PATCH3
+>  - Added const for "ipi_mux_chip" in PATCH3
+>  - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
+>  - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
+>  - Improved barrier documentation in ipi_mux_process() of PATCH3
+>  - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
+>  - Added nr_ipi parameter in ipi_mux_create() of PATCH3
+>
+> Changes since v5:
+>  - Rebased on Linux-5.18-rc3
+>  - Used kernel doc style in PATCH3
+>  - Removed redundant loop in ipi_mux_process() of PATCH3
+>  - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
+>  - Removed use of "this patch" in PATCH3 commit description
+>  - Addressed few other nit comments in PATCH3
+>
+> Changes since v4:
+>  - Rebased on Linux-5.17
+>  - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
+>
+> Changes since v3:
+>  - Rebased on Linux-5.17-rc6
+>  - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
+>  - Simplified riscv_intc_hwnode() in PATCH2
+>
+> Changes since v2:
+>  - Rebased on Linux-5.17-rc4
+>  - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
+>    a function which allows drivers to directly discover INTC fwnode
+>
+> Changes since v1:
+>  - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
+>
+> Anup Patel (7):
+>   RISC-V: Clear SIP bit only when using SBI IPI operations
+>   irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+>   genirq: Add mechanism to multiplex a single HW IPI
+>   RISC-V: Treat IPIs as normal Linux IRQs
+>   RISC-V: Allow marking IPIs as suitable for remote FENCEs
+>   RISC-V: Use IPIs for remote TLB flush when possible
+>   RISC-V: Use IPIs for remote icache flush when possible
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 76bde12d9f8c..602e577c429c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -443,6 +443,16 @@ config IRQ_STACKS
-          Add independent irq & softirq stacks for percpu to prevent
-kernel stack
-          overflows. We may save some memory footprint by disabling IRQ_STACKS.
+Friendly, ping ?
 
-+config THREAD_SIZE_ORDER
-+       int "Kernel stack size (in power-of-two numbers of page size)"
-if VMAP_STACK && EXPERT
-+       range 0 4
-+       default 1 if 32BIT && !KASAN
-+       default 3 if 64BIT && KASAN
-+       default 2
-+       help
-+         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-+         affects irq stack size, which is equal to thread stack size.
-+
- endmenu # "Platform type"
+Regards,
+Anup
 
- menu "Kernel features"
-diff --git a/arch/riscv/include/asm/thread_info.h
-b/arch/riscv/include/asm/thread_info.h
-index 043da8ccc7e6..c970d41dc4c6 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -11,18 +11,8 @@
- #include <asm/page.h>
- #include <linux/const.h>
-
--#ifdef CONFIG_KASAN
--#define KASAN_STACK_ORDER 1
--#else
--#define KASAN_STACK_ORDER 0
--#endif
--
- /* thread information allocation */
--#ifdef CONFIG_64BIT
--#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
--#else
--#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
--#endif
-+#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
- #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
-
-It's a little bit back to the original, but KASAN_STACK_ORDER has been
-deleted. VMAP_STACK && EXPERT added.
-
-On Wed, Sep 21, 2022 at 6:31 PM Guo Ren <guoren@kernel.org> wrote:
 >
-> On Wed, Sep 21, 2022 at 4:23 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Wed, Sep 21, 2022 at 2:13 PM Guo Ren <guoren@kernel.org> wrote:
-> > >
-> > > On Tue, Sep 20, 2022 at 3:18 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > > >
-> > > > On Tue, Sep 20, 2022, at 2:46 AM, Guo Ren wrote:
-> > > >
-> > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > > index dfe600f3526c..8def456f328c 100644
-> > > > > --- a/arch/riscv/Kconfig
-> > > > > +++ b/arch/riscv/Kconfig
-> > > > > @@ -442,6 +442,16 @@ config IRQ_STACKS
-> > > > >           Add independent irq & softirq stacks for percpu to prevent
-> > > > > kernel stack
-> > > > >           overflows. We may save some memory footprint by disabling IRQ_STACKS.
-> > > > >
-> > > > > +config THREAD_SIZE
-> > > > > +       int "Kernel stack size (in bytes)" if EXPERT
-> > > > > +       range 4096 65536
-> > > > > +       default 8192 if 32BIT && !KASAN
-> > > > > +       default 32768 if 64BIT && KASAN
-> > > > > +       default 16384
-> > > > > +       help
-> > > > > +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-> > > > > +         affects irq stack size, which is equal to thread stack size.
-> > > >
-> > > > I still think this should be guarded in a way that prevents
-> > > > setting the stack to smaller than default values unless VMAP_STACK
-> > > > is set as well.
-> > > Current VMAP_STACK would double THREAD_SIZE. Let me see how to reduce
-> > > the VMAP_STACK.
-> > Sorry, for my miss understanding. I have no idea to reduce the
-> > VMAP_STACK's THREAD_ALIGN, THREAD_SIZE*2 is fine. Here is my new
-> > patch:
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 76bde12d9f8c..669ae57356a2 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -443,6 +443,16 @@ config IRQ_STACKS
-> >           Add independent irq & softirq stacks for percpu to prevent
-> > kernel stack
-> >           overflows. We may save some memory footprint by disabling IRQ_STACKS.
-> >
-> > +config THREAD_SIZE
-> > +       int "Kernel stack size (in bytes)" if VMAP_STACK && EXPERT
-> > +       range 4096 65536
-> > +       default 8192 if 32BIT && !KASAN
-> > +       default 32768 if 64BIT && KASAN
-> > +       default 16384
-> > +       help
-> > +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-> > +         affects irq stack size, which is equal to thread stack size.
-> > +
-> >  endmenu # "Platform type"
-> >
-> >  menu "Kernel features"
-> > diff --git a/arch/riscv/include/asm/thread_info.h
-> > b/arch/riscv/include/asm/thread_info.h
-> > index 043da8ccc7e6..e7ae3f13b879 100644
-> > --- a/arch/riscv/include/asm/thread_info.h
-> > +++ b/arch/riscv/include/asm/thread_info.h
-> > @@ -11,32 +11,17 @@
-> >  #include <asm/page.h>
-> >  #include <linux/const.h>
-> >
-> > -#ifdef CONFIG_KASAN
-> > -#define KASAN_STACK_ORDER 1
-> > -#else
-> > -#define KASAN_STACK_ORDER 0
-> > -#endif
-> > -
-> >  /* thread information allocation */
-> > -#ifdef CONFIG_64BIT
-> > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> > -#else
-> > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> > -#endif
-> > -#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
-> > +#define THREAD_SIZE            CONFIG_THREAD_SIZE
-> >
-> >  /*
-> >   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-> > - * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-> > - * assembly.
-> > + * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
-> >   */
-> >  #ifdef CONFIG_VMAP_STACK
-> >  #define THREAD_ALIGN            (2 * THREAD_SIZE)
-> > -#else
-> > -#define THREAD_ALIGN            THREAD_SIZE
-> >  #endif
-> >
-> > -#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
-> >  #define OVERFLOW_STACK_SIZE     SZ_4K
-> >  #define SHADOW_OVERFLOW_STACK_SIZE (1024)
-> >
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index 2207cf44a3bc..71ea850ff0db 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -29,8 +29,8 @@ _restore_kernel_tpsp:
-> >
-> >  #ifdef CONFIG_VMAP_STACK
-> >         addi sp, sp, -(PT_SIZE_ON_STACK)
-> > -       srli sp, sp, THREAD_SHIFT
-> > -       andi sp, sp, 0x1
-> > +       srli sp, sp, PAGE_SHIFT
-> > +       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
-> >         bnez sp, handle_kernel_stack_overflow
-> >         REG_L sp, TASK_TI_KERNEL_SP(tp)
-> >  #endif
-> Sorry for the update again, fixup !VMAP_STACK compile error.
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 76bde12d9f8c..602e577c429c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -443,6 +443,16 @@ config IRQ_STACKS
->           Add independent irq & softirq stacks for percpu to prevent
-> kernel stack
->           overflows. We may save some memory footprint by disabling IRQ_STACKS.
->
-> +config THREAD_SIZE_ORDER
-> +       int "Kernel stack size (in power-of-two numbers of page size)"
-> if VMAP_STACK && EXPERT
-> +       range 0 4
-> +       default 1 if 32BIT && !KASAN
-> +       default 3 if 64BIT && KASAN
-> +       default 2
-> +       help
-> +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-> +         affects irq stack size, which is equal to thread stack size.
-> +
->  endmenu # "Platform type"
->
->  menu "Kernel features"
-> diff --git a/arch/riscv/include/asm/thread_info.h
-> b/arch/riscv/include/asm/thread_info.h
-> index 043da8ccc7e6..3f382490d8ed 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -11,24 +11,13 @@
->  #include <asm/page.h>
->  #include <linux/const.h>
->
-> -#ifdef CONFIG_KASAN
-> -#define KASAN_STACK_ORDER 1
-> -#else
-> -#define KASAN_STACK_ORDER 0
-> -#endif
-> -
->  /* thread information allocation */
-> -#ifdef CONFIG_64BIT
-> -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> -#else
-> -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> -#endif
-> -#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
-> +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
-> +#define THREAD_SIZE            (1 << PAGE_SHIFT << THREAD_SIZE_ORDER)
->
->  /*
->   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-> - * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-> - * assembly.
-> + * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
->   */
->  #ifdef CONFIG_VMAP_STACK
->  #define THREAD_ALIGN            (2 * THREAD_SIZE)
-> @@ -36,7 +25,6 @@
->  #define THREAD_ALIGN            THREAD_SIZE
->  #endif
->
-> -#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
->  #define OVERFLOW_STACK_SIZE     SZ_4K
->  #define SHADOW_OVERFLOW_STACK_SIZE (1024)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 5cbd6684ef52..62e8f3a3c942 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -29,8 +29,8 @@ _restore_kernel_tpsp:
->
->  #ifdef CONFIG_VMAP_STACK
->         addi sp, sp, -(PT_SIZE_ON_STACK)
-> -       srli sp, sp, THREAD_SHIFT
-> -       andi sp, sp, 0x1
-> +       srli sp, sp, PAGE_SHIFT
-> +       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
->         bnez sp, handle_kernel_stack_overflow
->         REG_L sp, TASK_TI_KERNEL_SP(tp)
->  #endif
->
-> >
-> >
-> > >
-> > > >
-> > > >     Arnd
-> > >
-> > >
-> > >
-> > > --
-> > > Best Regards
-> > >  Guo Ren
-> >
-> >
-> >
-> > --
-> > Best Regards
-> >  Guo Ren
->
->
+>  arch/riscv/Kconfig                |   2 +
+>  arch/riscv/include/asm/irq.h      |   4 +
+>  arch/riscv/include/asm/sbi.h      |   7 +
+>  arch/riscv/include/asm/smp.h      |  49 ++++--
+>  arch/riscv/kernel/Makefile        |   1 +
+>  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+>  arch/riscv/kernel/irq.c           |  21 ++-
+>  arch/riscv/kernel/sbi-ipi.c       |  60 ++++++++
+>  arch/riscv/kernel/sbi.c           |  11 --
+>  arch/riscv/kernel/smp.c           | 166 ++++++++++----------
+>  arch/riscv/kernel/smpboot.c       |   5 +-
+>  arch/riscv/mm/cacheflush.c        |   5 +-
+>  arch/riscv/mm/tlbflush.c          |  93 ++++++++++--
+>  drivers/clocksource/timer-clint.c |  42 +++--
+>  drivers/irqchip/irq-riscv-intc.c  |  60 ++++----
+>  include/linux/irq.h               |  18 +++
+>  kernel/irq/Kconfig                |   5 +
+>  kernel/irq/Makefile               |   1 +
+>  kernel/irq/ipi-mux.c              | 244 ++++++++++++++++++++++++++++++
+>  19 files changed, 630 insertions(+), 167 deletions(-)
+>  create mode 100644 arch/riscv/kernel/sbi-ipi.c
+>  create mode 100644 kernel/irq/ipi-mux.c
 >
 > --
-> Best Regards
->  Guo Ren
-
-
-
--- 
-Best Regards
- Guo Ren
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
