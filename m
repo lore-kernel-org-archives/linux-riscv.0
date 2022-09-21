@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D80C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A9BC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m6IJVhBLOL/ozLi9fZga8I3Sttnr7e7oMvGyokmDUFo=; b=N4VDIseu9ci+cD
-	0b8QXrl5i87KUV6bgMs/rIUHwwMUZjG/v9EsDUHA5OSkGUg91AGcSi32M1pLzc/FLNlH6MTajs6Ny
-	GXe8U4mRLmL5jt+rZXC3ahnGbemMneimjkRzx8TzMdenCbILVgRWVoRcBpJiZryiFaOpNtkKvvBxZ
-	+0lawR8Ph3bf5Q6CXzs6s1jwespH6/WxVPnswzYdq3dzRaS6y+vNfE1a0cy14mW0a/eAIj3zTOdsn
-	iuxVf2cxV7AIG2keL9iNLrFT8iHY4be5Qe/1Ugf6Ot97cTV4TSHcuEVPiK4lINrPDSsyxsH5MBkja
-	jddUx7u5RWAsEjQbI5Kg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tMUIrXYARdkAzq3MzooJ5fs3m2n/KU+UK2pGf3uT41U=; b=yL4F/cTp64LSjL
+	lqCfXVyS+Np9L4P0/9dL1xIwzMjVUQgQA4AqMivA9oOs6kDm0GeqhWEuOL9eYgRGt/qpj1G/5pL+U
+	mRAOciFkPCNJgrVK3NkCGs7iK65tG2aaCdsOfORnFl/xyzrAvb4ofyhrToWWyIZDeqr2jkVvr7o5U
+	QZ9mKiHLJp2m3ongm/Tr3l0g2QYMctC8KKQXtGnuqKLKslGEMGSPP8+GkxdHVcBotdNWLvWK7GnSl
+	qhCbaN57kZ70hYLmbz+So8opcujxjmT+XmG9P2kdVW527BQ24xkUoDXzwF1dfzb5QFxWUIOcqhywi
+	Euteu/5eXMgbvhlHTXCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqjm-008efu-Ry; Wed, 21 Sep 2022 03:49:26 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oaqjp-008egd-45; Wed, 21 Sep 2022 03:49:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqjj-008eel-Jm
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 03:49:25 +0000
+	id 1oaqjm-008efd-GI
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 03:49:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 455C0B81AEF;
-	Wed, 21 Sep 2022 03:49:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70AB2C433D7;
-	Wed, 21 Sep 2022 03:49:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B8CB662835;
+	Wed, 21 Sep 2022 03:49:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 912DAC433B5;
+	Wed, 21 Sep 2022 03:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663732161;
-	bh=jZgvA9rdGIurOcdhOjRWdFE+IHV1sRomNrMvYECgE60=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WDjCyeszP29zz4rNsQUtHcqKhQDvtEilDHWUjPD7lhBOeZo0fOnYKmmibY4kSZ6C2
-	 bcwG6I27T5LIN2s9iuhFzNT8F3Pizy1U8WSjvPJOfVOW3KNTcXcy4podgyAYFxNhzk
-	 9tVez2zab/sDgYJMaUMvZE6gVXlvMwEGh3fdWCrvnZhiWKUktPbW+A3+G2QoLTG6ct
-	 eSpGR0H0Q07xyMF8oL6zu/7OSi7JciJetGLku755XH9FGKhOacUk+8oR3Dhlhw9qyd
-	 hZhFGR9cERHHD4Mf3Kjue8z/MlqtchzG1bVz4R63CPZ7u1c9j0dkWgeVanAHR0U8mo
-	 xW9LeVUgxzcWw==
+	s=k20201202; t=1663732165;
+	bh=Iig2bmqX2xPq4svTTL0eg2AIxZh7cd/4Rrn/f1KZwI8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JHv1P1cxYrDQ4irReok/MJi/zVEpjKmZTJ5o+uOxY+sowAozNgRUvjCOC4p/6jkZe
+	 mDaYv8lsmlaXSvNX1+GPOTpn/RH43YPt0aa8SaC/5b98jdoOToRRih/iEVmma+u5t/
+	 L1UlDuGFbE6XfETSX0EAiNblpJN9I37skiKYqgiuvB38Wz7OajoXml9xTQFI2LXwtG
+	 TLJVKEWjG6szoWPzw7QkGt9DEioQtHXGCNH4h5iBKJ64qkALtKQJiTqZKHvg0iDL7p
+	 xGg95iOdZmyaqvmPt5jb5UyqfV1w5oGPoWa9d7bj1r60TgKCcuoGy025PhjvOQpkkB
+	 9nspWJn2399UQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	palmer@rivosinc.com,
@@ -55,17 +55,17 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	guoren@kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2 0/3] riscv: ftrace: Fixup ftrace detour code
-Date: Tue, 20 Sep 2022 23:49:07 -0400
-Message-Id: <20220921034910.3142465-1-guoren@kernel.org>
+	guoren@kernel.org
+Subject: [PATCH V2 1/3] riscv: ftrace: Fixup panic by disabling preemption
+Date: Tue, 20 Sep 2022 23:49:08 -0400
+Message-Id: <20220921034910.3142465-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220921034910.3142465-1-guoren@kernel.org>
+References: <20220921034910.3142465-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_204923_812937_D1031340 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220920_204926_604082_80A4CEF6 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +82,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Andy Chiu <andy.chiu@sifive.com>
 
-The previous ftrace detour implementation fc76b8b8011 ("riscv: Using
-PATCHABLE_FUNCTION_ENTRY instead of MCOUNT") contain three problems. The
-most horrible bug is preemption panic which found by Andy [1]. Let's
-disable preemption for ftrace first, and Andy could continue the
+In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+forming a jump that jumps to an address over 4K. This may cause errors
+if we want to enable kernel preemption and remove dependency from
+patching code with stop_machine(). For example, if a task was switched
+out on auipc. And, if we changed the ftrace function before it was
+switched back, then it would jump to an address that has updated 11:0
+bits mixing with previous XLEN:12 part.
+
+p: patched area performed by dynamic ftrace
+ftrace_prologue:
+p|      REG_S   ra, -SZREG(sp)
+p|      auipc   ra, 0x? ------------> preempted
+					...
+				change ftrace function
+					...
+p|      jalr    -?(ra) <------------- switched back
+p|      REG_L   ra, -SZREG(sp)
+func:
+	xxx
+	ret
+
+Fixes: fc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+@Andy, could you give the patch a Signed-off-by? I just copy your most
+important comment, so the first author should be you. First, let's fix
+the problem caused by my previous patch, and you can continue your
 ftrace preemption work.
+---
+ arch/riscv/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1]: https://lpc.events/event/16/contributions/1171/
-
-V2:
- - Add Signed-off for preemption fixup.
-
-V1:
-https://lore.kernel.org/linux-riscv/20220916103817.9490-1-guoren@kernel.org/
-
-Andy Chiu (1):
-  riscv: ftrace: Fixup panic by disabling preemption
-
-Guo Ren (2):
-  riscv: ftrace: Remove wasted nops for !RISCV_ISA_C
-  riscv: ftrace: Reduce the detour code size to half
-
- arch/riscv/Kconfig              |  2 +-
- arch/riscv/Makefile             |  6 ++-
- arch/riscv/include/asm/ftrace.h | 46 ++++++++++++++++++-----
- arch/riscv/kernel/ftrace.c      | 65 ++++++++++-----------------------
- arch/riscv/kernel/mcount-dyn.S  | 43 +++++++++-------------
- 5 files changed, 78 insertions(+), 84 deletions(-)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ed66c31e4655..b3454c843932 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -272,7 +272,7 @@ config ARCH_RV64I
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+-	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
++	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
+ 	select SWIOTLB if MMU
+ 
+ endchoice
 -- 
 2.36.1
 
