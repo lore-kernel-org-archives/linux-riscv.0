@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D08ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7881ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nfdVB31cP1Y9/C1jVHMKUxPSTsO5G6+kZD+yFWAUcxc=; b=jRXDudfEEAj/73
-	wBjZ2cazMcTDEwIOUahHyouG15olelOecldn9iUfQUuUdqibijFYqi0KJozieG5HPNkrYYCzVcO5I
-	OzIi/rXamnMYy5vPjc0JvqGsw40zD5INcPZzKTY52Tn5UHz0yFPVa8DBoCkg7pw/3XuvL0BRX3WyL
-	4kSuImjmBEgG2vXMuEq03VrDPZcSTvntaEUAIRqJ39qfgeUMeAZ4a17QcK66tPp6hZNTmtMQTf9m5
-	zvBIa5fbBF3sT2RLfBdr/P1Yl+TcpBw86k0RhCmRklwaHj4L5kOsXo06cZxZmEPEjofeOnZQQMs4/
-	YtvPMOPucdAek1s3XAOw==;
+	List-Owner; bh=5EL3GWxiTTtyfd4+F5rZsSNYk3IIDcXT0xMHcLi3B3k=; b=AbeKjaXVJT9oiu
+	l//MCktMc5VPcOfWRoohMAWJtwUeOUVDMy63FMn76d7mK/1KO+1hvvMzfZQO/n0j9/9t8jHsyRU8N
+	7+5g9WDP1bqGwOVqk0KmDGOYmVw3N3+ma6CBnWVKoVTTmBXUv/FnkQqsCtKK8YOIrE3J5NOmIO/L5
+	SKquub4cYnUJuSm0iGxT1OdrDwoa3yM5QufZPKOhGqw6UU5MpQB90TgjQQyg5V31nI9BrbEdeXxLT
+	0jACS1TTSz9NhD3u9+bhUQPpSV0W2qznzD5ajSoLQPuF8Zgsn1VLpzlFDYEMNFAyn2sRpupDnz83q
+	bq8dY77IlSbg7lBPVvpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2sR-00C2Ky-7x; Wed, 21 Sep 2022 16:47:11 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1ob2sj-00C2TV-Hz; Wed, 21 Sep 2022 16:47:29 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2sM-00C2Hu-To
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:47:09 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id l8so4881690wmi.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:47:04 -0700 (PDT)
+	id 1ob2sg-00C2QX-UI
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:47:28 +0000
+Received: by mail-wr1-x434.google.com with SMTP id y5so10910346wrh.3
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:47:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
          :date;
-        bh=IaicDJv7f5Dt9tD+h7CLRz4v0jAjgSVUGTvRxbodkhg=;
-        b=3sU0tPRItlL5eswzbcZrS4epiOJWfRU+1EV1iop2VTBj6puiryrMUEyPJFqxe0BnA+
-         aVN+YAx5VmmRkK0ihSj8MfVf2mBL90mxb7iJMsgQYnNIddO2fYS/5ksgSXZ0m/jllPhA
-         XGIG6JJLAbnzlUXXB29J0C0yC+uLpLcygnr5NM7uPj/0XnAZVD42sQ4C6bwDK83qhfcD
-         MKahRQP7U4qXuxN1OiJA7BzLcYZXfvJJX9isG6W7r48g1sHqHZpVOfgiH873L18YgbKw
-         fsO3AtOY+YqEAZi4TegCZVejeFph7xDeKxwGpgIeGR+r7+b6yidK3HiOVsDlJkUzXnk/
-         LOLg==
+        bh=SfPOL29gvKfJCXS2UHaX/u5ZZWYH7zgP7jlLqWnd/Ds=;
+        b=Ys43HplyPAH2OimY3/+SAvtATb42EFFeFFwUaIv53YGZtCWV02x8QeS/rcczF/2d2M
+         62JkJlpxzuBcKkDULSkDSC2sEgPcd0VLseRi+E4IxnNg/R8GvcLpLSTtS0wTfhHdzMvi
+         CdzZU1NB/iX3/oLDupobdE1j4w1UsolFFma6ffsbFpqE3PCydR7iXwdxn4/xP8qDnjO9
+         rInjANPy7rx627Kgce6PxLOsSslEk0eFxjhdAVmSE/XSYC1Zn3eNBgn5B/HbOnBfaI4V
+         4wrAMoJbyWqPrdFwUarCEH6xx2p2jha40nzhyzfGDUPrdwLsiEYIADa60ZSw3S3PM2wc
+         Peew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
          :from:to:cc:subject:date;
-        bh=IaicDJv7f5Dt9tD+h7CLRz4v0jAjgSVUGTvRxbodkhg=;
-        b=poIiwAEy+EFlreXHc5sMca9Ay81o3SydQ5NIRgcrzjOfQotGqCRBZhQenB2XQWB1LR
-         TyfR30MDTFvlJL2ohMje80kuWxrlL7Ib/JAPU1XD4Yk2vLhkualFJFSa7xE6vvjE2SuU
-         uYLNlX4uEKcfqAHU2h/iLoM1UtrX4ADDUMosdAdeesmLZIdbeUt/HxsNwb9nFmElpJsd
-         U7QGQHAD7chx4fdhIdpolgX1gGA0nTKZVur1Q/nbH1rSwZKJ+pQhch8gS4HA4vzBNVw3
-         ExuVoWoYQ51AuS8rzErbg3eI1ilcFqCWvZ2azB/AP0KPw5JFExuRUNdCQU1+mYE0y2vI
-         t72w==
-X-Gm-Message-State: ACrzQf2+FlMPgJiZEVmMwPWUkf3OaOxWZ93HyP3Pdskt8Mu4OUFCGd94
-	o5dESZAIF8VdJt3QjvKBjnLpX+gJGfzSj9tyW8hLrbHcI8Burg==
-X-Google-Smtp-Source: AMsMyM5nEL3KU8p8Dn2FopGVo+1ah3Jp+xENkt72+BNWlaGcks0EoborsXg8xdnM+ntSybWhhrpbfpKhFvD9l5+Ypew=
-X-Received: by 2002:a05:600c:1c84:b0:3b3:ef37:afd3 with SMTP id
- k4-20020a05600c1c8400b003b3ef37afd3mr6312674wms.155.1663778822974; Wed, 21
- Sep 2022 09:47:02 -0700 (PDT)
+        bh=SfPOL29gvKfJCXS2UHaX/u5ZZWYH7zgP7jlLqWnd/Ds=;
+        b=njhQ1JfSQJPYficMDGdvcQTadPgomv22SApgyCEXzapAr81ybFoTmSDjG40NIRFgyA
+         XvD4j7HVYNkDt+1y15VyeMfxVq5rUezJMGibbic6EdHG6Z18FW1OczCmFoe9HALi6Dt2
+         qqvYhjhdiMRjXK3muOc8eUdTKCshWEpQa/CnlwaEp2SP8T475OXkf8NVn4ipLO7gEp7Q
+         M9LOex2GlOEyq+9pN/7xUngUV59QWDAir0Tmc++iKK1GnkSAainNINA4PA0rpG0qflpb
+         3gos0b0HozzZwFLPAzGdMJbkpuylFH88mHVS/CMzUimoZUYBebcKkuTaSk9H1wXDj7+W
+         C6ag==
+X-Gm-Message-State: ACrzQf2hcFIgWPe3Y1nZ7pAGeBIyOApnIgYo/jrQUTfsC+jSeMQf6+VA
+	gtIIn5/MqbuDO3onqDlhyB96LPYe3OHdUHGpUj4pzvSHrQ85sQ==
+X-Google-Smtp-Source: AMsMyM7NQZoEgDMWXgGtxSKkvcPa/gwF02Vef1WSEnyMddUo+J6Q/uArjxyi//tn6IM8O/DcvdfysDY/ONADduJ5rcs=
+X-Received: by 2002:adf:dcc8:0:b0:22a:b9e3:bab8 with SMTP id
+ x8-20020adfdcc8000000b0022ab9e3bab8mr17948321wrm.341.1663778843031; Wed, 21
+ Sep 2022 09:47:23 -0700 (PDT)
 MIME-Version: 1.0
 From: Chris Stillson <stillson@rivosinc.com>
-Date: Wed, 21 Sep 2022 09:46:27 -0700
-Message-ID: <CAM2SziXUfXFHtn4GmeR8qeB60TMHMeSH2iEEpki3AWpcRCV=+g@mail.gmail.com>
-Subject: [PATCH 02/17] riscv: Extending cpufeature.c to detect V-extension
+Date: Wed, 21 Sep 2022 09:46:47 -0700
+Message-ID: <CAM2SziXS6hBELhGAO53UpZ_=K=pwZMCWQUzNS6OOtWLVmBQwjg@mail.gmail.com>
+Subject: [PATCH 03/17] riscv: Add new csr defines related to vector extension
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_094706_990940_DB93AF25 
-X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-CacheID: sfid-20220921_094726_999812_75922B25 
+X-CRM114-Status: UNSURE (   8.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,44 +82,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current cpufeature.c doesn't support detecting V-extension, because
-"rv64" also contain a 'v' letter and we need to skip it.
+Follow the riscv vector spec to add new csr numbers.
 
-Signed-off-by: Guo Ren <ren_guo@c-sky.com>
+[guoren@linux.alibaba.com: first porting for new vector related csr]
+Acked-by: Guo Ren <guoren@kernel.org>
+Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/include/uapi/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c      | 1 +
- 2 files changed, 2 insertions(+)
+ arch/riscv/include/asm/csr.h | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/hwcap.h
-b/arch/riscv/include/uapi/asm/hwcap.h
-index 46dc3f5ee99f..c52bb7bbbabe 100644
---- a/arch/riscv/include/uapi/asm/hwcap.h
-+++ b/arch/riscv/include/uapi/asm/hwcap.h
-@@ -21,5 +21,6 @@
- #define COMPAT_HWCAP_ISA_F     (1 << ('F' - 'A'))
- #define COMPAT_HWCAP_ISA_D     (1 << ('D' - 'A'))
- #define COMPAT_HWCAP_ISA_C     (1 << ('C' - 'A'))
-+#define COMPAT_HWCAP_ISA_V     (1 << ('V' - 'A'))
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 0e571f6483d9..78a68f29c3ba 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -24,6 +24,12 @@
+ #define SR_FS_CLEAN    _AC(0x00004000, UL)
+ #define SR_FS_DIRTY    _AC(0x00006000, UL)
 
- #endif /* _UAPI_ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 553d755483ed..8d4448c2d4f4 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -83,6 +83,7 @@ void __init riscv_fill_hwcap(void)
-        isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
-        isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
-        isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
-+       isa2hwcap['v'] = isa2hwcap['V'] = COMPAT_HWCAP_ISA_V;
++#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
++#define SR_VS_OFF       _AC(0x00000000, UL)
++#define SR_VS_INITIAL   _AC(0x00000200, UL)
++#define SR_VS_CLEAN     _AC(0x00000400, UL)
++#define SR_VS_DIRTY     _AC(0x00000600, UL)
++
+ #define SR_XS          _AC(0x00018000, UL) /* Extension Status */
+ #define SR_XS_OFF      _AC(0x00000000, UL)
+ #define SR_XS_INITIAL  _AC(0x00008000, UL)
+@@ -31,9 +37,9 @@
+ #define SR_XS_DIRTY    _AC(0x00018000, UL)
 
-        elf_hwcap = 0;
+ #ifndef CONFIG_64BIT
+-#define SR_SD          _AC(0x80000000, UL) /* FS/XS dirty */
++#define SR_SD          _AC(0x80000000, UL) /* FS/VS/XS dirty */
+ #else
+-#define SR_SD          _AC(0x8000000000000000, UL) /* FS/XS dirty */
++#define SR_SD          _AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
+ #endif
 
+ #ifdef CONFIG_64BIT
+@@ -297,6 +303,12 @@
+ #define CSR_MIMPID             0xf13
+ #define CSR_MHARTID            0xf14
+
++#define CSR_VSTART             0x8
++#define CSR_VCSR               0xf
++#define CSR_VL                 0xc20
++#define CSR_VTYPE              0xc21
++#define CSR_VLENB              0xc22
++
+ #ifdef CONFIG_RISCV_M_MODE
+ # define CSR_STATUS    CSR_MSTATUS
+ # define CSR_IE                CSR_MIE
 --
 2.25.1
 
