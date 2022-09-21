@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E793ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71938C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZchEsahSVO8Ho2PwR6+vIRp68PoKsBVsE5kqp9VqVsM=; b=vHhYrDJ2bUcqvd
-	kIzjWPwJaT8xmOpbCSubwvAPIJJSv2WWsTrumQWgChf99sId/vE5YrXJNZagjIfDiciW/yMFp3dv5
-	lbVaBD8J1rMLx9bs1gefq8qj3fLg9ZdOzrSjVEPijwB63IJI0JpHwHQ6BA4HY5mNhVhHrGEfkSqiZ
-	HLrCwLKFdhrRu31WbGkK7hRd09/ONX7j7/vgB+UIOgM7UgFGa8DPCDr/IAJcTFXkObWe/D87Js5X0
-	hE1aopJq3k/mvJeRNDGtS+4rY2ztWiVAbgQTgAQI+YUmR1/ruhIIVr/t/0ZVtc89bHlNtsIzcWIcp
-	ScoMTGveGfok+/kowS9w==;
+	List-Owner; bh=qlPM/YNAeItY8NJhiKVe9ft1OxzPbLas8RAotnzzoH4=; b=JuX7CAEEY4l90o
+	gClYHm9HliD+1NWT56gi1h0w+C+o9/EXmultqGtwb+AxPCpos0su6I230VFYDZ8hAYChofx74gfH+
+	pC8OAoFC+BHTZhbTZGotCnfkNnmxYFuNVtvIc3sbN+wS24MUxFT2q7HDDZqoUHZ9ObSK6XEgYBk5V
+	MYVHyNiU7QM0zylVCD2Fa/B5YGBArtkfaPHQf2TTD7b0tejObf6XE0q0bDgGgJqZ9WsBK4lK7/eTQ
+	GeOH72KTBiQHUT0kJDO1GlUWEZJD+KiIrSHsVPpk1npwr2eZKy8ETzaoEFc/0jrC26z1b1WWbeCEC
+	PnPfO0akN+LmzzuTFL8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oax1Z-00ArjD-6D; Wed, 21 Sep 2022 10:32:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oaxHy-00AxgO-Ra; Wed, 21 Sep 2022 10:49:11 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oax1V-00Arh8-3m
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 10:32:11 +0000
+	id 1oaxFP-00AwGX-B8
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 10:46:33 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6597761F48
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:32:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828F2C43144
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:32:06 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 95250B818E4
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B692FC43140
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 10:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663756326;
-	bh=RO40wJv6C6r0uIN8oUy8Bnx6thZE549fS8XAeveAnzM=;
+	s=k20201202; t=1663757187;
+	bh=r2QJhJDb7OEmRY1nC5kgUhM9pWFecNffGY9a5gN+oQ4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RnMsd+m+liySDC4jM3W4ZgpYEBqlc92oTTnRVkuMj/FjPFASi7pij/KntxZUetnEg
-	 l2NgM57Iuw/L9OZv80Oz+A4gxoJEvgBBViJ6tyMkHYkzQSxNPgiSBKoj7cEOAmsk1f
-	 /Zg+fOAoFmE5VzN4C39BwlwDFY0mdaiq5Q0n8UkOOGS7Gb6rM1+5BPwKg5J6asyNy+
-	 YnplcSsgleIeAzZS3vXu9GJ8S3k+P4JvZYF6varP6oWXCOOGC/RHUKaGblVp9Y4owD
-	 wyPKQwqdunw8YRWydIsrd+Or4VRBLQgvNGAVaZ1BuiH48nfbVkE8DA0xkGjr8SU7wM
-	 ZA7oYf5ZzwUrw==
-Received: by mail-oi1-f169.google.com with SMTP id o64so7391849oib.12
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 03:32:06 -0700 (PDT)
-X-Gm-Message-State: ACrzQf25bdS5WOgCewcpY2FvZjxe0dLMBm3O/lhO8QWrmI0xc8pP/Nn2
-	UECji6yQSxDoHnHgmNUEsnb3Ld2LoprNtrcf/I4=
-X-Google-Smtp-Source: AMsMyM4I9eDtJF76P9tPl5czQg+bMIJuYsfIPbg4wB/spY5r7eg4gvt+hbea7dg77NFoOMkXpT5l3NN/NvbTNcENtxQ=
+	b=ofCFeD1RzvMmvaNFUt5O0mIW3ef1U52jewiuDAJfWuWtIs/YRVpNVSSIMFTa2q2dl
+	 4GUyvV30ABnkLu+miSBu/RAAMDpseIjmlIpEo5GNB9tqUBzUunPMm0WwwsTJ+n34xA
+	 aPWoUUgBBgdmuZtAsrJmjf2///m+oHqfbdowsFhj7j1PkQzifJQVDtM1ZOLMuWUKYd
+	 +Lj5wnkjpUYEmAp+A4or9k7nbSAkTicllGKxRshj1vPyIPgyYmY8RW0/zD8FDjAOun
+	 dPrpePAs0/bZdWf7dyvpxFledfxR0gY0VcPSWvUohyX1b/khL+iFF1I6s2aPeAuiBn
+	 nJnDL7g4nnRDw==
+Received: by mail-oi1-f181.google.com with SMTP id v130so7512991oie.2
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 03:46:27 -0700 (PDT)
+X-Gm-Message-State: ACrzQf3rduajaJ/oLeXY/lYZNDFboNavtB19FeR7eleJvlOn8+qAfsRN
+	rHvGm6YtWrHuPcKCCQHlXpJLtKAZMCMnd1cx3Ck=
+X-Google-Smtp-Source: AMsMyM5qckO5Xq0E3Wo1OYKkFZUKkYyWM9uiO2xPT1vQPFsGkwmiMwz0DewGGVhDMGOwdCD27+YY3YRMc6Q3rThL/G8=
 X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
- q31-20020a056808201f00b0034f9fdfdbbfmr3457106oiw.19.1663756325508; Wed, 21
- Sep 2022 03:32:05 -0700 (PDT)
+ q31-20020a056808201f00b0034f9fdfdbbfmr3480217oiw.19.1663757186803; Wed, 21
+ Sep 2022 03:46:26 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
  <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
  <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
  <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
  <7a2379cf-c1cf-46af-9172-334d2b9b88d5@www.fastmail.com> <CAJF2gTSvaNh_m_hrub5Z=kqLAYJfRbpYzB1Mc5aOgdN+Bm8bag@mail.gmail.com>
- <CAJF2gTQGB97kh=47dsZ8MFpTTpy7pxYyd=MoLOUzgF9kTm1wdA@mail.gmail.com>
-In-Reply-To: <CAJF2gTQGB97kh=47dsZ8MFpTTpy7pxYyd=MoLOUzgF9kTm1wdA@mail.gmail.com>
+ <CAJF2gTQGB97kh=47dsZ8MFpTTpy7pxYyd=MoLOUzgF9kTm1wdA@mail.gmail.com> <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
+In-Reply-To: <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 21 Sep 2022 18:31:52 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
-Message-ID: <CAJF2gTSWHMfE-Tyn=cwJLDDsvFKXPyGXgxT9DCUT3Aqf6FTDgA@mail.gmail.com>
+Date: Wed, 21 Sep 2022 18:46:14 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSR9CMxda3Zjz9Ovg5bhXa_Ro622LVT+spHqTTE5zUKDA@mail.gmail.com>
+Message-ID: <CAJF2gTSR9CMxda3Zjz9Ovg5bhXa_Ro622LVT+spHqTTE5zUKDA@mail.gmail.com>
 Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -75,8 +75,8 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_033209_257538_60270D8F 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20220921_034631_704207_9DB28A92 
+X-CRM114-Status: GOOD (  34.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,120 +93,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 4:23 PM Guo Ren <guoren@kernel.org> wrote:
->
-> On Wed, Sep 21, 2022 at 2:13 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Tue, Sep 20, 2022 at 3:18 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > >
-> > > On Tue, Sep 20, 2022, at 2:46 AM, Guo Ren wrote:
-> > >
-> > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > index dfe600f3526c..8def456f328c 100644
-> > > > --- a/arch/riscv/Kconfig
-> > > > +++ b/arch/riscv/Kconfig
-> > > > @@ -442,6 +442,16 @@ config IRQ_STACKS
-> > > >           Add independent irq & softirq stacks for percpu to prevent
-> > > > kernel stack
-> > > >           overflows. We may save some memory footprint by disabling IRQ_STACKS.
-> > > >
-> > > > +config THREAD_SIZE
-> > > > +       int "Kernel stack size (in bytes)" if EXPERT
-> > > > +       range 4096 65536
-> > > > +       default 8192 if 32BIT && !KASAN
-> > > > +       default 32768 if 64BIT && KASAN
-> > > > +       default 16384
-> > > > +       help
-> > > > +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-> > > > +         affects irq stack size, which is equal to thread stack size.
-> > >
-> > > I still think this should be guarded in a way that prevents
-> > > setting the stack to smaller than default values unless VMAP_STACK
-> > > is set as well.
-> > Current VMAP_STACK would double THREAD_SIZE. Let me see how to reduce
-> > the VMAP_STACK.
-> Sorry, for my miss understanding. I have no idea to reduce the
-> VMAP_STACK's THREAD_ALIGN, THREAD_SIZE*2 is fine. Here is my new
-> patch:
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 76bde12d9f8c..669ae57356a2 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -443,6 +443,16 @@ config IRQ_STACKS
->           Add independent irq & softirq stacks for percpu to prevent
-> kernel stack
->           overflows. We may save some memory footprint by disabling IRQ_STACKS.
->
-> +config THREAD_SIZE
-> +       int "Kernel stack size (in bytes)" if VMAP_STACK && EXPERT
-> +       range 4096 65536
-> +       default 8192 if 32BIT && !KASAN
-> +       default 32768 if 64BIT && KASAN
-> +       default 16384
-> +       help
-> +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
-> +         affects irq stack size, which is equal to thread stack size.
-> +
->  endmenu # "Platform type"
->
->  menu "Kernel features"
-> diff --git a/arch/riscv/include/asm/thread_info.h
-> b/arch/riscv/include/asm/thread_info.h
-> index 043da8ccc7e6..e7ae3f13b879 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -11,32 +11,17 @@
->  #include <asm/page.h>
->  #include <linux/const.h>
->
-> -#ifdef CONFIG_KASAN
-> -#define KASAN_STACK_ORDER 1
-> -#else
-> -#define KASAN_STACK_ORDER 0
-> -#endif
-> -
->  /* thread information allocation */
-> -#ifdef CONFIG_64BIT
-> -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> -#else
-> -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> -#endif
-> -#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
-> +#define THREAD_SIZE            CONFIG_THREAD_SIZE
->
->  /*
->   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-> - * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-> - * assembly.
-> + * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
->   */
->  #ifdef CONFIG_VMAP_STACK
->  #define THREAD_ALIGN            (2 * THREAD_SIZE)
-> -#else
-> -#define THREAD_ALIGN            THREAD_SIZE
->  #endif
->
-> -#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
->  #define OVERFLOW_STACK_SIZE     SZ_4K
->  #define SHADOW_OVERFLOW_STACK_SIZE (1024)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 2207cf44a3bc..71ea850ff0db 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -29,8 +29,8 @@ _restore_kernel_tpsp:
->
->  #ifdef CONFIG_VMAP_STACK
->         addi sp, sp, -(PT_SIZE_ON_STACK)
-> -       srli sp, sp, THREAD_SHIFT
-> -       andi sp, sp, 0x1
-> +       srli sp, sp, PAGE_SHIFT
-> +       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
->         bnez sp, handle_kernel_stack_overflow
->         REG_L sp, TASK_TI_KERNEL_SP(tp)
->  #endif
-Sorry for the update again, fixup !VMAP_STACK compile error.
+Hi Arnd,
+
+No more coding conventions for the patch, THREAD_ALIGN &
+THREAD_SIZE_ORDER are used by vmlinux.lds.S and common code. So here
+is my considerable version:
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
 index 76bde12d9f8c..602e577c429c 100644
@@ -233,10 +124,10 @@ if VMAP_STACK && EXPERT
  menu "Kernel features"
 diff --git a/arch/riscv/include/asm/thread_info.h
 b/arch/riscv/include/asm/thread_info.h
-index 043da8ccc7e6..3f382490d8ed 100644
+index 043da8ccc7e6..c970d41dc4c6 100644
 --- a/arch/riscv/include/asm/thread_info.h
 +++ b/arch/riscv/include/asm/thread_info.h
-@@ -11,24 +11,13 @@
+@@ -11,18 +11,8 @@
  #include <asm/page.h>
  #include <linux/const.h>
 
@@ -252,47 +143,220 @@ index 043da8ccc7e6..3f382490d8ed 100644
 -#else
 -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
 -#endif
--#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
 +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
-+#define THREAD_SIZE            (1 << PAGE_SHIFT << THREAD_SIZE_ORDER)
+ #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
 
- /*
-  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-- * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-- * assembly.
-+ * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
-  */
- #ifdef CONFIG_VMAP_STACK
- #define THREAD_ALIGN            (2 * THREAD_SIZE)
-@@ -36,7 +25,6 @@
- #define THREAD_ALIGN            THREAD_SIZE
- #endif
+It's a little bit back to the original, but KASAN_STACK_ORDER has been
+deleted. VMAP_STACK && EXPERT added.
 
--#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
- #define OVERFLOW_STACK_SIZE     SZ_4K
- #define SHADOW_OVERFLOW_STACK_SIZE (1024)
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 5cbd6684ef52..62e8f3a3c942 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -29,8 +29,8 @@ _restore_kernel_tpsp:
-
- #ifdef CONFIG_VMAP_STACK
-        addi sp, sp, -(PT_SIZE_ON_STACK)
--       srli sp, sp, THREAD_SHIFT
--       andi sp, sp, 0x1
-+       srli sp, sp, PAGE_SHIFT
-+       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
-        bnez sp, handle_kernel_stack_overflow
-        REG_L sp, TASK_TI_KERNEL_SP(tp)
- #endif
-
+On Wed, Sep 21, 2022 at 6:31 PM Guo Ren <guoren@kernel.org> wrote:
 >
+> On Wed, Sep 21, 2022 at 4:23 PM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > On Wed, Sep 21, 2022 at 2:13 PM Guo Ren <guoren@kernel.org> wrote:
+> > >
+> > > On Tue, Sep 20, 2022 at 3:18 PM Arnd Bergmann <arnd@arndb.de> wrote:
+> > > >
+> > > > On Tue, Sep 20, 2022, at 2:46 AM, Guo Ren wrote:
+> > > >
+> > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > > > > index dfe600f3526c..8def456f328c 100644
+> > > > > --- a/arch/riscv/Kconfig
+> > > > > +++ b/arch/riscv/Kconfig
+> > > > > @@ -442,6 +442,16 @@ config IRQ_STACKS
+> > > > >           Add independent irq & softirq stacks for percpu to prevent
+> > > > > kernel stack
+> > > > >           overflows. We may save some memory footprint by disabling IRQ_STACKS.
+> > > > >
+> > > > > +config THREAD_SIZE
+> > > > > +       int "Kernel stack size (in bytes)" if EXPERT
+> > > > > +       range 4096 65536
+> > > > > +       default 8192 if 32BIT && !KASAN
+> > > > > +       default 32768 if 64BIT && KASAN
+> > > > > +       default 16384
+> > > > > +       help
+> > > > > +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
+> > > > > +         affects irq stack size, which is equal to thread stack size.
+> > > >
+> > > > I still think this should be guarded in a way that prevents
+> > > > setting the stack to smaller than default values unless VMAP_STACK
+> > > > is set as well.
+> > > Current VMAP_STACK would double THREAD_SIZE. Let me see how to reduce
+> > > the VMAP_STACK.
+> > Sorry, for my miss understanding. I have no idea to reduce the
+> > VMAP_STACK's THREAD_ALIGN, THREAD_SIZE*2 is fine. Here is my new
+> > patch:
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 76bde12d9f8c..669ae57356a2 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -443,6 +443,16 @@ config IRQ_STACKS
+> >           Add independent irq & softirq stacks for percpu to prevent
+> > kernel stack
+> >           overflows. We may save some memory footprint by disabling IRQ_STACKS.
+> >
+> > +config THREAD_SIZE
+> > +       int "Kernel stack size (in bytes)" if VMAP_STACK && EXPERT
+> > +       range 4096 65536
+> > +       default 8192 if 32BIT && !KASAN
+> > +       default 32768 if 64BIT && KASAN
+> > +       default 16384
+> > +       help
+> > +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
+> > +         affects irq stack size, which is equal to thread stack size.
+> > +
+> >  endmenu # "Platform type"
+> >
+> >  menu "Kernel features"
+> > diff --git a/arch/riscv/include/asm/thread_info.h
+> > b/arch/riscv/include/asm/thread_info.h
+> > index 043da8ccc7e6..e7ae3f13b879 100644
+> > --- a/arch/riscv/include/asm/thread_info.h
+> > +++ b/arch/riscv/include/asm/thread_info.h
+> > @@ -11,32 +11,17 @@
+> >  #include <asm/page.h>
+> >  #include <linux/const.h>
+> >
+> > -#ifdef CONFIG_KASAN
+> > -#define KASAN_STACK_ORDER 1
+> > -#else
+> > -#define KASAN_STACK_ORDER 0
+> > -#endif
+> > -
+> >  /* thread information allocation */
+> > -#ifdef CONFIG_64BIT
+> > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
+> > -#else
+> > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
+> > -#endif
+> > -#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> > +#define THREAD_SIZE            CONFIG_THREAD_SIZE
+> >
+> >  /*
+> >   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+> > - * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+> > - * assembly.
+> > + * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
+> >   */
+> >  #ifdef CONFIG_VMAP_STACK
+> >  #define THREAD_ALIGN            (2 * THREAD_SIZE)
+> > -#else
+> > -#define THREAD_ALIGN            THREAD_SIZE
+> >  #endif
+> >
+> > -#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+> >  #define OVERFLOW_STACK_SIZE     SZ_4K
+> >  #define SHADOW_OVERFLOW_STACK_SIZE (1024)
+> >
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index 2207cf44a3bc..71ea850ff0db 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -29,8 +29,8 @@ _restore_kernel_tpsp:
+> >
+> >  #ifdef CONFIG_VMAP_STACK
+> >         addi sp, sp, -(PT_SIZE_ON_STACK)
+> > -       srli sp, sp, THREAD_SHIFT
+> > -       andi sp, sp, 0x1
+> > +       srli sp, sp, PAGE_SHIFT
+> > +       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
+> >         bnez sp, handle_kernel_stack_overflow
+> >         REG_L sp, TASK_TI_KERNEL_SP(tp)
+> >  #endif
+> Sorry for the update again, fixup !VMAP_STACK compile error.
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 76bde12d9f8c..602e577c429c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -443,6 +443,16 @@ config IRQ_STACKS
+>           Add independent irq & softirq stacks for percpu to prevent
+> kernel stack
+>           overflows. We may save some memory footprint by disabling IRQ_STACKS.
+>
+> +config THREAD_SIZE_ORDER
+> +       int "Kernel stack size (in power-of-two numbers of page size)"
+> if VMAP_STACK && EXPERT
+> +       range 0 4
+> +       default 1 if 32BIT && !KASAN
+> +       default 3 if 64BIT && KASAN
+> +       default 2
+> +       help
+> +         Specify the Pages of thread stack size (from 4KB to 64KB), which also
+> +         affects irq stack size, which is equal to thread stack size.
+> +
+>  endmenu # "Platform type"
+>
+>  menu "Kernel features"
+> diff --git a/arch/riscv/include/asm/thread_info.h
+> b/arch/riscv/include/asm/thread_info.h
+> index 043da8ccc7e6..3f382490d8ed 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -11,24 +11,13 @@
+>  #include <asm/page.h>
+>  #include <linux/const.h>
+>
+> -#ifdef CONFIG_KASAN
+> -#define KASAN_STACK_ORDER 1
+> -#else
+> -#define KASAN_STACK_ORDER 0
+> -#endif
+> -
+>  /* thread information allocation */
+> -#ifdef CONFIG_64BIT
+> -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
+> -#else
+> -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
+> -#endif
+> -#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
+> +#define THREAD_SIZE            (1 << PAGE_SHIFT << THREAD_SIZE_ORDER)
+>
+>  /*
+>   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+> - * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+> - * assembly.
+> + * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
+>   */
+>  #ifdef CONFIG_VMAP_STACK
+>  #define THREAD_ALIGN            (2 * THREAD_SIZE)
+> @@ -36,7 +25,6 @@
+>  #define THREAD_ALIGN            THREAD_SIZE
+>  #endif
+>
+> -#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+>  #define OVERFLOW_STACK_SIZE     SZ_4K
+>  #define SHADOW_OVERFLOW_STACK_SIZE (1024)
+>
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 5cbd6684ef52..62e8f3a3c942 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -29,8 +29,8 @@ _restore_kernel_tpsp:
+>
+>  #ifdef CONFIG_VMAP_STACK
+>         addi sp, sp, -(PT_SIZE_ON_STACK)
+> -       srli sp, sp, THREAD_SHIFT
+> -       andi sp, sp, 0x1
+> +       srli sp, sp, PAGE_SHIFT
+> +       andi sp, sp, (THREAD_ALIGN >> PAGE_SHIFT >> 1)
+>         bnez sp, handle_kernel_stack_overflow
+>         REG_L sp, TASK_TI_KERNEL_SP(tp)
+>  #endif
 >
 > >
+> >
 > > >
-> > >     Arnd
+> > > >
+> > > >     Arnd
+> > >
+> > >
+> > >
+> > > --
+> > > Best Regards
+> > >  Guo Ren
 > >
 > >
 > >
