@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C698C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 015B3C6FA82
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ksfpj62BcBrie086Fn1YLyu9fqIMM9UnvXGd5/q4tGE=; b=e1E3pgEwIkX4BL
-	cOYNi9tIg+c6KvCbo23GzBbxuNvHABrdxz+53FIMQpPw2t6S1S8V4Sb5QTPj77lde4IHpQ8rMXgPB
-	/FJNsI8L/56MMaBBDKzwPje4KPj/qAgNEjWriX67sRRyceHWK8AmJvSl8sLzAC85i/Ho4Wi4RCusL
-	iXA9kNZ+YAV+eBRWpBwJmDL0s+v+J3vHl474drthWbY+XB3eXGmtqRbw6HEWgsXtnWhDVN/rPEeWl
-	o2ZXXpIuFezNzU5P7tKhS6Zoby1NK9WyCcMljVAVIxZEjgRpOv/nvn6keRgg545I3/k0kAuPjWEhr
-	cH4nwKV5yXkTfnL+YN4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fBZRDmIlSFKboWVujBnsAo0QCv6ivL620qQ1aFP8/9k=; b=HubZRp3bfhb1Mg
+	NibVPtuf1D+eMox+zsSZpK/2ina99J23xEkUsETyZOoxWvEUg4v91HT7z5C7b7YiSL7N0IuRNTlTF
+	/lZsMrsM6mG7h/S9OIVHZNIr5U/7fia3j3Nfyek2V4nOc0AovDZIgueyF7waZlzsPBY1QdAuj1Idf
+	rpZHGZvLYib38RVVigmIuVsb22gRtlD7J3Qek7Fsl3vN8tkge0CylnXMryEimlsMXPxyabjYcCJqT
+	ZnLmyWt/WiowFeUU0IUmXEPSsMiciEKSkcfO9LNNupevcqpZdwsBi8BIQ6r5PGPprjunaS+rDb2Bk
+	x3tvvfkUlUUSWlx5j2fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqT3-008Z45-RB; Wed, 21 Sep 2022 03:32:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oaqTF-008Z82-0I; Wed, 21 Sep 2022 03:32:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqSp-008Yx8-9R; Wed, 21 Sep 2022 03:31:57 +0000
+	id 1oaqSs-008YzA-49; Wed, 21 Sep 2022 03:32:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9B1A562F21;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B2BBA62F2C;
+	Wed, 21 Sep 2022 03:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C2B5C433B5;
 	Wed, 21 Sep 2022 03:31:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFBF0C433C1;
-	Wed, 21 Sep 2022 03:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663731113;
-	bh=L86JnuAVDjwV91egGrglApUiZIzU+Mu/qe9sCYqDgWM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=e9O4oZsEDvFJZ7tY+/tb3bYBz7fd04JUedr8USCPhjsB0NBVfG1ApVlve/CntD5i9
-	 VZSnYPnkRaUKTYNpwEuywjnLtOV2A0dNc6Blto0Ctmg/vI7Ps0QRT2Tf97bJvtimtW
-	 Xqsfol0cY4sQmKgfg4eiDyx+MXz1kgpCe/2cPWKu1A5229It89GrCmH93svxyDNLKq
-	 13Sk5DhTVzGTlqzL19tTEwKWDtfy6iO/yvE+uunLajQfaNHKYTO8VbKaVYVKWD9Bpj
-	 AVYrcu65tCejmheajxcXRVz35zYP9RaG/SBJ5PW3A7+quaPkPJngBfGwKvfYsM8Pcu
-	 amwxs3N7G2Jtg==
+	s=k20201202; t=1663731117;
+	bh=xstK3zkOHtc6QOgvpFphVjtbdDCoP5sViwZUf0BdeYk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GCIcStlo/ud0blWsY+b5muH6E9HgVU6Q/HPMLkLjstBxUGGP7AT5zICnTh76hNBHz
+	 WwGZAOLN+Ngb0fqg1Q//ZFaEeZGfC4qKE8sCVK/TlGvFpnsekN7tbJA3gCjmDiWwkS
+	 MOtO1uVLOrgoJ9quvaS5neP8VtVZk0vQtLNpFH/MWBzGJ7v3MmHvAH2n1ZbFJ4821Y
+	 XbZbYlKb68m1VsC9EQidtMUohg/j9KkGTn40jEz5/k+g5sG5gW/9PT1fuFnzA8Pw7P
+	 c7QisY5HWUvowUOJgjSYNxb6urZHaWGi1uDA3q/NPtJzUjiBYmZKfMtw93qfYFzH/q
+	 D/DYk21slivpw==
 From: guoren@kernel.org
 To: xianting.tian@linux.alibaba.com,
 	palmer@dabbelt.com,
@@ -54,16 +54,19 @@ Cc: linux-arch@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V4 0/3] riscv: kexec: Fxiup crash_save percpu and machine_kexec_mask_interrupts
-Date: Tue, 20 Sep 2022 23:31:31 -0400
-Message-Id: <20220921033134.3133319-1-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>,
+	Nick Kossifidis <mick@ics.forth.gr>
+Subject: [PATCH V4 1/3] riscv: kexec: Fixup irq controller broken in kexec crash path
+Date: Tue, 20 Sep 2022 23:31:32 -0400
+Message-Id: <20220921033134.3133319-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220921033134.3133319-1-guoren@kernel.org>
+References: <20220921033134.3133319-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_203155_370475_B289AB79 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220920_203158_288397_63228F7D 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +85,84 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Current riscv kexec can't crash_save percpu states and disable
-interrupts properly. The patch series fix them, make kexec work correct.
+If a crash happens on cpu3 and all interrupts are binding on cpu0, the
+bad irq routing will cause a crash kernel which can't receive any irq.
+Because crash kernel won't clean up all harts' PLIC enable bits in
+enable registers. This patch is similar to 9141a003a491 ("ARM: 7316/1:
+kexec: EOI active and mask all interrupts in kexec crash path") and
+78fd584cdec0 ("arm64: kdump: implement machine_crash_shutdown()"), and
+PowerPC also has the same mechanism.
 
-Also cleanup arm64, x86 declarations in asm/smp.h.
+Fixes: fba8a8674f68 ("RISC-V: Add kexec support")
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: Nick Kossifidis <mick@ics.forth.gr>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/kernel/machine_kexec.c | 35 +++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-Changlogs:
-
-v4:
- - Add cpu_ops[cpu]->cpu_stop() in ipi_cpu_crash_stop
- - Wording optimization in comments
-
-V3:
-https://lore.kernel.org/linux-riscv/20220819025444.2121315-1-guoren@kernel.org/
- - Fixup compile problem with !SMP, which reported by lkp@intel.com
- - Cleanup declarations in asm/smp.h
- - Add reviewed-by
-
-V2:
-https://lore.kernel.org/linux-riscv/20220817161258.748836-1-guoren@kernel.org/ 
- - Add Fixes tags
- - Remove extern from bool smp_crash_stop_failed(void)
-
-V1:
-https://lore.kernel.org/linux-riscv/20220816012701.561435-1-guoren@kernel.org/
-
-Guo Ren (3):
-  riscv: kexec: Fixup irq controller broken in kexec crash path
-  riscv: kexec: Fixup crash_smp_send_stop without multi cores
-  arch: crash: Remove duplicate declaration in smp.h
-
- arch/arm64/include/asm/smp.h      |  1 -
- arch/riscv/include/asm/smp.h      |  3 +
- arch/riscv/kernel/machine_kexec.c | 46 +++++++++++----
- arch/riscv/kernel/smp.c           | 97 ++++++++++++++++++++++++++++++-
- arch/x86/include/asm/crash.h      |  1 -
- 5 files changed, 133 insertions(+), 15 deletions(-)
-
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index ee79e6839b86..db41c676e5a2 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -15,6 +15,8 @@
+ #include <linux/compiler.h>	/* For unreachable() */
+ #include <linux/cpu.h>		/* For cpu_down() */
+ #include <linux/reboot.h>
++#include <linux/interrupt.h>
++#include <linux/irq.h>
+ 
+ /*
+  * kexec_image_info - Print received image details
+@@ -154,6 +156,37 @@ void crash_smp_send_stop(void)
+ 	cpus_stopped = 1;
+ }
+ 
++static void machine_kexec_mask_interrupts(void)
++{
++	unsigned int i;
++	struct irq_desc *desc;
++
++	for_each_irq_desc(i, desc) {
++		struct irq_chip *chip;
++		int ret;
++
++		chip = irq_desc_get_chip(desc);
++		if (!chip)
++			continue;
++
++		/*
++		 * First try to remove the active state. If this
++		 * fails, try to EOI the interrupt.
++		 */
++		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
++
++		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
++		    chip->irq_eoi)
++			chip->irq_eoi(&desc->irq_data);
++
++		if (chip->irq_mask)
++			chip->irq_mask(&desc->irq_data);
++
++		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
++			chip->irq_disable(&desc->irq_data);
++	}
++}
++
+ /*
+  * machine_crash_shutdown - Prepare to kexec after a kernel crash
+  *
+@@ -169,6 +202,8 @@ machine_crash_shutdown(struct pt_regs *regs)
+ 	crash_smp_send_stop();
+ 
+ 	crash_save_cpu(regs, smp_processor_id());
++	machine_kexec_mask_interrupts();
++
+ 	pr_info("Starting crashdump kernel...\n");
+ }
+ 
 -- 
 2.36.1
 
