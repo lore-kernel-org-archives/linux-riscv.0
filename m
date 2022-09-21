@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A683BC54EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 01:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8E1C54EE9
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 02:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xVdFf2ZyUQVI4G173tWtn5odz0gaK0Ceg0JTeCBfg+U=; b=PmORaxOPElce9/
-	ezyWCCxfnB1u+zPhgVxALahuWf+/cP8WD+qaNoesztL1zaM9cyQtCcSpIGl1qjghXaZDxb4umfJKH
-	qIeGKAo4abbOB/164IrFFJf6EKcSaTyaNSeGUIPjudDuOvhbPivx6dmZ28zZ3SY4AFwMc7lSqpTYb
-	FOzaNcc2VzSXH48fJhQcFt5+WPX0YR2IhRrSGIX+6Yc3KiTvV8uTwQFy9aWDg6jPZo6HQeMu2Sa5+
-	MC+kWJwLum2LkBCEMvaxItus/muWVdc9UzEctx8U35h2fcdiviYmGHpsVxKraUVlatj2gbAvNlBq0
-	kNw9rurxPACJXUFtLjqg==;
+	List-Owner; bh=p3nLYRN9pNfo2sjKlUBP6VL8patmrC9PFGJjdf3+4Mc=; b=s7VY7M+Eprh2Xm
+	hn2eB80kWF5TAaWsVg5SW1j+El5fwS10pQ8NsB+OnnliE7JfCFNW+1s1+sawSdUjuLp0MeosWwqQI
+	ikIJF01cG4cseO7M6n9DrrF06ohiWz2xI5n0QbN7xiTtpgXLCONyHAGkek3HF4xXHHjKCzTWsb1/W
+	ukNSI24jjvKjUvtUxsnjc1xH4JnAeLVsA8rWtaRlXAQa20JQj0z730bvemd4n98G/5FctcoxZ4vgR
+	t3+l3MCm6xW3c8YH3WETWPWl8AwzUhpu2PpeMgETC4QW+dDO6Fe1j1sElhqueajhkEOWMkrRid3Uf
+	9zatmIkf6jXLifmVVoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaouc-00867o-Om; Wed, 21 Sep 2022 01:52:30 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1oapFi-008DDL-Ii; Wed, 21 Sep 2022 02:14:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaotr-0085il-QG; Wed, 21 Sep 2022 01:51:45 +0000
-Received: by mail-ed1-x529.google.com with SMTP id e18so6523373edj.3;
-        Tue, 20 Sep 2022 18:51:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=exktuqp3Yz0O7DTOQAZcnS95GYeriR3HpkAUKtRfC9k=;
-        b=prR2d7IC8d3KTQfnrJuC6umcuUbOTsTHYnt/TN+mB7C0ksEVF09+y5pzwSr5hUcgfQ
-         3S6TNC1vUWzt0CWTWTgxvQjIa+srt85URQX7boT8YzDwD04EMRwBIQ5wnmBXQh5ojZFP
-         mb5cXtroEJ1QUj5aQRtcZ2eSbRkZJBKgrfwSP3a1AOX3PzhiPJyWAxUHhPNM+zljeEdC
-         RPEj/BOnWcjjlJYt0fOi284UWlelcdxkXKEvCjZSCzcEsRYi4gcGLSaSfe1/qg6igU91
-         8UMCYOG2BCz3q0FrpJnwDfEEW2sdvH6TIn+LqzqIaLzJkw4LJ5e/RUB96Vy1z5+wyzxa
-         40yg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=exktuqp3Yz0O7DTOQAZcnS95GYeriR3HpkAUKtRfC9k=;
-        b=LvKIw48pO2TO0Sc3zQ8nIJuXZENCbKMOmbZPy25VfMy5VNLl/ArZSnVjYMd8FkeyUZ
-         WjMk21pUxo1OZznJ54QsRhvHPxZ0ouFEWqcFoq9xaBjB8xLmz/Z5BW5xd3Xdn4gjqNct
-         xzEpy5jtt4fLJm3jw5BeGwZ2ciELnbHIm7zXrGryjrpO10HB8S/9Rf/fX2tHTOZ/PR5M
-         7QHeKJZTZZTDOIsv7ya2ZFAiu0DvWqab98cM0rs4OdBaNaiz7JvuU9B9vKAwJy0y0jfm
-         L0iHFW8bhi8oS1/eP/5AmMsG5v/3BEyFJuB2hgIhbQDHHqvZOFC3wYLLjKFwZkB+fXJw
-         oexQ==
-X-Gm-Message-State: ACrzQf2fLirXfphVG5/C7nxg7H0JBMAGhXamJAOUW6XnJN/wRm2w4zYG
-	eWK2yUJyac2bmBvcaHM6OTvO8HVbDivgEWKcuBo=
-X-Google-Smtp-Source: AMsMyM5v9dTlzaqMHbzByB0iQp6q4d17pnEGAvmmK5ZnmNrYfXTWs2nOXnV+B27bLIMXIY5zqA4ppXvLi5hsTQlRwTY=
-X-Received: by 2002:a05:6402:184:b0:442:fd54:2a21 with SMTP id
- r4-20020a056402018400b00442fd542a21mr22357803edv.129.1663725101717; Tue, 20
- Sep 2022 18:51:41 -0700 (PDT)
+	id 1oapFe-008D8V-Pr
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 02:14:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7AAD762EDA
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E37BCC433D6
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:14:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663726452;
+	bh=qI7h/5oDIg8KfeFQUixqYzNKwl6VFPqXAJjhtSbuMi4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=RCWADFT0FYCuKHjJOaL1bTscBnD+CJHvzrIflu0vrtjEq+XDtYR6luTG0RrfCVKXT
+	 zqeADrU7M0ulVNWynrS3swEBDzod6A3vsWB4CrJfg0Yox8J4b1C3NutSRePRbwANnN
+	 g3/V50iOphmleNsFLtDPf1Wnz0+4If40uRG6f/wzF82kKJukOAt68ALyK+hGChw3rF
+	 56lNNI5bO4Q2sLr/kEiK6544PdAuv/w8HqNCWTBJrxAPzBsNJiSSix3RnsOMvnMtIc
+	 EANrNFVKE2XpYalKJhOjDHJ/zOoi31UhRRLYG3rJwcByuo1lQPx2LEipklt0eOk1QH
+	 2nwhGmzlhyoOQ==
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-12b542cb1d3so7010511fac.13
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 19:14:12 -0700 (PDT)
+X-Gm-Message-State: ACrzQf2Xhe4cw+iANQ7eO7JJpHsjp0bcs3iYhs9Y6kD17jYPHKOr4fyO
+	EuGX/CPQY0aSE9cYfY8RaHCO1Lyzx1Cl8PuDhQs=
+X-Google-Smtp-Source: AMsMyM6IwqZwyLI7janQ1zDjXRLjdc4ym5Cy+EMmk9dbqWgfBFb8S6xJgFzOVD03EiTmLaz3UFMA/qSfiCqmy97Kl/E=
+X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
+ x14-20020a056870a78e00b0012b542be5b2mr3833650oao.112.1663726451988; Tue, 20
+ Sep 2022 19:14:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220822082120.8347-1-yangyicong@huawei.com> <20220822082120.8347-5-yangyicong@huawei.com>
- <302febae-508c-d73e-8676-d51752946645@arm.com> <CAGsJ_4ywwFJFi+q3Ra5UE3twzS9eExtvuXgoGK-8u4c1ZdXCBw@mail.gmail.com>
- <8c4f103b-8f04-d0ad-b30a-2db7e52b36a3@arm.com> <CAGsJ_4xCpSFneh7dPriGeM2_z5njB71cXKGfrarc8Kq0CA37CQ@mail.gmail.com>
-In-Reply-To: <CAGsJ_4xCpSFneh7dPriGeM2_z5njB71cXKGfrarc8Kq0CA37CQ@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 21 Sep 2022 13:51:30 +1200
-Message-ID: <CAGsJ_4y0HrWd90ApAn=eDpYrkCigM6MyH=3cYnSuunZ5QpsD3w@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] arm64: support batched/deferred tlb shootdown
- during page reclamation
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, catalin.marinas@arm.com, 
-	will@kernel.org, linux-doc@vger.kernel.org, corbet@lwn.net, 
-	peterz@infradead.org, arnd@arndb.de, linux-kernel@vger.kernel.org, 
-	darren@os.amperecomputing.com, yangyicong@hisilicon.com, huzhanyuan@oppo.com, 
-	lipeifeng@oppo.com, zhangshiming@oppo.com, guojian@oppo.com, 
-	realmz6@gmail.com, linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com, 
-	xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
-	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
+References: <20220920151202.180057-1-chenzhongjin@huawei.com> <20220920151202.180057-4-chenzhongjin@huawei.com>
+In-Reply-To: <20220920151202.180057-4-chenzhongjin@huawei.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 21 Sep 2022 10:13:57 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTS1=xSrsaABLzbRwq2V=Wj3_SyHtooXosfY7L9zAwf=NA@mail.gmail.com>
+Message-ID: <CAJF2gTS1=xSrsaABLzbRwq2V=Wj3_SyHtooXosfY7L9zAwf=NA@mail.gmail.com>
+Subject: Re: [PATCH -next 3/7] riscv: stacktrace: Save pt_regs in encoded fp
+ on irq entry
+To: Chen Zhongjin <chenzhongjin@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, peterz@infradead.org, 
+	mingo@redhat.com, acme@kernel.org, mark.rutland@arm.com, 
+	alexander.shishkin@linux.intel.com, namhyung@kernel.org, jolsa@kernel.org, 
+	nsaenzju@redhat.com, frederic@kernel.org, changbin.du@intel.com, 
+	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org, 
+	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_185143_917213_454F8A03 
-X-CRM114-Status: GOOD (  24.92  )
+X-CRM114-CacheID: sfid-20220920_191414_940856_BE5FA2FA 
+X-CRM114-Status: GOOD (  28.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +87,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 21, 2022 at 1:50 PM Barry Song <21cnbao@gmail.com> wrote:
->
-> On Tue, Sep 20, 2022 at 8:45 PM Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
-> >
-> >
-> >
-> > On 9/20/22 09:09, Barry Song wrote:
-> > > On Tue, Sep 20, 2022 at 3:00 PM Anshuman Khandual
-> > > <anshuman.khandual@arm.com> wrote:
-> > >>
-> > >>
-> > >> On 8/22/22 13:51, Yicong Yang wrote:
-> > >>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> > >>> +{
-> > >>> +     return true;
-> > >>> +}
-> > >>
-> > >> This needs to be conditional on systems, where there will be performance
-> > >> improvements, and should not just be enabled all the time on all systems.
-> > >> num_online_cpus() > X, which does not hold any cpu hotplug lock would be
-> > >> a good metric ?
-> > >
-> > > for a small system, i don't see how this patch will help, e.g. cpus <= 4;
-> > > so we can actually disable tlb-batch on small systems.
-> >
-> > Do not subscribe ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH based on NR_CPUS ?
-> > That might not help much as the default value is 256 for NR_CPUS.
-> >
-> > OR
-> >
-> > arch_tlbbatch_should_defer() checks on
-> >
-> > 1. online cpus                  (dont enable batched TLB if <= X)
-> > 2. ARM64_WORKAROUND_REPEAT_TLBI (dont enable batched TLB)
-> >
-> > > just need to check if we will have any race condition since hotplug will
-> > > make the condition true and false dynamically.
-> >
-> > If should_defer_flush() evaluate to be false, then ptep_clear_flush()
-> > clears and flushes the entry right away. This should not race with other
-> > queued up TLBI requests, which will be flushed separately. Wondering how
-> > there can be a race here !
->
-> Right. How about we make something as below?
->
-> static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> {
->     /* for a small system very small number of CPUs, TLB shootdown is cheap */
->     if (num_online_cpus() <= 4 ||
-> unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
->           return false;
->
-> #ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
->     if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
->          return false;
-> #endif
->
->     return true;
-> }
+Reviewed-by: Guo Ren <guoren@kernel.org>
 
-sorry, i mean
+ENCODE fp with BIT[0] is okay.
 
-static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-{
-    /* for a small system very small number of CPUs, TLB shootdown is cheap */
-    if (num_online_cpus() <= 4)
-            return false;
-
-#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
-    if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
-            return false;
-#endif
-
-    return true;
-}
-
+On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
 >
-> Thanks
-> Barry
+> To support stack unwinding at irq entry, the position of pt_regs saved
+> on stack is nessesary. Because for some functions, compiler only push
+> s0/fp on stack without ra.
+>
+> As the situation described in
+> commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
+>
+> When irq happens there, the the function frame looks like:
+>
+> prev function   |       ...       |
+>                 |                 |
+> normal function +-----------------+
+>                 | ra to prev      |
+>                 | s0 of prev      |
+>                 |       ...       |<-+
+> leaf function   +-----------------+  |
+>                 | s0 of normal    |  |
+>                 | empty slot      |  |
+> irq pt_regs     +-----------------+  |
+>                 | epc (ra to leaf)|  |
+>                 | ra  (ra to norm)|  |
+>                 | ...             |  |
+>                 | s0 of leaf      |--+
+>                 | ...             |
+>                 +-----------------+
+>
+> If the position of register in pt_regs is {epc, s0}, we can easily
+> unwind from irq frame to leaf function, as normal functions do.
+>
+> However when unwinding from unwinding from leaf to normal, beacause
+> (ra to norm) is saved in pt_regs, but not stackframe of leaf, we
+> have to get pt_regs for that.
+>
+> To get pt_regs position on stack, we can save the encoded *pt_regs
+> in s0, as x86 architecture did. Then we can get s0, epc and ra
+> easily.
+>
+> Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
+> ---
+>  arch/riscv/include/asm/frame.h | 45 ++++++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/entry.S      |  3 +++
+>  2 files changed, 48 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/frame.h
+>
+> diff --git a/arch/riscv/include/asm/frame.h b/arch/riscv/include/asm/frame.h
+> new file mode 100644
+> index 000000000000..2a1f45cf3a4e
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/frame.h
+> @@ -0,0 +1,45 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _ASM_RISCV_FRAME_H
+> +#define _ASM_RISCV_FRAME_H
+> +
+> +#include <asm/asm.h>
+> +
+> +#ifdef CONFIG_FRAME_POINTER
+> +
+> +#ifdef __ASSEMBLY__
+> +
+> +/*
+> + * This is a sneaky trick to help the unwinder find pt_regs on the stack.  The
+> + * frame pointer is replaced with an encoded pointer to pt_regs.  The encoding
+> + * is just setting the LSB, which makes it an invalid stack address and is also
+> + * a signal to the unwinder that it's a pt_regs pointer in disguise.
+> + *
+> + * This macro must be used when sp point to pt_regs
+> + */
+> +.macro ENCODE_FRAME_POINTER
+> +       add s0, sp, 0x1
+> +.endm
+> +
+> +#else /* !__ASSEMBLY__ */
+> +
+> +#define ENCODE_FRAME_POINTER                   \
+> +       "add s0, sp, 0x1\n\t"
+> +
+> +#endif /* __ASSEMBLY__ */
+> +
+> +#else /* !CONFIG_FRAME_POINTER */
+> +
+> +#ifdef __ASSEMBLY__
+> +
+> +.macro ENCODE_FRAME_POINTER ptregs_offset=0
+> +.endm
+> +
+> +#else /* !__ASSEMBLY */
+> +
+> +#define ENCODE_FRAME_POINTER
+> +
+> +#endif /* !__ASSEMBLY */
+> +
+> +#endif /* CONFIG_FRAME_POINTER */
+> +
+> +#endif /* _ASM_RISCV_FRAME_H */
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index b9eda3fcbd6d..ecb15c7430b4 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -13,6 +13,7 @@
+>  #include <asm/thread_info.h>
+>  #include <asm/asm-offsets.h>
+>  #include <asm/errata_list.h>
+> +#include <asm/frame.h>
+>
+>  #if !IS_ENABLED(CONFIG_PREEMPTION)
+>  .set resume_kernel, restore_all
+> @@ -95,6 +96,8 @@ _save_context:
+>         REG_S s4, PT_CAUSE(sp)
+>         REG_S s5, PT_TP(sp)
+>
+> +       ENCODE_FRAME_POINTER
+> +
+>         /*
+>          * Set the scratch register to 0, so that if a recursive exception
+>          * occurs, the exception vector knows it came from the kernel
+> --
+> 2.17.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
