@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADABC6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 00:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB63C54EE9
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 00:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pj4jHV28hvf4gIR97TipI1ih3xCZwaMEf3K7rDX9bBs=; b=ZeCX70x3KvDkXG
-	0+AKViPldsg28W9sPa09HqCxOaYQvbOLyN0G9o8o2gIDJlAXb8SAaPJpn3i5HU3l7EgSXp9dDbjwy
-	VhkhXzlT7Mc1aK6e2ji6l3HuHElryyyU60Ro7YHq2hWCso96tsYWvCHvawgB6GBBei/nVAEYfZ/HU
-	HkFRJFK8jcbbfFVvYwqLgxVUpLwTFT5R6uYeVwF/CQJbwkt8e3IPyfW1p3X0PPuVEO5SRA455t7dg
-	yVNtKpiYfIbaHZ3vZuw4mtoz/vYTLwTUwmSBCsg9VuNSJE2rztRA5srsDPlVdKEcZ2i6oVe9y3IzM
-	nRJNK7QTQv+SW6VjrMow==;
+	List-Owner; bh=f82ocxmgQdED9b5zv3fvA0ldzYiahJsFmGv0OXiFQng=; b=nnzVBv+qcrOuU8
+	DE04kMjJc+OW4cgMSxhKT6Ab/RKpON2haCFdDqdBvy14fSKfk3UpVIYiE23AgL1Kay9VREBYLR2UH
+	mFQPH8kwgaxQC8co5Xi0LfAETkArJGqEa8gAwwilTRNBjOu9yv3m318LUZrWOwf31XfiimrXOkZqG
+	SH4ERD7cqfpXjy1bhst7pyCmHrOyy/X058gHU4A1NIy1LaIXTqwqrjwqpaZvUqC0b994WrrM6x+R6
+	k6wu18L5aoX8B2s2emyUzc+vRUVK57HGb9WFyCIx4ycFVecyA6oI8bpi5+tqJ9oPhyNk4eAFi7aDD
+	CXlusKERDml5uDjj1rGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oang5-007i4j-TE; Wed, 21 Sep 2022 00:33:25 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1oangk-007iTu-FR; Wed, 21 Sep 2022 00:34:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oanfi-007hmM-2N
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 00:33:04 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id 15-20020a62170f000000b0053e304ef6c0so2559677pfx.6
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 17:32:59 -0700 (PDT)
+	id 1oanfm-007hw3-Kp
+	for linux-riscv@bombadil.infradead.org; Wed, 21 Sep 2022 00:33:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=efA5iJVbRrRgyy7qejkmxwve22ULxnh+arH50++PU/o=; b=jp0/MLG0kql7By1V/BE9JKjRmT
+	qic/Xdkmhtk7g+A3o0cQ8/Ma5oro+7aB2kVqo5JQYAGEAZdvDMvPXuv+mCdJxP9R/kbvMezeFYpDe
+	1DeQsjefF3II4QQgseTDSQL5tJ4iO2nqF3E07Z8tpqGyYS7NEPpon3uFmFb2Z3QE7FBAkqIU6mMsH
+	ESu+UhiLa/vOsNqy5uoNJVS8mvpus6/XgbqgCucDG54TpOfN7AoI3TlKxO9fURCrkluDXQu8tCyDS
+	G9XpcDU6brTfD+Vxm35kg5ybHPhgHzsccxEgd3L8Q76nG3qm7FavKNqQZEe+il1VZX83rYpGsLnlJ
+	kbPp33oQ==;
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oanfe-00ET5q-Ms
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 00:33:01 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id e187-20020a6369c4000000b0041c8dfb8447so2532581pgc.23
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 17:32:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date;
-        bh=qOL17Oc8lfNiT6vI1N2DgBeo2oQr9pvN4OAUhg4HlfA=;
-        b=ARUifQn8X722qfUwF91vggFYXNpMmdld6jHGucJn9mYIHgePg3e3ltjHazRJ7WJQIY
-         w+6+dDv/mxautN/CuWkRVIzUB4MM0mFVqAUofjmwyaRB9E3nNhDZAx6ZDYK3UkIvlcW3
-         K9NzDWtr9CpQ/CIsHl9VDcl9eNecHkOQ3A4eAV1FpyXScQBTQQwiNPVxGPrxUtBQTP6V
-         AEpBQWZgYOtijs1937kE9A8HMcoOQ+ZcnStpwMSDNJZXDvCTzuIS4CNbetfFaKrPYBbF
-         SNyUEVo0ACy2TKSphVy9cWwOnuMGoqVKl4ZpNYYdwpjQNgZOx/k9BLzDCMUkycF0nN5P
-         tZKA==
+        bh=efA5iJVbRrRgyy7qejkmxwve22ULxnh+arH50++PU/o=;
+        b=LKQ43lhsEV6qkmBZlofrSrdl8EJ6mizwyIEMQYN4yuGNXkQj4E20I0hn2n1os/W8rc
+         FBABKu95Qjg91h2stXYOQw+qADMR7XZ6aWiaoE4AtE31UgVml4CNZ7U+iemEDcQM7Qu4
+         t9Z+X0wLCYzA/PywBX4R2TbwY4IqErPsq7pWjccSbHgqlIcJodfmwDsORX1S0hnpHOqL
+         beWZAka2S0YLzR5F93gSfrPtpqFy0vHNPuMIF2SvlDmkv6DmDFSXlrSQYeY1mlT0WWNb
+         xuXG79A1mSLbxXjRXjfR/KkQ6hWyNCiYg0/oAhyTPT5fIKU53548mJXGWrhfghBolN1K
+         JXJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date;
-        bh=qOL17Oc8lfNiT6vI1N2DgBeo2oQr9pvN4OAUhg4HlfA=;
-        b=SdWEPVsC/NBhXQukIs7sZ56ZvGRem08gQmzCd+JchkfzXHVO+SS52LfYjHCx8X+ish
-         Kmoq0DJ2xnXjeBmLzGRZRHRBwAKfDOc0ADpyH9rrlCN7jfbzMsMayja65Amar7LlLBS6
-         FLGwZjfmtjUKP9+aPZBNQJjt8qPxzxHNaL9FJ0qWzkm2gTf/l4Vc54X/sI6eLKGBqgtx
-         z34eNqmLPl5/CcdjakdzRuiAq4WrR7BpBZCR210iSdlUTKy9QnU6ncaeBVq+8AzF1+mr
-         kwyXk7kKCkHCZXv2QRfdNtyiBJhmNv2qKvxvDCv7vJVfwMyF18UR22kQC/rHltOgxdJI
-         dhZA==
-X-Gm-Message-State: ACrzQf2Ycqx77AhphaWjvnDyf5QIecrVADZWdAkQQSNT6yJSxwHkYFg2
-	9/q23ysBl7zYagjeXxnCJ0hYmyMncHM=
-X-Google-Smtp-Source: AMsMyM6CB910qkp43a3cP5VNkh9ZvqTlylmwVUImF03qdsZIEcBH6bFWk0KDb4437+crJl7uEogrf6c2DIk=
+        bh=efA5iJVbRrRgyy7qejkmxwve22ULxnh+arH50++PU/o=;
+        b=JBz21PPv7jDbVAjnejGJdQT8kot+jcc8zYipkOvACbiXXP/qJUTwH1hjxjU6orjb8b
+         HwsODKDK7QnT1DVpQ6gjxWlIr0Pms+p4xwc8/zt5YQeXeaBEioYRx5NQVmvVGLC/sgIT
+         kCl5fQZfL9o063jtaBkLRBmCWi9VukNRjmajujIRsYzcVtAffvl6d6tr1s1lfKdVvyjz
+         l8h8CWt5YiZKejByKR0lrxdFad7AdpuKnaA8YTxiZEo1wXLjSUkFWEIgzJbZHo4Zl3Gq
+         mHJBdviWl87INW9gcV6SibsOIDxpZKhQdUxeJ7cAWlwbvwsUi4jlDCrr51ZBlB4D+T8H
+         EE3A==
+X-Gm-Message-State: ACrzQf2dDo++rhlCVSmHA68ILwtBl7mE8A+uvV4iUp9JytmLCSs/HBA4
+	M1+Vr1gucaSAhNICDdYxHIgDdZGVpf4=
+X-Google-Smtp-Source: AMsMyM4y6HKockrgOW/pRtDhYoSBz/Hgk7Jbboq2yxWPlcCYVwqDxT8mse4oLg7p1D+UQZFuX9F/d/ndT2k=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:903:26d4:b0:178:8de:fb5f with SMTP id
- jg20-20020a17090326d400b0017808defb5fmr2230591plb.45.1663720379233; Tue, 20
- Sep 2022 17:32:59 -0700 (PDT)
-Date: Wed, 21 Sep 2022 00:31:56 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:902:be03:b0:178:6f5d:e979 with SMTP id
+ r3-20020a170902be0300b001786f5de979mr2126922pls.163.1663720376093; Tue, 20
+ Sep 2022 17:32:56 -0700 (PDT)
+Date: Wed, 21 Sep 2022 00:31:54 +0000
 In-Reply-To: <20220921003201.1441511-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20220921003201.1441511-1-seanjc@google.com>
 X-Mailer: git-send-email 2.37.3.968.ga6b4b080e4-goog
-Message-ID: <20220921003201.1441511-8-seanjc@google.com>
-Subject: [PATCH v4 07/12] KVM: nVMX: Make an event request if INIT or SIPI is
- pending on VM-Enter
+Message-ID: <20220921003201.1441511-6-seanjc@google.com>
+Subject: [PATCH v4 05/12] KVM: x86: lapic does not have to process INIT if it
+ is blocked
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -80,8 +94,9 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, Maxim Levitsky <mlevitsk@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_173302_162990_C3BD0E9D 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20220921_013259_099574_6E5AEE69 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +114,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Evaluate interrupts, i.e. set KVM_REQ_EVENT, if INIT or SIPI is pending
-when emulating nested VM-Enter.  INIT is blocked while the CPU is in VMX
-root mode, but not in VMX non-root, i.e. becomes unblocked on VM-Enter.
-This bug has been masked by KVM calling ->check_nested_events() in the
-core run loop, but that hack will be fixed in the near future.
+From: Paolo Bonzini <pbonzini@redhat.com>
 
+Do not return true from kvm_vcpu_has_events() if the vCPU isn' going to
+immediately process a pending INIT/SIPI.  INIT/SIPI shouldn't be treated
+as wake events if they are blocked.
+
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+[sean: rebase onto refactored INIT/SIPI helpers, massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/nested.c | 18 ++++++------------
- 1 file changed, 6 insertions(+), 12 deletions(-)
+ arch/x86/kvm/x86.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index 3a080051a4ec..5922531f6c52 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -3377,6 +3377,8 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
- 		(CPU_BASED_INTR_WINDOW_EXITING | CPU_BASED_NMI_WINDOW_EXITING);
- 	if (likely(!evaluate_pending_interrupts) && kvm_vcpu_apicv_active(vcpu))
- 		evaluate_pending_interrupts |= vmx_has_apicv_interrupt(vcpu);
-+	if (!evaluate_pending_interrupts)
-+		evaluate_pending_interrupts |= kvm_apic_has_pending_init_or_sipi(vcpu);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 16a24dd28f26..dcc675d4e44b 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -12765,7 +12765,8 @@ static inline bool kvm_vcpu_has_events(struct kvm_vcpu *vcpu)
+ 	if (!list_empty_careful(&vcpu->async_pf.done))
+ 		return true;
  
- 	if (!vmx->nested.nested_run_pending ||
- 	    !(vmcs12->vm_entry_controls & VM_ENTRY_LOAD_DEBUG_CONTROLS))
-@@ -3457,18 +3459,10 @@ enum nvmx_vmentry_status nested_vmx_enter_non_root_mode(struct kvm_vcpu *vcpu,
- 	}
+-	if (kvm_apic_has_pending_init_or_sipi(vcpu))
++	if (kvm_apic_has_pending_init_or_sipi(vcpu) &&
++	    kvm_apic_init_sipi_allowed(vcpu))
+ 		return true;
  
- 	/*
--	 * If L1 had a pending IRQ/NMI until it executed
--	 * VMLAUNCH/VMRESUME which wasn't delivered because it was
--	 * disallowed (e.g. interrupts disabled), L0 needs to
--	 * evaluate if this pending event should cause an exit from L2
--	 * to L1 or delivered directly to L2 (e.g. In case L1 don't
--	 * intercept EXTERNAL_INTERRUPT).
--	 *
--	 * Usually this would be handled by the processor noticing an
--	 * IRQ/NMI window request, or checking RVI during evaluation of
--	 * pending virtual interrupts.  However, this setting was done
--	 * on VMCS01 and now VMCS02 is active instead. Thus, we force L0
--	 * to perform pending event evaluation by requesting a KVM_REQ_EVENT.
-+	 * Re-evaluate pending events if L1 had a pending IRQ/NMI/INIT/SIPI
-+	 * when it executed VMLAUNCH/VMRESUME, as entering non-root mode can
-+	 * effectively unblock various events, e.g. INIT/SIPI cause VM-Exit
-+	 * unconditionally.
- 	 */
- 	if (unlikely(evaluate_pending_interrupts))
- 		kvm_make_request(KVM_REQ_EVENT, vcpu);
+ 	if (vcpu->arch.pv.pv_unhalted)
 -- 
 2.37.3.968.ga6b4b080e4-goog
 
