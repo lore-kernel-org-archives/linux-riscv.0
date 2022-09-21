@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739DAC6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 16:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AD2ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 17:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3RW7m+jcJhJrzKvd5/FVLlp3SkqlvprQRmy0N4iWQ6g=; b=c22oKzX6vExFAJ
-	U4qX71HUHWFhhvVjuHzRriEPh3q85M8CCNhdl61ldSOacgOzZZabsCdjDv5tUYwBl+11qDiYmnxJ6
-	S3zi8sDe/EBg/S4d5TQWxv1jfsDPemU6j20cEWmIEZ41gIB87fqPbR/J8f4SdC8DZzYPYch9EDiQA
-	SL9l1e9hH/6Sa85GVTL59Z6mm8+PMCk3Jt2tUycsfoT0+7MB8GAGqaVvqKUM6W/OIkkSKz4pH4WQd
-	wek8ILyPpEQaqEC42ToQduz/N/HbQIDN89/n7TGvJ8OcIy1sXXcu+a+s6UzsZQpq6ZMWcd7joDlFR
-	GKTlz58Y9xTUtqDyatkw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ascsEcXcS4qHDliR7eftI8ugDF3vnn45q5Kd2kT2uew=; b=cn+TxiS4vLSDji
+	YggjTF5iQGUo26as5uj0BCGC7VEzqaD19E4C5ldQWMtDXzRmD1Mvsm4yWVXJZkUXEmjIdJ+F6zrt/
+	TQByYCT1CICQG++exRMUaKRnYVETDZDzxP3qZ1fb4lwEmFvLD770jT4d3VcwIdlxGcKYTPlfnS9cr
+	MG2E55YjBQel6jcAavVlxm/2O0S7MLppp9t6qCQMs10RrZYZwd6Vd3tN6e2okbIv9/2S0stW1AzhN
+	rI9JzqpYnuilBBzfvWeCGWd8KoBKyy7OuuskQFJcV/41egoeGiEVtNNphbgZ4nXGwJAVTuLd7PVJg
+	bHBirVGfHBU0+jJbISfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2wf-00C4bu-3d; Wed, 21 Sep 2022 16:51:33 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1ob3It-00C9Re-RN; Wed, 21 Sep 2022 17:14:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob2wc-00C4a2-Cp
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 16:51:32 +0000
-Received: by mail-wm1-x336.google.com with SMTP id l8so4895752wmi.2
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 09:51:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date;
-        bh=iiNWrVYExZtyCTmhZMPXv3Z+V5/s9eeZmuS1v1hmbZc=;
-        b=l6iPTEdQXyy7Lmzuah2UTCk2eXp7jdvPcOf9lidb8uCcqODJpCvm8+/gAdt0o7yiZN
-         HRnR1FOjvBdbMO/6ITLdCfCHUQ1VZeMQXoauUveDDC4EWG2kZAeMVTCbu294FEZgJeHH
-         QIDHy8w4jQ0skUbChO/JqNZrEDjoBTQwa68M4xhx/Cj8RGXdIarqlp6WHq+NPvxRXe/p
-         MoaGAMPZJ/6eJSJO6JN+8nCpus3ttKhbZnOYcksg616foYbxISZ0UW/5nMrrXPwwtWyG
-         kGOVU1jynRaws7ctHAwY4gQYHMpd8gizajzRWTBsRyCSsr+njvnUV1Xxa9HNs9hVTt9b
-         LY5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date;
-        bh=iiNWrVYExZtyCTmhZMPXv3Z+V5/s9eeZmuS1v1hmbZc=;
-        b=wmd5ssl3ECfp7ZOajJerLa0Olr9lO1Vg9Gm5vpVzv6EdNqA6x8EHnOYCoGauZ9ug6t
-         uWcEGfEQo5urk/CS8ICCh0v4wyG+znDv5zFIAcwvnPi+3erBRQG6RDURSZtILI7HtH40
-         RLpX55AYuDD5qqkW8dZaRMORuzFhwgn2LppG0uUQHYsdkts0Er4dXoKQhXB/UfI2ZvCB
-         t4kxFY+q66gBzmMeBCH1t9YZDB8poees3pzGQA2mABlu5pKZmFsw26SHIbFlu+WGRSAP
-         nB95dFW+RxBGeKsq38cHPeFbdaoM/QHxMgJkbpL/LvZA5v4O6sc532Nq1FpNpJ519NsA
-         fX2Q==
-X-Gm-Message-State: ACrzQf3VsO+tFMgOQs+3rxRUcDbCf9zZMbIpcqkh7kuWfdngkgeLCd4v
-	xMO3w7TPfFVzgE0TW2OHzPC5j/HXX+n4Y9lOHpqiCtmt7GKjwg==
-X-Google-Smtp-Source: AMsMyM6aor/vHTbQFZim6OWwSlN7TYikJGkCiKEB/N8x0zyjbwFR0fUFOS8gaw68B0aYsramY9VI5SlyeTK6zgjnsDw=
-X-Received: by 2002:a1c:4b05:0:b0:3b4:90c1:e249 with SMTP id
- y5-20020a1c4b05000000b003b490c1e249mr6690440wma.201.1663779088748; Wed, 21
- Sep 2022 09:51:28 -0700 (PDT)
+	id 1ob3Iq-00C9Qf-DA
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 17:14:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9D56F628D8;
+	Wed, 21 Sep 2022 17:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0872BC433D6;
+	Wed, 21 Sep 2022 17:14:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663780467;
+	bh=Y3leVvDpTR9qgkTrECXwvv7jqZqIyvUQSUHk6XmHwrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NvjoYQVVjeFdWc+N6mZ06f3HOCsPQ6kcb/a0lYvrbTIbU/WZDEskFcIRoSmLqftpE
+	 LPpDkzfI8n92mdVoYXdGGeUEGEkCfbH8z+U6ntY7B35t8Wy/NZvc3j8v3zUmuIbiY0
+	 oar7zgkadc97CO/l1Nf5nH7KEBDvVBmmlHY20N32K7RF+99JUc3W/ZPlvomqYU0kog
+	 DR6Bp1CD7i2hldBAbpeeEVqSqJuVk0KbfKPTK6b69hle0XoxbArT/aE6gWVx/+0k3q
+	 e0ORROSGeRl9P+vg9I1Rtl6IVSwZLWilnyO1z9O/oHmelB0+Jem3MvoP2inTUj/rTc
+	 bZC5tYjaBEoXg==
+Date: Wed, 21 Sep 2022 18:14:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Chris Stillson <stillson@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	atishp@rivosinc.com
+Subject: Re: [PATCH 00/17] Prctl to enable vector commands, previous vector
+ patches rebased
+Message-ID: <YytGbx1RW2mZAzQ9@spud>
+References: <CAM2SziVKzk1zpEZJ4h1+pG90=V7d-bYLySxh2-ZCAHOzNy54yQ@mail.gmail.com>
 MIME-Version: 1.0
-From: Chris Stillson <stillson@rivosinc.com>
-Date: Wed, 21 Sep 2022 09:50:52 -0700
-Message-ID: <CAM2SziXtppQQmreSLLdB0rfb_CZi-sGAZAZeQJ5ShfkK-goK0w@mail.gmail.com>
-Subject: [PATCH 17/17] riscv: prctl to enable vector commands
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com
+Content-Disposition: inline
+In-Reply-To: <CAM2SziVKzk1zpEZJ4h1+pG90=V7d-bYLySxh2-ZCAHOzNy54yQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_095130_473965_E1B7228E 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20220921_101428_541526_12CF2B76 
+X-CRM114-Status: GOOD (  27.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,284 +73,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This code makes enabling the vector extension on a riscv manchine
-optional by adding an option to prctl() to allow a process to enable,
-disable or query its vector context state.
+On Wed, Sep 21, 2022 at 09:44:43AM -0700, Chris Stillson wrote:
+> This patch adds a prctl to enable, disable, or query whether vectors
+> are enabled or not.
+> This is to allow a process to "opt out" of the overhead incurred by
+> using vectors. Because this
+> is build on top of an existing set of patches to work with vectors,
+> they have been rebased to
+> Linux 6.0-rc1.
 
--added prctl to enable/disable/query current vector state
--added actual function in riscv specific code to change/query the process
-state
-- Fixed problem with initial set of patches
-        (missing some EXPORT_SYMBOL() macro calls)
-- rebased to 6.0-rc1
----
- arch/riscv/configs/defconfig             |  6 ++++++
- arch/riscv/include/asm/kvm_vcpu_vector.h |  8 ++++----
- arch/riscv/include/asm/processor.h       |  6 ++++++
- arch/riscv/include/asm/switch_to.h       | 11 +++++++++++
- arch/riscv/kernel/cpufeature.c           |  3 ++-
- arch/riscv/kernel/process.c              | 20 +++++++++++++++++++-
- arch/riscv/kvm/vcpu_vector.c             | 14 +++++++-------
- include/uapi/linux/prctl.h               |  6 ++++++
- kernel/sys.c                             |  7 +++++++
- 9 files changed, 68 insertions(+), 13 deletions(-)
+Hey Chris,
+Any other review aside - it looks like this patchset has been oddly
+sent. Did you by any chance copy paste the patches into gmail?
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index aed332a9d4ea..fce054286b1f 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -209,3 +209,9 @@ CONFIG_RCU_EQS_DEBUG=y
- # CONFIG_FTRACE is not set
- # CONFIG_RUNTIME_TESTING_MENU is not set
- CONFIG_MEMTEST=y
-+CONFIG_ARCH_RV64I=y
-+CONFIG_64BIT=y
-+CONFIG_VECTOR=y
-+CONFIG_ARCH_RV64I=y
-+CONFIG_64BIT=y
-+CONFIG_VECTOR=y
-diff --git a/arch/riscv/include/asm/kvm_vcpu_vector.h
-b/arch/riscv/include/asm/kvm_vcpu_vector.h
-index 1dcc1b2e05bb..c7101ff943a0 100644
---- a/arch/riscv/include/asm/kvm_vcpu_vector.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_vector.h
-@@ -22,9 +22,9 @@ void __kvm_riscv_vector_save(struct kvm_cpu_context *context);
- void __kvm_riscv_vector_restore(struct kvm_cpu_context *context);
- void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
--                                     unsigned long isa);
-+                                     unsigned long *isa);
- void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
--                                        unsigned long isa);
-+                                        unsigned long *isa);
- void kvm_riscv_vcpu_host_vector_save(struct kvm_cpu_context *cntx);
- void kvm_riscv_vcpu_host_vector_restore(struct kvm_cpu_context *cntx);
- void kvm_riscv_vcpu_free_vector_context(struct kvm_vcpu *vcpu);
-@@ -34,12 +34,12 @@ static inline void
-kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
- }
+May you should speak with Atish or Palmer about how to set up your
+environment to use git send-email. "Our" tools expect that a series of
+patches is threaded so that tools like `b4` can pull the lot down
+from lore.kernel.org etc. git send-email will do that for you for free.
 
- static inline void kvm_riscv_vcpu_guest_vector_save(struct
-kvm_cpu_context *cntx,
--                                                   unsigned long isa)
-+                                                   unsigned long *isa)
- {
- }
+Secondly, it looks like in many of the patches you are not the author,
+so you there's a "From: blah blan <blah@blah.com>" missing from them
+which happens when you copy a patch but again send-email will sort out
+for you.
 
- static inline void kvm_riscv_vcpu_guest_vector_restore(struct
-kvm_cpu_context *cntx,
--                                                      unsigned long isa)
-+                                                      unsigned long *isa)
- {
- }
+The signed-off-by chains on a lot of mails look wrong too, mostly they
+are missing your SoB since you are the sender.
 
-diff --git a/arch/riscv/include/asm/processor.h
-b/arch/riscv/include/asm/processor.h
-index a09141ecf6aa..f2d0a91ce174 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -88,6 +88,12 @@ extern void riscv_fill_hwcap(void);
- extern int arch_dup_task_struct(struct task_struct *dst, struct
-task_struct *src);
+Finally, please run get_maintainer.pl - there are KVM patches in here
+and you have not CCed the KVM maintainers (nor have you CCed the people
+who wrote the patches in the first place).
 
- extern unsigned long signal_minsigstksz __ro_after_init;
-+
-+#ifdef CONFIG_VECTOR
-+extern int rvv_proc_enable(unsigned long x);
-+#define RVV_PROC_ENABLE(x) rvv_proc_enable(x)
-+#endif
-+
- #endif /* __ASSEMBLY__ */
+Reading the "submitting patches" document might be helpful to you:
+https://docs.kernel.org/process/submitting-patches.html
 
- #endif /* _ASM_RISCV_PROCESSOR_H */
-diff --git a/arch/riscv/include/asm/switch_to.h
-b/arch/riscv/include/asm/switch_to.h
-index 527951c033d4..d9747450311c 100644
---- a/arch/riscv/include/asm/switch_to.h
-+++ b/arch/riscv/include/asm/switch_to.h
-@@ -80,6 +80,17 @@ extern unsigned long riscv_vsize;
- extern void __vstate_save(struct __riscv_v_state *save_to, void *datap);
- extern void __vstate_restore(struct __riscv_v_state *restore_from,
-void *datap);
+Thanks,
+Conor.
 
-+static inline bool vstate_query(struct pt_regs *regs)
-+{
-+       return (regs->status & SR_VS) != 0;
-+}
-+
-+static inline void vstate_on(struct task_struct *task,
-+                               struct pt_regs *regs)
-+{
-+       regs->status = (regs->status & ~(SR_VS)) | SR_VS_INITIAL;
-+}
-+
- static inline void __vstate_clean(struct pt_regs *regs)
- {
-        regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 0487ab19b234..3be469cb9266 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -37,6 +37,8 @@ __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
- #include <asm/vector.h>
- __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_vector);
- unsigned long riscv_vsize __read_mostly;
-+EXPORT_SYMBOL(cpu_hwcap_vector);
-+EXPORT_SYMBOL(riscv_vsize);
- #endif
-
- /**
-@@ -346,4 +348,3 @@ void __init_or_module
-riscv_cpufeature_patch_func(struct alt_entry *begin,
-        }
- }
- #endif
--}
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index e88a37fc77ed..a5a76d1374ec 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -15,6 +15,7 @@
- #include <linux/tick.h>
- #include <linux/ptrace.h>
- #include <linux/uaccess.h>
-+#include <linux/prctl.h>
-
- #include <asm/unistd.h>
- #include <asm/processor.h>
-@@ -134,7 +135,6 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
-                        if (WARN_ON(!vstate->datap))
-                                return;
-                }
--               regs->status |= SR_VS_INITIAL;
-
-                /*
-                 * Restore the initial value to the vector register
-@@ -230,3 +230,21 @@ int copy_thread(struct task_struct *p, const
-struct kernel_clone_args *args)
-        p->thread.sp = (unsigned long)childregs; /* kernel sp */
-        return 0;
- }
-+
-+#ifdef CONFIG_VECTOR
-+int rvv_proc_enable(unsigned long x) {
-+       switch (x) {
-+       case PR_RVV_DISABLE:
-+               vstate_off(current, task_pt_regs(current));
-+               return 0;
-+       case PR_RVV_ENABLE:
-+               vstate_on(current, task_pt_regs(current));
-+               return 0;
-+       case PR_RVV_QUERY:
-+               return vstate_query(task_pt_regs(current));
-+       default:
-+               return -(EINVAL);
-+
-+       }
-+}
-+#endif
-diff --git a/arch/riscv/kvm/vcpu_vector.c b/arch/riscv/kvm/vcpu_vector.c
-index 37bf4ffd47dd..9d1613da561a 100644
---- a/arch/riscv/kvm/vcpu_vector.c
-+++ b/arch/riscv/kvm/vcpu_vector.c
-@@ -20,7 +20,7 @@
- extern unsigned long riscv_vsize;
- void kvm_riscv_vcpu_vector_reset(struct kvm_vcpu *vcpu)
- {
--       unsigned long isa = vcpu->arch.isa;
-+       unsigned long isa = *vcpu->arch.isa;
-        struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-
-        cntx->sstatus &= ~SR_VS;
-@@ -39,20 +39,20 @@ static void kvm_riscv_vcpu_vector_clean(struct
-kvm_cpu_context *cntx)
- }
-
- void kvm_riscv_vcpu_guest_vector_save(struct kvm_cpu_context *cntx,
--                                     unsigned long isa)
-+                                     unsigned long *isa)
- {
-        if ((cntx->sstatus & SR_VS) == SR_VS_DIRTY) {
--               if (riscv_isa_extension_available(&isa, v))
-+               if (riscv_isa_extension_available(isa, v))
-                        __kvm_riscv_vector_save(cntx);
-                kvm_riscv_vcpu_vector_clean(cntx);
-        }
- }
-
- void kvm_riscv_vcpu_guest_vector_restore(struct kvm_cpu_context *cntx,
--                                        unsigned long isa)
-+                                        unsigned long *isa)
- {
-        if ((cntx->sstatus & SR_VS) != SR_VS_OFF) {
--               if (riscv_isa_extension_available(&isa, v))
-+               if (riscv_isa_extension_available(isa, v))
-                        __kvm_riscv_vector_restore(cntx);
-                kvm_riscv_vcpu_vector_clean(cntx);
-        }
-@@ -122,7 +122,7 @@ int kvm_riscv_vcpu_get_reg_vector(struct kvm_vcpu *vcpu,
-                                  const struct kvm_one_reg *reg,
-                                  unsigned long rtype)
- {
--       unsigned long isa = vcpu->arch.isa;
-+       unsigned long isa = *vcpu->arch.isa;
-        unsigned long __user *uaddr =
-                        (unsigned long __user *)(unsigned long)reg->addr;
-        unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-@@ -149,7 +149,7 @@ int kvm_riscv_vcpu_set_reg_vector(struct kvm_vcpu *vcpu,
-                                  const struct kvm_one_reg *reg,
-                                  unsigned long rtype)
- {
--       unsigned long isa = vcpu->arch.isa;
-+       unsigned long isa = *vcpu->arch.isa;
-        unsigned long __user *uaddr =
-                        (unsigned long __user *)(unsigned long)reg->addr;
-        unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index a5e06dcbba13..8ea56e4c48f8 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -281,6 +281,12 @@ struct prctl_mm_map {
- # define PR_SME_VL_LEN_MASK            0xffff
- # define PR_SME_VL_INHERIT             (1 << 17) /* inherit across exec */
-
-+/* RISC-V V vector extension */
-+#define PR_RVV_STATE                   65
-+# define PR_RVV_DISABLE                        0
-+# define PR_RVV_ENABLE                 1
-+# define PR_RVV_QUERY                  2
-+
- #define PR_SET_VMA             0x53564d41
- # define PR_SET_VMA_ANON_NAME          0
-
-diff --git a/kernel/sys.c b/kernel/sys.c
-index b911fa6d81ab..3049b1823273 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -138,6 +138,9 @@
- #ifndef GET_TAGGED_ADDR_CTRL
- # define GET_TAGGED_ADDR_CTRL()                (-EINVAL)
- #endif
-+#ifndef RVV_PROC_ENABLE
-+# define RVV_PROC_ENABLE(x)                    (-EINVAL)
-+#endif
-
- /*
-  * this is where the system-wide overflow UID and GID are defined, for
-@@ -2620,6 +2623,10 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned
-long, arg2, unsigned long, arg3,
-                error = sched_core_share_pid(arg2, arg3, arg4, arg5);
-                break;
- #endif
-+       case PR_RVV_STATE:
-+               error = RVV_PROC_ENABLE(arg2);
-+               break;
-+
-        case PR_SET_VMA:
-                error = prctl_set_vma(arg2, arg3, arg4, arg5);
-                break;
---
-2.25.1
+> 
+> 
+> Chris Stillson (1):
+>   riscv: prctl to enable vector commands
+> 
+> Greentime Hu (9):
+>   riscv: Add new csr defines related to vector extension
+>   riscv: Add has_vector/riscv_vsize to save vector features.
+>   riscv: Add vector struct and assembler definitions
+>   riscv: Add task switch support for vector
+>   riscv: Add ptrace vector support
+>   riscv: Add sigcontext save/restore for vector
+>   riscv: Add support for kernel mode vector
+>   riscv: Add vector extension XOR implementation
+>   riscv: Fix a kernel panic issue if $s2 is set to a specific value
+>     before entering Linux
+> 
+> Guo Ren (4):
+>   riscv: Rename __switch_to_aux -> fpu
+>   riscv: Extending cpufeature.c to detect V-extension
+>   riscv: Add vector feature to compile
+>   riscv: Reset vector register
+> 
+> Vincent Chen (3):
+>   riscv: signal: Report signal frame size to userspace via auxv
+>   riscv: Add V extension to KVM ISA allow list
+>   riscv: KVM: Add vector lazy save/restore support
+> 
+>  arch/riscv/Kconfig                       |  15 +-
+>  arch/riscv/Makefile                      |   1 +
+>  arch/riscv/configs/defconfig             |   6 +
+>  arch/riscv/include/asm/csr.h             |  16 ++-
+>  arch/riscv/include/asm/elf.h             |  47 +++---
+>  arch/riscv/include/asm/hwcap.h           |   1 +
+>  arch/riscv/include/asm/kvm_host.h        |   2 +
+>  arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
+>  arch/riscv/include/asm/processor.h       |   9 ++
+>  arch/riscv/include/asm/switch_to.h       |  83 ++++++++++-
+>  arch/riscv/include/asm/vector.h          |  17 +++
+>  arch/riscv/include/asm/xor.h             |  82 +++++++++++
+>  arch/riscv/include/uapi/asm/auxvec.h     |   1 +
+>  arch/riscv/include/uapi/asm/hwcap.h      |   1 +
+>  arch/riscv/include/uapi/asm/kvm.h        |   7 +
+>  arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
+>  arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
+>  arch/riscv/kernel/Makefile               |   2 +
+>  arch/riscv/kernel/asm-offsets.c          |  15 ++
+>  arch/riscv/kernel/cpufeature.c           |  21 +++
+>  arch/riscv/kernel/entry.S                |   6 +-
+>  arch/riscv/kernel/head.S                 |  37 ++++-
+>  arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
+>  arch/riscv/kernel/process.c              |  61 ++++++++
+>  arch/riscv/kernel/ptrace.c               |  71 ++++++++++
+>  arch/riscv/kernel/riscv_ksyms.c          |   6 +
+>  arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
+>  arch/riscv/kernel/vector.S               | 102 +++++++++++++
+>  arch/riscv/kvm/Makefile                  |   1 +
+>  arch/riscv/kvm/vcpu.c                    |  32 +++++
+>  arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
+>  arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
+>  arch/riscv/lib/Makefile                  |   1 +
+>  arch/riscv/lib/xor.S                     |  81 +++++++++++
+>  include/uapi/linux/elf.h                 |   1 +
+>  include/uapi/linux/prctl.h               |   6 +
+>  kernel/sys.c                             |   7 +
+>  37 files changed, 1355 insertions(+), 42 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
+>  create mode 100644 arch/riscv/include/asm/vector.h
+>  create mode 100644 arch/riscv/include/asm/xor.h
+>  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
+>  create mode 100644 arch/riscv/kernel/vector.S
+>  create mode 100644 arch/riscv/kvm/vcpu_vector.c
+>  create mode 100644 arch/riscv/lib/xor.S
+> 
+> --
+> 2.25.1
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
