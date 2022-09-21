@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EABDC32771
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40172ECAAD8
 	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 21:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=v27QrMpOusijG8LiFfsMqCx31WfwVw+0mJXyh/R9KUg=; b=ELlWxJP4/+wz7y
-	HQMDLdqNUHm8TBn+QfxGiY619pUfqFu7IdvyiZnExks05SzApBjhAvxx+M2HzC/AtF3fG9dLlJI5V
-	FivWZUKTDBXEtmXVPyN1Pb+c67k59OF4vvelTC2tXdq1F8qfysF6fSL+I1NpJSSM6IjAxmFGakhE9
-	B36kETgOL6WoNi5MOw4/A2eWnHiWXO4lmBBBr2G0ammkbvfpNKqmpFSiD0YYiqDPRAAQ3OLuEdpO5
-	yIsp3+HfTpvrpSe8Ok3TdNsBXE29XmWPHf+eHrRpGv+xcF0gSC6KBqFCgaj03h8ohshDJYQVIzbYy
-	/vYWNLVM2Z0k9xGWh2vw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ajGQVuTbU0W+jpElJSzJdq0DiBlGmd+7iMnN1AosftQ=; b=f9Zym3j0LewoMU
+	IaAYMFZP+Gsf/UCMKpIQA/NOWc/ErDDp/5avktx8kCoZdXTueSyJzRIFtrHrIQpsVbV0JdoNtQEtw
+	w+eHnbgE0wqk/r091b2Zc27z2oXuJJ13O8plsAjiGc1zHtcPJImWmRDbjIXZlSC0iAOHFehbkWhhS
+	/eRjxASP1TBc6uUDXsouPG2EpIbh8g01UtibUKSmnjC5VonnuOC32LRV+sPid4yio9fXStzsMkSzI
+	m0pZoypxGG544cLDhhtNPaZ3gbUDPP7Fz7SQETPwXwXfsR2Z4hYWJaRDaru8Ue5GBoDZ3I3/ITa5z
+	jY7WdOVtvObIYDE8FgVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob6qh-00CdXH-GI; Wed, 21 Sep 2022 21:01:39 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1ob6ql-00CdYa-Ec; Wed, 21 Sep 2022 21:01:43 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob5gH-00CUSp-Dj
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 19:46:54 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id q3so7538811pjg.3
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 12:46:42 -0700 (PDT)
+	id 1ob5gM-00CUX6-Ge
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 19:46:56 +0000
+Received: by mail-pg1-x535.google.com with SMTP id s206so6968427pgs.3
+        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 12:46:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=J9b9l3yY2m8G7A07w4tzSkwufsM0I3mO38JP9h/2N5I=;
-        b=qT3rG4+UY6ZHueV4pwdtaLQ5y5MOqL1qfXgYw6Fdk748lJ5EwZIT7elmx6WouvRTKs
-         dAajgCe7AXjYlc63ZN1THzdNvS6oQK1U44m9RRm5IifyAlOahrgDNZCH/MJ3fSoWSykO
-         coPsK7sLIYG4JI26CDvX6hln0m2PzBx5OR3rgc5epoC9ELrxwLQvlt20rKsk/5eOTM2m
-         AP7fv01CnFTto6+d6moX3VQi5zESmFecDC4YfdXL8r/EKrdyOaroy5t2JNllsnOnF6FV
-         oA5MNMwMom0ls65rNq/DwoGCDqLDTTwPjqyy57Q7J7AbbNJW5azvv/Ev7jCZZNqRqPjo
-         hf2Q==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
+        bh=BvXu+QXgzcKTzY7GQZ6McuBPlZWnkV19grD1UPI3mnI=;
+        b=IWpcP4sI8SsPHjHX24aC478FGMh3gzJpfe14fyvIcwOb7K4BKly9moVUweEfe5gNkt
+         N4rZbBapy5OAy8R24ISr8s7enXG1efoSTeb1dP+X4Pz54t1GGYum8mDzYBU/+C//vupg
+         GKQNOvkrMbcH5wNaHU1u6uoTG36lZqcHC/sK/zFI7u1wOWFmN5UNNYCUA1VoSgL6ddZp
+         xLClGxEm91xI098Gkjtb33rG4Nuz6eQvTQwK/PG6ftT2YpNh3VeTqZaSKgCyA4S1F0PH
+         MyCCitaA4griOE8UTQB4JV3U+QAeS84qlD0oc2Wsi2ULi5s08yOinmN5VhY49nsaD4HN
+         99Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=J9b9l3yY2m8G7A07w4tzSkwufsM0I3mO38JP9h/2N5I=;
-        b=n+t/kMu13V4BzcLarSQ5fZoY2r2tKpceh30sJ1L2tqPsBwaBCAg9ygeOacE2ccG8rM
-         nJVbwBqkUYnNk9P2nrwtqp7UwuPkTDEaNnohxT37E3TbpGuyup2BzllEts+xmDwNJcFg
-         /GwhygaoSfhbBj0UazICN9dn7BBXElijCI3EH7ACxJGOLr8MUdVMRXhxZEyoD0q9siFp
-         UNLcLMEqU0RW3nn027RO9mjmz1Y7ZgeCWCPUHsP+vKcc5ry4u5UZLQhJeFJOuNyiaGUv
-         Shmx6dTZ2kEFrQ7ep+VFkuBSoJzegIC2UH66nAaCaIKToqcD/akP8T3Yd1Mtc08KlQ2E
-         rUyQ==
-X-Gm-Message-State: ACrzQf2scgw9EgyUThe/Xb/UojAqVZPex+QTCjBHdIwz+5rueXVyKnwy
-	G1c5SwDg9TfrLtN4uXMticlD/NiapmNOAg==
-X-Google-Smtp-Source: AMsMyM5Q1ud1GqAUFfaSMp8EZvAG6pOyphxNIZ+JSc9R4ZHjsLnnuEYQeXL0g0hwMz3XO54QzCnxTg==
-X-Received: by 2002:a17:90b:1d8c:b0:202:c689:fa33 with SMTP id pf12-20020a17090b1d8c00b00202c689fa33mr11379236pjb.58.1663789602169;
-        Wed, 21 Sep 2022 12:46:42 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=BvXu+QXgzcKTzY7GQZ6McuBPlZWnkV19grD1UPI3mnI=;
+        b=pMb207S8nGrW3hVIfaCRWXvfoCDqBmYo0K/BFjzoCZ/p9kGL3WD3YpM1Xf4ZoBBQP7
+         j3f/s4K/U4oPIAYBRMxtxUn1I6A1hPyeOcZ3EiZbASoL5Fnvcgx+GZAeInSuXufwT/HY
+         NTwyFC5bqrKAsRELPJG7F1ZQkmDRrI0FlzETxfFXhsBcIJl4shJH7OYa2k90lG1ygtQm
+         1TwFHafpgtxcoIn3zWJidSWB9te0INXHOTNvdoQIU76bRSJ1epj6gUeLaWuoBZXDF3np
+         7ahcyor9/k4f8xx80PTCocCVfTh1a626wE4j6rDnO/LYGNNwYFwTJuoDQU/L+4/91Hf6
+         p6aQ==
+X-Gm-Message-State: ACrzQf26GhEGisayuw1XptB/rha9Rf1I7iALMcj1GjiSK4zF2OE3TFnk
+	1iZaP1FYEJDEvqpQnImntXOxKu7GFEceNA==
+X-Google-Smtp-Source: AMsMyM6a6mTHeV1dgAHhuIh/H9nRZewXJ9u2phWd4+uLzHUrR+GBazXmbUAAMAT5WXjiTDy24zU64Q==
+X-Received: by 2002:a05:6a02:186:b0:431:25fb:f1fe with SMTP id bj6-20020a056a02018600b0043125fbf1femr26761823pgb.130.1663789611322;
+        Wed, 21 Sep 2022 12:46:51 -0700 (PDT)
 Received: from stillson.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id o2-20020aa79782000000b0054aa69bc192sm2551057pfp.72.2022.09.21.12.46.41
+        by smtp.gmail.com with ESMTPSA id o2-20020aa79782000000b0054aa69bc192sm2551057pfp.72.2022.09.21.12.46.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Sep 2022 12:46:41 -0700 (PDT)
+        Wed, 21 Sep 2022 12:46:50 -0700 (PDT)
 From: Chris Stillson <stillson@rivosinc.com>
 To: linux-riscv@lists.infradead.org,
 	jpalmer@dabbelt.com,
 	kvm-riscv@lists.infradead.org
-Cc: Chris Stillson <stillson@rivosinc.com>
-Subject: [PATCH 00/17] Prctl to enable vector commands, previous vector patches rebased
-Date: Wed, 21 Sep 2022 12:46:12 -0700
-Message-Id: <20220921194629.1480202-1-stillson@rivosinc.com>
+Cc: Greentime Hu <greentime.hu@sifive.com>,
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH 07/17] riscv: Add vector struct and assembler definitions
+Date: Wed, 21 Sep 2022 12:46:19 -0700
+Message-Id: <20220921194629.1480202-8-stillson@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220921194629.1480202-1-stillson@rivosinc.com>
+References: <20220921194629.1480202-1-stillson@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_124649_484368_9B89E7EF 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20220921_124654_561978_74C5877A 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +91,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds a prctl to enable, disable, or query whether vectors are enabled or not.  This is to allow a process to "opt out" of the overhead incurred by using vectors. Because this is build on top of an existing set of patches to work with vectors, they have been rebased to Linux 6.0-rc1.  
+From: Greentime Hu <greentime.hu@sifive.com>
 
+Add vector state context struct in struct thread and asm-offsets.c
+definitions.
 
-Chris Stillson (1):
-  riscv: prctl to enable vector commands
+The vector registers will be saved in datap pointer of __riscv_v_state. It
+will be dynamically allocated in kernel space. It will be put right after
+the __riscv_v_state data structure in user space.
 
-Greentime Hu (9):
-  riscv: Add new csr defines related to vector extension
-  riscv: Add has_vector/riscv_vsize to save vector features.
-  riscv: Add vector struct and assembler definitions
-  riscv: Add task switch support for vector
-  riscv: Add ptrace vector support
-  riscv: Add sigcontext save/restore for vector
-  riscv: Add support for kernel mode vector
-  riscv: Add vector extension XOR implementation
-  riscv: Fix a kernel panic issue if $s2 is set to a specific value
-    before entering Linux
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+---
+ arch/riscv/include/asm/processor.h   |  1 +
+ arch/riscv/include/uapi/asm/ptrace.h | 17 +++++++++++++++++
+ arch/riscv/kernel/asm-offsets.c      |  6 ++++++
+ 3 files changed, 24 insertions(+)
 
-Guo Ren (4):
-  riscv: Rename __switch_to_aux -> fpu
-  riscv: Extending cpufeature.c to detect V-extension
-  riscv: Add vector feature to compile
-  riscv: Reset vector register
-
-Vincent Chen (3):
-  riscv: signal: Report signal frame size to userspace via auxv
-  riscv: Add V extension to KVM ISA allow list
-  riscv: KVM: Add vector lazy save/restore support
-
- arch/riscv/Kconfig                       |  15 +-
- arch/riscv/Makefile                      |   1 +
- arch/riscv/configs/defconfig             |   6 +
- arch/riscv/include/asm/csr.h             |  16 ++-
- arch/riscv/include/asm/elf.h             |  47 +++---
- arch/riscv/include/asm/hwcap.h           |   1 +
- arch/riscv/include/asm/kvm_host.h        |   2 +
- arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
- arch/riscv/include/asm/processor.h       |   9 ++
- arch/riscv/include/asm/switch_to.h       |  83 ++++++++++-
- arch/riscv/include/asm/vector.h          |  17 +++
- arch/riscv/include/asm/xor.h             |  82 +++++++++++
- arch/riscv/include/uapi/asm/auxvec.h     |   1 +
- arch/riscv/include/uapi/asm/hwcap.h      |   1 +
- arch/riscv/include/uapi/asm/kvm.h        |   7 +
- arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
- arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
- arch/riscv/kernel/Makefile               |   2 +
- arch/riscv/kernel/asm-offsets.c          |  15 ++
- arch/riscv/kernel/cpufeature.c           |  21 +++
- arch/riscv/kernel/entry.S                |   6 +-
- arch/riscv/kernel/head.S                 |  37 ++++-
- arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
- arch/riscv/kernel/process.c              |  61 ++++++++
- arch/riscv/kernel/ptrace.c               |  71 ++++++++++
- arch/riscv/kernel/riscv_ksyms.c          |   6 +
- arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
- arch/riscv/kernel/vector.S               | 102 +++++++++++++
- arch/riscv/kvm/Makefile                  |   1 +
- arch/riscv/kvm/vcpu.c                    |  32 +++++
- arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
- arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
- arch/riscv/lib/Makefile                  |   1 +
- arch/riscv/lib/xor.S                     |  81 +++++++++++
- include/uapi/linux/elf.h                 |   1 +
- include/uapi/linux/prctl.h               |   6 +
- kernel/sys.c                             |   7 +
- 37 files changed, 1355 insertions(+), 42 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
- create mode 100644 arch/riscv/include/asm/vector.h
- create mode 100644 arch/riscv/include/asm/xor.h
- create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
- create mode 100644 arch/riscv/kernel/vector.S
- create mode 100644 arch/riscv/kvm/vcpu_vector.c
- create mode 100644 arch/riscv/lib/xor.S
-
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 19eedd4af4cd..95917a2b24f9 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -39,6 +39,7 @@ struct thread_struct {
+ 	unsigned long s[12];	/* s[0]: frame pointer */
+ 	struct __riscv_d_ext_state fstate;
+ 	unsigned long bad_cause;
++	struct __riscv_v_state vstate;
+ };
+ 
+ /* Whitelist the fstate from the task_struct for hardened usercopy */
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index 882547f6bd5c..6ee1ca2edfa7 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -77,6 +77,23 @@ union __riscv_fp_state {
+ 	struct __riscv_q_ext_state q;
+ };
+ 
++struct __riscv_v_state {
++	unsigned long vstart;
++	unsigned long vl;
++	unsigned long vtype;
++	unsigned long vcsr;
++	void *datap;
++	/*
++	 * In signal handler, datap will be set a correct user stack offset
++	 * and vector registers will be copied to the address of datap
++	 * pointer.
++	 *
++	 * In ptrace syscall, datap will be set to zero and the vector
++	 * registers will be copied to the address right after this
++	 * structure.
++	 */
++};
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _UAPI_ASM_RISCV_PTRACE_H */
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index df9444397908..37e3e6a8d877 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -75,6 +75,12 @@ void asm_offsets(void)
+ 	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
+ #endif
+ 
++	OFFSET(RISCV_V_STATE_VSTART, __riscv_v_state, vstart);
++	OFFSET(RISCV_V_STATE_VL, __riscv_v_state, vl);
++	OFFSET(RISCV_V_STATE_VTYPE, __riscv_v_state, vtype);
++	OFFSET(RISCV_V_STATE_VCSR, __riscv_v_state, vcsr);
++	OFFSET(RISCV_V_STATE_DATAP, __riscv_v_state, datap);
++
+ 	DEFINE(PT_SIZE, sizeof(struct pt_regs));
+ 	OFFSET(PT_EPC, pt_regs, epc);
+ 	OFFSET(PT_RA, pt_regs, ra);
 -- 
 2.25.1
 
