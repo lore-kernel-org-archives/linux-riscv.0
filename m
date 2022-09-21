@@ -4,44 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDDCC6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 17:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDB9C6FA82
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 18:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SslNfpES97Tp4YGx+6cCsHfKKSDg50Od4DnRqOKwUSQ=; b=VRMBrPMhDe9rF6
-	pBxmHjuQFoc9I1zDGqLachy6Ez7lmHUbjOnrYbfDqScDTIBTxJPXUCeAsbbXuKhkD1S78N/vmhCbc
-	hzc1GZwdE1KN7VI4CXclMrZYCD1LC8Ej4AoK88o8tiwkUD2QV8mEYvuXYobxU6xQIsyhs79rVUJLr
-	O/AtVSe7sBpHc94Djbf/2GvDPU1XaRaGFy1R8rn2qH2+3icC4xG66vIonSi6yztn/El9H+tbYGNGw
-	2PNQ3P0it7/c2h5+lOSKJTMK77VZ7bNkypR7chb1675du+oVHfdspb1YHaRcAJO+GSNngCWTSZlcz
-	wcyhBnzoHW8FEvdRaqnA==;
+	List-Owner; bh=xI0ohMya7WRAyeuIrtMKYGBWyTyBeZzg2DOT9eybgMQ=; b=UtnVGL1E1to0hZ
+	6miILYCFejeLKnIMXercXupNvHooHyUalA03hPeyPJ93yQZ9ar/ZBE2gurxCbL3F9tp39MKmezmIo
+	iQ+IKiSdnkOlssJspfpCDdXIjDa1CmXq++ktaLA7Eetb8i8IrnD/jguQv4CNHJfeAAlVKJW+9uXCz
+	PINLzMeejpGKEIIGBvJ6TqdjMCMKckZMKsZ2t+nYR7PuUak1fNp3DM7fcJExX89oE8LkIAFnsQkPE
+	NIHalNfD6u0tfeIz7su71iL4oWNl6J5O+wB3lDuE43/lZUMGqZn3Hdswi8G4WO8aQpZL7fJ5UG2L3
+	dr8bztRXATbiY+PDKLeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob3wo-00CFYI-LR; Wed, 21 Sep 2022 17:55:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ob4TU-00CKkV-3w; Wed, 21 Sep 2022 18:29:32 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ob3wl-00CFXI-Uk
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 17:55:45 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ob3wk-00006P-6w; Wed, 21 Sep 2022 19:55:42 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Chris Stillson <stillson@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, atishp@rivosinc.com, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH 00/17] Prctl to enable vector commands, previous vector patches rebased
-Date: Wed, 21 Sep 2022 19:55:41 +0200
-Message-ID: <8995651.CDJkKcVGEf@diego>
-In-Reply-To: <YytGbx1RW2mZAzQ9@spud>
-References: <CAM2SziVKzk1zpEZJ4h1+pG90=V7d-bYLySxh2-ZCAHOzNy54yQ@mail.gmail.com> <YytGbx1RW2mZAzQ9@spud>
-MIME-Version: 1.0
+	id 1ob4TQ-00CKjC-3u
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 18:29:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 783A7B8327D;
+	Wed, 21 Sep 2022 18:29:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099F3C433C1;
+	Wed, 21 Sep 2022 18:29:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663784965;
+	bh=DVw0JgPB3RrhBg/5J0QQ/EgkG35ZtIOlPR8GiuMhB88=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fEv4CNPrP9corZmb583bB/1nnlnHybLEbw5JZB6T2zRe98Ez/lN4erK6N3FtRkrb0
+	 pG0aLZAudmzdJ0Ze7S4vWk3x0MQ9NxaPr/7x4axit0cBgwL6mM5Sw2HFmL+eMxQkNz
+	 /IUC4ejPan1rI1ZRjrUdPMMqDHbyRRYTPiHwBHgWwgObD7+T5Sttusj/fGrvcXxYpv
+	 MNu6FwjCbZZ/rsXdNFk4DsQn/EMWahFMQGwTCqBZJATxQJFS/5UaDjwqI/NRZxu1aT
+	 NT0nHZaJDeiQjKq4wW64E7eJfJ1+NhjROKtik5VUWg+RgxwUkStRk6oVteUulEk9rq
+	 ndIkPrKLEwdOA==
+Received: from 185-176-101-241.host.sccbroadband.ie ([185.176.101.241] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ob4TK-00Bjqi-L8;
+	Wed, 21 Sep 2022 19:29:22 +0100
+Date: Wed, 21 Sep 2022 19:29:21 +0100
+Message-ID: <87k05wk2da.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 3/7] genirq: Add mechanism to multiplex a single HW IPI
+In-Reply-To: <20220903161309.32848-4-apatel@ventanamicro.com>
+References: <20220903161309.32848-1-apatel@ventanamicro.com>
+	<20220903161309.32848-4-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.176.101.241
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_105544_020870_E5772759 
-X-CRM114-Status: GOOD (  36.76  )
+X-CRM114-CacheID: sfid-20220921_112928_517508_2DC93EE9 
+X-CRM114-Status: GOOD (  50.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,144 +92,391 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 21. September 2022, 19:14:23 CEST schrieb Conor Dooley:
-> On Wed, Sep 21, 2022 at 09:44:43AM -0700, Chris Stillson wrote:
-> > This patch adds a prctl to enable, disable, or query whether vectors
-> > are enabled or not.
-> > This is to allow a process to "opt out" of the overhead incurred by
-> > using vectors. Because this
-> > is build on top of an existing set of patches to work with vectors,
-> > they have been rebased to
-> > Linux 6.0-rc1.
+On Sat, 03 Sep 2022 17:13:05 +0100,
+Anup Patel <apatel@ventanamicro.com> wrote:
 > 
-> Hey Chris,
-> Any other review aside - it looks like this patchset has been oddly
-> sent. Did you by any chance copy paste the patches into gmail?
+> All RISC-V platforms have a single HW IPI provided by the INTC local
+> interrupt controller. The HW method to trigger INTC IPI can be through
+> external irqchip (e.g. RISC-V AIA), through platform specific device
+> (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
 > 
-> May you should speak with Atish or Palmer about how to set up your
-> environment to use git send-email. "Our" tools expect that a series of
-> patches is threaded so that tools like `b4` can pull the lot down
-> from lore.kernel.org etc. git send-email will do that for you for free.
-
-
-And it's not even limited to automated tools, also there's ease-of-use in
-mail clients, as they often can do threaded views, so even with later
-replies the whole thing stays together.
-
-
-Heiko
-
-
-
-> Secondly, it looks like in many of the patches you are not the author,
-> so you there's a "From: blah blan <blah@blah.com>" missing from them
-> which happens when you copy a patch but again send-email will sort out
-> for you.
+> To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
+> mechanism which help us create multiple virtual IPIs using a single
+> HW IPI. This generic IPI multiplexing is shared among various RISC-V
+> irqchip drivers.
 > 
-> The signed-off-by chains on a lot of mails look wrong too, mostly they
-> are missing your SoB since you are the sender.
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  include/linux/irq.h  |  18 ++++
+>  kernel/irq/Kconfig   |   5 +
+>  kernel/irq/Makefile  |   1 +
+>  kernel/irq/ipi-mux.c | 244 +++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 268 insertions(+)
+>  create mode 100644 kernel/irq/ipi-mux.c
 > 
-> Finally, please run get_maintainer.pl - there are KVM patches in here
-> and you have not CCed the KVM maintainers (nor have you CCed the people
-> who wrote the patches in the first place).
-> 
-> Reading the "submitting patches" document might be helpful to you:
-> https://docs.kernel.org/process/submitting-patches.html
-> 
-> Thanks,
-> Conor.
-> 
-> > 
-> > 
-> > Chris Stillson (1):
-> >   riscv: prctl to enable vector commands
-> > 
-> > Greentime Hu (9):
-> >   riscv: Add new csr defines related to vector extension
-> >   riscv: Add has_vector/riscv_vsize to save vector features.
-> >   riscv: Add vector struct and assembler definitions
-> >   riscv: Add task switch support for vector
-> >   riscv: Add ptrace vector support
-> >   riscv: Add sigcontext save/restore for vector
-> >   riscv: Add support for kernel mode vector
-> >   riscv: Add vector extension XOR implementation
-> >   riscv: Fix a kernel panic issue if $s2 is set to a specific value
-> >     before entering Linux
-> > 
-> > Guo Ren (4):
-> >   riscv: Rename __switch_to_aux -> fpu
-> >   riscv: Extending cpufeature.c to detect V-extension
-> >   riscv: Add vector feature to compile
-> >   riscv: Reset vector register
-> > 
-> > Vincent Chen (3):
-> >   riscv: signal: Report signal frame size to userspace via auxv
-> >   riscv: Add V extension to KVM ISA allow list
-> >   riscv: KVM: Add vector lazy save/restore support
-> > 
-> >  arch/riscv/Kconfig                       |  15 +-
-> >  arch/riscv/Makefile                      |   1 +
-> >  arch/riscv/configs/defconfig             |   6 +
-> >  arch/riscv/include/asm/csr.h             |  16 ++-
-> >  arch/riscv/include/asm/elf.h             |  47 +++---
-> >  arch/riscv/include/asm/hwcap.h           |   1 +
-> >  arch/riscv/include/asm/kvm_host.h        |   2 +
-> >  arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
-> >  arch/riscv/include/asm/processor.h       |   9 ++
-> >  arch/riscv/include/asm/switch_to.h       |  83 ++++++++++-
-> >  arch/riscv/include/asm/vector.h          |  17 +++
-> >  arch/riscv/include/asm/xor.h             |  82 +++++++++++
-> >  arch/riscv/include/uapi/asm/auxvec.h     |   1 +
-> >  arch/riscv/include/uapi/asm/hwcap.h      |   1 +
-> >  arch/riscv/include/uapi/asm/kvm.h        |   7 +
-> >  arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
-> >  arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
-> >  arch/riscv/kernel/Makefile               |   2 +
-> >  arch/riscv/kernel/asm-offsets.c          |  15 ++
-> >  arch/riscv/kernel/cpufeature.c           |  21 +++
-> >  arch/riscv/kernel/entry.S                |   6 +-
-> >  arch/riscv/kernel/head.S                 |  37 ++++-
-> >  arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
-> >  arch/riscv/kernel/process.c              |  61 ++++++++
-> >  arch/riscv/kernel/ptrace.c               |  71 ++++++++++
-> >  arch/riscv/kernel/riscv_ksyms.c          |   6 +
-> >  arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
-> >  arch/riscv/kernel/vector.S               | 102 +++++++++++++
-> >  arch/riscv/kvm/Makefile                  |   1 +
-> >  arch/riscv/kvm/vcpu.c                    |  32 +++++
-> >  arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
-> >  arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
-> >  arch/riscv/lib/Makefile                  |   1 +
-> >  arch/riscv/lib/xor.S                     |  81 +++++++++++
-> >  include/uapi/linux/elf.h                 |   1 +
-> >  include/uapi/linux/prctl.h               |   6 +
-> >  kernel/sys.c                             |   7 +
-> >  37 files changed, 1355 insertions(+), 42 deletions(-)
-> >  create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
-> >  create mode 100644 arch/riscv/include/asm/vector.h
-> >  create mode 100644 arch/riscv/include/asm/xor.h
-> >  create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
-> >  create mode 100644 arch/riscv/kernel/vector.S
-> >  create mode 100644 arch/riscv/kvm/vcpu_vector.c
-> >  create mode 100644 arch/riscv/lib/xor.S
-> > 
-> > --
-> > 2.25.1
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> index c3eb89606c2b..5ab702cb0a5b 100644
+> --- a/include/linux/irq.h
+> +++ b/include/linux/irq.h
+> @@ -1266,6 +1266,24 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
+>  int ipi_send_single(unsigned int virq, unsigned int cpu);
+>  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+>  
+> +/**
+> + * struct ipi_mux_ops - IPI multiplex operations
+> + *
+> + * @ipi_mux_pre_handle:	Optional function called before handling parent IPI
+> + * @ipi_mux_post_handle:Optional function called after handling parent IPI
+> + * @ipi_mux_send:	Trigger parent IPI on target CPUs
+> + */
+> +struct ipi_mux_ops {
+> +	void (*ipi_mux_pre_handle)(unsigned int parent_virq, void *data);
+> +	void (*ipi_mux_post_handle)(unsigned int parent_virq, void *data);
+> +	void (*ipi_mux_send)(unsigned int parent_virq, void *data,
+> +			     const struct cpumask *mask);
+> +};
 
+What is the rational for these pre/post handling functions? We don't
+have them for normal interrupts, why are they required for IPIs?
 
+> +
+> +void ipi_mux_process(void);
+> +int ipi_mux_create(unsigned int parent_virq, unsigned int nr_ipi,
+> +		   const struct ipi_mux_ops *ops, void *data);
+> +
+>  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
+>  /*
+>   * Registers a generic IRQ handling function as the top-level IRQ handler in
+> diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+> index db3d174c53d4..df17dbc54b02 100644
+> --- a/kernel/irq/Kconfig
+> +++ b/kernel/irq/Kconfig
+> @@ -86,6 +86,11 @@ config GENERIC_IRQ_IPI
+>  	depends on SMP
+>  	select IRQ_DOMAIN_HIERARCHY
+>  
+> +# Generic IRQ IPI Mux support
+> +config GENERIC_IRQ_IPI_MUX
+> +	bool
+> +	depends on SMP
+> +
+>  # Generic MSI interrupt support
+>  config GENERIC_MSI_IRQ
+>  	bool
+> diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+> index b4f53717d143..f19d3080bf11 100644
+> --- a/kernel/irq/Makefile
+> +++ b/kernel/irq/Makefile
+> @@ -15,6 +15,7 @@ obj-$(CONFIG_GENERIC_IRQ_MIGRATION) += cpuhotplug.o
+>  obj-$(CONFIG_PM_SLEEP) += pm.o
+>  obj-$(CONFIG_GENERIC_MSI_IRQ) += msi.o
+>  obj-$(CONFIG_GENERIC_IRQ_IPI) += ipi.o
+> +obj-$(CONFIG_GENERIC_IRQ_IPI_MUX) += ipi-mux.o
+>  obj-$(CONFIG_SMP) += affinity.o
+>  obj-$(CONFIG_GENERIC_IRQ_DEBUGFS) += debugfs.o
+>  obj-$(CONFIG_GENERIC_IRQ_MATRIX_ALLOCATOR) += matrix.o
+> diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
+> new file mode 100644
+> index 000000000000..8939fa2be73c
+> --- /dev/null
+> +++ b/kernel/irq/ipi-mux.c
+> @@ -0,0 +1,244 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Multiplex several virtual IPIs over a single HW IPI.
+> + *
+> + * Copyright (c) 2022 Ventana Micro Systems Inc.
 
+Basic courtesy would be to at least mention where this was lifted
+from, as well as the original copyrights. Also, the original code
+states "GPL-2.0-or-later". Since this is a derivative work, the same
+licence should apply, shouldn't it?
 
+> + */
+> +
+> +#define pr_fmt(fmt) "ipi-mux: " fmt
+> +#include <linux/cpu.h>
+> +#include <linux/init.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqchip.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/smp.h>
+> +
+> +static void *ipi_mux_data;
+> +static unsigned int ipi_mux_nr;
+> +static unsigned int ipi_mux_parent_virq;
+> +static struct irq_domain *ipi_mux_domain;
+> +static const struct ipi_mux_ops *ipi_mux_ops;
+> +static DEFINE_PER_CPU(atomic_t, ipi_mux_enable);
+> +static DEFINE_PER_CPU(atomic_t, ipi_mux_bits);
+
+How about making these fields part of a structure, and only allocate
+them on creation of an IPI irqdomain? Most platforms do not require
+this at all.
+
+> +
+> +static void ipi_mux_mask(struct irq_data *d)
+> +{
+> +	atomic_andnot(BIT(irqd_to_hwirq(d)), this_cpu_ptr(&ipi_mux_enable));
+> +}
+> +
+> +static void ipi_mux_unmask(struct irq_data *d)
+> +{
+> +	u32 ipi_bit = BIT(irqd_to_hwirq(d));
+> +
+> +	atomic_or(ipi_bit, this_cpu_ptr(&ipi_mux_enable));
+> +
+> +	/*
+> +	 * The atomic_or() above must complete before the atomic_read()
+> +	 * below to avoid racing ipi_mux_send_mask().
+> +	 */
+> +	smp_mb__after_atomic();
+> +
+> +	/* If a pending IPI was unmasked, raise a parent IPI immediately. */
+> +	if (atomic_read(this_cpu_ptr(&ipi_mux_bits)) & ipi_bit)
+> +		ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, ipi_mux_data,
+> +					  cpumask_of(smp_processor_id()));
+> +}
+> +
+> +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+> +{
+> +	u32 ipi_bit = BIT(irqd_to_hwirq(d));
+> +	struct cpumask pmask = { 0 };
+
+Urgh, no (see the comment in cpumask.h). struct cpumask can be really
+huge (it uses NR_CPUS), and we only want to depend on nr_cpus. Use a
+per-CPU temp if you must, but don't allocate something like this on
+the stack.
+
+> +	unsigned long pending;
+> +	int cpu;
+> +
+> +	for_each_cpu(cpu, mask) {
+> +		pending = atomic_fetch_or_release(ipi_bit,
+> +					per_cpu_ptr(&ipi_mux_bits, cpu));
+> +
+> +		/*
+> +		 * The atomic_fetch_or_release() above must complete before
+> +		 * the atomic_read() below to avoid racing ipi_mux_unmask().
+> +		 */
+> +		smp_mb__after_atomic();
+> +
+> +		if (!(pending & ipi_bit) &&
+> +		    (atomic_read(per_cpu_ptr(&ipi_mux_enable, cpu)) & ipi_bit))
+> +			cpumask_set_cpu(cpu, &pmask);
+> +	}
+> +
+> +	/* Trigger the parent IPI */
+> +	ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, ipi_mux_data, &pmask);
+> +}
+> +
+> +static const struct irq_chip ipi_mux_chip = {
+> +	.name		= "IPI Mux",
+> +	.irq_mask	= ipi_mux_mask,
+> +	.irq_unmask	= ipi_mux_unmask,
+> +	.ipi_send_mask	= ipi_mux_send_mask,
+> +};
+> +
+> +static int ipi_mux_domain_alloc(struct irq_domain *d, unsigned int virq,
+> +				unsigned int nr_irqs, void *arg)
+> +{
+> +	struct irq_fwspec *fwspec = arg;
+> +	irq_hw_number_t hwirq;
+> +	unsigned int type;
+> +	int i, ret;
+> +
+> +	ret = irq_domain_translate_onecell(d, fwspec, &hwirq, &type);
+
+Where is the format of this fwspec documented?
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	for (i = 0; i < nr_irqs; i++) {
+> +		irq_set_percpu_devid(virq + i);
+> +		irq_domain_set_info(d, virq + i, hwirq + i,
+> +				    &ipi_mux_chip, d->host_data,
+> +				    handle_percpu_devid_irq, NULL, NULL);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops ipi_mux_domain_ops = {
+> +	.alloc		= ipi_mux_domain_alloc,
+> +	.free		= irq_domain_free_irqs_top,
+> +};
+> +
+> +/**
+> + * ipi_mux_process - Process multiplexed virtual IPIs
+> + */
+> +void ipi_mux_process(void)
+> +{
+> +	irq_hw_number_t hwirq;
+> +	unsigned long ipis;
+> +	int en, err;
+> +
+> +	if (ipi_mux_ops->ipi_mux_pre_handle)
+
+Given that this shouldn't change in the lifetime of the system, this
+needs to be turned into a static key in order to avoid the overhead of
+accessing this on each and every IPI.
+
+> +		ipi_mux_ops->ipi_mux_pre_handle(ipi_mux_parent_virq,
+> +						ipi_mux_data);
+> +
+> +	/*
+> +	 * Reading enable mask does not need to be ordered as long as
+> +	 * this function called from interrupt handler because only
+> +	 * the CPU itself can change it's own enable mask.
+> +	 */
+> +	en = atomic_read(this_cpu_ptr(&ipi_mux_enable));
+> +
+> +	/*
+> +	 * Clear the IPIs we are about to handle. This pairs with the
+> +	 * atomic_fetch_or_release() in ipi_mux_send_mask().
+> +	 */
+> +	ipis = atomic_fetch_andnot(en, this_cpu_ptr(&ipi_mux_bits)) & en;
+> +
+> +	for_each_set_bit(hwirq, &ipis, ipi_mux_nr) {
+> +		err = generic_handle_domain_irq(ipi_mux_domain,
+> +						hwirq);
+> +		if (unlikely(err))
+> +			pr_warn_ratelimited(
+> +				"can't find mapping for hwirq %lu\n",
+> +				hwirq);
+
+How can this happen?
+
+> +	}
+> +
+> +	if (ipi_mux_ops->ipi_mux_post_handle)
+
+Same thing as above.
+
+> +		ipi_mux_ops->ipi_mux_post_handle(ipi_mux_parent_virq,
+> +						 ipi_mux_data);
+> +}
+> +
+> +static void ipi_mux_handler(struct irq_desc *desc)
+> +{
+> +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> +
+> +	chained_irq_enter(chip, desc);
+> +	ipi_mux_process();
+> +	chained_irq_exit(chip, desc);
+> +}
+> +
+> +static int ipi_mux_dying_cpu(unsigned int cpu)
+> +{
+> +	disable_percpu_irq(ipi_mux_parent_virq);
+> +	return 0;
+> +}
+> +
+> +static int ipi_mux_starting_cpu(unsigned int cpu)
+> +{
+> +	enable_percpu_irq(ipi_mux_parent_virq,
+> +			  irq_get_trigger_type(ipi_mux_parent_virq));
+> +	return 0;
+> +}
+> +
+> +/**
+> + * ipi_mux_create - Create virtual IPIs multiplexed on top of a single
+> + * parent IPI.
+> + * @parent_virq:	virq of the parent per-CPU IRQ
+> + * @nr_ipi:		number of virtual IPIs to create. This should
+> + *			be <= BITS_PER_TYPE(int)
+
+In general, please use 'long' rather than 'int', like for most other
+things in the kernel.
+
+> + * @ops:		multiplexing operations for the parent IPI
+> + * @data:		opaque data used by the multiplexing operations
+> + *
+> + * If the parent IPI > 0 then ipi_mux_process() will be automatically
+> + * called via chained handler.
+> + *
+> + * If the parent IPI <= 0 then it is responsibility of irqchip drivers
+> + * to explicitly call ipi_mux_process() for processing muxed IPIs.
+> + *
+> + * Returns first virq of the newly created virtual IPIs upon success
+> + * or <=0 upon failure
+> + */
+> +int ipi_mux_create(unsigned int parent_virq, unsigned int nr_ipi,
+> +		   const struct ipi_mux_ops *ops, void *data)
+> +{
+> +	struct fwnode_handle *fwnode;
+> +	struct irq_domain *domain;
+> +	struct irq_fwspec ipi;
+> +	int virq;
+> +
+> +	if (ipi_mux_domain || BITS_PER_TYPE(int) < nr_ipi ||
+> +	    !ops || !ops->ipi_mux_send)
+> +		return -EINVAL;
+> +
+> +	if (parent_virq &&
+> +	    !irqd_is_per_cpu(irq_desc_get_irq_data(irq_to_desc(parent_virq))))
+> +		return -EINVAL;
+> +
+> +	fwnode = irq_domain_alloc_named_fwnode("IPI-Mux");
+> +	if (!fwnode) {
+> +		pr_err("unable to create IPI Mux fwnode\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	domain = irq_domain_create_simple(fwnode, nr_ipi, 0,
+> +					  &ipi_mux_domain_ops, NULL);
+> +	if (!domain) {
+> +		pr_err("unable to add IPI Mux domain\n");
+> +		irq_domain_free_fwnode(fwnode);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	ipi.fwnode = domain->fwnode;
+> +	ipi.param_count = 1;
+> +	ipi.param[0] = 0;
+
+This really deserves some documentation if this is to be used at scale
+(and not be a riscv-special).
+
+> +	virq = __irq_domain_alloc_irqs(domain, -1, nr_ipi,
+> +				       NUMA_NO_NODE, &ipi, false, NULL);
+> +	if (virq <= 0) {
+> +		pr_err("unable to alloc IRQs from IPI Mux domain\n");
+> +		irq_domain_remove(domain);
+> +		irq_domain_free_fwnode(fwnode);
+> +		return virq;
+> +	}
+> +
+> +	ipi_mux_domain = domain;
+> +	ipi_mux_data = data;
+> +	ipi_mux_nr = nr_ipi;
+> +	ipi_mux_parent_virq = parent_virq;
+> +	ipi_mux_ops = ops;
+> +
+> +	if (parent_virq > 0) {
+> +		irq_set_chained_handler(parent_virq, ipi_mux_handler);
+> +		cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> +				  "irqchip/ipi-mux:starting",
+> +				  ipi_mux_starting_cpu, ipi_mux_dying_cpu);
+> +	}
+
+This whole CPUHP thing feels like something that should stay outside
+of the generic code. I'm pretty sure some architectures would have
+specific requirements and wouldn't be able to just use any odd dynamic
+value...
+
+> +
+> +	return virq;
+> +}
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
