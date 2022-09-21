@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8E1C54EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 02:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66A0C6FA82
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 02:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p3nLYRN9pNfo2sjKlUBP6VL8patmrC9PFGJjdf3+4Mc=; b=s7VY7M+Eprh2Xm
-	hn2eB80kWF5TAaWsVg5SW1j+El5fwS10pQ8NsB+OnnliE7JfCFNW+1s1+sawSdUjuLp0MeosWwqQI
-	ikIJF01cG4cseO7M6n9DrrF06ohiWz2xI5n0QbN7xiTtpgXLCONyHAGkek3HF4xXHHjKCzTWsb1/W
-	ukNSI24jjvKjUvtUxsnjc1xH4JnAeLVsA8rWtaRlXAQa20JQj0z730bvemd4n98G/5FctcoxZ4vgR
-	t3+l3MCm6xW3c8YH3WETWPWl8AwzUhpu2PpeMgETC4QW+dDO6Fe1j1sElhqueajhkEOWMkrRid3Uf
-	9zatmIkf6jXLifmVVoAQ==;
+	List-Owner; bh=kYdwF2IrQsy3txsyBd2+0SU9meWpqXwdFpX05qSYaw8=; b=NwACTh+ZlOyZOM
+	hm2orTyb9+EPUmyadzI2m6lAWHZCHheekRQej/vsfkl7CkJHjq6mfJMlo8KqiKz5D7xDy6YK7eWDW
+	ZL2W/PpLe/jN6zohTRljZggDkUbmEm8Invbxx7QsPhfvhG2Y/C2qWOgLr/cFi0RCZUCVcZ+qZBvti
+	D1bqZFk5qY8vk238QRu9pFZY+aZlQDk/ozIBFD6b+9t7eJennn7HFnDMLsBmX+FmnlhHPctK+rJyp
+	pMn6Rosthljf0HSaWMq2Q+qutGPwKyTuuX0Ydwi9xGEYUnRM9SzZdHW5vW1mmf/m8zF2Zld3i5Hi/
+	vMX2DgoXdeocDwZK4pIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oapFi-008DDL-Ii; Wed, 21 Sep 2022 02:14:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oapHl-008Dvd-6R; Wed, 21 Sep 2022 02:16:25 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oapFe-008D8V-Pr
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 02:14:16 +0000
+	id 1oapHi-008Dtj-6w
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 02:16:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7AAD762EDA
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E37BCC433D6
-	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:14:12 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 818A8B81EF6
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:16:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A407C433D6
+	for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 02:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663726452;
-	bh=qI7h/5oDIg8KfeFQUixqYzNKwl6VFPqXAJjhtSbuMi4=;
+	s=k20201202; t=1663726579;
+	bh=EYEPB7TctVK1MJOFaPpqMASLveB5MBcqgaEPceOISKA=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RCWADFT0FYCuKHjJOaL1bTscBnD+CJHvzrIflu0vrtjEq+XDtYR6luTG0RrfCVKXT
-	 zqeADrU7M0ulVNWynrS3swEBDzod6A3vsWB4CrJfg0Yox8J4b1C3NutSRePRbwANnN
-	 g3/V50iOphmleNsFLtDPf1Wnz0+4If40uRG6f/wzF82kKJukOAt68ALyK+hGChw3rF
-	 56lNNI5bO4Q2sLr/kEiK6544PdAuv/w8HqNCWTBJrxAPzBsNJiSSix3RnsOMvnMtIc
-	 EANrNFVKE2XpYalKJhOjDHJ/zOoi31UhRRLYG3rJwcByuo1lQPx2LEipklt0eOk1QH
-	 2nwhGmzlhyoOQ==
-Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-12b542cb1d3so7010511fac.13
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 19:14:12 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2Xhe4cw+iANQ7eO7JJpHsjp0bcs3iYhs9Y6kD17jYPHKOr4fyO
-	EuGX/CPQY0aSE9cYfY8RaHCO1Lyzx1Cl8PuDhQs=
-X-Google-Smtp-Source: AMsMyM6IwqZwyLI7janQ1zDjXRLjdc4ym5Cy+EMmk9dbqWgfBFb8S6xJgFzOVD03EiTmLaz3UFMA/qSfiCqmy97Kl/E=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr3833650oao.112.1663726451988; Tue, 20
- Sep 2022 19:14:11 -0700 (PDT)
+	b=UPgdWs2V0JbFash3XhbsDpjDpCf8Z+AoAs0PuEfcKm6Juh03KDEYySri2S/PGE9eU
+	 iZ7/w1RTQ/1sAgOTAD19Mv2MQ23tMeFKOdWszAQQGSOREm6LveUJVoHlNIj2gVG/z4
+	 3+RxB6r2eRXQybzONRJgSKkmP40YrmP59SWsVVw7ARVSwBFyle2IF7G0gy/hXHlRfZ
+	 AUbzomiQ7JIfN3wxg+QafHkLFamqq934ed94FkLBt3CrQ6it6jIEOmMXS74PLDoYYE
+	 Ujjjvs715MFDrdBFW1GCP87ZZqF3/fzL1EUFOHuZTqjRQ+wzudViDEfh+odjCkqCqP
+	 maDnu3bPmhgTA==
+Received: by mail-oi1-f180.google.com with SMTP id r125so6252150oia.8
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 19:16:19 -0700 (PDT)
+X-Gm-Message-State: ACrzQf0SLKH9z1K8EqR8W9VsrqgbACmKHmJ2EnyeD+DfTVJ2QTvclz6w
+	q5HlAfbiMpQq4GYRnxLStok+XjFjhWUbK3UfZ0s=
+X-Google-Smtp-Source: AMsMyM79uqv3q186U8l25rFsKp6OWiPSshPlAPeAcre5Lg5KA8hmj9fN2O7iIcIDbbomULyKQ8h1AaVqvre1A4I9U2c=
+X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
+ u31-20020a056808151f00b003501b5e2380mr2991346oiw.112.1663726578207; Tue, 20
+ Sep 2022 19:16:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220920151202.180057-1-chenzhongjin@huawei.com> <20220920151202.180057-4-chenzhongjin@huawei.com>
-In-Reply-To: <20220920151202.180057-4-chenzhongjin@huawei.com>
+References: <20220920151202.180057-1-chenzhongjin@huawei.com>
+ <20220920151202.180057-5-chenzhongjin@huawei.com> <CAJF2gTQ8QjUiRhQiM67SET=bCpppG2opcN3_ch7GEqdAkBnBUA@mail.gmail.com>
+In-Reply-To: <CAJF2gTQ8QjUiRhQiM67SET=bCpppG2opcN3_ch7GEqdAkBnBUA@mail.gmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 21 Sep 2022 10:13:57 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS1=xSrsaABLzbRwq2V=Wj3_SyHtooXosfY7L9zAwf=NA@mail.gmail.com>
-Message-ID: <CAJF2gTS1=xSrsaABLzbRwq2V=Wj3_SyHtooXosfY7L9zAwf=NA@mail.gmail.com>
-Subject: Re: [PATCH -next 3/7] riscv: stacktrace: Save pt_regs in encoded fp
- on irq entry
+Date: Wed, 21 Sep 2022 10:16:03 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSR5A1vxz_5SSK207SaC-3QHLcKFvcy35VtrKEk4-D9iQ@mail.gmail.com>
+Message-ID: <CAJF2gTSR5A1vxz_5SSK207SaC-3QHLcKFvcy35VtrKEk4-D9iQ@mail.gmail.com>
+Subject: Re: [PATCH -next 4/7] riscv: syscall: Don't clobber s0 when syscall
 To: Chen Zhongjin <chenzhongjin@huawei.com>
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com, 
@@ -69,8 +69,8 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org, 
 	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_191414_940856_BE5FA2FA 
-X-CRM114-Status: GOOD (  28.43  )
+X-CRM114-CacheID: sfid-20220920_191622_537904_7E1A8DD2 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,131 +87,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
+On Wed, Sep 21, 2022 at 9:30 AM Guo Ren <guoren@kernel.org> wrote:
+>
+> On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
+> >
+> > syscall uses s0 to load address of sys_call_table.
+> >
+> > Since now we uses s0 to save pt_regs for unwinding, clobber
+> > s0 can make unwinder treat s0 as pt_regs address. Use s1 for
+> > this job.
+> This patch does not make sense. Why couldn't we use s1 for pt_regs?
+Seems s0->fp can't be replaced. I take back the question.
 
-ENCODE fp with BIT[0] is okay.
-
-On Tue, Sep 20, 2022 at 11:15 PM Chen Zhongjin <chenzhongjin@huawei.com> wrote:
 >
-> To support stack unwinding at irq entry, the position of pt_regs saved
-> on stack is nessesary. Because for some functions, compiler only push
-> s0/fp on stack without ra.
+> No need to modify the entry.S here.
 >
-> As the situation described in
-> commit f766f77a74f5("riscv/stacktrace: Fix stack output without ra on the stack top")
+> >
+> > Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
+> > ---
+> >  arch/riscv/kernel/entry.S | 20 ++++++++++----------
+> >  1 file changed, 10 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index ecb15c7430b4..a3b14a649782 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -205,33 +205,33 @@ handle_syscall:
+> >  check_syscall_nr:
+> >         /* Check to make sure we don't jump to a bogus syscall number. */
+> >         li t0, __NR_syscalls
+> > -       la s0, sys_ni_syscall
+> > +       la s1, sys_ni_syscall
+> >         /*
+> >          * Syscall number held in a7.
+> >          * If syscall number is above allowed value, redirect to ni_syscall.
+> >          */
+> >         bgeu a7, t0, 3f
+> >  #ifdef CONFIG_COMPAT
+> > -       REG_L s0, PT_STATUS(sp)
+> > -       srli s0, s0, SR_UXL_SHIFT
+> > -       andi s0, s0, (SR_UXL >> SR_UXL_SHIFT)
+> > +       REG_L s1, PT_STATUS(sp)
+> > +       srli s1, s1, SR_UXL_SHIFT
+> > +       andi s1, s1, (SR_UXL >> SR_UXL_SHIFT)
+> >         li t0, (SR_UXL_32 >> SR_UXL_SHIFT)
+> > -       sub t0, s0, t0
+> > +       sub t0, s1, t0
+> >         bnez t0, 1f
+> >
+> >         /* Call compat_syscall */
+> > -       la s0, compat_sys_call_table
+> > +       la s1, compat_sys_call_table
+> >         j 2f
+> >  1:
+> >  #endif
+> >         /* Call syscall */
+> > -       la s0, sys_call_table
+> > +       la s1, sys_call_table
+> >  2:
+> >         slli t0, a7, RISCV_LGPTR
+> > -       add s0, s0, t0
+> > -       REG_L s0, 0(s0)
+> > +       add s1, s1, t0
+> > +       REG_L s1, 0(s1)
+> >  3:
+> > -       jalr s0
+> > +       jalr s1
+> >
+> >  ret_from_syscall:
+> >         /* Set user a0 to kernel a0 */
+> > --
+> > 2.17.1
+> >
 >
-> When irq happens there, the the function frame looks like:
 >
-> prev function   |       ...       |
->                 |                 |
-> normal function +-----------------+
->                 | ra to prev      |
->                 | s0 of prev      |
->                 |       ...       |<-+
-> leaf function   +-----------------+  |
->                 | s0 of normal    |  |
->                 | empty slot      |  |
-> irq pt_regs     +-----------------+  |
->                 | epc (ra to leaf)|  |
->                 | ra  (ra to norm)|  |
->                 | ...             |  |
->                 | s0 of leaf      |--+
->                 | ...             |
->                 +-----------------+
->
-> If the position of register in pt_regs is {epc, s0}, we can easily
-> unwind from irq frame to leaf function, as normal functions do.
->
-> However when unwinding from unwinding from leaf to normal, beacause
-> (ra to norm) is saved in pt_regs, but not stackframe of leaf, we
-> have to get pt_regs for that.
->
-> To get pt_regs position on stack, we can save the encoded *pt_regs
-> in s0, as x86 architecture did. Then we can get s0, epc and ra
-> easily.
->
-> Signed-off-by: Chen Zhongjin <chenzhongjin@huawei.com>
-> ---
->  arch/riscv/include/asm/frame.h | 45 ++++++++++++++++++++++++++++++++++
->  arch/riscv/kernel/entry.S      |  3 +++
->  2 files changed, 48 insertions(+)
->  create mode 100644 arch/riscv/include/asm/frame.h
->
-> diff --git a/arch/riscv/include/asm/frame.h b/arch/riscv/include/asm/frame.h
-> new file mode 100644
-> index 000000000000..2a1f45cf3a4e
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/frame.h
-> @@ -0,0 +1,45 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_RISCV_FRAME_H
-> +#define _ASM_RISCV_FRAME_H
-> +
-> +#include <asm/asm.h>
-> +
-> +#ifdef CONFIG_FRAME_POINTER
-> +
-> +#ifdef __ASSEMBLY__
-> +
-> +/*
-> + * This is a sneaky trick to help the unwinder find pt_regs on the stack.  The
-> + * frame pointer is replaced with an encoded pointer to pt_regs.  The encoding
-> + * is just setting the LSB, which makes it an invalid stack address and is also
-> + * a signal to the unwinder that it's a pt_regs pointer in disguise.
-> + *
-> + * This macro must be used when sp point to pt_regs
-> + */
-> +.macro ENCODE_FRAME_POINTER
-> +       add s0, sp, 0x1
-> +.endm
-> +
-> +#else /* !__ASSEMBLY__ */
-> +
-> +#define ENCODE_FRAME_POINTER                   \
-> +       "add s0, sp, 0x1\n\t"
-> +
-> +#endif /* __ASSEMBLY__ */
-> +
-> +#else /* !CONFIG_FRAME_POINTER */
-> +
-> +#ifdef __ASSEMBLY__
-> +
-> +.macro ENCODE_FRAME_POINTER ptregs_offset=0
-> +.endm
-> +
-> +#else /* !__ASSEMBLY */
-> +
-> +#define ENCODE_FRAME_POINTER
-> +
-> +#endif /* !__ASSEMBLY */
-> +
-> +#endif /* CONFIG_FRAME_POINTER */
-> +
-> +#endif /* _ASM_RISCV_FRAME_H */
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..ecb15c7430b4 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -13,6 +13,7 @@
->  #include <asm/thread_info.h>
->  #include <asm/asm-offsets.h>
->  #include <asm/errata_list.h>
-> +#include <asm/frame.h>
->
->  #if !IS_ENABLED(CONFIG_PREEMPTION)
->  .set resume_kernel, restore_all
-> @@ -95,6 +96,8 @@ _save_context:
->         REG_S s4, PT_CAUSE(sp)
->         REG_S s5, PT_TP(sp)
->
-> +       ENCODE_FRAME_POINTER
-> +
->         /*
->          * Set the scratch register to 0, so that if a recursive exception
->          * occurs, the exception vector knows it came from the kernel
 > --
-> 2.17.1
->
+> Best Regards
+>  Guo Ren
+
 
 
 -- 
