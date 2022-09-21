@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64CCC32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3D3ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 10:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8GReNa5GhH64khnRUGMQJkXMB0AxWjknkIptC0zykk4=; b=EVfbqIf+0GvB3O
-	Dx7JYP+8QqjgpcblfL+KitQ4VwtPsbQmxSsiHYwqbwFhFJu25yCgak9TQqzwSbJK5zmBVQLiG+puR
-	fba9sFt9Pj5aANTcI4dacWno4OzuGDiDkk7Oz0ektvKaVjEjJ5GTMVf1mBzcjzaFafWMEssX41N2L
-	aCqpFnJrBFJiUc+sFAolK8TT7OSdassYUm+vMz3f53PVdzMLvO8svLiq3YMNtzSeOz8Uwh0igQhVa
-	7ht4P3hAfs+a1azAQGhnNcbDYowm5qyrLcovssi7+frPFp3KwwfQG12iyVl/0BI+5wORzcQrJIYqV
-	L2/llT7fL2hWhWMXa2lg==;
+	List-Owner; bh=ZWiCxcL/7+pPbUHMksUn10ESIHc7p5LYAo7kTBZRwa0=; b=jppz7rOP+iRQIo
+	8b7vdgchjO0wMFgoowtse5Ba8kxQeUconm2BX9WexKTJB0grbRlb1y8tAigzVzgqt2FXQ9UZ/WNd6
+	NJ5F0RqBPy9bvxuXh0H7jDmCz4w0mFA04vJQqlcFfPPxm9uThXSQaPdeoz5sw53w22XhzPs+AvVkA
+	6kEhlBsLdK3+/oMk6iVuzNRlFnQQYe0/OpmJRYldYmL51R3JTpaZ0aNZfhryMp2wnIROlG7gsTNCm
+	FY7TMYT6EzZcBFno1jVEtsMpgB/RIaX+PVqyx+QlSQQXjk8EYX2xVBNul2648wzEGPEQCf/8lxKys
+	b/jnzgR+Yl5RXuhfvsFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawgb-00AkP1-3V; Wed, 21 Sep 2022 10:10:33 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1oawgc-00AkQA-SU; Wed, 21 Sep 2022 10:10:34 +0000
+Received: from mail-qt1-f176.google.com ([209.85.160.176])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oawgI-00AkHu-Hi
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 10:10:15 +0000
-Received: by mail-lf1-x130.google.com with SMTP id a2so8363273lfb.6
-        for <linux-riscv@lists.infradead.org>; Wed, 21 Sep 2022 03:10:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date;
-        bh=yxhsCHqbjeaUvDSrWwmS/tUjVYbJlbwwcVnNivmxf/A=;
-        b=Mx7+v7mLDXYL9fZJN81ZLtHPaaRSjT+E201/j9MMBacZSRokSKMoitW9Kj6QZeFCfc
-         5KgqLjmvBVDHm1PQr2blWlEPWQY8I2wreEH0ThGty+Nm1LpGMQbSVt0jjd0+8V+fxWbc
-         aZHdCVM+JrKPXIITHE2oz24+bHztTA+QVFxyZcAIgUNZYqopCE77QX1aPYlqWv3hiYpv
-         s6hx4P8rHUxBqsam0PFddMEK0cEizIyZuv2ztE/pD8vHs7UDYAWJ714lt8GIgLdXoSpy
-         lhxbCCMCjWQAe+yapph8KF6kewtaIxLyW4qJ63h3LZp1MUOmFT3n1RquYE03323Qkbsc
-         THQg==
+	id 1oawgP-00AkM6-J9; Wed, 21 Sep 2022 10:10:23 +0000
+Received: by mail-qt1-f176.google.com with SMTP id g23so3695786qtu.2;
+        Wed, 21 Sep 2022 03:10:20 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=yxhsCHqbjeaUvDSrWwmS/tUjVYbJlbwwcVnNivmxf/A=;
-        b=4AQokRqyyzswMcPIzszoKx86SLVNkwMqKle8FkS1iAMhaYnGMFw2LjLj9PcXE6hYVB
-         VBxNCF7tI2sHjEqEb1r2h4OjsztRxp/MaFg2Nehep4aw/hDRjvth2UmXF0FCMVhXNKTl
-         EC/fotGQWsjkiTVXS6Pg3uzjXMigs/riFEuwMWbVr3wD4xUKDmddtaKLY/Ik59qVzOpK
-         tE5YOOIkw4C4jPbBYqBtH5fQQAUSM98xG66BnfTvsOLaalB7VZbY6E6UaAiAf+0Rrof1
-         QoOc1XmfgGvTCaEASJUPEknacuEpfkGmEW3JjJA4zhhtdgWqqBlU++pFC6dfFP1zAVKb
-         luOw==
-X-Gm-Message-State: ACrzQf1z34KslgNeOTHj1FWiyYGYjU4Zh37xs7Ved4SUxf6/xjah0Kf4
-	5BQkn2Ti0WLhipcmeZh2Wd9wQw==
-X-Google-Smtp-Source: AMsMyM7miLYxhwhmdAm6xqnhxaOOx6BmPBe4KQD2NDEVZSgjClHYYwttY/drvejnXcRy+vqeDU5rVg==
-X-Received: by 2002:a05:6512:68a:b0:49f:4c31:e9f with SMTP id t10-20020a056512068a00b0049f4c310e9fmr10129696lfe.136.1663755010574;
-        Wed, 21 Sep 2022 03:10:10 -0700 (PDT)
-Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
-        by smtp.gmail.com with ESMTPSA id o12-20020a056512052c00b00497a41b3a42sm370469lfc.88.2022.09.21.03.10.09
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=/SSEuwrmJLJj9UMZKTCar/0/cGO6w/t/L7XekBxJJtM=;
+        b=EqjPWqEAe7lZkFcfb+qzraAOvDGLqzkcaa3knFrQeWwSXrAWXXDKWO+oes5UiaNgGn
+         lamFNepT9CQc5petYl54Zr8tMDN0M9hHfF8E0swe+D1MirFRre3FHdkrHVBHionvruP1
+         Cy4GVlSpmg00UQX7gQvLDCUGcboMEDrBL2U9GK2XPbYo4+sfPykiqqyiQVSIpLQC9I/A
+         LwRpODFfe0Otrm10VNxe9k7nHaPch+bD6xycLlqODmQ7od0LJOC0aIJnNq5R5S2/ex85
+         Gko71Y2pHvf+UmGX1nfMTyfhQFO75bLFc7tGuOzjeDvSRavqdPWUsn+VWDzAHGm9FTJJ
+         r+7A==
+X-Gm-Message-State: ACrzQf1A6jtpqG5r4q8tJHnaOneBfQVFfSL/CEPr4q+GyMc+npJKjQbx
+	oxEK0pWsI0cfaO4EJv9iTTKTRfg7iPSDMLOb
+X-Google-Smtp-Source: AMsMyM4fAWNDLWUh94aI1n4eGvHWuhbbyma6jhLyQ3XgJBd91XKF47Zk5kmx0McG6nwZM3pVGu17ug==
+X-Received: by 2002:ac8:7c52:0:b0:35c:e867:e5dc with SMTP id o18-20020ac87c52000000b0035ce867e5dcmr12173514qtv.433.1663755019248;
+        Wed, 21 Sep 2022 03:10:19 -0700 (PDT)
+Received: from mail-yb1-f170.google.com (mail-yb1-f170.google.com. [209.85.219.170])
+        by smtp.gmail.com with ESMTPSA id ff14-20020a05622a4d8e00b003445bb107basm1412521qtb.75.2022.09.21.03.10.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Sep 2022 03:10:09 -0700 (PDT)
-Message-ID: <131d9058-a9de-7012-49e0-95e8477edf85@linaro.org>
-Date: Wed, 21 Sep 2022 12:10:08 +0200
+        Wed, 21 Sep 2022 03:10:17 -0700 (PDT)
+Received: by mail-yb1-f170.google.com with SMTP id a67so7339520ybb.3;
+        Wed, 21 Sep 2022 03:10:16 -0700 (PDT)
+X-Received: by 2002:a05:6902:2c1:b0:6b2:8bb0:79a0 with SMTP id
+ w1-20020a05690202c100b006b28bb079a0mr18992385ybh.202.1663755016378; Wed, 21
+ Sep 2022 03:10:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: Similar SoCs with different CPUs and interrupt bindings
-Content-Language: en-US
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Andre Przywara <andre.przywara@arm.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Samuel Holland <samuel@sholland.org>, Biju Das <biju.das.jz@bp.renesas.com>,
- Chris Paterson <Chris.Paterson2@renesas.com>,
- Atish Patra <atishp@atishpatra.org>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>
 References: <CAMuHMdUPm36RsxHdVwspR3NCAR3C507AyB6R65W42N2gXWq0ag@mail.gmail.com>
  <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
- <CA+V-a8t3ukpa1PNz=5fP+BTjWkFJmwDo_EJJYjO9YctF2=K1Vg@mail.gmail.com>
- <df9ff0bd-ad0e-4b5b-859d-dd913628edc8@linaro.org>
- <CAMuHMdXaWz4zP-Zrc4drxwVmbMjmGZHABVbUtO91fZXKawathw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CAMuHMdXaWz4zP-Zrc4drxwVmbMjmGZHABVbUtO91fZXKawathw@mail.gmail.com>
+In-Reply-To: <b0f2e13a-ff5d-5bfc-6dda-ca39bb57803e@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 21 Sep 2022 12:10:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVKcikM0b97G99UhVtSwrxc07asB0nBqB6OL9XNXFb-gw@mail.gmail.com>
+Message-ID: <CAMuHMdVKcikM0b97G99UhVtSwrxc07asB0nBqB6OL9XNXFb-gw@mail.gmail.com>
+Subject: Re: Similar SoCs with different CPUs and interrupt bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andre Przywara <andre.przywara@arm.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Chris Paterson <Chris.Paterson2@renesas.com>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Olof Johansson <olof@lixom.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220921_031014_608496_88577893 
-X-CRM114-Status: UNSURE (   7.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220921_031021_690587_BAD21BA6 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +91,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2022 12:08, Geert Uytterhoeven wrote:
->> diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
->> index ff6aab388eb7..0ecca775fa3f 100644
->> --- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
->> +++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
->> @@ -8,6 +8,8 @@
->>  #include <dt-bindings/interrupt-controller/arm-gic.h>
->>  #include <dt-bindings/clock/r9a07g043-cpg.h>
->>
->> +#define SOC_PERIPHERAL_IRQ_NUMBER(na)  (na + 32)
->> +#define SOC_PERIPHERAL_IRQ(nr, na) GIC_SPI nr SOC_PERIPHERAL_IRQ_NUMBER(na)
-> 
-> #define SOC_PERIPHERAL_IRQ(nr, flags) GIC_SPI
-> SOC_PERIPHERAL_IRQ_NUMBER(nr) flags
+Hi Krzysztof,
 
-Right. Let's consider my code just proof-of-concept :)
+On Wed, Sep 21, 2022 at 10:49 AM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> On 21/09/2022 09:46, Geert Uytterhoeven wrote:
+> > This is a topic that came up at the RISC-V BoF at Plumbers, and it was
+> > suggested to bring it up with you.
+>
+> I guess you also need SoC maintainers as well (+Cc Arnd and Olof). :)
 
-Best regards,
-Krzysztof
+Indeed, I had intended to include them, but forgot in the end.
+Thanks for adding!
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
