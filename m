@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE61C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 03:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E665DC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 Sep 2022 05:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QZygYhYE0w8AnN8G84lSo4PXAZwT3WT9BZ5vohF3WZA=; b=Z9lNtd63uDPDjE
-	LDtuEDzaPk/o+Yc3eDKANgieM47jADMzMmBSbuZiF3i3Wl50Sz6VSQlXNXkiY1kLGwIlWEqWTpfls
-	od1rJybgQ4FghHEEBrHilQ0ggYYDqWOOoPImoYSJo9N4qwcoT9d478hgySt5B4YXmuNlRmlga+4O9
-	PLymtRYV3pdW8nj0UNIp0b3dEqHAl67pqxFahCeXjKj7pQid/diKyYlJiKrfllce1NB8CpXfsfNry
-	0vGD+Xx1kM7hHDfMsZ4Uk85fT2teOxqcQB53neyyxUOPHypJE30A/KfI7k0XUqOCfS9VpZPKFz/VF
-	htTjONX8C+LHPTonci2Q==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=G+U3BT/N4zNvirrHlSyiJiF1ZyWokRJNbHbKBEjz+/Y=; b=KqyNEEpOLCrnJRpyr1iL11NBoB
+	nbK3MuPPB4HYB/ikMpjC4DJU1MGGVcDDGaIa9c7jWSqHV0UbCrIO8QPHGa06DBTmZLBtqQ858y2qV
+	AQiF7y2L27j7t5moQMm4kk9dZNCNYLqV4YsruUrtzF+4lrU1TtsJQvCMpNM6A6utVj76xxVhMgjEW
+	hZFMIrtrCLhowDQzH+Xm7eSXKG5VVcyh2H02qhzQR2z8mIYCSfb87saR/dOEkEIWj3rrwEuOBZwib
+	Mq34i+tjoHprJ6sVxrmuCInNotAV5Zhnlsa0mKX7+E+YIno7QPuU7LJZlWMYsGCPaglu9+YdEPBTI
+	EYtbTkrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqjz-008el7-Kz; Wed, 21 Sep 2022 03:49:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oarzA-008z9i-8g; Wed, 21 Sep 2022 05:09:24 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaqjw-008eis-7p
-	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 03:49:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C6A0AB81AEF;
-	Wed, 21 Sep 2022 03:49:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EE38C433B5;
-	Wed, 21 Sep 2022 03:49:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663732173;
-	bh=kL47KPMguqI2L3KF27fbBlhWO4R1JWIXY+6u1ZR4dSo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pJ0HtHAsdYJ6EHm0DqM3F8B7tIYck3qPQAC8jzEVdw2ZGNKL6JrBFvAJ3j7RXl6KT
-	 k/PMKruPA3EehkUWh8Wc26gfFV6n3NbxBf/TBN1ytDDjZNhL/POUqgUeHlcjMKQuP/
-	 7bl1qiQi6OwVryfObFJpW1mYa9j9k49+0viRKY8HC86//sco4TqKi1S6oZvXlT2hyw
-	 En0IpntawHlGFgTN5X5YGo/1oqxiqOh6q4OJkNrGrfDP0D+CDl5bkfD3ze625zcU3p
-	 pTZHuijTr6cLRZiv+zaYTmAgyaVWgcGl3GAv6Ex1G9AKavP0+hskhxE9aMfyWTV326
-	 uljFEcJ2tnLfg==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	palmer@rivosinc.com,
-	rostedt@goodmis.org,
-	andy.chiu@sifive.com,
-	greentime.hu@sifive.com,
-	zong.li@sifive.com,
-	jrtc27@jrtc27.com,
-	mingo@redhat.com,
-	palmer@dabbelt.com
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	guoren@kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V2 3/3] riscv: ftrace: Reduce the detour code size to half
-Date: Tue, 20 Sep 2022 23:49:10 -0400
-Message-Id: <20220921034910.3142465-4-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220921034910.3142465-1-guoren@kernel.org>
-References: <20220921034910.3142465-1-guoren@kernel.org>
+	id 1oarz7-008z7m-98
+	for linux-riscv@lists.infradead.org; Wed, 21 Sep 2022 05:09:22 +0000
+Received: by mail-lj1-x235.google.com with SMTP id a14so5569322ljj.8
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 22:09:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date;
+        bh=TgTQReumepLDe4ov6CDHPrQQsIPWNDax0l8u9Rzrs0M=;
+        b=FNR4DfsImI34Tdj1kbATrXg+qWoJ2JGx2IvHCZwimcpkwPVtI+exf/w3P+sQiU4kRY
+         5x+aqYP5WCJlBUKUJzLq2GNaC0ZMWcL3rjTlBFT51m//vs15UHg8EhIKgKrr3WhLktZh
+         sQf8VKiiQFN+KuZ+UW5fL1h8m5SO42WnXuwM3K0e3JfVqjI5qLaY6gik5p9xs4cEK4cK
+         iFjnSkomxmOc4LiOSnKurQLLW+wRjyF5jZd+bPCZ/XTsuaey+bEqWnCBdpTFb+asFN9r
+         txZGautSqkGqoejgYOYGPhIo/pUbGwFIJboHg4uoi8u7wEYxOAiAb18FN6nGX0S+abzm
+         vDuQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=TgTQReumepLDe4ov6CDHPrQQsIPWNDax0l8u9Rzrs0M=;
+        b=NhIVqWdK+G8G4rpfRM1dYas6jMcRpjDIP1lpH7yAvyn9LkNbX/Ml40H70JBmxn1Fs6
+         +3APHJ6cmcRi/3/NztZvU9Q+oHHIvkHzI8pCVoOl1yeI/fRETr2wVbbfAP2flPst9bGw
+         cBRG0eKF42ynldfBxG6Rnc8CRjCrcM29yCgNE7sv2/TxfjH0nhtaGMUe/5Kpst1qe6Wl
+         wJdahp+DuTFd6hyf6jD0jx+Js9AHaA/+ysm8cJYFe2VF77zUp1rwPkPlkWySswBX55mv
+         h77jvsB3weEi7L4zQvoXjh5abN0rZDnN1rg83YJyyiK/LTIG/HncIRHXBJ3j1DWcR/9k
+         020Q==
+X-Gm-Message-State: ACrzQf3CPPFgiJbRaIlsRMXXQs/kkV1dM8AIBtYR8zGw1khsgApf5uAN
+	DHT7o31mxVJs7UBs4dpujzVDDdCvmg4dgtSi3z4FJg==
+X-Google-Smtp-Source: AMsMyM47NWYvjKJ/EBMRKSFdl0fTC0zOjyszTcSGJVSYFzud/66lHqmfYE77sEvbGyG3ANNIXiYNTN89bIxFqKpBLk0=
+X-Received: by 2002:a05:651c:1611:b0:261:e11c:c2ef with SMTP id
+ f17-20020a05651c161100b00261e11cc2efmr7794318ljq.340.1663736955640; Tue, 20
+ Sep 2022 22:09:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220913061817.22564-1-zong.li@sifive.com>
+In-Reply-To: <20220913061817.22564-1-zong.li@sifive.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Wed, 21 Sep 2022 13:09:04 +0800
+Message-ID: <CANXhq0qG-aEEHxWbtRgC+RO-wC36MtPUfu+eMpX89wOtqGJL0w@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] Use composable cache instead of L2 cache
+To: Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <greentime.hu@sifive.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ben Dooks <ben.dooks@sifive.com>, bp@alien8.de, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-edac@vger.kernel.org, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_204936_589180_38B8A259 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20220920_220921_376803_4647DCF0 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,423 +89,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Tue, Sep 13, 2022 at 2:18 PM Zong Li <zong.li@sifive.com> wrote:
+>
+> Since composable cache may be L3 cache if private L2 cache exists, we
+> should use its original name "composable cache" to prevent confusion.
+>
+> This patchset contains the modification which is related to ccache, such
+> as DT binding and EDAC driver.
+>
+> The DT binding is based on top of Conor's patch, it has got ready for
+> merging, and it looks that it would be taken into the next few 6.0-rc
+> version. If there is any change, the next version of this series will be
+> posted as well.
+> https://lore.kernel.org/linux-riscv/20220825180417.1259360-2-mail@conchuod.ie/
+>
+> Change log in v5:
+>  - Add a patch to modify aux vector for sysconf
+>
+> Change log in v4:
+>  - Change the return value from from ENODEV to ENOENT
+>  - Apply pr_fmt refinement to all pr_err
+>
+> Change log in v3:
+>  - Merged the EDAC patch into L2 rename patch
+>  - Define the macro for register shift and refine the relative code
+>  - Fix some indent issues
+>
+> Change log in v2:
+>  - Separate the rename and diff to different patches
+>  - Rebase the dt-bindings based on Conor's modification
+>  - Include the patches of Ben for refinement of printing message
+>
+> Ben Dooks (2):
+>   soc: sifive: ccache: reduce printing on init
+>   soc: sifive: ccache: use pr_fmt() to remove CCACHE: prefixes
+>
+> Greentime Hu (2):
+>   soc: sifive: ccache: Rename SiFive L2 cache to Composable cache.
+>   riscv: Add cache information in AUX vector
+>
+> Zong Li (3):
+>   dt-bindings: sifive-ccache: change Sifive L2 cache to Composable cache
+>   soc: sifive: ccache: determine the cache level from dts
+>   soc: sifive: ccache: define the macro for the register shifts
+>
+>  ...five-l2-cache.yaml => sifive,ccache0.yaml} |  28 ++-
+>  arch/riscv/include/asm/elf.h                  |   4 +
+>  arch/riscv/include/uapi/asm/auxvec.h          |   4 +-
+>  drivers/edac/Kconfig                          |   2 +-
+>  drivers/edac/sifive_edac.c                    |  12 +-
+>  drivers/soc/sifive/Kconfig                    |   6 +-
+>  drivers/soc/sifive/Makefile                   |   2 +-
+>  .../{sifive_l2_cache.c => sifive_ccache.c}    | 200 ++++++++++--------
+>  .../{sifive_l2_cache.h => sifive_ccache.h}    |  16 +-
+>  9 files changed, 158 insertions(+), 116 deletions(-)
+>  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive,ccache0.yaml} (83%)
+>  rename drivers/soc/sifive/{sifive_l2_cache.c => sifive_ccache.c} (31%)
+>  rename include/soc/sifive/{sifive_l2_cache.h => sifive_ccache.h} (12%)
+>
+> --
+> 2.17.1
+>
 
-Use a temporary register to reduce the size of detour code from 16B
-to 8B.
-
-Before optimization (16 byte):
-<func_prolog>:
- 0: REG_S  ra, -SZREG(sp)
- 4: auipc  ra, ?
- 8: jalr   ?(ra)
-12: REG_L  ra, -SZREG(sp)
- (func_boddy)
-
-The previous implementation is from afc76b8b8011 ("riscv: Using
-PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
-
-After optimization (8 byte):
-<func_prolog>:
- 0: auipc  t0, ?
- 4: jalr   t0, ?(t0)
- (func_boddy)
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Makefile             |  4 +-
- arch/riscv/include/asm/ftrace.h | 46 ++++++++++++++++++-----
- arch/riscv/kernel/ftrace.c      | 65 ++++++++++-----------------------
- arch/riscv/kernel/mcount-dyn.S  | 43 +++++++++-------------
- 4 files changed, 74 insertions(+), 84 deletions(-)
-
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index f32844f545d6..7b9d4a7cd4bf 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -12,9 +12,9 @@ ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
- 	LDFLAGS_vmlinux := --no-relax
- 	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
- ifeq ($(CONFIG_RISCV_ISA_C),y)
--	CC_FLAGS_FTRACE := -fpatchable-function-entry=8
--else
- 	CC_FLAGS_FTRACE := -fpatchable-function-entry=4
-+else
-+	CC_FLAGS_FTRACE := -fpatchable-function-entry=2
- endif
- endif
- 
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 04dad3380041..34b0b523865a 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -42,6 +42,14 @@ struct dyn_arch_ftrace {
-  * 2) jalr: setting low-12 offset to ra, jump to ra, and set ra to
-  *          return address (original pc + 4)
-  *
-+ *<ftrace enable>:
-+ * 0: auipc  t0/ra, 0x?
-+ * 4: jalr   t0/ra, ?(t0/ra)
-+ *
-+ *<ftrace disable>:
-+ * 0: nop
-+ * 4: nop
-+ *
-  * Dynamic ftrace generates probes to call sites, so we must deal with
-  * both auipc and jalr at the same time.
-  */
-@@ -52,25 +60,43 @@ struct dyn_arch_ftrace {
- #define AUIPC_OFFSET_MASK	(0xfffff000)
- #define AUIPC_PAD		(0x00001000)
- #define JALR_SHIFT		20
--#define JALR_BASIC		(0x000080e7)
--#define AUIPC_BASIC		(0x00000097)
-+#define JALR_RA			(0x000080e7)
-+#define AUIPC_RA		(0x00000097)
-+#define JALR_T0			(0x000282e7)
-+#define AUIPC_T0		(0x00000297)
- #define NOP4			(0x00000013)
- 
--#define make_call(caller, callee, call)					\
-+#define to_jalr_t0(offset)						\
-+	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
-+
-+#define to_auipc_t0(offset)						\
-+	((offset & JALR_SIGN_MASK) ?					\
-+	(((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_T0) :	\
-+	((offset & AUIPC_OFFSET_MASK) | AUIPC_T0))
-+
-+#define make_call_t0(caller, callee, call)				\
- do {									\
--	call[0] = to_auipc_insn((unsigned int)((unsigned long)callee -	\
-+	call[0] = to_auipc_t0((unsigned int)((unsigned long)callee -	\
- 				(unsigned long)caller));		\
--	call[1] = to_jalr_insn((unsigned int)((unsigned long)callee -	\
-+	call[1] = to_jalr_t0((unsigned int)((unsigned long)callee -	\
- 			       (unsigned long)caller));			\
- } while (0)
- 
--#define to_jalr_insn(offset)						\
--	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_BASIC)
-+#define to_jalr_ra(offset)						\
-+	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_RA)
- 
--#define to_auipc_insn(offset)						\
-+#define to_auipc_ra(offset)					\
- 	((offset & JALR_SIGN_MASK) ?					\
--	(((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_BASIC) :	\
--	((offset & AUIPC_OFFSET_MASK) | AUIPC_BASIC))
-+	(((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_RA) :	\
-+	((offset & AUIPC_OFFSET_MASK) | AUIPC_RA))
-+
-+#define make_call_ra(caller, callee, call)				\
-+do {									\
-+	call[0] = to_auipc_ra((unsigned int)((unsigned long)callee -	\
-+				(unsigned long)caller));		\
-+	call[1] = to_jalr_ra((unsigned int)((unsigned long)callee -	\
-+			       (unsigned long)caller));			\
-+} while (0)
- 
- /*
-  * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 2086f6585773..8c77f236fc71 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -55,12 +55,15 @@ static int ftrace_check_current_call(unsigned long hook_pos,
- }
- 
- static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
--				bool enable)
-+				bool enable, bool ra)
- {
- 	unsigned int call[2];
- 	unsigned int nops[2] = {NOP4, NOP4};
- 
--	make_call(hook_pos, target, call);
-+	if (ra)
-+		make_call_ra(hook_pos, target, call);
-+	else
-+		make_call_t0(hook_pos, target, call);
- 
- 	/* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
- 	if (patch_text_nosync
-@@ -70,42 +73,13 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
- 	return 0;
- }
- 
--/*
-- * Put 5 instructions with 16 bytes at the front of function within
-- * patchable function entry nops' area.
-- *
-- * 0: REG_S  ra, -SZREG(sp)
-- * 1: auipc  ra, 0x?
-- * 2: jalr   -?(ra)
-- * 3: REG_L  ra, -SZREG(sp)
-- *
-- * So the opcodes is:
-- * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-- * 1: 0x???????? -> auipc
-- * 2: 0x???????? -> jalr
-- * 3: 0xff813083 (ld)/0xffc12083 (lw)
-- */
--#if __riscv_xlen == 64
--#define INSN0	0xfe113c23
--#define INSN3	0xff813083
--#elif __riscv_xlen == 32
--#define INSN0	0xfe112e23
--#define INSN3	0xffc12083
--#endif
--
--#define FUNC_ENTRY_SIZE	16
--#define FUNC_ENTRY_JMP	4
--
- int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- {
--	unsigned int call[4] = {INSN0, 0, 0, INSN3};
--	unsigned long target = addr;
--	unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
-+	unsigned int call[2];
- 
--	call[1] = to_auipc_insn((unsigned int)(target - caller));
--	call[2] = to_jalr_insn((unsigned int)(target - caller));
-+	make_call_t0(rec->ip, addr, call);
- 
--	if (patch_text_nosync((void *)rec->ip, call, FUNC_ENTRY_SIZE))
-+	if (patch_text_nosync((void *)rec->ip, call, 8))
- 		return -EPERM;
- 
- 	return 0;
-@@ -114,15 +88,14 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
- 		    unsigned long addr)
- {
--	unsigned int nops[4] = {NOP4, NOP4, NOP4, NOP4};
-+	unsigned int nops[2] = {NOP4, NOP4};
- 
--	if (patch_text_nosync((void *)rec->ip, nops, FUNC_ENTRY_SIZE))
-+	if (patch_text_nosync((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
- 		return -EPERM;
- 
- 	return 0;
- }
- 
--
- /*
-  * This is called early on, and isn't wrapped by
-  * ftrace_arch_code_modify_{prepare,post_process}() and therefor doesn't hold
-@@ -144,10 +117,10 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
- int ftrace_update_ftrace_func(ftrace_func_t func)
- {
- 	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
--				       (unsigned long)func, true);
-+				       (unsigned long)func, true, true);
- 	if (!ret) {
- 		ret = __ftrace_modify_call((unsigned long)&ftrace_regs_call,
--					   (unsigned long)func, true);
-+					   (unsigned long)func, true, true);
- 	}
- 
- 	return ret;
-@@ -159,16 +132,16 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
- 		       unsigned long addr)
- {
- 	unsigned int call[2];
--	unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
-+	unsigned long caller = rec->ip + 4;
- 	int ret;
- 
--	make_call(caller, old_addr, call);
-+	make_call_t0(caller, old_addr, call);
- 	ret = ftrace_check_current_call(caller, call);
- 
- 	if (ret)
- 		return ret;
- 
--	return __ftrace_modify_call(caller, addr, true);
-+	return __ftrace_modify_call(caller, addr, true, false);
- }
- #endif
- 
-@@ -203,12 +176,12 @@ int ftrace_enable_ftrace_graph_caller(void)
- 	int ret;
- 
- 	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
--				    (unsigned long)&prepare_ftrace_return, true);
-+				    (unsigned long)&prepare_ftrace_return, true, true);
- 	if (ret)
- 		return ret;
- 
- 	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
--				    (unsigned long)&prepare_ftrace_return, true);
-+				    (unsigned long)&prepare_ftrace_return, true, true);
- }
- 
- int ftrace_disable_ftrace_graph_caller(void)
-@@ -216,12 +189,12 @@ int ftrace_disable_ftrace_graph_caller(void)
- 	int ret;
- 
- 	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
--				    (unsigned long)&prepare_ftrace_return, false);
-+				    (unsigned long)&prepare_ftrace_return, false, true);
- 	if (ret)
- 		return ret;
- 
- 	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
--				    (unsigned long)&prepare_ftrace_return, false);
-+				    (unsigned long)&prepare_ftrace_return, false, true);
- }
- #endif /* CONFIG_DYNAMIC_FTRACE */
- #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index d171eca623b6..64bc79816f5e 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -13,8 +13,8 @@
- 
- 	.text
- 
--#define FENTRY_RA_OFFSET	12
--#define ABI_SIZE_ON_STACK	72
-+#define FENTRY_RA_OFFSET	8
-+#define ABI_SIZE_ON_STACK	80
- #define ABI_A0			0
- #define ABI_A1			8
- #define ABI_A2			16
-@@ -23,10 +23,10 @@
- #define ABI_A5			40
- #define ABI_A6			48
- #define ABI_A7			56
--#define ABI_RA			64
-+#define ABI_T0			64
-+#define ABI_RA			72
- 
- 	.macro SAVE_ABI
--	addi	sp, sp, -SZREG
- 	addi	sp, sp, -ABI_SIZE_ON_STACK
- 
- 	REG_S	a0, ABI_A0(sp)
-@@ -37,6 +37,7 @@
- 	REG_S	a5, ABI_A5(sp)
- 	REG_S	a6, ABI_A6(sp)
- 	REG_S	a7, ABI_A7(sp)
-+	REG_S	t0, ABI_T0(sp)
- 	REG_S	ra, ABI_RA(sp)
- 	.endm
- 
-@@ -49,24 +50,18 @@
- 	REG_L	a5, ABI_A5(sp)
- 	REG_L	a6, ABI_A6(sp)
- 	REG_L	a7, ABI_A7(sp)
-+	REG_L	t0, ABI_T0(sp)
- 	REG_L	ra, ABI_RA(sp)
- 
- 	addi	sp, sp, ABI_SIZE_ON_STACK
--	addi	sp, sp, SZREG
- 	.endm
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- 	.macro SAVE_ALL
--	addi	sp, sp, -SZREG
- 	addi	sp, sp, -PT_SIZE_ON_STACK
- 
--	REG_S x1,  PT_EPC(sp)
--	addi	sp, sp, PT_SIZE_ON_STACK
--	REG_L x1,  (sp)
--	addi	sp, sp, -PT_SIZE_ON_STACK
-+	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_L x1,  PT_EPC(sp)
--
- 	REG_S x2,  PT_SP(sp)
- 	REG_S x3,  PT_GP(sp)
- 	REG_S x4,  PT_TP(sp)
-@@ -100,11 +95,8 @@
- 	.endm
- 
- 	.macro RESTORE_ALL
-+	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	addi	sp, sp, PT_SIZE_ON_STACK
--	REG_S x1,  (sp)
--	addi	sp, sp, -PT_SIZE_ON_STACK
--	REG_L x1,  PT_EPC(sp)
- 	REG_L x2,  PT_SP(sp)
- 	REG_L x3,  PT_GP(sp)
- 	REG_L x4,  PT_TP(sp)
-@@ -137,17 +129,16 @@
- 	REG_L x31, PT_T6(sp)
- 
- 	addi	sp, sp, PT_SIZE_ON_STACK
--	addi	sp, sp, SZREG
- 	.endm
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
--	addi	a0, ra, -FENTRY_RA_OFFSET
-+	addi	a0, t0, -FENTRY_RA_OFFSET
- 	la	a1, function_trace_op
- 	REG_L	a2, 0(a1)
--	REG_L	a1, ABI_SIZE_ON_STACK(sp)
-+	mv	a1, ra
- 	mv	a3, sp
- 
- ftrace_call:
-@@ -155,8 +146,8 @@ ftrace_call:
- 	call	ftrace_stub
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, ABI_SIZE_ON_STACK
--	REG_L	a1, ABI_RA(sp)
-+	addi	a0, sp, ABI_RA
-+	REG_L	a1, ABI_T0(sp)
- 	addi	a1, a1, -FENTRY_RA_OFFSET
- #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	mv	a2, s0
-@@ -166,17 +157,17 @@ ftrace_graph_call:
- 	call	ftrace_stub
- #endif
- 	RESTORE_ABI
--	ret
-+	jr t0
- ENDPROC(ftrace_caller)
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_regs_caller)
- 	SAVE_ALL
- 
--	addi	a0, ra, -FENTRY_RA_OFFSET
-+	addi	a0, t0, -FENTRY_RA_OFFSET
- 	la	a1, function_trace_op
- 	REG_L	a2, 0(a1)
--	REG_L	a1, PT_SIZE_ON_STACK(sp)
-+	REG_L	a1, PT_RA(sp)
- 	mv	a3, sp
- 
- ftrace_regs_call:
-@@ -185,7 +176,7 @@ ftrace_regs_call:
- 
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
- 	addi	a0, sp, PT_RA
--	REG_L	a1, PT_EPC(sp)
-+	REG_L	a1, PT_T0(sp)
- 	addi	a1, a1, -FENTRY_RA_OFFSET
- #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
- 	mv	a2, s0
-@@ -196,6 +187,6 @@ ftrace_graph_regs_call:
- #endif
- 
- 	RESTORE_ALL
--	ret
-+	jr t0
- ENDPROC(ftrace_regs_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
--- 
-2.36.1
-
+Hi Palmer,
+I was wondering if this series looks good to you, and could you please
+help us to take it into riscv-tree?
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
