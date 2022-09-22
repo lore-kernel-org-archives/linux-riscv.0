@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C84F9C6FA86
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 11:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78378C54EE9
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 11:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3CAyjJghQ4Fb509JVAHCP/HEYcnp+fzUbHEYxoxrctw=; b=kVQpIU6XkrlegN
-	mkiTmV9fFBVZOMcYmzo5KfvquvOunGUajPCDSpRAUREzfsa3QqTfGvKVkq0oTpbkeEiwYiYX+ISGA
-	f6e2qb00styxX8BVt0pgFm/NLpTB2QVdY7x+FoAOJMlnAoSKIZCk9E065mRDNz/eivKgqFwb2lrHH
-	8BoaFUR30Tirw37hf2mhGI/Z2f/E2aw3XjbLmNrrGuD+gIBMAudBvj9CkYznH0zZ37Ji5uxFZzip1
-	BGxuMgaEUksnjAGsJmHTDSpujuC+H8qTiQiV6Y+4KSiIwr4ORAKKelRVb7dEE8vz2+RLOqjFJKix9
-	F+WuN+4Al4SBK0xZ1rjg==;
+	List-Owner; bh=oWHa9/A6QIq+xfm6Avqm/EVFW6HRpMBk0y4AlGJVd2Q=; b=iLVatSgx1D07Dm
+	DqKArVVIfnW6xnaSjecBBi0bnOyBrq4STPV1Q7PLE5/6BrvqtusKpHpG5aB5ULJicl7WOtFAPcdHv
+	i41p0r8WWVqdG13oMw/rmqXYlFx3K5l2MKs7U3MPUyU+neWu0LxlImkEBaCDKaByoBSF+jGeJn/cV
+	W9uQCEgANTKU3EdU6s3XJzKHsJl9gIHtytJedGXYe9x1pgIZ06iacOit2Z20FDDq5y1g8iQqQOPei
+	2EppzXlliL3jIBFsnAKseXvmBNpydE/rlPPjNez6gjcjYFcWeNIl7CTKVTXAcUDzJ5Lnv1cnpiRMb
+	jZOrOjtKN2HGkSvJSo8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obKAj-00F6lp-OT; Thu, 22 Sep 2022 11:15:13 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1obKOK-00F9jN-Gd; Thu, 22 Sep 2022 11:29:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obKAg-00F6i7-OQ
-	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 11:15:12 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id DCC88B835DE;
-	Thu, 22 Sep 2022 11:15:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1DB1C4347C;
-	Thu, 22 Sep 2022 11:15:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1663845305;
-	bh=HJLF0sxaaK0zibNfx1kSIE8o0oMxLWdBFj2lY98C4Is=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=meHPgX7O07DcuZq2IoD9HWIbHP7eoS5UilZv6q9TrjGj1n19t3QGF1ETE3tU1X1/A
-	 m4YpNcgt4ydOBvSoaHoFAWTSFN09F5NpXe1V9W+noau3MsiJJcutaXiIcWy/YZsbSn
-	 UnREWAMsskqMqYNyVlpxpyx8JKCshTQpXl9uXIII=
-Date: Thu, 22 Sep 2022 13:15:02 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: David Gow <davidgow@google.com>
-Cc: cgel.zte@gmail.com, Brendan Higgins <brendan.higgins@linux.dev>,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Daniel Latypov <dlatypov@google.com>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
-	KUnit Development <kunit-dev@googlegroups.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Xu Panda <xu.panda@zte.com.cn>, Zeal Robot <zealci@zte.com.cn>
-Subject: Re: [PATCH linux-next] kunit: tool: use absolute path for wget
-Message-ID: <YyxDtgfeFt4QYVNN@kroah.com>
-References: <20220922083610.235936-1-xu.panda@zte.com.cn>
- <CABVgOSkjmuWDVwOW5PQRAtDYJGjHjcc_8Gg4JjhiT41Kez1rcw@mail.gmail.com>
- <Yyw24J7YFVtxsnJ7@kroah.com>
- <CABVgOSmDn8aVz=LEE6HnLTH8FJ0Civ7gsqejVfhnizFiAWF6jw@mail.gmail.com>
+	id 1obKOG-00F9iN-Mg
+	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 11:29:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1663846152; x=1695382152;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=JQhsh7gBqHUfBJhW9aoKqBxbWOGrBgFZ89Y4CitJufc=;
+  b=kbSFbAG+SOckdR0+dhwUNuuxPpGPhXaVFaUDc0DF3zqjdzb1zlN1STd4
+   qPOJ3nOusfxWZQk2nPQ15aeJOo4zNiitseg3LUoxWub4zUQIBE8ev/r78
+   JeEGJ5tYzu3K2Jc0H16ZTPxTzdx/buP16j//zNzhrPIvJrTCKQNInc12C
+   Qkbp1GytajkFZG0Xo06oASf/fZKaGRD8Odk6FjB+SN/m0u2DzvQQJn4/D
+   jWSwhuJ4ZHGDJanpjmCB7m7haQXIt3CxqfgfkQtFGg7+mwr7rmahMf9ul
+   pB3v/t3RXe/LrYTZsSfUo5Jq9xIoQAZ7iisGWFAuga76DiJic3zXfvVSx
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,335,1654585200"; 
+   d="scan'208";a="114895997"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Sep 2022 04:29:06 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 22 Sep 2022 04:29:06 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Thu, 22 Sep 2022 04:29:04 -0700
+Date: Thu, 22 Sep 2022 12:28:43 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Binglei Wang <l3b2w1@gmail.com>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<naveen.n.rao@linux.ibm.com>, <anil.s.keshavamurthy@intel.com>,
+	<davem@davemloft.net>, <mhiramat@kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] rethook: add riscv rethook implementation.
+Message-ID: <YyxG6wC0mjCUUGDB@wendy>
+References: <20220922040443.605175-1-l3b2w1@gmail.com>
+ <20220922111933.607219-1-l3b2w1@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CABVgOSmDn8aVz=LEE6HnLTH8FJ0Civ7gsqejVfhnizFiAWF6jw@mail.gmail.com>
+In-Reply-To: <20220922111933.607219-1-l3b2w1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220922_041510_967912_848C6D27 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20220922_042912_849354_7C695CAA 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +78,360 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 22, 2022 at 06:50:59PM +0800, David Gow wrote:
-> On Thu, Sep 22, 2022 at 6:20 PM Greg KH <gregkh@linuxfoundation.org> wrote:
-> >
-> > On Thu, Sep 22, 2022 at 06:09:28PM +0800, David Gow wrote:
-> > > On Thu, Sep 22, 2022 at 4:36 PM <cgel.zte@gmail.com> wrote:
-> > > >
-> > > > From: Xu Panda <xu.panda@zte.com.cn>
-> > > >
-> > > > Not using absolute path when invoking wget can lead to serious
-> > > > security issues.
-> > > >
-> > > > Reported-by: Zeal Robot <zealci@zte.com.cn>
-> > > > Signed-off-by: Xu Panda <xu.panda@zte.com.cn>
-> > > > ---
-> > >
-> > > This seems mostly okay to me -- we'd be abandoning people who have
-> > > wget in an unusual location, but I don't think there are many people
-> > > who want to run KUnit under RISC-V, have wget in a non-standard
-> > > location, and can't acquire the bios file themselves.
-> > >
-> > > So this is:
-> > > Reviewed-by: David Gow <davidgow@google.com>
-> >
-> > Please no, at this point in time, submissions from this gmail "alias"
-> > are going to have to be rejected from the kernel.
-> >
-> 
-> Good to know, thanks.
-> 
-> This isn't queued anyway, as I think that getting rid of the code to
-> download the BIOS (and instead relying on the user's distro to provide
-> it) is probably a better solution.s
+On Thu, Sep 22, 2022 at 07:19:33PM +0800, Binglei Wang wrote:
+> From: Binglei Wang <l3b2w1@gmail.com>
+> =
 
-That's a much better solution, we have authenticated firmware download
-paths for BIOS images on Linux now integrated into distros.  Let's use
-that infrastructure that is set up for that for this type of thing.
+> Implement the kretprobes on riscv arch by using rethook machenism
+> which abstracts general kretprobe info into a struct rethook_node
+> to be embedded in the struct kretprobe_instance.
 
-thanks,
+Hey Binglei,
 
-greg k-h
+This is now version 3 of the patch right? You need to run format-patch
+with the -v option so you stop confusing tooling (and humans) as to
+what they are reviewing. Also, your changelog from the other versions is
+missing.
+
+Please take a look at the docs for how to submit subsequent versions:
+https://www.kernel.org/doc/html/latest/process/submitting-patches.html
+
+> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
+
+Previously this was your work email - I suspect it still needs to be
+your work email here. Your work address can still be the author even if
+the mail is not send from that account.
+
+Hope that helps,
+Conor.
+
+> ---
+>  arch/riscv/Kconfig                            |  1 +
+>  arch/riscv/kernel/probes/Makefile             |  1 +
+>  arch/riscv/kernel/probes/kprobes.c            |  8 --
+>  arch/riscv/kernel/probes/kprobes_trampoline.S | 73 +----------------
+>  arch/riscv/kernel/probes/kprobes_trampoline.h | 79 +++++++++++++++++++
+>  arch/riscv/kernel/probes/rethook.c            | 26 ++++++
+>  arch/riscv/kernel/probes/rethook_trampoline.S | 22 ++++++
+>  include/linux/kprobes.h                       |  6 ++
+>  8 files changed, 136 insertions(+), 80 deletions(-)
+>  create mode 100644 arch/riscv/kernel/probes/kprobes_trampoline.h
+>  create mode 100644 arch/riscv/kernel/probes/rethook.c
+>  create mode 100644 arch/riscv/kernel/probes/rethook_trampoline.S
+> =
+
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index ed66c31e4..c5cae0825 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -97,6 +97,7 @@ config RISCV
+>  	select HAVE_KPROBES if !XIP_KERNEL
+>  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+>  	select HAVE_KRETPROBES if !XIP_KERNEL
+> +	select HAVE_RETHOOK if !XIP_KERNEL
+>  	select HAVE_MOVE_PMD
+>  	select HAVE_MOVE_PUD
+>  	select HAVE_PCI
+> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes=
+/Makefile
+> index 7f0840dcc..ee345e7e9 100644
+> --- a/arch/riscv/kernel/probes/Makefile
+> +++ b/arch/riscv/kernel/probes/Makefile
+> @@ -3,4 +3,5 @@ obj-$(CONFIG_KPROBES)		+=3D kprobes.o decode-insn.o simul=
+ate-insn.o
+>  obj-$(CONFIG_KPROBES)		+=3D kprobes_trampoline.o
+>  obj-$(CONFIG_KPROBES_ON_FTRACE)	+=3D ftrace.o
+>  obj-$(CONFIG_UPROBES)		+=3D uprobes.o decode-insn.o simulate-insn.o
+> +obj-$(CONFIG_RETHOOK) 		+=3D rethook.o rethook_trampoline.o
+>  CFLAGS_REMOVE_simulate-insn.o =3D $(CC_FLAGS_FTRACE)
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probe=
+s/kprobes.c
+> index e6e950b7c..04911cc42 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -350,14 +350,6 @@ void __kprobes __used *trampoline_probe_handler(stru=
+ct pt_regs *regs)
+>  	return (void *)kretprobe_trampoline_handler(regs, NULL);
+>  }
+>  =
+
+> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
+> -				      struct pt_regs *regs)
+> -{
+> -	ri->ret_addr =3D (kprobe_opcode_t *)regs->ra;
+> -	ri->fp =3D NULL;
+> -	regs->ra =3D (unsigned long) &__kretprobe_trampoline;
+> -}
+> -
+>  int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+>  {
+>  	return 0;
+> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/k=
+ernel/probes/kprobes_trampoline.S
+> index 7bdb09ded..54937f342 100644
+> --- a/arch/riscv/kernel/probes/kprobes_trampoline.S
+> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
+> @@ -2,78 +2,7 @@
+>  /*
+>   * Author: Patrick St=E4hlin <me@packi.ch>
+>   */
+> -#include <linux/linkage.h>
+> -
+> -#include <asm/asm.h>
+> -#include <asm/asm-offsets.h>
+> -
+> -	.text
+> -	.altmacro
+> -
+> -	.macro save_all_base_regs
+> -	REG_S x1,  PT_RA(sp)
+> -	REG_S x3,  PT_GP(sp)
+> -	REG_S x4,  PT_TP(sp)
+> -	REG_S x5,  PT_T0(sp)
+> -	REG_S x6,  PT_T1(sp)
+> -	REG_S x7,  PT_T2(sp)
+> -	REG_S x8,  PT_S0(sp)
+> -	REG_S x9,  PT_S1(sp)
+> -	REG_S x10, PT_A0(sp)
+> -	REG_S x11, PT_A1(sp)
+> -	REG_S x12, PT_A2(sp)
+> -	REG_S x13, PT_A3(sp)
+> -	REG_S x14, PT_A4(sp)
+> -	REG_S x15, PT_A5(sp)
+> -	REG_S x16, PT_A6(sp)
+> -	REG_S x17, PT_A7(sp)
+> -	REG_S x18, PT_S2(sp)
+> -	REG_S x19, PT_S3(sp)
+> -	REG_S x20, PT_S4(sp)
+> -	REG_S x21, PT_S5(sp)
+> -	REG_S x22, PT_S6(sp)
+> -	REG_S x23, PT_S7(sp)
+> -	REG_S x24, PT_S8(sp)
+> -	REG_S x25, PT_S9(sp)
+> -	REG_S x26, PT_S10(sp)
+> -	REG_S x27, PT_S11(sp)
+> -	REG_S x28, PT_T3(sp)
+> -	REG_S x29, PT_T4(sp)
+> -	REG_S x30, PT_T5(sp)
+> -	REG_S x31, PT_T6(sp)
+> -	.endm
+> -
+> -	.macro restore_all_base_regs
+> -	REG_L x3,  PT_GP(sp)
+> -	REG_L x4,  PT_TP(sp)
+> -	REG_L x5,  PT_T0(sp)
+> -	REG_L x6,  PT_T1(sp)
+> -	REG_L x7,  PT_T2(sp)
+> -	REG_L x8,  PT_S0(sp)
+> -	REG_L x9,  PT_S1(sp)
+> -	REG_L x10, PT_A0(sp)
+> -	REG_L x11, PT_A1(sp)
+> -	REG_L x12, PT_A2(sp)
+> -	REG_L x13, PT_A3(sp)
+> -	REG_L x14, PT_A4(sp)
+> -	REG_L x15, PT_A5(sp)
+> -	REG_L x16, PT_A6(sp)
+> -	REG_L x17, PT_A7(sp)
+> -	REG_L x18, PT_S2(sp)
+> -	REG_L x19, PT_S3(sp)
+> -	REG_L x20, PT_S4(sp)
+> -	REG_L x21, PT_S5(sp)
+> -	REG_L x22, PT_S6(sp)
+> -	REG_L x23, PT_S7(sp)
+> -	REG_L x24, PT_S8(sp)
+> -	REG_L x25, PT_S9(sp)
+> -	REG_L x26, PT_S10(sp)
+> -	REG_L x27, PT_S11(sp)
+> -	REG_L x28, PT_T3(sp)
+> -	REG_L x29, PT_T4(sp)
+> -	REG_L x30, PT_T5(sp)
+> -	REG_L x31, PT_T6(sp)
+> -	.endm
+> +#include "kprobes_trampoline.h"
+>  =
+
+>  ENTRY(__kretprobe_trampoline)
+>  	addi sp, sp, -(PT_SIZE_ON_STACK)
+> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.h b/arch/riscv/k=
+ernel/probes/kprobes_trampoline.h
+> new file mode 100644
+> index 000000000..48895a5e3
+> --- /dev/null
+> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.h
+> @@ -0,0 +1,79 @@
+> +/* SPDX-License-Identifier: GPL-2.0+ */
+> +#ifndef _KPROBES_TRAMPOLINE_H
+> +#define _KPROBES_TRAMPOLINE_H
+> +/*
+> + * Author: Patrick St=E4hlin <me@packi.ch>
+> + */
+> +#include <linux/linkage.h>
+> +
+> +#include <asm/asm.h>
+> +#include <asm/asm-offsets.h>
+> +
+> +	.text
+> +	.altmacro
+> +
+> +	.macro save_all_base_regs
+> +	REG_S x1,  PT_RA(sp)
+> +	REG_S x3,  PT_GP(sp)
+> +	REG_S x4,  PT_TP(sp)
+> +	REG_S x5,  PT_T0(sp)
+> +	REG_S x6,  PT_T1(sp)
+> +	REG_S x7,  PT_T2(sp)
+> +	REG_S x8,  PT_S0(sp)
+> +	REG_S x9,  PT_S1(sp)
+> +	REG_S x10, PT_A0(sp)
+> +	REG_S x11, PT_A1(sp)
+> +	REG_S x12, PT_A2(sp)
+> +	REG_S x13, PT_A3(sp)
+> +	REG_S x14, PT_A4(sp)
+> +	REG_S x15, PT_A5(sp)
+> +	REG_S x16, PT_A6(sp)
+> +	REG_S x17, PT_A7(sp)
+> +	REG_S x18, PT_S2(sp)
+> +	REG_S x19, PT_S3(sp)
+> +	REG_S x20, PT_S4(sp)
+> +	REG_S x21, PT_S5(sp)
+> +	REG_S x22, PT_S6(sp)
+> +	REG_S x23, PT_S7(sp)
+> +	REG_S x24, PT_S8(sp)
+> +	REG_S x25, PT_S9(sp)
+> +	REG_S x26, PT_S10(sp)
+> +	REG_S x27, PT_S11(sp)
+> +	REG_S x28, PT_T3(sp)
+> +	REG_S x29, PT_T4(sp)
+> +	REG_S x30, PT_T5(sp)
+> +	REG_S x31, PT_T6(sp)
+> +	.endm
+> +
+> +	.macro restore_all_base_regs
+> +	REG_L x3,  PT_GP(sp)
+> +	REG_L x4,  PT_TP(sp)
+> +	REG_L x5,  PT_T0(sp)
+> +	REG_L x6,  PT_T1(sp)
+> +	REG_L x7,  PT_T2(sp)
+> +	REG_L x8,  PT_S0(sp)
+> +	REG_L x9,  PT_S1(sp)
+> +	REG_L x10, PT_A0(sp)
+> +	REG_L x11, PT_A1(sp)
+> +	REG_L x12, PT_A2(sp)
+> +	REG_L x13, PT_A3(sp)
+> +	REG_L x14, PT_A4(sp)
+> +	REG_L x15, PT_A5(sp)
+> +	REG_L x16, PT_A6(sp)
+> +	REG_L x17, PT_A7(sp)
+> +	REG_L x18, PT_S2(sp)
+> +	REG_L x19, PT_S3(sp)
+> +	REG_L x20, PT_S4(sp)
+> +	REG_L x21, PT_S5(sp)
+> +	REG_L x22, PT_S6(sp)
+> +	REG_L x23, PT_S7(sp)
+> +	REG_L x24, PT_S8(sp)
+> +	REG_L x25, PT_S9(sp)
+> +	REG_L x26, PT_S10(sp)
+> +	REG_L x27, PT_S11(sp)
+> +	REG_L x28, PT_T3(sp)
+> +	REG_L x29, PT_T4(sp)
+> +	REG_L x30, PT_T5(sp)
+> +	REG_L x31, PT_T6(sp)
+> +	.endm
+> +#endif
+> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probe=
+s/rethook.c
+> new file mode 100644
+> index 000000000..4a41d5eb6
+> --- /dev/null
+> +++ b/arch/riscv/kernel/probes/rethook.c
+> @@ -0,0 +1,26 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Generic return hook for riscv.
+> + */
+> +
+> +#include <linux/kprobes.h>
+> +#include <linux/rethook.h>
+> +
+> +/* This is called from arch_rethook_trampoline() */
+> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *re=
+gs)
+> +{
+> +	return rethook_trampoline_handler(regs, regs->s0);
+> +}
+> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+> +
+> +
+> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs=
+, bool mcount)
+> +{
+> +	rhn->ret_addr =3D regs->ra;
+> +	rhn->frame =3D regs->s0;
+> +
+> +	/* replace return addr with trampoline */
+> +	regs->ra =3D (u64)arch_rethook_trampoline;
+> +}
+> +NOKPROBE_SYMBOL(arch_rethook_prepare);
+> +
+> diff --git a/arch/riscv/kernel/probes/rethook_trampoline.S b/arch/riscv/k=
+ernel/probes/rethook_trampoline.S
+> new file mode 100644
+> index 000000000..e81c3d4e0
+> --- /dev/null
+> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
+> @@ -0,0 +1,22 @@
+> +/* SPDX-License-Identifier: GPL-2.0+ */
+> +/*
+> + * Author: Patrick St=E4hlin <me@packi.ch>
+> + */
+> +#include "kprobes_trampoline.h"
+> +
+> +ENTRY(arch_rethook_trampoline)
+> +	addi sp, sp, -(PT_SIZE_ON_STACK)
+> +	save_all_base_regs
+> +
+> +	move a0, sp /* pt_regs */
+> +
+> +	call arch_rethook_trampoline_callback
+> +
+> +	/* use the result as the return-address */
+> +	move ra, a0
+> +
+> +	restore_all_base_regs
+> +	addi sp, sp, PT_SIZE_ON_STACK
+> +
+> +	ret
+> +ENDPROC(arch_rethook_trampoline)
+> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
+> index 55041d2f8..a3805b5b2 100644
+> --- a/include/linux/kprobes.h
+> +++ b/include/linux/kprobes.h
+> @@ -210,6 +210,12 @@ static nokprobe_inline unsigned long get_kretprobe_r=
+etaddr(struct kretprobe_inst
+>  {
+>  	return ri->node.ret_addr;
+>  }
+> +static nokprobe_inline
+> +unsigned long kretprobe_trampoline_handler(struct pt_regs *regs,
+> +					   void *frame_pointer)
+> +{
+> +	return 0;
+> +}
+>  #else
+>  extern void arch_prepare_kretprobe(struct kretprobe_instance *ri,
+>  				   struct pt_regs *regs);
+> -- =
+
+> 2.27.0
+> =
+
+> =
+
 
 _______________________________________________
 linux-riscv mailing list
