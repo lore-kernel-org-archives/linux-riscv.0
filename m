@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37980C6FA8B
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 10:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3613AC6FA86
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 10:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ctiw46quXcNWY+p8VWsCU7bqu29h74WZeOqcecI9CMM=; b=dX1eCZXYbKoKOS
-	E1/h1ggwoBVaYUBMkkY2d201qJpo+i8LUjj3heCMnj7eyHdo7FVg1737jayQc6N8VZSVY9dpKzaW1
-	j5prwhFb8cE9OlIQsFxUn6LZMGX/4KPBEw+dhmjwHZ7nH36SfbbihOS+NUyxPap39rf6q5ekWCuMk
-	rtDZbifcNxGvgF25wqTgDYDy7Hy+nGRnk8JPsnB/62yywscxGunAXZpE4Mk893G+DCyYo/nEGS1D5
-	M/X+4qJmKUIFPkbOj5/hmoYhiVWt3zvFaAYEXrG4oR08fuAueou2i5cKzw8cmjKVXpr7wolanE/vQ
-	fs1HsO5fZIL8rUxox+gA==;
+	List-Owner; bh=HUM1Q9LrtRNtTuiJDtQSHELIh6PA1gW5SkNj0B80gMM=; b=ew9EliAbX5eLIP
+	ls8JkQArKawJt3Vxk0OWOAoFS0BM9W+22tXB/dUJgCWV9VIhTJnQth3JO/DjydD5g4bQHT7JjJoLQ
+	pCHeHQ8IQLFXpAyiReXLPep+9YNzlDSH+3rBRDk5M+2ZS/oSGaUakeKh4hNNTnoP0/gsysRFV4G6K
+	LwGi1+EQyg7zZYX+fEtHblNeMd2j/kbn0sAAYeHCOBiYHztiJ7DGSZ3NJzS51Q+hFy0Bkviz5rYqx
+	Q3Y0touoz6iPezszTfeqcNIiUlKI0zK2CGBa+hOE3w//2TO6cDHSsFoD9kga8Do5pUu6xYn75su3M
+	QKmnwAF71qzH+qnUjr/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obJNf-00Evey-UV; Thu, 22 Sep 2022 10:24:31 +0000
-Received: from mga06b.intel.com ([134.134.136.31] helo=mga06.intel.com)
+	id 1obJnY-00F1vd-JH; Thu, 22 Sep 2022 10:51:16 +0000
+Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obJNc-00Evcy-Ka
-	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 10:24:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1663842268; x=1695378268;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wvn8y1NXWe3mNIRC9c0nB3nJ7aWEu4HVClH+v0vuDMQ=;
-  b=gcyQgFSOsp/vig2m6PxUlmhxQya4j+hFi3JNtbUtVFsg5I6nVP8kFB8L
-   f/EQ8NAW6l/spB0xLmoT2+o/l/9sC55J6M/T7Vvy6YVS7U6AxnfT8L3Oc
-   VXEkU/vsmMdiIgRi22jguMwxeN86DEvGhNdgtFpXhNMnyGGUngxVTjxoP
-   WV4GbHfqOKWPXR0Mp7pG6qOTo1E5q4wamB/08f66b3wASdACtcolEO+52
-   3d3zT6RyE/X7OVYh7WTdAfqb5ZKQinWi5+Q3SWHawEWkio1dLfnM1/Yyv
-   cBJN5ZuHIiGsHPutGxBM1/SEKBjhOEFqMlW2BEdZ8eCQoCkwALGhobxJm
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10477"; a="362026664"
-X-IronPort-AV: E=Sophos;i="5.93,335,1654585200"; 
-   d="scan'208";a="362026664"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2022 03:24:24 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.93,335,1654585200"; 
-   d="scan'208";a="795032418"
-Received: from lkp-server01.sh.intel.com (HELO c0a60f19fe7e) ([10.239.97.150])
-  by orsmga005.jf.intel.com with ESMTP; 22 Sep 2022 03:24:20 -0700
-Received: from kbuild by c0a60f19fe7e with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1obJNT-0004b8-2H;
-	Thu, 22 Sep 2022 10:24:19 +0000
-Date: Thu, 22 Sep 2022 18:23:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Binglei Wang <l3b2w1@gmail.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	naveen.n.rao@linux.ibm.com, anil.s.keshavamurthy@intel.com,
-	davem@davemloft.net, hiramat@kernel.org
-Cc: kbuild-all@lists.01.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Binglei Wang <l3b2w1@gmail.com>
-Subject: Re: [PATCH] rethook: add riscv rethook implementation.
-Message-ID: <202209221828.DpzmggxE-lkp@intel.com>
-References: <20220922040443.605175-1-l3b2w1@gmail.com>
+	id 1obJnV-00F1uT-M9
+	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 10:51:14 +0000
+Received: by mail-vs1-xe2d.google.com with SMTP id k2so9809273vsk.8
+        for <linux-riscv@lists.infradead.org>; Thu, 22 Sep 2022 03:51:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=+8RVBpvMoPFWmhGcL4H8dYuUDziDEsgkdhPy3XBz2I4=;
+        b=ALXZwDuV3TsTjfRdY2r0nlIayYwKQkpAssa3cAxmHzh9FzEHyxGQJoM8/rFAa0rjWq
+         pjnAg5AUJb2jZRCc0XBK5lc/K3e4n58QS7EfbIApkoV2lHESNKqvd9TaFEzQrfc48vbd
+         wlSVh2GkkPC2rmyZsR3UPcfCIYTgN5JVeLlv2RX6V5tIqo6hugIJAd3e1erxwLljHY7j
+         5yRf4vMzMttEiQAFCpG1mZeB2WQf8tSaPlgUeLsFIlcm8ALSevfBh+oDCj3FH3/u5xcO
+         M/uwg+9E2b8LN1MeN6YJma7VTwCVcZo7L8PggzNdqcKu4py2kew8N3TnAgkeS/8W6ujF
+         p//w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=+8RVBpvMoPFWmhGcL4H8dYuUDziDEsgkdhPy3XBz2I4=;
+        b=UQfUdhx53TpmOahYvnKX0+96UlHT6Hz3lLxWj+2EzSiJSpNcsK9tOXYhUs1wGxzfx5
+         gXDHK+0CkguUA6cLgAb2Gw7Yu5NFgTWFQDCQuKe6EXftzGUPqbIQmoCrVNCLaD2wfp/i
+         bg4jewVoAodPs4J5BfrSFa3FN0T7ze74LeEwDL7uQ5PuJh7R5ev0xLa7Yg0z9eRL098K
+         I1LkB157j5kgEC3hEFDYKlVfIJ+1EmivTodR6tYVeKNB78AOkolw3Kks3HZes3Ac2cIv
+         GCpk4ZESXl4WyIdIMM6WERQn/2zRuKRaL4ldI7x3x7cGLSmTkxIjuPQvnBjM8NiLvZ2r
+         YbgQ==
+X-Gm-Message-State: ACrzQf2CBM5CAB3t/nsA9dai8uNSP9ktQOt6ozOkHIoLHM3IP0KqVJCh
+	M9u7MZH0bL8ah/Z/I7bi8fw8xcrZSW1LvKHpbM4KlA==
+X-Google-Smtp-Source: AMsMyM5ux/GTkwPJINb2jtUbdLbNx0AxJBCoraABepK6fxresVoILEuZIdOMa7gE8zQETeOy6f8ctYKKFt9G9jS7mFw=
+X-Received: by 2002:a67:d211:0:b0:398:3cfd:5a34 with SMTP id
+ y17-20020a67d211000000b003983cfd5a34mr899669vsi.35.1663843870401; Thu, 22 Sep
+ 2022 03:51:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220922040443.605175-1-l3b2w1@gmail.com>
+References: <20220922083610.235936-1-xu.panda@zte.com.cn> <CABVgOSkjmuWDVwOW5PQRAtDYJGjHjcc_8Gg4JjhiT41Kez1rcw@mail.gmail.com>
+ <Yyw24J7YFVtxsnJ7@kroah.com>
+In-Reply-To: <Yyw24J7YFVtxsnJ7@kroah.com>
+From: David Gow <davidgow@google.com>
+Date: Thu, 22 Sep 2022 18:50:59 +0800
+Message-ID: <CABVgOSmDn8aVz=LEE6HnLTH8FJ0Civ7gsqejVfhnizFiAWF6jw@mail.gmail.com>
+Subject: Re: [PATCH linux-next] kunit: tool: use absolute path for wget
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: cgel.zte@gmail.com, Brendan Higgins <brendan.higgins@linux.dev>, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	Shuah Khan <skhan@linuxfoundation.org>, Daniel Latypov <dlatypov@google.com>, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
+	KUnit Development <kunit-dev@googlegroups.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Xu Panda <xu.panda@zte.com.cn>, 
+	Zeal Robot <zealci@zte.com.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220922_032428_784296_CC9873F2 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20220922_035113_739491_7DEA0CEF 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,70 +90,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Binglei,
+On Thu, Sep 22, 2022 at 6:20 PM Greg KH <gregkh@linuxfoundation.org> wrote:
+>
+> On Thu, Sep 22, 2022 at 06:09:28PM +0800, David Gow wrote:
+> > On Thu, Sep 22, 2022 at 4:36 PM <cgel.zte@gmail.com> wrote:
+> > >
+> > > From: Xu Panda <xu.panda@zte.com.cn>
+> > >
+> > > Not using absolute path when invoking wget can lead to serious
+> > > security issues.
+> > >
+> > > Reported-by: Zeal Robot <zealci@zte.com.cn>
+> > > Signed-off-by: Xu Panda <xu.panda@zte.com.cn>
+> > > ---
+> >
+> > This seems mostly okay to me -- we'd be abandoning people who have
+> > wget in an unusual location, but I don't think there are many people
+> > who want to run KUnit under RISC-V, have wget in a non-standard
+> > location, and can't acquire the bios file themselves.
+> >
+> > So this is:
+> > Reviewed-by: David Gow <davidgow@google.com>
+>
+> Please no, at this point in time, submissions from this gmail "alias"
+> are going to have to be rejected from the kernel.
+>
 
-Thank you for the patch! Yet something to improve:
+Good to know, thanks.
 
-[auto build test ERROR on rostedt-trace/for-next]
-[also build test ERROR on linus/master v6.0-rc6 next-20220921]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This isn't queued anyway, as I think that getting rid of the code to
+download the BIOS (and instead relying on the user's distro to provide
+it) is probably a better solution.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Binglei-Wang/rethook-add-riscv-rethook-implementation/20220922-120748
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git for-next
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20220922/202209221828.DpzmggxE-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 12.1.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/3f86f610d114317cd7f7a7a1c9116fa0b916667a
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Binglei-Wang/rethook-add-riscv-rethook-implementation/20220922-120748
-        git checkout 3f86f610d114317cd7f7a7a1c9116fa0b916667a
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=s390 SHELL=/bin/bash arch/s390/
-
-If you fix the issue, kindly add following tag where applicable
-| Reported-by: kernel test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/s390/kernel/kprobes.c:13:
-   include/linux/kprobes.h: In function 'arch_prepare_kretprobe':
-   include/linux/kprobes.h:225:47: error: 'struct pt_regs' has no member named 'ra'
-     225 |         ri->ret_addr = (kprobe_opcode_t *)regs->ra;
-         |                                               ^~
-   include/linux/kprobes.h:227:13: error: 'struct pt_regs' has no member named 'ra'
-     227 |         regs->ra = (unsigned long) &__kretprobe_trampoline;
-         |             ^~
-   arch/s390/kernel/kprobes.c: At top level:
->> arch/s390/kernel/kprobes.c:285:6: error: redefinition of 'arch_prepare_kretprobe'
-     285 | void arch_prepare_kretprobe(struct kretprobe_instance *ri, struct pt_regs *regs)
-         |      ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/kprobes.h:222:29: note: previous definition of 'arch_prepare_kretprobe' with type 'void(struct kretprobe_instance *, struct pt_regs *)'
-     222 | static nokprobe_inline void arch_prepare_kretprobe(struct kretprobe_instance *ri,
-         |                             ^~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +/arch_prepare_kretprobe +285 arch/s390/kernel/kprobes.c
-
-4ba069b802c29e Michael Grundy   2006-09-20  284  
-7a5388de5c70f7 Heiko Carstens   2014-10-22 @285  void arch_prepare_kretprobe(struct kretprobe_instance *ri, struct pt_regs *regs)
-4ba069b802c29e Michael Grundy   2006-09-20  286  {
-4ba069b802c29e Michael Grundy   2006-09-20  287  	ri->ret_addr = (kprobe_opcode_t *)regs->gprs[14];
-09bc20c8fb35cf Vasily Gorbik    2022-03-05  288  	ri->fp = (void *)regs->gprs[15];
-4ba069b802c29e Michael Grundy   2006-09-20  289  
-4ba069b802c29e Michael Grundy   2006-09-20  290  	/* Replace the return addr with trampoline addr */
-adf8a61a940c49 Masami Hiramatsu 2021-09-14  291  	regs->gprs[14] = (unsigned long)&__kretprobe_trampoline;
-4ba069b802c29e Michael Grundy   2006-09-20  292  }
-7a5388de5c70f7 Heiko Carstens   2014-10-22  293  NOKPROBE_SYMBOL(arch_prepare_kretprobe);
-4ba069b802c29e Michael Grundy   2006-09-20  294  
-
--- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+Cheers,
+-- David
 
 _______________________________________________
 linux-riscv mailing list
