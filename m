@@ -4,73 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB3EC54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 15:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8126C54EE9
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 15:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mPIVPkZVqPk0NQMqYdz+LafAQhTQLHgSr1PuaFmEdI0=; b=ZAbMTfONRcbUofrTSCl8ip6fu5
-	DHuSh+WdBG7DIPIY/JEm+8S2o3Ziwk0Xd5dhgO/623mo+05jx2OmUihbKxbUunMPQ2MwM9oHhx4aR
-	JJer4e2KtlPcM6Q8Br3Vu0ht4nBr5T5sUFINwIGGGi+SljfsuxS/kdZDxuQxLGKU42i1RjMYdXR4+
-	ZxkfHdsAlA+gaOPBcldu0Kj30bhsroyF7kGtPnRdM4j498tZBKri3agnU4K+fAn7I1KfwyoP5+4F5
-	aQg+Gp9gz0U5UmEx9a+7tfEAHUsgADnzBfgefB6ejVip7SMcQCkVGGtaRasRK+gXRRQtfLSZKbjoO
-	l4qL8UOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TaR+LUKtPxPWSxo6wqpGaIw0Uyffs3szAXIL7PHaBX4=; b=lmrqY1II9OdxIA
+	ww1zylC1ktsoca6AmDPjaBqNGbRlfhY4YruCvpTRCWPOgIWAPTCEVEhUR1J3KhmjA92RwJw5XwLYM
+	S0BBRYuVf/KjgPPh6Y4yDUs4HlwtN0/6YS+GuqzO30hY2pfRJvLujbt3+Ji4+SfusaXnd1gjC//QB
+	OYmu9Of4U8A2v00tIB/30ekhnnYZIaCv99vBf4+x5cl0t2mzZ+BU/Q2mwAI+azo884aWSbE2GHtDh
+	PzBFPdgEGk0LlHNVbbL9ig3fqDh04SCz8J+xDmDkhH3x76AvTiViOuaRWGVbvNtmabA5Epb4vV6yK
+	2saEcd+yezO2/z51TLGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obOHT-00GUT0-2c; Thu, 22 Sep 2022 15:38:27 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1obOO4-00GWWu-5S; Thu, 22 Sep 2022 15:45:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obOHO-00GUOs-Ji
-	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 15:38:24 +0000
-Received: by mail-pf1-x436.google.com with SMTP id l65so9674381pfl.8
-        for <linux-riscv@lists.infradead.org>; Thu, 22 Sep 2022 08:38:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=bpjfOYoSv5A6ltTE7bNci0zPUSIImgNT09jU6d0SQCY=;
-        b=5XEfETonWRqUU8glWzlRm/sbdymypgb4T4/KABba0eLUH9DgFQhH0tR6oq/aop6KXF
-         iKe2rycdbJ8E8cXfnWA+HzXCdrsYTW5B8+RstwYrSDvTVk2/o9bPqdM0a45NDztTP4Sy
-         lO00h9DzgGjpWHk5e3CyQZJwMRECMGHNL+Cx3FdJYZdCLMNNIg2IABrGGUwBfQThjqmO
-         cokoE1cpLsdWIEa+ucazfPOBhtVNy79aH/xlAGEyYGqTZ8EV/yNxsEQI2q20xXusmkyN
-         gjNy0NeuhJCVxwn5y4xacrDeGDS9+1IKYAeCoIxcaC0LN2jD/KU8/kplV1WnERMU5QOM
-         eqyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=bpjfOYoSv5A6ltTE7bNci0zPUSIImgNT09jU6d0SQCY=;
-        b=dUNnyXI1tKxec3pk2gGCjdEBThcLnmfQ1+3qPX2DgW1N1znI3xS22IyZBf4d+RPOjG
-         ZeHlXEtTTn5jU1CxHzAg57ciwkgF8zpEtb7VyDB3FVyZVzur/gVhHlfDpctluhXapjKe
-         yB1TGoe2C5W3vkqAsy0Qgo5vjwFjphaiFp8KqTx2OLFEo4kffemGTzTNNReuMNe83FUm
-         YM/KmxsYhWO81oAW+GQN7HxAc6rvsM2+JIgKt0nXC4WYAsYubbTGn2pOOEqU6VkFfzB0
-         5WS3T6bgOQ3s6o2t5qwHaVlVBrQ1MNfcNyWwDn1A2llGNYdMAvVEf4kSs/zGdtoCETmX
-         FAlA==
-X-Gm-Message-State: ACrzQf1eDvEl1Ye45CNO9ppFRBISQG2S7I55F8heSVMJXWRUy75AszBl
-	qQlnGjwClBGxUscRfb/cSONZ5w==
-X-Google-Smtp-Source: AMsMyM7Zk2CJzOZjp+VesXJCUeo2jTgARi52Kcn17gjYRAXAH55ccF2lqk1CRi69bs6e1WgPAXrEhw==
-X-Received: by 2002:a63:ff50:0:b0:439:ae51:503c with SMTP id s16-20020a63ff50000000b00439ae51503cmr3630015pgk.158.1663861095015;
-        Thu, 22 Sep 2022 08:38:15 -0700 (PDT)
-Received: from localhost (pop.92-184-98-183.mobile.abo.orange.fr. [92.184.98.183])
-        by smtp.gmail.com with ESMTPSA id d18-20020a170902ced200b001783f964fe3sm4273668plg.113.2022.09.22.08.38.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Sep 2022 08:38:14 -0700 (PDT)
-Date: Thu, 22 Sep 2022 08:38:14 -0700 (PDT)
-X-Google-Original-Date: Thu, 22 Sep 2022 08:31:47 PDT (-0700)
-Subject: Re: [PATCH -next] scv:=20errata:=20fix=20=E2=80=98riscv?= Fcbom=5Fblock=5Fsize=E2=80=99=20variable=20undeclared?=
-In-Reply-To: <20220919094426.860040-1-zengheng4@huawei.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  Stephen Rothwell <sfr@canb.auug.org.au>, linux-riscv@lists.infradead.org, liwei391@huawei.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zengheng4@huawei.com
-Message-ID: <mhng-10f7d57a-1cbb-4dce-bf43-513ff8814639@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1obOO1-00GWVD-Ma
+	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 15:45:15 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1obONw-00085T-PU; Thu, 22 Sep 2022 17:45:08 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>
+Cc: Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, Dao Lu <daolu@rivosinc.com>, Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+Date: Thu, 22 Sep 2022 17:45:07 +0200
+Message-ID: <2546376.ElGaqSPkdT@phil>
+In-Reply-To: <20220922060958.44203-1-samuel@sholland.org>
+References: <20220922060958.44203-1-samuel@sholland.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220922_083822_874287_C220C78D 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20220922_084513_768533_AAB2A2AD 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +53,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxOSBTZXAgMjAyMiAwMjo0NDoyNSBQRFQgKC0wNzAwKSwgemVuZ2hlbmc0QGh1YXdl
-aS5jb20gd3JvdGU6Cj4gYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJyYXRhLmM6IEluIGZ1bmN0
-aW9uIOKAmGVycmF0YV9wcm9iZV9jbW/igJk6Cj4gYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJy
-YXRhLmM6NDA6MjogZXJyb3I6IOKAmHJpc2N2X2Nib21fYmxvY2tfc2l6ZeKAmSB1bmRlY2xhcmVk
-IChmaXJzdCB1c2UgaW4gdGhpcyBmdW5jdGlvbik7IGRpZCB5b3UgbWVhbiDigJhyaXNjdl9pbml0
-X2Nib21fYmxvY2tzaXpl4oCZPwo+ICAgIDQwIHwgIHJpc2N2X2Nib21fYmxvY2tfc2l6ZSA9IEwx
-X0NBQ0hFX0JZVEVTOwo+ICAgICAgIHwgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fgo+ICAgICAgIHwg
-IHJpc2N2X2luaXRfY2JvbV9ibG9ja3NpemUKPgo+ICdyaXNjdl9jYm9tX2Jsb2NrX3NpemUnIHZh
-cmlhYmxlIHNob3VsZCBiZSBkZWNsYXJlZAo+IHdpdGhvdXQgdGhlIGxpbWl0YXRpb24gd2hldGhl
-ciBDT05GSUdfUklTQ1ZfSVNBX1pJQ0JPTQo+IGlzIGVuYWJsZWQgb3Igbm90LgoKVGhhbmtzLCBi
-dXQgYW5vdGhlciB2ZXJzaW9uIG9mIHRoaXMgaXMgYWxyZWFkeSBvbiBmaXhlcy4KCj4KPiBTaWdu
-ZWQtb2ZmLWJ5OiBaZW5nIEhlbmcgPHplbmdoZW5nNEBodWF3ZWkuY29tPgo+IC0tLQo+ICBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaCB8IDIgKy0KPiAgMSBmaWxlIGNoYW5nZWQs
-IDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hl
-Zmx1c2guaAo+IGluZGV4IGE4OWMwMDViNGJiZi4uN2VjNjAwYTcxNjM0IDEwMDY0NAo+IC0tLSBh
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2FjaGVmbHVzaC5oCj4gKysrIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiBAQCAtNDIsOCArNDIsOCBAQCB2b2lkIGZsdXNoX2lj
-YWNoZV9tbShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgYm9vbCBsb2NhbCk7Cj4KPiAgI2VuZGlmIC8q
-IENPTkZJR19TTVAgKi8KPgo+IC0jaWZkZWYgQ09ORklHX1JJU0NWX0lTQV9aSUNCT00KPiAgZXh0
-ZXJuIHVuc2lnbmVkIGludCByaXNjdl9jYm9tX2Jsb2NrX3NpemU7Cj4gKyNpZmRlZiBDT05GSUdf
-UklTQ1ZfSVNBX1pJQ0JPTQo+ICB2b2lkIHJpc2N2X2luaXRfY2JvbV9ibG9ja3NpemUodm9pZCk7
-Cj4gICNlbHNlCj4gIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl9pbml0X2Nib21fYmxvY2tzaXpl
-KHZvaWQpIHsgfQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+Am Donnerstag, 22. September 2022, 08:09:58 CEST schrieb Samuel Holland:
+> commit 8eb060e10185 ("arch/riscv: add Zihintpause support") broke
+> building with CONFIG_CC_OPTIMIZE_FOR_SIZE enabled (gcc 11.1.0):
+> 
+>   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> In file included from <command-line>:
+> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
+> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0 probably does not match constraints
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> ././include/linux/compiler_types.h:285:33: error: impossible constraint in 'asm'
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> make[1]: *** [scripts/Makefile.build:249: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
+> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
+> 
+> Having a static branch in cpu_relax() is problematic because that
+> function is widely inlined, including in some quite complex functions
+> like in the VDSO. A quick measurement shows this static branch is
+> responsible by itself for around 40% of the jump table.
+> 
+> Drop the static branch, which ends up being the same number of
+> instructions anyway. If Zihintpause is supported, we trade the nop from
+> the static branch for a div. If Zihintpause is unsupported, we trade the
+> jump from the static branch for (what gets interpreted as) a nop.
+> 
+> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+>  arch/riscv/include/asm/hwcap.h          |  3 ---
+>  arch/riscv/include/asm/vdso/processor.h | 25 ++++++++++---------------
+>  2 files changed, 10 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 6f59ec64175e..b21d46e68386 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -68,7 +68,6 @@ enum riscv_isa_ext_id {
+>   */
+>  enum riscv_isa_ext_key {
+>  	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+> -	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>  	RISCV_ISA_EXT_KEY_MAX,
+>  };
+>  
+> @@ -88,8 +87,6 @@ static __always_inline int riscv_isa_ext2key(int num)
+>  		return RISCV_ISA_EXT_KEY_FPU;
+>  	case RISCV_ISA_EXT_d:
+>  		return RISCV_ISA_EXT_KEY_FPU;
+> -	case RISCV_ISA_EXT_ZIHINTPAUSE:
+> -		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>  	default:
+>  		return -EINVAL;
+>  	}
+> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+> index 1e4f8b4aef79..789bdb8211a2 100644
+> --- a/arch/riscv/include/asm/vdso/processor.h
+> +++ b/arch/riscv/include/asm/vdso/processor.h
+> @@ -4,30 +4,25 @@
+>  
+>  #ifndef __ASSEMBLY__
+>  
+> -#include <linux/jump_label.h>
+>  #include <asm/barrier.h>
+> -#include <asm/hwcap.h>
+>  
+>  static inline void cpu_relax(void)
+>  {
+> -	if (!static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_ZIHINTPAUSE])) {
+>  #ifdef __riscv_muldiv
+> -		int dummy;
+> -		/* In lieu of a halt instruction, induce a long-latency stall. */
+> -		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+> +	int dummy;
+> +	/* In lieu of a halt instruction, induce a long-latency stall. */
+> +	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+>  #endif
+> -	} else {
+> -		/*
+> -		 * Reduce instruction retirement.
+> -		 * This assumes the PC changes.
+> -		 */
+> +	/*
+> +	 * Reduce instruction retirement.
+> +	 * This assumes the PC changes.
+> +	 */
+>  #ifdef __riscv_zihintpause
+> -		__asm__ __volatile__ ("pause");
+> +	__asm__ __volatile__ ("pause");
+>  #else
+> -		/* Encoding of the pause instruction */
+> -		__asm__ __volatile__ (".4byte 0x100000F");
+> +	/* Encoding of the pause instruction */
+> +	__asm__ __volatile__ (".4byte 0x100000F");
+>  #endif
+
+hmm, though before this part of the code was only ever accessed
+when the zhintpause extension was really available on the running
+machine while now the pause instruction is called every time.
+
+So I'm just wondering, can't this run into some "illegal instruction"
+thingy on machines not supporting the extension?
+
+Heiko
+
+> -	}
+>  	barrier();
+>  }
+>  
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
