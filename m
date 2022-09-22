@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78378C54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 11:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D2DC6FA82
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Sep 2022 12:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oWHa9/A6QIq+xfm6Avqm/EVFW6HRpMBk0y4AlGJVd2Q=; b=iLVatSgx1D07Dm
-	DqKArVVIfnW6xnaSjecBBi0bnOyBrq4STPV1Q7PLE5/6BrvqtusKpHpG5aB5ULJicl7WOtFAPcdHv
-	i41p0r8WWVqdG13oMw/rmqXYlFx3K5l2MKs7U3MPUyU+neWu0LxlImkEBaCDKaByoBSF+jGeJn/cV
-	W9uQCEgANTKU3EdU6s3XJzKHsJl9gIHtytJedGXYe9x1pgIZ06iacOit2Z20FDDq5y1g8iQqQOPei
-	2EppzXlliL3jIBFsnAKseXvmBNpydE/rlPPjNez6gjcjYFcWeNIl7CTKVTXAcUDzJ5Lnv1cnpiRMb
-	jZOrOjtKN2HGkSvJSo8Q==;
+	List-Owner; bh=SVuGaE6IDwFUQoEQGBpD/9kBHDbPMp3oQcf6dT3ZPrE=; b=Nc8+wFNez0kyqE
+	z4ZS65E2HacpVchU8tUpoC4Im6+W+nf/beL2DwRKYmT87RWaTZO7FuvK0aYi7gTrLiXx70WBK5mCK
+	PYbmGm4GMZ2fBfeHQ1QD840zi2+OoF3AAVjvtMGSD3gWlSsLeuftOMXAl8Mk4s+jbYhkAZjw4QS8t
+	xLbWp1oORs5tM4sSbirX2BoE5n8hndWMH2G69d5Fc1V9ww2oaj32e4N8J/FUoYm5cOJ6UmTbZ/Rd7
+	0XiFIHgOu/nLnmTcnuYc2HC+y9Fukdk9SNBfDAXbwqs9UdeGZrmyhSIr3iz6333iU4ZJN8SMJR/vV
+	PPGodYVnoDT4sbH2QJ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obKOK-00F9jN-Gd; Thu, 22 Sep 2022 11:29:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1obL8m-00FM0a-Mz; Thu, 22 Sep 2022 12:17:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obKOG-00F9iN-Mg
-	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 11:29:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1663846152; x=1695382152;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=JQhsh7gBqHUfBJhW9aoKqBxbWOGrBgFZ89Y4CitJufc=;
-  b=kbSFbAG+SOckdR0+dhwUNuuxPpGPhXaVFaUDc0DF3zqjdzb1zlN1STd4
-   qPOJ3nOusfxWZQk2nPQ15aeJOo4zNiitseg3LUoxWub4zUQIBE8ev/r78
-   JeEGJ5tYzu3K2Jc0H16ZTPxTzdx/buP16j//zNzhrPIvJrTCKQNInc12C
-   Qkbp1GytajkFZG0Xo06oASf/fZKaGRD8Odk6FjB+SN/m0u2DzvQQJn4/D
-   jWSwhuJ4ZHGDJanpjmCB7m7haQXIt3CxqfgfkQtFGg7+mwr7rmahMf9ul
-   pB3v/t3RXe/LrYTZsSfUo5Jq9xIoQAZ7iisGWFAuga76DiJic3zXfvVSx
-   w==;
-X-IronPort-AV: E=Sophos;i="5.93,335,1654585200"; 
-   d="scan'208";a="114895997"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Sep 2022 04:29:06 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 22 Sep 2022 04:29:06 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 22 Sep 2022 04:29:04 -0700
-Date: Thu, 22 Sep 2022 12:28:43 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Binglei Wang <l3b2w1@gmail.com>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<naveen.n.rao@linux.ibm.com>, <anil.s.keshavamurthy@intel.com>,
-	<davem@davemloft.net>, <mhiramat@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] rethook: add riscv rethook implementation.
-Message-ID: <YyxG6wC0mjCUUGDB@wendy>
-References: <20220922040443.605175-1-l3b2w1@gmail.com>
- <20220922111933.607219-1-l3b2w1@gmail.com>
+	id 1obL8i-00FLzE-JO
+	for linux-riscv@lists.infradead.org; Thu, 22 Sep 2022 12:17:14 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0DF0F60EBA;
+	Thu, 22 Sep 2022 12:17:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E881DC43141;
+	Thu, 22 Sep 2022 12:17:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663849030;
+	bh=a6JDj92h4ZSv3d2J6QFlrqQM09V4BjuUQX8oFHndpVc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Rq62sEsJ/0KaMF/543icgWoLEyrjnehcpCEa9IUzQ+fZwXssz4Nnj6N1vqTQR8rNO
+	 VwrXIcoy1ZmmUuTF6kK1z+RC7UKdWqg9YZimDetM4mZK9E5m/sOjBLLWnE5yyEb5ng
+	 tLtmWh429O1zaNZ9atBa5fektJIwQsd4P0ZmkezIcLOgrhmtU6t+Rg0BitltCkND3T
+	 AidNmvwe7Ir96tnjJvjWpNKCFz/ejAT9NZfT+aXbc8RXiQYOoR5tDg2sbPPddcs1KY
+	 y9GHugwV8xF3g34gt9r5WT2V55PA7c/St37IrHGCeQ3PmPbUGqXq3sgH+ernZGxjyO
+	 gSAYp5G29jH3g==
+Date: Thu, 22 Sep 2022 20:07:44 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	guoren@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: vdso: fix NULL deference in vdso_join_timens()
+ when vfork
+Message-ID: <YyxQEOheUORzBLBX@xhacker>
+References: <20220908150421.323-1-jszhang@kernel.org>
+ <mhng-25f0a2ef-5eea-4567-95ff-438c2285c7ee@palmer-ri-x1c9>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220922111933.607219-1-l3b2w1@gmail.com>
+In-Reply-To: <mhng-25f0a2ef-5eea-4567-95ff-438c2285c7ee@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220922_042912_849354_7C695CAA 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20220922_051712_769409_4C1E224F 
+X-CRM114-Status: GOOD (  43.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,360 +70,407 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 22, 2022 at 07:19:33PM +0800, Binglei Wang wrote:
-> From: Binglei Wang <l3b2w1@gmail.com>
-> =
+On Thu, Sep 15, 2022 at 11:02:19AM -0700, Palmer Dabbelt wrote:
+> On Thu, 08 Sep 2022 08:04:21 PDT (-0700), jszhang@kernel.org wrote:
+> > Testing tools/testing/selftests/timens/vfork_exec.c got below
+> > kernel log:
+> > 
+> > [    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
+> > [    6.842255] Oops [#1]
+> > [    6.842871] Modules linked in:
+> > [    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
+> > [    6.845861] Hardware name: riscv-virtio,qemu (DT)
+> > [    6.848009] epc : vdso_join_timens+0xd2/0x110
+> > [    6.850097]  ra : vdso_join_timens+0xd2/0x110
+> > [    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
+> > [    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
+> > [    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
+> > [    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
+> > [    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
+> > [    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
+> > [    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
+> > [    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
+> > [    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
+> > [    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
+> > [    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
+> > [    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
+> > [    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
+> > [    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
+> > [    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
+> > [    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
+> > [    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
+> > [    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
+> > [    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
+> > [    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
+> > [    6.877484] ---[ end trace 0000000000000000 ]---
+> > 
+> > This is because the mm->context.vdso_info is NULL in vfork case. From
+> > another side, mm->context.vdso_info either points to vdso info
+> > for RV64 or vdso info for compat, there's no need to bloat riscv's
+> > mm_context_t, we can handle the difference when setup the additional
+> > page for vdso.
+> 
+> Makes sense, but I think there's a lot more diff here than we need in order
 
-> Implement the kretprobes on riscv arch by using rethook machenism
-> which abstracts general kretprobe info into a struct rethook_node
-> to be embedded in the struct kretprobe_instance.
+The reason of "a lot more diff" is moving the code to avoid forward declaration.
+If you prefer smaller fix, I can provide a simpler one w/ forware
+declaration. And provide a new clean up patch for next window, what do you
+think?
 
-Hey Binglei,
-
-This is now version 3 of the patch right? You need to run format-patch
-with the -v option so you stop confusing tooling (and humans) as to
-what they are reviewing. Also, your changelog from the other versions is
-missing.
-
-Please take a look at the docs for how to submit subsequent versions:
-https://www.kernel.org/doc/html/latest/process/submitting-patches.html
-
-> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
-
-Previously this was your work email - I suspect it still needs to be
-your work email here. Your work address can still be the author even if
-the mail is not send from that account.
-
-Hope that helps,
-Conor.
-
-> ---
->  arch/riscv/Kconfig                            |  1 +
->  arch/riscv/kernel/probes/Makefile             |  1 +
->  arch/riscv/kernel/probes/kprobes.c            |  8 --
->  arch/riscv/kernel/probes/kprobes_trampoline.S | 73 +----------------
->  arch/riscv/kernel/probes/kprobes_trampoline.h | 79 +++++++++++++++++++
->  arch/riscv/kernel/probes/rethook.c            | 26 ++++++
->  arch/riscv/kernel/probes/rethook_trampoline.S | 22 ++++++
->  include/linux/kprobes.h                       |  6 ++
->  8 files changed, 136 insertions(+), 80 deletions(-)
->  create mode 100644 arch/riscv/kernel/probes/kprobes_trampoline.h
->  create mode 100644 arch/riscv/kernel/probes/rethook.c
->  create mode 100644 arch/riscv/kernel/probes/rethook_trampoline.S
-> =
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index ed66c31e4..c5cae0825 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -97,6 +97,7 @@ config RISCV
->  	select HAVE_KPROBES if !XIP_KERNEL
->  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
->  	select HAVE_KRETPROBES if !XIP_KERNEL
-> +	select HAVE_RETHOOK if !XIP_KERNEL
->  	select HAVE_MOVE_PMD
->  	select HAVE_MOVE_PUD
->  	select HAVE_PCI
-> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes=
-/Makefile
-> index 7f0840dcc..ee345e7e9 100644
-> --- a/arch/riscv/kernel/probes/Makefile
-> +++ b/arch/riscv/kernel/probes/Makefile
-> @@ -3,4 +3,5 @@ obj-$(CONFIG_KPROBES)		+=3D kprobes.o decode-insn.o simul=
-ate-insn.o
->  obj-$(CONFIG_KPROBES)		+=3D kprobes_trampoline.o
->  obj-$(CONFIG_KPROBES_ON_FTRACE)	+=3D ftrace.o
->  obj-$(CONFIG_UPROBES)		+=3D uprobes.o decode-insn.o simulate-insn.o
-> +obj-$(CONFIG_RETHOOK) 		+=3D rethook.o rethook_trampoline.o
->  CFLAGS_REMOVE_simulate-insn.o =3D $(CC_FLAGS_FTRACE)
-> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probe=
-s/kprobes.c
-> index e6e950b7c..04911cc42 100644
-> --- a/arch/riscv/kernel/probes/kprobes.c
-> +++ b/arch/riscv/kernel/probes/kprobes.c
-> @@ -350,14 +350,6 @@ void __kprobes __used *trampoline_probe_handler(stru=
-ct pt_regs *regs)
->  	return (void *)kretprobe_trampoline_handler(regs, NULL);
->  }
->  =
-
-> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
-> -				      struct pt_regs *regs)
-> -{
-> -	ri->ret_addr =3D (kprobe_opcode_t *)regs->ra;
-> -	ri->fp =3D NULL;
-> -	regs->ra =3D (unsigned long) &__kretprobe_trampoline;
-> -}
-> -
->  int __kprobes arch_trampoline_kprobe(struct kprobe *p)
->  {
->  	return 0;
-> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/k=
-ernel/probes/kprobes_trampoline.S
-> index 7bdb09ded..54937f342 100644
-> --- a/arch/riscv/kernel/probes/kprobes_trampoline.S
-> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
-> @@ -2,78 +2,7 @@
->  /*
->   * Author: Patrick St=E4hlin <me@packi.ch>
->   */
-> -#include <linux/linkage.h>
-> -
-> -#include <asm/asm.h>
-> -#include <asm/asm-offsets.h>
-> -
-> -	.text
-> -	.altmacro
-> -
-> -	.macro save_all_base_regs
-> -	REG_S x1,  PT_RA(sp)
-> -	REG_S x3,  PT_GP(sp)
-> -	REG_S x4,  PT_TP(sp)
-> -	REG_S x5,  PT_T0(sp)
-> -	REG_S x6,  PT_T1(sp)
-> -	REG_S x7,  PT_T2(sp)
-> -	REG_S x8,  PT_S0(sp)
-> -	REG_S x9,  PT_S1(sp)
-> -	REG_S x10, PT_A0(sp)
-> -	REG_S x11, PT_A1(sp)
-> -	REG_S x12, PT_A2(sp)
-> -	REG_S x13, PT_A3(sp)
-> -	REG_S x14, PT_A4(sp)
-> -	REG_S x15, PT_A5(sp)
-> -	REG_S x16, PT_A6(sp)
-> -	REG_S x17, PT_A7(sp)
-> -	REG_S x18, PT_S2(sp)
-> -	REG_S x19, PT_S3(sp)
-> -	REG_S x20, PT_S4(sp)
-> -	REG_S x21, PT_S5(sp)
-> -	REG_S x22, PT_S6(sp)
-> -	REG_S x23, PT_S7(sp)
-> -	REG_S x24, PT_S8(sp)
-> -	REG_S x25, PT_S9(sp)
-> -	REG_S x26, PT_S10(sp)
-> -	REG_S x27, PT_S11(sp)
-> -	REG_S x28, PT_T3(sp)
-> -	REG_S x29, PT_T4(sp)
-> -	REG_S x30, PT_T5(sp)
-> -	REG_S x31, PT_T6(sp)
-> -	.endm
-> -
-> -	.macro restore_all_base_regs
-> -	REG_L x3,  PT_GP(sp)
-> -	REG_L x4,  PT_TP(sp)
-> -	REG_L x5,  PT_T0(sp)
-> -	REG_L x6,  PT_T1(sp)
-> -	REG_L x7,  PT_T2(sp)
-> -	REG_L x8,  PT_S0(sp)
-> -	REG_L x9,  PT_S1(sp)
-> -	REG_L x10, PT_A0(sp)
-> -	REG_L x11, PT_A1(sp)
-> -	REG_L x12, PT_A2(sp)
-> -	REG_L x13, PT_A3(sp)
-> -	REG_L x14, PT_A4(sp)
-> -	REG_L x15, PT_A5(sp)
-> -	REG_L x16, PT_A6(sp)
-> -	REG_L x17, PT_A7(sp)
-> -	REG_L x18, PT_S2(sp)
-> -	REG_L x19, PT_S3(sp)
-> -	REG_L x20, PT_S4(sp)
-> -	REG_L x21, PT_S5(sp)
-> -	REG_L x22, PT_S6(sp)
-> -	REG_L x23, PT_S7(sp)
-> -	REG_L x24, PT_S8(sp)
-> -	REG_L x25, PT_S9(sp)
-> -	REG_L x26, PT_S10(sp)
-> -	REG_L x27, PT_S11(sp)
-> -	REG_L x28, PT_T3(sp)
-> -	REG_L x29, PT_T4(sp)
-> -	REG_L x30, PT_T5(sp)
-> -	REG_L x31, PT_T6(sp)
-> -	.endm
-> +#include "kprobes_trampoline.h"
->  =
-
->  ENTRY(__kretprobe_trampoline)
->  	addi sp, sp, -(PT_SIZE_ON_STACK)
-> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.h b/arch/riscv/k=
-ernel/probes/kprobes_trampoline.h
-> new file mode 100644
-> index 000000000..48895a5e3
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.h
-> @@ -0,0 +1,79 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +#ifndef _KPROBES_TRAMPOLINE_H
-> +#define _KPROBES_TRAMPOLINE_H
-> +/*
-> + * Author: Patrick St=E4hlin <me@packi.ch>
-> + */
-> +#include <linux/linkage.h>
-> +
-> +#include <asm/asm.h>
-> +#include <asm/asm-offsets.h>
-> +
-> +	.text
-> +	.altmacro
-> +
-> +	.macro save_all_base_regs
-> +	REG_S x1,  PT_RA(sp)
-> +	REG_S x3,  PT_GP(sp)
-> +	REG_S x4,  PT_TP(sp)
-> +	REG_S x5,  PT_T0(sp)
-> +	REG_S x6,  PT_T1(sp)
-> +	REG_S x7,  PT_T2(sp)
-> +	REG_S x8,  PT_S0(sp)
-> +	REG_S x9,  PT_S1(sp)
-> +	REG_S x10, PT_A0(sp)
-> +	REG_S x11, PT_A1(sp)
-> +	REG_S x12, PT_A2(sp)
-> +	REG_S x13, PT_A3(sp)
-> +	REG_S x14, PT_A4(sp)
-> +	REG_S x15, PT_A5(sp)
-> +	REG_S x16, PT_A6(sp)
-> +	REG_S x17, PT_A7(sp)
-> +	REG_S x18, PT_S2(sp)
-> +	REG_S x19, PT_S3(sp)
-> +	REG_S x20, PT_S4(sp)
-> +	REG_S x21, PT_S5(sp)
-> +	REG_S x22, PT_S6(sp)
-> +	REG_S x23, PT_S7(sp)
-> +	REG_S x24, PT_S8(sp)
-> +	REG_S x25, PT_S9(sp)
-> +	REG_S x26, PT_S10(sp)
-> +	REG_S x27, PT_S11(sp)
-> +	REG_S x28, PT_T3(sp)
-> +	REG_S x29, PT_T4(sp)
-> +	REG_S x30, PT_T5(sp)
-> +	REG_S x31, PT_T6(sp)
-> +	.endm
-> +
-> +	.macro restore_all_base_regs
-> +	REG_L x3,  PT_GP(sp)
-> +	REG_L x4,  PT_TP(sp)
-> +	REG_L x5,  PT_T0(sp)
-> +	REG_L x6,  PT_T1(sp)
-> +	REG_L x7,  PT_T2(sp)
-> +	REG_L x8,  PT_S0(sp)
-> +	REG_L x9,  PT_S1(sp)
-> +	REG_L x10, PT_A0(sp)
-> +	REG_L x11, PT_A1(sp)
-> +	REG_L x12, PT_A2(sp)
-> +	REG_L x13, PT_A3(sp)
-> +	REG_L x14, PT_A4(sp)
-> +	REG_L x15, PT_A5(sp)
-> +	REG_L x16, PT_A6(sp)
-> +	REG_L x17, PT_A7(sp)
-> +	REG_L x18, PT_S2(sp)
-> +	REG_L x19, PT_S3(sp)
-> +	REG_L x20, PT_S4(sp)
-> +	REG_L x21, PT_S5(sp)
-> +	REG_L x22, PT_S6(sp)
-> +	REG_L x23, PT_S7(sp)
-> +	REG_L x24, PT_S8(sp)
-> +	REG_L x25, PT_S9(sp)
-> +	REG_L x26, PT_S10(sp)
-> +	REG_L x27, PT_S11(sp)
-> +	REG_L x28, PT_T3(sp)
-> +	REG_L x29, PT_T4(sp)
-> +	REG_L x30, PT_T5(sp)
-> +	REG_L x31, PT_T6(sp)
-> +	.endm
+Thanks
+> to just fix the bug.  Does something like the following still fix it?  Also
+> at kernel.org/palmer/vdso-fix-v3 .  Maybe it's a bit pedantic , but this
+> late in the cycle with everyone traveling I'd prefer to keep the fixes
+> smaller when possible.
+> 
+> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> index cedcf8ea3c76..0099dc116168 100644
+> --- a/arch/riscv/include/asm/mmu.h
+> +++ b/arch/riscv/include/asm/mmu.h
+> @@ -16,7 +16,6 @@ typedef struct {
+> 	atomic_long_t id;
+> #endif
+> 	void *vdso;
+> -	void *vdso_info;
+> #ifdef CONFIG_SMP
+> 	/* A local icache flush is needed before user execution can resume. */
+> 	cpumask_t icache_stale_mask;
+> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> index 69b05b6c181b..58b8d73a4b1f 100644
+> --- a/arch/riscv/kernel/vdso.c
+> +++ b/arch/riscv/kernel/vdso.c
+> @@ -23,8 +23,10 @@ struct vdso_data {
+> #endif
+> 
+> extern char vdso_start[], vdso_end[];
+> +static struct __vdso_info vdso_info;
+> #ifdef CONFIG_COMPAT
+> extern char compat_vdso_start[], compat_vdso_end[];
+> +static struct __vdso_info compat_vdso_info;
+> #endif
+> 
+> enum vvar_pages {
+> @@ -114,15 +116,18 @@ int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
+> {
+> 	struct mm_struct *mm = task->mm;
+> 	struct vm_area_struct *vma;
+> -	struct __vdso_info *vdso_info = mm->context.vdso_info;
+> 
+> 	mmap_read_lock(mm);
+> 
+> 	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+> 		unsigned long size = vma->vm_end - vma->vm_start;
+> 
+> -		if (vma_is_special_mapping(vma, vdso_info->dm))
+> +		if (vma_is_special_mapping(vma, vdso_info.dm))
+> 			zap_page_range(vma, vma->vm_start, size);
+> +#ifdef CONFIG_COMPAT
+> +		if (vma_is_special_mapping(vma, compat_vdso_info.dm))
+> +			zap_page_range(vma, vma->vm_start, size);
 > +#endif
-> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probe=
-s/rethook.c
-> new file mode 100644
-> index 000000000..4a41d5eb6
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook.c
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Generic return hook for riscv.
-> + */
-> +
-> +#include <linux/kprobes.h>
-> +#include <linux/rethook.h>
-> +
-> +/* This is called from arch_rethook_trampoline() */
-> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *re=
-gs)
-> +{
-> +	return rethook_trampoline_handler(regs, regs->s0);
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
-> +
-> +
-> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs=
-, bool mcount)
-> +{
-> +	rhn->ret_addr =3D regs->ra;
-> +	rhn->frame =3D regs->s0;
-> +
-> +	/* replace return addr with trampoline */
-> +	regs->ra =3D (u64)arch_rethook_trampoline;
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_prepare);
-> +
-> diff --git a/arch/riscv/kernel/probes/rethook_trampoline.S b/arch/riscv/k=
-ernel/probes/rethook_trampoline.S
-> new file mode 100644
-> index 000000000..e81c3d4e0
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
-> @@ -0,0 +1,22 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +/*
-> + * Author: Patrick St=E4hlin <me@packi.ch>
-> + */
-> +#include "kprobes_trampoline.h"
-> +
-> +ENTRY(arch_rethook_trampoline)
-> +	addi sp, sp, -(PT_SIZE_ON_STACK)
-> +	save_all_base_regs
-> +
-> +	move a0, sp /* pt_regs */
-> +
-> +	call arch_rethook_trampoline_callback
-> +
-> +	/* use the result as the return-address */
-> +	move ra, a0
-> +
-> +	restore_all_base_regs
-> +	addi sp, sp, PT_SIZE_ON_STACK
-> +
-> +	ret
-> +ENDPROC(arch_rethook_trampoline)
-> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-> index 55041d2f8..a3805b5b2 100644
-> --- a/include/linux/kprobes.h
-> +++ b/include/linux/kprobes.h
-> @@ -210,6 +210,12 @@ static nokprobe_inline unsigned long get_kretprobe_r=
-etaddr(struct kretprobe_inst
->  {
->  	return ri->node.ret_addr;
->  }
-> +static nokprobe_inline
-> +unsigned long kretprobe_trampoline_handler(struct pt_regs *regs,
-> +					   void *frame_pointer)
-> +{
-> +	return 0;
-> +}
->  #else
->  extern void arch_prepare_kretprobe(struct kretprobe_instance *ri,
->  				   struct pt_regs *regs);
-> -- =
-
-> 2.27.0
-> =
-
-> =
-
+> 	}
+> 
+> 	mmap_read_unlock(mm);
+> @@ -264,7 +269,6 @@ static int __setup_additional_pages(struct mm_struct *mm,
+> 
+> 	vdso_base += VVAR_SIZE;
+> 	mm->context.vdso = (void *)vdso_base;
+> -	mm->context.vdso_info = (void *)vdso_info;
+> 
+> 	ret =
+> 	   _install_special_mapping(mm, vdso_base, vdso_text_len,
+> 
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Fixes: 3092eb456375 ("riscv: compat: vdso: Add setup additional pages implementation")
+> > ---
+> > 
+> > since v1:
+> >  - add "Fixes" tag
+> >  - fix build error when CONFIG_COMPAT is enabled.
+> > 
+> >  arch/riscv/include/asm/mmu.h |   1 -
+> >  arch/riscv/kernel/vdso.c     | 178 +++++++++++++++++++----------------
+> >  2 files changed, 95 insertions(+), 84 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+> > index cedcf8ea3c76..0099dc116168 100644
+> > --- a/arch/riscv/include/asm/mmu.h
+> > +++ b/arch/riscv/include/asm/mmu.h
+> > @@ -16,7 +16,6 @@ typedef struct {
+> >  	atomic_long_t id;
+> >  #endif
+> >  	void *vdso;
+> > -	void *vdso_info;
+> >  #ifdef CONFIG_SMP
+> >  	/* A local icache flush is needed before user execution can resume. */
+> >  	cpumask_t icache_stale_mask;
+> > diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> > index 69b05b6c181b..8ca3b821e1b5 100644
+> > --- a/arch/riscv/kernel/vdso.c
+> > +++ b/arch/riscv/kernel/vdso.c
+> > @@ -27,6 +27,11 @@ extern char vdso_start[], vdso_end[];
+> >  extern char compat_vdso_start[], compat_vdso_end[];
+> >  #endif
+> > 
+> > +enum vdso_abi {
+> > +	VDSO_ABI_RV64,
+> > +	VDSO_ABI_RV32,
+> > +};
+> > +
+> >  enum vvar_pages {
+> >  	VVAR_DATA_PAGE_OFFSET,
+> >  	VVAR_TIMENS_PAGE_OFFSET,
+> > @@ -68,67 +73,7 @@ static int vdso_mremap(const struct vm_special_mapping *sm,
+> >  	return 0;
+> >  }
+> > 
+> > -static void __init __vdso_init(struct __vdso_info *vdso_info)
+> > -{
+> > -	unsigned int i;
+> > -	struct page **vdso_pagelist;
+> > -	unsigned long pfn;
+> > -
+> > -	if (memcmp(vdso_info->vdso_code_start, "\177ELF", 4))
+> > -		panic("vDSO is not a valid ELF object!\n");
+> > -
+> > -	vdso_info->vdso_pages = (
+> > -		vdso_info->vdso_code_end -
+> > -		vdso_info->vdso_code_start) >>
+> > -		PAGE_SHIFT;
+> > -
+> > -	vdso_pagelist = kcalloc(vdso_info->vdso_pages,
+> > -				sizeof(struct page *),
+> > -				GFP_KERNEL);
+> > -	if (vdso_pagelist == NULL)
+> > -		panic("vDSO kcalloc failed!\n");
+> > -
+> > -	/* Grab the vDSO code pages. */
+> > -	pfn = sym_to_pfn(vdso_info->vdso_code_start);
+> > -
+> > -	for (i = 0; i < vdso_info->vdso_pages; i++)
+> > -		vdso_pagelist[i] = pfn_to_page(pfn + i);
+> > -
+> > -	vdso_info->cm->pages = vdso_pagelist;
+> > -}
+> > -
+> >  #ifdef CONFIG_TIME_NS
+> > -struct vdso_data *arch_get_vdso_data(void *vvar_page)
+> > -{
+> > -	return (struct vdso_data *)(vvar_page);
+> > -}
+> > -
+> > -/*
+> > - * The vvar mapping contains data for a specific time namespace, so when a task
+> > - * changes namespace we must unmap its vvar data for the old namespace.
+> > - * Subsequent faults will map in data for the new namespace.
+> > - *
+> > - * For more details see timens_setup_vdso_data().
+> > - */
+> > -int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
+> > -{
+> > -	struct mm_struct *mm = task->mm;
+> > -	struct vm_area_struct *vma;
+> > -	struct __vdso_info *vdso_info = mm->context.vdso_info;
+> > -
+> > -	mmap_read_lock(mm);
+> > -
+> > -	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+> > -		unsigned long size = vma->vm_end - vma->vm_start;
+> > -
+> > -		if (vma_is_special_mapping(vma, vdso_info->dm))
+> > -			zap_page_range(vma, vma->vm_start, size);
+> > -	}
+> > -
+> > -	mmap_read_unlock(mm);
+> > -	return 0;
+> > -}
+> > -
+> >  static struct page *find_timens_vvar_page(struct vm_area_struct *vma)
+> >  {
+> >  	if (likely(vma->vm_mm == current->mm))
+> > @@ -197,13 +142,6 @@ static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
+> >  	},
+> >  };
+> > 
+> > -static struct __vdso_info vdso_info __ro_after_init = {
+> > -	.name = "vdso",
+> > -	.vdso_code_start = vdso_start,
+> > -	.vdso_code_end = vdso_end,
+> > -	.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+> > -	.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+> > -};
+> > 
+> >  #ifdef CONFIG_COMPAT
+> >  static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
+> > @@ -216,21 +154,97 @@ static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
+> >  		.mremap = vdso_mremap,
+> >  	},
+> >  };
+> > +#endif
+> > 
+> > -static struct __vdso_info compat_vdso_info __ro_after_init = {
+> > -	.name = "compat_vdso",
+> > -	.vdso_code_start = compat_vdso_start,
+> > -	.vdso_code_end = compat_vdso_end,
+> > -	.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
+> > -	.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
+> > +static struct __vdso_info vdso_info[] __ro_after_init = {
+> > +	[VDSO_ABI_RV64] = {
+> > +		.name = "vdso",
+> > +		.vdso_code_start = vdso_start,
+> > +		.vdso_code_end = vdso_end,
+> > +		.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+> > +		.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+> > +	},
+> > +#ifdef CONFIG_COMPAT
+> > +	[VDSO_ABI_RV32] = {
+> > +		.name = "compat_vdso",
+> > +		.vdso_code_start = compat_vdso_start,
+> > +		.vdso_code_end = compat_vdso_end,
+> > +		.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
+> > +		.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
+> > +	},
+> > +#endif
+> >  };
+> > +
+> > +static void __init __vdso_init(enum vdso_abi abi)
+> > +{
+> > +	unsigned int i;
+> > +	struct page **vdso_pagelist;
+> > +	unsigned long pfn;
+> > +
+> > +	if (memcmp(vdso_info[abi].vdso_code_start, "\177ELF", 4))
+> > +		panic("vDSO is not a valid ELF object!\n");
+> > +
+> > +	vdso_info[abi].vdso_pages = (
+> > +		vdso_info[abi].vdso_code_end -
+> > +		vdso_info[abi].vdso_code_start) >>
+> > +		PAGE_SHIFT;
+> > +
+> > +	vdso_pagelist = kcalloc(vdso_info[abi].vdso_pages,
+> > +				sizeof(struct page *),
+> > +				GFP_KERNEL);
+> > +	if (vdso_pagelist == NULL)
+> > +		panic("vDSO kcalloc failed!\n");
+> > +
+> > +	/* Grab the vDSO code pages. */
+> > +	pfn = sym_to_pfn(vdso_info[abi].vdso_code_start);
+> > +
+> > +	for (i = 0; i < vdso_info[abi].vdso_pages; i++)
+> > +		vdso_pagelist[i] = pfn_to_page(pfn + i);
+> > +
+> > +	vdso_info[abi].cm->pages = vdso_pagelist;
+> > +}
+> > +
+> > +#ifdef CONFIG_TIME_NS
+> > +struct vdso_data *arch_get_vdso_data(void *vvar_page)
+> > +{
+> > +	return (struct vdso_data *)(vvar_page);
+> > +}
+> > +
+> > +/*
+> > + * The vvar mapping contains data for a specific time namespace, so when a task
+> > + * changes namespace we must unmap its vvar data for the old namespace.
+> > + * Subsequent faults will map in data for the new namespace.
+> > + *
+> > + * For more details see timens_setup_vdso_data().
+> > + */
+> > +int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
+> > +{
+> > +	struct mm_struct *mm = task->mm;
+> > +	struct vm_area_struct *vma;
+> > +
+> > +	mmap_read_lock(mm);
+> > +
+> > +	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+> > +		unsigned long size = vma->vm_end - vma->vm_start;
+> > +
+> > +		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV64].dm))
+> > +			zap_page_range(vma, vma->vm_start, size);
+> > +#ifdef CONFIG_COMPAT
+> > +		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV32].dm))
+> > +			zap_page_range(vma, vma->vm_start, size);
+> > +#endif
+> > +	}
+> > +
+> > +	mmap_read_unlock(mm);
+> > +	return 0;
+> > +}
+> >  #endif
+> > 
+> >  static int __init vdso_init(void)
+> >  {
+> > -	__vdso_init(&vdso_info);
+> > +	__vdso_init(VDSO_ABI_RV64);
+> >  #ifdef CONFIG_COMPAT
+> > -	__vdso_init(&compat_vdso_info);
+> > +	__vdso_init(VDSO_ABI_RV32);
+> >  #endif
+> > 
+> >  	return 0;
+> > @@ -240,14 +254,14 @@ arch_initcall(vdso_init);
+> >  static int __setup_additional_pages(struct mm_struct *mm,
+> >  				    struct linux_binprm *bprm,
+> >  				    int uses_interp,
+> > -				    struct __vdso_info *vdso_info)
+> > +				    enum vdso_abi abi)
+> >  {
+> >  	unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
+> >  	void *ret;
+> > 
+> >  	BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
+> > 
+> > -	vdso_text_len = vdso_info->vdso_pages << PAGE_SHIFT;
+> > +	vdso_text_len = vdso_info[abi].vdso_pages << PAGE_SHIFT;
+> >  	/* Be sure to map the data page */
+> >  	vdso_mapping_len = vdso_text_len + VVAR_SIZE;
+> > 
+> > @@ -258,18 +272,17 @@ static int __setup_additional_pages(struct mm_struct *mm,
+> >  	}
+> > 
+> >  	ret = _install_special_mapping(mm, vdso_base, VVAR_SIZE,
+> > -		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info->dm);
+> > +		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info[abi].dm);
+> >  	if (IS_ERR(ret))
+> >  		goto up_fail;
+> > 
+> >  	vdso_base += VVAR_SIZE;
+> >  	mm->context.vdso = (void *)vdso_base;
+> > -	mm->context.vdso_info = (void *)vdso_info;
+> > 
+> >  	ret =
+> >  	   _install_special_mapping(mm, vdso_base, vdso_text_len,
+> >  		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
+> > -		vdso_info->cm);
+> > +		vdso_info[abi].cm);
+> > 
+> >  	if (IS_ERR(ret))
+> >  		goto up_fail;
+> > @@ -291,8 +304,7 @@ int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
+> >  	if (mmap_write_lock_killable(mm))
+> >  		return -EINTR;
+> > 
+> > -	ret = __setup_additional_pages(mm, bprm, uses_interp,
+> > -							&compat_vdso_info);
+> > +	ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV32);
+> >  	mmap_write_unlock(mm);
+> > 
+> >  	return ret;
+> > @@ -307,7 +319,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+> >  	if (mmap_write_lock_killable(mm))
+> >  		return -EINTR;
+> > 
+> > -	ret = __setup_additional_pages(mm, bprm, uses_interp, &vdso_info);
+> > +	ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV64);
+> >  	mmap_write_unlock(mm);
+> > 
+> >  	return ret;
 
 _______________________________________________
 linux-riscv mailing list
