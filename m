@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7245ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 12:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7CFECAAD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 13:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jXhflmtVVpFPVXEiX0rLAIDfJdDo1sksFh//4mltEAo=; b=ze7N64S+qEFLuZ
-	uKl3xqOUXazaI4+ByzIvc3M58bbOvTVKerygBMfq4eF13vkgRG6ZEJev25tCqkO7ZUlWlP6GMZdvA
-	tsDLZm4T6rZnJyx9UH0KsYjEOyDUUZKbmI3UOWXsQkpHKAtmPJrEHyLaOg8TGQLioLJoMXYxVkvcd
-	Ox5n1ExF3lFb2yLm540My+fICR6dBg8Yw6MwG7BSL78N20D7KszyyRuQKptkssB9cXZB3/uNAWtOF
-	Cn2e3HtE75ca86GrQUuUAU4jg/42M3+QYeUjiL50802aAu0DoqgtGJAnaUVSqjwmPVqFtjTjpfOaP
-	TbPafB9dFnmo/ySsOZwA==;
+	List-Owner; bh=TOfmdd/wCGTr70V8/V5+6ZhfsYeTuh3sVh8pIacJxHM=; b=fwsOWs1yRK1x5G
+	AvivEIyr6MwLjOvCa4GeSJT3VQDlki7krwK3atO4PKdz67h/b0xGqc4wH61mlRyfwkuaJVDWd0YK7
+	YqxEN5gATzXeoYHJoQAHiWIyFKWfNFxlXeT/osBWvLlBkj3ANvBAX5wBxQZ9NgqOLSHGvVe2yC9Qu
+	73yon9obuEyl2yipXYmKJNzPHpK1ML1nghNSIOL9tzWGmn1D5MMq+JzzoDHyIJtXeOwMJ/4rMuOr0
+	TZO4/FcluyZm5Wg7PJpMWfv3dP1zUjqc+LMuz/n5mTZWy1pnx4AuwJK6Z3gzpFE2CtMW/tD6IpaFx
+	kV3Hr3to22QSbZ8buHbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obhy6-004EUV-RR; Fri, 23 Sep 2022 12:39:46 +0000
+	id 1obiov-004SD8-IB; Fri, 23 Sep 2022 13:34:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obhxv-004EP0-8r; Fri, 23 Sep 2022 12:39:36 +0000
+	id 1obior-004SAz-OG
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 13:34:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA1D3139F;
-	Fri, 23 Sep 2022 05:39:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFD3A1042;
+	Fri, 23 Sep 2022 06:34:19 -0700 (PDT)
 Received: from FVFF77S0Q05N (unknown [10.57.80.223])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2B323F73B;
-	Fri, 23 Sep 2022 05:39:30 -0700 (PDT)
-Date: Fri, 23 Sep 2022 13:39:28 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2712F3F73B;
+	Fri, 23 Sep 2022 06:34:10 -0700 (PDT)
+Date: Fri, 23 Sep 2022 14:34:07 +0100
 From: Mark Rutland <mark.rutland@arm.com>
-To: Liao Chang <liaochang1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	mhiramat@kernel.org, rostedt@goodmis.org, maz@kernel.org,
-	alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64/kprobe: Optimize the performance of patching
- single-step slot
-Message-ID: <Yy2pAEvWKVloVr3U@FVFF77S0Q05N>
-References: <20220923084658.99304-1-liaochang1@huawei.com>
- <20220923084658.99304-4-liaochang1@huawei.com>
+To: Chen Zhongjin <chenzhongjin@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, peterz@infradead.org,
+	mingo@redhat.com, acme@kernel.org,
+	alexander.shishkin@linux.intel.com, namhyung@kernel.org,
+	jolsa@kernel.org, guoren@kernel.org, frederic@kernel.org,
+	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org,
+	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com,
+	Josh Poimboeuf <jpoimboe@kernel.org>
+Subject: Re: [PATCH for-next v2 0/4] riscv: Improvments for stacktrace
+Message-ID: <Yy21z0NgBgJXF1Km@FVFF77S0Q05N>
+References: <20220921125128.33913-1-chenzhongjin@huawei.com>
+ <YysZf2Y37QMBDt8n@FVFF77S0Q05N>
+ <7834a259-4bd7-a955-acaa-21c36c7c22c2@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220923084658.99304-4-liaochang1@huawei.com>
+In-Reply-To: <7834a259-4bd7-a955-acaa-21c36c7c22c2@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_053935_381096_FFA01F1E 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20220923_063417_910957_7776B0E6 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,68 +65,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 23, 2022 at 04:46:58PM +0800, Liao Chang wrote:
-> Single-step slot would not be used until kprobe is enabled, that means
-> no race condition occurs on it under SMP, hence it is safe to pacth ss
-> slot without stopping machine.
-
-I think this is correct, but this depends on a couple of subtleties,
-importantly:
-
-* That the I-cache maintenance for these instructions is complete *before* the
-  kprobe BRK is written (and aarch64_insn_patch_text_nosync() ensures this, but
-  just omits causing a Context-Synchronization-Event on all CPUS).
-
-* That the kprobe BRK results in an exception (and consequently a
-  Context-Synchronoization-Event), which ensures that the CPU will fetch the
-  single-step slot instructions *after* this, ensuring that the new
-  instructions are used.
-
-It would be good if we could call that out explicitly.
-
-Thanks,
-Mark.
-
-> Since I and D caches are coherent within single-step slot from
-> aarch64_insn_patch_text_nosync(), hence no need to do it again via
-> flush_icache_range().
-> 
-> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> Signed-off-by: Liao Chang <liaochang1@huawei.com>
-> ---
->  arch/arm64/kernel/probes/kprobes.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-> index d1d182320245..29b98bc12833 100644
-> --- a/arch/arm64/kernel/probes/kprobes.c
-> +++ b/arch/arm64/kernel/probes/kprobes.c
-> @@ -44,13 +44,10 @@ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
->  static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
->  {
->  	kprobe_opcode_t *addr = p->ainsn.api.insn;
-> -	void *addrs[] = {addr, addr + 1};
-> -	u32 insns[] = {p->opcode, BRK64_OPCODE_KPROBES_SS};
->  
->  	/* prepare insn slot */
-> -	aarch64_insn_patch_text(addrs, insns, 2);
-> -
-> -	flush_icache_range((uintptr_t)addr, (uintptr_t)(addr + MAX_INSN_SIZE));
-> +	aarch64_insn_patch_text_nosync(addr, p->opcode);
-> +	aarch64_insn_patch_text_nosync(addr + 1, BRK64_OPCODE_KPROBES_SS);
->  
->  	/*
->  	 * Needs restoring of return address after stepping xol.
-> -- 
-> 2.17.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBTZXAgMjIsIDIwMjIgYXQgMDQ6MjI6MjNQTSArMDgwMCwgQ2hlbiBaaG9uZ2ppbiB3
+cm90ZToKPiBIaSwKPiAKPiBPbiAyMDIyLzkvMjEgMjI6MDIsIE1hcmsgUnV0bGFuZCB3cm90ZToK
+PiA+IE9uIFdlZCwgU2VwIDIxLCAyMDIyIGF0IDA4OjUxOjIzUE0gKzA4MDAsIENoZW4gWmhvbmdq
+aW4gd3JvdGU6Cj4gPiA+IEN1cnJlbnRseSwgdGhlIHN0YWNrdHJhY2Ugd2l0aCBGUkFNRV9QT0lO
+VEVSIG9uIHJpc2N2IGhhcyBzb21lIHByb2JsZW06Cj4gPiA+IAo+ID4gPiAxLiBzdGFja3RyYWNl
+IHdpbGwgc3RvcCBhdCBpcnEgc28gaXQgY2FuJ3QgZ2V0IHRoZSBzdGFjayBmcmFtZXMgYmVmb3Jl
+Cj4gPiA+IGlycSBlbnRyeS4KPiA+ID4gMi4gc3RhY2t0cmFjZSBjYW4ndCB1bndpbmQgYWxsIHRo
+ZSByZWFsIHN0YWNrIGZyYW1lcyB3aGVuIHRoZXJlIGlzCj4gPiA+IGt7cmV0fXByb2JlcyBvciBm
+dHJhY2UuCj4gPiA+IAo+ID4gPiBUaGVzZSBhcmUgbWFpbmx5IGJlY2FzZSB3aGVuIHRoZXJlIGlz
+IGEgcHRfcmVncyBvbiBzdGFjaywgd2UgY2FuJ3QgdW53aW5kCj4gPiA+IHRoZSBzdGFjayBmcmFt
+ZSBhcyBub3JtYWwgZnVuY3Rpb24uCj4gPiA+IAo+ID4gPiBTb21lIGFyY2hpdGVjdHVyZXMgKGUu
+Zy4gYXJtNjQpIGNyZWF0ZSBhIGV4dHJhIHN0YWNrZnJhbWUgaW5zaWRlIHB0X3JlZ3MuCj4gPiA+
+IEhvd2V2ZXIgdGhpcyBkb2Vzbid0IHdvcmsgZm9yIHJpc2N2IGJlY2F1c2UgdGhlIHJhIGlzIG5v
+dCBlbnN1cmVkIHRvIGJlCj4gPiA+IHB1c2hlZCB0byBzdGFjay4gQXMgZXhwbGFpbmVkIGluOgo+
+ID4gPiBjb21taXQgZjc2NmY3N2E3NGY1KCJyaXNjdi9zdGFja3RyYWNlOiBGaXggc3RhY2sgb3V0
+cHV0IHdpdGhvdXQgcmEgb24gdGhlIHN0YWNrIHRvcCIpCj4gPiBGV0lXLCB0aGlzIGlzIGFsc28g
+YSBsYXRlbnQgcHJvYmxlbSBvbiBhcm02NCwgc2luY2Ugd2UgZG9uJ3Qga25vdyB3aGV0aGVyIHRo
+ZQo+ID4gTFIgaXMgbGl2ZSBhdCBhbiBleGNlcHRpb24gYm91bmRhcnkgKGFuZCB3ZSBjdXJyZW50
+bHkgYWx3YXlzIGlnbm9yZSBpdCkuCj4gCj4gSW4gZmFjdCB0aGlzIGlzIHN0aWxsIGEgcHJvYmxl
+bSBmb3IgcmlzY3YsIEkgZGlkbid0IHVud2luZCB0aGUgY2FsbGVyIG9mCj4gZnRyYWNlIG9yIHBy
+b2JlZCBmdW5jCj4gCj4gb2Yga3JldHByb2JlIGJlY2F1c2UgdGhleSBhcmUgaW5zaWRlIGZ1bmN0
+aW9uIHByby9lcGlsb2d1ZS4KPiAKPiBUaGUgcHJvYmxlbSBvbiByaXNjdiBpcyBhIGxpdHRsZSBt
+b3JlIGNvbXBsZXgsIGZvciBsZWFmIGZ1bmN0aW9uLCByYSB3aWxsCj4gYWx3YXlzIG5vdCBiZSBw
+dXNoZWQgdG8gc3RhY2sgYW5kIGZwIHdpbGwgYmUgcHVzaGVkIHRvIHJhIHNsb3QuIFRoaXMgcGF0
+Y2gKPiBzb2x2ZWQgdGhpcyBwcm9ibGVtLgoKVGhhdCdzIHRoZSBzYW1lIG9uIGFybTY0LCBvdXIg
+YExSYCBpcyBlcXVpdmFsZW50IHRvIHlvdXIgYFJBYC4KCkkgaGF2ZSBhIHNlcmllcyBhdDoKCiAg
+aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbWFyay9saW51
+eC5naXQvbG9nLz9oPWFybTY0L3N0YWNrdHJhY2UvbWV0YWRhdGEKCi4uLiB3aGljaCBleHBsY2lp
+dGx5IGluZGljYXRlcyBwdF9yZWdzOjpwYyBhbmQgcHRfcmVnczo6bHIgaW4gdGhlIHN0YWNrIHRy
+YWNlCm91dHB1dCAoYW5kIGZvciBSRUxJQUJMRV9TVEFDS1RSQUNFIHdlJ2QgbWFyayB0aGUgTFIg
+ZW50cmllcyBhcyB1bnJlbGlhYmxlKS4KCj4gPiBNeSBwbGFuIHRvIGZpeCB0aGF0IG9uIGFybTY0
+IGlzIHRvIHB1c2ggYW4gZW1wdHkgZnJhbWUgcmVjb3JkIHRvIHRoZSBzdGFjayB1cG9uCj4gPiBh
+biBleGNlcHRpb24sIGFuZCB1c2UgdGhhdCB0byBmaW5kIHRoZSBwdF9yZWdzLCBmcm9tIHdoaWNo
+IHdlIGNhbiBnZXQgdGhlIFBDCj4gPiBhbmQgTFIgKGFuZCB0aGVuIHdlIGNhbiByZXBvcnQgdGhl
+IGxhdGVyIGFzIHVucmVsaWFibGUpLiBUaGF0IHNob3VsZCBiZSByb3VnaGx5Cj4gPiBlcXVpdmFs
+ZW50IHRvIHdoYXQgeW91IGRvIGluIHRoaXMgc2VyaWVzICh3aGVyZSB1c2UgdXNlIHRoZSBMU0Ig
+dG8gaWRlbnRpZnkKPiA+IHRoYXQgdGhlIHBvaW50ZXIgaXMgYWN0dWFsbHkgYSBwdF9yZWdzKS4K
+PiAKPiBJSVJDLCB0aGlzIHNvbHV0aW9uIGxvb2tzIGxpa2U6Cj4gCj4gPT09PT0KPiAKPiBGdW5j
+McKgwqDCoMKgIHsgbHIsIGZwIH0gb3IgeyBub3RoaW5nIH0KPiAKPiBpcnEgZW50cnkgeyBwdF9y
+ZWdzICYgZW1wdHkgc3RhY2tmcmFtZVsyXSB9Cj4gCj4gaGFuZGxlcsKgwqAgeyBsciwgZnAgfQo+
+IAo+ID09PT09PQo+IAo+IGhhbmRsZXItPmZwIHBvaW50cyB0byBzdGFja2ZyYW1lLCBhbmQgd2hl
+biB3ZSBmaW5kIHN0YWNrZnJhbWUgaXMgZW1wdHksIHdlCj4ga25vdyB3ZSBhcmUgaW5zaWRlCj4g
+Cj4gYW4gcHRfcmVncyBhbmQgY2FuIGZpbmQgcmVnaXN0ZXJzIGJ5IG9mZnNldC4KPiAKPiBJIHRo
+aW5rIGl0J3MgYXZhaWxhYmxlLCB0aGVyZSBubyBvdGhlciBzY2VuYXJpbyB3aWxsIGNhdXNlIHRo
+ZSBmcmFtZSBsaXN0Cj4gY29udGFpbnMgemVybyAodW5sZXNzIHN0YWNrIGlzIGNsb2JiZXJlZCku
+CgpUaGF0J3MgYmFzaWNhbGx5IHdoYXQgSSBkbyBpbiBteSBzZXJpZXM7IHNlZToKCiAgaHR0cHM6
+Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbWFyay9saW51eC5naXQv
+Y29tbWl0Lz9oPWFybTY0L3N0YWNrdHJhY2UvbWV0YWRhdGEmaWQ9NzM5NGE4MjViYzRmODI0M2Iy
+ODI2MTUxNzk5OTc5M2FjYjZmMTFjZAoKLi4uIGJ1dCBJIGhhdmVuJ3QgcG9zdGVkIHRoYXQgdG8g
+dGhlIGxpc3QgeWV0IGFzIEkgKmFsc28qIHdhbnQgdG8gYWRkIGNvZGUgdG8KY2hlY2sgdGhhdCB3
+ZSB3ZXJlIGF0IGFuIGV4Y2VwdGlvbiBib3VuZGFyeSB3aGVuIHdlIHNhdyB0aGlzIChiYXNlZCBv
+biB0aGUKcHJpb3IgUEMvTFIgYmVpbmcgaW4gdGhlIGVudHJ5IHRleHQsIHVzaW5nIHNvbWUgbWV0
+YWRhdGEgSSBoYXZlIHlldCB0byBhZGQpLgoKPiBBbmQgaXQgc2VlbXMgb25seSBmcCBzbG90IHNo
+b3VsZCBiZSB6ZXJvLCBsciB3aWxsIGJlIGNsb2JiZXJlZCBhZnRlcgo+IGZ1bmN0aW9uIGNhbGws
+IHdlIGNhbm5vdCB1c2UgbHIgaW5zaWRlIHB0X3JlZ3MuCgpJJ20gbm90IHN1cmUgd2hhdCB5b3Ug
+bWVhbiBoZXJlLgoKSSBhZ3JlZSB0aGF0IHRoZSBMUiBpbiB0aGUgcHRfcmVncyBpc24ndCAqcmVs
+aWFibGUqLCBhbmQgd29uJ3QgKmFsd2F5cyogYmUKdmFsaWQsIGJ1dCBpdCB3aWxsIHNvbWV0aW1l
+cyBiZSB2YWxpZC4KCj4gPiBPbmUgaW1wb3J0YW50IHRoaW5nIHRvIG5vdGUgaXMgdGhhdCB3aGVu
+IGNyb3NzaW5nIGFuIGV4Y2VwdGlvbiBib3VuZGFyeSB5b3UKPiA+IHdvbid0IGtub3cgd2hldGhl
+ciBSQSBpcyBsaXZlLCBhbmQgc28geW91IG1pZ2h0IHRyeSB0byBjb25zdW1lIGFuIGFkZHJlc3Mg
+dHdpY2UKPiA+IChpZiBpdCBoYXMgYWxzbyBiZWVuIHB1c2hlZCB0byB0aGUgc3RhY2spLiBUaGF0
+IGNvdWxkIGJlIHByb2JsZW1hdGljIGZvcgo+ID4gdW53aW5kaW5nIGZ0cmFjZSBvciBrcmV0cHJv
+YmVzLiBPbiBhcm02NCB3ZSBoYWQgdG8gaW1wbGVtZW50Cj4gPiBIQVZFX0ZVTkNUSU9OX0dSQVBI
+X1JFVF9BRERSX1BUUiBzbyB0aGF0IHdlIGNvdWxkIHJlbGlhYmx5IHVud2luZCBmdHJhY2UuIFNl
+ZQo+ID4gY29tbWl0Ogo+ID4gCj4gPiAgICBjNmQzY2QzMmZkMDA2NGFmICgiYXJtNjQ6IGZ0cmFj
+ZTogdXNlIEhBVkVfRlVOQ1RJT05fR1JBUEhfUkVUX0FERFJfUFRSIikKPiA+IAo+ID4gLi4uIGFu
+ZCB3ZSBoYXZlbid0IHlldCBjb21lIHVwIHdpdGggc29tZXRoaW5nIHNpbWlsYXIgZm9yIGtyZXRw
+cm9iZXMgKHRob3VnaCBJCj4gPiBzdXNwZWN0IHdlJ2xsIG5lZWQgdG8pLgo+IAo+IENhbiB3ZSB0
+ZXN0IHRoZSBzcCBhbmQgZnAgaW5zaWRlIHB0X3JlZ3M/IEJlY2F1c2UgbHVja2lseSBhcm02NCBz
+YXZlcyBsciwgZnAKPiBhbmQgbW92ZXMgc3AgdG9nZXRoZXIuCj4gCj4gQmVmb3JlIHNwIGlzIG1v
+dmVkIHdlIHdpbGwgaGF2ZSBmcCA9PSBzcCBmcm9tIGxhc3QgZnJhbWUgJ21vdiB4MjksIHNwJy4g
+U28KPiBpZiB0aGV5IGFyZSBzYW1lLCB3ZSB1c2VzIHRoZSBsciBpbiBwdF9yZWdzLCBjb252ZXJz
+ZWx5IHdlIHVzZSBsciBvbiBzdGFjay4KClRoZSBmcmFtZSByZWNvcmQgKHdoaWNoIEZQIHBvaW50
+cyB0bykgY2FuIGxpdmUgYW55d2hlcmUgaW4gYSBzdGFjayBmcmFtZSwgc28KY29tcGFyaW5nIGFn
+aW5zdCBTUCBkb2Vzbid0IHRlbGwgdXMgYW55dGhpbmcuIFJlZ2FyZGxlc3Mgb2Ygd2hldGhlciBG
+UCA9PSBTUCwKdGhlIExUUiBtaWdodCBiZSB2YWxpZCBvciBpbnZhbGlkLgoKVGhlcmUgaXMgbm8g
+d2F5IG9mIGtub3dpbmcgaWYgTFIgaXMgbGl2ZSB3aXRob3V0IGluZm9ybWF0aW9uIGZyb20gdGhl
+IGNvbXBpbGVyCnRoYXQgd2UgZG9uJ3QgaGF2ZSB0b2RheSAodGhvdWdoIGZyb20gTFBDIDIwMjIs
+IGl0IHNlZW1zIGxpa2UgQ1RGICptaWdodCogYmUKc3VmZmljaWVudCAtLSB0aGF0J3Mgb24gbXkg
+bGlzdCBvZiB0aGluZ3MgdG8gbG9vayBhdCkuCgpUaGFua3MsCk1hcmsuCgpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
+c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
