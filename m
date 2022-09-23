@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E73C07E9D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 17:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F664C04A95
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1w37yqCbH6GBCrEBKB7gpZCkLcmj9Ce66lD/1eywdQE=; b=hEqRYIjdSREYxL
-	ZyRyTUom9d1VhNovZ8BMxnHE3YsHXuGWobVgoeRp3PxqTAdgO/pldvcfj5IScdaLTK0rblZEN2JzG
-	dQbzQhtyNbKQmGxWtXfJV3iq2k98KoLr/JwwuMCEbt6kMI7plqmB6Mbi6lRY9t2Nc92spv3OkMVfL
-	kS6OEJa9ablzpbZhtW61HeLE1fV4tLyGekvkHc8n1OFb27Ptfbkn0u1ll6t5g0+0XQsvfrmGRiV6o
-	VEG3IrD6mylcaM7971uuJLpYbO/W0XlulBFffqZ6FSvgfzwgqZTADuDua5H72DY0NQ/ocj6TzAdqR
-	0T5/lGabomFjv4JDLhCA==;
+	List-Owner; bh=9MX22miXdDLuzZRyPXR9CpP9ncn05gkLP+EFvHNbmPQ=; b=1HoLdpPftPkOKK
+	IaHvO0jY/IHVpGaB8enGB9XtQ5YfvBxH5rdsnM4VpMyMtPUp1LB23bI0gIv6jd1yReiGej6yuJegK
+	F6Arh9hvJL7GoNZ0VJOZvQwlm4ViWa8c/VllU7dBnZFq/yTDTuH3CAL1AxLEAwDF0Kwf7d5AqYcPa
+	QO5WxN3GT6vPoIy3OoPofHHhbo4oWAHve6bvyODht76EvTlbOosaWPYMRzSrB1OQFiPvXPTyuy+HE
+	hLtJDVr5I9vLkfUanDBq0Oa8ES/1d0z911+LTfJjEaddsoPZuv+cwA0JWEz0Sbs4oMPFhVU3XN7rS
+	NbDzlRRLPQgZFCytumxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obmRr-0057ve-Tg; Fri, 23 Sep 2022 17:26:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1obmzg-005GEe-NK; Fri, 23 Sep 2022 18:01:44 +0000
+Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obmRo-0057uF-4y
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 17:26:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6A80262932;
-	Fri, 23 Sep 2022 17:26:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE93CC433D6;
-	Fri, 23 Sep 2022 17:26:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663954000;
-	bh=ODCjxTzT6V3bEUbRpV1MKpDP+b83Jok/oox8PGujGiY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qKyMP4wlwmWY62qTQnQJVpuRT9HxR1GMppItCoi8ql/yW+8WXqJLkL70vHtsxTrjY
-	 GEAsoHvcEmOxPY6IDBg1OaMPV6QiKLK5RTrlEfFk565mm8LELe05+ywr8XDSr2cHyY
-	 bHeC3fGFiqkHHMV0Se1i3zLCWRq2QTB7cK8y6JmRXWTZH9iZjNvGCgbTAjlnenPFH7
-	 hvecFl6Ps6kH7eYmd/NC6Zw3Y3SL9wuwCs869Ycg5PFmeTzxJVjKJeR+QYeQqH1AiR
-	 6fkFtMbZULW4sXq+NdliwYf5+AVyo1mCtfotaLxj3ibpUkELMCx91exyrYs2SLJoLa
-	 DThJoiaXjzMew==
-Date: Fri, 23 Sep 2022 18:26:35 +0100
-From: Conor Dooley <conor@kernel.org>
-To: l3b2w1@gmail.com
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	naveen.n.rao@linux.ibm.com, anil.s.keshavamurthy@intel.com,
-	davem@davemloft.net, mhiramat@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] rethook: add riscv rethook implementation.
-Message-ID: <Yy3sSzPK20IvaIVP@spud>
-References: <YyxG6wC0mjCUUGDB@wendy>
- <20220922134428.19203-1-l3b2w1@gmail.com>
+	id 1obmzd-005GDL-Ja
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:01:43 +0000
+Received: by mail-il1-x12f.google.com with SMTP id g12so545360ilj.5
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Sep 2022 11:01:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date;
+        bh=ZxODueSVu993iow9+IRQcd2cAR/7QHC2F7QagYpj6s4=;
+        b=m4Jy84bkMkp1f80KdFX1gy5kqyuYf0YbWTNXm8FznunQJOxjahB98L5/Mu+YpRCnBp
+         gWZHoB+mApVmB5qjXWidWFK8SNouHWtPsjP6S4OdGg746JUsvDz478bljPq3EgeTc298
+         nbXwyZchisKccQFcr81kdgnoqY5COc/Vj6ZV4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=ZxODueSVu993iow9+IRQcd2cAR/7QHC2F7QagYpj6s4=;
+        b=CAYfTpa2xEY/ikF+P6yLBnDUMJ1Zn+I5qQwscbXqlVb/v5CZLlD/ZJcbJ6EqQwFI1r
+         D0v7Ewprie4+PtKAcpnUmvRnIl/y1sceVXAhrInHnWfbwhFaSP+HcTqN9uBVM9sjovwi
+         pfmm+z82LHe7hsJH6XNteFdpeEQTuyzosqepn9pjMd2h+sXu/XGpMykcCPBqpiNC3iI3
+         EggTcObRj5TaXb6s2VYdIHtDH2cBpt708AR54hw80xpueLM/+qZpBLYcxdZXOogzpzw8
+         0cnbQnVcN+q3RchFHFhpowQKFAFK9Ljj6fkfFLLUq+oupJ1v6BWZtVi7nf54UJakW1k0
+         +7BA==
+X-Gm-Message-State: ACrzQf3EvYrvUVNuo4DXcv5gTzIsD69manpLYdf6lsebkwj9atryiYXp
+	n2x0QBo3NxSgTahX9/RiDmVaWHpnCtHvZHhHt4xM
+X-Google-Smtp-Source: AMsMyM6yjDcia2g5yXnczkwVN4Voayn7ioPUZPoAnEqys66bbomYiVrEe+ViYZAOo8BHJNy/16+HMt0zRmIU9/QK2Mc=
+X-Received: by 2002:a92:cb91:0:b0:2f6:240a:9887 with SMTP id
+ z17-20020a92cb91000000b002f6240a9887mr4905573ilo.203.1663956099602; Fri, 23
+ Sep 2022 11:01:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220922134428.19203-1-l3b2w1@gmail.com>
+References: <20220922060958.44203-1-samuel@sholland.org> <2546376.ElGaqSPkdT@phil>
+ <2E96A836-764D-4D07-AB79-3861B9CC2B1F@jrtc27.com> <13396584.uLZWGnKmhe@phil>
+In-Reply-To: <13396584.uLZWGnKmhe@phil>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 23 Sep 2022 11:01:28 -0700
+Message-ID: <CAOnJCUKdBpbj=KDz5oibB_N_SjOiMrkWcttczuGbisi_nMWaVA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+To: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>
+Cc: Jessica Clarke <jrtc27@jrtc27.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, Samuel Holland <samuel@sholland.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@rivosinc.com>, Dao Lu <daolu@rivosinc.com>, Guo Ren <guoren@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_102644_313579_45CEBA72 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20220923_110141_867548_9B6E10E2 
+X-CRM114-Status: GOOD (  42.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,371 +82,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-Hey Binglei Wang,
-
-I don't know anything about rethooks, so just more minor comments from
-me. Don't respin until someone more knowledgable comes back with a
-review of the patch itself.
-
-Please send new versions of the patch as a new mail thread & not as
-a reply to the existing one.
-
-On Thu, Sep 22, 2022 at 09:44:28PM +0800, l3b2w1@gmail.com wrote:
-> From: Binglei Wang <l3b2w1@gmail.com>
-> =
-
-> Implement the kretprobes function on riscv arch by
-> using rethook machenism which abstracts general kretprobe info
-                ^mechanism
-> into the struct rethook_node
-> to be embedded in the struct kretprobe_instance
-
-Whenever you resend, please fix the line wrapping here too.
-
-> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
-
-Again, your first version of the patch used your work email as the
-commit author/signer. The sending email does not need to match your
-authorship/signature email so is there a reason not to have your h3c
-email here?
-Thanks,
-Conor.
-
-> ---
->  arch/riscv/Kconfig                            |  1 +
->  arch/riscv/kernel/probes/Makefile             |  1 +
->  arch/riscv/kernel/probes/kprobes.c            |  8 --
->  arch/riscv/kernel/probes/kprobes_trampoline.S | 73 +----------------
->  arch/riscv/kernel/probes/kprobes_trampoline.h | 79 +++++++++++++++++++
->  arch/riscv/kernel/probes/rethook.c            | 24 ++++++
->  arch/riscv/kernel/probes/rethook_trampoline.S | 22 ++++++
->  include/linux/kprobes.h                       |  6 ++
->  8 files changed, 134 insertions(+), 80 deletions(-)
->  create mode 100644 arch/riscv/kernel/probes/kprobes_trampoline.h
->  create mode 100644 arch/riscv/kernel/probes/rethook.c
->  create mode 100644 arch/riscv/kernel/probes/rethook_trampoline.S
-> =
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index ed66c31e4..c5cae0825 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -97,6 +97,7 @@ config RISCV
->  	select HAVE_KPROBES if !XIP_KERNEL
->  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
->  	select HAVE_KRETPROBES if !XIP_KERNEL
-> +	select HAVE_RETHOOK if !XIP_KERNEL
->  	select HAVE_MOVE_PMD
->  	select HAVE_MOVE_PUD
->  	select HAVE_PCI
-> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes=
-/Makefile
-> index 7f0840dcc..ee345e7e9 100644
-> --- a/arch/riscv/kernel/probes/Makefile
-> +++ b/arch/riscv/kernel/probes/Makefile
-> @@ -3,4 +3,5 @@ obj-$(CONFIG_KPROBES)		+=3D kprobes.o decode-insn.o simul=
-ate-insn.o
->  obj-$(CONFIG_KPROBES)		+=3D kprobes_trampoline.o
->  obj-$(CONFIG_KPROBES_ON_FTRACE)	+=3D ftrace.o
->  obj-$(CONFIG_UPROBES)		+=3D uprobes.o decode-insn.o simulate-insn.o
-> +obj-$(CONFIG_RETHOOK) 		+=3D rethook.o rethook_trampoline.o
->  CFLAGS_REMOVE_simulate-insn.o =3D $(CC_FLAGS_FTRACE)
-> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probe=
-s/kprobes.c
-> index e6e950b7c..04911cc42 100644
-> --- a/arch/riscv/kernel/probes/kprobes.c
-> +++ b/arch/riscv/kernel/probes/kprobes.c
-> @@ -350,14 +350,6 @@ void __kprobes __used *trampoline_probe_handler(stru=
-ct pt_regs *regs)
->  	return (void *)kretprobe_trampoline_handler(regs, NULL);
->  }
->  =
-
-> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
-> -				      struct pt_regs *regs)
-> -{
-> -	ri->ret_addr =3D (kprobe_opcode_t *)regs->ra;
-> -	ri->fp =3D NULL;
-> -	regs->ra =3D (unsigned long) &__kretprobe_trampoline;
-> -}
-> -
->  int __kprobes arch_trampoline_kprobe(struct kprobe *p)
->  {
->  	return 0;
-> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/k=
-ernel/probes/kprobes_trampoline.S
-> index 7bdb09ded..54937f342 100644
-> --- a/arch/riscv/kernel/probes/kprobes_trampoline.S
-> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.S
-> @@ -2,78 +2,7 @@
->  /*
->   * Author: Patrick St=E4hlin <me@packi.ch>
->   */
-> -#include <linux/linkage.h>
-> -
-> -#include <asm/asm.h>
-> -#include <asm/asm-offsets.h>
-> -
-> -	.text
-> -	.altmacro
-> -
-> -	.macro save_all_base_regs
-> -	REG_S x1,  PT_RA(sp)
-> -	REG_S x3,  PT_GP(sp)
-> -	REG_S x4,  PT_TP(sp)
-> -	REG_S x5,  PT_T0(sp)
-> -	REG_S x6,  PT_T1(sp)
-> -	REG_S x7,  PT_T2(sp)
-> -	REG_S x8,  PT_S0(sp)
-> -	REG_S x9,  PT_S1(sp)
-> -	REG_S x10, PT_A0(sp)
-> -	REG_S x11, PT_A1(sp)
-> -	REG_S x12, PT_A2(sp)
-> -	REG_S x13, PT_A3(sp)
-> -	REG_S x14, PT_A4(sp)
-> -	REG_S x15, PT_A5(sp)
-> -	REG_S x16, PT_A6(sp)
-> -	REG_S x17, PT_A7(sp)
-> -	REG_S x18, PT_S2(sp)
-> -	REG_S x19, PT_S3(sp)
-> -	REG_S x20, PT_S4(sp)
-> -	REG_S x21, PT_S5(sp)
-> -	REG_S x22, PT_S6(sp)
-> -	REG_S x23, PT_S7(sp)
-> -	REG_S x24, PT_S8(sp)
-> -	REG_S x25, PT_S9(sp)
-> -	REG_S x26, PT_S10(sp)
-> -	REG_S x27, PT_S11(sp)
-> -	REG_S x28, PT_T3(sp)
-> -	REG_S x29, PT_T4(sp)
-> -	REG_S x30, PT_T5(sp)
-> -	REG_S x31, PT_T6(sp)
-> -	.endm
-> -
-> -	.macro restore_all_base_regs
-> -	REG_L x3,  PT_GP(sp)
-> -	REG_L x4,  PT_TP(sp)
-> -	REG_L x5,  PT_T0(sp)
-> -	REG_L x6,  PT_T1(sp)
-> -	REG_L x7,  PT_T2(sp)
-> -	REG_L x8,  PT_S0(sp)
-> -	REG_L x9,  PT_S1(sp)
-> -	REG_L x10, PT_A0(sp)
-> -	REG_L x11, PT_A1(sp)
-> -	REG_L x12, PT_A2(sp)
-> -	REG_L x13, PT_A3(sp)
-> -	REG_L x14, PT_A4(sp)
-> -	REG_L x15, PT_A5(sp)
-> -	REG_L x16, PT_A6(sp)
-> -	REG_L x17, PT_A7(sp)
-> -	REG_L x18, PT_S2(sp)
-> -	REG_L x19, PT_S3(sp)
-> -	REG_L x20, PT_S4(sp)
-> -	REG_L x21, PT_S5(sp)
-> -	REG_L x22, PT_S6(sp)
-> -	REG_L x23, PT_S7(sp)
-> -	REG_L x24, PT_S8(sp)
-> -	REG_L x25, PT_S9(sp)
-> -	REG_L x26, PT_S10(sp)
-> -	REG_L x27, PT_S11(sp)
-> -	REG_L x28, PT_T3(sp)
-> -	REG_L x29, PT_T4(sp)
-> -	REG_L x30, PT_T5(sp)
-> -	REG_L x31, PT_T6(sp)
-> -	.endm
-> +#include "kprobes_trampoline.h"
->  =
-
->  ENTRY(__kretprobe_trampoline)
->  	addi sp, sp, -(PT_SIZE_ON_STACK)
-> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.h b/arch/riscv/k=
-ernel/probes/kprobes_trampoline.h
-> new file mode 100644
-> index 000000000..48895a5e3
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/kprobes_trampoline.h
-> @@ -0,0 +1,79 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +#ifndef _KPROBES_TRAMPOLINE_H
-> +#define _KPROBES_TRAMPOLINE_H
-> +/*
-> + * Author: Patrick St=E4hlin <me@packi.ch>
-> + */
-> +#include <linux/linkage.h>
-> +
-> +#include <asm/asm.h>
-> +#include <asm/asm-offsets.h>
-> +
-> +	.text
-> +	.altmacro
-> +
-> +	.macro save_all_base_regs
-> +	REG_S x1,  PT_RA(sp)
-> +	REG_S x3,  PT_GP(sp)
-> +	REG_S x4,  PT_TP(sp)
-> +	REG_S x5,  PT_T0(sp)
-> +	REG_S x6,  PT_T1(sp)
-> +	REG_S x7,  PT_T2(sp)
-> +	REG_S x8,  PT_S0(sp)
-> +	REG_S x9,  PT_S1(sp)
-> +	REG_S x10, PT_A0(sp)
-> +	REG_S x11, PT_A1(sp)
-> +	REG_S x12, PT_A2(sp)
-> +	REG_S x13, PT_A3(sp)
-> +	REG_S x14, PT_A4(sp)
-> +	REG_S x15, PT_A5(sp)
-> +	REG_S x16, PT_A6(sp)
-> +	REG_S x17, PT_A7(sp)
-> +	REG_S x18, PT_S2(sp)
-> +	REG_S x19, PT_S3(sp)
-> +	REG_S x20, PT_S4(sp)
-> +	REG_S x21, PT_S5(sp)
-> +	REG_S x22, PT_S6(sp)
-> +	REG_S x23, PT_S7(sp)
-> +	REG_S x24, PT_S8(sp)
-> +	REG_S x25, PT_S9(sp)
-> +	REG_S x26, PT_S10(sp)
-> +	REG_S x27, PT_S11(sp)
-> +	REG_S x28, PT_T3(sp)
-> +	REG_S x29, PT_T4(sp)
-> +	REG_S x30, PT_T5(sp)
-> +	REG_S x31, PT_T6(sp)
-> +	.endm
-> +
-> +	.macro restore_all_base_regs
-> +	REG_L x3,  PT_GP(sp)
-> +	REG_L x4,  PT_TP(sp)
-> +	REG_L x5,  PT_T0(sp)
-> +	REG_L x6,  PT_T1(sp)
-> +	REG_L x7,  PT_T2(sp)
-> +	REG_L x8,  PT_S0(sp)
-> +	REG_L x9,  PT_S1(sp)
-> +	REG_L x10, PT_A0(sp)
-> +	REG_L x11, PT_A1(sp)
-> +	REG_L x12, PT_A2(sp)
-> +	REG_L x13, PT_A3(sp)
-> +	REG_L x14, PT_A4(sp)
-> +	REG_L x15, PT_A5(sp)
-> +	REG_L x16, PT_A6(sp)
-> +	REG_L x17, PT_A7(sp)
-> +	REG_L x18, PT_S2(sp)
-> +	REG_L x19, PT_S3(sp)
-> +	REG_L x20, PT_S4(sp)
-> +	REG_L x21, PT_S5(sp)
-> +	REG_L x22, PT_S6(sp)
-> +	REG_L x23, PT_S7(sp)
-> +	REG_L x24, PT_S8(sp)
-> +	REG_L x25, PT_S9(sp)
-> +	REG_L x26, PT_S10(sp)
-> +	REG_L x27, PT_S11(sp)
-> +	REG_L x28, PT_T3(sp)
-> +	REG_L x29, PT_T4(sp)
-> +	REG_L x30, PT_T5(sp)
-> +	REG_L x31, PT_T6(sp)
-> +	.endm
-> +#endif
-> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probe=
-s/rethook.c
-> new file mode 100644
-> index 000000000..47853bc36
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook.c
-> @@ -0,0 +1,24 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Generic return hook for riscv.
-> + */
-> +
-> +#include <linux/kprobes.h>
-> +#include <linux/rethook.h>
-> +
-> +/* This is called from arch_rethook_trampoline() */
-> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *re=
-gs)
-> +{
-> +	return rethook_trampoline_handler(regs, regs->s0);
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
-> +
-> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs=
-, bool mcount)
-> +{
-> +	rhn->ret_addr =3D regs->ra;
-> +	rhn->frame =3D regs->s0;
-> +
-> +	/* replace return addr with trampoline */
-> +	regs->ra =3D (u64)arch_rethook_trampoline;
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_prepare);
-> diff --git a/arch/riscv/kernel/probes/rethook_trampoline.S b/arch/riscv/k=
-ernel/probes/rethook_trampoline.S
-> new file mode 100644
-> index 000000000..e81c3d4e0
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
-> @@ -0,0 +1,22 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +/*
-> + * Author: Patrick St=E4hlin <me@packi.ch>
-> + */
-> +#include "kprobes_trampoline.h"
-> +
-> +ENTRY(arch_rethook_trampoline)
-> +	addi sp, sp, -(PT_SIZE_ON_STACK)
-> +	save_all_base_regs
-> +
-> +	move a0, sp /* pt_regs */
-> +
-> +	call arch_rethook_trampoline_callback
-> +
-> +	/* use the result as the return-address */
-> +	move ra, a0
-> +
-> +	restore_all_base_regs
-> +	addi sp, sp, PT_SIZE_ON_STACK
-> +
-> +	ret
-> +ENDPROC(arch_rethook_trampoline)
-> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-> index 55041d2f8..a3805b5b2 100644
-> --- a/include/linux/kprobes.h
-> +++ b/include/linux/kprobes.h
-> @@ -210,6 +210,12 @@ static nokprobe_inline unsigned long get_kretprobe_r=
-etaddr(struct kretprobe_inst
->  {
->  	return ri->node.ret_addr;
->  }
-> +static nokprobe_inline
-> +unsigned long kretprobe_trampoline_handler(struct pt_regs *regs,
-> +					   void *frame_pointer)
-> +{
-> +	return 0;
-> +}
->  #else
->  extern void arch_prepare_kretprobe(struct kretprobe_instance *ri,
->  				   struct pt_regs *regs);
-> =
-
-> base-commit: f30480cdeafc79d1f017d41335a96d8e3b973c91
-> -- =
-
-> 2.25.1
-> =
-
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMjMsIDIwMjIgYXQgMTI6MTggQU0gSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNu
+dGVjaC5kZT4gd3JvdGU6Cj4KPiBIaSwKPgo+IEFtIERvbm5lcnN0YWcsIDIyLiBTZXB0ZW1iZXIg
+MjAyMiwgMTc6NTI6NDYgQ0VTVCBzY2hyaWViIEplc3NpY2EgQ2xhcmtlOgo+ID4gT24gMjIgU2Vw
+dCAyMDIyLCBhdCAxNjo0NSwgSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6
+Cj4gPiA+Cj4gPiA+IEFtIERvbm5lcnN0YWcsIDIyLiBTZXB0ZW1iZXIgMjAyMiwgMDg6MDk6NTgg
+Q0VTVCBzY2hyaWViIFNhbXVlbCBIb2xsYW5kOgo+ID4gPj4gY29tbWl0IDhlYjA2MGUxMDE4NSAo
+ImFyY2gvcmlzY3Y6IGFkZCBaaWhpbnRwYXVzZSBzdXBwb3J0IikgYnJva2UKPiA+ID4+IGJ1aWxk
+aW5nIHdpdGggQ09ORklHX0NDX09QVElNSVpFX0ZPUl9TSVpFIGVuYWJsZWQgKGdjYyAxMS4xLjAp
+Ogo+ID4gPj4KPiA+ID4+IENDIGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmdldHRpbWVvZmRheS5v
+Cj4gPiA+PiBJbiBmaWxlIGluY2x1ZGVkIGZyb20gPGNvbW1hbmQtbGluZT46Cj4gPiA+PiAuL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vanVtcF9sYWJlbC5oOiBJbiBmdW5jdGlvbiAnY3B1X3JlbGF4
+JzoKPiA+ID4+IC4vLi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyX3R5cGVzLmg6Mjg1OjMzOiB3YXJu
+aW5nOiAnYXNtJyBvcGVyYW5kIDAgcHJvYmFibHkgZG9lcyBub3QgbWF0Y2ggY29uc3RyYWludHMK
+PiA+ID4+IDI4NSB8ICNkZWZpbmUgYXNtX3ZvbGF0aWxlX2dvdG8oeC4uLikgYXNtIGdvdG8oeCkK
+PiA+ID4+IHwgXn5+Cj4gPiA+PiAuL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vanVtcF9sYWJlbC5o
+OjQxOjk6IG5vdGU6IGluIGV4cGFuc2lvbiBvZiBtYWNybyAnYXNtX3ZvbGF0aWxlX2dvdG8nCj4g
+PiA+PiA0MSB8IGFzbV92b2xhdGlsZV9nb3RvKAo+ID4gPj4gfCBefn5+fn5+fn5+fn5+fn5+fgo+
+ID4gPj4gLi8uL2luY2x1ZGUvbGludXgvY29tcGlsZXJfdHlwZXMuaDoyODU6MzM6IGVycm9yOiBp
+bXBvc3NpYmxlIGNvbnN0cmFpbnQgaW4gJ2FzbScKPiA+ID4+IDI4NSB8ICNkZWZpbmUgYXNtX3Zv
+bGF0aWxlX2dvdG8oeC4uLikgYXNtIGdvdG8oeCkKPiA+ID4+IHwgXn5+Cj4gPiA+PiAuL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vanVtcF9sYWJlbC5oOjQxOjk6IG5vdGU6IGluIGV4cGFuc2lvbiBv
+ZiBtYWNybyAnYXNtX3ZvbGF0aWxlX2dvdG8nCj4gPiA+PiA0MSB8IGFzbV92b2xhdGlsZV9nb3Rv
+KAo+ID4gPj4gfCBefn5+fn5+fn5+fn5+fn5+fgo+ID4gPj4gbWFrZVsxXTogKioqIFtzY3JpcHRz
+L01ha2VmaWxlLmJ1aWxkOjI0OTogYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92Z2V0dGltZW9mZGF5
+Lm9dIEVycm9yIDEKPiA+ID4+IG1ha2U6ICoqKiBbYXJjaC9yaXNjdi9NYWtlZmlsZToxMjg6IHZk
+c29fcHJlcGFyZV0gRXJyb3IgMgo+ID4gPj4KPiA+ID4+IEhhdmluZyBhIHN0YXRpYyBicmFuY2gg
+aW4gY3B1X3JlbGF4KCkgaXMgcHJvYmxlbWF0aWMgYmVjYXVzZSB0aGF0Cj4gPiA+PiBmdW5jdGlv
+biBpcyB3aWRlbHkgaW5saW5lZCwgaW5jbHVkaW5nIGluIHNvbWUgcXVpdGUgY29tcGxleCBmdW5j
+dGlvbnMKPiA+ID4+IGxpa2UgaW4gdGhlIFZEU08uIEEgcXVpY2sgbWVhc3VyZW1lbnQgc2hvd3Mg
+dGhpcyBzdGF0aWMgYnJhbmNoIGlzCj4gPiA+PiByZXNwb25zaWJsZSBieSBpdHNlbGYgZm9yIGFy
+b3VuZCA0MCUgb2YgdGhlIGp1bXAgdGFibGUuCj4gPiA+Pgo+ID4gPj4gRHJvcCB0aGUgc3RhdGlj
+IGJyYW5jaCwgd2hpY2ggZW5kcyB1cCBiZWluZyB0aGUgc2FtZSBudW1iZXIgb2YKPiA+ID4+IGlu
+c3RydWN0aW9ucyBhbnl3YXkuIElmIFppaGludHBhdXNlIGlzIHN1cHBvcnRlZCwgd2UgdHJhZGUg
+dGhlIG5vcCBmcm9tCj4gPiA+PiB0aGUgc3RhdGljIGJyYW5jaCBmb3IgYSBkaXYuIElmIFppaGlu
+dHBhdXNlIGlzIHVuc3VwcG9ydGVkLCB3ZSB0cmFkZSB0aGUKPiA+ID4+IGp1bXAgZnJvbSB0aGUg
+c3RhdGljIGJyYW5jaCBmb3IgKHdoYXQgZ2V0cyBpbnRlcnByZXRlZCBhcykgYSBub3AuCj4gPiA+
+Pgo+ID4gPj4gRml4ZXM6IDhlYjA2MGUxMDE4NSAoImFyY2gvcmlzY3Y6IGFkZCBaaWhpbnRwYXVz
+ZSBzdXBwb3J0IikKPiA+ID4+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxA
+c2hvbGxhbmQub3JnPgo+ID4gPj4gLS0tCj4gPiA+Pgo+ID4gPj4gYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9od2NhcC5oIHwgMyAtLS0KPiA+ID4+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9w
+cm9jZXNzb3IuaCB8IDI1ICsrKysrKysrKystLS0tLS0tLS0tLS0tLS0KPiA+ID4+IDIgZmlsZXMg
+Y2hhbmdlZCwgMTAgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4gPiA+Pgo+ID4gPj4g
+ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gPj4gaW5kZXggNmY1OWVjNjQxNzVlLi5iMjFkNDZlNjgz
+ODYgMTAwNjQ0Cj4gPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiA+
+ID4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gPj4gQEAgLTY4LDcg
+KzY4LDYgQEAgZW51bSByaXNjdl9pc2FfZXh0X2lkIHsKPiA+ID4+ICovCj4gPiA+PiBlbnVtIHJp
+c2N2X2lzYV9leHRfa2V5IHsKPiA+ID4+ICAgIFJJU0NWX0lTQV9FWFRfS0VZX0ZQVSwgICAgICAg
+ICAgLyogRm9yICdGJyBhbmQgJ0QnICovCj4gPiA+PiAtICBSSVNDVl9JU0FfRVhUX0tFWV9aSUhJ
+TlRQQVVTRSwKPiA+ID4+ICAgIFJJU0NWX0lTQV9FWFRfS0VZX01BWCwKPiA+ID4+IH07Cj4gPiA+
+Pgo+ID4gPj4gQEAgLTg4LDggKzg3LDYgQEAgc3RhdGljIF9fYWx3YXlzX2lubGluZSBpbnQgcmlz
+Y3ZfaXNhX2V4dDJrZXkoaW50IG51bSkKPiA+ID4+ICAgICAgICAgICAgcmV0dXJuIFJJU0NWX0lT
+QV9FWFRfS0VZX0ZQVTsKPiA+ID4+ICAgIGNhc2UgUklTQ1ZfSVNBX0VYVF9kOgo+ID4gPj4gICAg
+ICAgICAgICByZXR1cm4gUklTQ1ZfSVNBX0VYVF9LRVlfRlBVOwo+ID4gPj4gLSAgY2FzZSBSSVND
+Vl9JU0FfRVhUX1pJSElOVFBBVVNFOgo+ID4gPj4gLSAgICAgICAgICByZXR1cm4gUklTQ1ZfSVNB
+X0VYVF9LRVlfWklISU5UUEFVU0U7Cj4gPiA+PiAgICBkZWZhdWx0Ogo+ID4gPj4gICAgICAgICAg
+ICByZXR1cm4gLUVJTlZBTDsKPiA+ID4+ICAgIH0KPiA+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3Zkc28vcHJvY2Vzc29yLmgKPiA+ID4+IGluZGV4IDFlNGY4YjRhZWY3OS4uNzg5YmRiODIxMWEy
+IDEwMDY0NAo+ID4gPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nv
+ci5oCj4gPiA+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmgK
+PiA+ID4+IEBAIC00LDMwICs0LDI1IEBACj4gPiA+Pgo+ID4gPj4gI2lmbmRlZiBfX0FTU0VNQkxZ
+X18KPiA+ID4+Cj4gPiA+PiAtI2luY2x1ZGUgPGxpbnV4L2p1bXBfbGFiZWwuaD4KPiA+ID4+ICNp
+bmNsdWRlIDxhc20vYmFycmllci5oPgo+ID4gPj4gLSNpbmNsdWRlIDxhc20vaHdjYXAuaD4KPiA+
+ID4+Cj4gPiA+PiBzdGF0aWMgaW5saW5lIHZvaWQgY3B1X3JlbGF4KHZvaWQpCj4gPiA+PiB7Cj4g
+PiA+PiAtICBpZiAoIXN0YXRpY19icmFuY2hfbGlrZWx5KCZyaXNjdl9pc2FfZXh0X2tleXNbUklT
+Q1ZfSVNBX0VYVF9LRVlfWklISU5UUEFVU0VdKSkgewo+ID4gPj4gI2lmZGVmIF9fcmlzY3ZfbXVs
+ZGl2Cj4gPiA+PiAtICAgICAgICAgIGludCBkdW1teTsKPiA+ID4+IC0gICAgICAgICAgLyogSW4g
+bGlldSBvZiBhIGhhbHQgaW5zdHJ1Y3Rpb24sIGluZHVjZSBhIGxvbmctbGF0ZW5jeSBzdGFsbC4g
+Ki8KPiA+ID4+IC0gICAgICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCJkaXYgJTAsICUwLCB6
+ZXJvIiA6ICI9ciIgKGR1bW15KSk7Cj4gPiA+PiArICBpbnQgZHVtbXk7Cj4gPiA+PiArICAvKiBJ
+biBsaWV1IG9mIGEgaGFsdCBpbnN0cnVjdGlvbiwgaW5kdWNlIGEgbG9uZy1sYXRlbmN5IHN0YWxs
+LiAqLwo+ID4gPj4gKyAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCJkaXYgJTAsICUwLCB6ZXJvIiA6
+ICI9ciIgKGR1bW15KSk7Cj4gPiA+PiAjZW5kaWYKPiA+ID4+IC0gIH0gZWxzZSB7Cj4gPiA+PiAt
+ICAgICAgICAgIC8qCj4gPiA+PiAtICAgICAgICAgICAqIFJlZHVjZSBpbnN0cnVjdGlvbiByZXRp
+cmVtZW50Lgo+ID4gPj4gLSAgICAgICAgICAgKiBUaGlzIGFzc3VtZXMgdGhlIFBDIGNoYW5nZXMu
+Cj4gPiA+PiAtICAgICAgICAgICAqLwo+ID4gPj4gKyAgLyoKPiA+ID4+ICsgICAqIFJlZHVjZSBp
+bnN0cnVjdGlvbiByZXRpcmVtZW50Lgo+ID4gPj4gKyAgICogVGhpcyBhc3N1bWVzIHRoZSBQQyBj
+aGFuZ2VzLgo+ID4gPj4gKyAgICovCj4gPiA+PiAjaWZkZWYgX19yaXNjdl96aWhpbnRwYXVzZQo+
+ID4gPj4gLSAgICAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoInBhdXNlIik7Cj4gPiA+PiAr
+ICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoInBhdXNlIik7Cj4gPiA+PiAjZWxzZQo+ID4gPj4gLSAg
+ICAgICAgICAvKiBFbmNvZGluZyBvZiB0aGUgcGF1c2UgaW5zdHJ1Y3Rpb24gKi8KPiA+ID4+IC0g
+ICAgICAgICAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCIuNGJ5dGUgMHgxMDAwMDBGIik7Cj4gPiA+
+PiArICAvKiBFbmNvZGluZyBvZiB0aGUgcGF1c2UgaW5zdHJ1Y3Rpb24gKi8KPiA+ID4+ICsgIF9f
+YXNtX18gX192b2xhdGlsZV9fICgiLjRieXRlIDB4MTAwMDAwRiIpOwo+ID4gPj4gI2VuZGlmCj4g
+PiA+Cj4gPiA+IGhtbSwgdGhvdWdoIGJlZm9yZSB0aGlzIHBhcnQgb2YgdGhlIGNvZGUgd2FzIG9u
+bHkgZXZlciBhY2Nlc3NlZAo+ID4gPiB3aGVuIHRoZSB6aGludHBhdXNlIGV4dGVuc2lvbiB3YXMg
+cmVhbGx5IGF2YWlsYWJsZSBvbiB0aGUgcnVubmluZwo+ID4gPiBtYWNoaW5lIHdoaWxlIG5vdyB0
+aGUgcGF1c2UgaW5zdHJ1Y3Rpb24gaXMgY2FsbGVkIGV2ZXJ5IHRpbWUuCj4gPiA+Cj4gPiA+IFNv
+IEknbSBqdXN0IHdvbmRlcmluZywgY2FuJ3QgdGhpcyBydW4gaW50byBzb21lICJpbGxlZ2FsIGlu
+c3RydWN0aW9uIgo+ID4gPiB0aGluZ3kgb24gbWFjaGluZXMgbm90IHN1cHBvcnRpbmcgdGhlIGV4
+dGVuc2lvbj8KPiA+Cj4gPiBOby4gVGhlIGVuY29kaW5nIGZvciBwYXVzZSB3YXMgZGVsaWJlcmF0
+ZWx5IGNob3NlbiB0byBiZSBvbmUgb2YgdGhlCj4gPiDigJx1c2VsZXNz4oCdIGVuY29kaW5ncyBv
+ZiBmZW5jZSwgd2l0aCB0aGUgaG9wZSB0aGF0IGV4aXN0aW5nCj4gPiBtaWNyb2FyY2hpdGVjdHVy
+ZXMgbWlnaHQgdGFrZSBhIHdoaWxlIHRvIGV4ZWN1dGUgaXQgYW5kIHRodXMgaXQgd291bGQKPiA+
+IHN0aWxsIGZ1bmN0aW9uIGFzIGEgc2xvdy1ydW5uaW5nIGluc3RydWN0aW9uLiBJdOKAmXMgc29t
+ZXdoYXQKPiA+IHF1ZXN0aW9uYWJsZSB3aGV0aGVyIHRoZSBkaXYgaXMgZXZlbiBuZWVkZWQsIHRo
+ZSB3b3JzdCB0aGF0IGhhcHBlbnMgaXMKPiA+IGNwdV9yZWxheCBpc27igJl0IHZlcnkgcmVsYXhl
+ZCBhbmQgeW91IHNwaW4gYSBiaXQgZmFzdGVyLiBBbnkKPiA+IGltcGxlbWVudGF0aW9ucyB3aGVy
+ZSB0aGF04oCZcyB0cnVlIHByb2JhYmx5IGFsc28gZG9u4oCZdCBoYXZlIGZhbmN5Cj4gPiBjbG9j
+ay9wb3dlciBtYW5hZ2VtZW50IGFueXdheSwgYW5kIGRpdiBpc27igJl0IGdvaW5nIHRvIGJlIGEg
+bG93LXBvd2VyCj4gPiBvcGVyYXRpb24gc28gdGhlIG9ubHkgcmVhbCBlZmZlY3QgaXMgbGlrZWx5
+IGhhbW1lcmluZyBvbiBjb250ZW5kZWQKPiA+IGF0b21pY3MgYSBiaXQgbW9yZSwgYW5kIHdobyBj
+YXJlcyBhYm91dCB0aGF0IG9uIHRoZSBsb3cgY29yZSBjb3VudAo+ID4gc3lzdGVtcyB3ZSBoYXZl
+IHRvZGF5Lgo+Cj4gdGhhbmtzIGEgbG90IGZvciB0aGF0IGV4cGxhbmF0aW9uLCB3aGljaCBtYWRl
+IHRoaW5ncyBhIGxvdCBjbGVhcmVyLgo+Cj4gU28gYXMgeW91IHNhaWQsIGRyb3BwaW5nIHRoZSBk
+aXYgcGFydCBtaWdodCBtYWtlIHRoZSBmdW5jdGlvbiBldmVuIHNtYWxsZXIsCj4gdGhvdWdoIHNv
+bWVob3cgcGFydCBvZiBtZSB3b3VsZCB3YW50IHRvIGFkZCBzb21lIHNvcnQgb2YgY29tbWVudCB0
+bwo+IHRoZSBmdW5jdGlvbiBmb3Igd2hlbiB0aGUgbmV4dCBkZXZlbG9wZXIgc3R1bWJsZXMgb3Zl
+ciB0aGUgdW5jb25kaXRpb25hbAo+IHVzZSBvZiBwYXVzZSA6LSkgLgo+CgpJIGFncmVlLiBJZiB0
+aGF0J3Mgd2hhdCBtaWNyb2FyY2ggd2lsbCBkbywgd2UgY2FuIGRyb3AgZGl2IGFsdG9nZXRoZXIu
+ClRob3VnaCBtaWNyb2FyY2ggbWF5IGJlIHRyZWF0ZWQgYXMgbm9wIGV2ZW4gaWYgaXQgaXMgdW5k
+ZXNpcmFibGUuCklJUkMsIHRoZSBkaXYgd2FzIGludHJvZHVjZWQgZm9yIHRoZSByb2NrZXQgY2hp
+cCB3aGljaCB3b3VsZCBpbmR1Y2UgYQpsb25nIGxhdGVuY3kgc3RhbGwgd2l0aCBkaXYgaW5zdHJ1
+Y3Rpb24gKHplcm8gYXMgb3BlcmFuZHMpLgoKRG9lcyBhbnkgb3RoZXIgY29yZSBvciBuZXdlciBy
+b2NrZXQgY2hpcCBhY3R1YWxseSBpbmR1Y2UgYSBsYXRlbmN5CnN0YWxsIHdpdGggZGl2IGluc3Ry
+dWN0aW9uID8KSWYgbm90LCBpdCBpcyBlcXVpdmFsZW50IHRvIE5PUCBhcyB3ZWxsLiBXZSBjYW4g
+ZGVmaW5pdGVseSByZW1vdmUgdGhlIGRpdi4KVGhlIG9ubHkgY29yZXMgYWZmZWN0ZWQgd2lsbCBi
+ZSB0aGUgb2xkZXIgcm9ja2V0IGNvcmUuCgpUYWdnaW5nIHNvbWUgZm9sa3MgdG8gdW5kZXJzdGFu
+ZCB3aGF0IHRoZWlyIGNvcmUgZG9lcy4KCkBQYXVsIFdhbG1zbGV5IEBHdW8gUmVuIEBDb25vciBE
+b29sZXkgPwoKKFBsZWFzZSBhZGQgYW55Ym9keSB3aG8gbWF5IGhhdmUgYW4gaW5zaWdodCB0byBl
+eGVjdXRpb24gZmxvdyBvbgpleGlzdGluZyBMaW51eCBjYXBhYmxlIGNvcmVzKQoKPgo+IEhlaWtv
+Cj4KPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgoKCgotLQpSZWdhcmRzLApBdGlzaAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
