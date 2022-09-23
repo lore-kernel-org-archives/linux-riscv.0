@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC8BECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 01:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E43C6FA8B
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 03:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HgAhAqo8xEJx9Flye98xRo6jT9hYIvMe1fRGE7T064U=; b=j+6WbTtVGMTbkv
-	Sp+Bt4Rb3EqCLyJGQcoqZwmJ1R9bkCwg+eV13yTIbfUPMyY66/70HG+b4h26UpWzBRyYn55QF9c9A
-	W/W5Nd4hMak/hg6SbT0cgSyMSjwRkEoQwgqSiLCtiXkZkzhG3N0Sb0+MnemrEOCTEZ+3fJYVo8BOv
-	MoyAU9lqyIeqBITOza+mrkeoMS8R3+LT7GxySTZ/NU1fpTTPaV8MEf2zTi9TJDyifQ2Qx8RcMfKIL
-	XdLBSDnjgcmZLQdds89Dr3m9rlcr5DGmEh3aYrXoJZlmZhR/6hgQRg325kkmzpQhTgKQb5w2pIXRT
-	0U3KweSZ737UT+xbP0wg==;
+	List-Owner; bh=AiOsreh2afKAng7QA1vcm9E6NPNGcT9l6PI53miwBlM=; b=BV4DejZQCV7JUZ
+	XosXSThuvwTGlNFz4oKFL/KWA5HwLNCu5ftbv0vHubZJTD5ep//APdtDQmxXpOfqerrFgioiTuLi4
+	P9bz+xxl1VI5eO0uIn+Caev4bwl/xmoZESZ6ClafM4UcKfQew94qRSDI6Kf+Pm8aeESPXk1lfNaqk
+	enW+vbjl6M9n7GDpQ6x1MNyDM3gauOaoQluMkqyMYxVLnXKAPgCeMSM53bbZxbcTZCiUs1nD6ObSw
+	ySr0Dq4sP19b69FQkAFlVSanSLXOZgvrsl3yAU3AlitLw7VhZAE6Tnl4zIr++tlTL/9NsxGFJspUy
+	QZYkRNRtIKnqWiLAFajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obXbU-00122C-7i; Fri, 23 Sep 2022 01:35:44 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1obZfp-001oiv-F7; Fri, 23 Sep 2022 03:48:21 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obXRD-000z5S-0o; Fri, 23 Sep 2022 01:25:11 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.54])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4MYZ971SjTzWh5r;
-	Fri, 23 Sep 2022 09:20:59 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 23 Sep 2022 09:24:56 +0800
-Message-ID: <55c32279-1a96-0a31-ca2b-ae4e34365625@huawei.com>
-Date: Fri, 23 Sep 2022 09:24:55 +0800
+	id 1obYPg-001PfV-4J; Fri, 23 Sep 2022 02:27:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1663900056; x=1695436056;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jAYDgleBPbTOdu0y3VZbHd+A4x8iiSPAjiS8UjgjHoQ=;
+  b=YclKjVxjxqEgT3IGko+h+4BUlj32OmNwVpxMMhTNETjgnYF082VAvTXj
+   3AAGItrMb2jQSkRJ+HiYcZWOQGecEnIc5JR7IBqQULA+eCiYXsU9GWcSc
+   GaLL1tIUENDBeaLTeoxSgbryMIRmYf8maP2lQGmmVHlvO5sVcNeYKSHzM
+   f+VuuDpV5C1WSdd/XfQuSB7VPt1+xcoxgOmvtUeamuEtg9bOGFeInKXcV
+   JKuhKkCtDB+loNe3dhQoTceT2pz+zGY/NyILjCo0s/2gNxXYbcw6kzLvB
+   IdtNvIK+dyM/k99CnEtPHHb28tYkeYaml+lICPyudII1+1e/2ANtBChCt
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10478"; a="298089759"
+X-IronPort-AV: E=Sophos;i="5.93,337,1654585200"; 
+   d="scan'208";a="298089759"
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Sep 2022 19:27:29 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.93,337,1654585200"; 
+   d="scan'208";a="709136696"
+Received: from lkp-server01.sh.intel.com (HELO c0a60f19fe7e) ([10.239.97.150])
+  by FMSMGA003.fm.intel.com with ESMTP; 22 Sep 2022 19:27:25 -0700
+Received: from kbuild by c0a60f19fe7e with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1obYPU-0005DM-30;
+	Fri, 23 Sep 2022 02:27:24 +0000
+Date: Fri, 23 Sep 2022 10:26:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
+Cc: kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v2] kbuild: move -Wundef from KBUILD_CFLAGS to
+ KBUILD_CPPFLAGS
+Message-ID: <202209231052.nj1STd5X-lkp@intel.com>
+References: <20220913080727.608495-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.4.0
-Subject: Re: [PATCH V2 3/3] arm64/kprobe: Optimize the performance of patching
- single-step slot
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <guoren@kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<rostedt@goodmis.org>, <mhiramat@kernel.org>, <maz@kernel.org>,
-	<alexandru.elisei@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-csky@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20220913033454.104519-1-liaochang1@huawei.com>
- <20220913033454.104519-4-liaochang1@huawei.com>
- <20220922133850.GC12095@willie-the-truck>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <20220922133850.GC12095@willie-the-truck>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20220913080727.608495-1-masahiroy@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220922_182507_307966_1025D42C 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20220922_192736_232649_172F6F14 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +90,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi85LzIyIDIxOjM4LCBXaWxsIERlYWNvbiDlhpnpgZM6Cj4gT24gVHVlLCBTZXAg
-MTMsIDIwMjIgYXQgMTE6MzQ6NTRBTSArMDgwMCwgTGlhbyBDaGFuZyB3cm90ZToKPj4gU2luZ2xl
-LXN0ZXAgc2xvdCB3b3VsZCBub3QgYmUgdXNlZCB1bnRpbCBrcHJvYmUgaXMgZW5hYmxlZCwgdGhh
-dCBtZWFucwo+PiBubyByYWNlIGNvbmRpdGlvbiBvY2N1cnMgb24gaXQgdW5kZXIgU01QLCBoZW5j
-ZSBpdCBpcyBzYWZlIHRvIHBhY3RoIHNzCj4+IHNsb3Qgd2l0aG91dCBzdG9wcGluZyBtYWNoaW5l
-Lgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBMaWFvIENoYW5nIDxsaWFvY2hhbmcxQGh1YXdlaS5jb20+
-Cj4+IC0tLQo+PiAgYXJjaC9hcm02NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyB8IDUgKystLS0K
-Pj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4+Cj4+
-IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jIGIvYXJjaC9h
-cm02NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+PiBpbmRleCBkMWQxODIzMjAyNDUuLjU5MDJl
-MzNmZDNiNiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9hcm02NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMu
-Ywo+PiArKysgYi9hcmNoL2FybTY0L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4+IEBAIC00NCwx
-MSArNDQsMTAgQEAgcG9zdF9rcHJvYmVfaGFuZGxlcihzdHJ1Y3Qga3Byb2JlICosIHN0cnVjdCBr
-cHJvYmVfY3RsYmxrICosIHN0cnVjdCBwdF9yZWdzICopOwo+PiAgc3RhdGljIHZvaWQgX19rcHJv
-YmVzIGFyY2hfcHJlcGFyZV9zc19zbG90KHN0cnVjdCBrcHJvYmUgKnApCj4+ICB7Cj4+ICAJa3By
-b2JlX29wY29kZV90ICphZGRyID0gcC0+YWluc24uYXBpLmluc247Cj4+IC0Jdm9pZCAqYWRkcnNb
-XSA9IHthZGRyLCBhZGRyICsgMX07Cj4+IC0JdTMyIGluc25zW10gPSB7cC0+b3Bjb2RlLCBCUks2
-NF9PUENPREVfS1BST0JFU19TU307Cj4+ICAKPj4gIAkvKiBwcmVwYXJlIGluc24gc2xvdCAqLwo+
-PiAtCWFhcmNoNjRfaW5zbl9wYXRjaF90ZXh0KGFkZHJzLCBpbnNucywgMik7Cj4+ICsJYWFyY2g2
-NF9pbnNuX3dyaXRlKGFkZHIsIHAtPm9wY29kZSk7Cj4+ICsJYWFyY2g2NF9pbnNuX3dyaXRlKGFk
-ZHIgKyAxLCBCUks2NF9PUENPREVfS1BST0JFU19TUyk7Cj4+ICAKPj4gIAlmbHVzaF9pY2FjaGVf
-cmFuZ2UoKHVpbnRwdHJfdClhZGRyLCAodWludHB0cl90KShhZGRyICsgTUFYX0lOU05fU0laRSkp
-Owo+IAo+IEhtbSwgc28gaXQgbG9va3MgbGlrZSBwcmlvciB0byB5b3VyIGNoYW5nZSB3ZSB3ZXJl
-IGRvaW5nIHRoZSBjYWNoZQo+IG1haW50ZWJuYW5jZSB0d2ljZTogb25jZSBpbiBhYXJjaDY0X2lu
-c25fcGF0Y2hfdGV4dCgpIGZyb20gc3RvcCBtYWNoaW5lCj4gY29udGV4dCBhbmQgdGhlbiBhZ2Fp
-biBpbiB0aGUgZmx1c2hfaWNhY2hlX3JhbmdlKCkgY2FsbCBhYm92ZS4KPiAKPiBJIHN1cHBvc2Ug
-dGhlIGNsZWFuZXN0IHRoaW5nIHdvdWxkIGJlIHRvIGRyb3AgdGhlIGZsdXNoX2ljYWNoZV9yYW5n
-ZSgpCj4gY2FsbCBhbmQgdGhlbiB1c2UgYWFyY2g2NF9pbnNuX3BhdGNoX3RleHRfbm9zeW5jKCkg
-aW5zdGVhZCBvZgo+IGFhcmNoNjRfaW5zbl93cml0ZSgpIGluIHlvdXIgY2hhbmdlLgoKT0vvvIxJ
-IHdpbGwgaW1wcm92ZSBpdCBpbiBuZXh0IHZlcnNpb24sIHRoYW5rcy4KCj4gCj4gV2lsbAo+IC4K
-Ci0tIApCUiwKTGlhbywgQ2hhbmcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+Hi Masahiro,
+
+I love your patch! Perhaps something to improve:
+
+[auto build test WARNING on masahiroy-kbuild/for-next]
+[also build test WARNING on s390/features soc/for-next linus/master v6.0-rc6]
+[cannot apply to next-20220921]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Masahiro-Yamada/kbuild-move-Wundef-from-KBUILD_CFLAGS-to-KBUILD_CPPFLAGS/20220913-161447
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git for-next
+config: arm64-buildonly-randconfig-r003-20220922 (https://download.01.org/0day-ci/archive/20220923/202209231052.nj1STd5X-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 12.1.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/ccf1a82d3dedb27a2b1b21f64e09183b197e1f6f
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Masahiro-Yamada/kbuild-move-Wundef-from-KBUILD_CFLAGS-to-KBUILD_CPPFLAGS/20220913-161447
+        git checkout ccf1a82d3dedb27a2b1b21f64e09183b197e1f6f
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=arm64 SHELL=/bin/bash arch/arm64/kernel/
+
+If you fix the issue, kindly add following tag where applicable
+| Reported-by: kernel test robot <lkp@intel.com>
+
+All warnings (new ones prefixed by >>):
+
+   In file included from arch/arm64/kernel/vmlinux.lds.S:65:
+>> arch/arm64/include/asm/kernel-pgtable.h:135:41: warning: "PMD_SHIFT" is not defined, evaluates to 0 [-Wundef]
+     135 | #define ARM64_MEMSTART_SHIFT            PMD_SHIFT
+         |                                         ^~~~~~~~~
+   arch/arm64/include/asm/kernel-pgtable.h:144:5: note: in expansion of macro 'ARM64_MEMSTART_SHIFT'
+     144 | #if ARM64_MEMSTART_SHIFT < SECTION_SIZE_BITS
+         |     ^~~~~~~~~~~~~~~~~~~~
+
+
+vim +/PMD_SHIFT +135 arch/arm64/include/asm/kernel-pgtable.h
+
+87d1587bef394c Suzuki K. Poulose 2015-10-19  122  
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  123  /*
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  124   * To make optimal use of block mappings when laying out the linear
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  125   * mapping, round down the base of physical memory to a size that can
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  126   * be mapped efficiently, i.e., either PUD_SIZE (4k granule) or PMD_SIZE
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  127   * (64k granule), or a multiple that can be mapped using contiguous bits
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  128   * in the page tables: 32 * PMD_SIZE (16k granule)
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  129   */
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30  130  #if defined(CONFIG_ARM64_4K_PAGES)
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30  131  #define ARM64_MEMSTART_SHIFT		PUD_SHIFT
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30  132  #elif defined(CONFIG_ARM64_16K_PAGES)
+ca6ece6a76a8b5 Anshuman Khandual 2021-06-14  133  #define ARM64_MEMSTART_SHIFT		CONT_PMD_SHIFT
+a7f8de168ace48 Ard Biesheuvel    2016-02-16  134  #else
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30 @135  #define ARM64_MEMSTART_SHIFT		PMD_SHIFT
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30  136  #endif
+06e9bf2fd9b372 Ard Biesheuvel    2016-03-30  137  
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
