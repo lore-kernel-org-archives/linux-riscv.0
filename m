@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED140C04A95
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE34C07E9D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gREtHlBcqOOMcNQUNH0OigmgJNAFzX0WHOZGX7zigNY=; b=XmIWlaJGiTwOWN
-	8DMCIHKPRL9OOCbygxzYld11IjC1bgcyO+YX81d5Wm1NQAFsTzpdyxZSEmUPbjZ3zehs/eZ65NILx
-	5jAD0KAy0oJMk4QckuKLJ9LeWfKMDvMoxazf0/FgmIXR4/6Ou+IitAjU+zTIb5jGd/UWg+7+aXtrn
-	itsy8xgBp6ZvenW+YP/xqnwWHzz4Srt1/viclt+enSUkyzA9fqMfLw0e+OtLcJm3sJ3bOJ7+XpRYs
-	Gc7fbZJvLsZoRNU/IGF13B2GhI03iFcFaViOtG9BA53kmOQL8bt99+gWv3WvjM4aXBGwNsmqtjBIw
-	xEo8hzHUROybJhmWIcQA==;
+	List-Owner; bh=/xIxfsN6AxZ004W5x3impOErDKshXDmvbCevXeVC8U8=; b=i423U9vXUbnWJb
+	vUmkp60wixls1C1jzKi9+bPvQ9Pkfso0Ack+RUavbS2wqzi7Rtv+kIfnwFiLPr1OtWII4+V29QgSA
+	ycJ//Oc3RBcnq+q5pb3/cdA7lMrM7y196k+UuxuWdz/bqpveNW7g37OmFXj+A4HoEPm2qN2kjObCh
+	SjEoDGmDuHavytN8pfClF30ZASCc2hp09A9Ek7Ar42ztjnA6yiLZ8IOqwUmoZOVxuIEY25Ht116Yf
+	iU+3VxU9K9rewke3a0kGrFt1EsRkTdCFjuO0SsWHudZnSYnMtBwIrSc/yrkAx3efo2CRMM3XHx/YO
+	RzzcKoZZK2y7fw6zQd6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnt2-005RoH-3T; Fri, 23 Sep 2022 18:58:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1obntB-005RwQ-CT; Fri, 23 Sep 2022 18:59:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obns9-005Qxt-0H
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:58:02 +0000
+	id 1obnsD-005R19-0m
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:58:06 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 46C7A61018;
-	Fri, 23 Sep 2022 18:58:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C995FC433D7;
-	Fri, 23 Sep 2022 18:57:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 81AF562186;
+	Fri, 23 Sep 2022 18:58:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14320C433D7;
+	Fri, 23 Sep 2022 18:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663959479;
-	bh=KH9q3ieBcl2ym6CAxSSw7n2kqoxX3+TtQQ/wxSnvd+U=;
+	s=k20201202; t=1663959483;
+	bh=OLDnqjBAVWfXd36+/Y8XmfjvzSDOHb/7QnXockHoi/s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HHTnctrqtQgtD5L92a/CqUcAwZEbyckUKgxDm5cVUMChOxYXpVLhvmsKjENn0wN+5
-	 g9PeZL6TyVHfHbe9GQEN1oTHJaNsGeQ8611tUGXFqIChHUHXA38H5LNbH8G6zCNkFd
-	 6+GAe4t7Bgr9udxZiY9ji7S7Dttfwk2HDJq7yqPDY5qtAG1URtDNVf/NCKqrUgGbEk
-	 APv09o53sY8u1MqLC9x7+i5rDoDRiwZJUmkIBehufs/VMkuVvSSMDAUkLybGlbOnxm
-	 A+lqKU3BbbBPuRRgv1YQppyEOvc7yHDJswRYN6RGRlJlzVAP6JaUd1is2TS6gpeJmG
-	 9CeOSW/y6lPYA==
+	b=i31BvVvI0okOM0yYEphFdpjcYOq36tB+j+quwP61SITbqf+5eKmCHLuon0fod8TuN
+	 43SPzZswubcOpdpfjTb3dkGFCFG+eH6DfxECC9bXkKQbYaTdlcESZ9eaVz8It0IGZR
+	 TMxtyDZAMK98DY503+VxXOkkpgA7ySksK7Yg96D1v3nbs2kW2AVg4/nKLQaxXwuCxI
+	 UB5bYj/0A+HAR7BjFtNKruRJw0g9O5ulgECib8JdTaSuozMVVmOXRvmVzQwMQv7ooK
+	 JvpBiZbdM0TtTWNvBIMv9S8+SgZ/e3KwrQybK61DkwAIGvTHWODAbII8LBQ1+FhgiL
+	 nGvNi2iVtef1Q==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com,
@@ -51,16 +51,16 @@ Cc: palmer@dabbelt.com,
 	kernel@esmil.dk,
 	arnd@arndb.de,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [RFC 23/27] pinctrl: k210: convert SOC_CANAAN to ARCH_CANAAN
-Date: Fri, 23 Sep 2022 19:56:02 +0100
-Message-Id: <20220923185605.1900083-24-conor@kernel.org>
+Subject: [RFC 25/27] reset: k210: convert SOC_CANAAN to ARCH_CANAAN
+Date: Fri, 23 Sep 2022 19:56:04 +0100
+Message-Id: <20220923185605.1900083-26-conor@kernel.org>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
 References: <20220923185605.1900083-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_115801_143038_6049759E 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20220923_115805_134429_34CC9B18 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +88,25 @@ only defined on RISC-V, the Kconfig dependancy on RISCV can be dropped.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/pinctrl/Kconfig | 4 ++--
+ drivers/reset/Kconfig | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index 8862a71de8af..82dfc8c208e1 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -217,13 +217,13 @@ config PINCTRL_INGENIC
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index a69bd6ef3110..576190fbe544 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -94,9 +94,9 @@ config RESET_INTEL_GW
  
- config PINCTRL_K210
- 	bool "Pinctrl driver for the Canaan Kendryte K210 SoC"
--	depends on RISCV && SOC_CANAAN && OF
-+	depends on ARCH_CANAAN && OF
- 	select GENERIC_PINMUX_FUNCTIONS
- 	select GENERIC_PINCONF
- 	select GPIOLIB
- 	select OF_GPIO
- 	select REGMAP_MMIO
+ config RESET_K210
+ 	bool "Reset controller driver for Canaan Kendryte K210 SoC"
+-	depends on (SOC_CANAAN || COMPILE_TEST) && OF
++	depends on (ARCH_CANAAN || COMPILE_TEST) && OF
+ 	select MFD_SYSCON
 -	default SOC_CANAAN
 +	default ARCH_CANAAN
  	help
- 	  Add support for the Canaan Kendryte K210 RISC-V SOC Field
- 	  Programmable IO Array (FPIOA) controller.
+ 	  Support for the Canaan Kendryte K210 RISC-V SoC reset controller.
+ 	  Say Y if you want to control reset signals provided by this
 -- 
 2.37.3
 
