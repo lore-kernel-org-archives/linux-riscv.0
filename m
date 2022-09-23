@@ -4,77 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3975C6FA82
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF68ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=saEYWghX/j6UWDpZqT26OndBaGAxsRohPASK7Y082Yc=; b=Qyvb508G6tpkWo
-	/RJvxQ38ixNuL1fvzSyzWwU3e3WtGj0aG229cCgvG+PAlPePRlL/IyBfh8nus9NrS0v5edKroqZMf
-	jkiiiuwefymy9dxiwG6bGaZ2Rgwnq3kW97cI+OmU8b1QC3wjAmGnFnQh6dwABX5Usdho89Pnit4Ta
-	Fyn+ank11sQlxY1OQ57YP4n8ivPbhCjKhAlntKSECPK7z4+9C1Ic0i2eM3vI5tZFzF0dHEGLiEXsF
-	dtLlTylQtoF/Ozmj3USm3by2OZc0M1BXSdYfn/Dkt7dAemnvpMI4SzQmMGn9cuCqaDIj2JturgEAo
-	rIDP4c2bYEN5Udq3E8NQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nduAzvLLd939gwFl/6jdjL+3Z26dN+GdyZPksNBWb1k=; b=C2ivh3hh13CeTY
+	tuCchQg2SqP+ll3Inz0KjWJM6acLaAHlFaM8re25DAmJeiI1kybVf2Ej3p4JduoknzYRkivft1foH
+	Ia2z0VLNOyoRJzuWhpkWY+xUwh6G8rn1UTcDqldGbkfhHTAWKH4KIecqttoTWBenYTMI6O+OYyUZM
+	+0dBIkfpM6efr0AM9sWtBwgnDYe779zf1ZmKVn8uq2YPVDIq273uYlD8wnWoKP84/hgivBkuFB8G4
+	4XLmgkWuF2epwCNR2Ame1DcaOQ1MfnTz9ZnbVjQxk6sI23nDhJOVYjQprmJIOOKkqbvDxy1ZwYWDC
+	brFJCA72zB60rcIwn+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obfWx-003YMs-8G; Fri, 23 Sep 2022 10:03:35 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1obfla-003bj9-TR; Fri, 23 Sep 2022 10:18:42 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obfWu-003YJP-Cl
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:03:33 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id o99-20020a17090a0a6c00b002039c4fce53so5271642pjo.2
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Sep 2022 03:03:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=Igny7pTb9AijsoV7hvvN55djeYxG08/baILhy9iEypk=;
-        b=VyNg8Ii30CtNaDjTaFtYwnCPGNizxdHazep/PeUMboCspqgfeSQKiTDgFqQ/vnSWap
-         I6K+5rIOzf6oPLowz6qMKern4LAU+kuhCxl2cKsoDyaMK5RQBAdbOTcSQdsWjYs7fH/2
-         r2ifcY+C7IcX/MgZHx2XCZCtc9FWTEhhD9cp8tcZNX4r65ktat7ezbP4J7S0MzKJVvaf
-         blucuvgyjLxrT7LyKHphiuoB6HBLdMdch+R44ds3IpGA4zV+TntlFd5qfftF0ZD9gdu8
-         mXzhYsqjs6u7tHiObI+Ezy69dAFTYIpvLcHuYzgtjtte3xIEMPQzbsx7Q0PMJsahI81Y
-         M9+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=Igny7pTb9AijsoV7hvvN55djeYxG08/baILhy9iEypk=;
-        b=BcNQoywi7nP4EHJwGobhIH3XC4AKNgqP8VChHhJgaBTz1l5vHDoUi515rQgEmp8f+b
-         Aq8FcLMHeOohd9Id5yqWHlrRwluDZ3zlvzAhF9IgEdyVuaODCY4Z8l5pVkRQptad+bx/
-         l4ELHI6414THzgcHnCl9Jh4516SqgZ5ocOojrgT6AbOYiBE507MSv4lzRHaRDlL+fGEV
-         D5euQ1I/FdEgPbWu4ZQdOAET8rKnrUOfz4utV4UG9c8mzYxI/2uS7RIh3Wbu9E6QPVWS
-         oce1r5Utf8GzZBbTwyquCnHR3f1JAg2BPSdzHXlZs1C4ETwmB3VEasc+2+gefn8Nl2OR
-         C8bQ==
-X-Gm-Message-State: ACrzQf3cVKyFVbfCbTj85MmBK9kG7ZbDWQKd/4UT/icBjPK9qIOoIDBM
-	1DDxp68jp3KbaipsJOifSmk=
-X-Google-Smtp-Source: AMsMyM422saiBMn/ttuHBBoJOpy7D9O9IJYmJtuUdgGr8ByYU4QCQaCJ++5PPH1JIak8CwDVtGUjpQ==
-X-Received: by 2002:a17:90b:1a90:b0:202:ff17:4a80 with SMTP id ng16-20020a17090b1a9000b00202ff174a80mr20367969pjb.213.1663927407990;
-        Fri, 23 Sep 2022 03:03:27 -0700 (PDT)
-Received: from localhost.localdomain ([221.226.144.218])
-        by smtp.gmail.com with ESMTPSA id l25-20020a635b59000000b0043395af24f6sm5374100pgm.25.2022.09.23.03.03.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Sep 2022 03:03:27 -0700 (PDT)
-From: Song Shuai <suagrfillet@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: guoren@linux.alibaba.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH RESEND] riscv : select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-Date: Fri, 23 Sep 2022 18:01:49 +0800
-Message-Id: <20220923100149.2647325-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+	id 1obflY-003biK-D8
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:18:41 +0000
+Received: from p508fdb48.dip0.t-ipconnect.de ([80.143.219.72] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1obflV-0005l1-VU; Fri, 23 Sep 2022 12:18:37 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Samuel Holland <samuel@sholland.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] riscv: Fix crash during early errata patching
+Date: Fri, 23 Sep 2022 12:18:37 +0200
+Message-ID: <3805269.R56niFO833@phil>
+In-Reply-To: <b012edf5-60ae-a45a-4da9-823cd0fd1e93@ghiti.fr>
+References: <20220922054743.30159-1-samuel@sholland.org> <b012edf5-60ae-a45a-4da9-823cd0fd1e93@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_030332_481178_40F1B2A9 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220923_031840_470243_E0938FB7 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +58,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-riscv now uses -fpatchable-function-entry with dynamic ftrace after
-the `afc76b8b8` commit, which means recordmcount shouldn't be called
-to create the __mcount_loc section before the vmlinux linking.
+Hi,
 
-We should select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY to tell
-Makefile not to run recordmcount.
+Am Donnerstag, 22. September 2022, 09:31:56 CEST schrieb Alexandre Ghiti:
+> Hi Samuel,
+> 
+> On 9/22/22 07:47, Samuel Holland wrote:
+> > The patch function for the T-Head PBMT errata calls __pa_symbol() before
+> > relocation. This crashes when CONFIG_DEBUG_VIRTUAL is enabled, because
+> > __pa_symbol() forwards to __phys_addr_symbol(), and __phys_addr_symbol()
+> > checks against the absolute kernel start/end address.
+> >
+> > Fix this by directly using the underlying kernel_mapping_va_to_pa().
+> 
+> 
+> I'd rather fix __phys_addr_symbol so that we can use __pa_symbol and 
+> then take advantage of the address range check. Instead of using _end in 
+> phys_addr_symbol, we have access to the size of the kernel mapping, so 
+> we could do something like that:
+> 
+> diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
+> index f981b1f95fa0..150691aef058 100644
+> --- a/arch/riscv/mm/physaddr.c
+> +++ b/arch/riscv/mm/physaddr.c
+> @@ -22,7 +22,7 @@ EXPORT_SYMBOL(__virt_to_phys);
+>   phys_addr_t __phys_addr_symbol(unsigned long x)
+>   {
+>          unsigned long kernel_start = kernel_map.virt_addr;
+> -       unsigned long kernel_end = (unsigned long)_end;
+> +       unsigned long kernel_end = kernel_map.virt_addr + kernel_map.size;
+> 
+>          /*
+>           * Boundary checking aginst the kernel image mapping.
+> 
 
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+so I did the whole set of original code
+- works without DEBUG_VIRTUAL
+- breaks with DEBUG_VIRTUAL
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c22f58155948..25db8cea876a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -246,6 +246,7 @@ config ARCH_RV64I
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
-+	select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if DYNAMIC_FTRACE
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
- 	select SWIOTLB if MMU
--- 
-2.20.1
+and then applied you suggested change to __phys_addr_symbol,
+which fixes the breakage. And I guess making this usable at all
+times also makes a lot of sense, so
+
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+> > Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
+> > Signed-off-by: Samuel Holland <samuel@sholland.org>
+> > ---
+> >
+> >   arch/riscv/errata/thead/errata.c | 5 +++--
+> >   1 file changed, 3 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> > index 202c83f677b2..83174f13783e 100644
+> > --- a/arch/riscv/errata/thead/errata.c
+> > +++ b/arch/riscv/errata/thead/errata.c
+> > @@ -76,8 +76,9 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
+> >   		if (cpu_req_errata & tmp) {
+> >   			/* On vm-alternatives, the mmu isn't running yet */
+> >   			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > -				memcpy((void *)__pa_symbol(alt->old_ptr),
+> > -				       (void *)__pa_symbol(alt->alt_ptr), alt->alt_len);
+> > +				memcpy((void *)kernel_mapping_va_to_pa((unsigned long)alt->old_ptr),
+> > +				       (void *)kernel_mapping_va_to_pa((unsigned long)alt->alt_ptr),
+> > +				       alt->alt_len);
+> >   			else
+> >   				patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> >   		}
+> 
+
+
+
 
 
 _______________________________________________
