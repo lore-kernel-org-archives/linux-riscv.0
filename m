@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA4FC07E9D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102B3C07E9D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9czEt+r+Ix19eDgyTBtTphJbDlzRBmIwRGnU2y8yrig=; b=fC2c4WCoXp0JPr
-	fbu4PIoue8JVMN1cd8XDvMSNBkIZMnbZaS6laDBowpERAqxOYxKStTR/Xa29ms5kW4Bg+J6X27fe+
-	mR69qt4B9Y/LSGdRcnDJkh4k1k5PFjROEWCobfFpH7YUqQ/s5du2TIF+oZsynj0+Lq3QEpLXE9zrW
-	x/cWPYOZsmApuWhsjQBv8yMMcR/fyipbQ/r3jwvCr2W6ADLhGCzJuqxuYIaBVgpQ6y2wLSdDDkzVM
-	q1M1BlF8+tvUBtuzYmYSEV8vt2Vr3jQ0H4SXh1YBbFp28IdHYtddIWGPZlq0TIGVMQJzELQ/oc9kD
-	70bnuTA07UPbcP57XPtg==;
+	List-Owner; bh=8rEWxSniaBA49or18N/uJZcrOepp9GqaWr+2ghcLMfE=; b=pznZM81l+/dQHk
+	FQ1NZyD5drkvBu79FiDyWG5AUL52UwOPz/nJZm6QAiClNiwHFQUBJZowdjKqTNX9y6DGC5oQU8RKM
+	jajKJGPraCdINH6t+PYUTuEQUiS62si1eqaHJohqe9H8kmpGHYQk8pf/GQxnE2TBa0qTpS9OaZuoQ
+	UmtvngC9KR5lUZBoUYzs49+IxdQ+nLhgx8uQgX6tfPoLdkNihPiitVcfd3mLcKZJub+6DxK5zzWZB
+	UArbbFqfbjM7pS5kp51WpwchVPTGShmwk8uEYA+YwmFMi0qiZ91XbpXAL9yJVwCjmzP4exXVVYcIq
+	FADcus57otRe6sVpvcHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnrv-005Qhu-1H; Fri, 23 Sep 2022 18:57:47 +0000
+	id 1obns0-005Qo4-3V; Fri, 23 Sep 2022 18:57:52 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnrk-005QWA-EK
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:38 +0000
+	id 1obnrm-005QYi-L4
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1E49FB8239A;
-	Fri, 23 Sep 2022 18:57:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30993C433D6;
-	Fri, 23 Sep 2022 18:57:32 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 52F57B819FE;
+	Fri, 23 Sep 2022 18:57:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 522E6C433D7;
+	Fri, 23 Sep 2022 18:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663959453;
-	bh=TWiGG1Qa7DV/XSTVgM1dJgAbBrL+Z5YQu7ItwpJiOF0=;
+	s=k20201202; t=1663959456;
+	bh=WwKj/TG5Zso24q/CFC4VVP3zDX8Q0tT0OTR5S+9at+Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gNqXKXpQj0YSCZYKKunqOsNJzIFFdstrfxZIxK1AxwrcS9m4LBnjHr+w8GiceQBkQ
-	 EJeXO9mF9OAcuAzyPo9w3iNlIQwY1Blcm/HOrUHujaqOP/2a+AlUqYiIH6V4bMtFw4
-	 BPMKeeAMShiUJ3kscHOHH+ZID/lSnYPocDnxFwQvauWTL3C0AgQkZaYuqFr2o1yn/v
-	 r4+LJ+5jwKiugs0ApMWs+FcfCzND+6nV22+FHbLGw/BU8Ay0OM8nhO+K+BUndjh64n
-	 2mzUcjrL4+leUhs5HOEKnCC2aHG/jGGlNYGEkP35sN5pD71GL+BURRYjZaSrdeoW4D
-	 0cyqcEJ8oGa7g==
+	b=XsxqhZIxxkAYUaM4q7ugyT0CMqa27ZhB59CuF/IqiyJsatg1ScKs6H1NVHLKzMr1g
+	 SLA14DUzU+SxbxCnrvjal+FFK2ixHqCvuWsepKDPeU8bWHSh5giNvozrAY5vgXjvon
+	 t3yi0SAtKYPna0hmSQ0nV44BWRVggRNF9IZ237rWFvBI0xWiHBMPgarHhK15yRw2Ir
+	 WumEeeLc9iyMPOy5Xy8agRJdrUR3tWHK1riN2q6ojZaHAKNbn+wUPdOT7nCGakud4g
+	 cAJwj3LsfXJZRMHcXA6O3mPjQ6KFnf/yZWudPjMgJtdYvAt2KqnER17DB1+4SHOzm7
+	 iXd2XQCIBoNVQ==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com,
@@ -51,16 +51,16 @@ Cc: palmer@dabbelt.com,
 	kernel@esmil.dk,
 	arnd@arndb.de,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [RFC 11/27] riscv: replace SOC_SIFIVE with ARCH_SIFIVE
-Date: Fri, 23 Sep 2022 19:55:50 +0100
-Message-Id: <20220923185605.1900083-12-conor@kernel.org>
+Subject: [RFC 12/27] soc: sifive: convert SOC_SIFIVE to ARCH_SIFIVE
+Date: Fri, 23 Sep 2022 19:55:51 +0100
+Message-Id: <20220923185605.1900083-13-conor@kernel.org>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
 References: <20220923185605.1900083-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_115736_661492_26EE087C 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20220923_115738_866528_4135EAC8 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,69 +79,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Per discussion at LPC, the SoC/platform Kconfig symbols in RISC-V land
-are to be converted to ARCH_FOO from SOC_FOO so that the symbols are
-consistent between the "incumbents" & those coming from ARM64 etc.
-
-Predictably, SOC_SIFIVE becomes ARCH_SIFIVE.
+As discussed at LPC, the SOC_ symbols in arch/riscv are being converted
+to ARCH_, so SOC_SIFIVE becomes ARCH_SIFIVE. As the entirety of the
+SiFive subdirectory is gated by "if ARCH_SIFIVE" in its Kconfig, the
+sub-Makefile can always be included.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig.socs             | 2 +-
- arch/riscv/boot/dts/sifive/Makefile | 2 +-
- arch/riscv/configs/defconfig        | 2 +-
- arch/riscv/configs/rv32_defconfig   | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ drivers/soc/Makefile       | 2 +-
+ drivers/soc/sifive/Kconfig | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 910697baf097..3604b90251b4 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -6,7 +6,7 @@ config ARCH_MICROCHIP
- 	help
- 	  This enables support for Microchip SoC FPGAs.
- 
--config SOC_SIFIVE
-+config ARCH_SIFIVE
- 	bool "SiFive SoCs"
- 	select SERIAL_SIFIVE if TTY
- 	select SERIAL_SIFIVE_CONSOLE if TTY
-diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-index d90e4eb0ade8..b1c2d563a0e6 100644
---- a/arch/riscv/boot/dts/sifive/Makefile
-+++ b/arch/riscv/boot/dts/sifive/Makefile
-@@ -1,4 +1,4 @@
+diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+index 69ba6508cf2c..534669840858 100644
+--- a/drivers/soc/Makefile
++++ b/drivers/soc/Makefile
+@@ -26,7 +26,7 @@ obj-y				+= qcom/
+ obj-y				+= renesas/
+ obj-y				+= rockchip/
+ obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
+-obj-$(CONFIG_SOC_SIFIVE)	+= sifive/
++obj-y				+= sifive/
+ obj-y				+= sunxi/
+ obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
+ obj-y				+= ti/
+diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
+index 58cf8c40d08d..9f52227c3cce 100644
+--- a/drivers/soc/sifive/Kconfig
++++ b/drivers/soc/sifive/Kconfig
+@@ -1,6 +1,6 @@
  # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb \
-+dtb-$(CONFIG_ARCH_SIFIVE) += hifive-unleashed-a00.dtb \
- 			    hifive-unmatched-a00.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 971986be875f..bfb6f6f57ae2 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -26,7 +26,7 @@ CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
- CONFIG_ARCH_MICROCHIP_POLARFIRE=y
--CONFIG_SOC_SIFIVE=y
-+CONFIG_ARCH_SIFIVE=y
- CONFIG_ARCH_STARFIVE=y
- CONFIG_SOC_VIRT=y
- CONFIG_SMP=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 38760e4296cf..4badab395546 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -16,7 +16,7 @@ CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
--CONFIG_SOC_SIFIVE=y
-+CONFIG_ARCH_SIFIVE=y
- CONFIG_SOC_VIRT=y
- CONFIG_NONPORTABLE=y
- CONFIG_ARCH_RV32I=y
+ 
+-if SOC_SIFIVE
++if ARCH_SIFIVE
+ 
+ config SIFIVE_L2
+ 	bool "Sifive L2 Cache controller"
 -- 
 2.37.3
 
