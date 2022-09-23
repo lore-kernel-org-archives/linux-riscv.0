@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7631C07E9D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73845C07E9D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=njAaXhGHY0podj49oUsf7vHs/+T02kjosrjNpNvnJik=; b=DzZRB3STD8fMAb
-	h3rDgDyBCwtELr4mopiY9ym26HUEhyGi04e4JR6C3aPaoL6+0B8Mq16B+uk/Ycba9UW+1LyUiIvAh
-	8A1f1BiY5MCAsEuNc/05b0CB6t8mha12vdXVx5GxU9RGgWxsu29GiifhDOPbx0ZVXpot+gu96LMwo
-	UjGuBnkitgUezbOur8XKxC2V0lO4nm2NrkpYvyGA3Jl6MLoWvq38ZGcR3ihUa6aWt8iHanB/Xpz2O
-	WGIACnE/fbvXbln1cmLM08k3lIcFu/qlmzXlov+dVLbXvaVstgO6PfJh+4AT5k3tsHjm+OXpAVWcC
-	Pq2Ff01rsLwExiSwjaWA==;
+	List-Owner; bh=vWHg+JQ5fh+lPU2NhONPyOshBMdZCkSC2araujpLPqg=; b=oC77nJbAOdDTC3
+	s7axrlvrMBjT3J4JzgtYTS6tckM6P3Z2dtjS10P7V9fn5h+a+nCB2sNsPrTtnAyRxbXaBvv9eCvqh
+	VPEpTvQTb0EN0Lk+9XuoS/AaBFsCBc3dAt7oGq1aeAvysS+zN0DtVQ+Pr4ORQcpfmzu4yYArwSxZn
+	5+C0sTUARyWCINz2Lfx4uCXUPh7xWx0Dd/7368uX+wVFXLb78HmFhs3I38dYylmFrkPCJfE3YAx/g
+	bPhAjqrYU2dxpgkAMQww7lMsP3tSdzgpZXwnHvwC0p9xW25MUNoAv9EJo7HP5ys4Ob6r85lCn2bYF
+	BVkFRR3aZGi/0CcWHnlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnsQ-005RCs-AS; Fri, 23 Sep 2022 18:58:18 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1obnsU-005RGS-6u; Fri, 23 Sep 2022 18:58:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnrt-005QgG-OC
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:47 +0000
+	id 1obnrw-005Qjs-6q
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 25B1ACE25A7;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 61A6D61018;
+	Fri, 23 Sep 2022 18:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05EBDC433D7;
 	Fri, 23 Sep 2022 18:57:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B58CAC433D7;
-	Fri, 23 Sep 2022 18:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663959462;
-	bh=nEAyYG0+yZlMeQkwsgjrD0O3Hhbsi2XdAizjKNQ+JAc=;
+	s=k20201202; t=1663959466;
+	bh=o8yYtFzTxfYF9ovwoLxfPrCEJP5EIR1tNU1feWxyUgM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=l7VW02PdoxtJVodBn5qtAGlJ4nfZWLpi4Rq9XPzt2ii0Av8tFb2sU5OtUCZbe8uIf
-	 JONyZhV7Kv4RX2p3qztr+MISr1Wjdt8KurnzfSXxUfFEPubz9zaE34R9OCYKZfgt40
-	 ohBk4MDLF2RDz3dJwI7n94Gsbr+YPm/qxR+55i+sY7b0gTSVEWZxTwxR7RQ0zsweTp
-	 UKtF3Xo/E6F3hjf4gi5mkMVOBWmj+ZqWKStthMR7TRbChq0SI8YESuscIf5DVo9PHW
-	 U2OyXQDOtale0jT+UDfn38sQBWQlkzeCw+AgZdvlHHabNPqgR1gKP3xCM6ZHSSQsJf
-	 6l4a/uuG3RBlg==
+	b=SyP3BiXhKJxYLf++6efH8CAoMmHGGYUiwaO19tGtXew2qK1yQY4A/lZhitV4j0rYG
+	 yNNmPiAGkVvdcPvkOJF6HTuKmXhTW5xC9/yB+llVPE1RBluztncCmqZWLRH8X81ZBR
+	 PgrZkW+jAxvZLSB8D8tLOPpFEZqKBs7AJBxi/kb7IM5b0KaEVmsrgxfRdc4vLTsvwE
+	 j+fHoUfK+lnsmI2nfYKQwVhzxIlY83yG1qLYI+w7ORrYPD6GjKjpX9vrEkVDnRq6OL
+	 f5xS+xKB5AsnxvOMgIUOduxYDNMp3ozPAlEfDpIHCaDn+vH9qNudUccUXA3K7RtUl0
+	 X2nWPKhfv9AXQ==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com,
@@ -51,16 +51,16 @@ Cc: palmer@dabbelt.com,
 	kernel@esmil.dk,
 	arnd@arndb.de,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [RFC 15/27] serial: sifive: select by default if ARCH_SIFIVE
-Date: Fri, 23 Sep 2022 19:55:54 +0100
-Message-Id: <20220923185605.1900083-16-conor@kernel.org>
+Subject: [RFC 17/27] riscv: stop selecting SiFive clock and serial drivers directly
+Date: Fri, 23 Sep 2022 19:55:56 +0100
+Message-Id: <20220923185605.1900083-18-conor@kernel.org>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
 References: <20220923185605.1900083-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_115745_994064_32A8663C 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20220923_115748_357847_6FC52AFA 
+X-CRM114-Status: UNSURE (   9.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,33 +80,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-With the aim of dropping direct selects of drivers from Kconfig.socs,
-default the SiFive serial drivers to the value of ARCH_SIFIVE.
+The SiFive clock and serial drivers will now default to the value of
+ARCH_SIFIVE so there is no need to directly select their symbols
+anymore.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/tty/serial/Kconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/Kconfig.socs | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index 2a18a42a5004..daadcfe2703c 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -972,6 +972,7 @@ config SERIAL_OMAP_CONSOLE
- config SERIAL_SIFIVE
- 	tristate "SiFive UART support"
- 	depends on OF
-+	default ARCH_SIFIVE
- 	select SERIAL_CORE
- 	help
- 	  Select this option if you are building a kernel for a device that
-@@ -981,6 +982,7 @@ config SERIAL_SIFIVE
- config SERIAL_SIFIVE_CONSOLE
- 	bool "Console on SiFive UART"
- 	depends on SERIAL_SIFIVE=y
-+	default ARCH_SIFIVE
- 	select SERIAL_CORE_CONSOLE
- 	select SERIAL_EARLYCON
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 3604b90251b4..811338720cbd 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -8,10 +8,6 @@ config ARCH_MICROCHIP
+ 
+ config ARCH_SIFIVE
+ 	bool "SiFive SoCs"
+-	select SERIAL_SIFIVE if TTY
+-	select SERIAL_SIFIVE_CONSOLE if TTY
+-	select CLK_SIFIVE
+-	select CLK_SIFIVE_PRCI
+ 	select SIFIVE_PLIC
+ 	select ERRATA_SIFIVE if !XIP_KERNEL
  	help
 -- 
 2.37.3
