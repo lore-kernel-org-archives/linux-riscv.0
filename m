@@ -4,44 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF68ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB16ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nduAzvLLd939gwFl/6jdjL+3Z26dN+GdyZPksNBWb1k=; b=C2ivh3hh13CeTY
-	tuCchQg2SqP+ll3Inz0KjWJM6acLaAHlFaM8re25DAmJeiI1kybVf2Ej3p4JduoknzYRkivft1foH
-	Ia2z0VLNOyoRJzuWhpkWY+xUwh6G8rn1UTcDqldGbkfhHTAWKH4KIecqttoTWBenYTMI6O+OYyUZM
-	+0dBIkfpM6efr0AM9sWtBwgnDYe779zf1ZmKVn8uq2YPVDIq273uYlD8wnWoKP84/hgivBkuFB8G4
-	4XLmgkWuF2epwCNR2Ame1DcaOQ1MfnTz9ZnbVjQxk6sI23nDhJOVYjQprmJIOOKkqbvDxy1ZwYWDC
-	brFJCA72zB60rcIwn+LQ==;
+	List-Owner; bh=Swpai4+6bg25G8h5TbRA4HTjBO7rjFKL9BGliUTH4h8=; b=F647gppxBa8G9h
+	Oggd5S/vyT8xKE632oI9sF/T6YLcYKl2iia80qqT1IeEGawwl4pTTpoMQZ40l5kUwEuzNzbO1Amu8
+	I7TWBiUmveuyEJCE+DJTRh67jm+pxpGkvbgXmWH5KtD/yxZ+qpGscAfwxkweNIQ3KkUbpf/3A1+AK
+	bnyVMV2qAtWC4/fP9qFh1Yl4RWTGtxdXeZuR879A4w63gSzAPD/qlH4yWigVIAsOJ3p981NtF951D
+	E4SDvMWX0DRh+jJvKzyldWqGiMTmQGwHs8jZXcqOCKc2JRHdykk2xO078sTKvJJOMTC2OEMncbrLJ
+	RiZPRXleH/xtiklPWB9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obfla-003bj9-TR; Fri, 23 Sep 2022 10:18:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1obfyd-003eyA-FB; Fri, 23 Sep 2022 10:32:11 +0000
+Received: from new4-smtp.messagingengine.com ([66.111.4.230])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obflY-003biK-D8
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:18:41 +0000
-Received: from p508fdb48.dip0.t-ipconnect.de ([80.143.219.72] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1obflV-0005l1-VU; Fri, 23 Sep 2022 12:18:37 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Samuel Holland <samuel@sholland.org>, Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] riscv: Fix crash during early errata patching
-Date: Fri, 23 Sep 2022 12:18:37 +0200
-Message-ID: <3805269.R56niFO833@phil>
-In-Reply-To: <b012edf5-60ae-a45a-4da9-823cd0fd1e93@ghiti.fr>
-References: <20220922054743.30159-1-samuel@sholland.org> <b012edf5-60ae-a45a-4da9-823cd0fd1e93@ghiti.fr>
-MIME-Version: 1.0
+	id 1obfyZ-003evp-LP
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:32:09 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailnew.nyi.internal (Postfix) with ESMTP id 2479F5809F0;
+	Fri, 23 Sep 2022 06:32:01 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Fri, 23 Sep 2022 06:32:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1663929121; x=1663932721; bh=b5154p7+jw
+	vVybTnV4XOC9aGotedUG0z1MsOq616Jbc=; b=k9bU0VORHmBJt7KPkKuBBTcZbY
+	QA3kx10eWTFiwOmyoiCict9Dfk8o5uCUg3qg7VM9DFh2a5TbY1E/NMEcKfPsdZSc
+	08hCSuiKnQSk2mlMKlCGY5V0cha/KM7i2u0FUL0hF2m39ZtESjfsw+Zk1GNUrGrD
+	jGE8C5uaoADfLqRHFvjS0VvsNVu5nnfluIAVulHvjiPi1L8sQYmBpM2OXHANpbRu
+	8qOBZJa5apfuB9HCwldF0TIz7aqYTg+9622/pHrPAtz1CjI/vG5o+emrNHB8srKk
+	/EXqM/UzPPHcN0/3eLkCgry15A/ir2thuq9O7VKJA1g3YFnFmMU9T2aFuZjg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1663929121; x=1663932721; bh=b5154p7+jwvVybTnV4XOC9aGoted
+	UG0z1MsOq616Jbc=; b=qtSqNLuwmRHY/7d2tD6A/zls1b51QbKDVrSpnj6LgJLJ
+	yP6nPJ/bX37TyqwR/wUTqnO/WyV2lUOfe2JBYFJ4EV3kbY3bFCJH1dGVe0ylHbQD
+	ZrETuI+61q9GeOlw6Y3ApLS6GZozoqkfezwgEj/RIzQzlSdtZSt+27vIrjIUncK3
+	d3uji0RhRhRWiCo15BDKaRajgPoLofpKA6+JaHEzxK91RDoZYb0Rj3aER/xNwKWj
+	r+mpfny7tZge0bCtyZLAoqEIq81WUoZNnlKEQP2M9p+ggckJi7YQBsasKbErDimC
+	hx5jp1RBqh0zXgqJm3eBzXoeY0KKRCxO2hJblzYG4g==
+X-ME-Sender: <xms:IIstY9sUvlU4LGEpHsO60t2j8bzIvfpizt1gpZrADxlA0boeu5IDdg>
+    <xme:IIstY2e_hbRomLaiU1bsskRfqAB_Tm72UXf0JGxa-DPal27UefIwcglLK4DXf4ubl
+    X5j-ZkcGs6WLLehi6Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeefiedgfeduucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:IIstYwxhPcMuGUXW7qVJXYJBn9sNAleJfrZ12mF9H_V6LE325F7Ojw>
+    <xmx:IIstY0OGRmpCtguIu2St8OksJBodX7te27iq3KpW0ZDPwoE2AuMx3A>
+    <xmx:IIstY98gr7gKPJOmpGam0XIWZ1ok448ttmYLpTz3WMaXBN64FQs_4w>
+    <xmx:IYstY4beCZaACWxKPqm4oAXvgDG_RyzWzkuq7z9gO5m13ZcaiNU4tA>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 851E9B60086; Fri, 23 Sep 2022 06:32:00 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-935-ge4ccd4c47b-fm-20220914.001-ge4ccd4c4
+Mime-Version: 1.0
+Message-Id: <c4ee195a-cf1f-44f6-b3b6-241d04e01fb9@www.fastmail.com>
+In-Reply-To: <alpine.DEB.2.21.2209220223080.29493@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2209220223080.29493@angie.orcam.me.uk>
+Date: Fri, 23 Sep 2022 12:31:39 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: Make port I/O string accessors actually work
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_031840_470243_E0938FB7 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20220923_033208_251563_A9D09E4E 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,80 +102,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Sep 22, 2022, at 11:56 PM, Maciej W. Rozycki wrote:
+> Fix port I/O string accessors such as `insb', `outsb', etc. which use 
+> the physical PCI port I/O address rather than the corresponding memory 
+> mapping to get at the requested location, which in turn breaks at least 
+> accesses made by our parport driver to a PCIe parallel port such as:
+>
+> PCI parallel port detected: 1415:c118, I/O at 0x1000(0x1008), IRQ 20
+> parport0: PC-style at 0x1000 (0x1008), irq 20, using FIFO 
+> [PCSPP,TRISTATE,COMPAT,EPP,ECP]
 
-Am Donnerstag, 22. September 2022, 09:31:56 CEST schrieb Alexandre Ghiti:
-> Hi Samuel,
-> 
-> On 9/22/22 07:47, Samuel Holland wrote:
-> > The patch function for the T-Head PBMT errata calls __pa_symbol() before
-> > relocation. This crashes when CONFIG_DEBUG_VIRTUAL is enabled, because
-> > __pa_symbol() forwards to __phys_addr_symbol(), and __phys_addr_symbol()
-> > checks against the absolute kernel start/end address.
-> >
-> > Fix this by directly using the underlying kernel_mapping_va_to_pa().
-> 
-> 
-> I'd rather fix __phys_addr_symbol so that we can use __pa_symbol and 
-> then take advantage of the address range check. Instead of using _end in 
-> phys_addr_symbol, we have access to the size of the kernel mapping, so 
-> we could do something like that:
-> 
-> diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-> index f981b1f95fa0..150691aef058 100644
-> --- a/arch/riscv/mm/physaddr.c
-> +++ b/arch/riscv/mm/physaddr.c
-> @@ -22,7 +22,7 @@ EXPORT_SYMBOL(__virt_to_phys);
->   phys_addr_t __phys_addr_symbol(unsigned long x)
->   {
->          unsigned long kernel_start = kernel_map.virt_addr;
-> -       unsigned long kernel_end = (unsigned long)_end;
-> +       unsigned long kernel_end = kernel_map.virt_addr + kernel_map.size;
-> 
->          /*
->           * Boundary checking aginst the kernel image mapping.
+The patch looks correct to me, but I'm curious: Are you actually
+using a parport device on your system, or just testing it to
+make it work?
+
+> +#define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), 
+> buffer, count)
+> +#define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), 
+> buffer, count)
+> +#define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), 
+> buffer, count)
 > 
 
-so I did the whole set of original code
-- works without DEBUG_VIRTUAL
-- breaks with DEBUG_VIRTUAL
+I don't see anything actually risc-v specific in these definitions,
+and it would be great to make the asm-generic version do the
+right thing here. As far as I can tell, the only difference is
+the barriers in the risc-v version, and we should really have the
+same in the generic code anyway.
 
-and then applied you suggested change to __phys_addr_symbol,
-which fixes the breakage. And I guess making this usable at all
-times also makes a lot of sense, so
-
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
-> > Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-> > Signed-off-by: Samuel Holland <samuel@sholland.org>
-> > ---
-> >
-> >   arch/riscv/errata/thead/errata.c | 5 +++--
-> >   1 file changed, 3 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> > index 202c83f677b2..83174f13783e 100644
-> > --- a/arch/riscv/errata/thead/errata.c
-> > +++ b/arch/riscv/errata/thead/errata.c
-> > @@ -76,8 +76,9 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
-> >   		if (cpu_req_errata & tmp) {
-> >   			/* On vm-alternatives, the mmu isn't running yet */
-> >   			if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> > -				memcpy((void *)__pa_symbol(alt->old_ptr),
-> > -				       (void *)__pa_symbol(alt->alt_ptr), alt->alt_len);
-> > +				memcpy((void *)kernel_mapping_va_to_pa((unsigned long)alt->old_ptr),
-> > +				       (void *)kernel_mapping_va_to_pa((unsigned long)alt->alt_ptr),
-> > +				       alt->alt_len);
-> >   			else
-> >   				patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-> >   		}
-> 
-
-
-
-
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
