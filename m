@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7CFECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 13:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2747ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 14:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TOfmdd/wCGTr70V8/V5+6ZhfsYeTuh3sVh8pIacJxHM=; b=fwsOWs1yRK1x5G
-	AvivEIyr6MwLjOvCa4GeSJT3VQDlki7krwK3atO4PKdz67h/b0xGqc4wH61mlRyfwkuaJVDWd0YK7
-	YqxEN5gATzXeoYHJoQAHiWIyFKWfNFxlXeT/osBWvLlBkj3ANvBAX5wBxQZ9NgqOLSHGvVe2yC9Qu
-	73yon9obuEyl2yipXYmKJNzPHpK1ML1nghNSIOL9tzWGmn1D5MMq+JzzoDHyIJtXeOwMJ/4rMuOr0
-	TZO4/FcluyZm5Wg7PJpMWfv3dP1zUjqc+LMuz/n5mTZWy1pnx4AuwJK6Z3gzpFE2CtMW/tD6IpaFx
-	kV3Hr3to22QSbZ8buHbQ==;
+	List-Owner; bh=YfQt9SZ0gHeA3LVAfA811d4wKNzvouHdTs3mPOsUSsQ=; b=NiLyVH1qz1UgxF
+	fl/C9E8VWJDwEInTpR9cfgaCPOyrwVl70szE7m2rxHoB1GdRV4BWHuNvpmwVf2kP+a9caU1PwUD0E
+	aMlnjLf9R0rpJEenxJFPPFKQ2Fu9CyzwqiKwPrfpvknPlrOkubyltpl7KMEAOdbtssY67j6zQntjt
+	cV79/v4gKwuBe/7T/tzAAszcRrFm1aMcIPtkBnoIpDcXjqQrtOPlbMkjV0qhQG1DnlV15LeEcCRTT
+	ImxTsuUndyEZaJQ8r+NU/GB/Ky9HdZ9M0hxq5lKhYvLKjPRr2SCfjZf0vPwQVwhqTzGsFl5cFpeSP
+	vTYQpKznsiLW2sFo2QVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obiov-004SD8-IB; Fri, 23 Sep 2022 13:34:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obior-004SAz-OG
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 13:34:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFD3A1042;
-	Fri, 23 Sep 2022 06:34:19 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.80.223])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2712F3F73B;
-	Fri, 23 Sep 2022 06:34:10 -0700 (PDT)
-Date: Fri, 23 Sep 2022 14:34:07 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Chen Zhongjin <chenzhongjin@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, peterz@infradead.org,
-	mingo@redhat.com, acme@kernel.org,
-	alexander.shishkin@linux.intel.com, namhyung@kernel.org,
-	jolsa@kernel.org, guoren@kernel.org, frederic@kernel.org,
-	vincent.chen@sifive.com, ardb@kernel.org, mhiramat@kernel.org,
-	rostedt@goodmis.org, keescook@chromium.org, catalin.marinas@arm.com,
-	Josh Poimboeuf <jpoimboe@kernel.org>
-Subject: Re: [PATCH for-next v2 0/4] riscv: Improvments for stacktrace
-Message-ID: <Yy21z0NgBgJXF1Km@FVFF77S0Q05N>
-References: <20220921125128.33913-1-chenzhongjin@huawei.com>
- <YysZf2Y37QMBDt8n@FVFF77S0Q05N>
- <7834a259-4bd7-a955-acaa-21c36c7c22c2@huawei.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7834a259-4bd7-a955-acaa-21c36c7c22c2@huawei.com>
+	id 1objHT-004Yb5-K0; Fri, 23 Sep 2022 14:03:51 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1objHR-004YaB-JE
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 14:03:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 60D10B81A09;
+	Fri, 23 Sep 2022 14:03:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0609C4347C;
+	Fri, 23 Sep 2022 14:03:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663941826;
+	bh=uNH64xYhRKbSQJzlen7Vjk+u1EvoGE8+anLh59m1sl4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tD3ufd43Bo2iK5QOds4TzRAl3PKKZBGP9jMTH0uINTDN/ow6bULydyCEDJnaoHZo7
+	 37x/YXoADi+gpeNzUALwmy5Y9gTNP/g6CCsEQtO23l0uBTf2lD2xfdd17MvFGI7Wz1
+	 JwcUrcm6oTusI/0zjnYiPrDJXkWmWRYTsMQi2n8vmwdhqNmKqcdv5M+M1OWSZWxGEx
+	 6N2kwUVbVhxRnZWQoiC5P4dUVzZ7SlWinLhpa1DyNxJpm2Y6Y6ijbTuU3/SJst1vNc
+	 xqQoyjiGcgUKntyPhToR5l75pBMrMqwTGKq1jZt3HIwAuog5Y80B6DSdP2EbMh4ZBF
+	 Xk0VqYbCmBirw==
+Date: Fri, 23 Sep 2022 23:03:40 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Yipeng Zou <zouyipeng@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
+ <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <zanussi@kernel.org>,
+ <liaochang1@huawei.com>, <chris.zjh@huawei.com>
+Subject: Re: [PATCH 1/2] tracing: kprobe: fix kprobe event gen test module
+ on exit
+Message-Id: <20220923230340.cc2b2c714a4f45624f9f23bf@kernel.org>
+In-Reply-To: <20220919125629.238242-2-zouyipeng@huawei.com>
+References: <20220919125629.238242-1-zouyipeng@huawei.com>
+	<20220919125629.238242-2-zouyipeng@huawei.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_063417_910957_7776B0E6 
-X-CRM114-Status: GOOD (  40.22  )
+X-CRM114-CacheID: sfid-20220923_070349_828165_7BD2D352 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,91 +71,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBTZXAgMjIsIDIwMjIgYXQgMDQ6MjI6MjNQTSArMDgwMCwgQ2hlbiBaaG9uZ2ppbiB3
-cm90ZToKPiBIaSwKPiAKPiBPbiAyMDIyLzkvMjEgMjI6MDIsIE1hcmsgUnV0bGFuZCB3cm90ZToK
-PiA+IE9uIFdlZCwgU2VwIDIxLCAyMDIyIGF0IDA4OjUxOjIzUE0gKzA4MDAsIENoZW4gWmhvbmdq
-aW4gd3JvdGU6Cj4gPiA+IEN1cnJlbnRseSwgdGhlIHN0YWNrdHJhY2Ugd2l0aCBGUkFNRV9QT0lO
-VEVSIG9uIHJpc2N2IGhhcyBzb21lIHByb2JsZW06Cj4gPiA+IAo+ID4gPiAxLiBzdGFja3RyYWNl
-IHdpbGwgc3RvcCBhdCBpcnEgc28gaXQgY2FuJ3QgZ2V0IHRoZSBzdGFjayBmcmFtZXMgYmVmb3Jl
-Cj4gPiA+IGlycSBlbnRyeS4KPiA+ID4gMi4gc3RhY2t0cmFjZSBjYW4ndCB1bndpbmQgYWxsIHRo
-ZSByZWFsIHN0YWNrIGZyYW1lcyB3aGVuIHRoZXJlIGlzCj4gPiA+IGt7cmV0fXByb2JlcyBvciBm
-dHJhY2UuCj4gPiA+IAo+ID4gPiBUaGVzZSBhcmUgbWFpbmx5IGJlY2FzZSB3aGVuIHRoZXJlIGlz
-IGEgcHRfcmVncyBvbiBzdGFjaywgd2UgY2FuJ3QgdW53aW5kCj4gPiA+IHRoZSBzdGFjayBmcmFt
-ZSBhcyBub3JtYWwgZnVuY3Rpb24uCj4gPiA+IAo+ID4gPiBTb21lIGFyY2hpdGVjdHVyZXMgKGUu
-Zy4gYXJtNjQpIGNyZWF0ZSBhIGV4dHJhIHN0YWNrZnJhbWUgaW5zaWRlIHB0X3JlZ3MuCj4gPiA+
-IEhvd2V2ZXIgdGhpcyBkb2Vzbid0IHdvcmsgZm9yIHJpc2N2IGJlY2F1c2UgdGhlIHJhIGlzIG5v
-dCBlbnN1cmVkIHRvIGJlCj4gPiA+IHB1c2hlZCB0byBzdGFjay4gQXMgZXhwbGFpbmVkIGluOgo+
-ID4gPiBjb21taXQgZjc2NmY3N2E3NGY1KCJyaXNjdi9zdGFja3RyYWNlOiBGaXggc3RhY2sgb3V0
-cHV0IHdpdGhvdXQgcmEgb24gdGhlIHN0YWNrIHRvcCIpCj4gPiBGV0lXLCB0aGlzIGlzIGFsc28g
-YSBsYXRlbnQgcHJvYmxlbSBvbiBhcm02NCwgc2luY2Ugd2UgZG9uJ3Qga25vdyB3aGV0aGVyIHRo
-ZQo+ID4gTFIgaXMgbGl2ZSBhdCBhbiBleGNlcHRpb24gYm91bmRhcnkgKGFuZCB3ZSBjdXJyZW50
-bHkgYWx3YXlzIGlnbm9yZSBpdCkuCj4gCj4gSW4gZmFjdCB0aGlzIGlzIHN0aWxsIGEgcHJvYmxl
-bSBmb3IgcmlzY3YsIEkgZGlkbid0IHVud2luZCB0aGUgY2FsbGVyIG9mCj4gZnRyYWNlIG9yIHBy
-b2JlZCBmdW5jCj4gCj4gb2Yga3JldHByb2JlIGJlY2F1c2UgdGhleSBhcmUgaW5zaWRlIGZ1bmN0
-aW9uIHByby9lcGlsb2d1ZS4KPiAKPiBUaGUgcHJvYmxlbSBvbiByaXNjdiBpcyBhIGxpdHRsZSBt
-b3JlIGNvbXBsZXgsIGZvciBsZWFmIGZ1bmN0aW9uLCByYSB3aWxsCj4gYWx3YXlzIG5vdCBiZSBw
-dXNoZWQgdG8gc3RhY2sgYW5kIGZwIHdpbGwgYmUgcHVzaGVkIHRvIHJhIHNsb3QuIFRoaXMgcGF0
-Y2gKPiBzb2x2ZWQgdGhpcyBwcm9ibGVtLgoKVGhhdCdzIHRoZSBzYW1lIG9uIGFybTY0LCBvdXIg
-YExSYCBpcyBlcXVpdmFsZW50IHRvIHlvdXIgYFJBYC4KCkkgaGF2ZSBhIHNlcmllcyBhdDoKCiAg
-aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbWFyay9saW51
-eC5naXQvbG9nLz9oPWFybTY0L3N0YWNrdHJhY2UvbWV0YWRhdGEKCi4uLiB3aGljaCBleHBsY2lp
-dGx5IGluZGljYXRlcyBwdF9yZWdzOjpwYyBhbmQgcHRfcmVnczo6bHIgaW4gdGhlIHN0YWNrIHRy
-YWNlCm91dHB1dCAoYW5kIGZvciBSRUxJQUJMRV9TVEFDS1RSQUNFIHdlJ2QgbWFyayB0aGUgTFIg
-ZW50cmllcyBhcyB1bnJlbGlhYmxlKS4KCj4gPiBNeSBwbGFuIHRvIGZpeCB0aGF0IG9uIGFybTY0
-IGlzIHRvIHB1c2ggYW4gZW1wdHkgZnJhbWUgcmVjb3JkIHRvIHRoZSBzdGFjayB1cG9uCj4gPiBh
-biBleGNlcHRpb24sIGFuZCB1c2UgdGhhdCB0byBmaW5kIHRoZSBwdF9yZWdzLCBmcm9tIHdoaWNo
-IHdlIGNhbiBnZXQgdGhlIFBDCj4gPiBhbmQgTFIgKGFuZCB0aGVuIHdlIGNhbiByZXBvcnQgdGhl
-IGxhdGVyIGFzIHVucmVsaWFibGUpLiBUaGF0IHNob3VsZCBiZSByb3VnaGx5Cj4gPiBlcXVpdmFs
-ZW50IHRvIHdoYXQgeW91IGRvIGluIHRoaXMgc2VyaWVzICh3aGVyZSB1c2UgdXNlIHRoZSBMU0Ig
-dG8gaWRlbnRpZnkKPiA+IHRoYXQgdGhlIHBvaW50ZXIgaXMgYWN0dWFsbHkgYSBwdF9yZWdzKS4K
-PiAKPiBJSVJDLCB0aGlzIHNvbHV0aW9uIGxvb2tzIGxpa2U6Cj4gCj4gPT09PT0KPiAKPiBGdW5j
-McKgwqDCoMKgIHsgbHIsIGZwIH0gb3IgeyBub3RoaW5nIH0KPiAKPiBpcnEgZW50cnkgeyBwdF9y
-ZWdzICYgZW1wdHkgc3RhY2tmcmFtZVsyXSB9Cj4gCj4gaGFuZGxlcsKgwqAgeyBsciwgZnAgfQo+
-IAo+ID09PT09PQo+IAo+IGhhbmRsZXItPmZwIHBvaW50cyB0byBzdGFja2ZyYW1lLCBhbmQgd2hl
-biB3ZSBmaW5kIHN0YWNrZnJhbWUgaXMgZW1wdHksIHdlCj4ga25vdyB3ZSBhcmUgaW5zaWRlCj4g
-Cj4gYW4gcHRfcmVncyBhbmQgY2FuIGZpbmQgcmVnaXN0ZXJzIGJ5IG9mZnNldC4KPiAKPiBJIHRo
-aW5rIGl0J3MgYXZhaWxhYmxlLCB0aGVyZSBubyBvdGhlciBzY2VuYXJpbyB3aWxsIGNhdXNlIHRo
-ZSBmcmFtZSBsaXN0Cj4gY29udGFpbnMgemVybyAodW5sZXNzIHN0YWNrIGlzIGNsb2JiZXJlZCku
-CgpUaGF0J3MgYmFzaWNhbGx5IHdoYXQgSSBkbyBpbiBteSBzZXJpZXM7IHNlZToKCiAgaHR0cHM6
-Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbWFyay9saW51eC5naXQv
-Y29tbWl0Lz9oPWFybTY0L3N0YWNrdHJhY2UvbWV0YWRhdGEmaWQ9NzM5NGE4MjViYzRmODI0M2Iy
-ODI2MTUxNzk5OTc5M2FjYjZmMTFjZAoKLi4uIGJ1dCBJIGhhdmVuJ3QgcG9zdGVkIHRoYXQgdG8g
-dGhlIGxpc3QgeWV0IGFzIEkgKmFsc28qIHdhbnQgdG8gYWRkIGNvZGUgdG8KY2hlY2sgdGhhdCB3
-ZSB3ZXJlIGF0IGFuIGV4Y2VwdGlvbiBib3VuZGFyeSB3aGVuIHdlIHNhdyB0aGlzIChiYXNlZCBv
-biB0aGUKcHJpb3IgUEMvTFIgYmVpbmcgaW4gdGhlIGVudHJ5IHRleHQsIHVzaW5nIHNvbWUgbWV0
-YWRhdGEgSSBoYXZlIHlldCB0byBhZGQpLgoKPiBBbmQgaXQgc2VlbXMgb25seSBmcCBzbG90IHNo
-b3VsZCBiZSB6ZXJvLCBsciB3aWxsIGJlIGNsb2JiZXJlZCBhZnRlcgo+IGZ1bmN0aW9uIGNhbGws
-IHdlIGNhbm5vdCB1c2UgbHIgaW5zaWRlIHB0X3JlZ3MuCgpJJ20gbm90IHN1cmUgd2hhdCB5b3Ug
-bWVhbiBoZXJlLgoKSSBhZ3JlZSB0aGF0IHRoZSBMUiBpbiB0aGUgcHRfcmVncyBpc24ndCAqcmVs
-aWFibGUqLCBhbmQgd29uJ3QgKmFsd2F5cyogYmUKdmFsaWQsIGJ1dCBpdCB3aWxsIHNvbWV0aW1l
-cyBiZSB2YWxpZC4KCj4gPiBPbmUgaW1wb3J0YW50IHRoaW5nIHRvIG5vdGUgaXMgdGhhdCB3aGVu
-IGNyb3NzaW5nIGFuIGV4Y2VwdGlvbiBib3VuZGFyeSB5b3UKPiA+IHdvbid0IGtub3cgd2hldGhl
-ciBSQSBpcyBsaXZlLCBhbmQgc28geW91IG1pZ2h0IHRyeSB0byBjb25zdW1lIGFuIGFkZHJlc3Mg
-dHdpY2UKPiA+IChpZiBpdCBoYXMgYWxzbyBiZWVuIHB1c2hlZCB0byB0aGUgc3RhY2spLiBUaGF0
-IGNvdWxkIGJlIHByb2JsZW1hdGljIGZvcgo+ID4gdW53aW5kaW5nIGZ0cmFjZSBvciBrcmV0cHJv
-YmVzLiBPbiBhcm02NCB3ZSBoYWQgdG8gaW1wbGVtZW50Cj4gPiBIQVZFX0ZVTkNUSU9OX0dSQVBI
-X1JFVF9BRERSX1BUUiBzbyB0aGF0IHdlIGNvdWxkIHJlbGlhYmx5IHVud2luZCBmdHJhY2UuIFNl
-ZQo+ID4gY29tbWl0Ogo+ID4gCj4gPiAgICBjNmQzY2QzMmZkMDA2NGFmICgiYXJtNjQ6IGZ0cmFj
-ZTogdXNlIEhBVkVfRlVOQ1RJT05fR1JBUEhfUkVUX0FERFJfUFRSIikKPiA+IAo+ID4gLi4uIGFu
-ZCB3ZSBoYXZlbid0IHlldCBjb21lIHVwIHdpdGggc29tZXRoaW5nIHNpbWlsYXIgZm9yIGtyZXRw
-cm9iZXMgKHRob3VnaCBJCj4gPiBzdXNwZWN0IHdlJ2xsIG5lZWQgdG8pLgo+IAo+IENhbiB3ZSB0
-ZXN0IHRoZSBzcCBhbmQgZnAgaW5zaWRlIHB0X3JlZ3M/IEJlY2F1c2UgbHVja2lseSBhcm02NCBz
-YXZlcyBsciwgZnAKPiBhbmQgbW92ZXMgc3AgdG9nZXRoZXIuCj4gCj4gQmVmb3JlIHNwIGlzIG1v
-dmVkIHdlIHdpbGwgaGF2ZSBmcCA9PSBzcCBmcm9tIGxhc3QgZnJhbWUgJ21vdiB4MjksIHNwJy4g
-U28KPiBpZiB0aGV5IGFyZSBzYW1lLCB3ZSB1c2VzIHRoZSBsciBpbiBwdF9yZWdzLCBjb252ZXJz
-ZWx5IHdlIHVzZSBsciBvbiBzdGFjay4KClRoZSBmcmFtZSByZWNvcmQgKHdoaWNoIEZQIHBvaW50
-cyB0bykgY2FuIGxpdmUgYW55d2hlcmUgaW4gYSBzdGFjayBmcmFtZSwgc28KY29tcGFyaW5nIGFn
-aW5zdCBTUCBkb2Vzbid0IHRlbGwgdXMgYW55dGhpbmcuIFJlZ2FyZGxlc3Mgb2Ygd2hldGhlciBG
-UCA9PSBTUCwKdGhlIExUUiBtaWdodCBiZSB2YWxpZCBvciBpbnZhbGlkLgoKVGhlcmUgaXMgbm8g
-d2F5IG9mIGtub3dpbmcgaWYgTFIgaXMgbGl2ZSB3aXRob3V0IGluZm9ybWF0aW9uIGZyb20gdGhl
-IGNvbXBpbGVyCnRoYXQgd2UgZG9uJ3QgaGF2ZSB0b2RheSAodGhvdWdoIGZyb20gTFBDIDIwMjIs
-IGl0IHNlZW1zIGxpa2UgQ1RGICptaWdodCogYmUKc3VmZmljaWVudCAtLSB0aGF0J3Mgb24gbXkg
-bGlzdCBvZiB0aGluZ3MgdG8gbG9vayBhdCkuCgpUaGFua3MsCk1hcmsuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 19 Sep 2022 20:56:28 +0800
+Yipeng Zou <zouyipeng@huawei.com> wrote:
+
+> Correct gen_kretprobe_test clr event para on module exit.
+> This will make it can't to delete.
+
+Looks good to me. (actually, both tests will use the same root
+trace_array, so the test itself will not fail, but this should
+be fixed.)
+
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+Thanks!
+
+> 
+> Fixes: 64836248dda2 ("tracing: Add kprobe event command generation test module")
+> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
+> ---
+>  kernel/trace/kprobe_event_gen_test.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/kernel/trace/kprobe_event_gen_test.c b/kernel/trace/kprobe_event_gen_test.c
+> index 18b0f1cbb947..e023154be0f8 100644
+> --- a/kernel/trace/kprobe_event_gen_test.c
+> +++ b/kernel/trace/kprobe_event_gen_test.c
+> @@ -206,7 +206,7 @@ static void __exit kprobe_event_gen_test_exit(void)
+>  	WARN_ON(kprobe_event_delete("gen_kprobe_test"));
+>  
+>  	/* Disable the event or you can't remove it */
+> -	WARN_ON(trace_array_set_clr_event(gen_kprobe_test->tr,
+> +	WARN_ON(trace_array_set_clr_event(gen_kretprobe_test->tr,
+>  					  "kprobes",
+>  					  "gen_kretprobe_test", false));
+>  
+> -- 
+> 2.17.1
+> 
+
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
