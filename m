@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DBBC6FA82
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E166FC6FA82
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 10:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=eTnjTVaXQhAObFiVHObRqOhalC8lgpPqVl8mKch5SJ0=; b=Ur+CVb0Sf9QVQdQsdhfuN2MWof
-	GpXrbB1TACPCcOoeQEUeiRhwQ33KEAkdmUKxzPb//+oxPQlJU3Edd9+wxyNmEQgvWFx+FfDMdDtXb
-	t6ggxDFbeWdepTZqX8Q/bTv3szOs9F3XIZK8yw+BKDXE7NH+60hBJUGzMZ0PTDaAQLtD4CGuFqHux
-	5iLd92LthZ+WorBIyZ2oLKHId1xq6n9q1FD/ydPkyMoB8KDYwV6ge/ACX8Z7W0JgaMaNEUCpySBD2
-	hN/Wb49Rl8SimGkokBKyJdjQx1/M3qp1dyJigmo14MGDgeX/FDb0OHT3ACnfvxg0d2egNvAfBsus0
-	4m13IEhA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=MqLEj1V8RRrp1uf4wgpMt5l7UwgzV7qXo/eeF1aHUog=; b=mspsBLvZyEXkws
+	Qq6MFxNwDyK0892tKJnBurMIuZZoFQ0ReBcL9No+Qfo3thZOMf8XrLIHnvx0BKu0fNEpHwES4oPbV
+	Ii/w83C8lz4P8OIWiUEthOXvWdGoQuQnd1CXoo2ApFpn9DdGargpgour29UJt0QeFtdM8h/sPIdjw
+	OMACRANlY5Z0hBC5YEnrjnk7SHJ3Wa1FmQMYRSVhuOpDTuo4Ko1xYIK7sIXmojGxpHv4OO22SEKfY
+	s/B7/HiOpdSRIZpCZV0bo2LPjuVK9GoJoZ+ruaLE3ndorjGBGCgh8yQsA6wGTzaxU+t0YDotYtOLw
+	Oo3QqTEhPTCNkk+0oe9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obgBy-003jvI-3J; Fri, 23 Sep 2022 10:45:58 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1obgLW-003mzN-Pl; Fri, 23 Sep 2022 10:55:50 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obgBu-003ju8-Tg
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:45:56 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id fv3so12614022pjb.0
-        for <linux-riscv@lists.infradead.org>; Fri, 23 Sep 2022 03:45:50 -0700 (PDT)
+	id 1obgLU-003mxb-01
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 10:55:49 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id c198so12019846pfc.13
+        for <linux-riscv@lists.infradead.org>; Fri, 23 Sep 2022 03:55:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=A2UDlAx5+SKGAglBHShYwynk/jxqHNOBih9lYYBchl4=;
-        b=nQPpeJSVcOIdmLUK3tm9KDhx6mx0LEQX4X1zJqBj3+2M8SFsElYosjzr5dx0z45W0y
-         bTPsnwNRKJhuuadx/2+kDEvonHZIGkUknB5U4a/iSngWn+ST4BMMavw1gxvUL4z4vHhz
-         N0GSEbSdHc6M5EPAfslm6xe4PaCmvaK3QAU637Wivs7AFZlsrUm3ie1KmP5dTa2Yihir
-         8xU/tfd655he1Dtrn25IXbuYRpRZuRu+QUW/1p8oO2aHG+rw9Yi3PpEW0wAQ58qKazIQ
-         yttMYEtIm+Kx3ndWaSFhoxneCIGsdibftItsfv7b810brH04kbt+A/AMK8NiVcAxAhRY
-         aTlA==
+        h=message-id:to:from:cc:in-reply-to:subject:date:from:to:cc:subject
+         :date;
+        bh=/40D11sTGBqxQ3T0htyIxT/7MS1k2znQcbc1Zb17/k8=;
+        b=4eax6Pge2DmiLZRQm4qb2nBq2xkb5JBoeP+DlilNmuEHsvidQGWYX31O54gDnnv7ox
+         hr3tk6dgHG3YHW3gl8hr4K9BarDzq7NfS+0ZngZu+MXPIi25ZKUffWJZoIJA3PcILe95
+         LCnV8uuzOVRUUZxj2ixnurBOS+zbqBv1DP8v+WkAUfU9pFYHSvna9NHgWBeCx1ot3piY
+         kmszE132EtS3yKkYx+LNqVynN95uLZInSn5bVNL4jxyrripICl5x6Gfp4pG51aUzUQjs
+         oLISfVuoffDl/otgefCQtLSz8ecrLNhWu1aE57sYSY1IDqsj1uiGJwgTdvfi98IXMZik
+         kAoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=A2UDlAx5+SKGAglBHShYwynk/jxqHNOBih9lYYBchl4=;
-        b=ySHTJMUAJCUH6gePKq31Z3AYYvj/27zVIwDQ/z9GWGb+KI67dx7Y843NLgyPE6gmB3
-         dbnPPfhCH0Ds+iiRqBA47QcAjTksjLINg7FLbwiUpqtFUJ6OmT7UVGND/HfYCkrdck9l
-         Pv0hEqcf5/Za9I4d+VFjJkMOjJwmXFR10y9Narare7zYth48l+XpzQ53lhx2wu8uptLW
-         Fi38uxd9fUAPAVFgBXPeyV1vZAtT7oymaYFSoNed/ojbme53wZASucLOVW4wrgxdfa5H
-         9d2UrQvK/MH/Tuyf8727cbJ3yEOnFrKVI+mtyAVMQifz3AT50MILT4et4FgAso/+04se
-         UmaA==
-X-Gm-Message-State: ACrzQf0oD2cJJGrHuYxTN2OwS7BVqfUPwl7W/RtInrA2gBYaYHIdTK32
-	nvlMAwLKJFugFwN4JU0ERH1VOl+o/J1KkcCA3QSb8Q==
-X-Google-Smtp-Source: AMsMyM4+uJ4wCipj1NfnnfwLCz8OqJgQ320hGpILdENSSZPqeEcBxZX5t5GeFvGQ4uy4YwzEKcN6Lw==
-X-Received: by 2002:a17:902:bd02:b0:178:1a1c:889 with SMTP id p2-20020a170902bd0200b001781a1c0889mr7882012pls.107.1663929949846;
-        Fri, 23 Sep 2022 03:45:49 -0700 (PDT)
+        h=message-id:to:from:cc:in-reply-to:subject:date:x-gm-message-state
+         :from:to:cc:subject:date;
+        bh=/40D11sTGBqxQ3T0htyIxT/7MS1k2znQcbc1Zb17/k8=;
+        b=wza1dddWwhJ10vVNlCwLoNWPPVhRYdqYwt9uiRXVIZG4wuQtFGc/xoIX1b7MtExnIp
+         /YyHojU/gSELzNOVXMZh/D8ve/eas+3zXiZj8aihUiatrIFskoxBRIB/Y8vbF89CxHi1
+         bihQFROTiCWaZRUiKV/xiNsobEheGNjt8tKXt+d94r28/vn/JwufJA2go/B3C4rvywpx
+         efpeJr1UG2SpsOhqC+Aiwondwixc3xoqc2dkIFDoSqV8w9nb6erARSVoXv/1MxvrVqEq
+         hkSXs25VRAVjTsijdR+rb7YDagFd61yxAJVs74FBXv6MfX1MZOYr2ficbPnPUzjNDhor
+         zwqQ==
+X-Gm-Message-State: ACrzQf1Gndq22lr+E0i9XApc4ABP1OCT7wekTmR4oHdV+PQDcBMiCx9Z
+	t2dYOUH8yus+cyY+L8v9bKp0bA==
+X-Google-Smtp-Source: AMsMyM7PM5wJVtceDG9+BjpWnprgj6MOFDNhea+dtARa3SREXRJzN8TjqThK1p7LVSp0DpcKYR/oXg==
+X-Received: by 2002:a05:6a00:27a1:b0:548:ea2e:885c with SMTP id bd33-20020a056a0027a100b00548ea2e885cmr8786790pfb.55.1663930546039;
+        Fri, 23 Sep 2022 03:55:46 -0700 (PDT)
 Received: from localhost ([88.128.88.52])
-        by smtp.gmail.com with ESMTPSA id e7-20020a17090a7c4700b00200a85fa777sm1353386pjl.1.2022.09.23.03.45.48
+        by smtp.gmail.com with ESMTPSA id o5-20020a170902d4c500b00176b66954a6sm5747934plg.121.2022.09.23.03.55.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Sep 2022 03:45:49 -0700 (PDT)
-Date: Fri, 23 Sep 2022 03:45:49 -0700 (PDT)
-X-Google-Original-Date: Fri, 23 Sep 2022 03:45:45 PDT (-0700)
-Subject: Re: [PATCH v2 1/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-In-Reply-To: <45de6e04-b19b-4ffe-878e-6ba8123f2aef@www.fastmail.com>
-CC: apatel@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  atishp@atishpatra.org, heiko@sntech.de, anup@brainfault.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, mchitale@ventanamicro.com
+        Fri, 23 Sep 2022 03:55:45 -0700 (PDT)
+Date: Fri, 23 Sep 2022 03:55:45 -0700 (PDT)
+X-Google-Original-Date: Fri, 23 Sep 2022 03:55:41 PDT (-0700)
+Subject: Re: [PATCH] cpuidle: riscv-sbi: Fix CPU_PM_CPU_IDLE_ENTER_xyz() macro usage
+In-Reply-To: <mhng-0486175c-f1e8-4879-9545-2ccbbc427de9@palmer-ri-x1c9>
+CC: rafael@kernel.org, daniel.lezcano@linaro.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, ulf.hansson@linaro.org, atishp@atishpatra.org,
+  Alistair Francis <Alistair.Francis@wdc.com>, linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, apatel@ventanamicro.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Message-ID: <mhng-9fd8dd19-53a3-426d-9d1e-3093ea6034fe@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+To: anup@brainfault.org
+Message-ID: <mhng-3a58df40-d19a-41ee-8b51-bbde9ba8d00c@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_034555_219222_2ED86B87 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20220923_035548_057933_87D21166 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +83,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 Sep 2022 03:35:50 PDT (-0700), Arnd Bergmann wrote:
-> On Thu, Sep 22, 2022, at 6:35 PM, Palmer Dabbelt wrote:
->> On Thu, 15 Sep 2022 19:24:55 PDT (-0700), apatel@ventanamicro.com wrote:
->>>
->>> On Tue, Aug 30, 2022 at 10:17 AM Anup Patel <apatel@ventanamicro.com> wrote:
->>>>
->>>> Currently, all flavors of ioremap_xyz() function maps to the generic
->>>> ioremap() which means any ioremap_xyz() call will always map the
->>>> target memory as IO using _PAGE_IOREMAP page attributes. This breaks
->>>> ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
->>>> remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
->>>> page attributes.
->>>>
->>>> To address above (just like other architectures), we implement RISC-V
->>>> specific ioremap_cache() and ioremap_wc() which maps memory using page
->>>> attributes as defined by the Svpbmt specification.
->>>>
->>>> Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
->>>> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
->>>> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
->>>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
->>>
->>> This is a crucial RC fix. Can you please take this ?
+On Thu, 22 Sep 2022 10:07:46 PDT (-0700), Palmer Dabbelt wrote:
+> On Sun, 28 Aug 2022 19:59:45 PDT (-0700), anup@brainfault.org wrote:
+>> Hi Palmer,
 >>
->> Sorry I missed this, I thought it was just part of the rest of this
->> patch set.  That said, I'm not actually sure this is a critical fix:
->> sure it's a performance problem, and if some driver is expecting
->> ioremap_cache() to go fast then possibly a pretty big one, but the only
->> Svpmbt hardware that exists is the D1 and that was just supported this
->> release so it's not a regression.  Maybe that's a bit pedantic, but all
->> this travel has kind of made things a mess and I'm trying to make sure
->> nothing goes off the rails.
+>> On Mon, Jul 18, 2022 at 2:16 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>>>
+>>> Currently, we are using CPU_PM_CPU_IDLE_ENTER_PARAM() for all SBI HSM
+>>> suspend types so retentive suspend types are also treated non-retentive
+>>> and kernel will do redundant additional work for these states.
+>>>
+>>> The BIT[31] of SBI HSM suspend types allows us to differentiate between
+>>> retentive and non-retentive suspend types so we should use this BIT
+>>> to call appropriate CPU_PM_CPU_IDLE_ENTER_xyz() macro.
+>>>
+>>> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+>>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>>
+>> Can you please take this patch through the RISC-V tree ?
 >
-> I think generally speaking any use of ioremap_cache() in a driver
-> is a mistake. The few users that exist are usually from historic
-> x86 specific code and are hard to kill off.
+> Sorry I missed this, I didn't realize you wanted me to merge it.  It's
+> on fixes.
 
-Should we just add some sort of CONFIG_ARCH_HAS_IOREMAP_CACHE and then 
-ban those drivers from everywhere else?
+Actually from reading this again, it's not really a fix: the kernel is 
+correct without this change, it's just going to save/restore when it 
+doesn't need to.  So I'm queuing this into for-next instead.
+
+>
+>>
+>> Regards,
+>> Anup
+>>
+>>> ---
+>>>  drivers/cpuidle/cpuidle-riscv-sbi.c | 7 ++++++-
+>>>  1 file changed, 6 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+>>> index 1151e5e2ba82..33c92fec4365 100644
+>>> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+>>> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+>>> @@ -97,8 +97,13 @@ static int sbi_cpuidle_enter_state(struct cpuidle_device *dev,
+>>>                                    struct cpuidle_driver *drv, int idx)
+>>>  {
+>>>         u32 *states = __this_cpu_read(sbi_cpuidle_data.states);
+>>> +       u32 state = states[idx];
+>>>
+>>> -       return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend, idx, states[idx]);
+>>> +       if (state & SBI_HSM_SUSP_NON_RET_BIT)
+>>> +               return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend, idx, state);
+>>> +       else
+>>> +               return CPU_PM_CPU_IDLE_ENTER_RETENTION_PARAM(sbi_suspend,
+>>> +                                                            idx, state);
+>>>  }
+>>>
+>>>  static int __sbi_enter_domain_idle_state(struct cpuidle_device *dev,
+>>> --
+>>> 2.34.1
+>>>
 
 _______________________________________________
 linux-riscv mailing list
