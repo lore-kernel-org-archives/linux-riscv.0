@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31060C04A95
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ADFC04A95
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 18:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fP2CjfP3gNvP+PsNyrV1L7I1jB26EXTPo7Bt+9bHqnU=; b=W2xHSa3tSscShY
-	OnTFWEjhHVSggDT1/1w5arcZdBcAccwjHAwI7DTpqei4M1Ntx7Roj6ZAOHHOjIPNUjR4KGjyIPgsQ
-	OuzYFzyd1dazV81JJfXyrOHqHddlowRlk8ttIJ0K8pp3N4Usf7ExRDb3nVUOeYFCntGs+RJrDk/bF
-	UoxOtg+BOkTUWm5PFBZyNglDJwf1SPVBdhlJ2S2mNuknrbtYatl+tpq5tutB5odfqAEkvuaF9QtaM
-	N23v8nyJDU3uDBG2tENo30HxxK8ws1We4SCqaS8a6nSU7JVeUPb5srsYV/KGcVW/cPZ8BvQtM89sJ
-	t2DKDsXR/L51mDEeNTYQ==;
+	List-Owner; bh=P2vUTN7O4R2C/bMXZyH9/lzoLCZsWs6MU06k+6qBfSE=; b=nHHp1aUDlH83yb
+	6Jd0GpOHoQIUG71Orx1FT3dOGR+IpTNlFemlbD3PqlhEdNkaQOtOGdGvwEPnHffLna+YcFlE4ikNP
+	3mfQkH+unyYQvnuKpSZSKg7vuzWK84YZGe4A8WS4wi24gmq0H56NbutmbPm2kkoMiVYg0Z95/56i1
+	ArAHOcO8tM17Whr8GQfpxKQQ5c5qF6sAaXxICy3d8ZPJBNCihD9UmPo0p7PQwjY9ma478XbqRjkiY
+	FO7lzTmLhLNYY/+C74a6YXB6p6u7pjf9cPG2sUugCTYp41FSmUvOA7CnNo9rGWTPf4wsd5+r2YtPz
+	qz+ZAhPpeRK+jT1jlC+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnsY-005RLM-Nb; Fri, 23 Sep 2022 18:58:26 +0000
+	id 1obnsc-005RPY-Iv; Fri, 23 Sep 2022 18:58:30 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obnry-005Qm1-4K
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:51 +0000
+	id 1obns0-005Qo7-8o
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 18:57:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A8EB361018;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B3DB561EBD;
+	Fri, 23 Sep 2022 18:57:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 465A4C433D7;
 	Fri, 23 Sep 2022 18:57:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2638BC433C1;
-	Fri, 23 Sep 2022 18:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663959468;
-	bh=tP/btHFbkOYsMmorbMXlcmqK4MezoUT1/5Yvl1phQCM=;
+	s=k20201202; t=1663959471;
+	bh=yXC2j3Vix5LkO9bZ4oc4ylLAEAeBsGDDV0shgoGVr9A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M8SwIeFf/m4e3PMSrOcE5OSNKy3AVlIMT9qYeSOwtJ+F43e15Hy9Oby1YUj7tUjhG
-	 1+H17AyMSZjQAocsgZdHEAMqF1bK2r7sm837aroRP7BSsb1UZcxZGsaj/xhTAVHZ/o
-	 9sZrdQ2w9hxJsuNNKoNhJiLscNg765Hs8jw6MxOUW7nY+jERhFndCxolcQAYXqjC6V
-	 Uo7UrepZFJmX9/xXXeCG9PtiD8l5MnLOlEni+At3Yke88AwtWDtbtCJ6kypPdrsMjA
-	 yZg+tfYymSMyjTDRixrmzigGf1X0DNXIRkP6WNAO0qLB8GiPfxV8WHAEEA7CklY416
-	 KqVP5H1rvKaCQ==
+	b=n6bde8GbKM+SVMINP6H2fNrIGftCa92VCrKZB6LVzQXzmsGGLGfzTCQGeXZU0AZeA
+	 3R2sBp1Xb2gewpiNN08RWcjejuiZZtvIGA/Xl8kqyK+9nXXrKvtUqNPc5v4qLVySBD
+	 10Fc7PTj4lczC/R9dZ46FITPmbkkvqhochCN50gHCg8jHQB0fWRT+40oIdHd7QFJAO
+	 dETqYaSAMuXdht48opSxuSNCbwhMNHZxLPMWO5gEBdT1iCL8y8UyVna9qL6GOJb5j9
+	 Vo1c4upwreuLlHL6cIkVtdW+fLVrZg7YZaD4UJeZjo9ikFQgyDI6QuF5ud0HxeHqbZ
+	 A3r92XaZsAb6A==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: palmer@dabbelt.com,
@@ -51,16 +51,16 @@ Cc: palmer@dabbelt.com,
 	kernel@esmil.dk,
 	arnd@arndb.de,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [RFC 18/27] riscv: convert SOC_VIRT to ARCH_VIRT
-Date: Fri, 23 Sep 2022 19:55:57 +0100
-Message-Id: <20220923185605.1900083-19-conor@kernel.org>
+Subject: [RFC 19/27] kunit: tool: rename SOC_VIRT to ARCH_VIRT in riscv's QEMU config
+Date: Fri, 23 Sep 2022 19:55:58 +0100
+Message-Id: <20220923185605.1900083-20-conor@kernel.org>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
 References: <20220923185605.1900083-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_115750_244967_D5E891EE 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20220923_115752_382746_5342AB2D 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +79,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-As per discussion at LPC, the SOC_ prefaced symbols are to be converted
-to an ARCH_ prefix for consistency between "incumbent" vendors and
-those with a legacy in other architectures. Rename SOC_VIRT to ARCH_VIRT.
+At LPC we decided to convert all of the SOC_ symbols in arch/riscv to
+ARCH_ for consistency between "incumbent" vendors and those with a
+legacy from other architectures. To that end, swap SOC_VIRT for
+ARCH_VIRT.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig.socs                 | 2 +-
- arch/riscv/configs/defconfig            | 2 +-
- arch/riscv/configs/nommu_virt_defconfig | 2 +-
- arch/riscv/configs/rv32_defconfig       | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+ tools/testing/kunit/qemu_configs/riscv.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 811338720cbd..9a216deb5c9c 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -21,7 +21,7 @@ config ARCH_STARFIVE
- 	help
- 	  This enables support for StarFive SoC platform hardware.
+diff --git a/tools/testing/kunit/qemu_configs/riscv.py b/tools/testing/kunit/qemu_configs/riscv.py
+index 6207be146d26..ab24b5b1be38 100644
+--- a/tools/testing/kunit/qemu_configs/riscv.py
++++ b/tools/testing/kunit/qemu_configs/riscv.py
+@@ -17,7 +17,7 @@ if not os.path.isfile(OPENSBI_FILE):
  
--config SOC_VIRT
-+config ARCH_VIRT
- 	bool "QEMU Virt Machine"
- 	select CLINT_TIMER if RISCV_M_MODE
- 	select POWER_RESET
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index bfb6f6f57ae2..341202b90c7f 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -28,7 +28,7 @@ CONFIG_PROFILING=y
- CONFIG_ARCH_MICROCHIP_POLARFIRE=y
- CONFIG_ARCH_SIFIVE=y
- CONFIG_ARCH_STARFIVE=y
+ QEMU_ARCH = QemuArchParams(linux_arch='riscv',
+ 			   kconfig='''
 -CONFIG_SOC_VIRT=y
 +CONFIG_ARCH_VIRT=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
- CONFIG_PM=y
-diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
-index 1a56eda5ce46..9ad6a182d932 100644
---- a/arch/riscv/configs/nommu_virt_defconfig
-+++ b/arch/riscv/configs/nommu_virt_defconfig
-@@ -24,7 +24,7 @@ CONFIG_EXPERT=y
- # CONFIG_COMPAT_BRK is not set
- CONFIG_SLOB=y
- # CONFIG_MMU is not set
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_NONPORTABLE=y
- CONFIG_SMP=y
- CONFIG_CMDLINE="root=/dev/vda rw earlycon=uart8250,mmio,0x10000000,115200n8 console=ttyS0"
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 4badab395546..ffa5e8f05ae6 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -17,7 +17,7 @@ CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
- CONFIG_ARCH_SIFIVE=y
--CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_VIRT=y
- CONFIG_NONPORTABLE=y
- CONFIG_ARCH_RV32I=y
- CONFIG_SMP=y
+ CONFIG_SERIAL_8250=y
+ CONFIG_SERIAL_8250_CONSOLE=y
+ CONFIG_SERIAL_OF_PLATFORM=y
 -- 
 2.37.3
 
