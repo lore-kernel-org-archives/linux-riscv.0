@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 454DDECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 14:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85FBC6FA82
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Sep 2022 16:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VZxiQMeAuu415VQ5aS5bczuKMqiKlmhWehCYaTo/wX8=; b=Yrhr6OO2a7JiF7
-	vBsqWI/GMWI5xrw1fcDJATuJ5j0tN6ProGRQMWRn2hMNFprNzfePPYrxY0SzTFfS6TxHjmsSUJiv4
-	+rCJW7+bxakkfdhwhgsmPGS8f2/bvfbXjHU77pT7oqLNobh34a0m7nXvR5DeBIijXES7RDSpPifDS
-	5ir7sXXooNGVj9R2imM+bE75BZHODdBl9Wiry1muiYzEEyTPxGoTX4auXzmbeSbSoIw2L3z9aIfCZ
-	s1Uac3a959A8j7IItA6slMPmWfSjSb9GXzIM05EwP5c5hRYcJJ8g5Br9Nu/+1ESfd4f0OGyVwsCMn
-	h/juobyMxpf59XbjRnlQ==;
+	List-Owner; bh=a/fHw+qvnLgLR1t+FD0NRl0wClq2rCV+xY5ihj2oUrU=; b=1jiFaU4OMv184c
+	zwPKvNhcTvLBVwwGtvqI+QIJJdHg7O3fEaa40xFNgxF9NOE99jMQdOrvI0HtOTzMM5/AzEFA+zZ1w
+	oEnZwzFgDdWpG6Woi3DEBrbb2u1TUNGGfZLfMgoQ7EvSLJSBjiehoFyx+b+aYRcMaskTh48qkAeFs
+	t0b+RZqSTBTJyHkTM7z+2UNkWlng0w4T5eo9xPM/rRHuuSIaQscSE+MOJzm/PJWKtu4hjZ2GG7Hlt
+	05Dl8FRgD1xfvu2eNy2hnx+00YFSvqXRVb6MPf1hLmHesu5Z1sUqhyia9CS5q3N/+exYcibYppkKy
+	e3hBqpInHCebyippXhDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1objJE-004YrG-CC; Fri, 23 Sep 2022 14:05:40 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1oblV5-004yCJ-6Q; Fri, 23 Sep 2022 16:26:03 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1objJB-004YqD-0C
-	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 14:05:38 +0000
+	id 1oblV3-004yBJ-4v
+	for linux-riscv@lists.infradead.org; Fri, 23 Sep 2022 16:26:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 101A0CE1C16;
-	Fri, 23 Sep 2022 14:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E24CC433D6;
-	Fri, 23 Sep 2022 14:05:29 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id C0863B82DAB;
+	Fri, 23 Sep 2022 16:25:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6E125C43470;
+	Fri, 23 Sep 2022 16:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663941932;
-	bh=gG8kc5EGZ32Hzl5KDr5xjlW/0iQb/qxEQ3HLHfN9NHI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GuYPIO0SLHM787PKj6eYLF+tylWGekRgu1nNBBX+OS6VbuUr2vRCS4YVOgIzdjTmS
-	 uIwWBYRady4gONeZujOxwcGlVYDZTes0wBDlaFOCb49lfZaEyoZ5D5MaXyLuBRHFm/
-	 y1OROyNBEcfd43g2ywN4krS3m+BYQVYjmSjAqTQzQSOMo6gQWRklz7YpYvZQqDM4xF
-	 Kv+DIAXioHxqnq61JE1ng1hOay2JfQHCsNHgAsCvyEmn1n4QUdNynd9aN+LmgnP18w
-	 acra5QC3daAJbJ1W5GG6mAulQy53ESJoKOhFKTdzVmTfYAZLoR2As1UTgtGvCT0BdI
-	 QCLbX26yQ9ihg==
-Date: Fri, 23 Sep 2022 23:05:27 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Yipeng Zou <zouyipeng@huawei.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <zanussi@kernel.org>,
- <liaochang1@huawei.com>, <chris.zjh@huawei.com>
-Subject: Re: [PATCH 2/2] tracing: kprobe: make gen test module work in arm
- and riscv
-Message-Id: <20220923230527.6e3ac417a749ed22302d42ab@kernel.org>
-In-Reply-To: <20220919125629.238242-3-zouyipeng@huawei.com>
-References: <20220919125629.238242-1-zouyipeng@huawei.com>
-	<20220919125629.238242-3-zouyipeng@huawei.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	s=k20201202; t=1663950358;
+	bh=dxmbGIxIdFaOcSR4ghPkDz9/NSfj7opcrB5OCi+xoaY=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=tufWcqWayxeATJI/K7yIV1yafrN9pkyD52pjqxlc0JlNQzLGmIZv4vkQ3aLg9sgHp
+	 eWqyYVvVYA3YG5/RiEN6l7od+Sj+2byp+CqX2U2E/wWJCfChElaqW7EZwrXKpFsa+m
+	 9vFSBR9l9R1O/fniA3bWc7nBQPFwS4/EOnyeCQS7tnkLnsYunG3nQDwFO3J3y/K8VM
+	 QyC/7IbjePMKnEWwOvuY18ONA5d7O/HTLf1Z530Mw//4nLt3/bHVqgfBx0dVQf+v5W
+	 7kDHnPZOIqrx3MNQLdzG2oEX32Q/gwG2X57gojUrbGvbZCB7P0gEDKNSEOrZzIzpwf
+	 BMUcLeG11ugmw==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 58480E4D03B;
+	Fri, 23 Sep 2022 16:25:58 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.0-rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-d96d9461-4a76-47d6-8a6c-fe0890247b0b@palmer-ri-x1c9>
+References: <mhng-d96d9461-4a76-47d6-8a6c-fe0890247b0b@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-d96d9461-4a76-47d6-8a6c-fe0890247b0b@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc7
+X-PR-Tracked-Commit-Id: c589e3ca27c9f608004b155d3acb2fab6f7a9f26
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: a7b7751aeb1348a4358724719aac5310597144fc
+Message-Id: <166395035835.8411.1458593398657878309.pr-tracker-bot@kernel.org>
+Date: Fri, 23 Sep 2022 16:25:58 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_070537_429411_3C10F957 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20220923_092601_357692_7CE7F2B5 
+X-CRM114-Status: UNSURE (   4.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,116 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Sep 2022 20:56:29 +0800
-Yipeng Zou <zouyipeng@huawei.com> wrote:
+The pull request you sent on Fri, 23 Sep 2022 04:23:28 -0700 (PDT):
 
-> For now, this selftest module can only work in x86 because of the
-> kprobe cmd was fixed use of x86 registers.
-> This patch adapted to register names under arm and riscv, So that
-> this module can be worked on those platform.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc7
 
-This also looks good to me. (good & simple solution :))
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/a7b7751aeb1348a4358724719aac5310597144fc
 
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-Thank you,
-
-> 
-> Fixes: 64836248dda2 ("tracing: Add kprobe event command generation test module")
-> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
-> ---
->  kernel/trace/kprobe_event_gen_test.c | 47 +++++++++++++++++++++++++---
->  1 file changed, 43 insertions(+), 4 deletions(-)
-> 
-> diff --git a/kernel/trace/kprobe_event_gen_test.c b/kernel/trace/kprobe_event_gen_test.c
-> index e023154be0f8..80e04a1e1977 100644
-> --- a/kernel/trace/kprobe_event_gen_test.c
-> +++ b/kernel/trace/kprobe_event_gen_test.c
-> @@ -35,6 +35,45 @@
->  static struct trace_event_file *gen_kprobe_test;
->  static struct trace_event_file *gen_kretprobe_test;
->  
-> +#define KPROBE_GEN_TEST_FUNC	"do_sys_open"
-> +
-> +/* X86 */
-> +#if defined(CONFIG_X86_64) || defined(CONFIG_X86_32)
-> +#define KPROBE_GEN_TEST_ARG0	"dfd=%ax"
-> +#define KPROBE_GEN_TEST_ARG1	"filename=%dx"
-> +#define KPROBE_GEN_TEST_ARG2	"flags=%cx"
-> +#define KPROBE_GEN_TEST_ARG3	"mode=+4($stack)"
-> +
-> +/* ARM64 */
-> +#elif defined(CONFIG_ARM64)
-> +#define KPROBE_GEN_TEST_ARG0	"dfd=%x0"
-> +#define KPROBE_GEN_TEST_ARG1	"filename=%x1"
-> +#define KPROBE_GEN_TEST_ARG2	"flags=%x2"
-> +#define KPROBE_GEN_TEST_ARG3	"mode=%x3"
-> +
-> +/* ARM */
-> +#elif defined(CONFIG_ARM)
-> +#define KPROBE_GEN_TEST_ARG0	"dfd=%r0"
-> +#define KPROBE_GEN_TEST_ARG1	"filename=%r1"
-> +#define KPROBE_GEN_TEST_ARG2	"flags=%r2"
-> +#define KPROBE_GEN_TEST_ARG3	"mode=%r3"
-> +
-> +/* RISCV */
-> +#elif defined(CONFIG_RISCV)
-> +#define KPROBE_GEN_TEST_ARG0	"dfd=%a0"
-> +#define KPROBE_GEN_TEST_ARG1	"filename=%a1"
-> +#define KPROBE_GEN_TEST_ARG2	"flags=%a2"
-> +#define KPROBE_GEN_TEST_ARG3	"mode=%a3"
-> +
-> +/* others */
-> +#else
-> +#define KPROBE_GEN_TEST_ARG0	NULL
-> +#define KPROBE_GEN_TEST_ARG1	NULL
-> +#define KPROBE_GEN_TEST_ARG2	NULL
-> +#define KPROBE_GEN_TEST_ARG3	NULL
-> +#endif
-> +
-> +
->  /*
->   * Test to make sure we can create a kprobe event, then add more
->   * fields.
-> @@ -58,14 +97,14 @@ static int __init test_gen_kprobe_cmd(void)
->  	 * fields.
->  	 */
->  	ret = kprobe_event_gen_cmd_start(&cmd, "gen_kprobe_test",
-> -					 "do_sys_open",
-> -					 "dfd=%ax", "filename=%dx");
-> +					 KPROBE_GEN_TEST_FUNC,
-> +					 KPROBE_GEN_TEST_ARG0, KPROBE_GEN_TEST_ARG1);
->  	if (ret)
->  		goto free;
->  
->  	/* Use kprobe_event_add_fields to add the rest of the fields */
->  
-> -	ret = kprobe_event_add_fields(&cmd, "flags=%cx", "mode=+4($stack)");
-> +	ret = kprobe_event_add_fields(&cmd, KPROBE_GEN_TEST_ARG2, KPROBE_GEN_TEST_ARG3);
->  	if (ret)
->  		goto free;
->  
-> @@ -128,7 +167,7 @@ static int __init test_gen_kretprobe_cmd(void)
->  	 * Define the kretprobe event.
->  	 */
->  	ret = kretprobe_event_gen_cmd_start(&cmd, "gen_kretprobe_test",
-> -					    "do_sys_open",
-> +					    KPROBE_GEN_TEST_FUNC,
->  					    "$retval");
->  	if (ret)
->  		goto free;
-> -- 
-> 2.17.1
-> 
-
+Thank you!
 
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
