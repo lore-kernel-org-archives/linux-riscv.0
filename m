@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31DCCC04A95
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Sep 2022 01:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB2EC6FA83
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Sep 2022 07:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ziKVOYSIFRwD/4ZWHwJkSankMlRCrgrs9xRDi/4fxI8=; b=SUaUHfaksG3/9A
-	SGXb2ELTC6wM6nQrRqwbjbq0Id/Z5SC1VSa91tw+koU66MoaLzIm1USaEdFdliHD1lodio3vv1Tlj
-	qSqUuI7XqTXFon2LKwUUnKiPBYeur+DzwZQ5HaQ7eD4r6DhwePPlnsV5xJr9tpYhguaTq58IZAFxO
-	sAjdpLlIMvUZN6zzVEyjLtqY9A3KcI1I6CFc9zW1dwCh3KGivpmQmArOy+9OXPm/qtIIJwwdq9Jl4
-	FOuISaly6RmQ5CiHRkn/qgLVzzDM7HJQLEhNQ0SGu+/yU3RjVj5e/HKg0+qwHu+K72EqyyR3VCj5L
-	weoDw1h2eG7pwFifmPPg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vOZErag2zls6xvYWnpnYLRyZ9qYba8frDDuBMj5xbB8=; b=YDqi8NwudRr/Tf
+	EC66HM+s8ITFDNlyivoY1yDjUXvauYRSMChqHQY46YoH9YHRZF1Z5fbtWx01fQL68a7X7hRvYK7JL
+	AxJGv3c/240CXLUtrPsDaQBDvNE3+oUDge2V8DqtOdUL7A/sRNliyRT3N9+KH4pD33cnw0pYaTkU9
+	G/bGjiQMeAX3DcVWqwND21FgCXAOSqGQwgwo+V5yJ7PdEl4Iq/AJ0oz3DV/H91mNzWXoxFGoAE5Ho
+	NExLZxThATh4rVVjcx0x+cj1E8mozYSS5wg/FXH+pwhcKO602RrZt0JfPsU21gWJV0GffOzGIaCq6
+	aOcrQuQX0weMQbrLrHMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obuLn-00674Y-Cm; Sat, 24 Sep 2022 01:53:03 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1obzPS-006YXr-0O; Sat, 24 Sep 2022 07:17:10 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1obuLa-006721-Bw; Sat, 24 Sep 2022 01:52:53 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.57])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4MZBmT4r3qzHqM9;
-	Sat, 24 Sep 2022 09:50:17 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Sat, 24 Sep 2022 09:52:29 +0800
-Message-ID: <19ffdae6-8484-08e5-f408-ab39a97ce5c0@huawei.com>
-Date: Sat, 24 Sep 2022 09:52:28 +0800
+	id 1obzPO-006YWd-RQ
+	for linux-riscv@lists.infradead.org; Sat, 24 Sep 2022 07:17:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B353BB80DAF;
+	Sat, 24 Sep 2022 07:17:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F5FC433C1;
+	Sat, 24 Sep 2022 07:17:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664003823;
+	bh=W/lbTX+WSgjuWQqS2TBfREhcV1CmEhSyDNWcK2dsrV0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Icur9l9vILk2f7uLKspBUUJa1PlzMCC26Ge+bRyZ06dlIxqari4DMCqbqzr0f9Frb
+	 aZimyN64e/CQlRXiwGOWfZqZZNkLmHzLe64LhVnLlsaZDzqmlDqBw/eygIYx98eEis
+	 Hc2t5fZh3CUQCu5JzOKgMp3uj2CUUjHXtgTiY3Ajx+rI4Kbh82in5kLRf7Z7Q0yl2j
+	 DenThKWYNz1HJ37agGRFM22O1aoPsqYV2Z3zA+OX7Fif8vsE6fj/xWtw+118Yfm/fd
+	 ISUWdqvofVCNEnF91y6PDu1xIoXb/GhHQXWyJuAFioJJ8Ulc4s0bJlHf09MmF7MJc/
+	 41ek/pHvnz8XA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH v3] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
+Date: Sat, 24 Sep 2022 15:07:37 +0800
+Message-Id: <20220924070737.3048-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.4.0
-Subject: Re: [PATCH 3/3] arm64/kprobe: Optimize the performance of patching
- single-step slot
-To: Mark Rutland <mark.rutland@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <guoren@kernel.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<mhiramat@kernel.org>, <rostedt@goodmis.org>, <maz@kernel.org>,
-	<alexandru.elisei@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-csky@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-References: <20220923084658.99304-1-liaochang1@huawei.com>
- <20220923084658.99304-4-liaochang1@huawei.com>
- <Yy2pAEvWKVloVr3U@FVFF77S0Q05N>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <Yy2pAEvWKVloVr3U@FVFF77S0Q05N>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220923_185250_795309_01ADB29A 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20220924_001707_250329_2F8F6539 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +69,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi85LzIzIDIwOjM5LCBNYXJrIFJ1dGxhbmQg5YaZ6YGTOgo+IE9uIEZyaSwgU2Vw
-IDIzLCAyMDIyIGF0IDA0OjQ2OjU4UE0gKzA4MDAsIExpYW8gQ2hhbmcgd3JvdGU6Cj4+IFNpbmds
-ZS1zdGVwIHNsb3Qgd291bGQgbm90IGJlIHVzZWQgdW50aWwga3Byb2JlIGlzIGVuYWJsZWQsIHRo
-YXQgbWVhbnMKPj4gbm8gcmFjZSBjb25kaXRpb24gb2NjdXJzIG9uIGl0IHVuZGVyIFNNUCwgaGVu
-Y2UgaXQgaXMgc2FmZSB0byBwYWN0aCBzcwo+PiBzbG90IHdpdGhvdXQgc3RvcHBpbmcgbWFjaGlu
-ZS4KPiAKPiBJIHRoaW5rIHRoaXMgaXMgY29ycmVjdCwgYnV0IHRoaXMgZGVwZW5kcyBvbiBhIGNv
-dXBsZSBvZiBzdWJ0bGV0aWVzLAo+IGltcG9ydGFudGx5Ogo+IAo+ICogVGhhdCB0aGUgSS1jYWNo
-ZSBtYWludGVuYW5jZSBmb3IgdGhlc2UgaW5zdHJ1Y3Rpb25zIGlzIGNvbXBsZXRlICpiZWZvcmUq
-IHRoZQo+ICAga3Byb2JlIEJSSyBpcyB3cml0dGVuIChhbmQgYWFyY2g2NF9pbnNuX3BhdGNoX3Rl
-eHRfbm9zeW5jKCkgZW5zdXJlcyB0aGlzLCBidXQKPiAgIGp1c3Qgb21pdHMgY2F1c2luZyBhIENv
-bnRleHQtU3luY2hyb25pemF0aW9uLUV2ZW50IG9uIGFsbCBDUFVTKS4KClNvIGluIG9yZGVyIHRv
-IGd1YXJhbnRlZSB0aGUgSS1jYWNoZSBtYWludGVuYW5jZSBpcyBvYnNlcnZlZCBvbiBhbGwgQ1BV
-UywKaXQgbmVlZHMgdG8gYmUgZm9sbG93ZWQgYnkgYSBleHBsaWNpdCBDb250ZXh0LVN5bmNocm9u
-aXphdGlvbi1FdmVudCwgcGVyaGFwcwppdCBpcyBiZXR0ZXIgdG8gcGxhY2UgSVNCIGJlZm9yZSBr
-cHJvYmUgQlJLIGlzIHdyaXR0ZW4uCgo+IAo+ICogVGhhdCB0aGUga3Byb2JlIEJSSyByZXN1bHRz
-IGluIGFuIGV4Y2VwdGlvbiAoYW5kIGNvbnNlcXVlbnRseSBhCj4gICBDb250ZXh0LVN5bmNocm9u
-b2l6YXRpb24tRXZlbnQpLCB3aGljaCBlbnN1cmVzIHRoYXQgdGhlIENQVSB3aWxsIGZldGNoIHRo
-ZQo+ICAgc2luZ2xlLXN0ZXAgc2xvdCBpbnN0cnVjdGlvbnMgKmFmdGVyKiB0aGlzLCBlbnN1cmlu
-ZyB0aGF0IHRoZSBuZXcKPiAgIGluc3RydWN0aW9ucyBhcmUgdXNlZC4KClllcywgYmVjYXVzZSBv
-ZiBzaW5nbGUtc3RlcCBzbG90IGlzIGluc3RhbGxlZCBpbnQgdGhlIEJSSyBleGVjcHRpb24gaGFu
-ZGxlciwKc28gaXQgaXMgbm90IG5lY2Vzc2FyeSB0byBnZW5lcmF0ZSBDb250ZXh0LVN5bmNocm9u
-aXphdGlvbi1FdmVudCB2aWEgSVNCIG1lbnRpb25lZCBhYm92ZS4uLgoKVGhhbmtzLgoKPiAKPiBJ
-dCB3b3VsZCBiZSBnb29kIGlmIHdlIGNvdWxkIGNhbGwgdGhhdCBvdXQgZXhwbGljaXRseS4KPiAK
-PiBUaGFua3MsCj4gTWFyay4KPiAKPj4gU2luY2UgSSBhbmQgRCBjYWNoZXMgYXJlIGNvaGVyZW50
-IHdpdGhpbiBzaW5nbGUtc3RlcCBzbG90IGZyb20KPj4gYWFyY2g2NF9pbnNuX3BhdGNoX3RleHRf
-bm9zeW5jKCksIGhlbmNlIG5vIG5lZWQgdG8gZG8gaXQgYWdhaW4gdmlhCj4+IGZsdXNoX2ljYWNo
-ZV9yYW5nZSgpLgo+Pgo+PiBBY2tlZC1ieTogTWFzYW1pIEhpcmFtYXRzdSAoR29vZ2xlKSA8bWhp
-cmFtYXRAa2VybmVsLm9yZz4KPj4gU2lnbmVkLW9mZi1ieTogTGlhbyBDaGFuZyA8bGlhb2NoYW5n
-MUBodWF3ZWkuY29tPgo+PiAtLS0KPj4gIGFyY2gvYXJtNjQva2VybmVsL3Byb2Jlcy9rcHJvYmVz
-LmMgfCA3ICsrLS0tLS0KPj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDUgZGVs
-ZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2tlcm5lbC9wcm9iZXMva3By
-b2Jlcy5jIGIvYXJjaC9hcm02NC9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+PiBpbmRleCBkMWQx
-ODIzMjAyNDUuLjI5Yjk4YmMxMjgzMyAxMDA2NDQKPj4gLS0tIGEvYXJjaC9hcm02NC9rZXJuZWwv
-cHJvYmVzL2twcm9iZXMuYwo+PiArKysgYi9hcmNoL2FybTY0L2tlcm5lbC9wcm9iZXMva3Byb2Jl
-cy5jCj4+IEBAIC00NCwxMyArNDQsMTAgQEAgcG9zdF9rcHJvYmVfaGFuZGxlcihzdHJ1Y3Qga3By
-b2JlICosIHN0cnVjdCBrcHJvYmVfY3RsYmxrICosIHN0cnVjdCBwdF9yZWdzICopOwo+PiAgc3Rh
-dGljIHZvaWQgX19rcHJvYmVzIGFyY2hfcHJlcGFyZV9zc19zbG90KHN0cnVjdCBrcHJvYmUgKnAp
-Cj4+ICB7Cj4+ICAJa3Byb2JlX29wY29kZV90ICphZGRyID0gcC0+YWluc24uYXBpLmluc247Cj4+
-IC0Jdm9pZCAqYWRkcnNbXSA9IHthZGRyLCBhZGRyICsgMX07Cj4+IC0JdTMyIGluc25zW10gPSB7
-cC0+b3Bjb2RlLCBCUks2NF9PUENPREVfS1BST0JFU19TU307Cj4+ICAKPj4gIAkvKiBwcmVwYXJl
-IGluc24gc2xvdCAqLwo+PiAtCWFhcmNoNjRfaW5zbl9wYXRjaF90ZXh0KGFkZHJzLCBpbnNucywg
-Mik7Cj4+IC0KPj4gLQlmbHVzaF9pY2FjaGVfcmFuZ2UoKHVpbnRwdHJfdClhZGRyLCAodWludHB0
-cl90KShhZGRyICsgTUFYX0lOU05fU0laRSkpOwo+PiArCWFhcmNoNjRfaW5zbl9wYXRjaF90ZXh0
-X25vc3luYyhhZGRyLCBwLT5vcGNvZGUpOwo+PiArCWFhcmNoNjRfaW5zbl9wYXRjaF90ZXh0X25v
-c3luYyhhZGRyICsgMSwgQlJLNjRfT1BDT0RFX0tQUk9CRVNfU1MpOwo+PiAgCj4+ICAJLyoKPj4g
-IAkgKiBOZWVkcyByZXN0b3Jpbmcgb2YgcmV0dXJuIGFkZHJlc3MgYWZ0ZXIgc3RlcHBpbmcgeG9s
-Lgo+PiAtLSAKPj4gMi4xNy4xCj4+Cj4gCj4gLgoKLS0gCkJSLApMaWFvLCBDaGFuZwoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Testing tools/testing/selftests/timens/vfork_exec.c got below
+kernel log:
+
+[    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
+[    6.842255] Oops [#1]
+[    6.842871] Modules linked in:
+[    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
+[    6.845861] Hardware name: riscv-virtio,qemu (DT)
+[    6.848009] epc : vdso_join_timens+0xd2/0x110
+[    6.850097]  ra : vdso_join_timens+0xd2/0x110
+[    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
+[    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
+[    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
+[    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
+[    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
+[    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
+[    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
+[    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
+[    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
+[    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
+[    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
+[    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
+[    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
+[    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
+[    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
+[    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
+[    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
+[    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
+[    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
+[    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
+[    6.877484] ---[ end trace 0000000000000000 ]---
+
+This is because the mm->context.vdso_info is NULL in vfork case. From
+another side, mm->context.vdso_info either points to vdso info
+for RV64 or vdso info for compat, there's no need to bloat riscv's
+mm_context_t, we can handle the difference when setup the additional
+page for vdso.
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Suggested-by: Palmer Dabbelt <palmer@rivosinc.com>
+Fixes: 3092eb456375 ("riscv: compat: vdso: Add setup additional pages implementation")
+---
+Hi Palmer,
+
+I tried to keep the v2 origin idea w/ forward declaration, but the
+result is stil larger than yours. So I reused your code and modify it
+a bit -- move the forward declaration after struct __vdso_info
+definition. I dunno how to handle this case so I added your
+"Suggested-by", feel free to correct me.
+
+since v2:
+ - Per Palmer suggestion, keep the fixes smaller while leave the clean
+   up to next development window.
+ - add Suggested-by tag, in fact Palmer demostrates the code in email.
+
+since v1:
+ - add "Fixes" tag
+ - fix build error when CONFIG_COMPAT is enabled.
+---
+ arch/riscv/include/asm/mmu.h |  1 -
+ arch/riscv/kernel/vdso.c     | 13 ++++++++++---
+ 2 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+index cedcf8ea3c76..0099dc116168 100644
+--- a/arch/riscv/include/asm/mmu.h
++++ b/arch/riscv/include/asm/mmu.h
+@@ -16,7 +16,6 @@ typedef struct {
+ 	atomic_long_t id;
+ #endif
+ 	void *vdso;
+-	void *vdso_info;
+ #ifdef CONFIG_SMP
+ 	/* A local icache flush is needed before user execution can resume. */
+ 	cpumask_t icache_stale_mask;
+diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+index 69b05b6c181b..4abc9aebdfae 100644
+--- a/arch/riscv/kernel/vdso.c
++++ b/arch/riscv/kernel/vdso.c
+@@ -60,6 +60,11 @@ struct __vdso_info {
+ 	struct vm_special_mapping *cm;
+ };
+ 
++static struct __vdso_info vdso_info;
++#ifdef CONFIG_COMPAT
++static struct __vdso_info compat_vdso_info;
++#endif
++
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+ 		       struct vm_area_struct *new_vma)
+ {
+@@ -114,15 +119,18 @@ int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
+ {
+ 	struct mm_struct *mm = task->mm;
+ 	struct vm_area_struct *vma;
+-	struct __vdso_info *vdso_info = mm->context.vdso_info;
+ 
+ 	mmap_read_lock(mm);
+ 
+ 	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+ 		unsigned long size = vma->vm_end - vma->vm_start;
+ 
+-		if (vma_is_special_mapping(vma, vdso_info->dm))
++		if (vma_is_special_mapping(vma, vdso_info.dm))
+ 			zap_page_range(vma, vma->vm_start, size);
++#ifdef CONFIG_COMPAT
++		if (vma_is_special_mapping(vma, compat_vdso_info.dm))
++			zap_page_range(vma, vma->vm_start, size);
++#endif
+ 	}
+ 
+ 	mmap_read_unlock(mm);
+@@ -264,7 +272,6 @@ static int __setup_additional_pages(struct mm_struct *mm,
+ 
+ 	vdso_base += VVAR_SIZE;
+ 	mm->context.vdso = (void *)vdso_base;
+-	mm->context.vdso_info = (void *)vdso_info;
+ 
+ 	ret =
+ 	   _install_special_mapping(mm, vdso_base, vdso_text_len,
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
