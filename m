@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C964C32771
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Sep 2022 09:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D10C32771
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Sep 2022 09:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y8bnV/wfmhWVCls+3BP+J0qKO4Jqk7lpKOnmg2Qd8aU=; b=lpnbMwKjYXIt8w
-	gAhE++ZtC8FK/D1Uf19mYofT5o/rcXvkoBcmYmOqZ5F2yShsyHJ8Pj48/33HwgRzOIjYkrtx8UrG4
-	vSofqGMeY1UBOAScY00OBRlzc9oH/Tnie+PevWrt/j5tR17wzHBkgKKjbicitMs86w8Dhzm3szhEo
-	K3CSrUMm5FSk1Fd8C4HRDdU8YK65JWUxGTeKI5M1VNqiKzsGOO3kpyYcRZ5RN0XwLr+awTopvqstz
-	zCmmwLFe08eYloPQzYT4UqF4yA2PO9K4mBwHOW/4xpYmKcNXtcuvDo50CDm5+sEZ+fG0jCEfs0koY
-	Qpb/cKaCKg7vDvyJN+/g==;
+	List-Owner; bh=YGW62byY+Oyq2tBzkZ0nQIWhLWFUU8jZPO2CvlelIvY=; b=ujZxElm6eyBlqt
+	5qHsX7AwZ4Emw6dQBEVaWv8Z4sxekQxulFCMNLsjzxrM8Gq/j3pftlXLUa7zQJyYg3SOsl4HdPqxh
+	9lGaLMbT0lT+pRe9zj8G8IDTNn0vYCdpaps1Yoo6X80s/U3dIsJSCmlIKfiiW9bOngQ9rv9IAmD1Z
+	3C3ms6JafbTLc+/3GQuWaHHJ55d4Mvy7oY6KWqTGrl4EwTO9jMPc61K+5yCZhynE4Gcs+TVrBkRPZ
+	UfzSdRVzMgTvXeezuaB08MsR5nJwb6xom/OLrlH67RmyF/KGcOkrMSinWvgyDiYCMjPSX+/qIYcOF
+	c2Gh3HNOmUzdxtGrmxsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ock3B-003RmR-Jv; Mon, 26 Sep 2022 09:05:17 +0000
-Received: from mail-qk1-f182.google.com ([209.85.222.182])
+	id 1ockNh-003cRL-Sl; Mon, 26 Sep 2022 09:26:29 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ock38-003RjA-Rw
-	for linux-riscv@lists.infradead.org; Mon, 26 Sep 2022 09:05:16 +0000
-Received: by mail-qk1-f182.google.com with SMTP id o7so3682463qkj.10
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Sep 2022 02:05:12 -0700 (PDT)
+	id 1ockNb-003cLw-VO
+	for linux-riscv@lists.infradead.org; Mon, 26 Sep 2022 09:26:26 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id l14so12711435eja.7
+        for <linux-riscv@lists.infradead.org>; Mon, 26 Sep 2022 02:26:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=J3UU4PYtAjB1g3PssXvXc/IUOjQjV2cgzolyDJw2V2U=;
+        b=HUMsdSM7O34xhKz3+uUjFdjwgQLsFZi8g9hEQ3KWP1nneKWXTOY++mtem6IumIzm1E
+         rN7jdJ5gbGU3jnb5Jgt4cWXy6wdrTrFkd9DeYbrLu/wwOngypp1nW6z09aQ+Ci8/TArW
+         JSTJRTPcBllPUAclderXeC+bYEnVmGSgNBRtjzM3bn/mTAba0I+jw5nLKoc+6WJpqxQl
+         3sIkpiew4zs3N50BRkzQmPIuStXdGULdnXN0SYq1SofIkxZokcmUYbFMRsnNDrdrZIwc
+         oDZqFqVk5uPf6fUxpRbbvYJDSjbzzt+wvRte8yGesagFwa2T4zaOdhHfsAoeIgxjQX0Q
+         VjrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=uWYE/4qSbOTZOS7uaLKLWNqkuYOYcqwLcFlGIB+GgOM=;
-        b=CTFChy44nQu/ATOsO+jkk/0rbYNtZ182ycr/fFRz6WJUeBEisTdzQ7AGL4EHVFyAOz
-         Kh1nZCQuMbI0cG47/JkzvxL/FhnMtC3RQB4fR1NVwX/YKQolFcc8BCOKiHLm9fIOAD78
-         g/26i8oMbJp6FMqsozB5JlWW02+hasHClIBCSb/w8h+l1HL/PJM9y95bwr92liW3MGNK
-         fkI61/Gs1UYg97KKj6kd8L7d9CisYTSCiy32/6XWsEKkQAcmLlimK6jpqJbH9NotgMjr
-         VM54WRKuOsyoPFuyapYSjD6ksBJAt/GUg+n7fkpNGJHRVfylDpLST/wJ06HNo9DkqlyT
-         UglQ==
-X-Gm-Message-State: ACrzQf1ngjoOCfaHqA3ZxdjQWH2fbqbKIq14UZ7/RqIW1BP1tlwIDwJD
-	ReWsv6x74/bcRID0PDlXqTgN5TamUVortQ==
-X-Google-Smtp-Source: AMsMyM4pkgnjbM24fdwxxuUkD230fo4vQ5zpKHB+SdgxPTJ/ntZDIbGfdSUBqVO/WTm8BmMlUqu5BQ==
-X-Received: by 2002:a05:620a:2627:b0:6b8:c8c3:78f9 with SMTP id z39-20020a05620a262700b006b8c8c378f9mr13243366qko.641.1664183111746;
-        Mon, 26 Sep 2022 02:05:11 -0700 (PDT)
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com. [209.85.128.171])
-        by smtp.gmail.com with ESMTPSA id r1-20020ae9d601000000b006cbbc3daaacsm11249500qkk.113.2022.09.26.02.05.10
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Sep 2022 02:05:11 -0700 (PDT)
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-3321c2a8d4cso61605517b3.5
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Sep 2022 02:05:10 -0700 (PDT)
-X-Received: by 2002:a81:758a:0:b0:345:450b:6668 with SMTP id
- q132-20020a81758a000000b00345450b6668mr18850169ywc.316.1664183110510; Mon, 26
- Sep 2022 02:05:10 -0700 (PDT)
+        bh=J3UU4PYtAjB1g3PssXvXc/IUOjQjV2cgzolyDJw2V2U=;
+        b=JmLNH8oHMOXpMC9L8KNG6SuLlHrrol19HVq7QWf7svkCwQmtPURq4oFwB2ZUdM7Z42
+         fq16tfoWG7aCAz1s4Sv9eMV373ppnDi0U92d+8S64NMP9Xugiq/zb/2PLCOUDhnvagK2
+         4sNZotrFxLTRTpFDf6rkKj3/jsncx99h7678TrDK7UJ0z1C8aIHnfotiidSlNZh/AR2Z
+         rUNeZHxR0jcFA0yf5uEdL6b6QyVWz/Y3l4h1+tgavpootOPOWeLDYovS3xn+MVdzxyp/
+         Bjm+Be7MaQSrCScTRp3WEcA4vLFXYmYBsvzYuolD0NCl7bNtN366uAfZ76bXvFQbpDmN
+         deqQ==
+X-Gm-Message-State: ACrzQf2DBhxdFUXVDjaFVI21FaJJP01jnpjthOxjRkznKILwomYwvXE8
+	/ZiWrX5wmLuZXnkwZTyQvUg7dHZ6/zMVYLPbouY3YryfSbg=
+X-Google-Smtp-Source: AMsMyM6nYvmM7bgKe2ZHTZWdITKlc9t16p7/0EkfLlt/M4HtIz6DMRqspGRQkbdcaJ01qzhTwwGlLvgVWwXqIE3hdXk=
+X-Received: by 2002:a17:907:2724:b0:780:1464:f8a1 with SMTP id
+ d4-20020a170907272400b007801464f8a1mr18038467ejl.106.1664184379448; Mon, 26
+ Sep 2022 02:26:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220923185605.1900083-1-conor@kernel.org>
-In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 26 Sep 2022 11:04:58 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVxx7_im2wtb_Hszf2P6EuxEDjA95sJtkM9Jf9KV3xO4Q@mail.gmail.com>
-Message-ID: <CAMuHMdVxx7_im2wtb_Hszf2P6EuxEDjA95sJtkM9Jf9KV3xO4Q@mail.gmail.com>
-Subject: Re: [RFC 00/27] RISC-V: Convert SOC_FOO symbols to ARCH_FOO
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	damien.lemoal@opensource.wdc.com, heiko@sntech.de, kernel@esmil.dk, 
-	arnd@arndb.de, Conor Dooley <conor.dooley@microchip.com>
+References: <20220919133719.230337-1-ajones@ventanamicro.com>
+In-Reply-To: <20220919133719.230337-1-ajones@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 26 Sep 2022 14:56:05 +0530
+Message-ID: <CAAhSdy3p69tFiS4V5PSWVws-=s+WihQ=DXfFawyG3L8bfQ3a4Q@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Make ISA ext mappings explicit
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	atishp@atishpatra.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220926_020514_976980_37C6E88A 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20220926_022624_015033_C2A4ABDC 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +84,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Fri, Sep 23, 2022 at 8:59 PM Conor Dooley <conor@kernel.org> wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Sep 19, 2022 at 7:07 PM Andrew Jones <ajones@ventanamicro.com> wrote:
 >
-> Following on from LPC, here's the start of my efforts to clean up
-> Kconfig.socs.
+> While adding new extensions at the bottom of the array isn't hard to
+> do, it's a pain to review in order to ensure we're not missing any.
+> Also, resolving merge conflicts for multiple new ISA extensions can be
+> error-prone. To make adding new mappings foolproof, explicitly assign
+> the array elements. And, now that the order doesn't matter, we can
+> alphabetize the extensions, so we do that too.
 >
-> My preference would be to take the whole thing through the RISC-V tree
-> for v6.2 to make things a bit less fiddly, but I am sending this as an
-> RFC in the hopes of getting some opinions on how the series should be
-> split up & merged. I guess it would always be possible to create a few
-> immutable branches for the individual subsystems that are being modified
-> & take the series through the riscv tree unless we hit a conflict in
-> -next. Obiviously for that route, maintainer acks will be needed.
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 
-Iff it is decided to make this change, I suggest to do it at the end
-of the v6.1-rc1 merge window, or even better, between rc1 and rc2.
-That way the affected subsystems can just base their for-v6.2 branches
-on v6.1-rc2, and have all renames.
+I have queued this patch for Linux-6.1
 
-If (a) you postpone this to v6.2, there will be more users to handle,
-and (b) you take this through the RISC-V tree, you will miss all newly
-introduced users in other subsystem trees.
+Thanks,
+Anup
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> ---
+>
+> Applies to riscv_kvm_queue
+>
+>  arch/riscv/kvm/vcpu.c | 25 ++++++++++++++-----------
+>  1 file changed, 14 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 0de0dd22e734..61fe1604e8ea 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -42,19 +42,22 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+>
+>  #define KVM_RISCV_BASE_ISA_MASK                GENMASK(25, 0)
+>
+> +#define KVM_ISA_EXT_ARR(ext)           [KVM_RISCV_ISA_EXT_##ext] = RISCV_ISA_EXT_##ext
+> +
+>  /* Mapping between KVM ISA Extension ID & Host ISA extension ID */
+>  static const unsigned long kvm_isa_ext_arr[] = {
+> -       RISCV_ISA_EXT_a,
+> -       RISCV_ISA_EXT_c,
+> -       RISCV_ISA_EXT_d,
+> -       RISCV_ISA_EXT_f,
+> -       RISCV_ISA_EXT_h,
+> -       RISCV_ISA_EXT_i,
+> -       RISCV_ISA_EXT_m,
+> -       RISCV_ISA_EXT_SVPBMT,
+> -       RISCV_ISA_EXT_SSTC,
+> -       RISCV_ISA_EXT_SVINVAL,
+> -       RISCV_ISA_EXT_ZIHINTPAUSE,
+> +       [KVM_RISCV_ISA_EXT_A] = RISCV_ISA_EXT_a,
+> +       [KVM_RISCV_ISA_EXT_C] = RISCV_ISA_EXT_c,
+> +       [KVM_RISCV_ISA_EXT_D] = RISCV_ISA_EXT_d,
+> +       [KVM_RISCV_ISA_EXT_F] = RISCV_ISA_EXT_f,
+> +       [KVM_RISCV_ISA_EXT_H] = RISCV_ISA_EXT_h,
+> +       [KVM_RISCV_ISA_EXT_I] = RISCV_ISA_EXT_i,
+> +       [KVM_RISCV_ISA_EXT_M] = RISCV_ISA_EXT_m,
+> +
+> +       KVM_ISA_EXT_ARR(SSTC),
+> +       KVM_ISA_EXT_ARR(SVINVAL),
+> +       KVM_ISA_EXT_ARR(SVPBMT),
+> +       KVM_ISA_EXT_ARR(ZIHINTPAUSE),
+>  };
+>
+>  static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
+> --
+> 2.37.3
+>
 
 _______________________________________________
 linux-riscv mailing list
