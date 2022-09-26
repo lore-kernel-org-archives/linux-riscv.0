@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EE3C07E9D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Sep 2022 10:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13326C6FA83
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Sep 2022 10:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Efqi0YigKZluWL4/Sy3xJ+GtGROwhqTqdKm8AwHca48=; b=leq1BIl/hmesKi
-	r1YTgMMlPQeYNFxVreGLTiWgQxOITUHV5KFGBV5ii7HDKxdGATo8NuBy78xDY0ZT+mU/XMqUKuns+
-	DQc0+7kiJs5RV41/BSf5dKAtkzjE22Ik1I8y1IumU/7ly51K4F/nyq7EYBVzxETN7Xlh9jG/5z8Nn
-	BSZLV2RD1qgft8ZTh/eZgGQjnaSVAGZ/5IjhVgi+UNyhBJpEJEqKWnpXbkHcMawCc5gGNTPzXx/Pd
-	hkfnGIln/DXBTJdA0DiK/5nxclWiHYKy+5a5TLIKii19WDR7aUkSsFaigj37K/JQoN8kO0S1DDm/w
-	+lve721zjXc/JVR9iSuA==;
+	List-Owner; bh=Qr9D5LSqqtHeETSxxwTy9wIsyeRGZVJcdyJA78krH3g=; b=M6MLcd0jGi9Vm9
+	4/Kb4AFbyAHRObKhdTojTVJEP39c6iRcbPeOVt4Uprdp+rRav/cS91+H07XB7dWZI7ZEUJvYthQpt
+	P0WiY9yj2dQVOrN71jBpNkonh/QZtn1ik59Mkvi4qcJ1hKCqz8csRpeYbKWwzI+b6uM75HoFGNjgw
+	XTyYhkOwhwhnfiTKoazrjtCV2UcPPMsdwaXi8pIssn4sLDKHUH8mEwW7VOXVpU3pv0yZQlu9CdYr+
+	u3lMOnB2MI3BTq6zbe41Y8u5VzYxyBZWjzoe5gbr/rarYbXc0ngkM4Yjp70YisWSKPsP6sXpL2Omg
+	eIXobFRG0/QHbmU1geCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ocl01-003w50-V6; Mon, 26 Sep 2022 10:06:06 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1oclEp-0043iv-CJ; Mon, 26 Sep 2022 10:21:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ockzY-003vps-9x
-	for linux-riscv@lists.infradead.org; Mon, 26 Sep 2022 10:05:37 +0000
-Received: by mail-ej1-x632.google.com with SMTP id lh5so12895948ejb.10
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Sep 2022 03:05:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=LQyNgcP7hvaQh44MxsK++cT2+NdoJVVgZBVizkcng4M=;
-        b=Nybr3LwWVYyqUFkJ05/qC+TzFYBCutz/9YWc/CgJH4YbXUqpySLCLM7tKVy9WR594C
-         zNm/0uUFmaXUMxaqJKtql82f/wsxWjMo8QBJdojAAjWsMkleQEFW+3LKRcFQ1+Rkd2I+
-         VPU+/pY5ni/KyVLQGWgOaaC+GjM5L7SDVyd6I706wKRAJYFhHmUbII7xk4J55h5hM93X
-         CyynZXnPduG0nyYpeEEBdMzS7Rtzl2lDg6aehwVl5sPAxLESZGbzMzCzjMQ8anV5lvBx
-         b7fF8lMYwNLjfnqIC2SypKK7wfqgRFQ07SdSJesRaiy/pOYXG75TbLux5ZagT1aCVGGD
-         b7eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=LQyNgcP7hvaQh44MxsK++cT2+NdoJVVgZBVizkcng4M=;
-        b=eWy1LbaOaVnENh13JXx3i7H/xoNj7kszO8ZjkU6VcSqcKsiQMoVmSN//+pneRYsfrb
-         8bKshUO8UhJWc2j8RYz5saN+u6zdWhu46hNhGn9YjavnqemQNMTcfkX5nEVcsT6yYa8a
-         i1kUvHM3MMTTJO7OPIPWHIXlqXlgmHFFMTlUYQLCTOglEdAERZnfLnWYLD/3v2T3CIs4
-         bPW8T+akNhlUYhChZd481rxcsRN/TtQizFgujmYM4X0e7Ef51tg8FYRdZo6Qj5aFS0Fv
-         NQ67oe7SWhw47IaXomrWXThCt/gBU+4SgwiJSTOIqd3Xu/uNg4hZixSKJAmz8IykGSUs
-         /xjg==
-X-Gm-Message-State: ACrzQf1Yz/b6DAFZVW76XI0i4O4ji8BtkeZcnV4uszNqj8c5yajq4BkE
-	CCBRyU825nZbpYVJFXuWjhLFhNxNJ0fX3Iz8cKOung==
-X-Google-Smtp-Source: AMsMyM5TqbZOSnNZYCLf0S2aGKv8/tKNNFaD2bj5VwajZ6h0h7xQoGX+oeh0/iI8zKk131/y8tAn+H5LrF+7kRvW2oY=
-X-Received: by 2002:a17:906:eec7:b0:733:189f:b07a with SMTP id
- wu7-20020a170906eec700b00733189fb07amr18211913ejb.230.1664186732477; Mon, 26
- Sep 2022 03:05:32 -0700 (PDT)
+	id 1oclBO-0041ec-Al
+	for linux-riscv@lists.infradead.org; Mon, 26 Sep 2022 10:17:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1664187470; x=1695723470;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=w5JjJDXrkyUyXqGn1bmKBkBsCl7GSmQYPD4A5lM+cSo=;
+  b=SjdQ1noHFddzfRt1CyTU7xbWYigpY0tdiVVj/Y0d/Dk2qH+V2EtPDuTo
+   PIYXL0mQpc4bFFCZQELDrAzEuiXPlZsqRtNYeIa4R7vszZksEPsk+kILe
+   qsckc0jKEO3b4qFuusu5TyoCw9+N/d2X760peysePgVX3DLc11IogRe49
+   gh/p86L/OuggLOTFJhDaUkG6TdgejkrNRPKSHlw7bOuJGhhpMGjGmPDre
+   iK9Ynrs76khAj4+aJ+R5Bp1Rstc17FQn50SWiLMPc+xIBRv58xZiMDsIl
+   KydojJ3H8faHcfWMLuR3IiCSzZJZWgDLlemkPAwBSrGVx1smIZEwamSNh
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,345,1654585200"; 
+   d="scan'208";a="178886226"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Sep 2022 03:17:46 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 26 Sep 2022 03:17:45 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Mon, 26 Sep 2022 03:17:43 -0700
+Date: Mon, 26 Sep 2022 11:17:22 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Binglei Wang <l3b2w1@gmail.com>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<naveen.n.rao@linux.ibm.com>, <anil.s.keshavamurthy@intel.com>,
+	<davem@davemloft.net>, <mhiramat@kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6] rethook: add riscv rethook implementation.
+Message-ID: <YzF8MqouI96oBtJJ@wendy>
+References: <20220926084136.629638-1-l3b2w1@gmail.com>
 MIME-Version: 1.0
-References: <20220909144400.1114485-1-ajones@ventanamicro.com>
- <20220909144400.1114485-3-ajones@ventanamicro.com> <CAOnJCU+meVE_A=ki1bTMNCf-CHMwCQvTn-0aaHydREAH=OdcFw@mail.gmail.com>
-In-Reply-To: <CAOnJCU+meVE_A=ki1bTMNCf-CHMwCQvTn-0aaHydREAH=OdcFw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 26 Sep 2022 15:35:18 +0530
-Message-ID: <CAAhSdy2PajD_dLFBgrVkqVbk5oqrExLndzhRgnZLXvC4z589ew@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] RISC-V: KVM: Expose Zicbom to the guest
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Andrew Jones <ajones@ventanamicro.com>, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
-	Atish Patra <atishp@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20220926084136.629638-1-l3b2w1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220926_030536_367189_18322597 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20220926_031750_539872_2AC249A3 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +82,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 10, 2022 at 12:07 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Fri, Sep 9, 2022 at 7:44 AM Andrew Jones <ajones@ventanamicro.com> wrote:
-> >
-> > Guests may use the cbo.inval,clean,flush instructions when the
-> > CPU has the Zicbom extension and the hypervisor sets henvcfg.CBIE
-> > (for cbo.inval) and henvcfg.CBCFE (for cbo.clean,flush).
-> >
-> > Add Zicbom support for KVM guests which may be enabled and
-> > disabled from KVM userspace using the ISA extension ONE_REG API.
-> >
-> > Also opportunistically switch the other isa extension checks in
-> > kvm_riscv_vcpu_update_config() to riscv_isa_extension_available().
-> >
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/uapi/asm/kvm.h | 1 +
-> >  arch/riscv/kvm/vcpu.c             | 9 +++++++--
-> >  2 files changed, 8 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> > index b9a4cf36be4b..ed37a4a6e5cf 100644
-> > --- a/arch/riscv/include/uapi/asm/kvm.h
-> > +++ b/arch/riscv/include/uapi/asm/kvm.h
-> > @@ -99,6 +99,7 @@ enum KVM_RISCV_ISA_EXT_ID {
-> >         KVM_RISCV_ISA_EXT_M,
-> >         KVM_RISCV_ISA_EXT_SVPBMT,
-> >         KVM_RISCV_ISA_EXT_SSTC,
-> > +       KVM_RISCV_ISA_EXT_ZICBOM,
-> >         KVM_RISCV_ISA_EXT_MAX,
-> >  };
-> >
-> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > index 2ef33d5d94d1..74d1532b26c0 100644
-> > --- a/arch/riscv/kvm/vcpu.c
-> > +++ b/arch/riscv/kvm/vcpu.c
-> > @@ -54,6 +54,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
-> >         RISCV_ISA_EXT_m,
-> >         RISCV_ISA_EXT_SVPBMT,
-> >         RISCV_ISA_EXT_SSTC,
-> > +       RISCV_ISA_EXT_ZICBOM,
-> >  };
-> >
-> >  static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
-> > @@ -792,11 +793,15 @@ static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
-> >  {
-> >         u64 henvcfg = 0;
-> >
-> > -       if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SVPBMT))
-> > +       if (riscv_isa_extension_available(isa, SVPBMT))
-> >                 henvcfg |= ENVCFG_PBMTE;
-> >
-> > -       if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SSTC))
-> > +       if (riscv_isa_extension_available(isa, SSTC))
-> >                 henvcfg |= ENVCFG_STCE;
-> > +
->
-> Ideally, these should be in a separate patch.
->
-> > +       if (riscv_isa_extension_available(isa, ZICBOM))
-> > +               henvcfg |= (ENVCFG_CBIE | ENVCFG_CBCFE);
-> > +
-> >         csr_write(CSR_HENVCFG, henvcfg);
-> >  #ifdef CONFIG_32BIT
-> >         csr_write(CSR_HENVCFGH, henvcfg >> 32);
-> > --
-> > 2.37.2
-> >
->
-> Otherwise, LGTM.
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+On Mon, Sep 26, 2022 at 04:41:36PM +0800, Binglei Wang wrote:
+> From: Binglei Wang <l3b2w1@gmail.com>
+> 
+> Implement the kretprobes on riscv arch by using rethook mechanism
+> which abstracts general kretprobe info into a struct rethook_node
+> to be embedded in the struct kretprobe_instance.
+> 
+> 1. remove arch dependent kretprobe implementation
+> 2. replace __kretprobe_trampoline with arch_hook_trampoline
+> 
+> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
+> ---
 
-I agree with Atish's comment but this being a very simple change, I
-have queued it as-is for Linux-6.1
-
+What changed since v5? You need to put a changelog under the --- for
+what changed in each revision.
 Thanks,
-Anup
+Conor.
 
-> --
-> Regards,
-> Atish
+>  arch/riscv/Kconfig                            |  1 +
+>  arch/riscv/kernel/probes/Makefile             |  2 +-
+>  arch/riscv/kernel/probes/kprobes.c            | 13 ----------
+>  arch/riscv/kernel/probes/rethook.c            | 26 +++++++++++++++++++
+>  arch/riscv/kernel/probes/rethook.h            |  8 ++++++
+>  ...obes_trampoline.S => rethook_trampoline.S} |  0
+>  6 files changed, 36 insertions(+), 14 deletions(-)
+>  create mode 100644 arch/riscv/kernel/probes/rethook.c
+>  create mode 100644 arch/riscv/kernel/probes/rethook.h
+>  rename arch/riscv/kernel/probes/{kprobes_trampoline.S => rethook_trampoline.S} (100%)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index ed66c31e4..c5cae0825 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -97,6 +97,7 @@ config RISCV
+>  	select HAVE_KPROBES if !XIP_KERNEL
+>  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+>  	select HAVE_KRETPROBES if !XIP_KERNEL
+> +	select HAVE_RETHOOK if !XIP_KERNEL
+>  	select HAVE_MOVE_PMD
+>  	select HAVE_MOVE_PUD
+>  	select HAVE_PCI
+> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
+> index 7f0840dcc..9a96a7038 100644
+> --- a/arch/riscv/kernel/probes/Makefile
+> +++ b/arch/riscv/kernel/probes/Makefile
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_KPROBES)		+= kprobes.o decode-insn.o simulate-insn.o
+> -obj-$(CONFIG_KPROBES)		+= kprobes_trampoline.o
+>  obj-$(CONFIG_KPROBES_ON_FTRACE)	+= ftrace.o
+>  obj-$(CONFIG_UPROBES)		+= uprobes.o decode-insn.o simulate-insn.o
+> +obj-$(CONFIG_KPROBES)		+= rethook.o rethook_trampoline.o
+>  CFLAGS_REMOVE_simulate-insn.o = $(CC_FLAGS_FTRACE)
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> index e6e950b7c..f21592d20 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -345,19 +345,6 @@ int __init arch_populate_kprobe_blacklist(void)
+>  	return ret;
+>  }
+>  
+> -void __kprobes __used *trampoline_probe_handler(struct pt_regs *regs)
+> -{
+> -	return (void *)kretprobe_trampoline_handler(regs, NULL);
+> -}
+> -
+> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
+> -				      struct pt_regs *regs)
+> -{
+> -	ri->ret_addr = (kprobe_opcode_t *)regs->ra;
+> -	ri->fp = NULL;
+> -	regs->ra = (unsigned long) &__kretprobe_trampoline;
+> -}
+> -
+>  int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+>  {
+>  	return 0;
+> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
+> new file mode 100644
+> index 000000000..edfeaa256
+> --- /dev/null
+> +++ b/arch/riscv/kernel/probes/rethook.c
+> @@ -0,0 +1,26 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Generic return hook for riscv.
+> + */
+> +
+> +#include <linux/kprobes.h>
+> +#include <linux/rethook.h>
+> +#include "rethook.h"
+> +
+> +/* This is called from arch_rethook_trampoline() */
+> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
+> +{
+> +	return rethook_trampoline_handler(regs, regs->s0);
+> +}
+> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+> +
+> +
+> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
+> +{
+> +	rhn->ret_addr = regs->ra;
+> +	rhn->frame = regs->s0;
+> +
+> +	/* replace return addr with trampoline */
+> +	regs->ra = (u64)arch_rethook_trampoline;
+> +}
+> +NOKPROBE_SYMBOL(arch_rethook_prepare);
+> diff --git a/arch/riscv/kernel/probes/rethook.h b/arch/riscv/kernel/probes/rethook.h
+> new file mode 100644
+> index 000000000..cc573d701
+> --- /dev/null
+> +++ b/arch/riscv/kernel/probes/rethook.h
+> @@ -0,0 +1,8 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +#ifndef __RISCV_RETHOOK_H
+> +#define __RISCV_RETHOOK_H
+> +
+> +unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs);
+> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount);
+> +
+> +#endif
+> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/rethook_trampoline.S
+> similarity index 100%
+> rename from arch/riscv/kernel/probes/kprobes_trampoline.S
+> rename to arch/riscv/kernel/probes/rethook_trampoline.S
+> -- 
+> 2.27.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
