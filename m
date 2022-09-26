@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE95DC6FA82
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 Sep 2022 23:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A1BC04A95
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Sep 2022 01:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sU9BE/mDLPmicYrgOsZtOddbQwb0b1+IDjM7a82m+8M=; b=KFFBHY7HuIHEj+
-	3TDg2o6Vak1y635B63oWXIfsq7/fmHzsyMqUxNMAaxCTapFam5QrOYUHnNdUSKX1DSaXYVycs6onx
-	i8tEZ9stFaPaQ+iZ3g6XWvUicgig3UnPSzT0mYfRZL+OzSTAFPT0OHqPi1dlmAfVOj65lhOs8NSCO
-	oTih2AYQzlkKTBjvDDOgd/lDN9U/kjkH6ixyyNopJfO6r0lzRMJeb01pQRyBkP0ks5PjY6Sx1FnSz
-	UCv5qRqkeHjsoeVS02ct0DckBModSnqDPShSzobq7Cu9VMO8WiaKY+zeN6b6r9RvmSzByxF7jFuQw
-	j9O6UhL5WKIFSf5pp0Nw==;
+	List-Owner; bh=dW9Av7n1gFjvWBO/1Ni+KcIY3xWMetcV6hYn87iVnJI=; b=HdziOYcV9FjQP9
+	F97ePeuJc8K8ahgXUwRZionvBt4bzbwyA3/FzHnFwHgV/yfJQPZjKvRbPYE/hBGPEHmiYADWmgOZ6
+	4VUFL2AHTBUDm700nJVOZMRK5VPIxfrbl0km7a+mMwIFJbZGSrGO3cOBkmB/4b7SyHdL+H71IySoz
+	n9x9qShSDDI2zhJopfFcJ5KJ/yHVq3UriGeHn/fyJvz4EFCoYq3azA3HTHADrwVjNrRj1/Fiwfmw1
+	rSt/+fnF/UI4o6mzXDnNouDzD4aIETL+SiHZogiB7mIGowCTHJRH1DNXBrnfJ+dCD5sYMsaCfaXMj
+	TfzOKVa1AXy+u0G+1EpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ocbKx-000G0a-Rw; Sun, 25 Sep 2022 23:47:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ocdGz-000pyI-3I; Mon, 26 Sep 2022 01:51:05 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ocbKu-000FyX-MV
-	for linux-riscv@lists.infradead.org; Sun, 25 Sep 2022 23:47:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 02BEF6134F
-	for <linux-riscv@lists.infradead.org>; Sun, 25 Sep 2022 23:47:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C71C43141
-	for <linux-riscv@lists.infradead.org>; Sun, 25 Sep 2022 23:46:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664149619;
-	bh=xZq4ltI1LXCpnGuukl4uxLHtDrX7t2TODKrW9fOS/dY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=a791ifdRXjIsDhFcStWxld10/BET1QyWweNDOmeE/1H2QR+gFEQ+SYeO8SuPqMf6T
-	 C+qsHtR5rGAbVfj3yXOXHcBLP+5TF/+bxMIssUfHhFRLij6lbRZWCj1QJbL/yxU7Ei
-	 66ahW1itOTCIj8y3Fl9+saT1BW9vqdjgmu8qPXQ0+ufI88VnuV+vVSl1ZF6mT21ZV/
-	 Hi3wzqA+BST/oTEtQnp6KqbXp8+dunfahCxitnc7SdGuw6cyzeWBn7Iz+Mw3tzwndc
-	 mftpo+hzdiJSTl1BcrOQ/BkiqhaQ1UKFHW2mXlHABmUyNWVJs8vSf4Cpqb6/twEpeT
-	 iNGBaSvScHsGA==
-Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-11e9a7135easo7277473fac.6
-        for <linux-riscv@lists.infradead.org>; Sun, 25 Sep 2022 16:46:59 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3nA+d1RLTJkIAjBo36HKq+Qv/8OojJS4EjUsh8yt4p/PWjlbpR
-	KHsSpcEV8sr9KzBiAYooZ6AIqI7oI+0TqOOhi3M=
-X-Google-Smtp-Source: AMsMyM7CQA4PgQRparhADOLKysNkwM7cZTQTiP5Zk/xvuA48d0WPdU+XBuWKWyvpC3NhtLoI8QgyI96F07TEtAcqjrw=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr17428515oao.112.1664149618451; Sun, 25
- Sep 2022 16:46:58 -0700 (PDT)
+	id 1ocdGl-000pnT-GV
+	for linux-riscv@lists.infradead.org; Mon, 26 Sep 2022 01:50:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1664157051; x=1695693051;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Z9M6i/f3yklY/j0IsAGUJ+bKuDQuTWxIST5SqjeVyXs=;
+  b=aUZgyjKxoXI1BmPzO9FfPQsJDo+S+gDiZNpY5V7zMGoj73Q6nzp/NFnA
+   q8JjtoCflBqZpToK1DxbksbTpIoyaQMcJO9/lS+9mr731TEbZYUbpmFyJ
+   DfP2hvjirt/981ZSHC44Y4yvlP2eP/uLWD7dsGhsvDf2um+xxZougf7Ib
+   pHNQ+BM+BXkMfmCKK8aVFoEMZQz8kWPTHCeTdbYG18ZV4lXaoykJCKX2Q
+   WoIKZ36FwtmRjn5gw69QwyP+0WLxAeCh7KbA3Vz9+pbN4DRXbd/NPpR+6
+   SDV2SQ/SvLWAyB3RL6gXtuNd2JWQjsiazJHlVqapUqT7oOJBjVPMh9e9y
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.93,345,1654531200"; 
+   d="scan'208";a="217423307"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
+  by ob1.hgst.iphmx.com with ESMTP; 26 Sep 2022 09:50:47 +0800
+IronPort-SDR: ymb6N1Cm79uRWk+66HBswzX/Es0Z0d3Gevkrk/GgBYKMDIfgZmZ4USsoFM+XDXhNBuy6TIYtD7
+ pxd4QsCkCQm0/d8CNneZrGub72v7jiotrO9n7Y/Tj2brAniA+/3INmLxOwydtT1n+s1b338qAH
+ UNPvUCBOS/xMz+TXM7nLwuFRi8ts77pZDaLqOhqFYT8VjUYvqsq2Oda41PmWOFLvf+uDqlJrQm
+ +n3vAEl7V5eVVJmKNCdttfCT0fnO5iiYQnElqqKLLF46jgMuj1yboJGa0/MY+oI4l/guVs/afc
+ K2MLqvWlx907YY4QGgXL09LH
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Sep 2022 18:05:15 -0700
+IronPort-SDR: XOdY/Fnua987FuBWKx30UEHPG36ymwZt36TwOtO2BGuHlKhDGKVFks8m05+bV3frQ7y5YzA01L
+ JCGjtbRy1YBM7h5uQwDaZB4PknmFNLaY9w4n6MlR1NIsH0bUuAolSIQzxCKqbKVzw34L4STKs0
+ CbgkpydPfJkChDp1+EXR3/3CuednXVEepPgIZZJ6NjC3LfWc5Bb713XZ8hPNgr1ewkh2Z+ZQ+z
+ muJlc5pWhb8bUKCO4JJfTWJPTJDv15kuv1Fw+nutWgml94HBtctpF8xZj1JN2+45ueyC+cQYJy
+ wN8=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+  by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Sep 2022 18:50:48 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4MbQh72CQzz1RvTp
+	for <linux-riscv@lists.infradead.org>; Sun, 25 Sep 2022 18:50:47 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+	reason="pass (just generated, assumed good)"
+	header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+	opensource.wdc.com; h=content-transfer-encoding:content-type
+	:in-reply-to:organization:from:references:to:content-language
+	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
+	1664157046; x=1666749047; bh=Z9M6i/f3yklY/j0IsAGUJ+bKuDQuTWxIST5
+	SqjeVyXs=; b=N6XOWR9pJca7tTo/JAdzc2ZhE834yjm4e1sSfsn7+3r6htKwuqj
+	sw3BqRENsOlVLq7dqpFAxbiPbjO4d2jkXDzZneOOtHeRnifYLnJ/cVefL5gRwlzG
+	YlUaPakoaEHe75py8lcL0f/bG9u9Wu8JS3rKXTG+sTL9ZBeQSQL5q0AZz1EUwoMK
+	SaS06RfsHKfm5uBrVJxZYFdpyA1e9XeqhUB7duSV2qgIF41iLjARQEkbSLDuFWd0
+	bZW89cjjrBMDI8VgYZCuo7ZpzHftqrDxJiozqfW99pGMVZFvL7/SgsZbLFLQFOLl
+	EWpql8EvXqehat06TlBcBDexVZvWRP72qBQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id qmPW2juNQKGW for <linux-riscv@lists.infradead.org>;
+	Sun, 25 Sep 2022 18:50:46 -0700 (PDT)
+Received: from [10.149.53.254] (washi.fujisawa.hgst.com [10.149.53.254])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4MbQh46BlWz1RvLy;
+	Sun, 25 Sep 2022 18:50:44 -0700 (PDT)
+Message-ID: <915949be-ab11-8364-4ac2-07d964d66560@opensource.wdc.com>
+Date: Mon, 26 Sep 2022 10:50:42 +0900
 MIME-Version: 1.0
-References: <20220925175356.681-1-jszhang@kernel.org> <20220925175356.681-4-jszhang@kernel.org>
-In-Reply-To: <20220925175356.681-4-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 26 Sep 2022 07:46:45 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRFXwu5QtA8GywGaSVRPA7zeexcDHRzcngcY1zD3MFjog@mail.gmail.com>
-Message-ID: <CAJF2gTRFXwu5QtA8GywGaSVRPA7zeexcDHRzcngcY1zD3MFjog@mail.gmail.com>
-Subject: Re: [PATCH 3/4] riscv: fix race when vmap stack overflow and remove shadow_stack
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.0
+Subject: Re: [RFC 00/27] RISC-V: Convert SOC_FOO symbols to ARCH_FOO
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
+Cc: palmer@dabbelt.com, geert@linux-mk68.org, heiko@sntech.de,
+ kernel@esmil.dk, arnd@arndb.de, Conor Dooley <conor.dooley@microchip.com>
+References: <20220923185605.1900083-1-conor@kernel.org>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <20220923185605.1900083-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220925_164700_970605_6A37C1F0 
-X-CRM114-Status: GOOD (  28.16  )
+X-CRM114-CacheID: sfid-20220925_185051_655519_B8AD1749 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,195 +115,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Good job, it's a good fixup.
+On 9/24/22 03:55, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Following on from LPC, here's the start of my efforts to clean up
+> Kconfig.socs.
+> 
+> My preference would be to take the whole thing through the RISC-V tree
+> for v6.2 to make things a bit less fiddly, but I am sending this as an
+> RFC in the hopes of getting some opinions on how the series should be
+> split up & merged. I guess it would always be possible to create a few
+> immutable branches for the individual subsystems that are being modified
+> & take the series through the riscv tree unless we hit a conflict in
+> -next. Obiviously for that route, maintainer acks will be needed.
+> 
+> The only SoCs I have, at the moment ;), are the jh7100, mpfs, fu540 and
+> the k210 so I've given those a whirl to make sure I didn't break
+> something.
+> 
+> I have also yet to deal with ARCH_VIRT, but just throwing this out for
+> some opinions on how to apply/split up the set before finalising a v1.
+> 
+> I've CCed a few people that may have an opinion here, but anyone that
+> has an opinion here - please shout!
+> 
+> One other point, is it worth adding something to the patch acceptance
+> policy to say "do your kconfig xyz way" or is that not something that's
+> worth doing since it is easy to push people in the right direction
+> during review?
+> 
+> The series is currently on top of:
+> https://lore.kernel.org/all/20220908142914.359777-1-cristian.ciocaltea@collabora.com/
 
-On Mon, Sep 26, 2022 at 2:03 AM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Currently, when detecting vmap stack overflow, riscv firstly switches
-> to the so called shadow stack, then use this shadow stack to call the
-> get_overflow_stack() to get the overflow stack. However, there's
-> a race here if two or more harts use the same shadow stack at the same
-> time.
->
-> To solve this race, we rely on two facts:
-> 1. the kernel thread pointer I.E "tp" register can still be gotten from
-> the CSR_SCRATCH register, thus we can clobber tp under the condition
-> that we restore tp from CSR_SCRATCH later.
->
-> 2. Once vmap stack overflow happen, panic is coming soon, no
-> performance concern at all, so we don't need to define the overflow
-> stack as percpu var, we can simplify it into an array.
->
-> Thus we can use tp as a tmp register to get the cpu id to calculate
-> the offset of overflow stack for each cpu w/o shadow stack any more.
-> Thus the race condition is removed as side effect.
->
-> NOTE: we can use similar mechanism to let each cpu use different shadow
-> stack to fix the race codition, but if we can remove shadow stack usage
-> totally, why not.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> ---
->  arch/riscv/include/asm/asm-prototypes.h |  1 -
->  arch/riscv/include/asm/thread_info.h    |  4 +-
->  arch/riscv/kernel/asm-offsets.c         |  1 +
->  arch/riscv/kernel/entry.S               | 54 ++++---------------------
->  arch/riscv/kernel/traps.c               | 15 +------
->  5 files changed, 11 insertions(+), 64 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-> index ef386fcf3939..4a06fa0f6493 100644
-> --- a/arch/riscv/include/asm/asm-prototypes.h
-> +++ b/arch/riscv/include/asm/asm-prototypes.h
-> @@ -25,7 +25,6 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
->  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
->  DECLARE_DO_ERROR_INFO(do_trap_break);
->
-> -asmlinkage unsigned long get_overflow_stack(void);
->  asmlinkage void handle_bad_stack(struct pt_regs *regs);
->
->  #endif /* _ASM_RISCV_PROTOTYPES_H */
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index c970d41dc4c6..c604a5212a73 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -28,14 +28,12 @@
->
->  #define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
->  #define OVERFLOW_STACK_SIZE     SZ_4K
-> -#define SHADOW_OVERFLOW_STACK_SIZE (1024)
-> +#define OVERFLOW_STACK_SHIFT   12
->
->  #define IRQ_STACK_SIZE         THREAD_SIZE
->
->  #ifndef __ASSEMBLY__
->
-> -extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
-> -
->  #include <asm/processor.h>
->  #include <asm/csr.h>
->
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index df9444397908..62bf3bacc322 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -37,6 +37,7 @@ void asm_offsets(void)
->         OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
->         OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
->         OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-> +       OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
->
->         OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
->         OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index a3e1ed2fa2ac..442d93beffcf 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -223,54 +223,14 @@ END(ret_from_exception)
->
->  #ifdef CONFIG_VMAP_STACK
->  ENTRY(handle_kernel_stack_overflow)
-> -       la sp, shadow_stack
-> -       addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
-> -
-> -       //save caller register to shadow stack
-> -       addi sp, sp, -(PT_SIZE_ON_STACK)
-> -       REG_S x1,  PT_RA(sp)
-> -       REG_S x5,  PT_T0(sp)
-> -       REG_S x6,  PT_T1(sp)
-> -       REG_S x7,  PT_T2(sp)
-> -       REG_S x10, PT_A0(sp)
-> -       REG_S x11, PT_A1(sp)
-> -       REG_S x12, PT_A2(sp)
-> -       REG_S x13, PT_A3(sp)
-> -       REG_S x14, PT_A4(sp)
-> -       REG_S x15, PT_A5(sp)
-> -       REG_S x16, PT_A6(sp)
-> -       REG_S x17, PT_A7(sp)
-> -       REG_S x28, PT_T3(sp)
-> -       REG_S x29, PT_T4(sp)
-> -       REG_S x30, PT_T5(sp)
-> -       REG_S x31, PT_T6(sp)
-> -
-> -       la ra, restore_caller_reg
-> -       tail get_overflow_stack
-> -
-> -restore_caller_reg:
-> -       //save per-cpu overflow stack
-> -       REG_S a0, -8(sp)
-> -       //restore caller register from shadow_stack
-> -       REG_L x1,  PT_RA(sp)
-> -       REG_L x5,  PT_T0(sp)
-> -       REG_L x6,  PT_T1(sp)
-> -       REG_L x7,  PT_T2(sp)
-> -       REG_L x10, PT_A0(sp)
-> -       REG_L x11, PT_A1(sp)
-> -       REG_L x12, PT_A2(sp)
-> -       REG_L x13, PT_A3(sp)
-> -       REG_L x14, PT_A4(sp)
-> -       REG_L x15, PT_A5(sp)
-> -       REG_L x16, PT_A6(sp)
-> -       REG_L x17, PT_A7(sp)
-> -       REG_L x28, PT_T3(sp)
-> -       REG_L x29, PT_T4(sp)
-> -       REG_L x30, PT_T5(sp)
-> -       REG_L x31, PT_T6(sp)
-> +       la sp, overflow_stack
-> +       /* use tp as tmp register since we can restore it from CSR_SCRATCH */
-> +       REG_L tp, TASK_TI_CPU(tp)
-> +       addi tp, tp, 1
-> +       slli tp, tp, OVERFLOW_STACK_SHIFT
-> +       add sp, sp, tp
-> +       csrr tp, CSR_SCRATCH
->
-> -       //load per-cpu overflow stack
-> -       REG_L sp, -8(sp)
->         addi sp, sp, -(PT_SIZE_ON_STACK)
->
->         //save context to overflow stack
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 73f06cd149d9..2a2a977c1eff 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -216,23 +216,12 @@ int is_valid_bugaddr(unsigned long pc)
->  #endif /* CONFIG_GENERIC_BUG */
->
->  #ifdef CONFIG_VMAP_STACK
-> -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
-> -               overflow_stack)__aligned(16);
-> -/*
-> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-> - * to get per-cpu overflow stack(get_overflow_stack).
-> - */
-> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
-> -asmlinkage unsigned long get_overflow_stack(void)
-> -{
-> -       return (unsigned long)this_cpu_ptr(overflow_stack) +
-> -               OVERFLOW_STACK_SIZE;
-> -}
-> +unsigned long overflow_stack[NR_CPUS][OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
-Agree with using a custom per CPU definition for easy entry.S implementation.
+It is not very nice to change the config option names as that can break
+user build environments, e.g. buildroot setups that have tweaked kernel
+configs.
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
+What's wrong with the SOC_XXX names ? Changing these to ARCH_XXX is
+weird since the ARCH prefix is generally used for ISA differentiation
+rather than boards/SoCs.
 
->
->  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->  {
->         unsigned long tsk_stk = (unsigned long)current->stack;
-> -       unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
-> +       unsigned long ovf_stk = (unsigned long)overflow_stack[raw_smp_processor_id()];
->
->         console_verbose();
->
-> --
-> 2.34.1
->
-
+> 
+> Thanks,
+> Conor.
+> 
+> Conor Dooley (27):
+>   clk: microchip: replace SOC_MICROCHIP_POLARFIRE with ARCH_MICROCHIP
+>   i2c: microchip-corei2c: replace SOC_MICROCHIP_POLARFIRE with
+>     ARCH_MICROCHIP
+>   mailbox: mpfs: replace SOC_MICROCHIP_POLARFIRE with ARCH_MICROCHIP
+>   usb: musb: mpfs: replace SOC_MICROCHIP_POLARFIRE with ARCH_MICROCHIP
+>   rtc: mpfs: replace SOC_MICROCHIP_POLARFIRE with ARCH_MICROCHIP
+>   riscv: stop selecting the PolarFire SoC clock driver
+>   riscv: replace SOC_STARFIVE with ARCH_STARFIVE
+>   clk: starfive: replace SOC_STARFIVE with ARCH_STARFIVE
+>   pinctrl: starfive: replace SOC_STARFIVE with ARCH_STARFIVE
+>   reset: starfive: replace SOC_STARFIVE with ARCH_STARFIVE
+>   riscv: replace SOC_SIFIVE with ARCH_SIFIVE
+>   soc: sifive: convert SOC_SIFIVE to ARCH_SIFIVE
+>   clk: sifive: convert SOC_SIFIVE to ARCH_SIFIVE
+>   clk: sifive: select by default if ARCH_SIFIVE
+>   serial: sifive: select by default if ARCH_SIFIVE
+>   PCI: dwc: fu740: convert SOC_SIFIVE to ARCH_SIFIVE
+>   riscv: stop selecting SiFive clock and serial drivers directly
+>   riscv: convert SOC_VIRT to ARCH_VIRT
+>   kunit: tool: rename SOC_VIRT to ARCH_VIRT in riscv's QEMU config
+>   wireguard: selftests: swap SOC_VIRT for ARCH_VIRT on riscv
+>   riscv: convert SOC_CANAAN to ARCH_CANAAN
+>   clk: k210: convert SOC_CANAAN to ARCH_CANAAN
+>   pinctrl: k210: convert SOC_CANAAN to ARCH_CANAAN
+>   soc: k210: convert SOC_CANAAN to ARCH_CANAAN
+>   reset: k210: convert SOC_CANAAN to ARCH_CANAAN
+>   serial: sifive: select by default if ARCH_CANAAN
+>   riscv: stop directly selecting drivers for ARCH_CANAAN
+> 
+>  arch/riscv/Kconfig.socs                       | 30 +++++++------------
+>  arch/riscv/Makefile                           |  2 +-
+>  arch/riscv/boot/dts/Makefile                  |  2 +-
+>  arch/riscv/boot/dts/canaan/Makefile           | 14 ++++-----
+>  arch/riscv/boot/dts/sifive/Makefile           |  2 +-
+>  arch/riscv/boot/dts/starfive/Makefile         |  2 +-
+>  arch/riscv/configs/defconfig                  |  6 ++--
+>  arch/riscv/configs/nommu_k210_defconfig       |  2 +-
+>  .../riscv/configs/nommu_k210_sdcard_defconfig |  2 +-
+>  arch/riscv/configs/nommu_virt_defconfig       |  2 +-
+>  arch/riscv/configs/rv32_defconfig             |  4 +--
+>  drivers/clk/Kconfig                           |  4 +--
+>  drivers/clk/Makefile                          |  2 +-
+>  drivers/clk/microchip/Kconfig                 |  3 +-
+>  drivers/clk/sifive/Kconfig                    |  4 ++-
+>  drivers/clk/starfive/Kconfig                  |  6 ++--
+>  drivers/i2c/busses/Kconfig                    |  2 +-
+>  drivers/mailbox/Kconfig                       |  2 +-
+>  drivers/pci/controller/dwc/Kconfig            |  2 +-
+>  drivers/pinctrl/Kconfig                       |  8 ++---
+>  drivers/reset/Kconfig                         |  8 ++---
+>  drivers/rtc/Kconfig                           |  2 +-
+>  drivers/soc/Makefile                          |  4 +--
+>  drivers/soc/canaan/Kconfig                    |  4 +--
+>  drivers/soc/sifive/Kconfig                    |  2 +-
+>  drivers/tty/serial/Kconfig                    |  2 ++
+>  drivers/usb/musb/Kconfig                      |  2 +-
+>  tools/testing/kunit/qemu_configs/riscv.py     |  2 +-
+>  .../wireguard/qemu/arch/riscv32.config        |  2 +-
+>  .../wireguard/qemu/arch/riscv64.config        |  2 +-
+>  30 files changed, 64 insertions(+), 67 deletions(-)
+> 
 
 -- 
-Best Regards
- Guo Ren
+Damien Le Moal
+Western Digital Research
+
 
 _______________________________________________
 linux-riscv mailing list
