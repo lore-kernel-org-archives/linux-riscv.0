@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C11C07E9D
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Sep 2022 11:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC2AC6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Sep 2022 11:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+mM6UV3gSDmZ3I+rZC1VU0FkhVsORLUwdWhYpZuPLUg=; b=4tkFqpnKIUwdge
-	8ezsPxJGvhMEgciVdpQ9FrGFiDGkPxHOnvGLSQjMW6Qj3heFRSzFLpp/b0wt8PKgoWmRyAalp3EvG
-	cl704CDKqCgZVjcYgmR/8ECKg4zYCg4Qvz8J2YKzKWfb5rbjxqc33jT19P1o0XwXmH+lhQxzNglUi
-	a6z04WzoaLFzB4Cufcjm1/BrK09GCkQHoog5KGlaKARlQN7gG3R3zPkwGkslgA79vsTq/o+Yydn31
-	j+zyJvCWV6yB5lQ08IyBf8KjN0rvcV1A+XcEaLJfWYF9HKEoofN1Hci72e02mM8zP6RS7oRpqK4yp
-	sy8Vtu75A/HL3h0uJsjQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9g5uLlBGc78x1CVzHkKR8Ahvo4XOD7A6C6mNfQCt9dc=; b=Ems3TizT9J4cAg
+	8kBJjpPRqYRgEP89H/vnc9AIgyJ8kLDJYuvk28yKyvZOPCbv0Gc2RhpIhT5ffPJQV+n1Dm8QENgLV
+	AHyCcjJpp3Ue4v1SrF22+mo285UCEW9832vJnYvkJPkWHz2SaGVL1r1jXeMN7ZolFRuKzo/n++gUB
+	MY4nyhE34N/d2auuxcjChNZgNl36bWr0YSQj5e1fjTLpyD14xT8JBEdrZwQaESquPn05L5sqlZKng
+	7WtM7SCQY67GBYwEKGJ/Iuwub9uZPqTkrMfNzWkRytusN8lIxFKHgo+u1roYEafoCgbf8HHSV2eB8
+	INJ4lg3WXzGWfD80K62w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1od8Ts-00A686-OK; Tue, 27 Sep 2022 11:10:28 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1od8dH-00A9wa-V7; Tue, 27 Sep 2022 11:20:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1od8Tn-00A637-P2
-	for linux-riscv@lists.infradead.org; Tue, 27 Sep 2022 11:10:27 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4McGzt4SFnzpV40;
-	Tue, 27 Sep 2022 19:07:22 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
+	id 1od8dC-00A9rq-1w
+	for linux-riscv@lists.infradead.org; Tue, 27 Sep 2022 11:20:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1664277606; x=1695813606;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=3HA1yaWXJ5JYhDrqsKuM6J4dWhwzZGgY3RcmKz1LDWc=;
+  b=MyP6KOxVgF8KstKwxRCGz4PVxjwOTwcwdB7fZQf5HARTO3VIZ1eTXeVb
+   rKN0wGHj+N5t9Bs4glJ9KMChZ4JNKRI4gwEBSmpo5ENoYx/UVZQ6Rczux
+   C0qrUHEzc0kR2e3Ssqi7CptyO4Efeqm8doNK9JSvgfKFGVuzzpBnOHUrj
+   5TaRNfHYyZrz1o1T3jDaxzgZ+AdHHM3MpmzEtSdN8EjOQgMaglS/tkfwy
+   tiXnNbioqQ9Fax0nEALT8hgpqE8oXGTSLxYkrHvQYent3yztiXbm0ZeVN
+   17sLqMe86bXfmBxxgt59G4SsiU2O5BLKaP24X4oVBOZ2gRyPXJQ9mHpFa
+   A==;
+X-IronPort-AV: E=Sophos;i="5.93,349,1654585200"; 
+   d="scan'208";a="179094331"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Sep 2022 04:19:57 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Tue, 27 Sep 2022 19:10:17 +0800
-Message-ID: <fd5a713e-39ea-4f59-7a89-178ccb79f0dc@huawei.com>
-Date: Tue, 27 Sep 2022 19:10:16 +0800
+ 15.1.2507.12; Tue, 27 Sep 2022 04:19:56 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Tue, 27 Sep 2022 04:19:54 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
+	Shravan Chippa <shravan.chippa@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Cyril Jean
+	<Cyril.Jean@microchip.com>, Lewis Hanly <lewis.hanly@microchip.com>,
+	Vattipalli Praveen <praveen.kumar@microchip.com>, Wolfgang Grandegger
+	<wg@aries-embedded.de>, Hugh Breslin <hugh.breslin@microchip.com>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v6 00/11] New PolarFire SoC devkit devicetrees & 22.09 reference design updates
+Date: Tue, 27 Sep 2022 12:19:12 +0100
+Message-ID: <20220927111922.3602838-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.37.3
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.4.0
-Subject: Re: [PATCH] kprobes: Mark ftrace mcount handler functions nokprobe
-To: Steven Rostedt <rostedt@goodmis.org>
-CC: <mingo@redhat.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>
-References: <20220919084533.42318-1-liaochang1@huawei.com>
- <20220926143723.73032f8c@gandalf.local.home>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <20220926143723.73032f8c@gandalf.local.home>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220927_041024_187564_9E0B108E 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20220927_042006_199168_1661B702 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,58 +80,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi85LzI3IDI6MzcsIFN0ZXZlbiBSb3N0ZWR0IOWGmemBkzoKPiBPbiBNb24sIDE5
-IFNlcCAyMDIyIDE2OjQ1OjMzICswODAwCj4gTGlhbyBDaGFuZyA8bGlhb2NoYW5nMUBodWF3ZWku
-Y29tPiB3cm90ZToKPiAKPj4gTWFyayBmdHJhY2UgbWNvdW50IGhhbmRsZXIgZnVuY3Rpb25zIG5v
-a3Byb2JlIHNpbmNlIHByb2Jpbmcgb24gdGhlc2UKPj4gZnVuY3Rpb25zIHByb2JhYmx5IHJlYWNo
-ZXMgbWNvdW50IHJlY3Vyc2l2bHkgZHVyaW5nIGtwcm9iZSBicmVha3BvaW50Cj4+IGhhbmRsZXIg
-Zm9yIHNvbWUgYXJjaGl0ZWN0dXJlKHRlc3RlZCBmb3IgcmlzY3YsIGFybTY0KSwgYW5kIHJlZW50
-ZXIKPj4ga3Byb2JlIGlzIHRyZWF0ZWQgYXMgYSBmYXRhbCBlcnJvciwgY2F1c2VzIGtlcm5lbCBw
-YW5pYy4KPiAKPiBUaGlzIGxvb2tzIHRvIG1lIHRoYXQgdGhlIGFmZmVjdGVkIGFyY2hzIHNob3Vs
-ZCBiZSBtYWRlIG1vcmUgcm9idXN0IGZvciB0aGlzCj4gY2FzZSB0aGFuIHRvIGFkZCB0aGlzIHRv
-IHRoZSBnZW5lcmljIGNvZGUuCgpPSywgaSB3aWxsIGZpeCB0aGlzIHByb2JsZW0gaW4gYXJjaCBy
-ZWxhdGVkIGNvZGUsIHRoYW5rcyBmb3IgZmVlZGJhY2suCgo+IAo+IC0tIFN0ZXZlCj4gCj4gCj4+
-Cj4+IFBlc3VkbyBjb2RlIGJlbG93IGRlbW9uc3RyYXRlIHRoaXMgcHJvYmxlbToKPj4KPj4gICBt
-Y291bnQKPj4gICAgIGZ1bmN0aW9uX3RyYWNlX2NhbGwgKHByb2JlZCkKPj4gICAgICAgYXJjaF9i
-cmVha3BvaW50X2hhbmRsZXIKPj4gICAgICAgICBhcmNoX3NldHVwX3NpbmdsZXN0ZXAgW21jb3Vu
-dF0KPj4gICAgICAgICAgIGZ1bmN0aW9uX3RyYWNlX2NhbGwgKHByb2JlZCkKPj4gICAgICAgICAg
-ICAgYXJjaF9icmVha3BvaW50X2hhbmRsZXIKPj4gICAgICAgICAgICAgICByZWVudGVyX2twcm9i
-ZQo+PiAgICAgICAgICAgICAgICAgQlVHCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IExpYW8gQ2hhbmcg
-PGxpYW9jaGFuZzFAaHVhd2VpLmNvbT4KPj4gLS0tCj4+ICBrZXJuZWwvdHJhY2UvdHJhY2VfZnVu
-Y3Rpb25zLmMgfCA1ICsrKysrCj4+ICAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspCj4+
-Cj4+IGRpZmYgLS1naXQgYS9rZXJuZWwvdHJhY2UvdHJhY2VfZnVuY3Rpb25zLmMgYi9rZXJuZWwv
-dHJhY2UvdHJhY2VfZnVuY3Rpb25zLmMKPj4gaW5kZXggOWYxYmZiZTEwNWU4Li40NDBhNjc4YThj
-N2MgMTAwNjQ0Cj4+IC0tLSBhL2tlcm5lbC90cmFjZS90cmFjZV9mdW5jdGlvbnMuYwo+PiArKysg
-Yi9rZXJuZWwvdHJhY2UvdHJhY2VfZnVuY3Rpb25zLmMKPj4gQEAgLTE2LDYgKzE2LDcgQEAKPj4g
-ICNpbmNsdWRlIDxsaW51eC9mdHJhY2UuaD4KPj4gICNpbmNsdWRlIDxsaW51eC9zbGFiLmg+Cj4+
-ICAjaW5jbHVkZSA8bGludXgvZnMuaD4KPj4gKyNpbmNsdWRlIDxsaW51eC9rcHJvYmVzLmg+Cj4+
-ICAKPj4gICNpbmNsdWRlICJ0cmFjZS5oIgo+PiAgCj4+IEBAIC0xOTQsNiArMTk1LDcgQEAgZnVu
-Y3Rpb25fdHJhY2VfY2FsbCh1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9p
-cCwKPj4gIAo+PiAgCWZ0cmFjZV90ZXN0X3JlY3Vyc2lvbl91bmxvY2soYml0KTsKPj4gIH0KPj4g
-K05PS1BST0JFX1NZTUJPTChmdW5jdGlvbl90cmFjZV9jYWxsKTsKPj4gIAo+PiAgI2lmZGVmIENP
-TkZJR19VTldJTkRFUl9PUkMKPj4gIC8qCj4+IEBAIC0yNDUsNiArMjQ3LDcgQEAgZnVuY3Rpb25f
-c3RhY2tfdHJhY2VfY2FsbCh1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9p
-cCwKPj4gIAlhdG9taWNfZGVjKCZkYXRhLT5kaXNhYmxlZCk7Cj4+ICAJbG9jYWxfaXJxX3Jlc3Rv
-cmUoZmxhZ3MpOwo+PiAgfQo+PiArTk9LUFJPQkVfU1lNQk9MKGZ1bmN0aW9uX3N0YWNrX3RyYWNl
-X2NhbGwpOwo+PiAgCj4+ICBzdGF0aWMgaW5saW5lIGJvb2wgaXNfcmVwZWF0X2NoZWNrKHN0cnVj
-dCB0cmFjZV9hcnJheSAqdHIsCj4+ICAJCQkJICAgc3RydWN0IHRyYWNlX2Z1bmNfcmVwZWF0cyAq
-bGFzdF9pbmZvLAo+PiBAQCAtMzIxLDYgKzMyNCw3IEBAIGZ1bmN0aW9uX25vX3JlcGVhdHNfdHJh
-Y2VfY2FsbCh1bnNpZ25lZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPj4gIG91
-dDoKPj4gIAlmdHJhY2VfdGVzdF9yZWN1cnNpb25fdW5sb2NrKGJpdCk7Cj4+ICB9Cj4+ICtOT0tQ
-Uk9CRV9TWU1CT0woZnVuY3Rpb25fbm9fcmVwZWF0c190cmFjZV9jYWxsKTsKPj4gIAo+PiAgc3Rh
-dGljIHZvaWQKPj4gIGZ1bmN0aW9uX3N0YWNrX25vX3JlcGVhdHNfdHJhY2VfY2FsbCh1bnNpZ25l
-ZCBsb25nIGlwLCB1bnNpZ25lZCBsb25nIHBhcmVudF9pcCwKPj4gQEAgLTM2Myw2ICszNjcsNyBA
-QCBmdW5jdGlvbl9zdGFja19ub19yZXBlYXRzX3RyYWNlX2NhbGwodW5zaWduZWQgbG9uZyBpcCwg
-dW5zaWduZWQgbG9uZyBwYXJlbnRfaXAsCj4+ICAJYXRvbWljX2RlYygmZGF0YS0+ZGlzYWJsZWQp
-Owo+PiAgCWxvY2FsX2lycV9yZXN0b3JlKGZsYWdzKTsKPj4gIH0KPj4gK05PS1BST0JFX1NZTUJP
-TChmdW5jdGlvbl9zdGFja19ub19yZXBlYXRzX3RyYWNlX2NhbGwpOwo+PiAgCj4+ICBzdGF0aWMg
-c3RydWN0IHRyYWNlcl9vcHQgZnVuY19vcHRzW10gPSB7Cj4+ICAjaWZkZWYgQ09ORklHX1NUQUNL
-VFJBQ0UKPiAKPiAKPiAuCgotLSAKQlIsCkxpYW8sIENoYW5nCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Resending with an extra patch making some more memory map changes that
+are to be introduced in the v2022.10 reference design. Since the
+v2022.10 and v2022.09 reference designs both indepedently break
+backwards compat, v2022.09 is not compatible with <= v2022.05 and
+v2022.10 is not compatible with v2022.09, I am doing the jump directly
+to v2022.10 rather than putting an intermediate step at v2022.09.
+
+I did not drop Krzysztof's Ack on patch 1 as s/09/10 has no impact on
+the correctness of the binding.
+
+--8<---
+Hey all,
+
+Some 6.1 targeted changes here.
+Firstly, two new dev kits (one first-party & one from Aries Embedded).
+They've been sitting in our vendor tree, so are being sent where they
+belong.
+
+Secondly, another release of our reference design for the Icicle kit
+is due in September. Usually these do not really change much for the
+devicetree, but this time around a pair of changes impact the memory
+map.
+
+The first of these is adding dma-ranges to the pcie controller. The
+controller had some issues to begin with & with the current reference
+design (v2022.05) would not work with mainline Linux nor has it since
+reference design v2021.08. A combination of the property, a change
+to the FPGA design & a small fix to the driver will get it working
+with mainline again. The other non-backwards compatible change to the
+reference design is moves of the peripherals instantiated in the
+fabric. Currently they are fairly spread out & a common complaint has
+been that this leaves little room in the fic3 section of the memory map
+for custom peripherals without removing the existing ones.
+
+This series depends on [0] so as not to add dtbs_check warnings. The
+fabric clock support is added by [1].
+
+Thanks,
+Conor.
+
+Changes since v5:
+- swap v2022.09 for v2022.10 in the binding
+- add a patch with the v2022.10 memory map changes
+
+Changes since v4:
+- fix the incompatible interrupts on m100pfsevp
+
+Changes since v3:
+- add an extra patch reducing the fic3 clock rate
+
+Changes since v2:
+- drop the sd & emmc versions of the aries devicetree
+- remove a extra newline
+
+Changes since v1:
+- made the polarberry part of an enum in patch 1
+
+0 - https://lore.kernel.org/linux-gpio/20220825143522.3102546-1-conor.dooley@microchip.com/
+1 - https://lore.kernel.org/linux-clk/20220824093342.187844-1-conor.dooley@microchip.com/
+
+Conor Dooley (9):
+  dt-bindings: riscv: microchip: document icicle reference design
+  dt-bindings: riscv: microchip: document the aries m100pfsevp
+  riscv: dts: microchip: add pci dma ranges for the icicle kit
+  riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
+  riscv: dts: microchip: icicle: update pci address properties
+  riscv: dts: microchip: icicle: re-jig fabric peripheral addresses
+  riscv: dts: microchip: reduce the fic3 clock rate
+  riscv: dts: microchip: add a devicetree for aries' m100pfsevp
+  riscv: dts: microchip: update memory configuration for v2022.10
+
+Shravan Chippa (1):
+  dt-bindings: riscv: microchip: document the sev kit
+
+Vattipalli Praveen (1):
+  riscv: dts: microchip: add sevkit device tree
+
+ .../devicetree/bindings/riscv/microchip.yaml  |  20 +-
+ arch/riscv/boot/dts/microchip/Makefile        |   2 +
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  43 ++++-
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    |  18 +-
+ .../dts/microchip/mpfs-m100pfs-fabric.dtsi    |  45 +++++
+ .../boot/dts/microchip/mpfs-m100pfsevp.dts    | 179 ++++++++++++++++++
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi |  29 +++
+ .../dts/microchip/mpfs-sev-kit-fabric.dtsi    |  45 +++++
+ .../riscv/boot/dts/microchip/mpfs-sev-kit.dts | 145 ++++++++++++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  30 ---
+ 10 files changed, 511 insertions(+), 45 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+
+-- 
+2.37.3
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
