@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F706C07E9D
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Sep 2022 02:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31D8C07E9D
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Sep 2022 02:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uIJDWIUeb7aXAH5T0fZzkVH+UwiX4QtsuhACd06AFLE=; b=A8dvdzIXtB6hQJ
-	752aXKvnkdrPeKLDWhE/mqzwRnDGfsYwjKkyxCht3dz2z/JXNw8W/L9peTT4pkph7WYHEggWxSczX
-	iOT55T8+4FF4pua+oQvfIpNsqk+EIF5xQdATHbtA5y5JCjVsGe5V+St0r4HhP5uwFXF0yXA7YdNHR
-	axweYLC609TppzmxH7tx4bAPcD7a3XJxk+jpOKEopBjw0ntPKgdDp1uBSGUM57x/6Ya7OVWgHxTD6
-	ENeIodwFVNJkSaX8zpPzsuPnBjqEIR/H2kcjiKgzupsM6DpT3cHGipsHeDtPzMvEfqn2Wo1J6LP5O
-	rI+4yctP1I4JO1qw9npw==;
+	List-Owner; bh=e9YXfTX/xorzfTfY+QryN48o+LISglxgY9MtFwcvZbI=; b=pzDawVaWyCwrfd
+	PK4HG+UFP6z9eBYz4v4HuMOIXkfuVixGSSXisflm53phL/pM+k4SRvsuKLU+f0bvH2ptnIDNBSFEC
+	gwTIxj0XULw+QVbcoCxGWFPm6nZwwvjrV/npkLjCL1c/xI6Yzr48tau6WCYA2Ubqdexk1/G2KkwF0
+	YTy2Vg5XuYmzWAwVXjIpDGfht4QKNySCvB1LfPnRlaKM39WMEMpvietn5IrlIa3mIIOpBrhRP/f7d
+	CS1iNHpJfzvv89wSSX4mch7RRkNyOVsR1SoxU1W7ROr5/e6s8YaUfK0jbWYSJG8in13EiqQ4OdceT
+	znvvZdlkC2V+2d8OV2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ocztm-007oj5-LK; Tue, 27 Sep 2022 02:00:38 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1od0LF-007q2z-7M; Tue, 27 Sep 2022 02:29:01 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ocztj-007ogX-Kv
-	for linux-riscv@lists.infradead.org; Tue, 27 Sep 2022 02:00:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D427CB81645
-	for <linux-riscv@lists.infradead.org>; Tue, 27 Sep 2022 02:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6FFC433B5
-	for <linux-riscv@lists.infradead.org>; Tue, 27 Sep 2022 02:00:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664244032;
-	bh=19gy2EXbjjLD/l6XeEJeQfh5wNSKslif73XxWJJiya4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UycWZTDWCpwFEzNOCYzx0660ef5vI8AHfyoSmAGCveyhYBvSAuNxwgJA/vQsJV97o
-	 +S54clXZbOM3d7MoE0FvzwTOK0HGrNwPwp8yX4GWqhg8qZ82AvjLVgQEGkmajpiKal
-	 TsNeZ9ZBSWai24xZDwzpQQ4GVsGyCbMMA/TfdFVDQ5f3MQQgwheis7qbNUsWeD7n++
-	 oJLT1YOU9vWDnreDLshC+mDdOByl/rfHot2LU7npXCXPz5Z42Vn2zvninr7YXD/+gB
-	 KlOFx/YbLe1AcP3WN9HiKszD4IL5nX05NYGl8ii1PxUAJXiQ30CLXgfuivTlPreosu
-	 QRnftSuWrko6g==
-Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-1318106fe2cso428619fac.13
-        for <linux-riscv@lists.infradead.org>; Mon, 26 Sep 2022 19:00:32 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2iP3FGd0WjLDxOMY1enl51Oc3BLRiNMHiXMwORztyjcIk04hbb
-	YATpMeMJ3wOXxIttQuaOLqrKhKoZDgGdQkqJyzc=
-X-Google-Smtp-Source: AMsMyM5ea5e0PE9duPI0AiEm3Ci2ukaIEq7zGlDwmLWiQdey/Aoh7alxANCLZBRyNiFXJfv7kKNa2U+oumBHvVoRuxw=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr937824oao.112.1664244031696; Mon, 26
- Sep 2022 19:00:31 -0700 (PDT)
+	id 1od0Kk-007pyM-Sv; Tue, 27 Sep 2022 02:28:32 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Mc3Pf02shzpTdm;
+	Tue, 27 Sep 2022 10:25:25 +0800 (CST)
+Received: from huawei.com (10.67.174.53) by kwepemi500012.china.huawei.com
+ (7.221.188.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.31; Tue, 27 Sep
+ 2022 10:28:20 +0800
+From: Liao Chang <liaochang1@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <guoren@kernel.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<mhiramat@kernel.org>, <rostedt@goodmis.org>, <maz@kernel.org>,
+	<alexandru.elisei@arm.com>, <liaochang1@huawei.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-csky@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH 1/3] riscv/kprobe: Optimize the performance of patching single-step slot
+Date: Tue, 27 Sep 2022 10:24:33 +0800
+Message-ID: <20220927022435.129965-2-liaochang1@huawei.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220927022435.129965-1-liaochang1@huawei.com>
+References: <20220927022435.129965-1-liaochang1@huawei.com>
 MIME-Version: 1.0
-References: <20220925175356.681-1-jszhang@kernel.org> <20220925175356.681-4-jszhang@kernel.org>
- <CAJF2gTRFXwu5QtA8GywGaSVRPA7zeexcDHRzcngcY1zD3MFjog@mail.gmail.com> <YzJBXsiWrbmxM6Q2@xhacker>
-In-Reply-To: <YzJBXsiWrbmxM6Q2@xhacker>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 27 Sep 2022 10:00:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRkPc7AQsUNZopevey61PD8o6BQBZKjgeLHmOgX+pj6dA@mail.gmail.com>
-Message-ID: <CAJF2gTRkPc7AQsUNZopevey61PD8o6BQBZKjgeLHmOgX+pj6dA@mail.gmail.com>
-Subject: Re: [PATCH 3/4] riscv: fix race when vmap stack overflow and remove shadow_stack
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+X-Originating-IP: [10.67.174.53]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi500012.china.huawei.com (7.221.188.12)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220926_190036_338673_2B1189B0 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20220926_192831_127185_19702739 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +69,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 27, 2022 at 8:28 AM Jisheng Zhang <jszhang@kernel.org> wrote:
->
->
-> > >  #ifdef CONFIG_VMAP_STACK
-> > > -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
-> > > -               overflow_stack)__aligned(16);
-> > > -/*
-> > > - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-> > > - * to get per-cpu overflow stack(get_overflow_stack).
-> > > - */
-> > > -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
-> > > -asmlinkage unsigned long get_overflow_stack(void)
-> > > -{
-> > > -       return (unsigned long)this_cpu_ptr(overflow_stack) +
-> > > -               OVERFLOW_STACK_SIZE;
-> > > -}
-> > > +unsigned long overflow_stack[NR_CPUS][OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
->
-> If NR_CPUS is large, there's a non-trival memory waste, I have a
-> solution for this case, will send a new version today.
-Er...
+Single-step slot would not be used until kprobe is enabled, that means
+no race condition occurs on it under SMP, hence it is safe to pacth ss
+slot without stopping machine.
 
-Yes, we can't bypass the percpu mechanism. I also forgot the percpu
-basic concept. In the end, I prefer the previous solution, maybe just
-simply giving an atomic flag would be okay. (But we only have one
-register (sp) which could be used, it seems not simple.)
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Liao Chang <liaochang1@huawei.com>
+---
+ arch/riscv/kernel/probes/kprobes.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
->
-> Thanks
-
-
-
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e6e950b7cf32..bc1f39b96e41 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -24,12 +24,14 @@ post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
+ static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
+ {
+ 	unsigned long offset = GET_INSN_LENGTH(p->opcode);
++	kprobe_opcode_t slot[MAX_INSN_SIZE];
+ 
+ 	p->ainsn.api.restore = (unsigned long)p->addr + offset;
+ 
+-	patch_text(p->ainsn.api.insn, p->opcode);
+-	patch_text((void *)((unsigned long)(p->ainsn.api.insn) + offset),
+-		   __BUG_INSN_32);
++	memcpy(slot, &p->opcode, offset);
++	*(kprobe_opcode_t *)((unsigned long)slot + offset) = __BUG_INSN_32;
++	patch_text_nosync(p->ainsn.api.insn, slot,
++			  offset + GET_INSN_LENGTH(__BUG_INSN_32));
+ }
+ 
+ static void __kprobes arch_prepare_simulate(struct kprobe *p)
 -- 
-Best Regards
- Guo Ren
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
