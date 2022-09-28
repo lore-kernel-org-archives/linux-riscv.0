@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43453C6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 21:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54530C04A95
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 21:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ozm/z1e9II13Xzq3jxN9R6BSAdjUeXQfpfF5wBiWE+M=; b=f3ey3Yz1TeUKXk
-	mTJ9+3fcUuYnJNsYZqUTapR2XtWx1J3ULXdiXBht0OC6Phnb84zNeSmeunDDWgFvx7Tga11eRvW6j
-	eOw2x/DyN/4ZWCfjcicNcAXtYDS0AwpR0TLFKqFPy6ZA5R9650O5ANZ6TBHWU6m0F7z4yq28VVEkc
-	ahqSQfhV3dKXa86QnkF9j5MfNIhBxQy1RpzramiEsOvknd651NMFeLz/4B5CPRIvLBLbw4i2+AgFS
-	VaEn4Ek/D+CBx3A0bADAxOB7AxpS06N1J7agCv/b2Y8bfKDd7xlmUxM2VZRSovgSqPRM+uzFu5te+
-	kiG9zLql1kVCsv2gmqeA==;
+	List-Owner; bh=YceWQx5Xzo3C0Su7agF+p/beVKWL31jYbUau8ausITs=; b=IW3VR66v2rtRDU
+	ZqRDCYKPZpLVMzANGGjr2FN2E/dT1+v/YlBTv5+D7natoroaJDA0yqhSGySP0iR33Dw3pcI/iMYPG
+	FBef/uwG1luEyc9/RfCdWW83Oz5ZW7VwLkqq19eagQdIinvvx1RIZcZjJF/aaXMfZlmvMDXVV0YWL
+	RtnWbPlAuE24XR2t3NpwL3wVMShu5YfsvlB5WsvV1DNqVmfxyc5BIGvlzNVyNiC6iSYtAJ/jlfTxk
+	OZS/RUfScVBUn6sPEq613zmC2jwx0BqhgAd9FJKRH3Ng4AKxdasDliJMGZEav1Kd7p4rvFvcfW4KV
+	owwXeltqPZfpSTQthkpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odejc-000SAv-Pw; Wed, 28 Sep 2022 21:36:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1odf07-000UZ0-Hp; Wed, 28 Sep 2022 21:53:55 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odejZ-000SAS-H5
-	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 21:36:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DADDE61FD1;
-	Wed, 28 Sep 2022 21:36:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EF29C433D6;
-	Wed, 28 Sep 2022 21:36:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664401008;
-	bh=aT8rvgKz7c6G4ZCSZioQYbTyzSYZAZy9hqJAzraHnDw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pyeKR7S/R81B3srxAHth1JOo3X7zSYqY8N6htG5l86xMIqsG+133M1R+lTz9khsSS
-	 g+FUDoxyGX0HE0mNKz9+ds4kQAtixk4nDn3iDmWRG7jiBT3sekVpZVvkZmfSVVRDhF
-	 SxGIMTuAOpgiBgUEm+h4UzLY0xiUnyGFsS+CH1f+xUPar9f/Eo+yRuNJBpX2cQvYAO
-	 +WiSn5R0QGqBCEb1N0eUlK9UBUYFbzn8Gca2h9jT2otSQKTjjrLExrmiHUn5laPk+Q
-	 hBWuum5xeZ05/rSYc0pb2i/m0JsadNWBx52uQgU6ZdG1nPNB5Z0BYT73pGo3ejVrs+
-	 07MSrfM+JiP9Q==
-Date: Wed, 28 Sep 2022 14:36:45 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rix <trix@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-kbuild@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	patches@lists.linux.dev, llvm@lists.linux.dev,
-	Conor Dooley <conor.dooley@microchip.com>
+	id 1odf04-000UXS-7t
+	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 21:53:53 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id r8-20020a17090a560800b00205eaaba073so2793354pjf.1
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Sep 2022 14:53:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=Ay3drFi6JCOWyd7mwYuzVhdDqZJYtGvjCnOOuic4lIQ=;
+        b=d8AWbiSBxXrgrvwAoskxcicNPYKtAtvQ8eTNvx31A5tDj05HG3JYRAX8qf2vlcBFux
+         Q1KTlPLAgoTxKVWu/nVzVOf7AiT7GTQhdNsUYqMxZ71hoxMdvb5Q9qsvn3yjzUg5VS4Z
+         AeFBZtfNn12MoU7iIzQGkn5wjz+gaTpfVO1hEeE57+wJ12W7ze2a3aRKpnA8Lx9MTtIJ
+         grbEUQMs3nxDSYRKy9B5Ov4jaMGgXhqeyepODAApSSchrz1BCHHbq4bwQtIzq5YjUq/5
+         KGRlA9uTZis4skTF0coWa95GNfO6iWQbU6avtKMDiR8zb+dfBnXP+edrsxPOv/ezAxb2
+         ZDIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=Ay3drFi6JCOWyd7mwYuzVhdDqZJYtGvjCnOOuic4lIQ=;
+        b=rP7SI9yAXd6uKthHHoMXrPl5UrqbB5wS3/7UzTPzVCtwUTpRZUoSXPktSd2s88pV6m
+         A7hoShfs+zT5ojEC6z/FeeahzgU9B68xB0H3IrFCfTl0KoS23T47JGnV7nVz2vM+PVeN
+         wnSE3+WdFrMoy6dTCCsCvOa1UwgiRuhwHRSnzYUrvMz43QPfWwXNjVUcX3GjR+1RCE3W
+         yZMFtCQA1//Oy975EIyghNvsaNyrejZd2sSslbBZ94p+Tdn9D6bDaNaI3WeLu6S5BHOs
+         Uo14jyFCelaC2SBJY2Ib2BbflPO0+jh7NXL6r1CaQ0zMKLYhyfVxGYWU+NlARCBy44jd
+         je9Q==
+X-Gm-Message-State: ACrzQf3rAF+yQgrjc4YEWAYEB356pHRPe4JCJodqS83lLMCyZTXWViCW
+	OdS+JnSmn1xxMbigYRuNVNE+uV4d+Opwb6LLOfV+hA==
+X-Google-Smtp-Source: AMsMyM6+V0RnFW83E4Yey5hPTG/WNDzcVaQZ9uZmK44iTcOwLQ3OpYQRTfUlegcvBrQLEHiPkA+P6skieEZazNbCnnA=
+X-Received: by 2002:a17:90a:74c4:b0:203:336d:dd36 with SMTP id
+ p4-20020a17090a74c400b00203336ddd36mr12421313pjl.107.1664402030259; Wed, 28
+ Sep 2022 14:53:50 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220928182523.3105953-1-nathan@kernel.org> <CAKwvOdmPLqX=oCwg43TYHj=tdoaU5OYc=bO906u=LeqcSrx+Dw@mail.gmail.com>
+ <YzS+bQT1zJAUpp/6@dev-arch.thelio-3990X>
+In-Reply-To: <YzS+bQT1zJAUpp/6@dev-arch.thelio-3990X>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 28 Sep 2022 14:53:38 -0700
+Message-ID: <CAKwvOdk87wRWoiVjswZPwoLbSm+sYsMW6FHZv+r6MHxLHn0Trw@mail.gmail.com>
 Subject: Re: [PATCH] lib/Kconfig.debug: Add check for non-constant
  .{s,u}leb128 support to DWARF5
-Message-ID: <YzS+bQT1zJAUpp/6@dev-arch.thelio-3990X>
-References: <20220928182523.3105953-1-nathan@kernel.org>
- <CAKwvOdmPLqX=oCwg43TYHj=tdoaU5OYc=bO906u=LeqcSrx+Dw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdmPLqX=oCwg43TYHj=tdoaU5OYc=bO906u=LeqcSrx+Dw@mail.gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Tom Rix <trix@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-kbuild@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	patches@lists.linux.dev, llvm@lists.linux.dev, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_143649_673122_D1712D46 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20220928_145352_336914_265EBB45 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,126 +89,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 28, 2022 at 02:13:47PM -0700, Nick Desaulniers wrote:
-> On Wed, Sep 28, 2022 at 11:25 AM Nathan Chancellor <nathan@kernel.org> wrote:
-> >
-> > When building with a RISC-V kernel with DWARF5 debug info using clang
-> > and the GNU assembler, several instances of the following error appear:
-> >
-> >   /tmp/vgettimeofday-48aa35.s:2963: Error: non-constant .uleb128 is not supported
-> >
-> > Dumping the .s file reveals these .uleb128 directives come from
-> > .debug_loc and .debug_ranges:
-> >
-> >   .Ldebug_loc0:
-> >           .byte   4                               # DW_LLE_offset_pair
-> >           .uleb128 .Lfunc_begin0-.Lfunc_begin0    #   starting offset
-> >           .uleb128 .Ltmp1-.Lfunc_begin0           #   ending offset
-> >           .byte   1                               # Loc expr size
-> >           .byte   90                              # DW_OP_reg10
-> >           .byte   0                               # DW_LLE_end_of_list
-> >
-> >   .Ldebug_ranges0:
-> >           .byte   4                               # DW_RLE_offset_pair
-> >           .uleb128 .Ltmp6-.Lfunc_begin0           #   starting offset
-> >           .uleb128 .Ltmp27-.Lfunc_begin0          #   ending offset
-> >           .byte   4                               # DW_RLE_offset_pair
-> >           .uleb128 .Ltmp28-.Lfunc_begin0          #   starting offset
-> >           .uleb128 .Ltmp30-.Lfunc_begin0          #   ending offset
-> >           .byte   0                               # DW_RLE_end_of_list
-> >
-> > There is an outstanding binutils issue to support a non-constant operand
-> > to .sleb128 and .uleb128 in GAS for RISC-V but there does not appear to
-> > be any movement on it, due to concerns over how it would work with
-> > linker relaxation.
-> >
-> > To avoid these build errors, prevent DWARF5 from being selected when
-> > using clang and an assembler that does not have support for these symbol
-> > deltas, which can be easily checked in Kconfig with as-instr plus the
-> > small test program from the dwz test suite from the binutils issue.
-> >
-> > Link: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1719
-> > Tested-by: Conor Dooley <conor.dooley@microchip.com>
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> >  lib/Kconfig.debug | 7 +++++++
-> >  1 file changed, 7 insertions(+)
-> >
-> > diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> > index d3e5f36bb01e..19de03ead2ed 100644
-> > --- a/lib/Kconfig.debug
-> > +++ b/lib/Kconfig.debug
-> > @@ -231,6 +231,9 @@ config DEBUG_INFO
-> >           in the "Debug information" choice below, indicating that debug
-> >           information will be generated for build targets.
-> >
-> > +config AS_HAS_NON_CONST_LEB128
-> > +       def_bool $(as-instr,.uleb128 .Lexpr_end4 - .Lexpr_start3\n.Lexpr_start3:\n.Lexpr_end4:)
-> > +
-> >  choice
-> >         prompt "Debug information"
-> >         depends on DEBUG_KERNEL
-> > @@ -277,6 +280,10 @@ config DEBUG_INFO_DWARF5
-> >         bool "Generate DWARF Version 5 debuginfo"
-> >         select DEBUG_INFO
-> >         depends on !CC_IS_CLANG || (CC_IS_CLANG && (AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502)))
-> > +       # Clang is known to generate .{s,u}leb128 with symbol deltas with
-> > +       # DWARF5, which some targets may not support.
-> > +       # https://sourceware.org/bugzilla/show_bug.cgi?id=27215
-> > +       depends on !CC_IS_CLANG || AS_HAS_NON_CONST_LEB128
-> 
-> Reraising my concern from
-> https://github.com/ClangBuiltLinux/linux/issues/1719#issuecomment-1258678969
+On Wed, Sep 28, 2022 at 2:36 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On Wed, Sep 28, 2022 at 02:13:47PM -0700, Nick Desaulniers wrote:
+> > Reraising my concern from
+> > https://github.com/ClangBuiltLinux/linux/issues/1719#issuecomment-1258678969
+>
+> Sorry, I thought I addressed your concern with my comment right below it
+> but I probably should have worded it better.
 
-Sorry, I thought I addressed your concern with my comment right below it
-but I probably should have worded it better.
+No, I just missed your point about other architectures.
 
-> We've put a fair amount of work into getting CC=clang LLVM_IAS=0 to
-> work for DWARF v5 (both on the GNU binutils side, and Kbuild), I'd
-> hate to see that effectively knee-capped because of an issue in GNU
-> binutils that is only relevant for one architecture.
+> > We've put a fair amount of work into getting CC=clang LLVM_IAS=0 to
+> > work for DWARF v5 (both on the GNU binutils side, and Kbuild), I'd
+> > hate to see that effectively knee-capped because of an issue in GNU
+> > binutils that is only relevant for one architecture.
+>
+> Sure, that is a completely reasonable concern. However...
+>
+> > I'd concede support for ARCH=riscv, but not for all other
+> > architectures, which this effectively does.
+>
+> No, it does not, CONFIG_AS_HAS_NON_CONST_LEB128 can still be enabled
+> when GNU as supports this construct for a particular architecture; as
+> far as I can tell, RISC-V is the only one that doesn't. See the tests
+> with ARCH=arm64 and ARCH=x86_64 compared with ARCH=riscv below.
 
-Sure, that is a completely reasonable concern. However...
+Ah, sorry for the noise then. Thanks for the patch.
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-> I'd concede support for ARCH=riscv, but not for all other
-> architectures, which this effectively does.
-
-No, it does not, CONFIG_AS_HAS_NON_CONST_LEB128 can still be enabled
-when GNU as supports this construct for a particular architecture; as
-far as I can tell, RISC-V is the only one that doesn't. See the tests
-with ARCH=arm64 and ARCH=x86_64 compared with ARCH=riscv below.
-
-$ make -skj"$(nproc)" ARCH=x86_64 LLVM=1 LLVM_IAS=0 defconfig
-
-$ rg "CONFIG_AS_(IS|VERSION|HAS)" .config
-9:CONFIG_AS_IS_GNU=y
-10:CONFIG_AS_VERSION=23950
-4750:CONFIG_AS_HAS_NON_CONST_LEB128=y
-
-$ make -skj"$(nproc)" ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- LLVM=1 LLVM_IAS=0 defconfig
-
-$ rg "CONFIG_AS_(IS|VERSION|HAS)" .config
-9:CONFIG_AS_IS_GNU=y
-10:CONFIG_AS_VERSION=23950
-442:CONFIG_AS_HAS_LDAPR=y
-443:CONFIG_AS_HAS_LSE_ATOMICS=y
-451:CONFIG_AS_HAS_ARMV8_2=y
-452:CONFIG_AS_HAS_SHA3=y
-465:CONFIG_AS_HAS_PAC=y
-466:CONFIG_AS_HAS_CFI_NEGATE_RA_STATE=y
-473:CONFIG_AS_HAS_ARMV8_4=y
-480:CONFIG_AS_HAS_ARMV8_5=y
-9719:CONFIG_AS_HAS_NON_CONST_LEB128=y
-
-$ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- LLVM=1 LLVM_IAS=0 defconfig
-
-$ rg "CONFIG_AS_(IS|VERSION|HAS)" .config
-9:CONFIG_AS_IS_GNU=y
-10:CONFIG_AS_VERSION=23950
-
-Cheers,
-Nathan
+-- 
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
