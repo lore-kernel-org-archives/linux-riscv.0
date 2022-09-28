@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE23EC32771
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 13:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DCEC54EE9
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 13:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QruqEKbHvIjvDteMUpCIVtcH6dzLtqECcUXcYj1944E=; b=k0zZR9FADXUJ8G
-	jI2sEtrSD4BWW7RP0Q5l8HFOz48YcU6T079lXOcieazALWaO95qw1ZYnCB5Lyi6xLgWPqz6DEMQyr
-	gk4Np+xUvGKqSghpfC5ixizZsxxi2SXEeY3g2Y2LfnrGrwR3B/eYrOI4MnwxIFHkuZElTPP785NIS
-	IXMXBnYKFG9p7jbdjGzXl0dQUYfeVV7YKHon+pwbrMkHZ5ZNwBYhcfaFFa5rKUkkTPnNlvfKIZsfv
-	Jrd87pzSN78XqZ8uHW/FbzzAZvIChBtyeg30mBEd5Sig4tmnOMUCUF0n43+iIlPCN1SqaDsv8u6Nc
-	nHz2LLqv9FSB3jALgWdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=oh75L48wE34DQBlKF+UAfR929uO6W0GwznCUW0op0oQ=; b=n8zxwXUKAXqpuWeQQyEipx0brh
+	Y7AQ6bXg+dlszfgkdeZokCI359FdtWnf4h37uqU5QoEhrZgJXhZyKJ1/+YBs+aYROR1tImq2PVTKp
+	mRdUIUA4rSwqMvAFjxhGrEyqP8MyXLHHVLNTPc2ZFTXZdiVWbNva8OrF2vVxq3n+hX7VZmd3LVu+m
+	i6gdmnShOCdB4EX210GTKIePU8L1Hkn1EMymlmoYy60dQbRR6WYqhFyTXh4EE+RSOB/hRjU05BDmf
+	C7uWkHqIDUfXefPtVsoPN6lWii4wVS8X0b80JPlo4o1AUX6ozeBGA+Q0tHJnyd/La1k3ZIWyI2Vf4
+	h6ELAmMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odWgS-00GOqh-Sj; Wed, 28 Sep 2022 13:01:04 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1odWzW-00GSZ2-RE; Wed, 28 Sep 2022 13:20:46 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odWgN-00GOq5-D4
-	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 13:01:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1664370059; x=1695906059;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HHApcl1cxDfDCuGSHDoGSRDESVGp9gz0p1Nl7f1hK94=;
-  b=0Mpze0TojLCK+WnnKpJZXxsLZoxljPbx2DuShLi8UJDBQEt78pUWVvOC
-   Ye8yAd+tLYzIN9JT+Ai8JWjVwKH4HrZ3TeMnsR+lVQlMGI/JY+QFSpzZs
-   qTKlw4kgdfxp+WOcKN6cMgb12BZTfDfLRYeygNLVN20W87L5caA1HZRDB
-   d0PnQ9slMxXtbi5ipWLRVvWLEi6pvinb0cztC8c3z4GbJfkxJ9ox1g9My
-   MBEq4t1q/6OCsnI8WC98QkgU/ANyEWakbjGiwQ4MeC4tBRX/N4DnQw6Wm
-   w6xvv/VEkTHJnRmm31hIFFbylGxLFDIlIMd+GUNhyjY95hJxoa85r0/Sa
-   g==;
-X-IronPort-AV: E=Sophos;i="5.93,352,1654585200"; 
-   d="scan'208";a="179311806"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 28 Sep 2022 06:00:56 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 28 Sep 2022 06:00:56 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 28 Sep 2022 06:00:54 -0700
-Date: Wed, 28 Sep 2022 14:00:33 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Dmitry Kasatkin <dmitry.kasatkin@huawei.com>
-CC: "cl-cheri-discuss@lists.cam.ac.uk" <cl-cheri-discuss@lists.cam.ac.uk>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"cl-cheribsd-discuss@lists.cam.ac.uk" <cl-cheribsd-discuss@lists.cam.ac.uk>,
-	Wang Kui <wang.kui1@huawei.com>, Jan Erik Ekberg
-	<jan.erik.ekberg@huawei.com>, "Horsch, Julian"
-	<julian.horsch@aisec.fraunhofer.de>, "Auer, Lukas"
-	<lukas.auer@aisec.fraunhofer.de>, "Ahlrichs, Vincent"
-	<vincent.ahlrichs@aisec.fraunhofer.de>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: RISC-V CHERI port
-Message-ID: <YzRFcaNFZ7LPzrLH@wendy>
-References: <1c0ba05578f1487980b071da1377fb3f@huawei.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1c0ba05578f1487980b071da1377fb3f@huawei.com>
+	id 1odWzT-00GSXi-GH
+	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 13:20:45 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id q35-20020a17090a752600b002038d8a68fbso2251840pjk.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Sep 2022 06:20:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date;
+        bh=MKjBtfVqM7oE/HjoEhHcpSAGvRLARwPkLBdhf/tEBvI=;
+        b=VIdRVlWK9HuMTRWJJ/bibqa7mqDVzRWzAb40oXrki1m4cAhl2Kr1xDj9TxH9Gm+pEy
+         Ne5gTkGgmcdt/v97l/9vZSPNZJ8xOno0skL7ZwqBm2ad/vobUktB5nOEe7DgUbib60sG
+         XCMdrEulTsH5QLf6f/IZQ3HnL3XHKsMndLUwrSEm1QYqhVMusfVJ6laOTVMFoMFXstCq
+         I8QQdzlLkyXtcUedi/ZwvG8BAuGWbSKjx5W3L6TUxVmn/J1097jiIoTNzeA9UFiFAcJU
+         gbjOKw5K5irc7ov+X3osRXmFrVvg3kHgCou+JksNu3pundVdD5n/cNhTeR18+mB3reOZ
+         n+sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=MKjBtfVqM7oE/HjoEhHcpSAGvRLARwPkLBdhf/tEBvI=;
+        b=xhdan4zBOM3uiKtmxmMZiH4ppEdkNwQPuRLBIKETCTZXFXeU8b01GR9fADM8sdqWLU
+         svmP8KAuU2RuhvxbV92YAQmVpomFSufcFu1oGo43phcDV9BBDbRoADuve6AK9YYkx0QE
+         oU8yOYCmB1xWtn9k8bAClEFtitizxMiYHmHFkJWej+pzdUqd2YAkyRboStzABUBIFvTu
+         TOFXPr4CiNplLtG1XROhyQZNiLfAZ4lhWGZnrgYDRpJ9jVp/1xbwrdi3lZEipYkWy8MC
+         51M83gmLwO07nMj6/BkgPJvX0PwV/LsqHRpzVBTNkmtfQNylzlaogrsbEcU+YtAs5/By
+         fEJw==
+X-Gm-Message-State: ACrzQf09x08KfFaJpKh4EWqzVpIWUg8gXjED2zJr6MZk9V/B1gfGEBA/
+	0jTno1VKdpX+6k8fZknU98N+ag==
+X-Google-Smtp-Source: AMsMyM44lf5wtKZiH6zPQZoIJncyVe0D8lEi4vQgU25p9YT7eqw4C9XYGwqXSzt/5cecnw6Xqc/h8w==
+X-Received: by 2002:a17:90b:3852:b0:202:f891:9ed5 with SMTP id nl18-20020a17090b385200b00202f8919ed5mr10692096pjb.239.1664371239823;
+        Wed, 28 Sep 2022 06:20:39 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id a19-20020aa79713000000b0053e6eae9665sm4154150pfg.140.2022.09.28.06.20.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Sep 2022 06:20:39 -0700 (PDT)
+Date: Wed, 28 Sep 2022 06:20:39 -0700 (PDT)
+X-Google-Original-Date: Wed, 28 Sep 2022 06:20:34 PDT (-0700)
+Subject: Re: rdcycle from userland with RISCV_PMU_SBI=y
+In-Reply-To: <CAGRC-mhdmjcf=6gx8Rh5Rt8jvy5a2Rz+2g_UBRG_0fAG-D14uQ@mail.gmail.com>
+CC: apatel@ventanamicro.com, malat@debian.org, atishp@atishpatra.org,
+  linux-riscv@lists.infradead.org, aurelien@aurel32.net, Paul Walmsley <paul.walmsley@sifive.com>,
+  jannewger@google.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: janwas@google.com
+Message-ID: <mhng-fb2905c4-7e33-483d-b223-020ae4501397@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_060059_520380_E8CB207E 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220928_062043_766998_FD74AAD9 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +83,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 28, 2022 at 12:54:40PM +0000, Dmitry Kasatkin wrote:
-> Hi,
-> 
-> I would like to inform here that our Cheri Linux for RISC-V work has been open sourced.
+[Sorry if this a mess, it's not showing up in my inbox.]
 
-That sounds great - but unfortunately I do not know what "Cheri Linux"
-is or what the "RISC-V work" entails. Do you maybe have some links to
-relevant material that you can share or a brief explanation of the
-benefits?
+>> Currently, only "time" CSR is available to user-space and all other performance
+>> counters should be enabled (or accessed) using Linux perf syscalls.
+> Unfortunately that would seem to prevent precisely measuring very small code
+> regions (order of 10 cycles). What is the corresponding advantage/benefit?
+> As mentioned, there is no security gain from merely disabling rdcycle.
+>
+>> In the future, someone can always propose a RISC-V ISA extension to obfuscate
+>> "time" CSR values visible to user-space but the "cycle" counter is
+>> purely a performance counter and accurately reflects cycles taken by the CPU.
+> Yes, this is why we use it. I'm curious why we think rdcycle is being
+> used to measure wall time?
+>
+> About consistency: I understand there will be a time when rdcycle may
+> or may not be available on Linux depending on PMU.
+> But there is also bare metal, and other OSes. Is there a way for
+> userland to detect whether rdcycle will fault?
 
-I can only assume it is this? https://github.com/cheri-linux/linux
+We can't just trap rdcycle as SIGILL into userspace, it's part of the 
+uABI.  I get the instruction was removed from the ISA, but that doesn't 
+matter: we don't break userspace, regardless of how hard the ISA makes 
+that.  
 
-Is it something you intend upstreaming?
+I understand there's some worries about the resolution of these counters 
+on some systems, but the solution there is to maintain the uABI by 
+trapping/emulating the removed instructions (and then providing some way 
+for userspace to ask to turn that off, like we'll have to with a bunch 
+of stuff).  That's a way's off, though, so for now we need to just stop 
+breaking userspace.  There's also some proposals for sorting out the 
+accuracy issues with ISA specs, but that's even farther off.
 
-Thanks,
-Conor.
+I just sent 
+<https://lore.kernel.org/r/20220928131807.30386-1-palmer@rivosinc.com>, 
+which hopefully fixes the issue.  I ended up with COVID so I'm kind of a 
+mess, I can try to find some time to test it but it'd be much 
+appreciated if someone who has a setup already can do so.
 
+Sorry for the breakage.
 
 _______________________________________________
 linux-riscv mailing list
