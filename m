@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B87C04A95
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 16:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FA9C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 16:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JZvNfmf0RIhnywKYOELbCYzAw56pJiGZ5pJS5D0Gce0=; b=G1Vb7xV4wO1nTt
-	8Ard+rZuLuv1HIR9PpwVz8vDz83hb7HPMfZoSk1V8pGgLI7cwPCyJJH5OrGLBoK7SX96q1Un6sRcw
-	NjAeDnds5Zs8grtQGTRxxe2/tao1aPnBsmF+PUFa6O0tVHqmg6JYTtlhO9iHy06Rym6ZcrFevaRXy
-	TsoSI5IiJp3riFmwPu1XNHi3fdsh307RXHhfnjXR/p168jJglb6rItfS8Ol3MV0EcQiFkF050wX8A
-	vsRKonZWB1qvJFyr6iTcIenTrJ5YzFGp/nv3JzneyrBew1MRM9Ma9yqzfnujSCZxCBypUNR6gGopq
-	0T1rmF9loX9KxPoowARg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TINJXrRIWEfSyY2Dx+UqJNX9JrhwLYcZojANLbERV/w=; b=xYk1V4PTOOGihS
+	E6NKOoAYR3iIs1Df8uiNBwn1e/+AdZy7cafBpWbrxoHM3m7rAxIoGNj9t82rGqxiS+V66HIt0eH4b
+	ZpaBI8Nxs9a9jTKs5eEBDiPD4M44zr0P52YPha/p4x9ZxwaktwVyWiCuhc3+PFIy9UbeWKWh4yckb
+	rd/ZmzC2nATTuVzscrLWJuGIPK04ZkPURBFT/ZLoQKCVVFme7tEV33KH2YEL3FksKgxwVFb/myTcQ
+	c467UeOpWxNFrdS4EWCN3nXCWPrBYucowcJMpSr/t2n3NK1gtfoHKGHfXM/fLv+8WPOjT0EegWdVJ
+	oiVdO28suPt7h9Funb5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odZwU-00H7jm-OS; Wed, 28 Sep 2022 16:29:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1odZwK-00H7gW-HU; Wed, 28 Sep 2022 16:29:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odZwS-00H7iF-3v
-	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 16:29:50 +0000
+	id 1odZwH-00H7fx-Q7
+	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 16:29:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CAFF2B82172;
-	Wed, 28 Sep 2022 16:29:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F829C43141;
-	Wed, 28 Sep 2022 16:29:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9E1D961E82;
+	Wed, 28 Sep 2022 16:29:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E79C433D6;
+	Wed, 28 Sep 2022 16:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664382585;
-	bh=fdpi10kQlRazyTr+SlOn77cvFkgoSevjT+ijKpXJ/sA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U0eXGiUahBnc1trC2eUbTTEwU5CEKFe9nfnL69aZSqjDFhV5csBJpIPA3O/lJHOGz
-	 6ueK5LQQWpAxqL5F6PTiirlV2lRUsZ+JsvJ+Nj4sfinwpH+ygi+nu6yF/Mje9NKdrf
-	 aSlYNx4/TRcIwBg4ii4b2wa9SnsEXV0iihHfqQB+hTbbqXx5g+nWVTx2KGS20FGpc9
-	 G65p5G/+hBO6kLnoKsHeYTG0UZX2IuWwjazSyocGMF9GRvc+nnRucazD481qZfTpcS
-	 R+T8Z14mSVtgsbmOZjGJPg1R4Tl/IfO2Sevq0ecqYGjs7nlblOjRKzAE1MQp/B1jlB
-	 BBqYmLiwhZvlA==
+	s=k20201202; t=1664382576;
+	bh=tpBUC9hhQD7B15KOfDZ4rr1SiSXoskPPTUl47ZCo5oQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YKLHSpjDBxMn1yfsb6+ScMCaS0LAJ9dXL7WH3Zuw5FjBjJ5Ws79gFGu0767j0B4ks
+	 9G5r6U1rVBA3X9cuUInPSPXATzbOLbhdQixCbyk9L/1QR5uDc8dmTOjBJAxFJVeorQ
+	 6vhZGQzho9mCJkajRqTy8gGtNz1lPIsJ+SII3t98TJ+pT3Aa1C2bFST7frXEMRC9Er
+	 /qlOg9AxTSjev3BHq1aVBXMc+JNB4Kp4PtoXbvmCVwyGS0ZUG6bFz89r1h3n8aEihh
+	 Lwe0qipt6ZSen/TJ1w+QQa9+UvemHCXb1ekf/V/uF7gk2kI4NNlbFQOpR1wfR0HRGk
+	 lsUT80DL0V5Aw==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,16 +52,14 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v2 4/4] riscv: entry: consolidate general regs saving into save_gp
-Date: Thu, 29 Sep 2022 00:20:07 +0800
-Message-Id: <20220928162007.3791-5-jszhang@kernel.org>
+Subject: [PATCH v2 0/4] riscv: entry: further clean up and VMAP_STACK fix
+Date: Thu, 29 Sep 2022 00:20:03 +0800
+Message-Id: <20220928162007.3791-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220928162007.3791-1-jszhang@kernel.org>
-References: <20220928162007.3791-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_092948_469997_C02926B1 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20220928_092937_923548_B8D5F40D 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,292 +76,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Consolidate the saving/restoring GPs(except ra, sp and tp) into
-save_gp/restore_gp macro.
+I planed to do similar generic entry transaction as Guo Ren did[1], and
+I had some commits in local. Since Guo has sent out the series, I
+dropped my version and just provide those in my local repo but missing
+in Guo's series. However, this doesn't mean this series depends on
+Guo's series, in fact except the first one, the remaining three patches
+are independent on generic entry.
 
-No functional change intended.
+[1]https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/T/#t
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/asm.h   | 65 +++++++++++++++++++++++++
- arch/riscv/kernel/entry.S      | 87 ++--------------------------------
- arch/riscv/kernel/mcount-dyn.S | 58 +----------------------
- 3 files changed, 70 insertions(+), 140 deletions(-)
+Since v1:
+  - consolidate gp saving/restoring in mcount-dyn.S as well
+  - avoid non-trival memory waste if NR_CPUs is large
+  - collect Reviewed-by tag.
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 1b471ff73178..2f3b49536e9d 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -68,6 +68,7 @@
- #endif
- 
- #ifdef __ASSEMBLY__
-+#include <asm/asm-offsets.h>
- 
- /* Common assembly source macros */
- 
-@@ -80,6 +81,70 @@
- 	.endr
- .endm
- 
-+	/* save all GPs except ra, sp and tp */
-+	.macro save_gp
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
-+	REG_S x10, PT_A0(sp)
-+	REG_S x11, PT_A1(sp)
-+	REG_S x12, PT_A2(sp)
-+	REG_S x13, PT_A3(sp)
-+	REG_S x14, PT_A4(sp)
-+	REG_S x15, PT_A5(sp)
-+	REG_S x16, PT_A6(sp)
-+	REG_S x17, PT_A7(sp)
-+	REG_S x18, PT_S2(sp)
-+	REG_S x19, PT_S3(sp)
-+	REG_S x20, PT_S4(sp)
-+	REG_S x21, PT_S5(sp)
-+	REG_S x22, PT_S6(sp)
-+	REG_S x23, PT_S7(sp)
-+	REG_S x24, PT_S8(sp)
-+	REG_S x25, PT_S9(sp)
-+	REG_S x26, PT_S10(sp)
-+	REG_S x27, PT_S11(sp)
-+	REG_S x28, PT_T3(sp)
-+	REG_S x29, PT_T4(sp)
-+	REG_S x30, PT_T5(sp)
-+	REG_S x31, PT_T6(sp)
-+	.endm
-+
-+	/* restore all GPs except ra, sp and tp */
-+	.macro restore_gp
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
-+	REG_L x10, PT_A0(sp)
-+	REG_L x11, PT_A1(sp)
-+	REG_L x12, PT_A2(sp)
-+	REG_L x13, PT_A3(sp)
-+	REG_L x14, PT_A4(sp)
-+	REG_L x15, PT_A5(sp)
-+	REG_L x16, PT_A6(sp)
-+	REG_L x17, PT_A7(sp)
-+	REG_L x18, PT_S2(sp)
-+	REG_L x19, PT_S3(sp)
-+	REG_L x20, PT_S4(sp)
-+	REG_L x21, PT_S5(sp)
-+	REG_L x22, PT_S6(sp)
-+	REG_L x23, PT_S7(sp)
-+	REG_L x24, PT_S8(sp)
-+	REG_L x25, PT_S9(sp)
-+	REG_L x26, PT_S10(sp)
-+	REG_L x27, PT_S11(sp)
-+	REG_L x28, PT_T3(sp)
-+	REG_L x29, PT_T4(sp)
-+	REG_L x30, PT_T5(sp)
-+	REG_L x31, PT_T6(sp)
-+	.endm
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_ASM_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 5a6171a90d81..a90f17ed2822 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -40,34 +40,7 @@ _save_context:
- 	REG_L sp, TASK_TI_KERNEL_SP(tp)
- 	addi sp, sp, -(PT_SIZE_ON_STACK)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_gp
- 
- 	/*
- 	 * Disable user-mode memory access as it should only be set in the
-@@ -182,35 +155,8 @@ ENTRY(ret_from_exception)
- 	csrw CSR_STATUS, a0
- 
- 	REG_L x1,  PT_RA(sp)
--	REG_L x3,  PT_GP(sp)
- 	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
--	REG_L x10, PT_A0(sp)
--	REG_L x11, PT_A1(sp)
--	REG_L x12, PT_A2(sp)
--	REG_L x13, PT_A3(sp)
--	REG_L x14, PT_A4(sp)
--	REG_L x15, PT_A5(sp)
--	REG_L x16, PT_A6(sp)
--	REG_L x17, PT_A7(sp)
--	REG_L x18, PT_S2(sp)
--	REG_L x19, PT_S3(sp)
--	REG_L x20, PT_S4(sp)
--	REG_L x21, PT_S5(sp)
--	REG_L x22, PT_S6(sp)
--	REG_L x23, PT_S7(sp)
--	REG_L x24, PT_S8(sp)
--	REG_L x25, PT_S9(sp)
--	REG_L x26, PT_S10(sp)
--	REG_L x27, PT_S11(sp)
--	REG_L x28, PT_T3(sp)
--	REG_L x29, PT_T4(sp)
--	REG_L x30, PT_T5(sp)
--	REG_L x31, PT_T6(sp)
-+	restore_gp
- 
- 	REG_L x2,  PT_SP(sp)
- 
-@@ -237,34 +183,7 @@ ENTRY(handle_kernel_stack_overflow)
- 
- 	//save context to overflow stack
- 	REG_S x1,  PT_RA(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_gp
- 
- 	REG_L s0, TASK_TI_KERNEL_SP(tp)
- 	csrr s1, CSR_STATUS
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index d171eca623b6..1b4b0aecf4f5 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -68,35 +68,8 @@
- 	REG_L x1,  PT_EPC(sp)
- 
- 	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
- 	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_gp
- 	.endm
- 
- 	.macro RESTORE_ALL
-@@ -106,35 +79,8 @@
- 	addi	sp, sp, -PT_SIZE_ON_STACK
- 	REG_L x1,  PT_EPC(sp)
- 	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
- 	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
--	REG_L x10, PT_A0(sp)
--	REG_L x11, PT_A1(sp)
--	REG_L x12, PT_A2(sp)
--	REG_L x13, PT_A3(sp)
--	REG_L x14, PT_A4(sp)
--	REG_L x15, PT_A5(sp)
--	REG_L x16, PT_A6(sp)
--	REG_L x17, PT_A7(sp)
--	REG_L x18, PT_S2(sp)
--	REG_L x19, PT_S3(sp)
--	REG_L x20, PT_S4(sp)
--	REG_L x21, PT_S5(sp)
--	REG_L x22, PT_S6(sp)
--	REG_L x23, PT_S7(sp)
--	REG_L x24, PT_S8(sp)
--	REG_L x25, PT_S9(sp)
--	REG_L x26, PT_S10(sp)
--	REG_L x27, PT_S11(sp)
--	REG_L x28, PT_T3(sp)
--	REG_L x29, PT_T4(sp)
--	REG_L x30, PT_T5(sp)
--	REG_L x31, PT_T6(sp)
-+	restore_gp
- 
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	addi	sp, sp, SZREG
+Hi Guo,
+
+I only added your reviewed-by tag to patch1, but dropped tag for patch3
+and patch4 because the patch changed a bit.
+
+Thanks
+
+Jisheng Zhang (4):
+  riscv: remove extra level wrappers of trace_hardirqs_{on,off}
+  riscv: consolidate ret_from_kernel_thread into ret_from_fork
+  riscv: fix race when vmap stack overflow and remove shadow_stack
+  riscv: entry: consolidate general regs saving into save_gp
+
+ arch/riscv/include/asm/asm-prototypes.h |   1 -
+ arch/riscv/include/asm/asm.h            |  65 ++++++++++
+ arch/riscv/include/asm/thread_info.h    |   4 +-
+ arch/riscv/kernel/Makefile              |   2 -
+ arch/riscv/kernel/asm-offsets.c         |   1 +
+ arch/riscv/kernel/entry.S               | 154 +++---------------------
+ arch/riscv/kernel/mcount-dyn.S          |  58 +--------
+ arch/riscv/kernel/process.c             |   5 +-
+ arch/riscv/kernel/trace_irq.c           |  27 -----
+ arch/riscv/kernel/trace_irq.h           |  11 --
+ arch/riscv/kernel/traps.c               |  31 +++--
+ 11 files changed, 104 insertions(+), 255 deletions(-)
+ delete mode 100644 arch/riscv/kernel/trace_irq.c
+ delete mode 100644 arch/riscv/kernel/trace_irq.h
+
 -- 
 2.34.1
 
