@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05934C6FA86
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Sep 2022 18:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8946C07E9D
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 00:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f2sgWeeLc6z953OhUlQZWtPLCBI42TR3yqV7rX7o5YA=; b=S0J+9j4bPYqZjX
-	OXfDTkYCfrSZ/hwudZ3U6oLoTKDaATSrrAM5H/y3bAtrBdkl6o1jDxXmzm9lzki1mkGQq+T9Nc3SW
-	75Ho8g0xVHdvrTapENC+wgFurvc5AwZ8NcXpI3Wp6fB5qMf/kbp34u78MJM8rk9I9TDRwcjdG5p9x
-	ejkDu9Yr8u8E9OwLLtZM58u4uDuIEw2Aj2defofE0/EvHUEVgdFHtHTv9pWO2hv71+qefV8wLMH84
-	AE5G7dUeMVyDttZbbd2eZrGt9XH+BbcidaLgk9OfwjnZht1VAMKJlpSBh42F61OybnOvNNqURYcdG
-	paWvcFcTQOHV2R0NYyDw==;
+	List-Owner; bh=PS9eaFVM/2yBH+pQlUFQz+xPVc0fuL+0z4S4sbQxRis=; b=vz5EpQXr8kCGyn
+	MfCEfIYgPvJhnQVca+JnJAy1wmRYiZpJfI1kPLh4xGN0rRaL1f6CXhXtkUq66jTa9+y8BMto1oUvl
+	ywagihs6Fp2UDmP1SvM5z2ivZ8FsoF1U1wDk+knyX5j+VrrkLaR5EENaPJ5C/EhoWeexxu9GT8GRh
+	VX7kLCGn3WuvAn8cZsDzXRtM0wfPbm95u2MMyQtreo3lySU7+P8LXpLp2ZDr0ChZ0nwTZIyaEcJWO
+	2FBm0p0wBz8gkkIwH2K5XJ70vFfD6oc9jqfmp5Zu7Fx9TSTvkKHWdqzmDXRl+wcgC+4Ctt3UGFuAJ
+	iKBUht+xl0/0uS013jeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odFPC-00CAyw-30; Tue, 27 Sep 2022 18:34:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1odKsG-00DID2-BL; Wed, 28 Sep 2022 00:24:28 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odFP5-00CAyL-8s
-	for linux-riscv@lists.infradead.org; Tue, 27 Sep 2022 18:34:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 94264617E1;
-	Tue, 27 Sep 2022 18:33:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9909C433D7;
-	Tue, 27 Sep 2022 18:33:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664303636;
-	bh=p88RSSMmSULebAyngf3hc6AaDM4Hg67OZpKwETod/JE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lzAHVK2Al7ph1LUauN9QbFsX5mqgFWIUCZYAFZWoQAlBU343bPfyeRDVXOWvsY1U2
-	 nSK6Gnfwz85W8wxOJMoWFbI9mF3C13ZLF6LgDzs2iv+t5doQPwDW4FJLHSszZaX2Or
-	 LBqPyekmnxoA6QqG2nwcDoz5c5nI0A27wlLX6jAkawLmIHwEUvKhb0MCYyUfzy8RNj
-	 35k2XxUMmVc3aCsY/Av4VnWXBUb6pQo0Yoi4RHhKVqgihgcdv+nga96FWnGCPxHbpg
-	 ckHjXHdagq1GdH7xInqsaXrMu/RHJIl3VmYxgnNKebif4SsAWwyE3H5xsg2Dvhw/fP
-	 pxmZB5Xbg80fw==
-From: Conor Dooley <conor@kernel.org>
-To: Daire McNamara <daire.mcnamara@microchip.com>,
-	Shravan Chippa <shravan.chippa@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Hugh Breslin <hugh.breslin@microchip.com>,
-	devicetree@vger.kernel.org,
-	Cyril Jean <Cyril.Jean@microchip.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Vattipalli Praveen <praveen.kumar@microchip.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Wolfgang Grandegger <wg@aries-embedded.de>,
-	Lewis Hanly <lewis.hanly@microchip.com>
-Subject: Re: [PATCH v6 00/11] New PolarFire SoC devkit devicetrees & 22.09 reference design updates
-Date: Tue, 27 Sep 2022 19:33:32 +0100
-Message-Id: <166430333467.135094.14015061795483453798.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.37.3
-In-Reply-To: <20220927111922.3602838-1-conor.dooley@microchip.com>
-References: <20220927111922.3602838-1-conor.dooley@microchip.com>
+	id 1odKs4-00DIAi-I0; Wed, 28 Sep 2022 00:24:17 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id lc7so24053765ejb.0;
+        Tue, 27 Sep 2022 17:24:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=yrRvoMA2qzsQLaNGkBWV3qKU0u6GXYvGhupTkuY6VEY=;
+        b=N4SqAspV6MMkhBYCFIyWw1zoLE0Rd7s2OcFI1DceVn/pHLgQQpIGuPVe/Y5xz2rq7u
+         4AwEph2NeuV3pICsTTUzwRekddH0yOeND7JGqULNGiEUieyWRG6v6tDzpLe64Ks46WYl
+         +E7aPSySmJM5rrRbU/QTtIuWWnrypBa5Nee0vTcASR26Pbtt3a1rnWEXJiAhZ0LuaF3z
+         G0Kpy5TJl/IDsRofANqT6QeQSyO+rxKfvYX1lEVX/uIl1opJ/g6T4wX2v3xFu9sWUBhf
+         nxjbUpm/gkJf8RF8BM1xVL9NUSyaLL/yweBBM9Jtss7d1JdDL1D0xSUAW2CB9lb+daDC
+         gCuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=yrRvoMA2qzsQLaNGkBWV3qKU0u6GXYvGhupTkuY6VEY=;
+        b=pB0LKKqCzlQnVOwAOK7vN408M0SOFJ0+qCf8V8EMuqlRTQnMGUHbRFMyZyTPW++039
+         7plcSKambLi9JfRLzjNcwpu0kN2UBYd9c7uH+6FH4B4ziDXrPoYEsz99ao5zCuG/bgGJ
+         uqlOkEdGuj9dJA8cseb9SU9nWZhkDl40ZPjUU9WiAnGssIyFYrAhoZZ7vJcvR6SLygRv
+         FWZHwCpo5Oo0p157iG4+2Jq0bKjtNCszNaHHA4iVm5O+xq6N61bwXJ5IEKMIEFpYWhvK
+         Yb5i8S7MAFmKFoODGK5cW+IjpZ2rDkauRpD/p7PXXcp/etfd9kYXWwMnqg4LBj29oFdP
+         Gvsw==
+X-Gm-Message-State: ACrzQf1aM5aUFQ3K6QOqaqrC6jyp4O4tc3u26+1BN+oraDzHfyCSs/nW
+	5fgiHzYfd0mDJlZRIweyHUfvwXHmUJqn3F2FV+E=
+X-Google-Smtp-Source: AMsMyM7eMgPelqF9CjnEbxsTqqXy6pmBZpLW9pueVjK2kG6gmJQBXY3G4jO1eBrNDVmQMCspWLB2ar5LjeuRSz4OCpA=
+X-Received: by 2002:a17:907:7eaa:b0:782:3d2b:20b0 with SMTP id
+ qb42-20020a1709077eaa00b007823d2b20b0mr25078507ejc.746.1664324641882; Tue, 27
+ Sep 2022 17:24:01 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220921084302.43631-1-yangyicong@huawei.com> <20220921084302.43631-3-yangyicong@huawei.com>
+ <168eac93-a6ee-0b2e-12bb-4222eff24561@arm.com> <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
+In-Reply-To: <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 28 Sep 2022 13:23:50 +1300
+Message-ID: <CAGsJ_4z=dZbrAUD9jczT08S3qi_ep-h+EK35UfayVk1S+Cnp2A@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, yangyicong@hisilicon.com, corbet@lwn.net, 
+	peterz@infradead.org, arnd@arndb.de, linux-kernel@vger.kernel.org, 
+	darren@os.amperecomputing.com, huzhanyuan@oppo.com, lipeifeng@oppo.com, 
+	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, linux-mm@kvack.org, 
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, akpm@linux-foundation.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	wangkefeng.wang@huawei.com, xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
+	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>, 
+	catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220927_113403_404305_33FDACF2 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20220927_172416_609923_3682DA55 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +94,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
+>
+> On 2022/9/27 14:16, Anshuman Khandual wrote:
+> > [...]
+> >
+> > On 9/21/22 14:13, Yicong Yang wrote:
+> >> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+> >> +{
+> >> +    /* for small systems with small number of CPUs, TLB shootdown is cheap */
+> >> +    if (num_online_cpus() <= 4)
+> >
+> > It would be great to have some more inputs from others, whether 4 (which should
+> > to be codified into a macro e.g ARM64_NR_CPU_DEFERRED_TLB, or something similar)
+> > is optimal for an wide range of arm64 platforms.
+> >
 
-On Tue, 27 Sep 2022 12:19:12 +0100, Conor Dooley wrote:
-> Resending with an extra patch making some more memory map changes that
-> are to be introduced in the v2022.10 reference design. Since the
-> v2022.10 and v2022.09 reference designs both indepedently break
-> backwards compat, v2022.09 is not compatible with <= v2022.05 and
-> v2022.10 is not compatible with v2022.09, I am doing the jump directly
-> to v2022.10 rather than putting an intermediate step at v2022.09.
-> 
-> [...]
+I have tested it on a 4-cpus and 8-cpus machine. but i have no machine
+with 5,6,7
+cores.
+I saw improvement on 8-cpus machines and I found 4-cpus machines don't need
+this patch.
 
-Applied to dt-for-next (in place of v5). As I pointed out earlier, I
-will not make a PR for this until the reference design is available
-on the PolarFire SoC GitHub.
+so it seems safe to have
+if (num_online_cpus()  < 8)
 
-[01/11] dt-bindings: riscv: microchip: document icicle reference design
-        https://git.kernel.org/conor/c/a0d49a8f77f2
-[02/11] dt-bindings: riscv: microchip: document the aries m100pfsevp
-        https://git.kernel.org/conor/c/0ebdc51787db
-[03/11] dt-bindings: riscv: microchip: document the sev kit
-        https://git.kernel.org/conor/c/db3d481698ef
-[04/11] riscv: dts: microchip: add pci dma ranges for the icicle kit
-        https://git.kernel.org/conor/c/f890e67f292d
-[05/11] riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
-        https://git.kernel.org/conor/c/99d451a7db16
-[06/11] riscv: dts: microchip: icicle: update pci address properties
-        https://git.kernel.org/conor/c/6fc655ed4986
-[07/11] riscv: dts: microchip: icicle: re-jig fabric peripheral addresses
-        https://git.kernel.org/conor/c/ab291621a8b8
-[08/11] riscv: dts: microchip: reduce the fic3 clock rate
-        https://git.kernel.org/conor/c/fa52935abef4
-[09/11] riscv: dts: microchip: add sevkit device tree
-        https://git.kernel.org/conor/c/978a17d1a688
-[10/11] riscv: dts: microchip: add a devicetree for aries' m100pfsevp
-        https://git.kernel.org/conor/c/d49166646e44
-[11/11] riscv: dts: microchip: update memory configuration for v2022.10
-        https://git.kernel.org/conor/c/6c1193301791
+>
+> Do you prefer this macro to be static or make it configurable through kconfig then
+> different platforms can make choice based on their own situations? It maybe hard to
+> test on all the arm64 platforms.
 
-Thanks,
-Conor.
+Maybe we can have this default enabled on machines with 8 and more cpus and
+provide a tlbflush_batched = on or off to allow users enable or
+disable it according
+to their hardware and products. Similar example: rodata=on or off.
+
+Hi Anshuman, Will,  Catalin, Andrew,
+what do you think about this approach?
+
+BTW, haoxin mentioned another important user scenarios for tlb bach on arm64:
+https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
+
+I do believe we need it based on the expensive cost of tlb shootdown in arm64
+even by hardware broadcast.
+
+>
+> Thanks.
+>
+> >> +            return false;> +
+> >> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+> >> +    if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+> >> +            return false;
+> >> +#endif
+> >> +
+> >> +    return true;
+> >> +}
+> >> +
+> >
+> > [...]
+> >
+> > .
+> >
+
+Thanks
+Barry
 
 _______________________________________________
 linux-riscv mailing list
