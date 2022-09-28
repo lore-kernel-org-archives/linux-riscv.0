@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8946C07E9D
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 00:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA23C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 05:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PS9eaFVM/2yBH+pQlUFQz+xPVc0fuL+0z4S4sbQxRis=; b=vz5EpQXr8kCGyn
-	MfCEfIYgPvJhnQVca+JnJAy1wmRYiZpJfI1kPLh4xGN0rRaL1f6CXhXtkUq66jTa9+y8BMto1oUvl
-	ywagihs6Fp2UDmP1SvM5z2ivZ8FsoF1U1wDk+knyX5j+VrrkLaR5EENaPJ5C/EhoWeexxu9GT8GRh
-	VX7kLCGn3WuvAn8cZsDzXRtM0wfPbm95u2MMyQtreo3lySU7+P8LXpLp2ZDr0ChZ0nwTZIyaEcJWO
-	2FBm0p0wBz8gkkIwH2K5XJ70vFfD6oc9jqfmp5Zu7Fx9TSTvkKHWdqzmDXRl+wcgC+4Ctt3UGFuAJ
-	iKBUht+xl0/0uS013jeA==;
+	List-Owner; bh=ctKG6okPOFI4V5yMoqEaFXgksXQIBXVkBlJWiRBfcy0=; b=xi2r0kBoM3f5tp
+	Ad9ta8puiBcg5lAXu7UfejFjp6W5ImQpKAaBIOP3ugxDNWNZsfqwvqKB0gWgJ47xh+N4MsjL1FGNJ
+	KnilaRWGxN++1FK3hXLT56pXIOTN/rTVrzYSpU0XekX3HQbB0dhEwykeDlZAvLsM28shK9K5uPjzA
+	Dp3U/4jV/4lySYUE1EPQ3+NzK61GE2qhRRQbgS/DS8BmIBDMRBhOaTJ3qMDMGGb7RJFvP7Z3xONC8
+	MPA/0Ja/kOBU94/xalmlz6HWNcv/yR0LA4EkwzpEo0n91L1LMFwth7lyx79CB75f6VxN5MrGpKmf3
+	HbVH5Ag/nOuzhVUxXBWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odKsG-00DID2-BL; Wed, 28 Sep 2022 00:24:28 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1odPSe-00E3IG-RQ; Wed, 28 Sep 2022 05:18:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odKs4-00DIAi-I0; Wed, 28 Sep 2022 00:24:17 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id lc7so24053765ejb.0;
-        Tue, 27 Sep 2022 17:24:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=yrRvoMA2qzsQLaNGkBWV3qKU0u6GXYvGhupTkuY6VEY=;
-        b=N4SqAspV6MMkhBYCFIyWw1zoLE0Rd7s2OcFI1DceVn/pHLgQQpIGuPVe/Y5xz2rq7u
-         4AwEph2NeuV3pICsTTUzwRekddH0yOeND7JGqULNGiEUieyWRG6v6tDzpLe64Ks46WYl
-         +E7aPSySmJM5rrRbU/QTtIuWWnrypBa5Nee0vTcASR26Pbtt3a1rnWEXJiAhZ0LuaF3z
-         G0Kpy5TJl/IDsRofANqT6QeQSyO+rxKfvYX1lEVX/uIl1opJ/g6T4wX2v3xFu9sWUBhf
-         nxjbUpm/gkJf8RF8BM1xVL9NUSyaLL/yweBBM9Jtss7d1JdDL1D0xSUAW2CB9lb+daDC
-         gCuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=yrRvoMA2qzsQLaNGkBWV3qKU0u6GXYvGhupTkuY6VEY=;
-        b=pB0LKKqCzlQnVOwAOK7vN408M0SOFJ0+qCf8V8EMuqlRTQnMGUHbRFMyZyTPW++039
-         7plcSKambLi9JfRLzjNcwpu0kN2UBYd9c7uH+6FH4B4ziDXrPoYEsz99ao5zCuG/bgGJ
-         uqlOkEdGuj9dJA8cseb9SU9nWZhkDl40ZPjUU9WiAnGssIyFYrAhoZZ7vJcvR6SLygRv
-         FWZHwCpo5Oo0p157iG4+2Jq0bKjtNCszNaHHA4iVm5O+xq6N61bwXJ5IEKMIEFpYWhvK
-         Yb5i8S7MAFmKFoODGK5cW+IjpZ2rDkauRpD/p7PXXcp/etfd9kYXWwMnqg4LBj29oFdP
-         Gvsw==
-X-Gm-Message-State: ACrzQf1aM5aUFQ3K6QOqaqrC6jyp4O4tc3u26+1BN+oraDzHfyCSs/nW
-	5fgiHzYfd0mDJlZRIweyHUfvwXHmUJqn3F2FV+E=
-X-Google-Smtp-Source: AMsMyM7eMgPelqF9CjnEbxsTqqXy6pmBZpLW9pueVjK2kG6gmJQBXY3G4jO1eBrNDVmQMCspWLB2ar5LjeuRSz4OCpA=
-X-Received: by 2002:a17:907:7eaa:b0:782:3d2b:20b0 with SMTP id
- qb42-20020a1709077eaa00b007823d2b20b0mr25078507ejc.746.1664324641882; Tue, 27
- Sep 2022 17:24:01 -0700 (PDT)
+	id 1odPSb-00E3HD-LC; Wed, 28 Sep 2022 05:18:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 211586153A;
+	Wed, 28 Sep 2022 05:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F171AC43142;
+	Wed, 28 Sep 2022 05:18:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664342295;
+	bh=5DT/64IMZuLUf3bLjAXjRk8ANx+zPNw/RU/6k9PgsEI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=P8byIOIt7uszvxLcdgywqcHiRI5onE8KrFWRs0OjZ77PSPshjHTTFsEP/cTrlgaeK
+	 Pci26+wFWN3XKzRusZOuQY2zcXw3ErF6Z+L+QS85fZIYDJqX7ssHqAKVWr/yRrJDo5
+	 Ink5CiFgQHiXTzMHaUFBqzXiZhI2vhYB7zUNok41Ioco0o1eeW0+SjXZxq0kD3T8ru
+	 fUQgHjK4KX6zhf9lYRL+A7/y2KmepExQsJOdlXaFFw27Rab8Q2wVEKTotqBKeFZGyv
+	 bDkZ2Z5ISScP0pPq+Gd7XqFbfveixPMBvIvzbL6uOXF1hUCPdXu9euodemk1Za1Lvt
+	 las6ropjYeS9g==
+Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-1319cf91d8aso2015295fac.5;
+        Tue, 27 Sep 2022 22:18:14 -0700 (PDT)
+X-Gm-Message-State: ACrzQf3oywnpNsxP8ASM4GwXfO9EfUVPohiwcU39OjI/yVnV6bALFJqH
+	DKaZPxW5IFzWJ5ZP3GNkXZl0fgGjOIPIChJ6x2s=
+X-Google-Smtp-Source: AMsMyM5GSVNd2f83vHIh/hPg2DnFINuapn47E77DPLXPMrUPF4ddplCTXJHsTyIzOXryyZpiPMMe1L6pEq8/FDU8J9I=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr4211405oap.19.1664342294051; Tue, 27 Sep
+ 2022 22:18:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220921084302.43631-1-yangyicong@huawei.com> <20220921084302.43631-3-yangyicong@huawei.com>
- <168eac93-a6ee-0b2e-12bb-4222eff24561@arm.com> <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
-In-Reply-To: <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 28 Sep 2022 13:23:50 +1300
-Message-ID: <CAGsJ_4z=dZbrAUD9jczT08S3qi_ep-h+EK35UfayVk1S+Cnp2A@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, yangyicong@hisilicon.com, corbet@lwn.net, 
-	peterz@infradead.org, arnd@arndb.de, linux-kernel@vger.kernel.org, 
-	darren@os.amperecomputing.com, huzhanyuan@oppo.com, lipeifeng@oppo.com, 
-	zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com, 
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, linux-mm@kvack.org, 
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, akpm@linux-foundation.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	wangkefeng.wang@huawei.com, xhao@linux.alibaba.com, prime.zeng@hisilicon.com, 
-	Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>, 
-	catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
+References: <20220925162400.1606-1-jszhang@kernel.org> <20220925162400.1606-2-jszhang@kernel.org>
+In-Reply-To: <20220925162400.1606-2-jszhang@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 28 Sep 2022 13:18:01 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRSb4f9rF_sTZ2hr9iOnvLYcQYu3CN7q8PCZQg4HvC_Gg@mail.gmail.com>
+Message-ID: <CAJF2gTRSb4f9rF_sTZ2hr9iOnvLYcQYu3CN7q8PCZQg4HvC_Gg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] RISC-V: KVM: Record number of signal exits as a
+ vCPU stat
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220927_172416_609923_3682DA55 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20220927_221817_812580_AC2FD2A7 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,77 +78,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
->
-> On 2022/9/27 14:16, Anshuman Khandual wrote:
-> > [...]
-> >
-> > On 9/21/22 14:13, Yicong Yang wrote:
-> >> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> >> +{
-> >> +    /* for small systems with small number of CPUs, TLB shootdown is cheap */
-> >> +    if (num_online_cpus() <= 4)
-> >
-> > It would be great to have some more inputs from others, whether 4 (which should
-> > to be codified into a macro e.g ARM64_NR_CPU_DEFERRED_TLB, or something similar)
-> > is optimal for an wide range of arm64 platforms.
-> >
-
-I have tested it on a 4-cpus and 8-cpus machine. but i have no machine
-with 5,6,7
-cores.
-I saw improvement on 8-cpus machines and I found 4-cpus machines don't need
-this patch.
-
-so it seems safe to have
-if (num_online_cpus()  < 8)
-
->
-> Do you prefer this macro to be static or make it configurable through kconfig then
-> different platforms can make choice based on their own situations? It maybe hard to
-> test on all the arm64 platforms.
-
-Maybe we can have this default enabled on machines with 8 and more cpus and
-provide a tlbflush_batched = on or off to allow users enable or
-disable it according
-to their hardware and products. Similar example: rodata=on or off.
-
-Hi Anshuman, Will,  Catalin, Andrew,
-what do you think about this approach?
-
-BTW, haoxin mentioned another important user scenarios for tlb bach on arm64:
-https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
-
-I do believe we need it based on the expensive cost of tlb shootdown in arm64
-even by hardware broadcast.
-
->
-> Thanks.
->
-> >> +            return false;> +
-> >> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
-> >> +    if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
-> >> +            return false;
-> >> +#endif
-> >> +
-> >> +    return true;
-> >> +}
-> >> +
-> >
-> > [...]
-> >
-> > .
-> >
-
-Thanks
-Barry
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoK4p6cICBsaW51eCBnaXQ6
+KG1hc3RlcikgZ3JlcCBzaWduYWxfZXhpdHMgYXJjaC9hcm02NCAtcgphcmNoL2FybTY0L2t2bS9n
+dWVzdC5jOiBTVEFUU19ERVNDX0NPVU5URVIoVkNQVSwgc2lnbmFsX2V4aXRzKSwKYXJjaC9hcm02
+NC9pbmNsdWRlL2FzbS9rdm1faG9zdC5oOiAgICAgIHU2NCBzaWduYWxfZXhpdHM7CgpCeSB0aGUg
+d2F5LCBkbyB5b3Uga25vdyB3aHkgYXJtNjQgaXMgZGVmaW5lZCwgYnV0IG5vdCB1c2VkPwoKCk9u
+IE1vbiwgU2VwIDI2LCAyMDIyIGF0IDEyOjMzIEFNIEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2Vy
+bmVsLm9yZz4gd3JvdGU6Cj4KPiBSZWNvcmQgYSBzdGF0aXN0aWMgaW5kaWNhdGluZyB0aGUgbnVt
+YmVyIG9mIHRpbWVzIGEgdkNQVSBoYXMgZXhpdGVkCj4gZHVlIHRvIGEgcGVuZGluZyBzaWduYWwu
+Cj4KPiBTaWduZWQtb2ZmLWJ5OiBKaXNoZW5nIFpoYW5nIDxqc3poYW5nQGtlcm5lbC5vcmc+Cj4g
+LS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCB8IDEgKwo+ICBhcmNoL3Jp
+c2N2L2t2bS92Y3B1LmMgICAgICAgICAgICAgfCAyICsrCj4gIDIgZmlsZXMgY2hhbmdlZCwgMyBp
+bnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1f
+aG9zdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oCj4gaW5kZXggNjBjNTE3
+ZTRkNTc2Li5kYmJmNDNkNTI2MjMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9rdm1faG9zdC5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oCj4g
+QEAgLTY3LDYgKzY3LDcgQEAgc3RydWN0IGt2bV92Y3B1X3N0YXQgewo+ICAgICAgICAgdTY0IG1t
+aW9fZXhpdF9rZXJuZWw7Cj4gICAgICAgICB1NjQgY3NyX2V4aXRfdXNlcjsKPiAgICAgICAgIHU2
+NCBjc3JfZXhpdF9rZXJuZWw7Cj4gKyAgICAgICB1NjQgc2lnbmFsX2V4aXRzOwo+ICAgICAgICAg
+dTY0IGV4aXRzOwo+ICB9Owo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYyBi
+L2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IGluZGV4IGQwZjA4ZDViNDI4Mi4uM2RhNDU5ZmVkYzI4
+IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yv
+a3ZtL3ZjcHUuYwo+IEBAIC0yOCw2ICsyOCw3IEBAIGNvbnN0IHN0cnVjdCBfa3ZtX3N0YXRzX2Rl
+c2Mga3ZtX3ZjcHVfc3RhdHNfZGVzY1tdID0gewo+ICAgICAgICAgU1RBVFNfREVTQ19DT1VOVEVS
+KFZDUFUsIG1taW9fZXhpdF9rZXJuZWwpLAo+ICAgICAgICAgU1RBVFNfREVTQ19DT1VOVEVSKFZD
+UFUsIGNzcl9leGl0X3VzZXIpLAo+ICAgICAgICAgU1RBVFNfREVTQ19DT1VOVEVSKFZDUFUsIGNz
+cl9leGl0X2tlcm5lbCksCj4gKyAgICAgICBTVEFUU19ERVNDX0NPVU5URVIoVkNQVSwgc2lnbmFs
+X2V4aXRzKSwKPiAgICAgICAgIFNUQVRTX0RFU0NfQ09VTlRFUihWQ1BVLCBleGl0cykKPiAgfTsK
+Pgo+IEBAIC05NzMsNiArOTc0LDcgQEAgaW50IGt2bV9hcmNoX3ZjcHVfaW9jdGxfcnVuKHN0cnVj
+dCBrdm1fdmNwdSAqdmNwdSkKPiAgICAgICAgICAgICAgICAgaWYgKHNpZ25hbF9wZW5kaW5nKGN1
+cnJlbnQpKSB7Cj4gICAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0gLUVJTlRSOwo+ICAgICAg
+ICAgICAgICAgICAgICAgICAgIHJ1bi0+ZXhpdF9yZWFzb24gPSBLVk1fRVhJVF9JTlRSOwo+ICsg
+ICAgICAgICAgICAgICAgICAgICAgICsrdmNwdS0+c3RhdC5zaWduYWxfZXhpdHM7Cj4gICAgICAg
+ICAgICAgICAgIH0KPgo+ICAgICAgICAgICAgICAgICAvKgo+IC0tCj4gMi4zNC4xCj4KCgotLQpC
+ZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
