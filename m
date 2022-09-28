@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DCACC6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 20:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB0FC32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 21:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sFtKdMr1dlRcCFu24E7Hl98VLVSfbdEkpy3UhkAn3EA=; b=GOgeip26FSq0EN
-	rjKUmAh7J9k7Onk/wxOneXdD/V6Y5al1yax3uUQUrrWZsQuGGEwvHbq27cve3zrEIeDpi47JKkNW0
-	EtWQawNoPRF53ntI9hQsh+/BmXGNL8/syBk822Bvj7YraEGUX/b1gJdK4ptXZGztBzDjrDOnLiLAC
-	fnqjJD3wmD7ZOAd8U7LHfBXu6L6L7o8JEnNIAiMgbDj+GGShaalIjI5The6mtbwOpeWN4V6edNqeV
-	YP6KCMgxpjqfyEVu4YbLb0QYk9U/128JUJt5Wm1e7f94iBa9CGTQBdA5OtjBBr8oxZIdYMnS5qnSV
-	jdSloquFgvRzafyUJrcg==;
+	List-Owner; bh=6aesFGhm/HW1xLSP5AHIJm8dWGqym156riVZ8l3xe4A=; b=r2q97FF8DLRBLi
+	CR3W3B+DFR0IrYTEPAvDbETUU1A9j+aoNd2ryT3tN69uCRArRW7S2gLYQQ9QplEl+qQJnMEf7mxGN
+	+J2Fd54fk6YZWU7uHSo7yk9OTxyFydKrWWUn/PPZ2nRa9fl2sUXU9zjWScVx0Yf18Kgm/ahQvku+7
+	89IE9uy6+nYQ3pg8JOmJYU428O+wKSZu+rLqGYpVGSomJhy6ErKpLHgVwvsq8Bnf7M2pKcmv36xCd
+	V6MHCWSzRe8MNJ2XoSzatrPZMwsoVuF8Gf7rjR6T6UAm1BZi35khvEiZYCIYYSmX3OpPdgd2z4VlH
+	4k3qrflF2ysEqHW1oPlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ode3i-000N5H-FU; Wed, 28 Sep 2022 20:53:34 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1odeNa-000PuP-3W; Wed, 28 Sep 2022 21:14:06 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ode3f-000N4u-CL
-	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 20:53:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 3C45FB8216E;
-	Wed, 28 Sep 2022 20:53:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A00FC433D6;
-	Wed, 28 Sep 2022 20:53:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664398407;
-	bh=QQwYSISk70NzKVArz8X4r7miJXCX3+pMEitwGkJ7gBw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vRqQMr9hQJfHVgbQ3o3EHU84SiICEjgsnkvFWX2fPpdmCyMsiS+jQOwTt+a57c7ZR
-	 DXhjQyZs8nQJnx09jdqno+MHnEF3xP4E7y424pcjUxPPsPJAp065/EVT7J8VdWYXxE
-	 2Kc/Waqm1KsnVzJ7wu6O344k4U9YITybq4jAouw1VULWY6HIqfjWybs/wgId0oTTBO
-	 0pSuBwoXvP5idNrikY2W2ec/hXwL907jz6yGRCu9lMP29LQJYHqRwdXY7I0A4sudnX
-	 qxldUAE1GdxQhcpCWs6rnSTA4VLNolV+lqaIXRnVii1oYmNjV2oCMhF74rVfoEbjku
-	 MBoHwoeOJMfUQ==
-Date: Wed, 28 Sep 2022 21:53:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: Re-enable counter access from userspace
-Message-ID: <YzS0RNzH2CprLSyc@spud>
-References: <20220928131807.30386-1-palmer@rivosinc.com>
+	id 1odeNW-000Psq-AB
+	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 21:14:04 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id q35-20020a17090a752600b002038d8a68fbso3985156pjk.0
+        for <linux-riscv@lists.infradead.org>; Wed, 28 Sep 2022 14:13:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=v0k9ORqQb3RbZ04b8VgsYD7iTc3Y46CtHEmVrhJH2aA=;
+        b=fDfRgrlfSwRvlwVBa7jPlMJDqaCg6wsEHOT7OqSyBKAwnbZk6dz9cP4cMffi0sp/Yg
+         fypu2QW/qpEFEenbak6VjgyLvGsb45/wHZrOWfvj5mMxNp1NiOt62JtWip07ZAcQNBSX
+         SPhKDIg/NI9KoQR2FwaZ6LlP9suMPm8BiBT9Ernxw8IpwhJ5SD34AEJT0yOKm8xlcoVe
+         eUhZ1K5yQOPppu8f6js57n9XanNs8w844SysHgQWa3uTQTP26mMUvEE1lwd0wHXyqvk5
+         yndOqptt7kEva4tqdWYz7DIS8xize+NdLxGSKJkvw/Ft8LmNvbchLTmnH7x9fLvQz8Qx
+         gZGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=v0k9ORqQb3RbZ04b8VgsYD7iTc3Y46CtHEmVrhJH2aA=;
+        b=sn+T3p4D+HrVs7ywu7QZtvJRFuLTc++h+CHuIoMqc/6TUYTHBAYLjF50NFNCvHQW89
+         +Qvs18YKF19k+Q+T2fdBidx2fdrqP9ynHbCb7nsDbP4Ga9KrRppoc42h7rfstZ5vc7fP
+         sQlyrGwdzi8Qg4XQ9C+/ldTOFgWqTxmMlin4gH1RN7aCnwsDn5wmKNVvF5nGjX1FfwR9
+         xSph0nkiakAuaRC0chZLc+aaxjPzhU5Pa24ntpIBMxHbTQTBoRbjFJ0YodWWioUs3A3C
+         OzLVTMyYUBAhtLK4fzJoC115s3+ElOO4VzOAX5dwMhhXnyWrJy4lxXNy4of1V3k8dD63
+         p71Q==
+X-Gm-Message-State: ACrzQf0UL8QV94h5vgSxtl2CQTfb4E78CHiuh4orPWJx+Y9Oyv0TnXfI
+	H+jNqNM5TToflNzLHAU2w7GF6P3X/tosN5qahOk0C5HTRPh2pQ==
+X-Google-Smtp-Source: AMsMyM5UboqUpZNmThgqY9aypu7QDq6EQiZROsKNTuF1cWEnMhwu6Bc1VIOtQQrULDIr++MWCEcRuu19vGWr2u4E0Kk=
+X-Received: by 2002:a17:90b:1d0f:b0:202:be3e:a14a with SMTP id
+ on15-20020a17090b1d0f00b00202be3ea14amr12512808pjb.102.1664399639224; Wed, 28
+ Sep 2022 14:13:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220928131807.30386-1-palmer@rivosinc.com>
+References: <20220928182523.3105953-1-nathan@kernel.org>
+In-Reply-To: <20220928182523.3105953-1-nathan@kernel.org>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 28 Sep 2022 14:13:47 -0700
+Message-ID: <CAKwvOdmPLqX=oCwg43TYHj=tdoaU5OYc=bO906u=LeqcSrx+Dw@mail.gmail.com>
+Subject: Re: [PATCH] lib/Kconfig.debug: Add check for non-constant
+ .{s,u}leb128 support to DWARF5
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Tom Rix <trix@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, linux-kbuild@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	patches@lists.linux.dev, llvm@lists.linux.dev, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_135331_603611_A237E684 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20220928_141402_377680_8196E6F4 
+X-CRM114-Status: GOOD (  27.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +88,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 28, 2022 at 06:18:07AM -0700, Palmer Dabbelt wrote:
-> These counters were part of the ISA when we froze the uABI, removing
-> them breaks userspace.
-> 
-> Link: https://lore.kernel.org/all/YxEhC%2FmDW1lFt36J@aurel32.net/
-> Fixes: e9991434596f ("RISC-V: Add perf platform driver based on SBI PMU extension")
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-Completely forgot about this and was wondering why my timer accessing,
-userspace program was not working on an unmatched but did on an
-icicle... This patch makes it work again :)
-
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
+On Wed, Sep 28, 2022 at 11:25 AM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> When building with a RISC-V kernel with DWARF5 debug info using clang
+> and the GNU assembler, several instances of the following error appear:
+>
+>   /tmp/vgettimeofday-48aa35.s:2963: Error: non-constant .uleb128 is not supported
+>
+> Dumping the .s file reveals these .uleb128 directives come from
+> .debug_loc and .debug_ranges:
+>
+>   .Ldebug_loc0:
+>           .byte   4                               # DW_LLE_offset_pair
+>           .uleb128 .Lfunc_begin0-.Lfunc_begin0    #   starting offset
+>           .uleb128 .Ltmp1-.Lfunc_begin0           #   ending offset
+>           .byte   1                               # Loc expr size
+>           .byte   90                              # DW_OP_reg10
+>           .byte   0                               # DW_LLE_end_of_list
+>
+>   .Ldebug_ranges0:
+>           .byte   4                               # DW_RLE_offset_pair
+>           .uleb128 .Ltmp6-.Lfunc_begin0           #   starting offset
+>           .uleb128 .Ltmp27-.Lfunc_begin0          #   ending offset
+>           .byte   4                               # DW_RLE_offset_pair
+>           .uleb128 .Ltmp28-.Lfunc_begin0          #   starting offset
+>           .uleb128 .Ltmp30-.Lfunc_begin0          #   ending offset
+>           .byte   0                               # DW_RLE_end_of_list
+>
+> There is an outstanding binutils issue to support a non-constant operand
+> to .sleb128 and .uleb128 in GAS for RISC-V but there does not appear to
+> be any movement on it, due to concerns over how it would work with
+> linker relaxation.
+>
+> To avoid these build errors, prevent DWARF5 from being selected when
+> using clang and an assembler that does not have support for these symbol
+> deltas, which can be easily checked in Kconfig with as-instr plus the
+> small test program from the dwz test suite from the binutils issue.
+>
+> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1719
+> Tested-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/perf/riscv_pmu_sbi.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 6f6681bbfd36..e45daffbfb36 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -645,8 +645,11 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
->  	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
->  	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->  
-> -	/* Enable the access for TIME csr only from the user mode now */
-> -	csr_write(CSR_SCOUNTEREN, 0x2);
-> +	/*
-> +	 * Enable the access for CYCLE, TIME, and INSTRET CSRs from userspace,
-> +	 * as is necessary to maintain uABI compatibility.
-> +	 */
-> +	csr_write(CSR_SCOUNTEREN, 0x7);
->  
->  	/* Stop all the counters so that they can be enabled from perf */
->  	pmu_sbi_stop_all(pmu);
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>  lib/Kconfig.debug | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index d3e5f36bb01e..19de03ead2ed 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -231,6 +231,9 @@ config DEBUG_INFO
+>           in the "Debug information" choice below, indicating that debug
+>           information will be generated for build targets.
+>
+> +config AS_HAS_NON_CONST_LEB128
+> +       def_bool $(as-instr,.uleb128 .Lexpr_end4 - .Lexpr_start3\n.Lexpr_start3:\n.Lexpr_end4:)
+> +
+>  choice
+>         prompt "Debug information"
+>         depends on DEBUG_KERNEL
+> @@ -277,6 +280,10 @@ config DEBUG_INFO_DWARF5
+>         bool "Generate DWARF Version 5 debuginfo"
+>         select DEBUG_INFO
+>         depends on !CC_IS_CLANG || (CC_IS_CLANG && (AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502)))
+> +       # Clang is known to generate .{s,u}leb128 with symbol deltas with
+> +       # DWARF5, which some targets may not support.
+> +       # https://sourceware.org/bugzilla/show_bug.cgi?id=27215
+> +       depends on !CC_IS_CLANG || AS_HAS_NON_CONST_LEB128
+
+Reraising my concern from
+https://github.com/ClangBuiltLinux/linux/issues/1719#issuecomment-1258678969
+
+We've put a fair amount of work into getting CC=clang LLVM_IAS=0 to
+work for DWARF v5 (both on the GNU binutils side, and Kbuild), I'd
+hate to see that effectively knee-capped because of an issue in GNU
+binutils that is only relevant for one architecture.
+
+I'd concede support for ARCH=riscv, but not for all other
+architectures, which this effectively does.
+
+>         help
+>           Generate DWARF v5 debug info. Requires binutils 2.35.2, gcc 5.0+ (gcc
+>           5.0+ accepts the -gdwarf-5 flag but only had partial support for some
+>
+> base-commit: f76349cf41451c5c42a99f18a9163377e4b364ff
+> --
+> 2.37.3
+>
+>
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
