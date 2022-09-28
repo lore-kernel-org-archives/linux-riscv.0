@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D4BC54EE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 12:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78137C32771
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 12:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wy2M5hFaWWjY3AzVEEuRX291gYwqg0+aAanyuJYVYZI=; b=FFxrmxhRySjIMV
-	kgcI14Slr4u/qwVhdRZ9QyHIbIxB/wU81MrXfsz6jKiEvPs9oOjyCkrHbZKkwnaKy2Wms+/bs3FpL
-	lf+KRv9Sa65PImiEKtGGqOSBgu5bgUO7/CeMC4Q2Kt+AwcjmVmat38TP9zzJlmZ0DBme9l1JkxMTb
-	SYAfFGRCgJQKIf/iKxpeLBsKd3W6Hv71Y4Hzi2PxnSzebWLUdhj5zGHT1GyMP9Gq0rWqTaEauaR+t
-	lofMNJogYiZqPTowU2K7GUC5fo9KeOXJoEBetp+wj9ypvVdc8JzuL3U+7d/pcljs5Rp6zFUpKS4+O
-	iJPxunzK/AvdziaNPq4Q==;
+	List-Owner; bh=GTtbOixRy/2OePYUMj47l09JitKKkYd3VjaQ1SP9vYw=; b=mkhILCeRvWRjVz
+	9kTuGutzgz0AsRz1fLoW4dHVhg8quGLVFTYNB43YW0987Tq9AT2zd9gt0MSb0S1xQZSJBSnSxLzDL
+	R+5pTPRZ4/COyZ1d55+9+kEB3+Z7SsjFGIM+UHgklIt1h6ID4GBH3RDpNYeqIIROwyHc3wzDrM6Hv
+	A27p8sVuvWSmWrcTQGoeEOESCcGBBhjM62+ZDihajj7NB01Rgrw6HPZY/xFcnKDGVHFUveJpzJcQ7
+	4tKpqzz1QDD7taM0r7Vp0F65NPvNCwQijIe4d1M3snTcCbigyeYoCLE/83CQufHnOyf8N+usAJhqq
+	N6ChlMS585bLIaAsI/LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odVxR-00GAlV-1B; Wed, 28 Sep 2022 12:14:33 +0000
+	id 1odVzF-00GBRG-Fc; Wed, 28 Sep 2022 12:16:25 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odVxO-00GAkC-MR; Wed, 28 Sep 2022 12:14:30 +0000
-Date: Wed, 28 Sep 2022 05:14:30 -0700
+	id 1odVzB-00GBQu-Vo; Wed, 28 Sep 2022 12:16:21 +0000
+Date: Wed, 28 Sep 2022 05:16:21 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: apatel@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	atishp@atishpatra.org, heiko@sntech.de, anup@brainfault.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	mchitale@ventanamicro.com
-Subject: Re: [PATCH v2 1/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for
- systems with Svpbmt
-Message-ID: <YzQ6pqykLhJVeD2p@infradead.org>
-References: <CAK9=C2WkqVgg58sKyDEMWue_vL8Pz7bCfERuaW_4DGnYTpcSMw@mail.gmail.com>
- <mhng-37586d5e-5576-448a-8d9c-4d277c252365@palmer-ri-x1c9>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	damien.lemoal@opensource.wdc.com, geert@linux-mk68.org,
+	heiko@sntech.de, kernel@esmil.dk, arnd@arndb.de,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [RFC 01/27] clk: microchip: replace SOC_MICROCHIP_POLARFIRE with
+ ARCH_MICROCHIP
+Message-ID: <YzQ7FSEVQCFIIEZa@infradead.org>
+References: <20220923185605.1900083-1-conor@kernel.org>
+ <20220923185605.1900083-2-conor@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-37586d5e-5576-448a-8d9c-4d277c252365@palmer-ri-x1c9>
+In-Reply-To: <20220923185605.1900083-2-conor@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -54,14 +54,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 22, 2022 at 09:35:56AM -0700, Palmer Dabbelt wrote:
-> Sorry I missed this, I thought it was just part of the rest of this patch
-> set.  That said, I'm not actually sure this is a critical fix: sure it's a
-> performance problem, and if some driver is expecting ioremap_cache() to go
-> fast then possibly a pretty big one, but the only Svpmbt hardware that
+On Fri, Sep 23, 2022 at 07:55:40PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> At LPC, we decided that for the sake of consistency the SOC_FOO symbols
+> in arch/riscv should be replaced with ARCH_FOO so that we could have a
+> consistent policy regardless of whether a vendor had ARM legacy or was
+> a RISC-V "incumbent".
 
-More importantly nothing should be using ioremap_cache at all.  It is
-an API that has long been deprecated in favor of memremap.
+Umm, that's just stupid.  The ARCH_ naming in arm is incorrect and a
+bad idea.  So please move in the correct direction instead even if that
+is more work and more churn.
 
 _______________________________________________
 linux-riscv mailing list
