@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81920C04A95
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 16:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BAFC04A95
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Sep 2022 17:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V5BmYQhkoJ5ErUzwVkDuRz8JLHRp90ObzWM2R5pLNrc=; b=l8LKkA/h62RDkt
-	52Wa47N87XQha12rQ+aAK7h2jmXNmKG7N0cWAE80JryLsMLW4F8ITitAlPcoUGFzGW92Oj1X7GHB/
-	zfjc2Avyn4CEMkTeG/ZurvTRsBU2zhA8wMU47Qj+M6rTIAVo25HtFWwFl3EjvSF4yKAewY3abIeUs
-	+TQLJEYZ1Kf/c53w5pEZpxbiabvRGGc8fvS5KpoA6e5jLrNp4gzP6fFLfwA7nF5R/8A1t0soif+lu
-	cyD92oHKrfeR5nvhsId8uM7GA8gXBmO7H6KBjvqJDQn4KCSTZF9d4b3IlrjP8KF5zyQ5Eap9MYQrA
-	ax9BhRUzjMs8X6mkinkw==;
+	List-Owner; bh=k8s1zk/ugptjHH5Zcrf+o+sglZOMa6xQ0WBVT1u5NxM=; b=YceYT9VsJtJ2F2
+	V1tpcuc63nKmYTzP9fliNqe/NtAksqgNciFNZNz1IlqnG+CdBc+LrkJ/Wi2llMLrpAYcu2zR4XZ16
+	ajXHkxXaCC265GOLKt/f5Yh4bhDvqbfmyrqVKm7P/EohHuY7Rsn6JHqvB1AiTpXtnGTcF2JW92mR6
+	W47uGITzul8X4yqM4nPQqroYjaL2ZqKi2TNVlc/Js0kTKwL09MXgrzyGZnWP9hsamnyJRVXmGnInl
+	cwbbZ6z9dsuSGPswctcFqYdqms927KBUQ61affXo56eozs3GY+kmM/mYE3qtSFjN0ho1QurkLjxqe
+	Hnuz2mEKU9TjeWhQpueA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odaFs-00HCjF-0Q; Wed, 28 Sep 2022 16:49:52 +0000
+	id 1odaTQ-00HG3u-Pc; Wed, 28 Sep 2022 17:03:52 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odaFn-00HCgy-68
-	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 16:49:49 +0000
+	id 1odaTN-00HG2g-DH
+	for linux-riscv@lists.infradead.org; Wed, 28 Sep 2022 17:03:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 33F66B82149;
-	Wed, 28 Sep 2022 16:49:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33033C433C1;
-	Wed, 28 Sep 2022 16:49:41 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B2306B8217C;
+	Wed, 28 Sep 2022 17:03:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8938BC433D6;
+	Wed, 28 Sep 2022 17:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664383784;
-	bh=vOLhBgQt+vaLJlNqqnT8uoBI6MeRvvklPMg+hiBKrBs=;
+	s=k20201202; t=1664384626;
+	bh=i61YhGkKwsV9Tssg75wgUN9ZGXdvkG3vHSk/TFi5Emk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r6jg3+OunAJ34WgPJe/zZ5zX7r4wF5VJEQH/lJaurg+GqP4NM7qn0evjeOZ7c2n6x
-	 Q+M/LoNhAGoDapUfiKvj0qMGV8Tno7tV3HT/vrzifWObbBjfQPF6gIeEV4yUHY2p+e
-	 2z4FFBnICv0Gt6fSZuY8f9l+p3Y+1aamAFNvC19UCXC2koUzeGuCRoKmgXsBAF/upB
-	 fIXPGl0m64PBrec6nHcsGqYTefCikLpQhaSVfwY6QtP/1Lz7v6s1Lgaz/hj+QKbXC6
-	 G8mrPU0wYraowqyH8frolZRGZ7P0UER13BP4+3PKbm29iH/hs9e7N6vshi0WM0qvfw
-	 xQm5UaD/ffzWg==
-Date: Thu, 29 Sep 2022 00:40:15 +0800
+	b=Oe3jMFLTKSgTqhuc9UDWC+r8HEkNIJt+FwMgcdX5Sne2QGqszsfulahqlp5iBrQWl
+	 ZFdvSyCGBdM2tZgGfz8GXbJQ3G0UmYTeoE7B3hEq+3B+UO4cjN5rmYRfvSVMtU+cAu
+	 60sbowpu9gpy+EgFsB5zxrGKbjqel/06vfY6PKpDykIHms9Ki1kuDsH/aV7EZuqt4x
+	 wWX2s4HCZfj8u8GwHlapyLkDjqkMtYS/voeokcGCOCmrAix4J6vNXNfi7s5MKY2egZ
+	 e3THszk37xiMpeNvEpd/+x03qFukzNxQ/JW+jey0Whr4j1hY02hpoOM2z6GUCfCOVt
+	 /9Y50/j6tbvPw==
+Date: Thu, 29 Sep 2022 00:54:17 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: Re: [PATCH 2/4] riscv: consolidate ret_from_kernel_thread into
- ret_from_fork
-Message-ID: <YzR471Zo4LbSCJoX@xhacker>
-References: <20220925175356.681-1-jszhang@kernel.org>
- <20220925175356.681-3-jszhang@kernel.org>
- <CAJF2gTTqup62EM9LZQ-9daKk11O0geax9Z3HmTMOxYy2mAwm=w@mail.gmail.com>
- <YzHNr13U+SdwJHo1@xhacker>
- <CAJF2gTRbvvMcdm7ZrAeow=Dm7=HXx59+4g-3mBqb2-SN5mOpZg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] riscv: fix race when vmap stack overflow and
+ remove shadow_stack
+Message-ID: <YzR8OUFuV+R1i1Y6@xhacker>
+References: <20220928162007.3791-1-jszhang@kernel.org>
+ <20220928162007.3791-4-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTRbvvMcdm7ZrAeow=Dm7=HXx59+4g-3mBqb2-SN5mOpZg@mail.gmail.com>
+In-Reply-To: <20220928162007.3791-4-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_094947_566681_275E528E 
-X-CRM114-Status: GOOD (  36.30  )
+X-CRM114-CacheID: sfid-20220928_100349_763805_2C048EF8 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,153 +74,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMjcsIDIwMjIgYXQgMDc6NTU6MjdBTSArMDgwMCwgR3VvIFJlbiB3cm90ZToK
-PiBPbiBUdWUsIFNlcCAyNywgMjAyMiBhdCAxMjoxNCBBTSBKaXNoZW5nIFpoYW5nIDxqc3poYW5n
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIE1vbiwgU2VwIDI2LCAyMDIyIGF0IDA3OjI1
-OjMwQU0gKzA4MDAsIEd1byBSZW4gd3JvdGU6Cj4gPiA+IE9uIE1vbiwgU2VwIDI2LCAyMDIyIGF0
-IDI6MDMgQU0gSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4g
-Pgo+ID4gPiA+IFRoZSByZXRfZnJvbV9rZXJuZWxfdGhyZWFkKCkgYmVoYXZlcyBzaW1pbGFybHkg
-d2l0aCByZXRfZnJvbV9mb3JrKCksCj4gPiA+ID4gdGhlIG9ubHkgZGlmZmVyZW5jZSBpcyB3aGV0
-aGVyIGNhbGwgdGhlIGZuKGFyZykgb3Igbm90LCB0aGlzIGNhbiBiZQo+ID4gPiA+IGFjY2hpZXZl
-ZCBieSB0ZXN0aW5nIGZuIGlzIE5VTEwgb3Igbm90LCBJLkUgczAgaXMgMCBvciBub3QuCj4gPiA+
-ID4KPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBKaXNoZW5nIFpoYW5nIDxqc3poYW5nQGtlcm5lbC5v
-cmc+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMgICB8IDEx
-ICsrKy0tLS0tLS0tCj4gPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYyB8ICA1ICsr
-LS0tCj4gPiA+ID4gIDIgZmlsZXMgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCAxMSBkZWxldGlv
-bnMoLSkKPiA+ID4gPgo+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRy
-eS5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvZW50cnkuUwo+ID4gPiA+IGluZGV4IDIyMDdjZjQ0YTNi
-Yy4uYTNlMWVkMmZhMmFjIDEwMDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2Vu
-dHJ5LlMKPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TCj4gPiA+ID4gQEAg
-LTMyMywyMCArMzIzLDE1IEBAIEVORChoYW5kbGVfa2VybmVsX3N0YWNrX292ZXJmbG93KQo+ID4g
-PiA+Cj4gPiA+ID4gIEVOVFJZKHJldF9mcm9tX2ZvcmspCj4gPiA+ID4gICAgICAgICBjYWxsIHNj
-aGVkdWxlX3RhaWwKPiA+ID4gPiAtICAgICAgIG1vdmUgYTAsIHNwIC8qIHB0X3JlZ3MgKi8KPiA+
-ID4gPiAtICAgICAgIGxhIHJhLCByZXRfZnJvbV9leGNlcHRpb24KPiA+ID4gPiAtICAgICAgIHRh
-aWwgc3lzY2FsbF9leGl0X3RvX3VzZXJfbW9kZQo+ID4gPiA+IC1FTkRQUk9DKHJldF9mcm9tX2Zv
-cmspCj4gPiA+ID4gLQo+ID4gPiA+IC1FTlRSWShyZXRfZnJvbV9rZXJuZWxfdGhyZWFkKQo+ID4g
-PiA+IC0gICAgICAgY2FsbCBzY2hlZHVsZV90YWlsCj4gPiA+ID4gKyAgICAgICBiZXF6IHMwLCAx
-ZiAgICAgLyogbm90IGZyb20ga2VybmVsIHRocmVhZCAqLwo+ID4KPiA+IEhpIEd1bywKPiA+Cj4g
-PiA+IFdlIGNhbid0IHVzZSBzMCBhcyBjb25kaXRpb24gZm9yIHJldF9mcm9tX2ZvcmsvcmV0X2Zy
-b21fa2VybmVsX3RocmVhZC4KPiA+ID4gVGhlIHMwPTAgaXMgYWxzbyBva2F5IGZvciByZXRfZnJv
-bV9mb3JrLgo+ID4KPiA+IElJVUMsIGluIHJldF9mcm9tX2ZvcmssIHRoZSBzMCBjb21lcyBwLT50
-aHJlYWQuc1swXSByYXRoZXIgdGhhbiBzMCBpbgo+ID4gcHRfcmVncy4KPiBZZXMsIHlvdSBhcmUg
-Y29ycmVjdC4KPiAKPiA+Cj4gPiA+Cj4gPiA+ICAgICAgICAgLyogcC0+dGhyZWFkIGhvbGRzIGNv
-bnRleHQgdG8gYmUgcmVzdG9yZWQgYnkgX19zd2l0Y2hfdG8oKSAqLwo+ID4gPiAgICAgICAgIGlm
-ICh1bmxpa2VseShhcmdzLT5mbikpIHsKPiA+ID4gICAgICAgICAgICAgICAgIC8qIEtlcm5lbCB0
-aHJlYWQgKi8KPiA+ID4gICAgICAgICAgICAgICAgIG1lbXNldChjaGlsZHJlZ3MsIDAsIHNpemVv
-ZihzdHJ1Y3QgcHRfcmVncykpOwo+ID4gPiAgICAgICAgICAgICAgICAgY2hpbGRyZWdzLT5ncCA9
-IGdwX2luX2dsb2JhbDsKPiA+ID4gICAgICAgICAgICAgICAgIC8qIFN1cGVydmlzb3IvTWFjaGlu
-ZSwgaXJxcyBvbjogKi8KPiA+ID4gICAgICAgICAgICAgICAgIGNoaWxkcmVncy0+c3RhdHVzID0g
-U1JfUFAgfCBTUl9QSUU7Cj4gPiA+Cj4gPiA+ICAgICAgICAgICAgICAgICBwLT50aHJlYWQucmEg
-PSAodW5zaWduZWQgbG9uZylyZXRfZnJvbV9rZXJuZWxfdGhyZWFkOwo+ID4gPiAgICAgICAgICAg
-ICAgICAgcC0+dGhyZWFkLnNbMF0gPSAodW5zaWduZWQgbG9uZylhcmdzLT5mbjsKPiA+ID4gICAg
-ICAgICAgICAgICAgIHAtPnRocmVhZC5zWzFdID0gKHVuc2lnbmVkIGxvbmcpYXJncy0+Zm5fYXJn
-Owo+ID4gPiAgICAgICAgIH0gZWxzZSB7Cj4gPiA+ICAgICAgICAgICAgICAgICAqY2hpbGRyZWdz
-ID0gKihjdXJyZW50X3B0X3JlZ3MoKSk7Cj4gPiA+ICAgICAgICAgICAgICAgICBeXl5eXl5eXl5e
-Xl5eXl5eXl5eXl5eXl5eXl5eXl5eCj4gT2gsIEknbSB3cm9uZywgSXQncyBzd2l0Y2hfdG9fcmVz
-dG9yZSAtPiBleGNlcHRpb25fcmVzdG9yZS4KPiAKPiA+ID4gICAgICAgICAgICAgICAgIGlmICh1
-c3ApIC8qIFVzZXIgZm9yayAqLwo+ID4gPiAgICAgICAgICAgICAgICAgICAgICAgICBjaGlsZHJl
-Z3MtPnNwID0gdXNwOwo+ID4gPiAgICAgICAgICAgICAgICAgaWYgKGNsb25lX2ZsYWdzICYgQ0xP
-TkVfU0VUVExTKQo+ID4gPiAgICAgICAgICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPnRwID0g
-dGxzOwo+ID4gPiAgICAgICAgICAgICAgICAgY2hpbGRyZWdzLT5hMCA9IDA7IC8qIFJldHVybiB2
-YWx1ZSBvZiBmb3JrKCkgKi8KPiA+ID4gICAgICAgICAgICAgICAgIHAtPnRocmVhZC5yYSA9ICh1
-bnNpZ25lZCBsb25nKXJldF9mcm9tX2Zvcms7Cj4gPiA+ICAgICAgICAgfQo+ID4gPiAgICAgICAg
-IHAtPnRocmVhZC5zcCA9ICh1bnNpZ25lZCBsb25nKWNoaWxkcmVnczsgLyoga2VybmVsIHNwICov
-Cj4gPiA+Cj4gPgo+ID4gPHNuaXA+Cj4gPgo+ID4gPiA+IEBAIC0xODIsOCArMTgwLDkgQEAgaW50
-IGNvcHlfdGhyZWFkKHN0cnVjdCB0YXNrX3N0cnVjdCAqcCwgY29uc3Qgc3RydWN0IGtlcm5lbF9j
-bG9uZV9hcmdzICphcmdzKQo+ID4gPiA+ICAgICAgICAgICAgICAgICBpZiAoY2xvbmVfZmxhZ3Mg
-JiBDTE9ORV9TRVRUTFMpCj4gPiA+ID4gICAgICAgICAgICAgICAgICAgICAgICAgY2hpbGRyZWdz
-LT50cCA9IHRsczsKPiA+ID4gPiAgICAgICAgICAgICAgICAgY2hpbGRyZWdzLT5hMCA9IDA7IC8q
-IFJldHVybiB2YWx1ZSBvZiBmb3JrKCkgKi8KPiA+ID4gPiAtICAgICAgICAgICAgICAgcC0+dGhy
-ZWFkLnJhID0gKHVuc2lnbmVkIGxvbmcpcmV0X2Zyb21fZm9yazsKPiA+ID4gPiArICAgICAgICAg
-ICAgICAgcC0+dGhyZWFkLnNbMF0gPSAwOwo+ID4KPiA+IEhlcmUgd2UgYXNzaWduIDAgdG8gcC0+
-dGhyZWFkLnNbMF0KPiBJIG1pc3NlZCB0aGF0Lgo+IAo+IE1lcmdlIHRocmVhZCAmIGZvcmsgaXMg
-bm90IGEgZ29vZCBpZGVhLCBhbmQgdXNpbmcgZnAgYXMgdGhlIGZsYWcgaXMgc28gaW1wbGljaXQu
-Cj4gCj4g4p6cICBsaW51eCBnaXQ6KHJ2NjRzdjMyKSBncmVwIHJldF9mcm9tX2ZvcmsgYXJjaCAt
-ciB8IGdyZXAgZW50cnkuUwo+IGFyY2gvYXJjL2tlcm5lbC9lbnRyeS5TOkVOVFJZKHJldF9mcm9t
-X2ZvcmspCj4gYXJjaC9hcmMva2VybmVsL2VudHJ5LlM6RU5EKHJldF9mcm9tX2ZvcmspCj4gYXJj
-aC9jc2t5L2tlcm5lbC9lbnRyeS5TOkVOVFJZKHJldF9mcm9tX2ZvcmspCj4gYXJjaC94ODYva2Vy
-bmVsL3Byb2Nlc3NfMzIuYzogKiB0aGUgdGFzay1zd2l0Y2gsIGFuZCBzaG93cyB1cCBpbgo+IHJl
-dF9mcm9tX2ZvcmsgaW4gZW50cnkuUywKPiBhcmNoL2FscGhhL2tlcm5lbC9lbnRyeS5TOiAgICAg
-IC5nbG9ibCAgcmV0X2Zyb21fZm9yawo+IGFyY2gvYWxwaGEva2VybmVsL2VudHJ5LlM6ICAgICAg
-LmVudCAgICByZXRfZnJvbV9mb3JrCj4gYXJjaC9hbHBoYS9rZXJuZWwvZW50cnkuUzpyZXRfZnJv
-bV9mb3JrOgo+IGFyY2gvYWxwaGEva2VybmVsL2VudHJ5LlM6LmVuZCByZXRfZnJvbV9mb3JrCj4g
-YXJjaC9sb29uZ2FyY2gva2VybmVsL2VudHJ5LlM6U1lNX0NPREVfU1RBUlQocmV0X2Zyb21fZm9y
-aykKPiBhcmNoL2xvb25nYXJjaC9rZXJuZWwvZW50cnkuUzpTWU1fQ09ERV9FTkQocmV0X2Zyb21f
-Zm9yaykKPiBhcmNoL2hleGFnb24va2VybmVsL3ZtX2VudHJ5LlM6IC5nbG9ibCByZXRfZnJvbV9m
-b3JrCj4gYXJjaC9oZXhhZ29uL2tlcm5lbC92bV9lbnRyeS5TOnJldF9mcm9tX2Zvcms6Cj4gYXJj
-aC9taWNyb2JsYXplL2tlcm5lbC9lbnRyeS5TOiAgIChjb3B5X3RocmVhZCBtYWtlcyByZXRfZnJv
-bV9mb3JrIHRoZQo+IHJldHVybiBhZGRyZXNzIGluIGVhY2ggbmV3IHRocmVhZCdzCj4gYXJjaC9t
-aWNyb2JsYXplL2tlcm5lbC9lbnRyeS5TOkNfRU5UUlkocmV0X2Zyb21fZm9yayk6Cj4gYXJjaC9t
-NjhrL2tlcm5lbC9lbnRyeS5TOkVOVFJZKHJldF9mcm9tX2ZvcmspCj4gYXJjaC9hcm02NC9rZXJu
-ZWwvZW50cnkuUzpTWU1fQ09ERV9TVEFSVChyZXRfZnJvbV9mb3JrKQo+IGFyY2gvYXJtNjQva2Vy
-bmVsL2VudHJ5LlM6U1lNX0NPREVfRU5EKHJldF9mcm9tX2ZvcmspCj4gYXJjaC9hcm02NC9rZXJu
-ZWwvZW50cnkuUzpOT0tQUk9CRShyZXRfZnJvbV9mb3JrKQo+IGFyY2gvcmlzY3Yva2VybmVsL2Vu
-dHJ5LlM6RU5UUlkocmV0X2Zyb21fZm9yaykKPiBhcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TOkVO
-RFBST0MocmV0X2Zyb21fZm9yaykKPiBhcmNoL3MzOTAva2VybmVsL2VudHJ5LlM6IyBhIG5ldyBw
-cm9jZXNzIGV4aXRzIHRoZSBrZXJuZWwgd2l0aCByZXRfZnJvbV9mb3JrCj4gYXJjaC9zMzkwL2tl
-cm5lbC9lbnRyeS5TOkVOVFJZKHJldF9mcm9tX2ZvcmspCj4gYXJjaC9zMzkwL2tlcm5lbC9lbnRy
-eS5TOiAgICAgICBicmFzbCAgICVyMTQsX19yZXRfZnJvbV9mb3JrCj4gYXJjaC9zMzkwL2tlcm5l
-bC9lbnRyeS5TOkVORFBST0MocmV0X2Zyb21fZm9yaykKPiBhcmNoL21pcHMva2VybmVsL2VudHJ5
-LlM6RkVYUE9SVChyZXRfZnJvbV9mb3JrKQo+IGFyY2gvb3BlbnJpc2Mva2VybmVsL2VudHJ5LlM6
-ICAgLyogQWxsIHN5c2NhbGxzIHJldHVybiBoZXJlLi4uIGp1c3QKPiBwYXkgYXR0ZW50aW9uIHRv
-IHJldF9mcm9tX2ZvcmsKPiBhcmNoL29wZW5yaXNjL2tlcm5lbC9lbnRyeS5TOkVOVFJZKHJldF9m
-cm9tX2ZvcmspCj4gYXJjaC9vcGVucmlzYy9rZXJuZWwvZW50cnkuUzogICAgKiB0aGF0IG1heSBi
-ZSBlaXRoZXIgc2NoZWR1bGUoKSwKPiByZXRfZnJvbV9mb3JrKCksIG9yCj4gYXJjaC9uaW9zMi9r
-ZXJuZWwvZW50cnkuUzpFTlRSWShyZXRfZnJvbV9mb3JrKQo+IGFyY2gveHRlbnNhL2tlcm5lbC9l
-bnRyeS5TOkVOVFJZKHJldF9mcm9tX2ZvcmspCj4gYXJjaC94dGVuc2Eva2VybmVsL2VudHJ5LlM6
-RU5EUFJPQyhyZXRfZnJvbV9mb3JrKQo+IGFyY2gvc3BhcmMva2VybmVsL2VudHJ5LlM6ICAgICAg
-Lmdsb2JsICByZXRfZnJvbV9mb3JrCj4gYXJjaC9zcGFyYy9rZXJuZWwvZW50cnkuUzpyZXRfZnJv
-bV9mb3JrOgo+IOKenCAgbGludXggZ2l0OihydjY0c3YzMikgZ3JlcCByZXRfZnJvbV9rZXJuZWxf
-dGhyZWFkIGFyY2ggLXIgfCBncmVwIGVudHJ5LlMKPiBhcmNoL2Nza3kva2VybmVsL2VudHJ5LlM6
-RU5UUlkocmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiBhcmNoL2FscGhhL2tlcm5lbC9lbnRyeS5T
-OiAgICAgIC5nbG9ibCAgcmV0X2Zyb21fa2VybmVsX3RocmVhZAo+IGFyY2gvYWxwaGEva2VybmVs
-L2VudHJ5LlM6ICAgICAgLmVudCAgICByZXRfZnJvbV9rZXJuZWxfdGhyZWFkCj4gYXJjaC9hbHBo
-YS9rZXJuZWwvZW50cnkuUzpyZXRfZnJvbV9rZXJuZWxfdGhyZWFkOgo+IGFyY2gvYWxwaGEva2Vy
-bmVsL2VudHJ5LlM6LmVuZCByZXRfZnJvbV9rZXJuZWxfdGhyZWFkCj4gYXJjaC9wYXJpc2Mva2Vy
-bmVsL2VudHJ5LlM6RU5UUlkocmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiBhcmNoL3BhcmlzYy9r
-ZXJuZWwvZW50cnkuUzpFTkQocmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiBhcmNoL2xvb25nYXJj
-aC9rZXJuZWwvZW50cnkuUzpTWU1fQ09ERV9TVEFSVChyZXRfZnJvbV9rZXJuZWxfdGhyZWFkKQo+
-IGFyY2gvbG9vbmdhcmNoL2tlcm5lbC9lbnRyeS5TOlNZTV9DT0RFX0VORChyZXRfZnJvbV9rZXJu
-ZWxfdGhyZWFkKQo+IGFyY2gvbWljcm9ibGF6ZS9rZXJuZWwvZW50cnkuUzpDX0VOVFJZKHJldF9m
-cm9tX2tlcm5lbF90aHJlYWQpOgo+IGFyY2gvbTY4ay9rZXJuZWwvZW50cnkuUzpFTlRSWShyZXRf
-ZnJvbV9rZXJuZWxfdGhyZWFkKQo+IGFyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlM6RU5UUlkocmV0
-X2Zyb21fa2VybmVsX3RocmVhZCkKPiBhcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TOkVORFBST0Mo
-cmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiBhcmNoL21pcHMva2VybmVsL2VudHJ5LlM6RkVYUE9S
-VChyZXRfZnJvbV9rZXJuZWxfdGhyZWFkKQo+IGFyY2gvb3BlbnJpc2Mva2VybmVsL2VudHJ5LlM6
-ICAgICogcmV0X2Zyb21fa2VybmVsX3RocmVhZCgpLiAgSWYgd2UKPiBhcmUgcmV0dXJuaW5nIHRv
-IGEgbmV3IHRocmVhZCwKPiBhcmNoL25pb3MyL2tlcm5lbC9lbnRyeS5TOkVOVFJZKHJldF9mcm9t
-X2tlcm5lbF90aHJlYWQpCj4gYXJjaC94dGVuc2Eva2VybmVsL2VudHJ5LlM6RU5UUlkocmV0X2Zy
-b21fa2VybmVsX3RocmVhZCkKPiBhcmNoL3h0ZW5zYS9rZXJuZWwvZW50cnkuUzpFTkRQUk9DKHJl
-dF9mcm9tX2tlcm5lbF90aHJlYWQpCj4gYXJjaC9zcGFyYy9rZXJuZWwvZW50cnkuUzogICAgICAu
-Z2xvYmwgIHJldF9mcm9tX2tlcm5lbF90aHJlYWQKPiBhcmNoL3NwYXJjL2tlcm5lbC9lbnRyeS5T
-OnJldF9mcm9tX2tlcm5lbF90aHJlYWQ6Cj4gCj4gTWFueSBhcmNoaXRlY3R1cmVzIHVzZSBhIHNp
-bWlsYXIgc3R5bGUuIElmIHlvdSB3YW50IHRvIGNvbnRpbnVlIHRoZQo+IHBhdGNoLCBJIHRoaW5r
-IHlvdSBzaG91bGQgZmlyc3QgcmVuYW1lIHJldF9mcm9tX2ZvcmsgcHJvcGVybHksIGFuZAo+IGdp
-dmUgYW4gZXhwbGljaXQgZmxhZyBkZWZpbml0aW9uLCBub3QganVzdCBzZXR0aW5nIGZwID0gMC4K
-PiAKCkFib3ZlIGxpc3QgYWxzbyBzaG93cyBtYW55IGFyY2hpdGVjdHVyZXMgZG9uJ3QgaGF2ZSBh
-CnJldF9mcm9tX2tlcm5lbF90aHJlYWQsIEkgdGhpbmsgdGhlIHJlYXNvbiBpcyBzaW1wbGUgaXQg
-YmVoYXZlcwpzaW1pbGFybHkgYXMgcmV0X2Zyb21fZm9yay4KQXMgZm9yIGZsYWcsIElNSE8sIHdl
-IG1heSBtaXNzZWQgc29tZXRoaW5nIGFzIGNsZWFyaW5nIHRoZSBzWzEyXQphcnJheSBpbiB0aHJl
-YWRfc3RydWN0IHdoZW4gdXNlciBmb3JrLCBiZWNhdXNlIHNbMTJdIG1heSBjb250YWluCnJhbmRv
-bSBrZXJuZWwgbWVtb3J5IGNvbnRlbnQsIHdoaWNoIG1heSBiZSBmaW5hbGx5IGxlYWtlZCB0bwp1
-c2Vyc3BhY2UuIFRoaXMgaXMgYSBzZWN1cml0eSBob2xlLgoKQSB0cml2aWFsIHBhdGNoIG9mIG1l
-bXNldCgwKSBjYW4gZml4IGl0LCBhZnRlciB0aGlzIGZpeCwgY2hlY2tpbmcgdGhlCnNbMF0gaXMg
-c3RyYWlnaHRmb3J3YXJkLgoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3Mu
-YyBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYwppbmRleCA2N2U3Y2QxMjNjZWIuLjUwYTBm
-N2U0MzI3YyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvY2Vzcy5jCisrKyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3Byb2Nlc3MuYwpAQCAtMTc0LDYgKzE3NCw3IEBAIGludCBjb3B5X3Ro
-cmVhZChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnAsIGNvbnN0IHN0cnVjdCBrZXJuZWxfY2xvbmVfYXJn
-cyAqYXJncykKICAgICAgICAgICAgICAgIHAtPnRocmVhZC5zWzBdID0gKHVuc2lnbmVkIGxvbmcp
-YXJncy0+Zm47CiAgICAgICAgICAgICAgICBwLT50aHJlYWQuc1sxXSA9ICh1bnNpZ25lZCBsb25n
-KWFyZ3MtPmZuX2FyZzsKICAgICAgICB9IGVsc2UgeworICAgICAgICAgICAgICAgbWVtc2V0KCZw
-LT50aHJlYWQucywgMCwgc2l6ZW9mKHAtPnRocmVhZC5zKSk7CiAgICAgICAgICAgICAgICAqY2hp
-bGRyZWdzID0gKihjdXJyZW50X3B0X3JlZ3MoKSk7CiAgICAgICAgICAgICAgICBpZiAodXNwKSAv
-KiBVc2VyIGZvcmsgKi8KICAgICAgICAgICAgICAgICAgICAgICAgY2hpbGRyZWdzLT5zcCA9IHVz
-cDsKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Sep 29, 2022 at 12:20:06AM +0800, Jisheng Zhang wrote:
+> Currently, when detecting vmap stack overflow, riscv firstly switches
+> to the so called shadow stack, then use this shadow stack to call the
+> get_overflow_stack() to get the overflow stack. However, there's
+> a race here if two or more harts use the same shadow stack at the same
+> time.
+> 
+> To solve this race, we rely on two facts:
+> 1. the content of kernel thread pointer I.E "tp" register can still
+> be gotten from the the CSR_SCRATCH register, thus we can clobber tp
+> under the condtion that we restore tp from CSR_SCRATCH later.
+> 
+> 2. Once vmap stack overflow happen, panic is comming soon, no
+> performance concern at all, so we don't need to define the overflow
+> stack as percpu var, we can simplify it into a pointer array which
+> points to allocated pages.
+> 
+> Thus we can use tp as a tmp register to get the cpu id to calculate
+> the offset of overflow stack pointer array for each cpu w/o shadow
+> stack any more. Thus the race condition is removed as a side effect.
+> 
+> NOTE: we can use similar mechanism to let each cpu use different shadow
+> stack to fix the race codition, but if we can remove shadow stack usage
+> totally, why not.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+> ---
+>  arch/riscv/include/asm/asm-prototypes.h |  1 -
+>  arch/riscv/include/asm/thread_info.h    |  4 +-
+>  arch/riscv/kernel/asm-offsets.c         |  1 +
+>  arch/riscv/kernel/entry.S               | 56 ++++---------------------
+>  arch/riscv/kernel/traps.c               | 31 ++++++++------
+>  5 files changed, 29 insertions(+), 64 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+> index ef386fcf3939..4a06fa0f6493 100644
+> --- a/arch/riscv/include/asm/asm-prototypes.h
+> +++ b/arch/riscv/include/asm/asm-prototypes.h
+> @@ -25,7 +25,6 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+>  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+>  DECLARE_DO_ERROR_INFO(do_trap_break);
+>  
+> -asmlinkage unsigned long get_overflow_stack(void);
+>  asmlinkage void handle_bad_stack(struct pt_regs *regs);
+>  
+>  #endif /* _ASM_RISCV_PROTOTYPES_H */
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index c970d41dc4c6..c604a5212a73 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -28,14 +28,12 @@
+>  
+>  #define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+>  #define OVERFLOW_STACK_SIZE     SZ_4K
+> -#define SHADOW_OVERFLOW_STACK_SIZE (1024)
+> +#define OVERFLOW_STACK_SHIFT	12
+
+oops, this should be removed, will update it in a newer version after
+collecting review comments.
+
+>  
+>  #define IRQ_STACK_SIZE		THREAD_SIZE
+>  
+>  #ifndef __ASSEMBLY__
+>  
+> -extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
+> -
+>  #include <asm/processor.h>
+>  #include <asm/csr.h>
+>  
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index df9444397908..62bf3bacc322 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -37,6 +37,7 @@ void asm_offsets(void)
+>  	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+>  	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+>  	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+> +	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+>  
+>  	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+>  	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index a3e1ed2fa2ac..5a6171a90d81 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -223,54 +223,16 @@ END(ret_from_exception)
+>  
+>  #ifdef CONFIG_VMAP_STACK
+>  ENTRY(handle_kernel_stack_overflow)
+> -	la sp, shadow_stack
+> -	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+> -
+> -	//save caller register to shadow stack
+> -	addi sp, sp, -(PT_SIZE_ON_STACK)
+> -	REG_S x1,  PT_RA(sp)
+> -	REG_S x5,  PT_T0(sp)
+> -	REG_S x6,  PT_T1(sp)
+> -	REG_S x7,  PT_T2(sp)
+> -	REG_S x10, PT_A0(sp)
+> -	REG_S x11, PT_A1(sp)
+> -	REG_S x12, PT_A2(sp)
+> -	REG_S x13, PT_A3(sp)
+> -	REG_S x14, PT_A4(sp)
+> -	REG_S x15, PT_A5(sp)
+> -	REG_S x16, PT_A6(sp)
+> -	REG_S x17, PT_A7(sp)
+> -	REG_S x28, PT_T3(sp)
+> -	REG_S x29, PT_T4(sp)
+> -	REG_S x30, PT_T5(sp)
+> -	REG_S x31, PT_T6(sp)
+> -
+> -	la ra, restore_caller_reg
+> -	tail get_overflow_stack
+> -
+> -restore_caller_reg:
+> -	//save per-cpu overflow stack
+> -	REG_S a0, -8(sp)
+> -	//restore caller register from shadow_stack
+> -	REG_L x1,  PT_RA(sp)
+> -	REG_L x5,  PT_T0(sp)
+> -	REG_L x6,  PT_T1(sp)
+> -	REG_L x7,  PT_T2(sp)
+> -	REG_L x10, PT_A0(sp)
+> -	REG_L x11, PT_A1(sp)
+> -	REG_L x12, PT_A2(sp)
+> -	REG_L x13, PT_A3(sp)
+> -	REG_L x14, PT_A4(sp)
+> -	REG_L x15, PT_A5(sp)
+> -	REG_L x16, PT_A6(sp)
+> -	REG_L x17, PT_A7(sp)
+> -	REG_L x28, PT_T3(sp)
+> -	REG_L x29, PT_T4(sp)
+> -	REG_L x30, PT_T5(sp)
+> -	REG_L x31, PT_T6(sp)
+> +	la sp, overflow_stack
+> +	/* use tp as tmp register since we can restore it from CSR_SCRATCH */
+> +	REG_L tp, TASK_TI_CPU(tp)
+> +	slli tp, tp, RISCV_LGPTR
+> +	add tp, sp, tp
+> +	REG_L sp, 0(tp)
+> +
+> +	/* restore tp */
+> +	csrr tp, CSR_SCRATCH
+>  
+> -	//load per-cpu overflow stack
+> -	REG_L sp, -8(sp)
+>  	addi sp, sp, -(PT_SIZE_ON_STACK)
+>  
+>  	//save context to overflow stack
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 73f06cd149d9..b6c64f0fb70f 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -216,23 +216,12 @@ int is_valid_bugaddr(unsigned long pc)
+>  #endif /* CONFIG_GENERIC_BUG */
+>  
+>  #ifdef CONFIG_VMAP_STACK
+> -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+> -		overflow_stack)__aligned(16);
+> -/*
+> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+> - * to get per-cpu overflow stack(get_overflow_stack).
+> - */
+> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+> -asmlinkage unsigned long get_overflow_stack(void)
+> -{
+> -	return (unsigned long)this_cpu_ptr(overflow_stack) +
+> -		OVERFLOW_STACK_SIZE;
+> -}
+> +void *overflow_stack[NR_CPUS] __ro_after_init __aligned(16);
+>  
+>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>  {
+>  	unsigned long tsk_stk = (unsigned long)current->stack;
+> -	unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+> +	unsigned long ovf_stk = (unsigned long)overflow_stack[raw_smp_processor_id()];
+>  
+>  	console_verbose();
+>  
+> @@ -248,4 +237,20 @@ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>  	for (;;)
+>  		wait_for_interrupt();
+>  }
+> +
+> +static int __init alloc_overflow_stacks(void)
+> +{
+> +	u8 *s;
+> +	int cpu;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		s = (u8 *)__get_free_pages(GFP_KERNEL, get_order(OVERFLOW_STACK_SIZE));
+> +		if (WARN_ON(!s))
+> +			return -ENOMEM;
+> +		overflow_stack[cpu] = &s[OVERFLOW_STACK_SIZE];
+
+Since overflow_stack[cpu] points to the top of the slack, we need to
+update the ovf_stack dumping in handle_bad_stack(). will take care
+this in newer version.
+
+> +		printk("%px\n", overflow_stack[cpu]);
+
+forget to remove this printk :(
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
