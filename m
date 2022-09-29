@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE402C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 15:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA1AC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 16:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v8+v8S2/LrGF2sfJt4LE7i7w9UqPyckoCxN7jSfPsN0=; b=USx50yqqiFlLZt
-	BfGIgZxFWU/Vh+Mi0qfDjNzXMZ27zmG6OMmuAPy+foi6lY2N68OQBeQLDICTvQVqSW3VHwR3KwnoO
-	/uvSeepBHU2g9I4one7PE1KqPimpx69HxcXzc2BXgEVZm6wi5461DkT611UaQCtL4yZw9QgWcsok2
-	Juqb4ApyR8zZa1fgPJtKXObx1tcLbBmZnXd3+/smv7vDng/c6MW11Bm4E8SKUjcU3s546Clhd4lph
-	lXjtcReW1vihYPvD8mkvTrbs+vE+E5RmQ2c2u4rDnvEZd4jrzaA2tSyAN3QRvcVBte3dgiX9eXueP
-	ULfZGDV4bJjbUm4RX4bQ==;
+	List-Owner; bh=WpD+k51n4A8izyzczFT1Lw6rjzNE9V5xGNRyLbidPrI=; b=1K4m1trcaWph45
+	3oDhS0e2ndcrDZlAVD9kIg/xGw9LPz4/mz2XiVLz/AJ+dDkGrN3sjNNzOz6q7dv+W4d5uDAtphvtb
+	R/5M9oZaL6dv+jUs9++xfFsmWwwrwQYRBEMH6ZbJIBjr8VwgoGnG1ntNnMAzVbi7gjWGx80ZeBHTh
+	8J88tVV47aPBCrDWA2xwRPGdzKpilJdQRDUlt4T4zwzbD/QCUmqQvLtJMmbbyj6OpSZoORRzHa55l
+	5/JeG6zpmvwQ55JtqVbUGKsjZs0GuNDgokzXXBVryUOhMlhMbUNw48dnWX0FWxY78taa/zlzc57NX
+	Gja9WJWzlTo0JKoPnjmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odvpL-003ycb-PW; Thu, 29 Sep 2022 15:51:55 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1odw4K-0042B9-FN; Thu, 29 Sep 2022 16:07:24 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odvpF-003yaT-F4
-	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 15:51:54 +0000
+	id 1odw4G-00428O-1q
+	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 16:07:22 +0000
 X-QQ-Spam: true
-X-QQ-mid: bizesmtp84t1664461974tg6jmmmc
+X-QQ-mid: bizesmtp84t1664461977tq1saah5
 Received: from localhost.localdomain ( [113.72.145.157])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 29 Sep 2022 22:32:53 +0800 (CST)
+	id ; Thu, 29 Sep 2022 22:32:56 +0800 (CST)
 X-QQ-SSF: 01000000002000201000B00A0000000
 From: Hal Feng <hal.feng@linux.starfivetech.com>
 To: linux-riscv@lists.infradead.org,
@@ -51,17 +51,17 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Emil Renner Berthing <kernel@esmil.dk>,
 	Hal Feng <hal.feng@linux.starfivetech.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 06/30] soc: sifive: l2 cache: Add StarFive JH71x0 support
-Date: Thu, 29 Sep 2022 22:32:01 +0800
-Message-Id: <20220929143225.17907-7-hal.feng@linux.starfivetech.com>
+Subject: [PATCH v1 07/30] reset: starfive: jh7100: Use 32bit I/O on 32bit registers
+Date: Thu, 29 Sep 2022 22:32:02 +0800
+Message-Id: <20220929143225.17907-8-hal.feng@linux.starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
 References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220929_085149_835769_EFA86F3B 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20220929_090720_424061_A8BF452B 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,97 +81,111 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-This adds support for the StarFive JH7100 and JH7110 SoCs which also
-feature this SiFive cache controller.
+We currently use 64bit I/O on the 32bit registers. This works because
+there are an even number of assert and status registers, so they're only
+ever accessed in pairs on 64bit boundaries.
 
-Unfortunately the interrupt for uncorrected data is broken on the JH7100
-and fires continuously, so add a quirk to not register a handler for it.
+There are however other reset controllers for audio and video on the
+JH7100 SoC with only one status register that isn't 64bit aligned so
+64bit I/O results in an unaligned access exception.
+
+Switch to 32bit I/O in preparation for supporting these resets too.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
 ---
- arch/riscv/Kconfig.socs              | 1 +
- drivers/soc/Makefile                 | 2 +-
- drivers/soc/sifive/Kconfig           | 2 +-
- drivers/soc/sifive/sifive_l2_cache.c | 7 +++++++
- 4 files changed, 10 insertions(+), 2 deletions(-)
+ drivers/reset/reset-starfive-jh7100.c | 41 +++++++++++++--------------
+ 1 file changed, 20 insertions(+), 21 deletions(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 69774bb362d6..10f68a4359f9 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -22,6 +22,7 @@ config SOC_STARFIVE
- 	bool "StarFive SoCs"
- 	select PINCTRL
- 	select RESET_CONTROLLER
-+	select SIFIVE_L2
- 	select SIFIVE_PLIC
- 	help
- 	  This enables support for StarFive SoC platform hardware.
-diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-index 69ba6508cf2c..534669840858 100644
---- a/drivers/soc/Makefile
-+++ b/drivers/soc/Makefile
-@@ -26,7 +26,7 @@ obj-y				+= qcom/
- obj-y				+= renesas/
- obj-y				+= rockchip/
- obj-$(CONFIG_SOC_SAMSUNG)	+= samsung/
--obj-$(CONFIG_SOC_SIFIVE)	+= sifive/
-+obj-y				+= sifive/
- obj-y				+= sunxi/
- obj-$(CONFIG_ARCH_TEGRA)	+= tegra/
- obj-y				+= ti/
-diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
-index 58cf8c40d08d..776b30723c04 100644
---- a/drivers/soc/sifive/Kconfig
-+++ b/drivers/soc/sifive/Kconfig
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/drivers/reset/reset-starfive-jh7100.c b/drivers/reset/reset-starfive-jh7100.c
+index fc44b2fb3e03..a6e0945071e9 100644
+--- a/drivers/reset/reset-starfive-jh7100.c
++++ b/drivers/reset/reset-starfive-jh7100.c
+@@ -7,7 +7,6 @@
  
--if SOC_SIFIVE
-+if SOC_SIFIVE || SOC_STARFIVE
- 
- config SIFIVE_L2
- 	bool "Sifive L2 Cache controller"
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index 010d612f7420..d6637254977f 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -10,6 +10,7 @@
+ #include <linux/bitmap.h>
  #include <linux/io.h>
+-#include <linux/io-64-nonatomic-lo-hi.h>
+ #include <linux/iopoll.h>
  #include <linux/mod_devicetable.h>
  #include <linux/platform_device.h>
-+#include <linux/property.h>
- #include <asm/cacheinfo.h>
- #include <soc/sifive/sifive_l2_cache.h>
- 
-@@ -189,6 +190,7 @@ static irqreturn_t l2_int_handler(int irq, void *device)
- static int __init sifive_l2_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	unsigned long quirks = (uintptr_t)device_get_match_data(dev);
- 	int nirqs;
- 	int ret;
- 	int i;
-@@ -206,6 +208,9 @@ static int __init sifive_l2_probe(struct platform_device *pdev)
- 		if (g_irq[i] < 0)
- 			return g_irq[i];
- 
-+		if (quirks & BIT(i))
-+			continue;
-+
- 		ret = devm_request_irq(dev, g_irq[i], l2_int_handler, 0, pdev->name, NULL);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "Could not request IRQ %d\n", g_irq[i]);
-@@ -225,6 +230,8 @@ static int __init sifive_l2_probe(struct platform_device *pdev)
- static const struct of_device_id sifive_l2_match[] = {
- 	{ .compatible = "sifive,fu540-c000-ccache" },
- 	{ .compatible = "sifive,fu740-c000-ccache" },
-+	{ .compatible = "starfive,jh7100-ccache", .data = (void *)BIT(DATA_UNCORR) },
-+	{ .compatible = "starfive,jh7110-ccache" },
- 	{ /* sentinel */ }
+@@ -34,16 +33,16 @@
+  * lines don't though, so store the expected value of the status registers when
+  * all lines are asserted.
+  */
+-static const u64 jh7100_reset_asserted[2] = {
++static const u32 jh7100_reset_asserted[4] = {
+ 	/* STATUS0 */
+-	BIT_ULL_MASK(JH7100_RST_U74) |
+-	BIT_ULL_MASK(JH7100_RST_VP6_DRESET) |
+-	BIT_ULL_MASK(JH7100_RST_VP6_BRESET) |
++	BIT(JH7100_RST_U74 % 32) |
++	BIT(JH7100_RST_VP6_DRESET % 32) |
++	BIT(JH7100_RST_VP6_BRESET % 32),
+ 	/* STATUS1 */
+-	BIT_ULL_MASK(JH7100_RST_HIFI4_DRESET) |
+-	BIT_ULL_MASK(JH7100_RST_HIFI4_BRESET),
++	BIT(JH7100_RST_HIFI4_DRESET % 32) |
++	BIT(JH7100_RST_HIFI4_BRESET % 32),
+ 	/* STATUS2 */
+-	BIT_ULL_MASK(JH7100_RST_E24) |
++	BIT(JH7100_RST_E24 % 32),
+ 	/* STATUS3 */
+ 	0,
  };
+@@ -65,12 +64,12 @@ static int jh7100_reset_update(struct reset_controller_dev *rcdev,
+ 			       unsigned long id, bool assert)
+ {
+ 	struct jh7100_reset *data = jh7100_reset_from(rcdev);
+-	unsigned long offset = BIT_ULL_WORD(id);
+-	u64 mask = BIT_ULL_MASK(id);
+-	void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + offset * sizeof(u64);
+-	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+-	u64 done = jh7100_reset_asserted[offset] & mask;
+-	u64 value;
++	unsigned long offset = id / 32;
++	u32 mask = BIT(id % 32);
++	void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + offset * sizeof(u32);
++	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u32);
++	u32 done = jh7100_reset_asserted[offset] & mask;
++	u32 value;
+ 	unsigned long flags;
+ 	int ret;
  
+@@ -79,15 +78,15 @@ static int jh7100_reset_update(struct reset_controller_dev *rcdev,
+ 
+ 	spin_lock_irqsave(&data->lock, flags);
+ 
+-	value = readq(reg_assert);
++	value = readl(reg_assert);
+ 	if (assert)
+ 		value |= mask;
+ 	else
+ 		value &= ~mask;
+-	writeq(value, reg_assert);
++	writel(value, reg_assert);
+ 
+ 	/* if the associated clock is gated, deasserting might otherwise hang forever */
+-	ret = readq_poll_timeout_atomic(reg_status, value, (value & mask) == done, 0, 1000);
++	ret = readl_poll_timeout_atomic(reg_status, value, (value & mask) == done, 0, 1000);
+ 
+ 	spin_unlock_irqrestore(&data->lock, flags);
+ 	return ret;
+@@ -121,10 +120,10 @@ static int jh7100_reset_status(struct reset_controller_dev *rcdev,
+ 			       unsigned long id)
+ {
+ 	struct jh7100_reset *data = jh7100_reset_from(rcdev);
+-	unsigned long offset = BIT_ULL_WORD(id);
+-	u64 mask = BIT_ULL_MASK(id);
+-	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+-	u64 value = readq(reg_status);
++	unsigned long offset = id / 32;
++	u32 mask = BIT(id % 32);
++	void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u32);
++	u32 value = readl(reg_status);
+ 
+ 	return !((value ^ jh7100_reset_asserted[offset]) & mask);
+ }
 -- 
 2.17.1
 
