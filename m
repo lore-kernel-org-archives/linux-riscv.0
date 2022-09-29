@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC47C07E9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 06:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4A3C07E9D
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 08:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gfZ/WBDxID/aUcabtFEu3+u2HZLHcSrwBVoiBs2kJZ4=; b=QqlNk5A3fjt5+q
-	8Hr4tdHMVMHAennYsfrDVLTdQxff7ULeXnEY1OskEc5XcWLHKkNa6+t7KWrkXolJn09NiNvynvUJr
-	DFcXoqJp+drQ8UaT0LTzE9ZyvWUvnKEJNR0NqR9pnQnW/OrcFVHVOM54HLTUvtHwvU8Sd6j2P53zL
-	4O90UZBtWCX96hPSpN+3beZ6A5ZAy1NC5cGg6ykoBuC6JaXfG49PR8Oo/VWim2jUlq1YdzXQYPopG
-	gR03hdmpPahoOvsqSeqz3b/bEFvwf8pfrITRWyWHTVFMUJ+kWAUJtydPsdTZzEVysZ/8Z3HBSc41w
-	aCqhc+TJMoyVbRb83k3w==;
+	List-Owner; bh=J+44ff8KwSUeHV0NkSbgI72yni9SHmtDNf8MEdoSFmQ=; b=YQbCsyKDZyML/9
+	Ly+29nqdcsrnPTqA0qEZK3M9OneXaKSZdvyXozlE3+2oQAjFWFS3Mf8UwN+5vLyZQ40xa9CMs92/I
+	Y491uNe3kFFAR7J6J7SxbpI0SGyiQyV+Zq/fKr0fWG+GcqlKh9ieY8+pELa/nppywOPDp3vlrBB1H
+	yrPJAH9wFeiD1bNdB6m6o8fQdNOsrZiMo5sJadIjGwFv2AaDiAxq7TR/WkEBBIWyP/g+gU8p+Eayd
+	VCVM5vutPxosLFne6nnpCTvW5hJhcrFWw8LTotZrJOwYcVqAYroT+cOvke7nLuj9ePIktYB1imNkk
+	askgLHbTYmaQ5YZSWIOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odnVo-001UXg-Nf; Thu, 29 Sep 2022 06:59:12 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ododh-001l3M-0l; Thu, 29 Sep 2022 08:11:25 +0000
+Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odnVl-001UWN-Ld
-	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 06:59:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 527C3B82365
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Sep 2022 06:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D14BC433D7
-	for <linux-riscv@lists.infradead.org>; Thu, 29 Sep 2022 06:59:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664434747;
-	bh=C+WAtY8I1JyRlO6Uhyg5C/BMZb/xqfBVLwspYuGFDwQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WyRIvYWpwpGgwauR5vSBAaqZXO21QBYWyS59T0eCkT2mbfckmjfO6plRXbc7+feir
-	 TWshFHAgwIpuB0ArcK40BUPsC+0wbP+ACXsFOoozK3aBaWhz182MmU08WbYog8drEb
-	 /gKGMcP6DnPHXYT3RUlVd97ArY/IHHS3obpNEzAqTFGRPzet77izYId7j9luqQamzw
-	 Ka75gR3Ihy7m5M2zGtkkV3xjmlgPKqsePjap5EXYaVQWQ4o2dlaI/EE8rY4mPAYYhL
-	 im+LsEIF7zXrwGJSOCPoNafkpSneP2tLpezMgQqTAem1AOgxzWXwhS/9xCrb/8AyPz
-	 aita5K3wK7Xtw==
-Received: by mail-ot1-f44.google.com with SMTP id z18-20020a9d65d2000000b0065c3705f7beso362052oth.9
-        for <linux-riscv@lists.infradead.org>; Wed, 28 Sep 2022 23:59:07 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2rUaOvApzYv1jjrmNxltoi2RiBoV7Hpx9i/01Lt9RrBN+Bbc4S
-	JLs70dAoFp24LyUzg0QauXEMqHvemxEYyNn9IyM=
-X-Google-Smtp-Source: AMsMyM7+BvCMRELmpObyzTYRmD00TTcAX2BXduuXOn8WX7CaW119iB1HJmJcBFnOXe5Ags6vmh9PtmKtsRJr6CZ+w4o=
-X-Received: by 2002:a9d:70c3:0:b0:65c:55fb:a153 with SMTP id
- w3-20020a9d70c3000000b0065c55fba153mr703738otj.308.1664434745178; Wed, 28 Sep
- 2022 23:59:05 -0700 (PDT)
+	id 1ododd-001l1M-DF
+	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 08:11:23 +0000
+Received: by mail-io1-xd2b.google.com with SMTP id 138so339870iou.9
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Sep 2022 01:11:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=Y/ouPO+8ggCR5XfiR9vvBUlZSYI49RbT/rsnOPSR8Rg=;
+        b=Jd3yUrIuLUuBGk3SrYhc2WzVt+g9kcDw2xlpyLmcctfuqAi4yyhINFoOXVhn7Lw+VM
+         xsVuQW/Rqvm2UizfwCBAQp0ZznjKHSm5X4ckphwe5PQ4S03OpNYrVjntnciR/e0tBQ+1
+         Q+PZFbNZhpOWK1NHTl42OgE6cWuLVhlTwfYlA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=Y/ouPO+8ggCR5XfiR9vvBUlZSYI49RbT/rsnOPSR8Rg=;
+        b=pVEHldVSHeNvG/VrSDxqgvO7+yax5rpnWgmoNZRTRZkJdxiJ5lqjly6MRAr69CBe7t
+         Mz/8C4N1mqsqExOvjtisnlq/QqcQtbFIn+rIp5D25yFXm2imtIrrJ0Kj/ZPq7Zavu8AJ
+         BPrSfP41LwqppnQXyMPBvFUKFFelz8P8z2QdDDhez+y9xhw2NMVxL1631ifCy7kjI7nw
+         OssGzscqqxrWwC8Jhk2WcxOf0E/VWPAhu3H+zowFSRLTOCTAJGYKRaIcDbPMHix9Twqy
+         UNBXYIBW/CCqjC48gBTW6O9df9HYHxz/EvZ2u/nFMPD/MdvgGX8SxGB1R9mynYIoAJrW
+         t/UQ==
+X-Gm-Message-State: ACrzQf3PtfLAnyuuDxuW8vRtLNoCDMA8M+n3Kg+ycox4c3RuvR5p8+8M
+	L+0BKGtTUyIqHA+oC9FOan9Yx+4Ck6JuZ2O4SqKQ
+X-Google-Smtp-Source: AMsMyM4iB7bqNu9AVpHcTK6CBUrARbJ2zy0wYAW9dBBK8iB9whhsHJj3ZWdUR5CTscix10ClKTdxwkzW4uMEVfgVOEU=
+X-Received: by 2002:a05:6602:15c7:b0:6a1:c3fc:98fd with SMTP id
+ f7-20020a05660215c700b006a1c3fc98fdmr892233iow.151.1664439079361; Thu, 29 Sep
+ 2022 01:11:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220928162007.3791-1-jszhang@kernel.org> <20220928162007.3791-4-jszhang@kernel.org>
- <YzR8OUFuV+R1i1Y6@xhacker> <CAJF2gTSaCGeMG06xrRxjkk2UnjqcgrRTwdch9Ug_TyH-9LsP4g@mail.gmail.com>
-In-Reply-To: <CAJF2gTSaCGeMG06xrRxjkk2UnjqcgrRTwdch9Ug_TyH-9LsP4g@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 29 Sep 2022 14:58:53 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRv5dMev8Y16ZaAqu=ph2EKCPNC79+Wz_FDEbwSg=0Q1g@mail.gmail.com>
-Message-ID: <CAJF2gTRv5dMev8Y16ZaAqu=ph2EKCPNC79+Wz_FDEbwSg=0Q1g@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] riscv: fix race when vmap stack overflow and
- remove shadow_stack
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+References: <20220826151556.1708879-1-heiko@sntech.de> <CAOnJCU+e-rEN8AZ+5=owR4hVSq7jbYqcZUNwc7-8JbzgGK1d0Q@mail.gmail.com>
+In-Reply-To: <CAOnJCU+e-rEN8AZ+5=owR4hVSq7jbYqcZUNwc7-8JbzgGK1d0Q@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 29 Sep 2022 01:11:08 -0700
+Message-ID: <CAOnJCU+qrmTE3OEFhwvnTT6dQjVZn4jn5TEMz=8+TYahW4sdOw@mail.gmail.com>
+Subject: Re: [PATCH] drivers/perf: riscv_pmu_sbi: add perf_user_access sysctl
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, cmuellner@linux.com, 
+	philipp.tomsich@vrull.eu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220928_235910_018924_BDE7F8AE 
-X-CRM114-Status: GOOD (  39.04  )
+X-CRM114-CacheID: sfid-20220929_011121_736215_FFEB8653 
+X-CRM114-Status: GOOD (  37.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,272 +84,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 29, 2022 at 1:54 PM Guo Ren <guoren@kernel.org> wrote:
+On Fri, Aug 26, 2022 at 3:10 PM Atish Patra <atishp@atishpatra.org> wrote:
 >
-> On Thu, Sep 29, 2022 at 1:03 AM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > On Thu, Sep 29, 2022 at 12:20:06AM +0800, Jisheng Zhang wrote:
-> > > Currently, when detecting vmap stack overflow, riscv firstly switches
-> > > to the so called shadow stack, then use this shadow stack to call the
-> > > get_overflow_stack() to get the overflow stack. However, there's
-> > > a race here if two or more harts use the same shadow stack at the same
-> > > time.
-> > >
-> > > To solve this race, we rely on two facts:
-> > > 1. the content of kernel thread pointer I.E "tp" register can still
-> > > be gotten from the the CSR_SCRATCH register, thus we can clobber tp
-> > > under the condtion that we restore tp from CSR_SCRATCH later.
-> > >
-> > > 2. Once vmap stack overflow happen, panic is comming soon, no
-> > > performance concern at all, so we don't need to define the overflow
-> > > stack as percpu var, we can simplify it into a pointer array which
-> > > points to allocated pages.
-> > >
-> > > Thus we can use tp as a tmp register to get the cpu id to calculate
-> > > the offset of overflow stack pointer array for each cpu w/o shadow
-> > > stack any more. Thus the race condition is removed as a side effect.
-> > >
-> > > NOTE: we can use similar mechanism to let each cpu use different shadow
-> > > stack to fix the race codition, but if we can remove shadow stack usage
-> > > totally, why not.
-> > >
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> > > ---
-> > >  arch/riscv/include/asm/asm-prototypes.h |  1 -
-> > >  arch/riscv/include/asm/thread_info.h    |  4 +-
-> > >  arch/riscv/kernel/asm-offsets.c         |  1 +
-> > >  arch/riscv/kernel/entry.S               | 56 ++++---------------------
-> > >  arch/riscv/kernel/traps.c               | 31 ++++++++------
-> > >  5 files changed, 29 insertions(+), 64 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-> > > index ef386fcf3939..4a06fa0f6493 100644
-> > > --- a/arch/riscv/include/asm/asm-prototypes.h
-> > > +++ b/arch/riscv/include/asm/asm-prototypes.h
-> > > @@ -25,7 +25,6 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
-> > >  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
-> > >  DECLARE_DO_ERROR_INFO(do_trap_break);
-> > >
-> > > -asmlinkage unsigned long get_overflow_stack(void);
-> > >  asmlinkage void handle_bad_stack(struct pt_regs *regs);
-> > >
-> > >  #endif /* _ASM_RISCV_PROTOTYPES_H */
-> > > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> > > index c970d41dc4c6..c604a5212a73 100644
-> > > --- a/arch/riscv/include/asm/thread_info.h
-> > > +++ b/arch/riscv/include/asm/thread_info.h
-> > > @@ -28,14 +28,12 @@
-> > >
-> > >  #define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
-> > >  #define OVERFLOW_STACK_SIZE     SZ_4K
-> > > -#define SHADOW_OVERFLOW_STACK_SIZE (1024)
-> > > +#define OVERFLOW_STACK_SHIFT 12
-> >
-> > oops, this should be removed, will update it in a newer version after
-> > collecting review comments.
-> >
-> > >
-> > >  #define IRQ_STACK_SIZE               THREAD_SIZE
-> > >
-> > >  #ifndef __ASSEMBLY__
-> > >
-> > > -extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
-> > > -
-> > >  #include <asm/processor.h>
-> > >  #include <asm/csr.h>
-> > >
-> > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> > > index df9444397908..62bf3bacc322 100644
-> > > --- a/arch/riscv/kernel/asm-offsets.c
-> > > +++ b/arch/riscv/kernel/asm-offsets.c
-> > > @@ -37,6 +37,7 @@ void asm_offsets(void)
-> > >       OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-> > >       OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
-> > >       OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-> > > +     OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
-> > >
-> > >       OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
-> > >       OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
-> > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > > index a3e1ed2fa2ac..5a6171a90d81 100644
-> > > --- a/arch/riscv/kernel/entry.S
-> > > +++ b/arch/riscv/kernel/entry.S
-> > > @@ -223,54 +223,16 @@ END(ret_from_exception)
-> > >
-> > >  #ifdef CONFIG_VMAP_STACK
-> > >  ENTRY(handle_kernel_stack_overflow)
-> > > -     la sp, shadow_stack
-> > > -     addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
-> > > -
-> > > -     //save caller register to shadow stack
-> > > -     addi sp, sp, -(PT_SIZE_ON_STACK)
-> > > -     REG_S x1,  PT_RA(sp)
-> > > -     REG_S x5,  PT_T0(sp)
-> > > -     REG_S x6,  PT_T1(sp)
-> > > -     REG_S x7,  PT_T2(sp)
-> > > -     REG_S x10, PT_A0(sp)
-> > > -     REG_S x11, PT_A1(sp)
-> > > -     REG_S x12, PT_A2(sp)
-> > > -     REG_S x13, PT_A3(sp)
-> > > -     REG_S x14, PT_A4(sp)
-> > > -     REG_S x15, PT_A5(sp)
-> > > -     REG_S x16, PT_A6(sp)
-> > > -     REG_S x17, PT_A7(sp)
-> > > -     REG_S x28, PT_T3(sp)
-> > > -     REG_S x29, PT_T4(sp)
-> > > -     REG_S x30, PT_T5(sp)
-> > > -     REG_S x31, PT_T6(sp)
-> > > -
-> > > -     la ra, restore_caller_reg
-> > > -     tail get_overflow_stack
-> > > -
-> > > -restore_caller_reg:
-> > > -     //save per-cpu overflow stack
-> > > -     REG_S a0, -8(sp)
-> > > -     //restore caller register from shadow_stack
-> > > -     REG_L x1,  PT_RA(sp)
-> > > -     REG_L x5,  PT_T0(sp)
-> > > -     REG_L x6,  PT_T1(sp)
-> > > -     REG_L x7,  PT_T2(sp)
-> > > -     REG_L x10, PT_A0(sp)
-> > > -     REG_L x11, PT_A1(sp)
-> > > -     REG_L x12, PT_A2(sp)
-> > > -     REG_L x13, PT_A3(sp)
-> > > -     REG_L x14, PT_A4(sp)
-> > > -     REG_L x15, PT_A5(sp)
-> > > -     REG_L x16, PT_A6(sp)
-> > > -     REG_L x17, PT_A7(sp)
-> > > -     REG_L x28, PT_T3(sp)
-> > > -     REG_L x29, PT_T4(sp)
-> > > -     REG_L x30, PT_T5(sp)
-> > > -     REG_L x31, PT_T6(sp)
-> > > +     la sp, overflow_stack
-> > > +     /* use tp as tmp register since we can restore it from CSR_SCRATCH */
-> > > +     REG_L tp, TASK_TI_CPU(tp)
-> > > +     slli tp, tp, RISCV_LGPTR
-> > > +     add tp, sp, tp
-> > > +     REG_L sp, 0(tp)
-> > > +
-> > > +     /* restore tp */
-> > > +     csrr tp, CSR_SCRATCH
-> > >
-> > > -     //load per-cpu overflow stack
-> > > -     REG_L sp, -8(sp)
-> > >       addi sp, sp, -(PT_SIZE_ON_STACK)
-> > >
-> > >       //save context to overflow stack
-> > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > > index 73f06cd149d9..b6c64f0fb70f 100644
-> > > --- a/arch/riscv/kernel/traps.c
-> > > +++ b/arch/riscv/kernel/traps.c
-> > > @@ -216,23 +216,12 @@ int is_valid_bugaddr(unsigned long pc)
-> > >  #endif /* CONFIG_GENERIC_BUG */
-> > >
-> > >  #ifdef CONFIG_VMAP_STACK
-> > > -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
-> > > -             overflow_stack)__aligned(16);
-> > > -/*
-> > > - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-> > > - * to get per-cpu overflow stack(get_overflow_stack).
-> > > - */
-> > > -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
-> > > -asmlinkage unsigned long get_overflow_stack(void)
-> > > -{
-> > > -     return (unsigned long)this_cpu_ptr(overflow_stack) +
-> > > -             OVERFLOW_STACK_SIZE;
-> > > -}
-> > > +void *overflow_stack[NR_CPUS] __ro_after_init __aligned(16);
-> Er... We've talked NR_CPUS = 8192, even a pointer would cause 64KB wasted.
 >
-> I prefer the previous solution with a atomic flag.
 >
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 5cbd6684ef52..42a3b14a20ab 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -223,6 +223,9 @@ END(ret_from_exception)
+> On Fri, Aug 26, 2022 at 8:16 AM Heiko Stuebner <heiko@sntech.de> wrote:
+>>
+>> Add a sysctl similar to the one on arm64 to enable/disable
+>> access to counter CSRs from u-mode on RISC-V.
+>>
+>> The default is of course set to disabled keeping the current
+>> state of access - to only the TIME CSR.
+>>
+>> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+>> ---
+>>  Documentation/admin-guide/sysctl/kernel.rst |  6 +--
+>>  drivers/perf/riscv_pmu_sbi.c                | 43 ++++++++++++++++++++-
+>>  2 files changed, 44 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
+>> index ee6572b1edad..efd4bc385e7a 100644
+>> --- a/Documentation/admin-guide/sysctl/kernel.rst
+>> +++ b/Documentation/admin-guide/sysctl/kernel.rst
+>> @@ -894,15 +894,15 @@ enabled, otherwise writing to this file will return ``-EBUSY``.
+>>  The default value is 8.
+>>
+>>
+>> -perf_user_access (arm64 only)
+>> -=================================
+>> +perf_user_access (arm64 and riscv only)
+>> +=======================================
+>>
+>>  Controls user space access for reading perf event counters. When set to 1,
+>>  user space can read performance monitor counter registers directly.
+>>
+>>  The default value is 0 (access disabled).
+>>
+>> -See Documentation/arm64/perf.rst for more information.
+>> +See Documentation/arm64/perf.rst for more information on arm64
+>>
+>>
+>>  pid_max
+>> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+>> index 6f6681bbfd36..7aab8d673357 100644
+>> --- a/drivers/perf/riscv_pmu_sbi.c
+>> +++ b/drivers/perf/riscv_pmu_sbi.c
+>> @@ -41,6 +41,8 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
+>>         NULL,
+>>  };
+>>
+>> +static int sysctl_perf_user_access __read_mostly;
+>> +
+>>  /*
+>>   * RISC-V doesn't have hetergenous harts yet. This need to be part of
+>>   * per_cpu in case of harts with different pmu counters
+>> @@ -640,13 +642,22 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+>>         return IRQ_HANDLED;
+>>  }
+>>
+>> +/*
+>> + * Depending on the perf_user_access setting, enable the access
+>> + * from usermode either for all counters or for TIME csr only.
+>> + */
+>> +static void riscv_pmu_update_user_access(void *info)
+>> +{
+>> +       csr_write(CSR_SCOUNTEREN, sysctl_perf_user_access ? GENMASK(31, 0) :
+>> +                                                           0x2);
+>> +}
+>> +
+>>  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+>>  {
+>>         struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+>>         struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+>>
+>> -       /* Enable the access for TIME csr only from the user mode now */
+>> -       csr_write(CSR_SCOUNTEREN, 0x2);
+>> +       riscv_pmu_update_user_access(NULL);
+>>
+>>         /* Stop all the counters so that they can be enabled from perf */
+>>         pmu_sbi_stop_all(pmu);
+>> @@ -785,6 +796,32 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+>>         cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+>>  }
+>>
+>> +static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
+>> +                       int write, void *buffer, size_t *lenp, loff_t *ppos)
+>> +{
+>> +       int ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
+>> +
+>> +       if (ret || !write)
+>> +               return ret;
+>> +
+>> +       on_each_cpu(riscv_pmu_update_user_access, NULL, 1);
+>> +
 >
->  #ifdef CONFIG_VMAP_STACK
->  ENTRY(handle_kernel_stack_overflow)
-> +1:     la sp, spin_ shadow_stack
-> +       amoswap.w sp, sp, (sp)
-> +       bnez sp, 1b
->         la sp, shadow_stack
->         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
 >
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index 73f06cd149d9..9058a05cac53 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -229,11 +229,15 @@ asmlinkage unsigned long get_overflow_stack(void)
->                 OVERFLOW_STACK_SIZE;
->  }
+> This enables all the counter access from the user space. Not the ones that were being monitored through perf system calls.
+> Looking at ARM64 code, they clear out all other counters during the start to avoid the leakage.
 >
-> +atomic_t spin_ shadow_stack __section(".sdata");
-> +
->  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->  {
->         unsigned long tsk_stk = (unsigned long)current->stack;
->         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+> This is a bit expensive to achieve with the current SBI interface as there is no simpler interface to clear out the mhpmcounter value without starting it.
+> We have to start the other counters with 0 value and stop it immediately which is very ugly.
 >
-> +       atomic_set_release(spin_ shadow_stack, 0);
-Sorry, it should be:
-   +       atomic_set_release(&spin_ shadow_stack, 0);
+> There is a supervisor counter delegation proposal that is in discussion which can write the mhpmevent/mhpmcounter (via a different CSR) directly from S-mode.
+> Once that is in place, we can enable such functionality.
+>
+> I am not sure how commonly this feature is used. Personally, I would prefer to not enable this until supervisor counter delegation is implemented.
+> But I would like to hear what others think.
+>
+> If it is a very common feature that RISC-V should support immediately, we have to resort to the ugly route of enabling/disabling the unused counters.
+>
 
-> +
->         console_verbose();
->
->         pr_emerg("Insufficient stack space to handle exception!\n");
->
->
->
->
->
-> > >
-> > >  asmlinkage void handle_bad_stack(struct pt_regs *regs)
-> > >  {
-> > >       unsigned long tsk_stk = (unsigned long)current->stack;
-> > > -     unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
-> > > +     unsigned long ovf_stk = (unsigned long)overflow_stack[raw_smp_processor_id()];
-> > >
-> > >       console_verbose();
-> > >
-> > > @@ -248,4 +237,20 @@ asmlinkage void handle_bad_stack(struct pt_regs *regs)
-> > >       for (;;)
-> > >               wait_for_interrupt();
-> > >  }
-> > > +
-> > > +static int __init alloc_overflow_stacks(void)
-> > > +{
-> > > +     u8 *s;
-> > > +     int cpu;
-> > > +
-> > > +     for_each_possible_cpu(cpu) {
-> > > +             s = (u8 *)__get_free_pages(GFP_KERNEL, get_order(OVERFLOW_STACK_SIZE));
-> > > +             if (WARN_ON(!s))
-> > > +                     return -ENOMEM;
-> > > +             overflow_stack[cpu] = &s[OVERFLOW_STACK_SIZE];
-> >
-> > Since overflow_stack[cpu] points to the top of the slack, we need to
-> > update the ovf_stack dumping in handle_bad_stack(). will take care
-> > this in newer version.
-> >
-> > > +             printk("%px\n", overflow_stack[cpu]);
-> >
-> > forget to remove this printk :(
->
+I just realized my above response was never delivered to the mailing
+list. In a way that's a good thing as I am trying to retract my above
+opinion :)
+There are some discussions around enabling cycle/instret for the user
+space unconditionally [1] and a patch from palmer[2]
+To allow userspace to selectively enable the cycle counter, we need
+this patch. Thus, it should be merged asap.
+
+I am still not sure how big the problem is for exposing the previously
+used counter values. We can have separate discussions on that and a
+follow up patch if required.
+
+[1] https://lore.kernel.org/all/YxEhC%2FmDW1lFt36J@aurel32.net/
+[2] https://lore.kernel.org/linux-riscv/YzS0RNzH2CprLSyc@spud/T/#ma8e0034fa9172a66820d6d5fbc3314619ff657a5
+
+
+>> +       return 0;
+>> +}
+>> +
+>> +static struct ctl_table sbi_pmu_sysctl_table[] = {
+>> +       {
+>> +               .procname       = "perf_user_access",
+>> +               .data           = &sysctl_perf_user_access,
+>> +               .maxlen         = sizeof(unsigned int),
+>> +               .mode           = 0644,
+>> +               .proc_handler   = riscv_pmu_proc_user_access_handler,
+>> +               .extra1         = SYSCTL_ZERO,
+>> +               .extra2         = SYSCTL_ONE,
+>> +       },
+>> +       { }
+>> +};
+>> +
+>>  static int pmu_sbi_device_probe(struct platform_device *pdev)
+>>  {
+>>         struct riscv_pmu *pmu = NULL;
+>> @@ -834,6 +871,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+>>         if (ret)
+>>                 goto out_unregister;
+>>
+>> +       register_sysctl("kernel", sbi_pmu_sysctl_table);
+>> +
+>>         return 0;
+>>
+>>  out_unregister:
+>> --
+>> 2.35.1
+>>
 >
 >
 > --
-> Best Regards
->  Guo Ren
+> Regards,
+> Atish
 
 
 
--- 
-Best Regards
- Guo Ren
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
