@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B183FC43219
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 14:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58E1C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 14:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G5p9jHoBbZFUvsRfOLbiIqYSFbOhoGzSJl7weX0N5mg=; b=CFERc5s8xYBaKO
-	LA4FSEpMZZJnc17W1rWr4AmcWbAQBPz5sLDrp0+J0civlUOR7493LrmEtFvOCsMobNs3B+ATjvkvo
-	je5G54xGzoUYuQI7/MJ5xAZB5fS1xZiY8H5D1kcp9tB1t/jjQOkmCJTzfL8bYrRg3/Eg2e+tsyA1f
-	qX9+ruxiYo56KXJdpJgulP/5UMkeXqaCK09Z4FU1wevdaT4/w2jZZ2kHsYw1IfUmmkU1pOpqlaRrP
-	uSbKzBpkQ4SFQ/VBQ2EyqrICr0DQECJzxpsgxAshnqxyIf5dlBWSwHp3URGTg4Sq7IeF3UnByo7+o
-	fAK2pyTOpi21hw29mT1Q==;
+	List-Owner; bh=8+FrmEh5XuD/qkMbCMpDOp1q2nYOQivmzIyXa6V6tlE=; b=3a8zEVkHPT+ure
+	khMgGyHH3P+ky3ys7RQa1O8EKprKkbJbIYJe0bTn1gaZ6ejGJN1DsDN1cKlUh/ggo/fXFbp+U9RMC
+	KLKpr/Oi7rpqE0iqRFCRw6wWTuORafZNBakvG4+gO/93DxriXZHz1RVeUA/1JvENNaRi9sNCR19Sx
+	Uz2ureRt5iOzvfd+lYaOLGLt2OvzkbTaXeh6H91mdCUDFVNyqzXTi2UkOTFvxqIruFjEQYbsC+kZO
+	TMESkPZS26TRm/NflCPq2ZZ8DZEcP8/MHKvhPCfyWD5NAtFqloI/wHgPHWQnH61g3oHDJaEfMfnZx
+	gOlTlXUy87N0lLM9D57w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odubj-003a0f-2b; Thu, 29 Sep 2022 14:33:47 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1odubk-003a15-9q; Thu, 29 Sep 2022 14:33:48 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odubb-003Zqv-5Y
-	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 14:33:42 +0000
-X-QQ-mid: bizesmtp84t1664461971t2352kc1
+	id 1oduba-003Zq0-KY
+	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 14:33:43 +0000
+X-QQ-mid: bizesmtp84t1664461960tom9azgc
 Received: from localhost.localdomain ( [113.72.145.157])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 29 Sep 2022 22:32:49 +0800 (CST)
+	id ; Thu, 29 Sep 2022 22:32:38 +0800 (CST)
 X-QQ-SSF: 01000000002000201000B00A0000000
-X-QQ-FEAT: SFhf6fKhx/8oAqA+xXX7FIVEvIELHkN73OBy0+rHEEM2lFkxEFVw5OIBn4NmG
-	2zDsWQpDLqeK++KqYzu5fbIviEMo2hnt3AAY5wVHQHp1Ezfci+CFIB8IDyJWeb8lGNJ9YSF
-	D1UEr6wFRaF0VxgMrprepY9D14HFi92e8vcfjNOdEYqSQqF4yriv5Y6PEzn+zYi81LAu2D/
-	zmdbOxlZRFTddhT4YHMmWL2qg/IL6x9MwR5eHKO4dxr1VrOO9r/nlzkfQnbfw//xfjs0Bao
-	sfgCDyELD2lB7rZyYQkD6BxklUKOsR2zGf9SznLGPfzgidGCV5U7Pax+rBuWV1smgq6JvRH
-	Gmns7JGqiXyZydixwie0nY3I/u3MnKdYSAi1tcl+lkx4mpPogqxHbJGJwrfu5NubOu0PXrU
-	ouW/Js4BAA+Ew/vQDQNfr3AihJ8ZUEUG
+X-QQ-FEAT: D6RqbDSxuq4U0+4EPbhlMjbtgIHEmuIGrzAaZUV6P9r6ULT3ZXcYmfPkM7kLO
+	tBLQOMC8PMUU56VMKQOiMxHeN9VBI/RvAQs9VVbFXGv3lrEVcKX3LTtljDm4ynytHSwHqs7
+	IX+cDEieJ0sZzxp7ls2POaOH6vjec26x9BYYYtomP+zcVQQKje0Qmth/sFpONH6rLx4aRvC
+	+y7PlGtVz5/ARbDdaCeQeXir0ovYVGRyyRet/C2HxvOlkjl/QheEHbRSEAcxAkCltpPK4Ur
+	m0n5te34lTwwTWA+kHRCGIJP+SdRrmfGTnKe0DDh5lhVgdrLJBC7ThZNaNXNZLRtIwxGXVh
+	uOxYC8lsqfPf7eDftNwYZ6+J9MzLsqp1QZYjOmU8pwPvMBNvHIlPHE3LIyh6gDnibW++45W
+	Rv6JzftgGvNT3wHWmu/M5A==
 X-QQ-GoodBg: 0
 From: Hal Feng <hal.feng@linux.starfivetech.com>
 To: linux-riscv@lists.infradead.org,
@@ -58,17 +58,18 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	Emil Renner Berthing <kernel@esmil.dk>,
 	Hal Feng <hal.feng@linux.starfivetech.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 05/30] soc: sifive: l2 cache: Convert to platform driver
-Date: Thu, 29 Sep 2022 22:32:00 +0800
-Message-Id: <20220929143225.17907-6-hal.feng@linux.starfivetech.com>
+Subject: [PATCH v1 02/30] dt-bindings: timer: Add StarFive JH7110 clint
+Date: Thu, 29 Sep 2022 22:31:57 +0800
+Message-Id: <20220929143225.17907-3-hal.feng@linux.starfivetech.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
 References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220929_073339_530669_63154693 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20220929_073339_176138_DCD5DFC6 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,127 +89,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-This converts the driver to use the builtin_platform_driver_probe macro
-to initialize the driver. This macro ends up calling device_initcall as
-was used previously, but also allocates a platform device which gives us
-access to much nicer APIs such as platform_ioremap_resource,
-platform_get_irq and dev_err_probe.
+Add compatible string for the StarFive JH7110 clint.
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
 ---
- drivers/soc/sifive/sifive_l2_cache.c | 79 ++++++++++++++--------------
- 1 file changed, 40 insertions(+), 39 deletions(-)
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index 59640a1d0b28..010d612f7420 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -7,9 +7,9 @@
-  */
- #include <linux/debugfs.h>
- #include <linux/interrupt.h>
--#include <linux/of_irq.h>
--#include <linux/of_address.h>
--#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/platform_device.h>
- #include <asm/cacheinfo.h>
- #include <soc/sifive/sifive_l2_cache.h>
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index e64f46339079..f85e4982ad05 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -26,6 +26,7 @@ properties:
+       - enum:
+           - sifive,fu540-c000-clint
+           - starfive,jh7100-clint
++          - starfive,jh7110-clint
+           - canaan,k210-clint
+       - const: sifive,clint0
  
-@@ -96,12 +96,6 @@ static void l2_config_read(void)
- 	pr_info("L2CACHE: Index of the largest way enabled: %d\n", regval);
- }
- 
--static const struct of_device_id sifive_l2_ids[] = {
--	{ .compatible = "sifive,fu540-c000-ccache" },
--	{ .compatible = "sifive,fu740-c000-ccache" },
--	{ /* end of table */ },
--};
--
- static ATOMIC_NOTIFIER_HEAD(l2_err_chain);
- 
- int register_sifive_l2_error_notifier(struct notifier_block *nb)
-@@ -192,36 +186,29 @@ static irqreturn_t l2_int_handler(int irq, void *device)
- 	return IRQ_HANDLED;
- }
- 
--static int __init sifive_l2_init(void)
-+static int __init sifive_l2_probe(struct platform_device *pdev)
- {
--	struct device_node *np;
--	struct resource res;
--	int i, rc, intr_num;
--
--	np = of_find_matching_node(NULL, sifive_l2_ids);
--	if (!np)
--		return -ENODEV;
--
--	if (of_address_to_resource(np, 0, &res))
--		return -ENODEV;
--
--	l2_base = ioremap(res.start, resource_size(&res));
--	if (!l2_base)
--		return -ENOMEM;
--
--	intr_num = of_property_count_u32_elems(np, "interrupts");
--	if (!intr_num) {
--		pr_err("L2CACHE: no interrupts property\n");
--		return -ENODEV;
--	}
--
--	for (i = 0; i < intr_num; i++) {
--		g_irq[i] = irq_of_parse_and_map(np, i);
--		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
--		if (rc) {
--			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
--			return rc;
--		}
-+	struct device *dev = &pdev->dev;
-+	int nirqs;
-+	int ret;
-+	int i;
-+
-+	l2_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(l2_base))
-+		return PTR_ERR(l2_base);
-+
-+	nirqs = platform_irq_count(pdev);
-+	if (nirqs <= 0)
-+		return dev_err_probe(dev, -ENODEV, "no interrupts\n");
-+
-+	for (i = 0; i < nirqs; i++) {
-+		g_irq[i] = platform_get_irq(pdev, i);
-+		if (g_irq[i] < 0)
-+			return g_irq[i];
-+
-+		ret = devm_request_irq(dev, g_irq[i], l2_int_handler, 0, pdev->name, NULL);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Could not request IRQ %d\n", g_irq[i]);
- 	}
- 
- 	l2_config_read();
-@@ -234,4 +221,18 @@ static int __init sifive_l2_init(void)
- #endif
- 	return 0;
- }
--device_initcall(sifive_l2_init);
-+
-+static const struct of_device_id sifive_l2_match[] = {
-+	{ .compatible = "sifive,fu540-c000-ccache" },
-+	{ .compatible = "sifive,fu740-c000-ccache" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver sifive_l2_driver = {
-+	.driver = {
-+		.name = "sifive_l2_cache",
-+		.of_match_table = sifive_l2_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+builtin_platform_driver_probe(sifive_l2_driver, sifive_l2_probe);
 -- 
 2.17.1
 
