@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6CFC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 17:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA080C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 18:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tbHF/GgJ4xKmtbkZ2WlQzwnkbUfvZ+RqUTl99TY/DUA=; b=Tmb/bvYVAFJZzF
-	MvFBmlxxTjuxbxgcq6nX7NxmQT1s3R7JaefLCtmlM5Cqe6gznp3RhxpxIMQWS93fBPgSjjzLGA0W+
-	qrlbGBPxYPsNXafPKDdLaA2kkSBWcqm7Hhtt6TPxpw0KoNqACPpMREa77TTxv1cJuB2WBi5KS7pgn
-	Zu8DKcUIUrwDXPpfraTItFN4lCNTpuXI7+fiD3I/0Z+9+LqlGW4cMkFNzzb97s4bQdQmFboOPneVn
-	idnUHanqrYy3lfXA8OjIp9mqmfQ5hMyJfToHVULq4iYEkpxIlSk1U+bOvPgJeqEh7FEnAzJKADO0L
-	qJD4ZYSbt9iJ+qLrPmvw==;
+	List-Owner; bh=9erqv/3ISntvvFucPdOM7uRRMl2BevCnM2BQvQAKQeY=; b=EqfZ6Y1olB9myU
+	k43OCviCpzqG7/hmEbjBAsVYHpqrWL1dwRBWjNMG8GKfA1cW0fFSJEMC/i6kztMZgM4cHVE9H7fxj
+	7GU9ctNq9mtM/hMnJBSPWPPwB/tRPuMnCgoXMCdFI9gQgx56gaiS+cjBsOt+TexMA0+U8G5IIGDGO
+	GQxz76fR6tfMk+lbYo2Jif8/YgJlzeguTqooY2JxoBwKsfAdbbmFdaU9utMPAMi0eC0nGoIXlZkTb
+	ThapChybzwxR5F/22S0cGh49mUjOGCn8ts7JNotlNiZ/91uCDQ46zOikFiVsFAxN+epDWNqqd0HHW
+	SPNSiuKQaGTW5AMTky/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odxow-004ngC-6m; Thu, 29 Sep 2022 17:59:38 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1odyAm-004tfO-1K; Thu, 29 Sep 2022 18:22:12 +0000
+Received: from mail-oa1-f46.google.com ([209.85.160.46])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1odxor-004ne5-TE
-	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 17:59:36 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 40D26B8261D;
-	Thu, 29 Sep 2022 17:59:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8C7C433D6;
-	Thu, 29 Sep 2022 17:59:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664474370;
-	bh=q9pUnXr+y7ypf+y9MFvS031N4YM5aIIn48LYK2fF6ak=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NsesspPuNjiQpeaUs5Gl0Pc5mZrqIZrRFwrqNTM2SlBclmeg4Dh2fzkdW1q4jmPhF
-	 dxWFzIvSoedHnZWGkpgjQHbM7jplc2ug/MXFq9CvXRCd8wgeynb9Mu1Sx19iyWdqNr
-	 0bFP/QFI2R/jpoK0exdhgZ9PNLWtJ5n6JLMgevAMSthuiVBuGG3SwVI6oi31mLn38w
-	 R0HwVpqYrP2eOs+eDNR344/s+xva+gSzcDPdUi02DGu8B1DCNcc+8gdj5XxchMTY2y
-	 ZQa9FyasbW40mQ5ZZiIY6gHZHyrY1nNF7ziFOLnytHsqAxH8ozyhxp8XSyu+A8ktER
-	 x4xt4YUxj4OkQ==
-Date: Thu, 29 Sep 2022 18:59:24 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Hal Feng <hal.feng@linux.starfivetech.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 00/30] Basic StarFive JH7110 RISC-V SoC support
-Message-ID: <YzXc/FSbDpkElK0O@spud>
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <4ddabe3a-9f55-2a6a-c1c1-ccc3fc74e98a@linaro.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4ddabe3a-9f55-2a6a-c1c1-ccc3fc74e98a@linaro.org>
+	id 1odyAj-004tbN-5W
+	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 18:22:10 +0000
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-131886d366cso2772610fac.10
+        for <linux-riscv@lists.infradead.org>; Thu, 29 Sep 2022 11:21:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=E1E+aVkZps6nOEgD+k57dmty/5orHNqHkP5Ys8i20lo=;
+        b=fgUPu2A+pIno3VPZMBH2mPu6zLpOa68loEVPSIrjC2ZKvzLKaewE7LockxcGcp/3Ai
+         TAmSZMaysh5O3YdbBZfy8IPsT2xEX3+5Co/frMDbhSXSbF3Op8zJws6uTsHX5F0SBc0p
+         HzISfqDotKzQZmdEiBfLdbUnYmkU2YGHq7h22lA+EdatYf2ksyLeDK8MgGGShwWXepGw
+         KRdih7eYpA0c/anr32R0mhwE/MX0KE7iWGpfByetM497TrVcoH75Qm6v1KMADLVG5yX7
+         qbONf0UMw/DA9m8LQE1uFfzwM3TLR3Vq9f9jG8fr1iixO1ZrnoVmcn0lI07nCqtXnHYw
+         S/2g==
+X-Gm-Message-State: ACrzQf2js2fBBYdtIimaxLoYZ36XXo4kS/aOPyieFNmXEJxK+AEK+TUn
+	y1HapiAHtfZbcygCY4gVPw==
+X-Google-Smtp-Source: AMsMyM4PK1n2ewUg+rNJ24uv50FuD1odSQ6JC0CCIugoQsg1BgUKiJGYVAauz0ozKB3EAsP9iiimfg==
+X-Received: by 2002:a05:6870:d0c1:b0:131:8c96:a1d with SMTP id k1-20020a056870d0c100b001318c960a1dmr8382943oaa.117.1664475718330;
+        Thu, 29 Sep 2022 11:21:58 -0700 (PDT)
+Received: from macbook.herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id h8-20020acab708000000b003511cab9cb1sm21121oif.19.2022.09.29.11.21.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Sep 2022 11:21:57 -0700 (PDT)
+Received: (nullmailer pid 2518000 invoked by uid 1000);
+	Thu, 29 Sep 2022 18:21:56 -0000
+From: Rob Herring <robh@kernel.org>
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: devicetree@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>
+In-Reply-To: <20220929175147.19749-1-hal.feng@linux.starfivetech.com>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com> <20220929175147.19749-1-hal.feng@linux.starfivetech.com>
+Message-Id: <166447556924.2514425.231552070734010562.robh@kernel.org>
+Subject: Re: [PATCH v1 12/30] dt-bindings: reset: Add starfive,jh7110-reset bindings
+Date: Thu, 29 Sep 2022 13:21:56 -0500
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220929_105934_238894_0C3B2459 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20220929_112209_228604_C46A3DA9 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +71,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 29, 2022 at 04:45:26PM +0200, Krzysztof Kozlowski wrote:
-> On 29/09/2022 16:31, Hal Feng wrote:
+On Fri, 30 Sep 2022 01:51:47 +0800, Hal Feng wrote:
+> Add bindings for the reset controller on the JH7110 RISC-V
+> SoC by StarFive Technology Ltd.
 > 
-> > This series is also available at 
-> > https://github.com/hal-feng/linux/commits/visionfive2-minimal
-> > 
-> > [1] https://www.cnx-software.com/2022/08/23/starfive-visionfive-2-quad-core-risc-v-sbc-linux/
-> > [2] https://wiki.rvspace.org/
-> > 
-> > Emil Renner Berthing (17):
-> >   dt-bindings: riscv: Add StarFive JH7110 bindings
-> >   dt-bindings: timer: Add StarFive JH7110 clint
-> >   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-> >   dt-bindings: sifive-l2-cache: Support StarFive JH71x0 SoCs
-> >   soc: sifive: l2 cache: Convert to platform driver
-> >   soc: sifive: l2 cache: Add StarFive JH71x0 support
-> >   reset: starfive: jh7100: Use 32bit I/O on 32bit registers
-> >   dt-bindings: reset: Add StarFive JH7110 reset definitions
-> >   clk: starfive: Factor out common clock driver code
-> >   dt-bindings: clock: Add StarFive JH7110 system clock definitions
-> >   dt-bindings: clock: Add starfive,jh7110-clkgen-sys bindings
-> >   clk: starfive: Add StarFive JH7110 system clock driver
-> >   dt-bindings: clock: Add StarFive JH7110 always-on definitions
-> >   dt-bindings: clock: Add starfive,jh7110-clkgen-aon bindings
-> >   clk: starfive: Add StarFive JH7110 always-on clock driver
-> >   RISC-V: Add initial StarFive JH7110 device tree
-> >   RISC-V: Add StarFive JH7110 VisionFive2 board device tree
+> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+> ---
+>  .../bindings/reset/starfive,jh7110-reset.yaml | 54 +++++++++++++++++++
+>  1 file changed, 54 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
 > 
-> Where is the rest of patches? Lists got only 5 of them. Anyway this is a
-> bit too big patchset. Split per subsystem.
 
-They seem to be coming in over time in dribs and drabs. I assume it is
-not a mailing list problem given how many lists are CCed on the mail and
-the fact that they have different providers.
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-For v2 (or multiple v2s) please fix up your process so that this gets
-sent normally and not a couple of patches every hour.
+yamllint warnings/errors:
 
-Thanks,
-Conor.
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/reset/starfive,jh7110-reset.example.dts:18:18: fatal error: dt-bindings/reset/starfive-jh7110.h: No such file or directory
+   18 |         #include <dt-bindings/reset/starfive-jh7110.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [scripts/Makefile.lib:384: Documentation/devicetree/bindings/reset/starfive,jh7110-reset.example.dtb] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:1420: dt_binding_check] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/patch/
+
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
+
 
 _______________________________________________
 linux-riscv mailing list
