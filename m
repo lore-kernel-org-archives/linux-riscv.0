@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4A3C07E9D
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 08:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C693DC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Sep 2022 14:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J+44ff8KwSUeHV0NkSbgI72yni9SHmtDNf8MEdoSFmQ=; b=YQbCsyKDZyML/9
-	Ly+29nqdcsrnPTqA0qEZK3M9OneXaKSZdvyXozlE3+2oQAjFWFS3Mf8UwN+5vLyZQ40xa9CMs92/I
-	Y491uNe3kFFAR7J6J7SxbpI0SGyiQyV+Zq/fKr0fWG+GcqlKh9ieY8+pELa/nppywOPDp3vlrBB1H
-	yrPJAH9wFeiD1bNdB6m6o8fQdNOsrZiMo5sJadIjGwFv2AaDiAxq7TR/WkEBBIWyP/g+gU8p+Eayd
-	VCVM5vutPxosLFne6nnpCTvW5hJhcrFWw8LTotZrJOwYcVqAYroT+cOvke7nLuj9ePIktYB1imNkk
-	askgLHbTYmaQ5YZSWIOw==;
+	List-Owner; bh=dY8GEqs7RFoTEtxdGVqUQ3vpjA3UO3qnBw+Mso6liW0=; b=fsjyAbdEIYw+ff
+	RwlCQa6ZhLOtYvGn4TXXVJhBu8gNkEb+t9uOSUVeXYyoz9Ovyt48PlX80VB+TPs1bOMoUl47k1EJx
+	raQ0YbikmT+4okeke37zA/dXFXCnmPx3U4EeQPy4sqStcNtgxrVR+MpnPCqZIKI2hxQ/ZqaLy67Y0
+	jgkqIA4F2Hyk+0UH5drdXMLfdfrvg5gPcyWrB6lpWD4SfpL4HalCnlfMMu0wSlvSh5wbROZKWsl23
+	NDi1at9sCofRKwWxx0iUaQiAvvv1hUl3GAbBDfg3lZdqR1rADfS6Rlj/DFoDxDb1e5RZSRwZNIaw6
+	tOcGOpB1aUBtwo5vGHaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ododh-001l3M-0l; Thu, 29 Sep 2022 08:11:25 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1odubg-003ZzS-Am; Thu, 29 Sep 2022 14:33:44 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ododd-001l1M-DF
-	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 08:11:23 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id 138so339870iou.9
-        for <linux-riscv@lists.infradead.org>; Thu, 29 Sep 2022 01:11:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=Y/ouPO+8ggCR5XfiR9vvBUlZSYI49RbT/rsnOPSR8Rg=;
-        b=Jd3yUrIuLUuBGk3SrYhc2WzVt+g9kcDw2xlpyLmcctfuqAi4yyhINFoOXVhn7Lw+VM
-         xsVuQW/Rqvm2UizfwCBAQp0ZznjKHSm5X4ckphwe5PQ4S03OpNYrVjntnciR/e0tBQ+1
-         Q+PZFbNZhpOWK1NHTl42OgE6cWuLVhlTwfYlA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=Y/ouPO+8ggCR5XfiR9vvBUlZSYI49RbT/rsnOPSR8Rg=;
-        b=pVEHldVSHeNvG/VrSDxqgvO7+yax5rpnWgmoNZRTRZkJdxiJ5lqjly6MRAr69CBe7t
-         Mz/8C4N1mqsqExOvjtisnlq/QqcQtbFIn+rIp5D25yFXm2imtIrrJ0Kj/ZPq7Zavu8AJ
-         BPrSfP41LwqppnQXyMPBvFUKFFelz8P8z2QdDDhez+y9xhw2NMVxL1631ifCy7kjI7nw
-         OssGzscqqxrWwC8Jhk2WcxOf0E/VWPAhu3H+zowFSRLTOCTAJGYKRaIcDbPMHix9Twqy
-         UNBXYIBW/CCqjC48gBTW6O9df9HYHxz/EvZ2u/nFMPD/MdvgGX8SxGB1R9mynYIoAJrW
-         t/UQ==
-X-Gm-Message-State: ACrzQf3PtfLAnyuuDxuW8vRtLNoCDMA8M+n3Kg+ycox4c3RuvR5p8+8M
-	L+0BKGtTUyIqHA+oC9FOan9Yx+4Ck6JuZ2O4SqKQ
-X-Google-Smtp-Source: AMsMyM4iB7bqNu9AVpHcTK6CBUrARbJ2zy0wYAW9dBBK8iB9whhsHJj3ZWdUR5CTscix10ClKTdxwkzW4uMEVfgVOEU=
-X-Received: by 2002:a05:6602:15c7:b0:6a1:c3fc:98fd with SMTP id
- f7-20020a05660215c700b006a1c3fc98fdmr892233iow.151.1664439079361; Thu, 29 Sep
- 2022 01:11:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220826151556.1708879-1-heiko@sntech.de> <CAOnJCU+e-rEN8AZ+5=owR4hVSq7jbYqcZUNwc7-8JbzgGK1d0Q@mail.gmail.com>
-In-Reply-To: <CAOnJCU+e-rEN8AZ+5=owR4hVSq7jbYqcZUNwc7-8JbzgGK1d0Q@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 29 Sep 2022 01:11:08 -0700
-Message-ID: <CAOnJCU+qrmTE3OEFhwvnTT6dQjVZn4jn5TEMz=8+TYahW4sdOw@mail.gmail.com>
-Subject: Re: [PATCH] drivers/perf: riscv_pmu_sbi: add perf_user_access sysctl
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, cmuellner@linux.com, 
-	philipp.tomsich@vrull.eu
+	id 1odubb-003Zqg-9g
+	for linux-riscv@lists.infradead.org; Thu, 29 Sep 2022 14:33:42 +0000
+X-QQ-mid: bizesmtp84t1664461956td7juhb5
+Received: from localhost.localdomain ( [113.72.145.157])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 29 Sep 2022 22:32:34 +0800 (CST)
+X-QQ-SSF: 01000000002000201000B00A0000000
+X-QQ-FEAT: Mxc3K7F63kyyWiQ/c8gCwhtJ1DS2YJuLU+aiWy+m3Y1tJkbqYk2wOc4QwNoyC
+	9bXGKXrGKQuvi+/y8R1BOk2166YEp7ysra5hy/3sB4CcxVCn3CfBGgw4iNBgTdygOwQ61il
+	o24Cmsov4rvvRLt2pZay/2ZkWs3o3lwKRKoS+5BLzkVntSz1urBWUlMbSnF4TOvlwJbQnXO
+	1VClThiMUZrGb0ZNGT1c7k03ZKNfyXFJOMTq/A4mEaQiTfKSNg0GhHlo7uhJxBvsgb0azSU
+	m36FNSaIAHxOeNNbdRsPzzMK1YWzSBhoW8EJuqqqYz4Ux3A6cFzVDnQ55/dzNeT6TzC14YQ
+	fhS6wgeQcLW430Zq6AHYjnaHBtYhRicV/gA8rEwWbmAAf1XXLmWQCD8UtIa+BGKhUhEjqQG
+	Yx5d+4dCT4y0gScP5kK7wQ==
+X-QQ-GoodBg: 0
+From: Hal Feng <hal.feng@linux.starfivetech.com>
+To: linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Hal Feng <hal.feng@linux.starfivetech.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 01/30] dt-bindings: riscv: Add StarFive JH7110 bindings
+Date: Thu, 29 Sep 2022 22:31:56 +0800
+Message-Id: <20220929143225.17907-2-hal.feng@linux.starfivetech.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220929_011121_736215_FFEB8653 
-X-CRM114-Status: GOOD (  37.70  )
+X-CRM114-CacheID: sfid-20220929_073339_816386_41EF5BDE 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,179 +81,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 26, 2022 at 3:10 PM Atish Patra <atishp@atishpatra.org> wrote:
->
->
->
-> On Fri, Aug 26, 2022 at 8:16 AM Heiko Stuebner <heiko@sntech.de> wrote:
->>
->> Add a sysctl similar to the one on arm64 to enable/disable
->> access to counter CSRs from u-mode on RISC-V.
->>
->> The default is of course set to disabled keeping the current
->> state of access - to only the TIME CSR.
->>
->> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->> ---
->>  Documentation/admin-guide/sysctl/kernel.rst |  6 +--
->>  drivers/perf/riscv_pmu_sbi.c                | 43 ++++++++++++++++++++-
->>  2 files changed, 44 insertions(+), 5 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
->> index ee6572b1edad..efd4bc385e7a 100644
->> --- a/Documentation/admin-guide/sysctl/kernel.rst
->> +++ b/Documentation/admin-guide/sysctl/kernel.rst
->> @@ -894,15 +894,15 @@ enabled, otherwise writing to this file will return ``-EBUSY``.
->>  The default value is 8.
->>
->>
->> -perf_user_access (arm64 only)
->> -=================================
->> +perf_user_access (arm64 and riscv only)
->> +=======================================
->>
->>  Controls user space access for reading perf event counters. When set to 1,
->>  user space can read performance monitor counter registers directly.
->>
->>  The default value is 0 (access disabled).
->>
->> -See Documentation/arm64/perf.rst for more information.
->> +See Documentation/arm64/perf.rst for more information on arm64
->>
->>
->>  pid_max
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 6f6681bbfd36..7aab8d673357 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
->> @@ -41,6 +41,8 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
->>         NULL,
->>  };
->>
->> +static int sysctl_perf_user_access __read_mostly;
->> +
->>  /*
->>   * RISC-V doesn't have hetergenous harts yet. This need to be part of
->>   * per_cpu in case of harts with different pmu counters
->> @@ -640,13 +642,22 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->>         return IRQ_HANDLED;
->>  }
->>
->> +/*
->> + * Depending on the perf_user_access setting, enable the access
->> + * from usermode either for all counters or for TIME csr only.
->> + */
->> +static void riscv_pmu_update_user_access(void *info)
->> +{
->> +       csr_write(CSR_SCOUNTEREN, sysctl_perf_user_access ? GENMASK(31, 0) :
->> +                                                           0x2);
->> +}
->> +
->>  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
->>  {
->>         struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
->>         struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
->>
->> -       /* Enable the access for TIME csr only from the user mode now */
->> -       csr_write(CSR_SCOUNTEREN, 0x2);
->> +       riscv_pmu_update_user_access(NULL);
->>
->>         /* Stop all the counters so that they can be enabled from perf */
->>         pmu_sbi_stop_all(pmu);
->> @@ -785,6 +796,32 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
->>         cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
->>  }
->>
->> +static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
->> +                       int write, void *buffer, size_t *lenp, loff_t *ppos)
->> +{
->> +       int ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
->> +
->> +       if (ret || !write)
->> +               return ret;
->> +
->> +       on_each_cpu(riscv_pmu_update_user_access, NULL, 1);
->> +
->
->
-> This enables all the counter access from the user space. Not the ones that were being monitored through perf system calls.
-> Looking at ARM64 code, they clear out all other counters during the start to avoid the leakage.
->
-> This is a bit expensive to achieve with the current SBI interface as there is no simpler interface to clear out the mhpmcounter value without starting it.
-> We have to start the other counters with 0 value and stop it immediately which is very ugly.
->
-> There is a supervisor counter delegation proposal that is in discussion which can write the mhpmevent/mhpmcounter (via a different CSR) directly from S-mode.
-> Once that is in place, we can enable such functionality.
->
-> I am not sure how commonly this feature is used. Personally, I would prefer to not enable this until supervisor counter delegation is implemented.
-> But I would like to hear what others think.
->
-> If it is a very common feature that RISC-V should support immediately, we have to resort to the ugly route of enabling/disabling the unused counters.
->
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-I just realized my above response was never delivered to the mailing
-list. In a way that's a good thing as I am trying to retract my above
-opinion :)
-There are some discussions around enabling cycle/instret for the user
-space unconditionally [1] and a patch from palmer[2]
-To allow userspace to selectively enable the cycle counter, we need
-this patch. Thus, it should be merged asap.
+Add device tree bindings for the StarFive JH7110 RISC-V SoC and the
+VisionFive2 board for it.
 
-I am still not sure how big the problem is for exposing the previously
-used counter values. We can have separate discussions on that and a
-follow up patch if required.
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+---
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-[1] https://lore.kernel.org/all/YxEhC%2FmDW1lFt36J@aurel32.net/
-[2] https://lore.kernel.org/linux-riscv/YzS0RNzH2CprLSyc@spud/T/#ma8e0034fa9172a66820d6d5fbc3314619ff657a5
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 5b36243fd674..543be573921d 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -21,6 +21,9 @@ properties:
+       - items:
+           - const: beagle,beaglev-starlight-jh7100-r0
+           - const: starfive,jh7100
++      - items:
++          - const: starfive,visionfive-v2
++          - const: starfive,jh7110
+ 
+ additionalProperties: true
+ 
+-- 
+2.17.1
 
-
->> +       return 0;
->> +}
->> +
->> +static struct ctl_table sbi_pmu_sysctl_table[] = {
->> +       {
->> +               .procname       = "perf_user_access",
->> +               .data           = &sysctl_perf_user_access,
->> +               .maxlen         = sizeof(unsigned int),
->> +               .mode           = 0644,
->> +               .proc_handler   = riscv_pmu_proc_user_access_handler,
->> +               .extra1         = SYSCTL_ZERO,
->> +               .extra2         = SYSCTL_ONE,
->> +       },
->> +       { }
->> +};
->> +
->>  static int pmu_sbi_device_probe(struct platform_device *pdev)
->>  {
->>         struct riscv_pmu *pmu = NULL;
->> @@ -834,6 +871,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
->>         if (ret)
->>                 goto out_unregister;
->>
->> +       register_sysctl("kernel", sbi_pmu_sysctl_table);
->> +
->>         return 0;
->>
->>  out_unregister:
->> --
->> 2.35.1
->>
->
->
-> --
-> Regards,
-> Atish
-
-
-
---
-Regards,
-Atish
 
 _______________________________________________
 linux-riscv mailing list
