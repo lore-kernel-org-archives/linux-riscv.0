@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A278C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 14:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03920C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 16:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SH7E1MtKd62U+hV4P6O3XiPgJxeS7uX5e0svhaM00c=; b=KyeXrbkPt6gLUyu/Qr6hihYP/E
-	P6oFM2G6XF6nOCj6Y/8CukHTxsLXO3DrpkskmlQo/oIThX2YWgK3kXUGC16agTiC3XpSx7zkRID62
-	KaF1qqNMFEPaIZ7AxtoobA/TaQyb2eyZMYLPVi3Ksb7pUMRBc8P2wiHWI8eaNft+lUvn0Mdsv97d+
-	iLhaScaP0X4oB3hRTIkXf2Gdl66aacA4ldPHR3ScXYepFVrXyT8tTy0i3AUIxEN/HXS6xZaedkV4P
-	zisoHAmrSsKJWn1/k7HpmZSw/htsmSsq5eQJ53Y0FcPdiEy/8rqLBc429SicvXTdptjbU6nYlw5fm
-	bqtyw1Tw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pv0pbhNx2iF//iL/y1X0uAY/H7MZsFgaAr1SOHLIzRY=; b=KLyf4OOFlkXXPq
+	Z20OwwVlOkeMBI3YC5solyWqYrZUugG2i82tVXEUoF6igpgnmVOtJq4vxuQD+tzmFRD1Kvvnb8+SK
+	q8JXoiHWWkm97oWvjJ6vr/XcU6wrWa+2h0lNVjcpj8eYNLlfwZhVQam2GngRTf8nLiOa7OAbKk+rI
+	gGcUYHrnsQAQLBrNQfwzp3E0qWXnpZJ4GPE7l8gcln7n2cR8iBdQB/1D+rYh1TY8mBnCXEjo7QodS
+	1cvRzaSGnd3WJwsXCT5K6DH5kmg44ZfcmjC6AMLsEnOFqqJN9VzUX289KnMoEsx9oIl6BK2jtU/mp
+	jGPJud/A1rLFhHjtjFFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeGzW-009lHF-Vs; Fri, 30 Sep 2022 14:27:51 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oeIq1-00AZlu-HN; Fri, 30 Sep 2022 16:26:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeGf8-009Z6N-FB
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 14:06:47 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oeGet-00019Q-Is; Fri, 30 Sep 2022 16:06:31 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oeGet-003oRz-T3; Fri, 30 Sep 2022 16:06:30 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oeGer-004gaS-Mc; Fri, 30 Sep 2022 16:06:29 +0200
-Date: Fri, 30 Sep 2022 16:06:29 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 3/4] pwm: add microchip soft ip corePWM driver
-Message-ID: <20220930140629.nwdode4j2nwdsqay@pengutronix.de>
-References: <20220824091215.141577-1-conor.dooley@microchip.com>
- <20220824091215.141577-4-conor.dooley@microchip.com>
- <20220915072152.y346csakn7wetpz5@pengutronix.de>
- <YyhmZBmfJvJ9/vBg@wendy>
- <20220919135008.sahwmwbfwvgplji4@pengutronix.de>
- <Yyh8v+MtHuc0LLf0@wendy>
- <20220930091316.kdkf4oeu6uvxzqa6@pengutronix.de>
- <Yza61MO9hbuFytmM@wendy>
- <20220930133933.br5kanbh3clvahvr@pengutronix.de>
- <Yzbz2N28RJ8Yyg2v@wendy>
+	id 1oeIpr-00AZjM-C4; Fri, 30 Sep 2022 16:26:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A48CE622AB;
+	Fri, 30 Sep 2022 16:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 733BEC433D6;
+	Fri, 30 Sep 2022 16:25:55 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	maz@kernel.org,
+	alexandru.elisei@arm.com,
+	will@kernel.org,
+	Liao Chang <liaochang1@huawei.com>,
+	palmer@dabbelt.com,
+	guoren@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-csky@vger.kernel.org
+Subject: Re: (subset) [PATCH V4 0/3] kprobe: Optimize the performance of patching ss
+Date: Fri, 30 Sep 2022 17:25:53 +0100
+Message-Id: <166455513411.3737568.2438972272060446845.b4-ty@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20220927022435.129965-1-liaochang1@huawei.com>
+References: <20220927022435.129965-1-liaochang1@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <Yzbz2N28RJ8Yyg2v@wendy>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_070646_540985_58A91769 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20220930_092559_464996_F5AF2DA6 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +68,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8108681613039843544=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 27 Sep 2022 10:24:32 +0800, Liao Chang wrote:
+> Single-step slot would not be used until kprobe is enabled, that means
+> no race condition occurs on it under SMP, hence it is safe to pacth ss
+> slot without stopping machine.
+> 
+> v4:
+> 1. Add Acked-by from Will Deacon
+> 2. Mark Rutland provides some subtleties on arm64 micro-architecture
+>    that needs to follow.
+> 
+> [...]
 
---===============8108681613039843544==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kgnvrla44hq55m67"
-Content-Disposition: inline
+Applied to arm64 (for-next/misc), thanks!
 
+[3/3] arm64/kprobe: Optimize the performance of patching single-step slot
+      https://git.kernel.org/arm64/c/a0caebbd0460
 
---kgnvrla44hq55m67
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
+Catalin
 
-On Fri, Sep 30, 2022 at 02:49:12PM +0100, Conor Dooley wrote:
-> Would you rather I waited until after the mw to send v11?
-
-I don't see much sense in waiting.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---kgnvrla44hq55m67
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmM29+IACgkQwfwUeK3K
-7AkptAf/d9crouuQX84NiO5X1kjB0WdSbZ+NO8rvlPLh91ySVJz9eNKGFC6SPB2w
-L6NV1P1zvZQ2By+1H0EstkcZ1nd+uQK1IlyoYPS0ra6TYUltqPS4cHremYkh3eHo
-GUeGfzhvi6lcVdYbNIrhCkvYFacuZAg+M8XkXVl3ewLL8kk6jKleHMlOEio+A+C4
-SG75tQQ/3hzEVZk+UXx//Dbid+zmg+e4FckUC1vKha66RU/lZToogjmvMYxN2eO7
-qNKYI4EjTyRIvsbbWf/j7Zxmm7p++m3Uh/GZarUxObOKg9VK3qskHm/X/X5jv1ey
-OszmsaZZlKNZezj2iEqSXBdpMgrt2w==
-=OKFN
------END PGP SIGNATURE-----
-
---kgnvrla44hq55m67--
-
-
---===============8108681613039843544==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8108681613039843544==--
-
