@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB08BC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 11:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99B7C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 11:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K8hOx5Ff8hJGteMKlcgN4c2ct1fRiSzM3oe6vQoRfg8=; b=Dw+cOKqBojbYUw
-	36C0tPRiGK15rfkhRyRKuiwmMKq6r5IP0Xj0MrKrreiRRc37pluSddqtM70IARjPDEaUvpujxJTMF
-	75NvzlkMgG0Jz4g8RoBx7qYOXVUevqHv9+ZEwyc7Fz3Al1OFxjln8zpaI6Q+Yb3CoCD2MKqXrpC8m
-	Ho9WySUFu86DOAl7CzG9w3aWfetDL+4iN3dchz1T3XhT68DXnjpd36a/7a8INAuoVeRkoNv+ebrHV
-	NrjGAA8xJ/GtqqAzhXd6AZZDgSdbzOSIsSbTeG/IB/1axLGmGxEW56NFGqD6fhnWb+K9xJ9M0cYmY
-	WQBRaQVv/U6EGRaOmCqg==;
+	List-Owner; bh=TMpgO5bZ+NK44MzE40hSts2Yx4G7HyccEATCCrga8G4=; b=RgF2+dUF5k2OeW
+	eQ1tPSKdVfUA0Rod0VwfQM7oF861fe4bF+9R4B+esy9tYzeW6x+lGweQ7xrncahPQVdR2K3GIgOU7
+	C2o2W3xixkmzX/lmgCi98M9jUAPUejIsEDeXlhmDeuLLIo3QU+9Yk7SQMeq6nSvnS3Z9qyLZ/lsur
+	QPA/ZUKQBAf6831lpqcRZCkHdNdWmS4HCcQzn3NKOvSWrexHPr1xtdR7gIz0gfpAhqClKf4NvEigG
+	wsEWnPBVGfpH7GHyAXQe1qB8c1TOP8yCw1BpCbd+/g7hKB1Q6Xb3HLjedpKn0FFSNFWfySIpdFOCG
+	4rcPEKz/5XtqK2zFv9vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeDq6-008kXE-Ke; Fri, 30 Sep 2022 11:05:54 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1oeECa-008sHn-2Q; Fri, 30 Sep 2022 11:29:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeDq3-008kVV-SF
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 11:05:53 +0000
-Received: by mail-lf1-x135.google.com with SMTP id d42so6388421lfv.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 04:05:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date;
-        bh=9ll5pHMsJ8tKJURyddmBsK9L9XIPWok5Aa/Yo0y7G9o=;
-        b=bWSc0euuBQjtQHfEF4jPJATO0b3m8bdoJPtyuaLITvQNYrBOZ5NJhsZr8P4xirJbzR
-         TN45kqwU+vcHT7CgLYNLpz4mT8daLzDU8AQ2GpAO1zaa9NXyxSPa931+OPnd1cfYy9Vw
-         BmLHyN3kPn6OIhIM86zLBpOgPbEJyFJ3qLYai2ZsZzMOCnOlWCHR484AQ+pgTvpJH05D
-         ELaOgQJ8QxxYRrsWY+cpTVpBIgcxAEicZk2PQ/HMgjhRjBsMt6a6mMrlIHSfEyi4IipM
-         QHLTCR6ZkX/Iy94ZhDinlwYGD3M6LuhjPqbgZbQjTMDeriU/I/QIafWxd2KOeraa5nMV
-         MROQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=9ll5pHMsJ8tKJURyddmBsK9L9XIPWok5Aa/Yo0y7G9o=;
-        b=HLBbGfwt9H0WrPi6WcUhcXoBcp4ns5P9Ywo+VYkBMCZeiYEOo/aG9K1lcXIbUiJ4N9
-         GMqugGfhBzWZ85FgA5fKPoKt1H7T4hAE1ZVZtJOu/GhNJtMQEiIPc9iURIcxVlpWMBvD
-         c30VKUqPPLVoiw/U1o4faLmfipzfXo4kyridG5q6rR9Wmon+ohMS4F8FDHZA8VPjf3xY
-         5V1Q7qkf6CzXFDkMSLFe8ywbdZMuk7Z1GVVuWkYzVIOuhO0ihrPjEKN3eNPnyY6GKdHQ
-         wJvwPMLWrYcgrHe5AR51m2vud2+FUwUM6iIvl77JFWIClXxccoIHuZnx0r+zxDkioOKo
-         aN8A==
-X-Gm-Message-State: ACrzQf239/xfr0WOYXvIlnnvr23qno6d+9Eg8Cs5wAmbCYZ1NVQtPTwg
-	7KhlO0ZFdPhnjOB6306eomP9Xg==
-X-Google-Smtp-Source: AMsMyM66/ug4raBgYwsrLYolZgwV4AEp/u01LM/1o4GIZ90ynzZ2dP3MTZ1CNDVV0N0X98yz4VO+gA==
-X-Received: by 2002:a05:6512:239c:b0:497:938e:2c99 with SMTP id c28-20020a056512239c00b00497938e2c99mr3051661lfv.416.1664535947056;
-        Fri, 30 Sep 2022 04:05:47 -0700 (PDT)
-Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
-        by smtp.gmail.com with ESMTPSA id g22-20020a05651222d600b00485caa0f5dfsm264133lfu.44.2022.09.30.04.05.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Sep 2022 04:05:46 -0700 (PDT)
-Message-ID: <69aba4f3-43d8-17ab-9784-86a8cc0087b2@linaro.org>
-Date: Fri, 30 Sep 2022 13:05:45 +0200
+	id 1oeECW-008sFk-KQ
+	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 11:29:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 61DD1622E1
+	for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 11:29:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7D4CC43148
+	for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 11:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664537341;
+	bh=4M2D/Jb1cUhjzhI2IvpJW5DClA4LelB/2AizDYaoWQ4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rM8H6UvWmtNjFN1qfunErWBP1mPN2pCIEkVE6ET/GVOr47nxKR5qLbmUmzeBVJ4kd
+	 Bx8rQMJTVfZdXV5mz1RvXOFPWPSLT/NYb7GfsHeIPNnxu2DFwUImCVhEh+HczdDasO
+	 1RvGXklJJH/QUtmwWcR1xo5HcI2ntKkWKXeA6wxs2DDMFFOB/fgAgBfNCG2jjymUNG
+	 31xPbTx6FXplx1nwhR+mnEhIaXAYMJsz7ppDYwOOeK/S4e/eMPbvysR7yL7RMDWWXZ
+	 nOwwZk7i992k8O/ZLDmaux19+wqLTZnXobekw0IZATQ6ptiAkmuv8k/3lfJnGUnQGH
+	 Uc4jMuQU/5Zig==
+Received: by mail-oi1-f169.google.com with SMTP id d64so4422814oia.9
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 04:29:01 -0700 (PDT)
+X-Gm-Message-State: ACrzQf1z31ma6qZB+bPspGLiI0e9wkfLWcQjbyUsWl0U3UNtSB2tJHpx
+	r6uLrD8luBZgDQgWuBWnaZEkO8ssVwjgLfuDFXY=
+X-Google-Smtp-Source: AMsMyM61h9KH2iI+tds1ffcSLmUklT4vivVvNnTAC4q0qU56HU0lY37dyL1WvNV9fDBO7Wd8EjGerSKxOP6f3m/KMEE=
+X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
+ q31-20020a056808201f00b0034f9fdfdbbfmr8700739oiw.19.1664537340502; Fri, 30
+ Sep 2022 04:29:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH v1 25/30] dt-bindings: pinctrl: Add StarFive JH7110
- pinctrl bindings
-Content-Language: en-US
-To: Hal Feng <hal.feng@linux.starfivetech.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930073845.6309-1-hal.feng@linux.starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220930073845.6309-1-hal.feng@linux.starfivetech.com>
+References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-8-guoren@kernel.org>
+ <Yyhv4UUXuSfvMOw+@hirez.programming.kicks-ass.net> <CAJF2gTRdkmemEWsDYhVXb8KD0PS6b1VAPu_MfeZ+Rmf2qEGa6Q@mail.gmail.com>
+ <YylqSsL6bdhIOMte@hirez.programming.kicks-ass.net>
+In-Reply-To: <YylqSsL6bdhIOMte@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 30 Sep 2022 19:28:48 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTd8GH=ePB03Smg5AqEFEVHDzjuWmxBGcw+LqmH361rTw@mail.gmail.com>
+Message-ID: <CAJF2gTTd8GH=ePB03Smg5AqEFEVHDzjuWmxBGcw+LqmH361rTw@mail.gmail.com>
+Subject: Re: [PATCH V5 07/11] riscv: convert to generic entry
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
+	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_040551_961057_F8BE4A4E 
-X-CRM114-Status: GOOD (  29.73  )
+X-CRM114-CacheID: sfid-20220930_042904_791981_9F1774F3 
+X-CRM114-Status: GOOD (  35.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,284 +88,332 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/09/2022 09:38, Hal Feng wrote:
-> From: Jianlong Huang <jianlong.huang@starfivetech.com>
-> 
-> Add pinctrl bindings for StarFive JH7110 SoC.
-> 
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> ---
->  .../pinctrl/starfive,jh7110-pinctrl.yaml      | 202 ++++++++++++++++++
->  1 file changed, 202 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-pinctrl.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..482012ad8a14
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-pinctrl.yaml
-> @@ -0,0 +1,202 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive JH7110 Pin Controller Device Tree Bindings
-> +
-> +description: |
-> +  Bindings for the JH7110 RISC-V SoC from StarFive Technology Ltd.
-> +
-> +maintainers:
-> +  - Jianlong Huang <jianlong.huang@starfivetech.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +    - starfive,jh7110-sys-pinctrl
-> +    - starfive,jh7110-aon-pinctrl
+On Tue, Sep 20, 2022 at 3:23 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Tue, Sep 20, 2022 at 02:36:33PM +0800, Guo Ren wrote:
+> > On Mon, Sep 19, 2022 at 9:34 PM Peter Zijlstra <peterz@infradead.org> wrote:
+> > >
+> > > On Sun, Sep 18, 2022 at 11:52:42AM -0400, guoren@kernel.org wrote:
+> > >
+> > > > @@ -123,18 +126,22 @@ int handle_misaligned_store(struct pt_regs *regs);
+> > > >
+> > > >  asmlinkage void __trap_section do_trap_load_misaligned(struct pt_regs *regs)
+> > > >  {
+> > > > +     irqentry_state_t state = irqentry_enter(regs);
+> > > >       if (!handle_misaligned_load(regs))
+> > > >               return;
+> > > >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+> > > >                     "Oops - load address misaligned");
+> > > > +     irqentry_exit(regs, state);
+> > > >  }
+> > > >
+> > > >  asmlinkage void __trap_section do_trap_store_misaligned(struct pt_regs *regs)
+> > > >  {
+> > > > +     irqentry_state_t state = irqentry_enter(regs);
+> > > >       if (!handle_misaligned_store(regs))
+> > > >               return;
+> > > >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+> > > >                     "Oops - store (or AMO) address misaligned");
+> > > > +     irqentry_exit(regs, state);
+> > > >  }
+> > > >  #endif
+> > > >  DO_ERROR_INFO(do_trap_store_fault,
+> > > > @@ -158,6 +165,8 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
+> > > >
+> > > >  asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
+> > > >  {
+> > > > +     irqentry_state_t state = irqentry_enter(regs);
+> > > > +
+> > > >  #ifdef CONFIG_KPROBES
+> > > >       if (kprobe_single_step_handler(regs))
+> > > >               return;
+> > >
+> > > FWIW; on x86 I've classified many of the 'from-kernel' traps as
+> > > NMI-like, since those traps can happen from any context, including with
+> > > IRQs disabled.
+> > The do_trap_break is for ebreak instruction, not NMI. RISC-V NMI has
+> > separate CSR. ref:
+> >
+> > This proposal adds support for resumable non-maskable interrupts
+> > (RNMIs) to RISC-V. The extension adds four new CSRs (`mnepc`,
+> > `mncause`, `mnstatus`, and `mnscratch`) to hold the interrupted state,
+> > and a new instruction to resume from the RNMI handler.
+>
+> Yes, but that's not what I'm saying. I'm saying I've classified
+> 'from-kernel' traps as NMI-like.
+>
+> Consider:
+>
+>         raw_spin_lock_irq(&foo);
+>         ...
+>         <trap>
+>
+> Then you want the trap to behave as if it were an NMI; that is abide by
+> the rules of NMI (strictly wait-free code).
+>
+> So yes, they are not NMI, but they nest just like it, so we want the
+> handlers to abide by the same rules.
+>
+> Does that make sense?
+Yes, thx for clarification. I've looked at exc_int3 of x86. Here is my
+new version:
 
-Wrong indentation.
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 571556bb9261..41cc1c4bccb3 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -5,8 +5,10 @@
+  * Copyright (C) 2017 SiFive
+  */
 
-Does not look like you tested the bindings. Please run `make
-dt_binding_check` (see
-Documentation/devicetree/bindings/writing-schema.rst for instructions).
++#include <linux/entry-common.h>
+ #include <linux/syscalls.h>
+ #include <asm/unistd.h>
++#include <asm/syscall.h>
+ #include <asm/cacheflush.h>
+ #include <asm-generic/mman-common.h>
 
-> +
-> +  reg:
-> +    minItems: 2
+@@ -72,3 +74,28 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t,
+start, uintptr_t, end,
 
-No need.
+        return 0;
+ }
++
++typedef long (*syscall_t)(ulong, ulong, ulong, ulong, ulong, ulong, ulong);
++
++asmlinkage void do_sys_ecall_u(struct pt_regs *regs)
++{
++       syscall_t syscall;
++       ulong nr = regs->a7;
++
++       regs->epc += 4;
++       regs->orig_a0 = regs->a0;
++       regs->a0 = -ENOSYS;
++
++       nr = syscall_enter_from_user_mode(regs, nr);
++#ifdef CONFIG_COMPAT
++       if ((regs->status & SR_UXL) == SR_UXL_32)
++               syscall = compat_sys_call_table[nr];
++       else
++#endif
++               syscall = sys_call_table[nr];
++
++       if (nr < NR_syscalls)
++               regs->a0 = syscall(regs->orig_a0, regs->a1, regs->a2,
++                                  regs->a3, regs->a4, regs->a5, regs->a6);
++       syscall_exit_to_user_mode(regs);
++}
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 588e17c386c6..d20037585c2f 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -17,6 +17,7 @@
+ #include <linux/module.h>
+ #include <linux/irq.h>
+ #include <linux/kexec.h>
++#include <linux/entry-common.h>
 
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: control
+ #include <asm/asm-prototypes.h>
+ #include <asm/bug.h>
+@@ -96,10 +97,18 @@ static void do_trap_error(struct pt_regs *regs,
+int signo, int code,
+ #else
+ #define __trap_section noinstr
+ #endif
+-#define DO_ERROR_INFO(name, signo, code, str)                          \
+-asmlinkage __visible __trap_section void name(struct pt_regs *regs)    \
+-{                                                                      \
+-       do_trap_error(regs, signo, code, regs->epc, "Oops - " str);     \
++#define DO_ERROR_INFO(name, signo, code, str)
+         \
++asmlinkage __visible __trap_section void name(struct pt_regs *regs)
+         \
++{
+         \
++       if (user_mode(regs)) {
+         \
++               irqentry_enter_from_user_mode(regs);
+         \
++               do_trap_error(regs, signo, code, regs->epc, "Oops - "
+str);     \
++               irqentry_exit_to_user_mode(regs);
+         \
++       } else {
+         \
++               irqentry_state_t irq_state = irqentry_nmi_enter(regs);
+         \
++               do_trap_error(regs, signo, code, regs->epc, "Oops - "
+str);     \
++               irqentry_nmi_exit(regs, irq_state);
+         \
++       }
+         \
+ }
 
-This does not match reg at all. Again - not tested.
+ DO_ERROR_INFO(do_trap_unknown,
+@@ -123,18 +132,36 @@ int handle_misaligned_store(struct pt_regs *regs);
+
+ asmlinkage void __trap_section do_trap_load_misaligned(struct pt_regs *regs)
+ {
+-       if (!handle_misaligned_load(regs))
+-               return;
+-       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+-                     "Oops - load address misaligned");
++       if (user_mode(regs)) {
++               irqentry_enter_from_user_mode(regs);
++               if (handle_misaligned_load(regs))
++                       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
++                             "Oops - load address misaligned");
++               irqentry_exit_to_user_mode(regs);
++       } else {
++               irqentry_state_t irq_state = irqentry_nmi_enter(regs);
++               if (handle_misaligned_load(regs))
++                       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
++                             "Oops - load address misaligned");
++               irqentry_nmi_exit(regs, irq_state);
++       }
+ }
+
+ asmlinkage void __trap_section do_trap_store_misaligned(struct pt_regs *regs)
+ {
+-       if (!handle_misaligned_store(regs))
+-               return;
+-       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
+-                     "Oops - store (or AMO) address misaligned");
++       if (user_mode(regs)) {
++               irqentry_enter_from_user_mode(regs);
++               if (handle_misaligned_store(regs))
++                       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
++                               "Oops - store (or AMO) address misaligned");
++               irqentry_exit_to_user_mode(regs);
++       } else {
++               irqentry_state_t irq_state = irqentry_nmi_enter(regs);
++               if (handle_misaligned_store(regs))
++                       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
++                               "Oops - store (or AMO) address misaligned");
++               irqentry_nmi_exit(regs, irq_state);
++       }
+ }
+ #endif
+ DO_ERROR_INFO(do_trap_store_fault,
+@@ -156,7 +183,7 @@ static inline unsigned long
+get_break_insn_length(unsigned long pc)
+        return GET_INSN_LENGTH(insn);
+ }
+
+-asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
++static void __do_trap_break(struct pt_regs *regs)
+ {
+ #ifdef CONFIG_KPROBES
+        if (kprobe_single_step_handler(regs))
+@@ -186,6 +213,19 @@ asmlinkage __visible __trap_section void
+do_trap_break(struct pt_regs *regs)
+        else
+                die(regs, "Kernel BUG");
+ }
++
++asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
++{
++       if (user_mode(regs)) {
++               irqentry_enter_from_user_mode(regs);
++               __do_trap_break(regs);
++               irqentry_exit_to_user_mode(regs);
++       } else {
++               irqentry_state_t irq_state = irqentry_nmi_enter(regs);
++               __do_trap_break(regs);
++               irqentry_nmi_exit(regs, irq_state);
++       }
++}
+ NOKPROBE_SYMBOL(do_trap_break);
+
+ #ifdef CONFIG_GENERIC_BUG
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index c7829289e806..cc8e642a91ea 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -15,6 +15,7 @@
+ #include <linux/uaccess.h>
+ #include <linux/kprobes.h>
+ #include <linux/kfence.h>
++#include <linux/entry-common.h>
+
+ #include <asm/ptrace.h>
+ #include <asm/tlbflush.h>
+@@ -203,7 +204,7 @@ static inline bool access_error(unsigned long
+cause, struct vm_area_struct *vma)
+  * This routine handles page faults.  It determines the address and the
+  * problem, and then passes it off to one of the appropriate routines.
+  */
+-asmlinkage void noinstr do_page_fault(struct pt_regs *regs)
++static void __do_page_fault(struct pt_regs *regs)
+ {
+        struct task_struct *tsk;
+        struct vm_area_struct *vma;
+@@ -350,4 +351,13 @@ asmlinkage void noinstr do_page_fault(struct pt_regs *regs)
+        }
+        return;
+ }
++
++asmlinkage void noinstr do_page_fault(struct pt_regs *regs)
++{
++       irqentry_state_t state = irqentry_enter(regs);
++
++       __do_page_fault(regs);
++
++       irqentry_exit(regs, state);
++}
+ NOKPROBE_SYMBOL(do_page_fault);
 
 
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +    description: The GPIO parent interrupt.
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  ngpios:
-> +    enum:
-> +    - 64
-> +    - 4
+        }
+}
 
-Wrong indentation. Increasing order.
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - "#gpio-cells"
-> +  - interrupts
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +
-> +patternProperties:
-
-This goes before required block
-
-> +  '-[0-9]+$':
-
-Too loose pattern. Need some more specific pattern. What do you exactly
-match here?
-
-Missing description.
-
-> +    type: object
-> +    patternProperties:
-> +      '-pins$':
-> +        type: object
-> +        description: |
-> +          A pinctrl node should contain at least one subnode representing the
-> +          pinctrl groups available on the machine. Each subnode will list the
-> +          pins it needs, and how they should be configured, with regard to
-> +          muxer configuration, system signal configuration, pin groups for
-> +          vin/vout module, pin voltage, mux functions for output, mux functions
-> +          for output enable, mux functions for input.
-> +
-> +        properties:
-> +          starfive,pins:
-
-No, use generic pinctrl bindings.
-
-> +            description: |
-> +              The list of pin identifiers that properties in the node apply to.
-> +              This should be set using the PAD_GPIOX macros.
-> +              This has to be specified.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            minimum: 0
-> +            maximum: 63
-> +
-> +          starfive,pinmux:
-
-No, use generic pinctrl bindings.
+>
+> > >
+> > > The basic shape of the trap handlers looks a little like:
+> > >
+> > >         if (user_mode(regs)) {
+> > If nmi comes from user_mode, why we using
+> > irqenrty_enter/exit_from/to_user_mode instead of
+> > irqentry_nmi_enter/exit?
+>
+> s/nmi/trap/ because the 'from-user' trap never nests inside kernel code.
+>
+> Additionally, many 'from-user' traps want to do 'silly' things like send
+> signals, which is something that requires scheduling.
+>
+> They're fundamentally different from 'from-kernel' traps, which per the
+> above, nest most dangerously.
+>
+> > >                 irqenrty_enter_from_user_mode(regs);
+> > >                 do_user_trap();
+> > >                 irqentry_exit_to_user_mode(regs);
+> > >         } else {
+> > >                 irqentry_state_t state = irqentry_nmi_enter(regs);
+> > >                 do_kernel_trap();
+> > >                 irqentry_nmi_exit(regs, state);
+> > >         }
+> > >
+> > > Not saying you have to match Risc-V in this patch-set, just something to
+> > > consider.
+> > I think the shape of the riscv NMI handler looks a little like this:
+> >
+> > asmlinkage __visible __trap_section void do_trap_nmi(struct pt_regs *regs)
+> > {
+> >                  irqentry_state_t state = irqentry_nmi_enter(regs);
+> >                  do_nmi_trap();
+> >                  irqentry_nmi_exit(regs, state);
+> > }
+>
+> That is correct for the NMI handler; but here I'm specifically talking
+> about traps, like the unalign trap, break trap etc. Those that can
+> happen *anywhere* in kernel code and nest most unfortunate.
 
 
-> +            description: |
-> +              The list of GPIOs and their mux functions that properties in the
-> +              node apply to. This should be set using the PAD_GPIOX_FUNC_SEL
-> +              macro with its value.
-> +              This is optional for some pins.
-> +              The value of PAD_GPIOX_FUNC_SEL macro can selects:
-> +                0: GPIOX mux function 0,
-> +                1: GPIOX mux function 1,
-> +                2: GPIOX mux function 2.
-> +
-> +          starfive,pin-ioconfig:
-> +            description: |
-> +              This is used to configure the core settings of system signals.
-> +              The combination of GPIO_IE or GPIO_DS or GPIO_PU or GPIO_PD or
-> +              GPIO_SLEW or GPIO_SMT or GPIO_POS.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +          starfive,padmux:
-> +            description: |
-> +              The padmux is for vin/vout module to select pin groups.
-> +              0: vout will be set at pins from PAD_GPIO7 to PAD_GPIO34,
-> +                 when PAD_GPIOX_FUNC_SEL is set as 1.
-> +                 vin will be set at pins from PAD_GPIO6 to PAD_GPIO20.
-> +                 when PAD_GPIOX_FUNC_SEL is set as 2.
-> +              1: vout will be set at pins from PAD_GPIO36 to PAD_GPIO63,
-> +                 when PAD_GPIOX_FUNC_SEL is set as 1.
-> +                 vin will be set at pins from PAD_GPIO21 to PAD_GPIO35.
-> +                 when PAD_GPIOX_FUNC_SEL is set as 2.
-> +              2: vin will be set at pins from PAD_GPIO36 to PAD_GPIO50,
-> +                 when PAD_GPIOX_FUNC_SEL is set as 2
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            enum: [0, 1, 2]
-> +
-> +          starfive,pin-syscon:
-> +            description: |
-> +              This is used to set pin voltage,
-> +              0: 3.3V, 1: 2.5V, 2: 1.8V.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            enum: [0, 1, 2]
-> +
-> +          starfive,pin-gpio-dout:
 
-No, use generic pinctrl bindings.
-
-
-> +            description: |
-> +              This is used to set their mux functions for output.
-> +              This should be set using the GPO_XXX macro,
-> +              such as GPO_LOW, GPO_UART0_SOUT.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            minimum: 0
-> +            maximum: 107
-> +
-> +          starfive,pin-gpio-doen:
-
-No, use generic pinctrl bindings.
-
-
-> +            description: |
-> +              This is used to set their mux functions for output enable.
-> +              This should be set using the OEN_XXX macro,
-> +              such as OEN_LOW, OEN_I2C0_IC_CLK_OE.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            minimum: 0
-> +            maximum: 49
-> +
-> +          starfive,pin-gpio-din:
-
-No, use generic pinctrl bindings.
-
-> +            description: |
-> +              This is used to set their mux functions for input.
-> +              This should be set using the GPI_XXX macro,
-> +              such as GPI_CAN0_CTRL_RXD, GPI_I2C0_IC_CLK_IN_A.
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            minimum: 0
-> +            maximum: 90
-> +
-> +        additionalProperties: false
-> +
-> +    additionalProperties: false
-> +
-> +additionalProperties: false
-
-Missing allof to generic pinctrl bindings.
-
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive-jh7110-sys.h>
-> +    #include <dt-bindings/reset/starfive-jh7110.h>
-> +    #include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
-> +
-> +    gpio: gpio@13040000 {
-> +      compatible = "starfive,jh7110-sys-pinctrl";
-> +      reg = <0x0 0x13040000 0x0 0x10000>;
-> +      reg-names = "control";
-> +      clocks = <&clkgen JH7110_SYS_IOMUX_PCLK>;
-> +      resets = <&rstgen RSTN_U0_SYS_IOMUX_PRESETN>;
-> +      interrupts = <86>;
-> +      interrupt-controller;
-> +      #gpio-cells = <2>;
-> +      ngpios = <64>;
-> +      status = "okay";
-> +
-> +      uart0_pins: uart0-pins {
-
-Explain me please how it can possible match your pattern: '-[0-9]+$':
-
-You really wrote something which was not tested and cannot work.
-> +        uart0-pins-tx {
-> +          starfive,pins = <PAD_GPIO5>;
-> +          starfive,pin-ioconfig = <IO(GPIO_IE(1) | GPIO_DS(3))>;
-> +          starfive,pin-gpio-dout = <GPO_UART0_SOUT>;
-> +          starfive,pin-gpio-doen = <OEN_LOW>;
-> +        };
-> +
-> +        uart0-pins-rx {
-> +          starfive,pins = <PAD_GPIO6>;
-> +          starfive,pinmux = <PAD_GPIO6_FUNC_SEL 0>;
-> +          starfive,pin-ioconfig = <IO(GPIO_IE(1) | GPIO_PU(1))>;
-> +          starfive,pin-gpio-doen = <OEN_HIGH>;
-> +          starfive,pin-gpio-din =  <GPI_UART0_SIN>;
-> +        };
-> +      };
-> +    };
-> +
-> +    &uart0 {
-> +      pinctrl-names = "default";
-> +      pinctrl-0 = <&uart0_pins>;
-> +      status = "okay";
-
-Drop, obvious.
-
-> +    };
-> +
-> +...
-
-Best regards,
-Krzysztof
-
+--
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
