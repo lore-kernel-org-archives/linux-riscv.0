@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFEC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 21:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46229C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 21:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YUCKM+sgLEz7tDHSF4U4E1i2jtzwG9ADBAcci+sijJg=; b=YooLDoTlzQ379H
-	aCMRYLZ7P5M2r2tPLa3lohQmjxX2uUa0HI8AbNEiRGMyUzwuTC0apSo7WqMQD6KUlN5Lnas274loV
-	DU9CTyKAB8L1vWyhVYhWQFWkDol7yb0GLrGlPPr2aR1OijwWdxCLox7fguMzsD5/k//Cp9hx/MtO7
-	HhqOf4TaW4FeIU5n0FsKK5Ox+JhQT4KLqQMLo7lDGgDO5g7k36U7TuROhqnKTasN+oQ30QgT773IU
-	VCC0tlVvwrXfZX/sV9FyaaXqTgQjnRGceWwOzxmvfjbHAEL/xGBhqPuo7aJyWohFbvPLwCNBC9pwx
-	H2OQ+haiUQVIcdEIUAkQ==;
+	List-Owner; bh=BSwZIQPXNuq99IPQtLcHThuCyA9P/qPTn6c36LEuFEI=; b=b/SxOIgv9E2y7P
+	60DaDw01aq1XjP2ptIuznffKc1dOsKWZC2VxvPjhxTlANc8C6C/tB14WXIqv5pwgL3B2h4q7kVQVV
+	ppwoRDeZcqAa78TypDl/CdzkUYnk5qb7VUTL6/jan48BISdPv/WU4TVivXGyZtV/V4aW/EuKQWykA
+	W3SXU+0XLnlQnKvxQ2K5vjDLoBW4riOJ6GycKOa26vCrHxRIXdDMX9sux5P0gfXWabBuRHgIgx7C9
+	Q+VgJQgavT9iHbpcsIVBlOSuouGAM/ZeZgvntv/LqMbt2iwLPwRbEm6NHrz/G5z9Of/4tAfKIlBH1
+	B7aI8hhuSG3pFerkxNEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeNYq-00Bcqh-Ir; Fri, 30 Sep 2022 21:28:44 +0000
-Received: from mail-oa1-f52.google.com ([209.85.160.52])
+	id 1oeNlG-00BgXn-8C; Fri, 30 Sep 2022 21:41:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeNYn-00Bcp5-So
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 21:28:43 +0000
-Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-131ea99262dso4599851fac.9
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 14:28:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=S7CiI3WwjpNrhXvdHD1dIIAHLPRZYnaexnei+ztfM3I=;
-        b=LKd+2VoBhyJ7/VpVBXvCx57xYaP4pYhXuABH/TkhfWQDcvNbuyT5yCshxVPw2naxda
-         x2Mp3qYxFccSNxzIRmDiZ9hZIllrNUIJOqikTOFY+SjnnOjYhw+9Ysp8ST5iv+AVJ7r/
-         BNzh9uAA9OaORBLh2kUmH8UlQR7UCb8PP/V6VaoetYqSyN3wUvNzAguLmk91ZccZbQyv
-         oPskaWsbpgGEaQG3277Og2bBQlxOQ0QR8Ey32pSfjIAhgwT57IdbHGkaXIcElYx5YQ9I
-         XqIqJSvaQnZBBRutIBIlI9FoOLoCXU//uzvqSJAMpkpMly337/5OUICwlRYO5row0Q0D
-         vhaQ==
-X-Gm-Message-State: ACrzQf1tb0fEKbp8SJITQl7pAD27DmCb7Zxm6JwmtlVBu0eLSAEL+MhO
-	jMwkmC6qpaDZBzIsNuBUROD1GULvng==
-X-Google-Smtp-Source: AMsMyM5bcRhjaYikR+Xk6ykHgQ5zOQndbLZNNrB7CLNt2bq/KWaPcLT0xLBWvFaWjME3DkVdHURUeg==
-X-Received: by 2002:a05:6871:689:b0:12c:52be:94f6 with SMTP id l9-20020a056871068900b0012c52be94f6mr93380oao.214.1664573319960;
-        Fri, 30 Sep 2022 14:28:39 -0700 (PDT)
-Received: from macbook.herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id u43-20020a056808152b00b0034f937c50fasm748202oiw.49.2022.09.30.14.28.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 30 Sep 2022 14:28:39 -0700 (PDT)
-Received: (nullmailer pid 1076968 invoked by uid 1000);
-	Fri, 30 Sep 2022 21:28:37 -0000
-Date: Fri, 30 Sep 2022 16:28:37 -0500
-From: Rob Herring <robh@kernel.org>
-To: Hal Feng <hal.feng@linux.starfivetech.com>
-Cc: Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Linus Walleij <linus.walleij@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v1 23/30] pinctrl: starfive: Rename "pinctrl-starfive" to
- "pinctrl-starfive-jh7100"
-Message-ID: <166457324093.1075476.18009315584754055366.robh@kernel.org>
+	id 1oeNlD-00BgX1-Rx
+	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 21:41:33 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 382E062513;
+	Fri, 30 Sep 2022 21:41:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD021C433C1;
+	Fri, 30 Sep 2022 21:41:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664574090;
+	bh=EWwElnoQ3zIq+7TaGrma83diIit5m496+HZGkaC/q44=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aoNAyXvQ6XZUKlvHJdQTgOYhYGSHuu/exBYucbS88m47QiHG6E0E0z2THsu2YvMb2
+	 Ya/kB5pgAeZpJtOsAdSsn6JWCV0Qhw/unu3XJMp/GpfxNi3EneQcZ9gcf8vLFak67w
+	 NMa072xAK0FZVg6MvUsWXAcwrGkNa0Bdgvm5kyeY7Ag7jmKMzIlw1EFiqZq5qQ+ZT1
+	 ibzZa3Ex+6bYE6LwxtNDofRa3aS8Ma49ouf3WVS7qJbU+adqHmrYWgVLMT0M8CXn26
+	 Hd69niFIk3XXUhyTQUPaFsNNnBYgy6SJTSYbKJ62F16xFXHaAqRJ4imrNpA/HpYT/W
+	 //xEpCHEwTJlA==
+Date: Fri, 30 Sep 2022 22:41:23 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Hal Feng <hal.feng@linux.starfivetech.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 29/30] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
+Message-ID: <Yzdig6GepDx34u1j@spud>
 References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930061404.5418-1-hal.feng@linux.starfivetech.com>
+ <20220930090653.7449-1-hal.feng@linux.starfivetech.com>
+ <01c658ad-7f73-20fc-03c0-c82dcd820aa4@codethink.co.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220930061404.5418-1-hal.feng@linux.starfivetech.com>
+In-Reply-To: <01c658ad-7f73-20fc-03c0-c82dcd820aa4@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_142841_950167_AB9B8FF3 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20220930_144131_975919_A64A7CB4 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +88,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Sep 2022 14:14:04 +0800, Hal Feng wrote:
-> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+On Fri, Sep 30, 2022 at 09:54:14PM +0100, Ben Dooks wrote:
+> On 30/09/2022 10:06, Hal Feng wrote:
+> > Add CONFIG_SERIAL_8250_DW=y, which is a necessary option for
+> > StarFive JH7110 and JH7100 SoCs to boot with serial ports.
+> > 
+> > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
 > 
-> Add the SoC name to make it more clear. Also the next generation StarFive
-> SoCs will use "pinctrl-starfive" as the core of StarFive pinctrl driver.
-> No functional change.
+> That might be useful for other users at some point an I don't
+> think it adds much code.
+
+Honestly I think this should be applied for 6.1, for parity with the
+other SoCs that have their serial console enabled by default.
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
+Conor.
+
 > 
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> ---
->  .../bindings/pinctrl/starfive,jh7100-pinctrl.yaml           | 2 +-
->  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts   | 2 +-
->  drivers/pinctrl/starfive/Kconfig                            | 2 +-
->  drivers/pinctrl/starfive/Makefile                           | 2 +-
->  .../{pinctrl-starfive.c => pinctrl-starfive-jh7100.c}       | 2 +-
->  .../{pinctrl-starfive.h => pinctrl-starfive-jh7100.h}       | 6 +++---
->  6 files changed, 8 insertions(+), 8 deletions(-)
->  rename drivers/pinctrl/starfive/{pinctrl-starfive.c => pinctrl-starfive-jh7100.c} (99%)
->  rename include/dt-bindings/pinctrl/{pinctrl-starfive.h => pinctrl-starfive-jh7100.h} (98%)
+> > ---
+> >   arch/riscv/configs/defconfig | 1 +
+> >   1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> > index aed332a9d4ea..0c44484cd3a4 100644
+> > --- a/arch/riscv/configs/defconfig
+> > +++ b/arch/riscv/configs/defconfig
+> > @@ -122,6 +122,7 @@ CONFIG_MICROSEMI_PHY=y
+> >   CONFIG_INPUT_MOUSEDEV=y
+> >   CONFIG_SERIAL_8250=y
+> >   CONFIG_SERIAL_8250_CONSOLE=y
+> > +CONFIG_SERIAL_8250_DW=y
+> >   CONFIG_SERIAL_OF_PLATFORM=y
+> >   CONFIG_VIRTIO_CONSOLE=y
+> >   CONFIG_HW_RANDOM=y
 > 
-
-Reviewed-by: Rob Herring <robh@kernel.org>
-
-Would be good to pull this out separately and apply for 6.1. It's kind 
-of messy with cross tree dependencies.
-
+> -- 
+> Ben Dooks				http://www.codethink.co.uk/
+> Senior Engineer				Codethink - Providing Genius
+> 
+> https://www.codethink.co.uk/privacy.html
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
