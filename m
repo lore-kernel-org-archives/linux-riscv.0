@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA46C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 07:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7B3C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 08:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JfZ2hvegGK6m3Gqly8NTOCjBy0soIk5BOhReQIgmxAk=; b=tuvJlk/Dl0moKV
-	s23JxdC2daiyo3wB6YSzstZfdZJlLZDHl/LfQ0cljgUIsHUa6B+RviTuFDdhhLzYHtxmBYVBrF+cS
-	MTNHmMKnnPNpLY+HOCQeYSBNdsGDGdz+o7psPLC87cST+eQjSnz7OKgWpB/Iyd+0bEQ1wufUwNQk4
-	W19pN2qilEwiozNEvFqBQujPfrkhnDCVOa6mei8nkYoZK6mQ0cjCvM1PTDLsrUrxmVdBBLmOe1bww
-	lJ18OZOZg2xCqCKUN5ic13VcoyXmWEEU52cGZ+9vojUZmYL6FdypktdR8zA27L8xkH3rXK50EANwh
-	7575iGeEw6aJG+YvutYg==;
+	List-Owner; bh=UATyv4+3vMseSrvXudceMgjhlDlPQvo8YKLksUHIMhU=; b=BbTDkXp2eo9Kde
+	fhlIdVdi/erSDzIsr/gvJZpFkaP2E0AFS/X4D07Wy6aYD3arpb0eFZS+BUga29ZhUQ8XtpfUrt26v
+	AM69YNAP6QMDDgB4j3tQ6j9bZYVqT85QJHHTpkW8p7lHnaCOKSVv0M4MTfu6zlyBSsSG7kGshN3ou
+	1KJjAqJ3Zcbk64pCwiEIgezGiQer4VEEdCFu9aGADUOPdKxMPA5d93tfsWM3wXt5WC6Q95xbV+mvp
+	htZ1040jxSCWMJzclxXKZxn1pnvnHsVWrVR2bC3CkbRfcstxHA3O/y1ZZQwW+BemHhi0fPazB1rEM
+	Ui2Q7AdbLValQGigmotA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeAsn-007wSu-0m; Fri, 30 Sep 2022 07:56:29 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1oeBBw-0081Z0-3e; Fri, 30 Sep 2022 08:16:16 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeAsj-007wRd-Ot
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 07:56:28 +0000
-X-QQ-mid: bizesmtp66t1664524436t6e292ex
-Received: from ubuntu.localdomain ( [113.72.146.201])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 30 Sep 2022 15:53:54 +0800 (CST)
-X-QQ-SSF: 01000000000000305000000A0000000
-X-QQ-FEAT: ZTnzshg2nJZqmliBeRNueqPWEdXdgHJCgeesknqnTxWetQZKfd5/Y0w6CQcL/
-	uZJ+Y/q0/+stBlFaI11fiKedF60zP1rH+Acx9y1tkepzWLmV2sR8yoEsksgoa6NTs45V8q/
-	io2rZ72MB0eR79fMOMl2SDhlRn53ZAJMdVRLJDks89eZA0M0o6o/YLRcBfEf7pP3jS8Cp0Y
-	VTZ00zbXxZ9oPyG4bsYkZuM27ln7wNn0E02C2kIRJXqleGgBhEJOj+e5S68zi/Yw29G9yxx
-	Ov9CSp1IQkndh2R2qGcX8ci6/OUHZskpc4+yMnjmd63Ktcjo3kKk1r8OQVc8GMq1ad9kHeo
-	lcb57S8w93OaHlv/2Vnn1h2JEi4BZiYTEAqJOeLQs4x+9RVe4Q+B8TYftIDylLpllh+Co/G
-	FOeyz1IdO5U=
-X-QQ-GoodBg: 0
-From: Hal Feng <hal.feng@linux.starfivetech.com>
-To: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Hal Feng <hal.feng@linux.starfivetech.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 28/30] RISC-V: Add StarFive JH7110 VisionFive2 board device tree
-Date: Fri, 30 Sep 2022 15:53:53 +0800
-Message-Id: <20220930075353.6842-1-hal.feng@linux.starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
+	id 1oeBBl-0081UR-Bt; Fri, 30 Sep 2022 08:16:07 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 69959CE2451;
+	Fri, 30 Sep 2022 08:15:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24966C433D7;
+	Fri, 30 Sep 2022 08:15:51 +0000 (UTC)
+Date: Fri, 30 Sep 2022 09:15:48 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "liaochang (A)" <liaochang1@huawei.com>
+Cc: will@kernel.org, guoren@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, mhiramat@kernel.org,
+	rostedt@goodmis.org, maz@kernel.org, alexandru.elisei@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 3/3] arm64/kprobe: Optimize the performance of patching
+ single-step slot
+Message-ID: <YzaltNF5PqYq4x4O@arm.com>
+References: <20220927022435.129965-1-liaochang1@huawei.com>
+ <20220927022435.129965-4-liaochang1@huawei.com>
+ <YzXM4qMZlNWh/JJy@arm.com>
+ <c301bfbe-afa8-ab1a-9062-56e4612fdf2c@huawei.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <c301bfbe-afa8-ab1a-9062-56e4612fdf2c@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_005626_138990_B0FCA57D 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20220930_011605_799569_AC627237 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,136 +63,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Emil Renner Berthing <kernel@esmil.dk>
-
-Add a minimal device tree for StarFive JH7110 VisionFive2 board.
-Support booting and basic clock/reset/pinctrl/uart drivers.
-
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
----
- arch/riscv/boot/dts/starfive/Makefile         |  1 +
- .../jh7110-starfive-visionfive-v2.dts         | 91 +++++++++++++++++++
- 2 files changed, 92 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index 0ea1bc15ab30..e1237dbc6aac 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
-+dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-v2.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-new file mode 100644
-index 000000000000..6b9fe32c7eac
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-@@ -0,0 +1,91 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2022 StarFive Technology Co., Ltd.
-+ * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
-+ */
-+
-+/dts-v1/;
-+#include "jh7110.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
-+
-+/ {
-+	model = "StarFive VisionFive V2";
-+	compatible = "starfive,visionfive-v2", "starfive,jh7110";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	cpus {
-+		timebase-frequency = <4000000>;
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x1 0x0>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x0 0x20000000>;
-+			alignment = <0x0 0x1000>;
-+			alloc-ranges = <0x0 0xa0000000 0x0 0x20000000>;
-+			linux,cma-default;
-+		};
-+
-+		e24_mem: e24@c0000000 {
-+			reg = <0x0 0xc0110000 0x0 0xf0000>;
-+			no-map;
-+		};
-+
-+		xrp_reserved: xrpbuffer@f0000000 {
-+			reg = <0x0 0xf0000000 0x0 0x01ffffff>,
-+			      <0x0 0xf2000000 0x0 0x00001000>,
-+			      <0x0 0xf2001000 0x0 0x00fff000>,
-+			      <0x0 0xf3000000 0x0 0x00001000>;
-+		};
-+
-+	};
-+
-+	gpio-restart {
-+		compatible = "gpio-restart";
-+		gpios = <&gpio 35 GPIO_ACTIVE_HIGH>;
-+		priority = <224>;
-+	};
-+};
-+
-+&gpio {
-+	uart0_pins: uart0-pins {
-+		uart0-pins-tx {
-+			starfive,pins = <PAD_GPIO5>;
-+			starfive,pin-ioconfig = <IO(GPIO_IE(1) | GPIO_DS(3))>;
-+			starfive,pin-gpio-dout = <GPO_UART0_SOUT>;
-+			starfive,pin-gpio-doen = <OEN_LOW>;
-+		};
-+
-+		uart0-pins-rx {
-+			starfive,pins = <PAD_GPIO6>;
-+			starfive,pinmux = <PAD_GPIO6_FUNC_SEL 0>;
-+			starfive,pin-ioconfig = <IO(GPIO_IE(1) | GPIO_PU(1))>;
-+			starfive,pin-gpio-doen = <OEN_HIGH>;
-+			starfive,pin-gpio-din =  <GPI_UART0_SIN>;
-+		};
-+	};
-+};
-+
-+&osc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pins>;
-+	status = "okay";
-+};
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBTZXAgMzAsIDIwMjIgYXQgMDk6MDI6MjBBTSArMDgwMCwgbGlhb2NoYW5nIChBKSB3
+cm90ZToKPiAKPiAKPiDlnKggMjAyMi85LzMwIDA6NTAsIENhdGFsaW4gTWFyaW5hcyDlhpnpgZM6
+Cj4gPiBPbiBUdWUsIFNlcCAyNywgMjAyMiBhdCAxMDoyNDozNUFNICswODAwLCBMaWFvIENoYW5n
+IHdyb3RlOgo+ID4+IFNpbmdsZS1zdGVwIHNsb3Qgd291bGQgbm90IGJlIHVzZWQgdW50aWwga3By
+b2JlIGlzIGVuYWJsZWQsIHRoYXQgbWVhbnMKPiA+PiBubyByYWNlIGNvbmRpdGlvbiBvY2N1cnMg
+b24gaXQgdW5kZXIgU01QLCBoZW5jZSBpdCBpcyBzYWZlIHRvIHBhY3RoIHNzCj4gPj4gc2xvdCB3
+aXRob3V0IHN0b3BwaW5nIG1hY2hpbmUuCj4gPj4KPiA+PiBTaW5jZSBJIGFuZCBEIGNhY2hlcyBh
+cmUgY29oZXJlbnQgd2l0aGluIHNpbmdsZS1zdGVwIHNsb3QgZnJvbQo+ID4+IGFhcmNoNjRfaW5z
+bl9wYXRjaF90ZXh0X25vc3luYygpLCBoZW5jZSBubyBuZWVkIHRvIGRvIGl0IGFnYWluIHZpYQo+
+ID4+IGZsdXNoX2ljYWNoZV9yYW5nZSgpLgo+ID4+Cj4gPj4gQWNrZWQtYnk6IFdpbGwgRGVhY29u
+IDx3aWxsQGtlcm5lbC5vcmc+Cj4gPj4gQWNrZWQtYnk6IE1hc2FtaSBIaXJhbWF0c3UgKEdvb2ds
+ZSkgPG1oaXJhbWF0QGtlcm5lbC5vcmc+Cj4gPj4gU2lnbmVkLW9mZi1ieTogTGlhbyBDaGFuZyA8
+bGlhb2NoYW5nMUBodWF3ZWkuY29tPgo+ID4+IC0tLQo+ID4+ICBhcmNoL2FybTY0L2tlcm5lbC9w
+cm9iZXMva3Byb2Jlcy5jIHwgMjcgKysrKysrKysrKysrKysrKysrKysrLS0tLS0tCj4gPj4gIDEg
+ZmlsZSBjaGFuZ2VkLCAyMSBpbnNlcnRpb25zKCspLCA2IGRlbGV0aW9ucygtKQo+ID4gCj4gPiBX
+aGF0J3MgeW91ciBleHBlY3RhdGlvbiB3aXRoIHRoaXMgc2VyaWVzLCBzaG91bGQgdGhlIGFyY2gg
+bWFpbnRhaW5lcnMKPiA+IGp1c3QgcGljayB0aGUgaW5kaXZpZHVhbCBwYXRjaGVzPwo+IAo+IFll
+cywgb3Igc2hvdWxkIGkgc3BsaXQgdGhpcyBzZXJpZXMgaW50byBpbmRpdmlkdWFsIHBhdGNoPwoK
+Tm8gbmVlZCB0bywgSSBjYW4gcGljayB0aGUgYXJtNjQgcGF0Y2guIElmIHRoZSBvdGhlciBtYWlu
+dGFpbmVycyBkb24ndAptZXJnZSB0aGUgcGF0Y2hlcywgeW91IG1pZ2h0IHdhbnQgdG8gcG9zdCB0
+aGVtIGFnYWluIGluZGl2aWR1YWxseSBhcyB0bwphdm9pZCBjb25mdXNpb24uCgotLSAKQ2F0YWxp
+bgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
