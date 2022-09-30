@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF65DC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 12:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F958C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 12:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jmJ6ivMEP8WBaK5zroWmdvsl0nSh3stF72uWAOfUHUI=; b=xiP2LD+RdAxxgA
-	K3nnc8eRNvI2741F7rXinWzBbCzxRNZqlMS/Gt6vB2bYdamXUiZZ1u8Mjuef1b1wi3SUUxV3cWvgK
-	PzxBuaa00bIAw6s1gi0cqbYtYel7QWZBqKzI0gvDHDQRQg3ijjyN4Gb0J1fR462X6ClhvcZJlwu89
-	ENv+J43dS5V/lSlJYteTxvwTOi9pfwTslQT+FSwmm1bAOnOX9MDAkL1ch8BpeKPgZn/Xw8TTjX1YX
-	rP0/Iq6VCaOIfWU4+DTxYXHZZHbPWgn6SIeYfGAlhz8BVFRhxYUX0Tsn+w+4oUpvS9New4Qtn2qEl
-	FMxwJzMYMuyeYGZr7BpA==;
+	List-Owner; bh=mT+Raf4NZX/hBF6i2UTCRVYJvaFzcMACKuPNNaqz17c=; b=w2ReGQh4pYT61b
+	7+8mf8zDWSJS4h+INtB4eX0pCb1q2KFvTwsA/lk39V3tCrZMkiIY7UnRCKOJAiMb2F+l72WPskk5K
+	kktJiNZ4Hm8+oB+Bs7zCmiLqD5XEHU7f8Mlyxjk2bCPy+0YyoYcirWwTERa1SJsQAjFzVdUjfi9Jf
+	NsKBbkidIxKnVIKTu+o+6I5G+XYedStHshcFKY3VKHFwrB/uuFdjoNJTkJ/mI5sCCjIL1vEYkKj7Z
+	byBI+8inpLWlXKHTHOkpCTjyOUfC9RpgRaM9zlSAtv0brWnxM+WL8R6CUD7vNhBJNF/9JZGI4Te4H
+	TYVn+vW6u9P+qiQLpFLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeF7p-0099nA-P8; Fri, 30 Sep 2022 12:28:17 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oeFHI-009Bxq-VW; Fri, 30 Sep 2022 12:38:05 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeF7m-0099la-7P
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 12:28:15 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D0127B828B2
-	for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 12:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA11C43148
-	for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 12:28:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664540890;
-	bh=/4ALUwugj3Gl5x22JbGPmpfNQMZMiRVYjPgXy1gPB00=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oeFdDAQgFqpzjqRJzGKF+vIiAZAHQfulVNWlmMVMwAHj2u0REi2V5iu9vb+qElzKT
-	 smZrXJfoLoerUKwI6og+0fc/EjVTTODG1591hPIpDkikZvUpPaVj/BHp1Bda0a2eSq
-	 Vrop+6cUrjHCLuQUNPsgF89atHJ3Xw3EsjWe2aPQQ6QnHzGXHOzz0DwMtFarkV5Ffu
-	 2lJDgkB8X4mJIkGikek60Vgtfa+EyCu2PYNZ4xLnAHle7QO/6Mml7YhbCglGFG+UGt
-	 at/il5U5MH5iJK/SaXq/h4hBq7kjdKoNBk+Q00f6GeKNzPxR4cODtau9f+C0ffPdb8
-	 t/beZj1K1hwtA==
-Received: by mail-oi1-f177.google.com with SMTP id j188so4603808oih.0
-        for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 05:28:10 -0700 (PDT)
-X-Gm-Message-State: ACrzQf37Xl1Dy9HAKg6gV4yR0gMtbjGsGhiGaNRNC8/nPRHE3NYk8bpI
-	i2SHilQ9q3RcloCz7wi6u/BbYQBocLOjJtD5Z2g=
-X-Google-Smtp-Source: AMsMyM7AkR4koVBLJ1BpYLj3z3e6TpYzy4iDz1E5xTYn5b1jVTvl8sCipeZ/PTuVCPUM2xxKtW4Q4YOmg6NnPRJ2Hp4=
-X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
- u31-20020a056808151f00b003501b5e2380mr9157731oiw.112.1664540889350; Fri, 30
- Sep 2022 05:28:09 -0700 (PDT)
+	id 1oeFHE-009Bus-4B
+	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 12:38:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1664541480; x=1696077480;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=g97BiHM6o59FUlv7BemhsBNGyRYECFjXlvWFuEOzmqo=;
+  b=kSP3f8WqA56kEBmjwNSx09psTs7R+qcPbTMV0SfLvHIDg6furamPZ2LN
+   GDZSM9pXr8DV4HKvHAdxK7WZAuxq3yFp0OzbbXbJeMN2cNuxgCqM2Whhk
+   jCTdJetTvNAjR9GbJmjgRkHMCaLO7ZznajUTjMXB+TLoBHt+DKCAhBtJF
+   U7NfS095DkN4ixbY4ZyCDBU5hW/i1drR/BjZN+UMVdyiigjyAzDFScszm
+   j29K7D+r8tMb78ZEjH834z4gvFXMMlHgiDVPmPa2MrBb28dt1sYX9/haO
+   qR1+wzIjJZH/ZE7Gpxjkd29Zm5uIMdxPRTbqT9riJLWVknEICC38mvL21
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,358,1654585200"; 
+   d="scan'208";a="182692375"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Sep 2022 05:37:56 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Fri, 30 Sep 2022 05:37:55 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Fri, 30 Sep 2022 05:37:51 -0700
+Date: Fri, 30 Sep 2022 13:37:28 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <linux-gpio@vger.kernel.org>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+	<mturquette@baylibre.com>, Linus Walleij <linus.walleij@linaro.org>, Emil
+ Renner Berthing <kernel@esmil.dk>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 30/30] RISC-V: Add StarFive JH7100 and JH7110 SoC
+ Kconfig options
+Message-ID: <YzbjCIfoxjsFCuD1@wendy>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220930122318.9244-1-hal.feng@linux.starfivetech.com>
 MIME-Version: 1.0
-References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-7-guoren@kernel.org>
- <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net> <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTQxfuHVe=drT3tMCK4prULR5iPS6F++HTokswjD2yRZZQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 30 Sep 2022 20:27:57 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTo2E539HkkPGah-NtAf4U0HFLU_t=6VT0_6S=M1YswzQ@mail.gmail.com>
-Message-ID: <CAJF2gTTo2E539HkkPGah-NtAf4U0HFLU_t=6VT0_6S=M1YswzQ@mail.gmail.com>
-Subject: Re: [PATCH V5 06/11] entry: Prevent DEBUG_PREEMPT warning
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
-	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
-	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
-	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, mark.rutland@arm.com, zouyipeng@huawei.com, 
-	bigeasy@linutronix.de, David.Laight@aculab.com, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <20220930122318.9244-1-hal.feng@linux.starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_052814_590432_CA688B62 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20220930_053800_198984_B9377D83 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,99 +90,183 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 9:45 AM Guo Ren <guoren@kernel.org> wrote:
->
-> On Mon, Sep 19, 2022 at 7:59 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > On Sun, Sep 18, 2022 at 11:52:41AM -0400, guoren@kernel.org wrote:
-> > > From: Guo Ren <guoren@linux.alibaba.com>
-> > >
-> > > When DEBUG_PREEMPT=y,
-> > >       exit_to_user_mode_prepare
-> > >       ->tick_nohz_user_enter_prepare
-> > >         ->tick_nohz_full_cpu(smp_processor_id())
-> > >           ->smp_processor_id()
-> > >             ->debug_smp_processor_id()
-> > >               ->check preempt_count() then:
-> > >
-> > > [    5.717610] BUG: using smp_processor_id() in preemptible [00000000]
-> > > code: S20urandom/94
-> > > [    5.718111] caller is debug_smp_processor_id+0x24/0x38
-> > > [    5.718417] CPU: 1 PID: 94 Comm: S20urandom Not tainted
-> > > 6.0.0-rc3-00010-gfd0a0d619c63-dirty #238
-> > > [    5.718886] Hardware name: riscv-virtio,qemu (DT)
-> > > [    5.719136] Call Trace:
-> > > [    5.719281] [<ffffffff800055fc>] dump_backtrace+0x2c/0x3c
-> > > [    5.719566] [<ffffffff80ae6cb0>] show_stack+0x44/0x5c
-> > > [    5.720023] [<ffffffff80aee870>] dump_stack_lvl+0x74/0xa4
-> > > [    5.720557] [<ffffffff80aee8bc>] dump_stack+0x1c/0x2c
-> > > [    5.721033] [<ffffffff80af65c0>]
-> > > check_preemption_disabled+0x104/0x108
-> > > [    5.721538] [<ffffffff80af65e8>] debug_smp_processor_id+0x24/0x38
-> > > [    5.722001] [<ffffffff800aee30>] exit_to_user_mode_prepare+0x48/0x178
-> > > [    5.722355] [<ffffffff80af5bf4>] irqentry_exit_to_user_mode+0x18/0x30
-> > > [    5.722685] [<ffffffff80af5c70>] irqentry_exit+0x64/0xa4
-> > > [    5.722953] [<ffffffff80af52f4>] do_page_fault+0x1d8/0x544
-> > > [    5.723291] [<ffffffff80003310>] ret_from_exception+0x0/0xb8
-> > >
-> > > (Above is found in riscv platform with generic_entry)
-> > >
-> > > The smp_processor_id() needs irqs disable or preempt_disable, so use
-> > > preempt dis/in protecting the tick_nohz_user_enter_prepare().
-> > >
-> > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > > ---
-> > >  kernel/entry/common.c | 2 ++
-> > >  1 file changed, 2 insertions(+)
-> > >
-> > > diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> > > index 063068a9ea9b..36e4cd50531c 100644
-> > > --- a/kernel/entry/common.c
-> > > +++ b/kernel/entry/common.c
-> > > @@ -194,8 +194,10 @@ static void exit_to_user_mode_prepare(struct pt_regs *regs)
-> > >
-> > >       lockdep_assert_irqs_disabled();
-> >
-> >     Observe ^^^^
-> Thanks! I would enable PROVE_LOCKING for test.
-It's my bug in page_fault, here is the solution:
+On Fri, Sep 30, 2022 at 08:23:18PM +0800, Hal Feng wrote:
+> Add Kconfig options to select the specified StarFive SoC. Select
+> necessary Kconfig options required by the specified SoC for booting.
+> 
+> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+> ---
+>  arch/riscv/Kconfig.socs               | 27 ++++++++++++++++++++++++++-
+>  arch/riscv/boot/dts/starfive/Makefile |  4 ++--
+>  drivers/clk/starfive/Kconfig          | 14 ++++++--------
+>  drivers/pinctrl/starfive/Kconfig      |  6 ++----
+>  drivers/reset/Kconfig                 |  1 -
 
-@@ -358,6 +358,8 @@ asmlinkage void noinstr do_page_fault(struct pt_regs *regs)
+Firstly, you cannot change all of these files in one commit, sorry.
 
-        __do_page_fault(regs);
+>  5 files changed, 36 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 10f68a4359f9..321c448e7b6f 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -22,10 +22,35 @@ config SOC_STARFIVE
+>  	bool "StarFive SoCs"
+>  	select PINCTRL
+>  	select RESET_CONTROLLER
+> +	select RESET_STARFIVE
 
-+       local_irq_disable();
-+
-        irqentry_exit(regs, state);
- }
- NOKPROBE_SYMBOL(do_page_fault);
+Secondly, we are trying to get rid of selects in arch/riscv at the
+moment, not add them. use "default SOC_STARFIVE" in
+drivers/reset/kconfig instead please.
 
->
-> >
-> > >
-> > > +     preempt_disable();
-> > >       /* Flush pending rcuog wakeup before the last need_resched() check */
-> > >       tick_nohz_user_enter_prepare();
-> > > +     preempt_enable();
-> >
-> > This makes no sense; if IRQs are disabled, check_preemption_disabled()
-> > should bail early per:
-> >
-> >         if (irqs_disabled())
-> >                 goto out;
-> Ditto.
->
->
-> --
-> Best Regards
->  Guo Ren
+> +	help
+> +	  This enables support for StarFive SoC platform hardware.
+> +
+> +if SOC_STARFIVE
 
+I don't think we want to have per soc selection menus in arch code,
+I think this should move to drivers/soc (a la Renesas) if you want to
+have a per soc selection menu or else just do "default SOC_STARFIVE"
+for both clock and pinctrl drivers in the clk and pinctrl Kconfig
+entries.
 
+Thanks,
+Conor.
 
--- 
-Best Regards
- Guo Ren
+> +
+> +config SOC_JH7100
+> +	bool "StarFive JH7100 SoC support"
+> +	depends on SOC_STARFIVE
+>  	select SIFIVE_L2
+>  	select SIFIVE_PLIC
+> +	select CLK_STARFIVE_JH7100
+> +	select PINCTRL_STARFIVE_JH7100
+> +	default SOC_STARFIVE
+>  	help
+> -	  This enables support for StarFive SoC platform hardware.
+> +	  This enables support for StarFive JH7100 SoC.
+> +
+> +config SOC_JH7110
+> +	bool "StarFive JH7110 SoC support"
+> +	depends on SOC_STARFIVE
+> +	select SIFIVE_L2
+> +	select SIFIVE_PLIC
+> +	select CLK_STARFIVE_JH7110_SYS
+> +	select PINCTRL_STARFIVE_JH7110
+> +	default SOC_STARFIVE
+> +	help
+> +	  This enables support for StarFive JH7110 SoC.
+> +
+> +endif
+>  
+>  config SOC_VIRT
+>  	bool "QEMU Virt Machine"
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index e1237dbc6aac..a6ecd3c2ec7d 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -1,3 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
+> -dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-v2.dtb
+> +dtb-$(CONFIG_SOC_JH7100) += jh7100-beaglev-starlight.dtb
+> +dtb-$(CONFIG_SOC_JH7110) += jh7110-starfive-visionfive-v2.dtb
+> diff --git a/drivers/clk/starfive/Kconfig b/drivers/clk/starfive/Kconfig
+> index 42aad3b553cb..d0490e9f42db 100644
+> --- a/drivers/clk/starfive/Kconfig
+> +++ b/drivers/clk/starfive/Kconfig
+> @@ -5,36 +5,34 @@ config CLK_STARFIVE
+>  
+>  config CLK_STARFIVE_JH7100
+>  	bool "StarFive JH7100 clock support"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7100 || COMPILE_TEST
+>  	select CLK_STARFIVE
+> -	default SOC_STARFIVE
+>  	help
+>  	  Say yes here to support the clock controller on the StarFive JH7100
+>  	  SoC.
+>  
+>  config CLK_STARFIVE_JH7100_AUDIO
+>  	tristate "StarFive JH7100 audio clock support"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7100 || COMPILE_TEST
+>  	select CLK_STARFIVE
+> -	default m if SOC_STARFIVE
+> +	default m if SOC_JH7100
+>  	help
+>  	  Say Y or M here to support the audio clocks on the StarFive JH7100
+>  	  SoC.
+>  
+>  config CLK_STARFIVE_JH7110_SYS
+>  	bool "StarFive JH7110 system clock support"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7110 || COMPILE_TEST
+>  	select CLK_STARFIVE
+> -	default SOC_STARFIVE
+>  	help
+>  	  Say yes here to support the system clock controller on the
+>  	  StarFive JH7110 SoC.
+>  
+>  config CLK_STARFIVE_JH7110_AON
+>  	tristate "StarFive JH7110 always-on clock support"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7110 || COMPILE_TEST
+>  	select CLK_STARFIVE
+> -	default m if SOC_STARFIVE
+> +	default m if SOC_JH7110
+>  	help
+>  	  Say yes here to support the always-on clock controller on the
+>  	  StarFive JH7110 SoC.
+> diff --git a/drivers/pinctrl/starfive/Kconfig b/drivers/pinctrl/starfive/Kconfig
+> index fde39f4a7922..d09bdf6d3029 100644
+> --- a/drivers/pinctrl/starfive/Kconfig
+> +++ b/drivers/pinctrl/starfive/Kconfig
+> @@ -2,7 +2,7 @@
+>  
+>  config PINCTRL_STARFIVE_JH7100
+>  	tristate "Pinctrl and GPIO driver for the StarFive JH7100 SoC"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7100 || COMPILE_TEST
+>  	depends on OF
+>  	select GENERIC_PINCTRL_GROUPS
+>  	select GENERIC_PINMUX_FUNCTIONS
+> @@ -10,7 +10,6 @@ config PINCTRL_STARFIVE_JH7100
+>  	select GPIOLIB
+>  	select GPIOLIB_IRQCHIP
+>  	select OF_GPIO
+> -	default SOC_STARFIVE
+>  	help
+>  	  Say yes here to support pin control on the StarFive JH7100 SoC.
+>  	  This also provides an interface to the GPIO pins not used by other
+> @@ -28,10 +27,9 @@ config PINCTRL_STARFIVE
+>  
+>  config PINCTRL_STARFIVE_JH7110
+>  	bool "Pinctrl and GPIO driver for the StarFive JH7110 SoC"
+> -	depends on SOC_STARFIVE || COMPILE_TEST
+> +	depends on SOC_JH7110 || COMPILE_TEST
+>  	depends on OF
+>  	select PINCTRL_STARFIVE
+> -	default SOC_STARFIVE
+>  	help
+>  	  Say yes here to support pin control on the StarFive JH7110 SoC.
+>  	  This also provides an interface to the GPIO pins not used by other
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 8121de5ecc3c..c001879bd890 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -228,7 +228,6 @@ config RESET_SOCFPGA
+>  config RESET_STARFIVE
+>  	bool "StarFive SoC Reset Driver"
+>  	depends on SOC_STARFIVE || COMPILE_TEST
+> -	default SOC_STARFIVE
+>  	help
+>  	  This enables the reset controller driver for the StarFive SoCs.
+>  
+> -- 
+> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
