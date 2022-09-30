@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844E6C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 20:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCFEC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Sep 2022 21:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dABiK9+4icxTt+QG+nTtEM/7XgyPSMfr7LTp4AEhPhY=; b=KCkyGSTaHEffaD
-	js/EPAjzfZ8/Wk4SZRPK98YIpxTh7BG6nEHEPWLJVSlLKxYN/bSdW/KB7anx4uuhdjEopKS3QsEh3
-	7G7wLeRDQ/xGjb6xp6lmQjLn6spMCs5ezJPZIIVnMgQiWIJ2fwzcx7Yc503XA8mmu+fUNbiIV62FA
-	mo7RLM8mqp4vq23JgXbM/eyrHGjiY2g46Pe8K1s49XH+V+k9T4ii5up1Pt6wSqLuvVZ90Z4Y5/37i
-	Lg6qvRn2xYuLL0VUwqz+nETba3X3YrVVJ2azwDOxx7tQGvesBfTsbFjjVEATkEbwD0ahJqgmbE2E8
-	5EDBbqDQjbeggXGSkd7g==;
+	List-Owner; bh=YUCKM+sgLEz7tDHSF4U4E1i2jtzwG9ADBAcci+sijJg=; b=YooLDoTlzQ379H
+	aCMRYLZ7P5M2r2tPLa3lohQmjxX2uUa0HI8AbNEiRGMyUzwuTC0apSo7WqMQD6KUlN5Lnas274loV
+	DU9CTyKAB8L1vWyhVYhWQFWkDol7yb0GLrGlPPr2aR1OijwWdxCLox7fguMzsD5/k//Cp9hx/MtO7
+	HhqOf4TaW4FeIU5n0FsKK5Ox+JhQT4KLqQMLo7lDGgDO5g7k36U7TuROhqnKTasN+oQ30QgT773IU
+	VCC0tlVvwrXfZX/sV9FyaaXqTgQjnRGceWwOzxmvfjbHAEL/xGBhqPuo7aJyWohFbvPLwCNBC9pwx
+	H2OQ+haiUQVIcdEIUAkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeN1s-00BWot-Fu; Fri, 30 Sep 2022 20:54:40 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1oeNYq-00Bcqh-Ir; Fri, 30 Sep 2022 21:28:44 +0000
+Received: from mail-oa1-f52.google.com ([209.85.160.52])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeN1q-00BWnT-0h
-	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 20:54:39 +0000
-Received: from [216.9.110.4] (helo=[172.31.242.38])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1oeN1g-001NRG-OY; Fri, 30 Sep 2022 21:54:28 +0100
-Message-ID: <01c658ad-7f73-20fc-03c0-c82dcd820aa4@codethink.co.uk>
-Date: Fri, 30 Sep 2022 21:54:14 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH v1 29/30] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
-Content-Language: en-GB
-To: Hal Feng <hal.feng@linux.starfivetech.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
+	id 1oeNYn-00Bcp5-So
+	for linux-riscv@lists.infradead.org; Fri, 30 Sep 2022 21:28:43 +0000
+Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-131ea99262dso4599851fac.9
+        for <linux-riscv@lists.infradead.org>; Fri, 30 Sep 2022 14:28:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=S7CiI3WwjpNrhXvdHD1dIIAHLPRZYnaexnei+ztfM3I=;
+        b=LKd+2VoBhyJ7/VpVBXvCx57xYaP4pYhXuABH/TkhfWQDcvNbuyT5yCshxVPw2naxda
+         x2Mp3qYxFccSNxzIRmDiZ9hZIllrNUIJOqikTOFY+SjnnOjYhw+9Ysp8ST5iv+AVJ7r/
+         BNzh9uAA9OaORBLh2kUmH8UlQR7UCb8PP/V6VaoetYqSyN3wUvNzAguLmk91ZccZbQyv
+         oPskaWsbpgGEaQG3277Og2bBQlxOQ0QR8Ey32pSfjIAhgwT57IdbHGkaXIcElYx5YQ9I
+         XqIqJSvaQnZBBRutIBIlI9FoOLoCXU//uzvqSJAMpkpMly337/5OUICwlRYO5row0Q0D
+         vhaQ==
+X-Gm-Message-State: ACrzQf1tb0fEKbp8SJITQl7pAD27DmCb7Zxm6JwmtlVBu0eLSAEL+MhO
+	jMwkmC6qpaDZBzIsNuBUROD1GULvng==
+X-Google-Smtp-Source: AMsMyM5bcRhjaYikR+Xk6ykHgQ5zOQndbLZNNrB7CLNt2bq/KWaPcLT0xLBWvFaWjME3DkVdHURUeg==
+X-Received: by 2002:a05:6871:689:b0:12c:52be:94f6 with SMTP id l9-20020a056871068900b0012c52be94f6mr93380oao.214.1664573319960;
+        Fri, 30 Sep 2022 14:28:39 -0700 (PDT)
+Received: from macbook.herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id u43-20020a056808152b00b0034f937c50fasm748202oiw.49.2022.09.30.14.28.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 Sep 2022 14:28:39 -0700 (PDT)
+Received: (nullmailer pid 1076968 invoked by uid 1000);
+	Fri, 30 Sep 2022 21:28:37 -0000
+Date: Fri, 30 Sep 2022 16:28:37 -0500
+From: Rob Herring <robh@kernel.org>
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, linux-riscv@lists.infradead.org, linux-gpio@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Linus Walleij <linus.walleij@linaro.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v1 23/30] pinctrl: starfive: Rename "pinctrl-starfive" to
+ "pinctrl-starfive-jh7100"
+Message-ID: <166457324093.1075476.18009315584754055366.robh@kernel.org>
 References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930090653.7449-1-hal.feng@linux.starfivetech.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220930090653.7449-1-hal.feng@linux.starfivetech.com>
+ <20220930061404.5418-1-hal.feng@linux.starfivetech.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220930061404.5418-1-hal.feng@linux.starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_135438_085507_07DD95F7 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20220930_142841_950167_AB9B8FF3 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,42 +75,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/09/2022 10:06, Hal Feng wrote:
-> Add CONFIG_SERIAL_8250_DW=y, which is a necessary option for
-> StarFive JH7110 and JH7100 SoCs to boot with serial ports.
+On Fri, 30 Sep 2022 14:14:04 +0800, Hal Feng wrote:
+> From: Jianlong Huang <jianlong.huang@starfivetech.com>
 > 
+> Add the SoC name to make it more clear. Also the next generation StarFive
+> SoCs will use "pinctrl-starfive" as the core of StarFive pinctrl driver.
+> No functional change.
+> 
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
 > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-
-That might be useful for other users at some point an I don't
-think it adds much code.
-
 > ---
->   arch/riscv/configs/defconfig | 1 +
->   1 file changed, 1 insertion(+)
+>  .../bindings/pinctrl/starfive,jh7100-pinctrl.yaml           | 2 +-
+>  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts   | 2 +-
+>  drivers/pinctrl/starfive/Kconfig                            | 2 +-
+>  drivers/pinctrl/starfive/Makefile                           | 2 +-
+>  .../{pinctrl-starfive.c => pinctrl-starfive-jh7100.c}       | 2 +-
+>  .../{pinctrl-starfive.h => pinctrl-starfive-jh7100.h}       | 6 +++---
+>  6 files changed, 8 insertions(+), 8 deletions(-)
+>  rename drivers/pinctrl/starfive/{pinctrl-starfive.c => pinctrl-starfive-jh7100.c} (99%)
+>  rename include/dt-bindings/pinctrl/{pinctrl-starfive.h => pinctrl-starfive-jh7100.h} (98%)
 > 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index aed332a9d4ea..0c44484cd3a4 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -122,6 +122,7 @@ CONFIG_MICROSEMI_PHY=y
->   CONFIG_INPUT_MOUSEDEV=y
->   CONFIG_SERIAL_8250=y
->   CONFIG_SERIAL_8250_CONSOLE=y
-> +CONFIG_SERIAL_8250_DW=y
->   CONFIG_SERIAL_OF_PLATFORM=y
->   CONFIG_VIRTIO_CONSOLE=y
->   CONFIG_HW_RANDOM=y
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+Reviewed-by: Rob Herring <robh@kernel.org>
 
-https://www.codethink.co.uk/privacy.html
+Would be good to pull this out separately and apply for 6.1. It's kind 
+of messy with cross tree dependencies.
 
 
 _______________________________________________
