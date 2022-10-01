@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DD9C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Oct 2022 01:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA45C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Oct 2022 10:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:
-	In-Reply-To:References:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gCkjtJkfVJlFByaZugJI+4XJUKXhH1YQaDSiP0wLL8E=; b=mP/4/lYHZzef+d
-	Iuk4gDIRlu1fgU6vYr3/vxn7GUQSp7kTVZxzmbKUBhIgY2pUqFZ3FLLhvOGKgv0KrnZm534clkU4E
-	Tn5yWVRA/7AoldzxAyN2UKMvF0Gbmlj5HZbncVoLbC8F6/A49TzDnLafHqmBN1f2vkOtxitmeFe/L
-	oYoLGGGvvVI42j06OaYUCsClF1tvvyFHxSqU/nd0wN+xSYXsK1jgyZN1rzCxRtwxg2FiwcyVib9/F
-	TGL9aJZi80Igvjk+xefO3Yq7RW3vIGh0Z5PrweJD2TXYoaMkYXd7bX7I6iPaqsGnfB8udjPYHd43Y
-	1/9AIIX1b+S4GJiZWVCg==;
+	List-Owner; bh=Rl+rzslXIW3rl4B1dwmupxEqkVQmc2ncJSTyJOH5Kco=; b=vKOcS2Kg6GboMP
+	dYYOM0uGSvzYpMmaBO5/lN355JEAT6boVQ6iQp0dl29jqtB2276TWz+oB/AosXib0ZOc+LesIMfSe
+	12w++K/3YPM7ILlpcP92Gt0dT3/JZbOCvAvTrURfRMW2ioiz9CBpWhdYMRGosKGYe/c1zJm8ALCih
+	LC+n+LaLAYrMRHg13r4BbJBiPqozBtyOLc43V5pBLbZ23icNr/znAsHV7lP9DNzVKBMlVSbKj6Q1o
+	BO6lq7auHpYRYLOQlmr1nij9X/TWqyXBFbRZqRXI+PJVHvUv7dFQoP3oxCzYuvRRLbscWqtIsKtyn
+	t54oulaH0d5TY1mlCx3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeR9V-00CSum-82; Sat, 01 Oct 2022 01:18:49 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1oea6N-00EEHM-Lr; Sat, 01 Oct 2022 10:52:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oeR9R-00CSq9-9u
-	for linux-riscv@lists.infradead.org; Sat, 01 Oct 2022 01:18:47 +0000
-X-QQ-mid: bizesmtp91t1664586871tcwf5ude
-Received: from CSD1051 ( [113.72.146.201])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 01 Oct 2022 09:14:29 +0800 (CST)
-X-QQ-SSF: 01000000000000308000000A0000000
-X-QQ-FEAT: PXtIlpCZyqdoUCaznDtdk1gVxdQFhDYD3xz//q16G0AgZvwIO2tuR6R0JunZn
-	uxvR+gjF7QCJd/Vn6HBzqgWAfDT0XURA9RI5t+BFQetFrVz9CFQnuU6VO6Nk+L8kIEZ4Gna
-	0WhRHPrxLqR4kbt8kzIozEzYDeg3FOe0/VFf2mzwKPM86sf0cNpmmSciBtnnKl7La4P6iXy
-	TbFieBvcljfVC5YsGyJQLSk9IlT4ZzCYCI4cgAGwC7/5EUBU0IU0djPo6pZ86BTHKhhja9o
-	k6XXlhPiWxO2Ox6oyTAjEOR0f4nTM2SoXpUxD02jtmKFRMMk28OQILWco8LehWnqTB9xrv0
-	zucVUFcdqPvSqxvf88=
-X-QQ-GoodBg: 0
-From: <hal.feng@linux.starfivetech.com>
-To: "'Conor Dooley'" <conor@kernel.org>,
-	"'Krzysztof Kozlowski'" <krzysztof.kozlowski@linaro.org>
-Cc: <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>,
-	"'Rob Herring'" <robh+dt@kernel.org>,
-	"'Krzysztof Kozlowski'" <krzysztof.kozlowski+dt@linaro.org>,
-	"'Paul Walmsley'" <paul.walmsley@sifive.com>,
-	"'Palmer Dabbelt'" <palmer@dabbelt.com>,
-	"'Albert Ou'" <aou@eecs.berkeley.edu>,
-	"'Daniel Lezcano'" <daniel.lezcano@linaro.org>,
-	"'Thomas Gleixner'" <tglx@linutronix.de>,
-	"'Marc Zyngier'" <maz@kernel.org>,
-	"'Philipp Zabel'" <p.zabel@pengutronix.de>,
-	"'Stephen Boyd'" <sboyd@kernel.org>,
-	"'Michael Turquette'" <mturquette@baylibre.com>,
-	"'Linus Walleij'" <linus.walleij@linaro.org>,
-	"'Emil Renner Berthing'" <kernel@esmil.dk>,
-	<linux-kernel@vger.kernel.org>
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com> <4ddabe3a-9f55-2a6a-c1c1-ccc3fc74e98a@linaro.org> <YzXc/FSbDpkElK0O@spud>
-In-Reply-To: <YzXc/FSbDpkElK0O@spud>
-Subject: Re: [PATCH v1 00/30] Basic StarFive JH7110 RISC-V SoC support
-Date: Sat, 1 Oct 2022 09:13:01 +0800
-Message-ID: <617C2EE03810F071+013401d8d532$f4548310$dcfd8930$@linux.starfivetech.com>
+	id 1oea6K-00EEG6-Ng
+	for linux-riscv@lists.infradead.org; Sat, 01 Oct 2022 10:52:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 84295601C0;
+	Sat,  1 Oct 2022 10:52:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52511C433C1;
+	Sat,  1 Oct 2022 10:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664621526;
+	bh=Rv8wMw62hPBvQGNl2E7VkFVZEvT258K9oq+IlR87Ask=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IP8PTUGVNVS+ExEC356TXSwGfBHX4MmF8vr2MLoe9W9ea0nGQQpXVLPyZKnOwyWRS
+	 6QgjqinvbPbAJbgfnVDdYkKM1WYVp9eS88300VoqywTWs6A5S5lB+qrNNZ9uLiqmXW
+	 P3PvDjrtsGm55lpqRji2xqgiY9Rs74U9/G1a9wEvAnbHSq8bBAZDh3henEuFJXjj4V
+	 zrRi1Xys1/t6wl/Xit2CsDj7G2vxNr/MyTwvxyYenU6OAsRJbANjptoOZXgZ7r5VIf
+	 YqQA4H46Kq+sEWe33n1W0iXUaBI6+kBpoUNEAzHNsERI+z1FSQKW4PHZEmt/rwivN7
+	 2BUmer1kO/MdQ==
+Date: Sat, 1 Oct 2022 11:52:00 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 27/30] RISC-V: Add initial StarFive JH7110 device tree
+Message-ID: <Yzgb0GzpLsV3RJyk@spud>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220930074914.6757-1-hal.feng@linux.starfivetech.com>
 MIME-Version: 1.0
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: zh-cn
-Thread-Index: AQLyOrMrqu8us6tOmdilaJnshXDZwAImr5qgAixKxMCro1Q8gA==
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
+Content-Disposition: inline
+In-Reply-To: <20220930074914.6757-1-hal.feng@linux.starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220930_181845_729005_6CDAE22D 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20221001_035208_891136_738F1585 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +86,243 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 29, 2022 at 18:59:24 +0100, Conor Dooley wrote:
-> On Thu, Sep 29, 2022 at 04:45:26PM +0200, Krzysztof Kozlowski wrote:
-> > On 29/09/2022 16:31, Hal Feng wrote:
-> >
-> > > This series is also available at
-> > > https://github.com/hal-feng/linux/commits/visionfive2-minimal
-> > >
-> > > [1]
-> > > https://www.cnx-software.com/2022/08/23/starfive-visionfive-2-quad-c
-> > > ore-risc-v-sbc-linux/
-> > > [2] https://wiki.rvspace.org/
-> > >
-> > > Emil Renner Berthing (17):
-> > >   dt-bindings: riscv: Add StarFive JH7110 bindings
-> > >   dt-bindings: timer: Add StarFive JH7110 clint
-> > >   dt-bindings: interrupt-controller: Add StarFive JH7110 plic
-> > >   dt-bindings: sifive-l2-cache: Support StarFive JH71x0 SoCs
-> > >   soc: sifive: l2 cache: Convert to platform driver
-> > >   soc: sifive: l2 cache: Add StarFive JH71x0 support
-> > >   reset: starfive: jh7100: Use 32bit I/O on 32bit registers
-> > >   dt-bindings: reset: Add StarFive JH7110 reset definitions
-> > >   clk: starfive: Factor out common clock driver code
-> > >   dt-bindings: clock: Add StarFive JH7110 system clock definitions
-> > >   dt-bindings: clock: Add starfive,jh7110-clkgen-sys bindings
-> > >   clk: starfive: Add StarFive JH7110 system clock driver
-> > >   dt-bindings: clock: Add StarFive JH7110 always-on definitions
-> > >   dt-bindings: clock: Add starfive,jh7110-clkgen-aon bindings
-> > >   clk: starfive: Add StarFive JH7110 always-on clock driver
-> > >   RISC-V: Add initial StarFive JH7110 device tree
-> > >   RISC-V: Add StarFive JH7110 VisionFive2 board device tree
-> >
-> > Where is the rest of patches? Lists got only 5 of them. Anyway this is
-> > a bit too big patchset. Split per subsystem.
+On Fri, Sep 30, 2022 at 03:49:14PM +0800, Hal Feng wrote:
+> From: Emil Renner Berthing <kernel@esmil.dk>
 > 
-> They seem to be coming in over time in dribs and drabs. I assume it is not
-a
-> mailing list problem given how many lists are CCed on the mail and the
-fact
-> that they have different providers.
+> Add initial device tree for the JH7110 RISC-V SoC by
+> StarFive Technology Ltd.
 > 
-> For v2 (or multiple v2s) please fix up your process so that this gets sent
-> normally and not a couple of patches every hour.
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
 
-Our email server has technical issue and we are aware of this.
-Will fix in next revision. Sorry for the inconvenience caused.
+There's little point reviewing this dt since there's a load of issues
+that you can trivially find by running dtbs_check/dt_binding_check, but
+this SoB change is wrong - if Emil wrote the patch, then Jianlong's SoB
+is either redundant or should be accompanied by a Co-developed-by tag.
 
-Best Regards,
-Hal
+Ditto for patch 28/30 "RISC-V: Add StarFive JH7110 VisionFive2 board
+device tree".
 
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi | 449 +++++++++++++++++++++++
+>  1 file changed, 449 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> new file mode 100644
+> index 000000000000..46f418d4198a
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+
+> +
+> +	osc: osc {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	clk_rtc: clk_rtc {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	gmac0_rmii_refin: gmac0_rmii_refin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <50000000>;
+
+I assume, given osc has it's frequency set in the board dts, that these
+are all oscillators on the SoC?
+
+> +	};
+> +
+> +	gmac0_rgmii_rxin: gmac0_rgmii_rxin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <125000000>;
+> +	};
+> +
+> +	gmac1_rmii_refin: gmac1_rmii_refin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <50000000>;
+> +	};
+> +
+> +	gmac1_rgmii_rxin: gmac1_rgmii_rxin {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <125000000>;
+> +	};
+> +
+> +	i2stx_bclk_ext: i2stx_bclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <12288000>;
+> +	};
+> +
+> +	i2stx_lrck_ext: i2stx_lrck_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <192000>;
+> +	};
+> +
+> +	i2srx_bclk_ext: i2srx_bclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <12288000>;
+> +	};
+> +
+> +	i2srx_lrck_ext: i2srx_lrck_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <192000>;
+> +	};
+> +
+> +	tdm_ext: tdm_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <49152000>;
+> +	};
+> +
+> +	mclk_ext: mclk_ext {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <49152000>;
+> +	};
+
+> +		syscrg: syscrg@13020000 {
+
+The generic node name for syscons is just "syscon" afaik.
+
+> +			compatible = "syscon", "simple-mfd";
+> +			reg = <0x0 0x13020000 0x0 0x10000>;
+> +
+
+> +		aoncrg: aoncrg@17000000 {
+
+Again, syscon as the node name?
+
+> +			compatible = "syscon", "simple-mfd";
+> +			reg = <0x0 0x17000000 0x0 0x10000>;
+> +
+> +		gpio: gpio@13040000 {
+
+Someone else (Krzysztof maybe?) should comment, but is "pinctrl" not the
+genric node name for pinctrl nodes?
+
+Thanks,
+Conor.
+
+> +			compatible = "starfive,jh7110-sys-pinctrl";
+> +			reg = <0x0 0x13040000 0x0 0x10000>;
+> +			reg-names = "control";
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_IOMUX>;
+> +			resets = <&syscrg_rst JH7110_SYSRST_IOMUX>;
+> +			interrupts = <86>;
+> +			interrupt-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <64>;
+> +		};
+> +
+> +		gpioa: gpio@17020000 {
+> +			compatible = "starfive,jh7110-aon-pinctrl";
+> +			reg = <0x0 0x17020000 0x0 0x10000>;
+> +			reg-names = "control";
+> +			resets = <&aoncrg_rst JH7110_AONRST_AON_IOMUX>;
+> +			interrupts = <85>;
+> +			interrupt-controller;
+> +			#gpio-cells = <2>;
+> +			ngpios = <4>;
+> +		};
+> +
+> +		uart0: serial@10000000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x10000000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART0_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART0_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART0_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART0_CORE>;
+> +			interrupts = <32>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		uart1: serial@10010000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x10010000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART1_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART1_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART1_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART1_CORE>;
+> +			interrupts = <33>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		uart2: serial@10020000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x10020000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART2_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART2_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART2_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART2_CORE>;
+> +			interrupts = <34>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		uart3: serial@12000000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x12000000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART3_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART3_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART3_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART3_CORE>;
+> +			interrupts = <45>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		uart4: serial@12010000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x12010000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART4_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART4_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART4_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART4_CORE>;
+> +			interrupts = <46>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +
+> +		uart5: serial@12020000 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x0 0x12020000 0x0 0x10000>;
+> +			clocks = <&syscrg_clk JH7110_SYSCLK_UART5_CORE>,
+> +				 <&syscrg_clk JH7110_SYSCLK_UART5_APB>;
+> +			clock-names = "baudclk", "apb_pclk";
+> +			resets = <&syscrg_rst JH7110_SYSRST_UART5_APB>,
+> +				 <&syscrg_rst JH7110_SYSRST_UART5_CORE>;
+> +			interrupts = <47>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +	};
+> +};
+> -- 
+> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
