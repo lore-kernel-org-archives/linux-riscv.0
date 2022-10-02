@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DD8C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F332AC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ckWnyZvALje7WOjXfdgboxPpmLtpOF7Ee4zhps0vv+s=; b=3PiUhliTiz2JGf
-	6cZA+PtoXBsLbgxWVn7wuPPSphJbL/j+cy0yW5sUc5aWMeXnQ4LeSpzU7tqMUmWWHqeePPsLvQRxX
-	F1BvAZkJeSoHl6ixQoNoWdeastQX5dTsSORMVBomFZ+ZDOMTWbHGTqMMXwi2BkmSobYgaNZ2HZV4U
-	VpcvDnyCwo2ipDOORjwvhbsWVnSIz/K16JDMN7/YagB3Vtkbp8p63yqocjXIBNngvtJ6sab5ACGHa
-	AKrLwQAk2prwTj/b1AmgYCSAEYE0wLA3kDoU2NjVyT0Y5vvYycZNTNL3S26SIb8vAiQ0mjzh5Oe/r
-	5cM/zP8dlJwh8aFgYtig==;
+	List-Owner; bh=E9580tEVDw3jWbXyfhI1QETpogPVCt2UIE/70AUSBYo=; b=sRhElr9p+L7qeE
+	aEgCb6oduYdRpP/Q57H3JFCUIsSUWrrvkrA9cberIaqE0oWD73KHhN9oXPg5NvRq72BlsHuTDJIOJ
+	n8pUUsro6tL6J6WJEyJON2986hPbfVKHXALQ6ZI60zdN1wbh0lK3mh0FdnijWfDtD4XtUg+WLkf8Z
+	pveQlZIpSNWNehbbMOVoUmJs0jxuDRNTRqB12kTBeMTIyN0hXmCp/9kR22EulJPcB7Qpf2orNbvie
+	1z47SjBUrBV6AAieetnuMHADUTFgPVgPMdZeDYiFpWaXM/ymyEqC43hEsaFqV9vyc/SspLP+fH92J
+	Qs7KPz0hsVCwkUsZq8yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenjt-00GrSD-Ac; Sun, 02 Oct 2022 01:25:53 +0000
+	id 1oenjy-00GrUV-JR; Sun, 02 Oct 2022 01:25:58 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenjq-00GrR1-Sm
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:52 +0000
+	id 1oenjw-00GrTY-CR
+	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 60E4860DD6;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DB12E60D57;
+	Sun,  2 Oct 2022 01:25:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4727BC433C1;
 	Sun,  2 Oct 2022 01:25:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030A8C43152;
-	Sun,  2 Oct 2022 01:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664673949;
-	bh=DEvoceoa51GjIrkhPQ7BHRzc0Y6qi+1P763yh9ux/40=;
+	s=k20201202; t=1664673955;
+	bh=EeFFIvXN/JwkcVumnFfZeBxR0r/LWWg4dvb3hMk4ymM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ppz+xqzeSXFhbPI6utaYdIThP3K6Nz8Mr271TNX2vXYINZ5QJZo6BF5NBGhryyY//
-	 32/rxcGNPdnz82SjbfOLoletGSxVjHWJm+UXkXtvYnuLRfi8aha5E/XrBlNoJyxQEn
-	 4BfWP3j+ClveyZ0INP29NCLToUiURl5VlA2Eo9ykYnyvFLheWCz/N6vBOyfgnvKYR4
-	 reDPriwbXSQAk3E1v88ZXj6Fyj2W6ps3ui326CZj6oN9RkQyAGXfPDHKToIatTk0QU
-	 IUHrnY5VEjZ5YjyEFmHUfHlgoOz9nbPV3mnF6ntwWItFQQnZMrAVDTsSOhNDcM9vbf
-	 ruTfMtEzHbfIg==
+	b=J4yvWGBSPf9Y9N9IKDjk1dnY4/YT1GF9wM+oqOvXFFiGrlFDjy2TZyQz3apT5jN55
+	 iNZa3jsZhy/nH8IMxATZ/SAgBBwjoSqtHGdmI+tkMij1QU2zbdy/BB4EiFzKdV2ibX
+	 s0PXVNF9EdAGIEw0G+PbtvJRUh85mN1Tlsv1FqmlhjfV882wuOpPxZfoAGgJRqTjSs
+	 GbCZdk7ze0YCrvvoIFPgFTO9rjh2mluwtAZd/S+ksKu+832N6+rq9XGzF8oCP4Eb8E
+	 P/juTThIbNeYBpRktkLvAB8665DrX3zphDT5RlW9vzSuKj2yJFncLHmC8/Dr5Gx5Eb
+	 FC30Vhn2uzypw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -67,21 +67,17 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Lai Jiangshan <laijs@linux.alibaba.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [PATCH V6 04/11] compiler_types.h: Add __noinstr_section() for noinstr
-Date: Sat,  1 Oct 2022 21:24:44 -0400
-Message-Id: <20221002012451.2351127-5-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V6 05/11] riscv: traps: Add noinstr to prevent instrumentation inserted
+Date: Sat,  1 Oct 2022 21:24:45 -0400
+Message-Id: <20221002012451.2351127-6-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221002012451.2351127-1-guoren@kernel.org>
 References: <20221002012451.2351127-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221001_182550_973795_C576EB11 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20221001_182556_481311_126DDD7D 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,39 +94,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lai Jiangshan <laijs@linux.alibaba.com>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-And it will be extended for C entry code.
+Without noinstr the compiler is free to insert instrumentation (think
+all the k*SAN, KCov, GCov, ftrace etc..) which can call code we're not
+yet ready to run this early in the entry path, for instance it could
+rely on RCU which isn't on yet, or expect lockdep state. (by peterz)
 
-Cc: Borislav Petkov <bp@alien8.de>
-Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Link: https://lore.kernel.org/linux-riscv/YxcQ6NoPf3AH0EXe@hirez.programming.kicks-ass.net/raw
 Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Lai Jiangshan <laijs@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- include/linux/compiler_types.h | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/traps.c | 4 ++--
+ arch/riscv/mm/fault.c     | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-index 4f2a819fd60a..e9ce11ea4d8b 100644
---- a/include/linux/compiler_types.h
-+++ b/include/linux/compiler_types.h
-@@ -227,9 +227,11 @@ struct ftrace_likely_data {
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 635e6ec26938..588e17c386c6 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -92,9 +92,9 @@ static void do_trap_error(struct pt_regs *regs, int signo, int code,
+ }
+ 
+ #if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_RISCV_ALTERNATIVE)
+-#define __trap_section		__section(".xip.traps")
++#define __trap_section __noinstr_section(".xip.traps")
+ #else
+-#define __trap_section
++#define __trap_section noinstr
  #endif
- 
- /* Section for code which can't be instrumented at all */
--#define noinstr								\
--	noinline notrace __attribute((__section__(".noinstr.text")))	\
--	__no_kcsan __no_sanitize_address __no_profile __no_sanitize_coverage
-+#define __noinstr_section(section)				\
-+	noinline notrace __section(section) __no_profile	\
-+	__no_kcsan __no_sanitize_address __no_sanitize_coverage
-+
-+#define noinstr __noinstr_section(".noinstr.text")
- 
- #endif /* __KERNEL__ */
- 
+ #define DO_ERROR_INFO(name, signo, code, str)				\
+ asmlinkage __visible __trap_section void name(struct pt_regs *regs)	\
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index f2fbd1400b7c..c7829289e806 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -203,7 +203,7 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
+  * This routine handles page faults.  It determines the address and the
+  * problem, and then passes it off to one of the appropriate routines.
+  */
+-asmlinkage void do_page_fault(struct pt_regs *regs)
++asmlinkage void noinstr do_page_fault(struct pt_regs *regs)
+ {
+ 	struct task_struct *tsk;
+ 	struct vm_area_struct *vma;
 -- 
 2.36.1
 
