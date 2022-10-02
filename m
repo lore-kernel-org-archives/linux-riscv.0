@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE52AC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDD3C43219
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0hoUD2z5u4Aq4JkjYc3m0GlFrNIJa2DL93jYoompXCs=; b=HeK6aiCGCVJxrW
-	MRNtOkVnh3I4x7g05WuLVgYYQPqXcc7SkFDkGZEGVuixlaG69bVYP2tOizluTaRuuiNZjvN2X1hPk
-	QBbwu6ujd1WfrFhaffPlPmUno5u12OfK//uFKPj6xGkhMkWK7K1DKzWuY7swf7lL0pVFeiFo213j3
-	DRXeyf0+2ZScnnnHr+DpWIP9xL6+sjj8QPFVB/f0lv3mE+ihgphztMavc4PoQ/FqwWLH6ujE1vwGr
-	3KLbfa+rSeQLhl8kPpL5MgMOjY8wmfLd4MfcH/1RO15u2Z0hBuoC2ZsxzyZQHSiB9PzQZItlkFGzm
-	gbF1tQJWIwC2xMD96BMA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Kk9CMgGG3uoKF5XXw1QN56Li+fkqrYGc32kw0Ahc84I=; b=vrH5SuKzWwQ2Na
+	gn8W6fz+jY+iyv0/L/jILm0KzxeduHuLeiaJacOLALp43GtyhUGoW11iZAu5OGIngyTkyU+R2/3iw
+	sS9TkKNj5JCTTKUi+2YUCExMq5e7xzjK2ml/o2/xz+uAKtK191EE8gX6ZSwIrGukbGkliVQ53i5cW
+	JTmOso2UOdCqqL13RvmAP8mnS9FSbchO0s4unslzCvr50fKuiLfxWQyurg2wgCU6dmGYMxHUFHusE
+	o7NXAzAFDtAZFNYv1woN/pCLkCTtk1LMqazc9P3Sir6MlLmSoqOXK/FG65NmbxJV846F5lmoYUyrB
+	BNQqSEKttc/Pl0KaiiIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenja-00GrM2-II; Sun, 02 Oct 2022 01:25:34 +0000
+	id 1oenjo-00GrQM-4V; Sun, 02 Oct 2022 01:25:48 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenjX-00GrKg-6P
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:32 +0000
+	id 1oenjl-00GrPR-Id
+	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:46 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 00BD460C8E;
-	Sun,  2 Oct 2022 01:25:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED39C433D7;
-	Sun,  2 Oct 2022 01:25:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 06BF360DD7;
+	Sun,  2 Oct 2022 01:25:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49C75C433D7;
+	Sun,  2 Oct 2022 01:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664673926;
-	bh=Z6znzTi+KnB8Q307455dOXkYgby6LTL4boASwYTGr+c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Y27Sn647PzlhzedsGTPSmG03gKB3qdJ4jmVSZBveFJQ/gvmFwfoMXS+h4+0mWq1/6
-	 vTh4Wd1uBY3QevMd9LAkYOHBH7901hkL+lTsZVCMXjpSJLrnloL0Rg78Jx5c32siwf
-	 TTtU45/wYxRAeoO3g5UVEattYohVIhHNvVjAZzzPFbhZt2pZXhia1/kyIvM1nPaKug
-	 puvP3fRZBo6Zjmczhvr0vrEqdPkW4Hd4+qaTuozET6ePGrIa5SBqctZVf+1+Iw2Ouj
-	 omNvgqxADKhOzNG6KoLj5AkE5zbOrmWpfs9nYryF/LgC/Z5Ay9v6ciL1R+LyzGdpAX
-	 Cm5atNaetXjSw==
+	s=k20201202; t=1664673943;
+	bh=thj4lp5B0J2/kj7Zi1BMTTtT9fAnJMteMKwuLQ0ArOk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WUBoCUyhvdRDzQHAvvX7bbmPai+mllpQvReXbilknRVD+Vp5tDQirdG+H9jqqjYqx
+	 W909SclMyLyWpOYfJWo1Gh2mjhtvWVcnSlKtaa67yLEZpskYRlE/cfJY9bCZES4AFm
+	 xZFnjsF3cZdUsQfHmQKKGYR93JVB5T+Ai432iTbNNW1k4IFC8+t6akucDpq1wif+1R
+	 scCtTeOoMHdadzFh0X2vd67Kk01yQyJuVcgHZUh4H+t0jhmfYv7vkISM40FyPzY3uk
+	 MkmYA1rGydZmm2+LTKAmRW16HeoW+KQyJ5jLsatEsv+4GJufbqiV7F14BTu0MpJXo8
+	 rqWlHbTv9/0hQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -67,15 +67,19 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V6 00/11] riscv: Add GENERIC_ENTRY support and related features
-Date: Sat,  1 Oct 2022 21:24:40 -0400
-Message-Id: <20221002012451.2351127-1-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Oleg Nesterov <oleg@redhat.com>
+Subject: [PATCH V6 03/11] riscv: ptrace: Remove duplicate operation
+Date: Sat,  1 Oct 2022 21:24:43 -0400
+Message-Id: <20221002012451.2351127-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20221002012451.2351127-1-guoren@kernel.org>
+References: <20221002012451.2351127-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221001_182531_363733_5885BFA0 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20221001_182545_673561_E87C73CE 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,103 +98,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The patches convert riscv to use the generic entry infrastructure from
-kernel/entry/*. Additionally, add independent irq stacks (IRQ_STACKS)
-for percpu to prevent kernel stack overflows. Add generic_entry based
-STACKLEAK support.
+The TIF_SYSCALL_TRACE is controlled by a common code, see
+kernel/ptrace.c and include/linux/thread.h.
 
-You can directly try it with:
-[1] https://github.com/guoren83/linux/tree/generic_entry_v6
+clear_task_syscall_work(child, SYSCALL_TRACE);
 
-v6:
- - Use THEAD_SIZE_ORDER for thread size adjustment in kconfig (Thx Arnd)
- - Move call_on_stack to inline style (Thx Peter Zijlstra)
- - Fixup fp chain broken (Thx Chen Zhongjin)
- - Remove common entry modification, and fixup page_fault entry (Thx
-   Peter Zijlstra)
- - Treat some traps as nmi entry (Thx Peter Zijlstra)
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+---
+ arch/riscv/kernel/ptrace.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-v5:
-https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
- - Add riscv own stackleak patch instead of generic entry modification
-   (by Mark Rutland)
- - Add EXPERT dependency for THREAD_SIZE (by Arnd)
- - Add EXPERT dependency for IRQ_STACK (by Sebastian, David Laight)
- - Corrected __trap_section (by Peter Zijlstra)
- - Add Tested-by (Yipeng Zou)
- - Use CONFIG_SOFTIRQ_ON_OWN_STACK replace "#ifndef CONFIG_PREEMPT_RT"
- - Fixup systrace_enter compile error
- - Fixup exit_to_user_mode_prepare preempt_disable warning
-
-V4:
-https://lore.kernel.org/linux-riscv/20220908022506.1275799-1-guoren@kernel.org/
- - Fixup entry.S with "la" bug (by Conor.Dooley)
- - Fixup missing noinstr bug (by Peter Zijlstra)
-
-V3:
-https://lore.kernel.org/linux-riscv/20220906035423.634617-1-guoren@kernel.org/
- - Fixup CONFIG_COMPAT=n compile error
- - Add THREAD_SIZE_ORDER config
- - Optimize elf_kexec.c warning fixup
- - Add static to irq_stack_ptr definition
-
-V2:
-https://lore.kernel.org/linux-riscv/20220904072637.8619-1-guoren@kernel.org/
- - Fixup compile error by include "riscv: ptrace: Remove duplicate
-   operation"
- - Fixup compile warning
-   Reported-by: kernel test robot <lkp@intel.com>
- - Add test repo link in cover letter
-
-V1:
-https://lore.kernel.org/linux-riscv/20220903163808.1954131-1-guoren@kernel.org/
-
-Dao Lu (1):
-  riscv: Add support for STACKLEAK gcc plugin
-
-Guo Ren (8):
-  riscv: elf_kexec: Fixup compile warning
-  riscv: compat_syscall_table: Fixup compile warning
-  riscv: ptrace: Remove duplicate operation
-  riscv: traps: Add noinstr to prevent instrumentation inserted
-  riscv: convert to generic entry
-  riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
-  riscv: Support HAVE_SOFTIRQ_ON_OWN_STACK
-  riscv: Add config of thread stack size
-
-Jisheng Zhang (1):
-  riscv: remove extra level wrappers of trace_hardirqs_{on,off}
-
-Lai Jiangshan (1):
-  compiler_types.h: Add __noinstr_section() for noinstr
-
- arch/riscv/Kconfig                    |  21 +++
- arch/riscv/include/asm/csr.h          |   1 -
- arch/riscv/include/asm/entry-common.h |   8 +
- arch/riscv/include/asm/ptrace.h       |  10 +-
- arch/riscv/include/asm/stacktrace.h   |   5 +
- arch/riscv/include/asm/syscall.h      |   6 +
- arch/riscv/include/asm/thread_info.h  |  27 +--
- arch/riscv/include/asm/vmap_stack.h   |  28 ++++
- arch/riscv/kernel/Makefile            |   3 +-
- arch/riscv/kernel/elf_kexec.c         |   2 +-
- arch/riscv/kernel/entry.S             | 230 +++-----------------------
- arch/riscv/kernel/irq.c               | 110 ++++++++++++
- arch/riscv/kernel/ptrace.c            |  44 -----
- arch/riscv/kernel/signal.c            |  21 +--
- arch/riscv/kernel/sys_riscv.c         |  27 +++
- arch/riscv/kernel/trace_irq.c         |  27 ---
- arch/riscv/kernel/trace_irq.h         |  11 --
- arch/riscv/kernel/traps.c             |  70 ++++++--
- arch/riscv/mm/fault.c                 |  14 +-
- drivers/firmware/efi/libstub/Makefile |   2 +-
- include/linux/compiler_types.h        |   8 +-
- 21 files changed, 321 insertions(+), 354 deletions(-)
- create mode 100644 arch/riscv/include/asm/entry-common.h
- create mode 100644 arch/riscv/include/asm/vmap_stack.h
- delete mode 100644 arch/riscv/kernel/trace_irq.c
- delete mode 100644 arch/riscv/kernel/trace_irq.h
-
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 2ae8280ae475..44f4b1ca315d 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -212,7 +212,6 @@ unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs, unsigned int n)
+ 
+ void ptrace_disable(struct task_struct *child)
+ {
+-	clear_tsk_thread_flag(child, TIF_SYSCALL_TRACE);
+ }
+ 
+ long arch_ptrace(struct task_struct *child, long request,
 -- 
 2.36.1
 
