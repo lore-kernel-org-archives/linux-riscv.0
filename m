@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDDCC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DD8C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P1tPcT5+vMJc6TWdaPHZRxkQn5qXETYD7kxeX3EL3UM=; b=uQF/hhmQAdea94
-	r9ybS523B9fsNeAL2zMoKewPM4toMVeIXbKU/WAI884wAphQHyW80FZIpgzAcRTaI5CFMZSmIjr0O
-	wVHBodI/piGNcfuJ5NoXZNHb8NQNO4jNWgArTi2eMoz5YvXu3wM9DqUyddM7K41eKJ425E1/iIrIf
-	uAOxDXYKefXmUgQ3OYlO4aDGfo6AxACUjRMoUd5Lx84JpiswsAc/CK0PVJqSzgSuTjqrAd+1uRh0Z
-	ppOEetQoRWHCwhtIownhFmhnQoF+FQlfVIPj4B6yc43OHR5j/x2kJASdd4GLKY1xOZBdYP0cqpZdF
-	VBAE2mCww0xK1e5yeuUw==;
+	List-Owner; bh=ckWnyZvALje7WOjXfdgboxPpmLtpOF7Ee4zhps0vv+s=; b=3PiUhliTiz2JGf
+	6cZA+PtoXBsLbgxWVn7wuPPSphJbL/j+cy0yW5sUc5aWMeXnQ4LeSpzU7tqMUmWWHqeePPsLvQRxX
+	F1BvAZkJeSoHl6ixQoNoWdeastQX5dTsSORMVBomFZ+ZDOMTWbHGTqMMXwi2BkmSobYgaNZ2HZV4U
+	VpcvDnyCwo2ipDOORjwvhbsWVnSIz/K16JDMN7/YagB3Vtkbp8p63yqocjXIBNngvtJ6sab5ACGHa
+	AKrLwQAk2prwTj/b1AmgYCSAEYE0wLA3kDoU2NjVyT0Y5vvYycZNTNL3S26SIb8vAiQ0mjzh5Oe/r
+	5cM/zP8dlJwh8aFgYtig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenje-00GrNL-Os; Sun, 02 Oct 2022 01:25:38 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oenjt-00GrSD-Ac; Sun, 02 Oct 2022 01:25:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenjb-00GrM0-OL
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:37 +0000
+	id 1oenjq-00GrR1-Sm
+	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:25:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 70FA2B80C02;
-	Sun,  2 Oct 2022 01:25:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D81F2C43141;
-	Sun,  2 Oct 2022 01:25:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 60E4860DD6;
+	Sun,  2 Oct 2022 01:25:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030A8C43152;
+	Sun,  2 Oct 2022 01:25:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664673932;
-	bh=8F+Kx4X5IE8S8oO8XnXHjQy0E8HHBWecQqZQdnIaKB8=;
+	s=k20201202; t=1664673949;
+	bh=DEvoceoa51GjIrkhPQ7BHRzc0Y6qi+1P763yh9ux/40=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=q6Zz0FKxb/V4jiO9ATtYq1u8u06FMCcghKlsouZhoSgKkwWgt+Wp4geBK4W75BINx
-	 IfeYgK6VvDulvX8ilCyL4ud5ryj3BroZJA10s1bQURItRhyvLPeYUOUskMZqpLksGg
-	 9xzUrVXM/yr7qgRyvJfI1JniBgryfHKM+R0IKi4mJHC998Wym+cbOQu7XsMqd2pj2Q
-	 0xzBMjMBI4mecmVcDm2ZaKd0wgC7fJ9KTok5hV8ZQUAZMx4l8RkE3XAPNcOcfYTwKS
-	 URSIj3PQIG0Ugcp1n+NxfHY3k5ZxuqXFjsp8o6WU9XmCsHCdLn9MMGeo+WNWOqeA15
-	 dssWeQ+1haAwA==
+	b=Ppz+xqzeSXFhbPI6utaYdIThP3K6Nz8Mr271TNX2vXYINZ5QJZo6BF5NBGhryyY//
+	 32/rxcGNPdnz82SjbfOLoletGSxVjHWJm+UXkXtvYnuLRfi8aha5E/XrBlNoJyxQEn
+	 4BfWP3j+ClveyZ0INP29NCLToUiURl5VlA2Eo9ykYnyvFLheWCz/N6vBOyfgnvKYR4
+	 reDPriwbXSQAk3E1v88ZXj6Fyj2W6ps3ui326CZj6oN9RkQyAGXfPDHKToIatTk0QU
+	 IUHrnY5VEjZ5YjyEFmHUfHlgoOz9nbPV3mnF6ntwWItFQQnZMrAVDTsSOhNDcM9vbf
+	 ruTfMtEzHbfIg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -67,18 +67,21 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH V6 01/11] riscv: elf_kexec: Fixup compile warning
-Date: Sat,  1 Oct 2022 21:24:41 -0400
-Message-Id: <20221002012451.2351127-2-guoren@kernel.org>
+	Lai Jiangshan <laijs@linux.alibaba.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: [PATCH V6 04/11] compiler_types.h: Add __noinstr_section() for noinstr
+Date: Sat,  1 Oct 2022 21:24:44 -0400
+Message-Id: <20221002012451.2351127-5-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221002012451.2351127-1-guoren@kernel.org>
 References: <20221002012451.2351127-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221001_182535_952963_02D63B71 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20221001_182550_973795_C576EB11 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +98,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Lai Jiangshan <laijs@linux.alibaba.com>
 
-If CRYTPO or CRYPTO_SHA256 or KEXE_FILE is not enabled, then:
+And it will be extended for C entry code.
 
-COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1
-O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/
-
-../arch/riscv/kernel/elf_kexec.c: In function 'elf_kexec_load':
-../arch/riscv/kernel/elf_kexec.c:185:23: warning: variable
-'kernel_start' set but not used [-Wunused-but-set-variable]
-  185 |         unsigned long kernel_start;
-      |                       ^~~~~~~~~~~~
-
-Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reported-by: kernel test robot <lkp@intel.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+Signed-off-by: Lai Jiangshan <laijs@linux.alibaba.com>
 ---
- arch/riscv/kernel/elf_kexec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/compiler_types.h | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-index 0cb94992c15b..4b9264340b78 100644
---- a/arch/riscv/kernel/elf_kexec.c
-+++ b/arch/riscv/kernel/elf_kexec.c
-@@ -198,7 +198,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
- 	if (ret)
- 		goto out;
- 	kernel_start = image->start;
--	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
-+	pr_notice("The entry point of kernel at 0x%lx\n", kernel_start);
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 4f2a819fd60a..e9ce11ea4d8b 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -227,9 +227,11 @@ struct ftrace_likely_data {
+ #endif
  
- 	/* Add the kernel binary to the image */
- 	ret = riscv_kexec_elf_load(image, &ehdr, &elf_info,
+ /* Section for code which can't be instrumented at all */
+-#define noinstr								\
+-	noinline notrace __attribute((__section__(".noinstr.text")))	\
+-	__no_kcsan __no_sanitize_address __no_profile __no_sanitize_coverage
++#define __noinstr_section(section)				\
++	noinline notrace __section(section) __no_profile	\
++	__no_kcsan __no_sanitize_address __no_sanitize_coverage
++
++#define noinstr __noinstr_section(".noinstr.text")
+ 
+ #endif /* __KERNEL__ */
+ 
 -- 
 2.36.1
 
