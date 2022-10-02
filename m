@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EE6C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F5FC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 01:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lh42tR9Io7JZ9ZBFTSk+9SNbxBZKcbVXEk1Q+rvC150=; b=4o+SElboi5eN5Z
-	jXmix3HytLAr8oixc01mobRuqhOw+HjWvKPQRG4evHMhq3gELgCHJIqgr2Om7hu/tXz/OlNy49bib
-	lJnQMDii9ol45c5d4c5s7cJw8Eaxikjlk37ebgrSI8ri4auyLQFnWa78GOGuQsBHlsnjgkkS+tpbo
-	fn8SBC6ITAwDceVZX91oFIz93eI/2v5T0Oh29FTWkK4ZQAXXundY1nBn2FHoWcSjv9SggBpzh15PE
-	KkuxGEvDia9fXBt1HVJbK3TGJ3EudBuP+qCAel+VUBdp/jn8MLm0p1P20dZlylenkQ0Fa1Ie/WXLv
-	GOWzLSkfNsnZNnpLX9Uw==;
+	List-Owner; bh=j4bmRLZW+2ypahy2ci+kDY/fB95nsf+q0bF6GGoGrtA=; b=RC6Wxfq8zq6v+R
+	KLjowO4hJn32JqBn4bmSCPAyxemqWafKqDlZojD82EpddJVMHHY1IRb22UzjQzqSyDMNvDgXQY4dn
+	0e8xLJFzx5Z6nvEcNoohW10gDlQrkFUL3cywukTle+cjw9Jn4xpNJfgfBhiwM3T+2FKITrJuTwUt/
+	hTwz22PDMWH8JrC4n0d8RkwPhCGaih6PRgsiDmvcDp5PXiyVv3ELqD3sWgJzMUD+39bMyBfxB34DM
+	shK3RrX7CmZyo4zfoeLrJFWqmXPrmNjH0zt0GBut97Ns80rxd6MiknvrUtj/Gz1wIV6U2FSRdhHQ4
+	Gp5lTKLVRC+StL0y76SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenkE-00Gret-3b; Sun, 02 Oct 2022 01:26:14 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oenkM-00Grmq-JN; Sun, 02 Oct 2022 01:26:22 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oenkA-00GraL-7l
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:26:12 +0000
+	id 1oenkJ-00GrjB-Ie
+	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 01:26:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C3696B808BF;
-	Sun,  2 Oct 2022 01:26:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763DFC433B5;
-	Sun,  2 Oct 2022 01:26:01 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3BA68B80880;
+	Sun,  2 Oct 2022 01:26:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6EBC433D7;
+	Sun,  2 Oct 2022 01:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664673966;
-	bh=zyUQgg5l++TxJNO8KzL01W2czJo6Q2YF/4a9NUJkLw8=;
+	s=k20201202; t=1664673977;
+	bh=zCPS3eHSfkaJZ1hLeP1x2qVYYOuufUJWIwRN8Td963w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=usL05YjtO2yJEhx4YBLE9POoxnq3zLOqLm4ewK5u1YVnrKUMSX06QTqE1+we8A7i6
-	 jONStBk8mnyzn9WbZXt5JfCBsuv5VQXbtLn/i2t6dmDiY62895HrHDoiQkjbYeX21r
-	 vF60pfWJfH4QfBupvJNmuRAZ7RpwHOq8WrgNbmQcAnhfcoBsxIlY85kO0kXbeLtw8W
-	 neguCUGJHAnQdVne2+Isj+BeXoDhIDY0WddHA2JRU/c2f3NjrSPEH7tCPLtwgNmLje
-	 zIJItHQj2xqpM5JS6QrVtKRsxuQOshaoyPxy2/G0qyoQw5n3mgnxgT1nDp2BXAiEwS
-	 2FILYXPMtaPKQ==
+	b=RfmbtrYgg6TdTYMQkMUSpfNXS8Oq1NjgS2x4nKgNdm9ADRKaWY8+WOyjIuNqTFo0L
+	 z6LF31lXRh7KmDwRwHfXmg4X7gaULtAc7SJU8IkPP5ku/eFjaEZ79HIoum86I9kpAF
+	 RClFeRst4X8BRd9u4w+fXwKmsKM3u+IeK9ms5RN8BsxgSBgiMuXxMjTHZ5KmdwCQqr
+	 ShWdM1foMYehkvyRK7sCRWPXSJyuR7zVy17yFrJB0JiodJ7tr0ao0RVkOGmwmM6pKk
+	 F5GsqYFtKXpcCSUSnvdzxGdP5Xp2UykSEc3cDL6CQwDKmjXKN2NuyzcN9crruKTzcq
+	 bH+MIikheWXmw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -67,17 +67,19 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V6 07/11] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
-Date: Sat,  1 Oct 2022 21:24:47 -0400
-Message-Id: <20221002012451.2351127-8-guoren@kernel.org>
+	Dao Lu <daolu@rivosinc.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>,
+	Conor Dooley <Conor.Dooley@microchip.com>
+Subject: [PATCH V6 09/11] riscv: Add support for STACKLEAK gcc plugin
+Date: Sat,  1 Oct 2022 21:24:49 -0400
+Message-Id: <20221002012451.2351127-10-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221002012451.2351127-1-guoren@kernel.org>
 References: <20221002012451.2351127-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221001_182610_590784_D2C0FE05 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20221001_182619_936235_E7C5DD03 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,186 +96,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Dao Lu <daolu@rivosinc.com>
 
-Add independent irq stacks for percpu to prevent kernel stack overflows.
-It is also compatible with VMAP_STACK by implementing
-arch_alloc_vmap_stack.  Many architectures have supported
-HAVE_IRQ_EXIT_ON_IRQ_STACK, riscv should follow up.
+Add support for STACKLEAK gcc plugin to riscv by implementing
+stackleak_check_alloca, based heavily on the arm64 version, and
+modifying the entry.S. Additionally, this disables the plugin for EFI
+stub code for riscv. All modifications base on generic_entry.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Link: https://lore.kernel.org/linux-riscv/20220615213834.3116135-1-daolu@rivosinc.com/
+Signed-off-by: Dao Lu <daolu@rivosinc.com>
+Co-developed-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Co-developed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: Conor Dooley <Conor.Dooley@microchip.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
 ---
- arch/riscv/Kconfig                   |  8 ++++
- arch/riscv/include/asm/thread_info.h |  2 +
- arch/riscv/include/asm/vmap_stack.h  | 28 ++++++++++++
- arch/riscv/kernel/irq.c              | 66 +++++++++++++++++++++++++++-
- 4 files changed, 102 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/include/asm/vmap_stack.h
+ arch/riscv/Kconfig                    | 1 +
+ arch/riscv/kernel/entry.S             | 8 +++++++-
+ drivers/firmware/efi/libstub/Makefile | 2 +-
+ 3 files changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index a07bb3b73b5b..75db47a983f2 100644
+index dfe600f3526c..76bde12d9f8c 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -433,6 +433,14 @@ config FPU
+@@ -81,6 +81,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_SECCOMP_FILTER
++	select HAVE_ARCH_STACKLEAK
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 5f49517cd3a2..39097c1474a0 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -130,7 +130,6 @@ END(handle_exception)
+ ENTRY(ret_from_exception)
+ 	REG_L s0, PT_STATUS(sp)
  
- 	  If you don't know what to do here, say Y.
- 
-+config IRQ_STACKS
-+	bool "Independent irq stacks" if EXPERT
-+	default y
-+	select HAVE_IRQ_EXIT_ON_IRQ_STACK
-+	help
-+	  Add independent irq stacks for percpu to prevent kernel stack overflows.
-+	  We may save some memory footprint by disabling IRQ_STACKS.
-+
- endmenu # "Platform type"
- 
- menu "Kernel features"
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 7de4fb96f0b5..043da8ccc7e6 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -40,6 +40,8 @@
- #define OVERFLOW_STACK_SIZE     SZ_4K
- #define SHADOW_OVERFLOW_STACK_SIZE (1024)
- 
-+#define IRQ_STACK_SIZE		THREAD_SIZE
-+
- #ifndef __ASSEMBLY__
- 
- extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
-diff --git a/arch/riscv/include/asm/vmap_stack.h b/arch/riscv/include/asm/vmap_stack.h
-new file mode 100644
-index 000000000000..3fbf481abf4f
---- /dev/null
-+++ b/arch/riscv/include/asm/vmap_stack.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+// Copied from arch/arm64/include/asm/vmap_stack.h.
-+#ifndef _ASM_RISCV_VMAP_STACK_H
-+#define _ASM_RISCV_VMAP_STACK_H
-+
-+#include <linux/bug.h>
-+#include <linux/gfp.h>
-+#include <linux/kconfig.h>
-+#include <linux/vmalloc.h>
-+#include <linux/pgtable.h>
-+#include <asm/thread_info.h>
-+
-+/*
-+ * To ensure that VMAP'd stack overflow detection works correctly, all VMAP'd
-+ * stacks need to have the same alignment.
-+ */
-+static inline unsigned long *arch_alloc_vmap_stack(size_t stack_size, int node)
-+{
-+	void *p;
-+
-+	BUILD_BUG_ON(!IS_ENABLED(CONFIG_VMAP_STACK));
-+
-+	p = __vmalloc_node(stack_size, THREAD_ALIGN, THREADINFO_GFP, node,
-+			__builtin_return_address(0));
-+	return kasan_reset_tag(p);
-+}
-+
-+#endif /* _ASM_RISCV_VMAP_STACK_H */
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 24c2e1bd756a..5d77f692b198 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -10,6 +10,37 @@
- #include <linux/irqchip.h>
- #include <linux/seq_file.h>
- #include <asm/smp.h>
-+#include <asm/vmap_stack.h>
-+
-+#ifdef CONFIG_IRQ_STACKS
-+static DEFINE_PER_CPU(ulong *, irq_stack_ptr);
-+
-+#ifdef CONFIG_VMAP_STACK
-+static void init_irq_stacks(void)
-+{
-+	int cpu;
-+	ulong *p;
-+
-+	for_each_possible_cpu(cpu) {
-+		p = arch_alloc_vmap_stack(IRQ_STACK_SIZE, cpu_to_node(cpu));
-+		per_cpu(irq_stack_ptr, cpu) = p;
-+	}
-+}
-+#else
-+/* irq stack only needs to be 16 byte aligned - not IRQ_STACK_SIZE aligned. */
-+DEFINE_PER_CPU_ALIGNED(ulong [IRQ_STACK_SIZE/sizeof(ulong)], irq_stack);
-+
-+static void init_irq_stacks(void)
-+{
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu)
-+		per_cpu(irq_stack_ptr, cpu) = per_cpu(irq_stack, cpu);
-+}
-+#endif /* CONFIG_VMAP_STACK */
-+#else
-+static void init_irq_stacks(void) {}
-+#endif /* CONFIG_IRQ_STACKS */
- 
- int arch_show_interrupts(struct seq_file *p, int prec)
- {
-@@ -19,21 +50,52 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 
- void __init init_IRQ(void)
- {
-+	init_irq_stacks();
- 	irqchip_init();
- 	if (!handle_arch_irq)
- 		panic("No interrupt controller found.");
- }
- 
--asmlinkage void noinstr do_riscv_irq(struct pt_regs *regs)
-+static void noinstr handle_riscv_irq(struct pt_regs *regs)
- {
- 	struct pt_regs *old_regs;
--	irqentry_state_t state = irqentry_enter(regs);
- 
- 	irq_enter_rcu();
- 	old_regs = set_irq_regs(regs);
- 	handle_arch_irq(regs);
- 	set_irq_regs(old_regs);
- 	irq_exit_rcu();
-+}
-+
-+asmlinkage void noinstr do_riscv_irq(struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+#ifdef CONFIG_IRQ_STACKS
-+	if (on_thread_stack()) {
-+		ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id())
-+					+ IRQ_STACK_SIZE/sizeof(ulong);
-+		__asm__ __volatile(
-+		"addi	sp, sp, -"RISCV_SZPTR  "\n"
-+		REG_S"  ra, (sp)		\n"
-+		"addi	sp, sp, -"RISCV_SZPTR  "\n"
-+		REG_S"  s0, (sp)		\n"
-+		"addi	s0, sp, 2*"RISCV_SZPTR "\n"
-+		"move	sp, %[sp]		\n"
-+		"move	a0, %[regs]		\n"
-+		"call	handle_riscv_irq	\n"
-+		"addi	sp, s0, -2*"RISCV_SZPTR"\n"
-+		REG_L"  s0, (sp)		\n"
-+		"addi	sp, sp, "RISCV_SZPTR   "\n"
-+		REG_L"  ra, (sp)		\n"
-+		"addi	sp, sp, "RISCV_SZPTR   "\n"
-+		:
-+		: [sp] "r" (sp), [regs] "r" (regs)
-+		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
-+		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
-+		  "memory");
-+	} else
+-	csrc CSR_STATUS, SR_IE
+ #ifdef CONFIG_RISCV_M_MODE
+ 	/* the MPP value is too large to be used as an immediate arg for addi */
+ 	li t0, SR_MPP
+@@ -139,6 +138,9 @@ ENTRY(ret_from_exception)
+ 	andi s0, s0, SR_SPP
+ #endif
+ 	bnez s0, 1f
++#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
++	call stackleak_erase
 +#endif
-+		handle_riscv_irq(regs);
  
- 	irqentry_exit(regs, state);
- }
+ 	/* Save unwound kernel stack pointer in thread_info */
+ 	addi s0, sp, PT_SIZE_ON_STACK
+@@ -148,8 +150,12 @@ ENTRY(ret_from_exception)
+ 	 * Save TP into the scratch register , so we can find the kernel data
+ 	 * structures again.
+ 	 */
++	csrc CSR_STATUS, SR_IE
+ 	csrw CSR_SCRATCH, tp
++	j 2f
+ 1:
++	csrc CSR_STATUS, SR_IE
++2:
+ 	/*
+ 	 * The current load reservation is effectively part of the processor's
+ 	 * state, in the sense that load reservations cannot be shared between
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index d0537573501e..5e1fc4f82883 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+ cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+-				   -fpic
++				   -fpic $(DISABLE_STACKLEAK_PLUGIN)
+ 
+ cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
+ 
 -- 
 2.36.1
 
