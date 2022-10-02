@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 077CBC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 16:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF10C433FE
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 18:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xwiO+VOZnUGP4gf9GN2+YZhiaHMYdfl5rr0cW3AqsmE=; b=oQEZzm8SUgzUIL
-	6pCe7I0T+u+qfoxoo28IGnco+NzDJO/y9T7eDKoWYdSB2kK69BvNgWMFJ6NWW8/WSSov56sL0bMQO
-	MewwQFj+PfvzpnSmBFl7I55QmCEUQBPHnE2our+BAeI3wDgHcCDi/3u41N0+FgA++SMOSYPuCdTb7
-	64wtiIj6AyegTxewQv2S+tEhVmyEzuH6MNLX7Mua3Z0feXEH47UlRlJFyYx0+oGg0OXHyZz2LWa1B
-	BSYIuSzoRJFtsZPaJEIIf5PWyYrv9EMhLLwbdG8/Uph748eTgZYnivFciON63lSqnEG540iLL96Rl
-	XnY6NQCt8tA5wtTEWPMw==;
+	List-Owner; bh=bBgx2RBcpOkG/RoTkEP+EuZCxTd2gSF7vdVf9d9Pr6w=; b=ttjZJg/PEDqdfl
+	azRcR51WeMZ1lprNTCgt8k6ghPM/UyqRZiOeqDNB656o95wFJ1mtvWcPC7/4rWrvSofBMRa9MqeI6
+	DPJ36H4mELWMcnVYqEplIjCiSfYsDalidG94V4u4uJfC+U5oMXx1XLQH/Yml3GCQeZSH8S72jbui4
+	QVQ7Zpm7EWXHmQj4KbmMkoiYCuNvQUeFXv+SqAKy/xlR/0j6kCkyaxftjawdw+nl5Q0sFohq2wDpa
+	TcIO47EG8dHz5SYNCOR0VpUbWecy7pwC7W9P7Czk2+m7lj4safubFp1I+3kUSzSIFPywEqQ0SQf84
+	hOzvepysy/e7fLq1Smlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1of20Q-001pB3-Iw; Sun, 02 Oct 2022 16:39:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1of3GS-0020qs-7g; Sun, 02 Oct 2022 18:00:32 +0000
+Received: from conssluserg-03.nifty.com ([210.131.2.82])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1of20M-001pAb-Oy
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 16:39:52 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1CA8960EFD;
-	Sun,  2 Oct 2022 16:39:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7226CC433C1;
-	Sun,  2 Oct 2022 16:39:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664728788;
-	bh=vXNiHf9agYK/eOk3du1LkZcrfdcJZeWbwCfg/j1zGrg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PvdXO1q1o9kEW++FCbm5r3kqiJ41jlypC7VFRUFs47lNSjnS9xxiL725ujcdQ+A5U
-	 +4opWfnSnmCyt1jkVzQh+kDyYZGU4VE+SzeBXd0JnsRhgm3J3Ock+RwLpmBwwb+LuZ
-	 r3hLT+RbqQhsiAzux4LnUllTw4MyhYwvZyfm8o/6nw/miNCey6eWnY58H2truTiDlL
-	 pTHusNlXJ/P8wEJDf9ymKCwdJKSYQs01BqhIV5Bkwfv/YpbdlEQ1r1XQyycjjCvqBW
-	 NuJNBFrShPkI0CFJfQ7Kh+7jV8TclLrofqnAGWVcocqJciHH5xt55rO3te59FnmQiB
-	 /Pbxfez4l4J/g==
-Date: Sun, 2 Oct 2022 17:39:43 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Binglei Wang <l3b2w1@gmail.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	naveen.n.rao@linux.ibm.com, anil.s.keshavamurthy@intel.com,
-	davem@davemloft.net, mhiramat@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8] rethook: add riscv rethook implementation
-Message-ID: <Yzm+z+mv/VSA+5hg@spud>
-References: <20220930081357.651914-1-l3b2w1@gmail.com>
+	id 1of3GP-0020pz-5E
+	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 18:00:31 +0000
+Received: from mail-oi1-f180.google.com (mail-oi1-f180.google.com [209.85.167.180]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id 292HxoaL005178
+	for <linux-riscv@lists.infradead.org>; Mon, 3 Oct 2022 02:59:51 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 292HxoaL005178
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+	s=dec2015msa; t=1664733591;
+	bh=R7PtaZgk8+x+PYWDXdf99v3/AVCGe2a94wV004hUH6k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=xO0A9g6RUJDnwA9CSB2weCoEo3scGkQp28Ccfl360YU0NCEKRWy8ePTKXF+LpHcCR
+	 Qj+uhXnzOk6WVPdOivwCgrAz7CzjtAT2/dm4OAICaja5guzw8Ros+o2qneakR8IlcE
+	 eOSnFVXdQxApRAhSyA02do3kR+7Zdc9roadR+3ITb5vb0BgjeSJGf+iL34U8xQ6NH1
+	 4M1Vwgd6UeNDob+6avKBE8LCKNKyladdUYnQOT6hdEiL039kktvXWBi2VsTzY6bDYN
+	 U8k9p7ishUwJp9e7S4E8ujIUIHoxuF2je2jy5/laGeRgdNtZSoIt28LQeskpSxA1ai
+	 7iIt7ux3HRO6w==
+X-Nifty-SrcIP: [209.85.167.180]
+Received: by mail-oi1-f180.google.com with SMTP id n83so9545828oif.11
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Oct 2022 10:59:51 -0700 (PDT)
+X-Gm-Message-State: ACrzQf1xSjXcVB8wf7XGgEsPPbiW1DPysLWGzL9CXFn5DlA4rzneZekS
+	/ulfZeILj+WkCaofGvFfXpU/06z87WiTHMLPYqc=
+X-Google-Smtp-Source: AMsMyM71XYvBGKDOzldQA/iz6nCeMmIE5deiPHcMCnEuC+39NL3vd7LcIFvceQocZO4CUjwu53RMLDmfQcWmNz4h5P4=
+X-Received: by 2002:a54:400c:0:b0:34f:9913:262 with SMTP id
+ x12-20020a54400c000000b0034f99130262mr2676040oie.287.1664733590046; Sun, 02
+ Oct 2022 10:59:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220930081357.651914-1-l3b2w1@gmail.com>
+References: <20220928182523.3105953-1-nathan@kernel.org> <CAKwvOdmPLqX=oCwg43TYHj=tdoaU5OYc=bO906u=LeqcSrx+Dw@mail.gmail.com>
+ <YzS+bQT1zJAUpp/6@dev-arch.thelio-3990X> <CAKwvOdk87wRWoiVjswZPwoLbSm+sYsMW6FHZv+r6MHxLHn0Trw@mail.gmail.com>
+In-Reply-To: <CAKwvOdk87wRWoiVjswZPwoLbSm+sYsMW6FHZv+r6MHxLHn0Trw@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Mon, 3 Oct 2022 02:59:13 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAQtS_cVVjsV32S8hQJNER3jN9frnRosz4rfQ6+TkXKUtg@mail.gmail.com>
+Message-ID: <CAK7LNAQtS_cVVjsV32S8hQJNER3jN9frnRosz4rfQ6+TkXKUtg@mail.gmail.com>
+Subject: Re: [PATCH] lib/Kconfig.debug: Add check for non-constant
+ .{s,u}leb128 support to DWARF5
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>, Tom Rix <trix@redhat.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, linux-kbuild@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+        patches@lists.linux.dev, llvm@lists.linux.dev,
+        Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221002_093950_933162_B841F22F 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20221002_110029_675659_5FD1725D 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,192 +84,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Binglei,
-I am not qualified to give you an actual R-b on this patch, but I see
-you did get one from Masami who very much is!
+On Thu, Sep 29, 2022 at 6:53 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> On Wed, Sep 28, 2022 at 2:36 PM Nathan Chancellor <nathan@kernel.org> wrote:
+> >
+> > On Wed, Sep 28, 2022 at 02:13:47PM -0700, Nick Desaulniers wrote:
+> > > Reraising my concern from
+> > > https://github.com/ClangBuiltLinux/linux/issues/1719#issuecomment-1258678969
+> >
+> > Sorry, I thought I addressed your concern with my comment right below it
+> > but I probably should have worded it better.
+>
+> No, I just missed your point about other architectures.
+>
+> > > We've put a fair amount of work into getting CC=clang LLVM_IAS=0 to
+> > > work for DWARF v5 (both on the GNU binutils side, and Kbuild), I'd
+> > > hate to see that effectively knee-capped because of an issue in GNU
+> > > binutils that is only relevant for one architecture.
+> >
+> > Sure, that is a completely reasonable concern. However...
+> >
+> > > I'd concede support for ARCH=riscv, but not for all other
+> > > architectures, which this effectively does.
+> >
+> > No, it does not, CONFIG_AS_HAS_NON_CONST_LEB128 can still be enabled
+> > when GNU as supports this construct for a particular architecture; as
+> > far as I can tell, RISC-V is the only one that doesn't. See the tests
+> > with ARCH=arm64 and ARCH=x86_64 compared with ARCH=riscv below.
+>
+> Ah, sorry for the noise then. Thanks for the patch.
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
 
-That said, the patch looks a lot better (and much simpler!) now. Thanks
-for sticking with it despite the initial issues with your email setup
-and the submission process.
 
-Thanks,
-Conor.
 
-On Fri, Sep 30, 2022 at 04:13:57PM +0800, Binglei Wang wrote:
-> From: Binglei Wang <l3b2w1@gmail.com>
-> 
-> Implement the kretprobes on riscv arch by using rethook machenism
-> which abstracts general kretprobe info into a struct rethook_node
-> to be embedded in the struct kretprobe_instance.
-> 
-> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
-> ---
-> 
-> Notes:
->     v8: Add the omitted rethook.h
->     v7: Add the changelog.
->     v6: Remove the kretprobes trampoline.
->     v5: Trt to fix robot compiling error and warnings.
->     v4: Add patch version number.
->     v3: Trt to fix robot compiling error and warnings.
->     v2: Add comit log to explain reasons behind changes.
->         Use my personal email instead of work email
->             to avoid the attachments of company informaton.
->         Make the kprobes_trampoline.S code to be shared.
->     v1: Add riscv rethook implementation.
-> 
->  arch/riscv/Kconfig                            |  1 +
->  arch/riscv/include/asm/kprobes.h              |  2 --
->  arch/riscv/kernel/probes/Makefile             |  2 +-
->  arch/riscv/kernel/probes/kprobes.c            | 13 ---------
->  arch/riscv/kernel/probes/rethook.c            | 27 +++++++++++++++++++
->  arch/riscv/kernel/probes/rethook.h            |  8 ++++++
->  ...obes_trampoline.S => rethook_trampoline.S} |  6 ++---
->  7 files changed, 40 insertions(+), 19 deletions(-)
->  create mode 100644 arch/riscv/kernel/probes/rethook.c
->  create mode 100644 arch/riscv/kernel/probes/rethook.h
->  rename arch/riscv/kernel/probes/{kprobes_trampoline.S => rethook_trampoline.S} (94%)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 59d18881f..bfb66cdc5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -97,6 +97,7 @@ config RISCV
->  	select HAVE_KPROBES if !XIP_KERNEL
->  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
->  	select HAVE_KRETPROBES if !XIP_KERNEL
-> +	select HAVE_RETHOOK if !XIP_KERNEL
->  	select HAVE_MOVE_PMD
->  	select HAVE_MOVE_PUD
->  	select HAVE_PCI
-> diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
-> index 217ef89f2..e7882ccb0 100644
-> --- a/arch/riscv/include/asm/kprobes.h
-> +++ b/arch/riscv/include/asm/kprobes.h
-> @@ -40,8 +40,6 @@ void arch_remove_kprobe(struct kprobe *p);
->  int kprobe_fault_handler(struct pt_regs *regs, unsigned int trapnr);
->  bool kprobe_breakpoint_handler(struct pt_regs *regs);
->  bool kprobe_single_step_handler(struct pt_regs *regs);
-> -void __kretprobe_trampoline(void);
-> -void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
->  
->  #endif /* CONFIG_KPROBES */
->  #endif /* _ASM_RISCV_KPROBES_H */
-> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
-> index 7f0840dcc..c40139e9c 100644
-> --- a/arch/riscv/kernel/probes/Makefile
-> +++ b/arch/riscv/kernel/probes/Makefile
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_KPROBES)		+= kprobes.o decode-insn.o simulate-insn.o
-> -obj-$(CONFIG_KPROBES)		+= kprobes_trampoline.o
-> +obj-$(CONFIG_RETHOOK)		+= rethook.o rethook_trampoline.o
->  obj-$(CONFIG_KPROBES_ON_FTRACE)	+= ftrace.o
->  obj-$(CONFIG_UPROBES)		+= uprobes.o decode-insn.o simulate-insn.o
->  CFLAGS_REMOVE_simulate-insn.o = $(CC_FLAGS_FTRACE)
-> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-> index e6e950b7c..f21592d20 100644
-> --- a/arch/riscv/kernel/probes/kprobes.c
-> +++ b/arch/riscv/kernel/probes/kprobes.c
-> @@ -345,19 +345,6 @@ int __init arch_populate_kprobe_blacklist(void)
->  	return ret;
->  }
->  
-> -void __kprobes __used *trampoline_probe_handler(struct pt_regs *regs)
-> -{
-> -	return (void *)kretprobe_trampoline_handler(regs, NULL);
-> -}
-> -
-> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
-> -				      struct pt_regs *regs)
-> -{
-> -	ri->ret_addr = (kprobe_opcode_t *)regs->ra;
-> -	ri->fp = NULL;
-> -	regs->ra = (unsigned long) &__kretprobe_trampoline;
-> -}
-> -
->  int __kprobes arch_trampoline_kprobe(struct kprobe *p)
->  {
->  	return 0;
-> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
-> new file mode 100644
-> index 000000000..cbd0da059
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook.c
-> @@ -0,0 +1,27 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Generic return hook for riscv.
-> + */
-> +
-> +#include <linux/kprobes.h>
-> +#include <linux/rethook.h>
-> +#include "rethook.h"
-> +
-> +/* This is called from arch_rethook_trampoline() */
-> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
-> +{
-> +	return rethook_trampoline_handler(regs, regs->s0);
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
-> +
-> +
-> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
-> +{
-> +	rhn->ret_addr = regs->ra;
-> +	rhn->frame = regs->s0;
-> +
-> +	/* replace return addr with trampoline */
-> +	regs->ra = (unsigned long)arch_rethook_trampoline;
-> +}
-> +NOKPROBE_SYMBOL(arch_rethook_prepare);
-> +
-> diff --git a/arch/riscv/kernel/probes/rethook.h b/arch/riscv/kernel/probes/rethook.h
-> new file mode 100644
-> index 000000000..cc573d701
-> --- /dev/null
-> +++ b/arch/riscv/kernel/probes/rethook.h
-> @@ -0,0 +1,8 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +#ifndef __RISCV_RETHOOK_H
-> +#define __RISCV_RETHOOK_H
-> +
-> +unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs);
-> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount);
-> +
-> +#endif
-> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/rethook_trampoline.S
-> similarity index 94%
-> rename from arch/riscv/kernel/probes/kprobes_trampoline.S
-> rename to arch/riscv/kernel/probes/rethook_trampoline.S
-> index 7bdb09ded..21bac92a1 100644
-> --- a/arch/riscv/kernel/probes/kprobes_trampoline.S
-> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
-> @@ -75,13 +75,13 @@
->  	REG_L x31, PT_T6(sp)
->  	.endm
->  
-> -ENTRY(__kretprobe_trampoline)
-> +ENTRY(arch_rethook_trampoline)
->  	addi sp, sp, -(PT_SIZE_ON_STACK)
->  	save_all_base_regs
->  
->  	move a0, sp /* pt_regs */
->  
-> -	call trampoline_probe_handler
-> +	call arch_rethook_trampoline_callback
->  
->  	/* use the result as the return-address */
->  	move ra, a0
-> @@ -90,4 +90,4 @@ ENTRY(__kretprobe_trampoline)
->  	addi sp, sp, PT_SIZE_ON_STACK
->  
->  	ret
-> -ENDPROC(__kretprobe_trampoline)
-> +ENDPROC(arch_rethook_trampoline)
-> -- 
-> 2.27.0
-> 
+
+This patch is incomplete.
+
+It looks like Clang 14 switched to DWARF v5 by default.
+
+I see the same errors for
+CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+
+
+
+
+
+masahiro@zoe:~/ref/linux$ clang --version | head -n1
+Ubuntu clang version 14.0.0-1ubuntu1
+masahiro@zoe:~/ref/linux$ grep DEBUG_INFO_DWARF .config
+CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+# CONFIG_DEBUG_INFO_DWARF4 is not set
+# CONFIG_DEBUG_INFO_DWARF5 is not set
+masahiro@zoe:~/ref/linux$ make ARCH=riscv LLVM=1 LLVM_IAS=0
+CROSS_COMPILE=riscv64-linux-gnu- -j24
+  CALL    scripts/atomic/check-atomics.sh
+  CALL    scripts/checksyscalls.sh
+  CC      arch/riscv/kernel/vdso/vgettimeofday.o
+/tmp/vgettimeofday-5997b4.s: Assembler messages:
+/tmp/vgettimeofday-5997b4.s:2698: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2699: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2705: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2706: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2712: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2713: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2719: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2720: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2726: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2727: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2731: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2732: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2736: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2737: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2743: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2744: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2748: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2749: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2755: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2756: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2760: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2761: Error: non-constant .uleb128 is not supported
+/tmp/vgettimeofday-5997b4.s:2765: Error: non-constant .uleb128 is not supported
+   ...
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
