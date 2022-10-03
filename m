@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16442C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 09:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B5C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 10:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FjkxIrN2ajiabbd2snZch7WxhzqQakNL2FeVTfj5dwI=; b=niFIXhZk6L/iMi
-	IBf+FbsJVxE6C/P8Znj8AnNMKgapwliiXg4cZCuurrJGFLh1PwgzJQY45hUgvcwtxHF4fHKraGtYU
-	/Lpf3P5mauXaJy6z2Rapq31OO54521jeDjag7axPU1d7OAxZX2Caixqsc9D73DiGt9qG7RiW+Qa2w
-	FoDZeUAaY6W8p6O3ziTXmqIqVvrHC4nV936YejSeZ2a2xAH+I4wlCGFrH04huK58wTVNBixIT05M1
-	s1vr2QJ444Jv+IefgACYUQn6o3zHG9NxNSk+tWnqjMQYmpVeZPfJVG5u41y0DPyv+HxKy8MaFNsgk
-	PX937MYjR7bQ+aRZi/JA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xnfHreXurwOvqtSAsYCHYG02R+RMG93EiC9VU0hwZYc=; b=vFbKSZ+FVyiEgo
+	PNy8jWABXfUCzO8+DdNOviQzHHzuwAq2LXZb97HQ8U1tktbK94aYzeVsj81SpJ/kKbGbF9K6KxHAB
+	N8Xv5JpGZWbT8m5Damg+idI7hXhkjhKujL2RvJwSjSd0tabO/SyGQAw/VxKI4z1uyZ7ZTeI9E11Ow
+	EzaGEvptZBrsN5uaAgmS2jy7gSsFIZStledajyZVc2ZLyA8cGnn8YhQQqi0kiF1dP78wuha3pfYQA
+	8CMQop3Atd47b6nj1mO2LQUj9Vq6M7sRM+LSPmOXOh6chJBZe3kBkEP4VimswbzO81OShwKZt7BkO
+	G/MpjaJk/wT9ebjZQcSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofHj5-0051xW-JJ; Mon, 03 Oct 2022 09:27:03 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1ofIqf-005KnS-Ew; Mon, 03 Oct 2022 10:38:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofHj2-0051u5-N5
-	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 09:27:02 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1ofHio-002ehP-ST; Mon, 03 Oct 2022 10:26:46 +0100
-Message-ID: <b2880b7b-c50d-9161-4278-615cf66c2094@codethink.co.uk>
-Date: Mon, 3 Oct 2022 10:26:44 +0100
+	id 1ofIqc-005Kmx-Ay
+	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 10:38:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1E67561032;
+	Mon,  3 Oct 2022 10:38:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33EABC433C1;
+	Mon,  3 Oct 2022 10:38:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1664793532;
+	bh=Wb5QlCQoIluCSve+kPlO0WTb8M6wqUHapBeGAV6z1uE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=phnvPVGFboLC5HzqCpDPnTuFsS12xHr9qtLxkOWEvZTu3vcr+agYAGQlSmQoYxkLg
+	 oDNJI8rnRDDttB4nHGWUg+5QMhzc30gnKDqPWT3hdU6sCWGNAwEw4+EKC5LhjM3kts
+	 Hjfo73Val8taCpK2rJiICeq3sZxDygN0qYMTdG0kKA7Y41QSdZYRkZ3LH/NZlDegE2
+	 3JhmPSzfhxSfGowBGJ4N4gx9dKjCrrCzsnQQfjim0dI91WcYtDpbtmKLT4MsMRg+86
+	 zDo7rPxQaLCwCP0dX3VpOXRmGuBNIE73elot4s0Mtb1yfJGpr6t6baaRJl/Y2KYSBz
+	 RIHAgP9oslN6Q==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/4] riscv: entry: further clean up and VMAP_STACK fix
+Date: Mon,  3 Oct 2022 18:29:17 +0800
+Message-Id: <20221003102921.3973-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH v1 04/30] dt-bindings: sifive-l2-cache: Support StarFive
- JH71x0 SoCs
-Content-Language: en-GB
-To: Conor Dooley <conor@kernel.org>,
- Hal Feng <hal.feng@linux.starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220929143225.17907-5-hal.feng@linux.starfivetech.com>
- <YzW60PDwnJ7GeLYK@spud>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <YzW60PDwnJ7GeLYK@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_022700_774271_690B1D94 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20221003_033854_455243_772ED012 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,33 +68,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/09/2022 16:33, Conor Dooley wrote:
-> On Thu, Sep 29, 2022 at 10:31:59PM +0800, Hal Feng wrote:
->> From: Emil Renner Berthing <kernel@esmil.dk>
->>
->> This cache controller is also used on the StarFive JH7100 and JH7110
->> SoCs.
-> 
-> Ditto this patch, hopefully [0] will have landed as 6.1 material
-> before you get around to an actual v2.
-> 
-> Thanks,
-> Conor
-> 
-> 0 - https://lore.kernel.org/linux-riscv/20220913061817.22564-1-zong.li@sifive.com/
+I planed to do similar generic entry transaction as Guo Ren did[1], and
+I had some commits in local. Since Guo has sent out the series, I
+dropped my version and just provide those in my local repo but missing
+in Guo's series. However, this doesn't mean this series depends on
+Guo's series, in fact except the first one, the remaining three patches
+are independent on generic entry.
 
-Also, the l2 cache is being proprely named the ccache (composable cache)
-as it is not necessarily an L2 cache.
+Since v2:
+  - the patch of removing wrappers of trace_hardirqs_{on,off} is in
+    Guo's v6 generic entry series[2], so remove it.
+  - add a new patch to fix kernel info leakage.
+  - collect Acked-by tag.
+  - the GP saving and restoring macros range from x5 to x31 now per
+    Guo's suggestion.
+
+Since v1:
+  - consolidate gp saving/restoring in mcount-dyn.S as well
+  - avoid non-trival memory waste if NR_CPUs is large
+  - collect Reviewed-by tag.
+
+[1]https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/T/#t
+[2]https://lore.kernel.org/linux-riscv/20221002012451.2351127-1-guoren@kernel.org/T/#t
+
+Jisheng Zhang (4):
+  riscv: process: fix kernel info leakage
+  riscv: consolidate ret_from_kernel_thread into ret_from_fork
+  riscv: fix race when vmap stack overflow and remove shadow_stack
+  riscv: entry: consolidate general regs saving/restoring
+
+ arch/riscv/include/asm/asm-prototypes.h |   1 -
+ arch/riscv/include/asm/asm.h            |  63 ++++++++++
+ arch/riscv/include/asm/thread_info.h    |   3 -
+ arch/riscv/kernel/asm-offsets.c         |   1 +
+ arch/riscv/kernel/entry.S               | 151 +++---------------------
+ arch/riscv/kernel/mcount-dyn.S          |  56 +--------
+ arch/riscv/kernel/process.c             |   7 +-
+ arch/riscv/kernel/traps.c               |  32 ++---
+ 8 files changed, 103 insertions(+), 211 deletions(-)
 
 -- 
-Ben
-
-
+2.37.2
 
 
 _______________________________________________
