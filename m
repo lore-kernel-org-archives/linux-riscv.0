@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635AEC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Oct 2022 18:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E34C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 02:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ajhj65VpH4Frr7L7bVajlhYcP4rx+Gh9S6jvouoiZvQ=; b=evP8CqV2iqxO5p
-	zO3EyuQDUvUVf43IdJy5nOAOCck1UvIaEUENuT24mivxlj/QccXEjTpOmDuA97Hk1m0DYCdOXgNTX
-	EslfmE5lW9LnwAEj8pSee5bdzKOIzNEYamUxU9qyuYzb3W0+BZ3JiWvNj5VTje4NyEZAoy+AwvaEn
-	NzzQU2GIzNnON9t0tFGDDQ3OgTq+z3Y4+EYz2aPt6iYy/vBECp2USiLzxjcrNWiRJBtRVSE1ddXZD
-	y4Ge8oZ8UesL+n6lg7v0WPcjkXyUyHN0vCTcwV9nPss40otQZ7mAdI5RljgBwSLhJEj/BshQyznHk
-	UO4rQF7fYNWLqduIIPPQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=e5LCVACGylNImDGTKXHfxQ0gFSuIVPSe9ePdNs1tgys=; b=HTXOV0Y3DegVVs0/wg/MTqm9DZ
+	4a4jLaQ6otFAxdfb2gl+uxYlzBSRKgvb2lavIwiShY2feYoq88nHbeJZo2xDUSdtqU9R0dXkQb9FB
+	6i9yTe/15IYdHh+yw+E+Ie5TuLZ0QXyeN5PI7BVtpscbvWAmjJgknRkO1+vxNl2p9npCFeECz1Iyy
+	SM1MqqIk35LADfgfSDROTwxrpAFZZNlG9x68ztxwhSHbOY2YCRo97BIkCsUCfgCAsGtuYMICITPrd
+	U5Na/0q5DdLUX+K/ss+W+v7WulBEypb4pzHlfqs8oZ2py2jZAtgh3jETmTOyhh60VD+bqX4yG6Gf4
+	Q2A6jSgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1of411-0028wf-03; Sun, 02 Oct 2022 18:48:39 +0000
-Received: from conssluserg-06.nifty.com ([210.131.2.91])
+	id 1ofBPz-003XJm-E8; Mon, 03 Oct 2022 02:42:55 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1of40x-0028uT-Li
-	for linux-riscv@lists.infradead.org; Sun, 02 Oct 2022 18:48:37 +0000
-Received: from mail-oa1-f44.google.com (mail-oa1-f44.google.com [209.85.160.44]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 292Im85u021233
-	for <linux-riscv@lists.infradead.org>; Mon, 3 Oct 2022 03:48:08 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 292Im85u021233
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
-	s=dec2015msa; t=1664736489;
-	bh=TRjUcYAKDUQUfOl2UzVa5Db91m2ohyT00gg0PveXTJw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cazvcCWRVaggUGDRHkSjgmGgbkC5Mc1zyB8gIqbwNm/CJKqG1RwJVo9tKr0+4kqy1
-	 K/1v3k1Ua7Nrbnnx3FaKQ6N0LnrmcItK0O1QIbWSH0+/3KQBPPLQTHSvV2TueMn5WV
-	 TkJuTEzhxhss+KPcH8n1ZOPOCcXXWWtzXlZUfvayvzTrs09ZtlTAxHbv3/ItLm8L7A
-	 DtNEDM4Va6ldfeE1RzNY3UdwuHs8tTVoHDsnQLfy0+ATp9a6CC80qkQSHj7ISNUZnD
-	 8kC0v+V9+k7Alfm90th2XK6qPDtLWRrJ/oRZyrpcXTqwKYwrj8ND5Pguec3Pqnusp9
-	 XDpZoLnbHYM7Q==
-X-Nifty-SrcIP: [209.85.160.44]
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-131ea99262dso8588339fac.9
-        for <linux-riscv@lists.infradead.org>; Sun, 02 Oct 2022 11:48:08 -0700 (PDT)
-X-Gm-Message-State: ACrzQf240V9bPQ4WTHNDqWD69aJDAL7M7OAzxvCAqJ3OK6qjMjIac+Kw
-	rd5FERJiJ161EWFUpU9ajzjA9U8ahRv7pxYI9OE=
-X-Google-Smtp-Source: AMsMyM4psjYHeZSR3Ro25ovHwTFwKbX824K5RHhHzmMWugSJQEWv6mhM08TrewmcC0Qie5sVY26AvzSV6lPz2LWtbiY=
-X-Received: by 2002:a05:6870:c58b:b0:10b:d21d:ad5e with SMTP id
- ba11-20020a056870c58b00b0010bd21dad5emr3514681oab.287.1664736487445; Sun, 02
- Oct 2022 11:48:07 -0700 (PDT)
+	id 1ofBPv-003XHA-KO
+	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 02:42:54 +0000
+Received: by mail-oi1-x235.google.com with SMTP id s125so10204585oie.4
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Oct 2022 19:42:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date;
+        bh=kZ54JuJ/U11o6QZTC2tSUVSElKXkiA2E63Q+E0+5Ows=;
+        b=M1kro5I7v0dN31CoUeGS0m8+9Yf45ZG6QCrky+SzJN7D4wnopN5pJ1iD4DKfrqhsd7
+         934qA5PX17Ao3ydsvtEhSgZTHMUBPtu9uNl6vusKBV/tkvItvV7gEknxWTsRhMdrLnr7
+         aTywdmbcaSLkjs79ZkeUk79OrjF/ylKboifLPFppb3jJFw2413QcVXHbF/Q3wCsNNnLE
+         iOITOomXo7ldNNpnYi9z0wDF/PInT0aSIDKnQloOkU8uB+WqmqBx36HVPhH8yLTBe46j
+         f4uOuwUtsnAaxRH9Z1trhygCxS190M6IkQj2h2d4WdUJiqa8Km70cxZ6PfucdC7AljWf
+         wOXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=kZ54JuJ/U11o6QZTC2tSUVSElKXkiA2E63Q+E0+5Ows=;
+        b=S0rjmqmycD1iIsKf+fapCT+gXdzyC0I7n2tqeeoxQrpw2MFRMhlZPI9CGsllV6yeR/
+         zY8Hq0H9SVSO7GRKSK6vI1mvKCjVYVb2pT5y0ISOJxJddY8WfS215QpUJCrGfD7Zj43C
+         Yh857seTDdVEV+OKqbmqcC4z2QnDKs3JHlXpbqYMEeVQDEu8ENk94tIElnRhPF4pvR/Z
+         6naUZ9tAP7QbE1yHRmq4JzpkgnEUokEi0adF9D5R5a2AUZ7vQ9lfbvAdwHIz8DYuGsbZ
+         V6tSrKcuJgefKzkhDOj+uLgHecC/vYjl+Vu18gP02ZxyKFY357EfTHEAqC1AVljbWR4N
+         fIOA==
+X-Gm-Message-State: ACrzQf38fTJaqvhIbhRJoAI7QfJ1ONBMXWsXTAIcYaxPld6Nk5yrRcMF
+	aVS0UUPq1UZmS7FWiHDRT9+UeIYMEl1drpRZx2XTrA==
+X-Google-Smtp-Source: AMsMyM5DzDNSJT7AYl3fCNPwDNPYomK9PSogJsIgE6W4jeqpRQGpNrt9ZTjcXZGRKMdL84uSEn0+9KxizakSfJAtYG8=
+X-Received: by 2002:a05:6808:150c:b0:350:df64:edf6 with SMTP id
+ u12-20020a056808150c00b00350df64edf6mr3125398oiw.283.1664764966993; Sun, 02
+ Oct 2022 19:42:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220928182523.3105953-1-nathan@kernel.org>
-In-Reply-To: <20220928182523.3105953-1-nathan@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Mon, 3 Oct 2022 03:47:30 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATqoW-3fmFZBAbPuKhdRn4UD_o8jthVsBanyYzFWpzSSA@mail.gmail.com>
-Message-ID: <CAK7LNATqoW-3fmFZBAbPuKhdRn4UD_o8jthVsBanyYzFWpzSSA@mail.gmail.com>
-Subject: Re: [PATCH] lib/Kconfig.debug: Add check for non-constant
- .{s,u}leb128 support to DWARF5
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-        Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, linux-kbuild@vger.kernel.org,
-        linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        patches@lists.linux.dev, llvm@lists.linux.dev,
-        Conor Dooley <conor.dooley@microchip.com>
+References: <20220913061817.22564-1-zong.li@sifive.com> <CANXhq0qG-aEEHxWbtRgC+RO-wC36MtPUfu+eMpX89wOtqGJL0w@mail.gmail.com>
+In-Reply-To: <CANXhq0qG-aEEHxWbtRgC+RO-wC36MtPUfu+eMpX89wOtqGJL0w@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 3 Oct 2022 10:42:34 +0800
+Message-ID: <CANXhq0qnvUytyLOgGUiTP3nnic=FgRrezM_9vYwaGNaooU9J3w@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] Use composable cache instead of L2 cache
+To: Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <greentime.hu@sifive.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ben Dooks <ben.dooks@sifive.com>, bp@alien8.de, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-edac@vger.kernel.org, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221002_114835_958808_F56BE55C 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20221002_194251_708594_BD16318E 
+X-CRM114-Status: GOOD (  28.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +89,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 29, 2022 at 3:25 AM Nathan Chancellor <nathan@kernel.org> wrote:
+On Wed, Sep 21, 2022 at 1:09 PM Zong Li <zong.li@sifive.com> wrote:
 >
-> When building with a RISC-V kernel with DWARF5 debug info using clang
-> and the GNU assembler, several instances of the following error appear:
+> On Tue, Sep 13, 2022 at 2:18 PM Zong Li <zong.li@sifive.com> wrote:
+> >
+> > Since composable cache may be L3 cache if private L2 cache exists, we
+> > should use its original name "composable cache" to prevent confusion.
+> >
+> > This patchset contains the modification which is related to ccache, such
+> > as DT binding and EDAC driver.
+> >
+> > The DT binding is based on top of Conor's patch, it has got ready for
+> > merging, and it looks that it would be taken into the next few 6.0-rc
+> > version. If there is any change, the next version of this series will be
+> > posted as well.
+> > https://lore.kernel.org/linux-riscv/20220825180417.1259360-2-mail@conchuod.ie/
+> >
+> > Change log in v5:
+> >  - Add a patch to modify aux vector for sysconf
+> >
+> > Change log in v4:
+> >  - Change the return value from from ENODEV to ENOENT
+> >  - Apply pr_fmt refinement to all pr_err
+> >
+> > Change log in v3:
+> >  - Merged the EDAC patch into L2 rename patch
+> >  - Define the macro for register shift and refine the relative code
+> >  - Fix some indent issues
+> >
+> > Change log in v2:
+> >  - Separate the rename and diff to different patches
+> >  - Rebase the dt-bindings based on Conor's modification
+> >  - Include the patches of Ben for refinement of printing message
+> >
+> > Ben Dooks (2):
+> >   soc: sifive: ccache: reduce printing on init
+> >   soc: sifive: ccache: use pr_fmt() to remove CCACHE: prefixes
+> >
+> > Greentime Hu (2):
+> >   soc: sifive: ccache: Rename SiFive L2 cache to Composable cache.
+> >   riscv: Add cache information in AUX vector
+> >
+> > Zong Li (3):
+> >   dt-bindings: sifive-ccache: change Sifive L2 cache to Composable cache
+> >   soc: sifive: ccache: determine the cache level from dts
+> >   soc: sifive: ccache: define the macro for the register shifts
+> >
+> >  ...five-l2-cache.yaml => sifive,ccache0.yaml} |  28 ++-
+> >  arch/riscv/include/asm/elf.h                  |   4 +
+> >  arch/riscv/include/uapi/asm/auxvec.h          |   4 +-
+> >  drivers/edac/Kconfig                          |   2 +-
+> >  drivers/edac/sifive_edac.c                    |  12 +-
+> >  drivers/soc/sifive/Kconfig                    |   6 +-
+> >  drivers/soc/sifive/Makefile                   |   2 +-
+> >  .../{sifive_l2_cache.c => sifive_ccache.c}    | 200 ++++++++++--------
+> >  .../{sifive_l2_cache.h => sifive_ccache.h}    |  16 +-
+> >  9 files changed, 158 insertions(+), 116 deletions(-)
+> >  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive,ccache0.yaml} (83%)
+> >  rename drivers/soc/sifive/{sifive_l2_cache.c => sifive_ccache.c} (31%)
+> >  rename include/soc/sifive/{sifive_l2_cache.h => sifive_ccache.h} (12%)
+> >
+> > --
+> > 2.17.1
+> >
 >
->   /tmp/vgettimeofday-48aa35.s:2963: Error: non-constant .uleb128 is not supported
->
-> Dumping the .s file reveals these .uleb128 directives come from
-> .debug_loc and .debug_ranges:
->
->   .Ldebug_loc0:
->           .byte   4                               # DW_LLE_offset_pair
->           .uleb128 .Lfunc_begin0-.Lfunc_begin0    #   starting offset
->           .uleb128 .Ltmp1-.Lfunc_begin0           #   ending offset
->           .byte   1                               # Loc expr size
->           .byte   90                              # DW_OP_reg10
->           .byte   0                               # DW_LLE_end_of_list
->
->   .Ldebug_ranges0:
->           .byte   4                               # DW_RLE_offset_pair
->           .uleb128 .Ltmp6-.Lfunc_begin0           #   starting offset
->           .uleb128 .Ltmp27-.Lfunc_begin0          #   ending offset
->           .byte   4                               # DW_RLE_offset_pair
->           .uleb128 .Ltmp28-.Lfunc_begin0          #   starting offset
->           .uleb128 .Ltmp30-.Lfunc_begin0          #   ending offset
->           .byte   0                               # DW_RLE_end_of_list
->
-> There is an outstanding binutils issue to support a non-constant operand
-> to .sleb128 and .uleb128 in GAS for RISC-V but there does not appear to
-> be any movement on it, due to concerns over how it would work with
-> linker relaxation.
->
-> To avoid these build errors, prevent DWARF5 from being selected when
-> using clang and an assembler that does not have support for these symbol
-> deltas, which can be easily checked in Kconfig with as-instr plus the
-> small test program from the dwz test suite from the binutils issue.
->
-> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=27215
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1719
-> Tested-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  lib/Kconfig.debug | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index d3e5f36bb01e..19de03ead2ed 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -231,6 +231,9 @@ config DEBUG_INFO
->           in the "Debug information" choice below, indicating that debug
->           information will be generated for build targets.
->
-> +config AS_HAS_NON_CONST_LEB128
-> +       def_bool $(as-instr,.uleb128 .Lexpr_end4 - .Lexpr_start3\n.Lexpr_start3:\n.Lexpr_end4:)
-> +
->  choice
->         prompt "Debug information"
->         depends on DEBUG_KERNEL
-> @@ -277,6 +280,10 @@ config DEBUG_INFO_DWARF5
->         bool "Generate DWARF Version 5 debuginfo"
->         select DEBUG_INFO
->         depends on !CC_IS_CLANG || (CC_IS_CLANG && (AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502)))
-> +       # Clang is known to generate .{s,u}leb128 with symbol deltas with
-> +       # DWARF5, which some targets may not support.
-> +       # https://sourceware.org/bugzilla/show_bug.cgi?id=27215
+> Hi Palmer,
+> I was wondering if this series looks good to you, and could you please
+> help us to take it into riscv-tree?
+> Thanks.
 
-
-
-If you plan to patch both DWARF_TOOLCHAIN_DEFAULT and DWARF5,
-it will be cleaner to move this comment to AS_HAS_NON_CONST_LEB128.
-
-
-
-> +       depends on !CC_IS_CLANG || AS_HAS_NON_CONST_LEB128
-
-
-
-The condition "!CC_IS_CLANG" is repeated here.
-
-If you use the following patch as basic,
-https://lore.kernel.org/lkml/20221002181107.51286-2-masahiroy@kernel.org/T/#u
-
-you can write the code like this:
-
-
-!CC_IS_CLANG || AS_IS_LLVM || (AS_IS_GNU && AS_VERSION >= 23502 &&
-AS_HAS_NON_CONST_LEB128)
-
-
-
-
-
-
-
-Another big hammer solution is to give up Clang+GAS for CONFIG_DEBUG_INFO.
-If we go this way, this patch is unneeded, though.
-Thoughts?
-
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+Hi Palmer,
+The new merge window is going to open, do you think is it suitable to
+merge this series this time? Thanks.
 
 _______________________________________________
 linux-riscv mailing list
