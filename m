@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B5C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 10:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7069CC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 10:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xnfHreXurwOvqtSAsYCHYG02R+RMG93EiC9VU0hwZYc=; b=vFbKSZ+FVyiEgo
-	PNy8jWABXfUCzO8+DdNOviQzHHzuwAq2LXZb97HQ8U1tktbK94aYzeVsj81SpJ/kKbGbF9K6KxHAB
-	N8Xv5JpGZWbT8m5Damg+idI7hXhkjhKujL2RvJwSjSd0tabO/SyGQAw/VxKI4z1uyZ7ZTeI9E11Ow
-	EzaGEvptZBrsN5uaAgmS2jy7gSsFIZStledajyZVc2ZLyA8cGnn8YhQQqi0kiF1dP78wuha3pfYQA
-	8CMQop3Atd47b6nj1mO2LQUj9Vq6M7sRM+LSPmOXOh6chJBZe3kBkEP4VimswbzO81OShwKZt7BkO
-	G/MpjaJk/wT9ebjZQcSw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=952vVVcCBGkyxp1KTWZWO/Y5N8wnPMra9MRQc79FOms=; b=R91+ehNzuS14Di
+	MAKSabr3qTcCuUH/9CkqjV76pvTXDDvy8QtIPwQ4bL4z8obps+nxQVwvGZO7OKMAMSjur2Pgipc14
+	8LfPm7xJj9qxHont/ILqo3H3rIpitKtONURNvbL3tFGS1mZ/Aet7uN1NC1vbHS4kK8u6dQu3wrXY6
+	sSexqCF8Dkk6iWhOHAYny/1a0ef/l7rRkew+xNpB8/IQkGnch+QtqNdzQB8oCZBEXTgoC9pSMg2XD
+	KUFZ17yALBIn1ZQP0s6RUPm3qqkTJDQ1VtTxvkU6ZZASwYCCAutrNc1FmrFYzEa4rMMKHvB7XkA0/
+	IYMfFx05JPhDIrEv9xgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofIqf-005KnS-Ew; Mon, 03 Oct 2022 10:38:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ofIqk-005Kpm-01; Mon, 03 Oct 2022 10:39:02 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofIqc-005Kmx-Ay
-	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 10:38:55 +0000
+	id 1ofIqg-005KnY-K3
+	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 10:39:00 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1E67561032;
-	Mon,  3 Oct 2022 10:38:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33EABC433C1;
-	Mon,  3 Oct 2022 10:38:51 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 48F39B8104F;
+	Mon,  3 Oct 2022 10:38:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4DD4C433D6;
+	Mon,  3 Oct 2022 10:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664793532;
-	bh=Wb5QlCQoIluCSve+kPlO0WTb8M6wqUHapBeGAV6z1uE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=phnvPVGFboLC5HzqCpDPnTuFsS12xHr9qtLxkOWEvZTu3vcr+agYAGQlSmQoYxkLg
-	 oDNJI8rnRDDttB4nHGWUg+5QMhzc30gnKDqPWT3hdU6sCWGNAwEw4+EKC5LhjM3kts
-	 Hjfo73Val8taCpK2rJiICeq3sZxDygN0qYMTdG0kKA7Y41QSdZYRkZ3LH/NZlDegE2
-	 3JhmPSzfhxSfGowBGJ4N4gx9dKjCrrCzsnQQfjim0dI91WcYtDpbtmKLT4MsMRg+86
-	 zDo7rPxQaLCwCP0dX3VpOXRmGuBNIE73elot4s0Mtb1yfJGpr6t6baaRJl/Y2KYSBz
-	 RIHAgP9oslN6Q==
+	s=k20201202; t=1664793536;
+	bh=Ge/o7Rp8DcY2sG0HuCr9FZPeFSgyQgALAhESbZPndRM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ZaefyPbry2+/5DcwEpVZlyTQfffy/QXFw2DUFzzbsDvxRnGR21S2t/KwZT3ATBXha
+	 lxrD1qzQiZoBI8aJJgbfoR6TWckp/KrqnWTZlgRsmWc63P3LmfF2r82uQVcs32F1US
+	 tsJk6YBDilccAjDtZeNTwMWavvXFSzcCCEcLTHKkjNzZHetyonpT8rHBoaioUOqUSy
+	 rtFQD76heyFpj5nTk8zSGPzKy+eofdjRsaHa0V0du7cBFr8UT+JeaXZ9Dqce6BRNTL
+	 tqDJBW1LPZ/ebb9/8wbE3hB1EzyfR4cpUv1iKkuNtCmZ5gF5B/KAsutiYHiZcezC4c
+	 rklcZlV5+fvVQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -49,14 +49,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Guo Ren <guoren@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/4] riscv: entry: further clean up and VMAP_STACK fix
-Date: Mon,  3 Oct 2022 18:29:17 +0800
-Message-Id: <20221003102921.3973-1-jszhang@kernel.org>
+Subject: [PATCH v3 2/4] riscv: consolidate ret_from_kernel_thread into ret_from_fork
+Date: Mon,  3 Oct 2022 18:29:19 +0800
+Message-Id: <20221003102921.3973-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20221003102921.3973-1-jszhang@kernel.org>
+References: <20221003102921.3973-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_033854_455243_772ED012 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20221003_033858_827314_3B4747C9 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +75,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I planed to do similar generic entry transaction as Guo Ren did[1], and
-I had some commits in local. Since Guo has sent out the series, I
-dropped my version and just provide those in my local repo but missing
-in Guo's series. However, this doesn't mean this series depends on
-Guo's series, in fact except the first one, the remaining three patches
-are independent on generic entry.
+The ret_from_kernel_thread() behaves similarly with ret_from_fork(),
+the only difference is whether call the fn(arg) or not, this can be
+acchieved by testing fn is NULL or not, I.E s0 is 0 or not.
 
-Since v2:
-  - the patch of removing wrappers of trace_hardirqs_{on,off} is in
-    Guo's v6 generic entry series[2], so remove it.
-  - add a new patch to fix kernel info leakage.
-  - collect Acked-by tag.
-  - the GP saving and restoring macros range from x5 to x31 now per
-    Guo's suggestion.
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Acked-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/kernel/entry.S   | 11 +++--------
+ arch/riscv/kernel/process.c |  5 ++---
+ 2 files changed, 5 insertions(+), 11 deletions(-)
 
-Since v1:
-  - consolidate gp saving/restoring in mcount-dyn.S as well
-  - avoid non-trival memory waste if NR_CPUs is large
-  - collect Reviewed-by tag.
-
-[1]https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/T/#t
-[2]https://lore.kernel.org/linux-riscv/20221002012451.2351127-1-guoren@kernel.org/T/#t
-
-Jisheng Zhang (4):
-  riscv: process: fix kernel info leakage
-  riscv: consolidate ret_from_kernel_thread into ret_from_fork
-  riscv: fix race when vmap stack overflow and remove shadow_stack
-  riscv: entry: consolidate general regs saving/restoring
-
- arch/riscv/include/asm/asm-prototypes.h |   1 -
- arch/riscv/include/asm/asm.h            |  63 ++++++++++
- arch/riscv/include/asm/thread_info.h    |   3 -
- arch/riscv/kernel/asm-offsets.c         |   1 +
- arch/riscv/kernel/entry.S               | 151 +++---------------------
- arch/riscv/kernel/mcount-dyn.S          |  56 +--------
- arch/riscv/kernel/process.c             |   7 +-
- arch/riscv/kernel/traps.c               |  32 ++---
- 8 files changed, 103 insertions(+), 211 deletions(-)
-
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 39097c1474a0..d227aca7f9d4 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -323,20 +323,15 @@ END(handle_kernel_stack_overflow)
+ 
+ ENTRY(ret_from_fork)
+ 	call schedule_tail
+-	move a0, sp /* pt_regs */
+-	la ra, ret_from_exception
+-	tail syscall_exit_to_user_mode
+-ENDPROC(ret_from_fork)
+-
+-ENTRY(ret_from_kernel_thread)
+-	call schedule_tail
++	beqz s0, 1f	/* not from kernel thread */
+ 	/* Call fn(arg) */
+ 	move a0, s1
+ 	jalr s0
++1:
+ 	move a0, sp /* pt_regs */
+ 	la ra, ret_from_exception
+ 	tail syscall_exit_to_user_mode
+-ENDPROC(ret_from_kernel_thread)
++ENDPROC(ret_from_fork)
+ 
+ 
+ /*
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 52002d54b163..fdafed185e21 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -34,7 +34,6 @@ EXPORT_SYMBOL(__stack_chk_guard);
+ #endif
+ 
+ extern asmlinkage void ret_from_fork(void);
+-extern asmlinkage void ret_from_kernel_thread(void);
+ 
+ void arch_cpu_idle(void)
+ {
+@@ -174,7 +173,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		/* Supervisor/Machine, irqs on: */
+ 		childregs->status = SR_PP | SR_PIE;
+ 
+-		p->thread.ra = (unsigned long)ret_from_kernel_thread;
+ 		p->thread.s[0] = (unsigned long)args->fn;
+ 		p->thread.s[1] = (unsigned long)args->fn_arg;
+ 	} else {
+@@ -184,8 +182,9 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		if (clone_flags & CLONE_SETTLS)
+ 			childregs->tp = tls;
+ 		childregs->a0 = 0; /* Return value of fork() */
+-		p->thread.ra = (unsigned long)ret_from_fork;
++		p->thread.s[0] = 0;
+ 	}
++	p->thread.ra = (unsigned long)ret_from_fork;
+ 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+ 	return 0;
+ }
 -- 
 2.37.2
 
