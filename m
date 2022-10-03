@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E6DC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 22:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC0EC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 22:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M2LJCggcds8WDv+xJeB0GUdqzyQSiXY92WXsuW2mjhw=; b=Juq0RTnlZu0itU
-	699Ml8L5qHmdDy0cDPeGdpx/CQVSBBWbP4FcZPgt6Vn76f49o425Pz/7IA2vjyiOgTbbsSiKdzdth
-	n0caHfQTEtIh7Vd9e53PShfxKoNH9ZOFMU0ExM/YjJkk6A+xeYaVgmMM87C7zfgwYMXeMTTO7y01N
-	h0JSQ8RJUFvvlRwkEK6iTZqreHyX7v8YFS+lBawuOmJyZ8jA8a8SPt8hJZp5157Zz5gwFG8Y3Bkxu
-	HOlnHkFiSXUqcl/QE/gmVdfq5WMTlyHIiCqK9zXgum831Pz/PpkMncVltsOhJNST305E/D3UBYGmD
-	hK6KKWhe3uJuhIxticPQ==;
+	List-Owner; bh=FOEocU6RxEJkT9NLi46aPBwPRlU+yju2jpZuS4WCdFs=; b=Vt4wkLb6sQghJS
+	l58D2mJA25Q9pjDv7Ys9/0fn4iky5gDWQ2j48z8VTluKPpdrt+E8YXqIdVDdc2FfN3VHuxRp/O/d9
+	t2l2X4g8/WgfIf9LqGvWB/TibASFqJiSpkESWejxeeOIRPWVRxioi0EfAkvXHnhA3UJJGZpWrY32G
+	N05RLGCBKKj1sYX21vH/eLOPBJfb6O4qoJpSZync3PPe9iLbvH+rY+OQjlzvk1HqTTwKp5dAPmvZJ
+	+ly+rpLIDVDAIXfP31m4+nzXHXgwQ5PZq1kwMugEzV2QGfFcsbhY8Bpqmyjc4EB7L7oFyThOKiXdv
+	oQDBrnUeD5WJUzBQbgGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofTzY-007vdE-P3; Mon, 03 Oct 2022 22:32:52 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1ofTza-007vdi-2Q; Mon, 03 Oct 2022 22:32:54 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofTzU-007vbx-3v
-	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 22:32:49 +0000
-Received: by mail-wm1-x331.google.com with SMTP id z13-20020a7bc7cd000000b003b5054c6f9bso9825702wmk.2
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 15:32:45 -0700 (PDT)
+	id 1ofTzW-007vby-7M
+	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 22:32:52 +0000
+Received: by mail-wr1-x434.google.com with SMTP id a3so6444439wrt.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 15:32:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=XSXor89wvMD5IbxoY6sxhht7eSGoSZ1Ew/JcVOWsAPg=;
-        b=Pvz8y4NKbKjMNfIDOpelT+9qJ3evjx9PctMQZkAVVk0/0mLz9A4jDMpyiuuwENsoxq
-         wB2AFMgZkXJR4whgW5h02M/8UK9yCTo5vsqAmpNYC2rZU5TZm223cKdfBjp2lWIFXsP5
-         9fB9qseBJ76wAMB8+/UqXV71Sfkyz2DBUbx2u/DsB5JLlRtjwUB0H6RZ7i5i4OicNkwq
-         +ZoSpMhfa/QktYQrqJGhvTH+FwAvThsIvRH52NMHcFFNdYjynIrCT2fXvll6OPed/PLE
-         EmS1n9fs9rAMK23s0GpVQBNKeBi3CgIOp2HnbSTsc2xRQkOlrgSoXefcbB3zG9s22hUx
-         w4Ug==
+        bh=ST1hA5y0mmrQ2lR9v42JOVF5tezNIQssLDLr0FOL2LI=;
+        b=elLCx/yYjOtVMlYf0tfOGkZA4wiFegfxKmDZDhTvDmMsKTI9ns2COiyaOc5+5zX5p0
+         wwlpIm6X0RYmz3mRiu9QhMNSw3OY3ex/p1kKMU+fA/aPFJIJH/1oIAgednPcVR0iU4/l
+         Zpm8qchhTsvdUnM3h6K+ZwJyxSV6Yx8hBnMqmzZgOuME14U53oKDvpafy0i+PFZ4d3SV
+         eZJDnv+SiC9vVtydKSRo+Qe2k3695QsoZIgUQsGlkxcCqk8pJA2k38kQmFe3EXsK6XOW
+         M5dIKuLnXF6F0VVQp4IBX5chmtGC2EvI+kW+FWwXrO/K5aG/xfNOFi6t3wGgexkf2EkJ
+         uZnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=XSXor89wvMD5IbxoY6sxhht7eSGoSZ1Ew/JcVOWsAPg=;
-        b=UEt8xQQilq3a7g/KVS+hFc5UDdzwFS7bw9yo0Hyn69B30DgGwII19iIZtpCJ4q+MGK
-         tI37xPY0CwkBDsn34zPlpGLVcflAMpb/4MZK2rVUaIhYMDi1S+RnEqjufF8bwz5sreTe
-         uvww1o2Eh3cTvC/v1uUbLHuUV6grrduODJwC7toK4vToyA2z+FKqfvT6Dc+NTZSjlqA2
-         zcW8RFj2jWCiC7P3L+51NHsYvdynjOJPfJvC2I5818QMKQ5XhirDg5DmIgYYE4JwwBZi
-         VDhaAOAmn1hN4K6Qq/Frggqi6SYOa+PtFDds6yVB0Esk8qxm0k+fEOrGO6U4ejyhjZ96
-         cqgA==
-X-Gm-Message-State: ACrzQf3LuN8oemBSNhqeB3NDYpFPfmTajyrAxjv6eP1LLNwDhvxlauvD
-	zKTZY69Rxlk9JwMVDiIYpEw=
-X-Google-Smtp-Source: AMsMyM68z2gks/2+M/TnH4uz8efG41m2sGfpfTsoKgKttrqNcEXtubTr+3hO2kD3AuW0+n7czVZJCA==
-X-Received: by 2002:a05:600c:1990:b0:3b4:c326:d099 with SMTP id t16-20020a05600c199000b003b4c326d099mr7888667wmq.19.1664836364460;
-        Mon, 03 Oct 2022 15:32:44 -0700 (PDT)
+        bh=ST1hA5y0mmrQ2lR9v42JOVF5tezNIQssLDLr0FOL2LI=;
+        b=dKmkQMdRka+GLUABzCjtkLzGY12MSnEPup6Z9SNFuUHGg7NLb8IE8cO6gsanWO0KKa
+         qWYgfZpk09MVXWghL6xfA3Tr+JDNjUXz0gkIHEjnShiJsehzQ/VR5mGTVpaCdl9CpPur
+         pRjTzHxbXN3mIhiqtC/vBMdKpgG+fykoeK28MJKrVzI9g7q9P0o4u6iEZFPvdb4Jz263
+         69wTc/AWoKeIKPeYEIvTQnDg+PAa7I04rSs5iaq1B2kvJXQ9lk4KOt4cBN2a0/5xBcdp
+         e5UpnzzmC2QAAVGojP/MqUtqQlnnJX9eCYN6fswcJ+azVLEVpuS2S0u5P4olmypC/QwL
+         HZkA==
+X-Gm-Message-State: ACrzQf3a/SVC9QqoRgpogQZ0d2XXu03LoopnU0lPWn6OcrUlAa2c5z1o
+	1RktTlht56w2aG53Q0s6J+w=
+X-Google-Smtp-Source: AMsMyM65TCPIve/fO9BIsXC1bwD7X0ePjWrVQfyVbUTqe5h/Fdgo/NQVoPDxXD9GmkhjBYpom8A60w==
+X-Received: by 2002:a5d:674f:0:b0:22e:3d59:cf0f with SMTP id l15-20020a5d674f000000b0022e3d59cf0fmr4417261wrw.304.1664836365773;
+        Mon, 03 Oct 2022 15:32:45 -0700 (PDT)
 Received: from localhost.localdomain ([2a00:23c8:2501:c701:34b9:36fa:3827:d20])
-        by smtp.gmail.com with ESMTPSA id m64-20020a1ca343000000b003a6125562e1sm12884871wme.46.2022.10.03.15.32.43
+        by smtp.gmail.com with ESMTPSA id m64-20020a1ca343000000b003a6125562e1sm12884871wme.46.2022.10.03.15.32.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Oct 2022 15:32:43 -0700 (PDT)
+        Mon, 03 Oct 2022 15:32:45 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -82,16 +82,16 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache: Add DT binding documentation for L2 cache controller
-Date: Mon,  3 Oct 2022 23:32:21 +0100
-Message-Id: <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for RZ/Five SoC
+Date: Mon,  3 Oct 2022 23:32:22 +0100
+Message-Id: <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_153248_181271_B86BB428 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20221003_153250_307015_5C5A5CD8 
+X-CRM114-Status: GOOD (  29.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,106 +110,602 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+On the AX45MP core, cache coherency is a specification option so it may
+not be supported. In this case DMA will fail. As a workaround, firstly we
+allocate a global dma coherent pool from which DMA allocations are taken
+and marked as non-cacheable + bufferable using the PMA region as specified
+in the device tree. Synchronization callbacks are implemented to
+synchronize when doing DMA transactions.
 
-The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-describes the L2 cache block.
+The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+block that allows dynamic adjustment of memory attributes in the runtime.
+It contains a configurable amount of PMA entries implemented as CSR
+registers to control the attributes of memory locations in interest.
+
+Below are the memory attributes supported:
+* Device, Non-bufferable
+* Device, bufferable
+* Memory, Non-cacheable, Non-bufferable
+* Memory, Non-cacheable, Bufferable
+* Memory, Write-back, No-allocate
+* Memory, Write-back, Read-allocate
+* Memory, Write-back, Write-allocate
+* Memory, Write-back, Read and Write-allocate
+
+This patch adds support to configure the memory attributes of the memory
+regions as passed from the l2 cache node and exposes the cache management
+ops. Currently the OpenSBI code implements support for "Memory,
+Non-cacheable, Non-bufferable" option with SBI_EXT_ANDES_SET_PMA.
+
+More info about PMA (section 10.3):
+http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+
+This feature is based on the work posted [0] by Vincent Chen
+<vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
+
+[0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
- .../soc/renesas/r9a07g043f-l2-cache.yaml      | 82 +++++++++++++++++++
- 1 file changed, 82 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+ arch/riscv/include/asm/cacheflush.h    |   8 +
+ arch/riscv/include/asm/errata_list.h   |   2 +
+ arch/riscv/include/asm/sbi.h           |   1 +
+ arch/riscv/mm/dma-noncoherent.c        |  20 ++
+ drivers/soc/renesas/Makefile           |   4 +
+ drivers/soc/renesas/rzf/Makefile       |   3 +
+ drivers/soc/renesas/rzf/ax45mp_cache.c | 365 +++++++++++++++++++++++++
+ drivers/soc/renesas/rzf/rzf_sbi.h      |  27 ++
+ 8 files changed, 430 insertions(+)
+ create mode 100644 drivers/soc/renesas/rzf/Makefile
+ create mode 100644 drivers/soc/renesas/rzf/ax45mp_cache.c
+ create mode 100644 drivers/soc/renesas/rzf/rzf_sbi.h
 
-diff --git a/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index 273ece6b622f..a7c03321afa0 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -63,6 +63,14 @@ void riscv_noncoherent_supported(void);
+ #define SYS_RISCV_FLUSH_ICACHE_LOCAL 1UL
+ #define SYS_RISCV_FLUSH_ICACHE_ALL   (SYS_RISCV_FLUSH_ICACHE_LOCAL)
+ 
++#ifdef CONFIG_ARCH_R9A07G043
++void rzfive_cpu_dma_inval_range(void *vaddr, size_t end);
++void rzfive_cpu_dma_wb_range(void *vaddr, size_t end);
++
++#define ALT_CMO_OP(_op, _start, _size, _cachesize)	\
++		   _op(_start, _size);
++#endif
++
+ #include <asm-generic/cacheflush.h>
+ 
+ #endif /* _ASM_RISCV_CACHEFLUSH_H */
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 19a771085781..d9cbf60c3b65 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -89,6 +89,7 @@ asm volatile(ALTERNATIVE(						\
+ #define ALT_THEAD_PMA(_val)
+ #endif
+ 
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ /*
+  * dcache.ipa rs1 (invalidate, physical address)
+  * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+@@ -143,5 +144,6 @@ asm volatile(ALTERNATIVE_2(						\
+ 	: "a0")
+ 
+ #endif /* __ASSEMBLY__ */
++#endif
+ 
+ #endif
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 2a0ef738695e..10a7c855d125 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -37,6 +37,7 @@ enum sbi_ext_id {
+ 
+ 	/* Vendor extensions must lie within this range */
+ 	SBI_EXT_VENDOR_START = 0x09000000,
++	SBI_EXT_ANDES = 0x0900031E,
+ 	SBI_EXT_VENDOR_END = 0x09FFFFFF,
+ };
+ 
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+index e3f9bdf47c5f..576601f180ea 100644
+--- a/arch/riscv/mm/dma-noncoherent.c
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -22,13 +22,25 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+ 
+ 	switch (dir) {
+ 	case DMA_TO_DEVICE:
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++#elif CONFIG_ARCH_R9A07G043
++		ALT_CMO_OP(rzfive_cpu_dma_wb_range, vaddr, size, 0x0);
++#endif
+ 		break;
+ 	case DMA_FROM_DEVICE:
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++#elif CONFIG_ARCH_R9A07G043
++		ALT_CMO_OP(rzfive_cpu_dma_inval_range, vaddr, size, 0x0);
++#endif
+ 		break;
+ 	case DMA_BIDIRECTIONAL:
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++#elif CONFIG_ARCH_R9A07G043
++		ALT_CMO_OP(rzfive_cpu_dma_wb_range, vaddr, size, 0x0);
++#endif
+ 		break;
+ 	default:
+ 		break;
+@@ -45,7 +57,11 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 		break;
+ 	case DMA_FROM_DEVICE:
+ 	case DMA_BIDIRECTIONAL:
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++#elif CONFIG_ARCH_R9A07G043
++		ALT_CMO_OP(rzfive_cpu_dma_inval_range, vaddr, size, 0x0);
++#endif
+ 		break;
+ 	default:
+ 		break;
+@@ -54,14 +70,17 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 
+ void arch_dma_prep_coherent(struct page *page, size_t size)
+ {
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 	void *flush_addr = page_address(page);
+ 
+ 	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
++#endif
+ }
+ 
+ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+ 		const struct iommu_ops *iommu, bool coherent)
+ {
++#ifdef CONFIG_ERRATA_THEAD_CMO
+ 	WARN_TAINT(!coherent && riscv_cbom_block_size > ARCH_DMA_MINALIGN,
+ 		   TAINT_CPU_OUT_OF_SPEC,
+ 		   "%s %s: ARCH_DMA_MINALIGN smaller than riscv,cbom-block-size (%d < %d)",
+@@ -73,6 +92,7 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+ 		   dev_driver_string(dev), dev_name(dev));
+ 
+ 	dev->dma_coherent = coherent;
++#endif
+ }
+ 
+ #ifdef CONFIG_RISCV_ISA_ZICBOM
+diff --git a/drivers/soc/renesas/Makefile b/drivers/soc/renesas/Makefile
+index 535868c9c7e4..a20cc7ad5b12 100644
+--- a/drivers/soc/renesas/Makefile
++++ b/drivers/soc/renesas/Makefile
+@@ -31,6 +31,10 @@ ifdef CONFIG_SMP
+ obj-$(CONFIG_ARCH_R9A06G032)	+= r9a06g032-smp.o
+ endif
+ 
++ifdef CONFIG_RISCV
++obj-y += rzf/
++endif
++
+ # Family
+ obj-$(CONFIG_RST_RCAR)		+= rcar-rst.o
+ obj-$(CONFIG_SYSC_RCAR)		+= rcar-sysc.o
+diff --git a/drivers/soc/renesas/rzf/Makefile b/drivers/soc/renesas/rzf/Makefile
 new file mode 100644
-index 000000000000..f96eeffa58ce
+index 000000000000..e397ba2c733f
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
-@@ -0,0 +1,82 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright (C) 2022 Renesas Electronics Corp.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/renesas/r9a07g043f-l2-cache.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/soc/renesas/rzf/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+title: SiFive L2 Cache Controller
++obj-$(CONFIG_ARCH_R9A07G043) += ax45mp_cache.o
+diff --git a/drivers/soc/renesas/rzf/ax45mp_cache.c b/drivers/soc/renesas/rzf/ax45mp_cache.c
+new file mode 100644
+index 000000000000..6eca32aef33e
+--- /dev/null
++++ b/drivers/soc/renesas/rzf/ax45mp_cache.c
+@@ -0,0 +1,365 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PMA setup and non-coherent cache functions for AX45MP
++ *
++ * Copyright (C) 2022 Renesas Electronics Corp.
++ */
 +
-+maintainers:
-+  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++#include <linux/cacheinfo.h>
++#include <linux/of_address.h>
 +
-+description:
-+  A level-2 cache (L2C) is used to improve the system performance by providing
-+  a larger amount of cache line entries and reasonable access delays. The L2C
-+  is shared between cores, and a non-inclusive non-exclusive policy is used.
++#include <asm/sbi.h>
 +
-+properties:
-+  compatible:
-+    items:
-+      - const: andestech,ax45mp-cache
-+      - const: cache
++#include "rzf_sbi.h"
 +
-+  reg:
-+    maxItems: 1
++/* D-cache operation */
++#define CCTL_L1D_VA_INVAL		0
++#define CCTL_L1D_VA_WB			1
 +
-+  interrupts:
-+    maxItems: 1
++/* L2 cache */
++#define L2_CACHE_CTL_CEN_MASK		1
 +
-+  cache-line-size:
-+    const: 64
++/* L2 cache registers */
++#define L2C_REG_CTL_OFFSET		0x8
++#define L2C_REG_C0_CMD_OFFSET		0x40
++#define L2C_REG_C0_ACC_OFFSET		0x48
++#define L2C_REG_STATUS_OFFSET		0x80
 +
-+  cache-level:
-+    const: 2
++/* L2 CCTL status */
++#define CCTL_L2_STATUS_IDLE		0
 +
-+  cache-sets:
-+    const: 1024
++/* L2 CCTL status cores mask */
++#define CCTL_L2_STATUS_C0_MASK		0xf
 +
-+  cache-size:
-+    enum: [131072, 262144, 524288, 1048576, 2097152]
++/* L2 cache operation */
++#define CCTL_L2_PA_INVAL		0x8
++#define CCTL_L2_PA_WB			0x9
 +
-+  cache-unified: true
++#define L2C_HPM_PER_CORE_OFFSET		0x8
++#define L2C_REG_PER_CORE_OFFSET		0x10
++#define CCTL_L2_STATUS_PER_CORE_OFFSET	4
 +
-+  next-level-cache: true
++#define L2C_REG_CN_CMD_OFFSET(n)	\
++	(L2C_REG_C0_CMD_OFFSET + ((n) * L2C_REG_PER_CORE_OFFSET))
++#define L2C_REG_CN_ACC_OFFSET(n)	\
++	(L2C_REG_C0_ACC_OFFSET + ((n) * L2C_REG_PER_CORE_OFFSET))
++#define CCTL_L2_STATUS_CN_MASK(n)	\
++	(CCTL_L2_STATUS_C0_MASK << ((n) * CCTL_L2_STATUS_PER_CORE_OFFSET))
 +
-+  pma-regions:
-+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-+    minItems: 1
-+    maxItems: 16
-+    description: Optional array of memory regions to be set as non-cacheable
-+                 bufferable regions which will be setup in the PMA.
++#define MICM_CFG_ISZ_OFFSET		6
++#define MICM_CFG_ISZ_MASK		(0x7  << MICM_CFG_ISZ_OFFSET)
 +
-+additionalProperties: false
++#define MDCM_CFG_DSZ_OFFSET		6
++#define MDCM_CFG_DSZ_MASK		(0x7  << MDCM_CFG_DSZ_OFFSET)
 +
-+required:
-+  - compatible
-+  - cache-line-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+  - interrupts
-+  - reg
++#define CCTL_REG_UCCTLBEGINADDR_NUM	0x80b
++#define CCTL_REG_UCCTLCOMMAND_NUM	0x80c
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
++#define MCACHE_CTL_CCTL_SUEN_OFFSET	8
++#define MMSC_CFG_CCTLCSR_OFFSET		16
++#define MISA_20_OFFSET			20
 +
-+    cache-controller@2010000 {
-+        reg = <0x13400000 0x100000>;
-+        compatible = "andestech,ax45mp-cache", "cache";
-+        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
-+        cache-line-size = <64>;
-+        cache-level = <2>;
-+        cache-sets = <1024>;
-+        cache-size = <262144>;
-+        cache-unified;
-+        pma-regions = <0x00000000 0x10000000>,
-+                      <0x10000000 0x04000000>,
-+                      <0x20000000 0x10000000>,
-+                      <0x58000000 0x08000000>;
-+    };
++#define MCACHE_CTL_CCTL_SUEN_MASK	(0x1 << MCACHE_CTL_CCTL_SUEN_OFFSET)
++#define MMSC_CFG_CCTLCSR_MASK		(0x1 << MMSC_CFG_CCTLCSR_OFFSET)
++#define MISA_20_MASK			(0x1 << MISA_20_OFFSET)
++
++#define MAX_CACHE_LINE_SIZE	256
++
++#define ANDES_AX45MP_MAX_PMA_REGIONS	16
++
++struct pma_arg_t {
++	phys_addr_t offset;
++	unsigned long vaddr;
++	size_t size;
++	size_t entry_id;
++};
++
++struct ax45mp_cache_info {
++	bool init_done;
++	int dcache_line_size;
++};
++
++static DEFINE_PER_CPU(struct ax45mp_cache_info, cpu_cache_info) = {
++	.init_done = 0,
++	.dcache_line_size = SZ_64,
++};
++
++static void __iomem *l2c_base;
++
++/* -----------------------------------------------------------------------------
++ * PMA setup
++ */
++static long sbi_set_pma(void *arg)
++{
++	phys_addr_t offset = ((struct pma_arg_t *)arg)->offset;
++	unsigned long vaddr = ((struct pma_arg_t *)arg)->vaddr;
++	size_t entry_id = ((struct pma_arg_t *)arg)->entry_id;
++	size_t size = ((struct pma_arg_t *)arg)->size;
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_SET_PMA, offset, vaddr, size, entry_id, 0, 0);
++
++	return ret.value;
++}
++
++static unsigned long cpu_nocache_area_set(unsigned long start,
++					  unsigned long size,
++					  unsigned long entry_id)
++{
++	struct pma_arg_t pma_arg;
++	unsigned long ret = 0;
++
++	pma_arg.offset = start;
++	pma_arg.size = size;
++	pma_arg.vaddr = start + size;
++	pma_arg.entry_id = entry_id;
++	ret = sbi_set_pma(&pma_arg);
++
++	return ret;
++}
++
++static void ax45mp_configure_pma_regions(struct device_node *np, int count)
++{
++	u64 start, size;
++	unsigned int i;
++
++	for (i = 0 ; i < count ; i++) {
++		of_property_read_u64_index(np, "pma-regions", (i << 1), &start);
++		of_property_read_u64_index(np, "pma-regions", (i << 1) + 1, &size);
++		cpu_nocache_area_set(start, size, i);
++	}
++}
++
++/* -----------------------------------------------------------------------------
++ * L2 Cache operations
++ */
++static uint32_t cpu_get_mcache_ctl_status(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_GET_MCACHE_CTL_STATUS, 0, 0, 0, 0, 0, 0);
++	return ret.value;
++}
++
++static uint32_t cpu_get_micm_cfg_status(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_GET_MICM_CTL_STATUS, 0, 0, 0, 0, 0, 0);
++	return ret.value;
++}
++
++static uint32_t cpu_get_mdcm_cfg_status(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_GET_MDCM_CTL_STATUS, 0, 0, 0, 0, 0, 0);
++	return ret.value;
++}
++
++static uint32_t cpu_get_mmsc_cfg_status(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_GET_MMSC_CTL_STATUS, 0, 0, 0, 0, 0, 0);
++	return ret.value;
++}
++
++static uint32_t cpu_get_misa_cfg_status(void)
++{
++	struct sbiret ret;
++
++	ret = sbi_ecall(SBI_EXT_ANDES, SBI_EXT_ANDES_GET_MISA_CTL_STATUS, 0, 0, 0, 0, 0, 0);
++	return ret.value;
++}
++
++static void fill_cpu_cache_info(struct ax45mp_cache_info *cpu_ci)
++{
++	struct cpu_cacheinfo *this_cpu_ci =
++			get_cpu_cacheinfo(smp_processor_id());
++	struct cacheinfo *this_leaf = this_cpu_ci->info_list;
++	unsigned int i;
++
++	for (i = 0; i < this_cpu_ci->num_leaves ; i++, this_leaf++) {
++		if (this_leaf->type == CACHE_TYPE_DATA)
++			cpu_ci->dcache_line_size = this_leaf->coherency_line_size;
++	}
++
++	cpu_ci->init_done = true;
++}
++
++static inline int get_cache_line_size(void)
++{
++	struct ax45mp_cache_info *cpu_ci =
++			&per_cpu(cpu_cache_info, smp_processor_id());
++
++	if (unlikely(!cpu_ci->init_done))
++		fill_cpu_cache_info(cpu_ci);
++	return cpu_ci->dcache_line_size;
++}
++
++static uint32_t cpu_l2c_get_cctl_status(void)
++{
++	return readl((void *)(l2c_base + L2C_REG_STATUS_OFFSET));
++}
++
++static uint32_t cpu_l2c_ctl_status(void)
++{
++	return readl((void *)(l2c_base + L2C_REG_CTL_OFFSET));
++}
++
++static bool cpu_cache_controlable(void)
++{
++	return (((cpu_get_micm_cfg_status() & MICM_CFG_ISZ_MASK) ||
++		 (cpu_get_mdcm_cfg_status() & MDCM_CFG_DSZ_MASK)) &&
++		(cpu_get_misa_cfg_status() & MISA_20_MASK) &&
++		(cpu_get_mmsc_cfg_status() & MMSC_CFG_CCTLCSR_MASK) &&
++		(cpu_get_mcache_ctl_status() & MCACHE_CTL_CCTL_SUEN_MASK));
++}
++
++static void cpu_dcache_wb_range(unsigned long start,
++				unsigned long end,
++				int line_size)
++{
++	bool ucctl_ok = false;
++	unsigned long pa;
++	int mhartid = 0;
++#ifdef CONFIG_SMP
++	mhartid = smp_processor_id();
++#endif
++
++	ucctl_ok = cpu_cache_controlable();
++
++	while (end > start) {
++		if (ucctl_ok) {
++			csr_write(CCTL_REG_UCCTLBEGINADDR_NUM, start);
++			csr_write(CCTL_REG_UCCTLCOMMAND_NUM, CCTL_L1D_VA_WB);
++		}
++
++		if (l2c_base && (cpu_l2c_ctl_status() & L2_CACHE_CTL_CEN_MASK)) {
++			pa = virt_to_phys((void *)start);
++			writel(pa, (void *)(l2c_base + L2C_REG_CN_ACC_OFFSET(mhartid)));
++			writel(CCTL_L2_PA_WB, (void *)(l2c_base + L2C_REG_CN_CMD_OFFSET(mhartid)));
++			while ((cpu_l2c_get_cctl_status() &
++				CCTL_L2_STATUS_CN_MASK(mhartid)) != CCTL_L2_STATUS_IDLE)
++				;
++		}
++
++		start += line_size;
++	}
++}
++
++static void cpu_dcache_inval_range(unsigned long start,
++				   unsigned long end,
++				   int line_size)
++{
++	bool ucctl_ok = false;
++	unsigned long pa;
++	int mhartid = 0;
++#ifdef CONFIG_SMP
++	mhartid = smp_processor_id();
++#endif
++
++	ucctl_ok = cpu_cache_controlable();
++
++	while (end > start) {
++		if (ucctl_ok) {
++			csr_write(CCTL_REG_UCCTLBEGINADDR_NUM, start);
++			csr_write(CCTL_REG_UCCTLCOMMAND_NUM, CCTL_L1D_VA_INVAL);
++		}
++
++		if (l2c_base && (cpu_l2c_ctl_status() & L2_CACHE_CTL_CEN_MASK)) {
++			pa = virt_to_phys((void *)start);
++			writel(pa, (void *)(l2c_base + L2C_REG_CN_ACC_OFFSET(mhartid)));
++			writel(CCTL_L2_PA_INVAL,
++			       (void *)(l2c_base + L2C_REG_CN_CMD_OFFSET(mhartid)));
++			while ((cpu_l2c_get_cctl_status() &
++				CCTL_L2_STATUS_CN_MASK(mhartid)) != CCTL_L2_STATUS_IDLE)
++				;
++		}
++
++		start += line_size;
++	}
++}
++
++void rzfive_cpu_dma_inval_range(void *vaddr, size_t size)
++{
++	unsigned long line_size = get_cache_line_size();
++	char cache_buf[2][MAX_CACHE_LINE_SIZE] = { 0 };
++	unsigned long start = (unsigned long)vaddr;
++	unsigned long end = start + size;
++	unsigned long old_start = start;
++	unsigned long old_end = end;
++	unsigned long flags;
++
++	if (unlikely(start == end))
++		return;
++
++	start = start & (~(line_size - 1));
++	end = ((end + line_size - 1) & (~(line_size - 1)));
++
++	local_irq_save(flags);
++	if (unlikely(start != old_start))
++		memcpy(&cache_buf[0][0], (void *)start, line_size);
++
++	if (unlikely(end != old_end))
++		memcpy(&cache_buf[1][0], (void *)(old_end & (~(line_size - 1))), line_size);
++
++	cpu_dcache_inval_range(start, end, line_size);
++
++	if (unlikely(start != old_start))
++		memcpy((void *)start, &cache_buf[0][0], (old_start & (line_size - 1)));
++
++	if (unlikely(end != old_end))
++		memcpy((void *)(old_end + 1),
++		       &cache_buf[1][(old_end & (line_size - 1)) + 1],
++		       end - old_end - 1);
++
++	local_irq_restore(flags);
++}
++EXPORT_SYMBOL(rzfive_cpu_dma_inval_range);
++
++void rzfive_cpu_dma_wb_range(void *vaddr, size_t size)
++{
++	unsigned long line_size = get_cache_line_size();
++	unsigned long start = (unsigned long)vaddr;
++	unsigned long end = start + size;
++	unsigned long flags;
++
++	local_irq_save(flags);
++	start = start & (~(line_size - 1));
++	cpu_dcache_wb_range(start, end, line_size);
++	local_irq_restore(flags);
++}
++EXPORT_SYMBOL(rzfive_cpu_dma_wb_range);
++
++static const struct of_device_id ax45mp_cache_ids[] = {
++	{ .compatible = "andestech,ax45mp-cache" },
++	{ /* sentinel */ }
++};
++
++static int __init ax45mp_cache_init(void)
++{
++	struct device_node *np;
++	int count;
++
++	np = of_find_matching_node(NULL, ax45mp_cache_ids);
++	if (!np)
++		return -ENODEV;
++
++	l2c_base = of_iomap(np, 0);
++	if (!l2c_base)
++		return -ENOMEM;
++
++	count = of_property_count_elems_of_size(np, "pma-regions",
++						sizeof(u32) * 4);
++	if (count > ANDES_AX45MP_MAX_PMA_REGIONS) {
++		iounmap(l2c_base);
++		return -EINVAL;
++	}
++
++	ax45mp_configure_pma_regions(np, count);
++
++	return 0;
++}
++arch_initcall(ax45mp_cache_init);
+diff --git a/drivers/soc/renesas/rzf/rzf_sbi.h b/drivers/soc/renesas/rzf/rzf_sbi.h
+new file mode 100644
+index 000000000000..854fee667276
+--- /dev/null
++++ b/drivers/soc/renesas/rzf/rzf_sbi.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++
++#ifndef __ARCH_R9A07G043_SBI_H
++#define __ARCH_R9A07G043_SBI_H
++
++enum sbi_ext_andes_fid {
++	SBI_EXT_ANDES_GET_MCACHE_CTL_STATUS = 0,
++	SBI_EXT_ANDES_GET_MMISC_CTL_STATUS,
++	SBI_EXT_ANDES_SET_MCACHE_CTL,
++	SBI_EXT_ANDES_SET_MMISC_CTL,
++	SBI_EXT_ANDES_ICACHE_OP,
++	SBI_EXT_ANDES_DCACHE_OP,
++	SBI_EXT_ANDES_L1CACHE_I_PREFETCH,
++	SBI_EXT_ANDES_L1CACHE_D_PREFETCH,
++	SBI_EXT_ANDES_NON_BLOCKING_LOAD_STORE,
++	SBI_EXT_ANDES_WRITE_AROUND,
++	SBI_EXT_ANDES_SET_PMA,
++	SBI_EXT_ANDES_FREE_PMA,
++	SBI_EXT_ANDES_PROBE_PMA,
++	SBI_EXT_ANDES_DCACHE_WBINVAL_ALL,
++	SBI_EXT_ANDES_GET_MICM_CTL_STATUS,
++	SBI_EXT_ANDES_GET_MDCM_CTL_STATUS,
++	SBI_EXT_ANDES_GET_MMSC_CTL_STATUS,
++	SBI_EXT_ANDES_GET_MISA_CTL_STATUS,
++};
++
++#endif
 -- 
 2.25.1
 
