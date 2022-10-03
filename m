@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85193C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 13:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89693C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 13:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tsY27mwS17J3wRFrvuFdogToPcA2eBGGjSZ2WWCZgZQ=; b=vMX4co4x7YXXOs
-	QELP2/rcYj/2mPHGt/XLNsof4TXJZma29n6ejw69TXRHwxB2iYXGCsJ4wnjiCXcMbG/hEsE7PdpBe
-	BVl+LDLtqQoXuarBO0IEBBwFtO90AeyKXFQ+dkUahN5g4md8mJb33dwe6JnFCpxaomjMP/uTYa7M5
-	LdzB7aSoHmgt0iZipyOZmmbmA7kRInuyXCw73zaRX/YUPWlUTDVDGTqQtdApGPnJfoiVLS13N5W5m
-	FM+ocnGFDlbUVJGhuEgkEDIyKhkQRVKtiG6i6jMSRkiM9rzm7cTBirdkbMxEsKZELokPGNnVM00Bs
-	aUB0ri71rZYW4LTihofA==;
+	List-Owner; bh=CV17rwhcLgqRzzQRCHmVaCzDrFSbnQFn9vZS11eEh2Y=; b=J2HexqJVCVlCs7
+	91yxIxytaN9MmQAC7Lz2/bJK70R3k4M7EW13Fta85grFc1UOWwjCWrn5RT2WNB+rzwY9DFyMe1fJD
+	UWLinT3eps7auIDThXXZMcwkeexz/r0AR6dwEtCR2x1uhLCUx5/uM5jd7GFxJdB+/E84YNz15Pd8O
+	OI8h9kORr67K9FMa4c5s50Ehv+Nj+E9EozkMkpRSA2DFUsy3sQR8fL3V1ZR/jwpQm0iokyFm/uEQk
+	cgdGDmxDNsHctWC8Y5J0PeSfEF8snecoGmW0ikrKV6DheGjy9/eiDhSzlKBHvd7FLQdxFB2uF+7z6
+	loDY0t+uP1e4IIUOW6dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofLnU-006599-7Q; Mon, 03 Oct 2022 13:47:52 +0000
+	id 1ofLnX-0065AI-Px; Mon, 03 Oct 2022 13:47:55 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofLnQ-006562-7i
+	id 1ofLnQ-00655z-6I
 	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 13:47:51 +0000
 Received: from localhost.localdomain (unknown [124.16.141.248])
-	by APP-01 (Coremail) with SMTP id qwCowACHzoj05zpjo2sYAw--.64668S4;
-	Mon, 03 Oct 2022 21:47:36 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowACHzoj05zpjo2sYAw--.64668S5;
+	Mon, 03 Oct 2022 21:47:37 +0800 (CST)
 From: panqinglin2020@iscas.ac.cn
 To: palmer@dabbelt.com,
 	linux-riscv@lists.infradead.org
 Cc: jeff@riscv.org,
 	xuyinan@ict.ac.cn,
 	Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v5 2/4] mm: support Svnapot in physical page linear-mapping
-Date: Mon,  3 Oct 2022 21:47:19 +0800
-Message-Id: <20221003134721.1772455-3-panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v5 3/4] mm: support Svnapot in hugetlb page
+Date: Mon,  3 Oct 2022 21:47:20 +0800
+Message-Id: <20221003134721.1772455-4-panqinglin2020@iscas.ac.cn>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
 References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowACHzoj05zpjo2sYAw--.64668S4
-X-Coremail-Antispam: 1UD129KBjvJXoWxWFy8KFyDZFWxtr18Cr45KFg_yoW5CrWrpr
-	WfCr42gF4UJF1UuFWkAr1UXry3CF9xJa47Gay8Kas5A3W8Gr1F9w4Yka4YgFy8Xrs2g3yf
-	Zr4kZ3y5ua43JaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: qwCowACHzoj05zpjo2sYAw--.64668S5
+X-Coremail-Antispam: 1UD129KBjvJXoWfGFWUAr4xGr43uryUZF45trb_yoWDArWkpF
+	W7Gw15ZrW3tw18Kw4Iqr1UJr98twnIg34UJF97XFWFvr1Iq39xXas7GrWayr17CrWkX3yx
+	CrWrGFn8Ary7XaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUPm14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
-	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JrWl82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
 	ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4UJVWxJr1l
 	nxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4
@@ -58,12 +58,12 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxWFy8KFyDZFWxtr18Cr45KFg_yoW5CrWrpr
 	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
 	cVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
 	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZE
-	Xa7VUjLL07UUUUU==
+	Xa7VUUWxRDUUUUU==
 X-Originating-IP: [124.16.141.248]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwkIDGM6ocpgkgAAsO
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQEIDGM6o59cKAABsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_064748_694320_77D7801F 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20221003_064748_677107_BD068991 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +82,384 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-Svnapot is powerful when a physical region is going to mapped to a
-virtual region. Kernel will do like this when mapping all allocable
-physical pages to kernel vm space. This commit modifies the
-create_pte_mapping function used in linear-mapping procedure, so the
-kernel can be able to use Svnapot when both address and length of
-physical region are 64KB align. Code here will be executed only when
-other size huge page is not suitable, so it can be an addition of
-PMD_SIZE and PUD_SIZE mapping.
+Svnapot can be used to support 64KB hugetlb page, so it can become a new
+option when using hugetlbfs. This commit adds a basic implementation of
+hugetlb page, and support 64KB as a size in it by using Svnapot.
 
-This commit also modifies the best_map_size function to give map_size
-many times instead of only once, so a memory region can be mapped by
-both PMD_SIZE and 64KB napot size.
+For test, boot kernel with command line contains "default_hugepagesz=64K
+hugepagesz=64K hugepages=20" and run a simple test like this:
 
-It is tested by setting qemu's memory to a 262272k region, and the
-kernel can boot successfully.
+int main() {
+	void *addr;
+	addr = mmap(NULL, 64 * 1024, PROT_WRITE | PROT_READ,
+			MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
+	printf("back from mmap \n");
+	long *ptr = (long *)addr;
+	unsigned int i = 0;
+	for(; i < 8 * 1024;i += 512) {
+		printf("%lp \n", ptr);
+		*ptr = 0xdeafabcd12345678;
+		ptr += 512;
+	}
+	ptr = (long *)addr;
+	i = 0;
+	for(; i < 8 * 1024;i += 512) {
+		if (*ptr != 0xdeafabcd12345678) {
+			printf("failed! 0x%lx \n", *ptr);
+			break;
+		}
+		ptr += 512;
+	}
+	if(i == 8 * 1024)
+		printf("simple test passed!\n");
+}
 
-Currently, the modified create_pte_mapping will never take use of SVNAPOT,
-because this extension is detected in riscv_fill_hwcap and enabled in
-apply_boot_alternatives(called from setup_arch) which is called
-after setup_vm_final. We will need to support function like
-riscv_fill_hwcap_early to fill hardware capabilities more earlier, and
-try to enable SVNAPOT more earlier in apply_early_boot_alternatives,
-so that we can determine SVNAPOT's presence during setup_vm_final.
+And it should be passed.
 
 Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b56a0a75533f..76317bb28f29 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -373,9 +373,21 @@ static void __init create_pte_mapping(pte_t *ptep,
- 				      phys_addr_t sz, pgprot_t prot)
- {
- 	uintptr_t pte_idx = pte_index(va);
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 4354024aae21..3d5ec1391046 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -43,7 +43,7 @@ config RISCV
+ 	select ARCH_USE_QUEUED_RWLOCKS
+ 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+ 	select ARCH_WANT_FRAME_POINTERS
+-	select ARCH_WANT_GENERAL_HUGETLB
++	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
+ 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+ 	select BUILDTIME_TABLE_SORT if MMU
+diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
+index a5c2ca1d1cd8..79cbb482f0a0 100644
+--- a/arch/riscv/include/asm/hugetlb.h
++++ b/arch/riscv/include/asm/hugetlb.h
+@@ -2,7 +2,35 @@
+ #ifndef _ASM_RISCV_HUGETLB_H
+ #define _ASM_RISCV_HUGETLB_H
+ 
+-#include <asm-generic/hugetlb.h>
+ #include <asm/page.h>
+ 
 +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+	pte_t pte;
++pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
++#define arch_make_huge_pte arch_make_huge_pte
++#define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
++void set_huge_pte_at(struct mm_struct *mm,
++		     unsigned long addr, pte_t *ptep, pte_t pte);
++#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
++pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
++			      unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
++pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
++			    unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
++int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++			       unsigned long addr, pte_t *ptep,
++			       pte_t pte, int dirty);
++#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
++void huge_ptep_set_wrprotect(struct mm_struct *mm,
++			     unsigned long addr, pte_t *ptep);
++#define __HAVE_ARCH_HUGE_PTE_CLEAR
++void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
++		    pte_t *ptep, unsigned long sz);
++#define set_huge_swap_pte_at riscv_set_huge_swap_pte_at
++void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
++				pte_t *ptep, pte_t pte, unsigned long sz);
++#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
 +
-+	if (has_svnapot() && sz == NAPOT_CONT64KB_SIZE) {
-+		do {
-+			pte = pfn_pte(PFN_DOWN(pa), prot);
-+			ptep[pte_idx] = pte_mknapot(pte, NAPOT_CONT64KB_ORDER);
-+			pte_idx++;
-+			sz -= PAGE_SIZE;
-+		} while (sz > 0);
++#include <asm-generic/hugetlb.h>
++
+ #endif /* _ASM_RISCV_HUGETLB_H */
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index ac70b0fd9a9a..1ea06476902a 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -17,7 +17,7 @@
+ #define PAGE_MASK	(~(PAGE_SIZE - 1))
+ 
+ #ifdef CONFIG_64BIT
+-#define HUGE_MAX_HSTATE		2
++#define HUGE_MAX_HSTATE		3
+ #else
+ #define HUGE_MAX_HSTATE		1
+ #endif
+diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
+index 932dadfdca54..faa207826260 100644
+--- a/arch/riscv/mm/hugetlbpage.c
++++ b/arch/riscv/mm/hugetlbpage.c
+@@ -2,6 +2,239 @@
+ #include <linux/hugetlb.h>
+ #include <linux/err.h>
+ 
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++pte_t *huge_pte_alloc(struct mm_struct *mm,
++		      struct vm_area_struct *vma,
++		      unsigned long addr,
++		      unsigned long sz)
++{
++	pgd_t *pgdp = pgd_offset(mm, addr);
++	p4d_t *p4dp = p4d_alloc(mm, pgdp, addr);
++	pud_t *pudp = pud_alloc(mm, p4dp, addr);
++	pmd_t *pmdp = pmd_alloc(mm, pudp, addr);
++
++	if (sz == NAPOT_CONT64KB_SIZE) {
++		if (!pmdp)
++			return NULL;
++		WARN_ON(addr & (sz - 1));
++		return pte_alloc_map(mm, pmdp, addr);
++	}
++
++	return NULL;
++}
++
++pte_t *huge_pte_offset(struct mm_struct *mm,
++		       unsigned long addr,
++		       unsigned long sz)
++{
++	pgd_t *pgdp;
++	p4d_t *p4dp;
++	pud_t *pudp;
++	pmd_t *pmdp;
++	pte_t *ptep = NULL;
++
++	pgdp = pgd_offset(mm, addr);
++	if (!pgd_present(READ_ONCE(*pgdp)))
++		return NULL;
++
++	p4dp = p4d_offset(pgdp, addr);
++	if (!p4d_present(READ_ONCE(*p4dp)))
++		return NULL;
++
++	pudp = pud_offset(p4dp, addr);
++	if (!pud_present(READ_ONCE(*pudp)))
++		return NULL;
++
++	pmdp = pmd_offset(pudp, addr);
++	if (!pmd_present(READ_ONCE(*pmdp)))
++		return NULL;
++
++	if (sz == NAPOT_CONT64KB_SIZE)
++		ptep = pte_offset_kernel(pmdp, (addr & ~NAPOT_CONT64KB_MASK));
++
++	return ptep;
++}
++
++static int napot_pte_num(pte_t pte)
++{
++	if (pte_val(pte) & _PAGE_NAPOT)
++		return NAPOT_64KB_PTE_NUM;
++
++	pr_warn("%s: unrecognized napot pte size 0x%lx\n",
++		__func__, pte_val(pte));
++	return 1;
++}
++
++static pte_t get_clear_flush(struct mm_struct *mm,
++			     unsigned long addr,
++			     pte_t *ptep,
++			     unsigned long pte_num)
++{
++	pte_t orig_pte = huge_ptep_get(ptep);
++	bool valid = pte_val(orig_pte);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
++		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
++
++		if (pte_dirty(pte))
++			orig_pte = pte_mkdirty(orig_pte);
++
++		if (pte_young(pte))
++			orig_pte = pte_mkyoung(orig_pte);
++	}
++
++	if (valid) {
++		struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++
++		flush_tlb_range(&vma, saddr, addr);
++	}
++	return orig_pte;
++}
++
++static void clear_flush(struct mm_struct *mm,
++			unsigned long addr,
++			pte_t *ptep,
++			unsigned long pte_num)
++{
++	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++	unsigned long i, saddr = addr;
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		pte_clear(mm, addr, ptep);
++
++	flush_tlb_range(&vma, saddr, addr);
++}
++
++pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
++{
++	if (shift == NAPOT_CONT64KB_SHIFT)
++		entry = pte_mknapot(entry, NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
++
++	return entry;
++}
++
++void set_huge_pte_at(struct mm_struct *mm,
++		     unsigned long addr,
++		     pte_t *ptep,
++		     pte_t pte)
++{
++	int i;
++	int pte_num;
++
++	if (!pte_napot(pte)) {
++		set_pte_at(mm, addr, ptep, pte);
 +		return;
 +	}
-+#endif
- 
- 	BUG_ON(sz != PAGE_SIZE);
--
- 	if (pte_none(ptep[pte_idx]))
- 		ptep[pte_idx] = pfn_pte(PFN_DOWN(pa), prot);
- }
-@@ -673,10 +685,18 @@ void __init create_pgd_mapping(pgd_t *pgdp,
- static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
++
++	pte_num = napot_pte_num(pte);
++	for (i = 0; i < pte_num; i++, ptep++, addr += PAGE_SIZE)
++		set_pte_at(mm, addr, ptep, pte);
++}
++
++int huge_ptep_set_access_flags(struct vm_area_struct *vma,
++			       unsigned long addr,
++			       pte_t *ptep,
++			       pte_t pte,
++			       int dirty)
++{
++	pte_t orig_pte;
++	int i;
++	int pte_num;
++
++	if (!pte_napot(pte))
++		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
++
++	pte_num = napot_pte_num(pte);
++	ptep = huge_pte_offset(vma->vm_mm, addr, NAPOT_CONT64KB_SIZE);
++	orig_pte = huge_ptep_get(ptep);
++
++	if (pte_dirty(orig_pte))
++		pte = pte_mkdirty(pte);
++
++	if (pte_young(orig_pte))
++		pte = pte_mkyoung(pte);
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		ptep_set_access_flags(vma, addr, ptep, pte, dirty);
++
++	return true;
++}
++
++pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
++			      unsigned long addr,
++			      pte_t *ptep)
++{
++	int pte_num;
++	pte_t orig_pte = huge_ptep_get(ptep);
++
++	if (!pte_napot(orig_pte))
++		return ptep_get_and_clear(mm, addr, ptep);
++
++	pte_num = napot_pte_num(orig_pte);
++	return get_clear_flush(mm, addr, ptep, pte_num);
++}
++
++void huge_ptep_set_wrprotect(struct mm_struct *mm,
++			     unsigned long addr,
++			     pte_t *ptep)
++{
++	int i;
++	int pte_num;
++	pte_t pte = READ_ONCE(*ptep);
++
++	if (!pte_napot(pte))
++		return ptep_set_wrprotect(mm, addr, ptep);
++
++	pte_num = napot_pte_num(pte);
++	ptep = huge_pte_offset(mm, addr, NAPOT_CONT64KB_SIZE);
++
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		ptep_set_wrprotect(mm, addr, ptep);
++}
++
++pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
++			    unsigned long addr,
++			    pte_t *ptep)
++{
++	int pte_num;
++	pte_t pte = READ_ONCE(*ptep);
++
++	if (!pte_napot(pte)) {
++		ptep_clear_flush(vma, addr, ptep);
++		return pte;
++	}
++
++	pte_num = napot_pte_num(pte);
++	clear_flush(vma->vm_mm, addr, ptep, pte_num);
++
++	return pte;
++}
++
++void huge_pte_clear(struct mm_struct *mm,
++		    unsigned long addr,
++		    pte_t *ptep,
++		    unsigned long sz)
++{
++	int i, pte_num;
++
++	pte_num = napot_pte_num(READ_ONCE(*ptep));
++	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
++		pte_clear(mm, addr, ptep);
++}
++
++void riscv_set_huge_swap_pte_at(struct mm_struct *mm, unsigned long addr,
++				pte_t *ptep, pte_t pte, unsigned long sz)
++{
++	int i, pte_num;
++
++	pte_num = napot_pte_num(READ_ONCE(*ptep));
++
++	for (i = 0; i < pte_num; i++, ptep++)
++		set_pte(ptep, pte);
++}
++#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
++
+ int pud_huge(pud_t pud)
  {
- 	/* Upgrade to PMD_SIZE mappings whenever possible */
--	if ((base & (PMD_SIZE - 1)) || (size & (PMD_SIZE - 1)))
-+	base &= PMD_SIZE - 1;
-+	if (!base && size >= PMD_SIZE)
-+		return PMD_SIZE;
-+
-+	if (!has_svnapot())
- 		return PAGE_SIZE;
- 
--	return PMD_SIZE;
-+	base &= NAPOT_CONT64KB_SIZE - 1;
-+	if (!base && size >= NAPOT_CONT64KB_SIZE)
-+		return NAPOT_CONT64KB_SIZE;
-+
-+	return PAGE_SIZE;
+ 	return pud_leaf(pud);
+@@ -18,17 +251,26 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
+ 		return true;
+ 	else if (IS_ENABLED(CONFIG_64BIT) && size == PUD_SIZE)
+ 		return true;
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	else if (has_svnapot() && size == NAPOT_CONT64KB_SIZE)
++		return true;
++#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
+ 	else
+ 		return false;
  }
  
- #ifdef CONFIG_XIP_KERNEL
-@@ -1111,9 +1131,9 @@ static void __init setup_vm_final(void)
- 		if (end >= __pa(PAGE_OFFSET) + memory_limit)
- 			end = __pa(PAGE_OFFSET) + memory_limit;
- 
--		map_size = best_map_size(start, end - start);
- 		for (pa = start; pa < end; pa += map_size) {
- 			va = (uintptr_t)__va(pa);
-+			map_size = best_map_size(pa, end - pa);
- 
- 			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
- 					   pgprot_from_va(va));
+-#ifdef CONFIG_CONTIG_ALLOC
+-static __init int gigantic_pages_init(void)
++static __init int hugetlbpage_init(void)
+ {
++#ifdef CONFIG_CONTIG_ALLOC
+ 	/* With CONTIG_ALLOC, we can allocate gigantic pages at runtime */
+ 	if (IS_ENABLED(CONFIG_64BIT))
+ 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
++#endif /*CONFIG_CONTIG_ALLOC*/
++	hugetlb_add_hstate(PMD_SHIFT - PAGE_SHIFT);
++#ifdef CONFIG_RISCV_ISA_SVNAPOT
++	if (has_svnapot())
++		hugetlb_add_hstate(NAPOT_CONT64KB_SHIFT - PAGE_SHIFT);
++#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
+ 	return 0;
+ }
+-arch_initcall(gigantic_pages_init);
+-#endif
++arch_initcall(hugetlbpage_init);
 -- 
 2.35.1
 
