@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA20BC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 08:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC88C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 08:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UkEsquP8FieGOhYEzAzBQP9r0w1AaRMA1X7SNATh2sI=; b=ZStUZXXaKZXgrh
-	J+ODesHqbDb86Dd6iLSfxzZd5R4S0YArmk5MeUjqDC+nz9mhAuDxNAq4XOQdjE9kZi4aB+vJHht2Z
-	qrfcaOlzDaYlisvh2J6z4veYUikTSeCJtzicgTWZBX6CkAmMQFI2DMHqhZI/P6w+bFucQKrlyQmxF
-	S397oxysk4B6WukGh+HQoCPDX+VZqaG22m8xNUMBHcilOUoFSq2i1YmxmBAH3QgP7qGLSqTetJNo5
-	1MRatqO4UVVAnWu/aaA90HfAb/YL9h73GshywO8Cz0Em6KC8gL+2tyIg7xFFiXyBjwxH/Ube3wDaS
-	zgAFst18F/A983S4jhaw==;
+	List-Owner; bh=3Hv0Q8ry5AgtjtCDDxsU3+34tmtAa2GK2zpt5ux/NyQ=; b=U50VC0XRT6KcNr
+	f+bmbh9NZWyr++JnN+punpS5UOSPg/P67XNwo6yZ9Eh1HKxEHq72Ewi/VAJ1aAEPfrEam4JNghZho
+	r3PgQXmEwwBQgrXzHbbxRqTBqWu3Z/6YActXi24mQHdLaoUWLtnXVcv2ftUghyXz4lZbEOZ4YDafe
+	du5mdMXoe4ysjDRbv4RX4Q1kT8AUGZjas8uzcB85Ursu1Jb03bHVONwpNHrbHsXKUfqkkVrC4hFqZ
+	LLj4cbN8k3Msg0TIi/1DvlrHUr5e/h0E8EVWjzm88c2AffelIcIggWrPRhm/WkY+99xlFKHTNwsKd
+	akF9yN7CP8Rm5WF/OwBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofdjI-0092tx-Sf; Tue, 04 Oct 2022 08:56:44 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1ofdlb-0093DI-UG; Tue, 04 Oct 2022 08:59:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofdjF-0092t6-Nu
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 08:56:42 +0000
-Received: by mail-ej1-x634.google.com with SMTP id hy2so27376843ejc.8
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 01:56:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=lxkTJcblLVu6NuOqlRauwNwEZChGxIJKAd+juLm/hHA=;
-        b=X5rSaOtzy6x5snBiRSfNAOjP2pRfTI8CdpgkUbTuQHwkzOk8SMvojJcn8YMGuLfi8g
-         Y6LXIRCXQpP7WrH/rE2KaWCF5hdNoZ+3u5UvksYwE+4ANCwKj4JlsqMq6Uwg0vd641nJ
-         T7OwkZMM6p6i8h7smNdvtg8vIfnIip3mURLBQscSkyd1O9SLf51YhHmpxqJpF7rLoVPR
-         6/N6vTX3UJjl71RxhP7LN+EoY2pXFWf9CYLW6IJX1WfDxmdrXAZezEI9/iA4OY0C1nhk
-         Em3Ja6XNZmNzh94nYm3kcG+fVMsgzAH+zhd/Ivj3PB7oHkgl5QiIHTT+u/Zk20c61MAu
-         dYzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=lxkTJcblLVu6NuOqlRauwNwEZChGxIJKAd+juLm/hHA=;
-        b=pysQYkzUdxjTgyUUmSohM7UEQSRQs3S6/mHazbugmuN3YrmNybXLw83XBmpEiqoKPL
-         yv0uI/qUSunhyLPMvbohAejeykyvM2iIUwS07WgaLqecuCtgJpV3gVqPuq+7A9FWajiM
-         6RRcwfMYUrgJTcPR99jwGT38UK5ljWBGf7muyC1q16FhVGjxMU4i14EOLwl+3Jt2iCmO
-         m3wcSyycZzD05GJxeeyfMDzK7ijlu+7qEY57RIcj2nB3FbtTXXIK+W6K+GRQu1FQcNog
-         WbvKSzQkkRT+v1qVSKyOWUDkzSDwKBdEFmmEtZrF340DSZAvD4QFSwVZTspM1JZZ+Xll
-         nWAQ==
-X-Gm-Message-State: ACrzQf3JcOa9QV4vUlMMSKdTMB3Lb/OLiB0ZxdZ0b0OfYp5P4am+6HVk
-	eH7d4iocQgQxHh1lyD94G9Dn+r5I3nZql4A6shjLGQ==
-X-Google-Smtp-Source: AMsMyM7riW2z2sUUR3aIi4rAMS6ggGMmmrCrrTuvodb/LcmYfbLSB3cfWOTk+/hvzu00TNxkrT5FaalupYxMRlmbHac=
-X-Received: by 2002:a17:906:58c8:b0:6fe:91d5:18d2 with SMTP id
- e8-20020a17090658c800b006fe91d518d2mr18648224ejs.190.1664873800297; Tue, 04
- Oct 2022 01:56:40 -0700 (PDT)
+	id 1ofdlY-0093BJ-Ee
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 08:59:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1664873944; x=1696409944;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/xgi/yxDRPadkAgvOtl9fDzZRFHQFZI7oFHBqCZZe6E=;
+  b=ey7tqKbZhzWV/zrJh2gPr4yYAARVnvI7Iyk8RUKyK82fi/qLKZUqLivO
+   wDAdTNz3XjDcnx2EPGO70vCfRh+OI7/35Zl9Rux83klNiEtYYAQTr/j+6
+   5MDQnB3sJE0gHEByhzIvCRoLsQZzfarN9iflSZ043awHlA4MTcKkPMdqj
+   SL8i3OWVd2aP7bIhvCg1LlfkSbkL5wrG+YxuG6shcYMMVZyxE7wsE4lE3
+   Eut9PK8loK0y3VWxhzKYvVCb/fOuC6NTDAJlyLwPmV+JUR5cQj/Ab9HX+
+   ibFPOMuWUmuO8QdeUn/jBUcxynS95B/77dIx277/p6nRNLTQmxAe2PvIz
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,367,1654585200"; 
+   d="scan'208";a="180251560"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Oct 2022 01:58:57 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 4 Oct 2022 01:58:57 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 4 Oct 2022 01:58:54 -0700
+Date: Tue, 4 Oct 2022 09:58:32 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Hal Feng <hal.feng@linux.starfivetech.com>,
+	Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Philipp Zabel <p.zabel@pengutronix.de>, <devicetree@vger.kernel.org>, Albert
+ Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel
+ Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>, Michael
+ Turquette <mturquette@baylibre.com>, <linux-riscv@lists.infradead.org>,
+	<linux-gpio@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v1 23/30] pinctrl: starfive: Rename "pinctrl-starfive" to
+ "pinctrl-starfive-jh7100"
+Message-ID: <Yzv1uJbGMuFmRsRL@wendy>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220930061404.5418-1-hal.feng@linux.starfivetech.com>
+ <166457324093.1075476.18009315584754055366.robh@kernel.org>
+ <CACRpkdZmmMjVwpHxkJP+Ui0XJgrdZx8kpVybifbwkRB1_uMhAg@mail.gmail.com>
 MIME-Version: 1.0
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com> <20220930074341.6386-1-hal.feng@linux.starfivetech.com>
-In-Reply-To: <20220930074341.6386-1-hal.feng@linux.starfivetech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 4 Oct 2022 10:56:28 +0200
-Message-ID: <CACRpkdYMQ98Q1iXr7-YdUkQrSK8aauZuSFeDp2f7ubNH_W7_HQ@mail.gmail.com>
-Subject: Re: [PATCH v1 26/30] pinctrl: starfive: Add StarFive JH7110 driver
-To: Hal Feng <hal.feng@linux.starfivetech.com>, Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <CACRpkdZmmMjVwpHxkJP+Ui0XJgrdZx8kpVybifbwkRB1_uMhAg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_015641_795930_A2AA2F5D 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221004_015904_572004_5E762F1C 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +92,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 30, 2022 at 9:45 AM Hal Feng
-<hal.feng@linux.starfivetech.com> wrote:
+On Tue, Oct 04, 2022 at 10:48:38AM +0200, Linus Walleij wrote:
+> On Fri, Sep 30, 2022 at 11:28 PM Rob Herring <robh@kernel.org> wrote:
+> > On Fri, 30 Sep 2022 14:14:04 +0800, Hal Feng wrote:
+> > > From: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > >
+> > > Add the SoC name to make it more clear. Also the next generation StarFive
+> > > SoCs will use "pinctrl-starfive" as the core of StarFive pinctrl driver.
+> > > No functional change.
+> > >
+> > > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+> > > ---
+> > >  .../bindings/pinctrl/starfive,jh7100-pinctrl.yaml           | 2 +-
+> > >  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts   | 2 +-
+> > >  drivers/pinctrl/starfive/Kconfig                            | 2 +-
+> > >  drivers/pinctrl/starfive/Makefile                           | 2 +-
+> > >  .../{pinctrl-starfive.c => pinctrl-starfive-jh7100.c}       | 2 +-
+> > >  .../{pinctrl-starfive.h => pinctrl-starfive-jh7100.h}       | 6 +++---
+> > >  6 files changed, 8 insertions(+), 8 deletions(-)
+> > >  rename drivers/pinctrl/starfive/{pinctrl-starfive.c => pinctrl-starfive-jh7100.c} (99%)
+> > >  rename include/dt-bindings/pinctrl/{pinctrl-starfive.h => pinctrl-starfive-jh7100.h} (98%)
+> > >
+> >
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> >
+> > Would be good to pull this out separately and apply for 6.1. It's kind
+> > of messy with cross tree dependencies.
+> 
+> OK I applied this for V6.1.
 
-> From: Jianlong Huang <jianlong.huang@starfivetech.com>
->
-> Add pinctrl driver for StarFive JH7110 SoC.
->
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+Will this need to be done immutably so it can be pulled into the riscv
+tree in case this gets applied as a late change for 6.1:
+https://lore.kernel.org/linux-riscv/c5169131-486e-9808-ba48-b7abe1be6a99@collabora.com/
 
-Since Emil submitted the first driver I would really appreciate his review
-on this version.
-
-Yours,
-Linus Walleij
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
