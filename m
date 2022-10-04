@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2401BC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Oct 2022 22:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF2DAC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 00:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9tLv83qOv6l0pjXVkLqej4TKp4sI0jNyqFSdntOcLcM=; b=f7Dwi8GgUJkiJ+
-	zgWgykkszxGAmZuImuomBcAaUiyCa7tEOcoS7aNifg6EjoXtkV+AIkzK55+UpyImJGyGSy4aKiokC
-	g6/R1VTzplYBMHk5wkhOTR85VjzTqjfoznSLI3uo6YZ1VTnfAX2PZhIUgxXIsad937ulI+HffNlz6
-	oCEc5q4WB1ahKnpNZdn7SqEc7H6tF1OLS4LraXbys1umFaiv3CHL6iNyD7aUNAcE1pOcdJhL/znQU
-	1sjXPyebccGQCiXOZA77DLptcvLqqzH8Ym7DIJUmiW57zIwAtoCVDtS7ZsmEHV/AQsOFDDUakppdI
-	iWpDCDN/eXrDmwITiBag==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QnSlcyR2OMKfp1V9y7LtoA4sYyOueJW4Irc5HWIPfUU=; b=v/teJRL/vRskoK
+	Nq7JR0MRbwFnd5iqKVicrXtyWTH5iIHInfnU81HsH2dEw5G7/qEYSl6bMCFJiLMkcYq76Vj8pQJ99
+	gPC11NOpQ0YnPw4SlZaR97wRJSNlLXzdFSQUfJurIlU7g2jR2FwtBJNtDB6A+UtMbzLJDrqHn2MJi
+	mV7TnGzAyD/oJCqHofM4wzu3j/wHQ2bepX4kSOKP6ViyJce0GdxmyUA5rtZQQvk5ltVUk6jpW5DQy
+	U3VYbeKPe/ctC+nqyk7zg1+Xn2StT9b/wFAmz7KnEKqLdX9b0vob1T8iE/KTuTuaf6WpEFbA/iF2H
+	59IjOX54BvpsEmMwOYEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofTzW-007vcm-GA; Mon, 03 Oct 2022 22:32:50 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1ofVwQ-008BR1-D5; Tue, 04 Oct 2022 00:37:46 +0000
+Received: from mail-oa1-f53.google.com ([209.85.160.53])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofTzS-007vbv-N1
-	for linux-riscv@lists.infradead.org; Mon, 03 Oct 2022 22:32:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id fn7-20020a05600c688700b003b4fb113b86so6582669wmb.0
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 15:32:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=0tMQzYjbaLsCweYjpM8n0zpd8PrCu0Lk7bNxjno/MYg=;
-        b=YpfI3BvwLzUzZT8AxK4Fy83CrWDoIqpJvkmiMCUhYoNXFAMJILcu/6XrQGf6/IH/cN
-         3OiBOdUgv7UBULMF1qoWVtKVa2gg7lCtGCT9nPtHNXll+QpN5NLx1smTWdNCy3oXWQDf
-         nGE29uinV6ltUsnRKRFhhJilWuK5eFsb1978oaEz/YP92Y+Cy7GrEi+QVjgtupARRjN7
-         DHYiQYP8y3q/1xVGZauGn7esikf03cSEpm8yC57qj1nfHqi/OwNTVhqB81WXOvsENYNN
-         2SYfyAveTq1QpLyCNyyk3d7kAG1klLg9LRsyIVkes4OE27/pke2IqBn86Rk3kr5aa5/p
-         lK2g==
+	id 1ofVwK-008BPc-UX
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 00:37:44 +0000
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-127dca21a7dso14823516fac.12
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 17:37:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=0tMQzYjbaLsCweYjpM8n0zpd8PrCu0Lk7bNxjno/MYg=;
-        b=3kgfFezl6peMjYZjFy+Hxz1DKq8E5GyJRAM051l2XplEWyOtWytKYTCykVM60AZfot
-         024evrTBW0DFOlq2OPjJpOwJvHabbL5G1zZrKvoUZO4ZpsqbuM5ppw80DIx1SbD3+iR4
-         tmYW3AbPDKIxZIRSiVWSlCRS2MWn2mkZpzAm9WN72qC7AGfsmHwKgTtvJHL+JT5rlO2V
-         oSnaR/h8KzjvMI2JpqS6JG8B4XyuXKFzLMQzVXe7pvtWM5aWwEaQugEa+DHILLlcufXJ
-         IICk/FyeKw7e5AMV1nm3Qt4LRaWcVpohzDrJO+BBZ8n1PBIsEU/07QWMTntVDC2GJMa7
-         jF2w==
-X-Gm-Message-State: ACrzQf0YsBUsfNmxxoEnsJJxsvePH9jCHjnCwQ9S703Hi49UCVUs0N3f
-	MNd+DoQsYFxFH/df3EpdtIk=
-X-Google-Smtp-Source: AMsMyM4NJ+peHG8KO0QpBjrEY85xQCl64YMPRI3dJ6cmcmu8BoQyKJV5tsNB2kw9Yp+MV3edWkc3FQ==
-X-Received: by 2002:a05:600c:221a:b0:3b4:75b8:3f7f with SMTP id z26-20020a05600c221a00b003b475b83f7fmr7962580wml.175.1664836363255;
-        Mon, 03 Oct 2022 15:32:43 -0700 (PDT)
-Received: from localhost.localdomain ([2a00:23c8:2501:c701:34b9:36fa:3827:d20])
-        by smtp.gmail.com with ESMTPSA id m64-20020a1ca343000000b003a6125562e1sm12884871wme.46.2022.10.03.15.32.41
+        h=date:lines:status:subject:message-id:references:in-reply-to:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date;
+        bh=wspkU8yNAcJmBJpqXk32uG7evf6evn6CxLk1FdE5/JA=;
+        b=phZzcovMg/n6M1/Zr0C6V163vA3AQalU1EURq09erNiotWJCMDEzWC4JSVFSr25t6r
+         GhnM4swzHBVIjXXRLuygNsOQin7WK0loNEosEKj7redIyG/OnE0fTueQW5qPIp+4e3Ri
+         w0D91urqYNKkmPtXMb0Ntgp3SUbMAhB8bHvRsT1A1HX5uuQ9NK8r4frBDnrNcrrG7inD
+         FNvX0QqrAZWqmb6LcxC/ClnAImlzxbgwjATDPd0EFI4VpSeWG5rea45X0qOXGKf++ISw
+         L7oTm7k6Hcx4ENLPEu6ccuUQuHRFQCgLL7q1Uv6IV1h6FJuBA+GOqYCfYWUH2bcDWNIs
+         bhbg==
+X-Gm-Message-State: ACrzQf0i3d9it8TsTTcfzdp5UGFn41V7VqT+Y4TZpytPAnolWbL9cXht
+	kqPPunO29xq4CtuIGQxM5A==
+X-Google-Smtp-Source: AMsMyM4SztG2FOv2QeAO1z674pPHGq2S5oKi+1b3QiFpMmWS3yWsnDJbe/Tt2XXf7cSJT5/k6RCpJw==
+X-Received: by 2002:a05:6870:a916:b0:131:9361:116a with SMTP id eq22-20020a056870a91600b001319361116amr6949075oab.172.1664843857374;
+        Mon, 03 Oct 2022 17:37:37 -0700 (PDT)
+Received: from macbook.herring.priv (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id fp18-20020a056870659200b00132741e966asm1178982oab.51.2022.10.03.17.37.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Oct 2022 15:32:42 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Guo Ren <guoren@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC PATCH v2 0/2] AX45MP: Add support to non-coherent DMA
-Date: Mon,  3 Oct 2022 23:32:20 +0100
-Message-Id: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+        Mon, 03 Oct 2022 17:37:36 -0700 (PDT)
+Received: (nullmailer pid 3085955 invoked by uid 1000);
+	Tue, 04 Oct 2022 00:37:35 -0000
+From: Rob Herring <robh@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert+renesas@glider.be>, linux-renesas-soc@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, Magnus Damm <magnus.damm@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, Biju Das <biju.das.jz@bp.renesas.com>
+In-Reply-To: <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Message-Id: <166484368600.3082797.1249010812402837811.robh@kernel.org>
+Subject: Re: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache: Add DT binding documentation for L2 cache controller
+Date: Mon, 03 Oct 2022 19:37:35 -0500
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_153246_814251_3D117379 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20221003_173741_029497_23E2F4B9 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,111 +71,317 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Mon, 03 Oct 2022 23:32:21 +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> 
+> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> describes the L2 cache block.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+>  .../soc/renesas/r9a07g043f-l2-cache.yaml      | 82 +++++++++++++++++++
+>  1 file changed, 82 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+> 
 
-Hi All,
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-On the Andes AX45MP core, cache coherency is a specification option so it
-may not be supported. In this case DMA will fail. To get around with this
-issue this patch series does the below:
+yamllint warnings/errors:
 
-1] Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-block that allows dynamic adjustment of memory attributes in the runtime.
-It contains a configurable amount of PMA entries implemented as CSR
-registers to control the attributes of memory locations in interest. PMA
-regions are passed from the l2 node which are configured as
-non-cacheable and bufferable with the SBI call.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/opp/opp-v2-kryo-cpu.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'l3-cache' does not match any of the regexes: 'pinctrl-[0-9]+'
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dtb: l3-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/sifive-l2-cache.example.dtb: cache-controller@2010000: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/sifive-l2-cache.example.dtb: cache-controller@2010000: interrupts: [[1], [2], [3]] is too long
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/sifive-l2-cache.example.dtb: cache-controller@2010000: 'cache-block-size', 'memory-region' do not match any of the regexes: 'pinctrl-[0-9]+'
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/sifive-l2-cache.example.dtb: cache-controller@2010000: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'l3-cache' does not match any of the regexes: 'pinctrl-[0-9]+'
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l3-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible:0: 'andestech,ax45mp-cache' was expected
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-line-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/cpufreq/cpufreq-qcom-hw.example.dtb: l2-cache: 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	From schema: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
 
-        l2cache: cache-controller@13400000 {
-                ....
-                pma-regions = <0x0 0x00000000 0x0 0x14000000>,
-                              <0x0 0x20000000 0x0 0x10000000>,
-                              <0x0 0x58000000 0x0 0x08000000>;
-                ....
-        };
+doc reference errors (make refcheckdocs):
 
-2] We provide callbacks to synchronize specific content between memory and
-cache.
+See https://patchwork.ozlabs.org/patch/
 
-        - arch_sync_dma_for_device()
-        - arch_sync_dma_for_cpu()
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
 
-Below are the configs that are enabled:
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-        - DMA_GLOBAL_POOL
-        - RISCV_DMA_NONCOHERENT
+pip3 install dtschema --upgrade
 
-Below is the L2 cache DT node:
-
-        l2cache: cache-controller@13400000 {
-                compatible = "andestech,ax45mp-cache", "cache";
-                cache-size = <0x40000>;
-                cache-line-size = <64>;
-                cache-sets = <1024>;
-                cache-unified;
-                reg = <0x0 0x13400000 0x0 0x100000>;
-                pma-regions = <0x0 0x00000000 0x0 0x10000000>,
-                              <0x0 0x10000000 0x0 0x04000000>,
-                              <0x0 0x20000000 0x0 0x10000000>,
-                              <0x0 0x58000000 0x0 0x08000000>;
-                interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
-        };
-
-Due to the above approach custom SBI calls have been implemented. The
-above implementation is in preparation for adding support for Renesas
-RZ/Five SoC which uses the AX45MP core. As with the above approach the
-kernel image might not be generic so that it can be used on other
-platforms, so sending it as an RFC (without DT binding patches).
-
-OpenSBI implementation isn't upstreamed yet, public repo for access is
-available at [0].
-
-[0] https://github.com/renesas-rz/rz_opensbi/tree/work/OpenSBI-PMA
-
-RFC v1-> RFC v2
-* Moved out the code from arc/riscv to drivers/soc/renesas
-* Now handling the PMA setup as part of the L2 cache
-* Now making use of dma-noncoherent.c instead SoC specific implementation.
-* Dropped arch_dma_alloc() and arch_dma_free()
-* Switched to RISCV_DMA_NONCOHERENT
-* Included DT binding doc
-
-RFC v1: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Sending this as an RFC as CONFIG_ERRATA_THEAD_CMO/CONFIG_ARCH_R9A07G043
-is used for determining the CMO to call it would better if we could do
-this runtime instead.
-
-Cheers,
-Prabhakar
-
-Lad Prabhakar (2):
-  dt-bindings: soc: renesas: r9a07g043f-l2-cache: Add DT binding
-    documentation for L2 cache controller
-  soc: renesas: Add L2 cache management for RZ/Five SoC
-
- .../soc/renesas/r9a07g043f-l2-cache.yaml      |  82 ++++
- arch/riscv/include/asm/cacheflush.h           |   8 +
- arch/riscv/include/asm/errata_list.h          |   2 +
- arch/riscv/include/asm/sbi.h                  |   1 +
- arch/riscv/mm/dma-noncoherent.c               |  20 +
- drivers/soc/renesas/Makefile                  |   4 +
- drivers/soc/renesas/rzf/Makefile              |   3 +
- drivers/soc/renesas/rzf/ax45mp_cache.c        | 365 ++++++++++++++++++
- drivers/soc/renesas/rzf/rzf_sbi.h             |  27 ++
- 9 files changed, 512 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
- create mode 100644 drivers/soc/renesas/rzf/Makefile
- create mode 100644 drivers/soc/renesas/rzf/ax45mp_cache.c
- create mode 100644 drivers/soc/renesas/rzf/rzf_sbi.h
-
--- 
-2.25.1
+Please check and re-submit.
 
 
 _______________________________________________
