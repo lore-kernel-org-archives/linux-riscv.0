@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FA8C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 17:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F61C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 17:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hpHisLQfX4i8m8CdcgX8BBHu1kA3AHuqbtr/xjsiwYE=; b=ihqV16yea0a+xD
-	86n5WSwAWYnXRAt589hHFOOZnf+srMpHIY8q9oOcLHoVdbrZ7wuXgLqObm7+bS8oQpvCJ8vVWMPqG
-	SxXFbS3oc1dIo5Z8Ac2MF/y4F9vFSvNCnKSVgDENvv5xH8KGQHXEoRurzYeAQIFdkTHAvBHA8lSX2
-	6OoRI+rWal8NXQoNZeEDgRkxNFdR55aY+L2nEfIDDEZH5w6EXBCcQlDUeyhAkXb7rX/IKGfcHa/bX
-	GnA9t3FD2ILO3uqcm9G0Kw7SX+MKU4r48R1xuztx63HQSoSTuBQO/Hn9KhJFKn7EPZu71LfCNfyND
-	HQ3KcPHOmzcARxgWfp8Q==;
+	List-Owner; bh=Y40sn3vK/YYlvCx3Ek0li6FVynnA7m4vGD7Fo7MR20I=; b=Dp8Z4jdbI44Aag
+	/fhOnTbHtPRDiLfHiW7zLpGyCfj1p9+aPLy9mgVadkUMYYptN8W37VoYP8GYJF0W5O5hM1O4oHIVT
+	uJVfGOJ4tl4a6Mzxszh+DQGXUZs3ATP5e5Oc5yqLJ3Mzi8V8cXeiEnX83czhyHA0PVvt4mMCcAhPT
+	ZDsatY86WiZEOoDbq5yAjHyVhJsGSAY7m1F9ErYzq2WLkEdPM4piEUGVOrRkW3bxQVgLDgKk4x+py
+	Vcp2gGEE2KZe1A76OtPh9NAijOwQQzse+q3edYrJTyKdIJ4JTRA/OEF3QJBGu84UiJcIBvrUiilYV
+	zJMmxHFoDzY5psONYMgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oflQk-00AGRY-Jf; Tue, 04 Oct 2022 17:10:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oflVr-00AGgf-Ef; Tue, 04 Oct 2022 17:15:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oflQh-00AGR0-Uk
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 17:10:05 +0000
+	id 1oflVo-00AGgL-2l
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 17:15:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C7F076132D;
-	Tue,  4 Oct 2022 17:10:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9ED8C433C1;
-	Tue,  4 Oct 2022 17:09:59 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B1332B81B55;
+	Tue,  4 Oct 2022 17:15:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60157C433D6;
+	Tue,  4 Oct 2022 17:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1664903401;
-	bh=GGkrC22X2cSGUa49ffymIL6e1YrADSDA77hl6GJabKk=;
+	s=k20201202; t=1664903717;
+	bh=mGnX35o3y1NNdpCSMlejw46q4AM700HTmz9Es/OfI7Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IQjttXMJISiKA2Xi991eLXEek9cEwHCzKH7G5O59CUMfzTsWqyoji06Rs3UXcLhmU
-	 t39BQz6Y8/2TPzsqU0DtQVM3lV8zyU+YqJjsMkP6g84tjDUQEgIhJiQRpMCjgpREdq
-	 L2fAIvzL7t88vVy+r00Y2JzSxrRdY+kb/hvmuHA7gvng2JdIuSkHhB3n8iM7U0nHV5
-	 EwTz2Eo6vdWobH1fg6yS227KAqVyQqwS+Nt7O1uNp2hUWhxE9oXnHu01Afwwa2hwj2
-	 n5q3kOpZFxuGspWn4AANs9aqLiIJKbpfmcURoEuKzHfa0Ce+OwQCQNWDB7oMbv79Qg
-	 7+/IGRK5POi6g==
-Date: Tue, 4 Oct 2022 18:09:57 +0100
+	b=Aem2PfxUwzcAtdp/4gwiBW4foLdCqlY75A9d4bOftRj3DeXAZeQ7mUDhJ3pzR52ld
+	 XJEo6dsMtjcxvjSJOZGivS1jn3aeu+RxVi1f+y3/R9SJA/NN3gZzMnVgh7yR06lPbx
+	 +P1dGn3XFeJyzSnOc2m5eXwzzm+uU7RcJUZwZ1EL8RDWbbfY5ODJzLb2Lhev1RxudX
+	 2XHSNC23/Oi6YqSCnU6CFinQOysLNhihm/9k2X+SHpAL/RzhgcIlqy9JlkOy4yjwDn
+	 wEwcWA/sWbM58krWJywf81salJN34dOrsHEI+DrVXXrRqxz/946mH3hcjl5ejdpQ+n
+	 ywKsAPQreqGwQ==
+Date: Tue, 4 Oct 2022 18:15:11 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: panqinglin2020@iscas.ac.cn, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn
-Subject: Re: [PATCH v5 1/4] mm: modify pte format for Svnapot
-Message-ID: <Yzxo5bemVt2AKNyr@spud>
-References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
- <20221003134721.1772455-2-panqinglin2020@iscas.ac.cn>
- <20221004170027.duk2nc6pq52d4vcf@kamzik>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@rivosinc.com>, Dao Lu <daolu@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+Message-ID: <YzxqH095FxqKZpDg@spud>
+References: <2546376.ElGaqSPkdT@phil>
+ <2E96A836-764D-4D07-AB79-3861B9CC2B1F@jrtc27.com>
+ <13396584.uLZWGnKmhe@phil>
+ <CAOnJCUKdBpbj=KDz5oibB_N_SjOiMrkWcttczuGbisi_nMWaVA@mail.gmail.com>
+ <Yy+Plxzj4bckXrhy@spud>
+ <CAOnJCU+fA-pxLPRviqW2d7q-E__qJYkZKkCdiNHXhJBjWCRPaA@mail.gmail.com>
+ <YzS5kT2CCBPxqLg+@spud>
+ <CAOnJCUKn-rNwyw5BK7=hNM-vnJ=VROjipCiDtB4BL=LZ3kKAAg@mail.gmail.com>
+ <YzifTW5Y7O191gCo@spud>
+ <CAOnJCUKtoiXKaS81BZyvpybFDkh-undHLqE5ZxoNmf9AtAtvfw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221004170027.duk2nc6pq52d4vcf@kamzik>
+In-Reply-To: <CAOnJCUKtoiXKaS81BZyvpybFDkh-undHLqE5ZxoNmf9AtAtvfw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_101004_066231_A190FBB4 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20221004_101520_308603_F72B80E4 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +90,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 04, 2022 at 07:00:27PM +0200, Andrew Jones wrote:
-> On Mon, Oct 03, 2022 at 09:47:18PM +0800, panqinglin2020@iscas.ac.cn wrote:
-> > From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> > 
-> > This commit adds two erratas to enable/disable svnapot support, patches
-> > code dynamicly when "svnapot" is in the "riscv,isa" field of fdt and
-> > SVNAPOT compile option is set. It will influence the behavior of
-> > has_svnapot function and pte_pfn function. All code dependent on svnapot
-> > should make sure that has_svnapot return true firstly.
-> > 
-> > Also, this commit modifies PTE definition for Svnapot, and creates some
-> > functions in pgtable.h to mark a PTE as napot and check if it is a Svnapot
-> > PTE. Until now, only 64KB napot size is supported in draft spec, so some
-> > macros has only 64KB version.
+On Tue, Oct 04, 2022 at 09:52:41AM -0700, Atish Patra wrote:
+> On Sat, Oct 1, 2022 at 1:13 PM Conor Dooley <conor@kernel.org> wrote:
 
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index 0be8a2403212..d2a61122c595 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -96,6 +96,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
-> >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> >  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> >  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> > +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+> > > Thanks. It would be good to understand what happens when "pause" is
+> > > executed on these boards ?
+> >
+> > The actual pause instruction? uhh, so with the usual "I don't know what
+> > I am doing" disclaimer, I ran each of the .insn and pause instruction 48
+> > times in a row and checked the time elapsed via rdcycle & then ran that
+> > c program 1000 times in a bash loop. Got the below, the insns were run
+> > first and then the pauses.
+> >         insn    pause
+> > min     2.3     3.2
+> > max     9.5     10.6
+> > avg     27.0    29.1
+> > 5%      2.9     4.2
+> > 95%     18.1    19.1
+> >
+> > Swapping the pause & insn order around made a minor difference, but not
+> > enough to report on. I'd be very wary of drawing any real conclusions
+> > from this data, but at least both are roughly similar (and certainly not
+> > even close to doing the div w/ zero args.
+> >
 > 
-> If we want to do a separate isa extension alphabetizing patch, then this
-> array would be a good one to do since it's the output order.
+> Yeah. That's what I was expecting. So we can't drop the div for now. Otherwise,
+> the existing hardware(don't support Zhintpause) suffers by spinning faster.
+> 
+> Thanks for running the experiments.
 
-Just quickly jumping in to say that Palmer's already sent one:
-https://lore.kernel.org/all/20220920204518.10988-1-palmer@rivosinc.com/
+I've lost track, does that mean the patch is okay as, is or needs to be
+changed? The former, right?
 
 Thanks,
 Conor.
-
 
 _______________________________________________
 linux-riscv mailing list
