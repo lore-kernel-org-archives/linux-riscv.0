@@ -4,118 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED616C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7B4C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XvN8o/J96/4+1mUEzXWXtLlVpv3/jrLLgGZx5PMEDLA=; b=aUiJYuW/2t5OKP
-	bC50S7pvUtNlh8AInolLuKqeZmfo+26+m5McOW+dLoDhf7Xr1XgMOaDOeyTfsbhrrbOQR7gqpEq+s
-	NaDBLvjnJiyRRcT0r83Z+oVKA1jQy3v5VR0S0jBatZ7qbEHWuLk8DroeXh3hOk/Qgh0afZU9x6E/q
-	qYP7uylxpT9s3EbUu5IDKLxOFPGpo7jfYx+JIoqAf66BX9LzLgFAtQnhNLjzYb0+P1vsyKmuI3lBx
-	DjDNwoBgr7Edwo36Ndw/falr+9oNnCFBQKqfIXooLd6qwjIBpfdhun+x54u3eVrgvHHqU2g0Xngs3
-	rpgje2cn544cwmh5vLAQ==;
+	List-Owner; bh=g93kt4WqNwfFZgWoOzg+Ok6ddHFxyZxoPmGP6X0j2pI=; b=tn+DxeFgaeKI/A
+	EVz9mdxYtQ2A6VnfB/2YadTJpxkUwgY7fHgj8uIBYYYKyhc8Wl+L6lYMhT0Lrpdl/SGc6FrBEIGSo
+	3ihs/ANUJVKcpqf4Pbki82juKS+zts8zU74w2nETcU9z3qXkRWIRo9YrwGvV7MihIl6r8mst46caU
+	Q4LyYZCuY5JWQB7fSzcMnERfrPamLVA2s89FZo0nEzMJQtpo3U+e6hsqpfaMTW+AmPcM8YAltPqS2
+	FaQz2o79hormUQnwLTGWQ75Z2phZ9SsQonGNOrwncd3QG2ybHXvhWQon4cGzZhPPpYfuytQ1p/FF7
+	O01zVXMakrjKTThsZCGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofozZ-00BAho-Nv; Tue, 04 Oct 2022 20:58:17 +0000
+	id 1ofoze-00BAjM-1K; Tue, 04 Oct 2022 20:58:22 +0000
 Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1offk1-009SDv-QW
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 11:05:39 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id i7-20020a17090a65c700b0020ad9666a86so1518113pjs.0
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 04:05:34 -0700 (PDT)
+	id 1offrU-009Top-3K
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 11:13:22 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id o9-20020a17090a0a0900b0020ad4e758b3so2200368pjo.4
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 04:13:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=8dOAtcXqtbDTbOtGHdeMRx2lSxGZ/p81xoeulWg88O8=;
-        b=ALPYtY9NECpkdz09jpHMZbs0aH+hKiq7zCwXfK1hWKvM2elz9mNR/JJb0byGfir59h
-         CWc9izoQX0glvUd9bdjzB+GxZIKg7cZ1wWKnb5xSlDD9fDdUtUduD7qTiOAX8rgJzNMY
-         16i4fnybYgh61uFsRfFa0jFHaMm217pAorBQUItONSq5D0pjQfmpgEbFEG0ovD83XmiY
-         JRBnUwctQs5MU4QsxdCrYJ2mV5ubOvxFCDZOs+xf+eBgsrQVN1CIV6SHGqFX6RFQbzq7
-         D2ARCpgG/orA8SpRSFPIMnoc2IRLOYljdFwc8QX3tXFa2vpA/P7Kkd/ZsaWnXMh+ArFb
-         1Asw==
+        bh=UHE2x7YnT+avJBdJRK8fICu4tqbTB0zv1A8Jd5IOhrw=;
+        b=DQ7AqshQw7pAlndMjmyEf3HDNlexUBF+jB73J+4SoV4OjFHAeL9d93Pkb0EJq27wmV
+         fMsaB2Ugk2jANVVFsgCVCwsCPcqfEpNwL8Phil7GBZGqFbBPLY20X/vyyyMA3GQqxwqr
+         9GitSfUr/lUWnkoEFyKfW1UEPWDsM/lhvI/GgsbbZeTjM/BKXmE2CDDRkoVqqPha6oPu
+         qT7JzbFbc8JYxA1Hnfg8ebCiWushyc4cczI9HWkbShP/pG31SGJukNeZLdU4X/4Dr/J1
+         nBm7WS/ywrZAsUI2kefDBEEPXrA2HSCWcStoD/F24lMd+RQ2O+RyHYdGsKRKL5ywBm+U
+         IhvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=8dOAtcXqtbDTbOtGHdeMRx2lSxGZ/p81xoeulWg88O8=;
-        b=LmHqGvbMS9tOg5mo9LB/O+tKIU5SKSTqJCWup6bgoFeg2bbgC8Ubk0zPw0xZdaFlWA
-         VTZqW0HHBm3uPrBIOj0iN1udPWcPO/WNyqgyeY1IZje7Jdb1of/CIGHAUMldajwaSc0E
-         eNMU6zlRKZUi4Rdy0r1sIeEM+tMICB1/v0sYLPY+Te5RLsBJoBw/Wfvf7YqXXOBGVAgF
-         VzDX1b2erm7qgNc4ez8p5hlLxgXgNkRH0Rq4aMB543wFz9n1Lv+3fA+M/EBRHTp9nMwt
-         3BAaLWoghm4YdtfsPcVSPQ8fL4OfT3J5wH0BIkWzeDw8a7V54ivwt1krijzuYJLDnCcM
-         z4vg==
-X-Gm-Message-State: ACrzQf1675ydX5C2EV7gj6YFC/uOL36EX4KL+ne+l0Ro94NwQaZ8o+Uo
-	cGinGTuwKkbsY1GZCGwG/9zYosRc8NeKrgzByiiGxA==
-X-Google-Smtp-Source: AMsMyM4crcx6LouSmUkordoRMp2FZSPTtuc3An5Wuzy+BH6M/IICg47GwaPPyycgbJ/QSQxkTeG6xy+CkgFRgaEAD/g=
+        bh=UHE2x7YnT+avJBdJRK8fICu4tqbTB0zv1A8Jd5IOhrw=;
+        b=gsHTyu/9f4ccOW7ewWs4HCkxDN9Z+9vAa02BJ6X2oSNFh9vrbQ2A0QwKv8KRy+tQBc
+         XGCYMbJeTpu7HE3h3P66paWZ17ExLIGGmUyHlRRTxcqSo3XvDePsi66LhwaFw2QJETYo
+         zSI5qLiDpXx2DWznuYOUo5dBkGMxLA42XA4IqQBNepQow+8EAtcoAQhT/UMu75egbQPv
+         KQQgP8DCxg+6MzbiCxtSq1PcWezeasC0Q4JDPfIxQ76fgl4olFac5+ImovSNlLODa3J8
+         hYw5Ungd+mPINQD4c0D4EFSRmgI32oORssMG809ofu/weXTZtmwGpv7gY3fKidoSAc/z
+         rGVQ==
+X-Gm-Message-State: ACrzQf2evVkevzdQNtCe/Ucn2CCsgZTEw6yZAqGAMIeflLnApXWL3XLt
+	6Jm66YFOt1ovYsU38RfqY6MDI1vfopIyMGrFh20/HA==
+X-Google-Smtp-Source: AMsMyM7BhQDEzGuMq6uijGe+375QPbx+j/BjXkPK0/Xp2Q5WyeWrXvzrh6ljkVul43PLHCDTtENmDZivDluO/kqNLsY=
 X-Received: by 2002:a17:90b:4d07:b0:1ef:521c:f051 with SMTP id
- mw7-20020a17090b4d0700b001ef521cf051mr17203785pjb.164.1664881533975; Tue, 04
- Oct 2022 04:05:33 -0700 (PDT)
+ mw7-20020a17090b4d0700b001ef521cf051mr17237644pjb.164.1664881999182; Tue, 04
+ Oct 2022 04:13:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220919095939.761690562@infradead.org> <20220919101521.274051658@infradead.org>
-In-Reply-To: <20220919101521.274051658@infradead.org>
+References: <20220919095939.761690562@infradead.org> <20220919101522.908560022@infradead.org>
+In-Reply-To: <20220919101522.908560022@infradead.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 4 Oct 2022 13:04:57 +0200
-Message-ID: <CAPDyKFquBVkYmKsriPD+BfVrrz62ih7oCxb7HwOML+Zzs-5U_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 14/44] cpuidle,cpu_pm: Remove RCU fiddling from cpu_pm_{enter,exit}()
+Date: Tue, 4 Oct 2022 13:12:42 +0200
+Message-ID: <CAPDyKFqDiqXSi5Gn9eyvhHhqHxJAPAt-HzmEDwYWaGvso2yn=w@mail.gmail.com>
+Subject: Re: [PATCH v2 38/44] cpuidle,powerdomain: Remove trace_.*_rcuidle()
 To: Peter Zijlstra <peterz@infradead.org>
-Cc: richard.henderson@linaro.org, ink@jurassic.park.msu.ru, mattst88@gmail.com, 
-	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com, 
-	linus.walleij@linaro.org, shawnguo@kernel.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-imx@nxp.com, tony@atomide.com, khilman@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, 
-	bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name, 
-	geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu, 
-	tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, mpe@ellerman.id.au, 
-	npiggin@gmail.com, christophe.leroy@csgroup.eu, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com, 
-	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, 
-	davem@davemloft.net, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, acme@kernel.org, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu, 
-	amakhalov@vmware.com, pv-drivers@vmware.com, boris.ostrovsky@oracle.com, 
-	chris@zankel.net, jcmvbkbc@gmail.com, rafael@kernel.org, lenb@kernel.org, 
-	pavel@ucw.cz, gregkh@linuxfoundation.org, mturquette@baylibre.com, 
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org, 
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org, 
-	konrad.dybcio@somainline.org, anup@brainfault.org, thierry.reding@gmail.com, 
-	jonathanh@nvidia.com, jacob.jun.pan@linux.intel.com, atishp@atishpatra.org, 
-	Arnd Bergmann <arnd@arndb.de>, yury.norov@gmail.com, andriy.shevchenko@linux.intel.com, 
-	linux@rasmusvillemoes.dk, dennis@kernel.org, tj@kernel.org, cl@linux.com, 
-	rostedt@goodmis.org, pmladek@suse.com, senozhatsky@chromium.org, 
-	john.ogness@linutronix.de, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de, 
-	bristot@redhat.com, vschneid@redhat.com, fweisbec@gmail.com, 
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, 
-	dvyukov@google.com, vincenzo.frascino@arm.com, 
-	Andrew Morton <akpm@linux-foundation.org>, jpoimboe@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, virtualization@lists.linux-foundation.org, 
-	linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-arch@vger.kernel.org, kasan-dev@googlegroups.com
+Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com, 
+	linus.walleij@linaro.org, bsegall@google.com, guoren@kernel.org, pavel@ucw.cz, 
+	agordeev@linux.ibm.com, linux-arch@vger.kernel.org, 
+	vincent.guittot@linaro.org, mpe@ellerman.id.au, chenhuacai@kernel.org, 
+	christophe.leroy@csgroup.eu, linux-acpi@vger.kernel.org, agross@kernel.org, 
+	geert@linux-m68k.org, linux-imx@nxp.com, vgupta@kernel.org, 
+	mattst88@gmail.com, mturquette@baylibre.com, sammy@sammy.net, 
+	pmladek@suse.com, linux-pm@vger.kernel.org, 
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-um@lists.infradead.org, npiggin@gmail.com, 
+	tglx@linutronix.de, linux-omap@vger.kernel.org, dietmar.eggemann@arm.com, 
+	andreyknvl@gmail.com, gregkh@linuxfoundation.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	senozhatsky@chromium.org, svens@linux.ibm.com, jolsa@kernel.org, 
+	tj@kernel.org, Andrew Morton <akpm@linux-foundation.org>, mark.rutland@arm.com, 
+	linux-ia64@vger.kernel.org, dave.hansen@linux.intel.com, 
+	virtualization@lists.linux-foundation.org, 
+	James.Bottomley@hansenpartnership.com, jcmvbkbc@gmail.com, 
+	thierry.reding@gmail.com, kernel@xen0n.name, cl@linux.com, 
+	linux-s390@vger.kernel.org, vschneid@redhat.com, john.ogness@linutronix.de, 
+	ysato@users.sourceforge.jp, linux-sh@vger.kernel.org, festevam@gmail.com, 
+	deller@gmx.de, daniel.lezcano@linaro.org, jonathanh@nvidia.com, 
+	dennis@kernel.org, lenb@kernel.org, linux-xtensa@linux-xtensa.org, 
+	kernel@pengutronix.de, gor@linux.ibm.com, linux-arm-msm@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	loongarch@lists.linux.dev, shorne@gmail.com, chris@zankel.net, 
+	sboyd@kernel.org, dinguyen@kernel.org, bristot@redhat.com, 
+	alexander.shishkin@linux.intel.com, fweisbec@gmail.com, lpieralisi@kernel.org, 
+	atishp@atishpatra.org, linux@rasmusvillemoes.dk, kasan-dev@googlegroups.com, 
+	will@kernel.org, boris.ostrovsky@oracle.com, khilman@kernel.org, 
+	linux-csky@vger.kernel.org, pv-drivers@vmware.com, 
+	linux-snps-arc@lists.infradead.org, mgorman@suse.de, 
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>, ulli.kroll@googlemail.com, 
+	linux-clk@vger.kernel.org, rostedt@goodmis.org, ink@jurassic.park.msu.ru, 
+	bcain@quicinc.com, tsbogend@alpha.franken.de, linux-parisc@vger.kernel.org, 
+	ryabinin.a.a@gmail.com, sudeep.holla@arm.com, shawnguo@kernel.org, 
+	davem@davemloft.net, dalias@libc.org, tony@atomide.com, amakhalov@vmware.com, 
+	konrad.dybcio@somainline.org, bjorn.andersson@linaro.org, glider@google.com, 
+	hpa@zytor.com, sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, vincenzo.frascino@arm.com, 
+	anton.ivanov@cambridgegreys.com, jonas@southpole.se, yury.norov@gmail.com, 
+	richard@nod.at, x86@kernel.org, linux@armlinux.org.uk, mingo@redhat.com, 
+	aou@eecs.berkeley.edu, hca@linux.ibm.com, richard.henderson@linaro.org, 
+	stefan.kristiansson@saunalahti.fi, openrisc@lists.librecores.org, 
+	acme@kernel.org, paul.walmsley@sifive.com, linux-tegra@vger.kernel.org, 
+	namhyung@kernel.org, andriy.shevchenko@linux.intel.com, jpoimboe@kernel.org, 
+	dvyukov@google.com, jgross@suse.com, monstr@monstr.eu, 
+	linux-mips@vger.kernel.org, palmer@dabbelt.com, anup@brainfault.org, 
+	bp@alien8.de, johannes@sipsolutions.net, linuxppc-dev@lists.ozlabs.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_040537_886693_CDD5EB7A 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20221004_041320_158749_490EF6A8 
+X-CRM114-Status: GOOD (  19.71  )
 X-Mailman-Approved-At: Tue, 04 Oct 2022 13:58:15 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,10 +133,13 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Mon, 19 Sept 2022 at 12:17, Peter Zijlstra <peterz@infradead.org> wrote:
 >
-> All callers should still have RCU enabled.
+> OMAP was the one and only user.
 >
 > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+There are changes to the runtime PM core as part of $subject patch.
+Perhaps move those parts into a separate patch? In any case, the code
+looks good to me.
 
 Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 
@@ -146,42 +147,152 @@ Kind regards
 Uffe
 
 > ---
->  kernel/cpu_pm.c |    9 ---------
->  1 file changed, 9 deletions(-)
+>  arch/arm/mach-omap2/powerdomain.c |   10 +++++-----
+>  drivers/base/power/runtime.c      |   24 ++++++++++++------------
+>  2 files changed, 17 insertions(+), 17 deletions(-)
 >
-> --- a/kernel/cpu_pm.c
-> +++ b/kernel/cpu_pm.c
-> @@ -30,16 +30,9 @@ static int cpu_pm_notify(enum cpu_pm_eve
->  {
->         int ret;
+> --- a/arch/arm/mach-omap2/powerdomain.c
+> +++ b/arch/arm/mach-omap2/powerdomain.c
+> @@ -187,9 +187,9 @@ static int _pwrdm_state_switch(struct po
+>                         trace_state = (PWRDM_TRACE_STATES_FLAG |
+>                                        ((next & OMAP_POWERSTATE_MASK) << 8) |
+>                                        ((prev & OMAP_POWERSTATE_MASK) << 0));
+> -                       trace_power_domain_target_rcuidle(pwrdm->name,
+> -                                                         trace_state,
+> -                                                         raw_smp_processor_id());
+> +                       trace_power_domain_target(pwrdm->name,
+> +                                                 trace_state,
+> +                                                 raw_smp_processor_id());
+>                 }
+>                 break;
+>         default:
+> @@ -541,8 +541,8 @@ int pwrdm_set_next_pwrst(struct powerdom
 >
-> -       /*
-> -        * This introduces a RCU read critical section, which could be
-> -        * disfunctional in cpu idle. Copy RCU_NONIDLE code to let RCU know
-> -        * this.
-> -        */
-> -       ct_irq_enter_irqson();
->         rcu_read_lock();
->         ret = raw_notifier_call_chain(&cpu_pm_notifier.chain, event, NULL);
->         rcu_read_unlock();
-> -       ct_irq_exit_irqson();
+>         if (arch_pwrdm && arch_pwrdm->pwrdm_set_next_pwrst) {
+>                 /* Trace the pwrdm desired target state */
+> -               trace_power_domain_target_rcuidle(pwrdm->name, pwrst,
+> -                                                 raw_smp_processor_id());
+> +               trace_power_domain_target(pwrdm->name, pwrst,
+> +                                         raw_smp_processor_id());
+>                 /* Program the pwrdm desired target state */
+>                 ret = arch_pwrdm->pwrdm_set_next_pwrst(pwrdm, pwrst);
+>         }
+> --- a/drivers/base/power/runtime.c
+> +++ b/drivers/base/power/runtime.c
+> @@ -442,7 +442,7 @@ static int rpm_idle(struct device *dev,
+>         int (*callback)(struct device *);
+>         int retval;
 >
->         return notifier_to_errno(ret);
+> -       trace_rpm_idle_rcuidle(dev, rpmflags);
+> +       trace_rpm_idle(dev, rpmflags);
+>         retval = rpm_check_suspend_allowed(dev);
+>         if (retval < 0)
+>                 ;       /* Conditions are wrong. */
+> @@ -481,7 +481,7 @@ static int rpm_idle(struct device *dev,
+>                         dev->power.request_pending = true;
+>                         queue_work(pm_wq, &dev->power.work);
+>                 }
+> -               trace_rpm_return_int_rcuidle(dev, _THIS_IP_, 0);
+> +               trace_rpm_return_int(dev, _THIS_IP_, 0);
+>                 return 0;
+>         }
+>
+> @@ -493,7 +493,7 @@ static int rpm_idle(struct device *dev,
+>         wake_up_all(&dev->power.wait_queue);
+>
+>   out:
+> -       trace_rpm_return_int_rcuidle(dev, _THIS_IP_, retval);
+> +       trace_rpm_return_int(dev, _THIS_IP_, retval);
+>         return retval ? retval : rpm_suspend(dev, rpmflags | RPM_AUTO);
 >  }
-> @@ -49,11 +42,9 @@ static int cpu_pm_notify_robust(enum cpu
->         unsigned long flags;
->         int ret;
 >
-> -       ct_irq_enter_irqson();
->         raw_spin_lock_irqsave(&cpu_pm_notifier.lock, flags);
->         ret = raw_notifier_call_chain_robust(&cpu_pm_notifier.chain, event_up, event_down, NULL);
->         raw_spin_unlock_irqrestore(&cpu_pm_notifier.lock, flags);
-> -       ct_irq_exit_irqson();
+> @@ -557,7 +557,7 @@ static int rpm_suspend(struct device *de
+>         struct device *parent = NULL;
+>         int retval;
 >
->         return notifier_to_errno(ret);
+> -       trace_rpm_suspend_rcuidle(dev, rpmflags);
+> +       trace_rpm_suspend(dev, rpmflags);
+>
+>   repeat:
+>         retval = rpm_check_suspend_allowed(dev);
+> @@ -708,7 +708,7 @@ static int rpm_suspend(struct device *de
+>         }
+>
+>   out:
+> -       trace_rpm_return_int_rcuidle(dev, _THIS_IP_, retval);
+> +       trace_rpm_return_int(dev, _THIS_IP_, retval);
+>
+>         return retval;
+>
+> @@ -760,7 +760,7 @@ static int rpm_resume(struct device *dev
+>         struct device *parent = NULL;
+>         int retval = 0;
+>
+> -       trace_rpm_resume_rcuidle(dev, rpmflags);
+> +       trace_rpm_resume(dev, rpmflags);
+>
+>   repeat:
+>         if (dev->power.runtime_error) {
+> @@ -925,7 +925,7 @@ static int rpm_resume(struct device *dev
+>                 spin_lock_irq(&dev->power.lock);
+>         }
+>
+> -       trace_rpm_return_int_rcuidle(dev, _THIS_IP_, retval);
+> +       trace_rpm_return_int(dev, _THIS_IP_, retval);
+>
+>         return retval;
 >  }
+> @@ -1081,7 +1081,7 @@ int __pm_runtime_idle(struct device *dev
+>                 if (retval < 0) {
+>                         return retval;
+>                 } else if (retval > 0) {
+> -                       trace_rpm_usage_rcuidle(dev, rpmflags);
+> +                       trace_rpm_usage(dev, rpmflags);
+>                         return 0;
+>                 }
+>         }
+> @@ -1119,7 +1119,7 @@ int __pm_runtime_suspend(struct device *
+>                 if (retval < 0) {
+>                         return retval;
+>                 } else if (retval > 0) {
+> -                       trace_rpm_usage_rcuidle(dev, rpmflags);
+> +                       trace_rpm_usage(dev, rpmflags);
+>                         return 0;
+>                 }
+>         }
+> @@ -1202,7 +1202,7 @@ int pm_runtime_get_if_active(struct devi
+>         } else {
+>                 retval = atomic_inc_not_zero(&dev->power.usage_count);
+>         }
+> -       trace_rpm_usage_rcuidle(dev, 0);
+> +       trace_rpm_usage(dev, 0);
+>         spin_unlock_irqrestore(&dev->power.lock, flags);
+>
+>         return retval;
+> @@ -1566,7 +1566,7 @@ void pm_runtime_allow(struct device *dev
+>         if (ret == 0)
+>                 rpm_idle(dev, RPM_AUTO | RPM_ASYNC);
+>         else if (ret > 0)
+> -               trace_rpm_usage_rcuidle(dev, RPM_AUTO | RPM_ASYNC);
+> +               trace_rpm_usage(dev, RPM_AUTO | RPM_ASYNC);
+>
+>   out:
+>         spin_unlock_irq(&dev->power.lock);
+> @@ -1635,7 +1635,7 @@ static void update_autosuspend(struct de
+>                         atomic_inc(&dev->power.usage_count);
+>                         rpm_resume(dev, 0);
+>                 } else {
+> -                       trace_rpm_usage_rcuidle(dev, 0);
+> +                       trace_rpm_usage(dev, 0);
+>                 }
+>         }
 >
 >
+>
+> _______________________________________________
+> Virtualization mailing list
+> Virtualization@lists.linux-foundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/virtualization
 
 _______________________________________________
 linux-riscv mailing list
