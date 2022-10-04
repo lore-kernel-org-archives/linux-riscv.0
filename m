@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2B0C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3BAC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7mE82h2zZNLKBDYIuOYx/yYMv31IiNyhYXeEnHxrCkw=; b=EPDfwKbIMvPFVN
-	yw7wx3vWqPATaiV0W+2KLpV7jHu5hJK6Mye0ZrXc2mFspMVBlWXHltf5jz6HaJOQLr4C4vcAnN0LL
-	rNOw8HbrwmwMgYg98qWK/NPyPGgl0YqZH8JTnmIxlR/QD5MpfKEIJvJbiopFBWm66yuN7+VzM2nVK
-	cDS6NuENVGkQJBRanNXA/LX69aP0i2qp3oDUJQGiVLppZxqApH5CMazMJBDAZGquAUSVZ+5OLKGgb
-	GsoaO3qIk1j9f6UNdo0j567blATSri1j9NvArmatxhgBlA3vSaHvjhO+5k1xkzqB7PADUCfj6kEdQ
-	iByT5DfYSapReHulU8ww==;
+	List-Owner; bh=xchI/USqE7jawhYRb7G59DF0FA8GC3IES3OibS8fthQ=; b=q20kLgi7c9U1Qn
+	Nm8+7/QD/30fdfiphEiDGILcBu/77IgLUAaA6ByAhLKlqWizjgLYxEgGXC8Obx8GshMxVQUWMCy/X
+	SnuKp5gnOzEoC5jM/NMXbYuVQteyPHyF7lu0D9BB7uZyQcwaf4fBpabEM1Qx2cTCfy9HxFL3n15SK
+	YlGUfSX6a3Q1LcvSZfVxuFZUUVoEsGXg6auG55Ri5oC6gh2MCZTIxTC19xy64ugayRF7TyWw785Sk
+	FNhy2oASoPIfRtQlpQ+Z7jJe9L7N/1BinbhbFUX1Bv9lKNqX5T+7JmFfCrJZB+RiXU+TfHfr/RQsA
+	LqhKlBZ3ZL03FRECDStg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofozc-00BAis-J3; Tue, 04 Oct 2022 20:58:20 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1ofozf-00BAk6-Jh; Tue, 04 Oct 2022 20:58:23 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1offoF-009Sgx-KV
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 11:10:01 +0000
-Received: by mail-pg1-x529.google.com with SMTP id a23so4735760pgi.10
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 04:09:58 -0700 (PDT)
+	id 1ofgLK-009XAB-BF
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 11:44:12 +0000
+Received: by mail-pg1-x533.google.com with SMTP id e129so12485323pgc.9
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 04:44:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=Z7fvRiwPcYU72K21mcsEeWsle1VHrp2FoZLK7rnaPdE=;
-        b=OhrgekEJA2e8cdAwMtySnzVGP1IXX7u0VkwcrOOu54GZ2JxdWY9lEfVkhASIMdH6iJ
-         3CS7i3bHpSnDattX7vdcbOy/0Ru61hlzqZKw12qszXyQ8c8k8+VbmoP3khJqXB2u34OK
-         r0R6w3Chhty48bs5fIPiEqpNsjqgSOd25DYZPmh/eJumMJEGGWz83W+3fdR0JwF+vFO5
-         mEEbHpfpQY24Mu19zAFZi2TsiyCRpZk9s0G1O2wNLxMVY3JMpx0s8hV3tsChMbk0eh7y
-         zwRqOOW8NupYp/v5bTpNygY4XFLMrr9CtK+i2O/hqSFWvl5B0S5XIVxlEXDh/AnokWSK
-         1UeA==
+        bh=6ZpUfgQM8l58jAA1FLv6FNtqasscnAngw/MWtVrklhs=;
+        b=Bo9x/OnIeuD4yOxUQBcKmabUSqnMZ0tD37iq/OHVxEJh7l092LYUiEcByhyeKoPqQH
+         6ccMpXG4qRKbkr941fgMrmTCvs7mBDKkmcyZ2TkZ97cu4Erpz6364n3eKpYtT/b1NuAZ
+         pi9UC5KrZS8fHRid7zPrK2EhUttI5OrNRFHSo8P3Mb2tkDzqPas8gU17A3WN+Bdf8SsZ
+         dU9egD++P5XQakRrLuSrsLxcUXmzHPNMQsJfA7zWkxd6pg+zQjqIPz81iRSpYAnZdaFW
+         4XHAdmJUPlV/gsJ01s3Xsj5gKwh9HnkRQU0HSv1IiMZAjlCNlnOhbi1ezx8q34YNlXVA
+         xsfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=Z7fvRiwPcYU72K21mcsEeWsle1VHrp2FoZLK7rnaPdE=;
-        b=bQxlZ5wV7o+cbZXwlxZg3Sa0zBMMZc3p0/Wx5zBr0ItMFXkSUOcYRaF3zckIGFwKbs
-         sOswE9+3XaX3PTaPFS82b4yeaoUOdlyL5yycDFqCsjk+yj8gGgLkZZQQq89OYY58fbeC
-         9CALamjjxXN8VWrSOBKAfqbnb96a3YU8K+OKEBkzQgEX5ZihiOaVxA+5t7gyMjADI/Sv
-         01KtMnND2E50dNN5NL58jHKDpKc7R00bAa8ZlrtJiLe3Irazqd0rIXK6vI0aBuykwZr+
-         GjFyK5K1Z5MnU0OigrNLn99EinVR8jXmJX9ETyVAAq3n0Vx2hTk8a3ObJRVKrAhbflQ4
-         Rtiw==
-X-Gm-Message-State: ACrzQf3cxe6NsWR7/yyDFi9boQjmMHWi+PEqmfcocry1ConWlvYq2OfQ
-	qy9ApmpfUZhwATWZIcrf0UmOUqj4Fx6S1fD4mH0goA==
-X-Google-Smtp-Source: AMsMyM7VbOFlVrwp8sat5c2fOoVrC6O5AG2BNs0Q/N/ssPahKqJyAog1GJURpNPkzC/i2wh0dKpKol7XCM05LlISp3k=
+        bh=6ZpUfgQM8l58jAA1FLv6FNtqasscnAngw/MWtVrklhs=;
+        b=zE32559nqEv+anztpPW3cA8k6qhgJyz5iMjypYDuTlU0DJgTdAzAyd5YYb9IePyQ6K
+         6krZEf1AdXsI8QIjKIJksiFA4zkZqkMrXIuldGH7idSI2W2MwgiHgvi4a7ftBlIIFy/L
+         7kVHFr8Lv30wvDCvuY4n0zuQU4gaBji4MYLE5WPApe0WKqFkKeVr7ELljfVntAHt5D7p
+         t4LJu0qICaJ1fndRw6mNYulTJYznlEF9QrhoMVktEKlx3T0POAiFA+laQJ1CLBksn3Ua
+         9ASBvIo5k3xinVsSuRn+YMs6aOEHEmk06k+DRSTjHDk+dzC2MXlosL4ZXzA9I/EOwCLB
+         pUxQ==
+X-Gm-Message-State: ACrzQf192oSxGhUnlLZwhDX8ItkK59oradXa1cdXzzENxebMB+vrMpAG
+	ing5wpN2EJLW1ADyEX2o/68OQn666iqUA8xG2j2p/Q==
+X-Google-Smtp-Source: AMsMyM5om3ildrb6FXKsDICcjLQng8HApyTNXbRFn0vHa6n1wlhKJZOEgXsol3CWajbZfhZ3j9+WO0SV0tqOewvj3U8=
 X-Received: by 2002:a63:464d:0:b0:441:5968:cd0e with SMTP id
- v13-20020a63464d000000b004415968cd0emr18985801pgk.595.1664881798027; Tue, 04
- Oct 2022 04:09:58 -0700 (PDT)
+ v13-20020a63464d000000b004415968cd0emr19098981pgk.595.1664883848385; Tue, 04
+ Oct 2022 04:44:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220919095939.761690562@infradead.org> <20220919101522.975285117@infradead.org>
-In-Reply-To: <20220919101522.975285117@infradead.org>
+References: <20220919095939.761690562@infradead.org> <20220919101521.139727471@infradead.org>
+ <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
+In-Reply-To: <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 4 Oct 2022 13:09:21 +0200
-Message-ID: <CAPDyKFqoBJPgehVODY0DGuUcnqJE5rpZjRPfdMCzOP0=JrvKNw@mail.gmail.com>
-Subject: Re: [PATCH v2 39/44] cpuidle,clk: Remove trace_.*_rcuidle()
+Date: Tue, 4 Oct 2022 13:43:31 +0200
+Message-ID: <CAPDyKFqGSt2NFe8aY=6rkp4P-WH7DCO1fmWrcXk4_5XNEvv25w@mail.gmail.com>
+Subject: Re: [PATCH v2 12/44] cpuidle,dt: Push RCU-idle into driver
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com, 
 	linus.walleij@linaro.org, bsegall@google.com, guoren@kernel.org, pavel@ucw.cz, 
@@ -112,8 +113,8 @@ Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com,
 	linux-mips@vger.kernel.org, palmer@dabbelt.com, anup@brainfault.org, 
 	bp@alien8.de, johannes@sipsolutions.net, linuxppc-dev@lists.ozlabs.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_040959_698579_310F54B9 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20221004_044410_399033_F0548712 
+X-CRM114-Status: GOOD (  29.68  )
 X-Mailman-Approved-At: Tue, 04 Oct 2022 13:58:15 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,62 +132,184 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Sept 2022 at 12:17, Peter Zijlstra <peterz@infradead.org> wrote:
+On Tue, 4 Oct 2022 at 13:03, Ulf Hansson <ulf.hansson@linaro.org> wrote:
 >
-> OMAP was the one and only user.
-
-OMAP? :-)
-
+> On Mon, 19 Sept 2022 at 12:18, Peter Zijlstra <peterz@infradead.org> wrote:
+> >
+> > Doing RCU-idle outside the driver, only to then temporarily enable it
+> > again before going idle is daft.
+> >
+> > Notably: this converts all dt_init_idle_driver() and
+> > __CPU_PM_CPU_IDLE_ENTER() users for they are inextrably intertwined.
+> >
+> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 >
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+This was not (yet) my intention. Please have a look at the comments I
+provided below.
 
 Kind regards
 Uffe
 
-> ---
->  drivers/clk/clk.c |    8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
 >
-> --- a/drivers/clk/clk.c
-> +++ b/drivers/clk/clk.c
-> @@ -978,12 +978,12 @@ static void clk_core_disable(struct clk_
->         if (--core->enable_count > 0)
->                 return;
+> > ---
+> >  arch/arm/mach-omap2/cpuidle34xx.c    |    4 ++--
+> >  drivers/acpi/processor_idle.c        |    2 ++
+> >  drivers/cpuidle/cpuidle-arm.c        |    1 +
+> >  drivers/cpuidle/cpuidle-big_little.c |    8 ++++++--
+> >  drivers/cpuidle/cpuidle-psci.c       |    1 +
+> >  drivers/cpuidle/cpuidle-qcom-spm.c   |    1 +
+> >  drivers/cpuidle/cpuidle-riscv-sbi.c  |    1 +
+> >  drivers/cpuidle/dt_idle_states.c     |    2 +-
+> >  include/linux/cpuidle.h              |    4 ++++
+> >  9 files changed, 19 insertions(+), 5 deletions(-)
+> >
+> > --- a/drivers/acpi/processor_idle.c
+> > +++ b/drivers/acpi/processor_idle.c
+> > @@ -1200,6 +1200,8 @@ static int acpi_processor_setup_lpi_stat
+> >                 state->target_residency = lpi->min_residency;
+> >                 if (lpi->arch_flags)
+> >                         state->flags |= CPUIDLE_FLAG_TIMER_STOP;
+> > +               if (lpi->entry_method == ACPI_CSTATE_FFH)
+> > +                       state->flags |= CPUIDLE_FLAG_RCU_IDLE;
 >
-> -       trace_clk_disable_rcuidle(core);
-> +       trace_clk_disable(core);
+> I assume the state index here will never be 0?
 >
->         if (core->ops->disable)
->                 core->ops->disable(core->hw);
+> If not, it may lead to that acpi_processor_ffh_lpi_enter() may trigger
+> CPU_PM_CPU_IDLE_ENTER_PARAM() to call ct_cpuidle_enter|exit() for an
+> idle-state that doesn't have the CPUIDLE_FLAG_RCU_IDLE bit set.
 >
-> -       trace_clk_disable_complete_rcuidle(core);
-> +       trace_clk_disable_complete(core);
+> >                 state->enter = acpi_idle_lpi_enter;
+> >                 drv->safe_state_index = i;
+> >         }
+> > --- a/drivers/cpuidle/cpuidle-arm.c
+> > +++ b/drivers/cpuidle/cpuidle-arm.c
+> > @@ -53,6 +53,7 @@ static struct cpuidle_driver arm_idle_dr
+> >          * handler for idle state index 0.
+> >          */
+> >         .states[0] = {
+> > +               .flags                  = CPUIDLE_FLAG_RCU_IDLE,
 >
->         clk_core_disable(core->parent);
->  }
-> @@ -1037,12 +1037,12 @@ static int clk_core_enable(struct clk_co
->                 if (ret)
->                         return ret;
+> Comparing arm64 and arm32 idle-states/idle-drivers, the $subject
+> series ends up setting the CPUIDLE_FLAG_RCU_IDLE for the ARM WFI idle
+> state (state zero), but only for the arm64 and psci cases (mostly
+> arm64). For arm32 we would need to update the ARM_CPUIDLE_WFI_STATE
+> too, as that is what most arm32 idle-drivers are using. My point is,
+> the code becomes a bit inconsistent.
 >
-> -               trace_clk_enable_rcuidle(core);
-> +               trace_clk_enable(core);
+> Perhaps it's easier to avoid setting the CPUIDLE_FLAG_RCU_IDLE bit for
+> all of the ARM WFI idle states, for both arm64 and arm32?
 >
->                 if (core->ops->enable)
->                         ret = core->ops->enable(core->hw);
+> >                 .enter                  = arm_enter_idle_state,
+> >                 .exit_latency           = 1,
+> >                 .target_residency       = 1,
+> > --- a/drivers/cpuidle/cpuidle-big_little.c
+> > +++ b/drivers/cpuidle/cpuidle-big_little.c
+> > @@ -64,7 +64,8 @@ static struct cpuidle_driver bl_idle_lit
+> >                 .enter                  = bl_enter_powerdown,
+> >                 .exit_latency           = 700,
+> >                 .target_residency       = 2500,
+> > -               .flags                  = CPUIDLE_FLAG_TIMER_STOP,
+> > +               .flags                  = CPUIDLE_FLAG_TIMER_STOP |
+> > +                                         CPUIDLE_FLAG_RCU_IDLE,
+> >                 .name                   = "C1",
+> >                 .desc                   = "ARM little-cluster power down",
+> >         },
+> > @@ -85,7 +86,8 @@ static struct cpuidle_driver bl_idle_big
+> >                 .enter                  = bl_enter_powerdown,
+> >                 .exit_latency           = 500,
+> >                 .target_residency       = 2000,
+> > -               .flags                  = CPUIDLE_FLAG_TIMER_STOP,
+> > +               .flags                  = CPUIDLE_FLAG_TIMER_STOP |
+> > +                                         CPUIDLE_FLAG_RCU_IDLE,
+> >                 .name                   = "C1",
+> >                 .desc                   = "ARM big-cluster power down",
+> >         },
+> > @@ -124,11 +126,13 @@ static int bl_enter_powerdown(struct cpu
+> >                                 struct cpuidle_driver *drv, int idx)
+> >  {
+> >         cpu_pm_enter();
+> > +       ct_idle_enter();
+> >
+> >         cpu_suspend(0, bl_powerdown_finisher);
+> >
+> >         /* signals the MCPM core that CPU is out of low power state */
+> >         mcpm_cpu_powered_up();
+> > +       ct_idle_exit();
+> >
+> >         cpu_pm_exit();
+> >
+> > --- a/drivers/cpuidle/cpuidle-psci.c
+> > +++ b/drivers/cpuidle/cpuidle-psci.c
+> > @@ -357,6 +357,7 @@ static int psci_idle_init_cpu(struct dev
+> >          * PSCI idle states relies on architectural WFI to be represented as
+> >          * state index 0.
+> >          */
+> > +       drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
+> >         drv->states[0].enter = psci_enter_idle_state;
+> >         drv->states[0].exit_latency = 1;
+> >         drv->states[0].target_residency = 1;
+> > --- a/drivers/cpuidle/cpuidle-qcom-spm.c
+> > +++ b/drivers/cpuidle/cpuidle-qcom-spm.c
+> > @@ -72,6 +72,7 @@ static struct cpuidle_driver qcom_spm_id
+> >         .owner = THIS_MODULE,
+> >         .states[0] = {
+> >                 .enter                  = spm_enter_idle_state,
+> > +               .flags                  = CPUIDLE_FLAG_RCU_IDLE,
+> >                 .exit_latency           = 1,
+> >                 .target_residency       = 1,
+> >                 .power_usage            = UINT_MAX,
+> > --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+> > +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> > @@ -332,6 +332,7 @@ static int sbi_cpuidle_init_cpu(struct d
+> >         drv->cpumask = (struct cpumask *)cpumask_of(cpu);
+> >
+> >         /* RISC-V architectural WFI to be represented as state index 0. */
+> > +       drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
+> >         drv->states[0].enter = sbi_cpuidle_enter_state;
+> >         drv->states[0].exit_latency = 1;
+> >         drv->states[0].target_residency = 1;
+> > --- a/drivers/cpuidle/dt_idle_states.c
+> > +++ b/drivers/cpuidle/dt_idle_states.c
+> > @@ -77,7 +77,7 @@ static int init_state_node(struct cpuidl
+> >         if (err)
+> >                 desc = state_node->name;
+> >
+> > -       idle_state->flags = 0;
+> > +       idle_state->flags = CPUIDLE_FLAG_RCU_IDLE;
+> >         if (of_property_read_bool(state_node, "local-timer-stop"))
+> >                 idle_state->flags |= CPUIDLE_FLAG_TIMER_STOP;
+> >         /*
+> > --- a/include/linux/cpuidle.h
+> > +++ b/include/linux/cpuidle.h
+> > @@ -282,14 +282,18 @@ extern s64 cpuidle_governor_latency_req(
+> >         int __ret = 0;                                                  \
+> >                                                                         \
+> >         if (!idx) {                                                     \
+> > +               ct_idle_enter();                                        \
 >
-> -               trace_clk_enable_complete_rcuidle(core);
-> +               trace_clk_enable_complete(core);
+> According to my comment above, we should then drop these calls to
+> ct_idle_enter and ct_idle_exit() here. Right?
 >
->                 if (ret) {
->                         clk_core_disable(core->parent);
+> >                 cpu_do_idle();                                          \
+> > +               ct_idle_exit();                                         \
+> >                 return idx;                                             \
+> >         }                                                               \
+> >                                                                         \
+> >         if (!is_retention)                                              \
+> >                 __ret =  cpu_pm_enter();                                \
+> >         if (!__ret) {                                                   \
+> > +               ct_idle_enter();                                        \
+> >                 __ret = low_level_idle_enter(state);                    \
+> > +               ct_idle_exit();                                         \
+> >                 if (!is_retention)                                      \
+> >                         cpu_pm_exit();                                  \
+> >         }                                                               \
+> >
 >
->
-> _______________________________________________
-> Virtualization mailing list
-> Virtualization@lists.linux-foundation.org
-> https://lists.linuxfoundation.org/mailman/listinfo/virtualization
+> Kind regards
+> Uffe
 
 _______________________________________________
 linux-riscv mailing list
