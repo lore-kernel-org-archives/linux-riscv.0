@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3BAC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577F8C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xchI/USqE7jawhYRb7G59DF0FA8GC3IES3OibS8fthQ=; b=q20kLgi7c9U1Qn
-	Nm8+7/QD/30fdfiphEiDGILcBu/77IgLUAaA6ByAhLKlqWizjgLYxEgGXC8Obx8GshMxVQUWMCy/X
-	SnuKp5gnOzEoC5jM/NMXbYuVQteyPHyF7lu0D9BB7uZyQcwaf4fBpabEM1Qx2cTCfy9HxFL3n15SK
-	YlGUfSX6a3Q1LcvSZfVxuFZUUVoEsGXg6auG55Ri5oC6gh2MCZTIxTC19xy64ugayRF7TyWw785Sk
-	FNhy2oASoPIfRtQlpQ+Z7jJe9L7N/1BinbhbFUX1Bv9lKNqX5T+7JmFfCrJZB+RiXU+TfHfr/RQsA
-	LqhKlBZ3ZL03FRECDStg==;
+	List-Owner; bh=vQypmo9oMpntJAluD6gHbuWJ23tRK3bY3yw/Cflxkko=; b=2kx9WCugd22cj5
+	9kMFAsKAF7ptJFdBIUHqaGgvTr9gOFxsIbnSzQWT0D5rdZjXrQzgVwI18BNHrfUklP99vdBFvJ1rm
+	edUFX6ZcRKBg1MzFR9G5uVFDyDvN3Kk9g3pOHvmkBAEa1vvi+yBu+x8RBximhU/LPVVCa08RASHxQ
+	lTAnYcyQNXeewe8GTUDnvmrgDkek3OLhFUzQwZ0BvBILZxrqtf/fOR++APaaFUCVrwGAOpRTF4w56
+	IO6EkFTGKQNUJBsIipKTPKzd5Q/WgJxriceo7mamhGLwEWcGBG+HaUJVMf8gctI/H7PqcC3N4Jdg4
+	E0a8m7sMLIjtDdlC8dRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofozf-00BAk6-Jh; Tue, 04 Oct 2022 20:58:23 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1ofozh-00BAky-69; Tue, 04 Oct 2022 20:58:25 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofgLK-009XAB-BF
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 11:44:12 +0000
-Received: by mail-pg1-x533.google.com with SMTP id e129so12485323pgc.9
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 04:44:09 -0700 (PDT)
+	id 1ofjeK-00A1WG-1d
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 15:16:03 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id o9-20020a17090a0a0900b0020ad4e758b3so2747178pjo.4
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 08:15:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=6ZpUfgQM8l58jAA1FLv6FNtqasscnAngw/MWtVrklhs=;
-        b=Bo9x/OnIeuD4yOxUQBcKmabUSqnMZ0tD37iq/OHVxEJh7l092LYUiEcByhyeKoPqQH
-         6ccMpXG4qRKbkr941fgMrmTCvs7mBDKkmcyZ2TkZ97cu4Erpz6364n3eKpYtT/b1NuAZ
-         pi9UC5KrZS8fHRid7zPrK2EhUttI5OrNRFHSo8P3Mb2tkDzqPas8gU17A3WN+Bdf8SsZ
-         dU9egD++P5XQakRrLuSrsLxcUXmzHPNMQsJfA7zWkxd6pg+zQjqIPz81iRSpYAnZdaFW
-         4XHAdmJUPlV/gsJ01s3Xsj5gKwh9HnkRQU0HSv1IiMZAjlCNlnOhbi1ezx8q34YNlXVA
-         xsfw==
+        bh=J2ppHC6gj92crGPpSrELKUpyhixWpF3W0/4C0ZdDtPI=;
+        b=UiXw6aHZigxzPRMUFzDILsNVsAdyFtr3B9KxKEI8m7E01CsajejevTYV7BdP2wsOm/
+         HvcPZBMM+TkW28eTt3F1DhxxBtezuv0XTDjtGYW8B2mbElhkTInGpM6vTu+4Ez1+Z4Zl
+         CSSAi6wcg4/gLFK0z0F/WRWRc047jLnY5XkW7fk/hHejtLeNbcKkU7CbDUwW9lkytUXr
+         cd/OQHjN7wB6eRDMRvJyzU3msr1RCb52XcEzMB0ZW808FTM1QI6i/jSUk70317I5p+kD
+         nFmZIjIA0zvgwBAFP/4LpKCKrT0ZRrqcJXuKYGFTLZWpkF7eqaysYMEZs2++diGTMeSz
+         qF/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=6ZpUfgQM8l58jAA1FLv6FNtqasscnAngw/MWtVrklhs=;
-        b=zE32559nqEv+anztpPW3cA8k6qhgJyz5iMjypYDuTlU0DJgTdAzAyd5YYb9IePyQ6K
-         6krZEf1AdXsI8QIjKIJksiFA4zkZqkMrXIuldGH7idSI2W2MwgiHgvi4a7ftBlIIFy/L
-         7kVHFr8Lv30wvDCvuY4n0zuQU4gaBji4MYLE5WPApe0WKqFkKeVr7ELljfVntAHt5D7p
-         t4LJu0qICaJ1fndRw6mNYulTJYznlEF9QrhoMVktEKlx3T0POAiFA+laQJ1CLBksn3Ua
-         9ASBvIo5k3xinVsSuRn+YMs6aOEHEmk06k+DRSTjHDk+dzC2MXlosL4ZXzA9I/EOwCLB
-         pUxQ==
-X-Gm-Message-State: ACrzQf192oSxGhUnlLZwhDX8ItkK59oradXa1cdXzzENxebMB+vrMpAG
-	ing5wpN2EJLW1ADyEX2o/68OQn666iqUA8xG2j2p/Q==
-X-Google-Smtp-Source: AMsMyM5om3ildrb6FXKsDICcjLQng8HApyTNXbRFn0vHa6n1wlhKJZOEgXsol3CWajbZfhZ3j9+WO0SV0tqOewvj3U8=
-X-Received: by 2002:a63:464d:0:b0:441:5968:cd0e with SMTP id
- v13-20020a63464d000000b004415968cd0emr19098981pgk.595.1664883848385; Tue, 04
- Oct 2022 04:44:08 -0700 (PDT)
+        bh=J2ppHC6gj92crGPpSrELKUpyhixWpF3W0/4C0ZdDtPI=;
+        b=Ks8j32/m8U8BKgMmCe3IfmxVFKYvUoZtx9BIAMeCmQi21/fd7ymDgb+YNvxNIf6G29
+         ER6cVxUA/kQiR5E8Hat2+QjxeEoDkFk4lPWHXJYRM3hLihWGqt2NqUJGcpvxItTyD//3
+         ej7VNRir0Ea7Vq3dJTCEPqB/RUEc89HsKo7RH7ultDN9rE6m8hqczk9K+q9DqQrh/Gwl
+         QiI5Xu+/M21mXKQ80GzSWu7932IpQXdTvDxwElGuBBiNTKsWQb7iiZEm4Tq6yER9jg55
+         JspPune94lgHrd9HjT7spDI33pXsJIsndBWgOv53lDZeQBjawTqR5TL5Nyd8FLa7ucqg
+         6R5w==
+X-Gm-Message-State: ACrzQf2oCAj6FZYGjYW9ZJBfFy89ge7kUq5gLT0x19beJrFFmU1hhG3q
+	qxkQRcm12ePDAztgc7tOkn0rB+xhtf07osqNL8TGzw==
+X-Google-Smtp-Source: AMsMyM7n+Vc130we6EQHET/igQcvZPTbfdglKFSS5m9j3dBgMdP/YI1FG0U2Mdd0MJ/1Rl84IgnhjST9lkox2h0baYs=
+X-Received: by 2002:a17:90b:1b06:b0:202:cce0:2148 with SMTP id
+ nu6-20020a17090b1b0600b00202cce02148mr262733pjb.84.1664896556863; Tue, 04 Oct
+ 2022 08:15:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220919095939.761690562@infradead.org> <20220919101521.139727471@infradead.org>
- <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
-In-Reply-To: <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
+References: <20220919095939.761690562@infradead.org>
+In-Reply-To: <20220919095939.761690562@infradead.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 4 Oct 2022 13:43:31 +0200
-Message-ID: <CAPDyKFqGSt2NFe8aY=6rkp4P-WH7DCO1fmWrcXk4_5XNEvv25w@mail.gmail.com>
-Subject: Re: [PATCH v2 12/44] cpuidle,dt: Push RCU-idle into driver
+Date: Tue, 4 Oct 2022 17:15:20 +0200
+Message-ID: <CAPDyKFqwV27k5r8Pqo0bOqKQ2WKfcMdQoua665nA953U36+rXg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/44] cpuidle,rcu: Clean up the mess
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com, 
 	linus.walleij@linaro.org, bsegall@google.com, guoren@kernel.org, pavel@ucw.cz, 
@@ -113,8 +112,8 @@ Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com,
 	linux-mips@vger.kernel.org, palmer@dabbelt.com, anup@brainfault.org, 
 	bp@alien8.de, johannes@sipsolutions.net, linuxppc-dev@lists.ozlabs.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_044410_399033_F0548712 
-X-CRM114-Status: GOOD (  29.68  )
+X-CRM114-CacheID: sfid-20221004_081600_110030_A59DBC4F 
+X-CRM114-Status: GOOD (  22.38  )
 X-Mailman-Approved-At: Tue, 04 Oct 2022 13:58:15 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,184 +131,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Oct 2022 at 13:03, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+On Mon, 19 Sept 2022 at 12:18, Peter Zijlstra <peterz@infradead.org> wrote:
 >
-> On Mon, 19 Sept 2022 at 12:18, Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > Doing RCU-idle outside the driver, only to then temporarily enable it
-> > again before going idle is daft.
-> >
-> > Notably: this converts all dt_init_idle_driver() and
-> > __CPU_PM_CPU_IDLE_ENTER() users for they are inextrably intertwined.
-> >
-> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Hi All!
 >
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> At long last, a respin of the cpuidle vs rcu cleanup patches.
+>
+> v1: https://lkml.kernel.org/r/20220608142723.103523089@infradead.org
+>
+> These here patches clean up the mess that is cpuidle vs rcuidle.
+>
+> At the end of the ride there's only on RCU_NONIDLE user left:
+>
+>   arch/arm64/kernel/suspend.c:            RCU_NONIDLE(__cpu_suspend_exit());
+>
+> and 'one' trace_*_rcuidle() user:
+>
+>   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
+>   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
+>   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, caller_addr);
+>   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, caller_addr);
+>   kernel/trace/trace_preemptirq.c:                trace_preempt_enable_rcuidle(a0, a1);
+>   kernel/trace/trace_preemptirq.c:                trace_preempt_disable_rcuidle(a0, a1);
+>
+> However this last is all in deprecated code that should be unused for GENERIC_ENTRY.
+>
+> I've touched a lot of code that I can't test and I might've broken something by
+> accident. In particular the whole ARM cpuidle stuff was quite involved.
+>
+> Please all; have a look where you haven't already.
+>
+>
+> New since v1:
+>
+>  - rebase on top of Frederic's rcu-context-tracking rename fest
+>  - more omap goodness as per the last discusion (thanks Tony!)
+>  - removed one more RCU_NONIDLE() from arm64/risc-v perf code
+>  - ubsan/kasan fixes
+>  - intel_idle module-param for testing
+>  - a bunch of extra __always_inline, because compilers are silly.
+>
+> ---
+>  arch/alpha/kernel/process.c               |  1 -
+>  arch/alpha/kernel/vmlinux.lds.S           |  1 -
+>  arch/arc/kernel/process.c                 |  3 ++
+>  arch/arc/kernel/vmlinux.lds.S             |  1 -
+>  arch/arm/include/asm/vmlinux.lds.h        |  1 -
+>  arch/arm/kernel/process.c                 |  1 -
+>  arch/arm/kernel/smp.c                     |  6 +--
+>  arch/arm/mach-gemini/board-dt.c           |  3 +-
+>  arch/arm/mach-imx/cpuidle-imx6q.c         |  4 +-
+>  arch/arm/mach-imx/cpuidle-imx6sx.c        |  5 ++-
+>  arch/arm/mach-omap2/common.h              |  6 ++-
+>  arch/arm/mach-omap2/cpuidle34xx.c         | 16 +++++++-
+>  arch/arm/mach-omap2/cpuidle44xx.c         | 29 +++++++-------
+>  arch/arm/mach-omap2/omap-mpuss-lowpower.c | 12 +++++-
+>  arch/arm/mach-omap2/pm.h                  |  2 +-
+>  arch/arm/mach-omap2/pm24xx.c              | 51 +-----------------------
+>  arch/arm/mach-omap2/pm34xx.c              | 14 +++++--
+>  arch/arm/mach-omap2/pm44xx.c              |  2 +-
+>  arch/arm/mach-omap2/powerdomain.c         | 10 ++---
+>  arch/arm64/kernel/idle.c                  |  1 -
+>  arch/arm64/kernel/smp.c                   |  4 +-
+>  arch/arm64/kernel/vmlinux.lds.S           |  1 -
+>  arch/csky/kernel/process.c                |  1 -
+>  arch/csky/kernel/smp.c                    |  2 +-
+>  arch/csky/kernel/vmlinux.lds.S            |  1 -
+>  arch/hexagon/kernel/process.c             |  1 -
+>  arch/hexagon/kernel/vmlinux.lds.S         |  1 -
+>  arch/ia64/kernel/process.c                |  1 +
+>  arch/ia64/kernel/vmlinux.lds.S            |  1 -
+>  arch/loongarch/kernel/idle.c              |  1 +
+>  arch/loongarch/kernel/vmlinux.lds.S       |  1 -
+>  arch/m68k/kernel/vmlinux-nommu.lds        |  1 -
+>  arch/m68k/kernel/vmlinux-std.lds          |  1 -
+>  arch/m68k/kernel/vmlinux-sun3.lds         |  1 -
+>  arch/microblaze/kernel/process.c          |  1 -
+>  arch/microblaze/kernel/vmlinux.lds.S      |  1 -
+>  arch/mips/kernel/idle.c                   |  8 ++--
+>  arch/mips/kernel/vmlinux.lds.S            |  1 -
+>  arch/nios2/kernel/process.c               |  1 -
+>  arch/nios2/kernel/vmlinux.lds.S           |  1 -
+>  arch/openrisc/kernel/process.c            |  1 +
+>  arch/openrisc/kernel/vmlinux.lds.S        |  1 -
+>  arch/parisc/kernel/process.c              |  2 -
+>  arch/parisc/kernel/vmlinux.lds.S          |  1 -
+>  arch/powerpc/kernel/idle.c                |  5 +--
+>  arch/powerpc/kernel/vmlinux.lds.S         |  1 -
+>  arch/riscv/kernel/process.c               |  1 -
+>  arch/riscv/kernel/vmlinux-xip.lds.S       |  1 -
+>  arch/riscv/kernel/vmlinux.lds.S           |  1 -
+>  arch/s390/kernel/idle.c                   |  1 -
+>  arch/s390/kernel/vmlinux.lds.S            |  1 -
+>  arch/sh/kernel/idle.c                     |  1 +
+>  arch/sh/kernel/vmlinux.lds.S              |  1 -
+>  arch/sparc/kernel/leon_pmc.c              |  4 ++
+>  arch/sparc/kernel/process_32.c            |  1 -
+>  arch/sparc/kernel/process_64.c            |  3 +-
+>  arch/sparc/kernel/vmlinux.lds.S           |  1 -
+>  arch/um/kernel/dyn.lds.S                  |  1 -
+>  arch/um/kernel/process.c                  |  1 -
+>  arch/um/kernel/uml.lds.S                  |  1 -
+>  arch/x86/boot/compressed/vmlinux.lds.S    |  1 +
+>  arch/x86/coco/tdx/tdcall.S                | 15 +------
+>  arch/x86/coco/tdx/tdx.c                   | 25 ++++--------
+>  arch/x86/events/amd/brs.c                 | 13 +++----
+>  arch/x86/include/asm/fpu/xcr.h            |  4 +-
+>  arch/x86/include/asm/irqflags.h           | 11 ++----
+>  arch/x86/include/asm/mwait.h              | 14 +++----
+>  arch/x86/include/asm/nospec-branch.h      |  2 +-
+>  arch/x86/include/asm/paravirt.h           |  6 ++-
+>  arch/x86/include/asm/perf_event.h         |  2 +-
+>  arch/x86/include/asm/shared/io.h          |  4 +-
+>  arch/x86/include/asm/shared/tdx.h         |  1 -
+>  arch/x86/include/asm/special_insns.h      |  8 ++--
+>  arch/x86/include/asm/xen/hypercall.h      |  2 +-
+>  arch/x86/kernel/cpu/bugs.c                |  2 +-
+>  arch/x86/kernel/fpu/core.c                |  4 +-
+>  arch/x86/kernel/paravirt.c                | 14 ++++++-
+>  arch/x86/kernel/process.c                 | 65 +++++++++++++++----------------
+>  arch/x86/kernel/vmlinux.lds.S             |  1 -
+>  arch/x86/lib/memcpy_64.S                  |  5 +--
+>  arch/x86/lib/memmove_64.S                 |  4 +-
+>  arch/x86/lib/memset_64.S                  |  4 +-
+>  arch/x86/xen/enlighten_pv.c               |  2 +-
+>  arch/x86/xen/irq.c                        |  2 +-
+>  arch/xtensa/kernel/process.c              |  1 +
+>  arch/xtensa/kernel/vmlinux.lds.S          |  1 -
+>  drivers/acpi/processor_idle.c             | 36 ++++++++++-------
+>  drivers/base/power/runtime.c              | 24 ++++++------
+>  drivers/clk/clk.c                         |  8 ++--
+>  drivers/cpuidle/cpuidle-arm.c             |  1 +
+>  drivers/cpuidle/cpuidle-big_little.c      |  8 +++-
+>  drivers/cpuidle/cpuidle-mvebu-v7.c        |  7 ++++
+>  drivers/cpuidle/cpuidle-psci.c            | 10 +++--
+>  drivers/cpuidle/cpuidle-qcom-spm.c        |  1 +
+>  drivers/cpuidle/cpuidle-riscv-sbi.c       | 10 +++--
+>  drivers/cpuidle/cpuidle-tegra.c           | 21 +++++++---
+>  drivers/cpuidle/cpuidle.c                 | 21 +++++-----
+>  drivers/cpuidle/dt_idle_states.c          |  2 +-
+>  drivers/cpuidle/poll_state.c              | 10 ++++-
+>  drivers/idle/intel_idle.c                 | 19 +++++----
+>  drivers/perf/arm_pmu.c                    | 11 +-----
+>  drivers/perf/riscv_pmu_sbi.c              |  8 +---
+>  include/asm-generic/vmlinux.lds.h         |  9 ++---
+>  include/linux/compiler_types.h            |  8 +++-
+>  include/linux/cpu.h                       |  3 --
+>  include/linux/cpuidle.h                   | 34 ++++++++++++++++
+>  include/linux/cpumask.h                   |  4 +-
+>  include/linux/percpu-defs.h               |  2 +-
+>  include/linux/sched/idle.h                | 40 ++++++++++++++-----
+>  include/linux/thread_info.h               | 18 ++++++++-
+>  include/linux/tracepoint.h                | 13 ++++++-
+>  kernel/cpu_pm.c                           |  9 -----
+>  kernel/printk/printk.c                    |  2 +-
+>  kernel/sched/idle.c                       | 47 +++++++---------------
+>  kernel/time/tick-broadcast-hrtimer.c      | 29 ++++++--------
+>  kernel/time/tick-broadcast.c              |  6 ++-
+>  kernel/trace/trace.c                      |  3 ++
+>  lib/ubsan.c                               |  5 ++-
+>  mm/kasan/kasan.h                          |  4 ++
+>  mm/kasan/shadow.c                         | 38 ++++++++++++++++++
+>  tools/objtool/check.c                     | 17 ++++++++
+>  121 files changed, 511 insertions(+), 420 deletions(-)
 
-This was not (yet) my intention. Please have a look at the comments I
-provided below.
+Thanks for cleaning up the situation!
+
+I have applied this on a plain v6.0 (only one patch had a minor
+conflict) and tested this on an ARM64 Dragonboard 410c, which uses
+cpuidle-psci and the cpuidle-psci-domain. I didn't observe any
+problems, so feel free to add:
+
+Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
 
 Kind regards
 Uffe
-
->
-> > ---
-> >  arch/arm/mach-omap2/cpuidle34xx.c    |    4 ++--
-> >  drivers/acpi/processor_idle.c        |    2 ++
-> >  drivers/cpuidle/cpuidle-arm.c        |    1 +
-> >  drivers/cpuidle/cpuidle-big_little.c |    8 ++++++--
-> >  drivers/cpuidle/cpuidle-psci.c       |    1 +
-> >  drivers/cpuidle/cpuidle-qcom-spm.c   |    1 +
-> >  drivers/cpuidle/cpuidle-riscv-sbi.c  |    1 +
-> >  drivers/cpuidle/dt_idle_states.c     |    2 +-
-> >  include/linux/cpuidle.h              |    4 ++++
-> >  9 files changed, 19 insertions(+), 5 deletions(-)
-> >
-> > --- a/drivers/acpi/processor_idle.c
-> > +++ b/drivers/acpi/processor_idle.c
-> > @@ -1200,6 +1200,8 @@ static int acpi_processor_setup_lpi_stat
-> >                 state->target_residency = lpi->min_residency;
-> >                 if (lpi->arch_flags)
-> >                         state->flags |= CPUIDLE_FLAG_TIMER_STOP;
-> > +               if (lpi->entry_method == ACPI_CSTATE_FFH)
-> > +                       state->flags |= CPUIDLE_FLAG_RCU_IDLE;
->
-> I assume the state index here will never be 0?
->
-> If not, it may lead to that acpi_processor_ffh_lpi_enter() may trigger
-> CPU_PM_CPU_IDLE_ENTER_PARAM() to call ct_cpuidle_enter|exit() for an
-> idle-state that doesn't have the CPUIDLE_FLAG_RCU_IDLE bit set.
->
-> >                 state->enter = acpi_idle_lpi_enter;
-> >                 drv->safe_state_index = i;
-> >         }
-> > --- a/drivers/cpuidle/cpuidle-arm.c
-> > +++ b/drivers/cpuidle/cpuidle-arm.c
-> > @@ -53,6 +53,7 @@ static struct cpuidle_driver arm_idle_dr
-> >          * handler for idle state index 0.
-> >          */
-> >         .states[0] = {
-> > +               .flags                  = CPUIDLE_FLAG_RCU_IDLE,
->
-> Comparing arm64 and arm32 idle-states/idle-drivers, the $subject
-> series ends up setting the CPUIDLE_FLAG_RCU_IDLE for the ARM WFI idle
-> state (state zero), but only for the arm64 and psci cases (mostly
-> arm64). For arm32 we would need to update the ARM_CPUIDLE_WFI_STATE
-> too, as that is what most arm32 idle-drivers are using. My point is,
-> the code becomes a bit inconsistent.
->
-> Perhaps it's easier to avoid setting the CPUIDLE_FLAG_RCU_IDLE bit for
-> all of the ARM WFI idle states, for both arm64 and arm32?
->
-> >                 .enter                  = arm_enter_idle_state,
-> >                 .exit_latency           = 1,
-> >                 .target_residency       = 1,
-> > --- a/drivers/cpuidle/cpuidle-big_little.c
-> > +++ b/drivers/cpuidle/cpuidle-big_little.c
-> > @@ -64,7 +64,8 @@ static struct cpuidle_driver bl_idle_lit
-> >                 .enter                  = bl_enter_powerdown,
-> >                 .exit_latency           = 700,
-> >                 .target_residency       = 2500,
-> > -               .flags                  = CPUIDLE_FLAG_TIMER_STOP,
-> > +               .flags                  = CPUIDLE_FLAG_TIMER_STOP |
-> > +                                         CPUIDLE_FLAG_RCU_IDLE,
-> >                 .name                   = "C1",
-> >                 .desc                   = "ARM little-cluster power down",
-> >         },
-> > @@ -85,7 +86,8 @@ static struct cpuidle_driver bl_idle_big
-> >                 .enter                  = bl_enter_powerdown,
-> >                 .exit_latency           = 500,
-> >                 .target_residency       = 2000,
-> > -               .flags                  = CPUIDLE_FLAG_TIMER_STOP,
-> > +               .flags                  = CPUIDLE_FLAG_TIMER_STOP |
-> > +                                         CPUIDLE_FLAG_RCU_IDLE,
-> >                 .name                   = "C1",
-> >                 .desc                   = "ARM big-cluster power down",
-> >         },
-> > @@ -124,11 +126,13 @@ static int bl_enter_powerdown(struct cpu
-> >                                 struct cpuidle_driver *drv, int idx)
-> >  {
-> >         cpu_pm_enter();
-> > +       ct_idle_enter();
-> >
-> >         cpu_suspend(0, bl_powerdown_finisher);
-> >
-> >         /* signals the MCPM core that CPU is out of low power state */
-> >         mcpm_cpu_powered_up();
-> > +       ct_idle_exit();
-> >
-> >         cpu_pm_exit();
-> >
-> > --- a/drivers/cpuidle/cpuidle-psci.c
-> > +++ b/drivers/cpuidle/cpuidle-psci.c
-> > @@ -357,6 +357,7 @@ static int psci_idle_init_cpu(struct dev
-> >          * PSCI idle states relies on architectural WFI to be represented as
-> >          * state index 0.
-> >          */
-> > +       drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
-> >         drv->states[0].enter = psci_enter_idle_state;
-> >         drv->states[0].exit_latency = 1;
-> >         drv->states[0].target_residency = 1;
-> > --- a/drivers/cpuidle/cpuidle-qcom-spm.c
-> > +++ b/drivers/cpuidle/cpuidle-qcom-spm.c
-> > @@ -72,6 +72,7 @@ static struct cpuidle_driver qcom_spm_id
-> >         .owner = THIS_MODULE,
-> >         .states[0] = {
-> >                 .enter                  = spm_enter_idle_state,
-> > +               .flags                  = CPUIDLE_FLAG_RCU_IDLE,
-> >                 .exit_latency           = 1,
-> >                 .target_residency       = 1,
-> >                 .power_usage            = UINT_MAX,
-> > --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-> > +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-> > @@ -332,6 +332,7 @@ static int sbi_cpuidle_init_cpu(struct d
-> >         drv->cpumask = (struct cpumask *)cpumask_of(cpu);
-> >
-> >         /* RISC-V architectural WFI to be represented as state index 0. */
-> > +       drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
-> >         drv->states[0].enter = sbi_cpuidle_enter_state;
-> >         drv->states[0].exit_latency = 1;
-> >         drv->states[0].target_residency = 1;
-> > --- a/drivers/cpuidle/dt_idle_states.c
-> > +++ b/drivers/cpuidle/dt_idle_states.c
-> > @@ -77,7 +77,7 @@ static int init_state_node(struct cpuidl
-> >         if (err)
-> >                 desc = state_node->name;
-> >
-> > -       idle_state->flags = 0;
-> > +       idle_state->flags = CPUIDLE_FLAG_RCU_IDLE;
-> >         if (of_property_read_bool(state_node, "local-timer-stop"))
-> >                 idle_state->flags |= CPUIDLE_FLAG_TIMER_STOP;
-> >         /*
-> > --- a/include/linux/cpuidle.h
-> > +++ b/include/linux/cpuidle.h
-> > @@ -282,14 +282,18 @@ extern s64 cpuidle_governor_latency_req(
-> >         int __ret = 0;                                                  \
-> >                                                                         \
-> >         if (!idx) {                                                     \
-> > +               ct_idle_enter();                                        \
->
-> According to my comment above, we should then drop these calls to
-> ct_idle_enter and ct_idle_exit() here. Right?
->
-> >                 cpu_do_idle();                                          \
-> > +               ct_idle_exit();                                         \
-> >                 return idx;                                             \
-> >         }                                                               \
-> >                                                                         \
-> >         if (!is_retention)                                              \
-> >                 __ret =  cpu_pm_enter();                                \
-> >         if (!__ret) {                                                   \
-> > +               ct_idle_enter();                                        \
-> >                 __ret = low_level_idle_enter(state);                    \
-> > +               ct_idle_exit();                                         \
-> >                 if (!is_retention)                                      \
-> >                         cpu_pm_exit();                                  \
-> >         }                                                               \
-> >
->
-> Kind regards
-> Uffe
 
 _______________________________________________
 linux-riscv mailing list
