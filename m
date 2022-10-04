@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69003C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 06:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C95FC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 07:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uQi+t7gU24RhflQgarqzAPj3UDBvAd2y/CnwishaDjM=; b=dUAHSYgmjspjn0
-	rMPvII9T2UhsWhP8ziEjNn2iu5kEO+bVceTPHrYeLM1cywvrz3z9l+OCelC39r2v7LEs3wOgWGtuV
-	4DSMtT5cxEpDE6IyNF1mKd8TPM6MATeBHo/erWsHhfwNpKiglYAmwn5qzKbwnTS5LvM7U7LMGjpqz
-	9+DKc2Z5Ed1BLYlWkdKLwbenZP3MXjvm1W3MtClwg7G+RYjpkQZnz+D1bX22mXYZ2jIlQQvmIi5iY
-	omlYIYlbJb+Xj62mnNYbbSzVq206We4qef3hudDyhnzHqx6gBT6Wfga4q0pD8bmLGQOyeQYB17oV3
-	047xhz5TAVcS5eCkG6PQ==;
+	List-Owner; bh=mM2Z3X3IaniJ+sNjlz5qVrZFioQvIXLDaeZkCJmnvX0=; b=wpZNjj6aJfM8E3
+	oayh4zoVLsyInWxN2BgLAcetTeizfEYqTEDa7ZPix0L4SOy4fP96g216rqDJEowDTaCVbQRoOp6Ez
+	oBUeAHQpV1/zJg5LmrSqLCM1VprL+o9KIVoEoM75VH9Uo6dcWY/848FxzxGk55f8VU3RNfQ8LabEw
+	w4hXjBH5DO9vbCoM7nOhlP5gFV8mkIGQ9yowMDqveRQGjwWLV5OY2Gq0TyplEYGdZ0DE5AlvHQsec
+	SLWW3/mHLxNBbcQLo7jd5wDhw8M74UjIN6z1XnWoiXEAMzVRzDQx0ii0H9/kENViSpK/Xhzt/V1e9
+	RElrrybiCiz3v+wxwvKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofbdA-008fWB-E2; Tue, 04 Oct 2022 06:42:16 +0000
-Received: from mail-qt1-f178.google.com ([209.85.160.178])
+	id 1ofcK2-008kIO-Lv; Tue, 04 Oct 2022 07:26:34 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofbd3-008fVE-7L
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 06:42:13 +0000
-Received: by mail-qt1-f178.google.com with SMTP id gb14so7651939qtb.3
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 23:42:07 -0700 (PDT)
+	id 1ofcJz-008kH1-7x
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 07:26:33 +0000
+Received: by mail-ej1-x634.google.com with SMTP id qx23so8859433ejb.11
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 00:26:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=T3VGRLa6aY7lVkf/VuhGMNa+o18TjOrgkKnR6deWLjE=;
+        b=nTdCXM20HL5cFabkBUv1DnQX20uSpePVUtP19e2qSGkWNdmYwRslvNTJ1T8SmB7LQf
+         cAHyD6MQIbYIfRFr9qJZU4idDuvQfy3eBTDk+mu9RouqgQkuGLl+jfCL3zMRX4P9JhVL
+         6iSEAABhrLD8NPVNyKR9g9W9BUTV0MTgtVUxiMx3OQp4ileKlqMgwv8tVuiesimdiRTo
+         rqekcAdj3HXnTKd4ObTe5Xe18PSIg1zl5eDHu55aYGE4lx7rEk4o+ZUEquvIOL3mD+dj
+         CGgwCEfL1clKoRdJ4nk/HSLZGAbrI60PTOao0Cq8Tqu4zy1Y2RotrbZisgo5OjecBPXa
+         3U2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=n6EQp8JL+DToxMMS0kkitvfxHKUAhOYfF1Ik8pCR8iY=;
-        b=q6jHGeXMXFM/xuNoThLELE4uhIghqErubtYwLhEiDGW1qwLkLNZMtgMGiyih1psH63
-         bfmpZXfEQQ7phmBfZG0s5/ftc0au7V3b3w4Hg+9LquvjbLGU8qj9AlrBdpyltkr4Mrt0
-         dwoqKPJ572pGAtSU5O4cxQumwj0J6IpSXcS3ry98Le8mVDGnnw7698j3j+YJzZfMLN0Y
-         S6SNGXRVYV9JR7HlhL9p+fQPrX+KeZuCBql6xitYjZ8bENezWvu6E2u0s9aj/awu8Egh
-         n/xZou/7H9hYn5rVfh5R+OEIzg+GzfPPmqdVwHMoOF4wgQvdUfh05i3ctmIVDAREkQmo
-         jpeg==
-X-Gm-Message-State: ACrzQf2HvAyJxaKdiYPTWflrqixNJbc8i++iBbDHXIHdWdRXLSCFikbC
-	kb8jSUFEBPLfGos1YZtbxHycgsnT8xs5/w==
-X-Google-Smtp-Source: AMsMyM5ueioMN0wTLEhz2KS3Xuc/+9mlaCtIWrYDSu1zDTGmYyiNgOZY0tANIWGABGXI7fnIDPpxDw==
-X-Received: by 2002:a05:622a:191:b0:35d:4f6b:16df with SMTP id s17-20020a05622a019100b0035d4f6b16dfmr18750323qtw.541.1664865726403;
-        Mon, 03 Oct 2022 23:42:06 -0700 (PDT)
-Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com. [209.85.219.174])
-        by smtp.gmail.com with ESMTPSA id h7-20020a05620a400700b006b945519488sm99116qko.88.2022.10.03.23.42.05
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Oct 2022 23:42:05 -0700 (PDT)
-Received: by mail-yb1-f174.google.com with SMTP id 203so15683313ybc.10
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 23:42:05 -0700 (PDT)
-X-Received: by 2002:a25:bc8f:0:b0:6bd:ab73:111 with SMTP id
- e15-20020a25bc8f000000b006bdab730111mr8977272ybk.36.1664865724940; Mon, 03
- Oct 2022 23:42:04 -0700 (PDT)
+        bh=T3VGRLa6aY7lVkf/VuhGMNa+o18TjOrgkKnR6deWLjE=;
+        b=O1CPd8Zfvp5fBuBD0esnI8OZ9tg93Vv/8UsHy1U7vbtqFVW3fVfYVa3ZTpJ8beqCZi
+         B0B01TtajpxG544wO7zMA1p0Tyj4MYBwujZunAxsd/pVXtLc9x8mxrvb+/LeCuqCX7ol
+         ZZ4epUw+Aauq6eDcWNskpiDSNRv73ekixG3YbceQkd2oa+Vm5Nk/yYoIA6DAnQIXGnXu
+         sJpd3dTqnGVeLElYpfWXAJCM1MTTO6XNyZufZrNW9vCgGVyBj5BsMdA3skjmp+TMI2Yf
+         hVDAzTCvBuoyKA18xonD8MKoVMDeSTS4wcMK+y6W4By1buMxgoX1hNSR57roHUx5d+Tg
+         UCOw==
+X-Gm-Message-State: ACrzQf38RszgvgQjkfXGBo9PHvFtVXuK3VhzMTFsZKt+pb3jWXqMvrs1
+	xqN3qIZ/Um6xYDcdqUbi7HGdsPVw8qvBqf1Ipqw=
+X-Google-Smtp-Source: AMsMyM7REJDwTonQC1YNeER8EI+7qTq2llohoFBpu6tNo14D20X5S629XxELZSCTnSFF+grYSwJw237zL9ganyg38Bw=
+X-Received: by 2002:a17:907:75dc:b0:78b:339:63c7 with SMTP id
+ jl28-20020a17090775dc00b0078b033963c7mr7383359ejc.480.1664868388049; Tue, 04
+ Oct 2022 00:26:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 4 Oct 2022 08:41:53 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
-Message-ID: <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 4 Oct 2022 08:26:01 +0100
+Message-ID: <CA+V-a8vnNQDMgjhJfz91g++dVVv5Z5FTuFrNRHLW3PjPump0Mg@mail.gmail.com>
 Subject: Re: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache:
  Add DT binding documentation for L2 cache controller
-To: Prabhakar <prabhakar.csengg@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -74,8 +76,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 	linux-riscv@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_234209_303761_882A0895 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20221004_002631_324269_C1A52D67 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +94,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
+Hi Geert,
 
-On Tue, Oct 4, 2022 at 12:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Thank you for the review.
+
+On Tue, Oct 4, 2022 at 7:42 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> Hi Prabhakar,
 >
-> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> describes the L2 cache block.
+> On Tue, Oct 4, 2022 at 12:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> >
+> > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> > describes the L2 cache block.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 >
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Thanks for your patch!
+>
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+>
+> Not andestech,ax45mp-cache.yaml?
+>
+I wasn't sure as we were including this in soc/renesas so named it as
+r9a07g043f-l2-cache.yaml if there are no issues I'll rename it
+andestech,ax45mp-cache.yaml.
 
-Thanks for your patch!
+> > @@ -0,0 +1,82 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +# Copyright (C) 2022 Renesas Electronics Corp.
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/soc/renesas/r9a07g043f-l2-cache.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: SiFive L2 Cache Controller
+>
+> Andestech AX45MP?
+>
+Ouch!
 
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
+> > +
+> > +maintainers:
+> > +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > +
+> > +description:
+> > +  A level-2 cache (L2C) is used to improve the system performance by providing
+> > +  a larger amount of cache line entries and reasonable access delays. The L2C
+> > +  is shared between cores, and a non-inclusive non-exclusive policy is used.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: andestech,ax45mp-cache
+> > +      - const: cache
+>
+> This makes the schema apply to any node which is compatible with
+> "cache", cfr. the report from Rob's bot.
+>
+Actually dt_binding_check didn't complain when I ran it locally (maybe
+it's time to update dt-schema).
 
-Not andestech,ax45mp-cache.yaml?
+> You need a select block to avoid that, cfr.
+> Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml.
+>
+Thanks for the pointer.
 
-> @@ -0,0 +1,82 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (C) 2022 Renesas Electronics Corp.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/renesas/r9a07g043f-l2-cache.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SiFive L2 Cache Controller
-
-Andestech AX45MP?
-
-> +
-> +maintainers:
-> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> +
-> +description:
-> +  A level-2 cache (L2C) is used to improve the system performance by providing
-> +  a larger amount of cache line entries and reasonable access delays. The L2C
-> +  is shared between cores, and a non-inclusive non-exclusive policy is used.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: andestech,ax45mp-cache
-> +      - const: cache
-
-This makes the schema apply to any node which is compatible with
-"cache", cfr. the report from Rob's bot.
-
-You need a select block to avoid that, cfr.
-Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
