@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66082C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 08:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914DFC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 08:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hLnwMQfeDmcZLjmYFTU+oOb6berb/Y9nzHng1GI0UvE=; b=4uBHkjucj9uj5x
-	p6S0PBzj45JlStb0ZaGzuNvlDruMn4U/zhkHp522sBYQMNuiBUGpQjk0zJqMhedDmL2cnJO18X4kj
-	mZXka+mie30Oa+a6XJLKr//0FPK9Dv9wfBnxjO8zvNbt7W/NhIybpB2HoMlMtd4pLTpceQGwc/KBo
-	VpYSImFocA/4KnomIfU3QTvFLrjbwAzJupZta9T3Iabstg4wq/ToP9vFtfs58qVjScRlZC0+ll6t0
-	kMgjV4M7KIUsZZ2+hMwwuLqz3t7wEbXZ35ZOnyXftTPJ9xsJ0OZAbsYpZr7O9TunwYkM4/37L2LBd
-	/cAI8jaAaPHxrYMhedLg==;
+	List-Owner; bh=7mx4z7mHrWz9Z7vl/yF9g66+k5eLJ4mAFUn2wTTLggE=; b=M5LBNoGrQxQ1YL
+	Q85Ad7lFMo1zsSwX3s54zebNWmg/8tHWNBcOSRa6VvncrJB8eaWzC+681gxhggHbLjAEsZ4C6W5Cz
+	PGZiYh5DGTuXKq0/P99j/vF6IZBn2BCX6QYpFeLBS2zR+piqDdngEPlNf+ngw7uYqcpvogtQPaMQu
+	ZwI2NCreLQE3g8GuipCTmQC9jTgeP9i3qHnWi5OGSxtsYpep1Fl/h3gX7rriKo18qBhkno+pm890Y
+	FcSJQxM6SYMdqqtnZZo/DNKQUZI1GZGFSUOMQxQxHCW134ZOzOtyqC15ElN7bVDdmeWETeSQSQGPe
+	FW8YpixK4mlSNz8B8++A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofcqI-008qwB-1I; Tue, 04 Oct 2022 07:59:54 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1ofdWV-0090Y8-4w; Tue, 04 Oct 2022 08:43:31 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofcqE-008quI-FT
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 07:59:52 +0000
-Received: by mail-ej1-x631.google.com with SMTP id b2so27120398eja.6
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 00:59:49 -0700 (PDT)
+	id 1ofdWQ-0090V0-6t
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 08:43:29 +0000
+Received: by mail-ej1-x636.google.com with SMTP id bj12so27281430ejb.13
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 01:43:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=linaro.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=VeMEKABc3TtQILBjNAJQ+M6awy0IySm+oQwftWHEreI=;
-        b=g+OnsE5yeTe/tK/ketaT7bh+9Vr20MGUX+hbOcbZSlojs35kAWPBJN8LE/c2bF/9bc
-         looShX/tKDdWMyAaeD7hRI97YzfpkiDAmKlC/Ql8I+d2dkpSiAehAXZUvF8ft10c1jer
-         8KnA+jOyt7FoW4pOrtcqYKK5y5ULYfTIB5azGT/r36CZQ8QqML0PBnXFcNQ4Y1MZVObU
-         FuKk6vAFEBB33/N7JzCtZ7tnEj2kFHjNe8nWRrfCBGqebFv49psJ5tq/G8U8IiYUSjQJ
-         LWXEOQIkaeKScnHQBM2ey4PZqa9yid4CTWMvEjjLsMtkmpVzG/Kah8HbsFU8ccWM07TN
-         tvvA==
+        bh=9y6mckp6QwqVlkCMwSWHyLCrVK+e0UEzLE8ZnwJRiY8=;
+        b=ktTkCfG+LGxaPC1FxhwkFYJUP/uVyiOL59RxCdYRtkujLdjXw8gvt2wUv+3x36ZqEK
+         gr+uKk6uEhNT17sQPZ+KjFSX97a/KZpXepfHXgmhrDb/3eL9AHcIu+haa3EHsmJlJnzs
+         R+SN9ofuPDXQjzLSQb4X72bpgfANjBE8P6Ib46jOf8xbgd6EArUjlzdayYBgqbKSLnRb
+         yA9oWfoFVPykqzj7yWWyR9cV4XJmxmMBtiBzim10xNw0tIseI7tW35fyhQC0NGXVzhMy
+         VlAoApKSJ0FnZlTgOKRnAPpO6m++30KnTUXBS3hDU/FaSdixESMfE5c4EeyFBh4KwinZ
+         wxtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=VeMEKABc3TtQILBjNAJQ+M6awy0IySm+oQwftWHEreI=;
-        b=y/g1xaJTphZ/oOeCSJR/N3jwDTttKGvt9vYN36V7J251cP8Lplnoa8dsV+Rclv3qS2
-         mPu3phjT0FyTUIvgm+T1xun+NErJDUK5FbbAFEjh4kErrbFxn3eSBdnbYb2NQBG9AZtR
-         UJHJgx3GncNFUnCjgwUrpVfJDEP8imgT8Gugu7EsYEhetDj2FJqZjK93JAc62SR+Cfmg
-         /YC8zrTfvDPRou5U1tno8PGf29vO/oHZYH4DUkoMZWYM0SCPi3wbKsOLtTf2juSLMvJ3
-         +2ryFrCDamqmDypOhMeQXNlD579+bs8owhz3/7JxU9FhIdY3lg2etJDPLvdhYuMh2Fn8
-         MfNw==
-X-Gm-Message-State: ACrzQf0A5QR4MGl9O4weKZKOzBK6+q+RkvB73KJKh5u8QJdcbifrhgLS
-	cM4XcEe1SKikhXaTJCBip+hkDHS4Ev2d4bJr8cw=
-X-Google-Smtp-Source: AMsMyM5/zTBC84CIeJBis9zUHCHVy3BvddGdj29NigpREEoHIg97rBxi9HBysvUfSAXHYtOWzSsmRFJa07GV++Z9AwA=
-X-Received: by 2002:a17:906:591:b0:73d:c3ef:84ae with SMTP id
- 17-20020a170906059100b0073dc3ef84aemr18491993ejn.155.1664870388235; Tue, 04
- Oct 2022 00:59:48 -0700 (PDT)
+        bh=9y6mckp6QwqVlkCMwSWHyLCrVK+e0UEzLE8ZnwJRiY8=;
+        b=P+5GkJf9Tc2reqK1Nc3tSB1kt5XTEymCyY2sCdl/eGpQ0B9eCB7uYWtVhsDZQ2gfHa
+         f5vtkOjCPsGIXYCmWci8lYlbgW6F3eBRfGoqGn33HD5AitdfEdX2b2wx8aByOD7bd6SB
+         0NGwrVLr7PhLKgQUgdacxYzWwYBvCXZvFGyoaxDT9FcbWrKnaP5oc/tlzx5q2ZNVoEhZ
+         XL8Q8OKZ1jZHSyFxvgbrw3WHjQFxG3Agc7hc75osivus0z2na3NFRegwQ6XQyFdDNZ84
+         gvfIifrA5072dd8TQi/Jlqcy8G3gaKebwEBi7JZIW6t/Xu5j2jrozfnhL3bZA10P0DNO
+         mi6w==
+X-Gm-Message-State: ACrzQf06T7jNQk1WTZNPG38in9itjZ/yrs2BIUukFcAzDN17gkSZkJmn
+	O9BBwXZIdqYb/utSGClk/UyFRqmauoDrt6BXbyUsvw==
+X-Google-Smtp-Source: AMsMyM7smwSso6PfOzdvyNfHYtM5xmnUQGdDRlyqmuW7idFRUM5gJbnvbj0OLrfrEFIn9hTirM/sNLEnKZ34nmjZXfM=
+X-Received: by 2002:a17:906:8a46:b0:781:71fc:d23f with SMTP id
+ gx6-20020a1709068a4600b0078171fcd23fmr18624979ejc.500.1664873002520; Tue, 04
+ Oct 2022 01:43:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
- <CA+V-a8vnNQDMgjhJfz91g++dVVv5Z5FTuFrNRHLW3PjPump0Mg@mail.gmail.com> <YzvhaxuZbeCwLZ5m@wendy>
-In-Reply-To: <YzvhaxuZbeCwLZ5m@wendy>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 4 Oct 2022 08:59:19 +0100
-Message-ID: <CA+V-a8uYwm+Z4=3beNZE7q3mG7S3uKdEagY2c-KStD0thyw6Gw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache:
- Add DT binding documentation for L2 cache controller
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com> <20220930060819.5320-1-hal.feng@linux.starfivetech.com>
+In-Reply-To: <20220930060819.5320-1-hal.feng@linux.starfivetech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 4 Oct 2022 10:43:11 +0200
+Message-ID: <CACRpkdb-7YxfJB5YpYf4t1rT+u=mctLyVbCwm4+TtEHm1k2ANA@mail.gmail.com>
+Subject: Re: [PATCH v1 22/30] pinctrl: Create subdirectory for StarFive drivers
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
 	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_005950_806342_A360F51C 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20221004_014327_861644_33DE6093 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +91,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 4, 2022 at 8:32 AM Conor Dooley <conor.dooley@microchip.com> wrote:
->
-> On Tue, Oct 04, 2022 at 08:26:01AM +0100, Lad, Prabhakar wrote:
-> > Hi Geert,
-> >
-> > Thank you for the review.
-> >
-> > On Tue, Oct 4, 2022 at 7:42 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > >
-> > > Hi Prabhakar,
-> > >
-> > > On Tue, Oct 4, 2022 at 12:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
-> > > >
-> > > > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> > > > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> > > > describes the L2 cache block.
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Thanks for your patch!
-> > >
-> > > > --- /dev/null
-> > > > +++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
-> > >
-> > > Not andestech,ax45mp-cache.yaml?
-> > >
-> > I wasn't sure as we were including this in soc/renesas so named it as
-> > r9a07g043f-l2-cache.yaml if there are no issues I'll rename it
-> > andestech,ax45mp-cache.yaml.
->
-> I may be guilty of suggesting soc/renesas in the first place, but should
-> this maybe be in soc/andestech? I have no skin in the game, so at the
-> end of the day it doesnt matter to me, but I would imagine that you're
-> not going to be the only users of this l2 cache? Or is it a case of "we
-> will deal with future users when said future users arrive"? But either
-> way, naming it after the less specific compatible makes more sense to
-> me.
->
-As there aren't any Andestech SoCs upstream, I am in favour of keeping
-in soc/renesas for maintenance. If in future there comes a new soc
-from Andestech (which will go into soc/andestech) we will have to
-split the maintenance work.
-But anyway if there will be any users of L2 cache we could always
-provide a config option which can be used by other SoCs.
+On Fri, Sep 30, 2022 at 8:08 AM Hal Feng
+<hal.feng@linux.starfivetech.com> wrote:
 
-Said that I'll let Geert decide on this.
+> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+>
+> Move the StarFive JH7100 pinctrl driver to a new subdirectory
+> in preparation for adding more StarFive pinctrl drivers. No
+> functional change.
+>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
 
-Cheers,
-Prabhakar
+I applied this patch for v6.1 so you don't have to reiterate it, it's clearly
+just infrastructure that you'll need going forward.
+
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
