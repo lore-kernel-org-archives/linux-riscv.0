@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7086DC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 05:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69003C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 06:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:cc:To:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6hsGBGfixqdZJWybQ3sf8E0mMNbUAlRk9IOUS97Vj0k=; b=2NzajgoTw8rWe50DhLPbA62Xhz
-	fjidGFaKUTKhv/JmSLs9i8FDq2GKFYO5coQXUt3KU284gvrZPh9gN44sYsjBISCxTv0oohhG+GK7l
-	qHAuJEgQjEuossN+DEthq1fK+96q+ja164YD1R089mFChqf9i1Slr5SsPp14J+uwN4ahQpM0XqHRY
-	uvJvJqm4lvLnPvkmT/aUFxaXcXK3f3lHvBY8rI/zbzwvBMF4sFhb7i7CY2LELBhNg04AjlI1dpjM3
-	8ZNNuIL+j38WhetLrhRK0caXl1cCBDJXKlRA/yq92tgVpE0/oUwkkJIucT99OEy6lUob1R8bSEGbq
-	br53AWYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uQi+t7gU24RhflQgarqzAPj3UDBvAd2y/CnwishaDjM=; b=dUAHSYgmjspjn0
+	rMPvII9T2UhsWhP8ziEjNn2iu5kEO+bVceTPHrYeLM1cywvrz3z9l+OCelC39r2v7LEs3wOgWGtuV
+	4DSMtT5cxEpDE6IyNF1mKd8TPM6MATeBHo/erWsHhfwNpKiglYAmwn5qzKbwnTS5LvM7U7LMGjpqz
+	9+DKc2Z5Ed1BLYlWkdKLwbenZP3MXjvm1W3MtClwg7G+RYjpkQZnz+D1bX22mXYZ2jIlQQvmIi5iY
+	omlYIYlbJb+Xj62mnNYbbSzVq206We4qef3hudDyhnzHqx6gBT6Wfga4q0pD8bmLGQOyeQYB17oV3
+	047xhz5TAVcS5eCkG6PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofauF-008blY-Hr; Tue, 04 Oct 2022 05:55:51 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1ofbdA-008fWB-E2; Tue, 04 Oct 2022 06:42:16 +0000
+Received: from mail-qt1-f178.google.com ([209.85.160.178])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofauD-008bka-1C
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 05:55:50 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id f193so11878308pgc.0
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 22:55:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=mime-version:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date;
-        bh=BTfAb6gaUwtFAZ2pkmfrI6SWUGvuDNZ2dd/8+vefOg0=;
-        b=GrrLjByOnd2oG8gisrEbPB0wIsIYxXBM4wQt43gtBGxD1k+UoNAdb8ywkYGAg3b7Du
-         zPq9JHohXWUIYCbXMcj3H6Erq9gjN/iAcGMM8STZ2d/SyWX1H08gKj/tVmSiNJ8J24+Q
-         nCF7qMGBPLuBpLuJl8Eov4eLXKVsEF8x9QfzhdOx7GtDBky4t3DStXs9XR6XfCMD8yt8
-         Vp/A8CI5xjOqpsUQrsDIb0yV3vYwtLhWJ0BN9b9nhOt/fda5k+zaeGHsGbuxcM6M5jVH
-         zdk+hBZj+MRDdgzJ+q49MD5FX6kd8yS1OtzlBnHTn/dk9y9UMnGgNuIZybPBq12Jxs/0
-         zqbw==
+	id 1ofbd3-008fVE-7L
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 06:42:13 +0000
+Received: by mail-qt1-f178.google.com with SMTP id gb14so7651939qtb.3
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 23:42:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=mime-version:message-id:subject:cc:to:date:from:x-gm-message-state
-         :from:to:cc:subject:date;
-        bh=BTfAb6gaUwtFAZ2pkmfrI6SWUGvuDNZ2dd/8+vefOg0=;
-        b=lCq/4L/eC5k8IbpQNSgtLjDESg2vOVTxMvm5j1nPVhC9n2KeCH6wW1M95m7Yp2dwee
-         7aqsNkzOM0RNGLnj6HMp2jJ1B82GlcZcM2LaXkxiFuRTVIEMO3V0gtx6WGIR205KIGOo
-         0fQ0nu8AXJd9RIVrM92vswyYPQKYj5tjyv7SYhzQ0EW3W8SAo2j9IxXKwLjn6jUeOA3H
-         SGZUszPrCdyaR9ZOBAuwNra6JJriWCAdyRZjxuqjV4RpR8xUxdF5c5FLrDz9CLzQVMeg
-         LUwI2wRRTko9KuO2xsMxPMUR4+QYISm5Uj0oXtFzRfj5jBxf+jz7Tvt45WsBd6g9nb6F
-         dRuQ==
-X-Gm-Message-State: ACrzQf2ClOD9G+q9W/p7m8gx7DsISAdSKgtrhpJI+1dsKUCqjX23D/fw
-	l9IMcO3qqI+0oael9fCCgQgDsbtMPRCAbqJPM+CCO+UwpUR429GK+Ncd4NQSlzAXAgogH0+cLaM
-	Y2VJvKgxBf/qqhrS3mLAg4Du748xP7g5/MZFhm6f2v2UjJkRdAYN5ru30gTTkMcloH9SlzjzFAS
-	7Dr3KVbfyts0f/ThQ=
-X-Google-Smtp-Source: AMsMyM4SRBVlaxAZarZ0Iaze6rOsCBwpwyppQ0H5jVogpAiT6ZfoVTCwkZQTsatoXL1gRMu6ZGos1w==
-X-Received: by 2002:a05:6a00:1a44:b0:528:6af7:ff4a with SMTP id h4-20020a056a001a4400b005286af7ff4amr26361716pfv.78.1664862945329;
-        Mon, 03 Oct 2022 22:55:45 -0700 (PDT)
-Received: from hsinchu36.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id m12-20020a633f0c000000b0044ed37dbca8sm3111857pga.2.2022.10.03.22.55.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Oct 2022 22:55:44 -0700 (PDT)
-From: Ruinland Tsai <ruinland.tsai@sifive.com>
-X-Google-Original-From: Ruinland Tsai <ruinlandt@sifive.com>
-Date: Tue, 4 Oct 2022 05:55:42 +0000 (UTC)
-To: linux-riscv@lists.infradead.org
-cc: atishp@rivosinc.com, greentime.hu@sifive.com, vincent.chen@sifive.com, 
-    paul.walmsley@sifive.com, ruinland.tsai@sifive.com
-Subject: Regarding the changes on /proc/cpuinfo for ISA strings
-Message-ID: <63898081-16d0-39a7-fe96-f4eaa5babae2@sifive.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=n6EQp8JL+DToxMMS0kkitvfxHKUAhOYfF1Ik8pCR8iY=;
+        b=q6jHGeXMXFM/xuNoThLELE4uhIghqErubtYwLhEiDGW1qwLkLNZMtgMGiyih1psH63
+         bfmpZXfEQQ7phmBfZG0s5/ftc0au7V3b3w4Hg+9LquvjbLGU8qj9AlrBdpyltkr4Mrt0
+         dwoqKPJ572pGAtSU5O4cxQumwj0J6IpSXcS3ry98Le8mVDGnnw7698j3j+YJzZfMLN0Y
+         S6SNGXRVYV9JR7HlhL9p+fQPrX+KeZuCBql6xitYjZ8bENezWvu6E2u0s9aj/awu8Egh
+         n/xZou/7H9hYn5rVfh5R+OEIzg+GzfPPmqdVwHMoOF4wgQvdUfh05i3ctmIVDAREkQmo
+         jpeg==
+X-Gm-Message-State: ACrzQf2HvAyJxaKdiYPTWflrqixNJbc8i++iBbDHXIHdWdRXLSCFikbC
+	kb8jSUFEBPLfGos1YZtbxHycgsnT8xs5/w==
+X-Google-Smtp-Source: AMsMyM5ueioMN0wTLEhz2KS3Xuc/+9mlaCtIWrYDSu1zDTGmYyiNgOZY0tANIWGABGXI7fnIDPpxDw==
+X-Received: by 2002:a05:622a:191:b0:35d:4f6b:16df with SMTP id s17-20020a05622a019100b0035d4f6b16dfmr18750323qtw.541.1664865726403;
+        Mon, 03 Oct 2022 23:42:06 -0700 (PDT)
+Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com. [209.85.219.174])
+        by smtp.gmail.com with ESMTPSA id h7-20020a05620a400700b006b945519488sm99116qko.88.2022.10.03.23.42.05
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Oct 2022 23:42:05 -0700 (PDT)
+Received: by mail-yb1-f174.google.com with SMTP id 203so15683313ybc.10
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Oct 2022 23:42:05 -0700 (PDT)
+X-Received: by 2002:a25:bc8f:0:b0:6bd:ab73:111 with SMTP id
+ e15-20020a25bc8f000000b006bdab730111mr8977272ybk.36.1664865724940; Mon, 03
+ Oct 2022 23:42:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 4 Oct 2022 08:41:53 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
+Message-ID: <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache:
+ Add DT binding documentation for L2 cache controller
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Nathan Chancellor <nathan@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221003_225549_185207_CDCEC27D 
-X-CRM114-Status: UNSURE (   5.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221003_234209_303761_882A0895 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +87,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish and all,
+Hi Prabhakar,
 
-After the commit "a9b202606" introduced for Kernel v5.18,
-the `/proc/cpuinfo` will longer print the full ISA string provided by DTB.
+On Tue, Oct 4, 2022 at 12:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+>
+> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> describes the L2 cache block.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-With the comment of that commit, it seems that the policy of `cpuinfo` has
-changed to print only the extensions provided in the array 
-"riscv_isa_ext_data" and those extensions must be properly enabled (by 
-toggling corresponding Kconfig ?).
+Thanks for your patch!
 
-So we are wondering a few things and hope that you can enlighten us a 
-little bit :
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
 
-1. What is the policy on recieving vendor extensions ?
-Hypothetically speaking, if a vendor submits a patch which simply adds an 
-entry into `riscv_isa_ext_data[]` without revealing any detail, will that 
-be acceptable ?
+Not andestech,ax45mp-cache.yaml?
 
-2. If a userspace program wishes to know the whole ISA string, is 
-`/proc/device-tree` the last resort for them ? And if that's the case, 
-what will the equivalent in the ACPI world since we have learnt that the 
-RISC-V ACPI spec is now work in progress.
+> @@ -0,0 +1,82 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (C) 2022 Renesas Electronics Corp.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/renesas/r9a07g043f-l2-cache.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SiFive L2 Cache Controller
 
-Cordially yours,
-Ruinland ChuanTzu Tsai
+Andestech AX45MP?
+
+> +
+> +maintainers:
+> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> +
+> +description:
+> +  A level-2 cache (L2C) is used to improve the system performance by providing
+> +  a larger amount of cache line entries and reasonable access delays. The L2C
+> +  is shared between cores, and a non-inclusive non-exclusive policy is used.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: andestech,ax45mp-cache
+> +      - const: cache
+
+This makes the schema apply to any node which is compatible with
+"cache", cfr. the report from Rob's bot.
+
+You need a select block to avoid that, cfr.
+Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
