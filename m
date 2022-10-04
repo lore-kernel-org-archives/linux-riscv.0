@@ -4,85 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E403C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 09:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E10C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 09:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UAV3uQ4r2/fTOan9YgvuRwrry4PKZUoj/7s39vHl4bc=; b=ZSxPNhwOjQy1UL
-	uyaJ0W7qxaavkYI9VHZeS5UccpcE10Mhq2udX2H0isowJOm3iAVN/hL2pzs5uwq8XBQyqoVTO6ek/
-	tN/JiYBs1qkFuMQTBffRNgaSKOXQrJT/NMiKfu897ka4Pgs5a4wygu6Y7lold/zl+8rl2bJegbbFS
-	u2ONsyuLO1rZ2izDkl2f86EACUoBcONuEeaQg9X1QdmIFLAvizLpTntEdzV4Wm+lNQczKmfcbMuMa
-	x+1ooFj1R0mU4p0zY3pqSJ1EQ3HYPTc40kzQDvZ7mRos3UGiXTt+kpt6Gao+g8jBZS7/jEMb1BpQu
-	O2EL25DpA1L7w41Xrfiw==;
+	List-Owner; bh=w2JDn+YIVgSftx4deiWa0yAxO9PDrd3Ka6G5jx88HNU=; b=DRIDtaGW71Rbyb
+	oiDpqdfGPaxLZAuWqZnb+ems0IRDE3zagdHwy3x2LT2uXKQfFzPcqr+xbWVCYtZkoAge/1/M9hPCF
+	SsbErpMff/AakqKZ5hBcvoIDlG92aNBjNlQ5+R374lK6gg1enEA6OyooioIBwhqnEK3J8a8gW6qF6
+	qmdV+VGDJhlGg3wqVQFN+C6f20s3yhZdiYkUWWCXhxYt5MOx/JliqyvukGGH0r1ubyC3KmSDvCc0D
+	MVZ6nK8BvdBgYDVxWvb1KHhaA3CJWvk06WjQmP7AxCaKv7rGfNtSh4FHH9CJvpiis3AM68aaykPJ2
+	z+ytJGtf8qrPSgBIkNOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofeH3-0097oI-Q7; Tue, 04 Oct 2022 09:31:37 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1ofebf-009E5T-Ji; Tue, 04 Oct 2022 09:52:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofeH1-0097mM-0M
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 09:31:36 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id w10so5137356edd.4
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 02:31:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=scCLn+ph1UwggMlH0DfSAgp5HKCsgoA8BWLgo9P4NBI=;
-        b=g288wrK1MpJ5OqQfyyRnufGz8XScpljjEmSqeO11AOP8i6mrztUnVqx82KgfBbvDWJ
-         AQku5ORj7LyTEsI09W35txqcRR8krUCRWzCqwhW17/7lRaKlq+vDvgvDR75skcRZv1G4
-         mfyNaIvOGKzbkLHT3w9Lm48g2KEGANtNvBAZA03dbbHXHy7SSIN5XbyRis9CJJo9dTxx
-         MHr17EhrRj0sZNsdYvmFPHklRT3BYClHOb/GaWQavDNrpJfd1BdWp4v4CQU9s1Ya2fdl
-         2j9kRjL06AhKewOyZjZWTVpIa2iy3KEcTgNuvKpO9fzIcSLGoQHgFIMXoY4Xzrsp1qQi
-         i+Fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=scCLn+ph1UwggMlH0DfSAgp5HKCsgoA8BWLgo9P4NBI=;
-        b=748hQukrsHkKi34EvH4qXfPG2FsUU/JqteFHfruoyf4jHFaFXHgEOfWU/sZiXyZzgy
-         L0WIA98xZ/CJioKKUzjCfd4u4tVIhD3egaPz1gg+YehondRU9TiYMm7Cx/7YmTY4YQM1
-         nhFFe3HNfuM94xWK1meWokxjJAIP/LbnE3e3ZV8M7e9Dn3isAz5yME0F+X21wwa8VYlD
-         /AX52hd008v7lUsIYswpcGA5RSYZv/aTV1fsKRGO23NTBg2x8NY4YUJVka90RrTqR0DP
-         mE/hxa7uSb9UrV1uSF/IAuXyIehQBIbMci/jbGoTaud8e0WzlaTVQWAIfEGES7Zd2ZqC
-         Qdfg==
-X-Gm-Message-State: ACrzQf1jFYl/5IjNEqAqS2HwiBsbBPxM0dkrorzid/+v0xaxEj8f1Kn7
-	iabOIpOHDQOFMWzq8Xiez4xM7DDoOxfDl9Z+vYE=
-X-Google-Smtp-Source: AMsMyM59PqwrgK1dRoo/jsyDhll8qx53jwPGZsthXe0V2zWSaj5gaulmAalr/5BCASTSdEWSfkl+r1bN56y+mCxx2nY=
-X-Received: by 2002:a05:6402:5485:b0:459:147a:d902 with SMTP id
- fg5-20020a056402548500b00459147ad902mr6778287edb.263.1664875892283; Tue, 04
- Oct 2022 02:31:32 -0700 (PDT)
+	id 1ofebb-009E3o-Ao
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 09:52:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1664877172; x=1696413172;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WDkyn/xwXddNppq/eAkPzbUNzHf3vyZHD7Cpir1HgaU=;
+  b=mPP2OED+gPVkiwhQRaqt+HWYAA87hn1wuZhC8uN/DzJxCF8T3SbfZ7mV
+   Sxj7hcrKe8O0XGKDhEjrG8vIGE+BdDfMiLDkDNMnCLD8WuGnpFeiK2aZv
+   jrmlsy3BWFs+934JfBOOHlh6FaC2yoX6VaNFjS8qQsHljo24ciCzEZLN4
+   u5pV8qilCNffPIWhzP9yp5TdKPz9H1XOU1loCfKGPT+TmA5dK2k0+QjKz
+   rUlGtn6+gAtDrnauvCdZLuDonPeYy+vyN75vkDTdjFSWDTafDTrfZ4Xju
+   /EkuaPwDCGlaDpdMqfwd52LpvcZ1H5nN7tOpMOQ612zhiXx0cXBGjlCeU
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,367,1654585200"; 
+   d="scan'208";a="176917311"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Oct 2022 02:52:51 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 4 Oct 2022 02:52:48 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 4 Oct 2022 02:52:46 -0700
+Date: Tue, 4 Oct 2022 10:52:24 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Michael Zhu <michael.zhu@starfivetech.com>, Drew
+ Fustini <drew@beagleboard.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <kernel@collabora.com>
+Subject: Re: [PATCH v3 0/3] Enable initial support for StarFive VisionFive V1
+ SBC
+Message-ID: <YzwCWDN4NyIQ8a46@wendy>
+References: <20220908142914.359777-1-cristian.ciocaltea@collabora.com>
+ <c5169131-486e-9808-ba48-b7abe1be6a99@collabora.com>
 MIME-Version: 1.0
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221003223222.448551-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAMuHMdX1BuvHz46QWd+ajEcwmWMeSmvN4AtODuFEysRk14ArZQ@mail.gmail.com>
- <CA+V-a8vnNQDMgjhJfz91g++dVVv5Z5FTuFrNRHLW3PjPump0Mg@mail.gmail.com>
- <YzvhaxuZbeCwLZ5m@wendy> <CA+V-a8uYwm+Z4=3beNZE7q3mG7S3uKdEagY2c-KStD0thyw6Gw@mail.gmail.com>
- <CAMuHMdXqV3DMLLfS5Vrkmx1KOBHqyC_pO7kHLnMf8OPSFe6doA@mail.gmail.com>
-In-Reply-To: <CAMuHMdXqV3DMLLfS5Vrkmx1KOBHqyC_pO7kHLnMf8OPSFe6doA@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 4 Oct 2022 10:31:05 +0100
-Message-ID: <CA+V-a8vK8KKeAvqur+CnE=SBkvYsQ7g_Gu5=v=qZ-0=VTk+RjQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 1/2] dt-bindings: soc: renesas: r9a07g043f-l2-cache:
- Add DT binding documentation for L2 cache controller
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <c5169131-486e-9808-ba48-b7abe1be6a99@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_023135_103032_51349785 
-X-CRM114-Status: GOOD (  31.04  )
+X-CRM114-CacheID: sfid-20221004_025251_485550_9FE4904B 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +87,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-HI Geert,
+On Mon, Oct 03, 2022 at 02:06:32PM +0300, Cristian Ciocaltea wrote:
+> Please let me know if there is anything else missing in order to get this
+> queued for merging.
 
-On Tue, Oct 4, 2022 at 10:12 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Tue, Oct 4, 2022 at 9:59 AM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> > On Tue, Oct 4, 2022 at 8:32 AM Conor Dooley <conor.dooley@microchip.com> wrote:
-> > > On Tue, Oct 04, 2022 at 08:26:01AM +0100, Lad, Prabhakar wrote:
-> > > > On Tue, Oct 4, 2022 at 7:42 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > On Tue, Oct 4, 2022 at 12:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > > >
-> > > > > > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
-> > > > > >
-> > > > > > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> > > > > > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> > > > > > describes the L2 cache block.
-> > > > > >
-> > > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > >
-> > > > > Thanks for your patch!
-> > > > >
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/soc/renesas/r9a07g043f-l2-cache.yaml
-> > > > >
-> > > > > Not andestech,ax45mp-cache.yaml?
-> > > > >
-> > > > I wasn't sure as we were including this in soc/renesas so named it as
-> > > > r9a07g043f-l2-cache.yaml if there are no issues I'll rename it
-> > > > andestech,ax45mp-cache.yaml.
-> > >
-> > > I may be guilty of suggesting soc/renesas in the first place, but should
-> > > this maybe be in soc/andestech? I have no skin in the game, so at the
-> > > end of the day it doesnt matter to me, but I would imagine that you're
-> > > not going to be the only users of this l2 cache? Or is it a case of "we
-> > > will deal with future users when said future users arrive"? But either
-> > > way, naming it after the less specific compatible makes more sense to
-> > > me.
-> > >
-> > As there aren't any Andestech SoCs upstream, I am in favour of keeping
-> > in soc/renesas for maintenance. If in future there comes a new soc
-> > from Andestech (which will go into soc/andestech) we will have to
-> > split the maintenance work.
-> > But anyway if there will be any users of L2 cache we could always
-> > provide a config option which can be used by other SoCs.
->
-> What about Documentation/devicetree/bindings/cache/?
->
-Sounds good to me.
+Hey Cristian,
 
-Cheers,
-Prabhakar
+LinusW has applied a conflicting change for 6.1 as he renamed the
+pinctrl header that you have moved from one file to another in this
+patch [0]. Could you rebase once that lands upstream please?
+
+Thanks,
+Conor.
+
+0 - https://lore.kernel.org/linux-riscv/CACRpkdZmmMjVwpHxkJP+Ui0XJgrdZx8kpVybifbwkRB1_uMhAg@mail.gmail.com/
+
+> 
+> Thanks,
+> Cristian
+> 
+> On 9/8/22 17:29, Cristian Ciocaltea wrote:
+> > The StarFive VisionFive V1 SBC [1] is similar with the already supported
+> > BeagleV Starlight Beta board, both being based on the StarFive JH7100 SoC.
+> > 
+> > In addition to documenting the necessary compatibles, this patch series
+> > moves most of the content from jh7100-beaglev-starlight.dts to a new file
+> > jh7100-common.dtsi, to be shared between the two boards.
+> > 
+> > No other changes are required in order to successfully boot the board.
+> > 
+> > [1] https://github.com/starfive-tech/VisionFive
+> > 
+> > Changes in v3:
+> >   - Added Reviewed-by tag from Krzysztof in patch 1/3
+> >   - Optimized patch 2/3 by enabling copy detection on "git format-patch",
+> >     as indicated by Krzysztof
+> > 
+> > Changes in v2:
+> >   - Simplified documentation by using 'enum' instead of 'const' in
+> >     patch 1/3, according to Conor's review
+> >   - Added Reviewed-by tags from Conor
+> > 
+> > Cristian Ciocaltea (3):
+> >    dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
+> >    riscv: dts: starfive: Add common DT for JH7100 based boards
+> >    riscv: dts: starfive: Add StarFive VisionFive V1 device tree
+> > 
+> >   .../devicetree/bindings/riscv/starfive.yaml   |   4 +-
+> >   arch/riscv/boot/dts/starfive/Makefile         |   2 +-
+> >   .../dts/starfive/jh7100-beaglev-starlight.dts | 153 +-----------------
+> >   ...aglev-starlight.dts => jh7100-common.dtsi} |   3 -
+> >   .../jh7100-starfive-visionfive-v1.dts         |  20 +++
+> >   5 files changed, 25 insertions(+), 157 deletions(-)
+> >   copy arch/riscv/boot/dts/starfive/{jh7100-beaglev-starlight.dts => jh7100-common.dtsi} (96%)
+> >   create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+> > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
