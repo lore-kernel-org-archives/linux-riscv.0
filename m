@@ -4,117 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577F8C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 20:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BAAC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Oct 2022 23:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vQypmo9oMpntJAluD6gHbuWJ23tRK3bY3yw/Cflxkko=; b=2kx9WCugd22cj5
-	9kMFAsKAF7ptJFdBIUHqaGgvTr9gOFxsIbnSzQWT0D5rdZjXrQzgVwI18BNHrfUklP99vdBFvJ1rm
-	edUFX6ZcRKBg1MzFR9G5uVFDyDvN3Kk9g3pOHvmkBAEa1vvi+yBu+x8RBximhU/LPVVCa08RASHxQ
-	lTAnYcyQNXeewe8GTUDnvmrgDkek3OLhFUzQwZ0BvBILZxrqtf/fOR++APaaFUCVrwGAOpRTF4w56
-	IO6EkFTGKQNUJBsIipKTPKzd5Q/WgJxriceo7mamhGLwEWcGBG+HaUJVMf8gctI/H7PqcC3N4Jdg4
-	E0a8m7sMLIjtDdlC8dRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=jB19mcKNleQQhj36vVNm7L40/DQiynqVWC3stFtg7y8=; b=FMZo6IsCh7k42WdrveUebloNcT
+	2FizWJ9kXv+vz2t7c2TlQOdoOsxpHtAZFpfAtkaqQamr+CXPRgQKKzN7NPcMHAY6cK+nttWcbrs94
+	E6aipHiPxZBmYhKNQV8vnWjw2oWGIbo227SmCvAayIokrbLr7AGqV1qPQthdNhmF8KUPRlcDII7t1
+	ghYpV1N+0YMl4kUerIrmdBrZrX8I3rvrWUZlmGrc8aixrQLJ7ZlFlcTx7R2KPZDTuDGJwuNJSOUb2
+	lpmmA5bO01oaeLdJvKASxSEs6dRimrb5/dAVvo30HElVlH5ThWyGIJWEDicJard9UARMrL1FBsW2m
+	/9NgbEHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofozh-00BAky-69; Tue, 04 Oct 2022 20:58:25 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1ofrj0-00BamK-4p; Tue, 04 Oct 2022 23:53:22 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofjeK-00A1WG-1d
-	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 15:16:03 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id o9-20020a17090a0a0900b0020ad4e758b3so2747178pjo.4
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 08:15:57 -0700 (PDT)
+	id 1ofrit-00BaaT-GA
+	for linux-riscv@lists.infradead.org; Tue, 04 Oct 2022 23:53:17 +0000
+Received: by mail-pg1-x531.google.com with SMTP id a23so6265388pgi.10
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Oct 2022 16:53:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=J2ppHC6gj92crGPpSrELKUpyhixWpF3W0/4C0ZdDtPI=;
-        b=UiXw6aHZigxzPRMUFzDILsNVsAdyFtr3B9KxKEI8m7E01CsajejevTYV7BdP2wsOm/
-         HvcPZBMM+TkW28eTt3F1DhxxBtezuv0XTDjtGYW8B2mbElhkTInGpM6vTu+4Ez1+Z4Zl
-         CSSAi6wcg4/gLFK0z0F/WRWRc047jLnY5XkW7fk/hHejtLeNbcKkU7CbDUwW9lkytUXr
-         cd/OQHjN7wB6eRDMRvJyzU3msr1RCb52XcEzMB0ZW808FTM1QI6i/jSUk70317I5p+kD
-         nFmZIjIA0zvgwBAFP/4LpKCKrT0ZRrqcJXuKYGFTLZWpkF7eqaysYMEZs2++diGTMeSz
-         qF/g==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0Me4MtrhkzwJ/+NLdmToxO2yl0aqX6DoqofwZcoelHg=;
+        b=AR7bf0iAVx4nuUqI6C2YPK4bvX5RRdEhmEEMpd8ltbpZwoqKNZgTz+R59HUuZttpAW
+         FRLCpuOTAumssWjBZviJDBzkEAn5zsrhZi9x1B10Zx4afUS+4G+kwM51FCcpKd93qAjS
+         q187NUk+1tD4nzN7AL5bY8XfwAbzGX1nYCWph5diKNf0k8CO4f8nJorLzoJnGGEQCXIF
+         4utx6Yu2xGr8+ZOtnt1nT7jZmgo4vyextjXtSUUN/gXxNAxqfey/9aAyzd5QrP4ymy0I
+         0q5Ez6DNUN5S+Xx8xZS3OLkkdb9Shw5f+MN9oJst/6i/bT+K8ZNO27D1cMpRWGkx3ZkU
+         DuJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=J2ppHC6gj92crGPpSrELKUpyhixWpF3W0/4C0ZdDtPI=;
-        b=Ks8j32/m8U8BKgMmCe3IfmxVFKYvUoZtx9BIAMeCmQi21/fd7ymDgb+YNvxNIf6G29
-         ER6cVxUA/kQiR5E8Hat2+QjxeEoDkFk4lPWHXJYRM3hLihWGqt2NqUJGcpvxItTyD//3
-         ej7VNRir0Ea7Vq3dJTCEPqB/RUEc89HsKo7RH7ultDN9rE6m8hqczk9K+q9DqQrh/Gwl
-         QiI5Xu+/M21mXKQ80GzSWu7932IpQXdTvDxwElGuBBiNTKsWQb7iiZEm4Tq6yER9jg55
-         JspPune94lgHrd9HjT7spDI33pXsJIsndBWgOv53lDZeQBjawTqR5TL5Nyd8FLa7ucqg
-         6R5w==
-X-Gm-Message-State: ACrzQf2oCAj6FZYGjYW9ZJBfFy89ge7kUq5gLT0x19beJrFFmU1hhG3q
-	qxkQRcm12ePDAztgc7tOkn0rB+xhtf07osqNL8TGzw==
-X-Google-Smtp-Source: AMsMyM7n+Vc130we6EQHET/igQcvZPTbfdglKFSS5m9j3dBgMdP/YI1FG0U2Mdd0MJ/1Rl84IgnhjST9lkox2h0baYs=
-X-Received: by 2002:a17:90b:1b06:b0:202:cce0:2148 with SMTP id
- nu6-20020a17090b1b0600b00202cce02148mr262733pjb.84.1664896556863; Tue, 04 Oct
- 2022 08:15:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220919095939.761690562@infradead.org>
-In-Reply-To: <20220919095939.761690562@infradead.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 4 Oct 2022 17:15:20 +0200
-Message-ID: <CAPDyKFqwV27k5r8Pqo0bOqKQ2WKfcMdQoua665nA953U36+rXg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/44] cpuidle,rcu: Clean up the mess
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com, 
-	linus.walleij@linaro.org, bsegall@google.com, guoren@kernel.org, pavel@ucw.cz, 
-	agordeev@linux.ibm.com, linux-arch@vger.kernel.org, 
-	vincent.guittot@linaro.org, mpe@ellerman.id.au, chenhuacai@kernel.org, 
-	christophe.leroy@csgroup.eu, linux-acpi@vger.kernel.org, agross@kernel.org, 
-	geert@linux-m68k.org, linux-imx@nxp.com, vgupta@kernel.org, 
-	mattst88@gmail.com, mturquette@baylibre.com, sammy@sammy.net, 
-	pmladek@suse.com, linux-pm@vger.kernel.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-um@lists.infradead.org, npiggin@gmail.com, 
-	tglx@linutronix.de, linux-omap@vger.kernel.org, dietmar.eggemann@arm.com, 
-	andreyknvl@gmail.com, gregkh@linuxfoundation.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	senozhatsky@chromium.org, svens@linux.ibm.com, jolsa@kernel.org, 
-	tj@kernel.org, Andrew Morton <akpm@linux-foundation.org>, mark.rutland@arm.com, 
-	linux-ia64@vger.kernel.org, dave.hansen@linux.intel.com, 
-	virtualization@lists.linux-foundation.org, 
-	James.Bottomley@hansenpartnership.com, jcmvbkbc@gmail.com, 
-	thierry.reding@gmail.com, kernel@xen0n.name, cl@linux.com, 
-	linux-s390@vger.kernel.org, vschneid@redhat.com, john.ogness@linutronix.de, 
-	ysato@users.sourceforge.jp, linux-sh@vger.kernel.org, festevam@gmail.com, 
-	deller@gmx.de, daniel.lezcano@linaro.org, jonathanh@nvidia.com, 
-	dennis@kernel.org, lenb@kernel.org, linux-xtensa@linux-xtensa.org, 
-	kernel@pengutronix.de, gor@linux.ibm.com, linux-arm-msm@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
-	loongarch@lists.linux.dev, shorne@gmail.com, chris@zankel.net, 
-	sboyd@kernel.org, dinguyen@kernel.org, bristot@redhat.com, 
-	alexander.shishkin@linux.intel.com, fweisbec@gmail.com, lpieralisi@kernel.org, 
-	atishp@atishpatra.org, linux@rasmusvillemoes.dk, kasan-dev@googlegroups.com, 
-	will@kernel.org, boris.ostrovsky@oracle.com, khilman@kernel.org, 
-	linux-csky@vger.kernel.org, pv-drivers@vmware.com, 
-	linux-snps-arc@lists.infradead.org, mgorman@suse.de, 
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>, ulli.kroll@googlemail.com, 
-	linux-clk@vger.kernel.org, rostedt@goodmis.org, ink@jurassic.park.msu.ru, 
-	bcain@quicinc.com, tsbogend@alpha.franken.de, linux-parisc@vger.kernel.org, 
-	ryabinin.a.a@gmail.com, sudeep.holla@arm.com, shawnguo@kernel.org, 
-	davem@davemloft.net, dalias@libc.org, tony@atomide.com, amakhalov@vmware.com, 
-	konrad.dybcio@somainline.org, bjorn.andersson@linaro.org, glider@google.com, 
-	hpa@zytor.com, sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, vincenzo.frascino@arm.com, 
-	anton.ivanov@cambridgegreys.com, jonas@southpole.se, yury.norov@gmail.com, 
-	richard@nod.at, x86@kernel.org, linux@armlinux.org.uk, mingo@redhat.com, 
-	aou@eecs.berkeley.edu, hca@linux.ibm.com, richard.henderson@linaro.org, 
-	stefan.kristiansson@saunalahti.fi, openrisc@lists.librecores.org, 
-	acme@kernel.org, paul.walmsley@sifive.com, linux-tegra@vger.kernel.org, 
-	namhyung@kernel.org, andriy.shevchenko@linux.intel.com, jpoimboe@kernel.org, 
-	dvyukov@google.com, jgross@suse.com, monstr@monstr.eu, 
-	linux-mips@vger.kernel.org, palmer@dabbelt.com, anup@brainfault.org, 
-	bp@alien8.de, johannes@sipsolutions.net, linuxppc-dev@lists.ozlabs.org
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0Me4MtrhkzwJ/+NLdmToxO2yl0aqX6DoqofwZcoelHg=;
+        b=fXDTP5mJ8DwUS6ZuyH6HkpcNQRA77j6ZzRJ22WpF12pWZW0iGWFxwh19k5OG/IZxe4
+         GYKg52YrLo8DWO1LiMvSX15Qrryc29kRd+lvPNPQNSwdaiOuZyJGGnt6ZTiIwX2TO1tN
+         /X2QIkgw1fTydZMcZEEXWUj/8seedoFVxFYNbeXy401Sh3k26FhW4CHJnbuMxdd/hSK3
+         +D8Fl1bNZNAt2PJAhxRiNXvZl9SVLEsmISTcP44jEwTkckIBZBSRr64yI3PCjjbzpCNJ
+         bi+TJICL+C/KPj9XiuvyWq4z/J/W6FMV1hG3G6FcFliH43QXzshHiVURceRKTFhQiw8Z
+         vSyQ==
+X-Gm-Message-State: ACrzQf1j7qnWiXCvsJAJiPCQoR6vRIkJJvFvssFZ7ZEJDcfWwNe3wy04
+	wyWQNMc96VQhbb9oCfKDhAN+2A==
+X-Google-Smtp-Source: AMsMyM5jTp6XHAJzlLg7NZSgkkC8npqddXYgcsYEEZRklZmzdkq4aKdmfDh3gGaDlzI2DVQ/0IZ7zw==
+X-Received: by 2002:a63:91c2:0:b0:44b:89d5:715 with SMTP id l185-20020a6391c2000000b0044b89d50715mr13709124pge.304.1664927594082;
+        Tue, 04 Oct 2022 16:53:14 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id n6-20020a170903110600b0016ee3d7220esm9566668plh.24.2022.10.04.16.53.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Oct 2022 16:53:13 -0700 (PDT)
+Date: Tue, 04 Oct 2022 16:53:13 -0700 (PDT)
+X-Google-Original-Date: Tue, 04 Oct 2022 16:52:37 PDT (-0700)
+Subject: Re: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
+In-Reply-To: <CAOnJCUKUTt1VfU+wMfxE4P21ttW5uaegXD+0oq4O4KgpGOWhaQ@mail.gmail.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>,
+  Alistair Francis <Alistair.Francis@wdc.com>, heinrich.schuchardt@canonical.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, apatel@ventanamicro.com, anup@brainfault.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: atishp@atishpatra.org
+Message-ID: <mhng-1bcc94fc-bb33-4caf-ab65-fca155189645@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_081600_110030_A59DBC4F 
-X-CRM114-Status: GOOD (  22.38  )
-X-Mailman-Approved-At: Tue, 04 Oct 2022 13:58:15 -0700
+X-CRM114-CacheID: sfid-20221004_165315_782905_34A02BC8 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,186 +85,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Sept 2022 at 12:18, Peter Zijlstra <peterz@infradead.org> wrote:
+On Thu, 18 Aug 2022 14:29:03 PDT (-0700), atishp@atishpatra.org wrote:
+> On Tue, May 24, 2022 at 5:08 AM Anup Patel <anup@brainfault.org> wrote:
+>>
+>> Hi Palmer,
+>>
+>> On Wed, Apr 20, 2022 at 4:54 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>> >
+>> > Currently, the range and default value of NR_CPUS is too restrictive
+>> > for high-end RISC-V systems with large number of HARTs. The latest
+>> > QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
+>> > restrictive for QEMU as well. Other major architectures (such as
+>> > ARM64, x86_64, MIPS, etc) have a much higher range and default
+>> > value of NR_CPUS.
+>> >
+>> > This patch increases NR_CPUS range to 2-512 and default value to
+>> > XLEN (i.e. 32 for RV32 and 64 for RV64).
+>> >
+>> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>>
+>> Can this PATCH be considered for 5.19 ?
+>>
+>> Thanks,
+>> Anup
+>>
+>> > ---
+>> > Changes since v2:
+>> >  - Rebased on Linux-5.18-rc3
+>> >  - Use a different range when SBI v0.1 is enabled
+>> > Changes since v1:
+>> >  - Updated NR_CPUS range to 2-512 which reflects maximum number of
+>> >    CPUs supported by QEMU virt machine.
+>> > ---
+>> >  arch/riscv/Kconfig | 9 ++++++---
+>> >  1 file changed, 6 insertions(+), 3 deletions(-)
+>> >
+>> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> > index 00fd9c548f26..1823f281069f 100644
+>> > --- a/arch/riscv/Kconfig
+>> > +++ b/arch/riscv/Kconfig
+>> > @@ -275,10 +275,13 @@ config SMP
+>> >           If you don't know what to do here, say N.
+>> >
+>> >  config NR_CPUS
+>> > -       int "Maximum number of CPUs (2-32)"
+>> > -       range 2 32
+>> > +       int "Maximum number of CPUs (2-512)"
+>> >         depends on SMP
+>> > -       default "8"
+>> > +       range 2 512 if !SBI_V01
+>> > +       range 2 32 if SBI_V01 && 32BIT
+>> > +       range 2 64 if SBI_V01 && 64BIT
+>> > +       default "32" if 32BIT
+>> > +       default "64" if 64BIT
+>> >
+>> >  config HOTPLUG_CPU
+>> >         bool "Support for hot-pluggable CPUs"
+>> > --
+>> > 2.25.1
+>> >
 >
-> Hi All!
 >
-> At long last, a respin of the cpuidle vs rcu cleanup patches.
->
-> v1: https://lkml.kernel.org/r/20220608142723.103523089@infradead.org
->
-> These here patches clean up the mess that is cpuidle vs rcuidle.
->
-> At the end of the ride there's only on RCU_NONIDLE user left:
->
->   arch/arm64/kernel/suspend.c:            RCU_NONIDLE(__cpu_suspend_exit());
->
-> and 'one' trace_*_rcuidle() user:
->
->   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
->   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
->   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, caller_addr);
->   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, caller_addr);
->   kernel/trace/trace_preemptirq.c:                trace_preempt_enable_rcuidle(a0, a1);
->   kernel/trace/trace_preemptirq.c:                trace_preempt_disable_rcuidle(a0, a1);
->
-> However this last is all in deprecated code that should be unused for GENERIC_ENTRY.
->
-> I've touched a lot of code that I can't test and I might've broken something by
-> accident. In particular the whole ARM cpuidle stuff was quite involved.
->
-> Please all; have a look where you haven't already.
->
->
-> New since v1:
->
->  - rebase on top of Frederic's rcu-context-tracking rename fest
->  - more omap goodness as per the last discusion (thanks Tony!)
->  - removed one more RCU_NONIDLE() from arm64/risc-v perf code
->  - ubsan/kasan fixes
->  - intel_idle module-param for testing
->  - a bunch of extra __always_inline, because compilers are silly.
->
-> ---
->  arch/alpha/kernel/process.c               |  1 -
->  arch/alpha/kernel/vmlinux.lds.S           |  1 -
->  arch/arc/kernel/process.c                 |  3 ++
->  arch/arc/kernel/vmlinux.lds.S             |  1 -
->  arch/arm/include/asm/vmlinux.lds.h        |  1 -
->  arch/arm/kernel/process.c                 |  1 -
->  arch/arm/kernel/smp.c                     |  6 +--
->  arch/arm/mach-gemini/board-dt.c           |  3 +-
->  arch/arm/mach-imx/cpuidle-imx6q.c         |  4 +-
->  arch/arm/mach-imx/cpuidle-imx6sx.c        |  5 ++-
->  arch/arm/mach-omap2/common.h              |  6 ++-
->  arch/arm/mach-omap2/cpuidle34xx.c         | 16 +++++++-
->  arch/arm/mach-omap2/cpuidle44xx.c         | 29 +++++++-------
->  arch/arm/mach-omap2/omap-mpuss-lowpower.c | 12 +++++-
->  arch/arm/mach-omap2/pm.h                  |  2 +-
->  arch/arm/mach-omap2/pm24xx.c              | 51 +-----------------------
->  arch/arm/mach-omap2/pm34xx.c              | 14 +++++--
->  arch/arm/mach-omap2/pm44xx.c              |  2 +-
->  arch/arm/mach-omap2/powerdomain.c         | 10 ++---
->  arch/arm64/kernel/idle.c                  |  1 -
->  arch/arm64/kernel/smp.c                   |  4 +-
->  arch/arm64/kernel/vmlinux.lds.S           |  1 -
->  arch/csky/kernel/process.c                |  1 -
->  arch/csky/kernel/smp.c                    |  2 +-
->  arch/csky/kernel/vmlinux.lds.S            |  1 -
->  arch/hexagon/kernel/process.c             |  1 -
->  arch/hexagon/kernel/vmlinux.lds.S         |  1 -
->  arch/ia64/kernel/process.c                |  1 +
->  arch/ia64/kernel/vmlinux.lds.S            |  1 -
->  arch/loongarch/kernel/idle.c              |  1 +
->  arch/loongarch/kernel/vmlinux.lds.S       |  1 -
->  arch/m68k/kernel/vmlinux-nommu.lds        |  1 -
->  arch/m68k/kernel/vmlinux-std.lds          |  1 -
->  arch/m68k/kernel/vmlinux-sun3.lds         |  1 -
->  arch/microblaze/kernel/process.c          |  1 -
->  arch/microblaze/kernel/vmlinux.lds.S      |  1 -
->  arch/mips/kernel/idle.c                   |  8 ++--
->  arch/mips/kernel/vmlinux.lds.S            |  1 -
->  arch/nios2/kernel/process.c               |  1 -
->  arch/nios2/kernel/vmlinux.lds.S           |  1 -
->  arch/openrisc/kernel/process.c            |  1 +
->  arch/openrisc/kernel/vmlinux.lds.S        |  1 -
->  arch/parisc/kernel/process.c              |  2 -
->  arch/parisc/kernel/vmlinux.lds.S          |  1 -
->  arch/powerpc/kernel/idle.c                |  5 +--
->  arch/powerpc/kernel/vmlinux.lds.S         |  1 -
->  arch/riscv/kernel/process.c               |  1 -
->  arch/riscv/kernel/vmlinux-xip.lds.S       |  1 -
->  arch/riscv/kernel/vmlinux.lds.S           |  1 -
->  arch/s390/kernel/idle.c                   |  1 -
->  arch/s390/kernel/vmlinux.lds.S            |  1 -
->  arch/sh/kernel/idle.c                     |  1 +
->  arch/sh/kernel/vmlinux.lds.S              |  1 -
->  arch/sparc/kernel/leon_pmc.c              |  4 ++
->  arch/sparc/kernel/process_32.c            |  1 -
->  arch/sparc/kernel/process_64.c            |  3 +-
->  arch/sparc/kernel/vmlinux.lds.S           |  1 -
->  arch/um/kernel/dyn.lds.S                  |  1 -
->  arch/um/kernel/process.c                  |  1 -
->  arch/um/kernel/uml.lds.S                  |  1 -
->  arch/x86/boot/compressed/vmlinux.lds.S    |  1 +
->  arch/x86/coco/tdx/tdcall.S                | 15 +------
->  arch/x86/coco/tdx/tdx.c                   | 25 ++++--------
->  arch/x86/events/amd/brs.c                 | 13 +++----
->  arch/x86/include/asm/fpu/xcr.h            |  4 +-
->  arch/x86/include/asm/irqflags.h           | 11 ++----
->  arch/x86/include/asm/mwait.h              | 14 +++----
->  arch/x86/include/asm/nospec-branch.h      |  2 +-
->  arch/x86/include/asm/paravirt.h           |  6 ++-
->  arch/x86/include/asm/perf_event.h         |  2 +-
->  arch/x86/include/asm/shared/io.h          |  4 +-
->  arch/x86/include/asm/shared/tdx.h         |  1 -
->  arch/x86/include/asm/special_insns.h      |  8 ++--
->  arch/x86/include/asm/xen/hypercall.h      |  2 +-
->  arch/x86/kernel/cpu/bugs.c                |  2 +-
->  arch/x86/kernel/fpu/core.c                |  4 +-
->  arch/x86/kernel/paravirt.c                | 14 ++++++-
->  arch/x86/kernel/process.c                 | 65 +++++++++++++++----------------
->  arch/x86/kernel/vmlinux.lds.S             |  1 -
->  arch/x86/lib/memcpy_64.S                  |  5 +--
->  arch/x86/lib/memmove_64.S                 |  4 +-
->  arch/x86/lib/memset_64.S                  |  4 +-
->  arch/x86/xen/enlighten_pv.c               |  2 +-
->  arch/x86/xen/irq.c                        |  2 +-
->  arch/xtensa/kernel/process.c              |  1 +
->  arch/xtensa/kernel/vmlinux.lds.S          |  1 -
->  drivers/acpi/processor_idle.c             | 36 ++++++++++-------
->  drivers/base/power/runtime.c              | 24 ++++++------
->  drivers/clk/clk.c                         |  8 ++--
->  drivers/cpuidle/cpuidle-arm.c             |  1 +
->  drivers/cpuidle/cpuidle-big_little.c      |  8 +++-
->  drivers/cpuidle/cpuidle-mvebu-v7.c        |  7 ++++
->  drivers/cpuidle/cpuidle-psci.c            | 10 +++--
->  drivers/cpuidle/cpuidle-qcom-spm.c        |  1 +
->  drivers/cpuidle/cpuidle-riscv-sbi.c       | 10 +++--
->  drivers/cpuidle/cpuidle-tegra.c           | 21 +++++++---
->  drivers/cpuidle/cpuidle.c                 | 21 +++++-----
->  drivers/cpuidle/dt_idle_states.c          |  2 +-
->  drivers/cpuidle/poll_state.c              | 10 ++++-
->  drivers/idle/intel_idle.c                 | 19 +++++----
->  drivers/perf/arm_pmu.c                    | 11 +-----
->  drivers/perf/riscv_pmu_sbi.c              |  8 +---
->  include/asm-generic/vmlinux.lds.h         |  9 ++---
->  include/linux/compiler_types.h            |  8 +++-
->  include/linux/cpu.h                       |  3 --
->  include/linux/cpuidle.h                   | 34 ++++++++++++++++
->  include/linux/cpumask.h                   |  4 +-
->  include/linux/percpu-defs.h               |  2 +-
->  include/linux/sched/idle.h                | 40 ++++++++++++++-----
->  include/linux/thread_info.h               | 18 ++++++++-
->  include/linux/tracepoint.h                | 13 ++++++-
->  kernel/cpu_pm.c                           |  9 -----
->  kernel/printk/printk.c                    |  2 +-
->  kernel/sched/idle.c                       | 47 +++++++---------------
->  kernel/time/tick-broadcast-hrtimer.c      | 29 ++++++--------
->  kernel/time/tick-broadcast.c              |  6 ++-
->  kernel/trace/trace.c                      |  3 ++
->  lib/ubsan.c                               |  5 ++-
->  mm/kasan/kasan.h                          |  4 ++
->  mm/kasan/shadow.c                         | 38 ++++++++++++++++++
->  tools/objtool/check.c                     | 17 ++++++++
->  121 files changed, 511 insertions(+), 420 deletions(-)
+> Ping ?
+> It would be useful to include this patch sooner than later to enable
+> high HART count testing by default.
 
-Thanks for cleaning up the situation!
+Ya, I think that's reasonable: the higher CPU counts have found a bunch 
+of issues, but they're not really Linux bugs and stopping folks from 
+running them is just going to stop those bugs from being fixed.  It 
+seems like these higher default NR_CPUS are stable on smaller systems so 
+that shouldn't hurt anything.
 
-I have applied this on a plain v6.0 (only one patch had a minor
-conflict) and tested this on an ARM64 Dragonboard 410c, which uses
-cpuidle-psci and the cpuidle-psci-domain. I didn't observe any
-problems, so feel free to add:
+I'm still getting a bunch of issues when trying to run the larger CPU 
+count systems in QEMU, but I think it's OK just assuming those are 
+long-tail issues that would manifest anyway and are just more likely 
+with the higher core counts.
 
-Tested-by: Ulf Hansson <ulf.hansson@linaro.org>
-
-Kind regards
-Uffe
+So I've got this on for-next, under the rationale that the new default 
+CPU counts are safe.
 
 _______________________________________________
 linux-riscv mailing list
