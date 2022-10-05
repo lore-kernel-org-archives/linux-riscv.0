@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2C6C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 14:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7913C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 14:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XAzPTBDPwcTen3r3bUOx2rjIEbOWT5TrH5uRt8UjMgI=; b=QtX8Gg7V/w8LHz
-	FkybVIG4PkjK4Ab9ExZZhxZ9aV9qhNXtuSGvkWQ/Atu/CxsnBKIHKYp2KUoeU+6mW9Ls5Geqt0Ip5
-	dlGLTyW/f5X3wejYU2c5BXbsXNgcaLZZggSis3JQw48GOdoLuW22MMVpBGDYu8mpeF2p4oW2I1hoL
-	80Wb63n37nJKOn2frk4vSUeD9MrbeWNkTxyPALZH9Dq/tSAiMHmZzkbKa5pGrJLOUuAJAs8QKi+3B
-	PIaggY+5VDwauHcrkGG9eblsYfZIeX0tyjJ/Y45UpGUFLsoiCepH9LvnzQLUZP1xTGf8YfSwxkDpw
-	Vy7C5LRD4vFDzk9tB7Sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AObph1Sl8WQqXhCVxqK5XC1DwghvOB/+jCU19qwj/+I=; b=DF6M3NW0eFgCmZ
+	r+0eakDiv7rNNgoVrVyJCxHnJ1KRgNgTt1F8ezqTqjEKEh1HQ7hZ4TlwqDm7n9GrfhjZVLexsMTNY
+	Zv3SEc01Bn0LENEHn4ovxcf7jIgbpQ/2iZwo8iJShXSAe8tkI1jGJ2ZZeo8qElCIUg98MasZy8a6s
+	FB8Gk8GgL/0N0sEsrtQ5c3zryMs7Lc6R4r0VOQpcG7PmIhjk8aKyMykMbTHag3LSUdLeGz93b5nJ4
+	39tjyuwu5Rs33Zs9eYh16y9Wh0UFD1bPPzRAjpwUwCmo88bwn81T1VRjkMbpl44gNZOFjdibOaj9b
+	cEU5iwixySIdRs7kgmSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og5dA-00EeSv-3r; Wed, 05 Oct 2022 14:44:16 +0000
-Received: from m12-13.163.com ([220.181.12.13])
+	id 1og5fn-00Efqg-NO; Wed, 05 Oct 2022 14:46:59 +0000
+Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og5d6-00Ee8j-Gc
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 14:44:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=cjjRk
-	IbFw7ZPJtS56W/SLnr0oycFTFI87OdoKaXglgc=; b=m4HRBFVjmX9Ijevx0WcCK
-	l7UXTM2kgY4n5wp0tUtm4FSRxgHRk0w46j0zIwrsMQ3IEd7qxdJ/a5iRn+ew+fK4
-	1oWG248XCouZSHQZVJ1D+6SjyX9u3/YOFycSUuutWjHYuKrc0umzaAp5lYXqBSx5
-	AE0zV7I7c5fK18h0f9gqxY=
-Received: from whoami-VirtualBox.. (unknown [223.72.43.15])
-	by smtp9 (Coremail) with SMTP id DcCowADn7u4OmD1jjYE6Ag--.16997S2;
-	Wed, 05 Oct 2022 22:43:27 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	akpm@linux-foundation.org,
-	anup@brainfault.org,
-	atishp@rivosinc.com,
-	conor.dooley@microchip.com,
-	ajones@ventanamicro.com,
-	guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	falcon@tinylab.org,
-	tjytimi@163.com
-Subject: [PATCH v1] riscv: bring up batched unmap tlb flush
-Date: Wed,  5 Oct 2022 22:43:24 +0800
-Message-Id: <20221005144324.6157-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.30.2
+	id 1og5fi-00Efpw-Hb
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 14:46:57 +0000
+Received: from [124.16.96.231] (unknown [124.16.96.231])
+	by APP-03 (Coremail) with SMTP id rQCowACHOVnSmD1j72UTAw--.51055S3;
+	Wed, 05 Oct 2022 22:46:43 +0800 (CST)
+Message-ID: <071c426e-16be-2720-41c4-cede59e2d82b@iscas.ac.cn>
+Date: Wed, 5 Oct 2022 22:46:36 +0800
 MIME-Version: 1.0
-X-CM-TRANSID: DcCowADn7u4OmD1jjYE6Ag--.16997S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Jr1DZr17CF1UWrW5KFWkXrb_yoW3Jr13pF
-	WDCrsYkFZ5GrnxGry2yrnrury3t39Y9a4ft343Zas0yrnFqryUCFs3Kw1kAr15JrZ5Ww13
-	urZ0k34ru34UXrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piNzV8UUUUU=
-X-Originating-IP: [223.72.43.15]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/1tbiZRCReF8ZUz16IQAAsv
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.3.1
+Subject: Re: [PATCH v6 1/4] riscv: mm: modify pte format for Svnapot
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+ xuyinan@ict.ac.cn, conor@kernel.org
+References: <20221005112926.3043280-1-panqinglin2020@iscas.ac.cn>
+ <20221005112926.3043280-2-panqinglin2020@iscas.ac.cn>
+ <20221005141700.yu7mf23ru4bkf43z@kamzik>
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+In-Reply-To: <20221005141700.yu7mf23ru4bkf43z@kamzik>
+X-CM-TRANSID: rQCowACHOVnSmD1j72UTAw--.51055S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxuFW8JFWfArWfuF18Ar13urg_yoW3Xry5pr
+	4kGFZ3CF4kJw1xCayIvrn8Wr18Xw4DGwsxKw1I9rW8J34DAryxJ34DAa4akw1kXFWvqw10
+	vFWrXF1fuanIyFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	c7I2V7IY0VAS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07bonQUUUUUU=
+X-Originating-IP: [124.16.96.231]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQUKDGM9K9CZlgAAsg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_074412_970073_9341557B 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20221005_074654_992744_769F8BC3 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,232 +75,226 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For riscv, this feature can decrease the times of
-flush_tlb_pages(), and decrease the times of boardcasting for SMP.
-Add @start and @end in struct arch_tlbflush_unmap_barch in riscv
-compared to x86, which can record the minimum and maximum addresses
-in this flush batch to reduce the flush range.If there are a lot of 
-pages to reclaim, or pages are shared with many tasks like server 
-application,this feature is more beneficial.
+On 10/5/22 10:17 PM, Andrew Jones wrote:
+> On Wed, Oct 05, 2022 at 07:29:23PM +0800, panqinglin2020@iscas.ac.cn wrote:
+>> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>
+>> Add one static key to enable/disable svnapot support, enable this static
+>> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+>> option is set. It will influence the behavior of has_svnapot. All code
+>> dependent on svnapot should make sure that has_svnapot return true firstly.
+>>
+>> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+>> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+>> 64KB napot size is supported in spec, so some macros has only 64KB version.
+>>
+>> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index d557cc50295d..69e88ab8fafd 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -383,6 +383,20 @@ config RISCV_ISA_C
+>>   
+>>   	  If you don't know what to do here, say Y.
+>>   
+>> +config RISCV_ISA_SVNAPOT
+>> +	bool "SVNAPOT extension support"
+>> +	depends on 64BIT && MMU
+>> +	select RISCV_ALTERNATIVE
+>> +	default y
+>> +	help
+>> +	  Allow kernel to detect SVNAPOT ISA-extension dynamically in boot time
+>> +	  and enable its usage.
+>> +
+>> +	  SVNAPOT extension helps to mark contiguous PTEs as a range
+>> +	  of contiguous virtual-to-physical translations, with a naturally
+>> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+>> +	  size.
+>> +
+>>   config RISCV_ISA_SVPBMT
+>>   	bool "SVPBMT extension support"
+>>   	depends on 64BIT && MMU
+>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>> index 6f59ec64175e..2c45cc0d5d3c 100644
+>> --- a/arch/riscv/include/asm/hwcap.h
+>> +++ b/arch/riscv/include/asm/hwcap.h
+>> @@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+>>    */
+>>   enum riscv_isa_ext_id {
+>>   	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+>> +	RISCV_ISA_EXT_SVNAPOT,
+>>   	RISCV_ISA_EXT_SVPBMT,
+>>   	RISCV_ISA_EXT_ZICBOM,
+>>   	RISCV_ISA_EXT_ZIHINTPAUSE,
+>> @@ -68,6 +69,7 @@ enum riscv_isa_ext_id {
+>>    */
+>>   enum riscv_isa_ext_key {
+>>   	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+>> +	RISCV_ISA_EXT_KEY_SVNAPOT,
+>>   	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>>   	RISCV_ISA_EXT_KEY_MAX,
+>>   };
+>> @@ -88,6 +90,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+>>   		return RISCV_ISA_EXT_KEY_FPU;
+>>   	case RISCV_ISA_EXT_d:
+>>   		return RISCV_ISA_EXT_KEY_FPU;
+>> +	case RISCV_ISA_EXT_SVNAPOT:
+>> +		return RISCV_ISA_EXT_KEY_SVNAPOT;
+>>   	case RISCV_ISA_EXT_ZIHINTPAUSE:
+>>   		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>>   	default:
+>> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+>> index dc42375c2357..1cd0ffbfbdaa 100644
+>> --- a/arch/riscv/include/asm/pgtable-64.h
+>> +++ b/arch/riscv/include/asm/pgtable-64.h
+>> @@ -74,6 +74,19 @@ typedef struct {
+>>    */
+>>   #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>>   
+>> +/*
+>> + * [63] Svnapot definitions:
+>> + * 0 Svnapot disabled
+>> + * 1 Svnapot enabled
+>> + */
+>> +#define _PAGE_NAPOT_SHIFT	63
+>> +#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
+>> +#define NAPOT_CONT64KB_ORDER	4UL
+>> +#define NAPOT_CONT64KB_SHIFT	(NAPOT_CONT64KB_ORDER + PAGE_SHIFT)
+>> +#define NAPOT_CONT64KB_SIZE	BIT(NAPOT_CONT64KB_SHIFT)
+>> +#define NAPOT_CONT64KB_MASK	(NAPOT_CONT64KB_SIZE - 1UL)
+>> +#define NAPOT_64KB_PTE_NUM	BIT(NAPOT_CONT64KB_ORDER)
+> 
+> I still wonder if we shouldn't future-proof a bit with something like
+> 
+> /*
+>   * Only 64KB (order 4) napot ptes supported.
+>   */
+> #define napot_cont_order(pte)	4
+> 
+> #define napot_cont_shift(order)	((order) + PAGE_SHIFT)
+> #define napot_cont_size(order)	BIT(napot_cont_shift(order))
+> #define napot_cont_mask(order)	BIT(napot_cont_size(order) - 1)
+> #define napot_pte_num(order)	BIT(order)
 
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
----
+Maybe we can declare legal napot order in a enum, and use the enum with
+these macros you have mentioned above. I will try to do this in the v8
+patchset.
 
-This PATCH maybe conflict with patch v4 of arm64 batched unmap tlb flush
-and patch v9 of IPI support for riscv.If this patch is ok,I will rebase
-it on them.
+> 
+>> +
+>>   /*
+>>    * [62:61] Svpbmt Memory Type definitions:
+>>    *
+>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>> index 7ec936910a96..a8cab063fd05 100644
+>> --- a/arch/riscv/include/asm/pgtable.h
+>> +++ b/arch/riscv/include/asm/pgtable.h
+>> @@ -6,10 +6,12 @@
+>>   #ifndef _ASM_RISCV_PGTABLE_H
+>>   #define _ASM_RISCV_PGTABLE_H
+>>   
+>> +#include <linux/jump_label.h>
+>>   #include <linux/mmzone.h>
+>>   #include <linux/sizes.h>
+>>   
+>>   #include <asm/pgtable-bits.h>
+>> +#include <asm/hwcap.h>
+>>   
+>>   #ifndef CONFIG_MMU
+>>   #define KERNEL_LINK_ADDR	PAGE_OFFSET
+>> @@ -264,10 +266,38 @@ static inline pte_t pud_pte(pud_t pud)
+>>   	return __pte(pud_val(pud));
+>>   }
+>>   
+>> +static __always_inline bool has_svnapot(void)
+>> +{
+>> +	return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVNAPOT]);
+>> +}
+>> +
+>> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+>> +
+>> +static inline unsigned long pte_napot(pte_t pte)
+>> +{
+>> +	return pte_val(pte) & _PAGE_NAPOT;
+>> +}
+>> +
+>> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+>> +{
+>> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
+>> +	unsigned long napot_bit = BIT(pos);
+>> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+>> +
+>> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+>> +}
+>> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
+>> +
+>>   /* Yields the page frame number (PFN) of a page table entry */
+>>   static inline unsigned long pte_pfn(pte_t pte)
+>>   {
+>> -	return __page_val_to_pfn(pte_val(pte));
+>> +	unsigned long val  = pte_val(pte);
+>> +	unsigned long res  = __page_val_to_pfn(val);
+>> +
+>> +	if (has_svnapot())
+>> +		res = res & (res - (val >> _PAGE_NAPOT_SHIFT));
+> 
+> nit: res &= ...
 
-I have test this patch in QEMU base on: 
-https://lore.kernel.org/all/20220921084302.43631-3-yangyicong@huawei.com/
+Will do it in the v8 patchset.
 
- #include <sys/types.h>
- #include <unistd.h>
- #include <sys/mman.h>
- #include <string.h>
- #include <time.h>
- #include <stdio.h>
- #include <stdlib.h>
- int main()
- {
- 	 clock_t start,finish;
- 	 double dur;
- #define SIZE (1 * 1024 * 1024 * 500)
-         volatile unsigned char *p = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
-                                          MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-	 for(int tt = 0; tt < 5; tt ++){
-         	memset(p, 0x88, SIZE);
-         	start = clock();
-         	for (int k = 0; k < 10; k++) {
-                	 /* swap in */
-                 	for (int i = 0; i < SIZE; i += 4096) {
-                        	 (void)p[i];
-                 	}
+> 
+> This is much easier to read. I presume the static key is doing its
+> thing and the instructions come out the same as with the errata
+> framework?
+> 
+> A comment explaining what it's doing and how it works would be good for
+> new readers and for myself, since I'll probably forget by next week...
+> 
 
-                 	/* swap out */
-                 	madvise(p, SIZE, MADV_PAGEOUT);
-         	}
-         	finish = clock();
-         	dur = (double)(finish - start) / CLOCKS_PER_SEC;
-         	printf("%f seconds this time\n",dur);
-         }
-    	 return 0;
-         
- }
-And in riscv QEMU, this patch decrease the average 27.1s to 26.7s of time cost
-about this test app.Maybe the decrease will be more obvious for real CPU.
+Will add a explaining comment for it.
 
- arch/riscv/Kconfig                |  8 ++++++++
- arch/riscv/include/asm/tlbbatch.h | 18 ++++++++++++++++++
- arch/riscv/include/asm/tlbflush.h | 20 ++++++++++++++++++++
- arch/riscv/mm/tlbflush.c          | 18 ++++++++++++++++++
- arch/x86/include/asm/tlbflush.h   |  2 +-
- mm/rmap.c                         |  9 ++++-----
- 6 files changed, 69 insertions(+), 6 deletions(-)
- create mode 100644 arch/riscv/include/asm/tlbbatch.h
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 59d18881f35b..03304d0e0c0a 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -498,6 +498,14 @@ config ARCH_HAS_KEXEC_PURGATORY
- 	depends on CRYPTO=y
- 	depends on CRYPTO_SHA256=y
- 
-+config ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-+	bool "Support batched unmap tlb flush"
-+	help
-+	  This will make tlb flush batched when unmap pages. If there are
-+	  a lot of pages to reclaim, or pages are shared with many tasks
-+	  like server device, this will decrease the times of flushing tlbs
-+	  and broadcasting.
-+
- config CRASH_DUMP
- 	bool "Build kdump crash kernel"
- 	help
-diff --git a/arch/riscv/include/asm/tlbbatch.h b/arch/riscv/include/asm/tlbbatch.h
-new file mode 100644
-index 000000000000..357bb0f46cff
---- /dev/null
-+++ b/arch/riscv/include/asm/tlbbatch.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ARCH_RISCV_TLBBATCH_H
-+#define _ARCH_RISCV_TLBBATCH_H
-+
-+#include <linux/cpumask.h>
-+
-+struct arch_tlbflush_unmap_batch {
-+	/*
-+	 * Each bit set is a CPU that potentially has a TLB entry for one of
-+	 * the PFNs being flushed. And the start and end will record the range
-+	 * to be flush this batch.
-+	 */
-+	struct cpumask cpumask;
-+	unsigned long start;
-+	unsigned long end;
-+};
-+
-+#endif /* _ARCH_RISCV_TLBBATCH_H */
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 801019381dea..e2d9dad08bd0 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -10,6 +10,8 @@
- #include <linux/mm_types.h>
- #include <asm/smp.h>
- #include <asm/errata_list.h>
-+#include <asm/tlbbatch.h>
-+#include <asm/page.h>
- 
- #ifdef CONFIG_MMU
- static inline void local_flush_tlb_all(void)
-@@ -59,4 +61,22 @@ static inline void flush_tlb_kernel_range(unsigned long start,
- 	flush_tlb_all();
- }
- 
-+static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
-+					unsigned long address, struct mm_struct *mm)
-+{
-+	/*
-+	 * Each bit of cpumask is a CPU that potentially has a TLB entry for one of
-+	 * the PFNs being flushed. And the start and end will record the range
-+	 * to be flush this batch.
-+	 */
-+	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
-+
-+	if (address < batch->start)
-+		batch->start = address;
-+	else if (address + PAGE_SIZE > batch->end)
-+		batch->end = address + PAGE_SIZE;
-+}
-+
-+extern void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
-+
- #endif /* _ASM_RISCV_TLBFLUSH_H */
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 37ed760d007c..6b117732200b 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -86,3 +86,21 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
- }
- #endif
-+void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-+{
-+	unsigned int cpuid;
-+	bool broadcast;
-+
-+	cpuid = get_cpu();
-+
-+	broadcast = cpumask_any_but(&batch->cpumask, cpuid) < nr_cpu_ids;
-+	if (broadcast) {
-+		sbi_remote_sfence_vma(&batch->cpumask, batch->start, batch->end - batch->start);
-+	} else {
-+		local_flush_tlb_all();
-+	}
-+
-+	cpumask_clear(&batch->cpumask);
-+
-+	put_cpu();
-+}
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index cda3118f3b27..9e7027ae256e 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -252,7 +252,7 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
- }
- 
- static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
--					struct mm_struct *mm)
-+					unsigned long address, struct mm_struct *mm)
- {
- 	inc_mm_tlb_gen(mm);
- 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 93d5a6f793d2..edae27aa20a9 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -645,12 +645,12 @@ void try_to_unmap_flush_dirty(void)
- #define TLB_FLUSH_BATCH_PENDING_LARGE			\
- 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
- 
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, unsigned long address, bool writable)
- {
- 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
- 	int batch, nbatch;
- 
--	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm);
-+	arch_tlbbatch_add_mm(&tlb_ubc->arch, address, mm);
- 	tlb_ubc->flush_required = true;
- 
- 	/*
-@@ -735,7 +735,7 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
- 	}
- }
- #else
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, unsigned long address, bool writable)
- {
- }
- 
-@@ -1596,8 +1596,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				 * and traps if the PTE is unmapped.
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
--
--				set_tlb_ubc_flush_pending(mm, pte_dirty(pteval));
-+				set_tlb_ubc_flush_pending(mm, address, pte_dirty(pteval));
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
- 			}
--- 
-2.34.1
+>> +
+>> +	return res;
+>>   }
+>>   
+>>   #define pte_page(x)     pfn_to_page(pte_pfn(x))
+>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+>> index 0be8a2403212..d2a61122c595 100644
+>> --- a/arch/riscv/kernel/cpu.c
+>> +++ b/arch/riscv/kernel/cpu.c
+>> @@ -96,6 +96,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+>>   	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>>   	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>>   	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>>   	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>>   };
+>>   
+>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> index 553d755483ed..bc247844e42d 100644
+>> --- a/arch/riscv/kernel/cpufeature.c
+>> +++ b/arch/riscv/kernel/cpufeature.c
+>> @@ -204,6 +204,7 @@ void __init riscv_fill_hwcap(void)
+>>   				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+>>   				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>>   				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+>> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>>   			}
+>>   #undef SET_ISA_EXT_MAP
+>>   		}
+>> -- 
+>> 2.35.1
+>>
+> 
+> Otherwise
+> 
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 
 _______________________________________________
