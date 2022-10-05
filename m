@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED425C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 10:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A1FC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 11:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0KohmqnkXqYMboxrR3U2DHTwfaifQx0aXAMruvxf/G4=; b=uVPnCaAn71uHN1
-	Q56Ur6RDlDXfoRV304Y4qkbT/qttaJD/LUPGEjgrl6RhrLDDy02gCcCt8Y/pbAqze63jhmH5SS1nB
-	9pBy1RMvnyXCdi6I1E2bjSAHj+ZfAY+V+lakXdgKTJj8ac21B2NbsEPzt+EXz/q8HrYTyVhpTuDaN
-	6zKR1vtA3hMjl3pRIpe/h1hylJyjeqvRCpBpNglQD1Nrg8xJTMPsmC9mYe6ejj/gw6Ibku+0VmCgk
-	ajVaUlXyYRETZasbTaBLZnsD1Enf9kun/UlVf4O24efFx2rGkuQo+J6E8vxtLiPGKHN8zd+LokUEy
-	H21WTHXkmMeK91+yWBtw==;
+	List-Owner; bh=W1H1jwtzVUdnEJDo+lJHpaKBD56lgXMEKPQ06rLoU64=; b=TzeiJHXUgOMsQA
+	qirQy1bsKqlDm/QhFlKHocu9XtOuVoDbQmcZ1dmaFD4DWl7ULGTUosrSXPnriqa9uTbvDkMLGet4f
+	CxPhzPyoafce6UDye/eLdS6LOqvOGsRxtr84PRgcJoY2FHkuxJPP5odF9ro1pCk42BgUWKzhvGNxX
+	RD30J24yI58rD6fzouXb/LMl1Cb9ENqK7ywXQXIj6/TVa/lOmjfvtCOmoHZlFRt8aEZOVHjeiINaQ
+	AUG5h+oMyxTcTX9HzGSS+e+8SU5bHHHs63tPZCe2vmebVRKvKeaCL/Fvhum/rGJUwl1qWFC4I7Kz5
+	26AbmBZrxSMsEI3qG0Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og1f1-00DaxI-BK; Wed, 05 Oct 2022 10:29:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1og2RZ-00DlN4-1u; Wed, 05 Oct 2022 11:20:05 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og1ey-00Dawd-QK
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 10:29:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1664965793; x=1696501793;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5E4QJjuCCvDQ9v5hxdicxtlW9u5VvqxJSbrtoVqnEOg=;
-  b=wUxgO2IOy+9OjoCPweNUfpbP1MNUyauks8jBzpqT4d71IlES8feJOuUd
-   uUiKjNL2EkWOmzoWPViC/eY08ZD7aOrl3tZ/qrUBiucR+sYqUxUP9ldjA
-   hif52wNgYiSMxHYQjh3ABjaQ/RVzkOfvZdFNNb+BCEC4yG7vDEGluGgjU
-   u5jW1Bn/OrfT2vUYsy9m09WVEFb7NK2iuqzoHjgglSz+43FXNEIqEeju4
-   oIoo1usmtOShKC4tWL0bKpHmmd/fLn0NGKQSeFM764V3NWb9CCWJ3IUQg
-   szJbQVOA/Kkhvl7KybHyrp8MpWn4SXoW82qlW5NfU0l0sJH1tmj435TbP
-   w==;
-X-IronPort-AV: E=Sophos;i="5.95,159,1661842800"; 
-   d="scan'208";a="177122166"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Oct 2022 03:29:47 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 5 Oct 2022 03:29:45 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 5 Oct 2022 03:29:41 -0700
-Date: Wed, 5 Oct 2022 11:29:20 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-CC: <conor@kernel.org>, <geert+renesas@glider.be>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <magnus.damm@gmail.com>,
-	<heiko@sntech.de>, <guoren@kernel.org>, <philipp.tomsich@vrull.eu>,
-	<nathan@kernel.org>, <atishp@rivosinc.com>, <apatel@ventanamicro.com>,
-	<linux-renesas-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<biju.das.jz@bp.renesas.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
- RZ/Five SoC
-Message-ID: <Yz1cgDOCdY41ip0y@wendy>
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <YzxwoELNBctbhjJb@spud>
- <CA+V-a8tgvF16vduoQ+ZbzTpRJUmCnN-GPQs5G8AqMOXbnznwHA@mail.gmail.com>
- <F0B6C609-6C39-4080-8F07-7FEFFAFEA993@kernel.org>
- <5254a42c-9233-6f9a-eff8-33324a184d20@microchip.com>
- <CA+V-a8tS=vsTW=SvGeAjy_M9C=ZwtaWHYhdBK=XV0M9T_c3b5A@mail.gmail.com>
+	id 1og2RV-00DlLi-O0
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 11:20:03 +0000
+Received: by mail-ed1-x530.google.com with SMTP id e18so22502629edj.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 04:20:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=nDwYc87OENP2qGSJZT4fezkaOuvBy89eBOveYwbzQSg=;
+        b=H/KjYGlYNTVeXlP1ZH3RoJtOmUC7lKJZIyU7AtBZZ4dm2KkSB0J8IQr6owHSzFbp7J
+         G3BK11bYyoxKa1rFGHP0KI938nCi6NN/jlet2QV1t/aTtf8PmWiAGBToZLIzaX2DJ13a
+         5swhqNGrx7crd9ct8Ska1OMH/0L3mrDK2sxSToVtTmae7TXxNQRlQkC62Jj5oeUuaNmP
+         URxkZCMM8kGisMnWhIHInrBp87J7s8xnluaNwvgqTgjcGw0u0PtY7e+vjDH7C7VI7W7E
+         zkCyRQSAZkB/V9umThKiBVkhaaiYaixDIxWufpMudetpRX5f07ICkPXq6nP3HNn6J3+E
+         /9Gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=nDwYc87OENP2qGSJZT4fezkaOuvBy89eBOveYwbzQSg=;
+        b=PaoGDmrOOUdLPUO+OEGZaNEjEGGMxGIb5jvDqtaUSsEZFWB+QAWbEFCPXsGOHB1L73
+         DVp6Wm0dMlB8P+XAxtmpS6zTyMNYU+sJ+HmgLHXVyKIhPsp5j0e6Wv55P0yDp2byakex
+         BIU4iRaa2JSmgkkm9O2F/X8UrEmxYAwh4YOt/OrIu7Vo5uSnQkyC/TMa4ZB9vZ0yv9eR
+         3JbFiJUKp8/G2FOxf10eN7odAintOinib95iDgY+UYFV4aL7j/q8L+9FPUG1qyYSuVBk
+         qJSk7DBaV5xlpGUAcycXORb8dCQjq+tE9OQbylvYmHY7/3rvDqeOsDuGwEY1nwCeqQAW
+         2RxA==
+X-Gm-Message-State: ACrzQf3Oid9vVXi0yGFpCh+cVgYZqCBuvoNN5U8Ft8klJdW9nXwleqwz
+	X+sqGAvjZK8x3R4vxwMMzL+ZLg==
+X-Google-Smtp-Source: AMsMyM4WRPWDABMOHuqQEI33zOdO1xkv1g2WJRQSsjNfkvtG5CGHdxkg9/UCPwnJX/XwHWYt45N+XA==
+X-Received: by 2002:a05:6402:1909:b0:451:ace7:ccbd with SMTP id e9-20020a056402190900b00451ace7ccbdmr27374338edz.276.1664968798989;
+        Wed, 05 Oct 2022 04:19:58 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id v5-20020aa7d805000000b004533fc582cbsm3659923edq.21.2022.10.05.04.19.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Oct 2022 04:19:58 -0700 (PDT)
+Date: Wed, 5 Oct 2022 13:19:57 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: panqinglin2020@iscas.ac.cn
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+	xuyinan@ict.ac.cn
+Subject: Re: [PATCH v5 2/4] mm: support Svnapot in physical page
+ linear-mapping
+Message-ID: <20221005111957.ipwsokzrmf4qsfx6@kamzik>
+References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
+ <20221003134721.1772455-3-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CA+V-a8tS=vsTW=SvGeAjy_M9C=ZwtaWHYhdBK=XV0M9T_c3b5A@mail.gmail.com>
+In-Reply-To: <20221003134721.1772455-3-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_032952_982932_E3F9748C 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20221005_042001_807004_84D7B29B 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +90,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 05, 2022 at 11:20:40AM +0100, Lad, Prabhakar wrote:
-> Hi Conor,
+On Mon, Oct 03, 2022 at 09:47:19PM +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 > 
-> On Wed, Oct 5, 2022 at 10:17 AM <Conor.Dooley@microchip.com> wrote:
-> >
-> > On 05/10/2022 09:58, Conor Dooley wrote:
-> > > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > >
-> > > On 5 October 2022 09:44:56 IST, "Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
-> > >> Hi Conor,
-> > >>
-> > >> Thank you for the review.
-> > >>
-> > >> On Tue, Oct 4, 2022 at 6:43 PM Conor Dooley <conor@kernel.org> wrote:
-> > >
-> > >>>> +static void cpu_dcache_wb_range(unsigned long start,
-> > >>>> +                             unsigned long end,
-> > >>>> +                             int line_size)
-> > >>>> +{
-> > >>>> +     bool ucctl_ok = false;
-> > >>>> +     unsigned long pa;
-> > >>>> +     int mhartid = 0;
-> > >>>> +#ifdef CONFIG_SMP
-> > >>>> +     mhartid = smp_processor_id();
-> > >>>> +#endif
-> > >>>
-> > >>> Won't this produce complaints from your if you compile with CONFIG_SMP
-> > >>> set?
-> > >>>
-> > >> No I dont see a build issue with SMP enabled, do you see any reason
-> > >> why it should fail?
-> > >
-> > > Not fail but complain about the unused variable.
-> > >
-> >
-> > Not unused variable, sorry but the unused 0 that it was initialised with*
+> Svnapot is powerful when a physical region is going to mapped to a
+> virtual region. Kernel will do like this when mapping all allocable
+> physical pages to kernel vm space. This commit modifies the
+> create_pte_mapping function used in linear-mapping procedure, so the
+> kernel can be able to use Svnapot when both address and length of
+> physical region are 64KB align. Code here will be executed only when
+> other size huge page is not suitable, so it can be an addition of
+> PMD_SIZE and PUD_SIZE mapping.
 > 
-> No, it doesn't complain (I dont think compilers complain of such
-> unused assignments, maybe I'm wrong). BTW I am using GCC 9.4.0. Do you
-> think I need to update it?
+> This commit also modifies the best_map_size function to give map_size
+> many times instead of only once, so a memory region can be mapped by
+> both PMD_SIZE and 64KB napot size.
 
-Maybe it's sparse that generates those warnings, I never know which it
-is...
+I'd prefer to see the best_map_size() change for PMD_SIZE and PAGE_SIZE
+be a separate patch. Then, the NAPOT_CONT64KB_SIZE support can be added
+on to a ready best_map_size(). In fact, I'd prefer this patch be dropped
+from this series and the best_map_size() for PMD_SIZE and PAGE_SIZE patch
+be either posted as a first patch of the "use svnapot in early boot"
+series or be posted alone, as it's already applicable.
+
+> 
+> It is tested by setting qemu's memory to a 262272k region, and the
+> kernel can boot successfully.
+> 
+> Currently, the modified create_pte_mapping will never take use of SVNAPOT,
+> because this extension is detected in riscv_fill_hwcap and enabled in
+> apply_boot_alternatives(called from setup_arch) which is called
+> after setup_vm_final. We will need to support function like
+> riscv_fill_hwcap_early to fill hardware capabilities more earlier, and
+> try to enable SVNAPOT more earlier in apply_early_boot_alternatives,
+> so that we can determine SVNAPOT's presence during setup_vm_final.
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
