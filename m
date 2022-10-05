@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031D3C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 14:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9598EC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 14:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VVgeGm5tWspN3NMy2HxSvCpBgWwXoo2M+Y8aD7OUlpI=; b=nQ6Ph2CaZw8alD
-	pDThVBrI8IJ7iDhe8GejKdbDmeZpcbhYwdVJXjCyEKAEDa3lnlP+fAb70GV7wpWD58IpNQvycrGfq
-	TQgq92pI89Z0geKPvq78tpxazDv1fCwsbWpjgHPSNUXZHsC0bvx9/OV3w46p9YtzG4sSgjdKORyC3
-	PqFiGkOzzokF9OhLSpAvDPMRKzZTLLOPqQbsgJCF0NtwPdqJ6rgk7e6tDuyn+4WHedV2wUOcvFmcs
-	d/06sKlh5EAn8R/y4gMxe+15FGwLQbuI5ECw2OCVjic1nPOq4DIHAAUSZ3FZyjRkT74t365az1j1c
-	NrZ0WHCNI+mP09xSBFNA==;
+	List-Owner; bh=y0b90sRKMHzdRjchqCRDrQuUu69A4rydhnh3fEdsLLg=; b=Fjcm0AsFLzMQcg
+	SlLSPwNZfBukx1/A8W+LDKDLND3kOh51TZuZMKSc3hTarv6F80LrsseWh0Y2eA7psJOQOWFyzEWmr
+	wti5AkCgaADWIoFFHc/T8HvBaJpVGjEplF5UfBSTZCO0lrGAlKQ6Aj5gxms7B0x3G7OfcGu2qOTBl
+	bcV51S2Soet/N37DXoWbeqCntzS1wsML8IOmS7gn85gPIqvUIxqAEgedsrHbw7pC5bFiK7jSZZPGO
+	Bv/Ue4a8w387F8rkjyG2hyHTia2qxbn82Pw7zhSvexN4GP7G0F+CAqm7uFTNUqsQOpR0HNY4On+s2
+	OfKZrNKCXvilaItq/eSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og59U-00ESU7-Ob; Wed, 05 Oct 2022 14:13:36 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1og5Cu-00ESzi-PQ; Wed, 05 Oct 2022 14:17:08 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og59S-00ESTj-Dj
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 14:13:35 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id n35-20020a05600c502300b003b4924c6868so1940671wmr.1
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 07:13:31 -0700 (PDT)
+	id 1og5Cs-00ESz1-4u
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 14:17:07 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id 13so35794441ejn.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 07:17:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date;
-        bh=iTil0lsFJBbajnS0HckB1NLqPw5j3/u7FBEnTBeNuP4=;
-        b=YaurSgMUPF+oS+WkvCUxM+z+bnxbzy3n9QY10q9IxleLE2S2uuxg+9b8almIevcltB
-         MPeTWUwxdoBQrAC57P+z1Pt62AhfKmv/EMBY3mOiyADzAgjqH2oMKAdcaWLAXjal+UaF
-         kaFrKHj82ikhsKBt5w3LJOiaNR3h74W4hJjUEkQdusH+Xcfbdowz2mUsnxGqzhZLBYHw
-         dtmN1n7nw0058+nFSRWLve4Zbo/sfNcg08e3xigHmEU8S9bx0gtZ79ZLspbX3qJt27bN
-         FoN0IuaZy77gOUkzG+ZXGZeAScNjHDM0a0HOj7wijRn5ZTtdrDJVm0Y3PAPSdwvDphy3
-         ovSQ==
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=OYorjZrFsEijDL4JDivcX0rBY9R1Aqumt3OTklx208k=;
+        b=EY09xL3oJKGJol75mIMKxcBoRljLNB9pCRdtrw3UKjMNIo8e/xD7ND4S7tIHSMlTQB
+         W9FxieUSUQ/UpjwT2PMDIU7H69slthWA23wGhwKz9XVDAoHmIpIPJk/x5wucKMhFuCgV
+         her3aR7hg2FBMhss6R4o2I5pbBv53N1B4bMBmv8qyaaseIuDklJlhz5UWqfvTDxFHalf
+         OLLThbtme2YxlSP65yhf7KR5J/eEautC1r/s1eSqOtH3hqWMDLxuBPnWj1sqoOsO+X2/
+         GWp550n476C3vTRXkkY8WsMk1c4f/QPyk/Q9BRczjVQNXYNz/H/uioXEqnWqdA38+uJ4
+         zbTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=iTil0lsFJBbajnS0HckB1NLqPw5j3/u7FBEnTBeNuP4=;
-        b=Ufgm9n6PRNW7TDr6HsHiY4roE+qxSVCIlPCz4d/h/c6GxJ9E5CDn7rx5poFx+G68Oa
-         Ryayno6OJKFZaBf8q/W+dGVdUQCJ/Jrdos+lfQrI9me3Vyipg7I2dlhg6soYyUSjUyap
-         iX5Qb4KLjO7TYbnIGvl3TIrPJsnR4epUKPNnnsuakFNkx3CSHKbFyUOYbei0F2iu+t0q
-         xMmC+aBiR0dkjxLaWkrrJhOEkYV9m8lWyH+UJryuRbspp3CwNnqhI6ro9WyLdyDlZW7W
-         7DtfRrUVhSBUOX7y/PEoB7TB+an8N+fEC1oRHh7wc49l0bcHDYCUoeg8xd9rY2EGgUiV
-         F5lQ==
-X-Gm-Message-State: ACrzQf35i09eW5mW11vvbldDj3ILH7IgWYYrjWaFYVDAy1HwCb76qb9w
-	THxJL+mCx0uR9MXeTg7Oe52iVA==
-X-Google-Smtp-Source: AMsMyM7Xx5nYShPZnXC0WbvtOB8CmRaTazKcBoOpgl+1iLPHDaTodrPizD5csr98RYaSHlwFb8wNNQ==
-X-Received: by 2002:a05:600c:3515:b0:3b4:a0fa:c4e1 with SMTP id h21-20020a05600c351500b003b4a0fac4e1mr3506244wmq.191.1664979210789;
-        Wed, 05 Oct 2022 07:13:30 -0700 (PDT)
-Received: from [192.168.0.17] (cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net. [86.15.83.122])
-        by smtp.gmail.com with ESMTPSA id o30-20020adf8b9e000000b0022da3977ec5sm15027913wra.113.2022.10.05.07.13.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Oct 2022 07:13:30 -0700 (PDT)
-Message-ID: <7ef87fe1-e6da-eaac-087e-ef232c176665@sifive.com>
-Date: Wed, 5 Oct 2022 15:13:29 +0100
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=OYorjZrFsEijDL4JDivcX0rBY9R1Aqumt3OTklx208k=;
+        b=QKzFoy0+KpozykjA1xAVKE7PWu0njkDvvBuGWci1hDuDjALzdc8sD1I6XWyobdsBzy
+         SV2wl8GPitGoBhU/HbyxJAOvj31hbFWzFW7Ry6cQSayAtK7uawgE+ZqyhRI+YqHhQ9F4
+         iKxFBCMof+L3YJiL93B0D3fCmhAyVnMfaUiv7eT3vZUy6qA5cfTacUpMoA0OGcp4zP3f
+         8VVFB8AK4GjM4N/4dxJGqshOxLzNet8W4JAyD+7FfNj9KtBn0n/TFFz92EQOoF9TrpQg
+         N2FTDfrro/G4ppHMNjPIIdTgWth+7x/xKzHdqP3J7/45GLZcvwttBpEjR4DRRbcRw+Dj
+         sg1Q==
+X-Gm-Message-State: ACrzQf3ND+5mFtbfBjmu9lHILc++rl3yRfWUoup+FasxbTBlAV+/gvi5
+	FIv8rxwhHaT1VkI/e6zF6jfZvFkcRfm2SQ==
+X-Google-Smtp-Source: AMsMyM5aERJBNSvWw3MVTvjyUXvG+LR3jMJjiDwEzR7LeqJaYfQjdnmoq6xpFH+ctPhwIRW6DMGEUw==
+X-Received: by 2002:a17:906:cc10:b0:77b:df70:efd2 with SMTP id ml16-20020a170906cc1000b0077bdf70efd2mr23999003ejb.590.1664979422606;
+        Wed, 05 Oct 2022 07:17:02 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id d14-20020a056402516e00b00457b5ba968csm3855326ede.27.2022.10.05.07.17.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Oct 2022 07:17:01 -0700 (PDT)
+Date: Wed, 5 Oct 2022 16:17:00 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: panqinglin2020@iscas.ac.cn
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+	xuyinan@ict.ac.cn, conor@kernel.org
+Subject: Re: [PATCH v6 1/4] riscv: mm: modify pte format for Svnapot
+Message-ID: <20221005141700.yu7mf23ru4bkf43z@kamzik>
+References: <20221005112926.3043280-1-panqinglin2020@iscas.ac.cn>
+ <20221005112926.3043280-2-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH] riscv/vdso: fix missing vdso_data declaration
-Content-Language: en-GB
-To: Conor.Dooley@microchip.com, palmer@dabbelt.com
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- aou@eecs.berkeley.edu, sudip.mukherjee@sifive.com,
- jude.onyenegecha@sifive.com
-References: <mhng-192f7819-dbb8-4cd0-af6c-ef89d5579a14@palmer-ri-x1c9>
- <71ddab3b-a38e-7957-d3cb-65d6ba64c4ef@microchip.com>
- <76b2b200-d013-1504-b265-fffa9e713c67@microchip.com>
-From: Ben Dooks <ben.dooks@sifive.com>
-In-Reply-To: <76b2b200-d013-1504-b265-fffa9e713c67@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <20221005112926.3043280-2-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_071334_532760_E85715C9 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20221005_071706_217633_E5F7369E 
+X-CRM114-Status: GOOD (  30.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +84,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTUvMDkvMjAyMiAxOTo1MSwgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20gd3JvdGU6Cj4g
-T24gMTkvMDgvMjAyMiAwODowNywgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiBPbiAxOS8wOC8yMDIy
-IDAwOjAxLCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPj4+IEVYVEVSTkFMIEVNQUlMOiBEbyBub3Qg
-Y2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IGtub3cgdGhlIGNvbnRl
-bnQgaXMgc2FmZQo+Pj4KPj4+IE9uIFN1biwgMTQgQXVnIDIwMjIgMDk6MTA6NDggUERUICgtMDcw
-MCksIENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29tIHdyb3RlOgo+Pj4+IE9uIDExLzA4LzIwMjIg
-MjI6MjYsIENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29tIHdyb3RlOgo+Pj4+PiBPbiAxMS8wOC8y
-MDIyIDIyOjA2LCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPj4+Pj4+IEVYVEVSTkFMIEVNQUlMOiBE
-byBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IGtub3cgdGhl
-IGNvbnRlbnQgaXMgc2FmZQo+Pj4+Pj4KPj4+Pj4+IE9uIFdlZCwgMTMgSnVsIDIwMjIgMjM6MzQ6
-MzYgUERUICgtMDcwMCksIENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29tIHdyb3RlOgo+Pj4+Pj4+
-IE9uIDEzLzA3LzIwMjIgMjM6MDYsIEJlbiBEb29rcyB3cm90ZToKPj4+Pj4+Pj4gRVhURVJOQUwg
-RU1BSUw6IERvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1lbnRzIHVubGVzcyB5b3Ug
-a25vdyB0aGUgY29udGVudCBpcyBzYWZlCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFRoZSB2ZHNvX2RhdGEg
-aXMgZGVmaW5lZCBieSBoYXMgbm8gZGVjbGFyYXRpb24gYXMgdGhlCj4+Pj4+Pj4+IGFyY2gvcmlz
-Y3Yva2VybmVsL3Zkc28uYyBkb2VzIG5vdCBpbmNsdWRlIGFzbS92ZHNvL3ZzeXNjYWxsLmgKPj4+
-Pj4+Pj4gZm9yIHRoZSBkZWZpbml0aW9uLiBGaXggdGhlIGZvbGxvd2luZyBzcGFyc2Ugd2Fybmlu
-ZyBieQo+Pj4+Pj4+PiBhZGRpbmcgaW4gdGhlIGFzbS92ZHNvL3ZzeXNjYWxsLmgKPj4+Pj4+Pj4K
-Pj4+Pj4+Pj4gYXJjaC9yaXNjdi9rZXJuZWwvdmRzby5jOjQyOjE4OiB3YXJuaW5nOiBzeW1ib2wg
-J3Zkc29fZGF0YScgd2FzIG5vdCBkZWNsYXJlZC4gU2hvdWxkIGl0IGJlIHN0YXRpYz8KPj4+Pj4+
-Pj4KPj4+Pj4+Pj4gU2lnbmVkLW9mZi1ieTogQmVuIERvb2tzIDxiZW4uZG9va3NAc2lmaXZlLmNv
-bT4KPj4+Pj4+Pgo+Pj4+Pj4+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xl
-eUBtaWNyb2NoaXAuY29tPgo+Pj4+Pj4KPj4+Pj4+IFRoaXMgb25lIGdpdmVzIG1lIGEgYnVuY2gg
-b2YgYnVpbGQgZXJyb3JzLCB0aGluZ3MgbGlrZQo+Pj4+Pgo+Pj4+PiBIbW0sIHdoYXQncyB5b3Vy
-IGRlZmNvbmZpZyBmb3IgdGhpcz8KPj4+Pj4gSSB0ZXN0ZWQgd2l0aCBteSBkZXYgZGVmY29uZmln
-IGFuZCByaXNjdidzIGRlZmF1bHQgb25lIGF0IHRoZSB0aW1lIGJ1dAo+Pj4+PiBzYXcgbm90aGlu
-Zy4gVHJpZWQgYm90aCBhZ2FpbiBub3cgJiBubyBlcnJvcnMuCj4+Pj4KPj4+PiBSZXByb2R1Y2Vk
-IGl0IHdpdGggcmlzY3Ytc3lzdGVtcy1jaS4KPj4+PiBMb29rcyBsaWtlIGl0IGlzIGhhcHBlbmlu
-ZyBvbiBvbmUgb2YgeW91ciAzMiBiaXQgZGVmY29uZmlncyB3aGVyZQo+Pj4+IENPTkZJR19HRU5F
-UklDX1RJTUVfVlNZU0NBTEwgaXMgbm90IHNldC4gSW4gdmRzby5jLCB0aGUgaW5jbHVkZSBvZgo+
-Pj4+IHZkc28vZGF0YXBhZ2UuaCBpcyBndWFyZGVkIGJ5IENPTkZJR19HRU5FUklDX1RJTUVfVlNZ
-U0NBTEwgYnV0IHRoZQo+Pj4+IG9uZSBpbiBhc20vdmRzby92c3lzY2FsbC5oIGlzIG5vdC4KPj4+
-Pgo+Pj4+IEFkZGluZyB0aGUgc2FtZSBndWFyZCBhcm91bmQgdGhlIGluY2x1ZGUgdGhlcmUgZml4
-ZXMgdGhlIGJ1aWxkIC9zaHJ1Zwo+Pj4KPj4+IERvIHlvdSBtaW5kIGp1c3Qgc2VuZGluZyBhIHYy
-P8KgIEl0J3MgYSB0b3VjaCBlYXNpZXIgdGhhbiB0cnlpbmcgdG8KPj4+IHNxdWFzaCBzdHVmZiBp
-bi4KPj4+Cj4+Cj4+IEJlbiBzZW50IHRoZSBwYXRjaCBzbyBJIGRpZG4ndCgvZG9uJ3QpIHdhbnQg
-dG8gZW5jcm9hY2ggYnkgc2VuZGluZwo+PiBhIHYyLgo+Pgo+PiBCZW4sIEZXSVcgd2hhdCBJIGRp
-ZCB3YXM6Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vdnN5c2Nh
-bGwuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby92c3lzY2FsbC5oCj4+IGluZGV4IDgy
-ZmQ1ZDgzYmQ2MC4uZTgyY2U5N2QyN2QyIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3Zkc28vdnN5c2NhbGwuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zk
-c28vdnN5c2NhbGwuaAo+PiBAQCAtNSw3ICs1LDEwIEBACj4+ICDCoCNpZm5kZWYgX19BU1NFTUJM
-WV9fCj4+ICAgCj4+ICDCoCNpbmNsdWRlIDxsaW51eC90aW1la2VlcGVyX2ludGVybmFsLmg+Cj4+
-ICsKPj4gKyNpZmRlZiBDT05GSUdfR0VORVJJQ19USU1FX1ZTWVNDQUxMCj4+ICDCoCNpbmNsdWRl
-IDx2ZHNvL2RhdGFwYWdlLmg+Cj4+ICsjZW5kaWYKPj4gICAKPj4gIMKgZXh0ZXJuIHN0cnVjdCB2
-ZHNvX2RhdGEgKnZkc29fZGF0YTsKPj4gICAKPj4gQnV0IEkgbm93IEkgYW0gbm90IHN1cmUgaWYg
-dGhhdCBpcyB0aGUgY29ycmVjdCBhcHByb2FjaC4KPj4gVGhlcmUncyBhbiBBUkNIX0hBU19WRFNP
-X0RBVEEgaW4gdmRzby9kYXRhcGFnZS5oOgo+Pgo+PiAjaWZkZWYgQ09ORklHX0FSQ0hfSEFTX1ZE
-U09fREFUQQo+PiAjaW5jbHVkZSA8YXNtL3Zkc28vZGF0YS5oPgo+PiAjZWxzZQo+PiBzdHJ1Y3Qg
-YXJjaF92ZHNvX2RhdGEge307Cj4+ICNlbmRpZgo+Pgo+PiBJIGRpZCBhIGxpdHRsZSBtb3JlIGRp
-Z2dpbmcgc2luY2Ugd2hhdCB3ZSBhcmUgY3VycmVudGx5IGRvaW5nIGlzIHRoZQo+PiBleGFjdCBz
-YW1lIGFzIHdoYXQgYXJtNjQgZG9lcy4uIEkgc3BvdHRlZCB0aGF0IGluIG91ciBLY29uZmlnIHdl
-Ogo+PiBzZWxlY3QgR0VORVJJQ19USU1FX1ZTWVNDQUxMIGlmIE1NVSAmJiA2NEJJVAo+Pgo+PiBX
-aHkgZG9lcyB0aGF0IGRlcGVuZCBvbiA2NEJJVD8gU2hvdWxkIHRoYXQgaGF2ZSBiZWVuIHVwZGF0
-ZWQgd2hlbiB3ZQo+PiBhZGRlZCB0aGUgY29tcGF0IHN0dWZmPyBJZiB0aGF0IGlzIHR1cm5lZCBv
-biwgSSBjYW4gdHJpZ2dlciB0aGUgYnVpbGQKPj4gZXJyb3Igd2l0aG91dCBhcHBseWluZyBCZW4n
-cyBwYXRjaC4KPj4KPj4gYXJtNjQgYWxzbyBoYXMgYSBjb21wYXQgc3lzY2FsbCBmb3IgX19OUl9n
-ZXR0aW1lb2ZkYXkuIEkgZG9uJ3Qga25vdwo+PiBhbnl0aGluZyBhYm91dCBjb21wYXQsIHNvIEkg
-Y2FudCBjb250cmlidXRlIGFueSByZWFzb25zIGFzIHRvIHdoeSB3ZQo+PiBkb24ndCBoYXZlIG9u
-ZSwgYnV0IHRvIHRoZSB1bnRyYWluZWQgZXllIGl0IHNlZW1zIGxpa2UgQmVuJ3MgcGF0Y2ggaXMK
-Pj4gZXhwb3NpbmcgYSBkZWZpY2llbmN5IGluIG91ciBjb21wYXQgc3VwcG9ydCB0aGF0IG1heSBu
-b3QgaGF2ZSBiZWVuCj4+IG5vdGljZWQgYmVjYXVzZSB3ZSBoYWQgR0VORVJJQ19USU1FX1NZU0NB
-TEwgZGlzYWJsZWQgZm9yIDMyQklULgo+Pgo+PiBFaXRoZXIgd2F5LCBJIGRvbid0IGtub3cgZW5v
-dWdoIGFib3V0IHdoYXQncyBnb2luZyBvbiBoZXJlIHRvIHNlbmQgYW4KPj4gYWN0dWFsIHBhdGNo
-LCBqdXN0IGVub3VnaCB0byBtYWtlIHNvbWUgb2JzZXJ2YXRpb25zLgo+IAo+IEhleSBCZW4sCj4g
-RGlkIHlvdSBldmVyIGdldCBhcm91bmQgdG8gbG9va2luZyBhdCB0aGlzIGFnYWluPwo+IFRoYW5r
-cywKPiBDb25vci4KPiAKCkkgdGhpbmsgdGhpcyBnb3QgbG9zdCBpbiB0aGUgZ2VuZXJhbCBsaXN0
-IG5vaXNlLCBpZiBpdCBzdGlsbCBhbiBpc3N1ZQpJJ2xsIGdvIGhhdmUgYSBsb29rIHRoaXMgd2Vl
-ay4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Oct 05, 2022 at 07:29:23PM +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> Add one static key to enable/disable svnapot support, enable this static
+> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+> option is set. It will influence the behavior of has_svnapot. All code
+> dependent on svnapot should make sure that has_svnapot return true firstly.
+> 
+> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+> 64KB napot size is supported in spec, so some macros has only 64KB version.
+> 
+> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d557cc50295d..69e88ab8fafd 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -383,6 +383,20 @@ config RISCV_ISA_C
+>  
+>  	  If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_SVNAPOT
+> +	bool "SVNAPOT extension support"
+> +	depends on 64BIT && MMU
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	  Allow kernel to detect SVNAPOT ISA-extension dynamically in boot time
+> +	  and enable its usage.
+> +
+> +	  SVNAPOT extension helps to mark contiguous PTEs as a range
+> +	  of contiguous virtual-to-physical translations, with a naturally
+> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+> +	  size.
+> +
+>  config RISCV_ISA_SVPBMT
+>  	bool "SVPBMT extension support"
+>  	depends on 64BIT && MMU
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 6f59ec64175e..2c45cc0d5d3c 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+>   */
+>  enum riscv_isa_ext_id {
+>  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> +	RISCV_ISA_EXT_SVNAPOT,
+>  	RISCV_ISA_EXT_SVPBMT,
+>  	RISCV_ISA_EXT_ZICBOM,
+>  	RISCV_ISA_EXT_ZIHINTPAUSE,
+> @@ -68,6 +69,7 @@ enum riscv_isa_ext_id {
+>   */
+>  enum riscv_isa_ext_key {
+>  	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+> +	RISCV_ISA_EXT_KEY_SVNAPOT,
+>  	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>  	RISCV_ISA_EXT_KEY_MAX,
+>  };
+> @@ -88,6 +90,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+>  		return RISCV_ISA_EXT_KEY_FPU;
+>  	case RISCV_ISA_EXT_d:
+>  		return RISCV_ISA_EXT_KEY_FPU;
+> +	case RISCV_ISA_EXT_SVNAPOT:
+> +		return RISCV_ISA_EXT_KEY_SVNAPOT;
+>  	case RISCV_ISA_EXT_ZIHINTPAUSE:
+>  		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>  	default:
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index dc42375c2357..1cd0ffbfbdaa 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -74,6 +74,19 @@ typedef struct {
+>   */
+>  #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>  
+> +/*
+> + * [63] Svnapot definitions:
+> + * 0 Svnapot disabled
+> + * 1 Svnapot enabled
+> + */
+> +#define _PAGE_NAPOT_SHIFT	63
+> +#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
+> +#define NAPOT_CONT64KB_ORDER	4UL
+> +#define NAPOT_CONT64KB_SHIFT	(NAPOT_CONT64KB_ORDER + PAGE_SHIFT)
+> +#define NAPOT_CONT64KB_SIZE	BIT(NAPOT_CONT64KB_SHIFT)
+> +#define NAPOT_CONT64KB_MASK	(NAPOT_CONT64KB_SIZE - 1UL)
+> +#define NAPOT_64KB_PTE_NUM	BIT(NAPOT_CONT64KB_ORDER)
+
+I still wonder if we shouldn't future-proof a bit with something like
+
+/*
+ * Only 64KB (order 4) napot ptes supported.
+ */
+#define napot_cont_order(pte)	4
+
+#define napot_cont_shift(order)	((order) + PAGE_SHIFT)
+#define napot_cont_size(order)	BIT(napot_cont_shift(order))
+#define napot_cont_mask(order)	BIT(napot_cont_size(order) - 1)
+#define napot_pte_num(order)	BIT(order)
+
+> +
+>  /*
+>   * [62:61] Svpbmt Memory Type definitions:
+>   *
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 7ec936910a96..a8cab063fd05 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -6,10 +6,12 @@
+>  #ifndef _ASM_RISCV_PGTABLE_H
+>  #define _ASM_RISCV_PGTABLE_H
+>  
+> +#include <linux/jump_label.h>
+>  #include <linux/mmzone.h>
+>  #include <linux/sizes.h>
+>  
+>  #include <asm/pgtable-bits.h>
+> +#include <asm/hwcap.h>
+>  
+>  #ifndef CONFIG_MMU
+>  #define KERNEL_LINK_ADDR	PAGE_OFFSET
+> @@ -264,10 +266,38 @@ static inline pte_t pud_pte(pud_t pud)
+>  	return __pte(pud_val(pud));
+>  }
+>  
+> +static __always_inline bool has_svnapot(void)
+> +{
+> +	return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVNAPOT]);
+> +}
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +
+> +static inline unsigned long pte_napot(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_NAPOT;
+> +}
+> +
+> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+> +{
+> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
+> +	unsigned long napot_bit = BIT(pos);
+> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+> +
+> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+> +}
+> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
+> +
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -	return __page_val_to_pfn(pte_val(pte));
+> +	unsigned long val  = pte_val(pte);
+> +	unsigned long res  = __page_val_to_pfn(val);
+> +
+> +	if (has_svnapot())
+> +		res = res & (res - (val >> _PAGE_NAPOT_SHIFT));
+
+nit: res &= ...
+
+This is much easier to read. I presume the static key is doing its
+thing and the instructions come out the same as with the errata
+framework?
+
+A comment explaining what it's doing and how it works would be good for
+new readers and for myself, since I'll probably forget by next week...
+
+> +
+> +	return res;
+>  }
+>  
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 0be8a2403212..d2a61122c595 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -96,6 +96,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
+>  
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 553d755483ed..bc247844e42d 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -204,6 +204,7 @@ void __init riscv_fill_hwcap(void)
+>  				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+>  				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>  			}
+>  #undef SET_ISA_EXT_MAP
+>  		}
+> -- 
+> 2.35.1
+>
+
+Otherwise
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
