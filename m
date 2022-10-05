@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45C5C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 13:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721D2C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 13:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GPSX3fNbizKv7lqA8JomgAvq4Q1ubyQroK3PxbH9ykA=; b=0tztB5l0ZsSC4H
-	Pa3DwCCmomXiwnH2pKc7Q5lE+Bkb3x9/C4y8IFJ41pBwiXIXgJBoQU9MPn3Q9N8zyxAXtf01K7Q2I
-	zXjBmK1k21qOuX6qTthzdtTyq3tr7LuevwqoU0CxGudOERI+qDgdlJocCphC3QX9txPN7+WVu2toM
-	Qf9yYO9hkAlSJ3rATTDYx6gJQ530nLKaFlNOubv/7wwRr6O8WKFNpPm+5Zm1ZuNZcrfQ0aYkh9i8l
-	jeC8icMvBJYErhGc5spdyMClrPjfZsVApAe//rV8Il5m/O3XZCeuFLOHGVwdMHyvVLGS79KeMxwu8
-	lEyY2qI0mN9OYyp4fwCw==;
+	List-Owner; bh=Fv86akOgTNSwzwCA/vCpf14nHEKNf7/q2fASLi9xNbo=; b=Q2bd87i9baUtxf
+	VX4ft1BjXfNkdrqdI1413iexcHxfW/1/pSy6D4fTOwPG5HAQt89yVC+BB8XIojLP0qMVZtBp40HQ1
+	fDDrk6w1xT4ePkI+7Px2Ye4N65mTbPJIBvTdPy9KX7tg/O9LCiYhKMSi2NkpXlVLMLGVBlSZc2dRa
+	HZ/eiy8NgRLTU/oB9/jCH/u5RhFOV3KMxjFf3RBaoFgOusOqqu+mzaqP41xoouRUw25COWNz9+iYy
+	uUV6vHdyLjzYmwg+4QRWmexHC5rgy98q608jZBdzWoHGYXKlT/o9F4KAn1yb4p/39Tdj8gySz6pQz
+	xWmTXR7+Qvg2ze/AhflQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og4PS-00ECRF-Uy; Wed, 05 Oct 2022 13:26:02 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1og4Sw-00ED7W-8H; Wed, 05 Oct 2022 13:29:38 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og4PQ-00ECP3-7S
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 13:26:01 +0000
-Received: by mail-ej1-x632.google.com with SMTP id bj12so35400755ejb.13
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 06:25:57 -0700 (PDT)
+	id 1og4St-00ED6t-Gp
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 13:29:36 +0000
+Received: by mail-ej1-x634.google.com with SMTP id z23so18714018ejw.12
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 06:29:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date;
-        bh=RgNbY5HAHawTK3xj1KvajyKupBufLmUr8wm8JYM81xA=;
-        b=L8dO2e4yKiFAYi9LJy5J8gofdzEzpRNXadpWlxCj54Nd2LujvRsiryRJmL1QCAXkDI
-         XzC1BNFvOvFjQnB6V7EdgLWtW91/O3CFRD85lkhAGZvye5vho3v0jSwlssdh5U0ktigG
-         mLlKBHdGN+NBclFxmehRBeTPVmcHhLsrBCQSzRf1a1x4/BYShdqiEBOib4qLdxzymD6H
-         63RJK+1/IAgbRcOsmG8St+OfgBCqQzpxUHoy/tV65VyvCKRbvVTaH8HXGEcYQxoKxE50
-         Gs6P9h7V1PuNx9YB5BbazkdgVXSGggnA0RgfQCbDrMO6fHws9ztF9hQC2PT8RobiyP4o
-         9BIQ==
+        bh=Vkqd9Ksr4OqUeBX8jNV28kQKS8jvBE0ekzw5ZlkzR68=;
+        b=DQo4k3uprutYfjO6SCfNQUlNnvBvpP4HzuvEvfqcssY5BpemWEAKwXnueRxnTvaQ9+
+         g0AlZ/O6lk7LAol0QPqPZCjT6rWm07vjRP5xthbN+VA8o3RC1k5M8QXL3lTegsSjA0un
+         OVDwqybHODKM5lmLOsqXQ7H/k8fNutxMXlArKn1SI1yXfsdEVRvThNahPh6dZVxXxl5t
+         FnuzfXkUKYlKaDLRYKsAYyFkgtC19Xa5P/Cp4epcvjAGZ9sugbWRm1RM9O+PRTWZZTc4
+         JAM3CqtYYMSe6tpvfnHvGdN+BWla6cP1dvrLNAL2A49l7qNPZSCN7o1+PHXCPEz1cYL6
+         KaHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=RgNbY5HAHawTK3xj1KvajyKupBufLmUr8wm8JYM81xA=;
-        b=Q7n2xbcrw2QM1Qm+7xuLS7mcPdpK5tkEq9SFIdT43MrSRH/dqDjlc77fVVy/h64tTg
-         HUm3LQygWfLd8u1SCbwhTtrlq5xzN+iIh714ApFnmuIueSTj9fiitNhHpSJZxXBPylPD
-         A9K52u7hhlSo6NUxF8bLfNI3/ACrN5CbkLfmaDnHGjo5l55OArUeftJfFkKydN7DckMs
-         8f1jPRT0Znk02YNWAG6qcFC2C0Qi6kgfoo7V2XHsox2yXYABu6/sRoHkarPkPZT8UIa9
-         iVEb9q9TUKgYL+1WmmulIkDuXxFSSavqjqo06OGKhvLO4REX1xEHbMs8bYhwtACnNhbi
-         ogew==
-X-Gm-Message-State: ACrzQf1ojj/FF+xEakSW9Zj4Q2DA7rbiLUefMBER3z06jKfjjw6g03Is
-	rZ0Zvrq/z+1/QctJulk3JrQuEVNMILwmuA==
-X-Google-Smtp-Source: AMsMyM7CJF3hLf41cGC2aUx05KFeQ+VlL/lNMSv0CeOky5/fqG61SnH/dWfEuo11+Pf1+DFliU85UQ==
-X-Received: by 2002:a17:906:eec9:b0:783:e662:2513 with SMTP id wu9-20020a170906eec900b00783e6622513mr22986971ejb.656.1664976356633;
-        Wed, 05 Oct 2022 06:25:56 -0700 (PDT)
+        bh=Vkqd9Ksr4OqUeBX8jNV28kQKS8jvBE0ekzw5ZlkzR68=;
+        b=QvbhagEeYqWOMNaz5m7nhBJ/IgKFppRY/xFWIKzLzjtfMFPbtCo8V8mOOPIENlCtmD
+         yUV9SN08Y554Xb2o6Uh8y8he6HOhd/TT4+eYGZTDlM4lw829DZMW1A07fTaT3T6/Bzs1
+         f978i9I5Jqq8dT1m7HhPtzb7PuMbmagrUXxI/nC5pcrV4H+o5dUGY3ztSEWH/TGchTOz
+         bt7h/mDHab+bqdPoxO8OeSgJRek0SAi4vzUa5CucuZDzIirZl4e618ZqcxUf8DCg1nbt
+         CtcIt0m4Lb4K4KKbl/ymIlzP/Wv95mNKoODGYrAdJsgoMGgdXH2qcc93ZBD7g0yy7xJc
+         Cc+A==
+X-Gm-Message-State: ACrzQf1KoVZP/JG4qFe/8OmuAraYfIx8BR4g824CD15+f7yFlUdFQ6aQ
+	eR3KwfPqW5iBLnYP7HV4wVx0Rw==
+X-Google-Smtp-Source: AMsMyM4KtNPLOIRHw/B3ULbvqf6iHwPIAy2cPbhHBvVhT4lyFTcijU01FBPcCPdgw3iqSAAH8kk9Dw==
+X-Received: by 2002:a17:907:2c78:b0:78c:f533:41c8 with SMTP id ib24-20020a1709072c7800b0078cf53341c8mr9327563ejc.69.1664976572833;
+        Wed, 05 Oct 2022 06:29:32 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id u5-20020a509505000000b00458ac4b4798sm3811804eda.76.2022.10.05.06.25.55
+        by smtp.gmail.com with ESMTPSA id 24-20020a170906311800b00783c545544fsm6612459ejx.215.2022.10.05.06.29.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 06:25:56 -0700 (PDT)
-Date: Wed, 5 Oct 2022 15:25:55 +0200
+        Wed, 05 Oct 2022 06:29:32 -0700 (PDT)
+Date: Wed, 5 Oct 2022 15:29:30 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Cc: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn
-Subject: Re: [PATCH v5 1/4] mm: modify pte format for Svnapot
-Message-ID: <20221005132555.hmwrzncg6wizt3k6@kamzik>
-References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
- <20221003134721.1772455-2-panqinglin2020@iscas.ac.cn>
- <20221004170027.duk2nc6pq52d4vcf@kamzik>
- <Yzx8YfVUmHc/3CJl@spud>
- <c5b417cc-2b62-d224-cffe-3f4750284377@iscas.ac.cn>
- <20221005071558.45pc3i2m3eb747ov@kamzik>
- <9055bb90-b314-d2cf-8d5d-8c12936f4cf7@iscas.ac.cn>
+To: panqinglin2020@iscas.ac.cn
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+	xuyinan@ict.ac.cn, conor@kernel.org
+Subject: Re: [PATCH v6 0/4] riscv, mm: detect svnapot cpu support at runtime
+Message-ID: <20221005132930.cxvkwoazmztknz3z@kamzik>
+References: <20221005112926.3043280-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <9055bb90-b314-d2cf-8d5d-8c12936f4cf7@iscas.ac.cn>
+In-Reply-To: <20221005112926.3043280-1-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_062600_288875_B828171F 
-X-CRM114-Status: GOOD (  27.17  )
+X-CRM114-CacheID: sfid-20221005_062935_578285_38B29885 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,62 +88,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 05, 2022 at 08:41:02PM +0800, Qinglin Pan wrote:
-> On 10/5/22 3:15 PM, Andrew Jones wrote:
-> > On Wed, Oct 05, 2022 at 12:43:01PM +0800, Qinglin Pan wrote:
-> > > Hi Conor and Andrew,
-> > > 
-> > > On 10/5/22 2:33 AM, Conor Dooley wrote:
-> > > > On Tue, Oct 04, 2022 at 07:00:27PM +0200, Andrew Jones wrote:
-> > > > > On Mon, Oct 03, 2022 at 09:47:18PM +0800, panqinglin2020@iscas.ac.cn wrote:
-> > 
-> > > > > > +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
-> > > > > > +asm(ALTERNATIVE("and %0, %0, %1\n\t"					\
-> > > > > > +		"srli %0, %0, %2\n\t"					\
-> > > > > > +		__nops(3),						\
-> > > > > > +		"srli t3, %0, %3\n\t"					\
-> > > > > > +		"and %0, %0, %1\n\t"					\
-> > > > > > +		"srli %0, %0, %2\n\t"					\
-> > > > > > +		"sub  t4, %0, t3\n\t"					\
-> > > > > > +		"and  %0, %0, t4",					\
-> > > > > 
-> > > > > This implements
-> > > > > 
-> > > > >     temp = ((pte & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
-> > > > >     pfn = temp & (temp - (pte >> _PAGE_NAPOT_SHIFT));
-> > > > > 
-> > > > > which for a non-napot pte just returns the same as the non-napot
-> > > > > case would, but for a napot pte we return the same as the non-napot
-> > > > > case but with its first set bit cleared, wherever that first set
-> > > > > bit was. Can you explain to me why that's what we want to do?
-> > > > > 
-> > > 
-> > > For 64KB napot pte, (pte >> _PAGE_NAPOT_SHIFT) will get 1, and temp will be
-> > > something like 0xabcdabcdab8, but the correct pfn we expect should be
-> > > 0xabcdabcdab0. We can get it by calculating (temp & (temp - 1)).
-> > > So temp & (temp - (pte >> _PAGE_NAPOT_SHIFT)) will give correct pfn
-> > > both in non-napot and napot case:)
-> > 
-> > I understood that and it makes sense to me for your example, where
-> > temp = 0xabcdabcdab8, as we effectively clear the lower four bits as
-> > expected (I think) for napot-order = 4. But, what if temp = 0xabcdabcdab0,
-> > then we'll get 0xabcdabcdaa0 for the napot case. Is that still correct?
-> > With the (temp & (temp - 1)) approach we'll always clear the first set
-> > bit, wherever it is, e.g. 0xabcd0000800 would be 0xabcd0000000.  Am I
-> > missing something about the expectations of the lower PPN bits of the PTE?
-> 
-> According to spec, when napot-order=4, the last 3 bit of temp will be 0, and
-> the fourth bit from the bottom must be 1. All 16 PTEs will be the same.
-> We'll always need to clear the first set bit of napot PTE's pfn.
-> The first set bit is used by MMU to determine this PTE's napot-order.
+Hi Qinglin,
 
-Thank you for the clarification. My first reading of the spec left me
-confused, so I was hoping your answer would help me understand it and
-it did. The assembly you've pulled together is indeed a clever way to
-handle this :-)
+Please give more time between postings. v5 is barely 48 hours old and I
+haven't even looked at half its patches yet.
 
 Thanks,
 drew
+
+
+On Wed, Oct 05, 2022 at 07:29:22PM +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+> page. This patch set is for using Svnapot in Linux Kernel's boot process
+> and hugetlb fs.
+> 
+> This patchset adds a Kconfig item for using Svnapot in
+> "Platform type"->"SVNAPOT extension support". Its default value is off,
+> and people can set it on if they allow kernel to detect Svnapot hardware
+> support and leverage it.
+> 
+> Tested on:
+>   - qemu rv64 with "Svnapot support" off and svnapot=true.
+>   - qemu rv64 with "Svnapot support" on and svnapot=true.
+>   - qemu rv64 with "Svnapot support" off and svnapot=false.
+>   - qemu rv64 with "Svnapot support" on and svnapot=false.
+> 
+> 
+> Changes in v2:
+>   - detect Svnapot hardware support at boot time.
+> Changes in v3:
+>   - do linear mapping again if has_svnapot
+> Changes in v4:
+>   - fix some errors/warns reported by checkpatch.pl, thanks @Conor
+> Changes in v5:
+>   - modify code according to @Conor and @Heiko
+> Changes in v6:
+>   - use static key insead of alternative errata
+> 
+> 
+> Qinglin Pan (4):
+>   riscv: mm: modify pte format for Svnapot
+>   riscv: mm: support Svnapot in physical page linear-mapping
+>   riscv: mm: support Svnapot in hugetlb page
+>   riscv: mm: support Svnapot in huge vmap
+> 
+>  arch/riscv/Kconfig                  |  17 +-
+>  arch/riscv/include/asm/hugetlb.h    |  37 +++-
+>  arch/riscv/include/asm/hwcap.h      |   4 +
+>  arch/riscv/include/asm/page.h       |   2 +-
+>  arch/riscv/include/asm/pgtable-64.h |  13 ++
+>  arch/riscv/include/asm/pgtable.h    |  69 +++++++-
+>  arch/riscv/include/asm/vmalloc.h    |  28 ++++
+>  arch/riscv/kernel/cpu.c             |   1 +
+>  arch/riscv/kernel/cpufeature.c      |   1 +
+>  arch/riscv/mm/hugetlbpage.c         | 250 +++++++++++++++++++++++++++-
+>  arch/riscv/mm/init.c                |  30 +++-
+>  11 files changed, 440 insertions(+), 12 deletions(-)
+> 
+> -- 
+> 2.35.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
