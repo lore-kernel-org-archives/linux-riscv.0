@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA28C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 02:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFFEC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 04:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gSfVWtemNef8IAYm4mZdZcR36P0OKa3J50fjt3FOkDo=; b=tqe9EmPEPG/Khe
-	55P3xVf4H94xcdI7IfeK3wjae6RKB0jQW77YFd1LQnItJ4WbeW326z4LI0wVMe7xACplqFEFLfZVo
-	pwc00riLxKwDAHjpdXAnjCOCNM+kjx6Q+gsAfwFKc0Cd2l0DaKR3KIK09A2ukC31SU/m+E7bf8/HC
-	kcghddVdA3T6vmvZ48SJBzlCMnBVYun9KjIN8jWrnx9Fl2yScnPADeUR0v5Gwm0xASvpR4AkuPtuk
-	tcY3nU2DR6TF1RD+1H05RgoaLeUess7mPMXIoXDf9EXqhrH6mwn0ARndElJEfXI0R11wf5KyqmP9O
-	HdMzzepTGInUKKhWIkfg==;
+	List-Owner; bh=CwJUIbcXeUS7JRRDwA0TgXq5aoN60AX8RPOFkvhMPrU=; b=qSWpqQn6oYbVRc
+	wyMculZ6IKcaR8P7fjCoTiDBzZkNMaQDnv/3mpsx/s7rYIKgK4r+vXEwtUt3L00LedrHVSmAQH1e9
+	+SpeIAKg5aii6WrRnEBbO06+sWxkbhP02QwhGXdqEezCunn1l0rfUEqs50DCPUloCcVAdc+CuWZgD
+	6dBl7qnQ1rV1xj3QtKYDLD17mfkHH9vRPDVG1mTi9uiOaDc7/t0sq9aE6MPAyH8WGVQZGWm/a5/2A
+	vdPlmYHbibtRPrdYuskvepcebrnUMpXAtVhYT8qKPK2jGKpjICy6lRAoVy+qvfCbfTsiamCCyn4qU
+	RdxCnLD7RzazzUVVZZiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofuNs-00C3K4-Pv; Wed, 05 Oct 2022 02:43:44 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1ofwFe-00CQOO-DV; Wed, 05 Oct 2022 04:43:22 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofuNq-00C3Jj-0G
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 02:43:44 +0000
+	id 1ofwFZ-00CQO2-3U
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 04:43:21 +0000
 Received: from [198.18.0.1] (unknown [124.16.96.231])
-	by APP-05 (Coremail) with SMTP id zQCowACHnndb7zxjz+cTAw--.40462S2;
-	Wed, 05 Oct 2022 10:43:39 +0800 (CST)
-Message-ID: <c05c2844-4279-c5fd-b4ec-44fb2129fc62@iscas.ac.cn>
-Date: Wed, 5 Oct 2022 10:43:38 +0800
+	by APP-01 (Coremail) with SMTP id qwCowAA3PXVVCz1jB6NLAw--.10073S2;
+	Wed, 05 Oct 2022 12:43:04 +0800 (CST)
+Message-ID: <c5b417cc-2b62-d224-cffe-3f4750284377@iscas.ac.cn>
+Date: Wed, 5 Oct 2022 12:43:01 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
  Gecko/20100101 Thunderbird/102.3.0
-Subject: Re: [PATCH v5 2/4] mm: support Svnapot in physical page
- linear-mapping
-To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v5 1/4] mm: modify pte format for Svnapot
+To: Conor Dooley <conor@kernel.org>, Andrew Jones <ajones@ventanamicro.com>
 Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
  xuyinan@ict.ac.cn
 References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
- <20221003134721.1772455-3-panqinglin2020@iscas.ac.cn> <Yzx+IbMifJ5xJpuq@spud>
+ <20221003134721.1772455-2-panqinglin2020@iscas.ac.cn>
+ <20221004170027.duk2nc6pq52d4vcf@kamzik> <Yzx8YfVUmHc/3CJl@spud>
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <Yzx+IbMifJ5xJpuq@spud>
-X-CM-TRANSID: zQCowACHnndb7zxjz+cTAw--.40462S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFW3KrykZFy7Kr48Cw4xCrg_yoW5Xw15pr
-	WSkFsrKa1UJF1jk39a9r18ZF4aqa9xt345Gw1UK3s5Cw1UWF1Ikr4Sk3y5ua4UAw4kWa10
-	vF4UZFy5Ww4YyaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU92b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
+In-Reply-To: <Yzx8YfVUmHc/3CJl@spud>
+X-CM-TRANSID: qwCowAA3PXVVCz1jB6NLAw--.10073S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3ury7tFyDtF4DJFyfCr1fXrb_yoWkWF1xpr
+	4vkFZakF4DJw18Cws2vrn8WF10va1DGwnIgr1DKry8Ar9IvryxJr1qkay5uw1kZFWvqw10
+	yFWrWF1fua9xA37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
 	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
-	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15Mc
-	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2
-	V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_Gr1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYx
-	BIdaVFxhVjvjDU0xZFpf9x07b5T5JUUUUU=
+	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x0
+	82IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGw
+	Av7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxk0
+	xIA0c2IEe2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUgQzVDUUUU
 X-Originating-IP: [124.16.96.231]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwEKDGM8QMy51QAAs7
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCgQKDGM8RdDVmQAAsO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221004_194342_462768_A9A4B577 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20221004_214317_576100_253D7B5F 
+X-CRM114-Status: GOOD (  37.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +80,340 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi Conor and Andrew,
 
-On 10/5/22 2:40 AM, Conor Dooley wrote:
-> 
-> Hey Qinglin Pan,
-> 
-> Other comments aside, it'd be good to add previous reviewers to the CC
-> list on follow-up versions.
-> 
-
-Will do it in the next version:)
-
-> On Mon, Oct 03, 2022 at 09:47:19PM +0800, panqinglin2020@iscas.ac.cn wrote:
->> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->> mm: modify pte format for Svnapot
-> 
-> "riscv: mm: foo" please.
-> 
+On 10/5/22 2:33 AM, Conor Dooley wrote:
+> On Tue, Oct 04, 2022 at 07:00:27PM +0200, Andrew Jones wrote:
+>> On Mon, Oct 03, 2022 at 09:47:18PM +0800, panqinglin2020@iscas.ac.cn wrote:
+>>> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>>
+>>> This commit adds two erratas to enable/disable svnapot support, patches
+>>> code dynamicly when "svnapot" is in the "riscv,isa" field of fdt and
+>>> SVNAPOT compile option is set. It will influence the behavior of
+>>> has_svnapot function and pte_pfn function. All code dependent on svnapot
+>>> should make sure that has_svnapot return true firstly.
+>>>
+>>> Also, this commit modifies PTE definition for Svnapot, and creates some
+>>> functions in pgtable.h to mark a PTE as napot and check if it is a Svnapot
+>>> PTE. Until now, only 64KB napot size is supported in draft spec, so some
+>>> macros has only 64KB version.
+>>>
+>>> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index d557cc50295d..4354024aae21 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -383,6 +383,20 @@ config RISCV_ISA_C
+>>>   
+>>>   	  If you don't know what to do here, say Y.
+>>>   
+>>> +config RISCV_ISA_SVNAPOT
+>>> +	bool "SVNAPOT extension support"
+>>> +	depends on 64BIT && MMU
+>>> +	select RISCV_ALTERNATIVE
+>>> +	default n
 >>
->> Svnapot is powerful when a physical region is going to mapped to a
->> virtual region. Kernel will do like this when mapping all allocable
->> physical pages to kernel vm space. This commit modifies the
+>> What's the reason for this to be default no? If there's a trade-off to be
+>> made which requires opt-in, then it should be described in the text below.
 > 
-> s/This commit modifies/Modify
+> In addition, existing extensions are default y unless they depend on a
+> compiler option.
+
+Get it. I will set the default value to y :)
+
 > 
->> create_pte_mapping function used in linear-mapping procedure, so the
->> kernel can be able to use Svnapot when both address and length of
->> physical region are 64KB align. Code here will be executed only when
->> other size huge page is not suitable, so it can be an addition of
->> PMD_SIZE and PUD_SIZE mapping.
+>>> +	help
+>>> +	  Say Y if you want to allow kernel to detect SVNAPOT ISA-extension
+>>> +	  dynamically in boot time and enable its usage.
+>>> +
+>>> +	  SVNAPOT extension helps to mark contiguous PTEs as a range
+>>> +	  of contiguous virtual-to-physical translations, with a naturally
+>>> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+>>> +	  size.
+>>> +
+>>>   config RISCV_ISA_SVPBMT
+>>>   	bool "SVPBMT extension support"
+>>>   	depends on 64BIT && MMU
+>>> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+>>> index 19a771085781..f3aff5ef52e4 100644
+>>> --- a/arch/riscv/include/asm/errata_list.h
+>>> +++ b/arch/riscv/include/asm/errata_list.h
+>>> @@ -22,7 +22,8 @@
+>>>   
+>>>   #define	CPUFEATURE_SVPBMT 0
+>>>   #define	CPUFEATURE_ZICBOM 1
+>>> -#define	CPUFEATURE_NUMBER 2
+>>> +#define	CPUFEATURE_SVNAPOT 2
+>>> +#define	CPUFEATURE_NUMBER 3
 >>
->> This commit also modifies the best_map_size function to give map_size
+>> nit: Maybe take the opportunity to tab out the numbers to get them all
+>> lined up. And tab enough for future longer names too.
 > 
-> s/This commit also modifies/Modify/
-> 
-> Although, with the "also" should this be two patches or is there a
-> compile time dependency?
+> s/maybe// ;)
 > 
 
-The above typo will be repaired in the next version.
+Thanks:)
+Will fix this lining up and the below one in the next version.
 
->> many times instead of only once, so a memory region can be mapped by
->> both PMD_SIZE and 64KB napot size.
 >>
->> It is tested by setting qemu's memory to a 262272k region, and the
->> kernel can boot successfully.
+>>>   
+>>>   #ifdef __ASSEMBLY__
+>>>   
+>>> @@ -142,6 +143,26 @@ asm volatile(ALTERNATIVE_2(						\
+>>>   	    "r"((unsigned long)(_start) + (_size))			\
+>>>   	: "a0")
+>>>   
+>>> +#define ALT_SVNAPOT(_val)						\
+>>> +asm(ALTERNATIVE("li %0, 0", "li %0, 1", 0,				\
+>>> +		CPUFEATURE_SVNAPOT, CONFIG_RISCV_ISA_SVNAPOT)		\
+>>> +		: "=r"(_val) :)
+>>> +
+>>> +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
+>>> +asm(ALTERNATIVE("and %0, %0, %1\n\t"					\
+>>> +		"srli %0, %0, %2\n\t"					\
+>>> +		__nops(3),						\
+>>> +		"srli t3, %0, %3\n\t"					\
+>>> +		"and %0, %0, %1\n\t"					\
+>>> +		"srli %0, %0, %2\n\t"					\
+>>> +		"sub  t4, %0, t3\n\t"					\
+>>> +		"and  %0, %0, t4",					\
 >>
->> Currently, the modified create_pte_mapping will never take use of SVNAPOT,
->> because this extension is detected in riscv_fill_hwcap and enabled in
->> apply_boot_alternatives(called from setup_arch) which is called
->> after setup_vm_final. We will need to support function like
-> 
-> Out of curiousity, why doesn't this series add the support?
-
-Because I am not familiar with parsing fdt without memory alloction:(
-It may delay this merging of this patchset. I will try to do this in
-a follow up series:)
-
-> Do you intend sending a follow up series?
-> 
->> riscv_fill_hwcap_early to fill hardware capabilities more earlier, and
->> try to enable SVNAPOT more earlier in apply_early_boot_alternatives,
->> so that we can determine SVNAPOT's presence during setup_vm_final.
+>> This implements
 >>
->> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>>    temp = ((pte & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+>>    pfn = temp & (temp - (pte >> _PAGE_NAPOT_SHIFT));
 >>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index b56a0a75533f..76317bb28f29 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -373,9 +373,21 @@ static void __init create_pte_mapping(pte_t *ptep,
->>   				      phys_addr_t sz, pgprot_t prot)
->>   {
->>   	uintptr_t pte_idx = pte_index(va);
->> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+>> which for a non-napot pte just returns the same as the non-napot
+>> case would, but for a napot pte we return the same as the non-napot
+>> case but with its first set bit cleared, wherever that first set
+>> bit was. Can you explain to me why that's what we want to do?
+>>
+
+For 64KB napot pte, (pte >> _PAGE_NAPOT_SHIFT) will get 1, and temp will 
+be something like 0xabcdabcdab8, but the correct pfn we expect should be
+0xabcdabcdab0. We can get it by calculating (temp & (temp - 1)).
+So temp & (temp - (pte >> _PAGE_NAPOT_SHIFT)) will give correct pfn
+both in non-napot and napot case:)
+
+>>> +		0, CPUFEATURE_SVNAPOT, CONFIG_RISCV_ISA_SVNAPOT)	\
+>>> +		: "+r"(_val)						\
+>>> +		: "r"(_pfn_mask),					\
+>>> +		  "i"(_pfn_shift),					\
+>>> +		  "i"(_napot_shift))
+>>
+>> Should add t3 and t4 to clobbers list.
+>>
+
+Will do it in the next version.
+
+>>> +
+>>>   #endif /* __ASSEMBLY__ */
+>>>   
+>>>   #endif
+>>> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+>>> index 6f59ec64175e..83b8e21a3573 100644
+>>> --- a/arch/riscv/include/asm/hwcap.h
+>>> +++ b/arch/riscv/include/asm/hwcap.h
+>>> @@ -54,10 +54,11 @@ extern unsigned long elf_hwcap;
+>>>    */
+>>>   enum riscv_isa_ext_id {
+>>>   	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+>>> +	RISCV_ISA_EXT_SSTC,
+>>> +	RISCV_ISA_EXT_SVNAPOT,
+>>>   	RISCV_ISA_EXT_SVPBMT,
+>>>   	RISCV_ISA_EXT_ZICBOM,
+>>>   	RISCV_ISA_EXT_ZIHINTPAUSE,
+>>> -	RISCV_ISA_EXT_SSTC,
+>>
+>> Opportunistic alphabetizing an enum is a bit risky. It'd be better if this
+>> was a separate patch, because, even though nothing should care about the
+>> order, if something does care about the order, then it'd be easier to
+>> debug when this when changed alone.
 > 
-> Would using IS_ENBLED() cause problems here?
+> I think for these things it is s/alphabetical/canonical order, given the
+> patch from Palmer I linked in my previous mail. Although thinking about
+> it, that means V before S, so SV before SS? Which his patch did not do:
+> https://lore.kernel.org/linux-riscv/20220920204518.10988-1-palmer@rivosinc.com/
+> 
 
-Yes, will do it in next version.
+Not very sure about how to place it by canonical order:(
+I will avoid reorderint other enum variants in this patch, and only add
+SVNAPOT just before SVPBMT. Another patch to reroder them is welcome:)
 
-Qinglin
+>>
+>>>   	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+>>>   };
+>>>   
+>>> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+>>> index dc42375c2357..25ec541192e5 100644
+>>> --- a/arch/riscv/include/asm/pgtable-64.h
+>>> +++ b/arch/riscv/include/asm/pgtable-64.h
+>>> @@ -74,6 +74,19 @@ typedef struct {
+>>>    */
+>>>   #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>>>   
+>>> +/*
+>>> + * [63] Svnapot definitions:
+>>> + * 0 Svnapot disabled
+>>> + * 1 Svnapot enabled
+>>> + */
+>>> +#define _PAGE_NAPOT_SHIFT 63
+>>> +#define _PAGE_NAPOT      BIT(_PAGE_NAPOT_SHIFT)
+>>> +#define NAPOT_CONT64KB_ORDER 4UL
+>>> +#define NAPOT_CONT64KB_SHIFT (NAPOT_CONT64KB_ORDER + PAGE_SHIFT)
+>>> +#define NAPOT_CONT64KB_SIZE BIT(NAPOT_CONT64KB_SHIFT)
+>>> +#define NAPOT_CONT64KB_MASK (NAPOT_CONT64KB_SIZE - 1UL)
+>>> +#define NAPOT_64KB_PTE_NUM BIT(NAPOT_CONT64KB_ORDER)
+>>
+>> Please make three lined up columns out of these defines.
+>>
+>> #define DEF		VAL
+>>
+>>> +
+>>>   /*
+>>>    * [62:61] Svpbmt Memory Type definitions:
+>>>    *
+>>> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>>> index 7ec936910a96..c3fc3c661699 100644
+>>> --- a/arch/riscv/include/asm/pgtable.h
+>>> +++ b/arch/riscv/include/asm/pgtable.h
+>>> @@ -264,10 +264,39 @@ static inline pte_t pud_pte(pud_t pud)
+>>>   	return __pte(pud_val(pud));
+>>>   }
+>>>   
+>>> +static inline bool has_svnapot(void)
+>>> +{
+>>> +	u64 _val;
+>>> +
+>>> +	ALT_SVNAPOT(_val);
+>>
+>> Why aren't we using the isa extension static key framework for this?
+
+I am not very sure why static key is better than errata? If it is
+really necessary, I will convert it to static key in the next version.
+
+>>
+>>> +	return _val;
+>>> +}
+>>> +
+>>> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+>>> +
+>>> +static inline unsigned long pte_napot(pte_t pte)
+>>> +{
+>>> +	return pte_val(pte) & _PAGE_NAPOT;
+>>> +}
+>>> +
+>>> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+>>> +{
+>>> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
+>>> +	unsigned long napot_bit = BIT(pos);
+>>> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+>>> +
+>>> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+>>> +}
+>>> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
+>>> +
+>>>   /* Yields the page frame number (PFN) of a page table entry */
+>>>   static inline unsigned long pte_pfn(pte_t pte)
+>>>   {
+>>> -	return __page_val_to_pfn(pte_val(pte));
+>>> +	unsigned long _val  = pte_val(pte);
+>>> +
+>>> +	ALT_SVNAPOT_PTE_PFN(_val, _PAGE_NAPOT_SHIFT,
+>>> +			    _PAGE_PFN_MASK, _PAGE_PFN_SHIFT);
+>>> +	return _val;
+>>>   }
+>>>   
+>>>   #define pte_page(x)     pfn_to_page(pte_pfn(x))
+>>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+>>> index 0be8a2403212..d2a61122c595 100644
+>>> --- a/arch/riscv/kernel/cpu.c
+>>> +++ b/arch/riscv/kernel/cpu.c
+>>> @@ -96,6 +96,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+>>>   	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>>>   	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>>>   	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>>> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>>
+>> If we want to do a separate isa extension alphabetizing patch, then this
+>> array would be a good one to do since it's the output order.
+>>
+>>>   	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>>>   };
+>>>   
+>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>>> index 553d755483ed..3557c5cc6f04 100644
+>>> --- a/arch/riscv/kernel/cpufeature.c
+>>> +++ b/arch/riscv/kernel/cpufeature.c
+>>> @@ -204,6 +204,7 @@ void __init riscv_fill_hwcap(void)
+>>>   				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+>>>   				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>>>   				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+>>> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>>
+>> Could alphabetize this too, even though it doesn't matter.
+>>
+>>>   			}
+>>>   #undef SET_ISA_EXT_MAP
+>>>   		}
+>>> @@ -284,6 +285,20 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+>>>   	return false;
+>>>   }
+>>>   
+>>> +static bool __init_or_module cpufeature_probe_svnapot(unsigned int stage)
+>>> +{
+>>> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> 
+> Is there a reason that this cannot be if IS_ENABLED(RISCV_ISA_SVNAPOT)?
+
+Will IS_ENABLED in the next version.
+
+> 
+>>> +	switch (stage) {
+>>> +	case RISCV_ALTERNATIVES_EARLY_BOOT:
+>>> +		return false;
+>>> +	default:
+>>> +		return riscv_isa_extension_available(NULL, SVNAPOT);
+>>> +	}
+>>> +#endif
+>>> +
+>>> +	return false;
+>>> +}
+>>> +
+>>>   /*
+>>>    * Probe presence of individual extensions.
+>>>    *
+>>> @@ -301,6 +316,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>>>   	if (cpufeature_probe_zicbom(stage))
+>>>   		cpu_req_feature |= (1U << CPUFEATURE_ZICBOM);
+> 
+> While in the area, could this be converted to BIT(CPUFEATURE_ZICBOM)?
+
+This zicbom related code is not produced by this patchset. It may be 
+better to convert it to BIT in another patch.
+
+Qinglin.
+
+> 
+>>>   
+>>> +	if (cpufeature_probe_svnapot(stage))
+>>> +		cpu_req_feature |= BIT(CPUFEATURE_SVNAPOT);
+>>> +
+>>>   	return cpu_req_feature;
+>>>   }
+>>>   
+>>> -- 
+>>> 2.35.1
+>>>
+>>
+>> Thanks,
+>> drew
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
