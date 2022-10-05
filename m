@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D04CC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 13:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45C5C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 13:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bh4VDV4Ub/lDTcIxYWYq8W5IYNlhHMlfnLxqNG5sElY=; b=JZRCLJntKo0m2s
-	wh+jH+qu7m3I/IfkHi52Y3oqtf6KlcFsi6E0gECrdHdiSELlCU6vRed9E1+zAFmariUBdH/m9uEnW
-	QsReQQxxCQKQgiW6ImMGg7cCwrzhoOoAogIvhWEi45vKPJtKmuWhFDCFOm0G1AlId4AX7NCRLjSnJ
-	o6ZnY6tUmrqOVc8gwSegto7xK42FL2hylg9Vbd6P4uRMmEKiV9pG8UkuM+RF8vCpDNQ+bUvRdD3KN
-	Mlw44v3a3DQz/2y29eb3Y5wtWu1i6M0ztR5oGgdxj+9quAtMpGoJB0MopUarkIH3Zwh/j4KWqB/g3
-	aN3iXCkT4UrH6qx+nfpQ==;
+	List-Owner; bh=GPSX3fNbizKv7lqA8JomgAvq4Q1ubyQroK3PxbH9ykA=; b=0tztB5l0ZsSC4H
+	Pa3DwCCmomXiwnH2pKc7Q5lE+Bkb3x9/C4y8IFJ41pBwiXIXgJBoQU9MPn3Q9N8zyxAXtf01K7Q2I
+	zXjBmK1k21qOuX6qTthzdtTyq3tr7LuevwqoU0CxGudOERI+qDgdlJocCphC3QX9txPN7+WVu2toM
+	Qf9yYO9hkAlSJ3rATTDYx6gJQ530nLKaFlNOubv/7wwRr6O8WKFNpPm+5Zm1ZuNZcrfQ0aYkh9i8l
+	jeC8icMvBJYErhGc5spdyMClrPjfZsVApAe//rV8Il5m/O3XZCeuFLOHGVwdMHyvVLGS79KeMxwu8
+	lEyY2qI0mN9OYyp4fwCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og4K6-00EBbT-B4; Wed, 05 Oct 2022 13:20:30 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1og4PS-00ECRF-Uy; Wed, 05 Oct 2022 13:26:02 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og4K2-00EBZk-SB
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 13:20:28 +0000
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 456744146C
-	for <linux-riscv@lists.infradead.org>; Wed,  5 Oct 2022 13:20:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1664976023;
-	bh=jBaHquY2gPRnyppqdq61kZ2fwJdv7V+rcZ7lwJtbiaA=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=QPuBcoXxKCNE9La7nxehD8hidPF7mJY6FJUWNdO//RQmuvoQOaEeRGpgLVFsIztQS
-	 ly3sGy6blFKmN36bb62iu/jtcwrmaoygTFD64bf6C4H8LvRWD9xEFj6/0bRkOQy9WF
-	 tHrm7ySi0WAtWg3W4l+Q8R1Gg+z9mP0qnodavXqbJ7Q586+TmX0i4Po7mo5y/0snKE
-	 U2OC/EYmlrGJZ9xIZ8e55+PDTM82REPmydLQMTJMoG8dUMgEHHzHI6IhlGVuk5SQ/+
-	 Zn3bXdKD9xIVYnIFCEKa1/zD77S9jdKo6UbAXCv3fCoxXhyMGtnGVnSvHBGVrrdWQ8
-	 p1hZB2i8RjhNw==
-Received: by mail-qk1-f200.google.com with SMTP id bp17-20020a05620a459100b006ce7f4bb0b7so14100660qkb.5
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 06:20:23 -0700 (PDT)
+	id 1og4PQ-00ECP3-7S
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 13:26:01 +0000
+Received: by mail-ej1-x632.google.com with SMTP id bj12so35400755ejb.13
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 06:25:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=RgNbY5HAHawTK3xj1KvajyKupBufLmUr8wm8JYM81xA=;
+        b=L8dO2e4yKiFAYi9LJy5J8gofdzEzpRNXadpWlxCj54Nd2LujvRsiryRJmL1QCAXkDI
+         XzC1BNFvOvFjQnB6V7EdgLWtW91/O3CFRD85lkhAGZvye5vho3v0jSwlssdh5U0ktigG
+         mLlKBHdGN+NBclFxmehRBeTPVmcHhLsrBCQSzRf1a1x4/BYShdqiEBOib4qLdxzymD6H
+         63RJK+1/IAgbRcOsmG8St+OfgBCqQzpxUHoy/tV65VyvCKRbvVTaH8HXGEcYQxoKxE50
+         Gs6P9h7V1PuNx9YB5BbazkdgVXSGggnA0RgfQCbDrMO6fHws9ztF9hQC2PT8RobiyP4o
+         9BIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=jBaHquY2gPRnyppqdq61kZ2fwJdv7V+rcZ7lwJtbiaA=;
-        b=M9eqWfNlD03W+C/eKZZAPg52QzKfZj4V8kE27CAQmLbk+E+7J8RE8bfplRcumJNWm9
-         h5oVJDLSsvxY1xgT2RfODcYVBvdTZ+00ZWhhA2ZqItzY9jU0mf3Ahi/nMdFoUm9WZAtM
-         bK0casCHrj/MSnXaBP1d62h8SWrUTh2V7TCBtfdM7nV+u62DDPdR0Em2mUAS9Cqt+0ui
-         5ifY+MpqJWs6hCNHd2jzMiBdU+Vuw4doVwVVnzMnR4ZRBDRiN/BTBgbBHGocKibH1vxB
-         R/72L3wZa4pkXF+VNRKPhN/6xu/bbcjNdChjAqwmIfXWxyW6EkBK12HrVH9sKhO4rJHa
-         ug6w==
-X-Gm-Message-State: ACrzQf1RXmzbaVQ/bPeuaifK1LjeC4kMogQMgc+0Gxz7MJmthsdMbcD6
-	Q/YkeAMEBgE7b61TLwx9Wnx9RAutqLvptFFGrNWnHGQBorolC+Oi6ZW40A13fhStVuo7sthtm2k
-	pnwz8jokjTg3G/gAd7pGUydhwwcT70xWfKishc5/Ln9tgDo7/2kSM6uRo02q5FA==
-X-Received: by 2002:a05:622a:13c6:b0:35b:a742:28ae with SMTP id p6-20020a05622a13c600b0035ba74228aemr23012778qtk.435.1664976022209;
-        Wed, 05 Oct 2022 06:20:22 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM7VzygNfGaHRADBYYItL4bS/N9idRpjVZehxb+NwhHmc/VMzKXudAwOZgLbL+u1dtE/kkYiOhO7QFkR6EckAi4=
-X-Received: by 2002:a05:622a:13c6:b0:35b:a742:28ae with SMTP id
- p6-20020a05622a13c600b0035ba74228aemr23012768qtk.435.1664976022002; Wed, 05
- Oct 2022 06:20:22 -0700 (PDT)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=RgNbY5HAHawTK3xj1KvajyKupBufLmUr8wm8JYM81xA=;
+        b=Q7n2xbcrw2QM1Qm+7xuLS7mcPdpK5tkEq9SFIdT43MrSRH/dqDjlc77fVVy/h64tTg
+         HUm3LQygWfLd8u1SCbwhTtrlq5xzN+iIh714ApFnmuIueSTj9fiitNhHpSJZxXBPylPD
+         A9K52u7hhlSo6NUxF8bLfNI3/ACrN5CbkLfmaDnHGjo5l55OArUeftJfFkKydN7DckMs
+         8f1jPRT0Znk02YNWAG6qcFC2C0Qi6kgfoo7V2XHsox2yXYABu6/sRoHkarPkPZT8UIa9
+         iVEb9q9TUKgYL+1WmmulIkDuXxFSSavqjqo06OGKhvLO4REX1xEHbMs8bYhwtACnNhbi
+         ogew==
+X-Gm-Message-State: ACrzQf1ojj/FF+xEakSW9Zj4Q2DA7rbiLUefMBER3z06jKfjjw6g03Is
+	rZ0Zvrq/z+1/QctJulk3JrQuEVNMILwmuA==
+X-Google-Smtp-Source: AMsMyM7CJF3hLf41cGC2aUx05KFeQ+VlL/lNMSv0CeOky5/fqG61SnH/dWfEuo11+Pf1+DFliU85UQ==
+X-Received: by 2002:a17:906:eec9:b0:783:e662:2513 with SMTP id wu9-20020a170906eec900b00783e6622513mr22986971ejb.656.1664976356633;
+        Wed, 05 Oct 2022 06:25:56 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id u5-20020a509505000000b00458ac4b4798sm3811804eda.76.2022.10.05.06.25.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Oct 2022 06:25:56 -0700 (PDT)
+Date: Wed, 5 Oct 2022 15:25:55 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Cc: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn
+Subject: Re: [PATCH v5 1/4] mm: modify pte format for Svnapot
+Message-ID: <20221005132555.hmwrzncg6wizt3k6@kamzik>
+References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
+ <20221003134721.1772455-2-panqinglin2020@iscas.ac.cn>
+ <20221004170027.duk2nc6pq52d4vcf@kamzik>
+ <Yzx8YfVUmHc/3CJl@spud>
+ <c5b417cc-2b62-d224-cffe-3f4750284377@iscas.ac.cn>
+ <20221005071558.45pc3i2m3eb747ov@kamzik>
+ <9055bb90-b314-d2cf-8d5d-8c12936f4cf7@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220929143225.17907-10-hal.feng@linux.starfivetech.com> <20220930204905.GA903203-robh@kernel.org>
-In-Reply-To: <20220930204905.GA903203-robh@kernel.org>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Wed, 5 Oct 2022 15:20:06 +0200
-Message-ID: <CAJM55Z8ikNucTv4VjoEHwK5C_-nnvFNtn_2_U2E0QgbJKP97fg@mail.gmail.com>
-Subject: Re: [PATCH v1 09/30] reset: starfive: jh7100: Move necessary
- properties to device tree
-To: Rob Herring <robh@kernel.org>
-Cc: Hal Feng <hal.feng@linux.starfivetech.com>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <9055bb90-b314-d2cf-8d5d-8c12936f4cf7@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_062027_334565_91468502 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20221005_062600_288875_B828171F 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +94,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Sept 2022 at 22:51, Rob Herring <robh@kernel.org> wrote:
->
-> On Thu, Sep 29, 2022 at 10:32:04PM +0800, Hal Feng wrote:
-> > Store the necessary properties in device tree instead of .c file,
-> > in order to apply this reset driver to other StarFive SoCs.
-> >
-> > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> > ---
-> >  .../bindings/reset/starfive,jh7100-reset.yaml | 20 ++++++++
-> >  arch/riscv/boot/dts/starfive/jh7100.dtsi      |  3 ++
-> >  drivers/reset/reset-starfive-jh7100.c         | 50 +++++++++++++------
-> >  3 files changed, 57 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml b/Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
-> > index 300359a5e14b..3eff3f72a1ed 100644
-> > --- a/Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
-> > +++ b/Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
-> > @@ -20,19 +20,39 @@ properties:
-> >    "#reset-cells":
-> >      const: 1
-> >
-> > +  starfive,assert-offset:
-> > +    description: Offset of the first ASSERT register
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +
-> > +  starfive,status-offset:
-> > +    description: Offset of the first STATUS register
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +
-> > +  starfive,nr-resets:
-> > +    description: Number of reset signals
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> >    - "#reset-cells"
-> > +  - starfive,assert-offset
-> > +  - starfive,status-offset
-> > +  - starfive,nr-resets
->
-> Adding required properties is a red flag. You can't add required
-> properties to an existing binding. That breaks the ABI unless the OS
-> deals with the properties being absent. If the OS has to do that, then
-> why add them in the first place? All this should be implied by the
-> compatible string.
+On Wed, Oct 05, 2022 at 08:41:02PM +0800, Qinglin Pan wrote:
+> On 10/5/22 3:15 PM, Andrew Jones wrote:
+> > On Wed, Oct 05, 2022 at 12:43:01PM +0800, Qinglin Pan wrote:
+> > > Hi Conor and Andrew,
+> > > 
+> > > On 10/5/22 2:33 AM, Conor Dooley wrote:
+> > > > On Tue, Oct 04, 2022 at 07:00:27PM +0200, Andrew Jones wrote:
+> > > > > On Mon, Oct 03, 2022 at 09:47:18PM +0800, panqinglin2020@iscas.ac.cn wrote:
+> > 
+> > > > > > +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
+> > > > > > +asm(ALTERNATIVE("and %0, %0, %1\n\t"					\
+> > > > > > +		"srli %0, %0, %2\n\t"					\
+> > > > > > +		__nops(3),						\
+> > > > > > +		"srli t3, %0, %3\n\t"					\
+> > > > > > +		"and %0, %0, %1\n\t"					\
+> > > > > > +		"srli %0, %0, %2\n\t"					\
+> > > > > > +		"sub  t4, %0, t3\n\t"					\
+> > > > > > +		"and  %0, %0, t4",					\
+> > > > > 
+> > > > > This implements
+> > > > > 
+> > > > >     temp = ((pte & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+> > > > >     pfn = temp & (temp - (pte >> _PAGE_NAPOT_SHIFT));
+> > > > > 
+> > > > > which for a non-napot pte just returns the same as the non-napot
+> > > > > case would, but for a napot pte we return the same as the non-napot
+> > > > > case but with its first set bit cleared, wherever that first set
+> > > > > bit was. Can you explain to me why that's what we want to do?
+> > > > > 
+> > > 
+> > > For 64KB napot pte, (pte >> _PAGE_NAPOT_SHIFT) will get 1, and temp will be
+> > > something like 0xabcdabcdab8, but the correct pfn we expect should be
+> > > 0xabcdabcdab0. We can get it by calculating (temp & (temp - 1)).
+> > > So temp & (temp - (pte >> _PAGE_NAPOT_SHIFT)) will give correct pfn
+> > > both in non-napot and napot case:)
+> > 
+> > I understood that and it makes sense to me for your example, where
+> > temp = 0xabcdabcdab8, as we effectively clear the lower four bits as
+> > expected (I think) for napot-order = 4. But, what if temp = 0xabcdabcdab0,
+> > then we'll get 0xabcdabcdaa0 for the napot case. Is that still correct?
+> > With the (temp & (temp - 1)) approach we'll always clear the first set
+> > bit, wherever it is, e.g. 0xabcd0000800 would be 0xabcd0000000.  Am I
+> > missing something about the expectations of the lower PPN bits of the PTE?
+> 
+> According to spec, when napot-order=4, the last 3 bit of temp will be 0, and
+> the fourth bit from the bottom must be 1. All 16 PTEs will be the same.
+> We'll always need to clear the first set bit of napot PTE's pfn.
+> The first set bit is used by MMU to determine this PTE's napot-order.
 
-Indeed. I really don't understand why this is even necessary. As
-mentioned in my reply to the clock driver my original code just had a
-combined driver for the whole CRG (clock and reset generator I
-presume), and then you just need a simple node like this:
+Thank you for the clarification. My first reading of the spec left me
+confused, so I was hoping your answer would help me understand it and
+it did. The assembly you've pulled together is indeed a clever way to
+handle this :-)
 
-syscrg: clock-controller@13020000 {
-    compatible = "starfive,jh7110-syscrg";
-    reg = <0x0 0x13020000 0x0 0x10000>;
-    clocks = <&osc>, <&gmac1_rmii_refin>,
-             <&gmac1_rgmii_rxin>,
-             <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
-             <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
-             <&tdm_ext>, <&mclk_ext>;
-    clock-names = "osc", "gmac1_rmii_refin",
-                  "gmac1_rgmii_rxin",
-                  "i2stx_bclk_ext", "i2stx_lrck_ext",
-                  "i2srx_bclk_ext", "i2srx_lrck_ext",
-                  "tdm_ext", "mclk_ext";
-    #clock-cells = <1>;
-    #reset-cells = <1>;
-};
-
-/Emil
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
