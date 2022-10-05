@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152DCC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 16:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E11C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 17:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9bT5puHb1x/CxXmsAfVY6D7rdfI9o+c4PSHlyWPUGTs=; b=fQotWCJ+7pH1Um
-	768TJyAqN+czMgvVpZvfHxwbqHewjeTJ+IcCr8nZhfpyVsIB6Md+XUIBRM/jWjwZuX3njYDcBRRpD
-	sQMjLho+gGUoJgCNKZkk73IGUHju+7EJJN+1vyjCiAmZLlPL21UCUPjkVgOXE1xCrp9WsBQoCKSZN
-	GBTpCOwZL0PMLftCM81l4+ujjhNuKu541JFk0Hn6/hh0bVJ3/Jp2kwrimUYJXeDItIs/9ZMqU6NLm
-	//WFoThKP5FqgQf2si+6hTM0nGpxhjKSpAhH66uztvCgXFE8FABeEPhKhtC3oFiWMIM49CmBZfG7M
-	q10xnbIDAqJuT09Z6E9Q==;
+	List-Owner; bh=7BjjyvQsKrQUIhCJDKIa1v2kbVgCaEeTPtHRgsIUCqk=; b=ZA4NN8xUvZRycz
+	Ick3Thi8FUNMD2vipb1JTD843jHI0i0qpKPE8eJ3GZVehjpmXjCv+nkkJ7Kdegy2sVm0rX4BFTv/b
+	9I8H2sfvNgkqFOfBLQ896B5Uw4KrV6GPAHgb8hfE2YzV7j8h3GCHfmyTgG2o8b/G2Iaoef2jcSEi3
+	rlYBsINdRrMezUAYQMgoOF9qBLSX7iaoj+PMTiINU57ld8+SdWOF0edx61qrI9ohsBfBXZ4lMiqi1
+	7FKaJfigdocQgDEEo+MiUvXE/wsXje+Stc0RKOl64cgPIsui+4fnH9by0dnnYzW84KAobQ0Eg2fIe
+	dGZss40P8+LJ9VbD0QfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og7Z3-00FGJm-NT; Wed, 05 Oct 2022 16:48:09 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1og7rS-00FN6L-Tc; Wed, 05 Oct 2022 17:07:10 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og7Z1-00FGF5-5i
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 16:48:08 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id s30so20103418eds.1
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 09:48:04 -0700 (PDT)
+	id 1og7rQ-00FN5c-BM
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 17:07:09 +0000
+Received: by mail-ed1-x535.google.com with SMTP id s30so20174571eds.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 10:07:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date;
-        bh=rJlCzLvrckYpvf195PeFgfPz5CtAw+K0vTjiPqw7FiY=;
-        b=MOQYL1iWffb1pWnq+aWu3VpHKec81KtenC29dfnPqIsxRCee1/qgGXXatjw8ef4ivp
-         CdooVKveq1bguAPT4ExwdxdOdH5jdq9Fhz7suFTt0JwC5WsoMIeaj1vr5uWsIYvVB43v
-         FoiTrCvgXYtwxrqcFu4I0Wd7dw5ewVbTL4z1zPyuODlJCUDTd1zI/AkHy67Di4C1piqp
-         ykyBfHiA6MSonEtkla5IEOWIPFcDGjWZqbty4ZnkZcj+pIONmvFPzOldjAnaNBczYHjk
-         ugjfd9f89swDiUyTIWOZKpddGeawdUB9GtdxphEBtNRKDlX1H524+51ywUuhc+ktEtQ8
-         mdBQ==
+        bh=h8FHBoVsbaxbLl/+Sb8V0zp1dy58bBaAUxOIDo7PJTM=;
+        b=DvFebTmJb8iAlZ3noYHSzoKIniXMa0t30LHlrIoPdYfrTEbtlVWDx9FXsfnrIOsLpB
+         8wiIFs/aQNFsuMndfNKJEF1uQ7BPiAMg3tXhZgxrOuDEK4RNRgcFkK+wXLApJK9N+S/U
+         aznhGd/GmUk9j+EEzGcjoj8bwbJToT2mm0PEOJfR8wVyUoUcpnjsMv6nhXqfxocXYMu+
+         Uyanwp5Rhzk9zV8Lr+Gv8aEFE4liHWxLDc2PrIpEYKF+f4AKLGNvU5Si+k7om8Xl2OoE
+         0Rp6nabt4D2Hu16xgTzLryyPb/wNdPAN916xkAzpdBRQXv/tQ2mPl+E3DR0tljA1YBl7
+         d09A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=rJlCzLvrckYpvf195PeFgfPz5CtAw+K0vTjiPqw7FiY=;
-        b=O+nm15SYsGMpfm4WN1il5FUnpDq7qHu/ZHUOQfiYK+VYf74JrU/taaQifGVxweMpBR
-         c2CajxLc3S140U6p88uvszTqUimiEvAjhIObVbQAqJkUvNeSUhlTI14OqYtw4u1TXJIK
-         iZdjDbPHCb3Q4BS/dMDNPPxRdZNUiGlSINeca+4+g0Dh4nlVX9EE9gs7mQMDW1MsaZ9V
-         sfLlkP3qmUxr8Mjc67ItTBu93jIDbQ2Y8kxVx3AuAJCOEVmxcjqylQgbunRo9Q6pphZt
-         VyKM3fKot+5Wpw4IA0yeyPq+B7ki46ajULTFuve1dQ3DiEudfnAxxIyOg1n6kbMQzlmq
-         Bjwg==
-X-Gm-Message-State: ACrzQf2SJmkaesI1+kbc/ft1Y42d6acRjIcNtDdGTWB+wnGopoVH2V+M
-	Zf/8yRbJU3I9FP2wK+Fls/P84g==
-X-Google-Smtp-Source: AMsMyM5jkENkJlPL2eqsHVpx3a2cXAvFi4nVzDAFI2aJqRSvlv0Yre7MTxoILBe1eQ8Mw5PMtcMNbA==
-X-Received: by 2002:a05:6402:2793:b0:451:fd7d:fc0b with SMTP id b19-20020a056402279300b00451fd7dfc0bmr619289ede.13.1664988483535;
-        Wed, 05 Oct 2022 09:48:03 -0700 (PDT)
+        bh=h8FHBoVsbaxbLl/+Sb8V0zp1dy58bBaAUxOIDo7PJTM=;
+        b=riPNOsf+v8ay8BXjue08pJxSg7jQi4BAxI11r8FXO4F7QQZSukd9NubZl1ZHXSSXSI
+         coxaGMcCLEtJsU3Tyzd2+L8GpEMe7pBenplYKHjImU7OmXgxaJh/27ChH888FCPtMjFK
+         6yDUGrwRkCA2oUew3/a0uuwBLDsRljH+1O8gu5i/UzHoOayksW2GLjJzNPhS7MYoWyR2
+         RMMjhnbcEAxIeSfPeLeOwfdoZK0W1opTey6b3l4GuM3kq8w+sDSLXMDgSgYVtTDlx8yk
+         kSmpemnDbj7+Q21p68lHjI19hHzHKACiswDQUm+mzoNA0g1C1xRYIfJmSWJtUQpMlPML
+         rVnw==
+X-Gm-Message-State: ACrzQf244SzRerA/TDd+dcI42NCABac7Ahy5kmEjB5axPDou0saa5RQO
+	458ZhKbFMEMAOnqHr6id6hKsdA==
+X-Google-Smtp-Source: AMsMyM76Ph31LFWOjl2u+0iEWUe9sg37rv6FveiR8m6uaXcdYZJ7IJNyKG+ftg+wKQ6QY5MDaUExCQ==
+X-Received: by 2002:a05:6402:1e96:b0:459:68bb:867 with SMTP id f22-20020a0564021e9600b0045968bb0867mr683282edf.45.1664989624046;
+        Wed, 05 Oct 2022 10:07:04 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id f4-20020a50fe04000000b00451319a43dasm4221950edt.2.2022.10.05.09.48.02
+        by smtp.gmail.com with ESMTPSA id lb9-20020a170907784900b007815c3e95f6sm9072173ejc.146.2022.10.05.10.07.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 09:48:03 -0700 (PDT)
-Date: Wed, 5 Oct 2022 18:48:02 +0200
+        Wed, 05 Oct 2022 10:07:03 -0700 (PDT)
+Date: Wed, 5 Oct 2022 19:07:02 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Ruinland Tsai <ruinland.tsai@sifive.com>
-Cc: linux-riscv@lists.infradead.org, atishp@rivosinc.com,
-	greentime.hu@sifive.com, vincent.chen@sifive.com,
-	paul.walmsley@sifive.com
-Subject: Re: Regarding the changes on /proc/cpuinfo for ISA strings
-Message-ID: <20221005164802.yvomkl5fo6rmsuup@kamzik>
-References: <63898081-16d0-39a7-fe96-f4eaa5babae2@sifive.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: atishp@atishpatra.org, anup@brainfault.org, will@kernel.org,
+	mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Conor.Dooley@microchip.com,
+	cmuellner@linux.com, samuel@sholland.org
+Subject: Re: [PATCH 1/2] RISC-V: Cache SBI vendor values
+Message-ID: <20221005170702.bsvjssvau6yv47ku@kamzik>
+References: <20221004203724.1459763-1-heiko@sntech.de>
+ <20221004203724.1459763-2-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <63898081-16d0-39a7-fe96-f4eaa5babae2@sifive.com>
+In-Reply-To: <20221004203724.1459763-2-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_094807_310524_3643DD60 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20221005_100708_411602_B8637FFF 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +92,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 04, 2022 at 05:55:42AM +0000, Ruinland Tsai wrote:
-> Hi Atish and all,
+On Tue, Oct 04, 2022 at 10:37:23PM +0200, Heiko Stuebner wrote:
+> sbi_get_mvendorid(), sbi_get_marchid() and sbi_get_mimpid() might get
+> called multiple times, though the values of these CSRs should not change
+> during the runtime of a specific machine.
 > 
-> After the commit "a9b202606" introduced for Kernel v5.18,
-> the `/proc/cpuinfo` will longer print the full ISA string provided by DTB.
+> So cache the values in the functions and prevent multiple ecalls
+> to read these values.
 > 
-> With the comment of that commit, it seems that the policy of `cpuinfo` has
-> changed to print only the extensions provided in the array
-> "riscv_isa_ext_data" and those extensions must be properly enabled (by
-> toggling corresponding Kconfig ?).
+> Suggested-by: Atish Patra <atishp@atishpatra.org>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/riscv/kernel/sbi.c | 21 ++++++++++++++++++---
+>  1 file changed, 18 insertions(+), 3 deletions(-)
 > 
-> So we are wondering a few things and hope that you can enlighten us a little
-> bit :
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 775d3322b422..5be8f90f325e 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -625,17 +625,32 @@ static inline long sbi_get_firmware_version(void)
+>  
+>  long sbi_get_mvendorid(void)
+>  {
+> -	return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+> +	static long id = -1;
+> +
+> +	if (id < 0)
+> +		id = __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+> +
+> +	return id;
+>  }
+>  
+>  long sbi_get_marchid(void)
+>  {
+> -	return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
+> +	static long id = -1;
+> +
+> +	if (id < 0)
+> +		id = __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
+
+The marchid register will be negative for commercial architecture ids
+because the MSB must be set.
+
+> +
+> +	return id;
+>  }
+>  
+>  long sbi_get_mimpid(void)
+>  {
+> -	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+> +	static long id = -1;
+> +
+> +	if (id < 0)
+> +		id = __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+
+The spec says this register is "left to the provider" and may be
+left-justified. I don't think we can be sure the MSB will not be set.
+
+For both cases I guess we need an extra bit to determine if we've cached
+or not
+
+  static bool cached;
+  static long id;
+
+  if (!cached) {
+     id = ecall();
+     cached = true;
+  }
+
+  return id;
+
+> +
+> +	return id;
+>  }
+>  
+>  static void sbi_send_cpumask_ipi(const struct cpumask *target)
+> -- 
+> 2.35.1
 > 
-> 1. What is the policy on recieving vendor extensions ?
-> Hypothetically speaking, if a vendor submits a patch which simply adds an
-> entry into `riscv_isa_ext_data[]` without revealing any detail, will that be
-> acceptable ?
-
-Is the concern with usermode being able to determine which unprivileged
-extensions are available, whether they're standard or non-standard, even
-when the kernel doesn't recognize them?
-
-If so, then that does appear to be an issue. Even simply adding entries to
-riscv_isa_ext_data[] isn't great, because in these cases there may be no
-other reason for the kernel to be updated, which means doing so creates an
-unnecessary burden and unnecessary entries in riscv_isa_ext_data[].
-
-> 
-> 2. If a userspace program wishes to know the whole ISA string, is
-> `/proc/device-tree` the last resort for them ? And if that's the case, what
-> will the equivalent in the ACPI world since we have learnt that the RISC-V
-> ACPI spec is now work in progress.
-
-ACPI will have the RHCT table (I believe the ECR has been approved). One
-can dump and disassemble the table from sysfs, but neither that nor
-looking at /proc/device-tree should be how usermode probes CPU features.
-
-If my guess at the concern is correct, then I wonder if we don't need to
-extend the ISA extension naming convention to also include 'u' or whatever
-in unprivileged extension names. Then, the kernel would just pass those
-through when it publishes extensions to userspace.
 
 Thanks,
 drew
