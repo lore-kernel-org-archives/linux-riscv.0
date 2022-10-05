@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C017AC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 12:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2474EC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 12:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VyUemhgcdev43E4sd/zZm584Ex9sOs8KbtLsFvLK2ZM=; b=CCk2uo9ulxRypT
-	XIhHYewKLrlOeDI+24eZ+PfeAgVp8zbOMMZoytne8h96TcMPvQ4UwlCBk4kfKEvKVMrHNY33WD+Tt
-	vXgEA9j0OTvrbtRF04opRND/f4E3gEbZ3ETjzBEhmyRzWFwrGdXti9Pz4IeOiUmr8f2mx4Oxi8elW
-	qwRzTx1YM/wsoOq8vsypPfW+K9dDeNXDdQixlpYcSCApJnjAhDrJTzRl78gArj8mqKEhDaSLhmF64
-	2sp5JfV5ISzGjXJBEDpImyeFxTNDT+CJwuQFcWvKk/1fHboOhZ/1KbI1up5TGXEHxbPi4mCwoU1jO
-	KSVHXs8MQpbhYpfHy4NA==;
+	List-Owner; bh=2zo06qVkt2V7xIZHDa10uUhjsWvvg9/KAo3d4gF/CYE=; b=cy//4xDOk9e9fs
+	9kHYzw5sE6gAymI4/7a6ttqOTEdorX5Z76CTydPe6nDQMOptXWdzx7oLU9lZxvVlqiJtn7yZJ6dvN
+	klvc8B17BSK6Q79LR4teAdoIIT/5nhCtWPorl7ZejVCNHI1prQ9SdpK4ETU31gQBlp5+5+iAdJMdh
+	CLSkIBVviVWAEqExiYNcgCS3+n6T9huZkJRpKWDExIYrm2Km4UASQcJqJxszyCz7YawrcwuLA1A98
+	Vh/8WgCdHNMn4mNZlhKct1MmaCHUWWgnAOCjXJivDfhnmMTvj8NFooeNK8jMfbaBpIi1WkGgvGnFt
+	ik9/F/KQo3e9Q5Q7a8mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og3mi-00E4xV-IO; Wed, 05 Oct 2022 12:46:00 +0000
-Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1og3mg-00E4w9-0h
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 12:46:00 +0000
-Received: from [124.16.96.231] (unknown [124.16.96.231])
-	by APP-03 (Coremail) with SMTP id rQCowAAHuViEfD1j67UPAw--.48409S3;
-	Wed, 05 Oct 2022 20:45:56 +0800 (CST)
-Message-ID: <f2c058ec-58c9-0e23-f657-039a32b0b369@iscas.ac.cn>
-Date: Wed, 5 Oct 2022 20:45:50 +0800
+	id 1og3ui-00E6Ev-9m; Wed, 05 Oct 2022 12:54:16 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1og3uf-00E6EM-Ub
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 12:54:15 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id a13so22884390edj.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 05:54:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=+/BpHNUiX7JadelGxCPFlNmOoEOJtPwIvuyPjnCDWlw=;
+        b=e6fMM1BObwqE0wCzwzVi+O9wL9KCw6rpt+K5AX6yF1M3XtoO4odTQWR/BN64rJMnLu
+         O+qTNHQH8wGgicBOpPJlk0I2X4fyHJ8K40TB6xXmPWAP77uBxYD5QJusdMe/r8ZBmm+C
+         UkaqYh7sbI/hwmtTzZ482u7hK7qz3ZqsQ9SU5vKT9FbwPzuHKVwMII8q2u4o1TDSzHDi
+         Xz3j+33pbpb/abtNZy14KFzbpmfsCwOtgAIUOi5z3VQuVmPxBQEJdVqOYiyAm9WPRBXq
+         WVc9vhXOcr4vkm+NyMhIdpX+QpCjKKa0U2fLjtSKEQoRT8C53PuERGoAMRKBmDhqp/fH
+         rbfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=+/BpHNUiX7JadelGxCPFlNmOoEOJtPwIvuyPjnCDWlw=;
+        b=e7q6Scl0wMIIg/TBZ740KoU80DzvALDV8DgPnWyOtIMUWh0nq4X7WQbgDEvnw4qbuj
+         1PHfPH14WVpSJLzm8pDUebZG/ViP3FdzxPagf+0xqDzFeum4/u9RnAlXOoYTO4ae5rNV
+         2h1s1P1UXxthCN05AtORoL8ERVAhm81W5Y9AplpaD9qpBgozKAlg6bchVldRAQ+AB8CD
+         zV+axsvErdKvhn+FGciMLAp0S4jCQMpWJja6JK+ToOMfkbdJtFULgsOKecDCmKgEoFhv
+         /Vhu+1yCur1ZRBa9WwYQZyNx45Glmjm3elX/uT+K7TpEKH33rPii19Bs8lTUG93oJppO
+         mi+w==
+X-Gm-Message-State: ACrzQf2aO0iytLmiHLPJ/RN8iZfw//YGyiW/Apw/OQyOLTwed0B3+soD
+	lrruN2evOmigLNCqHRXhf7mJVCUv9zM9N38qOEE=
+X-Google-Smtp-Source: AMsMyM68FFkOONmspqWdcj7OVMrZtTASnunn2gJ0ZrCK2kwFFJdpz25HPbRCfns2zjcZ8yq0n+iRi5/tOZOg8OBAiIw=
+X-Received: by 2002:a05:6402:50d1:b0:452:899e:77c with SMTP id
+ h17-20020a05640250d100b00452899e077cmr28041684edb.0.1664974451331; Wed, 05
+ Oct 2022 05:54:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.3.1
-Subject: Re: [PATCH v5 2/4] mm: support Svnapot in physical page
- linear-mapping
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
- xuyinan@ict.ac.cn
-References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
- <20221003134721.1772455-3-panqinglin2020@iscas.ac.cn>
- <20221005111957.ipwsokzrmf4qsfx6@kamzik>
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <20221005111957.ipwsokzrmf4qsfx6@kamzik>
-X-CM-TRANSID: rQCowAAHuViEfD1j67UPAw--.48409S3
-X-Coremail-Antispam: 1UD129KBjvJXoW7tF15Xw48trWkJFW8GF45ZFb_yoW8uw1DpF
-	WfCF17KF4DAF1Yv39rZw18Zaya9w1aya45G34rJ3s3Aws5GF909r4Iva4YgFW8Xrs5Ga1U
-	ZF4qqa48u390yaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9qb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
-	15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	c7I2V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_Xr1l42xK82IYc2Ij64vIr41l4I8I3I
-	0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWU
-	GVWUWwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI
-	0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0
-	rVWUJVWUCwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJbIYCTnIWIevJa73UjIFyTuYvjxUyDUUDUUUU
-X-Originating-IP: [124.16.96.231]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwMKDGM9I2p+GAAAs3
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
+In-Reply-To: <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 5 Oct 2022 13:53:44 +0100
+Message-ID: <CA+V-a8smkDmQbz76sTA5XfUm7bkY4Ee-L5xYW+-xRWkE1TYiAw@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: Guo Ren <guoren@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_054558_454688_30A59969 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20221005_055414_022069_45682FC7 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +90,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi Guo,
 
-On 10/5/22 7:19 PM, Andrew Jones wrote:
-> On Mon, Oct 03, 2022 at 09:47:19PM +0800, panqinglin2020@iscas.ac.cn wrote:
->> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->>
->> Svnapot is powerful when a physical region is going to mapped to a
->> virtual region. Kernel will do like this when mapping all allocable
->> physical pages to kernel vm space. This commit modifies the
->> create_pte_mapping function used in linear-mapping procedure, so the
->> kernel can be able to use Svnapot when both address and length of
->> physical region are 64KB align. Code here will be executed only when
->> other size huge page is not suitable, so it can be an addition of
->> PMD_SIZE and PUD_SIZE mapping.
->>
->> This commit also modifies the best_map_size function to give map_size
->> many times instead of only once, so a memory region can be mapped by
->> both PMD_SIZE and 64KB napot size.
-> 
-> I'd prefer to see the best_map_size() change for PMD_SIZE and PAGE_SIZE
-> be a separate patch. Then, the NAPOT_CONT64KB_SIZE support can be added
-> on to a ready best_map_size(). In fact, I'd prefer this patch be dropped
-> from this series and the best_map_size() for PMD_SIZE and PAGE_SIZE patch
-> be either posted as a first patch of the "use svnapot in early boot"
-> series or be posted alone, as it's already applicable.
-> 
+On Wed, Oct 5, 2022 at 2:29 AM Guo Ren <guoren@kernel.org> wrote:
+>
+> On Tue, Oct 4, 2022 at 6:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> >
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > On the AX45MP core, cache coherency is a specification option so it may
+> > not be supported. In this case DMA will fail. As a workaround, firstly we
+> > allocate a global dma coherent pool from which DMA allocations are taken
+> > and marked as non-cacheable + bufferable using the PMA region as specified
+> > in the device tree. Synchronization callbacks are implemented to
+> > synchronize when doing DMA transactions.
+> >
+> > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > block that allows dynamic adjustment of memory attributes in the runtime.
+> > It contains a configurable amount of PMA entries implemented as CSR
+> > registers to control the attributes of memory locations in interest.
+> >
+> > Below are the memory attributes supported:
+> > * Device, Non-bufferable
+> > * Device, bufferable
+> > * Memory, Non-cacheable, Non-bufferable
+> > * Memory, Non-cacheable, Bufferable
+> > * Memory, Write-back, No-allocate
+> > * Memory, Write-back, Read-allocate
+> > * Memory, Write-back, Write-allocate
+> > * Memory, Write-back, Read and Write-allocate
+> Seems Svpbmt's PMA, IO, and NC wouldn't fit your requirements, could
+> give a map list of the types of Svpbmt? And give out what you needed,
+> but Svpbmt can't.
+>
+Sorry I didn't get what you meant here, could you please elaborate.
 
-I agree with you. I will drop this commit from the series and post the 
-modification on best_map_size for PMD_SIZE and PAGE_SIZE as a single 
-patch alone. I will do this in this series' v7.
+> Here is the Linux dma type to Svpbmt map:
+> PMA -> Normal
+> IO -> ioremap, pgprot_noncached
+> NC -> pgprot_writecombine
+>
+> How about AX45MP?
+>
+Svpbmt extension is not supported on AX45MP (reported by
+riscv_isa_extension_available())
 
-Thanks,
-Qinglin
-
->>
->> It is tested by setting qemu's memory to a 262272k region, and the
->> kernel can boot successfully.
->>
->> Currently, the modified create_pte_mapping will never take use of SVNAPOT,
->> because this extension is detected in riscv_fill_hwcap and enabled in
->> apply_boot_alternatives(called from setup_arch) which is called
->> after setup_vm_final. We will need to support function like
->> riscv_fill_hwcap_early to fill hardware capabilities more earlier, and
->> try to enable SVNAPOT more earlier in apply_early_boot_alternatives,
->> so that we can determine SVNAPOT's presence during setup_vm_final.
-> 
-> Thanks,
-> drew
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
