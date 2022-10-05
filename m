@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB703C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 07:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F732C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Oct 2022 08:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q6WhVpYProB3hrWgXPEnhLduk/7M9BtqIAPxblQLE/g=; b=r5ypdvMrDfes6s
-	hwP4/zCZfSBJxAQ/rUtO/8q+AduztZOBP+DQZn7NzL1eoB98zs24767ju1hQ0480NEbfDcy1p66rN
-	egGz33hy91ps5DezNeXxsljVCQI4Vi8/224UXNFAu+queyfTZvga/Px13w6MEtBCq7GA5DysJJCYp
-	GTio00NTh2TgfH2olvgE6ork25q3LjhWisRdq/PdmrgDbHmi8MpAVBwFquNW4v+JTOz28hlzQAfTB
-	uJ2wM+CxhjidsrDdpqZszoUAQJLuhS0Ubd0txmwUhStUb07TJw8r3QGxEtNru7BstShPnYBaZV37v
-	la9/3M5mIKcEvpbaILNA==;
+	List-Owner; bh=RJjl5yYnEQfsUt6TTiUqPsaCYn0CxbjFKe3J+7RqlLY=; b=a9hXKQVree2/t1
+	YOdZzUWKQfC4ogWT8n/KPOEntzPtHLW1cqoku+nlQDj/1XeauvmCFF19sv59cOYTdUB3ZtHQSD5HH
+	CEENTKiQ48Idn9czHWX2z3GMxTne1H4+ujOJ/MeBZfFVswdtyXxOLiRKMtSwvZRTU6TkSwoNt1Zzp
+	8+USOqImTwY2F80bcxJ7TjZyorG44Md+ScZBDZEnVc+6vKyo6F9+EF+/fcA1qNJwsbXb2quYlfbpV
+	78sR8aLBdWOYOIeZz3W9FX/rj03TEyrjICTsP+oCP6UHYerl5NpKS1Jnwcpoll/skaXwQaRZhd6wL
+	m6owPR+TQ/463DzWQOlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofydT-00Cmhk-TW; Wed, 05 Oct 2022 07:16:07 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1og01z-00D8Z1-3V; Wed, 05 Oct 2022 08:45:31 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ofydN-00CmhI-U9
-	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 07:16:06 +0000
-Received: by mail-ej1-x631.google.com with SMTP id kg6so18207049ejc.9
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 00:16:00 -0700 (PDT)
+	id 1og01v-00D8Xg-V8
+	for linux-riscv@lists.infradead.org; Wed, 05 Oct 2022 08:45:29 +0000
+Received: by mail-ed1-x532.google.com with SMTP id w10so9130728edd.4
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 01:45:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date;
-        bh=XUixTn9UIg2U+4sm1auJsVJmBCsYKmkoUbTMo+A7dPk=;
-        b=o/bwBVCB3xaOMAgSBpbhNLSnvwPeEsj2qR0h5pAq+9W/Lbw8a7s7jTKRyiO8racKu6
-         7UHnAljFvGKq6FQOvYe6fF6aGgfl50G/udkbBe+XGROR1wNURdBqcyIm0VrMsVu/wHLJ
-         1H72bkaOlJrGcEATUmhnoEukGCx1y/9UmSWMLC8q9o3PQo737Bhh5NNbPfplur9eRJoV
-         TqCRetefGvp2zj3yXW9qMVKnUfVU/jNPzPhnYPdooniGDbb9OwYR1I3BdzJjweixbJ9p
-         YAPvtAadl6+2pA73rTQTJh1u2kfbl9lkglGrjzQG19jP4pl2tOPXoLvl8r5wYfIs8z6P
-         757g==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=N76xG0GokcjJpvpLRh+j2uUxMJHbvuLcunuG3FqOIOk=;
+        b=ir+E89PfW/2E8TzckX4+QpM7sGEz08GHphTr5bzssCRppG+8uk0G/JQaN3+QLy8Yk7
+         pNhbAWqqsFcrMaWTTxfeQuk+cTyPoKDSQo5i+D9iXmnAKPi/OnIxgwoqkFcREKhJJaYt
+         M83ipmWdee4ly+MBkh4Dz9lU8JYUe5cTgZvbvksY5Z9UqFqNmGZcJttGNkACpEk0j6dC
+         d+S3+Cv7QCv8APWWAswpUkQqehT3lnRsV7Q+cnKOuUKs20btFw/u+7FsPXg73/4ZPd/T
+         NW9U/ljKXvRMaeaaFOUgKreHJo7k5jmBI+K0Lx3LpT/FBx5k10r84c3AhDtPjqfLIgXH
+         Jyqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=XUixTn9UIg2U+4sm1auJsVJmBCsYKmkoUbTMo+A7dPk=;
-        b=tXn2gwuN1LnsBj1FSnwXktjGQPUNOxc4bRkqimHLHV+atf9uc2eGqe26uM0PVsWzXh
-         cQUSFgVErPujpeNK4hQCqFeSGZ0YmdZFafBxvSeZo6fWMGfZuNkn6CLLyMzONO5/AQxQ
-         26Mw9LjDcMcv3RQCPt+9aAZ6V/wAdZLjE6/9gxHmGhG4vKF3iMxuoBh9rUdpPBak1AqL
-         puQIsSPyuKRqxX5oePyzKIQ+1eJKW8iLFJsdlGufk3wjix+OdPuOeBBKYc8f/0gmMSfe
-         TBtNz1/Rjfr55AK4oFAN4TFNN5R3fhmLA1K+5bTX+ACnTo35JGCZ7KAMBpkuFUZ58YDA
-         mg2Q==
-X-Gm-Message-State: ACrzQf3LC1y6qoE07qhzDqPfGIRAZD4OGf9bUUdDn5JgvWg+U5FyL+wH
-	XML0osJlmotQcTyViCHyKSLLjw==
-X-Google-Smtp-Source: AMsMyM7GmFwDyW7NIGvWoLWD2p5cIFEbaThsY0rZJqaeBm+vtEuIsH8r59LCsPGa13hHpTNg5PGd+A==
-X-Received: by 2002:a17:907:728f:b0:78c:336b:d8c0 with SMTP id dt15-20020a170907728f00b0078c336bd8c0mr9317404ejc.429.1664954159501;
-        Wed, 05 Oct 2022 00:15:59 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id a25-20020aa7d759000000b0045391f7d877sm3182456eds.53.2022.10.05.00.15.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 00:15:59 -0700 (PDT)
-Date: Wed, 5 Oct 2022 09:15:58 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Cc: Conor Dooley <conor@kernel.org>, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn
-Subject: Re: [PATCH v5 1/4] mm: modify pte format for Svnapot
-Message-ID: <20221005071558.45pc3i2m3eb747ov@kamzik>
-References: <20221003134721.1772455-1-panqinglin2020@iscas.ac.cn>
- <20221003134721.1772455-2-panqinglin2020@iscas.ac.cn>
- <20221004170027.duk2nc6pq52d4vcf@kamzik>
- <Yzx8YfVUmHc/3CJl@spud>
- <c5b417cc-2b62-d224-cffe-3f4750284377@iscas.ac.cn>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=N76xG0GokcjJpvpLRh+j2uUxMJHbvuLcunuG3FqOIOk=;
+        b=PGw5pI5YEuN9XCiOBSFjDOD0rhIrW8WndNFPhie5aYSqiLDm3I/VPJf1EDY4tcYu7p
+         iOZQ5HataFmp/uJukUlhmG1IP/89gDm0tWrA4LvECWLGb+U1wM/TZzmoHoK6zk9yTD+u
+         wxj1E+qEiDwE1IRDBuNRkLB9A6BFjZ+4qcdi1sPBRaKfU8UtlWjxw1YK3H4Ko7SHzqRK
+         Kaj/+01S0N/kEoxLY1higpmnuJRdkfQ082xCTyxqq7fzqf8OoU3XYVazMu7yEfGObuSw
+         PheSbqjdmV57ClRuXaf1p80ZEa+2NdgZwZH+oSKxLMSucsLEU5PirnDv8re+4E82uYNb
+         vP9Q==
+X-Gm-Message-State: ACrzQf2Ixc2+sf1GGefgBhDYdwQRKcwi5iTMiDloJ8ZN3Wn05hLD8qvl
+	o3X+v62C7Lqx5n0yUrbxUELL+SmrQHp/labP0V4=
+X-Google-Smtp-Source: AMsMyM5zyrSMfLw5ECN5O9MJim8yz5492TSxgHP6eVP8VHNO6NpyX1ftQ6ekHgvru4ZYQsiwdEi4AWPRu7/n7tCG7yc=
+X-Received: by 2002:a05:6402:50d4:b0:459:6f54:40df with SMTP id
+ h20-20020a05640250d400b004596f5440dfmr5457133edb.255.1664959523406; Wed, 05
+ Oct 2022 01:45:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c5b417cc-2b62-d224-cffe-3f4750284377@iscas.ac.cn>
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <YzxwoELNBctbhjJb@spud>
+In-Reply-To: <YzxwoELNBctbhjJb@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 5 Oct 2022 09:44:56 +0100
+Message-ID: <CA+V-a8tgvF16vduoQ+ZbzTpRJUmCnN-GPQs5G8AqMOXbnznwHA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Nathan Chancellor <nathan@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_001601_998046_FDF01786 
-X-CRM114-Status: GOOD (  47.04  )
+X-CRM114-CacheID: sfid-20221005_014528_044659_0D1B99CA 
+X-CRM114-Status: GOOD (  51.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,134 +95,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 05, 2022 at 12:43:01PM +0800, Qinglin Pan wrote:
-> Hi Conor and Andrew,
-> 
-> On 10/5/22 2:33 AM, Conor Dooley wrote:
-> > On Tue, Oct 04, 2022 at 07:00:27PM +0200, Andrew Jones wrote:
-> > > On Mon, Oct 03, 2022 at 09:47:18PM +0800, panqinglin2020@iscas.ac.cn wrote:
+Hi Conor,
 
-> > > > +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
-> > > > +asm(ALTERNATIVE("and %0, %0, %1\n\t"					\
-> > > > +		"srli %0, %0, %2\n\t"					\
-> > > > +		__nops(3),						\
-> > > > +		"srli t3, %0, %3\n\t"					\
-> > > > +		"and %0, %0, %1\n\t"					\
-> > > > +		"srli %0, %0, %2\n\t"					\
-> > > > +		"sub  t4, %0, t3\n\t"					\
-> > > > +		"and  %0, %0, t4",					\
-> > > 
-> > > This implements
-> > > 
-> > >    temp = ((pte & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
-> > >    pfn = temp & (temp - (pte >> _PAGE_NAPOT_SHIFT));
-> > > 
-> > > which for a non-napot pte just returns the same as the non-napot
-> > > case would, but for a napot pte we return the same as the non-napot
-> > > case but with its first set bit cleared, wherever that first set
-> > > bit was. Can you explain to me why that's what we want to do?
-> > > 
-> 
-> For 64KB napot pte, (pte >> _PAGE_NAPOT_SHIFT) will get 1, and temp will be
-> something like 0xabcdabcdab8, but the correct pfn we expect should be
-> 0xabcdabcdab0. We can get it by calculating (temp & (temp - 1)).
-> So temp & (temp - (pte >> _PAGE_NAPOT_SHIFT)) will give correct pfn
-> both in non-napot and napot case:)
+Thank you for the review.
 
-I understood that and it makes sense to me for your example, where
-temp = 0xabcdabcdab8, as we effectively clear the lower four bits as
-expected (I think) for napot-order = 4. But, what if temp = 0xabcdabcdab0,
-then we'll get 0xabcdabcdaa0 for the napot case. Is that still correct?
-With the (temp & (temp - 1)) approach we'll always clear the first set
-bit, wherever it is, e.g. 0xabcd0000800 would be 0xabcd0000000.  Am I
-missing something about the expectations of the lower PPN bits of the PTE?
+On Tue, Oct 4, 2022 at 6:43 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Mon, Oct 03, 2022 at 11:32:22PM +0100, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > On the AX45MP core, cache coherency is a specification option so it may
+> > not be supported. In this case DMA will fail. As a workaround, firstly we
+> > allocate a global dma coherent pool from which DMA allocations are taken
+> > and marked as non-cacheable + bufferable using the PMA region as specified
+> > in the device tree. Synchronization callbacks are implemented to
+> > synchronize when doing DMA transactions.
+> >
+> > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > block that allows dynamic adjustment of memory attributes in the runtime.
+> > It contains a configurable amount of PMA entries implemented as CSR
+> > registers to control the attributes of memory locations in interest.
+> >
+> > Below are the memory attributes supported:
+> > * Device, Non-bufferable
+> > * Device, bufferable
+> > * Memory, Non-cacheable, Non-bufferable
+> > * Memory, Non-cacheable, Bufferable
+> > * Memory, Write-back, No-allocate
+> > * Memory, Write-back, Read-allocate
+> > * Memory, Write-back, Write-allocate
+> > * Memory, Write-back, Read and Write-allocate
+> >
+> > This patch adds support to configure the memory attributes of the memory
+> > regions as passed from the l2 cache node and exposes the cache management
+> > ops. Currently the OpenSBI code implements support for "Memory,
+> > Non-cacheable, Non-bufferable" option with SBI_EXT_ANDES_SET_PMA.
+> >
+> > More info about PMA (section 10.3):
+> > http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+> >
+> > This feature is based on the work posted [0] by Vincent Chen
+> > <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
+> >
+> > [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> >  arch/riscv/include/asm/cacheflush.h    |   8 +
+> >  arch/riscv/include/asm/errata_list.h   |   2 +
+> >  arch/riscv/include/asm/sbi.h           |   1 +
+> >  arch/riscv/mm/dma-noncoherent.c        |  20 ++
+>
+> Stupid question maybe, but I assume you mixed the driver addition and
+> the changes to arch/riscv for the sake of easily creating the RFC?
+>
+Indeed.
 
-> > > >    */
-> > > >   enum riscv_isa_ext_id {
-> > > >   	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> > > > +	RISCV_ISA_EXT_SSTC,
-> > > > +	RISCV_ISA_EXT_SVNAPOT,
-> > > >   	RISCV_ISA_EXT_SVPBMT,
-> > > >   	RISCV_ISA_EXT_ZICBOM,
-> > > >   	RISCV_ISA_EXT_ZIHINTPAUSE,
-> > > > -	RISCV_ISA_EXT_SSTC,
-> > > 
-> > > Opportunistic alphabetizing an enum is a bit risky. It'd be better if this
-> > > was a separate patch, because, even though nothing should care about the
-> > > order, if something does care about the order, then it'd be easier to
-> > > debug when this when changed alone.
-> > 
-> > I think for these things it is s/alphabetical/canonical order, given the
-> > patch from Palmer I linked in my previous mail. Although thinking about
-> > it, that means V before S, so SV before SS? Which his patch did not do:
-> > https://lore.kernel.org/linux-riscv/20220920204518.10988-1-palmer@rivosinc.com/
-> > 
+> >  drivers/soc/renesas/Makefile           |   4 +
+> >  drivers/soc/renesas/rzf/Makefile       |   3 +
+> >  drivers/soc/renesas/rzf/ax45mp_cache.c | 365 +++++++++++++++++++++++++
+> >  drivers/soc/renesas/rzf/rzf_sbi.h      |  27 ++
+> >  8 files changed, 430 insertions(+)
+> >  create mode 100644 drivers/soc/renesas/rzf/Makefile
+> >  create mode 100644 drivers/soc/renesas/rzf/ax45mp_cache.c
+> >  create mode 100644 drivers/soc/renesas/rzf/rzf_sbi.h
+> >
+>
+> I won't make any comments on the ALTERNATIVES usage & leave that to the
+> likes of Heiko rather than make a fool of myself! But to my untrained
+> eye, having to use #defines looks like you've strayed pretty far from
+> the light.. My understanding was that the whole point was to avoid
+> having any ifdef-ery!
+>
+Agreed, as mentioned in the cover letter, we need an approach where we
+can detect things runtime and not degrade the system and get rid of
+ifdef-ery!. (Suggestion welcome :))
 
-I wonder if we should just go with alphabetical order (or no order) for
-places that the order doesn't matter. In my experience it's hard to
-enforce even alphabetical order when nothing breaks when the order is
-"wrong". Where the order does matter we should enforce whatever that order
-is supposed to be, of course. So maybe Palmer's patch isn't quite right,
-but the canonical order, which is almost-alphabetic, is going to make my
-head explode trying to use it...
+> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> > index 2a0ef738695e..10a7c855d125 100644
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@ -37,6 +37,7 @@ enum sbi_ext_id {
+> >
+> >         /* Vendor extensions must lie within this range */
+> >         SBI_EXT_VENDOR_START = 0x09000000,
+> > +       SBI_EXT_ANDES = 0x0900031E,
+> >         SBI_EXT_VENDOR_END = 0x09FFFFFF,
+> >  };
+>
+> Hmm, does this belong there? It certainly makes the comment look a
+> little odd! /If/ it goes into this file, I think it should be in a
+> separate section "heading" - but could it not be put into rzf_sbi.h?
+>
+It can be moved to rzf_sbi.h
 
-> 
-> Not very sure about how to place it by canonical order:(
-> I will avoid reorderint other enum variants in this patch, and only add
-> SVNAPOT just before SVPBMT. Another patch to reroder them is welcome:)
+> > diff --git a/drivers/soc/renesas/rzf/ax45mp_cache.c b/drivers/soc/renesas/rzf/ax45mp_cache.c
+> > new file mode 100644
+> > index 000000000000..6eca32aef33e
+> > --- /dev/null
+> > +++ b/drivers/soc/renesas/rzf/ax45mp_cache.c
+> > @@ -0,0 +1,365 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * PMA setup and non-coherent cache functions for AX45MP
+> > + *
+>
+> Given your comment in the commit message, should this also be carrying a
+> copyright from Andestech?
+>
+I was in two minds as the code has changed a lot compared to orignal
+patch series. If you insist I can include it.
 
-Or even just put SVNAPOT at the bottom of the enum for this patch.
+> > + * Copyright (C) 2022 Renesas Electronics Corp.
+> > + */
+> > +
+> > +#include <linux/cacheinfo.h>
+> > +#include <linux/of_address.h>
+> > +
+>
+> > +static void __iomem *l2c_base;
+> > +
+> > +/* -----------------------------------------------------------------------------
+>
+> I'll (mostly) keep my nose out of style for soc/renesas, but this /* ---
+> style looks unusual!
+>
+It's not typical style we use in soc/renesas its just that I wanted to
+separate functions it out.
 
-> > > > +
-> > > >   /*
-> > > >    * [62:61] Svpbmt Memory Type definitions:
-> > > >    *
-> > > > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > > > index 7ec936910a96..c3fc3c661699 100644
-> > > > --- a/arch/riscv/include/asm/pgtable.h
-> > > > +++ b/arch/riscv/include/asm/pgtable.h
-> > > > @@ -264,10 +264,39 @@ static inline pte_t pud_pte(pud_t pud)
-> > > >   	return __pte(pud_val(pud));
-> > > >   }
-> > > > +static inline bool has_svnapot(void)
-> > > > +{
-> > > > +	u64 _val;
-> > > > +
-> > > > +	ALT_SVNAPOT(_val);
-> > > 
-> > > Why aren't we using the isa extension static key framework for this?
-> 
-> I am not very sure why static key is better than errata? If it is
-> really necessary, I will convert it to static key in the next version.
+> > + * PMA setup
+> > + */
+>
+> > +static long sbi_set_pma(void *arg)
+> > +static void ax45mp_configure_pma_regions(struct device_node *np, int count)
+> > +static void cpu_dcache_inval_range(unsigned long start,
+> > +void rzfive_cpu_dma_inval_range(void *vaddr, size_t size)
+>
+> There's a real mix of function name prefixes in here, sbi_ aside is
+> there a reason you didn't just stick to ax45mp_foo()? Apologies if
+> I missed something that should've been obvious
+>
+Agreed, I will follow ax45mp_foo() approach.
 
-Well the errata framework is for errata and the static key framework is
-for zero-cost CPU feature checks like has_svnapot() is implementing. The
-question shouldn't be why static key is better, but rather why would we
-need to abuse the errata framework for a CPU feature check.
+> > +static void cpu_dcache_wb_range(unsigned long start,
+> > +                             unsigned long end,
+> > +                             int line_size)
+> > +{
+> > +     bool ucctl_ok = false;
+> > +     unsigned long pa;
+> > +     int mhartid = 0;
+> > +#ifdef CONFIG_SMP
+> > +     mhartid = smp_processor_id();
+> > +#endif
+>
+> Won't this produce complaints from your if you compile with CONFIG_SMP
+> set?
+>
+No I dont see a build issue with SMP enabled, do you see any reason
+why it should fail?
 
-> > > >   /*
-> > > >    * Probe presence of individual extensions.
-> > > >    *
-> > > > @@ -301,6 +316,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
-> > > >   	if (cpufeature_probe_zicbom(stage))
-> > > >   		cpu_req_feature |= (1U << CPUFEATURE_ZICBOM);
-> > 
-> > While in the area, could this be converted to BIT(CPUFEATURE_ZICBOM)?
-> 
-> This zicbom related code is not produced by this patchset. It may be better
-> to convert it to BIT in another patch.
-> 
-
-Actually, to be type pedantic we shouldn't use BIT() below, but rather use
-the (1U << ...) like above. cpu_req_feature is a u32.
-
-> 
-> > 
-> > > > +	if (cpufeature_probe_svnapot(stage))
-> > > > +		cpu_req_feature |= BIT(CPUFEATURE_SVNAPOT);
-
-Thanks,
-drew
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
