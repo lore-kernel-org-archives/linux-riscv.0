@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A46C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 02:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E41C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 02:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bi2SGlGMdPFKxjBSDKAGgSAFDBbqnfyE3xG/yR85U3I=; b=b4J4CisGA+nnto
-	hCwkJ/uGOvqQPPgpKS63u4egMf2SU1nb0R5xEUwhfj2a8VvnEtEsyQ72QoQpX0mEh2TC4mI+HqcOg
-	ZpMaxHO+BMUnJdEA5mVM1XdIh6f4+effc1+vpadu3q9X0eDZ8k2EpIR3euHK2q42/DACd2I00Ml/F
-	tJmsYSzmxNc6S61adw3dacVOc6ocwDJyu1izP8nKrA6/eP841oD3o1kHLi0NC5DTb9zbsYu31iQvB
-	uMR7AafL5GAdIWNIsMeoDb9l2K8BlRp4F7QsS/4o/lL3gjBOxhgh+Veh5EnU3l4Ro4juDxCY99RBZ
-	UI8xMMgoFXLwn8rsfa0w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=dxr99dU1YpDKwJhPyPH6LsCXcTSBBKxAPva+XC2LQHg=; b=StCYdc95pGxSdDIbl7O5x/I3Ze
+	4f5xzNE9OaH7p8Si3rvhnNJ4eWR/9E4GJsSfCk84qO1r6TAKh/mYBDZ0usElMa/snG07VyVYwxbVd
+	wPXxvaSDWBzx8bDc6bkqUIsF7qUyXcpFmDQ+T1fxPK2LB9Y/58/8N7RxHAUuC5q6cn9wPfUBBqizf
+	t/LSbCG8sC3CvAkwnsAouo7kkQ1eeIhDlJ0liuLA4rULF0/RcUaUk3z9xofsdGza3KabVxUEry06m
+	pQrlJe+XGLAzXZC3BET+kugN0VaAwb8x0SY6TVv9RckAAfGtxBaXf6dlBnWWJHU2tp4doOJtnGuAT
+	t90uXyOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGNV-00GxH8-4W; Thu, 06 Oct 2022 02:12:49 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGNR-00GxFz-MR
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 02:12:48 +0000
-Received: from localhost.localdomain (unknown [124.16.141.248])
-	by APP-01 (Coremail) with SMTP id qwCowAAnx2iROT5jnYF4Aw--.17582S2;
-	Thu, 06 Oct 2022 10:12:34 +0800 (CST)
-From: panqinglin2020@iscas.ac.cn
-To: palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org,
-	xuyinan@ict.ac.cn,
-	ajones@ventanamicro.com,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
-Date: Thu,  6 Oct 2022 10:12:23 +0800
-Message-Id: <20221006021223.3091711-1-panqinglin2020@iscas.ac.cn>
-X-Mailer: git-send-email 2.35.1
-MIME-Version: 1.0
-X-CM-TRANSID: qwCowAAnx2iROT5jnYF4Aw--.17582S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZF18trW8ur17Kr4UZF1rXrb_yoW8Gry5pr
-	4fAF4kur45ZF4kZFWDta4UXw15uas3K3W7K3yUCas8AFZxJrsa9r45GrWY9ryrXrZ7Wa1f
-	Cws2y3yrua4YyaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvq14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwAKzVCY07xG64k0F24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0x
-	ZFpf9x0JUhjjkUUUUU=
-X-Originating-IP: [124.16.141.248]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwkLDGM9kky69gAAsB
+	id 1ogGjs-00GzWa-VM; Thu, 06 Oct 2022 02:35:56 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ogGjp-00GzVp-OA
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 02:35:55 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id b2so475531plc.7
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 19:35:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8wvcyuPvcxrZx5D0Zm+5pCFbzfcierdnsA4uXezxQUo=;
+        b=xbwA+ZMNj0MRBaIdl+o3hLiLz9BMrGHJbY9QMLSq5uXA68XqSkiDkfUnzW74GWIQvN
+         /Pdzk6w8Ywd3Bg1EX8sA8fYDYoN0d+TRaTeWEG4/M1vc+imiyAXZn1fkP9EoRHEkt/Y/
+         Uq4Vs38xoccCRb96IePVWeHiJdL5lnuo8BW3gzQ7LzaM78sxHxHEUaBdHZF8WEgZKUtU
+         573Oc2jQjlp07qXhkolM09NM/DuGzrVlxRSmItwf0inFvjK84Ud9h2OWL7tpnbWkVjT+
+         jyJs556xNrQyeGNBi39pmDGw6wn/ST3d1wmFhgnPDISRxL+226wXrBErsr1Df+tX9/vW
+         OCxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8wvcyuPvcxrZx5D0Zm+5pCFbzfcierdnsA4uXezxQUo=;
+        b=Ux4igDtgoxyr7HB1p/+t7m1z8SgL6I0mPHJXqjE4JesApMYnRbI5hrbWzQaVkn2wE9
+         HaEP3aBBcmGuI33QIECpsVQMozwCpcn6CK+6ehJKqW2tGy+Thi7n9tkE28UvNcRD3yxi
+         V6alPlhBdnlUbO/0oFY0hugg4ThxME2lSc4hsKTGw6H+7w1JlJRpGBR4oIW+ZW+Bvd9t
+         oR1PtGqqU+1W0GEsInuz/SnS7k8SDNfj+rgCkezu69QHG36Dn9nYgOng6Q3oZ9POYkhr
+         NRcXRAsD76+5E84kUnvA/Hmw69j0Qn/d7QVmthrZxKX5g0oIBCqG6qJ0/gDlvD7mPcHY
+         3Jvw==
+X-Gm-Message-State: ACrzQf0uTfGHCNesomkxkmfWvdy8v6u+TigHJNT0JqkC8YxLoHQkwyR4
+	asfn2zJvx8OsfTBwIZwIx+hhcA==
+X-Google-Smtp-Source: AMsMyM4P0BNCBo45KoqkaEoROX7DbTzwNozF5HONt9BFzlzag9dkVZKHnZOabat332ZAqJ/wrz4tNQ==
+X-Received: by 2002:a17:902:8a97:b0:178:1939:c721 with SMTP id p23-20020a1709028a9700b001781939c721mr2439990plo.108.1665023752463;
+        Wed, 05 Oct 2022 19:35:52 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id p30-20020aa79e9e000000b005623f96c24bsm1748979pfq.89.2022.10.05.19.35.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Oct 2022 19:35:51 -0700 (PDT)
+Date: Wed, 05 Oct 2022 19:35:51 -0700 (PDT)
+X-Google-Original-Date: Wed, 05 Oct 2022 18:08:26 PDT (-0700)
+Subject: Re: [PATCH] riscv: compat: s/failed/unsupported if compat mode isn't supported
+In-Reply-To: <20220821141819.3804-1-jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  guoren@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: jszhang@kernel.org
+Message-ID: <mhng-48fad324-fe89-4cb5-8898-15c2082c6cb7@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_191246_125557_F5524F6E 
-X-CRM114-Status: UNSURE (   8.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221005_193554_036181_B25D0F89 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,55 +84,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+On Sun, 21 Aug 2022 07:18:19 PDT (-0700), jszhang@kernel.org wrote:
+> When compat mode isn't supported(I believe this is the most case now),
+> kernel will emit somthing as:
+> [    0.050407] riscv: ELF compat mode failed
+>
+> This msg may make users think there's something wrong with the kernel
+> itself, replace "failed" with "unsupported" to make it clear. In fact
+> this is the real compat_mode_supported meaning. After the patch, the
+> msg would be:
+> [    0.050407] riscv: ELF compat mode unsupported
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/kernel/process.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index ceb9ebab6558..b0c63e8e867e 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -105,7 +105,7 @@ static int __init compat_mode_detect(void)
+>  	csr_write(CSR_STATUS, tmp);
+>
+>  	pr_info("riscv: ELF compat mode %s",
+> -			compat_mode_supported ? "supported" : "failed");
+> +			compat_mode_supported ? "supported" : "unsupported");
+>
+>  	return 0;
+>  }
 
-Modify the best_map_size function to give map_size many times instead
-of only once, so a memory region can be mapped by both PMD_SIZE and
-PAGE_SIZE.
-
-Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
----
- arch/riscv/mm/init.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b56a0a75533f..1b76d3fe4e26 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -673,10 +673,11 @@ void __init create_pgd_mapping(pgd_t *pgdp,
- static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- {
- 	/* Upgrade to PMD_SIZE mappings whenever possible */
--	if ((base & (PMD_SIZE - 1)) || (size & (PMD_SIZE - 1)))
--		return PAGE_SIZE;
-+	base &= PMD_SIZE - 1;
-+	if (!base && size >= PMD_SIZE)
-+		return PMD_SIZE;
- 
--	return PMD_SIZE;
-+	return PAGE_SIZE;
- }
- 
- #ifdef CONFIG_XIP_KERNEL
-@@ -1111,9 +1112,9 @@ static void __init setup_vm_final(void)
- 		if (end >= __pa(PAGE_OFFSET) + memory_limit)
- 			end = __pa(PAGE_OFFSET) + memory_limit;
- 
--		map_size = best_map_size(start, end - start);
- 		for (pa = start; pa < end; pa += map_size) {
- 			va = (uintptr_t)__va(pa);
-+			map_size = best_map_size(pa, end - pa);
- 
- 			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
- 					   pgprot_from_va(va));
--- 
-2.35.1
-
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
