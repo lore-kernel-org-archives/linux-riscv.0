@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA4CC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 19:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8867CC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 19:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VL5jwcYVh02ZA0bi1ReBm26s0PSAVYwaFr75bV6b0Pc=; b=JlAzkRLYjNRUxUb05MUP4cMaMM
-	0XvuK4XDy/5Hz6HW5ndOXX63tx+NarsPUitVY6iC6mXrqg7ADxHzw39WfQ2FjlFBDHaY8c2c0RebT
-	WjVLj1WlI9WHmZfqi1zIjf38lg5Rqgizi744rwF3Z6nsNZW3lwgg+xuEg8Lelyk8PsQBpCazlcMtG
-	owVDyX4oZOZjxCNvextLUY0SP9Xn9ekhOjIKX3vH/vJXnOqx4cs7QpSkylIjyF1fME3vWnuJASfUs
-	2z/9RuePkyDnFIGdvWxMZR0BQWHo9hnxYhkox/8jPi5ET9LLUmb7YFO3WuBZR48c+Jen7u0mt0kju
-	10lcC8nA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GpzbGO9cnf685FZGMLDkuxfsMhb29uof23GpicrmQoU=; b=Q5Tl43sdE4BWZo
+	7CsZ7lCR8oW8lPzBPD0DNPpRUM+ovVEboLinD90qYEz9047BhCddMPAWSEUjwfp9Xg7mgdlLwFERE
+	d5I6ZavC85arRiUaoyuesMXPmGEnusdD/Rj05sM7tLbFaTfX0ai7hp6lHfUYsDvtMwDeQ8qUv6F58
+	OaoaA5ZNKFh9OfsajtZQ1VZFA0zcP5RLypwjKyMutZ/p854AJW3WVWSnrBX37MTFeTj7Zh7unR7oa
+	3kikGEbYlQHzVVfLBqp8d5MfhoS949BX0nDT3Dw44Vq+uAQq6AcTUk6kA8NARnxhqXoLuS9amHTo6
+	b2/LCpEfwocxiLZjRf5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogWRf-004ixx-Fy; Thu, 06 Oct 2022 19:22:11 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1ogWWG-004kDA-HD; Thu, 06 Oct 2022 19:26:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogWRc-004iul-Mv
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 19:22:10 +0000
-Received: by mail-ej1-x634.google.com with SMTP id qw20so6121477ejc.8
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 12:22:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:reply-to
-         :content-language:subject:references:cc:to:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date;
-        bh=FbCkYi8dJ9ElHGRGQt2IFM46+KrPD5fVaRWOGONLaDI=;
-        b=eqWRPJ4HyBVUM4+6GoAvHy4kjyK9v1ZUs5Ons4ffZEsXlhK6Ne6o7Mzcit8PdgE+Xt
-         24oPi0+6Ez3aPo3+9gPE50mIIszH1cDgnud5YhcW11KePF7SYn1356pm7nJx122iVRLX
-         rxh2UUK74QiNuyyRb4eAVUsWqnzB7vn/226X2WdNtgUjxyZemYwoonEG+ctubW6ZHdyM
-         a1W6NfhWB7pR58Ee4lhMnRsO7MzSS+SlWYVbBF11dcsOgySwzTs/9kYo64C5rEAVUjpQ
-         qhUutSheeALu0jsswGCnXm1yip+FYEi0BIYXaamRGHpzmQGlDAPTPGUe1HM5wkVXdy8x
-         OhzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:reply-to
-         :content-language:subject:references:cc:to:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date;
-        bh=FbCkYi8dJ9ElHGRGQt2IFM46+KrPD5fVaRWOGONLaDI=;
-        b=amaS7GsxuipxGzGtCpWxA5IOHdICQWzpOyh7cApCuiU7B8b+DLTBD6IaOXkafN2BuJ
-         bjQkSjNqTBdxlWp60riKNlgmgF09fh8k0dgahUrAJjrCjfvd/hh5SLFX0WnvUcxXku2G
-         Q+pTBRImHAKMF0AlJuOyZhCveXwD7/Ey4TYdAEu9mhUYIwc4nmWa2AScdMUc/QNdnFrq
-         iV/+In8uOSO5TuxVwJKb2ysvcDJy13hvcZT+QHtuIWlTgmEXlhXkwACM4iiWIKFlSDHL
-         oEQrA+Ui3nt9WemV8cyJmLwRVyzJQlnFpGFRBAqXJnhyMoJ5d9WhAH+tHy7QjGYPHFwc
-         5TZw==
-X-Gm-Message-State: ACrzQf0xj5m+hVcYKs6DjAhhI+8UVCC52XBA6gKoj4eVEP31Ulek4uPR
-	/ykZtCj5K1GCWX9b1Df73Wg=
-X-Google-Smtp-Source: AMsMyM7doS7nEQY3Y8s+h2PLBdkj4Kv3mIC+pyGjfrvz9J4PU8EPx/xkU/1nwwlysoupEXw11CUw7Q==
-X-Received: by 2002:a17:907:7704:b0:780:da38:4480 with SMTP id kw4-20020a170907770400b00780da384480mr1208281ejc.64.1665084124312;
-        Thu, 06 Oct 2022 12:22:04 -0700 (PDT)
-Received: from [192.168.0.100] ([46.219.3.46])
-        by smtp.gmail.com with ESMTPSA id ky21-20020a170907779500b0074182109623sm133208ejc.39.2022.10.06.12.22.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Oct 2022 12:22:03 -0700 (PDT)
-Message-ID: <77c9a7c1-b930-b8f7-7b38-b317ea5e929e@gmail.com>
-Date: Thu, 6 Oct 2022 22:20:02 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.1
-To: coelacanthus@outlook.com
-Cc: c141028@gmail.com, dramforever@live.com, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, xc-tan@outlook.com
-References: <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
+	id 1ogWW5-004k7k-FQ
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 19:26:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CF7B761A9C;
+	Thu,  6 Oct 2022 19:26:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B339AC433C1;
+	Thu,  6 Oct 2022 19:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665084404;
+	bh=Ze3I/5esWpCEOEhK1Qh92ZSOv7pAgSZX/7cbTz82Lrc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ncs/uOEcoopXr+q94SNKTMw6CgTwwSeOqfwGl6tAo0V9iRqJ6/2RPliC0m8R+WHnI
+	 nfIhWyc8mWbb8DT2Lc3fXs36kwDUas/SLZjyYeXmQNJ6iSz5E9QYX8a0OSztDV4GYe
+	 GqVmDMLfmdLKL8EUeZHF8pT2JRU7y6tM5R2PvjG1gpI8v/V0aSH+o/vav9ssztkyzC
+	 kBGSLIcIBxveMFUSs33yFkYLK+ZnKJIpdSmdZCFEPsW7c74rQ9OCaioU848V39Gsjc
+	 jUe5d38Kd/RMAlIQfh+XN5t7YcWAo3iMgEg55TFZdeFch6CkB6fBrwKNkLLKqdS4qd
+	 QMMgp6viS/BTg==
+Date: Thu, 6 Oct 2022 20:26:39 +0100
+From: Conor Dooley <conor@kernel.org>
+To: PH7PR14MB559464DBDD310E755F5B21E8CEDC9@ph7pr14mb5594.namprd14.prod.outlook.com
+Cc: coelacanthus@outlook.com, c141028@gmail.com, dramforever@live.com,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	xc-tan@outlook.com
 Subject: Re: [PATCH] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
-Content-Language: en-US
-From: Eva Kotova <nyandarknessgirl@gmail.com>
-In-Reply-To: <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
+Message-ID: <Yz8r71PjHlpLy+kR@spud>
+References: <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
+ <77c9a7c1-b930-b8f7-7b38-b317ea5e929e@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <77c9a7c1-b930-b8f7-7b38-b317ea5e929e@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_122208_760401_3E6CBAB1 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20221006_122645_582071_5040875F 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,36 +69,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 31 May 2022 00:56:52 PDT (-0700), coelacanthus@outlook.com wrote:
- > As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
- > but not read is "Reserved for future use.". For now, they are not valid.
- > In the current code, -wx is marked as invalid, but -w- is not marked
- > as invalid.
+Hey Eva,
 
-This patch breaks OpenJDK/Java on RISC-V, as it tries to create a w-only 
-protective page:
+On Thu, Oct 06, 2022 at 10:20:02PM +0300, Eva Kotova wrote:
+> On Tue, 31 May 2022 00:56:52 PDT (-0700), coelacanthus@outlook.com wrote:
+> > As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
+> > but not read is "Reserved for future use.". For now, they are not valid.
+> > In the current code, -wx is marked as invalid, but -w- is not marked
+> > as invalid.
+> 
+> This patch breaks OpenJDK/Java on RISC-V, as it tries to create a w-only
+> protective page:
+> 
+> #
+> # There is insufficient memory for the Java Runtime Environment to continue.
+> # Native memory allocation (mmap) failed to map 4096 bytes for failed to
+> allocate memory for PaX check.
+> # An error report file with more information is saved as:
+> # /root/hs_err_pid107.log
+> 
+> I bisected to this commit since on Linux 5.19+ java no longer works.
+> Perhaps some fallback should be implemented, to prevent userspace breakage.
+> It is currently documented, that at least on i386 PROT_WRITE mappings imply
+> PROT_READ (See man mmap(2) NOTES), this would be a good place to start.
 
-#
-# There is insufficient memory for the Java Runtime Environment to continue.
-# Native memory allocation (mmap) failed to map 4096 bytes for failed to 
-allocate memory for PaX check.
-# An error report file with more information is saved as:
-# /root/hs_err_pid107.log
+Do these patches solve your problem by any chance?
+https://lore.kernel.org/linux-riscv/20220915193702.2201018-1-abrestic@rivosinc.com/
 
-I bisected to this commit since on Linux 5.19+ java no longer works.
-Perhaps some fallback should be implemented, to prevent userspace 
-breakage. It is currently documented, that at least on i386 PROT_WRITE 
-mappings imply PROT_READ (See man mmap(2) NOTES), this would be a good 
-place to start.
+I don't know the "area" at all, so it's a shot in the dark, but these
+both have Fixes: tags for the patch that you are blaming.
 
-Best regards,
-Eva
+Thanks,
+Conor.
+
 
 _______________________________________________
 linux-riscv mailing list
