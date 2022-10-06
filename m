@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FE9C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 02:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D86C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 06:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=jWWck06hTx+vSFvhZWLaky4Hlxw9OxUx094cL8SISh4=; b=r26HFO5E25aswVSn4CGpXCBghb
-	yhZgzjtk59Td+DeBeggMYsS2UlWey5OxVj8G549I7nZ+uAx2OCmgcUu0X95PQ7uKlvkkYBVDXGQAK
-	GZztcu69D+axC0aPcA3seuyYfsZlr8OOYnE9+tLCAeu8NOd9IJm5mDKN4wrkHwSHhM9r+HB/0kQdX
-	IY3brYOZ4J0vfbCvOYooqzpkDCpQooHaRZb/+HIj1B129OVN1KySHm8soSAwgp7fxBTXVJ73LNVqf
-	JcSx9xFMa8mHPWmnvJJovgvOOHBCn0oTtC7wIdzh7EcQVbBV8OLOyrQ9iyZOZ92wAaQsoEK/9BwLt
-	QlVs0SMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7XE9q9cVtsu9t8rFQ+20F6XK+ZuWUwaGMXtNA3Dqu/M=; b=T4Lm3PRnjqxP8B
+	SZzUIkzJvLJ+QHpOhlQUlDVmRkJGVNYWr/ArhDjCk0ZA2sCtTlaedLhiNUBKSUBFsTD9Xk7VNW4rZ
+	b7IBwrRQMZtliR1rfdC9lPimxnpoLnT0ot7c6j5chHEqPO9aizNiwjvbgE7mppxFowaWGEu9ILghr
+	wTkMveaPuY53NIIgYWBa3yrKQ+XrMm1R9bJarT4u7pf0wdYFH6wiEeER8jzBXrOuTzvUJO0lOFqj5
+	FsXuAFwc6xXcJxbz5XamxS8RnF7kwNPwJAm2iZTFH14qxQNu5I8E4SaP9lLgfwTtZV/wodHGIHtJH
+	5imKMIm5pzZoH2xpOq2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGjv-00GzX8-6h; Thu, 06 Oct 2022 02:35:59 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1ogKhr-000GTU-Uf; Thu, 06 Oct 2022 06:50:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGjr-00GzW5-9e
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 02:35:56 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 129so651395pgc.5
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 19:35:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pzYCuMJ6p+Lody3rGbmn8WF2xPwU8C86ya7mCiVZOHo=;
-        b=oIjVV9ZHj4GGDi8SFJItsfKMgtjpJSgxw60X0FYAdYvf7jqkgI65Z98amBNxp8soae
-         K+5ZTBEq13ODrr6UTPo6jX6Owim8nKWDAhJyBhOxBN5XfAnb3BwC1YXyYdsCM5e8PkeP
-         gu3viXESvkKNYbbFdtZk4app3Ffm/3r/u8KmK79sBWK1eEMPBYvuTgKEq2REicgQcNsI
-         fvqr4FDFi/KnC3eGZIxIfNK6Eq0MRsev4Yue8r4q/rUXA9JWRKEsfLRs/lG8LJJ+l0bk
-         OA0KS2W3PUPVyidsbIJfayH1mL02jGMIg40xYE03N9GwITGdxyLBrJGmB4nijz07RIf6
-         /bUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pzYCuMJ6p+Lody3rGbmn8WF2xPwU8C86ya7mCiVZOHo=;
-        b=hlIDt7TEL6boRQbU+O6jER0dnnwOiiUEx03nQLviJrt7EDURP9uTdN5GEN1o2OOcEu
-         /yZXsi3U/8mYAIdMApyZCWTipkrY73v8KsT1+5re+u0pwxBqxBleugmx8ko9XWcTVooh
-         hQuDi6LPg9tQO11wI3MRD3SRXamxyHURp6+iVF5L9ZD7Jt5mLt/lzGNPTCOW70VdAtGr
-         wiE8pbG8CQkoo9n5Nthyd4iN9+B0QXDxmWB1Gu6OHDbqE7iiCVmKJ/w6wE3uFVFDZ22c
-         nMVnr0voM2gPO//yKvVsLvT+OyqB2LYUYWll2+/7kGpsGEXjCfVGPvVbMbZFXsAc0gaj
-         WnVg==
-X-Gm-Message-State: ACrzQf1Q02RBXehm5MqRNWqfgfygv1KMdDZJrI5FOwG8s4FrIKgZP8pj
-	958rQMh1gSDa3/pRALGt399szA==
-X-Google-Smtp-Source: AMsMyM5lKJe5/EDcakfW1cb65IZbvyiGCALsJ4uURnN8IQRDtOZwNGHl5ZhIhZsy+D4e62Rn7ocvVw==
-X-Received: by 2002:a05:6a00:124e:b0:561:7fa0:7307 with SMTP id u14-20020a056a00124e00b005617fa07307mr2746316pfi.5.1665023754319;
-        Wed, 05 Oct 2022 19:35:54 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id f80-20020a623853000000b00562362dbbc1sm1939327pfa.157.2022.10.05.19.35.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 19:35:53 -0700 (PDT)
-Date: Wed, 05 Oct 2022 19:35:53 -0700 (PDT)
-X-Google-Original-Date: Wed, 05 Oct 2022 18:09:45 PDT (-0700)
-Subject: Re: [PATCH] riscv: enable THP_SWAP for RV64
-In-Reply-To: <20220821170559.840-1-jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-a75e502f-0324-44ae-92c5-e93864fbf1cc@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1ogKho-000GSD-Mh
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 06:50:06 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 65B7A61852;
+	Thu,  6 Oct 2022 06:50:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8EBC433C1;
+	Thu,  6 Oct 2022 06:49:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665039002;
+	bh=8znyUi7frmFRBSfuJybw+EkaJdAE56P9QcmLz7WlrfU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nzw9aL84H/hEuWBrmMCqO7iVRhyDMlG92G8VdzvEhwA5J7VnKKgTXIZxr9alq5saR
+	 eOsn40rDosNmHBJ1201GllDNCWXi4+vICrBWr823ZlLxzX/eU9rho7b9itXQlT1wCK
+	 nobAVA+SB7ec/EHF/A71eObffcMnDWHOmGybB+seGnp/tDeaocq+6SwiXQ3rQGPzVH
+	 yMK7dEzF5BBfG2SxbACWCycSX2pR8P/b4Tg37hmYy5uWkTW3I2BLVp0YKwiKFOdZ3r
+	 hpcN/v4b3nKwY8kRZy3Fos+F4hcmgk22kt0cshIcfa3bu+wl340nJeY9ZZ4wYKcrqq
+	 WJd0IXmW3VOxQ==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: [PATCH] riscv: jump_label: mark arguments as const to satisfy asm constraints
+Date: Thu,  6 Oct 2022 14:40:28 +0800
+Message-Id: <20221006064028.548-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.37.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_193555_353575_48E92C2B 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20221005_235004_866780_122353C5 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +78,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Aug 2022 10:05:59 PDT (-0700), jszhang@kernel.org wrote:
-> I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
-> memory optimizations such as swap on zram are helpful. As is seen
-> in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
-> commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
-> swapped out"), THP_SWAP can improve the swap throughput significantly.
->
-> Enable THP_SWAP for RV64, testing the micro-benchmark which is
-> introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
-> shows below numbers on the Lichee RV dock board:
->
-> thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
-> thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
->
-> Improved by 382%!
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index ed66c31e4655..19088c750c7f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -45,6 +45,7 @@ config RISCV
->  	select ARCH_WANT_FRAME_POINTERS
->  	select ARCH_WANT_GENERAL_HUGETLB
->  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-> +	select ARCH_WANTS_THP_SWAP if TRANSPARENT_HUGEPAGE
->  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
->  	select BUILDTIME_TABLE_SORT if MMU
->  	select CLONE_BACKWARDS
+Samuel reported that the static branch usage in cpu_relax() breaks
+building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]:
 
-Thanks, this is on for-next.
+In file included from <command-line>:
+./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
+././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
+probably does not match constraints
+  285 | #define asm_volatile_goto(x...) asm goto(x)
+      |                                 ^~~
+./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+'asm_volatile_goto'
+   41 |         asm_volatile_goto(
+      |         ^~~~~~~~~~~~~~~~~
+././include/linux/compiler_types.h:285:33: error: impossible constraint
+in 'asm'
+  285 | #define asm_volatile_goto(x...) asm goto(x)
+      |                                 ^~~
+./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+'asm_volatile_goto'
+   41 |         asm_volatile_goto(
+      |         ^~~~~~~~~~~~~~~~~
+make[1]: *** [scripts/Makefile.build:249:
+arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
+make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
+
+Maybe "-Os" prevents GCC from detecting that the key/branch arguments
+can be treated as constants and used as immediate operands. Inspired
+by x86's commit 864b435514b2("x86/jump_label: Mark arguments as const to
+satisfy asm constraints"), and as pointed out by Steven in [2] "The "i"
+constraint needs to be a constant.", let's do similar modifications to
+riscv.
+
+Tested by CC_OPTIMIZE_FOR_SIZE + gcc and CC_OPTIMIZE_FOR_SIZE + clang.
+
+[1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+[2]https://lore.kernel.org/all/20210212094059.5f8d05e8@gandalf.local.home/
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/include/asm/jump_label.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+index 38af2ec7b9bf..6d58bbb5da46 100644
+--- a/arch/riscv/include/asm/jump_label.h
++++ b/arch/riscv/include/asm/jump_label.h
+@@ -14,8 +14,8 @@
+ 
+ #define JUMP_LABEL_NOP_SIZE 4
+ 
+-static __always_inline bool arch_static_branch(struct static_key *key,
+-					       bool branch)
++static __always_inline bool arch_static_branch(struct static_key * const key,
++					       const bool branch)
+ {
+ 	asm_volatile_goto(
+ 		"	.option push				\n\t"
+@@ -35,8 +35,8 @@ static __always_inline bool arch_static_branch(struct static_key *key,
+ 	return true;
+ }
+ 
+-static __always_inline bool arch_static_branch_jump(struct static_key *key,
+-						    bool branch)
++static __always_inline bool arch_static_branch_jump(struct static_key * const key,
++						    const bool branch)
+ {
+ 	asm_volatile_goto(
+ 		"	.option push				\n\t"
+-- 
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
