@@ -4,80 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6B2C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 01:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC85C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 01:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lShOw6Q5tNTyhrN5B4gHf5fqEHEMwDcfN3CEts/rTD0=; b=GzfOgdIir8LLNf
-	QR9niuU6J4ANuu9RSi1jBI2P7iPOMCYF8IvuybHxNAXMqUfn4PQQt5Ik+24Xm0KOk0lvYK9Sd/exB
-	SfoZ7+ao+XXxRGrtQmdiwpqVUSlMHdiBVDMhJSj+p1iC7acLG+OrhMJXQ2hqkUvNc7Y7zpc9VX0St
-	aCclVlmT8H2A9nuZp5z2el/W5kfGTOgAvvHQkjWkar8BvFwypRIq/BWo/dP/SF8t2FPsE392qgwMs
-	bFyqdj26+e/Bxziopslfk3VbTQSp9C+IS0J5kE0ddfaWsuYIjEwYWfDs7Qh39zTGx9jNF6bcf13X1
-	ryDxirxXqDZsnC0p6z4A==;
+	List-Owner; bh=jYP9sSjGnDiC3U2U/7Jg05AqxNB/TZQ368lEJdVDwJ8=; b=wVENV35AGScCT8
+	sL9+mXjbvIqsb2tZMSFIFHgw+58ZE9jP4w5Iw8l5aFvCIS1thf4dR1AGs2OCJrVDJI/vVC9KoEuHT
+	baFjpE5rhBKCJ8IVE/7OPgqg/SmZnRCr2Amlh5u2gALeR14fLbQeQ39tJHB912uRI2LVl72FcflNt
+	CVE96epq9Sx1jcY0RIk1bU5PNUhvjoYLtqnDm9+HddSs2qT40AO0gO/19qfGZhC4NiDF69YaQ4nOr
+	5Q8AubwKY2jU2LL2hDOXVkFxUgqWITjsDo+yM+FwofpdzU9qHA99jXdoJ21Gqr39QMtGMRoCxur9O
+	NbNg6jnF92P0xGmTcvJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogFEw-00GmNi-3X; Thu, 06 Oct 2022 00:59:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ogFIW-00GnSf-5f; Thu, 06 Oct 2022 01:03:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogFEt-00GmN0-Bu
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 00:59:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F28D561800
-	for <linux-riscv@lists.infradead.org>; Thu,  6 Oct 2022 00:59:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9185C43140
-	for <linux-riscv@lists.infradead.org>; Thu,  6 Oct 2022 00:59:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665017988;
-	bh=fQf/JNM+xDB7AfCqM55geVsCDG+Rba+PXIX7GBlJE7Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Cwu6IZ1HIQu47d3LN1vv1lNCo7jtddXsCYuldGsT8WK1j4MLVxhmL41qjOYGA2GuD
-	 fStm8XGomGHb41sTYh1xuR8wCs8T1gxjB5BnwMOjqein15P2NWzl+THLjr/rJe5my1
-	 2/kBc05X1W5aktR71xDXJh+YCLE4MWIPvY4OmIl9Uty1jdwGOs7HwkU7NGRvKuNtYu
-	 avzsNp+EJSXPnw6efqvOkPQAIbvsYuRUvj1ZkiHP/lnt0uHwUCvVFgRS0sUJVq/hpo
-	 P4Fwmn/H6k4VBzfceSM1R2IdmdNTvfW5wNY/hOSt3rrzp1sNwN0CS5ueQk0Uybdgaf
-	 VCqa1kru1DR5w==
-Received: by mail-oi1-f176.google.com with SMTP id v134so403922oie.10
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 17:59:48 -0700 (PDT)
-X-Gm-Message-State: ACrzQf0xlaqvZdWrFfS+KBIZgrqA5He/UPj9OfCj1OQc6B/7A+qfAXrW
-	KWwJNvvbWBPQCKUHmId1LqvgxmGbWKbnXacV01w=
-X-Google-Smtp-Source: AMsMyM7d+v+3xgGmPgvQD1qK0/F/9XFNSgoIUtuODUetfgEaCPybGyk6k711U6WxHhxo8jgLAvZdeSTkOZSUsUlQ+lA=
-X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
- u31-20020a056808151f00b003501b5e2380mr3665247oiw.112.1665017987935; Wed, 05
- Oct 2022 17:59:47 -0700 (PDT)
-MIME-Version: 1.0
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
- <CA+V-a8smkDmQbz76sTA5XfUm7bkY4Ee-L5xYW+-xRWkE1TYiAw@mail.gmail.com>
- <CAJF2gTQ4G-j3p_pHvVQ82R2DFQZq70xgE3ZhoRkxiSzrHnU2og@mail.gmail.com> <CA+V-a8tLYT0541FNo_o-sTsV7ywwnGTRtv6ropVu+0Wd-PsM6A@mail.gmail.com>
-In-Reply-To: <CA+V-a8tLYT0541FNo_o-sTsV7ywwnGTRtv6ropVu+0Wd-PsM6A@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 6 Oct 2022 08:59:35 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ9N5tyYB46eaMJ=Z0V7pm9TxFAXQ1qxLXLqj2C9zP2Ng@mail.gmail.com>
-Message-ID: <CAJF2gTQ9N5tyYB46eaMJ=Z0V7pm9TxFAXQ1qxLXLqj2C9zP2Ng@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
- RZ/Five SoC
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	id 1ogFIU-00GnJH-7A
+	for linux-riscv@bombadil.infradead.org; Thu, 06 Oct 2022 01:03:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eUXWhUifdFgPJT3sQ8fpiBb9+qu4qBNF8BnbaeQdQUo=; b=UjIecKTEKxTUhiROPZ3wXiaNou
+	5CXwa8qirUDO1+Tvj1W0+tVJ/rEAqXtX3K0XX3YfPmdaN4Dgar4S46BJEJIwl5dTW+IjtjfxECo1d
+	oK+xagsGlID8gR5PwDmYfn8XKWBPc/0VLi+ao6OlpN/uFGvT4C8LMeY1y5wryxqY+rCpQ1EICsKq9
+	ggqc6x9+ZquUbCPjvrjt6tH4rjMGG3x+y4gE44IE6dNu4ImWyO60unvTqC2f7YAHE9kfTQQEK22jL
+	7c/PsmwOGAuwVEynSiOamhAPX2WRC2dLBdJAzn6VC9vYYCvw8/QT2t6Yxeqx7ysHyoNnlDK0A5Cer
+	XbsBAs0Q==;
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ogEqU-00161r-O4
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 00:34:43 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id i22-20020a63e456000000b0043c096be700so194333pgk.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 17:34:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=eUXWhUifdFgPJT3sQ8fpiBb9+qu4qBNF8BnbaeQdQUo=;
+        b=p2BatyqMgXXkXbOjvLhV7fxp0EF7XWicDzfoMUNR41CezxoLYz18bZIGEDY2zV8hYn
+         JJg6vZyzvDWSfJtlIHvDh3gA14Cefb/4Gpkm51svaI2lZ37gv5+aR5MinucRDoTw6MdO
+         YUb9zARhBKxZe4Dz0TIb5chOmV9/7eHayMK0DSYMsbM44+4KauUiOJwG2P5IDMmCHswp
+         pxqTs2lVNBzva+uy8Ftf8XHoHzWP9ri+2hOnO9vmijy2lTqWpgs5w/CTQcbU2UnKdDmJ
+         UjUApQiqkhvk/9DkTlJKAutOFtZuaYi9VyIJZkMo0cl/zBHBYVOnsfHkhbXD+2CiWszM
+         xksA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eUXWhUifdFgPJT3sQ8fpiBb9+qu4qBNF8BnbaeQdQUo=;
+        b=MiIL4EWq0in2bllKoaQWpCIHPKMq0jBoliijkQO2/2PMwJRnz+tPRLLMgsXnZcINsj
+         2Y9+FNAJ5yY4L4wdZJW4uOnekiKDipWu81a+ShfqtNOxGer8aDkkyBYiuJqQmg5TPlU9
+         ADGHv1sgqH+5fXvmqJxWyWk/rxgWAYh2z2IRNBTSZsPHSdzmvMKgCuKb3FIBqVVAT6g4
+         iNZ97AGcBvUu+r3jqUCkYzcjF5AeGZh5qOimniJp232CmmTe9dBhFtoTu6RKYfTWatgs
+         Qzx7J7pJG2IF1ByOu92zU9EUibphNS/ZFCGtlpACVfyJr4bk2TBkDx1Osr5HHiQCoiwO
+         JTSQ==
+X-Gm-Message-State: ACrzQf2eCyc2B4UOGdFG/4nrZO5OGCGFbBv7OYoAEXPT/L3VTdTJnWQR
+	wXXvEVO3e2hqdZ6ho6RALgwpWcTFX6M=
+X-Google-Smtp-Source: AMsMyM7UAoMVSHijtFGDsOKK4XAARFhwG5lyokCvp6D5lkB3pZXlx5dzYqQY7QntGmdGYLz1xS0Sr9AZvPs=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:8bc5:b0:17f:79f2:21e8 with SMTP id
+ r5-20020a1709028bc500b0017f79f221e8mr2202413plo.63.1665016463355; Wed, 05 Oct
+ 2022 17:34:23 -0700 (PDT)
+Date: Thu,  6 Oct 2022 00:34:08 +0000
+In-Reply-To: <20221006003409.649993-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20221006003409.649993-1-seanjc@google.com>
+X-Mailer: git-send-email 2.38.0.rc1.362.ged0d419d3c-goog
+Message-ID: <20221006003409.649993-7-seanjc@google.com>
+Subject: [PATCH v6 6/7] KVM: selftest: Drop now-unnecessary ucall_uninit()
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	llvm@lists.linux.dev, Colton Lewis <coltonlewis@google.com>, 
+	Andrew Jones <andrew.jones@linux.dev>, Peter Gonda <pgonda@google.com>, 
+	Sean Christopherson <seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_175951_523612_D90BF7E1 
-X-CRM114-Status: GOOD (  38.99  )
+X-CRM114-CacheID: sfid-20221006_013439_246627_EE3CA971 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,171 +109,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 5, 2022 at 11:03 PM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
->
-> Hi Guo,
->
-> On Wed, Oct 5, 2022 at 3:23 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Wed, Oct 5, 2022 at 8:54 PM Lad, Prabhakar
-> > <prabhakar.csengg@gmail.com> wrote:
-> > >
-> > > Hi Guo,
-> > >
-> > > On Wed, Oct 5, 2022 at 2:29 AM Guo Ren <guoren@kernel.org> wrote:
-> > > >
-> > > > On Tue, Oct 4, 2022 at 6:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > >
-> > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > >
-> > > > > On the AX45MP core, cache coherency is a specification option so it may
-> > > > > not be supported. In this case DMA will fail. As a workaround, firstly we
-> > > > > allocate a global dma coherent pool from which DMA allocations are taken
-> > > > > and marked as non-cacheable + bufferable using the PMA region as specified
-> > > > > in the device tree. Synchronization callbacks are implemented to
-> > > > > synchronize when doing DMA transactions.
-> > > > >
-> > > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > > > > block that allows dynamic adjustment of memory attributes in the runtime.
-> > > > > It contains a configurable amount of PMA entries implemented as CSR
-> > > > > registers to control the attributes of memory locations in interest.
-> > > > >
-> > > > > Below are the memory attributes supported:
-> > > > > * Device, Non-bufferable
-> > > > > * Device, bufferable
-> > > > > * Memory, Non-cacheable, Non-bufferable
-> > > > > * Memory, Non-cacheable, Bufferable
-> > > > > * Memory, Write-back, No-allocate
-> > > > > * Memory, Write-back, Read-allocate
-> > > > > * Memory, Write-back, Write-allocate
-> > > > > * Memory, Write-back, Read and Write-allocate
-> > > > Seems Svpbmt's PMA, IO, and NC wouldn't fit your requirements, could
-> > > > give a map list of the types of Svpbmt? And give out what you needed,
-> > > > but Svpbmt can't.
-> > > >
-> > > Sorry I didn't get what you meant here, could you please elaborate.
-> > I know there is no pbmt in AX45MP, I am just curious how many physical
-> > memory attributes you would use in linux? It seems only one type used
-> > in the series:
-> > cpu_nocache_area_set -> sbi_ecall(SBI_EXT_ANDES,
-> > SBI_EXT_ANDES_SET_PMA, offset, vaddr, size, entry_id, 0, 0);
-> >
-> Yes, currently we only use "Memory, Non-cacheable, Bufferable". I was
-> wondering if we could send these options as flags from DT something
-> like below so that it's not hard coded in the code.
->
-> /* PMA config */
-> #define AX45MP_PMACFG_ETYP                GENMASK(1, 0)
-> /* OFF: PMA entry is disabled */
-> #define AX45MP_PMACFG_ETYP_DISABLED            0
-> /* Naturally aligned power of 2 region */
-> #define AX45MP_PMACFG_ETYP_NAPOT            3
->
-> #define AX45MP_PMACFG_MTYP                GENMASK(5, 2)
-> /* Device, Non-bufferable */
-> #define AX45MP_PMACFG_MTYP_DEV_NON_BUF            (0 << 2)
-> /* Device, bufferable */
-> #define AX45MP_PMACFG_MTYP_DEV_BUF            (1 << 2)
-> /* Memory, Non-cacheable, Non-bufferable */
-> #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF    (2 << 2)
-> /* Memory, Non-cacheable, Bufferable */
-> #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF        (3 << 2)
-> /* Memory, Write-back, No-allocate */
-> #define AX45MP_PMACFG_MTYP_MEM_WB_NA            (8 << 2)
-> /* Memory, Write-back, Read-allocate */
-> #define AX45MP_PMACFG_MTYP_MEM_WB_RA            (9 << 2)
-> /* Memory, Write-back, Write-allocate */
-> #define AX45MP_PMACFG_MTYP_MEM_WB_WA            (10 << 2)
-> /* Memory, Write-back, Read and Write-allocate */
-> #define AX45MP_PMACFG_MTYP_MEM_WB_R_WA            (11 << 2)
->
-> /* AMO instructions are supported */
-> #define AX45MP_PMACFG_NAMO_AMO_SUPPORT            (0 << 6)
-> /* AMO instructions are not supported */
-> #define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT        (1 << 6)
->
->
->                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0
-> AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
->                               <0x0 0x10000000 0x0 0x04000000 0x0
-> AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> AX45MP_PMACFG_NAMO_AMO_SUPPORT >,
->                               <0x0 0x20000000 0x0 0x10000000 0x0
-> AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
->                               <0x0 0x58000000 0x0 0x08000000 0x0
-> AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> AX45MP_PMACFG_NAMO_AMO_SUPPORT>;
->
-> Does the above sound good?
-I've no idea. But for working around, I would give Acked-by.
+Drop ucall_uninit() and ucall_arch_uninit() now that ARM doesn't modify
+the host's copy of ucall_exit_mmio_addr, i.e. now that there's no need to
+reset the pointer before potentially creating a new VM.  The few calls to
+ucall_uninit() are all immediately followed by kvm_vm_free(), and that is
+likely always going to hold true, i.e. it's extremely unlikely a test
+will want to effectively disable ucall in the middle of a test.
 
->
-> > I'm not sure how you make emmc/usb/gmac's dma ctrl desc work around
-> > without pbmt when they don't have cache coherency protocol. Do you
-> > need to inject dma_sync for desc synchronization? What's the effect of
-> > dynamic PMA in the patch series?
-> >
-> Currently we have setup the pma regions as below:
->
-> l2cache: cache-controller@13400000 {
->                 compatible = "andestech,ax45mp-cache", "cache";
->                 cache-size = <0x40000>;
->                 cache-line-size = <64>;
->                 cache-sets = <1024>;
->                 cache-unified;
->                 reg = <0x0 0x13400000 0x0 0x100000>;
->                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0 0xf>,
->                               <0x0 0x10000000 0x0 0x04000000 0x0 0xf>,
->                               <0x0 0x20000000 0x0 0x10000000 0x0 0xf>,
->                               <0x0 0x58000000 0x0 0x08000000 0x0 0xf>;
->                 interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
->         };
->
-> The last pma-regions entry 0x58000000 is a DDR location this memory
-> locations is marked as shared DMA pool with below in DT,
->
->     reserved-memory {
->         #address-cells = <2>;
->         #size-cells = <2>;
->         ranges;
->
->         reserved: linux,cma@58000000 {
->             compatible = "shared-dma-pool";
->             no-map;
->             linux,dma-default;
->             reg = <0x0 0x58000000 0x0 0x08000000>;
->         };
->     };
->
-> And for ARCH_R9A07G043 we automatically select DMA_GLOBAL_POOL, so the
-> IP blocks (emmc/usb/gmac's) requesting DMA'able memory will
-> automatically fall into this region which is non-cacheable but
-> bufferable (set in PMA) and rest everything is taken care by clean and
-> flush callbacks. We dont have  inject dma_sync for desc
-> synchronization for existing drivers (which are shared with Renesas
-> RZ/G2L family)
-Better than I thought :). The "non-cacheable but bufferable" is "weak
-order," also raising the bufferable signal of AXI transactions. Right?
-But some drivers think ctrl desc is strong order without bufferable
-and don't put any mb() before/after IO control operations.
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Tested-by: Peter Gonda <pgonda@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/dirty_log_test.c       |  1 -
+ tools/testing/selftests/kvm/include/ucall_common.h |  6 ------
+ tools/testing/selftests/kvm/kvm_page_table_test.c  |  1 -
+ tools/testing/selftests/kvm/lib/aarch64/ucall.c    | 14 ++------------
+ tools/testing/selftests/kvm/lib/perf_test_util.c   |  1 -
+ tools/testing/selftests/kvm/lib/riscv/ucall.c      |  4 ----
+ tools/testing/selftests/kvm/lib/s390x/ucall.c      |  4 ----
+ tools/testing/selftests/kvm/lib/x86_64/ucall.c     |  4 ----
+ 8 files changed, 2 insertions(+), 33 deletions(-)
 
->
-> Cheers,
-> Prabhakar
-
-
-
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index b458a2701634..a38c4369fb8e 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -811,7 +811,6 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 
+ 	free(bmap);
+ 	free(host_bmap_track);
+-	ucall_uninit(vm);
+ 	kvm_vm_free(vm);
+ }
+ 
+diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
+index 8077a6d8b1ba..2662a4352a8c 100644
+--- a/tools/testing/selftests/kvm/include/ucall_common.h
++++ b/tools/testing/selftests/kvm/include/ucall_common.h
+@@ -25,7 +25,6 @@ struct ucall {
+ };
+ 
+ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa);
+-void ucall_arch_uninit(struct kvm_vm *vm);
+ void ucall_arch_do_ucall(vm_vaddr_t uc);
+ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu);
+ 
+@@ -37,11 +36,6 @@ static inline void ucall_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ 	ucall_arch_init(vm, mmio_gpa);
+ }
+ 
+-static inline void ucall_uninit(struct kvm_vm *vm)
+-{
+-	ucall_arch_uninit(vm);
+-}
+-
+ #define GUEST_SYNC_ARGS(stage, arg1, arg2, arg3, arg4)	\
+ 				ucall(UCALL_SYNC, 6, "hello", stage, arg1, arg2, arg3, arg4)
+ #define GUEST_SYNC(stage)	ucall(UCALL_SYNC, 2, "hello", stage)
+diff --git a/tools/testing/selftests/kvm/kvm_page_table_test.c b/tools/testing/selftests/kvm/kvm_page_table_test.c
+index 20533c48ba3d..d77b1f634f29 100644
+--- a/tools/testing/selftests/kvm/kvm_page_table_test.c
++++ b/tools/testing/selftests/kvm/kvm_page_table_test.c
+@@ -416,7 +416,6 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 	TEST_ASSERT(ret == 0, "Error in sem_destroy");
+ 
+ 	free(vcpu_threads);
+-	ucall_uninit(vm);
+ 	kvm_vm_free(vm);
+ }
+ 
+diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+index 1c38bd260f90..21d73afcb14f 100644
+--- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
++++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+@@ -12,23 +12,13 @@
+  */
+ static vm_vaddr_t *ucall_exit_mmio_addr;
+ 
+-static void ucall_set_mmio_addr(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+-{
+-	vm->ucall_mmio_addr = mmio_gpa;
+-
+-	write_guest_global(vm, ucall_exit_mmio_addr, (vm_vaddr_t *)mmio_gpa);
+-}
+-
+ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ {
+ 	virt_pg_map(vm, mmio_gpa, mmio_gpa);
+ 
+-	ucall_set_mmio_addr(vm, mmio_gpa);
+-}
++	vm->ucall_mmio_addr = mmio_gpa;
+ 
+-void ucall_arch_uninit(struct kvm_vm *vm)
+-{
+-	ucall_set_mmio_addr(vm, (vm_paddr_t)NULL);
++	write_guest_global(vm, ucall_exit_mmio_addr, (vm_vaddr_t *)mmio_gpa);
+ }
+ 
+ void ucall_arch_do_ucall(vm_vaddr_t uc)
+diff --git a/tools/testing/selftests/kvm/lib/perf_test_util.c b/tools/testing/selftests/kvm/lib/perf_test_util.c
+index 5161fa68cdf3..78e5be2c7f1a 100644
+--- a/tools/testing/selftests/kvm/lib/perf_test_util.c
++++ b/tools/testing/selftests/kvm/lib/perf_test_util.c
+@@ -217,7 +217,6 @@ struct kvm_vm *perf_test_create_vm(enum vm_guest_mode mode, int nr_vcpus,
+ 
+ void perf_test_destroy_vm(struct kvm_vm *vm)
+ {
+-	ucall_uninit(vm);
+ 	kvm_vm_free(vm);
+ }
+ 
+diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+index c58ecb8a0981..78acdb084ab0 100644
+--- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
++++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+@@ -14,10 +14,6 @@ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ {
+ }
+ 
+-void ucall_arch_uninit(struct kvm_vm *vm)
+-{
+-}
+-
+ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+ 			unsigned long arg1, unsigned long arg2,
+ 			unsigned long arg3, unsigned long arg4,
+diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+index 208f0f04299b..cbee520a26f2 100644
+--- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
++++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+@@ -10,10 +10,6 @@ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ {
+ }
+ 
+-void ucall_arch_uninit(struct kvm_vm *vm)
+-{
+-}
+-
+ void ucall_arch_do_ucall(vm_vaddr_t uc)
+ {
+ 	/* Exit via DIAGNOSE 0x501 (normally used for breakpoints) */
+diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+index 016a0487cf72..eb8bf55b359a 100644
+--- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
++++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+@@ -12,10 +12,6 @@ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ {
+ }
+ 
+-void ucall_arch_uninit(struct kvm_vm *vm)
+-{
+-}
+-
+ void ucall_arch_do_ucall(vm_vaddr_t uc)
+ {
+ 	asm volatile("in %[port], %%al"
 -- 
-Best Regards
- Guo Ren
+2.38.0.rc1.362.ged0d419d3c-goog
+
 
 _______________________________________________
 linux-riscv mailing list
