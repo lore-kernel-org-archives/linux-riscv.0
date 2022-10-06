@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047EDC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 01:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C07C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 01:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=E0RznW9joK5gkmiufN7dhblhuXY8FCO2RSk3E7R3WSk=; b=VmS10ciwvcbkIVg4lYFBm/fhZK
-	u/U21XYzYwRDWhYLxOSmcEfItcqpbwDLam0B82ul1EIcXzqO6Lw1LRvUOFHF1qhJvN+puyGA0fTQ5
-	oX6eFjt2E9UaKK7mRbbBq85hORBU5WbQukUaHOv0uodS3AsA0nXUMso5TXh61eF4qxnG0P5C9lnU/
-	RTbyF5fyauGs9I2pPd5QW212M9JETW/3aK7tMpfwqh7XfVZbE6h+6BRw/twj4fCr72yz9a7RPFJzN
-	ysESNk7ndXeLLGMAKeBxgwbzGZMoryFi6oX46LTFmPaI3RkmlIJGmIUFqfe9aReadJh239rHBXpZ8
-	fibHOGUw==;
+	bh=n68wfWL1lacm3NwfVmsU7z5lSGP2t903HXJDnPTLUxo=; b=HbQphbSUFKdMb1ZmJmFiV7ZgSz
+	8JbC4wJTaRFFJY/eaQTPTLZS6WinV9fBDj+fVQWonyGHwfxq1DjYR0jG0vDef8ox5NXqulOm9VGMl
+	n0cjvVpHlY9EF1KnrrQVle6eDL+3mMoncj6wt0sRojFxyWp79PDaw1aI9YIbULTVA6XyD+X2wsfkM
+	M2frcOdzUNzA0wJS4M4LVMG3H5UrABLTMZorERfON3q3r8sQmdZO4dvA4fASOtyR7SsVGRJLtRRb7
+	evsGypahd+B0M0p79X15R5DAGE7rYYFrkV1HWR22MRNERGIpzOQiafXH60pCX24t5+fKiPsdfrn0S
+	CmOVahmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogFKS-00GoNb-KL; Thu, 06 Oct 2022 01:05:36 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1ogFfX-00GpVa-7i; Thu, 06 Oct 2022 01:27:23 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogFKP-00GoLC-Fg
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 01:05:35 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id w2so710700pfb.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 18:05:32 -0700 (PDT)
+	id 1ogFfU-00GpVF-9E
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 01:27:21 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 195so562824pga.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 18:27:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6zz+HXUH9nJdRQI27LUzdzL5vjVdFK5hIVfPKFeeoWM=;
-        b=W9oFKSvSZBKTpp5k39eldV09BnQECEr2wHfFrvrRQgGoVKioiKSxy5PDXDUUj/8Xt3
-         9c1MyIGFLZTP7y2nr3TdvhWoyXOADfH9j9xQ1Mffq+LUDliHqXuYfkC9wcaugdvVc3ap
-         TVN87T4LRGGzuRU7BxBS9fP9baNIjA2Bs2UoB08USts0LQbGyopR9+iqfXXj9TljNKj0
-         tBqaUnJsmrbqMrzcjnnIVu1qJULfNRwpvDGGrse4+ZHPZrx3fTFFvn2uIbon9ESJJRxP
-         QBhx7mCPg8xqajVIJ/0qq34dQRZI/iaUK1AnKSI93ch0R45vwIGOK8E+D/WWj6934tmw
-         bBTg==
+        bh=4/8/dQZgzDnDwc7lFNRt35pHqe6S7Rsx4sWI3f60qWY=;
+        b=OKHCuMgVy0aO8VhAi/0zERlIMCY+9+rohIQUpTWa77B0RFiVd78eWWUepBW4AbMDz2
+         Tf+pFedKIV3wey7d48vzT9Ctg3hAfCGT43ppAAcGy9B4pHzId4NCp1go4lqsWY1eDsNs
+         l6wgmKe48acqNdnEjipiGgCKb6I3Qdezw3SdmXZqlcHbUIjeJQLHzAsr8Qr+lqswk7IX
+         9wpZs6lWR0NJR2vDGyAFFdxND9O6OLngfp41Dn5cfsCZs4QB+WcXxNz9aAOatIf7yJ3g
+         i9LsVLyLyM9vJ1Qu32h065O5hthE2EqhfuZ9FIOeyPpe+OWO1020OvcRa9HGm/H+VzQ8
+         7MkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6zz+HXUH9nJdRQI27LUzdzL5vjVdFK5hIVfPKFeeoWM=;
-        b=4bmbxCLYFYEOLNdNfRfPDJQ/lss85XhCqMNaREM7cVwU4iJbDvc9idqkvBiOOC9FE7
-         oFaPgazrKZof0mrZt6MiIwpkNJ9tAu8+JRnuEo1ZidjZDSlhpt4UHu8dQwTCBduwz2Ty
-         qAHccwa1wJnzWdUtbTvaWyuyf68JCcZiC/5hUAW5Rv563/gLrXpCFc3JY9dtKma7JWcT
-         rhTVN+WOro0iWzBotTF0C9A30eORG3DgWeTWXc0KJMnoJXuAIlHjkOq03AXl3ZzOu3Kr
-         oKki9bNEpFRCaXcLCvtc4pxwiTYT+aVQeAbGlehuczJZTGNZNxdljoxXm2D856n4ZUxZ
-         13kw==
-X-Gm-Message-State: ACrzQf1zk7nC324/g6YWS62OI39VF4uJtioJ5qjAeCUI0FWBCwKhIkeT
-	0NhxMNUwtrJhEHvCFAxyA/x5gg==
-X-Google-Smtp-Source: AMsMyM6867A5+juCRxIx5ivLWt/uRwuXH1Hj6A9x9CUunC87zaZwVIr1m2g/SEds/0zZtclFDhUAAg==
-X-Received: by 2002:a05:6a00:a01:b0:561:7e74:11b3 with SMTP id p1-20020a056a000a0100b005617e7411b3mr2084194pfh.35.1665018331640;
-        Wed, 05 Oct 2022 18:05:31 -0700 (PDT)
+        bh=4/8/dQZgzDnDwc7lFNRt35pHqe6S7Rsx4sWI3f60qWY=;
+        b=dLG2BaCg7X81dqdOeFK0aft98BZr7MGs3KZ/n2WZyKnm4ZigpiMihkumM9fB8NRLj2
+         xxnDx7Zaas7gGaT+/AL1yJvlIN61fXrjX0+ySeInvdGaJOieC78CYxPPXwIjeNx6Kpdi
+         mwVD1YEKDRit8j+KU+y/fh+9DqSInzyXN0cCwu+IXzTIPRaugIq3d/CiHfc8n1mYR/8K
+         x0XVlU7xvHa3T7ozou+xDdTeW92YUXgfjlde+3K++/ECn73EhlR/GSHWBzfCPk6g8Jy2
+         hzcRuArXT09y9LiYuHsnMBJZf9HStiHRw7tpcXANK4T1IRCoC7ERKpkL5kmy0sLgYSbI
+         RUSA==
+X-Gm-Message-State: ACrzQf2YwrvJ20sAtELYPLU5qvXWyZBJcX4hcyfOvWZ+eam5N/qjHP5Q
+	/2fa5KGUzO6qQsPd/1UZPSmhoQ==
+X-Google-Smtp-Source: AMsMyM7jioPPSarJQSbh+NnOBCQxAoudbqQsvD16os+ChMetUP1F93L+czcImnHOLnPM3ZwvC5pUoA==
+X-Received: by 2002:aa7:9083:0:b0:55f:9827:42e7 with SMTP id i3-20020aa79083000000b0055f982742e7mr2175116pfa.15.1665019636465;
+        Wed, 05 Oct 2022 18:27:16 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id e2-20020a17090301c200b00172ea8ff334sm11129483plh.7.2022.10.05.18.05.28
+        by smtp.gmail.com with ESMTPSA id k15-20020a170902c40f00b0017f64ab80e5sm5218784plk.179.2022.10.05.18.26.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 18:05:28 -0700 (PDT)
-Date: Wed, 05 Oct 2022 18:05:28 -0700 (PDT)
-X-Google-Original-Date: Wed, 05 Oct 2022 18:05:20 PDT (-0700)
-Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize pgtable_l4_enabled
-In-Reply-To: <20220821140918.3613-1-jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
-  vincenzo.frascino@arm.com, alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
+        Wed, 05 Oct 2022 18:26:55 -0700 (PDT)
+Date: Wed, 05 Oct 2022 18:26:55 -0700 (PDT)
+X-Google-Original-Date: Wed, 05 Oct 2022 18:26:06 PDT (-0700)
+Subject: Re: [PATCH -next 0/2] riscv: ptrace: implement PTRACE_{PEEK,POKE}USR
+In-Reply-To: <mvmzgfwelmw.fsf@suse.de>
+CC: zouyipeng@huawei.com, linux-riscv@lists.infradead.org, oleg@redhat.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, guoren@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
+To: schwab@suse.de
+Message-ID: <mhng-c0ab4916-fb1a-49e1-9a26-b93500ce5839@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_180533_786541_9FCA2681 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20221005_182720_364043_6D1E29F3 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,63 +89,35 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
-> The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> boot, so static key can be used to solve the performance issue[1].
+On Mon, 22 Aug 2022 01:19:03 PDT (-0700), schwab@suse.de wrote:
+> On Aug 22 2022, Yipeng Zou wrote:
 >
-> An unified way static key was introduced in [2], but it only targets
-> riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> as isa extension, so the unified solution isn't used for
-> pgtable_l4[l5]_enabled now.
+>> The PTRACE_{PEEK,POKE}USR going to get/set tracee's user register.
+>> This patch sets add PTRACE_{PEEK,POKE}USR and compat implement to
+>> riscv.
+>>
+>> I notice this issuse when transplanting some app form x86 to riscv
+>> recently.
+>> I don't know why these two function are not implemented now, and I
+>> found few talk about that.
+>>
+>> The {PEEK,POKE}USR are both defined in include\uapi\linux\ptrace.h,
+>> So I was thinking maybe these two function shouled be implemented.
 >
-> patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
->
-> [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
->
-> Since v5:
->  - Use DECLARE_STATIC_KEY_FALSE
->
-> Since v4:
->  - rebased on v5.19-rcN
->  - collect Reviewed-by tags
->  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
->    riscv_finalise_pgtable_lx() after sparse_init()
->
-> Since v3:
->  - fix W=1 call to undeclared function 'static_branch_likely' error
->
-> Since v2:
->  - move the W=1 warning fix to a separate patch
->  - move the unified way to use static key to a new patch series.
->
-> Since v1:
->  - Add a W=1 warning fix
->  - Fix W=1 error
->  - Based on v5.18-rcN, since SV57 support is added, so convert
->    pgtable_l5_enabled as well.
->
->
-> Jisheng Zhang (2):
->   riscv: move sbi_init() earlier before jump_label_init()
->   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
->
->  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
->  arch/riscv/include/asm/pgtable-32.h |  3 ++
->  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
->  arch/riscv/include/asm/pgtable.h    |  5 +--
->  arch/riscv/kernel/cpu.c             |  4 +-
->  arch/riscv/kernel/setup.c           |  2 +-
->  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
->  arch/riscv/mm/kasan_init.c          | 16 ++++----
->  8 files changed, 104 insertions(+), 66 deletions(-)
+> There are PTRACE_[GS]ETREGSET.  I think PTRACE_{PEEK,POKE}USR are
+> legacy-only.
 
-Sorry for being slow here, but it looks like this still causes some 
-early boot hangs.  Specifically kasan+sparsemem is failing.  As you can 
-probably see from the latency I'm still a bit buried right now so I'm 
-not sure when I'll have a chance to take more of a look.
+That's my understanding as well.  Anything ported to RISC-V would need 
+to understand the new register formats, so there's not much benefit to 
+supporting these old flavors of register twiddling -- maybe some 
+refactoring needs to be done in userspace to take advantage of accessing 
+multiple registers at the same time, but that should probably be done 
+anyway as all ports support the new interfaces these days.
+
+There's been a few rounds of these having been posted, maybe that means 
+the documentation should be improved?  I sent 
+<https://lore.kernel.org/r/20221006012432.19008-1-palmer@rivosinc.com/>, 
+that'll also help sort out whether we're supposed to have these.
 
 _______________________________________________
 linux-riscv mailing list
