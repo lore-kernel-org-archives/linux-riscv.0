@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4996AC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 13:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A98FC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 13:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x1v1Db2PPNmd5T/+vUSNsTXuoIcZr5WivBqzO/u5c/A=; b=zHYir4cjwOOZwY
-	TZsQ6k2MibKUNDZ9iRQMUQy8Mupi9TmKmdCT59/ifJnMgPiCDJWGj0F6KSkyRVTsfbym96FM1d6s/
-	BBaGpJRk5TbdpdJrYTewgi1KGpKVMl2FXFEClGbsuNy+uulWVnyea8k5LqBOoXPThZU6TAUk2FfnR
-	EojottRs1qz1uVTDtKeFnXFwd+HAaUFqeM4wIg3C5joCdUAC1m4ay3tY6UgKTn/Pf2XuaLHhKY4AG
-	89UiCfApw6D9yamCCA2ZqqbaXZNIcerjkg1JUVN9mVqi2FtzIsgAJLFPS7z0UEXwAIVtwlbGWqSFH
-	ht0tVr8TJuggo8ESqZig==;
+	List-Owner; bh=C2NHk2Elcwf+74S0Vxgacvj7ENNeOOhf1nXAEFUvgic=; b=cFMmMQpEoE8RJ6
+	oltQyFrGKt1QxkSxx1MD6WdZPwlVzNTUG+yZapfFcVQWdk3OMvfJyz9YgOEcXaqo7mAp9W4tucFWZ
+	b/aURf2BrcjoGqakQAfN0cXwTef4/an7pjkIJDZGGFNfDB2BWzWMh2wwM8lqlx4ZBW3d1NZ/NyAvN
+	pFcEnP6/iflf3Xbg9bFf9PCeL/kza/mtJmqc9Op+swFW+jwJyAiQ1+TjLBjRnm8NNGtiNRt0XpP+a
+	PhI8uuc/q9sX/D+DGVigKZiiB0e9B7xvde+HcmHrbR1NYIR24JTpbAp5N7hxa6XX+lqmm3d99oPSe
+	M71oE9J8S/uyl7krIX1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogQy0-002hBT-G5; Thu, 06 Oct 2022 13:31:12 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1ogR37-002j55-Ey; Thu, 06 Oct 2022 13:36:29 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogQxx-002h9I-W5
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 13:31:11 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a26so4619735ejc.4
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 06:31:08 -0700 (PDT)
+	id 1ogR34-002j3g-8O
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 13:36:27 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id z97so2835747ede.8
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 06:36:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jLWyENnFNe547LYKA1l7p+V/55M9Qg7wqXNSQA+tPh4=;
-        b=nfG8TGPZxwjq9nowPYag+alN8xtu6pejhDtfYE3OhQch5uXaWTBml/QIGfPxYDUNwu
-         +WXVC7j1jDM33vPzl1VBqXVPTPXxIrHOnIKLJPe6xptKo6mInngkiHKX3HJLCm09bDB+
-         GyFh2WHI6SIl4eSfO8Evw75JTMX4gm3DxD5EZkGNGd6bTO9A3qjQrphbIJLLRWkFd7gQ
-         ORT1z5SjhmXjqEQC5y3GIwMLELg1u6TK++pgfuJ2LYDNMSKRru9GVT8g7EcJWVQhvLhP
-         nio6yB/9ntQLDq5Cn1fJIDTBxvrNKxtrxmlXJccLrjfYw24ZOqVhvybo3WUYcFfU1I+H
-         t1gQ==
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=0UfzhzFU90rUX1Zui/jkz3o75f5mI9Z9O0OKWUMBplQ=;
+        b=kLFfxeludzLzIaDOjssv83UlUa6NwmAXruQHUbh2cWE3MCcDBNocLfnlW04y0Uc334
+         EwOsQciNnARNDGu25LPXuTA7liiU9/SLLrg7I+r1nKHdcyyX8hU21KbRMY3kFfiPUPnJ
+         xTSQW/ry8qRSkPlZV3aGQ2cuKb6oSc1rorG2VLmIdIRfsaIxZjQBHgifXfosK1OLA3Qv
+         SIQuyrx8qTTLNJtAzRSLCfrpDrG+3xOD4ghayD3mdf6UFOpkEjX+0WvhjBivc6X+zVAt
+         JlweQb05TLiKGZM+THm0ZmdJvcGSbgMryHJX2LHf4p46utaGAc8WhnmSKJDIjKzGhFhI
+         rjKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jLWyENnFNe547LYKA1l7p+V/55M9Qg7wqXNSQA+tPh4=;
-        b=HlHVEINTMoePVhdqItTX0V5wtzrpRgUU5libGCrt2CLnzAusc3QVYC8qPLDzdprddv
-         VfrYxU3zXGKjlmDdUg7yyDDpgF7TRSwtNlIm2mxrCbH3ncZQFHdhkEqta/h9Ew26nXAI
-         Z+T9cYylWK+YGCezpIus935xNt6jkjqdQf8z3Sntn85U9igCHtytCJxYysAP2IZ3Bgl8
-         ZzX+/v8cqAiczPbJO0j4kz+oCPIWuM+aBu+sMW/rGHW3lGDrXumfS6PT555vFd19ah00
-         ckooI94H5uU4nE8d+7iWExImsH2y2U/NKcafH3v5X3bJqgT+r/+YGyidzp9shlPRyoVi
-         Yl/w==
-X-Gm-Message-State: ACrzQf0UuWIFORh8SVoZtowOFtQjRGVTzRak9bLKs2yLoI0BOh6s3Wkp
-	VM+wvFKS8JT2+PVPUScw3NSUrw==
-X-Google-Smtp-Source: AMsMyM6YGeAonCo9d5iqTsdyfBooPTFkF3ZB935YD873xQHdht4JfA2MNitsVbozbRgnrNAha2YkmA==
-X-Received: by 2002:a17:907:7210:b0:783:37b0:b5ca with SMTP id dr16-20020a170907721000b0078337b0b5camr3937247ejc.689.1665063067246;
-        Thu, 06 Oct 2022 06:31:07 -0700 (PDT)
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=0UfzhzFU90rUX1Zui/jkz3o75f5mI9Z9O0OKWUMBplQ=;
+        b=biYpTAf526IQTr3H7nBZsZP/CtA0AFmWsBjib5Yb0b03BAv90QYOj/GpJ465HXDCAB
+         rTLh9QkwvuemTThgPBxADj9bkEGZugLPSMpIWwp+xEZU3ktui039c5ikBbP5tBCLx8ze
+         K9GAwWuoX7NBUbbW6tBHF2dJUS6KXxnqEKZnpaQwU2VV1Fri4Q39NP/Q65xykNOG8Fin
+         J6xefE8siuFXz9WCdD9GDmtD4dJRD36gielTMi+0aatuDKFSVlF3gOhqtaU9huhiNhvn
+         ++DYEsHyD2PJJLjg7i885y9I8SzgnGa/1FSbThIWECI+zjpjV1Ie4hYec8Xbt6ISGI/m
+         H5ug==
+X-Gm-Message-State: ACrzQf2arOve7YusM3FoZvepVCk3sS3Uz+nEAVeW2P0bXJpCpqRkf+eF
+	ffI4ySFU0Gu3I6ZfI6dcouuF/g==
+X-Google-Smtp-Source: AMsMyM6+xhVtakhKWGU9SGpwhFNpt47nCQGSZGLsdYYQsMxXm0m3+WMbSh3KS1KsDrtAiU81a23ijQ==
+X-Received: by 2002:aa7:c314:0:b0:458:dc90:467a with SMTP id l20-20020aa7c314000000b00458dc90467amr4598176edq.284.1665063383412;
+        Thu, 06 Oct 2022 06:36:23 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id d1-20020a170906304100b00788c622fa2csm9459973ejd.135.2022.10.06.06.31.06
+        by smtp.gmail.com with ESMTPSA id g23-20020a056402181700b004591e6f7f47sm5838159edy.42.2022.10.06.06.36.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Oct 2022 06:31:06 -0700 (PDT)
-Date: Thu, 6 Oct 2022 15:31:05 +0200
+        Thu, 06 Oct 2022 06:36:23 -0700 (PDT)
+Date: Thu, 6 Oct 2022 15:36:22 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/8] riscv: cpufeature: extend
- riscv_cpufeature_patch_func to all ISA extensions
-Message-ID: <20221006133105.hj3r2z4loybsfeqe@kamzik>
+Subject: Re: [PATCH 5/8] riscv: introduce riscv_has_extension_[un]likely()
+Message-ID: <20221006133622.xnruzidkrphgxa7d@kamzik>
 References: <20221006070818.3616-1-jszhang@kernel.org>
- <20221006070818.3616-5-jszhang@kernel.org>
+ <20221006070818.3616-6-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221006070818.3616-5-jszhang@kernel.org>
+In-Reply-To: <20221006070818.3616-6-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_063110_070518_FE279BC0 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20221006_063626_318774_83F19E5B 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,162 +91,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 06, 2022 at 03:08:14PM +0800, Jisheng Zhang wrote:
-> make the riscv_cpufeature_patch_func() scan all ISA extensions rather
-> than limited feature macros.
+On Thu, Oct 06, 2022 at 03:08:15PM +0800, Jisheng Zhang wrote:
+> Generally, riscv ISA extensions are fixed for any specific hardware
+> platform, that's to say, the hart features won't change any more
+> after booting, this chacteristic make it straightforward to use
+> static branch to check one specific ISA extension is supported or not
+> to optimize performance.
+> 
+> However, some ISA extensions such as SVPBMT and ZICBOM are handled
+> via. the alternative sequences.
+> 
+> Basically, for ease of maintenance, we prefer to use static branches
+> in C code, but recently, Samuel found that the static branch usage in
+> cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+> Samuel pointed out, "Having a static branch in cpu_relax() is
+> problematic because that function is widely inlined, including in some
+> quite complex functions like in the VDSO. A quick measurement shows
+> this static branch is responsible by itself for around 40% of the jump
+> table."
+> 
+> Samuel's findings pointed out one of a few downsides of static branches
+> usage in C code to handle ISA extensions detected at boot time:
+> static branch's metadata in the __jump_table section, which is not
+> discarded after ISA extensions are finalized, wastes some space.
+> 
+> I want to try to solve the issue for all possible dynamic handling of
+> ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+> riscv_has_extension_*() helpers, which work like static branches but
+> are patched using alternatives, thus the metadata can be freed after
+> patching.
+> 
+> [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+> [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/
 > 
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/include/asm/errata_list.h |  9 ++--
->  arch/riscv/kernel/cpufeature.c       | 61 +++-------------------------
->  2 files changed, 9 insertions(+), 61 deletions(-)
+>  arch/riscv/include/asm/hwcap.h | 37 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
 > 
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index 19a771085781..722525f4fc96 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -6,6 +6,7 @@
->  #define ASM_ERRATA_LIST_H
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 6cf445653911..54b88ee6cae1 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -8,6 +8,7 @@
+>  #ifndef _ASM_RISCV_HWCAP_H
+>  #define _ASM_RISCV_HWCAP_H
 >  
->  #include <asm/alternative.h>
-> +#include <asm/hwcap.h>
->  #include <asm/vendorid_list.h>
->  
->  #ifdef CONFIG_ERRATA_SIFIVE
-> @@ -20,10 +21,6 @@
->  #define	ERRATA_THEAD_NUMBER 2
->  #endif
->  
-> -#define	CPUFEATURE_SVPBMT 0
-> -#define	CPUFEATURE_ZICBOM 1
-> -#define	CPUFEATURE_NUMBER 2
-> -
->  #ifdef __ASSEMBLY__
->  
->  #define ALT_INSN_FAULT(x)						\
-> @@ -53,7 +50,7 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
->  #define ALT_SVPBMT(_val, prot)						\
->  asm(ALTERNATIVE_2("li %0, 0\t\nnop",					\
->  		  "li %0, %1\t\nslli %0,%0,%3", 0,			\
-> -			CPUFEATURE_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
-> +			RISCV_ISA_EXT_SVPBMT, CONFIG_RISCV_ISA_SVPBMT,	\
->  		  "li %0, %2\t\nslli %0,%0,%4", THEAD_VENDOR_ID,	\
->  			ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)	\
->  		: "=r"(_val)						\
-> @@ -127,7 +124,7 @@ asm volatile(ALTERNATIVE_2(						\
->  	"add a0, a0, %0\n\t"						\
->  	"2:\n\t"							\
->  	"bltu a0, %2, 3b\n\t"						\
-> -	"nop", 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,		\
-> +	"nop", 0, RISCV_ISA_EXT_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
->  	"mv a0, %1\n\t"							\
->  	"j 2f\n\t"							\
->  	"3:\n\t"							\
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index afa54635c180..2b1f18f97253 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -251,61 +251,11 @@ void __init riscv_fill_hwcap(void)
->  }
->  
->  #ifdef CONFIG_RISCV_ALTERNATIVE
-> -static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
-> -{
-> -#ifdef CONFIG_RISCV_ISA_SVPBMT
-> -	switch (stage) {
-> -	case RISCV_ALTERNATIVES_EARLY_BOOT:
-> -		return false;
-> -	default:
-> -		return riscv_isa_extension_available(NULL, SVPBMT);
-> -	}
-> -#endif
-> -
-> -	return false;
-> -}
-> -
-> -static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
-> -{
-> -#ifdef CONFIG_RISCV_ISA_ZICBOM
-> -	switch (stage) {
-> -	case RISCV_ALTERNATIVES_EARLY_BOOT:
-> -		return false;
-> -	default:
-> -		return riscv_isa_extension_available(NULL, ZICBOM);
-> -	}
-> -#endif
-> -
-> -	return false;
-> -}
-> -
-> -/*
-> - * Probe presence of individual extensions.
-> - *
-> - * This code may also be executed before kernel relocation, so we cannot use
-> - * addresses generated by the address-of operator as they won't be valid in
-> - * this context.
-> - */
-> -static u32 __init_or_module cpufeature_probe(unsigned int stage)
-> -{
-> -	u32 cpu_req_feature = 0;
-> -
-> -	if (cpufeature_probe_svpbmt(stage))
-> -		cpu_req_feature |= (1U << CPUFEATURE_SVPBMT);
-> -
-> -	if (cpufeature_probe_zicbom(stage))
-> -		cpu_req_feature |= (1U << CPUFEATURE_ZICBOM);
-> -
-> -	return cpu_req_feature;
-> -}
-> -
->  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
->  						  struct alt_entry *end,
->  						  unsigned int stage)
->  {
-> -	u32 cpu_req_feature = cpufeature_probe(stage);
->  	struct alt_entry *alt;
-> -	u32 tmp;
->  
->  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->  		return;
-> @@ -313,15 +263,16 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
->  	for (alt = begin; alt < end; alt++) {
->  		if (alt->vendor_id != 0)
->  			continue;
-> -		if (alt->errata_id >= CPUFEATURE_NUMBER) {
-> -			WARN(1, "This feature id:%d is not in kernel cpufeature list",
-> +		if (alt->errata_id >= RISCV_ISA_EXT_ID_MAX) {
-
-Ok, so RISCV_ISA_EXT_ID_MAX is used here now, but we could use
-RISCV_ISA_EXT_MAX directly instead.
-
-> +			WARN(1, "This extension id:%d is not in ISA extension list",
-                                                               ^ the
->  				alt->errata_id);
->  			continue;
->  		}
->  
-> -		tmp = (1U << alt->errata_id);
-> -		if (cpu_req_feature & tmp)
-> -			patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-> +		if (!test_bit(alt->errata_id, riscv_isa))
-
-Maybe avoid using riscv_isa directly in case we want to move this function
-out of cpufeature.c some day?
-
-  if (!__riscv_isa_extension_available(NULL, alt->errata_id))
-
-
-> +			continue;
-> +
-> +		patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> +#include <asm/alternative-macros.h>
+>  #include <asm/errno.h>
+>  #include <linux/bits.h>
+>  #include <uapi/asm/hwcap.h>
+> @@ -96,6 +97,42 @@ static __always_inline int riscv_isa_ext2key(int num)
 >  	}
 >  }
->  #endif
+>  
+> +static __always_inline bool
+> +riscv_has_extension_likely(const unsigned long ext)
+> +{
+> +	compiletime_assert(ext < RISCV_ISA_EXT_ID_MAX,
+> +			   "ext must be < RISCV_ISA_EXT_ID_MAX");
+> +
+> +	asm_volatile_goto(
+> +	ALTERNATIVE("j	%l[l_no]", "nop", 0, %[ext], 1)
+> +	:
+> +	: [ext] "i" (ext)
+> +	:
+> +	: l_no);
+> +
+> +	return true;
+> +l_no:
+> +	return false;
+> +}
+> +
+> +static __always_inline bool
+> +riscv_has_extension_unlikely(const unsigned long ext)
+> +{
+> +	compiletime_assert(ext < RISCV_ISA_EXT_ID_MAX,
+> +			   "ext must be < RISCV_ISA_EXT_ID_MAX");
+> +
+> +	asm_volatile_goto(
+> +	ALTERNATIVE("nop", "j	%l[l_yes]", 0, %[ext], 1)
+> +	:
+> +	: [ext] "i" (ext)
+> +	:
+> +	: l_yes);
+> +
+> +	return false;
+> +l_yes:
+> +	return true;
+> +}
+> +
+>  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>  
+>  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
 > -- 
 > 2.37.2
 >
 
-Otherwise,
+Cheers to Mark for this nifty idea and to you for bringing it to riscv.
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
