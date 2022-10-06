@@ -4,62 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B9FC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 06:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C4DBC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 07:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/PnPB7tHjuRploIARvQ6aJgJt4bW6N0ojA6afyk/Ms0=; b=C9m8FomAvTcCS5
-	X+WgcvWr129FeEv87gQvK5Y2dx15ELj3X77Vl5ThbjKzJHWaMqmmtA+rveW/Hwpk/JdSSdW5rFm3D
-	S2FevZfFkJn2U3MTlMN4qzg5XOe6idWXwXPJv2g6B0Q9pWJcv7ScOIGYXWpsyapIXvJT1jCm/qFBL
-	4wxvCk8uYfqs7zpplcEPfuyPUc341aKzf/0l4Ae6UKbCnURUN2Or7hLV6hOX3kJYzoZNZz0oo73Uw
-	VzruBQqOFnlsba/KCxnU8d3C/8+2hDuzjaJS07IquNAHG8+BuWyWtDaHOHIMTYAouawdf7vQwwia5
-	M/5ZhcZNPzJh22SvvC3Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jNKemA3GW03zmKGgUzG0X4+Nd9hKtrYIHB6GAc4wYxI=; b=OPCPaLjNrmVJTV
+	2Y4OM6ManUojp/AiJHZxydp1MXh/JQD1DmY5Fdak0Z9Bm17dggGs/T5XwoUn8G+Bh6a2WjaJKF/Os
+	ybgKpHSFCg5zR/kmqXBUk+ZiZnD3wGjCbkJY0HvvLxQrAnkFba257P2MCflyjdO00IikFwlfbFa1F
+	7fWcbPwbzer9hruFdUDlt2rUKD2HIZ2lQTFfVwCRbd+rw3jZA8P1dTG6Xa8P26tK5LcgfKjGkUBBN
+	4xjGpCe6x4KfSo1qYc1cu8pbfqfmFV4ZRqyyfa6B4Ur596IXMGw6DObPeJODRhBKyaYzA7M8dnOJo
+	AJzfAoKHO8WXu1jGKekg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogKpf-000ICK-Ow; Thu, 06 Oct 2022 06:58:11 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1ogKy0-000Jxs-Ar; Thu, 06 Oct 2022 07:06:48 +0000
+Received: from forward104j.mail.yandex.net ([5.45.198.247])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogKpc-000I9e-G3
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 06:58:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id E8BD5CE1474;
-	Thu,  6 Oct 2022 06:57:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C36DC433C1;
-	Thu,  6 Oct 2022 06:57:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665039477;
-	bh=Oyr2f6WxgPXWa0Z4Ntcod1sqiu+XPoJXS7GJvpW9qzI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WN0Nyy8vfTl6wuVRD+gqBy+UYzCYMv6t5ua9bFIMsHbR2vvQsuKVqqrBPnzF4Gwcg
-	 s92qyokcS3OUV/E86lQv0wKCcPGshgD2T8bLK0mCJbDMbEDhhubqbuLjnsmA+SVEGE
-	 pBwShFzvlSyDlHFznwgrZlz0oPlwv6Pn4Eg/vnwpxvPSYrQKFEWs5bD5VWgFLnPBV3
-	 hUN+ExpwqhfhvhZQkE8dfRJCnqZuZuXKxmn2lsIEoz7G4/vfUSTYGh6Vo/8/fXeWD1
-	 xNOvuGtqyJWXPZgnGYTHn1BN/FCJqHFQFKL1dg7mF67E1z3xDN9YwUAoN38UVF4o88
-	 T8cQT9z+D1JPQ==
-Date: Thu, 6 Oct 2022 14:48:11 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>, Dao Lu <daolu@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-Message-ID: <Yz56K2W/6ttN1SLT@xhacker>
-References: <20220922060958.44203-1-samuel@sholland.org>
+	id 1ogKxv-000Jw5-8X
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 07:06:46 +0000
+Received: from iva6-2d18925256a6.qloud-c.yandex.net (iva6-2d18925256a6.qloud-c.yandex.net [IPv6:2a02:6b8:c0c:7594:0:640:2d18:9252])
+	by forward104j.mail.yandex.net (Yandex) with ESMTP id A67862F9A67A;
+	Thu,  6 Oct 2022 10:03:00 +0300 (MSK)
+Received: by iva6-2d18925256a6.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id yYZDPb1P4X-2vi0vajV;
+	Thu, 06 Oct 2022 10:02:59 +0300
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client certificate not present)
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1665039779;
+	bh=5RTtbpB9MqKeuFtwCR+bpAvBlgufCwcN1kH3vcMsM+o=;
+	h=Message-Id:Date:Cc:Subject:To:From;
+	b=Ifrc/9hW4yrF4ki1RLIQujMFhYr0zxD7vN1d29GeqSFVmpauj+mKQsaWpLAAm6pWB
+	 cij52U+cowo8cWFmWfkEl8+FwywXqJM5smUFfbFIQ8nAOcbiuDpBpS/SumP8MGFY0i
+	 9kFhx2S/AzngcEJwgx4CguPKkYY99ipKxUgxWCOU=
+Authentication-Results: iva6-2d18925256a6.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH] riscv: fix multi-letter extension compare
+Date: Thu,  6 Oct 2022 10:02:56 +0300
+Message-Id: <20221006070257.11632-1-nikita.shubin@maquefel.me>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220922060958.44203-1-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_235808_936888_11BA0EFE 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20221006_000644_346263_19BA35D2 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,132 +61,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Yury Norov <yury.norov@gmail.com>, Nikita Shubin <n.shubin@yadro.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, linux@yadro.com, Tsukasa OI <research_trasio@irq.a4lg.com>, Sunil V L <sunilvl@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, Heiko Stuebner <heiko@sntech.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 22, 2022 at 01:09:58AM -0500, Samuel Holland wrote:
-> commit 8eb060e10185 ("arch/riscv: add Zihintpause support") broke
-> building with CONFIG_CC_OPTIMIZE_FOR_SIZE enabled (gcc 11.1.0):
-> 
->   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> In file included from <command-line>:
-> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
-> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0 probably does not match constraints
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> ././include/linux/compiler_types.h:285:33: error: impossible constraint in 'asm'
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> make[1]: *** [scripts/Makefile.build:249: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
-> 
-> Having a static branch in cpu_relax() is problematic because that
-> function is widely inlined, including in some quite complex functions
-> like in the VDSO. A quick measurement shows this static branch is
-> responsible by itself for around 40% of the jump table.
-> 
-> Drop the static branch, which ends up being the same number of
-> instructions anyway. If Zihintpause is supported, we trade the nop from
-> the static branch for a div. If Zihintpause is unsupported, we trade the
-> jump from the static branch for (what gets interpreted as) a nop.
+From: Nikita Shubin <n.shubin@yadro.com>
 
-Hi Samuel,
+Increment ext pointer to match letters after 'z' character, so it points
+to actual extension name.
 
-I'm not sure whether it's correct to remove static branch usage from
-cpu_relax, but your report inspired my patch of constifying arguments
-of arch_static_branch() and arch_static_branch_jump() [1]. Could you
-please also test it?
+Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
+Signed-off-by: Nikita Shubin <n.shubin@yadro.com>
+---
+Hello Atish,
 
-Thanks very much
+Sorry to blame you, but i double checked this and i don't see a way 
+how extensions from device tree could be successfully matched with 
+encoded ones without incrementing the ext pointer or prepending 
+the encoded extensions with 'z' letter.
 
-[1]https://lore.kernel.org/linux-riscv/20221006064028.548-1-jszhang@kernel.org/T/#u
+I have no idea how this could slip through review - am i missing something ?
+---
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
-> ---
-> 
->  arch/riscv/include/asm/hwcap.h          |  3 ---
->  arch/riscv/include/asm/vdso/processor.h | 25 ++++++++++---------------
->  2 files changed, 10 insertions(+), 18 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 6f59ec64175e..b21d46e68386 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -68,7 +68,6 @@ enum riscv_isa_ext_id {
->   */
->  enum riscv_isa_ext_key {
->  	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
-> -	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
->  	RISCV_ISA_EXT_KEY_MAX,
->  };
->  
-> @@ -88,8 +87,6 @@ static __always_inline int riscv_isa_ext2key(int num)
->  		return RISCV_ISA_EXT_KEY_FPU;
->  	case RISCV_ISA_EXT_d:
->  		return RISCV_ISA_EXT_KEY_FPU;
-> -	case RISCV_ISA_EXT_ZIHINTPAUSE:
-> -		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
->  	default:
->  		return -EINVAL;
->  	}
-> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
-> index 1e4f8b4aef79..789bdb8211a2 100644
-> --- a/arch/riscv/include/asm/vdso/processor.h
-> +++ b/arch/riscv/include/asm/vdso/processor.h
-> @@ -4,30 +4,25 @@
->  
->  #ifndef __ASSEMBLY__
->  
-> -#include <linux/jump_label.h>
->  #include <asm/barrier.h>
-> -#include <asm/hwcap.h>
->  
->  static inline void cpu_relax(void)
->  {
-> -	if (!static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_ZIHINTPAUSE])) {
->  #ifdef __riscv_muldiv
-> -		int dummy;
-> -		/* In lieu of a halt instruction, induce a long-latency stall. */
-> -		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-> +	int dummy;
-> +	/* In lieu of a halt instruction, induce a long-latency stall. */
-> +	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
->  #endif
-> -	} else {
-> -		/*
-> -		 * Reduce instruction retirement.
-> -		 * This assumes the PC changes.
-> -		 */
-> +	/*
-> +	 * Reduce instruction retirement.
-> +	 * This assumes the PC changes.
-> +	 */
->  #ifdef __riscv_zihintpause
-> -		__asm__ __volatile__ ("pause");
-> +	__asm__ __volatile__ ("pause");
->  #else
-> -		/* Encoding of the pause instruction */
-> -		__asm__ __volatile__ (".4byte 0x100000F");
-> +	/* Encoding of the pause instruction */
-> +	__asm__ __volatile__ (".4byte 0x100000F");
->  #endif
-> -	}
->  	barrier();
->  }
->  
-> -- 
-> 2.35.1
-> 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3b5583db9d80..031546052dc0 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
+ 				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+ 				set_bit(*ext - 'a', this_isa);
+ 			} else {
++				ext++;
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
