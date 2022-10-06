@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66426C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 06:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B9FC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 06:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+5rv1mJUF9+UE7wTZYSQmYYbzFFZRqHLhEJWmG4GEEw=; b=0mZ4hxQ7SQJB0k
-	PUZk+sVjFCwzTaGGx3aO/nGrIqEpk/INUGySpo7zLO9C3G0OtTS9kKZUrsawrmn2lYamo7LAMKyae
-	7Sjy3w0HiuKjgKBPjz4aS0oxgchfjdK6F+lu0uCrVDy+7SiYLsykFVyXsDGWqR/wVEV6hroS49RPw
-	/qefTd4L2w+5BEiUITw8AxXQmS7M+jLsE0VM2NVZlAsOPrvxYDWoggbTBuCQQWXyfPptW6Z+ueDy3
-	9RJ9MYdst3uYaC4cfW9zx3AWn+psWjm7D1yrCavgA9ydQzHR8yej97ZRK0AbC3uJAQZFjePHcmiFf
-	KfQDpRkvWpSiB+i4d4cA==;
+	List-Owner; bh=/PnPB7tHjuRploIARvQ6aJgJt4bW6N0ojA6afyk/Ms0=; b=C9m8FomAvTcCS5
+	X+WgcvWr129FeEv87gQvK5Y2dx15ELj3X77Vl5ThbjKzJHWaMqmmtA+rveW/Hwpk/JdSSdW5rFm3D
+	S2FevZfFkJn2U3MTlMN4qzg5XOe6idWXwXPJv2g6B0Q9pWJcv7ScOIGYXWpsyapIXvJT1jCm/qFBL
+	4wxvCk8uYfqs7zpplcEPfuyPUc341aKzf/0l4Ae6UKbCnURUN2Or7hLV6hOX3kJYzoZNZz0oo73Uw
+	VzruBQqOFnlsba/KCxnU8d3C/8+2hDuzjaJS07IquNAHG8+BuWyWtDaHOHIMTYAouawdf7vQwwia5
+	M/5ZhcZNPzJh22SvvC3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogKlF-000HHi-72; Thu, 06 Oct 2022 06:53:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1ogKpf-000ICK-Ow; Thu, 06 Oct 2022 06:58:11 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogKlB-000HDL-SO
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 06:53:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665039213; x=1696575213;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TWTzXIepdJAhGXlLlYIHyFJRwqOy33J1R/GJHz29r8M=;
-  b=rMyQfUbBa59fbMLIe5qI2KSrpUR6ofPgPXnK418/wpfuI0ztsKLzW2AB
-   usNukUdg+kdxqXQFMbOcLXXIJmOq2QFGggcm7/yLxKO1gjMdKyip6BZ+X
-   F6q4PsVzHq39cgqope/FBXHf/Zt8ZWEwcD3RZWtX/EgoGBN3EvgWIqYZk
-   SrG14yjRVdNKWCnJWLDhOFOGJ60U2HJLtuMkgiEdgzfW+MM6xNfu4fZFp
-   fdkkfx6y1CkTMycNjjI0U/AZlxKK7DWxCd/M4ra/9+mPuevwfECWzBANE
-   /EwEK0+gbrX8AfJJOkZOnVGNvL0BRMOMYJ34jhFfhNIt4gTYs5RF791lb
-   A==;
-X-IronPort-AV: E=Sophos;i="5.95,163,1661842800"; 
-   d="scan'208";a="180642588"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Oct 2022 23:53:27 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 5 Oct 2022 23:53:26 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 5 Oct 2022 23:53:25 -0700
-Date: Thu, 6 Oct 2022 07:53:03 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-CC: <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: enable THP_SWAP for RV64
-Message-ID: <Yz57T4eob3pXAVSP@wendy>
-References: <20220821170559.840-1-jszhang@kernel.org>
- <mhng-a75e502f-0324-44ae-92c5-e93864fbf1cc@palmer-ri-x1c9>
+	id 1ogKpc-000I9e-G3
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 06:58:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id E8BD5CE1474;
+	Thu,  6 Oct 2022 06:57:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C36DC433C1;
+	Thu,  6 Oct 2022 06:57:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665039477;
+	bh=Oyr2f6WxgPXWa0Z4Ntcod1sqiu+XPoJXS7GJvpW9qzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WN0Nyy8vfTl6wuVRD+gqBy+UYzCYMv6t5ua9bFIMsHbR2vvQsuKVqqrBPnzF4Gwcg
+	 s92qyokcS3OUV/E86lQv0wKCcPGshgD2T8bLK0mCJbDMbEDhhubqbuLjnsmA+SVEGE
+	 pBwShFzvlSyDlHFznwgrZlz0oPlwv6Pn4Eg/vnwpxvPSYrQKFEWs5bD5VWgFLnPBV3
+	 hUN+ExpwqhfhvhZQkE8dfRJCnqZuZuXKxmn2lsIEoz7G4/vfUSTYGh6Vo/8/fXeWD1
+	 xNOvuGtqyJWXPZgnGYTHn1BN/FCJqHFQFKL1dg7mF67E1z3xDN9YwUAoN38UVF4o88
+	 T8cQT9z+D1JPQ==
+Date: Thu, 6 Oct 2022 14:48:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@rivosinc.com>, Dao Lu <daolu@rivosinc.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix build with CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+Message-ID: <Yz56K2W/6ttN1SLT@xhacker>
+References: <20220922060958.44203-1-samuel@sholland.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-a75e502f-0324-44ae-92c5-e93864fbf1cc@palmer-ri-x1c9>
+In-Reply-To: <20220922060958.44203-1-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_235334_045271_42DE2AF8 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20221005_235808_936888_11BA0EFE 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +76,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 05, 2022 at 07:35:53PM -0700, Palmer Dabbelt wrote:
-> On Sun, 21 Aug 2022 10:05:59 PDT (-0700), jszhang@kernel.org wrote:
-> > I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
-> > memory optimizations such as swap on zram are helpful. As is seen
-> > in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
-> > commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
-> > swapped out"), THP_SWAP can improve the swap throughput significantly.
-> > 
-> > Enable THP_SWAP for RV64, testing the micro-benchmark which is
-> > introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
-> > shows below numbers on the Lichee RV dock board:
-> > 
-> > thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
-> > thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
-> > 
-> > Improved by 382%!
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/Kconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index ed66c31e4655..19088c750c7f 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -45,6 +45,7 @@ config RISCV
-> >  	select ARCH_WANT_FRAME_POINTERS
-> >  	select ARCH_WANT_GENERAL_HUGETLB
-> >  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-> > +	select ARCH_WANTS_THP_SWAP if TRANSPARENT_HUGEPAGE
-> >  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
-> >  	select BUILDTIME_TABLE_SORT if MMU
-> >  	select CLONE_BACKWARDS
+On Thu, Sep 22, 2022 at 01:09:58AM -0500, Samuel Holland wrote:
+> commit 8eb060e10185 ("arch/riscv: add Zihintpause support") broke
+> building with CONFIG_CC_OPTIMIZE_FOR_SIZE enabled (gcc 11.1.0):
 > 
-> Thanks, this is on for-next.
+>   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> In file included from <command-line>:
+> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
+> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0 probably does not match constraints
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> ././include/linux/compiler_types.h:285:33: error: impossible constraint in 'asm'
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> make[1]: *** [scripts/Makefile.build:249: arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
+> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
+> 
+> Having a static branch in cpu_relax() is problematic because that
+> function is widely inlined, including in some quite complex functions
+> like in the VDSO. A quick measurement shows this static branch is
+> responsible by itself for around 40% of the jump table.
+> 
+> Drop the static branch, which ends up being the same number of
+> instructions anyway. If Zihintpause is supported, we trade the nop from
+> the static branch for a div. If Zihintpause is unsupported, we trade the
+> jump from the static branch for (what gets interpreted as) a nop.
 
-FYI, this is v1 of a patchset that went to v3.
-v3 only changed the commit message, but v2 had a functional change.
+Hi Samuel,
 
-v3 is here:
-https://lore.kernel.org/all/20220829145742.3139-1-jszhang@kernel.org/
+I'm not sure whether it's correct to remove static branch usage from
+cpu_relax, but your report inspired my patch of constifying arguments
+of arch_static_branch() and arch_static_branch_jump() [1]. Could you
+please also test it?
 
-Thanks,
-Conor.
+Thanks very much
 
+[1]https://lore.kernel.org/linux-riscv/20221006064028.548-1-jszhang@kernel.org/T/#u
+
+> 
+> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+>  arch/riscv/include/asm/hwcap.h          |  3 ---
+>  arch/riscv/include/asm/vdso/processor.h | 25 ++++++++++---------------
+>  2 files changed, 10 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 6f59ec64175e..b21d46e68386 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -68,7 +68,6 @@ enum riscv_isa_ext_id {
+>   */
+>  enum riscv_isa_ext_key {
+>  	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+> -	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>  	RISCV_ISA_EXT_KEY_MAX,
+>  };
+>  
+> @@ -88,8 +87,6 @@ static __always_inline int riscv_isa_ext2key(int num)
+>  		return RISCV_ISA_EXT_KEY_FPU;
+>  	case RISCV_ISA_EXT_d:
+>  		return RISCV_ISA_EXT_KEY_FPU;
+> -	case RISCV_ISA_EXT_ZIHINTPAUSE:
+> -		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>  	default:
+>  		return -EINVAL;
+>  	}
+> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+> index 1e4f8b4aef79..789bdb8211a2 100644
+> --- a/arch/riscv/include/asm/vdso/processor.h
+> +++ b/arch/riscv/include/asm/vdso/processor.h
+> @@ -4,30 +4,25 @@
+>  
+>  #ifndef __ASSEMBLY__
+>  
+> -#include <linux/jump_label.h>
+>  #include <asm/barrier.h>
+> -#include <asm/hwcap.h>
+>  
+>  static inline void cpu_relax(void)
+>  {
+> -	if (!static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_ZIHINTPAUSE])) {
+>  #ifdef __riscv_muldiv
+> -		int dummy;
+> -		/* In lieu of a halt instruction, induce a long-latency stall. */
+> -		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+> +	int dummy;
+> +	/* In lieu of a halt instruction, induce a long-latency stall. */
+> +	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+>  #endif
+> -	} else {
+> -		/*
+> -		 * Reduce instruction retirement.
+> -		 * This assumes the PC changes.
+> -		 */
+> +	/*
+> +	 * Reduce instruction retirement.
+> +	 * This assumes the PC changes.
+> +	 */
+>  #ifdef __riscv_zihintpause
+> -		__asm__ __volatile__ ("pause");
+> +	__asm__ __volatile__ ("pause");
+>  #else
+> -		/* Encoding of the pause instruction */
+> -		__asm__ __volatile__ (".4byte 0x100000F");
+> +	/* Encoding of the pause instruction */
+> +	__asm__ __volatile__ (".4byte 0x100000F");
+>  #endif
+> -	}
+>  	barrier();
+>  }
+>  
+> -- 
+> 2.35.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
