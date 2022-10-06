@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E41C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 02:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEB0C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 02:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Unsubscribe:List-Id:To:From:Mime-Version:Message-ID:In-Reply-To:Subject:
+	Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=dxr99dU1YpDKwJhPyPH6LsCXcTSBBKxAPva+XC2LQHg=; b=StCYdc95pGxSdDIbl7O5x/I3Ze
-	4f5xzNE9OaH7p8Si3rvhnNJ4eWR/9E4GJsSfCk84qO1r6TAKh/mYBDZ0usElMa/snG07VyVYwxbVd
-	wPXxvaSDWBzx8bDc6bkqUIsF7qUyXcpFmDQ+T1fxPK2LB9Y/58/8N7RxHAUuC5q6cn9wPfUBBqizf
-	t/LSbCG8sC3CvAkwnsAouo7kkQ1eeIhDlJ0liuLA4rULF0/RcUaUk3z9xofsdGza3KabVxUEry06m
-	pQrlJe+XGLAzXZC3BET+kugN0VaAwb8x0SY6TVv9RckAAfGtxBaXf6dlBnWWJHU2tp4doOJtnGuAT
-	t90uXyOw==;
+	bh=XThC5hRCXYe7gcNBDWfsp9OEaeboRAWM/8lr/iPUI7c=; b=LIP18Y1W+yltDAVl4YAKxDZKbA
+	mCNsl6W2PoCCgtQWiof9Qus7yEe8uUPmNvdJFi+bKxEkxyQbaqsjRu6gEk6R4XCSSz3I4KVsQRDky
+	9QCb/utAD3HCwDOSrrFAnsjxtBcqFPhJ8DW+YsDBxIixOwvb0S/9ErXU6zUYhkuurWXE+r9Yi8wWS
+	GdQVvbtuZQKrKxGcuTKzkZPUIHCaLn+07Ewo5w0si1K3apZQtCJcHCCr9iEoWxYv9jPrPrXYDwPF/
+	SMKVjtcJqDTwqxSbRSUBpB2G1m3KdUazVWGdq4uANm4uXC5XOth+SyElvtOMYrBpPtptriVVcRw7K
+	qjTycXEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGjs-00GzWa-VM; Thu, 06 Oct 2022 02:35:56 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1ogGjw-00GzXX-FS; Thu, 06 Oct 2022 02:36:00 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogGjp-00GzVp-OA
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 02:35:55 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id b2so475531plc.7
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 19:35:53 -0700 (PDT)
+	id 1ogGjt-00GzWQ-MJ
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 02:35:59 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id h8-20020a17090a054800b00205ccbae31eso3066511pjf.5
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Oct 2022 19:35:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:content-transfer-encoding:mime-version:message-id
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8wvcyuPvcxrZx5D0Zm+5pCFbzfcierdnsA4uXezxQUo=;
-        b=xbwA+ZMNj0MRBaIdl+o3hLiLz9BMrGHJbY9QMLSq5uXA68XqSkiDkfUnzW74GWIQvN
-         /Pdzk6w8Ywd3Bg1EX8sA8fYDYoN0d+TRaTeWEG4/M1vc+imiyAXZn1fkP9EoRHEkt/Y/
-         Uq4Vs38xoccCRb96IePVWeHiJdL5lnuo8BW3gzQ7LzaM78sxHxHEUaBdHZF8WEgZKUtU
-         573Oc2jQjlp07qXhkolM09NM/DuGzrVlxRSmItwf0inFvjK84Ud9h2OWL7tpnbWkVjT+
-         jyJs556xNrQyeGNBi39pmDGw6wn/ST3d1wmFhgnPDISRxL+226wXrBErsr1Df+tX9/vW
-         OCxw==
+        bh=V3HrW3IjLHsw8Ny5S11VaJ5Ejs585FkN2Z0H1NwvIGA=;
+        b=yK/GJ5ruQgWlB5dFamreC3orLDBicoelCFEwEilNVMZCkpAOF6AZBIlB+EdJSTQmai
+         q7MqHe2OyRv4ZY9LSYFC79NuJ2qrEFmjK+BbDf/nRDj0xg5BMdZZ2z2gfsSNYRO4In4P
+         nsPNDh0kCl5ngYHygHptuE2fJccP88YZuncyaHXxMNrGtFVfkfZ3gGloneM+X5mTPKow
+         /LlScw9jdWoc9LCWgfgCaNR4hLpoWjoO5DtcA2n2XXOWrMDitlyROB7IJfcoZJwj0ngA
+         BEE0JXX9SBVQH8Ryz3kx23UvqOxHDYibB2Y2AI3u9GtInrNunm6886rVF8+Dz7mLpxm/
+         tPLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+        h=to:from:content-transfer-encoding:mime-version:message-id
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8wvcyuPvcxrZx5D0Zm+5pCFbzfcierdnsA4uXezxQUo=;
-        b=Ux4igDtgoxyr7HB1p/+t7m1z8SgL6I0mPHJXqjE4JesApMYnRbI5hrbWzQaVkn2wE9
-         HaEP3aBBcmGuI33QIECpsVQMozwCpcn6CK+6ehJKqW2tGy+Thi7n9tkE28UvNcRD3yxi
-         V6alPlhBdnlUbO/0oFY0hugg4ThxME2lSc4hsKTGw6H+7w1JlJRpGBR4oIW+ZW+Bvd9t
-         oR1PtGqqU+1W0GEsInuz/SnS7k8SDNfj+rgCkezu69QHG36Dn9nYgOng6Q3oZ9POYkhr
-         NRcXRAsD76+5E84kUnvA/Hmw69j0Qn/d7QVmthrZxKX5g0oIBCqG6qJ0/gDlvD7mPcHY
-         3Jvw==
-X-Gm-Message-State: ACrzQf0uTfGHCNesomkxkmfWvdy8v6u+TigHJNT0JqkC8YxLoHQkwyR4
-	asfn2zJvx8OsfTBwIZwIx+hhcA==
-X-Google-Smtp-Source: AMsMyM4P0BNCBo45KoqkaEoROX7DbTzwNozF5HONt9BFzlzag9dkVZKHnZOabat332ZAqJ/wrz4tNQ==
-X-Received: by 2002:a17:902:8a97:b0:178:1939:c721 with SMTP id p23-20020a1709028a9700b001781939c721mr2439990plo.108.1665023752463;
-        Wed, 05 Oct 2022 19:35:52 -0700 (PDT)
+        bh=V3HrW3IjLHsw8Ny5S11VaJ5Ejs585FkN2Z0H1NwvIGA=;
+        b=x/tYoywC7bjamCypJ82XWRojUTcCj12vS9JWtK+Az1bU+8kCuQa/8gSJWuR9+QUVzH
+         W0gZRGsIanJPcy9jWqy85dFDzL6rnNVZp0Anor/ZToqPGbRPW6wVRJLmrY45++D1aQup
+         MpWqCKScbw++vl6UVLiwm6C/YQpr8zXksPSaDIomvTl2QKdwvwLKQRxhEJzeoAIwbbmJ
+         bmJdAKCYmNB8P+pqOS2JUKkgR2WNDphWY2NG+8Xp0flWAdRqPNhIIvkgkO4nWxl/HJ/w
+         QENbCxySXtXB+KNy+8BBV8RcaBaoslhbCNJx5u0fS4QeiJwoEV9nqrUlBjHOuckX2zIQ
+         Wtxw==
+X-Gm-Message-State: ACrzQf0Mdvki5dN3iv9SjupBRG2wXH4l3yeW3h59GMp8l8ewhXxxkO6O
+	4n8vCZS3EmHyrwMZM31PsgWatWC9mz3wEg==
+X-Google-Smtp-Source: AMsMyM5ooJvjHA4vYiMvX9kT1HkFwB0mL598ZzEhpk+CSu6cWy2b2ihfiVNO0V/BO24EU3HkeV4/Pw==
+X-Received: by 2002:a17:90a:a788:b0:20a:20f5:4f15 with SMTP id f8-20020a17090aa78800b0020a20f54f15mr8184188pjq.91.1665023755452;
+        Wed, 05 Oct 2022 19:35:55 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id p30-20020aa79e9e000000b005623f96c24bsm1748979pfq.89.2022.10.05.19.35.51
+        by smtp.gmail.com with ESMTPSA id z3-20020a17090a170300b00203ab277966sm1788946pjd.7.2022.10.05.19.35.54
+        for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Oct 2022 19:35:51 -0700 (PDT)
-Date: Wed, 05 Oct 2022 19:35:51 -0700 (PDT)
-X-Google-Original-Date: Wed, 05 Oct 2022 18:08:26 PDT (-0700)
-Subject: Re: [PATCH] riscv: compat: s/failed/unsupported if compat mode isn't supported
-In-Reply-To: <20220821141819.3804-1-jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  guoren@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-48fad324-fe89-4cb5-8898-15c2082c6cb7@palmer-ri-x1c9>
+        Wed, 05 Oct 2022 19:35:55 -0700 (PDT)
+Date: Wed, 05 Oct 2022 19:35:55 -0700 (PDT)
+X-Google-Original-Date: Wed, 05 Oct 2022 18:32:50 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Print SSTC in canonical order
+In-Reply-To: <20220920204518.10988-1-palmer@rivosinc.com>
+Message-ID: <mhng-6ae7c731-a879-4874-bf63-6af6ec8a5b59@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221005_193554_036181_B25D0F89 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20221005_193557_961090_71B9659E 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +88,35 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Aug 2022 07:18:19 PDT (-0700), jszhang@kernel.org wrote:
-> When compat mode isn't supported(I believe this is the most case now),
-> kernel will emit somthing as:
-> [    0.050407] riscv: ELF compat mode failed
+On Tue, 20 Sep 2022 13:45:18 PDT (-0700), Palmer Dabbelt wrote:
+> This got out of order during a merge conflict, fix it by putting the
+> entries in the correct order.
 >
-> This msg may make users think there's something wrong with the kernel
-> itself, replace "failed" with "unsupported" to make it clear. In fact
-> this is the real compat_mode_supported meaning. After the patch, the
-> msg would be:
-> [    0.050407] riscv: ELF compat mode unsupported
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Fixes: 7ab52f75a9cf ("RISC-V: Add Sstc extension support")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 > ---
->  arch/riscv/kernel/process.c | 2 +-
+>  arch/riscv/kernel/cpu.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index ceb9ebab6558..b0c63e8e867e 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -105,7 +105,7 @@ static int __init compat_mode_detect(void)
->  	csr_write(CSR_STATUS, tmp);
->
->  	pr_info("riscv: ELF compat mode %s",
-> -			compat_mode_supported ? "supported" : "failed");
-> +			compat_mode_supported ? "supported" : "unsupported");
->
->  	return 0;
->  }
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index 0be8a2403212..87455d12970f 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -92,10 +92,10 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+>   */
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> +	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> -	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
 
-Thanks, this is on for-next.
+This is on for-next -- jumping the queue a bit, but I'm looking at the 
+Svnapot patches right now and those also add an entry in the wrong order 
+so I figure it's best to just fix that during the merge.
 
 _______________________________________________
 linux-riscv mailing list
