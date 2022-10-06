@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EAFC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 08:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C8FC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 09:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s2cnsJSgTpehw4Ri4jILqKgs27GwXJpcAThPh8opLWc=; b=4rg5D/pQs13Kqh
-	9JkNbohjEn7o2ypseb/tIlMSEjMxusC8F2GSkvAEs7wnOvGk5IGJjIbsZNQRFVO1AmZQ4nmEu6KEs
-	nfbR7ZK/O9lrRXLyfJK4HJFYPZ9RQvOq2Lw/0vWaYQm7nI5tn1b1MFlNwIh56aJH6n1Bp/V9o3Hc9
-	X58a4hJuwca36i2fMXvhLZTquSBrXhLT5WW/RVg5EbJ7q2c1nlP6J/N7utLPg0L2SacgHcMfwmLBn
-	ow9ak9BgH+nzyeaxmZo9aY7Zr2CH7xYkLbwWBGovVV2EWYIAJgvGeUx8rdSywnT+qvlHmYRQysss/
-	nOS4PFJkusSjcTf27/vQ==;
+	List-Owner; bh=fmVVMuNNYe1v2ZY28PkgdyqY47ZQ7kkAIEmLzVhwj10=; b=0vlx0GBomdH4gz
+	1dDonaeEWErjq7dZ7mYz+aWQJhtaAEea+qQIgvRlMZeWi5TobferTlehQVQ/HpTxcy/4ghg0ZdUhu
+	XpWHkEkZkJpdtSxYPpwXND7mTe2MUMdo3+DGcZ542pNq/cISMAfgy140qK536A4JeLB6sk4t91Lt6
+	hcsclhQVzc8/f35zpc6UwupBJihhtMLoTmVIvXhpdbbR85v6Z+XTxpfPRfhlmZe4yvBOIltBLT9xj
+	hL+Bmj+ooSSdnpPLo8aBjEQ0IPvqFbbFJgFB37G0aqKquzT0/vLCTIvYTxllsu2EbeiLjk8mal5E1
+	rHdiMP+swgypWP5YPvsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogMXU-000pCA-4G; Thu, 06 Oct 2022 08:47:32 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ogMra-000y5X-Gg; Thu, 06 Oct 2022 09:08:18 +0000
+Received: from mail-qk1-f181.google.com ([209.85.222.181])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogMXR-000p9Y-Ag
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 08:47:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B8AE0B81DED;
-	Thu,  6 Oct 2022 08:47:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2567C433C1;
-	Thu,  6 Oct 2022 08:47:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665046046;
-	bh=+1B3cggy9P8mgv4GVCeTh/UO14b9H8rJnWBe3c/MK+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fXmeRcBvhsAkRmynTMQ2wDQW8FeJdgSpCXIhXrz/is0R31JwVGqLL8gNpGtnjZ1z4
-	 FBwUyFpfcbH9LANMi/Iq9iALXMZv3t26AFBOtSwjUNJ+Di0ihw4WA0l6+rIhB5ob/y
-	 L7sxDn7RPvykGhXnjMjM3fpn+aP7DqEcspwWnvc7SgVDu3uqrbqpRlZnAy/WeowFrT
-	 HnIwMeDJYgoM6ipZFK8BBOmSUapHnywkcntpDQg0VkY54YdtggK56GWMoCeTJ3roXc
-	 OmhG4xvtGDFAZK/G83pzknp5UIYhF/sQI9jeqGKF3utNIZaswQdeU3byH+D2a5S6EA
-	 F1R6sOgkFMbsA==
-Date: Thu, 6 Oct 2022 16:37:52 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com,
-	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
- pgtable_l4_enabled
-Message-ID: <Yz6T4EYKKns7OIVE@xhacker>
-References: <20220821140918.3613-1-jszhang@kernel.org>
- <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
+	id 1ogMrU-000xyK-QN
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 09:08:17 +0000
+Received: by mail-qk1-f181.google.com with SMTP id h6so610655qkl.11
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 02:07:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=L7WdsxThKx8DLY3HEg/N0eYOYTLtN7B9Ka7mZhp0NQU=;
+        b=GvknyaKtu6qTxRYCc8PyVodncxCjXVaUyA71XDCjSU110MBavKKS7GkPtTgkNh+Bhb
+         Bn/eAeti/2E6iqlK+W6LNvQjD8fsyG93fWh9bZ+B5K8YlB2X5kfFFu/9Nm1g9cMX7Q1s
+         iCm6itpBvFxnX6LDuiXXTGe7SXHU11bbmKjcNqgjYVUW9N8bhvPHbwJns29BoAljKxld
+         SJeSI+M8/+w043Ny7gbqISKn8WECEJAFstWvHFaCRxJclCL9OzvMVYPN6+XB4sw+SAl/
+         ntb/smsecNMfPEpgL+LbAew2Y7DXNRncvClUFPeo4viiBJ9isH9xXkP6vjrZ1vmu7abG
+         1yyA==
+X-Gm-Message-State: ACrzQf19g6azK/mf0NN3WXPD8ZE3obzmY9rIxoSJcOxJ8NgSA7MrnfVQ
+	Z6qKpRkEGGY9OadDKvhVVTeAeShPYcFpHA==
+X-Google-Smtp-Source: AMsMyM5AZqpQWNjEmYlyoCrUqpzeSfsRrvxf6SXwTIB5h3TGFRk5SHdCt7Ss7o0TaVv2ZgIEuhxa0A==
+X-Received: by 2002:a05:620a:29c5:b0:6ce:b03d:2a06 with SMTP id s5-20020a05620a29c500b006ceb03d2a06mr2429075qkp.552.1665047278743;
+        Thu, 06 Oct 2022 02:07:58 -0700 (PDT)
+Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com. [209.85.128.175])
+        by smtp.gmail.com with ESMTPSA id n14-20020a05620a294e00b006ce622e6c96sm21021523qkp.30.2022.10.06.02.07.57
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Oct 2022 02:07:58 -0700 (PDT)
+Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-35711e5a5ceso11672647b3.13
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 02:07:57 -0700 (PDT)
+X-Received: by 2002:a81:98d:0:b0:357:2422:13b4 with SMTP id
+ 135-20020a81098d000000b00357242213b4mr3519086ywj.316.1665047277420; Thu, 06
+ Oct 2022 02:07:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220930061404.5418-1-hal.feng@linux.starfivetech.com> <166457324093.1075476.18009315584754055366.robh@kernel.org>
+ <CACRpkdZmmMjVwpHxkJP+Ui0XJgrdZx8kpVybifbwkRB1_uMhAg@mail.gmail.com>
+In-Reply-To: <CACRpkdZmmMjVwpHxkJP+Ui0XJgrdZx8kpVybifbwkRB1_uMhAg@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 6 Oct 2022 11:07:46 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUx9FCDAW4maJytd5H0=Mur9K4Teg99EOp6cVXF8ann8w@mail.gmail.com>
+Message-ID: <CAMuHMdUx9FCDAW4maJytd5H0=Mur9K4Teg99EOp6cVXF8ann8w@mail.gmail.com>
+Subject: Re: [PATCH v1 23/30] pinctrl: starfive: Rename "pinctrl-starfive" to "pinctrl-starfive-jh7100"
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Hal Feng <hal.feng@linux.starfivetech.com>, 
+	Rob Herring <robh+dt@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Michael Turquette <mturquette@baylibre.com>, linux-riscv@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_014729_682396_FD5300B4 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20221006_020812_870872_E5566ABC 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +93,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
-> On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
-> > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> > boot, so static key can be used to solve the performance issue[1].
-> > 
-> > An unified way static key was introduced in [2], but it only targets
-> > riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> > as isa extension, so the unified solution isn't used for
-> > pgtable_l4[l5]_enabled now.
-> > 
-> > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
-> > 
-> > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
-> > 
-> > Since v5:
-> >  - Use DECLARE_STATIC_KEY_FALSE
-> > 
-> > Since v4:
-> >  - rebased on v5.19-rcN
-> >  - collect Reviewed-by tags
-> >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
-> >    riscv_finalise_pgtable_lx() after sparse_init()
-> > 
-> > Since v3:
-> >  - fix W=1 call to undeclared function 'static_branch_likely' error
-> > 
-> > Since v2:
-> >  - move the W=1 warning fix to a separate patch
-> >  - move the unified way to use static key to a new patch series.
-> > 
-> > Since v1:
-> >  - Add a W=1 warning fix
-> >  - Fix W=1 error
-> >  - Based on v5.18-rcN, since SV57 support is added, so convert
-> >    pgtable_l5_enabled as well.
-> > 
-> > 
-> > Jisheng Zhang (2):
-> >   riscv: move sbi_init() earlier before jump_label_init()
-> >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
-> > 
-> >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
-> >  arch/riscv/include/asm/pgtable-32.h |  3 ++
-> >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
-> >  arch/riscv/include/asm/pgtable.h    |  5 +--
-> >  arch/riscv/kernel/cpu.c             |  4 +-
-> >  arch/riscv/kernel/setup.c           |  2 +-
-> >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
-> >  arch/riscv/mm/kasan_init.c          | 16 ++++----
-> >  8 files changed, 104 insertions(+), 66 deletions(-)
-> 
-> Sorry for being slow here, but it looks like this still causes some early
-> boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
-> see from the latency I'm still a bit buried right now so I'm not sure when
-> I'll have a chance to take more of a look.
+Hi Linus,
 
-Hi Palmer,
+On Tue, Oct 4, 2022 at 10:50 AM Linus Walleij <linus.walleij@linaro.org> wrote:
+> On Fri, Sep 30, 2022 at 11:28 PM Rob Herring <robh@kernel.org> wrote:
+> > On Fri, 30 Sep 2022 14:14:04 +0800, Hal Feng wrote:
+> > > From: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > >
+> > > Add the SoC name to make it more clear. Also the next generation StarFive
+> > > SoCs will use "pinctrl-starfive" as the core of StarFive pinctrl driver.
+> > > No functional change.
+> > >
+> > > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> > > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+> > > ---
+> > >  .../bindings/pinctrl/starfive,jh7100-pinctrl.yaml           | 2 +-
+> > >  arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts   | 2 +-
+> > >  drivers/pinctrl/starfive/Kconfig                            | 2 +-
+> > >  drivers/pinctrl/starfive/Makefile                           | 2 +-
+> > >  .../{pinctrl-starfive.c => pinctrl-starfive-jh7100.c}       | 2 +-
+> > >  .../{pinctrl-starfive.h => pinctrl-starfive-jh7100.h}       | 6 +++---
+> > >  6 files changed, 8 insertions(+), 8 deletions(-)
+> > >  rename drivers/pinctrl/starfive/{pinctrl-starfive.c => pinctrl-starfive-jh7100.c} (99%)
+> > >  rename include/dt-bindings/pinctrl/{pinctrl-starfive.h => pinctrl-starfive-jh7100.h} (98%)
+> > >
+> >
+> > Reviewed-by: Rob Herring <robh@kernel.org>
+> >
+> > Would be good to pull this out separately and apply for 6.1. It's kind
+> > of messy with cross tree dependencies.
+>
+> OK I applied this for V6.1.
 
-Before V4, there is a bug which can cause kernel panic when SPARSEMEM
-is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
-after sparse_init(). And I just tested the riscv-pgtable_static_key
-branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
-I'm not sure what happened. Could you please send me your kernel
-config file? I want to fix any issue which can block this series being
-merged in 6.1-rc1.
+Isn't the name of the DT bindings header file part of the DT bindings,
+i.e. it cannot be changed afterwards?
+As of v5.17, it is in active use by
+arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts.
 
-Thanks in advance
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
