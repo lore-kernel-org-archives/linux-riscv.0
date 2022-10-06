@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13859C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 07:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3EAFC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Oct 2022 08:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzWa1yUUf+emir6+AeClq364HWpS/DghJmrvzxZ8Yq0=; b=pRdXtMs7Z90Thn
-	CsFr5oDhbXNJksEI04itw082ytdtuvV6Snrc/dkFhgw+0ZN7L4M66qo4b7znxQR1AdfrVDv3eFn4d
-	Tur/1tYRbimb34/5w1pBuLGUmoLFRL9uY/T5GGCkD/VGIMGoVRnOSyEu5M1MhePyB5Fyd/j0s8erD
-	NNUDCT3piBawvh/mv7Tn85OQlA7DGns8oWua8BltO8gDuyRgyRHfutu833dB0B/flGmIu4BMvQHh3
-	4YdBPp5MntTW3gxmHE00knYUb/+aWv/qQNAI2shV3C2mP9ZBB9+5glOK1jPBE76tbFu/xt5tCQLhe
-	DXgT0tuMFOuEDozCbP6g==;
+	List-Owner; bh=s2cnsJSgTpehw4Ri4jILqKgs27GwXJpcAThPh8opLWc=; b=4rg5D/pQs13Kqh
+	9JkNbohjEn7o2ypseb/tIlMSEjMxusC8F2GSkvAEs7wnOvGk5IGJjIbsZNQRFVO1AmZQ4nmEu6KEs
+	nfbR7ZK/O9lrRXLyfJK4HJFYPZ9RQvOq2Lw/0vWaYQm7nI5tn1b1MFlNwIh56aJH6n1Bp/V9o3Hc9
+	X58a4hJuwca36i2fMXvhLZTquSBrXhLT5WW/RVg5EbJ7q2c1nlP6J/N7utLPg0L2SacgHcMfwmLBn
+	ow9ak9BgH+nzyeaxmZo9aY7Zr2CH7xYkLbwWBGovVV2EWYIAJgvGeUx8rdSywnT+qvlHmYRQysss/
+	nOS4PFJkusSjcTf27/vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogL92-000MiU-It; Thu, 06 Oct 2022 07:18:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ogMXU-000pCA-4G; Thu, 06 Oct 2022 08:47:32 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogL8t-000MYZ-BS
-	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 07:18:04 +0000
+	id 1ogMXR-000p9Y-Ag
+	for linux-riscv@lists.infradead.org; Thu, 06 Oct 2022 08:47:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EB03661861;
-	Thu,  6 Oct 2022 07:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A24A9C433C1;
-	Thu,  6 Oct 2022 07:18:01 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B8AE0B81DED;
+	Thu,  6 Oct 2022 08:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2567C433C1;
+	Thu,  6 Oct 2022 08:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665040682;
-	bh=CDY3LOHif93dA/5GcjxLOgr3s2+BMCkMTymaYNZuiyA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qRm9LVZBrunvLnYytd4pxa3rFq57nHfJ9HsOwpVTeWPTZL9sFAJFrYSAejIdUkx2+
-	 +YWVA9Eo3yES9EQw9vR36Re1DZf8dhjtceMd03N6u3RCK+4X2qLONGZEcfnYBLpDKL
-	 hwPWSOWrkWM9W32TBw54oRrYC8Dk0URo+cdsVvMIqxw3t3RKe5+AQWn+M4rwwHOyS9
-	 LCNF+pVn+aEpOcKXGNhIhkrtPk6VZs8B8J/PSxyZ/1pv4uwg9411eHxebQnt0XrWbb
-	 yGu+Tcq7FLQy8KgWezDl4mFSASslMOxJxrPovxMLCwChU97FyjTPIc0grP8kx8o+cM
-	 BxDCWLzehBhzQ==
+	s=k20201202; t=1665046046;
+	bh=+1B3cggy9P8mgv4GVCeTh/UO14b9H8rJnWBe3c/MK+k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fXmeRcBvhsAkRmynTMQ2wDQW8FeJdgSpCXIhXrz/is0R31JwVGqLL8gNpGtnjZ1z4
+	 FBwUyFpfcbH9LANMi/Iq9iALXMZv3t26AFBOtSwjUNJ+Di0ihw4WA0l6+rIhB5ob/y
+	 L7sxDn7RPvykGhXnjMjM3fpn+aP7DqEcspwWnvc7SgVDu3uqrbqpRlZnAy/WeowFrT
+	 HnIwMeDJYgoM6ipZFK8BBOmSUapHnywkcntpDQg0VkY54YdtggK56GWMoCeTJ3roXc
+	 OmhG4xvtGDFAZK/G83pzknp5UIYhF/sQI9jeqGKF3utNIZaswQdeU3byH+D2a5S6EA
+	 F1R6sOgkFMbsA==
+Date: Thu, 6 Oct 2022 16:37:52 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 8/8] riscv: remove riscv_isa_ext_keys[] array and related usage
-Date: Thu,  6 Oct 2022 15:08:18 +0800
-Message-Id: <20221006070818.3616-9-jszhang@kernel.org>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20221006070818.3616-1-jszhang@kernel.org>
-References: <20221006070818.3616-1-jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com,
+	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
+ pgtable_l4_enabled
+Message-ID: <Yz6T4EYKKns7OIVE@xhacker>
+References: <20220821140918.3613-1-jszhang@kernel.org>
+ <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_001803_495784_A9FBB373 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20221006_014729_682396_FD5300B4 
+X-CRM114-Status: GOOD (  29.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,91 +77,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All users have switched to riscv_has_extension_*, removed unused
-definitions, vars and related setting code.
+On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
+> On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
+> > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> > boot, so static key can be used to solve the performance issue[1].
+> > 
+> > An unified way static key was introduced in [2], but it only targets
+> > riscv isa extension. We dunno whether SV48 and SV57 will be considered
+> > as isa extension, so the unified solution isn't used for
+> > pgtable_l4[l5]_enabled now.
+> > 
+> > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+> > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
+> > 
+> > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+> > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
+> > 
+> > Since v5:
+> >  - Use DECLARE_STATIC_KEY_FALSE
+> > 
+> > Since v4:
+> >  - rebased on v5.19-rcN
+> >  - collect Reviewed-by tags
+> >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
+> >    riscv_finalise_pgtable_lx() after sparse_init()
+> > 
+> > Since v3:
+> >  - fix W=1 call to undeclared function 'static_branch_likely' error
+> > 
+> > Since v2:
+> >  - move the W=1 warning fix to a separate patch
+> >  - move the unified way to use static key to a new patch series.
+> > 
+> > Since v1:
+> >  - Add a W=1 warning fix
+> >  - Fix W=1 error
+> >  - Based on v5.18-rcN, since SV57 support is added, so convert
+> >    pgtable_l5_enabled as well.
+> > 
+> > 
+> > Jisheng Zhang (2):
+> >   riscv: move sbi_init() earlier before jump_label_init()
+> >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+> > 
+> >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+> >  arch/riscv/include/asm/pgtable-32.h |  3 ++
+> >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+> >  arch/riscv/include/asm/pgtable.h    |  5 +--
+> >  arch/riscv/kernel/cpu.c             |  4 +-
+> >  arch/riscv/kernel/setup.c           |  2 +-
+> >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+> >  arch/riscv/mm/kasan_init.c          | 16 ++++----
+> >  8 files changed, 104 insertions(+), 66 deletions(-)
+> 
+> Sorry for being slow here, but it looks like this still causes some early
+> boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
+> see from the latency I'm still a bit buried right now so I'm not sure when
+> I'll have a chance to take more of a look.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/include/asm/hwcap.h | 28 ----------------------------
- arch/riscv/kernel/cpufeature.c |  9 ---------
- 2 files changed, 37 deletions(-)
+Hi Palmer,
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 54b88ee6cae1..f52fbc121ebe 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -62,18 +62,6 @@ enum {
- 
- extern unsigned long elf_hwcap;
- 
--
--/*
-- * This enum represents the logical ID for each RISC-V ISA extension static
-- * keys. We can use static key to optimize code path if some ISA extensions
-- * are available.
-- */
--enum riscv_isa_ext_key {
--	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
--	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
--	RISCV_ISA_EXT_KEY_MAX,
--};
--
- struct riscv_isa_ext_data {
- 	/* Name of the extension displayed to userspace via /proc/cpuinfo */
- 	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-@@ -81,22 +69,6 @@ struct riscv_isa_ext_data {
- 	unsigned int isa_ext_id;
- };
- 
--extern struct static_key_false riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_MAX];
--
--static __always_inline int riscv_isa_ext2key(int num)
--{
--	switch (num) {
--	case RISCV_ISA_EXT_f:
--		return RISCV_ISA_EXT_KEY_FPU;
--	case RISCV_ISA_EXT_d:
--		return RISCV_ISA_EXT_KEY_FPU;
--	case RISCV_ISA_EXT_ZIHINTPAUSE:
--		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
--	default:
--		return -EINVAL;
--	}
--}
--
- static __always_inline bool
- riscv_has_extension_likely(const unsigned long ext)
- {
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 2b1f18f97253..6bc3fb749274 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -28,9 +28,6 @@ unsigned long elf_hwcap __read_mostly;
- /* Host ISA bitmap */
- static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
- 
--DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
--EXPORT_SYMBOL(riscv_isa_ext_keys);
--
- /**
-  * riscv_isa_extension_base() - Get base extension word
-  *
-@@ -242,12 +239,6 @@ void __init riscv_fill_hwcap(void)
- 		if (elf_hwcap & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ELF capabilities %s\n", print_str);
--
--	for_each_set_bit(i, riscv_isa, RISCV_ISA_EXT_MAX) {
--		j = riscv_isa_ext2key(i);
--		if (j >= 0)
--			static_branch_enable(&riscv_isa_ext_keys[j]);
--	}
- }
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
--- 
-2.37.2
+Before V4, there is a bug which can cause kernel panic when SPARSEMEM
+is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
+after sparse_init(). And I just tested the riscv-pgtable_static_key
+branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
+I'm not sure what happened. Could you please send me your kernel
+config file? I want to fix any issue which can block this series being
+merged in 6.1-rc1.
 
+Thanks in advance
 
 _______________________________________________
 linux-riscv mailing list
