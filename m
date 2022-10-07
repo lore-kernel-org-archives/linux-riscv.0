@@ -4,118 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0084C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 15:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75939C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 17:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n4S43ywvREmacQorNwOdP0SnjP55FnesyLnqCrwU8RM=; b=3SaNNl4ZTbACu0
-	l0DMO2LbQLMdb0y8E1Km7nbDxx5ATbinBHTLUq5xWoeZqxuw+ayLcBfyG4SsLhBqiUUG2YF+IXlS5
-	qo9Wgm+0+eRRjEDcAzihvMdXXkj4E8n3armj+4M6XiUnb8L0Tpp0roliLhTe10JrcWfyJFhcco8LA
-	afopqWKv7rnBTewWReiLY130utZtWfAMsroCN5ZERWw6RACKM+kpRoRAWqx4u3rlI3wxgrrTTceKX
-	sSYwb5sXuqDHN5hCpxL5PgtI5Mu6VfD1cOKRiDa0hdAGvF+LriJhTr7LxkC/x1hfLWXtO+EnwJO6x
-	V8I6pvI8Xn66ApMVrq3A==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=b0iUCEHTr5uD25PKIg+vbojr5eOaEAKtYac7ipKM+YI=; b=JIWyGsbRiRQvx1
+	e4wiJMTq3hJsMvS4RFW7F7lou8XCf3Gv+Xi/kX0DpcLm0RAJ/uudyZ4NLn8YdBm0DoITjkn8bp9mm
+	bFnTd8V0ZRoHMRKMesQGnoSHudO+wC1rDBArmSY2KKeNRw1wiTDhvZl68Ex5WY8F6NdKKqd6Qewt9
+	JDhzkIiIRoSL093DNisVaA6sWbrWQysb499RYorDZmrHocal9mnrgQjBzJYdz9iMrYZwG9vCnD6XM
+	fsOHolNq3xWUhyb6pJAfwzSTxGY0+YDkHfC6RcJZX/bmCT0PxxhdsDb44mA381JJOKx4Ea/dC+RPI
+	I2XTEDfZ4St+PNkXBFhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogpZJ-009ZSf-Ab; Fri, 07 Oct 2022 15:47:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ogrS8-009wjj-6Y; Fri, 07 Oct 2022 17:48:04 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogpYH-009YZO-UT
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 15:46:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665157577;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QBGsIFvb0sDTOBTXloJc0L0vouBVjWutWJahfXvTW60=;
-	b=fAGiJSGqpiTahFYcl3ZeyaUL4fzyuFfgqdfEggMsZOOdissoCUBkKgpklsW+Tbikl+y9mv
-	xbfE/eIBEpxkSd3w003wHRBGjnmAoufoTShcPMBGenDmxqWNrH0bkpMOpag0bahA8LMEqe
-	Zqw6vBnI7R+McJlnA/zP3Bjq6lFHhIU=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-349-l7ZDPIBkOaSE7nm_T7bCXQ-1; Fri, 07 Oct 2022 11:46:15 -0400
-X-MC-Unique: l7ZDPIBkOaSE7nm_T7bCXQ-1
-Received: by mail-wr1-f71.google.com with SMTP id e11-20020adfa74b000000b0022e39e5c151so1560724wrd.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 08:46:15 -0700 (PDT)
+	id 1ogrS4-009wiZ-U8
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 17:48:02 +0000
+Received: by mail-pf1-x430.google.com with SMTP id p14so1190334pfq.5
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 10:47:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fcci2pupu9UurkJQkRA8mm21LocCWexyJenAk7+j02c=;
+        b=JBaA3MUxHIauaERF+xT/NXVKefe2nI5Rs5pahUR+KKkSu/ximGTDyQa3CWCyEwR3LK
+         aLJxtuFehllLGRa+RLC+bANZRd4zc5cmfHdl2NWKs3FE1/P2S9OjYQCrPO24tGnUKL7d
+         tDlaHjZ6G70mgkKQnri+vaoLMAOfLTPoTOPGHo0ZnNmtcDijbEZmqaOqZsFWlFoxeIzM
+         6NGZNegTPS/cHr3C1Kutpuke6AvKX4tc5IYExuqH0S2TwNNmrzJzf5sWRTnF7HetplX+
+         lS6GKq1Fthn/AQqsEVzXde7WWcqszyKfNs1jh0l3KO9kCjYgJTCj6nMOaCZc/CQkHWdp
+         cQWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QBGsIFvb0sDTOBTXloJc0L0vouBVjWutWJahfXvTW60=;
-        b=LOY5w6aLosHfAd1iStFiQNehIMrlmRZI+6ViC1/oZ8jZ3sNvcX9kw8eCQJDK5xk/xt
-         7TInrEZ4f6+g7PMM9RetvIOa6M9f5gQW69Pw31+JDe4hlu1Dtc0GvEk5t5OFvQaBW5R+
-         XAJ0poeuGq7OHmsL7RO3uoYxsbZAZfYepv0JyHjUNpsYobxxSA2B8eSDxBtqvTFrGTJo
-         A4tnN2nQfNCFY8jz6Qel+3t4vgtolVek2vnPceyv8/cjHhe9IM9DgD7faAQGjvqA1OeQ
-         dqnIig1q1RT0HjPGsDmDDfZJX+nOls8O5CyVO9QR/gjVHEXmUVdAh/11F6O88qhDIvyb
-         Zk+A==
-X-Gm-Message-State: ACrzQf2My9DEW5CFnkk8IEVZpuve+xC6VmFcld48kacuWBYNoCPwzoDE
-	jVBVlXp3sf4a5qlDH9qWDT4dcZWEwVCwl2FEkaWnrjMhfzdTPW149eBAu1FhUuuq/6wYm20sX0k
-	u7zlmvB8eXp71WGMKyg6jcoTsTNhG
-X-Received: by 2002:a05:6000:156e:b0:22e:6bf3:79d0 with SMTP id 14-20020a056000156e00b0022e6bf379d0mr3850750wrz.456.1665157574753;
-        Fri, 07 Oct 2022 08:46:14 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM4bmtz4sW3xjvVZbQWwe8+5BXa8cXq6wgb8eZWM3ieUXfS0a9DQYMN0P4ctl6d8+mhDW42BAQ==
-X-Received: by 2002:a05:6000:156e:b0:22e:6bf3:79d0 with SMTP id 14-20020a056000156e00b0022e6bf379d0mr3850726wrz.456.1665157574509;
-        Fri, 07 Oct 2022 08:46:14 -0700 (PDT)
-Received: from vschneid.remote.csb ([149.71.65.94])
-        by smtp.gmail.com with ESMTPSA id i18-20020adfb652000000b0022e38c93195sm2339428wre.34.2022.10.07.08.46.09
+        bh=fcci2pupu9UurkJQkRA8mm21LocCWexyJenAk7+j02c=;
+        b=PeHsxx6AljpH04qh4wihXEmtzqobZ5dhHd3jYbwa5QNJQyVsxyAqTKvve+++1FiYuy
+         +O7cN/XevKPmTl/EmyFGy0KE94sSTrqbaIL0f/qTfejFUYMH1eESg6DUQ9p9TuAG0zRA
+         K88fmSnYz9czGvGa+2h6dfMBWuxPu+IXL3Wab9ktIhXjs3DZ0suZxaY4SHrDVL5yaL68
+         16gyGJQfekaAb0qfbYtsH8nLvWSE/aRgpl05H5w9T6zyNVdP3LsBBpoMzfAF+PqbJaS5
+         WxL4Zc9Hn0Ng6cgqQQ3kxGppJ+8ZMGfWW2n8zC0JDICIeiFu5dTjoZz+dXSYqKur1e/g
+         GvfA==
+X-Gm-Message-State: ACrzQf34asv9Icl6jM3ssAv/uRJ4z6OleQCJBeja+nnsFqL8UaVjYPyD
+	Ijijbw3Uyc5BBB8siP0OvDZ9ZYmre18juw==
+X-Google-Smtp-Source: AMsMyM7aAF88sHZdlMks90qeAjzp+bL0loKjCg1pJNWkvU4lQiJVetrYk08jOW3Kn1td4kBT6515Pg==
+X-Received: by 2002:a05:6a00:ac6:b0:530:3197:48b6 with SMTP id c6-20020a056a000ac600b00530319748b6mr6538447pfl.80.1665164877695;
+        Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id n8-20020a170902d2c800b0017fe9b038fdsm1700718plc.14.2022.10.07.10.47.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Oct 2022 08:46:13 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-xtensa@linux-xtensa.org,
-	x86@kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: [RFC PATCH 5/5] treewide: Rename and trace arch-definitions of smp_send_reschedule()
-Date: Fri,  7 Oct 2022 16:45:33 +0100
-Message-Id: <20221007154533.1878285-5-vschneid@redhat.com>
-X-Mailer: git-send-email 2.31.1
-In-Reply-To: <20221007154145.1877054-1-vschneid@redhat.com>
-References: <20221007154145.1877054-1-vschneid@redhat.com>
-MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+        Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
+Date: Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
+X-Google-Original-Date: Fri, 07 Oct 2022 10:43:57 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 6.1 Merge Window, Part 1
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-6190fb79-f9f6-41bd-90f3-d4d6009d41a5@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_084618_177493_8F1A1011 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20221007_104801_197974_543D1095 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,334 +79,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To be able to trace invocations of smp_send_reschedule(), rename the
-arch-specific definitions of it to arch_smp_send_reschedule() and wrap it
-into an smp_send_reschedule() that contains a tracepoint.
+The following changes since commit 568035b01cfb107af8d2e4bd2fb9aea22cf5b868:
 
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- arch/alpha/kernel/smp.c          | 2 +-
- arch/arc/kernel/smp.c            | 2 +-
- arch/arm/kernel/smp.c            | 2 +-
- arch/arm64/kernel/smp.c          | 2 +-
- arch/csky/kernel/smp.c           | 2 +-
- arch/hexagon/kernel/smp.c        | 2 +-
- arch/ia64/kernel/smp.c           | 4 ++--
- arch/loongarch/include/asm/smp.h | 2 +-
- arch/mips/include/asm/smp.h      | 2 +-
- arch/openrisc/kernel/smp.c       | 2 +-
- arch/parisc/kernel/smp.c         | 4 ++--
- arch/powerpc/kernel/smp.c        | 4 ++--
- arch/riscv/kernel/smp.c          | 4 ++--
- arch/s390/kernel/smp.c           | 2 +-
- arch/sh/kernel/smp.c             | 2 +-
- arch/sparc/kernel/smp_32.c       | 2 +-
- arch/sparc/kernel/smp_64.c       | 2 +-
- arch/x86/include/asm/smp.h       | 2 +-
- arch/xtensa/kernel/smp.c         | 2 +-
- include/linux/smp.h              | 1 +
- kernel/smp.c                     | 6 ++++++
- 21 files changed, 30 insertions(+), 23 deletions(-)
+  Linux 6.0-rc1 (2022-08-14 15:50:18 -0700)
 
-diff --git a/arch/alpha/kernel/smp.c b/arch/alpha/kernel/smp.c
-index f4e20f75438f..38637eb9eebd 100644
---- a/arch/alpha/kernel/smp.c
-+++ b/arch/alpha/kernel/smp.c
-@@ -562,7 +562,7 @@ handle_ipi(struct pt_regs *regs)
- }
- 
- void
--smp_send_reschedule(int cpu)
-+arch_smp_send_reschedule(int cpu)
- {
- #ifdef DEBUG_IPI_MSG
- 	if (cpu == hard_smp_processor_id())
-diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
-index ab9e75e90f72..ae2e6a312361 100644
---- a/arch/arc/kernel/smp.c
-+++ b/arch/arc/kernel/smp.c
-@@ -292,7 +292,7 @@ static void ipi_send_msg(const struct cpumask *callmap, enum ipi_msg_type msg)
- 		ipi_send_msg_one(cpu, msg);
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	ipi_send_msg_one(cpu, IPI_RESCHEDULE);
- }
-diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
-index 3b280d55c1c4..f216ac890b6f 100644
---- a/arch/arm/kernel/smp.c
-+++ b/arch/arm/kernel/smp.c
-@@ -745,7 +745,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
- 	ipi_setup(smp_processor_id());
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 937d2623e06b..8d108edc4a89 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -976,7 +976,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
- 	ipi_setup(smp_processor_id());
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
-index 4b605aa2e1d6..fd7f81be16dd 100644
---- a/arch/csky/kernel/smp.c
-+++ b/arch/csky/kernel/smp.c
-@@ -140,7 +140,7 @@ void smp_send_stop(void)
- 	on_each_cpu(ipi_stop, NULL, 1);
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/arch/hexagon/kernel/smp.c b/arch/hexagon/kernel/smp.c
-index 4ba93e59370c..4e8bee25b8c6 100644
---- a/arch/hexagon/kernel/smp.c
-+++ b/arch/hexagon/kernel/smp.c
-@@ -217,7 +217,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 	}
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	send_ipi(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/arch/ia64/kernel/smp.c b/arch/ia64/kernel/smp.c
-index e2cc59db86bc..ea4f009a232b 100644
---- a/arch/ia64/kernel/smp.c
-+++ b/arch/ia64/kernel/smp.c
-@@ -220,11 +220,11 @@ kdump_smp_send_init(void)
-  * Called with preemption disabled.
-  */
- void
--smp_send_reschedule (int cpu)
-+arch_smp_send_reschedule (int cpu)
- {
- 	ia64_send_ipi(cpu, IA64_IPI_RESCHEDULE, IA64_IPI_DM_INT, 0);
- }
--EXPORT_SYMBOL_GPL(smp_send_reschedule);
-+EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
- 
- /*
-  * Called with preemption disabled.
-diff --git a/arch/loongarch/include/asm/smp.h b/arch/loongarch/include/asm/smp.h
-index 71189b28bfb2..3fcca134dfb1 100644
---- a/arch/loongarch/include/asm/smp.h
-+++ b/arch/loongarch/include/asm/smp.h
-@@ -83,7 +83,7 @@ extern void show_ipi_list(struct seq_file *p, int prec);
-  * it goes straight through and wastes no time serializing
-  * anything. Worst case is that we lose a reschedule ...
-  */
--static inline void smp_send_reschedule(int cpu)
-+static inline void arch_smp_send_reschedule(int cpu)
- {
- 	loongson3_send_ipi_single(cpu, SMP_RESCHEDULE);
- }
-diff --git a/arch/mips/include/asm/smp.h b/arch/mips/include/asm/smp.h
-index 5d9ff61004ca..9806e79895d9 100644
---- a/arch/mips/include/asm/smp.h
-+++ b/arch/mips/include/asm/smp.h
-@@ -66,7 +66,7 @@ extern void calculate_cpu_foreign_map(void);
-  * it goes straight through and wastes no time serializing
-  * anything. Worst case is that we lose a reschedule ...
-  */
--static inline void smp_send_reschedule(int cpu)
-+static inline void arch_smp_send_reschedule(int cpu)
- {
- 	extern const struct plat_smp_ops *mp_ops;	/* private */
- 
-diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
-index e1419095a6f0..0a7a059e2dff 100644
---- a/arch/openrisc/kernel/smp.c
-+++ b/arch/openrisc/kernel/smp.c
-@@ -173,7 +173,7 @@ void handle_IPI(unsigned int ipi_msg)
- 	}
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/arch/parisc/kernel/smp.c b/arch/parisc/kernel/smp.c
-index 7dbd92cafae3..b7fc859fa87d 100644
---- a/arch/parisc/kernel/smp.c
-+++ b/arch/parisc/kernel/smp.c
-@@ -246,8 +246,8 @@ void kgdb_roundup_cpus(void)
- inline void 
- smp_send_stop(void)	{ send_IPI_allbutself(IPI_CPU_STOP); }
- 
--void 
--smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
-+void
-+arch_smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
- 
- void
- smp_send_all_nop(void)
-diff --git a/arch/powerpc/kernel/smp.c b/arch/powerpc/kernel/smp.c
-index 169703fead57..2d7b217392f2 100644
---- a/arch/powerpc/kernel/smp.c
-+++ b/arch/powerpc/kernel/smp.c
-@@ -364,12 +364,12 @@ static inline void do_message_pass(int cpu, int msg)
- #endif
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	if (likely(smp_ops))
- 		do_message_pass(cpu, PPC_MSG_RESCHEDULE);
- }
--EXPORT_SYMBOL_GPL(smp_send_reschedule);
-+EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
- 
- void arch_send_call_function_single_ipi(int cpu)
- {
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 760a64518c58..213602e89a8b 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -235,8 +235,8 @@ void smp_send_stop(void)
- 			   cpumask_pr_args(cpu_online_mask));
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	send_ipi_single(cpu, IPI_RESCHEDULE);
- }
--EXPORT_SYMBOL_GPL(smp_send_reschedule);
-+EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
-diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
-index 30c91d565933..9d1c36571106 100644
---- a/arch/s390/kernel/smp.c
-+++ b/arch/s390/kernel/smp.c
-@@ -542,7 +542,7 @@ void arch_send_call_function_single_ipi(int cpu)
-  * it goes straight through and wastes no time serializing
-  * anything. Worst case is that we lose a reschedule ...
-  */
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	pcpu_ec_call(pcpu_devices + cpu, ec_schedule);
- }
-diff --git a/arch/sh/kernel/smp.c b/arch/sh/kernel/smp.c
-index 65924d9ec245..5cf35a774dc7 100644
---- a/arch/sh/kernel/smp.c
-+++ b/arch/sh/kernel/smp.c
-@@ -256,7 +256,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
- 	       (bogosum / (5000/HZ)) % 100);
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	mp_ops->send_ipi(cpu, SMP_MSG_RESCHEDULE);
- }
-diff --git a/arch/sparc/kernel/smp_32.c b/arch/sparc/kernel/smp_32.c
-index ad8094d955eb..87eaa7719fa2 100644
---- a/arch/sparc/kernel/smp_32.c
-+++ b/arch/sparc/kernel/smp_32.c
-@@ -120,7 +120,7 @@ void cpu_panic(void)
- 
- struct linux_prom_registers smp_penguin_ctable = { 0 };
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	/*
- 	 * CPU model dependent way of implementing IPI generation targeting
-diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-index a55295d1b924..e5964d1d8b37 100644
---- a/arch/sparc/kernel/smp_64.c
-+++ b/arch/sparc/kernel/smp_64.c
-@@ -1430,7 +1430,7 @@ static unsigned long send_cpu_poke(int cpu)
- 	return hv_err;
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	if (cpu == smp_processor_id()) {
- 		WARN_ON_ONCE(preemptible());
-diff --git a/arch/x86/include/asm/smp.h b/arch/x86/include/asm/smp.h
-index a73bced40e24..5ff5815149bd 100644
---- a/arch/x86/include/asm/smp.h
-+++ b/arch/x86/include/asm/smp.h
-@@ -99,7 +99,7 @@ static inline void play_dead(void)
- 	smp_ops.play_dead();
- }
- 
--static inline void smp_send_reschedule(int cpu)
-+static inline void arch_smp_send_reschedule(int cpu)
- {
- 	smp_ops.smp_send_reschedule(cpu);
- }
-diff --git a/arch/xtensa/kernel/smp.c b/arch/xtensa/kernel/smp.c
-index 4dc109dd6214..d95907b8e4d3 100644
---- a/arch/xtensa/kernel/smp.c
-+++ b/arch/xtensa/kernel/smp.c
-@@ -389,7 +389,7 @@ void arch_send_call_function_single_ipi(int cpu)
- 	send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
- }
- 
--void smp_send_reschedule(int cpu)
-+void arch_smp_send_reschedule(int cpu)
- {
- 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
- }
-diff --git a/include/linux/smp.h b/include/linux/smp.h
-index a80ab58ae3f1..a67e7aad17b9 100644
---- a/include/linux/smp.h
-+++ b/include/linux/smp.h
-@@ -125,6 +125,7 @@ extern void smp_send_stop(void);
- /*
-  * sends a 'reschedule' event to another CPU:
-  */
-+extern void arch_smp_send_reschedule(int cpu);
- extern void smp_send_reschedule(int cpu);
- 
- 
-diff --git a/kernel/smp.c b/kernel/smp.c
-index 387735180aed..9dfe057424f8 100644
---- a/kernel/smp.c
-+++ b/kernel/smp.c
-@@ -166,6 +166,12 @@ static inline void send_call_function_ipi_mask(const struct cpumask *mask)
- 	arch_send_call_function_ipi_mask(mask);
- }
- 
-+void smp_send_reschedule(int cpu)
-+{
-+	trace_ipi_send_cpu(_RET_IP_, cpu);
-+	arch_smp_send_reschedule(cpu);
-+}
-+
- #ifdef CONFIG_CSD_LOCK_WAIT_DEBUG
- 
- static DEFINE_STATIC_KEY_FALSE(csdlock_debug_enabled);
--- 
-2.31.1
+are available in the Git repository at:
 
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-mw1
+
+for you to fetch changes up to 87f81e66e2e84c7e6056413703d732a99c20c09b:
+
+  riscv: enable THP_SWAP for RV64 (2022-10-06 20:03:48 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 6.1 Merge Window, Part 1
+
+* Improvements to the CPU topology subsystem, which fix some issues
+  where RISC-V would report bad topology information.
+* The default NR_CPUS has increased to XLEN, and the maximum
+  configurable value is 512.
+* The CD-ROM filesystems have been enabled in the defconfig.
+* Support for THP_SWAP has been added for rv64 systems.
+
+There are also a handful of cleanups and fixes throughout the tree.
+
+----------------------------------------------------------------
+I will almost certainly have a part 2 for next week, but I'm not sure how big
+it will be: between the conferences and COVID things have been a mess on my
+end, that's clearly made this first week pretty small but it's also meant a lot
+of stuff on the lists still needs work.  There's also some stuff that's pending
+on conflicts, though, so I figured it'd be best to just send this today to make
+handling those easier.
+
+I'm still seeing some of these KASAN/pcpu_alloc related panics, but it doesn't
+seem like they're more common with these than they are on 6.0 so I think it's
+OK to just call these safe.  Aside from that things seem fine with this merged
+into master from this morning.
+
+----------------------------------------------------------------
+Anup Patel (2):
+      cpuidle: riscv-sbi: Fix CPU_PM_CPU_IDLE_ENTER_xyz() macro usage
+      RISC-V: Increase range and default value of NR_CPUS
+
+Conor Dooley (2):
+      arm64: topology: move store_cpu_topology() to shared code
+      riscv: topology: fix default topology reporting
+
+Heinrich Schuchardt (1):
+      riscv: enable CD-ROM file systems in defconfig
+
+Jisheng Zhang (2):
+      riscv: compat: s/failed/unsupported if compat mode isn't supported
+      riscv: enable THP_SWAP for RV64
+
+Palmer Dabbelt (2):
+      Merge tag 'riscv-topo-on-6.0-rc1' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ into for-next
+      RISC-V: Print SSTC in canonical order
+
+Sergey Matyukevich (2):
+      perf: RISC-V: exclude invalid pmu counters from SBI calls
+      perf: RISC-V: throttle perf events
+
+ arch/arm64/kernel/topology.c        | 40 -------------------------------------
+ arch/riscv/Kconfig                  | 12 +++++++----
+ arch/riscv/configs/defconfig        |  3 +++
+ arch/riscv/kernel/cpu.c             |  2 +-
+ arch/riscv/kernel/process.c         |  2 +-
+ arch/riscv/kernel/smpboot.c         |  3 ++-
+ drivers/base/arch_topology.c        | 19 ++++++++++++++++++
+ drivers/cpuidle/cpuidle-riscv-sbi.c |  7 ++++++-
+ drivers/perf/riscv_pmu_legacy.c     |  4 ++--
+ drivers/perf/riscv_pmu_sbi.c        | 31 ++++++++++++++++++----------
+ include/linux/perf/riscv_pmu.h      |  2 +-
+ 11 files changed, 63 insertions(+), 62 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
