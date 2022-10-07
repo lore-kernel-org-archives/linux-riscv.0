@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7AFC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 02:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39653C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 03:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=vWpN0BCBENnK9hzG+VAVr/W7rh0310Uz107GDJ0AjTI=; b=Q75B5R6h+Y49oOFzntNFIlHcuM
-	tUI0iTirBbvgxeqWcrYWeyRsBOCkdS8tgP9hII4OgKyMv0tVT64vTBVlFWq7/tRFCPOgMN9csPvOL
-	yNCieZizi6/RziaUOMzhRSj4wLDRwPFoRwUpkLyT91EArbzlQn9UtjfAqv4vDJoSi4N4u9yIWWACc
-	F7OF/EnMuBN86qoNTvbkYLOrVk8UOppunW8a+5pVRyDjO2BhV/71S6SX3e2f37B1wB5qSkI6r7+uB
-	ooGKMgX2N4qb3/5HoE7Ev3uWltvWSLdJaa3CyorZ+Xu6/zutgQlGTGRpMhGnNG/KyxT2nWI3qMyv3
-	4LRBgJAQ==;
+	bh=f6blcuhdv6mIowJH3z4dwb450PMHzsolD56egYSZGy8=; b=Crj/gFVyEb38f1qVJIqQi8Xow1
+	IRsFfsR9CTqmucLDxxvhzPscqPIj5rzZ2/pzvQzHSYy3bZM4nPL0ThoMpYTtPjjXeVa/nKSzJLJbm
+	5ic/gm/9gZrFro5u7L4/g6hxpR+XH8Yp5Pc9z+GEMItitHOWtM9uK7aijbKFyy5Lb/3C/AXkidFCs
+	+24ra2EYDLCbwswNaHzTIF7XxgQ/oVCU71IaymSk14C/V1PHmWTdHf7JPy625q4uYtKjx0Q//Uww0
+	sViOSqbHKyoGID0nKLGbb+dw+l1ibZVZlz/oQrZE4WoBPOG06Zcx4xn0GXfiITsqK06Mc8MYYUs/z
+	fP6Gylcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogdZ0-006kEa-Kr; Fri, 07 Oct 2022 02:58:14 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1ogdg9-006lNh-GI; Fri, 07 Oct 2022 03:05:37 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogdYw-006kCX-Gr
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 02:58:12 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id a23so3458368pgi.10
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 19:58:08 -0700 (PDT)
+	id 1ogdg6-006lME-2B
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 03:05:35 +0000
+Received: by mail-pl1-x635.google.com with SMTP id l4so3401083plb.8
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 20:05:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HHqtVs8j+ID4jgqw57yAt3FtHMv/XStpjtf/AugVE1Y=;
-        b=FhXOA3SGFnbaWCxieNMDC1nYdp/i+xNk1Qz42dQC7LPITUdJcbeCD8MXgS1lEAl+Ff
-         4Q7YoMcKPvYOvGsh593C5ovx3865nXrA4jLf7wZ6cTMZUoq9waJYSMYXPSQEZ+w3HOfW
-         SISSGdo5Z4e4aPv8ylbZrhV5D33e1LqZ6TLSZgZCWwGJxqu9Znv9u20bgyXS8gVa0ASs
-         6oMiHtBzpvqB4UNYNn2PU4RhiMUmuVPtXdpJnizixXLqZONDEPwtTxWTvvvXE6FfdHDg
-         qTnnVa5pvh83sPhZySmfb1IUP1QM5OkEgfI1ZDKgrJT5AWmx6IBhYMpJj9qfGXXUNk4O
-         NuLw==
+        bh=J0flw4m11S0YkBSfXTbnOZpdPQvclpjjpCP9ZUVoipg=;
+        b=Zvkian0aIr7blYD6OMaPdxJzgrIEi3mAcpdPwjkvXe5Il6UvoATmwhKS2hmLMjMLJk
+         v4khv7zNX/u7Uft1BCXbI2vLlBkYU7emGbUkI+IsH8nBCDrANfuTK/JkNTXzsde7F9B5
+         unR1ErQrFRpu4hQ8YJxgsjq2Aa4r3XwlARx51/X+mdwfnittcqNrFxBYdUpIKSlHRh7T
+         LqxuFBVsfH98fUWXId9oCZ6Me2KDCiiToc1SmaZcUeBRBxJNTbp7NnGKUoiPAoes9JmP
+         W8s3X0WJ5M+RRALTOB4TjE0q4LE0IGH3KwjJc2h68bJt6DvxtPwdS0ztWifptNoWy8X8
+         PAPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HHqtVs8j+ID4jgqw57yAt3FtHMv/XStpjtf/AugVE1Y=;
-        b=bewrC85sG24rRMsCFs0i7dH96XcJVM5qRMfoU4aGpe9QHxq73Q9ifKUnMgohQFhxzQ
-         yf8JWIfK1CK/quKHtKBV6GxLDnbHNtk6TWEkLevZN+IreO4e8enX7FROY39cAld49sRF
-         DhZYNwa5tySfP7nBKg56hCVH1A80VeQofysfIIcbrXHpQZ+pXjQAlUnTsUBg2++lmrAs
-         KeBtuScd6hdjmDV7/sLjyAn7qRmrUfGmJ/neuGRr9AUP/xwm3s0q8EIxb6XDMzT2dYAU
-         X89ILPL/X74PRJwto85YxdhPyu4Ev/JVp27BvH/cdIKijEPUEF9qhjTe9dJCZ6F1UmOu
-         TshA==
-X-Gm-Message-State: ACrzQf14CMq0eMlg8begDrlqLLsMDCxrJnPqirlcdHy5s+yc83OqED69
-	k9HHfK01/HXTM3zl80SviWpGRQ==
-X-Google-Smtp-Source: AMsMyM53dmoZUhAeR2ad3+PvCeAPrlnhjAul4X/Pb1ufZcrCsgu+iGRJpvj0OGds7mcXRXSYxl4bQA==
-X-Received: by 2002:a05:6a00:14d3:b0:546:e93c:4768 with SMTP id w19-20020a056a0014d300b00546e93c4768mr2621000pfu.36.1665111487824;
-        Thu, 06 Oct 2022 19:58:07 -0700 (PDT)
+        bh=J0flw4m11S0YkBSfXTbnOZpdPQvclpjjpCP9ZUVoipg=;
+        b=rdjLfmZwzO2aMoEj0uHojIVmWmELCUvmWb428WSvMiqLcBfZq1Aks1zT0k0EYHHevv
+         GC5IjH0h/KVVi93MQOx0wB4YntlxmtgpRNZJG0U8ggrq/gN3FHlIcxm00eCmfwFIdlfk
+         kJ1MKn86v4kI+QV2P17tK/UHGLKSgPQ5ABT1aItuESoRgx6vmJgxqjcQfNjsaxYHf3Gq
+         z3JrRB2IHVkb8vXwx9ftrQ4XVrwqm503dWGGs6rNR9zePurZF4w8GD25eKmuxi9YiR7b
+         FDq6T+gxifFchPJt65eZTwcMYEvZ5PGSeu/tJ2NGrHw5kZ3KaQcno0bjz1q1BKCtk3cv
+         5GAA==
+X-Gm-Message-State: ACrzQf1qEYXtXy/08jtWpugU5EYwBHm9r08Hpq89P2ZLfpf9m+LWxi+f
+	DVygYUwRTibxbDoCgL8346xDISiGaFfmS2X9
+X-Google-Smtp-Source: AMsMyM6onODrgPKfFIvPd397f6B2dV1HH1hcB8Pqn6pkZPpaqhERaSy1DiQEr7M0ivHPTA39GIJuCQ==
+X-Received: by 2002:a17:90a:1c02:b0:1e0:df7:31f2 with SMTP id s2-20020a17090a1c0200b001e00df731f2mr13444790pjs.222.1665111930878;
+        Thu, 06 Oct 2022 20:05:30 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id f17-20020a170902ce9100b00172f4835f60sm333199plg.189.2022.10.06.19.58.06
+        by smtp.gmail.com with ESMTPSA id t3-20020a17090340c300b00172e19c5f8bsm341162pld.168.2022.10.06.20.05.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Oct 2022 19:58:07 -0700 (PDT)
-Date: Thu, 06 Oct 2022 19:58:07 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 Oct 2022 19:57:50 PDT (-0700)
-Subject: Re: [PATCH 3/3] EDAC/sifive: use sifive_ccache instead of sifive_l2
-In-Reply-To: <20220829062202.3287-4-zong.li@sifive.com>
-CC: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, greentime.hu@sifive.com, conor.dooley@microchip.com,
-  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  zong.li@sifive.com
+        Thu, 06 Oct 2022 20:05:30 -0700 (PDT)
+Date: Thu, 06 Oct 2022 20:05:30 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Oct 2022 20:05:28 PDT (-0700)
+Subject: Re: [PATCH] riscv: enable THP_SWAP for RV64
+In-Reply-To: <Yz57T4eob3pXAVSP@wendy>
+CC: jszhang@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zong.li@sifive.com
-Message-ID: <mhng-fe7df193-2cac-4022-928d-a18e63f5e1c1@palmer-ri-x1c9>
+To: conor.dooley@microchip.com
+Message-ID: <mhng-382406aa-3eaf-4318-b5e6-9fc8a370f4d9@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_195810_576415_7ADF1573 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20221006_200534_123854_830C9542 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +89,51 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 28 Aug 2022 23:22:02 PDT (-0700), zong.li@sifive.com wrote:
-> The sifive L2 has been renamed to sifive CCACHE, EDAC driver needs to
-> apply the change as well
+On Wed, 05 Oct 2022 23:53:03 PDT (-0700), conor.dooley@microchip.com wrote:
+> On Wed, Oct 05, 2022 at 07:35:53PM -0700, Palmer Dabbelt wrote:
+>> On Sun, 21 Aug 2022 10:05:59 PDT (-0700), jszhang@kernel.org wrote:
+>> > I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
+>> > memory optimizations such as swap on zram are helpful. As is seen
+>> > in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
+>> > commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
+>> > swapped out"), THP_SWAP can improve the swap throughput significantly.
+>> >
+>> > Enable THP_SWAP for RV64, testing the micro-benchmark which is
+>> > introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
+>> > shows below numbers on the Lichee RV dock board:
+>> >
+>> > thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
+>> > thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
+>> >
+>> > Improved by 382%!
+>> >
+>> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>> > ---
+>> >  arch/riscv/Kconfig | 1 +
+>> >  1 file changed, 1 insertion(+)
+>> >
+>> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> > index ed66c31e4655..19088c750c7f 100644
+>> > --- a/arch/riscv/Kconfig
+>> > +++ b/arch/riscv/Kconfig
+>> > @@ -45,6 +45,7 @@ config RISCV
+>> >  	select ARCH_WANT_FRAME_POINTERS
+>> >  	select ARCH_WANT_GENERAL_HUGETLB
+>> >  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>> > +	select ARCH_WANTS_THP_SWAP if TRANSPARENT_HUGEPAGE
+>> >  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+>> >  	select BUILDTIME_TABLE_SORT if MMU
+>> >  	select CLONE_BACKWARDS
+>>
+>> Thanks, this is on for-next.
+>
+> FYI, this is v1 of a patchset that went to v3.
+> v3 only changed the commit message, but v2 had a functional change.
+>
+> v3 is here:
+> https://lore.kernel.org/all/20220829145742.3139-1-jszhang@kernel.org/
 
-That means the build would be broken before this patch, which we 
-generally try to avoid as it breaks things like bisecting.
-
->
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  drivers/edac/Kconfig       |  2 +-
->  drivers/edac/sifive_edac.c | 12 ++++++------
->  2 files changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-> index 17562cf1fe97..456602d373b7 100644
-> --- a/drivers/edac/Kconfig
-> +++ b/drivers/edac/Kconfig
-> @@ -473,7 +473,7 @@ config EDAC_ALTERA_SDMMC
->
->  config EDAC_SIFIVE
->  	bool "Sifive platform EDAC driver"
-> -	depends on EDAC=y && SIFIVE_L2
-> +	depends on EDAC=y && SIFIVE_CCACHE
->  	help
->  	  Support for error detection and correction on the SiFive SoCs.
->
-> diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-> index ee800aec7d47..b844e2626fd5 100644
-> --- a/drivers/edac/sifive_edac.c
-> +++ b/drivers/edac/sifive_edac.c
-> @@ -2,7 +2,7 @@
->  /*
->   * SiFive Platform EDAC Driver
->   *
-> - * Copyright (C) 2018-2019 SiFive, Inc.
-> + * Copyright (C) 2018-2022 SiFive, Inc.
->   *
->   * This driver is partially based on octeon_edac-pc.c
->   *
-> @@ -10,7 +10,7 @@
->  #include <linux/edac.h>
->  #include <linux/platform_device.h>
->  #include "edac_module.h"
-> -#include <soc/sifive/sifive_l2_cache.h>
-> +#include <soc/sifive/sifive_ccache.h>
->
->  #define DRVNAME "sifive_edac"
->
-> @@ -32,9 +32,9 @@ int ecc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
->
->  	p = container_of(this, struct sifive_edac_priv, notifier);
->
-> -	if (event == SIFIVE_L2_ERR_TYPE_UE)
-> +	if (event == SIFIVE_CCACHE_ERR_TYPE_UE)
->  		edac_device_handle_ue(p->dci, 0, 0, msg);
-> -	else if (event == SIFIVE_L2_ERR_TYPE_CE)
-> +	else if (event == SIFIVE_CCACHE_ERR_TYPE_CE)
->  		edac_device_handle_ce(p->dci, 0, 0, msg);
->
->  	return NOTIFY_OK;
-> @@ -67,7 +67,7 @@ static int ecc_register(struct platform_device *pdev)
->  		goto err;
->  	}
->
-> -	register_sifive_l2_error_notifier(&p->notifier);
-> +	register_sifive_ccache_error_notifier(&p->notifier);
->
->  	return 0;
->
-> @@ -81,7 +81,7 @@ static int ecc_unregister(struct platform_device *pdev)
->  {
->  	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
->
-> -	unregister_sifive_l2_error_notifier(&p->notifier);
-> +	unregister_sifive_ccache_error_notifier(&p->notifier);
->  	edac_device_del_device(&pdev->dev);
->  	edac_device_free_ctl_info(p->dci);
+Thanks, not sure why I missed those.  I've put the v3 on for-next.
 
 _______________________________________________
 linux-riscv mailing list
