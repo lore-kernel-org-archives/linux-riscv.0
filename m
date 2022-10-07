@@ -4,45 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B8BC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 15:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 029B8C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 15:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fDvu+o1tdCiNUH3gSnKLVWmLbrMWsUdTS0x5JhWTv8U=; b=H37lrRRyv0fL3/
-	Nwfb+Zjm60Ed7Z9tjz4qTzDd17JMPObpTHNjKFypRaG+mG4zs10MIBnPkdjwn6Gw78B+lnssyaKH0
-	KseAfof4TShF50vxare1Jt0VGiTDqEJxBkD+mRcswzWZJQxB6QEMJpvayUrTx2P30MzxYMfG3Pz0N
-	3Zg31kw09Pavl/wJnVTWmzdCoyU+QqotmAKz/sseYgRrHS0lW6PR1ntGhlxMvraCpvVck4DEg4Udf
-	Lg4oH4vZWUjg2B8dOGJeIULe7pKBoLUtOpWDOVtvYj75ZKwjgD+tyuFnKwR9yPOwPssJvCklIjRvs
-	UlYuzrJbN+W/Nj7ddStg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gD5cWgkArJDeA4ciR43I2mbQ3m/Rcaqzb217pPX6iG4=; b=vGWMGqNpmBB3oN
+	ZmQb6DK7XC/yI211F/7SWlWiU8ve6YUQ1x/QKu0W64zxj3s6NlZpu8Ey4HV2OM9htl5evTWqcv7mY
+	vbdMmTNHCOoJ30rJbLF+Sf4TjEXfdVyYSI+Mqz9wRwXJpsrzEVGEm+mmYpUJLmAMHscwd95gcEq8J
+	2v3UjbIB3rIOkAEk6PYXEYlByBayAxbRiX0n7zII/CHVBuy9RnRUuSGccNhTSp1NzMNiXiWitmpRl
+	s0MlaoxkcI7ra03SCQL+1fUUTLzdd69vOXIgUmmeKH3HOqxYQkNkeuhvqkrgq2j0RzEn2SIA+Yl0W
+	cOmnkJi43kyzN7aKfAfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogp1z-009QRA-OT; Fri, 07 Oct 2022 15:12:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ogpVB-009WvY-Rv; Fri, 07 Oct 2022 15:43:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogp1x-009QQi-DB
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 15:12:54 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ogp1q-000850-95; Fri, 07 Oct 2022 17:12:46 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH 8/8] riscv: remove riscv_isa_ext_keys[] array and related usage
-Date: Fri, 07 Oct 2022 17:12:44 +0200
-Message-ID: <16326987.geO5KgaWL5@diego>
-In-Reply-To: <20221006070818.3616-9-jszhang@kernel.org>
-References: <20221006070818.3616-1-jszhang@kernel.org> <20221006070818.3616-9-jszhang@kernel.org>
+	id 1ogpUv-009Wfh-Az
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 15:42:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1665157364;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1lKCnBjxRPjgpNNPlEylbLIMLTQ3r/0aTk3SgXwAPQE=;
+	b=G9uVV+M9nmwbieujqMQ/re9tPdiKc0GQ0BobPhskxwWGXuJOsYomvNUgO2ePwYeUjXUYjh
+	KucliLTNw42OpCfYYEDFgNcK0fmHkAHvRsLxI6geAvL0hxns6grraNkBkOUdQyCH3pfhHf
+	i7SZ+Sz+gaEqp8mIzBW2qyAUfFMzxlY=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-592-vwkusbQHMhyumzBcUkF2KA-1; Fri, 07 Oct 2022 11:42:43 -0400
+X-MC-Unique: vwkusbQHMhyumzBcUkF2KA-1
+Received: by mail-wm1-f70.google.com with SMTP id fc12-20020a05600c524c00b003b5054c70d3so2845592wmb.5
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 08:42:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1lKCnBjxRPjgpNNPlEylbLIMLTQ3r/0aTk3SgXwAPQE=;
+        b=ZwR8t37nA6kzohqqLImBqXZEWV/3lyuN3SufIU7pj5jouGTmybkQRj4PVw38n6vs2n
+         Icp9YjU1xZt/KLx3eMjmOnBDYPekVv1tp3fNLCft5D1GOXxJP5VwEZBZ/uE78ELkBOiZ
+         ulJdxvoNJSJUxPSaDr5bFWMGdugkaNKjn0AhhQCV5zukbktJKdOaf3KNfXpxjBCjb5PN
+         CaHsOHnN53hDJprp7TjgzSRBPNo45/R99XrRQq5eRQjnymIVgPrF6A0sEdCRMGo8fybd
+         v1RsKBKZIG9XUjVXeO6rcdF5qRp+JVAAGSWwtcvCOsZfxKUuoYLucnol+IYB89hDy0Wy
+         Ci7A==
+X-Gm-Message-State: ACrzQf0THo9pqNDrw0jvkKEGO2xKKs7kUpcCcPcgqwq4hZcqJpn8tN7k
+	R3PgMR/PL6TRiTR+QEm1tuR+BntwrRfMZ1P5wUSD2iwbbCjXLKujVFDrrSRD10LcEhYbZ1a95/K
+	n8Bwk2LMn3uQ197VKzkYiDUR6Yc6+
+X-Received: by 2002:a5d:5010:0:b0:22a:cb71:9493 with SMTP id e16-20020a5d5010000000b0022acb719493mr3770669wrt.514.1665157361756;
+        Fri, 07 Oct 2022 08:42:41 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM7Tr05uM1rtU5aj/QWiT6cTirx56otcH3SojWjYuAUChmPHRHcJ6HatWEhyYipO7y3unWYaxQ==
+X-Received: by 2002:a5d:5010:0:b0:22a:cb71:9493 with SMTP id e16-20020a5d5010000000b0022acb719493mr3770632wrt.514.1665157361532;
+        Fri, 07 Oct 2022 08:42:41 -0700 (PDT)
+Received: from vschneid.remote.csb ([149.71.65.94])
+        by smtp.gmail.com with ESMTPSA id e1-20020a5d5941000000b0022af865810esm2307021wri.75.2022.10.07.08.42.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Oct 2022 08:42:40 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org,
+	x86@kernel.org
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: [RFC PATCH 0/5] Generic IPI sending tracepoint
+Date: Fri,  7 Oct 2022 16:41:40 +0100
+Message-Id: <20221007154145.1877054-1-vschneid@redhat.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_081253_465977_A91DF810 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221007_084249_514664_508F2BDD 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,14 +129,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 6. Oktober 2022, 09:08:18 CEST schrieb Jisheng Zhang:
-> All users have switched to riscv_has_extension_*, removed unused
-> definitions, vars and related setting code.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Background
+==========
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Detecting IPI *reception* is relatively easy, e.g. using
+trace_irq_handler_{entry,exit} or even just function-trace
+flush_smp_call_function_queue() for SMP calls.  
 
+Figuring out their *origin*, is trickier as there is no generic tracepoint tied
+to e.g. smp_call_function():
+
+o AFAIA x86 has no tracepoint tied to sending IPIs, only receiving them
+  (cf. trace_call_function{_single}_entry()).
+o arm/arm64 do have trace_ipi_raise(), which gives us the target cpus but also a
+  mostly useless string (smp_calls will all be "Function call interrupts").
+o Other architectures don't seem to have any IPI-sending related tracepoint.  
+
+I believe one reason those tracepoints used by arm/arm64 ended up as they were
+is because these archs used to handle IPIs differently from regular interrupts
+(the IRQ driver would directly invoke an IPI-handling routine), which meant they 
+never showed up in trace_irq_handler_{entry, exit}. The trace_ipi_{entry,exit}
+tracepoints gave a way to trace IPI reception but those have become redundant as
+of: 
+
+      56afcd3dbd19 ("ARM: Allow IPIs to be handled as normal interrupts")
+      d3afc7f12987 ("arm64: Allow IPIs to be handled as normal interrupts")
+
+which gave IPIs a "proper" handler function used through
+generic_handle_domain_irq(), which makes them show up via
+trace_irq_handler_{entry, exit}.
+
+Changing stuff up
+=================
+
+Per the above, it would make sense to reshuffle trace_ipi_raise() and move it
+into generic code. This also came up during Daniel's talk on Osnoise at the CPU
+isolation MC of LPC 2022 [1]. 
+
+Now, to be useful, such a tracepoint needs to export:
+o targeted CPU(s)
+o calling context
+
+The only way to get the calling context with trace_ipi_raise() is to trigger a
+stack dump, e.g. $(trace-cmd -e ipi* -T echo 42).
+
+As for the targeted CPUs, the existing tracepoint does export them, albeit in
+cpumask form, which is quite inconvenient from a tooling perspective. For
+instance, as far as I'm aware, it's not possible to do event filtering on a
+cpumask via trace-cmd.
+
+Because of the above points, this is introducing a new tracepoint.
+
+Patches
+=======
+
+This results in having trace events for:
+
+o smp_call_function*()
+o smp_send_reschedule()
+o irq_work_queue*()
+
+This is incomplete, just looking at arm64 there's more IPI types that aren't covered:
+
+  IPI_CPU_STOP,
+  IPI_CPU_CRASH_STOP,
+  IPI_TIMER,
+  IPI_WAKEUP,
+
+... But it feels like a good starting point.
+
+Another thing worth mentioning is that depending on the callsite, the _RET_IP_
+fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
+you much about the actual callback being sent via IPI, so there might be value
+in exploding the single tracepoint into at least one variant for smp_calls.
+
+Links
+=====
+
+[1]: https://youtu.be/5gT57y4OzBM?t=14234
+
+Valentin Schneider (5):
+  trace: Add trace_ipi_send_{cpu, cpumask}
+  sched, smp: Trace send_call_function_single_ipi()
+  smp: Add a multi-CPU variant to send_call_function_single_ipi()
+  irq_work: Trace calls to arch_irq_work_raise()
+  treewide: Rename and trace arch-definitions of smp_send_reschedule()
+
+ arch/alpha/kernel/smp.c          |  2 +-
+ arch/arc/kernel/smp.c            |  2 +-
+ arch/arm/kernel/smp.c            |  5 +----
+ arch/arm64/kernel/smp.c          |  3 +--
+ arch/csky/kernel/smp.c           |  2 +-
+ arch/hexagon/kernel/smp.c        |  2 +-
+ arch/ia64/kernel/smp.c           |  4 ++--
+ arch/loongarch/include/asm/smp.h |  2 +-
+ arch/mips/include/asm/smp.h      |  2 +-
+ arch/openrisc/kernel/smp.c       |  2 +-
+ arch/parisc/kernel/smp.c         |  4 ++--
+ arch/powerpc/kernel/smp.c        |  4 ++--
+ arch/riscv/kernel/smp.c          |  4 ++--
+ arch/s390/kernel/smp.c           |  2 +-
+ arch/sh/kernel/smp.c             |  2 +-
+ arch/sparc/kernel/smp_32.c       |  2 +-
+ arch/sparc/kernel/smp_64.c       |  2 +-
+ arch/x86/include/asm/smp.h       |  2 +-
+ arch/xtensa/kernel/smp.c         |  2 +-
+ include/linux/smp.h              |  1 +
+ include/trace/events/ipi.h       | 27 +++++++++++++++++++++++++++
+ kernel/irq_work.c                | 12 +++++++++++-
+ kernel/sched/core.c              |  7 +++++--
+ kernel/smp.c                     | 18 +++++++++++++++++-
+ 24 files changed, 84 insertions(+), 31 deletions(-)
+
+--
+2.31.1
 
 
 _______________________________________________
