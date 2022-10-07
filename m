@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF34C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 03:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AC5C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 03:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=yKpx+ETkZ3LQhqgUl8e5MF186WyPLfnd+7vxIqv7Eew=; b=frE1SbXLbQAd0tKF7W6NZ+rG5N
-	nXuvxFWTaQvw2Jujdu1UgDveCRKaNbSwb1pF3RObL7WHdrqVWKK3FuS9iLZAP4Fnyv8xkai6b31Bg
-	Z64xKzpeK9i7Hcxfmbo3nwbsz3gX0Oj34CKs1BtrvvhecTW+EQk59H1bhHp9CGkr/il4/rplUz6Oa
-	f+HLrgs6g7Sq8BFsD2pwxeImIAm8rmFEB5n2ymXinpx1TKypXbjjunoVwU5rZRybIC+6bYmxta1RK
-	UGCoVy86pnwecF+RWukOmWxrDxHgf2zu9DWaW0bjmfPetYONDYpuaJ47gsOZKTVX+ZaBFDRkRiNbx
-	ZmK6BwRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pjIb5iWcgRSH9fHlgrpL8/mhIk45HY4sBMj26JdJtqI=; b=E74Gwz4eIREtig
+	AsWFbSQ5h1QZZjYMLLAMD7yFfe6buttQ+IntNLQCZ59cg49fP6HV1CG2vknCPOY9NElDi6D1lgvuC
+	eWGPCZ72uXNwoNvSgeTRzt4DWuDxwx9WSw6IEL04zDMCf5slMIvHv+Em+TFzA8Ww2RlxoWC8Sk0e3
+	a+AtVDQDNR3ThGnnc8c+AZB2tKUXv2zWigWilTnCMDtyXyWA+w676c1wQxWpJTZoNyX12wli0q31i
+	kG13QZmfVLL6m70XletPtVNNoauZUXdyDyjmNPVbLww7cCOithy+8CDmoI4u16xPjZNGbO4QBwOaJ
+	TMbVk1Q1EhO//rk4fyvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogeND-0070XR-7j; Fri, 07 Oct 2022 03:50:07 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1ogeOe-0071Se-2B; Fri, 07 Oct 2022 03:51:36 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogeNA-0070VE-If
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 03:50:06 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id t12-20020a17090a3b4c00b0020b04251529so3571175pjf.5
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 20:50:01 -0700 (PDT)
+	id 1ogeOb-0071RO-Gk
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 03:51:35 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-1321a1e94b3so4409923fac.1
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 20:51:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QJV+qm5YFFiznBqhy0lPgYnioHuBBK2LI/jJC4Wt6/0=;
-        b=K7FtXe2lgnfARccniRXk8NU9SjejL3DLeQ9TGBThaSeXN+j8P0jRiZ2Z4vExivTKii
-         fB8kLmh6BDHs78+SLNoP+ZT7uyZn7VwYUSg3uDOV+Ccsa9LPSK7LKchYu3q082wfTXTc
-         kAXeY7Ck3lM8pqsfGwSVYssedBc8P4uZb4dXvdlSwOGpF7GtBypu74pobADDkbDQJfS9
-         pbr3NQMEzoD+4vhQc2AmoPeiYvJcjnhsTcnCxevdNlXlrjrpeHeuFnoG1fkO3UxaCMr4
-         1OKknIlOqRIPrgp8V/ddnBpD9dTcNduOMnWd7AzmxTCeDcSbw5ncZNubkXyFQvydxg/7
-         se/g==
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ywOJjC1iAeM1WckDzdDR6XJ9UsRidM3rIQ+Y2hJNDKM=;
+        b=Cm8A2XN+mF9SQCfZ8U83Xr2/sdIj3A4gzywnUW/7Rg8Ps6TUj4mhzqhCDtGqP7rbCX
+         cR0e5rS0OPRwXdYsVNItxkjYH46iUD/Bd/+KUmlHvltKz67cwSfZ1QPHMg10zi1Iw9bm
+         vDZbb+QvIf3iyYRqE/pS19gScSSw1GkfnatsP8vKo8rbOgn6RPhSaNJX1B1SkuM2/vq7
+         1ro4NazkBLM0NjJ1s+DFBjBdE1QhYGBWWpOMpKVLCIXLv5L9XAAnJtiRU9u+E/g+SHEl
+         qm19+eysnC3NebtYzE6Z6Mi6JCPSiZIIXR689VTSW5J1/AfsM2qmJLQlgJZEeJllTKHy
+         aB6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QJV+qm5YFFiznBqhy0lPgYnioHuBBK2LI/jJC4Wt6/0=;
-        b=Jrzs1A/yyfcrD3UhlRAeWHNDeBR0BE29vcXULzs87mgmnNONZTNg1kybtdQsurVJQ1
-         kCNBUHtxx/nMcoP3mLRgBE2kX0LRWylRNqAJwe5+Jd8XGxvGPyKzFCetunINe0kQuDzM
-         ZOlblTTj0hSN+dII9FavemtJhGUlVrWhvA8xmNitzsNn+O7NejRi1oiYh+bjNSIrnHvk
-         yVm6o/efaHzi3oz7RtggKNidcoQMHrdtFbDza0whlzAr00Mu5/6M4OV4WmCMinQ4Y2Xe
-         XYtuZAQiIomJ678t8qDGuY+W+a3s1wBwd7U3SbqH6eet/+weWzVmrVOXRfAJUMv8paGi
-         0/9w==
-X-Gm-Message-State: ACrzQf2MF3pphEAltAPBrnlsemdf0RuZImkChgTkZH4f7IYD4X17ZfnR
-	FcZsO5e7NjPEGgsTXPuIXurpLw==
-X-Google-Smtp-Source: AMsMyM7ZwrpwCHd+5QHfW0XpJ3EKIi7cgd1qJwnX9OVy1i3qhA0wrZklq7ArKdAyv0wtkVlNeFasnw==
-X-Received: by 2002:a17:90b:4d05:b0:202:ec78:9d73 with SMTP id mw5-20020a17090b4d0500b00202ec789d73mr3115970pjb.103.1665114601298;
-        Thu, 06 Oct 2022 20:50:01 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id h12-20020a170902f7cc00b001781a7c28b9sm380109plw.240.2022.10.06.20.50.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Oct 2022 20:50:00 -0700 (PDT)
-Date: Thu, 06 Oct 2022 20:50:00 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 Oct 2022 20:49:53 PDT (-0700)
-Subject: Re: [PATCH v2 1/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-In-Reply-To: <YzQ6pqykLhJVeD2p@infradead.org>
-CC: apatel@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  atishp@atishpatra.org, heiko@sntech.de, anup@brainfault.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, mchitale@ventanamicro.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-96bfb7a5-6579-4ebc-9517-db2e62d2f82b@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ywOJjC1iAeM1WckDzdDR6XJ9UsRidM3rIQ+Y2hJNDKM=;
+        b=1KgGPlK8y8EENVTYApbSC5486Fy9mp1iHnmsNzcSsQrctp1fwmyB9flsMI+Mxcft9I
+         E+BX+Ru1/YjZjvc7Q5QwODo0OB0yiNBiaPj0TJGCd4coOaJNpZCVE45j7U6MdB/7JCXs
+         gvS1KbE2MO2OEq+Pfz7YKKtcM7VfRhGDPBf+Vp2T8zbSW36OXlJlnQP6Q45ltjlH3LGH
+         5RSCgm+mhZVG5b2ZiSIFb1QufUQLtcI1n111pHd1rpDW4xzm2R+3Elu42ZvW1pl25Usz
+         XxF1jt/Lk1ZBN7RvHEikpftUdNySWHEidUKj5RVZ1cSiNRkvO0/pyUhwhEONZRpL3uss
+         WQlA==
+X-Gm-Message-State: ACrzQf1jArV7F4RJ/J9pGgrw/7k5lDZHFl/fWZWH4oqH4QNnUO9EzRBT
+	Wrj2CR502kpkP7+wJtcjsLfaNWoikP5jxurddC8ycQ==
+X-Google-Smtp-Source: AMsMyM58r3x61gcQz490WPKR8f7M4ASa5M+2B+LqM+DSCDhS6Ek4QKEKnabKgdcccswhnXNdVIOArInEoUBb8fej4mo=
+X-Received: by 2002:a05:6870:ac21:b0:132:f716:1804 with SMTP id
+ kw33-20020a056870ac2100b00132f7161804mr4707931oab.248.1665114691420; Thu, 06
+ Oct 2022 20:51:31 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220829062202.3287-2-zong.li@sifive.com> <mhng-050016e5-0f50-4366-b4bd-98b4b36a56bb@palmer-ri-x1c9>
+In-Reply-To: <mhng-050016e5-0f50-4366-b4bd-98b4b36a56bb@palmer-ri-x1c9>
+From: Zong Li <zong.li@sifive.com>
+Date: Fri, 7 Oct 2022 11:51:20 +0800
+Message-ID: <CANXhq0qMuU3-R=5fM6WK28259dBBbM+6Sg6-=ayiSVLuccx9TQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: sifive-ccache: rename SiFive L2 cache to
+ composible cache
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, greentime.hu@sifive.com, 
+	conor.dooley@microchip.com, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_205004_830781_19BA9929 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20221006_205133_601130_6AF7883A 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,24 +83,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Sep 2022 05:14:30 PDT (-0700), Christoph Hellwig wrote:
-> On Thu, Sep 22, 2022 at 09:35:56AM -0700, Palmer Dabbelt wrote:
->> Sorry I missed this, I thought it was just part of the rest of this patch
->> set.  That said, I'm not actually sure this is a critical fix: sure it's a
->> performance problem, and if some driver is expecting ioremap_cache() to go
->> fast then possibly a pretty big one, but the only Svpmbt hardware that
+On Fri, Oct 7, 2022 at 10:58 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> More importantly nothing should be using ioremap_cache at all.  It is
-> an API that has long been deprecated in favor of memremap.
+> On Sun, 28 Aug 2022 23:22:00 PDT (-0700), zong.li@sifive.com wrote:
+> > Since composible cache may be L3 cache if private L2 cache exists, it
+> > should use its original name composible cache to prevent confusion.
+> >
+> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > ---
+> >  .../riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml}      | 6 ++++--
+> >  1 file changed, 4 insertions(+), 2 deletions(-)
+> >  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml} (92%)
+> >
+> > diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> > similarity index 92%
+> > rename from Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> > rename to Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> > index 69cdab18d629..1a64a5384e36 100644
+> > --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> > @@ -12,8 +12,8 @@ maintainers:
+> >    - Paul Walmsley  <paul.walmsley@sifive.com>
+> >
+> >  description:
+> > -  The SiFive Level 2 Cache Controller is used to provide access to fast copies
+> > -  of memory for masters in a Core Complex. The Level 2 Cache Controller also
+> > +  The SiFive Composable Cache Controller is used to provide access to fast copies
+> > +  of memory for masters in a Core Complex. The Composable Cache Controller also
+> >    acts as directory-based coherency manager.
+> >    All the properties in ePAPR/DeviceTree specification applies for this platform.
+> >
+> > @@ -27,6 +27,7 @@ select:
+> >          enum:
+> >            - sifive,fu540-c000-ccache
+> >            - sifive,fu740-c000-ccache
+> > +          - sifive,ccache0
+>
+> Looks like Rob's bot had comments and I don't see a v2.  Sorry if I'm
+> missing something.
 
-There's a few uses of it, I just send along a patch to make it 
-arch-specific and make the users depend on it.  That should let us stop 
-adding this to ports just to get the drivers building.
+Hi Palmer,
+We moved this series to the following patch set:
+http://lists.infradead.org/pipermail/linux-riscv/2022-October/020196.html
+
+Sorry for the confusion. Many thanks for considering this series.
+
+>
+> Also: I'd guess that we only had the SOC-specific mappings on purpose.
+> It's kind of a grey area and I'm OK either way, but I'd definately
+> prefer the DT folks to get a chance to review these.  My guess is that
+> they're not looking due to the bot comments, but sorry again if I've
+> missed it.
+>
+> >    required:
+> >      - compatible
+> > @@ -37,6 +38,7 @@ properties:
+> >        - enum:
+> >            - sifive,fu540-c000-ccache
+> >            - sifive,fu740-c000-ccache
+> > +          - sifive,ccache0
+> >        - const: cache
+> >
+> >    cache-block-size:
 
 _______________________________________________
 linux-riscv mailing list
