@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC952C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 02:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236C2C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 02:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=T2fmqs5Uxx4MhVYyhYXllgmSW++Z8wZjdxECVQe/eMs=; b=blUGZA/nP1ptUcW1jS12Fc/2Cm
-	b2SknKD1ZGMels7UB71ElOA+dIlIIyfx2poLhUWlfuN30HIoJc+dnsV+MqdvcGdk8wwwWE5g10rys
-	VYLph2PedowlsvdCu+dgj9/i5zc7ahkUNk3AEOzjlX+0Sl4NS9xz529J4Ef69wY/6OzyTVsRMQY01
-	IRE3S45zOXax3TyDpknsXYTCDeZYxLnw/bokJ4fEx51i+eQ/4PP1HbPbVZ5l7eLSmTT2IY4gCTIh1
-	yYa8UWeMkVb3lm+zYQEZuDl8HHLUGkn3qhWm/V/5cFbdFkLsd/PAazM8LWeZUuwn8XvzHAJT/evXk
-	b0GS+vKQ==;
+	bh=WlzahPdfLKEKymWjfnM6ww38wSvtd4/YSTDrApO1RIQ=; b=23vKlKT/5agipZtK0Iy2QaZ2+g
+	8OV9Xp0qNg1WRnKKc27UVwaOZgUkmXjp+VCqpn+Pj9DQj+fY+bPUv3x43Z9BMa8JziL/tYHEig1hh
+	s9XdJTkNuB7chzMya7PfHc1tdcp0654n3hXndHf95EtpvpClYoH7fb3iEWfBf8EgUJnWVmfyVeD/E
+	ZZTVm05J509Nmy38CksD85In00Wv02+tffhZeFpL1KotRlnhRisiHmUTK1hUfDm0tZc/bA/ZYfN/B
+	ZCup32Um+pMyuxS7E6F09YSy8D+t5aHCIbdoEwW8ET70otxIRcRXcPoZVdKV7UjJmyL0gjYd8cH8I
+	BqcatKow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogd8u-006fFq-Nt; Fri, 07 Oct 2022 02:31:16 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1ogdYz-006kEC-C5; Fri, 07 Oct 2022 02:58:13 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogd8i-006fCW-Uw
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 02:31:08 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id x6so3331838pll.11
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 19:31:02 -0700 (PDT)
+	id 1ogdYw-006kCM-2a
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 02:58:11 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id y136so3786513pfb.3
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Oct 2022 19:58:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9oXX1ToddAdjCT7RrejoF1gtgX9gXH4OgxAoTE01pKk=;
-        b=CoIUIlp/l30nI9b/o2YjTZvVwciHUnvYi5SK6ywag4/a/mcM6KppbWz3KG3F4//vFl
-         bMqA96n9dGXj+ileOiyC3XdJ68h6UoSjqU1idAlEXpkIchHHXywDqsIilE6dXFxDNARW
-         NtBLKvxwl4fxQfXNrre7UJChNy6Vo3bE4ijrP3epqwzH/YL+htGdUQOR96BxodrCR6KT
-         2al3u4KWt/1aPXEAVWZlplrfopo19Tgye9BhgGJO/02xU5IU1lGy0sQR1+uWJ3xx/ysr
-         2wfcfGs4Gp4y2Rb8LNxGCkrhQNTDlj3PSjiC8+7t3cjcArXERmYuC/zhL0RuJOgLcqLO
-         TinA==
+        bh=zoj5EGA0RYL9Ka7luDj/60Kyu1sOVCj/9jFFGeRwP9Y=;
+        b=TnY1XKauPWQ8k6BJT+TkH6jngPwzD2M3I3/ivPWAnBOsOtikW4DiG4DRqNmcDv5jsP
+         3T+fYGrtt72fkJ1McvY1lk7El+YU43Duy+HskVv6oQ62Trw+yHvgEz8kkSbVukb1Dv3K
+         DT/dQSDulksE1an7I8Lr/HA4FsE6gzs3MlzQ5M9mufsti74syB7DQmfPiurh7MedYo5J
+         e5MTPJTo8YnKq52+gl9WFVBKMeCnpKX11vgZEDBSJMn7M2oWkXK/wxxO6U5+W2BvSujY
+         VtjiE0O0Y+OkvTmVeh6GsPy2C07afAa5xFm3rica75E5DK/xkgnbepy9AiXEbvsX2WoN
+         zZlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9oXX1ToddAdjCT7RrejoF1gtgX9gXH4OgxAoTE01pKk=;
-        b=ovOch6Bkj2kr5goys/+4x2V83Pf+jZf7NHcYdYVfQxFu4ITjLRZdgtGIroP3hBrLoN
-         f0ntj+nkwxVnnPutaksts5eO2E+OZsg2rx85dm5lAT12sgMJqkkVxVC61WYe9e64XRA3
-         JE5Yruxi2GL4dzj9munvfnXqMNS1SvfRiDpKqYaOzXY9suyH6xGVvClmhjk5ubf35NNh
-         feG0hxU7vj0s1uRLPM98OOXmS4NQrxx4XShUw7h14QHSYn2sMuaMuc3tk69uRMhan1l+
-         oXjW98lFyLPI0ORPx+9gp6b7R26nlio1oLA8x5gFtmcoUKFr7mv4K9ZlNkLDSxLb7xYV
-         7hQw==
-X-Gm-Message-State: ACrzQf2KmOWavqbtsfCuLUFeQq44Hp9TTbBbALCVG2FYrTYnFdQuFe01
-	wKhWJTfSq2l4zAT96v0VZIkbkA==
-X-Google-Smtp-Source: AMsMyM4kchN+uqfbU5gVp8zmvTg52VKf0+O3238fnLuQ4FqZxuadQCVq4nUrE/VsX2pSjMg0cIFJAw==
-X-Received: by 2002:a17:902:c950:b0:178:4544:55c1 with SMTP id i16-20020a170902c95000b00178454455c1mr2537890pla.168.1665109862049;
-        Thu, 06 Oct 2022 19:31:02 -0700 (PDT)
+        bh=zoj5EGA0RYL9Ka7luDj/60Kyu1sOVCj/9jFFGeRwP9Y=;
+        b=P/GjtaJu5eHdPYvXbl7nQhoc5Dfpide4mB17zvPussTQysONmhgen09S9IUlK5+oeM
+         wbgMdL6mDq57zTmYZKITDsg+uwdJFpdRdx/+HsKTt6/HhJBX8Ja0zdjXmxvq3pqzKm/o
+         9Xxu3F37yN1r+5kBI7yX3bdcSKBnTYp+PM7I5ILjGp0y0pAsIql3rFwodBQMSmsEL7Pt
+         SMEwlbYXO3G7Rst6G/zDYBb7itb9s8cp0rD2SS3hxmNGRWvKrrhojaQSyRpB7uOGVwSX
+         8PVA8NKVexUhQf0my7VdIPoeZeNe1X3hFCjdb3JXIAlynUHKyKXcdwvpZLgbG+VrPCsu
+         lvyA==
+X-Gm-Message-State: ACrzQf1rQA8aSLqVmJnwTwGw7fjSnc33TQHv7YLrEziqwtyDAfqpfHzL
+	rWFP+puTXECpHuKj4lCGsCXmVg==
+X-Google-Smtp-Source: AMsMyM4aHddStVwHJEdJraLuB8qK0pz3TytQVfIvQWiHygu27A1LUyhoO+y89+6zBj1fLgqb9CWA1w==
+X-Received: by 2002:a63:6986:0:b0:43c:8417:8dac with SMTP id e128-20020a636986000000b0043c84178dacmr2559548pgc.286.1665111486224;
+        Thu, 06 Oct 2022 19:58:06 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id p8-20020a170902780800b001743ba85d39sm318593pll.110.2022.10.06.19.31.01
+        by smtp.gmail.com with ESMTPSA id v66-20020a622f45000000b00561b6705d6esm337550pfv.219.2022.10.06.19.58.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Oct 2022 19:31:01 -0700 (PDT)
-Date: Thu, 06 Oct 2022 19:31:01 -0700 (PDT)
-X-Google-Original-Date: Thu, 06 Oct 2022 19:30:58 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Add STACKLEAK erasing the kernel stack at the end of syscalls
-In-Reply-To: <6c48657c-04df-132d-6167-49ed293dea44@microchip.com>
-CC: guoren@kernel.org, oleg@redhat.com, vgupta@kernel.org, linux@armlinux.org.uk,
-  monstr@monstr.eu, dinguyen@kernel.org, davem@davemloft.net, Arnd Bergmann <arnd@arndb.de>,
-  shorne@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  ardb@kernel.org, heiko@sntech.de, daolu@rivosinc.com, linux-arch@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-  linux-snps-arc@lists.infradead.org, sparclinux@vger.kernel.org, openrisc@lists.librecores.org,
-  xianting.tian@linux.alibaba.com, linux-efi@vger.kernel.org
+        Thu, 06 Oct 2022 19:58:05 -0700 (PDT)
+Date: Thu, 06 Oct 2022 19:58:05 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Oct 2022 19:51:34 PDT (-0700)
+Subject: Re: [PATCH 1/3] dt-bindings: sifive-ccache: rename SiFive L2 cache to composible cache
+In-Reply-To: <20220829062202.3287-2-zong.li@sifive.com>
+CC: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, greentime.hu@sifive.com, conor.dooley@microchip.com,
+  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  zong.li@sifive.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor.Dooley@microchip.com
-Message-ID: <mhng-8c3bb2e7-e84e-4aaa-bce8-3e8054255a2c@palmer-ri-x1c9>
+To: zong.li@sifive.com
+Message-ID: <mhng-050016e5-0f50-4366-b4bd-98b4b36a56bb@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221006_193105_049493_9F683BCD 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20221006_195810_144111_294276AC 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +91,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 06 Sep 2022 10:35:10 PDT (-0700), Conor.Dooley@microchip.com wrote:
-> On 03/09/2022 17:23, guoren@kernel.org wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->> 
->> From: Xianting Tian <xianting.tian@linux.alibaba.com>
->> 
->> This adds support for the STACKLEAK gcc plugin to RISC-V and disables
->> the plugin in EFI stub code, which is out of scope for the protection.
->> 
->> For the benefits of STACKLEAK feature, please check the commit
->> afaef01c0015 ("x86/entry: Add STACKLEAK erasing the kernel stack at the end of syscalls")
->> 
->> Performance impact (tested on qemu env with 1 riscv64 hart, 1GB mem)
->>     hackbench -s 512 -l 200 -g 15 -f 25 -P
->>     2.0% slowdown
->> 
->> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> 
-> What changed since Xianting posted it himself a week ago:
-> https://lore.kernel.org/linux-riscv/20220828135407.3897717-1-xianting.tian@linux.alibaba.com/
-> 
-> There's an older patch from Du Lao adding STACKLEAK too:
-> https://lore.kernel.org/linux-riscv/20220615213834.3116135-1-daolu@rivosinc.com/
-> 
-> But since there's been no activity there since June...
+On Sun, 28 Aug 2022 23:22:00 PDT (-0700), zong.li@sifive.com wrote:
+> Since composible cache may be L3 cache if private L2 cache exists, it
+> should use its original name composible cache to prevent confusion.
+>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  .../riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml}      | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml} (92%)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> similarity index 92%
+> rename from Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> rename to Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> index 69cdab18d629..1a64a5384e36 100644
+> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+> @@ -12,8 +12,8 @@ maintainers:
+>    - Paul Walmsley  <paul.walmsley@sifive.com>
+>
+>  description:
+> -  The SiFive Level 2 Cache Controller is used to provide access to fast copies
+> -  of memory for masters in a Core Complex. The Level 2 Cache Controller also
+> +  The SiFive Composable Cache Controller is used to provide access to fast copies
+> +  of memory for masters in a Core Complex. The Composable Cache Controller also
+>    acts as directory-based coherency manager.
+>    All the properties in ePAPR/DeviceTree specification applies for this platform.
+>
+> @@ -27,6 +27,7 @@ select:
+>          enum:
+>            - sifive,fu540-c000-ccache
+>            - sifive,fu740-c000-ccache
+> +          - sifive,ccache0
 
-Looks like the only issues were some commit log wording stuff, and that 
-there's a test suite that should be run.  It's not clear from the 
-commits that anyone has done that, I'm fine with the patch if it passes 
-the tests but don't really know how to run them.
+Looks like Rob's bot had comments and I don't see a v2.  Sorry if I'm 
+missing something.
 
-Has anyone run the tests?
+Also: I'd guess that we only had the SOC-specific mappings on purpose.  
+It's kind of a grey area and I'm OK either way, but I'd definately 
+prefer the DT folks to get a chance to review these.  My guess is that 
+they're not looking due to the bot comments, but sorry again if I've 
+missed it.
 
-> 
->> ---
->>  arch/riscv/Kconfig                    | 1 +
->>  arch/riscv/include/asm/processor.h    | 4 ++++
->>  arch/riscv/kernel/entry.S             | 3 +++
->>  drivers/firmware/efi/libstub/Makefile | 2 +-
->>  4 files changed, 9 insertions(+), 1 deletion(-)
->> 
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index ed66c31e4655..61fd0dad4463 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -85,6 +85,7 @@ config RISCV
->>         select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
->>         select HAVE_ARCH_THREAD_STRUCT_WHITELIST
->>         select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
->> +       select HAVE_ARCH_STACKLEAK
->>         select HAVE_ASM_MODVERSIONS
->>         select HAVE_CONTEXT_TRACKING_USER
->>         select HAVE_DEBUG_KMEMLEAK
->> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
->> index d0537573501e..5e1fc4f82883 100644
->> --- a/drivers/firmware/efi/libstub/Makefile
->> +++ b/drivers/firmware/efi/libstub/Makefile
->> @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)          := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
->>                                    -fno-builtin -fpic \
->>                                    $(call cc-option,-mno-single-pic-base)
->>  cflags-$(CONFIG_RISCV)         := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
->> -                                  -fpic
->> +                                  -fpic $(DISABLE_STACKLEAK_PLUGIN)
->> 
->>  cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
->> 
->> --
->> 2.17.1
->> 
->> 
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+>    required:
+>      - compatible
+> @@ -37,6 +38,7 @@ properties:
+>        - enum:
+>            - sifive,fu540-c000-ccache
+>            - sifive,fu740-c000-ccache
+> +          - sifive,ccache0
+>        - const: cache
+>
+>    cache-block-size:
 
 _______________________________________________
 linux-riscv mailing list
