@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 813C8C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 09:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44558C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 09:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QSFkQSkv5zyiNLZxOwjtOUOXoAl+ZBPvc4Xxx+qL6/A=; b=kQUjRBur8udMzC
-	tZEGkf5iI921fPSiAb0XeZoGymEL4FDnrlwXCrgx4fxlj31dPYEh0O/Vgd25ct/w27k0cOiqQ1aC9
-	oPYu0XqTN3wdx6ft3IaZDlQI8HdhAyE/hOx4bYzJhFXlIVT/X4+qVSrWFNVpxM2Om2MGbpj8IQC+I
-	zllJ5bYuiuYtweZufve9qjkf7DnAZNeNUwkpGw+4E8dP3Nd/7EL61nxeI7dATVz4K0YJekuR92j8P
-	8okRauqLvO/h8cOwtQQtni/0qYqNTMM9tm5/DusyhDqIG/ZQID7Wn+oKDdl1uLyDGYLWKgFCrtc2o
-	IxZM2/iBo26uln20pajw==;
+	List-Owner; bh=h5hIc2mbn63rnlxmv8OggcaCdPcMyNIL0lqciTtGgGE=; b=Oo7NK6lbi+GXL6
+	7JaInWafG3qrWMbSmDDPFQTIVa/5/SRrMKT8E6ZaD6gIDxQZueHqPTpauE6St3XIAvAgM2yANixv/
+	SKo6vbQZMN4fYGwQyygV4X2JYN6x7liMSft1r/TgNkEvctK47tBUWG9nsey7b4Bie3NAe4tLw9CHB
+	mpKwoFE/+vK8MJHsyY9YUVKhsx2BN/zUcOnLkfYOc9eDWrFlc8Qh/DOsfieMHp84nkhBkRHk1nmOY
+	jvKpngWFL59H8VYnw0Sgjkt5k3RScu+izERLK0LSSLMjDBfl1FqJVrTdh3VPwpmxQBFAaEsxz7Woi
+	eJyEFfHpcMkMY52ABkNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogjVP-008GtR-6E; Fri, 07 Oct 2022 09:18:55 +0000
+	id 1ogjYc-008HXm-Lw; Fri, 07 Oct 2022 09:22:14 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogjVM-008GpH-BO
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 09:18:53 +0000
+	id 1ogjYa-008HXH-EH
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 09:22:13 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1ogjVF-000618-UU; Fri, 07 Oct 2022 11:18:45 +0200
+	id 1ogjYY-00063C-EQ; Fri, 07 Oct 2022 11:22:10 +0200
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH 1/8] riscv: move riscv_noncoherent_supported() out of ZICBOM probe
-Date: Fri, 07 Oct 2022 11:18:45 +0200
-Message-ID: <4842439.0VBMTVartN@diego>
-In-Reply-To: <20221006070818.3616-2-jszhang@kernel.org>
-References: <20221006070818.3616-1-jszhang@kernel.org> <20221006070818.3616-2-jszhang@kernel.org>
+Subject: Re: [PATCH 3/8] riscv: hwcap: make ISA extension ids can be used in asm
+Date: Fri, 07 Oct 2022 11:22:09 +0200
+Message-ID: <13539612.RDIVbhacDa@diego>
+In-Reply-To: <20221006070818.3616-4-jszhang@kernel.org>
+References: <20221006070818.3616-1-jszhang@kernel.org> <20221006070818.3616-4-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_021852_420972_A295F718 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20221007_022212_505228_A8411690 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,62 +58,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Donnerstag, 6. Oktober 2022, 09:08:11 CEST schrieb Jisheng Zhang:
-> It's a bit wired to call riscv_noncoherent_supported() once when
-> insmod a module. Move the calling out of feature patch func.
+Am Donnerstag, 6. Oktober 2022, 09:08:13 CEST schrieb Jisheng Zhang:
+> We will make use of ISA extension in asm files, so make the multi-letter
+> RISC-V ISA extension IDs macros rather than enums and move them and
+> those base ISA extension IDs to suitable place.
 > 
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/kernel/cpufeature.c | 7 +------
->  arch/riscv/kernel/setup.c      | 4 ++++
->  2 files changed, 5 insertions(+), 6 deletions(-)
+>  arch/riscv/include/asm/hwcap.h | 45 +++++++++++++++++-----------------
+>  1 file changed, 23 insertions(+), 22 deletions(-)
 > 
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 3b5583db9d80..03611b3ef45e 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -272,12 +272,7 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
->  	case RISCV_ALTERNATIVES_EARLY_BOOT:
->  		return false;
->  	default:
-> -		if (riscv_isa_extension_available(NULL, ZICBOM)) {
-> -			riscv_noncoherent_supported();
-> -			return true;
-> -		} else {
-> -			return false;
-> -		}
-> +		return riscv_isa_extension_available(NULL, ZICBOM);
->  	}
->  #endif
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 6f59ec64175e..6cf445653911 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -12,20 +12,6 @@
+>  #include <linux/bits.h>
+>  #include <uapi/asm/hwcap.h>
 >  
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 2dfc463b86bb..1a055c3f5d9d 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -299,6 +299,10 @@ void __init setup_arch(char **cmdline_p)
->  	riscv_init_cbom_blocksize();
->  	riscv_fill_hwcap();
->  	apply_boot_alternatives();
-> +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +	if (riscv_isa_extension_available(NULL, ZICBOM))
-> +		riscv_noncoherent_supported();
-> +#endif
+> -#ifndef __ASSEMBLY__
+> -#include <linux/jump_label.h>
+> -/*
+> - * This yields a mask that user programs can use to figure out what
+> - * instruction set this cpu supports.
+> - */
+> -#define ELF_HWCAP		(elf_hwcap)
+> -
+> -enum {
+> -	CAP_HWCAP = 1,
+> -};
+> -
+> -extern unsigned long elf_hwcap;
+> -
+>  #define RISCV_ISA_EXT_a		('a' - 'a')
+>  #define RISCV_ISA_EXT_c		('c' - 'a')
+>  #define RISCV_ISA_EXT_d		('d' - 'a')
+> @@ -46,21 +32,36 @@ extern unsigned long elf_hwcap;
+>  #define RISCV_ISA_EXT_BASE 26
+>  
+>  /*
+> - * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
+> + * These macros represent the logical ID for each multi-letter RISC-V ISA extension.
+>   * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
+>   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
+>   * extensions while all the multi-letter extensions should define the next
+>   * available logical extension id.
+>   */
+> -enum riscv_isa_ext_id {
+> -	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> -	RISCV_ISA_EXT_SVPBMT,
+> -	RISCV_ISA_EXT_ZICBOM,
+> -	RISCV_ISA_EXT_ZIHINTPAUSE,
+> -	RISCV_ISA_EXT_SSTC,
+> -	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> +#define RISCV_ISA_EXT_SSCOFPMF 		26
+> +#define RISCV_ISA_EXT_SVPBMT		27
+> +#define RISCV_ISA_EXT_ZICBOM		28
+> +#define RISCV_ISA_EXT_ZIHINTPAUSE	29
+> +#define RISCV_ISA_EXT_SSTC		30
+> +
+> +#define RISCV_ISA_EXT_ID_MAX		RISCV_ISA_EXT_MAX
+> +
+> +
 
-The nice thing about doing this in cpufeature_probe_zicbom is that
-you keep all the "ifs" in one place, where now you have 2 places that
-check the existence of the extension.
+nit: double empty line
 
-The overhead is one "x = true" setting on each call to _probe() and with
-this change things are now also handled differently between the main
-implementation and the deviants.
+> +#ifndef __ASSEMBLY__
+> +#include <linux/jump_label.h>
+> +/*
+> + * This yields a mask that user programs can use to figure out what
+> + * instruction set this cpu supports.
+> + */
+> +#define ELF_HWCAP		(elf_hwcap)
+> +
+> +enum {
+> +	CAP_HWCAP = 1,
+>  };
+>  
+> +extern unsigned long elf_hwcap;
+> +
+> +
 
-Though I guess, I'll let others do the judgement call on what is the
-desired way to go ;-) .
+nit: double empty line, otherwise
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+>  /*
+>   * This enum represents the logical ID for each RISC-V ISA extension static
+>   * keys. We can use static key to optimize code path if some ISA extensions
+> 
 
 
-Heiko
 
 
 
