@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75939C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 17:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B9FC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 20:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=b0iUCEHTr5uD25PKIg+vbojr5eOaEAKtYac7ipKM+YI=; b=JIWyGsbRiRQvx1
-	e4wiJMTq3hJsMvS4RFW7F7lou8XCf3Gv+Xi/kX0DpcLm0RAJ/uudyZ4NLn8YdBm0DoITjkn8bp9mm
-	bFnTd8V0ZRoHMRKMesQGnoSHudO+wC1rDBArmSY2KKeNRw1wiTDhvZl68Ex5WY8F6NdKKqd6Qewt9
-	JDhzkIiIRoSL093DNisVaA6sWbrWQysb499RYorDZmrHocal9mnrgQjBzJYdz9iMrYZwG9vCnD6XM
-	fsOHolNq3xWUhyb6pJAfwzSTxGY0+YDkHfC6RcJZX/bmCT0PxxhdsDb44mA381JJOKx4Ea/dC+RPI
-	I2XTEDfZ4St+PNkXBFhw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Uo89VfbDMVKRx2OTcdj+X4qdh7JnUx3x6BU3uZYQQCk=; b=PpKd2X/2i5BCZs
+	cfgY2Mx07sZTPiJpLOSGLmFyQAMgsaPkWqFSRBxNX1/j7sG4XI2xhx4SPd4rBY87g6/kCmN5vSbcG
+	iAG+1skSpAct6FpBEuUtroZSxTTKf90FkDjrZvd2gEB0J6j6WqBDtJbYhF5BobM5TBTa0e2xzdtyn
+	ukb9KGJPExJB9yl5txRfkea+pCOW+hOKwFFuwpc2sN0bIDfmRUoEJaa4exw6a4wulaRvt+/l1o62F
+	YFrIwmKcFkDd2Ah9vnzo00R0V++rX7+JcLv1QnKACGo9QamR/jl3AbcQgKT5y8/KGUcY+yBJ3vVnf
+	a9V5goRNJeut5sGfgAYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogrS8-009wjj-6Y; Fri, 07 Oct 2022 17:48:04 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1ogtZP-00AJEF-DV; Fri, 07 Oct 2022 20:03:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogrS4-009wiZ-U8
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 17:48:02 +0000
-Received: by mail-pf1-x430.google.com with SMTP id p14so1190334pfq.5
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 10:47:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fcci2pupu9UurkJQkRA8mm21LocCWexyJenAk7+j02c=;
-        b=JBaA3MUxHIauaERF+xT/NXVKefe2nI5Rs5pahUR+KKkSu/ximGTDyQa3CWCyEwR3LK
-         aLJxtuFehllLGRa+RLC+bANZRd4zc5cmfHdl2NWKs3FE1/P2S9OjYQCrPO24tGnUKL7d
-         tDlaHjZ6G70mgkKQnri+vaoLMAOfLTPoTOPGHo0ZnNmtcDijbEZmqaOqZsFWlFoxeIzM
-         6NGZNegTPS/cHr3C1Kutpuke6AvKX4tc5IYExuqH0S2TwNNmrzJzf5sWRTnF7HetplX+
-         lS6GKq1Fthn/AQqsEVzXde7WWcqszyKfNs1jh0l3KO9kCjYgJTCj6nMOaCZc/CQkHWdp
-         cQWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fcci2pupu9UurkJQkRA8mm21LocCWexyJenAk7+j02c=;
-        b=PeHsxx6AljpH04qh4wihXEmtzqobZ5dhHd3jYbwa5QNJQyVsxyAqTKvve+++1FiYuy
-         +O7cN/XevKPmTl/EmyFGy0KE94sSTrqbaIL0f/qTfejFUYMH1eESg6DUQ9p9TuAG0zRA
-         K88fmSnYz9czGvGa+2h6dfMBWuxPu+IXL3Wab9ktIhXjs3DZ0suZxaY4SHrDVL5yaL68
-         16gyGJQfekaAb0qfbYtsH8nLvWSE/aRgpl05H5w9T6zyNVdP3LsBBpoMzfAF+PqbJaS5
-         WxL4Zc9Hn0Ng6cgqQQ3kxGppJ+8ZMGfWW2n8zC0JDICIeiFu5dTjoZz+dXSYqKur1e/g
-         GvfA==
-X-Gm-Message-State: ACrzQf34asv9Icl6jM3ssAv/uRJ4z6OleQCJBeja+nnsFqL8UaVjYPyD
-	Ijijbw3Uyc5BBB8siP0OvDZ9ZYmre18juw==
-X-Google-Smtp-Source: AMsMyM7aAF88sHZdlMks90qeAjzp+bL0loKjCg1pJNWkvU4lQiJVetrYk08jOW3Kn1td4kBT6515Pg==
-X-Received: by 2002:a05:6a00:ac6:b0:530:3197:48b6 with SMTP id c6-20020a056a000ac600b00530319748b6mr6538447pfl.80.1665164877695;
-        Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id n8-20020a170902d2c800b0017fe9b038fdsm1700718plc.14.2022.10.07.10.47.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
-Date: Fri, 07 Oct 2022 10:47:57 -0700 (PDT)
-X-Google-Original-Date: Fri, 07 Oct 2022 10:43:57 PDT (-0700)
-Subject: [GIT PULL] RISC-V Patches for the 6.1 Merge Window, Part 1
-CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-6190fb79-f9f6-41bd-90f3-d4d6009d41a5@palmer-ri-x1c9>
+	id 1ogtZM-00AJBL-Td
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 20:03:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1665173017;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jaDcObpjcx0whPL96jk38beBrOuRKo+eqX0wqNpM3Cc=;
+	b=NGLzyLDo0+mQ8eWEGVtjMEihZBPP5mK6ZxBG/r5WCtTkjAkppJF2fWFqgyxIzRBsQ9j1kD
+	LuDA9auAKdRo9xTXyv3/8eX9ZUt6E1FmJQquoyEjuUBJxdKxps/pL92Wr9UYxGI1GkOfku
+	qVc4N5FIMrgVF7/V9lv31pSIg3+y99Y=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-264-kStNREYhN0OL2iSIbHz80Q-1; Fri, 07 Oct 2022 16:03:36 -0400
+X-MC-Unique: kStNREYhN0OL2iSIbHz80Q-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 67B08882826;
+	Fri,  7 Oct 2022 20:03:34 +0000 (UTC)
+Received: from fuller.cnet (ovpn-112-2.gru2.redhat.com [10.97.112.2])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 29A1A2166B4D;
+	Fri,  7 Oct 2022 20:03:32 +0000 (UTC)
+Received: by fuller.cnet (Postfix, from userid 1000)
+	id 258DA416CE48; Fri,  7 Oct 2022 17:01:33 -0300 (-03)
+Date: Fri, 7 Oct 2022 17:01:33 -0300
+From: Marcelo Tosatti <mtosatti@redhat.com>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+	x86@kernel.org, "Paul E. McKenney" <paulmck@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [RFC PATCH 0/5] Generic IPI sending tracepoint
+Message-ID: <Y0CFnWDpMNGajIRD@fuller.cnet>
+References: <20221007154145.1877054-1-vschneid@redhat.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221007154145.1877054-1-vschneid@redhat.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_104801_197974_543D1095 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20221007_130341_069457_1C6D2DDF 
+X-CRM114-Status: GOOD (  35.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,85 +97,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 568035b01cfb107af8d2e4bd2fb9aea22cf5b868:
+Hi Valentin,
 
-  Linux 6.0-rc1 (2022-08-14 15:50:18 -0700)
+On Fri, Oct 07, 2022 at 04:41:40PM +0100, Valentin Schneider wrote:
+> Background
+> ==========
+> 
+> Detecting IPI *reception* is relatively easy, e.g. using
+> trace_irq_handler_{entry,exit} or even just function-trace
+> flush_smp_call_function_queue() for SMP calls.  
+> 
+> Figuring out their *origin*, is trickier as there is no generic tracepoint tied
+> to e.g. smp_call_function():
+> 
+> o AFAIA x86 has no tracepoint tied to sending IPIs, only receiving them
+>   (cf. trace_call_function{_single}_entry()).
+> o arm/arm64 do have trace_ipi_raise(), which gives us the target cpus but also a
+>   mostly useless string (smp_calls will all be "Function call interrupts").
+> o Other architectures don't seem to have any IPI-sending related tracepoint.  
+> 
+> I believe one reason those tracepoints used by arm/arm64 ended up as they were
+> is because these archs used to handle IPIs differently from regular interrupts
+> (the IRQ driver would directly invoke an IPI-handling routine), which meant they 
+> never showed up in trace_irq_handler_{entry, exit}. The trace_ipi_{entry,exit}
+> tracepoints gave a way to trace IPI reception but those have become redundant as
+> of: 
+> 
+>       56afcd3dbd19 ("ARM: Allow IPIs to be handled as normal interrupts")
+>       d3afc7f12987 ("arm64: Allow IPIs to be handled as normal interrupts")
+> 
+> which gave IPIs a "proper" handler function used through
+> generic_handle_domain_irq(), which makes them show up via
+> trace_irq_handler_{entry, exit}.
+> 
+> Changing stuff up
+> =================
+> 
+> Per the above, it would make sense to reshuffle trace_ipi_raise() and move it
+> into generic code. This also came up during Daniel's talk on Osnoise at the CPU
+> isolation MC of LPC 2022 [1]. 
+> 
+> Now, to be useful, such a tracepoint needs to export:
+> o targeted CPU(s)
+> o calling context
+> 
+> The only way to get the calling context with trace_ipi_raise() is to trigger a
+> stack dump, e.g. $(trace-cmd -e ipi* -T echo 42).
+> 
+> As for the targeted CPUs, the existing tracepoint does export them, albeit in
+> cpumask form, which is quite inconvenient from a tooling perspective. For
+> instance, as far as I'm aware, it's not possible to do event filtering on a
+> cpumask via trace-cmd.
 
-are available in the Git repository at:
+https://man7.org/linux/man-pages/man1/trace-cmd-set.1.html
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-mw1
+       -f filter
+           Specify a filter for the previous event. This must come after
+           a -e. This will filter what events get recorded based on the
+           content of the event. Filtering is passed to the kernel
+           directly so what filtering is allowed may depend on what
+           version of the kernel you have. Basically, it will let you
+           use C notation to check if an event should be processed or
+           not.
 
-for you to fetch changes up to 87f81e66e2e84c7e6056413703d732a99c20c09b:
+               ==, >=, <=, >, <, &, |, && and ||
 
-  riscv: enable THP_SWAP for RV64 (2022-10-06 20:03:48 -0700)
+           The above are usually safe to use to compare fields.
 
-----------------------------------------------------------------
-RISC-V Patches for the 6.1 Merge Window, Part 1
+This looks overkill to me (consider large number of bits set in mask).
 
-* Improvements to the CPU topology subsystem, which fix some issues
-  where RISC-V would report bad topology information.
-* The default NR_CPUS has increased to XLEN, and the maximum
-  configurable value is 512.
-* The CD-ROM filesystems have been enabled in the defconfig.
-* Support for THP_SWAP has been added for rv64 systems.
++#define trace_ipi_send_cpumask(callsite, mask) do {            \
++	if (static_key_false(&__tracepoint_ipi_send_cpu.key)) { \
++               int cpu;                                        \
++               for_each_cpu(cpu, mask)                         \
++                       trace_ipi_send_cpu(callsite, cpu);	\
++	}                                                       \
++} while (0)
 
-There are also a handful of cleanups and fixes throughout the tree.
 
-----------------------------------------------------------------
-I will almost certainly have a part 2 for next week, but I'm not sure how big
-it will be: between the conferences and COVID things have been a mess on my
-end, that's clearly made this first week pretty small but it's also meant a lot
-of stuff on the lists still needs work.  There's also some stuff that's pending
-on conflicts, though, so I figured it'd be best to just send this today to make
-handling those easier.
+> 
+> Because of the above points, this is introducing a new tracepoint.
+> 
+> Patches
+> =======
+> 
+> This results in having trace events for:
+> 
+> o smp_call_function*()
+> o smp_send_reschedule()
+> o irq_work_queue*()
+> 
+> This is incomplete, just looking at arm64 there's more IPI types that aren't covered:
+> 
+>   IPI_CPU_STOP,
+>   IPI_CPU_CRASH_STOP,
+>   IPI_TIMER,
+>   IPI_WAKEUP,
+> 
+> ... But it feels like a good starting point.
 
-I'm still seeing some of these KASAN/pcpu_alloc related panics, but it doesn't
-seem like they're more common with these than they are on 6.0 so I think it's
-OK to just call these safe.  Aside from that things seem fine with this merged
-into master from this morning.
+Can't you have a single tracepoint (or variant with cpumask) that would
+cover such cases as well?
 
-----------------------------------------------------------------
-Anup Patel (2):
-      cpuidle: riscv-sbi: Fix CPU_PM_CPU_IDLE_ENTER_xyz() macro usage
-      RISC-V: Increase range and default value of NR_CPUS
+Maybe (as parameters for tracepoint):
 
-Conor Dooley (2):
-      arm64: topology: move store_cpu_topology() to shared code
-      riscv: topology: fix default topology reporting
+	* type (reschedule, smp_call_function, timer, wakeup, ...).
 
-Heinrich Schuchardt (1):
-      riscv: enable CD-ROM file systems in defconfig
+	* function address: valid for smp_call_function, irq_work_queue
+	  types.
 
-Jisheng Zhang (2):
-      riscv: compat: s/failed/unsupported if compat mode isn't supported
-      riscv: enable THP_SWAP for RV64
+> Another thing worth mentioning is that depending on the callsite, the _RET_IP_
+> fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
+> you much about the actual callback being sent via IPI, so there might be value
+> in exploding the single tracepoint into at least one variant for smp_calls.
 
-Palmer Dabbelt (2):
-      Merge tag 'riscv-topo-on-6.0-rc1' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ into for-next
-      RISC-V: Print SSTC in canonical order
+Not sure i grasp what you mean by "exploding the single tracepoint...",
+but yes knowing the function or irq work function is very useful.
 
-Sergey Matyukevich (2):
-      perf: RISC-V: exclude invalid pmu counters from SBI calls
-      perf: RISC-V: throttle perf events
+> 
+> Links
+> =====
+> 
+> [1]: https://youtu.be/5gT57y4OzBM?t=14234
+> 
+> Valentin Schneider (5):
+>   trace: Add trace_ipi_send_{cpu, cpumask}
+>   sched, smp: Trace send_call_function_single_ipi()
+>   smp: Add a multi-CPU variant to send_call_function_single_ipi()
+>   irq_work: Trace calls to arch_irq_work_raise()
+>   treewide: Rename and trace arch-definitions of smp_send_reschedule()
+> 
+>  arch/alpha/kernel/smp.c          |  2 +-
+>  arch/arc/kernel/smp.c            |  2 +-
+>  arch/arm/kernel/smp.c            |  5 +----
+>  arch/arm64/kernel/smp.c          |  3 +--
+>  arch/csky/kernel/smp.c           |  2 +-
+>  arch/hexagon/kernel/smp.c        |  2 +-
+>  arch/ia64/kernel/smp.c           |  4 ++--
+>  arch/loongarch/include/asm/smp.h |  2 +-
+>  arch/mips/include/asm/smp.h      |  2 +-
+>  arch/openrisc/kernel/smp.c       |  2 +-
+>  arch/parisc/kernel/smp.c         |  4 ++--
+>  arch/powerpc/kernel/smp.c        |  4 ++--
+>  arch/riscv/kernel/smp.c          |  4 ++--
+>  arch/s390/kernel/smp.c           |  2 +-
+>  arch/sh/kernel/smp.c             |  2 +-
+>  arch/sparc/kernel/smp_32.c       |  2 +-
+>  arch/sparc/kernel/smp_64.c       |  2 +-
+>  arch/x86/include/asm/smp.h       |  2 +-
+>  arch/xtensa/kernel/smp.c         |  2 +-
+>  include/linux/smp.h              |  1 +
+>  include/trace/events/ipi.h       | 27 +++++++++++++++++++++++++++
+>  kernel/irq_work.c                | 12 +++++++++++-
+>  kernel/sched/core.c              |  7 +++++--
+>  kernel/smp.c                     | 18 +++++++++++++++++-
+>  24 files changed, 84 insertions(+), 31 deletions(-)
+> 
+> --
+> 2.31.1
+> 
+> 
 
- arch/arm64/kernel/topology.c        | 40 -------------------------------------
- arch/riscv/Kconfig                  | 12 +++++++----
- arch/riscv/configs/defconfig        |  3 +++
- arch/riscv/kernel/cpu.c             |  2 +-
- arch/riscv/kernel/process.c         |  2 +-
- arch/riscv/kernel/smpboot.c         |  3 ++-
- drivers/base/arch_topology.c        | 19 ++++++++++++++++++
- drivers/cpuidle/cpuidle-riscv-sbi.c |  7 ++++++-
- drivers/perf/riscv_pmu_legacy.c     |  4 ++--
- drivers/perf/riscv_pmu_sbi.c        | 31 ++++++++++++++++++----------
- include/linux/perf/riscv_pmu.h      |  2 +-
- 11 files changed, 63 insertions(+), 62 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
