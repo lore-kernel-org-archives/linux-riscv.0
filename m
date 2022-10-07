@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061ABC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 15:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119FAC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Oct 2022 15:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ia5Z2p3QWxQf7S+UHEvR9RdJZFvnZ9id6u376w1zU7U=; b=tnRfnskxTYgmYi
-	Q38rcr9gMWuMmm1jFymrxECOnXQL+KNwIcFJF9twPWaHXH0PLAcyhai8w/Pg0P/xtTMQyouDy2NBS
-	No6q2SHjWl1t3PqfxK31ThOszv/vJ6ym3bGGRVCIf5LQh+mTXfSrFscQ2ClWQKlE2koarHcseXO7a
-	S72nGvZ3oq7uA8CL1uKL1VP7hYaAKUeN8cNAZdCyLn8D9wAFm/s0FHdXKz5CGVr2mAN6+UshHOobF
-	TsI+NEXcf3l2JCpneQtCV2Y95EfTV0gBs9L8/BvVcDFrjwXJCc3P+lRf9pM8o2yU9uoTdkQ3oz+KM
-	jby5zWOFe5qF/bCPJD6A==;
+	List-Owner; bh=GT5rZbsJwbUUQRI25B6d77/BENeuR37dHi4qa9ViCLo=; b=SZJF/yeGDN0TLs
+	VVUU0nTwWOxs27Jw+IdRajOeke4bBL8xIa90QtkY9TS5l3Xo7ucVOgv+racv+fZiGMNNu9V4fuAMu
+	WEY7MMes7TRptIZJJKTzd6i3GBjmZyWwhz7yEKLUVX24lNvDUWA0LHRdVO65dC3r2/d7pB4jXkdPj
+	6JLn8CVKxYTV3gMyUeoLawXptOAbTOozRGYju2S3JWC2jDC9BNbPvKTlIkxRRpH9ar/TWlejqUpZG
+	XOlv5I+YVTM6UUYkkzrEinQ8r7+PgA3/RIKOmMfasvNMQVJJhAqDOT3b89z1ccHTOe4p8bP7xMjzJ
+	xQJu0rhAD6cc8fqplTfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogpY9-009YSR-5i; Fri, 07 Oct 2022 15:46:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ogpYO-009YfZ-AG; Fri, 07 Oct 2022 15:46:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogpXx-009YIx-FJ
-	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 15:45:58 +0000
+	id 1ogpY6-009YQb-VN
+	for linux-riscv@lists.infradead.org; Fri, 07 Oct 2022 15:46:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665157556;
+	s=mimecast20190719; t=1665157566;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LMgaXogbXPhOabUcxt7UADYdICMU0udr545Ze04p+j4=;
-	b=JLKCLgP01KrpZnpdQTyLB+vQBvObhVF+1bTIkpjtJsHK4AbD3/AJ25iW93ClmJ0iBWwN1O
-	KycWJyaYmtoStwJY/dqAmPEHxb5G+M31gaUfcMzyTYM3nDc4AHl5yt6uUH+C7LslcXHg5Q
-	Q3izfD3tb4+8q5tULBFCDtKV5aU9tAE=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=O4Pqcbma7I8CmezCzayfM2Dc1cTkJUS9uBKY5V7UMK0=;
+	b=VdtTlqiSfpIbW4/rhnluzgv2KbYIuEUVtXRQIw+RTIMR7M+piYrZTgPXKOTBHkySQMj00w
+	C0xLm7Gc3cMiljc+48JHRWu0emfSJ3j9QbWf9oVwSvZQIWR9bmt80NAAAJVHclB8aBpsUw
+	P+NZa8faUqvIXx5Osnay1yD3grgmHzg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-275-zqd0ZpNCMgGO-PQQENeejw-1; Fri, 07 Oct 2022 11:45:55 -0400
-X-MC-Unique: zqd0ZpNCMgGO-PQQENeejw-1
-Received: by mail-wm1-f72.google.com with SMTP id c2-20020a1c3502000000b003b535aacc0bso4538222wma.2
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 08:45:55 -0700 (PDT)
+ us-mta-328-hJKH-_FmO7mGi5a2lbfFvg-1; Fri, 07 Oct 2022 11:46:05 -0400
+X-MC-Unique: hJKH-_FmO7mGi5a2lbfFvg-1
+Received: by mail-wm1-f71.google.com with SMTP id v125-20020a1cac83000000b003bd44dc5242so4526283wme.7
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 08:46:04 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LMgaXogbXPhOabUcxt7UADYdICMU0udr545Ze04p+j4=;
-        b=wvOpu4xtzn4VrHvalfDlhnHOmfJCgikFIBf/mk/pQxHYm+MNtvSJbEVpneuab+hQZD
-         MYEvaN3QaI8Z5OllbYmtgRrZv9AwF5RXQNel5KqBCesokja1GsAdI6snHyNPXWMcHEKZ
-         l/iXfATZeYEdulmaW+oBwwdNgmy4YXZF4Qum+euhn0eTyQ0c2+kSK5F1OTvzPdRcoWZH
-         uZx/OGOUwqKxNha172vW+JQ+lgJxXxr/z2iaMdj0LgDr7DnyoK/wcJfqeU3Wo5g+pPiC
-         TxvxhlsA6gIcZkY69TyEiyK800LfWeN7PkuP9MnSNhtQwSG3ewb9zZAsvoNfmrdpXLLm
-         k2Qw==
-X-Gm-Message-State: ACrzQf3SWfims4UA1ncDpjm69BFlp5qPP8zapIe5HDXmMIbzlTtMEjOd
-	hP+y3M7Ku/nWyjkXakgyUv3F8ixh9fD8dO50u1dxkV7BXZaEwYJHu0Tttd1V0lOS7bdt13GKY4b
-	6hhtqmXI1m9Uzl9+1NXfGtHOu6YlH
-X-Received: by 2002:a05:600c:458d:b0:3c3:bf4e:5c60 with SMTP id r13-20020a05600c458d00b003c3bf4e5c60mr1331532wmo.189.1665157554742;
-        Fri, 07 Oct 2022 08:45:54 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM53pm8pDMF8tAvcpsQYCd9DEpAeQROExvsQCCHMjVMrngwHmXq+ii3h5Ne2OaugbAyINh7v6Q==
-X-Received: by 2002:a05:600c:458d:b0:3c3:bf4e:5c60 with SMTP id r13-20020a05600c458d00b003c3bf4e5c60mr1331352wmo.189.1665157552172;
-        Fri, 07 Oct 2022 08:45:52 -0700 (PDT)
+        bh=O4Pqcbma7I8CmezCzayfM2Dc1cTkJUS9uBKY5V7UMK0=;
+        b=NlVrmY2xPe/fXSi1uZET2Y0c5ILEfxr9tOabUMT0V7wBoquld4NDEIfuSjUNfjBRFt
+         nhKIwAScpxZPRPf8I1wr++G+kgg1uPFM7WSbOeH0uI7UD4IAocOAtQ3Hr8cYRuUMrmD7
+         BlfE9KX3PiKPr42ikeZi9iuG+hb3hStXWLeZDB8MkwfAsGdN0qJ9GuoneJYzW2ToPIoq
+         El5j/MsyyENycdegdTqTbD6tE4f6G1Gh5TKWHVSKNlFJob1znG3GMSQbvkrGpcTyVF0o
+         ydaZzG+hB9YLZNatzjIUwIID3XzWypb/wt9bfu/H8tUetIGi0RzHRSDKt9z9j6Y6+zCs
+         UQ1A==
+X-Gm-Message-State: ACrzQf1Jojdb+VRCWVBT96yiSuaWyiLwczvKTWZGBLTYx91hlS7q6t78
+	Nr4pRuQ3RG81ssXEcRrl2MwpjOIPep3p0gMUl5W3OssZBMRPTWBgm4+JUrv3wh2JbpmCBbEDh33
+	a06avLzlatATBLAmQBecaZRGydG89
+X-Received: by 2002:a05:600c:474c:b0:3b4:cbca:5677 with SMTP id w12-20020a05600c474c00b003b4cbca5677mr3615529wmo.76.1665157563691;
+        Fri, 07 Oct 2022 08:46:03 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM5BU2FP8ts0HH9McA8hGqt4EcEkhUio8tUw5hjcE8rRRaWGVB+HCzlKu55T50nu8VVd2MVS1w==
+X-Received: by 2002:a05:600c:474c:b0:3b4:cbca:5677 with SMTP id w12-20020a05600c474c00b003b4cbca5677mr3615475wmo.76.1665157563388;
+        Fri, 07 Oct 2022 08:46:03 -0700 (PDT)
 Received: from vschneid.remote.csb ([149.71.65.94])
-        by smtp.gmail.com with ESMTPSA id i18-20020adfb652000000b0022e38c93195sm2339428wre.34.2022.10.07.08.45.50
+        by smtp.gmail.com with ESMTPSA id i18-20020adfb652000000b0022e38c93195sm2339428wre.34.2022.10.07.08.45.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Oct 2022 08:45:51 -0700 (PDT)
+        Fri, 07 Oct 2022 08:46:01 -0700 (PDT)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-alpha@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -104,9 +104,9 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Guo Ren <guoren@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>
-Subject: [RFC PATCH 1/5] trace: Add trace_ipi_send_{cpu, cpumask}
-Date: Fri,  7 Oct 2022 16:45:29 +0100
-Message-Id: <20221007154533.1878285-1-vschneid@redhat.com>
+Subject: [RFC PATCH 3/5] smp: Add a multi-CPU variant to send_call_function_single_ipi()
+Date: Fri,  7 Oct 2022 16:45:31 +0100
+Message-Id: <20221007154533.1878285-3-vschneid@redhat.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20221007154145.1877054-1-vschneid@redhat.com>
 References: <20221007154145.1877054-1-vschneid@redhat.com>
@@ -114,8 +114,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_084557_598120_DD327D99 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20221007_084607_102755_580D210B 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,53 +132,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-trace_ipi_raise is unsuitable for generically tracing IPI sources; add a
-variant of it that takes a callsite and a CPU. Define a macro helper for
-handling IPIs sent to multiple CPUs.
+This simply wraps around the arch function and prepends it with a
+tracepoint, bringing parity with send_call_function_single_ipi().
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- include/trace/events/ipi.h | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ kernel/smp.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/include/trace/events/ipi.h b/include/trace/events/ipi.h
-index 0be71dad6ec0..fd2f2aeb36fe 100644
---- a/include/trace/events/ipi.h
-+++ b/include/trace/events/ipi.h
-@@ -35,6 +35,33 @@ TRACE_EVENT(ipi_raise,
- 	TP_printk("target_mask=%s (%s)", __get_bitmask(target_cpus), __entry->reason)
- );
+diff --git a/kernel/smp.c b/kernel/smp.c
+index 7a7a22d69972..387735180aed 100644
+--- a/kernel/smp.c
++++ b/kernel/smp.c
+@@ -160,6 +160,12 @@ void __init call_function_init(void)
+ 	smpcfd_prepare_cpu(smp_processor_id());
+ }
  
-+TRACE_EVENT(ipi_send_cpu,
++static inline void send_call_function_ipi_mask(const struct cpumask *mask)
++{
++	trace_ipi_send_cpumask(_RET_IP_, mask);
++	arch_send_call_function_ipi_mask(mask);
++}
 +
-+	TP_PROTO(unsigned long callsite, unsigned int cpu),
-+
-+	TP_ARGS(callsite, cpu),
-+
-+	TP_STRUCT__entry(
-+		__field(unsigned long, callsite)
-+		__field(unsigned int, cpu)
-+	),
-+
-+	TP_fast_assign(
-+		__entry->callsite = callsite;
-+		__entry->cpu      = cpu;
-+	),
-+
-+	TP_printk("callsite=%pS target_cpu=%d", (void *)__entry->callsite, __entry->cpu)
-+);
-+
-+#define trace_ipi_send_cpumask(callsite, mask) do {		\
-+	if (static_key_false(&__tracepoint_ipi_send_cpu.key)) { \
-+		int cpu;					\
-+		for_each_cpu(cpu, mask)				\
-+			trace_ipi_send_cpu(callsite, cpu);	\
-+	}							\
-+} while (0)
-+
- DECLARE_EVENT_CLASS(ipi_handler,
+ #ifdef CONFIG_CSD_LOCK_WAIT_DEBUG
  
- 	TP_PROTO(const char *reason),
+ static DEFINE_STATIC_KEY_FALSE(csdlock_debug_enabled);
+@@ -970,7 +976,7 @@ static void smp_call_function_many_cond(const struct cpumask *mask,
+ 		if (nr_cpus == 1)
+ 			send_call_function_single_ipi(last_cpu);
+ 		else if (likely(nr_cpus > 1))
+-			arch_send_call_function_ipi_mask(cfd->cpumask_ipi);
++			send_call_function_ipi_mask(cfd->cpumask_ipi);
+ 
+ 		cfd_seq_store(this_cpu_ptr(&cfd_seq_local)->pinged, this_cpu, CFD_SEQ_NOCPU, CFD_SEQ_PINGED);
+ 	}
 -- 
 2.31.1
 
