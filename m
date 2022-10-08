@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEAEC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Oct 2022 00:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C9BBC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Oct 2022 00:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O9T/ZG6vGW1st6cV2cjlyk3FiQyWvjJvziPv0G14CqA=; b=sjescGRN51r7xh
-	avT3g+ur/gz1jOPXWmhCq2ZzLvn9ZPsbZr+LoTmj60Njxd/z8nwzOexdr8UYK6F6x58edZIvT/mxZ
-	YSu+IotH4Pw8IJg9oIFp4nHtpX61tnZc6IZ7eOA2LHHFlAx7WplW4we+L2IqXVntzGaqRjzmEf0VD
-	xLr/o6s69yNoPVJyZqkuJhE9B8x9IKk1rjGpQhfmHuVgOCiz5fPaHNsdfGUa/rJFRw8tuKLf1iKRI
-	Oi6+wxGWgG0WoLWpjWTxC8b++Z192HdwQN/4FQ/ifoONXq64yoaXK7BvgAwq8VaJThaHnkgJq9Hg1
-	SwddEFbekr7KJdVMipsw==;
+	List-Owner; bh=p77Z2pRzFfccEh/uyOwrk8j16ghCAjnLYOrpDfiRFRE=; b=Ihx6WqQUt9ao1G
+	GrioKpaX/yF2XvoWks9M2icEZx1sVo62qcaGFQ3D+SfBRGDOzMhCdvo9ITydxXrYs8DqAK1T2tuJX
+	FKJ8jwfTutpJo1hx4iX13gmgJASAX39xOtQX4nXIAXQo/Q8OXYBhNVzzZIbl48dp2TZ4ThM6RDAJ0
+	XMnbZEdkblp1zSt4h/ltP4dlDnJPlxckrowfPObwJNdlJnUBp/ACyvGVHq7H28jy4vExk/GiOZmMl
+	9t+WmffFRqm4QaP0oo05bL2VDWPHAXeGfMA/Det0AU/HVh4msqTszITJzF6VUFvczC1yDmtRhqF+Z
+	Rq26gg7kDrd1xGK+SjrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogxW7-00B7Gq-Cz; Sat, 08 Oct 2022 00:16:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ogxcu-00B7Zn-4Q; Sat, 08 Oct 2022 00:23:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ogxW3-00B7GV-8I
-	for linux-riscv@lists.infradead.org; Sat, 08 Oct 2022 00:16:33 +0000
+	id 1ogxch-00B7Y9-Vj; Sat, 08 Oct 2022 00:23:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B738961E11
-	for <linux-riscv@lists.infradead.org>; Sat,  8 Oct 2022 00:16:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16205C433D7
-	for <linux-riscv@lists.infradead.org>; Sat,  8 Oct 2022 00:16:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BF7DD60EB7;
+	Sat,  8 Oct 2022 00:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690C4C43142;
+	Sat,  8 Oct 2022 00:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665188190;
-	bh=tKlqxsHo20Enahra8YfrvZjF+pKAk4qtTXrrIJihk98=;
+	s=k20201202; t=1665188601;
+	bh=sgFxqSsEF0+bcN38uHnAUtCzYqPWkGv+/tZCP/6JQvw=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZZKnsnSnxDvKI5NitxObJKKQ6Oyj2jlIqYSP1gLkqTAerHyn/dk9Yz2Sj+GSpLuF5
-	 L3bYhxo+2YvDq70jY66ksvorYN2DcLYclKxNva6j3X0FcEDfWopjN/lrDKZNPNRE8q
-	 IDUO/cY9qD7M79QLmWE39vE710hzgJwTvhpl6Pc4SwyrC0tuiogNpwO4pE6lfa1kKY
-	 Z20jhNJ9LQWvRfSWuQG6rEq6sUItE7pF6iMPduMBZaxszYQCDJEkGin15dpP8TX6Xj
-	 X815VfHJjIPUPKa928kUYE9Kl2rFMmM1Xmj431PT//E1WhphoCSxkX85EagMMNjAZt
-	 Kjk/uRjP1KHvA==
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-132fb4fd495so7205155fac.12
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Oct 2022 17:16:30 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2h8TKZFVMCXdMJSFmtJNmMXHl9QJ1aOa3P7dt5SFbJlAm7hqsj
-	uA0JBd0W5d5/Gj67fxzaugiNwKKs/meMucbZOYI=
-X-Google-Smtp-Source: AMsMyM41Gcl6h6pkyl/crq2ln5PqiEOzLNIwj846q0gvm1usYaqS4tBfQYmuhKfEA6YPVYq0f3zmdX9JiPt0J+aLTb8=
-X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
- r3-20020a056870580300b0012cc3e099dcmr9368571oap.19.1665188189193; Fri, 07 Oct
- 2022 17:16:29 -0700 (PDT)
+	b=dLa9rcrowpgVtq+iFYBKyTsJRXjwt2l1ZoU9dK0QG9IYeZ2a62zgJvBsG6oDXjiRU
+	 g8IoKrAwYQj7iljuM7UWlAR6Dt/2U7zsJfp2vplIpTVOwfHqsWzcac8KjUdZ0Dc2yA
+	 RCczFaeQ5B8FiF0ufVKuJ7JdzaK+mtRyW2F+KPQWg/+aUW90XGHd6DH5O5vfBk1pI0
+	 5tBoKEeNTFgtz/mLCbyE4fMKLadfq7AQG2zG37YF0cD05zufKdpxw6lgYxQKwr4/wi
+	 LrejuG/TFjbqp+GYbPrEG+2DskVrU3NKjmdfN2fZ2S+EirBDox7F3IDgaSR54AyyZg
+	 9SPR0ZPOxd4OA==
+Received: by mail-oi1-f175.google.com with SMTP id g10so23375oif.10;
+        Fri, 07 Oct 2022 17:23:21 -0700 (PDT)
+X-Gm-Message-State: ACrzQf11wpwtjQVFzaEiPxLjojG5Kz5Idd3C/AgK3TbXjymo9DenFico
+	0TdMlILRfXuGGp3Lhwxay4BFdj98d7FFFQyc5LE=
+X-Google-Smtp-Source: AMsMyM6d1vEFgVz7vAhL63BB/M/+P/PP5ZhiAkdB3z/coca0NEdVvl3lU8eJKhAXTwQbJjldnSeasVabLKztwU34kGU=
+X-Received: by 2002:aca:6155:0:b0:353:e740:ce01 with SMTP id
+ v82-20020aca6155000000b00353e740ce01mr8708756oib.19.1665188600393; Fri, 07
+ Oct 2022 17:23:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221002012451.2351127-1-guoren@kernel.org> <20221002012451.2351127-10-guoren@kernel.org>
- <YzrI1QFMpHnhvDnI@FVFF77S0Q05N>
-In-Reply-To: <YzrI1QFMpHnhvDnI@FVFF77S0Q05N>
+References: <20221007154145.1877054-1-vschneid@redhat.com> <20221007154533.1878285-5-vschneid@redhat.com>
+In-Reply-To: <20221007154533.1878285-5-vschneid@redhat.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 8 Oct 2022 08:16:16 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQuPbLuR-eAm3_qjk04cEP6ntaqXfyHmm9jvjh=oGsMHg@mail.gmail.com>
-Message-ID: <CAJF2gTQuPbLuR-eAm3_qjk04cEP6ntaqXfyHmm9jvjh=oGsMHg@mail.gmail.com>
-Subject: Re: [PATCH V6 09/11] riscv: Add support for STACKLEAK gcc plugin
-To: Mark Rutland <mark.rutland@arm.com>, palmer@rivosinc.com, Dao Lu <daolu@rivosinc.com>, 
-	Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: arnd@arndb.de, tglx@linutronix.de, peterz@infradead.org, luto@kernel.org, 
-	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
-	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
-	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, zouyipeng@huawei.com, bigeasy@linutronix.de, 
-	David.Laight@aculab.com, chenzhongjin@huawei.com, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Sat, 8 Oct 2022 08:23:08 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQs62gJ7hTrqKNX=og7NuR=ou5S8WZp9Mf9JXxs0-duwA@mail.gmail.com>
+Message-ID: <CAJF2gTQs62gJ7hTrqKNX=og7NuR=ou5S8WZp9Mf9JXxs0-duwA@mail.gmail.com>
+Subject: Re: [RFC PATCH 5/5] treewide: Rename and trace arch-definitions of smp_send_reschedule()
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-xtensa@linux-xtensa.org, x86@kernel.org, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, 
+	Daniel Bristot de Oliveira <bristot@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Russell King <linux@armlinux.org.uk>, Nicholas Piggin <npiggin@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221007_171631_395395_926D631A 
-X-CRM114-Status: GOOD (  32.81  )
+X-CRM114-CacheID: sfid-20221007_172324_162357_DBE9172F 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,169 +95,333 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 3, 2022 at 7:34 PM Mark Rutland <mark.rutland@arm.com> wrote:
+On Fri, Oct 7, 2022 at 11:46 PM Valentin Schneider <vschneid@redhat.com> wrote:
 >
-> On Sat, Oct 01, 2022 at 09:24:49PM -0400, guoren@kernel.org wrote:
-> > From: Dao Lu <daolu@rivosinc.com>
-> >
-> > Add support for STACKLEAK gcc plugin to riscv by implementing
-> > stackleak_check_alloca, based heavily on the arm64 version, and
-> > modifying the entry.S. Additionally, this disables the plugin for EFI
-> > stub code for riscv. All modifications base on generic_entry.
+> To be able to trace invocations of smp_send_reschedule(), rename the
+> arch-specific definitions of it to arch_smp_send_reschedule() and wrap it
+> into an smp_send_reschedule() that contains a tracepoint.
 >
-> I think this commit message is stale; `stackleak_check_alloca` doesn't exist
-> any more.
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> ---
+>  arch/alpha/kernel/smp.c          | 2 +-
+>  arch/arc/kernel/smp.c            | 2 +-
+>  arch/arm/kernel/smp.c            | 2 +-
+>  arch/arm64/kernel/smp.c          | 2 +-
+>  arch/csky/kernel/smp.c           | 2 +-
+>  arch/hexagon/kernel/smp.c        | 2 +-
+>  arch/ia64/kernel/smp.c           | 4 ++--
+>  arch/loongarch/include/asm/smp.h | 2 +-
+>  arch/mips/include/asm/smp.h      | 2 +-
+>  arch/openrisc/kernel/smp.c       | 2 +-
+>  arch/parisc/kernel/smp.c         | 4 ++--
+>  arch/powerpc/kernel/smp.c        | 4 ++--
+>  arch/riscv/kernel/smp.c          | 4 ++--
+>  arch/s390/kernel/smp.c           | 2 +-
+>  arch/sh/kernel/smp.c             | 2 +-
+>  arch/sparc/kernel/smp_32.c       | 2 +-
+>  arch/sparc/kernel/smp_64.c       | 2 +-
+>  arch/x86/include/asm/smp.h       | 2 +-
+>  arch/xtensa/kernel/smp.c         | 2 +-
+>  include/linux/smp.h              | 1 +
+>  kernel/smp.c                     | 6 ++++++
+>  21 files changed, 30 insertions(+), 23 deletions(-)
 >
-> > Link: https://lore.kernel.org/linux-riscv/20220615213834.3116135-1-daolu@rivosinc.com/
-> > Signed-off-by: Dao Lu <daolu@rivosinc.com>
-> > Co-developed-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> > Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> > Co-developed-by: Guo Ren <guoren@kernel.org>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Conor Dooley <Conor.Dooley@microchip.com>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > ---
-> >  arch/riscv/Kconfig                    | 1 +
-> >  arch/riscv/kernel/entry.S             | 8 +++++++-
-> >  drivers/firmware/efi/libstub/Makefile | 2 +-
-> >  3 files changed, 9 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index dfe600f3526c..76bde12d9f8c 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -81,6 +81,7 @@ config RISCV
-> >       select HAVE_ARCH_MMAP_RND_BITS if MMU
-> >       select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
-> >       select HAVE_ARCH_SECCOMP_FILTER
-> > +     select HAVE_ARCH_STACKLEAK
-> >       select HAVE_ARCH_TRACEHOOK
-> >       select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
-> >       select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index 5f49517cd3a2..39097c1474a0 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -130,7 +130,6 @@ END(handle_exception)
-> >  ENTRY(ret_from_exception)
-> >       REG_L s0, PT_STATUS(sp)
-> >
-> > -     csrc CSR_STATUS, SR_IE
-> >  #ifdef CONFIG_RISCV_M_MODE
-> >       /* the MPP value is too large to be used as an immediate arg for addi */
-> >       li t0, SR_MPP
-> > @@ -139,6 +138,9 @@ ENTRY(ret_from_exception)
-> >       andi s0, s0, SR_SPP
-> >  #endif
-> >       bnez s0, 1f
-> > +#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-> > +     call stackleak_erase
-> > +#endif
+> diff --git a/arch/alpha/kernel/smp.c b/arch/alpha/kernel/smp.c
+> index f4e20f75438f..38637eb9eebd 100644
+> --- a/arch/alpha/kernel/smp.c
+> +++ b/arch/alpha/kernel/smp.c
+> @@ -562,7 +562,7 @@ handle_ipi(struct pt_regs *regs)
+>  }
 >
-> I assume this can happen on an arbitrary stack, and so you can't use the
-> stackleak_erase_{on,off}_task_stack variants?
-Dao Lu first patch: call stackleak_erase in resume_userspace
-Xianting second patch: call stackleak_erase only in resume_syscall
+>  void
+> -smp_send_reschedule(int cpu)
+> +arch_smp_send_reschedule(int cpu)
+>  {
+>  #ifdef DEBUG_IPI_MSG
+>         if (cpu == hard_smp_processor_id())
+> diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
+> index ab9e75e90f72..ae2e6a312361 100644
+> --- a/arch/arc/kernel/smp.c
+> +++ b/arch/arc/kernel/smp.c
+> @@ -292,7 +292,7 @@ static void ipi_send_msg(const struct cpumask *callmap, enum ipi_msg_type msg)
+>                 ipi_send_msg_one(cpu, msg);
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         ipi_send_msg_one(cpu, IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
+> index 3b280d55c1c4..f216ac890b6f 100644
+> --- a/arch/arm/kernel/smp.c
+> +++ b/arch/arm/kernel/smp.c
+> @@ -745,7 +745,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
+>         ipi_setup(smp_processor_id());
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 937d2623e06b..8d108edc4a89 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -976,7 +976,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
+>         ipi_setup(smp_processor_id());
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
+> index 4b605aa2e1d6..fd7f81be16dd 100644
+> --- a/arch/csky/kernel/smp.c
+> +++ b/arch/csky/kernel/smp.c
+> @@ -140,7 +140,7 @@ void smp_send_stop(void)
+>         on_each_cpu(ipi_stop, NULL, 1);
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+For csky part, Acked-by: Guo Ren <guoren@kernel.org>
 
-I just thought Dao Lu was right, so I included his patch. Your comment
-is to let it call stackleak_erase in all ret_from_exception because
-stack leak may have happened "the day before yesterday"/nested
-interrupt context, right? So we need to clean up all the stacks.
-
-Here is the new modification:
-
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 5f49517cd3a2..39097c1474a0 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -130,7 +130,6 @@ END(handle_exception)
- ENTRY(ret_from_exception)
-+#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+       call stackleak_erase
-+#endif
-       REG_L s0, PT_STATUS(sp)
-
-        csrc CSR_STATUS, SR_IE
- #ifdef CONFIG_RISCV_M_MODE
-        /* the MPP value is too large to be used as an immediate arg for addi */
-        li t0, SR_MPP
-@@ -139,6 +138,9 @@ ENTRY(ret_from_exception)
-        andi s0, s0, SR_SPP
- #endif
-        bnez s0, 1f
-
-        /* Save unwound kernel stack pointer in thread_info */
-        addi s0, sp, PT_SIZE_ON_STACK
-@@ -148,8 +150,12 @@ ENTRY(ret_from_exception)
-         * Save TP into the scratch register , so we can find the kernel data
-         * structures again.
-         */
-        csrw CSR_SCRATCH, tp
- 1:
-
+>  {
+>         send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/hexagon/kernel/smp.c b/arch/hexagon/kernel/smp.c
+> index 4ba93e59370c..4e8bee25b8c6 100644
+> --- a/arch/hexagon/kernel/smp.c
+> +++ b/arch/hexagon/kernel/smp.c
+> @@ -217,7 +217,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>         }
+>  }
 >
-> Just to check, have you given this a spin with LKDTM and the STACKLEAK_ERASING
-> test? If not, it'd be good to test that (and ideally, put some sample output
-> from that into the commit message).
-Okay, I would.
-
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         send_ipi(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/ia64/kernel/smp.c b/arch/ia64/kernel/smp.c
+> index e2cc59db86bc..ea4f009a232b 100644
+> --- a/arch/ia64/kernel/smp.c
+> +++ b/arch/ia64/kernel/smp.c
+> @@ -220,11 +220,11 @@ kdump_smp_send_init(void)
+>   * Called with preemption disabled.
+>   */
+>  void
+> -smp_send_reschedule (int cpu)
+> +arch_smp_send_reschedule (int cpu)
+>  {
+>         ia64_send_ipi(cpu, IA64_IPI_RESCHEDULE, IA64_IPI_DM_INT, 0);
+>  }
+> -EXPORT_SYMBOL_GPL(smp_send_reschedule);
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
 >
-> For example, as per:
+>  /*
+>   * Called with preemption disabled.
+> diff --git a/arch/loongarch/include/asm/smp.h b/arch/loongarch/include/asm/smp.h
+> index 71189b28bfb2..3fcca134dfb1 100644
+> --- a/arch/loongarch/include/asm/smp.h
+> +++ b/arch/loongarch/include/asm/smp.h
+> @@ -83,7 +83,7 @@ extern void show_ipi_list(struct seq_file *p, int prec);
+>   * it goes straight through and wastes no time serializing
+>   * anything. Worst case is that we lose a reschedule ...
+>   */
+> -static inline void smp_send_reschedule(int cpu)
+> +static inline void arch_smp_send_reschedule(int cpu)
+>  {
+>         loongson3_send_ipi_single(cpu, SMP_RESCHEDULE);
+>  }
+> diff --git a/arch/mips/include/asm/smp.h b/arch/mips/include/asm/smp.h
+> index 5d9ff61004ca..9806e79895d9 100644
+> --- a/arch/mips/include/asm/smp.h
+> +++ b/arch/mips/include/asm/smp.h
+> @@ -66,7 +66,7 @@ extern void calculate_cpu_foreign_map(void);
+>   * it goes straight through and wastes no time serializing
+>   * anything. Worst case is that we lose a reschedule ...
+>   */
+> -static inline void smp_send_reschedule(int cpu)
+> +static inline void arch_smp_send_reschedule(int cpu)
+>  {
+>         extern const struct plat_smp_ops *mp_ops;       /* private */
 >
->   https://lore.kernel.org/all/20220427173128.2603085-1-mark.rutland@arm.com/
+> diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
+> index e1419095a6f0..0a7a059e2dff 100644
+> --- a/arch/openrisc/kernel/smp.c
+> +++ b/arch/openrisc/kernel/smp.c
+> @@ -173,7 +173,7 @@ void handle_IPI(unsigned int ipi_msg)
+>         }
+>  }
 >
-> ... on arm64 this looks something like:
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/arch/parisc/kernel/smp.c b/arch/parisc/kernel/smp.c
+> index 7dbd92cafae3..b7fc859fa87d 100644
+> --- a/arch/parisc/kernel/smp.c
+> +++ b/arch/parisc/kernel/smp.c
+> @@ -246,8 +246,8 @@ void kgdb_roundup_cpus(void)
+>  inline void
+>  smp_send_stop(void)    { send_IPI_allbutself(IPI_CPU_STOP); }
 >
-> | # uname -a
-> | Linux buildroot 5.18.0-rc1-00013-g26f638ab0d7c #3 SMP PREEMPT Wed Apr 27 16:21:37 BST 2022 aarch64 GNU/Linux
-> | # echo STACKLEAK_ERASING > /sys/kernel/debug/provoke-crash/DIRECT
-> | lkdtm: Performing direct entry STACKLEAK_ERASING
-> | lkdtm: stackleak stack usage:
-> |   high offset: 336 bytes
-> |   current:     688 bytes
-> |   lowest:      1232 bytes
-> |   tracked:     1232 bytes
-> |   untracked:   672 bytes
-> |   poisoned:    14136 bytes
-> |   low offset:  8 bytes
-> | lkdtm: OK: the rest of the thread stack is properly erased
+> -void
+> -smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
+> +void
+> +arch_smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
 >
-> Thanks,
-> Mark.
+>  void
+>  smp_send_all_nop(void)
+> diff --git a/arch/powerpc/kernel/smp.c b/arch/powerpc/kernel/smp.c
+> index 169703fead57..2d7b217392f2 100644
+> --- a/arch/powerpc/kernel/smp.c
+> +++ b/arch/powerpc/kernel/smp.c
+> @@ -364,12 +364,12 @@ static inline void do_message_pass(int cpu, int msg)
+>  #endif
+>  }
 >
-> >
-> >       /* Save unwound kernel stack pointer in thread_info */
-> >       addi s0, sp, PT_SIZE_ON_STACK
-> > @@ -148,8 +150,12 @@ ENTRY(ret_from_exception)
-> >        * Save TP into the scratch register , so we can find the kernel data
-> >        * structures again.
-> >        */
-> > +     csrc CSR_STATUS, SR_IE
-> >       csrw CSR_SCRATCH, tp
-> > +     j 2f
-> >  1:
-> > +     csrc CSR_STATUS, SR_IE
-> > +2:
-> >       /*
-> >        * The current load reservation is effectively part of the processor's
-> >        * state, in the sense that load reservations cannot be shared between
-> > diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> > index d0537573501e..5e1fc4f82883 100644
-> > --- a/drivers/firmware/efi/libstub/Makefile
-> > +++ b/drivers/firmware/efi/libstub/Makefile
-> > @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)                := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> >                                  -fno-builtin -fpic \
-> >                                  $(call cc-option,-mno-single-pic-base)
-> >  cflags-$(CONFIG_RISCV)               := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> > -                                -fpic
-> > +                                -fpic $(DISABLE_STACKLEAK_PLUGIN)
-> >
-> >  cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
-> >
-> > --
-> > 2.36.1
-> >
-
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         if (likely(smp_ops))
+>                 do_message_pass(cpu, PPC_MSG_RESCHEDULE);
+>  }
+> -EXPORT_SYMBOL_GPL(smp_send_reschedule);
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+>
+>  void arch_send_call_function_single_ipi(int cpu)
+>  {
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 760a64518c58..213602e89a8b 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -235,8 +235,8 @@ void smp_send_stop(void)
+>                            cpumask_pr_args(cpu_online_mask));
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         send_ipi_single(cpu, IPI_RESCHEDULE);
+>  }
+> -EXPORT_SYMBOL_GPL(smp_send_reschedule);
+> +EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+> diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
+> index 30c91d565933..9d1c36571106 100644
+> --- a/arch/s390/kernel/smp.c
+> +++ b/arch/s390/kernel/smp.c
+> @@ -542,7 +542,7 @@ void arch_send_call_function_single_ipi(int cpu)
+>   * it goes straight through and wastes no time serializing
+>   * anything. Worst case is that we lose a reschedule ...
+>   */
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         pcpu_ec_call(pcpu_devices + cpu, ec_schedule);
+>  }
+> diff --git a/arch/sh/kernel/smp.c b/arch/sh/kernel/smp.c
+> index 65924d9ec245..5cf35a774dc7 100644
+> --- a/arch/sh/kernel/smp.c
+> +++ b/arch/sh/kernel/smp.c
+> @@ -256,7 +256,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
+>                (bogosum / (5000/HZ)) % 100);
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         mp_ops->send_ipi(cpu, SMP_MSG_RESCHEDULE);
+>  }
+> diff --git a/arch/sparc/kernel/smp_32.c b/arch/sparc/kernel/smp_32.c
+> index ad8094d955eb..87eaa7719fa2 100644
+> --- a/arch/sparc/kernel/smp_32.c
+> +++ b/arch/sparc/kernel/smp_32.c
+> @@ -120,7 +120,7 @@ void cpu_panic(void)
+>
+>  struct linux_prom_registers smp_penguin_ctable = { 0 };
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         /*
+>          * CPU model dependent way of implementing IPI generation targeting
+> diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
+> index a55295d1b924..e5964d1d8b37 100644
+> --- a/arch/sparc/kernel/smp_64.c
+> +++ b/arch/sparc/kernel/smp_64.c
+> @@ -1430,7 +1430,7 @@ static unsigned long send_cpu_poke(int cpu)
+>         return hv_err;
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         if (cpu == smp_processor_id()) {
+>                 WARN_ON_ONCE(preemptible());
+> diff --git a/arch/x86/include/asm/smp.h b/arch/x86/include/asm/smp.h
+> index a73bced40e24..5ff5815149bd 100644
+> --- a/arch/x86/include/asm/smp.h
+> +++ b/arch/x86/include/asm/smp.h
+> @@ -99,7 +99,7 @@ static inline void play_dead(void)
+>         smp_ops.play_dead();
+>  }
+>
+> -static inline void smp_send_reschedule(int cpu)
+> +static inline void arch_smp_send_reschedule(int cpu)
+>  {
+>         smp_ops.smp_send_reschedule(cpu);
+>  }
+> diff --git a/arch/xtensa/kernel/smp.c b/arch/xtensa/kernel/smp.c
+> index 4dc109dd6214..d95907b8e4d3 100644
+> --- a/arch/xtensa/kernel/smp.c
+> +++ b/arch/xtensa/kernel/smp.c
+> @@ -389,7 +389,7 @@ void arch_send_call_function_single_ipi(int cpu)
+>         send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
+>  }
+>
+> -void smp_send_reschedule(int cpu)
+> +void arch_smp_send_reschedule(int cpu)
+>  {
+>         send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+>  }
+> diff --git a/include/linux/smp.h b/include/linux/smp.h
+> index a80ab58ae3f1..a67e7aad17b9 100644
+> --- a/include/linux/smp.h
+> +++ b/include/linux/smp.h
+> @@ -125,6 +125,7 @@ extern void smp_send_stop(void);
+>  /*
+>   * sends a 'reschedule' event to another CPU:
+>   */
+> +extern void arch_smp_send_reschedule(int cpu);
+>  extern void smp_send_reschedule(int cpu);
+>
+>
+> diff --git a/kernel/smp.c b/kernel/smp.c
+> index 387735180aed..9dfe057424f8 100644
+> --- a/kernel/smp.c
+> +++ b/kernel/smp.c
+> @@ -166,6 +166,12 @@ static inline void send_call_function_ipi_mask(const struct cpumask *mask)
+>         arch_send_call_function_ipi_mask(mask);
+>  }
+>
+> +void smp_send_reschedule(int cpu)
+> +{
+> +       trace_ipi_send_cpu(_RET_IP_, cpu);
+> +       arch_smp_send_reschedule(cpu);
+> +}
+> +
+>  #ifdef CONFIG_CSD_LOCK_WAIT_DEBUG
+>
+>  static DEFINE_STATIC_KEY_FALSE(csdlock_debug_enabled);
+> --
+> 2.31.1
+>
 
 
 -- 
