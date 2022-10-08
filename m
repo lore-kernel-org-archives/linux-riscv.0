@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A89FC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Oct 2022 14:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E81C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Oct 2022 15:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p6ZGwyMxhawY4dnoArCX8qHyuWn6OQ4jYxfZWuoYaFg=; b=MBCrPN+le4VG/v
-	vCrWb5BDypOWFrPWGW6l/oGbYGib79NOueysXf74tOLmTqaEZGyKJ+mRu7HtYxxBdLruDIxa3d/0h
-	Venwov6Ubdin9k3bR/YCkID21jDi95YPKyYVMBF/PFo6aBiE/P8ZxyjDVxgOOGXTfA+i84wlQt9+y
-	zlkkHVOdqMlc8aOt/DfC7UIhjSeWm+o9tZOyxNo5FzLz/Gl3mQjNjX6oRFghwZLPoWVLtFezcw95o
-	TRr8ApQCuqOsNmt+fx+YsZV8b7r7qCy9I6YkCmxHb96XDzwniI6tzHvc6SzhGmOVXUpB0vM3Bo6sV
-	+DTpuRt9iY8GfuQUGOxg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YtstBEHuZCKow4VGA5uTVj/WE+Qcr0Isn31oNoVaPLk=; b=p/255MHFqfYYBs
+	Ceyu71H6+iR7MDqw9Wm/YuaSwFdx93gSDvlKUidiERaUkWdCY/bThToG475MIPTDskYfPfmApLpQW
+	PWFCWnEAk5kcj6F638JO94kNUlKpRkre4GVa7wBx0+WoCIkmgOyTQ2dabIo24TmJsC0DFr6fTeyIW
+	TS/MXgbZHKJJYI40NLnfncsjwsNigEP++sXEUWAKtIvkn86p1TSEaXSPoF6CKlBR+qdVjTH3Ovw4c
+	2efvDKQQn91g7hSd34+IjhduYsPNE8fkkL5ZzQNy4RtBc2t02pmgweDnPiAiyNtrjeO2MFkisf3kV
+	f6FzgQhTwSX/ejhMRTxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohAxt-00DRA6-2u; Sat, 08 Oct 2022 14:38:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ohBNC-00DVbU-CE; Sat, 08 Oct 2022 15:04:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohAxq-00DR9h-Nj
-	for linux-riscv@lists.infradead.org; Sat, 08 Oct 2022 14:38:08 +0000
+	id 1ohBN8-00DVaM-Lq
+	for linux-riscv@lists.infradead.org; Sat, 08 Oct 2022 15:04:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1021A600A0;
-	Sat,  8 Oct 2022 14:38:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE06C433C1;
-	Sat,  8 Oct 2022 14:38:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 863AA601D7;
+	Sat,  8 Oct 2022 15:04:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B4FCC433C1;
+	Sat,  8 Oct 2022 15:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665239885;
-	bh=7gh7jA80+eK+tl/5lADk03GZFDCmBhSdLTKRqaKkCWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ge2t8CQAVOs9ivEc83/rm8JdY3YSJnSUpsp9yGlGVor+VvQ/6GQf4xriVZmMWCFZz
-	 JeONQfV8F2Ldx/OFINzQXFWmsGgAp/a7xSSv1NffFbS2DDXAGzcM3xTzTlCRK4xlki
-	 DxuKCSh0tQYwialobjEqPt+c/IjvigZM8nQsWGHr/kmcb8YX29dzUfncfLrvKuRSf7
-	 99byC8VXPFb+H84eKQ7Hs5aPLkjF+YdPN+8Ekqm0sQ9sxwIXfAO2w7+91yAxAzJMgc
-	 YAX6NmT5iOqjgPoJMqbJrET5p8DgGJSC7wN/bVV8W/DGIr+j+fc7W7WQX6HUMJOxJa
-	 bAL73cZjY4Ryg==
-Date: Sat, 8 Oct 2022 22:28:30 +0800
+	s=k20201202; t=1665241452;
+	bh=J+gfA2GKcuRxn0BEYcHVwUZ7oMqdte5iqfeI/xohk88=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Jf2DOxvz9yFjX1VXkMwTAfJE15c8TB2RlK0FcletkolNdtbcf7zekJ4zE2BOmuXQp
+	 QlMfgcuPHuPsqtcQxuTK7McBdDwBa03K0WTPjxfpWUyBD7TsKyuj1mmU336oKMOclJ
+	 hD2N/j2/rXQwOoMfPqWdpBslW8A39vf4NNb4IpNx/nwYeMPpimtM8Ndt//ofpWWY6i
+	 GIe5dStefpbt9BlLRqduIuFuRTXRIzBQMzFOIp7is/ULxf2rQpt47Cd3KM99t4uuYp
+	 7DPaGl1uAlFPQ9WwzzrHbRJNo2T3cm8dFcYMZ5HYQ1ht1qrCD7K+AQfVURhKhcObU0
+	 E6sm2v844bAEQ==
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com,
-	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
- pgtable_l4_enabled
-Message-ID: <Y0GJDqLXFU81UdfW@xhacker>
-References: <20220821140918.3613-1-jszhang@kernel.org>
- <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
- <Yz6T4EYKKns7OIVE@xhacker>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Samuel Holland <samuel@sholland.org>,
+	Andrew Jones <ajones@ventanamicro.com>
+Subject: [PATCH v2] riscv: jump_label: mark arguments as const to satisfy asm constraints
+Date: Sat,  8 Oct 2022 22:54:37 +0800
+Message-Id: <20221008145437.491-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Yz6T4EYKKns7OIVE@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221008_073806_871513_D51DE6A1 
-X-CRM114-Status: GOOD (  33.93  )
+X-CRM114-CacheID: sfid-20221008_080414_832058_320E24B9 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,82 +84,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 06, 2022 at 04:37:57PM +0800, Jisheng Zhang wrote:
-> On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
-> > On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
-> > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> > > boot, so static key can be used to solve the performance issue[1].
-> > > 
-> > > An unified way static key was introduced in [2], but it only targets
-> > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> > > as isa extension, so the unified solution isn't used for
-> > > pgtable_l4[l5]_enabled now.
-> > > 
-> > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
-> > > 
-> > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
-> > > 
-> > > Since v5:
-> > >  - Use DECLARE_STATIC_KEY_FALSE
-> > > 
-> > > Since v4:
-> > >  - rebased on v5.19-rcN
-> > >  - collect Reviewed-by tags
-> > >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
-> > >    riscv_finalise_pgtable_lx() after sparse_init()
-> > > 
-> > > Since v3:
-> > >  - fix W=1 call to undeclared function 'static_branch_likely' error
-> > > 
-> > > Since v2:
-> > >  - move the W=1 warning fix to a separate patch
-> > >  - move the unified way to use static key to a new patch series.
-> > > 
-> > > Since v1:
-> > >  - Add a W=1 warning fix
-> > >  - Fix W=1 error
-> > >  - Based on v5.18-rcN, since SV57 support is added, so convert
-> > >    pgtable_l5_enabled as well.
-> > > 
-> > > 
-> > > Jisheng Zhang (2):
-> > >   riscv: move sbi_init() earlier before jump_label_init()
-> > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
-> > > 
-> > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
-> > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
-> > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
-> > >  arch/riscv/include/asm/pgtable.h    |  5 +--
-> > >  arch/riscv/kernel/cpu.c             |  4 +-
-> > >  arch/riscv/kernel/setup.c           |  2 +-
-> > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
-> > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
-> > >  8 files changed, 104 insertions(+), 66 deletions(-)
-> > 
-> > Sorry for being slow here, but it looks like this still causes some early
-> > boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
-> > see from the latency I'm still a bit buried right now so I'm not sure when
-> > I'll have a chance to take more of a look.
-> 
-> Hi Palmer,
-> 
-> Before V4, there is a bug which can cause kernel panic when SPARSEMEM
-> is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
-> after sparse_init(). And I just tested the riscv-pgtable_static_key
-> branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
-> I'm not sure what happened. Could you please send me your kernel
-> config file? I want to fix any issue which can block this series being
-> merged in 6.1-rc1.
+Samuel reported that the static branch usage in cpu_relax() breaks
+building with CONFIG_CC_OPTIMIZE_FOR_SIZE:
 
-Hi Palmer,
+In file included from <command-line>:
+./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
+././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
+probably does not match constraints
+  285 | #define asm_volatile_goto(x...) asm goto(x)
+      |                                 ^~~
+./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+'asm_volatile_goto'
+   41 |         asm_volatile_goto(
+      |         ^~~~~~~~~~~~~~~~~
+././include/linux/compiler_types.h:285:33: error: impossible constraint
+in 'asm'
+  285 | #define asm_volatile_goto(x...) asm goto(x)
+      |                                 ^~~
+./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+'asm_volatile_goto'
+   41 |         asm_volatile_goto(
+      |         ^~~~~~~~~~~~~~~~~
+make[1]: *** [scripts/Makefile.build:249:
+arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
+make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
 
-I know you are busy ;) Do you have time to send me your test kernel
-config file so that I can reproduce the "early boot hang"?
+Maybe "-Os" prevents GCC from detecting that the key/branch arguments
+can be treated as constants and used as immediate operands. Inspired
+by x86's commit 864b435514b2("x86/jump_label: Mark arguments as const to
+satisfy asm constraints"), and as pointed out by Steven: "The "i"
+constraint needs to be a constant.", let's do similar modifications to
+riscv.
 
-Thanks
+Tested by CC_OPTIMIZE_FOR_SIZE + gcc and CC_OPTIMIZE_FOR_SIZE + clang.
+
+Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+Link: https://lore.kernel.org/all/20210212094059.5f8d05e8@gandalf.local.home/
+Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
+Reported-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+
+since v1:
+ - add Reported-by, Reviewed-by, Fixes and Link tag
+
+ arch/riscv/include/asm/jump_label.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+index 38af2ec7b9bf..6d58bbb5da46 100644
+--- a/arch/riscv/include/asm/jump_label.h
++++ b/arch/riscv/include/asm/jump_label.h
+@@ -14,8 +14,8 @@
+ 
+ #define JUMP_LABEL_NOP_SIZE 4
+ 
+-static __always_inline bool arch_static_branch(struct static_key *key,
+-					       bool branch)
++static __always_inline bool arch_static_branch(struct static_key * const key,
++					       const bool branch)
+ {
+ 	asm_volatile_goto(
+ 		"	.option push				\n\t"
+@@ -35,8 +35,8 @@ static __always_inline bool arch_static_branch(struct static_key *key,
+ 	return true;
+ }
+ 
+-static __always_inline bool arch_static_branch_jump(struct static_key *key,
+-						    bool branch)
++static __always_inline bool arch_static_branch_jump(struct static_key * const key,
++						    const bool branch)
+ {
+ 	asm_volatile_goto(
+ 		"	.option push				\n\t"
+-- 
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
