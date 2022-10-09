@@ -4,59 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC40C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Oct 2022 11:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF8BC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Oct 2022 12:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z6Wxqy51KsBAyDvKXkIp/MA1QAd0GRoiwxUycEQsU98=; b=eb7+NpQYpQM0CA
-	11OL46FFRnye2P71zSooh/R/S05ldmCaIKCDjGV0DhNyeAQdChqfXb9TiZO8raqiE5yGiCOPAdMx7
-	hfcDey/9Pf5oKRJtsmcxWQrQBI0zOE9WQ4tDfPKXhvKjzMIBtOIgNAvc/TFy6uICogAAnmR3PGAsB
-	ySP863WjS9t8w17ycxdd+NtTz77OzvvKxaJcWYVOVkqp03aZlh+5Nvdi8ZhOjIKX6yVh5rOpNFFba
-	pGw/6TjbEc7nrPJ01KS10uQySpabWfr4lUD8xWWo6eugT81WYq+4maFaEkOvVbPgxLkS19kJBUGdy
-	dWZN/HGD8R9P2cmBHPRg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5FZBG8JHf/whw6awPIMHquoOTdd6H7KWYnY5Bu6KdrA=; b=URQHfJ0KXHWIZX
+	Mww3K6vumKp+hk6h6hnKtsrgQBxGBMzkykaxGHItpN/7sx7LU8jz6+A4yr9VE69j5YN8f5J6OioDd
+	1zcViTzhOHfSSgcn8HdXXXvh985bL23/ZFhvfU1rrKy9ysy4iFH8oz6dc+kGHgOdbvuRq75G8cRmW
+	Fm0Cb2jkTfDJJ8RXRaom+IjlYZry9+aAD/+j1tFpYasm+ffa3Tf+MFiGFJnWmrmIuX3DuEFseAmIJ
+	YsKq1Ct7BcjyFb3g1WjWnzL8+JMGERX+3HRjcBieWDG8AVig/2te8fwLol4f6hur5aZKkWQqinioP
+	7neh+XvgpjG2nm3041Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohUVf-00FNt0-Au; Sun, 09 Oct 2022 11:30:19 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ohV2j-00FUJk-8L; Sun, 09 Oct 2022 12:04:29 +0000
+Received: from mail.galaxycrow.de ([162.55.242.111])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohUVc-00FNse-PT
-	for linux-riscv@lists.infradead.org; Sun, 09 Oct 2022 11:30:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 410C6B80C69;
-	Sun,  9 Oct 2022 11:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6FDBC433D6;
-	Sun,  9 Oct 2022 11:30:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665315014;
-	bh=OCsBIWLHMloGFPkE5JhJN04W1iGjU/gx4U9LApojF60=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rGEamWIbH1kJVlcoJsRmH7CkSHLQ4ljEuoxne2FyS5twim5SM8r/qUOgAV0HE/6Jo
-	 ar/Zqd813iBWFn6XWWHYlkOFIOErJBdedsiWre6XOJF4mQB+ZB5IWE8wKxRAN3fjOE
-	 Kg33NPdnVx4WuFL/SWrIX8f7KL6jH4PiBWHR8aW1ZMOXEMW23jnAdub/bPajbkmNUG
-	 XaZE/IRB4YVsFdQtOr8t0yawHF8arrxMh/1t8qX5aPNiZG1ZnExxgOb1bOTm5V64oW
-	 PhW8y9FsESF9I3ZrKHe41pIx1Iic83gyrM8dkCnTmwEK17/BuCgDjHCZ6rkh5LrG1I
-	 XNHv1BJ9Z82Pw==
-Date: Sun, 9 Oct 2022 12:30:09 +0100
-From: Conor Dooley <conor@kernel.org>
-To: panqinglin2020@iscas.ac.cn
-Cc: atishp@atishpatra.org, alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com
-Subject: Re: [PATCH v1 1/1] riscv: mm: add missing memcpy in kasan_init
-Message-ID: <Y0KwwUNpfC+JOhQR@spud>
-References: <CAOnJCU+GHzFSzSdvZKBrFeF4WqPvC5w0r1f4r3S8hLbOagPKgA@mail.gmail.com>
- <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
+	id 1ohV2g-00FUE0-Aq
+	for linux-riscv@lists.infradead.org; Sun, 09 Oct 2022 12:04:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57C95620F9;
+	Sun,  9 Oct 2022 14:03:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=galaxycrow.de;
+	s=dkim; t=1665317049; h=from:subject:date:message-id:to:mime-version:content-type;
+	bh=47nDLmeP9CCnVKPlIg8SFdJ7QMltUB4o3PzBaMbLha8=;
+	b=jkvtLgg01cJDalSjU3eysx98IJA7tNSjXX/rvdGJhC6cLHLhxQ5XR3r1dvkdETm1MSG99F
+	25/daH6WlTxfU3eFnt6hPv0uIk387avE3OnHuI3+8DPSpzEngtZJcsw85KZxKHMe3vMDt9
+	GTQpJ6msb6UwJklUccxkBMWTSUsh9dQYjtLadr85xCqcv/2bWQUT/SgRi1z/6tbYOf/weV
+	4RHzUTXriiFNrPB7Y34dD1yOylF2E3kfZGbPDznJzQgNbM+miAOykXCEYttupMabWOpoax
+	Xqh0r2p1FJbM/71UhQnzLLjeqrUpql9nITpmjKv8nvp+YZdpL+h1EMzYoAlDnQ==
+Date: Sun, 9 Oct 2022 14:03:40 +0200
+From: Cleo John <waterdev@galaxycrow.de>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Fixed styling in riscv ucontext header
+Message-ID: <20221009120340.GA41243@watet-ms7b87>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221009_043017_014167_A238ADE4 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20221009_050426_576913_D972A15B 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,69 +65,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 09, 2022 at 04:30:50PM +0800, panqinglin2020@iscas.ac.cn wrote:
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> Hi Atish,
-> 
-> It seems that the panic is due to the missing memcpy during kasan_init.
-> Could you please check whether this patch is helpful?
+This patch changes the two comments in ucontext.h by getting them up to the cody style proposed by torwalds. 
+In my opinion this also improves the readability so I think this is a useful change to do.
+Please also tell me if you have a different opinion.
 
-If this does solve the problem it would be:
-Fixes: 8fbdccd2b173 ("riscv: mm: Support kasan for sv57")
-right?
+Signed-off-by: Cleo John <waterdev@galaxycrow.de>
+---
+ arch/riscv/include/uapi/asm/ucontext.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Thanks,
-Conor.
+diff --git a/arch/riscv/include/uapi/asm/ucontext.h b/arch/riscv/include/uapi/asm/ucontext.h
+index 44eb993950e5..0cd6f8616985 100644
+--- a/arch/riscv/include/uapi/asm/ucontext.h
++++ b/arch/riscv/include/uapi/asm/ucontext.h
+@@ -18,7 +18,8 @@ struct ucontext {
+ 	/* There's some padding here to allow sigset_t to be expanded in the
+ 	 * future.  Though this is unlikely, other architectures put uc_sigmask
+ 	 * at the end of this structure and explicitly state it can be
+-	 * expanded, so we didn't want to box ourselves in here. */
++	 * expanded, so we didn't want to box ourselves in here.
++	 */
+ 	__u8		  __unused[1024 / 8 - sizeof(sigset_t)];
+ 	/* We can't put uc_sigmask at the end of this structure because we need
+ 	 * to be able to expand sigcontext in the future.  For example, the
+@@ -27,7 +28,8 @@ struct ucontext {
+ 	 * ucontext, so we're putting this at the end in order to allow for
+ 	 * infinite extensibility.  Since we know this will be extended and we
+ 	 * assume sigset_t won't be extended an extreme amount, we're
+-	 * prioritizing this. */
++	 * prioritizing this.
++	 */
+ 	struct sigcontext uc_mcontext;
+ };
+ 
+-- 
+2.25.1
 
-> 
-> When doing kasan_populate, the new allocated base_pud/base_p4d should
-> contain kasan_early_shadow_{pud, p4d}'s content. Add the missing memcpy
-> to avoid page fault when read/write kasan shadow region.
-> 
-> Tested on:
->  - qemu with sv57 and CONFIG_KASAN on.
->  - qemu with sv48 and CONFIG_KASAN on.
-> 
-> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> ---
->  arch/riscv/mm/kasan_init.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index a22e418dbd82..e1226709490f 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -113,6 +113,8 @@ static void __init kasan_populate_pud(pgd_t *pgd,
->  		base_pud = pt_ops.get_pud_virt(pfn_to_phys(_pgd_pfn(*pgd)));
->  	} else if (pgd_none(*pgd)) {
->  		base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
-> +		memcpy(base_pud, (void *)kasan_early_shadow_pud,
-> +			sizeof(pud_t) * PTRS_PER_PUD);
->  	} else {
->  		base_pud = (pud_t *)pgd_page_vaddr(*pgd);
->  		if (base_pud == lm_alias(kasan_early_shadow_pud)) {
-> @@ -173,8 +175,11 @@ static void __init kasan_populate_p4d(pgd_t *pgd,
->  		base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(_pgd_pfn(*pgd)));
->  	} else {
->  		base_p4d = (p4d_t *)pgd_page_vaddr(*pgd);
-> -		if (base_p4d == lm_alias(kasan_early_shadow_p4d))
-> +		if (base_p4d == lm_alias(kasan_early_shadow_p4d)) {
->  			base_p4d = memblock_alloc(PTRS_PER_PUD * sizeof(p4d_t), PAGE_SIZE);
-> +			memcpy(base_p4d, (void *)kasan_early_shadow_p4d,
-> +				sizeof(p4d_t) * PTRS_PER_P4D);
-> +		}
->  	}
->  
->  	p4dp = base_p4d + p4d_index(vaddr);
-> -- 
-> 2.35.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
