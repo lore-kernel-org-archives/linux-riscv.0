@@ -4,51 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF8BC433F5
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Oct 2022 12:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC56C433F5
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Oct 2022 12:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5FZBG8JHf/whw6awPIMHquoOTdd6H7KWYnY5Bu6KdrA=; b=URQHfJ0KXHWIZX
-	Mww3K6vumKp+hk6h6hnKtsrgQBxGBMzkykaxGHItpN/7sx7LU8jz6+A4yr9VE69j5YN8f5J6OioDd
-	1zcViTzhOHfSSgcn8HdXXXvh985bL23/ZFhvfU1rrKy9ysy4iFH8oz6dc+kGHgOdbvuRq75G8cRmW
-	Fm0Cb2jkTfDJJ8RXRaom+IjlYZry9+aAD/+j1tFpYasm+ffa3Tf+MFiGFJnWmrmIuX3DuEFseAmIJ
-	YsKq1Ct7BcjyFb3g1WjWnzL8+JMGERX+3HRjcBieWDG8AVig/2te8fwLol4f6hur5aZKkWQqinioP
-	7neh+XvgpjG2nm3041Lg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5YVN8R6aoAVW2dNDeUlqJqWRrXGLPlurNzztrY5EoxU=; b=Pp1enJDmNsYWB7
+	68ac4+RQGaDQs3EDdyLezRc/iFwla8EWB/xGhXl0Fc5/mBRC5wYqiBlCsM1beQj57pAD3OjGH0dix
+	2/ILO46E6SiqJXlLFY9oFXKPlEb36uFNnDMl7chSAInVIFLZjTfcw/wrw6uXQFjD+dkGO66cIOiiH
+	mc7OVsQGLC/1420Fql1EG77OV3GlqfMIOs2lccVGnzd/agOTF8TvwCBAKz++8LpkCR5yrIrlfCzPv
+	2C8n2QpooUq0aYV42pHuc7TQfwnSkNjstv/1TwzDPiIYsdPyd+RGzbO3Ljm181VwmRD/QOdcgffKL
+	QhJyGsXGSsi4C2ZW6Tkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohV2j-00FUJk-8L; Sun, 09 Oct 2022 12:04:29 +0000
-Received: from mail.galaxycrow.de ([162.55.242.111])
+	id 1ohVCw-00FWwn-Ft; Sun, 09 Oct 2022 12:15:02 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohV2g-00FUE0-Aq
-	for linux-riscv@lists.infradead.org; Sun, 09 Oct 2022 12:04:27 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57C95620F9;
-	Sun,  9 Oct 2022 14:03:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=galaxycrow.de;
-	s=dkim; t=1665317049; h=from:subject:date:message-id:to:mime-version:content-type;
-	bh=47nDLmeP9CCnVKPlIg8SFdJ7QMltUB4o3PzBaMbLha8=;
-	b=jkvtLgg01cJDalSjU3eysx98IJA7tNSjXX/rvdGJhC6cLHLhxQ5XR3r1dvkdETm1MSG99F
-	25/daH6WlTxfU3eFnt6hPv0uIk387avE3OnHuI3+8DPSpzEngtZJcsw85KZxKHMe3vMDt9
-	GTQpJ6msb6UwJklUccxkBMWTSUsh9dQYjtLadr85xCqcv/2bWQUT/SgRi1z/6tbYOf/weV
-	4RHzUTXriiFNrPB7Y34dD1yOylF2E3kfZGbPDznJzQgNbM+miAOykXCEYttupMabWOpoax
-	Xqh0r2p1FJbM/71UhQnzLLjeqrUpql9nITpmjKv8nvp+YZdpL+h1EMzYoAlDnQ==
-Date: Sun, 9 Oct 2022 14:03:40 +0200
-From: Cleo John <waterdev@galaxycrow.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1ohVCu-00FWvM-1C
+	for linux-riscv@lists.infradead.org; Sun, 09 Oct 2022 12:15:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 43633B80C69;
+	Sun,  9 Oct 2022 12:14:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94930C433C1;
+	Sun,  9 Oct 2022 12:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665317696;
+	bh=WciH6tNrDqXfLYWE0rrHdkoSqbQhPHlMKemmVdnXz9A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=biOwjMEvHuSIE8NarhntzD8o+TDadoik5XJpctzSEsicXDUIcdMF8Gyv693Mq+IVI
+	 z0AeKokLzZa0ug1Re1I7QehaU+dV4i27Twdu6i2oTzhFBvHy8Rd/m60PD06HnrYeDS
+	 anopKXF1bU6SvoeJa425Q3azSAiXTz0HRn2EzKdH3+OfseSOYY6L7GPR3dwm4clRhg
+	 UvjGVsDIpFiR/2riMRDuRpt7fBI8ZPuWRe9QHounnv7Yb7II56JK0e9ykxPepdXpEp
+	 Ykdyx7ne7aUA+er5Fd8X3FjLK/VKWKO5K+rm0TkucM/HUzCbg5YCbkk9mREv/SG0lV
+	 7NK+IgROko+bQ==
+Date: Sun, 9 Oct 2022 13:14:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Cleo John <waterdev@galaxycrow.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] Fixed styling in riscv ucontext header
-Message-ID: <20221009120340.GA41243@watet-ms7b87>
+Subject: Re: [PATCH] Fixed styling in riscv ucontext header
+Message-ID: <Y0K7PDzwuOPweYSm@spud>
+References: <20221009120340.GA41243@watet-ms7b87>
 MIME-Version: 1.0
 Content-Disposition: inline
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20221009120340.GA41243@watet-ms7b87>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221009_050426_576913_D972A15B 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20221009_051500_242587_FF4C9BCB 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,42 +74,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch changes the two comments in ucontext.h by getting them up to the cody style proposed by torwalds. 
-In my opinion this also improves the readability so I think this is a useful change to do.
-Please also tell me if you have a different opinion.
+Hey Cleo,
 
-Signed-off-by: Cleo John <waterdev@galaxycrow.de>
----
- arch/riscv/include/uapi/asm/ucontext.h | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+On Sun, Oct 09, 2022 at 02:03:40PM +0200, Cleo John wrote:
+> Fixed styling in riscv ucontext header
 
-diff --git a/arch/riscv/include/uapi/asm/ucontext.h b/arch/riscv/include/uapi/asm/ucontext.h
-index 44eb993950e5..0cd6f8616985 100644
---- a/arch/riscv/include/uapi/asm/ucontext.h
-+++ b/arch/riscv/include/uapi/asm/ucontext.h
-@@ -18,7 +18,8 @@ struct ucontext {
- 	/* There's some padding here to allow sigset_t to be expanded in the
- 	 * future.  Though this is unlikely, other architectures put uc_sigmask
- 	 * at the end of this structure and explicitly state it can be
--	 * expanded, so we didn't want to box ourselves in here. */
-+	 * expanded, so we didn't want to box ourselves in here.
-+	 */
- 	__u8		  __unused[1024 / 8 - sizeof(sigset_t)];
- 	/* We can't put uc_sigmask at the end of this structure because we need
- 	 * to be able to expand sigcontext in the future.  For example, the
-@@ -27,7 +28,8 @@ struct ucontext {
- 	 * ucontext, so we're putting this at the end in order to allow for
- 	 * infinite extensibility.  Since we know this will be extended and we
- 	 * assume sigset_t won't be extended an extreme amount, we're
--	 * prioritizing this. */
-+	 * prioritizing this.
-+	 */
- 	struct sigcontext uc_mcontext;
- };
- 
--- 
-2.25.1
+This should probably be "riscv: fix styling..."
 
+> This patch changes the two comments in ucontext.h by getting them up to the cody style proposed by torwalds. 
+
+s/This patch changes/Change
+
+Looks like some typos here too & your lines need to be wrapped at 72
+characters for commit messages. git usually enforces that automatically
+when you do a `git commit`.
+
+> In my opinion this also improves the readability so I think this is a useful change to do.
+> Please also tell me if you have a different opinion.
+
+FYI commentary on the patch should go below the ---.
+
+> 
+> Signed-off-by: Cleo John <waterdev@galaxycrow.de>
+> ---
+>  arch/riscv/include/uapi/asm/ucontext.h | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/ucontext.h b/arch/riscv/include/uapi/asm/ucontext.h
+> index 44eb993950e5..0cd6f8616985 100644
+> --- a/arch/riscv/include/uapi/asm/ucontext.h
+> +++ b/arch/riscv/include/uapi/asm/ucontext.h
+> @@ -18,7 +18,8 @@ struct ucontext {
+>  	/* There's some padding here to allow sigset_t to be expanded in the
+
+Why fix the closing comment but leave the opening ones incorrect?
+
+Thanks,
+Conor.
+
+>  	 * future.  Though this is unlikely, other architectures put uc_sigmask
+>  	 * at the end of this structure and explicitly state it can be
+> -	 * expanded, so we didn't want to box ourselves in here. */
+> +	 * expanded, so we didn't want to box ourselves in here.
+> +	 */
+>  	__u8		  __unused[1024 / 8 - sizeof(sigset_t)];
+>  	/* We can't put uc_sigmask at the end of this structure because we need
+>  	 * to be able to expand sigcontext in the future.  For example, the
+> @@ -27,7 +28,8 @@ struct ucontext {
+>  	 * ucontext, so we're putting this at the end in order to allow for
+>  	 * infinite extensibility.  Since we know this will be extended and we
+>  	 * assume sigset_t won't be extended an extreme amount, we're
+> -	 * prioritizing this. */
+> +	 * prioritizing this.
+> +	 */
+>  	struct sigcontext uc_mcontext;
+>  };
+>  
+> -- 
+> 2.25.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
