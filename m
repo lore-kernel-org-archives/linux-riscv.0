@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211FBC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 22:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9021FC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 22:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ddqzmudMW9nTYux04eKuoP2YusOCI5EifbJCYcuqsY=; b=5DztnDEbOCH75H
-	OZXWKApt8TrEJsciGLs2VvtiZ33is4XLwsMwYvMkOLmBKgwxaE34hOfw7yErYOv8jMQW+Lmn3YjW/
-	2rfTvzoKYTvBcpvja4PtgT+CfWAhkcD/dQ8pHBYljUIm6hK+9BYyT/kAFB3wRoI/IhR4X+BGvbwPe
-	cVj44r5MeQZ3+LhQ8s1SmlMFJg623QcwqL7/rAUCT0aksxqJeDf0d/eWBBNjLHGQHj9RqNkQpVms3
-	/CaznZekgPVVpK/6VAxp+N3T/yZBEtbaShI/3vAkDEWu7Vg/oED8yyBWBOPBxYXPdL/Vv2rD+jxCb
-	TWZVCn3LDmp5hG02VADw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HNXhBUiUi2hNIiYrLCcXPUdwZ/mcTNsgc3QBkRjg4Us=; b=i0HhnIcJItTxd0
+	uUKZndBtAJPx06Lj+leCHcBQcoxJ4S2dzDah4nDXWC2Hs3pfQjY5Yxa0amxNhGMdXbWv8Wr+FzQnS
+	vTR4QjvIg/Il8ItoRHTd+goAY9+eqpY9KPunCJmlB7Rt4d3cnDr+x9NwrTtv/CHmatiwWmE9zU5Ob
+	x2WmEDJ0NKmarYgxA+NeX5tri9KR5zL9EoywLuu557EEdHj4/eE7De6qbij/1GUiDKlh8euEoa7TM
+	H3ziNz1zUto9KNacwMxMeLIJQHr/9Q754h/v8fb3v/ROU3pFO6bVjNDKYZvY8EbHzE6uuop5KUqf5
+	vtL35hsdw1t0OOv+YOCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi15z-002QqG-BK; Mon, 10 Oct 2022 22:17:59 +0000
+	id 1oi15y-002Qq0-0W; Mon, 10 Oct 2022 22:17:58 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi15v-002QnY-Ac
+	id 1oi15v-002QnM-Ac
 	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 22:17:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id DB8ADB810F7;
-	Mon, 10 Oct 2022 22:17:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC3E7C433D6;
-	Mon, 10 Oct 2022 22:17:46 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9F702B810EE;
+	Mon, 10 Oct 2022 22:17:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E00C433C1;
+	Mon, 10 Oct 2022 22:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665440267;
-	bh=+rG3edh1LfLu4NPjq7trYNXfBvuyzPwY6P+xNrFeCDg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=L033EHXtZV6pSyHazpP7QADSzwEHLQWudEGBj9EUXgHK7hKl9vKXRoQHp5scu0MeS
-	 JRkHrD7pb6ADP6fpZqCRV5JpQUSKLsZK9pathld7e1y+4p0RezRKLXr9sflLuN0Qx7
-	 5kISPaLQjVE6u8ovn6gIzYPZYiJzFi2VkrucxQYqZvNdgHjjWnVN3e9CbgcRxZFKpx
-	 9LPzyTYoJeIBh7K6hoDrAyOlLKa71XYqKjWdZfQMxYoW/Gn5Evk1hxwUvSpSwJTdIe
-	 yjOvHTxkhUI1Mm3EcgId9XHfuL+n68aYhvammZKLTO2BfDhVgEEeftWWKLWvLse44R
-	 S/DzHM4LeKwJg==
+	s=k20201202; t=1665440266;
+	bh=/Orn8PJpcl4Esy+ZQtwNhwbiNMH101gvw3w6Yupw1Kw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lgCxkCHyKAywSuuXom8A1fSW22VJokpeBzEaUAuuxjgpdn3Tf2Vpb6uTTX8N8WYgy
+	 uxbb+VBItQtlhTcBrT67QWzdPCpznfgUNXVLxLKTuycyAAfok+BLIM9wb7O4ldEnTY
+	 3ddJrckn/BrqS5rj1K52lcSp45UzYlGZWZExTC7F+aiokx4IDvLtpbUcTn78durdVB
+	 dHImP7l3YNLjbxxe6+Q6YAz9XM6SVcxMzes29cmXoZpEDDsxfamFy408cLYCfsLN2d
+	 lPFeovwt58JFr3bQqnuW/UhuO2iVXmtjsxNNyI7843ZaRiI5nwYotLJgTtTE+ahzb0
+	 fLjJ3Y9DTfTlg==
 From: Conor Dooley <conor@kernel.org>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-riscv@lists.infradead.org
-Subject: [GIT PULL 1/2] MAINTAINERS: update polarfire soc clock binding
-Date: Mon, 10 Oct 2022 23:17:04 +0100
-Message-Id: <20221010221704.2161221-2-conor@kernel.org>
+Subject: [GIT PULL 0/2] microchip maintainers updates
+Date: Mon, 10 Oct 2022 23:17:03 +0100
+Message-Id: <20221010221704.2161221-1-conor@kernel.org>
 X-Mailer: git-send-email 2.37.3
-In-Reply-To: <20221010221704.2161221-1-conor@kernel.org>
-References: <20221010221704.2161221-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_151755_537863_E957DF61 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20221010_151755_538193_DDD24772 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +73,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The clock binding has been renamed and a new binding added for the
-clock controllers in the FPGA fabric. Generalise the pattern to
-cover both.
+Hey Palmer,
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Two maintainers changes that I posted on the lists a while back.
+Neither applied at the time b/c the maintainers entry was being updated
+in the soc fixes branch and in some for-next branches at the same time
+and they conflicted.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0dc4a769216b..94cf47ea5f80 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17645,7 +17645,7 @@ M:	Conor Dooley <conor.dooley@microchip.com>
- M:	Daire McNamara <daire.mcnamara@microchip.com>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
--F:	Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
-+F:	Documentation/devicetree/bindings/clock/microchip,mpfs*.yaml
- F:	Documentation/devicetree/bindings/gpio/microchip,mpfs-gpio.yaml
- F:	Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
- F:	Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+If you could pick the two that'd be great.
+
+Thanks,
+Conor.
+
+Conor Dooley (2):
+  MAINTAINERS: update polarfire soc clock binding
+  dt-bindings: riscv: update microchip.yaml's maintainership
+
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 4 ++--
+ MAINTAINERS                                            | 3 ++-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
 -- 
 2.37.3
 
