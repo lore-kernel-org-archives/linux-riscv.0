@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3841FC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 06:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C31CC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 07:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xeobmp4GtPazfpRdDQFk4g5Fibj0ZLUAXrL6vYamdsE=; b=ekyPmBs8Cu/atg
-	aUo6FZA8ivJ3sKclcCVVqyaytqSki/tHmhteUkUXRpLcerwaoQLBYpTNiuJA1FbShXaowaLejI42D
-	EDH28g5vgsYXitZFGPiopQwKwQeRlXINK24ludPL2a8laJadx28fiIY0w36He6JlPkAXufhV3t/PG
-	ErMrdk95Y3h5RP10N+yHTTrTGSuJeSRNq7UkfL9hZNCulJcSRkI17K9Fog/hQswsTz+4+KMX6E7XZ
-	dDHefGoWF8mlsyPx20dMMvZGg5J3EdGcn/fkKaAwalJajVhF+j7fUsyVkDRIyW4VHjRYN8xvVkTBO
-	W5jdyS/qMHjyLpbIxkfg==;
+	List-Owner; bh=GXQkPTzVudJRQn1UCXXZOCMm7O7vZ2A5caVN5PwOn4Q=; b=tn3aFqJUk/T2Nk
+	c5bTCUpwg2HzI0qC9EybLNO1vTMzog8VIzpM8rHbxD9u/jCRJR7Tzin/z07aRWTPjuLZzDI87nrUl
+	8BcK8vUNMMizVqNhnZt0m7zODjsLCIbCp5R+3S5qpdiM3RVBmYycQptkkI7nINOaOo2aA8v2xp5dT
+	X8fQM89AXYYG28jGXdFbYGcQhjHvW70bec9HXA6LJHR+gfYI8FsY2YdptBSeb++P9Uqh7boNgiBqC
+	NygikQJdtPaLvVisZZlZC3GD10U64J2rZqsCHHtxSNtAWZ4HVq7j2NWg/x+zA/rpSK5FZzCEIbFhM
+	8K7gK1W24y9ku4PSiMgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohmbn-00HHPP-IP; Mon, 10 Oct 2022 06:49:51 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1ohmlY-00HIoF-S3; Mon, 10 Oct 2022 06:59:56 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohmbk-00HHOq-GR
-	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 06:49:50 +0000
-Received: by mail-il1-x129.google.com with SMTP id h18so5270090ilh.3
-        for <linux-riscv@lists.infradead.org>; Sun, 09 Oct 2022 23:49:47 -0700 (PDT)
+	id 1ohmlV-00HImI-LP
+	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 06:59:54 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id z97so14602913ede.8
+        for <linux-riscv@lists.infradead.org>; Sun, 09 Oct 2022 23:59:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=StmzGWQ2FLOMlUBqdG0YoDepffrHHrJJL+7kIac1kMk=;
-        b=phMXaWK+UV0nZr1p6R0ccwAPvvF9qow/wGZn7WabRjQtu00Ornr4RN1oCKOxI5wnEc
-         7f6Y9iqSLIMZkbrfY224cGSfJiYCB7A+IitZpwKUbpl/+MCnfFIoC2FrfV0q3DTQ/dl6
-         stbLtA0j84TpJPDpxj6w7vAG0etNgEVsSHYrE=
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=a1fp9+rKdmUuY9SWEnGxIrNFPj6sCTeRm1jad3ZuU2k=;
+        b=FqrGflI7dLXRUElNttQgSWoongr4d8SuEdNC1fduJnVRmwF7qBcfQVFzWid8PMFt+s
+         7RqYMvKsPB6GRY/URbX18HMMxazMGYmo2e6kxaqeoi5GesaXhlmxx+N+g1kNAmbczspz
+         cGB/PNdhsdJsnzmCEBtMlExsqZ0GQPYU+8pAuj52cRHXqBkpDda2Sj+9fUOMSwYbGNFl
+         yLlfy+9767CpJ4Q5wNkXn6WlHi9dVVsRk6LNp1RB1QyUHW2qg2eSerenIa/NX9e0OBQP
+         dGftZ/Enkr+aZ+5HG1dOZ7kA2G6h7ORDqQwB3Gsy07ZiW6uO/qRRJ+yaXMfwhsuuL/wz
+         8/gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=StmzGWQ2FLOMlUBqdG0YoDepffrHHrJJL+7kIac1kMk=;
-        b=czCJvwMpbILU+TgRGiuEJ+czrqN6+lXp8MqTjJ30+pbLcXbL1dF5lerLrmniyXlPgr
-         YALrY4YbSvhXp6sjGPEDIT0KhGitflRoFJINhsjuk28hj1BOyXLTgsMmT0xCzNjgqW1j
-         by1ORt1oD3pBHOTUV5nb2kwtDKTktHdsTDbGKohAG8FoDbigdlLHH5uBazWUYzmXwbaL
-         SmOZwPhxzWIUx+T5ujhiecuSE2GUO3OxPm8JbCrFYshMdVdDc1F81U1jtau6+tBvUYE2
-         OuNrplh045AFEbBpoiUEmOqt4R/bwrpEF3BDG0lvuQgJIBp+IFKEROLsflyoTTGQzQF8
-         TtIA==
-X-Gm-Message-State: ACrzQf1gOi0DdzJ+z42AZXOptlzt6KtkzWAjCUcpEgGGZ6oSJHUbBO6c
-	2LhgjMhIsHjDLKdr6qjGymxt+EmMWehZEIJ+Mw8b
-X-Google-Smtp-Source: AMsMyM4laGc9rGeTlqVCswkSboYYZyX6Iu4PX+zuvFf/hlqdyVkdHJwCeHcXsSuVkQ33D9tEI6TcIXrDLoJ54Dz2zoM=
-X-Received: by 2002:a05:6e02:1a41:b0:2fa:969d:fcd0 with SMTP id
- u1-20020a056e021a4100b002fa969dfcd0mr8561021ilv.6.1665384586748; Sun, 09 Oct
- 2022 23:49:46 -0700 (PDT)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a1fp9+rKdmUuY9SWEnGxIrNFPj6sCTeRm1jad3ZuU2k=;
+        b=URpnMf+V8RUP9rcoD2Gx8McUgxmLyC42p/Rp9VO/RQ5VITIaqH1ZbHNIG2fPp0hHmr
+         sORzAhoG5ig2moP+o2xfYQwizgEm/O9KxU2gb2F2QFYc3ap7r0GOiiGAaxDDmRl9cob3
+         EWvdWbwYvNgWNM87LWcgpAAUjCCSlhmDkzN8C6U68S2M6Pjq67wa9rZl9VOtUadfFsqq
+         EsWTplqdaIGmd+rwujNxxM5yGTE2UYdPCcmelAKQLE1zNIuJFwmjhYiy6p7tk0TuLuXQ
+         dGuOy4Zu1lGHcgiMqS4mCMLixoOQvaX5CNbacgdurC52OdYGZ+I+sbn+u3ZolVTe/Iym
+         6hPw==
+X-Gm-Message-State: ACrzQf0V1/bJPVU/y6VRd1VTKZ3N/p9Gc5cZ0o2gO5GZfplxEt/3qvGL
+	jQi/jrKDQUYMPtQRflXfMRygBA==
+X-Google-Smtp-Source: AMsMyM5iAaOQ7Q85SCGa9a1GKDPTYFqnf6CENRfzpNWykMCCmv5ldmO3+wQqqF2asmYJsnnE3P9hgg==
+X-Received: by 2002:a05:6402:5106:b0:45c:2c80:94a4 with SMTP id m6-20020a056402510600b0045c2c8094a4mr2002943edd.298.1665385190546;
+        Sun, 09 Oct 2022 23:59:50 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id m30-20020a17090677de00b00779cde476e4sm4898631ejn.62.2022.10.09.23.59.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Oct 2022 23:59:50 -0700 (PDT)
+Date: Mon, 10 Oct 2022 08:59:49 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Vernon Yang <vernon2gm@gmail.com>, lkp@intel.com, anup@brainfault.org,
+	atishp@rivosinc.com, kbuild-all@lists.01.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] RISC-V: KVM: fixup undefined reference to
+ riscv_cbom_block_size
+Message-ID: <20221010065949.is3kf54ctt2kdmjd@kamzik>
+References: <202210091222.xuZquaM9-lkp@intel.com>
+ <20221010013329.199167-1-vernon2gm@gmail.com>
+ <Y0O+vEC3/fnUKgxw@wendy>
 MIME-Version: 1.0
-References: <CAOnJCU+GHzFSzSdvZKBrFeF4WqPvC5w0r1f4r3S8hLbOagPKgA@mail.gmail.com>
- <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
-In-Reply-To: <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Sun, 9 Oct 2022 23:49:36 -0700
-Message-ID: <CAOnJCU+n4gvyj=a=JjGMkC4PXHLNWt-_a9aqtp61XHCD-8UYHA@mail.gmail.com>
-Subject: Re: [PATCH v1 1/1] riscv: mm: add missing memcpy in kasan_init
-To: panqinglin2020@iscas.ac.cn
-Cc: alex@ghiti.fr, linux-riscv@lists.infradead.org, palmer@dabbelt.com
+Content-Disposition: inline
+In-Reply-To: <Y0O+vEC3/fnUKgxw@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221009_234948_775132_51E0F58A 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20221009_235953_715730_7759DF03 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +93,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 9, 2022 at 1:31 AM <panqinglin2020@iscas.ac.cn> wrote:
->
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->
-> Hi Atish,
->
-> It seems that the panic is due to the missing memcpy during kasan_init.
-> Could you please check whether this patch is helpful?
->
-> When doing kasan_populate, the new allocated base_pud/base_p4d should
-> contain kasan_early_shadow_{pud, p4d}'s content. Add the missing memcpy
-> to avoid page fault when read/write kasan shadow region.
->
-> Tested on:
->  - qemu with sv57 and CONFIG_KASAN on.
->  - qemu with sv48 and CONFIG_KASAN on.
->
-> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> ---
->  arch/riscv/mm/kasan_init.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index a22e418dbd82..e1226709490f 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -113,6 +113,8 @@ static void __init kasan_populate_pud(pgd_t *pgd,
->                 base_pud = pt_ops.get_pud_virt(pfn_to_phys(_pgd_pfn(*pgd)));
->         } else if (pgd_none(*pgd)) {
->                 base_pud = memblock_alloc(PTRS_PER_PUD * sizeof(pud_t), PAGE_SIZE);
-> +               memcpy(base_pud, (void *)kasan_early_shadow_pud,
-> +                       sizeof(pud_t) * PTRS_PER_PUD);
->         } else {
->                 base_pud = (pud_t *)pgd_page_vaddr(*pgd);
->                 if (base_pud == lm_alias(kasan_early_shadow_pud)) {
-> @@ -173,8 +175,11 @@ static void __init kasan_populate_p4d(pgd_t *pgd,
->                 base_p4d = pt_ops.get_p4d_virt(pfn_to_phys(_pgd_pfn(*pgd)));
->         } else {
->                 base_p4d = (p4d_t *)pgd_page_vaddr(*pgd);
-> -               if (base_p4d == lm_alias(kasan_early_shadow_p4d))
-> +               if (base_p4d == lm_alias(kasan_early_shadow_p4d)) {
->                         base_p4d = memblock_alloc(PTRS_PER_PUD * sizeof(p4d_t), PAGE_SIZE);
-> +                       memcpy(base_p4d, (void *)kasan_early_shadow_p4d,
-> +                               sizeof(p4d_t) * PTRS_PER_P4D);
-> +               }
->         }
->
->         p4dp = base_p4d + p4d_index(vaddr);
-> --
-> 2.35.1
->
+On Mon, Oct 10, 2022 at 07:42:04AM +0100, Conor Dooley wrote:
+> On Mon, Oct 10, 2022 at 09:33:29AM +0800, Vernon Yang wrote:
+> > When some RISC-V compilers do not support the Zicbom extension,
+> > the build system auto disable the CONFIG_RISCV_ISA_ZICBOM, so the
+> > source code of the relevant function is not compiled, resulting
+> > in the definition of the riscv_cbom_block_size variable cannot
+> > be found
+> 
+> Hmm, my understanding was that riscv_cbom_block_size was not supposed to
+> depend on CONFIG_RISCV_ISA_ZICBOM because the thead is able to use it
+> even if the toolchain does not support it.
+> 
+> The code in cacheflush.h looks like:
+> extern unsigned int riscv_cbom_block_size;
+> #ifdef CONFIG_RISCV_ISA_ZICBOM
+> void riscv_init_cbom_blocksize(void);
+> #else
+> static inline void riscv_init_cbom_blocksize(void) { }
+> #endif
+> 
+> #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> void riscv_noncoherent_supported(void);
+> #endif
+> 
+> It's early and I only had a quick look but I think that this is not
+> defined because RISCV_DMA_NONCOHERENT is not defined, not because of
+> RISCV_ISA_ZICBOM.
 
-Yes. This patch fixes the boot issue for me with Kasan enabled on v6.0.
+thead is able to use riscv_cbom_block_size because it does its own
+initialization of it and selects RISCV_DMA_NONCOHERENT to get access
+to it. KVM depends on the initializer in dma-noncoherent.c, which is
+guarded by RISCV_ISA_ZICBOM and does not select RISCV_DMA_NONCOHERENT,
+but RISCV_ISA_ZICBOM does. I think guarding use of riscv_cbom_block_size
+with RISCV_ISA_ZICBOM in KVM makes sense.
 
-Tested-by: Atish Patra <atishp@rivosinc.com>
+> I'm not the KVM maintainer, but I dislike #ifdefery
+> in c files, so it'd be nice I think to sort this out in the header and
+> not have to worry about guarding the variable.
 
-Thanks for the patch. Few nit comments:
+I also dislike #ifdefery, but unless we move riscv_cbom_block_size to
+an unconditionally built file like cacheflush.c (as Anup once did), then
+we don't have much choice.
 
-You can drop the message addressed to me in the commit text.
-Usually, that should be after the last sign off between two  "---"
-
-As conor suggested, there should be a Fixes tag[1] in the commit text.
-
-[1] https://www.kernel.org/doc/html/v4.10/process/submitting-patches.html#:~:text=A%20Fixes%3A%20tag%20indicates%20that,versions%20should%20receive%20your%20fix.
--- 
-Regards,
-Atish
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
