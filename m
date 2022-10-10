@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B68BC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 15:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 227A0C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 15:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tI8dHU5ayIjmqTBS1MDP0Gtt8Ii75zWA0uQqRoXu74o=; b=0D/qxBnEw8R36p
-	2/1VbD3WjAC2i2fEcyCi+WNdCvOYOXbesnz6zNoj6/7quQPcbgEZK2QeZjp/rrUZeuQKcRfa57jNy
-	49WKFx0+vtlf/i9W9N3U5A1FYHNz0qRCf+/SMce5AVDZG1DrFNBzjGyz2ZKK4dFIFx19hd/3bNZzT
-	baQBvn98VgBfPQ8oKIXZmWPieNq0eUBX2YWWFhjPvMOm4WzaPbdZx0+rZ/ZfbSW+CtMFn3wJRdgy3
-	0N+orisJjVB5oHITsq36WI5hQ/tAlguMR3Xz2WaD3vRJcYZtTCCGia0yAtm/NLUAqQ5TOrY/GaEjS
-	f+boQ1y1OXTCQROKHJ5Q==;
+	List-Owner; bh=mk/nVJPodhAWk05YrqFIigVPXeLEZdZfQJqr4iLIwLQ=; b=NV1s/iaQhO7iUk
+	IWY257BRm6IOjj9VOfWpXMgRHsjPuTA8EOvASS7Lkl75KZhjr1bMneatbPevR7sg92vesHlgcZkKC
+	DaFQtsCI8gfvdv1FqfiwC48xrszWaFhlCE0BpFs9VxrLVQ9pQ9e03NQZ2Q2GPmmBJUwGkk1H+/anj
+	GVIB88Yjpnp6kedBI/nDGEtuJdbvqCXeKRZ8LhJ15D6VSRkAszVeKipWxd/HqB2p5MwmMpmT8PoFi
+	OJwszRSRG/LxttUsHBlp4HpGQxa35hY/3FchNo1ZzBfQObCdQDzwqf2XKLktT5UnKFLOJxdYaBlSS
+	Fet/fswQEwGYwWiJEeDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohuQU-001JDu-6r; Mon, 10 Oct 2022 15:10:42 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1ohuug-001NBm-1r; Mon, 10 Oct 2022 15:41:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohuQS-001JDH-0w
-	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 15:10:41 +0000
+	id 1ohuue-001NB9-58
+	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 15:41:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id DF225CE10D7;
-	Mon, 10 Oct 2022 15:10:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7C2DC433D6;
-	Mon, 10 Oct 2022 15:10:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A7D9460F99;
+	Mon, 10 Oct 2022 15:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B73B2C433D6;
+	Mon, 10 Oct 2022 15:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665414636;
-	bh=ldhbd4gbQEFA+pTqtSmtstrcNM+Qhq7eBd95J2vIhdA=;
+	s=k20201202; t=1665416511;
+	bh=OVOTUrIilndF1mR/lcqxq5K3gXDsoBCDf10VgMvS05c=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=UBia0qRg3uM2Fv6m57jcY4VKFldyUhPNfLQHomhUvx5AQ+4IACfN6SN5vBoZZn2dS
-	 hLFmjgW010B0xxT2620tnnbPBMUpyLMx9Q/HKXtKZTmdtxUlx8D0GpBaDrVE4ZZ+aa
-	 KcxuK9bpHNnamZc4fNQO241zMTiJh3CHpKexGqq12qTbJmx0RjbmGEbYZr1NIPdNRA
-	 0GZk9DljKVM6t3uc0sA/STL8FHZbwK+27mw195sqJXJWiYDt1Pix79mzhsVkIl7UF/
-	 drOtb0itKvE7Ou7bGMiqAYyLdhXIw3WVXo6LMTYXECmJ8PgMDTOUAfljt3WagetiKe
-	 74qKmzXLyIxmw==
+	b=HlnJ6PAkTmb//6BpFhLmM/8I9T9k0/r26yDs+E8k1ahLJXR8HgaveZWDrb7R/P1Ry
+	 B1LvEIFr7JhV1tkv8vHULD3EpwW3xNpQm9t1ZbOdCqqKd8BBP8iToWhDYif360Aj8l
+	 xUMbtKkWXM7NbGwKs3auUjkok3mi4XQ8SaGMgT1HeebdvGSmk4N0bUo003WG8Vpja7
+	 /Q9IOiTLoVIPI+/4chbv3BgulvkDODHkablz03RZdV6X0uSUJtdgqi+GWcVltdcvgs
+	 uQC9CV6sp8xlQJXGpe4McSCp+NwXHxJj356HYrBHURmaIDygL39pRRGGzga16IUo6F
+	 pdxFmU9Sjxu/A==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Wenting Zhang <zephray@outlook.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>
-Cc: Wenting Zhang <zephray@outlook.com>, Palmer Dabbelt <palmer@sifive.com>,
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>, Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: always honor the CONFIG_CMDLINE_FORCE when
- parsing dtb
-In-Reply-To: <PSBPR04MB399135DFC54928AB958D0638B1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
-References: <PSBPR04MB399135DFC54928AB958D0638B1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
-Date: Mon, 10 Oct 2022 17:10:33 +0200
-Message-ID: <87bkqjk93q.fsf@smulpajen.i-did-not-set--mail-host-address--so-tickle-me>
+Subject: Re: [PATCH] RISC-V: Make port I/O string accessors actually work
+In-Reply-To: <alpine.DEB.2.21.2209231211350.29493@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2209220223080.29493@angie.orcam.me.uk>
+ <c4ee195a-cf1f-44f6-b3b6-241d04e01fb9@www.fastmail.com>
+ <alpine.DEB.2.21.2209231211350.29493@angie.orcam.me.uk>
+Date: Mon, 10 Oct 2022 17:41:47 +0200
+Message-ID: <878rlnk7no.fsf@smulpajen.i-did-not-set--mail-host-address--so-tickle-me>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_081040_253663_87812F41 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20221010_084152_254148_A55E118B 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,22 +75,11 @@ Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2VudGluZyBaaGFuZyA8emVwaHJheUBvdXRsb29rLmNvbT4gd3JpdGVzOgoKPiBXaGVuIENPTkZJ
-R19DTURMSU5FX0ZPUkNFIGlzIGVuYWJsZWQsIGNtZGxpbmUgcHJvdmlkZWQgYnkKPiBDT05GSUdf
-Q01ETElORSBhcmUgYWx3YXlzIHVzZWQuIFRoaXMgYWxsb3dzIENPTkZJR19DTURMSU5FIHRvIGJl
-Cj4gdXNlZCByZWdhcmRsZXNzIG9mIHRoZSByZXN1bHQgb2YgZGV2aWNlIHRyZWUgc2Nhbm5pbmcu
-Cj4KPiBUaGlzIGVzcGVjaWFsbHkgZml4ZXMgdGhlIGNhc2Ugd2hlcmUgYSBkZXZpY2UgdHJlZSB3
-aXRob3V0IHRoZQo+IGNob3NlbiBub2RlIGlzIHN1cHBsaWVkIHRvIHRoZSBrZXJuZWwuIEluIHN1
-Y2ggY2FzZXMsCj4gZWFybHlfaW5pdF9kdF9zY2FuIHdvdWxkIHJldHVybiB0cnVlLiBCdXQgaW5z
-aWRlCj4gZWFybHlfaW5pdF9kdF9zY2FuX2Nob3NlbiwgdGhlIGNtZGxpbmUgd29uJ3QgYmUgdXBk
-YXRlZCBhcyB0aGVyZQo+IGlzIG5vIGNob3NlbiBub2RlIGluIHRoZSBkZXZpY2UgdHJlZS4gQXMg
-YSByZXN1bHQsIENPTkZJR19DTURMSU5FCj4gaXMgbm90IGNvcGllZCBpbnRvIGJvb3RfY29tbWFu
-ZF9saW5lIGV2ZW4gaWYgQ09ORklHX0NNRExJTkVfRk9SQ0UKPiBpcyBlbmFibGVkLiBUaGlzIGNv
-bW1pdCBhbGxvd3MgcHJvcGVybHkgdXBkYXRlIGJvb3RfY29tbWFuZF9saW5lCj4gaW4gdGhpcyBz
-aXR1YXRpb24uCj4KPiBGaXhlczogOGZkNmUwNWM3NDYzICgiYXJjaDogcmlzY3Y6IHN1cHBvcnQg
-a2VybmVsIGNvbW1hbmQgbGluZSBmb3JjaW5nIHdoZW4gbm8gRFRCIHBhc3NlZCIpCj4gU2lnbmVk
-LW9mZi1ieTogV2VudGluZyBaaGFuZyA8emVwaHJheUBvdXRsb29rLmNvbT4KClJldmlld2VkLWJ5
-OiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Ik1hY2llaiBXLiBSb3p5Y2tpIiA8bWFjcm9Ab3JjYW0ubWUudWs+IHdyaXRlczoKCj4gT24gRnJp
+LCAyMyBTZXAgMjAyMiwgQXJuZCBCZXJnbWFubiB3cm90ZToKPgpbLi4uXQo+ICBUaGFua3MgZm9y
+IHlvdXIgcmV2aWV3IQo+CgpDaGFzaW5nIHN0YWxlIHRocmVhZHMhIDstKQoKQXJuZCwgd291bGQg
+eW91IGJlIE9LIGFkZGluZyB5b3VyIFJldmlld2VkLWJ5IHRhZyB0byB0aGUgcGF0Y2g/CgoKQ2hl
+ZXJzLApCasO2cm4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
