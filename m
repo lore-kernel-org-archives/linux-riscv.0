@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 418F8C43217
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7904BC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N3n40G0h6DP+GqJjkQi1IKgjZyozjNustcXr6QY7Ams=; b=VjVV4BRg74+P6n
-	2x+41CTMerKUmyFL7YhAllfoIJn7WN31z1s1R4DiX4CiAtv+0VBvhhEzxFsrnzaeDrJeCaMT4PkKh
-	7u5sHmQ63yi/fhPlEpjvGq/FeBlLDenqnKwnpff9wVRzsKoqVe/PWLvqKeie6jXlMjesFFajU9ECg
-	F57mBmgrI5MQVRRRW3WkuOWdPG5VpcMnI/wt9Fc2k6lC5d9eM9oyP1ZnFxmow6ykiiU/dI3gDw5UT
-	YjB9qeuGwbXBZDleKQLETl2KAx2ovvoJPY/ADR58boDIJtIcre6rvj4YLEfwP5V5ycgNlOBBwSdtJ
-	zAlZR/xBjAS7ZiawrcSQ==;
+	List-Owner; bh=f4o/WV61uJEgcGARMIGTeMNgA9X+WWWxaq9veMvi38Y=; b=QeuCmPXyEjYlBi
+	vTLxb4MdQugYPqtOx5tsS8eFwsptK1fFobuRJCL5prccela7vM9KFadwMnSXP4DYxJptR52mmRQTG
+	br1LCZjmZyoN7WA4g9+ZfsrhiwmGDfAy4NDn5TljbLjyzg/fRQ4bZMsmHZ5hMhatkg1Nv/V8xhsAM
+	7daGZqRmDSVTSD7rgvObFmFcjkxXgU0dGrai8h2CIKy9F+Duv6+mnQwcnW0T97glwNeCvIuLUrvHk
+	wzQmZl+J3ZAZ4hcqvxG38UqVrG7W12do05P6tSbQfWGWLaqkpHnjfaR3yRS9nQyWVTYTSom1aBEVw
+	bornWFh068tUtZB+Sg6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzCS-0023z7-5W; Mon, 10 Oct 2022 20:16:32 +0000
+	id 1ohzCZ-00244W-Fg; Mon, 10 Oct 2022 20:16:39 +0000
 Received: from mga18.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzBC-0022zZ-Uy; Mon, 10 Oct 2022 20:15:16 +0000
+	id 1ohzBD-0022ve-6k; Mon, 10 Oct 2022 20:15:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1665432914; x=1696968914;
+  t=1665432915; x=1696968915;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=CqemTGOdGp4RFKaxsArxDkHX9Dedwc8sdTjVd9O3UKk=;
-  b=CK5qPok7yZbLFvekgnsCHtdmNyKA6q+mFB8TI7C/VO35lK2myY6WYN4u
-   ZaZLeQftdLU5WaUJRDpfMOvo1NO9BgOP8UPAw5OifIVcZBMRbfOFZtcaZ
-   q8+h9uCgrlZHbT+AIuWpUd/sxQdcGD3sGRFVA/bgszHlTiz6naTeJoCMk
-   0JB2F6v7mehoHRQQr8jTda9EjJA/1YyVYh7rwc5UCbDbgBJFgfHo+69gR
-   HjfhaW/dthV6K1bjmNa5kYzMT92gufa3LHy1PhZ4bVDMhRexSRoDGjlyx
-   gpqS1/86RpOETGEAkV4lYmyDe0oFHb1mI6IG6en5JMSry3hjYLfsEUEWr
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="287590382"
+  bh=+IG7voHhSJy2wALLTCzE+UfbKUfIMwykh9YQ3tA6sww=;
+  b=Ro4IN+mgi/D5ZK8IcDihhjzf7KvwCpR7vj6/CBLjZIpMZQ6K4uctAErZ
+   vNKcpJMkwlVrqXjfLLyIPHBGo23hKn1mibJ+ki/DiMu/CIwlghQnxmkol
+   SF4+75TqZnFJjSc4+DflI0CD81nhxlJG4VwqjlhCkh1n7oklxIwHsYvEW
+   i1feK1elFiO49xcOleTtdMbzQUjYT56Eu1i8Lrk87MWuO/U/hGfq2LrpF
+   pyxLaZ9IGRLnb987nwLmB1Ednz6dj52xHqRztfrtOnIQepXkE30VJaG+q
+   xVvgJWw1CUIPbLGdj2bGwkAgPl+RA1B1Qt4RFPOu4hckCWe28jx+TPssv
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="287590387"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="287590382"
+   d="scan'208";a="287590387"
 Received: from orsmga006.jf.intel.com ([10.7.209.51])
   by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2022 13:15:14 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862808"
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862817"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="603862808"
+   d="scan'208";a="603862817"
 Received: from black.fi.intel.com ([10.237.72.28])
-  by orsmga006.jf.intel.com with ESMTP; 10 Oct 2022 13:15:02 -0700
+  by orsmga006.jf.intel.com with ESMTP; 10 Oct 2022 13:15:03 -0700
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id B3C0FD0; Mon, 10 Oct 2022 23:15:11 +0300 (EEST)
+	id EEB513ED; Mon, 10 Oct 2022 23:15:11 +0300 (EEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -150,16 +150,16 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Emil Renner Berthing <kernel@esmil.dk>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v2 05/36] pinctrl: aspeed: Add missed header(s)
-Date: Mon, 10 Oct 2022 23:14:21 +0300
-Message-Id: <20221010201453.77401-6-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v2 06/36] pinctrl: at91: Add missed header(s)
+Date: Mon, 10 Oct 2022 23:14:22 +0300
+Message-Id: <20221010201453.77401-7-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_131515_157353_24CE40F2 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20221010_131515_382711_0492261D 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,21 +183,76 @@ While at it, sort headers alphabetically.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/pinctrl/aspeed/pinctrl-aspeed.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pinctrl/pinctrl-at91-pio4.c | 10 +++++++---
+ drivers/pinctrl/pinctrl-at91.c      | 16 +++++++++-------
+ 2 files changed, 16 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed.c b/drivers/pinctrl/aspeed/pinctrl-aspeed.c
-index a30912a92f05..3945612900e6 100644
---- a/drivers/pinctrl/aspeed/pinctrl-aspeed.c
-+++ b/drivers/pinctrl/aspeed/pinctrl-aspeed.c
-@@ -5,6 +5,7 @@
+diff --git a/drivers/pinctrl/pinctrl-at91-pio4.c b/drivers/pinctrl/pinctrl-at91-pio4.c
+index 82b921fd630d..e38c683aba09 100644
+--- a/drivers/pinctrl/pinctrl-at91-pio4.c
++++ b/drivers/pinctrl/pinctrl-at91-pio4.c
+@@ -7,18 +7,22 @@
+  */
  
- #include <linux/mfd/syscon.h>
+ #include <dt-bindings/pinctrl/at91.h>
++
+ #include <linux/clk.h>
+ #include <linux/gpio/driver.h>
++#include <linux/init.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+-#include <linux/init.h>
+ #include <linux/of.h>
  #include <linux/platform_device.h>
+-#include <linux/pinctrl/pinconf.h>
++#include <linux/seq_file.h>
++#include <linux/slab.h>
++
+ #include <linux/pinctrl/pinconf-generic.h>
++#include <linux/pinctrl/pinconf.h>
+ #include <linux/pinctrl/pinctrl.h>
+ #include <linux/pinctrl/pinmux.h>
+-#include <linux/slab.h>
++
+ #include "core.h"
+ #include "pinconf.h"
+ #include "pinctrl-utils.h"
+diff --git a/drivers/pinctrl/pinctrl-at91.c b/drivers/pinctrl/pinctrl-at91.c
+index 81dbffab621f..1e1813d7c550 100644
+--- a/drivers/pinctrl/pinctrl-at91.c
++++ b/drivers/pinctrl/pinctrl-at91.c
+@@ -7,22 +7,24 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/err.h>
++#include <linux/gpio/driver.h>
+ #include <linux/init.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
+ #include <linux/of.h>
+-#include <linux/of_device.h>
+ #include <linux/of_address.h>
++#include <linux/of_device.h>
+ #include <linux/of_irq.h>
++#include <linux/pm.h>
 +#include <linux/seq_file.h>
  #include <linux/slab.h>
- #include <linux/string.h>
- #include "../core.h"
+-#include <linux/interrupt.h>
+-#include <linux/io.h>
+-#include <linux/gpio/driver.h>
++
++/* Since we request GPIOs from ourself */
++#include <linux/pinctrl/consumer.h>
+ #include <linux/pinctrl/machine.h>
+ #include <linux/pinctrl/pinconf.h>
+ #include <linux/pinctrl/pinctrl.h>
+ #include <linux/pinctrl/pinmux.h>
+-/* Since we request GPIOs from ourself */
+-#include <linux/pinctrl/consumer.h>
+-#include <linux/pm.h>
+ 
+ #include "pinctrl-at91.h"
+ #include "core.h"
 -- 
 2.35.1
 
