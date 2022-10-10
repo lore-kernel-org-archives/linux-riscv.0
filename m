@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 101BEC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 18:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F98C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 18:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z5lWYxJ6vRTVWyLTz+nrjPA4MLyz/rwbPGHFjnh+5GU=; b=kesi1AxinwroaQ
-	UuvoOWBGVcSQwPHt2X3/G7P6M0SmZsHod+JSmZBuKdQ5GT9Qy27fNytwgjFLeNMcUn+JCXlUn/2Sv
-	bqShjhxLOgBEQufARAoBeXI53lB/6EOetjRYILDWHosPREO41rLvk5qM9PEcqn736yx5QpDLUpv9M
-	U0rH53YAvy/6sUN2W9EO4RO/zBLnm6hz0CEeMatmklnV3xbCvTUBA0QRh6l4/Nc/8j010q5sPy/zN
-	G6dTkHcAqjioLFvMeexo4UVp9tVz4CSULlbCMph8C+zbsSpjQxetsi+go0qXZNdyA4SwX6xl/Y+8J
-	/iwYUPpj5GbthPY3jqpg==;
+	List-Owner; bh=MXskvCMAOv/MU/7f71deUp8qES7UhV29r4bBHRDf5Zc=; b=j597OSwCSSi+j2
+	aMJMiNLwjTQKxkX6m76mEJI/oyLGPCLiGlm3y7pztpgf8Jt4KDCg2EqLvBI7D8oo7LAZ1Mr3VRsTE
+	WPmdwlJUHO7NhgX79+taf0xTZLmfrflndBNJYBbb/g+7PSBgokyn76kBh+eW6Nhmm3/rluePQHEDb
+	HWX1j/1Ii82rFJNsLfOa5MQBZTBZUORlmV6XKv6yQSv/jLhJRXpOkzCWC8jLk2zizWTbiwM9T99mU
+	2iolgOLv19AcLMpjcRMqEKWjgmJKHpasNcufukpX9AIJLxnHkuipE09vo7kA0JyvWQJVZLlMBckHl
+	UkOM54V7Sp+2EJr68aSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohxoI-001qUm-0V; Mon, 10 Oct 2022 18:47:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ohxrl-001rG7-Ni; Mon, 10 Oct 2022 18:51:05 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohxoE-001qTq-Hi; Mon, 10 Oct 2022 18:47:28 +0000
+	id 1ohxrj-001rFM-6g
+	for linux-riscv@lists.infradead.org; Mon, 10 Oct 2022 18:51:04 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 326DC60DF3;
-	Mon, 10 Oct 2022 18:47:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24E71C433D7;
-	Mon, 10 Oct 2022 18:47:22 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id CE142B810B9;
+	Mon, 10 Oct 2022 18:51:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E6CC433D6;
+	Mon, 10 Oct 2022 18:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665427645;
-	bh=NMDHpqga1Xy6VoK0bMqQwECvpJ1smU1m9s1/cEQycEw=;
+	s=k20201202; t=1665427860;
+	bh=N5QrBTmFnyH8xUhHqZQhuPDkgjqzP+EJBJyGyVpO7xQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r6dUFoANOJvUE1VIYvbYymP9AQxcTe6QqU4Aqmj/v78OrwU0QUUWQ6PTI6v5UHu+p
-	 u+bS/hbELzQ8t2PUEZ26iZNddUhuH5s9QSMwlFp6MbtYeVeyuGkKciTXquVOaO1gBG
-	 WD7xsaHLqomOrwy9ntw1YarC/50pgbgJP6Uo2l8UroRxpIAcY/Ewf+9XS5+2YSoUae
-	 TrXm8x0/+Z34tkrMLeyoW9wOA3OBiHEAEI/pjzXzgXfF/VXNY8/8Ogn6ntb3rNGBg4
-	 tYkE/Sk9x/EBo2j7S/kCRyevJF8Ll4pBI+501xsyzPm44B3H/XNyx+J2gDv4KfqsCG
-	 PI7AEfQRqK5bA==
-Date: Mon, 10 Oct 2022 19:47:20 +0100
+	b=IX4kLR7VLMCIqktJr4p7CbiD1V4erh7c3CJL8lG7LZAUiOwugl898pvsuXCIpkiDo
+	 o+IpElOmPEwrpcNJxByELqokCtfI7Hc26oWEGPTcKudBNDm+yMxQsszcNwAFWcnhrY
+	 /ibJMUmsQhnYW+jSklSbQFiwfbmB7QgPgo/JV7ktv6EC+Kr3aUiZR7D51DeI51+6uY
+	 aOCKMYWY4W+odHniiWEHktFZSQVDUS03mk9/TMl5Em+H4sD3sxe6k8agisLZD0lGJt
+	 /sgaiB0PAV5ILzSWpUIK3GP/WltxqFn8QJVr3PqZ8gU62Hq17sUWVo+65/wknQ4dfQ
+	 jJfYHvcGijW4A==
+Date: Mon, 10 Oct 2022 19:50:56 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: ajones@ventanamicro.com, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, anup@brainfault.org,
-	atishp@atishpatra.org, conor.dooley@microchip.com,
-	vernon2gm@gmail.com, lkp@intel.com
-Subject: Re: [PATCH] RISC-V: KVM: Fix compilation without RISCV_ISA_ZICBOM
-Message-ID: <Y0RouN2ZciAil0YO@spud>
-References: <20221010094029.1579672-1-ajones@ventanamicro.com>
- <mhng-62a2d3c7-f08d-4f40-862c-4d4f09a6150a@palmer-ri-x1c9>
+To: Cleo John <waterdev@galaxycrow.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] riscv: fix styling in ucontext header
+Message-ID: <Y0RpkI66dwEKD9Kw@spud>
+References: <20221010182848.GA28029@watet-ms7b87>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-62a2d3c7-f08d-4f40-862c-4d4f09a6150a@palmer-ri-x1c9>
+In-Reply-To: <20221010182848.GA28029@watet-ms7b87>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_114726_705776_7DBD7262 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20221010_115103_410198_64AD4F28 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +74,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 10, 2022 at 11:36:24AM -0700, Palmer Dabbelt wrote:
-> On Mon, 10 Oct 2022 02:40:29 PDT (-0700), ajones@ventanamicro.com wrote:
-> > Fix undefined reference of riscv_cbom_block_size when compiling KVM
-> > without RISCV_ISA_ZICBOM. Note, RISCV_ISA_ZICBOM is a sufficient
-> > guard as it selects RISCV_DMA_NONCOHERENT, which is needed to compile
-> > dma-noncoherent.c (which is the file where riscv_cbom_block_size and
-> > its initializer live).
-> >
-> > Fixes: afd5dde9a186 ("RISC-V: KVM: Provide UAPI for Zicbom block size")
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  arch/riscv/kvm/vcpu.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > index a032c4f0d600..e4453caba728 100644
-> > --- a/arch/riscv/kvm/vcpu.c
-> > +++ b/arch/riscv/kvm/vcpu.c
-> > @@ -265,11 +265,13 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
-> >  	case KVM_REG_RISCV_CONFIG_REG(isa):
-> >  		reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
-> >  		break;
-> > +#ifdef CONFIG_RISCV_ISA_ZICBOM
-> >  	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
-> >  		if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
-> >  			return -EINVAL;
-> >  		reg_val = riscv_cbom_block_size;
-> >  		break;
-> > +#endif
-> >  	default:
-> >  		return -EINVAL;
-> >  	}
+On Mon, Oct 10, 2022 at 08:28:48PM +0200, Cleo John wrote:
+> Change the two comments in ucontext.h by getting them up to
+> the coding style proposed by torvalds.
 > 
-> Thanks, looks like this is tripping up the kernelci builds too: 
-> https://linux.kernelci.org/build/id/6343b37c6fd2dcbb5dcab5f3/logs/ .  
-> This symbol is actually a bit odd, as we don't actually just use it 
-> under Zicbom because of the T-Head stuff.  Looks like that's generically 
-> broken, though, so IMO we need something like this
-> 
-> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> index 6cb7d96ad9c7..fba86fa3a628 100644
-> --- a/arch/riscv/mm/cacheflush.c
-> +++ b/arch/riscv/mm/cacheflush.c
-> @@ -5,6 +5,9 @@
-> 
->  #include <asm/cacheflush.h>
-> 
-> +unsigned int riscv_cbom_block_size;
-> +EXPORT_SYMBOL(riscv_cbom_block_size);
-> +
->  #ifdef CONFIG_SMP
-> 
->  #include <asm/sbi.h>
-> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> index e3f9bdf47c5f..33d21ace0971 100644
-> --- a/arch/riscv/mm/dma-noncoherent.c
-> +++ b/arch/riscv/mm/dma-noncoherent.c
-> @@ -12,7 +12,6 @@
->  #include <linux/of_device.h>
->  #include <asm/cacheflush.h>
-> 
-> -unsigned int riscv_cbom_block_size;
->  static bool noncoherent_supported;
-> 
->  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> 
-> which should be
-> 
-> Fixes: 8f7e001e0325 ("RISC-V: Clean up the Zicbom block size probing").
-> 
-> We might also want the ifdef for KVM, as that would allow us to build KVM that
-> doesn't support these VCPU configurations, but that's sort of a different
-> question.
+> Signed-off-by: Cleo John <waterdev@galaxycrow.de>
+> ---
+> In my opinion this also improves the readability so I think this is a useful change to do.
+> Please also tell me if you have a different opinion.
 
-I assume (or hope?) this approach has the advantage of also fixing:
-https://lore.kernel.org/all/202210102012.iShn6U6Q-lkp@intel.com/
+I don't think it is all that /important/ of a change, but it does make
+things match between this file and the other headers.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
+Thanks.
+
+> 
+> Changes in v2:
+>  - change the styling of the top comments too
+> 
+>  arch/riscv/include/uapi/asm/ucontext.h | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/ucontext.h b/arch/riscv/include/uapi/asm/ucontext.h
+> index 44eb993950e5..516bd0bb0da5 100644
+> --- a/arch/riscv/include/uapi/asm/ucontext.h
+> +++ b/arch/riscv/include/uapi/asm/ucontext.h
+> @@ -15,19 +15,23 @@ struct ucontext {
+>  	struct ucontext	 *uc_link;
+>  	stack_t		  uc_stack;
+>  	sigset_t	  uc_sigmask;
+> -	/* There's some padding here to allow sigset_t to be expanded in the
+> +	/*
+> +	 * There's some padding here to allow sigset_t to be expanded in the
+>  	 * future.  Though this is unlikely, other architectures put uc_sigmask
+>  	 * at the end of this structure and explicitly state it can be
+> -	 * expanded, so we didn't want to box ourselves in here. */
+> +	 * expanded, so we didn't want to box ourselves in here.
+> +	 */
+>  	__u8		  __unused[1024 / 8 - sizeof(sigset_t)];
+> -	/* We can't put uc_sigmask at the end of this structure because we need
+> +	/*
+> +	 * We can't put uc_sigmask at the end of this structure because we need
+>  	 * to be able to expand sigcontext in the future.  For example, the
+>  	 * vector ISA extension will almost certainly add ISA state.  We want
+>  	 * to ensure all user-visible ISA state can be saved and restored via a
+>  	 * ucontext, so we're putting this at the end in order to allow for
+>  	 * infinite extensibility.  Since we know this will be extended and we
+>  	 * assume sigset_t won't be extended an extreme amount, we're
+> -	 * prioritizing this. */
+> +	 * prioritizing this.
+> +	 */
+>  	struct sigcontext uc_mcontext;
+>  };
+>  
+> -- 
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
