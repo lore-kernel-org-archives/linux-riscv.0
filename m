@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E3DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEED2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qVL6PlCvEqadO95wpyTRfl1gK3fpPfwdZR7xlMwbKnA=; b=Ii6WynWLOaDB80
-	GEFanfWUhFwMpgSgsNOe9E+8uEqBDIlS3Xy0LEeOYrw/UydXIWKHXvaTwB7vad6fUbYyujZv5Iuao
-	saj8LgGH0ZpxTVZGEzuPKTHsmTR8ccBdPHh2EDhs1+y8nujVgYqu+ldUPF+N7WXqlyRMszpx8n/h2
-	u3oqhBGDtLez2zEVprrgXO64zf6GltX3PcqRKV/LH34c8wqtlS5GIdP8v8BWFMvlFMpzergYnzRd0
-	lNR1788n9fbX1tF409tZizAoUzsoDMKTgaJQQkHvcLYohA/fXNuM3Jg8+A6sdPm0xEx8pNyemid8m
-	uiTf3jt0BBKtojSTZIbw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aO4+k/H6H6hv+DbaRfG+s9Bwij5s1d6HhfGKJ7vHmQY=; b=PvRLmjPc9BZhYf
+	zdHToyhm1K5Mn+Yb0JslzMH8uNnokFMxigIeFoxB2ctU0eRAzMIO1yHTPwA70UZTw0QpqAcfy10z8
+	674vyzu3tZJ1ZvsVwi/UDjUB0yZWwC7mkyAINhmTinH8wV1NcqRroQj7jMsibrHBFi3WvPcFyBcrM
+	KINq1Bx8BKPT49iR0meULFunobZIPgjj5Pa7DPHQqFTU0zPX+4fCKsu88Nd+ILqvEU8zhQTKR2bFW
+	SK7x5b73fZCrMHOqlapJ/sZH0mGeYkr6UasGA4xlfnixL1XlcPqwAXNZF8aX4QB7Y4QJaAz/pg78L
+	jfmNu+lCJJvgnZLzwQsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzB5-0022tr-L2; Mon, 10 Oct 2022 20:15:07 +0000
+	id 1ohzB8-0022um-0f; Mon, 10 Oct 2022 20:15:10 +0000
 Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzB0-0022r2-SR; Mon, 10 Oct 2022 20:15:04 +0000
+	id 1ohzB0-0022qP-SM; Mon, 10 Oct 2022 20:15:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1665432902; x=1696968902;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=b/f5qnk86K8IvDMxiisJG/aX+sY4tlL8aHadR4IA4AY=;
-  b=gdr9Tv6GJ3d9Ea/JZ3py6M/FTtBexMkD4Y2xo98wnHU/zadS8LZV/8X2
-   897ch0fdg2CzKbfbbwLrVf2Se/OOy3dC6wPtSnGHhY+hM79HUTthWMaQp
-   HD8Cch2hzAJ8XUUPd6lTJbed7+ND275KNjY3bQkKzO65WCOCdCGFmUJGE
-   pHaxuHFd9m+WEez+wCNZNey/FFiuhMsS9yoyyGwxTNDi03l9tFjjQ83BN
-   BatHe9yXoWKiYOShxlSQvmi+7Qw6+kpVTho9pGWNUlcio3Q5yAdZt03Ij
-   7MdoqEay093Da+tMS0eePNUxkfmkmMTa1erF0ki1kazr0W+3TzfI3ZvcU
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="301936326"
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=hoHtp7ua/tOZfAXpLOK1gBSb/sEyQkWFQ6Xh4kF5nfY=;
+  b=Bl/nRQfOkqTV59RJ7pqaDYg363oyHCUGvOxwBpuCqCjIoc5PdqSCNMEN
+   RhWYe7bcbj3R1na7R3l5gVkCQ4uCxeykNUanmFTsfirbboLA+RzORGU7Q
+   AEPYaYUqFG82fEKZ2eVVl9UMhC4+k0lgJx6SmO8Wufwznrx2AmoeegDmb
+   ZUgRqE+HXasLn9h3jR1+QAtHUrockOTOac0Sd085kq9p8eumGPgPtYcl8
+   plnk8O6T4fIHgaFUtugY2DS7nol/m3qQ9vpGkWXQfR3QeBiJ+DVQGcjSC
+   1VORa8siBhMqCYQGLi7tHaXcJqQVeHV/sSYI8wgEVSEN5W4NX8CkBt4Ye
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="301936313"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="301936326"
+   d="scan'208";a="301936313"
 Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2022 13:15:01 -0700
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2022 13:14:59 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862738"
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862730"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="603862738"
+   d="scan'208";a="603862730"
 Received: from black.fi.intel.com ([10.237.72.28])
-  by orsmga006.jf.intel.com with ESMTP; 10 Oct 2022 13:14:50 -0700
+  by orsmga006.jf.intel.com with ESMTP; 10 Oct 2022 13:14:48 -0700
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 5DBF01E0; Mon, 10 Oct 2022 23:15:11 +0300 (EEST)
+	id 8E95D1C8; Mon, 10 Oct 2022 23:15:08 +0300 (EEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -150,16 +150,14 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Emil Renner Berthing <kernel@esmil.dk>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v2 01/36] gpiolib: tegra186: Add missed header(s)
-Date: Mon, 10 Oct 2022 23:14:17 +0300
-Message-Id: <20221010201453.77401-2-andriy.shevchenko@linux.intel.com>
+Subject: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
+Date: Mon, 10 Oct 2022 23:14:16 +0300
+Message-Id: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_131502_957837_0CB7534F 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20221010_131502_958045_2ADA9FDE 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,35 +174,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Do not imply that some of the generic headers may be always included.
-Instead, include explicitly what we are direct user of.
+Currently the header inclusion inside the pinctrl headers seems more arbitrary
+than logical. This series is basically out of two parts:
+- add missed headers to the pin control drivers / users
+- clean up the headers of pin control subsystem
 
-While at it, sort headers alphabetically.
+The idea is to have this series to be pulled after -rc1 by the GPIO and
+pin control subsystems, so all new drivers will utilize cleaned up headers
+of the pin control.
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/gpio/gpio-tegra186.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Please, review and comment.
 
-diff --git a/drivers/gpio/gpio-tegra186.c b/drivers/gpio/gpio-tegra186.c
-index 54d9fa7da9c1..fdc5bdcd5638 100644
---- a/drivers/gpio/gpio-tegra186.c
-+++ b/drivers/gpio/gpio-tegra186.c
-@@ -7,12 +7,13 @@
-  */
- 
- #include <linux/gpio/driver.h>
-+#include <linux/hte.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/module.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
--#include <linux/hte.h>
-+#include <linux/seq_file.h>
- 
- #include <dt-bindings/gpio/tegra186-gpio.h>
- #include <dt-bindings/gpio/tegra194-gpio.h>
+Changelog v2:
+- added preparatory patches: all, but last (LKP)
+- added missed forward declaration to the last patch (LKP)
+
+Andy Shevchenko (36):
+  gpiolib: tegra186: Add missed header(s)
+  gpiolib: cdev: Add missed header(s)
+  media: c8sectpfe: Add missed header(s)
+  pinctrl: actions: Add missed header(s)
+  pinctrl: aspeed: Add missed header(s)
+  pinctrl: at91: Add missed header(s)
+  pinctrl: axp209: Add missed header(s)
+  pinctrl: bcm: Add missed header(s)
+  pinctrl: cygnus-mux: Add missed header(s)
+  pinctrl: imx: Add missed header(s)
+  pinctrl: ingenic: Add missed header(s)
+  pinctrl: k210: Add missed header(s)
+  pinctrl: lochnagar: Add missed header(s)
+  pinctrl: mediatek: Add missed header(s)
+  pinctrl: mvebu: Add missed header(s)
+  pinctrl: npcm7xx: Add missed header(s)
+  pinctrl: ocelot: Add missed header(s)
+  pinctrl: qcom: Add missed header(s)
+  pinctrl: renesas: Add missed header(s)
+  pinctrl: samsung: Add missed header(s)
+  pinctrl: single: Add missed header(s)
+  pinctrl: spear: Add missed header(s)
+  pinctrl: sprd: Add missed header(s)
+  pinctrl: st: Add missed header(s)
+  pinctrl: starfive: Add missed header(s)
+  pinctrl: stm32: Add missed header(s)
+  pinctrl: stmfx: Add missed header(s)
+  pinctrl: tegra: Add missed header(s)
+  pinctrl: ti-iodelay: Add missed header(s)
+  pinctrl: uniphier: Add missed header(s)
+  pinctrl: zynqmp: Add missed header(s)
+  pinctrl: cherryview: Add missed header(s)
+  pinctrl: lynxpoint: Add missed header(s)
+  pinctrl: merrifield: Add missed header(s)
+  pinctrl: intel: Add missed header(s)
+  pinctrl: Clean up headers
+
+ drivers/gpio/gpio-tegra186.c                  |  3 +-
+ drivers/gpio/gpiolib-cdev.c                   |  6 ++--
+ .../st/sti/c8sectpfe/c8sectpfe-core.c         |  8 +++--
+ drivers/pinctrl/actions/pinctrl-owl.c         | 10 +++---
+ drivers/pinctrl/aspeed/pinctrl-aspeed.c       |  1 +
+ drivers/pinctrl/bcm/pinctrl-bcm281xx.c        | 13 +++++---
+ drivers/pinctrl/bcm/pinctrl-cygnus-mux.c      |  9 ++++--
+ drivers/pinctrl/bcm/pinctrl-iproc-gpio.c      | 12 ++++---
+ drivers/pinctrl/bcm/pinctrl-ns2-mux.c         |  8 +++--
+ drivers/pinctrl/bcm/pinctrl-nsp-mux.c         |  8 +++--
+ drivers/pinctrl/cirrus/pinctrl-lochnagar.c    |  6 ++--
+ drivers/pinctrl/core.c                        | 19 ++++++------
+ drivers/pinctrl/core.h                        | 12 ++++++-
+ drivers/pinctrl/devicetree.h                  |  6 ++++
+ drivers/pinctrl/freescale/pinctrl-imx.c       |  8 +++--
+ drivers/pinctrl/intel/pinctrl-cherryview.c    |  6 ++--
+ drivers/pinctrl/intel/pinctrl-intel.c         |  6 ++--
+ drivers/pinctrl/intel/pinctrl-lynxpoint.c     |  6 ++--
+ drivers/pinctrl/intel/pinctrl-merrifield.c    |  4 ++-
+ drivers/pinctrl/mediatek/pinctrl-moore.c      |  3 ++
+ drivers/pinctrl/mediatek/pinctrl-paris.c      |  5 +++
+ drivers/pinctrl/mvebu/pinctrl-mvebu.c         | 14 +++++----
+ drivers/pinctrl/nuvoton/pinctrl-npcm7xx.c     | 11 ++++---
+ drivers/pinctrl/pinconf.h                     | 10 ++++++
+ drivers/pinctrl/pinctrl-at91-pio4.c           | 10 ++++--
+ drivers/pinctrl/pinctrl-at91.c                | 16 +++++-----
+ drivers/pinctrl/pinctrl-axp209.c              |  8 +++--
+ drivers/pinctrl/pinctrl-ingenic.c             | 10 +++---
+ drivers/pinctrl/pinctrl-k210.c                | 12 ++++---
+ drivers/pinctrl/pinctrl-ocelot.c              | 10 +++---
+ drivers/pinctrl/pinctrl-single.c              |  5 ++-
+ drivers/pinctrl/pinctrl-st.c                  | 21 ++++++++-----
+ drivers/pinctrl/pinctrl-stmfx.c               |  2 ++
+ drivers/pinctrl/pinctrl-utils.h               |  5 +++
+ drivers/pinctrl/pinctrl-zynqmp.c              |  4 ++-
+ drivers/pinctrl/pinmux.c                      | 17 +++++-----
+ drivers/pinctrl/pinmux.h                      | 11 +++++++
+ drivers/pinctrl/qcom/pinctrl-spmi-gpio.c      |  8 +++--
+ drivers/pinctrl/qcom/pinctrl-spmi-mpp.c       |  8 +++--
+ drivers/pinctrl/renesas/pinctrl-rzg2l.c       |  7 +++--
+ drivers/pinctrl/renesas/pinctrl-rzv2m.c       |  4 ++-
+ drivers/pinctrl/renesas/pinctrl.c             |  8 +++--
+ drivers/pinctrl/samsung/pinctrl-samsung.c     | 11 ++++---
+ drivers/pinctrl/spear/pinctrl-spear.c         |  6 ++--
+ drivers/pinctrl/sprd/pinctrl-sprd.c           |  6 ++--
+ .../starfive/pinctrl-starfive-jh7100.c        |  2 ++
+ drivers/pinctrl/stm32/pinctrl-stm32.c         | 16 +++++-----
+ drivers/pinctrl/tegra/pinctrl-tegra.c         |  6 ++--
+ drivers/pinctrl/ti/pinctrl-ti-iodelay.c       |  8 +++--
+ .../pinctrl/uniphier/pinctrl-uniphier-core.c  |  8 +++--
+ include/linux/pinctrl/consumer.h              | 31 +++++++++----------
+ include/linux/pinctrl/devinfo.h               |  6 ++--
+ include/linux/pinctrl/machine.h               |  8 +++--
+ include/linux/pinctrl/pinconf-generic.h       | 23 ++++++++------
+ include/linux/pinctrl/pinctrl.h               | 18 +++++------
+ include/linux/pinctrl/pinmux.h                |  5 ++-
+ 56 files changed, 328 insertions(+), 186 deletions(-)
+
+
+base-commit: 9d157c89c5569f0ef560b7a5b2d7bf59ae98499c
 -- 
 2.35.1
 
