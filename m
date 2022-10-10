@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9543BC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FFCC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Oct 2022 20:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e6ZGMsSYNhHeH2pSWmEY2W4E+/1OqgrY6vL+Z8LkXu0=; b=yQr5Mr9SdZ1mJ/
-	LBcb9IOPyDuOa/Bu2x9rmu/fTlO2BeGxGKMhI9sriizfdBqeS29GjddVuw9SnkWlGD1TNTHLCMHsh
-	aTdwsZV/KVg7rQuleHjqUiDC3Hz4m9Hj7VuZuldf09kl8M83mBXLpdfh9nD0w89hS/e6z5vZZ9tFG
-	Ybn/p3pw18md1HRLDZ6MekyuDMm5UO74Mg+fTcQi2WAQKnDmARZOZ0oG5oj9FtL1jw+vYi1q+48do
-	VqGVncNUi7unMiNuv+q9sg2/hV7BBXE3mBj2CntNHNjOWbsPHF38f32mKlE/8IO++Et2ZN7y63qwt
-	LeBnxZTJmmnAw++bAdxQ==;
+	List-Owner; bh=uj79Ca1X9JQinAiAccUz7H6zYA+42vPZT4ee1jbjtko=; b=R6vtUdppvNvOmA
+	EliJBrm+WHD4RoMkzw7mvpgjlfZn6tiEOl6IGfGY+3ulknaxchaf57HEP7ma6ImTkaG5FP/NfNqtf
+	duSG/VQetOVqcccwy8gmv/7AyCPp94bZUae+DXZ0GZab/EM0LS5GM/rt1JeJBFHDZxmmwq5iBwOi+
+	bL628JcMAYhyuX8GOW36D6JM8wpjcXBLBMquEzOIvh92wIukfwY7xbDQbMdK07zGyxRLyaEvzHNpW
+	Z+j6mj3LJ/Vl5Yh/+UdiL0dSX5++repn2jKMO10OZg7nAZLeFsAbrLax+6oB+ydls5IL/lndjVAXr
+	7vVuWP+eWkQ4W0j3c2Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzBI-00234l-Be; Mon, 10 Oct 2022 20:15:20 +0000
+	id 1ohzBU-0023Fx-A8; Mon, 10 Oct 2022 20:15:33 +0000
 Received: from mga18.intel.com ([134.134.136.126])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ohzB9-0022ve-Jm; Mon, 10 Oct 2022 20:15:13 +0000
+	id 1ohzBB-0022ve-6M; Mon, 10 Oct 2022 20:15:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1665432911; x=1696968911;
+  t=1665432913; x=1696968913;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=kjXzGbYDAGDzUThAUri+8VVRFkkuppwpSy0/gaNxk3U=;
-  b=C/1i3ob18WW0WH6wswTHjghMprYU7CCRv45ZDeNZtklGyEjmA6el03JI
-   +l+m2NnHOhQHmVLJb1c2Qwwy8ru33X3pnYd9P449+zkMZLWRmizaOX/1E
-   kuEgyM5henKnRlof5MEwoa7wt5WoxwZYeg3VPIeHlVl9BMWcygd1IuIMv
-   VfcZ2CClOedlAZuwKqPEV/znjF//yHkyKxVaSLUENaBdM1Gx7B3Dz9J3j
-   lC2bZfNxpuN8PkzN/coLvEUSiG062IQUjra8A+/Iahq8+FSc1AehDXZI2
-   NDM/NgZQ/KO2pvAZ3uQOstq7XmeU13eg3FVFKQTApDDB58BPKp3FXS+lq
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="287590362"
+  bh=5aMlx8MjwRboHF89NLa+7LtdxT0Jr0b4GEWJm8cGkaQ=;
+  b=bO7GVckTRC81tjdsrFeq+5AzeHclYE5kYnF5sShHS193mY1w11uqz6L+
+   CHT44x+ACvRe03rPMl1Cmnoo3Lj4mt5KoGab3bJAz+aAqgNd7oszWJSt0
+   NHVFCVwsm+mM2K16bVFcfbppFmJzs6ZPlKTDnK4YuzhamuBV7vVeLICQ5
+   LYG2n0QDV+fFg9QyWuseS09g/d4KRM7WcNHFzuL51EcsmcpsYev6kjFir
+   u7Lhtu3pwj01hdZB4lehw25uoSHo2WzV5C43Kdg2CULOIW0WOXlo1us4O
+   VV07vyLzk/yDk9353PdbQzcNo9tFkvUsqFhaSKGcxrJ1hGWNaIyLG6Ap1
+   A==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="287590365"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="287590362"
+   d="scan'208";a="287590365"
 Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2022 13:15:10 -0700
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2022 13:15:11 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862769"
+X-IronPort-AV: E=McAfee;i="6500,9779,10496"; a="603862772"
 X-IronPort-AV: E=Sophos;i="5.95,173,1661842800"; 
-   d="scan'208";a="603862769"
+   d="scan'208";a="603862772"
 Received: from black.fi.intel.com ([10.237.72.28])
   by orsmga006.jf.intel.com with ESMTP; 10 Oct 2022 13:14:59 -0700
 Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 778C82B0; Mon, 10 Oct 2022 23:15:11 +0300 (EEST)
+	id 8B04A30B; Mon, 10 Oct 2022 23:15:11 +0300 (EEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -150,15 +150,15 @@ Cc: Thierry Reding <thierry.reding@gmail.com>,
 	Emil Renner Berthing <kernel@esmil.dk>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v2 02/36] gpiolib: cdev: Add missed header(s)
-Date: Mon, 10 Oct 2022 23:14:18 +0300
-Message-Id: <20221010201453.77401-3-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v2 03/36] media: c8sectpfe: Add missed header(s)
+Date: Mon, 10 Oct 2022 23:14:19 +0300
+Message-Id: <20221010201453.77401-4-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_131511_734561_64B8E9E5 
+X-CRM114-CacheID: sfid-20221010_131513_321048_9463C755 
 X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -183,38 +183,35 @@ While at it, sort headers alphabetically.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- drivers/gpio/gpiolib-cdev.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
-index f8041d4898d1..60a60e2d60c5 100644
---- a/drivers/gpio/gpiolib-cdev.c
-+++ b/drivers/gpio/gpiolib-cdev.c
-@@ -10,8 +10,9 @@
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/file.h>
--#include <linux/gpio.h>
- #include <linux/gpio/driver.h>
-+#include <linux/gpio.h>
-+#include <linux/hte.h>
- #include <linux/interrupt.h>
- #include <linux/irqreturn.h>
- #include <linux/kernel.h>
-@@ -20,11 +21,12 @@
- #include <linux/mutex.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/poll.h>
-+#include <linux/seq_file.h>
- #include <linux/spinlock.h>
- #include <linux/timekeeping.h>
- #include <linux/uaccess.h>
- #include <linux/workqueue.h>
--#include <linux/hte.h>
-+
- #include <uapi/linux/gpio.h>
+diff --git a/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c b/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
+index cefe6b7bfdc4..4c5027a0480d 100644
+--- a/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
++++ b/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
+@@ -24,16 +24,18 @@
+ #include <linux/module.h>
+ #include <linux/of_gpio.h>
+ #include <linux/of_platform.h>
++#include <linux/pinctrl/consumer.h>
++#include <linux/pinctrl/pinctrl.h>
+ #include <linux/platform_device.h>
+-#include <linux/usb.h>
+ #include <linux/slab.h>
+ #include <linux/time.h>
++#include <linux/usb.h>
+ #include <linux/wait.h>
+-#include <linux/pinctrl/pinctrl.h>
  
- #include "gpiolib.h"
+-#include "c8sectpfe-core.h"
+ #include "c8sectpfe-common.h"
++#include "c8sectpfe-core.h"
+ #include "c8sectpfe-debugfs.h"
++
+ #include <media/dmxdev.h>
+ #include <media/dvb_demux.h>
+ #include <media/dvb_frontend.h>
 -- 
 2.35.1
 
