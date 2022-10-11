@@ -4,44 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A7AC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 08:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3F8C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 08:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sYneRwU7HIn80/DpXELtAXyKb91hHlkasoCtpDa+dVI=; b=F+0Z7VXM43d5oK
-	8VEaUV2ANWBJrcbjlLjyN58V3d8PrTq86csgIgNGkgfoQ5tcwTpgTilP+olLcjEIsdFsSRoXnVW6P
-	Fp+cBkAo4/XxpFNspg4AsPqJBlSFlwfOf/Xi35ez/2WAhjWJ4bBR3VyKEDzqmc9iMoR609VTGuKVP
-	FnHrIJa1+lwSxW+7PkvGWr+SKUOZinLFN6v0A0i5URJWOAEWyKQnec7ffmwj15s5jBcPTRy37maAS
-	GE2ZSh+FNLTzvdKgYkUof6wN6OdZUYep/olzENGV5AuV3F/jikpn1G9gzMUP3LpU7DxLlz/0Lqo9s
-	4lzqCgpBwyqVTemsOtuA==;
+	List-Owner; bh=ewEgCWLRBB4+GFdAGscDVt5AJ0mBdXj28n+MnHP1FJo=; b=HiqTRcOC9nej1e
+	dIVSIs5X7y9RjT0Z02weUELyJjVzpJTWflhuHATnr8OGTccOTOIgDeexz9PDpuEed3o9SBQgIi7H8
+	vEgeP6sIUc/5ArjFnVvQbuXOWjN8RSbCzKDtRoRnCzthTojQ/BEZtmZyChHI0wgT+d727BuY5OqKH
+	s+azgR+NohyO/zwKyYG8OZeB1JsWk0H5nzpOkEIqe92d9T7xgrPTtnDc+8AgnmxR020a0ddIT5XXx
+	JkQgcVW1QBRXaCMKaARy1CG/KBkE7C+hImxbfi2Rit/mBpAE5vxNq4OEhRn1VgX4V1kKSgB2NqMHu
+	JBJBEOWUfQQ7j6jUEBSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiABD-003eR0-V9; Tue, 11 Oct 2022 07:59:59 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oiAHU-003f1Q-RA; Tue, 11 Oct 2022 08:06:28 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiABB-003eQ7-1L
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 07:59:58 +0000
-Received: from p5b127dea.dip0.t-ipconnect.de ([91.18.125.234] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oiAB5-0007Ol-7T; Tue, 11 Oct 2022 09:59:51 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Cc: Anup Patel <apatel@ventanamicro.com>, Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>, Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to /proc/cpuinfo output
-Date: Tue, 11 Oct 2022 09:59:50 +0200
-Message-ID: <4820619.CvnuH1ECHv@phil>
-In-Reply-To: <20220727043829.151794-1-apatel@ventanamicro.com>
-References: <20220727043829.151794-1-apatel@ventanamicro.com>
+	id 1oiAHP-003eys-9e; Tue, 11 Oct 2022 08:06:24 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id z18so8505003qvn.6;
+        Tue, 11 Oct 2022 01:06:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jGyomjq7ozY4Q7akXL/Pfyv8X5Aj6pujM8b1a5l18ro=;
+        b=KOtVn1MyCyveoDiOyhPS4b+kccEhBn5uycP8wq1nxcQaoVO7ujP/OY5Ywr26ZnhCam
+         JtV49vXZAkHxc9fQhnFZ0yR5qa3H1k6BdicVcmNeApeNekWkjySS1eI7a345vma1iB5u
+         m0hpdgw4rj+ZcUPoYHTwGBEZDDkn60NhzkSfKSFxnPmncP0SZs0DSM0BTPcBCa0Y7kT+
+         OJDRY26vA+5llcDmHVjT/wbShwFCBj2+8IX1jMumA781Wi5bVtrpUwScLhBWATEJPXxO
+         rA3UjsbwHJCPXoxP8zsPzOmD/iX/cV77mwqa0OtltmMedasLu6ChGyGJ30OpeSGXY/hO
+         eF4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jGyomjq7ozY4Q7akXL/Pfyv8X5Aj6pujM8b1a5l18ro=;
+        b=JN+1Xgl51ybb2pbhazZVwCwpiPI55xawcxv9bdh3zbKz/9XU9MLQy3EYZ5QFMkqAqR
+         y7Ml3D6TML3nAOxsU/PYRFw6te+Ho+71Vxv1nV2voLFg4hRITnnySloiZZ+f8f/8kakH
+         qPnYIZRtovjk8rNo9Cuoqqy2cNrX8EtB9POIhR3Unn+9uIwvD2jcgqsOSqlIvjVjR4TS
+         fFf4a0VEqy1aP4cWwzxb0uwg6jFrzrZ4ghGCCVAlHWZ8/qqMwYWNYHM16/7SGPHukYRX
+         NesrFLsI0uSthOkf/Aj0MUZB1DUKuoHezXWQn8zzF3Ir/aSGTHQxkxdcsihnioC6jK74
+         rZPg==
+X-Gm-Message-State: ACrzQf2ysX+RkK4GS52cvUpNG0w9DD2SO5pO5XjxAebtNo1XSx7BCsBq
+	DOdT5DwHPquSuS1jJiscMzyaa6f09MZL3yor7S4=
+X-Google-Smtp-Source: AMsMyM6bBfvn1Kn2m3jyePvTWTQZr99mPqgEF96ov5+b6DzzOQAB1TTkjSwFdYjW5mK99JzXiScvlDmHriUb73Md/f4=
+X-Received: by 2002:a05:6214:29ee:b0:4b1:c1d2:6635 with SMTP id
+ jv14-20020a05621429ee00b004b1c1d26635mr18081815qvb.82.1665475580262; Tue, 11
+ Oct 2022 01:06:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-3-andriy.shevchenko@linux.intel.com> <Y0SyVwjDl7NGfTPn@sol>
+In-Reply-To: <Y0SyVwjDl7NGfTPn@sol>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 11 Oct 2022 11:05:42 +0300
+Message-ID: <CAHp75Vf4oS8g0zxgismtLrzsJ7AE-bdMEq+GAzx2=Mwnhuk3UA@mail.gmail.com>
+Subject: Re: [PATCH v2 02/36] gpiolib: cdev: Add missed header(s)
+To: Kent Gibson <warthog618@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Marc Zyngier <maz@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Billy Tsai <billy_tsai@aspeedtech.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Linus Walleij <linus.walleij@linaro.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Phil Edworthy <phil.edworthy@renesas.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>, 
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+	linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, 
+	alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	NXP Linux Team <linux-imx@nxp.com>, Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Paul Cercueil <paul@crapouillou.net>, Damien Le Moal <damien.lemoal@wdc.com>, 
+	Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@somainline.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_005957_104331_3EF3FA34 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20221011_010623_383064_A881DC0A 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,26 +136,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 27. Juli 2022, 06:38:29 CEST schrieb Anup Patel:
-> Identifying the underlying RISC-V implementation can be important
-> for some of the user space applications. For example, the perf tool
-> uses arch specific CPU implementation id (i.e. CPUID) to select a
-> JSON file describing custom perf events on a CPU.
-> 
-> Currently, there is no way to identify RISC-V implementation so we
-> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> Tested-by: Nikita Shubin <n.shubin@yadro.com>
+On Tue, Oct 11, 2022 at 3:02 AM Kent Gibson <warthog618@gmail.com> wrote:
+> On Mon, Oct 10, 2022 at 11:14:18PM +0300, Andy Shevchenko wrote:
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-[on Qemu and Allwinner D1]
-Tested-by: Heiko Stuebner <heiko@sntech.de>
+...
+
+> > -#include <linux/gpio.h>
+> >  #include <linux/gpio/driver.h>
+> > +#include <linux/gpio.h>
+> > +#include <linux/hte.h>
+>
+> Ok with the hte re-order.
+>
+> But moving the gpio subsystem header after the gpio/driver is not
+> alphabetical ('.' precedes '/') and it read better and made more sense
+> to me the way it was.
+
+I see, I guess this is vim sort vs shell sort. Strange, they should
+follow the locale settings...
+
+...
+
+> > +#include <linux/seq_file.h>
+>
+> I wasn't aware that we use anything from seq_file.
+> What am I missing?
+
+I will recheck, because in v6.0 I don't see anything, but LKP was not
+okay with something IIRC.
 
 
 
 
+--
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
