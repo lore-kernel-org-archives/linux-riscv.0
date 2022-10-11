@@ -4,156 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9966BC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 02:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AD0C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 05:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5IdRLljptWDGdssc+5Ac7sb5FIhEFnGOtV4xCDM8BX0=; b=JnY4SqeYeeIzvw
-	UP3cep94onKePhBsbbl08GQrNAgXBAjaekH/w5h3bjQyyyRdszaJET3RZviTeEUaKqUtjzzrKzs6a
-	WqQ2Lvcsf6vE6+ifNvUBL5iX7xdSShb6uE3UoR7EepgII+QnbLXosCGq9I4q1DttLEB2XEn0Mvgi4
-	RqN4h836lgPfd3hFb1ETCYqBINOoJttrtN3v+Nb0RotQlvC1CfbwtYtyFCT+r6c8yAaIQMiuOHj9k
-	1XJeoDeuQq26S2eJCiMRy1xuRw9MeIK+pRUyNZQoSwcNtRoWVZqZp/iGphLf3BfqHhEe/Mu3TKF2f
-	rR5e2pRsGX4TLKA4wIaw==;
+	List-Owner; bh=/8pNJ5UUCv24vwkoXKVOU+GbNpIsq5SHVLfW8+V8Aso=; b=cXY3NEutgtLY43
+	EdorMtnRgs0MscTpkeeWaFRoBwHU4foTuo/l+BYCn9GWy9TUyc3B5gK6cQ+8TNik92G+FFOktt+/w
+	JyGAk/LoHZ22pzkMkYjA1qZVymU7LXbWm22jK+uGw+X6pSsKB76vnqgGWxfrMlJPdbXRd1hzLuDjv
+	5GXq0bquDxW3PrUv83ZPHNrYpXfGQPr+tu33pr/QY2bywlaPDoxXTRYXzqA78CmGeQtP79/xdOUFC
+	ITT2RVtS0PWiODaZNC6iADUlJxDIBk3IPwEuRH78uqrjlgwBA76v51cW0CdCnUuXGKcDrNMv0ZmrW
+	oRrZyh/3yE47R80OAbYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi5Rk-0033aa-NJ; Tue, 11 Oct 2022 02:56:44 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1oi7Se-003IEH-0p; Tue, 11 Oct 2022 05:05:48 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi5Rh-0033Z3-Rw
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 02:56:43 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id 10so12053653pli.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Oct 2022 19:56:40 -0700 (PDT)
+	id 1oi7Sb-003IDc-3R
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 05:05:46 +0000
+Received: by mail-lf1-x136.google.com with SMTP id bu25so19441652lfb.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Oct 2022 22:05:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eY6/yimYvoONiMO8pWSoqGtMa9qBuMUAo/bdP9lOba0=;
-        b=St4FezU9O7eQJTgTbgQ3mlkvzUgcaFOmGoS6fdofTzsS1eKPT2mljImssPXI+Y1Rqc
-         WAtcVBQFwcJWAI1Xn0kmEDfsOWpPTM1rwy9e0/jweWYZhcW3bSRihweGkMgkFrf49L/S
-         ougV8x2YLvsuSHJVWbHPxAjymhZlrdBRSfbPMetPXI3d8528oLanaqszgIjsyWcJxCec
-         RplspHGcXRVrZHhm3YLHBP2MThUZYt1l+u3w6nNEbK/gAalPObii9Y23LTB9h+xo5MZL
-         Q2olX6pqHr7fnJjbkDUcbicgWKLEOHuxY/ZmaY8NhBASe9hAP1FfwULvv+vyB/p7aAJi
-         dcZA==
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=t2TApjEaLgM7a4Tuh//qBecyKOaKMXyWhnDNfjZE3aQ=;
+        b=oycwiADtfldcyNrB28l99eBQ+TfDT4HKPO9QOv+xM74oqeM/9OZZ7jxbeU4dGlY57g
+         CDlpGc707MeMPfJbxP+AIvu2rC13X0HL6Cgedj4JIfgz92ouW1QnSgKrB+zUnByMMsiV
+         PQFst7bgBrYNG0/DcrQEO6iKgVu7dAa7EYnk5kScqzagrNKTlmUlsjdR5L3G24vrMu4P
+         kkYsmwLbk6A9DKTJ5jvbYrMYKSxhqV9aBQAugWQa0Nzn28KhGvo3OnOckmqY7StYCBvt
+         xOWIseLF20f/2PVneCRBwK4bx7ct4oQ/T6B3BPqPl8hmz6bmrpBxS9VX9xK0R86gopuS
+         JRhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eY6/yimYvoONiMO8pWSoqGtMa9qBuMUAo/bdP9lOba0=;
-        b=r19fvORKOD7T4zyBlNJ1mRisXGnnLcGCSdOGBcszRZvxMukjae1rR3l12fVrqHWMFq
-         AWmpxXqlNQcaiZHVVv9r2+dCXsgY0sjXepaAVWnYmwYnoW3XJkreLOWxr7NNZfZely82
-         p1uOkMD2gJzDzBwWJS8xFCTpBsi+Tyo7AfxmzCySIZbc5AbXaSdN23IJvUCvbPpNfz7b
-         27SvX8EfgRfSEFAWQT6LCPacT2iUxMkcAgNQAB050YdLhC9AbJPA6ynzJutDgCHMvLCr
-         h7qDYwvMoCp0XOOltJUYDsieZLd6UB0GoTRhz8Lc3ultOZLFrn9o7K/up7b1iDpnsIpA
-         Toow==
-X-Gm-Message-State: ACrzQf0v01Ba3XEMk1UrdBnGsdO/N0c53khW7wUMv2AnCgnLSv6svWMG
-	3CWmpuKxkBWoMEns+Gjz9HG/WA==
-X-Google-Smtp-Source: AMsMyM5hXN0QiS8uqUcGpHD6JFZFALVhwI9j6zQ14TE/WoAuVWWVc4TcEEwMdmsILP6ZiXwLtzx0bQ==
-X-Received: by 2002:a17:90a:ad82:b0:20c:feb2:bceb with SMTP id s2-20020a17090aad8200b0020cfeb2bcebmr15457131pjq.93.1665456999661;
-        Mon, 10 Oct 2022 19:56:39 -0700 (PDT)
-Received: from localhost ([122.172.86.128])
-        by smtp.gmail.com with ESMTPSA id z17-20020aa79911000000b005623df48a39sm7942588pff.13.2022.10.10.19.56.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Oct 2022 19:56:39 -0700 (PDT)
-Date: Tue, 11 Oct 2022 08:26:36 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Kent Gibson <warthog618@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Bjorn Andersson <bjorn.andersson@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Phil Edworthy <phil.edworthy@renesas.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fabien Dessenne <fabien.dessenne@foss.st.com>,
-	Prathamesh Shete <pshete@nvidia.com>,
-	Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
-	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
-	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Chen-Yu Tsai <wens@csie.org>, Paul Cercueil <paul@crapouillou.net>,
-	Damien Le Moal <damien.lemoal@wdc.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Andy Gross <agross@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	Tomasz Figa <tomasz.figa@gmail.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: Re: [PATCH v2 22/36] pinctrl: spear: Add missed header(s)
-Message-ID: <20221011025636.glm7wxtg4oo6c2j2@vireshk-i7>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <20221010201453.77401-23-andriy.shevchenko@linux.intel.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=t2TApjEaLgM7a4Tuh//qBecyKOaKMXyWhnDNfjZE3aQ=;
+        b=dhoX4J106eF11sSK1CQxe3m6upUYnqjk/byV6V6fbpMGETBotRwp+8k7oOTyCr9byC
+         ypE5T41wrFnTTGIEoBLM7X6R7H6WRV4DaDggIOn8X8ghBLy2h8Ob58IqCYsptOhTk2lJ
+         ib93d6KqbGrdXhYgprb7TW45qVqlfW6giWkg1ncOnV9z2T+AZrGVevdw9qhtXzqTbKXo
+         HqcNkl9DVjh7rKLbHOhunfQUgSY4pztsIqZGu6ROoBQtPo7BcIAKe2vfVtEB184gzFey
+         KwCd63ZAoBbpYlpdFtkugVsHb2ti/5IGHl1+mVRgKzqFDfG5gzzChST+ryVs4jn2nVGy
+         u8zA==
+X-Gm-Message-State: ACrzQf3c9gZlRNtwUdGgUUa8YlzWC/s+G5kt0eZQ38ptFwOv9wCZ/W4B
+	NYMNbr5y6X6NwQpqhf5+tg/scd2CHzqslWxnpl1dzA==
+X-Google-Smtp-Source: AMsMyM6AP01T+LwJlGX1MIfT2peb65DpmZbv33aH6XKgQOtnXgxeFq0NR8crV45AqrXvJ7HgiAqOBheoM9n04ZIOf5Y=
+X-Received: by 2002:a05:6512:2821:b0:4a1:e97e:5025 with SMTP id
+ cf33-20020a056512282100b004a1e97e5025mr7581257lfb.41.1665464742776; Mon, 10
+ Oct 2022 22:05:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221010201453.77401-23-andriy.shevchenko@linux.intel.com>
+References: <20221010094029.1579672-1-ajones@ventanamicro.com> <mhng-62a2d3c7-f08d-4f40-862c-4d4f09a6150a@palmer-ri-x1c9>
+In-Reply-To: <mhng-62a2d3c7-f08d-4f40-862c-4d4f09a6150a@palmer-ri-x1c9>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 11 Oct 2022 10:35:31 +0530
+Message-ID: <CAK9=C2VZW6f7jq_27b0b4TD2vC0V5MLmaGBaPeq8NG-i686bbg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Fix compilation without RISCV_ISA_ZICBOM
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: ajones@ventanamicro.com, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, anup@brainfault.org, atishp@atishpatra.org, 
+	conor.dooley@microchip.com, vernon2gm@gmail.com, lkp@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221010_195641_996916_048B85B5 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20221010_220545_170994_A01198BE 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,41 +86,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10-10-22, 23:14, Andy Shevchenko wrote:
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
-> 
-> While at it, sort headers alphabetically.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  drivers/pinctrl/spear/pinctrl-spear.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/spear/pinctrl-spear.c b/drivers/pinctrl/spear/pinctrl-spear.c
-> index e0543c1ad641..18de2e70ea50 100644
-> --- a/drivers/pinctrl/spear/pinctrl-spear.c
-> +++ b/drivers/pinctrl/spear/pinctrl-spear.c
-> @@ -19,11 +19,13 @@
->  #include <linux/of.h>
->  #include <linux/of_address.h>
->  #include <linux/of_gpio.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/seq_file.h>
-> +#include <linux/slab.h>
+On Tue, Oct 11, 2022 at 12:06 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Mon, 10 Oct 2022 02:40:29 PDT (-0700), ajones@ventanamicro.com wrote:
+> > Fix undefined reference of riscv_cbom_block_size when compiling KVM
+> > without RISCV_ISA_ZICBOM. Note, RISCV_ISA_ZICBOM is a sufficient
+> > guard as it selects RISCV_DMA_NONCOHERENT, which is needed to compile
+> > dma-noncoherent.c (which is the file where riscv_cbom_block_size and
+> > its initializer live).
+> >
+> > Fixes: afd5dde9a186 ("RISC-V: KVM: Provide UAPI for Zicbom block size")
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/kvm/vcpu.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> > index a032c4f0d600..e4453caba728 100644
+> > --- a/arch/riscv/kvm/vcpu.c
+> > +++ b/arch/riscv/kvm/vcpu.c
+> > @@ -265,11 +265,13 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+> >       case KVM_REG_RISCV_CONFIG_REG(isa):
+> >               reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+> >               break;
+> > +#ifdef CONFIG_RISCV_ISA_ZICBOM
+> >       case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> >               if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
+> >                       return -EINVAL;
+> >               reg_val = riscv_cbom_block_size;
+> >               break;
+> > +#endif
+> >       default:
+> >               return -EINVAL;
+> >       }
+>
+> Thanks, looks like this is tripping up the kernelci builds too:
+> https://linux.kernelci.org/build/id/6343b37c6fd2dcbb5dcab5f3/logs/ .
+> This symbol is actually a bit odd, as we don't actually just use it
+> under Zicbom because of the T-Head stuff.  Looks like that's generically
+> broken, though, so IMO we need something like this
+>
+> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> index 6cb7d96ad9c7..fba86fa3a628 100644
+> --- a/arch/riscv/mm/cacheflush.c
+> +++ b/arch/riscv/mm/cacheflush.c
+> @@ -5,6 +5,9 @@
+>
+>  #include <asm/cacheflush.h>
+>
+> +unsigned int riscv_cbom_block_size;
+> +EXPORT_SYMBOL(riscv_cbom_block_size);
 > +
->  #include <linux/pinctrl/machine.h>
->  #include <linux/pinctrl/pinctrl.h>
->  #include <linux/pinctrl/pinmux.h>
-> -#include <linux/platform_device.h>
-> -#include <linux/slab.h>
->  
->  #include "pinctrl-spear.h"
+>  #ifdef CONFIG_SMP
+>
+>  #include <asm/sbi.h>
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index e3f9bdf47c5f..33d21ace0971 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -12,7 +12,6 @@
+>  #include <linux/of_device.h>
+>  #include <asm/cacheflush.h>
+>
+> -unsigned int riscv_cbom_block_size;
+>  static bool noncoherent_supported;
+>
+>  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>
+> which should be
+>
+> Fixes: 8f7e001e0325 ("RISC-V: Clean up the Zicbom block size probing").
 
-Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+I agree with your change.
 
--- 
-viresh
+May be also move riscv_init_cbom_blocksize() to
+arch/riscv/mm/cacheflush.c ?
+
+>
+> We might also want the ifdef for KVM, as that would allow us to build KVM that
+> doesn't support these VCPU configurations, but that's sort of a different
+> question.
+
+Yes, I will be sending a PR including the KVM fix this week itself.
+
+>
+> --
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
