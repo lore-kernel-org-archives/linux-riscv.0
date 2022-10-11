@@ -4,106 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B821C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAB1C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GhBz3bkePYl7w2YBcmCuibWCZx3Vj9qiKSMhhT0OTH4=; b=z6/rSs/OIJk9bH
-	GjTeZrcQyTz9OC+6M8G4QPykpwQGty7fuK36ZXA40+DgubGbBkfG68Kbua0+H51gPux4qk/AoLftu
-	ZpwARXYiQ+6VolqK9vXBL9LMdIccIqf9p/I7lHVGwolKt7xd7korUNEVMbuHVG1L++hhGRHkaLpCu
-	wFSLGmq3isyixynFyfa6YzoayzKVzU9WHiQmIuMgYWtK0ZJokcrFo0C761XGOi4PDO4MB4jLn+P0L
-	YXiGtfRnxOjvY6sBHtJJE1T4VF5dpfVCaARnZA9JM3iVQMR28qBgVGCTwtTvS0oCB5uCcvgvknavh
-	xX8XXwcMvxnLoUH8AKLA==;
+	List-Owner; bh=v0dbxgSDEMW3zLHF2DAu2LG0OwBnd7u/6+ot7iMR0qc=; b=PLpq7wDbEREf0d
+	pBsTgLkxXJ9ZvVnJEpP7HWb9HR2pLsoAl0zLXXDiqxQH5Lbeu2CjWjf9ZTPJ/VHKdqbcysTUv50hB
+	WiJSikaLvtAMT1q3l5f4uyqP4ng2KXnaY1YtNu40oW8JoRG8loWIu3P4BUAs/irp26OmQ2UuNqEIA
+	Ycj7m9d+FZ4boICKJwPO917kAPfPzXdXoFbFb3MjaRSonTYapoiiOiueCQk6nySxpqn8A6hqmSzNY
+	N61hHTg/LQPHG53I4coG+8l9jciQHTHV5D1B+J3EToownWAk1S7kwr3xjOy6Y86wiKoKXPYsLacgb
+	S9fN66iqYnsfJt4nrrvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiI3S-005Cho-Nu; Tue, 11 Oct 2022 16:24:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1oiIGw-005F3j-QS; Tue, 11 Oct 2022 16:38:26 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiI2k-005CQg-7V
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:23:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1665505422;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6gv22bmoTax0J0zhnmYTJUdzNvY/rZYRIc0hd8rouMg=;
-	b=LRY6MDkL1FSVWQVxuAJnTx6sM89Z2if2LaB1RiWbHBIYRj7Mj97W6hfxISk0sngoJjkUUw
-	GnXQTJukvlIaJ2wWg2PxGQBmBr3hudt0Jz/x818R345uAZe5cB+0ar0V7e8vsKdsSY4bAo
-	zvwzhBObKjWCB9PLl3RC99A5zqOE+nI=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-3-3AV-dLqCN56sjnKJpDHqxA-1; Tue, 11 Oct 2022 12:22:07 -0400
-X-MC-Unique: 3AV-dLqCN56sjnKJpDHqxA-1
-Received: by mail-ed1-f71.google.com with SMTP id i17-20020a05640242d100b0044f18a5379aso11771850edc.21
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 09:22:06 -0700 (PDT)
+	id 1oiIGt-005F1j-So
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:38:25 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id h15so4461943qtu.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 09:38:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QY6WyTHOtNVOWNT2T4wR6tUw0MK2Z6zU5+UbTJRR4tc=;
+        b=LEg8IGV5qy1f4Ls0uTv3AByar4HiiDxIwsDKEhd1O3xBrraCFAScNYyn0CRQWX99TD
+         ShlqA8pojnv0xNOdhZlj4K0NCqWlqdzblrcblq+HuJTHZvC2J4F5cn7BFcbgHDPYWHF7
+         qHzdA9/fr79n+ObD0DllHTbQB4OH2+jcfYrj5heT+Ssk0cmsq6BGxhVAbWgyU/bZ1OBJ
+         4Xw56h8FS775SUNOojVN+hK9z/twXXMQ0SkXkM2b2ZkT1df9zEBBJAXBMmFIflHUu2FR
+         joWqB9dh6xRCkeK83NAvUkRsL6Ti980Daj99a6FoHp3T66M9ZlQbAQjF8tq15WmLfmFd
+         LjIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6gv22bmoTax0J0zhnmYTJUdzNvY/rZYRIc0hd8rouMg=;
-        b=yWL09AI16E4ndTMg0fpiee+PEBEhPXGLnMb8n8QoN2IXEkI4uTVFnntw2u0GewldMs
-         KAZnSa1rIj1vKA+SEWf6qfYd/8e6KiWut1Ylj8Pclwj8LO/rssOiSbaYLzASAzl323bR
-         d0U6mzq9efmKnkEwYZfu0g3vQJQwNrmUwtwO2GLGFPUB5xdnUZk9owW+78DFGbRIIE0r
-         c5eZ0HWw3KQoYc3Fy2z9QyIsKiyeKuow2ZXzoQPizE8BxFeRl/F7/ErU/nTrQgRFJyTM
-         RlZutIkH1pTBAdLvanwcVlyOihLkAVjEoqrz21r3BWrTFv/69//T3+NpFdsZkrD1a93G
-         l8MA==
-X-Gm-Message-State: ACrzQf3X+TWvcRp+YIpd2c+78StfLWng0wT1djxnwzDvWA6BQVLBJY/H
-	Bwm4aYtsVogFkOonXnAZ65j0Wib2GQF3ZHe74unRhIT7cjhs3vXujUuuVdw2S0oZk/QFgfNDDe1
-	r2rhNlc83r1tQS3Oo2UDiamiqJ/fI
-X-Received: by 2002:a17:907:2712:b0:78d:a223:729b with SMTP id w18-20020a170907271200b0078da223729bmr11697143ejk.443.1665505325963;
-        Tue, 11 Oct 2022 09:22:05 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM5z3+5ecaWwqYPDE234CAcuf3hKc1qLTNOp8VUNiMDwybT1F6EbMEGGKCCgL+v4lylioGXOig==
-X-Received: by 2002:a17:907:2712:b0:78d:a223:729b with SMTP id w18-20020a170907271200b0078da223729bmr11697097ejk.443.1665505325743;
-        Tue, 11 Oct 2022 09:22:05 -0700 (PDT)
-Received: from [192.168.0.198] (host-79-47-205-133.retail.telecomitalia.it. [79.47.205.133])
-        by smtp.gmail.com with ESMTPSA id xf13-20020a17090731cd00b00730b3bdd8d7sm7273113ejb.179.2022.10.11.09.22.03
+        bh=QY6WyTHOtNVOWNT2T4wR6tUw0MK2Z6zU5+UbTJRR4tc=;
+        b=L80f/NkcS7CubWZcQZ0dBJRG6GmwA/zmsdrZOS3tBw8r/GRcbvWLHq9MWXg9TGb3UT
+         CuypTayxDJxonUfbFlNWnEvZs/RtSMwyPxpuXrcHIPRXAjc3RlfUUWXPH+Ia+oiEbWw4
+         ZYokA4k5A1miAEFQ4XW76+gEQlvDuMaIZgnmILpWFlrnsDEY9iJKA6wbV5ICncerK95i
+         YMhzaxiYKgvOlw8b24gQnSyrOw3HMwlNSO8kcRIihRZmaVdLBqNxhByfgU7i9/hQGdeL
+         FmQPESzJKWafvg+DXSY9d+l9k1Epcq6eOpeuDSsaSWEREUc+BbtYpxZ4arZ5ryMu127x
+         wJvg==
+X-Gm-Message-State: ACrzQf2yN9fMeYn/T+4Z263X2EdueCBVf/EmNR1ZU53oLvW8tFzDaSNb
+	iLuL1rk7D9n/jx4UoniRVm5wbw==
+X-Google-Smtp-Source: AMsMyM6ZR0Jj5RCA2gjlIscZ4R49LE0rwlWp+wlpIGZOb1PmOQmoWN5UpcMrnDWhs1cwnY4FWY3c0w==
+X-Received: by 2002:a05:622a:2c6:b0:39c:42ee:932d with SMTP id a6-20020a05622a02c600b0039c42ee932dmr3355086qtx.156.1665506300783;
+        Tue, 11 Oct 2022 09:38:20 -0700 (PDT)
+Received: from [192.168.1.57] (cpe-72-225-192-120.nyc.res.rr.com. [72.225.192.120])
+        by smtp.gmail.com with ESMTPSA id i11-20020a05620a404b00b006a5d2eb58b2sm13979752qko.33.2022.10.11.09.38.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Oct 2022 09:22:05 -0700 (PDT)
-Message-ID: <3e680bb9-9896-3665-dd59-4f2e6f8205bb@redhat.com>
-Date: Tue, 11 Oct 2022 18:22:03 +0200
+        Tue, 11 Oct 2022 09:38:20 -0700 (PDT)
+Message-ID: <2f1d1afd-3c97-6ce0-8247-6e1c4a24e548@linaro.org>
+Date: Tue, 11 Oct 2022 12:36:08 -0400
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.1
-Subject: Re: [RFC PATCH 0/5] Generic IPI sending tracepoint
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-xtensa@linux-xtensa.org, x86@kernel.org,
- "Paul E. McKenney" <paulmck@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Juri Lelli <juri.lelli@redhat.com>, Frederic Weisbecker
- <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
- Nicholas Piggin <npiggin@gmail.com>, Marcelo Tosatti <mtosatti@redhat.com>,
- Guo Ren <guoren@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Douglas RAILLARD <douglas.raillard@arm.com>
-References: <20221007154145.1877054-1-vschneid@redhat.com>
- <Y0CFnWDpMNGajIRD@fuller.cnet> <xhsmhilkqfi7z.mognet@vschneid.remote.csb>
-From: Daniel Bristot de Oliveira <bristot@redhat.com>
-In-Reply-To: <xhsmhilkqfi7z.mognet@vschneid.remote.csb>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v1 12/30] dt-bindings: reset: Add starfive,jh7110-reset
+ bindings
 Content-Language: en-US
+To: Hal Feng <hal.feng@linux.starfivetech.com>, Rob Herring <robh@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220929175147.19749-1-hal.feng@linux.starfivetech.com>
+ <20220929184349.GA2551443-robh@kernel.org>
+ <8BEAFAD2C4CE6E4A+0a00376c-1e3e-f597-bcf6-106ff294859a@linux.starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <8BEAFAD2C4CE6E4A+0a00376c-1e3e-f597-bcf6-106ff294859a@linux.starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_092346_428191_6628B357 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20221011_093824_029649_96476061 
+X-CRM114-Status: GOOD (  31.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +105,240 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/11/22 18:17, Valentin Schneider wrote:
-> Thinking out loud, it makes way more sense to record a cpumask in the
-> tracepoint, but perhaps we could have a postprocessing step to transform
-> those into N events each targeting a single CPU?
+On 11/10/2022 11:30, Hal Feng wrote:
+> On Thu, 29 Sep 2022 13:43:49 -0500, Rob Herring wrote:
+>> On Fri, Sep 30, 2022 at 01:51:47AM +0800, Hal Feng wrote:
+>>> Add bindings for the reset controller on the JH7110 RISC-V
+>>> SoC by StarFive Technology Ltd.
+>>>
+>>> Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+>>> ---
+>>>  .../bindings/reset/starfive,jh7110-reset.yaml | 54 +++++++++++++++++++
+>>>  1 file changed, 54 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml b/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+>>> new file mode 100644
+>>> index 000000000000..bb0010c200f9
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+>>> @@ -0,0 +1,54 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/reset/starfive,jh7110-reset.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: StarFive JH7110 SoC Reset Controller Device Tree Bindings
+>>> +
+>>> +maintainers:
+>>> +  - Emil Renner Berthing <kernel@esmil.dk>
+>>> +  - Hal Feng <hal.feng@linux.starfivetech.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - starfive,jh7110-reset
+>>
+>> 'reg' needed? Is this a sub-block of something else?
+> 
+> Yes, the reset node is a child node of the syscon node, see patch 27 for detail.
+> You might not see the complete patches at that time due to technical issue of
+> our smtp email server. Again, I feel so sorry about that.
+> 
+> 	syscrg: syscrg@13020000 {
+> 		compatible = "syscon", "simple-mfd";
+> 		reg = <0x0 0x13020000 0x0 0x10000>;
+> 
+> 		syscrg_clk: clock-controller@13020000 {
+> 			compatible = "starfive,jh7110-clkgen-sys";
+> 			clocks = <&osc>, <&gmac1_rmii_refin>,
+> 				 <&gmac1_rgmii_rxin>,
+> 				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+> 				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
+> 				 <&tdm_ext>, <&mclk_ext>;
+> 			clock-names = "osc", "gmac1_rmii_refin",
+> 				"gmac1_rgmii_rxin",
+> 				"i2stx_bclk_ext", "i2stx_lrck_ext",
+> 				"i2srx_bclk_ext", "i2srx_lrck_ext",
+> 				"tdm_ext", "mclk_ext";
+> 			#clock-cells = <1>;
+> 		};
+> 
+> 		syscrg_rst: reset-controller@13020000 {
+> 			compatible = "starfive,jh7110-reset";
+> 			#reset-cells = <1>;
 
-My approach on the tracers/rtla is to make the simple things in kernel, and beautify
-things in user-space.
+So the answer to the "reg needed?" is what? You have unit address but no
+reg, so this is not correct.
 
-You could keep the tracepoint as a mask, and then make it pretty, like cpus=3-5,8
-in user-space. For example with a trace-cmd/perf loadable plugin, libtracefs helper.
+> 			starfive,assert-offset = <0x2F8>;
+> 			starfive,status-offset= <0x308>;
+> 			starfive,nr-resets = <JH7110_SYSRST_END>;
+> 		};
+> 	};
+> 
+> In this case, we get the memory mapped space through the parent node with syscon
+> APIs. You can see patch 13 for detail.
+> 
+> static int reset_starfive_register(struct platform_device *pdev, const u32 *asserted)
+> {
 
-For rtla I was thinking to make a new tool to parse them. and make it pretty there.
 
--- Daniel
+(...)
+
+> 
+>>
+>>> +
+>>> +  "#reset-cells":
+>>> +    const: 1
+>>> +
+>>> +  starfive,assert-offset:
+>>> +    description: Offset of the first ASSERT register
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>> +
+>>> +  starfive,status-offset:
+>>> +    description: Offset of the first STATUS register
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>
+>> These can't be implied from the compatible string?
+> 
+> These two properties are the key differences among different reset controllers.
+
+Different as in different compatibles? Please answer the questions...
+
+> There are five memory regions for clock and reset in StarFive JH7110 SoC. They
+> are "syscrg", "aoncrg", "stgcrg", "ispcrg" and "voutcrg". Each memory region
+> has different reset ASSERT/STATUS register offset and different number of reset
+> signals. 
+
+Then these are not exactly the same devices, so using one compatible for
+them does not look correct.
+
+> After storing them in dt, the reset driver can register all reset
+> controllers with the same compatible string. 
+
+Which is not how the compatible should be used...
+
+> All we expect is that all reset
+> controllers in a single SoC use the same compatible string for matching and the
+> reset driver can be applied to all StarFive SoCs using different compatible strings.
+
+Keep driver out of the talks.
+
+> Just like
+
+Existing bad pattern is not an argument to keep it going. Fix bad
+patterns instead.
+
+> 
+> arch/riscv/boot/dts/starfive/jh7100.dtsi:
+> 
+> 	rstgen: reset-controller@11840000 {
+> 		compatible = "starfive,jh7100-reset";
+> 		reg = <0x0 0x11840000 0x0 0x10000>;
+> 		#reset-cells = <1>;
+> 		starfive,assert-offset = <0x0>;
+> 		starfive,status-offset= <0x10>;
+> 		starfive,nr-resets = <JH7100_RSTN_END>;
+> 	};
+> 
+> arch/riscv/boot/dts/starfive/jh7110.dtsi:
+> 
+> 	syscrg: syscrg@13020000 {
+> 		compatible = "syscon", "simple-mfd";
+> 		reg = <0x0 0x13020000 0x0 0x10000>;
+> 
+> 		syscrg_clk: clock-controller@13020000 {
+> 			compatible = "starfive,jh7110-clkgen-sys";
+> 			...
+> 		};
+> 
+> 		syscrg_rst: reset-controller@13020000 {
+> 			compatible = "starfive,jh7110-reset";
+> 			#reset-cells = <1>;
+> 			starfive,assert-offset = <0x2F8>;
+> 			starfive,status-offset= <0x308>;
+> 			starfive,nr-resets = <JH7110_SYSRST_END>;
+> 		};
+> 	};
+> 
+> 	aoncrg: aoncrg@17000000 {
+> 		compatible = "syscon", "simple-mfd";
+> 		reg = <0x0 0x17000000 0x0 0x10000>;
+> 
+> 		aoncrg_clk: clock-controller@17000000 {
+> 			compatible = "starfive,jh7110-clkgen-aon";
+> 			...
+> 		};
+> 
+> 		aoncrg_rst: reset-controller@17000000 {
+> 			compatible = "starfive,jh7110-reset";
+> 			#reset-cells = <1>;
+> 			starfive,assert-offset = <0x38>;
+> 			starfive,status-offset= <0x3C>;
+> 			starfive,nr-resets = <JH7110_AONRST_END>;
+> 		};
+> 	};
+> 
+> 	stgcrg: stgcrg@10230000 {	//Not submmited yet
+> 		compatible = "syscon", "simple-mfd";
+> 		reg = <0x0 0x10230000 0x0 0x10000>;
+> 
+> 		stgcrg_clk: clock-controller@10230000 {
+> 			compatible = "starfive,jh7110-clkgen-stg";
+> 			...
+> 		};
+> 
+> 		stgcrg_rst: reset-controller@10230000 {
+> 			compatible = "starfive,jh7110-reset";
+> 			#reset-cells = <1>;
+> 			starfive,assert-offset = <0x74>;
+> 			starfive,status-offset= <0x78>;
+> 			starfive,nr-resets = <JH7110_STGRST_END>;
+> 		};
+> 	};
+> 	...
+> 
+>>
+>>> +
+>>> +  starfive,nr-resets:
+>>> +    description: Number of reset signals
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>
+>> Why do you need this? Most bindings don't. If just to validate 'resets' 
+>> args, then don't.
+> 
+> Can be removed. Instead, the reset driver should includes some related
+> binding headers or defines some macros for pointing out the number of
+> reset signals of each reset controller.
+> 
+> Best regards,
+> Hal
+> 
+>>
+>>
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - "#reset-cells"
+>>> +  - starfive,assert-offset
+>>> +  - starfive,status-offset
+>>> +  - starfive,nr-resets
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/reset/starfive-jh7110.h>
+>>> +
+>>> +    syscrg_rst: reset-controller@13020000 {
+
+Please test your patches.
+
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
