@@ -4,146 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B37C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 520D5C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SJhv4L2WY848SqtaEJ0g49HSj66G6IoOMButKtZy5uw=; b=kVcrIivxzqLRYW
-	R3lsFha2Jm0Pj1GAENJhnyPtoXN3aplPd49ZoDTqP72o8LGhAUVULCV/GVb1O4qiP63q5DeIbgQtd
-	Es0ii2kAxHY3snozyCqf4BcFUJFJcSW8z2gVTULszrBcXkOOr3+UVEwfIj01TkkrywEYN3eQDAhwu
-	Yf/Nwup75dgUymxEBFsaAPLeo6Ej6OwTkV80i+rZDrfjFV54JPJ6R9lqi+BNOPVRHAbt5zAdze4u5
-	KfKHuHipZwIWLTfpiIvtQ29+3oE4icLTqeRrl84vdPPQe+zhQmtFu1xVzck1TCNOQW6NUTBaIDBIg
-	YyW9bD0obd969D5pxpMw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dPBb6d1N11ViqkbMU9Vx/ZpE0cuYskq1eE9lzWrsjro=; b=C5fob25Sp9RVFd
+	vsr8cFTHvvfE6Fc77YcG8+rAHAhqYTT5XMl/EVQXbhL8/oxv6U+xfruTAY0tIHFv3h4b4czFzBnQH
+	rxht1rewRidWg03djNNpsOvDiH+D2OU16uZUhjqW3CQ4L462Bom7UBq+lr9f3bXd6Id8rhDtf/5HV
+	tgUixOSXp3fgdTZIC4ZV6JA8AhrffZOtfcjIq6rHim2cd6Yu7Qz9F187UbCrN3Tw4UF/h23JKCKmX
+	BQToQ5qGyh2+R9GkC/zLfxG04p9r2X2RRNCtwqXLLFa5D0n3cVu8/QoAY+1toxyNLYM7wydNBEESp
+	KMQ0DXrQomE0Djxfl5MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiHzg-005Aix-Dl; Tue, 11 Oct 2022 16:20:36 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1oiHzp-005An5-E5; Tue, 11 Oct 2022 16:20:45 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiHnd-00544n-NQ
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:08:12 +0000
-Received: by mail-qt1-x834.google.com with SMTP id cj27so8527091qtb.7
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 09:08:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=GWYVEJdoqXnCQWtfT0bzkIP+70WLbsk9ZN19JnMQZx0=;
-        b=knWzrFxaglSBiHlwLMrZK+zOgKEtnU3K72eEGnOpfBMOKDwTCB1o5DFjMAX/q0UhNY
-         QtDdN11oGw+99XS3Ki30jbEV3wnK3M/RZFgBzC756EJj6Qzp7bRwpx0xVlVivFLLMSoT
-         OeFfvcAMzeUvMG2gk+zcXMcyojW/wbwfJ302GKQQDum8iO4SLMQHN5VVV6Lek8K2nrim
-         ey4zQ7XwZHcjBefqfLYDvCN8aZemyW2QsFCvMONV+AY8yi+43sfWfso0dPvhCbF12v5/
-         Zm2LP1ZxvniRrJK8KUjh3/YEL2QeZJReWqzdLohiEOSis5AiXvm/BDGrcU0o48e583KX
-         k3Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GWYVEJdoqXnCQWtfT0bzkIP+70WLbsk9ZN19JnMQZx0=;
-        b=fImzkf1jQJU33djZdFhJqSMQsbeH/U9TO6SD63OokDghI6T5gY+FPJoI3twU1E/EEL
-         yLrRK/Zu0Aoe93SLPeVPQ/wvF8NWXnkqFBn/yBNcyt8aq1kLUec7XC5UNA6+grtqpyia
-         51MtnD2W3nlgYoV/3mSi+MBzp9FbKUsbajOJzTeN8GYgAPYSTZfqMzsQoR98T0aCxiSt
-         3oD7lW098PJkYaj9xGGQU1E3F5StjeLvqGlnqFR74CYHEqbrH/DmnwwF7y/OwBP6+d9l
-         MD+7ZSK4KcSZQy5TOEo+JC8WOMwfReLjyzAkmZZwOLngsb227mMCSMEY+eLn2d5N7B8u
-         ocuw==
-X-Gm-Message-State: ACrzQf06b/shXLUgBdDz8hNb3zmrx52SUDKvo2wyG6z8mpNGXp9Z7qK2
-	bkgKm+lA7wgxG+X+t42dv/w04g==
-X-Google-Smtp-Source: AMsMyM4tb/82A1JDAzYalVciziTjce/S19vvHsKcNbs5jARqscG7vKxacamXR2e1H5XtfAKSXhInbA==
-X-Received: by 2002:ac8:7d49:0:b0:399:d201:840b with SMTP id h9-20020ac87d49000000b00399d201840bmr9746570qtb.309.1665504487275;
-        Tue, 11 Oct 2022 09:08:07 -0700 (PDT)
-Received: from [192.168.1.57] (cpe-72-225-192-120.nyc.res.rr.com. [72.225.192.120])
-        by smtp.gmail.com with ESMTPSA id w8-20020ac84d08000000b00399813f4d5bsm5725686qtv.72.2022.10.11.09.08.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Oct 2022 09:08:06 -0700 (PDT)
-Message-ID: <a9e5197d-78aa-4395-23bc-d7c3141f109a@linaro.org>
-Date: Tue, 11 Oct 2022 12:05:51 -0400
+	id 1oiHo8-0054Hu-Ve
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:08:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4AB21B80E05;
+	Tue, 11 Oct 2022 16:08:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B9D0C433D6;
+	Tue, 11 Oct 2022 16:08:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665504518;
+	bh=D95GJN2ZqfFPbNkLIubvK2kaDhSDq3wBcfTty73n7Bs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KYy063HAR7/ZhBZojg8vji9tNiKDvQ7LIF4Zij+c3HBlscx1M3Np7pKFirvHK7GsX
+	 E1UFROv4aWSi0f6ZOfzCz0wD0OJjaWKH30ATJf3tH2kmMx2E4eiBZMXePfBK368eCp
+	 nf3EG+y0WVABObsF5/AC3x5ZiOxyqsiCjz2WbwT8LgTMixnYUGmYfRTxyhjwiLuO7J
+	 0WcwWxw7SSC7BLFPGbZdKzwFhdH/BBTO75RU5ezfV/WGorMwNIxp9f21cTxxG5neuO
+	 tqt7Mz9M8ilLDEcsj6QVMWuThtGCSeL+BYfozAXObXff4+vRq+qfR91+auBN9xQSpw
+	 jCk5qftL/ZBfw==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: palmer@dabbelt.com,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: RISC-V Patchwork
+Date: Tue, 11 Oct 2022 17:07:45 +0100
+Message-Id: <20221011160744.2167025-1-conor@kernel.org>
+X-Mailer: git-send-email 2.37.3
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v2 20/36] pinctrl: samsung: Add missed header(s)
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Kent Gibson <warthog618@gmail.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Billy Tsai <billy_tsai@aspeedtech.com>, Thomas Gleixner
- <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
- Mika Westerberg <mika.westerberg@linux.intel.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chen-Yu Tsai <wenst@chromium.org>,
- Claudiu Beznea <claudiu.beznea@microchip.com>,
- Samuel Holland <samuel@sholland.org>,
- Horatiu Vultur <horatiu.vultur@microchip.com>,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- Bjorn Andersson <bjorn.andersson@linaro.org>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Phil Edworthy <phil.edworthy@renesas.com>,
- Fabien Dessenne <fabien.dessenne@foss.st.com>,
- Prathamesh Shete <pshete@nvidia.com>,
- Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org,
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
- alsa-devel@alsa-project.org, patches@opensource.cirrus.com,
- linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- =?UTF-8?Q?Andreas_F=c3=a4rber?= <afaerber@suse.de>,
- Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>,
- Joel Stanley <joel@jms.id.au>, Florian Fainelli <f.fainelli@gmail.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, NXP Linux Team <linux-imx@nxp.com>,
- Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Chen-Yu Tsai <wens@csie.org>, Paul Cercueil <paul@crapouillou.net>,
- Damien Le Moal <damien.lemoal@wdc.com>, Tony Lindgren <tony@atomide.com>,
- Haojian Zhuang <haojian.zhuang@linaro.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>,
- Konrad Dybcio <konrad.dybcio@somainline.org>,
- Tomasz Figa <tomasz.figa@gmail.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Viresh Kumar <vireshk@kernel.org>,
- Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
- Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
- <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Masami Hiramatsu <mhiramat@kernel.org>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <20221010201453.77401-21-andriy.shevchenko@linux.intel.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221010201453.77401-21-andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_090809_802107_0BE82CB6 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20221011_090841_232660_452CC9EF 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,21 +70,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2022 16:14, Andy Shevchenko wrote:
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
-> 
-> While at it, sort headers alphabetically.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  drivers/pinctrl/samsung/pinctrl-samsung.c | 11 ++++++-----
+Hey,
 
+As one or two people have already noticed, we've resurrected the
+patchwork for the RISC-V list @
+https://patchwork.kernel.org/project/linux-riscv/list/
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The patchwork bot should let people know when their patches have been
+applied. Hopefully it'll help people track what the status of their
+patches are a little better and try to prevent stuff falling through
+the cracks in Palmer's inbox.
 
-Best regards,
-Krzysztof
+As an FYI, the statuses that are intended to be used are:
+- New: No action has been taken yet
+- Under Review: The maintainer is waiting for review comments from others
+- Changes Requested: Either the maintainer or a reviewer requested
+  changes in the patch. The patch author is expected to submit a new
+  version
+- Superseded: There's a new version of the patch available
+- Not Applicable: The patch is not intended for the RISC-V tree
+- Accepted: The patch has been applied
+- Rejected: The patch has been rejected, with reasons stated in an
+  email
+
+I reset patchwork and marked all patches as archived so we would have a
+fresh start. If your patch has been archived & not applied by the end of
+this merge window, feel free to resend it.
+
+Thanks,
+Conor.
+
+@Palmer: hopefully I did the scissors thing correctly..
+
+-- >8 --
+From f886e8a9def4bd3f2fa8a0a4d7e92c94fe72ea72 Mon Sep 17 00:00:00 2001
+From: Conor Dooley <conor.dooley@microchip.com>
+Date: Tue, 11 Oct 2022 16:49:53 +0100
+Subject: [PATCH] MAINTAINERS: add RISC-V's patchwork
+
+The RISC-V patchwork instance on kernel.org has had some necromancy
+performed on it & will be used going forward. The statuses that are
+intended to be used are:
+- New: No action has been taken yet
+- Under Review: The maintainer is waiting for review comments from others
+- Changes Requested: Either the maintainer or a reviewer requested
+  changes in the patch. The patch author is expected to submit a new
+  version
+- Superseded: There's a new version of the patch available
+- Not Applicable: The patch is not intended for the RISC-V tree
+- Accepted: The patch has been applied
+- Rejected: The patch has been rejected, with reasons stated in an
+  email
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8a5012ba6ff9..e2882dc703d8 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17516,6 +17516,7 @@ M:	Palmer Dabbelt <palmer@dabbelt.com>
+ M:	Albert Ou <aou@eecs.berkeley.edu>
+ L:	linux-riscv@lists.infradead.org
+ S:	Supported
++Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+ P:	Documentation/riscv/patch-acceptance.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ F:	arch/riscv/
+-- 
+2.37.3
 
 
 _______________________________________________
