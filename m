@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6019BC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 19:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B5BC43217
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 20:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mNzRGZyCbDPZSotjjLYY0HtPyRFKvpOL94+bNlVraso=; b=q63m5IoZL/VulNc4t1ZzVIKBAZ
-	lpO+Jx6/JtQAPz2JO+cM6s/O0rE4IAI4cl1Ufc91++XpAneLdO8hSXuVlhJk7ac5XhgzkWodaURJR
-	sbSZeYBOyH76o7+PRuZoAXHjO/BU0EE/lKZpvy3khvAAUFZcf+Rm1aaTr7+BlyidA5e1uJYZ5r4mz
-	0ItLopEb/LRM3aCC44MRw014NjBTGX/bmkdFVNxYLQVUV+vjaNXTvvIs9AkDS4rHvVEsIjCiyoAfY
-	+T5j691PSsPsftDnLWVLghrenHlRTr+0XUUIKRnh1QTzgFHhTgVagY2LLleo6a/6Dvjz4fTuuD+/R
-	BqdZIsvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X/iO1vScPQXbWONtTD4LQzfv1J8+JgGktQn+aHYmLRk=; b=Y7K+qNbDIuxo9l
+	MBgKW4QxwwsgAU9k0b8ZJilrBrMmOZ7hXqNSBGn9t8Yw9U6g3F61ZGh6thD6AhFs7YCS9chTbgOjB
+	9q7Iy/R9XMJcSX9gBC+K/nQui1A4u38BuhugrcxQ2xujRDRMG5oN+Y42fUV8nXpdMCPIX1hcGmtIv
+	4du4r8lbP9Azd6U0f2JSPkQCdSvUhKaG8O5fKzgxwGKlisk64Lh/Nh/0nCKl7VF4Aq3silwW65Rbl
+	IKS7jwVMHP48gyyOSn5bM5xnml2IdldsZclIFugRWLHyPqwWOVY8yIGhZvKCtHyIgp2webddaySPH
+	fq51LVen2hhu6lBH0g7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiL7A-005eoB-UH; Tue, 11 Oct 2022 19:40:32 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1oiLyD-005nim-02; Tue, 11 Oct 2022 20:35:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiL78-005en9-OM
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 19:40:32 +0000
-Received: by mail-pf1-x432.google.com with SMTP id w2so14526439pfb.0
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 12:40:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q+shlKfDsLFTceKW+59V6+472TY2BoFXSdseGTm3kLU=;
-        b=Bu1BlJFHGwktTve40DNIGWtdyziYSZMWKlPxhM22FvRzDI+0O3L9f1yPoo2tF+rBqh
-         ojM8wGYpNeFmkIa7PjJS9+lx6tnEcff23bUQ1AFIb36QS3MI1WXy8/EPVPmk/aI2NomP
-         jzPlMSt4Szw2jZKdjD1ojZTWartdQE7yWsV19IGpEAdaKA/EOOEGKtn7j6ntPyQMWJH9
-         8GsX4Hy0Zru1wOpztHGosUX0+vQHjNPhA6U34z+GPsxbz/gApMeHzelErS9+szq2Jlt3
-         +5boQqg2mP8h0HVYWYnnVBdmHyQnx+b7FryM1KwebnD588TMQisrVnS/xKLtRJo36jYA
-         fFcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q+shlKfDsLFTceKW+59V6+472TY2BoFXSdseGTm3kLU=;
-        b=l1vhDFurTOpGv9On2jg/7c+KGYM6r1diaiDgBxzylhdBeCAjgheAtYjuHbHDz+Bi9k
-         BogyT1HeZ/ty247I8YJkTH34Twos4QTPFz+ty00/Cep7GaLiEi32DAuuCYiVXQRAKFdN
-         lIy54lz0E+Vgv5AhUA5JWjgB8XZrIZXTsIA8UelR5PKdQs68yzlIa9F2s1AJs1Fx6B0c
-         J9yZR16bi3TR0ISMUIUw0HlaA8aZv9mVed+9ns8n/5WX65qwombSkzPnoAjLoETAu3y7
-         iwKF3GFYrzjSSTex/O8ql+WrHJl/X81Y+xzKWNmx6MjARqXlGcl+FYYXwFpaLr/SslKO
-         1Dxg==
-X-Gm-Message-State: ACrzQf1svMAQByAzUiwkYcWjAH3eFceDd/YIt5OGalG/7AhOMNIM4tim
-	4YPUFeIh0z0tNCBun+VrtOdHjg==
-X-Google-Smtp-Source: AMsMyM50hNH4XVFVNgXVgLJfqqCz/FTGmtX69a1LkqgjO732ttFps1Y8BHQSJ5m/Engi4ZsZ7shxkw==
-X-Received: by 2002:aa7:88c4:0:b0:563:9fe9:5da9 with SMTP id k4-20020aa788c4000000b005639fe95da9mr7197675pff.41.1665517227798;
-        Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id 197-20020a6214ce000000b0055fe65e9203sm9492837pfu.0.2022.10.11.12.40.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
-Date: Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
-X-Google-Original-Date: Tue, 11 Oct 2022 12:40:25 PDT (-0700)
-Subject: Re: [GIT PULL 0/2] microchip maintainers updates
-In-Reply-To: <Y0W1RCmy7DOkJw4/@spud>
-CC: conor.dooley@microchip.com, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-c6e49911-7ee7-4618-8958-02821e53df72@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1oiLy0-005nf9-MD; Tue, 11 Oct 2022 20:35:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7DCF9612CD;
+	Tue, 11 Oct 2022 20:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0CA5C433C1;
+	Tue, 11 Oct 2022 20:34:59 +0000 (UTC)
+Date: Tue, 11 Oct 2022 16:34:53 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: Marcelo Tosatti <mtosatti@redhat.com>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org, x86@kernel.org,
+ "Paul E. McKenney" <paulmck@kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, Sebastian
+ Andrzej Siewior <bigeasy@linutronix.de>, Juri Lelli
+ <juri.lelli@redhat.com>, Daniel Bristot de Oliveira <bristot@redhat.com>,
+ Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>, "David S.
+ Miller" <davem@davemloft.net>, Douglas RAILLARD <douglas.raillard@arm.com>
+Subject: Re: [RFC PATCH 0/5] Generic IPI sending tracepoint
+Message-ID: <20221011163453.2133ab4a@rorschach.local.home>
+In-Reply-To: <xhsmhilkqfi7z.mognet@vschneid.remote.csb>
+References: <20221007154145.1877054-1-vschneid@redhat.com>
+	<Y0CFnWDpMNGajIRD@fuller.cnet>
+	<xhsmhilkqfi7z.mognet@vschneid.remote.csb>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_124030_815841_2DBBBDF1 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20221011_133508_841479_4DE2AF98 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +75,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Oct 2022 11:26:12 PDT (-0700), Conor Dooley wrote:
-> On Tue, Oct 11, 2022 at 11:20:29AM -0700, Palmer Dabbelt wrote:
->> On Mon, 10 Oct 2022 15:17:03 PDT (-0700), Conor Dooley wrote:
->> > From: Conor Dooley <conor.dooley@microchip.com>
->> >
->> > Hey Palmer,
->> >
->> > Two maintainers changes that I posted on the lists a while back.
->> > Neither applied at the time b/c the maintainers entry was being updated
->> > in the soc fixes branch and in some for-next branches at the same time
->> > and they conflicted.
->> >
->> > If you could pick the two that'd be great.
->>
->> So you want me to just pick up these patches?
->
-> Please.
->
->> That's OK, it's just not a
->> pull request and that's what the subject says.
->
-> Sorry about that. I'd seen people doing it that way for trivial
-> patchsets, eg to arm-soc for dt-bindings, to signify that they
-> were intended to be/ready to be picked directly. I'll stick with
-> "pull" for tags only in the future.
+On Tue, 11 Oct 2022 17:17:04 +0100
+Valentin Schneider <vschneid@redhat.com> wrote:
 
-No problem, if that's what folks do then I'm OK with it.  I just hadn't 
-seen it before so wasn't sure what was up (doubly so because you send 
-you'd be sending a pull).  They're on for-next, hopefully patchwork 
-sends the email too...
+> tep_get_field_val() just yields an unsigned long long of value 0x200018,
+> which AFAICT is just the [length, offset] thing associated with dynamic
+> arrays. Not really usable, and I don't see anything exported in the lib to
+> extract and use those values.
+
+Correct.
+
+> 
+> tep_get_field_raw() is better, it handles the dynamic array for us and
+> yields a pointer to the cpumask array at the tail of the record. With that
+> it's easy to get an output such as: cpumask[size=32]=[4,0,0,0,]. Still,
+> this isn't a native type for many programming languages.
+
+Yeah, this is the interface that I would have used. And it would likely
+require some kind of wrapper to make it into what you prefer.
+
+Note, I've been complaining for some time now how much I hate the
+libtraceevent interface, and want to rewrite it. (I just spoke to
+someone that wants to implement it in Rust). But the question comes
+down to how to make it backward compatible. Perhaps we don't and just
+up the major version number (libtraceevent 2.0).
+
+What would you recommend as an API to process cpumasks better?
+
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
