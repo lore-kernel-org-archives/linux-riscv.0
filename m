@@ -4,56 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 520D5C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5EFC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 16:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dPBb6d1N11ViqkbMU9Vx/ZpE0cuYskq1eE9lzWrsjro=; b=C5fob25Sp9RVFd
-	vsr8cFTHvvfE6Fc77YcG8+rAHAhqYTT5XMl/EVQXbhL8/oxv6U+xfruTAY0tIHFv3h4b4czFzBnQH
-	rxht1rewRidWg03djNNpsOvDiH+D2OU16uZUhjqW3CQ4L462Bom7UBq+lr9f3bXd6Id8rhDtf/5HV
-	tgUixOSXp3fgdTZIC4ZV6JA8AhrffZOtfcjIq6rHim2cd6Yu7Qz9F187UbCrN3Tw4UF/h23JKCKmX
-	BQToQ5qGyh2+R9GkC/zLfxG04p9r2X2RRNCtwqXLLFa5D0n3cVu8/QoAY+1toxyNLYM7wydNBEESp
-	KMQ0DXrQomE0Djxfl5MA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QY69OoZRa9QkStnLN40Yaqv3FqBfJoJT9Jt6t0IvN/c=; b=ZL4t213PnWnkia
+	o1qOWCYrjsRvzk+0jGTMJ1BUWRT7HbQBRp9ofQXDuzANWwATaG2cm4PR300w9g4rZvsEtT/Q0KFjw
+	gUxCgr4HHHnR2XBK69MQ7UTqmrEUnjCaVuCZneXw2B2HAoF/8igfQImK1RFvZfnHrKoJKCb9vQ12X
+	xNS3ctJFjQlDWzgIc//ITd/50Nl3+De9coCD+MgKhIJSJwf048aVhW8OxoWkYJGOmrWac6X4M6lye
+	a2KkYxPsFuoujEnN2lRFLGZNKim5a54JiGDku3e6p8bsWd31UniSo0kYybXNVhGuBYdDrfKilRdBw
+	ou50/oCZOLXpdZGj2KgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiHzp-005An5-E5; Tue, 11 Oct 2022 16:20:45 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oiI0d-005BNz-O1; Tue, 11 Oct 2022 16:21:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiHo8-0054Hu-Ve
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:08:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4AB21B80E05;
-	Tue, 11 Oct 2022 16:08:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B9D0C433D6;
-	Tue, 11 Oct 2022 16:08:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665504518;
-	bh=D95GJN2ZqfFPbNkLIubvK2kaDhSDq3wBcfTty73n7Bs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KYy063HAR7/ZhBZojg8vji9tNiKDvQ7LIF4Zij+c3HBlscx1M3Np7pKFirvHK7GsX
-	 E1UFROv4aWSi0f6ZOfzCz0wD0OJjaWKH30ATJf3tH2kmMx2E4eiBZMXePfBK368eCp
-	 nf3EG+y0WVABObsF5/AC3x5ZiOxyqsiCjz2WbwT8LgTMixnYUGmYfRTxyhjwiLuO7J
-	 0WcwWxw7SSC7BLFPGbZdKzwFhdH/BBTO75RU5ezfV/WGorMwNIxp9f21cTxxG5neuO
-	 tqt7Mz9M8ilLDEcsj6QVMWuThtGCSeL+BYfozAXObXff4+vRq+qfR91+auBN9xQSpw
-	 jCk5qftL/ZBfw==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: RISC-V Patchwork
-Date: Tue, 11 Oct 2022 17:07:45 +0100
-Message-Id: <20221011160744.2167025-1-conor@kernel.org>
-X-Mailer: git-send-email 2.37.3
+	id 1oiHwO-0058Uz-Cw
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 16:17:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1665505031;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pm4VeB8ssmcYRaiZFIcIhGhr8ty4z8Z6FbdtNOJecy0=;
+	b=cjsJSnjVCNauHLmjfRvxyjuS5pv0tKjH80sHoV04eiPUH+dQk5wCakhxxA9Fq1u1DMDQ2X
+	+H1qaiXs7/SAX/YUk6tfuDhyPMQI76DFAg3WqvDwc7IHLkXtaHnL/NQi102w80CD8Hs571
+	ptIYb2fB1fy4ahJDv2/nVi7dfVrDkEU=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-59-wqZo9nwGNV-c1bVYD20zSg-1; Tue, 11 Oct 2022 12:17:08 -0400
+X-MC-Unique: wqZo9nwGNV-c1bVYD20zSg-1
+Received: by mail-wm1-f69.google.com with SMTP id bg21-20020a05600c3c9500b003c2acbff422so978857wmb.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 09:17:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pm4VeB8ssmcYRaiZFIcIhGhr8ty4z8Z6FbdtNOJecy0=;
+        b=tV1J1v8PoUQTNYGT8ll31RnZNYmBsAgUm8JPwrONfA/lyvUfqbNrnZHHFY4S4kwk24
+         d3QalVxDE34XWeeHcUg4aV9PbbYHqEKgzhOxKbo/HvgWW5FSXYw9LkNLvF03QUaTe4rw
+         WPUusc2vKU1NFXb9Y8/FAJwHDlH0CBzDMaaap4SzifXLCg0WP6C62BVvxec/ljf1ARQr
+         I3ZLiJ8N4XiiKuy5rNyhRHhLEdbQ9VOxcsQEVJxVEPfIUycXDt9uSrPqwLLAQkNrSM2G
+         VVM4LTuLNwuEAtjP98vxB2hR86NGwf37+nr3qt5CI7TS74lbNBtiZ/CmXC0ge02jhkbn
+         iRhw==
+X-Gm-Message-State: ACrzQf0HtMG6WtYywTjYeTsoA1WbG8FjkZB7tBaQ8tf5eL8+dn/rQOJ2
+	7to9nF6sOxhWpiY3VjSR2WbvyMsi9gHT/koAKhTh9c1zZ+cAU11Gl3c1GQIQCplDhHPme2G+Vgc
+	N5xneNG+yt5AnAjs5w9VVk1QcJkxD
+X-Received: by 2002:a7b:cd96:0:b0:3b4:856a:28f7 with SMTP id y22-20020a7bcd96000000b003b4856a28f7mr17405277wmj.117.1665505027285;
+        Tue, 11 Oct 2022 09:17:07 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM6+yXZheRjtpI2Mraq3mO0aiY2aGzgLzN/bP6F6DHEepFtgXyphrd7vxKSt0bqtKCZRjEunTA==
+X-Received: by 2002:a7b:cd96:0:b0:3b4:856a:28f7 with SMTP id y22-20020a7bcd96000000b003b4856a28f7mr17405207wmj.117.1665505026699;
+        Tue, 11 Oct 2022 09:17:06 -0700 (PDT)
+Received: from vschneid.remote.csb ([104.132.153.106])
+        by smtp.gmail.com with ESMTPSA id b21-20020a05600c151500b003c6b9749505sm4667967wmg.30.2022.10.11.09.17.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Oct 2022 09:17:05 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Marcelo Tosatti <mtosatti@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-xtensa@linux-xtensa.org, x86@kernel.org, "Paul E. McKenney"
+ <paulmck@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Peter Zijlstra
+ <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, Sebastian
+ Andrzej Siewior <bigeasy@linutronix.de>, Juri Lelli
+ <juri.lelli@redhat.com>, Daniel Bristot de Oliveira <bristot@redhat.com>,
+ Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>, "David
+ S. Miller" <davem@davemloft.net>, Douglas RAILLARD
+ <douglas.raillard@arm.com>
+Subject: Re: [RFC PATCH 0/5] Generic IPI sending tracepoint
+In-Reply-To: <Y0CFnWDpMNGajIRD@fuller.cnet>
+References: <20221007154145.1877054-1-vschneid@redhat.com>
+ <Y0CFnWDpMNGajIRD@fuller.cnet>
+Date: Tue, 11 Oct 2022 17:17:04 +0100
+Message-ID: <xhsmhilkqfi7z.mognet@vschneid.remote.csb>
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_090841_232660_452CC9EF 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20221011_091712_561213_01673C4E 
+X-CRM114-Status: GOOD (  33.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +114,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey,
++Cc Douglas
 
-As one or two people have already noticed, we've resurrected the
-patchwork for the RISC-V list @
-https://patchwork.kernel.org/project/linux-riscv/list/
+On 07/10/22 17:01, Marcelo Tosatti wrote:
+> Hi Valentin,
+>
+> On Fri, Oct 07, 2022 at 04:41:40PM +0100, Valentin Schneider wrote:
+>> Background
+>> ==========
+>> 
+>> As for the targeted CPUs, the existing tracepoint does export them, albeit in
+>> cpumask form, which is quite inconvenient from a tooling perspective. For
+>> instance, as far as I'm aware, it's not possible to do event filtering on a
+>> cpumask via trace-cmd.
+>
+> https://man7.org/linux/man-pages/man1/trace-cmd-set.1.html
+>
+>        -f filter
+>            Specify a filter for the previous event. This must come after
+>            a -e. This will filter what events get recorded based on the
+>            content of the event. Filtering is passed to the kernel
+>            directly so what filtering is allowed may depend on what
+>            version of the kernel you have. Basically, it will let you
+>            use C notation to check if an event should be processed or
+>            not.
+>
+>                ==, >=, <=, >, <, &, |, && and ||
+>
+>            The above are usually safe to use to compare fields.
+>
+> This looks overkill to me (consider large number of bits set in mask).
+>
+> +#define trace_ipi_send_cpumask(callsite, mask) do {            \
+> +	if (static_key_false(&__tracepoint_ipi_send_cpu.key)) { \
+> +               int cpu;                                        \
+> +               for_each_cpu(cpu, mask)                         \
+> +                       trace_ipi_send_cpu(callsite, cpu);	\
+> +	}                                                       \
+> +} while (0)
+>
 
-The patchwork bot should let people know when their patches have been
-applied. Hopefully it'll help people track what the status of their
-patches are a little better and try to prevent stuff falling through
-the cracks in Palmer's inbox.
+Indeed, I expected pushback on this :-)
 
-As an FYI, the statuses that are intended to be used are:
-- New: No action has been taken yet
-- Under Review: The maintainer is waiting for review comments from others
-- Changes Requested: Either the maintainer or a reviewer requested
-  changes in the patch. The patch author is expected to submit a new
-  version
-- Superseded: There's a new version of the patch available
-- Not Applicable: The patch is not intended for the RISC-V tree
-- Accepted: The patch has been applied
-- Rejected: The patch has been rejected, with reasons stated in an
-  email
+I went for this due to how much simpler an int is to process/use compared
+to a cpumask. There is the trigger example I listed above, but the
+consumption of the trace event itself as well.
 
-I reset patchwork and marked all patches as archived so we would have a
-fresh start. If your patch has been archived & not applied by the end of
-this merge window, feel free to resend it.
+Consider this event collected on an arm64 QEMU instance (output from trace-cmd)
 
-Thanks,
-Conor.
+    <...>-234   [001]    37.251567: ipi_raise:            target_mask=00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000004 (Function call interrupts)
 
-@Palmer: hopefully I did the scissors thing correctly..
+That sort of formatting has been an issue downstream for things like LISA
+[1] where events are aggregated into Pandas tables, and we need to play
+silly games for performance reason because bitmasks aren't a native Python
+type.
 
--- >8 --
-From f886e8a9def4bd3f2fa8a0a4d7e92c94fe72ea72 Mon Sep 17 00:00:00 2001
-From: Conor Dooley <conor.dooley@microchip.com>
-Date: Tue, 11 Oct 2022 16:49:53 +0100
-Subject: [PATCH] MAINTAINERS: add RISC-V's patchwork
+I had a look at libtraceevent to see how this data is exposed and if the
+answer would be better tooling:
 
-The RISC-V patchwork instance on kernel.org has had some necromancy
-performed on it & will be used going forward. The statuses that are
-intended to be used are:
-- New: No action has been taken yet
-- Under Review: The maintainer is waiting for review comments from others
-- Changes Requested: Either the maintainer or a reviewer requested
-  changes in the patch. The patch author is expected to submit a new
-  version
-- Superseded: There's a new version of the patch available
-- Not Applicable: The patch is not intended for the RISC-V tree
-- Accepted: The patch has been applied
-- Rejected: The patch has been rejected, with reasons stated in an
-  email
+tep_get_field_val() just yields an unsigned long long of value 0x200018,
+which AFAICT is just the [length, offset] thing associated with dynamic
+arrays. Not really usable, and I don't see anything exported in the lib to
+extract and use those values.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+tep_get_field_raw() is better, it handles the dynamic array for us and
+yields a pointer to the cpumask array at the tail of the record. With that
+it's easy to get an output such as: cpumask[size=32]=[4,0,0,0,]. Still,
+this isn't a native type for many programming languages.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8a5012ba6ff9..e2882dc703d8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17516,6 +17516,7 @@ M:	Palmer Dabbelt <palmer@dabbelt.com>
- M:	Albert Ou <aou@eecs.berkeley.edu>
- L:	linux-riscv@lists.infradead.org
- S:	Supported
-+Q:	https://patchwork.kernel.org/project/linux-riscv/list/
- P:	Documentation/riscv/patch-acceptance.rst
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- F:	arch/riscv/
--- 
-2.37.3
+In contrast, this is immediately readable and consumable by userspace tools
+
+<...>-234   [001]    37.250882: ipi_send_cpu:         callsite=__smp_call_single_queue+0x5c target_cpu=2
+
+Thinking out loud, it makes way more sense to record a cpumask in the
+tracepoint, but perhaps we could have a postprocessing step to transform
+those into N events each targeting a single CPU?
+
+[1]: https://github.com/ARM-software/lisa/blob/37b51243a94b27ea031ff62bb4ce818a59a7f6ef/lisa/trace.py#L4756
+
+>
+>> 
+>> Because of the above points, this is introducing a new tracepoint.
+>> 
+>> Patches
+>> =======
+>> 
+>> This results in having trace events for:
+>> 
+>> o smp_call_function*()
+>> o smp_send_reschedule()
+>> o irq_work_queue*()
+>> 
+>> This is incomplete, just looking at arm64 there's more IPI types that aren't covered:
+>> 
+>>   IPI_CPU_STOP,
+>>   IPI_CPU_CRASH_STOP,
+>>   IPI_TIMER,
+>>   IPI_WAKEUP,
+>> 
+>> ... But it feels like a good starting point.
+>
+> Can't you have a single tracepoint (or variant with cpumask) that would
+> cover such cases as well?
+>
+> Maybe (as parameters for tracepoint):
+>
+> 	* type (reschedule, smp_call_function, timer, wakeup, ...).
+>
+> 	* function address: valid for smp_call_function, irq_work_queue
+> 	  types.
+>
+
+That's a good point, I wasn't sure about having a parameter serving as
+discriminant for another, but the function address would be either valid or
+NULL which is fine. So perhaps:
+o callsite (i.e. _RET_IP_), serves as type
+o address of callback tied to IPI, if any
+o target CPUs
+
+>> Another thing worth mentioning is that depending on the callsite, the _RET_IP_
+>> fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
+>> you much about the actual callback being sent via IPI, so there might be value
+>> in exploding the single tracepoint into at least one variant for smp_calls.
+>
+> Not sure i grasp what you mean by "exploding the single tracepoint...",
+> but yes knowing the function or irq work function is very useful.
+>
+
+Sorry; I meant having several "specialized" tracepoints instead of a single one.
 
 
 _______________________________________________
