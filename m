@@ -4,61 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB2C1C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 17:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DD8C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 17:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MqorGaEOiDF/j1jHBUEvgHlZnX7XiggMgPb7FkoO+/E=; b=PpB60frXDWBsQN
-	nHk4M+dcVBWiOvg0sx1A2joKjQbPLXGCwy8COz3hWR4IONpfXiueZ2DTWfHc9cUI/0OinvDyKJg3k
-	TkwFV1b5nrd8iK6pccYe65WyMgFZw/IQh2aBmAuVtTT5+PODlJVb4ADcC7p7YrnRUQ5NytUi1vGMT
-	jEW8UpSOXCMW0kVVoLNmGicNvn9PzF5zbf9F9/M1khOwmzEc45naoJr4uXLXUDjD2IRV+qEShEZck
-	Cg8XKNPt7lq6d6rmx+XTbEmseF4YgFKxCiosnw/htZ5lPqLe8I4IlCPjbDBcbjzGfq8mi6QeKm419
-	mXuWjEThYsrVHA0ofGFw==;
+	List-Owner; bh=oHmCWoN2K66vdK5cH5d39ueOwfrxP5n3sweVTXy1OjA=; b=1ZF+IzTIPp4yBM
+	+ByPNd3N7+o1EM5A+TI4r0PQgfI6kh/3Guy4xx0B056bBve/vrrN5OhJScljtBZv/QBBIWcSWVmrl
+	xKYQii7LZK55GcuYdejqSjgChXbH4p/4kVvEyZRGYXdaK0YKv2WNaY3xVoanpMTrRgQJIgKR03TaY
+	VEhOxUT7DgOgSxNCj/vJGYlLTkyM29tRMZ3zIwJDiQXcDtnWjY4Mj4prQnvT9p3KkhHWReAyxWY/C
+	ld6vFc/zQoFYlrgFoesgoPeN+mp80ouhW96Q3gEoEqMw0gXJmtdKjjgliIteCFiIQlIDbbEsw3KQh
+	WXER3aeyrFjWEHjvQnKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiIfr-005Il4-3v; Tue, 11 Oct 2022 17:04:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oiIuo-005KfQ-9Y; Tue, 11 Oct 2022 17:19:38 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiIfo-005Ikd-8M
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 17:04:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1oiIuk-005KeY-Pb
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 17:19:37 +0000
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9E51D61225;
-	Tue, 11 Oct 2022 17:04:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F5F9C433D6;
-	Tue, 11 Oct 2022 17:04:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665507847;
-	bh=QFWretD5XAgF1hs6LQIHm6e4n5ZNZUx8I1gdUxgAZ/U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Nl38CY5bfejPeodSJaRGdCvu5/ye1FJ7kNlgSbY1Ji2kCK0GE6N6kLCnc4RD+dwlI
-	 x5swoRQ8CuNWyzlFgAOJcyHpIfbAnJ82oQNB60dLqGtQR2lFTPi2PIGoE61Rf4DPyI
-	 20ZMhtRdfx4UGsare3jcqr/q6H02Wu/Dgz1QufaI7jqtBO2tNkjU8bO3BSwOBEeNwg
-	 j93HGlYa9bmVrnWRd45AlCZRhbZlIs4GltmiV6ArvsSp2OSymeDCsioLyNFOr2+w42
-	 iMaHjKeCYyWeaaYEZXxfGw30QEDCIJ5JlFeHt51t9FSKIg4kj+2Biw5Ou+r3RwK5pg
-	 ugCl9EEjG48aQ==
-Date: Tue, 11 Oct 2022 18:04:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Bresticker <abrestic@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Celeste Liu <coelacanthus@outlook.com>, dram <dramforever@live.com>,
-	Ruizhe Pan <c141028@gmail.com>, Conor.Dooley@microchip.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] Make mmap() with PROT_WRITE imply PROT_READ
-Message-ID: <Y0WiAgnN5IcQDrez@spud>
-References: <20220915193702.2201018-1-abrestic@rivosinc.com>
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 9623D3F147
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 17:19:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1665508771;
+	bh=my6sVOU8VtRYMa675sr9CNOS9J5JEpSv1gx/NSSrwBI=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=ihB/HABPk5WS1QxpMam+eSfj+vmPxd+7ZJvdjoTbWo0U3ZqjazDnvZa7QJZvYjgdN
+	 sSNehad9fdxFSwWJocOfhvyrM1bhflM7AK3vfff6OsRy+/+IduPLIgQFWOjeumv17j
+	 9o568MEf9knwRH2qH3ajHM62GHEbSu4pVbELW27kY5ayhe0G1GCKAJJlX5q+a7Owfc
+	 Mt5XF7gtH7cOuST2I5MyncWnaH+UxXf8y0ei3Y9qT3NnW3s/sQOvOPulyDePtQO2Lc
+	 82df5DMVrISUfdmjoIljWuRaGM23Gk9SfEG5/L76T7grpeedoUIT4XdyLEujOS2aM7
+	 ktIp5q4+V9Cqg==
+Received: by mail-wm1-f70.google.com with SMTP id 2-20020a05600c268200b003c4290989e1so2418814wmt.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 10:19:31 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=my6sVOU8VtRYMa675sr9CNOS9J5JEpSv1gx/NSSrwBI=;
+        b=Jqw587DiOkM4rER0SYP0EQk9gMq5vFsS4wt2nnZT29wqsnFpy1xyKa6OVEUmWWUP3D
+         25MPAmibzyAaacdlFdsUkk983GjkuWzBL04BlNWJQx9qv6MIc+TQn/6JARd4qHc1pbHG
+         DVfn9HzSD1kxRPARr32yWHAj5xImrpHcWoKOG45dx7d37LfvP4aTHaXnOm6ZgWoQfghC
+         fkXdZYQ2+tl0v04xRHU3sAADhFVLZcJ5GmRkpXA0ZXHVDse8B1UyN4bPYnsw9MMA4fcz
+         Soz7ff724XV5YSOEtHInO1HBrszuEzJWT1/SXEjOObRvKqtNLuL/9oNCbuf/mM+9dZ94
+         Q+UA==
+X-Gm-Message-State: ACrzQf3eGzzOlsrLdRrbPb3p6VT/HaSqjbDWsIcHyZujk2oMq6Ano+Nb
+	gZ8PbnDrtGBEd943yazkeshuJOIbskf6LGH+M3wtLKtu0uoRzhfvAtISVx1D2hppBilzl+Yhizr
+	FMC5khO6Qe/y6I82EF1hrbfFWl5VeC2GRQ63KqvKIkCE7cf5oPni+E3McCFfNig==
+X-Received: by 2002:a05:600c:418b:b0:3c6:c1e6:b01c with SMTP id p11-20020a05600c418b00b003c6c1e6b01cmr113414wmh.118.1665508770791;
+        Tue, 11 Oct 2022 10:19:30 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM6kEfxTPdaaZb76dTujH+ZaW2WgqT1q11a8LoW5U3WyutzRoB267icZUKz0P9CQZnC7l3DX49bwGyxx6kmMa2k=
+X-Received: by 2002:a05:600c:418b:b0:3c6:c1e6:b01c with SMTP id
+ p11-20020a05600c418b00b003c6c1e6b01cmr113396wmh.118.1665508770566; Tue, 11
+ Oct 2022 10:19:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220915193702.2201018-1-abrestic@rivosinc.com>
+References: <d6c9e249-08bd-4439-7dcc-371b32e7b851@canonical.com> <Y0WgwBgenhnk7/O2@spud>
+In-Reply-To: <Y0WgwBgenhnk7/O2@spud>
+From: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+Date: Tue, 11 Oct 2022 18:18:54 +0100
+Message-ID: <CADWks+Y3xYc325x2_2jeRh-iyE6i0gi2Ldd_KKBLhB7s9nQhWA@mail.gmail.com>
+Subject: Re: Regression: Fwd: Re: [PATCH] riscv: mmap with PROT_WRITE but no
+ PROT_READ is invalid
+To: Conor Dooley <conor@kernel.org>
+Cc: regressions@lists.linux.dev, stable@vger.kernel.org, 
+	Eva Kotova <nyandarknessgirl@gmail.com>, linux-riscv@lists.infradead.org, 
+	coelacanthus@outlook.com, kernel-team@lists.ubuntu.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_100408_351934_08FB74A7 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20221011_101935_253250_9F0B5E98 
+X-CRM114-Status: GOOD (  34.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +96,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Palmer,
+On Tue, 11 Oct 2022 at 17:58, Conor Dooley <conor@kernel.org> wrote:
+>
+> On Tue, Oct 11, 2022 at 05:52:13PM +0100, Dimitri John Ledkov wrote:
+> > #regzbot ^introduced 2139619bcad7ac44cc8f6f749089120594056613
+> >
+> > Over at https://lore.kernel.org/linux-riscv/Yz80ewHKTPI5Rvuz@spud/T/#ebde47064434d4ca4807b4abb8eb39898c48a8de2
+> > it is reported that 2139619bcad7ac44cc8f6f749089120594056613
+> > regresses userspace (openjdk) on riscv64.
+> >
+> > This commit has already been released in v6.0 kernel upstream,
+> > but has also been included in the stable patch series all the
+> > way back to v4.19.y
+> >
+> > There is a proposed fix for this at
+> > https://lore.kernel.org/linux-riscv/20220915193702.2201018-1-abrestic@rivosinc.com/
+> > which has not yet been merged upstream or in stable series.
+> >
+> > Please review and merge above proposed fix, or please revert
+> > 2139619bcad7ac44cc8f6f749089120594056613 to stop the regression
+> > spreading to all the distributions.
+>
+> Out of curiosity, and given the CC list lacks a CC of the maintainer,
+> who are you actually asking to review and/or merge this?
+>
 
-On Thu, Sep 15, 2022 at 03:37:00PM -0400, Andrew Bresticker wrote:
-> Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
-> invalid") made mmap() reject mappings with only PROT_WRITE set in an
-> attempt to fix an observed inconsistency in behavior when attempting
-> to read from a PROT_WRITE-only mapping. The root cause of this behavior
-> was actually that while RISC-V's protection_map maps VM_WRITE to
-> readable PTE permissions (since write-only PTEs are considered reserved
-> by the privileged spec), the page fault handler considered loads from
-> VM_WRITE-only VMAs illegal accesses. Fix the underlying cause by
-> handling faults in VM_WRITE-only VMAs (patch 1) and then re-enable
-> use of mmap(PROT_WRITE) (patch 2), making RISC-V's behavior consistent
-> with all other architectures that don't support write-only PTEs.
-> 
-> Both patches are tagged as fixes for the aforementioned commit since that
-> commit made a userspace visible change that will break any software relying
-> on mmap(PROT_WRITE). (Also cc: stable since the offending commit was
-> itself backported to stable).
+Good point, this is my first time escalating a regression which is now
+in all the stable trees. I guess I should have CC'ed all the M: from
+RISC-V in the Maintainers file. Not just the riscv list.
 
-The patch that these commits fix has hit the distros & manifests as a
-userspace breakage for openJDK:
-https://lore.kernel.org/linux-riscv/a69ee775-e565-3d72-eb5f-8378616694d3@gmail.com/
-https://lore.kernel.org/linux-riscv/d6c9e249-08bd-4439-7dcc-371b32e7b851@canonical.com/
+> I'll go bump the fix itself.
 
-Eva tested these patches and reported that their problem was fixed:
-https://lore.kernel.org/linux-riscv/20282242-5cad-42be-ce6c-834b0e7ef269@gmail.com/
+Thanks.
 
-I asked them for a T-b but I don't see one on lore etc, but it would be
-from Eva Kotova <nyandarknessgirl@gmail.com> if you consider their
-comments their sufficient for a T-B
+>
+> Thanks,
+> Conor.
+>
+> >
+> > In Ubuntu this regression will be tracked as https://bugs.launchpad.net/bugs/+bug/1992484
+> >
+> > -------- Forwarded Message --------
+> > Subject: Re: [PATCH] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
+> > Date: Thu, 6 Oct 2022 22:20:02 +0300
+> > From: Eva Kotova <nyandarknessgirl@gmail.com>
+> > Reply-To: PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com
+> > To: coelacanthus@outlook.com
+> > CC: c141028@gmail.com, dramforever@live.com, linux-riscv@lists.infradead.org, palmer@dabbelt.com, xc-tan@outlook.com
+> >
+> > On Tue, 31 May 2022 00:56:52 PDT (-0700), coelacanthus@outlook.com wrote:
+> > > As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
+> > > but not read is "Reserved for future use.". For now, they are not valid.
+> > > In the current code, -wx is marked as invalid, but -w- is not marked
+> > > as invalid.
+> >
+> > This patch breaks OpenJDK/Java on RISC-V, as it tries to create a w-only
+> > protective page:
+> >
+> > #
+> > # There is insufficient memory for the Java Runtime Environment to continue.
+> > # Native memory allocation (mmap) failed to map 4096 bytes for failed to
+> > allocate memory for PaX check.
+> > # An error report file with more information is saved as:
+> > # /root/hs_err_pid107.log
+> >
+> > I bisected to this commit since on Linux 5.19+ java no longer works.
+> > Perhaps some fallback should be implemented, to prevent userspace
+> > breakage. It is currently documented, that at least on i386 PROT_WRITE
+> > mappings imply PROT_READ (See man mmap(2) NOTES), this would be a good
+> > place to start.
+> >
+> > Best regards,
+> > Eva
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+>
+>
+>
 
-Thanks,
-Conor.
 
-> 
-> v1 -> v2: Allow handling of load faults in VM_WRITE VMAs
-> v2 -> v3: Split into two pathces
-> v3 -> v4: Fixes tags (+ this cover letter)
-> 
-> Andrew Bresticker (2):
->   riscv: Make VM_WRITE imply VM_READ
->   riscv: Allow PROT_WRITE-only mmap()
-> 
->  arch/riscv/kernel/sys_riscv.c | 3 ---
->  arch/riscv/mm/fault.c         | 3 ++-
->  2 files changed, 2 insertions(+), 4 deletions(-)
-> 
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+-- 
+okurrr,
+
+Dimitri
 
 _______________________________________________
 linux-riscv mailing list
