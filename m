@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A326C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 13:04:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C832C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 13:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xQir/XCR26w6Uv/CYb+GyB1TBF1JMGSNsNNCR+UaW7g=; b=wiUSvKVz/fVLdB
-	CPwcJCcu6jgUUmIk8SSLtCUP9EVk+x3EgTRpkGgcPzOIcAX1ruDon4vb7WRRK4nfm+5d4yLtB2T7X
-	5avWh1GPugKyYgAE11/fCUhfwhVbclgC1mGf+v4a9G+VTw3FQiEuZatewOC8KA2Ssy0XC461KEvY5
-	hUjp8Sv6QyV/A83aT8ftsfBdEuZH2k5uIT5DMQT7iKig96/bigIHfPGzJJZh/4DiU/dOc7p7QGdzc
-	Ba0LGGROC1PRP1AuPnREHXTWRpJdEJ+0x+xMCexFzzJ4oXfN6gw5Ba5oBv9qbZ9yTts5Ou4IJgQ2S
-	56xGS1kqt9668USTsmDg==;
+	List-Owner; bh=0ftbTPRz24VYo67m9vDpRNj0YsHq90X8Z64OPFDkuIk=; b=0sprMhAvraWJT8
+	PnPSlM8bPq/m3g3N99+Rb41MyadowrLrSuYwsrTWhEeYCqLCmy9MMcAn9c8OjxGA9t+nWbQPhYJsS
+	rWwQc5jGzOA7bvJsHxFvx+6mJzm96EbmiMfN27VSDnLp57MrMCOE9CsdCEzDXDmSaLmsY28ETk0Ka
+	8lhLgxdNXFcYo2hWTpoyHwUZ3ac+x/syQ+Ehfb0Spp8LyqXkNgAJ5qVwSRJk74Z/XSb+mx1zrpKyB
+	Puw9mqqOJbRhCauyq68pexx/TI3z49OyBlvzo3244hlpHg90CvMkbPiGTJnM0u5cy6+NOb5zlrgS7
+	O7xGc1Kc5c5pXto55Y5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiEvh-004I03-4v; Tue, 11 Oct 2022 13:04:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oiF20-004IZM-PY; Tue, 11 Oct 2022 13:10:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiEve-004HzM-FY
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 13:04:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665493455; x=1697029455;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=8RoWLFSAgy5Tr7o7PC0j+CfMRD/Jv0warDBFvuCp6tM=;
-  b=WftLvkcExKkh1cf/gFBVsToI34l81+uEwrlljT3idb5qSCG0Jo8JWzi2
-   UgcCFZ7jThwPwF+ZaKpuOu7S49mCqkyTTkjcdvjV+mdbvB5iWR+MZz7QP
-   8rDQKLeiRcavtFkB+LZz4Hnqer0Glh8i3Tl6NVBeSiIJGCVCy/ktteW8J
-   jr8bgEMDRoxaObESpKm0Nisst2PzS6YxMmS9ZASBM494vUuvTFMsKk7wC
-   AQKh3ZSRBiBgf3u28/6LdfkWkIk8yckgx9jgu/S72BnEUFYdb4UByTqiW
-   FqTJByrX8GBEbl1kKcfJGz75I+keaqwUgV+T90ZWA9SN1rbl0BYk9ZGLg
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.95,176,1661842800"; 
-   d="scan'208";a="184194289"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Oct 2022 06:04:12 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 11 Oct 2022 06:04:06 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 11 Oct 2022 06:04:05 -0700
-Date: Tue, 11 Oct 2022 14:03:42 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-CC: Wenting Zhang <zephray@outlook.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@sifive.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] riscv: always honor the CONFIG_CMDLINE_FORCE when
- parsing dtb
-Message-ID: <Y0VprlqUrSnDPQ77@wendy>
-References: <PSBPR04MB399135DFC54928AB958D0638B1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
- <87bkqjk93q.fsf@smulpajen.i-did-not-set--mail-host-address--so-tickle-me>
+	id 1oiF1x-004IYY-IA
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 13:10:47 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C6C336118F
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 13:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2210C43143
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 13:10:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665493842;
+	bh=FeeS5EmcSnirDNaEXQHIxqw6ToxVNKUSEQ9QmZOetp8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Zl0YK+lavpok6KpJ6AZ5H1Ntr6tqnh9vophsm4NXnoyk16NUSj9ejXxQ+cGltntOH
+	 SdsXg5P3R6pQi9GKMrDFORfgduVdBrc7Nb53L9055Tj0I5/s+M6aWmDWIk0ho2cuDp
+	 n6fYkvWQGNnM/cZNV3gLqXSvrYe1Lugy1QJLQpeEy1RVSXKU9L4pRsFockhiOKTyQE
+	 D1AqHth0x2+CQTUSvsvqDjzCkTuwBYIFXnhnGTO4n5fDbhckIj66A/Tf2uyed7u2EK
+	 cOp0B6slo/NOyBV4SLOWNjVP4JE09PTAunTnVkciqMh1MG2yqU2IRUsaXWTPq062Li
+	 TYwuSNe3OdxAw==
+Received: by mail-oi1-f178.google.com with SMTP id g130so15746338oia.13
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 06:10:42 -0700 (PDT)
+X-Gm-Message-State: ACrzQf08nqcYxbEA/PCO3KKhN+YGXClW3TGY01BWNZvzYOdga5iVO2DE
+	UR/wz8RN2M1/VdeIfH4wvIF8sWQxxurcdaIis50=
+X-Google-Smtp-Source: AMsMyM7FRbQ6bU+Wav0+f/J17LrqgCaUu1CFhJxUHLRXZEVWWBYQkfgBLqeNgE5A9zcxmm6ZtsPLdlvjZeopL0trqBU=
+X-Received: by 2002:a05:6808:151f:b0:350:1b5e:2380 with SMTP id
+ u31-20020a056808151f00b003501b5e2380mr17110621oiw.112.1665493841651; Tue, 11
+ Oct 2022 06:10:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87bkqjk93q.fsf@smulpajen.i-did-not-set--mail-host-address--so-tickle-me>
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
+ <CA+V-a8smkDmQbz76sTA5XfUm7bkY4Ee-L5xYW+-xRWkE1TYiAw@mail.gmail.com>
+ <CAJF2gTQ4G-j3p_pHvVQ82R2DFQZq70xgE3ZhoRkxiSzrHnU2og@mail.gmail.com>
+ <CA+V-a8tLYT0541FNo_o-sTsV7ywwnGTRtv6ropVu+0Wd-PsM6A@mail.gmail.com>
+ <CAJF2gTQ9N5tyYB46eaMJ=Z0V7pm9TxFAXQ1qxLXLqj2C9zP2Ng@mail.gmail.com> <CA+V-a8sTQzbXC6j4+fNAYiM7_zciPaxb=uOzD9iWrvLwUBgDqA@mail.gmail.com>
+In-Reply-To: <CA+V-a8sTQzbXC6j4+fNAYiM7_zciPaxb=uOzD9iWrvLwUBgDqA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 11 Oct 2022 21:10:29 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQnQSCwGAzXPENrCz2Uwf8WivYsRP57XGoCtywxE2_bZA@mail.gmail.com>
+Message-ID: <CAJF2gTQnQSCwGAzXPENrCz2Uwf8WivYsRP57XGoCtywxE2_bZA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_060414_583369_DD978DEE 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20221011_061045_721147_319B73BA 
+X-CRM114-Status: GOOD (  46.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,44 +91,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 10, 2022 at 05:10:33PM +0200, Bj=F6rn T=F6pel wrote:
-> Wenting Zhang <zephray@outlook.com> writes:
-> =
-
-> > When CONFIG_CMDLINE_FORCE is enabled, cmdline provided by
-> > CONFIG_CMDLINE are always used. This allows CONFIG_CMDLINE to be
-> > used regardless of the result of device tree scanning.
+On Tue, Oct 11, 2022 at 5:39 PM Lad, Prabhakar
+<prabhakar.csengg@gmail.com> wrote:
+>
+> Hi Guo,
+>
+> On Thu, Oct 6, 2022 at 1:59 AM Guo Ren <guoren@kernel.org> wrote:
 > >
-> > This especially fixes the case where a device tree without the
-> > chosen node is supplied to the kernel. In such cases,
-> > early_init_dt_scan would return true. But inside
-> > early_init_dt_scan_chosen, the cmdline won't be updated as there
-> > is no chosen node in the device tree. As a result, CONFIG_CMDLINE
-> > is not copied into boot_command_line even if CONFIG_CMDLINE_FORCE
-> > is enabled. This commit allows properly update boot_command_line
-> > in this situation.
+> > On Wed, Oct 5, 2022 at 11:03 PM Lad, Prabhakar
+> > <prabhakar.csengg@gmail.com> wrote:
+> > >
+> > > Hi Guo,
+> > >
+> > > On Wed, Oct 5, 2022 at 3:23 PM Guo Ren <guoren@kernel.org> wrote:
+> > > >
+> > > > On Wed, Oct 5, 2022 at 8:54 PM Lad, Prabhakar
+> > > > <prabhakar.csengg@gmail.com> wrote:
+> > > > >
+> > > > > Hi Guo,
+> > > > >
+> > > > > On Wed, Oct 5, 2022 at 2:29 AM Guo Ren <guoren@kernel.org> wrote:
+> > > > > >
+> > > > > > On Tue, Oct 4, 2022 at 6:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > > > > >
+> > > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > > > >
+> > > > > > > On the AX45MP core, cache coherency is a specification option so it may
+> > > > > > > not be supported. In this case DMA will fail. As a workaround, firstly we
+> > > > > > > allocate a global dma coherent pool from which DMA allocations are taken
+> > > > > > > and marked as non-cacheable + bufferable using the PMA region as specified
+> > > > > > > in the device tree. Synchronization callbacks are implemented to
+> > > > > > > synchronize when doing DMA transactions.
+> > > > > > >
+> > > > > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > > > > > > block that allows dynamic adjustment of memory attributes in the runtime.
+> > > > > > > It contains a configurable amount of PMA entries implemented as CSR
+> > > > > > > registers to control the attributes of memory locations in interest.
+> > > > > > >
+> > > > > > > Below are the memory attributes supported:
+> > > > > > > * Device, Non-bufferable
+> > > > > > > * Device, bufferable
+> > > > > > > * Memory, Non-cacheable, Non-bufferable
+> > > > > > > * Memory, Non-cacheable, Bufferable
+> > > > > > > * Memory, Write-back, No-allocate
+> > > > > > > * Memory, Write-back, Read-allocate
+> > > > > > > * Memory, Write-back, Write-allocate
+> > > > > > > * Memory, Write-back, Read and Write-allocate
+> > > > > > Seems Svpbmt's PMA, IO, and NC wouldn't fit your requirements, could
+> > > > > > give a map list of the types of Svpbmt? And give out what you needed,
+> > > > > > but Svpbmt can't.
+> > > > > >
+> > > > > Sorry I didn't get what you meant here, could you please elaborate.
+> > > > I know there is no pbmt in AX45MP, I am just curious how many physical
+> > > > memory attributes you would use in linux? It seems only one type used
+> > > > in the series:
+> > > > cpu_nocache_area_set -> sbi_ecall(SBI_EXT_ANDES,
+> > > > SBI_EXT_ANDES_SET_PMA, offset, vaddr, size, entry_id, 0, 0);
+> > > >
+> > > Yes, currently we only use "Memory, Non-cacheable, Bufferable". I was
+> > > wondering if we could send these options as flags from DT something
+> > > like below so that it's not hard coded in the code.
+> > >
+> > > /* PMA config */
+> > > #define AX45MP_PMACFG_ETYP                GENMASK(1, 0)
+> > > /* OFF: PMA entry is disabled */
+> > > #define AX45MP_PMACFG_ETYP_DISABLED            0
+> > > /* Naturally aligned power of 2 region */
+> > > #define AX45MP_PMACFG_ETYP_NAPOT            3
+> > >
+> > > #define AX45MP_PMACFG_MTYP                GENMASK(5, 2)
+> > > /* Device, Non-bufferable */
+> > > #define AX45MP_PMACFG_MTYP_DEV_NON_BUF            (0 << 2)
+> > > /* Device, bufferable */
+> > > #define AX45MP_PMACFG_MTYP_DEV_BUF            (1 << 2)
+> > > /* Memory, Non-cacheable, Non-bufferable */
+> > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF    (2 << 2)
+> > > /* Memory, Non-cacheable, Bufferable */
+> > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF        (3 << 2)
+> > > /* Memory, Write-back, No-allocate */
+> > > #define AX45MP_PMACFG_MTYP_MEM_WB_NA            (8 << 2)
+> > > /* Memory, Write-back, Read-allocate */
+> > > #define AX45MP_PMACFG_MTYP_MEM_WB_RA            (9 << 2)
+> > > /* Memory, Write-back, Write-allocate */
+> > > #define AX45MP_PMACFG_MTYP_MEM_WB_WA            (10 << 2)
+> > > /* Memory, Write-back, Read and Write-allocate */
+> > > #define AX45MP_PMACFG_MTYP_MEM_WB_R_WA            (11 << 2)
+> > >
+> > > /* AMO instructions are supported */
+> > > #define AX45MP_PMACFG_NAMO_AMO_SUPPORT            (0 << 6)
+> > > /* AMO instructions are not supported */
+> > > #define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT        (1 << 6)
+> > >
+> > >
+> > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0
+> > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
+> > >                               <0x0 0x10000000 0x0 0x04000000 0x0
+> > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > AX45MP_PMACFG_NAMO_AMO_SUPPORT >,
+> > >                               <0x0 0x20000000 0x0 0x10000000 0x0
+> > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
+> > >                               <0x0 0x58000000 0x0 0x08000000 0x0
+> > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>;
+> > >
+> > > Does the above sound good?
+> > I've no idea. But for working around, I would give Acked-by.
 > >
-> > Fixes: 8fd6e05c7463 ("arch: riscv: support kernel command line forcing =
-when no DTB passed")
-> > Signed-off-by: Wenting Zhang <zephray@outlook.com>
-> =
+> > >
+> > > > I'm not sure how you make emmc/usb/gmac's dma ctrl desc work around
+> > > > without pbmt when they don't have cache coherency protocol. Do you
+> > > > need to inject dma_sync for desc synchronization? What's the effect of
+> > > > dynamic PMA in the patch series?
+> > > >
+> > > Currently we have setup the pma regions as below:
+> > >
+> > > l2cache: cache-controller@13400000 {
+> > >                 compatible = "andestech,ax45mp-cache", "cache";
+> > >                 cache-size = <0x40000>;
+> > >                 cache-line-size = <64>;
+> > >                 cache-sets = <1024>;
+> > >                 cache-unified;
+> > >                 reg = <0x0 0x13400000 0x0 0x100000>;
+> > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0 0xf>,
+> > >                               <0x0 0x10000000 0x0 0x04000000 0x0 0xf>,
+> > >                               <0x0 0x20000000 0x0 0x10000000 0x0 0xf>,
+> > >                               <0x0 0x58000000 0x0 0x08000000 0x0 0xf>;
+> > >                 interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
+> > >         };
+> > >
+> > > The last pma-regions entry 0x58000000 is a DDR location this memory
+> > > locations is marked as shared DMA pool with below in DT,
+> > >
+> > >     reserved-memory {
+> > >         #address-cells = <2>;
+> > >         #size-cells = <2>;
+> > >         ranges;
+> > >
+> > >         reserved: linux,cma@58000000 {
+> > >             compatible = "shared-dma-pool";
+> > >             no-map;
+> > >             linux,dma-default;
+> > >             reg = <0x0 0x58000000 0x0 0x08000000>;
+> > >         };
+> > >     };
+> > >
+> > > And for ARCH_R9A07G043 we automatically select DMA_GLOBAL_POOL, so the
+> > > IP blocks (emmc/usb/gmac's) requesting DMA'able memory will
+> > > automatically fall into this region which is non-cacheable but
+> > > bufferable (set in PMA) and rest everything is taken care by clean and
+> > > flush callbacks. We dont have  inject dma_sync for desc
+> > > synchronization for existing drivers (which are shared with Renesas
+> > > RZ/G2L family)
+> > Better than I thought :). The "non-cacheable but c" is "weak
+> > order," also raising the bufferable signal of AXI transactions. Right?
+> Yes, I have confirmed from the HW team it does raise bufferable signal
+> of AXI transactions. So far with the drivers (ETH/USB/DMAC) we haven't
+> seen issues so far.
+>
+> Do you foresee any issues?
+That depends on you interconnect design, most of the simple
+interconnects would ignore bufferable. Some NoC interconnects would
+buffer the transactions, which means data would be buffered in
+interconnects after CPU store instruction retired. If the CPU kicks
+the dma working with an IO reg write, hw may not guarantee the orders
+of the last data written and dma IO reg kick start. Then dma may lose
+the data.
 
-> Reviewed-by: Bj=F6rn T=F6pel <bjorn@kernel.org>
+Not only for the interconnect, but also "noncacheable + weak order"
+would cause data to stay in the CPU store buffer after the store
+instruction retired.
 
-I noticed that the version of this patch that I had left un-archived in
-patchwork was not the correct one. I then realised I gave a "LGTM" type
-thing in reponse to the v1, about the v2 but nothing on v2 itself.
+>
+> Cheers,
+> Prabhakar
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks,
-Conor.
 
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
