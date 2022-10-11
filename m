@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB138C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 07:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFDFC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 07:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kdvt+jABhVUG8M/EbmZ1oW8I2qjwX+/xmT5pjjsujrk=; b=2tq/qEH0OjjUfm
-	mpAIq3XkAllvKOzR7ePds6DdoukGZ66dshCF4B2OitjhkyFevhGWFo9xLUKs90zSUognhqVqDl04z
-	0HWFx7qoR9DqLeHEWEz9+6Aj3SCl0ikmBoTnMPBhxnBK9+mM1jga6LEIMjNNL7mV0gS1H0YzV1aYE
-	BN4KsP7PSUvy8/VcvS88Mm2lU0GQlymF6yrn+vObEC1ORRKq5rg8pcsHcHVoLyTy+5X1UACnUl01N
-	TxqukhldaleLos264IcVGBrYtF5YsCROV2+lRuPqLJm70A+Oprh+xXAP0TB0jTY8JBuWY/Lwt3GpW
-	qvP1dVONmImu1oeswXQw==;
+	List-Owner; bh=WtMmVMwWAgQnJlebO+NwRj1ScNRMN5BS9pOhWXD9yFo=; b=Gc6PhFyK9MCZ4p
+	ihEvmi12NhQMkGvFzLs9TlxGpYRkdrlPxg2vbS6J29ubNDHux5OzzjjdU1Ija0vjMpG4DOdv6Wudg
+	rQ8OPgBKa8j1ulhewfuuc7qURguYbMISJ9CNi9EcXOZbZ3PH13Av43WRF6Zabap+tkPBiSkEaOy1E
+	lGmJFqLVzAG4ddntrfRwWjANXTeQbrtD5vjCArzU8RJnL86ZkYWriFZHb5bsve0tVPjTmqDga5IGz
+	TNsUWT7BAs9ij9WSibERhbgjr6G3B510mdp4KwEl/fIM3yj5yGt3SMT5JguaTman2lkX+mZtNVjPf
+	+LJCKrJ1OwmWYf1/FDkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi9rU-003c3H-Ro; Tue, 11 Oct 2022 07:39:36 +0000
+	id 1oiAA7-003eBg-Pf; Tue, 11 Oct 2022 07:58:51 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oi9rS-003c2C-AQ
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 07:39:35 +0000
+	id 1oiAA5-003eBN-3h
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 07:58:50 +0000
 Received: from p5b127dea.dip0.t-ipconnect.de ([91.18.125.234] helo=phil.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1oi9r9-0007Gg-5z; Tue, 11 Oct 2022 09:39:15 +0200
+	id 1oiA9v-0007NI-Qz; Tue, 11 Oct 2022 09:58:39 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, Samuel Holland <samuel@sholland.org>, Andrew Jones <ajones@ventanamicro.com>, Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v2] riscv: jump_label: mark arguments as const to satisfy asm constraints
-Date: Tue, 11 Oct 2022 09:39:14 +0200
-Message-ID: <2905332.q0ZmV6gNhb@phil>
-In-Reply-To: <20221008145437.491-1-jszhang@kernel.org>
-References: <20221008145437.491-1-jszhang@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: atishp@atishpatra.org, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Conor.Dooley@microchip.com, ajones@ventanamicro.com
+Subject: Re: [PATCH v5 1/2] RISC-V: Cache SBI vendor values
+Date: Tue, 11 Oct 2022 09:58:38 +0200
+Message-ID: <2758592.Sgy9Pd6rRy@phil>
+In-Reply-To: <CAK9=C2W4doWTnqgmj9XcJtMz_eiGZ-=wA1cC=-xKd3v+2=RO6g@mail.gmail.com>
+References: <20221010122726.2405153-1-heiko@sntech.de> <7864901.lvqk35OSZv@phil> <CAK9=C2W4doWTnqgmj9XcJtMz_eiGZ-=wA1cC=-xKd3v+2=RO6g@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_003934_370899_8F31BD9F 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20221011_005849_183868_535C5FFD 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,54 +58,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 8. Oktober 2022, 16:54:37 CEST schrieb Jisheng Zhang:
-> Samuel reported that the static branch usage in cpu_relax() breaks
-> building with CONFIG_CC_OPTIMIZE_FOR_SIZE:
-> 
-> In file included from <command-line>:
-> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
-> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
-> probably does not match constraints
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> ././include/linux/compiler_types.h:285:33: error: impossible constraint
-> in 'asm'
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> make[1]: *** [scripts/Makefile.build:249:
-> arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
-> 
-> Maybe "-Os" prevents GCC from detecting that the key/branch arguments
-> can be treated as constants and used as immediate operands. Inspired
-> by x86's commit 864b435514b2("x86/jump_label: Mark arguments as const to
-> satisfy asm constraints"), and as pointed out by Steven: "The "i"
-> constraint needs to be a constant.", let's do similar modifications to
-> riscv.
-> 
-> Tested by CC_OPTIMIZE_FOR_SIZE + gcc and CC_OPTIMIZE_FOR_SIZE + clang.
-> 
-> Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
-> Link: https://lore.kernel.org/all/20210212094059.5f8d05e8@gandalf.local.home/
-> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
-> Reported-by: Samuel Holland <samuel@sholland.org>
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Hi Anup,
 
-I ran into the same build-issue when enabling CC_OPTIMIZE_FOR_SIZE
-and this patch fixes it, so
+Am Montag, 10. Oktober 2022, 15:14:21 CEST schrieb Anup Patel:
+> On Mon, Oct 10, 2022 at 6:25 PM Heiko Stuebner <heiko@sntech.de> wrote:
+> >
+> > Am Montag, 10. Oktober 2022, 14:45:45 CEST schrieb Anup Patel:
+> > > On Mon, Oct 10, 2022 at 5:57 PM Heiko Stuebner <heiko@sntech.de> wrote:
+> > > >
+> > > > sbi_get_mvendorid(), sbi_get_marchid() and sbi_get_mimpid() might get
+> > > > called multiple times, though the values of these CSRs should not change
+> > > > during the runtime of a specific machine.
+> > > >
+> > > > So cache the values in the functions and prevent multiple ecalls
+> > > > to read these values.
+> > > >
+> > > > As Andrew Jones noted, at least marchid and mimpid may be negative
+> > > > values when viewed as a long, so we use a separate static bool to
+> > > > indiciate the cached status.
+> > > >
+> > > > Suggested-by: Atish Patra <atishp@atishpatra.org>
+> > > > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > > > ---
+> > > >  arch/riscv/kernel/sbi.c | 30 +++++++++++++++++++++++++++---
+> > > >  1 file changed, 27 insertions(+), 3 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > > > index 775d3322b422..cc618aaa9d11 100644
+> > > > --- a/arch/riscv/kernel/sbi.c
+> > > > +++ b/arch/riscv/kernel/sbi.c
+> > > > @@ -625,17 +625,41 @@ static inline long sbi_get_firmware_version(void)
+> > > >
+> > > >  long sbi_get_mvendorid(void)
+> > > >  {
+> > > > -       return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+> > > > +       static long id;
+> > > > +       static bool cached;
+> > > > +
+> > > > +       if (!cached) {
+> > > > +               id = __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+> > > > +               cached = true;
+> > > > +       }
+> > > > +
+> > > > +       return id;
+> > > >  }
+> > > >
+> > > >  long sbi_get_marchid(void)
+> > > >  {
+> > > > -       return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
+> > > > +       static long id;
+> > > > +       static bool cached;
+> > >
+> > > This breaks for heterogeneous SMP systems (similar to big.LITTLE)
+> > > where HARTs will have different marchid even though they belong to
+> > > same CPU Vendor.
+> > >
+> > > Due to the above rationale, the patch adding marchid, mvendorid, and
+> > > mimpid in /proc/cpuinfo caches these values on a per-CPU basis.
+> >
+> > For people reading along, I think you mean
+> > https://lore.kernel.org/r/20220727043829.151794-1-apatel@ventanamicro.com
+> 
+> Yes, this is the patch I am referring.
+> 
+> >
+> > For my understanding, was there a reason in the past for doing the caching
+> > only for cpuinfo and not for every invocation of the ecalls?
+> 
+> The caching was done only for /proc/cpuinfo because at that point
+> time only "cat /proc/cpuinfo" would need these value at runtime.
+> 
+> Now that we have more uses of marchid, mvendorid, and mimpid,
+> at runtime, we should definitely have the cached values available
+> to other parts of kernel.
+> 
+> My suggestion is to keep sbi_get_xyz() functions unmodified and
+> instead add new functions in arch/riscv/kernel/cpu.c (on-top-of
+> /proc/cpuinfo patch) which allows users to read cached values of
+> any CPU.
+> 
+> For example, we could export following functions from
+> arch/riscv/kernel/cpu.c:
+> unsigned long riscv_cached_mvendorid(unsigned int cpu);
+> unsigned long riscv_cached_marchid(unsigned int cpu);
+> unsigned long riscv_cached_mimpid(unsigned int cpu);
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
+sounds sensible, so I'll go that way you suggested :-)
 
 
+Thanks
+Heiko
 
 
 
