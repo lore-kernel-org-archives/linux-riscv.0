@@ -4,44 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFDFC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 07:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7B6C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 07:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WtMmVMwWAgQnJlebO+NwRj1ScNRMN5BS9pOhWXD9yFo=; b=Gc6PhFyK9MCZ4p
-	ihEvmi12NhQMkGvFzLs9TlxGpYRkdrlPxg2vbS6J29ubNDHux5OzzjjdU1Ija0vjMpG4DOdv6Wudg
-	rQ8OPgBKa8j1ulhewfuuc7qURguYbMISJ9CNi9EcXOZbZ3PH13Av43WRF6Zabap+tkPBiSkEaOy1E
-	lGmJFqLVzAG4ddntrfRwWjANXTeQbrtD5vjCArzU8RJnL86ZkYWriFZHb5bsve0tVPjTmqDga5IGz
-	TNsUWT7BAs9ij9WSibERhbgjr6G3B510mdp4KwEl/fIM3yj5yGt3SMT5JguaTman2lkX+mZtNVjPf
-	+LJCKrJ1OwmWYf1/FDkw==;
+	List-Owner; bh=coUFM03X5f4Bz8f5a+qc54+XE428eMAeKJMuvX4eWu4=; b=rSnyatlUDXdWEt
+	iiu5z+OfQIqkHSMDirTpCEm+PFUvozqCKMtgk9MtwzsJ8DgqrhQ76JiW6gkk4gZx8m4YFwzf1BL66
+	dKhqwK6sguhmJgPs2WUkrotcz3/tncpf3uKha49dWydcarmbmYEMPHYoc/Cot2i2Cow+e3g8I/7p8
+	WPMMExU4Qssk7LQAFVcJ1Xjdt3xe8771+RnGKaFNtQ4cHfnQStiHEwwGy/l7rb4AVqe0J32ZqwYU5
+	yY0FGoyVbrdEnzrZdDBDQgWhfA7K5MmSxTPTT+X6teRfjMBBKSjvy+Qb8QVnNMKQjyTwzM4ewhqlH
+	uJMG93vBQP8ePudg+aAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiAA7-003eBg-Pf; Tue, 11 Oct 2022 07:58:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oiAAJ-003eEG-Rd; Tue, 11 Oct 2022 07:59:03 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiAA5-003eBN-3h
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 07:58:50 +0000
-Received: from p5b127dea.dip0.t-ipconnect.de ([91.18.125.234] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oiA9v-0007NI-Qz; Tue, 11 Oct 2022 09:58:39 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: atishp@atishpatra.org, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Conor.Dooley@microchip.com, ajones@ventanamicro.com
-Subject: Re: [PATCH v5 1/2] RISC-V: Cache SBI vendor values
-Date: Tue, 11 Oct 2022 09:58:38 +0200
-Message-ID: <2758592.Sgy9Pd6rRy@phil>
-In-Reply-To: <CAK9=C2W4doWTnqgmj9XcJtMz_eiGZ-=wA1cC=-xKd3v+2=RO6g@mail.gmail.com>
-References: <20221010122726.2405153-1-heiko@sntech.de> <7864901.lvqk35OSZv@phil> <CAK9=C2W4doWTnqgmj9XcJtMz_eiGZ-=wA1cC=-xKd3v+2=RO6g@mail.gmail.com>
+	id 1oiAAF-003eC5-Mp; Tue, 11 Oct 2022 07:59:01 +0000
+Received: by mail-qk1-x734.google.com with SMTP id m6so2920697qkm.4;
+        Tue, 11 Oct 2022 00:58:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jtn0EbueANzZWmHhe026bL4j5UVXLCdEUZ6RI8X4Iek=;
+        b=aFDkaZ06eZIgNFDxYionyNjY54l3Jb8vc7xn8wqjYQg1G9prm3n/2iXgEXWGBySUYj
+         pUlP9IplzOTLfdLVRJz2t64MEmWecbibwULcfH1pwRAhbzCUT0Qx8U3TYW66eGI4q6/c
+         sBvA0JvIhzc4RrdJL1sC9mPLjvy5VKqBEtTknHO0sMPYsfXsHYgIFaeCifqn0QnJJCl8
+         OtBD3hPGMvPap0eZdfXpScnJLFNtPJhYwQFzne+QiOxyRp0IMpjBBfzOvlF4jI3+xG4z
+         TUQ5g3ho7KFLZehSEHD2JDhbDLF2SiZoJYtH+PqXJlhKnSGV+QNcPoRddxhrYbCrFF/w
+         G1aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jtn0EbueANzZWmHhe026bL4j5UVXLCdEUZ6RI8X4Iek=;
+        b=V/ZYWet+/IuJlRFccenY+2cEaI5Mv0cjkGHFcsHI3Axc+b6kSuK9VbBeTTbcWdebx3
+         MrC/+JTDGsTmZXvLw9Uq8SieG0jHodhonU3s8tK8yTyNJUhn7mW7CNAxbGaLw4RxT8N7
+         18HpReduDCqmHpGcyCwOBlq63I89+JVRM/gfDotTyqff8AKQuOxp1VaMo7E9XYHLWNNx
+         nB8YkRZIFkO3xTI1DE3H9yJ48Pkh/CyLp1YcNMdNCKInvq/SrlUamhznPGnujHMQ9kkz
+         Bl1VQy7iXkSbKe6oZJhdQgAmGt2+JdvPpcnmJfVYVZAY/34KdEVeb4VKWMz5ybJhQylL
+         EJ4Q==
+X-Gm-Message-State: ACrzQf2ZaiaCJ3wYLMdMWy2rp83qUQDoYq+STb6uwS/kaRTmUB8XOawK
+	jjK/rrPNks38u2+BpkY50kV3tO+iaebVZSpd3q8=
+X-Google-Smtp-Source: AMsMyM58o2OPTuU9XUs+E07S0aK+hkv1wCI8/ogPlxh2cys3d+2tzM6MqnusgKv+Ub7ymEh97egvoHmX2MHd+yvD55U=
+X-Received: by 2002:a05:620a:d58:b0:6df:ba25:4f5e with SMTP id
+ o24-20020a05620a0d5800b006dfba254f5emr15325513qkl.320.1665475135994; Tue, 11
+ Oct 2022 00:58:55 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-13-andriy.shevchenko@linux.intel.com> <4630d457-2d3b-6f66-7be5-54c84bdf80b4@wdc.com>
+In-Reply-To: <4630d457-2d3b-6f66-7be5-54c84bdf80b4@wdc.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 11 Oct 2022 10:58:19 +0300
+Message-ID: <CAHp75VcghxT6nS1kLjYbj5N3EBj2CukJ3zGKvFSb-Z1paj3-ZQ@mail.gmail.com>
+Subject: Re: [PATCH v2 12/36] pinctrl: k210: Add missed header(s)
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Marc Zyngier <maz@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Phil Edworthy <phil.edworthy@renesas.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>, 
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, 
+	"linux-actions@lists.infradead.org" <linux-actions@lists.infradead.org>, 
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>, 
+	"linux-rpi-kernel@lists.infradead.org" <linux-rpi-kernel@lists.infradead.org>, 
+	"alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>, 
+	"patches@opensource.cirrus.com" <patches@opensource.cirrus.com>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>, 
+	"linux-stm32@st-md-mailman.stormreply.com" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>, 
+	"linux-samsung-soc@vger.kernel.org" <linux-samsung-soc@vger.kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	NXP Linux Team <linux-imx@nxp.com>, Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Paul Cercueil <paul@crapouillou.net>, Tony Lindgren <tony@atomide.com>, 
+	Haojian Zhuang <haojian.zhuang@linaro.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Michal Simek <michal.simek@xilinx.com>, 
+	Andy Gross <agross@kernel.org>, Konrad Dybcio <konrad.dybcio@somainline.org>, 
+	Tomasz Figa <tomasz.figa@gmail.com>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Viresh Kumar <vireshk@kernel.org>, 
+	Shiraz Hashim <shiraz.linux.kernel@gmail.com>, "soc@kernel.org" <soc@kernel.org>, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_005849_183868_535C5FFD 
-X-CRM114-Status: GOOD (  30.35  )
+X-CRM114-CacheID: sfid-20221011_005859_789572_3A825AD3 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,98 +146,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
-
-Am Montag, 10. Oktober 2022, 15:14:21 CEST schrieb Anup Patel:
-> On Mon, Oct 10, 2022 at 6:25 PM Heiko Stuebner <heiko@sntech.de> wrote:
+On Tue, Oct 11, 2022 at 1:33 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+> On 2022/10/11 5:15, Andy Shevchenko wrote:
+> > Do not imply that some of the generic headers may be always included.
+> > Instead, include explicitly what we are direct user of.
 > >
-> > Am Montag, 10. Oktober 2022, 14:45:45 CEST schrieb Anup Patel:
-> > > On Mon, Oct 10, 2022 at 5:57 PM Heiko Stuebner <heiko@sntech.de> wrote:
-> > > >
-> > > > sbi_get_mvendorid(), sbi_get_marchid() and sbi_get_mimpid() might get
-> > > > called multiple times, though the values of these CSRs should not change
-> > > > during the runtime of a specific machine.
-> > > >
-> > > > So cache the values in the functions and prevent multiple ecalls
-> > > > to read these values.
-> > > >
-> > > > As Andrew Jones noted, at least marchid and mimpid may be negative
-> > > > values when viewed as a long, so we use a separate static bool to
-> > > > indiciate the cached status.
-> > > >
-> > > > Suggested-by: Atish Patra <atishp@atishpatra.org>
-> > > > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > > > ---
-> > > >  arch/riscv/kernel/sbi.c | 30 +++++++++++++++++++++++++++---
-> > > >  1 file changed, 27 insertions(+), 3 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> > > > index 775d3322b422..cc618aaa9d11 100644
-> > > > --- a/arch/riscv/kernel/sbi.c
-> > > > +++ b/arch/riscv/kernel/sbi.c
-> > > > @@ -625,17 +625,41 @@ static inline long sbi_get_firmware_version(void)
-> > > >
-> > > >  long sbi_get_mvendorid(void)
-> > > >  {
-> > > > -       return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
-> > > > +       static long id;
-> > > > +       static bool cached;
-> > > > +
-> > > > +       if (!cached) {
-> > > > +               id = __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
-> > > > +               cached = true;
-> > > > +       }
-> > > > +
-> > > > +       return id;
-> > > >  }
-> > > >
-> > > >  long sbi_get_marchid(void)
-> > > >  {
-> > > > -       return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
-> > > > +       static long id;
-> > > > +       static bool cached;
-> > >
-> > > This breaks for heterogeneous SMP systems (similar to big.LITTLE)
-> > > where HARTs will have different marchid even though they belong to
-> > > same CPU Vendor.
-> > >
-> > > Due to the above rationale, the patch adding marchid, mvendorid, and
-> > > mimpid in /proc/cpuinfo caches these values on a per-CPU basis.
+> > While at it, sort headers alphabetically.
 > >
-> > For people reading along, I think you mean
-> > https://lore.kernel.org/r/20220727043829.151794-1-apatel@ventanamicro.com
-> 
-> Yes, this is the patch I am referring.
-> 
-> >
-> > For my understanding, was there a reason in the past for doing the caching
-> > only for cpuinfo and not for every invocation of the ecalls?
-> 
-> The caching was done only for /proc/cpuinfo because at that point
-> time only "cat /proc/cpuinfo" would need these value at runtime.
-> 
-> Now that we have more uses of marchid, mvendorid, and mimpid,
-> at runtime, we should definitely have the cached values available
-> to other parts of kernel.
-> 
-> My suggestion is to keep sbi_get_xyz() functions unmodified and
-> instead add new functions in arch/riscv/kernel/cpu.c (on-top-of
-> /proc/cpuinfo patch) which allows users to read cached values of
-> any CPU.
-> 
-> For example, we could export following functions from
-> arch/riscv/kernel/cpu.c:
-> unsigned long riscv_cached_mvendorid(unsigned int cpu);
-> unsigned long riscv_cached_marchid(unsigned int cpu);
-> unsigned long riscv_cached_mimpid(unsigned int cpu);
+> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+>
+> Looks OK to me, but the patch title should be:
+>
+> pinctrl: k210: Add missing header(s)
+>
+> Same remark for the entire series. You need s/missed/missing in all patch titles.
 
-sounds sensible, so I'll go that way you suggested :-)
+Oh, the missing word 'missing' :-) I will replace it locally (I won't
+resend it because of that).
 
+> With that fixed,
+>
+> Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
 
-Thanks
-Heiko
+Thanks!
 
-
+-- 
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
