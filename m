@@ -4,120 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BA1C43217
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 09:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD9CC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 11:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UAJ3Qttrttd1MZzDNUrckD7WJcDiXnFfdXdDid/V728=; b=JqXp5kXilrTijg
-	K4HAuQzytWnRymb7cyQx4Y2BBQ/x3LeSGc7vvG/AVLYHXxWUGzey6W+JkgQUp4OBqzCztdxNowPlW
-	roRb198ce3XZhjLND/qiP7HTdaSQhXljEz+G3zfC9Mxq6C2MQ4YrhUkFx8pd6eyd8r6oHTE2bOT9J
-	RMj9t2gRHWfaa0Tsn908v/sB1drRJLbXlNbq4RPqaEe7uqOjpocrK1+H9oxhiOLuqumBJOMM6Vt4/
-	SMqQJ4YhiqDmQXPzs/QtLCfjde2B6U7nsblwHMstfRR6oWONQH1oa1w96JAKk6zGnkNsOxDszIu8u
-	4s4J7Bq11ddnwO7ATEZg==;
+	List-Owner; bh=V/0U6OLjmGLiIJt9Y8PoOd/NUkKM75/7vHAAZ9nBUu0=; b=jL6sjUQQ7vEigp
+	ookhmQaX1R+8duwcPUCVVzyC/5OXa8g7MD5pgOR4z3322QOWQDxc+y/bjve/Zh+BkVj6y6mSYUKU9
+	VABzCkG85jDqW7AXQGRhpDJoQ0vQn+0efotsLVgRdE3L8IZ2D8SFqLy0cm0+QAdWcWihN8HO+XZcV
+	oOYbU9IkgxhT22NMCxAG++gChvRCLSwFIKm7t2N8R4ydMBogBTBj8gLeySI87jvCdgjWJcAhBtSAX
+	UCG/Rxdgn2Oiw+RfLIEszU1gZF0uv1eU5eQ86KrzwVeMe/wcNQv/o8+vJtJmPVN2FHaxVrmFv4Qdn
+	V1cdYzcJA9hVCHZ+opBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiBrv-003skg-G5; Tue, 11 Oct 2022 09:48:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oiDM4-0046bY-Qw; Tue, 11 Oct 2022 11:23:24 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiBrr-003sjL-Sb; Tue, 11 Oct 2022 09:48:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665481689; x=1697017689;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=X7aXXVOlBHDkw90nWzBrfDp5Pw/UBVwOZTwSGqIfCIg=;
-  b=U6QfSsrjr1fQF4sWRH62PuzV+OmW9RdBW9JB5gYUPvjNyq8hMwrrLKBM
-   7OGaMfSy59OgFy+S7LEp6OrYjdZjRizDuE7n+Pd4i4MOerJ/P8ilGRRYm
-   vTijO53WK3JzJIhdP7YJYWbnNkkrbj/VlC8cbotRpsS3kKWyQ8iNS9oCG
-   KGmefOQNhBzSrKRRG+nFcgN5EOjW6gax+nTVY31JMVEY5za6/BBpY9r0P
-   TZXir3dWoxsL4yZ8EWiiuvM/5T2unUN/35+BpEPP9uL4UY0Uc37l0DhtJ
-   UyJPu+pEldn6tKWAihBiSpUmCyL8zQ56OCz2KdWvcSP3ahz5Nbmc6+xi4
-   w==;
-X-IronPort-AV: E=Sophos;i="5.95,176,1661842800"; 
-   d="scan'208";a="178123604"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Oct 2022 02:48:01 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 11 Oct 2022 02:47:59 -0700
-Received: from localhost (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Tue, 11 Oct 2022 02:47:58 -0700
-Date: Tue, 11 Oct 2022 11:52:33 +0200
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-CC: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Kent
- Gibson" <warthog618@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Billy Tsai <billy_tsai@aspeedtech.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>, Mika Westerberg
-	<mika.westerberg@linux.intel.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland
-	<samuel@sholland.org>, =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov
-	<dmitry.baryshkov@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Phil Edworthy
-	<phil.edworthy@renesas.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Fabien Dessenne
-	<fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>,
-	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, <linux-gpio@vger.kernel.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
-	<linux-actions@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<openbmc@lists.ozlabs.org>, <linux-rpi-kernel@lists.infradead.org>,
-	<alsa-devel@alsa-project.org>, <patches@opensource.cirrus.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-mips@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-omap@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <linux-arm-msm@vger.kernel.org>,
-	<linux-renesas-soc@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam
-	<mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley
-	<joel@jms.id.au>, Florian Fainelli <f.fainelli@gmail.com>, Ray Jui
-	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, "Broadcom
- internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Charles
- Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald
-	<rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, "Fabio
- Estevam" <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai
-	<ping.bai@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, NXP Linux Team <linux-imx@nxp.com>, "Andy
- Shevchenko" <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>, Andrew Lunn
-	<andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, "Sebastian
- Hesselbarth" <sebastian.hesselbarth@gmail.com>, Avi Fishman
-	<avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, Tali Perry
-	<tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, Nancy Yuen
-	<yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, "Ludovic
- Desroches" <ludovic.desroches@microchip.com>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, Paul Cercueil
-	<paul@crapouillou.net>, Damien Le Moal <damien.lemoal@wdc.com>, Tony Lindgren
-	<tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Michal Simek <michal.simek@xilinx.com>, "Andy
- Gross" <agross@kernel.org>, Konrad Dybcio <konrad.dybcio@somainline.org>,
-	Tomasz Figa <tomasz.figa@gmail.com>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Viresh Kumar
-	<vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>,
-	<soc@kernel.org>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
-	<baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, "Emil
- Renner Berthing" <kernel@esmil.dk>, Kunihiko Hayashi
-	<hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
-Subject: Re: [PATCH v2 17/36] pinctrl: ocelot: Add missed header(s)
-Message-ID: <20221011095233.jk2vypndisz2wgn6@soft-dev3-1.localhost>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <20221010201453.77401-18-andriy.shevchenko@linux.intel.com>
+	id 1oiDM2-0046au-4I
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 11:23:24 +0000
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com [209.85.208.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 1C0AF3F475
+	for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 11:23:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1665487393;
+	bh=GMOS7F+JraDc27mEIrPoxpvPmBrSiSQwXpNxQV+nL+s=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=cOagj15pdzU9CszKG6HvNi92hYkEWosSefF9s2Apw1SRY5xIxPnqp+eUs7SZmU0mJ
+	 TOwra6JOQ4rUN+tLsaVw+hX52ulO1/niKPLegPIDfzv9f+vSVh6i0bUEEKv8Ne/NB/
+	 WV6QAMGJU/nGvgprgkVl9ITcMC8FArSCz2vvNbt2sPAu5kDnyJoJntWDklyccaw0kY
+	 lfr46jYzGZQlZbE+T+4+FqcabHJNY0St+yI2X4peOj9S007uTeuWyr/EKLjSH0WI6O
+	 Rj7FUF5t0R91BfY4tdmuSDUNuJSo7cQEHVhMz4bhCjE3l4xXT+Q+OX7fE9zHu1w6rT
+	 RYT7YapMh0oQA==
+Received: by mail-ed1-f69.google.com with SMTP id l7-20020a056402254700b004591f1de8ffso11000715edb.15
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 04:23:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GMOS7F+JraDc27mEIrPoxpvPmBrSiSQwXpNxQV+nL+s=;
+        b=DRfHF9WtOw9+0/sbUkvAAn6RKS1YbM2qrFrh/PE9AnGvDznaE+yb9094siKGkjLkVO
+         kvNHmEaOLoe49ZjGQiE1HyMkbKnP/7NLXOZC/IYo7nSJv/5t2rtejQWoT22j2fbvahnA
+         IqG4GbpsB63k+0ii4ORLwWlbmWrMM39J/vhSJI/HY/xWK4wewb4uv/uOrkmDvU3rpN/5
+         IN4PDxPQESwcBzKW6gO568ISP8202PqymFjOpueUeFtjdmwbbWZJfswvi70+aCv/7FfR
+         c05KDJW3U4GJGQ1cfgtIuVKfGzgBZWI8uSapfyf89d29ZVxr1/B45jnOai5vc+WAICvx
+         LnUg==
+X-Gm-Message-State: ACrzQf14obwm51t+8F8nzMTKhCmCy3b9XMtefBy3u3MmOjCPrTmX1vEV
+	RI2IWammG4kbarslyHesu33XEw9BIn/vKr3yozmHyOfFZ+DevqLa5uwshaw0ACw4KkQe3dXkrc+
+	pLNmbNR6s4V2Quy2UqW5CZ7o0qN40C5PPu3UpKO5bZW7G5w==
+X-Received: by 2002:a17:906:4fce:b0:78d:9fcb:50c7 with SMTP id i14-20020a1709064fce00b0078d9fcb50c7mr11037426ejw.63.1665487392656;
+        Tue, 11 Oct 2022 04:23:12 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM5ARnDaFt21q+50iKtAKkQZ9qceHBSD1VOVl9szRmiwe49iQYc3ABQ3y+Ju46sCLriXjWrBQA==
+X-Received: by 2002:a17:906:4fce:b0:78d:9fcb:50c7 with SMTP id i14-20020a1709064fce00b0078d9fcb50c7mr11037414ejw.63.1665487392372;
+        Tue, 11 Oct 2022 04:23:12 -0700 (PDT)
+Received: from [192.168.123.94] (ip-084-118-157-002.um23.pools.vodafone-ip.de. [84.118.157.2])
+        by smtp.gmail.com with ESMTPSA id k8-20020a17090632c800b007030c97ae62sm6790413ejk.191.2022.10.11.04.23.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Oct 2022 04:23:11 -0700 (PDT)
+Message-ID: <b0ad936d-4d1b-e319-fa22-4a96c048a855@canonical.com>
+Date: Tue, 11 Oct 2022 13:23:10 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221010201453.77401-18-andriy.shevchenko@linux.intel.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.1
+Subject: Re: [PATCH] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
+Content-Language: en-US
+To: Eva Kotova <nyandarknessgirl@gmail.com>
+Cc: c141028@gmail.com, dramforever@live.com, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, xc-tan@outlook.com, coelacanthus@outlook.com
+References: <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
+ <a69ee775-e565-3d72-eb5f-8378616694d3@gmail.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <a69ee775-e565-3d72-eb5f-8378616694d3@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_024808_076402_300532C2 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20221011_042322_615498_B9AB7B56 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,58 +96,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 10/10/2022 23:14, Andy Shevchenko wrote:
-> 
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
-> 
-> While at it, sort headers alphabetically.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
 
-Acked-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 
->  drivers/pinctrl/pinctrl-ocelot.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
+On 10/6/22 21:17, Eva Kotova wrote:
+> On Tue, 31 May 2022 00:56:52 PDT (-0700), coelacanthus@outlook.com wrote:
+>  > As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
+>  > but not read is "Reserved for future use.". For now, they are not valid.
+>  > In the current code, -wx is marked as invalid, but -w- is not marked
+>  > as invalid.
 > 
-> diff --git a/drivers/pinctrl/pinctrl-ocelot.c b/drivers/pinctrl/pinctrl-ocelot.c
-> index 647e91490bac..a9343c242cd5 100644
-> --- a/drivers/pinctrl/pinctrl-ocelot.c
-> +++ b/drivers/pinctrl/pinctrl-ocelot.c
-> @@ -13,15 +13,17 @@
->  #include <linux/of_device.h>
->  #include <linux/of_irq.h>
->  #include <linux/of_platform.h>
-> -#include <linux/pinctrl/pinctrl.h>
-> -#include <linux/pinctrl/pinmux.h>
-> -#include <linux/pinctrl/pinconf.h>
-> -#include <linux/pinctrl/pinconf-generic.h>
->  #include <linux/platform_device.h>
->  #include <linux/regmap.h>
->  #include <linux/reset.h>
->  #include <linux/slab.h>
+> This patch breaks OpenJDK/Java on RISC-V, as it tries to create a w-only 
+> protective page:
 > 
-> +#include <linux/pinctrl/consumer.h>
-> +#include <linux/pinctrl/pinconf-generic.h>
-> +#include <linux/pinctrl/pinconf.h>
-> +#include <linux/pinctrl/pinctrl.h>
-> +#include <linux/pinctrl/pinmux.h>
-> +
->  #include "core.h"
->  #include "pinconf.h"
->  #include "pinmux.h"
-> --
-> 2.35.1
+> #
+> # There is insufficient memory for the Java Runtime Environment to 
+> continue.
+> # Native memory allocation (mmap) failed to map 4096 bytes for failed to 
+> allocate memory for PaX check.
+> # An error report file with more information is saved as:
+> # /root/hs_err_pid107.log
 > 
+> I bisected to this commit since on Linux 5.19+ java no longer works.
+> Perhaps some fallback should be implemented, to prevent userspace 
+> breakage. It is currently documented, that at least on i386 PROT_WRITE 
+> mappings imply PROT_READ (See man mmap(2) NOTES), this would be a good 
+> place to start.
 
--- 
-/Horatiu
+Which test case demonstrates the issue?
+
+Best regards
+
+Heinrich
+
+> 
+> Best regards,
+> Eva
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
