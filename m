@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2526C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 18:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6019BC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Oct 2022 19:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CoS3vleqb6ewEpJK6oYik1j7iSQp6n2W+dpqfndEWcA=; b=PxLkUONp8YW/tC
-	zHnbjTXuomaj2qk0rKols+scr3oP9AduOXwao3875u4stj70wU2vY2B8iyvwmL35VHzVugfhxbvEs
-	AKfxB8eMCADPGU/0UQl9a41Z21UghiVeJiP5tWqJ4Q6PlCrWvSMJSdI7GpG4RS3hM6B3o2MtAxgvp
-	QJjuKAbInkaxBXebQ6/tocsjMm+H2KXTatQkF0DQLVeGY5tr5F/hz27UL47sQWqlBqlurpttfxRb7
-	86L9TXm9PO8X58/Ps4LfsDrPgSciKQePASVaAZQtgKaqrtJgMcTbOYhcK5og8ZCNiLSA6Uk5on8Hn
-	Aal42nX6xRjcoSo4CDEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=mNzRGZyCbDPZSotjjLYY0HtPyRFKvpOL94+bNlVraso=; b=q63m5IoZL/VulNc4t1ZzVIKBAZ
+	lpO+Jx6/JtQAPz2JO+cM6s/O0rE4IAI4cl1Ufc91++XpAneLdO8hSXuVlhJk7ac5XhgzkWodaURJR
+	sbSZeYBOyH76o7+PRuZoAXHjO/BU0EE/lKZpvy3khvAAUFZcf+Rm1aaTr7+BlyidA5e1uJYZ5r4mz
+	0ItLopEb/LRM3aCC44MRw014NjBTGX/bmkdFVNxYLQVUV+vjaNXTvvIs9AkDS4rHvVEsIjCiyoAfY
+	+T5j691PSsPsftDnLWVLghrenHlRTr+0XUUIKRnh1QTzgFHhTgVagY2LLleo6a/6Dvjz4fTuuD+/R
+	BqdZIsvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiK3m-005S9R-20; Tue, 11 Oct 2022 18:32:58 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1oiL7A-005eoB-UH; Tue, 11 Oct 2022 19:40:32 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiK3i-005S8l-OB
-	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 18:32:56 +0000
-X-QQ-mid: bizesmtp62t1665513144tf8jdyjh
-Received: from [192.168.1.231] ( [113.72.146.141])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 12 Oct 2022 02:32:23 +0800 (CST)
-X-QQ-SSF: 0100000000200090B000B00A0000000
-X-QQ-FEAT: 7jw2iSiCazqbQ5tBRQTa4DP92tBGuiXW2qhhi7so1L8YQTSdLsD6bEm6SpfGf
-	AnLtfynvp3KCljyxHGLpZg2svKBE3NjLJqiOsJHbZqld0xi6C2tJUr+vygbGy7/40QEmzCJ
-	b3f2i3KLv3z8jeB9gNzUGEUETkotyseEm/DVu5pRoWsUhq8aaVNMc0szqOJEHy3h3fnaeiu
-	Gqqlcg3e52/CIKA3DquCxhklE6WNgDPEmbUue3dxy/d+2kCYK7OnxiLfSATsD7w3EQPslOc
-	96vgfeGembZqkA73X+Wqniwr1+sDqMuKSdXKnW2uns/wYmP/O7tsErQt50YdkmtPfV1IVGE
-	qs9V4wuExJV4i6tgmUMBOT/AtDG7mdEkioM7aScva/zOmRh7J11AhCpLh2GcQ==
-X-QQ-GoodBg: 0
-Message-ID: <BC2E1E01B669A06E+eb3ccb04-e930-9aa4-08b9-27621410bbd3@linux.starfivetech.com>
-Date: Wed, 12 Oct 2022 02:32:22 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 30/30] RISC-V: Add StarFive JH7100 and JH7110 SoC
- Kconfig options
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930122318.9244-1-hal.feng@linux.starfivetech.com>
- <YzbjCIfoxjsFCuD1@wendy>
-From: Hal Feng <hal.feng@linux.starfivetech.com>
-In-Reply-To: <YzbjCIfoxjsFCuD1@wendy>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
+	id 1oiL78-005en9-OM
+	for linux-riscv@lists.infradead.org; Tue, 11 Oct 2022 19:40:32 +0000
+Received: by mail-pf1-x432.google.com with SMTP id w2so14526439pfb.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Oct 2022 12:40:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q+shlKfDsLFTceKW+59V6+472TY2BoFXSdseGTm3kLU=;
+        b=Bu1BlJFHGwktTve40DNIGWtdyziYSZMWKlPxhM22FvRzDI+0O3L9f1yPoo2tF+rBqh
+         ojM8wGYpNeFmkIa7PjJS9+lx6tnEcff23bUQ1AFIb36QS3MI1WXy8/EPVPmk/aI2NomP
+         jzPlMSt4Szw2jZKdjD1ojZTWartdQE7yWsV19IGpEAdaKA/EOOEGKtn7j6ntPyQMWJH9
+         8GsX4Hy0Zru1wOpztHGosUX0+vQHjNPhA6U34z+GPsxbz/gApMeHzelErS9+szq2Jlt3
+         +5boQqg2mP8h0HVYWYnnVBdmHyQnx+b7FryM1KwebnD588TMQisrVnS/xKLtRJo36jYA
+         fFcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q+shlKfDsLFTceKW+59V6+472TY2BoFXSdseGTm3kLU=;
+        b=l1vhDFurTOpGv9On2jg/7c+KGYM6r1diaiDgBxzylhdBeCAjgheAtYjuHbHDz+Bi9k
+         BogyT1HeZ/ty247I8YJkTH34Twos4QTPFz+ty00/Cep7GaLiEi32DAuuCYiVXQRAKFdN
+         lIy54lz0E+Vgv5AhUA5JWjgB8XZrIZXTsIA8UelR5PKdQs68yzlIa9F2s1AJs1Fx6B0c
+         J9yZR16bi3TR0ISMUIUw0HlaA8aZv9mVed+9ns8n/5WX65qwombSkzPnoAjLoETAu3y7
+         iwKF3GFYrzjSSTex/O8ql+WrHJl/X81Y+xzKWNmx6MjARqXlGcl+FYYXwFpaLr/SslKO
+         1Dxg==
+X-Gm-Message-State: ACrzQf1svMAQByAzUiwkYcWjAH3eFceDd/YIt5OGalG/7AhOMNIM4tim
+	4YPUFeIh0z0tNCBun+VrtOdHjg==
+X-Google-Smtp-Source: AMsMyM50hNH4XVFVNgXVgLJfqqCz/FTGmtX69a1LkqgjO732ttFps1Y8BHQSJ5m/Engi4ZsZ7shxkw==
+X-Received: by 2002:aa7:88c4:0:b0:563:9fe9:5da9 with SMTP id k4-20020aa788c4000000b005639fe95da9mr7197675pff.41.1665517227798;
+        Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id 197-20020a6214ce000000b0055fe65e9203sm9492837pfu.0.2022.10.11.12.40.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
+Date: Tue, 11 Oct 2022 12:40:27 -0700 (PDT)
+X-Google-Original-Date: Tue, 11 Oct 2022 12:40:25 PDT (-0700)
+Subject: Re: [GIT PULL 0/2] microchip maintainers updates
+In-Reply-To: <Y0W1RCmy7DOkJw4/@spud>
+CC: conor.dooley@microchip.com, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-c6e49911-7ee7-4618-8958-02821e53df72@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221011_113255_121609_A2599A15 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20221011_124030_815841_2DBBBDF1 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +83,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Sep 2022 13:37:28 +0100, Conor Dooley wrote:
-> On Fri, Sep 30, 2022 at 08:23:18PM +0800, Hal Feng wrote:
-> > Add Kconfig options to select the specified StarFive SoC. Select
-> > necessary Kconfig options required by the specified SoC for booting.
-> > 
-> > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> > ---
-> >  arch/riscv/Kconfig.socs               | 27 ++++++++++++++++++++++++++-
-> >  arch/riscv/boot/dts/starfive/Makefile |  4 ++--
-> >  drivers/clk/starfive/Kconfig          | 14 ++++++--------
-> >  drivers/pinctrl/starfive/Kconfig      |  6 ++----
-> >  drivers/reset/Kconfig                 |  1 -
-> 
-> Firstly, you cannot change all of these files in one commit, sorry.
-> 
-> >  5 files changed, 36 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index 10f68a4359f9..321c448e7b6f 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -22,10 +22,35 @@ config SOC_STARFIVE
-> >  	bool "StarFive SoCs"
-> >  	select PINCTRL
-> >  	select RESET_CONTROLLER
-> > +	select RESET_STARFIVE
-> 
-> Secondly, we are trying to get rid of selects in arch/riscv at the
-> moment, not add them. use "default SOC_STARFIVE" in
-> drivers/reset/kconfig instead please.
-> 
-> > +	help
-> > +	  This enables support for StarFive SoC platform hardware.
-> > +
-> > +if SOC_STARFIVE
-> 
-> I don't think we want to have per soc selection menus in arch code,
-> I think this should move to drivers/soc (a la Renesas) if you want to
-> have a per soc selection menu or else just do "default SOC_STARFIVE"
-> for both clock and pinctrl drivers in the clk and pinctrl Kconfig
-> entries.
+On Tue, 11 Oct 2022 11:26:12 PDT (-0700), Conor Dooley wrote:
+> On Tue, Oct 11, 2022 at 11:20:29AM -0700, Palmer Dabbelt wrote:
+>> On Mon, 10 Oct 2022 15:17:03 PDT (-0700), Conor Dooley wrote:
+>> > From: Conor Dooley <conor.dooley@microchip.com>
+>> >
+>> > Hey Palmer,
+>> >
+>> > Two maintainers changes that I posted on the lists a while back.
+>> > Neither applied at the time b/c the maintainers entry was being updated
+>> > in the soc fixes branch and in some for-next branches at the same time
+>> > and they conflicted.
+>> >
+>> > If you could pick the two that'd be great.
+>>
+>> So you want me to just pick up these patches?
+>
+> Please.
+>
+>> That's OK, it's just not a
+>> pull request and that's what the subject says.
+>
+> Sorry about that. I'd seen people doing it that way for trivial
+> patchsets, eg to arm-soc for dt-bindings, to signify that they
+> were intended to be/ready to be picked directly. I'll stick with
+> "pull" for tags only in the future.
 
-Thanks for your helpful comments. I will drop this patch.
-
-Best regards,
-Hal
-
+No problem, if that's what folks do then I'm OK with it.  I just hadn't 
+seen it before so wasn't sure what was up (doubly so because you send 
+you'd be sending a pull).  They're on for-next, hopefully patchwork 
+sends the email too...
 
 _______________________________________________
 linux-riscv mailing list
