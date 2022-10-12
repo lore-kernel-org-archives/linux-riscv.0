@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0860C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7398C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4KcPQCe1nVXgbSYHG3KucyOjf/W8vvf5YVw9u3/k+20=; b=CL6OYe3Oijml2k
-	G6HBE8bfDZFDL5mqrjcgAmWoQvIBumWfnkHxMtQ09RqBYiNOewcyPls5PKFbqRg3TeG1f6IoYinEb
-	H7kquqtUZd8Btc6D5A4rv8Htz3gAYPBxWEfdzl4AMBtNHIwXNrHDfWeDjG/NP6VEaJvufh7CKHXS4
-	iAURSrwL34Dg8l/EynAWml3EEraeVrdqKSIIWHN9LjFBSlk9YNMqxcgHlcit1TWA52q62was1kWRD
-	2QgQ2FRR8sHpaLSuxGLBopSO7c8JWnKS6ufTjtMSQ7Kj6pXjp1ulSRl0pa8/umw+GCFYngSlSOfNj
-	9240cZl/cSOZjJ84RL7A==;
+	List-Owner; bh=rBrv0AuSSGsUjlgSsq3QM2slQgaq9cJ61U+NTe5gh5o=; b=IoU+jOHeFBsluC
+	DtcTQAoKPNUUyfphtat2TM47zO3wVaGosGkTNuW55mIBa18vM5+Q78hdEyxTtL02uazd2xMrG9Dun
+	Yfg6G/Mzpy9Sim0FVmTtIHULpr/q1FIvaDbARKEJ1rLc/gFJe2vrvIswtkuGeMnGwgvCEdF4PY7it
+	hd1Tc2GnmW+lmhwNsc4KYPCeXhhrL9krO8jdM1tfif9BUJfHiRsFnYWOB3ogAcQJ/TRKuQzmq5s+E
+	K7OjbFcmfAos/hR4yGCppJMmYHaPJ9z1oYfutiQmpoAvrMTyL5VNLBAwbQqINX+mc3UC5wZYNZXpt
+	HZ+JsoCXpfaFPo1c7i7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibnJ-008BYk-GY; Wed, 12 Oct 2022 13:29:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oiboh-008ByG-0Q; Wed, 12 Oct 2022 13:30:35 +0000
+Received: from mga14.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibn2-008BTh-Mu
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 13:28:56 +0000
+	id 1oiboN-008Br0-Oo; Wed, 12 Oct 2022 13:30:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665581333; x=1697117333;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1665581415; x=1697117415;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=zLOMPQX/UZ2BIcOn/66Oe03IRbrUXRGhlWZylqU+JUI=;
-  b=Gea/GlsUmEmBqfr07pcuutryjLolYJYiyHBJDc3nq4ZxXnHwlwVRFWAE
-   NfJDrLHMFGnQYy7y/rrFmF0AbfGtR43q/Ztrq3CjqHAXJSsKTDVSpsM8W
-   ToJalwwz6y5VRP6ZgTkTd9HIyh/mgDjjVpxDLO3CP8AWJyf5ewedzfq6J
-   fqSvonwlpurASDC3q/tlGtAr6GoeOzaxAm2XUV+2LgmtTAnFTLSEvc3Xu
-   LlBDIC5UO6LxRJBvFY8RwIg0FSzCY6XaG/EhxM53Y/KacKKyxNY9lueWs
-   8Tsu25bsNrsYMrXGVfc9jGzdiahb/Z+enfvqhYxShok9sBPADlxYYZUwc
-   g==;
+  bh=tV/ZvJGYw4mf000OleNKwCzv+JZQjAKj+4wcxHqkOco=;
+  b=ZBQy9cLxZEYf6ipbM+i5e1QUWaVw0TwqFLAThFamFphnPRvkFmbyXM7Y
+   RIZMWkMDyIuPLZ93OpdGtjLqfOnGcgjOuRF9ynCJmhrR9U1fhu15GA97D
+   q3pVBpfUq7YA4dsvPSnKq7vUfDIPgTiTQJFLNe50BdURcO8BJlaoJQvTq
+   hostlSwkqQ73sqY+zb52glZp/Cis8UMAkGTiAa8VSK7Lywfx4wrepS/lC
+   1KRe064a9aVoPZ+NAQUmj2JTRiRI5NV4ONyT1QbANjiyRL5ikkedMet0m
+   N8uIIdUdrvSDR3wxXZHpfGvbDTU0eBHbvELMUeMhfP+76re++Ethc1cfM
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10497"; a="304779003"
 X-IronPort-AV: E=Sophos;i="5.95,179,1661842800"; 
-   d="scan'208";a="178371523"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Oct 2022 06:28:46 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 12 Oct 2022 06:28:41 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 12 Oct 2022 06:28:38 -0700
-Date: Wed, 12 Oct 2022 14:28:16 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-CC: Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf
-	<jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<llvm@lists.linux.dev>, Samuel Holland <samuel@sholland.org>, Andrew Jones
-	<ajones@ventanamicro.com>
-Subject: Re: [PATCH v2] riscv: jump_label: mark arguments as const to satisfy
- asm constraints
-Message-ID: <Y0bA8HUL9eC3Dp8C@wendy>
-References: <20221008145437.491-1-jszhang@kernel.org>
+   d="scan'208";a="304779003"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Oct 2022 06:30:13 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10497"; a="626766256"
+X-IronPort-AV: E=Sophos;i="5.95,179,1661842800"; 
+   d="scan'208";a="626766256"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga002.jf.intel.com with ESMTP; 12 Oct 2022 06:30:07 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1oiboD-005qlS-1e;
+	Wed, 12 Oct 2022 16:30:05 +0300
+Date: Wed, 12 Oct 2022 16:30:05 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Kent Gibson <warthog618@gmail.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
+	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 02/36] gpiolib: cdev: Add missed header(s)
+Message-ID: <Y0bBXSHyxpdTGxoU@smile.fi.intel.com>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-3-andriy.shevchenko@linux.intel.com>
+ <Y0SyVwjDl7NGfTPn@sol>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221008145437.491-1-jszhang@kernel.org>
+In-Reply-To: <Y0SyVwjDl7NGfTPn@sol>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_062852_894396_6519B403 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20221012_063015_850618_6D583E6C 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +96,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Jisheng,
-LKP reported an error that seems to only have gone to myself & Samuel,
-but the branch it's complaining about is your v1:
-https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/
+On Tue, Oct 11, 2022 at 08:01:27AM +0800, Kent Gibson wrote:
+> On Mon, Oct 10, 2022 at 11:14:18PM +0300, Andy Shevchenko wrote:
 
-Any idea what the story is here?
+...
 
-Thanks,
-Conor.
+> > -#include <linux/gpio.h>
+> >  #include <linux/gpio/driver.h>
+> > +#include <linux/gpio.h>
 
-On Sat, Oct 08, 2022 at 10:54:37PM +0800, Jisheng Zhang wrote:
-> Samuel reported that the static branch usage in cpu_relax() breaks
-> building with CONFIG_CC_OPTIMIZE_FOR_SIZE:
+> But moving the gpio subsystem header after the gpio/driver is not
+> alphabetical ('.' precedes '/') and it read better and made more sense
+> to me the way it was.
+
+Okay, I will move it back.
+
+...
+
+> > +#include <linux/seq_file.h>
 > 
-> In file included from <command-line>:
-> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
-> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
-> probably does not match constraints
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> ././include/linux/compiler_types.h:285:33: error: impossible constraint
-> in 'asm'
->   285 | #define asm_volatile_goto(x...) asm goto(x)
->       |                                 ^~~
-> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> 'asm_volatile_goto'
->    41 |         asm_volatile_goto(
->       |         ^~~~~~~~~~~~~~~~~
-> make[1]: *** [scripts/Makefile.build:249:
-> arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
-> 
-> Maybe "-Os" prevents GCC from detecting that the key/branch arguments
-> can be treated as constants and used as immediate operands. Inspired
-> by x86's commit 864b435514b2("x86/jump_label: Mark arguments as const to
-> satisfy asm constraints"), and as pointed out by Steven: "The "i"
-> constraint needs to be a constant.", let's do similar modifications to
-> riscv.
-> 
-> Tested by CC_OPTIMIZE_FOR_SIZE + gcc and CC_OPTIMIZE_FOR_SIZE + clang.
-> 
-> Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
-> Link: https://lore.kernel.org/all/20210212094059.5f8d05e8@gandalf.local.home/
-> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
-> Reported-by: Samuel Holland <samuel@sholland.org>
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
-> 
-> since v1:
->  - add Reported-by, Reviewed-by, Fixes and Link tag
-> 
->  arch/riscv/include/asm/jump_label.h | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-> index 38af2ec7b9bf..6d58bbb5da46 100644
-> --- a/arch/riscv/include/asm/jump_label.h
-> +++ b/arch/riscv/include/asm/jump_label.h
-> @@ -14,8 +14,8 @@
->  
->  #define JUMP_LABEL_NOP_SIZE 4
->  
-> -static __always_inline bool arch_static_branch(struct static_key *key,
-> -					       bool branch)
-> +static __always_inline bool arch_static_branch(struct static_key * const key,
-> +					       const bool branch)
->  {
->  	asm_volatile_goto(
->  		"	.option push				\n\t"
-> @@ -35,8 +35,8 @@ static __always_inline bool arch_static_branch(struct static_key *key,
->  	return true;
->  }
->  
-> -static __always_inline bool arch_static_branch_jump(struct static_key *key,
-> -						    bool branch)
-> +static __always_inline bool arch_static_branch_jump(struct static_key * const key,
-> +						    const bool branch)
->  {
->  	asm_volatile_goto(
->  		"	.option push				\n\t"
-> -- 
-> 2.37.2
-> 
+> I wasn't aware that we use anything from seq_file.
+> What am I missing?
+
+
+Eventually I can answer to your question: the commit 0ae3109a8391
+("gpiolib: cdev: add fdinfo output for line request file descriptors")
+is what you are missing.
+
+That said, we need this patch.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
