@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE20C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 14:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4607CC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 14:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R5Key1W7onTjxLcydCmtMegUgr+nbkpU49E/rMsWBtY=; b=4ZgXdUGpzkpLJw
-	KMCucOW8EBbnHuKfD+npqQNNmomp5gjRlZsCtl+J2RHq5uvrTLB5kFn4nwVACpssbibs1XQOh/gdr
-	0UtLMv3pnQzXSnn+hQ1xMy/jHujuuQBsYkysmFHlN448qqMspiJWiKdSSPU8yI9ne7sZu6n6jnDpr
-	YgRQ9Qfm5Oix7IT060E0USYLfFzhKM0ij7w7FYuwJH1e81Q741drPE2EwIhJ/alKeB4q6AXHFl608
-	eXQZKBkX6Ecv9YF+gpT19jnFAwGwCviEGZ2T6S2NC6VJQ7zVm1D+rkwktbDDqEw3LaNpFqfmfnpa6
-	RbVaP8PzLcDPZI5GAEXg==;
+	List-Owner; bh=J3jbUNCs5G7H9ApXs/SlT0zmZKjiytoRFBtgkUYiPBc=; b=EEcCB0CiWcU1ar
+	Z2+YCSa293pVBSPweDdXUX4MP2w/ZHfuh4vM3Z9OZwHlNicprBXZ7O1nC99AV8lLKJXSO1jciJKUs
+	yaVW9+4kojOGTslfvbUll65QkpIuqieG0dAAWWH9R5Hajcotkj43cf8nLZoh3AXrJTZPmm6D9Rbey
+	BxBeA4r0W3dNEE38lePmib5IgmTaR5GTD0471NsprLikrCay9G6nRf03D+LbYjY+/wHdbNybnzTa8
+	03f4At+AsShPb5ZUJgQDOQkUk/zxiS87JJwJaoTPwVp4N4IERVoQjHlzW0PomHr/qC9Q/rWmeHCx+
+	GZMSk9kqkamvkC8GOL/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oicMa-008Jgc-7b; Wed, 12 Oct 2022 14:05:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oid7J-008SCa-LD; Wed, 12 Oct 2022 14:53:53 +0000
+Received: from bg4.exmail.qq.com ([43.155.65.254])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oicMX-008JgF-5L
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 14:05:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665583532; x=1697119532;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=YqIauvraatao1KA8yPWOhmJyrNRczVNaBMKcZve1xvY=;
-  b=ZcMtshpZcYN1gyU3KpFNRbnI6yEGYUMgd/s3mjbgPtwRuSjObw3DkRxN
-   FMchBudgXDm+Q6RStOqEhA4bsCIJ7/CmQsINkb+HbWsGPDuc5nATMe1cL
-   iCRagqm8QW6KL5vCXk0GRbS/p+zC41o9Sae66KDwzyALaQFW36teENKHR
-   gBjWlLgzChde9ZwSy5VCwaRQ3WMPXwVC7y8ar0Bz7Mx6htqXLTxcMndxH
-   FialBlNwwzTvspyXMy9vwqSF94IsUWDs83c+HciefAcmCGGyotDYcl2oG
-   OM4LqD8ymiMmAOoK63TWrpH8Isk8mwpydcBFG2TVuHfEWXxndwS3AkPyL
-   A==;
-X-IronPort-AV: E=Sophos;i="5.95,179,1661842800"; 
-   d="scan'208";a="195051104"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Oct 2022 07:05:30 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 12 Oct 2022 07:05:30 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 12 Oct 2022 07:05:26 -0700
-Date: Wed, 12 Oct 2022 15:05:04 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Hal Feng
-	<hal.feng@linux.starfivetech.com>
-CC: Hal Feng <hal.feng@linux.starfivetech.com>, Rob Herring <robh@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <linux-gpio@vger.kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas
- Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Linus Walleij <linus.walleij@linaro.org>, Emil
- Renner Berthing <kernel@esmil.dk>, <linux-kernel@vger.kernel.org>
+	id 1oid7E-008SBw-F7
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 14:53:51 +0000
+X-QQ-mid: bizesmtp71t1665586398tra1mkxv
+Received: from [192.168.1.231] ( [113.72.146.141])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 12 Oct 2022 22:53:16 +0800 (CST)
+X-QQ-SSF: 01000000002000B09000B00A0000000
+X-QQ-FEAT: Q5/H4pNog203Q26Mis4ciWl055ow0ajIHrfB0/XOCwC8VcIHMdhaaI4V2fyX5
+	38PXgbepu+GYSoJRIEnLYHasPwO576mbxLyyxYxDkIO3Qw9oRGRQdZuJ2loRlBNAlLYa4GC
+	Fe+8gZoqavoauj1vW0xHE78oo2iqq2+cw8NXHLUdXPwnZJHwjI3NCU9uTyyd9q8Syv/it57
+	YDbbiYP6xv4roDawpnlNaUae9FRYYd5YYPOVF0DdNLTzxh1E1Xu5Pe4Xc86a0ZsqFHpzRFq
+	zm5FoEZ/4ykbN4upH9ePaGwcaLB7QSWpTvLuzL7jdF4iI6D4JyI+hX7L+LsV15tDF8xW20K
+	JP4yr4EUXaQ0kGaX7P3G/xDArMOjMLvRBV0UxClxJyD8bd/Gx17YK1V0B2ZeWUXM8fTgJcS
+	9yyANqHDAGk=
+X-QQ-GoodBg: 0
+Message-ID: <14D22B831DDCFAED+14879d26-5d3a-3487-07ef-3b64e775e43f@linux.starfivetech.com>
+Date: Wed, 12 Oct 2022 22:53:15 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
 Subject: Re: [PATCH v1 12/30] dt-bindings: reset: Add starfive,jh7110-reset
  bindings
-Message-ID: <Y0bJkGQklX+eOGyW@wendy>
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
 References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
  <20220929175147.19749-1-hal.feng@linux.starfivetech.com>
  <20220929184349.GA2551443-robh@kernel.org>
@@ -74,12 +66,13 @@ References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
  <2f1d1afd-3c97-6ce0-8247-6e1c4a24e548@linaro.org>
  <4769BE3503398017+b1699221-ccc9-a0c1-0b11-141ce9644d74@linux.starfivetech.com>
  <9f04267d-2592-b303-9b79-9cef672c970a@linaro.org>
-MIME-Version: 1.0
-Content-Disposition: inline
+From: Hal Feng <hal.feng@linux.starfivetech.com>
 In-Reply-To: <9f04267d-2592-b303-9b79-9cef672c970a@linaro.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_070533_245283_3524514D 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20221012_075348_860124_501030EE 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +89,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Hal Feng,
-
-On Wed, Oct 12, 2022 at 09:33:42AM -0400, Krzysztof Kozlowski wrote:
-> >>> These two properties are the key differences among different reset controllers.
-> >>
-> >> Different as in different compatibles? Please answer the questions..> 
-> >>> There are five memory regions for clock and reset in StarFive JH7110 SoC. They
-> >>> are "syscrg", "aoncrg", "stgcrg", "ispcrg" and "voutcrg". Each memory region
-> >>> has different reset ASSERT/STATUS register offset and different number of reset
-> >>> signals. 
-> >>
-> >> Then these are not exactly the same devices, so using one compatible for
-> >> them does not look correct.
-> > 
-> > One compatible can just be matched by one device? I think this is what
-> > confuses me.
+On Wed, 12 Oct 2022 09:33:42 -0400, Krzysztof Kozlowski wrote:
+> On 12/10/2022 09:16, Hal Feng wrote:
+>>>>>> +properties:
+>>>>>> +  compatible:
+>>>>>> +    enum:
+>>>>>> +      - starfive,jh7110-reset
+>>>>>
+>>>>> 'reg' needed? Is this a sub-block of something else?
+>>>>
+>>>> Yes, the reset node is a child node of the syscon node, see patch 27 for detail.
+>>>> You might not see the complete patches at that time due to technical issue of
+>>>> our smtp email server. Again, I feel so sorry about that.
+>>>>
+>>>> 	syscrg: syscrg@13020000 {
+>>>> 		compatible = "syscon", "simple-mfd";
+>>>> 		reg = <0x0 0x13020000 0x0 0x10000>;
+>>>>
+>>>> 		syscrg_clk: clock-controller@13020000 {
+>>>> 			compatible = "starfive,jh7110-clkgen-sys";
+>>>> 			clocks = <&osc>, <&gmac1_rmii_refin>,
+>>>> 				 <&gmac1_rgmii_rxin>,
+>>>> 				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+>>>> 				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
+>>>> 				 <&tdm_ext>, <&mclk_ext>;
+>>>> 			clock-names = "osc", "gmac1_rmii_refin",
+>>>> 				"gmac1_rgmii_rxin",
+>>>> 				"i2stx_bclk_ext", "i2stx_lrck_ext",
+>>>> 				"i2srx_bclk_ext", "i2srx_lrck_ext",
+>>>> 				"tdm_ext", "mclk_ext";
+>>>> 			#clock-cells = <1>;
+>>>> 		};
+>>>>
+>>>> 		syscrg_rst: reset-controller@13020000 {
+>>>> 			compatible = "starfive,jh7110-reset";
+>>>> 			#reset-cells = <1>;
+>>>
+>>> So the answer to the "reg needed?" is what? You have unit address but no
+>>> reg, so this is not correct.
+>> 
+>> Not needed in the reset-controller node, but needed in its parent node. 
 > 
-> I don't understand the question.
+> We do not talk about parent node. Rob's question was in this bindings.
+> Is this document a binding for the parent node or for this node?
 
-If two SoCs have exactly the same device/peripheral then they _can_ use
-the same compatible. If they share some common, viable feature-set then
-one can "fall back" to the other depending on what your Venn diagram of
-common features looks like. I've not been following this too closely,
-but I think what Krzysztof is suggesting is that you have a jh7100 and
-a jh7110 compatible. Then in your driver you just "know" that if you
-match against jh7110 which values to use for register offsets & vice
-versa for a match against the jh7100. There's many examples over the
-tree for how to handle this sort of thing rather than including it in
-the devicetree.
+This node. So not needed.
 
-Maybe Rob and Krzysztof will scream at me for this description, but
-devicetree is about how periperhals etc are connected together in the
-system not about the internals of a given peripheral.
+> 
+>> I am sorry
+>> for missing description to point it out in the bindings. I will rewrite all bindings
+>> for the next version. Unit address here should be deleted.
+>> 
+>>>
+>>>> 			starfive,assert-offset = <0x2F8>;
+>>>> 			starfive,status-offset= <0x308>;
+>>>> 			starfive,nr-resets = <JH7110_SYSRST_END>;
+>>>> 		};
+>>>> 	};
+>>>>
+>>>> In this case, we get the memory mapped space through the parent node with syscon
+>>>> APIs. You can see patch 13 for detail.
+>>>>
+>>>> static int reset_starfive_register(struct platform_device *pdev, const u32 *asserted)
+>>>> {
+>>>
+>>>
+>>> (...)
+>>>
+>>>>
+>>>>>
+>>>>>> +
+>>>>>> +  "#reset-cells":
+>>>>>> +    const: 1
+>>>>>> +
+>>>>>> +  starfive,assert-offset:
+>>>>>> +    description: Offset of the first ASSERT register
+>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>> +
+>>>>>> +  starfive,status-offset:
+>>>>>> +    description: Offset of the first STATUS register
+>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>
+>>>>> These can't be implied from the compatible string?
+>> 
+>> Definitely can. We do this is for simplifying the reset driver.
+> 
+> The role of the bindings is not to simplify some specific driver in some
+> specific OS...
+> 
+>> Otherwise, we may need to define more compatibles because there
+>> are multiple reset blocks in JH7110. Another case can be found at
+>> https://elixir.bootlin.com/linux/latest/source/Documentation/devicetree/bindings/reset/altr,rst-mgr.yaml
+> 
+> And why is this a problem? You have different hardware, so should have
+> different compatibles. Otherwise we would have a compatible
+> "all,everything" and use it in all possible devices.
 
-Following that logic, the devicetree should not contain register offsets
-etc that are a known quanitity once you've determined that you are running
-on vendor,soc-foo.
+Okay, I get it. Thanks a lot.
 
-Hopefully that helps with your confusion somewhat?
-Conor.
-
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
