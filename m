@@ -4,73 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B4CBC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 09:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7B9C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 10:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LwEYx5tK6dOE628kGfGNHv4cNzJjb/zZGryMXYcO1K8=; b=APAIWpp4VEJncx
-	Am65RPQEELJ4o6L3JvO7ESFcKzd+aBhl3+VKStHJqytHL2dytCuL9hHu1nfIfJPK44gUk0fNKelW5
-	r/bb5kHzKW74f25foF0QTazjWypLwTxucCbIKNhbegb4RR6LlnWda9Fv0MAUkFKKDv8k2zaUCDnHh
-	fdjwWUq1UzYC11ErewlGEhgRMyhUJ4Gw1ftSYZiY6RMDB1+zjiys1SuMvv2KTJxKV415K/V2NJJva
-	PWA0hjGs35K3GPjzjdkXiqhCFZbfbGcjm/AUcLEyfBxce+PShU2ABh4sCAM776EF4HU9Zx0EyXvQP
-	UgpSVyb37aw+dUuKOcDg==;
+	List-Owner; bh=RnEnkhjUM4GE144QBYX4SEsquxtjmjhrcng2zzaAY2s=; b=SV69FUcQkdVZyV
+	CYXeMw3L2q6ihfiZBJefYvFpqtt/ZD7dBqj4ERXjnZQRSy40Cn4jBmZH3RPMdyHcpTnsJuDrQX56+
+	rN92tLVlWhZRtfe1bkKx6om4x87Ss9l4ZoL7l6/O73ahCWdfO6te1Gv5V1vbChtWIsDIGJsXfN7UE
+	YT6t3M33lRHO/6WbEOwv4OX1tnrrXKbTN+6ksqarGWAjBpG415wX7ExIiHWpbnvQ++rFRX4C2dl+j
+	72cPalMQjwli/IaBvYbjfkE1q/ReuJBudpFigZNdSKduBzjbfXhSf5ZuBCf8Va7LnAlZf/M7J0sUX
+	9A7w99Qj9tpwwwhRbMgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiYQg-007Z2g-Pp; Wed, 12 Oct 2022 09:53:34 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oiYbg-007aL0-NT; Wed, 12 Oct 2022 10:04:56 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiYQW-007Z0H-H3; Wed, 12 Oct 2022 09:53:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665568404; x=1697104404;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=OPG3s+9CXT0QwJB4pJ7tlvmxNG4ycLF3KJasH+oBYLY=;
-  b=iGeJXWw2Z9XuAATxJaA/OIafGZiG0p7I384AC8B1y4yEH3fuL4SkKfGV
-   aeO/XN/sMmG0tOmSgB/KgvRiOe0qF6cc5LecmmB/wDj9gEqQZpQpCJTBB
-   iKs+dIzEvp9+hUO+ATN6HHE5zRATk32+6baaqyrw/LpTkLObfuP141/1n
-   Fr0KYXHQOrt/VUcYOJAdOik4r6FIT4Q5qji+V8vjmiLTKeeMWOKvfhUFQ
-   zsQ2anJKmd+P66lpbxd11e4Oa8HTmtXUnDShHRGDpyEblxQ3WKEDIXol5
-   PmNP32X6PBU2P9mu2JZvtYjT+aZnV/J28hVdwHlP0VDh0QxzH+NRFlEX9
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.95,178,1661842800"; 
-   d="scan'208";a="118161375"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Oct 2022 02:53:19 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 12 Oct 2022 02:53:16 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 12 Oct 2022 02:53:12 -0700
-Date: Wed, 12 Oct 2022 10:52:50 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, <anup@brainfault.org>,
-	<heiko@sntech.de>, <guoren@kernel.org>, <mick@ics.forth.gr>,
-	<alexandre.ghiti@canonical.com>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <corbet@lwn.net>, <kexec@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <crash-utility@redhat.com>,
-	<heinrich.schuchardt@canonical.com>, <k-hagio-ab@nec.com>,
-	<hschauhan@nulltrace.org>, <yixun.lan@gmail.com>
-Subject: Re: [PATCH V6 0/6] RISC-V fixups to work with crash tool
-Message-ID: <Y0aOcsf06a2+ExrU@wendy>
-References: <mhng-f5fdaa37-e99a-4214-a297-ec81f0fed0c1@palmer-mbp2014>
- <f8d3ae66-73a8-db89-c4c4-918610fb5f35@linux.alibaba.com>
+	id 1oiYbY-007aIs-UY; Wed, 12 Oct 2022 10:04:50 +0000
+Received: by mail-qt1-x835.google.com with SMTP id a24so2295946qto.10;
+        Wed, 12 Oct 2022 03:04:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=R2uNoWDHy+GOry29L6DC1dXWZKJOzJDC9JxozJVSpGE=;
+        b=ZuAn0riuXHel9rEBKRhDJaphdwknBUsVfuUv/T2PqZwW+uHUs0jQAoNTggSP2xYvxV
+         AIPBHcfBEeKUY8XaTwBfDZ4rSHoMsN+0EmQWS+Q65k7ex3GR3DSFMtYWLj5CjjdFW5lS
+         H15Im9ztaYgi/pdTI+XTH4+61vil18OUHSI0xGSAcGYNKUvzy6F36vXqiFhOKG65c2tn
+         Hm9UqrwXHcz71mbsaS1jF9iuBu0ckjr5DhBRLVoVyj42mBo6ELsboWfCQHWyRGQ4tlaj
+         QaFlpQ5WtgjVo1xKNFF2bpP4chzh3RulgtzO05YqhYqIONKukzB/OS4NwSuMzh0mSuvU
+         pMLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R2uNoWDHy+GOry29L6DC1dXWZKJOzJDC9JxozJVSpGE=;
+        b=50/L+Ep9PBDhDCTmNjq6h40euE0ztxaaIkTYKxQMUrUQk+8g95T2Qohi3cXRMpP55U
+         Mg1BpRDi08HU5nIsleAluS1a6vp7ZUso3dS1ouUxwDT33eE9sJ41ZIzMNnBZJp/eZW8N
+         e0lHkrutvXt/5xofqvHMXq0K6i8eGps6h9SgICnrbal63UF0ye2zcpV3Q7GAvZoG5qAZ
+         Wnpms4TwHJa3rmJ75bn4FwMAK1PlikTCFQn+y5ParVBDNi3SE+vaZTU5b9rJ2/pqDRCB
+         eY5S8QugjvFzo7zir+nr5UCwOfc6WmYUegR7nTI9Rld0HuDO138a2kU6mapsfBdhcaBg
+         p5cA==
+X-Gm-Message-State: ACrzQf3lpG1iSLkjgZanSij2QnKUQyipJOpcEUbWR/UpE/MiHP19Jogb
+	V1icaeBPSZNqxfvFwK34ZF8h/ON9MD88DQSX5q8=
+X-Google-Smtp-Source: AMsMyM5ie8LeIoK7BaYP5eKG5FZkx73UfHVDBrIIwi+8uhHlPAnlyvjeeFl/0Iy9XueA0qyfGOPRZ2XY3nQxTptpumo=
+X-Received: by 2002:ac8:7c43:0:b0:35c:cd8f:3da5 with SMTP id
+ o3-20020ac87c43000000b0035ccd8f3da5mr23132665qtv.61.1665569086451; Wed, 12
+ Oct 2022 03:04:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f8d3ae66-73a8-db89-c4c4-918610fb5f35@linux.alibaba.com>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com> <0684f480-2092-d520-2c8e-bd9a2dca47e3@gmail.com>
+In-Reply-To: <0684f480-2092-d520-2c8e-bd9a2dca47e3@gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Wed, 12 Oct 2022 13:04:10 +0300
+Message-ID: <CAHp75VdDjyUAZBTaoPOe5oA3f_5xRznAooq08=Eff4F1AZyVOQ@mail.gmail.com>
+Subject: Re: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
+To: Florian Fainelli <f.fainelli@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Marc Zyngier <maz@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Phil Edworthy <phil.edworthy@renesas.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>, 
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+	linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, 
+	alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	NXP Linux Team <linux-imx@nxp.com>, Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Paul Cercueil <paul@crapouillou.net>, Damien Le Moal <damien.lemoal@wdc.com>, 
+	Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@somainline.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_025330_873174_8BB467E7 
-X-CRM114-Status: GOOD (  36.41  )
+X-CRM114-CacheID: sfid-20221012_030449_045446_062D57D9 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,105 +129,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBPY3QgMTIsIDIwMjIgYXQgMDU6NDI6MzdQTSArMDgwMCwgWGlhbnRpbmcgVGlhbiB3
-cm90ZToKPiAKPiDlnKggMjAyMi84LzEyIOS4iuWNiDEyOjE3LCBQYWxtZXIgRGFiYmVsdCDlhpnp
-gZM6Cj4gPiBPbiBUaHUsIDExIEF1ZyAyMDIyIDAwOjQxOjQ0IFBEVCAoLTA3MDApLAo+ID4geGlh
-bnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbSB3cm90ZToKPiA+ID4gSSBldmVyIHNlbnQgdGhl
-IHBhdGNoIDEgaW4gdGhlIGxpbms6Cj4gPiA+IGh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcv
-cHJvamVjdC9saW51eC1yaXNjdi9wYXRjaC8yMDIyMDcwODA3MzE1MC4zNTI4MzAtMy14aWFudGlu
-Zy50aWFuQGxpbnV4LmFsaWJhYmEuY29tLwo+ID4gPiAKPiA+ID4gQW5kIHBhdGNoIDIsMyBpbiB0
-aGUgbGluazoKPiA+ID4gaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9qZWN0L2xpbnV4
-LXJpc2N2L3BhdGNoLzIwMjIwNzE0MTEzMzAwLjM2Nzg1NC0yLXhpYW50aW5nLnRpYW5AbGludXgu
-YWxpYmFiYS5jb20vCj4gPiA+IAo+ID4gPiBodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3By
-b2plY3QvbGludXgtcmlzY3YvcGF0Y2gvMjAyMjA3MTQxMTMzMDAuMzY3ODU0LTMteGlhbnRpbmcu
-dGlhbkBsaW51eC5hbGliYWJhLmNvbS8KPiA+ID4gCj4gPiA+IAo+ID4gPiBUaGlzIHBhdGNoIHNl
-dCBqdXN0IHB1dCB0aGVzZSBwYXRjaGVzIHRvZ2V0aGVyLCBhbmQgd2l0aCB0aHJlZSBuZXcKPiA+
-ID4gcGF0Y2ggNCwgNSwgNi4KPiA+ID4gdGhlc2Ugc2l4IHBhdGNoZXMgYXJlIHRoZSBmaXh1cHMg
-Zm9yIG1hY2hpbmVfa2V4ZWMsIGtlcm5lbCBtb2RlIFBDCj4gPiA+IGZvciB2bWNvcmUKPiA+ID4g
-YW5kIGltcHJvdmVtZW50cyBmb3Igdm1jb3JlaW5mbywgbWVtb3J5IGxheW91dCBkdW1wIGFuZCBm
-aXh1cAo+ID4gPiBzY2hlZHVsZSBvdXQgaXNzdWUKPiA+ID4gaW4gbWFjaGluZV9jcmFzaF9zaHV0
-ZG93bigpLgo+ID4gPiAKPiA+ID4gVGhlIG1haW4gY2hhbmdlcyBpbiB0aGUgc2l4IHBhdGNocyBh
-cyBiZWxvdywKPiA+ID4gUGF0Y2ggMTogRml4dXAgdXNlIG9mIHNtcF9wcm9jZXNzb3JfaWQoKSBp
-biBwcmVlbXB0aWJsZSBjb250ZXh0LCB0bwo+ID4gPiBjbGVhbnVwCj4gPiA+IMKgwqDCoMKgwqDC
-oMKgwqAgdGhlIGNvbnNvbGUgcHJpbnRzLgo+ID4gPiBQYXRjaCAyOiBGaXh1cCB0byBnZXQgY29y
-cmVjdCBrZXJuZWwgbW9kZSBQQyBmb3Iga2VybmVsIG1vZGUgcmVncwo+ID4gPiBmb3Igdm1jb3Jl
-Lgo+ID4gPiBQYXRjaCAzOiBGaXh1cCBzY2hlZHVsZSBvdXQgaXNzdWUgaW4gbWFjaGluZV9jcmFz
-aF9zaHV0ZG93bigpCj4gPiA+IFBhdGNoIDQ6IEFkZCBtb2R1bGVzIHRvIHZpcnR1YWwga2VybmVs
-IG1lbW9yeSBsYXlvdXQgZHVtcC4KPiA+ID4gUGF0Y2ggNTogQWRkIFZNIGxheW91dCwgdmEgYml0
-cywgcmFtIGJhc2UgdG8gdm1jb3JlaW5mbywgd2hpY2ggY2FuCj4gPiA+IHNpbXBsaWZ5Cj4gPiA+
-IMKgwqDCoMKgwqDCoMKgwqAgdGhlIGRldmVsb3BtZW50IG9mIGNyYXNoIHRvb2wgYXMgQVJNNjQg
-YWxyZWFkeSBkaWQKPiA+ID4gwqDCoMKgwqDCoMKgwqDCoCAoYXJjaC9hcm02NC9rZXJuZWwvY3Jh
-c2hfY29yZS5jKS4KPiA+ID4gUGF0Y2ggNjogVXBkYXRlcyB2bWNvcmVpbmZvLnJzdCBmb3Igdm1j
-b3JlaW5mbyBleHBvcnQgZm9yIFJJU0NWNjQuCj4gPiA+IAo+ID4gPiBXaXRoIHRoZXNlIHNpeCBw
-YXRjaGVzKHBhdGNoIDIgaXMgbXVzdCksIGNyYXNoIHRvb2wgY2FuIHdvcmsgd2VsbCB0bwo+ID4g
-PiBhbmFseXplCj4gPiA+IGEgdm1jb3JlLiBUaGUgcGF0Y2hlcyBmb3IgY3Jhc2ggdG9vbCBmb3Ig
-UklTQ1Y2NCBpcyBpbiB0aGUgbGluazoKPiA+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
-dXgtcmlzY3YvMjAyMjA4MDEwNDMwNDAuMjAwMzI2NC0xLXhpYW50aW5nLnRpYW5AbGludXguYWxp
-YmFiYS5jb20vCj4gPiA+IAo+ID4gPiAKPiA+ID4gLS0tLS0tCj4gPiA+IENoYW5nZXMgdjEgLT4g
-djI6Cj4gPiA+IMKgIDEsIHJlbW92ZSB0aGUgcGF0Y2ggIkFkZCBhIGZhc3QgY2FsbCBwYXRoIG9m
-IGNyYXNoX2tleGVjKCkiIGZyb20KPiA+ID4gdGhpcyBzZXJpZXMKPiA+ID4gwqDCoMKgwqAgb2Yg
-cGF0Y2hlcywgYXMgaXQgYWxyZWFkeSBhcHBsaWVkIHRvIHJpc2N2IGdpdC4KPiA+ID4gaHR0cHM6
-Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0
-L2NvbW1pdC8/aD1mb3ItbmV4dCZpZD0zZjE5MDExMTBhODliMGUyZTEzYWRiMmFjOGQxYTcxMDI4
-NzllYTk4Cj4gPiA+IMKgIDIsIGFkZCAnUmV2aWV3ZWQtYnknIGJhc2VkIG9uIHRoZSBjb21tZW50
-cyBvZiB2MS4KPiA+ID4gQ2hhbmdlcyB2MiAtPiB2MzoKPiA+ID4gwqAgdXNlICJyaXNjdiIgaW5z
-dGVhZCBvZiAicmlzY3Y2NCIgaW4gcGF0Y2ggNSBzdWJqZWN0IGxpbmUuCj4gPiA+IENoYW5nZXMg
-djMgLT4gdjQ6Cj4gPiA+IMKgIHVzZSAicmlzY3YiIGluc3RlYWQgb2YgInJpc2N2NjQiIGluIHRo
-ZSBzdW1tYXJ5IG9mIHBhdGNoIDUgc3ViamVjdAo+ID4gPiBsaW5lLgo+ID4gPiBDaGFuZ2VzIHY0
-IC0+IHY1Ogo+ID4gPiDCoCBhZGQgYSBuZXcgcGF0Y2ggIlJJU0MtVjogRml4dXAgc2NoZWR1bGUg
-b3V0IGlzc3VlIGluCj4gPiA+IG1hY2hpbmVfY3Jhc2hfc2h1dGRvd24oKSIKPiA+ID4gQ2hhbmdl
-cyB2NSAtPiB2NjoKPiA+ID4gwqAgMSwgbW92ZSAiZml4dXAiIHBhdGNoZXMgdG8gdGhlIHN0YXJ0
-IG9mIHRoZSBwYXRjaCBzZXQuCj4gPiA+IMKgIDIsIGNoYW5nZSBwYXRjaCAxLCAyLCA2J3Mgc3Vi
-amVjdCB0byBtYWtlIGl0IHRlbGwgbW9yZSB3aGF0IGl0J3MKPiA+ID4gYWJvdXQuCj4gPiA+IMKg
-IDMsIGFkZCBGaXhlcyBmb3IgcGF0Y2ggMy4KPiA+ID4gwqAgNCwgYWRqdWVzdCB0aGUgY2hhbmdl
-cyBmb3JtYXQgZm9yIHBhdGNoIDYuCj4gPiA+IAo+ID4gPiAKPiA+ID4gWGlhbnRpbmcgVGlhbiAo
-Nik6Cj4gPiA+IMKgIFJJU0MtVjoga2V4ZWM6IEZpeHVwIHVzZSBvZiBzbXBfcHJvY2Vzc29yX2lk
-KCkgaW4gcHJlZW1wdGlibGUgY29udGV4dAo+ID4gPiDCoCBSSVNDLVY6IEZpeHVwIGdldCBpbmNv
-cnJlY3QgdXNlciBtb2RlIFBDIGZvciBrZXJuZWwgbW9kZSByZWdzCj4gPiA+IMKgIFJJU0MtVjog
-Rml4dXAgc2NoZWR1bGUgb3V0IGlzc3VlIGluIG1hY2hpbmVfY3Jhc2hfc2h1dGRvd24oKQo+ID4g
-PiDCoCBSSVNDLVY6IEFkZCBtb2R1bGVzIHRvIHZpcnR1YWwga2VybmVsIG1lbW9yeSBsYXlvdXQg
-ZHVtcAo+ID4gPiDCoCBSSVNDLVY6IEFkZCBhcmNoX2NyYXNoX3NhdmVfdm1jb3JlaW5mbyBzdXBw
-b3J0Cj4gPiA+IMKgIERvY3VtZW50YXRpb246IGtkdW1wOiBkZXNjcmliZSBWTUNPUkVJTkZPIGV4
-cG9ydCBmb3IgUklTQ1Y2NAo+ID4gPiAKPiA+ID4gwqAuLi4vYWRtaW4tZ3VpZGUva2R1bXAvdm1j
-b3JlaW5mby5yc3TCoMKgwqDCoMKgwqDCoMKgwqAgfCAzMSArKysrKysrKysrKysrKysrKysrCj4g
-PiA+IMKgYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCB8wqAgMSArCj4gPiA+IMKgYXJjaC9yaXNjdi9rZXJuZWwvY3Jhc2hfY29y
-ZS5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMjkgKysrKysrKysrKysrKysrKysK
-PiA+ID4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9jcmFzaF9zYXZlX3JlZ3MuU8KgwqDCoMKgwqDCoMKg
-wqDCoMKgIHzCoCAyICstCj4gPiA+IMKgYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhlYy5j
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgMjggKysrKysrKysrKysrKystLS0KPiA+ID4gwqBh
-cmNoL3Jpc2N2L21tL2luaXQuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIHzCoCA0ICsrKwo+ID4gPiDCoDYgZmlsZXMgY2hhbmdlZCwgODkgaW5zZXJ0
-aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKPiA+ID4gwqBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9y
-aXNjdi9rZXJuZWwvY3Jhc2hfY29yZS5jCj4gPiAKPiA+IFRoYW5rLsKgIEkndmUgdGFrZW4gdGhl
-IGZpcnN0IDQgb250byBmb3ItbmV4dCwgd2hpY2ggaXMgc3RpbGwgdGFyZ2V0ZWQKPiA+IGZvciA1
-LjIwLCBhcyB0aGV5J3JlIGZpeGVzLsKgIEknbSBub3Qgb3Bwb3NlZCB0byB0YWtpbmcgdGhlIGRv
-Y3VtZW50YXRpb24KPiA+IHBhdGNoIGZvciB0aGlzIGN5Y2xlIGFzIHdlbGwsIGl0IGp1c3QgbmVl
-ZHMgc29tZSBnb2luZy1vdmVyIGFzIHRoZQo+ID4gd29yZGluZyBsb29rcyB2ZXJ5IG9kZCAob3Ig
-YXQgbGVhc3QgaXQgZG9lcyB0byBtZSByaWdodCBub3csIG1heWJlIEknbQo+ID4ganVzdCBzdGls
-bCBoYWxmIGFzbGVlcCkuwqAgUGF0Y2ggNSBpcyBhIG5ldyBmZWF0dXJlLCBhbmQgZ2l2ZW4gdGhh
-dCBpdCdzCj4gPiBiZWluZyBzcHVuIGR1cmluZyB0aGUgbWVyZ2Ugd2luZG93IGl0J3MgdG9vIGxh
-dGUuCj4gCj4gSGkgUGFsbWVyCj4gCj4gRG8geW91IHBsYW4gdG8gbWVyZ2UgdGhlIHR3byBwYXRj
-aCB0byBMaW51eCA2LjEgdG8gc3VwcG9ydCBjcmFzaCB0b29sIHdvcms/wqAKPiB0aGFua3MKPiAK
-PiDCoCBSSVNDLVY6IGtleGVjOiBGaXh1cCB1c2Ugb2Ygc21wX3Byb2Nlc3Nvcl9pZCgpIGluIHBy
-ZWVtcHRpYmxlIGNvbnRleHQKCjM1NzYyOGU2OGY1YyAoIlJJU0MtVjoga2V4ZWM6IEZpeHVwIHVz
-ZSBvZiBzbXBfcHJvY2Vzc29yX2lkKCkgaW4gcHJlZW1wdGlibGUgY29udGV4dCIKCj4gwqAgUklT
-Qy1WOiBGaXh1cCBnZXQgaW5jb3JyZWN0IHVzZXIgbW9kZSBQQyBmb3Iga2VybmVsIG1vZGUgcmVn
-cwoKNTljMDI2YzM1OWMzICgiUklTQy1WOiBGaXh1cCBnZXQgaW5jb3JyZWN0IHVzZXIgbW9kZSBQ
-QyBmb3Iga2VybmVsIG1vZGUgcmVncyIpCgpIZXkgWGlhbnRpbmcsIHRob3NlIHR3byBjb21taXRz
-IGFscmVhZHkgc2VlbSB0byBoYXZlIGJlZW4gYXBwbGllZCwgZG8KeW91IHBlcmhhcHMgaW5zdGVh
-ZCBtZWFuIHRoZSBkb2N1bWVudGF0aW9uIHBhdGNoIGFuZCB0aGUgYWRkaXRpb24gb2YKc3VwcG9y
-dCBmb3IgYXJjaF9jcmFzaF9zYXZlX3ZtY29yZWluZm8/IEkgcmVjYWxsZWQgYXNraW5nIGlmIHlv
-dSBuZWVkZWQKdG8gcmVzcGluIGF0IHRoZSB0aW1lLCBidXQgZG8gbm90IHNlZSBhIHJlc3BvbnNl
-OgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8zOWZkYzg1ZS1iMmQ1LTg2M2Mt
-NDg3OC00YjMzODBkNzZiYzRAbWljcm9jaGlwLmNvbS8KSUlSQyBCYWdhcyBoYWQgc29tZSBvdXRz
-dGFuZGluZyBjb21tZW50cyBvbiB0aGUgZG9jdW1lbnRhdGlvbiBjaGFuZ2UKdG9vLiBXYXMgSSBp
-bmNvcnJlY3Q/CgpUaGFua3MsCkNvbm9yLgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Tue, Oct 11, 2022 at 11:56 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
+> On 10/10/2022 1:14 PM, Andy Shevchenko wrote:
+> > Currently the header inclusion inside the pinctrl headers seems more arbitrary
+> > than logical. This series is basically out of two parts:
+> > - add missed headers to the pin control drivers / users
+> > - clean up the headers of pin control subsystem
+> >
+> > The idea is to have this series to be pulled after -rc1 by the GPIO and
+> > pin control subsystems, so all new drivers will utilize cleaned up headers
+> > of the pin control.
+> >
+> > Please, review and comment.
+>
+> Did you really need to split this on a per-driver basis as opposed to
+> just a treewide drivers/pinctrl, drivers/media and drivers/gpiolib patch
+> set?
+>
+> 36 patches seems needlessly high when 4 patches could have achieve the
+> same outcome.
+
+I can combine them if maintainers ask for that, nevertheless for Intel
+pin control and GPIO drivers, which I care more about, I would like to
+leave as separate changes (easy to see in history what was done).
+
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
