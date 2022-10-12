@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2BCC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 09:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B74C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 09:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7BN8anSX4hrMpyC15OLLR99pe1IiHhiD4yfl58J4sPM=; b=Ho2Hkfne3Bh1lN
-	35Qc0sMkLzZWSQWo78N9pvaBvcoK7132HzEfTelw8uFZmuM176Tea4844Fe4tknTB/IXOOr9e88My
-	5HpIJozTakQpQWEa1IgpuaXKnkbuWl/08aao28jSCV52hDbYf8QZiUEfHDfyNlAzpJ12BXjUGuNuv
-	QfTt3I04rYy7GwZpnkkYFmTDhtmTvWDOpyKLXFuM+2l3Th5UcR6+DZa7YAmsSQPeBjhzBoTpsUEt+
-	2Q37hR2psgcoG8vjEfTDCvGo/qAs318ltvZuEk6hR4gR+9Uj8pyWjiIR7sNJoRk3cKnu4uIQ9JLn9
-	sirdf5WWgSSE1W8xJR9w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Cc:To
+	:Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sK2mXbmu5+NVe8NHXe+3PQ+egEuWPyX3+q77RUEWQEM=; b=rZkTvhlKZNCYNO829hx8mbcah4
+	+VpadyDoWqIe19Rv2ql4sRWtuUqhkbhOJ7VTrtchQx/Im4SgAIqiPAdhw/OCEvx8/buYAY5I9amwq
+	sWyAPyQO+gWhDGWJNQROamfx6hlKDD0uvEuldezaasKiLVdLcLc+rVpPnqpx9MwDRFNk12z71Fk49
+	Iklp+H798VU+MkKysBNIOEyNesGJArz6XF1YFAZHuMdOpHB0njXvq2brgjZvy0qki1V9OaO0Kvi2y
+	lESKbTY6GG8sXeOiMqammuy37lS0GAlbjo0aWSxTuDc/ZS8bdSaqBObS0W/4MMhzEiH6jKrLlbqUZ
+	znJ0pu3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiXjD-007TCC-JV; Wed, 12 Oct 2022 09:08:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oiXqb-007UMA-Pm; Wed, 12 Oct 2022 09:16:17 +0000
+Received: from aposti.net ([89.234.176.197])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiXj6-007TBH-Hq
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 09:08:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665565712; x=1697101712;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=frqKpQ/GfZmnAadzzaN+14iYXqvO5TCT0DXBBbMT2eA=;
-  b=T6iPvBCIY6QEfCRQJR0aP5tntN5RAUJ+hcGwmHDdFa3tl6X8fy9bJKv3
-   rJn+IZSphhiljk0JbQDbUMUVjr9KaAsd7rSAgEnr65s0SW7C5TU9p/xv0
-   Ps5xCeEs9Ih5wTJqyXFDSZnGO0Kq5fGo1nECOqWOSO7kKF2GGV0swAFyH
-   3eDKcelx/MGkCgmNuXWsrS6edMq9ZWdQZvJa7yuJ7JpZz64t8On2/oc+O
-   DqeWJayjvOJj646bbuzw5mTP7ncFP8Uxg44LbdDRIGFVZFrg1/txL6EBr
-   cHwj6yBjVy7rdLfAPN4M9lUvDQWphQD4k+IVsNZGvT3MoSFE+E/n2fIHJ
-   g==;
-X-IronPort-AV: E=Sophos;i="5.95,178,1661842800"; 
-   d="scan'208";a="184456017"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Oct 2022 02:08:27 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 12 Oct 2022 02:08:27 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 12 Oct 2022 02:08:26 -0700
-Date: Wed, 12 Oct 2022 10:08:03 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Yury Norov <yury.norov@gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Fix /proc/cpuinfo cpumask warning
-Message-ID: <Y0aD81hx9Cn6sa6C@wendy>
-References: <20221012082949.1801222-1-ajones@ventanamicro.com>
+	id 1oiXqQ-007UJu-Sr; Wed, 12 Oct 2022 09:16:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+	s=mail; t=1665566157; h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s+g0+ssYTgL3cZkE5/H6taOX78xERs3DGn3pyH5uewU=;
+	b=q1TTDkSv+2wywK6AIXiGaOkH7iZ2YU3VEKYOBAZiyQM7JBPfmc8c6P2ZhHrYUGYo8pdYOS
+	dts7t4kZKIQ9e1u3iLHUzQuRMcbtwmO5Z8KpYm4wJCUKd79SLah8Tf9+RyDQWaVWq5AUrm
+	d0C/wxgx1Yk/JFU/GDZxLIKL5vEmKNw=
+Date: Wed, 12 Oct 2022 10:15:29 +0100
+From: Paul Cercueil <paul@crapouillou.net>
+Subject: Re: [PATCH v2 11/36] pinctrl: ingenic: Add missed header(s)
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Kent Gibson <warthog618@gmail.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland
+	<samuel@sholland.org>, Horatiu Vultur <horatiu.vultur@microchip.com>,
+	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>, Bjorn Andersson
+	<bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Phil Edworthy
+	<phil.edworthy@renesas.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>, Fabien Dessenne
+	<fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>,
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
+	alsa-devel@alsa-project.org, patches@opensource.cirrus.com,
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
+	Andreas =?iso-8859-1?q?F=E4rber?= <afaerber@suse.de>, Manivannan Sadhasivam
+	<mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley
+	<joel@jms.id.au>, Florian Fainelli <f.fainelli@gmail.com>, Ray Jui
+	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald
+	<rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>,
+	NXP Linux Team <linux-imx@nxp.com>, Andy Shevchenko <andy@kernel.org>,
+	Sean Wang <sean.wang@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	<sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>,
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>, Ludovic Desroches
+	<ludovic.desroches@microchip.com>, Nicolas Ferre
+	<nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, Damien Le Moal
+	<damien.lemoal@wdc.com>, Tony Lindgren <tony@atomide.com>, Haojian Zhuang
+	<haojian.zhuang@linaro.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Michal Simek
+	<michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>, Konrad Dybcio
+	<konrad.dybcio@somainline.org>, Tomasz Figa <tomasz.figa@gmail.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim
+	<shiraz.linux.kernel@gmail.com>, soc@kernel.org, Orson Zhai
+	<orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu
+	<mhiramat@kernel.org>
+Message-Id: <T1VMJR.YAQIRYFT8EC22@crapouillou.net>
+In-Reply-To: <20221010201453.77401-12-andriy.shevchenko@linux.intel.com>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+	<20221010201453.77401-12-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221012082949.1801222-1-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_020832_689544_97008CB9 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20221012_021607_113545_6744733F 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +116,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 12, 2022 at 10:29:49AM +0200, Andrew Jones wrote:
-> Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") has
-> started issuing warnings[*] when cpu indices equal to nr_cpu_ids - 1
-> are passed to cpumask_next* functions. seq_read_iter() and cpuinfo's
-> start and next seq operations implement a pattern like
-> 
->   n = cpumask_next(n - 1, mask);
->   show(n);
->   while (1) {
->       ++n;
->       n = cpumask_next(n - 1, mask);
->       if (n >= nr_cpu_ids)
->           break;
->       show(n);
->   }
-> 
-> which will issue the warning when reading /proc/cpuinfo. Ensure no
-> warning is generated by validating the cpu index before calling
-> cpumask_next().
-> 
-> [*] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
-> 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> Cc: Yury Norov <yury.norov@gmail.com>
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks
+Le lun., oct. 10 2022 at 23:14:27 +0300, Andy Shevchenko =
+
+<andriy.shevchenko@linux.intel.com> a =E9crit :
+> Do not imply that some of the generic headers may be always included.
+> Instead, include explicitly what we are direct user of.
+> =
+
+> While at it, sort headers alphabetically.
+> =
+
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+Reviewed-by: Paul Cercueil <paul@crapouillou.net>
+
+Cheers,
+-Paul
 
 > ---
-> v2:
->   - Got comments on the x86 equivalent patch and made the same
->     changes to this one
->     - Added all the information I should have in the first place
->       to the commit message [Boris]
->     - Changed style of fix [Boris]
-> 
-> 
->  arch/riscv/kernel/cpu.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 4aa8cd749441..63138b880b92 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -166,6 +166,9 @@ static void print_mmu(struct seq_file *f)
->  
->  static void *c_start(struct seq_file *m, loff_t *pos)
->  {
-> +	if (*pos >= nr_cpu_ids)
-> +		return NULL;
+>  drivers/pinctrl/pinctrl-ingenic.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> =
+
+> diff --git a/drivers/pinctrl/pinctrl-ingenic.c =
+
+> b/drivers/pinctrl/pinctrl-ingenic.c
+> index 7e732076dedf..dbc25a60fbff 100644
+> --- a/drivers/pinctrl/pinctrl-ingenic.c
+> +++ b/drivers/pinctrl/pinctrl-ingenic.c
+> @@ -14,16 +14,18 @@
+>  #include <linux/kernel.h>
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/of.h>
+> -#include <linux/pinctrl/pinctrl.h>
+> -#include <linux/pinctrl/pinmux.h>
+> -#include <linux/pinctrl/pinconf.h>
+> -#include <linux/pinctrl/pinconf-generic.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/property.h>
+>  #include <linux/regmap.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/slab.h>
+> =
+
+> +#include <linux/pinctrl/consumer.h>
+> +#include <linux/pinctrl/pinconf-generic.h>
+> +#include <linux/pinctrl/pinconf.h>
+> +#include <linux/pinctrl/pinctrl.h>
+> +#include <linux/pinctrl/pinmux.h>
 > +
->  	*pos = cpumask_next(*pos - 1, cpu_online_mask);
->  	if ((*pos) < nr_cpu_ids)
->  		return (void *)(uintptr_t)(1 + *pos);
-> -- 
-> 2.37.3
-> 
+>  #include "core.h"
+>  #include "pinconf.h"
+>  #include "pinmux.h"
+> --
+> 2.35.1
+> =
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
