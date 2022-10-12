@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E03BC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018C8C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cKhnCWhFxcSyzzWcjGdSWC3h+sG1E/g6HLFT0BBa4o0=; b=zdyxw+v/JRGXxi
-	SbJ5TDInOo6Js3V2X/VhXoLGAkW8pVkvRPXEpcvtKeru1rWDe6GPt3icHx9NIuGnAgGr6Z6KFkC/O
-	5LzDFJnOiobxQk/jC4LDB+ohFBmoa8o2xCfGktygsEB1bo1GWYBL3VGeB6C3cHoCb/B+y/QKzLhoi
-	BbXAg/6GztXt43F0FEM07GWlB+YrgAauUESZUETM3Wl4zOrRWBH7jejOO9TrvDFZQCNENuXFa8o4c
-	0amTlYfY9g/Mte/BIqwRhlCEs6s3wcjRWdws4eAcqKanh7QQ1KOI5n3TvFKf7l74feTPfL4CCADH/
-	vSa1ZPY9CKnpqSGmkCBg==;
+	List-Owner; bh=pgtekmmtyETk94N2QtwDM2D3/7cgJfHNVdEKO9g0MNw=; b=CP/TOL23fZIPX/
+	nyIvSb5NMK/EBGa17R+tad23eFlpnnjLeix61+meykiBAsaMDTrpoS9tUEsv89vISAIWVG0fg+2eW
+	plVE4gGt1V0IjjPW0IpKTijCSXOq5035BornZpJDU4DpCa4Gt63w75tYzfNfbeKv6GG/qpR19lG7Q
+	VgDPXGL9xLGBGhan9pD8Q1gKDmiOymJLzoxJmADJbnyeWeae5phUWTLC1FzQh9GUp4ZGpZoIe8PCe
+	1LmGIbEZ1eRRLdES33iF5a0efUUTxhvM3cAOLCmJZuQszkKCOXSVtf0FchW1/sHWIL5t0INjszEVM
+	T0UnhXrFTPm2pcMUpplA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibzI-008FDr-Rt; Wed, 12 Oct 2022 13:41:32 +0000
-Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
+	id 1oicCQ-008Hof-Sc; Wed, 12 Oct 2022 13:55:06 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibzF-008FCA-Eg
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 13:41:30 +0000
-Received: by mail-vs1-xe2d.google.com with SMTP id a2so11776096vsc.13
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 06:41:27 -0700 (PDT)
+	id 1oicCD-008Hka-Ml; Wed, 12 Oct 2022 13:54:54 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id p3-20020a17090a284300b0020a85fa3ffcso2055439pjf.2;
+        Wed, 12 Oct 2022 06:54:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZNaONkodKU8wuhjhY6olb/IOl+q0m7F2XRj580RmVHU=;
-        b=MhofUUXYT3tMT7oMQ+a5cs30JJ4oxfDawPPGaNHs4RrO+MqfLXIzE6Vb5DKawierXs
-         kBBWD3mF1Svm6j9Bk5Efo8SKBS5fj6LsDKyEmMxd5p0ScJj20zY+wLFWDFX1sZXmYeJ/
-         yWckjMTjg1kGb4YuR9giH8xD/PNg8MUWv2eYl9tOaB5OfqGP2zi7LJBFBubdEXhp/HV+
-         j+5m0uu7Q1SsV6RdzOqsXmbDVQflTXfn91nd0Mdh0lhhC7P6rLZL9otgU9vIRf6PgSsf
-         z0Qnd9DGQkDU0625sqluJJofMfWEk7nI+eWAuHsOJE75dWE7ddsUzxYpTiub0k/WZSKE
-         iotw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4W9PYnqE39FVIWPtx23Tk+GKt7RrA3d27Hf1sKJ7FqQ=;
+        b=UozGTu6YyIYkQQoEJ9mpP/ZP9EXBHkczxk9/ST0nwoYD5CXIifS1ksxnJ1z/XlD8Iv
+         DnXdQDc3QD5BBRt/elc/g3MpiMLgBMvz47ICmyWRQUwskodG72pwSD0FvOfnFwxR4gNT
+         0Nv0c1ZEd9a//beEgotrvzkxpjlIn11dOn3z2tb/KyektIxRp3AMw9k8NLnKlAlJMfAZ
+         ZW00APC6mm2Rgc0I9F6MtW+FIkz4pX/PUfBY7jV2tV/BJmcb7sxvPImZbSg5MEvkpS1A
+         VQqSmx00wjuq8wBY7o0koQO6OL1C+JRHOCj4nWqmVRt4CML82YQgP9dT0rzT4hrO952e
+         5MGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZNaONkodKU8wuhjhY6olb/IOl+q0m7F2XRj580RmVHU=;
-        b=JgV7W8jPSHGn8G3DEN//KLV8YJIWlVfVyeRwANg129vcoki8LnTzlooCtk3VpJ+qly
-         bRqfwQ88gSqf6p3ZVPDlQv0ed4dekZeKZ9SYh3k3SbssurvAeEkGWiJi2iUh6sKOncju
-         bDWUgLy/ylkJStHFkAn25XfYD1/hKN/fEeDbsKhzCpFqu6Laelc80FYnsfBezREDDuyb
-         86iCP0xOWyBmLC66xsGxCqb3dDjeivSqsuEI5oHW+p0HLI+PJIpPSM4DGL6sHTkPUikD
-         hSwsUr3K9FPpNRpqxx5o4AdyxNZ5V5w9E+bb8721Tmwp0HwuYMQUmsEsWvjxXDkdKSqa
-         2/9w==
-X-Gm-Message-State: ACrzQf0362m5os2OsfQmN8OktQVTPRwp9Du/zqVKlCHW2jM62sJdbqJK
-	qhz55feo9yi5OAlI/Z6etKtiDL/Lkqq1lh6qOJw=
-X-Google-Smtp-Source: AMsMyM5+q5LtrcFWQspxCt566WeBlBUnLhzlSoIIWh3N2hJAuyYFmaM4pCXOCmY1Vj++tYwP0S9AlrvwQVCWofodsZI=
-X-Received: by 2002:a05:6102:31b6:b0:3a6:eeec:a566 with SMTP id
- d22-20020a05610231b600b003a6eeeca566mr14831683vsh.28.1665582087089; Wed, 12
- Oct 2022 06:41:27 -0700 (PDT)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4W9PYnqE39FVIWPtx23Tk+GKt7RrA3d27Hf1sKJ7FqQ=;
+        b=xYmGoTZ73Qrc+BAnGQOXbbpODwXd3zQXeAnMvK50JtFeQrU7DEJ0Dey6t2P+7iJFmA
+         h2M/DUuw854bpdejmikInwrUObKu3KM8cm7v6WNTgqNLhUYPK2VEd9mSY/1+uDTizPaa
+         Da2b1RteK2D1beqOJ+IVEB4kCPpVSvKfoqXc1jM9Dsbtmx+fkTOr2pMnqKO+7wTxkGwe
+         0h+1SLOZmpgtgF2H8vZItgKNN9VetfpbMwFkTf0kCyJSi/Hu0+TlX0zel0DRrjxT2TAb
+         Q0Swpgm4T4dCzk7QQFIUmPu1muwkDgH2d1kIX5o7bL0675KgJAE4hKv86xgTnmBZNHb8
+         a30g==
+X-Gm-Message-State: ACrzQf12nmJSkmOXwnSF/Xn8ZpcQDlP4c+UcH96Th7hnfEPm0zZFJnwR
+	V6wlT0a66LY0eLLXT9zOTU4=
+X-Google-Smtp-Source: AMsMyM4GsOvqLbKi8bnipwZei9bul2eCxZ/xzZEAA7xagdE0qfFC/6Wvyu2i9hoIPRYsb/0vz6gCvA==
+X-Received: by 2002:a17:90a:f2c3:b0:20b:b75f:2f9e with SMTP id gt3-20020a17090af2c300b0020bb75f2f9emr5408380pjb.43.1665582890145;
+        Wed, 12 Oct 2022 06:54:50 -0700 (PDT)
+Received: from sol (110-174-58-111.static.tpgi.com.au. [110.174.58.111])
+        by smtp.gmail.com with ESMTPSA id s20-20020aa78bd4000000b00562f6df42f1sm8959924pfd.152.2022.10.12.06.54.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Oct 2022 06:54:49 -0700 (PDT)
+Date: Wed, 12 Oct 2022 21:54:39 +0800
+From: Kent Gibson <warthog618@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
+	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 02/36] gpiolib: cdev: Add missed header(s)
+Message-ID: <Y0bHH06cbngWk4mH@sol>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-3-andriy.shevchenko@linux.intel.com>
+ <Y0SyVwjDl7NGfTPn@sol>
+ <Y0bBXSHyxpdTGxoU@smile.fi.intel.com>
 MIME-Version: 1.0
-References: <20221012082949.1801222-1-ajones@ventanamicro.com>
- <Y0a5QYWzEwRlGtxf@yury-laptop> <20221012131325.oc7onxqo7t46wxq5@kamzik>
-In-Reply-To: <20221012131325.oc7onxqo7t46wxq5@kamzik>
-From: Yury Norov <yury.norov@gmail.com>
-Date: Wed, 12 Oct 2022 06:41:16 -0700
-Message-ID: <CAAH8bW9z6D_DRCAvQi5BUN9dh82LBZwGd-GWa8r+MFc=xs6xVw@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Fix /proc/cpuinfo cpumask warning
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+Content-Disposition: inline
+In-Reply-To: <Y0bBXSHyxpdTGxoU@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_064129_521835_6FAB1AF1 
-X-CRM114-Status: GOOD (  34.29  )
+X-CRM114-CacheID: sfid-20221012_065453_761292_5026B185 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +102,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 12, 2022 at 6:13 AM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Wed, Oct 12, 2022 at 05:55:29AM -0700, Yury Norov wrote:
-> > On Wed, Oct 12, 2022 at 10:29:49AM +0200, Andrew Jones wrote:
-> > > Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") has
-> > > started issuing warnings[*] when cpu indices equal to nr_cpu_ids - 1
-> > > are passed to cpumask_next* functions. seq_read_iter() and cpuinfo's
-> > > start and next seq operations implement a pattern like
-> > >
-> > >   n = cpumask_next(n - 1, mask);
-> > >   show(n);
-> > >   while (1) {
-> > >       ++n;
-> > >       n = cpumask_next(n - 1, mask);
-> > >       if (n >= nr_cpu_ids)
-> > >           break;
-> > >       show(n);
-> > >   }
-> >
-> > Can you instead of sudo-code print show the real control flow? What
-> > function hosts the infinite loop?
->
-> The function is seq_read_iter(), which is pointed out above. I'd rather
-> not reproduce / describe more than what I've done here, as the function
-> is large. I'd be happy for reviewers to double check my pseudocode to
-> make sure I got it and the analysis right, though.
->
-> >
-> > > which will issue the warning when reading /proc/cpuinfo. Ensure no
-> > > warning is generated by validating the cpu index before calling
-> > > cpumask_next().
-> > >
-> > > [*] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
-> > >
-> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > > Cc: Yury Norov <yury.norov@gmail.com>
-> > > ---
-> > > v2:
-> > >   - Got comments on the x86 equivalent patch and made the same
-> > >     changes to this one
-> > >     - Added all the information I should have in the first place
-> > >       to the commit message [Boris]
-> > >     - Changed style of fix [Boris]
-> > >
-> > >
-> > >  arch/riscv/kernel/cpu.c | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > > index 4aa8cd749441..63138b880b92 100644
-> > > --- a/arch/riscv/kernel/cpu.c
-> > > +++ b/arch/riscv/kernel/cpu.c
-> > > @@ -166,6 +166,9 @@ static void print_mmu(struct seq_file *f)
-> > >
-> > >  static void *c_start(struct seq_file *m, loff_t *pos)
-> > >  {
-> > > +   if (*pos >= nr_cpu_ids)
-> > > +           return NULL;
-> > > +
-> > >     *pos = cpumask_next(*pos - 1, cpu_online_mask);
-> > >     if ((*pos) < nr_cpu_ids)
-> > >             return (void *)(uintptr_t)(1 + *pos);
-> >
-> > OK, as far as I understood your explanations, *pos == nr_cpu_ids
-> > is a valid index because it's used as stop-code for traversing.
-> >
-> > However, you're completely silencing cpumask_check(), including
-> > those cases where *pos > nr_cpu_ids. I suspect there's no valid
-> > cases for it. If so, the patch should look like:
-> >
-> >  +    if (*pos == nr_cpu_ids)
-> >  +            return NULL;
-> >  +
->
-> That makes sense and it's probably worth a v3. I'll wait and see if more
-> comments roll in before sending though.
->
-> >
-> > The same for x86 patch.
-> >
-> > If it comes to v3, can you send both as a series?
->
-> OK. I'll write a cover letter trying to explain that I don't expect them
-> to both go through the same tree.
+On Wed, Oct 12, 2022 at 04:30:05PM +0300, Andy Shevchenko wrote:
+> On Tue, Oct 11, 2022 at 08:01:27AM +0800, Kent Gibson wrote:
+> > On Mon, Oct 10, 2022 at 11:14:18PM +0300, Andy Shevchenko wrote:
+> 
+> ...
+> 
+> > > -#include <linux/gpio.h>
+> > >  #include <linux/gpio/driver.h>
+> > > +#include <linux/gpio.h>
+> 
+> > But moving the gpio subsystem header after the gpio/driver is not
+> > alphabetical ('.' precedes '/') and it read better and made more sense
+> > to me the way it was.
+> 
+> Okay, I will move it back.
+> 
+> ...
+> 
+> > > +#include <linux/seq_file.h>
+> > 
+> > I wasn't aware that we use anything from seq_file.
+> > What am I missing?
+> 
+> 
+> Eventually I can answer to your question: the commit 0ae3109a8391
+> ("gpiolib: cdev: add fdinfo output for line request file descriptors")
+> is what you are missing.
+> 
+> That said, we need this patch.
+> 
 
-I can take it in my tree, if it helps.
+Ah, yes - totally forgot that one is in flight.
+That makes sense then.
+
+With the gpio headers retaining their original order:
+
+Rewiewed-by: Kent Gibson <warthog618@gmail.com>
+
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
