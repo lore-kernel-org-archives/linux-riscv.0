@@ -4,197 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28980C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 07:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18A8C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 08:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mfx6D1p3/Mc6t4hzxhUX40QVhx2Lo9hTzAqTKdgemxs=; b=2ur1wviweSwNAe
-	/vVwTz0Yh31VcJO1hSn0x2rNDcoV2SEW3VDG4FRfdSjM1j22dx2HDEs7ntlZbJkHzf53ok7cAa8nT
-	Ot6/CCJzodtU7qI6sx9Ro2TvNdFQ2MfJi0dHlL5TtAq+DWMx9zbz7aOYwdMY6M4yT20/ZTEqyZbkE
-	P/lVg6T1hfleX0R478egE2K1vB7PouFtncGzKAjAZRm7GuDJfLvDLo9OK1kygJUmgvpAyQg7dFuEz
-	ttpR1Ixz+mqxfK4vPPiPVS18fGyz/ACniL9UbJasK+HJy6Jy+6BSqK1I5Yu3ujYUSilS9i0TbgPEd
-	vKNigY1nVG2TYJw+PKJg==;
+	List-Owner; bh=lQeto3tvtIPi03oVSOzSCnLZW4X60jXgz4JypZaUlPE=; b=lnloOD+YUi8aLR
+	E3iZ3MzooHxbiAKfYBA2xkdvJS2BiAI8Kf0j54twclMd4WO8YfmalZgJ4uonMN3neRp6VszFb5rFl
+	FsZgyMEzk9D8eSpPG2L9U/Vd/APD1mwAWZ47t5rN54yThk7FhPoWWc/Kri+71++NabGY9K+5TAMey
+	vCuS3ofOeckS46bLp7Zw2xSXJtdLYWxB0RcZy14FwzeHJqqUFBT/hOtH0VSaQQb22Nhk57OIU4NCW
+	5bJl+GA9xbE4eDsNNpakNYpGrRmws1FWe8n5wR59amoTcPcWsg49f4Cu6/zFrDSOodRT8+q5nfyde
+	a99eHYYf2hqC/zKV9zaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiWYH-007Egn-QH; Wed, 12 Oct 2022 07:53:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oiWgx-007Goz-Pl; Wed, 12 Oct 2022 08:02:15 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiWYC-007Ecu-Kr; Wed, 12 Oct 2022 07:53:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1665561192; x=1697097192;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=AzjU9KmDXhXksh2509IqnUA3Ir7AdNEhmUgJGAgdidA=;
-  b=Fn5bE9QymBu0jMjgie9znIQ4b1tIAV9jSLLAnxa4FGOAN7pOij1lRoIu
-   dzgy+LBbFm8J0BnmaFXKZ92hJr/Oz7SMYtgboKuB4ZpQscNFdDkqvtyy9
-   7y74B/uFvq+D6cc/BmDymfjAHFsqT/BjVCQBADSafjtfNMBMgIGWvlqUi
-   poQ82Ktxx8422nh2K+yZ3UqZI6QjmYw1bNQT+i5YDZ+2eNDGnnQYBiGZt
-   0eis77Fo5ls/0MJRBSJQ3VQV/sMskRfvQvnb8xvF4fFMHEbxWlshwkPHg
-   GhE1vsyskmIYKUzVliMjHI5IDmNwWKhFWYF2CM5CPryJSCr2CB2/xYs1l
-   w==;
-X-IronPort-AV: E=Sophos;i="5.95,178,1661842800"; 
-   d="scan'208";a="194999131"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Oct 2022 00:52:55 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 12 Oct 2022 00:52:55 -0700
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 12 Oct 2022 00:52:55 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=hKI3kkjREsRd54Z+DOwIjD9/lsu52uhkXsgldb1L/T/abBkW9LNbGU31vCzRvy0lifqDFfOQwYlWOpgVQYnsC7MuMsO4Zl4+BWB6ro3hAJFQpmPtr/AVMhbBv6NXb5o+FWILQQdqMB5SoEwhS65HwHjv8Wg3Av6Rh5jM1s+yt8f+BZ9AbCLwXpR68rzlBIkKCOQkGJBIA4cG32ro6E2Rz7+j1CJoWtl0NidDun3iDlZrFXB4vzRy0/gBGeX5mmWCji4LDoJCZeEznSqYsiE+7/AuFp5O2IGr/H59wT2HOgAPpRV7RtOtOkIgvp9nA7h+1RQzD5mqtY3MzTVPKS4Hmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AzjU9KmDXhXksh2509IqnUA3Ir7AdNEhmUgJGAgdidA=;
- b=BY3X8ZTu2sBztgaa+rj4IcR9WeASWZeLCfD7AIkxtdYLcd1vZYMWs1DqLt5fbSPEN4brvKvjVBVsrU9tw5ydf8fHE3gXntuUK7jRBGbmEXRjw282Gs3wZ6if4T1+z8MeYMc3VRQlO5zquaUGjN1SEmCtRWjOpPojXavMtzuvrimCeUS4mkLeDlAs+CTee6KA8j4VG4ULZgqNceN5YIm4857xGU91kqKQnra0s+8Hp1q0zqVBwFSk44GiMiyRpA9xzokaX0i2DvixIzt20qSBoOieMw661dFg4SFjRluT9vrtIcNtuBHjpF9GTv7bvaHSnr4dHy2bUYJ6aycNrdj1gA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AzjU9KmDXhXksh2509IqnUA3Ir7AdNEhmUgJGAgdidA=;
- b=gLqxiD6/CgHEN9Ue05WsOIs6R46h37i/cy5rml1GhNHLEU90bYPuTCgjPSVPsbD+gyLzGZbdkBw6/k7L7abwhA0p6doq2d81Lxai2C2ghjUiD1EDAl5ZAkjHKQxDd2DnvMnylB4TOe02s8V/B7eEYn9DRq8Mw2lXQwsT4BcvTgg=
-Received: from BN6PR11MB1953.namprd11.prod.outlook.com (2603:10b6:404:105::14)
- by MW4PR11MB6714.namprd11.prod.outlook.com (2603:10b6:303:20f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5709.15; Wed, 12 Oct
- 2022 07:52:50 +0000
-Received: from BN6PR11MB1953.namprd11.prod.outlook.com
- ([fe80::51f:528c:5fde:40a2]) by BN6PR11MB1953.namprd11.prod.outlook.com
- ([fe80::51f:528c:5fde:40a2%3]) with mapi id 15.20.5709.021; Wed, 12 Oct 2022
- 07:52:49 +0000
-From: <Claudiu.Beznea@microchip.com>
-To: <andriy.shevchenko@linux.intel.com>, <maz@kernel.org>, <brgl@bgdev.pl>,
-	<warthog618@gmail.com>, <mchehab@kernel.org>, <billy_tsai@aspeedtech.com>,
-	<tglx@linutronix.de>, <linus.walleij@linaro.org>,
-	<mika.westerberg@linux.intel.com>, <angelogioacchino.delregno@collabora.com>,
-	<wenst@chromium.org>, <samuel@sholland.org>, <Horatiu.Vultur@microchip.com>,
-	<rafal@milecki.pl>, <bjorn.andersson@linaro.org>,
-	<dmitry.baryshkov@linaro.org>, <geert+renesas@glider.be>,
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, <phil.edworthy@renesas.com>,
-	<krzysztof.kozlowski@linaro.org>, <fabien.dessenne@foss.st.com>,
-	<pshete@nvidia.com>, <Basavaraj.Natikar@amd.com>,
-	<linux-gpio@vger.kernel.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-media@vger.kernel.org>, <linux-actions@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-rpi-kernel@lists.infradead.org>, <alsa-devel@alsa-project.org>,
-	<patches@opensource.cirrus.com>, <linux-mediatek@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-omap@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-msm@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>
-CC: <thierry.reding@gmail.com>, <jonathanh@nvidia.com>,
-	<patrice.chotard@foss.st.com>, <afaerber@suse.de>, <mani@kernel.org>,
-	<andrew@aj.id.au>, <joel@jms.id.au>, <f.fainelli@gmail.com>,
-	<rjui@broadcom.com>, <sbranden@broadcom.com>,
-	<bcm-kernel-feedback-list@broadcom.com>, <ckeepax@opensource.cirrus.com>,
-	<rf@opensource.cirrus.com>, <aisheng.dong@nxp.com>, <festevam@gmail.com>,
-	<shawnguo@kernel.org>, <ping.bai@nxp.com>, <kernel@pengutronix.de>,
-	<s.hauer@pengutronix.de>, <linux-imx@nxp.com>, <andy@kernel.org>,
-	<sean.wang@kernel.org>, <andrew@lunn.ch>, <gregory.clement@bootlin.com>,
-	<sebastian.hesselbarth@gmail.com>, <avifishman70@gmail.com>,
-	<tmaimon77@gmail.com>, <tali.perry1@gmail.com>, <venture@google.com>,
-	<yuenn@google.com>, <benjaminfair@google.com>,
-	<Ludovic.Desroches@microchip.com>, <Nicolas.Ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <wens@csie.org>, <paul@crapouillou.net>,
-	<damien.lemoal@wdc.com>, <tony@atomide.com>, <haojian.zhuang@linaro.org>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-	<michal.simek@xilinx.com>, <agross@kernel.org>,
-	<konrad.dybcio@somainline.org>, <tomasz.figa@gmail.com>,
-	<s.nawrocki@samsung.com>, <alim.akhtar@samsung.com>, <vireshk@kernel.org>,
-	<shiraz.linux.kernel@gmail.com>, <soc@kernel.org>, <orsonzhai@gmail.com>,
-	<baolin.wang@linux.alibaba.com>, <zhang.lyra@gmail.com>, <kernel@esmil.dk>,
-	<hayashi.kunihiko@socionext.com>, <mhiramat@kernel.org>
-Subject: Re: [PATCH v2 06/36] pinctrl: at91: Add missed header(s)
-Thread-Topic: [PATCH v2 06/36] pinctrl: at91: Add missed header(s)
-Thread-Index: AQHY3g+flaTivOOpdE+KrgNE+MhlgQ==
-Date: Wed, 12 Oct 2022 07:52:49 +0000
-Message-ID: <6846a969-028c-f499-2e15-4ae2536edaa9@microchip.com>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <20221010201453.77401-7-andriy.shevchenko@linux.intel.com>
-In-Reply-To: <20221010201453.77401-7-andriy.shevchenko@linux.intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN6PR11MB1953:EE_|MW4PR11MB6714:EE_
-x-ms-office365-filtering-correlation-id: 0096441e-575c-4faa-b178-08daac26c26f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Psq3jYbE9zIVIdlFRHC4I4HX3YabrDUKmSPxb5L/MKz7lizqH7E/NDftxwJebenZxet+BOFGb5k/FOl2xJ7CSClirxiwmRXd7EOi0VVIo01dTdESHetKqUew0dVD78uSR5ZsubEiliEfB5HBhgsFjbWnHvJa6XY6uMdAW7rrq4c8XSWvgP/zDp+9fUsMnIffnZuxAiTDdFTNGglSb1uQfZttL/3guCK25EV+xz8SEzv1/Vl+bov/7x6Of/O4X1PeB0oXkAWxVqHN+SKcblbBwgqQTiOYUVFEJwOpsjFEnc8fKMlntD6ujnG460uu8MXP2qEgj3DzyHS2dVxIsjkXtT5MflzWf7JbEwe/yjiP90jrA9MNqZZUOSrg0e1nqvMLA+VP/PWQ+10E6VH363bV6xmB+ftN3cVpje9xNPHYpkeK9pzGGHfHKhEI18NJOcczqevbN3lQanTfeoz7malHIGQE2tCJh3MZMUilrXLpp3w0Qdwf3/EiYutTNt1JLqAblxWaquq1bOAbZcet0cp91/ac+I4/RTTRdhsjRtIG4cAy7opfVPPXG4gmE9CnaIApxi6iBsYFc6VoM4UJ8uXWXiZ0eKSVjtvZuAeCena4C2bRUPWKzXwo5B0U7UG0BmPpHmvkQPYVf7CU5xCqFfAkk08UDU27NNk058VWUqk1WLmpEMm0uKtFA88lCv05o8Jm/xyy/hUmzUt4Am5qw+2EttqupUOwvVLeZRLXt86YQSV36C5wVhXXKgqk9GCnTRXHjqX+xzI1/orberFTVSZsDOWdyygKY+eV+4TXW4uHN6F+Pm5GOkboFYKEuBizrsxUoBYZv/LGGgL99GAJRStv5LPu936V8guF3ERwpTY7TkM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR11MB1953.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(396003)(366004)(39860400002)(346002)(136003)(376002)(451199015)(31696002)(122000001)(38070700005)(921005)(38100700002)(31686004)(36756003)(86362001)(186003)(2906002)(5660300002)(83380400001)(7366002)(7416002)(7336002)(7406005)(6512007)(66556008)(2616005)(26005)(53546011)(6506007)(64756008)(66446008)(66476007)(4326008)(8676002)(66946007)(91956017)(76116006)(110136005)(71200400001)(41300700001)(316002)(8936002)(6486002)(478600001)(54906003)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TkJyS0NIblR2TzV3UDZiTEhHWUxCZlJJWE0zZlhkeVM5K0Y2NkdQTnp4ZjBS?=
- =?utf-8?B?K3VqTVh1N21KV3hVRzFubUNTVitBbUlmTHowdGN4cHorWHpyZzNVcitwV0tW?=
- =?utf-8?B?OXlwTFFubDhwSWF0QWx3VE84R2NBWFYvdVJDTEJlQVMxNmdLV2VKZ1BhZjdN?=
- =?utf-8?B?N0NvM3FRSnYyMExhbU5SUVBsTzdhZmwwYUFwMTFiVnkyRFhxLzV6S0dkb1do?=
- =?utf-8?B?MnBCb2N5WUpIMW4rY0lnbmZnUzU2QmFhWDB3Mk1UZVRNMjhZaXQwbGFZS1Zm?=
- =?utf-8?B?aHZadEliMVhGTUR3RGQ3RkJmbGtOTzhoVnZFeGF5c2gxK3FzbE01RVJpZ1Nx?=
- =?utf-8?B?TzgyNlZYT3llM1ZINktuL0dUQmdPWnI3UnFNTFRHY0N4S3JESENrYjdtUWQ2?=
- =?utf-8?B?aFY2MmdQMG1IVUFTdEZYeW1jRTZNSHdNWjByNnl5U3dhd2Jnc3V5YldPZFo5?=
- =?utf-8?B?UGJmUW5XdFo5VTZnUnFGYkErbFprRldQcU1jemtUd1lQYVBqRC9waFpMMkZY?=
- =?utf-8?B?VjQ0YmtPUndZZG5HdElIck9TcVJBcHpCQ1dzTTdQNnJkR2R6NTQ0NnlUNW9W?=
- =?utf-8?B?MkZ4bFRsZThZR1VYUC85KzJrSVpGNnJ3MmtFVmZXd2hGTUw0TXdzODZSelE2?=
- =?utf-8?B?ekdsRkc0MndhQ2FFN0tFdHgxcWtnRHFRdDcvNEg3SS9QV3kvWkdrTkwraEwx?=
- =?utf-8?B?bE1SOEhoM3VsaUViL0p2U0dTdXBOYllGUjg1OFYxK2wreU5iUzdOaFNyVm1Q?=
- =?utf-8?B?VS9LT1pQOHVxOXFlRFBmSGxaVnIrNUdmL2JHZkZzNFZOM1EzaGp6VVYzeHJa?=
- =?utf-8?B?NkJBZEVLMldVaHo1TFo3MC85WVQvY3FWZVppRDZFT21zWGpCOFJ0aVJ0cjgy?=
- =?utf-8?B?c3FwTlNGYkF2bndocnhldk8xMnUybFhlTDgxUStwc0ZHOGZlanVYMzN3UXNt?=
- =?utf-8?B?aDhFS2VsL2RWNlJxYUNQQ2tPR1NJT2ZaUGxFeWNlOTI3UWgzT0hValpIU1Bv?=
- =?utf-8?B?VTVrOEZRTzkzT3BuTUhqd2duWW4rU1B0dWRWeUI1RGQ5Ky9aNHRIWXpUd055?=
- =?utf-8?B?K1F2VkpOdlpBNlBPR1A1NjNyK0lGRE92WVQxNFNaS1Jka2l5RjhLQ0NVSXZ0?=
- =?utf-8?B?QUtXdDlCazNoMVMzMVNrWXl1bkdIZURlLzhtalhTeHZMdXorWWtSY0d5dC91?=
- =?utf-8?B?OUFlQlpWaDlxZnZWNDloWi9NV3lzTHNPbEV4WXhoUHNQSEFsODZvbm5aQzdY?=
- =?utf-8?B?KzZWOGVzc0tsNjdKV1dFT09OeitHRHJOeTg3VUNmYVhWWnN3M251RTVreUdi?=
- =?utf-8?B?WnR4MnFQd0hSWUJFK1NyOUhsQUVJZUxxLzFKSEJOUFZwNGJyUzRRanJ5Wk1p?=
- =?utf-8?B?WnArdmMvSklNV0JkMStvSkdjY3JlT0xTSjU5ZWh5WWszajdrVlFPT1pSZG5W?=
- =?utf-8?B?RkVmeGk5d1RLZHF4OU5RaHA0WjlFei9acm9lYVR5ZVJ0b1VMT1BvcWd6dml3?=
- =?utf-8?B?SnBLMG94WTUrYkF4blBTejZMT2lWWnBsM0VvVG13azJIblo1MDFHTG9selFy?=
- =?utf-8?B?RkJtUHlMQi90UGIxRjZUTGQrQWsvTEtuTE1SWGdLdGM1RDZjc1dvc01nNmdt?=
- =?utf-8?B?dXFUdXJMVTJuaEsxNFJybUk4OGFVWkM0VlFQSjgvb2ovWWgzcmVwcG50Z3pZ?=
- =?utf-8?B?b1lMOWlNWUZNZWtRaWlqWm94aEc3a2hPRlNoMTN0ajU1VXdLYlpHeTlSazZ2?=
- =?utf-8?B?OSt5Z1c3cms3TXFCWXZ4K2hKWUpBTk1IbUJmeWZqUXRVN1RyeDhVY3FLd1lB?=
- =?utf-8?B?REcvai9oR2dyblF6MHlIajZaaHlnTXI1Q2liL1Q4ei96OWo0T3ErSEo0cW5V?=
- =?utf-8?B?NXBLeVdZTFVkWTVWaFJJQUpRdHZFYmhCMlhzTlBmejFYeGxKWWt3YXF4U2or?=
- =?utf-8?B?Sk9adDN6UGhwSkRFZGtWZWxQQnEwMUJuOFlCOXJ6STFQYTZoT2RDVEZ5MmZK?=
- =?utf-8?B?RldTTGdFZ2NOcUdCdzBrNzYzSDhLaEV1Yml1VlE3N1UrSjFQNXMxU0pENXdC?=
- =?utf-8?B?Zkt2WEtsSDJqUXBpZjlZSytkWWNDREY1djhwKy9hYVlpcGl2d3J1MTVJU3ZL?=
- =?utf-8?B?cUxYMUlyZXk1K0E5cHRJQWUxTTlybjV3czNna3ZoN0V2YjF1Yk9HMUh1c2cv?=
- =?utf-8?B?cUE9PQ==?=
-Content-ID: <B1AC15B49B13DD44ACE746A45676DA23@namprd11.prod.outlook.com>
+	id 1oiWgp-007GgA-U5
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 08:02:10 +0000
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 41BD73F486
+	for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 08:01:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1665561710;
+	bh=pPu9MmXkeNI2LOd8j8J0zuYhlY1BtgVw8LblJb0SHAk=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=F1mbsIVAKIMQU6KGVDzXmSyy+3BAXNl2VXmZ38UhmBNDt+NbYirACDPfS1PMWXSYh
+	 A3MwxtMT9v32nWCx6wwzC+YaBDsdU/x4imJ0qw4/CHCVljQ92jOsM+GENZkwEx7vHu
+	 V/ihaM1jw7wsQ/3jD8zsp0I8JLGVMl431QSHsB3OsOmNGF9E8pbKj2kpSNW4xvb7k6
+	 pustVKmzvO8kEKSy+oROIXetlY93S975XA1Es9oHxupQDI/Yrkdh7gA//i9DG/6YsW
+	 LVQ+hSPPDFUMsVZytiVCWCmjV1S5/KZZhtQnxIokVhx8HgnYlCFV7KQ8NWD4gIci+6
+	 cmPrERBpiCmzA==
+Received: by mail-qk1-f198.google.com with SMTP id bk21-20020a05620a1a1500b006be9f844c59so13525902qkb.9
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 01:01:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pPu9MmXkeNI2LOd8j8J0zuYhlY1BtgVw8LblJb0SHAk=;
+        b=Ovo/z0+Hd3G8yLm1tbe5FuGhlKgLjX3Z/S4VGE72jX889PJaYM9gfijd2KLDTRllBh
+         gnG5VLoY5Jry4kyRLLqAFnH7C2Xtgj4nCYw+vRuvyoLSFsn9f0XxozB1eiN2KqerY7W3
+         qMBUr7Yp+meRqZBP5QSZN617y3tpnpTymUI/DtbzZpEHY/rP9XS+tC+8JELtPMgXMI84
+         Lki9i41UUQAm1bvbrcD64xlFojhCST5YwEY8ecioiL/OuWmiLe+3Pu9sPLcCNg1D3ye4
+         MJP6pi6tZzbGuH3pQfTifIgVClSALUn6JIg1hmzbOFq7YIxYKfu1UANweHjJ0OdsNlqe
+         n+Mw==
+X-Gm-Message-State: ACrzQf3pyImP9T78I8N2Q0z76UXKFgZuUfQ88BbFEIeuIzyKfDcwCSI+
+	MytLTZJsB+SvGLm1//QH1Tcs5hRELi12VT+ROh/InxaxEJbmggZwPVywym5/n+4h+73kdWLS+xN
+	wfUhNZQONMm4bafITBWzrpBZakxJ2fonXsxHwA029mdq/kd6qPE8jLArFKkverA==
+X-Received: by 2002:a05:6214:2301:b0:498:9f6f:28d with SMTP id gc1-20020a056214230100b004989f6f028dmr22305182qvb.5.1665561708942;
+        Wed, 12 Oct 2022 01:01:48 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM4BjVdcXzAwhXOcUXbaOEBSXPtiNTrEjbg/sZEuK9myUumUG1dG5KFTbU9zJywZ/QJNO+Cw30ztSSVCjbByWhU=
+X-Received: by 2002:a05:6214:2301:b0:498:9f6f:28d with SMTP id
+ gc1-20020a056214230100b004989f6f028dmr22305160qvb.5.1665561708558; Wed, 12
+ Oct 2022 01:01:48 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR11MB1953.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0096441e-575c-4faa-b178-08daac26c26f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Oct 2022 07:52:49.7024
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: S/TxfIJr6OUcJE1EXWFHdnYwoSvzu309puMA5S5qo5eCM75kYON+7LKtvk8pK3o/4jci3yqkm7mB8IyFRLznXE2ZKvL+DczuerTRJYg1A+Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR11MB6714
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
+ <20220929175147.19749-1-hal.feng@linux.starfivetech.com> <20220929184349.GA2551443-robh@kernel.org>
+ <8BEAFAD2C4CE6E4A+0a00376c-1e3e-f597-bcf6-106ff294859a@linux.starfivetech.com>
+In-Reply-To: <8BEAFAD2C4CE6E4A+0a00376c-1e3e-f597-bcf6-106ff294859a@linux.starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 12 Oct 2022 10:01:32 +0200
+Message-ID: <CAJM55Z9HwxTmgnPGvFpM_CtaghP0d_kc55bZcrFs3Q0fAEXPng@mail.gmail.com>
+Subject: Re: [PATCH v1 12/30] dt-bindings: reset: Add starfive,jh7110-reset bindings
+To: Hal Feng <hal.feng@linux.starfivetech.com>
+Cc: Rob Herring <robh@kernel.org>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_005312_831295_F72B359A 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20221012_010208_213269_47A0107D 
+X-CRM114-Status: GOOD (  40.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,93 +104,291 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10.10.2022 23:14, Andy Shevchenko wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
-> 
-> While at it, sort headers alphabetically.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+On Tue, 11 Oct 2022 at 18:21, Hal Feng <hal.feng@linux.starfivetech.com> wrote:
+>
+> On Thu, 29 Sep 2022 13:43:49 -0500, Rob Herring wrote:
+> > On Fri, Sep 30, 2022 at 01:51:47AM +0800, Hal Feng wrote:
+> > > Add bindings for the reset controller on the JH7110 RISC-V
+> > > SoC by StarFive Technology Ltd.
+> > >
+> > > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
+> > > ---
+> > >  .../bindings/reset/starfive,jh7110-reset.yaml | 54 +++++++++++++++++++
+> > >  1 file changed, 54 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml b/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+> > > new file mode 100644
+> > > index 000000000000..bb0010c200f9
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/reset/starfive,jh7110-reset.yaml
+> > > @@ -0,0 +1,54 @@
+> > > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/reset/starfive,jh7110-reset.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: StarFive JH7110 SoC Reset Controller Device Tree Bindings
+> > > +
+> > > +maintainers:
+> > > +  - Emil Renner Berthing <kernel@esmil.dk>
+> > > +  - Hal Feng <hal.feng@linux.starfivetech.com>
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    enum:
+> > > +      - starfive,jh7110-reset
+> >
+> > 'reg' needed? Is this a sub-block of something else?
+>
+> Yes, the reset node is a child node of the syscon node, see patch 27 for detail.
+> You might not see the complete patches at that time due to technical issue of
+> our smtp email server. Again, I feel so sorry about that.
+>
+>         syscrg: syscrg@13020000 {
+>                 compatible = "syscon", "simple-mfd";
+>                 reg = <0x0 0x13020000 0x0 0x10000>;
+>
+>                 syscrg_clk: clock-controller@13020000 {
+>                         compatible = "starfive,jh7110-clkgen-sys";
+>                         clocks = <&osc>, <&gmac1_rmii_refin>,
+>                                  <&gmac1_rgmii_rxin>,
+>                                  <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
+>                                  <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
+>                                  <&tdm_ext>, <&mclk_ext>;
+>                         clock-names = "osc", "gmac1_rmii_refin",
+>                                 "gmac1_rgmii_rxin",
+>                                 "i2stx_bclk_ext", "i2stx_lrck_ext",
+>                                 "i2srx_bclk_ext", "i2srx_lrck_ext",
+>                                 "tdm_ext", "mclk_ext";
+>                         #clock-cells = <1>;
+>                 };
+>
+>                 syscrg_rst: reset-controller@13020000 {
+>                         compatible = "starfive,jh7110-reset";
+>                         #reset-cells = <1>;
+>                         starfive,assert-offset = <0x2F8>;
+>                         starfive,status-offset= <0x308>;
+>                         starfive,nr-resets = <JH7110_SYSRST_END>;
+>                 };
+>         };
+>
+> In this case, we get the memory mapped space through the parent node with syscon
+> APIs. You can see patch 13 for detail.
+>
+> static int reset_starfive_register(struct platform_device *pdev, const u32 *asserted)
+> {
+>         struct starfive_reset *data;
+>         int ret;
+>
+>         data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
+>         if (!data)
+>                 return -ENOMEM;
+>
+>         data->regmap = device_node_to_regmap(pdev->dev.of_node);                  //for JH7100
+>         if (IS_ERR(data->regmap)) {
+>                 data->regmap = syscon_node_to_regmap(pdev->dev.of_node->parent);  //for JH7110
+>                 if (IS_ERR(data->regmap)) {
+>                         dev_err(&pdev->dev, "failed to get regmap (error %ld)\n",
+>                                 PTR_ERR(data->regmap));
+>                         return PTR_ERR(data->regmap);
+>                 }
+>         }
+>         ...
+> }
+>
+> We use this method to avoid errors when remapping the same address in two
+> different drivers, because clock and reset of StarFive JH7110 share a common
+> register address region. For similar implementation, refer to file [1] and [2].
+>
+> [1] arch/riscv/boot/dts/canaan/k210.dtsi
+>
+>         sysctl: syscon@50440000 {
+>                 compatible = "canaan,k210-sysctl",
+>                              "syscon", "simple-mfd";
+>                 reg = <0x50440000 0x100>;
+>                 clocks = <&sysclk K210_CLK_APB1>;
+>                 clock-names = "pclk";
+>
+>                 sysclk: clock-controller {
+>                         #clock-cells = <1>;
+>                         compatible = "canaan,k210-clk";
+>                         clocks = <&in0>;
+>                 };
+>
+>                 sysrst: reset-controller {
+>                         compatible = "canaan,k210-rst";
+>                         #reset-cells = <1>;
+>                 };
+>
+>                 reboot: syscon-reboot {
+>                         compatible = "syscon-reboot";
+>                         regmap = <&sysctl>;
+>                         offset = <48>;
+>                         mask = <1>;
+>                         value = <1>;
+>                 };
+>         };
+>
+> [2] drivers/reset/reset-k210.c
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+Here the syscon makes a little more sense since the same memory area
+does at least 3 different things, but on the JH7110 it is a dedicated
+"clock and reset generator", CRG. So this is much better modelled with
+a single driver taking care of both the clock and resets like the
+original driver did. If you do
 
+git grep reset_controller_register drivers/clk
 
-> ---
->  drivers/pinctrl/pinctrl-at91-pio4.c | 10 +++++++---
->  drivers/pinctrl/pinctrl-at91.c      | 16 +++++++++-------
->  2 files changed, 16 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-at91-pio4.c b/drivers/pinctrl/pinctrl-at91-pio4.c
-> index 82b921fd630d..e38c683aba09 100644
-> --- a/drivers/pinctrl/pinctrl-at91-pio4.c
-> +++ b/drivers/pinctrl/pinctrl-at91-pio4.c
-> @@ -7,18 +7,22 @@
->   */
-> 
->  #include <dt-bindings/pinctrl/at91.h>
-> +
->  #include <linux/clk.h>
->  #include <linux/gpio/driver.h>
-> +#include <linux/init.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
-> -#include <linux/init.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> -#include <linux/pinctrl/pinconf.h>
-> +#include <linux/seq_file.h>
-> +#include <linux/slab.h>
-> +
->  #include <linux/pinctrl/pinconf-generic.h>
-> +#include <linux/pinctrl/pinconf.h>
->  #include <linux/pinctrl/pinctrl.h>
->  #include <linux/pinctrl/pinmux.h>
-> -#include <linux/slab.h>
-> +
->  #include "core.h"
->  #include "pinconf.h"
->  #include "pinctrl-utils.h"
-> diff --git a/drivers/pinctrl/pinctrl-at91.c b/drivers/pinctrl/pinctrl-at91.c
-> index 81dbffab621f..1e1813d7c550 100644
-> --- a/drivers/pinctrl/pinctrl-at91.c
-> +++ b/drivers/pinctrl/pinctrl-at91.c
-> @@ -7,22 +7,24 @@
-> 
->  #include <linux/clk.h>
->  #include <linux/err.h>
-> +#include <linux/gpio/driver.h>
->  #include <linux/init.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
->  #include <linux/of.h>
-> -#include <linux/of_device.h>
->  #include <linux/of_address.h>
-> +#include <linux/of_device.h>
->  #include <linux/of_irq.h>
-> +#include <linux/pm.h>
-> +#include <linux/seq_file.h>
->  #include <linux/slab.h>
-> -#include <linux/interrupt.h>
-> -#include <linux/io.h>
-> -#include <linux/gpio/driver.h>
-> +
-> +/* Since we request GPIOs from ourself */
-> +#include <linux/pinctrl/consumer.h>
->  #include <linux/pinctrl/machine.h>
->  #include <linux/pinctrl/pinconf.h>
->  #include <linux/pinctrl/pinctrl.h>
->  #include <linux/pinctrl/pinmux.h>
-> -/* Since we request GPIOs from ourself */
-> -#include <linux/pinctrl/consumer.h>
-> -#include <linux/pm.h>
-> 
->  #include "pinctrl-at91.h"
->  #include "core.h"
-> --
-> 2.35.1
-> 
+..you can see that there are lots of other drivers for such
+peripherals that combine clock and reset.
+
+> >
+> > > +
+> > > +  "#reset-cells":
+> > > +    const: 1
+> > > +
+> > > +  starfive,assert-offset:
+> > > +    description: Offset of the first ASSERT register
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +
+> > > +  starfive,status-offset:
+> > > +    description: Offset of the first STATUS register
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> >
+> > These can't be implied from the compatible string?
+>
+> These two properties are the key differences among different reset controllers.
+> There are five memory regions for clock and reset in StarFive JH7110 SoC. They
+> are "syscrg", "aoncrg", "stgcrg", "ispcrg" and "voutcrg". Each memory region
+> has different reset ASSERT/STATUS register offset and different number of reset
+> signals. After storing them in dt, the reset driver can register all reset
+> controllers with the same compatible string. All we expect is that all reset
+> controllers in a single SoC use the same compatible string for matching and the
+> reset driver can be applied to all StarFive SoCs using different compatible strings.
+> Just like
+>
+> arch/riscv/boot/dts/starfive/jh7100.dtsi:
+>
+>         rstgen: reset-controller@11840000 {
+>                 compatible = "starfive,jh7100-reset";
+>                 reg = <0x0 0x11840000 0x0 0x10000>;
+>                 #reset-cells = <1>;
+>                 starfive,assert-offset = <0x0>;
+>                 starfive,status-offset= <0x10>;
+>                 starfive,nr-resets = <JH7100_RSTN_END>;
+>         };
+>
+> arch/riscv/boot/dts/starfive/jh7110.dtsi:
+>
+>         syscrg: syscrg@13020000 {
+>                 compatible = "syscon", "simple-mfd";
+>                 reg = <0x0 0x13020000 0x0 0x10000>;
+>
+>                 syscrg_clk: clock-controller@13020000 {
+>                         compatible = "starfive,jh7110-clkgen-sys";
+>                         ...
+>                 };
+>
+>                 syscrg_rst: reset-controller@13020000 {
+>                         compatible = "starfive,jh7110-reset";
+>                         #reset-cells = <1>;
+>                         starfive,assert-offset = <0x2F8>;
+>                         starfive,status-offset= <0x308>;
+>                         starfive,nr-resets = <JH7110_SYSRST_END>;
+>                 };
+>         };
+>
+>         aoncrg: aoncrg@17000000 {
+>                 compatible = "syscon", "simple-mfd";
+>                 reg = <0x0 0x17000000 0x0 0x10000>;
+>
+>                 aoncrg_clk: clock-controller@17000000 {
+>                         compatible = "starfive,jh7110-clkgen-aon";
+>                         ...
+>                 };
+>
+>                 aoncrg_rst: reset-controller@17000000 {
+>                         compatible = "starfive,jh7110-reset";
+>                         #reset-cells = <1>;
+>                         starfive,assert-offset = <0x38>;
+>                         starfive,status-offset= <0x3C>;
+>                         starfive,nr-resets = <JH7110_AONRST_END>;
+>                 };
+>         };
+>
+>         stgcrg: stgcrg@10230000 {       //Not submmited yet
+>                 compatible = "syscon", "simple-mfd";
+>                 reg = <0x0 0x10230000 0x0 0x10000>;
+>
+>                 stgcrg_clk: clock-controller@10230000 {
+>                         compatible = "starfive,jh7110-clkgen-stg";
+>                         ...
+>                 };
+>
+>                 stgcrg_rst: reset-controller@10230000 {
+>                         compatible = "starfive,jh7110-reset";
+>                         #reset-cells = <1>;
+>                         starfive,assert-offset = <0x74>;
+>                         starfive,status-offset= <0x78>;
+>                         starfive,nr-resets = <JH7110_STGRST_END>;
+>                 };
+>         };
+>         ...
+>
+> >
+> > > +
+> > > +  starfive,nr-resets:
+> > > +    description: Number of reset signals
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> >
+> > Why do you need this? Most bindings don't. If just to validate 'resets'
+> > args, then don't.
+>
+> Can be removed. Instead, the reset driver should includes some related
+> binding headers or defines some macros for pointing out the number of
+> reset signals of each reset controller.
+>
+> Best regards,
+> Hal
+>
+> >
+> >
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - "#reset-cells"
+> > > +  - starfive,assert-offset
+> > > +  - starfive,status-offset
+> > > +  - starfive,nr-resets
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/reset/starfive-jh7110.h>
+> > > +
+> > > +    syscrg_rst: reset-controller@13020000 {
+> > > +        compatible = "starfive,jh7110-reset";
+> > > +        #reset-cells = <1>;
+> > > +        starfive,assert-offset = <0x2F8>;
+> > > +        starfive,status-offset= <0x308>;
+> > > +        starfive,nr-resets = <JH7110_SYSRST_END>;
+> > > +    };
+> > > +
+> > > +...
+> > > --
+> > > 2.17.1
+> > >
+> > >
+> >
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
