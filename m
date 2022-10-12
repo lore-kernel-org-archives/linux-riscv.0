@@ -4,120 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA7B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 10:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77473C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 11:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RnEnkhjUM4GE144QBYX4SEsquxtjmjhrcng2zzaAY2s=; b=SV69FUcQkdVZyV
-	CYXeMw3L2q6ihfiZBJefYvFpqtt/ZD7dBqj4ERXjnZQRSy40Cn4jBmZH3RPMdyHcpTnsJuDrQX56+
-	rN92tLVlWhZRtfe1bkKx6om4x87Ss9l4ZoL7l6/O73ahCWdfO6te1Gv5V1vbChtWIsDIGJsXfN7UE
-	YT6t3M33lRHO/6WbEOwv4OX1tnrrXKbTN+6ksqarGWAjBpG415wX7ExIiHWpbnvQ++rFRX4C2dl+j
-	72cPalMQjwli/IaBvYbjfkE1q/ReuJBudpFigZNdSKduBzjbfXhSf5ZuBCf8Va7LnAlZf/M7J0sUX
-	9A7w99Qj9tpwwwhRbMgQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TOAUHue/YtMewLkJXpy3q0f+upQkXno9ZIVt6sohNZY=; b=Nrqk0SdV/jRQ3b
+	wDSm4TR7JLF9PiXnm5+g3wqUYg4JTuTErcUAwBthb6ELeDrOytcdhVc6zTVzGrCofYj8Ku7Wviqxu
+	csRCN4uBAnrIDpVec+/dAxEijI4AnyU4GMgJ2CTpydFVO0sZhdfjknSZsbsMRDB5IM/Qdu6IhgViR
+	E+3j8GJk8K/IIVJd2MW6rXhhlAwryVmAt5lpBpSrmMUdLXYZ0CS2BaeKPFZj71N16R3uAigDkKBew
+	Y1i7PXJoq9abgYHlD7K0eOuPguawxlCMWp3hvh4tXGtZlHxH78LzYD7KVQUgm7Xad2Kd25UT95629
+	Uo6DEAqfgAzSOSSJbq0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiYbg-007aL0-NT; Wed, 12 Oct 2022 10:04:56 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1oiZcL-007nAi-Mw; Wed, 12 Oct 2022 11:09:41 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiYbY-007aIs-UY; Wed, 12 Oct 2022 10:04:50 +0000
-Received: by mail-qt1-x835.google.com with SMTP id a24so2295946qto.10;
-        Wed, 12 Oct 2022 03:04:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=R2uNoWDHy+GOry29L6DC1dXWZKJOzJDC9JxozJVSpGE=;
-        b=ZuAn0riuXHel9rEBKRhDJaphdwknBUsVfuUv/T2PqZwW+uHUs0jQAoNTggSP2xYvxV
-         AIPBHcfBEeKUY8XaTwBfDZ4rSHoMsN+0EmQWS+Q65k7ex3GR3DSFMtYWLj5CjjdFW5lS
-         H15Im9ztaYgi/pdTI+XTH4+61vil18OUHSI0xGSAcGYNKUvzy6F36vXqiFhOKG65c2tn
-         Hm9UqrwXHcz71mbsaS1jF9iuBu0ckjr5DhBRLVoVyj42mBo6ELsboWfCQHWyRGQ4tlaj
-         QaFlpQ5WtgjVo1xKNFF2bpP4chzh3RulgtzO05YqhYqIONKukzB/OS4NwSuMzh0mSuvU
-         pMLQ==
+	id 1oiZcH-007n9i-Te
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 11:09:40 +0000
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C0F453F482
+	for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 11:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1665572970;
+	bh=fc0TPfCo+ClitIo96MsU8YKIJ7fVwtsiPqV5IcK9L04=;
+	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+	b=MJPduzQCL+phho4TWDHGhXKe8m64a6Q40gpt1B1O9L9KizIx6Y1f7xISs+gz35Jel
+	 jGbm6m+xPZvcWV9DpCc7yc8rfXkOLV2xmLTvv72aFUzUY5lfjAqyj3fstLfEkAhLWx
+	 PSNRGAjbL/sTGi1qU4lq/NjaUBmuFTOidRTC+iedPEvkxfRryAAHgE3uk6lePAx8qO
+	 IgLHI4AvEGCjDCa+QXpulRHXeddjHgfU51umteyFygtJLeKc1STr1QBAyNl6oHVbTe
+	 SOsFI51+mpxYjourDn6EFq3roENXtNEoeDOCDwpWqKPnDVOAQSqZoPRPb69pNAl3M0
+	 +WGlZCHBstHTw==
+Received: by mail-wm1-f69.google.com with SMTP id i5-20020a1c3b05000000b003c47c8569easo979508wma.1
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 04:09:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=R2uNoWDHy+GOry29L6DC1dXWZKJOzJDC9JxozJVSpGE=;
-        b=50/L+Ep9PBDhDCTmNjq6h40euE0ztxaaIkTYKxQMUrUQk+8g95T2Qohi3cXRMpP55U
-         Mg1BpRDi08HU5nIsleAluS1a6vp7ZUso3dS1ouUxwDT33eE9sJ41ZIzMNnBZJp/eZW8N
-         e0lHkrutvXt/5xofqvHMXq0K6i8eGps6h9SgICnrbal63UF0ye2zcpV3Q7GAvZoG5qAZ
-         Wnpms4TwHJa3rmJ75bn4FwMAK1PlikTCFQn+y5ParVBDNi3SE+vaZTU5b9rJ2/pqDRCB
-         eY5S8QugjvFzo7zir+nr5UCwOfc6WmYUegR7nTI9Rld0HuDO138a2kU6mapsfBdhcaBg
-         p5cA==
-X-Gm-Message-State: ACrzQf3lpG1iSLkjgZanSij2QnKUQyipJOpcEUbWR/UpE/MiHP19Jogb
-	V1icaeBPSZNqxfvFwK34ZF8h/ON9MD88DQSX5q8=
-X-Google-Smtp-Source: AMsMyM5ie8LeIoK7BaYP5eKG5FZkx73UfHVDBrIIwi+8uhHlPAnlyvjeeFl/0Iy9XueA0qyfGOPRZ2XY3nQxTptpumo=
-X-Received: by 2002:ac8:7c43:0:b0:35c:cd8f:3da5 with SMTP id
- o3-20020ac87c43000000b0035ccd8f3da5mr23132665qtv.61.1665569086451; Wed, 12
- Oct 2022 03:04:46 -0700 (PDT)
+        bh=fc0TPfCo+ClitIo96MsU8YKIJ7fVwtsiPqV5IcK9L04=;
+        b=I2PRhSQWWkhOpC5T9nInnPNaQcdCK+4pvSKqum0fxvYX2FXzjb6IA9hjAR8+fhGRah
+         KZg/Gz5hisDyOqX97daAdQQwX8d4cCih6xzf/BOXTVBwxTgXFpsBHGxUQ7bcgtHxrGJt
+         p2WSOxByZpSKPd/H8NbdFgfg63Qow86a1I6rxadDtceljeKQ3rsFlY5RSnoyZ2T33EON
+         TAm1Dq0n12DB9E3OnIUyRWui10GeWZJiukA8fgdMGN4p22mk7CQXjmkNPrPeVzYF7+qX
+         60lixTr2K56g98kyuz/RjSPBQmTN1SEbIST3YB0UrEdBzDmaWGDEp/paPDkQ83Gahucz
+         Ew5Q==
+X-Gm-Message-State: ACrzQf1C5L5ahmfKgMZnpqcDdNHJRkZAFVyMhT08m9CqGyhVp8BM+CE3
+	X1IOTt3a+wbVEc9jR7HY/19oxlp35UNGmRsomQUIzj65gFJTvjEQ5lWw7ezUSQ16GRAFluRVJuQ
+	DGvd5dSstUz9PXAXAg3FRwfjRLftubpvo0mpgSDXndoD1Nw==
+X-Received: by 2002:a05:6000:2cd:b0:22e:5cef:4332 with SMTP id o13-20020a05600002cd00b0022e5cef4332mr17179913wry.540.1665572970226;
+        Wed, 12 Oct 2022 04:09:30 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM53N08D5AYNC9olOgNeBcGL9x6hkBytfGMbsk1rdhYnQNCfZEJHiySv6wFWFyPBnmO6XE6fhg==
+X-Received: by 2002:a05:6000:2cd:b0:22e:5cef:4332 with SMTP id o13-20020a05600002cd00b0022e5cef4332mr17179899wry.540.1665572970000;
+        Wed, 12 Oct 2022 04:09:30 -0700 (PDT)
+Received: from stitch.. (194.62.169.87.ipv4.parknet.dk. [194.62.169.87])
+        by smtp.gmail.com with ESMTPSA id i188-20020a1c3bc5000000b003b492753826sm1580616wma.43.2022.10.12.04.09.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Oct 2022 04:09:29 -0700 (PDT)
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+To: linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	Bin Meng <bin.meng@windriver.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] riscv: dts: sifive unleashed: Add PWM controlled LEDs
+Date: Wed, 12 Oct 2022 13:09:28 +0200
+Message-Id: <20221012110928.352910-1-emil.renner.berthing@canonical.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com> <0684f480-2092-d520-2c8e-bd9a2dca47e3@gmail.com>
-In-Reply-To: <0684f480-2092-d520-2c8e-bd9a2dca47e3@gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 12 Oct 2022 13:04:10 +0300
-Message-ID: <CAHp75VdDjyUAZBTaoPOe5oA3f_5xRznAooq08=Eff4F1AZyVOQ@mail.gmail.com>
-Subject: Re: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
-To: Florian Fainelli <f.fainelli@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Marc Zyngier <maz@kernel.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
-	Mika Westerberg <mika.westerberg@linux.intel.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland <samuel@sholland.org>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Phil Edworthy <phil.edworthy@renesas.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Fabien Dessenne <fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>, 
-	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
-	linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, 
-	alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
-	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Richard Fitzgerald <rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	NXP Linux Team <linux-imx@nxp.com>, Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Paul Cercueil <paul@crapouillou.net>, Damien Le Moal <damien.lemoal@wdc.com>, 
-	Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@somainline.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
-	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_030449_045446_062D57D9 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20221012_040938_258424_4B6FAD5C 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,34 +101,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 11, 2022 at 11:56 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
-> On 10/10/2022 1:14 PM, Andy Shevchenko wrote:
-> > Currently the header inclusion inside the pinctrl headers seems more arbitrary
-> > than logical. This series is basically out of two parts:
-> > - add missed headers to the pin control drivers / users
-> > - clean up the headers of pin control subsystem
-> >
-> > The idea is to have this series to be pulled after -rc1 by the GPIO and
-> > pin control subsystems, so all new drivers will utilize cleaned up headers
-> > of the pin control.
-> >
-> > Please, review and comment.
->
-> Did you really need to split this on a per-driver basis as opposed to
-> just a treewide drivers/pinctrl, drivers/media and drivers/gpiolib patch
-> set?
->
-> 36 patches seems needlessly high when 4 patches could have achieve the
-> same outcome.
+This adds the 4 PWM controlled green LEDs to the HiFive Unleashed device
+tree. The schematic doesn't specify any special function for the LEDs,
+so they're added here without any default triggers and named d1, d2, d3
+and d4 just like in the schematic.
 
-I can combine them if maintainers ask for that, nevertheless for Intel
-pin control and GPIO drivers, which I care more about, I would like to
-leave as separate changes (easy to see in history what was done).
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+---
 
+Yes this board is old, but I'm trying to get rid of custom riscv patches in
+the Ubuntu kernel.
 
+ .../boot/dts/sifive/hifive-unleashed-a00.dts  | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index ced0d4e47938..900a50526d77 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -3,6 +3,8 @@
+ 
+ #include "fu540-c000.dtsi"
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pwm/pwm.h>
+ 
+ /* Clock frequency (in Hz) of the PCB crystal for rtcclk */
+ #define RTCCLK_FREQ		1000000
+@@ -42,6 +44,42 @@ gpio-restart {
+ 		compatible = "gpio-restart";
+ 		gpios = <&gpio 10 GPIO_ACTIVE_LOW>;
+ 	};
++
++	led-controller {
++		compatible = "pwm-leds";
++
++		led-d1 {
++			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d1";
++		};
++
++		led-d2 {
++			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d2";
++		};
++
++		led-d3 {
++			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d3";
++		};
++
++		led-d4 {
++			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d4";
++		};
++	};
+ };
+ 
+ &uart0 {
 -- 
-With Best Regards,
-Andy Shevchenko
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
