@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD3C43217
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 15:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69CEC43217
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 16:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T1AZqGEcXnf78nkPsjguLY5ikPjSbEZNWQouixRGjk8=; b=PJ5goWk4OK/jsF
-	+A1W41YykutYmTPh3QlYE36TLItyzUZ78eWwGBuXhEsrG8s+TZeeXsgoiZLWr/QXtBr/x2zPSvwOW
-	4Q2jgb+CU9mwz68DhfAyGa5JS5ILrJD2S/u+Y7F9SGOvNHAft0xpRKS94TmYwX/ZlVzdPgIkps5MP
-	6Q/5zllnEpEtku3pu1Uei5eNpPTzxfyZ4Li/LByQUERlpEhV68B/yvjbzmG2mDgujWc1TEdYSBvbe
-	dHJF3SPzJ3HjYYsKdgDsTGlqMQFjkwBadpF+UYyb4Xv5Rf8SwXlRRNqCxhRKPaWXp2VRoU2FzLPiV
-	heU9nhkBoH4J+LBG0Ajw==;
+	List-Owner; bh=xfSxaKQyFhAD7iHyCQVuU0U5nCPTS2ysj3gQ6x88RZU=; b=fv5pxdsCz5bMm1
+	sw1OsQuXDLgtw//YQv8sleT5ZZSVkDx7pKpwTFI9ojXf7FKvXC/pq+rhUHnkCZZZ4UKL6VG567eIn
+	E7v50G4THJooQAO+Effs6kBmIJWztQSf4tuElwbJzfwg92Upl6faLhv+vGYUCyezmkrhYFjdAWp7B
+	aDLD3jp/QDx3zcdjnZThbUNHUq10zuFLFRCuI7+EIoyV9Tr6FBMklDC0+ImY1ld0GvfqevRYDom2j
+	AeF3eRt3HM76eBGnRDHmB/ashQF6w9GL6b53cV6hS5XDbIKBhTdJrfqHP1EXxSFDoIjWr5kfvwmhm
+	AKotPlPgOU2jSkThZtDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oidof-008Zt9-BK; Wed, 12 Oct 2022 15:38:41 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1oie9O-008dGU-Oe; Wed, 12 Oct 2022 16:00:06 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oidoc-008ZrS-AL
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 15:38:39 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id i9so11152738qvo.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 08:38:35 -0700 (PDT)
+	id 1oie9L-008dEe-Ok
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 16:00:05 +0000
+Received: by mail-pf1-x432.google.com with SMTP id i3so16890313pfk.9
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 09:00:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Z+NMoPOZq1erzKnfhYuGIlvnqtWcZGNnxl2pMMZiBdo=;
-        b=Lz+j6HeJDCFOKr1Gyj43KK/P7fM0J4lk/iKn6dVTn+y8wEIYuHfAh5SyfCA8cJWXhY
-         obM6zp6Ht3x/RTCY18QHtftkGoImtad9ussJ+nBB6PIRujcV9ZF0ToMVFfYrz+uHJyE7
-         O//8XUzkLvspmUOeE2JoBqBQBcO2ByxXbSDnawaDVa9lyljOqF8Nz/iHhC9J119RmLXI
-         c+5t48cJNJRzvuxh441WXhpgdKnpqzzUmU4EioMXHDK5qgeeO8/JrWImvlCVnDVAFvk2
-         vlAcmZCnHC+XdxOJ6l+Va0KmA13NT4iQFf8tNrTrDNbrGO2uouR5BVVtGumAzxTYgWb8
-         ZBZQ==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=x2lvFXzj1B5AbFhRx0jQ0CX63rE8hZfFVslgge4Qybs=;
+        b=o7zR5YOCdpSYtKJk/cFHbC2zAt7QwxSG5H2JsihQkXq2yIMYUJ9KHWNAlAZRQCFS+5
+         O3R++Z8N9Q1jBlXTdarjJSH4CzpGC9skg9+iwMqhbILhx5y+M2NWUn2cxezcrIwXHeaF
+         +SgzRw/Tuk7x0ZSmZ991tXAXpz3bzVLm9DCfvtnveT+IgtQTzCF55niQDpStbGmB3Gey
+         UrMLy+B42UyIKWl1HWl1g1jkMYXRIwpAVOuWjL9w3OWgGcVz2Tz+mYgv8n1U1zxwzxn0
+         mw82v7xinaLpon6ig5zi6Eezu/BwX80vy3evLw0dQm7qCfWaF9UXett6WQWJAhTgNwdC
+         6kJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z+NMoPOZq1erzKnfhYuGIlvnqtWcZGNnxl2pMMZiBdo=;
-        b=Fc0fLt+0eNprF0MakZXXj3lIfHshYlvNiWWxtNiaekwNIYiJOTDoNsOwoT+7m2O8pj
-         YiSdwAdGfjn3KJ0QhZ6B+yO86kplTSSECTDm7YzIgN3WTo8bifphIpraEQIfUfXsgpLV
-         O7RLhDg7tbRGQTIDlcisAc6pydfWbPd5hPKR0rlSmguI/UKr13Oqd6rRvuBSx7qd6U8b
-         +23LdwH0oRov2OhcWo1YsiROKNMPeoOHtT94sx9WXrWmUahJC8PG9goeFXmUifJ52cot
-         55TnaH7akSRIyaV4xB2oeBt4BVAoY137lHGsi+4zc7TUTdVRG95uuqO6DRZ8BNWnZGPH
-         aC6w==
-X-Gm-Message-State: ACrzQf0W/LvRflUe44huYCGzVLG54B4Dn7TYy9bldc6vXvSZHBeVU/U8
-	IkoWi7MAJmLn6en4BwT9nL9MTg==
-X-Google-Smtp-Source: AMsMyM6FgPeEeq6o1hXq7OPXCciAymFLlQ+QAF+otIX2xa/uUftSe2ABcXLoRVZM1hDWaM/wexNsPQ==
-X-Received: by 2002:a05:6214:1d01:b0:4b0:b782:15a6 with SMTP id e1-20020a0562141d0100b004b0b78215a6mr24569885qvd.43.1665589114407;
-        Wed, 12 Oct 2022 08:38:34 -0700 (PDT)
-Received: from [192.168.1.57] (cpe-72-225-192-120.nyc.res.rr.com. [72.225.192.120])
-        by smtp.gmail.com with ESMTPSA id m15-20020a05620a13af00b006cfc1d827cbsm15705502qki.9.2022.10.12.08.38.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Oct 2022 08:38:33 -0700 (PDT)
-Message-ID: <57e454f4-6767-bf42-8337-ce1f486137ca@linaro.org>
-Date: Wed, 12 Oct 2022 11:38:17 -0400
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x2lvFXzj1B5AbFhRx0jQ0CX63rE8hZfFVslgge4Qybs=;
+        b=bJEIpzBcziB+/YmOSaxFkcpD9cJmIqN2TOHeWlN21nVrZPrEQ032pT3zJd0PngdDzW
+         0bVm1XvFVf7nJIIAMVJpx7iV2rJ2Uw5hPphIxpq8sh3k2MjO0I58AJKe+IeVvhlPm437
+         6f4+NGF1lV/4LL8gUE0OesbggGMaIDcfv9q3ZHpkRF2EkBPVT/N2o+RHiaoLHu1vwWCu
+         0FnVCBNvwoMjEJ0XM5IgXSj/onQ7d7OuxSOGo0TZ9EwkDCgQH7wQ2Tl39+m33AzcpAqP
+         hjFOhKZMjmTSJKhq/yDqGJh2RuPpgoXkwf3P0YnGBheu8X98iLm71J6MXrQFxMV6ojBW
+         0vOA==
+X-Gm-Message-State: ACrzQf2kTet/5b4QE/WnHnzicIF9LF7sCiIhTbVb4rk5xhPlL6XFQIVq
+	Svf4rIb6rCXMoQ186dF5pUcXcQ==
+X-Google-Smtp-Source: AMsMyM4L7kfhQ6titzJtV6W57V3d2nORtXiwltbKsZB7DHCP68SPxamj3WMqedvmtOyyzFy67jgm0Q==
+X-Received: by 2002:a63:5761:0:b0:43c:5940:9176 with SMTP id h33-20020a635761000000b0043c59409176mr25604652pgm.65.1665590400186;
+        Wed, 12 Oct 2022 09:00:00 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id l6-20020a17090ab70600b0020d39ffe987sm1630094pjr.50.2022.10.12.08.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Oct 2022 08:59:59 -0700 (PDT)
+In-Reply-To: <20220728210715.17214-1-palmer@rivosinc.com>
+References: <20220728210715.17214-1-palmer@rivosinc.com>
+Subject: Re: [PATCH] doc: RISC-V: Document that misaligned accesses are supported
+Message-Id: <166559036448.27925.6190896060696605736.b4-ty@rivosinc.com>
+Date: Wed, 12 Oct 2022 08:59:24 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [RFC PATCH 0/2] RZ/G2UL separate out SoC specific parts
-Content-Language: en-US
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
- Samuel Holland <samuel@sholland.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- DT <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20220929172356.301342-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CA+V-a8vD1+kbby8rbZqYv2Ux1GaT=7n7V9qHJS3Djv-fKdWrAQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CA+V-a8vD1+kbby8rbZqYv2Ux1GaT=7n7V9qHJS3Djv-fKdWrAQ@mail.gmail.com>
+X-Mailer: b4 0.10.1
+Cc: linux@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
+  linux-doc@vger.kernel.org, bagasdotme@gmail.com, linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu,
+  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>, corbet@lwn.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_083838_389850_140BB760 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20221012_090004_011209_41E0A8AB 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +92,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2022 05:41, Lad, Prabhakar wrote:
-> Hi Rob, Krzysztof,
+On Thu, 28 Jul 2022 14:07:15 -0700, Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 > 
-> On Thu, Sep 29, 2022 at 6:24 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
->>
->> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->>
->> Hi All,
->>
->> This patch series aims to split up the RZ/G2UL SoC DTSI into common parts
->> so that this can be shared with the RZ/Five SoC.
->>
->> Implementation is based on the discussion [0] where I have used option#2.
->>
->> The Renesas RZ/G2UL (ARM64) and RZ/Five (RISC-V) have almost the same
->> identical blocks to avoid duplication a base SoC dtsi (r9a07g043.dtsi) is
->> created which will be used by the RZ/G2UL (r9a07g043u.dtsi) and RZ/Five
->> (r9a07g043F.dtsi)
->>
->> Sending this as an RFC to get some feedback.
->>
->> r9a07g043f.dtsi will look something like below:
->>
->> #include <dt-bindings/interrupt-controller/irq.h>
->>
->> #define SOC_PERIPHERAL_IRQ_NUMBER(nr)   (nr + 32)
->> #define SOC_PERIPHERAL_IRQ(nr, na)      SOC_PERIPHERAL_IRQ_NUMBER(nr) na
->>
->> #include <arm64/renesas/r9a07g043.dtsi>
->>
->> / {
->>    ...
->>    ...
->> };
->>
->> Although patch#2 can be merged into patch#1 just wanted to keep them separated
->> for easier review.
->>
->> [0] https://lore.kernel.org/linux-arm-kernel/Yyt8s5+pyoysVNeC@spud/T/
->>
->> Cheers,
->> Prabhakar
->>
->> Lad Prabhakar (2):
->>   arm64: dts: renesas: r9a07g043: Introduce SOC_PERIPHERAL_IRQ() macro
->>     to specify interrupt property
+> The RISC-V ISA manual used to mandate that misaligned accesses were
+> supported in user mode, but that requirement was removed in 2018 via
+> riscv-isa-manual commit 61cadb9 ("Provide new description of misaligned
+> load/store behavior compatible with privileged architecture.").  Since
+> the Linux uABI was already frozen at that point it's just been demoted
+> to part of the uABI, but that was never written down.
 > 
-> Can either of you please review patch #1.
-> 
+> [...]
 
-Why? This is a DTS patch, isn't it? You should CC rather platform
-maintainers, architecture maintainers and SoC folks (the latter you
-missed for sure). You missed them, so please resend.
+Applied, thanks!
+
+[1/1] doc: RISC-V: Document that misaligned accesses are supported
+      commit: 06267eb2decaa6baac81bbd882265a8e7782dba4
 
 Best regards,
-Krzysztof
-
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
