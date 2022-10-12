@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0B9C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 23:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69FCC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 23:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=37qJv6l+wNvHxFDTutCHTucns1teDRKc4uP6c7P2Aw8=; b=Ixmls25Vev2d4N
-	KEoabLurEKaURkHyGKXxin0Z5jGGtAwyMgVBN44im/FOjmc2/WpG1HgTXUDqF8BhvDaLZ3mfAWsU5
-	rcpa171dfgYDmjkmhUZFhoY6L+wBuQw040+0UBRW34CXMn7ix2LytjjETz2y11byskZJCKeb1/Uac
-	PHB69IKvEKUVEYH3chQuoRYp9qVAahkuxfSfUTc5zT9oWciybWW2X55REh6o00cNmaDc/bUjD4Grt
-	SwciFP6+OvOFUqh74F6SBHXbtl/VlmUImyYip7FsXd9uT+xECVBXQ9pEcp9sgf6WqVjqkV4o9bV9V
-	ZvUXYLQRZWee6BGqL+MA==;
+	List-Owner; bh=eLZQ3qmXKCTGWKJ59QL5VAWj2zo/DDeAOEh3Y/WNWPE=; b=s2yhf97rMM9OSh
+	p35xbJIOYKpg8ZoxVQS2kXCkrwtuimUQpZTu0CLcHfluy9JUEqko7ny3Wp1MoBjEjXUwrtqrgQ2AL
+	qek5YmL32kLdAfCHnRqflSLywqpRLC6ctlH0C7D86rPpJGDrgFVOl/RZ7KF9LZchzsyF9viWa8BJY
+	fs3Kp8OdY6DTumCav65SiAriNG3N9fQydaaal+PCQHUoC9CkVYStLFU8u6DZyPYpbngMOvQJ1Cs5b
+	PcNH62R+9y7WLa+vQmUoF/VQXXNZaVY1OfrKLqGXFIGYsENeJDfuLH3zgBPLsOKDtUTng29R5sleW
+	j1tk2kneNcJ7pMhd1ZjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oikmB-009eoX-VN; Wed, 12 Oct 2022 23:04:36 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1oikn4-009f0Q-EI; Wed, 12 Oct 2022 23:05:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oikm6-009enT-DT
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 23:04:34 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id z20so226101plb.10
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 16:04:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zvHjbtVLBPb6g6OBwqchP+WNssUbRFfZvkESQo/heEM=;
-        b=luUi3pWBgatBPjt1A2Hij6HNuhOnAWA1PcwKOOJSteCsdjbCFYHbC86x9XDX7uaDnj
-         chj+ZpyG6PacPsJnxlBQCtqR5WpTpg7zGwp+u7tDnQMKdOS2NSY6HUtqOVOMrZbkiARQ
-         Nu8xkZDQ4hY6ZsmySyzJx3dAkUdr1cUo+WIZQz9qxD4RoLwJqvQJBICoz/xDrUbvmen4
-         CFvr/jsV6p/eItcnORbQhHdVWVo7OCXObcK4iyzPuFrWmcsNBkRdtzzPJLI7Nly9AsXe
-         bOEzgWSE83QDVeA03sXjfQ7NRrD9gA7FR+RUVn1UKStP2ZspfJ+p4cNE3iUhzLGmd7Qc
-         akTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zvHjbtVLBPb6g6OBwqchP+WNssUbRFfZvkESQo/heEM=;
-        b=SL0oS7OpPUkpxcI21yXl/uUioJLo7YF4yGveuZI+ZWr2GlI9nQomhdV0fUjk9ZFcqs
-         91z7HKjXXRV8CVeRjSORg9pEP6UEZKskEJpXUfiq9JPcRRKn0+8f4/Z2EVAh5jbjlQ8D
-         kgoMzwc7Bly+jJMUFwqudjst5Q5lxmur4dwvWXYQxi1KzL/0WtFZK+FfjbCKIL8+czqE
-         nX1nXSh/H2GOPgE/lCsBe4qXw5qyasTelCgl/kDTZD34JR5okT9jQTXboHqsHfD/SOX9
-         ZXMj30R4SNavvaDrJAcpkw6tqccC1Q+6ajbBLEYghx4jcSbHeOMf3FbfhOoBcOER5fb1
-         5fog==
-X-Gm-Message-State: ACrzQf2yvrC9Jfc3aTfqpIcnD8Y5PbzWV4mzYuTF1zxuugQHSB2lXTdI
-	1cEwsUXOPyvTP+eaA8fzHvwRWw==
-X-Google-Smtp-Source: AMsMyM6/xEb0p0gbgV55RRT1I2qt1qDgbGVk56ob/OBHdZ0I3S0u7maVFhLfS7aoNUkCO0CHRe/QYg==
-X-Received: by 2002:a17:902:c94e:b0:181:4ab4:179b with SMTP id i14-20020a170902c94e00b001814ab4179bmr24456112pla.126.1665615867186;
-        Wed, 12 Oct 2022 16:04:27 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id n9-20020a170902d2c900b0017da2798025sm11244686plc.295.2022.10.12.16.04.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Oct 2022 16:04:26 -0700 (PDT)
-In-Reply-To: <Y0brVcwYZnoU0ewX@spud>
-References: <Y0brVcwYZnoU0ewX@spud>
-Subject: Re: [GIT PULL] Microchip DT for v6.1
-Message-Id: <166561247399.8863.16595545197819064003.b4-ty@rivosinc.com>
-Date: Wed, 12 Oct 2022 15:07:53 -0700
+	id 1oikn0-009eze-U9
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 23:05:29 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 783AD61668;
+	Wed, 12 Oct 2022 23:05:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E58C433D7;
+	Wed, 12 Oct 2022 23:05:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665615925;
+	bh=RKsj6eaHS0Dlw6VvnuAF/Tpwhbi5fwGsQ2fzFSv0svI=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=QZHwE+fLiMLo4PpvLTomPm8Ro5c5NMVrF8ZoCdlQQd5wWk6Ohfth8VQBz7+rF9Jdv
+	 +E0mhSK3p271mheOinlAZmc6ucgmdHYDQAbHf8akVVVoS0oqDY9/OVyh9190/tUuVo
+	 jZe9OUvEFpXGufIEn8ntGJwp0DDPW65/M9r89CEWWCuhdHtE7ouGygKMkmBRIOakCi
+	 UNwiEE7F1eZwVy4xoUCtog9qSYlnpapphrMio5xezduhDkuSk4l7n9MaAYjJBTM3Ha
+	 dVtvTTjgck6LkLhjF9ssfqgRxnynfvkYN6vlsO5ICfgeA/ZrZCk6qQhWvZk7yh0ek6
+	 1sQVgAiWPGmkA==
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-0fa43
-Cc: conor.dooley@microchip.com, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+In-Reply-To: <CAJM55Z8xxrKqaN64KAP9miTis4wFbL2S9uhV5h-SOiYjbYng+g@mail.gmail.com>
+References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com> <20220929175602.19946-1-hal.feng@linux.starfivetech.com> <20220930214824.A14ACC433D6@smtp.kernel.org> <CAJM55Z8xxrKqaN64KAP9miTis4wFbL2S9uhV5h-SOiYjbYng+g@mail.gmail.com>
+Subject: Re: [PATCH v1 15/30] clk: starfive: Use regmap APIs to operate registers
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Hal Feng <hal.feng@linux.starfivetech.com>, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Michael Turquette <mturquette@baylibre.com>, Linus Walleij <linus.walleij@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 12 Oct 2022 16:05:23 -0700
+User-Agent: alot/0.10
+Message-Id: <20221012230525.C6E58C433D7@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_160432_691354_E5091446 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20221012_160527_024628_2CE2C18B 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +71,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[trying b4 to merge a PR for the first time...]
-
-On Wed, 12 Oct 2022 17:29:09 +0100, Conor Dooley wrote:
-> Hey Palmer,
+Quoting Emil Renner Berthing (2022-10-05 06:14:44)
+> > > @@ -295,11 +296,13 @@ static int __init clk_starfive_jh7100_probe(struct platform_device *pdev)
+> > >         if (!priv)
+> > >                 return -ENOMEM;
+> > >
+> > > -       spin_lock_init(&priv->rmw_lock);
+> > >         priv->dev = &pdev->dev;
+> > > -       priv->base = devm_platform_ioremap_resource(pdev, 0);
+> > > -       if (IS_ERR(priv->base))
+> > > -               return PTR_ERR(priv->base);
+> > > +       priv->regmap = device_node_to_regmap(priv->dev->of_node);
+> >
+> > This is sad. Why do we need to make a syscon? Can we instead use the
+> > auxiliary bus to make a reset device that either gets a regmap made here
+> > in this driver or uses a void __iomem * mapped with ioremap
+> > (priv->base)?
 > 
-> Late as previously mentioned since I had to wait for the reference
-> design to actually get released - there's an -rc1 up on GitHub for it
-> now that people can actually use :)
-> 
-> It's all been in linux-next for a while, apart from the HEAD commit that
-> is a fix I added last week rather than send you something I knew was
-> wrong.
-> 
-> [...]
+> In my original code the clock driver just registers the resets too
+> similar to other combined clock and reset drivers. I wonder what you
+> think about that approach:
+> https://github.com/esmil/linux/commit/36f15e1b827b02d7f493dc5fce31060b21976e68
+> and
+> https://github.com/esmil/linux/commit/4ccafadb72968480aa3dd28c227fcccae411c13b#diff-ffec81f902f810cb210012c25e8d88217ea5b4021419a4206d1fd4dd19edfce8R471
 
-Merged, thanks!
-
-https://git.kernel.org/palmer/c/90e0d94d369d
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
+I think we should use auxiliary bus and split the driver logically into
+a reset driver in drivers/reset and a clk driver in drivers/clk. That
+way the appropriate maintainers can review the code. There is only one
+platform device with a single reg property and node in DT, but there are
+two drivers.
 
 _______________________________________________
 linux-riscv mailing list
