@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3848DC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E03BC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Oct 2022 13:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vH8si6YXcU8GzhL+UfKHCiar4j78LOQMoDtxPZdoKjg=; b=I2i0HRzxwDZN+T
-	GYuYySOZ5pl1syX+muATwgWqR8rt1vq0PR15xCzaEYyGcGJUy5jDl5Zp/bmD17VBEIFLdHVKRbTPg
-	6JqCkFZicZLdXwNBjR5D/HHBk+GjF+17R/Mwjta91hHYqYVTGpBIXac8GpBuYj3I8RtpLLhg4gWqm
-	rHhXSG/ZzsINNgkMaAOaCjKKLxX153BpzgW/egQvIkcZH6ssa9cjRapNh07qlYLrN4AZkJhmtq4tX
-	F+8B5TYaxb27CkHlGrA9JvJKYZtnQo62hToVdQKS7yrSDMFFfomeYV0Qky6QfBSFxQ/Y33U6jD1dS
-	9NOr1X0unFRc7m1eGdSQ==;
+	List-Owner; bh=cKhnCWhFxcSyzzWcjGdSWC3h+sG1E/g6HLFT0BBa4o0=; b=zdyxw+v/JRGXxi
+	SbJ5TDInOo6Js3V2X/VhXoLGAkW8pVkvRPXEpcvtKeru1rWDe6GPt3icHx9NIuGnAgGr6Z6KFkC/O
+	5LzDFJnOiobxQk/jC4LDB+ohFBmoa8o2xCfGktygsEB1bo1GWYBL3VGeB6C3cHoCb/B+y/QKzLhoi
+	BbXAg/6GztXt43F0FEM07GWlB+YrgAauUESZUETM3Wl4zOrRWBH7jejOO9TrvDFZQCNENuXFa8o4c
+	0amTlYfY9g/Mte/BIqwRhlCEs6s3wcjRWdws4eAcqKanh7QQ1KOI5n3TvFKf7l74feTPfL4CCADH/
+	vSa1ZPY9CKnpqSGmkCBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibtw-008Dpg-EA; Wed, 12 Oct 2022 13:36:00 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1oibzI-008FDr-Rt; Wed, 12 Oct 2022 13:41:32 +0000
+Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oibts-008DoV-TP
-	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 13:35:58 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id a24so2589034qto.10
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 06:35:56 -0700 (PDT)
+	id 1oibzF-008FCA-Eg
+	for linux-riscv@lists.infradead.org; Wed, 12 Oct 2022 13:41:30 +0000
+Received: by mail-vs1-xe2d.google.com with SMTP id a2so11776096vsc.13
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 06:41:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=p9wv8237wgiOHnZzBeahRRwwZUTEpSK22YpW0WQ8ENQ=;
-        b=CjpoFkyKt2Uj/f6Lutf+q+eujpjTXoQucjGCs5xN1wirDfpq/0VvBPWcYKcLddDJXy
-         djpKrpZvTmv3ZoHid7/65Bnf/1/dOnIcA5QYJ156coiid0vDg+n0PMHRSSGQcxwTxuNU
-         NyWVYMO9YA+CLepPyiIQi3efN6EZpZxCkC8M7MROypc7fzVg+XJo/mxouo3fBC1NEq4j
-         SqVrnI8AflI1sBsvVftUCjYx7d4qk1fuHfM4I+fnkPZ6HtusEJ16xDYm8Jq/hSLyBeZK
-         WIKAs2sSxNdCBQ03vVFfFeezd/VBd1nLR3vZWiszCzozsTpFLjRf2EwYSdZCJSMNzDGy
-         eX5Q==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZNaONkodKU8wuhjhY6olb/IOl+q0m7F2XRj580RmVHU=;
+        b=MhofUUXYT3tMT7oMQ+a5cs30JJ4oxfDawPPGaNHs4RrO+MqfLXIzE6Vb5DKawierXs
+         kBBWD3mF1Svm6j9Bk5Efo8SKBS5fj6LsDKyEmMxd5p0ScJj20zY+wLFWDFX1sZXmYeJ/
+         yWckjMTjg1kGb4YuR9giH8xD/PNg8MUWv2eYl9tOaB5OfqGP2zi7LJBFBubdEXhp/HV+
+         j+5m0uu7Q1SsV6RdzOqsXmbDVQflTXfn91nd0Mdh0lhhC7P6rLZL9otgU9vIRf6PgSsf
+         z0Qnd9DGQkDU0625sqluJJofMfWEk7nI+eWAuHsOJE75dWE7ddsUzxYpTiub0k/WZSKE
+         iotw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=p9wv8237wgiOHnZzBeahRRwwZUTEpSK22YpW0WQ8ENQ=;
-        b=jpwcYW4cbkhK3ccXA6lgVUdwP6ktQZypMC9DurvBrWuzsyPqBGguqKhTm/YttVNXzb
-         C87s/LL+jNAY6vEozg78y/xD4+n7xweFk4EHAMfF17xSb02UhsaLCTL7yJqnm2yQ+bsl
-         CCGviSOxXpW+rFspSqjWz73ybbTgeKIko6kwY/GmfPmeY+HeCcPic5rzJUwp4itu7WEO
-         zu8K2LjcTlL9V2+VdFuVaLXHcVEtHxC91fLpiVyTLiONwEphVk0I+s0xREyc7Vj+is29
-         z//9ipuqlfKtOHLUOI+XhpNCmksvZox+R9xWWEUxbLNa02ARSEZyZo4LH+QfsKcLKUIH
-         lNKg==
-X-Gm-Message-State: ACrzQf0litNUmrhmr8qfVaCjSyLJlC55ws9mbGOestwHP4knqZyeG1GZ
-	tFHB9OrGq98x0X6ZTMembfVxOQ==
-X-Google-Smtp-Source: AMsMyM7q7HOB8fihkeRyzWXkhwIJbD9lX9nJvsCeMqMfFiR6wEnE4o8DM3wgIHiz9qtWeHFh2y6ftw==
-X-Received: by 2002:a05:622a:60b:b0:399:69c8:9b54 with SMTP id z11-20020a05622a060b00b0039969c89b54mr14464320qta.180.1665581755389;
-        Wed, 12 Oct 2022 06:35:55 -0700 (PDT)
-Received: from [192.168.1.57] (cpe-72-225-192-120.nyc.res.rr.com. [72.225.192.120])
-        by smtp.gmail.com with ESMTPSA id p16-20020a05620a057000b006bb29d932e1sm5669503qkp.105.2022.10.12.06.35.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Oct 2022 06:35:54 -0700 (PDT)
-Message-ID: <9f04267d-2592-b303-9b79-9cef672c970a@linaro.org>
-Date: Wed, 12 Oct 2022 09:33:42 -0400
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZNaONkodKU8wuhjhY6olb/IOl+q0m7F2XRj580RmVHU=;
+        b=JgV7W8jPSHGn8G3DEN//KLV8YJIWlVfVyeRwANg129vcoki8LnTzlooCtk3VpJ+qly
+         bRqfwQ88gSqf6p3ZVPDlQv0ed4dekZeKZ9SYh3k3SbssurvAeEkGWiJi2iUh6sKOncju
+         bDWUgLy/ylkJStHFkAn25XfYD1/hKN/fEeDbsKhzCpFqu6Laelc80FYnsfBezREDDuyb
+         86iCP0xOWyBmLC66xsGxCqb3dDjeivSqsuEI5oHW+p0HLI+PJIpPSM4DGL6sHTkPUikD
+         hSwsUr3K9FPpNRpqxx5o4AdyxNZ5V5w9E+bb8721Tmwp0HwuYMQUmsEsWvjxXDkdKSqa
+         2/9w==
+X-Gm-Message-State: ACrzQf0362m5os2OsfQmN8OktQVTPRwp9Du/zqVKlCHW2jM62sJdbqJK
+	qhz55feo9yi5OAlI/Z6etKtiDL/Lkqq1lh6qOJw=
+X-Google-Smtp-Source: AMsMyM5+q5LtrcFWQspxCt566WeBlBUnLhzlSoIIWh3N2hJAuyYFmaM4pCXOCmY1Vj++tYwP0S9AlrvwQVCWofodsZI=
+X-Received: by 2002:a05:6102:31b6:b0:3a6:eeec:a566 with SMTP id
+ d22-20020a05610231b600b003a6eeeca566mr14831683vsh.28.1665582087089; Wed, 12
+ Oct 2022 06:41:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 12/30] dt-bindings: reset: Add starfive,jh7110-reset
- bindings
-Content-Language: en-US
-To: Hal Feng <hal.feng@linux.starfivetech.com>
-Cc: Rob Herring <robh@kernel.org>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220929175147.19749-1-hal.feng@linux.starfivetech.com>
- <20220929184349.GA2551443-robh@kernel.org>
- <8BEAFAD2C4CE6E4A+0a00376c-1e3e-f597-bcf6-106ff294859a@linux.starfivetech.com>
- <2f1d1afd-3c97-6ce0-8247-6e1c4a24e548@linaro.org>
- <4769BE3503398017+b1699221-ccc9-a0c1-0b11-141ce9644d74@linux.starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <4769BE3503398017+b1699221-ccc9-a0c1-0b11-141ce9644d74@linux.starfivetech.com>
+References: <20221012082949.1801222-1-ajones@ventanamicro.com>
+ <Y0a5QYWzEwRlGtxf@yury-laptop> <20221012131325.oc7onxqo7t46wxq5@kamzik>
+In-Reply-To: <20221012131325.oc7onxqo7t46wxq5@kamzik>
+From: Yury Norov <yury.norov@gmail.com>
+Date: Wed, 12 Oct 2022 06:41:16 -0700
+Message-ID: <CAAH8bW9z6D_DRCAvQi5BUN9dh82LBZwGd-GWa8r+MFc=xs6xVw@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Fix /proc/cpuinfo cpumask warning
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_063556_982193_1B3D8DFE 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20221012_064129_521835_6FAB1AF1 
+X-CRM114-Status: GOOD (  34.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,125 +87,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/10/2022 09:16, Hal Feng wrote:
->>>>> +properties:
->>>>> +  compatible:
->>>>> +    enum:
->>>>> +      - starfive,jh7110-reset
->>>>
->>>> 'reg' needed? Is this a sub-block of something else?
->>>
->>> Yes, the reset node is a child node of the syscon node, see patch 27 for detail.
->>> You might not see the complete patches at that time due to technical issue of
->>> our smtp email server. Again, I feel so sorry about that.
->>>
->>> 	syscrg: syscrg@13020000 {
->>> 		compatible = "syscon", "simple-mfd";
->>> 		reg = <0x0 0x13020000 0x0 0x10000>;
->>>
->>> 		syscrg_clk: clock-controller@13020000 {
->>> 			compatible = "starfive,jh7110-clkgen-sys";
->>> 			clocks = <&osc>, <&gmac1_rmii_refin>,
->>> 				 <&gmac1_rgmii_rxin>,
->>> 				 <&i2stx_bclk_ext>, <&i2stx_lrck_ext>,
->>> 				 <&i2srx_bclk_ext>, <&i2srx_lrck_ext>,
->>> 				 <&tdm_ext>, <&mclk_ext>;
->>> 			clock-names = "osc", "gmac1_rmii_refin",
->>> 				"gmac1_rgmii_rxin",
->>> 				"i2stx_bclk_ext", "i2stx_lrck_ext",
->>> 				"i2srx_bclk_ext", "i2srx_lrck_ext",
->>> 				"tdm_ext", "mclk_ext";
->>> 			#clock-cells = <1>;
->>> 		};
->>>
->>> 		syscrg_rst: reset-controller@13020000 {
->>> 			compatible = "starfive,jh7110-reset";
->>> 			#reset-cells = <1>;
->>
->> So the answer to the "reg needed?" is what? You have unit address but no
->> reg, so this is not correct.
-> 
-> Not needed in the reset-controller node, but needed in its parent node. 
+On Wed, Oct 12, 2022 at 6:13 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> On Wed, Oct 12, 2022 at 05:55:29AM -0700, Yury Norov wrote:
+> > On Wed, Oct 12, 2022 at 10:29:49AM +0200, Andrew Jones wrote:
+> > > Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") has
+> > > started issuing warnings[*] when cpu indices equal to nr_cpu_ids - 1
+> > > are passed to cpumask_next* functions. seq_read_iter() and cpuinfo's
+> > > start and next seq operations implement a pattern like
+> > >
+> > >   n = cpumask_next(n - 1, mask);
+> > >   show(n);
+> > >   while (1) {
+> > >       ++n;
+> > >       n = cpumask_next(n - 1, mask);
+> > >       if (n >= nr_cpu_ids)
+> > >           break;
+> > >       show(n);
+> > >   }
+> >
+> > Can you instead of sudo-code print show the real control flow? What
+> > function hosts the infinite loop?
+>
+> The function is seq_read_iter(), which is pointed out above. I'd rather
+> not reproduce / describe more than what I've done here, as the function
+> is large. I'd be happy for reviewers to double check my pseudocode to
+> make sure I got it and the analysis right, though.
+>
+> >
+> > > which will issue the warning when reading /proc/cpuinfo. Ensure no
+> > > warning is generated by validating the cpu index before calling
+> > > cpumask_next().
+> > >
+> > > [*] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
+> > >
+> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > > Cc: Yury Norov <yury.norov@gmail.com>
+> > > ---
+> > > v2:
+> > >   - Got comments on the x86 equivalent patch and made the same
+> > >     changes to this one
+> > >     - Added all the information I should have in the first place
+> > >       to the commit message [Boris]
+> > >     - Changed style of fix [Boris]
+> > >
+> > >
+> > >  arch/riscv/kernel/cpu.c | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > > index 4aa8cd749441..63138b880b92 100644
+> > > --- a/arch/riscv/kernel/cpu.c
+> > > +++ b/arch/riscv/kernel/cpu.c
+> > > @@ -166,6 +166,9 @@ static void print_mmu(struct seq_file *f)
+> > >
+> > >  static void *c_start(struct seq_file *m, loff_t *pos)
+> > >  {
+> > > +   if (*pos >= nr_cpu_ids)
+> > > +           return NULL;
+> > > +
+> > >     *pos = cpumask_next(*pos - 1, cpu_online_mask);
+> > >     if ((*pos) < nr_cpu_ids)
+> > >             return (void *)(uintptr_t)(1 + *pos);
+> >
+> > OK, as far as I understood your explanations, *pos == nr_cpu_ids
+> > is a valid index because it's used as stop-code for traversing.
+> >
+> > However, you're completely silencing cpumask_check(), including
+> > those cases where *pos > nr_cpu_ids. I suspect there's no valid
+> > cases for it. If so, the patch should look like:
+> >
+> >  +    if (*pos == nr_cpu_ids)
+> >  +            return NULL;
+> >  +
+>
+> That makes sense and it's probably worth a v3. I'll wait and see if more
+> comments roll in before sending though.
+>
+> >
+> > The same for x86 patch.
+> >
+> > If it comes to v3, can you send both as a series?
+>
+> OK. I'll write a cover letter trying to explain that I don't expect them
+> to both go through the same tree.
 
-We do not talk about parent node. Rob's question was in this bindings.
-Is this document a binding for the parent node or for this node?
-
-> I am sorry
-> for missing description to point it out in the bindings. I will rewrite all bindings
-> for the next version. Unit address here should be deleted.
-> 
->>
->>> 			starfive,assert-offset = <0x2F8>;
->>> 			starfive,status-offset= <0x308>;
->>> 			starfive,nr-resets = <JH7110_SYSRST_END>;
->>> 		};
->>> 	};
->>>
->>> In this case, we get the memory mapped space through the parent node with syscon
->>> APIs. You can see patch 13 for detail.
->>>
->>> static int reset_starfive_register(struct platform_device *pdev, const u32 *asserted)
->>> {
->>
->>
->> (...)
->>
->>>
->>>>
->>>>> +
->>>>> +  "#reset-cells":
->>>>> +    const: 1
->>>>> +
->>>>> +  starfive,assert-offset:
->>>>> +    description: Offset of the first ASSERT register
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>> +
->>>>> +  starfive,status-offset:
->>>>> +    description: Offset of the first STATUS register
->>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>>
->>>> These can't be implied from the compatible string?
-> 
-> Definitely can. We do this is for simplifying the reset driver.
-
-The role of the bindings is not to simplify some specific driver in some
-specific OS...
-
-> Otherwise, we may need to define more compatibles because there
-> are multiple reset blocks in JH7110. Another case can be found at
-> https://elixir.bootlin.com/linux/latest/source/Documentation/devicetree/bindings/reset/altr,rst-mgr.yaml
-
-And why is this a problem? You have different hardware, so should have
-different compatibles. Otherwise we would have a compatible
-"all,everything" and use it in all possible devices.
-
->>> These two properties are the key differences among different reset controllers.
->>
->> Different as in different compatibles? Please answer the questions..> 
->>> There are five memory regions for clock and reset in StarFive JH7110 SoC. They
->>> are "syscrg", "aoncrg", "stgcrg", "ispcrg" and "voutcrg". Each memory region
->>> has different reset ASSERT/STATUS register offset and different number of reset
->>> signals. 
->>
->> Then these are not exactly the same devices, so using one compatible for
->> them does not look correct.
-> 
-> One compatible can just be matched by one device? I think this is what
-> confuses me.
-
-I don't understand the question.
-
-> 
-> Best regards,
-> Hal
-> 
-
-Trim the replies - no need to quote everything (entire message following
-last reply/quote).
-
-Best regards,
-Krzysztof
-
+I can take it in my tree, if it helps.
 
 _______________________________________________
 linux-riscv mailing list
