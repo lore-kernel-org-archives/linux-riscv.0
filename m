@@ -4,59 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F7EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 05:37:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D24C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 08:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dTVusMTSNmI6RD2wN3eAuXv+HB+9MQeTCdfNzLHuXSo=; b=of0Iva/oZXcvU9
-	pZBVPausodyu3/fnohAcFy8YedPTBwZmte6tO2EedQ0a3hcpvwc/Tnndts6U5pdendHQcFcpnvYor
-	Gkm16pBYy6S3nkpuPIMc2ldO8jIdky1kFLCmaHYz5z8ldPAHFSYX3cnwl5w++dSB3DS2TIqs7IzbF
-	27uFeNNT88sThFq40SjEUF68Lu4jNaMfaz1XBqt/dk+PrEVPg2OW1vYI0PlFrQZDnlULd0kSftqiL
-	mAQCUvYBNHfjMa4dLxL+l5V0pEvd/wzp4Q+BFSxXy8PxW8Ie3zrUBXa9CN05ZHQuDYkBjeQMlwAcW
-	naRrDRi9TES+ga4bXSFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IVhi5QNwRASJ1Z9COtuwxUg+RUweERUUqqR8pa6ksN4=; b=dIhUkqibUzEgls
+	Yu27ptKORS/bAFnL7fDNZhFTL/WWkQcAU6LZwzHKyf5eZ+/NAkgBmdq55DciKUu88KtU6eJcRRS8C
+	9uJ1dFCCUpY3Kahw0GrueO315hlbbYnKNi3qnNsmxiiKwbxfEVOAnjw42/ykZiK80CmlFZTcdF7E2
+	Y9zGemoV1av0WR8HCjhdnoYr1Q4YjnnrmqwOVv/lnDQeOG/3G2RwRRdrywvs/fY1JqBIKmIt73WY8
+	Yq4P4P5ODQND1nxoNfJUbDE9kwzWQjmBQ2X8cv91oHd6gKot97x+RBtCzTbfuRDmfXWbMf8V6nSqS
+	hA4R/UjlMPZ1poXtBOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiquh-00AjZJ-B5; Thu, 13 Oct 2022 05:37:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oitK4-00B2Fu-3U; Thu, 13 Oct 2022 08:12:08 +0000
+Received: from mail.fadrush.pl ([54.37.225.211])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiquf-00AjYt-0i
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 05:37:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D01A8615DC;
-	Thu, 13 Oct 2022 05:37:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F1CEC433C1;
-	Thu, 13 Oct 2022 05:37:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665639463;
-	bh=8aVZC45tzS5Xypj4wP6sxsCkOsmuarZG9AGJpu3SPco=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=F/D4d5YEo4S11Gj+F+xVctT+5me3AkVUXb2whtUfIS8fJ2mFuvUr8PySwMHqJDeAZ
-	 b2NkTQDtu5CaRGkklBGxSm8sI7e0sfzKQs9O+ynrHay1wfBk3l89nFUEsU66zrPrFg
-	 18ShVKVDCefbYGjeJYkNcpW4kNI2s4E8l2acQZ1t5DZGJBcjMK8ZdfNnaQhjsqmGye
-	 An86ifLgD2CmtT+nU0bZV7B1MAhbFI87RXTyhsZDhv5+LYXvn3vc+f90B8uxlGYaDi
-	 hGgxNoDjGA+p6gZQV4JMvoE0xUHL8zhimDiaqzRXHXzsslA+O0BwlTr/ZXlRqeYZIk
-	 CBwcIQMlg90Ng==
-Date: Thu, 13 Oct 2022 06:37:39 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_1/8=5D_riscv=3A_move_riscv=5Fnonc?= =?US-ASCII?Q?oherent=5Fsupported=28=29_out_of_ZICBOM_probe?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <Y0GCST9IQcKws9Yh@xhacker>
-References: <20221006070818.3616-1-jszhang@kernel.org> <20221006070818.3616-2-jszhang@kernel.org> <Y0F1uH71Ll7YGygB@spud> <Y0GCST9IQcKws9Yh@xhacker>
-Message-ID: <BBEFA528-0F84-41CB-A62F-ED4673947928@kernel.org>
+	id 1oitK1-00B2FN-4P
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 08:12:06 +0000
+Received: by mail.fadrush.pl (Postfix, from userid 1002)
+	id AA66D23BD0; Thu, 13 Oct 2022 08:11:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fadrush.pl; s=mail;
+	t=1665648723; bh=bD6j9gIFU6CLTaCGl0Ow9oeIxtirvTfMeNZSfLEZQ+I=;
+	h=Date:From:To:Subject:From;
+	b=XUfCOlNDEe+kk5a+H0MDiVaEffJ8kOLvo1KIrn9XeAwCq+PB/nKODL+H7wyMcK4FC
+	 mCiE5S6mwqc/A6Kx0rU+LsVEmdCGkhNrE/PZFFl0vVWYX9HEvCjReL4qmW4MPUU5A1
+	 jYubEWd70Q17gjxWuun+FW/We9zY58su9SdbJaoRTKAnvRmB4FONg4MbTyV7jdsQgS
+	 OOgPbhHJo/9LFtkB34mPI7kuy4EzLFHf4EOi9UqhyNgyDvlqUik/bCyaEVeWVpWK5k
+	 Mn666us4mosWF1TVQ8q3VZupjtM8+GtoU29aicipvOixX3y9ahXLOuHYBSXszgP813
+	 iHvLSEa/g43Qg==
+Received: by mail.fadrush.pl for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 08:11:04 GMT
+Message-ID: <20221013064500-0.1.27.ly6e.0.peqj2509ye@fadrush.pl>
+Date: Thu, 13 Oct 2022 08:11:04 GMT
+From: "Jakub Olejniczak" <jakub.olejniczak@fadrush.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Zwi=C4=99kszenie_p=C5=82ynno=C5=9Bci_finansowej?=
+X-Mailer: mail.fadrush.pl
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_223745_159320_3E3EC2F1 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20221013_011205_320548_647CB4FC 
+X-CRM114-Status: UNSURE (   0.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,85 +59,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8 October 2022 14:59:37 IST, Jisheng Zhang <jszhang@kernel.org> wrote:
->On Sat, Oct 08, 2022 at 02:06:00PM +0100, Conor Dooley wrote:
->> On Thu, Oct 06, 2022 at 03:08:11PM +0800, Jisheng Zhang wrote:
->> > It's a bit wired to call riscv_noncoherent_supported() once when
->> > insmod a module. Move the calling out of feature patch func.
->> > 
->> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->> > ---
->> >  arch/riscv/kernel/cpufeature.c | 7 +------
->> >  arch/riscv/kernel/setup.c      | 4 ++++
->> >  2 files changed, 5 insertions(+), 6 deletions(-)
->> > 
->> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> > index 3b5583db9d80..03611b3ef45e 100644
->> > --- a/arch/riscv/kernel/cpufeature.c
->> > +++ b/arch/riscv/kernel/cpufeature.c
->> > @@ -272,12 +272,7 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
->> >  	case RISCV_ALTERNATIVES_EARLY_BOOT:
->> >  		return false;
->> >  	default:
->> > -		if (riscv_isa_extension_available(NULL, ZICBOM)) {
->> > -			riscv_noncoherent_supported();
->> > -			return true;
->> > -		} else {
->> > -			return false;
->> > -		}
->> > +		return riscv_isa_extension_available(NULL, ZICBOM);
->> >  	}
->> >  #endif
->> >  
->> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
->> > index 2dfc463b86bb..1a055c3f5d9d 100644
->> > --- a/arch/riscv/kernel/setup.c
->> > +++ b/arch/riscv/kernel/setup.c
->> > @@ -299,6 +299,10 @@ void __init setup_arch(char **cmdline_p)
->> >  	riscv_init_cbom_blocksize();
->> >  	riscv_fill_hwcap();
->> >  	apply_boot_alternatives();
->> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
->> > +	if (riscv_isa_extension_available(NULL, ZICBOM))
->> > +		riscv_noncoherent_supported();
->> > +#endif
->> 
->> I have a personal bias against ifdefs where possible, maybe @Heiko
->> remembers why riscv_noncoherent_supported() was not defined as something
->> like `void riscv_noncoherent_support(void){}` for when that CONFIG is
->> not enabled? If it was this could become a an IS_ENABLED & we wouldn't
->> have to be so careful about wrapping it's usage in ifdefs.
->
->Good idea. Will do in newer version.
-
-Given this comment and the LKP report I've marked the series as changes requested in patchwork FYI.
-
-Thanks,
-Conor.
-
->
->> 
->> Your change in isolation makes sense to me though, so:
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> 
->> Thanks,
->> Conor.
->> 
->> >  }
->> >  
->> >  static int __init topology_init(void)
->> > -- 
->> > 2.37.2
->> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKa29udGFrdHVqxJkgc2nEmSB6IFBhxYRzdHdlbSwgcG9uaWV3YcW8IGNo
+Y2lhxYJieW0gemFwcm9wb25vd2HEhyB3eWdvZG5lIHJvendpxIV6YW5pZSwga3TDs3JlIHVtb8W8
+bGl3aSBQYcWEc3R3YSBmaXJtaWUgc3RhYmlsbnkgcm96d8Ozai4gCgpLb25rdXJlbmN5am5lIG90
+b2N6ZW5pZSB3eW1hZ2EgY2nEhWfFgmVnbyB1bGVwc3phbmlhIGkgcG9zemVyemVuaWEgb2ZlcnR5
+LCBjbyB6IGtvbGVpIHdpxIXFvGUgc2nEmSB6IGtvbmllY3pub8WbY2nEhSBpbndlc3Rvd2FuaWEu
+IEJyYWsgb2Rwb3dpZWRuaWVnbyBrYXBpdGHFgnUgcG93YcW8bmllIG9ncmFuaWN6YSB0ZW1wbyBy
+b3p3b2p1IGZpcm15LgoKT2Qgd2llbHUgbGF0IHogcG93b2R6ZW5pZW0gcG9tYWdhbSBmaXJtb20g
+dyB1enlza2FuaXUgbmFqbGVwc3plaiBmb3JteSBmaW5hbnNvd2FuaWEgeiBiYW5rdSBvcmF6IFVF
+LiBNYW0gc3RhxYJ5Y2ggS2xpZW50w7N3LCBrdMOzcnp5IG5hZGFsIGNoxJl0bmllIGtvcnp5c3Rh
+asSFIHogbW9pY2ggdXPFgnVnLCBhIHRha8W8ZSBwb2xlY2FqxIUgamUgaW5ueW0uCgpDenkgY2hj
+aWVsaWJ5IFBhxYRzdHdvIHNrb3J6eXN0YcSHIHogcG9tb2N5IHd5a3dhbGlmaWtvd2FuZWdvIGkg
+ZG/Fm3dpYWRjem9uZWdvIGRvcmFkY3kgZmluYW5zb3dlZ28/CgoKUG96ZHJhd2lhbQpKYWt1YiBP
+bGVqbmljemFrCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
