@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44167C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 19:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA671C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 19:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
-	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NuuLKs/f+R2Qht0s5+BXPU/UcOJEMPMTO+JFRf/sasE=; b=mVVVJgDEhQXv92
-	S6PpFIOBmzoRPkYJvv24wVKkVse/RxDoS/jGlKtS6ae9zjv5P5UOvsoL4+NZjJE+6XE9xXD2Q0uSh
-	Ju5WAEPtHdZ0tMfowHaZyCuNLzNNxYYc2NwF2mswGkjXYAj86yTXOe/hgFchdVYmLZM4YcLa1RmWz
-	8jX961BYDg7heHPG+/ciCuHqRGfvIqWDt804maQDIUD7uED64f8HaWS1l5JwG3IF+wFGTB5kfHK2p
-	EyApX2xQp3Ucr3h3e9IidDe9i2NYcbhu1+r9+5sqNxVLBBVC4wZjd+lcw0WLHg3XSmkSkoAzHK6se
-	sUTnCpXJI/TzqAczN44g==;
+	List-Owner; bh=vwaCGugfWJGhRg5izUrALCFsDKgQ1ot6O9LfdKGeGFQ=; b=uOkhc+1sOIONTO
+	Dk9HPd+QpaA82apL4Dc7vblfBfBS2CGvK+LpU0XNaXOKeoKBLWNrR9gQg60KbMq90b1CwpC8Nt6ff
+	6cVXWSFM29qPhin75mQk3KzmrecsahNTjnDf4O0aI1n7EXZxue3OIVpjKGyTG0KyJO5zLD1d8yNpV
+	wo4yZoIHPyASt8NxkMRIISKKSUf68PeHmlde8/J4xjHZ/xP+DxrKKOnSaMjn+5KMfUqofGkgcpLCj
+	52UEWCPrLwglznvt2tA9dNHXq9lEOXG9uGFdKJeus+dfxyK6tjvXo8w4KiIW4QRzcWp8cI6Nyirzi
+	lPba4Tg/5LgnNZ5EhzXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bq-00Crht-CR; Thu, 13 Oct 2022 19:48:22 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1oj4Bs-00Crin-Df; Thu, 13 Oct 2022 19:48:24 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bl-00Cre7-07
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:18 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 128so2457415pga.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:14 -0700 (PDT)
+	id 1oj4Bl-00CreT-V5
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:19 +0000
+Received: by mail-pf1-x433.google.com with SMTP id 67so2854592pfz.12
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pT0WZwzWJXbUSL4g5q4il7bObISoyHGAnumZpBqL1t8=;
-        b=r3uaV9ZNyLou/HKvgjWXZYe2wlhlWtjfRukHhN234MSrrPquwuyhD4WF0lfl7KY5vP
-         qBSMUpkNyKOViEe/aYKhse+2EQ9d6cttCOrHx1kqb8OE67BwtUj/Uf60ojHpU+4pwIss
-         KBSXht6vTeHlq4tZO3jMxunsaltsALrN8jMmU7O6u7UfRudu4UgRipp9/M8pvqKiO/Vp
-         d5fgF5g+c39lOVUvGWiaaEFy5zX+PM2AynxbCOMcn5uNfUhF83X5V23pQJYfEGqOUasN
-         sb8FI94ArNlk6RAzl1yx/JdGfi1OQTp8wHz+4aK74+Do6FGq4SF2NfMT9pHzqFQAv3JS
-         eZaw==
+        bh=HEEvU1WRCn8Pz+Xrx0i1sBR3oYcOXgM9wHphIai/kos=;
+        b=PdHkBHnIuCgx63ErCfhFwNqHRaO05dSvLYStnTWA+Yz7GkPaQM8y4w32Ba6mtG9PHe
+         90vClTZmju76a0w0wZ+liTW9z8MaLFsdKOJgRe5Mrv2Z/xH19pLF3YS6aXxy6IfABlm4
+         jxulVNACfDBiGE2UANEQI7PjZIBt92ZoWapMN9Sd9CfOLnhMXhaRKF3YMRTyiELMzKPr
+         whqEOqlX+YbpwZ6xyGFyTYh0CT4ebFCamTQiIN3h5j0G9vMgoSfCM2Xo6dVyLX6C7ICM
+         nHkWE1Q47a1WwWjw8q8ky70CZdoiHffoM2vb0pFmkk4HFK6I5fajM3HU8CQZOeXEF3x2
+         mZ+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:date:message-id
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pT0WZwzWJXbUSL4g5q4il7bObISoyHGAnumZpBqL1t8=;
-        b=IPAzGVW+5bZV9oo5TdYB9uB03pBQWnRU3G+597FaHU14jZMomPxkG5Z4lwk0XewER6
-         nWvg9+RritWKzXQJRzpSHKHvyexe/z62OTLPJBAK7M7wRYkeuCLD+DPjONbiU9wo48PQ
-         wcpiDLZ+PABh/q/SLMb0BzZZNRwlPRnAoEdS/lNM1ghApujG0AsoaQBI5pPR3fDL4Ms4
-         Dm2OcqfYS76NE7PPL2O4srLrSJ5tN3UjRKqFiu+8oAz5ReNp+thavvZjjqznr1buSdm6
-         0cAxghIwdPITklqNgSZYPn1Hr0ogUYDrTqiZW+tE0QvqzYnhTh03hy3fQfD8qCV2BPff
-         9+9g==
-X-Gm-Message-State: ACrzQf3CIt6Bm57x9fm3isfajTw74orsggMKICgt5etH/FzaGmI7QXbO
-	WgNOyvQdFi1+nmGY1De9BC2bYSpkbGAU9g==
-X-Google-Smtp-Source: AMsMyM4cRSBo4dkOC37HrIyT9SC0XkVfzCFHGyMXChE+rTuWibS8pnWgeFKNSWTWm+01HlLAbqZ6Lw==
-X-Received: by 2002:a65:6bc4:0:b0:439:8ff8:e2e1 with SMTP id e4-20020a656bc4000000b004398ff8e2e1mr1318148pgw.91.1665690493887;
-        Thu, 13 Oct 2022 12:48:13 -0700 (PDT)
+        bh=HEEvU1WRCn8Pz+Xrx0i1sBR3oYcOXgM9wHphIai/kos=;
+        b=mIHY2tzvDnAo5iGSzPTExnvxHcelix2Yoe5WctkcHwABanpUDIyfR1mRny6nWz9fm+
+         uR0PNlkFVcHpzfUyoWqgVs9Jt41tniM8zNddSBu2aKjyGZdV2WaR3Zj01DVUxr+B0dV9
+         k+3XiDCIeMLp4YMX1cGbqyoyTqadOGqpK1lX77S8JUU+R4ms1IVTE/AY/K0kxMGaKkif
+         b9hlNeKxHcWz/vE39F/pwHsdvwySn/bkFwkDUyjA/CN96sj7xP6Oqg5dPuMZ9LNLpNZ4
+         AYuNHHrKhg1TQDoXImNByt3KiSJmPfq+U1Q0fmXDoSLlcqWpzVCkmwdZnzlA2fWtJe89
+         fVjA==
+X-Gm-Message-State: ACrzQf077oDd55hdw9t2jOviQpWHT+nx4M1xwVyNqRAClfJTuDm4i0ze
+	BcwmojS6rZYgqGFpmDrqWHsrzxOhjt0UFe1Z
+X-Google-Smtp-Source: AMsMyM61ZQf4FwZ76HDrN21ZOkgGMGkQ6x+DVTQIHOnwY5v9xssjY6lcnqOHVw2LHzfALa8MIyzI3w==
+X-Received: by 2002:a63:fd4f:0:b0:45f:d7ef:9f94 with SMTP id m15-20020a63fd4f000000b0045fd7ef9f94mr1355986pgj.137.1665690495004;
+        Thu, 13 Oct 2022 12:48:15 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id w128-20020a628286000000b00562a71d719fsm71842pfd.155.2022.10.13.12.48.13
+        by smtp.gmail.com with ESMTPSA id g3-20020a656cc3000000b004588814ca73sm102206pgw.21.2022.10.13.12.48.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 12:48:13 -0700 (PDT)
-In-Reply-To: <20220928131807.30386-1-palmer@rivosinc.com>
-References: <20220928131807.30386-1-palmer@rivosinc.com>
-Subject: Re: [PATCH] RISC-V: Re-enable counter access from userspace
-Message-Id: <166569033640.14806.5465239876406037308.b4-ty@rivosinc.com>
+        Thu, 13 Oct 2022 12:48:14 -0700 (PDT)
+In-Reply-To: <20220729111116.259146-1-conor.dooley@microchip.com>
+References: <20220729111116.259146-1-conor.dooley@microchip.com>
+Subject: Re: [PATCH] riscv: enable software resend of irqs
+Message-Id: <166569033642.14806.6789271039853052631.b4-ty@rivosinc.com>
 Date: Thu, 13 Oct 2022 12:45:36 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.11.0-dev-36ce3
+Cc: samuel@sholland.org, dfustini@baylibre.com
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>
+To: Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_124817_054627_E0A96184 
-X-CRM114-Status: UNSURE (   4.85  )
+X-CRM114-CacheID: sfid-20221013_124818_019734_30D004ED 
+X-CRM114-Status: UNSURE (   6.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,16 +91,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Sep 2022 06:18:07 -0700, Palmer Dabbelt wrote:
-> These counters were part of the ISA when we froze the uABI, removing
-> them breaks userspace.
+On Fri, 29 Jul 2022 12:11:17 +0100, Conor Dooley wrote:
+> The PLIC specification does not describe the interrupt pendings bits as
+> read-write, only that they "can be read". To allow for retriggering of
+> interrupts (and the use of the irq debugfs interface) enable
+> HARDIRQS_SW_RESEND for RISC-V.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] RISC-V: Re-enable counter access from userspace
-      https://git.kernel.org/palmer/c/5a5294fbe020
+[1/1] riscv: enable software resend of irqs
+      https://git.kernel.org/palmer/c/c45fc916c2b2
 
 Best regards,
 -- 
