@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE41C43217
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2CFC4332F
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 19:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=m86wx0ePhCWAnVFACm6UXEp8z2pNChiLwKo7tVZhsH8=; b=Px9mvRnRVP8dmr/xPKL+vMGHLu
-	wiMzquNATKePLnk0Q6HaikkMvtqKEAdkDY0KsdlLuW4R8omcEAiYAFJzI0rzcHh9vCvd1QSw4Mi4d
-	mlhMharOTsQZvA0rpfm/Wh7AKDANJLpWu7fMXxq2+zKT9RA7uDlEqeTEYssiJdTZ2q118VtIMG1bq
-	qgZud4LosFYcP7eQPnyOp7QyykxB2sIiPeKqcWPak+I1vKdxAHxkLn/y6rYcTpHUFVO3iDNidzWAp
-	MuP9LpBuoUBoJWqeFF0hkSw9vNfAD/mCTiqdTChwQKPijTlXZXozv2kqKOFTZuy/ofDXGQB80evV1
-	05IWb8AA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/3vuodm4y8hrdx5U33IKVXTzIeNvfBJmzo8MTDHk0T0=; b=3khE68fm3DOd2H
+	0WKlww0gCreEbk1+ag3g7SoH0z+zoQUPkvVjWSYNHnFAkpOabEMbBryxoWoF0ZWXtGDz2ZTYm7FGF
+	kSamxnFIBxCPqy7gDehU2iD4t+JRxAVvV/DnSIn1r2IFh7rdIrSZiUwdZ8DoNEzdYC+wGrysBHlga
+	aY0dX/nzOZvdMqfkA3aILPedX64sR6KrvmR9MktRynnIG0ixwup4XPH0YtX5RHjgWFMDbc7g5gjrq
+	JC4RrJgjKlaTNrewh+Ulnsft89ciozXQXpEwv0lf8o2y7x0/Vf7lQKXABo3ODh9pXJv2xi3LqDSYg
+	5Zw/h0O8ZMwUO8xEBFGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bj-00Crei-Ti; Thu, 13 Oct 2022 19:48:15 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1oj4Bn-00Crgr-Uz; Thu, 13 Oct 2022 19:48:19 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bh-00CrdV-BO
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:15 +0000
-Received: by mail-pg1-x529.google.com with SMTP id r18so2419965pgr.12
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:11 -0700 (PDT)
+	id 1oj4Bj-00Crdi-HK
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:17 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d24so2761148pls.4
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wgZOJIzJ73Ud5K4AO9wMRxTvyPd7NOkkGohUnr84Uc4=;
-        b=VlS7HWDyZxpbJhYUSnLGjJZmLD7+PxV0SNMJeYf5vnqjd3mBJYrGyIzo2G+HpLPMp7
-         2LJo6lnnkRcN1KCtCgkoxeBCJmPC5RJrqjYh1Vr+BFv3GHOyqB6hCQge1TjvgKiRq8ha
-         uCJt3jbAtZpmYDy+1YYtZCtS+26QcIc6b2pWqsjYP0sajI/5aByQQKUR5bYqN4WJJnNw
-         g0lAa4CRgsbDsfWuzP+zVFixgId4ufdA2vPKu/HAGhxFKdN+OJ7LNpi0VpjWt1ITo4XK
-         QUWl05hNBFS+9rsYpz+n3VkelYPR7rBVAzYpAI26Cq+Fyz7d7ClzmSD529Lk8Grmz8YU
-         D6Ig==
+        bh=U3IcGLKOjvaTyzTUS9C/MMMRO8g7hgaBW9dEJGasaM8=;
+        b=rVOUIkeBIqZYAtSSF4eFMOnnrKQe7YDrmDTPcNQ9kmafqVt16/Uv5D4VRyRLR0LHDa
+         V+qVnwMJFrCMIJjVTzGVNGpnIncqjJd+TEBJWfnjCe7/gdyfcBM2I/LbPgzyjq8XP+5R
+         WVCqz3b1aZbmVDjUF6cnItA4F1L6JQuw4bW7yOjYJ9Q2/EKVt92zwTLvS6jwu9u/d/Ij
+         KousLwVqtMDBcWQ+3dhuWXj+AqkSqwclT0JcNnet/WqPnFs9GOFfaFVyCy1ODqkOH0T5
+         wMKZFiuSQUWYfIsIMq6KHrRmtnWJvTSNXfw7jU+RV++y1julovLi9iqhAW8mN+WQVFYM
+         zPDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wgZOJIzJ73Ud5K4AO9wMRxTvyPd7NOkkGohUnr84Uc4=;
-        b=Ke3bO+v6fvaP4qRWoVw8kJOXbIhxvHB/LV8JzOcmy1fprT2Yqlz/aqDPxmBFy9cCEM
-         VbyU+X4+g+dPNqblKAUEUk8jhD7grQr4JDFJP4pqOtVgPum3xpcY4v7VFzI2pi0uUKzd
-         Y2fSnSg7BLban408farB1JcJh7uo/P7s2bcoQw6jYSSy3et/qoFBZCQtg4ghhsmrGN/c
-         WHu/aPzWa9J3U+Q7S4O9/gXC2d28GTK5NRV1n/OzgMtJi0KaqdmXPUjKtuME0A/Xd2KN
-         U5iaC54TF/70ijlSi57ti51wsysL7J4+YYMRYRjeZQFGpls4LPaOa6G3zdMTl7TyaTVU
-         iYZA==
-X-Gm-Message-State: ACrzQf132z7p9IzmHJEJW6kMr3m+JVqqPJOOO+sIjN7qX0j2XZ8ppLr0
-	t+ghUHAJ8W64TL9VAksagjQDsQ==
-X-Google-Smtp-Source: AMsMyM77texRQgum7ZA4975dKa4r36xr/DFtWQxFz6jNF/AiXBr6NsBpb26mIPpJZGbPmr/XsyrjBA==
-X-Received: by 2002:a05:6a00:2291:b0:563:9d0d:62ae with SMTP id f17-20020a056a00229100b005639d0d62aemr1207346pfe.17.1665690490240;
-        Thu, 13 Oct 2022 12:48:10 -0700 (PDT)
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U3IcGLKOjvaTyzTUS9C/MMMRO8g7hgaBW9dEJGasaM8=;
+        b=cBdIj4IBYgU/K1VbPRj8U35jVkTNwuCszW0+IPgfYjBA0JBnWcFH0Mdguu8iw/Jz4F
+         HGg0kzUDpYAAI2BVNWL2ATQ3rEdpH2apa2t7xcJclv3KxCFFiSqiXOIPlZF1EXwhvfCn
+         AQ7pQjYIunSilLFXUyO4bPmE/qlilA12vhbPHjh3IgTOgdDjl5b8oGBZ8C4hW+Xrq8+s
+         LAfZWneq5N0EWtIg1ur7xYb2V1wGYSkHQbs+wNF5zz7BOCvh/2+xf4YvF36ouzl7PcbE
+         G0t9d+/pDnbWp0x+F6RTuWQ6AwgnGfa+zxsPKzHEIOg+KENEszYiRPYQanXSRLwPjzsS
+         CXsQ==
+X-Gm-Message-State: ACrzQf2OBJUGgu9wnzP/zzqIx0KSpCYtk+INhLW6kevLsAIPTOM3ttqQ
+	W7EccBLSr5e8/S08S5zfsEII6m5G3Q/+3HAC
+X-Google-Smtp-Source: AMsMyM5E1eMkY733vs4tGfT+q+aO2SJAeN8KpMRDCyyBzxVF0WWEbIQQmJkW/TPgfaHD67o/+A080w==
+X-Received: by 2002:a17:90b:2812:b0:205:cdc9:2ccf with SMTP id qb18-20020a17090b281200b00205cdc92ccfmr1484044pjb.97.1665690492699;
+        Thu, 13 Oct 2022 12:48:12 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id q12-20020a170902dacc00b0017a0e78ed0dsm205370plx.254.2022.10.13.12.48.09
+        by smtp.gmail.com with ESMTPSA id jf15-20020a170903268f00b00181f8523f60sm213118plb.225.2022.10.13.12.48.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 12:48:09 -0700 (PDT)
-Date: Thu, 13 Oct 2022 12:48:09 -0700 (PDT)
-X-Google-Original-Date: Thu, 13 Oct 2022 11:29:01 PDT (-0700)
-Subject: Re: [PATCH] riscv: enable software resend of irqs
-In-Reply-To: <86ilkof2jz.wl-maz@kernel.org>
-CC: bjorn@kernel.org, tglx@linutronix.de, conor.dooley@microchip.com,
-  aou@eecs.berkeley.edu, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
-  samuel@sholland.org, dfustini@baylibre.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Marc Zyngier <maz@kernel.org>
-Message-ID: <mhng-5edb73ee-d815-48d9-ad07-980a7623c05b@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Thu, 13 Oct 2022 12:48:12 -0700 (PDT)
+In-Reply-To: <20220924070737.3048-1-jszhang@kernel.org>
+References: <20220924070737.3048-1-jszhang@kernel.org>
+Subject: Re: [PATCH v3] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
+Message-Id: <166569033638.14806.1663998722831611197.b4-ty@rivosinc.com>
+Date: Thu, 13 Oct 2022 12:45:36 -0700
+MIME-Version: 1.0
+X-Mailer: b4 0.11.0-dev-36ce3
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Guo Ren <guoren@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_124813_617288_837DDB27 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20221013_124815_594451_C0AE5C18 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,45 +86,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAxMyBPY3QgMjAyMiAwMzoyMDowMCBQRFQgKC0wNzAwKSwgTWFyYyBaeW5naWVyIHdy
-b3RlOgo+IE9uIFRodSwgMTMgT2N0IDIwMjIgMDI6MTM6NTAgKzAxMDAsCj4gUGFsbWVyIERhYmJl
-bHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JvdGU6Cj4+IAo+PiBPbiBNb24sIDEwIE9jdCAyMDIy
-IDA0OjIxOjM4IFBEVCAoLTA3MDApLCBiam9ybkBrZXJuZWwub3JnIHdyb3RlOgo+PiA+IENvbm9y
-IERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+IHdyaXRlczoKPj4gPiAKPj4gPj4g
-VGhlIFBMSUMgc3BlY2lmaWNhdGlvbiBkb2VzIG5vdCBkZXNjcmliZSB0aGUgaW50ZXJydXB0IHBl
-bmRpbmdzIGJpdHMgYXMKPj4gPj4gcmVhZC13cml0ZSwgb25seSB0aGF0IHRoZXkgImNhbiBiZSBy
-ZWFkIi4gVG8gYWxsb3cgZm9yIHJldHJpZ2dlcmluZyBvZgo+PiA+PiBpbnRlcnJ1cHRzIChhbmQg
-dGhlIHVzZSBvZiB0aGUgaXJxIGRlYnVnZnMgaW50ZXJmYWNlKSBlbmFibGUKPj4gPj4gSEFSRElS
-UVNfU1dfUkVTRU5EIGZvciBSSVNDLVYuCj4+ID4+IAo+PiA+PiBMaW5rOiBodHRwczovL2dpdGh1
-Yi5jb20vcmlzY3YvcmlzY3YtcGxpYy1zcGVjL2Jsb2IvbWFzdGVyL3Jpc2N2LXBsaWMuYWRvYyNp
-bnRlcnJ1cHQtcGVuZGluZy1iaXRzCj4+ID4+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8
-Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+ID4gCj4+ID4gV2FraW5nIHVwIGFuIG9sZCB0
-aHJlYWQuIEZXSVcsCj4+ID4gCj4+ID4gUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3Ju
-QGtlcm5lbC5vcmc+Cj4+IAo+PiBUaGFua3MuICBUaGlzIGxvb2sgcmVhc29uYWJsZSB0byBtZSwg
-bm90IHN1cmUgaWYgdGhlIGlycWNoaXAgZm9sa3MKPj4gaGF2ZSBhbiBvcGluaW9uIHRob3VnaD8K
-Pj4gCj4+IEluIHRoZW9yeSB0aGUgUExJQyBpc24ndCB0aGUgb25seSBpbnRlcnJ1cHQgY29udHJv
-bGxlciAoYW5kIHRoYXQgc3BlYwo+PiBwcmVkYXRlcyBtb3N0IG9mIHRoZSBpbXBsZW1lbnRhdGlv
-bnMpLCBidXQgdGhlIFNpRml2ZSBQTElDIGRlcml2ZWQKPj4gaW50ZXJydXB0IGNvbnRyb2xsZXJz
-IGhhdmUgYmVjb21lIGEgZGVmYWN0byBzdGFuZGFyZCBhbmQgSUlSQyB0aGV5J3JlCj4+IHRoZSBv
-bmx5IHRoaW5nIHNoaXBwaW5nIHJpZ2h0IG5vdyBzbyBJIHRoaW5rIGl0J3MgT0sgdG8ganVzdCBz
-dGljawo+PiB0aGlzIGluIGFyY2ggY29kZS4gIFdlIGNvdWxkIG1hcmsgaXQgYXMgImlmIFNJRklW
-RV9QTElDIiBvciBzb21ldGhpbmcsCj4+IGJ1dCBJIGRvbid0IGtub3cgaWYgdGhhdCdzIHdvcnRo
-IGRvaW5nLgo+Cj4gU2V0dGluZyBpdCBhdCB0aGUgYXJjaGl0ZWN0dXJlIGxldmVsIGlzIGF0IGxl
-YXN0IGNvbnNpc3RlbnQgd2l0aCB3aGF0Cj4gb3RoZXIgYXJjaGVzIGFyZSBkb2luZy4gSWYgd2Ug
-bmVlZCB0byBmaXggaXQgb25lIGRheSwgd2UnbGwgZG8gaXQKPiBnbG9iYWxseS4KCldvcmtzIGZv
-ciBtZS4KCj4KPj4gCj4+IEVpdGhlciB3YXksIHRoaXMgaXNuJ3QgcmVhbGx5IG15IHRoaW5nLiAg
-SGFwcHkgdG8gdGFrZSBpdCB2aWEgdGhlCj4+IFJJU0MtViB0cmVlLCBidXQgCj4+IEFja2VkLWJ5
-OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPj4gVGVzdGVkLWJ5OiBQYWxt
-ZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4gIyBvbiBRRU1VCj4KPiBQbGVhc2UgdGFr
-ZSBpdCBkaXJlY3RseSwgYW5kIGZlZWwgZnJlZSB0byBhZGQgbXkKPgo+IEFja2VkLWJ5OiBNYXJj
-IFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPgo+Cj4gdG8gaXQuCgpUaGFua3MsIGl0J3Mgb24gcmlz
-Y3YvZm9yLW5leHQuCgo+Cj4gVGhhbmtzLAo+Cj4gCU0uCj4KPiAtLSAKPiBXaXRob3V0IGRldmlh
-dGlvbiBmcm9tIHRoZSBub3JtLCBwcm9ncmVzcyBpcyBub3QgcG9zc2libGUuCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, 24 Sep 2022 15:07:37 +0800, Jisheng Zhang wrote:
+> Testing tools/testing/selftests/timens/vfork_exec.c got below
+> kernel log:
+> 
+> [    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
+> [    6.842255] Oops [#1]
+> [    6.842871] Modules linked in:
+> [    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
+> [    6.845861] Hardware name: riscv-virtio,qemu (DT)
+> [    6.848009] epc : vdso_join_timens+0xd2/0x110
+> [    6.850097]  ra : vdso_join_timens+0xd2/0x110
+> [    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
+> [    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
+> [    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
+> [    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
+> [    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
+> [    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
+> [    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
+> [    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
+> [    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
+> [    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
+> [    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
+> [    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
+> [    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
+> [    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
+> [    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
+> [    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
+> [    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
+> [    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
+> [    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
+> [    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
+> [    6.877484] ---[ end trace 0000000000000000 ]---
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
+      https://git.kernel.org/palmer/c/a8616d2dc193
+
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
