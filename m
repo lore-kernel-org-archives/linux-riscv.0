@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4957CC4321E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62F5C43217
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lQ39HjyAVwBNK0dHK26RUNysBbzdtgoFqTuTKgcFOvc=; b=rYu/tT7FbLnD8W
-	pYboH8ipYXkDt7OUncJ/knrK9C+nuNSeJmx/NX4zAAKlzGo+EM1ZJIdL/bsh8hcimsyDqXE4hcIg+
-	y5di8opCYnHYlyGco0d9mHgs2GppgmKxI9481bnnWAY42qY+w/L4WjWA4xiiPe1MUE0VK9wpPxhrA
-	YNZ+XCo/IxivmIw2yixuUoSIVqZs1fgIJa1r0Jy6nwlv6b6UVmyPjgXLM7y85oO9KBchDHkxxuhfW
-	LIUGhgrkipEqPqs9pfyjTTGgdxmO1c1uikZpHQd3/UDtVG04QjcrCo/o3QEbTlMYC2JYXYPz4BGie
-	bES31hwYUM6WDKnnl/jg==;
+	List-Owner; bh=LxWEBCfDuSro5SVW+/vJFQJY0NdV7YQzZYXBOb0Ljco=; b=1yGPjinh7Kzg7I
+	z/eQW40QpzTlttlDh47v+orrOPdifNNRgnocbPyLMs2eHlIjoy/gcg2z8cts19HU75ib52oSCbzBa
+	eWIwuSvBHc/AlHZAjWU6tIuZtyn3XjkKCyaj0+S1KgHBv85vt3xkiNXUzu1IC8p5UnsVPleBkf4h2
+	eLutv3OTNXOfwuB4yMFjHlF6XgHsaQ//GFKXqrU3HaF4/DeHJ9uX32SjM8LaKo4U03IDGKBuCrm7U
+	BVYS15VkC8cQVu+KIzFSqUkxBiqximV6Q5oIOQtNcmepTIj47iO3BtYqLNzprvPchx3FosOqMJTPW
+	a9IYGz7AspZ9PQgEGRYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj1Bg-00CRGr-NI; Thu, 13 Oct 2022 16:36:00 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1oj1Bc-00CRF8-Kl; Thu, 13 Oct 2022 16:35:56 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj1Bb-00CRE2-1s
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 16:35:57 +0000
-Received: by mail-pg1-x533.google.com with SMTP id u71so2019953pgd.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 09:35:53 -0700 (PDT)
+	id 1oj1BY-00CRCy-FL
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 16:35:54 +0000
+Received: by mail-pl1-x634.google.com with SMTP id c20so2296279plc.5
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 09:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Wj/Qzct5/5OFPQDUmHCU31ls20Benxk+3umBR9mmtj8=;
-        b=QjqHimXPX2uFnZwaoGaHNOVvkbwhCN3Dmh6Jra89uEAgBJSwcCYZJZfP1+fMC+pbHY
-         LZiun3TvkQ44psng7qqR88q1OfO+tUzyhpPpKOWnOCt4baPLTL6ONxZHLH7I1rkguX4W
-         VLQtjRqQldDa7CqvqoN2YT9ZR6g34Etuv7bwG68d6fSDYKDyJsyjIMgxenyrOegGJDbu
-         jWPR9k1Edk6RpVv6re+RjPk7oUaUJ/5s5O/s89y//d1hkfTFCbKa5XnNdGB70jM55CCu
-         8TBTszcXGy+V6oASKRScue8f0+z/P3KRhFUeeycVXtfm9SAGuzO3MRWPMx4DVzuyejej
-         BOag==
+        bh=ZXpU45zAvmtJgUkph++aomF73Zd57HyTo9c86hNxXPQ=;
+        b=Eoj6/YOgMia1riy2ptiAgzzu7woEAkHpSaHbC5ixZqOqj2nWd5g9YGxzsKIG+8dZbi
+         PAsOlod+P+5WlNHZ7xHEGZ0yQ1omUii7FgJizVfCrSZgo2vNqDF6nlNE12Tve8x1TSNt
+         mtMrriWg/J6LnoPYHi3Kw0RZFAXT+F8pvkowwFHJ9bslDmmzbkKKLU1tQVbsJYmlRkCQ
+         4iOp50vWEPGNKeYCusTV0qLXQRt5QRg6fy4KLDiENoC9TEoRd6EfQYITpAbOtYxXRASk
+         nRj9inepRk4E95dostV50j0f9Ij/yBf6btEVrhh9xjaI4QT81CFR9UgdFMGEIPxXLLC6
+         3KGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:references
          :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Wj/Qzct5/5OFPQDUmHCU31ls20Benxk+3umBR9mmtj8=;
-        b=QALlyRkuNnPV+lXGjljlsER6vAIV8vhxmquHDcEC98A4GgihokZ+4b8op2x4XIIqW7
-         Y4oG3JJTOA+wONC3D/xEnShP4E/gHVI/zrpAdBDsTsPPtzJrlzzYEDOkKDmXz41L+nyy
-         ZhRIwPE7tEjpvf+qtxJRwyUzrem8QEHYzWT9wYGM9pvzs/WQfGX5zdNcJf06XOU20hXp
-         R4gf8zvOvKO/5RUokNysQk9xhoPL6ghIbagHjYjEI+XlpBmbeTHKM7kCNDwpVnXalVZY
-         PUrEAu22BSasss1ewqN4Ge12ZOOLrXw/jiv3gZLt2IQBnMufiJdKfqiQt/o+t8OpjWvx
-         D2NA==
-X-Gm-Message-State: ACrzQf2dVZPQOP9HNrBiIQhUkO2/eIgaPp5kmiW0fnxh5TDqfItsvzU8
-	W3jouLTzp/OPkWit5heaTMi7aSI172NWJA==
-X-Google-Smtp-Source: AMsMyM7ovsWiujrQkliB/qMbTrNqdHOb9r1xZkXRkj0j5p2oFH7d8jLb8SfEdXQQzbn6JD+ksLMX7A==
-X-Received: by 2002:a63:5946:0:b0:461:e1b9:c5a5 with SMTP id j6-20020a635946000000b00461e1b9c5a5mr662651pgm.56.1665678953264;
-        Thu, 13 Oct 2022 09:35:53 -0700 (PDT)
+        bh=ZXpU45zAvmtJgUkph++aomF73Zd57HyTo9c86hNxXPQ=;
+        b=G286o+tNCzDU+aclYfnuGEoFrGaspX5VEyv8YmhVuPXomqbQZxobm1yj5rREsegqed
+         YSFJkt+zEWT8OMzhXyFn1Q/nUHBA9WT0XmJbS0PJ0SyipDhp9Z3j37XqtujT00ltMPn9
+         MEko5t3iVleM642+j4/g3EOBjfAU5zw99uMuqtvyz5As0ZochH0tWrHpiW0x/OPtRMSX
+         2ByAIZBVtKWhisxNYqhJmjJo9qitOQA1402waVsPCrice5pLYYfaLv4Y30JKZP7OxG6N
+         oYqHZxrvrRXayOO/gU/XmKZA6idKbwd9+geN4IIuRw2x5PmWUWGDo65tAuxUxGuv+yLa
+         uH2w==
+X-Gm-Message-State: ACrzQf3TYHv054dVNMyIUTJRf7DhGEYBe4NdZ15KcdY/JLm+7OrJEmJL
+	dB2deQmGDBHN+kENyj/cpYKsZhyRM9VqQw==
+X-Google-Smtp-Source: AMsMyM4XXTEFfdPKFdeSpp4LVTwRFYOJbmcRjEh6HzFX6kdCB5RZjd+qI9xG6IEs20kC0MPPQPAxkw==
+X-Received: by 2002:a17:90a:b118:b0:20d:65f4:fde9 with SMTP id z24-20020a17090ab11800b0020d65f4fde9mr11981682pjq.184.1665678949470;
+        Thu, 13 Oct 2022 09:35:49 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id s9-20020aa78bc9000000b005636326fdbfsm2215593pfd.78.2022.10.13.09.35.52
+        by smtp.gmail.com with ESMTPSA id n13-20020a170902d2cd00b00183c67844aesm105133plc.22.2022.10.13.09.35.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 09:35:52 -0700 (PDT)
-Subject: [PATCH v1 4/5] RISC-V: hwprobe: Support probing of misaligned accesss performance
-Date: Thu, 13 Oct 2022 09:35:50 -0700
-Message-Id: <20221013163551.6775-5-palmer@rivosinc.com>
+        Thu, 13 Oct 2022 09:35:49 -0700 (PDT)
+Subject: [PATCH v1 1/5] RISC-V: Add a syscall for HW probing
+Date: Thu, 13 Oct 2022 09:35:47 -0700
+Message-Id: <20221013163551.6775-2-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.38.0
 In-Reply-To: <20221013163551.6775-1-palmer@rivosinc.com>
 References: <20221013163551.6775-1-palmer@rivosinc.com>
@@ -71,8 +71,8 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_093555_118984_3B2AE513 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20221013_093552_540520_F160F048 
+X-CRM114-Status: GOOD (  31.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,199 +89,389 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This allows userspace to select various routines to use based on the
-performance of misaligned access on the target hardware.
+We don't have enough space for these all in ELF_HWCAP{,2} and there's no
+system call that quite does this, so let's just provide an arch-specific
+one to probe for hardware capabilities.  This currently just provides
+m{arch,imp,vendor}id, but with the key-value pairs we can pass more in
+the future.
 
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- Documentation/riscv/hwprobe.rst       | 13 +++++++++++++
- arch/riscv/include/asm/cpufeature.h   |  2 ++
- arch/riscv/include/asm/hwprobe.h      |  2 +-
- arch/riscv/include/asm/smp.h          |  7 +++++++
- arch/riscv/include/uapi/asm/hwprobe.h |  7 +++++--
- arch/riscv/kernel/cpufeature.c        | 24 ++++++++++++++++++++++--
- arch/riscv/kernel/sys_riscv.c         | 22 ++++++++++++++++++++++
- 7 files changed, 72 insertions(+), 5 deletions(-)
+I havn't run this yet.
+---
+ Documentation/riscv/hwprobe.rst       |  33 +++++++
+ Documentation/riscv/index.rst         |   1 +
+ arch/riscv/include/asm/cpufeature.h   |  21 +++++
+ arch/riscv/include/asm/hwprobe.h      |  13 +++
+ arch/riscv/include/asm/syscall.h      |   3 +
+ arch/riscv/include/uapi/asm/hwprobe.h |  24 ++++++
+ arch/riscv/include/uapi/asm/unistd.h  |   8 ++
+ arch/riscv/kernel/cpu.c               |  45 +++++++++-
+ arch/riscv/kernel/sys_riscv.c         | 118 +++++++++++++++++++++++++-
+ 9 files changed, 264 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/riscv/hwprobe.rst
+ create mode 100644 arch/riscv/include/asm/cpufeature.h
+ create mode 100644 arch/riscv/include/asm/hwprobe.h
+ create mode 100644 arch/riscv/include/uapi/asm/hwprobe.h
 
 diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
-index b182fcf4cd30..f8aa9137d8aa 100644
---- a/Documentation/riscv/hwprobe.rst
+new file mode 100644
+index 000000000000..be9ebe4af3dc
+--- /dev/null
 +++ b/Documentation/riscv/hwprobe.rst
-@@ -47,3 +47,16 @@ The following keys are defined:
-       not minNum/maxNum") of the RISC-V ISA manual.
-     * :RISCV_HWPROBE_IMA_C:: The C extension is supported, as defined by
-       version 2.2 of the RISC-V ISA manual.
-+* :RISCV_HWPROBE_KEY_PERF_0:: A bitmask that contains performance information
-+  about the selected set of processors.
-+    * :RISCV_HWPROBE_MISALIGNED_UNKNOWN:: The performance of misaligned
-+      accesses is unknown.
-+    * :RISCV_HWPROBE_MISALIGNED_EMULATED:: Misaligned accesses are emulated via
-+      software, either in or below the kernel.  These accesses are always
-+      extremely slow.
-+    * :RISCV_HWPROBE_MISALIGNED_SLOW:: Misaligned accesses are supported in
-+      hardware, but are slower than the cooresponding aligned accesses
-+      sequences.
-+    * :RISCV_HWPROBE_MISALIGNED_FAST:: Misaligned accesses are supported in
-+      hardware and are faster than the cooresponding aligned accesses
-+      sequences.
+@@ -0,0 +1,33 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++RISC-V Hardware Probing Interface
++---------------------------------
++
++The RISC-V hardware probing interface is based around a single syscall, which
++is defined in <asm/hwprobe.h>::
++
++    struct riscv_hwprobe {
++        __u64 key, value;
++    };
++
++    long sys_riscv_hwprobe(struct riscv_hwprobe *pairs, size_t pair_count,
++                           size_t base_key, size_t cpu_count, cpu_set_t *cpus,
++                           unsigned long flags);
++
++The arguments are split into three groups: an array of key-value pairs, a CPU
++set, and some flags.  The key-value pairs are supplied with a count and an
++base, which is the first key that will be probed for.  The CPU set is defined
++by CPU_SET(3), the indicated features will be supported on all CPUs in the set.
++There are currently no flags, this value must be zero for future compatibility.
++
++On success the number of filled out pairs is returned, on failure a negative
++error code is returned.
++
++The following keys are defined:
++
++* :RISCV_HWPROBE_KEY_MVENDORID:: Contains the value of :mvendorid:, as per the
++  ISA specifications.
++* :RISCV_HWPROBE_KEY_MARCHID:: Contains the value of :marchid:, as per the ISA
++  specifications.
++* :RISCV_HWPROBE_KEY_MIMPLID:: Contains the value of :mimplid:, as per the ISA
++  specifications.
+diff --git a/Documentation/riscv/index.rst b/Documentation/riscv/index.rst
+index e23b876ad6eb..1c89bca55aec 100644
+--- a/Documentation/riscv/index.rst
++++ b/Documentation/riscv/index.rst
+@@ -7,6 +7,7 @@ RISC-V architecture
+ 
+     boot-image-header
+     vm-layout
++    hwprobe
+     patch-acceptance
+ 
+     features
 diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-index cbda062de9bd..54bdcf9a5049 100644
---- a/arch/riscv/include/asm/cpufeature.h
+new file mode 100644
+index 000000000000..cbda062de9bd
+--- /dev/null
 +++ b/arch/riscv/include/asm/cpufeature.h
-@@ -18,4 +18,6 @@ struct riscv_cpuinfo {
- 
- DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
- 
-+DECLARE_PER_CPU(long, misaligned_access_speed);
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright 2022 Rivos, Inc
++ */
 +
- #endif
++#ifndef _ASM_CPUFEATURE_H
++#define _ASM_CPUFEATURE_H
++
++/*
++ * These are probed via a device_initcall(), via either the SBI or directly
++ * from the cooresponding CSRs.
++ */
++struct riscv_cpuinfo {
++        unsigned long mvendorid;
++        unsigned long marchid;
++        unsigned long mimpid;
++};
++
++DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++#endif
 diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-index 7e52f1e1fe10..4e45e33015bc 100644
---- a/arch/riscv/include/asm/hwprobe.h
+new file mode 100644
+index 000000000000..08d1c3bdd78a
+--- /dev/null
 +++ b/arch/riscv/include/asm/hwprobe.h
-@@ -8,6 +8,6 @@
- 
- #include <uapi/asm/hwprobe.h>
- 
--#define RISCV_HWPROBE_MAX_KEY 4
-+#define RISCV_HWPROBE_MAX_KEY 5
- 
- #endif
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index d3443be7eedc..5d98836cc446 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -26,6 +26,13 @@ struct riscv_ipi_ops {
-  */
- extern unsigned long __cpuid_to_hartid_map[NR_CPUS];
- #define cpuid_to_hartid_map(cpu)    __cpuid_to_hartid_map[cpu]
-+static inline long hartid_to_cpuid_map(unsigned long hartid) {
-+	long i;
-+	for (i = 0; i < NR_CPUS; ++i)
-+		if (cpuid_to_hartid_map(i) == hartid)
-+			return i;
-+	return -1;
-+}
- 
- /* print IPI stats */
- void show_ipi_stats(struct seq_file *p, int prec);
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 07309376c6dc..e36b72f4e1af 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -24,8 +24,11 @@ struct riscv_hwprobe {
- #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
- #define		RISCV_HWPROBE_IMA_FD		(1 << 0)
- #define		RISCV_HWPROBE_IMA_C		(1 << 1)
-+#define RISCV_HWPROBE_KEY_CPUPERF_0	5
-+#define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
-+#define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-+#define		RISCV_HWPROBE_MISALIGNED_SLOW		(2 << 0)
-+#define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
- /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
- 
--
--
- #endif
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 553d755483ed..1599e40cd170 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -15,6 +15,7 @@
- #include <asm/cacheflush.h>
- #include <asm/errata_list.h>
- #include <asm/hwcap.h>
-+#include <asm/hwprobe.h>
- #include <asm/patch.h>
- #include <asm/pgtable.h>
- #include <asm/processor.h>
-@@ -31,6 +32,9 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
- __ro_after_init DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
- EXPORT_SYMBOL(riscv_isa_ext_keys);
- 
-+/* Performance information */
-+DEFINE_PER_CPU(long, misaligned_access_speed);
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright 2022 Rivos, Inc
++ */
 +
- /**
-  * riscv_isa_extension_base() - Get base extension word
-  *
-@@ -71,11 +75,11 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
- void __init riscv_fill_hwcap(void)
- {
- 	struct device_node *node;
--	const char *isa;
-+	const char *isa, *misaligned;
- 	char print_str[NUM_ALPHA_EXTS + 1];
- 	int i, j, rc;
- 	static unsigned long isa2hwcap[256] = {0};
--	unsigned long hartid;
-+	unsigned long hartid, cpu;
- 
- 	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
- 	isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
-@@ -222,6 +226,22 @@ void __init riscv_fill_hwcap(void)
- 			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
- 		else
- 			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
++#ifndef _ASM_HWPROBE_H
++#define _ASM_HWPROBE_H
 +
-+		/*
-+		 * Check for the performance of misaligned accesses.
-+		 */
-+		cpu = hartid_to_cpuid_map(hartid);
-+		if (cpu < 0)
-+			continue;
++#include <uapi/asm/hwprobe.h>
 +
-+		if (of_property_read_string(node, "riscv,misaligned-access-performance", &misaligned)) {
-+			if (strcmp(misaligned, "emulated") == 0)
-+				per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_EMULATED;
-+			if (strcmp(misaligned, "slow") == 0)
-+				per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_SLOW;
-+			if (strcmp(misaligned, "fast") == 0)
-+				per_cpu(misaligned_access_speed, cpu) = RISCV_HWPROBE_MISALIGNED_FAST;
-+		}
- 	}
- 
- 	/* We don't support systems with F but without D, so mask those out
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 337e3f2a17c8..fc9e8cd1589b 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -139,6 +139,24 @@ static long hwprobe_mid(struct riscv_hwprobe __user *pair, size_t key,
- 	return set_hwprobe(pair, key, id);
++#define RISCV_HWPROBE_MAX_KEY 2
++
++#endif
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 384a63b86420..78a6302ef711 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -75,4 +75,7 @@ static inline int syscall_get_arch(struct task_struct *task)
  }
  
-+static long hwprobe_misaligned(cpumask_t *cpus)
+ asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
++
++asmlinkage long sys_riscv_hwprobe(uintptr_t, uintptr_t, uintptr_t, uintptr_t,
++				  uintptr_t, uintptr_t);
+ #endif	/* _ASM_RISCV_SYSCALL_H */
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+new file mode 100644
+index 000000000000..88ef9e153637
+--- /dev/null
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright 2022 Rivos, Inc
++ */
++
++#ifndef _UAPI_ASM_HWPROBE_H
++#define _UAPI_ASM_HWPROBE_H
++
++#include <linux/types.h>
++
++/*
++ * Interface for probing hardware capabilities from userspace, see
++ * Documentation/riscv/hwprobe.rst for more information.
++ */
++struct riscv_hwprobe {
++    __u64 key, val;
++};
++
++#define RISCV_HWPROBE_KEY_MVENDORID	0
++#define RISCV_HWPROBE_KEY_MARCHID	1
++#define RISCV_HWPROBE_KEY_MIMPID	2
++/* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
++
++#endif
+diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
+index 73d7cdd2ec49..37d47302322a 100644
+--- a/arch/riscv/include/uapi/asm/unistd.h
++++ b/arch/riscv/include/uapi/asm/unistd.h
+@@ -43,3 +43,11 @@
+ #define __NR_riscv_flush_icache (__NR_arch_specific_syscall + 15)
+ #endif
+ __SYSCALL(__NR_riscv_flush_icache, sys_riscv_flush_icache)
++
++/*
++ * Allows userspace to probe
++ */
++#ifndef __NR_riscv_hwprobe
++#define __NR_riscv_hwprobe (__NR_arch_specific_syscall + 14)
++#endif
++__SYSCALL(__NR_riscv_hwprobe, sys_riscv_hwprobe)
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 0be8a2403212..708ddcb6c0e7 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -3,12 +3,16 @@
+  * Copyright (C) 2012 Regents of the University of California
+  */
+ 
++#include <linux/cpuhotplug.h>
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/cpufeature.h>
++#include <asm/csr.h>
+ #include <asm/hwcap.h>
+-#include <asm/smp.h>
+ #include <asm/pgtable.h>
++#include <asm/sbi.h>
++#include <asm/smp.h>
+ 
+ /*
+  * Returns the hart ID of the given device tree node, or -ENODEV if the node
+@@ -67,7 +71,46 @@ int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+ 	return -1;
+ }
+ 
++DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++static int riscv_cpuinfo_starting(unsigned int cpu)
 +{
-+	long cpu, perf = -1;
++	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
 +
-+	for_each_cpu(cpu, cpus) {
-+		long this_perf = per_cpu(misaligned_access_speed, cpu);
-+		if (perf == -1)
-+			perf = this_perf;
++#if IS_ENABLED(CONFIG_RISCV_SBI)
++	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
++	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
++	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
++#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
++	ci->mvendorid = csr_read(CSR_MVENDORID);
++	ci->marchid = csr_read(CSR_MARCHID);
++	ci->mimpid = csr_read(CSR_MIMPID);
++#else
++	ci->mvendorid = 0;
++	ci->marchid = 0;
++	ci->mimpid = 0;
++#endif
 +
-+		if (perf != this_perf)
-+			perf = RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-+	}
-+
-+	if (perf == -1)
-+		return RISCV_HWPROBE_MISALIGNED_UNKNOWN;
-+	return perf;
++	return 0;
 +}
 +
- static
- long do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
- 		      long key_offset, long cpu_count,
-@@ -207,6 +225,10 @@ long do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
- 				ret = set_hwprobe(pairs + out, k, val);
- 			}
- 			break;
++static int __init riscv_cpuinfo_init(void)
++{
++	int ret;
 +
-+		case RISCV_HWPROBE_KEY_CPUPERF_0:
-+			set_hwprobe(pairs + out, k, hwprobe_misaligned(&cpus));
-+			break;
- 		}
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
++				riscv_cpuinfo_starting, NULL);
++	if (ret < 0) {
++		pr_err("cpuinfo: failed to register hotplug callbacks.\n");
++		return ret;
++	}
++
++	return 0;
++}
++device_initcall(riscv_cpuinfo_init);
++
+ #ifdef CONFIG_PROC_FS
++
+ #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+ 	{							\
+ 		.uprop = #UPROP,				\
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 571556bb9261..2b6cb82c3491 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -6,8 +6,11 @@
+  */
  
- 		if (ret < 0)
+ #include <linux/syscalls.h>
+-#include <asm/unistd.h>
+ #include <asm/cacheflush.h>
++#include <asm/cpufeature.h>
++#include <asm/hwprobe.h>
++#include <asm/uaccess.h>
++#include <asm/unistd.h>
+ #include <asm-generic/mman-common.h>
+ 
+ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+@@ -72,3 +75,116 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
+ 
+ 	return 0;
+ }
++
++static long set_hwprobe(struct riscv_hwprobe __user *pair, u64 key, u64 val)
++{
++	long ret;
++
++	ret = put_user(key, &pair->key);
++	if (ret < 0)
++		return ret;
++	ret = put_user(val, &pair->val);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
++static long hwprobe_mid(struct riscv_hwprobe __user *pair, size_t key,
++			cpumask_t *cpus)
++{
++	long cpu, id;
++	bool first, valid;
++
++	first = true;
++	valid = false;
++	for_each_cpu(cpu, cpus) {
++		struct riscv_cpuinfo * ci = per_cpu_ptr(&riscv_cpuinfo, cpu);
++		long cpu_id;
++
++		switch (key) {
++		case RISCV_HWPROBE_KEY_MVENDORID:
++			cpu_id = ci->mvendorid;
++			break;
++		case RISCV_HWPROBE_KEY_MIMPID:
++			cpu_id = ci->mimpid;
++			break;
++		case RISCV_HWPROBE_KEY_MARCHID:
++			cpu_id = ci->marchid;
++			break;
++		}
++
++		if (first) {
++			id = cpu_id;
++			valid = true;
++		}
++
++		if (id != cpu_id)
++			valid = false;
++	}
++
++	/*
++	 * put_user() returns 0 on success, so use 1 to indicate it wasn't
++	 * called and we should skip having incremented the output.
++	 */
++	if (!valid)
++		return 1;
++
++	return set_hwprobe(pair, key, id);
++}
++
++static
++long do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
++		      long key_offset, long cpu_count,
++		      unsigned long __user *cpus_user, unsigned long flags)
++{
++	size_t out, k;
++	long ret;
++	struct cpumask cpus;
++
++	/* Check the reserved flags. */
++	if (flags != 0)
++		return -EINVAL;
++
++	/*
++	 * The only supported values must be the same on all CPUs, but check to
++	 * make sure userspace at least tried to provide something here for
++	 * future compatibility.
++	 */
++	cpumask_clear(&cpus);
++	if (cpu_count > cpumask_size())
++		cpu_count = cpumask_size();
++	ret = copy_from_user(&cpus, cpus_user, cpu_count);
++	if (!ret)
++		return -EFAULT;
++
++	out = 0;
++	k = key_offset;
++	while (out < pair_count && k < RISCV_HWPROBE_MAX_KEY) {
++		long ret;
++
++		switch (k) {
++		case RISCV_HWPROBE_KEY_MVENDORID:
++		case RISCV_HWPROBE_KEY_MARCHID:
++		case RISCV_HWPROBE_KEY_MIMPID:
++			ret = hwprobe_mid(pairs + out, k, &cpus);
++			break;
++		}
++
++		if (ret < 0)
++			return ret;
++		if (ret == 0)
++			out++;
++	}
++
++	return out;
++
++}
++
++SYSCALL_DEFINE6(riscv_hwprobe, uintptr_t, pairs, uintptr_t, pair_count,
++		uintptr_t, offset, uintptr_t, cpu_count, uintptr_t, cpus,
++		uintptr_t, flags)
++{
++	return do_riscv_hwprobe((void __user *)pairs, pair_count, offset,
++				cpu_count, (void __user *)cpus, flags);
++}
 -- 
 2.38.0
 
