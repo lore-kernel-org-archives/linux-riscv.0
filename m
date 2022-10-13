@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FFAC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7797DC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:
-	Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g72uNM60rgqyZcQxVzzYNoFjW4KDX7cDM+GIkfFmA00=; b=rjR1q8C2Lo3ga4
-	1SZqYDAR0vl4qSLcTWKuv+k9BifldWovYyA0IiiVssgl7VC5nPQCy8kB60PGhacqDa80cyFewJADb
-	bxvg5/cu204tjfnsRfvYOPwXZFqHYuYF4xIbPMAT7jdRW4Gsb5d3Vl9U2+HCnWqT7EjvARyjpyG2r
-	vkEXxUijg3RsjbQACs4rrtVwdpoSPTHVSk5HxeJnLRn5gO25So2uB3lsHHqpTXqNF/ZmbYbh68tMk
-	31Mg+OECOLAzvjqLjoZt1VhvPGpEbFN03JiTIvrQGryifukclivARSWLXxcrW8vgyDvVXAbioEXAI
-	25XHx9PqIwqY6uka0VTQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
+	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dv2odIOhtQ/kgVmgR+aqHXnU5A7za7typg2yqGpOK9Q=; b=CyLIQu3kEhMqhW
+	VhjzV3S+BH9jknaxWHeY68RWfiB6UGyTXiArsWKES3j+/jU7EyL3298oU0MyGIacMHBjkv8SJ+WCb
+	iQSnhUSzAi+EbXntedxPWtt/E8CL9YnYRFNaF+VItQGWpUy+cuvJEL9To519spvB4pbFxxNvumu43
+	jAPcPFPWgAcwC/IOmUvOrLHIiSlAMRcoSsP/lfYGjnqRt1Cg4c3pmkmv+ocg0VKPFNj0gUBWdIj8p
+	XW60NmLC8bgatnMUEIkHG0P4LcR3Jey0z8/tZK/hofFcnlOJXkQEa8b0wtxYMQdloPw8DmbT6MVsW
+	o6PkmDevkJpaBZa9g0Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj1Bb-00CREk-9X; Thu, 13 Oct 2022 16:35:55 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1oj1Be-00CRFr-05; Thu, 13 Oct 2022 16:35:58 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj1BX-00CRCf-Ig
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 16:35:53 +0000
-Received: by mail-pl1-x636.google.com with SMTP id i6so2260597pli.12
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 09:35:49 -0700 (PDT)
+	id 1oj1BZ-00CRD7-NR
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 16:35:55 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id fw14so2471576pjb.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 09:35:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=hZEf8nDjNjXMcMqk1mBpQt5msb/92OZicJ649nQpMuQ=;
-        b=stVMZIgp+JLamwbDO6ubPoZgvVlUi6/gZAOyh3Pg5c/hVJK9gbImJVJvTGIYWbXTM3
-         jVa1hDmiNLL+OI/woLoM+j3OPyF8md7Zb8p/IAv+9KqcZullEhaWIfKqLAPW6RcJG/q0
-         Kzt2JjN2Mlz8/Vp2osii/Yi3vy1CJ12s4GSTovR3bI66UBbF9vuJpVsnXnL4ZOM9CzPR
-         3yssfvMFN7Hwdm5dFat7s860uf0ERn+oq7OsR+pf8U8aO1fY+Y0sVMGwHXJEeOFLgbZg
-         NdY+jf/YCwZmJm9wpRxQHx9Ar4N/JL1rZN8eSUyOk+XwulRwK/2oK1+TlzK8rPjDp2b7
-         btNA==
+        h=to:from:cc:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N4KAsaE2xIiMueT2j1FkMJBV+ZTYkgRIqNYtKyEHERg=;
+        b=pTExrFmc0cUzggKD7pECa1ATL/NoysSgkT1D/zOe1dlLxwOPc5tVXNgLCBk8LfLLK5
+         c6Gv5Rz1oyjfuTY18CFOh/dl4yQ5ipVbWkeRY0jMdabcXSqOmE1IHkynelrt4RJZfhuO
+         X95dQPCwFzdGprifKw2L3uJ3Nv+yDV635Zx/ONIaNMLXKF2YYLlWNePk6p6gMdfTIz83
+         CtofnovKMfGrKOC01qr7wPYs4HPRjZX4DjJX12R3UxN7DDY/L277emfVf/h9PP2cqqCx
+         iEix+GVtQa1QDNBnSMmKUacGNoiwdS2p0962ByjApg8Zy4yIzPCrXS40dKiFts10/TAx
+         j3Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hZEf8nDjNjXMcMqk1mBpQt5msb/92OZicJ649nQpMuQ=;
-        b=E6/h8ql3aUJSMUmPfY3nvwc7zVGqrjc+EZJYyr9psCxnw4x5UuGFxAsVffY0nZFCfo
-         9xrncNEhRGXJ1ktqmhtk+b+D96IremDKAXIybe6Rsjt5ixXcJIOR8ltJZD+qOqum0Vi0
-         AEA7FO7OxPwq9tOguE+Ox2mKXlEduU2gWJBFq1/ijf2IYjf0s/wmVLwaFuVaOC0PXbgV
-         c8YMPGrbrhSVu8W02IQBIP/qoeOeSSQySAIlY0JIGJ5F8dPP3gqh5qSwRyl6swrJc8PO
-         lKo3grozJ6SB40AH/UO1iXqbT21k/jEjKqSbpwpUzYNAZKPDyHhZMiGtg5Fo5gv9LaSr
-         AQLQ==
-X-Gm-Message-State: ACrzQf1Nkhe7G8Y1W8eoxkhrt6APesmy1XC+SpA4KbRMwgCcEfP1D2ht
-	bMQ4G8yFt+Gz8TJEpuY7aCCGu39dUO+1lw==
-X-Google-Smtp-Source: AMsMyM4eVGdkaVx4FjidSPEgamnOK8rVXjxogrHP0rMwMhKQjI90KCvh6HYjZSbOUjHAslN3pfMSjQ==
-X-Received: by 2002:a17:903:1105:b0:178:ae31:aad with SMTP id n5-20020a170903110500b00178ae310aadmr720842plh.3.1665678948172;
-        Thu, 13 Oct 2022 09:35:48 -0700 (PDT)
+        h=to:from:cc:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N4KAsaE2xIiMueT2j1FkMJBV+ZTYkgRIqNYtKyEHERg=;
+        b=WFwxZeGhj8fLGg5tm7uoVOLORD6eXcbgfJBb7dsXIJ/zDmxncbPTQxwrmmdRzyTt3L
+         zZ2g5Bozldzbar+IBzriRUNWA2/o/j4ovd209EP2tz7HFCaq82H8CH/zjRezuD7n4rKQ
+         HIn+D7lIO23kTLaZeBs7qv27glGBFtvTlnP8cT6zgDgo8Wvz72TfNTpPlexAkspHvTbo
+         L/XfzrUoqZnPq5ox1SySixOunpqXMhsgpFBVmEcWnVNHLlSjFXHP4Nix4exR3xVRFK2M
+         f7qhi7N06SFYQt/AFLHylk4LAscK45TmSS33HcoNpgNkmE3CJMHvLlS7FcCuDHlL9XKv
+         gu0A==
+X-Gm-Message-State: ACrzQf3filu5KzF0bDeCUjVuHavF+OM5Bs5f07olKnBqOnAlMfZnGlzH
+	sQvYcg42M3bIy81k0gETdh/rrb9u18kUQg==
+X-Google-Smtp-Source: AMsMyM7SF3zsiQkviWpHPzZ4jb4HyPQkijHRXa28on7D5JbzMEv8WPHFiETPczLbnn+WKh7Ihb2KFA==
+X-Received: by 2002:a17:903:2311:b0:183:a88a:7d1 with SMTP id d17-20020a170903231100b00183a88a07d1mr545529plh.10.1665678950823;
+        Thu, 13 Oct 2022 09:35:50 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id q15-20020a170902a3cf00b0017c6959724asm54032plb.258.2022.10.13.09.35.47
-        for <linux-riscv@lists.infradead.org>
+        by smtp.gmail.com with ESMTPSA id s18-20020a656452000000b00464aa9ea6fasm4880814pgv.20.2022.10.13.09.35.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 09:35:47 -0700 (PDT)
-Subject: [PATCH v1 0/5] RISC-V Hardware Probing User Interface
-Date: Thu, 13 Oct 2022 09:35:46 -0700
-Message-Id: <20221013163551.6775-1-palmer@rivosinc.com>
+        Thu, 13 Oct 2022 09:35:50 -0700 (PDT)
+Subject: [PATCH v1 2/5] RISC-V: hwprobe: Add support for RISCV_HWPROBE_BASE_BEHAVIOR_IMA
+Date: Thu, 13 Oct 2022 09:35:48 -0700
+Message-Id: <20221013163551.6775-3-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.38.0
+In-Reply-To: <20221013163551.6775-1-palmer@rivosinc.com>
+References: <20221013163551.6775-1-palmer@rivosinc.com>
 MIME-Version: 1.0
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_093551_834328_3D7A07A6 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20221013_093553_783857_80AC3BE0 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +89,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These are very much up for discussion, as it's a pretty big new user
-interface and it's quite a bit different from how we've historically
-done things: this isn't just providing an ISA string to userspace, this
-has its own format for providing information to userspace.
+We have an implicit set of base behaviors that userspace depends on,
+which are mostly defined in various ISA specifications.
 
-There's been a bunch of off-list discussions about this, including at
-Plumbers.  The original plan was to do something involving providing an
-ISA string to userspace, but ISA strings just aren't sufficient for a
-stable ABI any more: in order to parse an ISA string users need the
-version of the specifications that the string is written to, the version
-of each extension (sometimes at a finer granularity than the RISC-V
-releases/versions encode), and the expected use case for the ISA string
-(ie, is it a U-mode or M-mode string).  That's a lot of complexity to
-try and keep ABI compatible and it's probably going to continue to grow,
-as even if there's no more complexity in the specifications we'll have
-to deal with the various ISA string parsing oddities that end up all
-over userspace.
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ Documentation/riscv/hwprobe.rst       | 16 +++++++++++
+ arch/riscv/include/asm/hwprobe.h      |  2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h |  7 +++++
+ arch/riscv/kernel/sys_riscv.c         | 38 +++++++++++++++++++++++++++
+ 4 files changed, 62 insertions(+), 1 deletion(-)
 
-Instead this patch set takes a very different approach and provides a se
-of key/value pairs that encode various bits about the system.  The big
-advantage here is that we can clearly define what these mean so we can
-ensure ABI stability, but it also allows us to encode information that's
-unlikely to ever appear in an ISA string (see the misaligned access
-performance, for example).  The resulting interface looks a lot like
-what arm64 and x86 do, and will hopefully fit well into something like
-ACPI in the future.
-
-The actual user interface is a syscall.  I'm not really sure that's the
-right way to go about this, but it makes for flexible prototying.
-Various other approaches have been talked about like making HWCAP2 a
-pointer, having a VDSO routine, or exposing this via sysfs.  Those seem
-like generally reasonable approaches, but I've yet to figure out a way
-to get the general case working without a syscall as that's the only way
-I've come up with to deal with the heterogenous CPU case.  Happy to hear
-if someone has a better idea, though, as I don't really want to add a
-syscall if we can avoid it.
-
-I threw this together during the conferences so I would be surprised if
-it's not broken, but I figured it'd be best to just get something on the
-lists sooner rather that later.  Happy to have someone go fix my code,
-but the new uABI is really going to be the tricky bit here.  There's
-some test code included, but I haven't even booted a kernel with these
-patches so YMMV.
-
-These are also up at kernel.org/palmer/linux/riscv-hwprobe-v1 in case
-that's easier for folks.
-
+diff --git a/Documentation/riscv/hwprobe.rst b/Documentation/riscv/hwprobe.rst
+index be9ebe4af3dc..b182fcf4cd30 100644
+--- a/Documentation/riscv/hwprobe.rst
++++ b/Documentation/riscv/hwprobe.rst
+@@ -31,3 +31,19 @@ The following keys are defined:
+   specifications.
+ * :RISCV_HWPROBE_KEY_MIMPLID:: Contains the value of :mimplid:, as per the ISA
+   specifications.
++* :RISCV_HWPROBE_KEY_BASE_BEHAVIOR:: A bitmask containing the base user-visible
++  behavior that this kernel supports.  The following base user ABIs are defined:
++    * :RISCV_HWPROBE_BASE_BEHAVIOR_IMA:: Support for rv32ima or rv64ima, as
++      defined by version 2.2 of the user ISA and version 1.10 of the privileged
++      ISA, with the following known exceptions (more exceptions may be added,
++      but only if it can be demonstrated that the user ABI is not broken):
++        * The :fence.i: instruction cannot be directly executed by userspace
++          programs (it may still be executed in userspace via a
++          kernel-controlled mechanism such as the vDSO).
++* :RISCV_HWPROBE_KEY_IMA_EXT_0:: A bitmask containing the extensions that are
++  compatible with the :RISCV_HWPROBE_BASE_BEHAVIOR_IMA: base system behavior.
++    * :RISCV_HWPROBE_IMA_FD:: The F and D extensions are supported, as defined
++      by commit cd20cee ("FMIN/FMAX now implement minimumNumber/maximumNumber,
++      not minNum/maxNum") of the RISC-V ISA manual.
++    * :RISCV_HWPROBE_IMA_C:: The C extension is supported, as defined by
++      version 2.2 of the RISC-V ISA manual.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 08d1c3bdd78a..7e52f1e1fe10 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,6 +8,6 @@
+ 
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 2
++#define RISCV_HWPROBE_MAX_KEY 4
+ 
+ #endif
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 88ef9e153637..07309376c6dc 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -19,6 +19,13 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_MVENDORID	0
+ #define RISCV_HWPROBE_KEY_MARCHID	1
+ #define RISCV_HWPROBE_KEY_MIMPID	2
++#define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
++#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
++#define RISCV_HWPROBE_KEY_IMA_EXT_0	4
++#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
++#define		RISCV_HWPROBE_IMA_C		(1 << 1)
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
++
++
+ #endif
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 2b6cb82c3491..337e3f2a17c8 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -9,6 +9,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/cpufeature.h>
+ #include <asm/hwprobe.h>
++#include <asm/switch_to.h>
+ #include <asm/uaccess.h>
+ #include <asm/unistd.h>
+ #include <asm-generic/mman-common.h>
+@@ -76,6 +77,11 @@ SYSCALL_DEFINE3(riscv_flush_icache, uintptr_t, start, uintptr_t, end,
+ 	return 0;
+ }
+ 
++/*
++ * The hwprobe interface, for allowing userspace to probe to see which features
++ * are supported by the hardware.  See Documentation/riscv/hwprobe.rst for more
++ * details.
++ */
+ static long set_hwprobe(struct riscv_hwprobe __user *pair, u64 key, u64 val)
+ {
+ 	long ret;
+@@ -158,6 +164,15 @@ long do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
+ 	if (!ret)
+ 		return -EFAULT;
+ 
++
++	/*
++	 * Userspace must provide at least one online CPU, without that there's
++	 * no way to define what is supported.
++	 */
++	cpumask_and(&cpus, &cpus, cpu_online_mask);
++	if (cpumask_empty(&cpus))
++		return -EINVAL;
++
+ 	out = 0;
+ 	k = key_offset;
+ 	while (out < pair_count && k < RISCV_HWPROBE_MAX_KEY) {
+@@ -169,6 +184,29 @@ long do_riscv_hwprobe(struct riscv_hwprobe __user *pairs, long pair_count,
+ 		case RISCV_HWPROBE_KEY_MIMPID:
+ 			ret = hwprobe_mid(pairs + out, k, &cpus);
+ 			break;
++
++		/*
++		 * The kernel already assumes that the base single-letter ISA
++		 * extensions are supported on all harts, and only supports the
++		 * IMA base, so just cheat a bit here and tell that to
++		 * userspace.
++		 */
++		case RISCV_HWPROBE_KEY_BASE_BEHAVIOR:
++			ret = set_hwprobe(pairs + out, k,
++					  RISCV_HWPROBE_BASE_BEHAVIOR_IMA);
++			break;
++
++		case RISCV_HWPROBE_KEY_IMA_EXT_0:
++			{
++				u64 val = 0;
++
++				if (has_fpu())
++					val |= RISCV_HWPROBE_IMA_FD;
++				if (elf_hwcap & RISCV_ISA_EXT_c)
++					val |= RISCV_HWPROBE_IMA_C;
++				ret = set_hwprobe(pairs + out, k, val);
++			}
++			break;
+ 		}
+ 
+ 		if (ret < 0)
+-- 
+2.38.0
 
 
 _______________________________________________
