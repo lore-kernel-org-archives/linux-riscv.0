@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B734DC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 18:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE41C43217
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 19:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uhSVZZjUeeqRaqwH4289hWU4WxZgCv9oBWbPjWIdQDA=; b=PO2PWSbifQ3jz+
-	AKYQfs2E8b03sqirnbtC+jM9pTyzWVSMnkIEFiHg3IzOb5O+NY/Q6YKUOjEfP6dYAbPczPh1DxVCn
-	5jummqUQ2PEgJ7EmhcrdKqGG3BsEgLTaJTA2x17ZpPNUrxtpR6ryKbo7kve7DxH/XS9osZRX1Vr2y
-	gGuqZrrlriszopDkPL4FBchLdDTLEDaN15X9uHAQ0cnExPu5uNf49dM+DrRGRHA0FB9KR8wSM4L8P
-	E7xClOD+OoMDv/lo8ep1JIN7v7ovvaA2c5mu5CFN1Tl5jsqggkZ4VezMRGPTR5gHqS1RtLwRMkHG2
-	ra33dVFSOs/oKXwl8Wyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=m86wx0ePhCWAnVFACm6UXEp8z2pNChiLwKo7tVZhsH8=; b=Px9mvRnRVP8dmr/xPKL+vMGHLu
+	wiMzquNATKePLnk0Q6HaikkMvtqKEAdkDY0KsdlLuW4R8omcEAiYAFJzI0rzcHh9vCvd1QSw4Mi4d
+	mlhMharOTsQZvA0rpfm/Wh7AKDANJLpWu7fMXxq2+zKT9RA7uDlEqeTEYssiJdTZ2q118VtIMG1bq
+	qgZud4LosFYcP7eQPnyOp7QyykxB2sIiPeKqcWPak+I1vKdxAHxkLn/y6rYcTpHUFVO3iDNidzWAp
+	MuP9LpBuoUBoJWqeFF0hkSw9vNfAD/mCTiqdTChwQKPijTlXZXozv2kqKOFTZuy/ofDXGQB80evV1
+	05IWb8AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj3FD-00CkIR-Ox; Thu, 13 Oct 2022 18:47:47 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oj4Bj-00Crei-Ti; Thu, 13 Oct 2022 19:48:15 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj3FA-00CkHP-QI
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 18:47:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 873FEB8202B;
-	Thu, 13 Oct 2022 18:47:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C2AC433D6;
-	Thu, 13 Oct 2022 18:47:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665686860;
-	bh=YuUMePZ+vsNbKjlHx9yOeHLR/mA9M7RIxKfWjwX0qPk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PazBDFLLXt+GAi+mkSDU9TFTQyuUzl6qteLU+Qq7RRtLckPFKi6j6bJgVfJ9ZQqrX
-	 erfrZur+wzF9i6QDqQLAkHrHaKDJ0hpzv18XOrbsUuTMKKY+7dEueNMVTwh/pFOVhx
-	 Vm6sARenpfGClnv6W+nJYOd3dlJzEjxg/aOAvhyMJtNmLSo5+k4zIbg3KDqgKWiboT
-	 KHpaLWE4n+PU9fAYfUnWOD1K2j8XXbAg3Od+sHfWmucYF4yxGzF6CAPbEPKJ2Wc8Gg
-	 1c13fXR1HTlXywmLDurUmQjDdCod/EhG65fJuA3o/B//MJt8MnKtACxnL8rJtTc4aN
-	 xrV9C3gqAHQiA==
-Date: Thu, 13 Oct 2022 19:47:35 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	kernel test robot <lkp@intel.com>, Jens Axboe <axboe@kernel.dk>,
-	kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
-	"Jason A. Donenfeld" <zx2c4@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [linux-stable-rc:linux-4.19.y 3113/3976]
- drivers/char/random.c:1336: Error: unrecognized opcode `csrs sstatus,s4'
-Message-ID: <Y0hdR2Z44oOQ989w@spud>
-References: <202210101947.iPda3BwQ-lkp@intel.com>
- <Y0QKkwQ5KGT9ngPL@wendy>
- <Y0gONdihAaosW9+U@kroah.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y0gONdihAaosW9+U@kroah.com>
+	id 1oj4Bh-00CrdV-BO
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:15 +0000
+Received: by mail-pg1-x529.google.com with SMTP id r18so2419965pgr.12
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wgZOJIzJ73Ud5K4AO9wMRxTvyPd7NOkkGohUnr84Uc4=;
+        b=VlS7HWDyZxpbJhYUSnLGjJZmLD7+PxV0SNMJeYf5vnqjd3mBJYrGyIzo2G+HpLPMp7
+         2LJo6lnnkRcN1KCtCgkoxeBCJmPC5RJrqjYh1Vr+BFv3GHOyqB6hCQge1TjvgKiRq8ha
+         uCJt3jbAtZpmYDy+1YYtZCtS+26QcIc6b2pWqsjYP0sajI/5aByQQKUR5bYqN4WJJnNw
+         g0lAa4CRgsbDsfWuzP+zVFixgId4ufdA2vPKu/HAGhxFKdN+OJ7LNpi0VpjWt1ITo4XK
+         QUWl05hNBFS+9rsYpz+n3VkelYPR7rBVAzYpAI26Cq+Fyz7d7ClzmSD529Lk8Grmz8YU
+         D6Ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wgZOJIzJ73Ud5K4AO9wMRxTvyPd7NOkkGohUnr84Uc4=;
+        b=Ke3bO+v6fvaP4qRWoVw8kJOXbIhxvHB/LV8JzOcmy1fprT2Yqlz/aqDPxmBFy9cCEM
+         VbyU+X4+g+dPNqblKAUEUk8jhD7grQr4JDFJP4pqOtVgPum3xpcY4v7VFzI2pi0uUKzd
+         Y2fSnSg7BLban408farB1JcJh7uo/P7s2bcoQw6jYSSy3et/qoFBZCQtg4ghhsmrGN/c
+         WHu/aPzWa9J3U+Q7S4O9/gXC2d28GTK5NRV1n/OzgMtJi0KaqdmXPUjKtuME0A/Xd2KN
+         U5iaC54TF/70ijlSi57ti51wsysL7J4+YYMRYRjeZQFGpls4LPaOa6G3zdMTl7TyaTVU
+         iYZA==
+X-Gm-Message-State: ACrzQf132z7p9IzmHJEJW6kMr3m+JVqqPJOOO+sIjN7qX0j2XZ8ppLr0
+	t+ghUHAJ8W64TL9VAksagjQDsQ==
+X-Google-Smtp-Source: AMsMyM77texRQgum7ZA4975dKa4r36xr/DFtWQxFz6jNF/AiXBr6NsBpb26mIPpJZGbPmr/XsyrjBA==
+X-Received: by 2002:a05:6a00:2291:b0:563:9d0d:62ae with SMTP id f17-20020a056a00229100b005639d0d62aemr1207346pfe.17.1665690490240;
+        Thu, 13 Oct 2022 12:48:10 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id q12-20020a170902dacc00b0017a0e78ed0dsm205370plx.254.2022.10.13.12.48.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Oct 2022 12:48:09 -0700 (PDT)
+Date: Thu, 13 Oct 2022 12:48:09 -0700 (PDT)
+X-Google-Original-Date: Thu, 13 Oct 2022 11:29:01 PDT (-0700)
+Subject: Re: [PATCH] riscv: enable software resend of irqs
+In-Reply-To: <86ilkof2jz.wl-maz@kernel.org>
+CC: bjorn@kernel.org, tglx@linutronix.de, conor.dooley@microchip.com,
+  aou@eecs.berkeley.edu, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+  samuel@sholland.org, dfustini@baylibre.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Marc Zyngier <maz@kernel.org>
+Message-ID: <mhng-5edb73ee-d815-48d9-ad07-980a7623c05b@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_114745_197494_EED79D71 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20221013_124813_617288_837DDB27 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,69 +85,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 13, 2022 at 03:10:13PM +0200, Greg Kroah-Hartman wrote:
-> On Mon, Oct 10, 2022 at 01:05:39PM +0100, Conor Dooley wrote:
-> > On Mon, Oct 10, 2022 at 07:51:59PM +0800, kernel test robot wrote:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-4.19.y
-> > > head:   5644b22533b36dc1a95ab1db4ae83381514b2908
-> > > commit: 1923d9a8a08684c063da049fa9d5d8139edbbcbb [3113/3976] random: convert to using fops->write_iter()
-> > > config: riscv-randconfig-c024-20221009
-> > > compiler: riscv64-linux-gcc (GCC) 12.1.0
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git/commit/?id=1923d9a8a08684c063da049fa9d5d8139edbbcbb
-> > >         git remote add linux-stable-rc https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-> > >         git fetch --no-tags linux-stable-rc linux-4.19.y
-> > >         git checkout 1923d9a8a08684c063da049fa9d5d8139edbbcbb
-> > >         # save the config file
-> > >         mkdir build_dir && cp config build_dir/.config
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash drivers/char/
-> > > 
-> > > If you fix the issue, kindly add following tag where applicable
-> > > | Reported-by: kernel test robot <lkp@intel.com>
-> > > 
-> > > All errors (new ones prefixed by >>):
-> > > 
-> > >    arch/riscv/include/asm/irqflags.h: Assembler messages:
-> > >    arch/riscv/include/asm/irqflags.h:42: Error: unrecognized opcode `csrrc s6,sstatus,2'
-> > >    arch/riscv/include/asm/irqflags.h:60: Error: unrecognized opcode `csrs sstatus,0'
-> > >    arch/riscv/include/asm/irqflags.h:60: Error: unrecognized opcode `csrs sstatus,s6'
-> > >    drivers/char/random.c:1316: Error: unrecognized opcode `csrs sstatus,a3'
-> > >    drivers/char/random.c:1316: Error: unrecognized opcode `csrc sstatus,a3'
-> > >    drivers/char/random.c:1322: Error: unrecognized opcode `csrs sstatus,a3'
-> > >    drivers/char/random.c:1322: Error: unrecognized opcode `csrc sstatus,a3'
-> > > >> drivers/char/random.c:1336: Error: unrecognized opcode `csrs sstatus,s4'
-> > > >> drivers/char/random.c:1336: Error: unrecognized opcode `csrc sstatus,s4'
-> > 
-> > All of these look like 4.19.y is missing a backport of:
-> > Fixes: 6df2a016c0c8 ("riscv: fix build with binutils 2.38")
-> > 
-> > That commit is CC: stable, so I assume it did not apply or w/e and
-> > nobody cared enough to do a backport?
-> 
-> It does not apply and no one sent in a fixed backport :(
-
-Welp, I have a fixed backport for it and pushed it out for LKP [0].
-Just quickly checked it w/ binutils 2.36 & 2.38 locally, which both
-worked fine. I doubt anyone really cares though, 4.19 is pretty long in
-the tooth RISC-V hw wise. Not the biggest fan of what I did, but I
-didn't want to send backports for some other infra changes that
-6df2a016c0c8 depends on.
-
-I'll send it to you once LKP gives it the all clear.
-
-Thanks,
-Conor.
-
-0 -https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=riscv-backport_238_fix&id=cf7c2ca06cd0e5f6c16fe70e751380c8673da9ed
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAxMyBPY3QgMjAyMiAwMzoyMDowMCBQRFQgKC0wNzAwKSwgTWFyYyBaeW5naWVyIHdy
+b3RlOgo+IE9uIFRodSwgMTMgT2N0IDIwMjIgMDI6MTM6NTAgKzAxMDAsCj4gUGFsbWVyIERhYmJl
+bHQgPHBhbG1lckBkYWJiZWx0LmNvbT4gd3JvdGU6Cj4+IAo+PiBPbiBNb24sIDEwIE9jdCAyMDIy
+IDA0OjIxOjM4IFBEVCAoLTA3MDApLCBiam9ybkBrZXJuZWwub3JnIHdyb3RlOgo+PiA+IENvbm9y
+IERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+IHdyaXRlczoKPj4gPiAKPj4gPj4g
+VGhlIFBMSUMgc3BlY2lmaWNhdGlvbiBkb2VzIG5vdCBkZXNjcmliZSB0aGUgaW50ZXJydXB0IHBl
+bmRpbmdzIGJpdHMgYXMKPj4gPj4gcmVhZC13cml0ZSwgb25seSB0aGF0IHRoZXkgImNhbiBiZSBy
+ZWFkIi4gVG8gYWxsb3cgZm9yIHJldHJpZ2dlcmluZyBvZgo+PiA+PiBpbnRlcnJ1cHRzIChhbmQg
+dGhlIHVzZSBvZiB0aGUgaXJxIGRlYnVnZnMgaW50ZXJmYWNlKSBlbmFibGUKPj4gPj4gSEFSRElS
+UVNfU1dfUkVTRU5EIGZvciBSSVNDLVYuCj4+ID4+IAo+PiA+PiBMaW5rOiBodHRwczovL2dpdGh1
+Yi5jb20vcmlzY3YvcmlzY3YtcGxpYy1zcGVjL2Jsb2IvbWFzdGVyL3Jpc2N2LXBsaWMuYWRvYyNp
+bnRlcnJ1cHQtcGVuZGluZy1iaXRzCj4+ID4+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8
+Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+Cj4+ID4gCj4+ID4gV2FraW5nIHVwIGFuIG9sZCB0
+aHJlYWQuIEZXSVcsCj4+ID4gCj4+ID4gUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3Ju
+QGtlcm5lbC5vcmc+Cj4+IAo+PiBUaGFua3MuICBUaGlzIGxvb2sgcmVhc29uYWJsZSB0byBtZSwg
+bm90IHN1cmUgaWYgdGhlIGlycWNoaXAgZm9sa3MKPj4gaGF2ZSBhbiBvcGluaW9uIHRob3VnaD8K
+Pj4gCj4+IEluIHRoZW9yeSB0aGUgUExJQyBpc24ndCB0aGUgb25seSBpbnRlcnJ1cHQgY29udHJv
+bGxlciAoYW5kIHRoYXQgc3BlYwo+PiBwcmVkYXRlcyBtb3N0IG9mIHRoZSBpbXBsZW1lbnRhdGlv
+bnMpLCBidXQgdGhlIFNpRml2ZSBQTElDIGRlcml2ZWQKPj4gaW50ZXJydXB0IGNvbnRyb2xsZXJz
+IGhhdmUgYmVjb21lIGEgZGVmYWN0byBzdGFuZGFyZCBhbmQgSUlSQyB0aGV5J3JlCj4+IHRoZSBv
+bmx5IHRoaW5nIHNoaXBwaW5nIHJpZ2h0IG5vdyBzbyBJIHRoaW5rIGl0J3MgT0sgdG8ganVzdCBz
+dGljawo+PiB0aGlzIGluIGFyY2ggY29kZS4gIFdlIGNvdWxkIG1hcmsgaXQgYXMgImlmIFNJRklW
+RV9QTElDIiBvciBzb21ldGhpbmcsCj4+IGJ1dCBJIGRvbid0IGtub3cgaWYgdGhhdCdzIHdvcnRo
+IGRvaW5nLgo+Cj4gU2V0dGluZyBpdCBhdCB0aGUgYXJjaGl0ZWN0dXJlIGxldmVsIGlzIGF0IGxl
+YXN0IGNvbnNpc3RlbnQgd2l0aCB3aGF0Cj4gb3RoZXIgYXJjaGVzIGFyZSBkb2luZy4gSWYgd2Ug
+bmVlZCB0byBmaXggaXQgb25lIGRheSwgd2UnbGwgZG8gaXQKPiBnbG9iYWxseS4KCldvcmtzIGZv
+ciBtZS4KCj4KPj4gCj4+IEVpdGhlciB3YXksIHRoaXMgaXNuJ3QgcmVhbGx5IG15IHRoaW5nLiAg
+SGFwcHkgdG8gdGFrZSBpdCB2aWEgdGhlCj4+IFJJU0MtViB0cmVlLCBidXQgCj4+IEFja2VkLWJ5
+OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4KPj4gVGVzdGVkLWJ5OiBQYWxt
+ZXIgRGFiYmVsdCA8cGFsbWVyQHJpdm9zaW5jLmNvbT4gIyBvbiBRRU1VCj4KPiBQbGVhc2UgdGFr
+ZSBpdCBkaXJlY3RseSwgYW5kIGZlZWwgZnJlZSB0byBhZGQgbXkKPgo+IEFja2VkLWJ5OiBNYXJj
+IFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPgo+Cj4gdG8gaXQuCgpUaGFua3MsIGl0J3Mgb24gcmlz
+Y3YvZm9yLW5leHQuCgo+Cj4gVGhhbmtzLAo+Cj4gCU0uCj4KPiAtLSAKPiBXaXRob3V0IGRldmlh
+dGlvbiBmcm9tIHRoZSBub3JtLCBwcm9ncmVzcyBpcyBub3QgcG9zc2libGUuCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
