@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23BBC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 14:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B65C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7uU35rKypxjYkbciz0KH6MQNX6EjlPZUHyzXikLnWm0=; b=Tbbs07rvaRFGJa
-	lzrANx55UdoeSWUFcZ5Ee+1jjuNaJUoDOcC2gdNQ2jhLhEQhiHBircRSMlw7eJf9Sogb37vwMzEY9
-	yY6ZhYc/Z/khBJlkb/RxSlhl+A3aJilRe2yKqgGAvM//yDB2auDEhi5z9PkJERw45YsFN+cgAmLBn
-	hGVNWCS8+Qyq6YH47rjmDt1QCfMWPruAZAGS1w+WxaF2HNRPUJ7+Z1CmeRnf3DLN0DagpR1MxG/4d
-	CaOYKlhw0SLScoSl03RZbWeUz5L7mGacF+xZhBXCjcXr45NPULaIaQPF9jTmWgLgsc87xPOiVQF5Z
-	Whu2CTRXdMGIF0Ri6H7A==;
+	List-Owner; bh=BFyNdtpQaQAAKiR23g4Ulhas7jE8yleLTLFP4aaLA/I=; b=4xRQb/5HRw1Ssv
+	xGl5xoOyRCFrsw9z+QTMJNj6SWx2xwsD8vEXhgJwQEt8AN8gTsAqD29P/hwL+Clq7QqmiU2AZjJEr
+	QtcQUEcXCYVQ7ok/3b9vL/GkK/UYA5F1tk2tfmGE/ls5p14BZgjbwGJk7URmqswiCRbNFBIiieHbL
+	y1fjPZSgew4QzPQTwUr4Iy8raMcHR+DFQIwv+qAGYb4uCw24NCJj+IuEiAyGHFCJuslVB5YsqhE4b
+	tbtrjeIdxv3SGmzyp1gntwxYxhnCrN3pMmwEnYKSaWGHXnEGBSFJftkIjlNNqwIftmqYuGhX14AK4
+	H2AHYq84ev6J+Z9WJIxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oizaV-00CCXa-Ur; Thu, 13 Oct 2022 14:53:32 +0000
-Received: from mga02.intel.com ([134.134.136.20])
+	id 1oj0m0-00COHj-2O; Thu, 13 Oct 2022 16:09:28 +0000
+Received: from mga01.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oizaR-00CCVn-Ln; Thu, 13 Oct 2022 14:53:28 +0000
+	id 1oj0lu-00COFM-VD; Thu, 13 Oct 2022 16:09:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1665672807; x=1697208807;
+  t=1665677362; x=1697213362;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=r+A85jTxRgf0CRicOayM4dLLN5VzvuhrenYOP1O6oTU=;
-  b=VSE9jaHgXxswz30WNvHbB4GoLqGcq/8MqXwz35Tb22S4HPEFuo+JJgOu
-   HEzW5yFU+DP3JEP0Q/V4r0WTEOo+Xd3v5A2N7rT1nNZt5/r0/7gq52nnl
-   Ri/LKqnfp1NC31igiB0XchKdyRSbY32R/nb299U1rAL7g5R3hqAjTspMX
-   eFyNLavR5pet1Mq/zpql2USUzbmiC13Ben+JtudER/vP8nqorQ4bZK8qn
-   U/0ebt8ApbVy8+/aLQRzX/NC1bLIJJh10XejkaEMIfZV/nEzzP2wTmvYq
-   FHvLCy0u/CKlkL5QWk64jw611Imhbm5vbnpKBNpZzMR555FbA175Y1ZeD
-   w==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="292437968"
-X-IronPort-AV: E=Sophos;i="5.95,180,1661842800"; 
-   d="scan'208";a="292437968"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2022 07:53:21 -0700
+  bh=OPQmeZ5uzAfg/Yu3vsd+t3FuvAOQsHliIP9WOqPYQKw=;
+  b=JX5LJCqsgzn2JG4zeU+XSS1C4y9cHmgpmW299lXIzIRKZvVAn07KUwb4
+   7o5fysbIkPFc6dtf+vSb3smTVA61FLCI6F8iFhRjP0hezOI7IMQ+lkz+P
+   NVGc3oQopy9AXzlZ0WZ3hrkKEFzu2mvwg9Q5vxzgb5O16M1Paxk0QkYGY
+   mBI4pDquI7QyG57Sjl+l0KQ3p9hX1n7hC1KwXD8Jyb9b3fjSLKC45INSG
+   u4a5j0rHQPnwquPCOjXZntszgdaHVig+VUGA3Zv99Fj874sIgF6Z8h0wZ
+   QNpmNxoF+tm7/VD0dp7pvqvl/5PYu4J47SBx2UU8zNYj3DKlPxXm++YdY
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="331630045"
+X-IronPort-AV: E=Sophos;i="5.95,182,1661842800"; 
+   d="scan'208";a="331630045"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2022 09:05:42 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="872359863"
-X-IronPort-AV: E=Sophos;i="5.95,180,1661842800"; 
-   d="scan'208";a="872359863"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmsmga006.fm.intel.com with ESMTP; 13 Oct 2022 07:53:11 -0700
-Received: by black.fi.intel.com (Postfix, from userid 1001)
-	id DC55F26D; Thu, 13 Oct 2022 17:53:31 +0300 (EEST)
-Date: Thu, 13 Oct 2022 17:53:31 +0300
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="802296581"
+X-IronPort-AV: E=Sophos;i="5.95,182,1661842800"; 
+   d="scan'208";a="802296581"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga005.jf.intel.com with ESMTP; 13 Oct 2022 09:05:20 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1oj0hv-006V2r-0F;
+	Thu, 13 Oct 2022 19:05:15 +0300
+Date: Thu, 13 Oct 2022 19:05:14 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mika Westerberg <mika.westerberg@linux.intel.com>
 Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
 	Kent Gibson <warthog618@gmail.com>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -102,8 +104,7 @@ Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	NXP Linux Team <linux-imx@nxp.com>,
-	Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
+	Sean Wang <sean.wang@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
 	Gregory Clement <gregory.clement@bootlin.com>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	Avi Fishman <avifishman70@gmail.com>,
@@ -135,15 +136,17 @@ Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
 	Masami Hiramatsu <mhiramat@kernel.org>
 Subject: Re: [PATCH v2 35/36] pinctrl: intel: Add missed header(s)
-Message-ID: <Y0gma4fmhWISrKHe@black.fi.intel.com>
+Message-ID: <Y0g3OiL/9oQlcovJ@smile.fi.intel.com>
 References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
  <20221010201453.77401-36-andriy.shevchenko@linux.intel.com>
+ <Y0gma4fmhWISrKHe@black.fi.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221010201453.77401-36-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <Y0gma4fmhWISrKHe@black.fi.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_075327_797712_4D5C3180 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20221013_090923_072678_83CAE7ED 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,17 +163,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 10, 2022 at 11:14:51PM +0300, Andy Shevchenko wrote:
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
+On Thu, Oct 13, 2022 at 05:53:31PM +0300, Mika Westerberg wrote:
+> On Mon, Oct 10, 2022 at 11:14:51PM +0300, Andy Shevchenko wrote:
+> > Do not imply that some of the generic headers may be always included.
+> > Instead, include explicitly what we are direct user of.
+> > 
+> > While at it, sort headers alphabetically.
+> > 
+> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > 
-> While at it, sort headers alphabetically.
+> Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
 > 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> For all the intel pinctrl changes.
 
-Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+Thank you, I have added it to the 4 Intel related patches.
 
-For all the intel pinctrl changes.
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
