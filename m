@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93391C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 04:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7B5C4167B
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 04:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=9efC1KzEKkC0nP18P5dTNbbfAEB9BXrUPRs8Lx/hKEo=; b=podDC/lzpEjFBMmdloHShChK0N
-	SWVEoqpraL4qYRrVteigxx7RUlhbW6LKAgni7VCclYwoYisMxaIJ/sfuiUnfRMuRw0LZ1ruz436NR
-	0/W5fsTl8mPi/F9XcVsMY3RpRKvZAipaL4zO4s8QrdpaLIq+s7LLEV5b06fbarS2IzlHUKNBebBXi
-	8GjdsUhHPBx3tRVv/AyIUVGfsa69UeYq1gT7jVe5Rcs+diGXhu3SpTxuOyoGt5VL10fXskcucwFD4
-	H7w/nuZl+/xNXmq9+Y5Dp8wZ6gl0ye0oJ4OmxYkSjiPQkZ/jH5T7PRlIAYZne0aYnFnmx2xeMzXyz
-	XEKCR5mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OXy5bIeEqAScjhycspwlGYT1LAIrejtMS2wq15DlczU=; b=MJBmmuX46Q509n
+	FJUwHNug7ZMF0nGTm0hNALpcClsaTqxuYtERpQnWRcsDQABqW3UfJuPxyvEnVV6SniB+u3KnO1M9m
+	WCVP1qHzWKrUtZtxu0FhAn2XduxnKsD/xO9/HRgs1KZw7Mu3HyYcZfl/3/4Km0rUyxok056RoWh8E
+	9DfOEluqy121rGqYh9d7feVHnI2+NXW8YHfiWEtZdcy7Rc3HhSADt5DAMWzo3ffNlo773afe7xfq8
+	pOV0OoTT9LjVp1Jmv5mh6/H1gbwt9WMAsRmZRii0hXxJve1Xsg47UVsy/fONAkHfUKkfXo03tzrYx
+	As9oN/xrSf5KLc5vD0iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiqGf-00Ad6t-QD; Thu, 13 Oct 2022 04:56:25 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1oiqGk-00Ad9R-Ll; Thu, 13 Oct 2022 04:56:30 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiqGY-00Ad1A-EP
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 04:56:20 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id fw14so939099pjb.3
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 21:56:17 -0700 (PDT)
+	id 1oiqGc-00Ad3H-8w
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 04:56:23 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id 3so953574pfw.4
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 21:56:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tXrbEJgJQgUBGs9Wp9XyjplFrW9QFFILkC7/GE5/QEs=;
-        b=3jlmYP9Xz49++kB0+g0PqTOiJKelBadtnkyUCVMPALsB5aQH+whUBAHubWIiLD/a1n
-         Gt/rvonr8pqU8N06HeosOYw2QGdz4uIKB52vye+2wmuJAsDojrLXpOszmfdmXUcJOXpM
-         AuYD4Utvca7Z/UuI0bY76bM9agL0wBt/Rtriybjel8QQPaLJzIZsbz6Zj+yjAqRyyHKp
-         BZYsjWX+I5WUW1T0a41KI7ZfQW8GDCG3r4lZ1VHiuIgrSuzw41BBDfKJ5kXqU+QSZBH+
-         qkATuWLXHj1B88DymiKDMk+qMFGMeAnqlgwh59SEz1IWlz+NTWO5y5ElV5rNyB0KQ/AS
-         1Qng==
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=v0UkCHDCpb0SQXipAoNT2TBB6AI57CfyDRGKOFbFDxM=;
+        b=02NaSQwYpacpxD453y5wlUVALaIMnCHleq/eMGjj6MbNnnksjxpiZPh7T/6ivwKs15
+         B6M6NtF5b1z6oHsZkPKWM1Abynf19TqN6F/ymAq5N0DPqFF1DG1x27tOyEpNvae1DzMt
+         OfNxH/H6uPut4s6x9gJ2Iy4tFZK25wLHvIC/9FjD8ErblkFCPHCHyQG5BhFVrGLQk1AP
+         FElSsWsF3y55u22hLcDJAx8nFymW4+EtM8U21ENGEPDB/LCQSj66i0g00zgtocX7NcgV
+         Wq2DDRzMIKLxM1ZW6KX2E9EH2dTb5/2eE13bXd39uP+3JvXQd0ik32n0HYiC4rlBtlEj
+         Yu4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tXrbEJgJQgUBGs9Wp9XyjplFrW9QFFILkC7/GE5/QEs=;
-        b=Oo8LX59DCc7vDkVSYRf4YrdaHYYeuK5qZ523IyOo4VWrTSY8XSEuHYhWt7GF2KQdQG
-         l1Tyk96OalIZP8ol7nY+WXfkqQGxfoU6x95cWiOxshh1lW/GSd/4Bc1GGHoPu0ZL22TJ
-         SZf831EXmNGekKvhgfioF50m0t4YquUHm/A8JdruzrCmcFTTVNt6NFvkOLi8YNMN+Ejv
-         BLd1jitOI4GvAXmNYMrv2FjtTCv/lm/1TSAEo/HSsOVmXxxYoYfS81HoM43ajYMo/u/k
-         Jwak68di+0Be5Zcz/mzKBoTdxEyLL+GGYpG3UxdINc5K460rcHRc0dx0Mm4xl8jXGVFw
-         hD6g==
-X-Gm-Message-State: ACrzQf2i89Vjt2MEZxZEg/6GrH5O7thvcHFUxldSwcctc2py/7f69An+
-	damu4HLtxd47EfkvVEH4+03wL0Czynhirw==
-X-Google-Smtp-Source: AMsMyM6VndR2w4IYrSD8acPyD57UhFc7XIoaBbe5WjUah7MsOvQiljtQLqOlPHT30NX/fBi1Q4JcMQ==
-X-Received: by 2002:a17:902:f647:b0:183:cb8d:40a0 with SMTP id m7-20020a170902f64700b00183cb8d40a0mr11558234plg.18.1665636976701;
-        Wed, 12 Oct 2022 21:56:16 -0700 (PDT)
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v0UkCHDCpb0SQXipAoNT2TBB6AI57CfyDRGKOFbFDxM=;
+        b=74Ggi0xMWzP7nz3qcaqEadnFM49YBT/oLqJdt1GNv9GpgWtgdwd84/RyXwNKABlh3e
+         xmeq7R2snPUDwLbKSkc5eZDR9oTkMfrP5Y+Un86mzWrIOZQyIrMem2WpV16EF+zBS4Nd
+         hZdGzxQY+F7+SPd8fEjbMkslSXVEAw9J5Ww96wY2jZIbtvtFvJE8B2/hcg6ftR2ujaYi
+         R10O5doVrSU2oyUoxS3ieFIrX3z6o/m8aRHl2OHfSTXm6KNXdFsQrSYOoVDr9vllneF4
+         R5HEaiXbipCWMCnKKKTbv7TK9cC2itni+gOnyTJWNlJCNsAYhkpmlLb8RraWMCIgJGMF
+         7tkw==
+X-Gm-Message-State: ACrzQf0RyX7WDi5cWDSFYd6GIlSmmEjkbThgLOdiy7uaotq5j8XAFHc3
+	xWxeaHo6FMuwJMRZ3f+Zu/Y9Fg==
+X-Google-Smtp-Source: AMsMyM4xYxfSCrlo5ZD8i7krGTytpwPAaf5IcxrbU4QzjhRLQ4Wzrv7QyLp9p5ewMgSHjQwEongTBA==
+X-Received: by 2002:a05:6a00:f03:b0:563:210a:5ffb with SMTP id cr3-20020a056a000f0300b00563210a5ffbmr24187318pfb.70.1665636980362;
+        Wed, 12 Oct 2022 21:56:20 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id x27-20020aa7941b000000b00561ed54aa53sm819431pfo.97.2022.10.12.21.56.16
+        by smtp.gmail.com with ESMTPSA id n3-20020a056a00212300b005625d6d2999sm750313pfj.187.2022.10.12.21.56.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Oct 2022 21:56:16 -0700 (PDT)
-Date: Wed, 12 Oct 2022 21:56:16 -0700 (PDT)
-X-Google-Original-Date: Wed, 12 Oct 2022 21:47:25 PDT (-0700)
-Subject: Re: [PATCH 2/3] Documentation: RISC-V: Allow patches for non-standard behavior
-In-Reply-To: <Yyn2Icf0GoDdtW1n@spud>
-CC: linux-riscv@lists.infradead.org
+        Wed, 12 Oct 2022 21:56:20 -0700 (PDT)
+Subject: [PATCH v2 0/4] Documentation: RISC-V: patch-acceptance changes
+Date: Wed, 12 Oct 2022 21:56:15 -0700
+Message-Id: <20221013045619.18906-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.38.0
+MIME-Version: 1.0
+Cc: corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+  Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
+  Atish Patra <atishp@rivosinc.com>, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, linux@rivosinc.com
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-495b30ee-2582-4a0b-81a0-5bd21e04be6d@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+To: Conor Dooley <conor@kernel.org>, Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_215618_750713_08D8499F 
-X-CRM114-Status: GOOD (  40.29  )
+X-CRM114-CacheID: sfid-20221012_215622_344354_E5462E3C 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +85,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Sep 2022 10:19:29 PDT (-0700), Conor Dooley wrote:
-> On Tue, Sep 20, 2022 at 07:01:39AM -0700, Palmer Dabbelt wrote:
->> The patch acceptance policy forbids accepting support for non-standard
->> behavior.  This policy was written in order to both steer implementors
->> towards the standards and to avoid
->
-> Commit message is cut off here.
+We talked about this during Plumbers and it seems like there was pretty
+minor feedback on the v1.  I don't intend on committing this for the
+current merge window, as it's only been through one round of review and
+I don't see any reason to rush it.  Like last time we're just violating
+this as the status quo, so we can stick with that as we sort out the
+wording.
 
-Oops, I'll fix it in the v2.
+Changes since v1 <https://lore.kernel.org/all/Yyn9FJ4iuzJTfO1T@spud/t/#mcc9b5e547a2ca2b25d7f78a4d2572f39ddc5593e>:
+* Various minor wording changes.
+* "UEFI forum specifications" instead of just "UEFI specifications".
+* New patch 4 with implementor -> implementer
+* Atish and Conor's Reviewed-by.
 
->> So let's just start taking code for vendor-defined extensions.
->
-> :)
->
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->> This was discussed at Plumbers, but as with any policy change it's
->> important to make sure everyone has time to chime in.  I intend on
->> letting this sit on the lists for a bit to make sure everyone has a
->> chance to comment, but in practice we're already regularly violating
->> these policies so I'm going to just keep going with the status-quo in
->> the meantime.
->>
->> I'm also still not quite sure how to write down the hardware
->> requirement: the intent is to make this more or less in line with other
->> kernel policies, with the added wrinkle that RISC-V is a bit more
->> distributed than other systems and thus has more core functionality that
->> is vendor-defined.  Hence the need to allow some code to go in earlier
->> than a requirement for publicly-available hardware would allow.
->> ---
->>  Documentation/riscv/patch-acceptance.rst | 10 +++++++---
->>  1 file changed, 7 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
->> index 5da6f9b273d6..8087718556da 100644
->> --- a/Documentation/riscv/patch-acceptance.rst
->> +++ b/Documentation/riscv/patch-acceptance.rst
->> @@ -30,6 +30,10 @@ to go through any review or ratification process by the RISC-V
->>  Foundation.  To avoid the maintenance complexity and potential
->>  performance impact of adding kernel code for implementor-specific
->>  RISC-V extensions, we'll only accept patches for extensions that
->
->> +have been officially frozen or ratified by the RISC-V Foundation, or
->> +for extensions that have been implemented in hardware that is either
->> +widely available or for which a timeline for availability has been
->> +made public.  Hardware that does not meet its published timelines may
->> +have support removed.  (Implementors, may, of course, maintain their
->> +own Linux kernel trees containing code for any custom extensions that
->> +they wish.)
->
-> As you know, I was there so I don't disagree with the sentiment of the
-> changes & as an employee of a vendor who wants to use a non-standard
-> extension I welcome the change.
->
-> Only comment I have is that the sentence has gotta kinda long. How about
-> a rephrasing/reworking to something like:
-> ---8<---
-> To avoid the maintenance complexity and potential
-> performance impact of adding kernel code for implementor-specific
-> RISC-V extensions, we'll only accept patches for extensions that
-> either:
->
-> - have been officially frozen or ratified by the RISC-V Foundation
-> - have been implemented in hardare that is publically available or has
->   a timeline for availability that has been made public
->
-> Hardware that does not meet its published timelines may have support
-> removed. Implementers, may, of course, maintai their own Linux kernel
-> trees containing code for any custom extensions that they wish.
-> ---8<---
-> I think breaking it up like that highlights the two distinct cases, but
-> maybe that's just me.
 
-Seems reasonable, I'm just going to go with roughly that for the v2.
-
-> The o spelling of implementer is in here too.
-> Again, am I missing some American English thing there?
->
-> I think the bit about the hardware is fair too. Gets the point across
-> and if someone's timelines slip all they have to do is publish the new
-> timelines...
-
-Ya, that's the idea: we sort of just need to know this stuff is actually 
-alive, if there's hardware that's easy but if not then at least getting 
-an Ack that there's still some plans for it to show up helps.
-
-> Since my only comments were stylistic (modulo the potentially existing
-> spelling mistake) this looks good to me on an idealogical/policy level:
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-OK.
 
 _______________________________________________
 linux-riscv mailing list
