@@ -4,149 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B65C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F7BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 16:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BFyNdtpQaQAAKiR23g4Ulhas7jE8yleLTLFP4aaLA/I=; b=4xRQb/5HRw1Ssv
-	xGl5xoOyRCFrsw9z+QTMJNj6SWx2xwsD8vEXhgJwQEt8AN8gTsAqD29P/hwL+Clq7QqmiU2AZjJEr
-	QtcQUEcXCYVQ7ok/3b9vL/GkK/UYA5F1tk2tfmGE/ls5p14BZgjbwGJk7URmqswiCRbNFBIiieHbL
-	y1fjPZSgew4QzPQTwUr4Iy8raMcHR+DFQIwv+qAGYb4uCw24NCJj+IuEiAyGHFCJuslVB5YsqhE4b
-	tbtrjeIdxv3SGmzyp1gntwxYxhnCrN3pMmwEnYKSaWGHXnEGBSFJftkIjlNNqwIftmqYuGhX14AK4
-	H2AHYq84ev6J+Z9WJIxQ==;
+	List-Owner; bh=qDllFcWPGcsuS7O58hxLq/jkYCTehxG5tCkgIxPpsEE=; b=Bb3+Bc4iK+Npeg
+	VhsEvjG+JbtK5ThJmX+Nd/o1n80xudqWyeFMqB45AQXf0dho0JDP5CdbHpiDkyQtALG5wtYWmGF50
+	q5ZK9K5WdE/Tia3plk/0SYt2Wi8WakhO7MSMYRcm2APxkOgCGw0bHugOc1hkGQk/8nXyuxSi67p6k
+	j92HQCiB3GHkqT26kRbV9xsrg7LwecN0lKwf9NoxOZ9hPLXgAabSnQjQz3f/KqYtpeGAFfLvMcJKL
+	yH7ejvyaIXbE1A1nTQAMmMfQH7xduYPSc85tkb6LMPMZKlJYQ9pNLXaem7Tnk1aNPteXUlaeWFMT0
+	7N6ow2vsQeqq0IZIxWgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj0m0-00COHj-2O; Thu, 13 Oct 2022 16:09:28 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1oj0wu-00CPX3-MC; Thu, 13 Oct 2022 16:20:44 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj0lu-00COFM-VD; Thu, 13 Oct 2022 16:09:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1665677362; x=1697213362;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OPQmeZ5uzAfg/Yu3vsd+t3FuvAOQsHliIP9WOqPYQKw=;
-  b=JX5LJCqsgzn2JG4zeU+XSS1C4y9cHmgpmW299lXIzIRKZvVAn07KUwb4
-   7o5fysbIkPFc6dtf+vSb3smTVA61FLCI6F8iFhRjP0hezOI7IMQ+lkz+P
-   NVGc3oQopy9AXzlZ0WZ3hrkKEFzu2mvwg9Q5vxzgb5O16M1Paxk0QkYGY
-   mBI4pDquI7QyG57Sjl+l0KQ3p9hX1n7hC1KwXD8Jyb9b3fjSLKC45INSG
-   u4a5j0rHQPnwquPCOjXZntszgdaHVig+VUGA3Zv99Fj874sIgF6Z8h0wZ
-   QNpmNxoF+tm7/VD0dp7pvqvl/5PYu4J47SBx2UU8zNYj3DKlPxXm++YdY
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="331630045"
-X-IronPort-AV: E=Sophos;i="5.95,182,1661842800"; 
-   d="scan'208";a="331630045"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Oct 2022 09:05:42 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10499"; a="802296581"
-X-IronPort-AV: E=Sophos;i="5.95,182,1661842800"; 
-   d="scan'208";a="802296581"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga005.jf.intel.com with ESMTP; 13 Oct 2022 09:05:20 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1oj0hv-006V2r-0F;
-	Thu, 13 Oct 2022 19:05:15 +0300
-Date: Thu, 13 Oct 2022 19:05:14 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Kent Gibson <warthog618@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Rafa?? Mi??ecki <rafal@milecki.pl>,
-	Bjorn Andersson <bjorn.andersson@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Phil Edworthy <phil.edworthy@renesas.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Fabien Dessenne <fabien.dessenne@foss.st.com>,
-	Prathamesh Shete <pshete@nvidia.com>,
-	Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
-	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
-	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Andreas F??rber <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Sean Wang <sean.wang@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Chen-Yu Tsai <wens@csie.org>, Paul Cercueil <paul@crapouillou.net>,
-	Damien Le Moal <damien.lemoal@wdc.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Haojian Zhuang <haojian.zhuang@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Andy Gross <agross@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@somainline.org>,
-	Tomasz Figa <tomasz.figa@gmail.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: Re: [PATCH v2 35/36] pinctrl: intel: Add missed header(s)
-Message-ID: <Y0g3OiL/9oQlcovJ@smile.fi.intel.com>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <20221010201453.77401-36-andriy.shevchenko@linux.intel.com>
- <Y0gma4fmhWISrKHe@black.fi.intel.com>
+	id 1oj0wr-00CPVv-8a
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 16:20:42 +0000
+Received: by mail-ej1-x631.google.com with SMTP id y14so5005538ejd.9
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 09:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oe+qcm/PeDU+N6DKOzPNoq0R6lraKt7XT7JYVGPicCk=;
+        b=dU6DDiJS3KATjyTwxYnnqe1e3pSXmti7gfPF1hRPvo80QB7/94M+1V4ZbT9KpjWLHa
+         7K30CxBz4iJaAUHZQud/XSCDLlbebrFo+UmMAvKzSavYda19Y3C4+azTB1qPhDNzvb2w
+         D3gO8IApfyYlbgR03kpc5iobxijl6FpE5FPVg3cMHJXvoMWg05GuRRbFM4ds8xPVeFWv
+         K9c3cpT9gGg5WdRUvX7O8r200KM/GWUMvmJn3GXPyDVffpo8EwjKxbrKlrQnJGzViPlW
+         GUEVeCent4sYDYyGK2BAqc3VE29z7/qlqk/WUG4kVU8IQ4AQAY2feLULAU/4bumyf0A8
+         rkHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oe+qcm/PeDU+N6DKOzPNoq0R6lraKt7XT7JYVGPicCk=;
+        b=Ral1vxRwmVOZLc1q6rsz2HnOGmczXWjnY13UzNgwGcUZb0rTE6qM0qj8CeCHr/qD5T
+         4G6/0CsebJv2hP1lqrfYXx077JobFpB6sQmIPfusuD1tF2CkqFLWdqGMwxXOVyBrGGNp
+         uIsOxpnfYLqx95BeorStdqaeMnSXiPPPlS+7zTVZANAh7xWirZD95TB0upafN4nFHxJH
+         VfURj1vrNuFxcsB4FyILciQ8Go+IIPYEUK9RhgBJ4f1+Ps0wNu//JgLCj00tphBhTfcy
+         LtIlBys1XlaVJlzaa2OMy/BQGhsbrAEU/Zt8qa0u1jvMVg5iElXwjetKP9Wimkq9TLex
+         /NRQ==
+X-Gm-Message-State: ACrzQf050yksSHaLzqYPLDiWQjSzm0GGeIH6p1CdavsoSWy0CltEV8f6
+	/1ok8famvtZhLWyIJEGHcu8ndA==
+X-Google-Smtp-Source: AMsMyM6TQsm0jAFDWeOa0K25dqufGBQqbnTfJUZpgBInYPUQ7lJ0E71e+lbcS3jq4i/FQq4vysCQCA==
+X-Received: by 2002:a17:907:2e0b:b0:78d:387d:1579 with SMTP id ig11-20020a1709072e0b00b0078d387d1579mr352263ejc.761.1665678039938;
+        Thu, 13 Oct 2022 09:20:39 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id t29-20020a056402241d00b0045ce419ecffsm80529eda.58.2022.10.13.09.20.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Oct 2022 09:20:39 -0700 (PDT)
+Date: Thu, 13 Oct 2022 18:20:38 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH 0/8] riscv: improve boot time isa extensions handling
+Message-ID: <20221013162038.ehseju2neic2xu5z@kamzik>
+References: <20221006070818.3616-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y0gma4fmhWISrKHe@black.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <20221006070818.3616-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_090923_072678_83CAE7ED 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20221013_092041_337780_59496229 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,25 +91,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 13, 2022 at 05:53:31PM +0300, Mika Westerberg wrote:
-> On Mon, Oct 10, 2022 at 11:14:51PM +0300, Andy Shevchenko wrote:
-> > Do not imply that some of the generic headers may be always included.
-> > Instead, include explicitly what we are direct user of.
-> > 
-> > While at it, sort headers alphabetically.
-> > 
-> > Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+On Thu, Oct 06, 2022 at 03:08:10PM +0800, Jisheng Zhang wrote:
+> Generally, riscv ISA extensions are fixed for any specific hardware
+> platform, that's to say, the hart features won't change any more
+> after booting, this chacteristic make it straightforward to use
+> static branch to check one specific ISA extension is supported or not
+> to optimize performance.
 > 
-> Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+> However, some ISA extensions such as SVPBMT and ZICBOM are handled
+> via. the alternative sequences.
 > 
-> For all the intel pinctrl changes.
+> Basically, for ease of maintenance, we prefer to use static branches
+> in C code, but recently, Samuel found that the static branch usage in
+> cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+> Samuel pointed out, "Having a static branch in cpu_relax() is
+> problematic because that function is widely inlined, including in some
+> quite complex functions like in the VDSO. A quick measurement shows
+> this static branch is responsible by itself for around 40% of the jump
+> table."
+> 
+> Samuel's findings pointed out one of a few downsides of static branches
+> usage in C code to handle ISA extensions detected at boot time:
+> static branch's metadata in the __jump_table section, which is not
+> discarded after ISA extensions are finalized, wastes some space.
+> 
+> I want to try to solve the issue for all possible dynamic handling of
+> ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+> riscv_has_extension_*() helpers, which work like static branches but
+> are patched using alternatives, thus the metadata can be freed after
+> patching.
+> 
+> [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+> [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/
+> 
+> 
+> Jisheng Zhang (8):
+>   riscv: move riscv_noncoherent_supported() out of ZICBOM probe
+>   riscv: cpufeature: detect RISCV_ALTERNATIVES_EARLY_BOOT earlier
+>   riscv: hwcap: make ISA extension ids can be used in asm
+>   riscv: cpufeature: extend riscv_cpufeature_patch_func to all ISA
+>     extensions
+>   riscv: introduce riscv_has_extension_[un]likely()
+>   riscv: fpu: switch has_fpu() to riscv_has_extension_likely()
+>   riscv: cpu_relax: switch to riscv_has_extension_likely()
+>   riscv: remove riscv_isa_ext_keys[] array and related usage
+> 
+>  arch/riscv/include/asm/errata_list.h    |  9 +--
+>  arch/riscv/include/asm/hwcap.h          | 94 ++++++++++++++-----------
+>  arch/riscv/include/asm/switch_to.h      |  3 +-
+>  arch/riscv/include/asm/vdso/processor.h |  2 +-
+>  arch/riscv/kernel/cpufeature.c          | 78 +++-----------------
+>  arch/riscv/kernel/setup.c               |  4 ++
+>  6 files changed, 71 insertions(+), 119 deletions(-)
+> 
+> -- 
+> 2.37.2
+>
 
-Thank you, I have added it to the 4 Intel related patches.
+This series also needs a KVM patch like below.
 
+Thanks,
+drew
+
+From 7069a6fa488ec4efad190884fe5fcf4a1c37753a Mon Sep 17 00:00:00 2001
+From: Andrew Jones <ajones@ventanamicro.com>
+Date: Thu, 13 Oct 2022 18:16:10 +0200
+Subject: [PATCH] riscv: KVM: Switch has_svinval() to
+ riscv_has_extension_unlikely()
+Content-type: text/plain
+
+Switch has_svinval() from static branch to the new helper
+riscv_has_extension_unlikely().
+
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kvm/tlb.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index 309d79b3e5cd..aa3da18ad873 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -15,8 +15,7 @@
+ #include <asm/hwcap.h>
+ #include <asm/insn-def.h>
+ 
+-#define has_svinval()	\
+-	static_branch_unlikely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVINVAL])
++#define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+ 
+ void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
+ 					  gpa_t gpa, gpa_t gpsz,
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.37.3
 
 
 _______________________________________________
