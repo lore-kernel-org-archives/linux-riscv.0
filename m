@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2CFC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18D6C433FE
 	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 19:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:From:MIME-Version:Date:Message-Id:
+	Subject:References:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/3vuodm4y8hrdx5U33IKVXTzIeNvfBJmzo8MTDHk0T0=; b=3khE68fm3DOd2H
-	0WKlww0gCreEbk1+ag3g7SoH0z+zoQUPkvVjWSYNHnFAkpOabEMbBryxoWoF0ZWXtGDz2ZTYm7FGF
-	kSamxnFIBxCPqy7gDehU2iD4t+JRxAVvV/DnSIn1r2IFh7rdIrSZiUwdZ8DoNEzdYC+wGrysBHlga
-	aY0dX/nzOZvdMqfkA3aILPedX64sR6KrvmR9MktRynnIG0ixwup4XPH0YtX5RHjgWFMDbc7g5gjrq
-	JC4RrJgjKlaTNrewh+Ulnsft89ciozXQXpEwv0lf8o2y7x0/Vf7lQKXABo3ODh9pXJv2xi3LqDSYg
-	5Zw/h0O8ZMwUO8xEBFGw==;
+	List-Owner; bh=V2dJ+MSiQyxPp/UQMEyedwwrWd67wZPZymrTl3oFnKg=; b=oLwVRQDEmPrksO
+	DKPycgSd1lsjimfEGL//BcDt6TZb566v0MXaBkUe/6d3VGRS7YxmJVt4YSxMsoB0icAbn4ZkwO9od
+	NON06UnNEV9UvqXgnfzr32Cj2knAayYS78nE6vFO9r/PiZTOPkBoqLbckgNUWocAsjJMDk2AUTm+n
+	7d6zkW9cqzDkP4NvFAGg8pAgC/Ez8xC9PklgKKsB2+C2F4yybsdSe062Lum8tGnXDLotB67CLeq1C
+	Z9HE5hpG01s202gETH+GYWVw/K5AXLqj8ZBuJNIHU84nI/5BgzYnO3DskFd3F1x/ckaVP3QB4sca4
+	Tr/RF8y0No1ebWGoL/uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bn-00Crgr-Uz; Thu, 13 Oct 2022 19:48:19 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1oj4Bm-00CrgH-Ey; Thu, 13 Oct 2022 19:48:18 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Bj-00Crdi-HK
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:17 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d24so2761148pls.4
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:13 -0700 (PDT)
+	id 1oj4Bi-00Crda-G1
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 19:48:16 +0000
+Received: by mail-pl1-x630.google.com with SMTP id n7so2777908plp.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 12:48:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+        h=to:from:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U3IcGLKOjvaTyzTUS9C/MMMRO8g7hgaBW9dEJGasaM8=;
-        b=rVOUIkeBIqZYAtSSF4eFMOnnrKQe7YDrmDTPcNQ9kmafqVt16/Uv5D4VRyRLR0LHDa
-         V+qVnwMJFrCMIJjVTzGVNGpnIncqjJd+TEBJWfnjCe7/gdyfcBM2I/LbPgzyjq8XP+5R
-         WVCqz3b1aZbmVDjUF6cnItA4F1L6JQuw4bW7yOjYJ9Q2/EKVt92zwTLvS6jwu9u/d/Ij
-         KousLwVqtMDBcWQ+3dhuWXj+AqkSqwclT0JcNnet/WqPnFs9GOFfaFVyCy1ODqkOH0T5
-         wMKZFiuSQUWYfIsIMq6KHrRmtnWJvTSNXfw7jU+RV++y1julovLi9iqhAW8mN+WQVFYM
-         zPDw==
+        bh=9PKyqDLhwmXPlUdhrOFFEBt/uab4gB4wdiZD+rRvzv0=;
+        b=oa+d1i4Vns0R2oqrhpWlUSOtEDshMIWWkCeJBhsy5zSAJa/Q+G8KdmDwnS/jYVN4qB
+         ZQzOLvst2cLa2gX8HGIK9Qnb1iWAVGDZ3KthifDUdi+rC/6pq/LUCbBGMsbc8dK/abW/
+         +BXmZ9CGp2VtztmjrE4oulZM9h89r6HQBLQpbsXfQyCzosPl3RMuRseKvvAxu6JJS2p5
+         4E/Mu2VnAVxRaqybBdv6Bxs2rJ1clawxOdBri3n2JzNOlQxMfdPnMckK8o51dp7pngZR
+         VIfVyUx0ot29VNgMASBf5w2sOsRfUY6lRv1HmFB0D+E0xJn/97dgWzCgSQccQnAatk6s
+         kQxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+        h=to:from:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=U3IcGLKOjvaTyzTUS9C/MMMRO8g7hgaBW9dEJGasaM8=;
-        b=cBdIj4IBYgU/K1VbPRj8U35jVkTNwuCszW0+IPgfYjBA0JBnWcFH0Mdguu8iw/Jz4F
-         HGg0kzUDpYAAI2BVNWL2ATQ3rEdpH2apa2t7xcJclv3KxCFFiSqiXOIPlZF1EXwhvfCn
-         AQ7pQjYIunSilLFXUyO4bPmE/qlilA12vhbPHjh3IgTOgdDjl5b8oGBZ8C4hW+Xrq8+s
-         LAfZWneq5N0EWtIg1ur7xYb2V1wGYSkHQbs+wNF5zz7BOCvh/2+xf4YvF36ouzl7PcbE
-         G0t9d+/pDnbWp0x+F6RTuWQ6AwgnGfa+zxsPKzHEIOg+KENEszYiRPYQanXSRLwPjzsS
-         CXsQ==
-X-Gm-Message-State: ACrzQf2OBJUGgu9wnzP/zzqIx0KSpCYtk+INhLW6kevLsAIPTOM3ttqQ
-	W7EccBLSr5e8/S08S5zfsEII6m5G3Q/+3HAC
-X-Google-Smtp-Source: AMsMyM5E1eMkY733vs4tGfT+q+aO2SJAeN8KpMRDCyyBzxVF0WWEbIQQmJkW/TPgfaHD67o/+A080w==
-X-Received: by 2002:a17:90b:2812:b0:205:cdc9:2ccf with SMTP id qb18-20020a17090b281200b00205cdc92ccfmr1484044pjb.97.1665690492699;
-        Thu, 13 Oct 2022 12:48:12 -0700 (PDT)
+        bh=9PKyqDLhwmXPlUdhrOFFEBt/uab4gB4wdiZD+rRvzv0=;
+        b=hECSQBq2CuA13n9uDJgUr1A2hg5VufxdYBAWtPTnLCXhBE71ldhaplxga6lZVCj8TF
+         i+zYa5IoQsJnD+b5x4abHRobmQh2llUbatzNyDshkcCnD3R08grJo3m9qB/cn+pnkbLX
+         DzYnyDmwYAuCSKPjg7W8TUcUtuyvEtQ2CL/g2wCybgXvsr9i1KouUZaMMhP/xBfbw2aY
+         dUdABq9ewKTc452QAWV/zJ6TfBq+jeZprvo0tT5d2b+offUptBn7eKj/fS4f8xqBz64u
+         w3MGmxmdl2AvQXs92caDXO1NIcQYZbcoz53fXXdsfjbiHUdGpUgQjO1/a873/hECBSjk
+         JVHg==
+X-Gm-Message-State: ACrzQf3qSZjDz6DJOaUZArpmhkfHTiMl+WohwkTCNDfL06eV1LNUDNP5
+	bzQcdTxOjcDhVlTenFerlgMznw==
+X-Google-Smtp-Source: AMsMyM7rs4+Xvr4VuFSGLeN5dBixcWvSAhd5HBRs9TW0Yo62t4fsHya9i5qhDfSFJds2UqH0yoWvQQ==
+X-Received: by 2002:a17:90b:38cd:b0:20d:8852:89f3 with SMTP id nn13-20020a17090b38cd00b0020d885289f3mr11945671pjb.41.1665690491520;
+        Thu, 13 Oct 2022 12:48:11 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jf15-20020a170903268f00b00181f8523f60sm213118plb.225.2022.10.13.12.48.12
+        by smtp.gmail.com with ESMTPSA id q10-20020a631f4a000000b0045fcfde8263sm93243pgm.53.2022.10.13.12.48.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 12:48:12 -0700 (PDT)
-In-Reply-To: <20220924070737.3048-1-jszhang@kernel.org>
-References: <20220924070737.3048-1-jszhang@kernel.org>
-Subject: Re: [PATCH v3] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
-Message-Id: <166569033638.14806.1663998722831611197.b4-ty@rivosinc.com>
+        Thu, 13 Oct 2022 12:48:11 -0700 (PDT)
+In-Reply-To: <20220913061817.22564-1-zong.li@sifive.com>
+References: <20220913061817.22564-1-zong.li@sifive.com>
+Subject: Re: [PATCH v5 0/7] Use composable cache instead of L2 cache
+Message-Id: <166569033634.14806.7775220553152326118.b4-ty@rivosinc.com>
 Date: Thu, 13 Oct 2022 12:45:36 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.11.0-dev-36ce3
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Guo Ren <guoren@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-  Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Jisheng Zhang <jszhang@kernel.org>
+To: bp@alien8.de, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+  linux-kernel@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org, Palmer Dabbelt <palmer@dabbelt.com>,
+  greentime.hu@sifive.com, Zong Li <zong.li@sifive.com>, devicetree@vger.kernel.org,
+  Conor Dooley <conor.dooley@microchip.com>, robh+dt@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  linux-edac@vger.kernel.org, ben.dooks@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_124815_594451_C0AE5C18 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221013_124814_551066_DE5EF5FC 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +92,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 24 Sep 2022 15:07:37 +0800, Jisheng Zhang wrote:
-> Testing tools/testing/selftests/timens/vfork_exec.c got below
-> kernel log:
+On Tue, 13 Sep 2022 06:18:10 +0000, Zong Li wrote:
+> Since composable cache may be L3 cache if private L2 cache exists, we
+> should use its original name "composable cache" to prevent confusion.
 > 
-> [    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
-> [    6.842255] Oops [#1]
-> [    6.842871] Modules linked in:
-> [    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
-> [    6.845861] Hardware name: riscv-virtio,qemu (DT)
-> [    6.848009] epc : vdso_join_timens+0xd2/0x110
-> [    6.850097]  ra : vdso_join_timens+0xd2/0x110
-> [    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
-> [    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
-> [    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
-> [    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
-> [    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
-> [    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
-> [    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
-> [    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
-> [    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
-> [    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
-> [    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
-> [    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
-> [    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
-> [    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
-> [    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
-> [    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
-> [    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
-> [    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
-> [    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
-> [    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
-> [    6.877484] ---[ end trace 0000000000000000 ]---
+> This patchset contains the modification which is related to ccache, such
+> as DT binding and EDAC driver.
+> 
+> The DT binding is based on top of Conor's patch, it has got ready for
+> merging, and it looks that it would be taken into the next few 6.0-rc
+> version. If there is any change, the next version of this series will be
+> posted as well.
+> https://lore.kernel.org/linux-riscv/20220825180417.1259360-2-mail@conchuod.ie/
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
-      https://git.kernel.org/palmer/c/a8616d2dc193
+[1/7] dt-bindings: sifive-ccache: change Sifive L2 cache to Composable cache
+      https://git.kernel.org/palmer/c/44dce4b084f8
+[2/7] soc: sifive: ccache: Rename SiFive L2 cache to Composable cache.
+      https://git.kernel.org/palmer/c/ca120a79cf5a
+[3/7] soc: sifive: ccache: determine the cache level from dts
+      https://git.kernel.org/palmer/c/95f196f3212b
+[4/7] soc: sifive: ccache: reduce printing on init
+      https://git.kernel.org/palmer/c/3fb787e5bad5
+[5/7] soc: sifive: ccache: use pr_fmt() to remove CCACHE: prefixes
+      https://git.kernel.org/palmer/c/696ab9bda22a
+[6/7] soc: sifive: ccache: define the macro for the register shifts
+      https://git.kernel.org/palmer/c/afc7a5834f0d
+[7/7] riscv: Add cache information in AUX vector
+      https://git.kernel.org/palmer/c/da29dbcda49d
 
 Best regards,
 -- 
