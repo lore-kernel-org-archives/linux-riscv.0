@@ -4,76 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFE5C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 01:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92627C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 01:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=qq42cn5NeTJ7Fj09kmA8o8Cqfuk8PZBVONbCw3gjikA=; b=j986FdPUJgXlYSSeZ+vYC3RgwV
-	2KS2trffuMIF17QdiasZrKFx5gaFQ6TaeRWM4nsuhNErhdBk7YUMjTx8WfO2If3ZKwNRt9nxUFMex
-	tRCRlyTI3mhmA3NzSuvbsdgdQ7503eO/u9OD9bGqthY9L9mtK5piGWJkPtSBA5kOlX0OGoVegyFhl
-	R9ZZmsWoP+KxRCClqp2FPBoWblVpjEVdQvxo6U4szcwXPEFS9rytbFVtX+LdMhMr4Nt/W6+eUeujA
-	oq1aiWrGDIXKpgPjBivK99i87L15ql8aHH9cUuI9yzWcVvlGMYxOlDN2EMRnepL/oX37UiamZrJam
-	96Ib/0dw==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9OXGrgw8yjdkmqqkga9YmdKY+l7kSXFshnR1Mc4Rr6w=; b=qzfWweCxqPCVJq
+	FJdnP7lRAMXG4YfKR2K1t0AL/KaahwxWTPXxlL5ewUFxPY/LY6lx4cohIzuQyjS+uXG44V4BsPFyB
+	AHeB4f4e3KVcO3H35mHffeIKyCPRjYZESBskB11Cp6eJ/6QaXIbKWFy6AnSQqm3Plz//fY6BroyXa
+	YZcEzg/si6XPBU3/h2+TY13XsyuqmLpxMsDJmzOx3D4vVf8tZTyGjFYg74CaR4ITkPmUPm48DPk/V
+	ahB/tO3MWRak7K4eURwklzP/Bk5cB1FJJPc9DiPJIc6V/XhHsOaKjlQ0cGK2x+FTLE36jVu2vmEh4
+	c3ZRkT9XEJdLiV7gmFyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oimnM-00A6xN-O1; Thu, 13 Oct 2022 01:13:56 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1oimwU-00A7v3-Ik; Thu, 13 Oct 2022 01:23:22 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oimnJ-00A6wU-2l
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 01:13:55 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id x31-20020a17090a38a200b0020d2afec803so611566pjb.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Oct 2022 18:13:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7RKd777MIYoIIVQ6XhfShwD3+v+U8DMLyhNzrtcTaEg=;
-        b=Z0zSNWAUoNLiqMue3mKOufe5ScyxUMjDjumVNdmVuM/Na0ixjQkJkiqNfZonBYVxyU
-         DK2YMQs+dcgm7db2Mo/AbT7fgazGzQKzw5Go0KFHUAO4sR/xufjCewyWb46bgC/GLyli
-         /BD1NbDd9xFgTtYl/f9d6prl9h78u5XQE002/YGowA8nTCY6sQT5soJ1yxjPZt//GE/U
-         iMv5l3zKsaMcr+Wb0G9kNDeb9Z7FAokkzbHMlokg6pNjDJP2l3eszaYFv3k3FXmEUvcR
-         Wh6gXSx4yyiVKFTI1XjwkU0AZqgGfeMZqL/n9dtA6ed5pYM+yUaAri5wD/qG2fUS31tX
-         SLAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7RKd777MIYoIIVQ6XhfShwD3+v+U8DMLyhNzrtcTaEg=;
-        b=lWnB5aTJIesjFDDwLb6O5CryVwnyBmZQy0bsU7JYvbkAh71V78TBwVLdmLapv0WdPu
-         aELcjAfiiCTa43eftR/kEe8wB1NKedyv1H/ubqb2vCrsCnrsRpRwL6yXa3qRf9C0k4BN
-         ZEFfn+I3feUZfYXdL9eIECJhJRab8qtHomg1K+KhUnX2ZmXTODAv0L1oWH0JcGCYh/UJ
-         PJsItcLOq0NyzNUPucIAva/qrzzdcBbEWIS3u40B/Vd2z4qb7PKM+H3ZO//SDvV1A/ZM
-         Gr37qPa6dS8/8ByiqbG8b4WaRxnRzeK1VCinJ0zZBg2rQWabIunh4oNfLaaXvasegRjY
-         foIw==
-X-Gm-Message-State: ACrzQf1UW5ibYmWtLzV5ee7SW6MLgL/ZieORL4lrOxamqnDFrxbe0l6h
-	yZf/cMtJySR5dcNgEtpLel3d0EG6526HYQ==
-X-Google-Smtp-Source: AMsMyM6ciDKco6zjkdt0IPDad9ZVxhrdbjuNdAApplmG0UVmdCNi7m2Lgz4kFmzMCV5uqHh8lyGapA==
-X-Received: by 2002:a17:90b:1b4f:b0:20d:6ddd:9ef6 with SMTP id nv15-20020a17090b1b4f00b0020d6ddd9ef6mr8068873pjb.200.1665623631020;
-        Wed, 12 Oct 2022 18:13:51 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d10-20020a170902654a00b0018157b415dbsm8601358pln.63.2022.10.12.18.13.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Oct 2022 18:13:50 -0700 (PDT)
-Date: Wed, 12 Oct 2022 18:13:50 -0700 (PDT)
-X-Google-Original-Date: Wed, 12 Oct 2022 16:45:01 PDT (-0700)
-Subject: Re: [PATCH] riscv: enable software resend of irqs
-In-Reply-To: <87czaz7wl9.fsf@smulpajen.i-did-not-set--mail-host-address--so-tickle-me>
-CC: conor.dooley@microchip.com, aou@eecs.berkeley.edu,
-  Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, conor.dooley@microchip.com,
-  samuel@sholland.org, dfustini@baylibre.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: bjorn@kernel.org, Marc Zyngier <maz@kernel.org>, tglx@linutronix.de
-Message-ID: <mhng-92f4a77e-550d-47b9-8b09-4bceee203b60@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1oimwO-00A7t7-La; Thu, 13 Oct 2022 01:23:19 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R631e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045192;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=98;SR=0;TI=SMTPD_---0VS19mRS_1665624179;
+Received: from 30.97.48.54(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0VS19mRS_1665624179)
+          by smtp.aliyun-inc.com;
+          Thu, 13 Oct 2022 09:23:04 +0800
+Message-ID: <b7c8afe1-af89-9b5a-2c2c-82a2810ca9f1@linux.alibaba.com>
+Date: Thu, 13 Oct 2022 09:23:27 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.0
+Subject: Re: [PATCH v2 23/36] pinctrl: sprd: Add missed header(s)
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Kent Gibson <warthog618@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Billy Tsai <billy_tsai@aspeedtech.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>,
+ Mika Westerberg <mika.westerberg@linux.intel.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chen-Yu Tsai <wenst@chromium.org>,
+ Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Horatiu Vultur <horatiu.vultur@microchip.com>,
+ =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Phil Edworthy <phil.edworthy@renesas.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Fabien Dessenne <fabien.dessenne@foss.st.com>,
+ Prathamesh Shete <pshete@nvidia.com>,
+ Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org,
+ alsa-devel@alsa-project.org, patches@opensource.cirrus.com,
+ linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ =?UTF-8?Q?Andreas_F=c3=a4rber?= <afaerber@suse.de>,
+ Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>,
+ Joel Stanley <joel@jms.id.au>, Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, NXP Linux Team <linux-imx@nxp.com>,
+ Andy Shevchenko <andy@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Chen-Yu Tsai <wens@csie.org>, Paul Cercueil <paul@crapouillou.net>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Tony Lindgren <tony@atomide.com>,
+ Haojian Zhuang <haojian.zhuang@linaro.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@somainline.org>,
+ Tomasz Figa <tomasz.figa@gmail.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Viresh Kumar <vireshk@kernel.org>,
+ Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org,
+ Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-24-andriy.shevchenko@linux.intel.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <20221010201453.77401-24-andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_181353_364150_B8A3EF6C 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20221012_182316_922098_6FEE2808 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +122,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMCBPY3QgMjAyMiAwNDoyMTozOCBQRFQgKC0wNzAwKSwgYmpvcm5Aa2VybmVsLm9y
-ZyB3cm90ZToKPiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPiB3cml0
-ZXM6Cj4KPj4gVGhlIFBMSUMgc3BlY2lmaWNhdGlvbiBkb2VzIG5vdCBkZXNjcmliZSB0aGUgaW50
-ZXJydXB0IHBlbmRpbmdzIGJpdHMgYXMKPj4gcmVhZC13cml0ZSwgb25seSB0aGF0IHRoZXkgImNh
-biBiZSByZWFkIi4gVG8gYWxsb3cgZm9yIHJldHJpZ2dlcmluZyBvZgo+PiBpbnRlcnJ1cHRzIChh
-bmQgdGhlIHVzZSBvZiB0aGUgaXJxIGRlYnVnZnMgaW50ZXJmYWNlKSBlbmFibGUKPj4gSEFSRElS
-UVNfU1dfUkVTRU5EIGZvciBSSVNDLVYuCj4+Cj4+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9y
-aXNjdi9yaXNjdi1wbGljLXNwZWMvYmxvYi9tYXN0ZXIvcmlzY3YtcGxpYy5hZG9jI2ludGVycnVw
-dC1wZW5kaW5nLWJpdHMKPj4gU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
-ZXlAbWljcm9jaGlwLmNvbT4KPgo+IFdha2luZyB1cCBhbiBvbGQgdGhyZWFkLiBGV0lXLAo+Cj4g
-UmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+CgpUaGFua3MuICBU
-aGlzIGxvb2sgcmVhc29uYWJsZSB0byBtZSwgbm90IHN1cmUgaWYgdGhlIGlycWNoaXAgZm9sa3Mg
-aGF2ZSAKYW4gb3BpbmlvbiB0aG91Z2g/CgpJbiB0aGVvcnkgdGhlIFBMSUMgaXNuJ3QgdGhlIG9u
-bHkgaW50ZXJydXB0IGNvbnRyb2xsZXIgKGFuZCB0aGF0IHNwZWMgCnByZWRhdGVzIG1vc3Qgb2Yg
-dGhlIGltcGxlbWVudGF0aW9ucyksIGJ1dCB0aGUgU2lGaXZlIFBMSUMgZGVyaXZlZCAKaW50ZXJy
-dXB0IGNvbnRyb2xsZXJzIGhhdmUgYmVjb21lIGEgZGVmYWN0byBzdGFuZGFyZCBhbmQgSUlSQyB0
-aGV5J3JlIAp0aGUgb25seSB0aGluZyBzaGlwcGluZyByaWdodCBub3cgc28gSSB0aGluayBpdCdz
-IE9LIHRvIGp1c3Qgc3RpY2sgdGhpcyAKaW4gYXJjaCBjb2RlLiAgV2UgY291bGQgbWFyayBpdCBh
-cyAiaWYgU0lGSVZFX1BMSUMiIG9yIHNvbWV0aGluZywgYnV0IEkgCmRvbid0IGtub3cgaWYgdGhh
-dCdzIHdvcnRoIGRvaW5nLgoKRWl0aGVyIHdheSwgdGhpcyBpc24ndCByZWFsbHkgbXkgdGhpbmcu
-ICBIYXBweSB0byB0YWtlIGl0IHZpYSB0aGUgUklTQy1WIAp0cmVlLCBidXQgCgpBY2tlZC1ieTog
-UGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClRlc3RlZC1ieTogUGFsbWVyIERh
-YmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ICMgb24gUUVNVQoKaWYgeW91IHdhbnQgaXQgdmlh
-IHRoZSBpcnFjaGlwIHRyZWUuICBJIHB1dCBpdCBvdmVyIGF0IApwYWxtZXIvcmlzY3YtaXJxX3N3
-X3Jlc2VuZCBpbiBjYXNlIHlvdSB3YW50IHRvIGRvIGEgc2hhcmVkIHRyZWUgb3IgCnNvbWV0aGlu
-ZywgYnV0IHRoYXQgc2VlbXMgcHJldHR5IG92ZXJraWxsIHRvIG1lIGhlcmUuICBJdCdzIHBhc3Np
-bmcgCmFsbCBteSB0ZXN0cywgYnV0IHRoYXQncyBqdXN0IFFFTVUuCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 10/11/2022 4:14 AM, Andy Shevchenko wrote:
+> Do not imply that some of the generic headers may be always included.
+> Instead, include explicitly what we are direct user of.
+> 
+> While at it, sort headers alphabetically.
+> 
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+LGTM. Thanks.
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+
+> ---
+>   drivers/pinctrl/sprd/pinctrl-sprd.c | 6 ++++--
+>   1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/sprd/pinctrl-sprd.c b/drivers/pinctrl/sprd/pinctrl-sprd.c
+> index dca7a505d413..c1806b7dcf78 100644
+> --- a/drivers/pinctrl/sprd/pinctrl-sprd.c
+> +++ b/drivers/pinctrl/sprd/pinctrl-sprd.c
+> @@ -13,12 +13,14 @@
+>   #include <linux/of.h>
+>   #include <linux/of_device.h>
+>   #include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +
+> +#include <linux/pinctrl/consumer.h>
+>   #include <linux/pinctrl/machine.h>
+> -#include <linux/pinctrl/pinconf.h>
+>   #include <linux/pinctrl/pinconf-generic.h>
+> +#include <linux/pinctrl/pinconf.h>
+>   #include <linux/pinctrl/pinctrl.h>
+>   #include <linux/pinctrl/pinmux.h>
+> -#include <linux/slab.h>
+>   
+>   #include "../core.h"
+>   #include "../pinmux.h"
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
