@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CE8C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 21:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB14C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 21:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
 	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jQieqxZHA2lLkLa/cadf5iotxTk2w1V2kc3S7b2Xzgo=; b=l+R2DBnkJk9oYr
-	cfAHTzE0AlF9uP+c90xp2i7cy3WGoR7O4SrLqz6FGWHWf/o28swcSUS6HKEkHn9pHxDDlU65dUjDh
-	KTIuIqB8RJAV0oy4kpiiOCY+vAZUBomI3Y7bTeK8PPFbzY+qdfNrST82rVMBtq6x9iSrxt62kZnBc
-	QVHVlC387mUQJSfy87ODzd2gRKB3MqWo3pO9w+7GsngwmaMy3tfhr+Yd12LIBzXH+RXFxE7OaQAk0
-	WzpwEx5Dx6kG0qhJloYjNo7ow2ridgBHZ0VvCmYmTzfUZKuPKyW/CjlQbwr+wR1JgakIM6xdCSyHl
-	m9/9cNX0ROxZeErHSlTw==;
+	List-Owner; bh=H3YDammYBdCDISmeKKCHyeMmMOUT0r69R/AsMks8PDw=; b=yhKq87rUW4QIcB
+	NDY+kR2cHdbY2niD2r8+oHG+H2k/QjjjTPfPhhtHUHc6KdP9EwjieN4K+I3yhIbouhigMDSWs8r2Z
+	l49xdcsI1JGWM/sKF+Za83rriDjIMQbrrcQi4Zg+WrV5mxRM/Ad75ZIKN4pcH88hDwlkxBwtHQUUs
+	YPSRy5cdun4sQbJoSsOS0d5+MNgA5FJW+TDzJfnqAONAkeml+XW5qUJIY3CYdZubQvznxNYXNblT5
+	owAUoSS0FgAI6TbAZ8lSYELKaLHCHRVjHTjme5IEi3ZiPKOGOnARSZ9gmGyuqbmHKXRPxEaisNiPL
+	L2ueQ1UpLJB4xEowO6ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj64j-00D0We-F3; Thu, 13 Oct 2022 21:49:09 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1oj64t-00D0Z9-Oa; Thu, 13 Oct 2022 21:49:19 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj64g-00D0Up-CV
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 21:49:08 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id r18so2654634pgr.12
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 14:49:03 -0700 (PDT)
+	id 1oj64n-00D0X8-Mr
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 21:49:15 +0000
+Received: by mail-pl1-x635.google.com with SMTP id b2so3012805plc.7
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 14:49:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
          :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=X6g2DUxT2GNjgJSb1+fAz78uiyB8qoWs9ZV/F7wTuSc=;
-        b=Yc/kJQVfhodH7JJ0z1+p5s722JAC0Kovui9UvRAdZv1AuAQddcjsKvP0c5xJ4eXiTj
-         OkV6o+tMZKBkbMP3J8A2rnEzZBqu2Fti1CgZTfkIkwnoar5AH/2cjiH4hZG+Zu/36g+V
-         nZxAvvE1T1Nm5GmUF3RyGy65BQC16tRTAcjfdvJphIQi546P6Bf+WbD0fqC9SiXxputB
-         Z46Iazmu9SQt/CUOBDkff4QrIa/tMeBWmxRjhuMnZhNI4blhSYZW5fXRDsanWC7oq/ca
-         f5XxJMVCr+DaGN5IOci1Q5D/kM9yEFJUmVudYTrgpC16NN09vdKfKF2Lv0npeEFS6JUa
-         L8Og==
+        bh=5x+e0kGznGYIc1lBTxzEAmXIbJeWo1iHQIPY8fnLHag=;
+        b=0mBWLYAlyeQZAzYd9aLsjmDwL6zq0liKCzyVZwNRMKGuBMrLp/Ck9erOLWmXKdbhYD
+         ols/nGEA7H58zzk9c5eV8TzNlsz8P4n1E5/Rbz/uSgeTlOmNkaFd3k7xh7bLaPaloSLS
+         o57Msr1XadL9E8Fd/kzSCKiHWG1SB/57HlfCZ8I+I5j/5Mh6aeCfiiZ3g7Nlrb5qDjyM
+         w0+IJ3F2HQt9Mx1tjrn0JBRjg6R63oSnpI3Fc/+CIzsvHuFF1oJm8EgyTQFeL24D8CPh
+         iFM4VguN15D6bW+2Pl0xsQpIMd+Sp9sRh1lvMPIGmMlvP3Lm1R1EscAYsgcIh3Qey18c
+         snwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
          :subject:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=X6g2DUxT2GNjgJSb1+fAz78uiyB8qoWs9ZV/F7wTuSc=;
-        b=620v7majIARMPpoR4pbvik5bRohSpeSK6hoySwO/3DXhdcAGjzj2z7pp9GmPZoPPXR
-         JcijBBMz+37txEm8/6xaMIPsiK3RNCkDfs1Xp+szkcf37O7qCjqIRJGT0bbYb9sjQprg
-         o3WDy06L7SbR7IL+x6dRwdXeo7XOeUvLgujRClT0UsLyu/su/f+pLNsXPjoAtMQkWuzm
-         O2n6YyDMwWxVuKlhmIvlxmQkokUhbNcnZabYatmULW5J84TB8HbmM5wPX8TLcO7GIlzw
-         Ca4BWGE4X/Igaiag3hg2Ur1qt+C/w1BNybZSzdqTDQMAwNKdq9CzGSqN8rO7nKGu6CBN
-         Iyrw==
-X-Gm-Message-State: ACrzQf2HGWyuZ0o4833MlFp/HpDx79XWoi6/LntRRDbEWWwvaGDdGkuj
-	bZeW3UPzlILCldXGP+BpAv6Du4QS8NYt310e
-X-Google-Smtp-Source: AMsMyM6IPVcYa2h1i5pmoYBypDG67/4nbnOAJozkEB4zzfmqhCeqDmDyRhB2rQDtJdks9Mg9RfgsaQ==
-X-Received: by 2002:a05:6a00:88f:b0:558:8186:3ec3 with SMTP id q15-20020a056a00088f00b0055881863ec3mr1603895pfj.83.1665697742905;
-        Thu, 13 Oct 2022 14:49:02 -0700 (PDT)
+        bh=5x+e0kGznGYIc1lBTxzEAmXIbJeWo1iHQIPY8fnLHag=;
+        b=L/SI1JeO3OeNbxj3HLuvkLV4xNHIfOFb9vM8WHesF1gD1EntKWin8RptX8J4xwVrXC
+         1KReOlAYdMEFX1YZi6hnZrKEV0jHj2UnqhEK1YIOx/oqiUshzJFV1Z8zIQCqkkvHpaOW
+         k4kRku+yQeQneRKDxO0EGiNvkvkyAAv8M8pWdDar/6HskuY8jZBSI6cSdTq2X+XyVeYw
+         G02FVunP6/VRmvxlhVEZW0H3D5i2xVVise1VA9IJ3NxH5c9Hcphufhp43d6NmzJ10CnN
+         37nZr6iu6K4f0kxRku2B94TRsWO5EQ0BlCrffgRKSQ6j3ary9CCM8Oz1tD0SURWcGUy+
+         5IvQ==
+X-Gm-Message-State: ACrzQf3DOAijP2r07G+XVf36G1HZHG6whtONr/mJqAitvxmjS/IFVCgM
+	D8GJd5SHLdnnrn65gPsUfRVSjA==
+X-Google-Smtp-Source: AMsMyM4zLbXgFjIuDY268Sco/RrtUbMjJZOAo4Ghadn1zxYD4ESurYvRL+wj010yF8IvrczajpTF4g==
+X-Received: by 2002:a17:902:820b:b0:185:b9a:8ac1 with SMTP id x11-20020a170902820b00b001850b9a8ac1mr1948346pln.111.1665697751971;
+        Thu, 13 Oct 2022 14:49:11 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id g12-20020a17090a578c00b00202fbd9c21dsm204840pji.48.2022.10.13.14.49.02
+        by smtp.gmail.com with ESMTPSA id l4-20020a170902d04400b00176a6ba5969sm314528pll.98.2022.10.13.14.49.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Oct 2022 14:49:02 -0700 (PDT)
-Subject: [PATCH] MAINTAINERS: git://github -> https://github.com for sifive
-Date: Thu, 13 Oct 2022 14:46:37 -0700
-Message-Id: <20221013214637.30828-1-palmer@rivosinc.com>
+        Thu, 13 Oct 2022 14:49:11 -0700 (PDT)
+Subject: [PATCH] MAINTAINERS: git://github -> https://github.com for kvm-riscv
+Date: Thu, 13 Oct 2022 14:46:38 -0700
+Message-Id: <20221013214638.30974-1-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.38.0
 MIME-Version: 1.0
 Cc: linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
   Conor Dooley <conor.dooley@microchip.com>
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+To: anup@brainfault.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
   linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_144906_453095_BAB783DD 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20221013_144913_754375_CE1B6CF0 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,18 +103,18 @@ thus need more than just a sed to fix them.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 4a028f494fb0..daadd0de77a9 100644
+index 9a47bd58a330..d103b44fb40c 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -18548,7 +18548,7 @@ M:	Palmer Dabbelt <palmer@dabbelt.com>
- M:	Paul Walmsley <paul.walmsley@sifive.com>
+@@ -11156,7 +11156,7 @@ L:	kvm@vger.kernel.org
+ L:	kvm-riscv@lists.infradead.org
  L:	linux-riscv@lists.infradead.org
- S:	Supported
--T:	git git://github.com/sifive/riscv-linux.git
-+T:	git https://github.com/sifive/riscv-linux.git
- N:	sifive
- K:	[^@]sifive
- 
+ S:	Maintained
+-T:	git git://github.com/kvm-riscv/linux.git
++T:	git https://github.com/kvm-riscv/linux.git
+ F:	arch/riscv/include/asm/kvm*
+ F:	arch/riscv/include/uapi/asm/kvm*
+ F:	arch/riscv/kvm/
 -- 
 2.38.0
 
