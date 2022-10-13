@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58B5C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 00:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C70C43217
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 00:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o5yLYK3tiwWWrghNtrs0A4Bl0RkBRbMSyzssDc4gEkM=; b=V0V/rsv2EBkkv4
-	t6+Y3XqK0CXQh7XfDhj2jraE05wa4WUOyEiQft+m6PtscyHl+7V0JJBTNVR0EtZ0LuXQvc1DZpyyM
-	XW9fANYpRG4KIDx5H5l89PPozNk+sG1z4RTmCFeKlW2jo4buCY726vc74zUBbl/HA+iXNIDqcurnS
-	OTCuVZFCJPXGR+4BOgKB8xhnLXwhSVxdwOpss+D75yC7oy3vmNwSBoBQ9Pjkz4i//kCxtnE+w9Kfz
-	n5Jvrna5EwlehFx71VDDlhrYRMLnt96+LHnDtPoYsT9rNEA3O9PkRfWg73aESSw+Zsfoh5ZyM4VGS
-	Ve2iXEmFWjiHuD6pF4Ew==;
+	List-Owner; bh=o5yLYK3tiwWWrghNtrs0A4Bl0RkBRbMSyzssDc4gEkM=; b=XMgtnpbzreyPHE
+	qKUQSq+cMFrYPdv/wVYdTn9CpDgbVORXD4kklHbiDz87F8Qh+baVKk2ElMLTTAgje77MNgIPK31ry
+	dLfuJdEgBZ1me+E5Ue+/UtfrdUDrT+GehR4BZJ29QVmvuNdnt75HhW64+e6yYyKeV4OQNO9vPohIP
+	cpHn+hYZ3dijAL/i+ydMVOrOVQ+aYUYijebqSphfEL3QPN4caHvMUZl9TYv91QnO0v0ejZ3rRdxC1
+	yFFKESCngSlq8aaq5c1lTPTdmRX4xcD5xjCo2Tikgsk1mRgiWj6zYW8nKWainLTEQcwCnXvEP++Em
+	q9IQMug+nYEoa/vEoRig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiluC-009mLG-NJ; Thu, 13 Oct 2022 00:16:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oim1X-009q4f-Or; Thu, 13 Oct 2022 00:24:31 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oilu4-009mHG-5o
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 00:16:49 +0000
+	id 1oilwq-009nrO-ES
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 00:19:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BD325616BD;
-	Thu, 13 Oct 2022 00:16:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CFD0C433C1;
-	Thu, 13 Oct 2022 00:16:46 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id DC648B81CD1;
+	Thu, 13 Oct 2022 00:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937BAC43142;
+	Thu, 13 Oct 2022 00:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665620207;
+	s=k20201202; t=1665620377;
 	bh=Cs778EV16yW6rgUzQmQbbcwO76N19BWUWRroMVbo2DU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JXifm+q6OJQcS2d4qPiNIXGxwuuoMtFIR/FYb1xPLMTyBygwk3rNl875BEkZfi9xe
-	 kmMzeXT+k6BIHJJRXyxZS0hWTk+vWKYzO7gpsP/Tr7gOwXiuItZGMUwiRfsX6PrA4f
-	 aNH21mNEr9WZLHLhDA/obd/yWPjqDhtUSdHbbAkykAIKvUyJcJPJ50cCPrAKkAKElV
-	 xXenH4OgSwtjf70EncfuDqK9ubUnvSdb3Qr9NIkFb+TH5GpG2cqOdoobmDR291PxJW
-	 Sjgj1WLMkml/rJFLI/gzENSkn1wJzwAR3NlrHZJ/WjK/GIzTXryPFh2Memh2xW0w4z
-	 +1pMTGrrdUEiw==
+	b=WtjpkXsL7XI41w3eTcdoK1iY4PIq7pqbtIrDJJbZ64WprngdFyZdxOFRzMDuVhbOK
+	 EBiO0y5W2RE9IktF43sC8qm8wZ/L9f+NBRYPESq0f4nTnKHY2Z0gEMmf4DkTPpH/p9
+	 Lti6RRGOcRixmX3X8YFCMEuGUul0Ra5d5F2ZU/bX092HlHPaHEGKwzwHI36WkYSxRH
+	 0uVRYFqeQ4mJA75eRUZ6i5TIKrpnuQ+VmMiO/Etq0tVa5F2unvm9ZO40wxla9hkKEn
+	 x5g565K065yOOUp7uKH9jrqoSBLUPCC7qDGzwGjj5unNt4IrVuZEG2othz6B0/n270
+	 JuAMZuHliK0qw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,17 +53,17 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	sboyd@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.0 20/67] clk: microchip: mpfs: add MSS pll's set & round rate
-Date: Wed, 12 Oct 2022 20:15:01 -0400
-Message-Id: <20221013001554.1892206-20-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.19 20/63] clk: microchip: mpfs: add MSS pll's set & round rate
+Date: Wed, 12 Oct 2022 20:17:54 -0400
+Message-Id: <20221013001842.1893243-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221013001554.1892206-1-sashal@kernel.org>
-References: <20221013001554.1892206-1-sashal@kernel.org>
+In-Reply-To: <20221013001842.1893243-1-sashal@kernel.org>
+References: <20221013001842.1893243-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_171648_343459_D560D59D 
+X-CRM114-CacheID: sfid-20221012_171940_812168_8763633A 
 X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
