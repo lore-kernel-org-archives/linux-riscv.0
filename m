@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FE2C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 20:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6B6C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 21:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ygiXkFb7cHWd3Zrp8A9O9vy9Cqn0WL1AD958ftz05Aw=; b=dXQK4PNYIpSaNU
-	K0zApqMnfoDLJbuLj574TIFQMVPPCoEmNe7/4xUuVsQ3e4pGWYb0g0MxaOvx7XZu5WRGLLZZkDAkB
-	1HGxm2HMlP2mFu1mrzvS+G4WcSb/JQfNxtfittOh/lsgFafUh9OvgB4ZtCr0zpHHH9v/EaqdFMsWA
-	KrYpIh0E2iEY+EYvksNAEWUWRibMdhc8J2wGCsz2/yciIWGo5JVZ0nKhGew3FlXeh32EOCeZwfJZr
-	jUkWpENzpffrAcSyG4dJMd+W9vO3B8I90yTBv3lOrlpP22or+UGbSUoNl6G9sP0KQWlZwIgwcMxiG
-	Y22JO3giyutqOYXg+2cQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=vVhNSaMAASTmmAmEczj5FfDkM1Suov2Hg8bpCrs7vEg=; b=0+37ike/qbgJm4Fzkorn1nwPR4
+	D9jMduExnoVrs03hGP1MdeRnO/Dwny3dAwagDzHeBtd1CaDF4/sZKcBIZQLLWJmCgRvhIPYwObF4s
+	2BQyDFRFrLnMJ63WXL8/ni99C3gyWzmFDueh2p5+qPvQd78V4I4S4W/mDqfh9/xuLTGS+lMaoJ9c1
+	+CBrZkOtKAhnEAtqq5KjR3TGzEg05hC8YTyxODFEXaz2L4jG9D9cj4DcthFZbQRsmsUQS6JhBhX/r
+	YbEC7YDp0Xm+rkkGx3EFeDj0qaVbJ+JzUG7TVtPktJzW+2RzYAYEEp/0e8EFPNcfF8Ui0pHjDaEnu
+	VcvQX6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4wB-00Cvup-HY; Thu, 13 Oct 2022 20:36:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oj5Kc-00CxYc-6h; Thu, 13 Oct 2022 21:01:30 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4w8-00CvuW-1q
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 20:36:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E40C061952;
-	Thu, 13 Oct 2022 20:36:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6178C433D6;
-	Thu, 13 Oct 2022 20:36:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665693369;
-	bh=Lv/xeU7pcPzUnADyJpxL1Q+e8T9Z+tXL2sat6MNFhmk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T++5dAXRzVNF1OW2pF85FIJJlqMidkZWYucIauD8/vv+tA2SJG+p5+Gnn5MTOXrS+
-	 15WVByQODgUU/PuesapfgVZsAnQDwtqPgJLnMk8ka90B5PKGA03bISCEFfFRiSdP59
-	 0sDsV0wvJhDpC6KZzko1Aw2IIxl4WsgvyyURf9I3OxQFhhpGwIEvWcyfqKiqiNpoIT
-	 sLp90DMMpXwADBfxUUxPuFiyrUYDS0oB+GT77PtaFL0hCUArd5FWJMWVlVyVb77XT7
-	 yQGoCcw1jNLvFXv4p7f0q0JtOYVks0k7CQCP1XWsu3iTJxggd3C+r8izdaHichPTab
-	 XxfTgBdRF+RFA==
-Date: Thu, 13 Oct 2022 13:36:06 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Dao Lu <daolu@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
-	Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH 1/2] riscv: fix detection of toolchain Zicbom support
-Message-ID: <Y0h2ttpShmMbJFp5@dev-arch.thelio-3990X>
-References: <20221006173520.1785507-1-conor@kernel.org>
- <20221006173520.1785507-2-conor@kernel.org>
- <Y0hzl75d11uWC+f3@dev-arch.thelio-3990X>
- <Y0h2GVhYwj8UEJV2@spud>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y0h2GVhYwj8UEJV2@spud>
+	id 1oj5KZ-00CxY9-84
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 21:01:29 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id cl1so2997393pjb.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 14:01:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jdu8CDhPFUGuuqJLB1hm8uRgcdUvFaGH3LFEE7wY72E=;
+        b=t3NB2tnT0mOyQNL9SqfMc3Y7GNvuenW4Yj9HqN57Y/yVtpYG8bqNmlprt00zkcnvli
+         Obq7zW1RMHD9vOWjVQ3IKBcRS/3+J2JS40IujCdx+lxEzQrysdaZ+PekVHybVUDZ61rv
+         HaBQNyAMXTPC78lu4kmOOyS5eypmwPQGVzg4djhqYBXV+5JNfXI9wQsQLMS0ywa9zMMx
+         GAqg8GtUZGLgvq5Chtb3MjkGhS2Hxuk6nvFLsFTbq9ZeB8G/5nQa3/q/ogVb5PTHJP+o
+         585fZTcCdT0YWiI1q5FI2p+cZs7xjz6ZI0ziP/Q7AVKlhYyDTOPvXzrtvCVoCicSxFEc
+         axkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Jdu8CDhPFUGuuqJLB1hm8uRgcdUvFaGH3LFEE7wY72E=;
+        b=dJCeb3ZgL82fL2W2g4UTsxjbw2NhSVFDT9QCVQdp6XX9HYePXoISFfHcNLWl790nn3
+         KDfsgMawJaLC/e0+UbZSb7VsVJTaHiXaBiHn+AyrwLr17IUbMGoaMs9i9kS5ZI6mXlnQ
+         0v/AILZjZTkOrc1pvhR3TojS9QaTHWOHjtcel/WfrpZNI4wshmVTaj34vFdP7PadNvM6
+         FKtUu2xC1FF5u1g42oy/9dr3YraEipk8XBsBHETIcXocPZsS4Q/1hxCeyztkGuhulIP1
+         Xg10YhKg7bikj4JT0TfDsL5UPJ+Fwipg7Fydzeto3mLAc2QvZln19ozvLBFEpf0aweIJ
+         SYIw==
+X-Gm-Message-State: ACrzQf2xf+amrZiT/5eol2syy8ySaf0+7nSJs8fRbc075lTDHxUu/D6y
+	YnqH7cNzeDfv3PT38WKh6abqbg==
+X-Google-Smtp-Source: AMsMyM6ItHsqYSboXb3Wt1sovvrB2QN7DJyWgsIfBNru+f2ZODqJjgkDFgWAMD/t9jyKG7ENUEuGpA==
+X-Received: by 2002:a17:902:e549:b0:184:5c4a:fad0 with SMTP id n9-20020a170902e54900b001845c4afad0mr1659214plf.6.1665694884466;
+        Thu, 13 Oct 2022 14:01:24 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id 12-20020a170902c20c00b001750361f430sm274955pll.155.2022.10.13.14.01.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Oct 2022 14:01:23 -0700 (PDT)
+Date: Thu, 13 Oct 2022 14:01:23 -0700 (PDT)
+X-Google-Original-Date: Thu, 13 Oct 2022 12:51:26 PDT (-0700)
+Subject: Re: [PATCH v4 0/2] Make mmap() with PROT_WRITE imply PROT_READ
+In-Reply-To: <20220915193702.2201018-1-abrestic@rivosinc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, coelacanthus@outlook.com,
+  dramforever@live.com, c141028@gmail.com, Conor Dooley <conor.dooley@microchip.com>,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, abrestic@rivosinc.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: abrestic@rivosinc.com
+Message-ID: <mhng-389708b4-d3b4-46a5-a56c-6ea59c8e322d@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_133612_197027_0B4ABB67 
-X-CRM114-Status: GOOD (  35.58  )
+X-CRM114-CacheID: sfid-20221013_140127_528415_41B27535 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,113 +85,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 13, 2022 at 09:33:29PM +0100, Conor Dooley wrote:
-> On Thu, Oct 13, 2022 at 01:22:47PM -0700, Nathan Chancellor wrote:
-> > On Thu, Oct 06, 2022 at 06:35:20PM +0100, Conor Dooley wrote:
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > 
-> > > It is not sufficient to check if a toolchain supports a particular
-> > > extension without checking if the linker supports that extension too.
-> > > For example, Clang 15 supports Zicbom but GNU bintutils 2.35.2 does
-> > > not, leading build errors like so:
-> > > 
-> > > riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicbom1p0_zihintpause2p0: Invalid or unknown z ISA extension: 'zicbom'
-> > > 
-> > > Convert CC_HAS_ZICBOM to TOOLCHAIN_HAS_ZICBOM & check if the linker
-> > > also supports Zicbom.
-> > > 
-> > > Reported-by: Kevin Hilman <khilman@baylibre.com>
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/1714
-> > > Link: https://storage.kernelci.org/next/master/next-20220920/riscv/defconfig+CONFIG_EFI=n/clang-16/logs/kernel.log
-> > > Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zicbom extension")
-> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > 
-> > The versions look correct to me. I see the LLVM zicbom commit [1] in
-> > llvmorg-15.0.0 and I see the binutils zicbom commit [2] in
-> > binutils-2_39.
-> > 
-> > FWIW, if we are adding explicit tool versions to the Kconfig, could you
-> > not also drop the cc-option checks? Typically, cc-option is only used
-> > when dynamically checking for a feature, in lieu of statically checking
-> > a version. No strong opinion though.
-> 
-> Ehh, the explicit version checks are for linker support, but it could be
-> that your linker supports it but other things do not. The compilers
-> support can still be checked with cc-option, no?
-> 
-> This error here happens when the compiler does support it, so the string
-> containing zicbom is emitted in the object files. That can't be checked
-> dynamically. For the opposite situation, dynamic checking is possible so
-> I tried retained them. If it's convention to do one or the other, I can
-> easily switch.
-> 
-> I'm out of my comfort zone when it comes to kbuild plumbing so please,
-> please lmk if I'm missing something...
+On Thu, 15 Sep 2022 12:37:00 PDT (-0700), abrestic@rivosinc.com wrote:
+> Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
+> invalid") made mmap() reject mappings with only PROT_WRITE set in an
+> attempt to fix an observed inconsistency in behavior when attempting
+> to read from a PROT_WRITE-only mapping. The root cause of this behavior
+> was actually that while RISC-V's protection_map maps VM_WRITE to
+> readable PTE permissions (since write-only PTEs are considered reserved
+> by the privileged spec), the page fault handler considered loads from
+> VM_WRITE-only VMAs illegal accesses. Fix the underlying cause by
+> handling faults in VM_WRITE-only VMAs (patch 1) and then re-enable
+> use of mmap(PROT_WRITE) (patch 2), making RISC-V's behavior consistent
+> with all other architectures that don't support write-only PTEs.
+>
+> Both patches are tagged as fixes for the aforementioned commit since that
+> commit made a userspace visible change that will break any software relying
+> on mmap(PROT_WRITE). (Also cc: stable since the offending commit was
+> itself backported to stable).
+>
+> v1 -> v2: Allow handling of load faults in VM_WRITE VMAs
+> v2 -> v3: Split into two pathces
+> v3 -> v4: Fixes tags (+ this cover letter)
+>
+> Andrew Bresticker (2):
+>   riscv: Make VM_WRITE imply VM_READ
+>   riscv: Allow PROT_WRITE-only mmap()
+>
+>  arch/riscv/kernel/sys_riscv.c | 3 ---
+>  arch/riscv/mm/fault.c         | 3 ++-
+>  2 files changed, 2 insertions(+), 4 deletions(-)
 
-No, you are absolutely correct. That's what I get for reviewing changes
-right after being off for a week ;) the cc-option checks should remain
-in addition to the new linker checks, so please disregard that feedback
-on both changes.
-
-> > 
-> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> > 
-> > [1]: https://github.com/llvm/llvm-project/commit/4f40ca53cefb725aca6564585d0ec4836a79e21a
-> > [2]: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=41d6ac5da655a2e78109848f2db47e53552fd61a
-> > 
-> > > ---
-> > >  arch/riscv/Kconfig  | 10 ++++++----
-> > >  arch/riscv/Makefile |  3 +--
-> > >  2 files changed, 7 insertions(+), 6 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > index d557cc50295d..6da36553158b 100644
-> > > --- a/arch/riscv/Kconfig
-> > > +++ b/arch/riscv/Kconfig
-> > > @@ -401,14 +401,16 @@ config RISCV_ISA_SVPBMT
-> > >  
-> > >  	   If you don't know what to do here, say Y.
-> > >  
-> > > -config CC_HAS_ZICBOM
-> > > +config TOOLCHAIN_HAS_ZICBOM
-> > >  	bool
-> > > -	default y if 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
-> > > -	default y if 32BIT && $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
-> > > +	default y
-> > > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
-> > > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
-> > > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > >  
-> > >  config RISCV_ISA_ZICBOM
-> > >  	bool "Zicbom extension support for non-coherent DMA operation"
-> > > -	depends on CC_HAS_ZICBOM
-> > > +	depends on TOOLCHAIN_HAS_ZICBOM
-> > >  	depends on !XIP_KERNEL && MMU
-> > >  	select RISCV_DMA_NONCOHERENT
-> > >  	select RISCV_ALTERNATIVE
-> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > index 3fa8ef336822..3607d38edb4f 100644
-> > > --- a/arch/riscv/Makefile
-> > > +++ b/arch/riscv/Makefile
-> > > @@ -57,8 +57,7 @@ toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zi
-> > >  riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
-> > >  
-> > >  # Check if the toolchain supports Zicbom extension
-> > > -toolchain-supports-zicbom := $(call cc-option-yn, -march=$(riscv-march-y)_zicbom)
-> > > -riscv-march-$(toolchain-supports-zicbom) := $(riscv-march-y)_zicbom
-> > > +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
-> > >  
-> > >  # Check if the toolchain supports Zihintpause extension
-> > >  toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
-> > > -- 
-> > > 2.37.3
-> > > 
-> > > 
+Thanks, these are on for-next.
 
 _______________________________________________
 linux-riscv mailing list
