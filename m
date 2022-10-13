@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC686C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 20:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA71C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 20:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ohvCljW4uik7/EUe7OxjqI9RhZKzSQzAjTO4e4+6Qs8=; b=BMI733Mzm/0xiU
-	J3iiv/Dr4mfXtyCdcdtZrCegmRAnhxqkYtPuQqzSFqJoC2bB/bTeXwi3BoOIO+w3FcIGMytTp8wUN
-	xUCR4JnCZ9bCn51MoSjgzv6icGE327CVb8dAU6epPTc785/ZhsrYcANC7do5YoCvd+1/SW5l1UJPX
-	Cw4qt5p8nTXSHRtVGYQQmqCLWTOd1WxtjCF2LtXvitR9jWOOHUL3yTz17gG6ejm4vhdXmWD8HkkMV
-	zr5p7ImyBBrmYQlDm2gH5RUfQjWVNd0gjxoOnnyvss+cdNpp9FuMlK/6Ewrc/vqqJPToibYf4cFNJ
-	Smj3qAx7SyZxH9E7zPSw==;
+	List-Owner; bh=O8cGzFIgqW5EFDqYY3DVY8W8nGWJWMXYHhzNbYe7I9M=; b=4GY5hmdPFGJV0T
+	OT+p4SdWatRxsF7fHc1U9rHIPAqZEGjhXxncOd+tvvc3Hm0O0PX2i5csTw/sEQyfqrnr2wrf1EkHr
+	IYAZlJ5RRyC9nVfo2W49IS30krH6RcckHUADHLTn/2+AZFONQeOxGViFXou1fj9ygJ1XTXinv9eqU
+	EyxIJqvauERKkffdhCDLXfajsScXQnp9E5//yHfbM7wokJPl/4QqmCzIGkhVu6Tz1hdFalMrK77qV
+	Ldpzr9xWNoVzv5BrxHxcaycSMixk21qtNRUJRGQ55iiYyT3otlJKXrkeKTZ9yPOFsGMoTMRV1t5I2
+	BVLn76+fZ3Lc3FF/5YCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4jG-00Cuce-1O; Thu, 13 Oct 2022 20:22:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oj4qX-00CvMT-1u; Thu, 13 Oct 2022 20:30:25 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4jD-00CucJ-7U
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 20:22:52 +0000
+	id 1oj4qT-00CvLL-EY
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 20:30:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 74D2B61940;
-	Thu, 13 Oct 2022 20:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22051C433D6;
-	Thu, 13 Oct 2022 20:22:49 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E0F58B8206A;
+	Thu, 13 Oct 2022 20:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13913C433B5;
+	Thu, 13 Oct 2022 20:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665692569;
-	bh=xNxmxjigV/Sc/aVH0TtEXg1U6cyj9psSQw4r6YBOjn4=;
+	s=k20201202; t=1665693018;
+	bh=lRRbu7uh7zAcSH3K4UNajCKQmWE1dCae6+ehx4kVmx0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uUI5984v2CsO+ux/dH0P9R5SX8GbBvdXvVbWtTvB2qK+arCAGYVE3cnQaLugMTNhh
-	 w29llMwAcl5KsK8+r32+0KRpELaBUVuoBMeO/7GxBRB5DS2+Lqhy0fvNyZi71+pOTk
-	 D7wV+WclWjHxcO5s+kijfrMKK1swcKMIGd6cBBho/mkJ5EZj0KcSW9YbAB6KcDbYcS
-	 efJ0p0QOKYMPJV7GDul6xZHYJZqTCg1inwm+V0rr3LZjHaBAZYCUma7zGEq5AYqKi6
-	 v8xX4rZGRGBsHvjSqRqq5tsipx2P3kWPTGuoEjJoKxwod1h30AGc2DOutcWkLNdzDe
-	 8aff7G8aAqung==
-Date: Thu, 13 Oct 2022 13:22:47 -0700
+	b=VUhNOnfLldx8mlLatFevToiwEI3dA+5lYysgVkSQtKG2rG4cBRxD11C3UI/hCAPQf
+	 61r6RLiGyHMaWTiJJDg2DQ32bLJNLfptpl9dUKyW5SQo+XY7Z9DJjC6m9l5H2AY3K9
+	 y3O0epUKlKDxOc2HFwnfzwDrzEu1RgX7sV5xaeyVDyYyU6mvsNNL0PZG+coz67zEr9
+	 dzUv0Fkcq3EdM+UXC7SZh7qYZmJEwhOlpKvJ8051tsSUksn/FfFxYeJisWKQUlUqlK
+	 z9vz7VY6ZgG+/pLR5G7qE6lA7bo7R4fmKaAj8GCGZVlZumt3wRORwpniYeUswbcMES
+	 RskO5lsfhMNoQ==
+Date: Thu, 13 Oct 2022 13:30:16 -0700
 From: Nathan Chancellor <nathan@kernel.org>
 To: Conor Dooley <conor@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -51,18 +51,17 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Dao Lu <daolu@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
 	Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH 1/2] riscv: fix detection of toolchain Zicbom support
-Message-ID: <Y0hzl75d11uWC+f3@dev-arch.thelio-3990X>
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH 2/2] riscv: fix detection of toolchain Zihintpause support
+Message-ID: <Y0h1WK0Tmk0UXjmd@dev-arch.thelio-3990X>
 References: <20221006173520.1785507-1-conor@kernel.org>
- <20221006173520.1785507-2-conor@kernel.org>
+ <20221006173520.1785507-3-conor@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221006173520.1785507-2-conor@kernel.org>
+In-Reply-To: <20221006173520.1785507-3-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_132251_390560_E50A3CB6 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20221013_133021_796290_48320F04 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +78,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 06, 2022 at 06:35:20PM +0100, Conor Dooley wrote:
+On Thu, Oct 06, 2022 at 06:35:21PM +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
 > It is not sufficient to check if a toolchain supports a particular
-> extension without checking if the linker supports that extension too.
-> For example, Clang 15 supports Zicbom but GNU bintutils 2.35.2 does
-> not, leading build errors like so:
+> extension without checking if the linker supports that extension
+> too. For example, Clang 15 supports Zihintpause but GNU bintutils
+> 2.35.2 does not, leading build errors like so:
 > 
-> riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicbom1p0_zihintpause2p0: Invalid or unknown z ISA extension: 'zicbom'
+> riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zihintpause2p0: Invalid or unknown z ISA extension: 'zihintpause'
 > 
-> Convert CC_HAS_ZICBOM to TOOLCHAIN_HAS_ZICBOM & check if the linker
-> also supports Zicbom.
+> Add a TOOLCHAIN_HAS_ZIHINTPAUSE which checks if each of the compiler,
+> assembler and linker support the extension. Replace the ifdef in the
+> vdso with one depending on this new symbol.
 > 
-> Reported-by: Kevin Hilman <khilman@baylibre.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1714
-> Link: https://storage.kernelci.org/next/master/next-20220920/riscv/defconfig+CONFIG_EFI=n/clang-16/logs/kernel.log
-> Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zicbom extension")
+> Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Palmer:
+> The VDSO change will conflict with Samuel's one, resolution should be
+> trivial.. I only made that change as you warned me about checking for
+> the __riscv_foo stuff if I made the march string depend on the Kconfig
+> entry rather than on the Makefile's cc-option check.
 
-The versions look correct to me. I see the LLVM zicbom commit [1] in
-llvmorg-15.0.0 and I see the binutils zicbom commit [2] in
-binutils-2_39.
+The versions look correct to me. I see the LLVM zihintpause commit [1]
+in llvmorg-15.0.0 and I see the binutils zihintpause commit [2] in
+binutils-2_36.
 
-FWIW, if we are adding explicit tool versions to the Kconfig, could you
-not also drop the cc-option checks? Typically, cc-option is only used
-when dynamically checking for a feature, in lieu of statically checking
-a version. No strong opinion though.
+[1]: https://github.com/llvm/llvm-project/commit/005fd8aa702edbc532763038365575da96e5787d
+[2]: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aa881ecde48c7a0224b92e2cfa43b37ee9ec9fa2
+
+Similar comment as patch 1, I think we can just drop the cc-option
+checks. Regardless:
 
 Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-[1]: https://github.com/llvm/llvm-project/commit/4f40ca53cefb725aca6564585d0ec4836a79e21a
-[2]: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=41d6ac5da655a2e78109848f2db47e53552fd61a
-
 > ---
->  arch/riscv/Kconfig  | 10 ++++++----
->  arch/riscv/Makefile |  3 +--
->  2 files changed, 7 insertions(+), 6 deletions(-)
+>  arch/riscv/Kconfig                      | 7 +++++++
+>  arch/riscv/Makefile                     | 3 +--
+>  arch/riscv/include/asm/vdso/processor.h | 2 +-
+>  3 files changed, 9 insertions(+), 3 deletions(-)
 > 
 > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d557cc50295d..6da36553158b 100644
+> index 6da36553158b..d7c53896e24f 100644
 > --- a/arch/riscv/Kconfig
 > +++ b/arch/riscv/Kconfig
-> @@ -401,14 +401,16 @@ config RISCV_ISA_SVPBMT
+> @@ -425,6 +425,13 @@ config RISCV_ISA_ZICBOM
 >  
 >  	   If you don't know what to do here, say Y.
 >  
-> -config CC_HAS_ZICBOM
-> +config TOOLCHAIN_HAS_ZICBOM
->  	bool
-> -	default y if 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
-> -	default y if 32BIT && $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
+> +config TOOLCHAIN_HAS_ZIHINTPAUSE
+> +	bool
 > +	default y
-> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
-> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
-> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
->  
->  config RISCV_ISA_ZICBOM
->  	bool "Zicbom extension support for non-coherent DMA operation"
-> -	depends on CC_HAS_ZICBOM
-> +	depends on TOOLCHAIN_HAS_ZICBOM
->  	depends on !XIP_KERNEL && MMU
->  	select RISCV_DMA_NONCOHERENT
->  	select RISCV_ALTERNATIVE
+> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zihintpause)
+> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zihintpause)
+> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23600
+> +
+>  config FPU
+>  	bool "FPU support"
+>  	default y
 > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 3fa8ef336822..3607d38edb4f 100644
+> index 3607d38edb4f..6651517f3962 100644
 > --- a/arch/riscv/Makefile
 > +++ b/arch/riscv/Makefile
-> @@ -57,8 +57,7 @@ toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zi
->  riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
->  
->  # Check if the toolchain supports Zicbom extension
-> -toolchain-supports-zicbom := $(call cc-option-yn, -march=$(riscv-march-y)_zicbom)
-> -riscv-march-$(toolchain-supports-zicbom) := $(riscv-march-y)_zicbom
-> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
+> @@ -60,8 +60,7 @@ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+>  riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
 >  
 >  # Check if the toolchain supports Zihintpause extension
->  toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
+> -toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
+> -riscv-march-$(toolchain-supports-zihintpause) := $(riscv-march-y)_zihintpause
+> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE) := $(riscv-march-y)_zihintpause
+>  
+>  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+>  KBUILD_AFLAGS += -march=$(riscv-march-y)
+> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+> index 1e4f8b4aef79..fa70cfe507aa 100644
+> --- a/arch/riscv/include/asm/vdso/processor.h
+> +++ b/arch/riscv/include/asm/vdso/processor.h
+> @@ -21,7 +21,7 @@ static inline void cpu_relax(void)
+>  		 * Reduce instruction retirement.
+>  		 * This assumes the PC changes.
+>  		 */
+> -#ifdef __riscv_zihintpause
+> +#ifdef CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
+>  		__asm__ __volatile__ ("pause");
+>  #else
+>  		/* Encoding of the pause instruction */
 > -- 
 > 2.37.3
 > 
