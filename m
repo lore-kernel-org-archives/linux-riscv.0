@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9FFC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 05:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F7EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 05:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
 	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7pwrepxG+4Lyr3VY1Co0IisIzS/8JBj3XMESsEyVIuI=; b=yBl8fKyFEjQfyz
-	iT2Ul+1jCMoHvybpsWq9JgNzeX7pNNmxnOhtMSfG4nPQYl17csjtooeNXKIXITb2Y7xHnHggWclZp
-	LZIbyd9UUFrMtiGPx6qtUIBSRwniiIpdnId1Y/IuKWrYI+xpisawA+j1HAUjNVML5W22h559danVO
-	qQcIMmEVc5dlPYiqzWa3SNUqAUViOTzZSVDvynZn8AGbTdQL1e5DT5+IIAFa9GGO4WqjEG0Uk4hyO
-	Yp6AlDmj3v4tA4jyeCOU5G1b9guDzk2c07WGe/+xsqgusn8M4KllwsvOXT96c2bVmDxFczja0jbZ7
-	uWCynvoKo7segonlIZBQ==;
+	List-Owner; bh=dTVusMTSNmI6RD2wN3eAuXv+HB+9MQeTCdfNzLHuXSo=; b=of0Iva/oZXcvU9
+	pZBVPausodyu3/fnohAcFy8YedPTBwZmte6tO2EedQ0a3hcpvwc/Tnndts6U5pdendHQcFcpnvYor
+	Gkm16pBYy6S3nkpuPIMc2ldO8jIdky1kFLCmaHYz5z8ldPAHFSYX3cnwl5w++dSB3DS2TIqs7IzbF
+	27uFeNNT88sThFq40SjEUF68Lu4jNaMfaz1XBqt/dk+PrEVPg2OW1vYI0PlFrQZDnlULd0kSftqiL
+	mAQCUvYBNHfjMa4dLxL+l5V0pEvd/wzp4Q+BFSxXy8PxW8Ie3zrUBXa9CN05ZHQuDYkBjeQMlwAcW
+	naRrDRi9TES+ga4bXSFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiqmQ-00AiZ0-2d; Thu, 13 Oct 2022 05:29:14 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oiquh-00AjZJ-B5; Thu, 13 Oct 2022 05:37:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oiqmM-00AiXu-1u
-	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 05:29:11 +0000
+	id 1oiquf-00AjYt-0i
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 05:37:46 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A954AB81C22;
-	Thu, 13 Oct 2022 05:29:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A04C433D6;
-	Thu, 13 Oct 2022 05:29:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D01A8615DC;
+	Thu, 13 Oct 2022 05:37:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F1CEC433C1;
+	Thu, 13 Oct 2022 05:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665638947;
-	bh=u1aE7Guz757GpnzspBVuVfnvD43VfUWIebYhD99jq48=;
+	s=k20201202; t=1665639463;
+	bh=8aVZC45tzS5Xypj4wP6sxsCkOsmuarZG9AGJpu3SPco=;
 	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=c2V70Kmoy/YkP9WxvptKHSrsS9DV22ct28HFRE5FnT9AdLPN/Pb1qZWgom48/rYDw
-	 uvNuM1c4I5hP04XlVHzAArZPeKhw9LtyR+n3GvlSuv6bGFOCXOeEcOD68asy9331XR
-	 lF3eZhMGH2LCJ+T4AfaQmtUmU9x9hev5PqIG2kXPWzN8WpzWur79+TbgOgMAxyZjoK
-	 MrwYShI5wXoKCf2t9LUVsWCM5DtLQcMMG3o0bHV35LEFzJsBIiLkBINAEbVl6h/ZQP
-	 bDpd0frHdLbRnoDVmoOlKDZrnodiC6ZBnKTgaaiYG6k2oAQ45fNQKHD8I9C9e1xtc5
-	 hH4WBRln9NybQ==
-Date: Thu, 13 Oct 2022 06:29:03 +0100
+	b=F/D4d5YEo4S11Gj+F+xVctT+5me3AkVUXb2whtUfIS8fJ2mFuvUr8PySwMHqJDeAZ
+	 b2NkTQDtu5CaRGkklBGxSm8sI7e0sfzKQs9O+ynrHay1wfBk3l89nFUEsU66zrPrFg
+	 18ShVKVDCefbYGjeJYkNcpW4kNI2s4E8l2acQZ1t5DZGJBcjMK8ZdfNnaQhjsqmGye
+	 An86ifLgD2CmtT+nU0bZV7B1MAhbFI87RXTyhsZDhv5+LYXvn3vc+f90B8uxlGYaDi
+	 hGgxNoDjGA+p6gZQV4JMvoE0xUHL8zhimDiaqzRXHXzsslA+O0BwlTr/ZXlRqeYZIk
+	 CBwcIQMlg90Ng==
+Date: Thu, 13 Oct 2022 06:37:39 +0100
 From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org, Sasha Levin <sashal@kernel.org>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-CC: Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- Claudiu Beznea <claudiu.beznea@microchip.com>, mturquette@baylibre.com,
- sboyd@kernel.org, linux-clk@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_AUTOSEL_6=2E0_20/67=5D_clk=3A_microc?= =?US-ASCII?Q?hip=3A_mpfs=3A_add_MSS_pll=27s_set_=26_round_rate?=
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_1/8=5D_riscv=3A_move_riscv=5Fnonc?= =?US-ASCII?Q?oherent=5Fsupported=28=29_out_of_ZICBOM_probe?=
 User-Agent: K-9 Mail for Android
-In-Reply-To: <20221013001554.1892206-20-sashal@kernel.org>
-References: <20221013001554.1892206-1-sashal@kernel.org> <20221013001554.1892206-20-sashal@kernel.org>
-Message-ID: <93982EAD-5EE5-4096-9AD6-BFA76905F1BB@kernel.org>
+In-Reply-To: <Y0GCST9IQcKws9Yh@xhacker>
+References: <20221006070818.3616-1-jszhang@kernel.org> <20221006070818.3616-2-jszhang@kernel.org> <Y0F1uH71Ll7YGygB@spud> <Y0GCST9IQcKws9Yh@xhacker>
+Message-ID: <BBEFA528-0F84-41CB-A62F-ED4673947928@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221012_222910_412010_20B2257F 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221012_223745_159320_3E3EC2F1 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,96 +73,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Not a fix, NAK. Same for 5.19.
 
-On 13 October 2022 01:15:01 IST, Sasha Levin <sashal@kernel.org> wrote:
->From: Conor Dooley <conor.dooley@microchip.com>
+
+On 8 October 2022 14:59:37 IST, Jisheng Zhang <jszhang@kernel.org> wrote:
+>On Sat, Oct 08, 2022 at 02:06:00PM +0100, Conor Dooley wrote:
+>> On Thu, Oct 06, 2022 at 03:08:11PM +0800, Jisheng Zhang wrote:
+>> > It's a bit wired to call riscv_noncoherent_supported() once when
+>> > insmod a module. Move the calling out of feature patch func.
+>> > 
+>> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>> > ---
+>> >  arch/riscv/kernel/cpufeature.c | 7 +------
+>> >  arch/riscv/kernel/setup.c      | 4 ++++
+>> >  2 files changed, 5 insertions(+), 6 deletions(-)
+>> > 
+>> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> > index 3b5583db9d80..03611b3ef45e 100644
+>> > --- a/arch/riscv/kernel/cpufeature.c
+>> > +++ b/arch/riscv/kernel/cpufeature.c
+>> > @@ -272,12 +272,7 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+>> >  	case RISCV_ALTERNATIVES_EARLY_BOOT:
+>> >  		return false;
+>> >  	default:
+>> > -		if (riscv_isa_extension_available(NULL, ZICBOM)) {
+>> > -			riscv_noncoherent_supported();
+>> > -			return true;
+>> > -		} else {
+>> > -			return false;
+>> > -		}
+>> > +		return riscv_isa_extension_available(NULL, ZICBOM);
+>> >  	}
+>> >  #endif
+>> >  
+>> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> > index 2dfc463b86bb..1a055c3f5d9d 100644
+>> > --- a/arch/riscv/kernel/setup.c
+>> > +++ b/arch/riscv/kernel/setup.c
+>> > @@ -299,6 +299,10 @@ void __init setup_arch(char **cmdline_p)
+>> >  	riscv_init_cbom_blocksize();
+>> >  	riscv_fill_hwcap();
+>> >  	apply_boot_alternatives();
+>> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
+>> > +	if (riscv_isa_extension_available(NULL, ZICBOM))
+>> > +		riscv_noncoherent_supported();
+>> > +#endif
+>> 
+>> I have a personal bias against ifdefs where possible, maybe @Heiko
+>> remembers why riscv_noncoherent_supported() was not defined as something
+>> like `void riscv_noncoherent_support(void){}` for when that CONFIG is
+>> not enabled? If it was this could become a an IS_ENABLED & we wouldn't
+>> have to be so careful about wrapping it's usage in ifdefs.
 >
->[ Upstream commit 14016e4aafc5f157c10fb1a386fa3b3bd9c30e9a ]
+>Good idea. Will do in newer version.
+
+Given this comment and the LKP report I've marked the series as changes requested in patchwork FYI.
+
+Thanks,
+Conor.
+
 >
->The MSS pll is not a fixed frequency clock, so add set() & round_rate()
->support.
->Control is limited to a 7 bit output divider as other devices on the
->FPGA occupy the other three outputs of the PLL & prevent changing
->the multiplier.
->
->Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
->Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
->Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
->Link: https://lore.kernel.org/r/20220909123123.2699583-9-conor.dooley@microchip.com
->Signed-off-by: Sasha Levin <sashal@kernel.org>
->---
-> drivers/clk/microchip/clk-mpfs.c | 54 ++++++++++++++++++++++++++++++++
-> 1 file changed, 54 insertions(+)
->
->diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
->index b6b89413e090..cb4ec4749279 100644
->--- a/drivers/clk/microchip/clk-mpfs.c
->+++ b/drivers/clk/microchip/clk-mpfs.c
->@@ -126,8 +126,62 @@ static unsigned long mpfs_clk_msspll_recalc_rate(struct clk_hw *hw, unsigned lon
-> 	return prate * mult / (ref_div * MSSPLL_FIXED_DIV * postdiv);
-> }
-> 
->+static long mpfs_clk_msspll_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *prate)
->+{
->+	struct mpfs_msspll_hw_clock *msspll_hw = to_mpfs_msspll_clk(hw);
->+	void __iomem *mult_addr = msspll_hw->base + msspll_hw->reg_offset;
->+	void __iomem *ref_div_addr = msspll_hw->base + REG_MSSPLL_REF_CR;
->+	u32 mult, ref_div;
->+	unsigned long rate_before_ctrl;
->+
->+	mult = readl_relaxed(mult_addr) >> MSSPLL_FBDIV_SHIFT;
->+	mult &= clk_div_mask(MSSPLL_FBDIV_WIDTH);
->+	ref_div = readl_relaxed(ref_div_addr) >> MSSPLL_REFDIV_SHIFT;
->+	ref_div &= clk_div_mask(MSSPLL_REFDIV_WIDTH);
->+
->+	rate_before_ctrl = rate * (ref_div * MSSPLL_FIXED_DIV) / mult;
->+
->+	return divider_round_rate(hw, rate_before_ctrl, prate, NULL, MSSPLL_POSTDIV_WIDTH,
->+				  msspll_hw->flags);
->+}
->+
->+static int mpfs_clk_msspll_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long prate)
->+{
->+	struct mpfs_msspll_hw_clock *msspll_hw = to_mpfs_msspll_clk(hw);
->+	void __iomem *mult_addr = msspll_hw->base + msspll_hw->reg_offset;
->+	void __iomem *ref_div_addr = msspll_hw->base + REG_MSSPLL_REF_CR;
->+	void __iomem *postdiv_addr = msspll_hw->base + REG_MSSPLL_POSTDIV_CR;
->+	u32 mult, ref_div, postdiv;
->+	int divider_setting;
->+	unsigned long rate_before_ctrl, flags;
->+
->+	mult = readl_relaxed(mult_addr) >> MSSPLL_FBDIV_SHIFT;
->+	mult &= clk_div_mask(MSSPLL_FBDIV_WIDTH);
->+	ref_div = readl_relaxed(ref_div_addr) >> MSSPLL_REFDIV_SHIFT;
->+	ref_div &= clk_div_mask(MSSPLL_REFDIV_WIDTH);
->+
->+	rate_before_ctrl = rate * (ref_div * MSSPLL_FIXED_DIV) / mult;
->+	divider_setting = divider_get_val(rate_before_ctrl, prate, NULL, MSSPLL_POSTDIV_WIDTH,
->+					  msspll_hw->flags);
->+
->+	if (divider_setting < 0)
->+		return divider_setting;
->+
->+	spin_lock_irqsave(&mpfs_clk_lock, flags);
->+
->+	postdiv = readl_relaxed(postdiv_addr);
->+	postdiv &= ~(clk_div_mask(MSSPLL_POSTDIV_WIDTH) << MSSPLL_POSTDIV_SHIFT);
->+	writel_relaxed(postdiv, postdiv_addr);
->+
->+	spin_unlock_irqrestore(&mpfs_clk_lock, flags);
->+
->+	return 0;
->+}
->+
-> static const struct clk_ops mpfs_clk_msspll_ops = {
-> 	.recalc_rate = mpfs_clk_msspll_recalc_rate,
->+	.round_rate = mpfs_clk_msspll_round_rate,
->+	.set_rate = mpfs_clk_msspll_set_rate,
-> };
-> 
-> #define CLK_PLL(_id, _name, _parent, _shift, _width, _flags, _offset) {			\
+>> 
+>> Your change in isolation makes sense to me though, so:
+>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>> 
+>> Thanks,
+>> Conor.
+>> 
+>> >  }
+>> >  
+>> >  static int __init topology_init(void)
+>> > -- 
+>> > 2.37.2
+>> > 
 
 _______________________________________________
 linux-riscv mailing list
