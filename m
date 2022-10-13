@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC24C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 20:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC686C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Oct 2022 20:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=67hppTEODwF6gYAFeUH1zHSwqvD/adgIo6DMHokx92Q=; b=Ib/HBmUGXTAmRc
-	9MN7PqiqAUfi1Kxrte5QcBWtBAR6BBhS/GL55YzeVPlUZ0hXYUUSikCWiAVHYXMu/qGikGIL4PHRe
-	gqpfeEkfqb/Aq1KHRXNQF2ZZ15jQxKh3aFadJU0ywphNBJyP+OzR03WEVDPIZLJBoDmAmOoSEbEAk
-	RRikCq5UqhESQtx/WiY9asqESgT3ASi3147ADVx54OrgWC6IAN65TtepuiNPNzRSJQCzCMzLOdwC9
-	60BRHA2ZdJThLdoXN4wzGeaTvaADCE0N0NtbsGJdJstPtsEdntbXrC0Ef+R57ZDwMHN9/4RE14WIE
-	oV9ng6l+2Eg3psHt2BJw==;
+	List-Owner; bh=ohvCljW4uik7/EUe7OxjqI9RhZKzSQzAjTO4e4+6Qs8=; b=BMI733Mzm/0xiU
+	J3iiv/Dr4mfXtyCdcdtZrCegmRAnhxqkYtPuQqzSFqJoC2bB/bTeXwi3BoOIO+w3FcIGMytTp8wUN
+	xUCR4JnCZ9bCn51MoSjgzv6icGE327CVb8dAU6epPTc785/ZhsrYcANC7do5YoCvd+1/SW5l1UJPX
+	Cw4qt5p8nTXSHRtVGYQQmqCLWTOd1WxtjCF2LtXvitR9jWOOHUL3yTz17gG6ejm4vhdXmWD8HkkMV
+	zr5p7ImyBBrmYQlDm2gH5RUfQjWVNd0gjxoOnnyvss+cdNpp9FuMlK/6Ewrc/vqqJPToibYf4cFNJ
+	Smj3qAx7SyZxH9E7zPSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Sg-00Ctdx-BF; Thu, 13 Oct 2022 20:05:46 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oj4jG-00Cuce-1O; Thu, 13 Oct 2022 20:22:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oj4Sb-00Ctco-4L; Thu, 13 Oct 2022 20:05:45 +0000
+	id 1oj4jD-00CucJ-7U
+	for linux-riscv@lists.infradead.org; Thu, 13 Oct 2022 20:22:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 68857B82023;
-	Thu, 13 Oct 2022 20:05:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36FFEC433C1;
-	Thu, 13 Oct 2022 20:05:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 74D2B61940;
+	Thu, 13 Oct 2022 20:22:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22051C433D6;
+	Thu, 13 Oct 2022 20:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665691538;
-	bh=WCGYTjAcBf9F06zjYkITF/gmUdVa1+87yndJoCjt/yw=;
+	s=k20201202; t=1665692569;
+	bh=xNxmxjigV/Sc/aVH0TtEXg1U6cyj9psSQw4r6YBOjn4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eg5MLzCIu53GIyAfdSp22tSeViCNgnazX87Ju7uTltAUKH2R45wWenptppeeOAeEV
-	 0m0f2VjNo4x51/wSvs+aBRboWLo8d8smU2A46x703f7vE7DDaE2hSxtMzGplPZnGbf
-	 D4mtWEF69gDsLOx5Cbt0bD3Z2Tqv4ma1PtKueIL+udo/wTzO5hTYzxbWrBIl9+q3W9
-	 3E5ToNHfaDp9sXJdQKbNkXI3zCgTnfLCPyjk/dZiChvm2bzWSo5kB7pC7OVUpZmI1K
-	 kEqq6DZpxnaUSSJxdNycxaKdo/t/JfKIQHHUBuojYMSC83zAwtBC7Sswu/z837BRVm
-	 d/xf8MRzP6BkA==
-Date: Thu, 13 Oct 2022 21:05:33 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
-	vernon2gm@gmail.com, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v2] RISC-V: KVM: Fix compilation without RISCV_ISA_ZICBOM
-Message-ID: <Y0hvjdWlC7zOVJSa@spud>
-References: <20221013134217.1850349-1-ajones@ventanamicro.com>
- <Y0ge0mbur3HAJFdJ@wendy>
- <20221013143931.vc662dbaboozjygy@kamzik>
+	b=uUI5984v2CsO+ux/dH0P9R5SX8GbBvdXvVbWtTvB2qK+arCAGYVE3cnQaLugMTNhh
+	 w29llMwAcl5KsK8+r32+0KRpELaBUVuoBMeO/7GxBRB5DS2+Lqhy0fvNyZi71+pOTk
+	 D7wV+WclWjHxcO5s+kijfrMKK1swcKMIGd6cBBho/mkJ5EZj0KcSW9YbAB6KcDbYcS
+	 efJ0p0QOKYMPJV7GDul6xZHYJZqTCg1inwm+V0rr3LZjHaBAZYCUma7zGEq5AYqKi6
+	 v8xX4rZGRGBsHvjSqRqq5tsipx2P3kWPTGuoEjJoKxwod1h30AGc2DOutcWkLNdzDe
+	 8aff7G8aAqung==
+Date: Thu, 13 Oct 2022 13:22:47 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Dao Lu <daolu@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
+	Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+	Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH 1/2] riscv: fix detection of toolchain Zicbom support
+Message-ID: <Y0hzl75d11uWC+f3@dev-arch.thelio-3990X>
+References: <20221006173520.1785507-1-conor@kernel.org>
+ <20221006173520.1785507-2-conor@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221013143931.vc662dbaboozjygy@kamzik>
+In-Reply-To: <20221006173520.1785507-2-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_130541_489763_1AF4A2D4 
-X-CRM114-Status: GOOD (  40.65  )
+X-CRM114-CacheID: sfid-20221013_132251_390560_E50A3CB6 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,213 +79,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 13, 2022 at 04:39:31PM +0200, Andrew Jones wrote:
-> On Thu, Oct 13, 2022 at 03:21:06PM +0100, Conor Dooley wrote:
-> > On Thu, Oct 13, 2022 at 03:42:17PM +0200, Andrew Jones wrote:
-> > 
-> > > RISC-V: KVM: Fix compilation without RISCV_ISA_ZICBOM
-> > 
-> > nit: I know that this is what it fixes, but I think the commit subject
-> > is a little misleading when it doesnt touch arch/riscv/kvm & has some
-> > meaning for non-kvm too.
+On Thu, Oct 06, 2022 at 06:35:20PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Yeah, in hindsight I probably should have just dropped the "RISC-V: KVM:
-> Fix compilation without RISCV_ISA_ZICBOM" patch and rebased and resent
-> Anup's move patch. I still can, if that's what people would prefer.
+> It is not sufficient to check if a toolchain supports a particular
+> extension without checking if the linker supports that extension too.
+> For example, Clang 15 supports Zicbom but GNU bintutils 2.35.2 does
+> not, leading build errors like so:
+> 
+> riscv64-linux-gnu-ld: -march=rv64i2p0_m2p0_a2p0_c2p0_zicbom1p0_zihintpause2p0: Invalid or unknown z ISA extension: 'zicbom'
+> 
+> Convert CC_HAS_ZICBOM to TOOLCHAIN_HAS_ZICBOM & check if the linker
+> also supports Zicbom.
+> 
+> Reported-by: Kevin Hilman <khilman@baylibre.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1714
+> Link: https://storage.kernelci.org/next/master/next-20220920/riscv/defconfig+CONFIG_EFI=n/clang-16/logs/kernel.log
+> Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zicbom extension")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-I'd image that that can be done at application time? idk what I'd go for
-though, I am sick so my heads a little groggy. Say along the lines of
-"RISC-V: make cbom blocksize info unconditionally available"?
-Feel free to hate that Drew...
-Conor.
+The versions look correct to me. I see the LLVM zicbom commit [1] in
+llvmorg-15.0.0 and I see the binutils zicbom commit [2] in
+binutils-2_39.
 
+FWIW, if we are adding explicit tool versions to the Kconfig, could you
+not also drop the cc-option checks? Typically, cc-option is only used
+when dynamically checking for a feature, in lieu of statically checking
+a version. No strong opinion though.
+
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+
+[1]: https://github.com/llvm/llvm-project/commit/4f40ca53cefb725aca6564585d0ec4836a79e21a
+[2]: https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=41d6ac5da655a2e78109848f2db47e53552fd61a
+
+> ---
+>  arch/riscv/Kconfig  | 10 ++++++----
+>  arch/riscv/Makefile |  3 +--
+>  2 files changed, 7 insertions(+), 6 deletions(-)
 > 
-> Thanks,
-> drew
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d557cc50295d..6da36553158b 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -401,14 +401,16 @@ config RISCV_ISA_SVPBMT
+>  
+>  	   If you don't know what to do here, say Y.
+>  
+> -config CC_HAS_ZICBOM
+> +config TOOLCHAIN_HAS_ZICBOM
+>  	bool
+> -	default y if 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
+> -	default y if 32BIT && $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
+> +	default y
+> +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zicbom)
+> +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zicbom)
+> +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
+>  
+>  config RISCV_ISA_ZICBOM
+>  	bool "Zicbom extension support for non-coherent DMA operation"
+> -	depends on CC_HAS_ZICBOM
+> +	depends on TOOLCHAIN_HAS_ZICBOM
+>  	depends on !XIP_KERNEL && MMU
+>  	select RISCV_DMA_NONCOHERENT
+>  	select RISCV_ALTERNATIVE
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 3fa8ef336822..3607d38edb4f 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -57,8 +57,7 @@ toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zi
+>  riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+>  
+>  # Check if the toolchain supports Zicbom extension
+> -toolchain-supports-zicbom := $(call cc-option-yn, -march=$(riscv-march-y)_zicbom)
+> -riscv-march-$(toolchain-supports-zicbom) := $(riscv-march-y)_zicbom
+> +riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZICBOM) := $(riscv-march-y)_zicbom
+>  
+>  # Check if the toolchain supports Zihintpause extension
+>  toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
+> -- 
+> 2.37.3
 > 
 > 
-> > 
-> > > riscv_cbom_block_size and riscv_init_cbom_blocksize() should always
-> > > be available and riscv_init_cbom_blocksize() should always be invoked
-> > 
-> > Yup, I like where this is going...
-> > 
-> > > even when compiling without RISCV_ISA_ZICBOM enabled. This
-> > > is because disabling RISCV_ISA_ZICBOM means "don't use zicbom
-> > > instructions in the kernel" not "pretend there isn't zicbom, even
-> > > when there is". When zicbom is available, whether the kernel enables
-> > > its use with RISCV_ISA_ZICBOM or not, KVM will offer it to guests.
-> > 
-> > ...right, I'll take your word for this part. You're the kvm people :)
-> > 
-> > > Ensure we can build KVM and that the block size is initialized even
-> > > when compiling without RISCV_ISA_ZICBOM.
-> > > 
-> > > Fixes: 8f7e001e0325 ("RISC-V: Clean up the Zicbom block size probing")
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > 
-> > Is cacheflush.c the "right" place for it? idk. But shaving that yak is a
-> > waste of time imo. I like the unconditional availability & if ZICBOM is
-> > off in the kernel I figure it should not matter that we set the
-> > blocksize.
-> > 
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > 
-> > > ---
-> > >  arch/riscv/include/asm/cacheflush.h |  8 ------
-> > >  arch/riscv/mm/cacheflush.c          | 38 ++++++++++++++++++++++++++
-> > >  arch/riscv/mm/dma-noncoherent.c     | 41 -----------------------------
-> > >  3 files changed, 38 insertions(+), 49 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> > > index 273ece6b622f..1470e556cdb1 100644
-> > > --- a/arch/riscv/include/asm/cacheflush.h
-> > > +++ b/arch/riscv/include/asm/cacheflush.h
-> > > @@ -42,16 +42,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
-> > >  
-> > >  #endif /* CONFIG_SMP */
-> > >  
-> > > -/*
-> > > - * The T-Head CMO errata internally probe the CBOM block size, but otherwise
-> > > - * don't depend on Zicbom.
-> > > - */
-> > >  extern unsigned int riscv_cbom_block_size;
-> > > -#ifdef CONFIG_RISCV_ISA_ZICBOM
-> > >  void riscv_init_cbom_blocksize(void);
-> > > -#else
-> > > -static inline void riscv_init_cbom_blocksize(void) { }
-> > > -#endif
-> > >  
-> > >  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> > >  void riscv_noncoherent_supported(void);
-> > > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> > > index 6cb7d96ad9c7..8525f4a2d598 100644
-> > > --- a/arch/riscv/mm/cacheflush.c
-> > > +++ b/arch/riscv/mm/cacheflush.c
-> > > @@ -3,6 +3,7 @@
-> > >   * Copyright (C) 2017 SiFive
-> > >   */
-> > >  
-> > > +#include <linux/of.h>
-> > >  #include <asm/cacheflush.h>
-> > >  
-> > >  #ifdef CONFIG_SMP
-> > > @@ -86,3 +87,40 @@ void flush_icache_pte(pte_t pte)
-> > >  		flush_icache_all();
-> > >  }
-> > >  #endif /* CONFIG_MMU */
-> > > +
-> > > +unsigned int riscv_cbom_block_size;
-> > > +EXPORT_SYMBOL(riscv_cbom_block_size);
-> > > +
-> > > +void riscv_init_cbom_blocksize(void)
-> > > +{
-> > > +	struct device_node *node;
-> > > +	unsigned long cbom_hartid;
-> > > +	u32 val, probed_block_size;
-> > > +	int ret;
-> > > +
-> > > +	probed_block_size = 0;
-> > > +	for_each_of_cpu_node(node) {
-> > > +		unsigned long hartid;
-> > > +
-> > > +		ret = riscv_of_processor_hartid(node, &hartid);
-> > > +		if (ret)
-> > > +			continue;
-> > > +
-> > > +		/* set block-size for cbom extension if available */
-> > > +		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
-> > > +		if (ret)
-> > > +			continue;
-> > > +
-> > > +		if (!probed_block_size) {
-> > > +			probed_block_size = val;
-> > > +			cbom_hartid = hartid;
-> > > +		} else {
-> > > +			if (probed_block_size != val)
-> > > +				pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
-> > > +					cbom_hartid, hartid);
-> > > +		}
-> > > +	}
-> > > +
-> > > +	if (probed_block_size)
-> > > +		riscv_cbom_block_size = probed_block_size;
-> > > +}
-> > > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> > > index b0add983530a..d919efab6eba 100644
-> > > --- a/arch/riscv/mm/dma-noncoherent.c
-> > > +++ b/arch/riscv/mm/dma-noncoherent.c
-> > > @@ -8,13 +8,8 @@
-> > >  #include <linux/dma-direct.h>
-> > >  #include <linux/dma-map-ops.h>
-> > >  #include <linux/mm.h>
-> > > -#include <linux/of.h>
-> > > -#include <linux/of_device.h>
-> > >  #include <asm/cacheflush.h>
-> > >  
-> > > -unsigned int riscv_cbom_block_size;
-> > > -EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
-> > > -
-> > >  static bool noncoherent_supported;
-> > >  
-> > >  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> > > @@ -77,42 +72,6 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-> > >  	dev->dma_coherent = coherent;
-> > >  }
-> > >  
-> > > -#ifdef CONFIG_RISCV_ISA_ZICBOM
-> > > -void riscv_init_cbom_blocksize(void)
-> > > -{
-> > > -	struct device_node *node;
-> > > -	unsigned long cbom_hartid;
-> > > -	u32 val, probed_block_size;
-> > > -	int ret;
-> > > -
-> > > -	probed_block_size = 0;
-> > > -	for_each_of_cpu_node(node) {
-> > > -		unsigned long hartid;
-> > > -
-> > > -		ret = riscv_of_processor_hartid(node, &hartid);
-> > > -		if (ret)
-> > > -			continue;
-> > > -
-> > > -		/* set block-size for cbom extension if available */
-> > > -		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
-> > > -		if (ret)
-> > > -			continue;
-> > > -
-> > > -		if (!probed_block_size) {
-> > > -			probed_block_size = val;
-> > > -			cbom_hartid = hartid;
-> > > -		} else {
-> > > -			if (probed_block_size != val)
-> > > -				pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
-> > > -					cbom_hartid, hartid);
-> > > -		}
-> > > -	}
-> > > -
-> > > -	if (probed_block_size)
-> > > -		riscv_cbom_block_size = probed_block_size;
-> > > -}
-> > > -#endif
-> > > -
-> > >  void riscv_noncoherent_supported(void)
-> > >  {
-> > >  	WARN(!riscv_cbom_block_size,
-> > > -- 
-> > > 2.37.3
-> > > 
-> > > 
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
