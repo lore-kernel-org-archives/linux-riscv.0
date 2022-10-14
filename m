@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB60C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 15:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6342C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 16:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CedvyqJmktZ5wfTkENQYdmle4yaOfWFKXFiUdb0qJWY=; b=v+nGQFRhTz2ddy
-	037QzI/VhMI9qabA/teK7gvrIv9lub9YTNYDUeKHDlJA0i2PEwFoiD3piVEbgymBndvXEGrv2kE5V
-	hkdS5rRKAh5POnhDX3fHZ2waWzVZJTTsMMA4a34JCPCP6VYI/sI5I5KObCjrqO/42imgSdHqKXW1O
-	5gaFsr2AFgic8sfMuSEG32nEVvTAAyUqcI7KtBxh4iZImOs5+DRY2ZOpWg6oCBcAFrj4b7OA0oA4F
-	75P36gLpY55tQYvXvmvYkBVqzw+t6nBcXqxeOt89cWjjzBuTs2rfy5FF3xeI8Ek3AcLEb4tQoJ+uD
-	HUz24QpkPqoZ38gT8D9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=FGev3o03bPHFtOWOBjkRgw4SeuzzpUK/o2GCWZnFk98=; b=B7Q0Ify/41EDOizMZGmE+mW7bw
+	w9LHtKyHNMuQW5IDiklnHM6KsOrzwiV3eizeZAMwXDasbysEQJ4K27XPT9i1LQzXDKlNPbFQpRmjC
+	LGXsU7okVIAOfkmDsl8ARXIYnJomtOoKr1RhlT5KiuK8ghCoVEs5kiuPE1woKQo+tKw9LbYo3LRIO
+	vmhtEmc7fRIlIPivtDaocRTRFP3+Bge0twHo4Oa8lfhPDqS6YyirTwLQqTQGvpoCKBFvxJQSi+uDA
+	7iequ5RXurZ4eR2lDV3dm5skday7zWa2FKUm4Bjx2LTw6AnYjSe9XyO6lz5NG9hGPP47tgNm4p3bA
+	ZZbg50jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojN5N-00FFVa-B3; Fri, 14 Oct 2022 15:58:57 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1ojNL7-00FJmo-G5; Fri, 14 Oct 2022 16:15:13 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojN5J-00FFSl-9S
-	for linux-riscv@lists.infradead.org; Fri, 14 Oct 2022 15:58:54 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id a13so7520458edj.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Oct 2022 08:58:50 -0700 (PDT)
+	id 1ojNL3-00FJlv-Df
+	for linux-riscv@lists.infradead.org; Fri, 14 Oct 2022 16:15:11 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id h12so5371708pjk.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Oct 2022 09:15:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XBIOqGjmdzThiZsnnbTdUiYSPQXS/qp/QRUJHndogxY=;
-        b=de2qcklml8jKYdhJlyXqmJXoz8FYGzMVRLfN9JcOUqf4UOLuKCrWZr59qwP/CI15i8
-         9ZEYt9iqHJUORqeLDasCpf2TvKXJ2eNiOMML8Fk+bz7YKFJbV57Ez3yS2OMYxbifi8aU
-         80V2z5mOPzJ5j+SPiaK/ExtA7pvzSXkVFgQy9BgPDzmgfE18Klp1ebv/IKnNb6TVl3x7
-         K0gO3P8T9E6LTR2oS1WZnI3pbS2vkD6iCSFlqd/rinFyB9u6Ftb/GsYDL097UX4vn1na
-         X5w9kGup7pabQp9pwZ84Krxhofd+fyywuWkx0d61FPGLmHqmWuc2PbVNpdjodZPMfLJV
-         6NYQ==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=g2JTvpWhqdC7QPnQwyHctlYw/8ApcYUns74xbNtPUnI=;
+        b=SJObCVvZGvsR0fWiJBmulRy7H15F4leY7XP/P6KqvSm696TWIpfy+1DYQmogCJJMjn
+         aEqFWpT280AEUH+Tj06tggn5Yve/69B2hm9d2vcpzEHFk1Cm7rC0DHx+4A5aSnitacmu
+         ZYpRHn128TXC2SOQIcai9M+kD1FKNwizEqn7fVszRgz86yVB7/JllTByDNxRgAy0hD3l
+         eQA4AlWpOhVuRiW4Tx+0AJfW/duILG7AHjcj0EexlEJMzgSuvKSF4XA77MyzmuGE5r8m
+         pg/ae1w6+I78rynt0LtC1zq2Mju79VO06XX3evEDWP9KKNEpT5YGSZbrETwoqXFX5gK3
+         0cRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XBIOqGjmdzThiZsnnbTdUiYSPQXS/qp/QRUJHndogxY=;
-        b=hpO+sDbkjMeFfWgdr+L+Wo7caVsamwSvkGa7TcCk1DgDh2bO8/PVQu0tIGQk+fEmMU
-         m7GAJyw44SgW9HBt8G6HgddEpUm0vC1hJ14JSeVEXfBSr1WMvJVWZBwg93gQHxjybV/C
-         fJcrXHgB2Agxp+gqDJBGoS4L19IkTOTfSkI97+8PY9DDD/mSvFHLIjEVv3BDrdejsn2C
-         6eYL5xyQ0ZBJg5wa/1/Nd5YtSnRK5AD2UnegjvZFNOctz327crw3402g7EoXk6ZaIqwq
-         Lvx4nsopjurkntSkicUAhB6rU5tkwMWPA8jkompn9tth+m12o7bXm2b16Q2/0RjcnB9g
-         eYTQ==
-X-Gm-Message-State: ACrzQf0T+t5F0t6vlZq0xMFsgRXJnf/w1JwJn89HpQn4YuX+9Dh7Tsg5
-	9d5IyvUzeE4urhVUVhbnbm30mQ==
-X-Google-Smtp-Source: AMsMyM7AeOygOXkM1z/GTKaGU+3a1Uh1fQyGWBmDx0oj1luEK/7mcX83iQG4d2XLgbn9xXhJP10WDg==
-X-Received: by 2002:a05:6402:3485:b0:45c:d688:6848 with SMTP id v5-20020a056402348500b0045cd6886848mr4672473edc.279.1665763129826;
-        Fri, 14 Oct 2022 08:58:49 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id 12-20020a170906300c00b0077a1dd3e7b7sm1746796ejz.102.2022.10.14.08.58.49
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g2JTvpWhqdC7QPnQwyHctlYw/8ApcYUns74xbNtPUnI=;
+        b=nvTDVuA5NpVXiGzmyG5e2l8U5othPRPm6rPo1d+E3C+6ddsFnPpynG7/voauRg6zzu
+         SthC5gpJEst504QyHLeNI9sY7d1Ge7DuZiP4LI0cnLmZT8S4dmAw0ZBwFBjnf0ff8EoS
+         khfnB4fywiqcdBnhn4WFRfrrdxeClnfsZx4LIKCW/KQOxmtZo6EfrucGl21KF1cwhRqD
+         TPT25+ND4a8iDjLcs+AIT8LQJoyto9t1D/QRppJ8E75ESDQVbsIbjcn6HvkzkcdYQoWw
+         nOUGyw3jgjT9pGizr6qbRMnSjnsz8UEC1a4q392Hld9BzwWT5eoXTVJEf83J0CnM3fLL
+         2K4A==
+X-Gm-Message-State: ACrzQf1OlTK1uV38WhI0ryzlk1rUtQxn+v7f5OdeZRB2/CrHVquMCjFy
+	gDlnRm7wEf44lh6dud5iVkM3NRFFdllCTg==
+X-Google-Smtp-Source: AMsMyM4XtFNwAVZg6WcTdFidwPxRhe1eL3SGG1J2/YN0OFidCMN6QNzp4/95krLt2G0FHsvh5Z0odQ==
+X-Received: by 2002:a17:902:6b0a:b0:178:9a17:5b89 with SMTP id o10-20020a1709026b0a00b001789a175b89mr5945227plk.113.1665764105482;
+        Fri, 14 Oct 2022 09:15:05 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id p184-20020a625bc1000000b005618189b0ffsm1935938pfb.104.2022.10.14.09.15.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Oct 2022 08:58:49 -0700 (PDT)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	openrisc@lists.librecores.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	linuxppc-dev@lists.ozlabs.org,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	linux-s390@vger.kernel.org
-Subject: [PATCH v3 2/2] x86: Fix /proc/cpuinfo cpumask warning
-Date: Fri, 14 Oct 2022 17:58:45 +0200
-Message-Id: <20221014155845.1986223-3-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.37.3
-In-Reply-To: <20221014155845.1986223-1-ajones@ventanamicro.com>
-References: <20221014155845.1986223-1-ajones@ventanamicro.com>
-MIME-Version: 1.0
+        Fri, 14 Oct 2022 09:15:04 -0700 (PDT)
+Date: Fri, 14 Oct 2022 09:15:04 -0700 (PDT)
+X-Google-Original-Date: Fri, 14 Oct 2022 08:51:34 PDT (-0700)
+Subject: Re: RISC-V Patchwork
+In-Reply-To: <Y0ifX4gYDD0DIkYd@spud>
+CC: linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-ec7cf859-caaa-4b72-8dd9-d88e81d6126a@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221014_085853_352517_C1B743E9 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20221014_091509_700065_F6B6B646 
+X-CRM114-Status: GOOD (  37.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +83,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") has
-started issuing warnings[*] when cpu indices equal to nr_cpu_ids - 1
-are passed to cpumask_next* functions. seq_read_iter() and cpuinfo's
-start and next seq operations implement a pattern like
+On Thu, 13 Oct 2022 16:29:35 PDT (-0700), Conor Dooley wrote:
+> On Thu, Oct 13, 2022 at 04:14:39PM -0700, Palmer Dabbelt wrote:
+>> On Tue, 11 Oct 2022 09:07:45 PDT (-0700), Conor Dooley wrote:
+>> > Hey,
+>> >
+>> > As one or two people have already noticed, we've resurrected the
+>> > patchwork for the RISC-V list @
+>> > https://patchwork.kernel.org/project/linux-riscv/list/
+>> >
+>> > The patchwork bot should let people know when their patches have been
+>> > applied. Hopefully it'll help people track what the status of their
+>> > patches are a little better and try to prevent stuff falling through
+>> > the cracks in Palmer's inbox.
+>> >
+>> > As an FYI, the statuses that are intended to be used are:
+>> > - New: No action has been taken yet
+>> > - Under Review: The maintainer is waiting for review comments from others
+>> > - Changes Requested: Either the maintainer or a reviewer requested
+>> >   changes in the patch. The patch author is expected to submit a new
+>> >   version
+>> > - Superseded: There's a new version of the patch available
+>> > - Not Applicable: The patch is not intended for the RISC-V tree
+>> > - Accepted: The patch has been applied
+>> > - Rejected: The patch has been rejected, with reasons stated in an
+>> >   email
+>> >
+>> > I reset patchwork and marked all patches as archived so we would have a
+>> > fresh start. If your patch has been archived & not applied by the end of
+>> > this merge window, feel free to resend it.
+>> >
+>> > Thanks,
+>> > Conor.
+>> >
+>> > @Palmer: hopefully I did the scissors thing correctly..
+>>
+>> b4 doesn't like it, but my old scripts just picked up the whole thing as a
+>> patch.  I tossed the above bits, LMK if something went off the rails.
+>
+> I just copied the suggested scissors format from the git-mailinfo man
+> page and pasted that. I didn't know this prior to 5 mins ago, but
+> `b4 mbox` splits it on the scissors line, into a patch and an email
+> inside the mbox - but for w/e reason, `git am` (or `b4 shazam`) then
+> seems to try and apply the email instead of the patch? Or else pasting
+> the patch into mutt was a terrible idea? Maybe it's worth mentioning to
+> Konstantin that things get messed up here, I'll do it tomorrow if I
+> remember.
 
-  n = cpumask_next(n - 1, mask);
-  show(n);
-  while (1) {
-      ++n;
-      n = cpumask_next(n - 1, mask);
-      if (n >= nr_cpu_ids)
-          break;
-      show(n);
-  }
+If the man pages suggest doing this but the tools fail then it's worth 
+fixing something, even if it's just the man page ;)
 
-which will issue the warning when reading /proc/cpuinfo. Ensure no
-warning is generated by validating the cpu index before calling
-cpumask_next().
-
-[*] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
-
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Cc: Yury Norov <yury.norov@gmail.com>
----
- arch/x86/kernel/cpu/proc.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
-index 099b6f0d96bd..de3f93ac6e49 100644
---- a/arch/x86/kernel/cpu/proc.c
-+++ b/arch/x86/kernel/cpu/proc.c
-@@ -153,6 +153,9 @@ static int show_cpuinfo(struct seq_file *m, void *v)
- 
- static void *c_start(struct seq_file *m, loff_t *pos)
- {
-+	if (*pos == nr_cpu_ids)
-+		return NULL;
-+
- 	*pos = cpumask_next(*pos - 1, cpu_online_mask);
- 	if ((*pos) < nr_cpu_ids)
- 		return &cpu_data(*pos);
--- 
-2.37.3
-
+> Unlikely I'll ever really send many more patches with this format so w/e
+> at the end of the day.
+> Thanks,
+> Conor.
+>
+>>
+>> >
+>> > -- >8 --
+>> > From f886e8a9def4bd3f2fa8a0a4d7e92c94fe72ea72 Mon Sep 17 00:00:00 2001
+>> > From: Conor Dooley <conor.dooley@microchip.com>
+>> > Date: Tue, 11 Oct 2022 16:49:53 +0100
+>> > Subject: [PATCH] MAINTAINERS: add RISC-V's patchwork
+>> >
+>> > The RISC-V patchwork instance on kernel.org has had some necromancy
+>> > performed on it & will be used going forward. The statuses that are
+>> > intended to be used are:
+>> > - New: No action has been taken yet
+>> > - Under Review: The maintainer is waiting for review comments from others
+>> > - Changes Requested: Either the maintainer or a reviewer requested
+>> >   changes in the patch. The patch author is expected to submit a new
+>> >   version
+>> > - Superseded: There's a new version of the patch available
+>> > - Not Applicable: The patch is not intended for the RISC-V tree
+>> > - Accepted: The patch has been applied
+>> > - Rejected: The patch has been rejected, with reasons stated in an
+>> >   email
+>> >
+>> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> > ---
+>> >  MAINTAINERS | 1 +
+>> >  1 file changed, 1 insertion(+)
+>> >
+>> > diff --git a/MAINTAINERS b/MAINTAINERS
+>> > index 8a5012ba6ff9..e2882dc703d8 100644
+>> > --- a/MAINTAINERS
+>> > +++ b/MAINTAINERS
+>> > @@ -17516,6 +17516,7 @@ M:	Palmer Dabbelt <palmer@dabbelt.com>
+>> >  M:	Albert Ou <aou@eecs.berkeley.edu>
+>> >  L:	linux-riscv@lists.infradead.org
+>> >  S:	Supported
+>> > +Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+>> >  P:	Documentation/riscv/patch-acceptance.rst
+>> >  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+>> >  F:	arch/riscv/
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
 
 _______________________________________________
 linux-riscv mailing list
