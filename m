@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E23C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC40C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1pII1pcuMnug6ck50zvY+xWGOU7XFmTNWxo76fqxJpc=; b=hOGNLYPLb/a1xf
-	Z8ZDnM8w4oZONVQ78rAI22YLtxzRYhEuB6mqtstlSnGcy2wVwkd4cEivIKzPqI9lw6818HbeZHX9Z
-	lNTwd2/rM874SF7YHDtXdsfVBfLLGNQ7pTUwJKIxDCKqKqnxfvraS+FYeM3nNtorh/dcvABLdUHo6
-	qQQwD2Xi0AO6sNZWvF8K0sml2o/RqWiP7jjjc9vRvN0/lAAfQWhyP0bw4BSa2Wy6KM1h2Uxy8oYf9
-	Jq9o03w1seeypbHYOzwbYrTkGVkw5hVTuwj1kfOVseaCHisJFzS0Xsu/s15f4LKjYWEqcMPAKZtgm
-	TUjiCQ6VeKK26jv9u17w==;
+	List-Owner; bh=geo0mr8UXtcuDmjBqkyd6OiJxZLsJYad/8Z1u6aM37U=; b=1xKQrv7nI8hiXu
+	7GneexQNQ8PU3/eOlGH4o55qzDaGqKqYqaiT5Wft+n15QyefLSvXgOUhtf8vQSzGqhpYgMLjcu8Cp
+	Rk8025zYKIW/GPTz7yFpKhjR/6V0QRUsJbmHKLWpWee1tJNSn/qTBrWSdV6JA0WAXRy+gp6EDpT/u
+	JWACkE0HYdomx4lyWE1dHNrB2arWusnGRRQi35Pu7g7ThbEhVrM/EV0+CvZZhVxRb8SVcczlaZtOh
+	J5rgMdSp26Jw6LDcp4rxNpGksgShElG3MWlsEp3W2kc02pe5VOE8cO1o7mjlhAragURoJbjR/Pqao
+	hQyXOGFPsFQsZhtQRBvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojKx5-00Eo4l-G7; Fri, 14 Oct 2022 13:42:15 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1ojKz9-00EouT-AT; Fri, 14 Oct 2022 13:44:23 +0000
+Received: from out30-44.freemail.mail.aliyun.com ([115.124.30.44])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojKwx-00Enyh-DH; Fri, 14 Oct 2022 13:42:08 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045192;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VS82WcB_1665754918;
-Received: from localhost.localdomain(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VS82WcB_1665754918)
+	id 1ojKz4-00EosY-KO; Fri, 14 Oct 2022 13:44:20 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045192;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VS88kYV_1665755050;
+Received: from 30.39.198.88(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VS88kYV_1665755050)
           by smtp.aliyun-inc.com;
-          Fri, 14 Oct 2022 21:41:59 +0800
+          Fri, 14 Oct 2022 21:44:12 +0800
+Message-ID: <cda77a7f-470d-21eb-f5ec-dac004b32bc5@linux.alibaba.com>
+Date: Fri, 14 Oct 2022 21:44:09 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.12.0
+Subject: Re: [PATCH 2/2] Documentation: kdump: describe VMCOREINFO export for
+ RISCV64
+To: Bagas Sanjaya <bagasdotme@gmail.com>, Conor Dooley <conor@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ anup@brainfault.org, heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
+ alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com,
+ dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com,
+ kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
+ k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
+References: <20221014074810.4471-1-xianting.tian@linux.alibaba.com>
+ <20221014074810.4471-3-xianting.tian@linux.alibaba.com>
+ <Y0ldrJ91ac0um3++@debian.me> <Y0lfuixXue4k4poY@spud>
+ <7353e949-17cc-ed8e-7e98-b3f3e0840623@gmail.com>
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	anup@brainfault.org,
-	heiko@sntech.de,
-	guoren@kernel.org,
-	mick@ics.forth.gr,
-	alexandre.ghiti@canonical.com,
-	bhe@redhat.com,
-	vgoyal@redhat.com,
-	dyoung@redhat.com,
-	corbet@lwn.net,
-	Conor.Dooley@microchip.com,
-	bagasdotme@gmail.com
-Cc: kexec@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	crash-utility@redhat.com,
-	heinrich.schuchardt@canonical.com,
-	k-hagio-ab@nec.com,
-	hschauhan@nulltrace.org,
-	yixun.lan@gmail.com,
-	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH V2 2/2] Documentation: kdump: describe VMCOREINFO export for RISCV64
-Date: Fri, 14 Oct 2022 21:41:39 +0800
-Message-Id: <20221014134139.5151-3-xianting.tian@linux.alibaba.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20221014134139.5151-1-xianting.tian@linux.alibaba.com>
-References: <20221014134139.5151-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <7353e949-17cc-ed8e-7e98-b3f3e0840623@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221014_064207_636355_94ADE1D7 
-X-CRM114-Status: UNSURE (   5.06  )
+X-CRM114-CacheID: sfid-20221014_064418_854042_25310157 
+X-CRM114-Status: UNSURE (   7.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,73 +65,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following interrelated definitions and ranges are needed by the kdump
-crash tool, they are exported by "arch/riscv/kernel/crash_core.c":
-    VA_BITS,
-    PAGE_OFFSET,
-    phys_ram_base,
-    MODULES_VADDR ~ MODULES_END,
-    VMALLOC_START ~ VMALLOC_END,
-    VMEMMAP_START ~ VMEMMAP_END,
-    KASAN_SHADOW_START ~ KASAN_SHADOW_END,
-    KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END
-
-Document these RISCV64 exports above.
-
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
----
- .../admin-guide/kdump/vmcoreinfo.rst          | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
-
-diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-index 6726f439958c..8e2e164cf3db 100644
---- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
-+++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
-@@ -595,3 +595,33 @@ X2TLB
- -----
- 
- Indicates whether the crashed kernel enabled SH extended mode.
-+
-+RISCV64
-+=======
-+
-+VA_BITS
-+-------
-+
-+The maximum number of bits for virtual addresses. Used to compute the
-+virtual memory ranges.
-+
-+PAGE_OFFSET
-+-----------
-+
-+Indicates the virtual kernel start address of direct-mapped RAM region.
-+
-+phys_ram_base
-+-------------
-+
-+Indicates the start physical RAM address.
-+
-+MODULES_VADDR|MODULES_END|VMALLOC_START|VMALLOC_END|VMEMMAP_START|VMEMMAP_END|KASAN_SHADOW_START|KASAN_SHADOW_END|KERNEL_LINK_ADDR|ADDRESS_SPACE_END
-+----------------------------------------------------------------------------------------------------------------------------------------------------
-+
-+Used to get the correct ranges:
-+
-+  * MODULES_VADDR ~ MODULES_END : Kernel module space.
-+  * VMALLOC_START ~ VMALLOC_END : vmalloc() / ioremap() space.
-+  * VMEMMAP_START ~ VMEMMAP_END : vmemmap region, used for struct page array.
-+  * KASAN_SHADOW_START ~ KASAN_SHADOW_END : kasan shadow space.
-+  * KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END : Kernel link and BPF space.
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzEwLzE0IOS4i+WNiDk6MjMsIEJhZ2FzIFNhbmpheWEg5YaZ6YGTOgo+IE9uIDEw
+LzE0LzIyIDIwOjEwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+IFdpdGhvdXQgd2hpdGVzcGFjZSBo
+aWdobGlnaHRpbmcsIHlvdXIgY2hhbmdlIHRocmV3IG1lIGZvciBhIHNlYy4uIEJ1dAo+PiB5ZWFo
+LCBoYXZpbmcgdGhlIG92ZXJsaW5lIGlzIGluY29uc2lzdGVudCB3aXRoIG90aGVyIGhlYWRpbmdz
+IGluIHRoZQo+PiBkb2MuCj4+Cj4+IFdoYXQgSSB3YW50ZWQgdG8gYXNrIGFib3V0IHdhcyB0aGUg
+bGluZWxlbmd0aCBhcyBJIGRvbid0IGtub3cgYW55dGhpbmcKPj4gYWJvdXQgcnN0LiBJcyBpdCBw
+b3NzaWJsZSB0byBhdm9pZCBoYXZpbmcgdGhlIH4xNTAgY2hhcmFjdGVyIGxpbmUgb3IgaXMKPj4g
+dGhhdCBhIG5lY2Vzc2FyeSBldmlsPwo+Pgo+IEkgdGhpbmsgdGhlIHNlY3Rpb24gZGVzY3JpYmVz
+IGNvcnJlY3QgcmFuZ2UgZXhwb3J0czsgaG93ZXZlciBzaW5jZSB0aGVyZQo+IGFyZSBtYW55IHN1
+Y2ggcmFuZ2VzIHdpdGggZGlzdGluY3QgcHVycG9zZXMsIGl0IGlzIGJldHRlciB0byBzcGxpdCB0
+aGUKPiBzZWN0aW9uIGludG8gbXVsdGlwbGUgc2VjdGlvbnMgZGVzY3JpYmluZyBlYWNoIHJhbmdl
+Lgo+Cj4gSWYgd2UgZ28gd2l0aG91dCBzcGxpdHRpbmcsIHRoZSAxNTAtY2hhcmFjdGVyIGhlYWRl
+ciBpcyBuZWNlc3NhcnkgKEkgZG9uJ3QKPiBrbm93IGhvdyB0byBzcGxpdCB0aGUgaGVhZGVyIHRl
+eHQgbGluZSB3aXRob3V0IHRyaWdnZXIgYW55IHdhcm5pbmdzKS4KCnRoYW5rcywgSSBzZW5kIFYy
+IHBhdGNoLCBwbGVhc2UgaGVscCByZXZpZXcuCgpodHRwczovL2xrbWwub3JnL2xrbWwvMjAyMi8x
+MC8xNC80NDcKCj4KPiBUaGFua3MuCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
