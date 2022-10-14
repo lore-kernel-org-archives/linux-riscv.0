@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC40C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF344C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=geo0mr8UXtcuDmjBqkyd6OiJxZLsJYad/8Z1u6aM37U=; b=1xKQrv7nI8hiXu
-	7GneexQNQ8PU3/eOlGH4o55qzDaGqKqYqaiT5Wft+n15QyefLSvXgOUhtf8vQSzGqhpYgMLjcu8Cp
-	Rk8025zYKIW/GPTz7yFpKhjR/6V0QRUsJbmHKLWpWee1tJNSn/qTBrWSdV6JA0WAXRy+gp6EDpT/u
-	JWACkE0HYdomx4lyWE1dHNrB2arWusnGRRQi35Pu7g7ThbEhVrM/EV0+CvZZhVxRb8SVcczlaZtOh
-	J5rgMdSp26Jw6LDcp4rxNpGksgShElG3MWlsEp3W2kc02pe5VOE8cO1o7mjlhAragURoJbjR/Pqao
-	hQyXOGFPsFQsZhtQRBvw==;
+	List-Owner; bh=579Epq6mWkqwXn95OQuiT1mXyQ1c3I0KpC/m6PFI2MQ=; b=kdS9OqcNOsvFuV
+	jMo/sLje+XzDlPYpLFs99zlFM+YWT4fpd8zAdvgxemvJ53jnnfwxYEELvAlWdMNkBU70fg7XB3BdU
+	FtyOH5XsAe3L9DGa3jtA3z6p41fyXIKgA6d4eYKwyB6oBrKrD+2x/c1046gtvk8vASLCfU1dqkrSc
+	saXoeN7QBL1o4npoiilTUlhfrNEOSozP6EM9Y8XkCX/X+bp6sFHifQMBsmVDBbcfDenA3tJbO04MU
+	UttJ6koJmdQ3tku8p80KDMPNWI4SHSXUPVKpuj51YfiM3kLUGkMr5UnDokxzX9ja92+OxTzBp84Nm
+	iScnaW9T+MMRZNYUQ2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojKz9-00EouT-AT; Fri, 14 Oct 2022 13:44:23 +0000
-Received: from out30-44.freemail.mail.aliyun.com ([115.124.30.44])
+	id 1ojL6h-00EqpB-6w; Fri, 14 Oct 2022 13:52:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojKz4-00EosY-KO; Fri, 14 Oct 2022 13:44:20 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045192;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VS88kYV_1665755050;
-Received: from 30.39.198.88(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VS88kYV_1665755050)
-          by smtp.aliyun-inc.com;
-          Fri, 14 Oct 2022 21:44:12 +0800
-Message-ID: <cda77a7f-470d-21eb-f5ec-dac004b32bc5@linux.alibaba.com>
-Date: Fri, 14 Oct 2022 21:44:09 +0800
+	id 1ojL6V-00Eqlb-V8; Fri, 14 Oct 2022 13:52:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 53F0061B44;
+	Fri, 14 Oct 2022 13:51:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C96D6C433B5;
+	Fri, 14 Oct 2022 13:51:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1665755519;
+	bh=aw7b8s6lfuANwvZSIKkLapzc1cdGYtXBKsSB/Xbc17A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ftZxPgAF9NjF2cgIdGfhSDBIz3VqAGnfDLn+fJX+8pDnZjvEBkvBHqo0cWZAzdkLe
+	 7HTJQYtdLXZS8KKQ/EWqWSY4wm55Ovd/9ZEyWCiQBHhucyEUa8GcPA46gApiUwIR5t
+	 GWA8LdkjJm5rW/1H1XojMPzOnacMFkxj1D2D416DAl6/sHse4L38RV2WAmz+Rgk62u
+	 h2DrZrWJ+GUxDvz2XzkERaOc59UrNiQgNE9gjULm08sx8VcmNozOEDK+9vk4RFyUqQ
+	 0GZTKQ9eqhFZiyoxjj9q1UxJ6sw6dljFcbiQvJcNF3sUN+R9o2kbYrAGGgzgzI7Iz7
+	 gItsYu6lf0m8w==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sasha Levin <sashal@kernel.org>,
+	atishp@atishpatra.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.0 06/11] perf: RISC-V: throttle perf events
+Date: Fri, 14 Oct 2022 09:51:32 -0400
+Message-Id: <20221014135139.2109024-6-sashal@kernel.org>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221014135139.2109024-1-sashal@kernel.org>
+References: <20221014135139.2109024-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
- Gecko/20100101 Thunderbird/91.12.0
-Subject: Re: [PATCH 2/2] Documentation: kdump: describe VMCOREINFO export for
- RISCV64
-To: Bagas Sanjaya <bagasdotme@gmail.com>, Conor Dooley <conor@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- anup@brainfault.org, heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
- alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com,
- dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com,
- kexec@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
- k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
-References: <20221014074810.4471-1-xianting.tian@linux.alibaba.com>
- <20221014074810.4471-3-xianting.tian@linux.alibaba.com>
- <Y0ldrJ91ac0um3++@debian.me> <Y0lfuixXue4k4poY@spud>
- <7353e949-17cc-ed8e-7e98-b3f3e0840623@gmail.com>
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-In-Reply-To: <7353e949-17cc-ed8e-7e98-b3f3e0840623@gmail.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221014_064418_854042_25310157 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221014_065200_067097_A7A46A6A 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,27 +79,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIyLzEwLzE0IOS4i+WNiDk6MjMsIEJhZ2FzIFNhbmpheWEg5YaZ6YGTOgo+IE9uIDEw
-LzE0LzIyIDIwOjEwLCBDb25vciBEb29sZXkgd3JvdGU6Cj4+IFdpdGhvdXQgd2hpdGVzcGFjZSBo
-aWdobGlnaHRpbmcsIHlvdXIgY2hhbmdlIHRocmV3IG1lIGZvciBhIHNlYy4uIEJ1dAo+PiB5ZWFo
-LCBoYXZpbmcgdGhlIG92ZXJsaW5lIGlzIGluY29uc2lzdGVudCB3aXRoIG90aGVyIGhlYWRpbmdz
-IGluIHRoZQo+PiBkb2MuCj4+Cj4+IFdoYXQgSSB3YW50ZWQgdG8gYXNrIGFib3V0IHdhcyB0aGUg
-bGluZWxlbmd0aCBhcyBJIGRvbid0IGtub3cgYW55dGhpbmcKPj4gYWJvdXQgcnN0LiBJcyBpdCBw
-b3NzaWJsZSB0byBhdm9pZCBoYXZpbmcgdGhlIH4xNTAgY2hhcmFjdGVyIGxpbmUgb3IgaXMKPj4g
-dGhhdCBhIG5lY2Vzc2FyeSBldmlsPwo+Pgo+IEkgdGhpbmsgdGhlIHNlY3Rpb24gZGVzY3JpYmVz
-IGNvcnJlY3QgcmFuZ2UgZXhwb3J0czsgaG93ZXZlciBzaW5jZSB0aGVyZQo+IGFyZSBtYW55IHN1
-Y2ggcmFuZ2VzIHdpdGggZGlzdGluY3QgcHVycG9zZXMsIGl0IGlzIGJldHRlciB0byBzcGxpdCB0
-aGUKPiBzZWN0aW9uIGludG8gbXVsdGlwbGUgc2VjdGlvbnMgZGVzY3JpYmluZyBlYWNoIHJhbmdl
-Lgo+Cj4gSWYgd2UgZ28gd2l0aG91dCBzcGxpdHRpbmcsIHRoZSAxNTAtY2hhcmFjdGVyIGhlYWRl
-ciBpcyBuZWNlc3NhcnkgKEkgZG9uJ3QKPiBrbm93IGhvdyB0byBzcGxpdCB0aGUgaGVhZGVyIHRl
-eHQgbGluZSB3aXRob3V0IHRyaWdnZXIgYW55IHdhcm5pbmdzKS4KCnRoYW5rcywgSSBzZW5kIFYy
-IHBhdGNoLCBwbGVhc2UgaGVscCByZXZpZXcuCgpodHRwczovL2xrbWwub3JnL2xrbWwvMjAyMi8x
-MC8xNC80NDcKCj4KPiBUaGFua3MuCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+
+[ Upstream commit 096b52fd2bb4996fd68d22b3b7ad21a1296db9d3 ]
+
+Call perf_sample_event_took() to report time spent in overflow
+interrupts. Perf core uses these measurements to throttle
+perf events properly.
+
+Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+Link: https://lore.kernel.org/r/20220830155306.301714-4-geomatsi@gmail.com
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/perf/riscv_pmu_sbi.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 8de4ca2fef21..88e326c5f63b 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -18,6 +18,7 @@
+ #include <linux/of_irq.h>
+ #include <linux/of.h>
+ #include <linux/cpu_pm.h>
++#include <linux/sched/clock.h>
+ 
+ #include <asm/sbi.h>
+ #include <asm/hwcap.h>
+@@ -567,6 +568,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	unsigned long overflow;
+ 	unsigned long overflowed_ctrs = 0;
+ 	struct cpu_hw_events *cpu_hw_evt = dev;
++	u64 start_clock = sched_clock();
+ 
+ 	if (WARN_ON_ONCE(!cpu_hw_evt))
+ 		return IRQ_NONE;
+@@ -635,7 +637,9 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 			perf_event_overflow(event, &data, regs);
+ 		}
+ 	}
++
+ 	pmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
++	perf_sample_event_took(sched_clock() - start_clock);
+ 
+ 	return IRQ_HANDLED;
+ }
+-- 
+2.35.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
