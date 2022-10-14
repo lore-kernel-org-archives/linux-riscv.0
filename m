@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4D5C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 03:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D016C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 04:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/WO4WmMIHNGXhLeNSiVawCLPQT2vk0Cudru091Y2eCc=; b=nJZA2oFm2jT0Bm
-	kiWwZy9aKHQseUCnNIi4LvCT5luNYzB1l9OyKdXk3AT+tWsCsbL31Aby+EmjW8cBJ4xwfNThcD2Ee
-	E/IPMit1TLA44IPXCIzCrl9672ji3jynLmNF3317ou6bbyszd8gR/a1btoBQopkrT4o9A9IyKnUjD
-	oS+iIi26jZewApehj7HcGNigXzTEybPGm3dPwj0ETyVg9KczPPOEkK2Jl827usgrk9M96qEeCInbR
-	ljCOXsasKLw4hz7SnKH57mPLfcDcQmr4tFiskHZ28d0qamvNRRAxCKmIqPXg38vWeaG6cR5OjvuNO
-	LJ9pH78B82HTztGilq4A==;
+	List-Owner; bh=iCaoSR/38L77vZ3apz5b6q2L9it+sI9nAQJq36FcFLA=; b=AP7DHqaDoiNjcE
+	NtmGuzM7h6kyc2zHC+0bGUx1DQPiBJdRec2qlL2cuem1zhyYV69UCbjFHYLEMpJi0+qnnSV25BCae
+	cqSUkCJyEXuk4d26I8tFjLt/65avZPJsMEamSWzjhItHANwSx315KnHs5R7mo3NDHdMzmjjXhy5/R
+	W/O4uQ37JcMb3pb6P7wDs1N2+IYgrut8FV59tSbGo9/CnNRBL0L0jY36R0puUzk/5A/Ckliw81zvN
+	BIvmMHp8QFGN+Y6VPGDMa2lWzgt0GvVYqWu38wQZfATjaa3fwFOB/lKwPJYI/tBenhCyXOeDpv6+u
+	yyF+ITlHIpcxFdtkg/Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojBKa-00DWwC-GE; Fri, 14 Oct 2022 03:25:52 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1ojCBn-00DaGq-Oy; Fri, 14 Oct 2022 04:20:51 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojBKW-00DWvS-Ua
-	for linux-riscv@lists.infradead.org; Fri, 14 Oct 2022 03:25:50 +0000
-X-QQ-mid: bizesmtp70t1665717897tggdurz9
-Received: from [192.168.50.235] ( [113.72.147.11])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 14 Oct 2022 11:24:55 +0800 (CST)
-X-QQ-SSF: 01000000000000B09000000A0000000
-X-QQ-FEAT: Sm8l2YSuDykwx9zlf9aLJ0pyGRo8hfvyvKRxpLKx+MBlrJvD5pae//UyWDAHW
-	na+5Zc7KD3nH6kxeXh6Yqpsg0LCAFrZLbmfKzGrO0BDwerR9xpCu/dFNr2efEUDZBpPls6y
-	0LDmtH/jgCC728s/PbjIVFaNySz6J0mJm1iSKu6MrWK0k1EGan9i1YWZUUWi3EDBHYOAgW7
-	2LECSrZ7SDNEbTiafYaBMYy8np1WuK2EYswgPqtX9OxtcVauKnhg8LPOPxBNgvYoa5exsQ9
-	wQooaViwTDRQvilIPnMdhtemhJTHDS6oTPIW3h1NeNCTDhUYflKHmS7yqFkhvESXqWXhT27
-	dc07HIQ4XYHjmjFWxc2ve/5cGaJHF6vbiVpGk7z6+CQyfKG3JElOgvjk2WIIg==
-X-QQ-GoodBg: 0
-Message-ID: <7CB1B79E00E38D81+9631ccf1-48b5-9ffa-e5cd-b0c9a7c50a56@linux.starfivetech.com>
-Date: Fri, 14 Oct 2022 11:24:44 +0800
+	id 1ojCBl-00Da9E-19
+	for linux-riscv@lists.infradead.org; Fri, 14 Oct 2022 04:20:50 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id ot12so8039451ejb.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Oct 2022 21:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=OV3+a/0BT6g9pXRrmU2hqgr8aQ3sfDDJkFYLKeuZKSw=;
+        b=cboXTgdXBn/Wg/ayWDkxV5ELOweKXTZUGvbDt3Cmf0EdfrB9qbaUFkZJPMTeg5QpPU
+         GfjaCB0baw9rlJMW9Y244f07QcuHhHVTav9W4d+xzt0wMJNvaTVGQi2o/BRuMcAcCkGk
+         FPsAeSL4KiKHcG3Vxof/E7hgArG2wAnjhYbjbQG38wUqcpGJl+fciRQv35Y4m4vk3e73
+         GJJNzxPShx5BR1MgfW1RSXBXGFoduCsWS0aen8QmMfLqdUFNZzX+iZ4SlXtHAGu0j1CZ
+         QMYAv1hZnG5ucr1mVb51/pORWIppRrSCJhMEum9JHcR8ZATch9YS4gMOFzyN1q4gqb0K
+         qOjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OV3+a/0BT6g9pXRrmU2hqgr8aQ3sfDDJkFYLKeuZKSw=;
+        b=59DKhGFazasV6dWTrpOlcGuncEHR61vbOHEX1JGV7rsGJ1ibDYgHQDXnmhJg3lP+GQ
+         BeFSNTE3GEZW47SO3LLRHUwLYIgeFMx0krEBVoe5dghRXZ8ksrd4gkt7Jh4M8Oq4LgMH
+         VLuklY4GqHDdcZ+ummRIor7Fi75ag1wYNS2Gf/f7FX4rpL4kYPdRzrC+WSzxeq2vet6r
+         fReuXUmkwFT4pVJkQd9F1DjFKsGKt7tYHn06Pov/w/+czbdQKas91EOvNsdsajkKYevB
+         2ZNbl5cBBpUYmE4oGZBxuteySFx/NlYe48WYpMh4b33rK80HJFV9HiZcZK4CxHZe0LJ8
+         xrUQ==
+X-Gm-Message-State: ACrzQf24o90CvhStdZVYLd/x5oJp3/NoxtxreDSmUS3zbIM3l/wKm9g8
+	QLt6gY/VJoqzHK2lKTuclqZpgZHxbCwMzH1TPl0leA==
+X-Google-Smtp-Source: AMsMyM7+0eUHblw7Luuc7IqD0pCKWwi1rSFfe7iQHBNTv6SEMO9oK6RTkN53yr+znEsS/vx6MTrhy5z9iOxdtvbbdFA=
+X-Received: by 2002:a17:907:a065:b0:78d:c5dd:45cf with SMTP id
+ ia5-20020a170907a06500b0078dc5dd45cfmr2146288ejc.117.1665721239633; Thu, 13
+ Oct 2022 21:20:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 29/30] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930090653.7449-1-hal.feng@linux.starfivetech.com>
- <01c658ad-7f73-20fc-03c0-c82dcd820aa4@codethink.co.uk>
- <Yzdig6GepDx34u1j@spud>
-From: Hal Feng <hal.feng@linux.starfivetech.com>
-In-Reply-To: <Yzdig6GepDx34u1j@spud>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
+References: <20221013214638.30974-1-palmer@rivosinc.com>
+In-Reply-To: <20221013214638.30974-1-palmer@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 14 Oct 2022 09:49:30 +0530
+Message-ID: <CAAhSdy0sM1ENhTuakHBB7xm5nUVtKzUzPFQ-sVMyeWHDv0FPzQ@mail.gmail.com>
+Subject: Re: [PATCH] MAINTAINERS: git://github -> https://github.com for kvm-riscv
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221013_202549_311291_CB293A76 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20221013_212049_094283_E0CC99AC 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +86,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 Sep 2022 22:41:23 +0100, Conor Dooley wrote:
-> On Fri, Sep 30, 2022 at 09:54:14PM +0100, Ben Dooks wrote:
-> > On 30/09/2022 10:06, Hal Feng wrote:
-> > > Add CONFIG_SERIAL_8250_DW=y, which is a necessary option for
-> > > StarFive JH7110 and JH7100 SoCs to boot with serial ports.
-> > > 
-> > > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> > 
-> > That might be useful for other users at some point an I don't
-> > think it adds much code.
-> 
-> Honestly I think this should be applied for 6.1, for parity with the
-> other SoCs that have their serial console enabled by default.
-> 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Oct 14, 2022 at 3:19 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> Github deprecated the git:// links about a year ago, so let's move to
+> the https:// URLs instead.
+>
+> Reported-by: Conor Dooley <conor.dooley@microchip.com>
+> Link: https://github.blog/2021-09-01-improving-git-protocol-security-github/
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Could this patch be pulled out and applied for v6.1? So the JH7100
-and the coming JH7110 can enable serial console by default when
-booting. Thanks.
+For KVM RISC-V:
+Acked-by: Anup Patel <anup@brainfault.org>
 
-Best regards,
-Hal
+Thanks,
+Anup
+
+> ---
+> I've split these up by github username so folks can take them
+> independently, as some of these repos have been renamed at github and
+> thus need more than just a sed to fix them.
+> ---
+>  MAINTAINERS | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 9a47bd58a330..d103b44fb40c 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -11156,7 +11156,7 @@ L:      kvm@vger.kernel.org
+>  L:     kvm-riscv@lists.infradead.org
+>  L:     linux-riscv@lists.infradead.org
+>  S:     Maintained
+> -T:     git git://github.com/kvm-riscv/linux.git
+> +T:     git https://github.com/kvm-riscv/linux.git
+>  F:     arch/riscv/include/asm/kvm*
+>  F:     arch/riscv/include/uapi/asm/kvm*
+>  F:     arch/riscv/kvm/
+> --
+> 2.38.0
+>
 
 _______________________________________________
 linux-riscv mailing list
