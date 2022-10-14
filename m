@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF344C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5723C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 15:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=579Epq6mWkqwXn95OQuiT1mXyQ1c3I0KpC/m6PFI2MQ=; b=kdS9OqcNOsvFuV
-	jMo/sLje+XzDlPYpLFs99zlFM+YWT4fpd8zAdvgxemvJ53jnnfwxYEELvAlWdMNkBU70fg7XB3BdU
-	FtyOH5XsAe3L9DGa3jtA3z6p41fyXIKgA6d4eYKwyB6oBrKrD+2x/c1046gtvk8vASLCfU1dqkrSc
-	saXoeN7QBL1o4npoiilTUlhfrNEOSozP6EM9Y8XkCX/X+bp6sFHifQMBsmVDBbcfDenA3tJbO04MU
-	UttJ6koJmdQ3tku8p80KDMPNWI4SHSXUPVKpuj51YfiM3kLUGkMr5UnDokxzX9ja92+OxTzBp84Nm
-	iScnaW9T+MMRZNYUQ2Hw==;
+	List-Owner; bh=q4MOAh9L/5YH7sNbhXupskOfL+fh+tR1rQooKtVM5gA=; b=OXS5Fx66Pl3Br1
+	i7g1f6wOpyJKAiPEYc9e8xyDGKvQSbju1nWQ3fK7lWeee2B3VwkYyBtkaLE89pngM8UR2jZ2qwm7Y
+	jbrZrI+nSwdT98qIuTsAbl6md/pUck63knjm+Qw54AxO/mQPS9hiCPoOgbpzYaNeghxfik7io6mIZ
+	0I8dAWgubzNXQ0wWIpbLpuqKv8cva5bMFzc+KHerK4GpXCTaLfdiqRHUQ0ERHcW1/2/57JucuPKbQ
+	Kxa1h2y+X+Lyi/bXazGxBdbiDKurp9LO68jP2ag+VzAJoEcEITyGWfXLzvHoImdUqclVJR3jSHXTA
+	xANKDUEqeC5aYX47dUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojL6h-00EqpB-6w; Fri, 14 Oct 2022 13:52:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ojMLw-00F8Yd-Fh; Fri, 14 Oct 2022 15:12:00 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojL6V-00Eqlb-V8; Fri, 14 Oct 2022 13:52:01 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 53F0061B44;
-	Fri, 14 Oct 2022 13:51:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C96D6C433B5;
-	Fri, 14 Oct 2022 13:51:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665755519;
-	bh=aw7b8s6lfuANwvZSIKkLapzc1cdGYtXBKsSB/Xbc17A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ftZxPgAF9NjF2cgIdGfhSDBIz3VqAGnfDLn+fJX+8pDnZjvEBkvBHqo0cWZAzdkLe
-	 7HTJQYtdLXZS8KKQ/EWqWSY4wm55Ovd/9ZEyWCiQBHhucyEUa8GcPA46gApiUwIR5t
-	 GWA8LdkjJm5rW/1H1XojMPzOnacMFkxj1D2D416DAl6/sHse4L38RV2WAmz+Rgk62u
-	 h2DrZrWJ+GUxDvz2XzkERaOc59UrNiQgNE9gjULm08sx8VcmNozOEDK+9vk4RFyUqQ
-	 0GZTKQ9eqhFZiyoxjj9q1UxJ6sw6dljFcbiQvJcNF3sUN+R9o2kbYrAGGgzgzI7Iz7
-	 gItsYu6lf0m8w==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Sergey Matyukevich <sergey.matyukevich@syntacore.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Sasha Levin <sashal@kernel.org>,
-	atishp@atishpatra.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.0 06/11] perf: RISC-V: throttle perf events
-Date: Fri, 14 Oct 2022 09:51:32 -0400
-Message-Id: <20221014135139.2109024-6-sashal@kernel.org>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221014135139.2109024-1-sashal@kernel.org>
-References: <20221014135139.2109024-1-sashal@kernel.org>
+	id 1ojMLj-00F8VP-Si; Fri, 14 Oct 2022 15:11:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1665760307; x=1697296307;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=N/njfTWM92urhDh1tc8kt06mInCQV3hTHb5sdf7xqk0=;
+  b=UUcVxyNR2k+z1kwwaoCqz6ErWo6ZVzN9f/pYRQKUUvPsZSRKs8ynAbsc
+   ENLstmY5ueLF1Gal81AnPpB79iGLxita4m7L+4mw9383EdRHh3xZ1W2SS
+   tm8vqGRhn2fXBqajLSCxqk7G11mRtJJrs8j7D0FO3L3QirxQ9HmctXKy9
+   Qh5bc7lVfRPtkMmqJw291ukwu3xHgUqxaKOOpZ6wb3yK+78R4VqZRSdUV
+   ZjD/Y92FesRx1C1hmA0vZzfMxxSbD4Beck7sLZuuk05A6/oQ/d20AYo4E
+   6G/E5C9t9OsOJn8sbZDq4FTA6wQFm5JwOIaZlGABTMTsw5xzAxNJ+or7B
+   A==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10500"; a="391703298"
+X-IronPort-AV: E=Sophos;i="5.95,184,1661842800"; 
+   d="scan'208";a="391703298"
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Oct 2022 08:11:41 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10500"; a="660758830"
+X-IronPort-AV: E=Sophos;i="5.95,184,1661842800"; 
+   d="scan'208";a="660758830"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga001.jf.intel.com with ESMTP; 14 Oct 2022 08:11:36 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1ojMLW-006yCQ-0e;
+	Fri, 14 Oct 2022 18:11:34 +0300
+Date: Fri, 14 Oct 2022 18:11:33 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Florian Fainelli <f.fainelli@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>,
+	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
+	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
+	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
+Message-ID: <Y0l8JTQQvLzRejk1@smile.fi.intel.com>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <0684f480-2092-d520-2c8e-bd9a2dca47e3@gmail.com>
+ <CAHp75VdDjyUAZBTaoPOe5oA3f_5xRznAooq08=Eff4F1AZyVOQ@mail.gmail.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+Content-Disposition: inline
+In-Reply-To: <CAHp75VdDjyUAZBTaoPOe5oA3f_5xRznAooq08=Eff4F1AZyVOQ@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221014_065200_067097_A7A46A6A 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20221014_081147_966319_0005D8A5 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +96,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+On Wed, Oct 12, 2022 at 01:04:10PM +0300, Andy Shevchenko wrote:
+> On Tue, Oct 11, 2022 at 11:56 PM Florian Fainelli <f.fainelli@gmail.com> wrote:
+> > On 10/10/2022 1:14 PM, Andy Shevchenko wrote:
+> > > Currently the header inclusion inside the pinctrl headers seems more arbitrary
+> > > than logical. This series is basically out of two parts:
+> > > - add missed headers to the pin control drivers / users
+> > > - clean up the headers of pin control subsystem
+> > >
+> > > The idea is to have this series to be pulled after -rc1 by the GPIO and
+> > > pin control subsystems, so all new drivers will utilize cleaned up headers
+> > > of the pin control.
+> > >
+> > > Please, review and comment.
+> >
+> > Did you really need to split this on a per-driver basis as opposed to
+> > just a treewide drivers/pinctrl, drivers/media and drivers/gpiolib patch
+> > set?
+> >
+> > 36 patches seems needlessly high when 4 patches could have achieve the
+> > same outcome.
+> 
+> I can combine them if maintainers ask for that, nevertheless for Intel
+> pin control and GPIO drivers, which I care more about, I would like to
+> leave as separate changes (easy to see in history what was done).
 
-[ Upstream commit 096b52fd2bb4996fd68d22b3b7ad21a1296db9d3 ]
+I can now tell why I don't like to combine. While doing a revert (it's not
+related to GPIO nor to pin control), it appears that I reverted extra bits
+as merge conflict resolution. This is per se is not an issue, but when
+I tried to find and reapply that missed piece I can't, because the patch
+is combined and Git simply ignores to have
+`git cherry-pick _something in the past_` done.
 
-Call perf_sample_event_took() to report time spent in overflow
-interrupts. Perf core uses these measurements to throttle
-perf events properly.
+But again, up to maintainers.
 
-Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Link: https://lore.kernel.org/r/20220830155306.301714-4-geomatsi@gmail.com
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/perf/riscv_pmu_sbi.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 8de4ca2fef21..88e326c5f63b 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -18,6 +18,7 @@
- #include <linux/of_irq.h>
- #include <linux/of.h>
- #include <linux/cpu_pm.h>
-+#include <linux/sched/clock.h>
- 
- #include <asm/sbi.h>
- #include <asm/hwcap.h>
-@@ -567,6 +568,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	unsigned long overflow;
- 	unsigned long overflowed_ctrs = 0;
- 	struct cpu_hw_events *cpu_hw_evt = dev;
-+	u64 start_clock = sched_clock();
- 
- 	if (WARN_ON_ONCE(!cpu_hw_evt))
- 		return IRQ_NONE;
-@@ -635,7 +637,9 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 			perf_event_overflow(event, &data, regs);
- 		}
- 	}
-+
- 	pmu_sbi_start_overflow_mask(pmu, overflowed_ctrs);
-+	perf_sample_event_took(sched_clock() - start_clock);
- 
- 	return IRQ_HANDLED;
- }
 -- 
-2.35.1
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
