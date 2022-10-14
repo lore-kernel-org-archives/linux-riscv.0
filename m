@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFA7C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 09:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF78C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Oct 2022 13:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qNVHzgvIYmLib6Drv+yoVg6AbNfimOLFco0E1/uwlEo=; b=UYclAUsVB7mst7
-	VSC8ze0fUrzzr+x2Rbp/aol36HdK+p6kTW6/bnxVzHWkDOZJZvHRUACeu0eaItAbKzULkCP/BjGXt
-	UgxtJEwL7TKyPRHN+O0QH7CjbI/YEqU3A99F8cnbMC+mPxaXmgbb1CLn+qkjMwoV6PZoeiHuCiuah
-	BHtW8obB590bkVLPcc+vCv28IF0XBlpCXSxyoLfoi12z8AHDk6+1qhRFJryOKb2CLDIOSt+nhd+Uo
-	TDU0BmszmBjy8NQNcCdFsUSTXDjKt+OVLbjSjHjwl3WRy7dk5v+ZeTWy0lKHKwc6CopK432p/x3ir
-	p4Qh6IY/8/LjN4FJFQ7Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZXuTS4VxbBwsOd87hgZVgv8OldRXapGoo6Ca4JxJSI=; b=GVkCOVdH2r7qJtuplcyn9+Z/Nr
+	kblXrd/JDoe7YQkxFURUVefP29Hr2a6Wv2jmYqyCPqCeILvVfWuVFsf9EtGCMAdrUo5OP5Wfabboi
+	JDGH2U6GcXkg0aqq5kUDGFQGtRTdRv1UQwWaEl8HUrUCOGf0G0EqtCh/xv2QWewbIhI/VmWHWqw0R
+	CXo+0F4qW48fy2AP5xtiP0cIsA2ozVfMOH4IKL+fqIbbDAcdRUb8tyAqSe0z8E0bYW6JYmWXJGSnp
+	fsqNb2jGQOoQLhJR07Ajw5XJaHfkPHkuuKKbTaYaXTyJo8q+slYunNWevZj+CpMYVanl6EAO18Ar1
+	uFwXjsoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojHCf-00EIAC-Ow; Fri, 14 Oct 2022 09:42:05 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1ojKJq-00Ehy4-IV; Fri, 14 Oct 2022 13:01:42 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojHCc-00EI8l-Qw
-	for linux-riscv@lists.infradead.org; Fri, 14 Oct 2022 09:42:05 +0000
-X-QQ-mid: bizesmtp84t1665740487ti9mbcvl
-Received: from [192.168.125.106] ( [113.72.147.11])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 14 Oct 2022 17:41:25 +0800 (CST)
-X-QQ-SSF: 01000000000000B09000000A0000000
-X-QQ-FEAT: DRnj/z+Sqafxf60URcKpJmk3M9Gtaudnpmqzg0zvN20ZC3tpAxv/lIwk8P1wS
-	m3l8EGZwu41bnQWypYQttWJDjQollXss8UsSl7cBIrVzT4b2g1DLEzT6ShKt5LbH7wTJvbB
-	wnV6vB9ISg9d+1i8dVp6ZSVyhLHjBIyNy8pikp+orY7/fvzwbsVz3jlVEv7YYJ3sYOrJu9b
-	OeueYAFz3GEopWBDXvo3vXn/pUGS0z1q4/GBW46Glh3/Ka/a0zrm/TwoUJF1+BkhrmkyOXX
-	ZxIFM8Exh+BnZy0bIKFTeqaKBBRV2zEKbkCjXUnJ/l6ayU0xgCDWxzIE1cDq93qjBGZt774
-	2QRI7gNwsyj49o/sZ1rlblUSoWEsKmVvt3n57IDmpRlBdY4uZ7o1KnqNdTr0Ze5A/Zzruj6
-X-QQ-GoodBg: 0
-Message-ID: <B1817962D78CFE67+41b72968-e452-3fa9-c1ba-054cb1642de4@linux.starfivetech.com>
-Date: Fri, 14 Oct 2022 17:41:15 +0800
+	id 1ojKJo-00Ehx7-9K; Fri, 14 Oct 2022 13:01:41 +0000
+Received: by mail-pl1-x633.google.com with SMTP id n7so4688841plp.1;
+        Fri, 14 Oct 2022 06:01:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=p4dlnb05MmevigtHJ5npeQ25AeXBFYvEvQsw5sWpFGI=;
+        b=TGoQstWfBGwpuTarpv5uEIg+GAgT/B8QqBhRDR96IZxKwAI4I5PIdzTiMa9zbhp4+9
+         oAHw1vwsww0hwwxwcqeYc+wUEuYZoqeph9+B1ucQa+mI6s7swkxUN88mJvXsIGpgsJnX
+         hRojlYcK4Ty6urHIZNAr+kU0uKT9sIm0NBkNS8p1SDGuOM8XExer/rUuUxrU7tO3wyQr
+         B7trVpUSBbKblV8FU5M5YZnFjGQUA/nCtq6MPDrYS1utsCDFVFBPogUXJ1mhkJzaYXHs
+         lfRYXVKu4T0ycTRnriT5zMr3m0CsJLpduN8kEhjgYnB5Z9tAoVvaVwU9Arp1sJ0fRMMR
+         x6Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p4dlnb05MmevigtHJ5npeQ25AeXBFYvEvQsw5sWpFGI=;
+        b=aUl+VmMpEllxZnTVu82jbKRZ9K4ZQdDOVSLwVak9RfRgKRcY3Ar+jP/OKlq2YQuGBe
+         dQJM9C110/UK8ehZwwENt3Ci5Pm/Al+EwgL0/66duxC5jWqPS6gR5cmKkjmDxaNB37Rt
+         370Ba4huU6eRgZ6F7IgPULrid3mbzwps88fm6nF+WMfytpukgEhatQ5WJfidzFEdUrCC
+         ZSj2Na6leeLqQkGq2sq3scfiexsuFTWg7D7lJh2hkb69r3ueZqfgl3ddu7kwzsnLt2K6
+         4PhLfCy5KVBJvkYxoJvMcaObAAngHAn7zX3pvgWyUK2bTvsOVriaUUHMOI3GjCaEZs50
+         nNww==
+X-Gm-Message-State: ACrzQf0ijq+TqI5AksffNXdfGg0xU3HKOVwRlCMP70ycyfbOhqXYPDCF
+	BLejgTnFh2u2yrSNSfJITX3ZSMFWrqZPI5tU
+X-Google-Smtp-Source: AMsMyM6j7YsVpDg/m4uDWdQUc2SyFqtniSBBp/CWN50pRwlBieYiOP5HFCzYzVOIfZ3g5tS7seORQQ==
+X-Received: by 2002:a17:90b:4c85:b0:20d:7040:532a with SMTP id my5-20020a17090b4c8500b0020d7040532amr5544291pjb.243.1665752496799;
+        Fri, 14 Oct 2022 06:01:36 -0700 (PDT)
+Received: from debian.me (subs02-180-214-232-8.three.co.id. [180.214.232.8])
+        by smtp.gmail.com with ESMTPSA id y18-20020aa79e12000000b0056246403534sm1687407pfq.88.2022.10.14.06.01.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Oct 2022 06:01:36 -0700 (PDT)
+Received: by debian.me (Postfix, from userid 1000)
+	id B5EF7103F3B; Fri, 14 Oct 2022 20:01:32 +0700 (WIB)
+Date: Fri, 14 Oct 2022 20:01:32 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	anup@brainfault.org, heiko@sntech.de, guoren@kernel.org,
+	mick@ics.forth.gr, alexandre.ghiti@canonical.com, bhe@redhat.com,
+	vgoyal@redhat.com, dyoung@redhat.com, corbet@lwn.net,
+	Conor.Dooley@microchip.com, kexec@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, crash-utility@redhat.com,
+	heinrich.schuchardt@canonical.com, k-hagio-ab@nec.com,
+	hschauhan@nulltrace.org, yixun.lan@gmail.com
+Subject: Re: [PATCH 2/2] Documentation: kdump: describe VMCOREINFO export for
+ RISCV64
+Message-ID: <Y0ldrJ91ac0um3++@debian.me>
+References: <20221014074810.4471-1-xianting.tian@linux.alibaba.com>
+ <20221014074810.4471-3-xianting.tian@linux.alibaba.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 27/30] RISC-V: Add initial StarFive JH7110 device tree
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org
-References: <20220929143225.17907-1-hal.feng@linux.starfivetech.com>
- <20220930074914.6757-1-hal.feng@linux.starfivetech.com>
- <Yzgb0GzpLsV3RJyk@spud>
-From: Hal Feng <hal.feng@linux.starfivetech.com>
-In-Reply-To: <Yzgb0GzpLsV3RJyk@spud>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:linux.starfivetech.com:qybglogicsvr:qybglogicsvr2
+In-Reply-To: <20221014074810.4471-3-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221014_024203_200515_0D252743 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20221014_060140_350318_D4631B26 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +93,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7010679942792317538=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 1 Oct 2022 11:52:00 +0100, Conor Dooley wrote:
-> On Fri, Sep 30, 2022 at 03:49:14PM +0800, Hal Feng wrote:
-> > From: Emil Renner Berthing <kernel@esmil.dk>
-> > 
-> > Add initial device tree for the JH7110 RISC-V SoC by
-> > StarFive Technology Ltd.
-> > 
-> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> > Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> > Signed-off-by: Hal Feng <hal.feng@linux.starfivetech.com>
-> 
-> There's little point reviewing this dt since there's a load of issues
-> that you can trivially find by running dtbs_check/dt_binding_check, but
-> this SoB change is wrong - if Emil wrote the patch, then Jianlong's SoB
-> is either redundant or should be accompanied by a Co-developed-by tag.
-> 
-> Ditto for patch 28/30 "RISC-V: Add StarFive JH7110 VisionFive2 board
-> device tree".
 
-Will add Co-developed-by tag for Jianlong. Thanks.
+--===============7010679942792317538==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="nuzjBSR3N8Zosn2Q"
+Content-Disposition: inline
 
-> 
-> > ---
-> >  arch/riscv/boot/dts/starfive/jh7110.dtsi | 449 +++++++++++++++++++++++
-> >  1 file changed, 449 insertions(+)
-> >  create mode 100644 arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > 
-> > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > new file mode 100644
-> > index 000000000000..46f418d4198a
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> 
-> > +
-> > +	osc: osc {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +	};
-> > +
-> > +	clk_rtc: clk_rtc {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +	};
-> > +
-> > +	gmac0_rmii_refin: gmac0_rmii_refin {
-> > +		compatible = "fixed-clock";
-> > +		#clock-cells = <0>;
-> > +		clock-frequency = <50000000>;
-> 
-> I assume, given osc has it's frequency set in the board dts, that these
-> are all oscillators on the SoC?
 
-These are all on the board. Should move all "clock-frequency" to the board dts.
-I will recheck and modify this patch.
+--nuzjBSR3N8Zosn2Q
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Hal
+On Fri, Oct 14, 2022 at 03:48:10PM +0800, Xianting Tian wrote:
+> The following interrelated definitions and ranges are needed by the kdump
+> crash tool, they are exported by "arch/riscv/kernel/crash_core.c":
+>     VA_BITS,
+>     PAGE_OFFSET,
+>     phys_ram_base,
+>     MODULES_VADDR ~ MODULES_END,
+>     VMALLOC_START ~ VMALLOC_END,
+>     VMEMMAP_START ~ VMEMMAP_END,
+>     KASAN_SHADOW_START ~ KASAN_SHADOW_END,
+>     KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END
+>=20
+> Document these RISCV64 exports above.
+>=20
+
+The patch description LGTM, thanks.
+
+> +------------------------------------------------------------------------=
+----------------------------------------------------------------------------
+> +MODULES_VADDR|MODULES_END|VMALLOC_START|VMALLOC_END|VMEMMAP_START|VMEMMA=
+P_END|KASAN_SHADOW_START|KASAN_SHADOW_END|KERNEL_LINK_ADDR|ADDRESS_SPACE_END
+> +------------------------------------------------------------------------=
+----------------------------------------------------------------------------
+
+The overline above header text is unnecessary, so I have to strip it:
+
+---- >8 ----
+
+diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation=
+/admin-guide/kdump/vmcoreinfo.rst
+index 6c7a1728de220e..8e2e164cf3db49 100644
+--- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
++++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+@@ -615,7 +615,6 @@ phys_ram_base
+=20
+ Indicates the start physical RAM address.
+=20
+---------------------------------------------------------------------------=
+--------------------------------------------------------------------------
+ MODULES_VADDR|MODULES_END|VMALLOC_START|VMALLOC_END|VMEMMAP_START|VMEMMAP_=
+END|KASAN_SHADOW_START|KASAN_SHADOW_END|KERNEL_LINK_ADDR|ADDRESS_SPACE_END
+ --------------------------------------------------------------------------=
+--------------------------------------------------------------------------
+=20
+Thanks.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--nuzjBSR3N8Zosn2Q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCY0ldpgAKCRD2uYlJVVFO
+o51wAQDygf3rDiQGj/G3/lq6CeZQlyPUhwNtm2mmc2lNlrve0QD/cAljpqNnnPtK
+WUvHdL90TLML7Na4fSDiq+671IZ0TAI=
+=33JA
+-----END PGP SIGNATURE-----
+
+--nuzjBSR3N8Zosn2Q--
+
+
+--===============7010679942792317538==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7010679942792317538==--
+
