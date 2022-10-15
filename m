@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45998C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Oct 2022 11:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E477C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Oct 2022 11:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FRhLGxBt4RR9t41PcHJ/t6JJHPeq8LMB87E5pCvpIZM=; b=fwX857fYI8Wdes
-	juCd4+h7QtoSNsz/MGZcpFsvC90FfgqOfbJHWATstc3zWVrCrDvZjiW79yaD1J6+8eJ4ImcdIPfMF
-	lqWwoXCGkhWEkh2j6ARLnTUvKMwpMaAz5jiZHZhQIwQ0ZjiwuBhva8iTQIs82jD/iRT0DKdSspZhQ
-	rcu9m3+j00XF1Jl6tFhT03Jo7VjSHG2onKfYU4r3UerqkyFg/ux00kcjOMZHkCd1Lh+mWYt5lSMDE
-	dkkJ3nR6sUkQ/EY7aq2QSwCufMnnfgV1yqqjr6U0ZTcNw9/zCNkNT9ETIg/lHJG65LDuVi4ezgFR4
-	s7dMYdLqwzjUnapsBmvA==;
+	List-Owner; bh=8LBNYp2WvET0uiNbPCozfHc8xFuj0WJdu6SlLaL4OBA=; b=iU/mcv1MbbpCva
+	gK9i+ou2VGNinyqFDuvK49jyLSoDTuXJ+VobU1qlBhg7a3gOAmYjCEHsqTpeo5yWIhdvEYMURL9ix
+	VwRH2WtpsKl8zcyryUY3PvflYAd65sCi1U2QdCT5ya3dRfNUTN5NbDf8QkzDo13MqZMqJnPYbcyg/
+	OlGfFYZBOL+ByPxqvuEigbFm0AYKkb9jL8Lrl1ZibLaGv6ignFH818k97IQVCmKOzWuyjYrna/7pV
+	2hwVWfjfj0/Lj0MV3WBCmBDWR23jPHbe8HFzkw/lVK65m4ZvnS/KwSjuTkKdYPB5ctpyjMj5A/pCM
+	Mv/4T+Vfls6xVUby3fkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojfh4-00GqgZ-MW; Sat, 15 Oct 2022 11:51:06 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ojfhC-00Gqlk-9X; Sat, 15 Oct 2022 11:51:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojfh1-00Gqdj-AH
-	for linux-riscv@lists.infradead.org; Sat, 15 Oct 2022 11:51:05 +0000
+	id 1ojfh9-00GqjS-Gw
+	for linux-riscv@lists.infradead.org; Sat, 15 Oct 2022 11:51:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 067F7B80936;
-	Sat, 15 Oct 2022 11:51:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A4CC43141;
-	Sat, 15 Oct 2022 11:50:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 14A2760D2D;
+	Sat, 15 Oct 2022 11:51:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71ECEC4347C;
+	Sat, 15 Oct 2022 11:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665834660;
-	bh=oLo4LwoP9GQ++MbZ72D5YQbDVqlBfgDub+AiMlYcSSI=;
+	s=k20201202; t=1665834669;
+	bh=mGaiEStOgcPC4tu/pIinKmWA56gqdSEPvVhCdyZKWTk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OZFpcuhmd07fYgBYAS5TwzVG8AehUdodUEadsWOOgzRKzvzuZ+WhZ+ZkaKFNEMD4c
-	 LaMoPw3UWjDmcsw1ruVEjKtStM00XBh+pYE4sPERfXlE3qrpE1jEym+BXXToagTHQC
-	 butOe4XM7YxAsDaxFsjGhvTk9xqRlMgJ3hs5TbeBZJZzGLiWLsVsV/vCUV9CSDAFje
-	 LN0CL+wxleW7fQO9UczP3OTGvx8yaJzWn+uehKcYATYfQHZ40no2TEaPMbxcngQ03c
-	 pIbXBAcxkx7RkbbKGUjxNXqp2U0Tw0nb66HD7QIwUvwKqboCNvDaSvt0UXNKBpWOge
-	 TxyGFaY2SzC6A==
+	b=IDvgNIHLV8fI9L7nLFL+j7y9yKvpBlfK2MlciQ9ot5koa0BLLCyCRAM6EqoYXsHHe
+	 1bEkWfARgEqYs7zt3LYRF7zH87QmIsXDAwLp72n+uSPTzTVl4qV1ZeaHvaXRecfNxx
+	 76rXd60vPSe6/x14HmPHF2gmxQN9IhS/DqEoORdo8Q0EyZ0golgMUqZ3JpWXBgTOGx
+	 7ZxBfsyjogieFS57g+3RiIp631o5pxye3Qcrvl0r3BX+pRFFwrjy6762vOC+bb5Sxd
+	 RPGckv9iSpPZ+HMk97FO0AUIPINFf86rZOch+9j0Eh55ZXH6DkUBZLQEIOzSRnHjqg
+	 dvCz4kOpqJCiQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -69,17 +69,19 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V7 08/12] riscv: Support HAVE_SOFTIRQ_ON_OWN_STACK
-Date: Sat, 15 Oct 2022 07:46:58 -0400
-Message-Id: <20221015114702.3489989-9-guoren@kernel.org>
+	Dao Lu <daolu@rivosinc.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>,
+	Conor Dooley <Conor.Dooley@microchip.com>
+Subject: [PATCH V7 09/12] riscv: Add support for STACKLEAK gcc plugin
+Date: Sat, 15 Oct 2022 07:46:59 -0400
+Message-Id: <20221015114702.3489989-10-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221015114702.3489989-1-guoren@kernel.org>
 References: <20221015114702.3489989-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221015_045103_681357_9583A618 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20221015_045111_669545_9ECD52BC 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,92 +98,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+From: Dao Lu <daolu@rivosinc.com>
 
-Add the HAVE_SOFTIRQ_ON_OWN_STACK feature for the IRQ_STACKS config. The
-irq and softirq use the same independent irq_stack of percpu by time
-division multiplexing.
+Add support for STACKLEAK gcc plugin to riscv based heavily on the arm64
+version, and modifying the entry.S. Additionally, this disables the
+plugin for EFI stub code for riscv. All modifications base on
+generic_entry.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+The stackleak_erase_on_task_stack() is called in irq disabled context
+before return to user space.
+
+Here is the test result with LKDTM:
+echo STACKLEAK_ERASING > /sys/kernel/debug/provoke-crash/DIRECT
+[   53.110405] lkdtm: Performing direct entry STACKLEAK_ERASING
+[   53.111630] lkdtm: stackleak stack usage:
+[   53.111630]   high offset: 288 bytes
+[   53.111630]   current:     592 bytes
+[   53.111630]   lowest:      1136 bytes
+[   53.111630]   tracked:     1136 bytes
+[   53.111630]   untracked:   576 bytes
+[   53.111630]   poisoned:    14376 bytes
+[   53.111630]   low offset:  8 bytes
+[   53.115078] lkdtm: OK: the rest of the thread stack is properly
+erased
+
+Performance impact (tested on qemu env with 1 riscv64 hart, 1GB mem)
+    hackbench -s 512 -l 200 -g 15 -f 25 -P
+    2.0% slowdown
+
+Signed-off-by: Dao Lu <daolu@rivosinc.com>
+Co-developed-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Co-developed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Conor Dooley <Conor.Dooley@microchip.com>
 ---
- arch/riscv/Kconfig      |  7 ++++---
- arch/riscv/kernel/irq.c | 33 +++++++++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+), 3 deletions(-)
+Dao Lu gave the first patch at [1], and Xianting missed the previous
+patch and gave the second one [2]. Guo Ren tried to move
+stackleak into common generic entry codes [3], but Mark Rutland pointed
+out the problem. Combine the Dao Lu's patch with the GENEIRC_ENTRY
+patchset series, with some modifications (fit GENEIRC_ENTRY, directly
+using stackleak_erase_on_task_stack).
+
+[1] https://lore.kernel.org/linux-riscv/20220615213834.3116135-1-daolu@rivosinc.com/
+[2] https://lore.kernel.org/linux-riscv/20220828135407.3897717-1-xianting.tian@linux.alibaba.com/
+[3] https://lore.kernel.org/lkml/20220907014809.919979-1-guoren@kernel.org/
+---
+ arch/riscv/Kconfig                    | 1 +
+ arch/riscv/kernel/entry.S             | 3 +++
+ drivers/firmware/efi/libstub/Makefile | 2 +-
+ 3 files changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index e65a9cc0df5d..04d2d20fb0ab 100644
+index 04d2d20fb0ab..7476ce9c72d5 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -444,12 +444,13 @@ config FPU
- 	  If you don't know what to do here, say Y.
- 
- config IRQ_STACKS
--	bool "Independent irq stacks" if EXPERT
-+	bool "Independent irq & softirq stacks" if EXPERT
- 	default y
- 	select HAVE_IRQ_EXIT_ON_IRQ_STACK
-+	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	help
--	  Add independent irq stacks for percpu to prevent kernel stack overflows.
--	  We may save some memory footprint by disabling IRQ_STACKS.
-+	  Add independent irq & softirq stacks for percpu to prevent kernel stack
-+	  overflows. We may save some memory footprint by disabling IRQ_STACKS.
- 
- endmenu # "Platform type"
- 
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 5d77f692b198..a6406da34937 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -11,6 +11,7 @@
- #include <linux/seq_file.h>
- #include <asm/smp.h>
- #include <asm/vmap_stack.h>
-+#include <asm/softirq_stack.h>
- 
- #ifdef CONFIG_IRQ_STACKS
- static DEFINE_PER_CPU(ulong *, irq_stack_ptr);
-@@ -38,6 +39,38 @@ static void init_irq_stacks(void)
- 		per_cpu(irq_stack_ptr, cpu) = per_cpu(irq_stack, cpu);
- }
- #endif /* CONFIG_VMAP_STACK */
-+
-+#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
-+void do_softirq_own_stack(void)
-+{
-+#ifdef CONFIG_IRQ_STACKS
-+	if (on_thread_stack()) {
-+		ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id())
-+					+ IRQ_STACK_SIZE/sizeof(ulong);
-+		__asm__ __volatile(
-+		"addi	sp, sp, -"RISCV_SZPTR  "\n"
-+		REG_S"  ra, (sp)		\n"
-+		"addi	sp, sp, -"RISCV_SZPTR  "\n"
-+		REG_S"  s0, (sp)		\n"
-+		"addi	s0, sp, 2*"RISCV_SZPTR "\n"
-+		"move	sp, %[sp]		\n"
-+		"call	__do_softirq		\n"
-+		"addi	sp, s0, -2*"RISCV_SZPTR"\n"
-+		REG_L"  s0, (sp)		\n"
-+		"addi	sp, sp, "RISCV_SZPTR   "\n"
-+		REG_L"  ra, (sp)		\n"
-+		"addi	sp, sp, "RISCV_SZPTR   "\n"
-+		:
-+		: [sp] "r" (sp)
-+		: "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7",
-+		  "t0", "t1", "t2", "t3", "t4", "t5", "t6",
-+		  "memory");
-+	} else
+@@ -83,6 +83,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_SECCOMP_FILTER
++	select HAVE_ARCH_STACKLEAK
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 9864e784d6a6..167ae41ae4a8 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -145,6 +145,9 @@ ENTRY(ret_from_exception)
+ 	andi s0, s0, SR_SPP
+ #endif
+ 	bnez s0, 1f
++#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
++	call stackleak_erase_on_task_stack
 +#endif
-+		__do_softirq();
-+}
-+#endif /* CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK */
-+
- #else
- static void init_irq_stacks(void) {}
- #endif /* CONFIG_IRQ_STACKS */
+ 
+ 	/* Save unwound kernel stack pointer in thread_info */
+ 	addi s0, sp, PT_SIZE_ON_STACK
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index b1601aad7e1a..28170707fa6f 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+ cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+-				   -fpic
++				   -fpic $(DISABLE_STACKLEAK_PLUGIN)
+ cflags-$(CONFIG_LOONGARCH)	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fpie
+ 
 -- 
 2.36.1
 
