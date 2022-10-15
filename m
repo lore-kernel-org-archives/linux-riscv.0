@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DABC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Oct 2022 11:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E12FC433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Oct 2022 11:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TLsQefHB5OaI3Hej0L/JVk4JcnjZudDVrBIZPb+3pv8=; b=AYHIcssMS0LsnM
-	58ilGu0oqr14CWLcbyiZJaFlWayA5UKIOntjS/WDDnp/0SOpE2qTCpUL87QZbrjsnt0D9j04iHZfX
-	/lUlnTvG8hHlf4J6g3Owr5FgZZLFFRygXtnisNdsRapGZDcnGYquxJqNJyn7MvbF20PIZzlyTrc+N
-	XotFKOR7/dVZrVNNjXQdElHEQpQbQgjZvzVw9Bmt89oBJZ+WcUuGdGTBy6HylHdkNAe/xA4fNp3UQ
-	wTXsdN3XsK8mxD78z8vooPLaSe/b1VmszIpBGx5QmGZEKjzZuQkqMs0ZJQNyLHjw7zq8KbrsTPcp+
-	ILsX3n/Jm9ExGVpDkjdg==;
+	List-Owner; bh=Kk9CMgGG3uoKF5XXw1QN56Li+fkqrYGc32kw0Ahc84I=; b=RcO1vN+fPDb+je
+	5XgPl6pwpin7XKIKII2X5MQH0eMj5Vq/Co66M1doGdf/cReW6y6Fj3ehaeoFJW+/iGAH/VOAFW3yw
+	M3EtYA25iuqUg2uN/mV28F8bx6Fadr0jR6QapmUd8z8gxeavCY53U2kmOxYXiF07G7a5I5RR8xfYr
+	8gIGnQESEhn3pBHIsHtTYoFrFxYE6y9HnWg3LDoWDCjpTg/2bWot9aDr4RImUsUZ4X6Cl/lNDX0dA
+	OsIT6jFaguOau+wZVsWghlyUE9DtgCdvbfM/90OxSKfkpSLY0bxStLwHPMknbi/nvUgUExkkeJKcM
+	jkoA7q5lJMHfE5npFXLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojfgF-00GqCi-BT; Sat, 15 Oct 2022 11:50:15 +0000
+	id 1ojfgM-00GqG9-O9; Sat, 15 Oct 2022 11:50:22 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojfgC-00GqAo-5A
-	for linux-riscv@lists.infradead.org; Sat, 15 Oct 2022 11:50:13 +0000
+	id 1ojfgK-00GqEk-Ik
+	for linux-riscv@lists.infradead.org; Sat, 15 Oct 2022 11:50:21 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id AE756B8093B;
-	Sat, 15 Oct 2022 11:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAE75C4347C;
-	Sat, 15 Oct 2022 11:50:00 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 3820DB80942;
+	Sat, 15 Oct 2022 11:50:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C2A0C43141;
+	Sat, 15 Oct 2022 11:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1665834608;
-	bh=HgttzcB3yLFQv0oTv0xo1/g08wvYrxYqpGbvZbfJF4A=;
+	s=k20201202; t=1665834617;
+	bh=thj4lp5B0J2/kj7Zi1BMTTtT9fAnJMteMKwuLQ0ArOk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ic+NMMq3DMNQNnLLrBO36Tkg6tOlVpq2B1QsMX7YhyuBvyRQCixjSaWyh5XiGjZ8S
-	 pWxp9pr5uHEJgu2IpE1Lp5IvbjD9CDFdFHRwv3VCo2gHSzaztSRaQvOXgZPX1sSzIh
-	 eemte3mOtoC6MFO4E2RmGnG2Np7Vmnp/7319Q3XPeSiPMGQjkWDtJRQudFUs+9n5m9
-	 1SvlAv8q8aJ0N/U0kfiD1R+/EbEucpwJCVWYkkA76pSB9lo4L4dQPEiIi8UK27IMuU
-	 BIp3Sllxq2k+HvvB0FjHzS2syGXc6cLcq6h5JH4qbL3vK+asaXAwEy0NgRb2sDROLM
-	 I7RrpCBNXNCYg==
+	b=R5XzLVn076iss7xV1RdKtNLiZpWVefu5jxhiMooWoTaC4VHTPRY1luaFRWXMKLZVi
+	 MmDYcowubcRCEsE7oFjuw2RpP85hKcTCC403awmNHMLSwpcD3ovvuqjSmCBkSkPVT6
+	 i4Srn02JPNpmBXMWF0ESAU6cP/9kwrRkhVFqr2S6RYh5V0iaPV0Nm+UjfUZEoIuXs1
+	 hVc2git2QOO/wWil+QlWhKrg/kuAEFGEXmE/MFR5sLtA+qz9HwnESOODwLkwOV1KEQ
+	 UAjYJqwOnkgUuEqQiZkdbQT6xKPGNm+keNg4EvkofM2B8n2TJHQGq4n2EEfGH+g/Xr
+	 CkQumXMoR/agg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -70,17 +70,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH V7 02/12] riscv: compat_syscall_table: Fixup compile warning
-Date: Sat, 15 Oct 2022 07:46:52 -0400
-Message-Id: <20221015114702.3489989-3-guoren@kernel.org>
+	Oleg Nesterov <oleg@redhat.com>
+Subject: [PATCH V7 03/12] riscv: ptrace: Remove duplicate operation
+Date: Sat, 15 Oct 2022 07:46:53 -0400
+Message-Id: <20221015114702.3489989-4-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221015114702.3489989-1-guoren@kernel.org>
 References: <20221015114702.3489989-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221015_045012_383482_A935608F 
-X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-CacheID: sfid-20221015_045020_774322_1016DE79 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,35 +100,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-../arch/riscv/kernel/compat_syscall_table.c:12:41: warning: initialized
-field overwritten [-Woverride-init]
-   12 | #define __SYSCALL(nr, call)      [nr] = (call),
-      |                                         ^
-../include/uapi/asm-generic/unistd.h:567:1: note: in expansion of macro
-'__SYSCALL'
-  567 | __SYSCALL(__NR_semget, sys_semget)
+The TIF_SYSCALL_TRACE is controlled by a common code, see
+kernel/ptrace.c and include/linux/thread.h.
 
-Fixes: 59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
+clear_task_syscall_work(child, SYSCALL_TRACE);
+
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reported-by: kernel test robot <lkp@intel.com>
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
 ---
- arch/riscv/kernel/Makefile | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/kernel/ptrace.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index db6e4b1294ba..ab333cb792fd 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -9,6 +9,7 @@ CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
- CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
- endif
- CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
-+CFLAGS_compat_syscall_table.o += $(call cc-option,-Wno-override-init,)
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index 2ae8280ae475..44f4b1ca315d 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -212,7 +212,6 @@ unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs, unsigned int n)
  
- ifdef CONFIG_KEXEC
- AFLAGS_kexec_relocate.o := -mcmodel=medany $(call cc-option,-mno-relax)
+ void ptrace_disable(struct task_struct *child)
+ {
+-	clear_tsk_thread_flag(child, TIF_SYSCALL_TRACE);
+ }
+ 
+ long arch_ptrace(struct task_struct *child, long request,
 -- 
 2.36.1
 
