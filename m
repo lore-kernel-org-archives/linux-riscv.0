@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557F1C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Oct 2022 18:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7DDC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Oct 2022 12:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=00+MRNOCjRwcfnsaZ1RFVpr+897FgsrbT+rddAs8Xgc=; b=a6R2VcUBbOlVgq
-	uQEExMEyo/zNschBlqp8JBVTvnxlHa/CvFMyV+pOrx4R0wA341GH1G1YdseQ9UF5/YX0tRSCL5PhN
-	F5Lfh9wPfNKkGojZbYB+tiWWuPeNQBwjOgkHZCnJT/kLSWjDgSyemBlaSzDaAJDCqAsl9d3GvRhBG
-	TzVY5ITfgE7yDmqK7btVY1yC/c8pY5ZPaeqRhycJ7o36nXxcx/m3cbfk+K+AKl8rOAIpfNIlMfICn
-	A78hzV+JZ+Yb6Aa5jc+YJOm6Bz2/EfByWMw4sr7NltAEiv25pO9buVbyI3uk3veOkUBgsKRtLessz
-	a8sz73DkbVoAvmn+9tqg==;
+	List-Owner; bh=43Qhls7R+Z3LUGmbwn5ZdtnqwnIQxQGYrtE29MBvyjs=; b=Z6V29+Tos0ZA96
+	JnZR3UOb8sQX8B4i7vvq8L753C6PZ2lYI65ikJdfZMWujJpe+lnhrjrPNYpLeLcWFKR1rnrvDiHBN
+	/XPD0CKBKCwOQ+UHJZkYoB0Q1gmhihD5G5pto4yPQxPkPujNeGH+klezyIfCyjHQVzbp81jEfXpiU
+	JbxG6AG4spq5t8CwSb42RsMM+3YrzxacBrVOsjOIqNRs0wMBEnFQu5CcanrTSxwK+cqBUe6gWF8ci
+	3TpJY8rnpBF8L2+/NPL2BLRydEYTG/Ig5606+gEr9g7+ux+VyuqOeBiqUjKe07fHtgBjBsPEn0KAo
+	n1ynDj8udjsUTCblYS2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojlal-00HOBL-ME; Sat, 15 Oct 2022 18:08:59 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1ok3BZ-001TLQ-58; Sun, 16 Oct 2022 12:56:09 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ojlai-00HO8w-Rl
-	for linux-riscv@lists.infradead.org; Sat, 15 Oct 2022 18:08:58 +0000
-Received: by mail-qk1-x735.google.com with SMTP id a5so4445817qkl.6
-        for <linux-riscv@lists.infradead.org>; Sat, 15 Oct 2022 11:08:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4wAaC7lbGaB3AX/Lsftuvb2OO1sJpQJ6Ykn9DFNJXY0=;
-        b=FyRwiQ1Kkh2U3R7rwv/cUWgWbhnhVuRAkvLikv3swWoWi+Qni43MwmjlvAl7Qd5YWU
-         e3eQ8r4coovbGUfjgmrmah9muM3lMIJqLMPtobpzhigxXHyNURqImNwciQiRzGsAHdHO
-         qXOEVFqd/G+S/R1kNsVrId98EksJPTRvXw6S31DLxWwCE/s50meM1rY5rsjT96D1ObDy
-         lCH7/wDPhN4Zl3js/rayUXV95GaO+0Ed0I7Aor4TcANC3GM2Q2PJASLmjnpLgyV/gbKH
-         KXTHOpPBMJ9ORopJ3VS/8U3M5d4tTN/mU0ZQfTgvUx8AXj2lFRY2L268IjoNTL418YNj
-         eMZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4wAaC7lbGaB3AX/Lsftuvb2OO1sJpQJ6Ykn9DFNJXY0=;
-        b=VWAIbMITWEPUgV7xhZRU4NOS0Tr+XFM25jN7d4ZbFRBTT+keLnZXC6ghkXoa7oYng4
-         hetYX5SgZ4atIea3jsUSIeuJKdQx/zMq9yWFv4SXkoOOToHWe1OciAl4lxMe/LdhPmVx
-         mFyeP2LenobhO1E07SnwSxLtFheVfLASjg4+Gu2wK3DCgDbz2b3YlKdO+NBU13z63FQs
-         grqLbEkNr4GkjzeJWQ+pUG7Xv+TrEjkgZBOkUUVCMoMRDGEc7zjppljg4R0vRgWZsi/H
-         Igw7GpPOTUJuu8miuUyu8o0ucH+mgb0V7SNs8ftRXxZ77EjKEu5w37kkMU5rhkWibwHf
-         S8Yw==
-X-Gm-Message-State: ACrzQf388gX3sei0CXAmnUgUKjEuzUhTFWR0dSgn4CVMhY75a+iSszfT
-	C83UBWJ5TpiBQtVmCw+Bzqs=
-X-Google-Smtp-Source: AMsMyM6RKmR37GztXAcqofHNQn3klZzUQq+GK3VRFWmYfAI4qhzKm9L4cuQOR6HCO3RXlQARuABfrA==
-X-Received: by 2002:a37:6303:0:b0:6ec:554b:131d with SMTP id x3-20020a376303000000b006ec554b131dmr2532393qkb.166.1665857330103;
-        Sat, 15 Oct 2022 11:08:50 -0700 (PDT)
-Received: from localhost ([2601:4c1:c100:2270:2b6d:8b98:c35a:4b7])
-        by smtp.gmail.com with ESMTPSA id h6-20020a05620a400600b006b949afa980sm5294690qko.56.2022.10.15.11.08.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Oct 2022 11:08:49 -0700 (PDT)
-Date: Sat, 15 Oct 2022 11:08:51 -0700
-From: Yury Norov <yury.norov@gmail.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: x86@kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
+	id 1ok3BW-001TKa-1t
+	for linux-riscv@lists.infradead.org; Sun, 16 Oct 2022 12:56:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 42A8ACE0D88;
+	Sun, 16 Oct 2022 12:56:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA25C433D6;
+	Sun, 16 Oct 2022 12:56:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1665924961;
+	bh=StkAkNcdQ+zFOz0afCgnHsRcpdc9gPqXe15XLH7oAqg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DvACGCEZjD027TVP6lRW1aXaeuPZqskSJBNMigKVKMijbo+aa/+s+BTwqUt7Vdt24
+	 dU91gzXjYpDXXD92m/3HKEmfsmAcr9MZmiepaTjjonrB09sNorwnFekF4xRIxjnurv
+	 k60f2F69mzNdaUVUYWr7CNeo7iPnEqY3KbMo6LyY=
+Date: Sun, 16 Oct 2022 14:56:47 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: stable@vger.kernel.org, Aurelien Jarno <aurelien@aurel32.net>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>, openrisc@lists.librecores.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	linuxppc-dev@lists.ozlabs.org, Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] Fix /proc/cpuinfo cpumask warning
-Message-ID: <Y0r3M+WCMqugVoXf@yury-laptop>
-References: <20221014155845.1986223-1-ajones@ventanamicro.com>
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 4.19] riscv: fix build with binutils 2.38
+Message-ID: <Y0v/j8iyR0aqZZeh@kroah.com>
+References: <20221015111856.3869148-1-conor@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221014155845.1986223-1-ajones@ventanamicro.com>
+In-Reply-To: <20221015111856.3869148-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221015_110856_905238_88DB05D2 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20221016_055606_303668_760E9816 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +73,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 14, 2022 at 05:58:43PM +0200, Andrew Jones wrote:
-> Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") has
-> started issuing warnings[*] when cpu indices equal to nr_cpu_ids - 1
-> are passed to cpumask_next* functions. seq_read_iter() and cpuinfo's
-> start and next seq operations implement a pattern like
+On Sat, Oct 15, 2022 at 12:18:57PM +0100, Conor Dooley wrote:
+> From: Aurelien Jarno <aurelien@aurel32.net>
 > 
->   n = cpumask_next(n - 1, mask);
->   show(n);
->   while (1) {
->       ++n;
->       n = cpumask_next(n - 1, mask);
->       if (n >= nr_cpu_ids)
->           break;
->       show(n);
->   }
->     
-> which will issue the warning when reading /proc/cpuinfo.
+> commit 6df2a016c0c8a3d0933ef33dd192ea6606b115e3 upstream.
 > 
-> [*] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
+> >From version 2.38, binutils default to ISA spec version 20191213. This
+> means that the csr read/write (csrr*/csrw*) instructions and fence.i
+> instruction has separated from the `I` extension, become two standalone
+> extensions: Zicsr and Zifencei. As the kernel uses those instruction,
+> this causes the following build failure:
 > 
-> This series address the issue for x86 and riscv, but from a quick
-> grep of cpuinfo seq operations, I think at least openrisc, powerpc,
-> and s390 also need an equivalent patch. While the test is simple (see
-> next paragraph) I'm not equipped to test on each architecture.
+>   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+>   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h: Assembler messages:
+>   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+>   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+>   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
+>   <<BUILDDIR>>/arch/riscv/include/asm/vdso/gettimeofday.h:71: Error: unrecognized opcode `csrr a5,0xc01'
 > 
-> To test, just build a kernel with DEBUG_PER_CPU_MAPS enabled, boot to
-> a shell, do 'cat /proc/cpuinfo', and look for a kernel warning.
+> The fix is to specify those extensions explicitly in -march. However as
+> older binutils version do not support this, we first need to detect
+> that.
 > 
-> While the patches are being posted together in a series since they're
-> for two different architectures they don't necessarily need to go
-> through the same tree.
+> Signed-off-by: Aurelien Jarno <aurelien@aurel32.net>
+> Tested-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> [Conor: converted to the 4.19 style of march string generation]
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> CC: Palmer Dabbelt <palmer@dabbelt.com>
+> CC: linux-riscv@lists.infradead.org
+> CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> 
+> lkp has yet to complain, so here you go Greg..
 
-Acked-by: Yury Norov <yury.norov@gmail.com
+Now queued up, thanks.
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
