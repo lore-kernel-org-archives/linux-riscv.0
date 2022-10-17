@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEDAC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 12:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62FBC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 14:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XZpmiyVIPq0ajBhLGi2FeVDMP8yAXA9KhDf+GaaEiB8=; b=ZTdLgKDTXTh2SZ
-	ahYt81W8b2/CQj+c6MS5JXBc0jLfhxUaSxjo1eyGQeyBm86gcnXwB5mdYtCfJNs2rkg96ukqnFuVl
-	8kTKv6jkaEIkR7MFYoWuw2oBZB5HqcoLbPsiuFUxma0ZXK2PuII+jYPIp/gR97Yjm7kPlleIB6o2W
-	8rnsw0LFp3eCyjgLbhxdjnd2GUzhVOwwPkMJxIyIAhV4nf4aRO+QwsDxhrGXIo+RY18gi/AWIPN38
-	ILf1n+5B+xt4PfMe5xd1EiVqBcGwlZFBQ30ELQ6oZ5/qmKMb6xrD74QRdsFrpcSUAiJbqsHAhG2YB
-	BnNWUPDArGFOWxchPZLw==;
+	List-Owner; bh=NGmuoVbaHPmBLU/JUIR/N/BiuIpkCQRp1J8U+EIVspg=; b=nOemsz+iC+3rkn
+	MB05a2/CfrajgVv10L5KTbehtHN3djcnMyEOg3OgErArGUfxAR3OeyW1H46jucP5TPuBDuhmMqGXK
+	ROK+4YxFe4aVTChT913/aPilvIk8SiEq61lvcyuuBRwcH6AvcxmisM9HlqbKa0/AFnwBGzh1gNlBX
+	hxv6INWaD5BUdd+agP70GHZixhks+dqPOSKNnFuV55Iw+QMHuc18lp0GdwQxxLVGOEU/Ab2uW7xxT
+	VULT8KiGRh2wJ/EhnfrKiA9OnSlsMuCjRDs7kJR9miySvpqhQ1MgyiQDemj/ES3M9MEkV9Dk8hQIX
+	1ej4wk4cQUiLzw6N5Xug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPMQ-00BaZe-Mi; Mon, 17 Oct 2022 12:36:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1okR9d-00CgDk-2w; Mon, 17 Oct 2022 14:31:45 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPMB-00BaNv-BE
-	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 12:36:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 31D8DB81640
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 12:36:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B7CC43146
-	for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 12:36:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666010191;
-	bh=1DK6j1RdeLyk2nOKe2HKqu85PpZMd3dzDfvg7w5UV9k=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fklx5Z6I9cLTunQIu/YMuvNORrweUup3qzJUSU5fjd9zz+bgbPEM77L5D4u8LkA7M
-	 +FdRPxEax2/+FzpmsJcASpA8Y2XFsLbCZeIMF8heej8xdKedyo02ZGw6N6Nfqc7nJv
-	 zjEM3hz0t9RHJ44YXaZWvcyj2N274U/+4WP9faCBb3HC2qCnWtGxCp6OI6pit8reDH
-	 4YEwgx5fzmf0vu10R0cUnn2I+CM3a9nFga2m6RcpbCcvIcSaz5nNq4aUXEQ0t9THlE
-	 TJ7Hz5vEsykKJiodgDA7OAOe4MK/ZPMzhqR2v5o5EEo9pxF8WeMIaZ6Ab7/kRXbgPo
-	 bYiB2OE5yruzg==
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-132b8f6f1b2so13020343fac.11
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 05:36:31 -0700 (PDT)
-X-Gm-Message-State: ACrzQf30gR9VTFS15PI1wg14fID9fXAaT/W/E9uu35FQErxdgE2pEaEw
-	1vQ2BYoUCndtROhOO1gqdja/5ki5OGnhVrFxCSM=
-X-Google-Smtp-Source: AMsMyM5tK3zJKqdnXbERJmt+RfY70DEZJdkx8/C9sIgfaUjvCiyRLClyv6E6Qlq0T0n5h539Kx6vE9aqRk9p/UKIq6c=
-X-Received: by 2002:a05:6870:4413:b0:136:66cc:6af8 with SMTP id
- u19-20020a056870441300b0013666cc6af8mr15408042oah.112.1666010190362; Mon, 17
- Oct 2022 05:36:30 -0700 (PDT)
+	id 1okR9a-00CgCg-42
+	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 14:31:43 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id t186so13463052yba.12
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 07:31:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yh12UWjdjMMugaBN7TG2En01IfaGopWII1TN7vU8KRE=;
+        b=hizRtERUVOppD+XCfJNb6iDmIVgY+Gm+PRIcuIdsJ9lxBdy2A0n8B8UIuLJW/nTUnb
+         MUN+7V+vVUjjomupFxWJ6EhSqzg8oDnlygh6cU5TYST5cwAh6U/O6FD8PwGrDqblvpYG
+         0lVBjJQ613s34SWoieDLGh5ynLCNUbDO/7taVnV9vG/og/ugMgLHZBx/v27eTgyWgf3e
+         wse2S0VT9XMj5GtRr9zjEsqrt/uaOf3o3GvfdD31TSYyh9XYpLYNyMNUD4W4laUU0IiL
+         iPvg5Ocr6i/qpifl9mdI+LZqlJc7GxKd7AyX/1AqUepMdkDalkhU/5f/u7snssJOrl1n
+         SmNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yh12UWjdjMMugaBN7TG2En01IfaGopWII1TN7vU8KRE=;
+        b=CRL6+KUbjTCT7+/L3NQ1OoHcmM2M8PnfKJs59ZshQ7zXtj2RRUO6442Lqhuu6xKCFd
+         NV+Z1BszQ62rhQeCfmQcvogieIW0pRiNgp9agzXta8yxM+mRreBHWsrjtrNbvtwomW0w
+         MfpmopLAXZcLomeZ3AmPYD4k/MfTFHd5bLTrkAKi0LFvjgPM/gyXhIUc7VqtzJRi2kkf
+         WwXly25iYukdf6nmpimgioUJGqBBIam7PQOgGVpEfpplhzMv94MYpVcOZhHEX42HB8j3
+         fcnUnIgrkrPF5eDW8UMZGbGKWL6UvjkWj0fvpiQtCLJaYLCVOFtb2FXOiWtmJmm9LFxw
+         6EYw==
+X-Gm-Message-State: ACrzQf1UPl4faihmcmkxYDWe0jeSVzFh+DPr867Z8DLUsPL47RC+YNaP
+	pn/kiha5H1brskQUn2iVR8xtZ+e+V7GiQyNbYEY=
+X-Google-Smtp-Source: AMsMyM7K07rHVPBeST/AFWZuNS1Yu7RFT9UeFM2vY2Fs1SHRaEpyFFJ9QcmTZSDbhgMm0Oc6gjxsDlGZz1tTivwA4yI=
+X-Received: by 2002:a25:6ac2:0:b0:6c0:efe6:462 with SMTP id
+ f185-20020a256ac2000000b006c0efe60462mr9663667ybc.9.1666017099150; Mon, 17
+ Oct 2022 07:31:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
- <CA+V-a8smkDmQbz76sTA5XfUm7bkY4Ee-L5xYW+-xRWkE1TYiAw@mail.gmail.com>
- <CAJF2gTQ4G-j3p_pHvVQ82R2DFQZq70xgE3ZhoRkxiSzrHnU2og@mail.gmail.com>
- <CA+V-a8tLYT0541FNo_o-sTsV7ywwnGTRtv6ropVu+0Wd-PsM6A@mail.gmail.com>
- <CAJF2gTQ9N5tyYB46eaMJ=Z0V7pm9TxFAXQ1qxLXLqj2C9zP2Ng@mail.gmail.com>
- <CA+V-a8sTQzbXC6j4+fNAYiM7_zciPaxb=uOzD9iWrvLwUBgDqA@mail.gmail.com>
- <CAJF2gTQnQSCwGAzXPENrCz2Uwf8WivYsRP57XGoCtywxE2_bZA@mail.gmail.com> <CA+V-a8u_e31uW9=ZutAkZbfF9yj7XzPcjwqjN2A=kMw91dKyhA@mail.gmail.com>
-In-Reply-To: <CA+V-a8u_e31uW9=ZutAkZbfF9yj7XzPcjwqjN2A=kMw91dKyhA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 17 Oct 2022 20:36:17 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT-xwXP49o2jt+02ku8+g6JCizndYry1Xm7zTxYJ18iUQ@mail.gmail.com>
-Message-ID: <CAJF2gTT-xwXP49o2jt+02ku8+g6JCizndYry1Xm7zTxYJ18iUQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
- RZ/Five SoC
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220930081357.651914-1-l3b2w1@gmail.com> <Yzm+z+mv/VSA+5hg@spud>
+In-Reply-To: <Yzm+z+mv/VSA+5hg@spud>
+From: binglei wang <l3b2w1@gmail.com>
+Date: Mon, 17 Oct 2022 22:31:28 +0800
+Message-ID: <CAJ3C4KzyAR7dKYFBKHzFEXr-dzr-JMGRFVx+dybMhRPy0uHUgA@mail.gmail.com>
+Subject: Re: [PATCH v8] rethook: add riscv rethook implementation
+To: Conor Dooley <conor@kernel.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	naveen.n.rao@linux.ibm.com, anil.s.keshavamurthy@intel.com, 
+	davem@davemloft.net, mhiramat@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_053635_779084_08F411FA 
-X-CRM114-Status: GOOD (  49.45  )
+X-CRM114-CacheID: sfid-20221017_073142_201491_9BDC11FD 
+X-CRM114-Status: GOOD (  23.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,197 +87,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 17, 2022 at 5:40 PM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
->
-> Hi Guo,
->
-> On Tue, Oct 11, 2022 at 2:10 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Tue, Oct 11, 2022 at 5:39 PM Lad, Prabhakar
-> > <prabhakar.csengg@gmail.com> wrote:
-> > >
-> > > Hi Guo,
-> > >
-> > > On Thu, Oct 6, 2022 at 1:59 AM Guo Ren <guoren@kernel.org> wrote:
-> > > >
-> > > > On Wed, Oct 5, 2022 at 11:03 PM Lad, Prabhakar
-> > > > <prabhakar.csengg@gmail.com> wrote:
-> > > > >
-> > > > > Hi Guo,
-> > > > >
-> > > > > On Wed, Oct 5, 2022 at 3:23 PM Guo Ren <guoren@kernel.org> wrote:
-> > > > > >
-> > > > > > On Wed, Oct 5, 2022 at 8:54 PM Lad, Prabhakar
-> > > > > > <prabhakar.csengg@gmail.com> wrote:
-> > > > > > >
-> > > > > > > Hi Guo,
-> > > > > > >
-> > > > > > > On Wed, Oct 5, 2022 at 2:29 AM Guo Ren <guoren@kernel.org> wrote:
-> > > > > > > >
-> > > > > > > > On Tue, Oct 4, 2022 at 6:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > > > > > >
-> > > > > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > > > > > >
-> > > > > > > > > On the AX45MP core, cache coherency is a specification option so it may
-> > > > > > > > > not be supported. In this case DMA will fail. As a workaround, firstly we
-> > > > > > > > > allocate a global dma coherent pool from which DMA allocations are taken
-> > > > > > > > > and marked as non-cacheable + bufferable using the PMA region as specified
-> > > > > > > > > in the device tree. Synchronization callbacks are implemented to
-> > > > > > > > > synchronize when doing DMA transactions.
-> > > > > > > > >
-> > > > > > > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > > > > > > > > block that allows dynamic adjustment of memory attributes in the runtime.
-> > > > > > > > > It contains a configurable amount of PMA entries implemented as CSR
-> > > > > > > > > registers to control the attributes of memory locations in interest.
-> > > > > > > > >
-> > > > > > > > > Below are the memory attributes supported:
-> > > > > > > > > * Device, Non-bufferable
-> > > > > > > > > * Device, bufferable
-> > > > > > > > > * Memory, Non-cacheable, Non-bufferable
-> > > > > > > > > * Memory, Non-cacheable, Bufferable
-> > > > > > > > > * Memory, Write-back, No-allocate
-> > > > > > > > > * Memory, Write-back, Read-allocate
-> > > > > > > > > * Memory, Write-back, Write-allocate
-> > > > > > > > > * Memory, Write-back, Read and Write-allocate
-> > > > > > > > Seems Svpbmt's PMA, IO, and NC wouldn't fit your requirements, could
-> > > > > > > > give a map list of the types of Svpbmt? And give out what you needed,
-> > > > > > > > but Svpbmt can't.
-> > > > > > > >
-> > > > > > > Sorry I didn't get what you meant here, could you please elaborate.
-> > > > > > I know there is no pbmt in AX45MP, I am just curious how many physical
-> > > > > > memory attributes you would use in linux? It seems only one type used
-> > > > > > in the series:
-> > > > > > cpu_nocache_area_set -> sbi_ecall(SBI_EXT_ANDES,
-> > > > > > SBI_EXT_ANDES_SET_PMA, offset, vaddr, size, entry_id, 0, 0);
-> > > > > >
-> > > > > Yes, currently we only use "Memory, Non-cacheable, Bufferable". I was
-> > > > > wondering if we could send these options as flags from DT something
-> > > > > like below so that it's not hard coded in the code.
-> > > > >
-> > > > > /* PMA config */
-> > > > > #define AX45MP_PMACFG_ETYP                GENMASK(1, 0)
-> > > > > /* OFF: PMA entry is disabled */
-> > > > > #define AX45MP_PMACFG_ETYP_DISABLED            0
-> > > > > /* Naturally aligned power of 2 region */
-> > > > > #define AX45MP_PMACFG_ETYP_NAPOT            3
-> > > > >
-> > > > > #define AX45MP_PMACFG_MTYP                GENMASK(5, 2)
-> > > > > /* Device, Non-bufferable */
-> > > > > #define AX45MP_PMACFG_MTYP_DEV_NON_BUF            (0 << 2)
-> > > > > /* Device, bufferable */
-> > > > > #define AX45MP_PMACFG_MTYP_DEV_BUF            (1 << 2)
-> > > > > /* Memory, Non-cacheable, Non-bufferable */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF    (2 << 2)
-> > > > > /* Memory, Non-cacheable, Bufferable */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF        (3 << 2)
-> > > > > /* Memory, Write-back, No-allocate */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_NA            (8 << 2)
-> > > > > /* Memory, Write-back, Read-allocate */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_RA            (9 << 2)
-> > > > > /* Memory, Write-back, Write-allocate */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_WA            (10 << 2)
-> > > > > /* Memory, Write-back, Read and Write-allocate */
-> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_R_WA            (11 << 2)
-> > > > >
-> > > > > /* AMO instructions are supported */
-> > > > > #define AX45MP_PMACFG_NAMO_AMO_SUPPORT            (0 << 6)
-> > > > > /* AMO instructions are not supported */
-> > > > > #define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT        (1 << 6)
-> > > > >
-> > > > >
-> > > > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0
-> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
-> > > > >                               <0x0 0x10000000 0x0 0x04000000 0x0
-> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT >,
-> > > > >                               <0x0 0x20000000 0x0 0x10000000 0x0
-> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
-> > > > >                               <0x0 0x58000000 0x0 0x08000000 0x0
-> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
-> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>;
-> > > > >
-> > > > > Does the above sound good?
-> > > > I've no idea. But for working around, I would give Acked-by.
-> > > >
-> > > > >
-> > > > > > I'm not sure how you make emmc/usb/gmac's dma ctrl desc work around
-> > > > > > without pbmt when they don't have cache coherency protocol. Do you
-> > > > > > need to inject dma_sync for desc synchronization? What's the effect of
-> > > > > > dynamic PMA in the patch series?
-> > > > > >
-> > > > > Currently we have setup the pma regions as below:
-> > > > >
-> > > > > l2cache: cache-controller@13400000 {
-> > > > >                 compatible = "andestech,ax45mp-cache", "cache";
-> > > > >                 cache-size = <0x40000>;
-> > > > >                 cache-line-size = <64>;
-> > > > >                 cache-sets = <1024>;
-> > > > >                 cache-unified;
-> > > > >                 reg = <0x0 0x13400000 0x0 0x100000>;
-> > > > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0 0xf>,
-> > > > >                               <0x0 0x10000000 0x0 0x04000000 0x0 0xf>,
-> > > > >                               <0x0 0x20000000 0x0 0x10000000 0x0 0xf>,
-> > > > >                               <0x0 0x58000000 0x0 0x08000000 0x0 0xf>;
-> > > > >                 interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
-> > > > >         };
-> > > > >
-> > > > > The last pma-regions entry 0x58000000 is a DDR location this memory
-> > > > > locations is marked as shared DMA pool with below in DT,
-> > > > >
-> > > > >     reserved-memory {
-> > > > >         #address-cells = <2>;
-> > > > >         #size-cells = <2>;
-> > > > >         ranges;
-> > > > >
-> > > > >         reserved: linux,cma@58000000 {
-> > > > >             compatible = "shared-dma-pool";
-> > > > >             no-map;
-> > > > >             linux,dma-default;
-> > > > >             reg = <0x0 0x58000000 0x0 0x08000000>;
-> > > > >         };
-> > > > >     };
-> > > > >
-> > > > > And for ARCH_R9A07G043 we automatically select DMA_GLOBAL_POOL, so the
-> > > > > IP blocks (emmc/usb/gmac's) requesting DMA'able memory will
-> > > > > automatically fall into this region which is non-cacheable but
-> > > > > bufferable (set in PMA) and rest everything is taken care by clean and
-> > > > > flush callbacks. We dont have  inject dma_sync for desc
-> > > > > synchronization for existing drivers (which are shared with Renesas
-> > > > > RZ/G2L family)
-> > > > Better than I thought :). The "non-cacheable but c" is "weak
-> > > > order," also raising the bufferable signal of AXI transactions. Right?
-> > > Yes, I have confirmed from the HW team it does raise bufferable signal
-> > > of AXI transactions. So far with the drivers (ETH/USB/DMAC) we haven't
-> > > seen issues so far.
-> > >
-> > > Do you foresee any issues?
-> > That depends on you interconnect design, most of the simple
-> > interconnects would ignore bufferable. Some NoC interconnects would
-> > buffer the transactions, which means data would be buffered in
-> > interconnects after CPU store instruction retired. If the CPU kicks
-> > the dma working with an IO reg write, hw may not guarantee the orders
-> > of the last data written and dma IO reg kick start. Then dma may lose
-> > the data.
-> >
-> I haven't see this issue, maybe to avoid this the controller register
-> space could be marked as non-cachebale + non-bufferable in the PMA by
-That sounds good, and should be. Although maybe not needed.
+Hi Conor,
+could you please help me to push forward merging process of this patch
+into the 6.1 ?  Thank you!
 
-> this way we could ensure orders.
->
-> What do you think?
->
-> Cheers,
-> Prabhakar
+Binglei Wang
+Best wishes.
 
 
-
--- 
-Best Regards
- Guo Ren
+On 2022-10-03 00:39, Conor Dooley wrote:
+> Hey Binglei,
+> I am not qualified to give you an actual R-b on this patch, but I see
+> you did get one from Masami who very much is!
+>
+> That said, the patch looks a lot better (and much simpler!) now. Thanks
+> for sticking with it despite the initial issues with your email setup
+> and the submission process.
+>
+> Thanks,
+> Conor.
+>
+> On Fri, Sep 30, 2022 at 04:13:57PM +0800, Binglei Wang wrote:
+>> From: Binglei Wang <l3b2w1@gmail.com>
+>>
+>> Implement the kretprobes on riscv arch by using rethook machenism
+>> which abstracts general kretprobe info into a struct rethook_node
+>> to be embedded in the struct kretprobe_instance.
+>>
+>> Signed-off-by: Binglei Wang <l3b2w1@gmail.com>
+>> ---
+>>
+>> Notes:
+>>      v8: Add the omitted rethook.h
+>>      v7: Add the changelog.
+>>      v6: Remove the kretprobes trampoline.
+>>      v5: Trt to fix robot compiling error and warnings.
+>>      v4: Add patch version number.
+>>      v3: Trt to fix robot compiling error and warnings.
+>>      v2: Add comit log to explain reasons behind changes.
+>>          Use my personal email instead of work email
+>>              to avoid the attachments of company informaton.
+>>          Make the kprobes_trampoline.S code to be shared.
+>>      v1: Add riscv rethook implementation.
+>>
+>>   arch/riscv/Kconfig                            |  1 +
+>>   arch/riscv/include/asm/kprobes.h              |  2 --
+>>   arch/riscv/kernel/probes/Makefile             |  2 +-
+>>   arch/riscv/kernel/probes/kprobes.c            | 13 ---------
+>>   arch/riscv/kernel/probes/rethook.c            | 27 +++++++++++++++++++
+>>   arch/riscv/kernel/probes/rethook.h            |  8 ++++++
+>>   ...obes_trampoline.S => rethook_trampoline.S} |  6 ++---
+>>   7 files changed, 40 insertions(+), 19 deletions(-)
+>>   create mode 100644 arch/riscv/kernel/probes/rethook.c
+>>   create mode 100644 arch/riscv/kernel/probes/rethook.h
+>>   rename arch/riscv/kernel/probes/{kprobes_trampoline.S => rethook_trampoline.S} (94%)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 59d18881f..bfb66cdc5 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -97,6 +97,7 @@ config RISCV
+>>      select HAVE_KPROBES if !XIP_KERNEL
+>>      select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
+>>      select HAVE_KRETPROBES if !XIP_KERNEL
+>> +    select HAVE_RETHOOK if !XIP_KERNEL
+>>      select HAVE_MOVE_PMD
+>>      select HAVE_MOVE_PUD
+>>      select HAVE_PCI
+>> diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
+>> index 217ef89f2..e7882ccb0 100644
+>> --- a/arch/riscv/include/asm/kprobes.h
+>> +++ b/arch/riscv/include/asm/kprobes.h
+>> @@ -40,8 +40,6 @@ void arch_remove_kprobe(struct kprobe *p);
+>>   int kprobe_fault_handler(struct pt_regs *regs, unsigned int trapnr);
+>>   bool kprobe_breakpoint_handler(struct pt_regs *regs);
+>>   bool kprobe_single_step_handler(struct pt_regs *regs);
+>> -void __kretprobe_trampoline(void);
+>> -void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+>>
+>>   #endif /* CONFIG_KPROBES */
+>>   #endif /* _ASM_RISCV_KPROBES_H */
+>> diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
+>> index 7f0840dcc..c40139e9c 100644
+>> --- a/arch/riscv/kernel/probes/Makefile
+>> +++ b/arch/riscv/kernel/probes/Makefile
+>> @@ -1,6 +1,6 @@
+>>   # SPDX-License-Identifier: GPL-2.0
+>>   obj-$(CONFIG_KPROBES)              += kprobes.o decode-insn.o simulate-insn.o
+>> -obj-$(CONFIG_KPROBES)               += kprobes_trampoline.o
+>> +obj-$(CONFIG_RETHOOK)               += rethook.o rethook_trampoline.o
+>>   obj-$(CONFIG_KPROBES_ON_FTRACE)    += ftrace.o
+>>   obj-$(CONFIG_UPROBES)              += uprobes.o decode-insn.o simulate-insn.o
+>>   CFLAGS_REMOVE_simulate-insn.o = $(CC_FLAGS_FTRACE)
+>> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+>> index e6e950b7c..f21592d20 100644
+>> --- a/arch/riscv/kernel/probes/kprobes.c
+>> +++ b/arch/riscv/kernel/probes/kprobes.c
+>> @@ -345,19 +345,6 @@ int __init arch_populate_kprobe_blacklist(void)
+>>      return ret;
+>>   }
+>>
+>> -void __kprobes __used *trampoline_probe_handler(struct pt_regs *regs)
+>> -{
+>> -    return (void *)kretprobe_trampoline_handler(regs, NULL);
+>> -}
+>> -
+>> -void __kprobes arch_prepare_kretprobe(struct kretprobe_instance *ri,
+>> -                                  struct pt_regs *regs)
+>> -{
+>> -    ri->ret_addr = (kprobe_opcode_t *)regs->ra;
+>> -    ri->fp = NULL;
+>> -    regs->ra = (unsigned long) &__kretprobe_trampoline;
+>> -}
+>> -
+>>   int __kprobes arch_trampoline_kprobe(struct kprobe *p)
+>>   {
+>>      return 0;
+>> diff --git a/arch/riscv/kernel/probes/rethook.c b/arch/riscv/kernel/probes/rethook.c
+>> new file mode 100644
+>> index 000000000..cbd0da059
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/rethook.c
+>> @@ -0,0 +1,27 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Generic return hook for riscv.
+>> + */
+>> +
+>> +#include <linux/kprobes.h>
+>> +#include <linux/rethook.h>
+>> +#include "rethook.h"
+>> +
+>> +/* This is called from arch_rethook_trampoline() */
+>> +unsigned long __used arch_rethook_trampoline_callback(struct pt_regs *regs)
+>> +{
+>> +    return rethook_trampoline_handler(regs, regs->s0);
+>> +}
+>> +NOKPROBE_SYMBOL(arch_rethook_trampoline_callback);
+>> +
+>> +
+>> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount)
+>> +{
+>> +    rhn->ret_addr = regs->ra;
+>> +    rhn->frame = regs->s0;
+>> +
+>> +    /* replace return addr with trampoline */
+>> +    regs->ra = (unsigned long)arch_rethook_trampoline;
+>> +}
+>> +NOKPROBE_SYMBOL(arch_rethook_prepare);
+>> +
+>> diff --git a/arch/riscv/kernel/probes/rethook.h b/arch/riscv/kernel/probes/rethook.h
+>> new file mode 100644
+>> index 000000000..cc573d701
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/probes/rethook.h
+>> @@ -0,0 +1,8 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +#ifndef __RISCV_RETHOOK_H
+>> +#define __RISCV_RETHOOK_H
+>> +
+>> +unsigned long arch_rethook_trampoline_callback(struct pt_regs *regs);
+>> +void arch_rethook_prepare(struct rethook_node *rhn, struct pt_regs *regs, bool mcount);
+>> +
+>> +#endif
+>> diff --git a/arch/riscv/kernel/probes/kprobes_trampoline.S b/arch/riscv/kernel/probes/rethook_trampoline.S
+>> similarity index 94%
+>> rename from arch/riscv/kernel/probes/kprobes_trampoline.S
+>> rename to arch/riscv/kernel/probes/rethook_trampoline.S
+>> index 7bdb09ded..21bac92a1 100644
+>> --- a/arch/riscv/kernel/probes/kprobes_trampoline.S
+>> +++ b/arch/riscv/kernel/probes/rethook_trampoline.S
+>> @@ -75,13 +75,13 @@
+>>      REG_L x31, PT_T6(sp)
+>>      .endm
+>>
+>> -ENTRY(__kretprobe_trampoline)
+>> +ENTRY(arch_rethook_trampoline)
+>>      addi sp, sp, -(PT_SIZE_ON_STACK)
+>>      save_all_base_regs
+>>
+>>      move a0, sp /* pt_regs */
+>>
+>> -    call trampoline_probe_handler
+>> +    call arch_rethook_trampoline_callback
+>>
+>>      /* use the result as the return-address */
+>>      move ra, a0
+>> @@ -90,4 +90,4 @@ ENTRY(__kretprobe_trampoline)
+>>      addi sp, sp, PT_SIZE_ON_STACK
+>>
+>>      ret
+>> -ENDPROC(__kretprobe_trampoline)
+>> +ENDPROC(arch_rethook_trampoline)
+>> --
+>> 2.27.0
+>>
 
 _______________________________________________
 linux-riscv mailing list
