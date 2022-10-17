@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B37C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 12:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BB8C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 12:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GWMYCyGsE15AOqOaZ39QdXdb2mwVqmaGZGHNrmEwjSg=; b=x4vuh7HwNNKXsS
-	DJsjglUxqoTQY5E2OCDBPoH3YDmAJS9qU4jlNtgoGNnfhrAAZG7oyAY4dDnxt0L5q5cmcQBma61QA
-	H/ubHW+vc44Rimh6pLxTXxJqmQiWorJ10J6A2ds0txTKo3ANuC3W49nOCWSav2b/5yco1S7CEcl1f
-	e5wnXd3wrJ5phW6g4Twc9+Fhx2+tLYMEQnUWEvjtrbOdIhTfLHKaTjzMBLxGtO5q9ub/wiRBmgiVn
-	klyEs13j8L+1JCKwRXbcmN/Vb8/hLCpdqFe+Rzte+5nsvE/C6dpRaebZvofCGcQD+tds0qzzhA94i
-	jFgjGZNO/e5vGvBMbRYg==;
+	List-Owner; bh=AoNF7T5Cs8iCT0FdKzywIlf7BUkC1eb0IP+IyTT9cE8=; b=iGvDQ1a7DzyAfr
+	8kE1JViLVaGmKGMTZVDvmgVevrgAPYB3GBmhqwF1yIgtG5FCjrgUXhO3RADWNLIvFbPyl6G7DJ6m6
+	7w2x44vrD4Ak6W15XB/d4fOnoQmKeVSzzNnJdk2YF14aOM6ke4cnggPi/49iVj+g0jijDcyDrZy1X
+	itQ1uzDbRvLWYuTvzYxp5KDLWAZPam+IUtTWO9HVZ1H6K5bXwDgKVfHmjgbOvp8G5RoZSazZhq3BM
+	UfqCbx9/4bZtY1X1ZBF5fxEqs+G0P1VXOLdmwOZTKqFYjW9K9TnBISiJ6+byp2pQIoBQm7lZwm+p/
+	nnVXzD0gUVGJ9R6bqTjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPBJ-00BWZx-NZ; Mon, 17 Oct 2022 12:25:22 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1okPCP-00BXK5-78; Mon, 17 Oct 2022 12:26:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okP4d-00BTMI-Ub; Mon, 17 Oct 2022 12:18:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1666009107; x=1697545107;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RmYFEN28phqSp8mG6aCLWFWEADNDyPYb/TiMHr0QPNc=;
-  b=Qp5sQYv5eQMsQjJAgjYqcw2hfTHruM2uH1KIl17tqcVhtBAkD53HKGpq
-   nrjtFXNeN1sD+P2uXJxejj9j1urolufvrt6seBDHoT0Vv6imGfijjl8BF
-   H/5XNz+b+4evY8te31lK/gB0vHv69Kupp4bDQpyECfmBtmbu6aR5ycPPc
-   oiB4me1pPwWtGKSOfYALMbHG6lPPGwtzs3NSrr6yKuLLc7afAnrm30Unw
-   UlPsfLPvcrNmebe1ECCxWPriVAyMNa71xUA3Azen4l5L2ub16rz0s02Lr
-   9yWlkTUuIt4DHcLylO23cepWZye6Xvrf4P7i3IDG/Jh47twB9StwUzJFy
-   Q==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10502"; a="332320294"
-X-IronPort-AV: E=Sophos;i="5.95,191,1661842800"; 
-   d="scan'208";a="332320294"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2022 05:18:25 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10502"; a="623207818"
-X-IronPort-AV: E=Sophos;i="5.95,191,1661842800"; 
-   d="scan'208";a="623207818"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga007.jf.intel.com with ESMTP; 17 Oct 2022 05:18:20 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1okP4U-008mkH-2E;
-	Mon, 17 Oct 2022 15:18:18 +0300
-Date: Mon, 17 Oct 2022 15:18:18 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>,
-	linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org, linux-actions@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	linux-rpi-kernel@lists.infradead.org, alsa-devel@alsa-project.org,
-	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
-Message-ID: <Y01ICtqd8uy/4/Mb@smile.fi.intel.com>
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
- <CACRpkdZ1M3ckw+jFgvMqG4jvR-t_44GPoZ6ZDXszwZCJr-cDpg@mail.gmail.com>
- <Y00f5exY2fM6IwZ+@smile.fi.intel.com>
- <CACRpkdYmSOGtFz8W_RRkDqMXRRBOSB9jqSn65Sah90bf3Gm59g@mail.gmail.com>
+	id 1okPB3-00BWSp-ME
+	for linux-riscv@bombadil.infradead.org; Mon, 17 Oct 2022 12:25:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=NZqlweCS7ELJY1wKNFHXKg0mIBlu2ZNbUFr8upeVYWQ=; b=oRoNnK0FxAYt/WytCWlbhttmk5
+	Eel5nhDYIjwe2BC85lwoZDzey6iurKAxNDDijDOEKBowaAi2gxpcCtBEFpAdIv5yg4b5PWCjmKLGN
+	1sPiPeifiiKalTbsI/AeOel6q+6D4vPf+mQTZkXHPL7ydCje+1WgrdnB+iG/wTF9kd4WFH1TGMye0
+	3NtkJIsy7jFbisN7IyQPIMfWegoVR3mAShNb8Gkd37EbHoLs0hcFqAm1c5QE5027Hy1x9o8cGkOv6
+	qr2y+NtSWhkCguFr9kG/ZFNv7mtUIklkFaQLapyBsseo/NfSlHHDCa5hKq5gvpggiVGVVKXHMcj5M
+	uP1x2JYQ==;
+Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1okPB6-009pvC-AY; Mon, 17 Oct 2022 12:25:08 +0000
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id 6C82B403B6; Mon, 17 Oct 2022 09:24:59 -0300 (-03)
+Date: Mon, 17 Oct 2022 09:24:59 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+Cc: acme@redhat.com, linux@yadro.com, anup@brainfault.org,
+	n.shubin@yadro.com, aou@eecs.berkeley.edu,
+	alexander.shishkin@linux.intel.com, mingo@redhat.com,
+	jolsa@kernel.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	mark.rutland@arm.com, namhyung@kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>, peterz@infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v6 0/3] RISC-V: Create unique identification for SoC PMU
+Message-ID: <Y01Jm6PHA1m7B1Vl@kernel.org>
+References: <20220815132251.25702-1-nikita.shubin@maquefel.me>
+ <mhng-a8eaa55b-16b0-4b17-b202-881e75a65eaf@palmer-ri-x1c9>
+ <20221017091948.1961294e@redslave.neermore.group>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CACRpkdYmSOGtFz8W_RRkDqMXRRBOSB9jqSn65Sah90bf3Gm59g@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_051828_038837_81A88098 
-X-CRM114-Status: GOOD (  19.46  )
+In-Reply-To: <20221017091948.1961294e@redslave.neermore.group>
+X-Url: http://acmel.wordpress.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +76,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 17, 2022 at 11:58:03AM +0200, Linus Walleij wrote:
-> On Mon, Oct 17, 2022 at 11:27 AM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> > On Mon, Oct 17, 2022 at 11:02:09AM +0200, Linus Walleij wrote:
-> > > On Mon, Oct 10, 2022 at 10:15 PM Andy Shevchenko
-> > > <andriy.shevchenko@linux.intel.com> wrote:
-> > >
-> > > > Currently the header inclusion inside the pinctrl headers seems more arbitrary
-> > > > than logical. This series is basically out of two parts:
-> > > > - add missed headers to the pin control drivers / users
-> > > > - clean up the headers of pin control subsystem
-> > > >
-> > > > The idea is to have this series to be pulled after -rc1 by the GPIO and
-> > > > pin control subsystems, so all new drivers will utilize cleaned up headers
-> > > > of the pin control.
-> > >
-> > > Aha I see you want to send a pull request so I backed out the applied patches
-> > > from the series for now.
-> >
-> > Can I consider all that you answered to as Rb tag?
-> 
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Em Mon, Oct 17, 2022 at 09:19:48AM +0300, Nikita Shubin escreveu:
+> On Mon, 03 Oct 2022 19:54:40 -0700 (PDT)
+> Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > On Mon, 15 Aug 2022 06:22:37 PDT (-0700), nikita.shubin@maquefel.me wrote:
+> > > From: Nikita Shubin <n.shubin@yadro.com>
 
-Thank you!
+> > > This series aims to provide matching vendor SoC with corresponded
+> > > JSON bindings.
+> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+ 
+> > not sure if you're looking for this via the RISC-V tree, it looks
+> > like usually these get merged via a perf tree?  That's OK with me,
+> > but I'm also OK taking them through the RISC-V tree.  Note that
+> > cpuinfo dependency seems to be triggering kasan failures, so we'll at
+> > least need to sort that out.
 
-> I haven't reviewed in detail but I fully trust you to do the right thing
-> and fix any fallout so will happily pull this.
+> As i remember correctly you were willing to take these patches into 6.0
+> =).
 
-The plan is to push this to Linux Next for a couple of days and then I'll send
-PR to you and Bart.
+> Well they are acked by Palmer and [2] series, which my series depends
+> on, also have been accepted.
 
--- 
-With Best Regards,
-Andy Shevchenko
+> I can resend if it helps you.
 
+I picked it from this Message-ID with b4, applied cleanly, but yesterday
+the merge window closed for v6.1, I applied it to my perf/core branch,
+for v6.2.
 
+Thanks,
+
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
