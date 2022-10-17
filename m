@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74FEC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 15:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6017C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 15:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qRfs8fHrPPx8u3EuTnCHAZhKXpIOLwJTn6u/uOO2Hk=; b=PUHDhSDNbxhFPD
-	kObIG95GD1vH1x6iABkDX9nc3Y+8bAoeyBda2evsyNNmmOFhExnSeHVGQZNS0ONdtUjorJdhITKyz
-	PxO1Krd3GLhQSob0NpXsNu2TOzfQMmLlKve6O+2UzMp2GgO7QoAsJviomi/uqyUAXB0prdBF1Cv4q
-	8KtB7z50ya7d4K4bPNmXNoKftAj9W+FsApmHnk6mc97WLhPcQWzY04eIgKCGQDaLA7MYZLhCv7qUG
-	tIDosqkqVCXX/VaM8IHR5OOjdKVGcCaCcL0XU5/WLH9TX19Ceq8SMCufVc70DSLHcS+Qo1g74Osnb
-	At5Y8vlPf5FlKTEg6ulg==;
+	List-Owner; bh=eMvbTbKnZhQ/gzMINaC8RBm9duurMC6ZrBrFYZtp24k=; b=z8Ap4jcZaR5eTD
+	sdTBT869NOinCsL8p6bdJ7I2JmlRQoVU84dNaSnGDy4ZC4DiRG4TYWGJ4TvkiFSjRoy5m+POpxILr
+	jYILFfJykJz2jkQwgPhPOZYq8clBWDYHHRnMJG9FRe3YmQHKMmO2AmKxAiut/fJYjDH7jSV6qApkI
+	ZkYc440EGe1GvrDDwYU2WnTBWRfr4oBC1Qt+krq4L5BfHAaJy2waNxNVtlsezMHsGMHm5vzjm1x/E
+	tjB6WexqefN62w1QmoBP11foWH7dee48EOoffUvjj0WOoJLqAQeXw6mSiIS2yOamOF+CuYbn4+QW3
+	Tw4V9TXk6bEiwu8zhsvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okSKN-00DPPv-Gf; Mon, 17 Oct 2022 15:46:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1okSN3-00DRzE-C8; Mon, 17 Oct 2022 15:49:41 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okSKK-00DPM0-Cp
-	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 15:46:53 +0000
+	id 1okSMz-00DRuf-GP
+	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 15:49:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BDCB561008;
-	Mon, 17 Oct 2022 15:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B37C433C1;
-	Mon, 17 Oct 2022 15:46:49 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 262DEB819A4;
+	Mon, 17 Oct 2022 15:49:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3ED4C433C1;
+	Mon, 17 Oct 2022 15:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666021611;
-	bh=rHCkAfGa8/ABbu2gDOSUeVhbB0WdX8Iwc/RI5rF44tw=;
+	s=k20201202; t=1666021774;
+	bh=MqVqLQZ4tUx3bRzkC0PKqp7iZIaWBT992TZDgPbTCvU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SbtzMYc1a6hvC1//cHAMwBrLx5jw/8pLWL6EGPS3AfhVf1db0Vt4/ExQ8shEOlpR1
-	 LFbiCnzLMBTR57P99Lj+cpENoLFoGjVgtchHybM5l1ehnshNZovSq877VuVkL4KRfl
-	 vpkr+hsjjyEEkLmyhi8SERXANfUyDQtm7m8XQOuCSbLmeNlTMpt36lK4vpBfxyt355
-	 84VfGCC9AD31CjpO98E6fk26HopBfeASuQQpoQjpwrunYPU67HwVOEjzlEcR9Nqpuj
-	 +tq/mnLmFTH2b9+TOiwQQ/dK/p3+BWjUhpdHUsgASMJ6GFAcembxHMfmM/S1O+C1hr
-	 ggPluzLIwpteA==
-Date: Mon, 17 Oct 2022 16:46:47 +0100
+	b=D3tfZqrE+Deib1CyDWQWUCvw2+hMET3M3bR9BxpvtUcFeX7TgM1oU1gdPVgLlM8iF
+	 dz9zbSox13sVh8OiOQ9vp89xNrJcQmwUyQfTBAiipCK9t0EdsWZSm4Xrp5duWg0fJB
+	 TcmWkDEuCvlSbGTCBs9N4JnT0Xwf9V3Wo6qFlCpPwLUgtHoEwcV0Vuf8sfY8UD9iV3
+	 RnGEoU5TaJZS+FDSq27sAAersK81/kzKckx8unlgJBvYepMyk6ekap0WJIwsz8dc86
+	 vUgeapDmbQm3kzV7SK72AYMKmVgi/s4iROHb7RXAkJm7Q5Qm2xg3j4q1HbWI/taoYj
+	 3L+rPoocILL8w==
+Date: Mon, 17 Oct 2022 16:49:30 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Yang Yingliang <yangyingliang@huawei.com>
 Cc: linux-riscv@lists.infradead.org, yash.shah@sifive.com,
 	palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH 1/2] soc: sifive: ccache: fix missing iounmap() in error
+Subject: Re: [PATCH 2/2] soc: sifive: ccache: fix missing free_irq() in error
  path in sifive_ccache_init()
-Message-ID: <Y0145x9Y8MVb1Brw@spud>
+Message-ID: <Y015irop2kUQ1yjG@spud>
 References: <20221017084411.3557098-1-yangyingliang@huawei.com>
+ <20221017084411.3557098-2-yangyingliang@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221017084411.3557098-1-yangyingliang@huawei.com>
+In-Reply-To: <20221017084411.3557098-2-yangyingliang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_084652_492766_51DEC9E8 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20221017_084937_718260_F2A8BF7B 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +74,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 17, 2022 at 04:44:10PM +0800, Yang Yingliang wrote:
-> Add missing iounmap() before return error from sifive_ccache_init().
-> 
-> Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
-
-Hey Yang Yangliang,
-
-Both of these patches look good to me.
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-One question - of_find_matching_node() increments the refcount of np
-right? It seems to me like we need an of_node_put() here, at the very
-least in the error paths (do we need it in the success path too?).
-If we are going to add cleanup to this driver, we may as well go the
-whole hog I think.
-
-In terms of the success paths, I assume the first place we can safely
-let the reference go is just before the call to ccache_config_read()?
-
-Please lmk if I am misunderstanding anything here...
-Thanks,
-Conor.
-
+On Mon, Oct 17, 2022 at 04:44:11PM +0800, Yang Yingliang wrote:
+> Add missing free_irq() before return error from sifive_ccache_init().
+> 
+> Fixes: a967a289f169 ("RISC-V: sifive_l2_cache: Add L2 cache controller driver for SiFive SoCs")
 > Signed-off-by: Yang Yingliang <yangyingliang@huawei.com>
 > ---
->  drivers/soc/sifive/sifive_ccache.c | 15 +++++++++++----
->  1 file changed, 11 insertions(+), 4 deletions(-)
+>  drivers/soc/sifive/sifive_ccache.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-> index 1c171150e878..25019c16d8ae 100644
+> index 25019c16d8ae..98269d056728 100644
 > --- a/drivers/soc/sifive/sifive_ccache.c
 > +++ b/drivers/soc/sifive/sifive_ccache.c
-> @@ -222,13 +222,16 @@ static int __init sifive_ccache_init(void)
->  	if (!ccache_base)
->  		return -ENOMEM;
->  
-> -	if (of_property_read_u32(np, "cache-level", &level))
-> -		return -ENOENT;
-> +	if (of_property_read_u32(np, "cache-level", &level)) {
-> +		rc = -ENOENT;
-> +		goto err_unmap;
-> +	}
->  
->  	intr_num = of_property_count_u32_elems(np, "interrupts");
->  	if (!intr_num) {
->  		pr_err("No interrupts property\n");
-> -		return -ENODEV;
-> +		rc = -ENODEV;
-> +		goto err_unmap;
->  	}
->  
->  	for (i = 0; i < intr_num; i++) {
-> @@ -237,7 +240,7 @@ static int __init sifive_ccache_init(void)
+> @@ -240,7 +240,7 @@ static int __init sifive_ccache_init(void)
 >  				 NULL);
 >  		if (rc) {
 >  			pr_err("Could not request IRQ %d\n", g_irq[i]);
-> -			return rc;
-> +			goto err_unmap;
+> -			goto err_unmap;
+> +			goto err_free_irq;
 >  		}
 >  	}
 >  
-> @@ -250,6 +253,10 @@ static int __init sifive_ccache_init(void)
->  	setup_sifive_debug();
+> @@ -254,6 +254,9 @@ static int __init sifive_ccache_init(void)
 >  #endif
 >  	return 0;
-> +
-> +err_unmap:
-> +	iounmap(ccache_base);
-> +	return rc;
->  }
 >  
->  device_initcall(sifive_ccache_init);
+> +err_free_irq:
+> +	while (--i >= 0)
+> +		free_irq(g_irq[i], NULL);
+>  err_unmap:
+>  	iounmap(ccache_base);
+>  	return rc;
 > -- 
 > 2.25.1
 > 
