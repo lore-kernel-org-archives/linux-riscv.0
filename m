@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17D9C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 17:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083A8C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 19:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3EntL8vfFqxXSkjCiiZwY2bp4AAASQQyArEp5qVj/m4=; b=uHjGSoi36qHdTk
-	dmsmYRSUfkZ1CkHYqHvK5deqfuh8Cvkyjt/YCsu4CjZm9qbvPVOsckYmInz/6MBqGLhncOr1nf6iC
-	xSORsUTzfHl/98je9usKgoNyFadbgUgfsC1li0dNjqY9MFs9W9dxaQqM5hD9WNdaQR7X7V2efzXj7
-	xWVZehCw4ELdSd2RrM/uwNqT1cAIgV0jah45HALmtcok0T5kp5nq4RVGijRiR2sAwZMsqDmPwZ4Rc
-	hk1JzwB5q5eNbIcmmeBALOhDzi5BTpquUyTCh67YxUuNqCasNCvGJzUHApd3S96o5ER0OMKWD7jgQ
-	IG0jUXug/fdQicjpLe0w==;
+	List-Owner; bh=mKrtSQVTdO86xDGhdEjCFuqYi2arYLb3RWtp3BhUJ0o=; b=Yqo7OHyfQjC4PB
+	1u+kYlVF0fCCnGSxdnKtxWuiIQPqMkSMbRsDRWErwAhwg6BNbpsW6OAB4HtDh5gPPZVnpH8cPtKkH
+	ppNR28nh1xsjGkebWHHQkhG2KP3bUGEFXf+dChN9e2BQO0zlc1YMozwl9F0h0d1MzKPpwpttmjQ70
+	zWdy2V6N92KY8c7jSh9o8J5ndc0EAdL/geOKt8Wh3ey7rw0Tc1Fu+DMwqNDaVtAlnVTHRDwNSiUPu
+	9bZmXe+CDFnTb7p3Qafa0eFyybHCN+CWnUjc6PtmZTJBtyHN9mqv21Z2kfMZ3EgNJhGaV8NEXKlHD
+	7c3ec036H5lRGEnaqqFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okUK5-00E6y9-TS; Mon, 17 Oct 2022 17:54:45 +0000
-Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
+	id 1okVyL-00EZTc-2w; Mon, 17 Oct 2022 19:40:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okUK3-00E6xG-2S
-	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 17:54:44 +0000
-Received: by mail-il1-x12b.google.com with SMTP id d14so6225048ilf.2
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 10:54:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=weq+CxDWSCXJPl3M3OxO2N9/e6vne8TY8uzW2UQCOZs=;
-        b=Jn/zFWhbz7kNqKqWD8dX/aKe2nPuFSDBgFjXjcwJ0dT0ySbcGWbe0k1zvFTrd9fpgB
-         V9CfbAac10l+oNB9JkLRVSyf8lYdEfRoHaA4n4dAvgO2STAjpawVz2GBmJVI1PF+uYfA
-         S1aGbQ/m201uawZI0Rz8IB8gCuE7LuJaEnpB0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=weq+CxDWSCXJPl3M3OxO2N9/e6vne8TY8uzW2UQCOZs=;
-        b=rRHLaSZLF1dofiTfmROIr+11mZ9EQkRhetZgYVQW4vrJgWD+UGi5mtriCkwLhsIO9r
-         wil2vg08zyyb+aJb2YuZQ2ygih00c1eTTpGhRubFRkWsEVphhZqane16h7zPr31F/Ahf
-         kqfXIu5bJTVE4z45e9iBwL1JYUMR2xLQ1JBBhy/2pcyNfhW5jPaXldzxvpKKpSb0sQP5
-         nyWTMni8ro2iNWOXMOfCTRiAjdVPJ1EYHubjMZ5Ot083BgM2UtyA3+wn4828DP3zKh4k
-         VQtwoGbRe900eIuxixmJh4U3Rx0epNhNErIA6NPJRDESfh/LjrJASlncMoCqeGsd4XgN
-         j/oQ==
-X-Gm-Message-State: ACrzQf2W0jeFH/8BHbK2AiabRU82VRQkn+RV87RbknuqimpGlZ75LUBU
-	AT7GRi4RHpKO54goBY60EE1G/r1XwjieqeTkXmKi
-X-Google-Smtp-Source: AMsMyM7hYFaWEPPhB0V7gM1J196Y8ecfAPeZEPmOZFXymEusnUwf/T7ZmUd+n8IVcbPLkYjQY3L8otmnR1fhNXlS0UI=
-X-Received: by 2002:a05:6e02:1054:b0:2fa:a73:cfa1 with SMTP id
- p20-20020a056e02105400b002fa0a73cfa1mr5440116ilj.203.1666029279099; Mon, 17
- Oct 2022 10:54:39 -0700 (PDT)
+	id 1okVyH-00EZS6-5c; Mon, 17 Oct 2022 19:40:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EC18C611FE;
+	Mon, 17 Oct 2022 19:40:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BA86C433D7;
+	Mon, 17 Oct 2022 19:40:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666035619;
+	bh=PoXBeSReIgM+CQoQFfALFgw1SR3n3qlfZ7NKvcrE5EU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dLbdx3qp4igqZeYdoIqsPx9OipZNjUoAH5jTM6hMaf60PyURO4ukHV+fiCMlCstS6
+	 InK/ibE8Wt4PT1Usl94deknM1j9AjVmCyqP9OuwOq2hH007N5KvOVAfbLuhX1ojWhU
+	 /hJ2yc8kHTbw2pViQF+1oOE5xW1kiSHft+Cq/Gf2kJN3F6PTRwY00D7mgseDw6oX2b
+	 UAgHHWDyHVIBYRKgGUqmbugxXX7qidWPpKcNGf+uaAsCO3fEZAlE93oazPcjUQQz+c
+	 pfZ973IIquhBinsUzB5soRIdDqcWZdTMPBLNeXHJ5S4s2Nbef0C91W6qhWRRfR7i1e
+	 xm66VcLLXdhvg==
+Date: Mon, 17 Oct 2022 20:40:11 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	anup@brainfault.org, heiko@sntech.de, guoren@kernel.org,
+	mick@ics.forth.gr, alexandre.ghiti@canonical.com, bhe@redhat.com,
+	vgoyal@redhat.com, dyoung@redhat.com, corbet@lwn.net,
+	Conor.Dooley@microchip.com, bagasdotme@gmail.com,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
+	k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
+Subject: Re: [PATCH V2 2/2] Documentation: kdump: describe VMCOREINFO export
+ for RISCV64
+Message-ID: <Y02vm7FrhdEoSXZ+@spud>
+References: <20221014134139.5151-1-xianting.tian@linux.alibaba.com>
+ <20221014134139.5151-3-xianting.tian@linux.alibaba.com>
 MIME-Version: 1.0
-References: <3815b200-a9e2-a3db-c7f1-1e3f86dbab3f@cloudbear.ru>
-In-Reply-To: <3815b200-a9e2-a3db-c7f1-1e3f86dbab3f@cloudbear.ru>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 17 Oct 2022 10:54:28 -0700
-Message-ID: <CAOnJCUKeszH7Q6n+jdvBZkL90b7DasWqoO4VT6QU4-kaZSMwUQ@mail.gmail.com>
-Subject: Re: Bug report: cpu_relax call from vdso space
-To: Denis Ivanov <denis.ivanov@cloudbear.ru>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Dao Lu <daolu@rivosinc.com>, 
-	linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20221014134139.5151-3-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_105443_414570_92BDA6B3 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20221017_124021_330162_C94C76FC 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +80,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 15, 2022 at 12:09 AM Denis Ivanov <denis.ivanov@cloudbear.ru> wrote:
->
-> Hello,
->
-> Segmentation fault may be raised from cpu_relax()
-> (arch/riscv/include/asm/vdso/processor.h).
->
-> cpu_relax() may be called from vDSO functions (ex:
-> __vdso_clock_gettime). This means that global 'riscv_isa_ext_keys'
-> variable must not be used in cpu_relax() directly.
->
-> Use of this array was added to cpu_relax() in
-> https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=fixes&id=8eb060e10185cfc97ef0200d197ec246ba0f9f8c
->
+On Fri, Oct 14, 2022 at 09:41:39PM +0800, Xianting Tian wrote:
+> The following interrelated definitions and ranges are needed by the kdump
+> crash tool, they are exported by "arch/riscv/kernel/crash_core.c":
+>     VA_BITS,
+>     PAGE_OFFSET,
+>     phys_ram_base,
+>     MODULES_VADDR ~ MODULES_END,
+>     VMALLOC_START ~ VMALLOC_END,
+>     VMEMMAP_START ~ VMEMMAP_END,
+>     KASAN_SHADOW_START ~ KASAN_SHADOW_END,
+>     KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END
+> 
+> Document these RISCV64 exports above.
+> 
+> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> ---
+>  .../admin-guide/kdump/vmcoreinfo.rst          | 30 +++++++++++++++++++
+>  1 file changed, 30 insertions(+)
+> 
+> diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+> index 6726f439958c..8e2e164cf3db 100644
+> --- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
+> +++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+> @@ -595,3 +595,33 @@ X2TLB
+>  -----
+>  
+>  Indicates whether the crashed kernel enabled SH extended mode.
+> +
+> +RISCV64
+> +=======
+> +
+> +VA_BITS
+> +-------
+> +
+> +The maximum number of bits for virtual addresses. Used to compute the
+> +virtual memory ranges.
+> +
+> +PAGE_OFFSET
+> +-----------
+> +
+> +Indicates the virtual kernel start address of direct-mapped RAM region.
 
-Thanks. We saw some other issues with the static key in cpu_relax path as well.
+Apologies for not seeing this sooner, but should there not be a "the"
+prior to "direct-mapped"?
 
-https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+> +
+> +phys_ram_base
+> +-------------
+> +
+> +Indicates the start physical RAM address.
+> +
+> +MODULES_VADDR|MODULES_END|VMALLOC_START|VMALLOC_END|VMEMMAP_START|VMEMMAP_END|KASAN_SHADOW_START|KASAN_SHADOW_END|KERNEL_LINK_ADDR|ADDRESS_SPACE_END
+> +----------------------------------------------------------------------------------------------------------------------------------------------------
+> +
+> +Used to get the correct ranges:
+> +
+> +  * MODULES_VADDR ~ MODULES_END : Kernel module space.
+> +  * VMALLOC_START ~ VMALLOC_END : vmalloc() / ioremap() space.
+> +  * VMEMMAP_START ~ VMEMMAP_END : vmemmap region, used for struct page array.
 
-We may remove the static key altogether from that path.
+Since I'm in pedant mode, it does look a little odd that you're using
+region for vmemmap but space for the others but idc that much.
 
-> Denis Ivanov
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Thanks,
+Conor.
 
-
-
--- 
-Regards,
-Atish
+> +  * KASAN_SHADOW_START ~ KASAN_SHADOW_END : kasan shadow space.
+> +  * KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END : Kernel link and BPF space.
+> -- 
+> 2.17.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
