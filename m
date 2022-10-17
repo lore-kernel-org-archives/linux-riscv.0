@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2EEC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 09:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F04C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 09:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tl80LCwWy5wkA4xOeoDUI4tXVdBK79YO9bZEQIjUa+A=; b=GqFVrLINp44BMJ
-	rYe4fGS8OdERjnWYFOKoaf9sROrie9q0A9zpvva64mgkPezmml8+KxOG0YRlqbCYIFlYd7wefNMKG
-	bMQhP7R2nGZFzP0/hvZ5CFapUMwiP7xx2/MGDs1cHRQSLrI+nl3PUUd5Jiik+9LzJQ+JD7TNtzAv8
-	abkoRC8JiQ1JHurhrtow+rfbbnFa0jhf+IKheP2baWL0XsYolPABIxyfkk8UTe9SkKGrrFANOv99L
-	9FHhawQihe5ZoS+4lkHnSZ4ZPyddWfIaUfwDhv2oiPGEN0WwqwqYOBNvzV9IljN/uVWxLis1d5vRf
-	8TsR9hufJr+4IZzloAsQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OzDixGosc/2Y8ShKV+78Zn0TO+6+HHkNzVWvLcfJX0Q=; b=SuiHDwFxk/7oPn
+	S1PZszYhbSj6cy+gaYNT8U9HTDKGRkppSLRn4rpDmFmNvaFQXTakSumrvDMm6dmVP4cTfzy4VT6Tc
+	9QVf41m036m7SUPCXq638t1qoDG2bPFAYtMK86VZ4+Hx7idmqeqbcgvyaErMMCugYnMCBunJLQR9k
+	8TrG94qqnhrALl+bMwkzgV6rGoEUyMfnXMYHWg4+ZgEOXOwVpyJChQO2GnLr8PnLZUxOEVTTWORzE
+	VTxRRpYf4oanoj42mgV57TfiTPIpZstU04WaHAOw2CcnNKOx4GDg/NQ0OX+yr4mTxtErHkYRwgdLi
+	L/CTmYPRZkw7RkCEUFhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okMAk-009bXG-FM; Mon, 17 Oct 2022 09:12:34 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1okMAu-009baP-MG; Mon, 17 Oct 2022 09:12:44 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okMAX-009bSb-Hm; Mon, 17 Oct 2022 09:12:22 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id bv10so17472156wrb.4;
-        Mon, 17 Oct 2022 02:12:18 -0700 (PDT)
+	id 1okMAY-009bT6-1G; Mon, 17 Oct 2022 09:12:24 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id u10so17493170wrq.2;
+        Mon, 17 Oct 2022 02:12:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uXahj3ItpGR0T2qFyurrngY0xMNOuQK04rAbGGKXwg8=;
-        b=T1YEkzHbvBFPw6bVHeAtex0uCKQnDI8cVLHbej+rFZDjaj8k0w6de65Z/eZYN99O/q
-         yRGdzP7R32VWRwcJy2R6jcIA81/wPVUBQgwXiqyvGU9ry/dpbdxm+3iPPPAwUTPcDfKM
-         DxxtrA+m4vsH7dnp7ILArBYf1h9BU1S2uJmyqFbTYzm4rumhAkWBDkqV1y8EZpAI2gL1
-         5bNKfbu3q4fQIjCr0MV4HW+Z1UJoEdzQRDOjw0NMUt0ogFpHRdIaR+MOzIegaojUqaLu
-         e45zoL0+0IFBum2N4+0A1D8JZeV2fNPaiHvRjrpeDR9JnoIK7/0kKXMzQaWW7K2lXc3B
-         S+0g==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OltTue7fV+pm0dWoAkRtVfC8ZA3XHcmTKymb7cJyD0k=;
+        b=ZS2QYyal2gUd1IByUizGEzMmWmSMrjjVLI0ohRMORZyEWhLGUhea8H3MT5a/FAqXK3
+         qMtTIVEq4TfTuirgB/rE6cJWPP+4b9i9eD+GciP3qzExErmY+s64x5yUfFbq/WRwdcZT
+         HxCWNagEobfRYDLtkOzP72ZDszadYJLvF9QxZvJBIsJQGHbVTn+IFmY8RsFLSouOhphj
+         7VUHeSZOa46zIXBFGnhXiPzZxVjClbmAgQ+7nVd9jkdjpHxzKLNeKx8Q82TplTnKe05s
+         Oz/Mvd/Q/IdD71lKubzDN9tMjKJFF8wGqly27eXuiTCAFTlRUyuY1lhC70pmTGQz82v2
+         mWIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uXahj3ItpGR0T2qFyurrngY0xMNOuQK04rAbGGKXwg8=;
-        b=JKxRyZ4yRLuiBJTi/lgBRtUB2QECriRYMhalL/iP49wgxkryvOTKBAIGygkXAJZSy2
-         n0LB0kz6wq5oWjhJRw0e068lxcJkTrrozeW6Egl5J2wGjX/Cuat7BtCrEajyMsh24gcp
-         ZG+aa4FkrBDfWai7t1NrJAuf2C4bY4YyWjhazM2vf4thWOAVkCgoIGW3O879+v+ZqmRt
-         n7Ix1qBhuQmGNstTXZF7IDTADvv7fYAQKwEehrv54roFkjooAJv7xmihuVsQNsx0rT0q
-         19gTONZ8/R4cZHrcjDnIVN7pB6BVfyr4rdfss+t5RokSDOv2r61HBGcTeeoFLMBjOXUM
-         ghhw==
-X-Gm-Message-State: ACrzQf3VA36pU1jOrfV4kZTNlpRmYu219sVLC/fEn84deNm2tgZKAaLI
-	ZCDbVRBQNdz/9Uyx20IjKOoJP209v8yXwg==
-X-Google-Smtp-Source: AMsMyM7EgRpR3UtNzunxY9ssX+lJSt0/yeLT9iytC+8eoVn8Tr4Ffx7ttEuYsZLaBvGT8n3LJWBdwA==
-X-Received: by 2002:adf:de8f:0:b0:22e:361b:6a05 with SMTP id w15-20020adfde8f000000b0022e361b6a05mr5773321wrl.311.1665997937143;
-        Mon, 17 Oct 2022 02:12:17 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OltTue7fV+pm0dWoAkRtVfC8ZA3XHcmTKymb7cJyD0k=;
+        b=d4Q5+MLn9T1+M/dZw/kTcG8SOPHJGLSx+OKZCXAgWgKsVacxhme9gCNHTOCh5SUtIj
+         eVNPW+n7wXNseDynm/0trxiE1CyQFmxphyHnzPTDXYOWw0RhcQsmzwjRqV89w2OrdyY7
+         NG2Tsp0Acs6wY4YiZQPKLQESdHp8k7KBOOLyLIxBoBUsyC0Ve3Xp2eVQVA4IA5vPC7hp
+         AGKh/kI9aKLA2Pt3sfowj3Q69HxGTq+nr5wy8thcVSUesNLvP1hEj0EB61mlnghMU+iO
+         1bi/puiJ0YGJbEF8TOIV8MkoYzjPMOPOIkdGMgiQf51ARPgKwXPqSWI59VDqOaBD35al
+         YPZA==
+X-Gm-Message-State: ACrzQf1XV8404WU866E4efj06kYep5CHAe7s5nlCHaNyXufIvpXHf2EQ
+	OsFou/4OSKF/gww84v0EBFk=
+X-Google-Smtp-Source: AMsMyM5hDf4SUG7Gumh65b8tzMsDyGNpkRs5+FGPgK4imvvBTVDx/Nmg8smHZisNAU+on60+/OJFoQ==
+X-Received: by 2002:a05:6000:144c:b0:230:816f:3167 with SMTP id v12-20020a056000144c00b00230816f3167mr5542749wrx.532.1665997939669;
+        Mon, 17 Oct 2022 02:12:19 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:fc4d:6548:d8bd:5bd])
-        by smtp.gmail.com with ESMTPSA id n14-20020a5d400e000000b0022ae401e9e0sm7921503wrp.78.2022.10.17.02.12.16
+        by smtp.gmail.com with ESMTPSA id n14-20020a5d400e000000b0022ae401e9e0sm7921503wrp.78.2022.10.17.02.12.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Oct 2022 02:12:16 -0700 (PDT)
+        Mon, 17 Oct 2022 02:12:19 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -80,14 +81,16 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC RESEND PATCH 0/2] RZ/G2UL separate out SoC specific parts
-Date: Mon, 17 Oct 2022 10:11:59 +0100
-Message-Id: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC RESEND PATCH 2/2] arm64: dts: renesas: r9a07g043: Split out RZ/G2UL SoC specific parts
+Date: Mon, 17 Oct 2022 10:12:01 +0100
+Message-Id: <20221017091201.199457-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_021221_615115_1A27D4B3 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20221017_021222_100139_CA136246 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,60 +109,182 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi All,
+Move RZ/G2UL SoC specific parts to r9a07g043u.dtsi so that r9a07g043.dtsi
+can be shared with RZ/Five (RISC-V SoC).
 
-This patch series aims to split up the RZ/G2UL SoC DTSI into common parts
-so that this can be shared with the RZ/Five SoC.
+Below are the changes due to which SoC specific parts are moved to
+r9a07g043u.dtsi:
+- RZ/G2UL has Cortex-A55 (ARM64) whereas the RZ/Five has AX45MP (RISC-V)
+- RZ/G2UL has GICv3 as interrupt controller whereas the RZ/Five has PLIC
+- RZ/G2UL has interrupts for SYSC block whereas interrupts are missing
+  for SYSC block on RZ/Five
 
-Implementation is based on the discussion [0] where I have used option#2.
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ arch/arm64/boot/dts/renesas/r9a07g043.dtsi  | 54 +------------------
+ arch/arm64/boot/dts/renesas/r9a07g043u.dtsi | 60 +++++++++++++++++++++
+ 2 files changed, 61 insertions(+), 53 deletions(-)
 
-The Renesas RZ/G2UL (ARM64) and RZ/Five (RISC-V) have almost the same
-identical blocks to avoid duplication a base SoC dtsi (r9a07g043.dtsi) is
-created which will be used by the RZ/G2UL (r9a07g043u.dtsi) and RZ/Five
-(r9a07g043F.dtsi)
-
-Sending this as an RFC to get some feedback.
-
-r9a07g043f.dtsi will look something like below:
-
-#include <dt-bindings/interrupt-controller/irq.h>
-
-#define SOC_PERIPHERAL_IRQ_NUMBER(nr)	(nr + 32)
-#define SOC_PERIPHERAL_IRQ(nr, na)	SOC_PERIPHERAL_IRQ_NUMBER(nr) na
-
-#include <arm64/renesas/r9a07g043.dtsi>
-
-/ {
-   ...
-   ...   
-};
-
-Although patch#2 can be merged into patch#1 just wanted to keep them separated
-for easier review.
-
-RFC-> RESEND RFC
-* Patches rebased on [1]
-
-RFC: [2]
-
-[0] https://lore.kernel.org/linux-arm-kernel/Yyt8s5+pyoysVNeC@spud/T/
-[1] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221009230044.10961-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-[2] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220929172356.301342-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Cheers,
-Prabhakar
-
-Lad Prabhakar (2):
-  arm64: dts: renesas: r9a07g043: Introduce SOC_PERIPHERAL_IRQ() macro
-    to specify interrupt property
-  arm64: dts: renesas: r9a07g043: Split out RZ/G2UL SoC specific parts
-
- arch/arm64/boot/dts/renesas/r9a07g043.dtsi    | 347 ++++++++----------
- arch/arm64/boot/dts/renesas/r9a07g043u.dtsi   |  72 ++++
- .../boot/dts/renesas/r9a07g043u11-smarc.dts   |   2 +-
- 3 files changed, 220 insertions(+), 201 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
-
+diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+index c41840e32c30..fd2b7d7e6d1a 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ /*
+- * Device Tree Source for the RZ/G2UL SoC
++ * Device Tree Source for the RZ/Five and RZ/G2UL SoCs
+  *
+  * Copyright (C) 2022 Renesas Electronics Corp.
+  */
+@@ -68,36 +68,8 @@ opp-1000000000 {
+ 		};
+ 	};
+ 
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-
+-		cpu0: cpu@0 {
+-			compatible = "arm,cortex-a55";
+-			reg = <0>;
+-			device_type = "cpu";
+-			#cooling-cells = <2>;
+-			next-level-cache = <&L3_CA55>;
+-			enable-method = "psci";
+-			clocks = <&cpg CPG_CORE R9A07G043_CLK_I>;
+-			operating-points-v2 = <&cluster0_opp>;
+-		};
+-
+-		L3_CA55: cache-controller-0 {
+-			compatible = "cache";
+-			cache-unified;
+-			cache-size = <0x40000>;
+-		};
+-	};
+-
+-	psci {
+-		compatible = "arm,psci-1.0", "arm,psci-0.2";
+-		method = "smc";
+-	};
+-
+ 	soc: soc {
+ 		compatible = "simple-bus";
+-		interrupt-parent = <&gic>;
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+ 		ranges;
+@@ -550,12 +522,6 @@ cpg: clock-controller@11010000 {
+ 		sysc: system-controller@11020000 {
+ 			compatible = "renesas,r9a07g043-sysc";
+ 			reg = <0 0x11020000 0 0x10000>;
+-			interrupts = <SOC_PERIPHERAL_IRQ(42, IRQ_TYPE_LEVEL_HIGH)>,
+-				     <SOC_PERIPHERAL_IRQ(43, IRQ_TYPE_LEVEL_HIGH)>,
+-				     <SOC_PERIPHERAL_IRQ(44, IRQ_TYPE_LEVEL_HIGH)>,
+-				     <SOC_PERIPHERAL_IRQ(45, IRQ_TYPE_LEVEL_HIGH)>;
+-			interrupt-names = "lpm_int", "ca55stbydone_int",
+-					  "cm33stbyr_int", "ca55_deny";
+ 			status = "disabled";
+ 		};
+ 
+@@ -608,16 +574,6 @@ dmac: dma-controller@11820000 {
+ 			dma-channels = <16>;
+ 		};
+ 
+-		gic: interrupt-controller@11900000 {
+-			compatible = "arm,gic-v3";
+-			#interrupt-cells = <3>;
+-			#address-cells = <0>;
+-			interrupt-controller;
+-			reg = <0x0 0x11900000 0 0x40000>,
+-			      <0x0 0x11940000 0 0x60000>;
+-			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+-		};
+-
+ 		sdhi0: mmc@11c00000 {
+ 			compatible = "renesas,sdhi-r9a07g043",
+ 				     "renesas,rcar-gen3-sdhi";
+@@ -883,12 +839,4 @@ target: trip-point {
+ 			};
+ 		};
+ 	};
+-
+-	timer {
+-		compatible = "arm,armv8-timer";
+-		interrupts-extended = <&gic GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+-				      <&gic GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+-				      <&gic GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+-				      <&gic GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+-	};
+ };
+diff --git a/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
+index be84392ee47f..dcbeda9b6c23 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
+@@ -10,3 +10,63 @@
+ #define SOC_PERIPHERAL_IRQ(nr, na)	GIC_SPI nr na
+ 
+ #include "r9a07g043.dtsi"
++
++/ {
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			compatible = "arm,cortex-a55";
++			reg = <0>;
++			device_type = "cpu";
++			#cooling-cells = <2>;
++			next-level-cache = <&L3_CA55>;
++			enable-method = "psci";
++			clocks = <&cpg CPG_CORE R9A07G043_CLK_I>;
++			operating-points-v2 = <&cluster0_opp>;
++		};
++
++		L3_CA55: cache-controller-0 {
++			compatible = "cache";
++			cache-unified;
++			cache-size = <0x40000>;
++		};
++	};
++
++	psci {
++		compatible = "arm,psci-1.0", "arm,psci-0.2";
++		method = "smc";
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts-extended = <&gic GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
++				      <&gic GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
++				      <&gic GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
++				      <&gic GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
++	};
++};
++
++&soc {
++	interrupt-parent = <&gic>;
++
++	gic: interrupt-controller@11900000 {
++		compatible = "arm,gic-v3";
++		#interrupt-cells = <3>;
++		#address-cells = <0>;
++		interrupt-controller;
++		reg = <0x0 0x11900000 0 0x40000>,
++		      <0x0 0x11940000 0 0x60000>;
++		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
++
++&sysc {
++	interrupts = <SOC_PERIPHERAL_IRQ(42, IRQ_TYPE_LEVEL_HIGH)>,
++		     <SOC_PERIPHERAL_IRQ(43, IRQ_TYPE_LEVEL_HIGH)>,
++		     <SOC_PERIPHERAL_IRQ(44, IRQ_TYPE_LEVEL_HIGH)>,
++		     <SOC_PERIPHERAL_IRQ(45, IRQ_TYPE_LEVEL_HIGH)>;
++	interrupt-names = "lpm_int", "ca55stbydone_int",
++			  "cm33stbyr_int", "ca55_deny";
++};
 -- 
 2.25.1
 
