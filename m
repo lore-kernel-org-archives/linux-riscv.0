@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4E5C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 09:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6FDC43219
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 09:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y3n8VA6J73ceUmwxqPewCWPBgXbkvjhvjv/zrEXBRAk=; b=so43fPIjiPfX/a
-	YgWa+1KY+xJjrqcDXZV7knTxLN3teIwPDUFIx9N24f1N7T8SEfgHgn7mcE4pD4s9F9J3DP6WWcesD
-	GKP45YlHhllEIB1XgOnP/QrhhFpH+7R+WBH1x62V9KOVVqCTBbKf4OI8rawQVqUynr3MrnzohSCwG
-	qvsyGICmQsXkikZATj8qhTUgBB/QPvD+JMZBusIloOGvb+tmTCd35WLYV0uBe0ZiZHUlJA1t/70/9
-	6YMasy4MdM3JgP38ZfJDthVTLYWvtzjgpEQaJ+GA8VKm0sy3uTojXiA+xQhUWNd8TA3FZrBsjkdE4
-	8eZP1Os6ZT04i/CAARJg==;
+	List-Owner; bh=3KgcAuUXf6+NdewsYfnEKU/fLdvEICQLOYrssSc0qAQ=; b=hH+ez18RybnfDf
+	zirsK8Pwh8SY0Oogx+28yM9sJl8N6Db0Uan3bT3ORbNVgTNv8k5wm++ZQCMLdfx9rM6qiZH74/bQo
+	4QYoIZPrTaJh0LeyFMAF72NLD8YzzeAj2+9Zy78GFtT0XLZQpr7hBiTnueTqf2ZxwfFCg6DIcfAFD
+	8NUWxkxzlEi4EJu2W6MtMbcB6IE30gMlAs6Vx9YBlA2LaXTerPCotUaxZEexChxcwtssLcZRp9Ptm
+	ZcC53BB8tlVi79ACuc3TfmysUxAVKaXaTjfRf0vViwFCgNOBQfQrptlT5pn/jcLRhBvMUuo+eAbdB
+	X9Suu8ontZ4lOuYltTFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okLyj-009Voe-Rs; Mon, 17 Oct 2022 09:00:09 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1okM0x-009ZYZ-4j; Mon, 17 Oct 2022 09:02:27 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okLyh-009Vlq-AX
-	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 09:00:08 +0000
-Received: by mail-ed1-x533.google.com with SMTP id a13so15105895edj.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 02:00:07 -0700 (PDT)
+	id 1okM0s-009ZUm-HU
+	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 09:02:25 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id b2so23364473eja.6
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 02:02:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=683v4hUy0SmafI83To+Isl3SKfGOBhxnh8RoSe2BfVE=;
-        b=dm/Nt6xeLy51NB8MVo7obwM+852oRrh6kv29Cep7deqc4s/4HdJl7FiZqfN9XWyFmq
-         PEiSQEJYH+PXHavxy/4td4Ss60zPdOW66Nm4OVHjJWGyeBDSTXFjenfxFIoUTymQ3Rmi
-         zS+6OYEcwrRB3dfWX2vjNRs25pwNYTvrfqJ3SUm+ySkbhzDW7NutV590fGsZMyVxBUW5
-         i7AvrrD/hPrDzjoDPE8R+2+YT6cSrnsXVMKDprnpXnZsn9nFCDUOIHKlu2F3zBs4hgdZ
-         5yNLaYhcJzRTDN/zpX4CqQC0HSH+aLSZLfgYA7gKNawTaAaj2kSOlyn/aoGzC+9McidO
-         9f4g==
+        bh=+DzhSmH1cBeruDtFaVKaVattsEwc8q4hTsou+lcv6jY=;
+        b=Q+/ZCk5uKgheops7slfnvs8xurY8FEURvOhzY1eTrLbemXNWuo99WUD81VK+SpWCxY
+         kzFTgIjquxop1/2G9aP+Jc1kCFR8S4kpwj8bfbUkfgvulb3p97gFWTEKh91wZsvKLTym
+         IGt1H+AuIDwRoqtXQsNeJNwHocUiIbe3K3kYShul2xo1CQl7PNr7jxP/Mgn3ZFbkZlVO
+         J/03NK6UfMQfdp40SIbVe6sr9G0pZuHS/nb7XvkWBeDwVFOg7SA3FW+4r+22nfUcKvmM
+         0KiMdRaZT5lr/vOJbfahx9OfxFGmc5oyK0hcI+W0d917YHmMVMRNLZ2UqBGud/XBVBC3
+         GKCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=683v4hUy0SmafI83To+Isl3SKfGOBhxnh8RoSe2BfVE=;
-        b=pbuI53I7g4f9GDWcncrGgyNBd3Nc3eZ6c/v5WoaXJ3w8Mp1G1GsSTUrlNlLaGVv0Ps
-         g9MxEdv27fvANB/V0S4XXRM6Y/vz2/ejF478Lf7Jn+sc5LRNN1OFpFdVvt0a8mxYXb1V
-         ZS3p5Sk6B+3QPiieNcnUbJ8wrRjVE45CYFhtrESSoDlb9wcO33RSDqn/1IRncf0TPw1g
-         EEvYZvsOGrRMbXtaChQStUQStsvYEgvHtuagMZ+d2ZP+txuD/H9HVGYQEBt1OrynS6xf
-         yygNSnYNcMuOv41TWLhkK4Jo3Oy5adk6CbkM2cSZUAPFTUTnOhwYl4dclZ6HGo6i3P93
-         f4pw==
-X-Gm-Message-State: ACrzQf1uw/UPxu4dpFbsRHb+jaMu2PnZNBFmD+H5/u8UeanJOf17ZfHZ
-	y/CM9MtrAGTpFKp+ybLIF38jjGHqW2ANg/52f96r2g==
-X-Google-Smtp-Source: AMsMyM75VJRNXRWuH3xUBu8rTGOtseWXKYSI7NNSW4bcXZ4SIlOn8hiiyIMM/AoI9crYmm+7lTOfrLhKDqXw522JVF8=
-X-Received: by 2002:a05:6402:4029:b0:45b:d50c:b9b0 with SMTP id
- d41-20020a056402402900b0045bd50cb9b0mr9161790eda.126.1665997206064; Mon, 17
- Oct 2022 02:00:06 -0700 (PDT)
+        bh=+DzhSmH1cBeruDtFaVKaVattsEwc8q4hTsou+lcv6jY=;
+        b=2fhPYKvbi+upMTC1fQEmHpCOSaILwvX0Ev1HwhJkhrkr72YmIjAzXbNPpxeQhSf/N/
+         IEYptCakFt6s4ZHpDgUl9kgq62iH5ymw2HX8vZ/VY5C56hcYfI+gps41adBYL52msSCV
+         zAJtQcnG9phfsfMldxMlVdSz4y1uyJ/9bjunIsbWSfdPXhh/eAmjwnvAlZWmzcAKl3/8
+         eqvVuf7S1L/GfoTLXSNcxsPYwY4TsFbaTfdCFhVmv8n9Eawi8/o/kGUhvzYXI5mhpQpS
+         3Yo1Tv5WJvK50W1IodYRugFYh5CjgnVW9wQ+OEI//0FCydHWYglSLwZQ/f1H6B2MW247
+         qBJA==
+X-Gm-Message-State: ACrzQf03JjRMhKgTR/8pPGR54mCrhByfWUW3Ffu8yhlIocjFMkjBvetQ
+	O+U2HfsIj9YoEgB43vxkQWhOw+SuIQ87sbMhnlszVA==
+X-Google-Smtp-Source: AMsMyM4UDyy4gIfLqRCo+xVdWhgvw2QqSAfU62C/zZi9P70aMTTtCFnk0FMes6AqIcJjw6kKWDVGE0urcJP2xkclA/A=
+X-Received: by 2002:a17:906:8a48:b0:78d:acdc:b7d9 with SMTP id
+ gx8-20020a1709068a4800b0078dacdcb7d9mr7921544ejc.500.1665997341068; Mon, 17
+ Oct 2022 02:02:21 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com> <20221010201453.77401-11-andriy.shevchenko@linux.intel.com>
-In-Reply-To: <20221010201453.77401-11-andriy.shevchenko@linux.intel.com>
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+In-Reply-To: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 17 Oct 2022 10:59:54 +0200
-Message-ID: <CACRpkdZ=0Uj7PxS-+AcQ+Z1xsV0n24xsSA0+upucZzbXVa2KHw@mail.gmail.com>
-Subject: Re: [PATCH v2 10/36] pinctrl: imx: Add missed header(s)
+Date: Mon, 17 Oct 2022 11:02:09 +0200
+Message-ID: <CACRpkdZ1M3ckw+jFgvMqG4jvR-t_44GPoZ6ZDXszwZCJr-cDpg@mail.gmail.com>
+Subject: Re: [rft, PATCH v2 00/36] pinctrl: Clean up and add missed headers
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>, 
 	Mauro Carvalho Chehab <mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, 
@@ -116,9 +116,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gib
 	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221017_020007_385100_D000966C 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221017_020222_615145_73F12D19 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,14 +137,17 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On Mon, Oct 10, 2022 at 10:15 PM Andy Shevchenko
 <andriy.shevchenko@linux.intel.com> wrote:
 
-> Do not imply that some of the generic headers may be always included.
-> Instead, include explicitly what we are direct user of.
+> Currently the header inclusion inside the pinctrl headers seems more arbitrary
+> than logical. This series is basically out of two parts:
+> - add missed headers to the pin control drivers / users
+> - clean up the headers of pin control subsystem
 >
-> While at it, sort headers alphabetically.
->
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> The idea is to have this series to be pulled after -rc1 by the GPIO and
+> pin control subsystems, so all new drivers will utilize cleaned up headers
+> of the pin control.
 
-Patch applied!
+Aha I see you want to send a pull request so I backed out the applied patches
+from the series for now.
 
 Yours,
 Linus Walleij
