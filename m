@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BB8C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 12:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEDAC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Oct 2022 12:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AoNF7T5Cs8iCT0FdKzywIlf7BUkC1eb0IP+IyTT9cE8=; b=iGvDQ1a7DzyAfr
-	8kE1JViLVaGmKGMTZVDvmgVevrgAPYB3GBmhqwF1yIgtG5FCjrgUXhO3RADWNLIvFbPyl6G7DJ6m6
-	7w2x44vrD4Ak6W15XB/d4fOnoQmKeVSzzNnJdk2YF14aOM6ke4cnggPi/49iVj+g0jijDcyDrZy1X
-	itQ1uzDbRvLWYuTvzYxp5KDLWAZPam+IUtTWO9HVZ1H6K5bXwDgKVfHmjgbOvp8G5RoZSazZhq3BM
-	UfqCbx9/4bZtY1X1ZBF5fxEqs+G0P1VXOLdmwOZTKqFYjW9K9TnBISiJ6+byp2pQIoBQm7lZwm+p/
-	nnVXzD0gUVGJ9R6bqTjQ==;
+	List-Owner; bh=XZpmiyVIPq0ajBhLGi2FeVDMP8yAXA9KhDf+GaaEiB8=; b=ZTdLgKDTXTh2SZ
+	ahYt81W8b2/CQj+c6MS5JXBc0jLfhxUaSxjo1eyGQeyBm86gcnXwB5mdYtCfJNs2rkg96ukqnFuVl
+	8kTKv6jkaEIkR7MFYoWuw2oBZB5HqcoLbPsiuFUxma0ZXK2PuII+jYPIp/gR97Yjm7kPlleIB6o2W
+	8rnsw0LFp3eCyjgLbhxdjnd2GUzhVOwwPkMJxIyIAhV4nf4aRO+QwsDxhrGXIo+RY18gi/AWIPN38
+	ILf1n+5B+xt4PfMe5xd1EiVqBcGwlZFBQ30ELQ6oZ5/qmKMb6xrD74QRdsFrpcSUAiJbqsHAhG2YB
+	BnNWUPDArGFOWxchPZLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPCP-00BXK5-78; Mon, 17 Oct 2022 12:26:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1okPMQ-00BaZe-Mi; Mon, 17 Oct 2022 12:36:50 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPB3-00BWSp-ME
-	for linux-riscv@bombadil.infradead.org; Mon, 17 Oct 2022 12:25:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NZqlweCS7ELJY1wKNFHXKg0mIBlu2ZNbUFr8upeVYWQ=; b=oRoNnK0FxAYt/WytCWlbhttmk5
-	Eel5nhDYIjwe2BC85lwoZDzey6iurKAxNDDijDOEKBowaAi2gxpcCtBEFpAdIv5yg4b5PWCjmKLGN
-	1sPiPeifiiKalTbsI/AeOel6q+6D4vPf+mQTZkXHPL7ydCje+1WgrdnB+iG/wTF9kd4WFH1TGMye0
-	3NtkJIsy7jFbisN7IyQPIMfWegoVR3mAShNb8Gkd37EbHoLs0hcFqAm1c5QE5027Hy1x9o8cGkOv6
-	qr2y+NtSWhkCguFr9kG/ZFNv7mtUIklkFaQLapyBsseo/NfSlHHDCa5hKq5gvpggiVGVVKXHMcj5M
-	uP1x2JYQ==;
-Received: from [179.97.37.151] (helo=quaco.ghostprotocols.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okPB6-009pvC-AY; Mon, 17 Oct 2022 12:25:08 +0000
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 6C82B403B6; Mon, 17 Oct 2022 09:24:59 -0300 (-03)
-Date: Mon, 17 Oct 2022 09:24:59 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: acme@redhat.com, linux@yadro.com, anup@brainfault.org,
-	n.shubin@yadro.com, aou@eecs.berkeley.edu,
-	alexander.shishkin@linux.intel.com, mingo@redhat.com,
-	jolsa@kernel.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
-	mark.rutland@arm.com, namhyung@kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, peterz@infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v6 0/3] RISC-V: Create unique identification for SoC PMU
-Message-ID: <Y01Jm6PHA1m7B1Vl@kernel.org>
-References: <20220815132251.25702-1-nikita.shubin@maquefel.me>
- <mhng-a8eaa55b-16b0-4b17-b202-881e75a65eaf@palmer-ri-x1c9>
- <20221017091948.1961294e@redslave.neermore.group>
+	id 1okPMB-00BaNv-BE
+	for linux-riscv@lists.infradead.org; Mon, 17 Oct 2022 12:36:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 31D8DB81640
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 12:36:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60B7CC43146
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 12:36:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666010191;
+	bh=1DK6j1RdeLyk2nOKe2HKqu85PpZMd3dzDfvg7w5UV9k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fklx5Z6I9cLTunQIu/YMuvNORrweUup3qzJUSU5fjd9zz+bgbPEM77L5D4u8LkA7M
+	 +FdRPxEax2/+FzpmsJcASpA8Y2XFsLbCZeIMF8heej8xdKedyo02ZGw6N6Nfqc7nJv
+	 zjEM3hz0t9RHJ44YXaZWvcyj2N274U/+4WP9faCBb3HC2qCnWtGxCp6OI6pit8reDH
+	 4YEwgx5fzmf0vu10R0cUnn2I+CM3a9nFga2m6RcpbCcvIcSaz5nNq4aUXEQ0t9THlE
+	 TJ7Hz5vEsykKJiodgDA7OAOe4MK/ZPMzhqR2v5o5EEo9pxF8WeMIaZ6Ab7/kRXbgPo
+	 bYiB2OE5yruzg==
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-132b8f6f1b2so13020343fac.11
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Oct 2022 05:36:31 -0700 (PDT)
+X-Gm-Message-State: ACrzQf30gR9VTFS15PI1wg14fID9fXAaT/W/E9uu35FQErxdgE2pEaEw
+	1vQ2BYoUCndtROhOO1gqdja/5ki5OGnhVrFxCSM=
+X-Google-Smtp-Source: AMsMyM5tK3zJKqdnXbERJmt+RfY70DEZJdkx8/C9sIgfaUjvCiyRLClyv6E6Qlq0T0n5h539Kx6vE9aqRk9p/UKIq6c=
+X-Received: by 2002:a05:6870:4413:b0:136:66cc:6af8 with SMTP id
+ u19-20020a056870441300b0013666cc6af8mr15408042oah.112.1666010190362; Mon, 17
+ Oct 2022 05:36:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221017091948.1961294e@redslave.neermore.group>
-X-Url: http://acmel.wordpress.com
+References: <20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221003223222.448551-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAJF2gTQuSX9idEyNmGRwpAsSP8V=+QKQ7UAp28T-seM8rbkwOA@mail.gmail.com>
+ <CA+V-a8smkDmQbz76sTA5XfUm7bkY4Ee-L5xYW+-xRWkE1TYiAw@mail.gmail.com>
+ <CAJF2gTQ4G-j3p_pHvVQ82R2DFQZq70xgE3ZhoRkxiSzrHnU2og@mail.gmail.com>
+ <CA+V-a8tLYT0541FNo_o-sTsV7ywwnGTRtv6ropVu+0Wd-PsM6A@mail.gmail.com>
+ <CAJF2gTQ9N5tyYB46eaMJ=Z0V7pm9TxFAXQ1qxLXLqj2C9zP2Ng@mail.gmail.com>
+ <CA+V-a8sTQzbXC6j4+fNAYiM7_zciPaxb=uOzD9iWrvLwUBgDqA@mail.gmail.com>
+ <CAJF2gTQnQSCwGAzXPENrCz2Uwf8WivYsRP57XGoCtywxE2_bZA@mail.gmail.com> <CA+V-a8u_e31uW9=ZutAkZbfF9yj7XzPcjwqjN2A=kMw91dKyhA@mail.gmail.com>
+In-Reply-To: <CA+V-a8u_e31uW9=ZutAkZbfF9yj7XzPcjwqjN2A=kMw91dKyhA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 17 Oct 2022 20:36:17 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT-xwXP49o2jt+02ku8+g6JCizndYry1Xm7zTxYJ18iUQ@mail.gmail.com>
+Message-ID: <CAJF2gTT-xwXP49o2jt+02ku8+g6JCizndYry1Xm7zTxYJ18iUQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Philipp Tomsich <philipp.tomsich@vrull.eu>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20221017_053635_779084_08F411FA 
+X-CRM114-Status: GOOD (  49.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +98,197 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Em Mon, Oct 17, 2022 at 09:19:48AM +0300, Nikita Shubin escreveu:
-> On Mon, 03 Oct 2022 19:54:40 -0700 (PDT)
-> Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > On Mon, 15 Aug 2022 06:22:37 PDT (-0700), nikita.shubin@maquefel.me wrote:
-> > > From: Nikita Shubin <n.shubin@yadro.com>
+On Mon, Oct 17, 2022 at 5:40 PM Lad, Prabhakar
+<prabhakar.csengg@gmail.com> wrote:
+>
+> Hi Guo,
+>
+> On Tue, Oct 11, 2022 at 2:10 PM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > On Tue, Oct 11, 2022 at 5:39 PM Lad, Prabhakar
+> > <prabhakar.csengg@gmail.com> wrote:
+> > >
+> > > Hi Guo,
+> > >
+> > > On Thu, Oct 6, 2022 at 1:59 AM Guo Ren <guoren@kernel.org> wrote:
+> > > >
+> > > > On Wed, Oct 5, 2022 at 11:03 PM Lad, Prabhakar
+> > > > <prabhakar.csengg@gmail.com> wrote:
+> > > > >
+> > > > > Hi Guo,
+> > > > >
+> > > > > On Wed, Oct 5, 2022 at 3:23 PM Guo Ren <guoren@kernel.org> wrote:
+> > > > > >
+> > > > > > On Wed, Oct 5, 2022 at 8:54 PM Lad, Prabhakar
+> > > > > > <prabhakar.csengg@gmail.com> wrote:
+> > > > > > >
+> > > > > > > Hi Guo,
+> > > > > > >
+> > > > > > > On Wed, Oct 5, 2022 at 2:29 AM Guo Ren <guoren@kernel.org> wrote:
+> > > > > > > >
+> > > > > > > > On Tue, Oct 4, 2022 at 6:32 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > > > > > > >
+> > > > > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > > > > > >
+> > > > > > > > > On the AX45MP core, cache coherency is a specification option so it may
+> > > > > > > > > not be supported. In this case DMA will fail. As a workaround, firstly we
+> > > > > > > > > allocate a global dma coherent pool from which DMA allocations are taken
+> > > > > > > > > and marked as non-cacheable + bufferable using the PMA region as specified
+> > > > > > > > > in the device tree. Synchronization callbacks are implemented to
+> > > > > > > > > synchronize when doing DMA transactions.
+> > > > > > > > >
+> > > > > > > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > > > > > > > > block that allows dynamic adjustment of memory attributes in the runtime.
+> > > > > > > > > It contains a configurable amount of PMA entries implemented as CSR
+> > > > > > > > > registers to control the attributes of memory locations in interest.
+> > > > > > > > >
+> > > > > > > > > Below are the memory attributes supported:
+> > > > > > > > > * Device, Non-bufferable
+> > > > > > > > > * Device, bufferable
+> > > > > > > > > * Memory, Non-cacheable, Non-bufferable
+> > > > > > > > > * Memory, Non-cacheable, Bufferable
+> > > > > > > > > * Memory, Write-back, No-allocate
+> > > > > > > > > * Memory, Write-back, Read-allocate
+> > > > > > > > > * Memory, Write-back, Write-allocate
+> > > > > > > > > * Memory, Write-back, Read and Write-allocate
+> > > > > > > > Seems Svpbmt's PMA, IO, and NC wouldn't fit your requirements, could
+> > > > > > > > give a map list of the types of Svpbmt? And give out what you needed,
+> > > > > > > > but Svpbmt can't.
+> > > > > > > >
+> > > > > > > Sorry I didn't get what you meant here, could you please elaborate.
+> > > > > > I know there is no pbmt in AX45MP, I am just curious how many physical
+> > > > > > memory attributes you would use in linux? It seems only one type used
+> > > > > > in the series:
+> > > > > > cpu_nocache_area_set -> sbi_ecall(SBI_EXT_ANDES,
+> > > > > > SBI_EXT_ANDES_SET_PMA, offset, vaddr, size, entry_id, 0, 0);
+> > > > > >
+> > > > > Yes, currently we only use "Memory, Non-cacheable, Bufferable". I was
+> > > > > wondering if we could send these options as flags from DT something
+> > > > > like below so that it's not hard coded in the code.
+> > > > >
+> > > > > /* PMA config */
+> > > > > #define AX45MP_PMACFG_ETYP                GENMASK(1, 0)
+> > > > > /* OFF: PMA entry is disabled */
+> > > > > #define AX45MP_PMACFG_ETYP_DISABLED            0
+> > > > > /* Naturally aligned power of 2 region */
+> > > > > #define AX45MP_PMACFG_ETYP_NAPOT            3
+> > > > >
+> > > > > #define AX45MP_PMACFG_MTYP                GENMASK(5, 2)
+> > > > > /* Device, Non-bufferable */
+> > > > > #define AX45MP_PMACFG_MTYP_DEV_NON_BUF            (0 << 2)
+> > > > > /* Device, bufferable */
+> > > > > #define AX45MP_PMACFG_MTYP_DEV_BUF            (1 << 2)
+> > > > > /* Memory, Non-cacheable, Non-bufferable */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF    (2 << 2)
+> > > > > /* Memory, Non-cacheable, Bufferable */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF        (3 << 2)
+> > > > > /* Memory, Write-back, No-allocate */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_NA            (8 << 2)
+> > > > > /* Memory, Write-back, Read-allocate */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_RA            (9 << 2)
+> > > > > /* Memory, Write-back, Write-allocate */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_WA            (10 << 2)
+> > > > > /* Memory, Write-back, Read and Write-allocate */
+> > > > > #define AX45MP_PMACFG_MTYP_MEM_WB_R_WA            (11 << 2)
+> > > > >
+> > > > > /* AMO instructions are supported */
+> > > > > #define AX45MP_PMACFG_NAMO_AMO_SUPPORT            (0 << 6)
+> > > > > /* AMO instructions are not supported */
+> > > > > #define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT        (1 << 6)
+> > > > >
+> > > > >
+> > > > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0
+> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
+> > > > >                               <0x0 0x10000000 0x0 0x04000000 0x0
+> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT >,
+> > > > >                               <0x0 0x20000000 0x0 0x10000000 0x0
+> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>,
+> > > > >                               <0x0 0x58000000 0x0 0x08000000 0x0
+> > > > > AX45MP_PMACFG_ETYP_NAPOT |  AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF |
+> > > > > AX45MP_PMACFG_NAMO_AMO_SUPPORT>;
+> > > > >
+> > > > > Does the above sound good?
+> > > > I've no idea. But for working around, I would give Acked-by.
+> > > >
+> > > > >
+> > > > > > I'm not sure how you make emmc/usb/gmac's dma ctrl desc work around
+> > > > > > without pbmt when they don't have cache coherency protocol. Do you
+> > > > > > need to inject dma_sync for desc synchronization? What's the effect of
+> > > > > > dynamic PMA in the patch series?
+> > > > > >
+> > > > > Currently we have setup the pma regions as below:
+> > > > >
+> > > > > l2cache: cache-controller@13400000 {
+> > > > >                 compatible = "andestech,ax45mp-cache", "cache";
+> > > > >                 cache-size = <0x40000>;
+> > > > >                 cache-line-size = <64>;
+> > > > >                 cache-sets = <1024>;
+> > > > >                 cache-unified;
+> > > > >                 reg = <0x0 0x13400000 0x0 0x100000>;
+> > > > >                 pma-regions = <0x0 0x00000000 0x0 0x10000000 0x0 0xf>,
+> > > > >                               <0x0 0x10000000 0x0 0x04000000 0x0 0xf>,
+> > > > >                               <0x0 0x20000000 0x0 0x10000000 0x0 0xf>,
+> > > > >                               <0x0 0x58000000 0x0 0x08000000 0x0 0xf>;
+> > > > >                 interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
+> > > > >         };
+> > > > >
+> > > > > The last pma-regions entry 0x58000000 is a DDR location this memory
+> > > > > locations is marked as shared DMA pool with below in DT,
+> > > > >
+> > > > >     reserved-memory {
+> > > > >         #address-cells = <2>;
+> > > > >         #size-cells = <2>;
+> > > > >         ranges;
+> > > > >
+> > > > >         reserved: linux,cma@58000000 {
+> > > > >             compatible = "shared-dma-pool";
+> > > > >             no-map;
+> > > > >             linux,dma-default;
+> > > > >             reg = <0x0 0x58000000 0x0 0x08000000>;
+> > > > >         };
+> > > > >     };
+> > > > >
+> > > > > And for ARCH_R9A07G043 we automatically select DMA_GLOBAL_POOL, so the
+> > > > > IP blocks (emmc/usb/gmac's) requesting DMA'able memory will
+> > > > > automatically fall into this region which is non-cacheable but
+> > > > > bufferable (set in PMA) and rest everything is taken care by clean and
+> > > > > flush callbacks. We dont have  inject dma_sync for desc
+> > > > > synchronization for existing drivers (which are shared with Renesas
+> > > > > RZ/G2L family)
+> > > > Better than I thought :). The "non-cacheable but c" is "weak
+> > > > order," also raising the bufferable signal of AXI transactions. Right?
+> > > Yes, I have confirmed from the HW team it does raise bufferable signal
+> > > of AXI transactions. So far with the drivers (ETH/USB/DMAC) we haven't
+> > > seen issues so far.
+> > >
+> > > Do you foresee any issues?
+> > That depends on you interconnect design, most of the simple
+> > interconnects would ignore bufferable. Some NoC interconnects would
+> > buffer the transactions, which means data would be buffered in
+> > interconnects after CPU store instruction retired. If the CPU kicks
+> > the dma working with an IO reg write, hw may not guarantee the orders
+> > of the last data written and dma IO reg kick start. Then dma may lose
+> > the data.
+> >
+> I haven't see this issue, maybe to avoid this the controller register
+> space could be marked as non-cachebale + non-bufferable in the PMA by
+That sounds good, and should be. Although maybe not needed.
 
-> > > This series aims to provide matching vendor SoC with corresponded
-> > > JSON bindings.
-> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
- 
-> > not sure if you're looking for this via the RISC-V tree, it looks
-> > like usually these get merged via a perf tree?  That's OK with me,
-> > but I'm also OK taking them through the RISC-V tree.  Note that
-> > cpuinfo dependency seems to be triggering kasan failures, so we'll at
-> > least need to sort that out.
+> this way we could ensure orders.
+>
+> What do you think?
+>
+> Cheers,
+> Prabhakar
 
-> As i remember correctly you were willing to take these patches into 6.0
-> =).
 
-> Well they are acked by Palmer and [2] series, which my series depends
-> on, also have been accepted.
 
-> I can resend if it helps you.
-
-I picked it from this Message-ID with b4, applied cleanly, but yesterday
-the merge window closed for v6.1, I applied it to my perf/core branch,
-for v6.2.
-
-Thanks,
-
-- Arnaldo
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
