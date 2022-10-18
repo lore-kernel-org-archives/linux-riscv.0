@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B7CBC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 09:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B24C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 09:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4kG1X4CQ69kZw8V3tU5KNtMmti3tEQfsCaXbu81dggI=; b=3GICm1WZgLO7BR
-	PoEZjh5oQRjukrAouc4h4zIsfZaDzT/viFZwZMc/AupBjLGUlYaqzSNaDZMu8iScNRW6YPGWqymgQ
-	R1UKqrPxDW9IQs0xqNTodj7MTE+4ODUWBX/QqFPzKNHf+MmH6RkEO94n6mOJmElmSG+ocuU3sy8Cl
-	D1h81PsHVsl+aQFdsg9pdXL0j/qpcYe4sN8sgNBCjtVuXlTB9K5EJAzeLHEmNedB9AKVwsUSD2Sry
-	Jg+LtY49ZAj0a2yrtq+9D/P7ndlBET58jVQUqiKItV+65XtNJRbl1mdWJLwfz8rpL+gaQlfow+NkZ
-	nPihWGtzu5IDhydgol6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TBEPJRKqYVV+twfickxyCS83dk3DAA+/SCLfiGOdJ3U=; b=yD52ZetFpRMYY0
+	pQAeiSeogLipKgDr/5qKoQL2G8W/vpp+1dFTAIEwjc7GXVr1fMevspHZLV/JaUBgC2MMki7in7aAF
+	6HoKEeYhoPX0KTlxeerUJAt3tSisljZpI1mXpnkEa/DE1xu1GerGBrQbvE0NK4CjRQQbuPPlgz7nr
+	+It0mVEf0smAvm4HZGTK4TW33lUvx3cCUOTozGPg1Vird5J4UiNcto6oRaEYbVLbdEErPYWJnIQG4
+	nS5lD4ddOgNY6jIAZm0bArKngG7eO0vugiyoAX04ga7gALFwT0j61iczqKconhCdACcdRGvhUciM/
+	C6xeSasHJgJXnPzWEIgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okifB-004n9k-DN; Tue, 18 Oct 2022 09:13:29 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1okimA-004szb-CY; Tue, 18 Oct 2022 09:20:42 +0000
+Received: from mail.xen0n.name ([115.28.160.31] helo=mailbox.box.xen0n.name)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okif7-004mqL-Kn
-	for linux-riscv@lists.infradead.org; Tue, 18 Oct 2022 09:13:27 +0000
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	id 1okim4-004sfZ-0V; Tue, 18 Oct 2022 09:20:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xen0n.name; s=mail;
+	t=1666084821; bh=N48MFgDUmr1tfKHznoAthvRtR1Wpy0hSpJqTj7oKYC4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cHV6qrCjD47k3jGPjUQF3lwihop1RDaw3yjdG73m7BjSD1b/7jyWqLqeN+Uyk642T
+	 VvEcixZUqLhrENpMZkopSZmIH+3rzqlov7m3aEUZuBieiNorHcibY7orD6PjU5mrAB
+	 wuldpVWm+HQ77bl4gfDeA0Z+scSMeI8G3x4eFq+M=
+Received: from [100.100.57.122] (unknown [220.248.53.61])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id C67E53F56E
-	for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 09:13:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1666084398;
-	bh=Hh8fsE9KkAVKP7Lv5PdzMeHsN9pjYg33humb2afrU8o=;
-	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
-	b=aDqCQd+FewwtieF1tSynz0H4EEaGHP3TwjG83GTfFE5yRZXZVVQPRMWFSqYlmrBwn
-	 mkdAPLeRbieFvpgGvz6QOOVO/6IE7/9kX0AZvLSdtbaaphpXvE7utxQ9bBsmVIKVNG
-	 Jj3w+BaeMhUVDzfr8bJH/qCr7VrBnQTm32c7fuF3wbFI/70+i5WzF8O04DgIu5I/MF
-	 MwNiQLOK5tjQmpqU1Y13an4KUnVwNaCYr4n+F637HyPP2jcn+ahx/RJAepXi7/AsTv
-	 xZVNUQ2kS1vXhYdM06yraHwySelv/fZJoG9NHb7uE7+WhMejLZJUGe5aCZmBrBrsNd
-	 Vyncmzq0mq7QQ==
-Received: by mail-ed1-f71.google.com with SMTP id h13-20020a056402280d00b0045cb282161cso11235510ede.8
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 02:13:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Hh8fsE9KkAVKP7Lv5PdzMeHsN9pjYg33humb2afrU8o=;
-        b=RYBcizGcam3Ouq0PXRpXuvroS+u7FdTvJzPByZXYi3i9vz7LtKblKxakyuGhQ9T05h
-         wclc5E19SGOWvUhdjkSFaUzcQnfrgOFTTLW2FLqSbltgfg2OnPjIPELrqvRFFTj1Z830
-         6ijvfoUqT5ryFjzx+reAsfZwIwDUeoKl8rM9cwGXiA2Jl9jbP4GnU3wgqtKp2BNMAM5L
-         yw0amaxe/o2NasFImbFcqwfE8AI5plvTNCbONXszOzpCKpysl5mmJxlkFNpX2TBShBoQ
-         3jJZB6TFJFY1g/XHOheAxyyq7PfgLG7MNGrjajgGztY1snNIQrSOTH9yqCuwiK3wihQa
-         eNdQ==
-X-Gm-Message-State: ACrzQf2mu8zX/EVPf2jyH1CbnkRuCkEsb7+XuB23e0ZslTuXdxtyHLCU
-	/DzfIDvprI8HNA3pwZtlpAZh+HreDvXI4VFQxvG3md9AxMsAeXiS/wWcfSQ43G/aDDkNr7Pv5mo
-	oc0uKBkEu3Jf9KRdAl9Ix6gA5bKCGFm6jjwOWrKfaqYgXuw==
-X-Received: by 2002:a05:6402:548f:b0:457:ed40:5f58 with SMTP id fg15-20020a056402548f00b00457ed405f58mr1673593edb.408.1666084398207;
-        Tue, 18 Oct 2022 02:13:18 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM6RtBiVWqlow4RIWQd6Iya71pSIgsGy2YuI+R6Q4lXOuU1BXFxCyytUUPbyjbx6D0cVL2MX/w==
-X-Received: by 2002:a05:6402:548f:b0:457:ed40:5f58 with SMTP id fg15-20020a056402548f00b00457ed405f58mr1673583edb.408.1666084397997;
-        Tue, 18 Oct 2022 02:13:17 -0700 (PDT)
-Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
-        by smtp.gmail.com with ESMTPSA id x9-20020a170906710900b0073a20469f31sm7270172ejj.41.2022.10.18.02.13.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Oct 2022 02:13:17 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: Thierry Reding <thierry.reding@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	"Wesley W. Terpstra" <wesley@sifive.com>
-Cc: linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] pwm: sifive: Always let the first pwm_apply_state succeed
-Date: Tue, 18 Oct 2022 11:13:16 +0200
-Message-Id: <20221018091316.415685-1-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.37.2
+	by mailbox.box.xen0n.name (Postfix) with ESMTPSA id 69A5760087;
+	Tue, 18 Oct 2022 17:20:20 +0800 (CST)
+Message-ID: <27ffa400-b947-7c83-0e79-c8eb9f96e12e@xen0n.name>
+Date: Tue, 18 Oct 2022 17:20:19 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:107.0)
+ Gecko/20100101 Thunderbird/107.0a1
+Subject: Re: [PATCH] mm: remove kern_addr_valid() completely
+Content-Language: en-US
+To: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+ linux-fsdevel@vger.kernel.org
+Cc: Richard Henderson <richard.henderson@linaro.org>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
+ <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Guo Ren <guoren@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
+ <gerg@linux-m68k.org>, Michal Simek <monstr@monstr.eu>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ "David S . Miller" <davem@davemloft.net>, Richard Weinberger
+ <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>
+References: <20221018074014.185687-1-wangkefeng.wang@huawei.com>
+From: WANG Xuerui <kernel@xen0n.name>
+In-Reply-To: <20221018074014.185687-1-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_021326_054171_EED8F28C 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20221018_022036_238161_C4458687 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +103,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 2cfe9bbec56ea579135cdd92409fff371841904f added support for the
-RGB and green PWM controlled LEDs on the HiFive Unmatched board
-managed by the leds-pwm-multicolor and leds-pwm drivers respectively.
-All three colours of the RGB LED and the green LED run from different
-lines of the same PWM, but with the same period so this works fine when
-the LED drivers are loaded one after the other.
+On 2022/10/18 15:40, Kefeng Wang wrote:
+> Most architectures(except arm64/x86/sparc) simply return 1 for
 
-Unfortunately it does expose a race in the PWM driver when both LED
-drivers are loaded at roughly the same time. Here is an example:
+one space before the opening parens
 
-  |          Thread A           |          Thread B           |
-  |  led_pwm_mc_probe           |  led_pwm_probe              |
-  |    devm_fwnode_pwm_get      |                             |
-  |      pwm_sifive_request     |                             |
-  |        ddata->user_count++  |                             |
-  |                             |    devm_fwnode_pwm_get      |
-  |                             |      pwm_sifive_request     |
-  |                             |        ddata->user_count++  |
-  |         ...                 |          ...                |
-  |    pwm_state_apply          |    pwm_state_apply          |
-  |      pwm_sifive_apply       |      pwm_sifive_apply       |
+> kern_addr_valid(), which is only used in read_kcore(), and it
+> calls copy_from_kernel_nofault() which could check whether the
+> address is a valid kernel address, so no need kern_addr_valid(),
 
-Now both calls to pwm_sifive_apply will see that ddata->approx_period,
-initially 0, is different from the requested period and the clock needs
-to be updated. But since ddata->user_count >= 2 both calls will fail
-with -EBUSY, which will then cause both LED drivers to fail to probe.
+minor grammatical nit:
 
-Fix it by letting the first call to pwm_sifive_apply update the clock
-even when ddata->user_count != 1.
+"... which already checks whether the address is a valid kernel address. 
+So kern_addr_valid is unnecessary, let's remove it."
 
-Fixes: 9e37a53eb051 ("pwm: sifive: Add a driver for SiFive SoC PWM")
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- drivers/pwm/pwm-sifive.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> let's remove unneeded kern_addr_valid() completely.
+> 
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+>   arch/alpha/include/asm/pgtable.h          |  2 -
+>   arch/arc/include/asm/pgtable-bits-arcv2.h |  2 -
+>   arch/arm/include/asm/pgtable-nommu.h      |  2 -
+>   arch/arm/include/asm/pgtable.h            |  4 --
+>   arch/arm64/include/asm/pgtable.h          |  2 -
+>   arch/arm64/mm/mmu.c                       | 47 -----------------------
+>   arch/arm64/mm/pageattr.c                  |  3 +-
+>   arch/csky/include/asm/pgtable.h           |  3 --
+>   arch/hexagon/include/asm/page.h           |  7 ----
+>   arch/ia64/include/asm/pgtable.h           | 16 --------
+>   arch/loongarch/include/asm/pgtable.h      |  2 -
+>   arch/m68k/include/asm/pgtable_mm.h        |  2 -
+>   arch/m68k/include/asm/pgtable_no.h        |  1 -
+>   arch/microblaze/include/asm/pgtable.h     |  3 --
+>   arch/mips/include/asm/pgtable.h           |  2 -
+>   arch/nios2/include/asm/pgtable.h          |  2 -
+>   arch/openrisc/include/asm/pgtable.h       |  2 -
+>   arch/parisc/include/asm/pgtable.h         | 15 --------
+>   arch/powerpc/include/asm/pgtable.h        |  7 ----
+>   arch/riscv/include/asm/pgtable.h          |  2 -
+>   arch/s390/include/asm/pgtable.h           |  2 -
+>   arch/sh/include/asm/pgtable.h             |  2 -
+>   arch/sparc/include/asm/pgtable_32.h       |  6 ---
+>   arch/sparc/mm/init_32.c                   |  3 +-
+>   arch/sparc/mm/init_64.c                   |  1 -
+>   arch/um/include/asm/pgtable.h             |  2 -
+>   arch/x86/include/asm/pgtable_32.h         |  9 -----
+>   arch/x86/include/asm/pgtable_64.h         |  1 -
+>   arch/x86/mm/init_64.c                     | 41 --------------------
+>   arch/xtensa/include/asm/pgtable.h         |  2 -
+>   fs/proc/kcore.c                           | 26 +++++--------
+>   31 files changed, 11 insertions(+), 210 deletions(-)
+> 
+> diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
+> index 946704bee599..fc70b7041b76 100644
+> --- a/arch/loongarch/include/asm/pgtable.h
+> +++ b/arch/loongarch/include/asm/pgtable.h
+> @@ -421,8 +421,6 @@ static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+>   	__update_tlb(vma, address, (pte_t *)pmdp);
+>   }
+>   
+> -#define kern_addr_valid(addr)	(1)
+> -
+>   static inline unsigned long pmd_pfn(pmd_t pmd)
+>   {
+>   	return (pmd_val(pmd) & _PFN_MASK) >> _PFN_SHIFT;
 
-diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-index 2d4fa5e5fdd4..ccdf92045f34 100644
---- a/drivers/pwm/pwm-sifive.c
-+++ b/drivers/pwm/pwm-sifive.c
-@@ -159,7 +159,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 
- 	mutex_lock(&ddata->lock);
- 	if (state->period != ddata->approx_period) {
--		if (ddata->user_count != 1) {
-+		if (ddata->user_count != 1 && ddata->approx_period) {
- 			mutex_unlock(&ddata->lock);
- 			return -EBUSY;
- 		}
+Acked-by: WANG Xuerui <git@xen0n.name> # loongarch
+
+Thanks!
+
 -- 
-2.37.2
+WANG "xen0n" Xuerui
+
+Linux/LoongArch mailing list: https://lore.kernel.org/loongarch/
 
 
 _______________________________________________
