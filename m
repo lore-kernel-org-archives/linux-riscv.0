@@ -4,58 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A809FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 12:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849C3C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 13:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8pwYUGkrvrnWoAYVlC9ftgOZ2dA99u0gO+mhE0H0zSQ=; b=bKByRLQG9qqfAS
-	vzDDk5eyUDcuNZfwLpbq9Li4jwwnkSSmZDK+96PCdezR6C5b+uYu5xVSN5+BVxeAh7tbdAIFVFvP5
-	3mMkOZ0tbr8LRhgzmw7zqJEQxxss7qhtMEHj3fIasESaV2xq9Fj6zhsoLrsr9i3Swb8R/XGn96M2X
-	hnxXCEeKSWxPXLmucHnS3Cw+MIVn3eaB79exyJhxcYaPdGFevuMbSFqxMJ0yT1CDJax2eV8D9AtQf
-	TAs4M3+e6cV8jt7X/0qTof3orz9tvTE/GOw5NahDWsy0ASgot7a5+c6NdYkD1mqaOmAmTTDqc2inO
-	LyziZkEelTAwWiWHcERA==;
+	List-Owner; bh=7nNFinNew+5Xqnzpo/DZkGMAP5Pc/A1AGdj0aYOjQ5g=; b=WIOte+sk5CTveg
+	wyFeXOSTrYiGmDfRx8XVBaI6WA9NBpYoK+VcNJKpvwj2NfHbl145Tu9b9CZH4yl/Id7w3pcflGlPd
+	cSNuJwuhTj2FXmxN7gBBA0sO2u8LX+2RH2zqxL73tBQpJVuY9AEso0AZP97QKNhJQcBpSLYT2i3tT
+	reVFoJ9hgTOBpnQbeq1uPI0Y74XeumKQ64W2ReVb/y5iVbCBTLkCeuvXgznYgVQEKIUj64nYx676c
+	10JyFHbvrakcVIXZ54oU/uAnnYob/XAzM2QE/mmhrUGK5boeQ5E5Rz1lkd5yx0hvkxpka3VYcQSX3
+	Eml43xQ5oui9BVEpUzvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oklyf-006hcU-Ua; Tue, 18 Oct 2022 12:45:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1okmHM-006sWl-F0; Tue, 18 Oct 2022 13:05:08 +0000
+Received: from mail-qk1-f169.google.com ([209.85.222.169])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oklyN-006hRe-3d
-	for linux-riscv@lists.infradead.org; Tue, 18 Oct 2022 12:45:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 79D7961368;
-	Tue, 18 Oct 2022 12:45:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70209C433D6;
-	Tue, 18 Oct 2022 12:45:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666097129;
-	bh=jRFoqeAs6PqQmn5JQefnF9EBH8A3Cf2rw0GlfDexcGw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kj+uLC+hQU4DVsfHXBbIlMfuFkLYVPTE5S5ePWMyvZReNHoicUZnVcBDjjN35Jjmw
-	 UVN5/he5xgCYX75CRcRSY7QwxqcYsE46sFtg2RUQUekAebPA9OMSaLPW1Hb1TgzDxh
-	 DpJoVPGB6gm3rI40AW8knO/iHC/Qb80zoKkyPcbg9ZJfbOErDbFci6aOfFEDM7hDeJ
-	 F/6Uc2ZaFo/oKPFPk2+0brvtSEcEjZ+2gGQ+PaSMiE4MMmaERaOmKLdK/b/gp7+rDW
-	 7OcNgD4mwVgq/HqiIYeLlUuTQiX5sxFLEw01HhgIUhneX3X1AOkh3HS5gPCwSeGJqK
-	 JLcOlMSDjtF0Q==
-From: Mark Brown <broonie@kernel.org>
-To: conor.dooley@microchip.com, Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, Abaci Robot <abaci@linux.alibaba.com>,
- linux-riscv@lists.infradead.org, daire.mcnamara@microchip.com
-In-Reply-To: <20221017092141.9789-1-jiapeng.chong@linux.alibaba.com>
-References: <20221017092141.9789-1-jiapeng.chong@linux.alibaba.com>
-Subject: Re: [PATCH] spi: microchip-core: Remove the unused function mchp_corespi_enable()
-Message-Id: <166609712817.385867.3776854548759783028.b4-ty@kernel.org>
-Date: Tue, 18 Oct 2022 13:45:28 +0100
+	id 1okmHH-006sS7-Ki; Tue, 18 Oct 2022 13:05:04 +0000
+Received: by mail-qk1-f169.google.com with SMTP id a5so8526453qkl.6;
+        Tue, 18 Oct 2022 06:05:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B3o3vYAk1VZiDmjBJfHdrW7jPj/9+r6RZmm9abHN1X0=;
+        b=ztsuW5suXoy1uwtipoXMzjyjC4UB/Mx5dzDtpboDc53/O8QtTCH6P/oU3aqXbLJv4s
+         jvkfNzXHm2X/QuRKPF5rOeJYuPyujlVZpKdG1vDwju6088GAbuXHV5I8UVM9k/+sd+JY
+         uRzecqYeBigpazr81hph1X+9pld1g2IEUuKjo2M3HxOBG1ZEicyH80lN5YTng+COp8Qt
+         53lzFGUMrJ1jYn23RFHwK+iieVlx0hXKsrgT86d1JL7k7D9bSv0obSyu5GsDR3zrkuDg
+         EW5zWv0QsrXtYqfVbg/Eybf14+Dbrq4fakDOk0mroL52SsH3k5swTHj1RuxZ/+XbJGT3
+         itLg==
+X-Gm-Message-State: ACrzQf3FwVbxCUPpNK0c8mcoW6NHBRAU9z4ae+wMRfaDOBxDvtk8Xqh3
+	GNCa53tsZwPvamAv2/iXB4rWyGbmhFRFZL1+
+X-Google-Smtp-Source: AMsMyM6SlHs6J8ccisDtnxwimo7Y/M2xQ8lnLLoAzxTQBPQE0wGAle5+U6l/Ta6Z5N1Vf59hWvflwA==
+X-Received: by 2002:a05:620a:21cf:b0:6ed:82e:8a5b with SMTP id h15-20020a05620a21cf00b006ed082e8a5bmr1748812qka.657.1666098299056;
+        Tue, 18 Oct 2022 06:04:59 -0700 (PDT)
+Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
+        by smtp.gmail.com with ESMTPSA id i8-20020a05620a074800b006cea2984c9bsm2230412qki.100.2022.10.18.06.04.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Oct 2022 06:04:57 -0700 (PDT)
+Received: by mail-yb1-f172.google.com with SMTP id 207so16897880ybn.1;
+        Tue, 18 Oct 2022 06:04:56 -0700 (PDT)
+X-Received: by 2002:a25:26c1:0:b0:6c3:bdae:c6d6 with SMTP id
+ m184-20020a2526c1000000b006c3bdaec6d6mr2457054ybm.36.1666098296216; Tue, 18
+ Oct 2022 06:04:56 -0700 (PDT)
 MIME-Version: 1.0
-X-Mailer: b4 0.10.0-dev-fc921
+References: <20221010201453.77401-1-andriy.shevchenko@linux.intel.com>
+ <20221010201453.77401-37-andriy.shevchenko@linux.intel.com>
+ <d63088d7-202b-a550-01e5-345a22de5f7d@amd.com> <CAMuHMdUfdQnisexfs4yLjeKs-LUPY1HjChrgeNjNL1qSErir9Q@mail.gmail.com>
+ <Y0UyOWALxSFai2w6@smile.fi.intel.com>
+In-Reply-To: <Y0UyOWALxSFai2w6@smile.fi.intel.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 18 Oct 2022 15:04:44 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVU-cTBMzgBrbzA9+ZYybVS8kdYaA9spU9oDfqrLMvCuA@mail.gmail.com>
+Message-ID: <CAMuHMdVU-cTBMzgBrbzA9+ZYybVS8kdYaA9spU9oDfqrLMvCuA@mail.gmail.com>
+Subject: Re: [PATCH v2 36/36] pinctrl: Clean up headers
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Basavaraj Natikar <bnatikar@amd.com>, Marc Zyngier <maz@kernel.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Kent Gibson <warthog618@gmail.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Samuel Holland <samuel@sholland.org>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Phil Edworthy <phil.edworthy@renesas.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Prathamesh Shete <pshete@nvidia.com>, 
+	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, linux-gpio@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+	linux-actions@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, 
+	alsa-devel@alsa-project.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-omap@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-msm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Andrew Jeffery <andrew@aj.id.au>, Joel Stanley <joel@jms.id.au>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	NXP Linux Team <linux-imx@nxp.com>, Sean Wang <sean.wang@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Paul Cercueil <paul@crapouillou.net>, Damien Le Moal <damien.lemoal@wdc.com>, 
+	Tony Lindgren <tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Michal Simek <michal.simek@xilinx.com>, Andy Gross <agross@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@somainline.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Viresh Kumar <vireshk@kernel.org>, Shiraz Hashim <shiraz.linux.kernel@gmail.com>, soc@kernel.org, 
+	Orson Zhai <orsonzhai@gmail.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Chunyan Zhang <zhang.lyra@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_054531_213188_EEAF9A91 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20221018_060503_695614_0211D13F 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,48 +131,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Oct 2022 17:21:41 +0800, Jiapeng Chong wrote:
-> The function mchp_corespi_enable() is defined in the spi-microchip-core.c
-> file, but not called elsewhere, so delete this unused function.
-> 
-> drivers/spi/spi-microchip-core.c:122:20: warning: unused function 'mchp_corespi_enable'.
-> 
-> 
-
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/1] spi: microchip-core: Remove the unused function mchp_corespi_enable()
-      commit: 8f4b3d2f653937956fdc68b665c621dfa3cf2fa7
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQW5keSwKCk9uIFR1ZSwgT2N0IDExLCAyMDIyIGF0IDExOjA3IEFNIEFuZHkgU2hldmNoZW5r
+bwo8YW5kcml5LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3cm90ZToKPiBPbiBUdWUsIE9j
+dCAxMSwgMjAyMiBhdCAxMDo0NjozMEFNICswMjAwLCBHZWVydCBVeXR0ZXJob2V2ZW4gd3JvdGU6
+Cj4gPiBPbiBUdWUsIE9jdCAxMSwgMjAyMiBhdCA5OjMxIEFNIEJhc2F2YXJhaiBOYXRpa2FyIDxi
+bmF0aWthckBhbWQuY29tPiB3cm90ZToKPiA+ID4gT24gMTAvMTEvMjAyMiAxOjQ0IEFNLCBBbmR5
+IFNoZXZjaGVua28gd3JvdGU6Cj4KPiA+ID4gPiArKysgYi9kcml2ZXJzL3BpbmN0cmwvY29yZS5o
+Cj4KPiA+ID4gPiAtI2luY2x1ZGUgPGxpbnV4L3BpbmN0cmwvcGluY29uZi5oPgo+ID4gPgo+ID4g
+PiBSZW1vdmluZyBwaW5jb25mLmggZnJvbSB0aGUgY29yZS5oIG1heSBjYXVzZSBidWlsZCBmYWls
+dXJlIGluIG90aGVyIGZpbGVzCj4gPiA+IGJlY2F1c2Ugd2hlcmUtZXZlciBjb3JlLmggaXMgaW5j
+bHVkZWQgdG8gdXNlIOKAnHN0cnVjdCBwaW5jb25mX29wc+KAnSwgdGhlcmUKPiA+ID4gaXMgYSBu
+ZWVkIHRvIGluY2x1ZGUgcGluY29uZi5oLgo+ID4KPiA+IEkgY2FuIGNvbmZpcm0gYWRkaW5nCj4g
+Pgo+ID4gICAgICNpbmNsdWRlIDxsaW51eC9waW5jdHJsL3BpbmNvbmYuaD4KPiA+Cj4gPiB0byBk
+cml2ZXJzL3BpbmN0cmwvcmVuZXNhcy9waW5jdHJsLXJ6bjEuYyBhbmQgZHJpdmVycy9waW5jdHJs
+L3BpbmN0cmwtc2luZ2xlLmMKPiA+IGZpeGVzIHRoZSBpc3N1ZXMgSSB3YXMgc2VlaW5nIHdpdGgg
+c2htb2JpbGVfZGVmY29uZmlnIGFuZCAob3V0LW9mLXRyZWUpCj4gPiByZW5lc2FzX2RlZmNvbmZp
+Zy4KPgo+IEkgd2lsbCBhZGQgdGhpcywgdGhhbmsgeW91IGZvciByZXBvcnRpbmcuCgpTYW1lIGZv
+ciBkcml2ZXJzL3BpbmN0cmwvc3RhcmZpdmUvcGluY3RybC1zdGFyZml2ZS1qaDcxMDAuYy4KCkdy
+e29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAgICAgICAgICAgR2VlcnQKCi0tCkdlZXJ0
+IFV5dHRlcmhvZXZlbiAtLSBUaGVyZSdzIGxvdHMgb2YgTGludXggYmV5b25kIGlhMzIgLS0gZ2Vl
+cnRAbGludXgtbTY4ay5vcmcKCkluIHBlcnNvbmFsIGNvbnZlcnNhdGlvbnMgd2l0aCB0ZWNobmlj
+YWwgcGVvcGxlLCBJIGNhbGwgbXlzZWxmIGEgaGFja2VyLiBCdXQKd2hlbiBJJ20gdGFsa2luZyB0
+byBqb3VybmFsaXN0cyBJIGp1c3Qgc2F5ICJwcm9ncmFtbWVyIiBvciBzb21ldGhpbmcgbGlrZSB0
+aGF0LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0tIExpbnVzIFRvcnZhbGRzCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
