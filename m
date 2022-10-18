@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8365EC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 12:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A809FC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 12:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=alfaVJopKeg0vxR+uw9SH1ZHag3FIEgVPXYd/GdSmWo=; b=hgEB+03wvOd/3b
-	Jw322H7eLfQE2edxbexeIpi6nUfi59S5HgnbSnjQuR6xW+sBygWCBWSSQG8XbIjzoTgmccvsnX3Il
-	SiVECmBRzMFFhchiCqeZOrua20fW2Y2Tq8DroMA4ZRS7CetP2cmTij5LBkovvBlXV0BhePNnhIQgR
-	eI4eOkL7JJ7UgnYQfDss7DcBuCM0PuK4+wG+5xVPZy3PAlfyFPSgXjbfvzGzOzOFnoYdOm4JRSmLd
-	J4P6jCtPqvKdEY/U0j+iIZKHV1Xun38oMwK6vX6vsTBGOYeUbVVfQtVqMxkpLx2/x0mPPvYKCRHRt
-	CA0AHvUdaxPfEbzbuSow==;
+	List-Owner; bh=8pwYUGkrvrnWoAYVlC9ftgOZ2dA99u0gO+mhE0H0zSQ=; b=bKByRLQG9qqfAS
+	vzDDk5eyUDcuNZfwLpbq9Li4jwwnkSSmZDK+96PCdezR6C5b+uYu5xVSN5+BVxeAh7tbdAIFVFvP5
+	3mMkOZ0tbr8LRhgzmw7zqJEQxxss7qhtMEHj3fIasESaV2xq9Fj6zhsoLrsr9i3Swb8R/XGn96M2X
+	hnxXCEeKSWxPXLmucHnS3Cw+MIVn3eaB79exyJhxcYaPdGFevuMbSFqxMJ0yT1CDJax2eV8D9AtQf
+	TAs4M3+e6cV8jt7X/0qTof3orz9tvTE/GOw5NahDWsy0ASgot7a5+c6NdYkD1mqaOmAmTTDqc2inO
+	LyziZkEelTAwWiWHcERA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okljx-006bhV-Tb; Tue, 18 Oct 2022 12:30:37 +0000
-Received: from mail-qt1-f180.google.com ([209.85.160.180])
+	id 1oklyf-006hcU-Ua; Tue, 18 Oct 2022 12:45:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okljm-006bd2-F2; Tue, 18 Oct 2022 12:30:28 +0000
-Received: by mail-qt1-f180.google.com with SMTP id cr19so6219428qtb.0;
-        Tue, 18 Oct 2022 05:30:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LA5Rw3StwiOqL+QwzJgo3njgEZhTbHuX12wcOa2B5Os=;
-        b=OXdJXhgf9ee9nNo3rD11GtU3zrBS/sy6VKr/ICIw/8GCVGwMrlBn8HVH9Kprx+hqz5
-         EHov9ajqn2eRZAYeHXuI0zYwsL4zBHvYd89lPANAaOKV9xBiyUGfQ/OSx+6ENXRGs2/Z
-         JMQBRyGRkfYzBaoed5yN2uQdhJWcEhsYO0txokCpR8rT9Xy82oOPTcjM7RVCp/tyGL6q
-         s/+roRiu9lq0pUD/ATQG0uOBYHO1fVvdvwSelity0WIsF5n+NUggUX3wf87RjFF+0k+b
-         ShsrSRgbsUslhI7MFcamah+izSQxqlhO1Y7BuqeWPb+Y/zkbvNbtfa1BAu11BLjI3rwO
-         prSA==
-X-Gm-Message-State: ACrzQf2x3GTrnsG9Jq82MLKwe8miDxAc6tSlyAitRZyxvjy/93/I0OkI
-	cfwXHcRg/dv/Oep04voCugpoFST4cqjF1w==
-X-Google-Smtp-Source: AMsMyM71er8FWRytTLPrh/OjwMqQywiGIIFnkZDnBUYccigXLQ0YDyH710tgvf8Ax0JmRFOOoRbKCQ==
-X-Received: by 2002:a05:622a:1705:b0:39c:ca5f:5d53 with SMTP id h5-20020a05622a170500b0039cca5f5d53mr1826766qtk.67.1666096223345;
-        Tue, 18 Oct 2022 05:30:23 -0700 (PDT)
-Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com. [209.85.128.172])
-        by smtp.gmail.com with ESMTPSA id c25-20020ac81119000000b003996aa171b9sm1786325qtj.97.2022.10.18.05.30.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Oct 2022 05:30:23 -0700 (PDT)
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-35711e5a5ceso135170207b3.13;
-        Tue, 18 Oct 2022 05:30:22 -0700 (PDT)
-X-Received: by 2002:a81:98d:0:b0:357:2422:13b4 with SMTP id
- 135-20020a81098d000000b00357242213b4mr2107285ywj.316.1666096222450; Tue, 18
- Oct 2022 05:30:22 -0700 (PDT)
+	id 1oklyN-006hRe-3d
+	for linux-riscv@lists.infradead.org; Tue, 18 Oct 2022 12:45:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 79D7961368;
+	Tue, 18 Oct 2022 12:45:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70209C433D6;
+	Tue, 18 Oct 2022 12:45:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666097129;
+	bh=jRFoqeAs6PqQmn5JQefnF9EBH8A3Cf2rw0GlfDexcGw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=kj+uLC+hQU4DVsfHXBbIlMfuFkLYVPTE5S5ePWMyvZReNHoicUZnVcBDjjN35Jjmw
+	 UVN5/he5xgCYX75CRcRSY7QwxqcYsE46sFtg2RUQUekAebPA9OMSaLPW1Hb1TgzDxh
+	 DpJoVPGB6gm3rI40AW8knO/iHC/Qb80zoKkyPcbg9ZJfbOErDbFci6aOfFEDM7hDeJ
+	 F/6Uc2ZaFo/oKPFPk2+0brvtSEcEjZ+2gGQ+PaSMiE4MMmaERaOmKLdK/b/gp7+rDW
+	 7OcNgD4mwVgq/HqiIYeLlUuTQiX5sxFLEw01HhgIUhneX3X1AOkh3HS5gPCwSeGJqK
+	 JLcOlMSDjtF0Q==
+From: Mark Brown <broonie@kernel.org>
+To: conor.dooley@microchip.com, Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, Abaci Robot <abaci@linux.alibaba.com>,
+ linux-riscv@lists.infradead.org, daire.mcnamara@microchip.com
+In-Reply-To: <20221017092141.9789-1-jiapeng.chong@linux.alibaba.com>
+References: <20221017092141.9789-1-jiapeng.chong@linux.alibaba.com>
+Subject: Re: [PATCH] spi: microchip-core: Remove the unused function mchp_corespi_enable()
+Message-Id: <166609712817.385867.3776854548759783028.b4-ty@kernel.org>
+Date: Tue, 18 Oct 2022 13:45:28 +0100
 MIME-Version: 1.0
-References: <20221017145157.1866351-1-geert@linux-m68k.org>
- <alpine.DEB.2.22.394.2210171653540.9136@ramsan.of.borg> <alpine.DEB.2.21.2210181126040.50489@angie.orcam.me.uk>
-In-Reply-To: <alpine.DEB.2.21.2210181126040.50489@angie.orcam.me.uk>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 18 Oct 2022 14:30:10 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVbo0wMaVVhe4f4tC9-TW2+DsOVAB77TtLdnsG=us8Q2A@mail.gmail.com>
-Message-ID: <CAMuHMdVbo0wMaVVhe4f4tC9-TW2+DsOVAB77TtLdnsG=us8Q2A@mail.gmail.com>
-Subject: Re: Build regressions/improvements in v6.1-rc1
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: linux-kernel@vger.kernel.org, 
-	D Scott Phillips <scott@os.amperecomputing.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-arm-kernel@lists.infradead.org, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-um@lists.infradead.org, 
-	linux-rdma@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm-riscv@lists.infradead.org, sparclinux@vger.kernel.org, 
-	linux-mips@vger.kernel.org
+X-Mailer: b4 0.10.0-dev-fc921
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_053026_521716_6C2E2827 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20221018_054531_213188_EEAF9A91 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +72,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Maciej,
+On Mon, 17 Oct 2022 17:21:41 +0800, Jiapeng Chong wrote:
+> The function mchp_corespi_enable() is defined in the spi-microchip-core.c
+> file, but not called elsewhere, so delete this unused function.
+> 
+> drivers/spi/spi-microchip-core.c:122:20: warning: unused function 'mchp_corespi_enable'.
+> 
+> 
 
-On Tue, Oct 18, 2022 at 12:39 PM Maciej W. Rozycki <macro@orcam.me.uk> wrote:
-> On Mon, 17 Oct 2022, Geert Uytterhoeven wrote:
-> > .> [1] http://kisskb.ellerman.id.au/kisskb/branch/linus/head/9abf2313adc1ca1b6180c508c25f22f9395cc780/ (all 149 configs)
+Applied to
 
-> > >  + {standard input}: Error: branch to a symbol in another ISA mode: 1339 =>
-> > > 2616, 2621
-> >
-> > mips-gcc11/micro32r2_defconfig
-> > mips-gcc11/micro32r2el_defconfig
->
->  Where can these configs be obtained from?
-
-By following the links in the URL above you removed while replying? ;-)
-
-http://kisskb.ellerman.id.au/kisskb/buildresult/14818296/
-http://kisskb.ellerman.id.au/kisskb/buildresult/14818298/
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
 Thanks!
 
-Gr{oetje,eeting}s,
+[1/1] spi: microchip-core: Remove the unused function mchp_corespi_enable()
+      commit: 8f4b3d2f653937956fdc68b665c621dfa3cf2fa7
 
-                        Geert
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 _______________________________________________
 linux-riscv mailing list
