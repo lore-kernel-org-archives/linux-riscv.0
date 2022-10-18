@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C53C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 08:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532A4C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Oct 2022 08:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B0v3QFLGQgQxhFFfyMdj/KWAaWZAQVidMm65JhK1nYo=; b=BgKDZ6mr+pjtbL
-	vAVJzI80ujKU7izU67k248ftibZUwQU0pbM4vbJ/OypdtLXFnb9HNJhqsktauxjRFyKMBk+0JdWfJ
-	nkVXQdeG9F0YwOceDrNcJoMJr+gHfDlRJB0QbmNVS9kRM4vWu4oUo6rnyEir4u1URfX5W3rW+eeZe
-	ewDY5E4uTdEMjjGl2ER9mMPaQbDGu1TZfnH1IBB5tw0w2lOsXzFyiRslV3uUI+RtyNGQkvYEwzhMf
-	kUAn/eJ87GJu+0//ZLI9tNDnsXQ3lWPvgM7qyq5ZwgGIx5zrghsB84V87DLewaJq8n4K6CM6CG8+J
-	yxVy9JE44amam+i97g5g==;
+	List-Owner; bh=cclIiGsozhrokGpUoiVzBl2PXNVuSBu+ot7Sfr2XwA8=; b=OWeVcnGEfiPW9Q
+	ZLtmAkBp08MOeHgAuG4MtlNfoXpm9GPTCfMdAc7SCXlcYE7jf5FRtvHalhRqfoDyO2sXKBveNdVqr
+	gybZKLrKp+QyGCPrYovpGEN/zNEekia1/bBSTmIdK9yR9WOCa0KwYfa+s0iva63/VpEYU72XQ2jP3
+	9B8nUgjHzwJjNADYqujv4y7RkbUivBfhcksWnwxjVa5GC/gW9ryUAKAy1GwScOHXJrpsxdM58Pk+i
+	LY6vgLOeTLdGDO4sfXd+zrb4EPSaM0wkvstnL6ZVuCjTye3w3lqKoLNoNBUZ91uNSnZHONJ69IW/7
+	BwCnUc+/0Ayo9YECR+lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okhlL-004LWH-Ba; Tue, 18 Oct 2022 08:15:47 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1okhnq-004MLF-Op; Tue, 18 Oct 2022 08:18:22 +0000
+Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okhlI-004LV1-EF
-	for linux-riscv@lists.infradead.org; Tue, 18 Oct 2022 08:15:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 25A48B81D7F;
-	Tue, 18 Oct 2022 08:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF48EC433D6;
-	Tue, 18 Oct 2022 08:15:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666080939;
-	bh=NiAv+zV+OhVw/SMNAL4VCwWVxv3D3VbyawFBS3TxEQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k9ZW3YG6niqCp1gyNqn3NCMLDVI4wJaWqxfJ3sJnoDCzYaeXv8C/RTr/7xTbN2ma5
-	 Jcgmaes1h9cbLjBlx57/YNo8Z7I8qrYfggd0sWThLZOvxfNffo7bfY3QT0g9Dhdd6I
-	 MJr2HYjCnLEq7cXeaz8X0hhm5Z2DuM5OrrxAi15UUbYRazfOwEMqo/70tOXYlEZD/P
-	 CFSnqg4GfDghFJm4vJJwacOFS8oME8YDwJOhS5sbgBw7pagBQeaoLXpiCrtA4B+l5o
-	 1jdJ+kPP/VM0Q+fOgnIe/vE2iExBEGF0uAYl3BjFQkoXcR2BssjhLTOvYtQa8XK7Yu
-	 vY074BpKuMesQ==
-Date: Tue, 18 Oct 2022 10:15:33 +0200
-From: Matthias Brugger <matthias.bgg@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel@collabora.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 1/3] dt-bindings: riscv: starfive: Add StarFive
- VisionFive V1 board
-Message-ID: <Y05gpRFo5DjWTM0o@ziggy.stardust>
-References: <20221017210542.979051-1-cristian.ciocaltea@collabora.com>
- <20221017210542.979051-2-cristian.ciocaltea@collabora.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221017210542.979051-2-cristian.ciocaltea@collabora.com>
+	id 1okhnj-004MFq-OC; Tue, 18 Oct 2022 08:18:17 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046059;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VSTz0bP_1666081089;
+Received: from localhost.localdomain(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VSTz0bP_1666081089)
+          by smtp.aliyun-inc.com;
+          Tue, 18 Oct 2022 16:18:10 +0800
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	anup@brainfault.org,
+	heiko@sntech.de,
+	guoren@kernel.org,
+	mick@ics.forth.gr,
+	alexandre.ghiti@canonical.com,
+	bhe@redhat.com,
+	vgoyal@redhat.com,
+	dyoung@redhat.com,
+	corbet@lwn.net,
+	Conor.Dooley@microchip.com,
+	bagasdotme@gmail.com
+Cc: kexec@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	crash-utility@redhat.com,
+	heinrich.schuchardt@canonical.com,
+	k-hagio-ab@nec.com,
+	hschauhan@nulltrace.org,
+	yixun.lan@gmail.com,
+	Xianting Tian <xianting.tian@linux.alibaba.com>
+Subject: [PATCH V3 2/2] Documentation: kdump: describe VMCOREINFO export for RISCV64
+Date: Tue, 18 Oct 2022 16:17:55 +0800
+Message-Id: <20221018081755.6214-3-xianting.tian@linux.alibaba.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20221018081755.6214-1-xianting.tian@linux.alibaba.com>
+References: <20221018081755.6214-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_011544_646350_8F67D3A1 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20221018_011815_979340_375A8EF7 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +74,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 18, 2022 at 12:05:40AM +0300, Cristian Ciocaltea wrote:
-> Document the compatibles for StarFive VisionFive V1 SBC [1].
-> The board is based on the StarFive JH7100 SoC.
-> 
-> [1] https://github.com/starfive-tech/VisionFive
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+The following interrelated definitions and ranges are needed by the kdump
+crash tool, which are exported by "arch/riscv/kernel/crash_core.c":
+    VA_BITS,
+    PAGE_OFFSET,
+    phys_ram_base,
+    MODULES_VADDR ~ MODULES_END,
+    VMALLOC_START ~ VMALLOC_END,
+    VMEMMAP_START ~ VMEMMAP_END,
+    KASAN_SHADOW_START ~ KASAN_SHADOW_END,
+    KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END
 
-Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+Document these RISCV64 exports above.
 
-> ---
->  Documentation/devicetree/bindings/riscv/starfive.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
-> index 5b36243fd674..5d3fcee52d59 100644
-> --- a/Documentation/devicetree/bindings/riscv/starfive.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
-> @@ -19,7 +19,9 @@ properties:
->    compatible:
->      oneOf:
->        - items:
-> -          - const: beagle,beaglev-starlight-jh7100-r0
-> +          - enum:
-> +              - beagle,beaglev-starlight-jh7100-r0
-> +              - starfive,visionfive-v1
->            - const: starfive,jh7100
->  
->  additionalProperties: true
-> -- 
-> 2.38.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Reviewed-by: Bagas Sanjaya <bagasdotme@gmail.com>
+---
+ .../admin-guide/kdump/vmcoreinfo.rst          | 30 +++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/Documentation/admin-guide/kdump/vmcoreinfo.rst b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+index 6726f439958c..96efcb03bd7d 100644
+--- a/Documentation/admin-guide/kdump/vmcoreinfo.rst
++++ b/Documentation/admin-guide/kdump/vmcoreinfo.rst
+@@ -595,3 +595,33 @@ X2TLB
+ -----
+ 
+ Indicates whether the crashed kernel enabled SH extended mode.
++
++RISCV64
++=======
++
++VA_BITS
++-------
++
++The maximum number of bits for virtual addresses. Used to compute the
++virtual memory ranges.
++
++PAGE_OFFSET
++-----------
++
++Indicates the virtual kernel start address of the direct-mapped RAM region.
++
++phys_ram_base
++-------------
++
++Indicates the start physical RAM address.
++
++MODULES_VADDR|MODULES_END|VMALLOC_START|VMALLOC_END|VMEMMAP_START|VMEMMAP_END|KASAN_SHADOW_START|KASAN_SHADOW_END|KERNEL_LINK_ADDR|ADDRESS_SPACE_END
++----------------------------------------------------------------------------------------------------------------------------------------------------
++
++Used to get the correct ranges:
++
++  * MODULES_VADDR ~ MODULES_END : Kernel module space.
++  * VMALLOC_START ~ VMALLOC_END : vmalloc() / ioremap() space.
++  * VMEMMAP_START ~ VMEMMAP_END : vmemmap space, used for struct page array.
++  * KASAN_SHADOW_START ~ KASAN_SHADOW_END : kasan shadow space.
++  * KERNEL_LINK_ADDR ~ ADDRESS_SPACE_END : Kernel link and BPF space.
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
