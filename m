@@ -4,148 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D391C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 02:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791E8C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 02:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vDZnOiIsD1Yxp3HVhgFNJnDATJxyDMgPZrcRsoYtWUs=; b=F1CenoRMd3C3uW
-	TNDGpJ3+MfIusCSpsMQ/CGYZhkQZO0B67N5XXuph1hau41UNm0iG8p7pgHX715EtcA3L5s+ktjpPQ
-	M4qGe8Hrx4T6qEJeKfVDUTy5WnGtqt+yrMEZMQhdmjKGgFuAh2nHo6jzM3hlyl+50sq0CsWs4+grd
-	miLWP+yTndJmTLZ0usmRiNCqXdbTniiqb5UooXPi3Flt862LBKvlRpe58C4KEvQvV5QTFFWDHP4bI
-	jrvb84WyOzrSDtcJtDiSh7UPCxKoaemkXI2DMtyOmdJy/EYNaitQMoQ2c/oQ7dUbP2NfZby1IarAb
-	gW2vdnshWk1k1EtcWWNg==;
+	List-Owner; bh=PEgDrRPaTmnNx0rme3YgJ/Uh6tu1RqcfOHCtjvhgsPo=; b=dlsN+afHPSkzZH
+	pyTgNb5Ig7Jp+/7dI7XxtBR5Wu5ndOzmr2Xd4yqadaPc5j7zMwLTEjMjpUqE/8Bj8yKEe/gla5wrz
+	hh+dHmGEmhARcSTJc2oh2npAIeZEZVt0PoOuNN1RLlC2IYKwUIDIzbIZnoMGvjVzVBpGb1tZpvB0z
+	e3HXFoOd79XwB1B+Y9IKmQSUYIWK+rbITke8hT8YDOpe4Fq5KhsWzS77rAYZp4BAbYNEg7jvLEJMa
+	IZU26uvVGP6/NvTcgAvtVqK615oBCQFzt3sLR7vwRKqLQiOwK2X5+0Jmnr9U7WCdpi9omhS4r8I0/
+	HNYHBiUfHUJl0yHMVz/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okzAn-00Dxka-9y; Wed, 19 Oct 2022 02:51:13 +0000
-Received: from mail-os0jpn01on2045.outbound.protection.outlook.com ([40.107.113.45] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1okzCI-00Dzn1-1e; Wed, 19 Oct 2022 02:52:46 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okzAh-00DxHY-48; Wed, 19 Oct 2022 02:51:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=F5t85n1JaM/BJkFbTOoIJ660+b3r6/VwdTjWRm+xo27L64HoWmG1awr9CubEtuQi3CdyyQM9jXIu1JWehpjQrWSIzeQPL08nOl99c7cOKkB4maOuvjEmfybtG2yTrAv5pf8kvEOqmPF2zTEeqn1bytC9Kx2gjcai/z4ZCANmrS2fNKNgiKOGAWc3Dy2/zkcI8QMPQWgiGUs2aioZ7TMlpC5wLQS2HC47Blp3eZ8bfFFhG4SjrbRjb6nD5Dn+4GW3vA4AZMiXgQjVVnkHPU7ipm/QtAZXdLzDOTiNijiy36+14LdQhQAKNhXd+mwHxf4mqZZkNWNvuxQwan+e+LrJJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LpQrECDiG5QmF9awuoZpZqwVMQo18Ku3BGwkdBHo/CU=;
- b=nW8nFQDdR05IO+G5NKHMuPxLMrcWuB5Jvy9yHAlAg+MpLPuSV3je01BBZ2ZrfPbvLhIoEZ+0GaTPNmYKdfF2vYUKQV3+EMIRQn48IB4muMcFlYp0Qm3hIByfv8Ds002l0oLtRvw59EZxpUSDKZnjUuLfB3dHoJCq/xi4cOXBvO2Hwimnk7oj3HpXZYHd87rXMWUzIhVQ6rmqn/FMO1OueOr/xtpP86JpV4cpqLw3/gUZw4cn4xuxB6tOp30IZjjffxFIt5IYhlkk1XJL57ZbyJird3y9X80R6XEeYnuqNvr7Ree91CBGrbL2XOoh5/TpQFRnHmS25VbF2exJXPQSAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nec.com; dmarc=pass action=none header.from=nec.com; dkim=pass
- header.d=nec.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nec.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LpQrECDiG5QmF9awuoZpZqwVMQo18Ku3BGwkdBHo/CU=;
- b=h+aE4xOcIC6FYw3xVAswyZswbCHjKAzO0Aoy02aYJexllTo5Q8ISgYAOIF9Uu93BBk7L+iqah+WuI42F6mbzffqDT44XCrmGD8RbtkDSp6w43oa/uJeEJbNe8CbWd9bND0umd5z3Faz3uaP9mukSEHdAZLAufkdGAIltllLYp6Y=
-Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com (2603:1096:400:cc::9)
- by TY1PR01MB10723.jpnprd01.prod.outlook.com (2603:1096:400:31c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5723.34; Wed, 19 Oct
- 2022 02:50:49 +0000
-Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com
- ([fe80::1f99:8d77:182b:f149]) by TYYPR01MB6777.jpnprd01.prod.outlook.com
- ([fe80::1f99:8d77:182b:f149%6]) with mapi id 15.20.5723.034; Wed, 19 Oct 2022
- 02:50:49 +0000
-From: =?utf-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+44CA5LiA5LuBKQ==?=
-	<k-hagio-ab@nec.com>
-To: Xianting Tian <xianting.tian@linux.alibaba.com>, Baoquan He
-	<bhe@redhat.com>, lijiang <lijiang@redhat.com>
-CC: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "anup@brainfault.org" <anup@brainfault.org>,
-	"heiko@sntech.de" <heiko@sntech.de>, "guoren@kernel.org" <guoren@kernel.org>,
-	"mick@ics.forth.gr" <mick@ics.forth.gr>, "alexandre.ghiti@canonical.com"
-	<alexandre.ghiti@canonical.com>, "vgoyal@redhat.com" <vgoyal@redhat.com>,
-	"dyoung@redhat.com" <dyoung@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>,
-	"bagasdotme@gmail.com" <bagasdotme@gmail.com>, "kexec@lists.infradead.org"
-	<kexec@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "crash-utility@redhat.com"
-	<crash-utility@redhat.com>, "heinrich.schuchardt@canonical.com"
-	<heinrich.schuchardt@canonical.com>, "hschauhan@nulltrace.org"
-	<hschauhan@nulltrace.org>, "yixun.lan@gmail.com" <yixun.lan@gmail.com>
-Subject: Re: [PATCH V3 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
-Thread-Topic: [PATCH V3 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
-Thread-Index: AQHY4sowOW0HNCQqKU+2PSWxrOMtua4T3VOAgAAEI4CAAAqigIABCJqAgAAQ6AA=
-Date: Wed, 19 Oct 2022 02:50:49 +0000
-Message-ID: <0f0a77a9-c824-8aa4-77de-a75c2139d791@nec.com>
-References: <20221018081755.6214-1-xianting.tian@linux.alibaba.com>
- <20221018081755.6214-2-xianting.tian@linux.alibaba.com>
- <Y05tfxRenMs5d+bt@MiWiFi-R3L-srv>
- <049ec19e-60c3-2854-5f5e-9850231108b4@linux.alibaba.com>
- <Y05540td7lLz+0BY@MiWiFi-R3L-srv>
- <a66a5b16-5f1f-3d80-3cdc-4b82d38d604f@linux.alibaba.com>
-In-Reply-To: <a66a5b16-5f1f-3d80-3cdc-4b82d38d604f@linux.alibaba.com>
-Accept-Language: ja-JP, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nec.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYYPR01MB6777:EE_|TY1PR01MB10723:EE_
-x-ms-office365-filtering-correlation-id: 911b7ebb-93b3-4c50-ffcb-08dab17cbabd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  QfzAMY81V2x/TWQE8JFGEPLlCPqOA5bx8ow1IYpTUmtVIQCCJsddI51ZRI9oGHtHj4an5JUmG97qdyLQ8zgs8JQxhMJRqNt3qJB98t6XJ8r/2Z1gSIvGnDtg3sYKZtXwrXIFW/rsfXczAMtm47y2FS8z6nBjPSH+KfD0iXL2YkbZPGu8osI1hNKoscMuXHR62bcgUzqmuLp6bOl37CSLZWj1PgA97/gUvKSbQZwwqQYdNrKXYvCSIcyl/d/mX/G7NN7hLkk1ru+3WtLxWY38bk9a1iP7USm2kWFzux7P5zV0Ay1nbG8fU9aTa6L67KyFLT9GzbyPL9pg5Y4ZkQHpofSLfiIZF9vxtcPVSpC/Uv2C83VRnHa9b9qYTpvgJhIar7EPqVk5BHO9bzHHb2YBnS21O0adRfJ1ksK7oLtRVIKB1Y+u+CdVzlU0RVCSDdg2DZbgd5un6eCY2GlwH2WjCtcAvLJ8muUZ05JZjUAlqqvAr6/F3xTGJDS1UyEK65Dtp97V9PRNg+Q14XGrPsob3lrDF06ve9s94DaezIaS6wo6FVoaUBXJm2ewDf4ZpsNVHWkDT6NMnsohV8hdt3uKxe0vKG1pTNpY6/vsifkl63UlzqBSPOlSD0xO+3iDzM/wISHnCBgcFjqxjVkjYbxc/PNf1s80m8g9hRfhdaja7soKeeUCuQJziqEgqpsc4g5SoGlugPdryScLWPYyN/WQdlR01sFMUXvO+S8lKDQD04E+IMl6Cq1AziT2Cu9/8uTRjdElKHn+A5QUzFt7FcPUhaGlB/snL3V23WOZyUew8eQYhZx4PQOFfOK9TYMz5qt/
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(4636009)(366004)(396003)(136003)(39860400002)(346002)(376002)(451199015)(86362001)(36756003)(41300700001)(71200400001)(31696002)(2906002)(478600001)(966005)(85182001)(8936002)(7416002)(316002)(5660300002)(110136005)(54906003)(8676002)(4326008)(64756008)(66446008)(6486002)(76116006)(66556008)(66476007)(66946007)(55236004)(38100700002)(38070700005)(26005)(6512007)(122000001)(2616005)(53546011)(6506007)(82960400001)(186003)(31686004)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?ZFRnektKbXdxVDFlbEdGTnZ3Z0pBditoMGs3VVp5QVVWWFFpdUFGQXZuVGMw?=
- =?utf-8?B?R0lvL1B1WEQ2ZURNUjZKQ2wyVTJtbklGc0JBcWpZc3FQMnpZUUR6YWxnMERW?=
- =?utf-8?B?M1pQTGtIUWhlSmU3QVRZRDRxdlI5cXVkYTJrRGl5b2dxOEpETjVMYW15cnlp?=
- =?utf-8?B?c3FRR1ZyUGJNZXZoVHpCb0RFNGFycUMySVpkNmhMbzVUaDFFMi9UNUNzRTVV?=
- =?utf-8?B?UVUxUC9lYW1zcUhjZ1pHM1NmZEUrQkdzQjlwV3M5aHAwc2VXTkFBVVJZSDhX?=
- =?utf-8?B?ZjhNTDdjek01WC90SjlkSXErazA1UDI3clVKUmZscm1ILzVnR2ZTTWJablBL?=
- =?utf-8?B?QUdZcWtFS1RTalhicnBEN0htcjdxQS9BaVRoNXF3MUJ2TncvUmdjTm9leEV5?=
- =?utf-8?B?aFJVSmxRTlVZempYbWxsbFRHWGtFZjFTYi94bWU2OXJITlBBYzB3SFdOZkNi?=
- =?utf-8?B?bmhhU2hXZnI4ZTZYcDNrejcyb1F4NHZGMk56czBGZmFPb0VpT1RnZmxaR0Qy?=
- =?utf-8?B?SVI1NjZlZHRuc0FrMnJVakROaFU5NUZPK09iVG5vOHdtRy9UbERkR1V2UVdN?=
- =?utf-8?B?NXpFdjk1c1VHMHl4R2g0amlRSUtMSzVQdzFZQlJDU0c4Zktxb09EUmhkeWJr?=
- =?utf-8?B?UXlzc3VFVnliSVRKVG1JZU1tZ01mVkdzaU5tcGgzWm1aZngwSWcyZms3SDhS?=
- =?utf-8?B?VkNiYlIvZ3RuY2JGNDNMdDJTcUZGemc4cEFlNTFuaTUzLzNwNG5WRFZ3dUpB?=
- =?utf-8?B?UEhpV1ZhbjFiZzlDNFpic1VqTUV6ekM4VlpxSzZocXRFdml4S1FRMTdaN2Jo?=
- =?utf-8?B?NjVDT043NklrU0FqeEN5K1dlUHJPR1daOUIxZ3Y0V2RDSisvWGRVVXJabUZF?=
- =?utf-8?B?RW5uN0R0OE8yQUFMVkZIQjQ2ZTBEM2l2QnBVbjZzN0poeFlpNWV0ZU9MTnEv?=
- =?utf-8?B?Lzd2Z0hyMEROUlBOZ3dJT2ZjTG80NlQvTmFseHJDWG90QjB3OVMrNDFzZ2FP?=
- =?utf-8?B?b01aMklhNU1sOWZ6QjZjWDZpYzdERzRFWk9RdTQrQUZycW9qMTczLzBvMTZD?=
- =?utf-8?B?MHV1YzFQRHNnSEozOFN3SFJJVzY1R0Y3Mll6dGFvWFFnbXBxVVVzaGRLaytR?=
- =?utf-8?B?THMvK0txOHpWUThFZ1ZZa0tqZDRLc29FWS9QakRZaDZZTGJIQ2xCMzNteXRr?=
- =?utf-8?B?NXArR2xnc25CRjMyNm84QTF3K25HOWRoOU1TSURsNFNGcVhhNXZOeHVoY2ZI?=
- =?utf-8?B?bE5WeHM2YmxpUy9VTXNWV2lWV3NaNlBCeE1mR2ZWZDhPamJoNTE1ZisvSVFu?=
- =?utf-8?B?WHNUOWNSaDE1OHEweWp6bmlrUTF4MHhMTnFoVUVMOXFpVzhhT1QxOEZwVito?=
- =?utf-8?B?MUZhbHJVVmw3d01aMStjNkxKSG5VaVpYa2k5ejlRdFExVHJsYWxxUm0xSGZ5?=
- =?utf-8?B?MG5iOWtybVV0SzRnS1k2RDAxT1hhSk13V2VEdXRwaytVeUVVdXFkdFF3UnFB?=
- =?utf-8?B?Wno5dGNlbms4ekx1Mkc0QmgrTWF4dllZczk5dzZ1cTNlWWpMcHAvOHhnRmFx?=
- =?utf-8?B?SEVsSUZCSDhiYU5tLzVueUtVVCtzM0ZSM0kwTWJJWDhwazhZaWhEWWV0U0Js?=
- =?utf-8?B?Q1A3U1RyeDFjbkN1U2hoc3hLWlNINUc1ZlZIOUFidUdsUGYrdU8xdWRJRUI0?=
- =?utf-8?B?eXhwNnQrTHk2YVVQbUh4VFV2TnVEQlRxODhOK3hSRUxOTFZHYWRyNDJSZkhQ?=
- =?utf-8?B?a0cwVkdhMTBHRFlLL2hETWRVUlZUK1hvc05teFp0Z05TSnpKVU05S3ZVM1ZT?=
- =?utf-8?B?TFJ2OGNkR0lJODMwbmpjTUlYVGZlR09Ib2ZZNm5FYkorc2grT21SamlKVGY1?=
- =?utf-8?B?eW4ybkppMzdCcVpVMTVDN1FMSi8yWFZsYTU5Y29peElzTWx1QzlQY3pwRFIv?=
- =?utf-8?B?UWF0U1J5VjVrdVlIbDltcnd1d0E4NExiY1V2VFoxRGhFQm5VOVFwalJmSXEy?=
- =?utf-8?B?WVJXeEFwb1pQTlRoT05wSXJWcUZBZTNWZFN6NmdRSDh2RUQ4alVLUHNPalJ4?=
- =?utf-8?B?YTVlcERHTDE4bnNlbXJVZjYxbUFsUWNiaFVueUt2cktTUk0vT2ZUZ0lXbm9S?=
- =?utf-8?Q?l2YppLHGNj27g4THZbOT4SJ9c?=
-Content-ID: <DFC54A03F1049D4082AB224A03DEFDE9@jpnprd01.prod.outlook.com>
+	id 1okzC7-00DzkB-1H
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 02:52:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 65BCEB821EB
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 02:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27156C43145
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 02:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666147950;
+	bh=K+QuC5meHZo6BrLK0LkS7uWDjQ0k4bJWjop/tds7mR4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=hUljwbM0Fn9+XOlgn6cf4K2Ej/AITItf84YOsNCRH1w0AG9mOlIzc2/L9uiSa1Pi2
+	 SI6yeqGwxES3NP++7bFOhaG5RRyntgeQ/3cxUFZBiXa7Q75V/xxDOVrc9+wcBo4abC
+	 ekRaUW7P0zy/2787vnqAXraem9pR1cfexST+e8bCxCOeeDWnqr4o50d6QQD7cf0a9v
+	 1k+yeENBWZjBnAedhNnITxdrxSnVKMMu32uxMynrdlmG+NCisXQ1E6Vsa06lqslbxu
+	 QxNQU+/+ZRne/TRRIphafdY1rSBet/uvW+cx4OisCbd2N8QF/XpqQD6kqPtBwWaA53
+	 EfVZR5eCmmKhw==
+Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-12c8312131fso19134349fac.4
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 19:52:30 -0700 (PDT)
+X-Gm-Message-State: ACrzQf2pSbHOQRD7VLZNCmZqyoEPKiSoYtNvEZP2kb7uye/w+OFWpdGD
+	Gnf65g7/pwNjuVGRqHVKXl+sThc5Xm1WFKcrNtk=
+X-Google-Smtp-Source: AMsMyM7ZxkytzVU3yu34mw7+Rp+uGIBPCR0bX0iDXuW6Uq4pQz0bHvNuy2RrphslW9j4wJ5u8JERoKn2cX6UsJnLA1s=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr19367066oap.19.1666147949080; Tue, 18
+ Oct 2022 19:52:29 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: nec.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6777.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 911b7ebb-93b3-4c50-ffcb-08dab17cbabd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Oct 2022 02:50:49.2796
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e67df547-9d0d-4f4d-9161-51c6ed1f7d11
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8bcG8GWq/r44gc1jEwWzg2tm2uRssR/5htiWYpUPUqtOzpD0Q/no3CV3MNsF/QCEc8zjWe1FZZ/THdMz3ohiYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PR01MB10723
+References: <20220928162007.3791-1-jszhang@kernel.org> <20220928162007.3791-4-jszhang@kernel.org>
+ <YzR8OUFuV+R1i1Y6@xhacker> <CAJF2gTSaCGeMG06xrRxjkk2UnjqcgrRTwdch9Ug_TyH-9LsP4g@mail.gmail.com>
+In-Reply-To: <CAJF2gTSaCGeMG06xrRxjkk2UnjqcgrRTwdch9Ug_TyH-9LsP4g@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 19 Oct 2022 10:52:16 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSPYscHa6s3HOjAKb3ggaSvggM=+qDzCeESZwY-vO2RJQ@mail.gmail.com>
+Message-ID: <CAJF2gTSPYscHa6s3HOjAKb3ggaSvggM=+qDzCeESZwY-vO2RJQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] riscv: fix race when vmap stack overflow and
+ remove shadow_stack
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_195107_337346_87678854 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20221018_195242_104543_8CFFFFAD 
+X-CRM114-Status: GOOD (  40.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,111 +79,283 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyMi8xMC8xOSAxMDo1MCwgWGlhbnRpbmcgVGlhbiB3cm90ZToNCj4g5ZyoIDIwMjIvMTAv
-MTgg5LiL5Y2INjowMywgQmFvcXVhbiBIZSDlhpnpgZM6DQo+PiBPbiAxMC8xOC8yMiBhdCAwNToy
-NXBtLCBYaWFudGluZyBUaWFuIHdyb3RlOg0KPj4+IOWcqCAyMDIyLzEwLzE4IOS4i+WNiDU6MTAs
-IEJhb3F1YW4gSGUg5YaZ6YGTOg0KPj4+PiBPbiAxMC8xOC8yMiBhdCAwNDoxN3BtLCBYaWFudGlu
-ZyBUaWFuIHdyb3RlOg0KPj4+Pj4gQWRkIGFyY2hfY3Jhc2hfc2F2ZV92bWNvcmVpbmZvKCksIHdo
-aWNoIGV4cG9ydHMgVk0gbGF5b3V0KE1PRFVMRVMsIFZNQUxMT0MsDQo+Pj4+PiBWTUVNTUFQIGFu
-ZCBLRVJORUxfTElOS19BRERSIHJhbmdlcyksIHZhIGJpdHMgYW5kIHJhbSBiYXNlIGZvciB2bWNv
-cmUuDQo+Pj4+Pg0KPj4+Pj4gRGVmYXVsdCBwYWdldGFibGUgbGV2ZWxzIGFuZCBQQUdFX09GRlNF
-VCBhcmVuJ3Qgc2FtZSBmb3IgZGlmZmVyZW50IGtlcm5lbA0KPj4+Pj4gdmVyc2lvbiBhcyBiZWxv
-dy4gRm9yIHBhZ2V0YWJsZSBsZXZlbHMsIGl0IHNldHMgc3Y1NyBieSBkZWZhdWx0IGFuZCBmYWxs
-cw0KPj4+Pj4gYmFjayB0byBzZXR0aW5nIHN2NDggYXQgYm9vdCB0aW1lIGlmIHN2NTcgaXMgbm90
-IHN1cHBvcnRlZCBieSB0aGUgaGFyZHdhcmUuDQo+Pj4+Pg0KPj4+Pj4gRm9yIHJhbSBiYXNlLCB0
-aGUgZGVmYXVsdCB2YWx1ZSBpcyAweDgwMjAwMDAwIGZvciBxZW11IHJpc2N2NjQgZW52IGFuZCwN
-Cj4+Pj4+IGZvciBleGFtcGxlLCBpcyAweDIwMDAwMCBvbiB0aGUgWHVhblRpZSA5MTAgQ1BVLg0K
-Pj4+Pj4NCj4+Pj4+IMKgwqAgKiBMaW51eCBLZXJuZWwgNS4xOCB+DQo+Pj4+PiDCoMKgICrCoMKg
-wqDCoMKgIFBHVEFCTEVfTEVWRUxTID0gNQ0KPj4+Pj4gwqDCoCAqwqDCoMKgwqDCoCBQQUdFX09G
-RlNFVCA9IDB4ZmY2MDAwMDAwMDAwMDAwMA0KPj4+Pj4gwqDCoCAqIExpbnV4IEtlcm5lbCA1LjE3
-IH4NCj4+Pj4+IMKgwqAgKsKgwqDCoMKgwqAgUEdUQUJMRV9MRVZFTFMgPSA0DQo+Pj4+PiDCoMKg
-ICrCoMKgwqDCoMKgIFBBR0VfT0ZGU0VUID0gMHhmZmZmYWY4MDAwMDAwMDAwDQo+Pj4+PiDCoMKg
-ICogTGludXggS2VybmVsIDQuMTkgfg0KPj4+Pj4gwqDCoCAqwqDCoMKgwqDCoCBQR1RBQkxFX0xF
-VkVMUyA9IDMNCj4+Pj4+IMKgwqAgKsKgwqDCoMKgwqAgUEFHRV9PRkZTRVQgPSAweGZmZmZmZmUw
-MDAwMDAwMDANCj4+Pj4+DQo+Pj4+PiBTaW5jZSB0aGVzZSBjb25maWd1cmF0aW9ucyBjaGFuZ2Ug
-ZnJvbSB0aW1lIHRvIHRpbWUgYW5kIHZlcnNpb24gdG8gdmVyc2lvbiwNCj4+Pj4+IGl0IGlzIHBy
-ZWZlcmFibGUgdG8gZXhwb3J0IHRoZW0gdmlhIHZtY29yZWluZm8gdGhhbiB0byBjaGFuZ2UgdGhl
-IGNyYXNoJ3MNCj4+Pj4+IGNvZGUgZnJlcXVlbnRseSwgaXQgY2FuIHNpbXBsaWZ5IHRoZSBkZXZl
-bG9wbWVudCBvZiBjcmFzaCB0b29sLg0KPj4+Pj4NCj4+Pj4+IFNpZ25lZC1vZmYtYnk6IFhpYW50
-aW5nIFRpYW4gPHhpYW50aW5nLnRpYW5AbGludXguYWxpYmFiYS5jb20+DQo+Pj4+PiAtLS0NCj4+
-Pj4+IMKgwqAgYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGXCoMKgwqDCoCB8wqAgMSArDQo+Pj4+
-PiDCoMKgIGFyY2gvcmlzY3Yva2VybmVsL2NyYXNoX2NvcmUuYyB8IDI5ICsrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrDQo+Pj4+PiDCoMKgIDIgZmlsZXMgY2hhbmdlZCwgMzAgaW5zZXJ0aW9u
-cygrKQ0KPj4+Pj4gwqDCoCBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvY3Jh
-c2hfY29yZS5jDQo+Pj4+Pg0KPj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL01h
-a2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUNCj4+Pj4+IGluZGV4IGRiNmU0YjEy
-OTRiYS4uNGNmMzAzYTc3OWFiIDEwMDY0NA0KPj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-TWFrZWZpbGUNCj4+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlDQo+Pj4+PiBA
-QCAtODEsNiArODEsNyBAQCBvYmotJChDT05GSUdfS0dEQinCoMKgwqDCoMKgwqDCoCArPSBrZ2Ri
-Lm8NCj4+Pj4+IMKgwqAgb2JqLSQoQ09ORklHX0tFWEVDX0NPUkUpwqDCoMKgICs9IGtleGVjX3Jl
-bG9jYXRlLm8gY3Jhc2hfc2F2ZV9yZWdzLm8gbWFjaGluZV9rZXhlYy5vDQo+Pj4+PiDCoMKgIG9i
-ai0kKENPTkZJR19LRVhFQ19GSUxFKcKgwqDCoCArPSBlbGZfa2V4ZWMubyBtYWNoaW5lX2tleGVj
-X2ZpbGUubw0KPj4+Pj4gwqDCoCBvYmotJChDT05GSUdfQ1JBU0hfRFVNUCnCoMKgwqAgKz0gY3Jh
-c2hfZHVtcC5vDQo+Pj4+PiArb2JqLSQoQ09ORklHX0NSQVNIX0NPUkUpwqDCoMKgICs9IGNyYXNo
-X2NvcmUubw0KPj4+Pj4gwqDCoCBvYmotJChDT05GSUdfSlVNUF9MQUJFTCnCoMKgwqAgKz0ganVt
-cF9sYWJlbC5vDQo+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3Jhc2hfY29y
-ZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3Jhc2hfY29yZS5jDQo+Pj4+PiBuZXcgZmlsZSBtb2Rl
-IDEwMDY0NA0KPj4+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi44ZDdmNWZmMTA4ZGENCj4+Pj4+IC0t
-LSAvZGV2L251bGwNCj4+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NyYXNoX2NvcmUuYw0K
-Pj4+Pj4gQEAgLTAsMCArMSwyOSBAQA0KPj4+Pj4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
-OiBHUEwtMi4wLW9ubHkNCj4+Pj4+ICsNCj4+Pj4+ICsjaW5jbHVkZSA8bGludXgvY3Jhc2hfY29y
-ZS5oPg0KPj4+Pj4gKyNpbmNsdWRlIDxsaW51eC9wYWdlbWFwLmg+DQo+Pj4+PiArDQo+Pj4+PiAr
-dm9pZCBhcmNoX2NyYXNoX3NhdmVfdm1jb3JlaW5mbyh2b2lkKQ0KPj4+Pj4gK3sNCj4+Pj4+ICvC
-oMKgwqAgVk1DT1JFSU5GT19OVU1CRVIoVkFfQklUUyk7DQo+Pj4+PiArwqDCoMKgIFZNQ09SRUlO
-Rk9fTlVNQkVSKHBoeXNfcmFtX2Jhc2UpOw0KPj4+Pj4gKw0KPj4+Pj4gK8KgwqDCoCB2bWNvcmVp
-bmZvX2FwcGVuZF9zdHIoIk5VTUJFUihQQUdFX09GRlNFVCk9MHglbHhcbiIsIFBBR0VfT0ZGU0VU
-KTsNCj4+Pj4+ICvCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1CRVIoVk1BTExPQ19T
-VEFSVCk9MHglbHhcbiIsIFZNQUxMT0NfU1RBUlQpOw0KPj4+Pj4gK8KgwqDCoCB2bWNvcmVpbmZv
-X2FwcGVuZF9zdHIoIk5VTUJFUihWTUFMTE9DX0VORCk9MHglbHhcbiIsIFZNQUxMT0NfRU5EKTsN
-Cj4+Pj4+ICvCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1CRVIoVk1FTU1BUF9TVEFS
-VCk9MHglbHhcbiIsIFZNRU1NQVBfU1RBUlQpOw0KPj4+Pj4gK8KgwqDCoCB2bWNvcmVpbmZvX2Fw
-cGVuZF9zdHIoIk5VTUJFUihWTUVNTUFQX0VORCk9MHglbHhcbiIsIFZNRU1NQVBfRU5EKTsNCj4+
-Pj4+ICsjaWZkZWYgQ09ORklHXzY0QklUDQo+Pj4+PiArwqDCoMKgIHZtY29yZWluZm9fYXBwZW5k
-X3N0cigiTlVNQkVSKE1PRFVMRVNfVkFERFIpPTB4JWx4XG4iLCBNT0RVTEVTX1ZBRERSKTsNCj4+
-Pj4+ICvCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1CRVIoTU9EVUxFU19FTkQpPTB4
-JWx4XG4iLCBNT0RVTEVTX0VORCk7DQo+Pj4+PiArI2VuZGlmDQo+Pj4+PiArDQo+Pj4+PiArwqDC
-oMKgIGlmIChJU19FTkFCTEVEKENPTkZJR182NEJJVCkpIHsNCj4+Pj4+ICsjaWZkZWYgQ09ORklH
-X0tBU0FODQo+Pj4+PiArwqDCoMKgwqDCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1C
-RVIoS0FTQU5fU0hBRE9XX1NUQVJUKT0weCVseFxuIiwgS0FTQU5fU0hBRE9XX1NUQVJUKTsNCj4+
-Pj4+ICvCoMKgwqDCoMKgwqDCoCB2bWNvcmVpbmZvX2FwcGVuZF9zdHIoIk5VTUJFUihLQVNBTl9T
-SEFET1dfRU5EKT0weCVseFxuIiwgS0FTQU5fU0hBRE9XX0VORCk7DQo+Pj4+PiArI2VuZGlmDQo+
-Pj4+PiArwqDCoMKgwqDCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1CRVIoS0VSTkVM
-X0xJTktfQUREUik9MHglbHhcbiIsIEtFUk5FTF9MSU5LX0FERFIpOw0KPj4+Pj4gK8KgwqDCoMKg
-wqDCoMKgIHZtY29yZWluZm9fYXBwZW5kX3N0cigiTlVNQkVSKEFERFJFU1NfU1BBQ0VfRU5EKT0w
-eCVseFxuIiwgQUREUkVTU19TUEFDRV9FTkQpOw0KPj4+PiBTZWVtcyB0aGlzIGlzIHRoZSBmaXJz
-ciBBUkNIIHdoZXJlIGthc2FuIGFuZCBrZXJuZWwgbGluay9icGYgc3BhY2UgYXJlDQo+Pj4+IGFk
-ZGVkIHRvIGR1bXAgYW5kIGFuYWx5emUuIEp1c3QgY3VyaW91cywgaGF2ZSB5b3UgZ290IGNvZGUg
-Y2hhbmdlIHRvDQo+Pj4+IG1ha2UgdXNlIG9mIHRoZW0gdG8gZG8gZHVtcGluZyBhbmQgYW5hbHl6
-ZT8NCj4+PiBLQVNBTl9TSEFET1dfU1RBUlQgaXMgbm90IHVzZWQsIEtFUk5FTF9MSU5LX0FERFIg
-aXMgdXNlZCBpbiB0aGUgY3Jhc2ggcGF0Y2ggc2V0Og0KPj4+IGh0dHBzOi8vcGF0Y2h3b3JrLmtl
-cm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9jb3Zlci8yMDIyMDgxMzAzMTc1My4zMDk3NzIw
-LTEteGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbS8NCj4+IE9oLCBJIHdvdWxkIHNheSBw
-bGVhc2Ugbm8uIFNvbWV0aW1lIHdlIGdvdCB0b25zIG9mIG9iamVjdGlvbiB3aGVuIGFkZGluZyBh
-bg0KPj4gbmVjZXNzYXJ5IG9uZSwgd2UgZGVmaW5pdGVseSBzaG91bGQgbm90IGFkZCBvbmUgZm9y
-IHBvc3NpYmxlIGZ1dHVyZQ0KPj4gdXNlLg0KPj4NCj4+IEZvciB0aGlzIGtpbmQgb2YgbmV3bHkg
-YWRkZWQgb25lLCB3ZSBuZWVkIGdldCBhY2sgZnJvbQ0KPj4gbWFrZWR1bXBmaWxlL2NyYXNoIHV0
-aWxpdHkgbWFpbnRhaW5lciBzbyB0aGF0IHdlIGtub3cgdGhleSBhcmUgbmVjZXNzYXJ5DQo+PiB0
-byBoYXZlLiBBdCBsZWFzdCB0aGV5IGRvbid0IG9wcG9zZS4NCj4gDQo+IEhpIEthenUsIExpIEpp
-YW5nDQo+IA0KPiBDb3VsZCB5b3UgaGVscCBjb21tZW50IHdoZXRoZXIgd2UgbmVlZCBLQVNBTl9T
-SEFET1dfU1RBUlQgYW5kIEtFUk5FTF9MSU5LX0FERFIgYXJlYSBleHBvcnQgZm9yIHZtY29yZSBm
-cm9tIGNyYXNoIHBvaW50IG9mIHZpZXfvvJ8NCj4gDQo+IEluIG15IGNyYXNoIHBhdGNoIHNldCwg
-SSBkb24ndCB1c2UgS0FTQU5fU0hBRE9XX1NUQVJULA0KPiBBbmQgb25seSBnZXQgdGhlIHZhbHVl
-IG9mIEtFUk5FTF9MSU5LX0FERFIsIG5vdCByZWFseSB1c2UgaXQuDQo+IGh0dHBzOi8vcGF0Y2h3
-b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9jb3Zlci8yMDIyMDgxMzAzMTc1My4z
-MDk3NzIwLTEteGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbS8NCg0KSW4geW91ciBjcmFz
-aCBwYXRjaCBzZXQsIEtFUk5FTF9MSU5LX0FERFIgaXMgdXNlZCBpbiBWVE9QKCkgYW5kIGxvb2tz
-DQpuZWNlc3NhcnkgdG8gbWUuDQoNClRoZSBvdGhlcnMgKEtBU0FOX1NIQURPV19TVEFSVCwgS0FT
-QU5fU0hBRE9XX0VORCBhbmQgQUREUkVTU19TUEFDRV9FTkQpDQphcmUgbm90IGN1cnJlbnRseSB1
-c2VkLiAgSXQgbWF5IGJlIGJldHRlciB0byBhZGQgdGhlbSB3aGVuIHRoZXkgYXJlDQpyZWFsbHkg
-dXNlZC4NCg0KVGhhbmtzLA0KS2F6dQ0KDQo+IA0KPiBJZiB3ZSBuZWVkIHRvIHJlbW92ZSB0aGUg
-dHdvIGFyZWFzLCBJIHdpbGwgcmVzZW5kIHRoZSBjcmFzaCBwYXRjaCBzZXQgYW5kIGtlcm5lbCBw
-YXRjaCBzZXQuDQo+IHRoYW5rcw0KPiANCj4+DQo+Pj4gSSBhZGQgaXQgaW4gY2FzZSBvZiB1c2lu
-ZyBpbiBmdXJ0dXJlLg0KPj4+DQo+Pj4+IFRoYW5rcw0KPj4+PiBCYW9xdWFuCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Sep 29, 2022 at 1:54 PM Guo Ren <guoren@kernel.org> wrote:
+>
+> On Thu, Sep 29, 2022 at 1:03 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > On Thu, Sep 29, 2022 at 12:20:06AM +0800, Jisheng Zhang wrote:
+> > > Currently, when detecting vmap stack overflow, riscv firstly switches
+> > > to the so called shadow stack, then use this shadow stack to call the
+> > > get_overflow_stack() to get the overflow stack. However, there's
+> > > a race here if two or more harts use the same shadow stack at the same
+> > > time.
+> > >
+> > > To solve this race, we rely on two facts:
+> > > 1. the content of kernel thread pointer I.E "tp" register can still
+> > > be gotten from the the CSR_SCRATCH register, thus we can clobber tp
+> > > under the condtion that we restore tp from CSR_SCRATCH later.
+> > >
+> > > 2. Once vmap stack overflow happen, panic is comming soon, no
+> > > performance concern at all, so we don't need to define the overflow
+> > > stack as percpu var, we can simplify it into a pointer array which
+> > > points to allocated pages.
+> > >
+> > > Thus we can use tp as a tmp register to get the cpu id to calculate
+> > > the offset of overflow stack pointer array for each cpu w/o shadow
+> > > stack any more. Thus the race condition is removed as a side effect.
+> > >
+> > > NOTE: we can use similar mechanism to let each cpu use different shadow
+> > > stack to fix the race codition, but if we can remove shadow stack usage
+> > > totally, why not.
+> > >
+> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+> > > ---
+> > >  arch/riscv/include/asm/asm-prototypes.h |  1 -
+> > >  arch/riscv/include/asm/thread_info.h    |  4 +-
+> > >  arch/riscv/kernel/asm-offsets.c         |  1 +
+> > >  arch/riscv/kernel/entry.S               | 56 ++++---------------------
+> > >  arch/riscv/kernel/traps.c               | 31 ++++++++------
+> > >  5 files changed, 29 insertions(+), 64 deletions(-)
+> > >
+> > > diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+> > > index ef386fcf3939..4a06fa0f6493 100644
+> > > --- a/arch/riscv/include/asm/asm-prototypes.h
+> > > +++ b/arch/riscv/include/asm/asm-prototypes.h
+> > > @@ -25,7 +25,6 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+> > >  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+> > >  DECLARE_DO_ERROR_INFO(do_trap_break);
+> > >
+> > > -asmlinkage unsigned long get_overflow_stack(void);
+> > >  asmlinkage void handle_bad_stack(struct pt_regs *regs);
+> > >
+> > >  #endif /* _ASM_RISCV_PROTOTYPES_H */
+> > > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> > > index c970d41dc4c6..c604a5212a73 100644
+> > > --- a/arch/riscv/include/asm/thread_info.h
+> > > +++ b/arch/riscv/include/asm/thread_info.h
+> > > @@ -28,14 +28,12 @@
+> > >
+> > >  #define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+> > >  #define OVERFLOW_STACK_SIZE     SZ_4K
+> > > -#define SHADOW_OVERFLOW_STACK_SIZE (1024)
+> > > +#define OVERFLOW_STACK_SHIFT 12
+> >
+> > oops, this should be removed, will update it in a newer version after
+> > collecting review comments.
+> >
+> > >
+> > >  #define IRQ_STACK_SIZE               THREAD_SIZE
+> > >
+> > >  #ifndef __ASSEMBLY__
+> > >
+> > > -extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
+> > > -
+> > >  #include <asm/processor.h>
+> > >  #include <asm/csr.h>
+> > >
+> > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> > > index df9444397908..62bf3bacc322 100644
+> > > --- a/arch/riscv/kernel/asm-offsets.c
+> > > +++ b/arch/riscv/kernel/asm-offsets.c
+> > > @@ -37,6 +37,7 @@ void asm_offsets(void)
+> > >       OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+> > >       OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+> > >       OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+> > > +     OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+> > >
+> > >       OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+> > >       OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+> > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > > index a3e1ed2fa2ac..5a6171a90d81 100644
+> > > --- a/arch/riscv/kernel/entry.S
+> > > +++ b/arch/riscv/kernel/entry.S
+> > > @@ -223,54 +223,16 @@ END(ret_from_exception)
+> > >
+> > >  #ifdef CONFIG_VMAP_STACK
+> > >  ENTRY(handle_kernel_stack_overflow)
+> > > -     la sp, shadow_stack
+> > > -     addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+> > > -
+> > > -     //save caller register to shadow stack
+> > > -     addi sp, sp, -(PT_SIZE_ON_STACK)
+> > > -     REG_S x1,  PT_RA(sp)
+> > > -     REG_S x5,  PT_T0(sp)
+> > > -     REG_S x6,  PT_T1(sp)
+> > > -     REG_S x7,  PT_T2(sp)
+> > > -     REG_S x10, PT_A0(sp)
+> > > -     REG_S x11, PT_A1(sp)
+> > > -     REG_S x12, PT_A2(sp)
+> > > -     REG_S x13, PT_A3(sp)
+> > > -     REG_S x14, PT_A4(sp)
+> > > -     REG_S x15, PT_A5(sp)
+> > > -     REG_S x16, PT_A6(sp)
+> > > -     REG_S x17, PT_A7(sp)
+> > > -     REG_S x28, PT_T3(sp)
+> > > -     REG_S x29, PT_T4(sp)
+> > > -     REG_S x30, PT_T5(sp)
+> > > -     REG_S x31, PT_T6(sp)
+> > > -
+> > > -     la ra, restore_caller_reg
+> > > -     tail get_overflow_stack
+> > > -
+> > > -restore_caller_reg:
+> > > -     //save per-cpu overflow stack
+> > > -     REG_S a0, -8(sp)
+> > > -     //restore caller register from shadow_stack
+> > > -     REG_L x1,  PT_RA(sp)
+> > > -     REG_L x5,  PT_T0(sp)
+> > > -     REG_L x6,  PT_T1(sp)
+> > > -     REG_L x7,  PT_T2(sp)
+> > > -     REG_L x10, PT_A0(sp)
+> > > -     REG_L x11, PT_A1(sp)
+> > > -     REG_L x12, PT_A2(sp)
+> > > -     REG_L x13, PT_A3(sp)
+> > > -     REG_L x14, PT_A4(sp)
+> > > -     REG_L x15, PT_A5(sp)
+> > > -     REG_L x16, PT_A6(sp)
+> > > -     REG_L x17, PT_A7(sp)
+> > > -     REG_L x28, PT_T3(sp)
+> > > -     REG_L x29, PT_T4(sp)
+> > > -     REG_L x30, PT_T5(sp)
+> > > -     REG_L x31, PT_T6(sp)
+> > > +     la sp, overflow_stack
+> > > +     /* use tp as tmp register since we can restore it from CSR_SCRATCH */
+> > > +     REG_L tp, TASK_TI_CPU(tp)
+> > > +     slli tp, tp, RISCV_LGPTR
+> > > +     add tp, sp, tp
+> > > +     REG_L sp, 0(tp)
+> > > +
+> > > +     /* restore tp */
+> > > +     csrr tp, CSR_SCRATCH
+> > >
+> > > -     //load per-cpu overflow stack
+> > > -     REG_L sp, -8(sp)
+> > >       addi sp, sp, -(PT_SIZE_ON_STACK)
+> > >
+> > >       //save context to overflow stack
+> > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > > index 73f06cd149d9..b6c64f0fb70f 100644
+> > > --- a/arch/riscv/kernel/traps.c
+> > > +++ b/arch/riscv/kernel/traps.c
+> > > @@ -216,23 +216,12 @@ int is_valid_bugaddr(unsigned long pc)
+> > >  #endif /* CONFIG_GENERIC_BUG */
+> > >
+> > >  #ifdef CONFIG_VMAP_STACK
+> > > -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+> > > -             overflow_stack)__aligned(16);
+> > > -/*
+> > > - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+> > > - * to get per-cpu overflow stack(get_overflow_stack).
+> > > - */
+> > > -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+> > > -asmlinkage unsigned long get_overflow_stack(void)
+> > > -{
+> > > -     return (unsigned long)this_cpu_ptr(overflow_stack) +
+> > > -             OVERFLOW_STACK_SIZE;
+> > > -}
+> > > +void *overflow_stack[NR_CPUS] __ro_after_init __aligned(16);
+> Er... We've talked NR_CPUS = 8192, even a pointer would cause 64KB wasted.
+>
+> I prefer the previous solution with a atomic flag.
+>
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 5cbd6684ef52..42a3b14a20ab 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -223,6 +223,9 @@ END(ret_from_exception)
+>
+>  #ifdef CONFIG_VMAP_STACK
+>  ENTRY(handle_kernel_stack_overflow)
+> +1:     la sp, spin_ shadow_stack
+> +       amoswap.w sp, sp, (sp)
+> +       bnez sp, 1b
+>         la sp, shadow_stack
+>         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+>
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index 73f06cd149d9..9058a05cac53 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -229,11 +229,15 @@ asmlinkage unsigned long get_overflow_stack(void)
+>                 OVERFLOW_STACK_SIZE;
+>  }
+>
+> +atomic_t spin_ shadow_stack __section(".sdata");
+> +
+>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>  {
+>         unsigned long tsk_stk = (unsigned long)current->stack;
+>         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+>
+> +       atomic_set_release(spin_ shadow_stack, 0);
+> +
+>         console_verbose();
+>
+>         pr_emerg("Insufficient stack space to handle exception!\n");
+Hi Jisheng,
+
+Could you give out a new patch based on the above style to fix the
+problem first? It's a minor modification and consolidate the entry.S
+procedure.
+
+
+>
+>
+>
+>
+>
+> > >
+> > >  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+> > >  {
+> > >       unsigned long tsk_stk = (unsigned long)current->stack;
+> > > -     unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+> > > +     unsigned long ovf_stk = (unsigned long)overflow_stack[raw_smp_processor_id()];
+> > >
+> > >       console_verbose();
+> > >
+> > > @@ -248,4 +237,20 @@ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+> > >       for (;;)
+> > >               wait_for_interrupt();
+> > >  }
+> > > +
+> > > +static int __init alloc_overflow_stacks(void)
+> > > +{
+> > > +     u8 *s;
+> > > +     int cpu;
+> > > +
+> > > +     for_each_possible_cpu(cpu) {
+> > > +             s = (u8 *)__get_free_pages(GFP_KERNEL, get_order(OVERFLOW_STACK_SIZE));
+> > > +             if (WARN_ON(!s))
+> > > +                     return -ENOMEM;
+> > > +             overflow_stack[cpu] = &s[OVERFLOW_STACK_SIZE];
+> >
+> > Since overflow_stack[cpu] points to the top of the slack, we need to
+> > update the ovf_stack dumping in handle_bad_stack(). will take care
+> > this in newer version.
+> >
+> > > +             printk("%px\n", overflow_stack[cpu]);
+> >
+> > forget to remove this printk :(
+>
+>
+>
+> --
+> Best Regards
+>  Guo Ren
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
