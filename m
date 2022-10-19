@@ -4,44 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CAFC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 14:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A286C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 16:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Shwzsc2hBg87wsXgP4zqkEtS0MHEU1Onnc9+Dk3LAMM=; b=HBkoKkR7a4h1aT
-	FZw0CDTwD7zO0YS2AuDkSHn37/JI7glWn9JbsczeArWooJbAsRzIklnRzXu4qKWxmSAnssWnYdlHj
-	99v1o8w3sjnYFQorWgGJHhdT4NjlCr4bz5brZKpzIstj1jzuq5aRhi/1TaG+MaEHV2NMeJrh5jpiq
-	IG4UsOvO4euypitZ9l9F6ss7w2yA36kUS2JsXqbmHWJUfE6g+Asyqto2V4urVbTNChobbD7y02LLm
-	NEeh64hfwIAiEXLFjCRjWwL1vDyd0dP/VvY+1NR7bvqKVb9a5Y9+3H/zV1UQ93peK2QaaH7D5dB7D
-	9f4tBZK/cRey9SDsPFbg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rmAsfmXkK92MD7h2RgXzuVVgcCPynMRT/jHDhZ0eE8g=; b=1XoUjWq2OuBsDk
+	YVaKwb3+aBHl9fP+oUfxGDQnWk81K4/RgtVVf+Z2L1hCsHJROCT+bSsXc/g5+sn9IN01ODvfWI5kk
+	3gF+2wJm374xunwU45WT2ldZbC9Wwe5Mypx3Is533ckd3uYSJtrxUVro+bN58M/6mkoTH98csoB3m
+	DQJzFYT6K2RZfgDh8UrL9pF5noLMMzxCPMkcvZ4SnHPi5/sIyheb30PxZmpIluWSLfzjsXpGYaBOM
+	oXnm8jWfK9opg2w+jm+N7J4h7VltGwsLnx2IPWZbSdqpSAOjdGh+9G2VqBqJ86/xsaB81GEse9tr9
+	cb434yEktHwSz02CGCtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olAL7-002s6a-OA; Wed, 19 Oct 2022 14:46:37 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1olBcg-003jv5-Vw; Wed, 19 Oct 2022 16:08:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol9v0-002jCA-1s
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 14:19:39 +0000
-Received: from p508fdae2.dip0.t-ipconnect.de ([80.143.218.226] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ol9ux-0006Hx-9G; Wed, 19 Oct 2022 16:19:35 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <apatel@ventanamicro.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>, Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: Re: [PATCH v4 2/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-Date: Wed, 19 Oct 2022 16:19:34 +0200
-Message-ID: <13122510.uLZWGnKmhe@phil>
-In-Reply-To: <20221019131128.237026-3-apatel@ventanamicro.com>
-References: <20221019131128.237026-1-apatel@ventanamicro.com> <20221019131128.237026-3-apatel@ventanamicro.com>
+	id 1olBRK-003Zgj-Pw
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 15:57:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 795C06194D;
+	Wed, 19 Oct 2022 15:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EF9FC433C1;
+	Wed, 19 Oct 2022 15:57:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666195024;
+	bh=tl/t0JSFx6B/W7U7U+lCNfIdDELRIvrRpnIkdxf7UO8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LXQ3DBXykd8cxJe+nDeTMuzZh2SioIauX440gB0kLifBqT436A3SwZ8AqZAu0d5Ks
+	 QaH7PcJ7Zc5hE1yZ2imldpdk31TSsBPmyqtqIUmi/FDTM7tlChYsG3UdkuAm43zcOZ
+	 RAvDnZZCtCzMzQWa2vGzAFjZlg84MC1gKhu9nK2YdtXDm2qiYt7ZuDVhgD6so4+eab
+	 ItBZ4nypwK6bA1YqZxImaHz4C5ugTj8o4tT4JXmFk+xq+iKF2uoHw9fPykRoMDNju8
+	 p4Ah1KhNSiZSfM7VwAmm6T8F5k5PTyhH7sfIJdBw4ZMGoCPp3RMnU1QXuOVwaKr0tn
+	 j/GdetFOTgQsA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH] riscv: fix race when vmap stack overflow
+Date: Wed, 19 Oct 2022 23:47:27 +0800
+Message-Id: <20221019154727.2395-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_071938_145035_44C67315 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20221019_085707_008426_14FE1D76 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,73 +74,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 19. Oktober 2022, 15:11:26 CEST schrieb Anup Patel:
-> Currently, all flavors of ioremap_xyz() function maps to the generic
-> ioremap() which means any ioremap_xyz() call will always map the
-> target memory as IO using _PAGE_IOREMAP page attributes. This breaks
-> ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
-> remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
-> page attributes.
-> 
-> To address above (just like other architectures), we implement RISC-V
-> specific ioremap_cache() and ioremap_wc() which maps memory using page
-> attributes as defined by the Svpbmt specification.
-> 
-> Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
-> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Currently, when detecting vmap stack overflow, riscv firstly switches
+to the so called shadow stack, then use this shadow stack to call the
+get_overflow_stack() to get the overflow stack. However, there's
+a race here if two or more harts use the same shadow stack at the same
+time.
 
-Wasn't there discussion around those functions in general in v2?
+To solve this race, we introduce spin_shadow_stack atomic var, which
+will make the shadow stack usage serialized.
 
-In any case, the patch doesn't break anything on qemu and d1, so
+Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Suggested-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/kernel/entry.S | 4 ++++
+ arch/riscv/kernel/traps.c | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-
-> ---
->  arch/riscv/include/asm/io.h      | 10 ++++++++++
->  arch/riscv/include/asm/pgtable.h |  2 ++
->  2 files changed, 12 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-> index 92080a227937..92a31e543388 100644
-> --- a/arch/riscv/include/asm/io.h
-> +++ b/arch/riscv/include/asm/io.h
-> @@ -133,6 +133,16 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
->  #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
->  #endif
->  
-> +#ifdef CONFIG_MMU
-> +#define ioremap_wc(addr, size)		\
-> +	ioremap_prot((addr), (size), _PAGE_IOREMAP_WC)
-> +#endif
-> +
->  #include <asm-generic/io.h>
->  
-> +#ifdef CONFIG_MMU
-> +#define ioremap_cache(addr, size)	\
-> +	ioremap_prot((addr), (size), _PAGE_KERNEL)
-> +#endif
-> +
->  #endif /* _ASM_RISCV_IO_H */
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 7ec936910a96..346b7c1a3eeb 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -182,6 +182,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
->  #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
->  
->  #define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
-> +#define _PAGE_IOREMAP_WC	((_PAGE_KERNEL & ~_PAGE_MTMASK) | \
-> +				 _PAGE_NOCACHE)
->  #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
->  
->  extern pgd_t swapper_pg_dir[];
-> 
-
-
-
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index b9eda3fcbd6d..7b924b16792b 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -404,6 +404,10 @@ handle_syscall_trace_exit:
+ 
+ #ifdef CONFIG_VMAP_STACK
+ handle_kernel_stack_overflow:
++1:	la sp, spin_shadow_stack
++	amoswap.w sp, sp, (sp)
++	bnez sp, 1b
++
+ 	la sp, shadow_stack
+ 	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+ 
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f3e96d60a2ff..88a54947dffb 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -221,11 +221,15 @@ asmlinkage unsigned long get_overflow_stack(void)
+ 		OVERFLOW_STACK_SIZE;
+ }
+ 
++atomic_t spin_shadow_stack;
++
+ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+ {
+ 	unsigned long tsk_stk = (unsigned long)current->stack;
+ 	unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+ 
++	atomic_set_release(&spin_shadow_stack, 0);
++
+ 	console_verbose();
+ 
+ 	pr_emerg("Insufficient stack space to handle exception!\n");
+-- 
+2.37.2
 
 
 _______________________________________________
