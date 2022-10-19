@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A19CC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 03:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE77C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 06:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o2C2foKz9/qf2gzk6t4EHBXy9ciPeHlgzr2Z8bEAwfk=; b=Osr4XgzDo2JOA4
-	ETMy+w8pFlDbl2hMXPTFKqs6k6Rl72817UfMuwJnFcZH/BrkNirfxZTh8rrOc2zMJnMNKNrOry8zy
-	O+VJ1v0HhwFavTksWcIP3Ij3VKuoqm9XonPu2BNT0iI+djtUbEFob9gDpf99RBopP08FFDIoUaSbk
-	dvPBQOFc7c6zEXo1W7afSDTF6eNOXfuA9Ri0qio/LdQuMOIcuKHrbb4RLm9Qze/j2B1ntAZdqGs70
-	LvDLZRkwfJll3dynn2PU1bd2cG5lunteHhR8Pq8r/vqG2Jy2oJAI2U7xF4EObmWNoZWeC6sisLT2o
-	5U1bFly8esVUmPJ0ydqQ==;
+	List-Owner; bh=q0YpU5fxxgkIAV53YgGXv/hHwM3Uh38YAvXM8gdr5IE=; b=qSafvAlSRh+1JY
+	vf6pSXb92vvYaN9PGOR91Gl1hkCQ/ceQOhWgE3AhwbzeRuZYQwD0kDLRQJwLFM/YJy2FPb/NPpdDy
+	6FSGLkuMHMhq9jAFraIes38XKauJa8gWLd3aBXaSV7CynW6UcLmVBMJSv/+TG7fq71gMCciG/ut4E
+	bJkJVjZ6dxD+RqjgcoNHPeWcyQHAaTNtk88Zhb6XMV4RcHGWpfFIc8s5wSNZk+p9wQ8CdU6lVxA3W
+	8BFqC4uvXc+Vq1E5ZdiOZiuD9oknXG2X+k2JJukwXo9fBZVq9P74W3oykk3rdHNi6t6EfzAglWh4x
+	mifWg3BA8yjyZC+RpZaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okztj-00EH9D-8P; Wed, 19 Oct 2022 03:37:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ol32m-00FvII-GT; Wed, 19 Oct 2022 06:59:12 +0000
+Received: from mail-qk1-f173.google.com ([209.85.222.173])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1okztg-00EH8g-7a
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 03:37:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 71D2361751
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 03:37:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8A2AC43144
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 03:37:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666150654;
-	bh=EBF7VIq95F0DlBovf75OXNo51TgwpOaJQk8sFi+3rGk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UGg9XV5EIZthWJmdnrWrxtPEA4SN8lCB3zDnH4dLN9nwDYjDWHlR440bIlui36/LY
-	 DF8X7ZslF+D5wzuGoOooFhPss2UAYFMLqOdptKBWzHRk0tAC2kg6hmCCN8rtCM66Dp
-	 R5CThAhrZxSRzjhX0YxFaXuWs1unVvDHtUFD7mhzpdfGXxsZiTlCP2fnA38eRcfHWf
-	 cP+7RcvupWGiozxXtrAWavzX5ZlBed6krW4ZKPpiRTW9UXbR4eGito1gwGczZ1t3AU
-	 TwTTB9XsBxAScv1+BPuljdsFkrMpgIEiXvjOiBud3Uud4HfgPItn7GzdUUhO8xQCjR
-	 18z/2JZR5VFxA==
-Received: by mail-oa1-f41.google.com with SMTP id 586e51a60fabf-131dda37dddso19269708fac.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 20:37:34 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3moqdM4idVrCZxtBD4/SehnVDDB4uTWcmWR3/Y8alOdj+V3xeC
-	OBd/EbznYrDGXua7LsvhModMgkse+Zk6WZzAqr0=
-X-Google-Smtp-Source: AMsMyM6s66yoxrTHtul+Q7dLuF9JNyuwHLHxceRCvOIwSBtvoSv327hMUd/fYCGuUid+/N63e/gy/y1T88F8Ij1MX3w=
-X-Received: by 2002:a05:6870:4413:b0:136:66cc:6af8 with SMTP id
- u19-20020a056870441300b0013666cc6af8mr20753144oah.112.1666150653930; Tue, 18
- Oct 2022 20:37:33 -0700 (PDT)
+	id 1ol32j-00FvDw-GG
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 06:59:11 +0000
+Received: by mail-qk1-f173.google.com with SMTP id o2so10140884qkk.10
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 23:59:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4b+dxGPxsF1U/h9C74jKmspxOijVQ4vRVIdXZB4T2rw=;
+        b=Zfuo9QH9OYABRqQZxo60wiv62RSvHSzHp6spGSk9lIGvwzhzt1f3qX59g2hOLek6az
+         DACe6KzsHcxUfwc3b2ua65gltov5H8qRIszUALLmQFhZmOmenortY4pr61qdcxDVnvl3
+         iznD1r4F//wQbU6hr2ir3lnw4qiG+858GW6S7v77DrYxgfGVlY5AFbpDtIvZ2EFmzDF2
+         SLsS3e6CctXbXWd2w/pmOEoPEI3WKAZlwlzEL59j+jBH7Cui7YMG78Inx/+MsBk4aE+d
+         zuaYUlmYdCX2EzaqxSs1Pa1gZuX9Ihyck3kLprAhowrkl/6WFAhOp5hAcuBe7tg8gqTN
+         wtpw==
+X-Gm-Message-State: ACrzQf13O8M8x0eTODy5rcKvssHoCmTVv1+iGXtNuY9d3PKC0jmykSOF
+	eolYebdtfz4qZpmSL67NTmZO0bnNHpquwHBz
+X-Google-Smtp-Source: AMsMyM7sq24QRyfFH3TMiIKufntIY8xa7ltMMsvzmMjXiEBaeGkKR/a4MEMoLGmwaviIavvNZGGTqw==
+X-Received: by 2002:a05:620a:4608:b0:6ee:e59b:4cf5 with SMTP id br8-20020a05620a460800b006eee59b4cf5mr4572171qkb.736.1666162747347;
+        Tue, 18 Oct 2022 23:59:07 -0700 (PDT)
+Received: from mail-yb1-f169.google.com (mail-yb1-f169.google.com. [209.85.219.169])
+        by smtp.gmail.com with ESMTPSA id r2-20020ae9d602000000b006ceb933a9fesm4134120qkk.81.2022.10.18.23.59.05
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Oct 2022 23:59:06 -0700 (PDT)
+Received: by mail-yb1-f169.google.com with SMTP id f205so8570140yba.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Oct 2022 23:59:05 -0700 (PDT)
+X-Received: by 2002:a25:4fc2:0:b0:6be:afb4:d392 with SMTP id
+ d185-20020a254fc2000000b006beafb4d392mr5230561ybb.604.1666162745385; Tue, 18
+ Oct 2022 23:59:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220928162007.3791-1-jszhang@kernel.org> <20220928162007.3791-3-jszhang@kernel.org>
-In-Reply-To: <20220928162007.3791-3-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 19 Oct 2022 11:37:21 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQNiv=HSZUcgOeLWmvoEgx6=YdGAruH56LOhUv-gG2HMQ@mail.gmail.com>
-Message-ID: <CAJF2gTQNiv=HSZUcgOeLWmvoEgx6=YdGAruH56LOhUv-gG2HMQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] riscv: consolidate ret_from_kernel_thread into ret_from_fork
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+References: <20220905230820.3295223-1-yury.norov@gmail.com>
+ <20220905230820.3295223-6-yury.norov@gmail.com> <CAMuHMdUL0WxYjfRDxLWZG7Xu=2xTQkueathvpwWfLpqhG6NkFQ@mail.gmail.com>
+ <CAMuHMdW2H4egcmv238Q_5LBeu9BE=H1fm=n4vZGCGYzhg2VN1A@mail.gmail.com>
+ <mvmlepdb66h.fsf@suse.de> <CAMuHMdVeHPR_JH0dJ+WSddjd8_hax70JRzd4pqHLNvgbh+-znw@mail.gmail.com>
+ <Y065nbfVQwZhwt51@yury-laptop> <Y067uYGTaA93Hn3z@smile.fi.intel.com>
+ <Y06/SipcWdh4uIqd@yury-laptop> <CAMuHMdVjViT8-VMPuKZz2O1sudy5ogHpzVYM_P+isjRRUNgirw@mail.gmail.com>
+ <Y07RcE3fgoGLpNZz@yury-laptop>
+In-Reply-To: <Y07RcE3fgoGLpNZz@yury-laptop>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 19 Oct 2022 08:58:53 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX3S2GS_YW4KP63TSWN2MEyusrvC6fh1ep7KMjU2OYHcg@mail.gmail.com>
+Message-ID: <CAMuHMdX3S2GS_YW4KP63TSWN2MEyusrvC6fh1ep7KMjU2OYHcg@mail.gmail.com>
+Subject: Re: [PATCH v2 5/5] lib/cpumask: add FORCE_NR_CPUS config option
+To: Yury Norov <yury.norov@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Andreas Schwab <schwab@suse.de>, 
+	linux-kernel@vger.kernel.org, Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+	Andrew Morton <akpm@linux-foundation.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	"Paul E . McKenney" <paulmck@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, Dmitry Vyukov <dvyukov@google.com>, 
+	Valentin Schneider <vschneid@redhat.com>, Sander Vanheule <sander@svanheule.net>, 
+	Alexey Klimov <klimov.linux@gmail.com>, Eric Biggers <ebiggers@google.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221018_203736_376986_E6DA3570 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20221018_235909_565674_088643A3 
+X-CRM114-Status: GOOD (  33.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +96,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I would involve this patch in the generic entry series. It would help
-remove the ret_from_kernel_thread part in the entry.S.
+Hi Yury,
 
-On Thu, Sep 29, 2022 at 12:29 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+On Tue, Oct 18, 2022 at 6:19 PM Yury Norov <yury.norov@gmail.com> wrote:
+> On Tue, Oct 18, 2022 at 05:15:41PM +0200, Geert Uytterhoeven wrote:
+> > On Tue, Oct 18, 2022 at 5:01 PM Yury Norov <yury.norov@gmail.com> wrote:
+> > > On Tue, Oct 18, 2022 at 05:44:09PM +0300, Andy Shevchenko wrote:
+> > > > On Tue, Oct 18, 2022 at 07:35:09AM -0700, Yury Norov wrote:
+> > > > > On Tue, Oct 18, 2022 at 03:50:31PM +0200, Geert Uytterhoeven wrote:
+> > > >
+> > > > ...
+> > > >
+> > > > > For those who choose FORCE_NR_CPUS, it's required to set NR_CPUS
+> > > > > to a value that matches to what's parsed from DT.
 >
-> The ret_from_kernel_thread() behaves similarly with ret_from_fork(),
-> the only difference is whether call the fn(arg) or not, this can be
-> acchieved by testing fn is NULL or not, I.E s0 is 0 or not.
+> ...
 >
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/kernel/entry.S   | 11 +++--------
->  arch/riscv/kernel/process.c |  5 ++---
->  2 files changed, 5 insertions(+), 11 deletions(-)
+> > I haven't tried the patch from your other email yet, but I did try
+> > CONFIG_NR_CPUS=4 and CONFIG_FORCE_NR_CPUS=y on
+> > Icicle earlier today.
+> >
+> > There was no warning, as the number of CPUs did match, but the
+> > fourth CPU (cpu@4, i.e. the fifth core in DT) failed to come online:
+> >
+> >     CPU3: failed to come online
+> >     smp: Brought up 1 node, 3 CPUs
+> >
+> > BTW, it behaves the same with CONFIG_FORCE_NR_CPUS=n.
+> > Increasing CONFIG_NR_CPUS (before I used 8) makes the fourth
+> > CPU core come online again.
 >
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 2207cf44a3bc..a3e1ed2fa2ac 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -323,20 +323,15 @@ END(handle_kernel_stack_overflow)
+> The problem is seemingly unrelated to CONFIG_FORCE_NR_CPUS...
+> If so, we don't need ARCH_UNFORCE_NR_CPUS. Is that right?
 >
->  ENTRY(ret_from_fork)
->         call schedule_tail
-> -       move a0, sp /* pt_regs */
-> -       la ra, ret_from_exception
-> -       tail syscall_exit_to_user_mode
-> -ENDPROC(ret_from_fork)
-> -
-> -ENTRY(ret_from_kernel_thread)
-> -       call schedule_tail
-> +       beqz s0, 1f     /* not from kernel thread */
->         /* Call fn(arg) */
->         move a0, s1
->         jalr s0
-> +1:
->         move a0, sp /* pt_regs */
->         la ra, ret_from_exception
->         tail syscall_exit_to_user_mode
-> -ENDPROC(ret_from_kernel_thread)
-> +ENDPROC(ret_from_fork)
+> This all looks weird. RISCV hasn't an arch code to setup nr_cpu_ids,
+> and therefore should use generic setup_nr_cpu_ids(), which is:
 >
->  #ifdef CONFIG_IRQ_STACKS
->  ENTRY(call_on_stack)
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index ceb9ebab6558..67e7cd123ceb 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -34,7 +34,6 @@ EXPORT_SYMBOL(__stack_chk_guard);
->  #endif
+>   void __init setup_nr_cpu_ids(void)
+>   {
+>           set_nr_cpu_ids(find_last_bit(cpumask_bits(cpu_possible_mask), NR_CPUS) + 1);
+>   }
 >
->  extern asmlinkage void ret_from_fork(void);
-> -extern asmlinkage void ret_from_kernel_thread(void);
+> Where:
 >
->  void arch_cpu_idle(void)
->  {
-> @@ -172,7 +171,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->                 /* Supervisor/Machine, irqs on: */
->                 childregs->status = SR_PP | SR_PIE;
+>   static inline void set_nr_cpu_ids(unsigned int nr)
+>   {
+>   #if (NR_CPUS == 1) || defined(CONFIG_FORCE_NR_CPUS)
+>           WARN_ON(nr != nr_cpu_ids);
+>   #else
+>           nr_cpu_ids = nr;
+>   #endif
+>   }
 >
-> -               p->thread.ra = (unsigned long)ret_from_kernel_thread;
->                 p->thread.s[0] = (unsigned long)args->fn;
->                 p->thread.s[1] = (unsigned long)args->fn_arg;
->         } else {
-> @@ -182,8 +180,9 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->                 if (clone_flags & CLONE_SETTLS)
->                         childregs->tp = tls;
->                 childregs->a0 = 0; /* Return value of fork() */
-> -               p->thread.ra = (unsigned long)ret_from_fork;
-> +               p->thread.s[0] = 0;
->         }
-> +       p->thread.ra = (unsigned long)ret_from_fork;
->         p->thread.sp = (unsigned long)childregs; /* kernel sp */
->         return 0;
->  }
-> --
-> 2.34.1
 >
+> As you can see, at this point cpu_possible_mask is initialized based
+> on DT, and even if arch has non-dense cpu_possible_mask, the logic
+> should still be correct.
 
+Quite possible this is just an issue with the RISC-V CPU sparse hart ID
+handling code.  E.g. arm64 works fine with cpu@{0,1,2,3,100,101,102,103}
+and CONFIG_NR_CPUS=8.  NR_CPUS in arch/riscv/Kconfig has always
+defaulted to at least 8, while all upstream DTS files describe only
+4 Linux-capable CPU cores (+ 1 management core).
 
--- 
-Best Regards
- Guo Ren
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
