@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97669C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 19:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADE7C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 19:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zoZsM/G+KmfaXbSztnYEbhrGSR3oH9GNNLZyJJRgRcU=; b=K61QYUh2MEn9ED
-	CMMPoMMrquT85upiEEFvhcOX08WBU7Usn840aKwF17qy/7pV9pRuqOBH7o69kYrOldeVokFsmhxGw
-	4WyH2y0edUZI3dnzOkBdDRA1GpOCTbBfWuGfIUKAKRXonx1jLYbpkV5TjRlziZfyA5O+SHGd1YgqW
-	PgqWiaQH+cdb7xohkTdDafK3FXjTgxc3UjowOnZJXjLEIDXh0WbLcX77U1lP0hHZo60S9AndwTVm2
-	zqX4pt6GcFkMrtGIY6umhV4zuGtawi6heHFPpGQGhAi3UF679AeJATtCWvqIKS+fXrMoqNbGYAgTP
-	j3o3eHnlskl4Ti3w+6xQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AOs7V0XqMGn7UluH1QC+FoS7E+NBhJNt60cggJ3pSzc=; b=a3sBYi6OlBWeLP
+	L3t6ZD/3p5viSEJLhv4fwHteI0zL558gwjE4KSt4uWB/m7CMAlWiQreANnAqKhysCVEUCu+XnhiRT
+	pwFidqwNX0AIEfFhprxGLJG1GxDq+rO0bk8qPi/WeSr1Uy6+jJ3rmhCpc7HudOpm0U+doK3kwhgPU
+	S8evzTI4e8jCwRXLryOoXnteJTxMvXPz+JQD0COCOohLQY+8V2+3OFJ7eB5E2cGU4in8EUrXe52Ng
+	UtlC2LLZNLyB1BoSuWBClN7mMeqaHVdz3B91wgSTOnqhDON/39TGc1My06AYfHzkoEtA7atBPKn7l
+	v4cKGaDhcq7OkGOtmEQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olF9q-004xBq-76; Wed, 19 Oct 2022 19:55:18 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1olFCN-004xoP-OG; Wed, 19 Oct 2022 19:57:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olF9c-004x9m-G9; Wed, 19 Oct 2022 19:55:06 +0000
+	id 1olFCB-004xmT-Vt; Wed, 19 Oct 2022 19:57:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CF940B825E2;
-	Wed, 19 Oct 2022 19:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AABC433D6;
-	Wed, 19 Oct 2022 19:55:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8C7D2619BD;
+	Wed, 19 Oct 2022 19:57:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 089A6C433D6;
+	Wed, 19 Oct 2022 19:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666209301;
-	bh=rWNcMUcG9DDNLMyAn9aOc5PTGDK+JqC/MOVV6hh0TP0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AS1bySSuzt+v9qgP9nV4W0vcNULhVRnV+aVK+fHcxSdO2qnAx0mHBUYS/2UMN/l+c
-	 ZB2ih7HSz9gX2L92v/AYZq0T4faa4J6z1Hccthvtt722q+PTH8wTXhMxeUL9qAOt5W
-	 eDe95lTcW9FsELfdPte8ZT1T5vONtwIfP1tZwLHT/30JarfrKyUEDlC4hXNITGj9M0
-	 WKENOhumsKWpgDPNZHyJi2NZyX9jivbIIOP6qahufWn7y4aTMzdJWprc+ZT39jE29V
-	 ujZ9lax01KINQ3L8m5mI/lNZolvX4OQ8j8W/zr6NwQNXox1MDBKXPtqjBcoGFgtgss
-	 Vm8j7doGKP3qg==
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
-	Tom Joseph <tjoseph@cadence.com>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Minghuan Lian <minghuan.Lian@nxp.com>,
-	Mingkai Hu <mingkai.hu@nxp.com>,
-	Roy Zang <roy.zang@nxp.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Toan Le <toan@os.amperecomputing.com>,
-	Joyce Ooi <joyce.ooi@intel.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
+	s=k20201202; t=1666209463;
+	bh=K1Uoj3YzZfs/Ftg9PeyHIXDrwSa4k93XIbTWq2MoYcM=;
+	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
+	b=TD+QAE6Pju/Bfz2UdEEvcyeKX4bhv7n0WNCUSdBl5iFFxYUs7IG0Ll7o2DBGpo4ZO
+	 lUkGPgo2yIaX5ljNZKWcdDFc1AVXmDeNzG+Nqhx3L2DV8EaBcDuu1LPjpnLbrhRKTT
+	 L8Nd5NVt7J91D5C4re8qsJntKvv2qrdrqe6ILHGbEzrInKKFIl66XAjr5q3yah0tvS
+	 gYkPs1mhED37teF+cVKNqPtKpVKIXwK6XSH07wzN0BS6/BFJCxs5pOljeBiI+kIXdU
+	 1DbcNiWPtNjjZBlg/Pv1UnHW+9D8CnT6fI6NfF65Ax3VTnkNLihkrDi3eDJFEDNPRZ
+	 jfw8t/TRt/QCw==
+Date: Wed, 19 Oct 2022 20:57:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>, arnd@arndb.de
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+	soc@kernel.org, linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-tegra@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH] PCI: Remove unnecessary of_irq.h includes
-Date: Wed, 19 Oct 2022 14:54:51 -0500
-Message-Id: <20221019195452.37606-1-helgaas@kernel.org>
-X-Mailer: git-send-email 2.25.1
+	Samuel Holland <samuel@sholland.org>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [RFC RESEND PATCH 0/2] RZ/G2UL separate out SoC specific parts
+Message-ID: <Y1BWsKtv0QS4jVIw@spud>
+References: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_125504_887514_A8C83C09 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221019_125744_116715_05B8A407 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,200 +83,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bjorn Helgaas <bhelgaas@google.com>
+On Mon, Oct 17, 2022 at 10:11:59AM +0100, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> Hi All,
+> 
+> This patch series aims to split up the RZ/G2UL SoC DTSI into common parts
+> so that this can be shared with the RZ/Five SoC.
+> 
+> Implementation is based on the discussion [0] where I have used option#2.
+> 
+> The Renesas RZ/G2UL (ARM64) and RZ/Five (RISC-V) have almost the same
+> identical blocks to avoid duplication a base SoC dtsi (r9a07g043.dtsi) is
+> created which will be used by the RZ/G2UL (r9a07g043u.dtsi) and RZ/Five
+> (r9a07g043F.dtsi)
+> 
+> Sending this as an RFC to get some feedback.
+> 
+> r9a07g043f.dtsi will look something like below:
+> 
+> #include <dt-bindings/interrupt-controller/irq.h>
+> 
+> #define SOC_PERIPHERAL_IRQ_NUMBER(nr)	(nr + 32)
+> #define SOC_PERIPHERAL_IRQ(nr, na)	SOC_PERIPHERAL_IRQ_NUMBER(nr) na
 
-Many host controller drivers #include <linux/of_irq.h> even though they
-don't need it.  Remove the unnecessary #includes.
+It appears there's little interest in this conversation from a DT or an
+arch/soc maintainer PoV so far. I for one think this stuff is grand &
+better than duplicating the dts between archs. I know Geert likes the
+macros in theory, but I wonder what he thinks of the implemenation?
 
-Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
----
- drivers/pci/controller/cadence/pci-j721e.c   | 1 -
- drivers/pci/controller/dwc/pci-layerscape.c  | 1 -
- drivers/pci/controller/dwc/pcie-armada8k.c   | 1 -
- drivers/pci/controller/dwc/pcie-tegra194.c   | 1 -
- drivers/pci/controller/pci-v3-semi.c         | 1 -
- drivers/pci/controller/pci-xgene-msi.c       | 1 -
- drivers/pci/controller/pci-xgene.c           | 1 -
- drivers/pci/controller/pcie-altera-msi.c     | 1 -
- drivers/pci/controller/pcie-iproc-platform.c | 1 -
- drivers/pci/controller/pcie-iproc.c          | 1 -
- drivers/pci/controller/pcie-microchip-host.c | 1 -
- drivers/pci/controller/pcie-rockchip-host.c  | 1 -
- drivers/pci/controller/pcie-xilinx-cpm.c     | 1 -
- drivers/pci/controller/pcie-xilinx-nwl.c     | 1 -
- 14 files changed, 14 deletions(-)
+Arnd, do you perhaps have an opinion?
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index a82f845cc4b5..cc83a8925ce0 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -15,7 +15,6 @@
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
- #include <linux/of_device.h>
--#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-diff --git a/drivers/pci/controller/dwc/pci-layerscape.c b/drivers/pci/controller/dwc/pci-layerscape.c
-index 879b8692f96a..ed5fb492fe08 100644
---- a/drivers/pci/controller/dwc/pci-layerscape.c
-+++ b/drivers/pci/controller/dwc/pci-layerscape.c
-@@ -13,7 +13,6 @@
- #include <linux/init.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
--#include <linux/of_irq.h>
- #include <linux/of_address.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/pci/controller/dwc/pcie-armada8k.c b/drivers/pci/controller/dwc/pcie-armada8k.c
-index dc469ef8e99b..5c999e15c357 100644
---- a/drivers/pci/controller/dwc/pcie-armada8k.c
-+++ b/drivers/pci/controller/dwc/pcie-armada8k.c
-@@ -21,7 +21,6 @@
- #include <linux/platform_device.h>
- #include <linux/resource.h>
- #include <linux/of_pci.h>
--#include <linux/of_irq.h>
- 
- #include "pcie-designware.h"
- 
-diff --git a/drivers/pci/controller/dwc/pcie-tegra194.c b/drivers/pci/controller/dwc/pcie-tegra194.c
-index 1b6b437823d2..02d78a12b6e7 100644
---- a/drivers/pci/controller/dwc/pcie-tegra194.c
-+++ b/drivers/pci/controller/dwc/pcie-tegra194.c
-@@ -21,7 +21,6 @@
- #include <linux/of.h>
- #include <linux/of_device.h>
- #include <linux/of_gpio.h>
--#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/pci.h>
- #include <linux/phy/phy.h>
-diff --git a/drivers/pci/controller/pci-v3-semi.c b/drivers/pci/controller/pci-v3-semi.c
-index 154a5398633c..784fcf35599c 100644
---- a/drivers/pci/controller/pci-v3-semi.c
-+++ b/drivers/pci/controller/pci-v3-semi.c
-@@ -22,7 +22,6 @@
- #include <linux/kernel.h>
- #include <linux/of_address.h>
- #include <linux/of_device.h>
--#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-index bfa259781b69..5efc6e56559f 100644
---- a/drivers/pci/controller/pci-xgene-msi.c
-+++ b/drivers/pci/controller/pci-xgene-msi.c
-@@ -10,7 +10,6 @@
- #include <linux/interrupt.h>
- #include <linux/module.h>
- #include <linux/msi.h>
--#include <linux/of_irq.h>
- #include <linux/irqchip/chained_irq.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/pci/controller/pci-xgene.c b/drivers/pci/controller/pci-xgene.c
-index 549d3bd6d1c2..887b4941ff32 100644
---- a/drivers/pci/controller/pci-xgene.c
-+++ b/drivers/pci/controller/pci-xgene.c
-@@ -14,7 +14,6 @@
- #include <linux/init.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
--#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/pci.h>
- #include <linux/pci-acpi.h>
-diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
-index 7b1d3ebc34ec..89110b879d5f 100644
---- a/drivers/pci/controller/pcie-altera-msi.c
-+++ b/drivers/pci/controller/pcie-altera-msi.c
-@@ -13,7 +13,6 @@
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of_address.h>
--#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci/controller/pcie-iproc-platform.c
-index 538115246c79..4142a73e611d 100644
---- a/drivers/pci/controller/pcie-iproc-platform.c
-+++ b/drivers/pci/controller/pcie-iproc-platform.c
-@@ -12,7 +12,6 @@
- #include <linux/platform_device.h>
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
--#include <linux/of_irq.h>
- #include <linux/of_platform.h>
- #include <linux/phy/phy.h>
- 
-diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
-index 2519201b0e51..83029bdfd884 100644
---- a/drivers/pci/controller/pcie-iproc.c
-+++ b/drivers/pci/controller/pcie-iproc.c
-@@ -18,7 +18,6 @@
- #include <linux/platform_device.h>
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
--#include <linux/of_irq.h>
- #include <linux/of_platform.h>
- #include <linux/phy/phy.h>
- 
-diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 7263d175b5ad..937a79bcfddc 100644
---- a/drivers/pci/controller/pcie-microchip-host.c
-+++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -12,7 +12,6 @@
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/of_address.h>
--#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index 7352b5ff8d35..c96c0f454570 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -28,7 +28,6 @@
- #include <linux/of_device.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
--#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/pci_ids.h>
- #include <linux/phy/phy.h>
-diff --git a/drivers/pci/controller/pcie-xilinx-cpm.c b/drivers/pci/controller/pcie-xilinx-cpm.c
-index e4ab48041eb6..4a787a941674 100644
---- a/drivers/pci/controller/pcie-xilinx-cpm.c
-+++ b/drivers/pci/controller/pcie-xilinx-cpm.c
-@@ -16,7 +16,6 @@
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
--#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
- #include <linux/pci-ecam.h>
-diff --git a/drivers/pci/controller/pcie-xilinx-nwl.c b/drivers/pci/controller/pcie-xilinx-nwl.c
-index 40d070e54ad2..f0271b6c6f8d 100644
---- a/drivers/pci/controller/pcie-xilinx-nwl.c
-+++ b/drivers/pci/controller/pcie-xilinx-nwl.c
-@@ -17,7 +17,6 @@
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
--#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
--- 
-2.25.1
+Thanks,
+Conor.
 
+> 
+> #include <arm64/renesas/r9a07g043.dtsi>
+> 
+> / {
+>    ...
+>    ...   
+> };
+> 
+> Although patch#2 can be merged into patch#1 just wanted to keep them separated
+> for easier review.
+> 
+> RFC-> RESEND RFC
+> * Patches rebased on [1]
+> 
+> RFC: [2]
+> 
+> [0] https://lore.kernel.org/linux-arm-kernel/Yyt8s5+pyoysVNeC@spud/T/
+> [1] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221009230044.10961-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+> [2] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220929172356.301342-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+> 
+> Cheers,
+> Prabhakar
+> 
+> Lad Prabhakar (2):
+>   arm64: dts: renesas: r9a07g043: Introduce SOC_PERIPHERAL_IRQ() macro
+>     to specify interrupt property
+>   arm64: dts: renesas: r9a07g043: Split out RZ/G2UL SoC specific parts
+> 
+>  arch/arm64/boot/dts/renesas/r9a07g043.dtsi    | 347 ++++++++----------
+>  arch/arm64/boot/dts/renesas/r9a07g043u.dtsi   |  72 ++++
+>  .../boot/dts/renesas/r9a07g043u11-smarc.dts   |   2 +-
+>  3 files changed, 220 insertions(+), 201 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
+> 
+> -- 
+> 2.25.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
