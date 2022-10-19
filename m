@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF9AC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47236C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WbBJ2eOQHVfWAzO16vn3Unf+Nj/32DU2h09HOKTh038=; b=zLgJWvV5ojosbT
-	Y0yLA7sB2ftMkJvQeFki4qjN2swZgM4TDOSUscWOiVuaqx29LwAd5uZnS/Joh/wnaYxVLddGfi4X/
-	wnU1vbvf16DmO3PkvvvyPeQqf1T1Of+OWlmfRo66yq/59y5aWog7XSWwfqlTcxttxQPKSXg9p5XTI
-	c3Kngt4nmi7GQz1ezMNGx3uEvi32j7ZXthOxof5BKB1qzOm2BG7RUWwuZg6kqLWYQ0at6Zm8v0DKP
-	mt58XfWVFyIuomudJjFTj3nuPdyePXS8JLcP2Z2xuTXSP6/eennNRGR/qkIRMSuE4hoPQdKMfRMuS
-	eio1oaSeiFTERAmdrNmg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zqOJatBDWrWLOAHZSS9hqPRydORSNwaibi4HGpElVL4=; b=GcRz2y2RAOFdQK
+	zu8y7X0N22AjHXm0dTRkPheMkIuffXoPx1yYaFBnZw3ToJ/FF/B+j3iYndBPWA7HNLNJ0MPpep4IK
+	k9Iiaeuvg6ghQdXowhs2ZyJxWIh3I8tFNWeO2hOjhTaiTpZTK6DbsrgHzAC99Gcb+zg/1Wi84PwKy
+	HuZ2L/phlLoFXE3I8Xv1IaKX7XkNzO2Xh5hDYhaKE2ae95RVTVxrJfT5EZy1gCmDMx1o+dwMxM3Gj
+	tUapdSEfMNRblrNvmny6ZiCjQAmYwP8JiGHQMb4xe2VnLI/Y3NdY0QuQXAGlG8VPE+C0BWjKP4ZHU
+	6ZqQYeLpsBObtbZ2cNyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol81l-001NUA-W4; Wed, 19 Oct 2022 12:18:30 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1ol86G-001QqR-CY; Wed, 19 Oct 2022 12:23:08 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol81i-001NKG-7z
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 12:18:28 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id h2so9721500plb.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 05:18:23 -0700 (PDT)
+	id 1ol86C-001QfO-U3
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 12:23:06 +0000
+Received: by mail-ej1-x634.google.com with SMTP id k2so39552900ejr.2
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 05:22:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=llwNEBSWfDR2F4LeCd9ZXwYAAh5P7iVgSJnKoSyLXKI=;
-        b=YLmP0/KBj9Q2FCXfeclwl/X/y8N/avRXarErHiKhsmHKs8OUzXXtB3/6YI0k/hfDjo
-         pObxpRk4EqBvcfMTKQXuNs3albxd4v8jsrF0IX/quotd9+CwAgXT0rtFHD2TeqfFDEhi
-         2R+azEJW7z2721AlV1g3cvfsDy+P87TPBMk97Tw5PiH01xnfThwKQHDFHrx2WGiUAxI2
-         j+BYN7ilaORt/IHeTSTo5xEwu36ef87s71VFYwjLIQxIg/KZGbh8HTfQd19KleDGhTJS
-         ui7cRbRZ3EiA8kaJlmAiRYPjONjwQ/8nMFF3WWl36ONscRtwT8PuoVuHrP3yTFrtBK5T
-         qKhA==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=QMeiIZiyblteVRq78CiV17LjNnwkts3YE/C63wZ/Nwc=;
+        b=BOfrgwQgEzrrFhKlFXE5x9tOZKfxASj6ILDrcwagHhpNJzX2kSs2Pfwaq05XnINQrP
+         l9Dcw6XLRGkIV/RuE9xQwi3EOMuw+8BlM+Ttw8VcjZ1tO542VMZUeok+gYu6K2Oxcoyv
+         JCS7h9hBMXUcEQpLUiz14l5B1rJUeimFAXFYKlVtg6KB/j5ZC3t1NvKNhYliUgE/09kP
+         FvO3ZTD6PyMJqSljuEY6tvCuYO8TVwCyijjZjXl1Zj1l3BP5xzgYzNvZ72LIeSl75qJE
+         gAVd+M+YBGvhGKF3dsq+fGiSHDVzzhN+pJS4OGO8eaYTaC3lfevZaCl2XTNxkVAAcOI0
+         oi8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=llwNEBSWfDR2F4LeCd9ZXwYAAh5P7iVgSJnKoSyLXKI=;
-        b=jkLHT7/WAKSeJJWcx9CVKUXDSSxfvnySPfkejqoJfkAIGYEFrPCh7h7ZwS4NjQmlcX
-         j7fNOQlwZ5SeBaJD3G1hkraml31vvJgzr8Z7Anz3XT7N+rTov4Q8PdV+sNbb4go4gPJp
-         6TmtWAJmJ3X6O3YtY5upIQurCtwDSJvJxgltGU9itW+cDPFMOuYqHfpROjP2v5WfPcFL
-         CTzSd8XPUF1K4b9yZe5szQtLjTAKZ3b6DEoeQSEQke2y2fk9SzuGgCB1vOqAJ1pDv5xL
-         MLIClnvlrvSjoK1gS3SmPFZKIHnL8GKYIeCOGWq28Dh98Ge5WXtxJCb6EjobU7QJLKtM
-         xGYw==
-X-Gm-Message-State: ACrzQf1VvrAmqJ0aTrqfVQzRi94lO577ZMGRaN51FDfAxZsUnRhQeicC
-	P/4+XtM8fOJQXGwn4zRFxZtZz45kfKs5kA==
-X-Google-Smtp-Source: AMsMyM62HomAhFnG0yZwJ0nc3YwJPIAXboVv2EvWDhNAclvdiPK4S0zmuUuXsI7d4EkH0rnjg3IKbA==
-X-Received: by 2002:a17:903:1105:b0:178:ae31:aad with SMTP id n5-20020a170903110500b00178ae310aadmr8114123plh.3.1666181804916;
-        Wed, 19 Oct 2022 05:16:44 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.82.102])
-        by smtp.gmail.com with ESMTPSA id x7-20020a170902a38700b0017e93c158d7sm10529824pla.214.2022.10.19.05.16.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Oct 2022 05:16:44 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v3 0/4] Add PMEM support for RISC-V
-Date: Wed, 19 Oct 2022 17:46:18 +0530
-Message-Id: <20221019121622.179024-1-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
+        bh=QMeiIZiyblteVRq78CiV17LjNnwkts3YE/C63wZ/Nwc=;
+        b=6r2ajEjWhWXJ4+XlGY/SJHzbT6ntwv/hQglb2nA/1EI1rkVNZdRNy5foH7oa6+jjVc
+         2YBgAWPpCeTR9peQS4z0ajITjClDytSO2v8hLxkGIjVu6oT21XVUrwgTvu6rT981PiA2
+         75Z3r/bUXh3gviEDOJ0KKBHMvAbxaabHQQV/81HTqELuSP0Z4D0nOuTbcuLwrl4UWJoC
+         MoTF7R0HZYKDe8no1sEuwpQzDK2xrl5h3v9r+4pDknSketesOUxFVsI9MlX3fm/7iQ2X
+         1HHZ0S3IS7dIZav7zZ7ZWgUcx+MtYf2ldxrK7X9mtinqe+JueTDkdKEobJhbrwJN1J0a
+         k+Tw==
+X-Gm-Message-State: ACrzQf0IKlm0SKQo1ToQCMNm8yQCXRGEyxBVUDWaM8cCdaVAOXM8rsna
+	AcyBKmaLPR2HD0yquXnwZSCWpBNjZiqmSIKItghPFw==
+X-Google-Smtp-Source: AMsMyM549WtB2Hp0Bg2is6s2aYzKVD5TFE9cKOvyf0h+dgbaICCawPeNl7yp77ABZoj2vRJfgHQWT34GvNzmBoECr2U=
+X-Received: by 2002:a17:906:ee81:b0:77e:829a:76e9 with SMTP id
+ wt1-20020a170906ee8100b0077e829a76e9mr6852093ejb.207.1666182176287; Wed, 19
+ Oct 2022 05:22:56 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221019121622.179024-1-apatel@ventanamicro.com> <20221019121622.179024-2-apatel@ventanamicro.com>
+In-Reply-To: <20221019121622.179024-2-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 19 Oct 2022 17:52:42 +0530
+Message-ID: <CAAhSdy1bjD15c-xnhHv6K9Zsy_fvmNU6w=TyM1hS41MYtJkmTg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] RISC-V: Fix compilation without RISCV_ISA_ZICBOM
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, 
+	kernel test robot <lkp@intel.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_051826_300373_A7DF41AA 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20221019_052305_207446_17CEF999 
+X-CRM114-Status: GOOD (  25.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +88,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Linux NVDIMM PEM drivers require arch support to map and access the
-persistent memory device. This series adds RISC-V PMEM support using
-recently added Svpbmt and Zicbom support.
+Hi Palmer,
 
-First two patches are fixes and remaining two patches add the required
-PMEM support for Linux RISC-V.
+On Wed, Oct 19, 2022 at 5:46 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> From: Andrew Jones <ajones@ventanamicro.com>
+>
+> riscv_cbom_block_size and riscv_init_cbom_blocksize() should always
+> be available and riscv_init_cbom_blocksize() should always be
+> invoked, even when compiling without RISCV_ISA_ZICBOM enabled. This
+> is because disabling RISCV_ISA_ZICBOM means "don't use zicbom
+> instructions in the kernel" not "pretend there isn't zicbom, even
+> when there is". When zicbom is available, whether the kernel enables
+> its use with RISCV_ISA_ZICBOM or not, KVM will offer it to guests.
+> Ensure we can build KVM and that the block size is initialized even
+> when compiling without RISCV_ISA_ZICBOM.
+>
+> Fixes: 8f7e001e0325 ("RISC-V: Clean up the Zicbom block size probing")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-These patches can also be found in riscv_pmem_v3 branch at:
-https://github.com/avpatel/linux.git
+Currently, the KVM RISC-V compilation is broken for toolchains not
+having Zicbom support.
 
-Changes since v2:
- - Rebased on Linux-6.1-rc1
- - Replaced PATCH1 with the patch proposed by Drew
+I plan to take this patch through the KVM RISC-V tree and I will be
+sending a PR by the end of this week. Let me know if you want this
+patch to go through the RISC-V tree.
 
-Changes since v1:
- - Fix error reported by test bot
-   https://lore.kernel.org/all/202208272028.IwrNZ0Ur-lkp@intel.com/
+Regards,
+Anup
 
-Andrew Jones (1):
-  RISC-V: Fix compilation without RISCV_ISA_ZICBOM
-
-Anup Patel (3):
-  RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-  RISC-V: Implement arch specific PMEM APIs
-  RISC-V: Enable PMEM drivers
-
- arch/riscv/Kconfig               |  1 +
- arch/riscv/configs/defconfig     |  1 +
- arch/riscv/include/asm/io.h      | 10 ++++++++
- arch/riscv/include/asm/pgtable.h |  2 ++
- arch/riscv/mm/Makefile           |  1 +
- arch/riscv/mm/cacheflush.c       | 41 ++++++++++++++++++++++++++++++++
- arch/riscv/mm/dma-noncoherent.c  | 41 --------------------------------
- arch/riscv/mm/pmem.c             | 21 ++++++++++++++++
- 8 files changed, 77 insertions(+), 41 deletions(-)
- create mode 100644 arch/riscv/mm/pmem.c
-
--- 
-2.34.1
-
+> ---
+>  arch/riscv/mm/cacheflush.c      | 41 +++++++++++++++++++++++++++++++++
+>  arch/riscv/mm/dma-noncoherent.c | 41 ---------------------------------
+>  2 files changed, 41 insertions(+), 41 deletions(-)
+>
+> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> index 6cb7d96ad9c7..f318b2553612 100644
+> --- a/arch/riscv/mm/cacheflush.c
+> +++ b/arch/riscv/mm/cacheflush.c
+> @@ -3,6 +3,8 @@
+>   * Copyright (C) 2017 SiFive
+>   */
+>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+>  #include <asm/cacheflush.h>
+>
+>  #ifdef CONFIG_SMP
+> @@ -86,3 +88,42 @@ void flush_icache_pte(pte_t pte)
+>                 flush_icache_all();
+>  }
+>  #endif /* CONFIG_MMU */
+> +
+> +unsigned int riscv_cbom_block_size;
+> +EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
+> +
+> +#ifdef CONFIG_RISCV_ISA_ZICBOM
+> +void riscv_init_cbom_blocksize(void)
+> +{
+> +       struct device_node *node;
+> +       unsigned long cbom_hartid;
+> +       u32 val, probed_block_size;
+> +       int ret;
+> +
+> +       probed_block_size = 0;
+> +       for_each_of_cpu_node(node) {
+> +               unsigned long hartid;
+> +
+> +               ret = riscv_of_processor_hartid(node, &hartid);
+> +               if (ret)
+> +                       continue;
+> +
+> +               /* set block-size for cbom extension if available */
+> +               ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
+> +               if (ret)
+> +                       continue;
+> +
+> +               if (!probed_block_size) {
+> +                       probed_block_size = val;
+> +                       cbom_hartid = hartid;
+> +               } else {
+> +                       if (probed_block_size != val)
+> +                               pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
+> +                                       cbom_hartid, hartid);
+> +               }
+> +       }
+> +
+> +       if (probed_block_size)
+> +               riscv_cbom_block_size = probed_block_size;
+> +}
+> +#endif
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> index b0add983530a..d919efab6eba 100644
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -8,13 +8,8 @@
+>  #include <linux/dma-direct.h>
+>  #include <linux/dma-map-ops.h>
+>  #include <linux/mm.h>
+> -#include <linux/of.h>
+> -#include <linux/of_device.h>
+>  #include <asm/cacheflush.h>
+>
+> -unsigned int riscv_cbom_block_size;
+> -EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
+> -
+>  static bool noncoherent_supported;
+>
+>  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> @@ -77,42 +72,6 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+>         dev->dma_coherent = coherent;
+>  }
+>
+> -#ifdef CONFIG_RISCV_ISA_ZICBOM
+> -void riscv_init_cbom_blocksize(void)
+> -{
+> -       struct device_node *node;
+> -       unsigned long cbom_hartid;
+> -       u32 val, probed_block_size;
+> -       int ret;
+> -
+> -       probed_block_size = 0;
+> -       for_each_of_cpu_node(node) {
+> -               unsigned long hartid;
+> -
+> -               ret = riscv_of_processor_hartid(node, &hartid);
+> -               if (ret)
+> -                       continue;
+> -
+> -               /* set block-size for cbom extension if available */
+> -               ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
+> -               if (ret)
+> -                       continue;
+> -
+> -               if (!probed_block_size) {
+> -                       probed_block_size = val;
+> -                       cbom_hartid = hartid;
+> -               } else {
+> -                       if (probed_block_size != val)
+> -                               pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
+> -                                       cbom_hartid, hartid);
+> -               }
+> -       }
+> -
+> -       if (probed_block_size)
+> -               riscv_cbom_block_size = probed_block_size;
+> -}
+> -#endif
+> -
+>  void riscv_noncoherent_supported(void)
+>  {
+>         WARN(!riscv_cbom_block_size,
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
