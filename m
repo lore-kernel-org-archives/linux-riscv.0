@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C27C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 13:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D608BC43217
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 13:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f07NfGIjwvkcUMAVma7GkWIbuTW4BOGW+k96d1sYy9g=; b=3uDp6cNtNt3nHN
-	Q8xM+Ar1TtW6bcQdpZpXpmFfmITG3D5RYOervDaQxHPB/zYINO8EA5QNmcG/XwLNu2geGoAK5qKln
-	kyDMHIlFQOqql13p4qMAquUkd35g+71gwZRypbrH5UK5a84kW+T4EJPFPla/7PtGdVpJhooG7BTCO
-	ytQIBQVgyOVS1vcKfTuFS82BDbgOkJPAAi59cIqXeUCisVLiR+yXdOLsLh1WkHMluWbNhohlng9Nb
-	ShDqZVNq10TjeAJaGO5WvK6St97GL2oUAwmv0v2W51Cq76PTOP++Wo5Ic20/+9lth/l+GCRiu8wOY
-	limwzNcp2Qnx0YI7Gllg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8R0n0GPtEX0PNmePzPYFBQOKR/X+TTGgyZNOfkcDrzU=; b=NjmVFbcUphPO3f
+	nRSP7IukkPtaozAnmM+L/GoPviad7CHWfT9zMBhnDuvt1bqKodnMoTUfD2UeziVYRe+ne4HP1PJb9
+	nnHg0bNki7XovM/zTHbIMmFWUNTn+8tHREXbVfYnilE0f6/RYr7Uq/V0Zopfg5HCDej0vgxfcHhyR
+	6OjsUeAyr9SO/ngo6sWj1bc4Xcl4GB3EfqUbEfv4robLQYFOQLjkXNc5SWH+O+p3L8ZDho2HS/ybj
+	Vq/TAM2CjmCuKkgUZP063EjC/vtIbHz33DIwbJGOT7YmYtc/8sY6b0godrV5DVhTwV8QUiEGVpzny
+	bLthkV8MVGg3z9G41mBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8rH-0023kA-2f; Wed, 19 Oct 2022 13:11:43 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1ol8rR-0023pj-Or; Wed, 19 Oct 2022 13:11:53 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8rD-0023hM-Rf
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 13:11:41 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id gf8so16844125pjb.5
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 06:11:38 -0700 (PDT)
+	id 1ol8rP-0023nG-3I
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 13:11:52 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id r18so16190615pgr.12
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 06:11:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aWjBfacUm2GoxWBQ/vmD99Tjjb4/op+CT9vp/T4pxWI=;
-        b=eIBMtWthlAeYDvmoJsyh0OIJsFoA/+tcZn16Z1W42D7671Bz3D98zZi+I48MNGYIO2
-         sfIU8cb8fbF3zDc7KhsQNfO4LsmP58uygqFUsC6j4lC5pA192KzRUTeSmPARUhtVwF4Q
-         /Mm/cSJ5T384ozqK9Qef+ooZOKzLQR0nKFGlFv25hmkbCkyowuP2IjD2AiMNnn3Q6Ft/
-         OK4vNMLwKT9o/5QsjEaJ/yn6aL3aQS6DnLbo3+A+Yp18fkUf/4pvD67SmnP8mwR/IUGG
-         OsM/VnbtmtOLL+oiU45LFjoAdXh8scIoYryq+6XQ1dqjlFb9A/AdN+kCngeiUIqiqhco
-         HKQQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VDJV4ZwRVQLzE0DQMb9i2tBKWni84XeHMbgigRoQK/0=;
+        b=HOkyp3/fLEtCt1yCpma/EVhFQK4FgiHrDx/1YMPDwT9KQrXtZ0+DK7VA6GhN48oRWA
+         4sG0ELlR4Xx5kFHMLD3IcKQgSiGxSCIYHNPRD6e781OBC4699iRbnlkAlAhprF0gqYki
+         acC7BoHMX02nQX6Pt26dFyxXVI1LBAdKELJ09Ghl43yGZrR73a3ii+p3UpqdhnFHmDS3
+         0XiS8j+aXMQi6uBmUu0KnVCdN4N4RavsAQEqNU8PGVb2bh7fmWtfDPDtsrXzpGkESvGd
+         aZAwD7ULTmeuMDJfShrg4v3kG6qvCUAGwnSOXlqQ+x8M/tR8DDnBRCjDLrLCFOns0lYR
+         HzVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aWjBfacUm2GoxWBQ/vmD99Tjjb4/op+CT9vp/T4pxWI=;
-        b=tM3RNMO8uSzmBwEgDtK/BkBqsosoYn2OTRJL+Nt5H4YkGEruL8l67AUg2sgWJREK64
-         XIty3CV7XggqFkBmwkqeOqL/4xHNvpcrTooOly069W17kY+T0W80M0d2aRVqiOgrIs+G
-         0KFeOiG0zh+JPGJ86KrZ//wHTiinbI6jI5pbvWemqq1KlFgvcVU6MS2FC0h7s8fwqyLp
-         4hXfkAKlBVGH61NlcmL/IudbxTJxG12CJ/9Am9FJsULZjnRapvQy8H22NMtNzptT8Qxc
-         mUfG12biLAeeMXveLI8zB4TKuVqPs80ZmGygsDafr3Xx4RIA0p5h1BLlg56VUdylqIF6
-         Wkig==
-X-Gm-Message-State: ACrzQf07QKnw5wLKTEjGUnmpYfTcFgDxnF77EVETvASmk9rDn7sNfW78
-	9kNHUUSOw+Bb0hHET4ko+nBaGAn8FRs7cA==
-X-Google-Smtp-Source: AMsMyM6yOBDpeWz5bKxvbDSGQeEIk4lLHBWXPdRB1MHshgvJm/FiLJyi8uMbRoqc1Gm5c01k23U39A==
-X-Received: by 2002:a17:90b:3a86:b0:20d:616f:4bb6 with SMTP id om6-20020a17090b3a8600b0020d616f4bb6mr45991309pjb.238.1666185097752;
-        Wed, 19 Oct 2022 06:11:37 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VDJV4ZwRVQLzE0DQMb9i2tBKWni84XeHMbgigRoQK/0=;
+        b=M4DyANgnFbC/4gA1UNVl/Hv9qNMpMa+CGjLZYpOzBTXEodLMrc+VUbGilC/bjmt7/O
+         /4z75DOc42MOmGw1V66vDXNucyuGMFMAwb9p+DmR/G4xu66hDaXj2nfGUeL0vhOGUDf7
+         vvWl2Mb+8klObzTq5gLailpChYFMd3aluzpxg++2N9kHwGhS7NpydQ6g3eRuAstgicb3
+         6JMbJQ+4vGvwPbtVitRA5q02vnRI/Jm3sDc8nYONozmsqDaI9TJ8XA75lP0n3EJRocfO
+         5LHjHWgkPk3WLIo3qPj2hu5Ln4zThWclOHbDC8nUI3QrsaYPg7WmyIOcI+kKHI3Hf/17
+         R7Zg==
+X-Gm-Message-State: ACrzQf3h+E+Gmh2Cp3hFfNy/8fSoicv6coFnNQD8J0BbCPdNo4M7rYhR
+	7fBS14pKqFzU7gDjW5RIyARQUQ==
+X-Google-Smtp-Source: AMsMyM798d6sCpUdCwQ/ecSIilfJZ6v86SVZw+SrASHeVBqUCbXn5DWhzpkIIEZcuJRhURHhRtRArA==
+X-Received: by 2002:a65:6b81:0:b0:461:4049:7df7 with SMTP id d1-20020a656b81000000b0046140497df7mr7235376pgw.593.1666185109034;
+        Wed, 19 Oct 2022 06:11:49 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([171.76.82.102])
-        by smtp.gmail.com with ESMTPSA id n12-20020a170902d2cc00b00172897952a0sm10934478plc.283.2022.10.19.06.11.34
+        by smtp.gmail.com with ESMTPSA id n12-20020a170902d2cc00b00172897952a0sm10934478plc.283.2022.10.19.06.11.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Oct 2022 06:11:37 -0700 (PDT)
+        Wed, 19 Oct 2022 06:11:48 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
@@ -67,15 +68,18 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v4 0/4] Add PMEM support for RISC-V
-Date: Wed, 19 Oct 2022 18:41:24 +0530
-Message-Id: <20221019131128.237026-1-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>
+Subject: [PATCH v4 3/4] RISC-V: Implement arch specific PMEM APIs
+Date: Wed, 19 Oct 2022 18:41:27 +0530
+Message-Id: <20221019131128.237026-4-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221019131128.237026-1-apatel@ventanamicro.com>
+References: <20221019131128.237026-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_061139_912338_88DDA9D8 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20221019_061151_149785_A3EC7CA7 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +96,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Linux NVDIMM PEM drivers require arch support to map and access the
-persistent memory device. This series adds RISC-V PMEM support using
-recently added Svpbmt and Zicbom support.
+The NVDIMM PMEM driver expects arch specific APIs for cache maintenance
+and if arch does not provide these APIs then NVDIMM PMEM driver will
+always use MEMREMAP_WT to map persistent memory which in-turn maps as
+UC memory type defined by the RISC-V Svpbmt specification.
 
-First two patches are fixes and remaining two patches add the required
-PMEM support for Linux RISC-V.
+Now that the Svpbmt and Zicbom support is available in RISC-V kernel,
+we implement PMEM APIs using ALT_CMO_OP() macros so that the NVDIMM
+PMEM driver can use MEMREMAP_WB to map persistent memory.
 
-These patches can also be found in riscv_pmem_v4 branch at:
-https://github.com/avpatel/linux.git
-
-Changes since v3:
- - Pickup correct version of Drew's patch as PATCH1
-
-Changes since v2:
- - Rebased on Linux-6.1-rc1
- - Replaced PATCH1 with the patch proposed by Drew
-
-Changes since v1:
- - Fix error reported by test bot
-   https://lore.kernel.org/all/202208272028.IwrNZ0Ur-lkp@intel.com/
-
-Andrew Jones (1):
-  RISC-V: Fix compilation without RISCV_ISA_ZICBOM
-
-Anup Patel (3):
-  RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-  RISC-V: Implement arch specific PMEM APIs
-  RISC-V: Enable PMEM drivers
-
- arch/riscv/Kconfig                  |  1 +
- arch/riscv/configs/defconfig        |  1 +
- arch/riscv/include/asm/cacheflush.h |  8 ------
- arch/riscv/include/asm/io.h         | 10 +++++++
- arch/riscv/include/asm/pgtable.h    |  2 ++
- arch/riscv/mm/Makefile              |  1 +
- arch/riscv/mm/cacheflush.c          | 38 ++++++++++++++++++++++++++
- arch/riscv/mm/dma-noncoherent.c     | 41 -----------------------------
- arch/riscv/mm/pmem.c                | 21 +++++++++++++++
- 9 files changed, 74 insertions(+), 49 deletions(-)
+Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/Kconfig     |  1 +
+ arch/riscv/mm/Makefile |  1 +
+ arch/riscv/mm/pmem.c   | 21 +++++++++++++++++++++
+ 3 files changed, 23 insertions(+)
  create mode 100644 arch/riscv/mm/pmem.c
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 6b48a3ae9843..025e2a1b1c60 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -25,6 +25,7 @@ config RISCV
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_KCOV
+ 	select ARCH_HAS_MMIOWB
++	select ARCH_HAS_PMEM_API
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_SET_DIRECT_MAP if MMU
+ 	select ARCH_HAS_SET_MEMORY if MMU
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index d76aabf4b94d..3b368e547f83 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -31,3 +31,4 @@ endif
+ 
+ obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+ obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
++obj-$(CONFIG_ARCH_HAS_PMEM_API) += pmem.o
+diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
+new file mode 100644
+index 000000000000..089df92ae876
+--- /dev/null
++++ b/arch/riscv/mm/pmem.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2022 Ventana Micro Systems Inc.
++ */
++
++#include <linux/export.h>
++#include <linux/libnvdimm.h>
++
++#include <asm/cacheflush.h>
++
++void arch_wb_cache_pmem(void *addr, size_t size)
++{
++	ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
++}
++EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
++
++void arch_invalidate_pmem(void *addr, size_t size)
++{
++	ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
++}
++EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
 -- 
 2.34.1
 
