@@ -4,94 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65558C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 20:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A160AC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 22:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EbtyDay2xmrRxfSPRoVQyD3yElB7xIgd+vzA9n7WtcA=; b=ipgnsQCZ1554tg
-	/D3SP+KFKq5JKE6Cjm5TxEVO3LydMo8wFNs97kUHrOviz7M36vsgcz3InTZP8CLMoSZSkYMYLeQDl
-	WXvN7t36aFoY72632B6lwWAPX64PU7CQ+/Zz7wGKNw8/f+g3HvJkLUUAXrpGox+SOgkWA0pzURM0/
-	KIUM40qGsBmKt4U3M1WsPel7doJoCIVJMral7KjUZndLCzvxReO8nAdtbqsUkBWMUAfbMm6S2ibXt
-	DoDs3ozEpCnPeQtz6ZOmYWF9FM98TXWnPZ12Rhb9r9bXbDZDJXEI9NTCE1ZAu0f0kaLGAA28MpNvv
-	z580D6gopPXLkKELS+Lg==;
+	List-Owner; bh=gN9Pk7sEtfQi69LYrpqaIOVBW+BgYVhT2t9fIMdoOX8=; b=jfA7QLQ3uanOgF
+	5GdX/2n3fHmb6GLQMHrDj6EK+IqauDcGt0pfTmJn9gpHuon8EoA0Tnx5px2N1N1bisPsI7Uc7pH6O
+	y1onyoZH6YSA5Sj+EBCKfTzgsb5hAa/130HZF5qhd9/iX/B5ksZTCgJjGq08WOYBk9js4BlrzC89g
+	aPSjmu1e2Qj+VofjdCBUtRop5KTGgHEPFOlUXos0G6C1vl9tfyNGqOBDQClmhE/IY7n8wr3ZEfjSz
+	xwuT8Ma4W0ezqIXuk+xWndwfM2N92ZEZp9TSo8w3w6XChgILcnue8GWiS1F5RN3lIcqL6g/Q9gm00
+	c3FMFIV0cFLOuzvw9gFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olG1T-0058Ig-GA; Wed, 19 Oct 2022 20:50:43 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1olH9V-005Q7x-QR; Wed, 19 Oct 2022 22:03:05 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olG1Q-0058Gh-QG
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 20:50:42 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id EC0205C0172;
-	Wed, 19 Oct 2022 16:50:39 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute3.internal (MEProxy); Wed, 19 Oct 2022 16:50:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm2; t=1666212639; x=1666299039; bh=v02lubHCvU
-	grTExgVSjs3iH2RzBOzg6UGAwCAUxRqJs=; b=p+cXu8MHpC/7DVe6y2ZZOtdDZ4
-	6vcC+B2jqcssDTzCgTy4HA9px5ybTkZMumK8lXTP07c7Jcyf1sxTxbHt8lVLQgr5
-	6MhBedMX82hqPVH5mvzXOJo8WFPX/BiyaugJBkCOuvv4ReGTt9Wy99VLs5xg69b1
-	lCOh1YzZk76S5l+XW2gY/sngygZSxm0vWUPdUGFZbht4CPWUA8u4mflrm0vHnbdr
-	UwvNPcrx8ofelLR67T4ktGvkKzzNytoNH6LSCG+UXwfsR3ODFu59vgbThING85F9
-	KoMn9DW7n/39pyvU1nakVA5pqLplFldksUURTzX/zOvcWVlqGbn7VU9jdHvA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm3; t=1666212639; x=1666299039; bh=v02lubHCvUgrTExgVSjs3iH2RzBO
-	zg6UGAwCAUxRqJs=; b=fBfc4hINCDwv8+Dz/eU06bQw5+UKsrsNfcS9NvHAzjlA
-	RpI6F0a39UjCXWMwYqDIAVU49L1iiaQEIJcDaOGPYhnXZen+klLzswT2tx25wgm2
-	3GEkbUym7MNR19Ty0dKQWx8pHVWvtnD3eMxVARBqgVkyzfQTNW9/N8ypswrVkgeS
-	hBRI418ZpGCxbBtRDUeQpTYmVJEMxZlQItEOjjxKlcofNK/De+ogqjJZQ18s3OJz
-	peAP7h5RnXP/ocnAgIsxT+aX2s78h5/QAxEkBRxD0NEaOIZuRRoclMl7aN2vh9wQ
-	HRLdPakTIjrZj2VqtbUZbgdhyaCsSgrpmkkCZHDwfw==
-X-ME-Sender: <xms:H2NQY6gKZ771Kf2__FJ_znfzNdn3VTTSzy6ntYMm1hL0uu2zYubvlQ>
-    <xme:H2NQY7CVSHClF79-XX5LVvAB45rwgzKboCEi2WAmvyz53hsvW9UmqvljUSGREUoh0
-    _LZwnM7VwHS9PU4DNc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeelgedgudehgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:H2NQYyE0BJtMHDi294tcKtpxprQBVKcglbRBvZ4z-g7eS-_9BsAPCA>
-    <xmx:H2NQYzRE77gjDw_x9dFX6ppHmtBuJnfse0YGlCinVot9Fnv_W1UzOQ>
-    <xmx:H2NQY3yGWun4DCw9icG7q5L9KKHFG_ONfQBATEeOTPozKCPm3cZz6A>
-    <xmx:H2NQY-lpzKVzYxJXfkhsjnXh5-8UfLxTIwTQG3pelsVKGEMeVRd2oQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 18CACB60086; Wed, 19 Oct 2022 16:50:38 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.7.0-alpha0-1047-g9e4af4ada4-fm-20221005.001-g9e4af4ad
-Mime-Version: 1.0
-Message-Id: <20bfd8a3-3836-46b8-9fdd-a407973224ba@app.fastmail.com>
-In-Reply-To:  <CAK9=C2WaoqAaVa2fo9E7cGXMy-MKpj-xLN6LoMHyq_g1psGLUQ@mail.gmail.com>
-References: <20221019131128.237026-1-apatel@ventanamicro.com>
- <20221019131128.237026-3-apatel@ventanamicro.com> <13122510.uLZWGnKmhe@phil>
- <CAK9=C2WaoqAaVa2fo9E7cGXMy-MKpj-xLN6LoMHyq_g1psGLUQ@mail.gmail.com>
-Date: Wed, 19 Oct 2022 22:50:17 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Anup Patel" <apatel@ventanamicro.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Atish Patra" <atishp@atishpatra.org>, "Anup Patel" <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Mayuresh Chitale" <mchitale@ventanamicro.com>
-Subject: Re: [PATCH v4 2/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems
- with Svpbmt
+	id 1olH9N-005Q20-30
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 22:02:59 +0000
+Received: by mail-wr1-x436.google.com with SMTP id bp11so31308305wrb.9
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 15:02:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B4ByX62YZWChJEBHwNEyVc7wloAEex/KgboUXCgns/4=;
+        b=fcGJm0SlCv/zmDdoORjXR/SjVNJg+QqIt2rjQRI36J3QIcsVn3zmcFPVQG9vIwJKOo
+         5n9H/NmLOIjP+NQT7B1A7jsETZUHQGKWM97GWjEkdQCScel6QpS734kDfFz6eIIr0oQT
+         nwni3s7WtSzlNrAXDLCG6CPg3Jllu6c3weRZgfD7ueWR3nmEm7/1YAelvBSZn7NEF60J
+         EWc7BbcjgwW0CEQUs8GhDULskcBCdqYrDfGCeisqDagQuWY6JWrC7YLM+fKR7sIyw+/t
+         t/aDj2Oe9ZHTbPNvrujLWP69Ty7/xDrbIV2vu5wmvNzCeyuZGneTr77Z2TFFyEbfjIRa
+         sk0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B4ByX62YZWChJEBHwNEyVc7wloAEex/KgboUXCgns/4=;
+        b=71N26mYRKIaMVUfix6sRjaYenoSZg368BoNyyMgKgbMuO6QO18oXowgJZMl5Yq/arC
+         lp9lZLcqTBeKq39XP9NYNvTmkS7HZUsyYzgtXNIAisVm8skY3/KtdMgveb5vgrfI1XvV
+         oLLu9dMMvtdFk2KRn9N6QQpnE63zjP7o0d/9VqXLoc3i+zpzkGCKW1rOaEE44lq8Jt9Q
+         Vw4D1Q+m1Qf7UkPPdLORQrApqQQfAVmEx8EdSHggJyaXCONk9LN1MsqEBWPmdHlkC/jP
+         pofjuXW1PLzN8KUhwwSXLZU2P+CVBpu67PQG54DkAvk9FC573OM4q5yRh8o3aLsP8/6g
+         vBHQ==
+X-Gm-Message-State: ACrzQf1wx3UI4XQusnaMYOlf4vrWqfcygVTJcwOXfi2EOBuiRv65379A
+	SSRKG5XUjKP1bygJ1ZVYO4Y=
+X-Google-Smtp-Source: AMsMyM7H0xfupJjA0rDClRUKorcCcZKuv9n3UFUL1z0/NcheMBZL2O7vxPnISPlH8V2JaSUxZwfemQ==
+X-Received: by 2002:a5d:530b:0:b0:22e:3e8c:45aa with SMTP id e11-20020a5d530b000000b0022e3e8c45aamr6834926wrv.321.1666216974149;
+        Wed, 19 Oct 2022 15:02:54 -0700 (PDT)
+Received: from prasmi.home ([2a00:23c8:2501:c701:d8c7:b527:b960:aa04])
+        by smtp.gmail.com with ESMTPSA id m7-20020a5d6247000000b0022c906ffedasm14807824wrv.70.2022.10.19.15.02.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Oct 2022 15:02:53 -0700 (PDT)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.co>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [RFC PATCH v3 1/2] dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation for L2 cache controller
+Date: Wed, 19 Oct 2022 23:02:41 +0100
+Message-Id: <20221019220242.4746-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_135040_967516_D5FA9C77 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20221019_150257_175740_E6F1D3F0 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +110,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 19, 2022, at 18:10, Anup Patel wrote:
-> On Wed, Oct 19, 2022 at 7:49 PM Heiko Stuebner <heiko@sntech.de> wrote:
->>
->> Am Mittwoch, 19. Oktober 2022, 15:11:26 CEST schrieb Anup Patel:
->> > Currently, all flavors of ioremap_xyz() function maps to the generic
->> > ioremap() which means any ioremap_xyz() call will always map the
->> > target memory as IO using _PAGE_IOREMAP page attributes. This breaks
->> > ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
->> > remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
->> > page attributes.
->> >
->> > To address above (just like other architectures), we implement RISC-V
->> > specific ioremap_cache() and ioremap_wc() which maps memory using page
->> > attributes as defined by the Svpbmt specification.
->> >
->> > Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
->> > Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
->> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
->> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
->>
->> Wasn't there discussion around those functions in general in v2?
->
-> Yes, there was discussion about a few drivers using ioremap_xyz()
-> which is discouraged and drivers should use memremap().
->
-> We still need the arch specific ioremap_xyz() functions/macros
-> added by this patch because these are required by the generic
-> kernel memremap() implementation (refer, kernel/iomem.c).
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-There is a difference between the strongly discouraged
-ioremap_cache() that pretty much has no valid users, and
-the ioremap_wt/ioremap_wc functions that are sometimes used
-for mapping video framebuffer or similar.
+Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
 
-It should be sufficient to provide a arch_memremap_wb()
-and no ioremap_cache() to make memremap() work correctly.
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+describes the L2 cache block.
 
-      Arnd
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ .../cache/andestech,ax45mp-cache.yaml         | 125 ++++++++++++++++++
+ .../cache/andestech,ax45mp-cache.h            |  38 ++++++
+ 2 files changed, 163 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+ create mode 100644 include/dt-bindings/cache/andestech,ax45mp-cache.h
+
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+new file mode 100644
+index 000000000000..4c86a15bda5f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -0,0 +1,125 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2022 Renesas Electronics Corp.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Andestech AX45MP L2 Cache Controller
++
++maintainers:
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++
++description:
++  A level-2 cache (L2C) is used to improve the system performance by providing
++  a larger amount of cache line entries and reasonable access delays. The L2C
++  is shared between cores, and a non-inclusive non-exclusive policy is used.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - andestech,ax45mp-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: andestech,ax45mp-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  cache-line-size:
++    const: 64
++
++  cache-level:
++    const: 2
++
++  cache-sets:
++    const: 1024
++
++  cache-size:
++    enum: [131072, 262144, 524288, 1048576, 2097152]
++
++  cache-unified: true
++
++  next-level-cache: true
++
++  andestech,pma-regions:
++    $ref: /schemas/types.yaml#/definitions/uint32-matrix
++    minItems: 1
++    maxItems: 16
++    description: Optional array of memory regions to be set as non-cacheable
++                 bufferable regions which will be setup in the PMA.
++
++  andestech,inst-prefetch:
++    description: Instruction prefetch depth
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [ 0, 1, 2, 3 ]
++
++  andestech,data-prefetch:
++    description: Data prefetch depth
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [ 0, 1, 2, 3 ]
++
++  andestech,tag-ram-ctl:
++    description: Tag RAM output cycle. First tuple indicates output cycle and the
++      second tuple indicates setup cycle.
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    items:
++      - minimum: 0
++        maximum: 2
++      - minimum: 0
++        maximum: 2
++
++  andestech,data-ram-ctl:
++    description: Data RAM output cycle. First tuple indicates output cycle and the
++      second tuple indicates setup cycle.
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    items:
++      - minimum: 0
++        maximum: 2
++      - minimum: 0
++        maximum: 2
++
++additionalProperties: false
++
++required:
++  - compatible
++  - cache-line-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++  - interrupts
++  - reg
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/cache/andestech,ax45mp-cache.h>
++
++    cache-controller@2010000 {
++        reg = <0x13400000 0x100000>;
++        compatible = "andestech,ax45mp-cache", "cache";
++        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
++        cache-line-size = <64>;
++        cache-level = <2>;
++        cache-sets = <1024>;
++        cache-size = <262144>;
++        cache-unified;
++        andestech,pma-regions = <0x58000000 0x08000000
++                                 (AX45MP_PMACFG_ETYP_NAPOT | AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF)>;
++        andestech,inst-prefetch = <0x3>;
++        andestech,data-prefetch = <0x3>;
++        andestech,tag-ram-ctl = /bits/ 8 <0x1 0x0>;
++        andestech,data-ram-ctl = /bits/ 8 <0x1 0x0>;
++    };
+diff --git a/include/dt-bindings/cache/andestech,ax45mp-cache.h b/include/dt-bindings/cache/andestech,ax45mp-cache.h
+new file mode 100644
+index 000000000000..aa1cad24075d
+--- /dev/null
++++ b/include/dt-bindings/cache/andestech,ax45mp-cache.h
+@@ -0,0 +1,38 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * This header provides constants for Andes AX45MP PMA configuration
++ *
++ * Copyright (C) 2022 Renesas Electronics Corp.
++ */
++
++#ifndef __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
++#define __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
++
++/* OFF: PMA entry is disabled */
++#define AX45MP_PMACFG_ETYP_DISABLED			0
++/* Naturally aligned power of 2 region */
++#define AX45MP_PMACFG_ETYP_NAPOT			3
++
++/* Device, Non-bufferable */
++#define AX45MP_PMACFG_MTYP_DEV_NON_BUF			(0 << 2)
++/* Device, bufferable */
++#define AX45MP_PMACFG_MTYP_DEV_BUF			(1 << 2)
++/* Memory, Non-cacheable, Non-bufferable */
++#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF	(2 << 2)
++/* Memory, Non-cacheable, Bufferable */
++#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF		(3 << 2)
++/* Memory, Write-back, No-allocate */
++#define AX45MP_PMACFG_MTYP_MEM_WB_NA			(8 << 2)
++/* Memory, Write-back, Read-allocate */
++#define AX45MP_PMACFG_MTYP_MEM_WB_RA			(9 << 2)
++/* Memory, Write-back, Write-allocate */
++#define AX45MP_PMACFG_MTYP_MEM_WB_WA			(10 << 2)
++/* Memory, Write-back, Read and Write-allocate */
++#define AX45MP_PMACFG_MTYP_MEM_WB_R_WA			(11 << 2)
++
++/* AMO instructions are supported */
++#define AX45MP_PMACFG_NAMO_AMO_SUPPORT			(0 << 6)
++/* AMO instructions are not supported */
++#define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT		(1 << 6)
++
++#endif /* __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H */
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
