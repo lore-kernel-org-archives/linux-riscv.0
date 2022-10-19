@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5577EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25E5C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cBbX68l831PfzVR/mSTrDH7uF5gdJcC5IjN+gbFQiBA=; b=HqTp90raB7k1HE
-	wF5MXvtcp1Ou5vFKc0yOGwp4wOgEZxmhNpnyor5H67Flwe8pKITAtfc9FkKZATEjKpvXe1yNPSoYA
-	h4AGg0po71M6wvBw/nsOmNmueDezxMYebgVm8eD+wirDbfW53bH7So/lodr7ipFgI2di+7roujU7l
-	UmGhuv8Obo8OwpVag+7sfMcnyZ1hUhY3t4awbxJYEI8/jII5i9UzHcsU0ZB+UcBIMeERyic55sY3H
-	fllnzKAySCv3BHkvhZCCMuVM00X9X1fUhQ9w2nFepwCoRc1bu0TskgzsW9uVL+HYfWWJiA1rhOtvO
-	gcm2yie4U7Zb+YLvyqwg==;
+	List-Owner; bh=lhBRe8zZsRy+Yyu/BlzwxPgxT/cUnua0TdR+WrJqSrc=; b=jv/gCTCCxpFg7R
+	oUybB9pDUM67NkbFfCitwKmdukXe3odBLy3GioLQRY4NpYe50w2nwFFC5nZ8nhGAdQH5wlw6HNt5F
+	7dD3P4+E80WcJH0DgRUBRkhT+EV/T1KRMHO/Piqmc2lK6j9TwTzRfYs+/s/Xv8wSUyhHkLaae5qZu
+	VF9oI4bNZjQQ71nZlU2xykDFuRVqjhZ2rSqSR90ypqiJ8NPSdXiDNSL9abv8CXvjDEGYcUOks/JSA
+	HTyxwq4m+qlq0gakFhxaXilWIKZmnSMhJYEa/vRPwlefNWp8Ie+Arfoak4HM+N1zfM2gbib1Vmfvj
+	2yCO4W9KFV3uWF4f2L8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8Zn-001lYP-6S; Wed, 19 Oct 2022 12:53:39 +0000
+	id 1ol8a0-001lki-Ua; Wed, 19 Oct 2022 12:53:52 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8ZO-001lCj-Ot; Wed, 19 Oct 2022 12:53:16 +0000
+	id 1ol8Zg-001lPo-IZ; Wed, 19 Oct 2022 12:53:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1666183995; x=1697719995;
+  t=1666184012; x=1697720012;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=6FLn9g71meNjs0yGLrKpiiiXP87EXkFC9cg0BIrfPWM=;
-  b=YCVbMNowi4fTlSaCux4AqyCFaQNLaSngUejImb9AsBmqW93gGj8dC2fK
-   4wTAy/LJIL42FABM7ERAS+vUf1Iza7Fd+zpnBZdxDC64HfZuPsKDz7Ekn
-   vMNDJ+yC2YGUL7xJ5ItpzMXAFpsOOc8DryM6F+x2Tkx7Vy3ElLfiI4FLF
-   2RaRthcKyg7jRpU+Bp9fJ7ykLIqtxDROao2MECNRfqcKyQ83QEC8NDwKj
-   eShpdq7E46o1/I4bY/K5BDzcrUey9dBCmedhHGuQhISvjFhfW57TLP8cU
-   n1gW7SCuqxt5q60JS6XyueSdJfVnxxc6Z9W1PilkvJLXKAItUg82l1aGY
-   g==;
+  bh=7nRf7HpxMobG7tiEk47jyd5TdB9jkpmn4TMYC/GrBxo=;
+  b=1vYnV1MFYAW9JtYJUhnmE5antDpNnZqvD/Lss/lXCulC+eQGbvC7HhWY
+   4wH/2ueiBsNJqKZKYcYPBEQZd7dsuoRb9dGx8TPwbgZIWVNEbvqc7MJDy
+   WViSZwSp8vKrlLidUcWc8KxjAir5uurGdy6mRyuC68qVuR4bUabdOXO8Q
+   Tg6PIJivrnA1cVg6ax1/+XXptAciJwicbBnvKuJZiUeeeGJbzi+axKr6H
+   zsGqyQzfMHAcNHKQDqPV19Ia+4814gWxtfaYEddTVCIAJtakuym64Clqj
+   KwkITCZ7AxfNOEP1twUlVQImN3CqVkfTnBw4/IiYVWb3H4FUX1XHfPOW+
+   A==;
 X-IronPort-AV: E=Sophos;i="5.95,196,1661842800"; 
-   d="scan'208";a="185397545"
+   d="scan'208";a="185504889"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 Oct 2022 05:53:06 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 Oct 2022 05:53:31 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 19 Oct 2022 05:53:04 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Wed, 19 Oct 2022 05:53:02 -0700
+ 15.1.2507.12; Wed, 19 Oct 2022 05:53:31 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Wed, 19 Oct 2022 05:53:29 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <stable@vger.kernel.org>
 CC: <conor.dooley@microchip.com>, <Brice.Goglin@inria.fr>,
@@ -56,16 +56,16 @@ CC: <conor.dooley@microchip.com>, <Brice.Goglin@inria.fr>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<palmer@dabbelt.com>, <sudeep.holla@arm.com>, <will@kernel.org>, Atish Patra
 	<atishp@rivosinc.com>
-Subject: [PATCH 5.4 2/2] riscv: topology: fix default topology reporting
-Date: Wed, 19 Oct 2022 13:52:10 +0100
-Message-ID: <20221019125209.2844943-2-conor.dooley@microchip.com>
+Subject: [PATCH 5.10 2/2] riscv: topology: fix default topology reporting
+Date: Wed, 19 Oct 2022 13:53:03 +0100
+Message-ID: <20221019125303.2845522-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.38.0
-In-Reply-To: <20221019125209.2844943-1-conor.dooley@microchip.com>
-References: <20221019125209.2844943-1-conor.dooley@microchip.com>
+In-Reply-To: <20221019125303.2845522-1-conor.dooley@microchip.com>
+References: <20221019125303.2845522-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_055314_881568_23B005AD 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20221019_055332_680194_905F99B7 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,49 +122,49 @@ Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-I just resolved the conflicts. Tested in QEMU only. SMP doesn't seem to work in
-5.4, using the same command that works for 5.10.
+I just resolved the conflicts, which was mainly removing mentions of
+NUMA. Tested in QEMU only.
 ---
  arch/riscv/Kconfig          | 2 +-
  arch/riscv/kernel/smpboot.c | 4 +++-
  2 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index b21549a34447..e0a77af5c130 100644
+index 1b894c327578..557c4a8c4087 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -51,7 +51,7 @@ config RISCV
- 	select PCI_MSI if PCI
- 	select RISCV_TIMER
- 	select GENERIC_IRQ_MULTI_HANDLER
+@@ -35,7 +35,7 @@ config RISCV
+ 	select CLINT_TIMER if !MMU
+ 	select COMMON_CLK
+ 	select EDAC_SUPPORT
 -	select GENERIC_ARCH_TOPOLOGY if SMP
 +	select GENERIC_ARCH_TOPOLOGY
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_MMIOWB
- 	select HAVE_EBPF_JIT if 64BIT
+ 	select GENERIC_ATOMIC64 if !64BIT
+ 	select GENERIC_CLOCKEVENTS
+ 	select GENERIC_EARLY_IOREMAP
 diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 261f4087cc39..0576a6b2bcc5 100644
+index 0b04e0eae3ab..0e0aed380e28 100644
 --- a/arch/riscv/kernel/smpboot.c
 +++ b/arch/riscv/kernel/smpboot.c
 @@ -46,6 +46,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- {
  	int cpuid;
+ 	int ret;
  
 +	store_cpu_topology(smp_processor_id());
 +
  	/* This covers non-smp usecase mandated by "nosmp" option */
  	if (max_cpus == 0)
  		return;
-@@ -142,8 +144,8 @@ asmlinkage __visible void __init smp_callin(void)
+@@ -152,8 +154,8 @@ asmlinkage __visible void smp_callin(void)
+ 	mmgrab(mm);
  	current->active_mm = mm;
  
- 	trap_init();
-+	store_cpu_topology(smp_processor_id());
- 	notify_cpu_starting(smp_processor_id());
--	update_siblings_masks(smp_processor_id());
- 	set_cpu_online(smp_processor_id(), 1);
++	store_cpu_topology(curr_cpuid);
+ 	notify_cpu_starting(curr_cpuid);
+-	update_siblings_masks(curr_cpuid);
+ 	set_cpu_online(curr_cpuid, 1);
+ 
  	/*
- 	 * Remote TLB flushes are ignored while the CPU is offline, so emit
 -- 
 2.38.0
 
