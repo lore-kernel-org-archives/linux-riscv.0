@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EEDC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977C2C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 12:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mJBy8ltRTTAUF7rWJXdDg0yQ1OeE385ToQCxiGUYfZ4=; b=kUrg9PsjdD2KAX
-	QxNZ4W8ehGvi9c0aRz8xKW33PtnHMMukgoIPAm2V5eftCMn4a3ugR7cpKoZASff0diJD9qecX9Ksx
-	uObiaCTTAavCFyguUZQbY8V5v4Olh+ODAmXQGfFrvlZifHelMsskou/jZuKp+EkumWuJ00vsQE5ES
-	A5gQlJGZSMEWDPrVRhEp1ZHvkOqFUJPvUx/o7XaWnMAf8mbBGJGcIERwOGyTSMDOPoRr6fbXH4Puk
-	EjDQrPayk2hv9B+QwwMwMDuwsF8NNXfvUqP4EHGvLPEVnAQsopw3DFJ0J/3s6q+2mHnEaV9CyNi1b
-	2r5yGQigNyYhLafUdgQw==;
+	List-Owner; bh=8R0n0GPtEX0PNmePzPYFBQOKR/X+TTGgyZNOfkcDrzU=; b=c52s9jhnUbRaye
+	O2XWnjDcxZwrBWD9sTwexoh0c+X7eSPWtKtkkMy/LCbxIGIdOARO9PJnfr4Qs+ANHTEgMSehU5HPm
+	xmqS8pTmSJzeJ7fTAPTtp2L0sDkrJNk2zx2PmgxNkxplN+Lz5Aq178bLAdcfC4km3tdYhkkQmzdo0
+	Zqlpq2/+pYsbTYLfTeKuXwcaromoculsqkRxs3Zpyyl0Br6uffWtqQrj2MjSOtROu8HFmb7J0I+pL
+	CWW2Lt5qWzTyyTg/uGA7agxNBZ4+o3vX5Ox1DLIFv3j7Zsr3/FP2KPXxp+Ghvc/NbNIbtONGW2qw5
+	MVRGWsJ5D8iCIdKgxzlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol80J-001MEb-GA; Wed, 19 Oct 2022 12:16:59 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1ol80M-001MI3-S4; Wed, 19 Oct 2022 12:17:02 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol80G-001MBl-Nx
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 12:16:58 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id c24so17056972pls.9
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 05:16:54 -0700 (PDT)
+	id 1ol80J-001MEN-Hu
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 12:17:00 +0000
+Received: by mail-pl1-x636.google.com with SMTP id l4so17061315plb.8
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 05:16:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vAvEVwdPVzOcq2kBtufcX9nitBNib2gQ4gtkOEEFeSI=;
-        b=FXlNG2VASXiEp9WSI7gST2fu64ZG/1MiT8WEB7Uxmw/y0b7OjAUZGRDYvLNjDytDLY
-         pvAzzPZJ+LmY7b0hcxlD//VXwXXsAzaQgD0+mgzzAA8fk5uNO0tA5N5ciZ3kyzQvH8Bp
-         CGJcMh7Ckrw8tGK/ZJHfAaEs+aW//lEy1LnrRfWGZj2aWN3c6RCCzp75an3TiiUC3jOQ
-         8BXMkRnHTUXGDtYgF4ZaHTmyt6Y8dgQ9LgpxaMpuGc5JoGiwt0363vHJr7OUktUvnxDn
-         XDvjcV2FkSNyeXcazWx6OpYqRLPc24U+hEpQp8qZipU/ROs7HYq/VxgN63U2jrArJFoC
-         0f/Q==
+        bh=VDJV4ZwRVQLzE0DQMb9i2tBKWni84XeHMbgigRoQK/0=;
+        b=i5xDygA39ZiL6V5jYRwye8A2LIvzetB63vHUYOWr2BWrbkVbpO3pkBYH3R4AefnCMx
+         ZNbUX/VDSAHFyP+aJFUhp8kECTdCKL05yrdADc5Ot3y93ZCkWLi6bUz897yCaExJx4Bw
+         GajHfhrg155GES2wMaGWRDyc7m7ypTIovOPmMj54xOBMiXif0M/CdtpVVIQUvLy/fn08
+         sPTvrps9V+qBJWKON+saGrBa1E6W9gfWpnCme7jlICvN4pZt1r5D2/f11wkyaTBxjgSt
+         JMW+2bKAdpbDrP7biq9KESues6HlMcwwOi9yTdA+K09/XvqaJMkHNQDM7av9zvcdDaap
+         HhTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vAvEVwdPVzOcq2kBtufcX9nitBNib2gQ4gtkOEEFeSI=;
-        b=LSTslPpToG6CECpjh6xbuRZoHtvRtJqJlsECmEb8ygDfzPMk2B7LcPDbQyaz9ZyYVz
-         SUZ2BVVNWNXz4yC+UV23Cdn33fmYKmR5lfiCghjSSns8miEB59oCd2WNZ5RCkSvefBuk
-         91BUr9TNT1gMji7Goez0eF+jOtqQez43/GrH//D8B++mFCA6of6dauBeBxWmf2r+AqGU
-         Y4Pwfc0q2UGbH770NKLCm70IPE+CemmdOas4IM7MnfXlKDcdqkjq+AgkEQR02dgkdygG
-         BfW6hSfVURoqzt8xOFLtkdLu+rPJVXkgt4CvT7cTGexcpj2itssav5jKv0Lye89DJbat
-         H+Zw==
-X-Gm-Message-State: ACrzQf2DrRQRPJZ4Zv+bfdIN6yJhwnqzZxjB2DBqiSpYg+Mel79NJvBl
-	QI0ZwcBRkSrDcJZXh8/8A2FD9A==
-X-Google-Smtp-Source: AMsMyM4r+1sZX98RIcCz29nMUVrrLREHUkLHWWcnq3T4bJXz+0LCLIef/LZFzsKGD/QCnVFFTkgmuA==
-X-Received: by 2002:a17:902:d4c5:b0:183:6e51:503 with SMTP id o5-20020a170902d4c500b001836e510503mr8105943plg.84.1666181813665;
-        Wed, 19 Oct 2022 05:16:53 -0700 (PDT)
+        bh=VDJV4ZwRVQLzE0DQMb9i2tBKWni84XeHMbgigRoQK/0=;
+        b=6Z4pi9Hf9Y/2I/NHOdyMMksVGKXjWpEZzlZssy63Z4DhylKXS3CMBlJO2yS9AFq9NS
+         EaimPj01si5ro8s25zvZqHYtGLuv30yEemtVJK9B15Z1aR4yAdLnMBgQFNwyeYbfEuTe
+         rKTmtn2gVFUWl9w0Uy2RJRV0RM9iXmFzVpZH/Z+coMl7SzLfH0UK391rJsU+X2Z9KqMU
+         QOxJEBiCdMvUo/SGLk8vXzjOSdxouEF6F0aEgJxgSLZefFuyhmpOKgu58Fy4XpTlkG7V
+         uJMd8n9q0FsNe4hpjxk7IZ6DnqLNC0SVCTGrC7CvQAcein7/S5p6hVDH72aUeYIfD0JA
+         XmlA==
+X-Gm-Message-State: ACrzQf0vcB+g8aUHJ0pKFKwT8JSZP6u00jq0Rzrm/iMtBZpRh4bhKGko
+	zWmTnD0kwbyY8XcXoWIVovJbnA==
+X-Google-Smtp-Source: AMsMyM4J8nzaBdE8C2ChfGOR2OJ3RrEACtnbjmCGk51hwkIx/IkUkT5/o01BqStj/3R+/fS/YYogqA==
+X-Received: by 2002:a17:902:f78b:b0:17f:9c94:b247 with SMTP id q11-20020a170902f78b00b0017f9c94b247mr7851355pln.137.1666181817710;
+        Wed, 19 Oct 2022 05:16:57 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([171.76.82.102])
-        by smtp.gmail.com with ESMTPSA id x7-20020a170902a38700b0017e93c158d7sm10529824pla.214.2022.10.19.05.16.49
+        by smtp.gmail.com with ESMTPSA id x7-20020a170902a38700b0017e93c158d7sm10529824pla.214.2022.10.19.05.16.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Oct 2022 05:16:52 -0700 (PDT)
+        Wed, 19 Oct 2022 05:16:56 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>
@@ -70,17 +70,16 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>,
 	Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: [PATCH v3 2/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-Date: Wed, 19 Oct 2022 17:46:20 +0530
-Message-Id: <20221019121622.179024-3-apatel@ventanamicro.com>
+Subject: [PATCH v3 3/4] RISC-V: Implement arch specific PMEM APIs
+Date: Wed, 19 Oct 2022 17:46:21 +0530
+Message-Id: <20221019121622.179024-4-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221019121622.179024-1-apatel@ventanamicro.com>
 References: <20221019121622.179024-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_051656_798897_F97E4F96 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221019_051659_620850_5E076A90 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,60 +96,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, all flavors of ioremap_xyz() function maps to the generic
-ioremap() which means any ioremap_xyz() call will always map the
-target memory as IO using _PAGE_IOREMAP page attributes. This breaks
-ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
-remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
-page attributes.
+The NVDIMM PMEM driver expects arch specific APIs for cache maintenance
+and if arch does not provide these APIs then NVDIMM PMEM driver will
+always use MEMREMAP_WT to map persistent memory which in-turn maps as
+UC memory type defined by the RISC-V Svpbmt specification.
 
-To address above (just like other architectures), we implement RISC-V
-specific ioremap_cache() and ioremap_wc() which maps memory using page
-attributes as defined by the Svpbmt specification.
+Now that the Svpbmt and Zicbom support is available in RISC-V kernel,
+we implement PMEM APIs using ALT_CMO_OP() macros so that the NVDIMM
+PMEM driver can use MEMREMAP_WB to map persistent memory.
 
-Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
 Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/include/asm/io.h      | 10 ++++++++++
- arch/riscv/include/asm/pgtable.h |  2 ++
- 2 files changed, 12 insertions(+)
+ arch/riscv/Kconfig     |  1 +
+ arch/riscv/mm/Makefile |  1 +
+ arch/riscv/mm/pmem.c   | 21 +++++++++++++++++++++
+ 3 files changed, 23 insertions(+)
+ create mode 100644 arch/riscv/mm/pmem.c
 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 92080a227937..92a31e543388 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -133,6 +133,16 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
- #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
- #endif
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 6b48a3ae9843..025e2a1b1c60 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -25,6 +25,7 @@ config RISCV
+ 	select ARCH_HAS_GIGANTIC_PAGE
+ 	select ARCH_HAS_KCOV
+ 	select ARCH_HAS_MMIOWB
++	select ARCH_HAS_PMEM_API
+ 	select ARCH_HAS_PTE_SPECIAL
+ 	select ARCH_HAS_SET_DIRECT_MAP if MMU
+ 	select ARCH_HAS_SET_MEMORY if MMU
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index d76aabf4b94d..3b368e547f83 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -31,3 +31,4 @@ endif
  
-+#ifdef CONFIG_MMU
-+#define ioremap_wc(addr, size)		\
-+	ioremap_prot((addr), (size), _PAGE_IOREMAP_WC)
-+#endif
+ obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+ obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
++obj-$(CONFIG_ARCH_HAS_PMEM_API) += pmem.o
+diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
+new file mode 100644
+index 000000000000..089df92ae876
+--- /dev/null
++++ b/arch/riscv/mm/pmem.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2022 Ventana Micro Systems Inc.
++ */
 +
- #include <asm-generic/io.h>
- 
-+#ifdef CONFIG_MMU
-+#define ioremap_cache(addr, size)	\
-+	ioremap_prot((addr), (size), _PAGE_KERNEL)
-+#endif
++#include <linux/export.h>
++#include <linux/libnvdimm.h>
 +
- #endif /* _ASM_RISCV_IO_H */
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7ec936910a96..346b7c1a3eeb 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -182,6 +182,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
- #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
- 
- #define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
-+#define _PAGE_IOREMAP_WC	((_PAGE_KERNEL & ~_PAGE_MTMASK) | \
-+				 _PAGE_NOCACHE)
- #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
- 
- extern pgd_t swapper_pg_dir[];
++#include <asm/cacheflush.h>
++
++void arch_wb_cache_pmem(void *addr, size_t size)
++{
++	ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
++}
++EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
++
++void arch_invalidate_pmem(void *addr, size_t size)
++{
++	ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
++}
++EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
 -- 
 2.34.1
 
