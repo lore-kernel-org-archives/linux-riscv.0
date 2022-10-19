@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE7CC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 13:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F69C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Oct 2022 13:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mJBy8ltRTTAUF7rWJXdDg0yQ1OeE385ToQCxiGUYfZ4=; b=lsytr6L7gOGGWd
-	W1ydXaGIHafslZAvJWww8RCVOqZUIsJZ5krtBXcY1M2yOPYet7rEh5xDiR84Lm409w6nusnRObJP5
-	QQDhBc5j3MPh93bQpIMTHG0HPBdMK5EE9lGqCZWR4Ah/hdvCwJL+GW1czbrtrgYmi1fgUwTdIxNkq
-	4gtVHV+ZNeg0ROsrxf0wSX26AMhpfECM6rHwSizY88nv9KH4KetTzVJxLKPp/E2OP4/PA/+C5Wn2e
-	v7Xix9wKBgRRNCCmyXkRDbtwwVebetgVtGdLokDvJqzMeDtuzuiWIBDAWahzOKKVCuQDV/EtXwE7K
-	Q0rafrccktddGFX9L5qQ==;
+	List-Owner; bh=3k3MTzAtUtcoAXnIDPFuapExWJToDyeWUdL4aFTm7CQ=; b=gBUyXL1A0Mh6ti
+	lsRl+mMusC0H1trHzSGLEDo+VpwMwDlEATDDTjO04fp98r5RbaXvdHVlaX51nO5q3V9tnHHNLpwbP
+	fCshOcYgMxLbPJqfUsks30k93aCfAzlWQgCPiVtrr7bfzQEWt2NOa6QN+Z8KGmJbez/MHslptwr2b
+	3QQ4X3bRec74eUv6Tc42990XHm4mjuwpOgMdpVH3adJzvKFuC2bI+2wy9pUBv7kTB782JFhaiuzvq
+	UlHK6OJR8i50/iicjyRlvqnFfAfQvQO9beaetKUZuRQlNqtrNWr2zV1tf9KdwaV5IMBxSMxzzr7KK
+	4m9KmhEBKwKTAkDd2SRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8rZ-0023uv-OZ; Wed, 19 Oct 2022 13:12:01 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1ol8ur-0025cv-ET; Wed, 19 Oct 2022 13:15:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ol8rX-0023rX-CS
-	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 13:12:00 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-1322fa1cf6fso20542372fac.6
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Oct 2022 06:11:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vAvEVwdPVzOcq2kBtufcX9nitBNib2gQ4gtkOEEFeSI=;
-        b=lxyzgM77oVhyr2xYFxJj6wgQvry6rw4Y/+zIvaG6JfmYtSzQ+X/1aPsePwBNrnegwI
-         UrY3/A1/YLrrc1SIB0jp8+zD7aA98y9QtCArUpqYXnMw5Dl6VWnG3iDZuyf1BgGGohqT
-         1l9CyxXHnpqjwurbYuT9nD7l0kpliUcju0mwn+yFEAvwgXbH6lu8+EDbPW1ou1EWw4d0
-         i8arRfQLRw/k0jmr0IQml/LWHNUCdyXuEptr8wqAxovxLLP0t6dVC1zBEVwFmRU6HrPR
-         foFXA9X8UDYRdXrxUc+XpDAQmh4P+zLMHzd7Q4Ct6xrxImFMYovLYXg9s6KdCxtlBdrg
-         3gMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vAvEVwdPVzOcq2kBtufcX9nitBNib2gQ4gtkOEEFeSI=;
-        b=vfoecwq4MmItTgZrNoDgTIlHVKRijQORUkOP9gUWbxON/K3EMRzd/u8AXaNNUVBbgG
-         n8eNom9mYkA+BSEt+kbsgGpGgrGTf2BAMr8ERxZlwgs8Koj+VdqWOsaeT7432WHQOvZP
-         +lBKY7d6xEeB1BIZqQ0nrD0CxGxBs7ZCzaTCUztI3/29VTWPlHfTk+fUGJDR/d5wsfXQ
-         Ad5TG6NeWAKLnc7xyIxJg0JPsB3qWUvwyMGi3LBRYFaLPuq8vGq18+d/IFI+HXszP5p/
-         VkwkHKczvHK7wCW5E+gc14T+ATbEO7/PZqqkHHOS4yt9uOY+rH8Jan/mxKozbToa9FK2
-         5JjQ==
-X-Gm-Message-State: ACrzQf1/eVcV841AjUQYZNz8Ym+yB2KMtBxTBocqm5cYOEBoVE0hWLnQ
-	uykZTNaVq2gV1Lq5MHhQh0TSfa7ZKxMQCg==
-X-Google-Smtp-Source: AMsMyM6ea6y78yP7zvn7fmEDAEjq1F7za/6iBEos6YJxPN0ITU1VfQyHOKcpYsTQpoGZjSvFb+JmVQ==
-X-Received: by 2002:a17:90b:4c52:b0:20d:7917:4cb3 with SMTP id np18-20020a17090b4c5200b0020d79174cb3mr45614039pjb.6.1666185105397;
-        Wed, 19 Oct 2022 06:11:45 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.82.102])
-        by smtp.gmail.com with ESMTPSA id n12-20020a170902d2cc00b00172897952a0sm10934478plc.283.2022.10.19.06.11.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Oct 2022 06:11:44 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: [PATCH v4 2/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
-Date: Wed, 19 Oct 2022 18:41:26 +0530
-Message-Id: <20221019131128.237026-3-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221019131128.237026-1-apatel@ventanamicro.com>
-References: <20221019131128.237026-1-apatel@ventanamicro.com>
+	id 1ol8un-0025bQ-DF
+	for linux-riscv@lists.infradead.org; Wed, 19 Oct 2022 13:15:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B35A160A65;
+	Wed, 19 Oct 2022 13:15:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53E72C433C1;
+	Wed, 19 Oct 2022 13:15:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666185320;
+	bh=0fDDAoi3dnUHQ1foQefkNNsCHxziAopP6QZW/HTWMIo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bOnqz9/OkAcC0mOgARn2gnHWPxCSJ3Cg0nOe9Tvy/+h6O2BTS4Pftjf01NjCg5iLh
+	 CN3jEst+AEtCiIT0n8iYJVJkfDlhKxkheyzUhUYZMuXOAhD2syFunfe591vNUoPTxM
+	 zSnCBKjBNERO6iOf+FMyzb5LtmIkeQ1mkK2R/1w1wMv+cvLTj2KNzrohZhuC2nc14t
+	 FVnGSyz5Sx0HixAyj5846+dtTnjyKOxCJnTwJKq6pk3PcuLGXiIG6t21kdiCPHvm0+
+	 DvLvKCERm0V8qTtqsYfcrUiYnWrsmMmvznD+olgLGSgwh5cKyJ5k9nZuLGfTmhCKv6
+	 z/42mwYISGoRw==
+Date: Wed, 19 Oct 2022 21:05:42 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2 3/4] riscv: fix race when vmap stack overflow and
+ remove shadow_stack
+Message-ID: <Y0/2Ji4/bKF1xtpz@xhacker>
+References: <20220928162007.3791-1-jszhang@kernel.org>
+ <20220928162007.3791-4-jszhang@kernel.org>
+ <YzR8OUFuV+R1i1Y6@xhacker>
+ <CAJF2gTSaCGeMG06xrRxjkk2UnjqcgrRTwdch9Ug_TyH-9LsP4g@mail.gmail.com>
+ <CAJF2gTSPYscHa6s3HOjAKb3ggaSvggM=+qDzCeESZwY-vO2RJQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTSPYscHa6s3HOjAKb3ggaSvggM=+qDzCeESZwY-vO2RJQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_061159_431700_F3C65AE1 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221019_061521_578744_6B9F8A4E 
+X-CRM114-Status: GOOD (  36.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,63 +82,236 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, all flavors of ioremap_xyz() function maps to the generic
-ioremap() which means any ioremap_xyz() call will always map the
-target memory as IO using _PAGE_IOREMAP page attributes. This breaks
-ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
-remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
-page attributes.
+On Wed, Oct 19, 2022 at 10:52:16AM +0800, Guo Ren wrote:
+> On Thu, Sep 29, 2022 at 1:54 PM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > On Thu, Sep 29, 2022 at 1:03 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+> > >
+> > > On Thu, Sep 29, 2022 at 12:20:06AM +0800, Jisheng Zhang wrote:
+> > > > Currently, when detecting vmap stack overflow, riscv firstly switches
+> > > > to the so called shadow stack, then use this shadow stack to call the
+> > > > get_overflow_stack() to get the overflow stack. However, there's
+> > > > a race here if two or more harts use the same shadow stack at the same
+> > > > time.
+> > > >
+> > > > To solve this race, we rely on two facts:
+> > > > 1. the content of kernel thread pointer I.E "tp" register can still
+> > > > be gotten from the the CSR_SCRATCH register, thus we can clobber tp
+> > > > under the condtion that we restore tp from CSR_SCRATCH later.
+> > > >
+> > > > 2. Once vmap stack overflow happen, panic is comming soon, no
+> > > > performance concern at all, so we don't need to define the overflow
+> > > > stack as percpu var, we can simplify it into a pointer array which
+> > > > points to allocated pages.
+> > > >
+> > > > Thus we can use tp as a tmp register to get the cpu id to calculate
+> > > > the offset of overflow stack pointer array for each cpu w/o shadow
+> > > > stack any more. Thus the race condition is removed as a side effect.
+> > > >
+> > > > NOTE: we can use similar mechanism to let each cpu use different shadow
+> > > > stack to fix the race codition, but if we can remove shadow stack usage
+> > > > totally, why not.
+> > > >
+> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+> > > > ---
+> > > >  arch/riscv/include/asm/asm-prototypes.h |  1 -
+> > > >  arch/riscv/include/asm/thread_info.h    |  4 +-
+> > > >  arch/riscv/kernel/asm-offsets.c         |  1 +
+> > > >  arch/riscv/kernel/entry.S               | 56 ++++---------------------
+> > > >  arch/riscv/kernel/traps.c               | 31 ++++++++------
+> > > >  5 files changed, 29 insertions(+), 64 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+> > > > index ef386fcf3939..4a06fa0f6493 100644
+> > > > --- a/arch/riscv/include/asm/asm-prototypes.h
+> > > > +++ b/arch/riscv/include/asm/asm-prototypes.h
+> > > > @@ -25,7 +25,6 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+> > > >  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+> > > >  DECLARE_DO_ERROR_INFO(do_trap_break);
+> > > >
+> > > > -asmlinkage unsigned long get_overflow_stack(void);
+> > > >  asmlinkage void handle_bad_stack(struct pt_regs *regs);
+> > > >
+> > > >  #endif /* _ASM_RISCV_PROTOTYPES_H */
+> > > > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> > > > index c970d41dc4c6..c604a5212a73 100644
+> > > > --- a/arch/riscv/include/asm/thread_info.h
+> > > > +++ b/arch/riscv/include/asm/thread_info.h
+> > > > @@ -28,14 +28,12 @@
+> > > >
+> > > >  #define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+> > > >  #define OVERFLOW_STACK_SIZE     SZ_4K
+> > > > -#define SHADOW_OVERFLOW_STACK_SIZE (1024)
+> > > > +#define OVERFLOW_STACK_SHIFT 12
+> > >
+> > > oops, this should be removed, will update it in a newer version after
+> > > collecting review comments.
+> > >
+> > > >
+> > > >  #define IRQ_STACK_SIZE               THREAD_SIZE
+> > > >
+> > > >  #ifndef __ASSEMBLY__
+> > > >
+> > > > -extern long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE / sizeof(long)];
+> > > > -
+> > > >  #include <asm/processor.h>
+> > > >  #include <asm/csr.h>
+> > > >
+> > > > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> > > > index df9444397908..62bf3bacc322 100644
+> > > > --- a/arch/riscv/kernel/asm-offsets.c
+> > > > +++ b/arch/riscv/kernel/asm-offsets.c
+> > > > @@ -37,6 +37,7 @@ void asm_offsets(void)
+> > > >       OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+> > > >       OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+> > > >       OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+> > > > +     OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+> > > >
+> > > >       OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+> > > >       OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+> > > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > > > index a3e1ed2fa2ac..5a6171a90d81 100644
+> > > > --- a/arch/riscv/kernel/entry.S
+> > > > +++ b/arch/riscv/kernel/entry.S
+> > > > @@ -223,54 +223,16 @@ END(ret_from_exception)
+> > > >
+> > > >  #ifdef CONFIG_VMAP_STACK
+> > > >  ENTRY(handle_kernel_stack_overflow)
+> > > > -     la sp, shadow_stack
+> > > > -     addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+> > > > -
+> > > > -     //save caller register to shadow stack
+> > > > -     addi sp, sp, -(PT_SIZE_ON_STACK)
+> > > > -     REG_S x1,  PT_RA(sp)
+> > > > -     REG_S x5,  PT_T0(sp)
+> > > > -     REG_S x6,  PT_T1(sp)
+> > > > -     REG_S x7,  PT_T2(sp)
+> > > > -     REG_S x10, PT_A0(sp)
+> > > > -     REG_S x11, PT_A1(sp)
+> > > > -     REG_S x12, PT_A2(sp)
+> > > > -     REG_S x13, PT_A3(sp)
+> > > > -     REG_S x14, PT_A4(sp)
+> > > > -     REG_S x15, PT_A5(sp)
+> > > > -     REG_S x16, PT_A6(sp)
+> > > > -     REG_S x17, PT_A7(sp)
+> > > > -     REG_S x28, PT_T3(sp)
+> > > > -     REG_S x29, PT_T4(sp)
+> > > > -     REG_S x30, PT_T5(sp)
+> > > > -     REG_S x31, PT_T6(sp)
+> > > > -
+> > > > -     la ra, restore_caller_reg
+> > > > -     tail get_overflow_stack
+> > > > -
+> > > > -restore_caller_reg:
+> > > > -     //save per-cpu overflow stack
+> > > > -     REG_S a0, -8(sp)
+> > > > -     //restore caller register from shadow_stack
+> > > > -     REG_L x1,  PT_RA(sp)
+> > > > -     REG_L x5,  PT_T0(sp)
+> > > > -     REG_L x6,  PT_T1(sp)
+> > > > -     REG_L x7,  PT_T2(sp)
+> > > > -     REG_L x10, PT_A0(sp)
+> > > > -     REG_L x11, PT_A1(sp)
+> > > > -     REG_L x12, PT_A2(sp)
+> > > > -     REG_L x13, PT_A3(sp)
+> > > > -     REG_L x14, PT_A4(sp)
+> > > > -     REG_L x15, PT_A5(sp)
+> > > > -     REG_L x16, PT_A6(sp)
+> > > > -     REG_L x17, PT_A7(sp)
+> > > > -     REG_L x28, PT_T3(sp)
+> > > > -     REG_L x29, PT_T4(sp)
+> > > > -     REG_L x30, PT_T5(sp)
+> > > > -     REG_L x31, PT_T6(sp)
+> > > > +     la sp, overflow_stack
+> > > > +     /* use tp as tmp register since we can restore it from CSR_SCRATCH */
+> > > > +     REG_L tp, TASK_TI_CPU(tp)
+> > > > +     slli tp, tp, RISCV_LGPTR
+> > > > +     add tp, sp, tp
+> > > > +     REG_L sp, 0(tp)
+> > > > +
+> > > > +     /* restore tp */
+> > > > +     csrr tp, CSR_SCRATCH
+> > > >
+> > > > -     //load per-cpu overflow stack
+> > > > -     REG_L sp, -8(sp)
+> > > >       addi sp, sp, -(PT_SIZE_ON_STACK)
+> > > >
+> > > >       //save context to overflow stack
+> > > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > > > index 73f06cd149d9..b6c64f0fb70f 100644
+> > > > --- a/arch/riscv/kernel/traps.c
+> > > > +++ b/arch/riscv/kernel/traps.c
+> > > > @@ -216,23 +216,12 @@ int is_valid_bugaddr(unsigned long pc)
+> > > >  #endif /* CONFIG_GENERIC_BUG */
+> > > >
+> > > >  #ifdef CONFIG_VMAP_STACK
+> > > > -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+> > > > -             overflow_stack)__aligned(16);
+> > > > -/*
+> > > > - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+> > > > - * to get per-cpu overflow stack(get_overflow_stack).
+> > > > - */
+> > > > -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+> > > > -asmlinkage unsigned long get_overflow_stack(void)
+> > > > -{
+> > > > -     return (unsigned long)this_cpu_ptr(overflow_stack) +
+> > > > -             OVERFLOW_STACK_SIZE;
+> > > > -}
+> > > > +void *overflow_stack[NR_CPUS] __ro_after_init __aligned(16);
+> > Er... We've talked NR_CPUS = 8192, even a pointer would cause 64KB wasted.
+> >
+> > I prefer the previous solution with a atomic flag.
+> >
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index 5cbd6684ef52..42a3b14a20ab 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -223,6 +223,9 @@ END(ret_from_exception)
+> >
+> >  #ifdef CONFIG_VMAP_STACK
+> >  ENTRY(handle_kernel_stack_overflow)
+> > +1:     la sp, spin_ shadow_stack
+> > +       amoswap.w sp, sp, (sp)
+> > +       bnez sp, 1b
+> >         la sp, shadow_stack
+> >         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+> >
+> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > index 73f06cd149d9..9058a05cac53 100644
+> > --- a/arch/riscv/kernel/traps.c
+> > +++ b/arch/riscv/kernel/traps.c
+> > @@ -229,11 +229,15 @@ asmlinkage unsigned long get_overflow_stack(void)
+> >                 OVERFLOW_STACK_SIZE;
+> >  }
+> >
+> > +atomic_t spin_ shadow_stack __section(".sdata");
+> > +
+> >  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+> >  {
+> >         unsigned long tsk_stk = (unsigned long)current->stack;
+> >         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+> >
+> > +       atomic_set_release(spin_ shadow_stack, 0);
+> > +
+> >         console_verbose();
+> >
+> >         pr_emerg("Insufficient stack space to handle exception!\n");
+> Hi Jisheng,
 
-To address above (just like other architectures), we implement RISC-V
-specific ioremap_cache() and ioremap_wc() which maps memory using page
-attributes as defined by the Svpbmt specification.
+Hi Guo,
 
-Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
-Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/include/asm/io.h      | 10 ++++++++++
- arch/riscv/include/asm/pgtable.h |  2 ++
- 2 files changed, 12 insertions(+)
+> 
+> Could you give out a new patch based on the above style to fix the
+> problem first? It's a minor modification and consolidate the entry.S
+> procedure.
+> 
 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 92080a227937..92a31e543388 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -133,6 +133,16 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
- #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
- #endif
- 
-+#ifdef CONFIG_MMU
-+#define ioremap_wc(addr, size)		\
-+	ioremap_prot((addr), (size), _PAGE_IOREMAP_WC)
-+#endif
-+
- #include <asm-generic/io.h>
- 
-+#ifdef CONFIG_MMU
-+#define ioremap_cache(addr, size)	\
-+	ioremap_prot((addr), (size), _PAGE_KERNEL)
-+#endif
-+
- #endif /* _ASM_RISCV_IO_H */
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7ec936910a96..346b7c1a3eeb 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -182,6 +182,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
- #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
- 
- #define _PAGE_IOREMAP	((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
-+#define _PAGE_IOREMAP_WC	((_PAGE_KERNEL & ~_PAGE_MTMASK) | \
-+				 _PAGE_NOCACHE)
- #define PAGE_KERNEL_IO		__pgprot(_PAGE_IOREMAP)
- 
- extern pgd_t swapper_pg_dir[];
--- 
-2.34.1
+I read the above msg as: A new patch following the above style to fix
+the race condition. Then another patch to remove the shadow stack
+usage. Will cook the fix patch soon. 
 
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
