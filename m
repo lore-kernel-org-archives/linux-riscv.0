@@ -4,53 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9DAC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 03:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F51C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 03:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykQTnRFVhv4z3PJmuxGUt1VfsLEMZDZw/+4NeBnH4cc=; b=rWzx2chsev1eB+
-	SaNRYG7IQtVrEHV7brIksidSvyrqu7xCkP/OOV/PgprdPWUYBNtiOMYFWpB4u36d2bAyXnQDvjV3S
-	BQmMw2uX98d41A4v+Qt9eCLDMrpnsxt/m4JVKUD366He2vqqZzznXjNHalDgG+SJii2n7CaOy/VHi
-	wAMl0hjleXR4o+tz+LWwwScpinIfKdgLS+8DLtB3SoJFgYGvFN2YvuyUMqNrRrJmHz4AxpyyHaXk3
-	/G/065y5uohcYh/Twj1pAulOOyqyHgd1K1J468dAcNtLdxQw+YuxSQ6Gm3s0OvNl/sPIMsNdSWrpF
-	u3o3MV4sOFVBYsZLStvA==;
+	List-Owner; bh=Chu00RzRpr4m26EYFvzeUGo8aVaDxuUpuA/nC5+OpcE=; b=JzpIaY2y7p+eAu
+	RcNsDM6YD6QUrkb1jZvrwipO2uXGx+Lo3OEA0yAmU0nOopmkvwYXiWt21vQ/PYe49tfDgquzUuAcN
+	pQB1vWM826OVqf7ff6G85UYyREghznT/cjvCLJWR2oZXv5XVqDUBmNNMvGNzaoSBdQUd6ZPsBssYe
+	yHsHPH0N9rYwtCoRli6Nv9sMtea0Aw1EnUj/4YQ8vn680iRuzdDGAci7n5cb/q/vZ0waPBU0KnE8z
+	Cn1TC2aJm+wQSThzrCfnK8k/A30kkmwKh9EETVjfHur1/xqyUSVE3jFkKYKSssh+ZA2qwVal6lVyd
+	z4M13KrcA9xtPQ8n5aLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olLnk-009bLc-FN; Thu, 20 Oct 2022 03:00:56 +0000
-Received: from out30-45.freemail.mail.aliyun.com ([115.124.30.45])
+	id 1olLno-009bXH-Ic; Thu, 20 Oct 2022 03:01:00 +0000
+Received: from out199-13.us.a.mail.aliyun.com ([47.90.199.13])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olKhj-0099cX-EJ; Thu, 20 Oct 2022 01:50:42 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R811e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0VScs1Nf_1666230633;
-Received: from localhost.localdomain(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VScs1Nf_1666230633)
+	id 1olKjl-009AvD-W8; Thu, 20 Oct 2022 01:52:47 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R941e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046051;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VScdp8u_1666230756;
+Received: from 30.221.97.125(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VScdp8u_1666230756)
           by smtp.aliyun-inc.com;
-          Thu, 20 Oct 2022 09:50:33 +0800
+          Thu, 20 Oct 2022 09:52:38 +0800
+Message-ID: <5fa1f75a-1641-771e-3670-2d8978c99d2a@linux.alibaba.com>
+Date: Thu, 20 Oct 2022 09:52:36 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.12.0
+Subject: Re: [PATCH V3 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
+To: =?UTF-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+IOS4gOS7gSk=?=
+ <k-hagio-ab@nec.com>, Baoquan He <bhe@redhat.com>,
+ lijiang <lijiang@redhat.com>
+Cc: "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "heiko@sntech.de" <heiko@sntech.de>, "guoren@kernel.org"
+ <guoren@kernel.org>, "mick@ics.forth.gr" <mick@ics.forth.gr>,
+ "alexandre.ghiti@canonical.com" <alexandre.ghiti@canonical.com>,
+ "vgoyal@redhat.com" <vgoyal@redhat.com>,
+ "dyoung@redhat.com" <dyoung@redhat.com>, "corbet@lwn.net" <corbet@lwn.net>,
+ "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>,
+ "bagasdotme@gmail.com" <bagasdotme@gmail.com>,
+ "kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "crash-utility@redhat.com" <crash-utility@redhat.com>,
+ "heinrich.schuchardt@canonical.com" <heinrich.schuchardt@canonical.com>,
+ "hschauhan@nulltrace.org" <hschauhan@nulltrace.org>,
+ "yixun.lan@gmail.com" <yixun.lan@gmail.com>
+References: <20221018081755.6214-1-xianting.tian@linux.alibaba.com>
+ <20221018081755.6214-2-xianting.tian@linux.alibaba.com>
+ <Y05tfxRenMs5d+bt@MiWiFi-R3L-srv>
+ <049ec19e-60c3-2854-5f5e-9850231108b4@linux.alibaba.com>
+ <Y05540td7lLz+0BY@MiWiFi-R3L-srv>
+ <a66a5b16-5f1f-3d80-3cdc-4b82d38d604f@linux.alibaba.com>
+ <0f0a77a9-c824-8aa4-77de-a75c2139d791@nec.com>
+ <811bdf09-be38-ce2a-a1d3-ada9f7c85b97@linux.alibaba.com>
+ <52023285-172a-97cc-bad4-4ab4e709885c@nec.com>
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
-To: crash-utility@redhat.com,
-	mick@ics.forth.gr,
-	heinrich.schuchardt@canonical.com,
-	guoren@kernel.org,
-	k-hagio-ab@nec.com,
-	yixun.lan@gmail.com,
-	lijiang@redhat.com
-Cc: linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org,
-	hschauhan@nulltrace.org,
-	lifang_xia@linux.alibaba.com,
-	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [Crash-utility][PATCH V4 7/9] RISCV64: Add 'help -m/M' command support
-Date: Thu, 20 Oct 2022 09:50:12 +0800
-Message-Id: <20221020015014.46085-8-xianting.tian@linux.alibaba.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20221020015014.46085-1-xianting.tian@linux.alibaba.com>
-References: <20221020015014.46085-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <52023285-172a-97cc-bad4-4ab4e709885c@nec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_185039_697943_4FB8D31D 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221019_185246_329529_AF0A0A15 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,149 +81,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add riscv64_dump_machdep_table() implementation, display machdep_table.
-
-crash> help -m
-              flags: 80 ()
-             kvbase: ff60000000000000
-  identity_map_base: ff60000000000000
-           pagesize: 4096
-          pageshift: 12
-           pagemask: fffffffffffff000
-         pageoffset: fff
-        pgdir_shift: 48
-       ptrs_per_pgd: 512
-       ptrs_per_pte: 512
-          stacksize: 16384
-                 hz: 250
-            memsize: 1071644672 (0x3fe00000)
-               bits: 64
-         back_trace: riscv64_back_trace_cmd()
-    processor_speed: riscv64_processor_speed()
-              uvtop: riscv64_uvtop()
-              kvtop: riscv64_kvtop()
-    get_stack_frame: riscv64_get_stack_frame()
-      get_stackbase: generic_get_stackbase()
-       get_stacktop: generic_get_stacktop()
-      translate_pte: riscv64_translate_pte()
-        memory_size: generic_memory_size()
-      vmalloc_start: riscv64_vmalloc_start()
-       is_task_addr: riscv64_is_task_addr()
-      verify_symbol: riscv64_verify_symbol()
-         dis_filter: generic_dis_filter()
-           dump_irq: generic_dump_irq()
-    show_interrupts: generic_show_interrupts()
-   get_irq_affinity: generic_get_irq_affinity()
-           cmd_mach: riscv64_cmd_mach()
-       get_smp_cpus: riscv64_get_smp_cpus()
-          is_kvaddr: riscv64_is_kvaddr()
-          is_uvaddr: riscv64_is_uvaddr()
-       verify_paddr: generic_verify_paddr()
-    init_kernel_pgd: NULL
-    value_to_symbol: generic_machdep_value_to_symbol()
-  line_number_hooks: NULL
-      last_pgd_read: ffffffff810e9000
-      last_p4d_read: 81410000
-      last_pud_read: 81411000
-      last_pmd_read: 81412000
-     last_ptbl_read: 81415000
-                pgd: 560d586f3ab0
-                p4d: 560d586f4ac0
-                pud: 560d586f5ad0
-                pmd: 560d586f6ae0
-               ptbl: 560d586f7af0
-  section_size_bits: 27
-   max_physmem_bits: 56
-  sections_per_root: 0
-           machspec: 560d57d204a0
-
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
----
- riscv64.c | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 59 insertions(+), 1 deletion(-)
-
-diff --git a/riscv64.c b/riscv64.c
-index ddd801c..68eff5d 100644
---- a/riscv64.c
-+++ b/riscv64.c
-@@ -132,7 +132,65 @@ riscv64_verify_symbol(const char *name, ulong value, char type)
- void
- riscv64_dump_machdep_table(ulong arg)
- {
--	/* TODO: */
-+	int others = 0;
-+
-+	fprintf(fp, "              flags: %lx (", machdep->flags);
-+	if (machdep->flags & KSYMS_START)
-+		fprintf(fp, "%sKSYMS_START", others++ ? "|" : "");
-+	fprintf(fp, ")\n");
-+
-+	fprintf(fp, "             kvbase: %lx\n", machdep->kvbase);
-+	fprintf(fp, "  identity_map_base: %lx\n", machdep->identity_map_base);
-+	fprintf(fp, "           pagesize: %d\n", machdep->pagesize);
-+	fprintf(fp, "          pageshift: %d\n", machdep->pageshift);
-+	fprintf(fp, "           pagemask: %llx\n", machdep->pagemask);
-+	fprintf(fp, "         pageoffset: %lx\n", machdep->pageoffset);
-+	fprintf(fp, "        pgdir_shift: %ld\n", machdep->machspec->va_bits - 9);
-+	fprintf(fp, "       ptrs_per_pgd: %u\n", PTRS_PER_PGD);
-+	fprintf(fp, "       ptrs_per_pte: %d\n", PTRS_PER_PTE);
-+	fprintf(fp, "          stacksize: %ld\n", machdep->stacksize);
-+	fprintf(fp, "                 hz: %d\n", machdep->hz);
-+	fprintf(fp, "            memsize: %ld (0x%lx)\n",
-+		machdep->memsize, machdep->memsize);
-+	fprintf(fp, "               bits: %d\n", machdep->bits);
-+	fprintf(fp, "         back_trace: riscv64_back_trace_cmd()\n");
-+	fprintf(fp, "    processor_speed: riscv64_processor_speed()\n");
-+	fprintf(fp, "              uvtop: riscv64_uvtop()\n");
-+	fprintf(fp, "              kvtop: riscv64_kvtop()\n");
-+	fprintf(fp, "    get_stack_frame: riscv64_get_stack_frame()\n");
-+	fprintf(fp, "      get_stackbase: generic_get_stackbase()\n");
-+	fprintf(fp, "       get_stacktop: generic_get_stacktop()\n");
-+	fprintf(fp, "      translate_pte: riscv64_translate_pte()\n");
-+	fprintf(fp, "        memory_size: generic_memory_size()\n");
-+	fprintf(fp, "      vmalloc_start: riscv64_vmalloc_start()\n");
-+	fprintf(fp, "       is_task_addr: riscv64_is_task_addr()\n");
-+	fprintf(fp, "      verify_symbol: riscv64_verify_symbol()\n");
-+	fprintf(fp, "         dis_filter: generic_dis_filter()\n");
-+	fprintf(fp, "           dump_irq: generic_dump_irq()\n");
-+	fprintf(fp, "    show_interrupts: generic_show_interrupts()\n");
-+	fprintf(fp, "   get_irq_affinity: generic_get_irq_affinity()\n");
-+	fprintf(fp, "           cmd_mach: riscv64_cmd_mach()\n");
-+	fprintf(fp, "       get_smp_cpus: riscv64_get_smp_cpus()\n");
-+	fprintf(fp, "          is_kvaddr: riscv64_is_kvaddr()\n");
-+	fprintf(fp, "          is_uvaddr: riscv64_is_uvaddr()\n");
-+	fprintf(fp, "       verify_paddr: generic_verify_paddr()\n");
-+	fprintf(fp, "    init_kernel_pgd: NULL\n");
-+	fprintf(fp, "    value_to_symbol: generic_machdep_value_to_symbol()\n");
-+	fprintf(fp, "  line_number_hooks: NULL\n");
-+	fprintf(fp, "      last_pgd_read: %lx\n", machdep->last_pgd_read);
-+	fprintf(fp, "      last_p4d_read: %lx\n", machdep->machspec->last_p4d_read);
-+	fprintf(fp, "      last_pud_read: %lx\n", machdep->last_pud_read);
-+	fprintf(fp, "      last_pmd_read: %lx\n", machdep->last_pmd_read);
-+	fprintf(fp, "     last_ptbl_read: %lx\n", machdep->last_ptbl_read);
-+	fprintf(fp, "                pgd: %lx\n", (ulong)machdep->pgd);
-+	fprintf(fp, "                p4d: %lx\n", (ulong)machdep->machspec->p4d);
-+	fprintf(fp, "                pud: %lx\n", (ulong)machdep->pud);
-+	fprintf(fp, "                pmd: %lx\n", (ulong)machdep->pmd);
-+	fprintf(fp, "               ptbl: %lx\n", (ulong)machdep->ptbl);
-+	fprintf(fp, "  section_size_bits: %ld\n", machdep->section_size_bits);
-+	fprintf(fp, "   max_physmem_bits: %ld\n", machdep->max_physmem_bits);
-+	fprintf(fp, "  sections_per_root: %ld\n", machdep->sections_per_root);
-+	fprintf(fp, "           machspec: %lx\n", (ulong)machdep->machspec);
- }
- 
- static ulong
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzEwLzIwIOS4iuWNiDk6MzUsIEhBR0lPIEtBWlVISVRPKOiQqeWwviDkuIDku4Ep
+IOWGmemBkzoKPiBPbiAyMDIyLzEwLzE5IDEyOjE3LCBYaWFudGluZyBUaWFuIHdyb3RlOgo+Cj4+
+Pj4+Pj4+ICvCoMKgwqAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSkgewo+Pj4+Pj4+PiAr
+I2lmZGVmIENPTkZJR19LQVNBTgo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgdm1jb3JlaW5mb19h
+cHBlbmRfc3RyKCJOVU1CRVIoS0FTQU5fU0hBRE9XX1NUQVJUKT0weCVseFxuIiwgS0FTQU5fU0hB
+RE9XX1NUQVJUKTsKPj4+Pj4+Pj4gK8KgwqDCoMKgwqDCoMKgIHZtY29yZWluZm9fYXBwZW5kX3N0
+cigiTlVNQkVSKEtBU0FOX1NIQURPV19FTkQpPTB4JWx4XG4iLCBLQVNBTl9TSEFET1dfRU5EKTsK
+Pj4+Pj4+Pj4gKyNlbmRpZgo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgdm1jb3JlaW5mb19hcHBl
+bmRfc3RyKCJOVU1CRVIoS0VSTkVMX0xJTktfQUREUik9MHglbHhcbiIsIEtFUk5FTF9MSU5LX0FE
+RFIpOwo+Pj4+Pj4+PiArwqDCoMKgwqDCoMKgwqAgdm1jb3JlaW5mb19hcHBlbmRfc3RyKCJOVU1C
+RVIoQUREUkVTU19TUEFDRV9FTkQpPTB4JWx4XG4iLCBBRERSRVNTX1NQQUNFX0VORCk7Cj4+Pj4+
+Pj4gU2VlbXMgdGhpcyBpcyB0aGUgZmlyc3IgQVJDSCB3aGVyZSBrYXNhbiBhbmQga2VybmVsIGxp
+bmsvYnBmIHNwYWNlIGFyZQo+Pj4+Pj4+IGFkZGVkIHRvIGR1bXAgYW5kIGFuYWx5emUuIEp1c3Qg
+Y3VyaW91cywgaGF2ZSB5b3UgZ290IGNvZGUgY2hhbmdlIHRvCj4+Pj4+Pj4gbWFrZSB1c2Ugb2Yg
+dGhlbSB0byBkbyBkdW1waW5nIGFuZCBhbmFseXplPwo+Pj4+Pj4gS0FTQU5fU0hBRE9XX1NUQVJU
+IGlzIG5vdCB1c2VkLCBLRVJORUxfTElOS19BRERSIGlzIHVzZWQgaW4gdGhlIGNyYXNoIHBhdGNo
+IHNldDoKPj4+Pj4+IGh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1y
+aXNjdi9jb3Zlci8yMDIyMDgxMzAzMTc1My4zMDk3NzIwLTEteGlhbnRpbmcudGlhbkBsaW51eC5h
+bGliYWJhLmNvbS8KPj4+Pj4gT2gsIEkgd291bGQgc2F5IHBsZWFzZSBuby4gU29tZXRpbWUgd2Ug
+Z290IHRvbnMgb2Ygb2JqZWN0aW9uIHdoZW4gYWRkaW5nIGFuCj4+Pj4+IG5lY2Vzc2FyeSBvbmUs
+IHdlIGRlZmluaXRlbHkgc2hvdWxkIG5vdCBhZGQgb25lIGZvciBwb3NzaWJsZSBmdXR1cmUKPj4+
+Pj4gdXNlLgo+Pj4+Pgo+Pj4+PiBGb3IgdGhpcyBraW5kIG9mIG5ld2x5IGFkZGVkIG9uZSwgd2Ug
+bmVlZCBnZXQgYWNrIGZyb20KPj4+Pj4gbWFrZWR1bXBmaWxlL2NyYXNoIHV0aWxpdHkgbWFpbnRh
+aW5lciBzbyB0aGF0IHdlIGtub3cgdGhleSBhcmUgbmVjZXNzYXJ5Cj4+Pj4+IHRvIGhhdmUuIEF0
+IGxlYXN0IHRoZXkgZG9uJ3Qgb3Bwb3NlLgo+Pj4+IEhpIEthenUsIExpIEppYW5nCj4+Pj4KPj4+
+PiBDb3VsZCB5b3UgaGVscCBjb21tZW50IHdoZXRoZXIgd2UgbmVlZCBLQVNBTl9TSEFET1dfU1RB
+UlQgYW5kIEtFUk5FTF9MSU5LX0FERFIgYXJlYSBleHBvcnQgZm9yIHZtY29yZSBmcm9tIGNyYXNo
+IHBvaW50IG9mIHZpZXfvvJ8KPj4+Pgo+Pj4+IEluIG15IGNyYXNoIHBhdGNoIHNldCwgSSBkb24n
+dCB1c2UgS0FTQU5fU0hBRE9XX1NUQVJULAo+Pj4+IEFuZCBvbmx5IGdldCB0aGUgdmFsdWUgb2Yg
+S0VSTkVMX0xJTktfQUREUiwgbm90IHJlYWx5IHVzZSBpdC4KPj4+PiBodHRwczovL3BhdGNod29y
+ay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvY292ZXIvMjAyMjA4MTMwMzE3NTMuMzA5
+NzcyMC0xLXhpYW50aW5nLnRpYW5AbGludXguYWxpYmFiYS5jb20vCj4+PiBJbiB5b3VyIGNyYXNo
+IHBhdGNoIHNldCwgS0VSTkVMX0xJTktfQUREUiBpcyB1c2VkIGluIFZUT1AoKSBhbmQgbG9va3MK
+Pj4+IG5lY2Vzc2FyeSB0byBtZS4KPj4+Cj4+PiBUaGUgb3RoZXJzIChLQVNBTl9TSEFET1dfU1RB
+UlQsIEtBU0FOX1NIQURPV19FTkQgYW5kIEFERFJFU1NfU1BBQ0VfRU5EKQo+Pj4gYXJlIG5vdCBj
+dXJyZW50bHkgdXNlZC7CoCBJdCBtYXkgYmUgYmV0dGVyIHRvIGFkZCB0aGVtIHdoZW4gdGhleSBh
+cmUKPj4+IHJlYWxseSB1c2VkLgo+PiBJIGFtIHZlcnkgc29ycnksIEkgbWlzc2VkIGl0ICwgS0VS
+TkVMX0xJTktfQUREUiBpcyB1c2VkIGluZGVlZC4KPj4KPj4gS0FTQU5fU0hBRE9XX1NUQVJUIGlz
+IG5vdCB1c2VkLCBzbyBJIGRvbid0IG5lZWQgdG8gc2VuZCBjcmFzaCBwYXRjaCBzZXQ+IGFnYWlu
+LiBvbmx5IG5lZWQgdG8gcmVtb3ZlIEtBU0FOX1NIQURPV19FTkQgaW4ga2VybmVsIHBhdGNoIHNl
+dC4KPiBJIHNlZSB0aGF0IHlvdXIgdjQga2VybmVsIHBhdGNoIHNldCBkb2VzIG5vdCBoYXZlIEFE
+RFJFU1NfU1BBQ0VfRU5ELAo+IHNvIGl0IHNlZW1zIHRoZXJlIHdvdWxkIGJlIG5lZWQgdG8gY2hh
+bmdlIHRoaXMgcGFydCBhbmQgcmVsYXRlZCBvbmVzCj4gYXQgY3Jhc2ggc2lkZS4KPgo+ICAgICAg
+ICAgICBpZiAoKHN0cmluZyA9IHBjLT5yZWFkX3ZtY29yZWluZm8oIk5VTUJFUihBRERSRVNTX1NQ
+QUNFX0VORCkiKSkpIHsKPiAgICAgICAgICAgICAgICAgICBtcy0+YWRkcmVzc19zcGFjZV9lbmQg
+PSBodG9sKHN0cmluZywgUVVJRVQsIE5VTEwpOwo+ICAgICAgICAgICAgICAgICAgIGZyZWUoc3Ry
+aW5nKTsKPiAgICAgICAgICAgfSBlbHNlCj4gICAgICAgICAgICAgICAgICAgZ290byBlcnJvcjsK
+PiAuLi4KPiBlcnJvcjoKPiAgICAgICAgICAgZXJyb3IoRkFUQUwsICJjYW5ub3QgZ2V0IHZtIGxh
+eW91dFxuIik7Cgp0aGFua3MsCgpJIGp1c3Qgc2VuZCBWNCBvZiBjcmFzaCBwYXRjaCBzZXQsIHRo
+ZSBpc3N1ZSBpcyBhbHNvIGZpeGVkIGluIFY0LgoKPgo+IFRoYW5rcywKPiBLYXp1CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
