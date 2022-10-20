@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6B7C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 14:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD31C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 14:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Etdk59GV8b0KtXpQSlmtikvcNxlRkPidxuB42YEyRYM=; b=D70qO3avJ0MmHn
-	kHuYHygGB2d9CYd7jXM+Y8bn/W33Kx6pvmeEmL0D22QGvH2vw2EIWMNXyV4iCwfZHSED4HGlRMmPz
-	fAdsF+1OCU/ViTpnXl+KYa8GKXwNDN2ZMfxirLlCBGib3kBu/5BFe8tEnLGkTEdelBUYq4YwioeGF
-	eoOAoDxQyfSxzbTaNLYE+7SfdGiViwUu/H9m/QfR9Zablfy7Otfed5+OB6we6C7sXp0BRY32uhhPk
-	dTV7cXGBp6sbSbfU3ycrIMkSL+k9whcnp22WPa/hTN86ap1rvZLM9SRnwld0G5xCIWV6xv0GAbWq/
-	6NyVo7+DMK6EKvGc1bJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+69hFC+XWCi4Dx2oYyBoynD49xjWhnCnNGF5MicohS0=; b=HMrN3RxneQl2VK
+	dMx9fy2T0CfG0Jm0zTPqess2nktzRt3BVBf9Hk99bmDgphOHjN6mn2UbYUilCbIOr73vvGIdUPsdB
+	35vrxYn0s9hTRp7HmeO89ZOxAaekcLx7CvmFPohvCZ9lJEnDiSPLtnd0UmIsYxf4s+mf3+rZfRJxq
+	HzoIijMP6i9ja+BD7TvKNn55z0I8RRZ93VOu3Aw7yrUfimmoZ+18Nrj4+iLAMB3u2kVNkt/J1MwN0
+	GopWxowxjYQIEEggwOrq3kSk2zZGnuPdf5rjBYp171QkKOIwU2zKGEA6SmIasJFq0UsdVrjWMHJRn
+	CpY0kzHBAuzhiihwTDdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olWNI-00G0Nl-PS; Thu, 20 Oct 2022 14:18:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1olWQN-00G3Ae-HM; Thu, 20 Oct 2022 14:21:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olVz1-00FmLC-Ss; Thu, 20 Oct 2022 13:53:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1666273995; x=1697809995;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CezaQ6FZiRtuuhnBRuO3KdKRT5p4X9KJSGf6RIFTEQg=;
-  b=vfFvKcEiJYym5gPmcMm+09rFNr2S032hz49W6DOBrMFVjvWmCAqmeWth
-   ZQaITGLmOA96uRw64Bz8TUpSLkNpTk0bKxJztlpcXcYh3uN9ufK1PLM0q
-   4OG+8pknKJN5j5LcoSCbRAKxn+kZzbwhPrE0257La0DCIaXDN+CG7D8p7
-   haWey7bB/t0ltBM0pfBoQOPLvmvkPZZEksQf6IEWiUFMD85x0wffvyWdp
-   96U9/FcEVRvj6cXbnSgHDqx52JMDyxbyN7StNHUT/EKWz2MrWQi0Ac0Ke
-   yrudQbXIKMireez0RsHZWd8+KAUKYELv8+3fU1Nr+iMY3MFX8d5GxlypK
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.95,198,1661842800"; 
-   d="scan'208";a="183149311"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Oct 2022 06:53:13 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 20 Oct 2022 06:53:09 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 20 Oct 2022 06:53:04 -0700
-Date: Thu, 20 Oct 2022 14:52:48 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: kernel test robot <lkp@intel.com>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
-	<kw@linux.com>, Heiko Stuebner <heiko@sntech.de>,
-	<linux-pci@vger.kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	<llvm@lists.linux.dev>, Minghuan Lian <minghuan.Lian@nxp.com>, Thierry Reding
-	<thierry.reding@gmail.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>, Toan Le
-	<toan@os.amperecomputing.com>, <linux-riscv@lists.infradead.org>, "Kishon
- Vijay Abraham I" <kishon@kernel.org>, Rob Herring <robh@kernel.org>, "Linus
- Walleij" <linus.walleij@linaro.org>, Joyce Ooi <joyce.ooi@intel.com>,
-	"Jonathan Hunter" <jonathanh@nvidia.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<bcm-kernel-feedback-list@broadcom.com>, Shawn Lin
-	<shawn.lin@rock-chips.com>, Ray Jui <rjui@broadcom.com>,
-	<linux-tegra@vger.kernel.org>, <linux-omap@vger.kernel.org>, Mingkai Hu
-	<mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, Michal Simek
-	<monstr@monstr.eu>, <kbuild-all@lists.01.org>, Scott Branden
-	<sbranden@broadcom.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, Tom Joseph <tjoseph@cadence.com>,
-	<linuxppc-dev@lists.ozlabs.org>, Pali =?iso-8859-1?Q?Roh=E1r?=
-	<pali@kernel.org>
-Subject: Re: [PATCH] PCI: Remove unnecessary of_irq.h includes
-Message-ID: <Y1FSsFKKJDzzrf8C@wendy>
-References: <Y1D2ubkwXqwx9LWD@wendy>
- <20221020134547.GA94120@bhelgaas>
+	id 1olW4y-00Fp2C-IU; Thu, 20 Oct 2022 13:59:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B916361B8F;
+	Thu, 20 Oct 2022 13:59:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCA2EC433C1;
+	Thu, 20 Oct 2022 13:59:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666274363;
+	bh=cwUkz84JsLM2TshjpD90WcMoj2koUKfkqasFe6OlzrE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Z18qUnteaysOgIqGlS+z5kP7aJ5dDxbm5nFwuo1Efxdv5npV4+l/ke2X0jFrDW8EB
+	 49hKVpInnqxEb5e938QukCtM5cFU+ur7Kkd+/XlqzbBdCsr2jwQqBjeVCbBJcirFTX
+	 s43KPm3ZwMMqZ72pnqOauprL4eGdyL2P8VYq1C4gY4dKqNQ5dDxbZvY7glZ7VWixU7
+	 svTdhJ25DrXaZ77dOLvqqm9ws6cLamepysT4IxvIp5q9SPPtdpMBupGMXgUTS2XBvo
+	 XYwKTM6yi6ITR/pi/B8ANoPxCQGGoQ9+VQD5syAhfNb/yXmEPZaSgfArVYt0fSmGou
+	 vDoX1h8OED8Tg==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	guoren@kernel.org
+Cc: heiko@sntech.de,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH] arch: crash: Remove duplicate declaration in smp.h
+Date: Thu, 20 Oct 2022 09:59:13 -0400
+Message-Id: <20221020135913.2850550-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221020134547.GA94120@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221020_065316_053884_9A4FABA2 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20221020_065924_670382_C69CD4B1 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +80,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 20, 2022 at 08:45:47AM -0500, Bjorn Helgaas wrote:
-> [+cc Pali, heads-up for trivial addition of <linux/irqdomain.h> to
-> pci-mvebu.c]
-> 
-> On Thu, Oct 20, 2022 at 08:20:25AM +0100, Conor Dooley wrote:
-> > On Thu, Oct 20, 2022 at 03:08:50PM +0800, kernel test robot wrote:
-> > > Hi Bjorn,
-> > > 
-> > > I love your patch! Yet something to improve:
-> > > 
-> > > >> drivers/pci/controller/pcie-microchip-host.c:473:31: error: incomplete definition of type 'struct irq_domain'
-> > >            struct mc_pcie *port = domain->host_data;
-> > 
-> > That's what I get for only visually inspecting the patch before Acking
-> > it.. Un-ack I suppose.
-> 
-> No problem!
-> 
-> I think what happened is the pcie-microchip-host.c uses
-> irq_domain_add_linear() so it needs <linux/irqdomain.h>, but it
-> currently gets it via <linux/of_irq.h>, which it doesn't otherwise
-> need.
-> 
-> I added a preparatory patch to include <linux/irqdomain.h> explicitly,
-> but I haven't been able to cross-build either riscv or ia64 to verify
-> this fix.  I'll wait a few days and post an updated series for the
-> 0-day bot to test.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-I saw you saying you couldn't find the config from LKP, FWIW a build
-using riscv defconfig w/ CONFIG_PCIE_MICROCHIP_HOST=y fails for me
-in the same way as lkp reports.
-Otherwise, dump the patch in response to this and I'll give it a shot
-later if you like?
+Remove crash_smp_send_stop declarations in arm64, x86 asm/smp.h
+which has been in include/linux/smp.h since 6f1f942cd5fb ("smp:
+kernel/panic.c - silence warnings").
 
-HTH,
-Conor.
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+---
 
-> 
-> Same situation for pcie-altera-msi.c.
-> 
-> pci-mvebu.c also relies on getting <linux/irqdomain.h> via
-> <linux/of_irq.h>, but it actually depends on of_irq.h, so I'll just
-> add an irqdomain.h include there.
-> 
-> Bjorn
-> 
+This patch is separated from the series [1] to let maintainer take
+easily. It still needs a Acked-by from x86 side, hope it could be
+soon done.
+
+[1] https://lore.kernel.org/linux-riscv/20220921033134.3133319-1-guoren@kernel.org/
+---
+ arch/arm64/include/asm/smp.h | 1 -
+ arch/x86/include/asm/crash.h | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+index fc55f5a57a06..a108ac93fd8f 100644
+--- a/arch/arm64/include/asm/smp.h
++++ b/arch/arm64/include/asm/smp.h
+@@ -141,7 +141,6 @@ static inline void cpu_panic_kernel(void)
+  */
+ bool cpus_are_stuck_in_kernel(void);
+ 
+-extern void crash_smp_send_stop(void);
+ extern bool smp_crash_stop_failed(void);
+ extern void panic_smp_self_stop(void);
+ 
+diff --git a/arch/x86/include/asm/crash.h b/arch/x86/include/asm/crash.h
+index 8b6bd63530dc..6a9be4907c82 100644
+--- a/arch/x86/include/asm/crash.h
++++ b/arch/x86/include/asm/crash.h
+@@ -7,6 +7,5 @@ struct kimage;
+ int crash_load_segments(struct kimage *image);
+ int crash_setup_memmap_entries(struct kimage *image,
+ 		struct boot_params *params);
+-void crash_smp_send_stop(void);
+ 
+ #endif /* _ASM_X86_CRASH_H */
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
