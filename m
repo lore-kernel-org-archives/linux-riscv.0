@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08132C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 14:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57580C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 14:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JLfk8aeb3sLPg7RGU3k5GKm2oxvoMvHTUy0mkPql+6s=; b=2tmn2hPB4j6jhX
-	I7pPNWsJo8PNLPuWijB/R1jJLVdtRoiUyNiVNczsbcUSdzaRWsCKueBU7jRVO2wRZRHXnmkNdosue
-	U/0H4/X58gRpl1l/fuxGCZF2AmSINJMoSs6UFtYbjMndTPnf46RnJJzIaRSimqgf+KkY59J1bUcnd
-	kk/mXyszU3/QfnvAjCBSEr3CAosf3k5dg5LIaPEm3ccIlet5HlmSYFho/JYYiqqSpcsYsF44wGME2
-	9/gDlAxhRGPqMlYv8Nhmr5K6KxTGwByvv8Mx6tcwjT5srRlzFfp1MUHTWy76eGh0ppc2aM9hdVQL/
-	KtmoINiwdHpqrhsw8uLA==;
+	List-Owner; bh=dxFitMrfupUN/lp0VDWNcWNoMk5C43szOXczHi4VDgs=; b=4DKMbzBz7wERHb
+	Vumc0UF/av7QmdaZsdvHklWCEAR5Fj6HIVdGkSeco7zBqNCRtCfLBKx5tmKd/NpFCVtO+qN1jyd69
+	752/g9QTLW7tJ+QoRj9MaP3IXe1KDOXBTOOK6Jf/2icWS9o7MzbJLsPLWkEXVoZyoZfWfVygUXFhE
+	EhU/LiRXYqjejzuKhAL2Yv9b73EpHerUSOHD6Eq9gRJEaxiHn4SHB+JwODEo4qKpG+isZO2xWEG+E
+	pivtc5H1NZnBR5EjRefMjqAni8/mFFPB4Jvwy5HYtn9qLV7ALXl0VmgKQXALdUoJpOx/IWj6cSbK2
+	ATFpM8nVaBP2OIUCm59A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olWf6-00GGyA-RO; Thu, 20 Oct 2022 14:36:44 +0000
-Received: from mail.skyhub.de ([5.9.137.197])
+	id 1olWge-00GI8m-S3; Thu, 20 Oct 2022 14:38:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olWal-00GCwF-5g; Thu, 20 Oct 2022 14:32:18 +0000
-Received: from zn.tnic (p200300ea9733e710329c23fffea6a903.dip0.t-ipconnect.de [IPv6:2003:ea:9733:e710:329c:23ff:fea6:a903])
+	id 1olWdy-00GFxb-Su; Thu, 20 Oct 2022 14:35:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C9F981EC0567;
-	Thu, 20 Oct 2022 16:32:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
-	t=1666276324;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
-	bh=kmZIn+RmPcFrrruewpP3q+eT9dV6viqfrtURROqoXV4=;
-	b=c6vOv2k+nIu92WEk/Ed8XAbzSVCEMl31tZInGnnk957mMSXKeCaMDExHzoli7C5KMKrV+y
-	ebd6to516TQ9ccj8KfLC/+jvqvIyQ5e4J8Eq1yn+ILqsJ9ZqOxLp7oQJGB4g6ntNCxyIAG
-	fqIm3xd8Gkn4era5P1ZQDbYZLc4jtZE=
-Date: Thu, 20 Oct 2022 16:32:00 +0200
-From: Borislav Petkov <bp@alien8.de>
-To: guoren@kernel.org
-Cc: arnd@arndb.de, tglx@linutronix.de, mingo@redhat.com,
-	dave.hansen@linux.intel.com, heiko@sntech.de,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH] arch: crash: Remove duplicate declaration in smp.h
-Message-ID: <Y1Fb4HGzJEKCD1SF@zn.tnic>
-References: <20221020135913.2850550-1-guoren@kernel.org>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 24EF061B8C;
+	Thu, 20 Oct 2022 14:35:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 868AAC43470;
+	Thu, 20 Oct 2022 14:35:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666276533;
+	bh=LCGJBSRGVbeIJ5hd+BFarnFeqPOj/yT1VOE+UzJXnLM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=t3MpQXzCAzbPYYQNCi/X7lFDoOgS/9UqN8kv4rFh4vkJRSmayfFAIgng+dPgApu1h
+	 K+HkCsugLs4cxx02GB0HCy+LSlw+v1eOTP6GY+w5qcO0y/ZI5LDm5jL5mAmG9IE84c
+	 MTsIWr/WgL6ioL5xnjn7gnAINWnMKEekKZj+Os+AbGAxpxKh/PpZlOTpL5Xc2Ikkq1
+	 NXJbl/pkOxMM6pC1bsU1CqeTvRUhktRu+ntO8oJxI03jA7rrxBZSmsZnXknUzNighM
+	 l3m0ThTZaFc/SCttY1PpOBpAPStSDMzZPMAm5nBdUtf0TPM9RQs8TajKziT/d56V8K
+	 NEyW01RiuzcVA==
+Received: by mail-ot1-f46.google.com with SMTP id v40-20020a056830092800b00661e37421c2so9327173ott.3;
+        Thu, 20 Oct 2022 07:35:33 -0700 (PDT)
+X-Gm-Message-State: ACrzQf0XRORlxdzija4x6Kivcik5WQ/mT5MHzzjK6bVHJHu8qVpYXJMm
+	nue2m1I5UcVmJpyYYhjip9Gr7pAyq6ha0aGD1k4=
+X-Google-Smtp-Source: AMsMyM5qQ4ar9uJ0SPnN8rvwMF93C3T7WFzeBCvLwriEpZzXOZp8MGndWxMLk8oh/dMvf6wpqmkRhydSYqZeY40cZIY=
+X-Received: by 2002:a9d:60dd:0:b0:661:b6ae:aa7a with SMTP id
+ b29-20020a9d60dd000000b00661b6aeaa7amr6998580otk.140.1666276532511; Thu, 20
+ Oct 2022 07:35:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221020135913.2850550-1-guoren@kernel.org>
+References: <20221019103623.7008-1-xianting.tian@linux.alibaba.com> <20221019103623.7008-2-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20221019103623.7008-2-xianting.tian@linux.alibaba.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 20 Oct 2022 22:35:20 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSWX75fNMYeAK4ckGB9SQvJgfr-zSczirbdaBxHK6opVw@mail.gmail.com>
+Message-ID: <CAJF2gTSWX75fNMYeAK4ckGB9SQvJgfr-zSczirbdaBxHK6opVw@mail.gmail.com>
+Subject: Re: [PATCH V4 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	anup@brainfault.org, heiko@sntech.de, mick@ics.forth.gr, 
+	alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com, 
+	dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com, 
+	bagasdotme@gmail.com, k-hagio-ab@nec.com, lijiang@redhat.com, 
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	crash-utility@redhat.com, heinrich.schuchardt@canonical.com, 
+	hschauhan@nulltrace.org, yixun.lan@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221020_073215_399769_9B40E00D 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221020_073535_061433_75E014F5 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,26 +86,169 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 20, 2022 at 09:59:13AM -0400, guoren@kernel.org wrote:
-> diff --git a/arch/x86/include/asm/crash.h b/arch/x86/include/asm/crash.h
-> index 8b6bd63530dc..6a9be4907c82 100644
-> --- a/arch/x86/include/asm/crash.h
-> +++ b/arch/x86/include/asm/crash.h
-> @@ -7,6 +7,5 @@ struct kimage;
->  int crash_load_segments(struct kimage *image);
->  int crash_setup_memmap_entries(struct kimage *image,
->  		struct boot_params *params);
-> -void crash_smp_send_stop(void);
->  
->  #endif /* _ASM_X86_CRASH_H */
+Tested-by: Guo Ren <guoren@kernel.org>
 
-Acked-by: Borislav Petkov <bp@suse.de>
+Don't forget the another two kdump fixups [1]
+[1] https://lore.kernel.org/all/20221020141603.2856206-3-guoren@kernel.org/
+
+    Only the patch without [1]:
+    crash> help -r
+    CPU 0: [OFFLINE]
+
+    CPU 1:
+    epc : ffffffff80009ff0 ra : ffffffff800b789a sp : ff2000001098bb40
+     gp : ffffffff815fca60 tp : ff60000004680000 t0 : 6666666666663c5b
+     t1 : 0000000000000000 t2 : 666666666666663c s0 : ff2000001098bc90
+     s1 : ffffffff81600798 a0 : ff2000001098bb48 a1 : 0000000000000000
+     a2 : 0000000000000000 a3 : 0000000000000001 a4 : 0000000000000000
+     a5 : ff60000004690800 a6 : 0000000000000000 a7 : 0000000000000000
+     s2 : ff2000001098bb48 s3 : ffffffff81093ec8 s4 : ffffffff816004ac
+     s5 : 0000000000000000 s6 : 0000000000000007 s7 : ffffffff80e7f720
+     s8 : 00fffffffffff3f0 s9 : 0000000000000007 s10: 00aaaaaaaab98700
+     s11: 0000000000000001 t3 : ffffffff819a8097 t4 : ffffffff819a8097
+     t5 : ffffffff819a8098 t6 : ff2000001098b9a8
+
+    CPU 2: [OFFLINE]
+
+    CPU 3: [OFFLINE]
+
+    The patch with [1]:
+    crash> help -r
+    CPU 0:
+    epc : ffffffff80003f34 ra : ffffffff808caa7c sp : ffffffff81403eb0
+     gp : ffffffff815fcb48 tp : ffffffff81413400 t0 : 0000000000000000
+     t1 : 0000000000000000 t2 : 0000000000000000 s0 : ffffffff81403ec0
+     s1 : 0000000000000000 a0 : 0000000000000000 a1 : 0000000000000000
+     a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+     a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
+     s2 : ffffffff816001c8 s3 : ffffffff81600370 s4 : ffffffff80c32e18
+     s5 : ffffffff819d3018 s6 : ffffffff810e2110 s7 : 0000000000000000
+     s8 : 0000000000000000 s9 : 0000000080039eac s10: 0000000000000000
+     s11: 0000000000000000 t3 : 0000000000000000 t4 : 0000000000000000
+     t5 : 0000000000000000 t6 : 0000000000000000
+
+    CPU 1:
+    epc : ffffffff80003f34 ra : ffffffff808caa7c sp : ff2000000068bf30
+     gp : ffffffff815fcb48 tp : ff6000000240d400 t0 : 0000000000000000
+     t1 : 0000000000000000 t2 : 0000000000000000 s0 : ff2000000068bf40
+     s1 : 0000000000000001 a0 : 0000000000000000 a1 : 0000000000000000
+     a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+     a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
+     s2 : ffffffff816001c8 s3 : ffffffff81600370 s4 : ffffffff80c32e18
+     s5 : ffffffff819d3018 s6 : ffffffff810e2110 s7 : 0000000000000000
+     s8 : 0000000000000000 s9 : 0000000080039ea8 s10: 0000000000000000
+     s11: 0000000000000000 t3 : 0000000000000000 t4 : 0000000000000000
+     t5 : 0000000000000000 t6 : 0000000000000000
+
+    CPU 2:
+    epc : ffffffff80003f34 ra : ffffffff808caa7c sp : ff20000000693f30
+     gp : ffffffff815fcb48 tp : ff6000000240e900 t0 : 0000000000000000
+     t1 : 0000000000000000 t2 : 0000000000000000 s0 : ff20000000693f40
+     s1 : 0000000000000002 a0 : 0000000000000000 a1 : 0000000000000000
+     a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+     a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000000000
+     s2 : ffffffff816001c8 s3 : ffffffff81600370 s4 : ffffffff80c32e18
+     s5 : ffffffff819d3018 s6 : ffffffff810e2110 s7 : 0000000000000000
+     s8 : 0000000000000000 s9 : 0000000080039eb0 s10: 0000000000000000
+     s11: 0000000000000000 t3 : 0000000000000000 t4 : 0000000000000000
+     t5 : 0000000000000000 t6 : 0000000000000000
+
+    CPU 3:
+    epc : ffffffff8000a1e4 ra : ffffffff800b7bba sp : ff200000109bbb40
+     gp : ffffffff815fcb48 tp : ff6000000373aa00 t0 : 6666666666663c5b
+     t1 : 0000000000000000 t2 : 666666666666663c s0 : ff200000109bbc90
+     s1 : ffffffff816007a0 a0 : ff200000109bbb48 a1 : 0000000000000000
+     a2 : 0000000000000000 a3 : 0000000000000001 a4 : 0000000000000000
+     a5 : ff60000002c61c00 a6 : 0000000000000000 a7 : 0000000000000000
+     s2 : ff200000109bbb48 s3 : ffffffff810941a8 s4 : ffffffff816004b4
+     s5 : 0000000000000000 s6 : 0000000000000007 s7 : ffffffff80e7f7a0
+     s8 : 00fffffffffff3f0 s9 : 0000000000000007 s10: 00aaaaaaaab98700
+     s11: 0000000000000001 t3 : ffffffff819a8097 t4 : ffffffff819a8097
+     t5 : ffffffff819a8098 t6 : ff200000109bb9a8
+
+On Wed, Oct 19, 2022 at 6:36 PM Xianting Tian
+<xianting.tian@linux.alibaba.com> wrote:
+>
+> Add arch_crash_save_vmcoreinfo(), which exports VM layout(MODULES, VMALLOC,
+> VMEMMAP ranges and KERNEL_LINK_ADDR), va bits and ram base for vmcore.
+>
+> Default pagetable levels and PAGE_OFFSET aren't same for different kernel
+> version as below. For pagetable levels, it sets sv57 by default and falls
+> back to setting sv48 at boot time if sv57 is not supported by the hardware.
+>
+> For ram base, the default value is 0x80200000 for qemu riscv64 env and,
+> for example, is 0x200000 on the XuanTie 910 CPU.
+>
+>  * Linux Kernel 5.18 ~
+>  *      PGTABLE_LEVELS = 5
+>  *      PAGE_OFFSET = 0xff60000000000000
+>  * Linux Kernel 5.17 ~
+>  *      PGTABLE_LEVELS = 4
+>  *      PAGE_OFFSET = 0xffffaf8000000000
+>  * Linux Kernel 4.19 ~
+>  *      PGTABLE_LEVELS = 3
+>  *      PAGE_OFFSET = 0xffffffe000000000
+>
+> Since these configurations change from time to time and version to version,
+> it is preferable to export them via vmcoreinfo than to change the crash's
+> code frequently, it can simplify the development of crash tool.
+>
+> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> ---
+>  arch/riscv/kernel/Makefile     |  1 +
+>  arch/riscv/kernel/crash_core.c | 23 +++++++++++++++++++++++
+>  2 files changed, 24 insertions(+)
+>  create mode 100644 arch/riscv/kernel/crash_core.c
+>
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index db6e4b1294ba..4cf303a779ab 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -81,6 +81,7 @@ obj-$(CONFIG_KGDB)            += kgdb.o
+>  obj-$(CONFIG_KEXEC_CORE)       += kexec_relocate.o crash_save_regs.o machine_kexec.o
+>  obj-$(CONFIG_KEXEC_FILE)       += elf_kexec.o machine_kexec_file.o
+>  obj-$(CONFIG_CRASH_DUMP)       += crash_dump.o
+> +obj-$(CONFIG_CRASH_CORE)       += crash_core.o
+>
+>  obj-$(CONFIG_JUMP_LABEL)       += jump_label.o
+>
+> diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
+> new file mode 100644
+> index 000000000000..3e889d0ed7bd
+> --- /dev/null
+> +++ b/arch/riscv/kernel/crash_core.c
+> @@ -0,0 +1,23 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +
+> +#include <linux/crash_core.h>
+> +#include <linux/pagemap.h>
+> +
+> +void arch_crash_save_vmcoreinfo(void)
+> +{
+> +       VMCOREINFO_NUMBER(VA_BITS);
+> +       VMCOREINFO_NUMBER(phys_ram_base);
+> +
+> +       vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
+> +       vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+> +       vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
+> +       vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
+> +       vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
+> +#ifdef CONFIG_64BIT
+> +       vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
+> +       vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+> +#endif
+> +
+> +       if (IS_ENABLED(CONFIG_64BIT))
+> +               vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
+> +}
+> --
+> 2.17.1
+>
+
 
 -- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
