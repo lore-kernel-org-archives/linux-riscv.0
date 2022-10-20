@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2F4C43219
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 02:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9DAC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 03:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hk2ak5/I5MINlNATPLho4MCSdY+Gq0Wm4Xg4OPDJ6lI=; b=qCuf6C0afNVQGt
-	NZKbXFG2lA0GGK9WTOhL5ZCAVeJdFuTl4a0SQDPP1yQlxQrz9qUvoB6acotfOaNOSXqjhrnlVlM5o
-	GbF2VttKXf8/TkpFeFTUMrYdDbuaYLzQteDkvQdjhPS95/qc8kjnJSztAnKFr6aml/DPxXAEv+fHX
-	VTwqJABktCsY8P+oubgZvB0GyTG7s97qV0f53FmnpOLrFMcylW3LyfdVh3Uke9WIDr6l7geD9/Bif
-	c5O7cKIKiSlW4BMThkS5iunwbXP6/voNKbI0Y/ebEFC/cgiDdyTzxEkWZK3JOLCfF+7lzo+70jCI/
-	b/stvmjZJNF2pQ4T+3qw==;
+	List-Owner; bh=ykQTnRFVhv4z3PJmuxGUt1VfsLEMZDZw/+4NeBnH4cc=; b=rWzx2chsev1eB+
+	SaNRYG7IQtVrEHV7brIksidSvyrqu7xCkP/OOV/PgprdPWUYBNtiOMYFWpB4u36d2bAyXnQDvjV3S
+	BQmMw2uX98d41A4v+Qt9eCLDMrpnsxt/m4JVKUD366He2vqqZzznXjNHalDgG+SJii2n7CaOy/VHi
+	wAMl0hjleXR4o+tz+LWwwScpinIfKdgLS+8DLtB3SoJFgYGvFN2YvuyUMqNrRrJmHz4AxpyyHaXk3
+	/G/065y5uohcYh/Twj1pAulOOyqyHgd1K1J468dAcNtLdxQw+YuxSQ6Gm3s0OvNl/sPIMsNdSWrpF
+	u3o3MV4sOFVBYsZLStvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olLGc-009RIa-Ow; Thu, 20 Oct 2022 02:26:42 +0000
-Received: from out30-54.freemail.mail.aliyun.com ([115.124.30.54])
+	id 1olLnk-009bLc-FN; Thu, 20 Oct 2022 03:00:56 +0000
+Received: from out30-45.freemail.mail.aliyun.com ([115.124.30.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olLGW-009RHj-B4; Thu, 20 Oct 2022 02:26:40 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R751e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VScpkGP_1666232788;
-Received: from 30.221.97.125(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VScpkGP_1666232788)
+	id 1olKhj-0099cX-EJ; Thu, 20 Oct 2022 01:50:42 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R811e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0VScs1Nf_1666230633;
+Received: from localhost.localdomain(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VScs1Nf_1666230633)
           by smtp.aliyun-inc.com;
-          Thu, 20 Oct 2022 10:26:29 +0800
-Message-ID: <cc713fb3-371f-ffb9-d0d3-6bb4da776398@linux.alibaba.com>
-Date: Thu, 20 Oct 2022 10:26:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
- Gecko/20100101 Thunderbird/91.12.0
-Subject: Re: [PATCH V4 2/2] Documentation: kdump: describe VMCOREINFO export
- for RISCV64
-To: Bagas Sanjaya <bagasdotme@gmail.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, anup@brainfault.org,
- heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
- alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com,
- dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com,
- k-hagio-ab@nec.com, lijiang@redhat.com
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
- hschauhan@nulltrace.org, yixun.lan@gmail.com
-References: <20221019103623.7008-1-xianting.tian@linux.alibaba.com>
- <20221019103623.7008-3-xianting.tian@linux.alibaba.com>
- <26810115-1325-faf2-0f6e-0d7ff164982d@gmail.com>
+          Thu, 20 Oct 2022 09:50:33 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
-In-Reply-To: <26810115-1325-faf2-0f6e-0d7ff164982d@gmail.com>
+To: crash-utility@redhat.com,
+	mick@ics.forth.gr,
+	heinrich.schuchardt@canonical.com,
+	guoren@kernel.org,
+	k-hagio-ab@nec.com,
+	yixun.lan@gmail.com,
+	lijiang@redhat.com
+Cc: linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org,
+	hschauhan@nulltrace.org,
+	lifang_xia@linux.alibaba.com,
+	Xianting Tian <xianting.tian@linux.alibaba.com>
+Subject: [Crash-utility][PATCH V4 7/9] RISCV64: Add 'help -m/M' command support
+Date: Thu, 20 Oct 2022 09:50:12 +0800
+Message-Id: <20221020015014.46085-8-xianting.tian@linux.alibaba.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20221020015014.46085-1-xianting.tian@linux.alibaba.com>
+References: <20221020015014.46085-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221019_192638_705033_64E3924A 
-X-CRM114-Status: UNSURE (   5.58  )
+X-CRM114-CacheID: sfid-20221019_185039_697943_4FB8D31D 
+X-CRM114-Status: UNSURE (   6.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -65,26 +62,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIyLzEwLzIwIOS4iuWNiDk6NTYsIEJhZ2FzIFNhbmpheWEg5YaZ6YGTOgo+IE9uIDEw
-LzE5LzIyIDE3OjM2LCBYaWFudGluZyBUaWFuIHdyb3RlOgo+PiBUaGUgZm9sbG93aW5nIGludGVy
-cmVsYXRlZCBkZWZpbml0aW9ucyBhbmQgcmFuZ2VzIGFyZSBuZWVkZWQgYnkgdGhlIGtkdW1wCj4+
-IGNyYXNoIHRvb2wsIHdoaWNoIGFyZSBleHBvcnRlZCBieSAiYXJjaC9yaXNjdi9rZXJuZWwvY3Jh
-c2hfY29yZS5jIjoKPj4gICAgICBWQV9CSVRTLAo+PiAgICAgIFBBR0VfT0ZGU0VULAo+PiAgICAg
-IHBoeXNfcmFtX2Jhc2UsCj4+ICAgICAgS0VSTkVMX0xJTktfQUREUiwKPj4gICAgICBNT0RVTEVT
-X1ZBRERSIH4gTU9EVUxFU19FTkQsCj4+ICAgICAgVk1BTExPQ19TVEFSVCB+IFZNQUxMT0NfRU5E
-LAo+PiAgICAgIFZNRU1NQVBfU1RBUlQgfiBWTUVNTUFQX0VORCwKPj4KPj4gRG9jdW1lbnQgdGhl
-c2UgUklTQ1Y2NCBleHBvcnRzIGFib3ZlLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBYaWFudGluZyBU
-aWFuIDx4aWFudGluZy50aWFuQGxpbnV4LmFsaWJhYmEuY29tPgo+IEhpIFhpYW50aW5nLAo+Cj4g
-U2VlbXMgbGlrZSB5b3UgZm9yZ290IHRvIGtlZXAgY2FycnlpbmcgbXkgUmV2aWV3ZWQtYnkgZnJv
-bSB2MyBbMV0uCj4gQW55d2F5LCBoZXJlIGl0IGdvZXMuLi4KPgo+IFJldmlld2VkLWJ5OiBCYWdh
-cyBTYW5qYXlhIDxiYWdhc2RvdG1lQGdtYWlsLmNvbT4KU29ycnksIEkgZm9yZ290Li4uIDooCj4K
-PiBUaGFua3MuCj4KPiBbMV06IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWRvYy8yMDIy
-MTAxODA4MTc1NS42MjE0LTMteGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbS8KPgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add riscv64_dump_machdep_table() implementation, display machdep_table.
+
+crash> help -m
+              flags: 80 ()
+             kvbase: ff60000000000000
+  identity_map_base: ff60000000000000
+           pagesize: 4096
+          pageshift: 12
+           pagemask: fffffffffffff000
+         pageoffset: fff
+        pgdir_shift: 48
+       ptrs_per_pgd: 512
+       ptrs_per_pte: 512
+          stacksize: 16384
+                 hz: 250
+            memsize: 1071644672 (0x3fe00000)
+               bits: 64
+         back_trace: riscv64_back_trace_cmd()
+    processor_speed: riscv64_processor_speed()
+              uvtop: riscv64_uvtop()
+              kvtop: riscv64_kvtop()
+    get_stack_frame: riscv64_get_stack_frame()
+      get_stackbase: generic_get_stackbase()
+       get_stacktop: generic_get_stacktop()
+      translate_pte: riscv64_translate_pte()
+        memory_size: generic_memory_size()
+      vmalloc_start: riscv64_vmalloc_start()
+       is_task_addr: riscv64_is_task_addr()
+      verify_symbol: riscv64_verify_symbol()
+         dis_filter: generic_dis_filter()
+           dump_irq: generic_dump_irq()
+    show_interrupts: generic_show_interrupts()
+   get_irq_affinity: generic_get_irq_affinity()
+           cmd_mach: riscv64_cmd_mach()
+       get_smp_cpus: riscv64_get_smp_cpus()
+          is_kvaddr: riscv64_is_kvaddr()
+          is_uvaddr: riscv64_is_uvaddr()
+       verify_paddr: generic_verify_paddr()
+    init_kernel_pgd: NULL
+    value_to_symbol: generic_machdep_value_to_symbol()
+  line_number_hooks: NULL
+      last_pgd_read: ffffffff810e9000
+      last_p4d_read: 81410000
+      last_pud_read: 81411000
+      last_pmd_read: 81412000
+     last_ptbl_read: 81415000
+                pgd: 560d586f3ab0
+                p4d: 560d586f4ac0
+                pud: 560d586f5ad0
+                pmd: 560d586f6ae0
+               ptbl: 560d586f7af0
+  section_size_bits: 27
+   max_physmem_bits: 56
+  sections_per_root: 0
+           machspec: 560d57d204a0
+
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+---
+ riscv64.c | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 59 insertions(+), 1 deletion(-)
+
+diff --git a/riscv64.c b/riscv64.c
+index ddd801c..68eff5d 100644
+--- a/riscv64.c
++++ b/riscv64.c
+@@ -132,7 +132,65 @@ riscv64_verify_symbol(const char *name, ulong value, char type)
+ void
+ riscv64_dump_machdep_table(ulong arg)
+ {
+-	/* TODO: */
++	int others = 0;
++
++	fprintf(fp, "              flags: %lx (", machdep->flags);
++	if (machdep->flags & KSYMS_START)
++		fprintf(fp, "%sKSYMS_START", others++ ? "|" : "");
++	fprintf(fp, ")\n");
++
++	fprintf(fp, "             kvbase: %lx\n", machdep->kvbase);
++	fprintf(fp, "  identity_map_base: %lx\n", machdep->identity_map_base);
++	fprintf(fp, "           pagesize: %d\n", machdep->pagesize);
++	fprintf(fp, "          pageshift: %d\n", machdep->pageshift);
++	fprintf(fp, "           pagemask: %llx\n", machdep->pagemask);
++	fprintf(fp, "         pageoffset: %lx\n", machdep->pageoffset);
++	fprintf(fp, "        pgdir_shift: %ld\n", machdep->machspec->va_bits - 9);
++	fprintf(fp, "       ptrs_per_pgd: %u\n", PTRS_PER_PGD);
++	fprintf(fp, "       ptrs_per_pte: %d\n", PTRS_PER_PTE);
++	fprintf(fp, "          stacksize: %ld\n", machdep->stacksize);
++	fprintf(fp, "                 hz: %d\n", machdep->hz);
++	fprintf(fp, "            memsize: %ld (0x%lx)\n",
++		machdep->memsize, machdep->memsize);
++	fprintf(fp, "               bits: %d\n", machdep->bits);
++	fprintf(fp, "         back_trace: riscv64_back_trace_cmd()\n");
++	fprintf(fp, "    processor_speed: riscv64_processor_speed()\n");
++	fprintf(fp, "              uvtop: riscv64_uvtop()\n");
++	fprintf(fp, "              kvtop: riscv64_kvtop()\n");
++	fprintf(fp, "    get_stack_frame: riscv64_get_stack_frame()\n");
++	fprintf(fp, "      get_stackbase: generic_get_stackbase()\n");
++	fprintf(fp, "       get_stacktop: generic_get_stacktop()\n");
++	fprintf(fp, "      translate_pte: riscv64_translate_pte()\n");
++	fprintf(fp, "        memory_size: generic_memory_size()\n");
++	fprintf(fp, "      vmalloc_start: riscv64_vmalloc_start()\n");
++	fprintf(fp, "       is_task_addr: riscv64_is_task_addr()\n");
++	fprintf(fp, "      verify_symbol: riscv64_verify_symbol()\n");
++	fprintf(fp, "         dis_filter: generic_dis_filter()\n");
++	fprintf(fp, "           dump_irq: generic_dump_irq()\n");
++	fprintf(fp, "    show_interrupts: generic_show_interrupts()\n");
++	fprintf(fp, "   get_irq_affinity: generic_get_irq_affinity()\n");
++	fprintf(fp, "           cmd_mach: riscv64_cmd_mach()\n");
++	fprintf(fp, "       get_smp_cpus: riscv64_get_smp_cpus()\n");
++	fprintf(fp, "          is_kvaddr: riscv64_is_kvaddr()\n");
++	fprintf(fp, "          is_uvaddr: riscv64_is_uvaddr()\n");
++	fprintf(fp, "       verify_paddr: generic_verify_paddr()\n");
++	fprintf(fp, "    init_kernel_pgd: NULL\n");
++	fprintf(fp, "    value_to_symbol: generic_machdep_value_to_symbol()\n");
++	fprintf(fp, "  line_number_hooks: NULL\n");
++	fprintf(fp, "      last_pgd_read: %lx\n", machdep->last_pgd_read);
++	fprintf(fp, "      last_p4d_read: %lx\n", machdep->machspec->last_p4d_read);
++	fprintf(fp, "      last_pud_read: %lx\n", machdep->last_pud_read);
++	fprintf(fp, "      last_pmd_read: %lx\n", machdep->last_pmd_read);
++	fprintf(fp, "     last_ptbl_read: %lx\n", machdep->last_ptbl_read);
++	fprintf(fp, "                pgd: %lx\n", (ulong)machdep->pgd);
++	fprintf(fp, "                p4d: %lx\n", (ulong)machdep->machspec->p4d);
++	fprintf(fp, "                pud: %lx\n", (ulong)machdep->pud);
++	fprintf(fp, "                pmd: %lx\n", (ulong)machdep->pmd);
++	fprintf(fp, "               ptbl: %lx\n", (ulong)machdep->ptbl);
++	fprintf(fp, "  section_size_bits: %ld\n", machdep->section_size_bits);
++	fprintf(fp, "   max_physmem_bits: %ld\n", machdep->max_physmem_bits);
++	fprintf(fp, "  sections_per_root: %ld\n", machdep->sections_per_root);
++	fprintf(fp, "           machspec: %lx\n", (ulong)machdep->machspec);
+ }
+ 
+ static ulong
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
