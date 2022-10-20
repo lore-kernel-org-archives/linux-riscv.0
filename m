@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8235BC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 14:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69678C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Oct 2022 15:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H3yQa3y+jLFm52NEfMVoERNp0/vu9uWDGnI5MPm1dDg=; b=bGzqM9RtQfQlK1
-	KTOrA9qB8fiUmPnsOf+py+Sc3xtpS5eR0TlTDaH/nNy+gjuuo2UgXCI5nOOJpb6g5ZUNVLm9hlaat
-	LuArd3ri0cdp37T41Wxslu6rEoJ1Z6n76kUMVgfvAXyIqm+aTpAubZhA92j22OBPMR0iAq0C4Fz9t
-	2tYsIGSMTgi6Pn7HrqPiB+v0z3Nv1QUiyOMF+hy8EFgS6KlEL52taEc1VKBxjDtllvC6ihI3aW7zd
-	LWx0DAFKayCCXyabcftfrTKQkpPJULTVvj/a0b7kyJEqTwQ7zPhqtqrZNQH0L/0FBk3X9ZKz6qopP
-	gCOCpHmlyDR4L3EEevvw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=6E3S6+0EKSKcBD370wecn+t7s55ZIiaQp0o+CzPk2fc=; b=IvRAK4bmJfxmL6
+	ibsTcw/ELdubyvEcGZyKVEQ3ZCU/N8uHksQxfUO+7LYDqBX2Qr75bmK3U4lYo/pKRA8rDA4imr44b
+	WMBUOPbCs8ZNqNzp/G/tqO+1u2RkeeEa/nOYF5pEG33SIky0kBIKP2xgYhB6D5NfsdwYUwuAP8jN1
+	3vYkgewKNMyLqRXE1QpAQS+GOZTl9/kDuzDcckYgxOpTq94b7zzdlACJVJua394liv5CS45FQNi39
+	DoXs3ePIVmbt28SwajfRhN0dbOUuIq/zKW6LamhcC6/roRv0SPXjvwIi7jJN4qgQfyU/F1iWRkeFp
+	W0CRtl8H06Tbn+5iMetQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olWq0-00GNlA-GL; Thu, 20 Oct 2022 14:48:00 +0000
+	id 1olX6G-00GXME-V6; Thu, 20 Oct 2022 15:04:48 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olWpy-00GNhB-2c
-	for linux-riscv@lists.infradead.org; Thu, 20 Oct 2022 14:47:59 +0000
+	id 1olX65-00GXKH-DJ; Thu, 20 Oct 2022 15:04:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7DB8A61BA6;
-	Thu, 20 Oct 2022 14:47:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FBB3C433C1;
-	Thu, 20 Oct 2022 14:47:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BD8DD61BB6;
+	Thu, 20 Oct 2022 15:04:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE56FC433C1;
+	Thu, 20 Oct 2022 15:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666277276;
-	bh=KeuClFyItXAr2NxGDYmWyD1/MqyrreJJLWFewSUCVBo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B7IA0Bae6xgvWe0tFPlANFfmuUqMfq70YY1OhhrGfDk7kqVNbgcwGBdssix3Vb6at
-	 ugqrmDaDBDud8t3pzxZK6YaHhgE2HAmnLOb0LaeRIxopt+OoD4ZpmwUeUOdXzM28BO
-	 cFQJnLgWeuC8S1EwCpXQkuark4KrknEG5G4NVuTyeQLYI/ramnuMWX7ael1N2YBzkd
-	 CuumOldsvDn0pBUfyelEhjQWFnXbOE+xCKN9zl2GhRzHMLCfc3GcWtvVOzjZJPht2D
-	 0ybQvZR795KyoqrjWR6+5j8zlu3q32BjpuOqwiEYtdvlLvTvDNe8YXqllNQHd9njtD
-	 69Fei41GfYOQQ==
-Date: Thu, 20 Oct 2022 22:38:19 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: fix race when vmap stack overflow
-Message-ID: <Y1FdW8P9pw466hjV@xhacker>
-References: <20221019154727.2395-1-jszhang@kernel.org>
- <CAJF2gTSHH69B+KAOJdpLvQdGuhS1nJ+GnW2hVCb+e+8nrnaJ7Q@mail.gmail.com>
+	s=k20201202; t=1666278276;
+	bh=MRWW87pAsq3Ov7I38XJfjHIT6/6rcGMTIKudamH/Qlc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=fvmtWob5RXz/kHLTL1TNBOAyteTHgsKDs4ZTjevlmoHIwxTjMd0nHa/IJPz0Bqkkm
+	 ACdZeNHLrRH+6y5zswwgfHPmTvxDu75CA8nbwp7RKnHlIuMqln7eIskaTwbhmpZewT
+	 KVgKEOET44WVom2LR3A3I+QIYGZyJc62sUPg4agsLtmbZzDt3ZqTt09OXKTpApPPGw
+	 gk6b9kg8u38YOwSVK2VXY83opXqL6uuA5lx7BKQI8usJHilEMYH8sGqNo88EMFvPgt
+	 mN0/wxxiGAPaMYBiC0DwgBywEJONrUS11+7Miwv0T25KrHYUaFo/K6Gy1GR3Et/cEe
+	 KMdiC587G7e6w==
+Date: Thu, 20 Oct 2022 10:04:34 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, kbuild-all@lists.01.org,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Tom Joseph <tjoseph@cadence.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Minghuan Lian <minghuan.Lian@nxp.com>,
+	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Toan Le <toan@os.amperecomputing.com>,
+	Joyce Ooi <joyce.ooi@intel.com>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
+	Michal Simek <monstr@monstr.eu>,
+	bcm-kernel-feedback-list@broadcom.com, linux-omap@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-tegra@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] PCI: Remove unnecessary of_irq.h includes
+Message-ID: <20221020150434.GA121028@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTSHH69B+KAOJdpLvQdGuhS1nJ+GnW2hVCb+e+8nrnaJ7Q@mail.gmail.com>
+In-Reply-To: <20221020134101.GA90102@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221020_074758_187836_1B734260 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20221020_080437_544728_487A55C7 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +91,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 20, 2022 at 10:16:47AM +0800, Guo Ren wrote:
-> On Wed, Oct 19, 2022 at 11:57 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > Currently, when detecting vmap stack overflow, riscv firstly switches
-> > to the so called shadow stack, then use this shadow stack to call the
-> > get_overflow_stack() to get the overflow stack. However, there's
-> > a race here if two or more harts use the same shadow stack at the same
-> > time.
-> >
-> > To solve this race, we introduce spin_shadow_stack atomic var, which
-> > will make the shadow stack usage serialized.
-> >
-> > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Suggested-by: Guo Ren <guoren@kernel.org>
-> > ---
-> >  arch/riscv/kernel/entry.S | 4 ++++
-> >  arch/riscv/kernel/traps.c | 4 ++++
-> >  2 files changed, 8 insertions(+)
-> >
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index b9eda3fcbd6d..7b924b16792b 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -404,6 +404,10 @@ handle_syscall_trace_exit:
-> >
-> >  #ifdef CONFIG_VMAP_STACK
-> >  handle_kernel_stack_overflow:
-> > +1:     la sp, spin_shadow_stack
-> > +       amoswap.w sp, sp, (sp)
-> If CONFIG_64BIT=y, it would be broken. Because we only hold 32bit of
-> the sp, and the next loop would get the wrong sp value of
-> &spin_shadow_stack.
+On Thu, Oct 20, 2022 at 08:41:01AM -0500, Bjorn Helgaas wrote:
+> On Thu, Oct 20, 2022 at 04:09:37PM +0800, kernel test robot wrote:
+> > Hi Bjorn,
+> > 
+> > I love your patch! Yet something to improve:
+> > 
+> > [auto build test ERROR on helgaas-pci/next]
+> > [also build test ERROR on xilinx-xlnx/master rockchip/for-next linus/master v6.1-rc1 next-20221020]
+> > [If your patch is applied to the wrong git tree, kindly drop us a note.
+> > And when submitting patch, we suggest to use '--base' as documented in
+> > https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > 
+> > url:    https://github.com/intel-lab-lkp/linux/commits/Bjorn-Helgaas/PCI-Remove-unnecessary-of_irq-h-includes/20221020-100633
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/helgaas/pci.git next
+> > patch link:    https://lore.kernel.org/r/20221019195452.37606-1-helgaas%40kernel.org
+> > patch subject: [PATCH] PCI: Remove unnecessary of_irq.h includes
+> > config: ia64-randconfig-r026-20221020
+> > compiler: ia64-linux-gcc (GCC) 12.1.0
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # https://github.com/intel-lab-lkp/linux/commit/273a24b16a40ffd6a64c6c55aecbfae00a1cd996
+> >         git remote add linux-review https://github.com/intel-lab-lkp/linux
+> >         git fetch --no-tags linux-review Bjorn-Helgaas/PCI-Remove-unnecessary-of_irq-h-includes/20221020-100633
+> >         git checkout 273a24b16a40ffd6a64c6c55aecbfae00a1cd996
+> >         # save the config file
+> >         mkdir build_dir && cp config build_dir/.config
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=ia64 SHELL=/bin/bash drivers/pci/controller/
+> 
+> FYI, the instructions above didn't work for me.  Missing "config".
 
-Hi Guo,
+Sorry, my fault, "config" was a MIME attachment.  Possibly update the
+instructions:
 
-Don't worry about it. the spin_shadow_stack is just a flag used for
-"spin", if hart is allowed to used the shadow_stack, we load its
-address in next instruction by "la sp, shadow_stack".
-But I agree with use unsigned int instead of atomic_t, and use
-smp_store_release directly. V2 has been sent out, could you please
-review it?
-
-Thanks
+  - # save the config file
+  + # save the config file from the MIME attachment
 
 _______________________________________________
 linux-riscv mailing list
