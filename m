@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B30FA373D
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 16:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D96F0C38A2D
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 22:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=n8SWAFOuAoLoUbNESJuPXxLp89ZOSaxchsV8UtWSDGQ=; b=rp3GLW29dwYZJZ
-	XzXkTWD7UzESSJ/+kbuFCadWRMBWkzKWTCR7yqxmgTKmVbSVb5zIY6I/BRIXmIgsensgtxdbjZ2M1
-	TQboCN5i1pghRAHAtb1DUPPPBcrnZr20rfvcvdv4fTZaJGO/Gbc+pntcp7APK+XUKinR8540TogVm
-	q6PPBagxsX/pUJRhkSRrbSBaaN/IMdSXury30EvIZi4Y4btugIrmtSrrH2df5ZZu+wgYkYKgIQu75
-	79foyw/9QoPxev65ydnDp1FTKA9s1t2iPISNRpYR5ivF27S0JeIgwiyv0gtaW2ujCGK4a2kLZHxeR
-	PXpmhM7ncX10jAlaAj/w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vkrf28cRt32/GvjaWEPH4UKqC1c/HP2eEfRf5a6Dvkk=; b=dw2VIN700qjesd
+	EaF9u6Q2QK/AD49b5yaAj6GQ4oZXoVGkh/JmgjJWPhYBhF2xjmxPthyafERwNKLCxT08wGHEwWmwJ
+	PlR8qBG5aE50x12hNDsAvqfLhZL/7zrxqPiNtzhqa8oMOaZngGXuVT2PrOuZzdTlV8U+LEK6SVoBu
+	gIC637GqBjyyLybfpmNMyMofIXenL0UcQzUMYOWNHrHc0de+CbJ5Rdi22x6Psbpl1FG/SS/p+GhBc
+	ZIymvyV2T20eEhWmxBdzIuxQMLus+U01fteMqICkcsWrEiJJWP63GjcmdGoCq2tU81R/NNt3qPKvs
+	LLA+XYfjXOGkE3t67Bvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oluUS-008qOH-PU; Fri, 21 Oct 2022 16:03:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1om09c-00A7Yx-BT; Fri, 21 Oct 2022 22:06:12 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oluUP-008qKG-Fb
-	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 16:03:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D655061ED3;
-	Fri, 21 Oct 2022 16:03:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 456DDC433B5;
-	Fri, 21 Oct 2022 16:03:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666368195;
-	bh=0BdqJvq/BQm9IJEw+9LBrBGViUUKrHzJKUXJpEZshk8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BwzXzdfQxfvdkqX5xIXYo2tx6Q4C/ygtjiTGy1M5kjHNgxo3qky0Pl/Ii3frMjLmI
-	 AE5Uwyss3rzYaFJ9wcA9LFpUFqQZ9ze46zMz9q8Z48T45/ZiENBqUR9yQHYmZHZqM8
-	 JWbEKlzlwRZCdW2tGpmAgNyaKll4s0+8W7XL5oLdHAZQmpCSYftENb2utGPe5gWI7W
-	 vdMOKwBT7wQ4GEGG0uTjV6mWAP4TMnVeUV3I7KgN/dNx2xEelIf3n+KKSv2yAwpOts
-	 BY0Xm6kp8rCN8m5DKdzMwZh+/nDSgoM2Jrf9koU0QOMcZqrOVGYhnUA4SB1btfr97S
-	 EEP29pcd4UmhQ==
-From: Conor Dooley <conor@kernel.org>
-To: palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org
-Cc: daire.mcnamara@microchip.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH] RISC-V: enable sparsemem by default for defconfig
-Date: Fri, 21 Oct 2022 17:00:30 +0100
-Message-Id: <20221021160028.4042304-1-conor@kernel.org>
-X-Mailer: git-send-email 2.38.0
+	id 1om09Z-00A7YH-Ti
+	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 22:06:11 +0000
+Received: by mail-ed1-x536.google.com with SMTP id l22so10830999edj.5
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 15:06:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fj7H4f9/5FF7rrceAwSF1Et0E+FnHCVLEl47OTB4zRg=;
+        b=bPYdKSl/QFk4+7B9Vbu1X/0B2vv8cB1DscwjVj38aHPN31PuxeaWgZKKZM9rJmJ3jd
+         piN0i+6Y3oxINgh/TgpUH5ZOlKU2NqqgR3S3tAjghte+yQc9nLk98fwzRJyXi19NOz4a
+         iq8vvB+9cvdwR5RtDhYDDvsc5t8DKvlR2mMjvIOhKVwKFEwZ37Kqx3ZIsbf2rL35De6Z
+         eJi1Cf7Es++jPy2OC05a+O4TaUmAOnl/Id/qDi483kzmVveHWGHhijsRXebX2FVPmqO9
+         /J9t+qxjEvx3RK5O6RwX0cPkoC+D3Yqk+fNj0nN85dq2hwAmnCpFbPLnvAgZV38TMSVF
+         Qwpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Fj7H4f9/5FF7rrceAwSF1Et0E+FnHCVLEl47OTB4zRg=;
+        b=rP1fvgdYNhaowMwLIk5gQj8hrUhFa5eqGao/XTFq00GYQJ5Ht5h5h3xxgqy1Mg88Xt
+         jGF7vkuRVsgV/82umjLbxpeSd7/gM3dMnD2IG3/os2E2BTLPf2Fx1s6nJSQS/ZquEe3C
+         AtWgQiRw1LNmQs95BHs3lUgKZutqzJaCAIPgDklLcG6Xzy5UlYBg+8/koOjaZh7wcrCz
+         arytCwcPZ7w9FjZiPQa6jI1HudWfN4FoHYIbKTZIgwmN6zfZYtp24zz9lFgiD/LLfd/3
+         Tx5jk52YPaXMIlzyyBxZMCuXSpDWbRvbUxyon3jiyCFZ0Nj+9Sm3s0e9zRhAjXTA1Ywr
+         Dyog==
+X-Gm-Message-State: ACrzQf2704elYtzmlzS4nUHunh+jns7jqZGHmqI+uSv2Z96Y9EqFLxk5
+	WiYZcTGS+Ta9OcPDCym5Ilg2EhWATs8m2Zd1+V0=
+X-Google-Smtp-Source: AMsMyM4458QUG6GWHFAK4wMhwxdindPP7SYutQGi351xOhy+v9IlgGW7zV7L2Edpw9VRuQ1QxVmkz8bk+429zT1FGNs=
+X-Received: by 2002:a17:906:5a4b:b0:78d:4e5a:d101 with SMTP id
+ my11-20020a1709065a4b00b0078d4e5ad101mr16940953ejc.196.1666389967011; Fri, 21
+ Oct 2022 15:06:07 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221021020500.GA2157489-robh@kernel.org>
+In-Reply-To: <20221021020500.GA2157489-robh@kernel.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 21 Oct 2022 23:05:40 +0100
+Message-ID: <CA+V-a8v0jEFj+XKAtyAaTBFmX3bObBZgGd6n1LB3OnTU_W002w@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: Rob Herring <robh@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221021_090317_627088_0B8B99E4 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20221021_150610_005680_E1594C5F 
+X-CRM114-Status: GOOD (  36.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +96,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hi Rob,
 
-on an arch level, RISC-V defaults to FLATMEM. On PolarFire SoC, the
-memory layout is almost always sparse, with a maximum of 1 GiB at
-0x8000_0000 & a possible 16 GiB range at 0x10_0000_0000. The Icicle kit,
-for example, has 2 GiB of DDR - so there's a big hole in the memory map
-between the two gigs. Prior to v6.1-rc1, boot times from defconfig
-builds were pretty bad on Icicle but enabling sparsemem would fix those
-issues. As of v6.1-rc1, the Icicle kit no longer boots from defconfig
-builds with the in-kernel devicetree. A change to the memory map
-resulted in a futher "sparse-ification", producing a splat on boot:
+Thank you for the review.
 
-	OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-	Machine model: Microchip PolarFire-SoC Icicle Kit
-	earlycon: ns16550a0 at MMIO32 0x0000000020100000 (options '115200n8')
-	printk: bootconsole [ns16550a0] enabled
-	printk: debug: skip boot console de-registration.
-	efi: UEFI not found.
-	Zone ranges:
-	  DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
-	  Normal   [mem 0x0000000100000000-0x000000107fffffff]
-	Movable zone start for each node
-	Early memory node ranges
-	  node   0: [mem 0x0000000080200000-0x00000000bfbfffff]
-	  node   0: [mem 0x00000000bfc00000-0x00000000bfffffff]
-	  node   0: [mem 0x0000001040000000-0x000000107fffffff]
-	Initmem setup node 0 [mem 0x0000000080200000-0x000000107fffffff]
-	Kernel panic - not syncing: Failed to allocate 1073741824 bytes for node 0 memory map
-	CPU: 0 PID: 0 Comm: swapper Not tainted 5.19.0-dirty #1
-	Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
-	Call Trace:
-	[<ffffffff800057f0>] show_stack+0x30/0x3c
-	[<ffffffff807d5802>] dump_stack_lvl+0x4a/0x66
-	[<ffffffff807d5836>] dump_stack+0x18/0x20
-	[<ffffffff807d1ae8>] panic+0x124/0x2c6
-	[<ffffffff80814064>] free_area_init_core+0x0/0x11e
-	[<ffffffff80813720>] free_area_init_node+0xc2/0xf6
-	[<ffffffff8081331e>] free_area_init+0x222/0x260
-	[<ffffffff808064d6>] misc_mem_init+0x62/0x9a
-	[<ffffffff80803cb2>] setup_arch+0xb0/0xea
-	[<ffffffff8080039a>] start_kernel+0x88/0x4ee
-	---[ end Kernel panic - not syncing: Failed to allocate 1073741824 bytes for node 0 memory map ]---
+On Fri, Oct 21, 2022 at 3:05 AM Rob Herring <robh@kernel.org> wrote:
+>
+> On Wed, Oct 19, 2022 at 11:02:42PM +0100, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > On the AX45MP core, cache coherency is a specification option so it may
+> > not be supported. In this case DMA will fail. As a workaround, firstly we
+> > allocate a global dma coherent pool from which DMA allocations are taken
+> > and marked as non-cacheable + bufferable using the PMA region as specified
+> > in the device tree. Synchronization callbacks are implemented to
+> > synchronize when doing DMA transactions.
+> >
+> > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > block that allows dynamic adjustment of memory attributes in the runtime.
+> > It contains a configurable amount of PMA entries implemented as CSR
+> > registers to control the attributes of memory locations in interest.
+> >
+> > Below are the memory attributes supported:
+> > * Device, Non-bufferable
+> > * Device, bufferable
+> > * Memory, Non-cacheable, Non-bufferable
+> > * Memory, Non-cacheable, Bufferable
+> > * Memory, Write-back, No-allocate
+> > * Memory, Write-back, Read-allocate
+> > * Memory, Write-back, Write-allocate
+> > * Memory, Write-back, Read and Write-allocate
+> >
+> > This patch adds support to configure the memory attributes of the memory
+> > regions as passed from the l2 cache node and exposes the cache management
+> > ops.
+> >
+> > More info about PMA (section 10.3):
+> > http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+> >
+> > This feature is based on the work posted [0] by Vincent Chen
+> > <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
+> >
+> > [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> >  arch/riscv/include/asm/cacheflush.h    |   8 +
+> >  arch/riscv/include/asm/errata_list.h   |   2 +
+> >  arch/riscv/mm/dma-noncoherent.c        |  20 ++
+> >  drivers/soc/renesas/Kconfig            |   5 +
+> >  drivers/soc/renesas/Makefile           |   4 +
+> >  drivers/soc/renesas/rzf/Kconfig        |   6 +
+> >  drivers/soc/renesas/rzf/Makefile       |   3 +
+> >  drivers/soc/renesas/rzf/ax45mp_cache.c | 431 +++++++++++++++++++++++++
+>
+> How many cache drivers do we have around now? I've seen a few bindings
+> go by. I'm guessing it is time to stop putting the drivers in the
+> drivers/soc/ dumping ground.
+>
+The main reason this driver is not in arch/riscv is that it has vendor
+specific extensions. Due to this reason it was agreed during the LPC
+that vendor specific extension should be maintained by SoC vendors and
+was agreed that this can go into drivers/soc/renesas folder instead.
 
-With the aim of keeping defconfig builds booting on icicle, enable
-SPARSEMEM_MANUAL.
+> >  drivers/soc/renesas/rzf/ax45mp_sbi.h   |  29 ++
+> >  9 files changed, 508 insertions(+)
+> >  create mode 100644 drivers/soc/renesas/rzf/Kconfig
+> >  create mode 100644 drivers/soc/renesas/rzf/Makefile
+> >  create mode 100644 drivers/soc/renesas/rzf/ax45mp_cache.c
+> >  create mode 100644 drivers/soc/renesas/rzf/ax45mp_sbi.h
+> >
+> > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> > index 8a5c246b0a21..40aa790be9a3 100644
+> > --- a/arch/riscv/include/asm/cacheflush.h
+> > +++ b/arch/riscv/include/asm/cacheflush.h
+> > @@ -65,6 +65,14 @@ static inline void riscv_noncoherent_supported(void) {}
+> >  #define SYS_RISCV_FLUSH_ICACHE_LOCAL 1UL
+> >  #define SYS_RISCV_FLUSH_ICACHE_ALL   (SYS_RISCV_FLUSH_ICACHE_LOCAL)
+> >
+> > +#ifdef CONFIG_AX45MP_L2_CACHE
+> > +void ax45mp_cpu_dma_inval_range(void *vaddr, size_t end);
+> > +void ax45mp_cpu_dma_wb_range(void *vaddr, size_t end);
+> > +
+> > +#define ALT_CMO_OP(_op, _start, _size, _cachesize)   \
+> > +                _op(_start, _size)
+> > +#endif
+> > +
+> >  #include <asm-generic/cacheflush.h>
+> >
+> >  #endif /* _ASM_RISCV_CACHEFLUSH_H */
+> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> > index 19a771085781..d9cbf60c3b65 100644
+> > --- a/arch/riscv/include/asm/errata_list.h
+> > +++ b/arch/riscv/include/asm/errata_list.h
+> > @@ -89,6 +89,7 @@ asm volatile(ALTERNATIVE(                                           \
+> >  #define ALT_THEAD_PMA(_val)
+> >  #endif
+> >
+> > +#ifdef CONFIG_ERRATA_THEAD_CMO
+> >  /*
+> >   * dcache.ipa rs1 (invalidate, physical address)
+> >   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> > @@ -143,5 +144,6 @@ asm volatile(ALTERNATIVE_2(                                               \
+> >       : "a0")
+> >
+> >  #endif /* __ASSEMBLY__ */
+> > +#endif
+> >
+> >  #endif
+> > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> > index b0add983530a..5270acca6766 100644
+> > --- a/arch/riscv/mm/dma-noncoherent.c
+> > +++ b/arch/riscv/mm/dma-noncoherent.c
+> > @@ -24,13 +24,25 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> >
+> >       switch (dir) {
+> >       case DMA_TO_DEVICE:
+> > +#ifdef CONFIG_ERRATA_THEAD_CMO
+> >               ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> > +#elif CONFIG_AX45MP_L2_CACHE
+> > +             ALT_CMO_OP(ax45mp_cpu_dma_wb_range, vaddr, size, 0x0);
+> > +#endif
+>
+> How do you support more than one platform in a build?
+>
+Yes, that's one concern which I have mentioned in the cover letter too
+(At that moment it's just a single platform). Suggestions welcome!
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-
-I had it in my head that keeping defconfig booting on ~all~ as many
-platforms as possible was a goal, I think from one of the Kconfig.socs
-conversations. Hence this patch..
-
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 05fd5fcf24f9..daba5d743862 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -38,6 +38,7 @@ CONFIG_KVM=m
- CONFIG_JUMP_LABEL=y
- CONFIG_MODULES=y
- CONFIG_MODULE_UNLOAD=y
-+CONFIG_SPARSEMEM_MANUAL=y
- CONFIG_BLK_DEV_THROTTLING=y
- CONFIG_NET=y
- CONFIG_PACKET=y
--- 
-2.38.0
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
