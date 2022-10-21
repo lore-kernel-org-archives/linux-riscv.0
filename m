@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B4FC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 13:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67BEC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 14:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0xrvt8BkfKrjapaf048gT08vZNxH8nd6mnwmkdA0hlg=; b=PkU7yOzCQFKN1e
-	12dPKXnSzY2rqkdlwUSvzpM2xM2x1Ww+mpSteQcrHgW8Fo1y1B+EnRrCAIGLqBcWbh9peDNg/e5Ls
-	iqXzkk/6q11UoyBG6dFfebwf9+jqflMPxnfGdteIOQkBkNva36shIIEOBoWwuhC1rm2M6oTrwE3iZ
-	chIq207sV+njtLzaL6Cgj4G8Z4OnDxWA6q5EuPLrbpfvAmmlvg/3VSBzjMOw2fsSnJGO3XEh4kGRA
-	JteKwcKNDiesEzqmS9ETrulefBd5KWWdbQ1APdA0HX2m+FYz5zpPMfWTPhyXADyjj4HWzlNoAfdjs
-	d/bntdKG47uQzwXPELFw==;
+	List-Owner; bh=aKIekrs1J7II5uPDAWPk7b15BJEbtQTJnwwlOqCtUzw=; b=lyG1o7IR+yoc2c
+	bWiA76OZV/aMffTsyufr9HncVpspaaY7i0lkAz6ILCWlDsMwy4VCeID6w8KJhzyU2ZByowfCHM/y9
+	iAmlZ9JnycxnBLknxCT0WBmayMKU/4BGtJXhISKl0i73zya0C4KuPbfi/kntOvsMkYMAwnEMYyF27
+	osrV7j0JWGj4MvsMZ392QreyUpXOP2hNMXKx57DjT/1wHmXXciKU8B4fOxOE3wKFEs/RVvoTiMLer
+	7fqaNzjc0RgUKM2DUsDYHc+YmfyUCvUqSCLsn+xh2ovkqWiNR6bT1W6x3odVfkL7Q1VIygqpp9yZj
+	vThFMteFUhIPP7fbg8WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olsM4-0088Mf-4l; Fri, 21 Oct 2022 13:46:32 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1olt7b-008Upx-DJ; Fri, 21 Oct 2022 14:35:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olsM0-0088Hk-L3
-	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 13:46:30 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.57])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Mv5KC5rn4zJn4V;
-	Fri, 21 Oct 2022 21:43:43 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 21 Oct 2022 21:46:25 +0800
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 21 Oct 2022 21:46:24 +0800
-Message-ID: <f1eb4756-e1e1-1f12-e767-a69a891786d6@huawei.com>
-Date: Fri, 21 Oct 2022 21:46:23 +0800
+	id 1olt7Z-008UpW-8N
+	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 14:35:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D0CEF61E2D
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 14:35:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4284CC433D6
+	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 14:35:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666362936;
+	bh=B/5S/o4drVYHhiJToyAIzlZIavyyZUO2GzzMWPOCRFM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=oxPZ4DvnpzhyB31VWjvWVlmDbdfsz7IIn4MjSXnnZkd7Wxv+JfyO84t1oF/wj4ZIo
+	 ADbbMVe1KEckFXK5LhCRuBHiPx3J48pA0p8GaTXKBzlyq5Ka9lr4oLhB94rzAp0jLD
+	 w9bMMwkq3j2wrgM8C7AyMOmXS7yg2Jh2bhvWIy6ypy0SilnR+kw1uqnG1wN42e+Kle
+	 ICcYjE+wwdh/S5rZ1ZoF8ZnmtXSIVKvJreBDyqndreet6C8RnXCIBNTWse/hdUY5YM
+	 zJdKltagoMM6zxGzsjALam5sIG0BqB7OtkaXgslBO0aQMhUZpAkPveERrE3aGNjnIh
+	 Srn4b+CQ5dTuA==
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-132fb4fd495so3723084fac.12
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 07:35:36 -0700 (PDT)
+X-Gm-Message-State: ACrzQf0XkK/wYRFAEcWBIpher9+n/OHZnadpBvxze0Unn1RECFt1Brwa
+	huv5cBF1tD8ra/fJ8PeH5Mkea2sPFyM4NIWI6nk=
+X-Google-Smtp-Source: AMsMyM67fmIp02X01LltgnR22002Nyx8nO5i3CGxzwXCtW7W6hgE8MoIslqqWisrCMwZm9k1V0Tl1aKjfJEkZuQuzFM=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr27899577oap.19.1666362935455; Fri, 21
+ Oct 2022 07:35:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
+References: <20221019154727.2395-1-jszhang@kernel.org> <Y1HZFcBo21SQzXVj@andrea>
+ <CAJF2gTRAEX_jQ_w5H05dyafZzHq+P5j05TJ=C+v+OL__GQam4A@mail.gmail.com> <Y1JaE/ot91Z0KXuC@andrea>
+In-Reply-To: <Y1JaE/ot91Z0KXuC@andrea>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 21 Oct 2022 22:35:23 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTROm_ifvbccUmj0_CTLNq5oh1GC+XCLX+NQm4L5P71CFw@mail.gmail.com>
+Message-ID: <CAJF2gTROm_ifvbccUmj0_CTLNq5oh1GC+XCLX+NQm4L5P71CFw@mail.gmail.com>
 Subject: Re: [PATCH] riscv: fix race when vmap stack overflow
 To: Andrea Parri <parri.andrea@gmail.com>
-CC: Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20221019154727.2395-1-jszhang@kernel.org>
- <Y1HZFcBo21SQzXVj@andrea>
- <CAJF2gTRAEX_jQ_w5H05dyafZzHq+P5j05TJ=C+v+OL__GQam4A@mail.gmail.com>
- <Y1JaE/ot91Z0KXuC@andrea> <ed7c4027-8e15-245f-cdda-0551063761e7@huawei.com>
- <Y1KdKATQx16Xl/iL@andrea>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <Y1KdKATQx16Xl/iL@andrea>
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+Cc: Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221021_064628_900710_ED71B871 
-X-CRM114-Status: UNSURE (   4.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221021_073537_355275_A81CB5B1 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +77,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi8xMC8yMSAyMToyMiwgQW5kcmVhIFBhcnJpIOWGmemBkzoKPiBIaSBUb25nLAo+
-ICAgCj4+Pj4gSSB1c2UgYXRvbWljX3NldF9yZWxlYXNlIGhlcmUsIGJlY2F1c2UgSSBuZWVkIGVh
-cmxpZXIgbWVtb3J5Cj4+Pj4gb3BlcmF0aW9ucyBmaW5pc2hlZCB0byBtYWtlIHN1cmUgdGhlIHNw
-IGlzIHJlYWR5IHRoZW4gc2V0IHRoZSBzcGluCj4+Pj4gZmxhZy4KPiAKPj4gCUNvbnNpZGVyIHRo
-aXMgaW1wbGVtZW50YXRpb246KQo+Pgo+PiAJc21wX3N0b3JlX21iKCZzcGluX3NoYWRvd19zdGFj
-aywgMCk7Cj4gCj4gc21wX3N0b3JlX21iKCkgaGFzICJXUklURV9PTkNFKCk7IHNtcF9tYigpIiBz
-ZW1hbnRpY3M7IHNvIGl0IGRvZXNuJ3QKPiBndWFyYW50ZWUgdGhhdCB0aGUgc3RvcmUgdG8gc3Bp
-bl9zaGFkb3dfc3RhY2sgaXMgb3JkZXJlZCBhZnRlciBwcm9ncmFtCj4gLW9yZGVyIGVhcmxpZXIg
-bWVtb3J5IGFjY2Vzc2VzLgo+IAo+ICAgIEFuZHJlYQo+IC4KCkhpIEFuZHJlYToKCklJVUMsIHRo
-ZSBlYXJsaWVyIG1lbW9yeSBhY2Nlc3MgYW1vc3dhcC5hcXJsLCBoZXJlIC5hcXJsIGd1YXJhbnRl
-ZSBpdC4KQnV0IGFueXdheSwgY29uc2lkZXIgd2UgZG9uJ3QgY2FyZSBhYm91dCBwZXJmb3JtYW5j
-ZSBoZXJlLCB1c2luZyAKc21wX3N0b3JlX3JlbGVhc2UoKShhZGQgYmFycmllcigpKSBzdXJlbHkg
-cmlnaHQuCgpUaGFua3MsClRvbmcuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Fri, Oct 21, 2022 at 4:36 PM Andrea Parri <parri.andrea@gmail.com> wrote:
+>
+> > > > +     atomic_set_release(&spin_shadow_stack, 0);
+> > >
+> > > Have not really looked the details: should there be a matching acquire?
+> >
+> > I use atomic_set_release here, because I need earlier memory
+> > operations finished to make sure the sp is ready then set the spin
+> > flag.
+> >
+> > The following memory operations order is not important, because we
+> > just care about sp value.
+> >
+> > Also, we use relax amoswap before, because sp has naturelly
+> > dependency. But giving them RCsc is okay here, because we don't care
+> > about performance here.
+>
+> Thanks for the clarification.
+>
+> I'm not really suggesting to add unneeded synchronization, even more
+> so in local/private constructs as in this case.  It just felt odd to
+> see the release without a pairing acquire, so I asked.  ;-)
+Okay, let's keep:
+
+ handle_kernel_stack_overflow:
++1:     la sp, spin_shadow_stack
++       amoswap.w sp, sp, (sp)
++       bnez sp, 1b
++
+....
++     smp_store_release(&spin_shadow_stack, 0);
+
+>
+> Thanks,
+>   Andrea
+>
+>
+> > eg:
+> >  handle_kernel_stack_overflow:
+> > +1:     la sp, spin_shadow_stack
+> > +       amoswap.w.aqrl sp, sp, (sp)
+> > +       bnez sp, 1b
+> > +
+> > ....
+> > +     smp_store_release(&spin_shadow_stack, 0);
+> > +     smp_mb();
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
