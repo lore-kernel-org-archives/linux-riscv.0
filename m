@@ -4,67 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37EF0C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 02:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C742AC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 02:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sW543smMD4+A46KYkYwjP0wfWamICkxBZ0fD/Cx2gMU=; b=hvJrWctLPPUmTh
-	rdzin3QA+x/ZlHSLonKAZpg20fvpNab26PM+xW9XSUhjLUomL4RJOxxXOEBpAJ1yBWHGzsKXPHRNw
-	mAk99s1B1LmLnixDFNFqIjziLekgJWejei4YpvUTos6WZ2Msv6nuaNlmkflndLOC86IKknITzS1Xu
-	oolDCVx5LkaJikcnCHRtaspitAOu/5Bju+eMJvCzufHcCf77vlrkizS9qXffLQPk33zIuck0VwqmB
-	Dwx9e/AMJLxw/tr5cBjdTcp0n6SiEWkjd9ujO8cUU0/y+X5VYaEV6r3/MWDjU7TXjYmJRmWGngUrQ
-	yAlEzBtnj0m/AQh/w5Ug==;
+	List-Owner; bh=HFGsHcnbt2PXnbIIueV+94RK4Y5pWax0mgchwQWKtoc=; b=PS9bCfK+Kwk4k+
+	xM0M/MruJjqIg5W5XidOSCswihvIj0+ncVE1ZAyrierw7hbJnm1HnONZav7ydS9WJFkWnnQsJENf2
+	9X+EYSCZfzTyLhK0Z2R/6Q5Y5sMNnGffC4t2ZD/zw/L0w9aRLFQRmtih6c3gcad8Zn8CpBQTA4YvA
+	KJARqRHmjgwrowPZgqM9LlG1Y8yJamBMg8Evq+qesQ5cvfkLp22Vp4C2j0X7VGWZUEPilS03bv6zb
+	Xrmwgqil7UQn9jjSCJjPFS4XeR0nQPcRO5ZFrpbRmNbkMnQpZ965nHGxvzeOUDM67ntLiB9Hj41Tx
+	3K1Ue7kujlJGple2sH5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olhUB-004MH0-9h; Fri, 21 Oct 2022 02:10:11 +0000
-Received: from mail-oa1-f41.google.com ([209.85.160.41])
+	id 1olhb3-004NaI-54; Fri, 21 Oct 2022 02:17:17 +0000
+Received: from mail-os0jpn01on2067.outbound.protection.outlook.com ([40.107.113.67] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olhU7-004MG0-I3
-	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 02:10:09 +0000
-Received: by mail-oa1-f41.google.com with SMTP id 586e51a60fabf-136b5dd6655so1886270fac.3
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Oct 2022 19:10:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=W3gPdPwM5JXUY46ySF95882khroatjgZybGKy2kbf8k=;
-        b=l3yVbIVVZCuRmV6gIsBdtIt0YkYxgpz2M11ljjfe0cyc231fLxEj/SLE7/gPWMAXc0
-         pIGHHsH05X2wf6v/9sJ5JX+L2uHvMuM0LR+ZZcdk6CPg44GITdTUaL/r2Dmj/DzWX0e4
-         PIGPYR3o1bl5uW/Kk5bCric3PHJ3ngeZs38tq2v3F1J4S8lIgbKBz3xnWu5xAJUjQC0n
-         URxHfFQYnzmDf/DJbn3l1elHsbryfsfAJmJa8Dk5lNRuTarjPTd1PVgBfcZM+Dph7pTX
-         bnqDXgkyzYogioBGtpZcTMh1HvVvOP6/THTHGShacwuTxzFDC9OLdXKQghHrTVvhBOd+
-         S/wA==
-X-Gm-Message-State: ACrzQf2DWDYJXX6MGjBSpdT7dk9bL/wtUXoEaVQE1GUd2Q+uy8N15DoZ
-	EBhDmOZuBl2knoqLspDEGijJ4uaQ9A==
-X-Google-Smtp-Source: AMsMyM66J0lwPobWTLFAIZsIIR66ZF3b9NunC8s3qZPusDH17D3YlnOCjJacNXrwExoPRa+m6QQ8Nw==
-X-Received: by 2002:a05:6870:c59d:b0:12c:25bc:f205 with SMTP id ba29-20020a056870c59d00b0012c25bcf205mr10461481oab.177.1666318205358;
-        Thu, 20 Oct 2022 19:10:05 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id 42-20020a9d02ad000000b0066194e0e1casm538169otl.75.2022.10.20.19.10.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Oct 2022 19:10:04 -0700 (PDT)
-Received: (nullmailer pid 2180682 invoked by uid 1000);
-	Fri, 21 Oct 2022 02:10:06 -0000
-Date: Thu, 20 Oct 2022 21:10:06 -0500
-From: Rob Herring <robh@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.co>, Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [RFC PATCH v3 1/2] dt-bindings: cache: r9a07g043f-l2-cache: Add
- DT binding documentation for L2 cache controller
-Message-ID: <20221021021006.GA2171731-robh@kernel.org>
-References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221019220242.4746-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1olhaz-004NYJ-70; Fri, 21 Oct 2022 02:17:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mGQLgi9m5BdegdgtPc9hnTILlz0WQ2uU24rYRbNdjyAGZ44uBJjr6ASbnKZ6XyEQ704i9X8t/U2ji3z8i3N2Fee0jVUkL+obIq3/HxmcfhX6EXcfVKv2vloswNZpMEElaG2w6ygzY1J7vh7vwWnzcecKaO1qmOUl/D5lryCZ7f4PUSUwq9GmkJMKNOsZXwmplLHK/4RSVeqPojYQU2YMR4PIUaGWMJGD9rDn5ioqOQA5+aXcLa1fj1ooiehMXg+WBdzgHQKBCIxX9TsNsoOk2CYmQTdOEx3nFHjrtBqhyb92tvahZtVyYIPjIVzQqXfv7ayHLWa6HGLsKWEy851JTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FKKr4nUg6tu5K77nmZwqZjPh9bGx3xtR1+GCdoBDHUc=;
+ b=AfslAtfaO06LGRK1sNs6fUyduN9uhN2TtOspSzvEcKtkYfuzW9HNVlSWlRDwIjC0iCKYS2ERvjclLFa4zLwA2jOK+XF7Ehr2zAs0DrZoENllyln3MDk44AbsDMNxIIe2EvqsMawxqzc4jtsdm/puLhaWIsHdnhADIx2kHIkmBzF4oz/AdG8vH5FGgwME6S7bxrvvwacaFXnoTYlXKCYBKZnqFiY0QgDT6b55JYQ6eEHMOZ1BXsGP1Gte0QjX9WR7eLINdKGF0qB/IV0QhcQzDc+rHOhXOpRCUGkH9dwQJ7pNBnPDCvZeGVLxzJIXJgYzQUuB6dJRWgbDdCag/AKpvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nec.com; dmarc=pass action=none header.from=nec.com; dkim=pass
+ header.d=nec.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nec.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FKKr4nUg6tu5K77nmZwqZjPh9bGx3xtR1+GCdoBDHUc=;
+ b=kak8Xz4DhilcELHZXY0AeldpeHCYsgqdfr/JTkeDCLw1Q/UnbfEvgvTPfDdqNnvmsOz+WD1+16k62QEL4oaodnZ+83LO0Dk7vQNLHW70HMFdxlJtOMXm7YjUF95MeHdpoJsCDYmWUXUqsyD6TKCQntIRW8CYcYzYNkhdnU3hMcQ=
+Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com (2603:1096:400:cc::9)
+ by TYBPR01MB5439.jpnprd01.prod.outlook.com (2603:1096:404:8029::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5723.34; Fri, 21 Oct
+ 2022 02:17:03 +0000
+Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com
+ ([fe80::1f99:8d77:182b:f149]) by TYYPR01MB6777.jpnprd01.prod.outlook.com
+ ([fe80::1f99:8d77:182b:f149%6]) with mapi id 15.20.5723.035; Fri, 21 Oct 2022
+ 02:17:03 +0000
+From: =?utf-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+44CA5LiA5LuBKQ==?=
+	<k-hagio-ab@nec.com>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kexec@lists.infradead.org" <kexec@lists.infradead.org>,
+	"hschauhan@nulltrace.org" <hschauhan@nulltrace.org>,
+	"lifang_xia@linux.alibaba.com" <lifang_xia@linux.alibaba.com>,
+	"crash-utility@redhat.com" <crash-utility@redhat.com>, "mick@ics.forth.gr"
+	<mick@ics.forth.gr>, "heinrich.schuchardt@canonical.com"
+	<heinrich.schuchardt@canonical.com>, "guoren@kernel.org" <guoren@kernel.org>,
+	"yixun.lan@gmail.com" <yixun.lan@gmail.com>, "lijiang@redhat.com"
+	<lijiang@redhat.com>
+Subject: Re: [Crash-utility][PATCH V4 1/9] Add RISCV64 framework code support
+Thread-Topic: [Crash-utility][PATCH V4 1/9] Add RISCV64 framework code support
+Thread-Index: AQHY5CZdVCBWrb7lWkSZ0txIm6wOBK4YHhwA
+Date: Fri, 21 Oct 2022 02:17:02 +0000
+Message-ID: <4022d4a1-8967-3d09-e158-5a6f78f73655@nec.com>
+References: <20221020015014.46085-1-xianting.tian@linux.alibaba.com>
+ <20221020015014.46085-2-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20221020015014.46085-2-xianting.tian@linux.alibaba.com>
+Accept-Language: ja-JP, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nec.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYYPR01MB6777:EE_|TYBPR01MB5439:EE_
+x-ms-office365-filtering-correlation-id: 302202b6-02cd-4667-6c64-08dab30a57cf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  acWt8vCtbMbyXAayDTWudM145HblGiWHC3e5qdly/cqFQqYVLgS8p8mznYzwCOBe1dK6USi31YpcYxj17EFfJaX/oG+xyd0uv82YkF3ipoVkVeXN0JTwRJKkLcQhzrpIJ8/62/LRiA26v+gtkvLRRNIzxyEoM4wNGPM5YYJe50FhyL7oRx68zFGIEiB8QbGwv0HDxWpyz8Zeq/iqb6+dI5Zn3hEQp5f7gk6bl/4d601k9W3SbF56sGxW3kmYY2vCLmoAJ6L6TSw7wbbG0dqrgnz0nQPW/ibpOminxiJNy52bUky4m84BIm9+An65r6+JN/gQHx+6Fg9Xz4AwbkylELELsaZz+/yzGCuQlJPdj5TWsU+e/aW8j/ABNw690EzT5tL0JyT31uY/CBgw3f+kktRkGbyxRnenoiLFoWWjsmzTnRaiacL5VYyORKwBW6cBmPgzH1j9pgW74Q0NbZD02RlEaS2jH334NoJreoGT1DOm2++dg/B359/svgrNM8SxiDBHTiZ5lomQEe70N3qzSSxhA7JExQMac32ytTIvDUrBR2cRtyzWDbeDjjWGybBK0PKafNmxar8MJJqTpNlTmlOvRywm9w1GQfgl4fezSJDlgGyeBD3WS7PVzvy1CiHzJOsTr7hdTGqscpFntsj8Dh+WL0oaiMbP8mJMExulzb5+5ipT1cfSFR5IFQsTE6JyR0KOaX5GKvocW3OwxAqqvWEww0dPrSdG13IlM+ys0sen4HTTazO8KvfWjs9E9RZFMM77l8B0foN0BNAwQY5A6x0y/WT8SzR7iOi/PZzvCv8=
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(4636009)(346002)(396003)(136003)(39860400002)(366004)(376002)(451199015)(31696002)(2906002)(41300700001)(36756003)(86362001)(71200400001)(478600001)(8936002)(85182001)(64756008)(76116006)(4326008)(6916009)(7416002)(8676002)(66556008)(5660300002)(66476007)(6486002)(66446008)(66946007)(55236004)(53546011)(2616005)(38070700005)(26005)(38100700002)(122000001)(6512007)(54906003)(82960400001)(6506007)(186003)(31686004)(316002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?Z0tiZFRlaTZMT1JGejB3eVVqRWRxWjdoQjZTV0lGTlZzV0xOZ1NwRVlRVE1V?=
+ =?utf-8?B?eUlqRU9tM1RaaDBocjhWWVFBeXNnWTNDWnl3WW9BUStVZmhBaWw0RDZmbUFW?=
+ =?utf-8?B?V1BqNUVsaU5YNTFnSVNmQnpZMXZ1Z2tVeXN5QndSL3dTbnVEMU5YS2tQc2ZC?=
+ =?utf-8?B?alF4WFlFWDY0RDQxcWRiZmtUaVRMbkcrMDZyL0Q1M1JvamRYU1ZTbEVUVC96?=
+ =?utf-8?B?SDlpRzdYTlNPMk9sRGFjV3lSRWYySi82Q0xsVnlxUmZMTjJKNll1RjZCdklG?=
+ =?utf-8?B?QXNQZkt5NHlRQWFjTWFIYnpLekQ0NjR4Yi9TVFdXTVNDeFN4Njl3TENyQm9a?=
+ =?utf-8?B?dUVHSmQxTDl3cStlSUJXUVdmMElGV05aOUprUldSbTZjemtJdmJzVTlFTzdv?=
+ =?utf-8?B?RmdmL3RPRmRoM3BsYkRCd2JNbVBhR3M2elUzYXFDb3BLNTgxRXB4aE1iNHFz?=
+ =?utf-8?B?UllEcVpUSXZKYmU5cEVVcTdPQTh4cnhFQnJvNmhkTkNHc0lKTEFvL0p5MXJC?=
+ =?utf-8?B?Zko3ekQzOGlsTHJBUVBqdFFRbUo2cWlMb2N4ZWpoQnlvNmNYOEE5cXlvQXNj?=
+ =?utf-8?B?NlRETk90RUllM0FuMFA2STFUaFpGWVFSSENmbXBvZ0RLaU8wMlB6TW1iUVJV?=
+ =?utf-8?B?T2ZpdEVZUlA2eEljSGprVFNkSWpqL1FVR3BIVzV0cXJuZzBFY2JBSjQyaS9X?=
+ =?utf-8?B?UU1vOUtCVzFka2R5bzZjbk9qRmVVSGRHb0VHSkhNM2pMb2JBYXptME5CLzVi?=
+ =?utf-8?B?U2JPZDJpSXpGeEc1NU5rRVRidy91aFc3KzFYbW1lZzU2VG9PMWhFWDhQY3BF?=
+ =?utf-8?B?S0pMWkhidDdUblhjWkpITHRwQlJ5ZnI5bDU0WXMvd2xNcVlZMDA1ZTVuNUQ3?=
+ =?utf-8?B?UENyTHI0TGRXZ3o3NGQ0dW1zd3l6RzhDcVovNWtRM1MyMU5BUCtnTDRDWjNn?=
+ =?utf-8?B?Y2h3OU9UYW54MUFOaHlJSkdxeTM0LzZiMVh0M3VOSmZpWk1RNE9abjNtd2k4?=
+ =?utf-8?B?VFMwU1YzM09PeXVzSXNMc1pkZFVkeEJaQjhNN1JQTGxZRVZ1VXFOaVpuY3Yz?=
+ =?utf-8?B?VUdlOGgxNEdrTGFhQk5wTVVUbS83bDNYbEFtNU9TRHpvVE9lWUFzVDU2VGVT?=
+ =?utf-8?B?WVgrUzQyVGtnSXNsZ1dveWlhcGVwbHdUaUgrakFjcnBRY2kwNFFFWHRJaVY2?=
+ =?utf-8?B?VVUxWmwydUkvMTRjVys5VnJkV3ZxNTB2TTV0Y3ZCdThkRCs4OUlidlQwSEkw?=
+ =?utf-8?B?d0cxd1hnNU5KMlpIMVp0TG1jMjZOL2JSVDZ5K3hsYlBmYmJHaGp1TWdBenQ5?=
+ =?utf-8?B?Y25BMUZFcjcrdEJ1SG03ekdqQUdqQlVFZlhzWnVDaG9uUWJpclhLSE9YUEtC?=
+ =?utf-8?B?NTdOa094a1pZSmUwWVo0V0grTWJrZFl5bVlBTXpxZG5oTXp3MTh0a1JQdWlC?=
+ =?utf-8?B?Y1kxSkhPS2NmRWVlOEs3UzJMbkZaT0dUREQxTEtjb1pCZ3ZxOUhHWGhHVGkx?=
+ =?utf-8?B?S25rQmhBb09qK2RCbWZrNjJuMG8xQzBxM0xBYkN2bDBNS0R2a2k0RFlJL3c5?=
+ =?utf-8?B?WUdwVDIya1RBcGVidHFjM2lCeVFmRHYvOEplcVJLSDZpeG01TU1UV1hiVTVx?=
+ =?utf-8?B?VytiMnhRa1ZuZXhEN0Q0YXYvVTEyREorR3VBMkppMmNGYUFSNytPZUxxQ1ZS?=
+ =?utf-8?B?K3c2UkgrMmIwK0NRZm1GZ3hmY2xiQWM1bVlqejNMSmZJUGYrRnJocE05S2xo?=
+ =?utf-8?B?ZFk3RlU0ekYrVDdWT2VIdnEveURRakczRGU5RXFOWHNoNDRQNlVlcXpHNnh4?=
+ =?utf-8?B?QitUektnVHY3eERvVHh1TFZXTWIyZXphODdkYTM3dkJweGZMOTJWSFZwVkhK?=
+ =?utf-8?B?L2V5QmdtZDU2dllkR0NQMTVLdlhaQzdUbjNQdTg3S1p1b2xDNUZQYWNodWsx?=
+ =?utf-8?B?VFE5NmVxL1hncjhEajR4QWJFa2NybmlpdmJHRnMxUWZzMXIrbXNvcDRMTkpU?=
+ =?utf-8?B?NWdzUUVRUE5lMUsveThpNzZBalRpQTE1RkloQUxnZ1d0alBhSVlLRXFyQTFH?=
+ =?utf-8?B?NS9ISkl3b0FrWVVLVmN2dXduMHZ3NU5lbExvTUNqeFU2Y0Ftam1CRWN4elJH?=
+ =?utf-8?Q?UA/wxATuXpfnqBtxrEFjq3Gdq?=
+Content-ID: <6C3F18ADBC70F8429587FB826412120E@jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221019220242.4746-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-OriginatorOrg: nec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6777.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 302202b6-02cd-4667-6c64-08dab30a57cf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Oct 2022 02:17:03.0122
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e67df547-9d0d-4f4d-9161-51c6ed1f7d11
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YpQq1CReDjjRx38WQUZiGVfShXgQ6SYB2GDiiVlqlmYSHVPIHlILAo9WMxhvR38Klohcfdg+jlOLH0j9y6ZZbQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYBPR01MB5439
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221020_191007_624502_2ED8D8F3 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20221020_191713_725471_EEEEDCA6 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,222 +150,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 19, 2022 at 11:02:41PM +0100, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
-> 
-> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
-> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
-> describes the L2 cache block.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  .../cache/andestech,ax45mp-cache.yaml         | 125 ++++++++++++++++++
->  .../cache/andestech,ax45mp-cache.h            |  38 ++++++
->  2 files changed, 163 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
->  create mode 100644 include/dt-bindings/cache/andestech,ax45mp-cache.h
-> 
-> diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-> new file mode 100644
-> index 000000000000..4c86a15bda5f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
-> @@ -0,0 +1,125 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (C) 2022 Renesas Electronics Corp.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Andestech AX45MP L2 Cache Controller
-> +
-> +maintainers:
-> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> +
-> +description:
-> +  A level-2 cache (L2C) is used to improve the system performance by providing
-> +  a larger amount of cache line entries and reasonable access delays. The L2C
-> +  is shared between cores, and a non-inclusive non-exclusive policy is used.
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - andestech,ax45mp-cache
-> +
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: andestech,ax45mp-cache
-> +      - const: cache
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  cache-line-size:
-> +    const: 64
-> +
-> +  cache-level:
-> +    const: 2
-> +
-> +  cache-sets:
-> +    const: 1024
-> +
-> +  cache-size:
-> +    enum: [131072, 262144, 524288, 1048576, 2097152]
-> +
-> +  cache-unified: true
-> +
-> +  next-level-cache: true
-> +
-> +  andestech,pma-regions:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> +    minItems: 1
-> +    maxItems: 16
+On 2022/10/20 10:50, Xianting Tian wrote:
 
-What is the inner dimension of the matrix?
+> diff --git a/README b/README
+> index 5abbce1..d589e72 100644
+> --- a/README
+> +++ b/README
+> @@ -37,7 +37,7 @@
+>     These are the current prerequisites:
+>   
+>     o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,
+> -     mips64, s390 and s390x-based kernels are supported.  Other architectures
+> +     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures
+>        may be addressed in the future.
 
-items:
-  minItems: ?
-  maxItems: ?
+Sentences in the README are wrapped within 80 characters, I will change
+this to:
 
-> +    description: Optional array of memory regions to be set as non-cacheable
-> +                 bufferable regions which will be setup in the PMA.
-> +
-> +  andestech,inst-prefetch:
-> +    description: Instruction prefetch depth
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [ 0, 1, 2, 3 ]
-> +
-> +  andestech,data-prefetch:
-> +    description: Data prefetch depth
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [ 0, 1, 2, 3 ]
-> +
-> +  andestech,tag-ram-ctl:
-> +    description: Tag RAM output cycle. First tuple indicates output cycle and the
-> +      second tuple indicates setup cycle.
-> +    $ref: /schemas/types.yaml#/definitions/uint8-array
-> +    items:
-> +      - minimum: 0
-> +        maximum: 2
-> +      - minimum: 0
-> +        maximum: 2
++     mips64, riscv64, s390 and s390x-based kernels are supported.  Other
++     architectures may be addressed in the future.
 
-maxItems: 2
-items:
-  maximum: 2
+>   
+>     o  One size fits all -- the utility can be run on any Linux kernel version
+> @@ -98,6 +98,8 @@
+>        arm64 dumpfiles may be built by typing "make target=ARM64".
+>     o  On an x86_64 host, an x86_64 binary that can be used to analyze
+>        ppc64le dumpfiles may be built by typing "make target=PPC64".
+> +  o  On an x86_64 host, an x86_64 binary that can be used to analyze
+> +     riscv64 dumpfiles may be built by typing "make target=RISCV64".
+>   
+>     Traditionally when vmcores are compressed via the makedumpfile(8) facility
+>     the libz compression library is used, and by default the crash utility
 
-'items' without the '-' applies to all items.
 
-And the minimum is already 0.
+> diff --git a/help.c b/help.c
+> index 99214c1..253c71b 100644
+> --- a/help.c
+> +++ b/help.c
+> @@ -9512,7 +9512,7 @@ char *README[] = {
+>   "  These are the current prerequisites: ",
+>   "",
+>   "  o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,",
+> -"     mips64, s390 and s390x-based kernels are supported.  Other architectures",
+> +"     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures",
+>   "     may be addressed in the future.",
+>   "",
+>   "  o  One size fits all -- the utility can be run on any Linux kernel version",
 
-> +
-> +  andestech,data-ram-ctl:
-> +    description: Data RAM output cycle. First tuple indicates output cycle and the
-> +      second tuple indicates setup cycle.
-> +    $ref: /schemas/types.yaml#/definitions/uint8-array
-> +    items:
-> +      - minimum: 0
-> +        maximum: 2
-> +      - minimum: 0
-> +        maximum: 2
+Same as above.
 
-Same here.
+And help.c lacks this part, will add:
 
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - cache-line-size
-> +  - cache-level
-> +  - cache-sets
-> +  - cache-size
-> +  - cache-unified
-> +  - interrupts
-> +  - reg
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/cache/andestech,ax45mp-cache.h>
-> +
-> +    cache-controller@2010000 {
-> +        reg = <0x13400000 0x100000>;
-> +        compatible = "andestech,ax45mp-cache", "cache";
-> +        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
-> +        cache-line-size = <64>;
-> +        cache-level = <2>;
-> +        cache-sets = <1024>;
-> +        cache-size = <262144>;
-> +        cache-unified;
-> +        andestech,pma-regions = <0x58000000 0x08000000
-> +                                 (AX45MP_PMACFG_ETYP_NAPOT | AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF)>;
-> +        andestech,inst-prefetch = <0x3>;
-> +        andestech,data-prefetch = <0x3>;
-> +        andestech,tag-ram-ctl = /bits/ 8 <0x1 0x0>;
-> +        andestech,data-ram-ctl = /bits/ 8 <0x1 0x0>;
-> +    };
-> diff --git a/include/dt-bindings/cache/andestech,ax45mp-cache.h b/include/dt-bindings/cache/andestech,ax45mp-cache.h
-> new file mode 100644
-> index 000000000000..aa1cad24075d
-> --- /dev/null
-> +++ b/include/dt-bindings/cache/andestech,ax45mp-cache.h
-> @@ -0,0 +1,38 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * This header provides constants for Andes AX45MP PMA configuration
-> + *
-> + * Copyright (C) 2022 Renesas Electronics Corp.
-> + */
-> +
-> +#ifndef __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
-> +#define __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
-> +
-> +/* OFF: PMA entry is disabled */
-> +#define AX45MP_PMACFG_ETYP_DISABLED			0
-> +/* Naturally aligned power of 2 region */
-> +#define AX45MP_PMACFG_ETYP_NAPOT			3
-> +
-> +/* Device, Non-bufferable */
-> +#define AX45MP_PMACFG_MTYP_DEV_NON_BUF			(0 << 2)
-> +/* Device, bufferable */
-> +#define AX45MP_PMACFG_MTYP_DEV_BUF			(1 << 2)
-> +/* Memory, Non-cacheable, Non-bufferable */
-> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF	(2 << 2)
-> +/* Memory, Non-cacheable, Bufferable */
-> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF		(3 << 2)
-> +/* Memory, Write-back, No-allocate */
-> +#define AX45MP_PMACFG_MTYP_MEM_WB_NA			(8 << 2)
-> +/* Memory, Write-back, Read-allocate */
-> +#define AX45MP_PMACFG_MTYP_MEM_WB_RA			(9 << 2)
-> +/* Memory, Write-back, Write-allocate */
-> +#define AX45MP_PMACFG_MTYP_MEM_WB_WA			(10 << 2)
-> +/* Memory, Write-back, Read and Write-allocate */
-> +#define AX45MP_PMACFG_MTYP_MEM_WB_R_WA			(11 << 2)
-> +
-> +/* AMO instructions are supported */
-> +#define AX45MP_PMACFG_NAMO_AMO_SUPPORT			(0 << 6)
-> +/* AMO instructions are not supported */
-> +#define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT		(1 << 6)
-> +
-> +#endif /* __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H */
-> -- 
-> 2.25.1
-> 
-> 
+@@ -9572,6 +9572,8 @@ README_ENTER_DIRECTORY,
+  "     arm64 dumpfiles may be built by typing \"make target=ARM64\".",
+  "  o  On an x86_64 host, an x86_64 binary that can be used to analyze",
+  "     ppc64le dumpfiles may be built by typing \"make target=PPC64\".",
++"  o  On an x86_64 host, an x86_64 binary that can be used to analyze",
++"     riscv64 dumpfiles may be built by typing \"make target=RISCV64\".",
+  "",
+  "  Traditionally when vmcores are compressed via the makedumpfile(8) facility",
+  "  the libz compression library is used, and by default the crash utility",
 
+
+With these, the v4 crash patch set looks good to me.
+
+Acked-by: Kazuhito Hagio <k-hagio-ab@nec.com>
+
+Thanks,
+Kazu
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
