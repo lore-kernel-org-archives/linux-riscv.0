@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11CCC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 14:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D811C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 15:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lw2SZ19YrvoAWbhJhWIzl7U8qrX0MCYMb3XPMVOcu7k=; b=DFwaOIVv1v1hoU
-	z0mPHjcRfBc1NtBreTo9+Ki8sRcA3rHb/hcxe8MwIJlQeoceKqr8+Fmh/cn+RREOdCFz7Bnyy1+4o
-	oC/KEXDDmXd5l/0w3T8+3XuGHU1TCEk9BJfjFZKSEvOcBX9Rz+gCsiBS5roMOkSk1pvCLeJg+gRN5
-	xTvMNppWxGTouEZxGiNhDnI0lqi0l+5N7hHuMXoOih+Eck8Cso6/WQPK65KJLJHsG2rk0JEvUydEo
-	8KiVgJaqditnZ4pB4JyLlVqJwyUq65KR6DtMX54UKdS7l/5+iV1cc84lrG+yGRj4pKoPru9VTU0ZG
-	RJHr2YlxNt2usJrYG1Dw==;
+	List-Owner; bh=opeJTA47x0ccf3a78VXsLbUgpxZRHIEAPo0iLYPiVII=; b=zWsY/RRHdmTJ0J
+	jTcsV0wsOw+uzs/JVvVA3JwnVPMTQGdZy0abGpaif/OBHoAglPyLelH9tcr9Xutx0NjEEwiWwbbq5
+	uAAq5ZqXWRT5ohAJQzdEyw8Nsb3m/vsPeiNU3f2gk0obeEz8IzEC0/Y7zk96ljirBSnp5JeqrmzcQ
+	2DWZ/fUmqYW0QeuVoW0OvBH9/on98YCSDHDDaZ3kh/OPax8qD6kY/3g/QChysLHfgcTnWue2Mk+fP
+	x+TD5KZjcwgGgDp076buahcc0sPFpmH9VLSBpln3VzN1HsNEsfuuLQ5twVoDXb0tOMakzOwHulcWX
+	irgviFjGwQ03AHECqgJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oltDb-008VjP-Hr; Fri, 21 Oct 2022 14:41:51 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oltmi-008f9B-9E; Fri, 21 Oct 2022 15:18:08 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oltDY-008Vid-QE
-	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 14:41:50 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4045DB82C2C
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 14:41:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9724C433D7
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 14:41:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666363306;
-	bh=ropLClIeHzFRkVhJYXOsh1KnHR2hkSkJ7NM6ho2IP+c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kN8e2I0x6jmgx9kop7mSITV8Rqm4QU+8c0Be7/Bb/5PC5JQ6zoN1hL/hIAOSqU4o1
-	 GSAAHt9qf0c9TVi6ksvMUh5ki00dahMuKNSmlO/bDY+0IErGYa3jPBmdPi0xT1D8sz
-	 0a002Vdep6v2Nl89ppHI3kiqyI9CW8iGERxdB4bJxQUp9ZUzunzGt04Inx8Fh57afD
-	 pXzsN1NSaSEDNxiWQcO2T8k2WvRDdyh3LWbG4HgO3RUlWwl4O09NzTLUkvM2REZTON
-	 UEEFZQg6GV7jzAXat4R3OinHjqQwKwTpQPMc4gqsinKcnavd/WlwQlS66K+KLEhsaJ
-	 FMqXcYT/zl6SQ==
-Received: by mail-oi1-f169.google.com with SMTP id r204so649843oie.5
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 07:41:45 -0700 (PDT)
-X-Gm-Message-State: ACrzQf0P49xJMfKg5B8cFi+Ujx/glbgZLaGNdUPxanysX/GV9zW4qbw5
-	FCPfb15IliU8HFXG719mw9PxyE7W56IRnSTCiWA=
-X-Google-Smtp-Source: AMsMyM6vmu+6l7PBPl70AuuJwzmJIjFT3lQyrGPa9CZ9CzkdkiEtFZNRG79H8ghNVYAPWvYYCNoj1G0z2mZ1h+SqLr4=
-X-Received: by 2002:a05:6808:2222:b0:354:9c65:79ed with SMTP id
- bd34-20020a056808222200b003549c6579edmr23550708oib.19.1666363305134; Fri, 21
- Oct 2022 07:41:45 -0700 (PDT)
+	id 1oltme-008f7t-FC
+	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 15:18:06 +0000
+Received: from dggemv711-chm.china.huawei.com (unknown [172.30.72.56])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Mv7Lr1JgvzJn3N;
+	Fri, 21 Oct 2022 23:15:16 +0800 (CST)
+Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
+ dggemv711-chm.china.huawei.com (10.1.198.66) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Fri, 21 Oct 2022 23:17:54 +0800
+Received: from [10.174.179.234] (10.174.179.234) by
+ kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Fri, 21 Oct 2022 23:17:53 +0800
+Message-ID: <41608bda-3c20-060e-a9b4-afa2fe615b41@huawei.com>
+Date: Fri, 21 Oct 2022 23:17:52 +0800
 MIME-Version: 1.0
-References: <20221019154727.2395-1-jszhang@kernel.org> <Y1HZFcBo21SQzXVj@andrea>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] riscv: fix race when vmap stack overflow
+To: Guo Ren <guoren@kernel.org>
+CC: Andrea Parri <parri.andrea@gmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20221019154727.2395-1-jszhang@kernel.org>
+ <Y1HZFcBo21SQzXVj@andrea>
  <CAJF2gTRAEX_jQ_w5H05dyafZzHq+P5j05TJ=C+v+OL__GQam4A@mail.gmail.com>
  <Y1JaE/ot91Z0KXuC@andrea> <ed7c4027-8e15-245f-cdda-0551063761e7@huawei.com>
  <Y1KdKATQx16Xl/iL@andrea> <f1eb4756-e1e1-1f12-e767-a69a891786d6@huawei.com>
-In-Reply-To: <f1eb4756-e1e1-1f12-e767-a69a891786d6@huawei.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 21 Oct 2022 22:41:33 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRdtcpccL5W48O8VEXCMvxNAyyrKJzhwNJkc8js+H2iJg@mail.gmail.com>
-Message-ID: <CAJF2gTRdtcpccL5W48O8VEXCMvxNAyyrKJzhwNJkc8js+H2iJg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix race when vmap stack overflow
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Andrea Parri <parri.andrea@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+ <CAJF2gTRdtcpccL5W48O8VEXCMvxNAyyrKJzhwNJkc8js+H2iJg@mail.gmail.com>
+From: Tong Tiangen <tongtiangen@huawei.com>
+In-Reply-To: <CAJF2gTRdtcpccL5W48O8VEXCMvxNAyyrKJzhwNJkc8js+H2iJg@mail.gmail.com>
+X-Originating-IP: [10.174.179.234]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemm600017.china.huawei.com (7.193.23.234)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221021_074149_017712_3E5DE165 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20221021_081804_727476_A93F21E4 
+X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +74,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBPY3QgMjEsIDIwMjIgYXQgOTo0NiBQTSBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2Vu
-QGh1YXdlaS5jb20+IHdyb3RlOgo+Cj4KPgo+IOWcqCAyMDIyLzEwLzIxIDIxOjIyLCBBbmRyZWEg
-UGFycmkg5YaZ6YGTOgo+ID4gSGkgVG9uZywKPiA+Cj4gPj4+PiBJIHVzZSBhdG9taWNfc2V0X3Jl
-bGVhc2UgaGVyZSwgYmVjYXVzZSBJIG5lZWQgZWFybGllciBtZW1vcnkKPiA+Pj4+IG9wZXJhdGlv
-bnMgZmluaXNoZWQgdG8gbWFrZSBzdXJlIHRoZSBzcCBpcyByZWFkeSB0aGVuIHNldCB0aGUgc3Bp
-bgo+ID4+Pj4gZmxhZy4KPiA+Cj4gPj4gICAgICBDb25zaWRlciB0aGlzIGltcGxlbWVudGF0aW9u
-OikKPiA+Pgo+ID4+ICAgICAgc21wX3N0b3JlX21iKCZzcGluX3NoYWRvd19zdGFjaywgMCk7Cj4g
-Pgo+ID4gc21wX3N0b3JlX21iKCkgaGFzICJXUklURV9PTkNFKCk7IHNtcF9tYigpIiBzZW1hbnRp
-Y3M7IHNvIGl0IGRvZXNuJ3QKPiA+IGd1YXJhbnRlZSB0aGF0IHRoZSBzdG9yZSB0byBzcGluX3No
-YWRvd19zdGFjayBpcyBvcmRlcmVkIGFmdGVyIHByb2dyYW0KPiA+IC1vcmRlciBlYXJsaWVyIG1l
-bW9yeSBhY2Nlc3Nlcy4KPiA+Cj4gPiAgICBBbmRyZWEKPiA+IC4KPgo+IEhpIEFuZHJlYToKPgo+
-IElJVUMsIHRoZSBlYXJsaWVyIG1lbW9yeSBhY2Nlc3MgYW1vc3dhcC5hcXJsLCBoZXJlIC5hcXJs
-IGd1YXJhbnRlZSBpdC4KPiBCdXQgYW55d2F5LCBjb25zaWRlciB3ZSBkb24ndCBjYXJlIGFib3V0
-IHBlcmZvcm1hbmNlIGhlcmUsIHVzaW5nCj4gc21wX3N0b3JlX3JlbGVhc2UoKShhZGQgYmFycmll
-cigpKSBzdXJlbHkgcmlnaHQuCldlIHVzZSBzbXBfc3RvcmVfcmVsZWFzZSgpIGlzIGZvcjoKICAg
-ICAgICAvL2xvYWQgcGVyLWNwdSBvdmVyZmxvdyBzdGFjawogICAgICAgIFJFR19MIHNwLCAtOChz
-cCkKCk5vdCBhbW9zd2FwLgoKQWN0dWFsbHksIGFtb3N3YXAuYXFybCBndWFyYW50ZWVzIG5vdGhp
-bmcgYmVjYXVzZSBhbGwgaW5zdHJ1Y3Rpb25zCmRlcGVuZCBvbiB0aGUgc3AgcmVnaXN0ZXIuCgo+
-Cj4gVGhhbmtzLAo+IFRvbmcuCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+CgrlnKggMjAyMi8xMC8yMSAyMjo0MSwgR3VvIFJlbiDlhpnpgZM6Cj4gT24gRnJpLCBPY3QgMjEs
+IDIwMjIgYXQgOTo0NiBQTSBUb25nIFRpYW5nZW4gPHRvbmd0aWFuZ2VuQGh1YXdlaS5jb20+IHdy
+b3RlOgo+Pgo+Pgo+Pgo+PiDlnKggMjAyMi8xMC8yMSAyMToyMiwgQW5kcmVhIFBhcnJpIOWGmemB
+kzoKPj4+IEhpIFRvbmcsCj4+Pgo+Pj4+Pj4gSSB1c2UgYXRvbWljX3NldF9yZWxlYXNlIGhlcmUs
+IGJlY2F1c2UgSSBuZWVkIGVhcmxpZXIgbWVtb3J5Cj4+Pj4+PiBvcGVyYXRpb25zIGZpbmlzaGVk
+IHRvIG1ha2Ugc3VyZSB0aGUgc3AgaXMgcmVhZHkgdGhlbiBzZXQgdGhlIHNwaW4KPj4+Pj4+IGZs
+YWcuCj4+Pgo+Pj4+ICAgICAgIENvbnNpZGVyIHRoaXMgaW1wbGVtZW50YXRpb246KQo+Pj4+Cj4+
+Pj4gICAgICAgc21wX3N0b3JlX21iKCZzcGluX3NoYWRvd19zdGFjaywgMCk7Cj4+Pgo+Pj4gc21w
+X3N0b3JlX21iKCkgaGFzICJXUklURV9PTkNFKCk7IHNtcF9tYigpIiBzZW1hbnRpY3M7IHNvIGl0
+IGRvZXNuJ3QKPj4+IGd1YXJhbnRlZSB0aGF0IHRoZSBzdG9yZSB0byBzcGluX3NoYWRvd19zdGFj
+ayBpcyBvcmRlcmVkIGFmdGVyIHByb2dyYW0KPj4+IC1vcmRlciBlYXJsaWVyIG1lbW9yeSBhY2Nl
+c3Nlcy4KPj4+Cj4+PiAgICAgQW5kcmVhCj4+PiAuCj4+Cj4+IEhpIEFuZHJlYToKPj4KPj4gSUlV
+QywgdGhlIGVhcmxpZXIgbWVtb3J5IGFjY2VzcyBhbW9zd2FwLmFxcmwsIGhlcmUgLmFxcmwgZ3Vh
+cmFudGVlIGl0Lgo+PiBCdXQgYW55d2F5LCBjb25zaWRlciB3ZSBkb24ndCBjYXJlIGFib3V0IHBl
+cmZvcm1hbmNlIGhlcmUsIHVzaW5nCj4+IHNtcF9zdG9yZV9yZWxlYXNlKCkoYWRkIGJhcnJpZXIo
+KSkgc3VyZWx5IHJpZ2h0Lgo+IFdlIHVzZSBzbXBfc3RvcmVfcmVsZWFzZSgpIGlzIGZvcjoKPiAg
+ICAgICAgICAvL2xvYWQgcGVyLWNwdSBvdmVyZmxvdyBzdGFjawo+ICAgICAgICAgIFJFR19MIHNw
+LCAtOChzcCkKCk9oLCBtaXNzaW5nIHRoYXQsIHlvdSdyZSByaWdodC4gVGhpcyBndWFyYW50ZWUg
+dGhlIHNwaW4gZmxhZyBpcyBzZXQgCmFmdGVyIHRoZSBzcCBpcyB1c2VkLgoKPiAKPiBOb3QgYW1v
+c3dhcC4KPiAKPiBBY3R1YWxseSwgYW1vc3dhcC5hcXJsIGd1YXJhbnRlZXMgbm90aGluZyBiZWNh
+dXNlIGFsbCBpbnN0cnVjdGlvbnMKPiBkZXBlbmQgb24gdGhlIHNwIHJlZ2lzdGVyLgpyaWdodC4K
+ClRoYW5rcywKVG9uZy4KCj4gCj4+Cj4+IFRoYW5rcywKPj4gVG9uZy4KPiAKPiAKPiAKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
