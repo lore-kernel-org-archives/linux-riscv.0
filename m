@@ -4,68 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E06AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 00:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA35C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Oct 2022 00:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b+7UacduaIBqJAMntxrvlQ/pupqgJRXjHxjUNeKlJDA=; b=VyDDqkN0v8K/KU
-	04h5SNfv3Y9TVu67/7Bm5nVKGw3MaQaLAMkiZzPSPTYHuosvvwrPbk1O8M9W4gVZwtOB9zdY85oZ0
-	trRjr2oflAadJyohxEPRxXm17JujXCoUl8yFCRatd9000U0/ASb/ukqQER6VmsUYq0vCqBQmDJeoy
-	IefY8i9K55owsqv1cxNo8q9TSNMp7mdHGUEryPz+PyYzN04ahaDy0VMhiI9+RYqDVLh8kE53SG/Lq
-	dN6Uew4eTfA2EKuL8x5nL7a604ycxCge8mPJkeygN2b6A2pXc+zE0UstJ1NhpS+RqO1Fgzai6vsdR
-	ipaDXoRaUqiv7KbjsuHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AF2fzSIgE67H1ETW8C3o8c1LK4bJ/yQI55W5goGlb8s=; b=ANTxTwk0Gack0/GnQxRHk9/riv
+	Naw9j8U08GiPZ9S7zJbRduyEiQ4JPvTe9eTc1cmHpI6nnnMsDkSGBz27ia2/sOANyfu/kSyl2CFaY
+	W4lqHTaPG0kbdN2xIj+LD8Esd1thF1SGmLh6GYVNXVZMbacfQs26+mq6SwDtejk6tbA6YKwvOKSFF
+	MdPCA+uwhvBPCb9WpW6e7WfN8U/0xM6RmN5YHjavIKiGI5cCuh7aN3c57FHwG4YDSU4Hl/OoCUmHj
+	JGtwrqHxJHTJffzV7XEPgv6AYA4YJ04Poj64F7Ur3DY8ZwcWcMKkccrxhNFGKhdAs/1BjHDjvyCZ0
+	Ul2S+NuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olg0z-003533-1a; Fri, 21 Oct 2022 00:35:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1olgEw-003DlL-8p; Fri, 21 Oct 2022 00:50:22 +0000
+Received: from mga09.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1olg0v-00352F-Qr
-	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 00:35:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1085F61C1A
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 00:35:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72DC1C433D7
-	for <linux-riscv@lists.infradead.org>; Fri, 21 Oct 2022 00:35:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666312552;
-	bh=ebitv/o5a3t2vCAKwhBaDXqxzD0jZBqetTbv566wUVk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YcRHuMRftYy8Glj3XCW+I+nrnBuBC63V8zTtPY69YECK5cMpDmSz8PpaSbppNGAnH
-	 d6r3fVonDsL9zIZ533WW7iPsjeUq+gjgmXikx97XMT19fBzrpanTZFqxoID7MOLVK/
-	 PTvH448HQVycptTwP0OkM8nE9oIQfDVZdPZS5LBe7xkf5Dc9u9V3pOPCvacEvsZ2LU
-	 jCYy2b/yN9Hw2plUQKUFHYduzEydNnO/AvBaeskou5xXeV1eE2kjpHIADgGig34ysc
-	 GL8iboDA4oPapAc8xQMCamcEMMhYQY+1gnBAL/eady9s54Al4iLZWpBQ02YpZxD2D8
-	 cd/evoR5SVMFg==
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-1321a1e94b3so1694029fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Oct 2022 17:35:52 -0700 (PDT)
-X-Gm-Message-State: ACrzQf0veR00Z1ZA4Ega6oglFJRTIXe3bXiNGLA5wtTticPNZ5GXseGO
-	5LWjE2IMDQriwjOvqMH8C+PtIKBNALXsXutcX34=
-X-Google-Smtp-Source: AMsMyM483SkhaxijeF6r4LxLvwyIKbEq8gBp3QOrTCWYxzdlRCXzMtRRLH1LvqBfhZHASUiwUujSnBYnGQq9tiW7nTc=
-X-Received: by 2002:a05:6871:b0d:b0:13b:b91:dc94 with SMTP id
- fq13-20020a0568710b0d00b0013b0b91dc94mr2542683oab.112.1666312551610; Thu, 20
- Oct 2022 17:35:51 -0700 (PDT)
+	id 1olgEt-003Djr-U4
+	for linux-riscv@lists.infradead.org; Fri, 21 Oct 2022 00:50:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1666313419; x=1697849419;
+  h=subject:to:cc:references:from:message-id:date:
+   mime-version:in-reply-to:content-transfer-encoding;
+  bh=EouB8ThNo2sWMhfV1Mcpy1sEPBvn+PIid4ogFAJ3BJg=;
+  b=fanSnIOBNCMqAdVurKF14tobhR5Xl7DSco0AmR2wK+CNoGv1qtSfsHCN
+   VAlPQom44PvUHcNDFKWdlJX9J/mLluoSNHcN3XHdx+cequDCekjn5W9L8
+   th/AKlp8TuzxsiUms/QQ77X6WT8vv+I5oypKMsD9onqZQbXfDaXKZ7tby
+   MP1IUo6o2HhFMcYXdBHoAZcau6lA0lJuB3FaTs5l8IFhuiCbWJdZjApx7
+   aaHQRIvlwbJ8i5Rqo/l5f4GehzjL7KebUtngFAwSI1HMGKz5XNkWYA70u
+   qaRGss0u+Bm7KnkIaVLzVSZYsBnh+iySnYbwyuXoSdHFBCSLTLC2w7mmF
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10506"; a="307976274"
+X-IronPort-AV: E=Sophos;i="5.95,200,1661842800"; 
+   d="scan'208";a="307976274"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2022 17:49:57 -0700
+X-IronPort-AV: E=McAfee;i="6500,9779,10506"; a="661274898"
+X-IronPort-AV: E=Sophos;i="5.95,200,1661842800"; 
+   d="scan'208";a="661274898"
+Received: from rongch2-mobl.ccr.corp.intel.com (HELO [10.249.172.222]) ([10.249.172.222])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2022 17:49:49 -0700
+Subject: Re: [kbuild-all] Re: [PATCH] PCI: Remove unnecessary of_irq.h
+ includes
+To: Bjorn Helgaas <helgaas@kernel.org>, kernel test robot <lkp@intel.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, kbuild-all@lists.01.org,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Tom Joseph
+ <tjoseph@cadence.com>, Rob Herring <robh@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
+ Minghuan Lian <minghuan.Lian@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>,
+ Roy Zang <roy.zang@nxp.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Toan Le <toan@os.amperecomputing.com>, Joyce Ooi <joyce.ooi@intel.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
+ Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
+ Michal Simek <monstr@monstr.eu>, bcm-kernel-feedback-list@broadcom.com,
+ linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
+ "linux-ar m-kernel"@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20221020134101.GA90102@bhelgaas>
+From: "Chen, Rong A" <rong.a.chen@intel.com>
+Message-ID: <7e7d18e2-17a2-9b61-4b3c-252556f8b6be@intel.com>
+Date: Fri, 21 Oct 2022 08:49:47 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Firefox/78.0 Thunderbird/78.12.0
 MIME-Version: 1.0
-References: <20221019154727.2395-1-jszhang@kernel.org> <CAJF2gTSHH69B+KAOJdpLvQdGuhS1nJ+GnW2hVCb+e+8nrnaJ7Q@mail.gmail.com>
- <Y1FdW8P9pw466hjV@xhacker>
-In-Reply-To: <Y1FdW8P9pw466hjV@xhacker>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 21 Oct 2022 08:35:39 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTBYR-6xGo_SrORrjJw9rYQXLukHwBFCNq_kwNLrd_1VA@mail.gmail.com>
-Message-ID: <CAJF2gTTBYR-6xGo_SrORrjJw9rYQXLukHwBFCNq_kwNLrd_1VA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: fix race when vmap stack overflow
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+In-Reply-To: <20221020134101.GA90102@bhelgaas>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221020_173553_989906_D5BA3CC9 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20221020_175020_116419_52674500 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +94,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 20, 2022 at 10:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> On Thu, Oct 20, 2022 at 10:16:47AM +0800, Guo Ren wrote:
-> > On Wed, Oct 19, 2022 at 11:57 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> > >
-> > > Currently, when detecting vmap stack overflow, riscv firstly switches
-> > > to the so called shadow stack, then use this shadow stack to call the
-> > > get_overflow_stack() to get the overflow stack. However, there's
-> > > a race here if two or more harts use the same shadow stack at the same
-> > > time.
-> > >
-> > > To solve this race, we introduce spin_shadow_stack atomic var, which
-> > > will make the shadow stack usage serialized.
-> > >
-> > > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > Suggested-by: Guo Ren <guoren@kernel.org>
-> > > ---
-> > >  arch/riscv/kernel/entry.S | 4 ++++
-> > >  arch/riscv/kernel/traps.c | 4 ++++
-> > >  2 files changed, 8 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > > index b9eda3fcbd6d..7b924b16792b 100644
-> > > --- a/arch/riscv/kernel/entry.S
-> > > +++ b/arch/riscv/kernel/entry.S
-> > > @@ -404,6 +404,10 @@ handle_syscall_trace_exit:
-> > >
-> > >  #ifdef CONFIG_VMAP_STACK
-> > >  handle_kernel_stack_overflow:
-> > > +1:     la sp, spin_shadow_stack
-> > > +       amoswap.w sp, sp, (sp)
-> > If CONFIG_64BIT=y, it would be broken. Because we only hold 32bit of
-> > the sp, and the next loop would get the wrong sp value of
-> > &spin_shadow_stack.
->
-> Hi Guo,
->
-> Don't worry about it. the spin_shadow_stack is just a flag used for
-> "spin", if hart is allowed to used the shadow_stack, we load its
-> address in next instruction by "la sp, shadow_stack".
-Haha, yes, my brain is at fault :)
-
-> But I agree with use unsigned int instead of atomic_t, and use
-> smp_store_release directly. V2 has been sent out, could you please
-> review it?
-Okay
-
->
-> Thanks
 
 
+On 10/20/2022 9:41 PM, Bjorn Helgaas wrote:
+> On Thu, Oct 20, 2022 at 04:09:37PM +0800, kernel test robot wrote:
+>> Hi Bjorn,
+>>
+>> I love your patch! Yet something to improve:
+>>
+>> [auto build test ERROR on helgaas-pci/next]
+>> [also build test ERROR on xilinx-xlnx/master rockchip/for-next linus/master v6.1-rc1 next-20221020]
+>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>> And when submitting patch, we suggest to use '--base' as documented in
+>> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>>
+>> url:    https://github.com/intel-lab-lkp/linux/commits/Bjorn-Helgaas/PCI-Remove-unnecessary-of_irq-h-includes/20221020-100633
+>> base:   https://git.kernel.org/pub/scm/linux/kernel/git/helgaas/pci.git next
+>> patch link:    https://lore.kernel.org/r/20221019195452.37606-1-helgaas%40kernel.org
+>> patch subject: [PATCH] PCI: Remove unnecessary of_irq.h includes
+>> config: ia64-randconfig-r026-20221020
+>> compiler: ia64-linux-gcc (GCC) 12.1.0
+>> reproduce (this is a W=1 build):
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          # https://github.com/intel-lab-lkp/linux/commit/273a24b16a40ffd6a64c6c55aecbfae00a1cd996
+>>          git remote add linux-review https://github.com/intel-lab-lkp/linux
+>>          git fetch --no-tags linux-review Bjorn-Helgaas/PCI-Remove-unnecessary-of_irq-h-includes/20221020-100633
+>>          git checkout 273a24b16a40ffd6a64c6c55aecbfae00a1cd996
+>>          # save the config file
+>>          mkdir build_dir && cp config build_dir/.config
+>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=ia64 SHELL=/bin/bash drivers/pci/controller/
+> 
+> FYI, the instructions above didn't work for me.  Missing "config".
+> 
+>    $ git remote add linux-review https://github.com/intel-lab-lkp/linux
+>    $ git fetch --no-tags linux-review Bjorn-Helgaas/PCI-Remove-unnecessary-of_irq-h-includes/20221020-100633
+>    $ git checkout 273a24b16a40ffd6a64c6c55aecbfae00a1cd996
+>    HEAD is now at 273a24b16a40 PCI: Remove unnecessary of_irq.h includes
+>    $ mkdir build_dir && cp config build_dir/.config
+>    cp: cannot stat 'config': No such file or directory
+> 
+>    $ COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=ia64 SHELL=/bin/bash drivers/pci/controller/
+>    Compiler will be installed in /home/bjorn/0day
+>    Cannot find ia64-linux under https://download.01.org/0day-ci/cross-package check /tmp/0day-ci-crosstool-files
 
--- 
-Best Regards
- Guo Ren
+Hi Bjorn,
+
+Sorry for the inconvenience, the 01.org website is unstable recently, 
+could you try 
+"URL=https://cdn.kernel.org/pub/tools/crosstool/files/bin/x86_64 
+COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 
+O=build_dir ARCH=ia64 SHELL=/bin/bash drivers/pci/controller/"?
+
+Best Regards,
+Rong Chen
+
+>    Please set new url, e.g. export URL=https://cdn.kernel.org/pub/tools/crosstool/files/bin/x86_64
+>    gcc crosstool install failed
+>    Install gcc cross compiler failed
+>    setup_crosstool failed
+> _______________________________________________
+> kbuild-all mailing list -- kbuild-all@lists.01.org
+> To unsubscribe send an email to kbuild-all-leave@lists.01.org
+> 
 
 _______________________________________________
 linux-riscv mailing list
