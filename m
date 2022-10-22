@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217C0C3A59D
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Oct 2022 08:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D4CC433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Oct 2022 08:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MTLs4EmJvrUxbrfBnlr4/HqdCe6G/V7l/mGDKExWO6U=; b=WeYlD6eeB0b8y2
-	tJe+H3/LBWMMhZuircrjJwm9KaPOd4a20XVzX35T4mdHGFwKfWEX+t/y5oT/yGNfSxIboOq8IfEBN
-	I5SwbRM59MTTiJQT14wOWLqR/yQOw2sr7ZDGoRXk7I2PZPDr2e/unhcTYV9qXUDRhtPmv+zhHiHGs
-	L6FMU+uZatVWVLkNHxulctSC6F5jRzLATD+RIno5Pxa54K0TqHqRJKwKSq6QnTnRvjF/VH8W+3oCp
-	Op01LCtxL1diG3/xUHiRUJXbcP8WJjKzPd1dYoh4OkoFWPFnPRoV2xNwI7vO8wF3fFga8hYDl10J8
-	SZROp7vDVOHn6NYct41w==;
+	List-Owner; bh=qkC2yj6SJD7KBeSBks+wS2QGeTn6m4qjsImR2S/W5tY=; b=df6uI8VfdiDOoQ
+	jVPesRJOevINP+qMK885hWTU7tHIBk5+Y6305GaSo3eJ3LmnOROeJIJM1mVn98kUs3xUvI/Rp67/m
+	wvSXgFLSmZU3wVi9xAWO7GWiZYXWk/+29MQI9N9VTsJuhypozX6irKLbH11++vCMhh667yeBG6/Uk
+	gmaN0Y1qe3LlaOXFK8VRuXscvvhLmHtoIAor4hRM0SYcfgQs9vThG+dVQagDiFhAhFK0gS0SENn/d
+	QZ1cqBPb7nbfG3AdjGQji2OZ2tdGJJHxN2tbfw8n78pOkZsHH9xOiz7ujboKlqArHPmB1t1l12GtU
+	Uy06xv/Bu/OUNz4B8I+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1om9QP-00Bd5G-7W; Sat, 22 Oct 2022 08:00:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1om9QS-00Bd66-Fk; Sat, 22 Oct 2022 08:00:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1om9QL-00Bd4M-P4
-	for linux-riscv@lists.infradead.org; Sat, 22 Oct 2022 08:00:07 +0000
+	id 1om9QO-00Bd50-TC
+	for linux-riscv@lists.infradead.org; Sat, 22 Oct 2022 08:00:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1C35760B9B;
-	Sat, 22 Oct 2022 08:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33292C433C1;
-	Sat, 22 Oct 2022 08:00:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 46A2F60B99;
+	Sat, 22 Oct 2022 08:00:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27020C433D7;
+	Sat, 22 Oct 2022 08:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1666425604;
-	bh=G2L0nwBjn5VtTyRobVNartiz1/0xuFjNYrEZ5NJlSKU=;
+	s=korg; t=1666425607;
+	bh=Xz/JYnNX+bv4d5sNBNrD5dHf4bfzzM5L7MEjHHLxJTw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oDRZ1KYUy5xDGt2FQnuCeCcx9fj4wv5GIF9HXC+tVhsOPOQmqLA+5uEISjXPMdRbS
-	 0bPVrndXQkwwX5kqhFGluLch6JZQdPOjKnVcZhjOCz8C3hK0T80OgENFqyyH8OAx/w
-	 xCpBpjv3nMMD7q6c7e4Do6AGiK9UXrLMM6z/lhNY=
+	b=H6rL+InRTUElvIlZItognaPFHJRAN5sEq1ClqqFIvaWofsbyNObsG7vWoQNRNxvtb
+	 znRUHfZCWU5+m8gxTYNp0qCLsA6Yeg/sSs9/YD7fsZrxl8dw8l6/j/eXUY5fN09OHy
+	 qrrAg1n9rkLAqU+midzCPz5cj86VxZLsULn38WXs=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -55,17 +55,17 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
 	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.19 525/717] tracing: kprobe: Fix kprobe event gen test module on exit
-Date: Sat, 22 Oct 2022 09:26:44 +0200
-Message-Id: <20221022072521.543885453@linuxfoundation.org>
+Subject: [PATCH 5.19 526/717] tracing: kprobe: Make gen test module work in arm and riscv
+Date: Sat, 22 Oct 2022 09:26:45 +0200
+Message-Id: <20221022072521.582016938@linuxfoundation.org>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221022072415.034382448@linuxfoundation.org>
 References: <20221022072415.034382448@linuxfoundation.org>
 User-Agent: quilt/0.67
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221022_010005_876877_6C7C36B6 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20221022_010009_042168_16C0BEAB 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,12 +84,14 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Yipeng Zou <zouyipeng@huawei.com>
 
-[ Upstream commit ac48e189527fae87253ef2bf58892e782fb36874 ]
+[ Upstream commit d8ef45d66c01425ff748e13ef7dd1da7a91cc93c ]
 
-Correct gen_kretprobe_test clr event para on module exit.
-This will make it can't to delete.
+For now, this selftest module can only work in x86 because of the
+kprobe cmd was fixed use of x86 registers.
+This patch adapted to register names under arm and riscv, So that
+this module can be worked on those platform.
 
-Link: https://lkml.kernel.org/r/20220919125629.238242-2-zouyipeng@huawei.com
+Link: https://lkml.kernel.org/r/20220919125629.238242-3-zouyipeng@huawei.com
 
 Cc: <linux-riscv@lists.infradead.org>
 Cc: <mingo@redhat.com>
@@ -105,22 +107,86 @@ Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- kernel/trace/kprobe_event_gen_test.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ kernel/trace/kprobe_event_gen_test.c | 47 +++++++++++++++++++++++++---
+ 1 file changed, 43 insertions(+), 4 deletions(-)
 
 diff --git a/kernel/trace/kprobe_event_gen_test.c b/kernel/trace/kprobe_event_gen_test.c
-index 18b0f1cbb947..e023154be0f8 100644
+index e023154be0f8..80e04a1e1977 100644
 --- a/kernel/trace/kprobe_event_gen_test.c
 +++ b/kernel/trace/kprobe_event_gen_test.c
-@@ -206,7 +206,7 @@ static void __exit kprobe_event_gen_test_exit(void)
- 	WARN_ON(kprobe_event_delete("gen_kprobe_test"));
+@@ -35,6 +35,45 @@
+ static struct trace_event_file *gen_kprobe_test;
+ static struct trace_event_file *gen_kretprobe_test;
  
- 	/* Disable the event or you can't remove it */
--	WARN_ON(trace_array_set_clr_event(gen_kprobe_test->tr,
-+	WARN_ON(trace_array_set_clr_event(gen_kretprobe_test->tr,
- 					  "kprobes",
- 					  "gen_kretprobe_test", false));
++#define KPROBE_GEN_TEST_FUNC	"do_sys_open"
++
++/* X86 */
++#if defined(CONFIG_X86_64) || defined(CONFIG_X86_32)
++#define KPROBE_GEN_TEST_ARG0	"dfd=%ax"
++#define KPROBE_GEN_TEST_ARG1	"filename=%dx"
++#define KPROBE_GEN_TEST_ARG2	"flags=%cx"
++#define KPROBE_GEN_TEST_ARG3	"mode=+4($stack)"
++
++/* ARM64 */
++#elif defined(CONFIG_ARM64)
++#define KPROBE_GEN_TEST_ARG0	"dfd=%x0"
++#define KPROBE_GEN_TEST_ARG1	"filename=%x1"
++#define KPROBE_GEN_TEST_ARG2	"flags=%x2"
++#define KPROBE_GEN_TEST_ARG3	"mode=%x3"
++
++/* ARM */
++#elif defined(CONFIG_ARM)
++#define KPROBE_GEN_TEST_ARG0	"dfd=%r0"
++#define KPROBE_GEN_TEST_ARG1	"filename=%r1"
++#define KPROBE_GEN_TEST_ARG2	"flags=%r2"
++#define KPROBE_GEN_TEST_ARG3	"mode=%r3"
++
++/* RISCV */
++#elif defined(CONFIG_RISCV)
++#define KPROBE_GEN_TEST_ARG0	"dfd=%a0"
++#define KPROBE_GEN_TEST_ARG1	"filename=%a1"
++#define KPROBE_GEN_TEST_ARG2	"flags=%a2"
++#define KPROBE_GEN_TEST_ARG3	"mode=%a3"
++
++/* others */
++#else
++#define KPROBE_GEN_TEST_ARG0	NULL
++#define KPROBE_GEN_TEST_ARG1	NULL
++#define KPROBE_GEN_TEST_ARG2	NULL
++#define KPROBE_GEN_TEST_ARG3	NULL
++#endif
++
++
+ /*
+  * Test to make sure we can create a kprobe event, then add more
+  * fields.
+@@ -58,14 +97,14 @@ static int __init test_gen_kprobe_cmd(void)
+ 	 * fields.
+ 	 */
+ 	ret = kprobe_event_gen_cmd_start(&cmd, "gen_kprobe_test",
+-					 "do_sys_open",
+-					 "dfd=%ax", "filename=%dx");
++					 KPROBE_GEN_TEST_FUNC,
++					 KPROBE_GEN_TEST_ARG0, KPROBE_GEN_TEST_ARG1);
+ 	if (ret)
+ 		goto free;
  
+ 	/* Use kprobe_event_add_fields to add the rest of the fields */
+ 
+-	ret = kprobe_event_add_fields(&cmd, "flags=%cx", "mode=+4($stack)");
++	ret = kprobe_event_add_fields(&cmd, KPROBE_GEN_TEST_ARG2, KPROBE_GEN_TEST_ARG3);
+ 	if (ret)
+ 		goto free;
+ 
+@@ -128,7 +167,7 @@ static int __init test_gen_kretprobe_cmd(void)
+ 	 * Define the kretprobe event.
+ 	 */
+ 	ret = kretprobe_event_gen_cmd_start(&cmd, "gen_kretprobe_test",
+-					    "do_sys_open",
++					    KPROBE_GEN_TEST_FUNC,
+ 					    "$retval");
+ 	if (ret)
+ 		goto free;
 -- 
 2.35.1
 
