@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81C7ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Oct 2022 18:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A678ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Oct 2022 19:28:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AdD6v4NWIWjbU/XzUnGxvs4qzLg1nl+TMc0HQA+CuUM=; b=g3L4P8dEjs31fM
-	WpxSVOG+jrb1y36Mgyebt6jagAxKQ4FxXG8xZbClcEF11ewXT+zJivhzRu6dRo25DocTZXo0vNw4x
-	bepOtbnMX0cq0x+UsFlWSCLDXQckQmWrR7HeVlsr7wkKIAcpoh8l9eGu0/LikDgXtS49sSkgQHbNl
-	yie8c+4l+pEOMiv52RXfhpb65zgJ50907OIHchUWdBP9niTkW+/e2+7rQy6aTxq4CCSOY5t8pDzSb
-	glLSXGw0MGAkHAQJ9A+tvVsx4CppcJ16L0+NyZaX8mudENQJIZt596PtCC2OxHJJu1/wuSlUVKMuw
-	g8C2tBpMbSR28FlAvlOQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NdalczoFvPdSeceTGtKDp3/4zzAImOvXGv/d3X3EwB4=; b=EbKasmnLov566h
+	KdHrv5M2pGBtRdQF8V92y7qkvV7jfbkDG/tGIDCEPMG/q85JeDWhVy77UHy1d+paIGeNES/C4+MaK
+	wP/IyB4tiKAXGKFnRnaIAA/659pwL4JOMXLoB8PcKSgH3i50qwlFVhj4Xx9IFid3Cc0CVvZU5cDY6
+	VbFLrVhgxPhURPexZ6W2E/za52KE5uzgTm6AIlh23TCS7mORx9Bdu/SQkczFpDRqwVJJrGYYaqhzy
+	n8mPBafrCKYc8z2gTvdblhMMYd+UuahWMCHrELqyaekc0ZSTjnflsyk4uvhpBTc8w0BhO4D7XYcXS
+	ugsU4DUC9FPlZnFfYd0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omg7u-00G2Aj-DP; Sun, 23 Oct 2022 18:55:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1omge9-00G5ip-Rw; Sun, 23 Oct 2022 19:28:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omg7q-00G2A8-Tv
-	for linux-riscv@lists.infradead.org; Sun, 23 Oct 2022 18:55:12 +0000
+	id 1omge5-00G5i7-LJ
+	for linux-riscv@lists.infradead.org; Sun, 23 Oct 2022 19:28:32 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E73E460F16;
-	Sun, 23 Oct 2022 18:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E86E8C433D6;
-	Sun, 23 Oct 2022 18:55:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4B1DF60F49;
+	Sun, 23 Oct 2022 19:28:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7316C433D6;
+	Sun, 23 Oct 2022 19:28:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666551309;
-	bh=b1OgIjfo/vN3Wzi1YZhctjiBYrxk8+3C/gbHYBJY808=;
-	h=From:To:Cc:Subject:Date:From;
-	b=QfBjm4lHPb4x8RrylH9Jgg4rhZi6CVodwyBLeUo1tSsU6v9D9ruBRJGNdKWCyyoXD
-	 C1OPkW/WZTBgkz77qmI1xzKUFVh0GjwMXNGrd6f9ypF9rXwk5WbTiZFRGu9NYP8s73
-	 sjw+wvVM3a2p0xOILeA4C42ZplfMB+gUWnlKkkq6x3EvTCcCMeQxeW+STbgRyNe34p
-	 4iHGAc6lfrWQpJQ3O/cgoS7gSmOj/7NWoB8APxdmfZY/L+SQsuMd6T6q8hFxbROAMl
-	 /HNzZzxjYlrKtSKzu5dfldfYNaLQ6RnIdrgnOigOQvcG4/6DaSAOu81rEWejrSO2Fy
-	 5guuKCk5zctjQ==
+	s=k20201202; t=1666553305;
+	bh=6M351bmajQgGZdsUhHpLDOq0aF5/6/nhlpGFaTq0IJI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JtUHSt7PoZ6GYmdDC2MVSAyD/mJqEfHjgxWgNdD6c3U3WTyP6wwUxbs3lXb6xVL+4
+	 63C3RBlWIwr+kUUG2ZGq6sGA/QgHJHEA0RH0j81jYjhX9/UeOIWGN84iP6NmjEFkiy
+	 qKDp9l1I9lcZ08gcrumRATYiJX884xXSIfXVw6TeZuRiVCgJJBAJ7RK/s/R7Aqp4YA
+	 M0Tdu55VQJ3u6of7LTjeQuEMsWzzWFn5zjQR7ElQfUBhA2q1OmxXmd8iowtUPDgHGl
+	 FS+E1eH1/9nl7CjbBaxU0jSPrWhoOrlnx3QhhKah1gsKoMgOxgiSA0vSe4TbQWVe/P
+	 JlbNvx6oxuuHA==
+Date: Sun, 23 Oct 2022 20:28:20 +0100
 From: Conor Dooley <conor@kernel.org>
-To: daniel.lezcano@linaro.org,
-	tglx@linutronix.de
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	samuel@sholland.org,
-	aou@eecs.berkeley.edu,
-	atishp@atishpatra.org,
-	dmitriy@oss-tech.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Subject: [PATCH] Revert "clocksource/drivers/riscv: Events are stopped during CPU suspend"
-Date: Sun, 23 Oct 2022 19:54:44 +0100
-Message-Id: <20221023185444.678573-1-conor@kernel.org>
-X-Mailer: git-send-email 2.38.0
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 1/3] RISC-V: Improve use of isa2hwcap[]
+Message-ID: <Y1WV1MmtTwvTlrcg@spud>
+References: <20221021105905.206385-1-ajones@ventanamicro.com>
+ <20221021105905.206385-2-ajones@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221021105905.206385-2-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221023_115511_068116_853973AC 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20221023_122829_802431_CC81FABE 
+X-CRM114-Status: GOOD (  24.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +78,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, Oct 21, 2022 at 12:59:03PM +0200, Andrew Jones wrote:
+> Improve isa2hwcap[] by removing it from static storage, as
+> riscv_fill_hwcap() is only called once, and by reducing its size
+> from 256 bytes to 26. The latter improvement is possible because
+> isa2hwcap[] will never be indexed with capital letters and we can
+> precompute the offsets from 'a'.
 
-This reverts commit 232ccac1bd9b5bfe73895f527c08623e7fa0752d.
-If an AXI read to the PCIe controller on PolarFire SoC times out, the
-system will stall, with an expected:
-	 io scheduler mq-deadline registered
-	 io scheduler kyber registered
-	 microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
-	 microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: axi read request error
-	 microchip-pcie 2000000000.pcie: axi read timeout
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 Freeing initrd memory: 7336K
-	 mc_event_handler: 667402 callbacks suppressed
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	 mc_event_handler: 666588 callbacks suppressed
-<truncated>
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	mc_event_handler: 666748 callbacks suppressed
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-	rcu: 	0-...0: (1 GPs behind) idle=19f/1/0x4000000000000002 softirq=34/36 fqs=2626
-		(detected by 1, t=5256 jiffies, g=-1151, q=1143 ncpus=4)
-	Task dump for CPU 0:
-	task:swapper/0       state:R  running task     stack:    0 pid:    1 ppid:     0 flags:0x00000008
-	Call Trace:
-	mc_event_handler: 666648 callbacks suppressed
+Hey Drew, couple questions for you - mostly due to naivety I think..
 
- With this patch applied, the system just locks up without RCU stalling:
-	io scheduler mq-deadline registered
-	io scheduler kyber registered
-	microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
-	microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: axi read request error
-	microchip-pcie 2000000000.pcie: axi read timeout
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-	Freeing initrd memory: 7332K
+How do we know that isa2hwcap will never interact with capital letters?
+It pulls the isa string from dt and the no-capitals enforcement comes
+from there since one with capitals is invalid? I didn't dig particularly
+deeply into the code, but is there a risk that we regress some user that
+has a dt with capitals in the isa string? Or is that a "your dt was wrong
+and you're out-of-tree so that's your problem" situation?
 
-Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
-Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-I don't really want to post a revert, but it's been nearly a month since
-I posted about my issue initially & 2 weeks without a reply to Palmer's
-comments.
-CC: samuel@sholland.org
-CC: aou@eecs.berkeley.edu
-CC: atishp@atishpatra.org
-CC: daniel.lezcano@linaro.org
-CC: dmitriy@oss-tech.org
-CC: linux-kernel@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: palmer@dabbelt.com
-CC: paul.walmsley@sifive.com
-CC: tglx@linutronix.de
----
- drivers/clocksource/timer-riscv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Secondly, in the UAPI header, the COMPAT_HWCAP_ISA_FOO defines are
+computed as I - A rather than i - a. Should those be changed too for the
+sake of consistently using the lowercase everywhere, or do you think
+that doesn't really matter?
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 969a552da8d2..a0d66fabf073 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -51,7 +51,7 @@ static int riscv_clock_next_event(unsigned long delta,
- static unsigned int riscv_clock_event_irq;
- static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
- 	.name			= "riscv_timer_clockevent",
--	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-+	.features		= CLOCK_EVT_FEAT_ONESHOT,
- 	.rating			= 100,
- 	.set_next_event		= riscv_clock_next_event,
- };
--- 
-2.38.0
+Thanks,
+Conor.
 
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/kernel/cpufeature.c | 20 +++++++++++---------
+>  1 file changed, 11 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 694267d1fe81..4677320d7e31 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -74,15 +74,15 @@ void __init riscv_fill_hwcap(void)
+>  	const char *isa;
+>  	char print_str[NUM_ALPHA_EXTS + 1];
+>  	int i, j, rc;
+> -	static unsigned long isa2hwcap[256] = {0};
+> +	unsigned long isa2hwcap[26] = {0};
+>  	unsigned long hartid;
+>  
+> -	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+> -	isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
+> -	isa2hwcap['a'] = isa2hwcap['A'] = COMPAT_HWCAP_ISA_A;
+> -	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
+> -	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
+> -	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
+> +	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
+> +	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
+> +	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
+> +	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
+> +	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
+> +	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
+>  
+>  	elf_hwcap = 0;
+>  
+> @@ -196,8 +196,10 @@ void __init riscv_fill_hwcap(void)
+>  			if (unlikely(ext_err))
+>  				continue;
+>  			if (!ext_long) {
+> -				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+> -				set_bit(*ext - 'a', this_isa);
+> +				int nr = *ext - 'a';
+> +
+> +				this_hwcap |= isa2hwcap[nr];
+> +				set_bit(nr, this_isa);
+>  			} else {
+>  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+>  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+> -- 
+> 2.37.3
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
