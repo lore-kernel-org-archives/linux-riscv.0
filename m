@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6D7ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Oct 2022 13:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D2CC3A59D
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Oct 2022 13:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p3QL6aTqOZPqxuLIrx4KYotnmGiAfAmCvmarbvnO8xk=; b=dJ7zPAXVVdmuK1
-	Nm0KEXW9gGpdLxJLKloTLMHKck7BZhu3DV0ovn6OQp8BlTxB4uSFp4uFsiDGtZ938pht0z9fYFkk3
-	JkJMauwtJLmkZ6ydADjTF4sldSEXBHr98AbpkuMA80iqLfcSfJBgYLWIodsMvIfRXWNMAWjnsVZj3
-	GljdEjcVHJPxChAyK2zrXFTuOplzru0MsHD+yFdU8ybn9ljI19dC36+YUdjLba+u5gFXfb967MEdq
-	sA2iftDTGsSosODv0IHKtCLDUOS0EyIxq3XGAxJcqmk4KDP3MnrJnPzgNNcCxNVcYGqtNQpcYRSf+
-	q08+o5VSFBUfV6rrsFQg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kFBpiIKCXGvOUnqqaCmAYeBlLLSDzznTvI2EPaFA8pQ=; b=HeMKx3cNDd1xax
+	vaHeTPKi4EQBM2CunQI1NW+CH+TeCG8dgUmx4RneYIykerO6B9lDLUM+lu5Gs6aT2MDVu5y92zOYz
+	cehq7IDYpumoGrhKvReaadcmuTH+pVDAYNb9OFP3mlzEJ0Nb20XE8gSZVx2hpaV3iGU4FDqs7K2IJ
+	jD45KkgY/t497IDVTlP9P/K2PNLyCiOe2kR7/8XSBoKWcUAAPKISB5sxu/EO8TLKrnK94RePt5F5I
+	qjkaQyUFMaxGSc8uv/zjprq5JE7n6/BKwJE7KadhBPmf1Zf1IByhzqSfvLWS9uuHNTAS0BBOwYqlv
+	MvlXQeN3erHRgprRlRhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omb6w-00FM4U-RC; Sun, 23 Oct 2022 13:33:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1omb70-00FM5I-3U; Sun, 23 Oct 2022 13:33:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omb6u-00FM3J-Is
-	for linux-riscv@lists.infradead.org; Sun, 23 Oct 2022 13:33:53 +0000
+	id 1omb6x-00FM4Y-LM
+	for linux-riscv@lists.infradead.org; Sun, 23 Oct 2022 13:33:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 47B7460E05;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0CC6660E97;
+	Sun, 23 Oct 2022 13:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55DEDC433C1;
 	Sun, 23 Oct 2022 13:33:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11926C4314B;
-	Sun, 23 Oct 2022 13:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666532028;
-	bh=QJ7fR+gHywsczUhCwjPOdR2Nl2xq5s+MM7Zax4w8w9w=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Y22/Nw6qhMXCSnZbqhtnLDFteTfssdSmaPHl1PMAiT1VRJoveIq/uCM0ERbB8h131
-	 4sDIRXSjSdnNyY8heVMn78H9JBlSjFGUBEzNBN0WfG6fy5paB+J07Rmt/gbax7UpP7
-	 BbBXon3Yfgn6RQTnKs/LY0SBUtZaGb+YS3fJAAYU0w7GLuiECDx+TjqyQHzDi9a7HE
-	 cSFn0brFJiP6dK7IAvjvUmrSjQV1XTkxHkBJRYCdzJc0TNOSPuTwin8/la2vRy0naR
-	 kdb++uEG6YhGrvaVccMsffZPkSKfmY7zRYlHt0hU//YhzCGPtZYTfmnJHnLme2VcPq
-	 V3M5NIC2fja9Q==
+	s=k20201202; t=1666532034;
+	bh=HM2oYzakfdXfJJzbe5qVxXYIO2tAmfA0Z3AF7nO+COs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J+LaVmkYWNM8WRyG7XrRI2PdMKBhVkMak40G66C7VtwH/Kr0Zl+kaP9Lc4w9DZarR
+	 aPv6uKX+1AHYRXKEgTublGNogmX+cYSNu2CZY40m6LRy36Er0uipUDC4eWo3HcNRfm
+	 dXeTPt13+wyzYnotwEdF3XT72+LTd9DKpn7UJmF5w/Xl2mS+rphOSvB8Y6AG4HR/0m
+	 mrP5NC1mukgGEXbdcRCv2TbiA05MdenMXkR+HiezGv+RexxXv41Dekska9vb8uqSlX
+	 nlOcZ965NqKjt9iFjG8efAclxrCruGeiuxHP9I4ifNH0zHm9xf/OUDGAwCxOhKJPDl
+	 TtQqLUtUwGzgg==
 From: guoren@kernel.org
 To: guoren@kernel.org,
 	palmer@dabbelt.com,
@@ -58,16 +58,19 @@ Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH 0/2] Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP & fixup race condition on PG_dcache_clean
-Date: Sun, 23 Oct 2022 09:32:03 -0400
-Message-Id: <20221023133205.3493564-1-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH 1/2] riscv: Fixup race condition on PG_dcache_clean in flush_icache_pte
+Date: Sun, 23 Oct 2022 09:32:04 -0400
+Message-Id: <20221023133205.3493564-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20221023133205.3493564-1-guoren@kernel.org>
+References: <20221023133205.3493564-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221023_063352_690519_AF37460D 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221023_063355_825321_66B380AC 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,29 +89,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-The first patch fixup race condition on PG_dcache_clean which found in
-arm64. Then enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP and tested
-with simple hugetlbfs test case.
+RISC-V follows the arm64 flush_icache_pte mechanism and also includes
+its bug. The patch ensures that instructions are observable in a new
+mapping. For more details, see 588a513d3425 ("arm64: Fix race condition
+on PG_dcache_clean in __sync_icache_dcache()").
 
-# cat /proc/sys/vm/hugetlb_optimize_vmemmap
-1
-# echo 8 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
-# mount -t hugetlbfs none test/ -o pagesize=2048k
-# ./myhugemap_test
-# umount test/
-# echo 0 > /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+---
+ arch/riscv/mm/cacheflush.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-No problem found.
-
-Guo Ren (2):
-  riscv: Fixup race condition on PG_dcache_clean in flush_icache_pte
-  riscv: Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
-
- arch/riscv/Kconfig                  | 1 +
- arch/riscv/include/asm/cacheflush.h | 3 +++
- arch/riscv/mm/cacheflush.c          | 7 ++++++-
- 3 files changed, 10 insertions(+), 1 deletion(-)
-
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index 6cb7d96ad9c7..7c9f97fa3938 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -82,7 +82,9 @@ void flush_icache_pte(pte_t pte)
+ {
+ 	struct page *page = pte_page(pte);
+ 
+-	if (!test_and_set_bit(PG_dcache_clean, &page->flags))
++	if (!test_bit(PG_dcache_clean, &page->flags)) {
+ 		flush_icache_all();
++		set_bit(PG_dcache_clean, &page->flags);
++	}
+ }
+ #endif /* CONFIG_MMU */
 -- 
 2.36.1
 
