@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A99C67871
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 19:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7595C67871
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 19:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XwhbkoPALv4SdNC7rRAYD2K3VLShv/LZasxotQ9OALs=; b=rpHYf7mN3Z/o1O
-	HBYAU8b88ck7KqLpEvuG2HhNQagOL53wLLNb+XCgEnFhOzh9QM3rQZQu48GJXXUGo0LLfzQfPyFyf
-	Nxa0kuO4AfItD7QgQTuAe02bcToMsD9Ac3AUXdEJVRyK8V2iyQK/lQhlY2nj88Arlzwp7+t03qFI3
-	MTfxD+tE900Y2FmErZcvMjzio/CaueUxRl3L8cF4jUb6IxLoQZ27BvTliBfxwyrkFvR5trLa1TYBz
-	soxsVkHXFIO9SqBQQ3IqbdsVaZ8DX8wSagkB/eQ8rx59DBRZO/KzT0u4TFSgbMUUKFSZBksp28JeC
-	DOs9xcrQxcfhumg0RYBg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Nu3Aywg2xtgA2hzOUF8LhG8vScZiEgKapyRMbm7xZXk=; b=VQIOP8Zrz12otI
+	9XOC5qL5Nek7OA8g/rFSMKuf73x92YKq9/HfdS6sYUkepAbVcKmEBl7nvwQUm1wqRgR0kC9yPdJhS
+	1CrXIBxm8KjIn+CP0W8SvdAUTR0VXAfdFdWhoCkZzF5DCZ/TAoIdqT6K4J/DQY1zVxN0Wrpu2dCDr
+	UY/QxTuxE/Ox5Lxb4rxpYz2c+s/ETRNjeLGC5PcmQq1vjmZRhb+vgViOOKJEQK5iDHhrgU7XwNHWy
+	iPCCAhPIjC/pE+2VfUO/C3aKOioSK3ewRoRec5OxdTbur8Fsc7qgHXhk63gRI+N3eKOd3FTBDZNgq
+	z6uF0oB7+8wbOG/sEApQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1on3Gl-002nbc-HU; Mon, 24 Oct 2022 19:37:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1on3Ue-002pzj-DL; Mon, 24 Oct 2022 19:52:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1on3Gj-002nay-7F
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 19:37:54 +0000
+	id 1on3Ub-002pyM-PU
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 19:52:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D1A2061561;
-	Mon, 24 Oct 2022 19:37:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB923C433C1;
-	Mon, 24 Oct 2022 19:37:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B96646157B;
+	Mon, 24 Oct 2022 19:52:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A8BC433C1;
+	Mon, 24 Oct 2022 19:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666640271;
-	bh=GTzGyK5ICOdcW3TRbCJOV0+yXyHnU9QoAMm0ZKS8v1c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ALITZss1pRbrMLdGnnQCScYQIAox+NcvETAU1maabpqGSPYDt06K5VvFXuzFOtgAT
-	 jnUpj/4Kf8pzKh4YkR7sbKknASD6DgQJlDKWscUF7ErS2PwmolbpJ9NUFUdmUwPueA
-	 IgF7ZhjNzcHl46dHOByqrTfML814kg079KcqiHjuFhr0eCyyMuHY88XK1LI1SosyT8
-	 RmlTXj2E59MkGAh/Mzcf3gbOXYexxeuJM6dfHGmjSxYb//EvbyHfzjWvSzb+x1fBhP
-	 b7wI7EEXjwuDvwVeQRYKT5m20PvJ5Knq12gE3A7rfbPy826UEx4gyTJI5LksnTxp+5
-	 h0pKCrJ70TL/g==
+	s=k20201202; t=1666641132;
+	bh=lkkW65uC8FLtw8ZPu4UMr+BKPlIpPDImnPKWcWAQVgI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OR7Wn4rSm/wnwJ1ZqtdnojYijuJs7jTNBg1kVq0NL4mto3/afBuYkva7gu66tDiX/
+	 B8bGkSQulksZOEzv/o+/9aRN4Gto0pSGQtDUPD2T6vmk9oEUN68Qhq9qBJbQHrn0y5
+	 rmbacobbp4UMXAeNlEY3ZiXi/jhDpVrhhBqK6Nig0gxnEO61qhaojqjC4iDplVe2B7
+	 oGFxJsEH/QBxpLSxkvc6fskMtaPhdVanvgVMjHZq6BHaqGoXCvl2ZGRX3eYZXvaadd
+	 bQMtAneBMV+a8Kq9HtKdx3DFulcwPX3GMojv7cPlJxB1WmLo+lN0wzELkCGizRmKSa
+	 q0+E/DLvfxDWQ==
+Date: Mon, 24 Oct 2022 20:52:07 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>,
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Padmarao Begari <padmarao.begari@microchip.com>
-Subject: [RFC] riscv: dts: microchip: add OPPs to mpfs
-Date: Mon, 24 Oct 2022 20:36:48 +0100
-Message-Id: <20221024193647.1089769-1-conor@kernel.org>
-X-Mailer: git-send-email 2.38.0
+	Mayuresh Chitale <mchitale@ventanamicro.com>
+Subject: Re: [PATCH v5 3/4] RISC-V: Implement arch specific PMEM APIs
+Message-ID: <Y1bs50GXeUoTcv2V@spud>
+References: <20221020075846.305576-1-apatel@ventanamicro.com>
+ <20221020075846.305576-4-apatel@ventanamicro.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221020075846.305576-4-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_123753_381624_239CEF27 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20221024_125213_927040_136EFFD4 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,96 +78,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, Oct 20, 2022 at 01:28:45PM +0530, Anup Patel wrote:
+> The NVDIMM PMEM driver expects arch specific APIs for cache maintenance
+> and if arch does not provide these APIs then NVDIMM PMEM driver will
+> always use MEMREMAP_WT to map persistent memory which in-turn maps as
+> UC memory type defined by the RISC-V Svpbmt specification.
+> 
+> Now that the Svpbmt and Zicbom support is available in RISC-V kernel,
+> we implement PMEM APIs using ALT_CMO_OP() macros so that the NVDIMM
+> PMEM driver can use MEMREMAP_WB to map persistent memory.
+> 
+> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig     |  1 +
+>  arch/riscv/mm/Makefile |  1 +
+>  arch/riscv/mm/pmem.c   | 21 +++++++++++++++++++++
+>  3 files changed, 23 insertions(+)
+>  create mode 100644 arch/riscv/mm/pmem.c
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 6b48a3ae9843..025e2a1b1c60 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -25,6 +25,7 @@ config RISCV
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select ARCH_HAS_KCOV
+>  	select ARCH_HAS_MMIOWB
+> +	select ARCH_HAS_PMEM_API
+>  	select ARCH_HAS_PTE_SPECIAL
+>  	select ARCH_HAS_SET_DIRECT_MAP if MMU
+>  	select ARCH_HAS_SET_MEMORY if MMU
+> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> index d76aabf4b94d..3b368e547f83 100644
+> --- a/arch/riscv/mm/Makefile
+> +++ b/arch/riscv/mm/Makefile
+> @@ -31,3 +31,4 @@ endif
+>  
+>  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+>  obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
+> +obj-$(CONFIG_ARCH_HAS_PMEM_API) += pmem.o
 
-The U-Boot dts for mpfs defines three OPPs which are missing from the
-Linux dts. For ease of synchronisation of the two, add the missing OPPs
-to the Linux dt too.
+Hey Anup,
+Might be a silly question - ARCH_HAS_PMEM_API is unconditionally enabled
+right? It should therefore be okay to make this an obj-y?
+Thanks
+Conor.
 
-CC: Padmarao Begari <padmarao.begari@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-
-Hey Padmarao,
-I've been trying to pick off the bits that're different between the Linux
-& U-Boot dts. Do you remember why we added OPPs to the U-Boot dts but
-didn't propagate them elsewhere?
-
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 0a9bb84af438..9d9ff7174341 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -23,6 +23,7 @@ cpu0: cpu@0 {
- 			reg = <0>;
- 			riscv,isa = "rv64imac";
- 			clocks = <&clkcfg CLK_CPU>;
-+			operating-points-v2 = <&cluster0_opps>;
- 			status = "disabled";
- 
- 			cpu0_intc: interrupt-controller {
-@@ -51,6 +52,7 @@ cpu1: cpu@1 {
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-+			operating-points-v2 = <&cluster0_opps>;
- 			status = "okay";
- 
- 			cpu1_intc: interrupt-controller {
-@@ -79,6 +81,7 @@ cpu2: cpu@2 {
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-+			operating-points-v2 = <&cluster0_opps>;
- 			status = "okay";
- 
- 			cpu2_intc: interrupt-controller {
-@@ -107,6 +110,7 @@ cpu3: cpu@3 {
- 			clocks = <&clkcfg CLK_CPU>;
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
-+			operating-points-v2 = <&cluster0_opps>;
- 			status = "okay";
- 
- 			cpu3_intc: interrupt-controller {
-@@ -136,6 +140,7 @@ cpu4: cpu@4 {
- 			tlb-split;
- 			next-level-cache = <&cctrllr>;
- 			status = "okay";
-+			operating-points-v2 = <&cluster0_opps>;
- 			cpu4_intc: interrupt-controller {
- 				#interrupt-cells = <1>;
- 				compatible = "riscv,cpu-intc";
-@@ -166,6 +171,24 @@ core4 {
- 				};
- 			};
- 		};
-+
-+		cluster0_opps: opp-table {
-+			compatible = "operating-points-v2";
-+			opp-shared;
-+
-+			opp-600000000 {
-+			    opp-hz = /bits/ 64 <600000000>;
-+			    opp-microvolt = <1100000>;
-+			};
-+			opp-300000000 {
-+			    opp-hz = /bits/ 64 <300000000>;
-+			    opp-microvolt = <950000>;
-+			};
-+			opp-150000000 {
-+			    opp-hz = /bits/ 64 <150000000>;
-+			    opp-microvolt = <750000>;
-+			};
-+		};
- 	};
- 
- 	refclk: mssrefclk {
--- 
-2.38.0
-
+> diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
+> new file mode 100644
+> index 000000000000..089df92ae876
+> --- /dev/null
+> +++ b/arch/riscv/mm/pmem.c
+> @@ -0,0 +1,21 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> + */
+> +
+> +#include <linux/export.h>
+> +#include <linux/libnvdimm.h>
+> +
+> +#include <asm/cacheflush.h>
+> +
+> +void arch_wb_cache_pmem(void *addr, size_t size)
+> +{
+> +	ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
+> +}
+> +EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
+> +
+> +void arch_invalidate_pmem(void *addr, size_t size)
+> +{
+> +	ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
+> +}
+> +EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
