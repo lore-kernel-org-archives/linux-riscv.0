@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119E0ECDFA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 09:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80D3FA3740
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 09:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jbT2CgotN4TrBSCMjUGSJcxVG1JQFsoRt4o6mUGnpd4=; b=u0tyDR/3RrVjkC
-	7cKZ4Xa/EaCBvPSb3e0hnC/GvYX3S112R1+4ghGL3lLeYsoK0vSZDfYZ0A2MBiHgzLuT3UEPdx5hh
-	8F/wk57TXy133V9RFQQrma8D1nOMybV3LaJJATKbkZ+mlxpLYPvb4ABT280ZNzyS+krw2D5M02Dkd
-	633UxK5DGf9KQYIgrGIPzObpoUCM3NVPAIVtdEHKDw3Sstrhjpbcb4zc0WxyiZ1XouyMoBG4Bz7nj
-	tU60RJOXMY5/tE0UFMzkvq6N+cuCLP1BOh92PgAUUo2kRslymC4iQ0CF2r2G7OeK0ASGa5L5/f/Hk
-	ydhZCmySPzi8gErwYKrA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ky1xGPLB/q++DLOxb1auqDPR52PEGBCFju4P6L5OInc=; b=K4sgFsWRaHzLtL
+	6/cBfqe276E6Lxn2FqFb8cxQQ4l35zEtz8zgx1a4LboDYPZ2HoqfwjZC9lk6laBQL9vEV43Yx0HMG
+	e55iRrMcEXMpnF9iNkydk728mNP1+L7mGAdBirAM0Ox2nvsIl9yYEgqKVDQ030oR8YJc+GjsQaPy5
+	HML3Zh8pv1/Uz7irPbW8wkRf5SDim50UGHO3vo7rQ75yy/1aisA9M1SzhTcyEGEHuQL/WengPXCqr
+	k8v+Y3Vofenn8ienA4KrINVKNvtB/86QUo99tLd21lnlSqx4ri9pCc2gj1+R3d1LwTq85AvyUaxHW
+	9O1nPcLUzIqIlA8yWZCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omtWG-000Ks8-By; Mon, 24 Oct 2022 09:13:16 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1omtWK-000KuZ-9g; Mon, 24 Oct 2022 09:13:20 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omtWD-000Kpp-NK
+	id 1omtWE-000KpQ-BR
 	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 09:13:15 +0000
-Received: by mail-ed1-x536.google.com with SMTP id a13so28852361edj.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 02:13:13 -0700 (PDT)
+Received: by mail-ed1-x533.google.com with SMTP id y69so9743860ede.5
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 02:13:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JIwER8k8IhcgA23J4foB45LX9cZVbH0ppYWu1nj+Z1Q=;
-        b=OcUwolJU9LdhXRMhQCV2+/zP9uNQuXMRbW4bTxss2F5b0bYpKJW6LLpKBTnjpwEWCY
-         axJJjhJIV56oKmFwWWY5/MozZy1YY2Kuy9k4ZYqL0J0eIHrqOlHXupquhtnrh7/Gfp+n
-         4y1OEsssV5s6lwHJMOJ9/9UnYOVqF1Egtw8NQE1byDQq7FET8gpxBZNqxRo5nLpssUws
-         kRfbDeJPkogVUgasno3O4660mc8wuZofV32QAaQMW5zK402WTA1A7TRCdMiIBo20GaFs
-         TFYOFDXmkXIC+vVTnY8WLktSXpAb+T+uCJUNE1lVSZ5sAGRYD1zCBdfd9hQLt/uQ59zs
-         hN0Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qvDDTwSmj9lH0C5h1Tz5CWy1mF5Fm8oV3aqodopP9Yo=;
+        b=BPiaL86cCqq623/4FXnKhglq86oIwIa9BCkdF5UGvlsBfh3APKJGwN5+u6wzq3rNcW
+         GSonDf2sFnmjohYIv/nHR9NhP0QkJZBjYCjBDApKH+KqXITSPzVcCeNFBOpXPF0U9WnF
+         dQpdnWqokTJxIWFXaEFjkWKlQABkPDaXM9DKJ/QnN6GI3XLeTnuldJEDc21riibQ/uii
+         +17FoO0uDrvtcbA937VWLUCRbsUkDDkrKfFZINHAgWqB4WvTKht1La96laOLZU+Qsudj
+         DZxarM3cqr8kDE6Es1thkxEBk5OAlafpQRlUP+ZDaLihAdoxTl2kN+MsUrUFfutyIoH1
+         M62w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JIwER8k8IhcgA23J4foB45LX9cZVbH0ppYWu1nj+Z1Q=;
-        b=wS/SKOyNtzJUizUwy25N161BOuVEpvlNSqP6YvVGfbdZHGbvVr91MYu5RWD987mPN7
-         FCE44b7TGpHr29GzhMnFlTMnnXVkAICqznG4RF+XKgFy3y21sVChuKgIsL/HEtUJH1Ki
-         gyqC8H9maKOsalIn31vkKKfMewvM5XZHenZbEA41ufp4bn31r1fmERiMXaJR6WS2kQnh
-         P8rUIu4PXiJmSbE5TrDCoQNmxy1+DJLxhqHySv+JToBe7bjnuVN0htm8N6DQJqZTmy7r
-         0CEJbhFyjoxo4EO/q1m5V0rn5G43qx9uXJcISqL8/xDXv9z9PcKm08NQbxpTC0jdCFAv
-         zI2w==
-X-Gm-Message-State: ACrzQf0tfuWrTY6/zRCmuztEgFcK5Ja5WrfPSTpNJRCgfvEKDPGNw8vm
-	b+C3sjdNuoPkNH0Vx88JJ6Odwldmjj++LQ==
-X-Google-Smtp-Source: AMsMyM77KP2+Ur6xHAKk1pyxNc0J33dOTjJSNopxwILfvZNwEWxGEOGTRUAsTeiOxp+iMKkFFgiYuA==
-X-Received: by 2002:a05:6402:2813:b0:461:e7bc:560a with SMTP id h19-20020a056402281300b00461e7bc560amr1255448ede.340.1666602792149;
-        Mon, 24 Oct 2022 02:13:12 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qvDDTwSmj9lH0C5h1Tz5CWy1mF5Fm8oV3aqodopP9Yo=;
+        b=Q7maufk5ACfmsAUVrEA4a9DUP/i20gLBxwAJivft5nKoRy//Oy5MMZHUmTC7m2kLP3
+         660Scm/b+B6ESCIQt3Y3WV6dQqawVpHzLKpOmoRjUt1CgpEH0GR8KUEwdGdRGy0vAZ9W
+         JOTljbpwSTHWlDTXy24PT4A4OZ1VLQe6nmS01z6mAGr0VR9+e/WG7VsR8FN/cKy3Mu7W
+         4QQV6GFY70LB9j0U7f49nDN4pOUmqFOte8Hke138MpjgPGF6ihNTMFgqJRlkSz1g4Ro9
+         rif2tyMbMUU5tWIVBo159CH8STnj3jYzO+oteoR9nMJJmmbzY6Y9usIdRbmRFw8caqIr
+         i68g==
+X-Gm-Message-State: ACrzQf1xvwzNTqSzHOtqWkUnNtpvQvqpcfYttrEz9UHil7faBGrejIiI
+	6sWAQTsZM2wxFcpBBYRElOsjWcRTtOqZ2A==
+X-Google-Smtp-Source: AMsMyM7IIQZX9dkUPOd4VipjZbc0117syw6eP6rnYFtD4q56X/5Ev5oToGMjjNfQ7Cnc6xn+Tx7ykw==
+X-Received: by 2002:a17:906:6791:b0:78d:4051:fcf0 with SMTP id q17-20020a170906679100b0078d4051fcf0mr26393399ejp.591.1666602790630;
+        Mon, 24 Oct 2022 02:13:10 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id l3-20020aa7cac3000000b0045723aa48ccsm17850061edt.93.2022.10.24.02.13.11
+        by smtp.gmail.com with ESMTPSA id fq35-20020a1709069da300b007a0b28c324dsm3166878ejc.126.2022.10.24.02.13.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Oct 2022 02:13:11 -0700 (PDT)
+        Mon, 24 Oct 2022 02:13:10 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -69,16 +68,14 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 1/3] RISC-V: Improve use of isa2hwcap[]
-Date: Mon, 24 Oct 2022 11:13:07 +0200
-Message-Id: <20221024091309.406906-2-ajones@ventanamicro.com>
+Subject: [PATCH v2 0/3] RISC-V: Ensure Zicbom has a valid block size
+Date: Mon, 24 Oct 2022 11:13:06 +0200
+Message-Id: <20221024091309.406906-1-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.37.3
-In-Reply-To: <20221024091309.406906-1-ajones@ventanamicro.com>
-References: <20221024091309.406906-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_021313_781968_529CF286 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20221024_021314_414104_04A80C90 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +92,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Improve isa2hwcap[] by removing it from static storage, as
-riscv_fill_hwcap() is only called once, and by reducing its size
-from 256 bytes to 26. The latter improvement is possible because
-isa2hwcap[] will never be indexed with capital letters and we can
-precompute the offsets from 'a'.
+When a DT puts zicbom in the isa string, but does not provide a block
+size, ALT_CMO_OP() will attempt to do cache operations on address
+zero since the start address will be ANDed with zero. We can't simply
+BUG() in riscv_init_cbom_blocksize() when we fail to find a block
+size because the failure will happen before logging works, leaving
+users to scratch their heads as to why the boot hung. Instead, ensure
+Zicbom is disabled and output an error which will hopefully alert
+people that the DT needs to be fixed. While at it, add a check that
+the block size is a power-of-2 too.
 
-No functional change intended.
+The first patch of the series is a cleanup of code that crossed the
+path of this work. The second patch prepares for isa ext. checking
+and the third finally does what this cover letter says.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/kernel/cpufeature.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+Thanks,
+drew
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 694267d1fe81..4677320d7e31 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -74,15 +74,15 @@ void __init riscv_fill_hwcap(void)
- 	const char *isa;
- 	char print_str[NUM_ALPHA_EXTS + 1];
- 	int i, j, rc;
--	static unsigned long isa2hwcap[256] = {0};
-+	unsigned long isa2hwcap[26] = {0};
- 	unsigned long hartid;
- 
--	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
--	isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
--	isa2hwcap['a'] = isa2hwcap['A'] = COMPAT_HWCAP_ISA_A;
--	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
--	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
--	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
-+	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
-+	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
-+	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
-+	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
-+	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
- 
- 	elf_hwcap = 0;
- 
-@@ -196,8 +196,10 @@ void __init riscv_fill_hwcap(void)
- 			if (unlikely(ext_err))
- 				continue;
- 			if (!ext_long) {
--				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
--				set_bit(*ext - 'a', this_isa);
-+				int nr = *ext - 'a';
-+
-+				this_hwcap |= isa2hwcap[nr];
-+				set_bit(nr, this_isa);
- 			} else {
- 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
- 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+v2:
+  - Unconditionally complain when we detect a problem with DT's
+    cbom-block-size
+  - A couple r-b's from Conor
+
+Andrew Jones (3):
+  RISC-V: Improve use of isa2hwcap[]
+  RISC-V: Introduce riscv_isa_extension_check
+  RISC-V: Ensure Zicbom has a valid block size
+
+ arch/riscv/kernel/cpufeature.c | 43 ++++++++++++++++++++++++++--------
+ 1 file changed, 33 insertions(+), 10 deletions(-)
+
 -- 
 2.37.3
 
