@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA84C38A2D
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 08:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119E0ECDFA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 09:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M8xOsvGdYy8DbKsqxWGFjF3aOyZsKvnvBGPj7YWlsKs=; b=cNpzq3UKBWYkrU
-	MCh/mD5o73wlE5/k3Va50xcUMULmY4nXj2Bgb1cYkOtLjVChOXJ7cG6obRrMLDIWW0pzOROOhLkEy
-	wz8XhwJ9GC3Iy9A/DjKhOfoM6pW5nAIvuwW2AOVAhUlxTUK9Oq59ZPRiDzpDRmH5B9P7QeJa2O+CT
-	IaDemzQ2HvO+bL31ZYY21H9cSPGannzh8SLwQlT2d77nTNf2GVRncvQxc2lJWi8zEib1ukGuDGruA
-	RUq6Co2M15Gh/YS2MumBtBHc2V0JK8vFJgKkhWMcRyLijE9KYuzHTBJYssPVSsAvgOf227PocZ8sR
-	mpw/C3MG2N17Rg7GjVSg==;
+	List-Owner; bh=jbT2CgotN4TrBSCMjUGSJcxVG1JQFsoRt4o6mUGnpd4=; b=u0tyDR/3RrVjkC
+	7cKZ4Xa/EaCBvPSb3e0hnC/GvYX3S112R1+4ghGL3lLeYsoK0vSZDfYZ0A2MBiHgzLuT3UEPdx5hh
+	8F/wk57TXy133V9RFQQrma8D1nOMybV3LaJJATKbkZ+mlxpLYPvb4ABT280ZNzyS+krw2D5M02Dkd
+	633UxK5DGf9KQYIgrGIPzObpoUCM3NVPAIVtdEHKDw3Sstrhjpbcb4zc0WxyiZ1XouyMoBG4Bz7nj
+	tU60RJOXMY5/tE0UFMzkvq6N+cuCLP1BOh92PgAUUo2kRslymC4iQ0CF2r2G7OeK0ASGa5L5/f/Hk
+	ydhZCmySPzi8gErwYKrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omsww-000A1A-WB; Mon, 24 Oct 2022 08:36:47 +0000
+	id 1omtWG-000Ks8-By; Mon, 24 Oct 2022 09:13:16 +0000
 Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omsvf-0009IN-Sg
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 08:35:30 +0000
-Received: by mail-ed1-x536.google.com with SMTP id b12so28460821edd.6
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 01:35:24 -0700 (PDT)
+	id 1omtWD-000Kpp-NK
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 09:13:15 +0000
+Received: by mail-ed1-x536.google.com with SMTP id a13so28852361edj.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 02:13:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=39WHpXhtT0N+hZSDgTZ0tCOhceQWnucOBNoNO2itXes=;
-        b=lxFfdYmNqpTpLZm9TqkccTaspAQwtMd1E+xxuUpAhvy2GP4fjgBqNTyJSUuCrxfJcs
-         PFYKXWkm1Jzoz75CPVx82ara+pNEArzxrpXbpvonqUsDZuVezqkbsNr9QR2QiCO1UFhW
-         wX6ZHTaMDBiCkUewNTEx6T7341ItDaAD79N0HPM2HCT9XT4cVWsbfMX4Cs+nZkvQg1Dq
-         uyCrrrhx/UH3Y3llngKEUieE4bE6i9yVPG+gWrGCidnJJ708as0jYPAiKlAa43HDpbwK
-         0H6s8Cr6mozpSOfMFUKnkugHN2D9Q/nGmNDpNGZVpdfYLgpZ49qxGi2SnU4qLt6xkcJ1
-         FKNw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JIwER8k8IhcgA23J4foB45LX9cZVbH0ppYWu1nj+Z1Q=;
+        b=OcUwolJU9LdhXRMhQCV2+/zP9uNQuXMRbW4bTxss2F5b0bYpKJW6LLpKBTnjpwEWCY
+         axJJjhJIV56oKmFwWWY5/MozZy1YY2Kuy9k4ZYqL0J0eIHrqOlHXupquhtnrh7/Gfp+n
+         4y1OEsssV5s6lwHJMOJ9/9UnYOVqF1Egtw8NQE1byDQq7FET8gpxBZNqxRo5nLpssUws
+         kRfbDeJPkogVUgasno3O4660mc8wuZofV32QAaQMW5zK402WTA1A7TRCdMiIBo20GaFs
+         TFYOFDXmkXIC+vVTnY8WLktSXpAb+T+uCJUNE1lVSZ5sAGRYD1zCBdfd9hQLt/uQ59zs
+         hN0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=39WHpXhtT0N+hZSDgTZ0tCOhceQWnucOBNoNO2itXes=;
-        b=3JNtLIDbwz5vEZo9WvrfoQDPmuYGjl2ROSCDPW6bq1Pwy+IlOaViJEM93DDX6KvaWp
-         c7ypt+HfU0sCzhUIXX/x20jW250ZJwRmV+qF6wIE4HgPYbxYYgM6/pQJE7eXDhS5ppCB
-         tqhrbWshIIH8p/FLlcEgJF7hba2tVWevaZk/8ngeXY/4RGcluk2IYeFB8t/EAqGL2laF
-         BUJGotbbdsrkGsrdcro6f8F24NT4t47HC5d5ogWIEvWLA8LOLpdTejGX2WboR4iKetam
-         BSMGQHjxpSQWoc0CjuNGBwV49P2YX6k+Oi4eIuJYI0OFtzRz0dIOvqOBZ6hJbOawE2ID
-         FmmQ==
-X-Gm-Message-State: ACrzQf2BZ1I6YCZBc5fASWqFemkjdPxCB2PeJ9dHxIUrdHTottGOgj4l
-	9RJlWxquD4f9fapD2luBLvEk0w==
-X-Google-Smtp-Source: AMsMyM5VlFNoeOOnZEeVGZB2hEQpD+IJ+YAKECxituYDDcfW/q5puxM6Jk58tHLeEybBuxcuEVM/6g==
-X-Received: by 2002:a17:907:6d18:b0:78e:259d:c391 with SMTP id sa24-20020a1709076d1800b0078e259dc391mr26624036ejc.615.1666600523465;
-        Mon, 24 Oct 2022 01:35:23 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JIwER8k8IhcgA23J4foB45LX9cZVbH0ppYWu1nj+Z1Q=;
+        b=wS/SKOyNtzJUizUwy25N161BOuVEpvlNSqP6YvVGfbdZHGbvVr91MYu5RWD987mPN7
+         FCE44b7TGpHr29GzhMnFlTMnnXVkAICqznG4RF+XKgFy3y21sVChuKgIsL/HEtUJH1Ki
+         gyqC8H9maKOsalIn31vkKKfMewvM5XZHenZbEA41ufp4bn31r1fmERiMXaJR6WS2kQnh
+         P8rUIu4PXiJmSbE5TrDCoQNmxy1+DJLxhqHySv+JToBe7bjnuVN0htm8N6DQJqZTmy7r
+         0CEJbhFyjoxo4EO/q1m5V0rn5G43qx9uXJcISqL8/xDXv9z9PcKm08NQbxpTC0jdCFAv
+         zI2w==
+X-Gm-Message-State: ACrzQf0tfuWrTY6/zRCmuztEgFcK5Ja5WrfPSTpNJRCgfvEKDPGNw8vm
+	b+C3sjdNuoPkNH0Vx88JJ6Odwldmjj++LQ==
+X-Google-Smtp-Source: AMsMyM77KP2+Ur6xHAKk1pyxNc0J33dOTjJSNopxwILfvZNwEWxGEOGTRUAsTeiOxp+iMKkFFgiYuA==
+X-Received: by 2002:a05:6402:2813:b0:461:e7bc:560a with SMTP id h19-20020a056402281300b00461e7bc560amr1255448ede.340.1666602792149;
+        Mon, 24 Oct 2022 02:13:12 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id p5-20020a170906498500b0078b83968ad4sm15124286eju.24.2022.10.24.01.35.22
+        by smtp.gmail.com with ESMTPSA id l3-20020aa7cac3000000b0045723aa48ccsm17850061edt.93.2022.10.24.02.13.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Oct 2022 01:35:23 -0700 (PDT)
-Date: Mon, 24 Oct 2022 10:35:22 +0200
+        Mon, 24 Oct 2022 02:13:11 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+To: linux-riscv@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 3/3] RISC-V: Ensure Zicbom has a valid block size
-Message-ID: <20221024083522.fgwej6saqhbvumfj@kamzik>
-References: <20221021105905.206385-1-ajones@ventanamicro.com>
- <20221021105905.206385-4-ajones@ventanamicro.com>
- <Y1WYT97IQy3Q6BhF@spud>
- <20221024070935.ff62bcjl6z7i4flh@kamzik>
- <Y1ZKLjC/ZnnjSNy2@wendy>
+Subject: [PATCH v2 1/3] RISC-V: Improve use of isa2hwcap[]
+Date: Mon, 24 Oct 2022 11:13:07 +0200
+Message-Id: <20221024091309.406906-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.37.3
+In-Reply-To: <20221024091309.406906-1-ajones@ventanamicro.com>
+References: <20221024091309.406906-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y1ZKLjC/ZnnjSNy2@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_013527_991539_827C0375 
-X-CRM114-Status: GOOD (  48.17  )
+X-CRM114-CacheID: sfid-20221024_021313_781968_529CF286 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,110 +95,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 24, 2022 at 09:17:50AM +0100, Conor Dooley wrote:
-> On Mon, Oct 24, 2022 at 09:09:35AM +0200, Andrew Jones wrote:
-> > On Sun, Oct 23, 2022 at 08:38:55PM +0100, Conor Dooley wrote:
-> > > On Fri, Oct 21, 2022 at 12:59:05PM +0200, Andrew Jones wrote:
-> > > > When a DT puts zicbom in the isa string, but does not provide a block
-> > > > size, ALT_CMO_OP() will attempt to do cache operations on address
-> > > > zero since the start address will be ANDed with zero. We can't simply
-> > > > BUG() in riscv_init_cbom_blocksize() when we fail to find a block
-> > > > size because the failure will happen before logging works, leaving
-> > > > users to scratch their heads as to why the boot hung. Instead, ensure
-> > > > Zicbom is disabled and output an error which will hopefully alert
-> > > > people that the DT needs to be fixed. While at it, add a check that
-> > > > the block size is a power-of-2 too.
-> > > > 
-> > > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > > > ---
-> > > >  arch/riscv/kernel/cpufeature.c | 15 +++++++++++++++
-> > > >  1 file changed, 15 insertions(+)
-> > > > 
-> > > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > > > index 220be7222129..a4430a77df53 100644
-> > > > --- a/arch/riscv/kernel/cpufeature.c
-> > > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > > @@ -9,6 +9,7 @@
-> > > >  #include <linux/bitmap.h>
-> > > >  #include <linux/ctype.h>
-> > > >  #include <linux/libfdt.h>
-> > > > +#include <linux/log2.h>
-> > > >  #include <linux/module.h>
-> > > >  #include <linux/of.h>
-> > > >  #include <asm/alternative.h>
-> > > > @@ -70,6 +71,20 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
-> > > >  
-> > > >  static bool riscv_isa_extension_check(int id)
-> > > >  {
-> > > > +	switch (id) {
-> > > > +	case RISCV_ISA_EXT_ZICBOM:
-> > > > +		if (!riscv_cbom_block_size) {
-> > > > +			if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
-> > > 
-> > > Maybe I've missed something... Why not check if !IS_ENABLED() & return
-> > > false immediately rather than doing it inside the attribute checks?
-> > > I'll be compiled out of zicbom is enabled, so not like the non-error
-> > > patch will be penalised with an extra check.
-> > 
-> > Ths IS_ENABLED checks are only here to decide if we want to complain or
-> > not, not to decide if we want to add the extension to the isa bitmap or
-> > not. As we've decided for the KVM compilation fix for Zicbom patch we
-> > don't mind the kernel knowing the extension 'foo' is present, even when
-> > it's compiled without CONFIG_RISCV_ISA_FOO. Indeed, for Zicbom, KVM can
-> 
-> Of course, how did I forget last weeks breakage already...
-> 
-> > still offer the extension to guests, whether the host wants to use it or
-> > not. So, for this code, we can't factor out the IS_ENABLED checks since
-> > they're tied to the pr_err()s they're guarding, which are tied to the
-> > sanity checks they're inside.
-> 
-> So yeah, this all makes sense.
-> 
-> > 
-> > Thinking about it some more, though, maybe we should unconditionally
-> > complain, but with a different message, one that doesn't imply the kernel
-> > wanted to use the extension. Something like
-> > 
-> >   if (!riscv_cbom_block_size) {
-> >       pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
-> >       return false;
-> >   } else if (!is_power_of_2(riscv_cbom_block_size)) {
-> >       pr_err("riscv_cbom_block_size present, but it is not a power-of-2\n");
-> >       return false;
-> >   }
-> > 
-> > I'm still not sure if those should be errors or warnings when
-> > CONFIG_RISCV_ISA_ZICBOM=no, though.
-> 
-> My initial thought here was along the lines of "why care about the
-> issues when it's not enabled", but I went to get some caffeine before
-> replying and had a change of heart.
-> IMO, it'd be good to tell people that their DT doesn't describe their
-> hardware properly when it's gone wrong in a way that we cannot really
-> spot via dtbs_check etc. I'll go away and have a think about whether
-> the DT checks can force cbom-block-size if zicbom is in the isa string,
-> but I'm not sure if that sort of conditional is checkable.
-> If either of these error cases are hit (regardless of whether you set
-> CONFIG_RISCV_ISA_ZICBOM) then it'd cause issues for KVM right? That
-> would imply printing unconditionally to me.
+Improve isa2hwcap[] by removing it from static storage, as
+riscv_fill_hwcap() is only called once, and by reducing its size
+from 256 bytes to 26. The latter improvement is possible because
+isa2hwcap[] will never be indexed with capital letters and we can
+precompute the offsets from 'a'.
 
-Yes and no. KVM won't have any issues as it won't see Zicbom in the ISA
-bitmap and therefore won't consider offering it to guests. However, it
-could have offered it to guests, if only the DT was fixed, so I agree,
-it's best to unconditionally complain when we see something wrong.
+No functional change intended.
 
-> The level at which to
-> actually emit that is beyond the scope of what I care about though ;)
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/kernel/cpufeature.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
 
-This stackoverflow.com thread indicates I should use 'error'.
-https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 694267d1fe81..4677320d7e31 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -74,15 +74,15 @@ void __init riscv_fill_hwcap(void)
+ 	const char *isa;
+ 	char print_str[NUM_ALPHA_EXTS + 1];
+ 	int i, j, rc;
+-	static unsigned long isa2hwcap[256] = {0};
++	unsigned long isa2hwcap[26] = {0};
+ 	unsigned long hartid;
+ 
+-	isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+-	isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
+-	isa2hwcap['a'] = isa2hwcap['A'] = COMPAT_HWCAP_ISA_A;
+-	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
+-	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
+-	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
++	isa2hwcap['i' - 'a'] = COMPAT_HWCAP_ISA_I;
++	isa2hwcap['m' - 'a'] = COMPAT_HWCAP_ISA_M;
++	isa2hwcap['a' - 'a'] = COMPAT_HWCAP_ISA_A;
++	isa2hwcap['f' - 'a'] = COMPAT_HWCAP_ISA_F;
++	isa2hwcap['d' - 'a'] = COMPAT_HWCAP_ISA_D;
++	isa2hwcap['c' - 'a'] = COMPAT_HWCAP_ISA_C;
+ 
+ 	elf_hwcap = 0;
+ 
+@@ -196,8 +196,10 @@ void __init riscv_fill_hwcap(void)
+ 			if (unlikely(ext_err))
+ 				continue;
+ 			if (!ext_long) {
+-				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+-				set_bit(*ext - 'a', this_isa);
++				int nr = *ext - 'a';
++
++				this_hwcap |= isa2hwcap[nr];
++				set_bit(nr, this_isa);
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+-- 
+2.37.3
 
-I'll send a v2 with IS_ENABLED dropped and the wordage changed to not
-imply that the kernel wanted to use the extension, in case it didn't.
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
