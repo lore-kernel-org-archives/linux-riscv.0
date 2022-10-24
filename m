@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97910C3A59D
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 08:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8C4C3A59D
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 08:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w9W41LxKEAU2vqik4weDBury8Mqil2Gt355VcDiGUeo=; b=SuVyputky+XQmS
-	oZaTclzell6oTHLDwi54dvRz0TUxVgeQqvKOivYPiQZwx1/u1IjHk+bxPoa70BDvO9TPO3e1dC9P/
-	b9K1SMkaqyvgLZs52QDdKZGWW+OkFdfga/1knA6k/Fj76iOVis4gSFZRouGh9gnTxUY0HLnywb7xa
-	MGJkRdnPwKtCBXTq2yQO/wp6YQKa0AHxGSN5EL/V7jXMKa+OOyZovCc9EPqhcSgXhJ+G2+l1WmQ6V
-	K1esxGDYGpkaLDWRbGvj/QBRnWlig7TPAIbhzaWAc0Qbca370d0zIvUq/w/R079/T55gImUJmbhsp
-	ISb5W1ev4GShZtszetEw==;
+	List-Owner; bh=fLPVfHLTOkB2uBxBkYZN6gO2utBOUg2mmGnU3/FEAy8=; b=CDFa3hOL722tFE
+	Rn0Ta4HpRedUH12yMvsSnkzjg5qYtqBSIhlEjNBaXEfVcAKhZFARgX5emAGGtwpV/DbtGLHzSvs86
+	rnO/awRiAY17qHs/cV1O69nxX7Hie6l4hIO68q9dZ91WeXM4O1n7ykf0/l9ZADryog+4B0BbEA3Zn
+	18qkaxVZMzRIUzfH7VMwd4WfJUw0hMShPZhjiRssMCiF1vq1kEOrmid0WRl9NmhDYCB9c7ZhjPzQJ
+	q+zfCnQf94kCCNpfzMw6P4rTU2chXivoblXsdhJqAEamYmabW4i0oGmWzqVON8KzKdP7YpiizJ7LN
+	6/RoxNyVc4ukt6Rf7f+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omsSQ-0000TZ-Q8; Mon, 24 Oct 2022 08:05:14 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1omsfN-0003Ei-Lb; Mon, 24 Oct 2022 08:18:37 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omsSN-0000Rz-1d
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 08:05:13 +0000
-Received: by mail-ot1-x329.google.com with SMTP id a16-20020a056830101000b006619dba7fd4so5446558otp.12
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 01:05:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xQogVgCRTZ3khO8pknzN3DMcm/zjs+08sc/bQR/cai4=;
-        b=WvsJn3SNdiHFJfDdpxcjC72keInSt6i2XM6iQ4MTAiSww4hui3C0DdhAfysFHb5lGV
-         N30TTG9r63kkfSNWq8r5g+qUgwrDFGUt6GDnqNDq0zxF0cvJ/GU0RYMPk8kjn59WwdUO
-         MvXLfPc3MEL1nJ7qYBV+u140JIzh4wEyt57ElqOfFdC8CjuwHFcrRmwZiFtGin9WXkra
-         hrPQW3MZCAGWg7PhRbTOmXqhK2YnTSXiJ90S7S3jCDVaaJHavZirdxz2sNUpJlmbL/Ob
-         F10xW3Yye3TFhRwsEcdtLUNf6rC5s6vjRxujbtQb2fDfk64H5TAoaUaLwrtQTRM9Z+rq
-         ocpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xQogVgCRTZ3khO8pknzN3DMcm/zjs+08sc/bQR/cai4=;
-        b=DFbb6jU7bYvutJcaaJNuvoo0/FvSkFZo5pIflHCHV9HsXsN3BVeGSP4iKHNKdVjYM+
-         dfp+CNMIgGMfM9WjgZlg/jf8IX7bp1T3ulZiQN1LlpTVhyEUlRaAYMK7UNU/jX6moEYo
-         upPxa+ksl0e5yx9HfeA5ajZfg9TvNUpZqZ8CfnucPrO8EvbjP+XnHII2CBHVRlxV8AVX
-         B7wBcSJv72RpP61wtCDvrVkCBDcayh5f/IvfI6ZW+Rg+rPgmkJSKUO+xVvpE8tmls/LL
-         3K9lZHDav6DORXvh22Lshieedcf5kVd/DIBHI0gou2KMFhdsv8O6JVYp1Og5NNHTrUaK
-         wi9A==
-X-Gm-Message-State: ACrzQf1OYoj2jhVRWmpVMy8G4mrzQUW2xbkN7SfyzhCytdXOPrvKumCz
-	9Yv8fikNBMDETzjuBxbKWbR7ryN1ilE/omyEJKllnQ==
-X-Google-Smtp-Source: AMsMyM4xPD69f6QOt0dKLBgsvfX5al/GH/hSsUB/J6P60geH3x3uc+o4NJzHCMRlYGpznaz9A0j0dFQpS1bRnEvDs3g=
-X-Received: by 2002:a9d:68d1:0:b0:661:c3ac:c4c1 with SMTP id
- i17-20020a9d68d1000000b00661c3acc4c1mr16186225oto.150.1666598706435; Mon, 24
- Oct 2022 01:05:06 -0700 (PDT)
+	id 1omsfJ-0003Cs-Ik
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 08:18:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1666599513; x=1698135513;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Wg7PlmDnuxgWykJC13LMNKAdwVUFS0jMbEgsXKczxuM=;
+  b=TcTpevmNSBrvr1jv2vHPw4AnR/zHeYB8fVACkWYZui1eIL/KYDucgopH
+   khZIsa9Vs0AnLhf4torovN371avXnEvx7fdQIWKH/YSj12Xvp/gRrufog
+   +r02YZyvWvt5Ce3/wen09pQ15YpcyZTNHwpEij6zKmlDbkue2FQqH2R7M
+   f3gb9p5TodCXtaC8xyt+ck2nu5oZY0H0mzLHAamipox49K4iSjhGulGpw
+   rUNzv06/Kr0FVgAuhyt+8zInn004FHBZ8d9th1mbr2f8rFK95IF6RvRxB
+   toEnRON1KrUfQyhZpOfzlAzvw/Z6YO3d6eZLqe3hvdGF48zYzaV7ArZM3
+   g==;
+X-IronPort-AV: E=Sophos;i="5.95,207,1661842800"; 
+   d="scan'208";a="120037753"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Oct 2022 01:18:08 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 24 Oct 2022 01:18:08 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Mon, 24 Oct 2022 01:18:06 -0700
+Date: Mon, 24 Oct 2022 09:17:50 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Anup
+ Patel <apatel@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 3/3] RISC-V: Ensure Zicbom has a valid block size
+Message-ID: <Y1ZKLjC/ZnnjSNy2@wendy>
+References: <20221021105905.206385-1-ajones@ventanamicro.com>
+ <20221021105905.206385-4-ajones@ventanamicro.com>
+ <Y1WYT97IQy3Q6BhF@spud>
+ <20221024070935.ff62bcjl6z7i4flh@kamzik>
 MIME-Version: 1.0
-References: <mhng-ea4ae670-742b-424e-9363-c66ad9ee741c@palmer-ri-x1c9> <a2dc76e8-406e-5f27-0dc6-846c338660c9@sholland.org>
-In-Reply-To: <a2dc76e8-406e-5f27-0dc6-846c338660c9@sholland.org>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 24 Oct 2022 13:34:55 +0530
-Message-ID: <CAK9=C2WVDBKChp1kvVFz8rFGPgWBmtjr-qO_aYDQbsbWyn1PFQ@mail.gmail.com>
-Subject: Re: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU suspend
-To: Samuel Holland <samuel@sholland.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, daniel.lezcano@linaro.org, 
-	tglx@linutronix.de, aou@eecs.berkeley.edu, atishp@atishpatra.org, 
-	dmitriy@oss-tech.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20221024070935.ff62bcjl6z7i4flh@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_010511_119906_20622D9E 
-X-CRM114-Status: GOOD (  63.40  )
+X-CRM114-CacheID: sfid-20221024_011833_742956_718C8F83 
+X-CRM114-Status: GOOD (  42.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,265 +85,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 24, 2022 at 10:31 AM Samuel Holland <samuel@sholland.org> wrote:
->
-> On 10/9/22 18:45, Palmer Dabbelt wrote:
-> > On Thu, 29 Sep 2022 14:50:45 PDT (-0700), Conor Dooley wrote:
-> >> On Sun, May 08, 2022 at 08:21:21PM -0500, Samuel Holland wrote:
-> >>> Some implementations of the SBI time extension depend on hart-local
-> >>> state (for example, CSRs) that are lost or hardware that is powered
-> >>> down when a CPU is suspended. To be safe, the clockevents driver
-> >>> cannot assume that timer IRQs will be received during CPU suspend.
-> >>>
-> >>> Fixes: 62b019436814 ("clocksource: new RISC-V SBI timer driver")
-> >>> Signed-off-by: Samuel Holland <samuel@sholland.org>
-> >>> ---
-> >>>
-> >>>  drivers/clocksource/timer-riscv.c | 2 +-
-> >>>  1 file changed, 1 insertion(+), 1 deletion(-)
-> >>>
-> >>> diff --git a/drivers/clocksource/timer-riscv.c
-> >>> b/drivers/clocksource/timer-riscv.c
-> >>> index 1767f8bf2013..593d5a957b69 100644
-> >>> --- a/drivers/clocksource/timer-riscv.c
-> >>> +++ b/drivers/clocksource/timer-riscv.c
-> >>> @@ -34,7 +34,7 @@ static int riscv_clock_next_event(unsigned long delta,
-> >>>  static unsigned int riscv_clock_event_irq;
-> >>>  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
-> >>>      .name            = "riscv_timer_clockevent",
-> >>> -    .features        = CLOCK_EVT_FEAT_ONESHOT,
-> >>> +    .features        = CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-> >
-> > This is listed as being x86-specific in the header, but there's a hanful
-> > of other ports that enable it for timers as well.  Looks like arm is
-> > setting this based on DT, which seems reasonable to me: we're working
-> > around a firmware bug, there should be some way to turn off that
-> > workaround for firmware that doesn't have the bug. Looks like Intel already
-> > turns this off when ARAT is supported, which seems to be the case for
-> > anything modern, so maybe we're just tripping up on some untested behavior here?
-> > I'm not sure exactly how we should probe this, but having it only enabled
-> > when we need the workaround seems like the right way to go.
->
-> I opened an issue against the SBI spec about what exactly it requires,
-> but I got no responses:
->
-> https://github.com/riscv-non-isa/riscv-sbi-doc/issues/98
->
-> My interpretation of the SBI specification is that it does not require
-> maintaining any hart-local state across a non-retentive hart suspend.
-> Unless the SBI spec says the timer must fire during/after suspend, then
-> there is no firmware bug.
+On Mon, Oct 24, 2022 at 09:09:35AM +0200, Andrew Jones wrote:
+> On Sun, Oct 23, 2022 at 08:38:55PM +0100, Conor Dooley wrote:
+> > On Fri, Oct 21, 2022 at 12:59:05PM +0200, Andrew Jones wrote:
+> > > When a DT puts zicbom in the isa string, but does not provide a block
+> > > size, ALT_CMO_OP() will attempt to do cache operations on address
+> > > zero since the start address will be ANDed with zero. We can't simply
+> > > BUG() in riscv_init_cbom_blocksize() when we fail to find a block
+> > > size because the failure will happen before logging works, leaving
+> > > users to scratch their heads as to why the boot hung. Instead, ensure
+> > > Zicbom is disabled and output an error which will hopefully alert
+> > > people that the DT needs to be fixed. While at it, add a check that
+> > > the block size is a power-of-2 too.
+> > > 
+> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > > ---
+> > >  arch/riscv/kernel/cpufeature.c | 15 +++++++++++++++
+> > >  1 file changed, 15 insertions(+)
+> > > 
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > > index 220be7222129..a4430a77df53 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -9,6 +9,7 @@
+> > >  #include <linux/bitmap.h>
+> > >  #include <linux/ctype.h>
+> > >  #include <linux/libfdt.h>
+> > > +#include <linux/log2.h>
+> > >  #include <linux/module.h>
+> > >  #include <linux/of.h>
+> > >  #include <asm/alternative.h>
+> > > @@ -70,6 +71,20 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+> > >  
+> > >  static bool riscv_isa_extension_check(int id)
+> > >  {
+> > > +	switch (id) {
+> > > +	case RISCV_ISA_EXT_ZICBOM:
+> > > +		if (!riscv_cbom_block_size) {
+> > > +			if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
+> > 
+> > Maybe I've missed something... Why not check if !IS_ENABLED() & return
+> > false immediately rather than doing it inside the attribute checks?
+> > I'll be compiled out of zicbom is enabled, so not like the non-error
+> > patch will be penalised with an extra check.
+> 
+> Ths IS_ENABLED checks are only here to decide if we want to complain or
+> not, not to decide if we want to add the extension to the isa bitmap or
+> not. As we've decided for the KVM compilation fix for Zicbom patch we
+> don't mind the kernel knowing the extension 'foo' is present, even when
+> it's compiled without CONFIG_RISCV_ISA_FOO. Indeed, for Zicbom, KVM can
 
-SBI spec only defines the mechanism to enter HART suspend state. All
-other details (such as timer interrupt firing during/after suspend) are platform
-or implementation specific which needs to be discovered from DT/ACPI.
+Of course, how did I forget last weeks breakage already...
 
->
-> > That said, I'm not actually sure this C3STOP feature does what we want
-> > given the commit description.  The timers on RISC-V are sort of in this
-> > odd middle-ground between being per-CPU timers and system timers: the
-> > time they produce is global (or at least close, due to the mtime
-> > synchronization rules) but the actual interrupts are only one-shot and
-> > only local.
->
-> And if we cannot rely on the interrupt being delivered, we cannot rely
-> on the SBI time extension to work across cpuidle entry.
+> still offer the extension to guests, whether the host wants to use it or
+> not. So, for this code, we can't factor out the IS_ENABLED checks since
+> they're tied to the pr_err()s they're guarding, which are tied to the
+> sanity checks they're inside.
 
-Just like ARM, we need a DT property to discover this platform specific
-behaviour.
+So yeah, this all makes sense.
 
-I had sent out a small series to do this for DT.
-Refer, "[PATCH v2 0/2] Improve CLOCK_EVT_FEAT_C3STOP feature setting"
-https://lore.kernel.org/all/20220727114302.302201-1-apatel@ventanamicro.com/
+> 
+> Thinking about it some more, though, maybe we should unconditionally
+> complain, but with a different message, one that doesn't imply the kernel
+> wanted to use the extension. Something like
+> 
+>   if (!riscv_cbom_block_size) {
+>       pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
+>       return false;
+>   } else if (!is_power_of_2(riscv_cbom_block_size)) {
+>       pr_err("riscv_cbom_block_size present, but it is not a power-of-2\n");
+>       return false;
+>   }
+> 
+> I'm still not sure if those should be errors or warnings when
+> CONFIG_RISCV_ISA_ZICBOM=no, though.
 
->
-> > From poking around the code I think this just tries to
-> > setup a periodic broadcast timer, but since we use software fallbacks to
-> > emulate those we'll still end up losing the interrupts/ticks if the CPU
-> > that was asked for an interrupt has gone to sleep and lost that state.
->
-> So by extension, non-retentive cpuidle states cannot be used if the SBI
-> timer is the only available timer, since there is no hardware broadcast
-> timer to use as a backup.
->
-> > I'm not sure if I'm just misunderstanding what's going on here, though.
-> > Is there something that describes the behavior this fixes in more detail?
->
-> The motivating scenario for this patch is the C906, where the MTIMER is
-> in the same reset domain as the CPU, so the timer state is lost during
-> non-retentive suspend. Without this patch, if riscv_timer_clockevent is
-> the current clockevent driver, then the CPU fails to wake up from
-> suspend. However, this same problem would occur on any CPU where the
-> timer or interrupt delivery stops working during suspend.
+My initial thought here was along the lines of "why care about the
+issues when it's not enabled", but I went to get some caffeine before
+replying and had a change of heart.
+IMO, it'd be good to tell people that their DT doesn't describe their
+hardware properly when it's gone wrong in a way that we cannot really
+spot via dtbs_check etc. I'll go away and have a think about whether
+the DT checks can force cbom-block-size if zicbom is in the isa string,
+but I'm not sure if that sort of conditional is checkable.
+If either of these error cases are hit (regardless of whether you set
+CONFIG_RISCV_ISA_ZICBOM) then it'd cause issues for KVM right? That
+would imply printing unconditionally to me. The level at which to
+actually emit that is beyond the scope of what I care about though ;)
 
-Yes, I recall CLOCK_EVT_FEAT_C3STOP was added for C906 but
-we should go the DT/ACPI route.
+Thanks,
+Conor.
 
-Regards,
-Anup
-
->
-> >>>      .rating            = 100,
-> >>>      .set_next_event        = riscv_clock_next_event,
-> >>>  };
-> >>
-> >> After a bit of a painful bisection (with a misdirection into the v5.19
-> >> printk reverts along the way) I have arrived at this commit for causing
-> >> me some issues.
-> >>
-> >> If an AXI read to the PCIe controller on PolarFire SoC times out, the
-> >> system will stall, with an expected:
-> >>      io scheduler mq-deadline registered
-> >>      io scheduler kyber registered
-> >>      microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000
-> >> ranges:
-> >>      microchip-pcie 2000000000.pcie:      MEM
-> >> 0x2008000000..0x2087ffffff -> 0x0008000000
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: axi read request error
-> >>      microchip-pcie 2000000000.pcie: axi read timeout
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      Freeing initrd memory: 7336K
-> >>      mc_event_handler: 667402 callbacks suppressed
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>      microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>      mc_event_handler: 666588 callbacks suppressed
-> >> <truncated>
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     mc_event_handler: 666748 callbacks suppressed
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> >>     rcu:     0-...0: (1 GPs behind) idle=19f/1/0x4000000000000002
-> >> softirq=34/36 fqs=2626
-> >>         (detected by 1, t=5256 jiffies, g=-1151, q=1143 ncpus=4)
-> >>     Task dump for CPU 0:
-> >>     task:swapper/0       state:R  running task     stack:    0 pid:
-> >> 1 ppid:     0 flags:0x00000008
-> >>     Call Trace:
-> >>     mc_event_handler: 666648 callbacks suppressed
-> >>
-> >>  With this patch applied, the system just locks up without RCU stalling:
-> >>     io scheduler mq-deadline registered
-> >>     io scheduler kyber registered
-> >>     microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000
-> >> ranges:
-> >>     microchip-pcie 2000000000.pcie:      MEM
-> >> 0x2008000000..0x2087ffffff -> 0x0008000000
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: axi read request error
-> >>     microchip-pcie 2000000000.pcie: axi read timeout
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> >>     microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> >>     Freeing initrd memory: 7332K
-> >>
-> >> As of yet, I have no idea if RCU stalls for other reasons would also be
-> >> lost.
-> >
-> > Sorry this broke stuff.  I'm not entirely sure why this would mask RCU
-> > stalls, but it seems like we're hitting some pretty odd paths here and
-> > I'm not sure this is expected to work at all for us.
->
-> I'm confused here. The RCU stall is itself a bug, right? Are you sure
-> this patch is wrongly masking the stall, or is it possibly just avoiding
-> some buggy code and not causing a stall in the first place?
->
-> Regards,
-> Samuel
->
-> > If non-x86 architectures are meant to be able to set
-> > CLOCK_EVT_FEAT_C3STOP, maybe we should document what it's supposed to do
-> > in a more platform-agnostic fashion?
-> >
-> >> Thanks,
-> >> Conor.
-> >>
-> >> git bisect start
-> >> # status: waiting for both good and bad commits
-> >> # good: [7699f7aacf3ebfee51c670b6f796b2797f0f7487] RISC-V: Prepare
-> >> dropping week attribute from arch_kexec_apply_relocations[_add]
-> >> git bisect good 7699f7aacf3ebfee51c670b6f796b2797f0f7487
-> >> # bad: [63d5172e148bcc174398040861d867bbd2770be4] HACK: jogness
-> >> git bisect bad 63d5172e148bcc174398040861d867bbd2770be4
-> >> # good: [2518f226c60d8e04d18ba4295500a5b0b8ac7659] Merge tag
-> >> 'drm-next-2022-05-25' of git://anongit.freedesktop.org/drm/drm
-> >> git bisect good 2518f226c60d8e04d18ba4295500a5b0b8ac7659
-> >> # good: [907bb57aa7b471872aab2f2e83e9713a145673f9] Merge tag
-> >> 'pinctrl-v5.19-1' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl
-> >> git bisect good 907bb57aa7b471872aab2f2e83e9713a145673f9
-> >> # good: [4ad680f083ec360e0991c453e18a38ed9ae500d7] Merge tag
-> >> 'staging-5.19-rc1' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging
-> >> git bisect good 4ad680f083ec360e0991c453e18a38ed9ae500d7
-> >> # good: [23df9ba64bb9e26cfee6b34f5c3ece49a8a61ee1] Merge tag
-> >> 'for-5.19/parisc-2' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/deller/parisc-linux
-> >> git bisect good 23df9ba64bb9e26cfee6b34f5c3ece49a8a61ee1
-> >> # bad: [7a68065eb9cd194cf03f135c9211eeb2d5c4c0a0] Merge tag
-> >> 'gpio-fixes-for-v5.19-rc2' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux
-> >> git bisect bad 7a68065eb9cd194cf03f135c9211eeb2d5c4c0a0
-> >> # bad: [1f192b9e8d8a5c619b33a868fb1af063af65ce5d] Merge tag
-> >> 'drm-misc-fixes-2022-06-09' of
-> >> git://anongit.freedesktop.org/drm/drm-misc into drm-fixes
-> >> git bisect bad 1f192b9e8d8a5c619b33a868fb1af063af65ce5d
-> >> # good: [b2c9a83d262a8feb022e24e9f9aadb66cb10a7a8] Merge tag
-> >> 'scsi-misc' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi
-> >> git bisect good b2c9a83d262a8feb022e24e9f9aadb66cb10a7a8
-> >> # bad: [e17fee8976c3d2ccf9add6d6c8912a37b025d840] Merge tag
-> >> 'mm-nonmm-stable-2022-06-05' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> >> git bisect bad e17fee8976c3d2ccf9add6d6c8912a37b025d840
-> >> # bad: [c049ecc523171481accd2c83f79ffeecbf53a915] Merge tag
-> >> 'timers-core-2022-06-05' of
-> >> git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-> >> git bisect bad c049ecc523171481accd2c83f79ffeecbf53a915
-> >> # bad: [9c04a8ff03def4df3f81219ffbe1ec9b44ff5348]
-> >> clocksource/drivers/oxnas-rps: Fix irq_of_parse_and_map() return value
-> >> git bisect bad 9c04a8ff03def4df3f81219ffbe1ec9b44ff5348
-> >> # bad: [7160d9c4cce94612d5f42a5db392cd606a38737a]
-> >> clocksource/drivers/armada-370-xp: Convert to SPDX identifier
-> >> git bisect bad 7160d9c4cce94612d5f42a5db392cd606a38737a
-> >> # bad: [a98399cbc1e05f7b977419f03905501d566cf54e]
-> >> clocksource/drivers/sp804: Avoid error on multiple instances
-> >> git bisect bad a98399cbc1e05f7b977419f03905501d566cf54e
-> >> # good: [41929c9f628b9990d33a200c54bb0c919e089aa8]
-> >> clocksource/drivers/ixp4xx: Drop boardfile probe path
-> >> git bisect good 41929c9f628b9990d33a200c54bb0c919e089aa8
-> >> # bad: [232ccac1bd9b5bfe73895f527c08623e7fa0752d]
-> >> clocksource/drivers/riscv: Events are stopped during CPU suspend
-> >> git bisect bad 232ccac1bd9b5bfe73895f527c08623e7fa0752d
-> >> # first bad commit: [232ccac1bd9b5bfe73895f527c08623e7fa0752d]
-> >> clocksource/drivers/riscv: Events are stopped during CPU suspend
->
+> > > +				pr_err("cbom-block-size not found, cannot use Zicbom\n");
+> > > +			return false;
+> > > +		} else if (!is_power_of_2(riscv_cbom_block_size)) {
+> > > +			if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
+> > > +				pr_err("cbom-block-size is not a power-of-2, cannot use Zicbom\n");
+> > > +			return false;
+> > > +		}
+> > > +		return true;
+> > > +	}
+> > > +
+> > >  	return true;
+> > >  }
+> > >  
+> > > -- 
+> > > 2.37.3
+> > > 
+> > > 
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
