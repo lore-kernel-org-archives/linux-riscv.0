@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 405BFECDFA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 09:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13D6ECDFA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 09:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B6xRO1FJ5wVc8ZJiZGWrH7294U2lzX8o10KFnMaAGMQ=; b=waYuei81Tuat6R
-	xOuTreFU1wOB9hZLpBMNGqHl90lJ65WokwqMXyYbyWVmkFEPMRbaNWPCWqs14AZVJHZysEPmm7zPY
-	WSPQ1Mq/EdFbMxT6Va8df/HWXypPGTRy2GsSvj3QUpLaoeLj3979wwL60REU1Yr4kGEBxwkH7trzK
-	JZQQIGmtGX91MZzo9uGXbzhEyIX/ST3cMN1G5n39XHnhK0ekMHWyDpNGxgFckkOjHnnQ9xD/3F1P9
-	7BmztyxxVa/M41ROUGUaWy5BzeL5+wwaoiF4HMhvelXA7fKcF9OzqJ7bFZrxawh9307Q502v++1Sk
-	Ii+2PMj0URVkKRW67gcw==;
+	List-Owner; bh=Ekk/e2uFEdBaC4Ox6aePzsDH8Dy9vsayMjtLROVa/Fc=; b=3VS+Lt5BPeJTWl
+	6Qn32W1Ow7WxlbqX5rY7kwkREKEvMtwVkBmBiQ+E3688jfLW4bPb6KuZWq7m8S7sGr4qyxf3YzYBW
+	rKGwEqPuqmiybuOUtSqJbM/0wLXrTgkwQAadP8tO4JwXUPN5zjrbRjAKz+kcrdzNCUnwUMOp2sM6/
+	Yi8VCAVgimmCT0kNG8n2gzo+u6rLT3YlncJUENShBMcw0yoPv3W/ItIXdP5DwP4UuwsaH8dey6t0g
+	pvBfYboz1xPSvsrOo+5uCbFpkiBZ96sLmqSX2kGr8NoEMkHO8pXDJqlvvx/J2CEk6ElFh/1tJ3tV2
+	+6OFSOKThiQ8cnE4OIOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omtWP-000Kxo-79; Mon, 24 Oct 2022 09:13:25 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1omtWY-000L21-HB; Mon, 24 Oct 2022 09:13:34 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omtWF-000Kpp-Pi
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 09:13:17 +0000
-Received: by mail-ed1-x536.google.com with SMTP id a13so28852850edj.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 02:13:15 -0700 (PDT)
+	id 1omtWH-000Kqb-Ci
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 09:13:19 +0000
+Received: by mail-ed1-x532.google.com with SMTP id b12so28787907edd.6
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 02:13:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yl0Ds2qeJk1Yda707PPrlhZcJp3u9U5F992ZyizDpi0=;
-        b=INun79nYtqIlysVy2xWXWISAL0RooJBVCismuISM45QMj6iB1+aC29GgzugiFo+3Es
-         1NyzFR3+zsnxrIQXWbehNlcZJ+nj6zaqxKV7jkdH8q/mJpm6u6YyGtMRtwXvEis8GdvF
-         xwhni6AJcawQIYRs/msLxPmP7bbb0HkF1kMFmYecjobLTLS2kYN4VIZaL4BXyl56le03
-         bUtmy+dj0TBtXvqWDvdbDDDBnJ58pPjpuurPAjWpfKnb1uAmbcZxRcq83VQnQYS4k5yA
-         RQXiV6BF7SoLiaqAar0c5W1tlzy/6lhM/EkxCU71jfaKhzhhOMjzxF04Ld6hQe6R9AJT
-         rJQQ==
+        bh=7WUEAPPU2SbhVsifxSwCtF8o58i9JytjAsOOCwRIu1o=;
+        b=LWVLdBYdfI/DFjLJyyebAQK2/RJkZmA0/V195a+MRFtMht3M/x6u9Dh1rd+z3DvMX9
+         GPpt7akf0ek3ZstVvgSQTJ9GClyZpn4wvF5Nr9UfC+eRDUTFG2ahLVdEUun5FCOClab0
+         hetFjH94N72XGg7G1MzW1FGZFniblYy7iw5RI6lwK30FShnXY6FqUMz0xq7pZymXY+/5
+         rrzumU5iER/7dYtoHRpZ013NOFAFnThfPQvu3dGSh+7sEZsBUw7SEfwJMaG6qYaCFZaW
+         GpclIrOKPwXRq30sFa/rr29in+EL7oul+ahJmas2mMLnAdveuqaPBNoSHlmNepVyB0rB
+         3eVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yl0Ds2qeJk1Yda707PPrlhZcJp3u9U5F992ZyizDpi0=;
-        b=vHgZ4tIZp6xdYZ0amFm0Fhmt/UslNlpU/AakDMGDzrHOXUzI1qe4419XBXeVZToh7D
-         LVpISQCpx+BUAI4faYNfMAP6MZXYFc8fnBjOvMYzAAJvXR2gs9HNvJNr3vz/s6i6N6HO
-         4ka0bf5VEM/WE61LajAD0zOMzTmv300ehliYpXcNr6NxMebtFT2bQx9/m814Gv++mzDj
-         jCi5NFoI/zhxpPttmPi9vteRYfo7vcbbd/efqndF5Xt38oUgl9jo2LVHkkceUkaBZz/M
-         ZlsPAdMhxd92VhqGYLbQ3UoDMKYNY0RT1NSYu1l6vIAB2OYc9XjSsTYqdzZNS+0u9xUs
-         VxUg==
-X-Gm-Message-State: ACrzQf1Th3fdc2pTAyXQN5J9uoZy+FegtBJIeQy2L73ONN2hNena/N27
-	C0C4znVgbhcv7Aj4cWAw2B4JQsZPjDS77g==
-X-Google-Smtp-Source: AMsMyM7JxsMPg7ow9FHCFnfVB99iCCH3lKpIJQ8LlnJ4HBm7P58DPimFSlWlkThqCHtXaGdljkdQRA==
-X-Received: by 2002:a17:906:cc4d:b0:78d:fb86:3979 with SMTP id mm13-20020a170906cc4d00b0078dfb863979mr27323408ejb.421.1666602795163;
-        Mon, 24 Oct 2022 02:13:15 -0700 (PDT)
+        bh=7WUEAPPU2SbhVsifxSwCtF8o58i9JytjAsOOCwRIu1o=;
+        b=iPH5XsENTwer6m4qr6a71gkSJuK4fBHXSiTp+F33VQInlEyCrdmSBi5ZPjbc4CpQOp
+         3zFNk2F5l0f7iax1Pl8eorqu5x1X4SNdf5dJOVADR5OCJdNJ5uDleMtyGaoQPWoQ4PJ2
+         HrqTgHUphXLAaaGJgoamJOM5sQ1l3y4o04G7HDDNdcDDrVIgVRlk3Ll4diyLZ8ZFzc1l
+         W80/duINsK1komBSYzBAlKK1ApZ3x0Mz9GGuzvKCjAeB5bZQ22nUXhLSt2hGUT8Zs1m+
+         tihnRXaHIkyaLFUIdYr0R9iIVwrO1KU7kG2FsuvSBzw2oOpzRSJeGkFDLHjlmJ98UV6t
+         0LTw==
+X-Gm-Message-State: ACrzQf0aIJs9Kuc3QJ0E0kauk3rZAh4uGgxsjE05+RgXo+EsIC1GTXY5
+	UESyoiYEmzV722mSLNdCO8EZGv0SQIIOCg==
+X-Google-Smtp-Source: AMsMyM7W0fSQNZiiWFBKfp1xmBOLi9UbDfKEhFtvD9PA/CadAqcIlrQNdRCimujbvsTJqFo9+gRFPg==
+X-Received: by 2002:a05:6402:27c6:b0:461:e426:dc8b with SMTP id c6-20020a05640227c600b00461e426dc8bmr1378376ede.403.1666602793667;
+        Mon, 24 Oct 2022 02:13:13 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id c2-20020a17090618a200b007933047f923sm6872410ejf.118.2022.10.24.02.13.14
+        by smtp.gmail.com with ESMTPSA id f20-20020a17090631d400b0078a543e9301sm14909298ejf.200.2022.10.24.02.13.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Oct 2022 02:13:14 -0700 (PDT)
+        Mon, 24 Oct 2022 02:13:13 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -69,16 +69,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Anup Patel <apatel@ventanamicro.com>,
 	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v2 3/3] RISC-V: Ensure Zicbom has a valid block size
-Date: Mon, 24 Oct 2022 11:13:09 +0200
-Message-Id: <20221024091309.406906-4-ajones@ventanamicro.com>
+Subject: [PATCH v2 2/3] RISC-V: Introduce riscv_isa_extension_check
+Date: Mon, 24 Oct 2022 11:13:08 +0200
+Message-Id: <20221024091309.406906-3-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20221024091309.406906-1-ajones@ventanamicro.com>
 References: <20221024091309.406906-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_021315_936958_D9645D95 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20221024_021317_501364_AD66C5FD 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +95,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When a DT puts zicbom in the isa string, but does not provide a block
-size, ALT_CMO_OP() will attempt to do cache operations on address
-zero since the start address will be ANDed with zero. We can't simply
-BUG() in riscv_init_cbom_blocksize() when we fail to find a block
-size because the failure will happen before logging works, leaving
-users to scratch their heads as to why the boot hung. Instead, ensure
-Zicbom is disabled and output an error which will hopefully alert
-people that the DT needs to be fixed. While at it, add a check that
-the block size is a power-of-2 too.
+Currently any isa extension found in the isa string is set in the
+isa bitmap. An isa extension set in the bitmap indicates that the
+extension is present and may be used (a.k.a is enabled). However,
+when an extension cannot be used due to missing dependencies or
+errata it should not be added to the bitmap. Introduce a function
+where additional checks may be placed in order to determine if an
+extension should be enabled or not.
+
+Note, the checks may simply indicate an issue with the DT, but,
+since extensions may be used in early boot, it's not always possible
+to simply produce an error at the point the issue is determined.
+It's best to keep the extension disabled and produce an error.
+
+No functional change intended, as the function is only introduced
+and always returns true. A later patch will provide checks for an
+isa extension.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/kernel/cpufeature.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ arch/riscv/kernel/cpufeature.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 220be7222129..93e45560af30 100644
+index 4677320d7e31..220be7222129 100644
 --- a/arch/riscv/kernel/cpufeature.c
 +++ b/arch/riscv/kernel/cpufeature.c
-@@ -9,6 +9,7 @@
- #include <linux/bitmap.h>
- #include <linux/ctype.h>
- #include <linux/libfdt.h>
-+#include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <asm/alternative.h>
-@@ -70,6 +71,18 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
- 
- static bool riscv_isa_extension_check(int id)
- {
-+	switch (id) {
-+	case RISCV_ISA_EXT_ZICBOM:
-+		if (!riscv_cbom_block_size) {
-+			pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
-+			return false;
-+		} else if (!is_power_of_2(riscv_cbom_block_size)) {
-+			pr_err("cbom-block-size present, but is not a power-of-2\n");
-+			return false;
-+		}
-+		return true;
-+	}
-+
- 	return true;
+@@ -68,6 +68,11 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
  }
+ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
  
++static bool riscv_isa_extension_check(int id)
++{
++	return true;
++}
++
+ void __init riscv_fill_hwcap(void)
+ {
+ 	struct device_node *node;
+@@ -189,7 +194,8 @@ void __init riscv_fill_hwcap(void)
+ #define SET_ISA_EXT_MAP(name, bit)						\
+ 			do {							\
+ 				if ((ext_end - ext == sizeof(name) - 1) &&	\
+-				     !memcmp(ext, name, sizeof(name) - 1))	\
++				     !memcmp(ext, name, sizeof(name) - 1) &&	\
++				     riscv_isa_extension_check(bit))		\
+ 					set_bit(bit, this_isa);			\
+ 			} while (false)						\
+ 
+@@ -198,8 +204,10 @@ void __init riscv_fill_hwcap(void)
+ 			if (!ext_long) {
+ 				int nr = *ext - 'a';
+ 
+-				this_hwcap |= isa2hwcap[nr];
+-				set_bit(nr, this_isa);
++				if (riscv_isa_extension_check(nr)) {
++					this_hwcap |= isa2hwcap[nr];
++					set_bit(nr, this_isa);
++				}
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
 -- 
 2.37.3
 
