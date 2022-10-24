@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A25C38A2D
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 11:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E405C38A2D
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 11:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5g+cPbujzwnrETwgCu7846I9MlLLWKPpHSnYy+gz4W8=; b=DM7BPtV4dYfYgW
-	zePGBehMfDfc6OtJ/2roXgIAlpl7fRgNo9/9QAaaVBwvS0hhCLKgDRKc2EQfKvUMdX0acRq1ZcMV6
-	Vi94IZ34YSq1V6ggh3AeXd9bJ5T+i/6QajcvhT+GONGW0sXPpSr5ulXhED5wGyN/jNFDDvFJ6mxnr
-	1QpoWAf7ajfRPBE2BYa0N44n5TQPDxsabf3iVvX3xGFKd1i9LRugbsRgvgY8K+WFmAtlGDD2nzmpX
-	+E2OTpdrfP7KKszJ+d/Cmm7IxJkkJ+VY8rJnqcH1Q0QGRyPv41NEAhIRCetOzTP+GwKmk5TFpNdFN
-	/fhaZKq6WjArshguBvTw==;
+	List-Owner; bh=wWHxPIklurkTWS4ZWQ+gAUSHXk+e4JueZbQZnxH0Rqg=; b=PO3ogtvziJAJa0
+	QjwV5fMxch4AT7VTfRZuMbA+gOJSLADxLgbwpcklKa1P6pblhvPQqTyualLOROZS9af8yYPxRYm6Y
+	rex9+nuRltoE+SQg7pTF5CV9e6HL0q9hM2FnfG1KrYGEh2MI3XRyRUUULaPAu9SZxYuk8zSMOmXtm
+	yJDxJw79FsT8yYBVi+T4hy2fiereb0ZDX1hMJ8BLIuU3+Ly5TvfwvUWYp+XqbUPwIxMpYBYq1LoM9
+	82NXMjxQ0JzG7MTyLO9Dss8vzXgYeX5Dm8wf38NPUBIId+uBRNlwq7E3IzZXihOvoz+PO3xDq34Ym
+	GgvWALEn17jsvUe7L9uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omw3J-001Erc-Ty; Mon, 24 Oct 2022 11:55:33 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omw3G-001Epc-OS
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 11:55:32 +0000
-Received: by mail-ed1-x535.google.com with SMTP id e18so30247007edj.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 04:55:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=enjnXrgGXbcMA3WfYBZgSaGKWy2h+iyPV27PBQ4hdWc=;
-        b=KC2YHNNGgHbDpcjCTc8b/64NkOLCT6enxbKTggnBuyGYKjX1r4Lb89UIovAfcq8szT
-         SXzuNrbsg6hy/S/XhQ0lBBSsoPnz8ehoqV/ekPn6zzar44GirdS2BzmO9nVzUR8DaoH2
-         43/PkmzYZ/l5XdBIXMoGd/iMWYbeKpGHAtz+Lkqc8ISNEOC4jzurU4AWFHI3gW58e+N0
-         mJ+GY9gxsWwqLzyQr05gdZx/Rs/FOYEV1F82wbRLILoy/9FbqwB5wrzCEk7qb1ZjdyyR
-         Y0hdtroTV7qzACzaZrly2EJYLXJWRsxJVgRZFNLw09e+0ikv6KyGk5vhLbf/BsDLLdkN
-         9VeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=enjnXrgGXbcMA3WfYBZgSaGKWy2h+iyPV27PBQ4hdWc=;
-        b=sgkQHH9/uHEoi6ayPwqGC5c0iD32pvOFx1ecDIUbr2csFcBtjYkWVh+uAgcCnQkbQX
-         3HcbKd+I8Y2jhJHzzsRd4we2/DLemouTvf9e+qXDVTCCSQkJZt9MU8Zd3aRTYRLBMSTx
-         iIxCND9HYEnNx8oUy4bXllgkIlAnEmZAe/bLDPQyE1gexo9W7KB8eemerFnhFz9H2WD3
-         cTYLxnSFTO2YlMDTy0vfUvZWnG+LkPgHzMYm6XEr+OsYB0S9NyVdeD7EtTdxD+ot/m5q
-         S3b9ocZB+0gQc4mpVkuxLYneKDQSKNcybgH9XXN7ZWPBUP/Md/BBi4yamzCe1UllvFTC
-         7TMg==
-X-Gm-Message-State: ACrzQf3kEaou05fGLENNh+dcP5FKoUWAT46wJWrxymyew0LCEctK8/ZP
-	HrgZ00vFbf3MnsQNuIYmcrtGntDTDfJJrxgMHRs=
-X-Google-Smtp-Source: AMsMyM7deTXtRwpYvDqPrr3fK/XqqrwUfarVHeEYLqcrae05P5E0XMCvdSJokNKD1li9Edwp+DOc+pEq3RSuDoh5jgk=
-X-Received: by 2002:a05:6402:3217:b0:461:d6d7:7f19 with SMTP id
- g23-20020a056402321700b00461d6d77f19mr2926691eda.109.1666612527159; Mon, 24
- Oct 2022 04:55:27 -0700 (PDT)
+	id 1omw40-001F6Z-Uw; Mon, 24 Oct 2022 11:56:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1omw3y-001F5K-CO
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 11:56:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EA95D6E;
+	Mon, 24 Oct 2022 04:56:16 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.7.186])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A90F3F7B4;
+	Mon, 24 Oct 2022 04:56:06 -0700 (PDT)
+Date: Mon, 24 Oct 2022 12:56:03 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Guo Ren <guoren@kernel.org>, peterz@infradead.org
+Cc: Lai Jiangshan <laijs@linux.alibaba.com>, arnd@arndb.de,
+	palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org,
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org,
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, zouyipeng@huawei.com,
+	bigeasy@linutronix.de, David.Laight@aculab.com,
+	chenzhongjin@huawei.com, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Borislav Petkov <bp@alien8.de>, Miguel Ojeda <ojeda@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: Re: [PATCH V6 04/11] compiler_types.h: Add __noinstr_section() for
+ noinstr
+Message-ID: <Y1Z9U7XN4nlGg8yb@FVFF77S0Q05N>
+References: <20221002012451.2351127-1-guoren@kernel.org>
+ <20221002012451.2351127-5-guoren@kernel.org>
+ <YzrJ0wQxWfjWCxhQ@FVFF77S0Q05N>
+ <CAJF2gTRBEGx3qncpk_C8rCsFN+kqxjgeAcPvZU5m7kDnpwytoA@mail.gmail.com>
+ <Y1ERsP0YYVNulWnw@FVFF77S0Q05N>
+ <CAJF2gTTurEaFjbKvj1tUptq_TLpXeBAE1UstNYxriC-7r5MHpQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221021020500.GA2157489-robh@kernel.org> <CA+V-a8v0jEFj+XKAtyAaTBFmX3bObBZgGd6n1LB3OnTU_W002w@mail.gmail.com>
- <Y1Md4bMYJHI34HuJ@spud>
-In-Reply-To: <Y1Md4bMYJHI34HuJ@spud>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 24 Oct 2022 12:55:00 +0100
-Message-ID: <CA+V-a8vA_ZbV+SEy8Ch8ZuYAb+U37CtC8Ys=svMv7fjy79mR=A@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
- RZ/Five SoC
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
-	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTurEaFjbKvj1tUptq_TLpXeBAE1UstNYxriC-7r5MHpQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_045530_818616_9904FF74 
-X-CRM114-Status: GOOD (  46.30  )
+X-CRM114-CacheID: sfid-20221024_045614_523767_6BDE1097 
+X-CRM114-Status: GOOD (  26.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,162 +77,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Fri, Oct 21, 2022 at 11:32 PM Conor Dooley <conor@kernel.org> wrote:
->
-> On Fri, Oct 21, 2022 at 11:05:40PM +0100, Lad, Prabhakar wrote:
-> > Hi Rob,
+On Thu, Oct 20, 2022 at 08:29:28PM +0800, Guo Ren wrote:
+> Hi Mark and Lai,
+> 
+> On Thu, Oct 20, 2022 at 5:15 PM Mark Rutland <mark.rutland@arm.com> wrote:
 > >
-> > Thank you for the review.
+> > On Sat, Oct 08, 2022 at 09:54:39AM +0800, Guo Ren wrote:
+> > > On Mon, Oct 3, 2022 at 7:39 PM Mark Rutland <mark.rutland@arm.com> wrote:
+> > > >
+> > > > On Sat, Oct 01, 2022 at 09:24:44PM -0400, guoren@kernel.org wrote:
+> > > > > From: Lai Jiangshan <laijs@linux.alibaba.com>
+> > > > >
+> > > > > And it will be extended for C entry code.
+> > > > >
+> > > > > Cc: Borislav Petkov <bp@alien8.de>
+> > > > > Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
+> > > > > Reviewed-by: Kees Cook <keescook@chromium.org>
+> > > > > Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> > > > > Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> > > > > Signed-off-by: Lai Jiangshan <laijs@linux.alibaba.com>
+> > > > > ---
+> > > > >  include/linux/compiler_types.h | 8 +++++---
+> > > > >  1 file changed, 5 insertions(+), 3 deletions(-)
+> > > > >
+> > > > > diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+> > > > > index 4f2a819fd60a..e9ce11ea4d8b 100644
+> > > > > --- a/include/linux/compiler_types.h
+> > > > > +++ b/include/linux/compiler_types.h
+> > > > > @@ -227,9 +227,11 @@ struct ftrace_likely_data {
+> > > > >  #endif
+> > > > >
+> > > > >  /* Section for code which can't be instrumented at all */
+> > > > > -#define noinstr                                                              \
+> > > > > -     noinline notrace __attribute((__section__(".noinstr.text")))    \
+> > > > > -     __no_kcsan __no_sanitize_address __no_profile __no_sanitize_coverage
+> > > > > +#define __noinstr_section(section)                           \
+> > > > > +     noinline notrace __section(section) __no_profile        \
+> > > > > +     __no_kcsan __no_sanitize_address __no_sanitize_coverage
+> > > > > +
+> > > > > +#define noinstr __noinstr_section(".noinstr.text")
+> > > >
+> > > > One thing proably worth noting here is that while KPROBES will avoid
+> > > > instrumenting `.noinstr.text`, that won't happen automatically for other
+> > > > __noinstr_section() sections, and that will need to be inhibited through other
+> > > > means (e.g. the kprobes blacklist, explicit NOKPROBE_SYMBOL() annotation, or
+> > > > otherwise).
+> > >
+> > > In riscv, "we select HAVE_KPROBES if !XIP_KERNEL", so don't worry
+> > > about that. I don't think we could enable kprobe for XIP_KERNEL in the
+> > > future.
 > >
-> > On Fri, Oct 21, 2022 at 3:05 AM Rob Herring <robh@kernel.org> wrote:
-> > >
-> > > On Wed, Oct 19, 2022 at 11:02:42PM +0100, Prabhakar wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > On the AX45MP core, cache coherency is a specification option so it may
-> > > > not be supported. In this case DMA will fail. As a workaround, firstly we
-> > > > allocate a global dma coherent pool from which DMA allocations are taken
-> > > > and marked as non-cacheable + bufferable using the PMA region as specified
-> > > > in the device tree. Synchronization callbacks are implemented to
-> > > > synchronize when doing DMA transactions.
-> > > >
-> > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > > > block that allows dynamic adjustment of memory attributes in the runtime.
-> > > > It contains a configurable amount of PMA entries implemented as CSR
-> > > > registers to control the attributes of memory locations in interest.
-> > > >
-> > > > Below are the memory attributes supported:
-> > > > * Device, Non-bufferable
-> > > > * Device, bufferable
-> > > > * Memory, Non-cacheable, Non-bufferable
-> > > > * Memory, Non-cacheable, Bufferable
-> > > > * Memory, Write-back, No-allocate
-> > > > * Memory, Write-back, Read-allocate
-> > > > * Memory, Write-back, Write-allocate
-> > > > * Memory, Write-back, Read and Write-allocate
-> > > >
-> > > > This patch adds support to configure the memory attributes of the memory
-> > > > regions as passed from the l2 cache node and exposes the cache management
-> > > > ops.
-> > > >
-> > > > More info about PMA (section 10.3):
-> > > > http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> > > >
-> > > > This feature is based on the work posted [0] by Vincent Chen
-> > > > <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
-> > > >
-> > > > [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > ---
-> > > >  arch/riscv/include/asm/cacheflush.h    |   8 +
-> > > >  arch/riscv/include/asm/errata_list.h   |   2 +
-> > > >  arch/riscv/mm/dma-noncoherent.c        |  20 ++
-> > > >  drivers/soc/renesas/Kconfig            |   5 +
-> > > >  drivers/soc/renesas/Makefile           |   4 +
-> > > >  drivers/soc/renesas/rzf/Kconfig        |   6 +
-> > > >  drivers/soc/renesas/rzf/Makefile       |   3 +
-> > > >  drivers/soc/renesas/rzf/ax45mp_cache.c | 431 +++++++++++++++++++++++++
-> > >
-> > > How many cache drivers do we have around now? I've seen a few bindings
-> > > go by. I'm guessing it is time to stop putting the drivers in the
-> > > drivers/soc/ dumping ground.
-> > >
-> > The main reason this driver is not in arch/riscv is that it has vendor
-> > specific extensions. Due to this reason it was agreed during the LPC
-> > that vendor specific extension should be maintained by SoC vendors and
-> > was agreed that this can go into drivers/soc/renesas folder instead.
->
-> Does not in drivers/soc mean they need to go into arch/riscv?
-I was under the impression Rob wanted them arch/riscv, sorry for the confusion.
+> > Sure; but someone else might use __noinstr_section() elsewhere where this could
+> > matter, and I was suggesting that we could add a comment as above.
+> Okay, how about:
+> 
+> /* Be care KPROBES will avoid instrumenting .noinstr.text, not
+> __noinstr_section(). */
+> #define __noinstr_section(section)                             \
+>        noinline notrace __section(section) __no_profile        \
+>        __no_kcsan __no_sanitize_address __no_sanitize_coverage
 
-> The outcome of the chat at the LPC BoF was more that the cache drivers
-> themselves should not be be routed via the arch maintainers, no?
->
-Indeed.
+How about we split this like:
 
-> >
-> > > >  drivers/soc/renesas/rzf/ax45mp_sbi.h   |  29 ++
-> > > >  9 files changed, 508 insertions(+)
-> > > >  create mode 100644 drivers/soc/renesas/rzf/Kconfig
-> > > >  create mode 100644 drivers/soc/renesas/rzf/Makefile
-> > > >  create mode 100644 drivers/soc/renesas/rzf/ax45mp_cache.c
-> > > >  create mode 100644 drivers/soc/renesas/rzf/ax45mp_sbi.h
-> > > >
-> > > > diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> > > > index 8a5c246b0a21..40aa790be9a3 100644
-> > > > --- a/arch/riscv/include/asm/cacheflush.h
-> > > > +++ b/arch/riscv/include/asm/cacheflush.h
-> > > > @@ -65,6 +65,14 @@ static inline void riscv_noncoherent_supported(void) {}
-> > > >  #define SYS_RISCV_FLUSH_ICACHE_LOCAL 1UL
-> > > >  #define SYS_RISCV_FLUSH_ICACHE_ALL   (SYS_RISCV_FLUSH_ICACHE_LOCAL)
-> > > >
-> > > > +#ifdef CONFIG_AX45MP_L2_CACHE
-> > > > +void ax45mp_cpu_dma_inval_range(void *vaddr, size_t end);
-> > > > +void ax45mp_cpu_dma_wb_range(void *vaddr, size_t end);
-> > > > +
-> > > > +#define ALT_CMO_OP(_op, _start, _size, _cachesize)   \
-> > > > +                _op(_start, _size)
-> > > > +#endif
-> > > > +
-> > > >  #include <asm-generic/cacheflush.h>
-> > > >
-> > > >  #endif /* _ASM_RISCV_CACHEFLUSH_H */
-> > > > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> > > > index 19a771085781..d9cbf60c3b65 100644
-> > > > --- a/arch/riscv/include/asm/errata_list.h
-> > > > +++ b/arch/riscv/include/asm/errata_list.h
-> > > > @@ -89,6 +89,7 @@ asm volatile(ALTERNATIVE(                                           \
-> > > >  #define ALT_THEAD_PMA(_val)
-> > > >  #endif
-> > > >
-> > > > +#ifdef CONFIG_ERRATA_THEAD_CMO
-> > > >  /*
-> > > >   * dcache.ipa rs1 (invalidate, physical address)
-> > > >   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> > > > @@ -143,5 +144,6 @@ asm volatile(ALTERNATIVE_2(                                               \
-> > > >       : "a0")
-> > > >
-> > > >  #endif /* __ASSEMBLY__ */
-> > > > +#endif
-> > > >
-> > > >  #endif
-> > > > diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> > > > index b0add983530a..5270acca6766 100644
-> > > > --- a/arch/riscv/mm/dma-noncoherent.c
-> > > > +++ b/arch/riscv/mm/dma-noncoherent.c
-> > > > @@ -24,13 +24,25 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> > > >
-> > > >       switch (dir) {
-> > > >       case DMA_TO_DEVICE:
-> > > > +#ifdef CONFIG_ERRATA_THEAD_CMO
-> > > >               ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-> > > > +#elif CONFIG_AX45MP_L2_CACHE
-> > > > +             ALT_CMO_OP(ax45mp_cpu_dma_wb_range, vaddr, size, 0x0);
-> > > > +#endif
-> > >
-> > > How do you support more than one platform in a build?
-> > >
-> > Yes, that's one concern which I have mentioned in the cover letter too
-> > (At that moment it's just a single platform). Suggestions welcome!
->
-> I think I said it on one of the earlier version, but it needs to be
-> implemented w/ runtime patching via alternatives just like the thead
-> stuff patches in their functions.
->
-I'm a bit stumped with alternatives() usage.
+| /*
+|  * Prevent the compiler from instrumenting this code in any way
+|  * This does not prevent instrumentation via KPROBES, which must be
+|  * prevented through other means if necessary.
+|  */
+| #define __no_compiler_instrument				\
+| 	noinline notrace noinline notrace __no_kcsan		\
+| 	__no_sanitize_address __no_sanitize_coverage
+| 
+| /* 
+|  * Section for code which can't be instrumented at all.
+|  * Any code in this section cannot be instrumented with KPROBES.
+|  */
+| #define noinstr __no_compiler_instrument section(".noinstr.text")
 
-Currently I am just replacing the ALT_CMO_OP() macro if
-CONFIG_AX45MP_L2_CACHE is enabled. For AX45MP currently we have two
-exported functions ax45mp_cpu_dma_inval_range/ax45mp_cpu_dma_wb_range.
-If I switch to
-ALTERNATIVE() macro usage then I'll have to use the assembly version
-of the above two mentioned functions?
+... then we don't need __noinstr_section(), and IMO the split is
+clearer.
 
-Cheers,
-Prabhakar
+Peter?
+
+Thanks,
+Mark.
 
 _______________________________________________
 linux-riscv mailing list
