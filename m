@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F9BC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 00:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B37C3A59D
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 05:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=88X7E2dEfmquy8qCrTIFP4Iqf2dlgELi+f1DfSapI5I=; b=C1ZQQEcxgbq6Yj
-	c7FE6OdSb1+BstGpKCBZ65rJ2egWDOm7XEuDpRKmx5X1fvVEZyUiYiLynkb0rHt/b11uFtDQUly8q
-	G/2gFyhYJ4Rzw20hFT4mZj4Ut1soJbBPgpDewMT+XN08VE8z5CHlcv1plKF1lmDbRC57Wzftg4lO6
-	pFb0pU8BQexZGsaPQd8y/8Un8u7+v8NwqI4/1CNE67IVqw/VsiVEgNI2g8QOzElMERauuwc7/jyCf
-	ULoNQB+WRZlA8o9YZPJC0MQ7D5G8nWJqAYweMVIcS65uMDjIpp0Rt4nlkGkD1wifBxV7kP01ZHWFd
-	EQoMihDXIsxSbjFLwhIQ==;
+	List-Owner; bh=MByEEETNrK48CSOlG+X0XXrDIFzx/B7sJqSyEGzmrTE=; b=HE46bR9FAAB/Zc
+	y/ED4Srk68dwNk3NWCnCH2XM5nt/6zEnaGmMLFtsTkp75+6e8NSHz9JQmuKZWGv6j6lNziSvG5Mq+
+	jJXwNQjcfefxhsVi0KYcGmRMoYappMhWmDQ9snrpzDwpXQq02Tav7RVKqtVavjKsYpE/mtdAkeZML
+	vfg623Cb9F3v22wX6mP8OYK51KxkRF9uoi2qkWpSbdEtB27QRvoMmVKqvCkIsUYjNc/Pka1yS8Vbx
+	wsZ06d/z8tWbbYo+DBRsMWOSMMthYVUhcD+o3c6KCuS2pEpvlmBX/gMHWgDhj2TasNjomuhWRNSY/
+	yDO3EtRGKW4aeDSSRzpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omld0-00Gbox-QU; Mon, 24 Oct 2022 00:47:42 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ompak-00H91r-7h; Mon, 24 Oct 2022 05:01:38 +0000
+Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omlcp-00GbnA-Fa; Mon, 24 Oct 2022 00:47:33 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id DA585B80E2C;
-	Mon, 24 Oct 2022 00:47:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D8FEC4347C;
-	Mon, 24 Oct 2022 00:47:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1666572447;
-	bh=eKfyQ9JvQkHMYp0oSdnbc/60KLnQGcBug839FEafCbw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Tltgi9ATVOA2q+RwBtGrH/dVSqysEyxnEIsDMvsMZuwFwDw7PQYgFGMI2sHvAVnSF
-	 ZNW3UxS9XWSDzt+D1NWXDkfShNrCPEcRfylEYHIbOs84jfoxI++BpNWHaSFTmE7IWa
-	 lbSjp4Ygzdk1fEM5VyLmAPNYrdv6NTKHDyiNtqd4Vm7rAtSGJiQfzadSNB0jUPxHcm
-	 gQDOOUUsSJiwMVZQACTEUoBfFO8S8ph9sSuwzTpt2E7BMBXv6/mM8bYXR6Qz9V4buP
-	 vHjFoiR6o+hfsCSCdK0AlHhDdUrc7l4wiVRIbgNAoP65BIZNn2Vytafz47A7CSDrZV
-	 H4qqHBaVsRB5w==
-Received: by mail-oi1-f179.google.com with SMTP id y72so9436649oia.3;
-        Sun, 23 Oct 2022 17:47:27 -0700 (PDT)
-X-Gm-Message-State: ACrzQf206Sy+pSaCb5XwfZSHYOvSnsq3dIRx+3VS/WQJHT412gFaUGYT
-	Eo9446A372qhZcxXc5VYu62avwCSoRx1vbmM6V8=
-X-Google-Smtp-Source: AMsMyM7009U9fo6Wj1OBVCOrzgnAnnM4a9IV75Exy9bv6NK9Bj31r01l0ngnnVp614GR5Po40WpMPngCeLU7/ER3RuU=
-X-Received: by 2002:a05:6871:b0d:b0:13b:b91:dc94 with SMTP id
- fq13-20020a0568710b0d00b0013b0b91dc94mr11308877oab.112.1666572436415; Sun, 23
- Oct 2022 17:47:16 -0700 (PDT)
+	id 1ompag-00H91J-Kk
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 05:01:37 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.west.internal (Postfix) with ESMTP id 529CB320014C;
+	Mon, 24 Oct 2022 01:01:27 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute5.internal (MEProxy); Mon, 24 Oct 2022 01:01:28 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm1; t=1666587686; x=
+	1666674086; bh=TU0sobUSG9rRG4rFGAXmoEpaQSjoNpcjcGYY+UeisGA=; b=I
+	KFyVkwiDMnm5fD8JkzhUIRqX0bzc/msj7aQw9cV9dAp+PBlzG7tNE8lLHhOlm28h
+	dfmpFGT9Pudyvw04MoKxD5GT/h4/rqEcuz2kkntrHt7ZHIi+kn+wtMOzGj2RNKWs
+	1w/5jrU9zh7bQh82o2o9Ur7EjKXfbbq9k5G/z84vzr8iyoHLt1Tw7bvsPR881PLz
+	A6I1C7p3PfMNHI6VEOE1QmdyXUWQZD15Yv5rpNR0FudvsWNQ99q+0tIvto4+aYuR
+	bg55pTT6EXn8/HIwQj9hAJmj2Kee8eTI53rWIGTto9hJfXGwhHE4K1kOTwKeISXr
+	qLOQX8550rPdgUbKSlgaQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1666587686; x=
+	1666674086; bh=TU0sobUSG9rRG4rFGAXmoEpaQSjoNpcjcGYY+UeisGA=; b=G
+	GCErdKlmw9GHSal8vu39rvufnoSjz4u6Sbo27P2Su+UIQI9632Yt2Mfv+oQZT0va
+	I1cHHxpr7vPgUus+boaT6BOpbuvhVhmRcVUdz7zkX7X72M2Bdyq+msBDdZTUKGVM
+	T2xFFklJ6EC8gKPwjIM4GIJCNeRfZ9lkpzgV2Caobyte2c80Q2SkO6LNEyUOCPeW
+	RNzDjJeA3d48N6TcdNne0e7SuMAG92VAopdInqMYA5b8n2FIh9z5zi10gK6KANcd
+	karVf9G+xLlgjDnrGJMgRAtIDaSUntgIc3+Q8NXzVSUWYoI5JtEvObcZT/Aa4vJ9
+	Io/bcQh0G6bW2m2X4D4IQ==
+X-ME-Sender: <xms:JhxWY_kw2IMClkccX6_70kGWCL4g7m5oSRVt2rMKByWMEH0oOxKcdQ>
+    <xme:JhxWYy2sjrrTq7APMULYFetYESiF6W2B8L7rDxxbnGxGvIM1qBotLIyyyJfrmgsDF
+    -ASKQhb-tRpJzVCgg>
+X-ME-Received: <xmr:JhxWY1oVTFTaZyYvxZIL221zueRxyFD9Ze41HBsUvxFXoWDtKId1-d46_KRhn4_4nxuSZY91gMTbbq7YdlrbRxSdZlK72-2lU3ECe29UI6PvFwiNLzuI_ci4tA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrgedtfedgledvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepkfffgggfvfevfhfhufgjtgfgsehtkeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeeitdetieeiffdthfegkedvtdegtdegffelgeeufeeghfffteel
+    vdeiheeitdetvdenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhfrhgvvgguvghskh
+    htohhprdhorhhgpdhkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecu
+    rfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:JhxWY3lfbz-EOS48aqzyRaizVtfO2Vbt8U9wHeh4aMCT3Bx4hxumRQ>
+    <xmx:JhxWY90gAkAumWYq62cfdNtaJAGFvRVmSNTyo8G_zUTBXrcewzJikg>
+    <xmx:JhxWY2soEZ38hUszrdHEOUqtAYhnl7aw6r326Zpu8KzH6D_mIjal_w>
+    <xmx:JhxWY2II86Ob69GrByKSARZn7bCZqFbsG9lE9E8sf9MKWdwc9vjwPw>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 24 Oct 2022 01:01:25 -0400 (EDT)
+Message-ID: <a2dc76e8-406e-5f27-0dc6-846c338660c9@sholland.org>
+Date: Mon, 24 Oct 2022 00:01:24 -0500
 MIME-Version: 1.0
-References: <20221023203208.118919-1-Jason@zx2c4.com> <20221023203208.118919-3-Jason@zx2c4.com>
-In-Reply-To: <20221023203208.118919-3-Jason@zx2c4.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 24 Oct 2022 08:47:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS5rgm8mZ1RPWm8dA36hY6CRkg4GF=JV1bbbMOJy1fDZg@mail.gmail.com>
-Message-ID: <CAJF2gTS5rgm8mZ1RPWm8dA36hY6CRkg4GF=JV1bbbMOJy1fDZg@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] stackprotector: actually use get_random_canary()
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Chris Zankel <chris@zankel.net>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "H . Peter Anvin" <hpa@zytor.com>, 
-	Ingo Molnar <mingo@redhat.com>, Juergen Gross <jgross@suse.com>, Max Filippov <jcmvbkbc@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Rich Felker <dalias@libc.org>, Russell King <linux@armlinux.org.uk>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner <tglx@linutronix.de>, 
-	Will Deacon <will@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-sh@vger.kernel.org, linux-xtensa@linux-xtensa.org, 
-	linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Content-Language: en-US
+To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>
+Cc: daniel.lezcano@linaro.org, tglx@linutronix.de, aou@eecs.berkeley.edu,
+ atishp@atishpatra.org, dmitriy@oss-tech.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <mhng-ea4ae670-742b-424e-9363-c66ad9ee741c@palmer-ri-x1c9>
+From: Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU
+ suspend
+In-Reply-To: <mhng-ea4ae670-742b-424e-9363-c66ad9ee741c@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221023_174731_842311_78B42198 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20221023_220135_095066_3ED35E06 
+X-CRM114-Status: GOOD (  45.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,300 +104,234 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 24, 2022 at 4:32 AM Jason A. Donenfeld <Jason@zx2c4.com> wrote:
->
-> The RNG always mixes in the Linux version extremely early in boot. It
-> also always includes a cycle counter, not only during early boot, but
-> each and every time it is invoked prior to being fully initialized.
-> Together, this means that the use of additional xors inside of the
-> various stackprotector.h files is superfluous and over-complicated.
-> Instead, we can get exactly the same thing, but better, by just calling
-> `get_random_canary()`.
->
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-> ---
->  arch/arm/include/asm/stackprotector.h     |  9 +--------
->  arch/arm64/include/asm/stackprotector.h   |  9 +--------
->  arch/csky/include/asm/stackprotector.h    | 10 +---------
->  arch/mips/include/asm/stackprotector.h    |  9 +--------
->  arch/powerpc/include/asm/stackprotector.h | 10 +---------
->  arch/riscv/include/asm/stackprotector.h   | 10 +---------
->  arch/sh/include/asm/stackprotector.h      | 10 +---------
->  arch/x86/include/asm/stackprotector.h     | 14 +-------------
->  arch/xtensa/include/asm/stackprotector.h  |  7 +------
->  9 files changed, 9 insertions(+), 79 deletions(-)
->
-> diff --git a/arch/arm/include/asm/stackprotector.h b/arch/arm/include/asm/stackprotector.h
-> index 088d03161be5..0bd4979759f1 100644
-> --- a/arch/arm/include/asm/stackprotector.h
-> +++ b/arch/arm/include/asm/stackprotector.h
-> @@ -15,9 +15,6 @@
->  #ifndef _ASM_STACKPROTECTOR_H
->  #define _ASM_STACKPROTECTOR_H 1
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
-> -
->  #include <asm/thread_info.h>
->
->  extern unsigned long __stack_chk_guard;
-> @@ -30,11 +27,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->  #ifndef CONFIG_STACKPROTECTOR_PER_TASK
-> diff --git a/arch/arm64/include/asm/stackprotector.h b/arch/arm64/include/asm/stackprotector.h
-> index 33f1bb453150..ae3ad80f51fe 100644
-> --- a/arch/arm64/include/asm/stackprotector.h
-> +++ b/arch/arm64/include/asm/stackprotector.h
-> @@ -13,8 +13,6 @@
->  #ifndef __ASM_STACKPROTECTOR_H
->  #define __ASM_STACKPROTECTOR_H
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
->  #include <asm/pointer_auth.h>
->
->  extern unsigned long __stack_chk_guard;
-> @@ -28,12 +26,7 @@ extern unsigned long __stack_chk_guard;
->  static __always_inline void boot_init_stack_canary(void)
->  {
->  #if defined(CONFIG_STACKPROTECTOR)
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> -       canary &= CANARY_MASK;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->         if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
-> diff --git a/arch/csky/include/asm/stackprotector.h b/arch/csky/include/asm/stackprotector.h
-> index d7cd4e51edd9..d23747447166 100644
-> --- a/arch/csky/include/asm/stackprotector.h
-> +++ b/arch/csky/include/asm/stackprotector.h
-> @@ -2,9 +2,6 @@
->  #ifndef _ASM_STACKPROTECTOR_H
->  #define _ASM_STACKPROTECTOR_H 1
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
-> -
->  extern unsigned long __stack_chk_guard;
->
->  /*
-> @@ -15,12 +12,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> -       canary &= CANARY_MASK;
-> +       unsigned long canary = get_random_canary();
-Acked-by: Guo Ren <guoren@kernel.org> #csky part
-
->
->         current->stack_canary = canary;
->         __stack_chk_guard = current->stack_canary;
-> diff --git a/arch/mips/include/asm/stackprotector.h b/arch/mips/include/asm/stackprotector.h
-> index 68d4be9e1254..518c192ad982 100644
-> --- a/arch/mips/include/asm/stackprotector.h
-> +++ b/arch/mips/include/asm/stackprotector.h
-> @@ -15,9 +15,6 @@
->  #ifndef _ASM_STACKPROTECTOR_H
->  #define _ASM_STACKPROTECTOR_H 1
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
-> -
->  extern unsigned long __stack_chk_guard;
->
->  /*
-> @@ -28,11 +25,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->         __stack_chk_guard = current->stack_canary;
-> diff --git a/arch/powerpc/include/asm/stackprotector.h b/arch/powerpc/include/asm/stackprotector.h
-> index 1c8460e23583..283c34647856 100644
-> --- a/arch/powerpc/include/asm/stackprotector.h
-> +++ b/arch/powerpc/include/asm/stackprotector.h
-> @@ -7,8 +7,6 @@
->  #ifndef _ASM_STACKPROTECTOR_H
->  #define _ASM_STACKPROTECTOR_H
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
->  #include <asm/reg.h>
->  #include <asm/current.h>
->  #include <asm/paca.h>
-> @@ -21,13 +19,7 @@
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       canary = get_random_canary();
-> -       canary ^= mftb();
-> -       canary ^= LINUX_VERSION_CODE;
-> -       canary &= CANARY_MASK;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->  #ifdef CONFIG_PPC64
-> diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
-> index 09093af46565..43895b90fe3f 100644
-> --- a/arch/riscv/include/asm/stackprotector.h
-> +++ b/arch/riscv/include/asm/stackprotector.h
-> @@ -3,9 +3,6 @@
->  #ifndef _ASM_RISCV_STACKPROTECTOR_H
->  #define _ASM_RISCV_STACKPROTECTOR_H
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
-> -
->  extern unsigned long __stack_chk_guard;
->
->  /*
-> @@ -16,12 +13,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> -       canary &= CANARY_MASK;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->         if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
-> diff --git a/arch/sh/include/asm/stackprotector.h b/arch/sh/include/asm/stackprotector.h
-> index 35616841d0a1..665dafac376f 100644
-> --- a/arch/sh/include/asm/stackprotector.h
-> +++ b/arch/sh/include/asm/stackprotector.h
-> @@ -2,9 +2,6 @@
->  #ifndef __ASM_SH_STACKPROTECTOR_H
->  #define __ASM_SH_STACKPROTECTOR_H
->
-> -#include <linux/random.h>
-> -#include <linux/version.h>
-> -
->  extern unsigned long __stack_chk_guard;
->
->  /*
-> @@ -15,12 +12,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> -       canary &= CANARY_MASK;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->         __stack_chk_guard = current->stack_canary;
-> diff --git a/arch/x86/include/asm/stackprotector.h b/arch/x86/include/asm/stackprotector.h
-> index 24a8d6c4fb18..00473a650f51 100644
-> --- a/arch/x86/include/asm/stackprotector.h
-> +++ b/arch/x86/include/asm/stackprotector.h
-> @@ -34,7 +34,6 @@
->  #include <asm/percpu.h>
->  #include <asm/desc.h>
->
-> -#include <linux/random.h>
->  #include <linux/sched.h>
->
->  /*
-> @@ -50,22 +49,11 @@
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       u64 canary;
-> -       u64 tsc;
-> +       unsigned long canary = get_random_canary();
->
->  #ifdef CONFIG_X86_64
->         BUILD_BUG_ON(offsetof(struct fixed_percpu_data, stack_canary) != 40);
->  #endif
-> -       /*
-> -        * We both use the random pool and the current TSC as a source
-> -        * of randomness. The TSC only matters for very early init,
-> -        * there it already has some randomness on most systems. Later
-> -        * on during the bootup the random pool has true entropy too.
-> -        */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       tsc = rdtsc();
-> -       canary += tsc + (tsc << 32UL);
-> -       canary &= CANARY_MASK;
->
->         current->stack_canary = canary;
->  #ifdef CONFIG_X86_64
-> diff --git a/arch/xtensa/include/asm/stackprotector.h b/arch/xtensa/include/asm/stackprotector.h
-> index e368f94fd2af..e1e318a0c98a 100644
-> --- a/arch/xtensa/include/asm/stackprotector.h
-> +++ b/arch/xtensa/include/asm/stackprotector.h
-> @@ -14,7 +14,6 @@
->  #ifndef _ASM_STACKPROTECTOR_H
->  #define _ASM_STACKPROTECTOR_H 1
->
-> -#include <linux/random.h>
->  #include <linux/version.h>
->
->  extern unsigned long __stack_chk_guard;
-> @@ -27,11 +26,7 @@ extern unsigned long __stack_chk_guard;
->   */
->  static __always_inline void boot_init_stack_canary(void)
->  {
-> -       unsigned long canary;
-> -
-> -       /* Try to get a semi random initial value. */
-> -       get_random_bytes(&canary, sizeof(canary));
-> -       canary ^= LINUX_VERSION_CODE;
-> +       unsigned long canary = get_random_canary();
->
->         current->stack_canary = canary;
->         __stack_chk_guard = current->stack_canary;
-> --
-> 2.38.1
->
-
-
--- 
-Best Regards
- Guo Ren
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTAvOS8yMiAxODo0NSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gT24gVGh1LCAyOSBTZXAg
+MjAyMiAxNDo1MDo0NSBQRFQgKC0wNzAwKSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+PiBPbiBTdW4s
+IE1heSAwOCwgMjAyMiBhdCAwODoyMToyMVBNIC0wNTAwLCBTYW11ZWwgSG9sbGFuZCB3cm90ZToK
+Pj4+IFNvbWUgaW1wbGVtZW50YXRpb25zIG9mIHRoZSBTQkkgdGltZSBleHRlbnNpb24gZGVwZW5k
+IG9uIGhhcnQtbG9jYWwKPj4+IHN0YXRlIChmb3IgZXhhbXBsZSwgQ1NScykgdGhhdCBhcmUgbG9z
+dCBvciBoYXJkd2FyZSB0aGF0IGlzIHBvd2VyZWQKPj4+IGRvd24gd2hlbiBhIENQVSBpcyBzdXNw
+ZW5kZWQuIFRvIGJlIHNhZmUsIHRoZSBjbG9ja2V2ZW50cyBkcml2ZXIKPj4+IGNhbm5vdCBhc3N1
+bWUgdGhhdCB0aW1lciBJUlFzIHdpbGwgYmUgcmVjZWl2ZWQgZHVyaW5nIENQVSBzdXNwZW5kLgo+
+Pj4KPj4+IEZpeGVzOiA2MmIwMTk0MzY4MTQgKCJjbG9ja3NvdXJjZTogbmV3IFJJU0MtViBTQkkg
+dGltZXIgZHJpdmVyIikKPj4+IFNpZ25lZC1vZmYtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxA
+c2hvbGxhbmQub3JnPgo+Pj4gLS0tCj4+Pgo+Pj4gwqBkcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVy
+LXJpc2N2LmMgfCAyICstCj4+PiDCoDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBk
+ZWxldGlvbigtKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVy
+LXJpc2N2LmMKPj4+IGIvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jCj4+PiBpbmRl
+eCAxNzY3ZjhiZjIwMTMuLjU5M2Q1YTk1N2I2OSAxMDA2NDQKPj4+IC0tLSBhL2RyaXZlcnMvY2xv
+Y2tzb3VyY2UvdGltZXItcmlzY3YuYwo+Pj4gKysrIGIvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1l
+ci1yaXNjdi5jCj4+PiBAQCAtMzQsNyArMzQsNyBAQCBzdGF0aWMgaW50IHJpc2N2X2Nsb2NrX25l
+eHRfZXZlbnQodW5zaWduZWQgbG9uZyBkZWx0YSwKPj4+IMKgc3RhdGljIHVuc2lnbmVkIGludCBy
+aXNjdl9jbG9ja19ldmVudF9pcnE7Cj4+PiDCoHN0YXRpYyBERUZJTkVfUEVSX0NQVShzdHJ1Y3Qg
+Y2xvY2tfZXZlbnRfZGV2aWNlLCByaXNjdl9jbG9ja19ldmVudCkgPSB7Cj4+PiDCoMKgwqDCoCAu
+bmFtZcKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgPSAicmlzY3ZfdGltZXJfY2xvY2tldmVudCIsCj4+
+PiAtwqDCoMKgIC5mZWF0dXJlc8KgwqDCoMKgwqDCoMKgID0gQ0xPQ0tfRVZUX0ZFQVRfT05FU0hP
+VCwKPj4+ICvCoMKgwqAgLmZlYXR1cmVzwqDCoMKgwqDCoMKgwqAgPSBDTE9DS19FVlRfRkVBVF9P
+TkVTSE9UIHwgQ0xPQ0tfRVZUX0ZFQVRfQzNTVE9QLAo+IAo+IFRoaXMgaXMgbGlzdGVkIGFzIGJl
+aW5nIHg4Ni1zcGVjaWZpYyBpbiB0aGUgaGVhZGVyLCBidXQgdGhlcmUncyBhIGhhbmZ1bAo+IG9m
+IG90aGVyIHBvcnRzIHRoYXQgZW5hYmxlIGl0IGZvciB0aW1lcnMgYXMgd2VsbC7CoCBMb29rcyBs
+aWtlIGFybSBpcwo+IHNldHRpbmcgdGhpcyBiYXNlZCBvbiBEVCwgd2hpY2ggc2VlbXMgcmVhc29u
+YWJsZSB0byBtZTogd2UncmUgd29ya2luZwo+IGFyb3VuZCBhIGZpcm13YXJlIGJ1ZywgdGhlcmUg
+c2hvdWxkIGJlIHNvbWUgd2F5IHRvIHR1cm4gb2ZmIHRoYXQKPiB3b3JrYXJvdW5kIGZvciBmaXJt
+d2FyZSB0aGF0IGRvZXNuJ3QgaGF2ZSB0aGUgYnVnLiBMb29rcyBsaWtlIEludGVsIGFscmVhZHkK
+PiB0dXJucyB0aGlzIG9mZiB3aGVuIEFSQVQgaXMgc3VwcG9ydGVkLCB3aGljaCBzZWVtcyB0byBi
+ZSB0aGUgY2FzZSBmb3IKPiBhbnl0aGluZyBtb2Rlcm4sIHNvIG1heWJlIHdlJ3JlIGp1c3QgdHJp
+cHBpbmcgdXAgb24gc29tZSB1bnRlc3RlZCBiZWhhdmlvciBoZXJlP8KgCj4gSSdtIG5vdCBzdXJl
+IGV4YWN0bHkgaG93IHdlIHNob3VsZCBwcm9iZSB0aGlzLCBidXQgaGF2aW5nIGl0IG9ubHkgZW5h
+YmxlZAo+IHdoZW4gd2UgbmVlZCB0aGUgd29ya2Fyb3VuZCBzZWVtcyBsaWtlIHRoZSByaWdodCB3
+YXkgdG8gZ28uCgpJIG9wZW5lZCBhbiBpc3N1ZSBhZ2FpbnN0IHRoZSBTQkkgc3BlYyBhYm91dCB3
+aGF0IGV4YWN0bHkgaXQgcmVxdWlyZXMsCmJ1dCBJIGdvdCBubyByZXNwb25zZXM6CgpodHRwczov
+L2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1zYmktZG9jL2lzc3Vlcy85OAoKTXkgaW50
+ZXJwcmV0YXRpb24gb2YgdGhlIFNCSSBzcGVjaWZpY2F0aW9uIGlzIHRoYXQgaXQgZG9lcyBub3Qg
+cmVxdWlyZQptYWludGFpbmluZyBhbnkgaGFydC1sb2NhbCBzdGF0ZSBhY3Jvc3MgYSBub24tcmV0
+ZW50aXZlIGhhcnQgc3VzcGVuZC4KVW5sZXNzIHRoZSBTQkkgc3BlYyBzYXlzIHRoZSB0aW1lciBt
+dXN0IGZpcmUgZHVyaW5nL2FmdGVyIHN1c3BlbmQsIHRoZW4KdGhlcmUgaXMgbm8gZmlybXdhcmUg
+YnVnLgoKPiBUaGF0IHNhaWQsIEknbSBub3QgYWN0dWFsbHkgc3VyZSB0aGlzIEMzU1RPUCBmZWF0
+dXJlIGRvZXMgd2hhdCB3ZSB3YW50Cj4gZ2l2ZW4gdGhlIGNvbW1pdCBkZXNjcmlwdGlvbi7CoCBU
+aGUgdGltZXJzIG9uIFJJU0MtViBhcmUgc29ydCBvZiBpbiB0aGlzCj4gb2RkIG1pZGRsZS1ncm91
+bmQgYmV0d2VlbiBiZWluZyBwZXItQ1BVIHRpbWVycyBhbmQgc3lzdGVtIHRpbWVyczogdGhlCj4g
+dGltZSB0aGV5IHByb2R1Y2UgaXMgZ2xvYmFsIChvciBhdCBsZWFzdCBjbG9zZSwgZHVlIHRvIHRo
+ZSBtdGltZQo+IHN5bmNocm9uaXphdGlvbiBydWxlcykgYnV0IHRoZSBhY3R1YWwgaW50ZXJydXB0
+cyBhcmUgb25seSBvbmUtc2hvdCBhbmQKPiBvbmx5IGxvY2FsLgoKQW5kIGlmIHdlIGNhbm5vdCBy
+ZWx5IG9uIHRoZSBpbnRlcnJ1cHQgYmVpbmcgZGVsaXZlcmVkLCB3ZSBjYW5ub3QgcmVseQpvbiB0
+aGUgU0JJIHRpbWUgZXh0ZW5zaW9uIHRvIHdvcmsgYWNyb3NzIGNwdWlkbGUgZW50cnkuCgo+IEZy
+b20gcG9raW5nIGFyb3VuZCB0aGUgY29kZSBJIHRoaW5rIHRoaXMganVzdCB0cmllcyB0bwo+IHNl
+dHVwIGEgcGVyaW9kaWMgYnJvYWRjYXN0IHRpbWVyLCBidXQgc2luY2Ugd2UgdXNlIHNvZnR3YXJl
+IGZhbGxiYWNrcyB0bwo+IGVtdWxhdGUgdGhvc2Ugd2UnbGwgc3RpbGwgZW5kIHVwIGxvc2luZyB0
+aGUgaW50ZXJydXB0cy90aWNrcyBpZiB0aGUgQ1BVCj4gdGhhdCB3YXMgYXNrZWQgZm9yIGFuIGlu
+dGVycnVwdCBoYXMgZ29uZSB0byBzbGVlcCBhbmQgbG9zdCB0aGF0IHN0YXRlLgoKU28gYnkgZXh0
+ZW5zaW9uLCBub24tcmV0ZW50aXZlIGNwdWlkbGUgc3RhdGVzIGNhbm5vdCBiZSB1c2VkIGlmIHRo
+ZSBTQkkKdGltZXIgaXMgdGhlIG9ubHkgYXZhaWxhYmxlIHRpbWVyLCBzaW5jZSB0aGVyZSBpcyBu
+byBoYXJkd2FyZSBicm9hZGNhc3QKdGltZXIgdG8gdXNlIGFzIGEgYmFja3VwLgoKPiBJJ20gbm90
+IHN1cmUgaWYgSSdtIGp1c3QgbWlzdW5kZXJzdGFuZGluZyB3aGF0J3MgZ29pbmcgb24gaGVyZSwg
+dGhvdWdoLsKgCj4gSXMgdGhlcmUgc29tZXRoaW5nIHRoYXQgZGVzY3JpYmVzIHRoZSBiZWhhdmlv
+ciB0aGlzIGZpeGVzIGluIG1vcmUgZGV0YWlsPwoKVGhlIG1vdGl2YXRpbmcgc2NlbmFyaW8gZm9y
+IHRoaXMgcGF0Y2ggaXMgdGhlIEM5MDYsIHdoZXJlIHRoZSBNVElNRVIgaXMKaW4gdGhlIHNhbWUg
+cmVzZXQgZG9tYWluIGFzIHRoZSBDUFUsIHNvIHRoZSB0aW1lciBzdGF0ZSBpcyBsb3N0IGR1cmlu
+Zwpub24tcmV0ZW50aXZlIHN1c3BlbmQuIFdpdGhvdXQgdGhpcyBwYXRjaCwgaWYgcmlzY3ZfdGlt
+ZXJfY2xvY2tldmVudCBpcwp0aGUgY3VycmVudCBjbG9ja2V2ZW50IGRyaXZlciwgdGhlbiB0aGUg
+Q1BVIGZhaWxzIHRvIHdha2UgdXAgZnJvbQpzdXNwZW5kLiBIb3dldmVyLCB0aGlzIHNhbWUgcHJv
+YmxlbSB3b3VsZCBvY2N1ciBvbiBhbnkgQ1BVIHdoZXJlIHRoZQp0aW1lciBvciBpbnRlcnJ1cHQg
+ZGVsaXZlcnkgc3RvcHMgd29ya2luZyBkdXJpbmcgc3VzcGVuZC4KCj4+PiDCoMKgwqDCoCAucmF0
+aW5nwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA9IDEwMCwKPj4+IMKgwqDCoMKgIC5zZXRfbmV4dF9l
+dmVudMKgwqDCoMKgwqDCoMKgID0gcmlzY3ZfY2xvY2tfbmV4dF9ldmVudCwKPj4+IMKgfTsKPj4K
+Pj4gQWZ0ZXIgYSBiaXQgb2YgYSBwYWluZnVsIGJpc2VjdGlvbiAod2l0aCBhIG1pc2RpcmVjdGlv
+biBpbnRvIHRoZSB2NS4xOQo+PiBwcmludGsgcmV2ZXJ0cyBhbG9uZyB0aGUgd2F5KSBJIGhhdmUg
+YXJyaXZlZCBhdCB0aGlzIGNvbW1pdCBmb3IgY2F1c2luZwo+PiBtZSBzb21lIGlzc3Vlcy4KPj4K
+Pj4gSWYgYW4gQVhJIHJlYWQgdG8gdGhlIFBDSWUgY29udHJvbGxlciBvbiBQb2xhckZpcmUgU29D
+IHRpbWVzIG91dCwgdGhlCj4+IHN5c3RlbSB3aWxsIHN0YWxsLCB3aXRoIGFuIGV4cGVjdGVkOgo+
+PiDCoMKgwqDCoCBpbyBzY2hlZHVsZXIgbXEtZGVhZGxpbmUgcmVnaXN0ZXJlZAo+PiDCoMKgwqDC
+oCBpbyBzY2hlZHVsZXIga3liZXIgcmVnaXN0ZXJlZAo+PiDCoMKgwqDCoCBtaWNyb2NoaXAtcGNp
+ZSAyMDAwMDAwMDAwLnBjaWU6IGhvc3QgYnJpZGdlIC9zb2MvcGNpZUAyMDAwMDAwMDAwCj4+IHJh
+bmdlczoKPj4gwqDCoMKgwqAgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOsKgwqDCoMKg
+wqAgTUVNCj4+IDB4MjAwODAwMDAwMC4uMHgyMDg3ZmZmZmZmIC0+IDB4MDAwODAwMDAwMAo+PiDC
+oMKgwqDCoCBtaWNyb2NoaXAtcGNpZSAyMDAwMDAwMDAwLnBjaWU6IHNlYyBlcnJvciBpbiBwY2ll
+MmF4aSBidWZmZXIKPj4gwqDCoMKgwqAgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBk
+ZWQgZXJyb3IgaW4gcGNpZTJheGkgYnVmZmVyCj4+IMKgwqDCoMKgIG1pY3JvY2hpcC1wY2llIDIw
+MDAwMDAwMDAucGNpZTogYXhpIHJlYWQgcmVxdWVzdCBlcnJvcgo+PiDCoMKgwqDCoCBtaWNyb2No
+aXAtcGNpZSAyMDAwMDAwMDAwLnBjaWU6IGF4aSByZWFkIHRpbWVvdXQKPj4gwqDCoMKgwqAgbWlj
+cm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBzZWMgZXJyb3IgaW4gcGNpZTJheGkgYnVmZmVy
+Cj4+IMKgwqDCoMKgIG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGlu
+IHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoCBtaWNyb2NoaXAtcGNpZSAyMDAwMDAwMDAwLnBj
+aWU6IHNlYyBlcnJvciBpbiBwY2llMmF4aSBidWZmZXIKPj4gwqDCoMKgwqAgbWljcm9jaGlwLXBj
+aWUgMjAwMDAwMDAwMC5wY2llOiBkZWQgZXJyb3IgaW4gcGNpZTJheGkgYnVmZmVyCj4+IMKgwqDC
+oMKgIG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhp
+IGJ1ZmZlcgo+PiDCoMKgwqDCoCBtaWNyb2NoaXAtcGNpZSAyMDAwMDAwMDAwLnBjaWU6IGRlZCBl
+cnJvciBpbiBwY2llMmF4aSBidWZmZXIKPj4gwqDCoMKgwqAgRnJlZWluZyBpbml0cmQgbWVtb3J5
+OiA3MzM2Swo+PiDCoMKgwqDCoCBtY19ldmVudF9oYW5kbGVyOiA2Njc0MDIgY2FsbGJhY2tzIHN1
+cHByZXNzZWQKPj4gwqDCoMKgwqAgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBzZWMg
+ZXJyb3IgaW4gcGNpZTJheGkgYnVmZmVyCj4+IMKgwqDCoMKgIG1pY3JvY2hpcC1wY2llIDIwMDAw
+MDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoCBtaWNy
+b2NoaXAtcGNpZSAyMDAwMDAwMDAwLnBjaWU6IHNlYyBlcnJvciBpbiBwY2llMmF4aSBidWZmZXIK
+Pj4gwqDCoMKgwqAgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBkZWQgZXJyb3IgaW4g
+cGNpZTJheGkgYnVmZmVyCj4+IMKgwqDCoMKgIG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNp
+ZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoCBtaWNyb2NoaXAtcGNp
+ZSAyMDAwMDAwMDAwLnBjaWU6IGRlZCBlcnJvciBpbiBwY2llMmF4aSBidWZmZXIKPj4gwqDCoMKg
+wqAgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBzZWMgZXJyb3IgaW4gcGNpZTJheGkg
+YnVmZmVyCj4+IMKgwqDCoMKgIG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVy
+cm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoCBtaWNyb2NoaXAtcGNpZSAyMDAwMDAw
+MDAwLnBjaWU6IHNlYyBlcnJvciBpbiBwY2llMmF4aSBidWZmZXIKPj4gwqDCoMKgwqAgbWljcm9j
+aGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOiBkZWQgZXJyb3IgaW4gcGNpZTJheGkgYnVmZmVyCj4+
+IMKgwqDCoMKgIG1jX2V2ZW50X2hhbmRsZXI6IDY2NjU4OCBjYWxsYmFja3Mgc3VwcHJlc3NlZAo+
+PiA8dHJ1bmNhdGVkPgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTog
+ZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1jX2V2ZW50X2hhbmRsZXI6
+IDY2Njc0OCBjYWxsYmFja3Mgc3VwcHJlc3NlZAo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIw
+MDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1p
+Y3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZl
+cgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGlu
+IHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNp
+ZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2ll
+IDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDC
+oG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1
+ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9y
+IGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAu
+cGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1w
+Y2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKg
+wqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhp
+IGJ1ZmZlcgo+PiDCoMKgwqDCoHJjdTogSU5GTzogcmN1X3ByZWVtcHQgZGV0ZWN0ZWQgc3RhbGxz
+IG9uIENQVXMvdGFza3M6Cj4+IMKgwqDCoMKgcmN1OsKgwqDCoMKgIDAtLi4uMDogKDEgR1BzIGJl
+aGluZCkgaWRsZT0xOWYvMS8weDQwMDAwMDAwMDAwMDAwMDIKPj4gc29mdGlycT0zNC8zNiBmcXM9
+MjYyNgo+PiDCoMKgwqDCoMKgwqDCoCAoZGV0ZWN0ZWQgYnkgMSwgdD01MjU2IGppZmZpZXMsIGc9
+LTExNTEsIHE9MTE0MyBuY3B1cz00KQo+PiDCoMKgwqDCoFRhc2sgZHVtcCBmb3IgQ1BVIDA6Cj4+
+IMKgwqDCoMKgdGFzazpzd2FwcGVyLzDCoMKgwqDCoMKgwqAgc3RhdGU6UsKgIHJ1bm5pbmcgdGFz
+a8KgwqDCoMKgIHN0YWNrOsKgwqDCoCAwIHBpZDrCoMKgwqAKPj4gMSBwcGlkOsKgwqDCoMKgIDAg
+ZmxhZ3M6MHgwMDAwMDAwOAo+PiDCoMKgwqDCoENhbGwgVHJhY2U6Cj4+IMKgwqDCoMKgbWNfZXZl
+bnRfaGFuZGxlcjogNjY2NjQ4IGNhbGxiYWNrcyBzdXBwcmVzc2VkCj4+Cj4+IMKgV2l0aCB0aGlz
+IHBhdGNoIGFwcGxpZWQsIHRoZSBzeXN0ZW0ganVzdCBsb2NrcyB1cCB3aXRob3V0IFJDVSBzdGFs
+bGluZzoKPj4gwqDCoMKgwqBpbyBzY2hlZHVsZXIgbXEtZGVhZGxpbmUgcmVnaXN0ZXJlZAo+PiDC
+oMKgwqDCoGlvIHNjaGVkdWxlciBreWJlciByZWdpc3RlcmVkCj4+IMKgwqDCoMKgbWljcm9jaGlw
+LXBjaWUgMjAwMDAwMDAwMC5wY2llOiBob3N0IGJyaWRnZSAvc29jL3BjaWVAMjAwMDAwMDAwMAo+
+PiByYW5nZXM6Cj4+IMKgwqDCoMKgbWljcm9jaGlwLXBjaWUgMjAwMDAwMDAwMC5wY2llOsKgwqDC
+oMKgwqAgTUVNCj4+IDB4MjAwODAwMDAwMC4uMHgyMDg3ZmZmZmZmIC0+IDB4MDAwODAwMDAwMAo+
+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBj
+aWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTog
+ZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIw
+MDAwMDAwMDAucGNpZTogYXhpIHJlYWQgcmVxdWVzdCBlcnJvcgo+PiDCoMKgwqDCoG1pY3JvY2hp
+cC1wY2llIDIwMDAwMDAwMDAucGNpZTogYXhpIHJlYWQgdGltZW91dAo+PiDCoMKgwqDCoG1pY3Jv
+Y2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+
+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBj
+aWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTog
+c2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIw
+MDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoG1p
+Y3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogc2VjIGVycm9yIGluIHBjaWUyYXhpIGJ1ZmZl
+cgo+PiDCoMKgwqDCoG1pY3JvY2hpcC1wY2llIDIwMDAwMDAwMDAucGNpZTogZGVkIGVycm9yIGlu
+IHBjaWUyYXhpIGJ1ZmZlcgo+PiDCoMKgwqDCoEZyZWVpbmcgaW5pdHJkIG1lbW9yeTogNzMzMksK
+Pj4KPj4gQXMgb2YgeWV0LCBJIGhhdmUgbm8gaWRlYSBpZiBSQ1Ugc3RhbGxzIGZvciBvdGhlciBy
+ZWFzb25zIHdvdWxkIGFsc28gYmUKPj4gbG9zdC4KPiAKPiBTb3JyeSB0aGlzIGJyb2tlIHN0dWZm
+LsKgIEknbSBub3QgZW50aXJlbHkgc3VyZSB3aHkgdGhpcyB3b3VsZCBtYXNrIFJDVQo+IHN0YWxs
+cywgYnV0IGl0IHNlZW1zIGxpa2Ugd2UncmUgaGl0dGluZyBzb21lIHByZXR0eSBvZGQgcGF0aHMg
+aGVyZSBhbmQKPiBJJ20gbm90IHN1cmUgdGhpcyBpcyBleHBlY3RlZCB0byB3b3JrIGF0IGFsbCBm
+b3IgdXMuCgpJJ20gY29uZnVzZWQgaGVyZS4gVGhlIFJDVSBzdGFsbCBpcyBpdHNlbGYgYSBidWcs
+IHJpZ2h0PyBBcmUgeW91IHN1cmUKdGhpcyBwYXRjaCBpcyB3cm9uZ2x5IG1hc2tpbmcgdGhlIHN0
+YWxsLCBvciBpcyBpdCBwb3NzaWJseSBqdXN0IGF2b2lkaW5nCnNvbWUgYnVnZ3kgY29kZSBhbmQg
+bm90IGNhdXNpbmcgYSBzdGFsbCBpbiB0aGUgZmlyc3QgcGxhY2U/CgpSZWdhcmRzLApTYW11ZWwK
+Cj4gSWYgbm9uLXg4NiBhcmNoaXRlY3R1cmVzIGFyZSBtZWFudCB0byBiZSBhYmxlIHRvIHNldAo+
+IENMT0NLX0VWVF9GRUFUX0MzU1RPUCwgbWF5YmUgd2Ugc2hvdWxkIGRvY3VtZW50IHdoYXQgaXQn
+cyBzdXBwb3NlZCB0byBkbwo+IGluIGEgbW9yZSBwbGF0Zm9ybS1hZ25vc3RpYyBmYXNoaW9uPwo+
+IAo+PiBUaGFua3MsCj4+IENvbm9yLgo+Pgo+PiBnaXQgYmlzZWN0IHN0YXJ0Cj4+ICMgc3RhdHVz
+OiB3YWl0aW5nIGZvciBib3RoIGdvb2QgYW5kIGJhZCBjb21taXRzCj4+ICMgZ29vZDogWzc2OTlm
+N2FhY2YzZWJmZWU1MWM2NzBiNmY3OTZiMjc5N2YwZjc0ODddIFJJU0MtVjogUHJlcGFyZQo+PiBk
+cm9wcGluZyB3ZWVrIGF0dHJpYnV0ZSBmcm9tIGFyY2hfa2V4ZWNfYXBwbHlfcmVsb2NhdGlvbnNb
+X2FkZF0KPj4gZ2l0IGJpc2VjdCBnb29kIDc2OTlmN2FhY2YzZWJmZWU1MWM2NzBiNmY3OTZiMjc5
+N2YwZjc0ODcKPj4gIyBiYWQ6IFs2M2Q1MTcyZTE0OGJjYzE3NDM5ODA0MDg2MWQ4NjdiYmQyNzcw
+YmU0XSBIQUNLOiBqb2duZXNzCj4+IGdpdCBiaXNlY3QgYmFkIDYzZDUxNzJlMTQ4YmNjMTc0Mzk4
+MDQwODYxZDg2N2JiZDI3NzBiZTQKPj4gIyBnb29kOiBbMjUxOGYyMjZjNjBkOGUwNGQxOGJhNDI5
+NTUwMGE1YjBiOGFjNzY1OV0gTWVyZ2UgdGFnCj4+ICdkcm0tbmV4dC0yMDIyLTA1LTI1JyBvZiBn
+aXQ6Ly9hbm9uZ2l0LmZyZWVkZXNrdG9wLm9yZy9kcm0vZHJtCj4+IGdpdCBiaXNlY3QgZ29vZCAy
+NTE4ZjIyNmM2MGQ4ZTA0ZDE4YmE0Mjk1NTAwYTViMGI4YWM3NjU5Cj4+ICMgZ29vZDogWzkwN2Ji
+NTdhYTdiNDcxODcyYWFiMmYyZTgzZTk3MTNhMTQ1NjczZjldIE1lcmdlIHRhZwo+PiAncGluY3Ry
+bC12NS4xOS0xJyBvZgo+PiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5l
+bC9naXQvbGludXN3L2xpbnV4LXBpbmN0cmwKPj4gZ2l0IGJpc2VjdCBnb29kIDkwN2JiNTdhYTdi
+NDcxODcyYWFiMmYyZTgzZTk3MTNhMTQ1NjczZjkKPj4gIyBnb29kOiBbNGFkNjgwZjA4M2VjMzYw
+ZTA5OTFjNDUzZTE4YTM4ZWQ5YWU1MDBkN10gTWVyZ2UgdGFnCj4+ICdzdGFnaW5nLTUuMTktcmMx
+JyBvZgo+PiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvZ3Jl
+Z2toL3N0YWdpbmcKPj4gZ2l0IGJpc2VjdCBnb29kIDRhZDY4MGYwODNlYzM2MGUwOTkxYzQ1M2Ux
+OGEzOGVkOWFlNTAwZDcKPj4gIyBnb29kOiBbMjNkZjliYTY0YmI5ZTI2Y2ZlZTZiMzRmNWMzZWNl
+NDlhOGE2MWVlMV0gTWVyZ2UgdGFnCj4+ICdmb3ItNS4xOS9wYXJpc2MtMicgb2YKPj4gZ2l0Oi8v
+Z2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2RlbGxlci9wYXJpc2MtbGlu
+dXgKPj4gZ2l0IGJpc2VjdCBnb29kIDIzZGY5YmE2NGJiOWUyNmNmZWU2YjM0ZjVjM2VjZTQ5YThh
+NjFlZTEKPj4gIyBiYWQ6IFs3YTY4MDY1ZWI5Y2QxOTRjZjAzZjEzNWM5MjExZWViMmQ1YzRjMGEw
+XSBNZXJnZSB0YWcKPj4gJ2dwaW8tZml4ZXMtZm9yLXY1LjE5LXJjMicgb2YKPj4gZ2l0Oi8vZ2l0
+Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2JyZ2wvbGludXgKPj4gZ2l0IGJp
+c2VjdCBiYWQgN2E2ODA2NWViOWNkMTk0Y2YwM2YxMzVjOTIxMWVlYjJkNWM0YzBhMAo+PiAjIGJh
+ZDogWzFmMTkyYjllOGQ4YTVjNjE5YjMzYTg2OGZiMWFmMDYzYWY2NWNlNWRdIE1lcmdlIHRhZwo+
+PiAnZHJtLW1pc2MtZml4ZXMtMjAyMi0wNi0wOScgb2YKPj4gZ2l0Oi8vYW5vbmdpdC5mcmVlZGVz
+a3RvcC5vcmcvZHJtL2RybS1taXNjIGludG8gZHJtLWZpeGVzCj4+IGdpdCBiaXNlY3QgYmFkIDFm
+MTkyYjllOGQ4YTVjNjE5YjMzYTg2OGZiMWFmMDYzYWY2NWNlNWQKPj4gIyBnb29kOiBbYjJjOWE4
+M2QyNjJhOGZlYjAyMmUyNGU5ZjlhYWRiNjZjYjEwYTdhOF0gTWVyZ2UgdGFnCj4+ICdzY3NpLW1p
+c2MnIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9qZWpi
+L3Njc2kKPj4gZ2l0IGJpc2VjdCBnb29kIGIyYzlhODNkMjYyYThmZWIwMjJlMjRlOWY5YWFkYjY2
+Y2IxMGE3YTgKPj4gIyBiYWQ6IFtlMTdmZWU4OTc2YzNkMmNjZjlhZGQ2ZDZjODkxMmEzN2IwMjVk
+ODQwXSBNZXJnZSB0YWcKPj4gJ21tLW5vbm1tLXN0YWJsZS0yMDIyLTA2LTA1JyBvZgo+PiBnaXQ6
+Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYWtwbS9tbQo+PiBnaXQg
+YmlzZWN0IGJhZCBlMTdmZWU4OTc2YzNkMmNjZjlhZGQ2ZDZjODkxMmEzN2IwMjVkODQwCj4+ICMg
+YmFkOiBbYzA0OWVjYzUyMzE3MTQ4MWFjY2QyYzgzZjc5ZmZlZWNiZjUzYTkxNV0gTWVyZ2UgdGFn
+Cj4+ICd0aW1lcnMtY29yZS0yMDIyLTA2LTA1JyBvZgo+PiBnaXQ6Ly9naXQua2VybmVsLm9yZy9w
+dWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdGlwL3RpcAo+PiBnaXQgYmlzZWN0IGJhZCBjMDQ5ZWNj
+NTIzMTcxNDgxYWNjZDJjODNmNzlmZmVlY2JmNTNhOTE1Cj4+ICMgYmFkOiBbOWMwNGE4ZmYwM2Rl
+ZjRkZjNmODEyMTlmZmJlMWVjOWI0NGZmNTM0OF0KPj4gY2xvY2tzb3VyY2UvZHJpdmVycy9veG5h
+cy1ycHM6IEZpeCBpcnFfb2ZfcGFyc2VfYW5kX21hcCgpIHJldHVybiB2YWx1ZQo+PiBnaXQgYmlz
+ZWN0IGJhZCA5YzA0YThmZjAzZGVmNGRmM2Y4MTIxOWZmYmUxZWM5YjQ0ZmY1MzQ4Cj4+ICMgYmFk
+OiBbNzE2MGQ5YzRjY2U5NDYxMmQ1ZjQyYTVkYjM5MmNkNjA2YTM4NzM3YV0KPj4gY2xvY2tzb3Vy
+Y2UvZHJpdmVycy9hcm1hZGEtMzcwLXhwOiBDb252ZXJ0IHRvIFNQRFggaWRlbnRpZmllcgo+PiBn
+aXQgYmlzZWN0IGJhZCA3MTYwZDljNGNjZTk0NjEyZDVmNDJhNWRiMzkyY2Q2MDZhMzg3MzdhCj4+
+ICMgYmFkOiBbYTk4Mzk5Y2JjMWUwNWY3Yjk3NzQxOWYwMzkwNTUwMWQ1NjZjZjU0ZV0KPj4gY2xv
+Y2tzb3VyY2UvZHJpdmVycy9zcDgwNDogQXZvaWQgZXJyb3Igb24gbXVsdGlwbGUgaW5zdGFuY2Vz
+Cj4+IGdpdCBiaXNlY3QgYmFkIGE5ODM5OWNiYzFlMDVmN2I5Nzc0MTlmMDM5MDU1MDFkNTY2Y2Y1
+NGUKPj4gIyBnb29kOiBbNDE5MjljOWY2MjhiOTk5MGQzM2EyMDBjNTRiYjBjOTE5ZTA4OWFhOF0K
+Pj4gY2xvY2tzb3VyY2UvZHJpdmVycy9peHA0eHg6IERyb3AgYm9hcmRmaWxlIHByb2JlIHBhdGgK
+Pj4gZ2l0IGJpc2VjdCBnb29kIDQxOTI5YzlmNjI4Yjk5OTBkMzNhMjAwYzU0YmIwYzkxOWUwODlh
+YTgKPj4gIyBiYWQ6IFsyMzJjY2FjMWJkOWI1YmZlNzM4OTVmNTI3YzA4NjIzZTdmYTA3NTJkXQo+
+PiBjbG9ja3NvdXJjZS9kcml2ZXJzL3Jpc2N2OiBFdmVudHMgYXJlIHN0b3BwZWQgZHVyaW5nIENQ
+VSBzdXNwZW5kCj4+IGdpdCBiaXNlY3QgYmFkIDIzMmNjYWMxYmQ5YjViZmU3Mzg5NWY1MjdjMDg2
+MjNlN2ZhMDc1MmQKPj4gIyBmaXJzdCBiYWQgY29tbWl0OiBbMjMyY2NhYzFiZDliNWJmZTczODk1
+ZjUyN2MwODYyM2U3ZmEwNzUyZF0KPj4gY2xvY2tzb3VyY2UvZHJpdmVycy9yaXNjdjogRXZlbnRz
+IGFyZSBzdG9wcGVkIGR1cmluZyBDUFUgc3VzcGVuZAoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
