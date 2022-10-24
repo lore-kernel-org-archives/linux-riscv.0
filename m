@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9065C38A2D
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 07:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845E9C38A2D
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Oct 2022 08:03:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rjgBRg44YLWJEcVZosh5utr/tByKPvHkvUZp0ROaF8g=; b=eqLk6566Kie8hz
-	+ihcPG/8kNP+YREPj+pFhl8Db0AElH28Yx4YHRkFvERSt7TIF/RMQOjukdajRVKFNyAusyBS1xIEM
-	IGJ9/cAFNOzFvgRpXWmQlG48RKYNO+fO9x1j08IrH8BSSJtYU1gLTciabBG9+gl0YeMd9yu42ILF+
-	YkR50SPIfA7CvLrQKjTqfiOwbCPezv+jEXvOvU5AvgmX3bna85AyIUn9R/gBTaYHeqM+cPVgxXH3v
-	LgIS1amKgG4jb+jVokpGxniGC3LFwr0woTphDCkpm3A2lfLMfKOt2UOxiwlhA9AkAYLAdZu6BBjsK
-	kmcw2+jIrTKteAPAJ3SA==;
+	List-Owner; bh=vRAAxCbnTDfZo2OgIBSnMpf5gpGJ07KuFAtcfDCgOko=; b=uXPR/6cnePhAOf
+	CqgfiXG1DMqc6T2mO1Ikfe2BV0dre8PBwrZwzYj+mXP+Ueuk8U7hStHT8inRZR0bYWVWtHQWX6mrb
+	QqM6YQqVP3p9kLquIVzYZM+9oT1AMe4qCKN424/KdrnTaI2dKf37wQxEWVMdT5Dzqd9EuK67ajSoa
+	a+fP0xZVuzLGeTreBlduMkDEdT4Tw4SSY8Ti0/nDSGXyqH0jckqgGlaS4ege/0CinB4w9y12THZzJ
+	biXIg6ItMnVldp3bd9CeE1/i3WZ2Tj4nAE0Mggi9+GuudsjR30HGfV6JXN0/BrNFcVdgkQa0o09EU
+	rTdgNoKlr30fA/07FueQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omri5-00HSHy-JC; Mon, 24 Oct 2022 07:17:21 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1omsQS-00008G-MS; Mon, 24 Oct 2022 08:03:12 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1omri1-00HSG9-K4
-	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 07:17:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1666595836; x=1698131836;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nb73UoFgyjfyVhuFTqq5IGjI1HULwHB56TZtGhoEnms=;
-  b=VM1uhKN9KQ58LsDnLFzy1NxX/ZwV/ydJRxvo8sEmYjzAUmxpWJBUMAa5
-   a9ZqZ73l1lym5weFXCfOCbe1UcbDIaxczS7tPThusMqnQbkTEa8koGFr2
-   UPuaz79UjyqxSJRi+8R4cT0ZwM++oP/GibsCBUUFBMsDqBRsuM5y+Hbts
-   IhlZGe1I9b1xasr66SH55DOC9IU+xLCgRUJyfQ6S4pvlKYWHYo0tEEoJn
-   h1tXHzsZRulSXfFMQCP6JQOKjfmsATmJxo/USo2jcJmD/PNSr5eG+p6UC
-   AVjbn34338LchSN3mUlogqsFP1xrwcthUJ6LLSJ0Q7dr7baf8+jpi1nIb
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.95,207,1661842800"; 
-   d="scan'208";a="196715944"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Oct 2022 00:17:09 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 24 Oct 2022 00:17:11 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 24 Oct 2022 00:17:09 -0700
-Date: Mon, 24 Oct 2022 08:16:53 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Anup
- Patel <apatel@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 1/3] RISC-V: Improve use of isa2hwcap[]
-Message-ID: <Y1Y75dyTeqVAIzNn@wendy>
-References: <20221021105905.206385-1-ajones@ventanamicro.com>
- <20221021105905.206385-2-ajones@ventanamicro.com>
- <Y1WV1MmtTwvTlrcg@spud>
- <20221024064811.rtu4nsia23yuga7w@kamzik>
+	id 1omsQP-00006s-Qn
+	for linux-riscv@lists.infradead.org; Mon, 24 Oct 2022 08:03:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 13298B80E7A
+	for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 08:03:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40749C43142
+	for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 08:03:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1666598584;
+	bh=CXws4eLr0gl3odZwqTEuuhZZp1WDhaclsxdDRXlhMQQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YIj6ATKSLfUvngOWKyQpxY0uDpchrCF9EfJF3NhblMSs0sZd1UQFhe3JsKjQx1JOg
+	 aEuKTT4mup0cKdPRcGDGVUjf4cpVK14Lz5PXYVL4gAgSMXAxOYefSV7nfIfeCmZPEA
+	 0iyRrEbnZ/av/766ux6DZTpYX0aF1r+Iuspd/stry1Stle/WBLw9aZB14gbjaZIPyI
+	 8UY4zsjz/drcQgifIw/F/8YYbEjLdNkTJr/0aBcEidr81pJ0zfrWC9rgwjxglsKFaL
+	 SrVRRRAExIAkiHYqi11Kf66WHK9dnD/ONhh12JEfcVcH5BmSd/q4I0+s34qKwMgc3W
+	 7dtdnWAcYBNqw==
+Received: by mail-oi1-f173.google.com with SMTP id w74so10128724oie.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Oct 2022 01:03:04 -0700 (PDT)
+X-Gm-Message-State: ACrzQf2ETvAcJrXHBBPiSbQeSBTAKxEvwyOanCFeXCGKZBMxOIoC7Q0M
+	aCau3tf+Y7qPwbUpPWASEl4jSZWKKePUFf9nknQ=
+X-Google-Smtp-Source: AMsMyM4opuf9ZlLlQKT18CpSvfe9XotBrtNnzZrG6O6GBcHpNVvd4QnPrdeLYevOyANG4WDlsZD5B1GA8zDQRLU5blc=
+X-Received: by 2002:a05:6808:14cf:b0:355:5204:dd81 with SMTP id
+ f15-20020a05680814cf00b003555204dd81mr15684588oiw.112.1666598583325; Mon, 24
+ Oct 2022 01:03:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221024064811.rtu4nsia23yuga7w@kamzik>
+References: <20221023133205.3493564-1-guoren@kernel.org> <20221023133205.3493564-3-guoren@kernel.org>
+ <1F5AF29D-708A-483B-A29F-CAEE6F554866@linux.dev>
+In-Reply-To: <1F5AF29D-708A-483B-A29F-CAEE6F554866@linux.dev>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 24 Oct 2022 16:02:51 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSmSR7uKrCGZ24+NSa31FAecOBpUh8G0SMAEV-5oFGJyQ@mail.gmail.com>
+Message-ID: <CAJF2gTSmSR7uKrCGZ24+NSa31FAecOBpUh8G0SMAEV-5oFGJyQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: Enable ARCH_WANT_HUGETLB_PAGE_OPTIMIZE_VMEMMAP
+To: Muchun Song <muchun.song@linux.dev>
+Cc: palmer@dabbelt.com, palmer@rivosinc.com, heiko@sntech.de, arnd@arndb.de, 
+	Muchun Song <songmuchun@bytedance.com>, catalin.marinas@arm.com, chenhuacai@loongson.cn, 
+	Conor.Dooley@microchip.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221024_001717_688804_B4921523 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20221024_010310_026844_57F477A1 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +80,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 24, 2022 at 08:48:11AM +0200, Andrew Jones wrote:
-> On Sun, Oct 23, 2022 at 08:28:20PM +0100, Conor Dooley wrote:
-> > On Fri, Oct 21, 2022 at 12:59:03PM +0200, Andrew Jones wrote:
-> > > Improve isa2hwcap[] by removing it from static storage, as
-> > > riscv_fill_hwcap() is only called once, and by reducing its size
-> > > from 256 bytes to 26. The latter improvement is possible because
-> > > isa2hwcap[] will never be indexed with capital letters and we can
-> > > precompute the offsets from 'a'.
-> > 
-> > Hey Drew, couple questions for you - mostly due to naivety I think..
-> > 
-> > How do we know that isa2hwcap will never interact with capital letters?
-> > It pulls the isa string from dt and the no-capitals enforcement comes
-> > from there since one with capitals is invalid? I didn't dig particularly
-> > deeply into the code, but is there a risk that we regress some user that
-> > has a dt with capitals in the isa string? Or is that a "your dt was wrong
-> > and you're out-of-tree so that's your problem" situation?
-> 
-> Our ISA string parser here in riscv_fill_hwcap() ignores non-capital
-> letters, see arch/riscv/kernel/cpufeature.c lines 141, 165 and 196.
-
-Ah, I missed the one on L165, that's a bit silly... Apologies!
-
-> (Maybe we should be noisier about that in case there are DTs out there
-> with capitals which aren't realizing they're being ignored.)
-
-Possibly, but it's not this patch that has introduced the behaviour.
-Checking very briefly though, looks like it was 2a31c54be097 ("RISC-V:
-Minimal parser for "riscv, isa" strings") that introduced the checks
-and that was not really all that long ago..
-
-> 
-> > 
-> > Secondly, in the UAPI header, the COMPAT_HWCAP_ISA_FOO defines are
-> > computed as I - A rather than i - a. Should those be changed too for the
-> > sake of consistently using the lowercase everywhere, or do you think
-> > that doesn't really matter?
-> 
-> I think I'd leave it since it doesn't change the math and I'm reluctant
-> to churn UAPI.
-
-Yeah, figured you'd be of that opinion.
-Anyways, only "issue" I had was my own confusion so
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks...
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBPY3QgMjQsIDIwMjIgYXQgMzowNyBQTSBNdWNodW4gU29uZyA8bXVjaHVuLnNvbmdA
+bGludXguZGV2PiB3cm90ZToKPgo+Cj4KPiA+IE9uIE9jdCAyMywgMjAyMiwgYXQgMjE6MzIsIGd1
+b3JlbkBrZXJuZWwub3JnIHdyb3RlOgo+ID4KPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51
+eC5hbGliYWJhLmNvbT4KPiA+Cj4gPiBUaGlzIHBhdGNoIGVuYWJsZSB0aGUgZmVhdHVyZSBvZiAi
+ZnJlZSBzb21lIHZtZW1tYXAgcGFnZXMgb2YgSHVnZVRMQgo+Cj4gV2UgaGF2ZSBhIG5ldyBuYW1l
+IOKAnEhWTyIgdG8gcmVmZXIgdG8gdGhpcyBmZWF0dXJlLiBTbyBJ4oCZZCBsaWtlIHRvIHJld3Jp
+dGUKPiBUaGUgY2hhbmdlbG9nIHRvIHNvbWV0aGluZyBsaWtlIOKAnEVuYWJsZSBIVk8gWzFdIGZv
+ciBSSVNDVuKAnS4KT2theS4KCj4KPiA+IHBhZ2UiIFsxXS4gVG8gbWFrZSBpdCB3b3JrIGNvcnJl
+Y3QsIHdlIGFsc28gbmVlZCBmaXh1cCBQR19kY2FjaGVfY2xlYW4KPiA+IHNldHRpbmcgZm9yIGh1
+Z2UgcGFnZSBbMl0uCj4gPgo+ID4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWRv
+Yy8yMDIxMDUxMDAzMDAyNy41NjA0NC0xLXNvbmdtdWNodW5AYnl0ZWRhbmNlLmNvbS8KPiA+IFsy
+XSBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1tbS8yMDIyMDMwMjA4NDYyNC4zMzM0MC0x
+LXNvbmdtdWNodW5AYnl0ZWRhbmNlLmNvbS8KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVu
+IDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxn
+dW9yZW5Aa2VybmVsLm9yZz4KPiA+IENjOiBNdWNodW4gU29uZyA8c29uZ211Y2h1bkBieXRlZGFu
+Y2UuY29tPgo+ID4gQ2M6IEh1YWNhaSBDaGVuIDxjaGVuaHVhY2FpQGxvb25nc29uLmNuPgo+ID4g
+Q2M6IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4KPiBJ4oCZYW0gcmVhbGx5IGdsYWQg
+dG8gc2VlIG1vcmUgYW5kIG1vcmUgYXJjaGVzIGZvciBzdXBwb3J0IEhWTy4KPgo+IEFja2VkLWJ5
+OiBNdWNodW4gU29uZyA8c29uZ211Y2h1bkBieXRlZGFuY2UuY29tPgpUaHgKCj4KPiBUaGFua3Mu
+Cj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
