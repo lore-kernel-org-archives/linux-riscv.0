@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED15C38A2D
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 22:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C97ECDFA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 22:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CFmPUHxVV1b91g7AE9TGarHwXH9uM2G13lzoL/+Armk=; b=1AzTGp83z1sF/h
-	YuDbWCNRP3GnwZwhwiIWSkN490t7OMsKcvMEKUrMTgkox7nDFQiPJpM+G3OjTsNsnWvcH0DMwscdC
-	mWZtTIibj+7+J/U/E7/EmcbLDQzIUY9TaZma0DFvTyVKjtLx1u1r6JcHCf20O9+kwdbuvvWSnTp/r
-	8skIeldS+BaNJPcPVDxSmJjp0aZWfO1iDfRR6cDJ5J+B6gDpam6grjQSNyqV//zWA0WtPaRMru6Vx
-	WMRp00BMSqEwxLmLsBtW2Yo31Lf1qW72sKHdsDPhdNSC0TpFrnQuPhdKAmxP0Vepy2z8uij7AaPFl
-	1w92h++hgQrM2xlHuRHQ==;
+	List-Owner; bh=4NZFEZ02atdvWavHVnX5omGEZ/r3M0sYZ6Op1cnjoA8=; b=oz2WSlnfudBCWE
+	+zqQz2UaYzOL/EZTA33knjkSSn+uKeO/aPTzUPfV2hj5N+IU0sS+wMNSgZUZj/J8of0obFqGHzoN9
+	ZsmRI+KjIx1nLloGVNRHJJheCqjkkP8dEoo0nPwEum5kIT2DpeDbEmzKoHAYNlWnf76eYejvFiS+w
+	BRnpzDjwA5R5wy3eZ5FngGHZl4PmxK/iJzC+xvQFxEuodcXmrgkg13CviEI0eB6ocCzuJXYaH0zJW
+	nVuyEM+w5KGHUuWbdA9sjT0RhLydR4qWX6Jj5jNXJ4LCOGeXCiM1hlwBOPYThQGwmmMpD/noL3zIa
+	Xu0XMY7wO1QW9ASGAljw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onS4r-007LEm-7P; Tue, 25 Oct 2022 22:07:17 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1onStB-007Tkh-Tg; Tue, 25 Oct 2022 22:59:17 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onS4N-007L6h-7B; Tue, 25 Oct 2022 22:06:50 +0000
-Received: by mail-wr1-x431.google.com with SMTP id j15so12866894wrq.3;
-        Tue, 25 Oct 2022 15:06:46 -0700 (PDT)
+	id 1onSt9-007TkB-Qk
+	for linux-riscv@lists.infradead.org; Tue, 25 Oct 2022 22:59:17 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id y12so18425683edc.9
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Oct 2022 15:59:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=StEPjGUoAeQwvvppu+eZBvs66DYr81Gw6lps+bPDxfc=;
-        b=kbSjYiXuBRxuDRPDKlFK6DP2lK7hEF9j2BHobsdAiZXIT2MOiFbN+a/scZ+vbT7KXU
-         +SyDvvOsDFXC9Br7MLlD5MpJwprdCXP+jXz2vEn4ts0PyXPfusPomyzcOf2xQlLjf4xU
-         ojTaMwboVVGmLfRSvOHQIxqkqtyMofiDzzchGBgzmkQ7vZ+fQK5O2kDClgRrcb90u4gB
-         g326XDbKhyTGk4Dn/RwzzqrxpeY1bYqj7+TDWvq0hO7GI0I0HOyqpyOw2jxgPntaW0UD
-         TQdx2j+H5FNPjkz2ZWUuO94O3pjX9Q7swXFmaR7XMn/O3T3pnC8F9RHUUC+xX3pPUNs2
-         fdIw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=udy479ObjWYY5CFX9ZP0gGul3ib61HsEaOXglQsZUR8=;
+        b=kRiPEyk2E7S0EkCO/J07RPKhy/NhdmvHvaLaff/l5T/RAR1qGg59zpFrXUDOU/m0DR
+         BSXuRAzPYAw49Pg4UBKrS50JHKHe2GrUwXFH4LWAa9HhLPtCkatZdMXA0eVwaZujnCNW
+         J+Q92e1VnvtpKgkItdw1G1zOcyskidwZccW/lQhhwwFKef35yL6BnWEUm7Q4oLjtxStg
+         NKft7Vm8Gedm1bSS72iIRJSaLReOdpt3RGtE4tTBaofRTFTfusTdE5spkdWAJYTy64zy
+         eDftWn/qWifn7P5a+uvUuOi/LNqLyH+x0t31WApUmVZxSc7Q6iLJd5o7lbkrKjq9Og2N
+         GIEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=StEPjGUoAeQwvvppu+eZBvs66DYr81Gw6lps+bPDxfc=;
-        b=cvSKVN8bY71YglCyGxT3wU/r0uRXNgrcYOH1uptbUF2wJG8SxGIsXcqZQjHhQOD2ye
-         ohoxfOKGFsL3OSGczKjGrD2EpCRbga63W+4DKRlBity15HxIE51r4EPHSXE/I6fHhDQq
-         YvYPzZS3esn5ZY34ICDFMgIWhi6+ttmWlKzqc5SDB/FRWev4t1BP4wSzOQZwiLP8rbMx
-         V86ifEDBQrxQtSStrFuW0eZ910Z2XttHZiZQQn81tkqFXeuDuBcbuNvX2ojoC31eqYhq
-         L4E5b4+i+x1gDRs3jaoHUk0Poh838lIENNqI1xVNIPmkT6DOmWFA3UKj1dEjHW0qPpie
-         yMYg==
-X-Gm-Message-State: ACrzQf2gr2cac5jjmptbGO6WhgnzVxdCdMnS9iJqCRZI5DYbm4/b5Tw0
-	O2e6xNNhlm2zQ9wPPD+jYDBnFq474lAQdA==
-X-Google-Smtp-Source: AMsMyM4ooJKgAKo5xBn9bOD0o3tDAkqVwnFo4TUbmOD5H8roP32JmMWkvDAiFwzoWdZrrVRIpiyFJA==
-X-Received: by 2002:a5d:590d:0:b0:236:4ddd:1869 with SMTP id v13-20020a5d590d000000b002364ddd1869mr17752802wrd.709.1666735604946;
-        Tue, 25 Oct 2022 15:06:44 -0700 (PDT)
-Received: from prasmi.home ([2a00:23c8:2501:c701:1d2a:d2a2:361e:a475])
-        by smtp.gmail.com with ESMTPSA id l18-20020a05600c1d1200b003a342933727sm210534wms.3.2022.10.25.15.06.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Oct 2022 15:06:44 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Olof Johansson <olof@lixom.net>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Samuel Holland <samuel@sholland.org>,
-	soc@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 1/2] arm64: dts: renesas: r9a07g043: Introduce SOC_PERIPHERAL_IRQ() macro to specify interrupt property
-Date: Tue, 25 Oct 2022 23:06:28 +0100
-Message-Id: <20221025220629.79321-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221025220629.79321-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20221025220629.79321-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=udy479ObjWYY5CFX9ZP0gGul3ib61HsEaOXglQsZUR8=;
+        b=sZvy/g6iWFOLdfpZA1V/fe0zSngffuNoKYKJffMwpuEEFlH9amT/MGavCe+hhlXtm8
+         lDrpMR7LzRxETEhZXaFwX0TdGKx1nr6RnSGum8frXTX7Ha2/3Ri2kgNYq3CZp5ctyybj
+         cgKux6r7/hAuVV2kTDleRdNZx4wBIBNZG3xNi7gFCa+JCCp9U0enrkv0BP1rohhe84oR
+         vIoPXct/RFgM/HVnl0xxi/PH5NF9MhOHYoi4iLP4e4feYxyQ1oiUlICS9bYBYPXFSsNo
+         LjVwUaM3PumMk7+FzOVFhfxHU7XsOboiWFuBPGD8iqoXXoGMMCBPE80wQzXytxXosdUL
+         +1dw==
+X-Gm-Message-State: ACrzQf2nNCUmUWRnHqrZ4hQCHDRd+fptLVH5ywNOzvV4hwjKaG/tEjpJ
+	GIT6+gWHTvyyzao61EUpK3MT7C2b9QJkxu8hsJI=
+X-Google-Smtp-Source: AMsMyM6qiQz41DTYKHnjjT5v9wPef/t11I6GH1qwMNjA79NgdVe3Lov+5CqFbMmrBeZBknHbcrg0WSUcZOo9RqPZSNw=
+X-Received: by 2002:a05:6402:5485:b0:459:147a:d902 with SMTP id
+ fg5-20020a056402548500b00459147ad902mr39292630edb.263.1666738753824; Tue, 25
+ Oct 2022 15:59:13 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221019220242.4746-2-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdVVzUN1ScY4vh3d8=XvshOjc0C4G2duFRHSPms3S+2yeA@mail.gmail.com>
+In-Reply-To: <CAMuHMdVVzUN1ScY4vh3d8=XvshOjc0C4G2duFRHSPms3S+2yeA@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 25 Oct 2022 23:58:46 +0100
+Message-ID: <CA+V-a8vAf93uyD6o7vEKjb1ghrWh9iY+LDGkgz=e149MdoSZnQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 1/2] dt-bindings: cache: r9a07g043f-l2-cache: Add
+ DT binding documentation for L2 cache controller
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.co>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221025_150647_303268_19920C16 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20221025_155915_890321_3467B67B 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,631 +96,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hi Geert,
 
-Introduce SOC_PERIPHERAL_IRQ() macro to specify interrupt property so
-that we can share the common parts of the SoC DTSI with the RZ/Five
-(RISC-V) SoC and the RZ/G2UL (ARM64) SoC.
+Thank you for the review.
 
-This patch adds a new file r9a07g043u.dtsi to separate out RZ/G2UL
-(ARM64) SoC specific parts. No functional changes (same DTB).
+On Mon, Oct 24, 2022 at 2:47 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Thu, Oct 20, 2022 at 12:02 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> >
+> > The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> > Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> > describes the L2 cache block.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Thanks for your patch!
+>
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> > @@ -0,0 +1,125 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +# Copyright (C) 2022 Renesas Electronics Corp.
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Andestech AX45MP L2 Cache Controller
+> > +
+> > +maintainers:
+> > +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > +
+> > +description:
+> > +  A level-2 cache (L2C) is used to improve the system performance by providing
+> > +  a larger amount of cache line entries and reasonable access delays. The L2C
+>
+> large
+>
+OK.
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-rfc -> v2
-* Changed the SOC_PERIPHERAL_IRQ() macro to just accept IRQ number
----
- arch/arm64/boot/dts/renesas/r9a07g043.dtsi    | 301 +++++++++---------
- arch/arm64/boot/dts/renesas/r9a07g043u.dtsi   |  12 +
- .../boot/dts/renesas/r9a07g043u11-smarc.dts   |   2 +-
- 3 files changed, 163 insertions(+), 152 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
+> > +  is shared between cores, and a non-inclusive non-exclusive policy is used.
+> > +
+> > +select:
+> > +  properties:
+> > +    compatible:
+> > +      contains:
+> > +        enum:
+> > +          - andestech,ax45mp-cache
+> > +
+> > +  required:
+> > +    - compatible
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: andestech,ax45mp-cache
+> > +      - const: cache
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> > +
+> > +  cache-line-size:
+> > +    const: 64
+>
+> This is fixed here, but the driver accepts (and uses) whatever value specified?
+>
+Right, I'll add a check in the driver.
 
-diff --git a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-index c1fb29de2fa4..a7248204d2ba 100644
---- a/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-@@ -5,7 +5,6 @@
-  * Copyright (C) 2022 Renesas Electronics Corp.
-  */
- 
--#include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/clock/r9a07g043-cpg.h>
- 
- / {
-@@ -107,10 +106,10 @@ ssi0: ssi@10049c00 {
- 			compatible = "renesas,r9a07g043-ssi",
- 				     "renesas,rz-ssi";
- 			reg = <0 0x10049c00 0 0x400>;
--			interrupts = <GIC_SPI 326 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 327 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 328 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 329 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(326) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(327) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(328) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(329) IRQ_TYPE_EDGE_RISING>;
- 			interrupt-names = "int_req", "dma_rx", "dma_tx", "dma_rt";
- 			clocks = <&cpg CPG_MOD R9A07G043_SSI0_PCLK2>,
- 				 <&cpg CPG_MOD R9A07G043_SSI0_PCLK_SFR>,
-@@ -128,10 +127,10 @@ ssi1: ssi@1004a000 {
- 			compatible = "renesas,r9a07g043-ssi",
- 				     "renesas,rz-ssi";
- 			reg = <0 0x1004a000 0 0x400>;
--			interrupts = <GIC_SPI 330 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 331 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 332 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 333 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(330) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(331) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(332) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(333) IRQ_TYPE_EDGE_RISING>;
- 			interrupt-names = "int_req", "dma_rx", "dma_tx", "dma_rt";
- 			clocks = <&cpg CPG_MOD R9A07G043_SSI1_PCLK2>,
- 				 <&cpg CPG_MOD R9A07G043_SSI1_PCLK_SFR>,
-@@ -149,10 +148,10 @@ ssi2: ssi@1004a400 {
- 			compatible = "renesas,r9a07g043-ssi",
- 				     "renesas,rz-ssi";
- 			reg = <0 0x1004a400 0 0x400>;
--			interrupts = <GIC_SPI 334 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 335 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 336 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 337 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(334) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(335) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(336) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(337) IRQ_TYPE_EDGE_RISING>;
- 			interrupt-names = "int_req", "dma_rx", "dma_tx", "dma_rt";
- 			clocks = <&cpg CPG_MOD R9A07G043_SSI2_PCLK2>,
- 				 <&cpg CPG_MOD R9A07G043_SSI2_PCLK_SFR>,
-@@ -170,10 +169,10 @@ ssi3: ssi@1004a800 {
- 			compatible = "renesas,r9a07g043-ssi",
- 				     "renesas,rz-ssi";
- 			reg = <0 0x1004a800 0 0x400>;
--			interrupts = <GIC_SPI 338 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 339 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 340 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 341 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(338) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(339) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(340) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(341) IRQ_TYPE_EDGE_RISING>;
- 			interrupt-names = "int_req", "dma_rx", "dma_tx", "dma_rt";
- 			clocks = <&cpg CPG_MOD R9A07G043_SSI3_PCLK2>,
- 				 <&cpg CPG_MOD R9A07G043_SSI3_PCLK_SFR>,
-@@ -190,9 +189,9 @@ ssi3: ssi@1004a800 {
- 		spi0: spi@1004ac00 {
- 			compatible = "renesas,r9a07g043-rspi", "renesas,rspi-rz";
- 			reg = <0 0x1004ac00 0 0x400>;
--			interrupts = <GIC_SPI 415 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 413 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 414 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(415) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(413) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(414) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "error", "rx", "tx";
- 			clocks = <&cpg CPG_MOD R9A07G043_RSPI0_CLKB>;
- 			resets = <&cpg R9A07G043_RSPI0_RST>;
-@@ -208,9 +207,9 @@ spi0: spi@1004ac00 {
- 		spi1: spi@1004b000 {
- 			compatible = "renesas,r9a07g043-rspi", "renesas,rspi-rz";
- 			reg = <0 0x1004b000 0 0x400>;
--			interrupts = <GIC_SPI 418 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 416 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(418) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(416) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(417) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "error", "rx", "tx";
- 			clocks = <&cpg CPG_MOD R9A07G043_RSPI1_CLKB>;
- 			resets = <&cpg R9A07G043_RSPI1_RST>;
-@@ -226,9 +225,9 @@ spi1: spi@1004b000 {
- 		spi2: spi@1004b400 {
- 			compatible = "renesas,r9a07g043-rspi", "renesas,rspi-rz";
- 			reg = <0 0x1004b400 0 0x400>;
--			interrupts = <GIC_SPI 421 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 419 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 420 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(421) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(419) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(420) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "error", "rx", "tx";
- 			clocks = <&cpg CPG_MOD R9A07G043_RSPI2_CLKB>;
- 			resets = <&cpg R9A07G043_RSPI2_RST>;
-@@ -245,12 +244,12 @@ scif0: serial@1004b800 {
- 			compatible = "renesas,scif-r9a07g043",
- 				     "renesas,scif-r9a07g044";
- 			reg = <0 0x1004b800 0 0x400>;
--			interrupts = <GIC_SPI 380 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 382 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 383 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 381 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 384 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 384 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(380) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(382) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(383) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(381) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(384) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(384) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi",
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCIF0_CLK_PCK>;
-@@ -264,12 +263,12 @@ scif1: serial@1004bc00 {
- 			compatible = "renesas,scif-r9a07g043",
- 				     "renesas,scif-r9a07g044";
- 			reg = <0 0x1004bc00 0 0x400>;
--			interrupts = <GIC_SPI 385 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 387 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 388 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 386 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 389 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 389 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(385) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(387) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(388) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(386) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(389) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(389) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi",
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCIF1_CLK_PCK>;
-@@ -283,12 +282,12 @@ scif2: serial@1004c000 {
- 			compatible = "renesas,scif-r9a07g043",
- 				     "renesas,scif-r9a07g044";
- 			reg = <0 0x1004c000 0 0x400>;
--			interrupts = <GIC_SPI 390 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 393 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 391 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 394 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 394 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(390) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(392) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(393) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(391) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(394) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(394) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi",
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCIF2_CLK_PCK>;
-@@ -302,12 +301,12 @@ scif3: serial@1004c400 {
- 			compatible = "renesas,scif-r9a07g043",
- 				     "renesas,scif-r9a07g044";
- 			reg = <0 0x1004c400 0 0x400>;
--			interrupts = <GIC_SPI 395 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 396 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 399 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(395) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(397) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(398) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(396) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(399) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(399) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi",
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCIF3_CLK_PCK>;
-@@ -321,12 +320,12 @@ scif4: serial@1004c800 {
- 			compatible = "renesas,scif-r9a07g043",
- 				     "renesas,scif-r9a07g044";
- 			reg = <0 0x1004c800 0 0x400>;
--			interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 402 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 403 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 401 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 404 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 404 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(400) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(402) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(403) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(401) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(404) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(404) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi",
- 					  "bri", "dri", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCIF4_CLK_PCK>;
-@@ -339,10 +338,10 @@ scif4: serial@1004c800 {
- 		sci0: serial@1004d000 {
- 			compatible = "renesas,r9a07g043-sci", "renesas,sci";
- 			reg = <0 0x1004d000 0 0x400>;
--			interrupts = <GIC_SPI 405 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 406 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 407 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 408 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(405) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(406) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(407) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(408) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCI0_CLKP>;
- 			clock-names = "fck";
-@@ -354,10 +353,10 @@ sci0: serial@1004d000 {
- 		sci1: serial@1004d400 {
- 			compatible = "renesas,r9a07g043-sci", "renesas,sci";
- 			reg = <0 0x1004d400 0 0x400>;
--			interrupts = <GIC_SPI 409 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 410 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 411 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 412 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(409) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(410) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(411) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(412) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "eri", "rxi", "txi", "tei";
- 			clocks = <&cpg CPG_MOD R9A07G043_SCI1_CLKP>;
- 			clock-names = "fck";
-@@ -369,14 +368,14 @@ sci1: serial@1004d400 {
- 		canfd: can@10050000 {
- 			compatible = "renesas,r9a07g043-canfd", "renesas,rzg2l-canfd";
- 			reg = <0 0x10050000 0 0x8000>;
--			interrupts = <GIC_SPI 426 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 427 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 422 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 424 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 428 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 423 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 425 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 429 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(426) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(427) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(422) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(424) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(428) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(423) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(425) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(429) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "g_err", "g_recc",
- 					  "ch0_err", "ch0_rec", "ch0_trx",
- 					  "ch1_err", "ch1_rec", "ch1_trx";
-@@ -405,14 +404,14 @@ i2c0: i2c@10058000 {
- 			#size-cells = <0>;
- 			compatible = "renesas,riic-r9a07g043", "renesas,riic-rz";
- 			reg = <0 0x10058000 0 0x400>;
--			interrupts = <GIC_SPI 350 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 348 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 349 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 352 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 353 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 351 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 354 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 355 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(350) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(348) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(349) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(352) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(353) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(351) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(354) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(355) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "tei", "ri", "ti", "spi", "sti",
- 					  "naki", "ali", "tmoi";
- 			clocks = <&cpg CPG_MOD R9A07G043_I2C0_PCLK>;
-@@ -427,14 +426,14 @@ i2c1: i2c@10058400 {
- 			#size-cells = <0>;
- 			compatible = "renesas,riic-r9a07g043", "renesas,riic-rz";
- 			reg = <0 0x10058400 0 0x400>;
--			interrupts = <GIC_SPI 358 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 356 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 357 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 360 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 361 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 359 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 362 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 363 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(358) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(356) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(357) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(360) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(361) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(359) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(362) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(363) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "tei", "ri", "ti", "spi", "sti",
- 					  "naki", "ali", "tmoi";
- 			clocks = <&cpg CPG_MOD R9A07G043_I2C1_PCLK>;
-@@ -449,14 +448,14 @@ i2c2: i2c@10058800 {
- 			#size-cells = <0>;
- 			compatible = "renesas,riic-r9a07g043", "renesas,riic-rz";
- 			reg = <0 0x10058800 0 0x400>;
--			interrupts = <GIC_SPI 366 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 364 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 365 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 368 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 369 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 367 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 370 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 371 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(366) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(364) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(365) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(368) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(369) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(367) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(370) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(371) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "tei", "ri", "ti", "spi", "sti",
- 					  "naki", "ali", "tmoi";
- 			clocks = <&cpg CPG_MOD R9A07G043_I2C2_PCLK>;
-@@ -471,14 +470,14 @@ i2c3: i2c@10058c00 {
- 			#size-cells = <0>;
- 			compatible = "renesas,riic-r9a07g043", "renesas,riic-rz";
- 			reg = <0 0x10058c00 0 0x400>;
--			interrupts = <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 372 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 373 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 376 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 375 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 379 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(374) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(372) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(373) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(376) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(377) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(375) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(378) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(379) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "tei", "ri", "ti", "spi", "sti",
- 					  "naki", "ali", "tmoi";
- 			clocks = <&cpg CPG_MOD R9A07G043_I2C3_PCLK>;
-@@ -491,7 +490,7 @@ i2c3: i2c@10058c00 {
- 		adc: adc@10059000 {
- 			compatible = "renesas,r9a07g043-adc", "renesas,rzg2l-adc";
- 			reg = <0 0x10059000 0 0x400>;
--			interrupts = <GIC_SPI 347 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(347) IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G043_ADC_ADCLK>,
- 				 <&cpg CPG_MOD R9A07G043_ADC_PCLK>;
- 			clock-names = "adclk", "pclk";
-@@ -551,10 +550,10 @@ cpg: clock-controller@11010000 {
- 		sysc: system-controller@11020000 {
- 			compatible = "renesas,r9a07g043-sysc";
- 			reg = <0 0x11020000 0 0x10000>;
--			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(42) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(43) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(44) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(45) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "lpm_int", "ca55stbydone_int",
- 					  "cm33stbyr_int", "ca55_deny";
- 			status = "disabled";
-@@ -578,23 +577,23 @@ dmac: dma-controller@11820000 {
- 				     "renesas,rz-dmac";
- 			reg = <0 0x11820000 0 0x10000>,
- 			      <0 0x11830000 0 0x10000>;
--			interrupts = <GIC_SPI 141 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 125 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 126 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 127 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 128 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 129 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 130 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 131 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 132 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 133 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 134 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 135 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 136 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 137 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 138 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 139 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 140 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(141) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(125) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(126) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(127) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(128) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(129) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(130) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(131) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(132) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(133) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(134) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(135) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(136) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(137) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(138) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(139) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(140) IRQ_TYPE_EDGE_RISING>;
- 			interrupt-names = "error",
- 					  "ch0", "ch1", "ch2", "ch3",
- 					  "ch4", "ch5", "ch6", "ch7",
-@@ -623,8 +622,8 @@ sdhi0: mmc@11c00000 {
- 			compatible = "renesas,sdhi-r9a07g043",
- 				     "renesas,rcar-gen3-sdhi";
- 			reg = <0x0 0x11c00000 0 0x10000>;
--			interrupts = <GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(104) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(105) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_SDHI0_IMCLK>,
- 				 <&cpg CPG_MOD R9A07G043_SDHI0_CLK_HS>,
- 				 <&cpg CPG_MOD R9A07G043_SDHI0_IMCLK2>,
-@@ -639,8 +638,8 @@ sdhi1: mmc@11c10000 {
- 			compatible = "renesas,sdhi-r9a07g043",
- 				     "renesas,rcar-gen3-sdhi";
- 			reg = <0x0 0x11c10000 0 0x10000>;
--			interrupts = <GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(106) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(107) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_SDHI1_IMCLK>,
- 				 <&cpg CPG_MOD R9A07G043_SDHI1_CLK_HS>,
- 				 <&cpg CPG_MOD R9A07G043_SDHI1_IMCLK2>,
-@@ -655,9 +654,9 @@ eth0: ethernet@11c20000 {
- 			compatible = "renesas,r9a07g043-gbeth",
- 				     "renesas,rzg2l-gbeth";
- 			reg = <0 0x11c20000 0 0x10000>;
--			interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(84) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(85) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(86) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "mux", "fil", "arp_ns";
- 			phy-mode = "rgmii";
- 			clocks = <&cpg CPG_MOD R9A07G043_ETH0_CLK_AXI>,
-@@ -675,9 +674,9 @@ eth1: ethernet@11c30000 {
- 			compatible = "renesas,r9a07g043-gbeth",
- 				     "renesas,rzg2l-gbeth";
- 			reg = <0 0x11c30000 0 0x10000>;
--			interrupts = <GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(87) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(88) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(89) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "mux", "fil", "arp_ns";
- 			phy-mode = "rgmii";
- 			clocks = <&cpg CPG_MOD R9A07G043_ETH1_CLK_AXI>,
-@@ -705,7 +704,7 @@ phyrst: usbphy-ctrl@11c40000 {
- 		ohci0: usb@11c50000 {
- 			compatible = "generic-ohci";
- 			reg = <0 0x11c50000 0 0x100>;
--			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(91) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H0_HCLK>;
- 			resets = <&phyrst 0>,
-@@ -719,7 +718,7 @@ ohci0: usb@11c50000 {
- 		ohci1: usb@11c70000 {
- 			compatible = "generic-ohci";
- 			reg = <0 0x11c70000 0 0x100>;
--			interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(96) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H1_HCLK>;
- 			resets = <&phyrst 1>,
-@@ -733,7 +732,7 @@ ohci1: usb@11c70000 {
- 		ehci0: usb@11c50100 {
- 			compatible = "generic-ehci";
- 			reg = <0 0x11c50100 0 0x100>;
--			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(92) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H0_HCLK>;
- 			resets = <&phyrst 0>,
-@@ -748,7 +747,7 @@ ehci0: usb@11c50100 {
- 		ehci1: usb@11c70100 {
- 			compatible = "generic-ehci";
- 			reg = <0 0x11c70100 0 0x100>;
--			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(97) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H1_HCLK>;
- 			resets = <&phyrst 1>,
-@@ -764,7 +763,7 @@ usb2_phy0: usb-phy@11c50200 {
- 			compatible = "renesas,usb2-phy-r9a07g043",
- 				     "renesas,rzg2l-usb2-phy";
- 			reg = <0 0x11c50200 0 0x700>;
--			interrupts = <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(94) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H0_HCLK>;
- 			resets = <&phyrst 0>;
-@@ -777,7 +776,7 @@ usb2_phy1: usb-phy@11c70200 {
- 			compatible = "renesas,usb2-phy-r9a07g043",
- 				     "renesas,rzg2l-usb2-phy";
- 			reg = <0 0x11c70200 0 0x700>;
--			interrupts = <GIC_SPI 99 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(99) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2H1_HCLK>;
- 			resets = <&phyrst 1>;
-@@ -790,10 +789,10 @@ hsusb: usb@11c60000 {
- 			compatible = "renesas,usbhs-r9a07g043",
- 				     "renesas,rza2-usbhs";
- 			reg = <0 0x11c60000 0 0x10000>;
--			interrupts = <GIC_SPI 100 IRQ_TYPE_EDGE_RISING>,
--				     <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(100) IRQ_TYPE_EDGE_RISING>,
-+				     <SOC_PERIPHERAL_IRQ(101) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(102) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(103) IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&cpg CPG_MOD R9A07G043_USB_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_USB_U2P_EXR_CPUCLK>;
- 			resets = <&phyrst 0>,
-@@ -812,8 +811,8 @@ wdt0: watchdog@12800800 {
- 			clocks = <&cpg CPG_MOD R9A07G043_WDT0_PCLK>,
- 				 <&cpg CPG_MOD R9A07G043_WDT0_CLK>;
- 			clock-names = "pclk", "oscclk";
--			interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(49) IRQ_TYPE_LEVEL_HIGH>,
-+				     <SOC_PERIPHERAL_IRQ(50) IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "wdt", "perrout";
- 			resets = <&cpg R9A07G043_WDT0_PRESETN>;
- 			power-domains = <&cpg>;
-@@ -824,7 +823,7 @@ ostm0: timer@12801000 {
- 			compatible = "renesas,r9a07g043-ostm",
- 				     "renesas,ostm";
- 			reg = <0x0 0x12801000 0x0 0x400>;
--			interrupts = <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(46) IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G043_OSTM0_PCLK>;
- 			resets = <&cpg R9A07G043_OSTM0_PRESETZ>;
- 			power-domains = <&cpg>;
-@@ -835,7 +834,7 @@ ostm1: timer@12801400 {
- 			compatible = "renesas,r9a07g043-ostm",
- 				     "renesas,ostm";
- 			reg = <0x0 0x12801400 0x0 0x400>;
--			interrupts = <GIC_SPI 47 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(47) IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G043_OSTM1_PCLK>;
- 			resets = <&cpg R9A07G043_OSTM1_PRESETZ>;
- 			power-domains = <&cpg>;
-@@ -846,7 +845,7 @@ ostm2: timer@12801800 {
- 			compatible = "renesas,r9a07g043-ostm",
- 				     "renesas,ostm";
- 			reg = <0x0 0x12801800 0x0 0x400>;
--			interrupts = <GIC_SPI 48 IRQ_TYPE_EDGE_RISING>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(48) IRQ_TYPE_EDGE_RISING>;
- 			clocks = <&cpg CPG_MOD R9A07G043_OSTM2_PCLK>;
- 			resets = <&cpg R9A07G043_OSTM2_PRESETZ>;
- 			power-domains = <&cpg>;
-diff --git a/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi b/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
-new file mode 100644
-index 000000000000..96f935bc2d4d
---- /dev/null
-+++ b/arch/arm64/boot/dts/renesas/r9a07g043u.dtsi
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/*
-+ * Device Tree Source for the RZ/G2UL SoC
-+ *
-+ * Copyright (C) 2022 Renesas Electronics Corp.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+#define SOC_PERIPHERAL_IRQ(nr)		GIC_SPI nr
-+
-+#include "r9a07g043.dtsi"
-diff --git a/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts b/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-index 059885a01ede..01483b4302c2 100644
---- a/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-@@ -17,7 +17,7 @@
- #define SW_SW0_DEV_SEL	1
- #define SW_ET0_EN_N	1
- 
--#include "r9a07g043.dtsi"
-+#include "r9a07g043u.dtsi"
- #include "rzg2ul-smarc-som.dtsi"
- #include "rzg2ul-smarc.dtsi"
- 
--- 
-2.25.1
+> > +
+> > +  cache-level:
+> > +    const: 2
+> > +
+> > +  cache-sets:
+> > +    const: 1024
+> > +
+> > +  cache-size:
+> > +    enum: [131072, 262144, 524288, 1048576, 2097152]
+> > +
+> > +  cache-unified: true
+> > +
+> > +  next-level-cache: true
+> > +
+> > +  andestech,pma-regions:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> > +    minItems: 1
+> > +    maxItems: 16
+> > +    description: Optional array of memory regions to be set as non-cacheable
+> > +                 bufferable regions which will be setup in the PMA.
+> > +
+> > +  andestech,inst-prefetch:
+> > +    description: Instruction prefetch depth
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [ 0, 1, 2, 3 ]
+> > +
+> > +  andestech,data-prefetch:
+> > +    description: Data prefetch depth
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [ 0, 1, 2, 3 ]
+>
+> According to Section 8.1.2 ("L2-Cache Prefetch"), this should be
+> [ 0, 2, 4, 8 ].
+>
+I was directly fetching the value, but as you pointed out I'll switch
+to the request count and convert the value accordingly in the driver.
 
+> > +  andestech,tag-ram-ctl:
+> > +    description: Tag RAM output cycle. First tuple indicates output cycle and the
+> > +      second tuple indicates setup cycle.
+>
+> Nit: to me it sounds more logical to have the setup cycle first.
+> See also the order in the comment in the driver code:
+>
+>      /* tag RAM and data RAM setup and output cycle */
+>
+> > +    $ref: /schemas/types.yaml#/definitions/uint8-array
+> > +    items:
+> > +      - minimum: 0
+> > +        maximum: 2
+> > +      - minimum: 0
+> > +        maximum: 2
+> > +
+> > +  andestech,data-ram-ctl:
+> > +    description: Data RAM output cycle. First tuple indicates output cycle and the
+> > +      second tuple indicates setup cycle.
+>
+> Likewise.
+>
+> > +    $ref: /schemas/types.yaml#/definitions/uint8-array
+> > +    items:
+> > +      - minimum: 0
+> > +        maximum: 2
+> > +      - minimum: 0
+> > +        maximum: 2
+>
+> Do we really need these andestech-specific properties?
+> If yes, how much (if any) of this do we want to be handled by the boot
+> loader, and how much (if any) by Linux?
+> If Linux is responsible, we might have to boot with L2 disabled, right?
+>
+> For ARM Cortex A15/A7, we also have arm,{data,tag}-latency properties
+> defined, but no DTS specifies them (my patches to add them on R-Car
+> Gen2 were rejected).  Note that this is different for e.g. older PL310.
+>
+OK, I think we can get rid of the below properties completely from
+here and have them configured earlier (ie in u-boot).
+
+       -   andestech,inst-prefetch
+       -   andestech,data-prefetch
+       -   andestech,tag-ram-ctl
+       -   andestech,data-ram-ctl
+
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
