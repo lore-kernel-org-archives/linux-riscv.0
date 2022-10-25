@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C99E1C04A95
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 12:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C84C38A2D
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 12:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rcF0p22fc9u+tRB0CKt8fEfDqM09w+CrsNb/b5+Mw/8=; b=FGIkDUmqKqsgUq
-	A+5vfo+5wW09kQaZmhgjBHwW+scq7PqKJjghEFiijnPiftcrIisXFS9SjzOFFY5Gp/cgPX6pjexB1
-	X5AwAz/+XgAPx8/NnU8Wf8p3BcDkim0Z66ih14QeiQtN0GWXEL9tReiRCeGR2KgtZbexJu7/JrnME
-	0f8ySHqiKawH2A7fznrf3+47iXo9r1f5LFLQ50YInm9VqDG0iLTlTDE3/Zj4dnnaaUOTAg30DCgCz
-	kfn2qgUsf2B8xQe4H2kTQJrUz6TZnaly55+u8Of78Q5SCUfaOl/2BbsDXMTmH5+zDkaIrgDyZX/y2
-	tJ0qaA/IZ7Tk03AhIsFA==;
+	List-Owner; bh=gzyb9w5Hfy4ES9XFMG9cvgRPZWH8OjAlALrsMReiVnE=; b=MnyYgsAGUPJFvw
+	UEWVZ5kS96x/vFR6pfdz0WYYA8vB8EJb8JcoNivH8/nhrllBQ3bkIIsAenZfcxjf9IynPvOaWpXnT
+	2ZTup+SGyAJCNGJdTyM8279c1W22pmeP61uZTzh5ueIUdSRR8enNylwUkavE5IvlH7phEQpPwQ5eN
+	gA6zmOMt7J1HFl9HK/TC+OVH5fCSox9qB1+qknvZ/tF0d4FDLjtEfWPRsRJMh6Nc0mfDMs8AbEAA8
+	XauABI6SnoRsKGLOwEfvxWLL8oba3hZo7lhgCO+Nc7TGGvSiCZshqwyo//L3J9pPCSuw+N+qLO1S6
+	yDYxtfb0zo311DyOKUrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onJIQ-005FZk-JT; Tue, 25 Oct 2022 12:44:42 +0000
-Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	id 1onJMN-005H1E-2J; Tue, 25 Oct 2022 12:48:47 +0000
+Received: from mail-qk1-f182.google.com ([209.85.222.182])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onJHu-005FJU-UI; Tue, 25 Oct 2022 12:44:12 +0000
-Received: by mail-qk1-f176.google.com with SMTP id f8so7913462qkg.3;
-        Tue, 25 Oct 2022 05:44:09 -0700 (PDT)
+	id 1onJM1-005Gs4-0I; Tue, 25 Oct 2022 12:48:26 +0000
+Received: by mail-qk1-f182.google.com with SMTP id o2so7891312qkk.10;
+        Tue, 25 Oct 2022 05:48:23 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DEjQC8UwPSpJbdU9AEdKNSZFHoUYuJmVXV6mmwXFmnE=;
-        b=PiHAEszLKQCEMjUw81OCQt9MSIdIMt3yJXR9Y39KJ6U+Bt+nM2Unq06vi6ka15kgOI
-         D6RxeDilPWjoByKhsCFx6DyZHSFeANIIWIleWN5GU9ozP/hPiIDOZfoFtvUAPfMejNI3
-         xfJd/ff+BZzNT+5TipWjrJuLZKrLj/Ys37exmbXdrNtxJQ7UT6HWnM3ywnkigSOchrJE
-         zgDEryLRrnr9Hltgxn/8YJIPWE6P9h15/ETys6rnSBoffVsvikQLiOUcXmA3fP4iF5kx
-         XTwvp/vqtGU8APprlr2PQtPFLNBNaLAboAxvJGbE8Uv4BH4katIDdQg2tSOBZW//mpiF
-         nuow==
-X-Gm-Message-State: ACrzQf2X5VAGaDA8dAolbqssSu3BYiqha/eJ/cxulHIIXq04D0smTQS9
-	EhS+bRsx+riU1BJ9JFbFLC9fejQ2N3sXkQ==
-X-Google-Smtp-Source: AMsMyM74pbtF6hJ7t4KlVS7q7fRQSmbfI2V9tkoHxFmgneSpmrIhRWEJnXDocXP96zXEQ6iLts5Zfg==
-X-Received: by 2002:a05:620a:28cf:b0:6df:9a0a:c5d8 with SMTP id l15-20020a05620a28cf00b006df9a0ac5d8mr26440654qkp.12.1666701848599;
-        Tue, 25 Oct 2022 05:44:08 -0700 (PDT)
-Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com. [209.85.128.175])
-        by smtp.gmail.com with ESMTPSA id q11-20020a05620a0d8b00b006f1187ca494sm1993436qkl.28.2022.10.25.05.44.08
+        bh=OaYh77K+gCSv1Fw/DuS4kr5mhCxIMTP6JrJoQ/+vP5Q=;
+        b=5vgeF3pks+H9CH4yK4+msWgKpRirorzLrJkn2M3jrVyc/Kx5HPkc/TygzFwJLNtSyj
+         1m5Qc9fAA+5a56TYYIYM9aTVTX4V8tNXh7LTtz3/PMm9o5UEQR+du99bR71P9AownFxU
+         F4Wj4MyHny76Yb5eLpHN36Xe09W9cPYvS3716KVPYeZhadUGlz7mhpSvOKPSAXXvKyry
+         nofWPTD7EIa37AROMDMD1SWnyG83NE5c8QUY6/SEWmhuASo0pmjDPlaTQC3DbIfKr2n1
+         gi3AMYNgeU/J5BrcTw1y/f0Qiw4ePdX565g4eP5+cm6JNg9KYhk1SSFwPzI3QZqp7JiT
+         /XSg==
+X-Gm-Message-State: ACrzQf1m6gO6ZTF0xvuKW6Al12T0KRE616TQLKJ9l1fxYIB5JFcK+IhK
+	6yQui8dtW/Y5Ccw7zB4TNx/8WbHVyswXWA==
+X-Google-Smtp-Source: AMsMyM5AC+jTzWoXxii4NSxlNk0YuTG1eTIpc/WgN3vrNGEO9nYcH/Hxqy1612l1qUjiJIKSR20fGg==
+X-Received: by 2002:a37:e10e:0:b0:6cd:f114:6a85 with SMTP id c14-20020a37e10e000000b006cdf1146a85mr27052176qkm.77.1666702102506;
+        Tue, 25 Oct 2022 05:48:22 -0700 (PDT)
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com. [209.85.128.178])
+        by smtp.gmail.com with ESMTPSA id ci25-20020a05622a261900b00397b1c60780sm1518608qtb.61.2022.10.25.05.48.22
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Oct 2022 05:44:08 -0700 (PDT)
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-369426664f9so111835937b3.12;
-        Tue, 25 Oct 2022 05:44:08 -0700 (PDT)
-X-Received: by 2002:a0d:de43:0:b0:349:31bd:e8d5 with SMTP id
- h64-20020a0dde43000000b0034931bde8d5mr32925900ywe.283.1666701438736; Tue, 25
- Oct 2022 05:37:18 -0700 (PDT)
+        Tue, 25 Oct 2022 05:48:22 -0700 (PDT)
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-36cbcda2157so54950017b3.11;
+        Tue, 25 Oct 2022 05:48:22 -0700 (PDT)
+X-Received: by 2002:a5b:52:0:b0:6cb:7584:1b20 with SMTP id e18-20020a5b0052000000b006cb75841b20mr1953298ybp.380.1666701756292;
+ Tue, 25 Oct 2022 05:42:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221017091201.199457-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20221017091201.199457-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221017091201.199457-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 25 Oct 2022 14:37:07 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXuiCne2NvCzu8x9LeM_W8rxwLX-0w=kHnGa30bdzFaDQ@mail.gmail.com>
-Message-ID: <CAMuHMdXuiCne2NvCzu8x9LeM_W8rxwLX-0w=kHnGa30bdzFaDQ@mail.gmail.com>
-Subject: Re: [RFC RESEND PATCH 2/2] arm64: dts: renesas: r9a07g043: Split out
- RZ/G2UL SoC specific parts
+Date: Tue, 25 Oct 2022 14:42:24 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXcHWaUS3rq=3bQOeax1Vig4R1MpG8dDHbe5TDjkVYx0Q@mail.gmail.com>
+Message-ID: <CAMuHMdXcHWaUS3rq=3bQOeax1Vig4R1MpG8dDHbe5TDjkVYx0Q@mail.gmail.com>
+Subject: Re: [RFC RESEND PATCH 0/2] RZ/G2UL separate out SoC specific parts
 To: Prabhakar <prabhakar.csengg@gmail.com>
 Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
@@ -72,8 +70,8 @@ Cc: Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>,
 	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221025_054411_003720_EAFAC593 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20221025_054825_064087_51A77C40 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +90,49 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Prabhakar,
 
+(now replying to the latest version)
+
 On Mon, Oct 17, 2022 at 11:12 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> This patch series aims to split up the RZ/G2UL SoC DTSI into common parts
+> so that this can be shared with the RZ/Five SoC.
 >
-> Move RZ/G2UL SoC specific parts to r9a07g043u.dtsi so that r9a07g043.dtsi
-> can be shared with RZ/Five (RISC-V SoC).
+> Implementation is based on the discussion [0] where I have used option#2.
 >
-> Below are the changes due to which SoC specific parts are moved to
-> r9a07g043u.dtsi:
-> - RZ/G2UL has Cortex-A55 (ARM64) whereas the RZ/Five has AX45MP (RISC-V)
-> - RZ/G2UL has GICv3 as interrupt controller whereas the RZ/Five has PLIC
-> - RZ/G2UL has interrupts for SYSC block whereas interrupts are missing
->   for SYSC block on RZ/Five
+> The Renesas RZ/G2UL (ARM64) and RZ/Five (RISC-V) have almost the same
+> identical blocks to avoid duplication a base SoC dtsi (r9a07g043.dtsi) is
+> created which will be used by the RZ/G2UL (r9a07g043u.dtsi) and RZ/Five
+> (r9a07g043F.dtsi)
+
+Thanks for your series!
+
+> Sending this as an RFC to get some feedback.
 >
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> r9a07g043f.dtsi will look something like below:
+>
+> #include <dt-bindings/interrupt-controller/irq.h>
+>
+> #define SOC_PERIPHERAL_IRQ_NUMBER(nr)   (nr + 32)
+> #define SOC_PERIPHERAL_IRQ(nr, na)      SOC_PERIPHERAL_IRQ_NUMBER(nr) na
 
-Thanks for your patch!
+Originally, when I assumed incorrectly that dtc does not support
+arithmetic, I used "nr" and "na" in the macro I proposed to mean RISC-V
+("r") resp. ARM ("a") interrupt number.  Apparently the names stuck,
+although the second parameter now has a completely different meaning ;-)
 
-This assumes the operating points tables are the same for both variants?
-I guess that's OK.
+However, as the NCEPLIC does support interrupt flags, unlike the SiFive
+PLIC, there is no need to have the flags parameter in the macro.
 
-Overall, LGTM.
+Moreover,  it looks like the SOC_PERIPHERAL_IRQ_NUMBER()
+intermediate is not needed, so you can just write:
+
+    #define SOC_PERIPHERAL_IRQ(nr)  (nr + 32)
+
+> #include <arm64/renesas/r9a07g043.dtsi>
+>
+> / {
+>    ...
+>    ...
+> };
 
 Gr{oetje,eeting}s,
 
