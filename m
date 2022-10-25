@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D79BAECDFA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 23:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D1DECDFA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Oct 2022 23:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/X1lDhjqviCLtNZU9Lj1chMBn2OwPrYZALgZ4lZbzLw=; b=aAoqdrdPiNZR9R
-	rq4y26ZBDjykd07P3+9zEZ3907alCENcyMq+3jvbN7NvW8xXMggjGdBGpdE0yNafCP0kZq6gi05ZA
-	u3L9ks0vnAuPoZteNbjayBj/kbV85hiY5eyXqlkg3/Ju2KISRe45Lit3WB3ZqDkLLsIt6rfEctD+q
-	uFZEQ1I7oChq+11Mq/3+iY/t161K+kzSRWBW6sQ4oUa4v0++twbUBRxUUMjSPOrHgpDi+09NBYaLU
-	s+PQ12VLb7hK5Z88wDVibERJX9p8kIUccb2MbToieTxsIYT0hGMMNb+R/a4MAb+3iAQu7OWaBsZEh
-	TDQd4KoD81kQMTEQoQMg==;
+	List-Owner; bh=FMAItXUh5WCAPhmS0jN9pee6Z+rPdeIiTwZa/NBad3w=; b=cQX3jhsAvovBhE
+	lh7Fjo2WFjd5JJzZaG65YyLdJ6/0UesEbTouKBepEHZycxV7Ft9h81zPUXYajetqy3Gaw86HfI/tm
+	3K92AW6xxDeIz7mqy/0QDxnIBsZfJBXCuvHsgXTXw1v3ADfUs39gr7mM3Y8xzmTFNzEar9ZBhTrsg
+	1pUsWH1n1gkZz/Oho3VVNShruj3fBVGis/qlRxzyDAVk9+w5dzEC+h4Am02e2JL+eQ1A72L3wXbJn
+	Klvg/lz25qfVzBJe5zuP+M9Os1GyAFGCKkF5jbMIpIokKPmPmoBpr8EV8amWWyz5jhCuS2waj4SQv
+	eRxHprO3XmpJC7h/XIDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onT20-007VdN-8i; Tue, 25 Oct 2022 23:08:24 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1onTEn-007YHj-N6; Tue, 25 Oct 2022 23:21:37 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onT1w-007VcB-1x
-	for linux-riscv@lists.infradead.org; Tue, 25 Oct 2022 23:08:22 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id f27so6180037eje.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Oct 2022 16:08:18 -0700 (PDT)
+	id 1onTEk-007YGP-FC
+	for linux-riscv@lists.infradead.org; Tue, 25 Oct 2022 23:21:36 +0000
+Received: by mail-ej1-x636.google.com with SMTP id 13so16864647ejn.3
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Oct 2022 16:21:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=D4lWEoP/oALrfx0SONbW6u4ecu86DqhOP2SYz2V+t0k=;
-        b=q6X5t17YhB6QCn2eWuj957hfmNnSluBzBeKxrW/dDOc8FFg7aE6TZVMeOTbsoJqjz9
-         RxM4lr3vuhfLGgs6AvPNMcKzdBQU9s9dR6FTGn2zKC+rxCwN/BpS3mYcBuptH9dUN1f9
-         jVPve2wTvD7OXlBiWl3w/KJip1oZQAxKe+AuSSF/p5OmjGlqt4mUQ1ILruIWF451fVjM
-         w35zLVRVbWlHTeCGzsYOVJt1wRcDpPExI7G9jgVbYxi+khbSwnLTOqtLPtfZJIbMVrAC
-         7amfhUe8DBB6NhbQExIQ9VZAc26zfgfN5A0wUZRlBzX8xEg2vhr4PuIxMXaXAUj902QB
-         m+ug==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N8qLZCJs207FRKbAMza0jOSxatCdVnL0yZ2nFjMmBRs=;
+        b=nRHmehKKLQKqqE2OJLSL9LcIJ7qMj4IMYQHIe1+PRF8XmuE0R3LBYI9UGaLAFjUa26
+         mSV2zOAzVJkwiE6Yzx464TrGShA7cL8ivrcSrq+2gvKNbxi1CrV2S6Arx0A5OI+L9YnU
+         s/pXZqfPF3SsC1zMwoIVGnuEcfSoIgkXB0fIo582fjoDFRS6dwV/zJHmevqkzdTFYV0w
+         UALtCTdU9Zc8DzdJY+grL4KpTTmHB13ZG2vHOsUwQeKaDT/YORsXzrnrs+CTuuD+dSHi
+         azoHs+0of0w7MRJn7G3/UTiDXk2X+ElaWWyYUwFdqI+ooIuDgGrllpdMs9QiRCPljKYG
+         bBkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D4lWEoP/oALrfx0SONbW6u4ecu86DqhOP2SYz2V+t0k=;
-        b=fHSwaG+abyAk34FXiiyck6y0z71YnuZcycSwJz7rcUJaJSm1u6wxjJjegOF5Z7GiEy
-         5d971X/ly3ufcjMRb66fbL+y1n1JnoIeu3kGUOjDSCgYrdtbr2zlN2NVe7on5qJnZ13R
-         IoC+YAC7hupAdHRFfbaPBo6C2rm01jBG5PriMW+2N1o1kab+z/IZqHyTspIv7yku3VIJ
-         Fawegwnrv5zRZC6qA7q0aQnOoqwfYLR1eBV/bLYeVYY0uNzD2K2M4LkuMF7E+yIBL50/
-         OgRx3AyZUxeOXHWjvsmK3TyQbKKU7v+CWdXGxp/S+I5an4klcsX1uW+ZZwlgR4Giunr6
-         9EkA==
-X-Gm-Message-State: ACrzQf2cHTFFsvJglg1SW8aX+vz8BUgglp7KlJCj+ob4bm0nvoE40otB
-	SiZgMRbAOBLOmW9xCf6HnzBYkK5GK84MQ6bsc4c=
-X-Google-Smtp-Source: AMsMyM5fVNfLrZjj8LkeMT2+uefsbwyWzDFMCr2Fgc2ZZUZO0jEhXtYcbCbME8zpAJIsEQPle6VcAmvklNxNUlYMkEk=
-X-Received: by 2002:a17:906:9bd8:b0:78d:85f9:36ae with SMTP id
- de24-20020a1709069bd800b0078d85f936aemr35228660ejc.342.1666739297313; Tue, 25
- Oct 2022 16:08:17 -0700 (PDT)
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=N8qLZCJs207FRKbAMza0jOSxatCdVnL0yZ2nFjMmBRs=;
+        b=urrPoNMTbIK0Jo6n4jzB465FPS9wv7JyjRuQmfG+jLbzBbkf2dzqQGCvkI8AQ0toTn
+         PsIqmhWZbzhk8me8nLUEOIilfcLAEY8Na2iLfTMGvR+aE8VHhkHLDjYDxSW/MIqWWo1+
+         lihh6WtPbIGgZiLoknnaILNjXD/Ny5vchBLreicwTigen+7p9K/RXsBjWCAvhWPzT/I9
+         JtwE//jzSp7UdO59suUD7wIPOneFUvljS7mpN1Frq/ApIJmkpo7ClahRejJoAfsQy2WP
+         otE3AXEDJJhP9DqiqxbrZQSWFb1PUHEjDBcSyfNiHv4Gr22NKGa1MBa2Qy4hf3S6dJa9
+         Kd1A==
+X-Gm-Message-State: ACrzQf0AzaA7wi7ZkCkYwxYJmSfLXgXGfh4yz6D1YU6WKPzS3OioyZfZ
+	azxcBnfLgzonTDkgeZ9cG7UOT8VrObxiysVieZI=
+X-Google-Smtp-Source: AMsMyM5WmyKM4wQE0RDi321OwHcIA55CrRYQmki0UsYtUkfbd1ZkH60lW4ALYlDdJCmP4CAlm9tsjmO2YN6T2Y+4Wic=
+X-Received: by 2002:a17:907:847:b0:77f:f489:cc25 with SMTP id
+ ww7-20020a170907084700b0077ff489cc25mr34389161ejb.80.1666740090766; Tue, 25
+ Oct 2022 16:21:30 -0700 (PDT)
 MIME-Version: 1.0
 References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdXSk7RJa4JQNCV6hU9ZMeC3oSEj=MJhTtKauxaWpiGREw@mail.gmail.com>
-In-Reply-To: <CAMuHMdXSk7RJa4JQNCV6hU9ZMeC3oSEj=MJhTtKauxaWpiGREw@mail.gmail.com>
+ <Y1Md4bMYJHI34HuJ@spud> <CA+V-a8vA_ZbV+SEy8Ch8ZuYAb+U37CtC8Ys=svMv7fjy79mR=A@mail.gmail.com>
+ <4750602.GXAFRqVoOG@diego>
+In-Reply-To: <4750602.GXAFRqVoOG@diego>
 From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 26 Oct 2022 00:07:50 +0100
-Message-ID: <CA+V-a8vaf+9MUVZbEdu=vyApsR72a_m5ZkUon+O0bvPkaw6TjQ@mail.gmail.com>
+Date: Wed, 26 Oct 2022 00:21:03 +0100
+Message-ID: <CA+V-a8tduYF0tCad4CmODzSqhabQpzsKKWMXC3GTGj3zL38GAg@mail.gmail.com>
 Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
  RZ/Five SoC
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
 	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
 	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
 	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
@@ -78,8 +81,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221025_160820_135519_B970D008 
-X-CRM114-Status: GOOD (  47.66  )
+X-CRM114-CacheID: sfid-20221025_162134_546921_CBC5512B 
+X-CRM114-Status: GOOD (  51.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,464 +94,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
-
-Thank you for the review.
-
-On Mon, Oct 24, 2022 at 3:22 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> (fixed Palmer's address)
->
-> On Thu, Oct 20, 2022 at 12:02 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >
-> > On the AX45MP core, cache coherency is a specification option so it may
-> > not be supported. In this case DMA will fail. As a workaround, firstly we
-> > allocate a global dma coherent pool from which DMA allocations are taken
-> > and marked as non-cacheable + bufferable using the PMA region as specified
-> > in the device tree. Synchronization callbacks are implemented to
-> > synchronize when doing DMA transactions.
-> >
-> > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > block that allows dynamic adjustment of memory attributes in the runtime.
-> > It contains a configurable amount of PMA entries implemented as CSR
-> > registers to control the attributes of memory locations in interest.
-> >
-> > Below are the memory attributes supported:
-> > * Device, Non-bufferable
-> > * Device, bufferable
-> > * Memory, Non-cacheable, Non-bufferable
-> > * Memory, Non-cacheable, Bufferable
-> > * Memory, Write-back, No-allocate
-> > * Memory, Write-back, Read-allocate
-> > * Memory, Write-back, Write-allocate
-> > * Memory, Write-back, Read and Write-allocate
-> >
-> > This patch adds support to configure the memory attributes of the memory
-> > regions as passed from the l2 cache node and exposes the cache management
-> > ops.
-> >
-> > More info about PMA (section 10.3):
-> > http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> >
-> > This feature is based on the work posted [0] by Vincent Chen
-> > <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
-> >
-> > [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> Thanks for your patch!
->
-> > --- a/drivers/soc/renesas/Kconfig
-> > +++ b/drivers/soc/renesas/Kconfig
-> > @@ -340,9 +340,14 @@ if RISCV
-> >  config ARCH_R9A07G043
-> >         bool "RISC-V Platform support for RZ/Five"
-> >         select ARCH_RZG2L
-> > +       select AX45MP_L2_CACHE
-> > +       select DMA_GLOBAL_POOL
-> > +       select RISCV_DMA_NONCOHERENT
-> >         help
-> >           This enables support for the Renesas RZ/Five SoC.
-> >
-> > +source "drivers/soc/renesas/rzf/Kconfig"
->
-> s/rzf/rzfive/? (or "rz5"? "rzv"?)
->
-OK, I'll rename it to rzfive instead.
-
-> > +
-> >  endif # RISCV
-> >
-> >  config RST_RCAR
-> > diff --git a/drivers/soc/renesas/Makefile b/drivers/soc/renesas/Makefile
-> > index 535868c9c7e4..a20cc7ad5b12 100644
-> > --- a/drivers/soc/renesas/Makefile
-> > +++ b/drivers/soc/renesas/Makefile
-> > @@ -31,6 +31,10 @@ ifdef CONFIG_SMP
-> >  obj-$(CONFIG_ARCH_R9A06G032)   += r9a06g032-smp.o
-> >  endif
-> >
-> > +ifdef CONFIG_RISCV
-> > +obj-y += rzf/
-> > +endif
->
-> obj-$(CONFIG_RISCV)
->
-Agreed.
-
-> > --- /dev/null
-> > +++ b/drivers/soc/renesas/rzf/Kconfig
-> > @@ -0,0 +1,6 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +
-> > +config AX45MP_L2_CACHE
-> > +       bool "AX45MP L2 Cache controller"
->
-> Andes Technology ...
->
-OK, "Andes Technology AX45MP L2 Cache controller"
-
-> > +       help
-> > +         Support for the L2 cache controller on AX45MP platforms.
->
-> ... Andes Technology ...
->
-OK.
-
-> > --- /dev/null
-> > +++ b/drivers/soc/renesas/rzf/ax45mp_cache.c
-> > @@ -0,0 +1,431 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * PMA setup and non-coherent cache functions for AX45MP
-> > + *
-> > + * Copyright (C) 2022 Renesas Electronics Corp.
-> > + */
-> > +
-> > +#include <linux/cacheflush.h>
-> > +#include <linux/cacheinfo.h>
-> > +#include <linux/of_address.h>
-> > +#include <linux/of_platform.h>
-> > +
-> > +#include <asm/sbi.h>
-> > +
-> > +#include "ax45mp_sbi.h"
-> > +
-> > +/* L2 cache registers */
-> > +#define AX45MP_L2C_REG_CTL_OFFSET              0x8
-> > +#define AX45MP_L2C_IPREPETCH_OFF               3
-> > +#define AX45MP_L2C_DPREPETCH_OFF               5
-> > +#define AX45MP_L2C_IPREPETCH_MSK               (3 << AX45MP_L2C_IPREPETCH_OFF)
-> > +#define AX45MP_L2C_DPREPETCH_MSK               (3 << AX45MP_L2C_DPREPETCH_OFF)
->
-> #define AX45MP_L2C_IPREPETCH    GENMASK(4, 3)
-> etc., and then you can use the FIELD_PREP() macros.
->
-Agreed, now that we have decided to drop the setup of l2c controls the
-above macros can be dropped.
-
-> > +#define AX45MP_L2C_TRAMOCTL_OFF                        8
-> > +#define AX45MP_L2C_TRAMICTL_OFF                        10
-> > +#define AX45MP_L2C_TRAMOCTL_MSK                        (3 << AX45MP_L2C_TRAMOCTL_OFF)
-> > +#define AX45MP_L2C_TRAMICTL_MSK                        BIT(AX45MP_L2C_TRAMICTL_OFF)
-> > +#define AX45MP_L2C_DRAMOCTL_OFF                        11
-> > +#define AX45MP_L2C_DRAMICTL_OFF                        13
-> > +#define AX45MP_L2C_DRAMOCTL_MSK                        (3 << AX45MP_L2C_DRAMOCTL_OFF)
-> > +#define AX45MP_L2C_DRAMICTL_MSK                        BIT(AX45MP_L2C_DRAMICTL_OFF)
->
-> > +
-> > +#define AX45MP_MAX_CACHE_LINE_SIZE             256
-> > +
-> > +#define AX45MP_MAX_PMA_REGIONS                 16
-> > +
-> > +struct ax45mp_priv {
-> > +       void __iomem *l2c_base;
-> > +       unsigned int ax45mp_cache_line_size;
-> > +       bool l2cache_enabled;
-> > +       bool ucctl_ok;
-> > +};
-> > +
-> > +static struct ax45mp_priv *ax45mp_priv;
-> > +static DEFINE_STATIC_KEY_FALSE(ax45mp_l2c_configured);
-> > +
-> > +/* PMA setup */
-> > +static long ax45mp_sbi_set_pma(unsigned long start,
-> > +                              unsigned long size,
-> > +                              unsigned long flags,
-> > +                              unsigned int entry_id)
-> > +{
-> > +       struct sbiret ret;
-> > +
-> > +       ret = sbi_ecall(SBI_EXT_ANDES, AX45MP_SBI_EXT_SET_PMA,
-> > +                       start, start + size, size, entry_id,
-> > +                       flags, 0);
->
-> Fits on two lines.
->
-OK.
-
-On a second look the "start + size" arg can be dropped as this can be
-calculated in OpenSBI, so I'll fix it in OpenSBI and here too.
-
-> > +
-> > +       return ret.value;
-> > +}
-> > +
-> > +static int ax45mp_configure_pma_regions(struct device_node *np)
-> > +{
-> > +       const char *propname = "andestech,pma-regions";
-> > +       u64 start, size, flags;
-> > +       unsigned int entry_id;
-> > +       unsigned int i;
-> > +       int count;
-> > +       int ret;
-> > +
-> > +       count = of_property_count_elems_of_size(np, propname,
-> > +                                               sizeof(u32) * 6);
->
-> Fits on a single line.
->
-OK.
-
-> > +static inline uint32_t ax45mp_cpu_l2c_get_cctl_status(void)
-> > +{
-> > +       return readl((void *)(ax45mp_priv->l2c_base + AX45MP_L2C_REG_STATUS_OFFSET));
->
-> Why the cast to "(void *)"?
->
-Can be dropped.
-
-> > +}
-> > +
-> > +static inline uint32_t ax45mp_cpu_l2c_ctl_status(void)
-> > +{
-> > +       return readl((void *)(ax45mp_priv->l2c_base + AX45MP_L2C_REG_CTL_OFFSET));
->
-> Likewise.
->
-Ditto.
-
-> > +}
->
-> > +static void ax45mp_cpu_dcache_wb_range(unsigned long start,
-> > +                                      unsigned long end,
-> > +                                      int line_size)
-> > +{
-> > +       void __iomem *base = ax45mp_priv->l2c_base;
-> > +       unsigned long pa;
-> > +       int mhartid = 0;
-> > +#ifdef CONFIG_SMP
-> > +       mhartid = smp_processor_id();
-> > +#endif
-> > +
-> > +       while (end > start) {
-> > +               if (ax45mp_priv->ucctl_ok) {
-> > +                       csr_write(AX45MP_CCTL_REG_UCCTLBEGINADDR_NUM, start);
-> > +                       csr_write(AX45MP_CCTL_REG_UCCTLCOMMAND_NUM, AX45MP_CCTL_L1D_VA_WB);
-> > +               }
-> > +
-> > +               if (ax45mp_priv->l2cache_enabled) {
-> > +                       pa = virt_to_phys((void *)start);
->
-> Looks like start and end should be "void *" instead of " unsigned long",
-> as they are virtual addresses. See also below...
->
-OK.
-
-> > +                       writel(pa, (void *)(base + AX45MP_L2C_REG_CN_ACC_OFFSET(mhartid)));
-> > +                       writel(AX45MP_CCTL_L2_PA_WB,
-> > +                              (void *)(base + AX45MP_L2C_REG_CN_CMD_OFFSET(mhartid)));
->
-> Why the casts to "(void *)"?
->
-Can be dropped.
-
-> > +                       while ((ax45mp_cpu_l2c_get_cctl_status() &
-> > +                               AX45MP_CCTL_L2_STATUS_CN_MASK(mhartid)) !=
-> > +                               AX45MP_CCTL_L2_STATUS_IDLE)
-> > +                               ;
-> > +               }
-> > +
-> > +               start += line_size;
-> > +       }
-> > +}
-> > +
-> > +static void ax45mp_cpu_dcache_inval_range(unsigned long start,
-> > +                                         unsigned long end,
-> > +                                         int line_size)
-> > +{
-> > +       void __iomem *base = ax45mp_priv->l2c_base;
-> > +       unsigned long pa;
-> > +       int mhartid = 0;
-> > +#ifdef CONFIG_SMP
-> > +       mhartid = smp_processor_id();
-> > +#endif
-> > +
-> > +       while (end > start) {
-> > +               if (ax45mp_priv->ucctl_ok) {
-> > +                       csr_write(AX45MP_CCTL_REG_UCCTLBEGINADDR_NUM, start);
-> > +                       csr_write(AX45MP_CCTL_REG_UCCTLCOMMAND_NUM, AX45MP_CCTL_L1D_VA_INVAL);
-> > +               }
-> > +
-> > +               if (ax45mp_priv->l2cache_enabled) {
-> > +                       pa = virt_to_phys((void *)start);
->
-> Looks like start and end should be "void *" instead of " unsigned long",
-> as they are virtual addresses. See also below...
->
-OK.
-
-> > +                       writel(pa, (void *)(base + AX45MP_L2C_REG_CN_ACC_OFFSET(mhartid)));
-> > +                       writel(AX45MP_CCTL_L2_PA_INVAL,
-> > +                              (void *)(base + AX45MP_L2C_REG_CN_CMD_OFFSET(mhartid)));
-> > +                       while ((ax45mp_cpu_l2c_get_cctl_status() &
-> > +                               AX45MP_CCTL_L2_STATUS_CN_MASK(mhartid)) !=
-> > +                               AX45MP_CCTL_L2_STATUS_IDLE)
-> > +                               ;
-> > +               }
-> > +
-> > +               start += line_size;
-> > +       }
-> > +}
-> > +
-> > +void ax45mp_cpu_dma_inval_range(void *vaddr, size_t size)
-> > +{
-> > +       char cache_buf[2][AX45MP_MAX_CACHE_LINE_SIZE] = { 0 };
->
-> AX45MP_MAX_CACHE_LINE_SIZE = 256, so 512 bytes of data on the stack,
-> auto-initialized by memset().
->
-> Please remove the { 0 }, ...
->
-Ok will do.
-
-> > +       unsigned long start = (unsigned long)vaddr;
-> > +       unsigned long end = start + size;
-> > +       unsigned long old_start = start;
-> > +       unsigned long old_end = end;
-> > +       unsigned long line_size;
-> > +       unsigned long flags;
-> > +
-> > +       if (static_branch_unlikely(&ax45mp_l2c_configured) && !ax45mp_priv)
-> > +               return;
-> > +
-> > +       if (unlikely(start == end))
-> > +               return;
-> > +
-> > +       line_size = ax45mp_priv->ax45mp_cache_line_size;
->
-> ... and call memset() here, so the buffer is not initialized when unused.
-> Perhaps use two buffers, so you can easily memset() only the part that is
-> used?
->
-OK.
-
-> > +
-> > +       start = start & (~(line_size - 1));
-> > +       end = ((end + line_size - 1) & (~(line_size - 1)));
->
-> These are the only calculations that need to use "unsigned long"
-> instead of "void *", but you can use PTR_ALIGN_DOWN() and PTR_ALIGN()
-> to avoid explicit casts.
->
-Good point.
-
-> > +
-> > +       local_irq_save(flags);
-> > +       if (unlikely(start != old_start))
-> > +               memcpy(&cache_buf[0][0], (void *)start, line_size);
-> > +
-> > +       if (unlikely(end != old_end))
-> > +               memcpy(&cache_buf[1][0], (void *)(old_end & (~(line_size - 1))), line_size);
->
-> PTR_ALIGN_DOWN()
->
-OK.
-
-> > +
-> > +       ax45mp_cpu_dcache_inval_range(start, end, line_size);
-> > +
-> > +       if (unlikely(start != old_start))
-> > +               memcpy((void *)start, &cache_buf[0][0], (old_start & (line_size - 1)));
-> > +
-> > +       if (unlikely(end != old_end))
-> > +               memcpy((void *)(old_end + 1),
-> > +                      &cache_buf[1][(old_end & (line_size - 1)) + 1],
-> > +                      end - old_end - 1);
-> > +
-> > +       local_irq_restore(flags);
-> > +}
-> > +EXPORT_SYMBOL(ax45mp_cpu_dma_inval_range);
-> > +
-> > +void ax45mp_cpu_dma_wb_range(void *vaddr, size_t size)
-> > +{
-> > +       unsigned long start = (unsigned long)vaddr;
-> > +       unsigned long end = start + size;
-> > +       unsigned long line_size;
-> > +       unsigned long flags;
-> > +
-> > +       if (static_branch_unlikely(&ax45mp_l2c_configured) && !ax45mp_priv)
-> > +               return;
-> > +
-> > +       line_size = ax45mp_priv->ax45mp_cache_line_size;
-> > +       local_irq_save(flags);
-> > +       start = start & (~(line_size - 1));
->
-> PTR_ALIGN_DOWN() etc...
->
-OK.
-
-> > +       ax45mp_cpu_dcache_wb_range(start, end, line_size);
-> > +       local_irq_restore(flags);
-> > +}
-> > +EXPORT_SYMBOL(ax45mp_cpu_dma_wb_range);
-> > +
-> > +static int ax45mp_configure_l2_cache(struct device_node *np)
-> > +{
-> > +       u8 ram_ctl[2];
-> > +       u32 cache_ctl;
-> > +       u32 prefetch;
-> > +       int ret;
-> > +
-> > +       cache_ctl = ax45mp_cpu_l2c_ctl_status();
-> > +
-> > +       /* Instruction and data fetch prefetch depth */
-> > +       ret = of_property_read_u32(np, "andestech,inst-prefetch", &prefetch);
-> > +       if (!ret) {
-> > +               cache_ctl &= ~AX45MP_L2C_IPREPETCH_MSK;
-> > +               cache_ctl |= (prefetch << AX45MP_L2C_IPREPETCH_OFF);
->
-> FIELD_PREP(), also below
->
-This entire function will be dropped now...
-
-> > +       }
-> > +
-> > +       ret = of_property_read_u32(np, "andestech,data-prefetch", &prefetch);
-> > +       if (!ret) {
-> > +               cache_ctl &= ~AX45MP_L2C_DPREPETCH_MSK;
-> > +               cache_ctl |= (prefetch << AX45MP_L2C_DPREPETCH_OFF);
->
-> prefect / 2
->
-> > +       }
-> > +
-> > +       /* tag RAM and data RAM setup and output cycle */
-> > +       ret = of_property_read_u8_array(np, "andestech,tag-ram-ctl", ram_ctl, 2);
-> > +       if (!ret) {
-> > +               cache_ctl &= ~(AX45MP_L2C_TRAMOCTL_MSK | AX45MP_L2C_TRAMICTL_MSK);
-> > +               cache_ctl |= ram_ctl[0] << AX45MP_L2C_TRAMOCTL_OFF;
-> > +               cache_ctl |= ram_ctl[1] << AX45MP_L2C_TRAMICTL_OFF;
-> > +       }
-> > +
-> > +       ret = of_property_read_u8_array(np, "andestech,data-ram-ctl", ram_ctl, 2);
-> > +       if (!ret) {
-> > +               cache_ctl &= ~(AX45MP_L2C_DRAMOCTL_MSK | AX45MP_L2C_DRAMICTL_MSK);
-> > +               cache_ctl |= ram_ctl[0] << AX45MP_L2C_DRAMOCTL_OFF;
-> > +               cache_ctl |= ram_ctl[1] << AX45MP_L2C_DRAMICTL_OFF;
-> > +       }
-> > +
-> > +       writel(cache_ctl, ax45mp_priv->l2c_base + AX45MP_L2C_REG_CTL_OFFSET);
-> > +
-> > +       ret = of_property_read_u32(np, "cache-line-size", &ax45mp_priv->ax45mp_cache_line_size);
->
-> According to the bindings, this must be 64?
->
-Agreed, I'll add a check to make sure it's always 64.
-
-Cheers,
-Prabhakar
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSGVpa28sCgpPbiBNb24sIE9jdCAyNCwgMjAyMiBhdCAxOjA0IFBNIEhlaWtvIFN0w7xibmVy
+IDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+Cj4gSGkgUHJhYmhha2FyLAo+Cj4gQW0gTW9udGFn
+LCAyNC4gT2t0b2JlciAyMDIyLCAxMzo1NTowMCBDRVNUIHNjaHJpZWIgTGFkLCBQcmFiaGFrYXI6
+Cj4gPiBIaSBDb25vciwKPiA+Cj4gPiBPbiBGcmksIE9jdCAyMSwgMjAyMiBhdCAxMTozMiBQTSBD
+b25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4gPiBPbiBGcmks
+IE9jdCAyMSwgMjAyMiBhdCAxMTowNTo0MFBNICswMTAwLCBMYWQsIFByYWJoYWthciB3cm90ZToK
+PiA+ID4gPiBIaSBSb2IsCj4gPiA+ID4KPiA+ID4gPiBUaGFuayB5b3UgZm9yIHRoZSByZXZpZXcu
+Cj4gPiA+ID4KPiA+ID4gPiBPbiBGcmksIE9jdCAyMSwgMjAyMiBhdCAzOjA1IEFNIFJvYiBIZXJy
+aW5nIDxyb2JoQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIFdlZCwg
+T2N0IDE5LCAyMDIyIGF0IDExOjAyOjQyUE0gKzAxMDAsIFByYWJoYWthciB3cm90ZToKPiA+ID4g
+PiA+ID4gRnJvbTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJl
+bmVzYXMuY29tPgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBPbiB0aGUgQVg0NU1QIGNvcmUsIGNh
+Y2hlIGNvaGVyZW5jeSBpcyBhIHNwZWNpZmljYXRpb24gb3B0aW9uIHNvIGl0IG1heQo+ID4gPiA+
+ID4gPiBub3QgYmUgc3VwcG9ydGVkLiBJbiB0aGlzIGNhc2UgRE1BIHdpbGwgZmFpbC4gQXMgYSB3
+b3JrYXJvdW5kLCBmaXJzdGx5IHdlCj4gPiA+ID4gPiA+IGFsbG9jYXRlIGEgZ2xvYmFsIGRtYSBj
+b2hlcmVudCBwb29sIGZyb20gd2hpY2ggRE1BIGFsbG9jYXRpb25zIGFyZSB0YWtlbgo+ID4gPiA+
+ID4gPiBhbmQgbWFya2VkIGFzIG5vbi1jYWNoZWFibGUgKyBidWZmZXJhYmxlIHVzaW5nIHRoZSBQ
+TUEgcmVnaW9uIGFzIHNwZWNpZmllZAo+ID4gPiA+ID4gPiBpbiB0aGUgZGV2aWNlIHRyZWUuIFN5
+bmNocm9uaXphdGlvbiBjYWxsYmFja3MgYXJlIGltcGxlbWVudGVkIHRvCj4gPiA+ID4gPiA+IHN5
+bmNocm9uaXplIHdoZW4gZG9pbmcgRE1BIHRyYW5zYWN0aW9ucy4KPiA+ID4gPiA+ID4KPiA+ID4g
+PiA+ID4gVGhlIEFuZGVzIEFYNDVNUCBjb3JlIGhhcyBhIFByb2dyYW1tYWJsZSBQaHlzaWNhbCBN
+ZW1vcnkgQXR0cmlidXRlcyAoUE1BKQo+ID4gPiA+ID4gPiBibG9jayB0aGF0IGFsbG93cyBkeW5h
+bWljIGFkanVzdG1lbnQgb2YgbWVtb3J5IGF0dHJpYnV0ZXMgaW4gdGhlIHJ1bnRpbWUuCj4gPiA+
+ID4gPiA+IEl0IGNvbnRhaW5zIGEgY29uZmlndXJhYmxlIGFtb3VudCBvZiBQTUEgZW50cmllcyBp
+bXBsZW1lbnRlZCBhcyBDU1IKPiA+ID4gPiA+ID4gcmVnaXN0ZXJzIHRvIGNvbnRyb2wgdGhlIGF0
+dHJpYnV0ZXMgb2YgbWVtb3J5IGxvY2F0aW9ucyBpbiBpbnRlcmVzdC4KPiA+ID4gPiA+ID4KPiA+
+ID4gPiA+ID4gQmVsb3cgYXJlIHRoZSBtZW1vcnkgYXR0cmlidXRlcyBzdXBwb3J0ZWQ6Cj4gPiA+
+ID4gPiA+ICogRGV2aWNlLCBOb24tYnVmZmVyYWJsZQo+ID4gPiA+ID4gPiAqIERldmljZSwgYnVm
+ZmVyYWJsZQo+ID4gPiA+ID4gPiAqIE1lbW9yeSwgTm9uLWNhY2hlYWJsZSwgTm9uLWJ1ZmZlcmFi
+bGUKPiA+ID4gPiA+ID4gKiBNZW1vcnksIE5vbi1jYWNoZWFibGUsIEJ1ZmZlcmFibGUKPiA+ID4g
+PiA+ID4gKiBNZW1vcnksIFdyaXRlLWJhY2ssIE5vLWFsbG9jYXRlCj4gPiA+ID4gPiA+ICogTWVt
+b3J5LCBXcml0ZS1iYWNrLCBSZWFkLWFsbG9jYXRlCj4gPiA+ID4gPiA+ICogTWVtb3J5LCBXcml0
+ZS1iYWNrLCBXcml0ZS1hbGxvY2F0ZQo+ID4gPiA+ID4gPiAqIE1lbW9yeSwgV3JpdGUtYmFjaywg
+UmVhZCBhbmQgV3JpdGUtYWxsb2NhdGUKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gVGhpcyBwYXRj
+aCBhZGRzIHN1cHBvcnQgdG8gY29uZmlndXJlIHRoZSBtZW1vcnkgYXR0cmlidXRlcyBvZiB0aGUg
+bWVtb3J5Cj4gPiA+ID4gPiA+IHJlZ2lvbnMgYXMgcGFzc2VkIGZyb20gdGhlIGwyIGNhY2hlIG5v
+ZGUgYW5kIGV4cG9zZXMgdGhlIGNhY2hlIG1hbmFnZW1lbnQKPiA+ID4gPiA+ID4gb3BzLgo+ID4g
+PiA+ID4gPgo+ID4gPiA+ID4gPiBNb3JlIGluZm8gYWJvdXQgUE1BIChzZWN0aW9uIDEwLjMpOgo+
+ID4gPiA+ID4gPiBodHRwOi8vd3d3LmFuZGVzdGVjaC5jb20vd3AtY29udGVudC91cGxvYWRzL0FY
+NDVNUC0xQy1SZXYuLTUuMC4wLURhdGFzaGVldC5wZGYKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4g
+VGhpcyBmZWF0dXJlIGlzIGJhc2VkIG9uIHRoZSB3b3JrIHBvc3RlZCBbMF0gYnkgVmluY2VudCBD
+aGVuCj4gPiA+ID4gPiA+IDx2aW5jZW50Y0BhbmRlc3RlY2guY29tPiBmb3IgdGhlIEFuZGVzIEFu
+ZGVTdGFydCBSSVNDLVYgQ1BVLgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBbMF0gaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvbGttbC8xNTQwOTgyMTMwLTI4MjQ4LTEtZ2l0LXNlbmQtZW1haWwtdmlu
+Y2VudGNAYW5kZXN0ZWNoLmNvbS8KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gU2lnbmVkLW9mZi1i
+eTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29t
+Pgo+ID4gPiA+ID4gPiAtLS0KPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY2Fj
+aGVmbHVzaC5oICAgIHwgICA4ICsKPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+ZXJyYXRhX2xpc3QuaCAgIHwgICAyICsKPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3YvbW0vZG1hLW5v
+bmNvaGVyZW50LmMgICAgICAgIHwgIDIwICsrCj4gPiA+ID4gPiA+ICBkcml2ZXJzL3NvYy9yZW5l
+c2FzL0tjb25maWcgICAgICAgICAgICB8ICAgNSArCj4gPiA+ID4gPiA+ICBkcml2ZXJzL3NvYy9y
+ZW5lc2FzL01ha2VmaWxlICAgICAgICAgICB8ICAgNCArCj4gPiA+ID4gPiA+ICBkcml2ZXJzL3Nv
+Yy9yZW5lc2FzL3J6Zi9LY29uZmlnICAgICAgICB8ICAgNiArCj4gPiA+ID4gPiA+ICBkcml2ZXJz
+L3NvYy9yZW5lc2FzL3J6Zi9NYWtlZmlsZSAgICAgICB8ICAgMyArCj4gPiA+ID4gPiA+ICBkcml2
+ZXJzL3NvYy9yZW5lc2FzL3J6Zi9heDQ1bXBfY2FjaGUuYyB8IDQzMSArKysrKysrKysrKysrKysr
+KysrKysrKysrCj4gPiA+ID4gPgo+ID4gPiA+ID4gSG93IG1hbnkgY2FjaGUgZHJpdmVycyBkbyB3
+ZSBoYXZlIGFyb3VuZCBub3c/IEkndmUgc2VlbiBhIGZldyBiaW5kaW5ncwo+ID4gPiA+ID4gZ28g
+YnkuIEknbSBndWVzc2luZyBpdCBpcyB0aW1lIHRvIHN0b3AgcHV0dGluZyB0aGUgZHJpdmVycyBp
+biB0aGUKPiA+ID4gPiA+IGRyaXZlcnMvc29jLyBkdW1waW5nIGdyb3VuZC4KPiA+ID4gPiA+Cj4g
+PiA+ID4gVGhlIG1haW4gcmVhc29uIHRoaXMgZHJpdmVyIGlzIG5vdCBpbiBhcmNoL3Jpc2N2IGlz
+IHRoYXQgaXQgaGFzIHZlbmRvcgo+ID4gPiA+IHNwZWNpZmljIGV4dGVuc2lvbnMuIER1ZSB0byB0
+aGlzIHJlYXNvbiBpdCB3YXMgYWdyZWVkIGR1cmluZyB0aGUgTFBDCj4gPiA+ID4gdGhhdCB2ZW5k
+b3Igc3BlY2lmaWMgZXh0ZW5zaW9uIHNob3VsZCBiZSBtYWludGFpbmVkIGJ5IFNvQyB2ZW5kb3Jz
+IGFuZAo+ID4gPiA+IHdhcyBhZ3JlZWQgdGhhdCB0aGlzIGNhbiBnbyBpbnRvIGRyaXZlcnMvc29j
+L3JlbmVzYXMgZm9sZGVyIGluc3RlYWQuCj4gPiA+Cj4gPiA+IERvZXMgbm90IGluIGRyaXZlcnMv
+c29jIG1lYW4gdGhleSBuZWVkIHRvIGdvIGludG8gYXJjaC9yaXNjdj8KPiA+IEkgd2FzIHVuZGVy
+IHRoZSBpbXByZXNzaW9uIFJvYiB3YW50ZWQgdGhlbSBhcmNoL3Jpc2N2LCBzb3JyeSBmb3IgdGhl
+IGNvbmZ1c2lvbi4KPiA+Cj4gPiA+IFRoZSBvdXRjb21lIG9mIHRoZSBjaGF0IGF0IHRoZSBMUEMg
+Qm9GIHdhcyBtb3JlIHRoYXQgdGhlIGNhY2hlIGRyaXZlcnMKPiA+ID4gdGhlbXNlbHZlcyBzaG91
+bGQgbm90IGJlIGJlIHJvdXRlZCB2aWEgdGhlIGFyY2ggbWFpbnRhaW5lcnMsIG5vPwo+ID4gPgo+
+ID4gSW5kZWVkLgo+ID4KPiA+ID4gPgo+ID4gPiA+ID4gPiAgZHJpdmVycy9zb2MvcmVuZXNhcy9y
+emYvYXg0NW1wX3NiaS5oICAgfCAgMjkgKysKPiA+ID4gPiA+ID4gIDkgZmlsZXMgY2hhbmdlZCwg
+NTA4IGluc2VydGlvbnMoKykKPiA+ID4gPiA+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2ZXJz
+L3NvYy9yZW5lc2FzL3J6Zi9LY29uZmlnCj4gPiA+ID4gPiA+ICBjcmVhdGUgbW9kZSAxMDA2NDQg
+ZHJpdmVycy9zb2MvcmVuZXNhcy9yemYvTWFrZWZpbGUKPiA+ID4gPiA+ID4gIGNyZWF0ZSBtb2Rl
+IDEwMDY0NCBkcml2ZXJzL3NvYy9yZW5lc2FzL3J6Zi9heDQ1bXBfY2FjaGUuYwo+ID4gPiA+ID4g
+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvc29jL3JlbmVzYXMvcnpmL2F4NDVtcF9zYmku
+aAo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9jYWNoZWZsdXNoLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+
+ID4gPiA+ID4gPiBpbmRleCA4YTVjMjQ2YjBhMjEuLjQwYWE3OTBiZTlhMyAxMDA2NDQKPiA+ID4g
+PiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+ID4gPiA+
+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPiA+ID4gPiA+ID4g
+QEAgLTY1LDYgKzY1LDE0IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCByaXNjdl9ub25jb2hlcmVudF9z
+dXBwb3J0ZWQodm9pZCkge30KPiA+ID4gPiA+ID4gICNkZWZpbmUgU1lTX1JJU0NWX0ZMVVNIX0lD
+QUNIRV9MT0NBTCAxVUwKPiA+ID4gPiA+ID4gICNkZWZpbmUgU1lTX1JJU0NWX0ZMVVNIX0lDQUNI
+RV9BTEwgICAoU1lTX1JJU0NWX0ZMVVNIX0lDQUNIRV9MT0NBTCkKPiA+ID4gPiA+ID4KPiA+ID4g
+PiA+ID4gKyNpZmRlZiBDT05GSUdfQVg0NU1QX0wyX0NBQ0hFCj4gPiA+ID4gPiA+ICt2b2lkIGF4
+NDVtcF9jcHVfZG1hX2ludmFsX3JhbmdlKHZvaWQgKnZhZGRyLCBzaXplX3QgZW5kKTsKPiA+ID4g
+PiA+ID4gK3ZvaWQgYXg0NW1wX2NwdV9kbWFfd2JfcmFuZ2Uodm9pZCAqdmFkZHIsIHNpemVfdCBl
+bmQpOwo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICsjZGVmaW5lIEFMVF9DTU9fT1AoX29wLCBf
+c3RhcnQsIF9zaXplLCBfY2FjaGVzaXplKSAgIFwKPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICAg
+ICBfb3AoX3N0YXJ0LCBfc2l6ZSkKPiA+ID4gPiA+ID4gKyNlbmRpZgo+ID4gPiA+ID4gPiArCj4g
+PiA+ID4gPiA+ICAjaW5jbHVkZSA8YXNtLWdlbmVyaWMvY2FjaGVmbHVzaC5oPgo+ID4gPiA+ID4g
+Pgo+ID4gPiA+ID4gPiAgI2VuZGlmIC8qIF9BU01fUklTQ1ZfQ0FDSEVGTFVTSF9IICovCj4gPiA+
+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0Lmgg
+Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gPiA+ID4gaW5kZXgg
+MTlhNzcxMDg1NzgxLi5kOWNiZjYwYzNiNjUgMTAwNjQ0Cj4gPiA+ID4gPiA+IC0tLSBhL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4gPiA+ID4gPiArKysgYi9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ID4gPiA+ID4gQEAgLTg5LDYgKzg5LDcg
+QEAgYXNtIHZvbGF0aWxlKEFMVEVSTkFUSVZFKCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBcCj4gPiA+ID4gPiA+ICAjZGVmaW5lIEFMVF9USEVBRF9QTUEoX3ZhbCkK
+PiA+ID4gPiA+ID4gICNlbmRpZgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiArI2lmZGVmIENPTkZJ
+R19FUlJBVEFfVEhFQURfQ01PCj4gPiA+ID4gPiA+ICAvKgo+ID4gPiA+ID4gPiAgICogZGNhY2hl
+LmlwYSByczEgKGludmFsaWRhdGUsIHBoeXNpY2FsIGFkZHJlc3MpCj4gPiA+ID4gPiA+ICAgKiB8
+IDMxIC0gMjUgfCAyNCAtIDIwIHwgMTkgLSAxNSB8IDE0IC0gMTIgfCAxMSAtIDcgfCA2IC0gMCB8
+Cj4gPiA+ID4gPiA+IEBAIC0xNDMsNSArMTQ0LDYgQEAgYXNtIHZvbGF0aWxlKEFMVEVSTkFUSVZF
+XzIoICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+
+ID4gPiA+ICAgICAgIDogImEwIikKPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gICNlbmRpZiAvKiBf
+X0FTU0VNQkxZX18gKi8KPiA+ID4gPiA+ID4gKyNlbmRpZgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
+PiAgI2VuZGlmCj4gPiA+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2RtYS1ub25j
+b2hlcmVudC5jIGIvYXJjaC9yaXNjdi9tbS9kbWEtbm9uY29oZXJlbnQuYwo+ID4gPiA+ID4gPiBp
+bmRleCBiMGFkZDk4MzUzMGEuLjUyNzBhY2NhNjc2NiAxMDA2NDQKPiA+ID4gPiA+ID4gLS0tIGEv
+YXJjaC9yaXNjdi9tbS9kbWEtbm9uY29oZXJlbnQuYwo+ID4gPiA+ID4gPiArKysgYi9hcmNoL3Jp
+c2N2L21tL2RtYS1ub25jb2hlcmVudC5jCj4gPiA+ID4gPiA+IEBAIC0yNCwxMyArMjQsMjUgQEAg
+dm9pZCBhcmNoX3N5bmNfZG1hX2Zvcl9kZXZpY2UocGh5c19hZGRyX3QgcGFkZHIsIHNpemVfdCBz
+aXplLAo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAgICAgICBzd2l0Y2ggKGRpcikgewo+ID4gPiA+
+ID4gPiAgICAgICBjYXNlIERNQV9UT19ERVZJQ0U6Cj4gPiA+ID4gPiA+ICsjaWZkZWYgQ09ORklH
+X0VSUkFUQV9USEVBRF9DTU8KPiA+ID4gPiA+ID4gICAgICAgICAgICAgICBBTFRfQ01PX09QKGNs
+ZWFuLCB2YWRkciwgc2l6ZSwgcmlzY3ZfY2JvbV9ibG9ja19zaXplKTsKPiA+ID4gPiA+ID4gKyNl
+bGlmIENPTkZJR19BWDQ1TVBfTDJfQ0FDSEUKPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICBBTFRf
+Q01PX09QKGF4NDVtcF9jcHVfZG1hX3diX3JhbmdlLCB2YWRkciwgc2l6ZSwgMHgwKTsKPiA+ID4g
+PiA+ID4gKyNlbmRpZgo+ID4gPiA+ID4KPiA+ID4gPiA+IEhvdyBkbyB5b3Ugc3VwcG9ydCBtb3Jl
+IHRoYW4gb25lIHBsYXRmb3JtIGluIGEgYnVpbGQ/Cj4gPiA+ID4gPgo+ID4gPiA+IFllcywgdGhh
+dCdzIG9uZSBjb25jZXJuIHdoaWNoIEkgaGF2ZSBtZW50aW9uZWQgaW4gdGhlIGNvdmVyIGxldHRl
+ciB0b28KPiA+ID4gPiAoQXQgdGhhdCBtb21lbnQgaXQncyBqdXN0IGEgc2luZ2xlIHBsYXRmb3Jt
+KS4gU3VnZ2VzdGlvbnMgd2VsY29tZSEKPiA+ID4KPiA+ID4gSSB0aGluayBJIHNhaWQgaXQgb24g
+b25lIG9mIHRoZSBlYXJsaWVyIHZlcnNpb24sIGJ1dCBpdCBuZWVkcyB0byBiZQo+ID4gPiBpbXBs
+ZW1lbnRlZCB3LyBydW50aW1lIHBhdGNoaW5nIHZpYSBhbHRlcm5hdGl2ZXMganVzdCBsaWtlIHRo
+ZSB0aGVhZAo+ID4gPiBzdHVmZiBwYXRjaGVzIGluIHRoZWlyIGZ1bmN0aW9ucy4KPiA+ID4KPiA+
+IEknbSBhIGJpdCBzdHVtcGVkIHdpdGggYWx0ZXJuYXRpdmVzKCkgdXNhZ2UuCj4gPgo+ID4gQ3Vy
+cmVudGx5IEkgYW0ganVzdCByZXBsYWNpbmcgdGhlIEFMVF9DTU9fT1AoKSBtYWNybyBpZgo+ID4g
+Q09ORklHX0FYNDVNUF9MMl9DQUNIRSBpcyBlbmFibGVkLiBGb3IgQVg0NU1QIGN1cnJlbnRseSB3
+ZSBoYXZlIHR3bwo+ID4gZXhwb3J0ZWQgZnVuY3Rpb25zIGF4NDVtcF9jcHVfZG1hX2ludmFsX3Jh
+bmdlL2F4NDVtcF9jcHVfZG1hX3diX3JhbmdlLgo+ID4gSWYgSSBzd2l0Y2ggdG8KPiA+IEFMVEVS
+TkFUSVZFKCkgbWFjcm8gdXNhZ2UgdGhlbiBJJ2xsIGhhdmUgdG8gdXNlIHRoZSBhc3NlbWJseSB2
+ZXJzaW9uCj4gPiBvZiB0aGUgYWJvdmUgdHdvIG1lbnRpb25lZCBmdW5jdGlvbnM/Cj4KPiBUaGUg
+b3ZlcmFyY2hpbmcgZ29hbCBzaG91bGQgYWx3YXlzIGJlIHRoZSB1bmlmaWVkLWtlcm5lbC1pbWFn
+ZS4KPiBTbyBoYXJkd2FyZS1zcGVjaWZpYyBjb21waWxlLXRpbWUgI2lmZWVmcyBhcmUgbm9ybWFs
+bHkgYSBuby1ubyA6LSkgLgo+Cj4gU28geWVzLCBpdCBtb3N0IGxpa2VseSBzaG91bGQgYmUgYXNz
+ZW1ibHktYmFzZWQsIGFuZCB5b3UnbGwgImp1c3QiIG5lZWQKPiB0byBpbnRyb2R1Y2UgYW4gQUxU
+RVJOQVRJVkVfMyBtYWNybywgc2ltaWxhciB0byB3aGF0IEFMVEVSTkFJVFZFXzIgZG9lcy4KPgo+
+IFRoYXQgaXMgYWN0dWFsbHkgdGhlIHJlYWxseSBuaWNlIHBhcnQgb2YgYWx0ZXJuYXRpdmVzLCB0
+aGF0IHlvdSBjYW4gaGF2ZSBhcwo+IG1hbnkgdmFyaWFudHMgYXMgeW91IGxpa2UuCj4KVGhhbmsg
+eW91IGZvciB0aGUgcG9pbnRlci4gSSdtIHN0aWxsIGdvaW5nIHRocm91Z2ggdGhlIEFMVEVSTkFU
+SVZFKCkKbWFjcm8gaW1wbGVtZW50YXRpb24sIGRvIHlvdSB0aGluayAiY2FsbCAgPGNfZnVuY3Rp
+b24+IiB3b3VsZCBiZSBhbgphY2NlcHRhYmxlIGFwcHJvYWNoIChJIGhhdmVuJ3QgaW1wbGVtZW50
+ZWQvbm9yIHRlc3RlZCk/IE9yIGlzIGl0IHRoYXQKbXkgdW5kZXJzdGFuZGluZyBpcyBjb21wbGV0
+ZWx5IGludmFsaWQ/CgpDaGVlcnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
