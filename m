@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0495CC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Oct 2022 13:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D8FC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Oct 2022 13:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
 	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bXwwXI07/ENVYYq2qG5rrUEwFSJmWFeoZ/dRs983Qgg=; b=ZCrSB/HTBAeWzy
-	JAEGSsuDDZ2XsgmMzYhSinigaasquQZevUWtb9Y0dsd7pcf0XhHWHiAMcb3BX8dCDDrJ72ySMBz74
-	ZtTLkRda5pFqA7PHwEjglo5F8F4eaS5WlQjPH5HLPISbsdyxAORFbQYbeWpiBnioaNVnx65Qi92Vv
-	d1Eqp/g2kPv1YFqpM3a9ZUHEC7r5pZrId54kd0kfk1XXH84+exVtcul8OIc7jhz/FfCPM+BMp+4hN
-	i0BNxVnK+xGjaMYTYsfnU08Az0Ep/X4ivesHoTYwyoaidi5+wXZwWal3BlGVwC33LqDL9oJcUlvT9
-	AiKtqfu5Uinm4rsQHdxg==;
+	List-Owner; bh=rIed4O6wP7lMoTPgF+n5QREVYNrcjTxNlMYO8sOs+jo=; b=0XTcZPbEdZrN2X
+	60VYHIfQjT4eeiGzmTsJrCKjC2k2Hwns8kyKIuh5o6XQS+hD8lklE2ugn+qSkMc+YAKLdCqKtcTm2
+	8wnKDHdqZ5w6d7tVt47o1jHEiDf4Y3qaJN7M221k8xG8cWoU8i1VwYhiJniGF38S4yJ0W9dZVKvIU
+	M9sMGYIOnaNOZ465ZDVopzuKLx3hEJO9h3cdAvXBEfWE+KMj89T6coCUhdG1dYLRtNFoI4MUQAYrp
+	sMQ1Rr4rmORo4Uue6pNcfSY+igS/OOXrxspWGnJfgqn+H/pf4LklX7FX4gRW1EV6ShcLocaH0hExE
+	EQQfqw2x9MhIHwsJwWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ongmR-009XqQ-MW; Wed, 26 Oct 2022 13:49:15 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1ongma-009Xva-HS; Wed, 26 Oct 2022 13:49:24 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ongm3-009XcY-7y
-	for linux-riscv@lists.infradead.org; Wed, 26 Oct 2022 13:48:52 +0000
-Received: by mail-pf1-x435.google.com with SMTP id g16so9874947pfr.12
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Oct 2022 06:48:49 -0700 (PDT)
+	id 1ongmD-009XhS-1T
+	for linux-riscv@lists.infradead.org; Wed, 26 Oct 2022 13:49:03 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id w10so5175458qvr.3
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Oct 2022 06:48:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=perTojXhOIkVoIxZmL7uixXc0TfGA0sMyLeC3fzxIlE=;
-        b=aagNXPdSImuDfcBn0cDGfiEdse2Bw1UYAgM4guo6MrC3qWnLgmiceDLl+WlEFpSkC1
-         2r3kUh4QRch1dkmg9WPYMl8t0xjUosWVLgpX2r7RC6xaZm6tUMOIfAt6mPHTi6L0YCHi
-         f6Xhl2V4Rez5PDqhvK5Z0A9I0pVMM2UPpbKSnMT3mCxVYGNVTELqhuh9LlpIyeReygMt
-         tX6GUxHdVIn58/MybOVSnqjmqIN/n4YL070Rg+KYZFnK/UiounvX+lHPwJUVEpmgNs+n
-         wTRdbkfGu43nTi5LwoBK0gyF0EFY/5LRxdBKfwgeQ3JiTDb/DTRxrayad8NiyJeoFLcA
-         rEkQ==
+        bh=AKFRv0zM9kMluPQ3+hHI7EIzkLtxGEc8lwOlSBqM7+8=;
+        b=RPvo9GZ9F6TwIw7A0fjA6QSO9W3jcPv50/4lWroYKxeuCqonf/4q/oMdH6lzyQjbkR
+         lcnpvxPLCNsCxJgGc34bD7+VVsaPhHFSMd26Go+hj1TtvQFd4s6yxPzn0BK8PUGFAFVj
+         rrDI/HWdcXi90GzguqjpqrQsWonoNZR4iLg0m0IypxjIPcoRig5a2Sb1XFSBxMZ5EaW8
+         KqIajKKdXwH8UhjdkhHpocjl8bOAMvozKyOozJ3U0Ux8rh8BlK5WRraxays1gWVtFnCt
+         GvkCrX2lsF+ctvRabev0+wy3UJlze/MesBoJ2zpUb03SVjHKFRruOD3qHhLA1Ej/L+Rv
+         NzEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=perTojXhOIkVoIxZmL7uixXc0TfGA0sMyLeC3fzxIlE=;
-        b=TcDg2MwwNS5ATMpZes2nrKIpt8xK9C2MQQUotCYYM5oYoiDAYstzRQBvD5kBNK3f56
-         ZIkEIHuQxjfxHbPYf3GOcOYUCLhqAekFXBhe8GdvmKWmWS97SqBk4DyJWDuKYWNZgswz
-         +BhKGKlW95LYRWeAKRGCnqNOmuu/Bsrn1gfNyEYDUCb8QupWMYoFBnfCXviHVlZfA58R
-         PpSm5LHlCPqYW1tOmruS6DpBrRtThrTBpt2PtevOGf2aCj3ZdynfaljH82DoAcCgffkQ
-         f+zgsneB7nukLqyK6yjSJTQMGByxYsFVfb/XMHwv5zfHB4SFN7HftnXLmo0okgFg94ic
-         6cRA==
-X-Gm-Message-State: ACrzQf3aivwvRdgCOPuSw50IroabxJQHISfYCBNp9jCCdN85LdpZk4xV
-	6n5r1TP1EdqfBR+21d3ZaxvZRJpauPaB4Q==
-X-Google-Smtp-Source: AMsMyM47/2wydw0Q7j/VTrsT+GrAjI8rM35XtHTmTpQM647Z7CnM4cUc7mPeKpbbUfboFyLNyR5wcQ==
-X-Received: by 2002:a63:5415:0:b0:439:e932:e025 with SMTP id i21-20020a635415000000b00439e932e025mr37107108pgb.63.1666792128379;
-        Wed, 26 Oct 2022 06:48:48 -0700 (PDT)
+        bh=AKFRv0zM9kMluPQ3+hHI7EIzkLtxGEc8lwOlSBqM7+8=;
+        b=veB9I6SPGy2WoYMinHPKUEG9M7B4mFYVf0vsX+lo9BxHWJDnzzUMG2X72KHrbZDv55
+         KdtXK+sDBD5xJabop/g9zsOeYztHKkY5w9OkUPSzDVcoLp1G9uJw+MZs6SIc0h0YpWPT
+         aDlSseZTQ1hqBtyIOqBuECgYBbgUcTfQHEAzyqVFEh9aogWq58UgXPmPzN3gCC+1Gr1Q
+         dDpGgfvwjEjwDYi/N1cIsiXaSEiGakaj02nDLl+Ckd2xcQ+35qBkT0ky9Y3UVEhuCLL4
+         VCciwXFDm2a+0n9F9a4IyHis91856C+XdEqbLN1lZr3wEEtVPHHDWiTfK5naVuIzDoMG
+         6gKQ==
+X-Gm-Message-State: ACrzQf2kl0Eb+lAnvg39ogwuAEexKE0uTg2iqUFSdjbcT0epn8gS/555
+	i9o/HpJGikL4ZAXoE36fKExQlrJzlfjzhg==
+X-Google-Smtp-Source: AMsMyM4Iwzkt6Srcrk4gx6gtg+JjdQxqOxgx2b6dNxZl9uzmX1WjFH0HKC1etqmNAoTPp+5pkSjkug==
+X-Received: by 2002:a17:903:1207:b0:185:4042:23d2 with SMTP id l7-20020a170903120700b00185404223d2mr43403332plh.143.1666792127247;
+        Wed, 26 Oct 2022 06:48:47 -0700 (PDT)
 Received: from localhost ([135.180.227.132])
-        by smtp.gmail.com with ESMTPSA id u1-20020a170902e80100b00172b87d9770sm2972412plg.81.2022.10.26.06.48.47
+        by smtp.gmail.com with ESMTPSA id i129-20020a639d87000000b0046ae5cfc3d5sm2790473pgd.61.2022.10.26.06.48.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Oct 2022 06:48:48 -0700 (PDT)
-In-Reply-To: <20220925004757.9089-1-heinrich.schuchardt@canonical.com>
-References: <20220925004757.9089-1-heinrich.schuchardt@canonical.com>
-Subject: Re: [PATCH 1/1] riscv/vdso: typo therefor
-Message-Id: <166679186656.19249.8222101751661120126.b4-ty@rivosinc.com>
-Date: Wed, 26 Oct 2022 06:44:26 -0700
+        Wed, 26 Oct 2022 06:48:46 -0700 (PDT)
+In-Reply-To: <20221008145437.491-1-jszhang@kernel.org>
+References: <20221008145437.491-1-jszhang@kernel.org>
+Subject: Re: [PATCH v2] riscv: jump_label: mark arguments as const to satisfy asm constraints
+Message-Id: <166679181922.18979.10448305327462266940.b4-ty@rivosinc.com>
+Date: Wed, 26 Oct 2022 06:43:39 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.11.0-dev-36ce3
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>,
+  llvm@lists.linux.dev, Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
+To: Tom Rix <trix@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+  Steven Rostedt <rostedt@goodmis.org>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+  Peter Zijlstra <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>,
+  Nick Desaulniers <ndesaulniers@google.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+  Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221026_064851_535892_0805A336 
-X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-CacheID: sfid-20221026_064901_099517_6EBC79F0 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,16 +95,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 25 Sep 2022 02:47:57 +0200, Heinrich Schuchardt wrote:
-> The adverbs 'therefor' and 'therefore' have different meaning.
-> As the meaning here is 'consequently' the spelling should be 'therefore'.
+On Sat, 8 Oct 2022 22:54:37 +0800, Jisheng Zhang wrote:
+> Samuel reported that the static branch usage in cpu_relax() breaks
+> building with CONFIG_CC_OPTIMIZE_FOR_SIZE:
 > 
+> In file included from <command-line>:
+> ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
+> ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
+> probably does not match constraints
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+> 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> ././include/linux/compiler_types.h:285:33: error: impossible constraint
+> in 'asm'
+>   285 | #define asm_volatile_goto(x...) asm goto(x)
+>       |                                 ^~~
+> ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
+> 'asm_volatile_goto'
+>    41 |         asm_volatile_goto(
+>       |         ^~~~~~~~~~~~~~~~~
+> make[1]: *** [scripts/Makefile.build:249:
+> arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
+> make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
 > 
+> [...]
 
 Applied, thanks!
 
-[1/1] riscv/vdso: typo therefor
-      commit: d233ab3c5c5ed4b3d2201bddb71dab5a2946c31b
+[1/1] riscv: jump_label: mark arguments as const to satisfy asm constraints
+      commit: 89fd4a1df829187d4d35f6a520cc531de622e6f0
 
 Best regards,
 -- 
