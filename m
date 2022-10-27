@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95CDECAAA1
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 23:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B12FFA373D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 23:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
 	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zlv4oF9WC49kOIiWZWLmlvV/oQRqQH6bXjEwKVK5LDU=; b=iBV5b8oKZENI/f
-	AUmDuVsvwGQZcpfFM/RjtbnwPGfTSGoQ+SLRmhNrMhUbyGo09hzjYrJKWLi1Q82691Bk8GZbIyRKK
-	mC+XzRR/Yzvzq/Ibh2w9jaRbsBk4zr6xU4rTaWofB8ud/ljA7eD2LhikIvSTroHv8Js+BAka/9gnD
-	4jwfw0u0mU0EaEOAu8UlHJ3bxcXT+vu9Uzsu7dlHNkASOoSmHHxDj3PJLVuVLj+wojGhdcEedunil
-	nsRGo5bR15LyoNqMhhNiZUG790rJRcevNR5dDLB7JcT9pgCV7FhuBGXrzrMZv5jseIm4iC1RjpjEU
-	Lpf+W/OFpxsSEbPG0kPA==;
+	List-Owner; bh=7GIPicaZ8lRS7GrOepeyPgDeySVpe2QDA4LscS6KBgE=; b=NFyo4DxOm+AzsH
+	WvLFMfdKFyrcp6ONZvOqx+qGcRCJ8STMjHIfGEP76dUXUJbgfhsdqZgvMnkGklk3Vobh8VzHiUrbg
+	Y6/Navx5VSI7tP5lfNAQ3T5VcgVbFQv/aFw0Sv0XMEdCk56F6XQ9ZsmWTpX02yFo1D4G+qlLqDdiX
+	kENP0cdFeM6vRWvgrQUgqpv3DFLaylSYOnoIRwEPHqqD/FaXnXa+QA0Fi6ny1M9PXRCIBiAI3cWwG
+	EGJ5BHa94N4szR9PAMPA0Gu9nll9TptMwSZqRnh/I09ldqC/Op0UMSL3NU0zObAHZRugJn8zacVCy
+	D6dNULSLP7MRWqDmSpWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooByN-00FAvU-7t; Thu, 27 Oct 2022 23:07:39 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1ooByO-00FAwT-Ua; Thu, 27 Oct 2022 23:07:40 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooByC-00FAqK-Jl
-	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 23:07:30 +0000
-Received: by mail-pg1-x534.google.com with SMTP id s196so3176978pgs.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 16:07:27 -0700 (PDT)
+	id 1ooByE-00FAqm-7P
+	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 23:07:31 +0000
+Received: by mail-pf1-x433.google.com with SMTP id 192so3252120pfx.5
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 16:07:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Z3Cg4hSAtiIjg4fn0TICaEm2CR+A3G1G6cZSFVGjRNw=;
-        b=Av8g1yEyrqRtyNEXn86lA8dQA/VPx5chCpzAaJr8YHh5QrQmllXTNXOUXPEOHaLTfh
-         wah/v1AynDgRuQETrGf+yixPVV98WHKq97+NxSSOno8kO3DQ3jhB4U2rusKJLC4eHY1q
-         wvTdtdNBgSP3+lqbOhcYy2xMoK6+NjU02/JEB32NB6KAp+5XW8ZorvJH6xFksCrpjFha
-         PfR5PKVMXdkD1G2H0+2DVzam1yHTpIYi9xyvFNrvsp6EVyibEf/ArLZyc15zp3dkx/yc
-         2a9nAPFMspoi8DdfPyLHMnROPkG2cRexh19jNGrSi055Js0iQvWZVKZ3RIJqFKROLbFn
-         QSjQ==
+        bh=dGIOOj3+qzuziQHt4I3vJ0yhwP9i2B2Blb/XTHKGMxA=;
+        b=DQ12Roa/JCXk48lRfZQvcdCR5DKamBLnfsA/y+WP0VhsBcphWICeeOvOJAHZFSBoUn
+         gl0Tsxd+qmgZ90G5FiKpBF4SELi4PtDFKah+kk9F201OOfc3lFcfGZmV63Gvr+q6s6+m
+         AbIHcTHOuBjGXnUCqQzepYO8FPcpxVB1PNMgbybic+rmtKj4iTN1N0z2t2p9u1JbLb2E
+         WJpGxg1w1wg9Ih0R1E0wlkSdOJM2JZ+6tENLD8t+jhFBqKJNq/vvTzZErfS9S+becMJW
+         ob4mFbQrFaNrbt8NugT98wmIV5d/LCfe7Wi//gcNJBm2/Ye8qT9eQholmoulgMFnGk4s
+         rZfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Z3Cg4hSAtiIjg4fn0TICaEm2CR+A3G1G6cZSFVGjRNw=;
-        b=I5a4jLcTy3EmIH877/+x9e0kGdKyv8lD7Qi15wOcPMhhK1zV6mfJj/vpbQ5BVgZO/X
-         Yo7iAjr1QdpLbvFntzudqwmfJOMAMbNiRtk8kRCPcjG57NzaiIK2BWiZNkGfxg23rehu
-         bnibFoyPlFYdRqHUklJvi6Tr/4C8NQ2PvHKOGpMFJYRZytmH6lmEuWGymqUOBlH44jYZ
-         +MC1VsgXotX1nnjdfP32eGk+SF08qYPRxTSbY3G9NooXjuBNvjLB5ddJNTCjq0Sl55jy
-         BcyIP2BUGKvXa8ewAHxYNMT045j7ReKE0A2SAXaTmI0kybJqv/ERCF8fn0Orddy69v3I
-         QFug==
-X-Gm-Message-State: ACrzQf3IelhBDCULLrpnIE4S7Ek4MPOFVtO2uofYEMf7ktlW/66wbjWF
-	9e7Xub0J+KGCLmEjCZuTq+9E2NfVNtepJQ==
-X-Google-Smtp-Source: AMsMyM7kN3GSvCxNiwfw+NyImUjG5pItb0YNfkTmIf3lG0wAIQ4nx3SiQhJ3M8nvIi0JCl+uWSHK+g==
-X-Received: by 2002:a63:8241:0:b0:46e:ffaf:cc4a with SMTP id w62-20020a638241000000b0046effafcc4amr20467261pgd.546.1666912046644;
-        Thu, 27 Oct 2022 16:07:26 -0700 (PDT)
+        bh=dGIOOj3+qzuziQHt4I3vJ0yhwP9i2B2Blb/XTHKGMxA=;
+        b=XlwIOL0DigTYwIInGCsDljMTDpVDrRe0xEQSU0PpVsX37RvTPLw/gIZSoYGtfuFvhz
+         30fpBmGtkozZOLOUH6sxduzpPDLAbpiquuwb9HwzlUgzriHUCJqhKFAUlqHi4TZvnp7B
+         cOJPqvxd/tPgFnD7ni0yUzxnfQJQfX0hSgUiJ1faBPbagkSQmtADgwMoQRLW7B7mgHrB
+         EdlpLwUcWITB0ue++4m8ORKAv/N8GBUDO/TZmnk4tB9/WTgsv55ovZDfXD1xC1TS8ZlI
+         LuMopTSUzxaY3kOt4LJNl5jF539UnbosSWuq0pz8BKk5qeH7jWckgeQfNiwwfUfoYMLj
+         BzYg==
+X-Gm-Message-State: ACrzQf1NY1oe1VeTWRzWyEB/cZBcJmn73eP4NglULZ8hV6jeVeYc+XUx
+	cgD9imtSC/9DYttJxoBodhxmQWyMyfW4ZQ==
+X-Google-Smtp-Source: AMsMyM4pGfab/Lu9otcgknoFf3QkCWBb4tRNWzqL/utHiVbszNKEX0k0wNujQ0wmYp9Ebm9yoeQFDQ==
+X-Received: by 2002:aa7:88d4:0:b0:56c:ae9d:6fdf with SMTP id k20-20020aa788d4000000b0056cae9d6fdfmr3713215pff.41.1666912048006;
+        Thu, 27 Oct 2022 16:07:28 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id n4-20020a170902e54400b001867fdec154sm1688526plf.224.2022.10.27.16.07.26
+        by smtp.gmail.com with ESMTPSA id w3-20020a63d743000000b0046f03254c9csm1542392pgi.23.2022.10.27.16.07.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Oct 2022 16:07:26 -0700 (PDT)
-In-Reply-To: <20221006173520.1785507-1-conor@kernel.org>
-References: <20221006173520.1785507-1-conor@kernel.org>
-Subject: Re: [PATCH 0/2] (attempt to) Fix RISC-V toolchain extension support detection
-Message-Id: <166691074050.22328.4455408116267853696.b4-ty@rivosinc.com>
-Date: Thu, 27 Oct 2022 15:45:40 -0700
+        Thu, 27 Oct 2022 16:07:27 -0700 (PDT)
+In-Reply-To: <20221018141200.1040-1-jszhang@kernel.org>
+References: <20221018141200.1040-1-jszhang@kernel.org>
+Subject: Re: [PATCH] riscv: remove special treatment for the link order of head.o
+Message-Id: <166691074225.22464.6806069295219492474.b4-ty@rivosinc.com>
+Date: Thu, 27 Oct 2022 15:45:42 -0700
 MIME-Version: 1.0
 X-Mailer: b4 0.11.0-dev-36ce3
-Cc: Heiko Stuebner <heiko@sntech.de>, Guo Ren <guoren@kernel.org>,
-  llvm@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, Dao Lu <daolu@rivosinc.com>,
-  Tom Rix <trix@redhat.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, Conor Dooley <conor@kernel.org>,
-  Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+To: Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+  Masahiro Yamada <masahiroy@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+  Nicolas Schier <nicolas@fjasle.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_160728_677207_C403FA3C 
-X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-CacheID: sfid-20221027_160730_298841_723A4DDA 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,22 +92,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Oct 2022 18:35:19 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, 18 Oct 2022 22:12:00 +0800, Jisheng Zhang wrote:
+> arch/riscv/kernel/head.o does not need any special treatment - the only
+> requirement is the ".head.text" section must be placed before the
+> normal ".text" section.
 > 
-> Hey,
-> This came up due to a report from Kevin @ kernel-ci, who had been
-> running a mixed configuration of GNU binutils and clang. Their compiler
-> was relatively recent & supports Zicbom but binutils @ 2.35.2 did not.
+> The linker script does the right thing to do. The build system does
+> not need to manipulate the link order of head.o.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] riscv: fix detection of toolchain Zicbom support
-      https://git.kernel.org/palmer/c/b8c86872d1dc
-[2/2] riscv: fix detection of toolchain Zihintpause support
-      https://git.kernel.org/palmer/c/aae538cd03bc
+[1/1] riscv: remove special treatment for the link order of head.o
+      https://git.kernel.org/palmer/c/2348e6bf4421
 
 Best regards,
 -- 
