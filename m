@@ -4,53 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A18BC67871
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 10:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96DAC38A2D
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 10:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:From:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=YJVBE3rlXw4sdwBFZGixe5z+NQL678+Vq9NXfwilePs=; b=nKy3eFoH5JX0nn
-	6anITpF7IT6mhpq7r1aPpVvWImoyHA+1LcT08WtXxGdetmKoouMEYfmpqWrtLOZcgL1+vdxG41e40
-	BbXivWY91iOPDtT2eSzXNbsq1tvl7ak6DLVEPRUJyBNJ/j7R8fAmtTLKB77JbNdkaJ7x7IDpxHUIB
-	ibFby1wFBHEAarMsfDwgXv2yhFYOgOEwDQ6s/D/Y52nFBMhQ+5TnJT7rWMeY2elfI01wt7v4Jp2Ij
-	8QBUZfyeYXrOOVPfDAuM19esjXN8yY/gqfLIFrw3HzhjZLgIEYLuwVZka1BkCYJOhLT38Uetphxra
-	LdhJ3Hdjb9DX1rm+omAw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sJP1aSuXx9Nuq9vnmcUoXjdOs3RP0Nmgr7QqoVfuF9Q=; b=YgQ9TMc0Dun90L
+	Rkc/4vTfHC4XXpUETr3OaYsVhRQTlQlQBgrx1ulymVaD6Zsb+NGqyULMNiaU3fniosHAtRfBoNWoc
+	2US/vAgebCB7Svi/TrADcpTe+0RLRUqbPvjsHMls1wwWULkP+goZP0r4nLrzz/qkxSZDlAGUAoo51
+	xQRhsLYHoPzSsa4lzBW+axkotvv4xUWzaqdtMzSP4d1me/dCGHOFBKc0pp9NciV7u0Nz5Q4ntwj1h
+	WtW7Ou7I6V4P6umSNK1/NuHi0bMRviEAPCc7l8oYHeKBB0HRcMVrp2YEIh7EhCzZnJ8wmC5LeQPWD
+	HgPHlf1MJBo0VMC/3vDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onzwq-00CnQp-8b; Thu, 27 Oct 2022 10:17:16 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1onzzi-00Cogc-Q3; Thu, 27 Oct 2022 10:20:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1onzw1-00CnCN-0A; Thu, 27 Oct 2022 10:16:27 +0000
+	id 1onzzM-00CoYF-4I; Thu, 27 Oct 2022 10:19:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 10858B8252C;
-	Thu, 27 Oct 2022 10:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E9EC433D6;
-	Thu, 27 Oct 2022 10:16:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 33D2E6227B;
+	Thu, 27 Oct 2022 10:19:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821EAC433C1;
+	Thu, 27 Oct 2022 10:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1666865781;
-	bh=+srlIU6U9vIfPHXRZKq1KHwUtfdTVEpD40v8/h11WvE=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=VP35Gz0tIasLLZ4WgiIvMPkJ2cDF2mzW0wBsVu9xGh4esDnboSjUgszE4A1rMRRPG
-	 doYhKW+1VhOzM7YNHcxnXP0prGt32nrjsZKbUoSYE6JShFKeyX9A7Ue517S/jxFWLy
-	 6KpS6Bkyd/EHK9lmWV0ZxLXreo8vvj0Agkm8rWcQ=
-Subject: Patch "riscv: topology: fix default topology reporting" has been added to the 5.10-stable tree
-To: Brice.Goglin@inria.fr,atishp@atishpatra.org,atishp@rivosinc.com,catalin.marinas@arm.com,conor.dooley@microchip.com,gregkh@linuxfoundation.org,linux-arm-kernel@lists.infradead.org,linux-riscv@lists.infradead.org,palmer@dabbelt.com,sudeep.holla@arm.com,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Thu, 27 Oct 2022 12:16:07 +0200
-In-Reply-To: <20221019125303.2845522-2-conor.dooley@microchip.com>
-Message-ID: <166686576611715@kroah.com>
+	s=korg; t=1666865991;
+	bh=NqMrmdJW4/CFJyAsbuJvEyN1j+Q4SJytBhbMA3wApjk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=onYFzYorCHVobqFga8odCiCw3zhyp2dljGm5m00ISE9Ji1zG1HZbyuE8FIZ5MPmq2
+	 FI4hP9uT9L82dsUXFtdYxpJbuGtVgTWYmuID+/8DL32wJOSmtFg3D9jylLtvz+jEF5
+	 rekz017okoXEAjA2vyv7p9c6XiBmC8HbgOiH93NI=
+Date: Thu, 27 Oct 2022 12:19:48 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: stable@vger.kernel.org, Brice.Goglin@inria.fr, atishp@atishpatra.org,
+	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, sudeep.holla@arm.com, will@kernel.org,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 5.10 1/2] arm64: topology: move store_cpu_topology() to
+ shared code
+Message-ID: <Y1pbRCQbgMw8Upvz@kroah.com>
+References: <20221019125303.2845522-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-X-stable: commit
-X-Patchwork-Hint: ignore 
+Content-Disposition: inline
+In-Reply-To: <20221019125303.2845522-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_031625_402256_D6E3C212 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20221027_031952_244789_16BC2F29 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,116 +73,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 19, 2022 at 01:53:02PM +0100, Conor Dooley wrote:
+> commit 456797da792fa7cbf6698febf275fe9b36691f78 upstream.
 
-This is a note to let you know that I've just added the patch titled
+All now queued up, thanks.
 
-    riscv: topology: fix default topology reporting
-
-to the 5.10-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     riscv-topology-fix-default-topology-reporting.patch
-and it can be found in the queue-5.10 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From foo@baz Thu Oct 27 12:15:29 PM CEST 2022
-From: Conor Dooley <conor.dooley@microchip.com>
-Date: Wed, 19 Oct 2022 13:53:03 +0100
-Subject: riscv: topology: fix default topology reporting
-To: <stable@vger.kernel.org>
-Cc: <conor.dooley@microchip.com>, <Brice.Goglin@inria.fr>, <atishp@atishpatra.org>, <catalin.marinas@arm.com>, <gregkh@linuxfoundation.org>, <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>, <sudeep.holla@arm.com>, <will@kernel.org>, Atish Patra <atishp@rivosinc.com>
-Message-ID: <20221019125303.2845522-2-conor.dooley@microchip.com>
-
-From: Conor Dooley <conor.dooley@microchip.com>
-
-commit fbd92809997a391f28075f1c8b5ee314c225557c upstream.
-
-RISC-V has no sane defaults to fall back on where there is no cpu-map
-in the devicetree.
-Without sane defaults, the package, core and thread IDs are all set to
--1. This causes user-visible inaccuracies for tools like hwloc/lstopo
-which rely on the sysfs cpu topology files to detect a system's
-topology.
-
-On a PolarFire SoC, which should have 4 harts with a thread each,
-lstopo currently reports:
-
-Machine (793MB total)
-  Package L#0
-    NUMANode L#0 (P#0 793MB)
-    Core L#0
-      L1d L#0 (32KB) + L1i L#0 (32KB) + PU L#0 (P#0)
-      L1d L#1 (32KB) + L1i L#1 (32KB) + PU L#1 (P#1)
-      L1d L#2 (32KB) + L1i L#2 (32KB) + PU L#2 (P#2)
-      L1d L#3 (32KB) + L1i L#3 (32KB) + PU L#3 (P#3)
-
-Adding calls to store_cpu_topology() in {boot,smp} hart bringup code
-results in the correct topolgy being reported:
-
-Machine (793MB total)
-  Package L#0
-    NUMANode L#0 (P#0 793MB)
-    L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
-    L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
-    L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
-    L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
-
-CC: stable@vger.kernel.org # 456797da792f: arm64: topology: move store_cpu_topology() to shared code
-Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
-Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
-Link: https://github.com/open-mpi/hwloc/issues/536
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/riscv/Kconfig          |    2 +-
- arch/riscv/kernel/smpboot.c |    4 +++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
-
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -35,7 +35,7 @@ config RISCV
- 	select CLINT_TIMER if !MMU
- 	select COMMON_CLK
- 	select EDAC_SUPPORT
--	select GENERIC_ARCH_TOPOLOGY if SMP
-+	select GENERIC_ARCH_TOPOLOGY
- 	select GENERIC_ATOMIC64 if !64BIT
- 	select GENERIC_CLOCKEVENTS
- 	select GENERIC_EARLY_IOREMAP
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -46,6 +46,8 @@ void __init smp_prepare_cpus(unsigned in
- 	int cpuid;
- 	int ret;
- 
-+	store_cpu_topology(smp_processor_id());
-+
- 	/* This covers non-smp usecase mandated by "nosmp" option */
- 	if (max_cpus == 0)
- 		return;
-@@ -152,8 +154,8 @@ asmlinkage __visible void smp_callin(voi
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+	store_cpu_topology(curr_cpuid);
- 	notify_cpu_starting(curr_cpuid);
--	update_siblings_masks(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
- 
- 	/*
-
-
-Patches currently in stable-queue which might be from conor.dooley@microchip.com are
-
-queue-5.10/arm64-topology-move-store_cpu_topology-to-shared-code.patch
-queue-5.10/riscv-topology-fix-default-topology-reporting.patch
-queue-5.10/riscv-always-honor-the-config_cmdline_force-when-par.patch
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
