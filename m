@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A88FA3740
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 13:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C444FA3740
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 13:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BM8gj54MGJiXOZXK/xALQkMaDvbP39x51d7x6ZE5hUY=; b=Q4htywdsb0Ngxj
-	aHxmDV90gWySVMSYvTW/P4YIlIfS7OmTIdblSybRJ8MWL2jvksKRp+mVteDdzSuftk/Ps3+Mpx8pE
-	HSL1BMnarijOPRzkgPDD3ItMWx7PZKiSuszIGYszN236eRZ/AsMnEWqBnRNCTq+UwfHk/l6N2iLhb
-	VEEcz+V4ClIPXXt5JGmLMz+0PDbPDrudoYCNjRLK/vUjAtaj3wugHMU4ZdhUTs+TO9i3AF5Z3Ws+U
-	23b9Ux6Y+EPhAOPVxma1AmitgBp1HI4xDvjVOMO/1yoLayVJQbee6l1jehqTs3CAIVuYeEOiODQkc
-	aakQWIN+fS5ugFVASngQ==;
+	List-Owner; bh=M2likbQqMXIEdneKf+KmTq6FH0EBWsM3N6C41Qle1TA=; b=zZ2SV89CkmRYev
+	G35g1LoGu+P6h7OCRUCag0FAubuFpncy34SDE+hYIhmSE7aKB7Q6IyAxPlgG9DZUKto0YdFpQ84ha
+	j6GL1Z0Wz1RIhr35VqXdJqiS2yjd/jK0/gX0081rRcOJ55NU2bhYhlpSl7+IIeT7vr3qkceYfUTJR
+	WJpEv+jn1N7z06aXIrDmxvqA/nIK+f6qL43euG8Kus13lgFZ8Lh10fmLpcu1LEvTP8UScu4Cs3Foj
+	241KysqKfHhfrn8+c1AspqFY/OeHrF06z4rPfNm/8Gcvea7Pb80gZc5o1th/uYRccZUFK8Y2W5ld+
+	Pfp9VmSu41/wtD8s0S5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oo2Yu-00DJsZ-WA; Thu, 27 Oct 2022 13:04:45 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1oo2ZA-00DK1i-Eo; Thu, 27 Oct 2022 13:05:00 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oo2XI-00DJ6R-7O
-	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 13:03:06 +0000
-Received: by mail-wm1-x332.google.com with SMTP id i5-20020a1c3b05000000b003cf47dcd316so4132312wma.4
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 06:03:04 -0700 (PDT)
+	id 1oo2XG-00DJ5R-W0
+	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 13:03:04 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id l16-20020a05600c4f1000b003c6c0d2a445so1146126wmq.4
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 06:03:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iHol30iu44SieCnbzpUR445EegurXqWLLkR68727Pz8=;
-        b=P4Rmb/aKJYj4I/dJnJ+97nCWi9d28PM7o71dsxYkuzKu45hoqGPh2TDljqlRkhHUOe
-         eoqfUBSiHKDa2fh6aKUO5Jo9KVQE9wn2uxaeYgjJTdif9mwFofsWzA10kLeJuYV15sda
-         ylkejUDWZGgSY83tARiRxdsn77nZZyip6rBdGNjINjrYH+l7v03NcSIztLut4O+lQ+B0
-         8GxNMRxzmxEUUgNRQgvB1YGgcbesRtHgD9UMzacQ2PjC9Dc+vwen0jrcKEOf86m/gESZ
-         nPtgBXmV38IgA0i92RM69CNVwapwjPQkS2Opn0UjaFzyqtZzS6HJvj7hULsZ6HdMRNO+
-         cQwQ==
+        bh=ypq1jHU6FqMI0efCbfJSsSlnjMaAcFVEo7l5rTk9GE0=;
+        b=A+s3px9YR/AIymPX+iXjL/IgHW8a/E3j00udC/0Eh0iE7BQNoIGWhqZfDSqPOmE7SH
+         7XMJrsmNoxHGia7hHEzpD1Gzz5Wgc6g2HxFxP67iG6GLSwb4LAmB2IT5LJqsZy3Nwgdl
+         aWuYKZl4zEw+rb6isikRjJIViYqcO5r97i/e7Hm5oUkU+e8PSqDkcnFaM9zWBTWfDluS
+         7BBN4Gc390iP2Xj6Q5uHfMZL9RpvHJ4bpvR1I7eVa8emu8Ap4INKTyPwPT0y1qWbxs3M
+         ZM1WOO2vmEu3fVEzk0np5cUc0S30zYuRJhBWfCsEnBz4ybUHUmW/3uzu+/+n/5jV3vO6
+         hgSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iHol30iu44SieCnbzpUR445EegurXqWLLkR68727Pz8=;
-        b=NXBkm+YIm4SljjrsbCwowBHCkS7Qxkap25fMm0O6YioqpKNpVO83AKdliDdwbmBWnZ
-         XP1KhFkr8eBvxdV0g4lwwGeY/btQSpEVJZRmEwczNNAGZ6AQkZupP97+fp1TRnaBWNyO
-         Up9hnBNUOOXToEZMK0O+gJNDdMoVuoz4BMwGL0HFPH9Azr0sPyzQyuq/9XxOBJXWX6w3
-         GADEe8en8kTgJSWDcP7K8FEDVMx6xCzl0JPH9qxS0/A9qhBrHNwmnGsk2O2Ulm2Bq2Pq
-         p5uMImMsWdmPPqfM0ZkerjgP68vug048/cb35PS4ACIGV+WEEU5rcV1fa0+jWYtujX5l
-         Qu+Q==
-X-Gm-Message-State: ACrzQf1vVZ6mXN3maPAJdZstndXBqAnsBPflrjNbg7T1tUlb84WcO0t2
-	MXk6XevMB8MBorefSeUlEYK9wt0qSPb+Vw==
-X-Google-Smtp-Source: AMsMyM5oTmv9IrhDQSVkJF02JpfmYS7iTDg1CKhw9ywqtCc3quIDdLwe0QXTE/CT4hcoU7ucDP6QJg==
-X-Received: by 2002:a05:600c:468a:b0:3c6:f84a:1fae with SMTP id p10-20020a05600c468a00b003c6f84a1faemr5697142wmo.148.1666875782181;
-        Thu, 27 Oct 2022 06:03:02 -0700 (PDT)
+        bh=ypq1jHU6FqMI0efCbfJSsSlnjMaAcFVEo7l5rTk9GE0=;
+        b=dMPPX+POOcyFUtFUAWGE0fpzVXOIZKmKlZiY5GlqkJWVQQOcLMgefZVGixSScHFrWt
+         kvpf/wzpgH3iyGKigrEzDhQ99Ai4xPRNkyBiVkq+vZrs00mzu22kgrS5gFGgStb/4aa3
+         n5ffScMhOQ4RxGspVjaSF1JA/nbYRVs9401Fd6TVbQDb/ovUyViD0wH+tB9CdnJyE+ST
+         UjGuYaprusiSvhpvNu9TcTeMJLyIXyvOu9DI9JAEadi99cDbIH+iUVwfOYLXtFUGjLfz
+         R2QUNidyUD2kSf0pmZB1lXfRFIU8vU1nL0l82vOBeFPaqbc7WRnXcgGBuzR4IUBvgIUC
+         l0mQ==
+X-Gm-Message-State: ACrzQf0mYNzzxvdLDUepDEo02kTWfVzqEbn0KvJDHU/n6nKHgAQYUs4z
+	ZgC6zuUWaQ7Zo8gC2h2ISwMI97Ac+viqlw==
+X-Google-Smtp-Source: AMsMyM4pGTsLz/Q3zR03Raj8BHQ6U4ZtX2hvt4fOM3kTory1SVpA8TO1ZKOw9RnoLtWuCl8yhvaqgA==
+X-Received: by 2002:a05:600c:4b19:b0:3c6:cc7c:763c with SMTP id i25-20020a05600c4b1900b003c6cc7c763cmr5868711wmp.57.1666875772197;
+        Thu, 27 Oct 2022 06:02:52 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id k18-20020adff5d2000000b002366f300e57sm1127522wrp.23.2022.10.27.06.03.01
+        by smtp.gmail.com with ESMTPSA id i17-20020a05600c355100b003a8434530bbsm5047740wmq.13.2022.10.27.06.02.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Oct 2022 06:03:01 -0700 (PDT)
+        Thu, 27 Oct 2022 06:02:51 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org
@@ -71,16 +71,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Atish Patra <atishp@rivosinc.com>,
 	Jisheng Zhang <jszhang@kernel.org>
-Subject: [PATCH 7/9] RISC-V: lib: Improve memset assembler formatting
-Date: Thu, 27 Oct 2022 15:02:45 +0200
-Message-Id: <20221027130247.31634-8-ajones@ventanamicro.com>
+Subject: [PATCH 2/9] RISC-V: Add Zicboz detection and block size parsing
+Date: Thu, 27 Oct 2022 15:02:40 +0200
+Message-Id: <20221027130247.31634-3-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20221027130247.31634-1-ajones@ventanamicro.com>
 References: <20221027130247.31634-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_060304_347951_0B75EA6C 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20221027_060303_094240_DF54EA3D 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,205 +97,170 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Aligning the first operand of each instructions with a tab is a
-typical style which improves readability. Apply it to memset.S.
-While there, we also make a small grammar change to a comment.
-
-No functional change intended.
+Mostly follow the same pattern as Zicbom, but leave out the toolchain
+checks as we plan to use the insn-def framework for the cbo.zero
+instruction.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/lib/memset.S | 143 ++++++++++++++++++++--------------------
- 1 file changed, 72 insertions(+), 71 deletions(-)
+ arch/riscv/Kconfig                  | 13 +++++++++++++
+ arch/riscv/include/asm/cacheflush.h |  3 ++-
+ arch/riscv/include/asm/hwcap.h      |  1 +
+ arch/riscv/kernel/cpu.c             |  1 +
+ arch/riscv/kernel/cpufeature.c      | 10 ++++++++++
+ arch/riscv/kernel/setup.c           |  2 +-
+ arch/riscv/mm/cacheflush.c          | 23 +++++++++++++++--------
+ 7 files changed, 43 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-index 34c5360c6705..e613c5c27998 100644
---- a/arch/riscv/lib/memset.S
-+++ b/arch/riscv/lib/memset.S
-@@ -3,111 +3,112 @@
-  * Copyright (C) 2013 Regents of the University of California
-  */
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 6b48a3ae9843..c20e6fa0c0b1 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -433,6 +433,19 @@ config RISCV_ISA_ZICBOM
  
--
- #include <linux/linkage.h>
- #include <asm/asm.h>
+ 	   If you don't know what to do here, say Y.
  
- /* void *memset(void *, int, size_t) */
- ENTRY(__memset)
- WEAK(memset)
--	move t0, a0  /* Preserve return value */
-+	move	t0, a0			/* Preserve return value */
- 
- 	/* Defer to byte-oriented fill for small sizes */
--	sltiu a3, a2, 16
--	bnez a3, 4f
-+	sltiu	a3, a2, 16
-+	bnez	a3, 4f
- 
- 	/*
- 	 * Round to nearest XLEN-aligned address
--	 * greater than or equal to start address
-+	 * greater than or equal to the start address.
- 	 */
--	addi a3, t0, SZREG-1
--	andi a3, a3, ~(SZREG-1)
--	beq a3, t0, 2f  /* Skip if already aligned */
-+	addi	a3, t0, SZREG-1
-+	andi	a3, a3, ~(SZREG-1)
-+	beq	a3, t0, 2f		/* Skip if already aligned */
++config RISCV_ISA_ZICBOZ
++	bool "Zicboz extension support for faster zeroing of memory"
++	depends on !XIP_KERNEL && MMU
++	select RISCV_ALTERNATIVE
++	default y
++	help
++	   Adds support to dynamically detect the presence of the ZICBOZ
++	   extension (cbo.zero instruction) and enable its usage.
 +
- 	/* Handle initial misalignment */
--	sub a4, a3, t0
-+	sub	a4, a3, t0
- 1:
--	sb a1, 0(t0)
--	addi t0, t0, 1
--	bltu t0, a3, 1b
--	sub a2, a2, a4  /* Update count */
-+	sb	a1, 0(t0)
-+	addi	t0, t0, 1
-+	bltu	t0, a3, 1b
-+	sub	a2, a2, a4		/* Update count */
++	   The Zicboz extension is used for faster zeroing of memory.
++
++	   If you don't know what to do here, say Y.
++
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index f6fbe7042f1c..5b31568cf5e6 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -43,7 +43,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
+ #endif /* CONFIG_SMP */
  
- 2: /* Duff's device with 32 XLEN stores per iteration */
- 	/* Broadcast value into all bytes */
--	andi a1, a1, 0xff
--	slli a3, a1, 8
--	or a1, a3, a1
--	slli a3, a1, 16
--	or a1, a3, a1
-+	andi	a1, a1, 0xff
-+	slli	a3, a1, 8
-+	or	a1, a3, a1
-+	slli	a3, a1, 16
-+	or	a1, a3, a1
- #ifdef CONFIG_64BIT
--	slli a3, a1, 32
--	or a1, a3, a1
-+	slli	a3, a1, 32
-+	or	a1, a3, a1
+ extern unsigned int riscv_cbom_block_size;
+-void riscv_init_cbom_blocksize(void);
++extern unsigned int riscv_cboz_block_size;
++void riscv_init_cbo_blocksizes(void);
+ 
+ #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+ void riscv_noncoherent_supported(void);
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 5d6492bde446..eaa5a972ad2d 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -45,6 +45,7 @@
+ #define RISCV_ISA_EXT_ZIHINTPAUSE	29
+ #define RISCV_ISA_EXT_SSTC		30
+ #define RISCV_ISA_EXT_SVINVAL		31
++#define RISCV_ISA_EXT_ZICBOZ		32
+ 
+ #define RISCV_ISA_EXT_ID_MAX		RISCV_ISA_EXT_MAX
+ 
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index fa427bdcf773..bf969218f609 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -144,6 +144,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+ 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+ 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
++	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
+ 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+ };
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 18b9ed4df1f4..e13b3391de76 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -78,6 +78,15 @@ static bool riscv_isa_extension_check(int id)
+ 			return false;
+ 		}
+ 		return true;
++	case RISCV_ISA_EXT_ZICBOZ:
++		if (!riscv_cboz_block_size) {
++			pr_err("Zicboz detected in ISA string, but no cboz-block-size found\n");
++			return false;
++		} else if (!is_power_of_2(riscv_cboz_block_size)) {
++			pr_err("cboz-block-size present, but is not a power-of-2\n");
++			return false;
++		}
++		return true;
+ 	}
+ 
+ 	return true;
+@@ -225,6 +234,7 @@ void __init riscv_fill_hwcap(void)
+ 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+ 				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+ 				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
++				SET_ISA_EXT_MAP("zicboz", RISCV_ISA_EXT_ZICBOZ);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index a07917551027..26de0d8fd23d 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -296,7 +296,7 @@ void __init setup_arch(char **cmdline_p)
+ 	setup_smp();
  #endif
  
- 	/* Calculate end address */
--	andi a4, a2, ~(SZREG-1)
--	add a3, t0, a4
-+	andi	a4, a2, ~(SZREG-1)
-+	add	a3, t0, a4
+-	riscv_init_cbom_blocksize();
++	riscv_init_cbo_blocksizes();
+ 	riscv_fill_hwcap();
+ 	apply_boot_alternatives();
+ #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index f096b9966cae..208e0d58bde3 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -91,6 +91,9 @@ void flush_icache_pte(pte_t pte)
+ unsigned int riscv_cbom_block_size;
+ EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
  
--	andi a4, a4, 31*SZREG  /* Calculate remainder */
--	beqz a4, 3f            /* Shortcut if no remainder */
--	neg a4, a4
--	addi a4, a4, 32*SZREG  /* Calculate initial offset */
-+	andi	a4, a4, 31*SZREG	/* Calculate remainder */
-+	beqz	a4, 3f			/* Shortcut if no remainder */
-+	neg	a4, a4
-+	addi	a4, a4, 32*SZREG	/* Calculate initial offset */
- 
- 	/* Adjust start address with offset */
--	sub t0, t0, a4
-+	sub	t0, t0, a4
- 
- 	/* Jump into loop body */
- 	/* Assumes 32-bit instruction lengths */
--	la a5, 3f
-+	la	a5, 3f
- #ifdef CONFIG_64BIT
--	srli a4, a4, 1
-+	srli	a4, a4, 1
- #endif
--	add a5, a5, a4
--	jr a5
-+	add	a5, a5, a4
-+	jr	a5
- 3:
--	REG_S a1,        0(t0)
--	REG_S a1,    SZREG(t0)
--	REG_S a1,  2*SZREG(t0)
--	REG_S a1,  3*SZREG(t0)
--	REG_S a1,  4*SZREG(t0)
--	REG_S a1,  5*SZREG(t0)
--	REG_S a1,  6*SZREG(t0)
--	REG_S a1,  7*SZREG(t0)
--	REG_S a1,  8*SZREG(t0)
--	REG_S a1,  9*SZREG(t0)
--	REG_S a1, 10*SZREG(t0)
--	REG_S a1, 11*SZREG(t0)
--	REG_S a1, 12*SZREG(t0)
--	REG_S a1, 13*SZREG(t0)
--	REG_S a1, 14*SZREG(t0)
--	REG_S a1, 15*SZREG(t0)
--	REG_S a1, 16*SZREG(t0)
--	REG_S a1, 17*SZREG(t0)
--	REG_S a1, 18*SZREG(t0)
--	REG_S a1, 19*SZREG(t0)
--	REG_S a1, 20*SZREG(t0)
--	REG_S a1, 21*SZREG(t0)
--	REG_S a1, 22*SZREG(t0)
--	REG_S a1, 23*SZREG(t0)
--	REG_S a1, 24*SZREG(t0)
--	REG_S a1, 25*SZREG(t0)
--	REG_S a1, 26*SZREG(t0)
--	REG_S a1, 27*SZREG(t0)
--	REG_S a1, 28*SZREG(t0)
--	REG_S a1, 29*SZREG(t0)
--	REG_S a1, 30*SZREG(t0)
--	REG_S a1, 31*SZREG(t0)
--	addi t0, t0, 32*SZREG
--	bltu t0, a3, 3b
--	andi a2, a2, SZREG-1  /* Update count */
-+	REG_S	a1,        0(t0)
-+	REG_S	a1,    SZREG(t0)
-+	REG_S	a1,  2*SZREG(t0)
-+	REG_S	a1,  3*SZREG(t0)
-+	REG_S	a1,  4*SZREG(t0)
-+	REG_S	a1,  5*SZREG(t0)
-+	REG_S	a1,  6*SZREG(t0)
-+	REG_S	a1,  7*SZREG(t0)
-+	REG_S	a1,  8*SZREG(t0)
-+	REG_S	a1,  9*SZREG(t0)
-+	REG_S	a1, 10*SZREG(t0)
-+	REG_S	a1, 11*SZREG(t0)
-+	REG_S	a1, 12*SZREG(t0)
-+	REG_S	a1, 13*SZREG(t0)
-+	REG_S	a1, 14*SZREG(t0)
-+	REG_S	a1, 15*SZREG(t0)
-+	REG_S	a1, 16*SZREG(t0)
-+	REG_S	a1, 17*SZREG(t0)
-+	REG_S	a1, 18*SZREG(t0)
-+	REG_S	a1, 19*SZREG(t0)
-+	REG_S	a1, 20*SZREG(t0)
-+	REG_S	a1, 21*SZREG(t0)
-+	REG_S	a1, 22*SZREG(t0)
-+	REG_S	a1, 23*SZREG(t0)
-+	REG_S	a1, 24*SZREG(t0)
-+	REG_S	a1, 25*SZREG(t0)
-+	REG_S	a1, 26*SZREG(t0)
-+	REG_S	a1, 27*SZREG(t0)
-+	REG_S	a1, 28*SZREG(t0)
-+	REG_S	a1, 29*SZREG(t0)
-+	REG_S	a1, 30*SZREG(t0)
-+	REG_S	a1, 31*SZREG(t0)
++unsigned int riscv_cboz_block_size;
++EXPORT_SYMBOL_GPL(riscv_cboz_block_size);
 +
-+	addi	t0, t0, 32*SZREG
-+	bltu	t0, a3, 3b
-+	andi	a2, a2, SZREG-1		/* Update count */
+ static void cbo_get_block_size(struct device_node *node,
+ 			       const char *name, u32 *blksz,
+ 			       unsigned long *first_hartid)
+@@ -113,19 +116,23 @@ static void cbo_get_block_size(struct device_node *node,
+ 	}
+ }
  
- 4:
- 	/* Handle trailing misalignment */
--	beqz a2, 6f
--	add a3, t0, a2
-+	beqz	a2, 6f
-+	add	a3, t0, a2
- 5:
--	sb a1, 0(t0)
--	addi t0, t0, 1
--	bltu t0, a3, 5b
-+	sb	a1, 0(t0)
-+	addi	t0, t0, 1
-+	bltu	t0, a3, 5b
- 6:
- 	ret
- END(__memset)
+-void riscv_init_cbom_blocksize(void)
++void riscv_init_cbo_blocksizes(void)
+ {
++	unsigned long cbom_hartid, cboz_hartid;
++	u32 cbom_blksz = 0, cboz_blksz = 0;
+ 	struct device_node *node;
+-	unsigned long cbom_hartid;
+-	u32 probed_block_size;
+ 
+-	probed_block_size = 0;
+ 	for_each_of_cpu_node(node) {
+-		/* set block-size for cbom extension if available */
++		/* set block-size for cbom and/or cboz extension if available */
+ 		cbo_get_block_size(node, "riscv,cbom-block-size",
+-				   &probed_block_size, &cbom_hartid);
++				   &cbom_blksz, &cbom_hartid);
++		cbo_get_block_size(node, "riscv,cboz-block-size",
++				   &cboz_blksz, &cboz_hartid);
+ 	}
+ 
+-	if (probed_block_size)
+-		riscv_cbom_block_size = probed_block_size;
++	if (cbom_blksz)
++		riscv_cbom_block_size = cbom_blksz;
++
++	if (cboz_blksz)
++		riscv_cboz_block_size = cboz_blksz;
+ }
 -- 
 2.37.3
 
