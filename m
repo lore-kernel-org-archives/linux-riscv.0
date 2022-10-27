@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79626ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 23:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BE8FA3743
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Oct 2022 23:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=edYCh4rI+1nAbN1FyomJ1DSD4Z9Lp0gcXjWyW96U4rQ=; b=H0FSabMb3rv8ZXTkbxB39fQNeq
-	Tc+KPPcu9R07RuLEKKUkddMLVEJ0AeFrTtUQnMsf+ckijv1zlMoH0OV+GwtMkLiIElJ+JPAP1Cccx
-	WJrD2KKWlF5And+FEdwgIZllpQ6xpodJsdntlXR9AY7RluuAEPwsYaD+7Cgl4GqbACAlSAe+ZixrB
-	bO0jzPLRAGc+374h7lVyVOpg7rhLSql6XwU4nTRGIcPw3CFxfgRnid1jjqw6l7GCtJE1jNGKVeEkn
-	a6HNfQqH8qhoi55uFuTD7ICv2HxCpdw7KTJYmPK7Ig6nsUVc66inhBwo1I0rn0jrtThkrx4vWTbny
-	5oiRY3MA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
+	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=c/u+3pDNSsDggM4BDaWe6xFOo/hs/n+FPGVPQ39YlM8=; b=2jcpHdViSKjuxh
+	EXXjR7heuB0c7BKBPh84DMEptzA8QqjRosJIichQ3pBBcKpttkPGJrLralMUOxg1voRWu3cg/y8GI
+	z6oDn/RBfzgkkQPH93znFa9LbkvGFpd2QaC9wRb1T6zrMmXjeOlvwqTDiW/eIww9RKwroSxKFPAzd
+	m5X5ZIl5fcc1iLKV6twe9B6CcmXsh/qcZGG023GtMC8Q7WHDZKZLeydhUCLa5jGF5tmd3xSILdfad
+	BY6RzmZA3fCNYfdT6h4HZH5sVEGxFaovlzw1z1B0JaReDIBmzk+tEhxxK2oVo/yTQgrY0X8oDWGBD
+	quFGwDeUjoB1fyUH4n1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooByH-00FAsr-EG; Thu, 27 Oct 2022 23:07:33 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1ooByJ-00FAtj-C6; Thu, 27 Oct 2022 23:07:35 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooBy8-00FAno-Ol
-	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 23:07:29 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 78so3139448pgb.13
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 16:07:24 -0700 (PDT)
+	id 1ooByC-00FAq1-7D
+	for linux-riscv@lists.infradead.org; Thu, 27 Oct 2022 23:07:30 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id d13-20020a17090a3b0d00b00213519dfe4aso2938848pjc.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Oct 2022 16:07:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=r7ZwQDjmVNpyM8eGvcKf07ueI+SDPbraRsgxG6I2tAA=;
-        b=WisfFTtx21I3yqt1Nw+D22CSWrVOJmj7hFRDeeNpMuh+d9TYXw1VuJ49uIHY7FDFLf
-         QwNjrKCjuMdoT0p+T6bSTq8jqPodRhe10wL6RwRkSS4M3+ewLLesWmMJnSd3teIhxL+N
-         zDbAru2xMUit2cvozy+Ra1M8Srys3eY/J78hs7ltUjNshk31fVWeiNBctB4sD5s1A7xD
-         D319ddMvV7NzwR0LxPDQR9gp7jBJQHiM+Hzb4odFWCvVOgn0tgYnv6o7UFMPVAEmwjcV
-         6+9Cm28Nd3IeXH6kUDaNcHaKUdnt5WOV1rG7gig5Cdw2uZWmT28LRAIHHzz9fCgtXhbm
-         bexA==
+        bh=NzI3t5d3liRc7hxlBh0IDGSGnHWX+yq/w4U9J6lQZx8=;
+        b=byyQvlyCXCqEAdL5xERGkdxMKFN4si4YldC1ATlpNeVRfFStfcHU9AKbtkCtniLh1p
+         uXMBMfvgijysL9RYs2zBD2kHkQbwtflDGvV0Jw5ONpAPWNi04gO+/f7hM8q0H5/mfcgB
+         4k9bLjKPZfxTQRPDN7ERedmAU8Mz/PO1IqpPs0oWrmDJfHPeRQ3Vk2GeQkEivomXbJ2q
+         G8fkrpmqZkzES6ska5+SoDJFnPJ8XNr30h/BgzoAgkxIK1g8PjKXVWC85CCbnrene8PM
+         0g3J3sWGIDa9UZ84rl54XS8WgeXOTvtTIzfkKxkDJvAcYFIukpPEO5mkd1cCDiriDS7i
+         3/pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r7ZwQDjmVNpyM8eGvcKf07ueI+SDPbraRsgxG6I2tAA=;
-        b=WFjthNsOWgZwIyTJQJwhadQlti6q2t61aPQvdTbzo4yAAyP8zGIRC64adWZBex7sCo
-         KQ6wHtd5Fx4QDCiEZ1WV+ioxKYdHP08bQ46PhImrs9mFaj0A9gMSul1YnvQXaZ3IrAFc
-         czRHWJarrvEMfCJp8W/remGmDpsNbPNalLIy3ah7Rlx/H2XX+cuXo9n90rFmPy1daKFn
-         5ZXZQy9Fk3kKLjA6u6Ii/Wo2mSt9XzXt8tEKZEbXPOGmXD+u6I3WzIgKANYmnkDKTyAq
-         +0bNHcDNFUDccf+jXswkgfDQ4LN0euYiMGnlwd1j3FE99/KvzUrInNPrfjA7S64hNw6E
-         Ui8w==
-X-Gm-Message-State: ACrzQf0frIPN7Enwf0hGnfSOj4DhGrsgh5Knxf0I0coTbLvr7LW21U3E
-	CFmJCaU8DcSMo7jCqhzjrfeAbw==
-X-Google-Smtp-Source: AMsMyM4lCRpo1/qoPrU+4TKGZmkjoDHiZs2bxqR+mCtLWFWFfk6AdJihtpcbgbgxmAwz131aJaiFcw==
-X-Received: by 2002:a05:6a00:2342:b0:56b:e64c:e065 with SMTP id j2-20020a056a00234200b0056be64ce065mr21562480pfj.32.1666912044311;
-        Thu, 27 Oct 2022 16:07:24 -0700 (PDT)
+        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
+         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NzI3t5d3liRc7hxlBh0IDGSGnHWX+yq/w4U9J6lQZx8=;
+        b=icFqNAzYK881BMF34rdXsacGCwl2Av94KgoPv4YCXYSnBlX+xihEj2Fhzo37pcZKCK
+         6fAvsaXh+tLPbAiAprfz6SlS6rqrDqtMkxD26R6u3FXmeVlQBEkd/ao55SXPhkrJXBEL
+         Qp4mkuifBpz+pTaFy/S7gQhvS287s+kwT3C0mdvNZlWSlVYNQtJtYOfyuVpmMx9+dbfX
+         Kn/oA+Rf3fJyh399Yi4wFVMhx97apBKMYa6wOfOB13BWturgyQbMnrrXQ9wdQ9IOhFno
+         FBGossEjJ5mbQwRtegIZJx/Wd6ETW3c0r/CPcPTqdd6vQEwxfyxq7SnDUZtGi+H01+Z5
+         ocZg==
+X-Gm-Message-State: ACrzQf20d8jAJRmXpJHN2Ve1Wjie6sjnjJOBca05kmgNAk9nEvuMxt3T
+	m40BQHdy9D34ucneLXeeMXLr/w==
+X-Google-Smtp-Source: AMsMyM5ToU3WxdwsAIWxf7cPdbB/NPue87UNhaVnFffRRFyIB6epnEQLe4bWM3MGcu28DLAUQGQBIQ==
+X-Received: by 2002:a17:90b:3715:b0:213:2d7:3164 with SMTP id mg21-20020a17090b371500b0021302d73164mr12800187pjb.191.1666912045501;
+        Thu, 27 Oct 2022 16:07:25 -0700 (PDT)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id f4-20020a62db04000000b00560cdb3784bsm1665664pfg.60.2022.10.27.16.07.23
+        by smtp.gmail.com with ESMTPSA id g22-20020a635656000000b0043c7996f7f0sm1513639pgm.58.2022.10.27.16.07.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Oct 2022 16:07:23 -0700 (PDT)
-Date: Thu, 27 Oct 2022 16:07:23 -0700 (PDT)
-X-Google-Original-Date: Thu, 27 Oct 2022 15:45:24 PDT (-0700)
-Subject: Re: [PATCH] Revert "clocksource/drivers/riscv: Events are stopped during CPU suspend"
-In-Reply-To: <20221023185444.678573-1-conor@kernel.org>
-CC: daniel.lezcano@linaro.org, tglx@linutronix.de,
-  Conor Dooley <conor.dooley@microchip.com>, samuel@sholland.org, aou@eecs.berkeley.edu, atishp@atishpatra.org,
-  dmitriy@oss-tech.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Conor Dooley <conor@kernel.org>
-Message-ID: <mhng-57a8ff91-b9b1-4667-96be-3f8fed25dcc6@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Thu, 27 Oct 2022 16:07:25 -0700 (PDT)
+In-Reply-To: <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
+References: <CAOnJCU+GHzFSzSdvZKBrFeF4WqPvC5w0r1f4r3S8hLbOagPKgA@mail.gmail.com>
+ <20221009083050.3814850-1-panqinglin2020@iscas.ac.cn>
+Subject: Re: [PATCH v1 1/1] riscv: mm: add missing memcpy in kasan_init
+Message-Id: <166691074047.22328.1696025995994116764.b4-ty@rivosinc.com>
+Date: Thu, 27 Oct 2022 15:45:40 -0700
+MIME-Version: 1.0
+X-Mailer: b4 0.11.0-dev-36ce3
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+  alex@ghiti.fr
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: panqinglin2020@iscas.ac.cn, atishp@atishpatra.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_160724_880901_84530408 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20221027_160728_518683_8A5B0891 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,123 +87,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 23 Oct 2022 11:54:44 PDT (-0700), Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> This reverts commit 232ccac1bd9b5bfe73895f527c08623e7fa0752d.
-> If an AXI read to the PCIe controller on PolarFire SoC times out, the
-> system will stall, with an expected:
-> 	 io scheduler mq-deadline registered
-> 	 io scheduler kyber registered
-> 	 microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
-> 	 microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: axi read request error
-> 	 microchip-pcie 2000000000.pcie: axi read timeout
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 Freeing initrd memory: 7336K
-> 	 mc_event_handler: 667402 callbacks suppressed
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	 microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	 mc_event_handler: 666588 callbacks suppressed
-> <truncated>
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	mc_event_handler: 666748 callbacks suppressed
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> 	rcu: 	0-...0: (1 GPs behind) idle=19f/1/0x4000000000000002 softirq=34/36 fqs=2626
-> 		(detected by 1, t=5256 jiffies, g=-1151, q=1143 ncpus=4)
-> 	Task dump for CPU 0:
-> 	task:swapper/0       state:R  running task     stack:    0 pid:    1 ppid:     0 flags:0x00000008
-> 	Call Trace:
-> 	mc_event_handler: 666648 callbacks suppressed
->
->  With this patch applied, the system just locks up without RCU stalling:
-> 	io scheduler mq-deadline registered
-> 	io scheduler kyber registered
-> 	microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
-> 	microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: axi read request error
-> 	microchip-pcie 2000000000.pcie: axi read timeout
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
-> 	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
-> 	Freeing initrd memory: 7332K
->
-> Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
-> Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> I don't really want to post a revert, but it's been nearly a month since
-> I posted about my issue initially & 2 weeks without a reply to Palmer's
-> comments.
-> CC: samuel@sholland.org
-> CC: aou@eecs.berkeley.edu
-> CC: atishp@atishpatra.org
-> CC: daniel.lezcano@linaro.org
-> CC: dmitriy@oss-tech.org
-> CC: linux-kernel@vger.kernel.org
-> CC: linux-riscv@lists.infradead.org
-> CC: palmer@dabbelt.com
-> CC: paul.walmsley@sifive.com
-> CC: tglx@linutronix.de
-> ---
->  drivers/clocksource/timer-riscv.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 969a552da8d2..a0d66fabf073 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -51,7 +51,7 @@ static int riscv_clock_next_event(unsigned long delta,
->  static unsigned int riscv_clock_event_irq;
->  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
->  	.name			= "riscv_timer_clockevent",
-> -	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-> +	.features		= CLOCK_EVT_FEAT_ONESHOT,
->  	.rating			= 100,
->  	.set_next_event		= riscv_clock_next_event,
->  };
+On Sun, 9 Oct 2022 16:30:50 +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> Hi Atish,
+> 
+> It seems that the panic is due to the missing memcpy during kasan_init.
+> Could you please check whether this patch is helpful?
+> 
+> [...]
 
-There's some discussion on that linked patch and we don't really have a 
-fix yet, but IMO we're better off reverting this as it breaks the common 
-case and it's not clear this is even a sane way to fix the bug.
+Applied, thanks!
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+[1/1] riscv: mm: add missing memcpy in kasan_init
+      https://git.kernel.org/palmer/c/9f2ac64d6ca6
+
+Best regards,
+-- 
+Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
