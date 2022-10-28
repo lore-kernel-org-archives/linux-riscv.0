@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18FDECAAA1
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 10:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23DCECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 10:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=td9Dv24kTmtrf2CKDA064tnFVCtNPzAm2mt1Xj6icuA=; b=VopEaY9L6ZZBue
-	8PvAv8bHUb5spZJti8zfNZ6yXVxBFFkxHKWl4kxpwB+ij8bFwB1itNSemYByjb3RrZPZAxlLgdi6x
-	fgvWwmfdI0BwQ18V1da8ygRSRYpT+AlelNIauB5gTi0/iPZwwjMl+lgWEeqQk6VJyGQRH4Uwe9VBL
-	SUM9QnqlD2CvYttBvgTkKYfrL+DFwN3l6VZNhCTnsefglvqunDM1NSKjsbqyZ5Sb891iXk5RgpgtW
-	XF0KnVLgglL3Fca4SaUUdCGGPkxYdHq4Ocezj3KR+oMXXYHcBpMyKrvcAXndXo5S32JyiWPqmUhHw
-	TLzJwXLRFgYmicL1XsWg==;
+	List-Owner; bh=CAXG1JWXDh55q6k/09m3bMXsjRwL1lG0JexJMOhQZzs=; b=B4h5cLihGM2dJR
+	VrecxlYkVOtwJtF8jO1t1wLIQnJv7+vAIvGQlpXVDgSQ9GXHTWcLWPzS8ItPCtqElUjKnRTaMG6Ah
+	PYLriI/7jDMjv0+hfegRbkDW4UjYxpYA0fHXxYUQmyZkmSF5IZpQtrtC6zouSXSAY4btgKCNx8/Qu
+	Fs0RWki6RP4rsjvbtmXAdClWSRg7B7h8fwK4hhP4YnASUSIS362vIi7WTWQiQcU28CD0b+twqFtxk
+	vLq8OAEk5PNGLRvhMy6KL9VaupuU6ryyP4TGfHGrFS3jaovgX3FHpMAgHLUKy+n1sVqi3+MVbaw0x
+	zPBTDUy4x7PO7GYSWcgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooMDb-00GW6O-GY; Fri, 28 Oct 2022 10:04:03 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1ooMFE-00GWwO-Rw; Fri, 28 Oct 2022 10:05:44 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooM6s-00GTTB-Jn
-	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 09:57:08 +0000
+	id 1ooM72-00GTXU-9G
+	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 09:57:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1666951026; x=1698487026;
+  t=1666951036; x=1698487036;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=HDOW4KvVqZm7M+oRwyLLXnE8cnS2CkUYQNAOKUB1qEA=;
-  b=jRqdHqcx/aR/bij84Bzd1HIN5kpKrBVS7bBSC2/+cto/QOMYEPxGiDwz
-   yfusXjdNONcY1dNteLvSg1RNi3XPQg1aJSPq2JUQynfwyMsJDzBFtsfzJ
-   Ws1Jy1muSwkseREWSFoGlkB/5ZLn30cRbRvoGffVn7dJlghIfIXMptYdF
-   HO9VwhV5hvJfzDe8OxWpS28p8ya0vKmblZ2WwUKE9V2nDy9U4mKRVyUV5
-   2tLFlLnHXIHsNQ1oxmBnbPsUdeeufSQflrmonIv3YdJJ9Yd3vwA4QUsYs
-   HIztAgSpODBzH4aPknySfKAB7+LXt7qSjN+FWR7BC12qxBP4JkOJvZS2q
+  bh=Ukg2qTmNSbfxQotuwWTieHEmVg4/tjCtE5mHopxUMgk=;
+  b=YvzNXw/i/lv7iO8qEhP8q94e4XsyKevzTExkY4l7PIYg9tlVNwlcrQOw
+   A1Q/Oae+5/S7tl6Kt0N/YsZ+UVbdFa3xRlWDUl88M7SqG/uw3HqtT2hwk
+   iNUuQwRZhvAaQXs+7rJRep1NfWnS/r7kIPRkQCp3pbWwT0DlTFsDkJ9Up
+   udr2Gmi9vUTJBqMUAtQRJoYQweF8fu23NcVuBHOJAVGZZcz2cbWr2db8t
+   Y6f9Wq1rSkKRmFOZz2nkmVoBNP8a67Ro6ZncvS15WUIcCWoBUs+L6yakw
+   +/kU/sHctNAjGBONS89BDyj4tocujZ3MwpQRADm3WXtybHAyw3xdUFX/a
    g==;
 X-IronPort-AV: E=Sophos;i="5.95,220,1661788800"; 
-   d="scan'208";a="214962178"
+   d="scan'208";a="215317989"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
-  by ob1.hgst.iphmx.com with ESMTP; 28 Oct 2022 17:57:05 +0800
-IronPort-SDR: EpTaSDYiopKLHh6wawg6i/B6e7AzwdvUw68NG8JWCKSikQTe3eSkqfnOfqeTwcoXsFuliXsT4r
- /o00k0jLhblYZiGvz0uaioyVQVxQogrKy5rj2rBgc90p/SMQZwvZ3l19kos6iLTcVZAcCtQ1DA
- zznhRzBu80vVVHt4guLotQJ9NYn18NFQnmnMMGf1ElfNqv7fc+OeyiZKnkUlmsYyekJX7lmtGy
- M95hk++p7/onihKI7cjFP7O5IJb3MVs2fLqdo3rSy3wZHug4BneknkBnWrl3frcmSsv9rxRsH8
- qMsTFTdNlHqdRyL1hF0/TUen
+  by ob1.hgst.iphmx.com with ESMTP; 28 Oct 2022 17:57:14 +0800
+IronPort-SDR: Xea2NtP8s8A+1tXJ8IjgFabjb45D9wcyJ4+8EyVzxPklfh55FUy2H+Ia9+3o81vVQoDjtjFw7d
+ ue3rqenPZpPzwhsjRT3C6icKHw86zaioJBEMwNDb2Jw/Pkn5RoyM5wMzB4dbd7D4GCT78RqzQm
+ 5o+CxrUJNaWVWzeevrXyWGC4C5cMnCsKBrqzyu7yPBg6brIb2xHKIGpXHYObWAWn9X8o0MuVq4
+ sIUfgEpFnkYOrzyhSUvIFP4dfzW0D917PDD5fI3AwRKeTK2cPwamTuBAw0pv56GOzAjW+vAI6i
+ qJLguNZeS3xgwxeDrrt6tJS3
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
-  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:16:25 -0700
-IronPort-SDR: 0/w+qhZizad765dw5jx5c5mxhJVrY4OhmEOfhUvacgVwm2a5lbdNz3AdcXxBzYPGsMFnF82r7F
- bXFLtckayvvuAbInCTgnoA3Sph8SvPV+HlOFbYUmQiPU/8RaXmJzHu/CqMGKaike8S2fcqcYU4
- BfhrMNwmPnlv8w/wS4yoEAqPMPlIc0C3yOu+tDc+PuEfbPKhiMjn5HqyyWxpMvQlbS6Th1Wae3
- 53yyCX2PD3dVTvYJ7KyYqI8dw5x4aD0NcUDWdWNWAbRHhRBxH/kGso6abz0UIiwrwEAxVs9N/p
- 4nI=
+  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:16:34 -0700
+IronPort-SDR: 8FbO6fyTzzBXZdR9XN2GexFHpakj+SyN4QKczgHj1uS8+5VxzorqhS5fpHDIMInQoFTubfDO6f
+ 5QGWe9xaKXFl4tRLiY8wjf09WN9XuYAkN2fSfn0xDr7Y8jRHvJqdDsZZ1aDEOOZvZIGw4VXUvJ
+ hYWRWY5YLQASIDTaFQ5AS9nXmgFh2p2/s2/oh0B1Pn1TLB19SgtS+NnmRskvXiX3OdL+k54FWC
+ VbNnm1/FgDSQWhjBWc/pn5E3eJbotdbwQbjeOR3BXeB0I6tFpmv8cGMxDsgsFd8XT4bQz8rJNZ
+ UjA=
 WDCIronportException: Internal
 Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
-  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:57:06 -0700
+  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:57:14 -0700
 Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4MzHyT1WkTz1Rwtm
-	for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 02:57:05 -0700 (PDT)
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4MzHyd1y2cz1SHkN
+	for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 02:57:13 -0700 (PDT)
 Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
 	reason="pass (just generated, assumed good)"
 	header.d=opensource.wdc.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
 	opensource.wdc.com; h=content-transfer-encoding:mime-version
 	:references:in-reply-to:x-mailer:message-id:date:subject:to
-	:from; s=dkim; t=1666951023; x=1669543024; bh=HDOW4KvVqZm7M+oRwy
-	LLXnE8cnS2CkUYQNAOKUB1qEA=; b=sAi49Kz2aJYOKZLKyiB/WlLqbdA/IvI1xK
-	OBN3BMUWU/e1IBbG+n6Ac+ZZqv+G5mMc1Js/804PxVD4y7APryBjKkSh849VHIcc
-	nG0PZChp3RVA8YGzYh0X1Ha/1dDleUur6uepq87pxLK13mEGdf6JAZ9jaNdTnE0i
-	NFUaD83Rux/jF5LDGkHT8Lc1SafrYsu3KuGFpuFooVooLgnLcxnK6S4j7V2l6FFX
-	kAPK8IsQ/ENXLpif3vkLWEudo6NV1JaLzzENYnjyxnnxeQ3cni0F3GER8FPdqS41
-	NT3LgJcWBh2BCp1vKPVeDaSZgJ+IK92VwpME44nP1sYKxpqe/+MA==
+	:from; s=dkim; t=1666951031; x=1669543032; bh=Ukg2qTmNSbfxQotuwW
+	TieHEmVg4/tjCtE5mHopxUMgk=; b=XoCXBRwRjUVW20Iyiw7Ncz9qA6Y7jOuo8m
+	w/G8osTW19FFlzpKM22INyC6m+ZqsW/n1Ch9ryyHlArDTWw5GB0zrU+ZQfljy2oX
+	c9kEp9TUbpGba2sWPxxEeX04baDMcX8URqB8BANKiB3LEOlMACM6C+z8GOgLLVIa
+	/V6DhcV2n/hnsi6JusbOgc3btLu+n4nNjIEykuu50qKj159tB4KpJoa3tfqyAm3D
+	DqQeycQan6SOtNMyUmwhPpoAp6kasc30qw80a32RT+WEeDcCrXkj2xlvU+VWpoeK
+	inkUSTGoxo1PxL6eKckIQhzvoCrVaSXMkHLfOi24JRTGYzJ3FhXg==
 X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
 Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
 	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id oQZtcP_aH-WB for <linux-riscv@lists.infradead.org>;
-	Fri, 28 Oct 2022 02:57:03 -0700 (PDT)
+	with ESMTP id 8w7G-d3_pnDX for <linux-riscv@lists.infradead.org>;
+	Fri, 28 Oct 2022 02:57:11 -0700 (PDT)
 Received: from toolbox.alistair23.me (unknown [10.225.167.50])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4MzHyH5rjnz1RvLy;
-	Fri, 28 Oct 2022 02:56:55 -0700 (PDT)
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4MzHyS2SsTz1RvTp;
+	Fri, 28 Oct 2022 02:57:03 -0700 (PDT)
 From: Alistair Francis <alistair.francis@opensource.wdc.com>
 To: linux-kernel@vger.kernel.org
 Cc: acme@kernel.org,
@@ -100,16 +100,16 @@ Cc: acme@kernel.org,
 	mingo@redhat.com,
 	alistair.francis@wdc.com,
 	atish.patra@wdc.com
-Subject: [PATCH 2/6] selftests: futex: Call the futex syscall from a function
-Date: Fri, 28 Oct 2022 19:56:28 +1000
-Message-Id: <20221028095632.1081262-3-alistair.francis@opensource.wdc.com>
+Subject: [PATCH 3/6] uapi: futex: Add a futex syscall
+Date: Fri, 28 Oct 2022 19:56:29 +1000
+Message-Id: <20221028095632.1081262-4-alistair.francis@opensource.wdc.com>
 X-Mailer: git-send-email 2.37.3
 In-Reply-To: <20221028095632.1081262-1-alistair.francis@opensource.wdc.com>
 References: <20221028095632.1081262-1-alistair.francis@opensource.wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_025706_708522_5F51C229 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20221028_025716_455028_7535FB09 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,180 +128,130 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Alistair Francis <alistair.francis@wdc.com>
 
-Call the futex syscall from a function
+This commit adds two futex syscall wrappers that are exposed to
+userspace.
 
-In preparation for a more complex futex() function let's convert the
-current macro into two functions. We need two functions to avoid
-compiler failures as the macro is overloaded.
+Neither the kernel or glibc currently expose a futex wrapper, so
+userspace is left performing raw syscalls. This has mostly been because
+the overloading of one of the arguments makes it impossible to provide a
+single type safe function.
 
-This will allow us to include pre-processor conditionals in the futex
-syscall functions.
+Until recently the single syscall has worked fine. With the introduction
+of a 64-bit time_t futex call on 32-bit architectures, this has become
+more complex. The logic of handling the two possible futex syscalls is
+complex and often implemented incorrectly.
+
+This patch adds two futex syscall functions that correctly handle the
+time_t complexity for userspace.
+
+This idea is based on previous discussions:
+https://lore.kernel.org/lkml/CAK8P3a3x_EyCiPDpMK54y=Rtm-Wb08ym2TNiuAZgXhYrThcWTw@mail.gmail.com/
 
 Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-Message-Id: <20211209235857.423773-2-alistair.francis@opensource.wdc.com>
+Message-Id: <20211209235857.423773-3-alistair.francis@opensource.wdc.com>
 ---
- .../selftests/futex/include/futextest.h       | 59 +++++++++++--------
- 1 file changed, 34 insertions(+), 25 deletions(-)
+ include/uapi/linux/futex_syscall.h | 92 ++++++++++++++++++++++++++++++
+ 1 file changed, 92 insertions(+)
+ create mode 100644 include/uapi/linux/futex_syscall.h
 
-diff --git a/tools/testing/selftests/futex/include/futextest.h b/tools/testing/selftests/futex/include/futextest.h
-index ddbcfc9b7bac..c786fffecb8a 100644
---- a/tools/testing/selftests/futex/include/futextest.h
-+++ b/tools/testing/selftests/futex/include/futextest.h
-@@ -48,7 +48,7 @@ typedef volatile u_int32_t futex_t;
- #endif
- 
- /**
-- * futex() - SYS_futex syscall wrapper
-+ * futex_syscall() - SYS_futex syscall wrapper
-  * @uaddr:	address of first futex
-  * @op:		futex op code
-  * @val:	typically expected value of uaddr, but varies by op
-@@ -58,17 +58,26 @@ typedef volatile u_int32_t futex_t;
-  * @val3:	varies by op
-  * @opflags:	flags to be bitwise OR'd with op, such as FUTEX_PRIVATE_FLAG
-  *
-- * futex() is used by all the following futex op wrappers. It can also be
-+ * futex_syscall() is used by all the following futex op wrappers. It can also be
-  * used for misuse and abuse testing. Generally, the specific op wrappers
-- * should be used instead. It is a macro instead of an static inline function as
-- * some of the types over overloaded (timeout is used for nr_requeue for
-- * example).
-+ * should be used instead.
-  *
-  * These argument descriptions are the defaults for all
-  * like-named arguments in the following wrappers except where noted below.
-  */
--#define futex(uaddr, op, val, timeout, uaddr2, val3, opflags) \
--	syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3)
+diff --git a/include/uapi/linux/futex_syscall.h b/include/uapi/linux/futex_syscall.h
+new file mode 100644
+index 000000000000..bac621eb319c
+--- /dev/null
++++ b/include/uapi/linux/futex_syscall.h
+@@ -0,0 +1,92 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Futex syscall helper functions
++ *
++ * Copyright (C) 2021 Western Digital.  All Rights Reserved.
++ *
++ * Author: Alistair Francis <alistair.francis@wdc.com>
++ */
++#ifndef _UAPI_LINUX_FUTEX_SYSCALL_H
++#define _UAPI_LINUX_FUTEX_SYSCALL_H
++
++#include <unistd.h>
++#include <errno.h>
++#include <linux/futex.h>
++#include <linux/types.h>
++#include <linux/time_types.h>
++#include <stdint.h>
++#include <sys/syscall.h>
++#include <sys/types.h>
++#include <time.h>
++
++/**
++ * __kernel_futex_syscall_timeout() - __NR_futex/__NR_futex_time64 syscall wrapper
++ * @uaddr:  address of first futex
++ * @op:   futex op code
++ * @val:  typically expected value of uaddr, but varies by op
++ * @timeout:  an absolute struct timespec
++ * @uaddr2: address of second futex for some ops
++ * @val3: varies by op
++ */
 +static inline int
-+futex_syscall(volatile u_int32_t *uaddr, int op, u_int32_t val, struct timespec *timeout,
-+	      volatile u_int32_t *uaddr2, int val3, int opflags)
++__kernel_futex_syscall_timeout(volatile uint32_t *uaddr, int op, uint32_t val,
++		      struct timespec *timeout, volatile uint32_t *uaddr2, int val3)
 +{
-+	return syscall(SYS_futex, uaddr, op | opflags, val, timeout, uaddr2, val3);
++#if defined(__NR_futex_time64)
++	if (sizeof(*timeout) != sizeof(struct __kernel_old_timespec)) {
++		int ret = syscall(__NR_futex_time64, uaddr, op, val, timeout, uaddr2, val3);
++
++		if (ret == 0 || errno != ENOSYS)
++			return ret;
++	}
++#endif
++
++#if defined(__NR_futex)
++	if (sizeof(*timeout) == sizeof(struct __kernel_old_timespec))
++		return syscall(__NR_futex, uaddr, op, val, timeout, uaddr2, val3);
++
++	if (timeout && timeout->tv_sec == (long)timeout->tv_sec) {
++		struct __kernel_old_timespec ts_old;
++
++		ts_old.tv_sec = (__kernel_long_t) timeout->tv_sec;
++		ts_old.tv_nsec = (__kernel_long_t) timeout->tv_nsec;
++
++		return syscall(__NR_futex, uaddr, op, val, &ts_old, uaddr2, val3);
++	} else if (!timeout) {
++		return syscall(__NR_futex, uaddr, op, val, NULL, uaddr2, val3);
++	}
++#endif
++
++	errno = ENOSYS;
++	return -1;
 +}
 +
++/**
++ * __kernel_futex_syscall_nr_requeue() - __NR_futex/__NR_futex_time64 syscall wrapper
++ * @uaddr:  address of first futex
++ * @op:   futex op code
++ * @val:  typically expected value of uaddr, but varies by op
++ * @nr_requeue:  an op specific meaning
++ * @uaddr2: address of second futex for some ops
++ * @val3: varies by op
++ */
 +static inline int
-+futex_syscall_nr_requeue(volatile u_int32_t *uaddr, int op, u_int32_t val, int nr_requeue,
-+			 volatile u_int32_t *uaddr2, int val3, int opflags)
++__kernel_futex_syscall_nr_requeue(volatile uint32_t *uaddr, int op, uint32_t val,
++			 uint32_t nr_requeue, volatile uint32_t *uaddr2, int val3)
 +{
-+	return syscall(SYS_futex, uaddr, op | opflags, val, nr_requeue, uaddr2, val3);
++#if defined(__NR_futex_time64)
++	int ret =  syscall(__NR_futex_time64, uaddr, op, val, nr_requeue, uaddr2, val3);
++
++	if (ret == 0 || errno != ENOSYS)
++		return ret;
++#endif
++
++#if defined(__NR_futex)
++	return syscall(__NR_futex, uaddr, op, val, nr_requeue, uaddr2, val3);
++#endif
++
++	errno = ENOSYS;
++	return -1;
 +}
- 
- /**
-  * futex_wait() - block on uaddr with optional timeout
-@@ -77,7 +86,7 @@ typedef volatile u_int32_t futex_t;
- static inline int
- futex_wait(futex_t *uaddr, futex_t val, struct timespec *timeout, int opflags)
- {
--	return futex(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
-+	return futex_syscall(uaddr, FUTEX_WAIT, val, timeout, NULL, 0, opflags);
- }
- 
- /**
-@@ -87,7 +96,7 @@ futex_wait(futex_t *uaddr, futex_t val, struct timespec *timeout, int opflags)
- static inline int
- futex_wake(futex_t *uaddr, int nr_wake, int opflags)
- {
--	return futex(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
-+	return futex_syscall(uaddr, FUTEX_WAKE, nr_wake, NULL, NULL, 0, opflags);
- }
- 
- /**
-@@ -98,8 +107,8 @@ static inline int
- futex_wait_bitset(futex_t *uaddr, futex_t val, struct timespec *timeout,
- 		  u_int32_t bitset, int opflags)
- {
--	return futex(uaddr, FUTEX_WAIT_BITSET, val, timeout, NULL, bitset,
--		     opflags);
-+	return futex_syscall(uaddr, FUTEX_WAIT_BITSET, val, timeout, NULL, bitset,
-+			     opflags);
- }
- 
- /**
-@@ -109,8 +118,8 @@ futex_wait_bitset(futex_t *uaddr, futex_t val, struct timespec *timeout,
- static inline int
- futex_wake_bitset(futex_t *uaddr, int nr_wake, u_int32_t bitset, int opflags)
- {
--	return futex(uaddr, FUTEX_WAKE_BITSET, nr_wake, NULL, NULL, bitset,
--		     opflags);
-+	return futex_syscall(uaddr, FUTEX_WAKE_BITSET, nr_wake, NULL, NULL, bitset,
-+			     opflags);
- }
- 
- /**
-@@ -121,7 +130,7 @@ static inline int
- futex_lock_pi(futex_t *uaddr, struct timespec *timeout, int detect,
- 	      int opflags)
- {
--	return futex(uaddr, FUTEX_LOCK_PI, detect, timeout, NULL, 0, opflags);
-+	return futex_syscall(uaddr, FUTEX_LOCK_PI, detect, timeout, NULL, 0, opflags);
- }
- 
- /**
-@@ -130,7 +139,7 @@ futex_lock_pi(futex_t *uaddr, struct timespec *timeout, int detect,
- static inline int
- futex_unlock_pi(futex_t *uaddr, int opflags)
- {
--	return futex(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
-+	return futex_syscall(uaddr, FUTEX_UNLOCK_PI, 0, NULL, NULL, 0, opflags);
- }
- 
- /**
-@@ -140,8 +149,8 @@ static inline int
- futex_wake_op(futex_t *uaddr, futex_t *uaddr2, int nr_wake, int nr_wake2,
- 	      int wake_op, int opflags)
- {
--	return futex(uaddr, FUTEX_WAKE_OP, nr_wake, nr_wake2, uaddr2, wake_op,
--		     opflags);
-+	return futex_syscall_nr_requeue(uaddr, FUTEX_WAKE_OP, nr_wake, nr_wake2, uaddr2, wake_op,
-+					opflags);
- }
- 
- /**
-@@ -156,8 +165,8 @@ static inline int
- futex_requeue(futex_t *uaddr, futex_t *uaddr2, int nr_wake, int nr_requeue,
- 	      int opflags)
- {
--	return futex(uaddr, FUTEX_REQUEUE, nr_wake, nr_requeue, uaddr2, 0,
--		     opflags);
-+	return futex_syscall_nr_requeue(uaddr, FUTEX_REQUEUE, nr_wake, nr_requeue, uaddr2, 0,
-+					opflags);
- }
- 
- /**
-@@ -169,8 +178,8 @@ static inline int
- futex_cmp_requeue(futex_t *uaddr, futex_t val, futex_t *uaddr2, int nr_wake,
- 		  int nr_requeue, int opflags)
- {
--	return futex(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
--		     val, opflags);
-+	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE, nr_wake, nr_requeue, uaddr2,
-+					val, opflags);
- }
- 
- /**
-@@ -185,8 +194,8 @@ static inline int
- futex_wait_requeue_pi(futex_t *uaddr, futex_t val, futex_t *uaddr2,
- 		      struct timespec *timeout, int opflags)
- {
--	return futex(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
--		     opflags);
-+	return futex_syscall(uaddr, FUTEX_WAIT_REQUEUE_PI, val, timeout, uaddr2, 0,
-+			     opflags);
- }
- 
- /**
-@@ -200,8 +209,8 @@ static inline int
- futex_cmp_requeue_pi(futex_t *uaddr, futex_t val, futex_t *uaddr2, int nr_wake,
- 		     int nr_requeue, int opflags)
- {
--	return futex(uaddr, FUTEX_CMP_REQUEUE_PI, nr_wake, nr_requeue, uaddr2,
--		     val, opflags);
-+	return futex_syscall_nr_requeue(uaddr, FUTEX_CMP_REQUEUE_PI, nr_wake, nr_requeue, uaddr2,
-+					val, opflags);
- }
- 
- /**
++
++#endif /* _UAPI_LINUX_FUTEX_SYSCALL_H */
 -- 
 2.37.3
 
