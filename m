@@ -4,62 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A03ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 08:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864B5C38A02
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 10:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sKQZwu+EaViPHJ/SoSWZXvdUfforJGCAN2SgTWrKu3k=; b=CaHCnInOI56nKG
-	DMziz45cXWuNSJ3s5EBUPq2iAtujmP0FTV/wCf1+JMhLvI5RTB7uuysW089ccvgcJk/982d22p1+K
-	epTtu3vCA1x3MPKncY2fXm4PIX1sSjRKyRehE+sHVcDdqMJDnJ3iFuBu+ctCl9/dxXThekFYXZk+a
-	lWUtvmcl7L7E9K+m+K+lB03azZtGYei2NSifJxza4ZLBriStYzpQaANs63/CE8eemeztJx4EbsF4b
-	I/4R3m6YexlzSIttrspaTHt0sTLqPjUsu+7J2FSZMVGjAi/DBRhg3BH/cZKXr1/gImBWTl9tjWh2+
-	hfkimAAWfp6LZ285SMHg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=49Ww2xWTAokjDc11gcwZIZ2QTyQMd952Y75MZ0BaY6s=; b=mNjZPRjgx4Z7FA
+	7tIJyqXnPM9/Y8RJpBMlV/VeqzBhHxT3EJ3jjV302mbdRHX35D0rSteoIdVWYKQnk7pULIoPFIttq
+	fZepUHdbnXx2tYGBC5ZfrgPb+jqvSFXrX3FAiCWopszxjzlVZX+FE6vmgoGR3Jyk5mWH4IIkPss//
+	Zlov0ZZbYzjwlBbEn1mzsuQZAevqK5hrmBC1wj3NqkfS45XlijpiYBN4Q7eN9A1h6vgzqagOdkDdX
+	9+14yGB/QAU4/bVijNrc20Cfs1xuseBRkkjatMQYvXxExRuXOt7JoYwgcdOv1TRwnETVEYuGCTZiZ
+	A5i3jMJFUI3VRFW/cjkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooKVk-00G7LN-EL; Fri, 28 Oct 2022 08:14:40 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ooMD6-00GVrh-Ck; Fri, 28 Oct 2022 10:03:32 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooKVB-00G75S-GS; Fri, 28 Oct 2022 08:14:08 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4MzFYy41BzzVjMm;
-	Fri, 28 Oct 2022 16:09:10 +0800 (CST)
-Received: from localhost.localdomain (10.67.164.66) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 28 Oct 2022 16:14:00 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <akpm@linux-foundation.org>, <linux-mm@kvack.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <anshuman.khandual@arm.com>,
-	<linux-doc@vger.kernel.org>
-CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
-	<punit.agrawal@bytedance.com>, <linux-kernel@vger.kernel.org>,
-	<darren@os.amperecomputing.com>, <yangyicong@hisilicon.com>,
-	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
-	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
-	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
-	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, Barry Song <v-songbaohua@oppo.com>, Nadav Amit
-	<namit@vmware.com>, Mel Gorman <mgorman@suse.de>
-Subject: [PATCH v5 2/2] arm64: support batched/deferred tlb shootdown during page reclamation
-Date: Fri, 28 Oct 2022 16:12:55 +0800
-Message-ID: <20221028081255.19157-3-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20221028081255.19157-1-yangyicong@huawei.com>
-References: <20221028081255.19157-1-yangyicong@huawei.com>
+	id 1ooM6g-00GTLq-Q9
+	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 09:56:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1666951013; x=1698487013;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BgN+8iSWd8cYylvYK6FRliQdJ8AUyo6BZ6FMoT0gJnA=;
+  b=drj5pelbVZcd4bpJgo5LWJbjGl3GM8/liMVZFj7tZsXOHmSSMTZTdV0+
+   me5xIFWYX96UlX8ZUZJ+uhZ6oFf9P7IndRAcfsuFzkeV3D+13QhdO0Qaj
+   XAUXfikd9/FiyIpRyaXGBubamGmRfU0qYavTeQnYwHPvBIy7si3jMFRMT
+   NfnoFSLAzxqPMap7QxmaF8hE8JIaTwvQtDMBnbXEurDiiCSnXM0I30iTT
+   KoDTyYyUTW9kVHbp6yCyN1LvHAhIyUXWGGIRNcJ7WjS0u20ROkWtYBymj
+   ZryaHJ/JETycRvRBWtB65c2Oo3JRm8LOOOd4jiCv7269n5SsVlpTurAKi
+   g==;
+X-IronPort-AV: E=Sophos;i="5.95,220,1661788800"; 
+   d="scan'208";a="213258366"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
+  by ob1.hgst.iphmx.com with ESMTP; 28 Oct 2022 17:56:51 +0800
+IronPort-SDR: aT0zW7CA4glHXCfr4lnjHey8aCYqcy64Cs+0MH+jLyQPzQVfKUyXK/nrg0r8gWp4cCB6mrOOKX
+ jdWOJ7tvOJU5tyrhRwUWGpwkBQd4R6I/kftuKCBAC2y3/MYd1rY0DI8SA9El4cSz65Dqduk/yT
+ b+kLMPn35OJjhpVGTOQwPbbnbjzlXCbn7wrMybCJYJP/fLf5B+3YI8DmaHh7zSlGDpLDK30M+U
+ Gxgya7qvbBDxEVDk4OHhWkYrGm+Y8X7oobvGfYSHdJUc+yoWt0+N/oRtmOfiOlEeUPBEAlo4rB
+ u2R6n1fuhd64EHKo79QmeqTK
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:16:11 -0700
+IronPort-SDR: mZl+oppFguOETZu6R4I9Wegwia0jWhGkU9zCg6pkVipAR2AMXGpNjhPMGRfZaD0lLTA/Leg6LU
+ PW266sjnOs9v0VhV7MrToBqSQo8s7Xh4cNOGpUBgqLErUQYKnabzOVwMXan4yxEza3uLx9XmSn
+ PV+L6ZozbiUFnYEwYAS/yySaPa4MvzeLrHiTl07x+HvQ8C2TPOKA2ecl1Zyy07SkAA35R1VHA2
+ ICGvExxxJ4QmllR3nafLrRMzvvqu0oC8Lp0aAzZJ/rU2PJ7g0Zo+SWFyA0x8U5AfN+Q0SPJs8D
+ a08=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Oct 2022 02:56:49 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4MzHy81Gmkz1RWy3
+	for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 02:56:48 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+	reason="pass (just generated, assumed good)"
+	header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+	opensource.wdc.com; h=content-transfer-encoding:mime-version
+	:content-type:x-mailer:message-id:date:subject:to:from; s=dkim;
+	 t=1666951007; x=1669543008; bh=BgN+8iSWd8cYylvYK6FRliQdJ8AUyo6B
+	Z6FMoT0gJnA=; b=TZ/OXYWLpzrktMUlmpuxX7nmfXmcysrAOvOIeAA1P47SDEME
+	Nsn2uJB1Y0bVuv4nsVqqMQtvDSHF+qWcMATpJCHCqUxLLpMZbZ0ZHwAe0sMab+jB
+	bD22UFay3FckIrC/gdGxKnpmvxj/nqNd5Dsl+/2XKcp3cw3sW0vgQTsT2xkXxetb
+	np3kwK7Ayi8YwQVP2E2USwhd9PxIKFJ0INBvbADG87h/cH//n07GMQOKNZW9aeaI
+	V2JfFboZtJ2Rtt+fRP8x8qMVenHmiBo/WtAvN+z7awVWooGLZ41iGxfdnmPePVYx
+	CeReqy8D+9jHC5tJ2lhcBo7DxVReO/o6qw4MzQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id IAkxBefJnJmx for <linux-riscv@lists.infradead.org>;
+	Fri, 28 Oct 2022 02:56:47 -0700 (PDT)
+Received: from toolbox.alistair23.me (unknown [10.225.167.50])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4MzHxz74RDz1RvLy;
+	Fri, 28 Oct 2022 02:56:39 -0700 (PDT)
+From: Alistair Francis <alistair.francis@opensource.wdc.com>
+To: linux-kernel@vger.kernel.org
+Cc: acme@kernel.org,
+	dave@stgolabs.net,
+	alexander.shishkin@linux.intel.com,
+	tglx@linutronix.de,
+	namhyung@kernel.org,
+	jolsa@redhat.com,
+	linux-perf-users@vger.kernel.org,
+	acme@redhat.com,
+	dvhart@infradead.org,
+	mark.rutland@arm.com,
+	peterz@infradead.org,
+	arnd@arndb.de,
+	alistair23@gmail.com,
+	linux-riscv@lists.infradead.org,
+	mingo@redhat.com,
+	alistair.francis@wdc.com,
+	atish.patra@wdc.com
+Subject: [PATCH 0/6] Fixup perf tests for 32-bit systems with 64-bit time_t
+Date: Fri, 28 Oct 2022 19:56:26 +1000
+Message-Id: <20221028095632.1081262-1-alistair.francis@opensource.wdc.com>
+X-Mailer: git-send-email 2.37.3
 MIME-Version: 1.0
-X-Originating-IP: [10.67.164.66]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_011405_936675_39ACF952 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20221028_025654_951943_EC239424 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,323 +124,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <v-songbaohua@oppo.com>
+From: Alistair Francis <alistair.francis@wdc.com>
 
-on x86, batched and deferred tlb shootdown has lead to 90%
-performance increase on tlb shootdown. on arm64, HW can do
-tlb shootdown without software IPI. But sync tlbi is still
-quite expensive.
+This series aims to fix perf for 32-bit systems with a 64-bit time_t
+(like RV32).
 
-Even running a simplest program which requires swapout can
-prove this is true,
- #include <sys/types.h>
- #include <unistd.h>
- #include <sys/mman.h>
- #include <string.h>
+This series also adds a public futex waitv syscall that userspace
+can use to avoid this complexity.
 
- int main()
- {
- #define SIZE (1 * 1024 * 1024)
-         volatile unsigned char *p = mmap(NULL, SIZE, PROT_READ | PROT_WRITE,
-                                          MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+This series hasn't addressed the build failure pointed out in:
+https://patchwork.kernel.org/project/linux-riscv/patch/20211209235857.423773-1-alistair.francis@opensource.wdc.com/
+as I'm unable to reproduce it and unclear on how it can be fixed.
 
-         memset(p, 0x88, SIZE);
+v6:
+ - No change
 
-         for (int k = 0; k < 10000; k++) {
-                 /* swap in */
-                 for (int i = 0; i < SIZE; i += 4096) {
-                         (void)p[i];
-                 }
+Alistair Francis (6):
+  perf bench futex: Add support for 32-bit systems with 64-bit time_t
+  selftests: futex: Call the futex syscall from a function
+  uapi: futex: Add a futex syscall
+  selftests: futex: Add support for 32-bit systems with 64-bit time_t
+  uapi: futex: Add a futex waitv syscall
+  selftests: futex: Use futex_waitv helper function
 
-                 /* swap out */
-                 madvise(p, SIZE, MADV_PAGEOUT);
-         }
- }
+ include/uapi/linux/futex_syscall.h            | 119 ++++++++++++++++++
+ tools/perf/bench/futex.h                      |  52 +++++++-
+ .../futex/functional/futex_requeue_pi.c       |   2 +-
+ .../selftests/futex/include/futex2test.h      |   3 +-
+ .../selftests/futex/include/futextest.h       |  60 +++++----
+ 5 files changed, 206 insertions(+), 30 deletions(-)
+ create mode 100644 include/uapi/linux/futex_syscall.h
 
-Perf result on snapdragon 888 with 8 cores by using zRAM
-as the swap block device.
-
- ~ # perf record taskset -c 4 ./a.out
- [ perf record: Woken up 10 times to write data ]
- [ perf record: Captured and wrote 2.297 MB perf.data (60084 samples) ]
- ~ # perf report
- # To display the perf.data header info, please use --header/--header-only options.
- # To display the perf.data header info, please use --header/--header-only options.
- #
- #
- # Total Lost Samples: 0
- #
- # Samples: 60K of event 'cycles'
- # Event count (approx.): 35706225414
- #
- # Overhead  Command  Shared Object      Symbol
- # ........  .......  .................  .............................................................................
- #
-    21.07%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock_irq
-     8.23%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock_irqrestore
-     6.67%  a.out    [kernel.kallsyms]  [k] filemap_map_pages
-     6.16%  a.out    [kernel.kallsyms]  [k] __zram_bvec_write
-     5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
-     3.71%  a.out    [kernel.kallsyms]  [k] _raw_spin_lock
-     3.49%  a.out    [kernel.kallsyms]  [k] memset64
-     1.63%  a.out    [kernel.kallsyms]  [k] clear_page
-     1.42%  a.out    [kernel.kallsyms]  [k] _raw_spin_unlock
-     1.26%  a.out    [kernel.kallsyms]  [k] mod_zone_state.llvm.8525150236079521930
-     1.23%  a.out    [kernel.kallsyms]  [k] xas_load
-     1.15%  a.out    [kernel.kallsyms]  [k] zram_slot_lock
-
-ptep_clear_flush() takes 5.36% CPU in the micro-benchmark
-swapping in/out a page mapped by only one process. If the
-page is mapped by multiple processes, typically, like more
-than 100 on a phone, the overhead would be much higher as
-we have to run tlb flush 100 times for one single page.
-Plus, tlb flush overhead will increase with the number
-of CPU cores due to the bad scalability of tlb shootdown
-in HW, so those ARM64 servers should expect much higher
-overhead.
-
-Further perf annonate shows 95% cpu time of ptep_clear_flush
-is actually used by the final dsb() to wait for the completion
-of tlb flush. This provides us a very good chance to leverage
-the existing batched tlb in kernel. The minimum modification
-is that we only send async tlbi in the first stage and we send
-dsb while we have to sync in the second stage.
-
-With the above simplest micro benchmark, collapsed time to
-finish the program decreases around 5%.
-
-Typical collapsed time w/o patch:
- ~ # time taskset -c 4 ./a.out
- 0.21user 14.34system 0:14.69elapsed
-w/ patch:
- ~ # time taskset -c 4 ./a.out
- 0.22user 13.45system 0:13.80elapsed
-
-Also, Yicong Yang added the following observation.
-	Tested with benchmark in the commit on Kunpeng920 arm64 server,
-	observed an improvement around 12.5% with command
-	`time ./swap_bench`.
-		w/o		w/
-	real	0m13.460s	0m11.771s
-	user	0m0.248s	0m0.279s
-	sys	0m12.039s	0m11.458s
-
-	Originally it's noticed a 16.99% overhead of ptep_clear_flush()
-	which has been eliminated by this patch:
-
-	[root@localhost yang]# perf record -- ./swap_bench && perf report
-	[...]
-	16.99%  swap_bench  [kernel.kallsyms]  [k] ptep_clear_flush
-
-It is tested on 4,8,128 CPU platforms and shows to be beneficial on
-large systems but may not have improvement on small systems like on
-a 4 CPU platform. So make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends
-on CONFIG_EXPERT for this stage and only make this enabled on systems
-with more than 8 CPUs. User can modify this threshold according to
-their own platforms by CONFIG_NR_CPUS_FOR_BATCHED_TLB.
-
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Nadav Amit <namit@vmware.com>
-Cc: Mel Gorman <mgorman@suse.de>
-Tested-by: Yicong Yang <yangyicong@hisilicon.com>
-Tested-by: Xin Hao <xhao@linux.alibaba.com>
-Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- .../features/vm/TLB/arch-support.txt          |  2 +-
- arch/arm64/Kconfig                            |  6 +++
- arch/arm64/include/asm/tlbbatch.h             | 12 +++++
- arch/arm64/include/asm/tlbflush.h             | 46 ++++++++++++++++++-
- arch/x86/include/asm/tlbflush.h               |  3 +-
- mm/rmap.c                                     | 10 ++--
- 6 files changed, 71 insertions(+), 8 deletions(-)
- create mode 100644 arch/arm64/include/asm/tlbbatch.h
-
-diff --git a/Documentation/features/vm/TLB/arch-support.txt b/Documentation/features/vm/TLB/arch-support.txt
-index 039e4e91ada3..2caf815d7c6c 100644
---- a/Documentation/features/vm/TLB/arch-support.txt
-+++ b/Documentation/features/vm/TLB/arch-support.txt
-@@ -9,7 +9,7 @@
-     |       alpha: | TODO |
-     |         arc: | TODO |
-     |         arm: | TODO |
--    |       arm64: | N/A  |
-+    |       arm64: |  ok  |
-     |        csky: | TODO |
-     |     hexagon: | TODO |
-     |        ia64: | TODO |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 505c8a1ccbe0..72975e82c7d7 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -93,6 +93,7 @@ config ARM64
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select ARCH_SUPPORTS_NUMA_BALANCING
- 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
-+	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH if EXPERT
- 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
- 	select ARCH_WANT_DEFAULT_BPF_JIT
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-@@ -268,6 +269,11 @@ config ARM64_CONT_PMD_SHIFT
- 	default 5 if ARM64_16K_PAGES
- 	default 4
- 
-+config ARM64_NR_CPUS_FOR_BATCHED_TLB
-+	int "Threshold to enable batched TLB flush"
-+	default 8
-+	depends on ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-+
- config ARCH_MMAP_RND_BITS_MIN
- 	default 14 if ARM64_64K_PAGES
- 	default 16 if ARM64_16K_PAGES
-diff --git a/arch/arm64/include/asm/tlbbatch.h b/arch/arm64/include/asm/tlbbatch.h
-new file mode 100644
-index 000000000000..fedb0b87b8db
---- /dev/null
-+++ b/arch/arm64/include/asm/tlbbatch.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ARCH_ARM64_TLBBATCH_H
-+#define _ARCH_ARM64_TLBBATCH_H
-+
-+struct arch_tlbflush_unmap_batch {
-+	/*
-+	 * For arm64, HW can do tlb shootdown, so we don't
-+	 * need to record cpumask for sending IPI
-+	 */
-+};
-+
-+#endif /* _ARCH_ARM64_TLBBATCH_H */
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 412a3b9a3c25..b21cdeb57a18 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -254,17 +254,23 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- 	dsb(ish);
- }
- 
--static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
-+static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
- 					 unsigned long uaddr)
- {
- 	unsigned long addr;
- 
- 	dsb(ishst);
--	addr = __TLBI_VADDR(uaddr, ASID(vma->vm_mm));
-+	addr = __TLBI_VADDR(uaddr, ASID(mm));
- 	__tlbi(vale1is, addr);
- 	__tlbi_user(vale1is, addr);
- }
- 
-+static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
-+					 unsigned long uaddr)
-+{
-+	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
-+}
-+
- static inline void flush_tlb_page(struct vm_area_struct *vma,
- 				  unsigned long uaddr)
- {
-@@ -272,6 +278,42 @@ static inline void flush_tlb_page(struct vm_area_struct *vma,
- 	dsb(ish);
- }
- 
-+#ifdef CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
-+
-+static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-+{
-+	/*
-+	 * TLB batched flush is proved to be beneficial for systems with large
-+	 * number of CPUs, especially system with more than 8 CPUs. TLB shutdown
-+	 * is cheap on small systems which may not need this feature. So use
-+	 * a threshold for enabling this to avoid potential side effects on
-+	 * these platforms.
-+	 */
-+	if (num_online_cpus() <= CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB)
-+		return false;
-+
-+#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
-+	if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
-+		return false;
-+#endif
-+
-+	return true;
-+}
-+
-+static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
-+					struct mm_struct *mm,
-+					unsigned long uaddr)
-+{
-+	__flush_tlb_page_nosync(mm, uaddr);
-+}
-+
-+static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
-+{
-+	dsb(ish);
-+}
-+
-+#endif /* CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH */
-+
- /*
-  * This is meant to avoid soft lock-ups on large TLB flushing ranges and not
-  * necessarily a performance improvement.
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index 8a497d902c16..5bd78ae55cd4 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -264,7 +264,8 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
- }
- 
- static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
--					struct mm_struct *mm)
-+					struct mm_struct *mm,
-+					unsigned long uaddr)
- {
- 	inc_mm_tlb_gen(mm);
- 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
-diff --git a/mm/rmap.c b/mm/rmap.c
-index a9ab10bc0144..a1b408ff44e5 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -640,12 +640,13 @@ void try_to_unmap_flush_dirty(void)
- #define TLB_FLUSH_BATCH_PENDING_LARGE			\
- 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
- 
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable,
-+				      unsigned long uaddr)
- {
- 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
- 	int batch, nbatch;
- 
--	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm);
-+	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm, uaddr);
- 	tlb_ubc->flush_required = true;
- 
- 	/*
-@@ -723,7 +724,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
- 	}
- }
- #else
--static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
-+static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable,
-+				      unsigned long uaddr)
- {
- }
- 
-@@ -1596,7 +1598,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				 */
- 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
- 
--				set_tlb_ubc_flush_pending(mm, pte_dirty(pteval));
-+				set_tlb_ubc_flush_pending(mm, pte_dirty(pteval), address);
- 			} else {
- 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
- 			}
 -- 
-2.24.0
+2.37.3
 
 
 _______________________________________________
