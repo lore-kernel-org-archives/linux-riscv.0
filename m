@@ -4,80 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6952AC38A02
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 12:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8D2C38A02
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 13:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5vM8t6rxosZfUOhu1CDx4SSRD9/QqD9hw3IksOSd9yU=; b=3fQOni4KtYMtNg
-	kX+Yn7b8jZpZ/dBMiN5p8LF3x9bfdr6HyoYmwfZFIajs34h2fIrju3m1u7ESu1lRYgtZhz5UotECP
-	5aj5BWRDtM73Is0OuavDWIf1qGgadshK+caPw93sa2EoyP3OFmea6IRiOm/JJ2GV/lkb8MFBxXm10
-	q+wKned9S/O7g69CuMl8ZaJX0SJPnDI6UV+YEyYzDp5BLSgFWz+7ck/JgvDMwECGSscOPzNnVZhRI
-	8258SVk9aV2rDpoqSprlsvQ/G3wVxjGJPcSjxLXSLpHoAXKFZx70pjq2IFPv1rEKoNU6J/N1WOYrg
-	E/t2wZR7hRqDBwkKylTw==;
+	List-Owner; bh=jXFpbCgmOVGyEfNSjaRZXqc+wFXlQ5TLQnjX3XuII6c=; b=mMkZoNzaqLI2l2
+	eY+3OECAgpIhnQysancE1zCKwaRgVM9J7jnMtdfaj1hkgPNPBSGy976BtHd1sa4ldXG+2m20/1+dq
+	yG//VCTBA5/f+xvD/ajLQo36tPrOD6OGqxTUxqpHe+4g0mLL1g/AZmzuCpP5su0/SXgT2QXaiUSA1
+	2GTzGO0flyGQbDvdykm17AbNhjNwlXHzWxRLivGrUYdzZU17Acbhi/kRvKgzqurngziPTqTTn8YAF
+	L5XlCLSDK+IsQwZNrgsLPkE8jsBtSBhIk9fntsE8EFFMW3AJ9EDBDBfVfy4JYEGkuEPmL11r+sRyM
+	wfsIWTn0W9tFRQUE9JYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooOkj-00H8wE-2W; Fri, 28 Oct 2022 12:46:25 +0000
-Received: from mail-qt1-f175.google.com ([209.85.160.175])
+	id 1ooP9o-00HGZE-UM; Fri, 28 Oct 2022 13:12:20 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooOkg-00H8ub-NG
-	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 12:46:24 +0000
-Received: by mail-qt1-f175.google.com with SMTP id g11so3361256qts.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 05:46:21 -0700 (PDT)
+	id 1ooP9M-00HGML-Hc
+	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 13:11:54 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id z14so6534555wrn.7
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 06:11:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+Aj7lCoa9R32lr+KR5EAOPwdoRP9ej39sPKRFvXXmKo=;
+        b=EFIo+tctRNuBHWwWw1xOq1kEixfm3foZR690FRJu3AM3x8PYD0ZDLFys0bq0GHDw0q
+         D+MTVPyEG1mTG0ZgdOgJq8+gjfvXKbovWD8hGjcbI7wWrksCjPBNiTntRvERjSr3G2+k
+         Lu7JNnRQmZ6+8v+2wFsOY4k1EMCtFfmzGGyaZDJW+zI6dotPwQ2SHNssHmq5yH6XrLvw
+         xSqtVUxuIWlv47NuYTEMe31KwKyXtoj47d/WfUsTDmeHSsavPPN1aNy232z2FiDj7IE2
+         kdVuMjIFXr8rqIXxZZe02eKvfiUGYKO5h8nAQjogNLBpf+5ZCJOnzUUb++YTPAQ3vG+E
+         aVQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4PLs2L+UHYQFSiNXWVRX1eTlixniK4rGG++88ZUzDFM=;
-        b=qeqe654skRW+GcmfhjnLcgTZ9vngc859cuQFVudTaQUPPSCWwk4vHGPm8QwEQISPIO
-         N5PHRzYCh/KwiKRgGi5ws5xdPySksQ9qHEcccIzWZgrWtXCb3iyBBJ3nB7iQ0etBwP6m
-         ZZB698VBxfSV66wmYVzqhT95YLehUY+9+YZOf/6joncLOLsfyUb4iHezFA4FKif1gu/m
-         XLYKZ4+xL7FqyvSNBofvhO89RADqthKQgXYlPwiybgEGnplkQDLWTHYN8Qo/1U6WWGx4
-         QWqZxjtEQH8mjxn5Axk+8m+hbSFtKG35xt59cc2ueiCswa157tzZZPjr7S5ktbuVq5cl
-         cwdA==
-X-Gm-Message-State: ACrzQf0auVNh/kjsr7kyFoRYbP8aVmKF1vG4QjO6IZhoGfEiIg7NbJTe
-	LAn9LOJxgNqvd6InIbj6aTyG8/zBKNVpaw==
-X-Google-Smtp-Source: AMsMyM4V00Tet2TCb7qIzIE5+hn3V4SMoF4w4JrdoVAUofdUy1Nks/bh6hR5mnMJ8nTkS8R3GvaPQg==
-X-Received: by 2002:a05:622a:508:b0:39c:bddd:7509 with SMTP id l8-20020a05622a050800b0039cbddd7509mr44935108qtx.510.1666961180192;
-        Fri, 28 Oct 2022 05:46:20 -0700 (PDT)
-Received: from mail-yb1-f179.google.com (mail-yb1-f179.google.com. [209.85.219.179])
-        by smtp.gmail.com with ESMTPSA id v2-20020ac873c2000000b003a50248b89esm1502074qtp.26.2022.10.28.05.46.19
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Oct 2022 05:46:19 -0700 (PDT)
-Received: by mail-yb1-f179.google.com with SMTP id f205so6014941yba.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 05:46:19 -0700 (PDT)
-X-Received: by 2002:a25:cd01:0:b0:6c2:6f0d:f4ce with SMTP id
- d1-20020a25cd01000000b006c26f0df4cemr46239035ybf.365.1666961178681; Fri, 28
- Oct 2022 05:46:18 -0700 (PDT)
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+Aj7lCoa9R32lr+KR5EAOPwdoRP9ej39sPKRFvXXmKo=;
+        b=qf+CpPt9u3MfmhRhSVQXraC3LWeysQJGCFlF5l3Fnv3+H/3f6GpKUwHULsT4/EOoe6
+         F9XXfV+063Wys0lQ5X7o3oxIuRs7KQ4D+YrxxjjmX0N8ZKoaRhbSIPb+7Ev+ZzTE5ycs
+         2io5Grig/B1Vaqsrj5TUmolzOUzZs53GNBnvp1p1J437R48y1yomWVnI5qk4P87vulOj
+         /7ZhesqkZzjsLYH2Uged1HFCQVE4qd7WhDGT3gR6+GpQ6uUs6gElyjXpUd8sj4xNki8Y
+         sKDaFGefv/C4xfbapSV2wc/kW/4ruRkPqIJAy+D5YfC+LxKNt1I6WDgrBwewHiBvZhHG
+         ZEJg==
+X-Gm-Message-State: ACrzQf0aBVthOC5xE+A+f/P4UfWUOru1IuHYU6d+m+d11AY+zbarV3r7
+	y//8NvUVSsZ2hreWRuZ8qsODKw==
+X-Google-Smtp-Source: AMsMyM6YDLGx8tddVpugpJgNDAZlKMyecbRnjlokKyPGo/AAsO2SU74UqqxLLYtDEOG4bOxEAgjUZA==
+X-Received: by 2002:adf:df83:0:b0:236:6d5d:ff8b with SMTP id z3-20020adfdf83000000b002366d5dff8bmr18336437wrl.315.1666962704559;
+        Fri, 28 Oct 2022 06:11:44 -0700 (PDT)
+Received: from localhost ([95.148.15.66])
+        by smtp.gmail.com with ESMTPSA id k21-20020a05600c1c9500b003bfaba19a8fsm4641180wms.35.2022.10.28.06.11.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Oct 2022 06:11:43 -0700 (PDT)
+From: Punit Agrawal <punit.agrawal@bytedance.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: Punit Agrawal <punit.agrawal@bytedance.com>,  Barry Song
+ <21cnbao@gmail.com>,  <yangyicong@hisilicon.com>,  <corbet@lwn.net>,
+  <peterz@infradead.org>,  <arnd@arndb.de>,
+  <linux-kernel@vger.kernel.org>,  <darren@os.amperecomputing.com>,
+  <huzhanyuan@oppo.com>,  <lipeifeng@oppo.com>,  <zhangshiming@oppo.com>,
+  <guojian@oppo.com>,  <realmz6@gmail.com>,  <linux-mips@vger.kernel.org>,
+  <openrisc@lists.librecores.org>,  <linux-mm@kvack.org>,
+  <x86@kernel.org>,  <linux-arm-kernel@lists.infradead.org>,
+  <linuxppc-dev@lists.ozlabs.org>,  <akpm@linux-foundation.org>,
+  <linux-riscv@lists.infradead.org>,  <linux-s390@vger.kernel.org>,
+  <wangkefeng.wang@huawei.com>,  <xhao@linux.alibaba.com>,
+  <prime.zeng@hisilicon.com>,  Barry Song <v-songbaohua@oppo.com>,  Nadav
+ Amit <namit@vmware.com>,  Mel Gorman <mgorman@suse.de>,
+  <catalin.marinas@arm.com>,  <will@kernel.org>,
+  <linux-doc@vger.kernel.org>,  Anshuman Khandual
+ <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v4 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+References: <20220921084302.43631-1-yangyicong@huawei.com>
+	<20220921084302.43631-3-yangyicong@huawei.com>
+	<168eac93-a6ee-0b2e-12bb-4222eff24561@arm.com>
+	<8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
+	<CAGsJ_4z=dZbrAUD9jczT08S3qi_ep-h+EK35UfayVk1S+Cnp2A@mail.gmail.com>
+	<ecd161db-b290-7997-a81e-a0a00bd1c599@arm.com>
+	<87o7tx5oyx.fsf@stealth>
+	<bc44cf85-aee9-03ca-9911-dbd904a43cc8@huawei.com>
+Date: Fri, 28 Oct 2022 14:11:41 +0100
+In-Reply-To: <bc44cf85-aee9-03ca-9911-dbd904a43cc8@huawei.com> (Yicong Yang's
+	message of "Fri, 28 Oct 2022 09:20:08 +0800")
+Message-ID: <87bkpw5bzm.fsf@stealth>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
 MIME-Version: 1.0
-References: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20220920184904.90495-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20220920184904.90495-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 28 Oct 2022 14:46:07 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWNq2J40jiC-TkEA23hVWsWTk483KXuDO9-bMe3CiGRcw@mail.gmail.com>
-Message-ID: <CAMuHMdWNq2J40jiC-TkEA23hVWsWTk483KXuDO9-bMe3CiGRcw@mail.gmail.com>
-Subject: Re: [PATCH v4 04/10] dt-bindings: soc: renesas: renesas.yaml:
- Document Renesas RZ/Five SoC
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Conor Dooley <conor.dooley@microchip.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
-	Atish Patra <atishp@rivosinc.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_054622_773977_E8DE6A11 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20221028_061152_624211_33E048EA 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +112,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 8:50 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Yicong Yang <yangyicong@huawei.com> writes:
+
+> On 2022/10/27 22:19, Punit Agrawal wrote:
+>> 
+>> [ Apologies for chiming in late in the conversation ]
+>> 
+>> Anshuman Khandual <anshuman.khandual@arm.com> writes:
+>> 
+>>> On 9/28/22 05:53, Barry Song wrote:
+>>>> On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
+>>>>>
+>>>>> On 2022/9/27 14:16, Anshuman Khandual wrote:
+>>>>>> [...]
+>>>>>>
+>>>>>> On 9/21/22 14:13, Yicong Yang wrote:
+>>>>>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>>>>>>> +{
+>>>>>>> +    /* for small systems with small number of CPUs, TLB shootdown is cheap */
+>>>>>>> +    if (num_online_cpus() <= 4)
+>>>>>>
+>>>>>> It would be great to have some more inputs from others, whether 4 (which should
+>>>>>> to be codified into a macro e.g ARM64_NR_CPU_DEFERRED_TLB, or something similar)
+>>>>>> is optimal for an wide range of arm64 platforms.
+>>>>>>
+>>>>
+>>>> I have tested it on a 4-cpus and 8-cpus machine. but i have no machine
+>>>> with 5,6,7
+>>>> cores.
+>>>> I saw improvement on 8-cpus machines and I found 4-cpus machines don't need
+>>>> this patch.
+>>>>
+>>>> so it seems safe to have
+>>>> if (num_online_cpus()  < 8)
+>>>>
+>>>>>
+>>>>> Do you prefer this macro to be static or make it configurable through kconfig then
+>>>>> different platforms can make choice based on their own situations? It maybe hard to
+>>>>> test on all the arm64 platforms.
+>>>>
+>>>> Maybe we can have this default enabled on machines with 8 and more cpus and
+>>>> provide a tlbflush_batched = on or off to allow users enable or
+>>>> disable it according
+>>>> to their hardware and products. Similar example: rodata=on or off.
+>>>
+>>> No, sounds bit excessive. Kernel command line options should not be added
+>>> for every possible run time switch options.
+>>>
+>>>>
+>>>> Hi Anshuman, Will,  Catalin, Andrew,
+>>>> what do you think about this approach?
+>>>>
+>>>> BTW, haoxin mentioned another important user scenarios for tlb bach on arm64:
+>>>> https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
+>>>>
+>>>> I do believe we need it based on the expensive cost of tlb shootdown in arm64
+>>>> even by hardware broadcast.
+>>>
+>>> Alright, for now could we enable ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH selectively
+>>> with CONFIG_EXPERT and for num_online_cpus()  > 8 ?
+>> 
+>> When running the test program in the commit in a VM, I saw benefits from
+>> the patches at all sizes from 2, 4, 8, 32 vcpus. On the test machine,
+>> ptep_clear_flush() went from ~1% in the unpatched version to not showing
+>> up.
+>> 
 >
-> Document Renesas RZ/Five (R9A07G043) SoC.
->
-> More info about RZ/Five SoC:
-> https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
->
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v3 -> v4
-> * No change
+> Maybe you're booting VM on a server with more than 32 cores and Barry tested
+> on his 4 CPUs embedded platform. I guess a 4 CPU VM is not fully equivalent to
+> a 4 CPU real machine as the tbli and dsb in the VM may influence the host
+> as well.
 
-Will queue in renesas-devel for v6.2.
+Yeah, I also wondered about this.
 
-Gr{oetje,eeting}s,
+I was able to test on a 6-core RK3399 based system - there the
+ptep_clear_flush() was only 0.10% of the overall execution time. The
+hardware seems to do a pretty good job of keeping the TLB flushing
+overhead low.
 
-                        Geert
+[...]
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
