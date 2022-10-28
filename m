@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87393C38A02
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 17:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDA2ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 18:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AXhtxPIt+R0PDOwIzjTuC+blSl69sxR0W3zCIEka9G0=; b=iUNMEo75RFYedZ
-	0d0Rx3uUXxaMbm9JRTmD01mIwaIRWMKuo53BxXFdelPzUz+Wk8h8XDjkz7E5nfXwGlEqfwXv6Mwyi
-	MyfhPevE4x6FfyrS1ELyTZRA+n0utVrAWQhSekIvXgVU+0wHLhyZdFpB/d1Or2vdtI7hllUQ21481
-	uNvuKlTfGdJM/Om/XRAK264KIeT7VJNZO1WOfSspUdQknvEldle4rS7zFI0sb3HGvuAQRisthj0NS
-	+gRgi8JrZus9FZtbpeiSEt1Nf08UNlnI/f2L4qZxFzwRBAUOYZbvAdkdNR63zcXbEseJmzjI63Q2q
-	zRd84Btzn7ShMG+vFyAg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZPs2Ha46bjp/jU75wxcP4QBNMb3Py/bnLT3ndWdhq0A=; b=VmgChmvjRdQZwn
+	DZhQwDOcoSo5n90hgMY+4ZO3Gx8gI/xf25IXGCgTH79hhpophYM7jqYahjBLYX/pRjMPQXmFJRLdg
+	yc+3SIqoS77tjbOwj+p/IRz48GxqpUnHRXMH6X4C6z2k5gkJXPRZ/v58Yxg8jIj5iKZTACGOg7c+j
+	pAlIWfh51GuEitzHDkM0UcknUpQHJwFEym1euLvs8G7ZxSwfUYw/5hlIYTZIFa5LXoXD3pK0kuQxa
+	J8iR5r1YdWF33AaFvvkJEhHDCRBtB0Xtr1q8G/vxrzPVMQ578pLheC2DnbJz1S+4rTshLsyjlwhx1
+	PPxRgz5mjILVvPTPDIfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooTCX-001K93-6L; Fri, 28 Oct 2022 17:31:25 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1ooUIT-001gLE-Q1; Fri, 28 Oct 2022 18:41:37 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooShr-0015l4-65
-	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 16:59:44 +0000
-Received: by mail-wm1-x329.google.com with SMTP id t4so3578758wmj.5
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 09:59:40 -0700 (PDT)
+	id 1ooUIQ-001gIG-Es
+	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 18:41:36 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id m6-20020a17090a5a4600b00212f8dffec9so5311619pji.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 11:41:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LKcaGbOXyklscEgGaVZeABkCmiJQn+cua48lgHGMfSM=;
-        b=XktKVyJAuhuTpNR50IVXpi86/f94SIWNs0zsXo+KJ65lgHjA881DzW/wOJXK/1NGc2
-         0vkKWNR6w4FpkETSCedXeeprIXWBMiL0fGkeqZkV1X4nW7QgeZu8YrsRg4j0oNJJoDOD
-         lJFRSxAahXLc8XpGSkCGmZOvlEo1ogXWzGZQwpVfvtTs+0bwszHZCdLTjkd9CmaF9kVR
-         yHPkAyWqdTogWDLkOKOOXOZ1qpEJZdmTsEoBlyhHrzxJ20bI3iIECOMZIQ8ZyifX4M83
-         K6C73Law77r6z7dCI039sPXzxm3FSRo1d95BOSOB6WWKH5+Zi08rRYTzXpJr3QCKZfYW
-         yJKg==
+        bh=XsTgJLrX7K95YgJ1S9Ds5IL+IAplewL1J/fAJJQXyII=;
+        b=v1GtW7utyd3bbfbep3QDuKfccWB/JumKSM+Da2BFIUewslryZyGSUex4kW+pJ/iY6X
+         1sTL8J5JIExK72UTnSAduVDWOSECQw97mWtJRn/sqYkTfsa42mWyo23+0DInr+6of7vS
+         qkFrfX6LQPa/C2CuM4EKqd3raapwl9akdvaBQEro0Ll8niHHvEe05e09hz4d8WBJ49Vh
+         FvGTwj8vdlev5ceutoi40hrHmbw+Deb17Nz58y+3ASkFkSWruVyX0euEkMoDkbNKfUV5
+         yJMGLhFqEzKOG9qrxPj1KhcVys/CTkdNZONn7V+ZU5d02j3aeiumxnSK7GnaKnnxKVhW
+         vN9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LKcaGbOXyklscEgGaVZeABkCmiJQn+cua48lgHGMfSM=;
-        b=RZUwhjRAICLeUoJ8/mp2JuwOmhu0E53yxE1L+IwhzsGlaQUgwcCawy3OfVAVw8UWyy
-         91UnA0bx4e4KN4Kctbm8LP2sGDAiEOgCFnzynuqy+5c2BAKxcoTlzDi+q9lDZMVK9Dp6
-         fG8ypEKqVIBtC1ScyE/EbGMYQtgKE7bvzbbm/MiMwYoOzqPd2Rh4bDPMQX2pulof/Omq
-         Vp2z4gxcGkeQEmnxyUlhTuxagcs3DNtyrjYctx2lX8S0XQtgwSvGizISZBpbNMInNRIv
-         R8qSfggOY4O1CmdlHAWBb8EnYC+Prn7AGf9uuTQhBN6cfVs65ivM5UeMbUw4vwbfvfVP
-         BMtw==
-X-Gm-Message-State: ACrzQf1vBxn1BftJvRJpM/DXSH9dP+izCPXZPFrDvX8OYE76mOH02DvQ
-	t7dZGtoqRbRlTjqxXDJyt7k=
-X-Google-Smtp-Source: AMsMyM7SrqgUatgxtKzxUbci+TsYWLGOUnEsW59p/P1BaS1TwA7Vn45N9ioYHZP45iv2M+iI+IDVrg==
-X-Received: by 2002:a05:600c:230d:b0:3c4:2975:321a with SMTP id 13-20020a05600c230d00b003c42975321amr10195946wmo.155.1666976379388;
-        Fri, 28 Oct 2022 09:59:39 -0700 (PDT)
-Received: from prasmi.home ([2a00:23c8:2501:c701:d53b:eaf9:15f:6a8a])
-        by smtp.gmail.com with ESMTPSA id h2-20020adfe982000000b002322bff5b3bsm4939689wrm.54.2022.10.28.09.59.38
+        bh=XsTgJLrX7K95YgJ1S9Ds5IL+IAplewL1J/fAJJQXyII=;
+        b=WcLOIzpCkianw5Y1vQXPZUYLTA5kKPd6ykJQlXJfDWsGiJ+jZJnUfOQaQA1mX7R9fo
+         xr8V+ZDIfT9/vXmQWIEsRPpsoMMOIjUi3tUwd6HCSFSO7JVgvVMRw/zAMR6/c+wQuZ6s
+         ZOxNtvVjp5lAx6tK1MUXDIZxF+CwEVuOpb2+HHowAUatbUp+17zr0lY8RYZ2VN7R8cM/
+         uuBRQ8ggOEiKMQ6lpnyBcgdfhNByjD79yjuuAcXFFieOaaySN4dOVItHq7tG3dSPMzB7
+         ggZNrJ6IyBY1aypygpnJslPUbhH7b8Z7TulkB29/MtlPTbDZHW/hrnR55+1FeQO0tmaz
+         SBgw==
+X-Gm-Message-State: ACrzQf2Up9tupg7raLJaScS0+i9EABL+WjwOHGLwBuhEbd5MgZx8zwAy
+	UNNBDTtZl7E5wOuZKOX6lnS7j7nLqBOZIw==
+X-Google-Smtp-Source: AMsMyM7ngFOvsflzJJ6T6B59IVAH05aw8a7lUB0rCzg/ELkFfJ3WwJ7TdOYNHQcozfCBEtU3RyWwZg==
+X-Received: by 2002:a17:902:d486:b0:186:cf83:4ba8 with SMTP id c6-20020a170902d48600b00186cf834ba8mr361510plg.154.1666982492564;
+        Fri, 28 Oct 2022 11:41:32 -0700 (PDT)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id f12-20020a170902ce8c00b001780a528540sm3449760plg.93.2022.10.28.11.41.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Oct 2022 09:59:38 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v5 7/7] riscv: configs: defconfig: Enable Renesas RZ/Five SoC
-Date: Fri, 28 Oct 2022 17:59:21 +0100
-Message-Id: <20221028165921.94487-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-MIME-Version: 1.0
+        Fri, 28 Oct 2022 11:41:32 -0700 (PDT)
+Date: Fri, 28 Oct 2022 11:41:32 -0700 (PDT)
+X-Google-Original-Date: Fri, 28 Oct 2022 11:41:01 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.1-rc3
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-d47a53b0-2125-467d-a9ff-c17fd41d646b@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_095943_273515_6A583DC4 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20221028_114134_742831_4829FED0 
+X-CRM114-Status: UNSURE (   8.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,65 +80,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+The following changes since commit 9abf2313adc1ca1b6180c508c25f22f9395cc780:
 
-Enable Renesas RZ/Five SoC config in defconfig. It allows the default
-upstream kernel to boot on RZ/Five SMARC EVK board.
+  Linux 6.1-rc1 (2022-10-16 15:36:24 -0700)
 
-Alongside enable SERIAL_SH_SCI config so that the serial driver used by
-RZ/Five SoC is built-in.
+are available in the Git repository at:
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-v4 -> v5
-* No change
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-rc3
 
-v3 -> v4
-* Explicitly enabled ARCH_R9A07G043 config (note I have restored the RB
-  tags with this change)
-* Used riscv instead of RISC-V in subject line
+for you to fetch changes up to d14e99bf95510fa2d6affc371ad68161afc1dc8e:
 
-v2 -> v3
-* Included RB tags
-* Updated commit description
+  RISC-V: Fix /proc/cpuinfo cpumask warning (2022-10-27 15:23:19 -0700)
 
-v1 -> v2
-* New patch
----
- arch/riscv/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+----------------------------------------------------------------
+RISC-V Fixes for 6.1-rc3
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 05fd5fcf24f9..97fba7884d7a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -29,6 +29,8 @@ CONFIG_SOC_MICROCHIP_POLARFIRE=y
- CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_STARFIVE=y
- CONFIG_SOC_VIRT=y
-+CONFIG_ARCH_RENESAS=y
-+CONFIG_ARCH_R9A07G043=y
- CONFIG_SMP=y
- CONFIG_HOTPLUG_CPU=y
- CONFIG_PM=y
-@@ -123,6 +125,7 @@ CONFIG_INPUT_MOUSEDEV=y
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_OF_PLATFORM=y
-+CONFIG_SERIAL_SH_SCI=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
--- 
-2.25.1
+* A fix for a build warning in the jump_label code.
+* One of the git://github -> https://github cleanups, for the SiFive
+  drivers.
+* A fix for the kasan initialization code, this still likely warrants
+  some cleanups but that's a bigger problem and at least this fixes the
+  crashes in the short term.
+* A pair of fixes for extension support detection on mixed LLVM/GNU
+  toolchains.
+* A fix for a runtime warning in the /proc/cpuinfo code.
 
+----------------------------------------------------------------
+Andrew Jones (1):
+      RISC-V: Fix /proc/cpuinfo cpumask warning
+
+Conor Dooley (2):
+      riscv: fix detection of toolchain Zicbom support
+      riscv: fix detection of toolchain Zihintpause support
+
+Jisheng Zhang (1):
+      riscv: jump_label: mark arguments as const to satisfy asm constraints
+
+Palmer Dabbelt (2):
+      MAINTAINERS: git://github.com -> https://github.com for sifive
+      Merge patch series "Fix RISC-V toolchain extension support detection"
+
+Qinglin Pan (1):
+      riscv: mm: add missing memcpy in kasan_init
+
+ MAINTAINERS                             |  2 +-
+ arch/riscv/Kconfig                      | 17 +++++++++++++----
+ arch/riscv/Makefile                     |  6 ++----
+ arch/riscv/include/asm/jump_label.h     |  8 ++++----
+ arch/riscv/include/asm/vdso/processor.h |  2 +-
+ arch/riscv/kernel/cpu.c                 |  3 +++
+ arch/riscv/mm/kasan_init.c              |  7 ++++++-
+ 7 files changed, 30 insertions(+), 15 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
