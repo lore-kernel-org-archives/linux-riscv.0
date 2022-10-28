@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FD3ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 01:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A0BECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 02:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6VxYnCDb/6lc8lVBGAlIK3XnMxQBueI9pl6PncJagws=; b=QabvJlyY2G7WBr
-	/uprczKom8umslgNVWWT8z0OA+ZZdNIFGqc2yPEKKEMXxkX22wlLhbnQ6r3OfJDNGKUPUvOkrauYE
-	r4QZeU7S51okNI2fS6JcOjgsSQWG/ERHTAuaHsojNzszRLhexgmLpGKeSAkWK4XXQTYpNOnh6ZpM5
-	6vPfnnNaQqtHBjJ8m2QH1XjQFe3ypK4F3eCgCnLRKldSNJMdpUxa1XtUsg4RIHRUhwwiHuxb5UEM/
-	v95mORERdGHXcm3FTeTEEDP2d2tAqZfhoAeyf4764meVgCrAPjf1chm6kxvEW9P7udDS3DoVrtAFE
-	7gpyQUDDsIM/tj4JZWPw==;
+	List-Owner; bh=WduLlgA00SZ8LRVhTxe+WNY4QPmMbvOt7oC3GvQDKgQ=; b=BiD74inkOKAxZf
+	q5rWpVq6pf0ESUOsbBjcLQeOQ4/W2Fa9W6fJzGl8LDORGi3VM9+fITsydIg8EAhKVfbtlkXA7dnKG
+	FX9zA2P6BafAXNS6wkv822XPGspT5C2q2vuTp96U4uFv450oSbTwutLum5eO8PGUgUX/WUb8c/db0
+	ievtFPSeUrrybZi0wBTvmayEIJxDAmfMdca7h06ITne+kQAspUWFEYKXHy/PWRAxE2EkXsNeNeSQW
+	aqhmL1g0SiM/kUfYQLObOgrP4GhXI2woPNiLnxLxZrE7U7n2kgCK5R0pj8SM4KCxaD5cLJgp3vGRS
+	hevq+Gjnh3J1Xxc/Qqqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooEcV-00FPXS-L2; Fri, 28 Oct 2022 01:57:15 +0000
+	id 1ooEu6-00FUKj-Rb; Fri, 28 Oct 2022 02:15:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooEcH-00FPRb-HT; Fri, 28 Oct 2022 01:57:04 +0000
+	id 1ooEtR-00FU7A-OM; Fri, 28 Oct 2022 02:14:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7287123A;
-	Thu, 27 Oct 2022 18:57:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BAF523A;
+	Thu, 27 Oct 2022 19:14:48 -0700 (PDT)
 Received: from [192.168.0.146] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86D553F445;
-	Thu, 27 Oct 2022 18:56:44 -0700 (PDT)
-Message-ID: <55256df4-fff1-fa78-97bc-7aaa9efb7255@arm.com>
-Date: Fri, 28 Oct 2022 07:26:44 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD67A3F445;
+	Thu, 27 Oct 2022 19:14:32 -0700 (PDT)
+Message-ID: <8a3ade4c-1714-5ffd-ed57-02ab0509725b@arm.com>
+Date: Fri, 28 Oct 2022 07:44:29 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.2.2
 Subject: Re: [PATCH v4 2/2] arm64: support batched/deferred tlb shootdown
  during page reclamation
 Content-Language: en-US
-To: Barry Song <21cnbao@gmail.com>
+To: Barry Song <21cnbao@gmail.com>,
+ Punit Agrawal <punit.agrawal@bytedance.com>
 Cc: Yicong Yang <yangyicong@huawei.com>, yangyicong@hisilicon.com,
  corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
  linux-kernel@vger.kernel.org, darren@os.amperecomputing.com,
@@ -57,13 +58,13 @@ References: <20220921084302.43631-1-yangyicong@huawei.com>
  <168eac93-a6ee-0b2e-12bb-4222eff24561@arm.com>
  <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
  <CAGsJ_4z=dZbrAUD9jczT08S3qi_ep-h+EK35UfayVk1S+Cnp2A@mail.gmail.com>
- <ecd161db-b290-7997-a81e-a0a00bd1c599@arm.com>
- <CAGsJ_4x0KhEjm5a9jhtS+YK1AT49u3sHnp2rHZVSuTGZp4nKzA@mail.gmail.com>
+ <ecd161db-b290-7997-a81e-a0a00bd1c599@arm.com> <87o7tx5oyx.fsf@stealth>
+ <CAGsJ_4zrGfPYAXGW0g3Z-GF4vT7GD0xDjZn1dv-qruztEQTghg@mail.gmail.com>
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CAGsJ_4x0KhEjm5a9jhtS+YK1AT49u3sHnp2rHZVSuTGZp4nKzA@mail.gmail.com>
+In-Reply-To: <CAGsJ_4zrGfPYAXGW0g3Z-GF4vT7GD0xDjZn1dv-qruztEQTghg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_185701_744917_F07E9E80 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20221027_191445_897623_A7B2A7F7 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +83,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 10/28/22 03:37, Barry Song wrote:
-> On Thu, Oct 27, 2022 at 11:42 PM Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
+On 10/28/22 03:25, Barry Song wrote:
+> On Fri, Oct 28, 2022 at 3:19 AM Punit Agrawal
+> <punit.agrawal@bytedance.com> wrote:
 >>
+>> [ Apologies for chiming in late in the conversation ]
 >>
+>> Anshuman Khandual <anshuman.khandual@arm.com> writes:
 >>
->> On 9/28/22 05:53, Barry Song wrote:
->>> On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
+>>> On 9/28/22 05:53, Barry Song wrote:
+>>>> On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
+>>>>> On 2022/9/27 14:16, Anshuman Khandual wrote:
+>>>>>> [...]
+>>>>>>
+>>>>>> On 9/21/22 14:13, Yicong Yang wrote:
+>>>>>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>>>>>>> +{
+>>>>>>> +    /* for small systems with small number of CPUs, TLB shootdown is cheap */
+>>>>>>> +    if (num_online_cpus() <= 4)
+>>>>>> It would be great to have some more inputs from others, whether 4 (which should
+>>>>>> to be codified into a macro e.g ARM64_NR_CPU_DEFERRED_TLB, or something similar)
+>>>>>> is optimal for an wide range of arm64 platforms.
+>>>>>>
+>>>> I have tested it on a 4-cpus and 8-cpus machine. but i have no machine
+>>>> with 5,6,7
+>>>> cores.
+>>>> I saw improvement on 8-cpus machines and I found 4-cpus machines don't need
+>>>> this patch.
 >>>>
->>>> On 2022/9/27 14:16, Anshuman Khandual wrote:
->>>>> [...]
->>>>>
->>>>> On 9/21/22 14:13, Yicong Yang wrote:
->>>>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->>>>>> +{
->>>>>> +    /* for small systems with small number of CPUs, TLB shootdown is cheap */
->>>>>> +    if (num_online_cpus() <= 4)
->>>>>
->>>>> It would be great to have some more inputs from others, whether 4 (which should
->>>>> to be codified into a macro e.g ARM64_NR_CPU_DEFERRED_TLB, or something similar)
->>>>> is optimal for an wide range of arm64 platforms.
->>>>>
->>>
->>> I have tested it on a 4-cpus and 8-cpus machine. but i have no machine
->>> with 5,6,7
->>> cores.
->>> I saw improvement on 8-cpus machines and I found 4-cpus machines don't need
->>> this patch.
->>>
->>> so it seems safe to have
->>> if (num_online_cpus()  < 8)
->>>
+>>>> so it seems safe to have
+>>>> if (num_online_cpus()  < 8)
 >>>>
->>>> Do you prefer this macro to be static or make it configurable through kconfig then
->>>> different platforms can make choice based on their own situations? It maybe hard to
->>>> test on all the arm64 platforms.
+>>>>> Do you prefer this macro to be static or make it configurable through kconfig then
+>>>>> different platforms can make choice based on their own situations? It maybe hard to
+>>>>> test on all the arm64 platforms.
+>>>> Maybe we can have this default enabled on machines with 8 and more cpus and
+>>>> provide a tlbflush_batched = on or off to allow users enable or
+>>>> disable it according
+>>>> to their hardware and products. Similar example: rodata=on or off.
+>>> No, sounds bit excessive. Kernel command line options should not be added
+>>> for every possible run time switch options.
 >>>
->>> Maybe we can have this default enabled on machines with 8 and more cpus and
->>> provide a tlbflush_batched = on or off to allow users enable or
->>> disable it according
->>> to their hardware and products. Similar example: rodata=on or off.
+>>>> Hi Anshuman, Will,  Catalin, Andrew,
+>>>> what do you think about this approach?
+>>>>
+>>>> BTW, haoxin mentioned another important user scenarios for tlb bach on arm64:
+>>>> https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
+>>>>
+>>>> I do believe we need it based on the expensive cost of tlb shootdown in arm64
+>>>> even by hardware broadcast.
+>>> Alright, for now could we enable ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH selectively
+>>> with CONFIG_EXPERT and for num_online_cpus()  > 8 ?
+>> When running the test program in the commit in a VM, I saw benefits from
+>> the patches at all sizes from 2, 4, 8, 32 vcpus. On the test machine,
+>> ptep_clear_flush() went from ~1% in the unpatched version to not showing
+>> up.
 >>
->> No, sounds bit excessive. Kernel command line options should not be added
->> for every possible run time switch options.
->>
->>>
->>> Hi Anshuman, Will,  Catalin, Andrew,
->>> what do you think about this approach?
->>>
->>> BTW, haoxin mentioned another important user scenarios for tlb bach on arm64:
->>> https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
->>>
->>> I do believe we need it based on the expensive cost of tlb shootdown in arm64
->>> even by hardware broadcast.
->>
->> Alright, for now could we enable ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH selectively
->> with CONFIG_EXPERT and for num_online_cpus()  > 8 ?
-> 
-> Sounds good to me. It is a good start to bring up tlb batched flush in
-> ARM64. Later on, we
-> might want to see it in both memory reclamation and migration.
+>> Yicong mentioned that he didn't see any benefit for <= 4 CPUs but is
+>> there any overhead? I am wondering what are the downsides of enabling
+>> the config by default.
+> As we are deferring tlb flush, but sometimes while we are modifying the vma
+> which are deferred, we need to do a sync by flush_tlb_batched_pending() in
+> mprotect() , madvise() to make sure they can see the flushed result. if nobody
+> is doing mprotect(), madvise() etc in the deferred period, the overhead is zero.
 
-Right, that is the idea, CONFIG_EXPERT gives an way to test this out for some time
-on various platforms, and later it can be dropped off. Regarding num_online_cpus()
-= '8' as the threshold which would potentially give benefit of batched TLB should
-be defined as a macro e.g NR_CPUS_FOR_BATCHED_TLB or internal (non user selectable)
-config , with a proper in-code comment, explaining the rationale.
+Right, it is difficult to justify this overhead for smaller systems,
+which for sure would not benefit from this batched TLB framework.
 
 _______________________________________________
 linux-riscv mailing list
