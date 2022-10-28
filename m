@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EE0FA373D
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 01:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FD3ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 01:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/iefZA3Fi12Qa2z8z8D9eZ5FyjjSZRhag8Enszd3dDE=; b=c0J5nKEslwCByggTp5fe3OU7gc
-	HWhkqijUJdXB2lLIkcT3lESM9V5Z4uMLgMkxW5e0JMfEz4yzebHlVI+mqrGsXyNJT2G8wI/qEU453
-	fz8jyaZgafiQAWVnhFsmkZ6hVtMa2Zwl/z5V+Ppn3fWFmNAtnK9hnRdcUXYTa1SEYnhSfDXRcVLBx
-	khzXp4QyN9dwVsMCyHK/ufqydIfiw7pIOULtHm9BrA5euQVyQj3KzHOrB20SEFxw/HjjERNF1Fi8r
-	2Cg50CrYh0//LkO9EDXXydtsLM38CuZJmnaiGb3MCEsbFFg09IOpvXpn2t2SbsmWfHFtE2pUiH/HX
-	XHFAx9GQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6VxYnCDb/6lc8lVBGAlIK3XnMxQBueI9pl6PncJagws=; b=QabvJlyY2G7WBr
+	/uprczKom8umslgNVWWT8z0OA+ZZdNIFGqc2yPEKKEMXxkX22wlLhbnQ6r3OfJDNGKUPUvOkrauYE
+	r4QZeU7S51okNI2fS6JcOjgsSQWG/ERHTAuaHsojNzszRLhexgmLpGKeSAkWK4XXQTYpNOnh6ZpM5
+	6vPfnnNaQqtHBjJ8m2QH1XjQFe3ypK4F3eCgCnLRKldSNJMdpUxa1XtUsg4RIHRUhwwiHuxb5UEM/
+	v95mORERdGHXcm3FTeTEEDP2d2tAqZfhoAeyf4764meVgCrAPjf1chm6kxvEW9P7udDS3DoVrtAFE
+	7gpyQUDDsIM/tj4JZWPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooE35-00FMxl-GR; Fri, 28 Oct 2022 01:20:39 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooE2t-00FMuI-So; Fri, 28 Oct 2022 01:20:29 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.55])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Mz4Qm4hLyzJnNK;
-	Fri, 28 Oct 2022 09:17:20 +0800 (CST)
-Received: from [10.67.102.169] (10.67.102.169) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 28 Oct 2022 09:20:08 +0800
-CC: <yangyicong@hisilicon.com>, <corbet@lwn.net>, <peterz@infradead.org>,
-	<arnd@arndb.de>, <linux-kernel@vger.kernel.org>,
-	<darren@os.amperecomputing.com>, <huzhanyuan@oppo.com>, <lipeifeng@oppo.com>,
-	<zhangshiming@oppo.com>, <guojian@oppo.com>, <realmz6@gmail.com>,
-	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<akpm@linux-foundation.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <wangkefeng.wang@huawei.com>,
-	<xhao@linux.alibaba.com>, <prime.zeng@hisilicon.com>, Barry Song
-	<v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>, Mel Gorman
-	<mgorman@suse.de>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<linux-doc@vger.kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>
+	id 1ooEcV-00FPXS-L2; Fri, 28 Oct 2022 01:57:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ooEcH-00FPRb-HT; Fri, 28 Oct 2022 01:57:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7287123A;
+	Thu, 27 Oct 2022 18:57:00 -0700 (PDT)
+Received: from [192.168.0.146] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86D553F445;
+	Thu, 27 Oct 2022 18:56:44 -0700 (PDT)
+Message-ID: <55256df4-fff1-fa78-97bc-7aaa9efb7255@arm.com>
+Date: Fri, 28 Oct 2022 07:26:44 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
 Subject: Re: [PATCH v4 2/2] arm64: support batched/deferred tlb shootdown
  during page reclamation
-To: Punit Agrawal <punit.agrawal@bytedance.com>, Barry Song
-	<21cnbao@gmail.com>
+Content-Language: en-US
+To: Barry Song <21cnbao@gmail.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, yangyicong@hisilicon.com,
+ corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, darren@os.amperecomputing.com,
+ huzhanyuan@oppo.com, lipeifeng@oppo.com, zhangshiming@oppo.com,
+ guojian@oppo.com, realmz6@gmail.com, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-mm@kvack.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ akpm@linux-foundation.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, wangkefeng.wang@huawei.com,
+ xhao@linux.alibaba.com, prime.zeng@hisilicon.com,
+ Barry Song <v-songbaohua@oppo.com>, Nadav Amit <namit@vmware.com>,
+ Mel Gorman <mgorman@suse.de>, catalin.marinas@arm.com, will@kernel.org,
+ linux-doc@vger.kernel.org
 References: <20220921084302.43631-1-yangyicong@huawei.com>
  <20220921084302.43631-3-yangyicong@huawei.com>
  <168eac93-a6ee-0b2e-12bb-4222eff24561@arm.com>
  <8e391962-4e3a-5a56-64b4-78e8637e3b8c@huawei.com>
  <CAGsJ_4z=dZbrAUD9jczT08S3qi_ep-h+EK35UfayVk1S+Cnp2A@mail.gmail.com>
- <ecd161db-b290-7997-a81e-a0a00bd1c599@arm.com> <87o7tx5oyx.fsf@stealth>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <bc44cf85-aee9-03ca-9911-dbd904a43cc8@huawei.com>
-Date: Fri, 28 Oct 2022 09:20:08 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
-MIME-Version: 1.0
-In-Reply-To: <87o7tx5oyx.fsf@stealth>
-X-Originating-IP: [10.67.102.169]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
+ <ecd161db-b290-7997-a81e-a0a00bd1c599@arm.com>
+ <CAGsJ_4x0KhEjm5a9jhtS+YK1AT49u3sHnp2rHZVSuTGZp4nKzA@mail.gmail.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <CAGsJ_4x0KhEjm5a9jhtS+YK1AT49u3sHnp2rHZVSuTGZp4nKzA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221027_182028_289556_4AC64FA1 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20221027_185701_744917_F07E9E80 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,12 +80,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/10/27 22:19, Punit Agrawal wrote:
-> 
-> [ Apologies for chiming in late in the conversation ]
-> 
-> Anshuman Khandual <anshuman.khandual@arm.com> writes:
-> 
+
+
+On 10/28/22 03:37, Barry Song wrote:
+> On Thu, Oct 27, 2022 at 11:42 PM Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+>>
+>>
+>>
 >> On 9/28/22 05:53, Barry Song wrote:
 >>> On Tue, Sep 27, 2022 at 10:15 PM Yicong Yang <yangyicong@huawei.com> wrote:
 >>>>
@@ -143,25 +140,15 @@ On 2022/10/27 22:19, Punit Agrawal wrote:
 >> Alright, for now could we enable ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH selectively
 >> with CONFIG_EXPERT and for num_online_cpus()  > 8 ?
 > 
-> When running the test program in the commit in a VM, I saw benefits from
-> the patches at all sizes from 2, 4, 8, 32 vcpus. On the test machine,
-> ptep_clear_flush() went from ~1% in the unpatched version to not showing
-> up.
-> 
+> Sounds good to me. It is a good start to bring up tlb batched flush in
+> ARM64. Later on, we
+> might want to see it in both memory reclamation and migration.
 
-Maybe you're booting VM on a server with more than 32 cores and Barry tested
-on his 4 CPUs embedded platform. I guess a 4 CPU VM is not fully equivalent to
-a 4 CPU real machine as the tbli and dsb in the VM may influence the host
-as well.
-
-> Yicong mentioned that he didn't see any benefit for <= 4 CPUs but is
-> there any overhead? I am wondering what are the downsides of enabling
-> the config by default.
-> 
-> Thanks,
-> Punit
-> .
-> 
+Right, that is the idea, CONFIG_EXPERT gives an way to test this out for some time
+on various platforms, and later it can be dropped off. Regarding num_online_cpus()
+= '8' as the threshold which would potentially give benefit of batched TLB should
+be defined as a macro e.g NR_CPUS_FOR_BATCHED_TLB or internal (non user selectable)
+config , with a proper in-code comment, explaining the rationale.
 
 _______________________________________________
 linux-riscv mailing list
