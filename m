@@ -4,79 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A13C38A02
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 00:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F40AC38A02
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 04:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KS/JXLe5BxXicMZIkHUrzFFIhVHEtKWNiv/xEsKl2/c=; b=gozdqqa8lfx8Xg
-	AgIbRcZ8FNvlvEiKEFhjck2zbTDY913KdOosHjQ7ugslQfNW7hwJ231uI1KqmHKyWGrSgZ0kVkvb5
-	P/8fKVjaHR71kqyjFx818+XWEq5Hnme1QtIB1jIgxqO9oHN92PrsCtaLV6tQ7i5dLEa8jn+K+QpiT
-	I8QAoI07g2i6LYq4P3OwP5XQc7o63nMJLT0S9tdsvsDN62M+1gjhHrD78RabXkC91oQDQRbduz1XU
-	SizKyAJmtEfYJCQLFm84nogytOrdym3HpuSJVmOJJw2nkktyxIbBUwXLjYX0D+IPtIwEJapIH3mct
-	HXacfkLlXaWOfhTFnCGQ==;
+	List-Owner; bh=9e1hQo9bBQ10ZveBNw5ypbd3PyGo4T9XLue8Dd1VHJU=; b=0ztny9ZotQN3o8
+	nfZnRkZTqV9GyiT9U3G7tmecb1U2vJKGFuTx0JWIIy7yNxwPVBdq81k4AdGFrUoCLPUI2Pc2kYgXq
+	fioxkD5ih3JEtrsT1dAx7yv5jMuQArvFl22cu0sIswidQE1FLFZOGZMQltlVJ12/CAKlvixcvK36l
+	hQKFGz862zZ1w4twaRceMYWHFcmpYwl61JyarIUacYwogy8WjwdKTaF7PX8v81izDv9r/yxh+tG8f
+	dOmgYew35FI6lG4NPs98BSCedU+K2xCx2KSMWGlkCI2BLzmU1H0/7I54alGoyKZolkQ9xjDIh7ZZ6
+	WSc6EaNliUHMTOIRd2oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooZpF-003SsJ-F0; Sat, 29 Oct 2022 00:35:49 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1oodJ5-004bOF-K4; Sat, 29 Oct 2022 04:18:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooZpC-003Srh-5y
-	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 00:35:48 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id v17so3181549plo.1
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 17:35:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7Le86NMxhBnkwa5kXIbP7+Mnqw0bru/EQIoCWyjB5JU=;
-        b=nmrPcbR0b96pJMlWdwC19vFW4cVVyauU/WSjiEytPk37rCNtpgeycpqCqQHfLsZt3q
-         Ppyp/Gr/uETexxp9LqIQyUnMQU5yg89bfbscBQy/Vl844c772hTMMMvkg5F6gxVe9uCJ
-         PlifKUXGhExr4CqKt9voKFhDNIDyn/s5AAaE3RtRGdTv7ADWTm7B1uwZ7zMHC+8eyAos
-         PYkpSplgYuguDmMJRGmovbcsVYJmleSzFtIHqqyyxydD9TRIVTGAop4cosXtXZ9v2tZZ
-         oYaNy/8x7QMpNDF1zbZID5rDT8atzMz8L5yg3otKeQoBwTS15R1TqKftxexhD8cWg1VX
-         57rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7Le86NMxhBnkwa5kXIbP7+Mnqw0bru/EQIoCWyjB5JU=;
-        b=tJfFHZUpj34BCtRun8ECz36so1Ic8JswX78kxzDgmqKnTcI64bwihnPlrGBMKUvzTp
-         jJHeLP6XonnlcB/sb1hbi56wEzGviIvfkm5KUfNhZAyDI6Cr5nuq0Ow02FVIif86QlTu
-         WHOkF0gUcH9C/PvXowVBFwgOIC3BofEVVWDv0AHySjoWWOXkopsY3Yv/Z01m7kqa4xFG
-         KMSGRap5QSstGpmBqFwz7Ft7AZ5kYfLmmwc/4w7B5QhWOTYdhe6LSBs4GrjchFjhoSYS
-         /jnj/WhGk+Opmt+HP4bv0MaUa7TdPKMN1phVAYosC74PxUACgo8IbgiP1tPC7hufz1+V
-         8+BA==
-X-Gm-Message-State: ACrzQf1J5CNGpkPbDfQIUk2pwuq1cGSq5pFbtbR7haxehgnobFieEqC0
-	UalFdfVJh+zs+EQqukc03Ttnet2gAPLpyw==
-X-Google-Smtp-Source: AMsMyM41ZIZU4gyRBPUNxDYN/sNjzM8zdfkKZiOwAlrxqpZJXo8roQRqf9d/R2h0m+WZNAXumYZJgw==
-X-Received: by 2002:a17:90b:4b10:b0:20c:c3a8:38e with SMTP id lx16-20020a17090b4b1000b0020cc3a8038emr1979085pjb.195.1667003743482;
-        Fri, 28 Oct 2022 17:35:43 -0700 (PDT)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id c70-20020a621c49000000b0056beae3dee2sm49349pfc.145.2022.10.28.17.35.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Oct 2022 17:35:43 -0700 (PDT)
-In-Reply-To: <20221012120038.1034354-1-liushixin2@huawei.com>
-References: <20221012120038.1034354-1-liushixin2@huawei.com>
-Subject: Re: [PATCH v3 0/2] riscv: Support HAVE_ARCH_HUGE_VMAP and HAVE_ARCH_HUGE_VMALLOC
-Message-Id: <166700373783.11702.14374051952974242875.b4-ty@rivosinc.com>
-Date: Fri, 28 Oct 2022 17:35:37 -0700
+	id 1oodJ2-004bN1-UQ
+	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 04:18:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B1E2E601CD
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:18:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D12C43470
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:18:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667017121;
+	bh=tGuK0t80zkZtAo5Nex2KKRFbSxKUDdhcBhWx7hEFvuk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=RtJVoTaiv6EMCogDfUCGceorfx6aaNUEll7Q8rg5fLr4HKY1itrLCISTS66FC9/ou
+	 AqMIT41osUEC2q49MQnPmnraOkPUzAlNo9WvaRfZiYZbDasUQjpTYFjJ2Fwki1nIIh
+	 mEDao7xBQ/2A+LLlPqKlV3rJG3JD6ALZJIy9rfXz2RoAllGP/eKfRqV4X8Rue3VXPm
+	 9jL+GLbvXY/yXvS+RWVJrFou+hGiwvcu0hcYmg6jc/v1tbSAwq0nzkkMBhMSqOzSSj
+	 d0InLC5Oell6Uj4hUF11zfJ8oydSQddODUY90kMN1YBhV0Klv/O10as6l2gSjMCrEw
+	 suM1eiENECX5w==
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-13c2cfd1126so8417966fac.10
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 21:18:41 -0700 (PDT)
+X-Gm-Message-State: ACrzQf0EF2JMxMLYfNb1tjb0NiER+Th+PCn07nFxt5j/ueUAm9hHXOCw
+	NQDExLEGiPR/LP6OMSYnGQiF/MOFjaxWs2n6Q5w=
+X-Google-Smtp-Source: AMsMyM7e6IHCx9azxcE286jAdW0V+KhXxyaPIe0xY+vKOQn5w6MOSy85TfhuXUeFW6s9kqA39gLLKuYmyas/W8K7zG4=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr10197639oap.19.1667017120186; Fri, 28
+ Oct 2022 21:18:40 -0700 (PDT)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-36ce3
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-doc@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor Dooley <conor@kernel.org>, Kefeng Wang <wangkefeng.wang@huawei.com>,
-  Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Björn Töpel <bjorn@kernel.org>,
-  Liu Shixin <liushixin2@huawei.com>, Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221028165921.94487-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221028165921.94487-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 29 Oct 2022 12:18:27 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTxzV3M0b4UbPpyUtNTKtT6ViU1i=hihcnneM2M-2jR3A@mail.gmail.com>
+Message-ID: <CAJF2gTTxzV3M0b4UbPpyUtNTKtT6ViU1i=hihcnneM2M-2jR3A@mail.gmail.com>
+Subject: Re: [PATCH v5 3/7] riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@rivosinc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_173546_461671_70144233 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221028_211849_099146_2F334C47 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,26 +88,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Oct 2022 20:00:36 +0800, Liu Shixin wrote:
-> riscv64 can support sv48 now, so we can add more hugepage-related features
-> which rely on 3th or 4th level of page table. These two patches will
-> enable HAVE_ARCH_HUGE_VMAP and HAVE_ARCH_HUGE_VMALLOC.
-> 
-> v2->v3: Fix the commit log.
-> v1->v2: Fix the build error reported by kernel-test.
-> 
-> [...]
+On Sat, Oct 29, 2022 at 12:59 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+>
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Add ARCH_RENESAS config option to allow selecting the Renesas RISC-V SoCs.
+> We currently have the newly added RZ/Five (R9A07G043) RISC-V based SoC.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> v4 -> v5
+> * Sorted as per SoC name
+> * Included RB tag from Conor
+>
+> v3 -> v4
+> * Dropped SOC_RENESAS_RZFIVE config option
+> * Dropped explicitly selecting SOC_BUS/GPIOLIB/PINCTRL configs
+>   under ARCH_RENESAS
+> * Updated commit message
+> * Dropped RB tag
+> * Used riscv instead of RISC-V in subject line
+>
+> v2 -> v3
+> * Included RB tag from Geert
+>
+> v1 -> v2
+> * No Change
+> ---
+>  arch/riscv/Kconfig.socs | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 69774bb362d6..75fb0390d6bd 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -7,6 +7,11 @@ config SOC_MICROCHIP_POLARFIRE
+>         help
+>           This enables support for Microchip PolarFire SoC platforms.
+>
+> +config ARCH_RENESAS
+> +       bool "Renesas RISC-V SoCs"
+> +       help
+> +         This enables support for the RISC-V based Renesas SoCs.
+> +
+Looks good.
 
-Applied, thanks!
+Reviewed-by: Guo Ren <guoren@kernel.org>
 
-[1/2] riscv: Enable HAVE_ARCH_HUGE_VMAP for 64BIT
-      https://git.kernel.org/palmer/c/310f541a027b
-[2/2] riscv: Enable HAVE_ARCH_HUGE_VMALLOC for 64BIT
-      https://git.kernel.org/palmer/c/be79afc740b5
+>  config SOC_SIFIVE
+>         bool "SiFive SoCs"
+>         select SERIAL_SIFIVE if TTY
+> --
+> 2.25.1
+>
 
-Best regards,
+
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
