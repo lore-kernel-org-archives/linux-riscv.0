@@ -4,56 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EB2C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 08:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEEC433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 09:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hSnYaV6fVpc4UpMeLtuKgx41GWehWSxdoKtKnRaDFQc=; b=qcOcbTDZxDK8gT
-	b2qoIl3HCSw1xjUdD/ND9FzKlSVTf+weyGNoP5HhPXVm7+RJkcJSR+8taA0Wu0IHbfC3kpvW/GFLN
-	ij87GhGyDtI4lccqC0wYg03NGoZcLX7pAKohtRBJmmL3jZJizK6eS85jLx/PDEDnm6NCPPL1x9603
-	LLFiJM/ZFVtnciERZuZL0p+8R4SLssGNn22cSRiiQFJGFB55OzU/rduEIEMV3fcmbf6Tv0hPb4TEa
-	ORzNBicB6LSVRAAUjDDuy9AKDDbsNGEtn1DAbBITaGZuV4cQnsDMPSpn/vgokbYw0KRn+v769JLgD
-	vWO0h3eCR/bkiv5ljoHA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lt+ni/AC4K5soDUk0zx7/1dNUT6dJwnbT8velJtRU6A=; b=EmF1UbTKyX+fgd
+	3xzAh5IEGDhJ6Uuht8YG5DeweVFpt9l6iNgPM/MoZsXsL4WdAj1JuEgk1ZoieVvMCevbIlzePEhV6
+	xVD9ozMCSQ2JSm6bVxvCHUKgZFigj9ltaMns4KoMJuisqPNBhyNFcom75m+ZfgOKEImAU3FatgVs8
+	48ZE78gy/xKmYbUztivW0YnWCiPeRaiYOtVCb/Ghf5GzAD6UCeLJ9/uxAX5VtwBrwD9yHKSN6Quqy
+	F5dtV9OwAK8HC89qtZgk/ZikKkKjeTyUt+acPYPL+V1N9+YHdDD27c5qxaNxnEZiKlQOnjpaYd/Sd
+	jJDITvbKZvqsIYRd/MsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooh6C-005H9l-V9; Sat, 29 Oct 2022 08:21:48 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ooiZc-005kLm-QS; Sat, 29 Oct 2022 09:56:16 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooh69-005H7x-QO
-	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 08:21:48 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.53])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Mzsh66qX0zmVJY;
-	Sat, 29 Oct 2022 16:16:38 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Sat, 29 Oct 2022 16:21:35 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Sat, 29 Oct 2022 16:21:35 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Tong
- Tiangen" <tongtiangen@huawei.com>, <wangkefeng.wang@huawei.com>, Guohanjun
-	<guohanjun@huawei.com>
-Subject: [PATCH -next v2] riscv/mm/fault: simplify code for do_page_fault()
-Date: Sat, 29 Oct 2022 08:47:15 +0000
-Message-ID: <20221029084715.3669204-1-tongtiangen@huawei.com>
-X-Mailer: git-send-email 2.25.1
+	id 1ooiZZ-005kKg-VD
+	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 09:56:15 +0000
+Received: by mail-wr1-x431.google.com with SMTP id bs21so9476356wrb.4
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 02:56:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hYbKJy82Ni1WaoAt3JW0zUHd/xH1wOyaSoMpg/ZR0OY=;
+        b=bLhX/kZFyXVpmYfpxWl6HQgmppZ702qNue6v4l5Y0OSDVLLwaJRwSQp+xPzw8IzQAM
+         sv88mhhgp6tWBB8xWomwR5TA4OBUf95xlP9libLLWsTDb3vFXqmWpb4Fj85Y60odWe/G
+         beT1Q31mX2+S+nh7GniEbhwtR5C/Cfu3O04Pb8bjRMd32IZCzS9H3mkRtuMgxOfA0/Hg
+         pPmnXcoYHtvF6740mQNwGW39Enk3PoEulh5+66sKHY26CvFNdMyeMB2p8khjZQxG9AJ2
+         1ZVrSqq1RB25zGYB8eHskOqRVN4KYKyoVhUxulY0x50w9oihx7/7oawb9g2Xw+eW3y1R
+         3ifg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hYbKJy82Ni1WaoAt3JW0zUHd/xH1wOyaSoMpg/ZR0OY=;
+        b=ngPIn3KRM63NDETm/Pbp6i4BmD/Z/R3r77dL2Yoyk7QpIhHvT7IsycBLIBQXHINaT9
+         Up2Y8sHOCAtOZaKlYUvXSSWI/9o81erXixxhlWiKzSlCx3BCNEobvJMKuWpaBcfpBrrG
+         FSrAYIFWgnUsd0xvS5J3PqFMP1JFnECSYuwqFvL7bZYF2O7IRpCG41wSgY2ajPSRMG9R
+         9A/aN5pErjWaNlUswBSiGl6NKSlh2/7Tnr8Fa4EjWYKj+vv2ZvkMFdQPLfIg5PyNWEOv
+         NRB0me2zAdxqlyZSW521Au848/JwPy2u9CzwZUsZhIHNtPRQLGiA9Tm5jyWab/uJy/Pu
+         0jaw==
+X-Gm-Message-State: ACrzQf2tjfsHQihnu/Jd1pKYAiZsUt52K+TcuD/biH7xxKYXY8O96j4H
+	wvLJrAfORoA54QAHlszCf+xdOg==
+X-Google-Smtp-Source: AMsMyM5Ccre1kyxGZ+/+2ktSKgdZW715lhzzsFNX3RK0O1Aj3vYKinBl9M+grR87oRML0yCye+l3yA==
+X-Received: by 2002:adf:a31c:0:b0:236:ba0d:246b with SMTP id c28-20020adfa31c000000b00236ba0d246bmr98769wrb.448.1667037371161;
+        Sat, 29 Oct 2022 02:56:11 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id i19-20020a05600c2d9300b003cf5e445f5dsm1145974wmg.25.2022.10.29.02.56.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Oct 2022 02:56:10 -0700 (PDT)
+Date: Sat, 29 Oct 2022 11:56:09 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] riscv: improve boot time isa extensions handling
+Message-ID: <20221029095609.e4ymkbnk2hl3kxzc@kamzik>
+References: <20221006070818.3616-1-jszhang@kernel.org>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20221006070818.3616-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221029_012146_245380_00F418E1 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20221029_025614_033191_AD33304A 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,134 +91,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To make the code more hierarchical and readable, we fold vma related
-judgments into __do_page_fault(). And to simplify the code, move the
-tsk->thread.bad_cause's setting into bad_area(). No functional change
-intended.
+On Thu, Oct 06, 2022 at 03:08:10PM +0800, Jisheng Zhang wrote:
+> Generally, riscv ISA extensions are fixed for any specific hardware
+> platform, that's to say, the hart features won't change any more
+> after booting, this chacteristic make it straightforward to use
+> static branch to check one specific ISA extension is supported or not
+> to optimize performance.
+> 
+> However, some ISA extensions such as SVPBMT and ZICBOM are handled
+> via. the alternative sequences.
+> 
+> Basically, for ease of maintenance, we prefer to use static branches
+> in C code, but recently, Samuel found that the static branch usage in
+> cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+> Samuel pointed out, "Having a static branch in cpu_relax() is
+> problematic because that function is widely inlined, including in some
+> quite complex functions like in the VDSO. A quick measurement shows
+> this static branch is responsible by itself for around 40% of the jump
+> table."
+> 
+> Samuel's findings pointed out one of a few downsides of static branches
+> usage in C code to handle ISA extensions detected at boot time:
+> static branch's metadata in the __jump_table section, which is not
+> discarded after ISA extensions are finalized, wastes some space.
+> 
+> I want to try to solve the issue for all possible dynamic handling of
+> ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+> riscv_has_extension_*() helpers, which work like static branches but
+> are patched using alternatives, thus the metadata can be freed after
+> patching.
+> 
+> [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+> [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/
+> 
+> 
+> Jisheng Zhang (8):
+>   riscv: move riscv_noncoherent_supported() out of ZICBOM probe
+>   riscv: cpufeature: detect RISCV_ALTERNATIVES_EARLY_BOOT earlier
+>   riscv: hwcap: make ISA extension ids can be used in asm
+>   riscv: cpufeature: extend riscv_cpufeature_patch_func to all ISA
+>     extensions
+>   riscv: introduce riscv_has_extension_[un]likely()
+>   riscv: fpu: switch has_fpu() to riscv_has_extension_likely()
+>   riscv: cpu_relax: switch to riscv_has_extension_likely()
+>   riscv: remove riscv_isa_ext_keys[] array and related usage
+> 
+>  arch/riscv/include/asm/errata_list.h    |  9 +--
+>  arch/riscv/include/asm/hwcap.h          | 94 ++++++++++++++-----------
+>  arch/riscv/include/asm/switch_to.h      |  3 +-
+>  arch/riscv/include/asm/vdso/processor.h |  2 +-
+>  arch/riscv/kernel/cpufeature.c          | 78 +++-----------------
+>  arch/riscv/kernel/setup.c               |  4 ++
+>  6 files changed, 71 insertions(+), 119 deletions(-)
+> 
+> -- 
+> 2.37.2
+>
 
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
----
-v1 -> v2:
-  Fixed incorrect use of macro VM_FAULT_BADMAP.
+Hi Jisheng,
 
- arch/riscv/mm/fault.c | 77 +++++++++++++++++++++++--------------------
- 1 file changed, 41 insertions(+), 36 deletions(-)
+I just tried building this with LLVM=1 and fails to compile with messages
+like
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index d86f7cebd4a7..3fdc2eebdd36 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -85,6 +85,8 @@ static inline void mm_fault_error(struct pt_regs *regs, unsigned long addr, vm_f
- 
- static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code, unsigned long addr)
- {
-+	current->thread.bad_cause = regs->cause;
-+
- 	/*
- 	 * Something tried to access memory that isn't in our memory map.
- 	 * Fix it, but check if it's kernel or user first.
-@@ -200,6 +202,38 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- 	return false;
- }
- 
-+#define VM_FAULT_BADMAP		((__force vm_fault_t)0x010000)
-+#define VM_FAULT_BADACCESS	((__force vm_fault_t)0x020000)
-+
-+static vm_fault_t __do_page_fault(struct mm_struct *mm, unsigned long addr,
-+				unsigned int mm_flags, struct pt_regs *regs)
-+{
-+	struct vm_area_struct *vma = find_vma(mm, addr);
-+
-+	if (unlikely(!vma))
-+		return VM_FAULT_BADMAP;
-+
-+	if (unlikely(vma->vm_start > addr)) {
-+		if (unlikely(!(vma->vm_flags & VM_GROWSDOWN) ||
-+				expand_stack(vma, addr)))
-+			return VM_FAULT_BADMAP;
-+	}
-+
-+	/*
-+	 * Ok, we have a good vm_area for this memory access, so
-+	 * we can handle it.
-+	 */
-+	if (unlikely(access_error(regs->cause, vma)))
-+		return VM_FAULT_BADACCESS;
-+
-+	/*
-+	 * If for any reason at all we could not handle the fault,
-+	 * make sure we exit gracefully rather than endlessly redo
-+	 * the fault.
-+	 */
-+	return handle_mm_fault(vma, addr, mm_flags, regs);
-+}
-+
- /*
-  * This routine handles page faults.  It determines the address and the
-  * problem, and then passes it off to one of the appropriate routines.
-@@ -207,7 +241,6 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- asmlinkage void do_page_fault(struct pt_regs *regs)
- {
- 	struct task_struct *tsk;
--	struct vm_area_struct *vma;
- 	struct mm_struct *mm;
- 	unsigned long addr, cause;
- 	unsigned int flags = FAULT_FLAG_DEFAULT;
-@@ -280,44 +313,16 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 		flags |= FAULT_FLAG_INSTRUCTION;
- retry:
- 	mmap_read_lock(mm);
--	vma = find_vma(mm, addr);
--	if (unlikely(!vma)) {
--		tsk->thread.bad_cause = cause;
--		bad_area(regs, mm, code, addr);
--		return;
--	}
--	if (likely(vma->vm_start <= addr))
--		goto good_area;
--	if (unlikely(!(vma->vm_flags & VM_GROWSDOWN))) {
--		tsk->thread.bad_cause = cause;
--		bad_area(regs, mm, code, addr);
--		return;
--	}
--	if (unlikely(expand_stack(vma, addr))) {
--		tsk->thread.bad_cause = cause;
--		bad_area(regs, mm, code, addr);
--		return;
--	}
- 
--	/*
--	 * Ok, we have a good vm_area for this memory access, so
--	 * we can handle it.
--	 */
--good_area:
--	code = SEGV_ACCERR;
-+	fault = __do_page_fault(mm, addr, flags, regs);
- 
--	if (unlikely(access_error(cause, vma))) {
--		tsk->thread.bad_cause = cause;
--		bad_area(regs, mm, code, addr);
--		return;
--	}
-+	if (unlikely(fault & VM_FAULT_BADMAP))
-+		return bad_area(regs, mm, code, addr);
- 
--	/*
--	 * If for any reason at all we could not handle the fault,
--	 * make sure we exit gracefully rather than endlessly redo
--	 * the fault.
--	 */
--	fault = handle_mm_fault(vma, addr, flags, regs);
-+	if (unlikely(fault & VM_FAULT_BADACCESS)) {
-+		code = SEGV_ACCERR;
-+		return bad_area(regs, mm, code, addr);
-+	}
- 
- 	/*
- 	 * If we need to retry but a fatal signal is pending, handle the
--- 
-2.25.1
+ ld.lld: error: relocation R_RISCV_64 cannot be used against symbol '.Ltmp1'; recompile with -fPIC
+ >>> defined in arch/riscv/kernel/vdso/vgettimeofday.o
+ >>> referenced by vgettimeofday.c
+ >>>               arch/riscv/kernel/vdso/vgettimeofday.o:(.alternative+0x0)
 
+It does compile and boot with CC=clang and binutils 2.39, where my clang
+version is 14.0.5 (Fedora 14.0.5-1.fc36).
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
