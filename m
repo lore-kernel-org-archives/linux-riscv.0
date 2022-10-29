@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A080EC38A02
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Oct 2022 23:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805DBC38A02
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 00:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bHbVrX35KG5U4u4ue4+lN138qTTICRIiOspaBeeIgHY=; b=Wep64IqxVVqX70
-	ltSOadQ8HuXHwMFogF0Go50HAGFtiPakmch1Gfgu+Hs0yyc2nKaYc7X/wflEsamTgPBvgYdYCjnby
-	FatdmNgmOQusAOwn9dyFJKXj0INhClY38UYDvPOWX8DQWwgOWOm6+WBFe+D+2IgD9I4EDMhcOMEv4
-	LBhBctOOQbuF92bDcxDbufBkwWvh29O13hAq9SVSt7Oy1D4duc0W8FykBoJhhNJCIl1ofMQdNzaqB
-	IxQgI5SUkGUu9fIZHIpCR8Z8c6n1M0wXoEVsILL67gh5jy3ReS8cGg5JRPmrIdEoE6sGNQH0c58Mz
-	0DT6rdD2Pyy7QrTw2jog==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZKo0P/EsOS1nXiibXG9aV31y2UD86fZdx/VCOa5H1dw=; b=uDoN0mLLv+NxrZ
+	X2Bceq86X7INpJ1Lpy3z9zSqU4rCxioXVn1wLqjyw/a7n1kjAX6RDRLYJ8QhufRJFPGGd80zuFcKF
+	Da/njU2fTzpBAxDo/KCjadVCAWQoNLAAoUUSs3K2zliTnsK/+Q+a6e8lkG4qR6VmpY9BdOdc/aIwu
+	ILkotV6+0Boq0m5Rg2+D7oDH5b0yzLVN5K3nICEjnjS81wt0Kk4xeS2uUWMahJIJZsHRlPSDRBBwJ
+	ZKWyvnJkYWYRDAVIvRkZTOaKY8SOfSoAYJqp5eHJ5a+8hb/9usNV25VDXxokCrYbwDFNbPkll4sPc
+	B1nl73MLv47S2upJFs3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooYdf-003EoY-Do; Fri, 28 Oct 2022 23:19:47 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1ooZVb-003QhY-If; Sat, 29 Oct 2022 00:15:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooYdc-003En5-8E
-	for linux-riscv@lists.infradead.org; Fri, 28 Oct 2022 23:19:46 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id g129so6065673pgc.7
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 16:19:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vdbgZ8+Fu6n0HK4tgOaOYq43eN2AjNjj/Lhga+VAiyM=;
-        b=aMw3oUjEz8KxyX5NRy8i43+HJNi8jXjsGtcRnti8nSdP4d/D/7x/NYETkIaL+23EEd
-         37AA/MvumskK4g5anPHvbmKTEazSBxU8xWFpbfzNfVoHL8XP0rk5+6xe+EiYp19r4lgg
-         3E2+1UsnCFUXhBv/6PElhfyEisP2ddRRJSTJQBGQiJch9HkvDg9XowGTYV86BxzccqYz
-         woDM+lrq8UDV+DZZ021IjdtLqgVhH6v9U57om+imUTcuJkGHkuke/Q/IBc/q3cH2Vblp
-         rbMzYHQKFrzrAiJ7g5Rku+VyVCcvidbHmCvRJM8e14ayWyUZFgykrPs9tabdGTJCZyeb
-         IAZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vdbgZ8+Fu6n0HK4tgOaOYq43eN2AjNjj/Lhga+VAiyM=;
-        b=RIVvLu2epGcrGmQE6bgDJV/PxLV/z+k4fXa0QzORjuDFp8DklIP080mcHYkNJyo390
-         fzmJI7IkDzLGXWI6B60nJ1qoODUJLQsVQT+MGVGl9DnjbRBEMHk+HoZXqfcoknmcfiMB
-         w7mIqQau/PdNPTDUo0GEZPf2TJrEQZY695/EV5v+NKwJ0rx11mPAGc6gK4y5p1mjuYlP
-         zFZhJqRg9KmvECTznAqjwv4biM5O928Toad512/5HX5R8FfZlUefNQGWvVpwymkQdYhg
-         yAKsN/qZcs8Z4HXxkZyzc/9eC/wiqQeME7UgWVNzoaZsynSfELm/HLgQXcjuPKis4THv
-         eNCQ==
-X-Gm-Message-State: ACrzQf3daaM2FFS8rG0EQKmNBaVDpWxqKu9Fb8SHn3Udgzyqk1fhj5V9
-	gtw0pPy5pJGVd4+oOhYpjpMRag==
-X-Google-Smtp-Source: AMsMyM7kBxRafshIfMOooOPKNBPhtCi9z2rUeho/arEVqJ9+3KvlGJVZHHufukrQPzCdagMN4rm8IQ==
-X-Received: by 2002:a63:69c2:0:b0:46a:eeb1:e784 with SMTP id e185-20020a6369c2000000b0046aeeb1e784mr1617170pgc.589.1666999180528;
-        Fri, 28 Oct 2022 16:19:40 -0700 (PDT)
-Received: from rivos-atish.hq.rivosinc.com ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id jb5-20020a170903258500b00176ea6ce0efsm1335plb.109.2022.10.28.16.19.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Oct 2022 16:19:40 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Damien Le Moal <damien.lemoal@wdc.com>,
-	devicetree@vger.kernel.org,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
-	linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH] RISC-V: Do not issue remote fences until smp is available
-Date: Fri, 28 Oct 2022 16:19:29 -0700
-Message-Id: <20221028231929.347918-1-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	id 1ooZVY-003Qgt-TQ
+	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 00:15:30 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 489A5601B5;
+	Sat, 29 Oct 2022 00:15:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9CFF9C433D6;
+	Sat, 29 Oct 2022 00:15:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667002527;
+	bh=EeYQrSSYue092zsjVCa6RxdEJgvrjxuCmZLF12ktlxI=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=t2g+lelkNd1B+I0AB58Crnay+OQBxkfKSeAiRwDEPyWSjgmcNULvNzKBit6Y/Crng
+	 FLUoP8cs05jx/fZun8trqiPyhnxULY8R71M5/hnbwK3r4ZB/VbBTLtyiW44j4VdiJF
+	 8NiY8dto9FpMiQoZUA8YsYnBgTt6+kzj08BvjMZvGo+hnZgIfnFWUrR712zJod43o5
+	 1hnK4J2QJgG4iA6DxmssFo3gHPKbuPHeYYV8ZWRg9qkXYzjxrhxPXJbBLVXbOq59e5
+	 7/NlRC9Ut0DQ+RX8Zxfrw/WervYqJ6febdsCOQMSrROwPEgoKj6CiE0oQipifrhuy1
+	 5MOmMQqVzFdUg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 8BD61C4314C;
+	Sat, 29 Oct 2022 00:15:27 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.1-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-d47a53b0-2125-467d-a9ff-c17fd41d646b@palmer-ri-x1c9a>
+References: <mhng-d47a53b0-2125-467d-a9ff-c17fd41d646b@palmer-ri-x1c9a>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-d47a53b0-2125-467d-a9ff-c17fd41d646b@palmer-ri-x1c9a>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-rc3
+X-PR-Tracked-Commit-Id: d14e99bf95510fa2d6affc371ad68161afc1dc8e
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 283f13d43bb4187bad3479f96ce7b4582ef4ed17
+Message-Id: <166700252756.12440.12917889714759364259.pr-tracker-bot@kernel.org>
+Date: Sat, 29 Oct 2022 00:15:27 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_161944_327610_82904FA8 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20221028_171529_004014_79C8AEF2 
+X-CRM114-Status: UNSURE (   4.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,39 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is useless to issue remote fences if there is a single core
-available. It becomes a bottleneck for sbi based rfences where
-we will be making those ECALLs for no reason. Early code patching
-because of static calls end up in this path.
+The pull request you sent on Fri, 28 Oct 2022 11:41:32 -0700 (PDT):
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/mm/cacheflush.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-rc3
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index f10cb47eac3a..7fafc8c26505 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -19,6 +19,10 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
- 
-+	/* No need to issue remote fence if only 1 cpu is online */
-+	if (num_online_cpus() == 1)
-+		return;
-+
- 	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/283f13d43bb4187bad3479f96ce7b4582ef4ed17
+
+Thank you!
+
 -- 
-2.34.1
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
