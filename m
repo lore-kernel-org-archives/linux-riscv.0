@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87024C38A02
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 04:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBF2C38A02
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 04:29:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gf3VQO29q/O83KxkUJfMAbepywzAZasfFWLcz+CtPgM=; b=rm1B+aVCZvpUEK
-	TEJj+kJrlTo6bqIROalMVdMVqDWxqcWleGJ4eEIFZCnDt6Ee476+HAqbfC9pzQIe3HuFic+7E0yDl
-	b3wgoozjHKKM8+rotBPzL3nhHpLbVSqBPg4h33M7CiGW2PBrvZCg9haxI5ZbYz4+SHpfgRY2uyuls
-	bS7zRH5yp2kX6jVmETHZobDtidm2FqMK2owvetiPcTQIQ5tsRuUVWEH6OX9kL4tW72q59lbJSEcEL
-	TmZwPF/dMYyy5szwNdnXwDnGjupzkC9uUmPLQdSi0iqqLreoZus3LYICOYCCNGrzmCNoX6s58KAxQ
-	CaTGMpx9n8CreoVhOsLQ==;
+	List-Owner; bh=CZNarE1llbm4gCS8KxZUpfAy9BE4+ybnjqOEscAb1+w=; b=lZ1hGScEcabRf4
+	7RK9dnEA27Efj5icglYLZtw4uIUYtz+rQdirUZuAQlotvA3yFtaznU27pCzt7i7msgTY0hslN43V6
+	Y5d3MtvE9dCciHdyWqTPnd6S35LRuafuISIU6yV6GUtHl1WnR8TIhQk65P6AEaskovjPR+T3fxFLt
+	jMpMEU/BQKpc/1oX4yA2Dntwi4knGXcpI78iYwBGZSaljSoKpWpw0NJ5Hr7KeaeUHzLtBPYUbtyfB
+	peYmbJedPkSywkDoc4c3L+zurTi2TZ7JL7Vl8tmbw8XePBnUb43mPuj5LUzNgcNsTWEtKZ0nREypU
+	+lCMPfK/DYUP0BUYHsvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oodSC-004cOs-2d; Sat, 29 Oct 2022 04:28:16 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oodSw-004cXK-UZ; Sat, 29 Oct 2022 04:29:02 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oodS9-004cOG-N5
-	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 04:28:15 +0000
+	id 1oodSu-004cWU-7W
+	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 04:29:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2A4B760A0B
-	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA9DFC433B5
-	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:28:11 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D6E77B82CDB
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:28:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E143C43470
+	for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 04:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667017692;
-	bh=l3gTHpSgHNXx654qe9ChihbsrZyGKjLLonsuLZ91Shc=;
+	s=k20201202; t=1667017737;
+	bh=aTygU2PRy7lfkCjg6NARWEJFi56C6SOOGo8ciffs0M4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VreITvgrAng8RK/2/3eW0U6l8vfXPB3rYYtlTDtZ/Yh0OufW0qX7nHUOPgyxoE7wo
-	 cd1pJViTBE+TzGElUxJk/kN235MWlDydvrjfLKZKWv3o+S50MIAhOoHz8TObcBildH
-	 Rt2OHz55/zr3Qw1SldexHpWY/9HP2CKqqJqL0kA1vOSJwLgSsJkIh8vHFc434dbWGc
-	 9PGEdLLPoKaCNgpnXjUbK9FQY+aX7Ji3Lqa+XTg5K6OwkNPprBCW+HJURXHewvinRM
-	 /vasdphnq2SyKZmoFLOsVFJG+gekpklyhldCTpREZKuaWXFGEdzn6cCr0vn69kmNHh
-	 ZIJYtS6GaOfpQ==
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-13c2cfd1126so8430247fac.10
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 21:28:11 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3fCy1IHSlIzkKC11zt8Z3JyzUE5gkOdCyYNMiXiaRR4ixSxWqU
-	xylMwmuf3trixvm5uTLMpQcvyeYbAwgdaI3KaIg=
-X-Google-Smtp-Source: AMsMyM7D0WVKxMG8lGL27vGBxZiQxWd/LF+z4X/5eJ9XrOaf52xEFlmhom7cKtUmBn7oO/eOl5+OgclQkUpbt9HX9f0=
-X-Received: by 2002:a05:6871:b0d:b0:13b:b91:dc94 with SMTP id
- fq13-20020a0568710b0d00b0013b0b91dc94mr11309668oab.112.1667017691168; Fri, 28
- Oct 2022 21:28:11 -0700 (PDT)
+	b=kC2UVQISZ4nPYgwr4pAfEbOBLInAwPZ7BrO0UqU77CO3g/1OthskPiQ56m4beDNuo
+	 kirUfT3Yx90wgKypNS+4vJq45qniwWZUc61/bK/BpC/gURWj1Nrz+9NX2M9R8k6QG1
+	 JVdJ2764RFk/m7zvOiE5C6G0+diBCReXzgYnEmWeTT79aQqxt/Q0xE0GTJlZAgQkQ+
+	 o05mujJ+CZu7Sj9aiS4aEm70LUW60rqBZVnpJa9ILh9PC6R6K5OhZ6IOgrL0GuWS8I
+	 ayIRuIXNfHl/AlNCL8ZzAEKdDVQYeKE8CeQo6WEcorRvAhqZDpo2cCwIauEQDlxiZU
+	 gwXMZ1oaJI3hg==
+Received: by mail-oi1-f170.google.com with SMTP id y67so8167378oiy.1
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Oct 2022 21:28:57 -0700 (PDT)
+X-Gm-Message-State: ACrzQf0u3F0oOfUKvQ9d1CPriylDvb99Jxe5S5PvskYv1OCpDtA/y/Jf
+	vRUs/oDpUfUpuncYq35o4n3DoLB9MRUTJTTQN/4=
+X-Google-Smtp-Source: AMsMyM7qr9dXGyzxd/3829olJulGF7SulN3N+dRbu+X5QyTSvh7ZfeE/P62C1xUQsuyr9RgMVhxxfngZ/+bX0pJujPk=
+X-Received: by 2002:a05:6808:f0e:b0:359:b055:32ea with SMTP id
+ m14-20020a0568080f0e00b00359b05532eamr9050147oiw.112.1667017736773; Fri, 28
+ Oct 2022 21:28:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221028165921.94487-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20221028165921.94487-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221028165921.94487-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221028165921.94487-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 29 Oct 2022 12:27:58 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS999PrC+uNntH4NF=ppLY0hbNCs=607=z3+LKWBWV3KQ@mail.gmail.com>
-Message-ID: <CAJF2gTS999PrC+uNntH4NF=ppLY0hbNCs=607=z3+LKWBWV3KQ@mail.gmail.com>
-Subject: Re: [PATCH v5 6/7] MAINTAINERS: Add entry for Renesas RISC-V
+Date: Sat, 29 Oct 2022 12:28:44 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSJML1buw3mO-2Oy8SAsHFk0hqKabiKhAQLfyuOcnas-g@mail.gmail.com>
+Message-ID: <CAJF2gTSJML1buw3mO-2Oy8SAsHFk0hqKabiKhAQLfyuOcnas-g@mail.gmail.com>
+Subject: Re: [PATCH v5 7/7] riscv: configs: defconfig: Enable Renesas RZ/Five SoC
 To: Prabhakar <prabhakar.csengg@gmail.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
@@ -70,8 +70,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221028_212813_847010_F5D68499 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20221028_212900_576855_2B284F14 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +88,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Reviewed-by: Guo Ren <guoren@kernel.org>
+
 On Sat, Oct 29, 2022 at 12:59 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
 >
 > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 >
-> Add RISC-V architecture as part of ARM/Renesas architecture, as they have
-> the same maintainers, use the same development collaboration
-> infrastructure, and share many files.
+> Enable Renesas RZ/Five SoC config in defconfig. It allows the default
+> upstream kernel to boot on RZ/Five SMARC EVK board.
+>
+> Alongside enable SERIAL_SH_SCI config so that the serial driver used by
+> RZ/Five SoC is built-in.
 >
 > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
 > v4 -> v5
-> * Rebased on -next
-> * Included RB tag from Conor
+> * No change
 >
 > v3 -> v4
-> * Included RB tag from Geert
+> * Explicitly enabled ARCH_R9A07G043 config (note I have restored the RB
+>   tags with this change)
+> * Used riscv instead of RISC-V in subject line
 >
 > v2 -> v3
-> * Merged as part of ARM
+> * Included RB tags
+> * Updated commit description
 >
 > v1 -> v2
 > * New patch
 > ---
->  MAINTAINERS | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  arch/riscv/configs/defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 6cdc2a74c7a2..0204f106d8c2 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2691,7 +2691,7 @@ F:        arch/arm/boot/dts/rtd*
->  F:     arch/arm/mach-realtek/
->  F:     arch/arm64/boot/dts/realtek/
->
-> -ARM/RENESAS ARCHITECTURE
-> +ARM/RISC-V/RENESAS ARCHITECTURE
-Great! Good luck RISC-V RENESAS ARCHITECTURE.
-
-Reviewed-by: Guo Ren <guoren@kernel.org>
-
->  M:     Geert Uytterhoeven <geert+renesas@glider.be>
->  M:     Magnus Damm <magnus.damm@gmail.com>
->  L:     linux-renesas-soc@vger.kernel.org
-> @@ -2713,6 +2713,7 @@ F:        arch/arm/include/debug/renesas-scif.S
->  F:     arch/arm/mach-shmobile/
->  F:     arch/arm64/boot/dts/renesas/
->  F:     arch/arm64/configs/renesas_defconfig
-> +F:     arch/riscv/boot/dts/renesas/
->  F:     drivers/soc/renesas/
->  F:     include/linux/soc/renesas/
->
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 05fd5fcf24f9..97fba7884d7a 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -29,6 +29,8 @@ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>  CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_STARFIVE=y
+>  CONFIG_SOC_VIRT=y
+> +CONFIG_ARCH_RENESAS=y
+> +CONFIG_ARCH_R9A07G043=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+>  CONFIG_PM=y
+> @@ -123,6 +125,7 @@ CONFIG_INPUT_MOUSEDEV=y
+>  CONFIG_SERIAL_8250=y
+>  CONFIG_SERIAL_8250_CONSOLE=y
+>  CONFIG_SERIAL_OF_PLATFORM=y
+> +CONFIG_SERIAL_SH_SCI=y
+>  CONFIG_VIRTIO_CONSOLE=y
+>  CONFIG_HW_RANDOM=y
+>  CONFIG_HW_RANDOM_VIRTIO=y
 > --
 > 2.25.1
 >
