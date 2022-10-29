@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79EEEC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 09:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A340C38A02
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Oct 2022 10:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lt+ni/AC4K5soDUk0zx7/1dNUT6dJwnbT8velJtRU6A=; b=EmF1UbTKyX+fgd
-	3xzAh5IEGDhJ6Uuht8YG5DeweVFpt9l6iNgPM/MoZsXsL4WdAj1JuEgk1ZoieVvMCevbIlzePEhV6
-	xVD9ozMCSQ2JSm6bVxvCHUKgZFigj9ltaMns4KoMJuisqPNBhyNFcom75m+ZfgOKEImAU3FatgVs8
-	48ZE78gy/xKmYbUztivW0YnWCiPeRaiYOtVCb/Ghf5GzAD6UCeLJ9/uxAX5VtwBrwD9yHKSN6Quqy
-	F5dtV9OwAK8HC89qtZgk/ZikKkKjeTyUt+acPYPL+V1N9+YHdDD27c5qxaNxnEZiKlQOnjpaYd/Sd
-	jJDITvbKZvqsIYRd/MsA==;
+	List-Owner; bh=ZIpqBAhNlTl/+gPKK6Kd8kcvq/N3bj76R1hloahay0k=; b=Y+pdfm5InzNJkh
+	TeUViRbOhZYZoYszV4uEL+FqEVSj5zkwoEn3xE10i32WXOmisZwlF7ePTyeNGbT24RKfU3kNi2Uv6
+	RTuvRwBw3VYIoV2BC75ofsHzz4Hjh7Dk/gsZCcpe004VR7DVV6HG0fFZWEoWmS1lehMWHLxgHsb+6
+	7QSbecT7e6cNbgPipoKxFg0WSUIlWi67mEErO8gX3WDFvlCINglGbw7Mkgs10DmwuU/GDCoyDVA2z
+	1236SwdIvoLUu8uMTvQoqywGnk02xKMMIRtSx5U4qq2KWqFVvO6zMO6nzVMs3o/79cppIoidUgnMp
+	jiQDV+L0eUlCKeBX8o7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooiZc-005kLm-QS; Sat, 29 Oct 2022 09:56:16 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1ooidE-005koA-Oo; Sat, 29 Oct 2022 10:00:00 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ooiZZ-005kKg-VD
-	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 09:56:15 +0000
-Received: by mail-wr1-x431.google.com with SMTP id bs21so9476356wrb.4
-        for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 02:56:12 -0700 (PDT)
+	id 1ooidB-005kms-VB
+	for linux-riscv@lists.infradead.org; Sat, 29 Oct 2022 09:59:59 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id a14so9487255wru.5
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Oct 2022 02:59:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hYbKJy82Ni1WaoAt3JW0zUHd/xH1wOyaSoMpg/ZR0OY=;
-        b=bLhX/kZFyXVpmYfpxWl6HQgmppZ702qNue6v4l5Y0OSDVLLwaJRwSQp+xPzw8IzQAM
-         sv88mhhgp6tWBB8xWomwR5TA4OBUf95xlP9libLLWsTDb3vFXqmWpb4Fj85Y60odWe/G
-         beT1Q31mX2+S+nh7GniEbhwtR5C/Cfu3O04Pb8bjRMd32IZCzS9H3mkRtuMgxOfA0/Hg
-         pPmnXcoYHtvF6740mQNwGW39Enk3PoEulh5+66sKHY26CvFNdMyeMB2p8khjZQxG9AJ2
-         1ZVrSqq1RB25zGYB8eHskOqRVN4KYKyoVhUxulY0x50w9oihx7/7oawb9g2Xw+eW3y1R
-         3ifg==
+        bh=g2dW10UymMhfarpm9dfWs0hcPHOcGuYCLtC1YjgHADk=;
+        b=kVUTbX1M6cwyQeZNSGuOn0+DZCrhE+IwtYFQigUIFTS22U4mP2tec8wSC5D0Vq0K/l
+         h/+FbBNwSC9l6zrRQqctyV7IcP5Odb6QNXaKpoDa9trcHC7CBoYke+kmNDcg5IO6OLwY
+         6Orf3VsmaQk8/gqWmzzOJ5eom/13oTnI9fJdVpH5N/jQ2wvzRvi9WggQpA4D9wbA3bHW
+         r89hKv5PB+NwT1l+ZQivn6+MGkKwaBMSSn1IMq2x+S6/8gef4RpZVsvLXqQmDMadEYdR
+         nW1qKQPV08oiFAlZDWIurBB7YqCEPVh6Nvg+RzSclh+jsADd1+WZFVeQCBWLi6vYvjIF
+         gCEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hYbKJy82Ni1WaoAt3JW0zUHd/xH1wOyaSoMpg/ZR0OY=;
-        b=ngPIn3KRM63NDETm/Pbp6i4BmD/Z/R3r77dL2Yoyk7QpIhHvT7IsycBLIBQXHINaT9
-         Up2Y8sHOCAtOZaKlYUvXSSWI/9o81erXixxhlWiKzSlCx3BCNEobvJMKuWpaBcfpBrrG
-         FSrAYIFWgnUsd0xvS5J3PqFMP1JFnECSYuwqFvL7bZYF2O7IRpCG41wSgY2ajPSRMG9R
-         9A/aN5pErjWaNlUswBSiGl6NKSlh2/7Tnr8Fa4EjWYKj+vv2ZvkMFdQPLfIg5PyNWEOv
-         NRB0me2zAdxqlyZSW521Au848/JwPy2u9CzwZUsZhIHNtPRQLGiA9Tm5jyWab/uJy/Pu
-         0jaw==
-X-Gm-Message-State: ACrzQf2tjfsHQihnu/Jd1pKYAiZsUt52K+TcuD/biH7xxKYXY8O96j4H
-	wvLJrAfORoA54QAHlszCf+xdOg==
-X-Google-Smtp-Source: AMsMyM5Ccre1kyxGZ+/+2ktSKgdZW715lhzzsFNX3RK0O1Aj3vYKinBl9M+grR87oRML0yCye+l3yA==
-X-Received: by 2002:adf:a31c:0:b0:236:ba0d:246b with SMTP id c28-20020adfa31c000000b00236ba0d246bmr98769wrb.448.1667037371161;
-        Sat, 29 Oct 2022 02:56:11 -0700 (PDT)
+        bh=g2dW10UymMhfarpm9dfWs0hcPHOcGuYCLtC1YjgHADk=;
+        b=pNEJ6O94G3bK15ULjscVphUEoiDJVKUC/O3YEsQxh/atYyCPhhXpsDFpWqy6tWHZUs
+         IAi+FjFCs8amrFzg3y0pLVBMOpamtFGWz6g+UGUEzXL0Wk52BFFQNBwaY+4UJeiDblpf
+         IPfC8Mow0o8BeyqpR4Kpx5cNGCdGjuHkFtUCav+F0b/qQB4zk3v45WXPKqOlWdMMndjW
+         y9OOQN/NFDR1SM+eGPazrmG1APN6xUBKlGAbVFPkT9TXY1ZJwNQfeaz11+PwBF01eU92
+         cKKIIu2l6fTAWyh/I7iUdM4kv29A0PFD3a6WLu84z39ePv95uyggwjR/KWNPm+HZgGjG
+         /uNw==
+X-Gm-Message-State: ACrzQf1G5cV/L0l2x/QoHTpzq+7CH1gdd1lQksiw3KgO39JqdsETAIGI
+	YXF2narCbIxyirHUxHS7QbwAQC0HNoWZhg==
+X-Google-Smtp-Source: AMsMyM5F7FrTt3MAWTz3VzMHpq3Y/KpjI82k5YQ8nsvZXr8t5pL5gLS7SpADjETogW8C+2gXQ/n2zQ==
+X-Received: by 2002:a05:6000:79c:b0:236:6f2e:301e with SMTP id bu28-20020a056000079c00b002366f2e301emr1961978wrb.458.1667037595486;
+        Sat, 29 Oct 2022 02:59:55 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id i19-20020a05600c2d9300b003cf5e445f5dsm1145974wmg.25.2022.10.29.02.56.09
+        by smtp.gmail.com with ESMTPSA id ay19-20020a5d6f13000000b00236b2804d79sm1068293wrb.2.2022.10.29.02.59.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Oct 2022 02:56:10 -0700 (PDT)
-Date: Sat, 29 Oct 2022 11:56:09 +0200
+        Sat, 29 Oct 2022 02:59:55 -0700 (PDT)
+Date: Sat, 29 Oct 2022 11:59:53 +0200
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Jisheng Zhang <jszhang@kernel.org>
+To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/8] riscv: improve boot time isa extensions handling
-Message-ID: <20221029095609.e4ymkbnk2hl3kxzc@kamzik>
-References: <20221006070818.3616-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH 0/9] RISC-V: Apply Zicboz to clear_page and memset
+Message-ID: <20221029095953.zhzb47lbiepptqpn@kamzik>
+References: <20221027130247.31634-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221006070818.3616-1-jszhang@kernel.org>
+In-Reply-To: <20221027130247.31634-1-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221029_025614_033191_AD33304A 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20221029_025958_014166_F0BD2DA8 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +95,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 06, 2022 at 03:08:10PM +0800, Jisheng Zhang wrote:
-> Generally, riscv ISA extensions are fixed for any specific hardware
-> platform, that's to say, the hart features won't change any more
-> after booting, this chacteristic make it straightforward to use
-> static branch to check one specific ISA extension is supported or not
-> to optimize performance.
+On Thu, Oct 27, 2022 at 03:02:38PM +0200, Andrew Jones wrote:
+> When the Zicboz extension is available we can more rapidly zero naturally
+> aligned Zicboz block sized chunks of memory. As pages are always page
+> aligned and are larger than any Zicboz block size will be, then
+> clear_page() appears to be a good candidate for the extension. While cycle
+> count and energy consumption should also be considered, we can be pretty
+> certain that implementing clear_page() with the Zicboz extension is a win
+> by comparing the new dynamic instruction count with its current count[1].
+> Doing so we see that the new count is less than half the old count (see
+> patch4's commit message for more details). Another candidate for the
+> extension is memset(), but, since memset() isn't just used for zeroing
+> memory and it accepts arbitrarily aligned addresses and arbitrary sizes,
+> it's not as obvious if adding support for Zicboz will be an overall win.
+> In order to make a determination, I've done some analysis and wrote my
+> conclusions in the bullets below.
 > 
-> However, some ISA extensions such as SVPBMT and ZICBOM are handled
-> via. the alternative sequences.
+> * When compiling the kernel without CONFIG_RISCV_ISA_ZICBOZ, memset()
+>   doesn't change, so that's fine.
 > 
-> Basically, for ease of maintenance, we prefer to use static branches
-> in C code, but recently, Samuel found that the static branch usage in
-> cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
-> Samuel pointed out, "Having a static branch in cpu_relax() is
-> problematic because that function is widely inlined, including in some
-> quite complex functions like in the VDSO. A quick measurement shows
-> this static branch is responsible by itself for around 40% of the jump
-> table."
+> * The overhead added to memset() when the Zicboz extension isn't present,
+>   but CONFIG_RISCV_ISA_ZICBOZ is selected, is 3 jumps to known targets,
+>   which I believe is fine.
 > 
-> Samuel's findings pointed out one of a few downsides of static branches
-> usage in C code to handle ISA extensions detected at boot time:
-> static branch's metadata in the __jump_table section, which is not
-> discarded after ISA extensions are finalized, wastes some space.
+> * The overhead added to a memset() invocation which is not zeroing memory
+>   is 7 instructions, where 3 are branches. This seems fine and,
+>   furthermore, memset() is almost always invoked to zero memory (99% [2]).
 > 
-> I want to try to solve the issue for all possible dynamic handling of
-> ISA extensions at boot time. Inspired by Mark[2], this patch introduces
-> riscv_has_extension_*() helpers, which work like static branches but
-> are patched using alternatives, thus the metadata can be freed after
-> patching.
+> * When memset() is invoked to zero memory, the proposed Zicboz extended
+>   memset() always has a lower dynamic instruction count than the current
+>   memset() as long as the input address is Zicboz block aligned and the
+>   length is >= the block size.
 > 
-> [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
-> [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/
+> * When memset() is invoked to zero memory, the proposed Zicboz extended
+>   memset() is always worse for unaligned or too small inputs than the
+>   current memset(), but it's only at most a few dozen instructions worse.
+>   I think this is probably fine, especially considering the large majority
+>   of zeroing invocations are 64 bytes or larger and are aligned to a
+>   power-of-2 boundary, 64-byte or larger (77% [2]).
 > 
+> [1] I ported the functions under test to userspace and linked them with
+>     a test program. Then, I ran them under gdb with a script[3] which
+>     counted instructions by single stepping.
 > 
-> Jisheng Zhang (8):
->   riscv: move riscv_noncoherent_supported() out of ZICBOM probe
->   riscv: cpufeature: detect RISCV_ALTERNATIVES_EARLY_BOOT earlier
->   riscv: hwcap: make ISA extension ids can be used in asm
->   riscv: cpufeature: extend riscv_cpufeature_patch_func to all ISA
->     extensions
->   riscv: introduce riscv_has_extension_[un]likely()
->   riscv: fpu: switch has_fpu() to riscv_has_extension_likely()
->   riscv: cpu_relax: switch to riscv_has_extension_likely()
->   riscv: remove riscv_isa_ext_keys[] array and related usage
+> [2] I wrote bpftrace scripts[4] to count memset() invocations to see the
+>     frequency of it being used to zero memory and have block size aligned
+>     input addresses with block size or larger lengths. The workload was
+>     just random desktop stuff including streaming video and compiling.
+>     While I did run this on my x86 notebook, I still expect the data to
+>     be representative on RISC-V. Note, x86 has clear_page() so the
+>     memset() data regarding alignment and size weren't over inflated by
+>     page zeroing invocations. Grepping also shows the large majority of
+>     memset() calls are to zero memory (93%).
 > 
->  arch/riscv/include/asm/errata_list.h    |  9 +--
->  arch/riscv/include/asm/hwcap.h          | 94 ++++++++++++++-----------
->  arch/riscv/include/asm/switch_to.h      |  3 +-
->  arch/riscv/include/asm/vdso/processor.h |  2 +-
->  arch/riscv/kernel/cpufeature.c          | 78 +++-----------------
->  arch/riscv/kernel/setup.c               |  4 ++
->  6 files changed, 71 insertions(+), 119 deletions(-)
+> [3] https://gist.github.com/jones-drew/487791c956ceca8c18adc2847eec9c60
+> [4] https://gist.github.com/jones-drew/1e860692cf6fc0fb2a82a04c9ce720fe
+> 
+> These patches are based on the following pending series
+> 
+> 1. "[PATCH v2 0/3] RISC-V: Ensure Zicbom has a valid block size"
+>    20221024091309.406906-1-ajones@ventanamicro.com
+> 
+> 2. "[PATCH 0/8] riscv: improve boot time isa extensions handling"
+>    20221006070818.3616-1-jszhang@kernel.org
+>    Also including the additional patch proposed here
+>    20221013162038.ehseju2neic2xu5z@kamzik
+> 
+> The patches are also available here
+> https://github.com/jones-drew/linux/commits/riscv/zicboz
+> 
+> To test over QEMU this branch may be used to enable Zicboz
+> https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicboz
+> 
+> To test running a KVM guest with Zicboz this kvmtool branch may be used
+> https://github.com/jones-drew/kvmtool/commits/riscv/zicboz
+> 
+> Thanks,
+> drew
+> 
+> Andrew Jones (9):
+>   RISC-V: Factor out body of riscv_init_cbom_blocksize loop
+>   RISC-V: Add Zicboz detection and block size parsing
+>   RISC-V: insn-def: Define cbo.zero
+>   RISC-V: Use Zicboz in clear_page when available
+>   RISC-V: KVM: Provide UAPI for Zicboz block size
+>   RISC-V: KVM: Expose Zicboz to the guest
+>   RISC-V: lib: Improve memset assembler formatting
+>   RISC-V: lib: Use named labels in memset
+>   RISC-V: Use Zicboz in memset when available
+> 
+>  arch/riscv/Kconfig                  |  13 ++
+>  arch/riscv/include/asm/cacheflush.h |   3 +-
+>  arch/riscv/include/asm/hwcap.h      |   1 +
+>  arch/riscv/include/asm/insn-def.h   |  50 ++++++
+>  arch/riscv/include/asm/page.h       |   6 +-
+>  arch/riscv/include/uapi/asm/kvm.h   |   2 +
+>  arch/riscv/kernel/cpu.c             |   1 +
+>  arch/riscv/kernel/cpufeature.c      |  10 ++
+>  arch/riscv/kernel/setup.c           |   2 +-
+>  arch/riscv/kvm/vcpu.c               |  11 ++
+>  arch/riscv/lib/Makefile             |   1 +
+>  arch/riscv/lib/clear_page.S         |  28 ++++
+>  arch/riscv/lib/memset.S             | 241 +++++++++++++++++++---------
+>  arch/riscv/mm/cacheflush.c          |  64 +++++---
+>  14 files changed, 325 insertions(+), 108 deletions(-)
+>  create mode 100644 arch/riscv/lib/clear_page.S
 > 
 > -- 
-> 2.37.2
+> 2.37.3
 >
 
-Hi Jisheng,
+FYI, I just tried this with clang. It compiles but doesn't boot when
+Zicboz is present (it does boot when Zicboz is disabled in QEMU). I'm
+suspicious of the ALTERNATIVE() stuff, but I'll debug more on Monday.
+Also, I see building with LLVM=1 doesn't work, but that appears to be
+an issue introduced with "[PATCH 0/8] riscv: improve boot time isa
+extensions handling" which this series is based on.
 
-I just tried building this with LLVM=1 and fails to compile with messages
-like
-
- ld.lld: error: relocation R_RISCV_64 cannot be used against symbol '.Ltmp1'; recompile with -fPIC
- >>> defined in arch/riscv/kernel/vdso/vgettimeofday.o
- >>> referenced by vgettimeofday.c
- >>>               arch/riscv/kernel/vdso/vgettimeofday.o:(.alternative+0x0)
-
-It does compile and boot with CC=clang and binutils 2.39, where my clang
-version is 14.0.5 (Fedora 14.0.5-1.fc36).
-
-Thanks,
 drew
 
 _______________________________________________
