@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E671FA373D
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 09:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5DDC38A02
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 12:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1+VUXgIbAE1pIF+cn6lYOhJlFKzquFLr/K5OgEussGQ=; b=Ryhx8nvBrUwdYP
-	SjNofRVBhg6zsU+Nc+8KqxSV04hw3pD/xCtiUMTcwFYUXAOvxbAPfjx1USMqKNRtZxID26DkQQ/8d
-	7u8FJBj/fOKS+aBHFHFz18vCz80DxScmmmSn14J+jYMzErO1pdoGN8ZgDTvUCSE4wXusHYdJXjfRb
-	DnohzbTL0bpD1CJ830nSEfUE6TzRldoVqvamu05sp+J5JR2875iOpllW02qsZbFrxE5qzC61XXqOx
-	BWz1llf720QBXguodo01NEElxSFGmJ2uRXHbTKuyQLNaunN0pfpAcBOEmDE3C+YhDUekl5M+X3tOn
-	zafulrfpp4d5uSlSkO9A==;
+	List-Owner; bh=Z7WtnzKZMhI6msiQsAvJTjcBwvlsjJHRBzSI99ps0zo=; b=pcZLr6vwHwh4RE
+	i3NOm7srxLa02WAqKXasrYFZ5+/w2R/A7uAB4zqCEeyfb3xSgjDNKqyBLO4Owrjz9/xqAv2M/YR3U
+	c+svqcc9ZK0AH2/tHY9/PyWXnQIIzZDqHchOh6ECKX1bW41A6T68ABk54T2Sda+BYC1bNTwbNYu3q
+	cZv5wu9XAmFq9KKVoGywHhIufeAHhzPR3gg0DA3gFnvltpLHLHSyM+/lVzLdxFBkU/ODYD8Zm9lBE
+	7nroe2T/O5owo8Gm53ZRfiCStMq8V8JjsmfCQh6dT2Jch1GqiXuChMKILfsDcTItP5wjtnPRpIC9u
+	j7/eTN98T4EE5SRFt2hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4DO-00EYIb-JT; Sun, 30 Oct 2022 09:02:46 +0000
-Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4D3-00EXyy-GW
-	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 09:02:34 +0000
-Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXCVmKPV5jkxYmBw--.33365S9;
-	Sun, 30 Oct 2022 17:02:18 +0800 (CST)
-From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	rostedt@goodmis.org,
-	mingo@redhat.com,
-	sfr@canb.auug.org.au
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	liaochang1@huawei.com,
-	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH 5/8] riscv/kprobe: Search free register(s) to clobber for 'AUIPC/JALR'
-Date: Sun, 30 Oct 2022 17:01:38 +0800
-Message-Id: <20221030090141.2550837-6-chenguokai17@mails.ucas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
-References: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
+	id 1op71D-00FoUf-PQ; Sun, 30 Oct 2022 12:02:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1op71A-00FoTH-51
+	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 12:02:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7C1D8B80122;
+	Sun, 30 Oct 2022 12:02:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE1CC433D6;
+	Sun, 30 Oct 2022 12:02:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667131335;
+	bh=HRszhxNcL2xa9zIHaXT7CIUphxF72yX5b9TQHNkKxnE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jJuv/zABSSkBJJ3P9HwYtusgSfxCzmrjBDhvS9BTNEp8KVcZrhE2nvgQTF5DaLoxo
+	 zHIBIA3g7z9TcJlfw5aAk5UhK+9CLletD7tWH5AYzKZFhUYzHB8pBV/6K+TkZrIEf5
+	 7iu4d89NMBD293J3ijZ8/srtsjaCNryGPL25mvGRvleWAgZE5+Ek5R5sTCMJziN8S6
+	 JFKjKJBG9aOqwUhgbk0qs0IIkgNL2UISvQ9B6e+9W8nGbYfmBb/h9qhmz4Ycm1Bb0p
+	 j1Bdw0Kpp03KKAVzR4YvY3DwiSLf8W9Bo9XDNGB1gpBMooctV7QE2dv3xfam0hfff/
+	 ivUN0dmq48Mxg==
+Date: Sun, 30 Oct 2022 12:02:09 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH 0/6] RISC-V: stop selecting device drivers in Kconfig.socs
+Message-ID: <Y15nwXmn7rToJkH2@spud>
+References: <20221005171348.167476-1-conor@kernel.org>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXCVmKPV5jkxYmBw--.33365S9
-X-Coremail-Antispam: 1UD129KBjvJXoWfJry3uryfWFyDWw43Xw1xAFb_yoWDZryxpF
-	W3Gw4rtF4Utrs5WrW3tF1kJrWSgFs3Grs8Zr15t3yUAw43G3ySqFWvga4avr1DGF13Zr48
-	Jr4Y9rWI9r4DAFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQY14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0V
-	AKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1l
-	Ox8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErc
-	IFxwACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_GFWl42xK82IYc2Ij64vIr41l
-	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
-	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
-	cVAFwI0_JFI_Gr1lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4
-	v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AK
-	xVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUUiID3UUUUU==
-X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCQAPE2NeHVkoZQABsg
+Content-Disposition: inline
+In-Reply-To: <20221005171348.167476-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_020225_970353_87F4FB57 
-X-CRM114-Status: GOOD (  29.96  )
+X-CRM114-CacheID: sfid-20221030_050220_376925_E39ADFE5 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,326 +79,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Liao Chang <liaochang1@huawei.com>
+On Wed, Oct 05, 2022 at 06:13:43PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> As my RFC [0] series doing the symbol name changes has not yet reached
+> consensus, I've split out the removal of device driver selects into a
+> new series. I kept the plic as a direct select - although given how Maz
+> is treating the SiFive plic driver as the RISC-V plic driver, maybe that
+> should just be selected by default at an arch level...
+> 
+> I assume the individual patches can go via their subsystems & I'll
+> resubmit the arch/riscv patches a cycle later? I'm not in any rush.
 
-This patch implements the algorithm of searching free register(s) for
-long-jump from a instruction range.
+Hey,
 
-AUIPC/JALR instruction pair is introduced with a much wider jump range
-(4GB), where auipc loads the upper 20 bits to a free register and jalr
-appends the lower 12 bits to form a 32 bit immediate. Since kprobes can
-be instrumented at anywhere in kernel space, the free register should
-be found in a generic way, not depending on the calling convention
-or any other regulations.
+What's the story here with the two serial patches, they just waiting for
+an Ack? I think these are archived on the riscv patchwork, so if that is
+the case I'll unarchive them and mark as needing one.
 
-The algorithm for finding the free register is inspired by the register
-renaming in modern processors. From the perspective of register renaming,
-a register could be represented as two different registers if two neighbour
-instructions both write to it but no one ever reads. Extending this fact,
-a register is considered to be free if there is no read before its next
-write in the execution flow. We are free to change its value without
-interfering normal execution.
+Thanks,
+Conor.
 
-In order to do jump optimization, it needs to search two free registers,
-the first one is used to form AUIPC/JALR jumping to detour buffer, the
-second one is used to form JR jumping back from detour buffer. If first
-one has never been updated by instructions that replaced by 'AUIPC/JALR',
-both register are supposed to be the same one.
-
-Let's use the example below to explain how the algorithm work. Given
-kernel is RVI and RCV hybrid binary, and one kprobe is instrumented at
-the entry of function idle_dummy.
-
-Before			Optimized		Detour buffer
-<idle_dummy>:					...
- #1 add  sp,sp,-16	auipc a0, #?		add  sp,sp,-16
- #2 sd   s0,8(sp)				sd   s0,8(sp)
- #3 addi s0,sp,16	jalr  a0, #?(a0)	addi s0,sp,16
- #4 ld   s0,8(sp)				ld   s0,8(sp)
- #5 li   a0,0		li   a0,0		auipc a0, #?
- #6 addi sp,sp,16	addi sp,sp,16		jr    x0, #?(a0)
- #7 ret			ret
-
-For regular kprobe, it is trival to replace the first instruction with
-C.EREABK, no more instruction and register will be clobbered, in order
-to optimize kprobe with long-jump, it used to patch the first 8 bytes with
-AUIPC/JALR, and a0 will be chosen to save the address jumping to,
-because from #1 to #7, a0 is the only one register that satifies two
-conditions: (1) First usage is as destination (2) Never been updated in
-detour buffer. While s0 has been used as the source register at #2, so
-it is not free to clobber.
-
-The searching starts from the kprobe and stop at the last instruction of
-function or the first branch/jump instruction, it decodes out the 'rs'
-and 'rd' part of each visited instruction. If the 'rd' has never been
-read before, record it to bitmask 'write'; if the 'rd' has been written
-in optimized instruction window, then record it to bitmask 'update'; if
-the 'rs' never been written before, then record it to another bitmask
-'read'. When seaching stops, the remaining bits of 'write' are the free
-register to used for AUIPC/JALR, the remaining bits of 'write' filtered
-from 'update' are the free registers to used as 'JR'.
-
-Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Liao Chang <liaochang1@huawei.com>
----
- arch/riscv/kernel/probes/opt.c | 225 ++++++++++++++++++++++++++++++++-
- 1 file changed, 224 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-index e4a619c2077e..6d23c843832e 100644
---- a/arch/riscv/kernel/probes/opt.c
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -12,6 +12,9 @@
- #include <asm/kprobes.h>
- #include <asm/patch.h>
- 
-+#include "simulate-insn.h"
-+#include "decode-insn.h"
-+
- static inline int in_auipc_jalr_range(long val)
- {
- #ifdef CONFIG_ARCH_RV32I
-@@ -37,15 +40,235 @@ static void prepare_detour_buffer(kprobe_opcode_t *code, kprobe_opcode_t *slot,
- {
- }
- 
-+/* Registers the first usage of which is the destination of instruction */
-+#define WRITE_ON(reg)	\
-+	(*write |= (((*read >> (reg)) ^ 1UL) & 1) << (reg))
-+/* Registers the first usage of which is the source of instruction */
-+#define READ_ON(reg)	\
-+	(*read |= (((*write >> (reg)) ^ 1UL) & 1) << (reg))
-+
- /*
-  * In RISC-V ISA, AUIPC/JALR clobber one register to form target address,
-  * by inspired by register renaming in OoO processor, this involves search
-  * backwards that is not previously used as a source register and is used
-  * as a destination register before any branch or jump instruction.
-  */
-+static void arch_find_register(unsigned long start, unsigned long end,
-+			       unsigned long *write, unsigned long *read)
-+{
-+	kprobe_opcode_t insn;
-+	unsigned long addr, offset = 0UL;
-+
-+	for (addr = start; addr < end; addr += offset) {
-+		insn = *(kprobe_opcode_t *)addr;
-+		offset = GET_INSN_LENGTH(insn);
-+
-+#ifdef CONFIG_RISCV_ISA_C
-+		if (offset == RVI_INSN_LEN)
-+			goto is_rvi;
-+
-+		insn &= __COMPRESSED_INSN_MASK;
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_c_ebreak(insn) || riscv_insn_is_c_j(insn))
-+			break;
-+
-+		if (riscv_insn_is_c_jal(insn)) {
-+			/* The rd of C.JAL is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_jalr(insn)) {
-+			READ_ON(rvc_r_rs1(insn));
-+			/* The rd of C.JALR is x1 by default */
-+			WRITE_ON(1);
-+			break;
-+		}
-+
-+		if (riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVC instructions that encode integer registers, try
-+		 * to find out some destination register, the number of which
-+		 * are equal with 'least' and never be used as source register.
-+		 */
-+		if (riscv_insn_is_c_sub(insn) || riscv_insn_is_c_subw(insn)) {
-+			READ_ON(rvc_a_rs1(insn));
-+			READ_ON(rvc_a_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sq(insn) ||
-+			   riscv_insn_is_c_sw(insn) ||
-+			   riscv_insn_is_c_sd(insn)) {
-+			READ_ON(rvc_s_rs1(insn));
-+			READ_ON(rvc_s_rs2(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_addi16sp(insn) ||
-+			   riscv_insn_is_c_addi(insn) ||
-+			   riscv_insn_is_c_addiw(insn) ||
-+			   riscv_insn_is_c_slli(insn)) {
-+			READ_ON(rvc_i_rs1(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sri(insn) ||
-+			   riscv_insn_is_c_andi(insn)) {
-+			READ_ON(rvc_b_rs(insn));
-+			continue;
-+		} else if (riscv_insn_is_c_sqsp(insn) ||
-+			   riscv_insn_is_c_swsp(insn) ||
-+			   riscv_insn_is_c_sdsp(insn)) {
-+			READ_ON(rvc_ss_rs2(insn));
-+			/* The rs2 of C.SQSP/SWSP/SDSP are x2 by default */
-+			READ_ON(2);
-+			continue;
-+		} else if (riscv_insn_is_c_mv(insn)) {
-+			READ_ON(rvc_r_rs2(insn));
-+			WRITE_ON(rvc_r_rd(insn));
-+		} else if (riscv_insn_is_c_addi4spn(insn)) {
-+			/* The rs of C.ADDI4SPN is x2 by default */
-+			READ_ON(2);
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lq(insn) ||
-+			   riscv_insn_is_c_lw(insn) ||
-+			   riscv_insn_is_c_ld(insn)) {
-+			/* FIXME: c.lw/c.ld share opcode with c.flw/c.fld */
-+			READ_ON(rvc_l_rs(insn));
-+			WRITE_ON(rvc_l_rd(insn));
-+		} else if (riscv_insn_is_c_lqsp(insn) ||
-+			   riscv_insn_is_c_lwsp(insn) ||
-+			   riscv_insn_is_c_ldsp(insn)) {
-+			/*
-+			 * FIXME: c.lwsp/c.ldsp share opcode with c.flwsp/c.fldsp
-+			 * The rs of C.LQSP/C.LWSP/C.LDSP is x2 by default.
-+			 */
-+			READ_ON(2);
-+			WRITE_ON(rvc_i_rd(insn));
-+		} else if (riscv_insn_is_c_li(insn) ||
-+			   riscv_insn_is_c_lui(insn)) {
-+			WRITE_ON(rvc_i_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+is_rvi:
-+#endif
-+		/* Stop searching until any control transfer instruction */
-+		if (riscv_insn_is_branch(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jal(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_jalr(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		if (riscv_insn_is_system(insn)) {
-+			/* csrrw, csrrs, csrrc */
-+			if (rvi_rs1(insn))
-+				READ_ON(rvi_rs1(insn));
-+			/* csrrwi, csrrsi, csrrci, csrrw, csrrs, csrrc */
-+			if (rvi_rd(insn))
-+				WRITE_ON(rvi_rd(insn));
-+			break;
-+		}
-+
-+		/*
-+		 * Decode RVC instructions that has rd and rs, try to find out
-+		 * some rd, the number of which are equal with 'least' and never
-+		 * be used as rs.
-+		 */
-+		if (riscv_insn_is_lui(insn) || riscv_insn_is_auipc(insn)) {
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_ri(insn) ||
-+			   riscv_insn_is_load(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		} else if (riscv_insn_is_arith_rr(insn) ||
-+			   riscv_insn_is_store(insn) ||
-+			   riscv_insn_is_amo(insn)) {
-+			READ_ON(rvi_rs1(insn));
-+			READ_ON(rvi_rs2(insn));
-+			WRITE_ON(rvi_rd(insn));
-+		}
-+
-+		if ((*write > 1UL) && __builtin_ctzl(*write & ~1UL))
-+			return;
-+	}
-+}
-+
- static void find_free_registers(struct kprobe *kp, struct optimized_kprobe *op,
--				int *rd1, int *rd2)
-+				int *rd, int *ra)
- {
-+	unsigned long start, end;
-+	/*
-+	 * Searching algorithm explanation:
-+	 *
-+	 * 1. Define two types of instruction area firstly:
-+	 *
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instrunctions modified by optprobe, named 'O-Area'.
-+	 * +     +
-+	 * +-----+
-+	 * +     +
-+	 * +     + ---> instructions after optprobe, named 'K-Area'.
-+	 * +     +
-+	 * +  ~  +
-+	 *
-+	 * 2. There are two usages for each GPR in given instruction area.
-+	 *
-+	 *   - W: GPR is used as the RD oprand at first emergence.
-+	 *   - R: GPR is used as the RS oprand at first emergence.
-+	 *
-+	 * Then there are 4 different usages for each GPR totally:
-+	 *
-+	 *   1. Used as W in O-Area, Used as W in K-Area.
-+	 *   2. Used as W in O-Area, Used as R in K-Area.
-+	 *   3. Used as R in O-Area, Used as W in K-Area.
-+	 *   4. Used as R in O-Area, Used as R in K-Area.
-+	 *
-+	 * All registers satisfy #1 or #3 could be chosen to form 'AUIPC/JALR'
-+	 * jumping to detour buffer.
-+	 *
-+	 * All registers satisfy #1 or #2, could be chosen to form 'JR' jumping
-+	 * back from detour buffer.
-+	 */
-+	unsigned long kw = 0UL, kr = 0UL, ow = 0UL, or = 0UL;
-+
-+	/* Search one free register used to form AUIPC/JALR */
-+	start = (unsigned long)&kp->opcode;
-+	end = start + GET_INSN_LENGTH(kp->opcode);
-+	arch_find_register(start, end, &ow, &or);
-+
-+	start = (unsigned long)kp->addr + GET_INSN_LENGTH(kp->opcode);
-+	end = (unsigned long)kp->addr + op->optinsn.length;
-+	arch_find_register(start, end, &ow, &or);
-+
-+	/* Search one free register used to form JR */
-+	arch_find_register(end, (unsigned long)_end, &kw, &kr);
-+
-+	if ((kw & ow) > 1UL) {
-+		*rd = __builtin_ctzl((kw & ow) & ~1UL);
-+		*ra = *rd;
-+		return;
-+	}
-+
-+	*rd = ((kw | ow) == 1UL) ? 0 : __builtin_ctzl((kw | ow) & ~1UL);
-+	*ra = (kw == 1UL) ? 0 : __builtin_ctzl(kw & ~1UL);
- }
- 
- /*
--- 
-2.25.1
-
+> 
+> 0 - https://lore.kernel.org/linux-riscv/20220923185605.1900083-1-conor@kernel.org/
+> 
+> Conor Dooley (6):
+>   clk: sifive: select by default if SOC_SIFIVE
+>   serial: sifive: select by default if SOC_SIFIVE
+>   serial: sifive: select by default if SOC_CANAAN
+>   riscv: stop selecting the PolarFire SoC clock driver
+>   riscv: stop selecting SiFive clock and serial drivers directly
+>   riscv: stop directly selecting drivers for SOC_CANAAN
+> 
+>  arch/riscv/Kconfig.socs    | 8 --------
+>  drivers/clk/sifive/Kconfig | 4 +++-
+>  drivers/tty/serial/Kconfig | 2 ++
+>  3 files changed, 5 insertions(+), 9 deletions(-)
+> 
+> -- 
+> 2.37.3
+> 
 
 _______________________________________________
 linux-riscv mailing list
