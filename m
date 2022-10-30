@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FD3ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 13:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CE4ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 16:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0W5sd/QZF6tthDsLR7D6zegLPk3VANwwnWnV2bkjBE=; b=WOHF1Wu8W2YDOo
-	+gJS7kTu6M/CeZLAnfOm7ymTV9i5uoAzN+6agS+GhDGpOT2qHxjWa55naGDxVffWQ64w65K+uKBo6
-	QbeF41KmhgoBnAEcKlLchFEB8RxNOHCHM3sWJH91DwrdXgOOScV8+d1gTNpn3rZtDz9qtsi22Befi
-	iTcPkojcdZWsGQd76eFdgYBDm48H5vw8sUdv8o8P6rOhuuM6iwOwHXTYXcjaOpoiITFOOIEpLzeqr
-	CU7b1IGMUDI4Ph18fJdQ5OmIlstIxPIyEkIdZTVqqkydoW8xfEeWp/g3BZrUrhdDW8lqw7EiRcVad
-	C7gHrGec4O1beOoUcMgg==;
+	List-Owner; bh=LwVensjvbCn9RyA8RIrheChiqQqV02/zLoo+O2SlU9k=; b=lf7GVZVWKsdXZb
+	B2HEC9bBJbX68V17ZNv3izHj0ZD2hhYP5leTyPsZcfHvmSFdWYBd79ZlAUmLlCHC5h7NDRIq0EIUl
+	xzJSvUkoR0T5452Z2vVQXwCz7wRBfesgddMTZfr4i/UDn+jXguYAPwirx5rLvuGfRPoBJI+vUqtW2
+	yip9aVYE6KTfb2VJ4Ka8dciQNr6O3+QXv+7R5et24EHbzysTq7zRzUH3MJUE5Ep9UhBhTsKxYI0gs
+	PC2QElwPnLkdAwdngCGz07zoyRlwiohWsK4Ti4CIAwzYibuvATG9dwkS9bvoBCcM8aAH8U9Wrwaqn
+	XLIrL2jILj48uG33s9gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op8IL-00GO3F-Jd; Sun, 30 Oct 2022 13:24:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1opAw3-000Oet-0R; Sun, 30 Oct 2022 16:13:19 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op8II-00GO1R-Sg
-	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 13:24:08 +0000
+	id 1opAvz-000ObE-O0
+	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 16:13:17 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 76BAE60B3C
-	for <linux-riscv@lists.infradead.org>; Sun, 30 Oct 2022 13:24:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D60D8C433D6
-	for <linux-riscv@lists.infradead.org>; Sun, 30 Oct 2022 13:24:04 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 001C9CE0FAB;
+	Sun, 30 Oct 2022 16:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74CABC433C1;
+	Sun, 30 Oct 2022 16:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667136244;
-	bh=R5uAAOwfhBbjV6oM76LGmmVk9MxkU7/sTXwusw3/Mxs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=a3GKiaC0hK08JreV1E2wvjYIXFxsyC0FotLYKaAMaPxNtqizbDuLeYwFdQS7Dchtt
-	 SaqA827YASFLTyHkjIWoAIlSGbzZiqdp+d3GX7cMEnxG5t4MJg1RhqHkmJTkLdeS4c
-	 Lf96++REpXouQkDkxJMoaibzFnY3svy2r8Me1PYmgv/tgjnSkhqte8hICQ+UbcEPSH
-	 nB6n1YfJ5Lmd6Jg+ZuUnSCjO/7YBA9XWVL91jnjmDMo9AG7Xpc+mWYT7m7vbPRpX81
-	 hOklM0gE5GJV0sPE7EUS/TAL+7GbELYtsueIaBz3BDD9buSQ4l0Mu38c1c3arxuJiC
-	 We9fPTw8O6+1Q==
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-13bd19c3b68so11107040fac.7
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Oct 2022 06:24:04 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3ZQsb5Zdis+po6+1pBJOiytId3s5z8XBLIxtlZ2wEM6ABfCh+D
-	85jcrZ4qAustguuy93RG3epQOVd0FXB8+n+cZ9s=
-X-Google-Smtp-Source: AMsMyM6JDTigjpyhc9s9y68ntLbzzQG3iswsqkU6mLrFLhpaBY0LV9z9NUcaBTc40L0yrTXODfGOgaSqyytpO39funI=
-X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
- r3-20020a056870580300b0012cc3e099dcmr13430439oap.19.1667136243989; Sun, 30
- Oct 2022 06:24:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20221030124517.2370-1-jszhang@kernel.org>
-In-Reply-To: <20221030124517.2370-1-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 30 Oct 2022 21:23:51 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRPECoPFHXKZZ8bRc27YSYv7z4xkYh+hTmfzmZg8=2Ejg@mail.gmail.com>
-Message-ID: <CAJF2gTRPECoPFHXKZZ8bRc27YSYv7z4xkYh+hTmfzmZg8=2Ejg@mail.gmail.com>
-Subject: Re: [PATCH v3] riscv: fix race when vmap stack overflow
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	s=k20201202; t=1667146387;
+	bh=/T3JSPF6RKm+uD0J6i/rJY8j22suaEB2nqLWyc8WVfQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=obSU/JkGAzLXB2CTMQPpINuXYLeHg6YL1DjxNB2QF7uMKz1r/E7SidAZAcS1fpMpx
+	 Yw4PyaS2BTlkZXWZh+cZULssGS8MF+Ih3xf1QgmjQm0/fusis7NSu/If3paWkdmn5Z
+	 Lece3ClpVkyI3+sO6OHjYr7XANVbCpYCaJFtPJNf7ugSIDVX/mzmQnNd0BOqtEG8V+
+	 RaxjnyR/Q44cJS+D92wTN7fXCb+/KiTnETa3m2SIrALQmnDEqJ3qLY8C7S6sIXeLCN
+	 mODLW7ndGAZLTJbb6yPA+rJ7V9awtGeVDa3Z7AI7OY2bhSikKU7mfV9WAXwaYYfbVo
+	 aAMcc9GXrupKQ==
+Date: Mon, 31 Oct 2022 00:03:20 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] riscv: improve boot time isa extensions handling
+Message-ID: <Y16gSDwCWmp3vxaw@xhacker>
+References: <20221006070818.3616-1-jszhang@kernel.org>
+ <20221029095609.e4ymkbnk2hl3kxzc@kamzik>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221029095609.e4ymkbnk2hl3kxzc@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_062407_038531_FD17BC3A 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20221030_091316_159598_966847A0 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +75,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
+On Sat, Oct 29, 2022 at 11:56:09AM +0200, Andrew Jones wrote:
+> On Thu, Oct 06, 2022 at 03:08:10PM +0800, Jisheng Zhang wrote:
+> > Generally, riscv ISA extensions are fixed for any specific hardware
+> > platform, that's to say, the hart features won't change any more
+> > after booting, this chacteristic make it straightforward to use
+> > static branch to check one specific ISA extension is supported or not
+> > to optimize performance.
+> > 
+> > However, some ISA extensions such as SVPBMT and ZICBOM are handled
+> > via. the alternative sequences.
+> > 
+> > Basically, for ease of maintenance, we prefer to use static branches
+> > in C code, but recently, Samuel found that the static branch usage in
+> > cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
+> > Samuel pointed out, "Having a static branch in cpu_relax() is
+> > problematic because that function is widely inlined, including in some
+> > quite complex functions like in the VDSO. A quick measurement shows
+> > this static branch is responsible by itself for around 40% of the jump
+> > table."
+> > 
+> > Samuel's findings pointed out one of a few downsides of static branches
+> > usage in C code to handle ISA extensions detected at boot time:
+> > static branch's metadata in the __jump_table section, which is not
+> > discarded after ISA extensions are finalized, wastes some space.
+> > 
+> > I want to try to solve the issue for all possible dynamic handling of
+> > ISA extensions at boot time. Inspired by Mark[2], this patch introduces
+> > riscv_has_extension_*() helpers, which work like static branches but
+> > are patched using alternatives, thus the metadata can be freed after
+> > patching.
+> > 
+> > [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+> > [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark.rutland@arm.com/
+> > 
+> > 
+> > Jisheng Zhang (8):
+> >   riscv: move riscv_noncoherent_supported() out of ZICBOM probe
+> >   riscv: cpufeature: detect RISCV_ALTERNATIVES_EARLY_BOOT earlier
+> >   riscv: hwcap: make ISA extension ids can be used in asm
+> >   riscv: cpufeature: extend riscv_cpufeature_patch_func to all ISA
+> >     extensions
+> >   riscv: introduce riscv_has_extension_[un]likely()
+> >   riscv: fpu: switch has_fpu() to riscv_has_extension_likely()
+> >   riscv: cpu_relax: switch to riscv_has_extension_likely()
+> >   riscv: remove riscv_isa_ext_keys[] array and related usage
+> > 
+> >  arch/riscv/include/asm/errata_list.h    |  9 +--
+> >  arch/riscv/include/asm/hwcap.h          | 94 ++++++++++++++-----------
+> >  arch/riscv/include/asm/switch_to.h      |  3 +-
+> >  arch/riscv/include/asm/vdso/processor.h |  2 +-
+> >  arch/riscv/kernel/cpufeature.c          | 78 +++-----------------
+> >  arch/riscv/kernel/setup.c               |  4 ++
+> >  6 files changed, 71 insertions(+), 119 deletions(-)
+> > 
+> > -- 
+> > 2.37.2
+> >
+> 
+> Hi Jisheng,
+> 
+> I just tried building this with LLVM=1 and fails to compile with messages
+> like
+> 
+>  ld.lld: error: relocation R_RISCV_64 cannot be used against symbol '.Ltmp1'; recompile with -fPIC
+>  >>> defined in arch/riscv/kernel/vdso/vgettimeofday.o
+>  >>> referenced by vgettimeofday.c
+>  >>>               arch/riscv/kernel/vdso/vgettimeofday.o:(.alternative+0x0)
+> 
+> It does compile and boot with CC=clang and binutils 2.39, where my clang
+> version is 14.0.5 (Fedora 14.0.5-1.fc36).
 
-On Sun, Oct 30, 2022 at 8:54 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Currently, when detecting vmap stack overflow, riscv firstly switches
-> to the so called shadow stack, then use this shadow stack to call the
-> get_overflow_stack() to get the overflow stack. However, there's
-> a race here if two or more harts use the same shadow stack at the same
-> time.
->
-> To solve this race, we introduce spin_shadow_stack atomic var, which
-> will be swap between its own address and 0 in atomic way, when the
-> var is set, it means the shadow_stack is being used; when the var
-> is cleared, it means the shadow_stack isn't being used.
->
-> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Suggested-by: Guo Ren <guoren@kernel.org>
-> ---
-> Since v2:
->  - use REG_AMOSWAP
->  - add comment to the purpose of smp_store_release()
->
-> Since v1:
->  - use smp_store_release directly
->  - use unsigned int instead of atomic_t
->
->
->  arch/riscv/include/asm/asm.h | 1 +
->  arch/riscv/kernel/entry.S    | 4 ++++
->  arch/riscv/kernel/traps.c    | 9 +++++++++
->  3 files changed, 14 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> index 1b471ff73178..acf563072b8b 100644
-> --- a/arch/riscv/include/asm/asm.h
-> +++ b/arch/riscv/include/asm/asm.h
-> @@ -23,6 +23,7 @@
->  #define REG_L          __REG_SEL(ld, lw)
->  #define REG_S          __REG_SEL(sd, sw)
->  #define REG_SC         __REG_SEL(sc.d, sc.w)
-> +#define REG_AMOSWAP    __REG_SEL(amoswap.d, amoswap.w)
->  #define REG_ASM                __REG_SEL(.dword, .word)
->  #define SZREG          __REG_SEL(8, 4)
->  #define LGREG          __REG_SEL(3, 2)
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..ea6b78dac739 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -404,6 +404,10 @@ handle_syscall_trace_exit:
->
->  #ifdef CONFIG_VMAP_STACK
->  handle_kernel_stack_overflow:
-> +1:     la sp, spin_shadow_stack
-> +       REG_AMOSWAP sp, sp, (sp)
-> +       bnez sp, 1b
-> +
->         la sp, shadow_stack
->         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
->
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index f3e96d60a2ff..dea47f329708 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -221,11 +221,20 @@ asmlinkage unsigned long get_overflow_stack(void)
->                 OVERFLOW_STACK_SIZE;
->  }
->
-> +unsigned long spin_shadow_stack;
-> +
->  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->  {
->         unsigned long tsk_stk = (unsigned long)current->stack;
->         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
->
-> +       /*
-> +        * to ensure spin flag is set after the sp is used in entry.S:
-> +        * //load per-cpu overflow stack.
-> +        * REG_L sp, -8(sp)
-> +        */
-> +       smp_store_release(&spin_shadow_stack, 0);
-> +
->         console_verbose();
->
->         pr_emerg("Insufficient stack space to handle exception!\n");
-> --
-> 2.37.2
->
+Hi Andrew, 
 
+Below is a quick fix.
 
--- 
-Best Regards
- Guo Ren
+PS: I think I need add two or more patches to apply alternatives in the
+vDSO. But currently only Zihintpause is affected.
+
+Will send out a new version.
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index f2e065671e4d..522b78477bab 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -44,7 +44,7 @@ $(obj)/vdso.o: $(obj)/vdso.so
+ # link rule for the .so file, .lds has to be first
+ $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
+        $(call if_changed,vdsold)
+-LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
++LDFLAGS_vdso.so.dbg = -shared -z notext -S -soname=linux-vdso.so.1 \
+
+> 
+> Thanks,
+> drew
 
 _______________________________________________
 linux-riscv mailing list
