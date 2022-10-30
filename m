@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDCEC38A02
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B3DFA373D
 	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 09:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+7ybEFOskqw9HrkICbxE0EKqmNCvOjkrkvEWi7t8oMc=; b=nmxm/ds5Ln+SRk
-	bzMcofRWkDIja/C9MCoeAz1mkbm7FDfFfiWH/awzfs4Jib8g4iGiZh2eHAu0WtMtBzuCdolV60Cri
-	gQNVId3UNYdsTdKb2u5m0pnfelwflXfGESG5juC32DBaHaBWQ638Dj4TKrbE0oAd6j3SuC6GBq2ku
-	yG4kwV641RhBsmmEToBOsG6+7GO7OdmHnSOPQPwPIziriMJ5CJCprISDp9E0n2BbrQvbQHrIRd5Um
-	dhTcP6ncxNv5YMpvc2MVlnnh4dZnJErfpXFol11bfQHReuMrICvnf42XpogoTYQV50MuHbJ+Qs5D+
-	MRqCIsyt5HRQXTuKjY4A==;
+	List-Owner; bh=sWl2XoV8kW6cKz66TxOdZ2wN7zMTUMo0isgCFtnxeVM=; b=d5c615yyqj6P8n
+	WJux/h0HQYRXLDaPMjuEo1/9JX551VliaSQMm/mJhBdPX9z0QAlo9cCAoTHMBt34Dxx1EQJ4WYWHi
+	n+vzdWQLwHyqdwCQ1cim7Vb2+CDdJ/1ygZXtteHHKyKYMc+XH55CdjMbgoFnQKOEtfyKIDQjI8aby
+	73I2AoKd42SL0OHoHLlS0ncFrXfutegQADGsVrByOndvW8vLh80OsGEgL9xTyaN4S0r+mV8W8fwq7
+	gMotKSXj17DZMwvthI5U4I9o/PjIgSG/qmGMAdrMDld2THxyEIEOHQVLmWVi0cZx9vHXh9apguwG5
+	37GPR1GZeaENA2N8ViCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4DM-00EYGs-Gi; Sun, 30 Oct 2022 09:02:44 +0000
+	id 1op4DL-00EYFu-1f; Sun, 30 Oct 2022 09:02:43 +0000
 Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4D3-00EXyg-FZ
-	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 09:02:33 +0000
+	id 1op4D2-00EXzC-9i
+	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 09:02:32 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXCVmKPV5jkxYmBw--.33365S8;
+	by APP-03 (Coremail) with SMTP id rQCowABXCVmKPV5jkxYmBw--.33365S11;
 	Sun, 30 Oct 2022 17:02:18 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
@@ -39,36 +39,36 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com,
 	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH 4/8] riscv/kprobe: Add common RVI and RVC instruction decoder code
-Date: Sun, 30 Oct 2022 17:01:37 +0800
-Message-Id: <20221030090141.2550837-5-chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH 7/8] riscv/kprobe: Prepare detour buffer for optimized kprobe
+Date: Sun, 30 Oct 2022 17:01:40 +0800
+Message-Id: <20221030090141.2550837-8-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
 References: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXCVmKPV5jkxYmBw--.33365S8
-X-Coremail-Antispam: 1UD129KBjvJXoWxtFW8GFW5JFWkKFWUuF1kAFb_yoW3trWrpw
-	s5Cw1Y93ykGF93C397tr48CrWFqw4rGrs8Kay0ga1avF12qr1UXr97try3tF4kWFWFgr47
-	CFZ8JrWkGrW2y3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQ014x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowABXCVmKPV5jkxYmBw--.33365S11
+X-Coremail-Antispam: 1UD129KBjvJXoW3Gr1fWw45Xw4DJrW5uFWxZwb_yoWDJF4fpa
+	95CwnxXF4UZFn7Cry7t3Z5Jr4Sqws5Jws7Grs7GFW5Jan3KrW5Xan2g345Xr15G390gry7
+	ua45JryUuF9xXrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUQF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
 	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0V
-	AKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1l
-	Ox8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErc
-	IFxwACI402YVCY1x02628vn2kIc2xKxwCY02Avz4vE14v_GFWl42xK82IYc2Ij64vIr41l
-	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
-	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
-	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI
-	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
-	6r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU1KsjDUUUU
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
+	3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
+	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4U
+	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I64
+	8v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48J
+	MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
+	AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
+	0xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26c
+	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
+	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUzv3nUUUUU=
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCgIPE2NeGqorWgAAso
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCgUPE2NeGqorXQABsp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_020225_963976_BFA8CA22 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20221030_020224_762206_6E1CCC1D 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,270 +87,319 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Liao Chang <liaochang1@huawei.com>
 
-This patch adds code that can be used to decode RVI and RVC instructions
-in searching one register for 'AUIPC/JALR'. As mentioned in previous
-patch, kprobe can't be optimized until one free integer register can be
-found to save the jump target, in order to figure out the register
-searching, all instructions starting from the kprobe point to the last
-one of function needs to be decoded and tested if it contains one
-candidate register.
+This patch introduces code to prepare instruction slot for optimized
+kprobe. The instruction slot for regular kprobe just records two
+instructions, first one is the original instruction replaced by EBREAK,
+the second one is EBREAK for single-step. While instruction slot for
+optimized kprobe is larger, beside execute instruction out-of-line, it
+also contains a standalone stackframe for calling kprobe handler.
 
-For all RVI instruction format, the position and length of 'rs1', 'rs2'
-,'rd' and 'opcode' part are uniform, but the rule of RVC instruction
-format is more complicated, so it addresses a couple of inline functions
-to decode rs1/rs2/rd for RVC.
+All optimized instruction slots consis of 5 major parts, which copied
+from the assembly code template in opt_trampoline.S.
 
-These instruction decoders are supposed to be consistent with the RVC and
-RV32/RV64G instruction set list specified in the riscv instruction
-reference published at August 25, 2022.
+	SAVE REGS
+	CALL optimized_callback
+	RESTORE REGS
+	EXECUTE INSNS OUT-OF-LINE
+	RETURN BACK
+
+Although most instructions in each slot are same, these slots still have
+a bit difference in their payload, it is caused by three parts:
+
+  - 'CALL optimized_callback', the relative offset for 'call'
+    instruction is different for each kprobe.
+  - 'EXECUTE INSN OUT-OF-LINE', no doubt.
+  - 'RETURN BACK', the chosen free register is reused here as the
+     destination register of jumping back.
+
+So we also need customize the slot payload for each optimized kprobe.
 
 Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 Signed-off-by: Liao Chang <liaochang1@huawei.com>
 ---
- arch/riscv/include/asm/bug.h             |   5 +-
- arch/riscv/kernel/probes/decode-insn.h   | 145 +++++++++++++++++++++++
- arch/riscv/kernel/probes/simulate-insn.h |  41 +++++++
- 3 files changed, 190 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/kprobes.h          |  16 +++
+ arch/riscv/kernel/probes/opt.c            |  75 +++++++++++++
+ arch/riscv/kernel/probes/opt_trampoline.S | 125 ++++++++++++++++++++++
+ 3 files changed, 216 insertions(+)
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index 1aaea81fb141..9c33d3b58225 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -19,11 +19,14 @@
- #define __BUG_INSN_32	_UL(0x00100073) /* ebreak */
- #define __BUG_INSN_16	_UL(0x9002) /* c.ebreak */
+diff --git a/arch/riscv/include/asm/kprobes.h b/arch/riscv/include/asm/kprobes.h
+index 22b73a2fd1fd..a9ef864f7225 100644
+--- a/arch/riscv/include/asm/kprobes.h
++++ b/arch/riscv/include/asm/kprobes.h
+@@ -48,10 +48,26 @@ void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+ /* optinsn template addresses */
+ extern __visible kprobe_opcode_t optprobe_template_entry[];
+ extern __visible kprobe_opcode_t optprobe_template_end[];
++extern __visible kprobe_opcode_t optprobe_template_save[];
++extern __visible kprobe_opcode_t optprobe_template_call[];
++extern __visible kprobe_opcode_t optprobe_template_insn[];
++extern __visible kprobe_opcode_t optprobe_template_return[];
  
-+#define RVI_INSN_LEN	4UL
-+#define RVC_INSN_LEN	2UL
-+
- #define GET_INSN_LENGTH(insn)						\
- ({									\
- 	unsigned long __len;						\
- 	__len = ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) ?	\
--		4UL : 2UL;						\
-+		RVI_INSN_LEN : RVC_INSN_LEN;				\
- 	__len;								\
- })
+ #define MAX_OPTINSN_SIZE				\
+ 	((unsigned long)optprobe_template_end -		\
+ 	 (unsigned long)optprobe_template_entry)
++#define DETOUR_SAVE_OFFSET				\
++	((unsigned long)optprobe_template_save -	\
++	 (unsigned long)optprobe_template_entry)
++#define DETOUR_CALL_OFFSET				\
++	((unsigned long)optprobe_template_call -	\
++	 (unsigned long)optprobe_template_entry)
++#define DETOUR_INSN_OFFSET				\
++	((unsigned long)optprobe_template_insn -	\
++	 (unsigned long)optprobe_template_entry)
++#define DETOUR_RETURN_OFFSET				\
++	((unsigned long)optprobe_template_return -	\
++	 (unsigned long)optprobe_template_entry)
  
-diff --git a/arch/riscv/kernel/probes/decode-insn.h b/arch/riscv/kernel/probes/decode-insn.h
-index 42269a7d676d..1c202b0ac7d4 100644
---- a/arch/riscv/kernel/probes/decode-insn.h
-+++ b/arch/riscv/kernel/probes/decode-insn.h
-@@ -3,6 +3,7 @@
- #ifndef _RISCV_KERNEL_KPROBES_DECODE_INSN_H
- #define _RISCV_KERNEL_KPROBES_DECODE_INSN_H
- 
-+#include <linux/bitops.h>
- #include <asm/sections.h>
+ /*
+  * For RVI and RVC hybird encoding kernel, althought long jump just needs
+diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
+index 876bec539554..77248ed7d4e8 100644
+--- a/arch/riscv/kernel/probes/opt.c
++++ b/arch/riscv/kernel/probes/opt.c
+@@ -11,9 +11,37 @@
+ #include <linux/kprobes.h>
  #include <asm/kprobes.h>
+ #include <asm/patch.h>
++#include <asm/asm-offsets.h>
  
-@@ -15,4 +16,148 @@ enum probe_insn {
- enum probe_insn __kprobes
- riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *asi);
+ #include "simulate-insn.h"
+ #include "decode-insn.h"
++#include "../../net/bpf_jit.h"
++
++static void
++optimized_callback(struct optimized_kprobe *op, struct pt_regs *regs)
++{
++	unsigned long flags;
++	struct kprobe_ctlblk *kcb;
++
++	/* Save skipped registers */
++	regs->epc = (unsigned long)op->kp.addr;
++	regs->orig_a0 = ~0UL;
++
++	local_irq_save(flags);
++	kcb = get_kprobe_ctlblk();
++
++	if (kprobe_running()) {
++		kprobes_inc_nmissed_count(&op->kp);
++	} else {
++		__this_cpu_write(current_kprobe, &op->kp);
++		kcb->kprobe_status = KPROBE_HIT_ACTIVE;
++		opt_pre_handler(&op->kp, regs);
++		__this_cpu_write(current_kprobe, NULL);
++	}
++	local_irq_restore(flags);
++}
++
++NOKPROBE_SYMBOL(optimized_callback)
  
-+static inline u16 rvi_rs1(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 15) & 0x1f);
-+}
-+
-+static inline u16 rvi_rs2(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 20) & 0x1f);
-+}
-+
-+static inline u16 rvi_rd(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x1f);
-+}
-+
-+static inline s32 rvi_branch_imme(kprobe_opcode_t opcode)
-+{
-+	u32 imme = 0;
-+
-+	imme |= (((opcode >> 8)  & 0xf)   << 1)  |
-+		(((opcode >> 25) & 0x3f)  << 5)  |
-+		(((opcode >> 7)  & 0x1)   << 11) |
-+		(((opcode >> 31) & 0x1)   << 12);
-+
-+	return sign_extend32(imme, 13);
-+}
-+
-+static inline s32 rvi_jal_imme(kprobe_opcode_t opcode)
-+{
-+	u32 imme = 0;
-+
-+	imme |= (((opcode >> 21) & 0x3ff) << 1)  |
-+		(((opcode >> 20) & 0x1)   << 11) |
-+		(((opcode >> 12) & 0xff)  << 12) |
-+		(((opcode >> 31) & 0x1)   << 20);
-+
-+	return sign_extend32(imme, 21);
-+}
-+
-+#ifdef CONFIG_RISCV_ISA_C
-+static inline u16 rvc_r_rs1(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x1f);
-+}
-+
-+static inline u16 rvc_r_rs2(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x1f);
-+}
-+
-+static inline u16 rvc_r_rd(kprobe_opcode_t opcode)
-+{
-+	return rvc_r_rs1(opcode);
-+}
-+
-+static inline u16 rvc_i_rs1(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x1f);
-+}
-+
-+static inline u16 rvc_i_rd(kprobe_opcode_t opcode)
-+{
-+	return rvc_i_rs1(opcode);
-+}
-+
-+static inline u16 rvc_ss_rs2(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x1f);
-+}
-+
-+static inline u16 rvc_l_rd(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x7);
-+}
-+
-+static inline u16 rvc_l_rs(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x7);
-+}
-+
-+static inline u16 rvc_s_rs2(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x7);
-+}
-+
-+static inline u16 rvc_s_rs1(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x7);
-+}
-+
-+static inline u16 rvc_a_rs2(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 2) & 0x7);
-+}
-+
-+static inline u16 rvc_a_rs1(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x7);
-+}
-+
-+static inline u16 rvc_a_rd(kprobe_opcode_t opcode)
-+{
-+	return rvc_a_rs1(opcode);
-+}
-+
-+static inline u16 rvc_b_rd(kprobe_opcode_t opcode)
-+{
-+	return (u16)((opcode >> 7) & 0x7);
-+}
-+
-+static inline u16 rvc_b_rs(kprobe_opcode_t opcode)
-+{
-+	return rvc_b_rd(opcode);
-+}
-+
-+static inline s32 rvc_branch_imme(kprobe_opcode_t opcode)
-+{
-+	u32 imme = 0;
-+
-+	imme |= (((opcode >> 3)  & 0x3) << 1) |
-+		(((opcode >> 10) & 0x3) << 3) |
-+		(((opcode >> 2)  & 0x1) << 5) |
-+		(((opcode >> 5)  & 0x3) << 6) |
-+		(((opcode >> 12) & 0x1) << 8);
-+
-+	return sign_extend32(imme, 9);
-+}
-+
-+static inline s32 rvc_jal_imme(kprobe_opcode_t opcode)
-+{
-+	u32 imme = 0;
-+
-+	imme |= (((opcode >> 3)  & 0x3) << 1) |
-+		(((opcode >> 11) & 0x1) << 4) |
-+		(((opcode >> 2)  & 0x1) << 5) |
-+		(((opcode >> 7)  & 0x1) << 6) |
-+		(((opcode >> 6)  & 0x1) << 7) |
-+		(((opcode >> 9)  & 0x3) << 8) |
-+		(((opcode >> 8)  & 0x1) << 10) |
-+		(((opcode >> 12) & 0x1) << 11);
-+
-+	return sign_extend32(imme, 12);
-+}
-+#endif /* CONFIG_RISCV_ISA_C */
- #endif /* _RISCV_KERNEL_KPROBES_DECODE_INSN_H */
-diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
-index cb6ff7dccb92..74d8c1ba9064 100644
---- a/arch/riscv/kernel/probes/simulate-insn.h
-+++ b/arch/riscv/kernel/probes/simulate-insn.h
-@@ -37,6 +37,40 @@ __RISCV_INSN_FUNCS(c_jalr,	0xf007, 0x9002);
- __RISCV_INSN_FUNCS(c_beqz,	0xe003, 0xc001);
- __RISCV_INSN_FUNCS(c_bnez,	0xe003, 0xe001);
- __RISCV_INSN_FUNCS(c_ebreak,	0xffff, 0x9002);
-+/* RVC(S) instructions contain rs1 and rs2 */
-+__RISCV_INSN_FUNCS(c_sq,	0xe003, 0xa000);
-+__RISCV_INSN_FUNCS(c_sw,	0xe003, 0xc000);
-+__RISCV_INSN_FUNCS(c_sd,	0xe003, 0xe000);
-+/* RVC(A) instructions contain rs1 and rs2 */
-+__RISCV_INSN_FUNCS(c_sub,	0xfc03, 0x8c01);
-+__RISCV_INSN_FUNCS(c_subw,	0xfc43, 0x9c01);
-+/* RVC(L) instructions contain rs1 */
-+__RISCV_INSN_FUNCS(c_lq,	0xe003, 0x2000);
-+__RISCV_INSN_FUNCS(c_lw,	0xe003, 0x4000);
-+__RISCV_INSN_FUNCS(c_ld,	0xe003, 0x6000);
-+/* RVC(I) instructions contain rs1 */
-+__RISCV_INSN_FUNCS(c_addi,	0xe003, 0x0001);
-+__RISCV_INSN_FUNCS(c_addiw,	0xe003, 0x2001);
-+__RISCV_INSN_FUNCS(c_addi16sp,	0xe183, 0x6101);
-+__RISCV_INSN_FUNCS(c_slli,	0xe003, 0x0002);
-+/* RVC(B) instructions contain rs1 */
-+__RISCV_INSN_FUNCS(c_sri,	0xe803, 0x8001);
-+__RISCV_INSN_FUNCS(c_andi,	0xec03, 0x8801);
-+/* RVC(SS) instructions contain rs2 */
-+__RISCV_INSN_FUNCS(c_sqsp,	0xe003, 0xa002);
-+__RISCV_INSN_FUNCS(c_swsp,	0xe003, 0xc002);
-+__RISCV_INSN_FUNCS(c_sdsp,	0xe003, 0xe002);
-+/* RVC(R) instructions contain rs2 and rd */
-+__RISCV_INSN_FUNCS(c_mv,	0xe003, 0x8002);
-+/* RVC(I) instructions contain sp and rd */
-+__RISCV_INSN_FUNCS(c_lqsp,	0xe003, 0x2002);
-+__RISCV_INSN_FUNCS(c_lwsp,	0xe003, 0x4002);
-+__RISCV_INSN_FUNCS(c_ldsp,	0xe003, 0x6002);
-+/* RVC(CW) instructions contain sp and rd */
-+__RISCV_INSN_FUNCS(c_addi4spn,	0xe003, 0x0000);
-+/* RVC(I) instructions contain rd */
-+__RISCV_INSN_FUNCS(c_li,	0xe003, 0x4001);
-+__RISCV_INSN_FUNCS(c_lui,	0xe003, 0x6001);
+ static inline int in_auipc_jalr_range(long val)
+ {
+@@ -30,6 +58,11 @@ static inline int in_auipc_jalr_range(long val)
+ #endif
+ }
  
- __RISCV_INSN_FUNCS(auipc,	0x7f, 0x17);
- __RISCV_INSN_FUNCS(branch,	0x7f, 0x63);
-@@ -44,4 +78,11 @@ __RISCV_INSN_FUNCS(branch,	0x7f, 0x63);
- __RISCV_INSN_FUNCS(jal,		0x7f, 0x6f);
- __RISCV_INSN_FUNCS(jalr,	0x707f, 0x67);
- 
-+__RISCV_INSN_FUNCS(arith_rr,	0x77, 0x33);
-+__RISCV_INSN_FUNCS(arith_ri,	0x77, 0x13);
-+__RISCV_INSN_FUNCS(lui,		0x7f, 0x37);
-+__RISCV_INSN_FUNCS(load,	0x7f, 0x03);
-+__RISCV_INSN_FUNCS(store,	0x7f, 0x23);
-+__RISCV_INSN_FUNCS(amo,		0x7f, 0x2f);
++#define DETOUR_ADDR(code, offs) \
++	((void *)((unsigned long)(code) + (offs)))
++#define DETOUR_INSN(code, offs) \
++	(*(kprobe_opcode_t *)((unsigned long)(code) + (offs)))
 +
- #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
+ /*
+  * Copy optprobe assembly code template into detour buffer and modify some
+  * instructions for each kprobe.
+@@ -38,6 +71,49 @@ static void prepare_detour_buffer(kprobe_opcode_t *code, kprobe_opcode_t *slot,
+ 				  int rd, struct optimized_kprobe *op,
+ 				  kprobe_opcode_t opcode)
+ {
++	long offs;
++	unsigned long data;
++
++	memcpy(code, optprobe_template_entry, MAX_OPTINSN_SIZE);
++
++	/* Step1: record optimized_kprobe pointer into detour buffer */
++	memcpy(DETOUR_ADDR(code, DETOUR_SAVE_OFFSET), &op, sizeof(op));
++
++	/*
++	 * Step2
++	 * auipc ra, 0     --> aupic ra, HI20.{optimized_callback - pc}
++	 * jalr  ra, 0(ra) --> jalr  ra, LO12.{optimized_callback - pc}(ra)
++	 */
++	offs = (unsigned long)&optimized_callback -
++	       (unsigned long)DETOUR_ADDR(slot, DETOUR_CALL_OFFSET);
++	DETOUR_INSN(code, DETOUR_CALL_OFFSET) =
++				rv_auipc(1, (offs + (1 << 11)) >> 12);
++	DETOUR_INSN(code, DETOUR_CALL_OFFSET + 0x4) =
++				rv_jalr(1, 1, offs & 0xFFF);
++
++	/* Step3: copy replaced instructions into detour buffer */
++	memcpy(DETOUR_ADDR(code, DETOUR_INSN_OFFSET), op->kp.addr,
++	       op->optinsn.length);
++	memcpy(DETOUR_ADDR(code, DETOUR_INSN_OFFSET), &opcode,
++	       GET_INSN_LENGTH(opcode));
++
++	/* Step4: record return address of long jump into detour buffer */
++	data = (unsigned long)op->kp.addr + op->optinsn.length;
++	memcpy(DETOUR_ADDR(code, DETOUR_RETURN_OFFSET), &data, sizeof(data));
++
++	/*
++	 * Step5
++	 * auipc ra, 0      --> auipc rd, 0
++	 * ld/w  ra, -4(ra) --> ld/w  rd, -8(rd)
++	 * jalr  x0,  0(ra) --> jalr  x0,  0(rd)
++	 */
++	DETOUR_INSN(code, DETOUR_RETURN_OFFSET + 0x8) = rv_auipc(rd, 0);
++#if __riscv_xlen == 32
++	DETOUR_INSN(code, DETOUR_RETURN_OFFSET + 0xC) = rv_lw(rd, -8, rd);
++#else
++	DETOUR_INSN(code, DETOUR_RETURN_OFFSET + 0xC) = rv_ld(rd, -8, rd);
++#endif
++	DETOUR_INSN(code, DETOUR_RETURN_OFFSET + 0x10) = rv_jalr(0, rd, 0);
+ }
+ 
+ /* Registers the first usage of which is the destination of instruction */
+diff --git a/arch/riscv/kernel/probes/opt_trampoline.S b/arch/riscv/kernel/probes/opt_trampoline.S
+index 16160c4367ff..75e34e373cf2 100644
+--- a/arch/riscv/kernel/probes/opt_trampoline.S
++++ b/arch/riscv/kernel/probes/opt_trampoline.S
+@@ -1,12 +1,137 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+  * Copyright (C) 2022 Guokai Chen
++ * Copyright (C) 2022 Liao, Chang <liaochang1@huawei.com>
+  */
+ 
+ #include <linux/linkage.h>
+ 
++#include <asm/asm.h>
+ #incldue <asm/csr.h>
+ #include <asm/asm-offsets.h>
+ 
+ SYM_ENTRY(optprobe_template_entry, SYM_L_GLOBAL, SYM_A_NONE)
++	addi  sp, sp, -(PT_SIZE_ON_STACK)
++	REG_S x1,  PT_RA(sp)
++	REG_S x2,  PT_SP(sp)
++	REG_S x3,  PT_GP(sp)
++	REG_S x4,  PT_TP(sp)
++	REG_S x5,  PT_T0(sp)
++	REG_S x6,  PT_T1(sp)
++	REG_S x7,  PT_T2(sp)
++	REG_S x8,  PT_S0(sp)
++	REG_S x9,  PT_S1(sp)
++	REG_S x10, PT_A0(sp)
++	REG_S x11, PT_A1(sp)
++	REG_S x12, PT_A2(sp)
++	REG_S x13, PT_A3(sp)
++	REG_S x14, PT_A4(sp)
++	REG_S x15, PT_A5(sp)
++	REG_S x16, PT_A6(sp)
++	REG_S x17, PT_A7(sp)
++	REG_S x18, PT_S2(sp)
++	REG_S x19, PT_S3(sp)
++	REG_S x20, PT_S4(sp)
++	REG_S x21, PT_S5(sp)
++	REG_S x22, PT_S6(sp)
++	REG_S x23, PT_S7(sp)
++	REG_S x24, PT_S8(sp)
++	REG_S x25, PT_S9(sp)
++	REG_S x26, PT_S10(sp)
++	REG_S x27, PT_S11(sp)
++	REG_S x28, PT_T3(sp)
++	REG_S x29, PT_T4(sp)
++	REG_S x30, PT_T5(sp)
++	REG_S x31, PT_T6(sp)
++	/* Update fp is friendly for stacktrace */
++	addi  s0, sp, (PT_SIZE_ON_STACK)
++	j 1f
++
++SYM_ENTRY(optprobe_template_save, SYM_L_GLOBAL, SYM_A_NONE)
++	/*
++	 * Step1:
++	 * Filled with the pointer to optimized_kprobe data
++	 */
++	.dword 0
++1:
++	/* Load optimize_kprobe pointer from .dword below */
++	auipc a0, 0
++	REG_L a0, -8(a0)
++	add   a1, sp, x0
++
++SYM_ENTRY(optprobe_template_call, SYM_L_GLOBAL, SYM_A_NONE)
++	/*
++	 * Step2:
++	 * <IMME> of AUIPC/JALR are modified to the offset to optimized_callback
++	 * jump target is loaded from above .dword.
++	 */
++	auipc ra, 0
++	jalr  ra, 0(ra)
++
++	REG_L x1,  PT_RA(sp)
++	REG_L x3,  PT_GP(sp)
++	REG_L x4,  PT_TP(sp)
++	REG_L x5,  PT_T0(sp)
++	REG_L x6,  PT_T1(sp)
++	REG_L x7,  PT_T2(sp)
++	REG_L x8,  PT_S0(sp)
++	REG_L x9,  PT_S1(sp)
++	REG_L x10, PT_A0(sp)
++	REG_L x11, PT_A1(sp)
++	REG_L x12, PT_A2(sp)
++	REG_L x13, PT_A3(sp)
++	REG_L x14, PT_A4(sp)
++	REG_L x15, PT_A5(sp)
++	REG_L x16, PT_A6(sp)
++	REG_L x17, PT_A7(sp)
++	REG_L x18, PT_S2(sp)
++	REG_L x19, PT_S3(sp)
++	REG_L x20, PT_S4(sp)
++	REG_L x21, PT_S5(sp)
++	REG_L x22, PT_S6(sp)
++	REG_L x23, PT_S7(sp)
++	REG_L x24, PT_S8(sp)
++	REG_L x25, PT_S9(sp)
++	REG_L x26, PT_S10(sp)
++	REG_L x27, PT_S11(sp)
++	REG_L x28, PT_T3(sp)
++	REG_L x29, PT_T4(sp)
++	REG_L x30, PT_T5(sp)
++	REG_L x31, PT_T6(sp)
++	REG_L x2,  PT_SP(sp)
++	addi  sp, sp, (PT_SIZE_ON_STACK)
++
++SYM_ENTRY(optprobe_template_insn, SYM_L_GLOBAL, SYM_A_NONE)
++	/*
++	 * Step3:
++	 * NOPS will be replaced by the probed instruction, at worst case 3 RVC
++	 * and 1 RVI instructions is about to execute out of line.
++	 */
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	nop
++	j 2f
++
++SYM_ENTRY(optprobe_template_return, SYM_L_GLOBAL, SYM_A_NONE)
++	/*
++	 * Step4:
++	 * Filled with the return address of long jump(AUIPC/JALR)
++	 */
++	.dword 0
++2:
++	/*
++	 * Step5:
++	 * The <RA> of AUIPC/LD/JALR will be replaced for each kprobe,
++	 * used to read return address saved in .dword above.
++	 */
++	auipc ra, 0
++	REG_L ra, -8(ra)
++	jalr  x0, 0(ra)
+ SYM_ENTRY(optprobe_template_end, SYM_L_GLOBAL, SYM_A_NONE)
 -- 
 2.25.1
 
