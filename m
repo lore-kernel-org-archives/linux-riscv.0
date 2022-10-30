@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349DAC38A02
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 18:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F38ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 20:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LmjKUYuCBjDVa9ivrwMJWi0kLojqGvO6hXsKwEZox8o=; b=ZknwvhXaoCRN6E
-	5i/7bwuBNI4906LFzscAdCGdn4mYpY1YmI7OwFnBCdH8E6GzFE4rhG4DWVpvgSsbAQnMLHdnHt3m9
-	bEey0uxTywmrZuZ6FWWgPh44yf1gXMdInXwQ+Fid14rzFM/ef6NJ+8JcXlXUb+g1Rwi9liIYnm9Eg
-	+ekqBuEfEOQN3nXcoHZ/d8DBQXAUMrB7YZWpjn4DBxQ9E/s/tdVxhMFtd7PGNxTiNd8SDXi4Y45AA
-	KaLvKeMINLzXxCdyRLBAGCWtot0Wb/0BzY2yXRWrEf8wYFSp5MhNgbgs0XLSVkbF8PUz8DA+mq6uq
-	Qvu8uCDm/07mvRT3z/eA==;
+	List-Owner; bh=6POuvoVl9YxYFsS08Nax6PJoO0B5FIBdYHLBOnOwJ2w=; b=eKhi5DOvQ1GVlY
+	acphxkpZ4m3ZZDwfiYCPTw7pycvlguXRPRAZD97ZS0TAzUPayncD+C1xuCLI4w5+wjmvYpXkN1yK0
+	KjoDxJGdqqIhux7f7oKCUtkdtECQiWEOWoKi7DiQIuzAIGTbG5/HlCazzke9SJ0OB8RslfRgf9tA0
+	bPQt7jDFuEYjX/VlkxE8UilH1jXCG5S0LJaQHSHeo7cXs3cmZa9wPFkmsDiKbxrJiPjKNFbPub2th
+	4gZGAmDy5L5rqKEuj2tsO78LyeNvwrMBx42s4DfQoJI+MYh8V8DnWcCV7u+IoboKVqK/KUAoPnqUo
+	eV9cgQlBPmnOGJ/z4nsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opCz6-001k0q-6G; Sun, 30 Oct 2022 18:24:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1opEqI-002pNH-PU; Sun, 30 Oct 2022 20:23:38 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opCz2-001jx4-7z
-	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 18:24:34 +0000
+	id 1opEqF-002pKy-IN; Sun, 30 Oct 2022 20:23:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8180160F0F;
-	Sun, 30 Oct 2022 18:24:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F8EBC433C1;
-	Sun, 30 Oct 2022 18:24:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 094F8B80E02;
+	Sun, 30 Oct 2022 20:23:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 758A3C433C1;
+	Sun, 30 Oct 2022 20:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667154270;
-	bh=mubS3YXKFLLh3bjwf9Uf7SYQ9nzXFnwDXmBw9ncTy4U=;
+	s=k20201202; t=1667161412;
+	bh=1D9xKazaZcq61muC9BznaP3spIpo+mLxy9+2q7gQTYI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b+IZVL+CzFtkqlZxUHuYZs8cFJDEI1jMf1BgDhyoz62TgPxdgvI6ZaQL1F1qg1RHT
-	 DtITbdfWYiTmmSCKF0/iJlsrBkT37MnGh2VBFiI39EsJV1K6b2Zi+3uUiEWztsBth3
-	 Hj1rFvGAtz/gUcZBF7kWGz9ryiea4gAl4Fkr2iPiKw07nCtXQTR1G50Wf/HAKTWR+5
-	 ybrVDSK5SKZju0AhEn5/GspjPdaPN+jUy5p8Yo3EqRtc6vdbw4r4Huwl4l1SD5ZNjj
-	 9T5AJxLHXgxBdUEUz1TidUyBuEDcgx87ZYl1VoBQsL6wyrl/iKPDxx3SYxm/0urDwT
-	 T84bhnSV+P4jQ==
-Date: Sun, 30 Oct 2022 18:24:24 +0000
+	b=oFp+Mole5o+L8YcdUYnNCnP9ZkemwtunPEUaiY4V1SlF/fMpOIOxENASHebcHP/Gz
+	 g7iNwA7fkQsFg5SB349l6eK/7dGctYxOtuW3A7M222WbaM5aLSpX9UnSinRxtKaXIE
+	 bpBhr9r3yIZM69SSGEjLS4PmSQj+mUX/VWYYqKXU1xUUWpaU0kLctxrXhN7tJ4OKTa
+	 7JBfWm2Mw12Ew7ERMm1FBDh40Mkjf3rvjb01lNmSKM0hoPui9KrqrY2dpYbDKvQq8C
+	 jIsuxyZoBiqY4XVBlJUbRNjgecccavPGuhv4e0914r2nS9m07FRAhKgE7NESg3+kd7
+	 QMBL1qHaC9aEg==
+Date: Sun, 30 Oct 2022 20:23:27 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Anup Patel <apatel@ventanamicro.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@rivosinc.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v5 0/7] Add support for Renesas RZ/Five SoC
-Message-ID: <Y17BWPuEcmY7Bba3@spud>
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH 0/9] RISC-V: Apply Zicboz to clear_page and memset
+Message-ID: <Y17dP7/SJXk4kLpr@spud>
+References: <20221027130247.31634-1-ajones@ventanamicro.com>
+ <20221029095953.zhzb47lbiepptqpn@kamzik>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221029095953.zhzb47lbiepptqpn@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_112432_389418_F72832EA 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20221030_132335_920982_B2D818A2 
+X-CRM114-Status: GOOD (  46.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,192 +74,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 28, 2022 at 05:59:14PM +0100, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Hi All,
-> 
-> The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
-> 1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
-> as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
-> entry-class social infrastructure gateway control and industrial gateway
-> control.
-> 
-> This patch series adds initial SoC DTSi support for Renesas RZ/Five
-> (R9A07G043) SoC. Below is the list of IP blocks enabled in the initial
-> board DTS which can be used to boot via initramfs on RZ/Five SMARC EVK:
-> - AX45MP CPU
-> - CPG
-> - PINCTRL
-
-Hey,
-Looks like you've got a pair of warnings here from dtbs_check. I tested
-this on top of 20221028's next, with the three branches below merged in,
-hopefully my merges aren't the source of them:
-
-linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: 'interrupt-controller' is a required property
-        From schema: Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: '#interrupt-cells' is a required property
-        From schema: linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-
-With this sorted, whatever wasn't already is now:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Thanks for putting up with my messing around re: kconfig symbols and I
-am glad that we ended up being able to share the dts across archs in the
-end, so thanks to everyone involved in that :)
-
-> - PLIC
-> - SCIF0
-> - SYSC
-> 
-> Useful links:
-> -------------
-> [0] https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
-> [1] http://www.andestech.com/en/products-solutions/andescore-processors/riscv-ax45mp/
-> 
-> Patch series depends on the below patches (which are queued in the Renesas tree for v6.2):
-> ------------------------------------------------------------------------------------
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dt-bindings-for-v6.2&id=c27ce08b806d606cd5cd0e8252d1ed2b729b5b55
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dt-bindings-for-v6.2&id=7dd1d57c052e88f98b9e9145461b13bca019d108
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-soc-for-v6.2&id=b3acbca3c80e612478b354e43c1480c3fc15873e
-> [3] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-dt-for-v6.2&id=49669da644cf000eb79dbede55bd04acf3f2f0a0
-> [4] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-dt-for-v6.2&id=b9a0be2054964026aa58966ce9724b672f210835
-> 
-> v4 -> v5:
-> ---------
-> * Rebased patches on -next
-> * Included RB tags
-> * Dropped patches #1 and #4 (form v4) as they are queued up by Renesas trees
-> * Patch #7 from v4 was not needed anymore so dropped it
-> * Patches #4 and #5 are new
-> 
-> v4: https://lore.kernel.org/all/20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v3: https://lore.kernel.org/lkml/20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v2: https://lore.kernel.org/all/20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v1: https://lore.kernel.org/lkml/20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> 
-> Below are the logs from RZ/Five SMARC EVK:
-> ------------------------------------------
-> 
-> / # uname -ra;
-> Linux (none) 6.1.0-rc2-00036-gbad82a074f62 #145 SMP Fri Oct 28 17:18:41 BST 2022 riscv64 GNU/Linux
-> / # cat /proc/cpuinfo;
-> processor       : 0
-> hart            : 0
-> isa             : rv64imafdc
-> mmu             : sv39
-> uarch           : andestech,ax45mp
-> mvendorid       : 0x31e
-> marchid         : 0x8000000000008a45
-> mimpid          : 0x500
-> 
-> / # for i in machine family soc_id revision; do echo -n "$i: ";cat /sys/devices/
-> soc0/$i; done
-> machine: Renesas SMARC EVK based on r9a07g043f01
-> family: RZ/Five
-> soc_id: r9a07g043
-> revision: 0
-> / #
-> / # cat /proc/interrupts
->            CPU0
->   1:          0  SiFive PLIC 412 Level     1004b800.serial:rx err
->   2:         16  SiFive PLIC 414 Level     1004b800.serial:rx full
->   3:        402  SiFive PLIC 415 Level     1004b800.serial:tx empty
->   4:          0  SiFive PLIC 413 Level     1004b800.serial:break
->   5:      41826  RISC-V INTC   5 Edge      riscv-timer
->   6:         10  SiFive PLIC 416 Level     1004b800.serial:rx ready
-> IPI0:         0  Rescheduling interrupts
-> IPI1:         0  Function call interrupts
-> IPI2:         0  CPU stop interrupts
-> IPI3:         0  IRQ work interrupts
-> IPI4:         0  Timer broadcast interrupts
-> / #
-> / # cat /proc/meminfo
-> MemTotal:         882252 kB
-> MemFree:          860848 kB
-> MemAvailable:     858608 kB
-> Buffers:               0 kB
-> Cached:             1796 kB
-> SwapCached:            0 kB
-> Active:                0 kB
-> Inactive:             72 kB
-> Active(anon):          0 kB
-> Inactive(anon):       72 kB
-> Active(file):          0 kB
-> Inactive(file):        0 kB
-> Unevictable:        1796 kB
-> Mlocked:               0 kB
-> SwapTotal:             0 kB
-> SwapFree:              0 kB
-> Dirty:                 0 kB
-> Writeback:             0 kB
-> AnonPages:           108 kB
-> Mapped:             1200 kB
-> Shmem:                 0 kB
-> KReclaimable:       6760 kB
-> Slab:              12360 kB
-> SReclaimable:       6760 kB
-> SUnreclaim:         5600 kB
-> KernelStack:         620 kB
-> PageTables:           32 kB
-> SecPageTables:         0 kB
-> NFS_Unstable:          0 kB
-> Bounce:                0 kB
-> WritebackTmp:          0 kB
-> CommitLimit:      441124 kB
-> Committed_AS:        592 kB
-> VmallocTotal:   67108864 kB
-> VmallocUsed:        1132 kB
-> VmallocChunk:          0 kB
-> Percpu:               84 kB
-> HugePages_Total:       0
-> HugePages_Free:        0
-> HugePages_Rsvd:        0
-> HugePages_Surp:        0
-> Hugepagesize:       2048 kB
-> Hugetlb:               0 kB
-> / #
-> / #
-> 
-> Cheers,
-> Prabhakar
-> 
-> Lad Prabhakar (7):
->   dt-bindings: riscv: Sort the CPU core list alphabetically
->   dt-bindings: riscv: Add Andes AX45MP core to the list
->   riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
->   riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
->   riscv: dts: renesas: Add minimal DTS for Renesas RZ/Five SMARC EVK
->   MAINTAINERS: Add entry for Renesas RISC-V
->   riscv: configs: defconfig: Enable Renesas RZ/Five SoC
-> 
->  .../devicetree/bindings/riscv/cpus.yaml       | 11 ++-
->  MAINTAINERS                                   |  3 +-
->  arch/riscv/Kconfig.socs                       |  5 +
->  arch/riscv/boot/dts/Makefile                  |  1 +
->  arch/riscv/boot/dts/renesas/Makefile          |  2 +
->  arch/riscv/boot/dts/renesas/r9a07g043f.dtsi   | 57 ++++++++++++
->  .../boot/dts/renesas/r9a07g043f01-smarc.dts   | 27 ++++++
->  .../boot/dts/renesas/rzfive-smarc-som.dtsi    | 58 ++++++++++++
->  arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi | 91 +++++++++++++++++++
->  arch/riscv/configs/defconfig                  |  3 +
->  10 files changed, 252 insertions(+), 6 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/renesas/Makefile
->  create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
->  create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
->  create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
->  create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
-> 
-> -- 
-> 2.25.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBPY3QgMjksIDIwMjIgYXQgMTE6NTk6NTNBTSArMDIwMCwgQW5kcmV3IEpvbmVzIHdy
+b3RlOgo+IE9uIFRodSwgT2N0IDI3LCAyMDIyIGF0IDAzOjAyOjM4UE0gKzAyMDAsIEFuZHJldyBK
+b25lcyB3cm90ZToKPiA+IFdoZW4gdGhlIFppY2JveiBleHRlbnNpb24gaXMgYXZhaWxhYmxlIHdl
+IGNhbiBtb3JlIHJhcGlkbHkgemVybyBuYXR1cmFsbHkKPiA+IGFsaWduZWQgWmljYm96IGJsb2Nr
+IHNpemVkIGNodW5rcyBvZiBtZW1vcnkuIEFzIHBhZ2VzIGFyZSBhbHdheXMgcGFnZQo+ID4gYWxp
+Z25lZCBhbmQgYXJlIGxhcmdlciB0aGFuIGFueSBaaWNib3ogYmxvY2sgc2l6ZSB3aWxsIGJlLCB0
+aGVuCj4gPiBjbGVhcl9wYWdlKCkgYXBwZWFycyB0byBiZSBhIGdvb2QgY2FuZGlkYXRlIGZvciB0
+aGUgZXh0ZW5zaW9uLiBXaGlsZSBjeWNsZQo+ID4gY291bnQgYW5kIGVuZXJneSBjb25zdW1wdGlv
+biBzaG91bGQgYWxzbyBiZSBjb25zaWRlcmVkLCB3ZSBjYW4gYmUgcHJldHR5Cj4gPiBjZXJ0YWlu
+IHRoYXQgaW1wbGVtZW50aW5nIGNsZWFyX3BhZ2UoKSB3aXRoIHRoZSBaaWNib3ogZXh0ZW5zaW9u
+IGlzIGEgd2luCj4gPiBieSBjb21wYXJpbmcgdGhlIG5ldyBkeW5hbWljIGluc3RydWN0aW9uIGNv
+dW50IHdpdGggaXRzIGN1cnJlbnQgY291bnRbMV0uCj4gPiBEb2luZyBzbyB3ZSBzZWUgdGhhdCB0
+aGUgbmV3IGNvdW50IGlzIGxlc3MgdGhhbiBoYWxmIHRoZSBvbGQgY291bnQgKHNlZQo+ID4gcGF0
+Y2g0J3MgY29tbWl0IG1lc3NhZ2UgZm9yIG1vcmUgZGV0YWlscykuIEFub3RoZXIgY2FuZGlkYXRl
+IGZvciB0aGUKPiA+IGV4dGVuc2lvbiBpcyBtZW1zZXQoKSwgYnV0LCBzaW5jZSBtZW1zZXQoKSBp
+c24ndCBqdXN0IHVzZWQgZm9yIHplcm9pbmcKPiA+IG1lbW9yeSBhbmQgaXQgYWNjZXB0cyBhcmJp
+dHJhcmlseSBhbGlnbmVkIGFkZHJlc3NlcyBhbmQgYXJiaXRyYXJ5IHNpemVzLAo+ID4gaXQncyBu
+b3QgYXMgb2J2aW91cyBpZiBhZGRpbmcgc3VwcG9ydCBmb3IgWmljYm96IHdpbGwgYmUgYW4gb3Zl
+cmFsbCB3aW4uCj4gPiBJbiBvcmRlciB0byBtYWtlIGEgZGV0ZXJtaW5hdGlvbiwgSSd2ZSBkb25l
+IHNvbWUgYW5hbHlzaXMgYW5kIHdyb3RlIG15Cj4gPiBjb25jbHVzaW9ucyBpbiB0aGUgYnVsbGV0
+cyBiZWxvdy4KPiA+IAo+ID4gKiBXaGVuIGNvbXBpbGluZyB0aGUga2VybmVsIHdpdGhvdXQgQ09O
+RklHX1JJU0NWX0lTQV9aSUNCT1osIG1lbXNldCgpCj4gPiAgIGRvZXNuJ3QgY2hhbmdlLCBzbyB0
+aGF0J3MgZmluZS4KPiA+IAo+ID4gKiBUaGUgb3ZlcmhlYWQgYWRkZWQgdG8gbWVtc2V0KCkgd2hl
+biB0aGUgWmljYm96IGV4dGVuc2lvbiBpc24ndCBwcmVzZW50LAo+ID4gICBidXQgQ09ORklHX1JJ
+U0NWX0lTQV9aSUNCT1ogaXMgc2VsZWN0ZWQsIGlzIDMganVtcHMgdG8ga25vd24gdGFyZ2V0cywK
+PiA+ICAgd2hpY2ggSSBiZWxpZXZlIGlzIGZpbmUuCj4gPiAKPiA+ICogVGhlIG92ZXJoZWFkIGFk
+ZGVkIHRvIGEgbWVtc2V0KCkgaW52b2NhdGlvbiB3aGljaCBpcyBub3QgemVyb2luZyBtZW1vcnkK
+PiA+ICAgaXMgNyBpbnN0cnVjdGlvbnMsIHdoZXJlIDMgYXJlIGJyYW5jaGVzLiBUaGlzIHNlZW1z
+IGZpbmUgYW5kLAo+ID4gICBmdXJ0aGVybW9yZSwgbWVtc2V0KCkgaXMgYWxtb3N0IGFsd2F5cyBp
+bnZva2VkIHRvIHplcm8gbWVtb3J5ICg5OSUgWzJdKS4KPiA+IAo+ID4gKiBXaGVuIG1lbXNldCgp
+IGlzIGludm9rZWQgdG8gemVybyBtZW1vcnksIHRoZSBwcm9wb3NlZCBaaWNib3ogZXh0ZW5kZWQK
+PiA+ICAgbWVtc2V0KCkgYWx3YXlzIGhhcyBhIGxvd2VyIGR5bmFtaWMgaW5zdHJ1Y3Rpb24gY291
+bnQgdGhhbiB0aGUgY3VycmVudAo+ID4gICBtZW1zZXQoKSBhcyBsb25nIGFzIHRoZSBpbnB1dCBh
+ZGRyZXNzIGlzIFppY2JveiBibG9jayBhbGlnbmVkIGFuZCB0aGUKPiA+ICAgbGVuZ3RoIGlzID49
+IHRoZSBibG9jayBzaXplLgo+ID4gCj4gPiAqIFdoZW4gbWVtc2V0KCkgaXMgaW52b2tlZCB0byB6
+ZXJvIG1lbW9yeSwgdGhlIHByb3Bvc2VkIFppY2JveiBleHRlbmRlZAo+ID4gICBtZW1zZXQoKSBp
+cyBhbHdheXMgd29yc2UgZm9yIHVuYWxpZ25lZCBvciB0b28gc21hbGwgaW5wdXRzIHRoYW4gdGhl
+Cj4gPiAgIGN1cnJlbnQgbWVtc2V0KCksIGJ1dCBpdCdzIG9ubHkgYXQgbW9zdCBhIGZldyBkb3pl
+biBpbnN0cnVjdGlvbnMgd29yc2UuCj4gPiAgIEkgdGhpbmsgdGhpcyBpcyBwcm9iYWJseSBmaW5l
+LCBlc3BlY2lhbGx5IGNvbnNpZGVyaW5nIHRoZSBsYXJnZSBtYWpvcml0eQo+ID4gICBvZiB6ZXJv
+aW5nIGludm9jYXRpb25zIGFyZSA2NCBieXRlcyBvciBsYXJnZXIgYW5kIGFyZSBhbGlnbmVkIHRv
+IGEKPiA+ICAgcG93ZXItb2YtMiBib3VuZGFyeSwgNjQtYnl0ZSBvciBsYXJnZXIgKDc3JSBbMl0p
+Lgo+ID4gCj4gPiBbMV0gSSBwb3J0ZWQgdGhlIGZ1bmN0aW9ucyB1bmRlciB0ZXN0IHRvIHVzZXJz
+cGFjZSBhbmQgbGlua2VkIHRoZW0gd2l0aAo+ID4gICAgIGEgdGVzdCBwcm9ncmFtLiBUaGVuLCBJ
+IHJhbiB0aGVtIHVuZGVyIGdkYiB3aXRoIGEgc2NyaXB0WzNdIHdoaWNoCj4gPiAgICAgY291bnRl
+ZCBpbnN0cnVjdGlvbnMgYnkgc2luZ2xlIHN0ZXBwaW5nLgo+ID4gCj4gPiBbMl0gSSB3cm90ZSBi
+cGZ0cmFjZSBzY3JpcHRzWzRdIHRvIGNvdW50IG1lbXNldCgpIGludm9jYXRpb25zIHRvIHNlZSB0
+aGUKPiA+ICAgICBmcmVxdWVuY3kgb2YgaXQgYmVpbmcgdXNlZCB0byB6ZXJvIG1lbW9yeSBhbmQg
+aGF2ZSBibG9jayBzaXplIGFsaWduZWQKPiA+ICAgICBpbnB1dCBhZGRyZXNzZXMgd2l0aCBibG9j
+ayBzaXplIG9yIGxhcmdlciBsZW5ndGhzLiBUaGUgd29ya2xvYWQgd2FzCj4gPiAgICAganVzdCBy
+YW5kb20gZGVza3RvcCBzdHVmZiBpbmNsdWRpbmcgc3RyZWFtaW5nIHZpZGVvIGFuZCBjb21waWxp
+bmcuCj4gPiAgICAgV2hpbGUgSSBkaWQgcnVuIHRoaXMgb24gbXkgeDg2IG5vdGVib29rLCBJIHN0
+aWxsIGV4cGVjdCB0aGUgZGF0YSB0bwo+ID4gICAgIGJlIHJlcHJlc2VudGF0aXZlIG9uIFJJU0Mt
+Vi4gTm90ZSwgeDg2IGhhcyBjbGVhcl9wYWdlKCkgc28gdGhlCj4gPiAgICAgbWVtc2V0KCkgZGF0
+YSByZWdhcmRpbmcgYWxpZ25tZW50IGFuZCBzaXplIHdlcmVuJ3Qgb3ZlciBpbmZsYXRlZCBieQo+
+ID4gICAgIHBhZ2UgemVyb2luZyBpbnZvY2F0aW9ucy4gR3JlcHBpbmcgYWxzbyBzaG93cyB0aGUg
+bGFyZ2UgbWFqb3JpdHkgb2YKPiA+ICAgICBtZW1zZXQoKSBjYWxscyBhcmUgdG8gemVybyBtZW1v
+cnkgKDkzJSkuCj4gPiAKPiA+IFszXSBodHRwczovL2dpc3QuZ2l0aHViLmNvbS9qb25lcy1kcmV3
+LzQ4Nzc5MWM5NTZjZWNhOGMxOGFkYzI4NDdlZWM5YzYwCj4gPiBbNF0gaHR0cHM6Ly9naXN0Lmdp
+dGh1Yi5jb20vam9uZXMtZHJldy8xZTg2MDY5MmNmNmZjMGZiMmE4MmEwNGM5Y2U3MjBmZQo+ID4g
+Cj4gPiBUaGVzZSBwYXRjaGVzIGFyZSBiYXNlZCBvbiB0aGUgZm9sbG93aW5nIHBlbmRpbmcgc2Vy
+aWVzCj4gPiAKPiA+IDEuICJbUEFUQ0ggdjIgMC8zXSBSSVNDLVY6IEVuc3VyZSBaaWNib20gaGFz
+IGEgdmFsaWQgYmxvY2sgc2l6ZSIKPiA+ICAgIDIwMjIxMDI0MDkxMzA5LjQwNjkwNi0xLWFqb25l
+c0B2ZW50YW5hbWljcm8uY29tCj4gPiAKPiA+IDIuICJbUEFUQ0ggMC84XSByaXNjdjogaW1wcm92
+ZSBib290IHRpbWUgaXNhIGV4dGVuc2lvbnMgaGFuZGxpbmciCj4gPiAgICAyMDIyMTAwNjA3MDgx
+OC4zNjE2LTEtanN6aGFuZ0BrZXJuZWwub3JnCj4gPiAgICBBbHNvIGluY2x1ZGluZyB0aGUgYWRk
+aXRpb25hbCBwYXRjaCBwcm9wb3NlZCBoZXJlCj4gPiAgICAyMDIyMTAxMzE2MjAzOC5laHNlanUy
+bmVpYzJ4dTV6QGthbXppawo+ID4gCj4gPiBUaGUgcGF0Y2hlcyBhcmUgYWxzbyBhdmFpbGFibGUg
+aGVyZQo+ID4gaHR0cHM6Ly9naXRodWIuY29tL2pvbmVzLWRyZXcvbGludXgvY29tbWl0cy9yaXNj
+di96aWNib3oKPiA+IAo+ID4gVG8gdGVzdCBvdmVyIFFFTVUgdGhpcyBicmFuY2ggbWF5IGJlIHVz
+ZWQgdG8gZW5hYmxlIFppY2Jvego+ID4gaHR0cHM6Ly9naXRsYWIuY29tL2pvbmVzLWRyZXcvcWVt
+dS8tL2NvbW1pdHMvcmlzY3YvemljYm96Cj4gPiAKPiA+IFRvIHRlc3QgcnVubmluZyBhIEtWTSBn
+dWVzdCB3aXRoIFppY2JveiB0aGlzIGt2bXRvb2wgYnJhbmNoIG1heSBiZSB1c2VkCj4gPiBodHRw
+czovL2dpdGh1Yi5jb20vam9uZXMtZHJldy9rdm10b29sL2NvbW1pdHMvcmlzY3YvemljYm96Cj4g
+PiAKPiA+IFRoYW5rcywKPiA+IGRyZXcKPiA+IAo+ID4gQW5kcmV3IEpvbmVzICg5KToKPiA+ICAg
+UklTQy1WOiBGYWN0b3Igb3V0IGJvZHkgb2YgcmlzY3ZfaW5pdF9jYm9tX2Jsb2Nrc2l6ZSBsb29w
+Cj4gPiAgIFJJU0MtVjogQWRkIFppY2JveiBkZXRlY3Rpb24gYW5kIGJsb2NrIHNpemUgcGFyc2lu
+Zwo+ID4gICBSSVNDLVY6IGluc24tZGVmOiBEZWZpbmUgY2JvLnplcm8KPiA+ICAgUklTQy1WOiBV
+c2UgWmljYm96IGluIGNsZWFyX3BhZ2Ugd2hlbiBhdmFpbGFibGUKPiA+ICAgUklTQy1WOiBLVk06
+IFByb3ZpZGUgVUFQSSBmb3IgWmljYm96IGJsb2NrIHNpemUKPiA+ICAgUklTQy1WOiBLVk06IEV4
+cG9zZSBaaWNib3ogdG8gdGhlIGd1ZXN0Cj4gPiAgIFJJU0MtVjogbGliOiBJbXByb3ZlIG1lbXNl
+dCBhc3NlbWJsZXIgZm9ybWF0dGluZwo+ID4gICBSSVNDLVY6IGxpYjogVXNlIG5hbWVkIGxhYmVs
+cyBpbiBtZW1zZXQKPiA+ICAgUklTQy1WOiBVc2UgWmljYm96IGluIG1lbXNldCB3aGVuIGF2YWls
+YWJsZQo+ID4gCj4gPiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgICAgfCAgMTMg
+KysKPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaCB8ICAgMyArLQo+ID4g
+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCAgICAgIHwgICAxICsKPiA+ICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmggICB8ICA1MCArKysrKysKPiA+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3BhZ2UuaCAgICAgICB8ICAgNiArLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVk
+ZS91YXBpL2FzbS9rdm0uaCAgIHwgICAyICsKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYyAg
+ICAgICAgICAgICB8ICAgMSArCj4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jICAg
+ICAgfCAgMTAgKysKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jICAgICAgICAgICB8ICAg
+MiArLQo+ID4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAgICAgICAgICAgIHwgIDExICsrCj4g
+PiAgYXJjaC9yaXNjdi9saWIvTWFrZWZpbGUgICAgICAgICAgICAgfCAgIDEgKwo+ID4gIGFyY2gv
+cmlzY3YvbGliL2NsZWFyX3BhZ2UuUyAgICAgICAgIHwgIDI4ICsrKysKPiA+ICBhcmNoL3Jpc2N2
+L2xpYi9tZW1zZXQuUyAgICAgICAgICAgICB8IDI0MSArKysrKysrKysrKysrKysrKysrLS0tLS0t
+LS0tCj4gPiAgYXJjaC9yaXNjdi9tbS9jYWNoZWZsdXNoLmMgICAgICAgICAgfCAgNjQgKysrKyst
+LS0KPiA+ICAxNCBmaWxlcyBjaGFuZ2VkLCAzMjUgaW5zZXJ0aW9ucygrKSwgMTA4IGRlbGV0aW9u
+cygtKQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2xpYi9jbGVhcl9wYWdlLlMK
+PiA+IAo+ID4gLS0gCj4gPiAyLjM3LjMKPiA+Cj4gCj4gRllJLCBJIGp1c3QgdHJpZWQgdGhpcyB3
+aXRoIGNsYW5nLiBJdCBjb21waWxlcyBidXQgZG9lc24ndCBib290IHdoZW4KPiBaaWNib3ogaXMg
+cHJlc2VudCAoaXQgZG9lcyBib290IHdoZW4gWmljYm96IGlzIGRpc2FibGVkIGluIFFFTVUpLiBJ
+J20KPiBzdXNwaWNpb3VzIG9mIHRoZSBBTFRFUk5BVElWRSgpIHN0dWZmLCBidXQgSSdsbCBkZWJ1
+ZyBtb3JlIG9uIE1vbmRheS4KPiBBbHNvLCBJIHNlZSBidWlsZGluZyB3aXRoIExMVk09MSBkb2Vz
+bid0IHdvcmssIGJ1dCB0aGF0IGFwcGVhcnMgdG8gYmUKPiBhbiBpc3N1ZSBpbnRyb2R1Y2VkIHdp
+dGggIltQQVRDSCAwLzhdIHJpc2N2OiBpbXByb3ZlIGJvb3QgdGltZSBpc2EKPiBleHRlbnNpb25z
+IGhhbmRsaW5nIiB3aGljaCB0aGlzIHNlcmllcyBpcyBiYXNlZCBvbi4KClllYWgsIEkgd2FzIGhp
+dHRpbmcgdGhlIExMVk0gZmFpbHVyZXMgd2hlbiBJIGdhdmUgaXQgYSBnbyB0aGUgb3RoZXIgZGF5
+LAp0aGFua3MgZm9yIHBhc3NpbmcgaXQgb24gdG8gSmlzaGVuZy4uIEkgbWVhbnQgdG8gZG8gdGhh
+dCBhbmQgZm9yZ290LgpGV0lXLCBJIGRpZCBmaW5kIGEgYnVpbGQgZXJyb3Igd2l0aCBnY2MgdG9v
+OgoKcmlzY3Y2NC11bmtub3duLWxpbnV4LWdudS1sZDogYXJjaC9yaXNjdi9wdXJnYXRvcnkvcHVy
+Z2F0b3J5LnJvOiBpbiBmdW5jdGlvbiBgLkwz4pCCMSc6CmN0eXBlLmM6KC50ZXh0KzB4MjE1YSk6
+IHVuZGVmaW5lZCByZWZlcmVuY2UgdG8gYHJpc2N2X2Nib3pfYmxvY2tfc2l6ZScKCmRlZmNvbmZp
+ZyBzaG91bGQgYmU6Cmh0dHBzOi8vZ2lzdC5naXRodWIuY29tL0NvbmNodU9EL2UxNDI5M2EyOGIw
+NGRjYTIxMjViZGNjMGQ5N2QzNjZhCiYgdG9vbGNoYWluIHN0dWZmOgpDT05GSUdfQ0NfVkVSU0lP
+Tl9URVhUPSJyaXNjdjY0LXVua25vd24tbGludXgtZ251LWdjYyAoZzU5NjRiNWNkNzI3KSAxMS4x
+LjAiCkNPTkZJR19DQ19JU19HQ0M9eQpDT05GSUdfR0NDX1ZFUlNJT049MTEwMTAwCkNPTkZJR19B
+U19JU19HTlU9eQpDT05GSUdfQVNfVkVSU0lPTj0yMzcwMApDT05GSUdfTERfSVNfQkZEPXkKQ09O
+RklHX0xEX1ZFUlNJT049MjM3MDAKCk15IHRvb2xjaGFpbiBwcmVkYXRlcyB6aWNibyogYmVpbmcg
+aW50cm9kdWNlZCAmIEkgc2V0IHRoZSBjb25maWcgb3B0aW9uLgpJIGRpZG4ndCBkbyBhbnkgc3Bl
+Y2lmaWMgZGlnZ2luZyBhcyB0byB0aGUgY2F1c2UuCgpUaGFua3MsCkNvbm9yLgoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
