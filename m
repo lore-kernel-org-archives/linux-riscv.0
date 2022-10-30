@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD96FA373D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E297FC38A02
 	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 09:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bXuVErD0OEynDa3TNa6cx6ew0qDCQUqKc83cu2Bko8c=; b=DIGy+47U5U7b5h
-	0gOXY08B/vbKDNqwWHazxHFlYgf5fBGw2UjvHpEnWr4C+Vt7QG273Og9KL/YDDotHe3hU7RV9lJ4X
-	7QCKFuC85G0ZsiutAFg++/vo6sZqUcGmLaanKbtJlWmRst1BhqxxJ0PZS6CpUMXjEykz42vz/KlRi
-	3lULTh9QAFUXSWyzsydKJ5Q94VRIhWkLhGPZbEyuFYa+rdPFojD5SruXu5T2VOfZI2O0lf+L8z/C5
-	+/eHbMdKxx3p46TUyWvrrBhULp001Hx2up55g1RY2oT20re4tUB7IZzcqv4MBfJ+Ai5rsaLNb9cFx
-	QxQfD8hCngAgSDSNAhlw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KXjmjpB/hd6kZj6XLoiu+MxDwcOlYZuvYSp/m7EIMGc=; b=Xx+tFJprjCDh0m
+	5fGZuWdemZLpSrOPGLZ744bwZ+b3GZwOuqrKzOCbuqHTPjWnN2Vu0VDfpxIeNFAzCMgy/2w9Xr0Pb
+	IrS0nt6RYQLe0GpHsBSv7qB/TvgFhBzEAXnDVcaT8XaD+kN+18RZAUSAOOhG5dmpi59/QrMf+V284
+	/zaV4nnIqRWFqevfJTEqMFyKrOuWY7EKPm/awCIpwDAvgN4KriAyZ4ijS79nNBfYnQYmiu1JAJUxX
+	1p7Js/0tNrFKnJoyVsTJqfXnEw3nj9GjDfEPW+v5Bb75fenob78esN7kXuvWUXB4p7TxEVVtYTlrz
+	/O8/orwsAfoztS6oOI5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4DF-00EY9f-Fd; Sun, 30 Oct 2022 09:02:37 +0000
+	id 1op4DD-00EY8b-Ee; Sun, 30 Oct 2022 09:02:35 +0000
 Received: from smtp23.cstnet.cn ([159.226.251.23] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1op4D2-00EXzB-9u
+	id 1op4D2-00EXt1-DQ
 	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 09:02:31 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-03 (Coremail) with SMTP id rQCowABXCVmKPV5jkxYmBw--.33365S12;
-	Sun, 30 Oct 2022 17:02:18 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXCVmKPV5jkxYmBw--.33365S4;
+	Sun, 30 Oct 2022 17:02:02 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -37,38 +37,34 @@ To: paul.walmsley@sifive.com,
 	sfr@canb.auug.org.au
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	liaochang1@huawei.com,
-	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH 8/8] riscv/kprobe: Patch AUIPC/JALR pair to optimize kprobe
-Date: Sun, 30 Oct 2022 17:01:41 +0800
-Message-Id: <20221030090141.2550837-9-chenguokai17@mails.ucas.ac.cn>
+	liaochang1@huawei.com
+Subject: [PATCH v3 0/8] Add OPTPROBES feature on RISCV
+Date: Sun, 30 Oct 2022 17:01:33 +0800
+Message-Id: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
-References: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowABXCVmKPV5jkxYmBw--.33365S12
-X-Coremail-Antispam: 1UD129KBjvJXoW3Ww1fZF4kXFyfGFWfur1fCrg_yoW7CryrpF
-	s8G3ZxJrWYkFn2grZxAws5ur1rKwsYyay3K34DGrWfAr47Jrs8Wwnakwn8ZF15GF1Fgr13
-	ArnYkryruay7JFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE
-	3s1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
-	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4U
-	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I64
-	8v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48J
-	MxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwV
-	AFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv2
-	0xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26c
-	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUzv3nUUUUU=
+X-CM-TRANSID: rQCowABXCVmKPV5jkxYmBw--.33365S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxXw18Zry7Zw1DWFyDZr43KFg_yoWrJry7pF
+	WkKw45CrWUJrs3CrW3Jw4kuFySyan3Gw43ur1UJ34rX3y3JrySy3Zagay5ZF13GF4a9w1j
+	qrn09ryvkFy5A3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18Mc
+	Ij6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l
+	c2xSY4AK67AK6r4fMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I
+	0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWU
+	tVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcV
+	CY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAF
+	wI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvj
+	xUyPl8UUUUU
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiAwcPE2NeFqsxqwAAsC
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCQMPE2NeHVkoSAAAsP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_020224_788043_11254107 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20221030_020224_898640_CC43855A 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,184 +83,90 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Liao Chang <liaochang1@huawei.com>
 
-The patch optimizes 'EBREAK' with 'AUIPC/JALR', introduce new patching
-function to modify multiple instructions.
+Add jump optimization support for RISC-V.
 
-Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Signed-off-by: Liao Chang <liaochang1@huawei.com>
----
- arch/riscv/include/asm/patch.h |  1 +
- arch/riscv/kernel/patch.c      | 22 +++++++++---
- arch/riscv/kernel/probes/opt.c | 63 ++++++++++++++++++++++++++++++++--
- 3 files changed, 80 insertions(+), 6 deletions(-)
+Replaces ebreak instructions used by normal kprobes with an
+auipc+jalr instruction pair, at the aim of suppressing the probe-hit
+overhead.
 
-diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
-index 9a7d7346001e..ee31539de65f 100644
---- a/arch/riscv/include/asm/patch.h
-+++ b/arch/riscv/include/asm/patch.h
-@@ -8,5 +8,6 @@
- 
- int patch_text_nosync(void *addr, const void *insns, size_t len);
- int patch_text(void *addr, u32 insn);
-+int patch_text_batch(void *addr, const void *insn, size_t size);
- 
- #endif /* _ASM_RISCV_PATCH_H */
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 765004b60513..02c43bb1fad3 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -15,7 +15,8 @@
- 
- struct patch_insn {
- 	void *addr;
--	u32 insn;
-+	const void *insn;
-+	size_t size;
- 	atomic_t cpu_count;
- };
- 
-@@ -106,8 +107,7 @@ static int patch_text_cb(void *data)
- 
- 	if (atomic_inc_return(&patch->cpu_count) == num_online_cpus()) {
- 		ret =
--		    patch_text_nosync(patch->addr, &patch->insn,
--					    GET_INSN_LENGTH(patch->insn));
-+		    patch_text_nosync(patch->addr, patch->insn, patch->size);
- 		atomic_inc(&patch->cpu_count);
- 	} else {
- 		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
-@@ -123,7 +123,8 @@ int patch_text(void *addr, u32 insn)
- {
- 	struct patch_insn patch = {
- 		.addr = addr,
--		.insn = insn,
-+		.insn = &insn,
-+		.size = GET_INSN_LENGTH(insn),
- 		.cpu_count = ATOMIC_INIT(0),
- 	};
- 
-@@ -131,3 +132,17 @@ int patch_text(void *addr, u32 insn)
- 				       &patch, cpu_online_mask);
- }
- NOKPROBE_SYMBOL(patch_text);
-+
-+int patch_text_batch(void *addr, const void *insn, size_t size)
-+{
-+	struct patch_insn patch = {
-+		.addr = addr,
-+		.insn = insn,
-+		.size = size,
-+		.cpu_count = ATOMIC_INIT(0),
-+	};
-+
-+	return stop_machine_cpuslocked(patch_text_cb, &patch, cpu_online_mask);
-+}
-+
-+NOKPROBE_SYMBOL(patch_text_batch);
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-index 77248ed7d4e8..947bc015da7e 100644
---- a/arch/riscv/kernel/probes/opt.c
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -448,11 +448,19 @@ static bool can_optimize(unsigned long paddr, struct optimized_kprobe *op)
- 
- int arch_prepared_optinsn(struct arch_optimized_insn *optinsn)
- {
--	return 0;
-+	return optinsn->length;
- }
- 
- int arch_check_optimized_kprobe(struct optimized_kprobe *op)
- {
-+	unsigned long i;
-+	struct kprobe *p;
-+
-+	for (i = RVC_INSN_LEN; i < op->optinsn.length; i += RVC_INSN_LEN) {
-+		p = get_kprobe(op->kp.addr + i);
-+		if (p && !kprobe_disabled(p))
-+			return -EEXIST;
-+	}
- 	return 0;
- }
- 
-@@ -521,23 +529,74 @@ int arch_prepare_optimized_kprobe(struct optimized_kprobe *op,
- 
- void arch_remove_optimized_kprobe(struct optimized_kprobe *op)
- {
-+	if (op->optinsn.insn) {
-+		free_optinsn_slot(op->optinsn.insn, 1);
-+		op->optinsn.insn = NULL;
-+		op->optinsn.length = 0;
-+	}
- }
- 
- void arch_optimize_kprobes(struct list_head *oplist)
- {
-+	long offs;
-+	kprobe_opcode_t insn[3];
-+	struct optimized_kprobe *op, *tmp;
-+
-+	list_for_each_entry_safe(op, tmp, oplist, list) {
-+		WARN_ON(kprobe_disabled(&op->kp));
-+
-+		/* Backup instructions which will be replaced by jump address */
-+		memcpy(op->optinsn.copied_insn,
-+		       DETOUR_ADDR(op->kp.addr, GET_INSN_LENGTH(op->kp.opcode)),
-+		       op->optinsn.length - GET_INSN_LENGTH(op->kp.opcode));
-+
-+		/*
-+		 * After patch, it should be:
-+		 * auipc free_register, %hi(detour_buffer)
-+		 * jalr free_register, free_register, %lo(detour_buffer)
-+		 * where free_register will eventually save the return address
-+		 */
-+		offs = (unsigned long)op->optinsn.insn -
-+		       (unsigned long)op->kp.addr;
-+		insn[0] = rv_auipc(op->optinsn.rd, (offs + (1 << 11)) >> 12);
-+		insn[1] = rv_jalr(op->optinsn.rd, op->optinsn.rd, offs & 0xFFF);
-+		/* For 3 RVC + 1 RVI scenario, need C.NOP for padding */
-+		if (op->optinsn.length > 2 * RVI_INSN_LEN)
-+			insn[2] = rvc_addi(0, 0);
-+
-+		patch_text_batch(op->kp.addr, insn, op->optinsn.length);
-+		if (memcmp(op->kp.addr, insn, op->optinsn.length))
-+			continue;
-+
-+		list_del_init(&op->list);
-+	}
- }
- 
- void arch_unoptimize_kprobes(struct list_head *oplist,
- 			     struct list_head *done_list)
- {
-+	struct optimized_kprobe *op, *tmp;
-+
-+	list_for_each_entry_safe(op, tmp, oplist, list) {
-+		arch_unoptimize_kprobe(op);
-+		list_move(&op->list, done_list);
-+	}
- }
- 
- void arch_unoptimize_kprobe(struct optimized_kprobe *op)
- {
-+	kprobe_opcode_t buf[MAX_COPIED_INSN];
-+	unsigned long offset = GET_INSN_LENGTH(op->kp.opcode);
-+
-+	buf[0] = (offset == RVI_INSN_LEN) ? __BUG_INSN_32 : __BUG_INSN_16;
-+	memcpy(DETOUR_ADDR(buf, offset), op->optinsn.copied_insn,
-+	       op->optinsn.length - offset);
-+	patch_text_batch(op->kp.addr, buf, op->optinsn.length);
- }
- 
- int arch_within_optimized_kprobe(struct optimized_kprobe *op,
- 				 kprobe_opcode_t *addr)
- {
--	return 0;
-+	return (op->kp.addr <= addr &&
-+		op->kp.addr + op->optinsn.length > addr);
- }
+All known optprobe-capable RISC architectures have been using a single
+jump or branch instructions while this patch chooses not. RISC-V has a
+quite limited jump range (4KB or 2MB) for both its branch and jump
+instructions, which prevent optimizations from supporting probes that
+spread all over the kernel.
+
+Auipc-jalr instruction pair is introduced with a much wider jump range
+(4GB), where auipc loads the upper 12 bits to a free register and jalr
+Deaconappends the lower 20 bits to form a 32 bit immediate. Note that
+returns from probe handler requires another free register. As kprobes
+can appear almost anywhere inside the kernel, the free register should
+be found in a generic way, not depending on calling convention or any
+other regulations.
+
+The algorithm for finding the free register is inspired by the register
+renaming in modern processors. From the perspective of register renaming,
+a register could be represented as two different registers if two neighbour
+instructions both write to it but no one ever reads. Extending this fact,
+a register is considered to be free if there is no read before its next
+write in the execution flow. We are free to change its value without
+interfering normal execution.
+
+Static analysis shows that 51% instructions of the kernel (default config)
+is capable of being replaced i.e. one free register can be found at both
+the start and end of replaced instruction pairs while the replaced
+instructions can be directly executed.
+
+Contribution:
+Chen Guokai invents the algorithm of searching free register, evaluated
+the ratio of optimizaion, the basic function for RVI kernel binary.
+Liao Chang adds the support for hybrid RVI and RVC kernel binary, fix
+some bugs with different kernel configurations, refactor out entire
+feature into some individual patches.
+
+v3:
+1. Support of hybrid RVI and RVC kernel binary.
+2. Refactor out entire feature into some individual patches.
+
+v2:
+1. Adjust comments
+2. Remove improper copyright
+3. Clean up format issues that is no common practice
+4. Extract common definition of instruction decoder
+5. Fix race issue in SMP platform.
+
+v1:
+Chen Guokai contribute the basic functionality code.
+
+
+
+Liao Chang (8):
+  riscv/kprobe: Prepare the skeleton to implement RISCV OPTPROBES
+    feature
+  riscv/kprobe: Allocate detour buffer from module area
+  riscv/kprobe: Prepare the skeleton to prepare optimized kprobe
+  riscv/kprobe: Add common RVI and RVC instruction decoder code
+  riscv/kprobe: Search free register(s) to clobber for 'AUIPC/JALR'
+  riscv/kprobe: Add code to check if kprobe can be optimized
+  riscv/kprobe: Prepare detour buffer for optimized kprobe
+  riscv/kprobe: Patch AUIPC/JALR pair to optimize kprobe
+
+ arch/riscv/Kconfig                        |   1 +
+ arch/riscv/include/asm/bug.h              |   5 +-
+ arch/riscv/include/asm/kprobes.h          |  48 ++
+ arch/riscv/include/asm/patch.h            |   1 +
+ arch/riscv/kernel/patch.c                 |  22 +-
+ arch/riscv/kernel/probes/Makefile         |   1 +
+ arch/riscv/kernel/probes/decode-insn.h    | 145 ++++++
+ arch/riscv/kernel/probes/kprobes.c        |  25 +
+ arch/riscv/kernel/probes/opt.c            | 559 ++++++++++++++++++++++
+ arch/riscv/kernel/probes/opt_trampoline.S | 137 ++++++
+ arch/riscv/kernel/probes/simulate-insn.h  |  41 ++
+ 11 files changed, 980 insertions(+), 5 deletions(-)
+ create mode 100644 arch/riscv/kernel/probes/opt.c
+ create mode 100644 arch/riscv/kernel/probes/opt_trampoline.S
+
 -- 
-2.25.1
+2.17.1
 
 
 _______________________________________________
