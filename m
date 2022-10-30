@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8C3FA3743
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 22:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22E4FA3743
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Oct 2022 22:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t3x5YzGl/oV9TcH39rRorL86fC1mOVQxWyVBMkZ/D+A=; b=DV9lfLx+QeyPWK
-	OG9fSJKwdOHpnJV+vqXC9WvPNSPPBYvqhh8Eh8mI/tW0ki2wMxHWo71Kww+9PNbghbi2xDo0lQS6S
-	Prdy/RPNFuZ8/CJ9MVFt54BC6T/RJRvlHcqKjdNzMpp9mKar6u9bXzRewTRdk3jczuh7L+CjTIJX2
-	rCAauO03MPcH0BPKJ+P5QRoxrbQdVtE93TvPEt1Wp1YKTTOgmvyXaaRpXJhLFV3fbWicUO+jpoLLH
-	Z3VOK/2iLLL/SSJImx6qHgDADrGJUalNYXYNNmiombAHRaaFPuP5I2wYNdFnGHBkuyOnJs7DDAdJj
-	lX/61grA/uJpK19tagyg==;
+	List-Owner; bh=GlHSbNc2eU2omo/btsBoPtehPDQi+TitXcL44KD0zF4=; b=2E6+lMenc6qz1k
+	70X9jzsgj8zISubVNtvgCYCUApjp66e0p9umADH7/q6+8Aq9ffFR1UEBjhZtf30h3mq4wwzI51Zy+
+	+xrEt4AkD2ZLrWoeMVgCdLL1RsyFfCta1YKji+j6oIzflXvh65aUwX9D2iAIzGDYuX+3XOeyuffja
+	nbYFsxa/NqNey4fjB+3/cd7qyZ4vOo4M/O3YpbD36ci5dvfaqPCEcrVSSyYpgfaichHi8E7v7Bwhv
+	pFxEboIGUkf+JQwzDFlgeZp8KzgULkAkvG/xRObFuWpir9WBdsRPnOppmjrOpNO59LmysbIFLPOJD
+	72AJSWqh/UyF5Sncdgmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opGuN-003yDO-1R; Sun, 30 Oct 2022 22:35:59 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1opGvs-003z8o-E4; Sun, 30 Oct 2022 22:37:32 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opGuJ-003yB8-5x; Sun, 30 Oct 2022 22:35:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9373CB810A3;
-	Sun, 30 Oct 2022 22:35:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030E7C433C1;
-	Sun, 30 Oct 2022 22:35:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667169352;
-	bh=vyh5zuJ1ZTea0c0ag38Tw7CFATZvL2b3wYVdNkKJ78w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o1SEDUqBAOiKLz/J0eYqfwdDSt35gYShfMdQ17C8v2aoTmihXCavWNc2JZQqI/t00
-	 IM+tyWneF622MwaqAg+0S0GomcctCObDnl8MNtZUyQD5ogEvW0BHEHpfJ1oY50QESq
-	 +FvSyvXQYgjJMwmThZF/5dv7Zvmp/oXdOFYWhPBOP8PUWhqOrOaLE2yJqgQ2vf1ppM
-	 fBdwAB2zcaDZYSIDcgEv/ESrcxDil2c7fYrsZou+O2MiXzXKwrFzAgCJLhLlxHBe5N
-	 4maT9A96DoD+ruCfgRPGvMztNuLBJ2NS7Sj8RkN97zz6Ng1Tw8vrAaLd/SWZhFc0fj
-	 qZtLxVFvoavpQ==
-Date: Sun, 30 Oct 2022 22:35:47 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH 9/9] RISC-V: Use Zicboz in memset when available
-Message-ID: <Y178Q/szFZNlaFej@spud>
-References: <20221027130247.31634-1-ajones@ventanamicro.com>
- <20221027130247.31634-10-ajones@ventanamicro.com>
+	id 1opGvp-003z56-Mf
+	for linux-riscv@lists.infradead.org; Sun, 30 Oct 2022 22:37:31 +0000
+Received: by mail-ej1-x634.google.com with SMTP id b2so25444380eja.6
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Oct 2022 15:37:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=mvvzkff6DOL85U8amZ/DXhVJ4JENLNiq7XjnHhrGMvs=;
+        b=f0QVCDZ5EVWlrUN1rKoSG+yS/A2K3M7mCkQ4bxP3jzMM/+mMruxSV5Usb/toSwsPBU
+         RDjIqyagVzNRtdtTfqq7srhGfEWj70L+F0p1VlBdWpDl8A+1wpBB+MYo17QOF2lr8lJP
+         wMqRerhgoRq7Tq3tubk2FH61N9zB1PNJ+PxSpdvet4Em/xVtxiMVpvrwzeqL1s6VuSOx
+         oKCkeNTXo4vbJGuN9vW756plKb4qoj6zSoiJFGBUeYM28Ipm5ZD+PXrMsM5WL6zzRm02
+         8zL2Zbh1DBl1tuiqY/oBA2wLMPJ6N0ihjW5UekqaI0m+sdIcVPDlpws3W+Dd6hhEJ9kf
+         RhTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mvvzkff6DOL85U8amZ/DXhVJ4JENLNiq7XjnHhrGMvs=;
+        b=S+j62E1ZX7mDrmBfu4i8ccBpmurXCsYCeb18Ses5o1YsWM3KgODD2FArRkgTdmtS2u
+         xk1baPOZ861Y30Fhua4GViLTZh4LadSbatjuEy9GHeWD7N/PgmtsTd1ha4N8DRkJ1AUo
+         S+xx3BTB7pWGrH2ThFqVbJowWdR/dHxZxh5FC3zAgLaEjntVa71D2OwGFZsKoqphjts2
+         QvXMpcHWg/ir0q9696IfUSPxTUE8ukFxdBUdkeIj2Om5TlaBxFyEtPFkUIDeVkeiUTRe
+         SHozc0HOzxjZ7nMio16x+aLzHuDvoKH9z6S/i3UGFQ9XkKX8CbeJEL1Tyl6LeqnPy32S
+         h8Iw==
+X-Gm-Message-State: ACrzQf0Osfw82u9dGGovZSKrHB8mNy2WXh408nqA3W0vyWtsLTXpV3Eg
+	FkVCW+pwUjBntTJRcHseIn8tN1DHCJhTT90TGf8=
+X-Google-Smtp-Source: AMsMyM4K4QK9yJsrNxEButWAcDD9G1p0AEwb26nEyCEdPv2RRCmrAW1IeJm/NMhanC2p48KjJY79xk+O5lrVh8jmUwA=
+X-Received: by 2002:a17:907:847:b0:77f:f489:cc25 with SMTP id
+ ww7-20020a170907084700b0077ff489cc25mr9809377ejb.80.1667169447405; Sun, 30
+ Oct 2022 15:37:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221027130247.31634-10-ajones@ventanamicro.com>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <Y17BWPuEcmY7Bba3@spud>
+In-Reply-To: <Y17BWPuEcmY7Bba3@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sun, 30 Oct 2022 22:37:01 +0000
+Message-ID: <CA+V-a8uKQ8QvYi5qLC9O=QAQN5CxNB7cOTmw4vk+ndB2R8d3nQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] Add support for Renesas RZ/Five SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_153555_530033_FC76103A 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20221030_153729_772536_B524BF3C 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,171 +93,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 27, 2022 at 03:02:47PM +0200, Andrew Jones wrote:
-> RISC-V has an optimized memset() which does byte by byte writes up to
-> the first sizeof(long) aligned address, then uses Duff's device until
-> the last sizeof(long) aligned address, and finally byte by byte to
-> the end. When memset is used to zero memory and the Zicboz extension
-> is available, then we can extend that by doing the optimized memset
-> up to the first Zicboz block size aligned address, then use the
-> Zicboz zero instruction for each block to the last block size aligned
-> address, and finally the optimized memset to the end.
-> 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/lib/memset.S | 81 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 81 insertions(+)
-> 
-> diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-> index 74e4c7feec00..786b85b5e9cc 100644
-> --- a/arch/riscv/lib/memset.S
-> +++ b/arch/riscv/lib/memset.S
-> @@ -5,6 +5,12 @@
->  
->  #include <linux/linkage.h>
->  #include <asm/asm.h>
-> +#include <asm/alternative-macros.h>
-> +#include <asm/insn-def.h>
-> +#include <asm/hwcap.h>
-> +
-> +#define ALT_ZICBOZ(old, new)	ALTERNATIVE(old, new, 0, RISCV_ISA_EXT_ZICBOZ, \
-> +					    CONFIG_RISCV_ISA_ZICBOZ)
->  
->  /* void *memset(void *, int, size_t) */
->  ENTRY(__memset)
-> @@ -15,6 +21,58 @@ WEAK(memset)
->  	sltiu	a3, a2, 16
->  	bnez	a3, .Lfinish
->  
-> +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> +	ALT_ZICBOZ("j .Ldo_memset", "nop")
-> +	/*
-> +	 * t1 will be the Zicboz block size.
-> +	 * Zero means we're not using Zicboz, and we don't when a1 != 0
-                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-I find this second half a little hard to parse. Do you mean "we don't
-use zicboz when a1 != 0"? IOW, is my rewording of this comment accurate?
-"A block size of zero means we're not using Zicboz. We also do not use
-Zicboz when a1 is non zero".
+Hi Conor,
 
-> +	 */
-> +	li	t1, 0
-> +	bnez	a1, .Ldo_memset
-> +	la	a3, riscv_cboz_block_size
-> +	lw	t1, 0(a3)
-> +
-> +	/*
-> +	 * Round to nearest Zicboz block-aligned address
-> +	 * greater than or equal to the start address.
-> +	 */
-> +	addi	a3, t1, -1
-> +	not	t2, a3			/* t2 is Zicboz block size mask */
-> +	add	a3, t0, a3
-> +	and	t3, a3, t2		/* t3 is Zicboz block aligned start */
-> +
-> +	/* Did we go too far or not have at least one block? */
+On Sun, Oct 30, 2022 at 6:24 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Fri, Oct 28, 2022 at 05:59:14PM +0100, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Hi All,
+> >
+> > The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
+> > 1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
+> > as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
+> > entry-class social infrastructure gateway control and industrial gateway
+> > control.
+> >
+> > This patch series adds initial SoC DTSi support for Renesas RZ/Five
+> > (R9A07G043) SoC. Below is the list of IP blocks enabled in the initial
+> > board DTS which can be used to boot via initramfs on RZ/Five SMARC EVK:
+> > - AX45MP CPU
+> > - CPG
+> > - PINCTRL
+>
+> Hey,
+> Looks like you've got a pair of warnings here from dtbs_check. I tested
+> this on top of 20221028's next, with the three branches below merged in,
+> hopefully my merges aren't the source of them:
+>
+> linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: 'interrupt-controller' is a required property
+>         From schema: Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
+> linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: '#interrupt-cells' is a required property
+>         From schema: linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
+>
+Thanks for the review and test. The warnings above are coming from [0]
+as support for IRQC is missing, once that is added the warnings should
+go away.
 
-This one is a little hard too, I think it's because you're switching
-from "did" to "have". Maybe this is only an issue for me because this
-stuff is beyond me in terms of reviewing, so I relying on the comments a
-lot - although I suppose that makes me the target audience in a way.
+> With this sorted, whatever wasn't already is now:
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Thanks for putting up with my messing around re: kconfig symbols and I
+> am glad that we ended up being able to share the dts across archs in the
+> end, so thanks to everyone involved in that :)
+>
+:-)
 
-I think it'd make more sense to me as "Did we go too far, or did we not
-find any blocks".
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/renesas/r9a07g043.dtsi
 
-Thanks,
-Conor.
-
-> +	add	a3, a0, a2
-> +	and	a3, a3, t2
-> +	bgtu	a3, t3, .Ldo_zero
-> +	li	t1, 0
-> +	j	.Ldo_memset
-> +
-> +.Ldo_zero:
-> +	/* Use Duff for initial bytes if there are any */
-> +	bne	t3, t0, .Ldo_memset
-> +
-> +.Ldo_zero2:
-> +	/* Calculate end address */
-> +	and	a3, a2, t2
-> +	add	a3, t0, a3
-> +	sub	a4, a3, t0
-> +
-> +.Lzero_loop:
-> +	CBO_ZERO(t0)
-> +	add	t0, t0, t1
-> +	bltu	t0, a3, .Lzero_loop
-> +	li	t1, 0			/* We're done with Zicboz */
-> +
-> +	sub	a2, a2, a4		/* Update count */
-> +	sltiu	a3, a2, 16
-> +	bnez	a3, .Lfinish
-> +
-> +	/* t0 is Zicboz block size aligned, so it must be SZREG aligned */
-> +	j	.Ldo_duff3
-> +#endif
-> +
-> +.Ldo_memset:
->  	/*
->  	 * Round to nearest XLEN-aligned address
->  	 * greater than or equal to the start address.
-> @@ -33,6 +91,18 @@ WEAK(memset)
->  
->  .Ldo_duff:
->  	/* Duff's device with 32 XLEN stores per iteration */
-> +
-> +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> +	ALT_ZICBOZ("j .Ldo_duff2", "nop")
-> +	beqz	t1, .Ldo_duff2
-> +	/* a3, "end", is start of block aligned start. a1 is 0 */
-> +	move    a3, t3
-> +	sub	a4, a3, t0		/* a4 is SZREG aligned count */
-> +	move	t4, a4			/* Save count for later, see below. */
-> +	j	.Ldo_duff4
-> +#endif
-> +
-> +.Ldo_duff2:
->  	/* Broadcast value into all bytes */
->  	andi	a1, a1, 0xff
->  	slli	a3, a1, 8
-> @@ -44,10 +114,12 @@ WEAK(memset)
->  	or	a1, a3, a1
->  #endif
->  
-> +.Ldo_duff3:
->  	/* Calculate end address */
->  	andi	a4, a2, ~(SZREG-1)
->  	add	a3, t0, a4
->  
-> +.Ldo_duff4:
->  	andi	a4, a4, 31*SZREG	/* Calculate remainder */
->  	beqz	a4, .Lduff_loop		/* Shortcut if no remainder */
->  	neg	a4, a4
-> @@ -100,6 +172,15 @@ WEAK(memset)
->  
->  	addi	t0, t0, 32*SZREG
->  	bltu	t0, a3, .Lduff_loop
-> +
-> +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> +	ALT_ZICBOZ("j .Lcount_update", "nop")
-> +	beqz	t1, .Lcount_update
-> +	sub	a2, a2, t4		/* Difference was saved above */
-> +	j	.Ldo_zero2
-> +#endif
-> +
-> +.Lcount_update:
->  	andi	a2, a2, SZREG-1		/* Update count */
->  
->  .Lfinish:
-> -- 
-> 2.37.3
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
