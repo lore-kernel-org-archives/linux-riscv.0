@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498FEFA3741
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 17:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD03CECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 18:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KDEsvZWRN29UQgWbF9mG2AyAyJiaE5DY2i1R0h1/ic0=; b=lPWE55nWv8vOul
-	81vjHKXBcLGRNqgvXLPtpnLfXABaLHnziuMsuuOd+4NFxBItedOYr6UgUEg1bW2K8DCJDvgrI6k6V
-	G6UBhcpQUFn0oCeX06vXxwhPd6IOzJul203qgJBxlk2U53J27eUVHD1MRlVvqYW43tnh0QgG+zibG
-	azJe/2w8/Qtom5Jn+8uGKI2F8WHcIsoJHCtgCRLg5A3iyNISIKrvAHTOK4Wf6CWaPeAfuZSM/13QE
-	JC2LaT4/I1/N61nEgpbq/Hz4PY3kNqFBvCfU0IxnuRxe1VDWr9AXvJteDQ9eixZEcpquJJEIJ1gj2
-	5ts/E2qOElNTxxzXmr2A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KFsgRlSzeiOduH5pv/j9vxf18HBwMexzGr/Rk98dsH8=; b=35L8pQbNHWfCsw
+	3fOKyaBi97+hUDlOR5c+2ZLP4PqrnCPvU0pudu/h8kGSTyoDj+2+TWbiCo+yvVXMJSlhrIIQU2stb
+	N58zs51s+mZY58CRtojh1ci8qEGEB/pNt/xQFu3BtwgOu73jGOLQihsFCvIF7ACAdnfLuvaYAkJBp
+	CTa/5CwfnQWj6UCWdzc1mheVqUlV8ZGufkXexAPLLpBO7EBlQ6MiCHBtFO3ozqKg7sRiuDX7TfGP2
+	thifL6Ub8wUhB7jq2ca5l2nTWCXMbXbhfaRh75UA05raQlW5DNyU8EWzVRKD7WrpuMkLdWJUtp+eJ
+	fHPmDlF8g3c+PwHIHBlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opZ3g-00DXf3-Rv; Mon, 31 Oct 2022 17:58:48 +0000
+	id 1opZ80-00DaWS-HD; Mon, 31 Oct 2022 18:03:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opZ3e-00DXdl-Fi
-	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 17:58:48 +0000
+	id 1opZ7x-00DaVE-B6
+	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 18:03:14 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2678C612B9;
-	Mon, 31 Oct 2022 17:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42533C433D6;
-	Mon, 31 Oct 2022 17:58:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 519C9612B9;
+	Mon, 31 Oct 2022 18:03:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8D7C433D6;
+	Mon, 31 Oct 2022 18:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667239124;
-	bh=6k2VQy1WA5DlnNEe5C6X3CH+VCbSwygDOtxVDwcHUxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TG3DxQsxTlcQfXVv7G4OFe4KJMjGMhM0EI8q77eUAjnNDZPO3drtH5yiToccym/Ba
-	 MGUyKb0gPaJC5nmCymcOKRi4vmVrZsr9fvhxwV+HQptia9Jq3DToqW5xW2FXxxi+ma
-	 Jlt/XrBdfjs3zzz+4OFy3ZRqnbNzMjYLP5d9z7Lx1jwwzVMzClc0h5KTkg58RjnIQj
-	 dJO/i8/n6Mz8rQZqdMwS04c65w/rv83/xpRmtX/xDEsGeahktfvGEwO/4iICiUGaru
-	 0fXQwHH67hG4RWHhMspJxFALhErCWudYh2GKeOoQ70SYboE1TPhVyz/Qb5TTa21gNM
-	 ZsWLHtcqSAccA==
-Date: Tue, 1 Nov 2022 01:49:01 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	s=k20201202; t=1667239392;
+	bh=6hLhv+fhob8SuiCdW0Sjii1D67SU+WLSGSUTJSSJMmQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=gHXlioRqoYUBBQqA7T0h2aYS98UB6xYj7IvAk+yDmLFQF7FXS8MRG/AQYw8c2PT9o
+	 LgYCBXrBJNximFnSiOhvkYFq9Bhm13T84nAMK1E83Rco0SgaPTyFEkhQJQPuR2Dnct
+	 qJHWpji2JezektP3mBJv8grR7Dy7Cd13c6NaAo1EZ8suBrOe5+Qqq13ByIHEJTEzBb
+	 hwKMtqvp5dONsMq6xmgxRFi74nwdS3MVitCYmUEbAG/7vYWOFIDkRbsmoMuTX7RYjw
+	 gIwjuSVI5pOSln/DZtFYdt4R3kBAJXKEkKMh7YrXEcVz5DX5rUm8fLa44bc+5BX50g
+	 P1oes82KhzntA==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tom Rix <trix@redhat.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	Samuel Holland <samuel@sholland.org>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v2] riscv: jump_label: mark arguments as const to satisfy
- asm constraints
-Message-ID: <Y2AKjYEcIpvwxe7h@xhacker>
-References: <20221008145437.491-1-jszhang@kernel.org>
- <Y0bA8HUL9eC3Dp8C@wendy>
+	linux-riscv@lists.infradead.org,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH] Documentation: riscv: Document the sv57 VM layout
+Date: Mon, 31 Oct 2022 19:02:30 +0100
+Message-Id: <20221031180230.1420544-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y0bA8HUL9eC3Dp8C@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221031_105846_643868_1B45955D 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20221031_110313_501104_4669F63C 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +70,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 12, 2022 at 02:28:16PM +0100, Conor Dooley wrote:
-> Hey Jisheng,
-
-Hi Conor,
-
-> LKP reported an error that seems to only have gone to myself & Samuel,
-> but the branch it's complaining about is your v1:
-> https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/
-> 
-> Any idea what the story is here?
-
-I tried the config in the link, I can reproduce the build error w/
-and w/o the my patch. So I think the root cause of the build error
-is a different story. I have a fix in local repo, will send it out
-soon.
-
-Thanks
-
-> 
-> Thanks,
-> Conor.
-> 
-> On Sat, Oct 08, 2022 at 10:54:37PM +0800, Jisheng Zhang wrote:
-> > Samuel reported that the static branch usage in cpu_relax() breaks
-> > building with CONFIG_CC_OPTIMIZE_FOR_SIZE:
-> > 
-> > In file included from <command-line>:
-> > ./arch/riscv/include/asm/jump_label.h: In function 'cpu_relax':
-> > ././include/linux/compiler_types.h:285:33: warning: 'asm' operand 0
-> > probably does not match constraints
-> >   285 | #define asm_volatile_goto(x...) asm goto(x)
-> >       |                                 ^~~
-> > ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> > 'asm_volatile_goto'
-> >    41 |         asm_volatile_goto(
-> >       |         ^~~~~~~~~~~~~~~~~
-> > ././include/linux/compiler_types.h:285:33: error: impossible constraint
-> > in 'asm'
-> >   285 | #define asm_volatile_goto(x...) asm goto(x)
-> >       |                                 ^~~
-> > ./arch/riscv/include/asm/jump_label.h:41:9: note: in expansion of macro
-> > 'asm_volatile_goto'
-> >    41 |         asm_volatile_goto(
-> >       |         ^~~~~~~~~~~~~~~~~
-> > make[1]: *** [scripts/Makefile.build:249:
-> > arch/riscv/kernel/vdso/vgettimeofday.o] Error 1
-> > make: *** [arch/riscv/Makefile:128: vdso_prepare] Error 2
-> > 
-> > Maybe "-Os" prevents GCC from detecting that the key/branch arguments
-> > can be treated as constants and used as immediate operands. Inspired
-> > by x86's commit 864b435514b2("x86/jump_label: Mark arguments as const to
-> > satisfy asm constraints"), and as pointed out by Steven: "The "i"
-> > constraint needs to be a constant.", let's do similar modifications to
-> > riscv.
-> > 
-> > Tested by CC_OPTIMIZE_FOR_SIZE + gcc and CC_OPTIMIZE_FOR_SIZE + clang.
-> > 
-> > Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
-> > Link: https://lore.kernel.org/all/20210212094059.5f8d05e8@gandalf.local.home/
-> > Fixes: 8eb060e10185 ("arch/riscv: add Zihintpause support")
-> > Reported-by: Samuel Holland <samuel@sholland.org>
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> > 
-> > since v1:
-> >  - add Reported-by, Reviewed-by, Fixes and Link tag
-> > 
-> >  arch/riscv/include/asm/jump_label.h | 8 ++++----
-> >  1 file changed, 4 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-> > index 38af2ec7b9bf..6d58bbb5da46 100644
-> > --- a/arch/riscv/include/asm/jump_label.h
-> > +++ b/arch/riscv/include/asm/jump_label.h
-> > @@ -14,8 +14,8 @@
-> >  
-> >  #define JUMP_LABEL_NOP_SIZE 4
-> >  
-> > -static __always_inline bool arch_static_branch(struct static_key *key,
-> > -					       bool branch)
-> > +static __always_inline bool arch_static_branch(struct static_key * const key,
-> > +					       const bool branch)
-> >  {
-> >  	asm_volatile_goto(
-> >  		"	.option push				\n\t"
-> > @@ -35,8 +35,8 @@ static __always_inline bool arch_static_branch(struct static_key *key,
-> >  	return true;
-> >  }
-> >  
-> > -static __always_inline bool arch_static_branch_jump(struct static_key *key,
-> > -						    bool branch)
-> > +static __always_inline bool arch_static_branch_jump(struct static_key * const key,
-> > +						    const bool branch)
-> >  {
-> >  	asm_volatile_goto(
-> >  		"	.option push				\n\t"
-> > -- 
-> > 2.37.2
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIGhhcyBiZWVu
+IHN1cHBvcnRpbmcgdGhlICJzdjU3IiBhZGRyZXNzIHRyYW5zbGF0aW9uIG1vZGUgZm9yIGEKd2hp
+bGUsIGJ1dCBpcyBoYXMgbm90IGJlZW4gYWRkZWQgdG8gdGhlIFZNIGxheW91dCBkb2N1bWVudGF0
+aW9uLiBMZXQKdXMgZml4IHRoYXQuCgpTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
+bkByaXZvc2luYy5jb20+Ci0tLQogRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IHwg
+MzYgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDM2IGlu
+c2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5y
+c3QgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKaW5kZXggNWIzNmU0NWZlZjYw
+Li4zNWY3Njc5OGI2ZTQgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0
+LnJzdAorKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKQEAgLTk3LDMgKzk3
+LDM5IEBAIFJJU0MtViBMaW51eCBLZXJuZWwgU1Y0OAogICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAg
+LTQgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVsZXMsIEJQRgogICAg
+ZmZmZmZmZmY4MDAwMDAwMCB8ICAgLTIgICAgR0IgfCBmZmZmZmZmZmZmZmZmZmZmIHwgICAgMiBH
+QiB8IGtlcm5lbAogICBfX19fX19fX19fX19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19f
+X19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCisKKworUklTQy1WIExpbnV4IEtlcm5lbCBTVjU3CistLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0KKworOjoKKworID09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAgU3RhcnQgYWRkciAg
+ICB8ICAgT2Zmc2V0ICAgfCAgICAgRW5kIGFkZHIgICAgIHwgIFNpemUgICB8IFZNIGFyZWEgZGVz
+Y3JpcHRpb24KKyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT0KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAg
+ICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgMDAwMDAwMDAwMDAwMDAwMCB8ICAgIDAgICAg
+ICAgfCAwMGZmZmZmZmZmZmZmZmZmIHwgICA2NCBQQiB8IHVzZXItc3BhY2UgdmlydHVhbCBtZW1v
+cnksIGRpZmZlcmVudCBwZXIgbW0KKyAgX19fX19fX19fX19fX19fX19ffF9fX19fX19fX19fX3xf
+X19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAgICAgIHwgICAg
+ICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIDAxMDAwMDAwMDAwMDAw
+MDAgfCArNjQgICAgIFBCIHwgZmVmZmZmZmZmZmZmZmZmZiB8IH4xNksgUEIgfCAuLi4gaHVnZSwg
+YWxtb3N0IDY0IGJpdHMgd2lkZSBob2xlIG9mIG5vbi1jYW5vbmljYWwKKyAgICAgICAgICAgICAg
+ICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfCB2aXJ0dWFs
+IG1lbW9yeSBhZGRyZXNzZXMgdXAgdG8gdGhlIC02NCBQQgorICAgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8IHN0YXJ0aW5nIG9mZnNl
+dCBvZiBrZXJuZWwgbWFwcGluZ3MuCisgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198
+X19fX19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CisgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgS2VybmVsLXNw
+YWNlIHZpcnR1YWwgbWVtb3J5LCBzaGFyZWQgYmV0d2VlbiBhbGwgcHJvY2Vzc2VzOgorICBfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX198
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8
+ICAgICAgICAgfAorICAgZmYxYmZmZmZmZWUwMDAwMCB8ICAtNTcgICAgUEIgfCBmZjFiZmZmZmZl
+ZmZmZmZmIHwgICAgMiBNQiB8IGZpeG1hcAorICAgZmYxYmZmZmZmZjAwMDAwMCB8ICAtNTcgICAg
+UEIgfCBmZjFiZmZmZmZmZmZmZmZmIHwgICAxNiBNQiB8IFBDSSBpbworICAgZmYxYzAwMDAwMDAw
+MDAwMCB8ICAtNTcgICAgUEIgfCBmZjFmZmZmZmZmZmZmZmZmIHwgICAgMSBQQiB8IHZtZW1tYXAK
+KyAgIGZmMjAwMDAwMDAwMDAwMDAgfCAgLTU2ICAgIFBCIHwgZmY1ZmZmZmZmZmZmZmZmZiB8ICAg
+MTYgUEIgfCB2bWFsbG9jL2lvcmVtYXAgc3BhY2UKKyAgIGZmNjAwMDAwMDAwMDAwMDAgfCAgLTQw
+ICAgIFBCIHwgZmZkZmZmZmVmZmZmZmZmZiB8ICAgMzIgUEIgfCBkaXJlY3QgbWFwcGluZyBvZiBh
+bGwgcGh5c2ljYWwgbWVtb3J5CisgICBmZmRmZmZmZjAwMDAwMDAwIHwgIC0gOCAgICBQQiB8IGZm
+ZmZmZmZlZmZmZmZmZmYgfCAgICA4IFBCIHwga2FzYW4KKyAgX19fX19fX19fX19fX19fX19ffF9f
+X19fX19fX19fX3xfX19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CisgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwgSWRlbnRpY2FsIGxheW91dCB0byB0aGUgMzktYml0IG9uZSBmcm9tIGhlcmUgb246CisgIF9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAg
+ICB8ICAgICAgICAgfAorICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAgLTQgICAgR0IgfCBmZmZmZmZm
+ZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVsZXMsIEJQRgorICAgZmZmZmZmZmY4MDAwMDAwMCB8
+ICAgLTIgICAgR0IgfCBmZmZmZmZmZmZmZmZmZmZmIHwgICAgMiBHQiB8IGtlcm5lbAorICBfX19f
+X19fX19fX19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCi0tIAoyLjM3LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
