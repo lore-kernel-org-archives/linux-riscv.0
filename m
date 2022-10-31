@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF982FA3741
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 19:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F12EFA3743
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 19:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dfc7W/agJIYhzKrgCTt60GGMnY25oNjqEV3A2IpozlM=; b=CpNq6IPe0iht03
-	qlt02EtMggtedPJWhF2W3scaZwtv0w+njpIpa1j7a2EWjZO23W4B+DIJLYhpoYmAyt3e2eod69Isl
-	97jzTnI88A7eaQzRYNl8hFq1O2wKw4WuNlFTkeoBhiHOaw+RyhhB0ZwcauqP43lZ0MvQ7Yg21k+Ed
-	O3nLZhD14wu7I2wXcak3BQFVp6Z5XIVEXPlSNLbaYkZd3cmwLbuDgARHLnWLb6sHxzzhYgb0vY+5w
-	aWpceM49BbIN32F1KR38D6N4l60bhNZnilba2L0XatH+sGBE6o9pGpPm9d7tJxf4msSqDSRFec+vB
-	CUttKwkkCIgKJTFdTMBQ==;
+	List-Owner; bh=iGMjcmwLAINe6RTyhSzqpH5yuZljz5b1Bu/wJpJXlk8=; b=h7AvorOAh4A2CD
+	rN528bJ3trAh7S7xWQTCSldDTFfFZzF7hsLbdCG+baYRIASb8AeVBabhw6bXYgbFY8OTvR1a4Lea4
+	I9FvVl8XWPUh1RfNzHOCyGsZxt/6yrDj35Qa4HCmETCeUxXqO3H23hqfP3T/NwutfvUkEGYLjUg4r
+	oGhLCJaYuzTUvmwnW9ik/4Ng2i+s0bbaSJz6ljX+fQeyxH1khaBydecLYF9hCX8zEUss7zB20ZqaZ
+	ytHICNxzMegnD/tJqAfLvkdZyL4asGvi9Y1gWSLCxCAxJfCT8q7Hmj33QDGJjZ8bjnceQDPAdksGS
+	rcv0ENtVAfTY+K/ZGqxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opaLg-00ECMG-PH; Mon, 31 Oct 2022 19:21:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1opaQP-00ECya-Ql; Mon, 31 Oct 2022 19:26:21 +0000
+Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opaLd-00ECLF-Fa
-	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 19:21:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EB42A61227;
-	Mon, 31 Oct 2022 19:21:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07C57C433C1;
-	Mon, 31 Oct 2022 19:21:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667244084;
-	bh=o0Q9MbdmmncKUEHxnHZRV+zqBROs61ocnfVwIcKSVsE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LBmrcq+XXz4JAY9e02wNJrk6F4jYOd/jAfp8S8+JsCpTSD8oSyZ4sZB4yHG776g9w
-	 Ft73y3/tY1aeDTL9F3Ebfyaog0NIJ5WtEzdcNxz1kumyE4AJM9jDwNNyaCXHGWnZ3f
-	 /Tzpdtk28wx+9rUYA7BgEYX4IIaYqcqdd8oA/S3An3mpinQMZTOTjXjZUhoIX4Yih3
-	 /4Z1jp2adXePblNQPvfPUJmbNa+VgvSFAdjDU2DTW6O5qHJBEf3bqp5+pR8ifNDD1D
-	 0s5jH9Wntw/GxnJ4XwjWu4LGk7fFcbJ1VrDEySYvlN1pR36oCI2QWyK0GKaoErv1Cn
-	 AshK4OjoStjXw==
-Date: Mon, 31 Oct 2022 19:21:20 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: vdso: fix build with llvm
-Message-ID: <Y2AgMLzH/RF1gQkB@spud>
-References: <20221031182943.2453-1-jszhang@kernel.org>
+	id 1opaQM-00ECx3-Mi
+	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 19:26:20 +0000
+Received: by mail-oi1-x233.google.com with SMTP id n83so13766021oif.11
+        for <linux-riscv@lists.infradead.org>; Mon, 31 Oct 2022 12:26:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UJ0lOh2WHzkMHSyGntGrBnZIld+O9sk/z0tqYs4/9ac=;
+        b=jPGFD+shh3P6Bxl6dtn/Bc8qE+MpQYMg9gVIT6JbAAfQ1LHymLueBqrnzH6fi5InEN
+         N+higcRkSVCEyJqh0lBvXm7qN5SOF3x+Mez8epG5Ov/Xs5B4lU2nIgKoZRuJSk0s79n4
+         LQKyHmuYzj7dsuc8Aq/hG7w+vv/5a4uDvjm54=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UJ0lOh2WHzkMHSyGntGrBnZIld+O9sk/z0tqYs4/9ac=;
+        b=JWR0SXZ8+c4SyETT+0ITucjU0gC9UP25w4NEsbOBSmhibOs0kepA1S9PI4c7ZGLFda
+         oSCUGG5mCny7df8agPkX7c3bFtrNzwVJn/VASn+VuTLaYDWGCZXnrGkCG2nMGQlaq1lo
+         Wycllv9P0JUKS2aPpM7ovqr1iK13jkTFrx0SA8donn+5SaWB4rXNfV7LXe3q7XvqiItu
+         lr9tBfQheOhPQB2thxOtEWEFAgHudbzyaHo8UGSPtgRKKfFOWvLcCieOH2ERPwFoBo0h
+         UpD2LDJyieba9/RWWwR3RHpi874D4ZuCoQtSDTFtC1lfTLn+m2kP86QzRIHfWvV0+Dum
+         VAnw==
+X-Gm-Message-State: ACrzQf3BjT4RpGeuOQlpFd50o9yxHvtvMMnngVc/Yfg1u4v2LxZo33K1
+	XNSVr1evfB5GfejcscoC0UWq1HjqQ3MSbjeXBPZy
+X-Google-Smtp-Source: AMsMyM5DK76DhxyTBJTOuwvjAKSAxZG+Xnk3XxPTuByccSTUMcdXR9NkvikUoLLs31SCFH7vadIOJuzabCuELGnqUMM=
+X-Received: by 2002:aca:6007:0:b0:35a:1bda:d213 with SMTP id
+ u7-20020aca6007000000b0035a1bdad213mr1491663oib.181.1667244376293; Mon, 31
+ Oct 2022 12:26:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221031182943.2453-1-jszhang@kernel.org>
+References: <20221028231929.347918-1-atishp@rivosinc.com> <Y2Ad/FaLE5qM01gR@spud>
+In-Reply-To: <Y2Ad/FaLE5qM01gR@spud>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 31 Oct 2022 12:26:05 -0700
+Message-ID: <CAOnJCUK5Z6i39f5MJaRFhorGjcmBR=p_MapY_TDcR1e274wtpA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Do not issue remote fences until smp is available
+To: Conor Dooley <conor@kernel.org>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org, 
+	Jisheng Zhang <jszhang@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>, linux-riscv@lists.infradead.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221031_122125_580230_9315F12A 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20221031_122618_936471_4DAEC71F 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +87,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 01, 2022 at 02:29:43AM +0800, Jisheng Zhang wrote:
-> Even after commit 89fd4a1df829 ("riscv: jump_label: mark arguments as
-> const to satisfy asm constraints"), building with CC_OPTIMIZE_FOR_SIZE
-> + LLVM=1 can reproduce below build error:
-> 
->   CC      arch/riscv/kernel/vdso/vgettimeofday.o
-> In file included from <built-in>:4:
-> In file included from lib/vdso/gettimeofday.c:5:
-> In file included from include/vdso/datapage.h:17:
-> In file included from
-> include/vdso/processor.h:10:
-> In file included from
-> arch/riscv/include/asm/vdso/processor.h:7:
-> In file included from
-> include/linux/jump_label.h:112:
-> arch/riscv/include/asm/jump_label.h:42:3: error:
-> invalid operand fo
-> r inline asm constraint 'i'
->                 "       .option push                            \n\t"
->                 ^
-> 1 error generated.
+On Mon, Oct 31, 2022 at 12:12 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Fri, Oct 28, 2022 at 04:19:29PM -0700, Atish Patra wrote:
+> > It is useless to issue remote fences if there is a single core
+> > available. It becomes a bottleneck for sbi based rfences where
+> > we will be making those ECALLs for no reason. Early code patching
+> > because of static calls end up in this path.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>
+> Hey Atish,
+> This doesn't apply for me to either fixes or for-next. What branch does
+> it apply to?
+> Thanks,
+> Conor.
+>
+> > ---
+> >  arch/riscv/mm/cacheflush.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > index f10cb47eac3a..7fafc8c26505 100644
+> > --- a/arch/riscv/mm/cacheflush.c
+> > +++ b/arch/riscv/mm/cacheflush.c
+> > @@ -19,6 +19,10 @@ void flush_icache_all(void)
+> >  {
+> >       local_flush_icache_all();
+> >
+> > +     /* No need to issue remote fence if only 1 cpu is online */
+> > +     if (num_online_cpus() == 1)
+> > +             return;
+> > +
+> >       if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
+> >               sbi_remote_fence_i(NULL);
+> >       else
+> > --
+> > 2.34.1
+> >
 
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
+Sorry I forgot to specify the dependencies for this patch. This patch
+is based on Anup's IPI series [1] as
+I assumed the IPI series would go first. I can rebase on top of the
+master if required.
+However, the issue will manifest only after Jisheng's patch[2] which
+moved the sbi_init to earlier and introduced the
+static key in the paging_init path.
 
-> 
-> I think the problem is when "-Os" is passed as CFLAGS, it's removed by
-> "CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os" which is
-> introduced in commit e05d57dcb8c7 ("riscv: Fixup __vdso_gettimeofday
-> broke dynamic ftrace"), thus no optimization at all for vgettimeofday.c
-> arm64 does remove "-Os" as well, but it forces "-O2" after removing
-> "-Os".
-> 
-> I compared the generated vgettimeofday.o with "-O2" and "-Os",
-> I think no big performance difference. So let's tell the kbuild not
-> to remove "-Os" rather than follow arm64 style.
-> 
-> vdso related performance can be improved a lot when building kernel with
-> CC_OPTIMIZE_FOR_SIZE after this commit, ("-Os" VS no optimization)
-> 
-> Fixes: e05d57dcb8c7 ("riscv: Fixup __vdso_gettimeofday broke dynamic ftrace")
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/kernel/vdso/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index f2e065671e4d..84ac0fe612e7 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -30,7 +30,7 @@ obj-y += vdso.o
->  CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
->  
->  # Disable -pg to prevent insert call site
-> -CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
-> +CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
->  
->  # Disable profiling and instrumentation for VDSO code
->  GCOV_PROFILE := n
-> -- 
-> 2.37.2
-> 
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20220820065446.389788-8-apatel@ventanamicro.com/
+[2] https://lore.kernel.org/lkml/20220716115059.3509-1-jszhang@kernel.org/
+
+
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
