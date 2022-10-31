@@ -4,81 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927ECFA373D
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 01:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F575FA3740
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 08:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OtqdkQy3xM6X9UL5RaaVNlatfnAtxv2Rwwr2a2lAIig=; b=oquHK9b/xxQiU7
-	D9cHZezZrgkvD7HBDUnU2pr5zFdl1dWrttpCu18yrq2DzEENFNdBmblsFdmulxzWiXY+pzNRIXgD3
-	jsd1GAG1wUmPXf7gYqo+ETZ++9qjkNJ6dI0N8fR5y1jjVyNw5O/3D/vtkW631gZMJ4MHP1pmWlbpi
-	swMXzKoABo25z4/aP+anTd7rt8pUo8HYJWpLVqGJzk++EQ71h0gT/+Q8JWy1jCGf37d1Yu0XnMnpb
-	GIRBk2tvb9D9faEtfKqnvLKnbTyp/VHvxgjkm3cQroq3ljJTtYuMHLzRZJnnlRV9KZl1dohOL3diF
-	WYcdY0DXynjrL24yhV7w==;
+	List-Owner; bh=TuhU97efxACf4/uBUQEx+NpjwAPkvinZSh+bCIVwFOc=; b=Xk3WQXPsNuSYFc
+	jnzwCF4xY/VUx3wvl5gMCqUOJKae820HUUEJCq/BJ8wSarG1Kc9sVe1L11oTIQhuaUdQlA7KvpLTo
+	xNCg8trMqwM0DbfKLU/fMNbAVS/Xg/z/i3Zy7fbI1GvpRqtx9igse7VLd9r3gVmKILdBhJo0bnhtU
+	dp3vf5W3Knf7Wee2Gu/WEtiLe/5XIatqOKvVJO8tbDUGlJFQ5HjRHn4n3C+NpIWHJCBK512RJM9PM
+	Ev8yaj9n9UNB+E+N6SajqIxWc1oCeULNalMOJeEkm1qRpqj7nc5Pl70uv4WEyxrmFOuUuEyfmijC9
+	/2DltLwcO88ZHMMLLEQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opJLL-005eut-Hu; Mon, 31 Oct 2022 01:11:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1opPoE-009QFf-Uv; Mon, 31 Oct 2022 08:06:14 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opJLI-005etF-Ek
-	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 01:11:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C750360F95
-	for <linux-riscv@lists.infradead.org>; Mon, 31 Oct 2022 01:11:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C5C5C433B5
-	for <linux-riscv@lists.infradead.org>; Mon, 31 Oct 2022 01:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667178715;
-	bh=xtgHnB5H7FEL8NvoLBnWlLaYF4pAr6sLR85QXAmTFBQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hMkxcuX+jiRX3D3XL1+hb7aDVnJEqUkB/jB+e/e1W9owOn27DsshETHpqF5ConNZc
-	 hpbDZntNj4jnqs2ym+8fCYxN4RAgMKlL+AUneh6WRgF22brnqqfiuoqsnZhQJdnLXa
-	 MBJ110u2Bc/uLbcJrgPP5rjisXkw+2jm512Gq3p59fnz64Vo0T/0sQxbr8/2rGOqAB
-	 6j8/09hJ+wY/10b4sTNfnyk1U+eH+guQ18TrsBaPYsI/yoNsPZFNk0aC9Ncm710vO+
-	 nj3k7RH+0tUlWxVfyQOd/dA8LgbbD+KHkXBmDZ6JFse6GwqEJZb/dQLeU+t3dHYYv+
-	 ztRLMYMoMUfQQ==
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-13b6c1c89bdso12069720fac.13
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Oct 2022 18:11:55 -0700 (PDT)
-X-Gm-Message-State: ACrzQf2kXwoHyuqWv+DK7ClMolpU86EWrQraetIw9TBszVCSzyUyOj/s
-	+exEb0WLb8N/HLBOsK5VihTzTFeTMifL5VqCSF4=
-X-Google-Smtp-Source: AMsMyM5YffQDzr4FZcxz9urfVbuCFu/0rR++ppFsy2T3KvqpS2lZzj9GI8kgBPLqT+THZWLCIJ6fChiw2RfdmVEmRKk=
-X-Received: by 2002:a05:6870:64a1:b0:13c:d09d:79f9 with SMTP id
- cz33-20020a05687064a100b0013cd09d79f9mr3510873oab.112.1667178714338; Sun, 30
- Oct 2022 18:11:54 -0700 (PDT)
+	id 1opPoA-009QAr-3h
+	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 08:06:13 +0000
+Received: by mail-ej1-x634.google.com with SMTP id b2so27423964eja.6
+        for <linux-riscv@lists.infradead.org>; Mon, 31 Oct 2022 01:06:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=poxA0LEev9jPrhZnkwyY7vsWe/HDoG5TgR6taboptUU=;
+        b=LYy0CICIyprTOFQXJbmxldQgszdggru36ppt8BlYlS/6Fadz4lG7+PvpBInXK3sEwl
+         9c19coxXN6zfPF621QDiLFySz9+w3De89yPYhIqd1pl1g1LL2OTgeS0IT7F60LNAXCBj
+         TF4jCAkyzHckAHw+4NbUXCJlkXC8jqinNwGBAo650tUVkm4qOCdpQOyA6+CxyIo6oVJI
+         KHTpD5kEOyKveHPx/t7FAd8yS3EE8MPg+seA2KF22Fmhl2l8FspTrr8RgWX++cf2eZMF
+         xm3SjqbAjsK1sVWszFcL2x0alWobxfqRnsQgl+JbUXYc2ZUSVa7+sfBfsb+bIQSHYlqq
+         KjfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=poxA0LEev9jPrhZnkwyY7vsWe/HDoG5TgR6taboptUU=;
+        b=ao3aE/YXKqp617rq8CJ0Kbemby3xopCbuXPN15Nju/nRqzbQfASAyfQsh9QMf/fvUG
+         ZM0eYV86JJsT4fxwcpeeD6DLWMbLx2VnGEW58FX0MrMc3YKnkLJ0Yk+HQ8wR0p3mdDp8
+         4sVnENhP44oWFrlL4qI9PNOr7qoNVUDWaW/yiEhhrvrqvwXWUcHSthIxw9tfsOAzqi8T
+         Bcpqj1KF3Uukibl2ZkcpNjyQYXvquLjQiSk4qZ9hg/NLjWmwMSd3mS26kxkh9pFSUfQq
+         FJBvHcPH3aHXvRl1kw5Verm3x5XjxrO1ZQW3TaZO9zM0yFFYTXXyJdtbwGlej3jLAxgh
+         K3bA==
+X-Gm-Message-State: ACrzQf0UPdt0+aIJg5i+gerlU8g8FPC6jIBawshhUnFdlhH8wtZDJKlD
+	c09dfFRQV+AQvmfN2gAr5Mxpzg==
+X-Google-Smtp-Source: AMsMyM5muTvUIOECduCaxj0EnA1GyAIhvxzQvG2kLFyGrfnTCKJuYOT5siPGSm+xWiTGjY/PqNGVtg==
+X-Received: by 2002:a17:907:80b:b0:77a:86a1:db52 with SMTP id wv11-20020a170907080b00b0077a86a1db52mr11721653ejb.294.1667203565981;
+        Mon, 31 Oct 2022 01:06:05 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id kz4-20020a17090777c400b0077b523d309asm2663665ejc.185.2022.10.31.01.06.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Oct 2022 01:06:05 -0700 (PDT)
+Date: Mon, 31 Oct 2022 09:06:04 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Yury Norov <yury.norov@gmail.com>, x86@kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>, openrisc@lists.librecores.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	"open list:LINUX FOR POWERPC PA SEMI PWRFICIENT" <linuxppc-dev@lists.ozlabs.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] x86: Fix /proc/cpuinfo cpumask warning
+Message-ID: <20221031080604.6xei6c4e3ckhsvmy@kamzik>
+References: <20221014155845.1986223-1-ajones@ventanamicro.com>
+ <20221014155845.1986223-3-ajones@ventanamicro.com>
+ <20221028074828.b66uuqqfbrnjdtab@kamzik>
+ <Y1vrMMtRwb0Lekl0@yury-laptop>
+ <Y1vvMlwf/4EA/8WW@zn.tnic>
+ <CAAH8bW_DkvPCH0-q2Bfe0OJ72r63mRM3GP7NKOFrhe3zMO2gbQ@mail.gmail.com>
+ <Y1v+Ed6mRN9gisJS@zn.tnic>
 MIME-Version: 1.0
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221028165921.94487-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <CAJF2gTQPU0FGmeVt9jrNfOAQSA=04Vcm4U_wcC_dGMc5X2Bo7w@mail.gmail.com>
- <CA+V-a8vBkHhTtq6Veb2vn-6o4S5Ter==yN6TFhYQvxko_Bk2LQ@mail.gmail.com>
- <CAJF2gTSQH0q4PoucBgr3abWWA+XCdxm1tk1j8Sqydt_XyCq2RA@mail.gmail.com>
- <Y16/YQTOW3DuQvo9@spud> <CA+V-a8vCNx-bqjeOa13LewaEJOGW-0ypqJTvZo7om6XcM4T7UA@mail.gmail.com>
-In-Reply-To: <CA+V-a8vCNx-bqjeOa13LewaEJOGW-0ypqJTvZo7om6XcM4T7UA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 31 Oct 2022 09:11:42 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRrLOxZt0qhcpC9_fx4bFc1Rj9TDyQVBXdKbwboh-ZGyQ@mail.gmail.com>
-Message-ID: <CAJF2gTRrLOxZt0qhcpC9_fx4bFc1Rj9TDyQVBXdKbwboh-ZGyQ@mail.gmail.com>
-Subject: Re: [PATCH v5 4/7] riscv: dts: renesas: Add initial devicetree for
- Renesas RZ/Five SoC
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@rivosinc.com>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <Y1v+Ed6mRN9gisJS@zn.tnic>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221030_181156_610554_6ACDE9CE 
-X-CRM114-Status: GOOD (  38.90  )
+X-CRM114-CacheID: sfid-20221031_010610_320543_2C74EECB 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,120 +110,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 31, 2022 at 6:27 AM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
->
-> Hi Conor,
->
-> On Sun, Oct 30, 2022 at 6:16 PM Conor Dooley <conor@kernel.org> wrote:
-> >
-> > On Sun, Oct 30, 2022 at 08:02:10AM +0800, Guo Ren wrote:
-> > > On Sun, Oct 30, 2022 at 3:11 AM Lad, Prabhakar
-> > > <prabhakar.csengg@gmail.com> wrote:
-> > > >
-> > > > Hi Guo,
-> > > >
-> > > > Thank you for the review.
-> > > >
-> > > > On Sat, Oct 29, 2022 at 5:25 AM Guo Ren <guoren@kernel.org> wrote:
-> > > > >
-> > > > > On Sat, Oct 29, 2022 at 12:59 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
-> > > > > >
-> > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > > >
-> > > > > > Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
-> > > > > > Single).
-> > > > > >
-> > > > > > RZ/Five SoC is almost identical to RZ/G2UL Type-1 SoC (ARM64) hence we
-> > > > > > will be reusing r9a07g043.dtsi [0] as a base DTSI for both the SoC's.
-> > > > > > r9a07g043f.dtsi includes RZ/Five SoC specific blocks.
-> > > > > >
-> > > > > > Below are the RZ/Five SoC specific blocks added in the initial DTSI which
-> > > > > > can be used to boot via initramfs on RZ/Five SMARC EVK:
-> > > > > > - AX45MP CPU
-> > > > > > - PLIC
-> > > > > >
-> > > > > > [0] arch/arm64/boot/dts/renesas/r9a07g043.dtsi
-> > > > > >
-> > > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > > > ---
-> > > > > > v4 -> v5
-> > > > > > * Fixed riscv,ndev value (should be 511)
-> > > > > > * Reworked completely (sort of new patch)
-> > > > > >
-> > > > > > v3 -> v4
-> > > > > > * No change
-> > > > > >
-> > > > > > v2 -> v3
-> > > > > > * Fixed clock entry for CPU core
-> > > > > > * Fixed timebase frequency to 12MHz
-> > > > > > * Fixed sorting of the nodes
-> > > > > > * Included RB tags
-> > > > > >
-> > > > > > v1 -> v2
-> > > > > > * Dropped including makefile change
-> > > > > > * Updated ndev count
-> > > > > > ---
-> > > > > >  arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 57 +++++++++++++++++++++
-> > > > > >  1 file changed, 57 insertions(+)
-> > > > > >  create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-> > > > > >
-> > > > > > diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-> > > > > > new file mode 100644
-> > > > > > index 000000000000..50134be548f5
-> > > > > > --- /dev/null
-> > > > > > +++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-> > > > > > @@ -0,0 +1,57 @@
-> > > > > > +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +/*
-> > > > > > + * Device Tree Source for the RZ/Five SoC
-> > > > > > + *
-> > > > > > + * Copyright (C) 2022 Renesas Electronics Corp.
-> > > > > > + */
-> > > > > > +
-> > > > > > +#include <dt-bindings/interrupt-controller/irq.h>
-> > > > > > +
-> > > > > > +#define SOC_PERIPHERAL_IRQ(nr) (nr + 32)
-> > > > > > +
-> > > > > > +#include <arm64/renesas/r9a07g043.dtsi>
-> > > > > The initial patch shouldn't be broken. Combine them together with the
-> > > > > minimal components and add others late. Don't separate the DTS files.
-> > > > >
-> > > > r9a07g043.dtsi [0] already exists in the kernel. r9a07g043.dtsi is
-> > > > shared with the RZ/G2UL SoC (ARM64) and the RZ/Five SoC. There are two
-> > > > more patches [1] which are required and are currently queued up in the
-> > > > Renesas tree for v6.2 (Ive mentioned the dependencies in the cover
-> > > > letter).
-> > >
-> > > You could just move the below part to the second dtsi patch. Then
-> > > compile won't be broken.
-> > >
-> > >             clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
-> > >             power-domains = <&cpg>;
-> > >             resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
-> >
-> > The makefile for this directory is not added until the next patch right?
-> > The compile shouldn't be broken here since it therefore cannot be
-> > compiled?
-> >
-> These nodes are already present in the kernel [0]  so the makefile
-> change in the next patch if made here still won't break the
-> compilation alone of SoC DTSI (included in dts).
-Oh... Sorry, I screwed up. The
-arch/arm64/boot/dts/renesas/r9a07g043.dtsi is not belonged to the
-patch series.
+On Fri, Oct 28, 2022 at 06:06:41PM +0200, Borislav Petkov wrote:
+> On Fri, Oct 28, 2022 at 10:13:28AM -0500, Yury Norov wrote:
+> > Because it's related to bitmap API usage and has been revealed after
+> > some work in bitmaps.
+> 
+> So first of all, that "fix" needs to explain what exactly it is fixing.
+> Not "it fixes this and that warning" but why the input arg to
+> cpumask_next() cannot be nr_cpu_ids because... yadda yadda...
 
->
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/renesas/r9a07g043.dtsi?h=next-20221028#n563
->
-> Cheers,
-> Prabhakar
+Hi Boris,
 
+I didn't realize you were still looking for improvements to the commit
+message for this patch. I could add something like,
 
+ The valid cpumask range is [0, nr_cpu_ids) and cpumask_next() always
+ returns a CPU ID greater than its input, which results in its input
+ range being [-1, nr_cpu_ids - 1). Ensure showing CPU info avoids
+ triggering error conditions in cpumask_next() by stopping its loop
+ over CPUs when its input would be invalid.
 
--- 
-Best Regards
- Guo Ren
+Thanks,
+drew
+
+> 
+> > And because nobody else cares.
+> 
+> Why do you assume that?
+> 
+> > If you're willing to move it yourself please go ahead.
+> 
+> If it fixes a real issue, we are taking it. And pls note that x86
+> patches go through the tip tree.
+> 
+> Thx.
+> 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
