@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FE5FA3741
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 19:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF982FA3741
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 19:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rqm/OX3vv0zRanie5FtpTr4A/wb+1fVbkOPjeQDSTH4=; b=jNhPAiedhWbI5o
-	+BM4d7s47Nb58ZTiGfJB0SJuBC2UHvYOZilbbDMiQYerhhfdidxf/hISFDjFeW8BHq2UXyLGAb5mB
-	s3h6m4do5gX5U1NLxCoGjtXo8GqS3jZMmigwW0lO7PumD3PzsfQb2DrsCjoERmORWT4FZ4t5/1EiP
-	+qWfun7SQi3SmxFYCddUvxbb9IQoZtYNcPSVkHTzgMrMoJucKQBscyp5TTuCh6ZDKsNj0ekY/2Kpi
-	nTJSip+LnBt+EyOFqJFZqeCag7gEeZ18V7QTYJenjGuCA4fdxNmHno074E/qmiVDCn0N1ILQyNPTV
-	HngrkIPZaqdrVOk/9D5A==;
+	List-Owner; bh=dfc7W/agJIYhzKrgCTt60GGMnY25oNjqEV3A2IpozlM=; b=CpNq6IPe0iht03
+	qlt02EtMggtedPJWhF2W3scaZwtv0w+njpIpa1j7a2EWjZO23W4B+DIJLYhpoYmAyt3e2eod69Isl
+	97jzTnI88A7eaQzRYNl8hFq1O2wKw4WuNlFTkeoBhiHOaw+RyhhB0ZwcauqP43lZ0MvQ7Yg21k+Ed
+	O3nLZhD14wu7I2wXcak3BQFVp6Z5XIVEXPlSNLbaYkZd3cmwLbuDgARHLnWLb6sHxzzhYgb0vY+5w
+	aWpceM49BbIN32F1KR38D6N4l60bhNZnilba2L0XatH+sGBE6o9pGpPm9d7tJxf4msSqDSRFec+vB
+	CUttKwkkCIgKJTFdTMBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opaEj-00E92B-57; Mon, 31 Oct 2022 19:14:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1opaLg-00ECMG-PH; Mon, 31 Oct 2022 19:21:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opaEf-00E91S-NK
-	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 19:14:15 +0000
+	id 1opaLd-00ECLF-Fa
+	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 19:21:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DAFF761425;
-	Mon, 31 Oct 2022 19:14:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1AB9C433C1;
-	Mon, 31 Oct 2022 19:14:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EB42A61227;
+	Mon, 31 Oct 2022 19:21:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07C57C433C1;
+	Mon, 31 Oct 2022 19:21:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667243651;
-	bh=80lqoPPKDQ+glCPrCeg2E0gbOPazZmUenJWu7c2v11s=;
+	s=k20201202; t=1667244084;
+	bh=o0Q9MbdmmncKUEHxnHZRV+zqBROs61ocnfVwIcKSVsE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XixhbcpmCWhV7gKONpioTcsPjwo2dubUfERuxu+IC1URA6AThPGAW1QT8pM76DbZc
-	 TuL61Mc0yVscRfNbtfO7fxI2Aeel+eKLGOvfmRdbYLHIGrGTsoeXghxXtjbOvNFzwC
-	 u+bMsgr6u06r/u3PMYjW6EHQVf+L+e+vKAE1wkqeIsGMjL0097ckG9WYjbZslkJieL
-	 l33yQRsao15+j07391m/ub1t8lg3ZkhsAr8cyy/XYlmfFewsWa3btuFAAmuSZ0dEZJ
-	 PWjuZiPd7Kf3jFMP3ArpS0tEdzqiH1qeD/K0zn7t9PONKFzB4oqXhYVD+OkAlzW5/a
-	 TCEYD90sRgRWA==
-Date: Mon, 31 Oct 2022 19:14:06 +0000
+	b=LBmrcq+XXz4JAY9e02wNJrk6F4jYOd/jAfp8S8+JsCpTSD8oSyZ4sZB4yHG776g9w
+	 Ft73y3/tY1aeDTL9F3Ebfyaog0NIJ5WtEzdcNxz1kumyE4AJM9jDwNNyaCXHGWnZ3f
+	 /Tzpdtk28wx+9rUYA7BgEYX4IIaYqcqdd8oA/S3An3mpinQMZTOTjXjZUhoIX4Yih3
+	 /4Z1jp2adXePblNQPvfPUJmbNa+VgvSFAdjDU2DTW6O5qHJBEf3bqp5+pR8ifNDD1D
+	 0s5jH9Wntw/GxnJ4XwjWu4LGk7fFcbJ1VrDEySYvlN1pR36oCI2QWyK0GKaoErv1Cn
+	 AshK4OjoStjXw==
+Date: Mon, 31 Oct 2022 19:21:20 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: process: fix kernel info leakage
-Message-ID: <Y2AefvfMgZDoQUto@spud>
-References: <20221029113450.4027-1-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: vdso: fix build with llvm
+Message-ID: <Y2AgMLzH/RF1gQkB@spud>
+References: <20221031182943.2453-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221029113450.4027-1-jszhang@kernel.org>
+In-Reply-To: <20221031182943.2453-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221031_121413_839214_1E19C38A 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20221031_122125_580230_9315F12A 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +74,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 29, 2022 at 07:34:50PM +0800, Jisheng Zhang wrote:
-> thread_struct's s[12] may contain random kernel memory content, which
-> may be finally leaked to userspace. This is a security hole. Fix it
-> by clearing the s[12] array in thread_struct when fork.
+On Tue, Nov 01, 2022 at 02:29:43AM +0800, Jisheng Zhang wrote:
+> Even after commit 89fd4a1df829 ("riscv: jump_label: mark arguments as
+> const to satisfy asm constraints"), building with CC_OPTIMIZE_FOR_SIZE
+> + LLVM=1 can reproduce below build error:
 > 
-> As for kthread case, it's better to clear the s[12] array as well.
+>   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> In file included from <built-in>:4:
+> In file included from lib/vdso/gettimeofday.c:5:
+> In file included from include/vdso/datapage.h:17:
+> In file included from
+> include/vdso/processor.h:10:
+> In file included from
+> arch/riscv/include/asm/vdso/processor.h:7:
+> In file included from
+> include/linux/jump_label.h:112:
+> arch/riscv/include/asm/jump_label.h:42:3: error:
+> invalid operand fo
+> r inline asm constraint 'i'
+>                 "       .option push                            \n\t"
+>                 ^
+> 1 error generated.
+
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
+
 > 
-> Fixes: 7db91e57a0ac ("RISC-V: Task implementation")
+> I think the problem is when "-Os" is passed as CFLAGS, it's removed by
+> "CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os" which is
+> introduced in commit e05d57dcb8c7 ("riscv: Fixup __vdso_gettimeofday
+> broke dynamic ftrace"), thus no optimization at all for vgettimeofday.c
+> arm64 does remove "-Os" as well, but it forces "-O2" after removing
+> "-Os".
+> 
+> I compared the generated vgettimeofday.o with "-O2" and "-Os",
+> I think no big performance difference. So let's tell the kbuild not
+> to remove "-Os" rather than follow arm64 style.
+> 
+> vdso related performance can be improved a lot when building kernel with
+> CC_OPTIMIZE_FOR_SIZE after this commit, ("-Os" VS no optimization)
+> 
+> Fixes: e05d57dcb8c7 ("riscv: Fixup __vdso_gettimeofday broke dynamic ftrace")
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
+>  arch/riscv/kernel/vdso/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Previously, it's one of the series of "riscv: entry: further clean up
-> and VMAP_STACK fix". This is a fix, so I move it out of the series and
-> send it separately
-
-Should this not be carrying a R-b from Guo Ren from that series?
-https://lore.kernel.org/linux-riscv/CAJF2gTSdVyAaM12T+7kXAdRPGS4VyuO08X1c7paE-n4Fr8OtRA@mail.gmail.com/
-> 
->  arch/riscv/kernel/process.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index ceb9ebab6558..52002d54b163 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -164,6 +164,8 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->  	unsigned long tls = args->tls;
->  	struct pt_regs *childregs = task_pt_regs(p);
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index f2e065671e4d..84ac0fe612e7 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -30,7 +30,7 @@ obj-y += vdso.o
+>  CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
 >  
-> +	memset(&p->thread.s, 0, sizeof(p->thread.s));
-> +
->  	/* p->thread holds context to be restored by __switch_to() */
->  	if (unlikely(args->fn)) {
->  		/* Kernel thread */
+>  # Disable -pg to prevent insert call site
+> -CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
+> +CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
+>  
+>  # Disable profiling and instrumentation for VDSO code
+>  GCOV_PROFILE := n
 > -- 
 > 2.37.2
 > 
