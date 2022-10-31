@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF822FA3743
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 15:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AB8ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 15:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2ibOVJU5G3+RopxjnN1fIXa7ROZX8jmZFVHkWssJNYc=; b=EZ36kha7PcZlkg
-	AfPGFuyOAeiky+/vPFJyfCvnL3yCnJJJSWP6Dx3GwYnZay2cRCED6GUJDQ6yLS6iYyIEXQIKMHTfI
-	OU1Ko8DCwcc3jHq66IODytBZ/udA8fLMwm+LL/7rqqgLqtJdw+uxxDvN6IYFKYbZdVZCTQFpjZv+B
-	QiCpzNoOKySakK6tcQ40tLBuu0F+6RoVw59da4UREHSRQFJxBhTx+RPKM4V0sebAZ/8SUPHP8e9ib
-	xDD1/3BqwDdsLL+QnZrCNM4txqycgVZZq6k0bydD4ib0Kg7n0TQCkg0JryAh7Qg7+awYC1+MRTgaE
-	wTBh1jphILrlbVLARb8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+GiW7tNWGV8ME0K/6U9XTCea7aYQiHnEUFA04ou8wGI=; b=NJLMlUhfelqaQi
+	kNzwIsgBHZX0dbUkKddRorfaDrBXEzP5lNxgJEw/JWa0OTnf59a+vgarMbSNigqa/pAFYBMjySQdH
+	t/DyFcjKVGPUCwgfhV3ibQ3c7QveABHJx4E8JGzvXMi/yPqX2vPa7eUQcPwSb8n8Y2TpkiMvKs+8v
+	tlGVnRYCjkwJH/ZPW5Ht/RdKL24OOZnqDX4nOjuakjgN/vq+nysgRnJZ8Dktasr7WP5+Msgn80/Bs
+	yOvRQ/VM8AOmbDiYaUwH/pKnqP9RchPyh4FqgpdPFMH4cvJLifrGMUh73WdXRRAuRTM2i97JOLZQm
+	hrkCo06YEa/0U6quZ+CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opWtk-00CfoW-CN; Mon, 31 Oct 2022 15:40:24 +0000
+	id 1opWu5-00Cfyv-Mf; Mon, 31 Oct 2022 15:40:45 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opWtP-00Cfeg-IU; Mon, 31 Oct 2022 15:40:05 +0000
+	id 1opWtQ-00Cff6-NG; Mon, 31 Oct 2022 15:40:06 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 80FDBB818D6;
+	by ams.source.kernel.org (Postfix) with ESMTPS id 63E96B818EC;
+	Mon, 31 Oct 2022 15:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0BEC433C1;
 	Mon, 31 Oct 2022 15:40:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9E88C433D6;
-	Mon, 31 Oct 2022 15:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667230800;
-	bh=TRH6TIzTeBtUUYfj015oHC/R+NopKv1SaiciTdGHOko=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gBpe/EbWifFcqhZ5BfRCBjri8ndaXtmIESwYRZe0ZJ/9QH9yy43OtvvIPJ84QuRsJ
-	 qVblgIXNCeupWoDgfDRLD4sck8pombdDoeizoKGqhqlscyYPs1rJkUfCQG4MdNPZIQ
-	 yAf5JPUuETdzsUBeVKU79ABam7BGmVbLXj20/7GmPUPjZ/M2IfEUXZFATexoA4Smaq
-	 CQ6K94+0hZWszeCNqHZU7WW8Qj4zVQNZz5DTKAD5rA4KIiJuVJyWaBIznzyfE86ljD
-	 FuiFCdMTQRTBI7IxLbavbOxp3k0//rn3wkSegSXlN51xFdxjfPPHNjAIQ6Aj0KX1EF
-	 k/xrwa/o+K15A==
+	s=k20201202; t=1667230802;
+	bh=w401ZqDLSQ8ZKux9B2AAv7FrlhU6ZkoTx88TnOOAwyI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RtGAXtHNEmUI43QINAf/8bggmgt+lk2tn1SsHUkQCBFC+kZhhYjO1Mi/RbC4KG8AV
+	 +5qQjvfsJ9S/l6cQV9IkifW+lL8Z7boAMRmHArljQE62/kYaoF5LZIskX6342JcPCk
+	 pQuvJf7CG5T/e03DNuLgyngik9ijeO4JsY+IiuCGRDMH3Z+uhRuT0YvshZ8UTjD5YG
+	 nqOVl5st593g5shoVfxRsH72Y67K2r2bq46MxAWg5qG168GWCkvOAoVokF6uILY0bG
+	 MWj7+TvKxH6JZPhO60qE7ZdeLMm6vbjM+sg8CU7Qs5eEhqdp1Kq99G98/6ega3Kp8E
+	 8igJhZfDXDzGQ==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -74,15 +74,16 @@ Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
 	linux-riscv@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH v3 0/5] PCI: Remove unnecessary <linux/of_irq.h> includes
-Date: Mon, 31 Oct 2022 10:39:49 -0500
-Message-Id: <20221031153954.1163623-1-helgaas@kernel.org>
+Subject: [PATCH v3 1/5] PCI: altera-msi: Include <linux/irqdomain.h> explicitly
+Date: Mon, 31 Oct 2022 10:39:50 -0500
+Message-Id: <20221031153954.1163623-2-helgaas@kernel.org>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20221031153954.1163623-1-helgaas@kernel.org>
+References: <20221031153954.1163623-1-helgaas@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221031_084003_970765_775ECBAC 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221031_084004_921369_3D3D0C4D 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,53 +102,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Bjorn Helgaas <bhelgaas@google.com>
 
-Many host controller drivers #include <linux/of_irq.h> even though they
-don't need it.  Remove the unnecessary #includes.
+pcie-altera-msi.c uses irq_domain_add_linear() and related interfaces, so
+it needs <linux/irqdomain.h> but doesn't include it directly; it relies on
+the fact that <linux/of_irq.h> includes it.
 
-v2: https://lore.kernel.org/r/20221025185147.665365-1-helgaas@kernel.org/
-v1: https://lore.kernel.org/r/20221019195452.37606-1-helgaas@kernel.org/
+But pcie-altera-msi.c *doesn't* need <linux/of_irq.h> itself.  Include
+<linux/irqdomain.h> directly to remove this implicit dependency so a future
+patch can drop <linux/of_irq.h>.
 
-Changes from v2 to v3:
-  - Include <linux/irqdomain.h> explicitly in xgene-msi, which doesn't need
-    <linux/of_irq.h> itself, but relied on it to include
-    <linux/irqdomain.h>.  On x86, this was covered up by the fact that
-    <linux/msi.h> includes <asm/msi.h>, which includes <asm/irqdomain.h>,
-    which includes <linux/irqdomain.h>.  But on parisc, <asm/msi.h> is
-    actually asm-generic/msi.h, which does *not* include
-    <linux/irqdomain.h>
-  - Pick up tags from Conor Dooley and Thomas Petazzoni
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+---
+ drivers/pci/controller/pcie-altera-msi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes from v1 to v2:
-  - Include <linux/irqdomain.h> explicitly in altera-msi and microchip,
-    which don't need <linux/of_irq.h> itself, but relied on it to include
-    <linux/irqdomain.h>
-  - Include <linux/irqdomain.h> explicitly in mvebu, which needs both it
-    and <linux/of_irq.h>
-
-Bjorn Helgaas (5):
-  PCI: altera-msi: Include <linux/irqdomain.h> explicitly
-  PCI: microchip: Include <linux/irqdomain.h> explicitly
-  PCI: mvebu: Include <linux/irqdomain.h> explicitly
-  PCI: xgene-msi: Include <linux/irqdomain.h> explicitly
-  PCI: Remove unnecessary <linux/of_irq.h> includes
-
- drivers/pci/controller/cadence/pci-j721e.c   | 1 -
- drivers/pci/controller/dwc/pci-layerscape.c  | 1 -
- drivers/pci/controller/dwc/pcie-armada8k.c   | 1 -
- drivers/pci/controller/dwc/pcie-tegra194.c   | 1 -
- drivers/pci/controller/pci-mvebu.c           | 1 +
- drivers/pci/controller/pci-v3-semi.c         | 1 -
- drivers/pci/controller/pci-xgene-msi.c       | 2 +-
- drivers/pci/controller/pci-xgene.c           | 1 -
- drivers/pci/controller/pcie-altera-msi.c     | 2 +-
- drivers/pci/controller/pcie-iproc-platform.c | 1 -
- drivers/pci/controller/pcie-iproc.c          | 1 -
- drivers/pci/controller/pcie-microchip-host.c | 2 +-
- drivers/pci/controller/pcie-rockchip-host.c  | 1 -
- drivers/pci/controller/pcie-xilinx-cpm.c     | 1 -
- drivers/pci/controller/pcie-xilinx-nwl.c     | 1 -
- 15 files changed, 4 insertions(+), 14 deletions(-)
-
+diff --git a/drivers/pci/controller/pcie-altera-msi.c b/drivers/pci/controller/pcie-altera-msi.c
+index 7b1d3ebc34ec..4366e042e98b 100644
+--- a/drivers/pci/controller/pcie-altera-msi.c
++++ b/drivers/pci/controller/pcie-altera-msi.c
+@@ -9,6 +9,7 @@
+ 
+ #include <linux/interrupt.h>
+ #include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
+ #include <linux/init.h>
+ #include <linux/module.h>
+ #include <linux/msi.h>
 -- 
 2.25.1
 
