@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD03CECAAA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 18:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD88ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Oct 2022 18:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KFsgRlSzeiOduH5pv/j9vxf18HBwMexzGr/Rk98dsH8=; b=35L8pQbNHWfCsw
-	3fOKyaBi97+hUDlOR5c+2ZLP4PqrnCPvU0pudu/h8kGSTyoDj+2+TWbiCo+yvVXMJSlhrIIQU2stb
-	N58zs51s+mZY58CRtojh1ci8qEGEB/pNt/xQFu3BtwgOu73jGOLQihsFCvIF7ACAdnfLuvaYAkJBp
-	CTa/5CwfnQWj6UCWdzc1mheVqUlV8ZGufkXexAPLLpBO7EBlQ6MiCHBtFO3ozqKg7sRiuDX7TfGP2
-	thifL6Ub8wUhB7jq2ca5l2nTWCXMbXbhfaRh75UA05raQlW5DNyU8EWzVRKD7WrpuMkLdWJUtp+eJ
-	fHPmDlF8g3c+PwHIHBlQ==;
+	List-Owner; bh=r6O6zSY16jJoGyikqynL1aHmhB9csT+3WFm7hR5RmT8=; b=CQTW6Mw3v6eMph
+	pdhktPN0UN6NF8TBAgL1eZ2qk4jhQhEpjlc1MhV3QMysZ3Dc28i3qpDNgxWNhix5pe8Rj2HRy2wLj
+	s4ysy930XF8QD3t/2v0GIlyXRxArZQCGrclT1uUti502J7POYYUtyXd0tfwMlenhbuI0r6GrPB3Fb
+	h6QcceZv98d++CpX8bwzQ0urdQl2RKcZ56nvGjbyyoHC2kMYXBW0H87XqAR5T0MFmeKDMU4MzPWPs
+	YJmdLfQgOeOcwBCi3XzU+ARElM46+UAqnNFnk45CVC/nHW4GS5jViWX6vNwODICk1dJAd6oS5zoiO
+	e/l/ncFAkM/C1MVpQN/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opZ80-00DaWS-HD; Mon, 31 Oct 2022 18:03:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1opZD4-00DcnG-CL; Mon, 31 Oct 2022 18:08:30 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opZ7x-00DaVE-B6
-	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 18:03:14 +0000
+	id 1opZD0-00Dclg-QX
+	for linux-riscv@lists.infradead.org; Mon, 31 Oct 2022 18:08:28 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 519C9612B9;
-	Mon, 31 Oct 2022 18:03:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8D7C433D6;
-	Mon, 31 Oct 2022 18:03:10 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 44916B819D9;
+	Mon, 31 Oct 2022 18:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 512F0C433D6;
+	Mon, 31 Oct 2022 18:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667239392;
-	bh=6hLhv+fhob8SuiCdW0Sjii1D67SU+WLSGSUTJSSJMmQ=;
+	s=k20201202; t=1667239703;
+	bh=61NkTIRtTQDjIwj34HexqV/1v6+kaRU2hwR4uoY6668=;
 	h=From:To:Cc:Subject:Date:From;
-	b=gHXlioRqoYUBBQqA7T0h2aYS98UB6xYj7IvAk+yDmLFQF7FXS8MRG/AQYw8c2PT9o
-	 LgYCBXrBJNximFnSiOhvkYFq9Bhm13T84nAMK1E83Rco0SgaPTyFEkhQJQPuR2Dnct
-	 qJHWpji2JezektP3mBJv8grR7Dy7Cd13c6NaAo1EZ8suBrOe5+Qqq13ByIHEJTEzBb
-	 hwKMtqvp5dONsMq6xmgxRFi74nwdS3MVitCYmUEbAG/7vYWOFIDkRbsmoMuTX7RYjw
-	 gIwjuSVI5pOSln/DZtFYdt4R3kBAJXKEkKMh7YrXEcVz5DX5rUm8fLa44bc+5BX50g
-	 P1oes82KhzntA==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+	b=fd+EMPKlIf4RbN8/XgdKYejclCTsYhbFwapr17e367PPTRZu7Zl0/vYawiVi/ZiqI
+	 k11GcD3hURPp7Nf2llY3Chx1Vfu/fUsbTA2zM2v1Q3f7ejZBx4RNWQXiYvN0AqH44Q
+	 cu2/Q1vOQdh7ABsRGp4w4MX5xvLPV7V905wxqN48ampidHhRv7HP4a2sKeQ3CgyLwU
+	 cUPnqgQldXl8hyE6m9kLy/8m7ynMFDS9B8E6LS//sHrMWe/M+EnrV7ttMQ4W/R1kD1
+	 LB0ePi+geOgbcUq6jNTQ3FDggCeXkXLpQ//4cyBFVGogjOfWBp7YDPwZlruarao2kt
+	 4KjjU1d8S3nqA==
+From: Jisheng Zhang <jszhang@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH] Documentation: riscv: Document the sv57 VM layout
-Date: Mon, 31 Oct 2022 19:02:30 +0100
-Message-Id: <20221031180230.1420544-1-bjorn@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] riscv: vdso: fix section overlapping under some conditions
+Date: Tue,  1 Nov 2022 01:58:42 +0800
+Message-Id: <20221031175842.1699-1-jszhang@kernel.org>
 X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221031_110313_501104_4669F63C 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20221031_110827_024640_210DBB84 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +69,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIGhhcyBiZWVu
-IHN1cHBvcnRpbmcgdGhlICJzdjU3IiBhZGRyZXNzIHRyYW5zbGF0aW9uIG1vZGUgZm9yIGEKd2hp
-bGUsIGJ1dCBpcyBoYXMgbm90IGJlZW4gYWRkZWQgdG8gdGhlIFZNIGxheW91dCBkb2N1bWVudGF0
-aW9uLiBMZXQKdXMgZml4IHRoYXQuCgpTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
-bkByaXZvc2luYy5jb20+Ci0tLQogRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IHwg
-MzYgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDM2IGlu
-c2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5y
-c3QgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKaW5kZXggNWIzNmU0NWZlZjYw
-Li4zNWY3Njc5OGI2ZTQgMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0
-LnJzdAorKysgYi9Eb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91dC5yc3QKQEAgLTk3LDMgKzk3
-LDM5IEBAIFJJU0MtViBMaW51eCBLZXJuZWwgU1Y0OAogICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAg
-LTQgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVsZXMsIEJQRgogICAg
-ZmZmZmZmZmY4MDAwMDAwMCB8ICAgLTIgICAgR0IgfCBmZmZmZmZmZmZmZmZmZmZmIHwgICAgMiBH
-QiB8IGtlcm5lbAogICBfX19fX19fX19fX19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19f
-X19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCisKKworUklTQy1WIExpbnV4IEtlcm5lbCBTVjU3CistLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0KKworOjoKKworID09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAgU3RhcnQgYWRkciAg
-ICB8ICAgT2Zmc2V0ICAgfCAgICAgRW5kIGFkZHIgICAgIHwgIFNpemUgICB8IFZNIGFyZWEgZGVz
-Y3JpcHRpb24KKyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT0KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAg
-ICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgMDAwMDAwMDAwMDAwMDAwMCB8ICAgIDAgICAg
-ICAgfCAwMGZmZmZmZmZmZmZmZmZmIHwgICA2NCBQQiB8IHVzZXItc3BhY2UgdmlydHVhbCBtZW1v
-cnksIGRpZmZlcmVudCBwZXIgbW0KKyAgX19fX19fX19fX19fX19fX19ffF9fX19fX19fX19fX3xf
-X19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAgICAgIHwgICAg
-ICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIDAxMDAwMDAwMDAwMDAw
-MDAgfCArNjQgICAgIFBCIHwgZmVmZmZmZmZmZmZmZmZmZiB8IH4xNksgUEIgfCAuLi4gaHVnZSwg
-YWxtb3N0IDY0IGJpdHMgd2lkZSBob2xlIG9mIG5vbi1jYW5vbmljYWwKKyAgICAgICAgICAgICAg
-ICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfCB2aXJ0dWFs
-IG1lbW9yeSBhZGRyZXNzZXMgdXAgdG8gdGhlIC02NCBQQgorICAgICAgICAgICAgICAgICAgICB8
-ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8IHN0YXJ0aW5nIG9mZnNl
-dCBvZiBrZXJuZWwgbWFwcGluZ3MuCisgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198
-X19fX19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CisgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgS2VybmVsLXNw
-YWNlIHZpcnR1YWwgbWVtb3J5LCBzaGFyZWQgYmV0d2VlbiBhbGwgcHJvY2Vzc2VzOgorICBfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX198
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8
-ICAgICAgICAgfAorICAgZmYxYmZmZmZmZWUwMDAwMCB8ICAtNTcgICAgUEIgfCBmZjFiZmZmZmZl
-ZmZmZmZmIHwgICAgMiBNQiB8IGZpeG1hcAorICAgZmYxYmZmZmZmZjAwMDAwMCB8ICAtNTcgICAg
-UEIgfCBmZjFiZmZmZmZmZmZmZmZmIHwgICAxNiBNQiB8IFBDSSBpbworICAgZmYxYzAwMDAwMDAw
-MDAwMCB8ICAtNTcgICAgUEIgfCBmZjFmZmZmZmZmZmZmZmZmIHwgICAgMSBQQiB8IHZtZW1tYXAK
-KyAgIGZmMjAwMDAwMDAwMDAwMDAgfCAgLTU2ICAgIFBCIHwgZmY1ZmZmZmZmZmZmZmZmZiB8ICAg
-MTYgUEIgfCB2bWFsbG9jL2lvcmVtYXAgc3BhY2UKKyAgIGZmNjAwMDAwMDAwMDAwMDAgfCAgLTQw
-ICAgIFBCIHwgZmZkZmZmZmVmZmZmZmZmZiB8ICAgMzIgUEIgfCBkaXJlY3QgbWFwcGluZyBvZiBh
-bGwgcGh5c2ljYWwgbWVtb3J5CisgICBmZmRmZmZmZjAwMDAwMDAwIHwgIC0gOCAgICBQQiB8IGZm
-ZmZmZmZlZmZmZmZmZmYgfCAgICA4IFBCIHwga2FzYW4KKyAgX19fX19fX19fX19fX19fX19ffF9f
-X19fX19fX19fX3xfX19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXworICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CisgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHwgSWRlbnRpY2FsIGxheW91dCB0byB0aGUgMzktYml0IG9uZSBmcm9tIGhlcmUgb246CisgIF9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KKyAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAg
-ICB8ICAgICAgICAgfAorICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAgLTQgICAgR0IgfCBmZmZmZmZm
-ZjdmZmZmZmZmIHwgICAgMiBHQiB8IG1vZHVsZXMsIEJQRgorICAgZmZmZmZmZmY4MDAwMDAwMCB8
-ICAgLTIgICAgR0IgfCBmZmZmZmZmZmZmZmZmZmZmIHwgICAgMiBHQiB8IGtlcm5lbAorICBfX19f
-X19fX19fX19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCi0tIAoyLjM3LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+lkp reported a build error, I tried the config and can reproduce
+build error as below:
+
+  VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
+ld.lld: error: section .note file range overlaps with .text
+>>> .note range is [0x7C8, 0x803]
+>>> .text range is [0x800, 0x1993]
+
+ld.lld: error: section .text file range overlaps with .dynamic
+>>> .text range is [0x800, 0x1993]
+>>> .dynamic range is [0x808, 0x937]
+
+ld.lld: error: section .note virtual address range overlaps with .text
+>>> .note range is [0x7C8, 0x803]
+>>> .text range is [0x800, 0x1993]
+
+Fix it by removing the hardcoding 0x800 and related comments.
+
+Link: https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/#r
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+ arch/riscv/kernel/vdso/vdso.lds.S | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+index 01d94aae5bf5..344209d2e128 100644
+--- a/arch/riscv/kernel/vdso/vdso.lds.S
++++ b/arch/riscv/kernel/vdso/vdso.lds.S
+@@ -31,13 +31,7 @@ SECTIONS
+ 
+ 	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+ 
+-	/*
+-	 * This linker script is used both with -r and with -shared.
+-	 * For the layouts to match, we need to skip more than enough
+-	 * space for the dynamic symbol table, etc. If this amount is
+-	 * insufficient, ld -shared will error; simply increase it here.
+-	 */
+-	. = 0x800;
++	. = ALIGN(16);
+ 	.text		: { *(.text .text.*) }		:text
+ 
+ 	.data		: {
+-- 
+2.37.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
