@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A8FC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 12:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60709C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 12:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yJwEFkuGSPkplERgzPKQb59grAUlcCbY9nStrFADDKk=; b=2z74UFv59s5SZg
-	Lb3Br7ydO1QQufPQuGy56UvayZQpDenoHGOorksvsSr0jmtq+VweS+UZ4APbxqhxThg/SxmWquVRw
-	vq/SLe6LSpipHej4DnppvohCgg1VJ136vsEV3G3c/e+36egYPiSSg6jzqu9Z306yN9x9KKpw56PMe
-	SGgV0q7EKzt/ELVvnATYsshpGaaMdu36pct1ipu6cMfwqm7EjZh9HRge8sLQ3HLabxNwo46f/HXaB
-	Eong8Al9qSgnc5elnYCCtiFoSOMKewEtNUkR2Yge+G5q8kiokWFZgQWhkHSberIbW51ZAGZN1iDNp
-	jO3NRWO11MR7JMvluJcQ==;
+	List-Owner; bh=Z55jysCLx5do6G3zrzM037KHHXbSk6OnPcas08GCTxs=; b=VaIcePKGaydVr3
+	vxYwKmZi38w5+ZbDTpPiA2KDPgU9La6nvnNf5AtMSl9NAMOiysK2y/EhJ6mXtqvAqYrIna18qdF65
+	gKwO1Jxtc7gwziHMTfEK/DiS3iBaoYzv71KI370H1C5aBuDYVFhxDRtCyIbbr4g4MUXmEl5R8D9vt
+	d6KSrTbGY6F9cWVV4eEjyAbRJPr8ANIUp57fBEhojx11Vo7lyTABfC8Vfmm+b7s36+67q+bWCg8qc
+	aROpqk7YkU406R9cb/IoW863p8q8ax60Q68dUWsO60Mn7uFkj6ymI0VZA5/ioTmecvUOa8LnmMIQL
+	ZiD9B9AupWGfuauQ/dIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opqPH-0052NG-W4; Tue, 01 Nov 2022 12:30:16 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1opqbc-0055s6-63; Tue, 01 Nov 2022 12:43:00 +0000
+Received: from mail-qv1-f52.google.com ([209.85.219.52])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opqPF-0052Ld-Od
-	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 12:30:15 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id 13so36639804ejn.3
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 05:30:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MMdJJP7qwJgB+YOZJZoHob5+MxmSHtL0fZ6b/8D51/A=;
-        b=HRxnWtZ78Fle+GMZ/BglbxUAgUR/pOZoMyuTHxjejOFyG7ByqwcarnPhV0NQaqXYSl
-         khrNMjh7fNsKZEwPrAjlzO8uNrMDO6NCJBJs9v/AgjRyb2rqst7VjvZtYzs57oN1upEl
-         bH9HpfFj14uxOXfaah/iYuqn0p9h7C7/IfCCxWckV4oDaDXO/1URXqis5D+lWNn7+4TO
-         pGHNOp7nJ48TWywRMqGUIb/UiMz60UzdR8+BkI+tDbtu8TmhJGK2AT/RK6lANdPYWU6V
-         c5s8RtO/mLCsaW2Z0HcA7lDVYefF8rv6kvzBbCPq9JJdoyW1R2PMgIW1GDeoNxFehqo7
-         GSKw==
+	id 1opqbY-0055li-Pl
+	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 12:42:58 +0000
+Received: by mail-qv1-f52.google.com with SMTP id t16so10148674qvm.9
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 05:42:55 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MMdJJP7qwJgB+YOZJZoHob5+MxmSHtL0fZ6b/8D51/A=;
-        b=Pco41tbJTaPVh8mMKaDUMb4KRx84SADutKwTzU20rpfazz0XLrboAf5eZJDKQcytat
-         w2PPVRnblgiFYbUAawX/KpVfmgx6NbCDkjt8kh2duGPP92lg6K8xOwJusWiuliL8ckOA
-         gWkuz/FScYZ76fZ1giddwBbbT/3KayvpFe9mzpJBcd4y3ICY8JNxS+jNNPhHx+e/FzrE
-         kDHVcVbyzbwGLMG9CdT4aUyfrbdspbkicjte89DTucpQMFc6TZWEjVRn2v8xFbB9rrMI
-         Hsxspodt2Y7DPaSMcTqm+YOvjfYRG0bMOvuadJOjhYushO3lwn+Jb6nYwj8kCAjwrojI
-         p57g==
-X-Gm-Message-State: ACrzQf199pkCewjSMSf0yLxcssaMgj3sDNBeKXOCKeuNy/1ETejRHBAn
-	/g58S1iXNMdW9WmP+4JFJc5UjQ==
-X-Google-Smtp-Source: AMsMyM43Au0M4n/HFiW/cXmrltu4nx6ymG910hAE86Cu/h8Mh2B6UpOdnv1cioo6CGtmr8+mmacM1Q==
-X-Received: by 2002:a17:907:9d03:b0:7ad:e310:ea8 with SMTP id kt3-20020a1709079d0300b007ade3100ea8mr6546291ejc.400.1667305810129;
-        Tue, 01 Nov 2022 05:30:10 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id bm6-20020a0564020b0600b00461a6997c5dsm4456757edb.83.2022.11.01.05.30.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Nov 2022 05:30:09 -0700 (PDT)
-Date: Tue, 1 Nov 2022 13:30:08 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC  1/9] RISC-V: Define a helper function to probe number of
- hardware counters
-Message-ID: <20221101123008.e3bwen6f2yxi3whi@kamzik>
-References: <20220718170205.2972215-1-atishp@rivosinc.com>
- <20220718170205.2972215-2-atishp@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0fFJpKnrZNPTgCViuBGtje3WfufZWacdfGu7IT0h8cY=;
+        b=CfsMg9NpYfGmcFLaWVbJ+IrV3+ekQd6PaKs9XAMaGoMRjIb7R6cjKjeyGz1X76LOgg
+         rJJ8AOuOwHM2ZNFhyGuYDwqjNdJkO7wHLgaLlYlPeqerTMolg+tkPQrU/19hbT51AHRf
+         bZovXN0ZHuKpkK6bbMERDOOgpW7hcX1J/BjSiMlhD+Dvb/4C5BNwNBxSqkwFBzBYsvM8
+         3NXhSaljsOE2oVYbAbBJBJPBsRk1cbWBJRvrMPd+ctTyXqc/2dHJ9q+rMHO4N2ZLOVXb
+         1WQUV7TiekF04fvllVlR71YvtXQGaeHXJ956zg7Bi57Sq4O0MgYVC8x05P9ypaU+dMXt
+         3bMw==
+X-Gm-Message-State: ACrzQf2oo72qekoUMQv4NzG3EYBMzGKBc3pM9FWqXCpExLk7Mc1wg9vt
+	FfMI5cB3A04kNaiJbsemYFmggnR5Qz0SqA==
+X-Google-Smtp-Source: AMsMyM6JNc+agFBCGCDfRWAwXT2CsUsp6Xhri3ZZ2dXBOwjsKkZhcL9wzMCZGe+kL8HXwJywdEvzoA==
+X-Received: by 2002:ad4:5766:0:b0:4bb:f0a3:aec7 with SMTP id r6-20020ad45766000000b004bbf0a3aec7mr9566249qvx.86.1667306574659;
+        Tue, 01 Nov 2022 05:42:54 -0700 (PDT)
+Received: from mail-yb1-f177.google.com (mail-yb1-f177.google.com. [209.85.219.177])
+        by smtp.gmail.com with ESMTPSA id ay30-20020a05620a179e00b006ef1a8f1b81sm6547896qkb.5.2022.11.01.05.42.53
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Nov 2022 05:42:53 -0700 (PDT)
+Received: by mail-yb1-f177.google.com with SMTP id o70so17149636yba.7
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 05:42:53 -0700 (PDT)
+X-Received: by 2002:a25:6b07:0:b0:6cd:3a43:bfe5 with SMTP id
+ g7-20020a256b07000000b006cd3a43bfe5mr4839144ybc.89.1667306573183; Tue, 01 Nov
+ 2022 05:42:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220718170205.2972215-2-atishp@rivosinc.com>
+References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 1 Nov 2022 13:42:37 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXqh=wQaTYTuQ8vq__=2jvqRx1i9fpQsVPKpBJrBOy1Hw@mail.gmail.com>
+Message-ID: <CAMuHMdXqh=wQaTYTuQ8vq__=2jvqRx1i9fpQsVPKpBJrBOy1Hw@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.co>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_053013_859176_FF703321 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20221101_054256_857623_AA7615F7 
+X-CRM114-Status: GOOD (  29.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +94,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 18, 2022 at 10:01:57AM -0700, Atish Patra wrote:
-> KVM module needs to know how many hardware counters the platform supports.
-> Otherwise, it will not be able to show optimal value of virtual
-                                        ^ the
-> counters to the guest.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c   | 23 +++++++++++++++++------
->  include/linux/perf/riscv_pmu.h |  4 ++++
->  2 files changed, 21 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 24124546844c..1723af68ffa1 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -27,6 +27,7 @@
->   */
->  static union sbi_pmu_ctr_info *pmu_ctr_list;
->  static unsigned int riscv_pmu_irq;
-> +static struct riscv_pmu *rvpmu;
+Hi Prabhakar,
 
-Do we really need rvpmu? From a quick scan of the series it's only used
-for num_hw_counters, which has to be added to struct riscv_pmu, and
-num_counters. How about instead creating a static global for num_counters
-and then getting num_hw_counters by iterating pmu_ctr_list. If we want
-riscv_pmu_sbi_get_num_hw_ctrs() to be faster, then we can cache the value
-in a static variable in the function.
+On Thu, Oct 20, 2022 at 12:02 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> On the AX45MP core, cache coherency is a specification option so it may
+> not be supported. In this case DMA will fail. As a workaround, firstly we
+> allocate a global dma coherent pool from which DMA allocations are taken
+> and marked as non-cacheable + bufferable using the PMA region as specified
+> in the device tree. Synchronization callbacks are implemented to
+> synchronize when doing DMA transactions.
+>
+> The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> block that allows dynamic adjustment of memory attributes in the runtime.
+> It contains a configurable amount of PMA entries implemented as CSR
+> registers to control the attributes of memory locations in interest.
+>
+> Below are the memory attributes supported:
+> * Device, Non-bufferable
+> * Device, bufferable
+> * Memory, Non-cacheable, Non-bufferable
+> * Memory, Non-cacheable, Bufferable
+> * Memory, Write-back, No-allocate
+> * Memory, Write-back, Read-allocate
+> * Memory, Write-back, Write-allocate
+> * Memory, Write-back, Read and Write-allocate
+>
+> This patch adds support to configure the memory attributes of the memory
+> regions as passed from the l2 cache node and exposes the cache management
+> ops.
+>
+> More info about PMA (section 10.3):
+> http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+>
+> This feature is based on the work posted [0] by Vincent Chen
+> <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
+>
+> [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Thanks,
-drew
+Thanks for your patch!
+
+> --- a/arch/riscv/mm/dma-noncoherent.c
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -24,13 +24,25 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>
+>         switch (dir) {
+>         case DMA_TO_DEVICE:
+> +#ifdef CONFIG_ERRATA_THEAD_CMO
+>                 ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> +#elif CONFIG_AX45MP_L2_CACHE
+
+"#elif defined(CONFIG_AX45MP_L2_CACHE)" (everywhere)
+
+Else it may fail with:
+
+    error: "CONFIG_AX45MP_L2_CACHE" is not defined, evaluates to 0
+[-Werror=undef]
+
+
+> +               ALT_CMO_OP(ax45mp_cpu_dma_wb_range, vaddr, size, 0x0);
+> +#endif
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
