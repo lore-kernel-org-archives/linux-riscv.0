@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB40C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 21:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F286C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 23:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jD0qC+AIAngJC8RehMj7F+3oy9Mpkgq4E7pwr2XHGSI=; b=mrea/3rClitRQV
-	HXXKF5shDOGsL6vgm+DC6EDdelsFVbwYh+KyFbtZ65IFDYXAmt74RrxwgdI10JZGRiDCxkF15+9xg
-	2pCKJzHFGi+AkN0Y5EuPa9UuTNSgOaf0lk/r/72HX2c8LXO9uqVeBWL1YzWD6OKtIgnz59gjjYcj6
-	ujwFX0J4zH++S4Gk9tE6kGUzscGsXEqU8cfRpgFE6luBhAv/FciG0N0XnNeJTW1J1hJ6yMNALkPk0
-	sPjsA2m602uk7fC5bExbGHXqKbXMs8p+bMoQoYM9YPQTVtTg+v/q2rSNu34iJ8t1SCAbvtvuV5x6x
-	fp6ScPu6Tm9Ndy65eNfA==;
+	List-Owner; bh=faNrpt17+1sbqL/3Ve7T87ti4Acm7gzFbXRZio/7hAY=; b=gQQlrmhcsxpQaX
+	L009Uo7JIL+vvD9bTf/w6Yiezsz3q0n01lxMCbBNbHx3u7Epn/LD0jJL8ZbPc2o3NnpPm09FxjlD8
+	XDc6dDPe2QANKNuB61AcsGqYIztYC/LGO2dA7/xO3XujllrUNt6ZeppPnbgF8UI+VN37vQkxFD1h8
+	BkEQcK5YmPyEz+NJ0u+nf7cBMzcS31nf4uq67r47YZetVjy8nY+2wNfBdvxkXSsVE3MR6OoaZ+rc2
+	nAxFbUUld5l5y5HTofw+RiR2z+kXg28XQZ9uT30PKCO4+2p+NVj1SUgDzpptwkue9aR/cmsczgziM
+	c4W/rk3LCWXgV322KaMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opyjo-007AGg-II; Tue, 01 Nov 2022 21:24:00 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1oq0ib-007g7X-4O; Tue, 01 Nov 2022 23:30:53 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opyjj-007ADc-Ax
-	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 21:23:59 +0000
-Received: by mail-ej1-x630.google.com with SMTP id q9so40434919ejd.0
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 14:23:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=WmHubuWYIImhsix4xxdx14GxHumY1nXy8uqFG2ELPx8=;
-        b=4VrgOIiGo201yXP8Im2urHKA+GjJsXs0wg19bpiPdHNXyiOeGYcbmfIVbZzopDaK3h
-         0+O/6JqGUaFvaa4pSNbyC0a8fqtrxBCr0uQwOdbVz+mBoiAN6CRmPbhjHYJE7QK4ctc5
-         QO5rr7RR4YTwww/535iUqMQo2uvEU/o3VGt0HRRZTpZPXEY8hr2qkmY8lQdgT+rcUut9
-         hFGefnh8rAW8tLFBZncedwPYRyS+7I3o2aLfiKqpz1OEgLyZWwvWq2h/X1KuWXpeoxfa
-         2mS2InT7kRm+vS33HlKcxdbT9L991rI8EHp2LwqSGoiz9KNS8fzdUF52nzf0FZZWpuJt
-         U0og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WmHubuWYIImhsix4xxdx14GxHumY1nXy8uqFG2ELPx8=;
-        b=7xpOIymuMQ//563HFywnhY6lb7O9CZWrtGllm2PMOGpVZn97xwVCzRUuTdxNpuYepX
-         BmMyNNzjGHA6qBizDyWDLmSOqq55BEVK/FujYV31TM9VamAV90k/0lqT4M+hlv35XVGO
-         uWJ1tXvHV75pqlCoZ6lpvGXGm01zIj1HaC96w/hOvV+9rOIXKTItnGXgKNmZctmdBQB4
-         UtHptlWT8ODCH8lZqHT79KFB0IwoZ49dpB6klNR31lMl+YzfmKcix20sRYG4e7m5HBqU
-         hFfUsXDfv2JqLFBz6jRhOjDZnSZIFrvSs0nXyqX3mjR66k2u5mdb+6LUPUZRucjwSLIp
-         4FRA==
-X-Gm-Message-State: ACrzQf1nBzdedMSk79EhAsl5cFdipvH/EHYnM17yuFdLy21JbeKYfE3X
-	rGjNwz3h3mRK+uSeaxuwjGqBWuS8MaRuMStfapgIyw==
-X-Google-Smtp-Source: AMsMyM4otP0jG03efZTxZY52SlF2j8+iYyjvh3tI+zPDp8DzosOGZNQGv1bNiDmZ06QRt/TCo8tVQUmHUzmh4Zn1vGk=
-X-Received: by 2002:a17:906:eec1:b0:782:6384:76be with SMTP id
- wu1-20020a170906eec100b00782638476bemr20117152ejb.756.1667337832337; Tue, 01
- Nov 2022 14:23:52 -0700 (PDT)
+	id 1oq0iY-007g6m-9f
+	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 23:30:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id E3A9ECE1EED;
+	Tue,  1 Nov 2022 23:30:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13845C433D7;
+	Tue,  1 Nov 2022 23:30:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667345445;
+	bh=83+PYqo+5tSCKivi05nB2F4tUhi6hGii6abq64f1K6o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YoAgCf4OBDYux4QCJEG8xkGi/Zp49W104Ee+oFBdQA7xT+EIAS4NwKubnGIcqM6xx
+	 2E5drQxi0aq1YoHk3NOr2hyGTa+2cbA36c1U+yXboECMNNf1kwQ8YMXALnaCHnUrVn
+	 OHkm2W9SBQxoRjK4+q+/bHM4C/YdH8yiodUd0+2NHPpr4lMcPH0LfvicnRjqRrlyWv
+	 lxTZnpO/pq+uiKne6YgvKKdmDLHO4ENA78jr808T5Q5axpLwe7g9Czowi4+3GaN3XG
+	 3wyCGRlyDELaB0Q0D3HNU1xHxiyh5a9+mRqK/TYJT3fWW7hxJq7wEojHbPG3orQ4J2
+	 CCoiHRXetF1Gw==
+Date: Tue, 1 Nov 2022 23:30:40 +0000
+From: Conor Dooley <conor@kernel.org>
+To: "liaochang (A)" <liaochang1@huawei.com>
+Cc: Chen Guokai <chenguokai17@mails.ucas.ac.cn>, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, rostedt@goodmis.org,
+	mingo@redhat.com, sfr@canb.auug.org.au,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] riscv/kprobe: Prepare the skeleton to implement
+ RISCV OPTPROBES feature
+Message-ID: <Y2GsIIckeiZnNA3T@spud>
+References: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
+ <20221030090141.2550837-2-chenguokai17@mails.ucas.ac.cn>
+ <Y2AlEcVRibarLp8a@spud>
+ <1fe22055-7458-e052-4438-0338da9e369c@huawei.com>
 MIME-Version: 1.0
-References: <20221031213225.912258-1-geomatsi@gmail.com>
-In-Reply-To: <20221031213225.912258-1-geomatsi@gmail.com>
-From: Andrew Bresticker <abrestic@rivosinc.com>
-Date: Tue, 1 Nov 2022 17:23:41 -0400
-Message-ID: <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
-Subject: Re: [RFC PATCH v1] riscv: support for hardware breakpoints/watchpoints
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Content-Disposition: inline
+In-Reply-To: <1fe22055-7458-e052-4438-0338da9e369c@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_142355_643862_D3770015 
-X-CRM114-Status: GOOD (  42.08  )
+X-CRM114-CacheID: sfid-20221101_163050_762722_5805C57B 
+X-CRM114-Status: GOOD (  40.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,821 +73,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 31, 2022 at 5:39 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
->
-> From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
->
-> RISC-V Debug specification includes Sdtrig ISA extension. This extension
-> describes Trigger Module. Triggers can cause a breakpoint exception,
-> entry into Debug Mode, or a trace action without having to execute a
-> special instruction. For native debugging triggers can be used to
-> implement hardware breakpoints and watchpoints.
->
-> Software support for RISC-V hardware triggers consists of the following
-> major components:
->  - U-mode: gdb support for setting hw breakpoints/watchpoints
->  - S/VS-mode: hardware breakpoints framework in Linux kernel
->  - M-mode: SBI firmware code to handle hardware triggers
->
-> SBI Debug Trigger extension proposal has been posted by Anup Patel
-> to lists.riscv.org tech-debug mailing list, see:
-> https://lists.riscv.org/g/tech-debug/topic/92375492
->
-> This patch provides initial Linux support for RISC-V hardware breakpoints
-> and watchpoints based on the proposed SBI Debug Trigger extension. The
-> accompanying OpenSBI changes implementing new extension are also posted
-> for review, see:
->
-> http://lists.infradead.org/pipermail/opensbi/2022-October/003531.html
->
-> Initial version has the following limitations:
-> - userspace debug is not yet enabled: work on ptrace/gdb is in progress
-> - only mcontrol6 trigger type is supported
-> - no support for chained triggers
-> - no support for virtualization
->
-> Despite missing userspace debug, initial implementation can be tested
-> on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
-> register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
-
-We should also be able to enable the use of HW breakpoints (and
-watchpoints, modulo the issue mentioned below) in kdb, right?
-
-> However this is not the case for watchpoints since there is no way to
-> figure out which watchpoint is triggered. IIUC there are two possible
-> options for doing this: using 'hit' bit in tdata1 or reading faulting
-> virtual address from STVAL. QEMU implements neither of them. Current
-> implementation opts for STVAL. So the following experimental QEMU patch
-> is required to make watchpoints work:
->
-> :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
-> :  index 278d163803..8858be7411 100644
-> :  --- a/target/riscv/cpu_helper.c
-> :  +++ b/target/riscv/cpu_helper.c
-> :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
-> :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
-> :               tval = env->bins;
-> :               break;
-> :  +        case RISCV_EXCP_BREAKPOINT:
-> :  +            tval = env->badaddr;
-> :  +            env->badaddr = 0x0;
-> :  +            break;
-> :           default:
-> :               break;
-> :           }
-> :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
-> :  index 26ea764407..b4d1d566ab 100644
-> :  --- a/target/riscv/debug.c
-> :  +++ b/target/riscv/debug.c
-> :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
-> :
-> :       if (cs->watchpoint_hit) {
-> :           if (cs->watchpoint_hit->flags & BP_CPU) {
-> :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
-> :               cs->watchpoint_hit = NULL;
-> :               do_trigger_action(env, DBG_ACTION_BP);
-> :           }
->
-> Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> ---
->  arch/riscv/Kconfig                     |   2 +
->  arch/riscv/include/asm/hw_breakpoint.h | 131 ++++++++
->  arch/riscv/include/asm/kdebug.h        |   3 +-
->  arch/riscv/include/asm/processor.h     |   5 +
->  arch/riscv/include/asm/sbi.h           |  24 ++
->  arch/riscv/kernel/Makefile             |   1 +
->  arch/riscv/kernel/hw_breakpoint.c      | 416 +++++++++++++++++++++++++
->  arch/riscv/kernel/process.c            |   1 +
->  arch/riscv/kernel/traps.c              |   5 +
->  9 files changed, 587 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
->  create mode 100644 arch/riscv/kernel/hw_breakpoint.c
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index fa78595a6089..245ed0628211 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -95,10 +95,12 @@ config RISCV
->         select HAVE_FUNCTION_ERROR_INJECTION
->         select HAVE_GCC_PLUGINS
->         select HAVE_GENERIC_VDSO if MMU && 64BIT
-> +       select HAVE_HW_BREAKPOINT if PERF_EVENTS
->         select HAVE_IRQ_TIME_ACCOUNTING
->         select HAVE_KPROBES if !XIP_KERNEL
->         select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
->         select HAVE_KRETPROBES if !XIP_KERNEL
-> +       select HAVE_MIXED_BREAKPOINTS_REGS
->         select HAVE_MOVE_PMD
->         select HAVE_MOVE_PUD
->         select HAVE_PCI
-> diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
-> new file mode 100644
-> index 000000000000..7610b6be669d
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/hw_breakpoint.h
-> @@ -0,0 +1,131 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __RISCV_HW_BREAKPOINT_H
-> +#define __RISCV_HW_BREAKPOINT_H
-> +
-> +struct task_struct;
-> +
-> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-> +
-> +#include <uapi/linux/hw_breakpoint.h>
-> +
-> +enum {
-> +       RISCV_DBTR_BREAKPOINT   = 0,
-> +       RISCV_DBTR_WATCHPOINT   = 1,
-> +};
-> +
-> +enum {
-> +       RISCV_DBTR_TRIG_NONE = 0,
-> +       RISCV_DBTR_TRIG_LEGACY,
-> +       RISCV_DBTR_TRIG_MCONTROL,
-> +       RISCV_DBTR_TRIG_ICOUNT,
-> +       RISCV_DBTR_TRIG_ITRIGGER,
-> +       RISCV_DBTR_TRIG_ETRIGGER,
-> +       RISCV_DBTR_TRIG_MCONTROL6,
-> +};
-> +
-> +union riscv_dbtr_tdata1 {
-> +       unsigned long value;
-> +       struct {
-> +#if __riscv_xlen == 64
-> +               unsigned long data:59;
-> +#elif __riscv_xlen == 32
-> +               unsigned long data:27;
-> +#else
-> +#error "Unexpected __riscv_xlen"
-> +#endif
-> +               unsigned long dmode:1;
-> +               unsigned long type:4;
-> +       };
-> +};
-> +
-> +union riscv_dbtr_tdata1_mcontrol6 {
-> +       unsigned long value;
-> +       struct {
-> +               unsigned long load:1;
-> +               unsigned long store:1;
-> +               unsigned long execute:1;
-> +               unsigned long u:1;
-> +               unsigned long s:1;
-> +               unsigned long _res2:1;
-> +               unsigned long m:1;
-> +               unsigned long match:4;
-> +               unsigned long chain:1;
-> +               unsigned long action:4;
-> +               unsigned long size:4;
-> +               unsigned long timing:1;
-> +               unsigned long select:1;
-> +               unsigned long hit:1;
-> +               unsigned long vu:1;
-> +               unsigned long vs:1;
-> +#if __riscv_xlen == 64
-> +               unsigned long _res1:34;
-> +#elif __riscv_xlen == 32
-> +               unsigned long _res1:2;
-> +#else
-> +#error "Unexpected __riscv_xlen"
-> +#endif
-> +               unsigned long dmode:1;
-> +               unsigned long type:4;
-> +       };
-> +};
-> +
-> +struct arch_hw_breakpoint {
-> +       unsigned long address;
-> +       unsigned long len;
-> +       unsigned int type;
-> +
-> +       union riscv_dbtr_tdata1_mcontrol6 trig_data1;
-> +       unsigned long trig_data2;
-> +       unsigned long trig_data3;
-> +};
-> +
-> +/* Max supported HW breakpoints */
-> +#define HBP_NUM_MAX 32
-> +
-> +struct perf_event_attr;
-> +struct notifier_block;
-> +struct perf_event;
-> +struct pt_regs;
-> +
-> +int hw_breakpoint_slots(int type);
-> +int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw);
-> +int hw_breakpoint_arch_parse(struct perf_event *bp,
-> +                            const struct perf_event_attr *attr,
-> +                            struct arch_hw_breakpoint *hw);
-> +int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
-> +                                   unsigned long val, void *data);
-> +
-> +void arch_enable_hw_breakpoint(struct perf_event *bp);
-> +void arch_update_hw_breakpoint(struct perf_event *bp);
-> +void arch_disable_hw_breakpoint(struct perf_event *bp);
-> +int arch_install_hw_breakpoint(struct perf_event *bp);
-> +void arch_uninstall_hw_breakpoint(struct perf_event *bp);
-> +void hw_breakpoint_pmu_read(struct perf_event *bp);
-> +void clear_ptrace_hw_breakpoint(struct task_struct *tsk);
-> +
-> +#else
-> +
-> +int hw_breakpoint_slots(int type)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
-> +{
-> +}
-> +
-> +void arch_enable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
-> +
-> +void arch_update_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
-> +
-> +void arch_disable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
-> +
-> +#endif /* CONFIG_HAVE_HW_BREAKPOINT */
-> +#endif /* __RISCV_HW_BREAKPOINT_H */
-> diff --git a/arch/riscv/include/asm/kdebug.h b/arch/riscv/include/asm/kdebug.h
-> index 85ac00411f6e..53e989781aa1 100644
-> --- a/arch/riscv/include/asm/kdebug.h
-> +++ b/arch/riscv/include/asm/kdebug.h
-> @@ -6,7 +6,8 @@
->  enum die_val {
->         DIE_UNUSED,
->         DIE_TRAP,
-> -       DIE_OOPS
-> +       DIE_OOPS,
-> +       DIE_DEBUG
->  };
->
->  #endif
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 94a0590c6971..10c87fba2548 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -11,6 +11,7 @@
->  #include <vdso/processor.h>
->
->  #include <asm/ptrace.h>
-> +#include <asm/hw_breakpoint.h>
->
->  /*
->   * This decides where the kernel will search for a free chunk of vm
-> @@ -29,6 +30,7 @@
->  #ifndef __ASSEMBLY__
->
->  struct task_struct;
-> +struct perf_event;
->  struct pt_regs;
->
->  /* CPU-specific state of a task */
-> @@ -39,6 +41,9 @@ struct thread_struct {
->         unsigned long s[12];    /* s[0]: frame pointer */
->         struct __riscv_d_ext_state fstate;
->         unsigned long bad_cause;
-> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-> +       struct perf_event *ptrace_bps[HBP_NUM_MAX];
-> +#endif
->  };
->
->  /* Whitelist the fstate from the task_struct for hardened usercopy */
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 2a0ef738695e..f7f5ef51c350 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -31,6 +31,9 @@ enum sbi_ext_id {
->         SBI_EXT_SRST = 0x53525354,
->         SBI_EXT_PMU = 0x504D55,
->
-> +       /* Experimental: Debug Trigger Extension */
-> +       SBI_EXT_DBTR = 0x44425452,
-> +
->         /* Experimentals extensions must lie within this range */
->         SBI_EXT_EXPERIMENTAL_START = 0x08000000,
->         SBI_EXT_EXPERIMENTAL_END = 0x08FFFFFF,
-> @@ -113,6 +116,27 @@ enum sbi_srst_reset_reason {
->         SBI_SRST_RESET_REASON_SYS_FAILURE,
->  };
->
-> +enum sbi_ext_dbtr_fid {
-> +       SBI_EXT_DBTR_NUM_TRIGGERS = 0,
-> +       SBI_EXT_DBTR_TRIGGER_READ,
-> +       SBI_EXT_DBTR_TRIGGER_INSTALL,
-> +       SBI_EXT_DBTR_TRIGGER_UNINSTALL,
-> +       SBI_EXT_DBTR_TRIGGER_ENABLE,
-> +       SBI_EXT_DBTR_TRIGGER_UPDATE,
-> +       SBI_EXT_DBTR_TRIGGER_DISABLE,
-> +};
-> +
-> +struct sbi_dbtr_data_msg {
-> +       unsigned long tstate;
-> +       unsigned long tdata1;
-> +       unsigned long tdata2;
-> +       unsigned long tdata3;
-> +} __packed;
-> +
-> +struct sbi_dbtr_id_msg {
-> +       unsigned long idx;
-> +} __packed;
-> +
->  enum sbi_ext_pmu_fid {
->         SBI_EXT_PMU_NUM_COUNTERS = 0,
->         SBI_EXT_PMU_COUNTER_GET_INFO,
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index db6e4b1294ba..116697d0ca1d 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -72,6 +72,7 @@ obj-$(CONFIG_TRACE_IRQFLAGS)  += trace_irq.o
->
->  obj-$(CONFIG_PERF_EVENTS)      += perf_callchain.o
->  obj-$(CONFIG_HAVE_PERF_REGS)   += perf_regs.o
-> +obj-$(CONFIG_HAVE_HW_BREAKPOINT)       += hw_breakpoint.o
->  obj-$(CONFIG_RISCV_SBI)                += sbi.o
->  ifeq ($(CONFIG_RISCV_SBI), y)
->  obj-$(CONFIG_SMP) += cpu_ops_sbi.o
-> diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-> new file mode 100644
-> index 000000000000..32b7ca9ca694
-> --- /dev/null
-> +++ b/arch/riscv/kernel/hw_breakpoint.c
-> @@ -0,0 +1,416 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <linux/hw_breakpoint.h>
-> +#include <linux/perf_event.h>
-> +#include <linux/percpu.h>
-> +#include <linux/kdebug.h>
-> +
-> +#include <asm/sbi.h>
-> +
-> +#define SBI_MSG_SZ_ALIGN(x) __roundup_pow_of_two(max_t(size_t, (x), SZ_16))
-> +
-> +/* bps/wps currently set on each debug trigger for each cpu */
-> +static DEFINE_PER_CPU(struct perf_event *, bp_per_reg[HBP_NUM_MAX]);
-> +
-> +/* number of debug triggers on this cpu . */
-> +static int dbtr_total_num __ro_after_init;
-> +
-> +int hw_breakpoint_slots(int type)
-> +{
-> +       union riscv_dbtr_tdata1 tdata1;
-> +       struct sbiret ret;
-> +
-> +       /*
-> +        * We can be called early, so don't rely on
-> +        * our static variables being initialised.
-> +        */
-> +
-> +       tdata1.value = 0;
-> +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +                       tdata1.value, 0, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to get hbp slots\n", __func__);
-> +               return 0;
-> +       }
-> +
-> +       return ret.value;
-> +}
-> +
-> +int arch_check_bp_in_kernelspace(struct arch_hw_breakpoint *hw)
-> +{
-> +       unsigned int len;
-> +       unsigned long va;
-> +
-> +       va = hw->address;
-> +       len = hw->len;
-> +
-> +       return (va >= TASK_SIZE) && ((va + len - 1) >= TASK_SIZE);
-> +}
-> +
-> +int hw_breakpoint_arch_parse(struct perf_event *bp,
-> +                            const struct perf_event_attr *attr,
-> +                            struct arch_hw_breakpoint *hw)
-> +{
-> +       /* address */
-> +       hw->address = attr->bp_addr;
-> +       hw->trig_data2 = attr->bp_addr;
-> +       hw->trig_data3 = 0x0;
-> +
-> +       /* type */
-> +       switch (attr->bp_type) {
-> +       case HW_BREAKPOINT_X:
-> +               hw->type = RISCV_DBTR_BREAKPOINT;
-> +               hw->trig_data1.execute = 1;
-> +               break;
-> +       case HW_BREAKPOINT_R:
-> +               hw->type = RISCV_DBTR_WATCHPOINT;
-> +               hw->trig_data1.load = 1;
-> +               break;
-> +       case HW_BREAKPOINT_W:
-> +               hw->type = RISCV_DBTR_WATCHPOINT;
-> +               hw->trig_data1.store = 1;
-> +               break;
-> +       case HW_BREAKPOINT_RW:
-> +               hw->type = RISCV_DBTR_WATCHPOINT;
-> +               hw->trig_data1.store = 1;
-> +               hw->trig_data1.load = 1;
-> +               break;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +
-> +       /* length */
-> +       switch (attr->bp_len) {
-> +       case HW_BREAKPOINT_LEN_1:
-> +               hw->len = 1;
-> +               hw->trig_data1.size = 1;
-> +               break;
-> +       case HW_BREAKPOINT_LEN_2:
-> +               hw->len = 2;
-> +               hw->trig_data1.size = 2;
-> +               break;
-> +       case HW_BREAKPOINT_LEN_4:
-> +               hw->len = 4;
-> +               hw->trig_data1.size = 3;
-> +               break;
-> +       case HW_BREAKPOINT_LEN_8:
-> +               hw->len = 8;
-> +               hw->trig_data1.size = 5;
-> +               break;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +
-> +       hw->trig_data1.type = RISCV_DBTR_TRIG_MCONTROL6;
-> +       hw->trig_data1.dmode = 0;
-> +       hw->trig_data1.select = 0;
-> +       hw->trig_data1.action = 0;
-> +       hw->trig_data1.chain = 0;
-> +       hw->trig_data1.match = 0;
-> +
-> +       hw->trig_data1.m = 0;
-> +       hw->trig_data1.s = 1;
-> +       hw->trig_data1.u = 1;
-> +       hw->trig_data1.vs = 0;
-> +       hw->trig_data1.vu = 0;
-> +
-> +       return 0;
-> +}
-> +
-> +/*
-> + * Handle debug exception notifications.
-> + */
-> +static int hw_breakpoint_handler(struct die_args *args)
-> +{
-> +       int ret = NOTIFY_DONE;
-> +       struct arch_hw_breakpoint *info;
-> +       struct perf_event *bp;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; ++i) {
-> +               bp = this_cpu_read(bp_per_reg[i]);
-> +               if (!bp)
-> +                       continue;
-> +
-> +               info = counter_arch_bp(bp);
-> +               switch (info->type) {
-> +               case RISCV_DBTR_BREAKPOINT:
-> +                       if (info->address == args->regs->epc) {
-> +                               pr_debug("%s: breakpoint fired: pc[0x%lx]\n",
-> +                                        __func__, args->regs->epc);
-> +                               perf_bp_event(bp, args->regs);
-> +                               ret = NOTIFY_STOP;
-> +                       }
-> +
-> +                       break;
-> +               case RISCV_DBTR_WATCHPOINT:
-> +                       if (info->address == csr_read(CSR_STVAL)) {
-> +                               pr_debug("%s: watchpoint fired: addr[0x%lx]\n",
-> +                                        __func__, info->address);
-> +                               perf_bp_event(bp, args->regs);
-> +                               ret = NOTIFY_STOP;
-> +                       }
-> +
-> +                       break;
-> +               default:
-> +                       pr_warn("%s: unexpected breakpoint type: %u\n",
-> +                               __func__, info->type);
-> +                       break;
-> +               }
-> +       }
-> +
-> +       return ret;
-> +}
-> +
-> +int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
-> +                                   unsigned long val, void *data)
-> +{
-> +       if (val != DIE_DEBUG)
-> +               return NOTIFY_DONE;
-> +
-> +       return hw_breakpoint_handler(data);
-> +}
-> +
-> +int arch_install_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> +       struct sbi_dbtr_data_msg *xmit;
-> +       struct sbi_dbtr_id_msg *recv;
-> +       struct perf_event **slot;
-> +       struct sbiret ret;
-> +       int err = 0;
-> +
-> +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
-> +       if (!xmit) {
-> +               err = -ENOMEM;
-> +               goto out;
-> +       }
-> +
-> +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
-> +       if (!recv) {
-> +               err = -ENOMEM;
-> +               goto out;
-> +       }
-
-Do these really need to be dynamically allocated?
-
-> +
-> +       xmit->tdata1 = info->trig_data1.value;
-> +       xmit->tdata2 = info->trig_data2;
-> +       xmit->tdata3 = info->trig_data3;
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_INSTALL,
-> +                       1, __pa(xmit) >> 4, __pa(recv) >> 4,
-> +                       0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to install trigger\n", __func__);
-> +               err = -EIO;
-> +               goto out;
-> +       }
-> +
-> +       if (recv->idx >= dbtr_total_num) {
-> +               pr_warn("%s: invalid trigger index %lu\n", __func__, recv->idx);
-> +               err = -EINVAL;
-> +               goto out;
-> +       }
-> +
-> +       slot = this_cpu_ptr(&bp_per_reg[recv->idx]);
-> +       if (*slot) {
-> +               pr_warn("%s: slot %lu is in use\n", __func__, recv->idx);
-> +               err = -EBUSY;
-> +               goto out;
-> +       }
-> +
-> +       *slot = bp;
-> +
-> +out:
-> +       kfree(xmit);
-> +       kfree(recv);
-> +
-> +       return err;
-> +}
-> +
-> +void arch_uninstall_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               struct perf_event **slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp) {
-> +                       *slot = NULL;
-> +                       break;
-> +               }
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_UNINSTALL,
-> +                       i, 1, 0, 0, 0, 0);
-> +       if (ret.error)
-> +               pr_warn("%s: failed to uninstall trigger %d\n", __func__, i);
-> +}
-> +
-> +void arch_enable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               struct perf_event **slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_ENABLE,
-> +                       i, 1, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to install trigger %d\n", __func__, i);
-> +               return;
-> +       }
-> +}
-> +EXPORT_SYMBOL_GPL(arch_enable_hw_breakpoint);
-> +
-> +void arch_update_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> +       struct sbi_dbtr_data_msg *xmit;
-> +       struct perf_event **slot;
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
-> +       if (!xmit)
-> +               return;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               goto out;
-> +       }
-> +
-> +       xmit->tdata1 = info->trig_data1.value;
-> +       xmit->tdata2 = info->trig_data2;
-> +       xmit->tdata3 = info->trig_data3;
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_UPDATE,
-> +                       i, 1, __pa(xmit) >> 4,
-> +                       0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to update trigger %d\n", __func__, i);
-> +               goto out;
-> +       }
-> +
-> +out:
-> +       kfree(xmit);
-> +}
-> +EXPORT_SYMBOL_GPL(arch_update_hw_breakpoint);
-> +
-> +void arch_disable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               struct perf_event **slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_DISABLE,
-> +                       i, 1, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to uninstall trigger %d\n", __func__, i);
-> +               return;
-> +       }
-> +}
-> +EXPORT_SYMBOL_GPL(arch_disable_hw_breakpoint);
-> +
-> +void hw_breakpoint_pmu_read(struct perf_event *bp)
-> +{
-> +}
-> +
-> +/*
-> + * Set ptrace breakpoint pointers to zero for this task.
-> + * This is required in order to prevent child processes from unregistering
-> + * breakpoints held by their parent.
-> + */
-> +void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
-> +{
-> +       memset(tsk->thread.ptrace_bps, 0, sizeof(tsk->thread.ptrace_bps));
-> +}
-> +
-> +/*
-> + * Unregister breakpoints from this task and reset the pointers in
-> + * the thread_struct.
-> + */
-> +void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
-> +{
-> +       int i;
-> +       struct thread_struct *t = &tsk->thread;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               unregister_hw_breakpoint(t->ptrace_bps[i]);
-> +               t->ptrace_bps[i] = NULL;
-> +       }
-> +}
-> +
-> +static int __init arch_hw_breakpoint_init(void)
-> +{
-> +       union riscv_dbtr_tdata1 tdata1;
-> +       struct sbiret ret;
-> +
-> +       if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
-> +               pr_info("%s: SBI_EXT_DBTR is not supported\n", __func__);
-> +               return 0;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +                       0, 0, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to detect triggers\n", __func__);
-> +               return 0;
-> +       }
-> +
-> +       pr_info("%s: total number of triggers: %lu\n", __func__, ret.value);
-> +
-> +       tdata1.value = 0;
-> +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> +                       tdata1.value, 0, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to detect triggers\n", __func__);
-> +               dbtr_total_num = 0;
-> +               return 0;
-> +       }
-
-nit: This is basically identical to hw_breakpoint_slots() -- just call
-it here, or perhaps pull the DBTR_NUM_TRIGGERS ECALL into its own
-function to reduce the duplication, e.g. 'dbtr_num_triggers(unsigned
-long type)'?
-
-> +
-> +       pr_info("%s: total number of type %d triggers: %lu\n",
-> +               __func__, tdata1.type, ret.value);
-> +
-> +       dbtr_total_num = ret.value;
-> +
-> +       return 0;
-> +}
-> +arch_initcall(arch_hw_breakpoint_init);
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index b0c63e8e867e..da379f6af3f3 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -185,5 +185,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->                 p->thread.ra = (unsigned long)ret_from_fork;
->         }
->         p->thread.sp = (unsigned long)childregs; /* kernel sp */
-> +       clear_ptrace_hw_breakpoint(p);
->         return 0;
->  }
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index f3e96d60a2ff..97712c52348e 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -174,6 +174,11 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
->
->         if (uprobe_breakpoint_handler(regs))
->                 return;
-> +#endif
-> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
-> +       if (notify_die(DIE_DEBUG, "EBREAK", regs, 0, regs->cause, SIGTRAP)
-> +                                                      == NOTIFY_STOP)
-> +               return;
->  #endif
->         current->thread.bad_cause = regs->cause;
->
-> --
-> 2.38.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBOb3YgMDEsIDIwMjIgYXQgMDc6MDc6NDRQTSArMDgwMCwgbGlhb2NoYW5nIChBKSB3
+cm90ZToKPiBIae+8jENvbm9yLAo+IAo+IOWcqCAyMDIyLzExLzEgMzo0MiwgQ29ub3IgRG9vbGV5
+IOWGmemBkzoKPiA+IEhleSBDaGVuIEd1b2thaSwKPiA+IAo+ID4gT24gU3VuLCBPY3QgMzAsIDIw
+MjIgYXQgMDU6MDE6MzRQTSArMDgwMCwgQ2hlbiBHdW9rYWkgd3JvdGU6Cj4gPj4gRnJvbTogTGlh
+byBDaGFuZyA8bGlhb2NoYW5nMUBodWF3ZWkuY29tPgo+ID4+Cj4gPj4gUHJlcGFyZSBza2VsZXRv
+biB0byBpbXBsZW1lbnQgb3B0aW1pemVkIGtwcm9iZSBvbiBSSVNDViwgaXQgY29uc2lzdHMKPiA+
+PiBvZiBNYWtmaWxlLCBLY29uZmlnIGFuZCBzb21lIGFyY2hpdGVjdHVyZSBzcGVjaWZpYyBmaWxl
+czoga3Byb2JlLmggYW5kCj4gPj4gb3B0LmMgb3B0LmMgaW5jbHVkZXMgc29tZSBtYWNybywgdHlw
+ZSBkZWZpbml0aW9uIGFuZCBmdW5jdGlvbnMgcmVxdWlyZWQKPiA+PiBieSBrcHJvYmUgZnJhbWV3
+b3JrLCBvcHRfdHJhbXBvbGluZS5TIHByb3ZpZGVzIGEgcGllY2Ugb2YgYXNzZW1ibHkgY29kZQo+
+ID4+IHRlbXBsYXRlIHVzZWQgdG8gY29uc3RydWN0IHRoZSBkZXRvdXIgYnVmZmVyIGFzIHRoZSB0
+YXJnZXQgb2YgbG9uZyBqdW1wCj4gPj4gaW5zdHJ1Y3Rpb24ocykgZm9yIGVhY2ggb3B0aW16ZWQg
+a3Byb2JlLgo+ID4+Cj4gPj4gU2luY2UgdGhlIGp1bXAgcmFuZ2Ugb2YgUEMtcmVsYXRpdmUgaW5z
+dHJ1Y3Rpb24gSkFMIGlzICsvLTFNLCB0aGF0IGlzCj4gPj4gdG9vIHNtYWxsIHRvIHJlYWNoIHRo
+ZSBkZXRvdXIgYnVmZmVyLCBoZW5jZSB0aGUgZm91ZGFtZW50YWwgaWRlYSB0bwo+ID4+IGFkZHJl
+c3MgT1BUUFJPQkVTIG9uIFJJU0NWIGlzIHRvIHJlcGxhY2UgJ0VCUkVBSycgd2l0aCAnQVVJUEMr
+SkFMUicuIHdoaWNoCj4gPj4gbWVhbnMgaXQgbmVlZHMgdG8gY2xvYmJlciBvbmUgbW9yZSBpbnN0
+cnVjdGlvbiBiZXNpZGUgdGhlIGtwcm9iZQo+ID4+IGluc3RydWN0aW9uLCBmdXJ0aGVybW9yZSwg
+UklTQ1Ygc3VwcG9ydHMgaHliaXJkIFJWSSBhbmQgUlZDIGluIHNpbmdsZQo+ID4+IGtlcm5lbCBi
+aW5hcnksIHNvIGluIHRoZW9yeSBhIHBhaXIgb2YgJ0FVSVBDL0pBTFInIGlzIGFib3V0IHRvIGNs
+b2JiZXIKPiA+PiAxMCBieXRlcygzIFJWQyBhbmQgMSBSVkksIDIgYnl0ZXMgaXMgcGFkZGluZyBm
+b3IgYWxpZ25tZW50KSBhdCB3b3JzdAo+ID4+IGNhc2UuIFRoZSBzZWNvbmQgaGFyZHNvbWUgcHJv
+YmxlbSBpcyBsb29raW5nIGZvciBvbmUgaW50ZWdlciByZWdpc3RlciBhcwo+ID4+IHRoZSBkZXN0
+aW5hdGlvbiBvZiAnQVVJUEMvSkFMUicgd2l0aG91dCBhbnkgc2lkZS1lZmZlY3QuCj4gPj4KPiA+
+PiBNb3JlIHNvbHV0aW9uIGRldGFpbHMgd2lsbCBiZSBpbnRyb2R1Y2VkIGluIHRoZSBjb21pbmcg
+Y29tbWl0cy4KPiA+IAo+ID4gbml0OiB5b3UgY2FuIGRyb3AgdGhpcyByZWZlcmVuY2UgdG8gZnV0
+dXJlIGNvbW1pdHMuCj4gPiAKPiA+Pgo+ID4+IENvLWRldmVsb3BlZC1ieTogQ2hlbiBHdW9rYWkg
+PGNoZW5ndW9rYWkxN0BtYWlscy51Y2FzLmFjLmNuPgo+ID4+IFNpZ25lZC1vZmYtYnk6IENoZW4g
+R3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFpbHMudWNhcy5hYy5jbj4KPiA+PiBTaWduZWQtb2ZmLWJ5
+OiBMaWFvIENoYW5nIDxsaWFvY2hhbmcxQGh1YXdlaS5jb20+Cj4gPiAKPiA+IEZZSSwgeW91ciBz
+aWdub2ZmIHNob3VsZCBjb21lIGxhc3Qgc2luY2UgeW91J3JlIHNlbmRpbmcgdGhlIHBhdGNoZXMs
+IHNvCj4gPiB0aGlzIHdvdWxkIGJlY29tZToKPiA+IAo+ID4+IFNpZ25lZC1vZmYtYnk6IExpYW8g
+Q2hhbmcgPGxpYW9jaGFuZzFAaHVhd2VpLmNvbT4KPiA+PiBDby1kZXZlbG9wZWQtYnk6IENoZW4g
+R3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFpbHMudWNhcy5hYy5jbj4KPiA+PiBTaWduZWQtb2ZmLWJ5
+OiBDaGVuIEd1b2thaSA8Y2hlbmd1b2thaTE3QG1haWxzLnVjYXMuYWMuY24+Cj4gPiAKPiA+IEkg
+bm90aWNlZCBvbiBzb21lIG9mIHRoZSBvdGhlciBwYXRjaGVzIHRoYXQgeW91ciBTb0IgaXMgbWlz
+c2luZyB0aGVyZSwKPiA+IGZvciBleGFtcGxlIHBhdGNoIDIuCj4gCj4gWWVzLCBpIGhhdmUgc2Vu
+dCBwYXRjaCAyIHRvIG1haWxpbmcgbGlzdCBsb25nIHRpbWUgYWdvLCBnb3Qgc29tZSBmZWVkYmFj
+ayBmcm9tCj4gUGFsbWVyIERlYmJlbHQuIEJlY2F1c2UgdGhhdCBwYXRjaCBpcyBkZXNpZ25lZCBm
+b3IgcmlzY3Ygb3B0cHJvYmUsIHNvIGkgYnJpbmcgaXQKPiB0byB0aGlzIHBhdGNoc2V0LgoKTm90
+IHN1cmUgaWYgeW91IHVuZGVyc3Rvb2QgdGhlIHBvaW50IEkgd2FzIG1ha2luZyAtIHlvdSBuZWVk
+IHRvIGhhdmUgYSAKU2lnbmVkLW9mZi1ieTogQ2hlbiBHdW9rYWkgPGNoZW5ndW9rYWkxN0BtYWls
+cy51Y2FzLmFjLmNuPgphdCB0aGUgZW5kIG9mIGV2ZXJ5IHBhdGNoIHRoYXQgQ2hlbiBzZW5kcy4g
+UGF0Y2ggMiBkb2VzIG5vdCBoYXZlIG9uZS4KRm9yIHRoZSBvdGhlciBwYXRjaGVzLCB0aGUgb3Jk
+ZXIgc2hvdWxkIGJlIHlvdSwgZm9sbG93ZWQgYnkgQ2hlbiBzaW5jZQp0aGV5IGFyZSB0aGUgb25l
+IHRoYXQgc2VudCB0aGUgcGF0Y2ggdG8gdGhlIGxpc3QgdGhpcyB0aW1lLgoKU2VlOgpodHRwczov
+L3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9wcm9jZXNzL3N1Ym1pdHRpbmctcGF0Y2hl
+cy5odG1sI3doZW4tdG8tdXNlLWFja2VkLWJ5LWNjLWFuZC1jby1kZXZlbG9wZWQtYnkKT3I6CkRv
+Y3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL3Byb2Nlc3Mvc3VibWl0dGluZy1wYXRjaGVz
+LnJzdAoKSW4gdGhlIHpoX0NOIGRvY3VtZW50LCB0aGUgcmVsZXZhbnQgc2VjdGlvbiBpczoK5L2V
+5pe25L2/55SoQWNrZWQtYnk677yMQ0M677yM5ZKMQ28tRGV2ZWxvcGVkIGJ5OgoKSG9wZSB0aGF0
+IGhlbHBzLApDb25vci4KCj4gPj4gLS0tCj4gPj4gIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAg
+ICAgICAgICAgICAgICAgIHwgIDEgKwo+ID4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9i
+ZXMuaCAgICAgICAgICB8IDMyICsrKysrKysrKysrKysrCj4gPj4gIGFyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy9NYWtlZmlsZSAgICAgICAgIHwgIDEgKwo+ID4+ICBhcmNoL3Jpc2N2L2tlcm5lbC9w
+cm9iZXMvb3B0LmMgICAgICAgICAgICB8IDUxICsrKysrKysrKysrKysrKysrKysrKysrCj4gPj4g
+IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHRfdHJhbXBvbGluZS5TIHwgMTIgKysrKysrCj4g
+Pj4gIDUgZmlsZXMgY2hhbmdlZCwgOTcgaW5zZXJ0aW9ucygrKQo+ID4+ICBjcmVhdGUgbW9kZSAx
+MDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdC5jCj4gPj4gIGNyZWF0ZSBtb2RlIDEw
+MDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvb3B0X3RyYW1wb2xpbmUuUwo+ID4+Cj4gPj4g
+ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4+
+IGluZGV4IDZiNDhhM2FlOTg0My4uY2EyOTMwNmM5M2UyIDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gv
+cmlzY3YvS2NvbmZpZwo+ID4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4+IEBAIC05OSw2
+ICs5OSw3IEBAIGNvbmZpZyBSSVNDVgo+ID4+ICAJc2VsZWN0IEhBVkVfS1BST0JFUyBpZiAhWElQ
+X0tFUk5FTAo+ID4+ICAJc2VsZWN0IEhBVkVfS1BST0JFU19PTl9GVFJBQ0UgaWYgIVhJUF9LRVJO
+RUwKPiA+PiAgCXNlbGVjdCBIQVZFX0tSRVRQUk9CRVMgaWYgIVhJUF9LRVJORUwKPiA+PiArCXNl
+bGVjdCBIQVZFX09QVFBST0JFUyBpZiAhWElQX0tFUk5FTAo+ID4+ICAJc2VsZWN0IEhBVkVfTU9W
+RV9QTUQKPiA+PiAgCXNlbGVjdCBIQVZFX01PVkVfUFVECj4gPj4gIAlzZWxlY3QgSEFWRV9QQ0kK
+PiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rcHJvYmVzLmggYi9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaAo+ID4+IGluZGV4IDIxN2VmODlmMjJiOS4uMjJi
+NzNhMmZkMWZkIDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3Byb2Jl
+cy5oCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rcHJvYmVzLmgKPiA+PiBAQCAt
+NDMsNSArNDMsMzcgQEAgYm9vbCBrcHJvYmVfc2luZ2xlX3N0ZXBfaGFuZGxlcihzdHJ1Y3QgcHRf
+cmVncyAqcmVncyk7Cj4gPj4gIHZvaWQgX19rcmV0cHJvYmVfdHJhbXBvbGluZSh2b2lkKTsKPiA+
+PiAgdm9pZCBfX2twcm9iZXMgKnRyYW1wb2xpbmVfcHJvYmVfaGFuZGxlcihzdHJ1Y3QgcHRfcmVn
+cyAqcmVncyk7Cj4gPj4gIAo+ID4+ICsjaWZkZWYgQ09ORklHX09QVFBST0JFUwo+ID4+ICsKPiA+
+PiArLyogb3B0aW5zbiB0ZW1wbGF0ZSBhZGRyZXNzZXMgKi8KPiA+PiArZXh0ZXJuIF9fdmlzaWJs
+ZSBrcHJvYmVfb3Bjb2RlX3Qgb3B0cHJvYmVfdGVtcGxhdGVfZW50cnlbXTsKPiA+PiArZXh0ZXJu
+IF9fdmlzaWJsZSBrcHJvYmVfb3Bjb2RlX3Qgb3B0cHJvYmVfdGVtcGxhdGVfZW5kW107Cj4gPj4g
+Kwo+ID4+ICsjZGVmaW5lIE1BWF9PUFRJTlNOX1NJWkUJCQkJXAo+ID4+ICsJKCh1bnNpZ25lZCBs
+b25nKW9wdHByb2JlX3RlbXBsYXRlX2VuZCAtCQlcCj4gPj4gKwkgKHVuc2lnbmVkIGxvbmcpb3B0
+cHJvYmVfdGVtcGxhdGVfZW50cnkpCj4gPj4gKwo+ID4+ICsvKgo+ID4+ICsgKiBGb3IgUlZJIGFu
+ZCBSVkMgaHliaXJkIGVuY29kaW5nIGtlcm5lbCwgYWx0aG91Z2h0IGxvbmcganVtcCBqdXN0IG5l
+ZWRzCj4gPj4gKyAqIDIgUlZJIGluc3RydWN0aW9ucyhBVUlQQytKQUxSKSwgb3B0aW1pemVkIGlu
+c3RydWN0aW9ucyBpcyAxMCBieXRlcyBsb25nCj4gPj4gKyAqIGF0IG1vc3QgdG8gZW5zdXJlIG5v
+IFJWSSB3b3VsZCBiZSB0cnVuY2F0ZWQgYWN0dWFsbHksIHNvIGl0IG1lYW5zIGZvdXIKPiA+PiAr
+ICogY29tYmluYXRpb25zOgo+ID4+ICsgKiAtIDIgUlZJCj4gPj4gKyAqIC0gNCBSVkMKPiA+PiAr
+ICogLSAyIFJWQyArIDEgUlZJCj4gPj4gKyAqIC0gMyBSVkMgKyAxIFJWSSAodHJ1bmNhdGVkLCBu
+ZWVkIHBhZGRpbmcpCj4gPj4gKyAqLwo+ID4+ICsjZGVmaW5lIE1BWF9DT1BJRURfSU5TTgkJNAo+
+ID4+ICsjZGVmaW5lIE1BWF9PUFRJTUlaRURfTEVOR1RICTEwCj4gPj4gKwo+ID4+ICtzdHJ1Y3Qg
+YXJjaF9vcHRpbWl6ZWRfaW5zbiB7Cj4gPj4gKwlrcHJvYmVfb3Bjb2RlX3QgY29waWVkX2luc25b
+TUFYX0NPUElFRF9JTlNOXTsKPiA+PiArCS8qIGRldG91ciBjb2RlIGJ1ZmZlciAqLwo+ID4+ICsJ
+a3Byb2JlX29wY29kZV90ICppbnNuOwo+ID4+ICsJdW5zaWduZWQgbG9uZyBsZW5ndGg7Cj4gPj4g
+KwlpbnQgcmQ7Cj4gPj4gK307Cj4gPj4gKwo+ID4+ICsjZW5kaWYgLyogQ09ORklHX09QVFBST0JF
+UyAqLwo+ID4+ICAjZW5kaWYgLyogQ09ORklHX0tQUk9CRVMgKi8KPiA+PiAgI2VuZGlmIC8qIF9B
+U01fUklTQ1ZfS1BST0JFU19IICovCj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZQo+ID4+
+IGluZGV4IDdmMDg0MGRjYzMxYi4uNjI1NWI0NjAwODc1IDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZQo+ID4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy9NYWtlZmlsZQo+ID4+IEBAIC0zLDQgKzMsNSBAQCBvYmotJChDT05GSUdfS1BST0JF
+UykJCSs9IGtwcm9iZXMubyBkZWNvZGUtaW5zbi5vIHNpbXVsYXRlLWluc24ubwo+ID4+ICBvYmot
+JChDT05GSUdfS1BST0JFUykJCSs9IGtwcm9iZXNfdHJhbXBvbGluZS5vCj4gPj4gIG9iai0kKENP
+TkZJR19LUFJPQkVTX09OX0ZUUkFDRSkJKz0gZnRyYWNlLm8KPiA+PiAgb2JqLSQoQ09ORklHX1VQ
+Uk9CRVMpCQkrPSB1cHJvYmVzLm8gZGVjb2RlLWluc24ubyBzaW11bGF0ZS1pbnNuLm8KPiA+PiAr
+b2JqLSQoQ09ORklHX09QVFBST0JFUykJCSs9IG9wdC5vIG9wdF90cmFtcG9saW5lLm8KPiA+PiAg
+Q0ZMQUdTX1JFTU9WRV9zaW11bGF0ZS1pbnNuLm8gPSAkKENDX0ZMQUdTX0ZUUkFDRSkKPiA+PiBk
+aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdC5jIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwvcHJvYmVzL29wdC5jCj4gPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiA+PiBpbmRleCAw
+MDAwMDAwMDAwMDAuLjU2YzhhMjI3Yzg1Nwo+ID4+IC0tLSAvZGV2L251bGwKPiA+PiArKysgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvb3B0LmMKPiA+PiBAQCAtMCwwICsxLDUxIEBACj4gPj4g
+Ky8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9yLWxhdGVyCj4gPj4gKy8qCj4g
+Pj4gKyAqICBLZXJuZWwgUHJvYmVzIEp1bXAgT3B0aW1pemF0aW9uIChPcHRwcm9iZXMpCj4gPj4g
+KyAqCj4gPj4gKyAqIENvcHlyaWdodCAoQykgR3Vva2FpIENoZW4sIDIwMjIKPiA+PiArICogQXV0
+aG9yOiBHdW9rYWkgQ2hlbiBjaGVuZ3Vva2FpMTdAbWFpbHMudWNhcy5hYy5jbgo+ID4+ICsgKi8K
+PiA+PiArCj4gPj4gKyNkZWZpbmUgcHJfZm10KGZtdCkJIm9wdHByb2JlOiAiIGZtdAo+ID4+ICsK
+PiA+PiArI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KPiA+PiArI2luY2x1ZGUgPGFzbS9rcHJv
+YmVzLmg+Cj4gPj4gKwo+ID4+ICtpbnQgYXJjaF9wcmVwYXJlZF9vcHRpbnNuKHN0cnVjdCBhcmNo
+X29wdGltaXplZF9pbnNuICpvcHRpbnNuKQo+ID4+ICt7Cj4gPj4gKwlyZXR1cm4gMDsKPiA+PiAr
+fQo+ID4+ICsKPiA+PiAraW50IGFyY2hfY2hlY2tfb3B0aW1pemVkX2twcm9iZShzdHJ1Y3Qgb3B0
+aW1pemVkX2twcm9iZSAqb3ApCj4gPj4gK3sKPiA+PiArCXJldHVybiAwOwo+ID4+ICt9Cj4gPj4g
+Kwo+ID4+ICtpbnQgYXJjaF9wcmVwYXJlX29wdGltaXplZF9rcHJvYmUoc3RydWN0IG9wdGltaXpl
+ZF9rcHJvYmUgKm9wLAo+ID4+ICsJCQkJICBzdHJ1Y3Qga3Byb2JlICpvcmlnKQo+ID4+ICt7Cj4g
+Pj4gKwlyZXR1cm4gMDsKPiA+PiArfQo+ID4+ICsKPiA+PiArdm9pZCBhcmNoX3JlbW92ZV9vcHRp
+bWl6ZWRfa3Byb2JlKHN0cnVjdCBvcHRpbWl6ZWRfa3Byb2JlICpvcCkKPiA+PiArewo+ID4+ICt9
+Cj4gPj4gKwo+ID4+ICt2b2lkIGFyY2hfb3B0aW1pemVfa3Byb2JlcyhzdHJ1Y3QgbGlzdF9oZWFk
+ICpvcGxpc3QpCj4gPj4gK3sKPiA+PiArfQo+ID4+ICsKPiA+PiArdm9pZCBhcmNoX3Vub3B0aW1p
+emVfa3Byb2JlcyhzdHJ1Y3QgbGlzdF9oZWFkICpvcGxpc3QsCj4gPj4gKwkJCSAgICAgc3RydWN0
+IGxpc3RfaGVhZCAqZG9uZV9saXN0KQo+ID4+ICt7Cj4gPj4gK30KPiA+PiArCj4gPj4gK3ZvaWQg
+YXJjaF91bm9wdGltaXplX2twcm9iZShzdHJ1Y3Qgb3B0aW1pemVkX2twcm9iZSAqb3ApCj4gPj4g
+K3sKPiA+PiArfQo+ID4+ICsKPiA+PiAraW50IGFyY2hfd2l0aGluX29wdGltaXplZF9rcHJvYmUo
+c3RydWN0IG9wdGltaXplZF9rcHJvYmUgKm9wLAo+ID4+ICsJCQkJIGtwcm9iZV9vcGNvZGVfdCAq
+YWRkcikKPiA+PiArewo+ID4+ICsJcmV0dXJuIDA7Cj4gPj4gK30KPiA+PiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdF90cmFtcG9saW5lLlMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9wcm9iZXMvb3B0X3RyYW1wb2xpbmUuUwo+ID4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4g
+Pj4gaW5kZXggMDAwMDAwMDAwMDAwLi4xNjE2MGM0MzY3ZmYKPiA+PiAtLS0gL2Rldi9udWxsCj4g
+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdF90cmFtcG9saW5lLlMKPiA+PiBA
+QCAtMCwwICsxLDEyIEBACj4gPj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
+LW9ubHkgKi8KPiA+PiArLyoKPiA+PiArICogQ29weXJpZ2h0IChDKSAyMDIyIEd1b2thaSBDaGVu
+Cj4gPj4gKyAqLwo+ID4+ICsKPiA+PiArI2luY2x1ZGUgPGxpbnV4L2xpbmthZ2UuaD4KPiA+PiAr
+Cj4gPj4gKyNpbmNsZHVlIDxhc20vY3NyLmg+Cj4gPj4gKyNpbmNsdWRlIDxhc20vYXNtLW9mZnNl
+dHMuaD4KPiA+PiArCj4gPj4gK1NZTV9FTlRSWShvcHRwcm9iZV90ZW1wbGF0ZV9lbnRyeSwgU1lN
+X0xfR0xPQkFMLCBTWU1fQV9OT05FKQo+ID4+ICtTWU1fRU5UUlkob3B0cHJvYmVfdGVtcGxhdGVf
+ZW5kLCBTWU1fTF9HTE9CQUwsIFNZTV9BX05PTkUpCj4gPj4gLS0gCj4gPj4gMi4yNS4xCj4gPj4K
+PiA+Pgo+ID4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Cj4gPj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gPj4gbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwo+ID4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YKPiA+IC4KPiAKPiAtLSAKPiBCUiwKPiBMaWFvLCBDaGFuZwoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
