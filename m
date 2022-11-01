@@ -4,82 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7981CC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 10:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CCAFA373D
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 11:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i8HdBkvYUeuuNX4mt4EA1Yr4xJAwlMrgEp0c9hMPA3s=; b=ZnpsAlptPbR+rj
-	7teYYegQMVJ6P3606YCzVS2xr7GQ2MV9OGzcJstbJhL0q7UBuY0/ODBMl7pkIg2grlvQrPf/6oks0
-	MfCOTllQ0dUwKIDLX65z5VbzRRcAlZFzNdc/Jv5Knfa4vhu+3D/svF8mjuEBkt1EI/ZH0OKRWq4jM
-	CAHjD7g5Su+KUHJdN4441drD4Eqb7/ThdxaqYdg1KZe1bv1vQSKiORv8ME437sLdpVfT6wWKqlhjr
-	SSPd1A90htUqA3k66O+W+ErTzw85cJXFUvU8mDpjwCjHC/ZkiK+PTYmTOPjFQdD8Z5r1qwxz+wBHJ
-	DKtGm21Ns1kkKUhquhdw==;
+	List-Owner; bh=O8q/Dop6ETmDqIC7W6aTZXy6Oaleguq8NKI6usdmHOE=; b=Kz0hH5IobD8KSH
+	cJz2Ynw8BsVjehwzHnfO27ayZ5rN4x32yJGxRvVbH3Flz+VCaWb8W8T8EZE5YEUItns6GpVzXyoAy
+	MDfTznkZfdZ4M/W8CnMi8fLuWfdbgptd8qIl7HdpmaQYGwsA/bQuEe07cjVUy29Z8JpMxrTgwNGxe
+	2K3O1tYUcExiqu2t4RddrgcujxF7iioXiDdvILdrr0vtqRWRllNh8f4zqs5V7K0y0/UJXouKaO0/z
+	5Lh9i6yIKoImrIUlu18OyrnsKc0Qjp5EwJbeOQr53VcM6wSNJI3h6NRo/FmjGIOxyo/9DewzISWXT
+	QzNIi0wA8ovuF1qYHg2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opotv-004Gdq-CS; Tue, 01 Nov 2022 10:53:47 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1opp7g-004S4p-CU; Tue, 01 Nov 2022 11:08:00 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opotr-004Ga4-Ra
-	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 10:53:45 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id y14so36027766ejd.9
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 03:53:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VE51n/1GC8VF4UVVmlMyIes/OSOnEdGpTVpioqfbzfk=;
-        b=FsAQjDtwcz/j/09SH+5+7TCrZXf/Kh4XWM0AppC3b2bXLCdj5zLXOyNjYmDOr0Q4yT
-         8qVeldMjyNmFPDZNSdNBwRrBNc/d0YeM/lrID3eqHuh7c3PWuvIDGC41EGrVmAHhbhP6
-         PNpWB/PRQdJcW1VyuF4m/xaWeOwLeTtn/lehjQfCDB6Q+CSWR7ZqC7lynLT0HAzbBT50
-         vYW9l/GBfi1dwxw3LW31ijFcFocIXPNDhZdPw3Q3A8eQJDEVrx+1LkqfUI0bpO6l7u8s
-         Qk6wxjT54448/RALaGU5PVSR3cwfSllpLs6m2xj57VtughVQHopApJS0k6hjp8BC5ub+
-         71iQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VE51n/1GC8VF4UVVmlMyIes/OSOnEdGpTVpioqfbzfk=;
-        b=JGkR6CQAFvXbapGXv2qTX4vNxfpRgZo1mj7uYzs1VeLAl0Rz8JYqmufiYY3Ncd6ZE/
-         Fqd88B99/9+qp1p+XYV2l9ZOUef21GHYr3C99jjodVgkgSF2BHG1sRrpwvu3KVAnzUzp
-         +rYTqihomH1wmQyq3lrAgTa2TombgSO+CIfOGb3oy8QvmS9vuhjoWCS+P8t2SsmRTxmx
-         tja6SSKIz1SC638ex8/s/6O9n/exZcvzt2uxuHWCrBVptMRkLepfglWeRe+fyF7PqzOI
-         EfGMZ3CjvIkgfwjy5xDJRFuLifAenaBo0HsHxjipDmXqIoLk+HLLrBqzVE3UBhdNywt2
-         h+QQ==
-X-Gm-Message-State: ACrzQf1xd7m0um11QFnyptnLgAipjGxDjWMUiSbz4dx8hiWSp9zPjN12
-	ELMHNA2T/Tp6GCDqh9D6HAhQx3aBllIyvg==
-X-Google-Smtp-Source: AMsMyM6IuBIWsYvAjCkPrvMeQKXwUc6bRYe4tiJ7ABWhlL3LYi2ENKVkGzwohHlW/F1lkh6YcTCGwg==
-X-Received: by 2002:a17:906:8a7c:b0:7ad:ad3a:b206 with SMTP id hy28-20020a1709068a7c00b007adad3ab206mr17249351ejc.345.1667300021560;
-        Tue, 01 Nov 2022 03:53:41 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id g11-20020a170906538b00b0078d9cd0d2d6sm4118852ejo.11.2022.11.01.03.53.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Nov 2022 03:53:41 -0700 (PDT)
-Date: Tue, 1 Nov 2022 11:53:40 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH 0/9] RISC-V: Apply Zicboz to clear_page and memset
-Message-ID: <20221101105340.uz6o7kdg3sl5gdmo@kamzik>
-References: <20221027130247.31634-1-ajones@ventanamicro.com>
- <20221101103711.poswtnd5cehzwf2s@kamzik>
+	id 1opp7b-004S1y-OK
+	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 11:07:58 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.53])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4N1nDT31sGzRnsc;
+	Tue,  1 Nov 2022 19:02:49 +0800 (CST)
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 1 Nov 2022 19:07:44 +0800
+Message-ID: <1fe22055-7458-e052-4438-0338da9e369c@huawei.com>
+Date: Tue, 1 Nov 2022 19:07:44 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221101103711.poswtnd5cehzwf2s@kamzik>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.4.0
+Subject: Re: [PATCH 1/8] riscv/kprobe: Prepare the skeleton to implement RISCV
+ OPTPROBES feature
+To: Conor Dooley <conor@kernel.org>, Chen Guokai
+	<chenguokai17@mails.ucas.ac.cn>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<rostedt@goodmis.org>, <mingo@redhat.com>, <sfr@canb.auug.org.au>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20221030090141.2550837-1-chenguokai17@mails.ucas.ac.cn>
+ <20221030090141.2550837-2-chenguokai17@mails.ucas.ac.cn>
+ <Y2AlEcVRibarLp8a@spud>
+From: "liaochang (A)" <liaochang1@huawei.com>
+In-Reply-To: <Y2AlEcVRibarLp8a@spud>
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemi500012.china.huawei.com (7.221.188.12)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_035343_899218_FE5D9D2A 
-X-CRM114-Status: GOOD (  43.92  )
+X-CRM114-CacheID: sfid-20221101_040756_179887_60BD76E8 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,134 +67,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 01, 2022 at 11:37:11AM +0100, Andrew Jones wrote:
-> On Thu, Oct 27, 2022 at 03:02:38PM +0200, Andrew Jones wrote:
-> > When the Zicboz extension is available we can more rapidly zero naturally
-> > aligned Zicboz block sized chunks of memory. As pages are always page
-> > aligned and are larger than any Zicboz block size will be, then
-> > clear_page() appears to be a good candidate for the extension. While cycle
-> > count and energy consumption should also be considered, we can be pretty
-> > certain that implementing clear_page() with the Zicboz extension is a win
-> > by comparing the new dynamic instruction count with its current count[1].
-> > Doing so we see that the new count is less than half the old count (see
-> > patch4's commit message for more details). Another candidate for the
-> > extension is memset(), but, since memset() isn't just used for zeroing
-> > memory and it accepts arbitrarily aligned addresses and arbitrary sizes,
-> > it's not as obvious if adding support for Zicboz will be an overall win.
-> > In order to make a determination, I've done some analysis and wrote my
-> > conclusions in the bullets below.
-> > 
-> > * When compiling the kernel without CONFIG_RISCV_ISA_ZICBOZ, memset()
-> >   doesn't change, so that's fine.
-> > 
-> > * The overhead added to memset() when the Zicboz extension isn't present,
-> >   but CONFIG_RISCV_ISA_ZICBOZ is selected, is 3 jumps to known targets,
-> >   which I believe is fine.
-> > 
-> > * The overhead added to a memset() invocation which is not zeroing memory
-> >   is 7 instructions, where 3 are branches. This seems fine and,
-> >   furthermore, memset() is almost always invoked to zero memory (99% [2]).
-> > 
-> > * When memset() is invoked to zero memory, the proposed Zicboz extended
-> >   memset() always has a lower dynamic instruction count than the current
-> >   memset() as long as the input address is Zicboz block aligned and the
-> >   length is >= the block size.
-> > 
-> > * When memset() is invoked to zero memory, the proposed Zicboz extended
-> >   memset() is always worse for unaligned or too small inputs than the
-> >   current memset(), but it's only at most a few dozen instructions worse.
-> >   I think this is probably fine, especially considering the large majority
-> >   of zeroing invocations are 64 bytes or larger and are aligned to a
-> >   power-of-2 boundary, 64-byte or larger (77% [2]).
-> 
-> FYI, I spotted a bug in the bpf script used for this result, so I fixed it
-> and reran it. The new result is 67%, which is no longer a large majority,
-> but still a solid majority.
-
-Additionally, I've now seen on a mostly idle system that at least half the
-objects getting zeroed were too small (< 64 bytes). Considering the memset
-profile is workload dependent, it's difficult to say with certainty that
-we should patch it. More experiments are likely necessary.
-
-> 
-> > 
-> > [1] I ported the functions under test to userspace and linked them with
-> >     a test program. Then, I ran them under gdb with a script[3] which
-> >     counted instructions by single stepping.
-> > 
-> > [2] I wrote bpftrace scripts[4] to count memset() invocations to see the
-> >     frequency of it being used to zero memory and have block size aligned
-> >     input addresses with block size or larger lengths. The workload was
-> >     just random desktop stuff including streaming video and compiling.
-> >     While I did run this on my x86 notebook, I still expect the data to
-> >     be representative on RISC-V. Note, x86 has clear_page() so the
-> >     memset() data regarding alignment and size weren't over inflated by
-> >     page zeroing invocations. Grepping also shows the large majority of
-> >     memset() calls are to zero memory (93%).
-> > 
-> > [3] https://gist.github.com/jones-drew/487791c956ceca8c18adc2847eec9c60
-> > [4] https://gist.github.com/jones-drew/1e860692cf6fc0fb2a82a04c9ce720fe
-> > 
-> > These patches are based on the following pending series
-> > 
-> > 1. "[PATCH v2 0/3] RISC-V: Ensure Zicbom has a valid block size"
-> >    20221024091309.406906-1-ajones@ventanamicro.com
-> > 
-> > 2. "[PATCH 0/8] riscv: improve boot time isa extensions handling"
-> >    20221006070818.3616-1-jszhang@kernel.org
-> >    Also including the additional patch proposed here
-> >    20221013162038.ehseju2neic2xu5z@kamzik
-> > 
-> > The patches are also available here
-> > https://github.com/jones-drew/linux/commits/riscv/zicboz
-> > 
-> > To test over QEMU this branch may be used to enable Zicboz
-> > https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicboz
-> > 
-> > To test running a KVM guest with Zicboz this kvmtool branch may be used
-> > https://github.com/jones-drew/kvmtool/commits/riscv/zicboz
-> > 
-> > Thanks,
-> > drew
-> > 
-> > Andrew Jones (9):
-> >   RISC-V: Factor out body of riscv_init_cbom_blocksize loop
-> >   RISC-V: Add Zicboz detection and block size parsing
-> >   RISC-V: insn-def: Define cbo.zero
-> >   RISC-V: Use Zicboz in clear_page when available
-> >   RISC-V: KVM: Provide UAPI for Zicboz block size
-> >   RISC-V: KVM: Expose Zicboz to the guest
-> >   RISC-V: lib: Improve memset assembler formatting
-> >   RISC-V: lib: Use named labels in memset
-> >   RISC-V: Use Zicboz in memset when available
-> > 
-> >  arch/riscv/Kconfig                  |  13 ++
-> >  arch/riscv/include/asm/cacheflush.h |   3 +-
-> >  arch/riscv/include/asm/hwcap.h      |   1 +
-> >  arch/riscv/include/asm/insn-def.h   |  50 ++++++
-> >  arch/riscv/include/asm/page.h       |   6 +-
-> >  arch/riscv/include/uapi/asm/kvm.h   |   2 +
-> >  arch/riscv/kernel/cpu.c             |   1 +
-> >  arch/riscv/kernel/cpufeature.c      |  10 ++
-> >  arch/riscv/kernel/setup.c           |   2 +-
-> >  arch/riscv/kvm/vcpu.c               |  11 ++
-> >  arch/riscv/lib/Makefile             |   1 +
-> >  arch/riscv/lib/clear_page.S         |  28 ++++
-> >  arch/riscv/lib/memset.S             | 241 +++++++++++++++++++---------
-> >  arch/riscv/mm/cacheflush.c          |  64 +++++---
-> >  14 files changed, 325 insertions(+), 108 deletions(-)
-> >  create mode 100644 arch/riscv/lib/clear_page.S
-> > 
-> > -- 
-> > 2.37.3
-> > 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGnvvIxDb25vciwKCuWcqCAyMDIyLzExLzEgMzo0MiwgQ29ub3IgRG9vbGV5IOWGmemBkzoKPiBI
+ZXkgQ2hlbiBHdW9rYWksCj4gCj4gT24gU3VuLCBPY3QgMzAsIDIwMjIgYXQgMDU6MDE6MzRQTSAr
+MDgwMCwgQ2hlbiBHdW9rYWkgd3JvdGU6Cj4+IEZyb206IExpYW8gQ2hhbmcgPGxpYW9jaGFuZzFA
+aHVhd2VpLmNvbT4KPj4KPj4gUHJlcGFyZSBza2VsZXRvbiB0byBpbXBsZW1lbnQgb3B0aW1pemVk
+IGtwcm9iZSBvbiBSSVNDViwgaXQgY29uc2lzdHMKPj4gb2YgTWFrZmlsZSwgS2NvbmZpZyBhbmQg
+c29tZSBhcmNoaXRlY3R1cmUgc3BlY2lmaWMgZmlsZXM6IGtwcm9iZS5oIGFuZAo+PiBvcHQuYyBv
+cHQuYyBpbmNsdWRlcyBzb21lIG1hY3JvLCB0eXBlIGRlZmluaXRpb24gYW5kIGZ1bmN0aW9ucyBy
+ZXF1aXJlZAo+PiBieSBrcHJvYmUgZnJhbWV3b3JrLCBvcHRfdHJhbXBvbGluZS5TIHByb3ZpZGVz
+IGEgcGllY2Ugb2YgYXNzZW1ibHkgY29kZQo+PiB0ZW1wbGF0ZSB1c2VkIHRvIGNvbnN0cnVjdCB0
+aGUgZGV0b3VyIGJ1ZmZlciBhcyB0aGUgdGFyZ2V0IG9mIGxvbmcganVtcAo+PiBpbnN0cnVjdGlv
+bihzKSBmb3IgZWFjaCBvcHRpbXplZCBrcHJvYmUuCj4+Cj4+IFNpbmNlIHRoZSBqdW1wIHJhbmdl
+IG9mIFBDLXJlbGF0aXZlIGluc3RydWN0aW9uIEpBTCBpcyArLy0xTSwgdGhhdCBpcwo+PiB0b28g
+c21hbGwgdG8gcmVhY2ggdGhlIGRldG91ciBidWZmZXIsIGhlbmNlIHRoZSBmb3VkYW1lbnRhbCBp
+ZGVhIHRvCj4+IGFkZHJlc3MgT1BUUFJPQkVTIG9uIFJJU0NWIGlzIHRvIHJlcGxhY2UgJ0VCUkVB
+Sycgd2l0aCAnQVVJUEMrSkFMUicuIHdoaWNoCj4+IG1lYW5zIGl0IG5lZWRzIHRvIGNsb2JiZXIg
+b25lIG1vcmUgaW5zdHJ1Y3Rpb24gYmVzaWRlIHRoZSBrcHJvYmUKPj4gaW5zdHJ1Y3Rpb24sIGZ1
+cnRoZXJtb3JlLCBSSVNDViBzdXBwb3J0cyBoeWJpcmQgUlZJIGFuZCBSVkMgaW4gc2luZ2xlCj4+
+IGtlcm5lbCBiaW5hcnksIHNvIGluIHRoZW9yeSBhIHBhaXIgb2YgJ0FVSVBDL0pBTFInIGlzIGFi
+b3V0IHRvIGNsb2JiZXIKPj4gMTAgYnl0ZXMoMyBSVkMgYW5kIDEgUlZJLCAyIGJ5dGVzIGlzIHBh
+ZGRpbmcgZm9yIGFsaWdubWVudCkgYXQgd29yc3QKPj4gY2FzZS4gVGhlIHNlY29uZCBoYXJkc29t
+ZSBwcm9ibGVtIGlzIGxvb2tpbmcgZm9yIG9uZSBpbnRlZ2VyIHJlZ2lzdGVyIGFzCj4+IHRoZSBk
+ZXN0aW5hdGlvbiBvZiAnQVVJUEMvSkFMUicgd2l0aG91dCBhbnkgc2lkZS1lZmZlY3QuCj4+Cj4+
+IE1vcmUgc29sdXRpb24gZGV0YWlscyB3aWxsIGJlIGludHJvZHVjZWQgaW4gdGhlIGNvbWluZyBj
+b21taXRzLgo+IAo+IG5pdDogeW91IGNhbiBkcm9wIHRoaXMgcmVmZXJlbmNlIHRvIGZ1dHVyZSBj
+b21taXRzLgo+IAo+Pgo+PiBDby1kZXZlbG9wZWQtYnk6IENoZW4gR3Vva2FpIDxjaGVuZ3Vva2Fp
+MTdAbWFpbHMudWNhcy5hYy5jbj4KPj4gU2lnbmVkLW9mZi1ieTogQ2hlbiBHdW9rYWkgPGNoZW5n
+dW9rYWkxN0BtYWlscy51Y2FzLmFjLmNuPgo+PiBTaWduZWQtb2ZmLWJ5OiBMaWFvIENoYW5nIDxs
+aWFvY2hhbmcxQGh1YXdlaS5jb20+Cj4gCj4gRllJLCB5b3VyIHNpZ25vZmYgc2hvdWxkIGNvbWUg
+bGFzdCBzaW5jZSB5b3UncmUgc2VuZGluZyB0aGUgcGF0Y2hlcywgc28KPiB0aGlzIHdvdWxkIGJl
+Y29tZToKPiAKPj4gU2lnbmVkLW9mZi1ieTogTGlhbyBDaGFuZyA8bGlhb2NoYW5nMUBodWF3ZWku
+Y29tPgo+PiBDby1kZXZlbG9wZWQtYnk6IENoZW4gR3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFpbHMu
+dWNhcy5hYy5jbj4KPj4gU2lnbmVkLW9mZi1ieTogQ2hlbiBHdW9rYWkgPGNoZW5ndW9rYWkxN0Bt
+YWlscy51Y2FzLmFjLmNuPgo+IAo+IEkgbm90aWNlZCBvbiBzb21lIG9mIHRoZSBvdGhlciBwYXRj
+aGVzIHRoYXQgeW91ciBTb0IgaXMgbWlzc2luZyB0aGVyZSwKPiBmb3IgZXhhbXBsZSBwYXRjaCAy
+LgoKWWVzLCBpIGhhdmUgc2VudCBwYXRjaCAyIHRvIG1haWxpbmcgbGlzdCBsb25nIHRpbWUgYWdv
+LCBnb3Qgc29tZSBmZWVkYmFjayBmcm9tClBhbG1lciBEZWJiZWx0LiBCZWNhdXNlIHRoYXQgcGF0
+Y2ggaXMgZGVzaWduZWQgZm9yIHJpc2N2IG9wdHByb2JlLCBzbyBpIGJyaW5nIGl0CnRvIHRoaXMg
+cGF0Y2hzZXQuCgpUaGFua3MuCgo+IAo+IFRoYW5rcywKPiBDb25vci4KPiAKPj4gLS0tCj4+ICBh
+cmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICB8ICAxICsKPj4gIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20va3Byb2Jlcy5oICAgICAgICAgIHwgMzIgKysrKysrKysrKysrKysK
+Pj4gIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZSAgICAgICAgIHwgIDEgKwo+PiAg
+YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdC5jICAgICAgICAgICAgfCA1MSArKysrKysrKysr
+KysrKysrKysrKysrKwo+PiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL29wdF90cmFtcG9saW5l
+LlMgfCAxMiArKysrKysKPj4gIDUgZmlsZXMgY2hhbmdlZCwgOTcgaW5zZXJ0aW9ucygrKQo+PiAg
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHQuYwo+PiAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9vcHRfdHJhbXBvbGluZS5T
+Cj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25m
+aWcKPj4gaW5kZXggNmI0OGEzYWU5ODQzLi5jYTI5MzA2YzkzZTIgMTAwNjQ0Cj4+IC0tLSBhL2Fy
+Y2gvcmlzY3YvS2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTk5LDYg
+Kzk5LDcgQEAgY29uZmlnIFJJU0NWCj4+ICAJc2VsZWN0IEhBVkVfS1BST0JFUyBpZiAhWElQX0tF
+Uk5FTAo+PiAgCXNlbGVjdCBIQVZFX0tQUk9CRVNfT05fRlRSQUNFIGlmICFYSVBfS0VSTkVMCj4+
+ICAJc2VsZWN0IEhBVkVfS1JFVFBST0JFUyBpZiAhWElQX0tFUk5FTAo+PiArCXNlbGVjdCBIQVZF
+X09QVFBST0JFUyBpZiAhWElQX0tFUk5FTAo+PiAgCXNlbGVjdCBIQVZFX01PVkVfUE1ECj4+ICAJ
+c2VsZWN0IEhBVkVfTU9WRV9QVUQKPj4gIAlzZWxlY3QgSEFWRV9QQ0kKPj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3Byb2Jlcy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9rcHJvYmVzLmgKPj4gaW5kZXggMjE3ZWY4OWYyMmI5Li4yMmI3M2EyZmQxZmQgMTAwNjQ0Cj4+
+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3Byb2Jlcy5oCj4+ICsrKyBiL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20va3Byb2Jlcy5oCj4+IEBAIC00Myw1ICs0MywzNyBAQCBib29sIGtwcm9i
+ZV9zaW5nbGVfc3RlcF9oYW5kbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzKTsKPj4gIHZvaWQgX19r
+cmV0cHJvYmVfdHJhbXBvbGluZSh2b2lkKTsKPj4gIHZvaWQgX19rcHJvYmVzICp0cmFtcG9saW5l
+X3Byb2JlX2hhbmRsZXIoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+PiAgCj4+ICsjaWZkZWYgQ09O
+RklHX09QVFBST0JFUwo+PiArCj4+ICsvKiBvcHRpbnNuIHRlbXBsYXRlIGFkZHJlc3NlcyAqLwo+
+PiArZXh0ZXJuIF9fdmlzaWJsZSBrcHJvYmVfb3Bjb2RlX3Qgb3B0cHJvYmVfdGVtcGxhdGVfZW50
+cnlbXTsKPj4gK2V4dGVybiBfX3Zpc2libGUga3Byb2JlX29wY29kZV90IG9wdHByb2JlX3RlbXBs
+YXRlX2VuZFtdOwo+PiArCj4+ICsjZGVmaW5lIE1BWF9PUFRJTlNOX1NJWkUJCQkJXAo+PiArCSgo
+dW5zaWduZWQgbG9uZylvcHRwcm9iZV90ZW1wbGF0ZV9lbmQgLQkJXAo+PiArCSAodW5zaWduZWQg
+bG9uZylvcHRwcm9iZV90ZW1wbGF0ZV9lbnRyeSkKPj4gKwo+PiArLyoKPj4gKyAqIEZvciBSVkkg
+YW5kIFJWQyBoeWJpcmQgZW5jb2Rpbmcga2VybmVsLCBhbHRob3VnaHQgbG9uZyBqdW1wIGp1c3Qg
+bmVlZHMKPj4gKyAqIDIgUlZJIGluc3RydWN0aW9ucyhBVUlQQytKQUxSKSwgb3B0aW1pemVkIGlu
+c3RydWN0aW9ucyBpcyAxMCBieXRlcyBsb25nCj4+ICsgKiBhdCBtb3N0IHRvIGVuc3VyZSBubyBS
+Vkkgd291bGQgYmUgdHJ1bmNhdGVkIGFjdHVhbGx5LCBzbyBpdCBtZWFucyBmb3VyCj4+ICsgKiBj
+b21iaW5hdGlvbnM6Cj4+ICsgKiAtIDIgUlZJCj4+ICsgKiAtIDQgUlZDCj4+ICsgKiAtIDIgUlZD
+ICsgMSBSVkkKPj4gKyAqIC0gMyBSVkMgKyAxIFJWSSAodHJ1bmNhdGVkLCBuZWVkIHBhZGRpbmcp
+Cj4+ICsgKi8KPj4gKyNkZWZpbmUgTUFYX0NPUElFRF9JTlNOCQk0Cj4+ICsjZGVmaW5lIE1BWF9P
+UFRJTUlaRURfTEVOR1RICTEwCj4+ICsKPj4gK3N0cnVjdCBhcmNoX29wdGltaXplZF9pbnNuIHsK
+Pj4gKwlrcHJvYmVfb3Bjb2RlX3QgY29waWVkX2luc25bTUFYX0NPUElFRF9JTlNOXTsKPj4gKwkv
+KiBkZXRvdXIgY29kZSBidWZmZXIgKi8KPj4gKwlrcHJvYmVfb3Bjb2RlX3QgKmluc247Cj4+ICsJ
+dW5zaWduZWQgbG9uZyBsZW5ndGg7Cj4+ICsJaW50IHJkOwo+PiArfTsKPj4gKwo+PiArI2VuZGlm
+IC8qIENPTkZJR19PUFRQUk9CRVMgKi8KPj4gICNlbmRpZiAvKiBDT05GSUdfS1BST0JFUyAqLwo+
+PiAgI2VuZGlmIC8qIF9BU01fUklTQ1ZfS1BST0JFU19IICovCj4+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMv
+TWFrZWZpbGUKPj4gaW5kZXggN2YwODQwZGNjMzFiLi42MjU1YjQ2MDA4NzUgMTAwNjQ0Cj4+IC0t
+LSBhL2FyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZQo+PiArKysgYi9hcmNoL3Jpc2N2
+L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUKPj4gQEAgLTMsNCArMyw1IEBAIG9iai0kKENPTkZJR19L
+UFJPQkVTKQkJKz0ga3Byb2Jlcy5vIGRlY29kZS1pbnNuLm8gc2ltdWxhdGUtaW5zbi5vCj4+ICBv
+YmotJChDT05GSUdfS1BST0JFUykJCSs9IGtwcm9iZXNfdHJhbXBvbGluZS5vCj4+ICBvYmotJChD
+T05GSUdfS1BST0JFU19PTl9GVFJBQ0UpCSs9IGZ0cmFjZS5vCj4+ICBvYmotJChDT05GSUdfVVBS
+T0JFUykJCSs9IHVwcm9iZXMubyBkZWNvZGUtaW5zbi5vIHNpbXVsYXRlLWluc24ubwo+PiArb2Jq
+LSQoQ09ORklHX09QVFBST0JFUykJCSs9IG9wdC5vIG9wdF90cmFtcG9saW5lLm8KPj4gIENGTEFH
+U19SRU1PVkVfc2ltdWxhdGUtaW5zbi5vID0gJChDQ19GTEFHU19GVFJBQ0UpCj4+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvb3B0LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9w
+cm9iZXMvb3B0LmMKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAw
+Li41NmM4YTIyN2M4NTcKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9wcm9iZXMvb3B0LmMKPj4gQEAgLTAsMCArMSw1MSBAQAo+PiArLy8gU1BEWC1MaWNlbnNlLUlk
+ZW50aWZpZXI6IEdQTC0yLjAtb3ItbGF0ZXIKPj4gKy8qCj4+ICsgKiAgS2VybmVsIFByb2JlcyBK
+dW1wIE9wdGltaXphdGlvbiAoT3B0cHJvYmVzKQo+PiArICoKPj4gKyAqIENvcHlyaWdodCAoQykg
+R3Vva2FpIENoZW4sIDIwMjIKPj4gKyAqIEF1dGhvcjogR3Vva2FpIENoZW4gY2hlbmd1b2thaTE3
+QG1haWxzLnVjYXMuYWMuY24KPj4gKyAqLwo+PiArCj4+ICsjZGVmaW5lIHByX2ZtdChmbXQpCSJv
+cHRwcm9iZTogIiBmbXQKPj4gKwo+PiArI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KPj4gKyNp
+bmNsdWRlIDxhc20va3Byb2Jlcy5oPgo+PiArCj4+ICtpbnQgYXJjaF9wcmVwYXJlZF9vcHRpbnNu
+KHN0cnVjdCBhcmNoX29wdGltaXplZF9pbnNuICpvcHRpbnNuKQo+PiArewo+PiArCXJldHVybiAw
+Owo+PiArfQo+PiArCj4+ICtpbnQgYXJjaF9jaGVja19vcHRpbWl6ZWRfa3Byb2JlKHN0cnVjdCBv
+cHRpbWl6ZWRfa3Byb2JlICpvcCkKPj4gK3sKPj4gKwlyZXR1cm4gMDsKPj4gK30KPj4gKwo+PiAr
+aW50IGFyY2hfcHJlcGFyZV9vcHRpbWl6ZWRfa3Byb2JlKHN0cnVjdCBvcHRpbWl6ZWRfa3Byb2Jl
+ICpvcCwKPj4gKwkJCQkgIHN0cnVjdCBrcHJvYmUgKm9yaWcpCj4+ICt7Cj4+ICsJcmV0dXJuIDA7
+Cj4+ICt9Cj4+ICsKPj4gK3ZvaWQgYXJjaF9yZW1vdmVfb3B0aW1pemVkX2twcm9iZShzdHJ1Y3Qg
+b3B0aW1pemVkX2twcm9iZSAqb3ApCj4+ICt7Cj4+ICt9Cj4+ICsKPj4gK3ZvaWQgYXJjaF9vcHRp
+bWl6ZV9rcHJvYmVzKHN0cnVjdCBsaXN0X2hlYWQgKm9wbGlzdCkKPj4gK3sKPj4gK30KPj4gKwo+
+PiArdm9pZCBhcmNoX3Vub3B0aW1pemVfa3Byb2JlcyhzdHJ1Y3QgbGlzdF9oZWFkICpvcGxpc3Qs
+Cj4+ICsJCQkgICAgIHN0cnVjdCBsaXN0X2hlYWQgKmRvbmVfbGlzdCkKPj4gK3sKPj4gK30KPj4g
+Kwo+PiArdm9pZCBhcmNoX3Vub3B0aW1pemVfa3Byb2JlKHN0cnVjdCBvcHRpbWl6ZWRfa3Byb2Jl
+ICpvcCkKPj4gK3sKPj4gK30KPj4gKwo+PiAraW50IGFyY2hfd2l0aGluX29wdGltaXplZF9rcHJv
+YmUoc3RydWN0IG9wdGltaXplZF9rcHJvYmUgKm9wLAo+PiArCQkJCSBrcHJvYmVfb3Bjb2RlX3Qg
+KmFkZHIpCj4+ICt7Cj4+ICsJcmV0dXJuIDA7Cj4+ICt9Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9wcm9iZXMvb3B0X3RyYW1wb2xpbmUuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3By
+b2Jlcy9vcHRfdHJhbXBvbGluZS5TCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAw
+MDAwMDAwMDAwMC4uMTYxNjBjNDM2N2ZmCj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvcHJvYmVzL29wdF90cmFtcG9saW5lLlMKPj4gQEAgLTAsMCArMSwxMiBAQAo+
+PiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seSAqLwo+PiArLyoKPj4g
+KyAqIENvcHlyaWdodCAoQykgMjAyMiBHdW9rYWkgQ2hlbgo+PiArICovCj4+ICsKPj4gKyNpbmNs
+dWRlIDxsaW51eC9saW5rYWdlLmg+Cj4+ICsKPj4gKyNpbmNsZHVlIDxhc20vY3NyLmg+Cj4+ICsj
+aW5jbHVkZSA8YXNtL2FzbS1vZmZzZXRzLmg+Cj4+ICsKPj4gK1NZTV9FTlRSWShvcHRwcm9iZV90
+ZW1wbGF0ZV9lbnRyeSwgU1lNX0xfR0xPQkFMLCBTWU1fQV9OT05FKQo+PiArU1lNX0VOVFJZKG9w
+dHByb2JlX3RlbXBsYXRlX2VuZCwgU1lNX0xfR0xPQkFMLCBTWU1fQV9OT05FKQo+PiAtLSAKPj4g
+Mi4yNS4xCj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YKPiAuCgotLSAKQlIsCkxpYW8sIENoYW5nCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
