@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19479C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 14:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D56C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 14:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YslXAxz/JJDC8/4H7oVzJMyxIoyU6VGZk1TEWcdA0iM=; b=CBuJVtLBj3EW+z
-	hH/WDT2tGgowRm3bkS+cwrAJLsdzAI6KucyXdwR5JLTvQ0FmWYC6WnFaJWWCuVUQQ9cIWWk96a85I
-	GVEDYXa5/8fI1fuXs51ta25BC/MbhOfk8IIG9XJfo0f4FUFpydqnoMneiZaggR+Lm+3fY6CcvjSK9
-	78A4eBHZYSt55SgBKN3Jl0B7EWM9M1q/itBLq2z4OIOUQ/xoxllaa3xer/B95VZtzzNiGUJSm4i7E
-	QUYlu8aUI30qDfweErL0Hu/MTRoyMLERyewNKN67Zf3gdDf9aNDsi9nUNKqVXgJ2T3wd0Yfev/RvO
-	LaHJKeCZnH5SMybHHVrg==;
+	List-Owner; bh=i/u5MzyQU9Wzz1PgJQr4g1MpU4fbPRzHp/4Cx3ocXTU=; b=T7C1WbkxOjKLcE
+	e5CsDEfebr144ABCw9UDnQcUq9u3U1V1JY51C51TV5D2CGN7MLLbM3xGuksBJAAWlHCvFjW/6Zm3q
+	nSHFHTMDWOxaUQ6F0qqJMorGiWcNnr90lt9+zmW/W0yBFlzFSilmt49KyaehNmOa8M12T63ihwe2q
+	iu+xTT7nXUWI2Zyl7CAKyxmlu/zrnQnKvtv7GLCVTktHXJXZhlZS/mGPMC1it3vzN+jDtxcEU0FC3
+	rovI3eY6q5nmXM606guzV8WFleOY5tVUBSo8nZ+hDFcn9xOBgtiIvRJZXxfOztUKkf8GJuvsGaerl
+	rSxIfJr4mfUrNvtNWHRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opsM4-005VRn-Fd; Tue, 01 Nov 2022 14:35:04 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1opsMs-005VrU-NQ; Tue, 01 Nov 2022 14:35:54 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opsM1-005VNc-Mn
-	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 14:35:03 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id i3so13598651pfc.11
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 07:35:00 -0700 (PDT)
+	id 1opsMq-005Vpd-8t
+	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 14:35:53 +0000
+Received: by mail-ej1-x633.google.com with SMTP id sc25so37452381ejc.12
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 07:35:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NR0zkcTR64wHAjX9AnDry5ZpqjNrgt1ho9rCOwWk1u4=;
-        b=PrmfwbdEoaA+/aYLn6KyPDuRPIrF4ku2zpK97abpZpsznZm3urteLLw9eV0BBgWNwM
-         Bjo54YGJEsSxkGd4Trm8DnISuPbfN4cRiqrZXElAhSWk+T6LuEebogO1ylpJrCtLrLk+
-         0HPxBa8a25+1p1YfDdYLr+uXUeXNpKLHGnoZ0+m1i7AV4BqdVpHtxlzeKv1CJukCveEJ
-         I0CQ57IhbBLeODYGchxZnqqbt6rH9n5Vi8m9aV7H3xN/mZrk0pS5BLi0G7odfFT8KJ8D
-         5HERjnKGl3waiShgzUrwLCgmZERsHYutExRuYTM6/kmqaliV9H/tva8mc3Hz8j2kJhhH
-         eI6w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JYPB288t3Efstem95rPO+YdVhZEmDwnMRaqEEG/LRfc=;
+        b=FgSzhWqwYbV9oo9K4oYeSnfnR7vD9i3Bo6sxoGhp7IiYzoxbuNbloOaeVKhvQJCE+3
+         kHax4jT2UFvyhLC5+y6ryWuXzsHClK3qwxclxrQhf8+ZT1vGO5RrHuYXU559b8TRm8qe
+         2TT3oKvGXJw/eJZJlMqU6SCjJqhbYc96FmXPS1IAEUhl3DoCWVRVar6K8XKqVqOfB5W3
+         dy4Tz/5JfyrSTIHu39fZM4Nk8ZsAsBM3pAQ8V8lAPbkefW7YWb+Z2FW9Zg62ZRRX3yl+
+         iJWWDYSxeK0rp0UQkkY02SCudm3McNPWuJ6is8xEC3WLwDwkfttRdIaB+Rt/6XPkcnZf
+         KVkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NR0zkcTR64wHAjX9AnDry5ZpqjNrgt1ho9rCOwWk1u4=;
-        b=CqQqCIdQR3G/d5ivFt6yNkNt0NFMbbZGWk49kjyO6c6dLllX+1ohPd6L/cqo8Tfmo1
-         1XYZ3jX0LlSuxuiZUgvLIUBq61x76uWKZRCerQklQcG3onQ6GjuPZjcJy4kR/1jZSGdb
-         8H4UiYpQNoQHt/1avZtOwC6dkRGSHwTtmX0qoJacsUT3qYEz7TxpDKSNuJkwldwOx7NJ
-         /N8qZIvvKA6l8wRcGmBxpok9soDdMnAVZCq5RYlgLpEouNVxA0/HGAENUXn0wUm99YLZ
-         6bKMmQHixGCSi2USzBb9oc3HqfPjLzSrSxFAGM0Qx7u0OLTUurNt7WjAIfl8AUxJSh3L
-         rPXg==
-X-Gm-Message-State: ACrzQf0+WgPnRZylO9bhtvF42qAVIbBHeWJHXFw3Ic5euEzAxdHTWPG1
-	t/P6tQewoMjKwhlekpMl74C1zA==
-X-Google-Smtp-Source: AMsMyM5ziTFAirnAfSVMBfXauwPF5l+do40/tZsapEiJXWEdNzYhHb0bMdaYzsJPlxk7HV/celXeBQ==
-X-Received: by 2002:a63:eb03:0:b0:46f:80a3:737d with SMTP id t3-20020a63eb03000000b0046f80a3737dmr141167pgh.447.1667313299873;
-        Tue, 01 Nov 2022 07:34:59 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.80.52])
-        by smtp.gmail.com with ESMTPSA id o20-20020a170903009400b0018685aaf41dsm6449055pld.18.2022.11.01.07.34.56
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JYPB288t3Efstem95rPO+YdVhZEmDwnMRaqEEG/LRfc=;
+        b=4b6HA/5rNNEQGLgjcIZnu/E6ftxP7K0JzpSlnI1Cimib3Brv9N0Av3W3ckF+gtcMxJ
+         b7Ku1021La6JcQRldTiGXrgnkyr1OjhF3se76fMhXK2yZSvlMQ2iNw3vMU5mnajz3kId
+         dZfuq70xs1URMRJIKglV7cQmpPkg1VtB4TOlm0cHLj5svvdmsUFMIHJ3DPRyRbhNh6jh
+         cFjng4pRJHwTvql/TAeR+/dyLuj5AnBBxpt2j+jSk+uY0pYMzaHuCQ8aX8MGGh6kp5kb
+         AadZOIq2wsdkQSP5Git0fxuchJG8SJzpQrF/S04P0MSAKqadWrWMWojJ/qJ0lzNfv1il
+         n1jA==
+X-Gm-Message-State: ACrzQf0y8YkIlHshDPScSeiB1TlQ3TXW231dOKvBr2p9HKIMwhxQ0pdH
+	dp1q6RnDHwd1Csh6uPw1Z8OEVg==
+X-Google-Smtp-Source: AMsMyM7EX+j90ZoHRKgqfXGs78hwQNNbX8fumBaOW8R2gLNs5oMsANxHEyyD3k64b09MuAf//jzV1g==
+X-Received: by 2002:a17:906:dc8c:b0:7ad:a030:c305 with SMTP id cs12-20020a170906dc8c00b007ada030c305mr18221724ejc.132.1667313350061;
+        Tue, 01 Nov 2022 07:35:50 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id eh22-20020a0564020f9600b00461bacee867sm4584688edb.25.2022.11.01.07.35.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Nov 2022 07:34:59 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
+        Tue, 01 Nov 2022 07:35:49 -0700 (PDT)
+Date: Tue, 1 Nov 2022 15:35:48 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
 	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v10 7/7] RISC-V: Use IPIs for remote icache flush when possible
-Date: Tue,  1 Nov 2022 20:04:00 +0530
-Message-Id: <20221101143400.690000-8-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221101143400.690000-1-apatel@ventanamicro.com>
-References: <20221101143400.690000-1-apatel@ventanamicro.com>
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [RFC  7/9] RISC-V: KVM: Implement trap & emulate for hpmcounters
+Message-ID: <20221101143548.plvlhedzt3oifa3u@kamzik>
+References: <20220718170205.2972215-1-atishp@rivosinc.com>
+ <20220718170205.2972215-8-atishp@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220718170205.2972215-8-atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_073501_774188_684711E2 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20221101_073552_333307_44D55248 
+X-CRM114-Status: GOOD (  24.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +97,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If we have specialized interrupt controller (such as AIA IMSIC) which
-allows supervisor mode to directly inject IPIs without any assistance
-from M-mode or HS-mode then using such specialized interrupt controller,
-we can do remote icache flushe directly from supervisor mode instead of
-using the SBI RFENCE calls.
+On Mon, Jul 18, 2022 at 10:02:03AM -0700, Atish Patra wrote:
+> As the KVM guests only see the virtual PMU counters, all hpmcounter
+> access should trap and KVM emulates the read access on behalf of guests.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/kvm_vcpu_pmu.h | 16 +++++++++
+>  arch/riscv/kvm/vcpu_insn.c            |  1 +
+>  arch/riscv/kvm/vcpu_pmu.c             | 47 +++++++++++++++++++++++----
+>  3 files changed, 57 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> index bffee052f2ae..5410236b62a8 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+> @@ -39,6 +39,19 @@ struct kvm_pmu {
+>  #define pmu_to_vcpu(pmu)  (container_of((pmu), struct kvm_vcpu, arch.pmu))
+>  #define pmc_to_pmu(pmc)   (&(pmc)->vcpu->arch.pmu)
+>  
+> +#if defined(CONFIG_32BIT)
+> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> +{ .base = CSR_CYCLEH,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm }, \
+> +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
+> +#else
+> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> +{ .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
+> +#endif
+> +
+> +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> +				unsigned long *val, unsigned long new_val,
+> +				unsigned long wr_mask);
+> +
+>  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, unsigned long *out_val);
+>  int kvm_riscv_vcpu_pmu_ctr_info(struct kvm_vcpu *vcpu, unsigned long cidx,
+>  				unsigned long *ctr_info);
+> @@ -59,6 +72,9 @@ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
+>  #else
+>  struct kvm_pmu {
+>  };
+> +#define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+> +{ .base = 0,      .count = 0, .func = NULL },
+> +
+>  
+>  static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+>  {
+> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> index 0aa334f853c8..7c2a4b1a69f7 100644
+> --- a/arch/riscv/kvm/vcpu_insn.c
+> +++ b/arch/riscv/kvm/vcpu_insn.c
+> @@ -215,6 +215,7 @@ struct csr_func {
+>  };
+>  
+>  static const struct csr_func csr_funcs[] = {
+> +	KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS
+>  };
+>  
+>  /**
+> diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+> index 3168ed740bdd..5434051f495d 100644
+> --- a/arch/riscv/kvm/vcpu_pmu.c
+> +++ b/arch/riscv/kvm/vcpu_pmu.c
+> @@ -14,6 +14,46 @@
+>  #include <asm/kvm_vcpu_pmu.h>
+>  #include <linux/kvm_host.h>
+>  
+> +int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+> +				unsigned long *out_val)
+> +{
+> +	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +	struct kvm_pmc *pmc;
+> +	u64 enabled, running;
+> +
+> +	if (!kvpmu)
+> +		return -EINVAL;
+> +
+> +	pmc = &kvpmu->pmc[cidx];
+> +	if (!pmc->perf_event)
+> +		return -EINVAL;
+> +
+> +	pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
+> +	*out_val = pmc->counter_val;
+> +
+> +	return 0;
+> +}
+> +
+> +int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> +				unsigned long *val, unsigned long new_val,
+> +				unsigned long wr_mask)
+> +{
+> +	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> +	int cidx, ret = KVM_INSN_CONTINUE_NEXT_SEPC;
+> +
+> +	if (!kvpmu)
+> +		return KVM_INSN_EXIT_TO_USER_SPACE;
+> +	//TODO: Should we check if vcpu pmu is initialized or not!
 
-This patch extends remote icache flush functions to use supervisor mode
-IPIs whenever direct supervisor mode IPIs.are supported by interrupt
-controller.
+I guess it depends on the path to this call. It'd be best to keep the
+checks to the minimum, so if this isn't a top level call then I'd say
+no, but we need to check in the top level.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/mm/cacheflush.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+> +	if (wr_mask)
+> +		return KVM_INSN_ILLEGAL_TRAP;
+> +	cidx = csr_num - CSR_CYCLE;
+> +
+> +	if (kvm_riscv_vcpu_pmu_ctr_read(vcpu, cidx, val) < 0)
+> +		return KVM_INSN_EXIT_TO_USER_SPACE;
+> +
+> +	return ret;
+> +}
+> +
+>  int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu, unsigned long *out_val)
+>  {
+>  	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+> @@ -60,13 +100,6 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+>  	return 0;
+>  }
+>  
+> -int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+> -				unsigned long *out_val)
+> -{
+> -	/* TODO */
+> -	return 0;
+> -}
+> -
+>  int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+>  {
+>  	int i = 0, num_hw_ctrs, num_fw_ctrs, hpm_width;
+> -- 
+> 2.25.1
+>
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index 57b40a350420..f10cb47eac3a 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -19,7 +19,7 @@ void flush_icache_all(void)
- {
- 	local_flush_icache_all();
- 
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
-+	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
- 		sbi_remote_fence_i(NULL);
- 	else
- 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
-@@ -67,7 +67,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
- 		 * with flush_icache_deferred().
- 		 */
- 		smp_mb();
--	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-+	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
-+		   !riscv_use_ipi_for_rfence()) {
- 		sbi_remote_fence_i(&others);
- 	} else {
- 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
--- 
-2.34.1
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
