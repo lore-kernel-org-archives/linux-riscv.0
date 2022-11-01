@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107C9FA373D
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 12:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF47EECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Nov 2022 13:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ky001+KHTf4/oU18yb7Hnc0nySt6IpLylTe3yDMqbe4=; b=mx6I2SYmgpsU6T
-	EuCkwO//yoMai6+V5wR1lIegun2A9uaWib8MdK2e3c9cweEnfeSlnBeoWrkIoD5ZXUwMBmlyjsS4Y
-	UGFXTcdiJoGqEZiqrgeJTSqvqcQzCQLjzOkbLAsH7WUncZxBeq6F4u4canK2NQqFpo3BV9UxzIUUM
-	f+ny3y1uFGrLADJDbH7kgoOKDHjSW18yI2Z60cEBwy1XNecY++xroXO/I5pNT9JsFPdOD+xE0X7Rx
-	appxIV49xQkoXo5bfui8e1t9Dsz/esAUK8ThebIZhrme6++yawDPTEA98jGuX/Qx2KOD0hTLINq5V
-	4SN0Gwfe1ucq7WTBLIvQ==;
+	List-Owner; bh=q/L3fEM3SywCJ0DAK0QUGy6fjOQK4smJ+QnQMK/8AHs=; b=Fpyx83yaVmiCcI
+	mxcH0t/jvbJPWtrgMHAiiQrnvzwqKcT2noy72zLfXQra8OrE7oHbfsqn4TtxKY72jFcJip7Hfql+k
+	T5/M4Ip+uFEzZeIlvS9fHWN6wbooUiY0sZtq4HYef6Jmvznga+bgbjvrD0AXpwZSYvx2ajMW2i3Yb
+	N4OjcPR/vP4nZ46kjydcb3KR2c356fMSfbDGpRBEUuSRUx92qhV+Ugffg5+h7csK9f8qTaz9Bziru
+	cz6bhanoGlpcCtjEmy4RQIQ77A4CA9iWJMCq7ww6HqDrUo8+j06NwxW6dmWa+7zc9qJp5XIBFkOkn
+	wA3M6TUmaxg6kTAey7pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opqjo-00596H-MO; Tue, 01 Nov 2022 12:51:28 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1oprTG-005Iz8-2S; Tue, 01 Nov 2022 13:38:26 +0000
+Received: from mail-qk1-f178.google.com ([209.85.222.178])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1opqjl-00594q-G8
-	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 12:51:26 +0000
-Received: by mail-ed1-x532.google.com with SMTP id a5so21576446edb.11
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 05:51:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I3ZWUelOBGuajwMCGSZuHahRmnca9IMPS5lnk5/9ETI=;
-        b=SH22qPUXsEn3p/Floa1ZUMCLaXYV8bLk5ULHiQsQqH465E1SVAmIu6Gj850XUtWV9A
-         D3vcOJJpkBKDfQObFbUbvPzsspuQeDi8iVxdxbPuOD5L9lqdeXzBxpoBhQrusiuhFHEW
-         X5gb+sDNXCfylI/G4HA9XvQ5zBoOQLjxCMPiCtygwfXo80GSGpNvwLPh/Z+T/8bh3Zuk
-         SwXqo9RR/EoPDC2jCc+HLc5z3HKMEmC/z195V79dBXKBEvrvXGJaudJx8wGWvzn2YMCf
-         SHKwY8wXPJECzov7T2eLVkWbEI2/y+28jeSZJQxu8o71oB3W65T8TXYTCq5r5pvnAkJ1
-         KxsQ==
+	id 1oprTD-005IyA-0f
+	for linux-riscv@lists.infradead.org; Tue, 01 Nov 2022 13:38:24 +0000
+Received: by mail-qk1-f178.google.com with SMTP id k2so3952715qkk.7
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 06:38:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I3ZWUelOBGuajwMCGSZuHahRmnca9IMPS5lnk5/9ETI=;
-        b=pD2aLh4gjrBMBhb7TkvZcHEweOTuglAzZLY31QR2ysJ9xvx+GxaOaMhuPLTdLkK25P
-         EhIPqcVK+1/KTB7GN3H27jOVlcVCIFlUWshjS8jdwbwZ7qrZYCFtbP8NER2e5lUukDRg
-         DhVDx04osGObJrZn6MpDq/wYfjFUth56HiIhWuX/zlvX6eD1ibjYnhpeiVELInDgzlZ6
-         iFMEba0D91JjY3wuOwQlJlp8tzsD9iZPBBBmlcd6aPsmkMcu1WnnVwE50on7HB6kI9+f
-         CNzAmTT2DdlkB7ce+ivvaYi6Pw63A9hR2jan3gAu3O/ummTcyzrPANnpgNSAYfrtu8uC
-         e5ag==
-X-Gm-Message-State: ACrzQf3utXcWcVeQZHt014Kb5lXnRtjD9QnEPMQ4Prs/56+jNaL27IOH
-	8iNlKK+S4QFwbo3M/rkN1GyfQQ==
-X-Google-Smtp-Source: AMsMyM49yeZoSu5tYqBhel3Vi41lPu+IDsM9aRBTodsPAIXmVMIiAGsNUkmhNpKrHHoSwAH+rwrGSg==
-X-Received: by 2002:a05:6402:158d:b0:463:2343:b980 with SMTP id c13-20020a056402158d00b004632343b980mr14233232edv.150.1667307081713;
-        Tue, 01 Nov 2022 05:51:21 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id e22-20020a17090658d600b007ad0b97e6e9sm4112927ejs.162.2022.11.01.05.51.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Nov 2022 05:51:21 -0700 (PDT)
-Date: Tue, 1 Nov 2022 13:51:20 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC  4/9] RISC-V: KVM: Improve privilege mode filtering for perf
-Message-ID: <20221101125120.lkd3n3yybihjhzyk@kamzik>
-References: <20220718170205.2972215-1-atishp@rivosinc.com>
- <20220718170205.2972215-5-atishp@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K+9k3LzVJhLHOoT31IHmRkr9T7Wq3FpXbHH08Qx0zJI=;
+        b=E+JFe06Fc7Ws/HqzvMlHDJM1+OTbTFRx/TeQZsuUNltH4b+7m3Qj7GQmlXaV/j+4BF
+         dl0Kh1oD5uCTfQfL0J1gUxx2FZrrB/cyPKa7xNHGQdlj9vvD704IlCJDscefDwOTZyp0
+         CuYH/9i5aK5sCosT3ZhxpC6/EvNKpcTYGfCo8i63K4Hp/d7hGEXQsa4AbccxOwYxKBY3
+         Ut+pOBRa5D/BEaY76l7CPxuMBl6c7dioystUuN3K0edFn4EuEopoXyQK3dZ6t6EB6WD7
+         xzLiLk6xH/kE3htCHfgSDEVj6ZQDd2cKgiMbLT7RaWwX0Ozf0kwwiihn64Y2S//NdLEX
+         z5nw==
+X-Gm-Message-State: ACrzQf08jExcNdIJ6Dj8ZnNE4nyn4quKDm83TftfBt4dOIAyAGmi5Dj7
+	vitBnKvbcrF8Hi4LgDEjd67NLwKEUxdMcw==
+X-Google-Smtp-Source: AMsMyM767h+tUZOrEFc3kBTC7RnXWe2mOcmvsj/f+kgKBf0lCj1yKHZ+gTk+86KYxKIZ36ujB0BSRA==
+X-Received: by 2002:a37:a09:0:b0:6f9:9f68:5296 with SMTP id 9-20020a370a09000000b006f99f685296mr12919335qkk.83.1667309901410;
+        Tue, 01 Nov 2022 06:38:21 -0700 (PDT)
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com. [209.85.128.179])
+        by smtp.gmail.com with ESMTPSA id i22-20020ac871d6000000b003431446588fsm5156464qtp.5.2022.11.01.06.38.20
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Nov 2022 06:38:20 -0700 (PDT)
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-3704852322fso65845427b3.8
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 06:38:20 -0700 (PDT)
+X-Received: by 2002:a81:12c8:0:b0:36a:bd6b:92fb with SMTP id
+ 191-20020a8112c8000000b0036abd6b92fbmr17487708yws.316.1667309900285; Tue, 01
+ Nov 2022 06:38:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220718170205.2972215-5-atishp@rivosinc.com>
+References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 1 Nov 2022 14:38:09 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdU6+qNQh2vFic89cnqDmUoyhrJTROCHPdoPguXAEnZMfA@mail.gmail.com>
+Message-ID: <CAMuHMdU6+qNQh2vFic89cnqDmUoyhrJTROCHPdoPguXAEnZMfA@mail.gmail.com>
+Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
+ RZ/Five SoC
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
+	Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_055125_547510_0B234046 
-X-CRM114-Status: GOOD (  23.26  )
+X-CRM114-CacheID: sfid-20221101_063823_081456_5F382F29 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,84 +94,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 18, 2022 at 10:02:00AM -0700, Atish Patra wrote:
-> Currently, the host driver doesn't have any method to identify if the
-> requested perf event is from kvm or bare metal. As KVM runs in HS
-> mode, there are no separate hypervisor privilege mode to distinguish
-> between the attributes for guest/host.
-> 
-> Improve the privilege mode filtering by using the event specific
-> config1 field.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c   | 27 ++++++++++++++++++++++-----
->  include/linux/perf/riscv_pmu.h |  2 ++
->  2 files changed, 24 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index 5d0eef3ef136..34f9fcc221a8 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -275,6 +275,27 @@ int riscv_pmu_sbi_hpmc_width(void)
->  }
->  EXPORT_SYMBOL(riscv_pmu_sbi_hpmc_width);
->  
-> +static unsigned long pmu_sbi_get_filter_flags(struct perf_event *event)
-> +{
-> +	unsigned long cflags = 0;
-> +	bool guest_events = false;
-> +
-> +	if (event->attr.config1 & RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS)
-> +		guest_events = true;
-> +	if (event->attr.exclude_kernel)
-> +		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VSINH : SBI_PMU_CFG_FLAG_SET_SINH;
-> +	if (event->attr.exclude_user)
-> +		cflags |= guest_events ? SBI_PMU_CFG_FLAG_SET_VUINH : SBI_PMU_CFG_FLAG_SET_UINH;
-> +	if (guest_events && event->attr.exclude_hv)
-> +		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-> +	if (event->attr.exclude_host)
-> +		cflags |= SBI_PMU_CFG_FLAG_SET_UINH | SBI_PMU_CFG_FLAG_SET_SINH;
-> +	if (event->attr.exclude_guest)
-> +		cflags |= SBI_PMU_CFG_FLAG_SET_VSINH | SBI_PMU_CFG_FLAG_SET_VUINH;
-> +
-> +	return cflags;
-> +}
-> +
->  static int pmu_sbi_ctr_get_idx(struct perf_event *event)
->  {
->  	struct hw_perf_event *hwc = &event->hw;
-> @@ -286,11 +307,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
->  	uint64_t cmask = GENMASK_ULL(rvpmu->num_counters - 1, 0);
->  	unsigned long cflags = 0;
->  
-> -	if (event->attr.exclude_kernel)
-> -		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-> -	if (event->attr.exclude_user)
-> -		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
-> -
-> +	cflags = pmu_sbi_get_filter_flags(event);
->  	/* retrieve the available counter index */
->  #if defined(CONFIG_32BIT)
->  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
-> diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-> index 6fee211c27b5..825b95253bc5 100644
-> --- a/include/linux/perf/riscv_pmu.h
-> +++ b/include/linux/perf/riscv_pmu.h
-> @@ -26,6 +26,8 @@
->  
->  #define RISCV_PMU_STOP_FLAG_RESET 1
->  
-> +#define RISCV_KVM_PMU_CONFIG1_GUEST_EVENTS 0x1
-> +
->  struct cpu_hw_events {
->  	/* currently enabled events */
->  	int			n_events;
-> -- 
-> 2.25.1
->
+Hi Prabhakar,
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+On Thu, Oct 20, 2022 at 12:02 AM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> On the AX45MP core, cache coherency is a specification option so it may
+> not be supported. In this case DMA will fail. As a workaround, firstly we
+> allocate a global dma coherent pool from which DMA allocations are taken
+> and marked as non-cacheable + bufferable using the PMA region as specified
+> in the device tree. Synchronization callbacks are implemented to
+> synchronize when doing DMA transactions.
+>
+> The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> block that allows dynamic adjustment of memory attributes in the runtime.
+> It contains a configurable amount of PMA entries implemented as CSR
+> registers to control the attributes of memory locations in interest.
+>
+> Below are the memory attributes supported:
+> * Device, Non-bufferable
+> * Device, bufferable
+> * Memory, Non-cacheable, Non-bufferable
+> * Memory, Non-cacheable, Bufferable
+> * Memory, Write-back, No-allocate
+> * Memory, Write-back, Read-allocate
+> * Memory, Write-back, Write-allocate
+> * Memory, Write-back, Read and Write-allocate
+>
+> This patch adds support to configure the memory attributes of the memory
+> regions as passed from the l2 cache node and exposes the cache management
+> ops.
+>
+> More info about PMA (section 10.3):
+> http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+>
+> This feature is based on the work posted [0] by Vincent Chen
+> <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
+>
+> [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Thanks for your patch!
+
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -89,6 +89,7 @@ asm volatile(ALTERNATIVE(                                             \
+>  #define ALT_THEAD_PMA(_val)
+>  #endif
+>
+> +#ifdef CONFIG_ERRATA_THEAD_CMO
+>  /*
+>   * dcache.ipa rs1 (invalidate, physical address)
+>   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> @@ -143,5 +144,6 @@ asm volatile(ALTERNATIVE_2(                                         \
+>         : "a0")
+>
+>  #endif /* __ASSEMBLY__ */
+> +#endif
+
+FTR, the new #endif should be above the old #endif.
+
+I noticed because after rebasing on top of commit 65e9fb081877a18c
+("drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head
+C9xx cores") in riscv/for-next, the build failed because the new
+ALT_SBI_PMU_OVERFLOW() definition ended up inside both #endifs,
+instead of between.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
