@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECA0C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 00:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206D2C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 00:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q9PG+83BswN19jKQYB9mMVI+k3J0DA46Vj0LF9I76mo=; b=oiBZ0EY5CIScYB
-	33vFCoX1IgzBUm7kHdVuf8gn67idMJH4ojEoMzQffhEkHWDJFGuEMdJ/NEp7Q1VwPCFXKTiKs1gke
-	jbSOsK3uNXees3eER4JSJjNCt4xAdzR85vq5Nql0eUeT5nIEcWvN4MxbURsvbF/R+8eXFD7sAiSP7
-	5JH7JHEXmv+eTrcnJdWrD0F1ftu729rzSGoO2i/p81P/cM+fHvRkzGFsfXQhjyA1QB0jEobxWg1d2
-	3Hc/u1guSWrBpxQQM2xApM2gYbAMfYIiq3anIhX1+DrlM+MeWGeJHWNL1eWbYCK2vGMwWkMXn5yVS
-	D9noZcRoNScyEvfpR2tw==;
+	List-Owner; bh=fC9ozdJD3Jlela0D0lb+yGI7W0oRJFebyTOirq1RAsc=; b=sJgY2gxjqv9qLZ
+	dxn+frgGKSTMQzhU1xySeko9img318BKBv+K1nTng1J4/1CxwesOtyh2yyg/mHlnGd6VFB2XL5l+e
+	BuVRpQLqvTvDRHDtPvjVXluDlnmRZb/OmgVw22brY40duYh7J6FY8EkTu0kn7s3TtlWZkik+bVrPv
+	hVV9FRviuBo0SLKTBWq0M7u3G/L4L5OI6boXX61BbXgbSJOmIJ9qgmjUVx3yGEizaRTpYlzfDxrsL
+	vlVK2Xntc6D67XXtnjmX5iteDWZFfVH36ZN1siIPMg2BN0jZAayTGKnFYvSIbZCpQsWQ+33LteYvp
+	35JL+x6brJGL+vCgZigQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqO5d-00FJEB-VS; Thu, 03 Nov 2022 00:28:14 +0000
+	id 1oqO7F-00FJzb-Ur; Thu, 03 Nov 2022 00:29:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqO5a-00FJ6v-M7
-	for linux-riscv@bombadil.infradead.org; Thu, 03 Nov 2022 00:28:10 +0000
+	id 1oqO5k-00FJ6v-RW
+	for linux-riscv@bombadil.infradead.org; Thu, 03 Nov 2022 00:28:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7o9E6ByEEHcjl3SJug2mMi0pvOLBLqCZLDtYGdzM9zU=; b=bNVEhrjswcJe+ExbCsmIgtYw24
-	HItjKx1IC7MJfEjUkoUQjQDvU6UtLzf5GP8qcDyIxDbaQcERDeYOR2qXgOK6Wn1xDqKphkrqXbBG7
-	YhHu2kv/fBU0CR0fPpcr1S1HpdbGqOzMKELxz4nh6XNC4jsPFj7cpOkeFGjQjXwEFYwdKfxCgIy2Z
-	fNpA5/dFVJuVVsxrkQCeulmpvHqlKP2mPpuD95n0ooRcOw3RjtFij8Beu7OMg7NLpNYjejrP9ngd/
-	0T6DrkQ152sRwWyeNyFSDjiwOh8eZjdy00SgC+KB+fZ2iuqKVgCLey4t5pB407DdeOfCtuvuldX/1
-	PkSe65jA==;
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	bh=FB9/txOY21wW/TPsgqc6j4ZQ11jhPkkdawz9sPCSXNA=; b=EDwp+stAcHKTKKnmbwh6vQQWrm
+	gfKcnV/W0dhqun3P7LlrEPjVDhC5R+0S+4ZLi/ZgPcyYqw32ol2TIIuMRP2J3/AZpoVULGk6ZUfGX
+	XLidxP8SnzfW5ibDrtnJS1yewkrpi5X07AbtAajGIuqsbn8B8jftoeCubSLBOsiSQfDqICAFwVoxl
+	oHS0Vq0A7lcVeiFJjXSUyZsFXVxcCzXG4LkqtFxj0K3D4hRwSiWXZYI4uZZVjoEYEHRb9v3EGRCHz
+	R4TG3lg8SM1plrhU4mrb2pV9NJeJWW1/WwlTvCfZepFKiu+8mAyI3JSYVzkBcqnULOELpAbKsKydJ
+	gANKch9A==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN1z-008Wta-Mi
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:20:25 +0000
-Received: by mail-pl1-x649.google.com with SMTP id c1-20020a170902d48100b0018723580343so217118plg.15
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:20:23 -0700 (PDT)
+	id 1oqN1q-008X42-NC
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:20:16 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id x18-20020a170902ec9200b001869f20da7eso228715plg.10
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:20:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=7o9E6ByEEHcjl3SJug2mMi0pvOLBLqCZLDtYGdzM9zU=;
-        b=igGQ2Ishg8aW6R16oe+upaVPlGZAayIzpaWDE8opgJQMS6iOjhkUCLTlEhQKtzbBll
-         IdlAKyPdahqXXt0dn4MTEFgukQG0ZCIqNyG5cI01/hw0JIAYQcoPp2BpnzUD0jxS7Ya/
-         +nFRYynF3Dt5MSnjg1t4pKoFk0Qf9803yI4SDdLZfxDyQop67DTJX+MNPzB4mGdTHTI/
-         UetXl5t7icKMI/ai8krB+aFqS3nK2vJC9U3C1mIJKmfCvYut3D46hBaxcevJzvvlHDGm
-         CTwO6YCLjzVqPj4Wwm3tv83DTC33l/N5jui9O7iqtMw8SKOspotJDO5ne6iRoF09KXOw
-         O2Sw==
+        bh=FB9/txOY21wW/TPsgqc6j4ZQ11jhPkkdawz9sPCSXNA=;
+        b=Gh0pNKJAjUP7sOLxgeINR/cbIHMm/TCvJmesgDmGY7tgu6P6YXBVfYIXTfojpYFhsq
+         HkT9AYvu2cJGezPMeBp64lBMsTUd9ONRFB5hypdMyN7za0hetccYQckOK26B+CDbxF6r
+         +OhS46uwFsSqDvUawxhpwU4TdzcYBw50A+ZMoD8n+DmjlNK3aB9aXy9DkBx+JSHJ6ISO
+         pjQ1VfDtpdTwM/Mhh3TXxzf4TORrG3FqJQ2hX6AUGnQSwf155R85whsuIiWoEQQ1/uAN
+         5ZiQXw1v8DLP7PBHC5uyXihM2rPnRlLj9wclnfoxTX04fyoZeThV5J1v6/TU+dV2434R
+         khBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7o9E6ByEEHcjl3SJug2mMi0pvOLBLqCZLDtYGdzM9zU=;
-        b=1eStRV/nFL3+1I5DvHc9Uib6HXpo7LI5qr0k+G01pVgbVazLQd5NMXIYL9nkLa9yAS
-         mWyHW6YwkZVwdnNYHaC71rxUAi61gDqoBJJBHzW8As0kdYmZXdPHNRYiS9rIlMxoeQjN
-         H6RI943hKU9rfCAkJ700kedOQEmNRvuKvqqfQ3YdeezaMr4ogQY3JezhZgjS60W6QEt5
-         e0AlPn9fcs0YUjDjz+cag+R1s5aqz/AFVDQktujz6n6zwmICUk3MN7PbnyLbTqIJEPoI
-         A0WIBQPV2Lt5MYISOYwlRu3WO3e14TkfYJ0Bq5P59wcBUiV068bvvBzJjffG5Es+1doD
-         41qA==
-X-Gm-Message-State: ACrzQf0QQ2ikymCyagZimxhimhUpvWgR1lm5I/+wOeA+FQP+SijxGTsA
-	wzhcBsjTlSCwXOzBMY7r6hn9LEggQxo=
-X-Google-Smtp-Source: AMsMyM6niBK+tgCsXQRPRS+/qtLS7kuATd90vG4p7xHoZHYxFybBPWfrbfk513VrCr/GCHaNPNf0pglufE4=
+        bh=FB9/txOY21wW/TPsgqc6j4ZQ11jhPkkdawz9sPCSXNA=;
+        b=3Embea1NTKna322pwiWN79eyiT1fI9r4agner9wvPkPXWKXCZ3NVk/uzs+RkwFi+Eb
+         jhvvT+zKuwcZo3ezU4QKbtpZfUOjkzT14hf3ObuW3RojUBZH9HesSOhIU5s160fncNWp
+         wGYTzGhAb2rrP1v1vieO4AafTKkLQkqb6P0NtDG0L9WN8CfbjU0Mm+ANTG8qN+5CqwyW
+         SP7dgh86Adwpy9bX4KpLfY8AqgWo1Ly7gOUBhIgM5T8XL+aHn6coobf4yWloX0+leiao
+         6hP2np8nIymcbLUj/1skVyxUu9bjIhSa9c1WtUmJwBG6Hh2zanZ/OvtJF2nsKBVH2CgO
+         0zTA==
+X-Gm-Message-State: ACrzQf06hQQNf2pfEke2fauAdvGTUC5ZCZ+PtibRcQ0jWmuoYpZYruom
+	y+pIyskYeENKSnqmLbgCjaIrnFTr2/k=
+X-Google-Smtp-Source: AMsMyM7nfKY/wHJ8tA5FRpJD6/RIsVOrpmudYjvQ2DhJNYVckSrzlEN04CTpOiyaCyk531P1edibX7B9dbc=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:c7c4:b0:186:5ebe:38e with SMTP id
- r4-20020a170902c7c400b001865ebe038emr27249054pla.33.1667431222881; Wed, 02
- Nov 2022 16:20:22 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:19:07 +0000
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:3698:b0:56d:3180:e88f with SMTP id
+ dw24-20020a056a00369800b0056d3180e88fmr24063664pfb.66.1667431212769; Wed, 02
+ Nov 2022 16:20:12 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:19:01 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-41-seanjc@google.com>
-Subject: [PATCH 40/44] KVM: Remove on_each_cpu(hardware_disable_nolock) in kvm_exit()
+Message-ID: <20221102231911.3107438-35-seanjc@google.com>
+Subject: [PATCH 34/44] KVM: VMX: Shuffle support checks and hardware enabling
+ code around
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -98,8 +99,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_232023_861483_9323E038 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20221102_232014_945895_5E5FC8F7 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,38 +118,254 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Isaku Yamahata <isaku.yamahata@intel.com>
+Reorder code in vmx.c so that the VMX support check helpers reside above
+the hardware enabling helpers, which will allow KVM to perform support
+checks during hardware enabling (in a future patch).
 
-Drop the superfluous invocation of hardware_disable_nolock() during
-kvm_exit(), as it's nothing more than a glorified nop.
+No functional change intended.
 
-KVM automatically disables hardware on all CPUs when the last VM is
-destroyed, and kvm_exit() cannot be called until the last VM goes
-away as the calling module is pinned by an elevated refcount of the fops
-associated with /dev/kvm.  This holds true even on x86, where the caller
-of kvm_exit() is not kvm.ko, but is instead a dependent module, kvm_amd.ko
-or kvm_intel.ko, as kvm_chardev_ops.owner is set to the module that calls
-kvm_init(), not hardcoded to the base kvm.ko module.
-
-Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
-[sean: rework changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/x86/kvm/vmx/vmx.c | 212 ++++++++++++++++++++---------------------
+ 1 file changed, 106 insertions(+), 106 deletions(-)
 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index c8d92e6c3922..4a42b78bfb0e 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5966,7 +5966,6 @@ void kvm_exit(void)
- 	unregister_syscore_ops(&kvm_syscore_ops);
- 	unregister_reboot_notifier(&kvm_reboot_notifier);
- 	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_ONLINE);
--	on_each_cpu(hardware_disable_nolock, NULL, 1);
- 	kvm_irqfd_exit();
- 	free_cpumask_var(cpus_hardware_enabled);
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 2a7e62d0707d..07d86535c032 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -2485,77 +2485,6 @@ static void vmx_cache_reg(struct kvm_vcpu *vcpu, enum kvm_reg reg)
+ 	}
  }
+ 
+-static int kvm_cpu_vmxon(u64 vmxon_pointer)
+-{
+-	u64 msr;
+-
+-	cr4_set_bits(X86_CR4_VMXE);
+-
+-	asm_volatile_goto("1: vmxon %[vmxon_pointer]\n\t"
+-			  _ASM_EXTABLE(1b, %l[fault])
+-			  : : [vmxon_pointer] "m"(vmxon_pointer)
+-			  : : fault);
+-	return 0;
+-
+-fault:
+-	WARN_ONCE(1, "VMXON faulted, MSR_IA32_FEAT_CTL (0x3a) = 0x%llx\n",
+-		  rdmsrl_safe(MSR_IA32_FEAT_CTL, &msr) ? 0xdeadbeef : msr);
+-	cr4_clear_bits(X86_CR4_VMXE);
+-
+-	return -EFAULT;
+-}
+-
+-static int vmx_hardware_enable(void)
+-{
+-	int cpu = raw_smp_processor_id();
+-	u64 phys_addr = __pa(per_cpu(vmxarea, cpu));
+-	int r;
+-
+-	if (cr4_read_shadow() & X86_CR4_VMXE)
+-		return -EBUSY;
+-
+-	/*
+-	 * This can happen if we hot-added a CPU but failed to allocate
+-	 * VP assist page for it.
+-	 */
+-	if (static_branch_unlikely(&enable_evmcs) &&
+-	    !hv_get_vp_assist_page(cpu))
+-		return -EFAULT;
+-
+-	intel_pt_handle_vmx(1);
+-
+-	r = kvm_cpu_vmxon(phys_addr);
+-	if (r) {
+-		intel_pt_handle_vmx(0);
+-		return r;
+-	}
+-
+-	if (enable_ept)
+-		ept_sync_global();
+-
+-	return 0;
+-}
+-
+-static void vmclear_local_loaded_vmcss(void)
+-{
+-	int cpu = raw_smp_processor_id();
+-	struct loaded_vmcs *v, *n;
+-
+-	list_for_each_entry_safe(v, n, &per_cpu(loaded_vmcss_on_cpu, cpu),
+-				 loaded_vmcss_on_cpu_link)
+-		__loaded_vmcs_clear(v);
+-}
+-
+-static void vmx_hardware_disable(void)
+-{
+-	vmclear_local_loaded_vmcss();
+-
+-	if (cpu_vmxoff())
+-		kvm_spurious_fault();
+-
+-	intel_pt_handle_vmx(0);
+-}
+-
+ /*
+  * There is no X86_FEATURE for SGX yet, but anyway we need to query CPUID
+  * directly instead of going through cpu_has(), to ensure KVM is trapping
+@@ -2781,6 +2710,112 @@ static __init int setup_vmcs_config(struct vmcs_config *vmcs_conf,
+ 	return 0;
+ }
+ 
++static bool __init kvm_is_vmx_supported(void)
++{
++	if (!cpu_has_vmx()) {
++		pr_err("CPU doesn't support VMX\n");
++		return false;
++	}
++
++	if (!boot_cpu_has(X86_FEATURE_MSR_IA32_FEAT_CTL) ||
++	    !boot_cpu_has(X86_FEATURE_VMX)) {
++		pr_err("VMX not enabled in MSR_IA32_FEAT_CTL\n");
++		return false;
++	}
++
++	return true;
++}
++
++static int __init vmx_check_processor_compat(void)
++{
++	struct vmcs_config vmcs_conf;
++	struct vmx_capability vmx_cap;
++
++	if (!kvm_is_vmx_supported())
++		return -EIO;
++
++	if (setup_vmcs_config(&vmcs_conf, &vmx_cap) < 0)
++		return -EIO;
++	if (nested)
++		nested_vmx_setup_ctls_msrs(&vmcs_conf, vmx_cap.ept);
++	if (memcmp(&vmcs_config, &vmcs_conf, sizeof(struct vmcs_config)) != 0) {
++		pr_err("CPU %d feature inconsistency!\n", smp_processor_id());
++		return -EIO;
++	}
++	return 0;
++}
++
++static int kvm_cpu_vmxon(u64 vmxon_pointer)
++{
++	u64 msr;
++
++	cr4_set_bits(X86_CR4_VMXE);
++
++	asm_volatile_goto("1: vmxon %[vmxon_pointer]\n\t"
++			  _ASM_EXTABLE(1b, %l[fault])
++			  : : [vmxon_pointer] "m"(vmxon_pointer)
++			  : : fault);
++	return 0;
++
++fault:
++	WARN_ONCE(1, "VMXON faulted, MSR_IA32_FEAT_CTL (0x3a) = 0x%llx\n",
++		  rdmsrl_safe(MSR_IA32_FEAT_CTL, &msr) ? 0xdeadbeef : msr);
++	cr4_clear_bits(X86_CR4_VMXE);
++
++	return -EFAULT;
++}
++
++static int vmx_hardware_enable(void)
++{
++	int cpu = raw_smp_processor_id();
++	u64 phys_addr = __pa(per_cpu(vmxarea, cpu));
++	int r;
++
++	if (cr4_read_shadow() & X86_CR4_VMXE)
++		return -EBUSY;
++
++	/*
++	 * This can happen if we hot-added a CPU but failed to allocate
++	 * VP assist page for it.
++	 */
++	if (static_branch_unlikely(&enable_evmcs) &&
++	    !hv_get_vp_assist_page(cpu))
++		return -EFAULT;
++
++	intel_pt_handle_vmx(1);
++
++	r = kvm_cpu_vmxon(phys_addr);
++	if (r) {
++		intel_pt_handle_vmx(0);
++		return r;
++	}
++
++	if (enable_ept)
++		ept_sync_global();
++
++	return 0;
++}
++
++static void vmclear_local_loaded_vmcss(void)
++{
++	int cpu = raw_smp_processor_id();
++	struct loaded_vmcs *v, *n;
++
++	list_for_each_entry_safe(v, n, &per_cpu(loaded_vmcss_on_cpu, cpu),
++				 loaded_vmcss_on_cpu_link)
++		__loaded_vmcs_clear(v);
++}
++
++static void vmx_hardware_disable(void)
++{
++	vmclear_local_loaded_vmcss();
++
++	if (cpu_vmxoff())
++		kvm_spurious_fault();
++
++	intel_pt_handle_vmx(0);
++}
++
+ struct vmcs *alloc_vmcs_cpu(bool shadow, int cpu, gfp_t flags)
+ {
+ 	int node = cpu_to_node(cpu);
+@@ -7466,41 +7501,6 @@ static int vmx_vm_init(struct kvm *kvm)
+ 	return 0;
+ }
+ 
+-static bool __init kvm_is_vmx_supported(void)
+-{
+-	if (!cpu_has_vmx()) {
+-		pr_err("CPU doesn't support VMX\n");
+-		return false;
+-	}
+-
+-	if (!boot_cpu_has(X86_FEATURE_MSR_IA32_FEAT_CTL) ||
+-	    !boot_cpu_has(X86_FEATURE_VMX)) {
+-		pr_err("VMX not enabled in MSR_IA32_FEAT_CTL\n");
+-		return false;
+-	}
+-
+-	return true;
+-}
+-
+-static int __init vmx_check_processor_compat(void)
+-{
+-	struct vmcs_config vmcs_conf;
+-	struct vmx_capability vmx_cap;
+-
+-	if (!kvm_is_vmx_supported())
+-		return -EIO;
+-
+-	if (setup_vmcs_config(&vmcs_conf, &vmx_cap) < 0)
+-		return -EIO;
+-	if (nested)
+-		nested_vmx_setup_ctls_msrs(&vmcs_conf, vmx_cap.ept);
+-	if (memcmp(&vmcs_config, &vmcs_conf, sizeof(struct vmcs_config)) != 0) {
+-		pr_err("CPU %d feature inconsistency!\n", smp_processor_id());
+-		return -EIO;
+-	}
+-	return 0;
+-}
+-
+ static u8 vmx_get_mt_mask(struct kvm_vcpu *vcpu, gfn_t gfn, bool is_mmio)
+ {
+ 	u8 cache;
 -- 
 2.38.1.431.g37b22c650d-goog
 
