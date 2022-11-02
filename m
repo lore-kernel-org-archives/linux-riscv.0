@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF44C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 17:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204CDC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 17:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5M1c3WVMGkEgY/p6sRHZjmOgK9vZnXemwRxGrtYKrPo=; b=eXd9QXwL2kKoPA
-	G5FNQHhd4nahKo1Uj8deR1tGwXSgtmTaNzy7AQVGlmLC8Mt23OOdi7JLrjm2PknRG/yN9rj3gch9v
-	m5TOT5rjj0stNmgbvzj/j/b12cFpHw8Aorbyo0Xhz4WQohX0JGoCzq/4pQWB7venzqObikgWA/xRL
-	JDbpFLMxkxb3Qvk5SnZfxDrELDz5GTT89QhDfMe1t7Va4P28aRaFJrxJQkMkgES/5AKUnjDZQzkPc
-	MLaA3G7MXwZnmZIJaoFfMrFj0SCPJvswtbWvjMgBFJY6wg3b6/w8YxyezRZFk86vloR4bvmKxP3CM
-	0R7hbOY6NllTqrBQuGWQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AqR3UHtEEcqFBfulwhPb6LC3SygWpY5JVnaung04keo=; b=bIEyV4Ts7aFilZ
+	yXZZjYIjQwCuR+zYBurVAPDjg0XFcYC5EhKqFF5o2qT+oEbSVBQZrGk9I4nYHHV1zZ3x0ue69wEkM
+	kO3xktngxgA6MsMBEMryWTNTFDSRj+dRkzcROrUWDBkE+cYUmnUKkOX2M953BNwpVZmgP5J5Hv1KR
+	jtKQ4/zOvlxA17pVBXDHgsUaPsHmTDWxbC1yi6URHouHVh7gjGzXTEzYW2Pg1ZE4OjS21nXXEq3ME
+	RXqXIbC2DMZGa72yCUFxKobPqPB3zcnph3oabtZRGzgT6JLUC6oqSgZTbATttVnw/gqZ/HAdmNfUq
+	3Zzp8clcpbcsTiE2lxXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqHIA-00CPtj-7U; Wed, 02 Nov 2022 17:12:42 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oqHgc-00CcjP-5E; Wed, 02 Nov 2022 17:37:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqHI7-00CPqa-7M
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 17:12:40 +0000
+	id 1oqHgY-00Cchn-UI
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 17:37:56 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 44894B80DA8;
-	Wed,  2 Nov 2022 17:12:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 862F8C433C1;
-	Wed,  2 Nov 2022 17:12:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1867461ACA;
+	Wed,  2 Nov 2022 17:37:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E01EEC433C1;
+	Wed,  2 Nov 2022 17:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667409156;
-	bh=+kXg0AnyKL/yScM5ZpSouZN8e2TVAvvNgXX6EJiKW7E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hEgCoycpB6J1T5HC+Re6SnkeRnP0QfYP5e7wbcT445y0reEll/Ej5UdZqRVSgVeo3
-	 WI/VAofvqGsFYIkEJLxUdf6M/ru616OjmF1WxnsgseWwz5+3oGTiw0kAZSHTuKNE1U
-	 9oTPfVjciyp4R+LzZMBytiaU/0YUq3ThTkstBKvQRfjLZd1F3YfQ5AwfeytFUcafRS
-	 u3fV9MW17Fq0JxKAgPfkFOVC1kG8nz7FNSO9WYLozhIawafKn2VtljzKP4iWvo8s23
-	 aoI2M8rh4f80884o6pEVI63dgdBBqEDvawTlbu5+OtYs2efuj1TX9BuxjwmDUaeZHb
-	 P4NpjrMfbBY6Q==
+	s=k20201202; t=1667410673;
+	bh=C7djWQbBJX1AM7fSvtoWtTiF2BgIva+pASKAjGZVevU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=odUT8QDh+qqr4P3f6EboSgGzToIq6ljdiISZHN7EIT3GuRbEUzStj66n/ONbIs/39
+	 ZF4ZBaZd5KpfFDMvgRoZxbPx0t7+7ufnbDe2PGz1fAPssxhwtht1dD/PRgfvxF244o
+	 3Vj7KqrscxfgNNyM7XbqDb0MTJaxtcLIdUUXbFElgRq+ArV0rqY02VqNuP/ASo1v5m
+	 nYo0q+tu6idts2WGIcTxoTV7Wqy18/2LR0tDT/53iX9S/bT2BzENBmY0wki0+ODLtP
+	 R/DYbNlh2mEksAb9vOVEd2EZjoSxepk8soefhHWWI3g9PFEb46DmVWL36Ikj6UaWnZ
+	 hbh68oPdfPIig==
+Date: Thu, 3 Nov 2022 01:28:11 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
 	kernel test robot <lkp@intel.com>
-Subject: [PATCH v2] riscv: vdso: fix section overlapping under some conditions
-Date: Thu,  3 Nov 2022 01:02:54 +0800
-Message-Id: <20221102170254.1925-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.37.2
+Subject: Re: [PATCH] riscv: vdso: fix section overlapping under some
+ conditions
+Message-ID: <Y2Koq5QELaoBe7nj@xhacker>
+References: <20221031175842.1699-1-jszhang@kernel.org>
+ <20221101091942.k7pgcbbkudgjk4ae@kamzik>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221101091942.k7pgcbbkudgjk4ae@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_101239_465356_ACBF17ED 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221102_103755_077292_714EB093 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +78,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-lkp reported a build error, I tried the config and can reproduce
-build error as below:
+On Tue, Nov 01, 2022 at 10:19:42AM +0100, Andrew Jones wrote:
+> On Tue, Nov 01, 2022 at 01:58:42AM +0800, Jisheng Zhang wrote:
+> > lkp reported a build error, I tried the config and can reproduce
+> > build error as below:
+> > 
+> >   VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
+> > ld.lld: error: section .note file range overlaps with .text
+> > >>> .note range is [0x7C8, 0x803]
+> > >>> .text range is [0x800, 0x1993]
+> > 
+> > ld.lld: error: section .text file range overlaps with .dynamic
+> > >>> .text range is [0x800, 0x1993]
+> > >>> .dynamic range is [0x808, 0x937]
+> > 
+> > ld.lld: error: section .note virtual address range overlaps with .text
+> > >>> .note range is [0x7C8, 0x803]
+> > >>> .text range is [0x800, 0x1993]
+> > 
+> > Fix it by removing the hardcoding 0x800 and related comments.
+> > 
+> > Link: https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/#r
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/kernel/vdso/vdso.lds.S | 8 +-------
+> >  1 file changed, 1 insertion(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+> > index 01d94aae5bf5..344209d2e128 100644
+> > --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> > +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> > @@ -31,13 +31,7 @@ SECTIONS
+> >  
+> >  	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+> >  
+> > -	/*
+> > -	 * This linker script is used both with -r and with -shared.
+> > -	 * For the layouts to match, we need to skip more than enough
+> > -	 * space for the dynamic symbol table, etc. If this amount is
+> > -	 * insufficient, ld -shared will error; simply increase it here.
+> > -	 */
+> > -	. = 0x800;
+> 
+> Hi Jisheng,
 
-  VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
-ld.lld: error: section .note file range overlaps with .text
->>> .note range is [0x7C8, 0x803]
->>> .text range is [0x800, 0x1993]
+Hi Andrew,
 
-ld.lld: error: section .text file range overlaps with .dynamic
->>> .text range is [0x800, 0x1993]
->>> .dynamic range is [0x808, 0x937]
+> 
+> Removing this hard coded value is a good thing, but I don't understand
+> why, if it was necessary before, that it's no longer necessary. Can you
+> please explain that in the commit message? If the linker improved in
 
-ld.lld: error: section .note virtual address range overlaps with .text
->>> .note range is [0x7C8, 0x803]
->>> .text range is [0x800, 0x1993]
+To be honest, I dunno. The hardcoded 0x800 was there from day1, maybe
+Palmer knew the details.
 
-Fix it by setting DISABLE_BRANCH_PROFILING which will disable branch
-tracing for vdso, thus avoid useless _ftrace_annotated_branch section
-and _ftrace_branch section. Although we can also fix it by removing
-the hardcoded .text begin address, but I think that's another story
-and should be put into another patch.
+> this regard, then do we need to document a new minimum linker version?
 
-Link: https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/#r
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
 
-Since v1:
- - fix the issue by setting DISABLE_BRANCH_PROFILING
+> 
+> > +	. = ALIGN(16);
+> 
+> Aligning text to a 4-byte boundary makes sense to me, but I don't
 
- arch/riscv/kernel/vdso/Makefile | 1 +
- 1 file changed, 1 insertion(+)
+Aha, I think align text to 4byte is fine. In my old memories, I was
+told to align function entry at 16byte boundary, I'm not sure this
+is still true.
 
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index f2e065671e4d..d6092ff678fd 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -17,6 +17,7 @@ vdso-syms += flush_icache
- obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
- 
- ccflags-y := -fno-stack-protector
-+ccflags-y += -DDISABLE_BRANCH_PROFILING
- 
- ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
--- 
-2.37.2
-
+PS: I just sent out v2 of this fix. The fix method is different and
+think v2 is the correct fix while this v1 is an improvement.
 
 _______________________________________________
 linux-riscv mailing list
