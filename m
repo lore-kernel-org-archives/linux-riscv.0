@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B45C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AE3C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dJfL6p8dD7PO1FO4QbHjp3N1k5qQePjZxe7cZccqezk=; b=vwV12o8CuPTrBO
-	ICdsJyixMQds/EUJex0lVeJG34rCmzcV76nHnm4WnP+SOoAzOt4q1NoxfI8YvwT1iI1QDTcWYXSVT
-	Bjv8JVKbhLSMrEEmtwv7b/gD0S/fVSglVyWJyYmJmxAXXEcL2RZazic0JXEvASmgpCUMb93LOC5zn
-	Nph3xyts1p3EGvra93HfJkmP6c6NPVMWqYsapAXHj0eW3QEeTHHYPQEiQ6G0EGwy91ZgNfBWyhynS
-	s9trXIK8vNBu2HAqHaCHAjGmuWRvVhNabwIne/3ORp9Q2yF5kyNf9M7iwVKpRLrQzewrmF7/GrLPN
-	7EVVvHfcfnrcsj/NZ3Ww==;
+	List-Owner; bh=cSHUYJaoWHPXGHgOmkDhWth3FsvZgFXNKCbgIXEYQII=; b=cyttlfJi7CFIMz
+	yq2LimLLLsbI2b/OXA4SRD5aW9PfHzLkptLNJ4Zb/JoNhaqbvxEsWA6QUYCxBrwnLWS1pTjakuBdR
+	Tx/7K5gwGD+gnv2WuYirykfWohkaOA7WQJzB6qylz8WsFrwm5yZ2jf30d2T5qGK7FbwL9HXACle22
+	eZUKvFMcH5DTn1eigd/YMPaWhRKc3BNOyYGFp5HwxXclKMRVuK/WAeuKgcCwKuL++ktDNrLUpN2RK
+	y9vuFhNhX4BURUTpzJRgBN+JvRQhGYwUXfZKnPLs1xCDPJMSQYK+VD7T0RpEeuERSCf81GuLtXLhI
+	DATcGn/j2SAmy2yxI11w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN4K-00EvOo-Pa; Wed, 02 Nov 2022 23:22:48 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1oqN4U-00EvTZ-Dr; Wed, 02 Nov 2022 23:22:58 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN1C-00Et3X-16
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:35 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id y65-20020a25c844000000b006bb773548d5so386793ybf.5
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:33 -0700 (PDT)
+	id 1oqN1G-00Et3D-Tr
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:40 +0000
+Received: by mail-pl1-x649.google.com with SMTP id q6-20020a170902dac600b001873ef77938so208174plx.18
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=hsvwPn56EufMwWrr4BQ3wXsJaNpmOPQxZWWpLewxvhQ=;
-        b=Y+WCubtqC448k8BS6Mqnaj28SHAW+AQfgFNGCLm2bJu3u1mJtG3sPN/6hEm3u5WKxX
-         gjm0xAmdiy0BNLmCTgESqNLWBkKXwZKx8x3UovP6tMr0tuTqm6uAbtXaFSg2tQ6IY8UY
-         VXa2F9flrbUexIM+erBgHE9ssHvFwc+slKWkiJrFDAVzrbJZgmqNXlASKZWSF88G1RsF
-         3WXrtRdOPomKp62p5k4CbApbNG6yrgaBuDlDbRhFN/CbQ2b9hIJBRdTCZXqQmNDbMEE4
-         ZnCQdPnQlkYKD1izSyGfMR40m61f2ixRTRCzDV7N9xc1b7MsAKZPHOhhZhsGAWMnpSoY
-         ov8A==
+        bh=PC9dehnvav1Aw1v6uWM2bYJDLppf5EyAkT2jOhA9iFY=;
+        b=kJz7hqwm050XSKRBNQaPY9TFZPFDWV8ZKejezCs4bGlRqwqH0nhNocHupR2viDbiH6
+         OCV2d8s4V8HpVfeG/HWu8q5AcJeZX4IG826MXTSaYozQWigHjbahCUcQ+nhyocBl9X2l
+         kd4BlfJthXfJkPz4BmvgOx0mzNiU9K9r9uzLUsVpQY01TDSHRc379IxSr1swj2GU5I8F
+         MojlK/an4jUOmdPU57vUkjAqoyyyORaVz+/X+2myLHVoMLE+znQI8+HqKTtt/Xk3eEaP
+         qPCFUr0VxHF3Hka+I7U/p6GppeV4xnnq5Sjew0AKQBs9DiBSJQh9O1zP6SUXZu7bL2/m
+         FuCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hsvwPn56EufMwWrr4BQ3wXsJaNpmOPQxZWWpLewxvhQ=;
-        b=Y4S4r7VimRKkze/5MgFvODAdkTZ0yxIGNg2LL7XZXXDZv1fY/N/BSw8nynz6ak6oOt
-         xaS5DFWDa4RrkDjC4aHcig4/EopQvzKbZ9n55m7pNmCCHy7ZwaOfVgv/2ATs2nLPMW7W
-         u8cTU9ZmdmBj9tCLGo4rwZLUJSx+tssg4+8WVDgV8jVWiLh1dLKTbkGaajDKDklZi0rE
-         kXlfw+uKFedk3Z2XyBm91fAQ0D2YLd+EwHMwUdCDki6BGMaoDbcBqKWLbDv5BUGNxbCD
-         A4blCJD/uq5itLnYMKM0OCpxzzfHHkZzVKNshCdYHpRUUXlzWDIMMsg9BRgw7P0THTv0
-         2d1g==
-X-Gm-Message-State: ACrzQf3ib/eqP9SVEo2w9OyJA5LS9MB/9EoAyGE0ycTT0PzD8ov7mXF+
-	OuQ9z+x27c/iEc019ruZ9hRG2pEOHWY=
-X-Google-Smtp-Source: AMsMyM6oJohPpBax4v0z1oNOFbI9XApbw28cX6E9TB+pABT2BMMHd99IJfTyuxyKkWfVMC7TDoAu4jEMuqY=
+        bh=PC9dehnvav1Aw1v6uWM2bYJDLppf5EyAkT2jOhA9iFY=;
+        b=5k85iIcGbjHetc1afoJ0zW5h014VB51g0IN3ql+Aj+9mio6od/V9KjvFdGuo5Bzwrg
+         uMTem1e2xpYNGPHWj2KSgl79YGNgh57PZJFO8+u3kSzSltkTyEmratRfl2PDB+o0s/MH
+         hkcGma/ZnimaYmvlT3MXM4mk/WIJcZ7bP4nRAck3JVfGjxe09ikKmnOy7YI31QwZ15BO
+         qp6UX4oTdl1tNRVs8qM3jzrBAEN7rpLHKdPJ7jGsnaga5Yl/f9ebXo7+0uGJfXdtsqm5
+         ZL7AtwZdpHLQGEVM+bw80hxRNMCbFKrnzd+/7w+tuaMXdaOF5jKafCbC54tj9hFPQ0xo
+         8PFw==
+X-Gm-Message-State: ACrzQf1MhdYznZHDshadZ1Oq53Yt0xDSQ7rVF8qhQVraOaDwLrXgkBFq
+	mR2qjGujbuAtUg/bBJOhSwY1m0H5ENU=
+X-Google-Smtp-Source: AMsMyM4aBfkHQXLDDWmlC9x3cCwqRQZmefu3U/iL8VBE55lo0kD5X1hXSo7dBgxOx4diTaTlzVkE/JpLTO0=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:550:0:b0:6ca:5991:1abf with SMTP id
- 77-20020a250550000000b006ca59911abfmr26235720ybf.371.1667431172753; Wed, 02
- Nov 2022 16:19:32 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:18:38 +0000
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:8cb:b0:52c:6962:2782 with SMTP id
+ s11-20020a056a0008cb00b0052c69622782mr27193254pfu.81.1667431177736; Wed, 02
+ Nov 2022 16:19:37 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:41 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-12-seanjc@google.com>
-Subject: [PATCH 11/44] KVM: x86: Move guts of kvm_arch_init() to standalone helper
+Message-ID: <20221102231911.3107438-15-seanjc@google.com>
+Subject: [PATCH 14/44] KVM: arm64: Simplify the CPUHP logic
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -84,8 +84,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_161934_107865_898E668D 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20221102_161938_997377_2E3BFB0D 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,157 +103,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the guts of kvm_arch_init() to a new helper, kvm_x86_vendor_init(),
-so that VMX can do _all_ arch and vendor initialization before calling
-kvm_init().  Calling kvm_init() must be the _very_ last step during init,
-as kvm_init() exposes /dev/kvm to userspace, i.e. allows creating VMs.
+From: Marc Zyngier <maz@kernel.org>
 
-No functional change intended.
+For a number of historical reasons, the KVM/arm64 hotplug setup is pretty
+complicated, and we have two extra CPUHP notifiers for vGIC and timers.
 
+It looks pretty pointless, and gets in the way of further changes.
+So let's just expose some helpers that can be called from the core
+CPUHP callback, and get rid of everything else.
+
+This gives us the opportunity to drop a useless notifier entry,
+as well as tidy-up the timer enable/disable, which was a bit odd.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/include/asm/kvm_host.h |  3 +++
- arch/x86/kvm/svm/svm.c          | 23 +++++++++++++++++++++--
- arch/x86/kvm/vmx/vmx.c          |  9 ++++++++-
- arch/x86/kvm/x86.c              | 15 +++++++++++++--
- 4 files changed, 45 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/arch_timer.c     | 27 ++++++++++-----------------
+ arch/arm64/kvm/arm.c            | 13 +++++++++++++
+ arch/arm64/kvm/vgic/vgic-init.c | 19 ++-----------------
+ include/kvm/arm_arch_timer.h    |  4 ++++
+ include/kvm/arm_vgic.h          |  4 ++++
+ include/linux/cpuhotplug.h      |  3 ---
+ 6 files changed, 33 insertions(+), 37 deletions(-)
 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index 415113dea951..58a7cb8d8e96 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1695,6 +1695,9 @@ extern struct kvm_x86_ops kvm_x86_ops;
- #define KVM_X86_OP_OPTIONAL_RET0 KVM_X86_OP
- #include <asm/kvm-x86-ops.h>
- 
-+int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops);
-+void kvm_x86_vendor_exit(void);
-+
- #define __KVM_HAVE_ARCH_VM_ALLOC
- static inline struct kvm *kvm_arch_alloc_vm(void)
- {
-diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-index d22a809d9233..f48d07bfc3d7 100644
---- a/arch/x86/kvm/svm/svm.c
-+++ b/arch/x86/kvm/svm/svm.c
-@@ -5132,15 +5132,34 @@ static struct kvm_x86_init_ops svm_init_ops __initdata = {
- 
- static int __init svm_init(void)
- {
-+	int r;
-+
- 	__unused_size_checks();
- 
--	return kvm_init(&svm_init_ops, sizeof(struct vcpu_svm),
--			__alignof__(struct vcpu_svm), THIS_MODULE);
-+	r = kvm_x86_vendor_init(&svm_init_ops);
-+	if (r)
-+		return r;
-+
-+	/*
-+	 * Common KVM initialization _must_ come last, after this, /dev/kvm is
-+	 * exposed to userspace!
-+	 */
-+	r = kvm_init(&svm_init_ops, sizeof(struct vcpu_svm),
-+		     __alignof__(struct vcpu_svm), THIS_MODULE);
-+	if (r)
-+		goto err_kvm_init;
-+
-+	return 0;
-+
-+err_kvm_init:
-+	kvm_x86_vendor_exit();
-+	return r;
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index bb24a76b4224..33fca1a691a5 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -811,10 +811,18 @@ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
+ 	ptimer->host_timer_irq_flags = host_ptimer_irq_flags;
  }
  
- static void __exit svm_exit(void)
+-static void kvm_timer_init_interrupt(void *info)
++void kvm_timer_cpu_up(void)
  {
- 	kvm_exit();
-+	kvm_x86_vendor_exit();
- }
- 
- module_init(svm_init)
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index b3fd4049de01..118d9b29b339 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -8501,6 +8501,7 @@ static void vmx_exit(void)
- #endif
- 
- 	kvm_exit();
-+	kvm_x86_vendor_exit();
- 
- 	hv_cleanup_evmcs();
- 
-@@ -8516,13 +8517,17 @@ static int __init vmx_init(void)
- 
- 	hv_setup_evmcs();
- 
-+	r = kvm_x86_vendor_init(&vmx_init_ops);
-+	if (r)
-+		goto err_x86_init;
-+
- 	r = kvm_init(&vmx_init_ops, sizeof(struct vcpu_vmx),
- 		     __alignof__(struct vcpu_vmx), THIS_MODULE);
- 	if (r)
- 		goto err_kvm_init;
- 
- 	/*
--	 * Must be called after kvm_init() so enable_ept is properly set
-+	 * Must be called after common x86 init so enable_ept is properly set
- 	 * up. Hand the parameter mitigation value in which was stored in
- 	 * the pre module init parser. If no parameter was given, it will
- 	 * contain 'auto' which will be turned into the default 'cond'
-@@ -8559,6 +8564,8 @@ static int __init vmx_init(void)
- err_l1d_flush:
- 	vmx_exit();
- err_kvm_init:
-+	kvm_x86_vendor_exit();
-+err_x86_init:
- 	hv_cleanup_evmcs();
- 	return r;
- }
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 40d4bfaa17a4..a0ca401d3cdf 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -9272,7 +9272,16 @@ static inline void kvm_ops_update(struct kvm_x86_init_ops *ops)
- 
- int kvm_arch_init(void *opaque)
- {
--	struct kvm_x86_init_ops *ops = opaque;
-+	return 0;
+ 	enable_percpu_irq(host_vtimer_irq, host_vtimer_irq_flags);
+-	enable_percpu_irq(host_ptimer_irq, host_ptimer_irq_flags);
++	if (host_ptimer_irq)
++		enable_percpu_irq(host_ptimer_irq, host_ptimer_irq_flags);
 +}
 +
-+void kvm_arch_exit(void)
++void kvm_timer_cpu_down(void)
 +{
-+
-+}
-+
-+int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
-+{
- 	u64 host_pat;
- 	int r;
- 
-@@ -9404,8 +9413,9 @@ int kvm_arch_init(void *opaque)
- 	kmem_cache_destroy(x86_emulator_cache);
- 	return r;
++	disable_percpu_irq(host_vtimer_irq);
++	if (host_ptimer_irq)
++		disable_percpu_irq(host_ptimer_irq);
  }
-+EXPORT_SYMBOL_GPL(kvm_x86_vendor_init);
  
--void kvm_arch_exit(void)
-+void kvm_x86_vendor_exit(void)
+ int kvm_arm_timer_set_reg(struct kvm_vcpu *vcpu, u64 regid, u64 value)
+@@ -976,18 +984,6 @@ void kvm_arm_timer_write_sysreg(struct kvm_vcpu *vcpu,
+ 	preempt_enable();
+ }
+ 
+-static int kvm_timer_starting_cpu(unsigned int cpu)
+-{
+-	kvm_timer_init_interrupt(NULL);
+-	return 0;
+-}
+-
+-static int kvm_timer_dying_cpu(unsigned int cpu)
+-{
+-	disable_percpu_irq(host_vtimer_irq);
+-	return 0;
+-}
+-
+ static int timer_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu)
  {
- 	kvm_unregister_perf_callbacks();
+ 	if (vcpu)
+@@ -1185,9 +1181,6 @@ int kvm_timer_hyp_init(bool has_gic)
+ 		goto out_free_irq;
+ 	}
  
-@@ -9434,6 +9444,7 @@ void kvm_arch_exit(void)
- 	WARN_ON(static_branch_unlikely(&kvm_xen_enabled.key));
+-	cpuhp_setup_state(CPUHP_AP_KVM_ARM_TIMER_STARTING,
+-			  "kvm/arm/timer:starting", kvm_timer_starting_cpu,
+-			  kvm_timer_dying_cpu);
+ 	return 0;
+ out_free_irq:
+ 	free_percpu_irq(host_vtimer_irq, kvm_get_running_vcpus());
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 2ee729f54ce0..0c328af064dd 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1670,7 +1670,15 @@ static void _kvm_arch_hardware_enable(void *discard)
+ 
+ int kvm_arch_hardware_enable(void)
+ {
++	int was_enabled = __this_cpu_read(kvm_arm_hardware_enabled);
++
+ 	_kvm_arch_hardware_enable(NULL);
++
++	if (!was_enabled) {
++		kvm_vgic_cpu_up();
++		kvm_timer_cpu_up();
++	}
++
+ 	return 0;
+ }
+ 
+@@ -1684,6 +1692,11 @@ static void _kvm_arch_hardware_disable(void *discard)
+ 
+ void kvm_arch_hardware_disable(void)
+ {
++	if (__this_cpu_read(kvm_arm_hardware_enabled)) {
++		kvm_timer_cpu_down();
++		kvm_vgic_cpu_down();
++	}
++
+ 	if (!is_protected_kvm_enabled())
+ 		_kvm_arch_hardware_disable(NULL);
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index f6d4f4052555..6c7f6ae21ec0 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -465,17 +465,15 @@ int kvm_vgic_map_resources(struct kvm *kvm)
+ 
+ /* GENERIC PROBE */
+ 
+-static int vgic_init_cpu_starting(unsigned int cpu)
++void kvm_vgic_cpu_up(void)
+ {
+ 	enable_percpu_irq(kvm_vgic_global_state.maint_irq, 0);
+-	return 0;
+ }
+ 
+ 
+-static int vgic_init_cpu_dying(unsigned int cpu)
++void kvm_vgic_cpu_down(void)
+ {
+ 	disable_percpu_irq(kvm_vgic_global_state.maint_irq);
+-	return 0;
+ }
+ 
+ static irqreturn_t vgic_maintenance_handler(int irq, void *data)
+@@ -584,19 +582,6 @@ int kvm_vgic_hyp_init(void)
+ 		return ret;
+ 	}
+ 
+-	ret = cpuhp_setup_state(CPUHP_AP_KVM_ARM_VGIC_INIT_STARTING,
+-				"kvm/arm/vgic:starting",
+-				vgic_init_cpu_starting, vgic_init_cpu_dying);
+-	if (ret) {
+-		kvm_err("Cannot register vgic CPU notifier\n");
+-		goto out_free_irq;
+-	}
+-
+ 	kvm_info("vgic interrupt IRQ%d\n", kvm_vgic_global_state.maint_irq);
+ 	return 0;
+-
+-out_free_irq:
+-	free_percpu_irq(kvm_vgic_global_state.maint_irq,
+-			kvm_get_running_vcpus());
+-	return ret;
+ }
+diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+index cd6d8f260eab..1638418f72dd 100644
+--- a/include/kvm/arm_arch_timer.h
++++ b/include/kvm/arm_arch_timer.h
+@@ -104,4 +104,8 @@ void kvm_arm_timer_write_sysreg(struct kvm_vcpu *vcpu,
+ u32 timer_get_ctl(struct arch_timer_context *ctxt);
+ u64 timer_get_cval(struct arch_timer_context *ctxt);
+ 
++/* CPU HP callbacks */
++void kvm_timer_cpu_up(void);
++void kvm_timer_cpu_down(void);
++
  #endif
- }
-+EXPORT_SYMBOL_GPL(kvm_x86_vendor_exit);
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index 4df9e73a8bb5..fc4acc91ba06 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -431,4 +431,8 @@ int vgic_v4_load(struct kvm_vcpu *vcpu);
+ void vgic_v4_commit(struct kvm_vcpu *vcpu);
+ int vgic_v4_put(struct kvm_vcpu *vcpu, bool need_db);
  
- static int __kvm_emulate_halt(struct kvm_vcpu *vcpu, int state, int reason)
- {
++/* CPU HP callbacks */
++void kvm_vgic_cpu_up(void);
++void kvm_vgic_cpu_down(void);
++
+ #endif /* __KVM_ARM_VGIC_H */
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index f61447913db9..7337414e4947 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -186,9 +186,6 @@ enum cpuhp_state {
+ 	CPUHP_AP_TI_GP_TIMER_STARTING,
+ 	CPUHP_AP_HYPERV_TIMER_STARTING,
+ 	CPUHP_AP_KVM_STARTING,
+-	CPUHP_AP_KVM_ARM_VGIC_INIT_STARTING,
+-	CPUHP_AP_KVM_ARM_VGIC_STARTING,
+-	CPUHP_AP_KVM_ARM_TIMER_STARTING,
+ 	/* Must be the last timer callback */
+ 	CPUHP_AP_DUMMY_TIMER_STARTING,
+ 	CPUHP_AP_ARM_XEN_STARTING,
 -- 
 2.38.1.431.g37b22c650d-goog
 
