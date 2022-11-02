@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68C2C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 00:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6E9C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 00:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tfh2+1YntXWdGU99l6iy7eZbnr5MPtGA2hK+VBs5ZhI=; b=lTxqVk9Vio3NuP
-	RfcpUGF1LoYdQXxEfpZ+zp1izZ7N+4c9lmNbD5vldwpcVKc5R+JI7kmjTp190/8KN3Exqa9GPjlCd
-	kotbHmTURc/mQMM6ADyYAhymCowOfJBNs6QgrTBbcOgMVOqE1wfxarMUkf6J20TTSFmfzCNhBy3qV
-	7L7BN6gjuHNKooTRla62Y3LE/KXYLoIPEXOzeOI1/tdHiwjdM0iKQJAM5w/8savatx/untD4GYYmy
-	R2kqeBgVRke3EW9dWpHqfJ1kHMUsKSzeFwTUPqDUaLc3mXj1WKYBSSy9hYSjWbgonX7QsZupzB+WE
-	QbPFvwMN7+892H/k7QGw==;
+	List-Owner; bh=3Q/mBalkDY3nLjvElnS7pPQ2Z20OvTZCTA/tRBTQnxU=; b=J/4UaaawmFLGgW
+	y2EXQ5XjW7+A2fLo1n+TBL6pRxefcQ7ue/j6VhDlS69ME9WETvRnCf9NdT+2DQVGE0Vz1w+fGUabT
+	qOb9+ZzYLOi4bF/G0yHAf2efPYc3bzdSOCCh7Jdyy7Q0qXNnpCPlXp8jWXd9wGF9K/efADt8I3o8E
+	l5NN1GndjDAwxYg7usdCK7ke1k7wMbQmr8boc/U++O4O7cRjXzvM+5KvCU+T62OjSXUF6mlHTpUzh
+	YJRgF6tjRwguRkU1fsFDbRo/uyaUp1tVmPGPcYDzpVoUwddTDaQqDbe2RPfPhCK5k3yjty9ZA0S95
+	ouydGX0lDCQ4O9cAtkrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqOEM-00FN6W-77; Thu, 03 Nov 2022 00:37:14 +0000
+	id 1oqOEZ-00FNBf-9T; Thu, 03 Nov 2022 00:37:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqO67-00FJ6v-UM
-	for linux-riscv@bombadil.infradead.org; Thu, 03 Nov 2022 00:28:44 +0000
+	id 1oqO6C-00FJ6v-TT
+	for linux-riscv@bombadil.infradead.org; Thu, 03 Nov 2022 00:28:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SRqZjl0CVbTa6NG2E64G3dLAUo/Pz8pk6hIhLm2VMUc=; b=KmcyQsBx3mCGauIsUdpMHfU7Pp
-	UiMrOp7dMJpLv8llyBR9z2oce+Jw6o0ztZ3y7yLXdVdTopDD+ON6mKEGfkN/zCtSHHKb1vifBeTVJ
-	bmEeCN7y/yP0Bwx90yFM6TIGunv2MKRRF4QE3w/clvGkGGzUzKw2KfPrJjS2KLQ9vL9lG0h3C9/ej
-	BgPXyBtAPP3vmANtVnTs34GfUj5Xeyc9HvA4+xwr9V2uGHvDY0zJKEbiaV2kKXnBRWdoFETqekqaF
-	p/v1Hwm3uIapdus50XW+d6O6doW6J9SomJgeidKojCzJGmmAf0cgh4DLx2914a9w42nqtofyqDNg4
-	Y1HIvmAg==;
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	bh=f6XefN5I5ruzVbYrkN1yZMFgJ8nhy1kqU9UZnCdhptg=; b=j/Dqo9ZZaFNp8NDvtAUgwmEQYn
+	fE3S7Q4NEdgI8KXnpI2e3zTkYlzESv6xTzFYYg6XDI0SQf5prYLxQfTcDYNXj219gFieJUJiBDelo
+	aqmnEHL3foIk24gJSS1OlqLv2hiko9Fh/y1h1zUR2mPqKFRfCDi23JoZUWwkE2D5EspHXd67cwnSc
+	TECqRnWIR66mimn1w1TMxZ+KcW9FUxuizKh/YpPK5O52tmVWynb0ahZ0QDzJu/msRw7KzyPZQX2gk
+	maLxwpWbAoTvGHlU9kw1654OpcNNdYArImHENWPs58PHBp+Mx9f3TEDmwRPRp8sFNMhRBDJJUjzCO
+	RhtjrnWA==;
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN19-008Wu7-Es
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:34 +0000
-Received: by mail-pg1-x549.google.com with SMTP id q63-20020a632a42000000b0045724b1dfb9so96925pgq.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:30 -0700 (PDT)
+	id 1oqN18-008WtZ-8G
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:32 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id r126-20020a632b84000000b004393806c06eso96218pgr.4
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=SRqZjl0CVbTa6NG2E64G3dLAUo/Pz8pk6hIhLm2VMUc=;
-        b=N/AO+DlAJnQ9J/vtwHmeA+LWmW2X38Xvh1eLG4RWzywbm32Vf0IsEJKwUIfrABuxFl
-         0EKhIzYrEfkzCVSFK3biZb9XwWk4XwwJS/OnHHvaR70SNUpWUpE57FN4sbTk/TPj35x/
-         cAJkeY4R4md/H6BBXnN0tlgqyVYRq72kGCHMOXzsnn+VDv0nws/iLVsXJU1fSeeLEY4w
-         /5W7IzSHqdo5Jkh7TgJ/2kp0Wml2Tqdg9OOSx8bwuC9pmrXmMmqnDL37uTYdYPfVtwii
-         poXkBmFS7imW8u09oi9MQ4pJzJGTl8VmWIvB/CfRCk2mynsmxJDVg6mdWRwKUMtA9Dq0
-         KkpQ==
+        bh=f6XefN5I5ruzVbYrkN1yZMFgJ8nhy1kqU9UZnCdhptg=;
+        b=FUnEcV14oY1HhDUwVKN8pTDouw0xzuRbPJ7dVWPyWf7LCB3wz7IYoyHrVonO3c387e
+         dI3MHWMYgBJQpreY7yX0zaLup4D/BjMQIPgcJ6/Y5XOKigJWcAdpUzONFvuLPzHtir52
+         zdaUHwROL74RXI3mkeR0R+qNmpt1jql/YrTnEJ1Qwsw3qcMId5mcp2klJsam49tVGQME
+         t8DMqjC0vOv+z1PP8Nu2ZgbAaFakedT9qRtNqclB+WBnuhzmQLAsPCqjW2pMYt0xh3QD
+         h7M2RWadICLZ+5uSGPG4Pb/Tc8N1vrQv0/X5wVejGopVyLeDeBxDnA93aC61xM1KOh59
+         ijig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SRqZjl0CVbTa6NG2E64G3dLAUo/Pz8pk6hIhLm2VMUc=;
-        b=fMvFlkVMaadDrnnkK7qm5gTVAlrPJyQ7WBLM+PNOBqxymNFmyy0RH2PwduW7FJTjyF
-         tL4ggYprX85Gc3/08nbKgPfGpPiK9kvRGwOSjOInT7kj9tdzT4+5TaVIuuufo/7LWg7t
-         GToS25N91uKZS3Hs52MzvNlkPgylvUIA+SkVefV6RnPp32B4P5GddtKDEpyJ1JHFuK2L
-         od6kWUPmLJDZbAR4+tnDuHafTKAI8K+xDcsmRgzV7scw4ys/T7R01xIAZUOHZ5FoWEmk
-         RzDei0k7nKW+zCoOgqLiOevsL4U5SSdo59scwtsutNDJ3AqCj6gYfJSnk/KoVXaUpMXP
-         OC7A==
-X-Gm-Message-State: ACrzQf3n76EV9JB/kJPfGTPZ6uJyuOaOqtf9vTXAmvu82jhAWdkI5IzI
-	duKUpD9v5gHLx3QRzht0sPjQDGRymM8=
-X-Google-Smtp-Source: AMsMyM4EhVfOAXnvh3uqqR+GrfRtTcz5EdIn8ldyko2v+yjX0B25rXaAkhDgO2YLd/AhKl4jKmJJf3AFTk4=
+        bh=f6XefN5I5ruzVbYrkN1yZMFgJ8nhy1kqU9UZnCdhptg=;
+        b=OIcYFTF1Kfasi+L+9Tu3i/sGxMNxEKRAE/g/IdyYe0oPG9XNz+iPOIdRPzOoYmTeXa
+         kK98Ybv+K5EhQPAWBDCHD57X5/AaswxB3Z4MI5IrEs0XjuS07paBejjN7VVwJ2c/ZkEv
+         XZu0lJEeF0HvFv8Qynh1iB4Jjyw7CYCvbbMjnvQBWvO+WEmf4MkVK+PUXPnfNZrTo2E4
+         HgRh//Ltyv8+iF6PFfzOiDN8RunNslrj5XS610H00rKh6QL0Fuuy/0Fb9K6NA09WOh/J
+         ZusVXP9Aejy7h39KB0KElKIyg65vTVhZ0/0LXvhn26TTbi9YH6n5xW6EDLRATg0tZY+4
+         LJSw==
+X-Gm-Message-State: ACrzQf1e9pQbi+eX/+TUhVLdqv4Bg6YLivsQUrCwzzrbaJ8ieyvWr3mQ
+	Lo5664EhHH+4SVaZaxMwL5kNIXDFvkM=
+X-Google-Smtp-Source: AMsMyM6ZTzi+kKessshttxuP+R00ff+0MGY2J8p0+pI+2b6dGLsSDC25NpLjmF+zSycHkN8AtXN1EQYPl4Q=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:1d89:b0:56c:a2b:f1c2 with SMTP id
- z9-20020a056a001d8900b0056c0a2bf1c2mr27838704pfw.45.1667431169395; Wed, 02
- Nov 2022 16:19:29 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:18:36 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:902:da86:b0:188:4eab:b782 with SMTP id
+ j6-20020a170902da8600b001884eabb782mr2360300plx.171.1667431167708; Wed, 02
+ Nov 2022 16:19:27 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:35 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-10-seanjc@google.com>
-Subject: [PATCH 09/44] KVM: Drop arch hardware (un)setup hooks
+Message-ID: <20221102231911.3107438-9-seanjc@google.com>
+Subject: [PATCH 08/44] KVM: x86: Move hardware setup/unsetup to init/exit
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -98,8 +98,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_231932_123397_A093E847 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20221102_231930_743834_A9D7126A 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,226 +117,203 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drop kvm_arch_hardware_setup() and kvm_arch_hardware_unsetup() now that
-all implementations are nops.
+Now that kvm_arch_hardware_setup() is called immediately after
+kvm_arch_init(), fold the guts of kvm_arch_hardware_(un)setup() into
+kvm_arch_{init,exit}() as a step towards dropping one of the hooks.
 
-No functional change intended.
+To avoid having to unwind various setup, e.g registration of several
+notifiers, slot in the vendor hardware setup before the registration of
+said notifiers and callbacks.  Introducing a functional change while
+moving code is less than ideal, but the alternative is adding a pile of
+unwinding code, which is much more error prone, e.g. several attempts to
+move the setup code verbatim all introduced bugs.
+
+Add a comment to document that kvm_ops_update() is effectively the point
+of no return, e.g. it sets the kvm_x86_ops.hardware_enable canary and so
+needs to be unwound.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/include/asm/kvm_host.h   |  1 -
- arch/arm64/kvm/arm.c                |  5 -----
- arch/mips/include/asm/kvm_host.h    |  1 -
- arch/mips/kvm/mips.c                |  5 -----
- arch/powerpc/include/asm/kvm_host.h |  1 -
- arch/powerpc/kvm/powerpc.c          |  5 -----
- arch/riscv/include/asm/kvm_host.h   |  1 -
- arch/riscv/kvm/main.c               |  5 -----
- arch/s390/kvm/kvm-s390.c            | 10 ----------
- arch/x86/kvm/x86.c                  | 10 ----------
- include/linux/kvm_host.h            |  2 --
- virt/kvm/kvm_main.c                 |  7 -------
- 12 files changed, 53 deletions(-)
+ arch/x86/kvm/x86.c | 121 +++++++++++++++++++++++----------------------
+ 1 file changed, 63 insertions(+), 58 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 45e2136322ba..5d5a887e63a5 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -859,7 +859,6 @@ static inline bool kvm_system_needs_idmapped_vectors(void)
- 
- void kvm_arm_vcpu_ptrauth_trap(struct kvm_vcpu *vcpu);
- 
--static inline void kvm_arch_hardware_unsetup(void) {}
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
- 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 94d33e296e10..2ee729f54ce0 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -63,11 +63,6 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
- }
- 
--int kvm_arch_hardware_setup(void *opaque)
--{
--	return 0;
--}
--
- int kvm_arch_check_processor_compat(void *opaque)
- {
- 	return 0;
-diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
-index 5cedb28e8a40..28f0ba97db71 100644
---- a/arch/mips/include/asm/kvm_host.h
-+++ b/arch/mips/include/asm/kvm_host.h
-@@ -888,7 +888,6 @@ extern unsigned long kvm_mips_get_ramsize(struct kvm *kvm);
- extern int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu,
- 			     struct kvm_mips_interrupt *irq);
- 
--static inline void kvm_arch_hardware_unsetup(void) {}
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_free_memslot(struct kvm *kvm,
- 					 struct kvm_memory_slot *slot) {}
-diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
-index a25e0b73ee70..af29490d9740 100644
---- a/arch/mips/kvm/mips.c
-+++ b/arch/mips/kvm/mips.c
-@@ -135,11 +135,6 @@ void kvm_arch_hardware_disable(void)
- 	kvm_mips_callbacks->hardware_disable();
- }
- 
--int kvm_arch_hardware_setup(void *opaque)
--{
--	return 0;
--}
--
- int kvm_arch_check_processor_compat(void *opaque)
- {
- 	return 0;
-diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-index caea15dcb91d..5d2c3a487e73 100644
---- a/arch/powerpc/include/asm/kvm_host.h
-+++ b/arch/powerpc/include/asm/kvm_host.h
-@@ -877,7 +877,6 @@ struct kvm_vcpu_arch {
- #define __KVM_HAVE_CREATE_DEVICE
- 
- static inline void kvm_arch_hardware_disable(void) {}
--static inline void kvm_arch_hardware_unsetup(void) {}
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
- static inline void kvm_arch_flush_shadow_all(struct kvm *kvm) {}
-diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index b850b0efa201..74ea5687ecbc 100644
---- a/arch/powerpc/kvm/powerpc.c
-+++ b/arch/powerpc/kvm/powerpc.c
-@@ -441,11 +441,6 @@ int kvm_arch_hardware_enable(void)
- 	return 0;
- }
- 
--int kvm_arch_hardware_setup(void *opaque)
--{
--	return 0;
--}
--
- int kvm_arch_check_processor_compat(void *opaque)
- {
- 	return kvmppc_core_check_processor_compat();
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index dbbf43d52623..8c771fc4f5d2 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -229,7 +229,6 @@ struct kvm_vcpu_arch {
- 	bool pause;
- };
- 
--static inline void kvm_arch_hardware_unsetup(void) {}
- static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_sched_in(struct kvm_vcpu *vcpu, int cpu) {}
- 
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index df2d8716851f..a146fa0ce4d2 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -25,11 +25,6 @@ int kvm_arch_check_processor_compat(void *opaque)
- 	return 0;
- }
- 
--int kvm_arch_hardware_setup(void *opaque)
--{
--	return 0;
--}
--
- int kvm_arch_hardware_enable(void)
- {
- 	unsigned long hideleg, hedeleg;
-diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-index 1aaee15211f2..7fcd2d3b3558 100644
---- a/arch/s390/kvm/kvm-s390.c
-+++ b/arch/s390/kvm/kvm-s390.c
-@@ -321,16 +321,6 @@ static struct notifier_block kvm_clock_notifier = {
- 	.notifier_call = kvm_clock_sync,
- };
- 
--int kvm_arch_hardware_setup(void *opaque)
--{
--	return 0;
--}
--
--void kvm_arch_hardware_unsetup(void)
--{
--
--}
--
- static void allow_cpu_feat(unsigned long nr)
- {
- 	set_bit_inv(nr, kvm_s390_available_cpu_feat);
 diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 80ee580a9cd4..40d4bfaa17a4 100644
+index 9a7702b1c563..80ee580a9cd4 100644
 --- a/arch/x86/kvm/x86.c
 +++ b/arch/x86/kvm/x86.c
-@@ -11985,16 +11985,6 @@ void kvm_arch_hardware_disable(void)
+@@ -9252,6 +9252,24 @@ static struct notifier_block pvclock_gtod_notifier = {
+ };
+ #endif
+ 
++static inline void kvm_ops_update(struct kvm_x86_init_ops *ops)
++{
++	memcpy(&kvm_x86_ops, ops->runtime_ops, sizeof(kvm_x86_ops));
++
++#define __KVM_X86_OP(func) \
++	static_call_update(kvm_x86_##func, kvm_x86_ops.func);
++#define KVM_X86_OP(func) \
++	WARN_ON(!kvm_x86_ops.func); __KVM_X86_OP(func)
++#define KVM_X86_OP_OPTIONAL __KVM_X86_OP
++#define KVM_X86_OP_OPTIONAL_RET0(func) \
++	static_call_update(kvm_x86_##func, (void *)kvm_x86_ops.func ? : \
++					   (void *)__static_call_return0);
++#include <asm/kvm-x86-ops.h>
++#undef __KVM_X86_OP
++
++	kvm_pmu_ops_update(ops->pmu_ops);
++}
++
+ int kvm_arch_init(void *opaque)
+ {
+ 	struct kvm_x86_init_ops *ops = opaque;
+@@ -9325,6 +9343,24 @@ int kvm_arch_init(void *opaque)
+ 		kvm_caps.supported_xcr0 = host_xcr0 & KVM_SUPPORTED_XCR0;
+ 	}
+ 
++	rdmsrl_safe(MSR_EFER, &host_efer);
++
++	if (boot_cpu_has(X86_FEATURE_XSAVES))
++		rdmsrl(MSR_IA32_XSS, host_xss);
++
++	kvm_init_pmu_capability();
++
++	r = ops->hardware_setup();
++	if (r != 0)
++		goto out_mmu_exit;
++
++	/*
++	 * Point of no return!  DO NOT add error paths below this point unless
++	 * absolutely necessary, as most operations from this point forward
++	 * require unwinding.
++	 */
++	kvm_ops_update(ops);
++
+ 	kvm_timer_init();
+ 
+ 	if (pi_inject_timer == -1)
+@@ -9336,8 +9372,32 @@ int kvm_arch_init(void *opaque)
+ 		set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
+ #endif
+ 
++	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
++
++	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
++		kvm_caps.supported_xss = 0;
++
++#define __kvm_cpu_cap_has(UNUSED_, f) kvm_cpu_cap_has(f)
++	cr4_reserved_bits = __cr4_reserved_bits(__kvm_cpu_cap_has, UNUSED_);
++#undef __kvm_cpu_cap_has
++
++	if (kvm_caps.has_tsc_control) {
++		/*
++		 * Make sure the user can only configure tsc_khz values that
++		 * fit into a signed integer.
++		 * A min value is not calculated because it will always
++		 * be 1 on all machines.
++		 */
++		u64 max = min(0x7fffffffULL,
++			      __scale_tsc(kvm_caps.max_tsc_scaling_ratio, tsc_khz));
++		kvm_caps.max_guest_tsc_khz = max;
++	}
++	kvm_caps.default_tsc_scaling_ratio = 1ULL << kvm_caps.tsc_scaling_ratio_frac_bits;
++	kvm_init_msr_list();
+ 	return 0;
+ 
++out_mmu_exit:
++	kvm_mmu_vendor_module_exit();
+ out_free_percpu:
+ 	free_percpu(user_return_msrs);
+ out_free_x86_emulator_cache:
+@@ -9347,6 +9407,8 @@ int kvm_arch_init(void *opaque)
+ 
+ void kvm_arch_exit(void)
+ {
++	kvm_unregister_perf_callbacks();
++
+ #ifdef CONFIG_X86_64
+ 	if (hypervisor_is_type(X86_HYPER_MS_HYPERV))
+ 		clear_hv_tscchange_cb();
+@@ -9362,6 +9424,7 @@ void kvm_arch_exit(void)
+ 	irq_work_sync(&pvclock_irq_work);
+ 	cancel_work_sync(&pvclock_gtod_work);
+ #endif
++	static_call(kvm_x86_hardware_unsetup)();
+ 	kvm_x86_ops.hardware_enable = NULL;
+ 	kvm_mmu_vendor_module_exit();
+ 	free_percpu(user_return_msrs);
+@@ -11922,72 +11985,14 @@ void kvm_arch_hardware_disable(void)
  	drop_user_return_notifiers();
  }
  
--int kvm_arch_hardware_setup(void *opaque)
+-static inline void kvm_ops_update(struct kvm_x86_init_ops *ops)
 -{
--	return 0;
+-	memcpy(&kvm_x86_ops, ops->runtime_ops, sizeof(kvm_x86_ops));
+-
+-#define __KVM_X86_OP(func) \
+-	static_call_update(kvm_x86_##func, kvm_x86_ops.func);
+-#define KVM_X86_OP(func) \
+-	WARN_ON(!kvm_x86_ops.func); __KVM_X86_OP(func)
+-#define KVM_X86_OP_OPTIONAL __KVM_X86_OP
+-#define KVM_X86_OP_OPTIONAL_RET0(func) \
+-	static_call_update(kvm_x86_##func, (void *)kvm_x86_ops.func ? : \
+-					   (void *)__static_call_return0);
+-#include <asm/kvm-x86-ops.h>
+-#undef __KVM_X86_OP
+-
+-	kvm_pmu_ops_update(ops->pmu_ops);
 -}
 -
--void kvm_arch_hardware_unsetup(void)
--{
--
--}
--
- int kvm_arch_check_processor_compat(void *opaque)
+ int kvm_arch_hardware_setup(void *opaque)
  {
- 	struct cpuinfo_x86 *c = &cpu_data(smp_processor_id());
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 18592bdf4c1b..9b52bd40be56 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1447,8 +1447,6 @@ static inline void kvm_create_vcpu_debugfs(struct kvm_vcpu *vcpu) {}
- 
- int kvm_arch_hardware_enable(void);
- void kvm_arch_hardware_disable(void);
--int kvm_arch_hardware_setup(void *opaque);
--void kvm_arch_hardware_unsetup(void);
- int kvm_arch_check_processor_compat(void *opaque);
- int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
- bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index f592dd4ce8f2..27ce263a80e4 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5843,10 +5843,6 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	if (r)
- 		return r;
- 
--	r = kvm_arch_hardware_setup(opaque);
--	if (r < 0)
--		goto err_hw_setup;
+-	struct kvm_x86_init_ops *ops = opaque;
+-	int r;
 -
- 	if (!zalloc_cpumask_var(&cpus_hardware_enabled, GFP_KERNEL)) {
- 		r = -ENOMEM;
- 		goto err_hw_enabled;
-@@ -5939,8 +5935,6 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- out_free_2:
- 	free_cpumask_var(cpus_hardware_enabled);
- err_hw_enabled:
--	kvm_arch_hardware_unsetup();
--err_hw_setup:
- 	kvm_arch_exit();
- 	return r;
+-	rdmsrl_safe(MSR_EFER, &host_efer);
+-
+-	if (boot_cpu_has(X86_FEATURE_XSAVES))
+-		rdmsrl(MSR_IA32_XSS, host_xss);
+-
+-	kvm_init_pmu_capability();
+-
+-	r = ops->hardware_setup();
+-	if (r != 0)
+-		return r;
+-
+-	kvm_ops_update(ops);
+-
+-	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
+-
+-	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
+-		kvm_caps.supported_xss = 0;
+-
+-#define __kvm_cpu_cap_has(UNUSED_, f) kvm_cpu_cap_has(f)
+-	cr4_reserved_bits = __cr4_reserved_bits(__kvm_cpu_cap_has, UNUSED_);
+-#undef __kvm_cpu_cap_has
+-
+-	if (kvm_caps.has_tsc_control) {
+-		/*
+-		 * Make sure the user can only configure tsc_khz values that
+-		 * fit into a signed integer.
+-		 * A min value is not calculated because it will always
+-		 * be 1 on all machines.
+-		 */
+-		u64 max = min(0x7fffffffULL,
+-			      __scale_tsc(kvm_caps.max_tsc_scaling_ratio, tsc_khz));
+-		kvm_caps.max_guest_tsc_khz = max;
+-	}
+-	kvm_caps.default_tsc_scaling_ratio = 1ULL << kvm_caps.tsc_scaling_ratio_frac_bits;
+-	kvm_init_msr_list();
+ 	return 0;
  }
-@@ -5969,7 +5963,6 @@ void kvm_exit(void)
- 	on_each_cpu(hardware_disable_nolock, NULL, 1);
- 	kvm_irqfd_exit();
- 	free_cpumask_var(cpus_hardware_enabled);
--	kvm_arch_hardware_unsetup();
- 	kvm_arch_exit();
+ 
+ void kvm_arch_hardware_unsetup(void)
+ {
+-	kvm_unregister_perf_callbacks();
+ 
+-	static_call(kvm_x86_hardware_unsetup)();
  }
- EXPORT_SYMBOL_GPL(kvm_exit);
+ 
+ int kvm_arch_check_processor_compat(void *opaque)
 -- 
 2.38.1.431.g37b22c650d-goog
 
