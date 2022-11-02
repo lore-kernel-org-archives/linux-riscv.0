@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FC3C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF322C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LAI9Qc/u1uz7MnH+WYgHpGch/Av1OLgfz9dAXM2jIxc=; b=IN/IzrM5rhP6eQ
-	M8rEDAAnqWwiwrf32pUf6MYRfGtVwHxWm12mNd5FNNo5bKKKHR7UX6VoNrZaOUOY0+wIQHtLa234z
-	Mg8eOW3v3Kin4mq9lWfRuWXWx1xeoAV5ihnOsg9w8n+XHS6iedBMs6rMJ4tHZ8yQaN45svl+Lkv3u
-	1k/ogeXMXqv5g47Abv/Y4ckabvOvzvCV3d60mR64ox2g8WrtAZMZM6d5O/OfOpSAfjvbngDepDwC2
-	vV+BGbcXrlALFIAsWbcWUBUHuKfqznwhq2Yaw7TVVpBMQG5cTG9UkxtynQWMawXRnhLmfjAyaEdQ3
-	AoBjQ01qVJaffIwehxng==;
+	List-Owner; bh=6TWhatq5yl1u09SGkX8DUBmewdMYNMp7A5anq03OquM=; b=V635ft+CUjtFbF
+	Ni6ZEOfihfDlmfyvEoLRNMDU4oZXsn3otUAcX3PmZTzvDojEZTyzOEa0CIuPeVf4JEUZ577LkMD/X
+	qKohDScwhRyw+PwrDW9x8NWo/aWwNM8s5WPzPE9moazuH/DopoX5BEuqr5zQwDJYEX7ndO8kybIBh
+	873wJnurZOB2g415YnLlJPUWIreGOV4ClHnYKcNwRLqSrHFzmYpuw5ToNsrcTft3xjwTDCRFHv+jA
+	fkce0qYN7P0kVKDJ8es9eltua+rYbM/vpgbVoEdYG2R3A7Dq+Uqi5B1G92TVNY+TVin4+DgJAGHn6
+	JgHRwzVHjYyayJpyD44A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqNN5-00F5Xt-EA; Wed, 02 Nov 2022 23:42:11 +0000
+	id 1oqNRQ-00F9PN-PP; Wed, 02 Nov 2022 23:46:40 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqNGV-00F1m3-5t
-	for linux-riscv@bombadil.infradead.org; Wed, 02 Nov 2022 23:35:23 +0000
+	id 1oqNGY-00F1m3-Gb
+	for linux-riscv@bombadil.infradead.org; Wed, 02 Nov 2022 23:35:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XOm5gmY5yRxyVbM7h5atP3/v80uNjlEWUwmtqPuKnrU=; b=k0f5NcaejmRXfEXLIIr29cMr9K
-	LP6MLpgWdIZfD/t8Ma/f1095Oytr7plShbFIuFXADIP3y7lazJjKTTg3m+t5mWBhGzgeBST7i9Tjx
-	/5EczjKyzp0/qPRU/ovkyjqBOlppNMGpMyVexxqe6H/Rz3tYjYwGKbV51yHfARgCw5ZjXeXEf5tOO
-	tIHt+e8uvndtc3lDKbshUPBxglkUvQ8BEhbtibcJOxyqHbhK8Qz5EJcX6/EsQ/SWkN2HcE53tijhk
-	r3PPRHEt2Pvho54ct02mUYuZHY2WHe/ZH3jQaBGjZRCSY70kXLyX2OpIppEkZXu3xrytu25+8GDpm
-	iUJOI6Tg==;
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	bh=0o+EzHHK0qEKuJS4nAvuf1qFUtMYU5Pn7Tw+MdMbo24=; b=GscQxu2BjYwCGdzrmQTjKnOECA
+	M5yNYB1V/NM88ECZZozncS+ry6VBGc6E0OJO188eZLbMQ6/vlAQl0ZWKrT+OZXV6FwesXCMJoxf+l
+	6crrSLxgwNzr7aZJpcrQRVo5TjWZnGvL4vNtUnHYTpW0jXxCaZzvleTLwRRq/mCQk9i/TBjzHSAYT
+	fA4nmyVUU5Pdy7Mx0sATIF7Il3dI6lOUxUnZaGaW314/P8wyJ0LugzJXXzI3fUglTLFXwQ9tEK++m
+	8g/NwbFn9s7pK6K5T+xgZ7YNDoWToubZOXz34WegwoYu03MrzOMyHy3+hU61j/3Cd+6jK9xrVk/5P
+	ZEaSi9YA==;
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN20-005vw5-Hm
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:20:27 +0000
-Received: by mail-pf1-x449.google.com with SMTP id z19-20020a056a001d9300b0056df4b6f421so15516pfw.4
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:20:19 -0700 (PDT)
+	id 1oqN1V-005vql-B4
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:55 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-37342ba89dbso1128847b3.1
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=XOm5gmY5yRxyVbM7h5atP3/v80uNjlEWUwmtqPuKnrU=;
-        b=P098Tzj2rpCJt/4nT8TrXTmUFPSgbhycgPry+JJrhxDuao4X1xtJJMmkpRB4trEL+1
-         55zpGfmzGI5TBm87M6Zs05xZAzJVQeNB6vBpk6WWQfA3tICCm87E6sO59+ssVnP2DMV3
-         hznDyqUbjHe4LGoM3DU21pBPc947dC5uIYbWgsImqI8pmwnLywsM+KMu/sYgtS/f8Vg6
-         ulJ7edDhRMBnHlx6lfmMwV1MS6wrSEBngjldBD8LoOWj74JJvfznExcwtcTban7qi7hz
-         //M7aBh24hO/B6RinKg6thqufqaedpAYEyt0W7Am9UJmOQXk6WzZPIZJVcSMq0UtYuH2
-         blnQ==
+        bh=0o+EzHHK0qEKuJS4nAvuf1qFUtMYU5Pn7Tw+MdMbo24=;
+        b=EIb+S3KjwEE+ZmqC6GbVJJy8amB++eLjJ+/jiG87MMc/wFbRU0kx0J4wCKJ8j6nNjs
+         za+Fdn/Zmx7Nwq0npY2wSE6K/65mKpituGYshWgszbXujsa2C4LOGKYmBrXWAMqsHhZk
+         dzAug91CI+xQams4Ntwr0hTe4dRBZOSfAhxxeRSz8D7gTCIm4bWh+wmhFWuITQJ5GWZI
+         p8Ppdaut1HKYwQiz88BhbW052nrk95os7SRI+oqJvvM8DT8p9187Bsm3Ibwh0slRJL7C
+         GuHqGcSZ+hhn6XS4bRu2tYDaytkFylv9nYI38h0KA40gF/Dhf137+j/nMwytxcCY0bIV
+         yxuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XOm5gmY5yRxyVbM7h5atP3/v80uNjlEWUwmtqPuKnrU=;
-        b=l0+criJIq/9voKy25c3oHX2K/8oKkuHbAhWxMXcmV9Q80J9LRtDQyjAdJE2YbZxwoN
-         dHeLbpLch4ih8yYpDDeQVYN8ke9qVz8g8KHqQyBQYO1PHTKsjf1PmPNvDOfqABrfzoBc
-         GDGAQRqwwhNEm3GePEX9fpvgQcs6iNQi9qHgsnwf1EIoiIXEvfDDW/SbM5yqy2MmoWHt
-         PCJrySMrjzBi9NgelMA1dhzXKtOXVKv9zFHi2a8SP4FHsYEiSmqZv0Bot9Yd4LHtEt7C
-         tdoYqUG/Rj9A/5K7g+KDtCidw1LDjrwM/TkyKouxGPitjnzTEX/OgOz2QBelr7HqqTxs
-         h79Q==
-X-Gm-Message-State: ACrzQf2kBVFmxQOw1uQfEx+F97mmAy6ZhuERm3N9HFfXMIeNXyVTCOtt
-	b+gnBLl9zdrSz7Us6WMe2FQSr0puKEc=
-X-Google-Smtp-Source: AMsMyM5ohXm4oyR4jft0wXrIcDwmrJUMZ0my1jgH1DEVPjOvKwP7xekYGMEgfn4JBdiC2vhG8AasDNojAdM=
+        bh=0o+EzHHK0qEKuJS4nAvuf1qFUtMYU5Pn7Tw+MdMbo24=;
+        b=ekpKdsSHKddPWo/ge3v5nOJDdO72sD0Gt7Cj7/OTxiUL1rQ4YyaASJmnJXI1zzFyuz
+         MpKKv0jMZBPxjF/Pff/y3T+55IIymHPdMSa2g1ua69FDRP/nYsBGx4wxN1m8iBoiutSy
+         oO+1zskksFxCW0LeR9OshlPGKf7kbY9kJdYIvM7ORS6RckKn4CzVFhmRFY95PPo3x+vg
+         5WPYuxKufjSi9rIx7oEFQudY6QZG6vTUh87NCB15RAgJ2pjI+55ixIURgMX9rEbDnUNj
+         iN78JVY5FEOQu4HPo892T9VRwIdrnuxaY45I2fKphDmMKviJqr5tI5+erXhcTPe7UWUU
+         YxPA==
+X-Gm-Message-State: ACrzQf2IMGc3HoqyeAaN7Kq2f5Mtju5ifKjQOYneyFcKpgohQxbmBbem
+	lMgTSqEI+vs5Hq5nydbmsa/hvg7KR9k=
+X-Google-Smtp-Source: AMsMyM4BtppDJKgcriXyYQiJchXeoNkFVVMupwaiPk8mRMPwi+bT/3boEB5+2TF1+6y9viZ/we/mwFmDxqY=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a62:8141:0:b0:56b:c435:f003 with SMTP id
- t62-20020a628141000000b0056bc435f003mr27425626pfd.15.1667431217428; Wed, 02
- Nov 2022 16:20:17 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:19:04 +0000
+ (user=seanjc job=sendgmr) by 2002:a81:3984:0:b0:370:7d9b:7a6d with SMTP id
+ g126-20020a813984000000b003707d9b7a6dmr13100947ywa.274.1667431186021; Wed, 02
+ Nov 2022 16:19:46 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:46 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-38-seanjc@google.com>
-Subject: [PATCH 37/44] KVM: Rename and move CPUHP_AP_KVM_STARTING to ONLINE section
+Message-ID: <20221102231911.3107438-20-seanjc@google.com>
+Subject: [PATCH 19/44] KVM: MIPS: Hardcode callbacks to hardware
+ virtualization extensions
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -98,8 +99,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_232024_625290_E3C93C7B 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20221102_231953_412962_AB3A9F0E 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,127 +118,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chao Gao <chao.gao@intel.com>
+Now that KVM no longer supports trap-and-emulate (see commit 45c7e8af4a5e
+"MIPS: Remove KVM_TE support"), hardcode the MIPS callbacks to the
+virtualization callbacks.
 
-The CPU STARTING section doesn't allow callbacks to fail. Move KVM's
-hotplug callback to ONLINE section so that it can abort onlining a CPU in
-certain cases to avoid potentially breaking VMs running on existing CPUs.
-For example, when KVM fails to enable hardware virtualization on the
-hotplugged CPU.
+Harcoding the callbacks eliminates the technically-unnecessary check on
+non-NULL kvm_mips_callbacks in kvm_arch_init().  MIPS has never supported
+multiple in-tree modules, i.e. barring an out-of-tree module, where
+copying and renaming kvm.ko counts as "out-of-tree", KVM could never
+encounter a non-NULL set of callbacks during module init.
 
-Place KVM's hotplug state before CPUHP_AP_SCHED_WAIT_EMPTY as it ensures
-when offlining a CPU, all user tasks and non-pinned kernel tasks have left
-the CPU, i.e. there cannot be a vCPU task around. So, it is safe for KVM's
-CPU offline callback to disable hardware virtualization at that point.
-Likewise, KVM's online callback can enable hardware virtualization before
-any vCPU task gets a chance to run on hotplugged CPUs.
+The callback check is also subtly broken, as it is not thread safe,
+i.e. if there were multiple modules, loading both concurrently would
+create a race between checking and setting kvm_mips_callbacks.
 
-Rename KVM's CPU hotplug callbacks accordingly.
+Given that out-of-tree shenanigans are not the kernel's responsibility,
+hardcode the callbacks to simplify the code.
 
-Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-Signed-off-by: Chao Gao <chao.gao@intel.com>
-Reviewed-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
-Reviewed-by: Yuan Yao <yuan.yao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- include/linux/cpuhotplug.h |  2 +-
- virt/kvm/kvm_main.c        | 30 ++++++++++++++++++++++--------
- 2 files changed, 23 insertions(+), 9 deletions(-)
+ arch/mips/include/asm/kvm_host.h |  2 +-
+ arch/mips/kvm/Makefile           |  2 +-
+ arch/mips/kvm/callback.c         | 14 --------------
+ arch/mips/kvm/mips.c             |  9 ++-------
+ arch/mips/kvm/vz.c               |  7 ++++---
+ 5 files changed, 8 insertions(+), 26 deletions(-)
+ delete mode 100644 arch/mips/kvm/callback.c
 
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 7337414e4947..de45be38dd27 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -185,7 +185,6 @@ enum cpuhp_state {
- 	CPUHP_AP_CSKY_TIMER_STARTING,
- 	CPUHP_AP_TI_GP_TIMER_STARTING,
- 	CPUHP_AP_HYPERV_TIMER_STARTING,
--	CPUHP_AP_KVM_STARTING,
- 	/* Must be the last timer callback */
- 	CPUHP_AP_DUMMY_TIMER_STARTING,
- 	CPUHP_AP_ARM_XEN_STARTING,
-@@ -200,6 +199,7 @@ enum cpuhp_state {
+diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
+index 28f0ba97db71..2803c9c21ef9 100644
+--- a/arch/mips/include/asm/kvm_host.h
++++ b/arch/mips/include/asm/kvm_host.h
+@@ -758,7 +758,7 @@ struct kvm_mips_callbacks {
+ 	void (*vcpu_reenter)(struct kvm_vcpu *vcpu);
+ };
+ extern struct kvm_mips_callbacks *kvm_mips_callbacks;
+-int kvm_mips_emulation_init(struct kvm_mips_callbacks **install_callbacks);
++int kvm_mips_emulation_init(void);
  
- 	/* Online section invoked on the hotplugged CPU from the hotplug thread */
- 	CPUHP_AP_ONLINE_IDLE,
-+	CPUHP_AP_KVM_ONLINE,
- 	CPUHP_AP_SCHED_WAIT_EMPTY,
- 	CPUHP_AP_SMPBOOT_THREADS,
- 	CPUHP_AP_X86_VDSO_VMA_ONLINE,
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index dd13af9f06d5..fd9e39c85549 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5026,13 +5026,27 @@ static void hardware_enable_nolock(void *junk)
- 	}
- }
+ /* Debug: dump vcpu state */
+ int kvm_arch_vcpu_dump_regs(struct kvm_vcpu *vcpu);
+diff --git a/arch/mips/kvm/Makefile b/arch/mips/kvm/Makefile
+index 21ff75bcdbc4..805aeea2166e 100644
+--- a/arch/mips/kvm/Makefile
++++ b/arch/mips/kvm/Makefile
+@@ -17,4 +17,4 @@ kvm-$(CONFIG_CPU_LOONGSON64) += loongson_ipi.o
  
--static int kvm_starting_cpu(unsigned int cpu)
-+static int kvm_online_cpu(unsigned int cpu)
+ kvm-y		+= vz.o
+ obj-$(CONFIG_KVM)	+= kvm.o
+-obj-y			+= callback.o tlb.o
++obj-y			+= tlb.o
+diff --git a/arch/mips/kvm/callback.c b/arch/mips/kvm/callback.c
+deleted file mode 100644
+index d88aa2173fb0..000000000000
+--- a/arch/mips/kvm/callback.c
++++ /dev/null
+@@ -1,14 +0,0 @@
+-/*
+- * This file is subject to the terms and conditions of the GNU General Public
+- * License.  See the file "COPYING" in the main directory of this archive
+- * for more details.
+- *
+- * Copyright (C) 2012  MIPS Technologies, Inc.  All rights reserved.
+- * Authors: Yann Le Du <ledu@kymasys.com>
+- */
+-
+-#include <linux/export.h>
+-#include <linux/kvm_host.h>
+-
+-struct kvm_mips_callbacks *kvm_mips_callbacks;
+-EXPORT_SYMBOL_GPL(kvm_mips_callbacks);
+diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
+index af29490d9740..f0a6c245d1ff 100644
+--- a/arch/mips/kvm/mips.c
++++ b/arch/mips/kvm/mips.c
+@@ -1012,17 +1012,12 @@ long kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 
+ int kvm_arch_init(void *opaque)
  {
-+	int ret = 0;
-+
- 	raw_spin_lock(&kvm_count_lock);
--	if (kvm_usage_count)
-+	/*
-+	 * Abort the CPU online process if hardware virtualization cannot
-+	 * be enabled. Otherwise running VMs would encounter unrecoverable
-+	 * errors when scheduled to this CPU.
-+	 */
-+	if (kvm_usage_count) {
-+		WARN_ON_ONCE(atomic_read(&hardware_enable_failed));
-+
- 		hardware_enable_nolock(NULL);
-+		if (atomic_read(&hardware_enable_failed)) {
-+			atomic_set(&hardware_enable_failed, 0);
-+			ret = -EIO;
-+		}
-+	}
- 	raw_spin_unlock(&kvm_count_lock);
--	return 0;
-+	return ret;
+-	if (kvm_mips_callbacks) {
+-		kvm_err("kvm: module already exists\n");
+-		return -EEXIST;
+-	}
+-
+-	return kvm_mips_emulation_init(&kvm_mips_callbacks);
++	return kvm_mips_emulation_init();
  }
  
- static void hardware_disable_nolock(void *junk)
-@@ -5045,7 +5059,7 @@ static void hardware_disable_nolock(void *junk)
- 	kvm_arch_hardware_disable();
- }
- 
--static int kvm_dying_cpu(unsigned int cpu)
-+static int kvm_offline_cpu(unsigned int cpu)
+ void kvm_arch_exit(void)
  {
- 	raw_spin_lock(&kvm_count_lock);
- 	if (kvm_usage_count)
-@@ -5822,8 +5836,8 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
- 	if (!zalloc_cpumask_var(&cpus_hardware_enabled, GFP_KERNEL))
- 		return -ENOMEM;
+-	kvm_mips_callbacks = NULL;
++
+ }
  
--	r = cpuhp_setup_state_nocalls(CPUHP_AP_KVM_STARTING, "kvm/cpu:starting",
--				      kvm_starting_cpu, kvm_dying_cpu);
-+	r = cpuhp_setup_state_nocalls(CPUHP_AP_KVM_ONLINE, "kvm/cpu:online",
-+				      kvm_online_cpu, kvm_offline_cpu);
- 	if (r)
- 		goto out_free_2;
- 	register_reboot_notifier(&kvm_reboot_notifier);
-@@ -5897,7 +5911,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
- 	kmem_cache_destroy(kvm_vcpu_cache);
- out_free_3:
- 	unregister_reboot_notifier(&kvm_reboot_notifier);
--	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
-+	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_ONLINE);
- out_free_2:
- 	free_cpumask_var(cpus_hardware_enabled);
- 	return r;
-@@ -5923,7 +5937,7 @@ void kvm_exit(void)
- 	kvm_async_pf_deinit();
- 	unregister_syscore_ops(&kvm_syscore_ops);
- 	unregister_reboot_notifier(&kvm_reboot_notifier);
--	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
-+	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_ONLINE);
- 	on_each_cpu(hardware_disable_nolock, NULL, 1);
- 	kvm_irqfd_exit();
- 	free_cpumask_var(cpus_hardware_enabled);
+ int kvm_arch_vcpu_ioctl_get_sregs(struct kvm_vcpu *vcpu,
+diff --git a/arch/mips/kvm/vz.c b/arch/mips/kvm/vz.c
+index c706f5890a05..dafab003ea0d 100644
+--- a/arch/mips/kvm/vz.c
++++ b/arch/mips/kvm/vz.c
+@@ -3304,7 +3304,10 @@ static struct kvm_mips_callbacks kvm_vz_callbacks = {
+ 	.vcpu_reenter = kvm_vz_vcpu_reenter,
+ };
+ 
+-int kvm_mips_emulation_init(struct kvm_mips_callbacks **install_callbacks)
++/* FIXME: Get rid of the callbacks now that trap-and-emulate is gone. */
++struct kvm_mips_callbacks *kvm_mips_callbacks = &kvm_vz_callbacks;
++
++int kvm_mips_emulation_init(void)
+ {
+ 	if (!cpu_has_vz)
+ 		return -ENODEV;
+@@ -3318,7 +3321,5 @@ int kvm_mips_emulation_init(struct kvm_mips_callbacks **install_callbacks)
+ 		return -ENODEV;
+ 
+ 	pr_info("Starting KVM with MIPS VZ extensions\n");
+-
+-	*install_callbacks = &kvm_vz_callbacks;
+ 	return 0;
+ }
 -- 
 2.38.1.431.g37b22c650d-goog
 
