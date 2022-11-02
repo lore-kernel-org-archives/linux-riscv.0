@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BE4C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 18:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049B6C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 18:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ovP3Cm5BEyZntnNHbylAJrczRnos9geFSJ1cdVOGEdU=; b=xvM1CUs/S+2S84
-	8lHAht4Uh64AE16pM2Mhs97XpePiM15Am/+l8qMXRJGxewrlypOPXthhj695aBozmsCU4ndjwYOka
-	snjwBgMMrz6SjpQjcEYWtsE3kqmnkvwqfdKAFN03rRixl+oJK6WYmXIiLM9gHcMR7Opp+qOqeMZvy
-	zCiqZ91S2g8wasb2e80+UWDGSEeYTcMcsG39BphnubWQu7E2TglbeOb+iai+3WMaIkqoflSov0Rca
-	I8djTtv0cm410LUpIr+YFdkBa4iaU5LHqe5OnGn9v5GZlMIMA+lYFhewgDKkMabWmEmqf60NI7SZO
-	8KIuItyp5uJ01fm9Qx/g==;
+	List-Owner; bh=Wlk+avzj4YY4uPEPxGspB4+GhGKt3yoxlNN0EM+PF6s=; b=rEk49PD2P6luYr
+	sJ/iegQzSR5Itm2eBH/oO6vS9g2xfY/wVnhHUOLD/IYyg1CLrSkP09PUcMjdCzW/E94/WmG8U5Kyx
+	9vzMEglmXjGDA7FARBP9O0dLFT53jas/cTxWep6/w0WLaiE/vtVCalOS6PJd0ulf+mdWB/fKW68BR
+	IO8nlmZmm3KH7yORmCu4F1lqdcuhhJI1x7/b5d2CYMAEwhePXq32005pDnTKu2KMbRbw+neG20QEH
+	h4p/XxF1NUV6d1/3t0OImV9JzquvhT7pkxvazlSPOsjzmVsBe1Xu0i5xU5SSqP7uZ2PuDjGMX3bkj
+	0VSj6IOXcJl4wBnpNZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIbm-00D8O0-5x; Wed, 02 Nov 2022 18:37:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1oqIcf-00D9Fu-DS; Wed, 02 Nov 2022 18:37:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIZR-00D6Wl-RM
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 18:34:42 +0000
+	id 1oqIZU-00D6ZC-H2
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 18:34:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667414077;
+	s=mimecast20190719; t=1667414079;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ncRDq/BlJOAFd1lZE2ZJuHKc4OomK+HPZ50zPzXYcKQ=;
-	b=Ymt8DXTxbHCw+G1nrAnPR1ViwCgBKVOYVdGinkcO0Dj5PIiL8r65EjiiL2CdB386NsTERJ
-	cKIP4XaLd14WRTbDi57Zkf119jQKxN44I2KieqYmflqKpftt+w20sgROInrU6mZ9/BNqOq
-	xYnId/9jV1XKdPpz+mc6GuvGwYwSsx0=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=D+DUkFwzVDWBAoIlFP88fJ/ZyZos6qnRzZwRuH+/Nwc=;
+	b=KdM0gB+CAJTCX5+vvcLi8cmvR5DRRNQejr68mhMp8PxOzL3Z9V0mz2Oxrq2RjUCp3E0IwT
+	sXen9MGoYPFXDqMjiYYasPoDqVOjW+xYkhM04lzgP4nuIiRiZSaYLfGOd2/920PggKJU+F
+	H2xyqtZT+xNqhqtG2CK5Vy/rU5RjEPc=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-562-_v4TvVhrPxShTQ2tNB81TA-1; Wed, 02 Nov 2022 14:34:36 -0400
-X-MC-Unique: _v4TvVhrPxShTQ2tNB81TA-1
-Received: by mail-qk1-f200.google.com with SMTP id u6-20020a05620a430600b006e47fa02576so16095154qko.22
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 11:34:35 -0700 (PDT)
+ us-mta-403-kf5qENlWOqCt__kmFTmiPA-1; Wed, 02 Nov 2022 14:34:31 -0400
+X-MC-Unique: kf5qENlWOqCt__kmFTmiPA-1
+Received: by mail-qt1-f197.google.com with SMTP id s14-20020a05622a1a8e00b00397eacd9c1aso12947069qtc.21
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 11:34:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ncRDq/BlJOAFd1lZE2ZJuHKc4OomK+HPZ50zPzXYcKQ=;
-        b=Fa944yRoIH6XaBsoVDQIfG9HWwD65pRuRk2ZhdjDSk71KOCVYg8eXDgdjf/r1hx8AI
-         VXgfroniLntgBBUZ0GePEadn63rzvfxoCCnsBzr8/Jt/14vHA9Ct/zAeDlCWvqjje0Gf
-         eVV1ej7J9xAHNgCHArWUkP6DU5M4pXkFFnqctqOXC4AIYK/xKqBs9el+6wIbWrVf0Ktq
-         zzKYEWUvF5MpjOaxfKVV/pkPn40bV17LANC+67vfqiesAu8mM7k3OG+7dY9/DqX+l/+D
-         XQ02UemXPfFhHzXLljATKcZ0i/WLKe+GKsrtDi9MAbd3N+erSnenO0Blu0q7JXIk93bU
-         EeWw==
-X-Gm-Message-State: ACrzQf2kMldU7f3RTH8VreM/VmdkZcKG5NuEnThqGwpj4+R/l6O/h2gw
-	L7Mmt2Q/HdsAxRdSRclunKHcDbQ3zjpmMnRQHvggP7FKG+UizjG0qMT0XXJrtA/IUF4Pecr+7se
-	IHYzk/hArHHW4luhx29PUycnh1Mf6
-X-Received: by 2002:a05:622a:248c:b0:3a5:15f9:57a5 with SMTP id cn12-20020a05622a248c00b003a515f957a5mr18914926qtb.48.1667414075616;
-        Wed, 02 Nov 2022 11:34:35 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM4FNihlWG52eEaddlVJ4IcxN5GuBU/ct7sDYakGhS8G9lm88SJZYPQReqCWBc6NZ/CtMAHrgg==
-X-Received: by 2002:a05:622a:248c:b0:3a5:15f9:57a5 with SMTP id cn12-20020a05622a248c00b003a515f957a5mr18914895qtb.48.1667414075423;
-        Wed, 02 Nov 2022 11:34:35 -0700 (PDT)
+        bh=D+DUkFwzVDWBAoIlFP88fJ/ZyZos6qnRzZwRuH+/Nwc=;
+        b=BYKuX6YeFABNr/Md2bBgQbuc1DcJSIqiTieI4hHdpAu7fiIzMmIiGwz8E5YZ+VNR30
+         pkWVz2un6AJ11Cqs0rr45MH2cwPnXPX82NuqSOrv3vWHegleQNJwciRTDp+xEn/cx1uI
+         N1orpvaARs04AHE6CvvB+KP7tGOPKyyRmB4LjJo+XuW96UvXA/Mz8M3D4gIfaMYnW2kh
+         9o+X7Cmqkdj9jAVEE28JXWB2AghqpGKZ75CLbWIOPZmCzoDiqc3ivStdFg2HgkqSf7gG
+         RTne+aTtPxrX1vMPAlYtYhLPj7mqN+xoXHslKIIZuwkxiYFcY0lgBlwTnnyVc7Z9M5kz
+         qcEg==
+X-Gm-Message-State: ACrzQf1acTZVHQe/H4yjBW5KdC0lkyxhe1uNqF5YOZGsWEsfR0J/JIMT
+	/KxYffUIrLYPsq6NRQ18ojdS4YK595HhGObNMwvVVrXubYi5X0zWE0SPkd7RXq0GlZWdeKWqNqv
+	zjzoXxVeONkoP/nbtrKIDyhGHkCkq
+X-Received: by 2002:a37:2e84:0:b0:6cf:8dd4:7adc with SMTP id u126-20020a372e84000000b006cf8dd47adcmr18698500qkh.723.1667414070495;
+        Wed, 02 Nov 2022 11:34:30 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM5JVN0uUv5xcXV3NWn4R+zPAe32FfY9CU6reQSjaMcymj00Sb8uKMdjN8WczbxFLj+CwWikmw==
+X-Received: by 2002:a37:2e84:0:b0:6cf:8dd4:7adc with SMTP id u126-20020a372e84000000b006cf8dd47adcmr18698439qkh.723.1667414070130;
+        Wed, 02 Nov 2022 11:34:30 -0700 (PDT)
 Received: from vschneid.remote.csb ([149.71.65.94])
-        by smtp.gmail.com with ESMTPSA id w187-20020a3794c4000000b006eed47a1a1esm8757820qkd.134.2022.11.02.11.34.30
+        by smtp.gmail.com with ESMTPSA id w187-20020a3794c4000000b006eed47a1a1esm8757820qkd.134.2022.11.02.11.34.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Nov 2022 11:34:34 -0700 (PDT)
+        Wed, 02 Nov 2022 11:34:29 -0700 (PDT)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-alpha@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -85,7 +85,8 @@ To: linux-alpha@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-xtensa@linux-xtensa.org,
 	x86@kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+Cc: Guo Ren <guoren@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
@@ -102,11 +103,10 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Russell King <linux@armlinux.org.uk>,
 	Nicholas Piggin <npiggin@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>
-Subject: [RFC PATCH v2 7/8] smp: reword smp call IPI comment
-Date: Wed,  2 Nov 2022 18:33:35 +0000
-Message-Id: <20221102183336.3120536-6-vschneid@redhat.com>
+Subject: [RFC PATCH v2 6/8] treewide: Trace IPIs sent via smp_send_reschedule()
+Date: Wed,  2 Nov 2022 18:33:34 +0000
+Message-Id: <20221102183336.3120536-5-vschneid@redhat.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20221102182949.3119584-1-vschneid@redhat.com>
 References: <20221102182949.3119584-1-vschneid@redhat.com>
@@ -114,8 +114,8 @@ MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_113438_030340_56054811 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20221102_113440_761139_4F8138D8 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +132,372 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Accessing the call_single_queue hasn't involved a spinlock since 2014:
-
-  6897fc22ea01 ("kernel: use lockless list for smp_call_function_single")
-
-The llist operations (namely cmpxchg() and xchg()) provide similar ordering
-guarantees, update the comment to lessen confusion.
+To be able to trace invocations of smp_send_reschedule(), rename the
+arch-specific definitions of it to arch_smp_send_reschedule() and wrap it
+into an smp_send_reschedule() that contains a tracepoint.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+[csky bits]
+Acked-by: Guo Ren <guoren@kernel.org>
 ---
- kernel/smp.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/alpha/kernel/smp.c          | 2 +-
+ arch/arc/kernel/smp.c            | 2 +-
+ arch/arm/kernel/smp.c            | 2 +-
+ arch/arm64/kernel/smp.c          | 2 +-
+ arch/csky/kernel/smp.c           | 2 +-
+ arch/hexagon/kernel/smp.c        | 2 +-
+ arch/ia64/kernel/smp.c           | 4 ++--
+ arch/loongarch/include/asm/smp.h | 2 +-
+ arch/mips/include/asm/smp.h      | 2 +-
+ arch/openrisc/kernel/smp.c       | 2 +-
+ arch/parisc/kernel/smp.c         | 4 ++--
+ arch/powerpc/kernel/smp.c        | 4 ++--
+ arch/powerpc/kvm/book3s_hv.c     | 1 +
+ arch/riscv/kernel/smp.c          | 4 ++--
+ arch/s390/kernel/smp.c           | 2 +-
+ arch/sh/kernel/smp.c             | 2 +-
+ arch/sparc/kernel/smp_32.c       | 2 +-
+ arch/sparc/kernel/smp_64.c       | 2 +-
+ arch/x86/include/asm/smp.h       | 2 +-
+ arch/x86/kvm/svm/svm.c           | 1 +
+ arch/x86/kvm/x86.c               | 1 +
+ arch/xtensa/kernel/smp.c         | 2 +-
+ include/linux/smp.h              | 2 +-
+ kernel/smp.c                     | 8 ++++++++
+ 24 files changed, 35 insertions(+), 24 deletions(-)
 
+diff --git a/arch/alpha/kernel/smp.c b/arch/alpha/kernel/smp.c
+index f4e20f75438f8..38637eb9eebd5 100644
+--- a/arch/alpha/kernel/smp.c
++++ b/arch/alpha/kernel/smp.c
+@@ -562,7 +562,7 @@ handle_ipi(struct pt_regs *regs)
+ }
+ 
+ void
+-smp_send_reschedule(int cpu)
++arch_smp_send_reschedule(int cpu)
+ {
+ #ifdef DEBUG_IPI_MSG
+ 	if (cpu == hard_smp_processor_id())
+diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
+index ad93fe6e4b77d..409cfa4675b40 100644
+--- a/arch/arc/kernel/smp.c
++++ b/arch/arc/kernel/smp.c
+@@ -292,7 +292,7 @@ static void ipi_send_msg(const struct cpumask *callmap, enum ipi_msg_type msg)
+ 		ipi_send_msg_one(cpu, msg);
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	ipi_send_msg_one(cpu, IPI_RESCHEDULE);
+ }
+diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
+index 3b280d55c1c40..f216ac890b6f9 100644
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -745,7 +745,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
+ 	ipi_setup(smp_processor_id());
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 937d2623e06ba..8d108edc4a89f 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -976,7 +976,7 @@ void __init set_smp_ipi_range(int ipi_base, int n)
+ 	ipi_setup(smp_processor_id());
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
+index 4b605aa2e1d65..fd7f81be16dd6 100644
+--- a/arch/csky/kernel/smp.c
++++ b/arch/csky/kernel/smp.c
+@@ -140,7 +140,7 @@ void smp_send_stop(void)
+ 	on_each_cpu(ipi_stop, NULL, 1);
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/arch/hexagon/kernel/smp.c b/arch/hexagon/kernel/smp.c
+index 4ba93e59370c4..4e8bee25b8c68 100644
+--- a/arch/hexagon/kernel/smp.c
++++ b/arch/hexagon/kernel/smp.c
+@@ -217,7 +217,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	}
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	send_ipi(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/arch/ia64/kernel/smp.c b/arch/ia64/kernel/smp.c
+index e2cc59db86bc2..ea4f009a232b4 100644
+--- a/arch/ia64/kernel/smp.c
++++ b/arch/ia64/kernel/smp.c
+@@ -220,11 +220,11 @@ kdump_smp_send_init(void)
+  * Called with preemption disabled.
+  */
+ void
+-smp_send_reschedule (int cpu)
++arch_smp_send_reschedule (int cpu)
+ {
+ 	ia64_send_ipi(cpu, IA64_IPI_RESCHEDULE, IA64_IPI_DM_INT, 0);
+ }
+-EXPORT_SYMBOL_GPL(smp_send_reschedule);
++EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+ 
+ /*
+  * Called with preemption disabled.
+diff --git a/arch/loongarch/include/asm/smp.h b/arch/loongarch/include/asm/smp.h
+index 71189b28bfb27..3fcca134dfb1b 100644
+--- a/arch/loongarch/include/asm/smp.h
++++ b/arch/loongarch/include/asm/smp.h
+@@ -83,7 +83,7 @@ extern void show_ipi_list(struct seq_file *p, int prec);
+  * it goes straight through and wastes no time serializing
+  * anything. Worst case is that we lose a reschedule ...
+  */
+-static inline void smp_send_reschedule(int cpu)
++static inline void arch_smp_send_reschedule(int cpu)
+ {
+ 	loongson3_send_ipi_single(cpu, SMP_RESCHEDULE);
+ }
+diff --git a/arch/mips/include/asm/smp.h b/arch/mips/include/asm/smp.h
+index 5d9ff61004ca7..9806e79895d99 100644
+--- a/arch/mips/include/asm/smp.h
++++ b/arch/mips/include/asm/smp.h
+@@ -66,7 +66,7 @@ extern void calculate_cpu_foreign_map(void);
+  * it goes straight through and wastes no time serializing
+  * anything. Worst case is that we lose a reschedule ...
+  */
+-static inline void smp_send_reschedule(int cpu)
++static inline void arch_smp_send_reschedule(int cpu)
+ {
+ 	extern const struct plat_smp_ops *mp_ops;	/* private */
+ 
+diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
+index e1419095a6f0a..0a7a059e2dff4 100644
+--- a/arch/openrisc/kernel/smp.c
++++ b/arch/openrisc/kernel/smp.c
+@@ -173,7 +173,7 @@ void handle_IPI(unsigned int ipi_msg)
+ 	}
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	smp_cross_call(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/arch/parisc/kernel/smp.c b/arch/parisc/kernel/smp.c
+index 7dbd92cafae38..b7fc859fa87db 100644
+--- a/arch/parisc/kernel/smp.c
++++ b/arch/parisc/kernel/smp.c
+@@ -246,8 +246,8 @@ void kgdb_roundup_cpus(void)
+ inline void 
+ smp_send_stop(void)	{ send_IPI_allbutself(IPI_CPU_STOP); }
+ 
+-void 
+-smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
++void
++arch_smp_send_reschedule(int cpu) { send_IPI_single(cpu, IPI_RESCHEDULE); }
+ 
+ void
+ smp_send_all_nop(void)
+diff --git a/arch/powerpc/kernel/smp.c b/arch/powerpc/kernel/smp.c
+index 0da6e59161cd4..2f85a757ee792 100644
+--- a/arch/powerpc/kernel/smp.c
++++ b/arch/powerpc/kernel/smp.c
+@@ -364,12 +364,12 @@ static inline void do_message_pass(int cpu, int msg)
+ #endif
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	if (likely(smp_ops))
+ 		do_message_pass(cpu, PPC_MSG_RESCHEDULE);
+ }
+-EXPORT_SYMBOL_GPL(smp_send_reschedule);
++EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+ 
+ void arch_send_call_function_single_ipi(int cpu)
+ {
+diff --git a/arch/powerpc/kvm/book3s_hv.c b/arch/powerpc/kvm/book3s_hv.c
+index 6ba68dd6190bd..686c80b17627e 100644
+--- a/arch/powerpc/kvm/book3s_hv.c
++++ b/arch/powerpc/kvm/book3s_hv.c
+@@ -43,6 +43,7 @@
+ #include <linux/compiler.h>
+ #include <linux/of.h>
+ #include <linux/irqdomain.h>
++#include <linux/smp.h>
+ 
+ #include <asm/ftrace.h>
+ #include <asm/reg.h>
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 760a64518c585..213602e89a8b2 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -235,8 +235,8 @@ void smp_send_stop(void)
+ 			   cpumask_pr_args(cpu_online_mask));
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	send_ipi_single(cpu, IPI_RESCHEDULE);
+ }
+-EXPORT_SYMBOL_GPL(smp_send_reschedule);
++EXPORT_SYMBOL_GPL(arch_smp_send_reschedule);
+diff --git a/arch/s390/kernel/smp.c b/arch/s390/kernel/smp.c
+index 0031325ce4bc9..6c4da1e26e568 100644
+--- a/arch/s390/kernel/smp.c
++++ b/arch/s390/kernel/smp.c
+@@ -553,7 +553,7 @@ void arch_send_call_function_single_ipi(int cpu)
+  * it goes straight through and wastes no time serializing
+  * anything. Worst case is that we lose a reschedule ...
+  */
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	pcpu_ec_call(pcpu_devices + cpu, ec_schedule);
+ }
+diff --git a/arch/sh/kernel/smp.c b/arch/sh/kernel/smp.c
+index 65924d9ec2459..5cf35a774dc70 100644
+--- a/arch/sh/kernel/smp.c
++++ b/arch/sh/kernel/smp.c
+@@ -256,7 +256,7 @@ void __init smp_cpus_done(unsigned int max_cpus)
+ 	       (bogosum / (5000/HZ)) % 100);
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	mp_ops->send_ipi(cpu, SMP_MSG_RESCHEDULE);
+ }
+diff --git a/arch/sparc/kernel/smp_32.c b/arch/sparc/kernel/smp_32.c
+index ad8094d955eba..87eaa7719fa27 100644
+--- a/arch/sparc/kernel/smp_32.c
++++ b/arch/sparc/kernel/smp_32.c
+@@ -120,7 +120,7 @@ void cpu_panic(void)
+ 
+ struct linux_prom_registers smp_penguin_ctable = { 0 };
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	/*
+ 	 * CPU model dependent way of implementing IPI generation targeting
+diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
+index a55295d1b9244..e5964d1d8b37d 100644
+--- a/arch/sparc/kernel/smp_64.c
++++ b/arch/sparc/kernel/smp_64.c
+@@ -1430,7 +1430,7 @@ static unsigned long send_cpu_poke(int cpu)
+ 	return hv_err;
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	if (cpu == smp_processor_id()) {
+ 		WARN_ON_ONCE(preemptible());
+diff --git a/arch/x86/include/asm/smp.h b/arch/x86/include/asm/smp.h
+index a73bced40e241..5ff5815149bd3 100644
+--- a/arch/x86/include/asm/smp.h
++++ b/arch/x86/include/asm/smp.h
+@@ -99,7 +99,7 @@ static inline void play_dead(void)
+ 	smp_ops.play_dead();
+ }
+ 
+-static inline void smp_send_reschedule(int cpu)
++static inline void arch_smp_send_reschedule(int cpu)
+ {
+ 	smp_ops.smp_send_reschedule(cpu);
+ }
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index 58f0077d93579..b972c6f8c1791 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -26,6 +26,7 @@
+ #include <linux/swap.h>
+ #include <linux/rwsem.h>
+ #include <linux/cc_platform.h>
++#include <linux/smp.h>
+ 
+ #include <asm/apic.h>
+ #include <asm/perf_event.h>
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 521b433f978c7..3fbc3fea3e754 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -58,6 +58,7 @@
+ #include <linux/mem_encrypt.h>
+ #include <linux/entry-kvm.h>
+ #include <linux/suspend.h>
++#include <linux/smp.h>
+ 
+ #include <trace/events/kvm.h>
+ 
+diff --git a/arch/xtensa/kernel/smp.c b/arch/xtensa/kernel/smp.c
+index 4dc109dd6214e..d95907b8e4d38 100644
+--- a/arch/xtensa/kernel/smp.c
++++ b/arch/xtensa/kernel/smp.c
+@@ -389,7 +389,7 @@ void arch_send_call_function_single_ipi(int cpu)
+ 	send_ipi_message(cpumask_of(cpu), IPI_CALL_FUNC);
+ }
+ 
+-void smp_send_reschedule(int cpu)
++void arch_smp_send_reschedule(int cpu)
+ {
+ 	send_ipi_message(cpumask_of(cpu), IPI_RESCHEDULE);
+ }
+diff --git a/include/linux/smp.h b/include/linux/smp.h
+index a80ab58ae3f1d..2f9dc1b7a7fb6 100644
+--- a/include/linux/smp.h
++++ b/include/linux/smp.h
+@@ -125,9 +125,9 @@ extern void smp_send_stop(void);
+ /*
+  * sends a 'reschedule' event to another CPU:
+  */
++extern void arch_smp_send_reschedule(int cpu);
+ extern void smp_send_reschedule(int cpu);
+ 
+-
+ /*
+  * Prepare machine for booting other CPUs.
+  */
 diff --git a/kernel/smp.c b/kernel/smp.c
-index 44fa4b9b1f46b..b96579fe08f09 100644
+index c4d561cf50d45..44fa4b9b1f46b 100644
 --- a/kernel/smp.c
 +++ b/kernel/smp.c
-@@ -503,9 +503,10 @@ void __smp_call_single_queue(int cpu, struct llist_node *node)
- #endif
+@@ -167,6 +167,14 @@ send_call_function_ipi_mask(const struct cpumask *mask)
+ 	arch_send_call_function_ipi_mask(mask);
+ }
  
- 	/*
--	 * The list addition should be visible before sending the IPI
--	 * handler locks the list to pull the entry off it because of
--	 * normal cache coherency rules implied by spinlocks.
-+	 * The list addition should be visible to the target CPU when it pops
-+	 * the head of the list to pull the entry off it in the IPI handler
-+	 * because of normal cache coherency rules implied by the underlying
-+	 * llist ops.
- 	 *
- 	 * If IPIs can go out of order to the cache coherency protocol
- 	 * in an architecture, sufficient synchronisation should be added
++void smp_send_reschedule(int cpu)
++{
++	/* XXX scheduler_ipi is inline :/ */
++	trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
++	arch_smp_send_reschedule(cpu);
++}
++EXPORT_SYMBOL_GPL(smp_send_reschedule);
++
+ #ifdef CONFIG_CSD_LOCK_WAIT_DEBUG
+ 
+ static DEFINE_STATIC_KEY_FALSE(csdlock_debug_enabled);
 -- 
 2.31.1
 
