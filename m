@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FA2C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 18:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECA3C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 18:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zt3yX7L5ysrSyrKMQJJri54YIqPEZ58Kg4LlGWFfDu0=; b=az5Cy+LObi74m+
-	UUlPs6PXJBwIyLnfdwrBMefpxiY0Bh5nrVPBKhWhPr70akuufMR5YOYQrr95qVfhJZHUlQpjTCW4K
-	WNo5fcvbm1M9vpS7y1wMA/tZf9byMxVpdSayBgnERGo6ShyR4vyYQ953AAYhvA1rz9ZCH/uOW1Pg3
-	h1v2ufQRBNCMVwH0Ao6JHWgWESS7+t3xGy9IMJzk6PQjkgJNex6gtUZ5ZGX32dbCY8hdubTWmZvo1
-	8LGqBvX6/V6w0ftmebImujH+NqHj/0F4X6xwF2oseQxzRFllHiemxCOnaFaeybmfPam9QK6OmjKn2
-	hkwN0di3C7VKvf6TswYg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2DihsqKWPpz/R3hpzTBuatHYh032BJG5WgDv3lmDqYM=; b=ECDARNPdYyBlGM
+	KnGRaU8jUHRbNhPfjJyiymQWS2ytlMWYHncHhZYXM39wKvw8WvXdt7wMOBBtWKsMZ7N12YKoJJrYF
+	S4Lxhk7Mbrmg3Ci5+0y0zirxyuNH8g2Bat/6MQwi6AMh84agCKy1Jc2+BqW4hX2if/AYaWHp7ZIHb
+	yhNhU+olOuCSiz+JSebmuofcNYVmkhhpQ53Maco3KLlvGpmgdO/0ZcyMTuPU3ZiCEMHQpuXOGlGZ6
+	nV6XswJO7EsyGidPoXVUmwSzmYcHaFu718Lb4p3OMsGe18lluOeCW+jWoq/ehxv3tmlwOJvjZ5C4i
+	GNQVQDv7eJ5wPY53vTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIWA-00D4Cx-VR; Wed, 02 Nov 2022 18:31:15 +0000
+	id 1oqIWk-00D4Ze-Pn; Wed, 02 Nov 2022 18:31:50 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIVh-00D3tx-Ce
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 18:30:47 +0000
+	id 1oqIVs-00D42H-5N
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 18:30:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667413844;
+	s=mimecast20190719; t=1667413855;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DOAMp7M3Dm3mqYAl0WmtrSxJ5fQ0T+HY063YNavNlMw=;
-	b=EQ3lIYaiKoL3T9g+uBfwEPHJdYraySseRxexKHnOpIq9aznyPrareQlz7Jr68c+9+O6r2J
-	6Q0VbO5uF8zTEV9qSU4czYLo9gc9wlX2Qd/1Uk9j9hBleKcMc5YZmyW9fAUJE4LInniQEw
-	9oHZeVG2TrsDJU8ixVubALt0HLq2SO8=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tyAZWmuLvFOiDOkNrWMPPNPYxM5JhhrbgvDpf3th3RA=;
+	b=Y01iUjR7HYgnTHxvep0eifXDUtCFDWlux+81z6Gi5OVB498MwSf6iLVVPv3WiMVmlpeYU8
+	xKAglIvDtuSibXF4hMF9iQhfLeMsAj1xOOzIS/m6e4PP/B9RJ59JTr12jMVer3BmDjy+Jj
+	SSH+Ry5PDt9jWYyX2+JlLe2LqjzAS6M=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-561-rJ-Ohv_eNwGIju6l4JnLug-1; Wed, 02 Nov 2022 14:30:41 -0400
-X-MC-Unique: rJ-Ohv_eNwGIju6l4JnLug-1
-Received: by mail-qk1-f197.google.com with SMTP id j13-20020a05620a288d00b006be7b2a758fso15763105qkp.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 11:30:41 -0700 (PDT)
+ us-mta-61-IdZhTvJENJeweRj5fMpEzg-1; Wed, 02 Nov 2022 14:30:49 -0400
+X-MC-Unique: IdZhTvJENJeweRj5fMpEzg-1
+Received: by mail-qt1-f198.google.com with SMTP id fz10-20020a05622a5a8a00b003a4f466998cso12772200qtb.16
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 11:30:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DOAMp7M3Dm3mqYAl0WmtrSxJ5fQ0T+HY063YNavNlMw=;
-        b=vYYpEy6CdaC4R8uWjmPyCCwf71uyHyt5MboffCSzVObtGsQomZ4/Xet+uLdUm48HwD
-         qSEsoPU4V3thVspA3JcaZ1zXbWd7T8P5jJdUkHLLppIPj6YXTGCpdjv2FSRYTJrE7JgK
-         4Cg8hFQEbMvcepYFecWMDvfAguTvJ2ylsxeY+G5uEIBkpM9/hY7XCmr1w12JE22hF8Xu
-         8QHI6d/JET9wWvJ9UEGNCEXB3qSV7z6TLGpzkK9FX3pbsgZkzYG9KbWdbsgwrMgJ225+
-         JfC3dzDaenPGFv7BAvH+HTCjRo6garenliNzmgd3OZ/r9+L5k3jdIAZnNgRn/Em8l1Gi
-         OX9g==
-X-Gm-Message-State: ACrzQf3dlwzyRqHtBre4nWiGdFts3TE3wA2kF1T7d4Ctta9+hJpskQ4x
-	NAXajhMKoLccfrAReL/jDhjyoQpKrbyTusScrXZOAb37BOB1U8NNBCUl8zO73hdGV7QOvTEd4AL
-	hC0MUviWzaw0CdW8smxJM104hsaZ5
-X-Received: by 2002:ac8:7d8c:0:b0:39c:f4b6:f02f with SMTP id c12-20020ac87d8c000000b0039cf4b6f02fmr20509020qtd.252.1667413840484;
-        Wed, 02 Nov 2022 11:30:40 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM4avLCdiC1e+YjDgGOUynVvkPGro1QBzGCbIXRErpBO4pdwyJNVuMKcAEHPTKixBfYKlupYaQ==
-X-Received: by 2002:ac8:7d8c:0:b0:39c:f4b6:f02f with SMTP id c12-20020ac87d8c000000b0039cf4b6f02fmr20508984qtd.252.1667413840179;
-        Wed, 02 Nov 2022 11:30:40 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tyAZWmuLvFOiDOkNrWMPPNPYxM5JhhrbgvDpf3th3RA=;
+        b=aFlABVHbl2JEz6JM6bttHz3i/e3wA14c4oQy1gDZwlZFAQ6eRBeJlqy52ioE56N26m
+         oo7XCsAkNtFqoVF/eVSB5UNoCmWR0vPzEK39VJSOwKtzfqqYlsGul5acbcWPdHc6XIPw
+         Ovo62kMdF2l1hD38EZnZb6QI7YICCxKkMRAC5JCeRLuMgX2kKi438udMqYPSwglDrO/8
+         uWQCIMb0LoZk4fcKERkV9RO4Gg8vil3u5RBqTqp2cSMpi31kkq9yvYo65Su8cwqXjq/A
+         HbIfGrdYVo39rC+Vb6uJTXV4DoDHN6LYJIe9PJ6qKrjsIlaQr2FX4cKxbfTpMF3Bai36
+         kmTA==
+X-Gm-Message-State: ACrzQf3V1Wzi/vVSjxTjJbgX/WKpRE26gNiWSmRY8Dk5EuvNSX74VoCz
+	qN70ddnqaHDyY52E4Dbh4R5/9482WCcpyYBSjeaOLMPb4+LaGezvQLGS4ltl1qcbP8ZPyi6V6Vy
+	op8Oa+vC7r7bztk3ZIKUZXE2OfrrZ
+X-Received: by 2002:a05:620a:b86:b0:6fa:1516:13da with SMTP id k6-20020a05620a0b8600b006fa151613damr17826916qkh.339.1667413846561;
+        Wed, 02 Nov 2022 11:30:46 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM7ulamBGOfYW7ZQO0WW9shmYY3Yv46ZF/uWw8RVtTehKgltnR9GB/SwI1/pU3/2wscWxucApg==
+X-Received: by 2002:a05:620a:b86:b0:6fa:1516:13da with SMTP id k6-20020a05620a0b8600b006fa151613damr17826862qkh.339.1667413846256;
+        Wed, 02 Nov 2022 11:30:46 -0700 (PDT)
 Received: from vschneid.remote.csb ([149.71.65.94])
-        by smtp.gmail.com with ESMTPSA id s16-20020a05620a29d000b006cec8001bf4sm9133847qkp.26.2022.11.02.11.30.35
+        by smtp.gmail.com with ESMTPSA id s16-20020a05620a29d000b006cec8001bf4sm9133847qkp.26.2022.11.02.11.30.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Nov 2022 11:30:39 -0700 (PDT)
+        Wed, 02 Nov 2022 11:30:45 -0700 (PDT)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-alpha@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -84,8 +85,8 @@ To: linux-alpha@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-xtensa@linux-xtensa.org,
 	x86@kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
+Cc: "Steven Rostedt (Google)" <rostedt@goodmis.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
@@ -103,16 +104,18 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Guo Ren <guoren@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>
-Subject: [RFC PATCH v2 0/8] Generic IPI sending tracepoint
-Date: Wed,  2 Nov 2022 18:29:41 +0000
-Message-Id: <20221102182949.3119584-1-vschneid@redhat.com>
+Subject: [RFC PATCH v2 1/8] DO-NOT-MERGE: tracing: Add __cpumask to denote a trace event field that is a cpumask_t
+Date: Wed,  2 Nov 2022 18:29:42 +0000
+Message-Id: <20221102182949.3119584-2-vschneid@redhat.com>
 X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20221102182949.3119584-1-vschneid@redhat.com>
+References: <20221102182949.3119584-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_113045_581310_93803725 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20221102_113056_391091_3BDE4BF9 
+X-CRM114-Status: GOOD (  22.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,160 +132,386 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Background
-==========
+From: "Steven Rostedt (Google)" <rostedt@goodmis.org>
 
-Detecting IPI *reception* is relatively easy, e.g. using
-trace_irq_handler_{entry,exit} or even just function-trace
-flush_smp_call_function_queue() for SMP calls.  
+The trace events have a __bitmask field that can be used for anything
+that requires bitmasks. Although currently it is only used for CPU
+masks, it could be used in the future for any type of bitmasks.
 
-Figuring out their *origin*, is trickier as there is no generic tracepoint tied
-to e.g. smp_call_function():
+There is some user space tooling that wants to know if a field is a CPU
+mask and not just some random unsigned long bitmask. Introduce
+"__cpumask()" helper functions that work the same as the current
+__bitmask() helpers but displays in the format file:
 
-o AFAIA x86 has no tracepoint tied to sending IPIs, only receiving them
-  (cf. trace_call_function{_single}_entry()).
-o arm/arm64 do have trace_ipi_raise(), which gives us the target cpus but also a
-  mostly useless string (smp_calls will all be "Function call interrupts").
-o Other architectures don't seem to have any IPI-sending related tracepoint.  
+  field:__data_loc cpumask_t *[] mask;    offset:36;      size:4; signed:0;
 
-I believe one reason those tracepoints used by arm/arm64 ended up as they were
-is because these archs used to handle IPIs differently from regular interrupts
-(the IRQ driver would directly invoke an IPI-handling routine), which meant they 
-never showed up in trace_irq_handler_{entry, exit}. The trace_ipi_{entry,exit}
-tracepoints gave a way to trace IPI reception but those have become redundant as
-of: 
+Instead of:
 
-      56afcd3dbd19 ("ARM: Allow IPIs to be handled as normal interrupts")
-      d3afc7f12987 ("arm64: Allow IPIs to be handled as normal interrupts")
+  field:__data_loc unsigned long[] mask;  offset:32;      size:4; signed:0;
 
-which gave IPIs a "proper" handler function used through
-generic_handle_domain_irq(), which makes them show up via
-trace_irq_handler_{entry, exit}.
+The main difference is the type. Instead of "unsigned long" it is
+"cpumask_t *". Note, this type field needs to be a real type in the
+__dynamic_array() logic that both __cpumask and__bitmask use, but the
+comparison field requires it to be a scalar type whereas cpumask_t is a
+structure (non-scalar). But everything works when making it a pointer.
 
-Changing stuff up
-=================
+Valentin added changes to remove the need of passing in "nr_bits" and the
+__cpumask will always use nr_cpumask_bits as its size.
 
-Per the above, it would make sense to reshuffle trace_ipi_raise() and move it
-into generic code. This also came up during Daniel's talk on Osnoise at the CPU
-isolation MC of LPC 2022 [1]. 
-
-Now, to be useful, such a tracepoint needs to export:
-o targeted CPU(s)
-o calling context
-
-The only way to get the calling context with trace_ipi_raise() is to trigger a
-stack dump, e.g. $(trace-cmd -e ipi* -T echo 42).
-
-This is instead introducing a new tracepoint which exports the relevant context
-(callsite, and requested callback for when the callsite isn't helpful), and is
-usable by all architectures as it sits in generic code. 
-
-Another thing worth mentioning is that depending on the callsite, the _RET_IP_
-fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
-you much about the actual callback being sent via IPI, which is why the new
-tracepoint also has a @callback argument.
-
-Patches
-=======
-
-o Patch 1 is included for convenience and will most likely be merged
-  independently. FYI I have libtraceevent patches [2] to improve the
-  pretty-printing of cpumasks using the new type, which look like:
-  <...>-3322  [021]   560.402583: ipi_send_cpumask:     cpumask=14,17,21 callsite=on_each_cpu_cond_mask+0x40 callback=flush_tlb_func+0x0
-  <...>-187   [010]   562.590584: ipi_send_cpumask:     cpumask=0-23 callsite=on_each_cpu_cond_mask+0x40 callback=do_sync_core+0x0
-
-o Patches 2-6 spread out the tracepoint accross relevant sites.
-o Patch 8 is trying to be smart about tracing the callback associated with the
-  IPI.
-
-This results in having IPI trace events for:
-
-o smp_call_function*()
-o smp_send_reschedule()
-o irq_work_queue*()
-o standalone uses of __smp_call_single_queue()
-
-This is incomplete, just looking at arm64 there's more IPI types that aren't
-covered: 
-
-  IPI_CPU_STOP,
-  IPI_CPU_CRASH_STOP,
-  IPI_TIMER,
-  IPI_WAKEUP,
-
-... But it feels like a good starting point.
-
-Links
-=====
-
-[1]: https://youtu.be/5gT57y4OzBM?t=14234
-[2]: https://lore.kernel.org/all/20221018151630.1513535-1-vschneid@redhat.com/
-
-Revisions
-=========
-
-v1 -> v2
-++++++++
-
-o Ditched single-CPU tracepoint
-o Changed tracepoint signature to include callback
-o Changed tracepoint callsite field to void *; the parameter is still UL to save
-  up on casts due to using _RET_IP_.
-o Fixed linking failures due to not exporting smp_send_reschedule()
-
-Steven Rostedt (Google) (1):
-  tracing: Add __cpumask to denote a trace event field that is a
-    cpumask_t
-
-Valentin Schneider (7):
-  trace: Add trace_ipi_send_cpumask()
-  sched, smp: Trace IPIs sent via send_call_function_single_ipi()
-  smp: Trace IPIs sent via arch_send_call_function_ipi_mask()
-  irq_work: Trace self-IPIs sent via arch_irq_work_raise()
-  treewide: Trace IPIs sent via smp_send_reschedule()
-  smp: reword smp call IPI comment
-  sched, smp: Trace smp callback causing an IPI
-
- arch/alpha/kernel/smp.c                      |  2 +-
- arch/arc/kernel/smp.c                        |  2 +-
- arch/arm/kernel/smp.c                        |  5 +-
- arch/arm64/kernel/smp.c                      |  3 +-
- arch/csky/kernel/smp.c                       |  2 +-
- arch/hexagon/kernel/smp.c                    |  2 +-
- arch/ia64/kernel/smp.c                       |  4 +-
- arch/loongarch/include/asm/smp.h             |  2 +-
- arch/mips/include/asm/smp.h                  |  2 +-
- arch/openrisc/kernel/smp.c                   |  2 +-
- arch/parisc/kernel/smp.c                     |  4 +-
- arch/powerpc/kernel/smp.c                    |  4 +-
- arch/powerpc/kvm/book3s_hv.c                 |  1 +
- arch/riscv/kernel/smp.c                      |  4 +-
- arch/s390/kernel/smp.c                       |  2 +-
- arch/sh/kernel/smp.c                         |  2 +-
- arch/sparc/kernel/smp_32.c                   |  2 +-
- arch/sparc/kernel/smp_64.c                   |  2 +-
- arch/x86/include/asm/smp.h                   |  2 +-
- arch/x86/kvm/svm/svm.c                       |  1 +
- arch/x86/kvm/x86.c                           |  1 +
- arch/xtensa/kernel/smp.c                     |  2 +-
- include/linux/smp.h                          |  2 +-
- include/trace/bpf_probe.h                    |  6 ++
- include/trace/events/ipi.h                   | 22 +++++++
- include/trace/perf.h                         |  6 ++
- include/trace/stages/stage1_struct_define.h  |  6 ++
- include/trace/stages/stage2_data_offsets.h   |  6 ++
- include/trace/stages/stage3_trace_output.h   |  6 ++
- include/trace/stages/stage4_event_fields.h   |  6 ++
- include/trace/stages/stage5_get_offsets.h    |  6 ++
- include/trace/stages/stage6_event_callback.h | 20 ++++++
- include/trace/stages/stage7_class_define.h   |  2 +
- kernel/irq_work.c                            | 16 ++++-
- kernel/sched/core.c                          | 34 +++++++---
- kernel/sched/smp.h                           |  1 +
- kernel/smp.c                                 | 66 ++++++++++++++++++--
+Requested-by: Valentin Schneider <vschneid@redhat.com>
+Reviewed-by: Valentin Schneider <vschneid@redhat.com>
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+---
+ include/trace/bpf_probe.h                    |  6 ++++
+ include/trace/perf.h                         |  6 ++++
+ include/trace/stages/stage1_struct_define.h  |  6 ++++
+ include/trace/stages/stage2_data_offsets.h   |  6 ++++
+ include/trace/stages/stage3_trace_output.h   |  6 ++++
+ include/trace/stages/stage4_event_fields.h   |  6 ++++
+ include/trace/stages/stage5_get_offsets.h    |  6 ++++
+ include/trace/stages/stage6_event_callback.h | 20 ++++++++++++
+ include/trace/stages/stage7_class_define.h   |  2 ++
  samples/trace_events/trace-events-sample.c   |  2 +-
- samples/trace_events/trace-events-sample.h   | 34 +++++++---
- 39 files changed, 241 insertions(+), 53 deletions(-)
+ samples/trace_events/trace-events-sample.h   | 34 +++++++++++++++-----
+ 11 files changed, 91 insertions(+), 9 deletions(-)
+
+diff --git a/include/trace/bpf_probe.h b/include/trace/bpf_probe.h
+index 6a13220d2d27b..155c495b89ead 100644
+--- a/include/trace/bpf_probe.h
++++ b/include/trace/bpf_probe.h
+@@ -21,6 +21,9 @@
+ #undef __get_bitmask
+ #define __get_bitmask(field) (char *)__get_dynamic_array(field)
+
++#undef __get_cpumask
++#define __get_cpumask(field) (char *)__get_dynamic_array(field)
++
+ #undef __get_sockaddr
+ #define __get_sockaddr(field) ((struct sockaddr *)__get_dynamic_array(field))
+
+@@ -40,6 +43,9 @@
+ #undef __get_rel_bitmask
+ #define __get_rel_bitmask(field) (char *)__get_rel_dynamic_array(field)
+
++#undef __get_rel_cpumask
++#define __get_rel_cpumask(field) (char *)__get_rel_dynamic_array(field)
++
+ #undef __get_rel_sockaddr
+ #define __get_rel_sockaddr(field) ((struct sockaddr *)__get_rel_dynamic_array(field))
+
+diff --git a/include/trace/perf.h b/include/trace/perf.h
+index 5800d13146c3d..8f3bf1e177070 100644
+--- a/include/trace/perf.h
++++ b/include/trace/perf.h
+@@ -21,6 +21,9 @@
+ #undef __get_bitmask
+ #define __get_bitmask(field) (char *)__get_dynamic_array(field)
+
++#undef __get_cpumask
++#define __get_cpumask(field) (char *)__get_dynamic_array(field)
++
+ #undef __get_sockaddr
+ #define __get_sockaddr(field) ((struct sockaddr *)__get_dynamic_array(field))
+
+@@ -41,6 +44,9 @@
+ #undef __get_rel_bitmask
+ #define __get_rel_bitmask(field) (char *)__get_rel_dynamic_array(field)
+
++#undef __get_rel_cpumask
++#define __get_rel_cpumask(field) (char *)__get_rel_dynamic_array(field)
++
+ #undef __get_rel_sockaddr
+ #define __get_rel_sockaddr(field) ((struct sockaddr *)__get_rel_dynamic_array(field))
+
+diff --git a/include/trace/stages/stage1_struct_define.h b/include/trace/stages/stage1_struct_define.h
+index 1b7bab60434c1..69e0dae453bfa 100644
+--- a/include/trace/stages/stage1_struct_define.h
++++ b/include/trace/stages/stage1_struct_define.h
+@@ -32,6 +32,9 @@
+ #undef __bitmask
+ #define __bitmask(item, nr_bits) __dynamic_array(char, item, -1)
+
++#undef __cpumask
++#define __cpumask(item) __dynamic_array(char, item, -1)
++
+ #undef __sockaddr
+ #define __sockaddr(field, len) __dynamic_array(u8, field, len)
+
+@@ -47,6 +50,9 @@
+ #undef __rel_bitmask
+ #define __rel_bitmask(item, nr_bits) __rel_dynamic_array(char, item, -1)
+
++#undef __rel_cpumask
++#define __rel_cpumask(item) __rel_dynamic_array(char, item, -1)
++
+ #undef __rel_sockaddr
+ #define __rel_sockaddr(field, len) __rel_dynamic_array(u8, field, len)
+
+diff --git a/include/trace/stages/stage2_data_offsets.h b/include/trace/stages/stage2_data_offsets.h
+index 1b7a8f764fddd..469b6a64293de 100644
+--- a/include/trace/stages/stage2_data_offsets.h
++++ b/include/trace/stages/stage2_data_offsets.h
+@@ -38,6 +38,9 @@
+ #undef __bitmask
+ #define __bitmask(item, nr_bits) __dynamic_array(unsigned long, item, -1)
+
++#undef __cpumask
++#define __cpumask(item) __dynamic_array(unsigned long, item, -1)
++
+ #undef __sockaddr
+ #define __sockaddr(field, len) __dynamic_array(u8, field, len)
+
+@@ -53,5 +56,8 @@
+ #undef __rel_bitmask
+ #define __rel_bitmask(item, nr_bits) __rel_dynamic_array(unsigned long, item, -1)
+
++#undef __rel_cpumask
++#define __rel_cpumask(item) __rel_dynamic_array(unsigned long, item, -1)
++
+ #undef __rel_sockaddr
+ #define __rel_sockaddr(field, len) __rel_dynamic_array(u8, field, len)
+diff --git a/include/trace/stages/stage3_trace_output.h b/include/trace/stages/stage3_trace_output.h
+index e3b183e9d18ea..66374df61ed30 100644
+--- a/include/trace/stages/stage3_trace_output.h
++++ b/include/trace/stages/stage3_trace_output.h
+@@ -42,6 +42,9 @@
+		trace_print_bitmask_seq(p, __bitmask, __bitmask_size);	\
+	})
+
++#undef __get_cpumask
++#define __get_cpumask(field) __get_bitmask(field)
++
+ #undef __get_rel_bitmask
+ #define __get_rel_bitmask(field)						\
+	({								\
+@@ -51,6 +54,9 @@
+		trace_print_bitmask_seq(p, __bitmask, __bitmask_size);	\
+	})
+
++#undef __get_rel_cpumask
++#define __get_rel_cpumask(field) __get_rel_bitmask(field)
++
+ #undef __get_sockaddr
+ #define __get_sockaddr(field)	((struct sockaddr *)__get_dynamic_array(field))
+
+diff --git a/include/trace/stages/stage4_event_fields.h b/include/trace/stages/stage4_event_fields.h
+index a8fb25f39a99d..f2990d22313cf 100644
+--- a/include/trace/stages/stage4_event_fields.h
++++ b/include/trace/stages/stage4_event_fields.h
+@@ -46,6 +46,9 @@
+ #undef __bitmask
+ #define __bitmask(item, nr_bits) __dynamic_array(unsigned long, item, -1)
+
++#undef __cpumask
++#define __cpumask(item) __dynamic_array(cpumask_t *, item, -1)
++
+ #undef __sockaddr
+ #define __sockaddr(field, len) __dynamic_array(u8, field, len)
+
+@@ -64,5 +67,8 @@
+ #undef __rel_bitmask
+ #define __rel_bitmask(item, nr_bits) __rel_dynamic_array(unsigned long, item, -1)
+
++#undef __rel_cpumask
++#define __rel_cpumask(item) __rel_dynamic_array(cpumask_t *, item, -1)
++
+ #undef __rel_sockaddr
+ #define __rel_sockaddr(field, len) __rel_dynamic_array(u8, field, len)
+diff --git a/include/trace/stages/stage5_get_offsets.h b/include/trace/stages/stage5_get_offsets.h
+index fba4c24ed9e60..ac5c24d3beeb2 100644
+--- a/include/trace/stages/stage5_get_offsets.h
++++ b/include/trace/stages/stage5_get_offsets.h
+@@ -82,10 +82,16 @@
+ #define __bitmask(item, nr_bits) __dynamic_array(unsigned long, item,	\
+					 __bitmask_size_in_longs(nr_bits))
+
++#undef __cpumask
++#define __cpumask(item) __bitmask(item, nr_cpumask_bits)
++
+ #undef __rel_bitmask
+ #define __rel_bitmask(item, nr_bits) __rel_dynamic_array(unsigned long, item,	\
+					 __bitmask_size_in_longs(nr_bits))
+
++#undef __rel_cpumask
++#define __rel_cpumask(item) __rel_bitmask(item, nr_cpumask_bits)
++
+ #undef __sockaddr
+ #define __sockaddr(field, len) __dynamic_array(u8, field, len)
+
+diff --git a/include/trace/stages/stage6_event_callback.h b/include/trace/stages/stage6_event_callback.h
+index 3c554a5853204..49c32394b53fb 100644
+--- a/include/trace/stages/stage6_event_callback.h
++++ b/include/trace/stages/stage6_event_callback.h
+@@ -57,6 +57,16 @@
+ #define __assign_bitmask(dst, src, nr_bits)					\
+	memcpy(__get_bitmask(dst), (src), __bitmask_size_in_bytes(nr_bits))
+
++#undef __cpumask
++#define __cpumask(item) __dynamic_array(unsigned long, item, -1)
++
++#undef __get_cpumask
++#define __get_cpumask(field) (char *)__get_dynamic_array(field)
++
++#undef __assign_cpumask
++#define __assign_cpumask(dst, src)					\
++	memcpy(__get_cpumask(dst), (src), __bitmask_size_in_bytes(nr_cpumask_bits))
++
+ #undef __sockaddr
+ #define __sockaddr(field, len) __dynamic_array(u8, field, len)
+
+@@ -98,6 +108,16 @@
+ #define __assign_rel_bitmask(dst, src, nr_bits)					\
+	memcpy(__get_rel_bitmask(dst), (src), __bitmask_size_in_bytes(nr_bits))
+
++#undef __rel_cpumask
++#define __rel_cpumask(item) __rel_dynamic_array(unsigned long, item, -1)
++
++#undef __get_rel_cpumask
++#define __get_rel_cpumask(field) (char *)__get_rel_dynamic_array(field)
++
++#undef __assign_rel_cpumask
++#define __assign_rel_cpumask(dst, src)					\
++	memcpy(__get_rel_cpumask(dst), (src), __bitmask_size_in_bytes(nr_cpumask_bits))
++
+ #undef __rel_sockaddr
+ #define __rel_sockaddr(field, len) __rel_dynamic_array(u8, field, len)
+
+diff --git a/include/trace/stages/stage7_class_define.h b/include/trace/stages/stage7_class_define.h
+index 8a7ec24c246dd..8795429f388b0 100644
+--- a/include/trace/stages/stage7_class_define.h
++++ b/include/trace/stages/stage7_class_define.h
+@@ -13,11 +13,13 @@
+ #undef __get_dynamic_array_len
+ #undef __get_str
+ #undef __get_bitmask
++#undef __get_cpumask
+ #undef __get_sockaddr
+ #undef __get_rel_dynamic_array
+ #undef __get_rel_dynamic_array_len
+ #undef __get_rel_str
+ #undef __get_rel_bitmask
++#undef __get_rel_cpumask
+ #undef __get_rel_sockaddr
+ #undef __print_array
+ #undef __print_hex_dump
+diff --git a/samples/trace_events/trace-events-sample.c b/samples/trace_events/trace-events-sample.c
+index 608c4ae3b08a3..ecc7db237f2ef 100644
+--- a/samples/trace_events/trace-events-sample.c
++++ b/samples/trace_events/trace-events-sample.c
+@@ -50,7 +50,7 @@ static void do_simple_thread_func(int cnt, const char *fmt, ...)
+
+	trace_foo_with_template_print("I have to be different", cnt);
+
+-	trace_foo_rel_loc("Hello __rel_loc", cnt, bitmask);
++	trace_foo_rel_loc("Hello __rel_loc", cnt, bitmask, current->cpus_ptr);
+ }
+
+ static void simple_thread_func(int cnt)
+diff --git a/samples/trace_events/trace-events-sample.h b/samples/trace_events/trace-events-sample.h
+index 1a92226202fc5..fb4548a44153c 100644
+--- a/samples/trace_events/trace-events-sample.h
++++ b/samples/trace_events/trace-events-sample.h
+@@ -200,6 +200,16 @@
+  *
+  *         __assign_bitmask(target_cpus, cpumask_bits(bar), nr_cpumask_bits);
+  *
++ *   __cpumask: This is pretty much the same as __bitmask but is specific for
++ *         CPU masks. The type displayed to the user via the format files will
++ *         be "cpumaks_t" such that user space may deal with them differently
++ *         if they choose to do so, and the bits is always set to nr_cpumask_bits.
++ *
++ *         __cpumask(target_cpu)
++ *
++ *         To assign a cpumask, use the __assign_cpumask() helper macro.
++ *
++ *         __assign_cpumask(target_cpus, cpumask_bits(bar));
+  *
+  * fast_assign: This is a C like function that is used to store the items
+  *    into the ring buffer. A special variable called "__entry" will be the
+@@ -212,8 +222,8 @@
+  *    This is also used to print out the data from the trace files.
+  *    Again, the __entry macro is used to access the data from the ring buffer.
+  *
+- *    Note, __dynamic_array, __string, and __bitmask require special helpers
+- *       to access the data.
++ *    Note, __dynamic_array, __string, __bitmask and __cpumask require special
++ *       helpers to access the data.
+  *
+  *      For __dynamic_array(int, foo, bar) use __get_dynamic_array(foo)
+  *            Use __get_dynamic_array_len(foo) to get the length of the array
+@@ -226,6 +236,8 @@
+  *
+  *      For __bitmask(target_cpus, nr_cpumask_bits) use __get_bitmask(target_cpus)
+  *
++ *      For __cpumask(target_cpus) use __get_cpumask(target_cpus)
++ *
+  *
+  * Note, that for both the assign and the printk, __entry is the handler
+  * to the data structure in the ring buffer, and is defined by the
+@@ -288,6 +300,7 @@ TRACE_EVENT(foo_bar,
+		__dynamic_array(int,	list,   __length_of(lst))
+		__string(	str,	string			)
+		__bitmask(	cpus,	num_possible_cpus()	)
++		__cpumask(	cpum				)
+		__vstring(	vstr,	fmt,	va		)
+	),
+
+@@ -299,9 +312,10 @@ TRACE_EVENT(foo_bar,
+		__assign_str(str, string);
+		__assign_vstr(vstr, fmt, va);
+		__assign_bitmask(cpus, cpumask_bits(mask), num_possible_cpus());
++		__assign_cpumask(cpum, cpumask_bits(mask));
+	),
+
+-	TP_printk("foo %s %d %s %s %s %s (%s) %s", __entry->foo, __entry->bar,
++	TP_printk("foo %s %d %s %s %s %s (%s) (%s) %s", __entry->foo, __entry->bar,
+
+ /*
+  * Notice here the use of some helper functions. This includes:
+@@ -345,7 +359,8 @@ TRACE_EVENT(foo_bar,
+		  __print_array(__get_dynamic_array(list),
+				__get_dynamic_array_len(list) / sizeof(int),
+				sizeof(int)),
+-		  __get_str(str), __get_bitmask(cpus), __get_str(vstr))
++		  __get_str(str), __get_bitmask(cpus), __get_cpumask(cpus),
++		  __get_str(vstr))
+ );
+
+ /*
+@@ -542,15 +557,16 @@ DEFINE_EVENT_PRINT(foo_template, foo_with_template_print,
+
+ TRACE_EVENT(foo_rel_loc,
+
+-	TP_PROTO(const char *foo, int bar, unsigned long *mask),
++	TP_PROTO(const char *foo, int bar, unsigned long *mask, const cpumask_t *cpus),
+
+-	TP_ARGS(foo, bar, mask),
++	TP_ARGS(foo, bar, mask, cpus),
+
+	TP_STRUCT__entry(
+		__rel_string(	foo,	foo	)
+		__field(	int,	bar	)
+		__rel_bitmask(	bitmask,
+			BITS_PER_BYTE * sizeof(unsigned long)	)
++		__rel_cpumask(	cpumask )
+	),
+
+	TP_fast_assign(
+@@ -558,10 +574,12 @@ TRACE_EVENT(foo_rel_loc,
+		__entry->bar = bar;
+		__assign_rel_bitmask(bitmask, mask,
+			BITS_PER_BYTE * sizeof(unsigned long));
++		__assign_rel_cpumask(cpumask, cpus);
+	),
+
+-	TP_printk("foo_rel_loc %s, %d, %s", __get_rel_str(foo), __entry->bar,
+-		  __get_rel_bitmask(bitmask))
++	TP_printk("foo_rel_loc %s, %d, %s, %s", __get_rel_str(foo), __entry->bar,
++		  __get_rel_bitmask(bitmask),
++		  __get_rel_cpumask(cpumask))
+ );
+ #endif
 
 --
 2.31.1
