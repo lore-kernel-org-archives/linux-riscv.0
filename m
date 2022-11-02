@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1186CC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 10:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF44C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 17:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bklR2lBFxxM80Q9qf8WL/MQC0RSTOLdtYP4tQ1qHbn8=; b=HE1yuc+Xsz2ywW
-	RtXWA13JA5FMLX/9i9T/CxPrhGWbsOoS9j/Drg+GdCds/arfGwM5sgX5N384EWw79rjhuBAn2aUNc
-	1L46Cm48RbFojYZkcMaGh5ykz0iQz7n9044M3Ot3xb2DjkJoYFeRxSCVZCC/+/LX/gTu8HloMwBIE
-	zo+mtFKC+xPAAp8FgUNjOrF1awZaN6ZjABeTLwtwDmGGA5KefXtaTrNMw7Gwavzsh7RU5I9RKdGrl
-	M1I0JOlj08pK5a2uFAgT50fJY0AvsciuY5UPNQn46gBfGl6vxqaugijr8mf6j17R+RkB4RaHDrBzm
-	rGYpreMBNROWUtg8NXvg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5M1c3WVMGkEgY/p6sRHZjmOgK9vZnXemwRxGrtYKrPo=; b=eXd9QXwL2kKoPA
+	G5FNQHhd4nahKo1Uj8deR1tGwXSgtmTaNzy7AQVGlmLC8Mt23OOdi7JLrjm2PknRG/yN9rj3gch9v
+	m5TOT5rjj0stNmgbvzj/j/b12cFpHw8Aorbyo0Xhz4WQohX0JGoCzq/4pQWB7venzqObikgWA/xRL
+	JDbpFLMxkxb3Qvk5SnZfxDrELDz5GTT89QhDfMe1t7Va4P28aRaFJrxJQkMkgES/5AKUnjDZQzkPc
+	MLaA3G7MXwZnmZIJaoFfMrFj0SCPJvswtbWvjMgBFJY6wg3b6/w8YxyezRZFk86vloR4bvmKxP3CM
+	0R7hbOY6NllTqrBQuGWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqB5Z-00AX0z-U0; Wed, 02 Nov 2022 10:35:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oqHIA-00CPtj-7U; Wed, 02 Nov 2022 17:12:42 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqB5Q-00AWtc-Gn
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 10:35:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1667385308; x=1698921308;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cnMTJX1z5oF/MNXmXzDoIQqydCI7Jem3sz3HAcS6ejI=;
-  b=IyPfDXUTH/PmGy6OaMEqmhEHfUdC+i5dxDZcsh1iBEqAg0z/vf5qEU1l
-   XVQgx5eXlBpEIx0+Bv9aBSAAkdJNLKCChiXDa78M2AYONc2z3znpRHktj
-   zngCJPfyhAZk2phxhiTkLh7J/CT36qAhc3g2POhVLSOJ/tooUeDaPBWZr
-   opWnSwk/jVmfaxYSXoQc2LB8OHhyeBSMtmm2cPGLEf9yZrXUWX9uVhvGL
-   QnbkCeA1YTpRN0Y5VPy1l8lJrDeQ5d0CmXVZD4wzBwp+k0TVVIskQsfQ8
-   mvHSSpe3q8FFKVa2DvEyNCcyLrWfLo50wyyt229jUrd2iwXKD2oDrR/DB
-   w==;
-X-IronPort-AV: E=Sophos;i="5.95,232,1661842800"; 
-   d="scan'208";a="184990970"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Nov 2022 03:35:01 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 2 Nov 2022 03:35:01 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 2 Nov 2022 03:34:58 -0700
-Date: Wed, 2 Nov 2022 10:34:43 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, <palmer@dabbelt.com>
-CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
-	Jiri Slaby <jirislaby@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<linux-serial@vger.kernel.org>
-Subject: Re: [PATCH 0/6] RISC-V: stop selecting device drivers in Kconfig.socs
-Message-ID: <Y2JHw/y1oWkLpOb2@wendy>
-References: <20221005171348.167476-1-conor@kernel.org>
- <Y15nwXmn7rToJkH2@spud>
- <Y2IXrD4FpXNmDDPk@kroah.com>
+	id 1oqHI7-00CPqa-7M
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 17:12:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 44894B80DA8;
+	Wed,  2 Nov 2022 17:12:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 862F8C433C1;
+	Wed,  2 Nov 2022 17:12:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667409156;
+	bh=+kXg0AnyKL/yScM5ZpSouZN8e2TVAvvNgXX6EJiKW7E=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hEgCoycpB6J1T5HC+Re6SnkeRnP0QfYP5e7wbcT445y0reEll/Ej5UdZqRVSgVeo3
+	 WI/VAofvqGsFYIkEJLxUdf6M/ru616OjmF1WxnsgseWwz5+3oGTiw0kAZSHTuKNE1U
+	 9oTPfVjciyp4R+LzZMBytiaU/0YUq3ThTkstBKvQRfjLZd1F3YfQ5AwfeytFUcafRS
+	 u3fV9MW17Fq0JxKAgPfkFOVC1kG8nz7FNSO9WYLozhIawafKn2VtljzKP4iWvo8s23
+	 aoI2M8rh4f80884o6pEVI63dgdBBqEDvawTlbu5+OtYs2efuj1TX9BuxjwmDUaeZHb
+	 P4NpjrMfbBY6Q==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v2] riscv: vdso: fix section overlapping under some conditions
+Date: Thu,  3 Nov 2022 01:02:54 +0800
+Message-Id: <20221102170254.1925-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y2IXrD4FpXNmDDPk@kroah.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_033508_684013_6636F976 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20221102_101239_465356_ACBF17ED 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +74,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 02, 2022 at 08:09:32AM +0100, Greg Kroah-Hartman wrote:
-> On Sun, Oct 30, 2022 at 12:02:09PM +0000, Conor Dooley wrote:
-> > On Wed, Oct 05, 2022 at 06:13:43PM +0100, Conor Dooley wrote:
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > 
-> > > As my RFC [0] series doing the symbol name changes has not yet reached
-> > > consensus, I've split out the removal of device driver selects into a
-> > > new series. I kept the plic as a direct select - although given how Maz
-> > > is treating the SiFive plic driver as the RISC-V plic driver, maybe that
-> > > should just be selected by default at an arch level...
-> > > 
-> > > I assume the individual patches can go via their subsystems & I'll
-> > > resubmit the arch/riscv patches a cycle later? I'm not in any rush.
-> > 
-> > Hey,
-> > 
-> > What's the story here with the two serial patches, they just waiting for
-> > an Ack? I think these are archived on the riscv patchwork, so if that is
-> > the case I'll unarchive them and mark as needing one.
-> 
-> Sorry for the delay, I'll take both of them through the tty/serial tree.
+lkp reported a build error, I tried the config and can reproduce
+build error as below:
 
-nw Greg, thanks.
+  VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
+ld.lld: error: section .note file range overlaps with .text
+>>> .note range is [0x7C8, 0x803]
+>>> .text range is [0x800, 0x1993]
 
-@Palmer, I'll re-submit the Kconfig.socs bits of this after v6.2-rc1.
+ld.lld: error: section .text file range overlaps with .dynamic
+>>> .text range is [0x800, 0x1993]
+>>> .dynamic range is [0x808, 0x937]
 
-Thanks,
-Conor.
+ld.lld: error: section .note virtual address range overlaps with .text
+>>> .note range is [0x7C8, 0x803]
+>>> .text range is [0x800, 0x1993]
 
+Fix it by setting DISABLE_BRANCH_PROFILING which will disable branch
+tracing for vdso, thus avoid useless _ftrace_annotated_branch section
+and _ftrace_branch section. Although we can also fix it by removing
+the hardcoded .text begin address, but I think that's another story
+and should be put into another patch.
 
+Link: https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/#r
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+---
+
+Since v1:
+ - fix the issue by setting DISABLE_BRANCH_PROFILING
+
+ arch/riscv/kernel/vdso/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index f2e065671e4d..d6092ff678fd 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -17,6 +17,7 @@ vdso-syms += flush_icache
+ obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
+ 
+ ccflags-y := -fno-stack-protector
++ccflags-y += -DDISABLE_BRANCH_PROFILING
+ 
+ ifneq ($(c-gettimeofday-y),)
+   CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+-- 
+2.37.2
 
 
 _______________________________________________
