@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AD7C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC76DC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1l8eiQfvujCrxibFJnBy93Cnll8GmE4OkThXRMBxSxs=; b=mydblxYy4nNdmW
-	MsM9xb4Krc5SyXtPpOdjfBu4IJ4OABYVb8UwIbXZHZ4wfgH5C/GSKNS/H3TjioPKmgB6VErplngJo
-	1ze5EkNY1L058FDbhENGyTbMKWfX9a970o8PyM9qrRfTFgSObVKnFiVlNt/9TX5hqs8sF1yr010Gv
-	29OypuZpkKG6T1JsTD+xiz4tik7dsPtxreJbpZE3QaSvnNaC4R1iurzyXwpJ52B5e6ueQmiV83MJo
-	2/SHZBvMciO84CDmnf1cNfioi67BTyb7J6by5sSmrrEcAjOAs4jWQIFzgjJFDv6YRM+8PIFUFGMVh
-	0oMy6umG1ijeWiHk/f+A==;
+	List-Owner; bh=x+Pcdz6UATIYrux5DxHoH/ussDKZBfoFvGdI1KKK2Rc=; b=nJKIWnzpCfWwo/
+	flJuPqgw9OV6j79XCgN45aTV4TIP8uQIZSGGWcZW7x/SNBt3x+1dKRKr2IEKslnUZwLaItTDSdW5F
+	J4zjXUYty2gWgh5FR7x2YA3nrDXE0dt/82Kb1HwGjSZZIhu4WNl7hsTMD6d73reYwsWqy+KeCT20s
+	HJPn3pcIgdnoZSNXI8NLBqO0M8LyoBQZuV/yl+XBQ0btQf8jNlBB3/TnqP//0kevkaID5t8kiy2Rq
+	NlyTOoK9sCtJJ72lfW8iKiagtI62hdP1E73OKXdKLeB2p7JOa/55v+rN9X2s5ND7iNLwejYW9+kvc
+	X6VeUq/V7lg6i2TvpzAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN7O-00ExJO-P6; Wed, 02 Nov 2022 23:25:58 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1oqN7X-00ExOR-08; Wed, 02 Nov 2022 23:26:07 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN1b-00EtW2-SK
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:20:02 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id c7-20020a170903234700b0018729febd96so207641plh.19
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:58 -0700 (PDT)
+	id 1oqN1f-00EtZF-Rd
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:20:05 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-368e6c449f2so1016477b3.5
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:20:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=w/Q7bH8THgyaKP3B1ctDp6/bth9WI6Zn0uJypuG9eac=;
-        b=hkPOoen/pyqZsKi1YCSawLdA3GEp9C4f3mv9W0KoQWrN/JmnscJ/7nrSl0bhgo5kc/
-         284CZWTN6cQtZyS3BcYl1rO3d2JXX3uptOp6QgDDXHKKXwZWYnEXXtfdURHWu0sgST7b
-         SR2jmNv70MkTjk45xUfHV7CREolEUHHjBimLzgCj57Qvy29dchlrARjt1C82JrSjtdvz
-         CjPyz+19dEzhNchjZdr/kuW84eKlMR1llHgovF4ZVnGabG/rB0khgL15izrPpgwurgg8
-         AnCmcr2wDk7Yyae3uT31jet5RZCDh/LNmD6fqF7lWW4xFuTB9UT2b6Ep4Ac5WXcUuWtP
-         s9ug==
+        bh=mKnEtQX0QH/ggk+Ht36/d+63ROqx6WCYCltiz+Zzjv4=;
+        b=SdQ/LsY4NGnVE1yE06OYtnoYVCRmFREHfZbDy+hy/qKLprusJ3oD9C3Z6OVRKqQrnE
+         CInFERbmx9ZRnFYiATYzBK74mPS4+cAZJ+5ijRabgzbKKerJGVt8ZZlmJzt5Hj/aV0PA
+         EGW/7VotUp9NojxVblVL/QpJZuKvGxyCajSBZEMqVRwQDUQw2wRSv4vj1QT6bcpnpc9t
+         e4rP+2f3gLSJ/JJRtgPX3AbV2Tyauor4ctFIQiYJWU548K+/wXsudAS9Uik/E0jRBxNq
+         qFZGa2xPRMU89uQ30BChflY3hdbUkhWTUyAN3U9JeOyLGBy95xzkfXnGKk726vF8pKbF
+         n5DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=w/Q7bH8THgyaKP3B1ctDp6/bth9WI6Zn0uJypuG9eac=;
-        b=RP3dLjHCRyRq86x8PqqIufJgQe6XNWYLu8K1zlSle+3PQl77gFHl9KOcK6r4cWiYIl
-         7Jsnx/OrcX7Dc2DxxS/Ca3A+Q6uUzdqzY5bZH+VEFbaarLgE1TL+zcSis8RcgnuvfrwY
-         LWzuO+Y5AK7/AcUi1o0XMhcYAjpFiVHRQ+elJdrgEd2BShpFUQ0U48hXLsvZ0ifweZax
-         lTJ6FzHh3u+UZBNH6AodL9uIHJ3GgJP1ZcI8CoBvnciyh/evx1AVHMJVDo/W9SHAtxMN
-         bJWR2kB9ms4qB6jbGHDvc1JmY0HeY3OxnqGpO/Xu5gj0O4mefg1uGXE7UbXQRueDdvYf
-         VNrg==
-X-Gm-Message-State: ACrzQf3Eeswyl8Ynm2m5tsFS3fbnaxqzC5bicPcUVDa8zwSVfYx/ZhyJ
-	FgekFdr7/ALDRPwz/E7BoEoRzTLbvYI=
-X-Google-Smtp-Source: AMsMyM52tU6iRK0I4Ec35KUAzBrT1sghmvSrKR24lxi1BsrlBLfXrWc/1+j2917tMPr6x8h/JqOXwdenWAg=
+        bh=mKnEtQX0QH/ggk+Ht36/d+63ROqx6WCYCltiz+Zzjv4=;
+        b=T+smO6FtxwsS6zmaFohiXDDVvVV6h17i1vnqzbNYtX3hGq7NlPnWo5cvtJyR+0tyuq
+         Yy6V8V/JOu+zBsFyZlaglSKhGXGUnzNpOpPN+WkBe0Y1SwnlUuXnU+GFjAQlAsipBGPY
+         PIVT7D9eL2piV3nNhi0ynyIuVwa1ylVPczvC9A9if0A9uvPafNmoAWAqXStW/7oPw8t3
+         ZTCrsqiPhsAxywXL0pv5Col+6Tk16SW0mICupR39dxNpeGSTrJYCm+9hw25z+Uivqsc2
+         DEoAT1xnp4K57O7OzOtTRI6JESD4bRM+W08XTBACNrM8bTBrpgtIX0+xejgsUL7Mzn2D
+         7Apg==
+X-Gm-Message-State: ACrzQf0828rIowniWSalGQTVQDU4C1N63Z/pJ362wg2uY4FiOr2V9Tm4
+	xU3EY5WW4FIZ/ofeUG6O4SCzgBKy9uI=
+X-Google-Smtp-Source: AMsMyM58olcArAfGw4eM2juSx6NG/cSk/6KUdGGsxOwq8NmV4ZhdhKDU4RNI0GuMTLVYYG9b0/LsdP0LTpo=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:852:b0:56d:e2bc:1978 with SMTP id
- q18-20020a056a00085200b0056de2bc1978mr8835032pfk.47.1667431198455; Wed, 02
- Nov 2022 16:19:58 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:18:53 +0000
+ (user=seanjc job=sendgmr) by 2002:a25:c615:0:b0:6c9:f71a:f95d with SMTP id
+ k21-20020a25c615000000b006c9f71af95dmr26436245ybf.411.1667431202255; Wed, 02
+ Nov 2022 16:20:02 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:55 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-27-seanjc@google.com>
-Subject: [PATCH 26/44] KVM: s390: Mark __kvm_s390_init() and its descendants
- as __init
+Message-ID: <20221102231911.3107438-29-seanjc@google.com>
+Subject: [PATCH 28/44] KVM: VMX: Make VMCS configuration/capabilities structs
+ read-only after init
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -85,8 +85,9 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_161959_968358_748DAA42 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20221102_162003_948846_76F7EC13 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,94 +105,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tag __kvm_s390_init() and its unique helpers as __init.  These functions
-are only ever called during module_init(), but could not be tagged
-accordingly while they were invoked from the common kvm_arch_init(),
-which is not __init because of x86.
+Tag vmcs_config and vmx_capability structs as __init, the canonical
+configuration is generated during hardware_setup() and must never be
+modified after that point.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/s390/kvm/interrupt.c | 2 +-
- arch/s390/kvm/kvm-s390.c  | 4 ++--
- arch/s390/kvm/kvm-s390.h  | 2 +-
- arch/s390/kvm/pci.c       | 2 +-
- arch/s390/kvm/pci.h       | 2 +-
- 5 files changed, 6 insertions(+), 6 deletions(-)
+ arch/x86/kvm/vmx/capabilities.h | 4 ++--
+ arch/x86/kvm/vmx/vmx.c          | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/interrupt.c
-index ab569faf0df2..bf9d55fbc21a 100644
---- a/arch/s390/kvm/interrupt.c
-+++ b/arch/s390/kvm/interrupt.c
-@@ -3416,7 +3416,7 @@ void kvm_s390_gib_destroy(void)
- 	gib = NULL;
- }
+diff --git a/arch/x86/kvm/vmx/capabilities.h b/arch/x86/kvm/vmx/capabilities.h
+index 87c4e46daf37..2aaa0fd53d08 100644
+--- a/arch/x86/kvm/vmx/capabilities.h
++++ b/arch/x86/kvm/vmx/capabilities.h
+@@ -68,13 +68,13 @@ struct vmcs_config {
+ 	u64 misc;
+ 	struct nested_vmx_msrs nested;
+ };
+-extern struct vmcs_config vmcs_config;
++extern struct vmcs_config vmcs_config __ro_after_init;
  
--int kvm_s390_gib_init(u8 nisc)
-+int __init kvm_s390_gib_init(u8 nisc)
+ struct vmx_capability {
+ 	u32 ept;
+ 	u32 vpid;
+ };
+-extern struct vmx_capability vmx_capability;
++extern struct vmx_capability vmx_capability __ro_after_init;
+ 
+ static inline bool cpu_has_vmx_basic_inout(void)
  {
- 	int rc = 0;
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 6adb60485839..81690fce0eb1 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -489,8 +489,8 @@ static DEFINE_PER_CPU(struct list_head, loaded_vmcss_on_cpu);
+ static DECLARE_BITMAP(vmx_vpid_bitmap, VMX_NR_VPIDS);
+ static DEFINE_SPINLOCK(vmx_vpid_lock);
  
-diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-index e1c9980aae78..f6ae845bc1c1 100644
---- a/arch/s390/kvm/kvm-s390.c
-+++ b/arch/s390/kvm/kvm-s390.c
-@@ -358,7 +358,7 @@ static __always_inline void __insn32_query(unsigned int opcode, u8 *query)
- #define INSN_SORTL 0xb938
- #define INSN_DFLTCC 0xb939
+-struct vmcs_config vmcs_config;
+-struct vmx_capability vmx_capability;
++struct vmcs_config vmcs_config __ro_after_init;
++struct vmx_capability vmx_capability __ro_after_init;
  
--static void kvm_s390_cpu_feat_init(void)
-+static void __init kvm_s390_cpu_feat_init(void)
- {
- 	int i;
- 
-@@ -461,7 +461,7 @@ static void kvm_s390_cpu_feat_init(void)
- 	 */
- }
- 
--static int __kvm_s390_init(void)
-+static int __init __kvm_s390_init(void)
- {
- 	int rc = -ENOMEM;
- 
-diff --git a/arch/s390/kvm/kvm-s390.h b/arch/s390/kvm/kvm-s390.h
-index f6fd668f887e..e7f6166129eb 100644
---- a/arch/s390/kvm/kvm-s390.h
-+++ b/arch/s390/kvm/kvm-s390.h
-@@ -467,7 +467,7 @@ void kvm_s390_gisa_clear(struct kvm *kvm);
- void kvm_s390_gisa_destroy(struct kvm *kvm);
- void kvm_s390_gisa_disable(struct kvm *kvm);
- void kvm_s390_gisa_enable(struct kvm *kvm);
--int kvm_s390_gib_init(u8 nisc);
-+int __init kvm_s390_gib_init(u8 nisc);
- void kvm_s390_gib_destroy(void);
- 
- /* implemented in guestdbg.c */
-diff --git a/arch/s390/kvm/pci.c b/arch/s390/kvm/pci.c
-index c50c1645c0ae..60548791c077 100644
---- a/arch/s390/kvm/pci.c
-+++ b/arch/s390/kvm/pci.c
-@@ -670,7 +670,7 @@ int kvm_s390_pci_zpci_op(struct kvm *kvm, struct kvm_s390_zpci_op *args)
- 	return r;
- }
- 
--int kvm_s390_pci_init(void)
-+int __init kvm_s390_pci_init(void)
- {
- 	zpci_kvm_hook.kvm_register = kvm_s390_pci_register_kvm;
- 	zpci_kvm_hook.kvm_unregister = kvm_s390_pci_unregister_kvm;
-diff --git a/arch/s390/kvm/pci.h b/arch/s390/kvm/pci.h
-index 486d06ef563f..ff0972dd5e71 100644
---- a/arch/s390/kvm/pci.h
-+++ b/arch/s390/kvm/pci.h
-@@ -60,7 +60,7 @@ void kvm_s390_pci_clear_list(struct kvm *kvm);
- 
- int kvm_s390_pci_zpci_op(struct kvm *kvm, struct kvm_s390_zpci_op *args);
- 
--int kvm_s390_pci_init(void);
-+int __init kvm_s390_pci_init(void);
- void kvm_s390_pci_exit(void);
- 
- static inline bool kvm_s390_pci_interp_allowed(void)
+ #define VMX_SEGMENT_FIELD(seg)					\
+ 	[VCPU_SREG_##seg] = {                                   \
 -- 
 2.38.1.431.g37b22c650d-goog
 
