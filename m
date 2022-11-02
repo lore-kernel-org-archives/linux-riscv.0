@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4652FC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E575DC43217
 	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,58 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ujaEIk97PJT8j13momPQvkhbR/AIB3PvUAwh1MY3To8=; b=MxVVxLoZ2/Cdnc
-	PLY+9Iz0DYmrSr4ZLuocTD4LN27cpAJjuVwOjjucCv6MV+DSP7Rmq0zTIjk9RUwU4XJqY6SbrBsPE
-	mVNPx3I6FS47hOx6kxWJx8RGh/yqG40tjnlNdrWGwNjznqmpB9YIGsYXVpwn7aDlNd6G88LX9uFCE
-	opnAismLNShZqtjTq0L6qjhLytph8CoCmAgQUnUMFTVfA/ofJ7UztS+UebVbDQuSVwzx0klEzxFYq
-	3TLpqOLL+1FUv6IkxbdlWUh0LlqQK81VhO7bQ47RNWg58xBgzRCV6xZkD+GCr9awa1DBKsrqAW/Ph
-	YtdDyJgkHiH7Tqbm+DUA==;
+	List-Owner; bh=DgkWTmdUNJ17OPEdbH4GwJ2HsudS6zuZC3mlOu3r97o=; b=v3x6P9c+n2pfQL
+	rqaDu35ynqvCSUtz8+L4WVG2tUPZmel/NeLQo+Xmsa34IimI5Ea8tdb+8I8oKUitGEdgYF0Z6mtku
+	v0HndcLwanAviiJpg/wOCzdP25rl/UXvuVv5ml3KE8mpX5syfugtwDLQgXMzjGnZMLpcZJ0smUpFM
+	u/QJFyBmh2ymiV5Kk70wUPn6TVzGq+pFixY/45GLE7Q1/ZX8syUvPNHwgb/WRcFpbBVRHjA4K/A4t
+	UDrL8O9wEf8MMF7WWrRZTVQI205y5Q+iWY7OEcQzCaa6aEa+quE4nRLTrY+jmemWCl/JTOKvTs0On
+	S3+DepvGyDlfceD0zjMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN1A-00EtGH-Sf; Wed, 02 Nov 2022 23:19:32 +0000
+	id 1oqN1C-00EtH0-8S; Wed, 02 Nov 2022 23:19:34 +0000
 Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN0x-00Et3Y-GP
+	id 1oqN0x-00Et4S-Hv
 	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:21 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-36b1a68bfa6so471227b3.22
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:17 -0700 (PDT)
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-37010fefe48so538597b3.19
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=J4baT2gCaqaG+hAt/mJp+w8Lapt4XhULv2rUZ1lbod8=;
-        b=Y/LgcbOSvwbnzJXRGal3Ep3KB7/0yCP9cU65YkQert5+3hLyHHSjjMao2/UuV8Y1pm
-         rxtzoLchmx+Mfw2uDAT2cc7aUI/oVviLkjgjK/axQ+ux0UramBaUfpMh7qr3oHRIrkbM
-         g29/HkiYkyDP9zLb6T5zYBFWjCRhk7uodXh+YwW0fknC8LCiXKsmBrjDcUEU31+Wr1aB
-         IkpbU9xq9Vh5sCGgS87jUUdeWGvPSndSpQtpQaJwtmMAXoArYlfZq/YuY0lzlwpeE7m/
-         iktR7kaNiirOlR+WEM+Xzua+uL8FsQlW7DYdB778CLiAWY7J4Sab6pQ6XIRdRfFvya7C
-         dqQw==
+        bh=7+eEYWgdfK2f235NQouH0yOVJiIE3XUzS6aBBcpH2Xg=;
+        b=GJuDT4qIFRmN0zrEcesKp5eZ38WFJtAk7eJLI6MT/Ki4scur3JzxZHizyJ8pIsBMLg
+         TZsxQflrMw0vV6/LQ4eLuVGkeHataXwJMbFJYWT60aCHjdYTQzerfB15KOU/infpl1Yg
+         Dq7XMjNzBlwZlnSc61H5gBHFkm3TEEd35yWHpJa13qtav7MsW7uSfcNWliarLL2r1uQq
+         n4Uyhy3npcssGJRIlfdRDpGm7iF4EKYzBOtaYqDiDMZ0E2gBBrutJfjyLCbotmATUg5n
+         cvQzCJ4G8GbG22iIRvx4lfqlDB2hxbUTz17cEFGPuQiDi1PGB1ilnB2TMVHOT/GiMblc
+         mfsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=J4baT2gCaqaG+hAt/mJp+w8Lapt4XhULv2rUZ1lbod8=;
-        b=b1GfyWU7xzqq8XwjwVKIof02DwVnA7tNhpA/DR71e782NbkOltAxf/ooH+0XBEAFWW
-         /gcGMi3bBRrDSnDrMz+MIfEPWFV1Z6p1IxiDrSnmE+MlwODnyKS7ROWH8L1SFiOwlfM/
-         3mLhXTkzacRyzw8XMhBmA3NJlaCld8g3DWH/7ivWIdyKJ0yStItk/GtMJuOzkanpodeQ
-         tFmwV6x6ZQYoa0JTH6Y1tXqCRbaEUFoxI/1xEcrUKwSMamCEBT05Fa8O/KUTn8xypCqJ
-         2QcP6p9bEKNURtzfxzBVeE+COqEn4+iFsD/P8YXpbmir487GOpz5c1KbiztAiO3nYdXD
-         qANA==
-X-Gm-Message-State: ACrzQf2wX6sAHMkUWm/iYLP3MnYUZK/X27CcDco2DHVfMLByFPtO1iu8
-	0YStSf1O4mai0Fbka2dPn9RxVG+bBdg=
-X-Google-Smtp-Source: AMsMyM5o6mEhEhiYREiqHX2O6l5zHbOoOJ5LkmkQQCrMnpzWAr9BhETh9np1j3huSYRmzTw5GjJ2jYjKldE=
+        bh=7+eEYWgdfK2f235NQouH0yOVJiIE3XUzS6aBBcpH2Xg=;
+        b=R0WQWemqvy/EOyCxoaNaMF6NYBnXe+46AMHJMgFqaoUaxU64M0l8VYDKxLPPp+5ic/
+         3C1oQZj9YJ/MwnGXuKVXNgYyTViRb7gTQm1aHH9G+9fjkNz8aI2Ouo26wc7xvQFuzVtv
+         r8fDKguU1GuzNV8uvCENxJsb5beuy68OiMbFpp5+lHO3MVZAEn1F5hpLu0ekmjPkrZQa
+         uGvtLijtR4CpYzG6raEyNHoH6mujt182kikAsMeCAoB/w+XC8M2ZEpRr61S02q/cLtfa
+         p26up+0f8ysoyviybwwCfE0NphPkPSWsluafbWReeTjMGaiGrykKOmod0FAvpKXUOCVD
+         GKUw==
+X-Gm-Message-State: ACrzQf3QBVzASRSISDsbwznWubRd1IUksh+/95KqGOealRIfcvpuQ54d
+	pKvsIMinTHh/mDZDPw8MQFPmGrKAAWE=
+X-Google-Smtp-Source: AMsMyM70haTx/XR5G28CKoYVC6XM4t6KIj6EhKrnhdUb7b9djmPG/60PGXPcAfFKa85v8fvZQusLb10dmQQ=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a25:f451:0:b0:6cc:aeeb:8fed with SMTP id
- p17-20020a25f451000000b006ccaeeb8fedmr15718187ybe.11.1667431156834; Wed, 02
- Nov 2022 16:19:16 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:18:28 +0000
+ (user=seanjc job=sendgmr) by 2002:a25:afc2:0:b0:6cd:3a43:a395 with SMTP id
+ d2-20020a25afc2000000b006cd3a43a395mr12532811ybj.220.1667431158134; Wed, 02
+ Nov 2022 16:19:18 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:29 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-2-seanjc@google.com>
-Subject: [PATCH 01/44] KVM: Register /dev/kvm as the _very_ last thing during initialization
+Message-ID: <20221102231911.3107438-3-seanjc@google.com>
+Subject: [PATCH 02/44] KVM: Initialize IRQ FD after arch hardware setup
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -84,8 +84,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_161919_573708_948041D7 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20221102_161919_613468_F79EE631 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +103,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register /dev/kvm, i.e. expose KVM to userspace, only after all other
-setup has completed.  Once /dev/kvm is exposed, userspace can start
-invoking KVM ioctls, creating VMs, etc...  If userspace creates a VM
-before KVM is done with its configuration, bad things may happen, e.g.
-KVM will fail to properly migrate vCPU state if a VM is created before
-KVM has registered preemption notifiers.
+Move initialization of KVM's IRQ FD workqueue below arch hardware setup
+as a step towards consolidating arch "init" and "hardware setup", and
+eventually towards dropping the hooks entirely.  There is no dependency
+on the workqueue being created before hardware setup, the workqueue is
+used only when destroying VMs, i.e. only needs to be created before
+/dev/kvm is exposed to userspace.
 
-Cc: stable@vger.kernel.org
+Move the destruction of the workqueue before the arch hooks to maintain
+symmetry, and so that arch code can move away from the hooks without
+having to worry about ordering changes.
+
+Reword the comment about kvm_irqfd_init() needing to come after
+kvm_arch_init() to call out that kvm_arch_init() must come before common
+KVM does _anything_, as x86 very subtly relies on that behavior to deal
+with multiple calls to kvm_init(), e.g. if userspace attempts to load
+kvm_amd.ko and kvm_intel.ko.  Tag the code with a FIXME, as x86's subtle
+requirement is gross, and invoking an arch callback as the very first
+action in a helper that is called only from arch code is silly.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 31 ++++++++++++++++++++++---------
- 1 file changed, 22 insertions(+), 9 deletions(-)
+ virt/kvm/kvm_main.c | 37 ++++++++++++++++++-------------------
+ 1 file changed, 18 insertions(+), 19 deletions(-)
 
 diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index f1df24c2bc84..a188d27f78af 100644
+index a188d27f78af..e0424af52acc 100644
 --- a/virt/kvm/kvm_main.c
 +++ b/virt/kvm/kvm_main.c
-@@ -5900,12 +5900,6 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+@@ -5833,24 +5833,19 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	int r;
+ 	int cpu;
+ 
++	/*
++	 * FIXME: Get rid of kvm_arch_init(), vendor code should call arch code
++	 * directly.  Note, kvm_arch_init() _must_ be called before anything
++	 * else as x86 relies on checks buried in kvm_arch_init() to guard
++	 * against multiple calls to kvm_init().
++	 */
+ 	r = kvm_arch_init(opaque);
+ 	if (r)
+-		goto out_fail;
+-
+-	/*
+-	 * kvm_arch_init makes sure there's at most one caller
+-	 * for architectures that support multiple implementations,
+-	 * like intel and amd on x86.
+-	 * kvm_arch_init must be called before kvm_irqfd_init to avoid creating
+-	 * conflicts in case kvm is already setup for another implementation.
+-	 */
+-	r = kvm_irqfd_init();
+-	if (r)
+-		goto out_irqfd;
++		return r;
+ 
+ 	if (!zalloc_cpumask_var(&cpus_hardware_enabled, GFP_KERNEL)) {
+ 		r = -ENOMEM;
+-		goto out_free_0;
++		goto err_hw_enabled;
+ 	}
+ 
+ 	r = kvm_arch_hardware_setup(opaque);
+@@ -5894,9 +5889,13 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 		}
+ 	}
+ 
++	r = kvm_irqfd_init();
++	if (r)
++		goto err_irqfd;
++
+ 	r = kvm_async_pf_init();
+ 	if (r)
+-		goto out_free_4;
++		goto err_async_pf;
  
  	kvm_chardev_ops.owner = module;
  
--	r = misc_register(&kvm_dev);
--	if (r) {
--		pr_err("kvm: misc device register failed\n");
--		goto out_unreg;
--	}
--
- 	register_syscore_ops(&kvm_syscore_ops);
- 
- 	kvm_preempt_ops.sched_in = kvm_sched_in;
-@@ -5914,11 +5908,24 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	kvm_init_debug();
- 
- 	r = kvm_vfio_ops_init();
--	WARN_ON(r);
-+	if (WARN_ON_ONCE(r))
-+		goto err_vfio;
-+
-+	/*
-+	 * Registration _must_ be the very last thing done, as this exposes
-+	 * /dev/kvm to userspace, i.e. all infrastructure must be setup!
-+	 */
-+	r = misc_register(&kvm_dev);
-+	if (r) {
-+		pr_err("kvm: misc device register failed\n");
-+		goto err_register;
-+	}
- 
- 	return 0;
- 
--out_unreg:
-+err_register:
-+	kvm_vfio_ops_exit();
-+err_vfio:
+@@ -5927,6 +5926,9 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	kvm_vfio_ops_exit();
+ err_vfio:
  	kvm_async_pf_deinit();
++err_async_pf:
++	kvm_irqfd_exit();
++err_irqfd:
  out_free_4:
  	for_each_possible_cpu(cpu)
-@@ -5944,8 +5951,14 @@ void kvm_exit(void)
- {
- 	int cpu;
- 
--	debugfs_remove_recursive(kvm_debugfs_dir);
-+	/*
-+	 * Note, unregistering /dev/kvm doesn't strictly need to come first,
-+	 * fops_get(), a.k.a. try_module_get(), prevents acquiring references
-+	 * to KVM while the module is being stopped.
-+	 */
- 	misc_deregister(&kvm_dev);
-+
-+	debugfs_remove_recursive(kvm_debugfs_dir);
- 	for_each_possible_cpu(cpu)
  		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
- 	kmem_cache_destroy(kvm_vcpu_cache);
+@@ -5938,11 +5940,8 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	kvm_arch_hardware_unsetup();
+ out_free_1:
+ 	free_cpumask_var(cpus_hardware_enabled);
+-out_free_0:
+-	kvm_irqfd_exit();
+-out_irqfd:
++err_hw_enabled:
+ 	kvm_arch_exit();
+-out_fail:
+ 	return r;
+ }
+ EXPORT_SYMBOL_GPL(kvm_init);
+@@ -5967,9 +5966,9 @@ void kvm_exit(void)
+ 	unregister_reboot_notifier(&kvm_reboot_notifier);
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
+ 	on_each_cpu(hardware_disable_nolock, NULL, 1);
++	kvm_irqfd_exit();
+ 	kvm_arch_hardware_unsetup();
+ 	kvm_arch_exit();
+-	kvm_irqfd_exit();
+ 	free_cpumask_var(cpus_hardware_enabled);
+ 	kvm_vfio_ops_exit();
+ }
 -- 
 2.38.1.431.g37b22c650d-goog
 
