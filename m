@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3071EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B45C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bxlz5kTWpFflvVfeRqx8R/EzY6SJlad7QB5L9rij8RM=; b=icUbXOUPr8wg9V
-	4in2ytxCehmUpbvnU+tgn0BvvmzFh9hUgAfTX6ulyTg+zIo5XrwjujToyItK5bq+duP4kYIrxiXXg
-	CKLgTKlPSMZCGTYHukdG4+NMN1imSKZd1gNELoKEbW572e0dn1CWPAPdgvj3D+V9jZGos/zHZbIRL
-	jx7fdSuBgN001kvtvqh4TH0BCiHYd7U33BlLcNLXrHrL/yZHVlSP896roH2FP8YcGLjVUAP9c3qlm
-	JKPFtPVDyXX0/PnA5SqCmOa/ExPj4f/pq2m1w7VNQUij72oXe8LF2917XTVJR+V72HeFsEiG21Kjy
-	sD+ZO7JSltyOa8zo89lg==;
+	List-Owner; bh=dJfL6p8dD7PO1FO4QbHjp3N1k5qQePjZxe7cZccqezk=; b=vwV12o8CuPTrBO
+	ICdsJyixMQds/EUJex0lVeJG34rCmzcV76nHnm4WnP+SOoAzOt4q1NoxfI8YvwT1iI1QDTcWYXSVT
+	Bjv8JVKbhLSMrEEmtwv7b/gD0S/fVSglVyWJyYmJmxAXXEcL2RZazic0JXEvASmgpCUMb93LOC5zn
+	Nph3xyts1p3EGvra93HfJkmP6c6NPVMWqYsapAXHj0eW3QEeTHHYPQEiQ6G0EGwy91ZgNfBWyhynS
+	s9trXIK8vNBu2HAqHaCHAjGmuWRvVhNabwIne/3ORp9Q2yF5kyNf9M7iwVKpRLrQzewrmF7/GrLPN
+	7EVVvHfcfnrcsj/NZ3Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN31-00EubL-TH; Wed, 02 Nov 2022 23:21:27 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1oqN4K-00EvOo-Pa; Wed, 02 Nov 2022 23:22:48 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqN12-00EtAq-0G
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:27 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id mh8-20020a17090b4ac800b0021348e084a0so2476848pjb.8
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:23 -0700 (PDT)
+	id 1oqN1C-00Et3X-16
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:35 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id y65-20020a25c844000000b006bb773548d5so386793ybf.5
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=61+uc/Y9XgqKqIqJKklgZKwyXFi4EpAveqLf+gzND20=;
-        b=Utw2bIoFpd0OsW8gcFI5XrC8r/opoeV6PzEujs3E4Mr9+St+h1iGz7I0t2dfS8UClh
-         tAtUjqK55zt6/KkvBXOzqfYjfHXVvlGdNUDx6aXeRWpNBB/SzUU3M7O4hGxRvmfcP7Dv
-         H7xUVWjzIm9fOWFawnQ+tUiBa9aTdqs3xjhRiHy7QmZH5iQmDFc0LC68bjVk8Tk76MUY
-         okNb1d05tSvdlxWMqm8WJt1KJ94gRKBpU/aaJyEkAN3CmyDtunrNwjuXsVAB9MDK12T5
-         qP1tSiadBS2lzWdtmS7wbdVgSkTUTO1m/e38yDr5/ydciJMTwj/jwYNum8ez3aI14Ekv
-         m1vw==
+        bh=hsvwPn56EufMwWrr4BQ3wXsJaNpmOPQxZWWpLewxvhQ=;
+        b=Y+WCubtqC448k8BS6Mqnaj28SHAW+AQfgFNGCLm2bJu3u1mJtG3sPN/6hEm3u5WKxX
+         gjm0xAmdiy0BNLmCTgESqNLWBkKXwZKx8x3UovP6tMr0tuTqm6uAbtXaFSg2tQ6IY8UY
+         VXa2F9flrbUexIM+erBgHE9ssHvFwc+slKWkiJrFDAVzrbJZgmqNXlASKZWSF88G1RsF
+         3WXrtRdOPomKp62p5k4CbApbNG6yrgaBuDlDbRhFN/CbQ2b9hIJBRdTCZXqQmNDbMEE4
+         ZnCQdPnQlkYKD1izSyGfMR40m61f2ixRTRCzDV7N9xc1b7MsAKZPHOhhZhsGAWMnpSoY
+         ov8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=61+uc/Y9XgqKqIqJKklgZKwyXFi4EpAveqLf+gzND20=;
-        b=qCcAadyvMXYJuDIKcKqCpygfqkAIBxhwus8m0l0m2XsgDFNWcAB9F3O+hrUiXoalKb
-         ktqqae/IzJPkOFXvv+nhCBeRaN0Ivo6HAKQbavcorL3q/XDFNzScgvgkDG/eugqZAG3a
-         Qjwm6Ndq3JLGMyBx5tEiLABCJIEeGnKyG/dGjokiHBEhilvcc9lb421ScZd74FKX1kU9
-         D/Z6hC5IV82W44eWIZfVNcZDrbfb2RvHvw8DQLmQAWTgheJOFAj7SzCWf7DvT+Nud3hS
-         JrZ4Xno7XuPW/6ZXv92Huq08NL1PLcJAJ/kQVCtWtp3LStlsS+f8rqShcB9VwuFqTnf/
-         WpmA==
-X-Gm-Message-State: ACrzQf1kZlWOOfv9KFhzUi90RJc0i2JODUiZf45N1dpv8FZYY09Eg53S
-	2ubK6pL1wAGXa29yQaVBMIk4ANAqijo=
-X-Google-Smtp-Source: AMsMyM69CxKgcSWgM1vAnwvZeDyLX7/AeVTRbrDaM9LXBznOzPR+Ikthjk94S3wZJoe6s5YkzQYZMQYdPec=
+        bh=hsvwPn56EufMwWrr4BQ3wXsJaNpmOPQxZWWpLewxvhQ=;
+        b=Y4S4r7VimRKkze/5MgFvODAdkTZ0yxIGNg2LL7XZXXDZv1fY/N/BSw8nynz6ak6oOt
+         xaS5DFWDa4RrkDjC4aHcig4/EopQvzKbZ9n55m7pNmCCHy7ZwaOfVgv/2ATs2nLPMW7W
+         u8cTU9ZmdmBj9tCLGo4rwZLUJSx+tssg4+8WVDgV8jVWiLh1dLKTbkGaajDKDklZi0rE
+         kXlfw+uKFedk3Z2XyBm91fAQ0D2YLd+EwHMwUdCDki6BGMaoDbcBqKWLbDv5BUGNxbCD
+         A4blCJD/uq5itLnYMKM0OCpxzzfHHkZzVKNshCdYHpRUUXlzWDIMMsg9BRgw7P0THTv0
+         2d1g==
+X-Gm-Message-State: ACrzQf3ib/eqP9SVEo2w9OyJA5LS9MB/9EoAyGE0ycTT0PzD8ov7mXF+
+	OuQ9z+x27c/iEc019ruZ9hRG2pEOHWY=
+X-Google-Smtp-Source: AMsMyM6oJohPpBax4v0z1oNOFbI9XApbw28cX6E9TB+pABT2BMMHd99IJfTyuxyKkWfVMC7TDoAu4jEMuqY=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:90b:38cd:b0:214:184f:4007 with SMTP id
- nn13-20020a17090b38cd00b00214184f4007mr9764899pjb.82.1667431162802; Wed, 02
- Nov 2022 16:19:22 -0700 (PDT)
-Date: Wed,  2 Nov 2022 23:18:32 +0000
+ (user=seanjc job=sendgmr) by 2002:a25:550:0:b0:6ca:5991:1abf with SMTP id
+ 77-20020a250550000000b006ca59911abfmr26235720ybf.371.1667431172753; Wed, 02
+ Nov 2022 16:19:32 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:38 +0000
 In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221102231911.3107438-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
-Message-ID: <20221102231911.3107438-6-seanjc@google.com>
-Subject: [PATCH 05/44] KVM: s390: Unwind kvm_arch_init() piece-by-piece() if a
- step fails
+Message-ID: <20221102231911.3107438-12-seanjc@google.com>
+Subject: [PATCH 11/44] KVM: x86: Move guts of kvm_arch_init() to standalone helper
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -85,8 +84,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_161924_122420_BE9EF5C4 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20221102_161934_107865_898E668D 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,77 +103,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation for folding kvm_arch_hardware_setup() into kvm_arch_init(),
-unwind initialization one step at a time instead of simply calling
-kvm_arch_exit().  Using kvm_arch_exit() regardless of which initialization
-step failed relies on all affected state playing nice with being undone
-even if said state wasn't first setup.  That holds true for state that is
-currently configured by kvm_arch_init(), but not for state that's handled
-by kvm_arch_hardware_setup(), e.g. calling gmap_unregister_pte_notifier()
-without first registering a notifier would result in list corruption due
-to attempting to delete an entry that was never added to the list.
+Move the guts of kvm_arch_init() to a new helper, kvm_x86_vendor_init(),
+so that VMX can do _all_ arch and vendor initialization before calling
+kvm_init().  Calling kvm_init() must be the _very_ last step during init,
+as kvm_init() exposes /dev/kvm to userspace, i.e. allows creating VMs.
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/s390/kvm/kvm-s390.c | 21 ++++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
+ arch/x86/include/asm/kvm_host.h |  3 +++
+ arch/x86/kvm/svm/svm.c          | 23 +++++++++++++++++++++--
+ arch/x86/kvm/vmx/vmx.c          |  9 ++++++++-
+ arch/x86/kvm/x86.c              | 15 +++++++++++++--
+ 4 files changed, 45 insertions(+), 5 deletions(-)
 
-diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-index 45d4b8182b07..8395433a79b2 100644
---- a/arch/s390/kvm/kvm-s390.c
-+++ b/arch/s390/kvm/kvm-s390.c
-@@ -490,11 +490,11 @@ int kvm_arch_init(void *opaque)
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 415113dea951..58a7cb8d8e96 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -1695,6 +1695,9 @@ extern struct kvm_x86_ops kvm_x86_ops;
+ #define KVM_X86_OP_OPTIONAL_RET0 KVM_X86_OP
+ #include <asm/kvm-x86-ops.h>
  
- 	kvm_s390_dbf_uv = debug_register("kvm-uv", 32, 1, 7 * sizeof(long));
- 	if (!kvm_s390_dbf_uv)
--		goto out;
-+		goto err_kvm_uv;
++int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops);
++void kvm_x86_vendor_exit(void);
++
+ #define __KVM_HAVE_ARCH_VM_ALLOC
+ static inline struct kvm *kvm_arch_alloc_vm(void)
+ {
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index d22a809d9233..f48d07bfc3d7 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -5132,15 +5132,34 @@ static struct kvm_x86_init_ops svm_init_ops __initdata = {
  
- 	if (debug_register_view(kvm_s390_dbf, &debug_sprintf_view) ||
- 	    debug_register_view(kvm_s390_dbf_uv, &debug_sprintf_view))
--		goto out;
-+		goto err_debug_view;
+ static int __init svm_init(void)
+ {
++	int r;
++
+ 	__unused_size_checks();
  
- 	kvm_s390_cpu_feat_init();
- 
-@@ -502,25 +502,32 @@ int kvm_arch_init(void *opaque)
- 	rc = kvm_register_device_ops(&kvm_flic_ops, KVM_DEV_TYPE_FLIC);
- 	if (rc) {
- 		pr_err("A FLIC registration call failed with rc=%d\n", rc);
--		goto out;
-+		goto err_flic;
- 	}
- 
- 	if (IS_ENABLED(CONFIG_VFIO_PCI_ZDEV_KVM)) {
- 		rc = kvm_s390_pci_init();
- 		if (rc) {
- 			pr_err("Unable to allocate AIFT for PCI\n");
--			goto out;
-+			goto err_pci;
- 		}
- 	}
- 
- 	rc = kvm_s390_gib_init(GAL_ISC);
- 	if (rc)
--		goto out;
-+		goto err_gib;
- 
- 	return 0;
- 
--out:
--	kvm_arch_exit();
-+err_gib:
-+	if (IS_ENABLED(CONFIG_VFIO_PCI_ZDEV_KVM))
-+		kvm_s390_pci_exit();
-+err_pci:
-+err_flic:
-+err_debug_view:
-+	debug_unregister(kvm_s390_dbf_uv);
-+err_kvm_uv:
-+	debug_unregister(kvm_s390_dbf);
- 	return rc;
+-	return kvm_init(&svm_init_ops, sizeof(struct vcpu_svm),
+-			__alignof__(struct vcpu_svm), THIS_MODULE);
++	r = kvm_x86_vendor_init(&svm_init_ops);
++	if (r)
++		return r;
++
++	/*
++	 * Common KVM initialization _must_ come last, after this, /dev/kvm is
++	 * exposed to userspace!
++	 */
++	r = kvm_init(&svm_init_ops, sizeof(struct vcpu_svm),
++		     __alignof__(struct vcpu_svm), THIS_MODULE);
++	if (r)
++		goto err_kvm_init;
++
++	return 0;
++
++err_kvm_init:
++	kvm_x86_vendor_exit();
++	return r;
  }
  
+ static void __exit svm_exit(void)
+ {
+ 	kvm_exit();
++	kvm_x86_vendor_exit();
+ }
+ 
+ module_init(svm_init)
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index b3fd4049de01..118d9b29b339 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -8501,6 +8501,7 @@ static void vmx_exit(void)
+ #endif
+ 
+ 	kvm_exit();
++	kvm_x86_vendor_exit();
+ 
+ 	hv_cleanup_evmcs();
+ 
+@@ -8516,13 +8517,17 @@ static int __init vmx_init(void)
+ 
+ 	hv_setup_evmcs();
+ 
++	r = kvm_x86_vendor_init(&vmx_init_ops);
++	if (r)
++		goto err_x86_init;
++
+ 	r = kvm_init(&vmx_init_ops, sizeof(struct vcpu_vmx),
+ 		     __alignof__(struct vcpu_vmx), THIS_MODULE);
+ 	if (r)
+ 		goto err_kvm_init;
+ 
+ 	/*
+-	 * Must be called after kvm_init() so enable_ept is properly set
++	 * Must be called after common x86 init so enable_ept is properly set
+ 	 * up. Hand the parameter mitigation value in which was stored in
+ 	 * the pre module init parser. If no parameter was given, it will
+ 	 * contain 'auto' which will be turned into the default 'cond'
+@@ -8559,6 +8564,8 @@ static int __init vmx_init(void)
+ err_l1d_flush:
+ 	vmx_exit();
+ err_kvm_init:
++	kvm_x86_vendor_exit();
++err_x86_init:
+ 	hv_cleanup_evmcs();
+ 	return r;
+ }
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 40d4bfaa17a4..a0ca401d3cdf 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -9272,7 +9272,16 @@ static inline void kvm_ops_update(struct kvm_x86_init_ops *ops)
+ 
+ int kvm_arch_init(void *opaque)
+ {
+-	struct kvm_x86_init_ops *ops = opaque;
++	return 0;
++}
++
++void kvm_arch_exit(void)
++{
++
++}
++
++int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
++{
+ 	u64 host_pat;
+ 	int r;
+ 
+@@ -9404,8 +9413,9 @@ int kvm_arch_init(void *opaque)
+ 	kmem_cache_destroy(x86_emulator_cache);
+ 	return r;
+ }
++EXPORT_SYMBOL_GPL(kvm_x86_vendor_init);
+ 
+-void kvm_arch_exit(void)
++void kvm_x86_vendor_exit(void)
+ {
+ 	kvm_unregister_perf_callbacks();
+ 
+@@ -9434,6 +9444,7 @@ void kvm_arch_exit(void)
+ 	WARN_ON(static_branch_unlikely(&kvm_xen_enabled.key));
+ #endif
+ }
++EXPORT_SYMBOL_GPL(kvm_x86_vendor_exit);
+ 
+ static int __kvm_emulate_halt(struct kvm_vcpu *vcpu, int state, int reason)
+ {
 -- 
 2.38.1.431.g37b22c650d-goog
 
