@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97408C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 18:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4652FC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 23:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0mSLIRJw9va6Anjr/LAY/0ZT5zzOmzAdFS8CToTfsQo=; b=aQOYjVlLMVLFzl
-	KwOcnvcEi2rMmq5P5G5Lsy8VQret/7CEVeG6nhjVnYgKAwk9ktasJdQqb1RteHreJmOuhkr+oAoWA
-	ERYgfpyTr4HfX/VviVsVSPrcKtmvGjyi62dMOwp35pH07z8qrTUXam9iJW/lHwiB9e9UYrwEiA0iC
-	e24c3tPVrknh+98qRHmCESN6/VsWWY7sXv9ml60n8ssEj7xvDecdGa1XPwOE66VHg9YtUgFxiveQl
-	G5nlBMDjEYdoIqmJ2dGty3QrWvDuAw8+A+i8WA5numr8gsv0vaLSsrEONp3jjr71jxt3Bc8AJDw2T
-	TfMc1NC5pM3oU0cUtcMg==;
+	List-Owner; bh=ujaEIk97PJT8j13momPQvkhbR/AIB3PvUAwh1MY3To8=; b=MxVVxLoZ2/Cdnc
+	PLY+9Iz0DYmrSr4ZLuocTD4LN27cpAJjuVwOjjucCv6MV+DSP7Rmq0zTIjk9RUwU4XJqY6SbrBsPE
+	mVNPx3I6FS47hOx6kxWJx8RGh/yqG40tjnlNdrWGwNjznqmpB9YIGsYXVpwn7aDlNd6G88LX9uFCE
+	opnAismLNShZqtjTq0L6qjhLytph8CoCmAgQUnUMFTVfA/ofJ7UztS+UebVbDQuSVwzx0klEzxFYq
+	3TLpqOLL+1FUv6IkxbdlWUh0LlqQK81VhO7bQ47RNWg58xBgzRCV6xZkD+GCr9awa1DBKsrqAW/Ph
+	YtdDyJgkHiH7Tqbm+DUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIii-00DDVP-6c; Wed, 02 Nov 2022 18:44:12 +0000
-Received: from mail.skyhub.de ([5.9.137.197])
+	id 1oqN1A-00EtGH-Sf; Wed, 02 Nov 2022 23:19:32 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqIie-00DDSy-6s
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 18:44:10 +0000
-Received: from zn.tnic (p200300ea9733e741329c23fffea6a903.dip0.t-ipconnect.de [IPv6:2003:ea:9733:e741:329c:23ff:fea6:a903])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 72DBB1EC0430;
-	Wed,  2 Nov 2022 19:44:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
-	t=1667414646;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
-	bh=iOr/2V0DoRyu5jKtmDX0XiBrZE84Kn1Pob6d6OL2TAQ=;
-	b=P8xIFXf059+smEe6r5YZYLEbBvKhvHMQlCDMpFuQpPIyUL+0Na11Qye0LmeFzVkyGcJ0Ue
-	fIrCmtMkvbI9pekV7eZIq4LZ2B96yVhn3hhIe318CHOxpV0wNqptu2eHkXK4/tBD234sAI
-	ZmyjnjRhdV4j8e7O51OrF3B1uOD5hfo=
-Date: Wed, 2 Nov 2022 19:44:02 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Yury Norov <yury.norov@gmail.com>, x86@kernel.org,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>, openrisc@lists.librecores.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	"open list:LINUX FOR POWERPC PA SEMI PWRFICIENT" <linuxppc-dev@lists.ozlabs.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] x86: Fix /proc/cpuinfo cpumask warning
-Message-ID: <Y2K6clNJBn0SbWU+@zn.tnic>
-References: <20221014155845.1986223-1-ajones@ventanamicro.com>
- <20221014155845.1986223-3-ajones@ventanamicro.com>
- <20221028074828.b66uuqqfbrnjdtab@kamzik>
- <Y1vrMMtRwb0Lekl0@yury-laptop>
- <Y1vvMlwf/4EA/8WW@zn.tnic>
- <CAAH8bW_DkvPCH0-q2Bfe0OJ72r63mRM3GP7NKOFrhe3zMO2gbQ@mail.gmail.com>
- <Y1v+Ed6mRN9gisJS@zn.tnic>
- <20221031080604.6xei6c4e3ckhsvmy@kamzik>
- <Y1+OUawGJDjh4DOJ@zn.tnic>
- <20221031100327.r7tswmpszvs5ot5n@kamzik>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221031100327.r7tswmpszvs5ot5n@kamzik>
+	id 1oqN0x-00Et3Y-GP
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 23:19:21 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-36b1a68bfa6so471227b3.22
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 16:19:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=J4baT2gCaqaG+hAt/mJp+w8Lapt4XhULv2rUZ1lbod8=;
+        b=Y/LgcbOSvwbnzJXRGal3Ep3KB7/0yCP9cU65YkQert5+3hLyHHSjjMao2/UuV8Y1pm
+         rxtzoLchmx+Mfw2uDAT2cc7aUI/oVviLkjgjK/axQ+ux0UramBaUfpMh7qr3oHRIrkbM
+         g29/HkiYkyDP9zLb6T5zYBFWjCRhk7uodXh+YwW0fknC8LCiXKsmBrjDcUEU31+Wr1aB
+         IkpbU9xq9Vh5sCGgS87jUUdeWGvPSndSpQtpQaJwtmMAXoArYlfZq/YuY0lzlwpeE7m/
+         iktR7kaNiirOlR+WEM+Xzua+uL8FsQlW7DYdB778CLiAWY7J4Sab6pQ6XIRdRfFvya7C
+         dqQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=J4baT2gCaqaG+hAt/mJp+w8Lapt4XhULv2rUZ1lbod8=;
+        b=b1GfyWU7xzqq8XwjwVKIof02DwVnA7tNhpA/DR71e782NbkOltAxf/ooH+0XBEAFWW
+         /gcGMi3bBRrDSnDrMz+MIfEPWFV1Z6p1IxiDrSnmE+MlwODnyKS7ROWH8L1SFiOwlfM/
+         3mLhXTkzacRyzw8XMhBmA3NJlaCld8g3DWH/7ivWIdyKJ0yStItk/GtMJuOzkanpodeQ
+         tFmwV6x6ZQYoa0JTH6Y1tXqCRbaEUFoxI/1xEcrUKwSMamCEBT05Fa8O/KUTn8xypCqJ
+         2QcP6p9bEKNURtzfxzBVeE+COqEn4+iFsD/P8YXpbmir487GOpz5c1KbiztAiO3nYdXD
+         qANA==
+X-Gm-Message-State: ACrzQf2wX6sAHMkUWm/iYLP3MnYUZK/X27CcDco2DHVfMLByFPtO1iu8
+	0YStSf1O4mai0Fbka2dPn9RxVG+bBdg=
+X-Google-Smtp-Source: AMsMyM5o6mEhEhiYREiqHX2O6l5zHbOoOJ5LkmkQQCrMnpzWAr9BhETh9np1j3huSYRmzTw5GjJ2jYjKldE=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:f451:0:b0:6cc:aeeb:8fed with SMTP id
+ p17-20020a25f451000000b006ccaeeb8fedmr15718187ybe.11.1667431156834; Wed, 02
+ Nov 2022 16:19:16 -0700 (PDT)
+Date: Wed,  2 Nov 2022 23:18:28 +0000
+In-Reply-To: <20221102231911.3107438-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20221102231911.3107438-1-seanjc@google.com>
+X-Mailer: git-send-email 2.38.1.431.g37b22c650d-goog
+Message-ID: <20221102231911.3107438-2-seanjc@google.com>
+Subject: [PATCH 01/44] KVM: Register /dev/kvm as the _very_ last thing during initialization
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Matthew Rosato <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, 
+	Sean Christopherson <seanjc@google.com>, Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_114408_448502_4C35D814 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20221102_161919_573708_948041D7 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +97,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 31, 2022 at 11:03:27AM +0100, Andrew Jones wrote:
-> Currently (after the revert of 78e5a3399421)
+Register /dev/kvm, i.e. expose KVM to userspace, only after all other
+setup has completed.  Once /dev/kvm is exposed, userspace can start
+invoking KVM ioctls, creating VMs, etc...  If userspace creates a VM
+before KVM is done with its configuration, bad things may happen, e.g.
+KVM will fail to properly migrate vCPU state if a VM is created before
+KVM has registered preemption notifiers.
 
-After the revert?
+Cc: stable@vger.kernel.org
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ virt/kvm/kvm_main.c | 31 ++++++++++++++++++++++---------
+ 1 file changed, 22 insertions(+), 9 deletions(-)
 
-That commit is still in the latest Linus tree.
-
-> with DEBUG_PER_CPU_MAPS we'll get a warning splat when the cpu is
-> outside the range [-1, nr_cpu_ids)
-
-Yah, that range makes sense.
-
-> and cpumask_next() will call find_next_bit() with the input plus one anyway.
-> find_next_bit() doesn't explicity document what happens when an input is
-> outside the range, but it currently returns the bitmap size without any
-> side effects, which means cpumask_next() will return nr_cpu_ids.
-
-That is good to have in the commit message.
-
-> show_cpuinfo() doesn't try to show anything in that case and stops its
-> loop, or, IOW, things work fine now with an input of nr_cpu_ids - 1. But,
-> show_cpuinfo() is just getting away with a violated cpumask_next()
-> contract, which 78e5a3399421 exposed. How about a new commit message like
-> this
-
-You're making it sound more complex than it is. All you wanna say is:
-
-"Filter out invalid cpumask_next() inputs by checking its first argument
-against nr_cpu_ids because cpumask_next() will call find_next_bit() with
-the input plus one but the valid range for n is [-1, nr_cpu_ids)."
-
-But that thing with the revert above needs to be clarified first.
-
-Thx.
-
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index f1df24c2bc84..a188d27f78af 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -5900,12 +5900,6 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 
+ 	kvm_chardev_ops.owner = module;
+ 
+-	r = misc_register(&kvm_dev);
+-	if (r) {
+-		pr_err("kvm: misc device register failed\n");
+-		goto out_unreg;
+-	}
+-
+ 	register_syscore_ops(&kvm_syscore_ops);
+ 
+ 	kvm_preempt_ops.sched_in = kvm_sched_in;
+@@ -5914,11 +5908,24 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	kvm_init_debug();
+ 
+ 	r = kvm_vfio_ops_init();
+-	WARN_ON(r);
++	if (WARN_ON_ONCE(r))
++		goto err_vfio;
++
++	/*
++	 * Registration _must_ be the very last thing done, as this exposes
++	 * /dev/kvm to userspace, i.e. all infrastructure must be setup!
++	 */
++	r = misc_register(&kvm_dev);
++	if (r) {
++		pr_err("kvm: misc device register failed\n");
++		goto err_register;
++	}
+ 
+ 	return 0;
+ 
+-out_unreg:
++err_register:
++	kvm_vfio_ops_exit();
++err_vfio:
+ 	kvm_async_pf_deinit();
+ out_free_4:
+ 	for_each_possible_cpu(cpu)
+@@ -5944,8 +5951,14 @@ void kvm_exit(void)
+ {
+ 	int cpu;
+ 
+-	debugfs_remove_recursive(kvm_debugfs_dir);
++	/*
++	 * Note, unregistering /dev/kvm doesn't strictly need to come first,
++	 * fops_get(), a.k.a. try_module_get(), prevents acquiring references
++	 * to KVM while the module is being stopped.
++	 */
+ 	misc_deregister(&kvm_dev);
++
++	debugfs_remove_recursive(kvm_debugfs_dir);
+ 	for_each_possible_cpu(cpu)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
 -- 
-Regards/Gruss,
-    Boris.
+2.38.1.431.g37b22c650d-goog
 
-https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
