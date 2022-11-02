@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C463C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 01:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB12C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Nov 2022 01:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bJ05P9pJzq0icVEL1pIo+v0XdARcqUZQlST9Ba1rz7Q=; b=pZBIkn6l41WG69
-	5fgM9HmRNWI+Xpd2IDGpbWA9D1IsNqjtr9C+A2Yqb0fBMj2N3pfWdBicK8D2i5VNEUffPgic1zeI9
-	4cWpPilEtAym69GNa0XE6pWWDqFtHe7WBnX0paZz9XYZ1ad0zA51aB9jsNhLZlE0JOK9uMfFCUbPq
-	G2AgAYxfYzswcz5Rlpfm/ttKizOuPczcJHUOVcRlaMOyzl5zMk1nltYZl4FKNMrhzBktyuCIEYS4o
-	oAnSeYUa2VkVuQugXb3VwkxUcScxL5o1h/eJtsQCs1y/hF+fbJ81J0vD6yKK/vgSoFkRVoyQ3fWvF
-	m4DvitqUHJottRa5OJPw==;
+	List-Owner; bh=uUgQPZTD7UtNZ1qxg18qGf7lzn/r09yRxXfbaflbRTM=; b=f+uHFKxnUBvqXt
+	8XAnV0cq4cV8tUfh5U3eoYzBjrpQXsFW1YOtBXyXrVpAnzgHLxEAo1OGC52ctGIKUUCzV27MYTghv
+	ArnDnpAVH+uhd7iu6Hv61D1D4uNMMeKOLahkFP/YUduF3Gz13rWKTJjlxJfIFn37+/tMCBRT5+2JG
+	FOV0+5YjcLO1mBL5GdnpE8uIENxVlB9GTtMmGEyzP2avvF7yzU600tewfcuTanYR+vpl1g1xYUnzS
+	zaP+wqNWQw29inYOGYKlrUWKq5Ho5Ekxm0OOm2zTpOr4urUHJCz9VFx4swf6WM9BfqqQY++iEgYmk
+	tUNAvqTVE2cE88jRSRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oq27K-007psq-HG; Wed, 02 Nov 2022 01:00:30 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1oq29N-007qF4-Eh; Wed, 02 Nov 2022 01:02:37 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oq27H-007pr8-88
-	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 01:00:29 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id bj12so41324150ejb.13
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 18:00:24 -0700 (PDT)
+	id 1oq29K-007qDu-4d
+	for linux-riscv@lists.infradead.org; Wed, 02 Nov 2022 01:02:35 +0000
+Received: by mail-ej1-x631.google.com with SMTP id q9so41521539ejd.0
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Nov 2022 18:02:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=cKOPjxW6hMffC27C/SCX+FUVc2eMjho9VRyb1I26W+A=;
-        b=WMeekXVXt4lsAnluw5FHfJXlbxIcWLcnK0/RbVL1jCWnwcib9Y/v8p/XxVAeCBO9DQ
-         sNQ6Q/hQkfJCuB3h5z7fiH09wV2j3CsLzSjQKJoaCnjvn1vOZcv9Y8Ofna042Tng4guC
-         RR742cQGy1mL7xZVk/+8ThiEG0hcPC3AdbHs8LmE0YtoDzy6PpgN4TU8VmDowr2XB4vs
-         IK77xH1Q1BB6X24V0KWE1p8qBtzIiupySA3AMX5CiqITFm2O+IggA3y0nmWZoGhTAwb6
-         gpmNVwNjfxUrSO8STeE10KBGR4kV7qNLS+RqCG9FXfiKc6sdLUaI3q0Nc3jZvXLShbMe
-         q1Iw==
+        bh=1NL65ctDu7Unb6G0NzPXkABlskH655QCWon4X0fuchI=;
+        b=hGawBFzd27Ll/+ulBi0YThZo+OCE5WQppu6U/JIsgVX9F19ZlS0csCHGEXm0OgpvMb
+         wpYrl+6aUFV00YDV+ZM14r6Vi1whkq7+IAblyUccWIXB7RouuehTaVLg/caaSzrgsxs5
+         zUetBOVuUl1O3Uh6fz0NprxI1JBc6ArkdhCC8skOvJMQqBStALqoeKSSUCLr1VnqSvpL
+         OzE5sWKTb8zxNC0/bUuy30pbNRr7J1Ry4ykBUCezoybx7125w1dwjSN/49CUF38idloA
+         SPuuSJOUUC2k8xQHm0A5eJ/C80NcViOSrRgHjQ+NbOBjTQDO0NlB46bvWWSXrjm2YRsx
+         w/tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cKOPjxW6hMffC27C/SCX+FUVc2eMjho9VRyb1I26W+A=;
-        b=alSYEe1wxfkxrYqeoCAcPVOTUz2NLNsekqWvYVZde56nAMmucrEtYh4KnlRHQz5TMT
-         8iR0W/hGHm6x13PQBbpHcZyi1FNh6ZMTjjRDpULIJSsTT8QyQrPEb2tQ677Q5mcG+oKe
-         wYBYnSOTT8WSJDzett6xoUwnbdUUvmGrDwyYH5qDI59rlVlvFY+HUgJzBfM02ZyGfb7m
-         BkVQae95hSdUaK/9dhdC2QTvvDBjvNqUAVcntM++WKPUYrbs80qlFvwjmYzAdp1HpWnw
-         KFDM5x9F9b1qUcgDtvqq4BAb4a9R/BYFcjAw4vXEsnIJuPYrBgEUcXKWtmvtkpsHN4p5
-         HG9w==
-X-Gm-Message-State: ACrzQf1maQDapXw4cEFSMy1L0QjaIJ9AqvZt/Dbe1z9Uck1FZY6sUKBu
-	TQ5DjSr/YhvREM3KPGh8drq3AzH/RykA8T135tE=
-X-Google-Smtp-Source: AMsMyM7c/ABaJaKAKRpL8Ijw/KO0JHwmCdEqPhD5GS9nFJ96c+cfsR284v8V2kqJHwH5onhRriMFhzTVZ3Xb/F628+Q=
-X-Received: by 2002:a17:906:c14f:b0:793:30e1:96be with SMTP id
- dp15-20020a170906c14f00b0079330e196bemr21349587ejc.447.1667350823464; Tue, 01
- Nov 2022 18:00:23 -0700 (PDT)
+        bh=1NL65ctDu7Unb6G0NzPXkABlskH655QCWon4X0fuchI=;
+        b=T27HD/3Ua4baoZGqaJebuhHmypiv5835hiMLsTECDHNIPZyx2Rd98HkCz9S/MxsqE+
+         FivL7cKo9wtygKso37+8iEwrS1J1XVenZI5DALSJXobDRfLsxm7511gNwhabeFhJsCKN
+         f6vjwSIdkeADNgOxQtzu5b/jDAf3MRB+MSUz5BNNruEk0FG9BkdirXyBBqQGUitq48AS
+         DctQyZ5cev/m3AdU2WoHwMIZWFmFQzn8pM18sKt7caS6cYsFBGf2cQhPBUDyYBtrTtte
+         lRjfYQmUpbjG9Ryqwm/Ep577P29O86uoq7xJM3LsZIDt9M3a34uL9Wedu6/dHzuMKZJG
+         towg==
+X-Gm-Message-State: ACrzQf2M55uR3veakRqwxPKYZzeXHy7eSDCOziwfLqxstLU4QXaeT07i
+	RXud5koXZ9rOwC+R5xI0exApTf1E9yJpPRme8Ag=
+X-Google-Smtp-Source: AMsMyM6sS5NbLcirE7cuNJF2ENVum0rp7FXZA+0mfV0A+E4UsSVJu+1ylaOAVgpzZgqxdwewr0jHMytjSwRGzUq5nGM=
+X-Received: by 2002:a17:906:371a:b0:7ad:c01c:6fa0 with SMTP id
+ d26-20020a170906371a00b007adc01c6fa0mr16456257ejc.267.1667350950657; Tue, 01
+ Nov 2022 18:02:30 -0700 (PDT)
 MIME-Version: 1.0
 References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdU6+qNQh2vFic89cnqDmUoyhrJTROCHPdoPguXAEnZMfA@mail.gmail.com>
-In-Reply-To: <CAMuHMdU6+qNQh2vFic89cnqDmUoyhrJTROCHPdoPguXAEnZMfA@mail.gmail.com>
+ <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdXqh=wQaTYTuQ8vq__=2jvqRx1i9fpQsVPKpBJrBOy1Hw@mail.gmail.com>
+In-Reply-To: <CAMuHMdXqh=wQaTYTuQ8vq__=2jvqRx1i9fpQsVPKpBJrBOy1Hw@mail.gmail.com>
 From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 2 Nov 2022 00:59:57 +0000
-Message-ID: <CA+V-a8sv9QVDfokN5LExu9p5GeCuHb99-mxBpugDk6J2LSB8SQ@mail.gmail.com>
+Date: Wed, 2 Nov 2022 01:02:04 +0000
+Message-ID: <CA+V-a8uDo83ZvCwQdDtxEzLUDvs42AP3Kqd36tuB3+vYuG8WUw@mail.gmail.com>
 Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
  RZ/Five SoC
 To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.co>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
 	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
 	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, 
@@ -78,8 +78,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221101_180027_314959_9ED14CC2 
-X-CRM114-Status: GOOD (  30.57  )
+X-CRM114-CacheID: sfid-20221101_180234_219923_83DE6F6F 
+X-CRM114-Status: GOOD (  28.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,7 +98,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Geert,
 
-On Tue, Nov 1, 2022 at 1:38 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On Tue, Nov 1, 2022 at 12:43 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
 > Hi Prabhakar,
 >
@@ -143,31 +143,26 @@ On Tue, Nov 1, 2022 at 1:38 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
 > Thanks for your patch!
 >
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -89,6 +89,7 @@ asm volatile(ALTERNATIVE(                                             \
-> >  #define ALT_THEAD_PMA(_val)
-> >  #endif
+> > --- a/arch/riscv/mm/dma-noncoherent.c
+> > +++ b/arch/riscv/mm/dma-noncoherent.c
+> > @@ -24,13 +24,25 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
 > >
+> >         switch (dir) {
+> >         case DMA_TO_DEVICE:
 > > +#ifdef CONFIG_ERRATA_THEAD_CMO
-> >  /*
-> >   * dcache.ipa rs1 (invalidate, physical address)
-> >   * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-> > @@ -143,5 +144,6 @@ asm volatile(ALTERNATIVE_2(                                         \
-> >         : "a0")
-> >
-> >  #endif /* __ASSEMBLY__ */
-> > +#endif
+> >                 ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> > +#elif CONFIG_AX45MP_L2_CACHE
 >
-> FTR, the new #endif should be above the old #endif.
+> "#elif defined(CONFIG_AX45MP_L2_CACHE)" (everywhere)
 >
-> I noticed because after rebasing on top of commit 65e9fb081877a18c
-> ("drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head
-> C9xx cores") in riscv/for-next, the build failed because the new
-> ALT_SBI_PMU_OVERFLOW() definition ended up inside both #endifs,
-> instead of between.
+> Else it may fail with:
 >
-Thanks for pointing this out.
+>     error: "CONFIG_AX45MP_L2_CACHE" is not defined, evaluates to 0
+> [-Werror=undef]
+>
+Agreed, thanks for pointing this out. Said that I plan to get rid of
+these checks in the next version (only after getting around the
+ALTERNATIVE() macro).
 
 Cheers,
 Prabhakar
