@@ -4,44 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7766C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 17:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D41C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 17:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zWHYIuiYLfCIr2x/t+6DMSpkPiIX3Rk0o1ypJBQebJA=; b=aCeQDDXuLeptFv
-	2wvRMtcm8TIJxhpSZJKKt8R8O/RZqjizcFJJ+2TQxofgQrjltVuUsAA/2Ni3/GcqmyKq7ZTFgCknl
-	FfOy8GGvlebns5XxgK/HQCKPzTNbWAVZZGEevRLcvSuaHK3KdG3rPbIGc/WlGo9vpzwAQyhB0SnyO
-	o15V5W+m+jzyg7buawLXII385ZgfIvLILnwmSq4QuxN+WlTG4LG7z56ZZxNH0Zstc0UR9c2C+yHFb
-	3mtqWhahxn65xYMaRn+Ea/nuNRWqhjCMBXJNZuLF5qMlSK+aQLr0tO27ywsNTft5LC5V98wAXFET+
-	9r7csOifUr/VKx8KQQ2w==;
+	List-Owner; bh=Xupch/Ewqx7vCbB+O653UqTR8r5Yz++h50+JlaweBdE=; b=W0vDivcbI5A96+
+	vD5o3lfkdvBlMDyZtM8rBqm5011qzqicqajn+FzC4wNkWSQod8IHA1VuJz0w5fhLGEgC1JDDMsfqh
+	r/ZsT4lKLrZsz+4Lgso7pUCQ1sws32a/JKVGaxg+NyOtbLL38nxmH2uAkHSGuqh+I1n6je/j849Qk
+	hUGDCeOOpdUxjWQ9goL2x6AucTtmwO/26YCGFT+1D++dcFOSdLoBKKBp4GOJXhNQqymaJo+BGXUMd
+	SoBUmroS71D3UKYG61N5Fe+766Rxt3Mc0/i8fOm2Fg3Gt2M+gruAEd1TB13Q5lTWAzptDUpaHJ8n2
+	JmpNv//m9h75P4lxMTEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqdjU-000xY4-NJ; Thu, 03 Nov 2022 17:10:24 +0000
-Received: from mail.skyhub.de ([2a01:4f8:190:11c2::b:1457])
+	id 1oqe4G-0015dH-6s; Thu, 03 Nov 2022 17:31:52 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqdOx-000p90-Sb
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 16:49:13 +0000
-Received: from zn.tnic (p200300ea9733e7e7329c23fffea6a903.dip0.t-ipconnect.de [IPv6:2003:ea:9733:e7e7:329c:23ff:fea6:a903])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id E3F291EC04F0;
-	Thu,  3 Nov 2022 17:49:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=dkim;
-	t=1667494150;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:in-reply-to:in-reply-to:  references:references;
-	bh=2ASRoXT4dNz3rsz3g7wk4DQzgAno9/V5MAy7ltfZSS0=;
-	b=GEBGVYysxzMU6LGJTmZd7M+/R/6mbCD6zp4ZSzgggbaUSAV0SVqDm2Gc6AAhFjue3w91tt
-	IAhvE9D7fZ+NRgIf5TsYL8evNAQClXdM104Vgktn6WclPvN36r3al1OF9AVLqkFvz+Oj+i
-	92QAmiYx47vWftNfKrMeen4/XGStEic=
-Date: Thu, 3 Nov 2022 17:49:06 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: yury.norov@gmail.com
+	id 1oqe44-0015Zw-4l
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 17:31:49 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-13b6c1c89bdso2920375fac.13
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 10:31:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HvZ5+E5qu4GOYga/FqvgfxEG1c0dU8d73zf2fP+htGs=;
+        b=iPqtLSq3l2qHplG860uNDrfYq9b0lZFbxHP6kSO5WcDFeNj74LgawQ3XHbriQnJzId
+         91YDCFJ926vJ7L1jeQcvLnKN5IicgY26QvhLOUAx6NfuqsczuDo2+p95tiUE3Y3d3p8R
+         Wb3AVYnqzTL0X7haZY7BTZ+oilwvxbeF6lVkgFNf8aMcvJgkuEefwy01BOsLK5VvAvzw
+         YLeXvyd9tsE28Dp154l4LlczkE6gYboihsErhJGgG+F9jOSH92X0IzDV0rfpYNgoQqIc
+         gaqjq4mqtFEpLgO3pJNfAld17zV9i0u6xe8AK0ilXIHLGax8f5r/eP0/Q0saTHwnR/aB
+         J0ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HvZ5+E5qu4GOYga/FqvgfxEG1c0dU8d73zf2fP+htGs=;
+        b=1sveC1hCJcCGY+WXr5jiWpaWm4C+PPA3GB0/UREJ3ecVlMwaNOJuUIrKswDNJu8Etr
+         uY762J+W8IqcYTXTwbuy/pP1I8ZVDZSo1cgFzSJ8pH3CJa3qU+GDy/+5M7QEc2cZTQ7r
+         Hvef/hBAgrZGcaMZV09mhD5VQxESn7zIYHbqocEt/J8gsWrrwQpeakA85Dg9YW29EPhe
+         95UKf1cyn+OMoD9k4z1qVRmsB+sYQWswBbqAXePBQFFZbrU9Ws1StFs6+7/+FZ2v/iqB
+         5OjDrn4UTqMhc1gq5zNP7kTB5irrlzwZC49SYebaCpmpAUmUj7CRoaw/63qEf0+axhdR
+         ze2g==
+X-Gm-Message-State: ACrzQf3Yn0DES0aTWhA1L2aKGKp9+ZVr3jt5fR6SnavGuWuNuH6MTv53
+	0j3PF4XP+t8l0Pf2/d04Lp4=
+X-Google-Smtp-Source: AMsMyM6fJYEOKNxJ1D+xB246uqRaGV2DX2E0qNo3z76RYRYleK2EIFTcmwXSUrFyVWM6R7buKJ49fQ==
+X-Received: by 2002:a05:6870:31c5:b0:13d:a04a:6ecf with SMTP id x5-20020a05687031c500b0013da04a6ecfmr1655565oac.101.1667496692226;
+        Thu, 03 Nov 2022 10:31:32 -0700 (PDT)
+Received: from localhost ([12.97.180.36])
+        by smtp.gmail.com with ESMTPSA id r13-20020a4a964d000000b00425806a20f5sm430333ooi.3.2022.11.03.10.31.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Nov 2022 10:31:31 -0700 (PDT)
+Date: Thu, 3 Nov 2022 10:31:30 -0700
+From: Yury Norov <yury.norov@gmail.com>
+To: Borislav Petkov <bp@alien8.de>
 Cc: x86@kernel.org, linux-riscv <linux-riscv@lists.infradead.org>,
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
@@ -59,9 +79,8 @@ Cc: x86@kernel.org, linux-riscv <linux-riscv@lists.infradead.org>,
 	Alexander Gordeev <agordeev@linux.ibm.com>,
 	linux-s390@vger.kernel.org
 Subject: Re: [PATCH v3 2/2] x86: Fix /proc/cpuinfo cpumask warning
-Message-ID: <Y2PxAiJ1yNzcUSgs@zn.tnic>
-References: <CAAH8bW_DkvPCH0-q2Bfe0OJ72r63mRM3GP7NKOFrhe3zMO2gbQ@mail.gmail.com>
- <Y1v+Ed6mRN9gisJS@zn.tnic>
+Message-ID: <Y2P68sfCJMvhKmhj@yury-laptop>
+References: <Y1v+Ed6mRN9gisJS@zn.tnic>
  <20221031080604.6xei6c4e3ckhsvmy@kamzik>
  <Y1+OUawGJDjh4DOJ@zn.tnic>
  <20221031100327.r7tswmpszvs5ot5n@kamzik>
@@ -70,12 +89,13 @@ References: <CAAH8bW_DkvPCH0-q2Bfe0OJ72r63mRM3GP7NKOFrhe3zMO2gbQ@mail.gmail.com>
  <Y2PX9GfxWYh6+XGT@zn.tnic>
  <20221103153404.uh77nrdkowrxj6cr@kamzik>
  <Y2PsvvOWVs9ZLBsp@yury-laptop>
+ <Y2PxAiJ1yNzcUSgs@zn.tnic>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y2PsvvOWVs9ZLBsp@yury-laptop>
+In-Reply-To: <Y2PxAiJ1yNzcUSgs@zn.tnic>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_094912_141441_E9474EC8 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20221103_103148_247417_CB1B4153 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,51 +112,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 03, 2022 at 09:30:54AM -0700, yury.norov@gmail.com wrote:a
-> Callers should pass sane arguments into internal functions if they
-> expect sane output.
+On Thu, Nov 03, 2022 at 05:49:06PM +0100, Borislav Petkov wrote:
+> On Thu, Nov 03, 2022 at 09:30:54AM -0700, yury.norov@gmail.com wrote:a
+> > Callers should pass sane arguments into internal functions if they
+> > expect sane output.
+> 
+> What internal function? It's in a global header.
+> 
+> > The API not exported to userspace shouldn't sanity-check all inputs
+> > arguments.
+> 
+> That doesn't have anything to do with userspace at all.
+> 
+> APIs exported to the rest of the kernel should very well check their
+> inputs. Otherwise they're not APIs - just some random functions which
+> are visible to the compiler.
 
-What internal function? It's in a global header.
+Let's take for example cpu_llc_shared_mask() added by you in
+arch/x86/include/asm/smp.h recently:
 
-> The API not exported to userspace shouldn't sanity-check all inputs
-> arguments.
+  static inline struct cpumask *cpu_llc_shared_mask(int cpu)
+  {
+         return per_cpu(cpu_llc_shared_map, cpu);
+  }
 
-That doesn't have anything to do with userspace at all.
-
-APIs exported to the rest of the kernel should very well check their
-inputs. Otherwise they're not APIs - just some random functions which
-are visible to the compiler.
-
-> So, the portable code shouldn't expect from cpumasks more than
-> documentation said: for a _valid_ offset cpumask_next() returns next
-> set bit or >= nr_cpu_ids.
-
-Lemme quote from my previous mail:
-
-"First make sure cpumask_next()'s valid accepted range has been settled
-upon, has been explicitly documented"
-
-So where is that valid range documented?
-
-> cpumask_check() has been broken for years. Attempting to fix it faced
-> so much resistance, that I had to revert the patch.
-
-The suggestion on that thread made sense: you first fix the callers and
-then the interface. Just like any other "broken" kernel API.
-
-Nothing's stopping you from fixing it properly - it'll just take a while
-and if it is such a widely used interface, you probably should come up
-with a strategy first how to fix it without impacting current use.
-
-Interfaces and their in-kernel users get refactored constantly.
-
-Thx.
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+It's in a global header and available to the rest of the kernel, just as
+well. How does it check its input? Maybe I lost something important in
+per_cpu() internals, but at the first glance, there's no any protection
+against -1, nr_cpu_ids, and other out-of-range arguments.
 
 _______________________________________________
 linux-riscv mailing list
