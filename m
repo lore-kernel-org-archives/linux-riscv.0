@@ -4,106 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3346EC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 15:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF3EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 15:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hfHRyQxepdwIzZJceU4IQfEeGl4NnLKEFhAy93g9M4U=; b=WLOvqs4pJB8ygw
-	vCI0B+UT2BEtzWexBVerpo/Rsd51kh9wzrA6YIY99Au1PgBMvONOEIFrynR0w6Yp2MvhvZwzM9CzI
-	C00gk2zHfTMFP8p82xtYa7TIWyWNTBcx49s5PK8Sll2MF3kKNWu3YnLkgl1Km/QP8tc+IXYsCIcD+
-	33nHYhOvlEhfnmuA4znrx5j0fEeGV/Lw57pMn/upIDyM5T/cIKQFy0XPeWY59pVZIEXSBQwLR7FGu
-	br2Xzn0oH7DianFsiLuj9lxuDDNjHrXF/sJeV5MgzPCcrok3VEd+Mo4kn8zwxm0F0fhVVjxAZVwgO
-	vjQ0exwI35guRvA3lUdg==;
+	List-Owner; bh=3Ej5fvdjhzIYcmWpBhiq0OmrCbpi/jBPgLPelekcE60=; b=Rb6lLi4yYt4rQM
+	wn4wNzkFCtMieBdYFOWCqbxRfRLVuhmGeaRrghHVdd9Rhw88NGLt/5eKZ3Y5W80KHtU3nWAkxDvvr
+	awsotBQ6GdBTair8/SYyBNiSptOtzYcXCLG+uIAmIgWB7XatacUhKhl7yrI8sk4RIqzsH6K4sk0hp
+	ROuDGEKdHJPfQxlwpN7kFJt7P3NwuImEo+r4XdJ1DNbuzbMfPlquKRIDqfzWJOo+ct68YVZ8/QhMs
+	eJd7ZBvm088yuogHxAE6hcIlsgsa6x3HmW473UmfRWLME/C7l/D/ywo/BN+SD31b3pd+SltgALBIt
+	3r9x73GaqMUANZqTSkzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqcO5-000TxC-Bu; Thu, 03 Nov 2022 15:44:13 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1oqcQ8-000UjV-3k; Thu, 03 Nov 2022 15:46:20 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqcAR-000Nsy-Sh
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 15:30:09 +0000
-Received: by mail-pg1-x532.google.com with SMTP id s196so1972592pgs.3
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 08:30:03 -0700 (PDT)
+	id 1oqcEQ-000PWq-28
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 15:34:26 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id k2so6316554ejr.2
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 08:34:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UyUe+HbRzSrTdJquQCMiaXWC2coZG28I37xguDaJaYg=;
-        b=JxP3em5mMEo8M/seyYjwqQClKWueZhrkefM7iopEbtJ9U0ARhXsBBlBaHvB0YZ+mCq
-         7I2lDIbzgsTnUJXXFFd+Mf2MRkvMQ3d/mi120+0k+co+feliF2fGnlDGLipP3oo4jHIs
-         yhCQnzB0LNdLsoCiyP2ThdGCDug/wevVBzx4ZCIoRVJzM62ULFanZrMyKnrfoLhgGw7L
-         LE3NJVvLI80qGdb5QUdNBUYtcEfD6sTxNonp/rLGuh5no7R8ACiBwreWQkoFJnyoE1Nq
-         joZ/uzznkWHqO7mwwbSR52gm1kYa+vf+hliw2Y9f1o05+cN6N5swUWJ7vJszMr5BEKoW
-         HTcg==
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2nyiqtS+4bjeBqC2j1CWjrUOou5+X6yWUKBJ7APuUG8=;
+        b=IMzxLKhzewPSr953ozKcvA7MJkFz5aBGxh8wYt4YDDFNkFIw3w1GbuIjjEYSijrvZN
+         vrsCGUFhvMNDOgPyJH44HqqAB1ZCby8RagmeEdamwIzh7rWeGkXUJabTgCCG9GgR49p8
+         eM1itnPR9VBPRPpXfufcFcUxykqWRbKSPPJgqNhWqyIczmyjaQ6yxBg5KqRewZ7TYZcy
+         yquj8IvH/AQtJnsWm9yePrvX+uUI5XSresCTCa3CObXmVX+CRvt3amiWYtwztltaW2u/
+         K2vNjxe8ke2YRetylyiUkj+eMGGsypPmIL4gqhk0ENvCLYBb5PdSkY7ojDfwYsl+jzEo
+         D12g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UyUe+HbRzSrTdJquQCMiaXWC2coZG28I37xguDaJaYg=;
-        b=OzXihcHC1xl6wBycmRCV9aObJi5G0xoXVnW7prn1OWrv2KTxVqq5vkYXFMCR2Ra76i
-         b/ccfLuWj3wbo/CyBgLO/+9T4+sn4Y06SnC0sO14AvIptSZ8miseKtdqjPdetEaSejtC
-         q77PzRQ8FRjKsX/11Vvp1Q22ypKQ4rtZxSbBHr9HK7SdV9ijrwr5M8mXrYof6UbFnSg0
-         lED9pgDIG181Qsyh9JNTy0r/6e2ADxHSAtpU9M/mXrZZzgEkJXZxzH706IJcH0HLMPg/
-         63eHve4u7V3JS5RaC2QxyY24i1y7ecaSeZbmb18OPlCqYHk8owghzbt7lk0IVrfqdJiB
-         EXbQ==
-X-Gm-Message-State: ACrzQf2hOYDkIiHSH2jxN4vS2wIckMBwhFxv1tow3pnRKXftO0xmNn9D
-	VGShRyiWYgGn/rMjoKWdSiANgQ==
-X-Google-Smtp-Source: AMsMyM6by5WQXi0G4lBZGaavWsGrxKC8DeWyAUbAtvZsM8BboB9ucyemIyMYLKoI4FadI1MlyxYOPw==
-X-Received: by 2002:a05:6a00:1996:b0:56d:a845:5789 with SMTP id d22-20020a056a00199600b0056da8455789mr17697890pfl.59.1667489402026;
-        Thu, 03 Nov 2022 08:30:02 -0700 (PDT)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id f3-20020a170902f38300b0017a018221e2sm835452ple.70.2022.11.03.08.30.01
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2nyiqtS+4bjeBqC2j1CWjrUOou5+X6yWUKBJ7APuUG8=;
+        b=77nzDRMbOpOB5SMnwQNnY25SCs9U0KHOEsZH4nEAqy7/2QbH5jCFvK1Bhpwri4+4U0
+         loxYydYvfrdNgGCpBI6YZWZv5LsKbokc0YFu1Sn9U3paYFncu891B+ai6f9sDv+Flvwd
+         87R6fOVbKZzCAxFFJkL79i+NtpN3WQVdzRsFK08+jh9UZ/FoOFlhRTXAi0E9Qd7yt6L6
+         HhT2NwskVXyp5yYKWv5RosqZvsUnNHdIoY30IB0jEAIvrJwOF60NEwqEFlKDxsAJ3P5B
+         6Mh+8gfoDwzPtsNSA3zTj3w/icVLgaZSeHKmpM5QMd9R4XYDpZd0/2L/Q+VBfI10PPAo
+         IUSQ==
+X-Gm-Message-State: ACrzQf0pZji+E7PDboLouK3FHvcGW3EPeEPtw3q5hosCH02oQfY+qjdV
+	O06iVqtQ25kc4ACPjTsOUAqHRw==
+X-Google-Smtp-Source: AMsMyM7fW4+lX3GNb3JnmyhpDtENiHSDLEpmcsIq/zZQ8gPf3Wg1SImlQR44FmCt0HiSs2WLUbDJOQ==
+X-Received: by 2002:a17:907:6e1a:b0:7ad:ba0b:538c with SMTP id sd26-20020a1709076e1a00b007adba0b538cmr26868184ejc.111.1667489645948;
+        Thu, 03 Nov 2022 08:34:05 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id r5-20020a170906a20500b00787f91a6b16sm627228ejy.26.2022.11.03.08.34.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Nov 2022 08:30:01 -0700 (PDT)
-Date: Thu, 3 Nov 2022 15:29:58 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+        Thu, 03 Nov 2022 08:34:05 -0700 (PDT)
+Date: Thu, 3 Nov 2022 16:34:04 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Yury Norov <yury.norov@gmail.com>, x86@kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Fabiano Rosas <farosas@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>, openrisc@lists.librecores.org,
 	Michael Ellerman <mpe@ellerman.id.au>,
-	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Yuan Yao <yuan.yao@intel.com>
-Subject: Re: [PATCH 17/44] KVM: arm64: Do arm/arch initialiation without
- bouncing through kvm_init()
-Message-ID: <Y2Pedr1MYt/P1uL0@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-18-seanjc@google.com>
- <dd59d579-4a4e-6db2-eac4-6c5c3ab71fd3@linaro.org>
+	"open list:LINUX FOR POWERPC PA SEMI PWRFICIENT" <linuxppc-dev@lists.ozlabs.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	linux-s390@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] x86: Fix /proc/cpuinfo cpumask warning
+Message-ID: <20221103153404.uh77nrdkowrxj6cr@kamzik>
+References: <Y1vrMMtRwb0Lekl0@yury-laptop>
+ <Y1vvMlwf/4EA/8WW@zn.tnic>
+ <CAAH8bW_DkvPCH0-q2Bfe0OJ72r63mRM3GP7NKOFrhe3zMO2gbQ@mail.gmail.com>
+ <Y1v+Ed6mRN9gisJS@zn.tnic>
+ <20221031080604.6xei6c4e3ckhsvmy@kamzik>
+ <Y1+OUawGJDjh4DOJ@zn.tnic>
+ <20221031100327.r7tswmpszvs5ot5n@kamzik>
+ <Y2K6clNJBn0SbWU+@zn.tnic>
+ <20221103125945.lrr5oxxmylwpam53@kamzik>
+ <Y2PX9GfxWYh6+XGT@zn.tnic>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <dd59d579-4a4e-6db2-eac4-6c5c3ab71fd3@linaro.org>
+In-Reply-To: <Y2PX9GfxWYh6+XGT@zn.tnic>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_083007_981255_7A176D7D 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20221103_083424_944741_A7275938 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,107 +108,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 03, 2022, Philippe Mathieu-Daud=E9 wrote:
-> Hi Sean,
-> =
+On Thu, Nov 03, 2022 at 04:02:12PM +0100, Borislav Petkov wrote:
+> On Thu, Nov 03, 2022 at 01:59:45PM +0100, Andrew Jones wrote:
+> > The patch I'm proposing ensures cpumask_next()'s range, which is actually
+> > [-1, nr_cpus_ids - 1),
+> 
+> Lemme make sure I understand it correctly: on the upper boundary, if you
+> supply for n the value nr_cpu_ids - 2, then it will return potentially
+> the last bit if the mask is set, i.e., the one at position (nr_cpu_ids - 1).
+> 
+> If you supply nr_cpus_ids - 1, then it'll return nr_cpu_ids to signal no
+> further bits set.
+> 
+> Yes, no?
 
-> On 3/11/22 00:18, Sean Christopherson wrote:
-> > Move arm/arch specific initialization directly in arm's module_init(),
-> > now called kvm_arm_init(), instead of bouncing through kvm_init() to
-> > reach kvm_arch_init().  Invoking kvm_arch_init() is the very first acti=
-on
-> > performed by kvm_init(), i.e. this is a glorified nop.
-> > =
+Yes
 
-> > Making kvm_arch_init() a nop will allow dropping it entirely once all
-> > other architectures follow suit.
-> > =
+> 
+> > I'll send a v4 with another stab at the commit message.
+> 
+> Yes, and it is still an unreadable mess: "A kernel compiled with commit
+> ... but not its revert... " Nope.
+> 
+> First make sure cpumask_next()'s valid accepted range has been settled
+> upon, has been explicitly documented in a comment above it and then I'll
+> take a patch that fixes whatever is there to fix.
 
-> > No functional change intended.
-> > =
+That's fair, but I'll leave that to Yury.
 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >   arch/arm64/kvm/arm.c | 25 ++++++++++++++++---------
-> >   1 file changed, 16 insertions(+), 9 deletions(-)
-> =
+> 
+> Callers should not have to filter values before passing them in - the
+> function either returns an error or returns the next bit in the mask.
 
-> >   /* NOP: Compiling as a module not supported */
-> >   void kvm_arch_exit(void)
-> >   {
-> > -	kvm_unregister_perf_callbacks();
-> =
+That's reasonable, but cpumask folk probably need to discuss it because
+not all cpumask functions have a return value where an error may be
+placed.
 
-> Doesn't this belong to the previous patch?
+> 
+> This thing:
+> 
+> 	if (*pos == nr_cpu_ids)
+> 
+> but then to pass in pos - 1:
+> 
+> 	*pos = cpumask_next(*pos - 1
+> 
+> looks to me like the interface needs more cooking.
 
-No, but the above changelog is a lie, there is very much a functional chang=
-e here.
+Indeed, but that's less of an issue with cpumask_next() than with
+the way cpuinfo implements its start and next seq ops (next
+unconditionally increments *pos and then calls start and start
+must use *pos - 1 since the first time its called it needs to use
+-1).
 
-The goal of the previous patch is to fix the error paths in kvm_arch_init()=
-, a.k.a.
-kvm_arm_init().  After fixing kvm_arch_init(), there are still bugs in the =
-sequence
-as a whole because kvm_arch_exit() doesn't unwind other state, e.g. kvm_arc=
-h_exit()
-should really look something like:
-
-  void kvm_arch_exit(void)
-  {
-	teardown_subsystems();
-
-	if (!is_kernel_in_hyp_mode())
-		teardown_hyp_mode();
-
-	kvm_arm_vmid_alloc_free();
-
-	if (is_protected_kvm_enabled())
-		???	=
-
-  }
-
-Becuase although the comment "NOP: Compiling as a module not supported" is =
-correct
-about KVM ARM always having to be built into the kernel, kvm_arch_exit() ca=
-n still
-be called if a later stage of kvm_init() fails.
-
-But rather than add a patch to fix kvm_arch_exit(), I chose to fix the bug =
-by
-moving code out of kvm_arch_init() so that the unwind sequence established =
-in the
-previous patch could be reused.
-
-Except I managed to forget those details when writing the changelog.  The c=
-hangelog
-should instead be:
-
-  KVM: arm64: Do arm/arch initialization without bouncing through kvm_init()
-  =
-
-  Do arm/arch specific initialization directly in arm's module_init(), now
-  called kvm_arm_init(), instead of bouncing through kvm_init() to reach
-  kvm_arch_init().  Invoking kvm_arch_init() is the very first action
-  performed by kvm_init(), so from a initialization perspective this is a
-  glorified nop.
-  =
-
-  Avoiding kvm_arch_init() also fixes a mostly benign bug as kvm_arch_exit()
-  doesn't properly unwind if a later stage of kvm_init() fails.  While the
-  soon-to-be-deleted comment about compiling as a module being unsupported
-  is correct, kvm_arch_exit() can still be called by kvm_init() if any step
-  after the call to kvm_arch_init() succeeds.
-
-  Add a FIXME to call out that pKVM initialization isn't unwound if
-  kvm_init() fails, which is a pre-existing problem inherited from
-  kvm_arch_exit().
-
-  Making kvm_arch_init() a nop will also allow dropping kvm_arch_init() and
-  kvm_arch_exit() entirely once all other architectures follow suit.
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
