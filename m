@@ -4,102 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9946C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 21:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35DDC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 22:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iWI2Gg/81xWTLHWFGgWp1fFcn49IpzP8UlHxdlpuYdw=; b=QSUrYXY6GWgNNd
-	LGPEJRBx43pjuDzjsZT3ISBMziX//OsmCiN0D72J1S/BI9qw5ZW06TaAQqKJng9FQVDH/ne0jWNOW
-	XFWDSXCuvEo4XBz4KzMRuqOELzrCtZLWdl/Twh/UHvf/0jpztRSYD09/D6SdntFqdp9DitOyQtq+c
-	uDdjoWOLfdWiQ4OudEHthUQMjWfNGel01/OcyPZZ4gObh3Od0bJOvnssJbwHPQ7vLO0KO602JMopX
-	FhvNUux+wmBXfDZJNTf7WEcoQEYcGb3GjVQHkONZOz3qhtEej6SM1Q8ybxcvlr87djyEuQpLajYfC
-	1jMIKCfW8+s6f+61Qe9g==;
+	List-Owner; bh=TYz5M07xua4lpvuft+KWv1vHhMJ8zsUOrPLS/P/TyxU=; b=cTRP+KHUe7mZ3h
+	lYCbxfbeHBkl463eObqtKzBkEZl0S6kF6wFhYEg+zx8vw0ZPn1VrGYUg/yFxUHFGMsZ6u8k4muuc5
+	hSJA42CgbRPLn/86bsl8+R0KuvHOSmyw2c0JJz15IeJ5r21TS4G2jV3zyUEC2FDQDTnqbEI+2Kk8x
+	gaqCTmYNRfjibXvDj975nGTQovGzarLm9rfUkMKJmRaPg04z7FUHsFmCVTVYAoEzualAStnCgANan
+	7c3EMAP/IhyxKKCp3dzNj9LoLOSliPFou9hIn2gL1tYxSEzneE3Xe71ubTD9thSjdqFsIaK6nCs1p
+	3sx+3+7R2rL1Zvmewa/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqhNs-001gL9-W9; Thu, 03 Nov 2022 21:04:21 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1oqiYM-001rcO-Sy; Thu, 03 Nov 2022 22:19:14 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3] helo=gandalf.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqhNf-001gGh-MQ; Thu, 03 Nov 2022 21:04:09 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d24so3097989pls.4;
-        Thu, 03 Nov 2022 14:04:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RKpWMQos6VVD1S/I4lACLsmO/tYS5LRA7d2ENkEKbRo=;
-        b=W1jfdVvCiC74H1TrCZBHpy39zmLx6ZdDw7CTvEA3hQRy2SYEYEHpqHKEqbYIPLurIe
-         Y2whGNqDI5mui4w+1QXrkHh+GC9ATmNd8ps8PeHw3qaJpwgt1d7jvMCXqs25Zy8Lpx4o
-         BRkdqU5nSWSpkaBgaA/lV+5CSWVpabSirQHa1cejuentrhT/uERBbBImlSMJgf6A967J
-         fjOlpx3kn0dIaEHhhAKeVdXj4/EkPaL2dmbdM+AJdzuPv1TA2eEp2KkYLi7TVhEuAixL
-         VUk9wO+wTZMMnlMLn0pWY/lQ/5O1/2ysb54mA9Nupm245dVRVUlabq2dQWglwCNzBaAj
-         yq6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RKpWMQos6VVD1S/I4lACLsmO/tYS5LRA7d2ENkEKbRo=;
-        b=RR+WoZILvL4eu9h4iBENgY9AsB7iWWVlpExESiP+uGPvOXWqfIx9KjygOFQgU0A+US
-         rtBo3lQsuMXjxKoxVNlSBE72ra4UDfktQtoQP6HlMCcpj4AFO8hWrA3I+xd97gTfwHG0
-         RB0/Y1WqqNZ9Siw4cmP5b2xveP+Jkmj4eFBo5tHFFw2lEh0ncgVW6jPG53RRw1pWQ7yl
-         2RygerVSdoCkiOPziCiOh2u7KV/co+AT0OyCJBL+RNeix51P5vxBg47rLw29S/1qNrJe
-         QILV/Zgru6hjZVCZ447aMa5Fl4LNJHe20Ktbp8t1xd8bjFVXlFHvxWvhMZq4cxa3zTeF
-         q7WQ==
-X-Gm-Message-State: ACrzQf2azQ77/RjNY77GMOtrf3In5iV1BZVrew2J46M8rFdbT8u1ml0E
-	skKEYY6qZ9E2ksAdu2Fv9kM=
-X-Google-Smtp-Source: AMsMyM4B7LXLMUo1WLny520SMeR1sIUEIak6LqJqMDk6N+6eScsWNFNrZpvHK/6RhT2SJsSNsCUIWw==
-X-Received: by 2002:a17:902:e5c5:b0:186:5f09:8468 with SMTP id u5-20020a170902e5c500b001865f098468mr32699741plf.122.1667509444114;
-        Thu, 03 Nov 2022 14:04:04 -0700 (PDT)
-Received: from localhost ([192.55.54.55])
-        by smtp.gmail.com with ESMTPSA id 27-20020a63125b000000b0046a1c832e9fsm1137383pgs.34.2022.11.03.14.04.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Nov 2022 14:04:03 -0700 (PDT)
-Date: Thu, 3 Nov 2022 14:04:02 -0700
-From: Isaku Yamahata <isaku.yamahata@gmail.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Fabiano Rosas <farosas@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Yuan Yao <yuan.yao@intel.com>, isaku.yamahata@gmail.com
-Subject: Re: [PATCH 36/44] KVM: x86: Do compatibility checks when onlining CPU
-Message-ID: <20221103210402.GB1063309@ls.amr.corp.intel.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-37-seanjc@google.com>
+	id 1oqiYJ-001rbR-Jk
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 22:19:13 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4N3J7j4yHJz4x1G;
+	Fri,  4 Nov 2022 09:18:57 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1667513939;
+	bh=VR6Mm9ZHp7WtU2Fa2nUanqpeKXo980HrZ6AWhIqgPP8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=R7HTBz4l7NOogMvdkkYnluPBOStvtLJb5Kjm54ZcVKtSUxohHMPydfXwVamBQvux+
+	 kWILI3eGk8inAfxlkK3Zuy4GCckJRcN19RV87u19RkO3cWYbWn4WXdFYoQULPYr97d
+	 3OiqJodFQ6p33NpSw1vnbbYntsT/lRnq/sMbdV0kaE90G1WUJevDYm4trxn/WCQaYV
+	 G+kbYmjjidV2kxWM707p1x0Vlcf1tbkKuHgSCjSma6s9d8+VnJxF9/NJFyqiNzychW
+	 n9ETDtlJQCjWuDRSMrXcrJ88soYBZhH7nbRfSNSo1p7mg8R+Vto6z7eNE+CtxAH9ze
+	 Q1TRR9azQ7HJw==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ schwab@linux-m68k.org, palmer@dabbelt.com,
+ linux-riscv@lists.infradead.org, guoren@kernel.org, arnd@arndb.de
+Subject: Re: [GIT PULL] Please pull powerpc/linux.git powerpc-6.1-4 tag
+In-Reply-To: <CAHk-=wh87aGtg3eJPkA31V0Pn22hah0DWRc8oWsQ__5P2SXaTw@mail.gmail.com>
+References: <87o7tossaa.fsf@mpe.ellerman.id.au>
+ <CAHk-=wh87aGtg3eJPkA31V0Pn22hah0DWRc8oWsQ__5P2SXaTw@mail.gmail.com>
+Date: Fri, 04 Nov 2022 09:18:54 +1100
+Message-ID: <87iljvsmup.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221102231911.3107438-37-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_140407_776884_68F974AD 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20221103_151911_901516_77D59B35 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,61 +72,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 02, 2022 at 11:19:03PM +0000,
-Sean Christopherson <seanjc@google.com> wrote:
+Linus Torvalds <torvalds@linux-foundation.org> writes:
+> On Wed, Nov 2, 2022 at 7:09 PM Michael Ellerman <mpe@ellerman.id.au> wrote:
+>>
+>>  - Fix an endian thinko in the asm-generic compat_arg_u64() which led to syscall arguments
+>>    being swapped for some compat syscalls.
+>
+> Am I mis-reading this, or did this bug (introduced in this merge
+> window by commit 43d5de2b67d7 "asm-generic: compat: Support BE for
+> long long args in 32-bit ABIs") break *every* architecture?
 
-> From: Chao Gao <chao.gao@intel.com>
-> 
-> Do compatibility checks when enabling hardware to effectively add
-> compatibility checks when onlining a CPU.  Abort enabling, i.e. the
-> online process, if the (hotplugged) CPU is incompatible with the known
-> good setup.
-> 
-> At init time, KVM does compatibility checks to ensure that all online
-> CPUs support hardware virtualization and a common set of features. But
-> KVM uses hotplugged CPUs without such compatibility checks. On Intel
-> CPUs, this leads to #GP if the hotplugged CPU doesn't support VMX, or
-> VM-Entry failure if the hotplugged CPU doesn't support all features
-> enabled by KVM.
-> 
-> Note, this is little more than a NOP on SVM, as SVM already checks for
-> full SVM support during hardware enabling.
-> 
-> Opportunistically add a pr_err() if setup_vmcs_config() fails, and
-> tweak all error messages to output which CPU failed.
-> 
-> Signed-off-by: Chao Gao <chao.gao@intel.com>
-> Co-developed-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/include/asm/kvm_host.h |  2 +-
->  arch/x86/kvm/svm/svm.c          | 20 +++++++++++---------
->  arch/x86/kvm/vmx/vmx.c          | 33 +++++++++++++++++++--------------
->  arch/x86/kvm/x86.c              |  5 +++--
->  4 files changed, 34 insertions(+), 26 deletions(-)
-> 
-> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-> index f223c845ed6e..c99222b71fcc 100644
-> --- a/arch/x86/include/asm/kvm_host.h
-> +++ b/arch/x86/include/asm/kvm_host.h
-> @@ -1666,7 +1666,7 @@ struct kvm_x86_nested_ops {
->  };
->  
->  struct kvm_x86_init_ops {
-> -	int (*check_processor_compatibility)(void);
-> +	int (*check_processor_compatibility)(int cpu);
+No. Just RISC-V and powerpc.
 
-Is this cpu argument used only for error message to include cpu number
-with avoiding repeating raw_smp_processor_id() in pr_err()?
-The actual check is done on the current executing cpu.
+> And people just didn't scream, because 32-bit code has just become so rare?
 
-If cpu != raw_smp_processor_id(), cpu is wrong. Although the function is called
-in non-preemptive context, it's a bit confusing. So voting to remove it and
-to use.
+I had two systems and several VMs that booted happily with the bug
+present, so there's some luck involved as to whether your userspace
+trips over the bug in a way that matters.
 
-Thanks,
--- 
-Isaku Yamahata <isaku.yamahata@gmail.com>
+But we did have people scream eventually :/
+
+> Or is it just because those compat macros are effectively not used
+> elsewhere, and x86 has its own versions? Looks like possibly mainly
+> RISC-V?
+
+Yeah. Although compat_arg_u64() is defined for all arches, it's only
+used in places guarded by __ARCH_WANT_COMPAT_FOO macros, and those are
+only selected by RISC-V and powerpc.
+
+Full list is:
+
+  __ARCH_WANT_COMPAT_FADVISE64_64       riscv
+  __ARCH_WANT_COMPAT_FALLOCATE          riscv, powerpc
+  __ARCH_WANT_COMPAT_FTRUNCATE64        riscv
+  __ARCH_WANT_COMPAT_PREAD64            riscv
+  __ARCH_WANT_COMPAT_PWRITE64           riscv
+  __ARCH_WANT_COMPAT_READAHEAD          riscv
+  __ARCH_WANT_COMPAT_SYNC_FILE_RANGE    riscv
+  __ARCH_WANT_COMPAT_TRUNCATE64         riscv
+
+
+> Side note: why is it doing
+>
+>         #ifndef compat_arg_u64
+>
+> at all? That macro is not actually defined anywhere else, so that
+> #ifdef seems to be just confused.
+
+That goes back to the original submission:
+
+  59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
+
+I guess it was following the example in asm-generic/compat.h where a
+bunch of other things are guarded by ifndefs. But agree it's
+unnecessarily flexible in this case until we have another definition.
+
+cheers
 
 _______________________________________________
 linux-riscv mailing list
