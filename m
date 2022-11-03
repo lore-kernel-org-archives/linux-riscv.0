@@ -4,97 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C86C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 14:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E927C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 14:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QRJLMPP9iTKJuwitkq32ZxC9TE+Z0C5q3oqnK3n6q4U=; b=wxImfzLxVZIyfK
-	FfMeoa86MyU5xQz9f5C5gHhoBfNNOLLGJ9J/HAGsy5GrP5MEoBli1/rVfub3uXakBNvhTAQdOX4D9
-	icH72AtkyQpfyV3i8rCCXU4NZoyI69S1TZmoUqns7Jnk5d4kSxKhxhSRdGadOILE5Q1OzFPgskmPO
-	416oC4T1PWv3GpGIBTjaZnYLFvpSGPTjkTgxXdp4XnfWBbRQe/2PyfCf6fLMQgJ7814zM4ozvqJWb
-	h1Q61fmqG0UGRq0BdUKb/DgorBeGU4jNc0SzilnDLdSeH7MisJEauVtdLEqol9poSbUpu3xMRer9o
-	9KzDbISQGIV4AZNJXMVA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y90J8wves9SHlwGo/Yh3y9i3eWw8fTVpV08IUx3vxa8=; b=Hf9Wed+aFOJb/N
+	xs+oKWowchLwQyCtPdZk9ozWAvb+g/keOMZAtTxPFtLVY5L+2z4aNu+yogKZwy3WALCzHgC7kd9Dz
+	V4ewMeQBnWIJb8ILt6fPy3krN8QhSelsgNqYmYsesIukZsQr1hgtDs8BpLY2DNnnbxc8xMMwyERou
+	SBforMCVjB4QndSG9iAO7AyBUQnoncXq+I8a+ez++9mxSEHvdf7H6ySVhWjZ2ifU2drmH94ky6GT7
+	vrCtoe1/Dc7qPW3307nGx+mbYsqqDqNd0a5m2s5koGgwhhL5IASQrzEjCejNijnsxPi3fw8BTYABC
+	G/wOjERmsSjAd0RHqCpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqapf-0001d2-Mr; Thu, 03 Nov 2022 14:04:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1oqb9d-0004NV-G5; Thu, 03 Nov 2022 14:25:13 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqapc-0001bg-NQ
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 14:04:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667484271;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2ld7KbWWPpVg/DGXuI3WKVRs5TJPSNq4PfcjQdMphjo=;
-	b=EeNrDlWAb0Bc7nzeaVtG+PuDPQ9VQxc66qrQwDpAVQnilXHOtaiuALZHBPGB7fjzccPRE0
-	vc7NaFPnok2UBlTK8nn1Kor3YpXFvUkD2Ho7nOXS8GZxdCYwpOrVh6+Gw47GktArRFpOm3
-	dnnxmJ+Emi9JpGhtuguFYpVmsdRO9gY=
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com
- [209.85.222.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-440-cZE5pZG_PC-Ib-ZgPkvQZw-1; Thu, 03 Nov 2022 10:04:30 -0400
-X-MC-Unique: cZE5pZG_PC-Ib-ZgPkvQZw-1
-Received: by mail-ua1-f71.google.com with SMTP id i14-20020ab0474e000000b004115ac13031so1408585uac.16
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 07:04:30 -0700 (PDT)
+	id 1oqb9Z-0004L8-MK
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 14:25:11 +0000
+Received: by mail-wr1-x431.google.com with SMTP id z14so3015929wrn.7
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 07:25:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yyXCEm+SN4JTuAX2T0R90Ie6jT6YR0PIuexybyKvkXE=;
+        b=WTZ/fhxMJ71jLlitDHXKYaXGnn95ODQizEyx4pjZLu/FU2YdbKeNAo0B/NktNH9Hif
+         0ihHLDxTp8U29NT+XMIjwbpXih+rDpGbzPso+IRrM4OQEis6MRNHdhg2+L+2iQ5ZiErf
+         H2C2UNKqEdpYeg1ou6yBgu5uGp5t6In0MkSQENq2IWAYTPdvvddzhf9M2SUHCjdkNqlP
+         pTfB+d1W2bpoY+NqsMD0CmY3+w2XyTZf6ZrvG8psupb3sY6BjQWTaeaT9RFdOarIdWjn
+         Jj663Dqz2gYFZNCYKSrBaU2MDDJrY91RmxP0f4HXzCqrYeVlqsItUMv2dSlq4XkDrWmi
+         x2Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=2ld7KbWWPpVg/DGXuI3WKVRs5TJPSNq4PfcjQdMphjo=;
-        b=1VG9ugiRTHZdY8ZvtL63wxoepKjRFZnAYLTkS7ml3rWGV0DRXo4+GJ6CGXonO8LsUg
-         UtF+L4vnZwiTiX1VUBiRHmJYLWLiiB7/j1ZrRdyVw2p3xf5A1DTM1WaixWrDQC3BcNJV
-         6hG4gLqwrR9MEjTnZT6QokuF9oRk/XtBJgXTs0AxcX2BjSmiqgyoyMX4FCQLKrYJu+6L
-         uIofcGmKrV9Szyf80Ro0PnOVO+AMSGum/QLuk3Ml0vtGEYDTuXqSj0pzEIAL/Tu+jV0m
-         rp+bAstYfTrlyMv+zsFKHZzXKR/H1WQ7Ul1ZO4s5tWLcLYUrQc+61nRPNg8N9fVTSgDA
-         UmQw==
-X-Gm-Message-State: ACrzQf2xy3qFhNcwPR+q55mxD+vHhntiPDNMkYQpqjDUU4kUbdwrVEQh
-	VXfGpLcq5m0m/tP7pbNFKAcxtkqM0OWZ1XVrMtSfWxPLmfGR8w6q8vS6Q0lT3vR2vA+aDTP42RG
-	TZqOlrh5LIw3CONASJwcee5J+4rLgiqepVNNpIg9749gZ
-X-Received: by 2002:a67:c997:0:b0:3aa:1d0c:6bc7 with SMTP id y23-20020a67c997000000b003aa1d0c6bc7mr18114528vsk.16.1667484269585;
-        Thu, 03 Nov 2022 07:04:29 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM57ejOKzdNWqeTyWHPkPRmEBqAcfUgljrJu10jVJC1iEGC5QqKTnJr+aHwKv6/RTPPoYaQADtoBOTHZ/wIpPrc=
-X-Received: by 2002:a67:c997:0:b0:3aa:1d0c:6bc7 with SMTP id
- y23-20020a67c997000000b003aa1d0c6bc7mr18114480vsk.16.1667484269311; Thu, 03
- Nov 2022 07:04:29 -0700 (PDT)
+        bh=yyXCEm+SN4JTuAX2T0R90Ie6jT6YR0PIuexybyKvkXE=;
+        b=J3KDGB2q08qWccg+KmL4sUxqlTcacc9ud+/9acbXoJWADPELXyRKYaiJcjbhBriLnz
+         UZQiOqtfNh9YCS4v4ultHLaHAxrm7nnOz/0+ue5uK158QmQoj/uIW9Q7HazjknuojRnr
+         fNGJ3+Bsmj8uDZ7Zk4bOge/FQiBSDEQXAaqQw4zSmX4N/DdW12UdcAcg1q68/qyUckQT
+         WH+NUTXTL8zkdCZXQdN/n58ZqEnaN5zx1MtZL0YMmGMBkxotmhKJWLAebLsCSHAkNiud
+         KLzP0GVkBw4BEzqBCShBJRbZc28Oa6g7OE/l95pRPimQZmX9MAmqivIqtCF3FTtwoGFq
+         74jQ==
+X-Gm-Message-State: ACrzQf2eSr6Hh3MtbJTZ8K6Ki6cHvgcuJZ2lXa6gIqrKUdUaOMrp+rb/
+	bmiEg8QYLvCdR5HyvjOLCiix+Q==
+X-Google-Smtp-Source: AMsMyM5hdXBUu8yo8VO7zyELnZCeDW54TPy5bvl1rmzeZB7u0GPP01rGpP4zIsPcikd5aOtl3C5pdw==
+X-Received: by 2002:a5d:654d:0:b0:235:197d:72d1 with SMTP id z13-20020a5d654d000000b00235197d72d1mr18800468wrv.680.1667485505908;
+        Thu, 03 Nov 2022 07:25:05 -0700 (PDT)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id z7-20020a5d6547000000b0023662245d3csm992994wrv.95.2022.11.03.07.25.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Nov 2022 07:25:05 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	openrisc@lists.librecores.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	linuxppc-dev@lists.ozlabs.org,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	linux-s390@vger.kernel.org
+Subject: [PATCH v4 0/1] Fix /proc/cpuinfo cpumask warning
+Date: Thu,  3 Nov 2022 15:25:03 +0100
+Message-Id: <20221103142504.278543-1-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.37.3
 MIME-Version: 1.0
-References: <20221102231911.3107438-1-seanjc@google.com> <20221102231911.3107438-11-seanjc@google.com>
- <d641088f-87d9-da77-7e98-92d1a9de6493@redhat.com>
-In-Reply-To: <d641088f-87d9-da77-7e98-92d1a9de6493@redhat.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Thu, 3 Nov 2022 15:04:17 +0100
-Message-ID: <CABgObfZDngVgmPetJEQGFW-MZGqYvW9tTa5jzcKheO5EO703Vw@mail.gmail.com>
-Subject: Re: [PATCH 10/44] KVM: VMX: Clean up eVMCS enabling if KVM
- initialization fails
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Matthew Rosato <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, 
-	Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Isaku Yamahata <isaku.yamahata@intel.com>, 
-	Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_070432_858533_D6D39D75 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221103_072509_756479_03E80982 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,16 +105,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 3, 2022 at 3:01 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
->
-> On 11/3/22 00:18, Sean Christopherson wrote:
-> > +static void hv_cleanup_evmcs(void)
->
-> This needs to be __init.
+Commit 78e5a3399421 ("cpumask: fix checking valid cpu range") started
+issuing warnings[1] when cpu indices equal to nr_cpu_ids - 1 were passed
+to cpumask_next* functions. The commit has since been reverted with
+commit 80493877d7d0 ("Revert "cpumask: fix checking valid cpu range"."),
+which raises the question as to how much this proposed patch is needed.
+Additionally, there's some discussion as to whether or not cpumask_next()
+should even be validating its inputs[2]. So, with that in mind, I'm fine
+with the patch being dropped. However, it may still be reasonable to add
+the checking to /proc/cpuinfo until cpumask_next has made changes and
+better documented its API.
 
-Error: brain temporarily disconnected.
+[1] Warnings will only appear with DEBUG_PER_CPU_MAPS enabled.
+[2] https://lore.kernel.org/all/CAHk-=wihz-GXx66MmEyaADgS1fQE_LDcB9wrHAmkvXkd8nx9tA@mail.gmail.com/
 
-Paolo
+This series addresses the issue for x86. riscv has already merged an
+equivalent patch (v3 of this series). Also, from a quick grep of cpuinfo
+seq operations, I think at least openrisc, powerpc, and s390 could get an
+equivalent patch. While the test is simple (see next paragraph) I'm not
+equipped to test on each architecture.
+
+To test, just build a kernel with DEBUG_PER_CPU_MAPS enabled, boot to
+a shell, do 'cat /proc/cpuinfo', and look for a kernel warning.
+
+v4:
+  - The riscv patch has already been merged.
+  - Mostly rewrote the cover letter as the situation has changed since
+    78e5a3399421 was reverted.
+  - Rewrote the commit message in order to try an better clarify things
+    and also to add the reference to the revert commit, which results in
+    the commit no longer claiming its a 'fix' in its summary. [Boris]
+
+v3:
+  - Change condition from >= to == in order to still get a warning
+    for > as that's unexpected. [Yury]
+  - Picked up tags on the riscv patch
+
+v2:
+  - Added all the information I should have in the first place
+    to the commit message [Boris]
+  - Changed style of fix [Boris]
+
+Andrew Jones (1):
+  x86: cpuinfo: Ensure inputs to cpumask_next are valid
+
+ arch/x86/kernel/cpu/proc.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+-- 
+2.37.3
 
 
 _______________________________________________
