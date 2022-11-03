@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B0DC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 17:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5092CC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 17:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gHC6oMiqXiA6siE7m8pgOUY8CsK2FLlxfaW6gl6N9pU=; b=vHFxuNJ9F2yjU9
-	TWGRgn1ctugCoLokGycsec28pS3/BGenZPh+3So5JsGeYiY/paLuKGqPnm4DjOu+xPGW/+DqE76h3
-	3m/ER26RS66aewKsoOi+dgMGauHR1nEm0AwHG/l4Y7U5dL9AkAMTzCdZO1c5uCu0IQ90hZ8YHMpqI
-	oOx1EHzp10cFkOLKpm2WMDz12SNQIdhQDR/ot2Bb6s6EDCcLxomP9U72y+Ak0RaTnX1VV6wMlWEJy
-	F+9dZUIe/3YNUwTgNOCM195A0KtvOuCGW8bpwnTVx6oj7XzNcszniiEXfGsQ2pLa3Ib4ulD/EkXsy
-	pBjdEnL9xWYQ1talW7+g==;
+	List-Owner; bh=Kmhs3qtEkb64DxXvx9Bk7/9YbA5ng3K42PqO/50k+Wg=; b=zWBAg8bNUgTqT3
+	exEO1wtUC8xqwi7ntg+RW1ewJzAf7seoydjO7x/RHdpc6SBJw0/197Ies+z6jHaC7KA+UqIu+RSNc
+	F9Dh/4xhTyZkTc6vLK9VK+zCXlZ7Pi+ATtgfx1mWzpaQ61YVYPquL1JUNsQYp0mysyOGniLJepfIc
+	ikreq7ZipDM+zqsEDqkfG04cEzewSrjMwBqOhiOTQJhxlj1RKR611SVAXAHNtfeU4xSznvPspe5z8
+	Q9QQK6pF9vS6b3k4S4HaACbcn5TjfLj7N2/XxpkJUcIHQQaYQndCfnLQh+vaWo5PGzAoFbggOS6lH
+	3elFsmm3a+Tx2cv3Hl0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqeH0-0017J5-MX; Thu, 03 Nov 2022 17:45:02 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1oqePR-0018m1-IL; Thu, 03 Nov 2022 17:53:45 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqeGv-0017G7-Tc
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 17:45:00 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id o7so2367610pjj.1
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 10:44:56 -0700 (PDT)
+	id 1oqePJ-0018ir-D7
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 17:53:43 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id q71so2307973pgq.8
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 10:53:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cK19xZ8r/JxZ6zrZk59CGRO4XALiFfw/k+DEo690ifc=;
-        b=AMXkMgBJe864E9ylH4eLhcV4DnnmpnUZQciwStcW/fWfVy8vl8xbyLHXqWoh/4n8QF
-         bRAhsfNtOcglKLMhK6Nb/v5AF7HvdYNYuPv80cwXOHPX5E9n4f4rIwmSH2XAdpFIqhuj
-         sSsx/7sAKHM3fmeDS7xyNpoxOPMcbkwOVVWM5XBPQcjHKuBxYoH5JxFh6oDyEgClSLr4
-         VePL27iqi0rk5/s+JivkXFUi7OtMXJLNacJQMnJ3M4obYSjfplMj8jxI5D4RNhWTNCit
-         VmDRgbq4Pt+ph415Zp0hH77zR2JN9eVpsj1xI6CTZrVgir1QKlQnpGg6QTPI6wKdJ0ls
-         3hyg==
+        bh=3tXwq1v6tJCedr2VtV8ELYd8BpIXTKwmGjuY8weIxs8=;
+        b=gjqnoLy192oz/Zxvag+BlBreQGGSfkeJOmpmCEx7rtJpm2GzAgZsoDzOerCZhLAwiY
+         s4s7ScvfoZl8zwg6HI1Ymb7QpOkn2NxzwKs5NTcMl1wbeFQ/hmv3VmCXwSollG4iohk8
+         ZfCLF4UOQot0TZFoB2ZSgy0wzT2PFfm47J97NCOCE8O1C25eIzJzc1jTDAryWTakKtb6
+         +QR4ykcFsYtONZVST62uH0g9I4NSfzwB8k/a9JLQz8I+tNs7JhVckzNuFRTBv1+mgFsk
+         IdkM799qrsruF4xx+MeYDtb4Sd8Y4cxbHh++70LJo94wIuv8aLLKYeYlUVyl7mOC3bBK
+         Ww4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cK19xZ8r/JxZ6zrZk59CGRO4XALiFfw/k+DEo690ifc=;
-        b=zATlkalcrWkNMYQWzzKfziohVOUm3OLFXJZvSZmnRznNeeYGdcnbG3FVoXY4BeXqfl
-         6jAA1anhhmYFoyEZwpJVDnwMe8nH02dvPZOidJXQLhWAsHf5AVLfPdqwyJZUsrsh5mEv
-         vpOJzx8wIgrMEdkq52ji84iV9agMcgv/YKA0V+hTNG38lH2lM26VJ391CW4MBOig2Zgb
-         zlzx7lABov5i013VCPEMwEyF15RT86p2StUSPaYSMVzZx+x6W9Pv/nDMubCUpnHgFWye
-         ZtkQtsTmyAyzk3JJqUMYXYSR6cbH1liD+QRlLdzrvOYYj8PIMt1o0Hp0MPoSbeUeZmHD
-         664Q==
-X-Gm-Message-State: ACrzQf0AwX0veViEhYbaNFVqcFCTZula9bhEDIbR9yhFFwlZK3+AISM4
-	8+7cw4KvWipiXUUUFPPDDalv9Q==
-X-Google-Smtp-Source: AMsMyM7Vi7ErqJmqrzHt1bwsO7Jfw+kVc4w4lCdxf/cK5b8KZHYV39XlOvASF4Eye8GSeC7ZJ2rbFQ==
-X-Received: by 2002:a17:90a:d24d:b0:213:d3e4:677a with SMTP id o13-20020a17090ad24d00b00213d3e4677amr24629292pjw.101.1667497496277;
-        Thu, 03 Nov 2022 10:44:56 -0700 (PDT)
+        bh=3tXwq1v6tJCedr2VtV8ELYd8BpIXTKwmGjuY8weIxs8=;
+        b=FH7QKIIBhWCVUfwLEtMluRFv3p4EpruJyGVav96imRv8i1YXKuvtJsAZe0DR1bQQpw
+         slsx/u6/XuYoqkw+JWj3dOY2/5a6+8oNHH9+0SYDoZlhFY5CxgbwWv/Txkk2+GiKh3Go
+         NsEBJhbvE2VHXY0xxt6v85iABJKS9ykwsQV5JTIWskVxA8BShnBjm4p8sjiybd/WKESk
+         RoAjnBBFk7qKKFZl99sCwfObITKLcYv/nExk+ps9wv8PTfMYQEewMPTkwJQjHuNt8DV+
+         h8KF50frjRlpkkCLDlVT9NcjZVDb67Wxv7KV2+eS/qgx6m+KTpI6xH5zTiD0voTM9Ias
+         LqLQ==
+X-Gm-Message-State: ACrzQf2pDsAIciz6lbdnGLrDTfw54fkQm5xJ+zlkpNHMlWqgS1kZO/I9
+	TbTuDatJkWMa3l/8SPBTht0aBg==
+X-Google-Smtp-Source: AMsMyM5pSkjZTiut6RFho0StQnuo7qAiklz26C63x768BJpOt4UV7sKT8fcspUYyR/B7P1xdFXKPhA==
+X-Received: by 2002:a05:6a00:999:b0:56c:3d0d:96fe with SMTP id u25-20020a056a00099900b0056c3d0d96femr31657100pfg.12.1667498015565;
+        Thu, 03 Nov 2022 10:53:35 -0700 (PDT)
 Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id i7-20020a17090332c700b00178aaf6247bsm1004862plr.21.2022.11.03.10.44.55
+        by smtp.gmail.com with ESMTPSA id e20-20020a63e014000000b0045ff216a0casm1080329pgh.3.2022.11.03.10.53.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Nov 2022 10:44:55 -0700 (PDT)
-Date: Thu, 3 Nov 2022 17:44:51 +0000
+        Thu, 03 Nov 2022 10:53:35 -0700 (PDT)
+Date: Thu, 3 Nov 2022 17:53:31 +0000
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
@@ -90,17 +90,18 @@ Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
 	Yuan Yao <yuan.yao@intel.com>
-Subject: Re: [PATCH 36/44] KVM: x86: Do compatibility checks when onlining CPU
-Message-ID: <Y2P+E+631c0TNcK7@google.com>
+Subject: Re: [PATCH 39/44] KVM: Drop kvm_count_lock and instead protect
+ kvm_usage_count with kvm_lock
+Message-ID: <Y2QAG0wCPNv7atC/@google.com>
 References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-37-seanjc@google.com>
- <23bfd709-f99a-5a74-e4b9-1381b88453f1@redhat.com>
+ <20221102231911.3107438-40-seanjc@google.com>
+ <7b6ce80e-7f1f-11cd-8bde-8d8fa9fd7e1d@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <23bfd709-f99a-5a74-e4b9-1381b88453f1@redhat.com>
+In-Reply-To: <7b6ce80e-7f1f-11cd-8bde-8d8fa9fd7e1d@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_104459_552160_BDC8EF4F 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20221103_105340_912228_4032BCC2 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +120,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Thu, Nov 03, 2022, Paolo Bonzini wrote:
 > On 11/3/22 00:19, Sean Christopherson wrote:
-> > From: Chao Gao<chao.gao@intel.com>
-> > 
-> > Do compatibility checks when enabling hardware to effectively add
-> > compatibility checks when onlining a CPU.  Abort enabling, i.e. the
-> > online process, if the (hotplugged) CPU is incompatible with the known
-> > good setup.
+> > +- kvm_lock is taken outside kvm->mmu_lock
 > 
-> This paragraph is not true with this patch being before "KVM: Rename and
-> move CPUHP_AP_KVM_STARTING to ONLINE section".
+> Not surprising since one is a mutex and one is an rwlock. :)
 
-Argh, good eyes.  Getting the ordering correct in this series has been quite the
-struggle.  Assuming there are no subtle dependencies between x86 and common KVM,
-the ordering should be something like this:
+Heh, 
 
-  KVM: Opt out of generic hardware enabling on s390 and PPC
-  KVM: Register syscore (suspend/resume) ops early in kvm_init()
-  KVM: x86: Do compatibility checks when onlining CPU
-  KVM: SVM: Check for SVM support in CPU compatibility checks
-  KVM: VMX: Shuffle support checks and hardware enabling code around
-  KVM: x86: Do VMX/SVM support checks directly in vendor code
-  KVM: x86: Unify pr_fmt to use module name for all KVM modules
-  KVM: x86: Use KBUILD_MODNAME to specify vendor module name
-  KVM: Make hardware_enable_failed a local variable in the "enable all" path
-  KVM: Use a per-CPU variable to track which CPUs have enabled virtualization
-  KVM: Remove on_each_cpu(hardware_disable_nolock) in kvm_exit()
-  KVM: Drop kvm_count_lock and instead protect kvm_usage_count with kvm_lock
-  KVM: Disable CPU hotplug during hardware enabling
-  KVM: Rename and move CPUHP_AP_KVM_STARTING to ONLINE section
-  KVM: Drop kvm_arch_check_processor_compat() hook
+  Signed-off-by: Captain Obvious <seanjc@google.com>
+
+> You can drop this hunk as well as the "Opportunistically update KVM's locking
+> documentation" sentence in the commit message.
+
+Will do.
+
+> >   - vcpu->mutex is taken outside kvm->arch.hyperv.hv_lock
+> >   - kvm->arch.mmu_lock is an rwlock.  kvm->arch.tdp_mmu_pages_lock and
+> > @@ -216,15 +220,11 @@ time it will be set using the Dirty tracking mechanism described above.
+> >   :Type:		mutex
+> >   :Arch:		any
+> >   :Protects:	- vm_list
+> > -
+> > -``kvm_count_lock``
+> > -^^^^^^^^^^^^^^^^^^
+> > -
+> > -:Type:		raw_spinlock_t
+> > -:Arch:		any
+> > -:Protects:	- hardware virtualization enable/disable
+> > -:Comment:	'raw' because hardware enabling/disabling must be atomic /wrt
+> > -		migration.
+> > +		- kvm_usage_count
+> > +		- hardware virtualization enable/disable
+> > +		- module probing (x86 only)
+> 
+> What do you mean exactly by "module probing"?  Is it anything else than what
+> is serialized by vendor_module_lock?
+
+Ooh, I forgot to update this patch after switching to vendor_module_lock.  I
+added the above after fixing the first deadlock between kvm_lock and cpu_hotplug_lock,
+but later gave up on trying to use kvm_lock after deadlock #2, which is when I
+when I realized piggybacking kvm_lock was going to be a maintainance nightmare due.
 
 _______________________________________________
 linux-riscv mailing list
