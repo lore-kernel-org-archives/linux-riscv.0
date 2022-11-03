@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4D3C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 03:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21423C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 07:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mEHV5npV042dzBNHfQfc4S2qUjvdrNCg8NRmVFrfBAA=; b=IF0bdjJsgJNWQ3
-	AIDCgZSrnl/RnOZEojLWp4Xh77aShOzF4+ArFf90aZdp3sSi1zymt8M5dwQOO3AUGVdmGqenffA2K
-	ynYgMbDf01i+Uail2NTcsnT54hFMpXKun6slsk3NmKSCc3NatUyHevQNlrsNmb840+wtX29MmRm7E
-	o8SWGFXVaoBkg56Zfh4VxHJAlnchOuMX/FHj33lwL4ajdyL8aG3F8F/rxpwu2Pz02/NDHXxIdZfTK
-	2uRENj7io+suOIrE51Ntv6Fk4HnOcsColmsJg/GLGPk6Po88RkN9lKX6SXkjny32eVa53/GFVs+Oo
-	SIwcfCnmpeTnq9o1wXtQ==;
+	List-Owner; bh=UgBcTslTururP0xc6v0jmwQZxKiEwXVxfBfq1laMsq4=; b=ihzetkFls0XDTI
+	+epPPaUIG/EfGlLYnlXUZQR3NinLjEgXoKINiNZyHFx9pi7loG37i1KV/xddlTZX7kHJOfF+uQSpl
+	wbw8+th23F3g4rPKmzB0eiXIJwLQy37ml3N/QKt/18Bd+XsJcubKDLMjbiy+7EVeV10F6AvdPUdaQ
+	WyHHvKK5L+KKZdfu0DiVo2rTngS8C9L8rI8p5NR1OvPyKi2UMOOItz/wC0Zu7Xps6Sk5AclXjIUXv
+	qKIyJZ95tR+o2NVn0eZ5mQjsMOeC/bV75m7QXOzN28kM8TZPdalkWMahGkqS8/L3/jJEyA2AAmged
+	7egIP4LF9pPBAeaXqjmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqQmo-00FkH7-RC; Thu, 03 Nov 2022 03:20:58 +0000
-Received: from mail-oi1-f169.google.com ([209.85.167.169])
+	id 1oqUCW-00GMSx-9C; Thu, 03 Nov 2022 06:59:44 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqQml-00FkGK-E5
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 03:20:57 +0000
-Received: by mail-oi1-f169.google.com with SMTP id s206so762553oie.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 20:20:51 -0700 (PDT)
+	id 1oqUCT-00GMRc-9o
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 06:59:43 +0000
+Received: by mail-ot1-x335.google.com with SMTP id a7-20020a056830008700b0066c82848060so354417oto.4
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Nov 2022 23:59:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jU3NGxO1EUwTyTXWWYBu4YHjvr1DaVewYJ8W5p2q9KU=;
+        b=NuVeukR3guNMcd8fqb8zusPXO3pX292A2paPMT1Fw2JCW6ScnhB6S2pNYAiISOj1OE
+         epquGbWXm0CIoSC/uYtqFgwiQ9xTvq+bfivcNbTl3kI21lSwBxX6dVSnO5kjb6wESKI+
+         RYdfA169166lqCqhSf1WYLooQ3G15KIdpA9R4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L9LEoUWJvpUFOWNZZSHLTT8Vj3FE8ZbDHe08yAKC0s8=;
-        b=aAlWSvZpbekWf/shxafE/aWu6rdKsivPPAU7zJrL3hA1pcTrxlIah6jxlFhU2v/gIO
-         BMW9qiifUeP8efbjw0rnqyubNjFt7VVcjJj6PZeJuuYb/M0OYoPK6N6EZgPTy4o459vi
-         eDXZQE4rmUhjB5m22kIwb+lEeTFHbjN5Z5tJN4mXngaLprRkSUZseQwm+VlJBukfRqfV
-         ghnxIZ6o0zKA2G0T47/axN9ir6d1AM1rqRmueiXL3QM/R52wJ6P+U9IUsr832qsD+tQj
-         o9CAdf6twsxLavxS7K/TcFZn59I2xv+LFcwLgIgEsTQYwlKZAmx76FIeJM3V3nc3yWNG
-         L6dA==
-X-Gm-Message-State: ACrzQf2E6PHxzcrOugUFHVHXzrm6azbNwlgW2DO9rBDd7SumUKhtNSmV
-	yFX+UYikdWx6OL5JsXebwA==
-X-Google-Smtp-Source: AMsMyM4x9J/gNXs66sXJG0Hy26y6zYfJGYKLSTEOTu+BoRTCA1i0xSYSWxYDuz+zEQkxansG7DLxNA==
-X-Received: by 2002:a05:6808:2082:b0:35a:224:983b with SMTP id s2-20020a056808208200b0035a0224983bmr11413143oiw.179.1667445651094;
-        Wed, 02 Nov 2022 20:20:51 -0700 (PDT)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id c14-20020a4ad20e000000b004982f2d3c03sm5059059oos.25.2022.11.02.20.20.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Nov 2022 20:20:50 -0700 (PDT)
-Received: (nullmailer pid 1058925 invoked by uid 1000);
-	Thu, 03 Nov 2022 03:20:51 -0000
-Date: Wed, 2 Nov 2022 22:20:51 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <nathan@kernel.org>, Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [RFC PATCH v3 2/2] soc: renesas: Add L2 cache management for
- RZ/Five SoC
-Message-ID: <20221103032051.GD459441-robh@kernel.org>
-References: <20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221021020500.GA2157489-robh@kernel.org>
- <CA+V-a8v0jEFj+XKAtyAaTBFmX3bObBZgGd6n1LB3OnTU_W002w@mail.gmail.com>
- <Y1Md4bMYJHI34HuJ@spud>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jU3NGxO1EUwTyTXWWYBu4YHjvr1DaVewYJ8W5p2q9KU=;
+        b=qovhj77HCl9IARmekuvEfImYEwSdtX+WBlPjT34kRrJl0psA8vTqFlJHIBm7HBDInJ
+         NSdhsFBXcNfiAF1s58bw2wFEArSuiPEFSzwZwkdppjv4tMo7/JA6wMfcz6xFQJCtB4K0
+         N1BEy3sVzWrGQbLh4asNWO1j8ztI9icS2Xl2PMXcqoZ9jnstAE6ad3Xu6pH+NoKhM3my
+         bP4EiLAGhnSXpvuSH6Xj62/qFCdS/uOwHSO5FO0FBl7Q8nNMBR6P7qD/02FU/vP+88ZX
+         lRCrs3FlvTrp3ode9gGb5LMoo43SM9lBDqJkCvDjF3D9nrcawWCgR+X6ZvzizYvHsUxF
+         rcfQ==
+X-Gm-Message-State: ACrzQf18NpKB+3H77Fh5USp8CKVdFD0k6lJDU/msWpbQuhAJ9u4GtRZt
+	WslenTJGrw+o2h5m7mMjiPR+2O3+wk89822LPB2H
+X-Google-Smtp-Source: AMsMyM7cWIKI4geOTz1CbFifK42quVigOSL6ijHJuUGmO2itd5TIzSD3coAj+1RA3oI6VXAJNoy9RJRUEFc+QLk0sqI=
+X-Received: by 2002:a05:6830:6611:b0:662:2725:d309 with SMTP id
+ cp17-20020a056830661100b006622725d309mr13453334otb.293.1667458777704; Wed, 02
+ Nov 2022 23:59:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y1Md4bMYJHI34HuJ@spud>
+References: <20221101143400.690000-1-apatel@ventanamicro.com> <20221101143400.690000-6-apatel@ventanamicro.com>
+In-Reply-To: <20221101143400.690000-6-apatel@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 2 Nov 2022 23:59:25 -0700
+Message-ID: <CAOnJCUKqRzNU0oCRMTm+XApMm_ys6hjgFbJDhQs0=nnR1s+MJw@mail.gmail.com>
+Subject: Re: [PATCH v10 5/7] RISC-V: Allow marking IPIs as suitable for remote FENCEs
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221102_202055_494454_638F367C 
-X-CRM114-Status: GOOD (  34.15  )
+X-CRM114-CacheID: sfid-20221102_235941_611309_D763F2BD 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,79 +85,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 21, 2022 at 11:32:01PM +0100, Conor Dooley wrote:
-> On Fri, Oct 21, 2022 at 11:05:40PM +0100, Lad, Prabhakar wrote:
-> > Hi Rob,
-> > 
-> > Thank you for the review.
-> > 
-> > On Fri, Oct 21, 2022 at 3:05 AM Rob Herring <robh@kernel.org> wrote:
-> > >
-> > > On Wed, Oct 19, 2022 at 11:02:42PM +0100, Prabhakar wrote:
-> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >
-> > > > On the AX45MP core, cache coherency is a specification option so it may
-> > > > not be supported. In this case DMA will fail. As a workaround, firstly we
-> > > > allocate a global dma coherent pool from which DMA allocations are taken
-> > > > and marked as non-cacheable + bufferable using the PMA region as specified
-> > > > in the device tree. Synchronization callbacks are implemented to
-> > > > synchronize when doing DMA transactions.
-> > > >
-> > > > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> > > > block that allows dynamic adjustment of memory attributes in the runtime.
-> > > > It contains a configurable amount of PMA entries implemented as CSR
-> > > > registers to control the attributes of memory locations in interest.
-> > > >
-> > > > Below are the memory attributes supported:
-> > > > * Device, Non-bufferable
-> > > > * Device, bufferable
-> > > > * Memory, Non-cacheable, Non-bufferable
-> > > > * Memory, Non-cacheable, Bufferable
-> > > > * Memory, Write-back, No-allocate
-> > > > * Memory, Write-back, Read-allocate
-> > > > * Memory, Write-back, Write-allocate
-> > > > * Memory, Write-back, Read and Write-allocate
-> > > >
-> > > > This patch adds support to configure the memory attributes of the memory
-> > > > regions as passed from the l2 cache node and exposes the cache management
-> > > > ops.
-> > > >
-> > > > More info about PMA (section 10.3):
-> > > > http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> > > >
-> > > > This feature is based on the work posted [0] by Vincent Chen
-> > > > <vincentc@andestech.com> for the Andes AndeStart RISC-V CPU.
-> > > >
-> > > > [0] https://lore.kernel.org/lkml/1540982130-28248-1-git-send-email-vincentc@andestech.com/
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > ---
-> > > >  arch/riscv/include/asm/cacheflush.h    |   8 +
-> > > >  arch/riscv/include/asm/errata_list.h   |   2 +
-> > > >  arch/riscv/mm/dma-noncoherent.c        |  20 ++
-> > > >  drivers/soc/renesas/Kconfig            |   5 +
-> > > >  drivers/soc/renesas/Makefile           |   4 +
-> > > >  drivers/soc/renesas/rzf/Kconfig        |   6 +
-> > > >  drivers/soc/renesas/rzf/Makefile       |   3 +
-> > > >  drivers/soc/renesas/rzf/ax45mp_cache.c | 431 +++++++++++++++++++++++++
-> > >
-> > > How many cache drivers do we have around now? I've seen a few bindings
-> > > go by. I'm guessing it is time to stop putting the drivers in the
-> > > drivers/soc/ dumping ground.
-> > >
-> > The main reason this driver is not in arch/riscv is that it has vendor
-> > specific extensions. Due to this reason it was agreed during the LPC
-> > that vendor specific extension should be maintained by SoC vendors and
-> > was agreed that this can go into drivers/soc/renesas folder instead.
-> 
-> Does not in drivers/soc mean they need to go into arch/riscv?
-> The outcome of the chat at the LPC BoF was more that the cache drivers
-> themselves should not be be routed via the arch maintainers, no?
+On Tue, Nov 1, 2022 at 7:34 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> To do remote FENCEs (i.e. remote TLB flushes) using IPI calls on the
+> RISC-V kernel, we need hardware mechanism to directly inject IPI from
+> the supervisor mode (i.e. RISC-V kernel) instead of using SBI calls.
+>
+> The upcoming AIA IMSIC devices allow direct IPI injection from the
+> supervisor mode (i.e. RISC-V kernel). To support this, we extend the
+> riscv_ipi_set_virq_range() function so that IPI provider (i.e. irqchip
+> drivers can mark IPIs as suitable for remote FENCEs.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/smp.h      | 18 ++++++++++++++++--
+>  arch/riscv/kernel/sbi-ipi.c       |  2 +-
+>  arch/riscv/kernel/smp.c           | 11 ++++++++++-
+>  drivers/clocksource/timer-clint.c |  2 +-
+>  4 files changed, 28 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+> index 79ed0b73cd4e..56976e41a21e 100644
+> --- a/arch/riscv/include/asm/smp.h
+> +++ b/arch/riscv/include/asm/smp.h
+> @@ -16,6 +16,9 @@ struct seq_file;
+>  extern unsigned long boot_cpu_hartid;
+>
+>  #ifdef CONFIG_SMP
+> +
+> +#include <linux/jump_label.h>
+> +
+>  /*
+>   * Mapping between linux logical cpu index and hartid.
+>   */
+> @@ -46,7 +49,12 @@ void riscv_ipi_disable(void);
+>  bool riscv_ipi_have_virq_range(void);
+>
+>  /* Set the IPI interrupt numbers for arch (called by irqchip drivers) */
+> -void riscv_ipi_set_virq_range(int virq, int nr);
+> +void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence);
+> +
+> +/* Check if we can use IPIs for remote FENCEs */
+> +DECLARE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
+> +#define riscv_use_ipi_for_rfence() \
+> +       static_branch_unlikely(&riscv_ipi_for_rfence)
+>
+>  /* Secondary hart entry */
+>  asmlinkage void smp_callin(void);
+> @@ -93,10 +101,16 @@ static inline bool riscv_ipi_have_virq_range(void)
+>         return false;
+>  }
+>
+> -static inline void riscv_ipi_set_virq_range(int virq, int nr)
+> +static inline void riscv_ipi_set_virq_range(int virq, int nr,
+> +                                           bool use_for_rfence)
+>  {
+>  }
+>
+> +static inline bool riscv_use_ipi_for_rfence(void)
+> +{
+> +       return false;
+> +}
+> +
+>  #endif /* CONFIG_SMP */
+>
+>  #if defined(CONFIG_HOTPLUG_CPU) && (CONFIG_SMP)
+> diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
+> index f0a78420b127..ee8620104bd8 100644
+> --- a/arch/riscv/kernel/sbi-ipi.c
+> +++ b/arch/riscv/kernel/sbi-ipi.c
+> @@ -75,6 +75,6 @@ void __init sbi_ipi_init(void)
+>                           "irqchip/sbi-ipi:starting",
+>                           sbi_ipi_starting_cpu, sbi_ipi_dying_cpu);
+>
+> -       riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
+> +       riscv_ipi_set_virq_range(virq, BITS_PER_BYTE, false);
+>         pr_info("providing IPIs using SBI IPI extension\n");
+>  }
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index e8a20454d65b..74b8cb1a89ab 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -145,7 +145,10 @@ bool riscv_ipi_have_virq_range(void)
+>         return (ipi_virq_base) ? true : false;
+>  }
+>
+> -void riscv_ipi_set_virq_range(int virq, int nr)
+> +DEFINE_STATIC_KEY_FALSE(riscv_ipi_for_rfence);
+> +EXPORT_SYMBOL_GPL(riscv_ipi_for_rfence);
+> +
+> +void riscv_ipi_set_virq_range(int virq, int nr, bool use_for_rfence)
+>  {
+>         int i, err;
+>
+> @@ -168,6 +171,12 @@ void riscv_ipi_set_virq_range(int virq, int nr)
+>
+>         /* Enabled IPIs for boot CPU immediately */
+>         riscv_ipi_enable();
+> +
+> +       /* Update RFENCE static key */
+> +       if (use_for_rfence)
+> +               static_branch_enable(&riscv_ipi_for_rfence);
+> +       else
+> +               static_branch_disable(&riscv_ipi_for_rfence);
+>  }
+>  EXPORT_SYMBOL_GPL(riscv_ipi_set_virq_range);
+>
+> diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+> index f9dd746a72c5..658049a5440b 100644
+> --- a/drivers/clocksource/timer-clint.c
+> +++ b/drivers/clocksource/timer-clint.c
+> @@ -249,7 +249,7 @@ static int __init clint_timer_init_dt(struct device_node *np)
+>                 goto fail_free_irq;
+>         }
+>
+> -       riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
+> +       riscv_ipi_set_virq_range(virq, BITS_PER_BYTE, true);
+>         clint_clear_ipi(clint_ipi_irq, NULL);
+>
+>         return 0;
+> --
+> 2.34.1
+>
 
-drivers/cache/ or something is what I'm suggesting starting. The first 
-thing is probably making an inventory of how many we already have.
 
-Rob
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
