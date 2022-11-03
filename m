@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E4EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 10:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D113C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 11:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:From:In-Reply-To:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BiOiPBKaZLDp9elxndqS7vA/jWULvRMtTv9e2M+ziPA=; b=WvRG0Mt4yVeK/X
-	r4885cs5uI+vSylkm9DvlMx7Gnos4F4iR/2IMMyyPBL8mm7nbqLzsbya1+aLWAnIt8geWk8Nz3n3j
-	D+4CUkAysh089d7iTpkn7l+oTD9mgXqRAqPprboXdGlMKWg4QcA4GusjZVL1q8UctAy74I87IDDrM
-	bT86kqpAQktqUyOAwKJMa9KFn9idB3jpO9jMjQQyj38MNd4tIUaxn4mIlwm+9693Zi9SYxqzJOZOY
-	ToAE2wgSDvSe5kK612aEFB/mPkN/YVWjcpmUQ13c424IVqCdyZjb+AjnXeriSKUiTe0BzTxtSmdON
-	j9nKfZ2W7GBYHeTjNkkA==;
+	List-Owner; bh=BaDdidTIxfM0yAGa5wmZvZ9ASwBZSgEaKllgvyfKPm8=; b=Kk7Z1g8Hki8205
+	bijS5+S5BiZNK+J5VY5G31BcE2asipx11A02Df2NtXZl/WNPQiBD9RRXaHSe4ECkOwjqF+xBdJZ6v
+	aGnPZS3CbsWExI8jN5YH0Fx5nhntWuXdjUdmypxI1KJba76ElJtfsobueUjkaaRK8VrolAj/K86tK
+	nt+PKW94TNw4u79tHaL3ON8wOSkJ+Hhj9LCXJ1qivjTOdNHD+g0quDb/iAbOSWqlGkwsjEzWlyZp2
+	yYIzIpro2kVsoMdIKlD77wQ/x80hhlF2JHHUbUZ4TfNdYhDuFJjMx4ojJqIQzOoLnYSwBFViiWtJW
+	PkP38HUa8bdEYyUqfc7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqXMK-00H4Wk-Ao; Thu, 03 Nov 2022 10:22:04 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1oqYgY-00HFDv-EZ; Thu, 03 Nov 2022 11:47:02 +0000
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqXMG-00H4Vs-PW
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 10:22:02 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id d26so3870003eje.10
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 03:21:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ByGl95fLjh8Cpi3JWyUdCMrHeP2wN0DMwTQPtXf0l/c=;
-        b=PLD6XSJ6myW32BrjymWcPRAIZ93gz+Uki55VG252g2XY5yx/WMRpv7GsQGbC4kAhpK
-         o6TKTzyvvmF++f0OQsvG4E1Pi6KURyHx1W2FuVQAaycUlOS6SJLpunXseJZtBsOHUJgT
-         ezTtmmvl50morzB30KWD7UEOk8yEsZEP/DMlxNWFn4tyb/SctJakmpL1fFxwGlZJ6XW2
-         aPOUo/AfbfSz+67tFMeSOYGS7piSZijzp82LlfUWtxeKBbJpHAl5I6A/mkeYWq6/0ier
-         C6TYoKF+9dA99BY6uwLY46tdZTWLqkYiI0YfOEhF+NEPAmpKyaExMCzRzRN+F1p9LrfU
-         c00Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ByGl95fLjh8Cpi3JWyUdCMrHeP2wN0DMwTQPtXf0l/c=;
-        b=n+INeaUVD6Z1oxbjh4EfjBEF6885xXMD6bp9H8yQ9eeRBRqbWXJvWtoxKMyAxmTv0f
-         5W95icHab+Y86mrTgobqfLG2PiVcLqHR52mxMjCK8iVZcnqLuxilWCJWcgIx6+Zhx+I8
-         v2+dDykNCeDJqDczN/IhSjAIJM7RKUNf9ihIloS42+CTJR2MT5Kl4MCVt3OFTKihl215
-         VdcfYxrRu+UGcL0WRZ/rQ2kUZUdbD3Hs9Q7JlzQTcTpFn35dpq3C+bV/J96OSqD7PX4M
-         /Q0gRrZ1yVjOoxd7+KHmdux3GcjVXOJ3eGvQBaixfivVtLSUa0pz1U0qocO2yhJGomzM
-         Al0g==
-X-Gm-Message-State: ACrzQf29fBGZrOgocJtCNpKlYx0uS2QHH3wn3hW7EF5BfX8Spea+v0cZ
-	y/wjjlK6HfgRvgyB6gSajrijBQ==
-X-Google-Smtp-Source: AMsMyM6sToDeGkYz5O3uCAiOZ7vyYgi0ut8ALF2q0MDb12rU54USCGoCKIAGZfmJynrGKovgVw+jdw==
-X-Received: by 2002:a17:907:6296:b0:787:d066:9fcf with SMTP id nd22-20020a170907629600b00787d0669fcfmr26455431ejc.692.1667470915909;
-        Thu, 03 Nov 2022 03:21:55 -0700 (PDT)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id gw24-20020a170906f15800b007389c5a45f0sm307094ejb.148.2022.11.03.03.21.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Nov 2022 03:21:55 -0700 (PDT)
-Date: Thu, 3 Nov 2022 11:21:54 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com, heiko@sntech.de,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Patra <atishp@rivosinc.com>, jszhang@kernel.org
-Subject: Re: [PATCH 9/9] RISC-V: Use Zicboz in memset when available
-Message-ID: <20221103102154.stqsqswonhchrdof@kamzik>
-References: <20221027130247.31634-10-ajones@ventanamicro.com>
- <mhng-4fd71e9d-58b8-4e65-812f-bf0624628de7@palmer-ri-x1c9a>
+	id 1oqYgU-00HFBu-Np
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 11:47:01 +0000
+Received: from localhost (unknown [127.0.0.1])
+	by mta-01.yadro.com (Postfix) with ESMTP id 14A3F4121C;
+	Thu,  3 Nov 2022 11:46:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
+	content-transfer-encoding:content-type:content-type:from:from
+	:in-reply-to:references:content-language:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received
+	:received:received; s=mta-01; t=1667476007; x=1669290408; bh=eoK
+	R130ErlyvUvIirtpY2L+Sg/WGGSj8xuIXHUW2mOs=; b=D83shAGuNCbaWiFn3ar
+	+sDojxN5/3v3LPa7Mxj2O/hNw8Vyj0jIJQkHi+z92Dff68p4jSxDIfh8RNhdFTvL
+	yreGyps92vdJAqwN9x8lapSMjqpqKNf9AGbxePuPE9x0JCZBUHJOftf7SuoPvw1G
+	iFDZJ/nyOD7I0OAcqsKrz9mc=
+X-Virus-Scanned: amavisd-new at yadro.com
+Received: from mta-01.yadro.com ([127.0.0.1])
+	by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 13MqH0Om6Tze; Thu,  3 Nov 2022 14:46:47 +0300 (MSK)
+Received: from T-EXCH-02.corp.yadro.com (T-EXCH-02.corp.yadro.com [172.17.10.102])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mta-01.yadro.com (Postfix) with ESMTPS id 685FE41246;
+	Thu,  3 Nov 2022 14:46:39 +0300 (MSK)
+Received: from T-EXCH-08.corp.yadro.com (172.17.11.58) by
+ T-EXCH-02.corp.yadro.com (172.17.10.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
+ 15.1.669.32; Thu, 3 Nov 2022 14:46:39 +0300
+Received: from [10.199.21.212] (10.199.21.212) by T-EXCH-08.corp.yadro.com
+ (172.17.11.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1118.9; Thu, 3 Nov 2022
+ 14:46:38 +0300
+Message-ID: <daa4b708-2af7-9179-90ee-e3c800d990bc@yadro.com>
+Date: Thu, 3 Nov 2022 14:46:37 +0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-4fd71e9d-58b8-4e65-812f-bf0624628de7@palmer-ri-x1c9a>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
+Subject: Re: RISC-V reserved memory problems
+Content-Language: en-US
+To: <Conor.Dooley@microchip.com>, <linux-riscv@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<frowand.list@gmail.com>, <robh+dt@kernel.org>, <mick@ics.forth.gr>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<Valentina.FernandezAlanis@microchip.com>, <Daire.McNamara@microchip.com>,
+	<linux@yadro.com>, <heinrich.schuchardt@canonical.com>
+References: <8e10bf15-9fa9-fe90-1656-35bf3e87e7f8@microchip.com>
+ <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
+In-Reply-To: <f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com>
+From: Evgenii Shatokhin <e.shatokhin@yadro.com>
+X-Originating-IP: [10.199.21.212]
+X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
+ T-EXCH-08.corp.yadro.com (172.17.11.58)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_032200_873553_BFC6C71A 
-X-CRM114-Status: GOOD (  35.23  )
+X-CRM114-CacheID: sfid-20221103_044659_194147_7E4C420D 
+X-CRM114-Status: GOOD (  46.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,177 +88,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 02, 2022 at 07:43:03PM -0700, Palmer Dabbelt wrote:
-> On Thu, 27 Oct 2022 06:02:47 PDT (-0700), ajones@ventanamicro.com wrote:
-> > RISC-V has an optimized memset() which does byte by byte writes up to
-> > the first sizeof(long) aligned address, then uses Duff's device until
-> > the last sizeof(long) aligned address, and finally byte by byte to
-> > the end. When memset is used to zero memory and the Zicboz extension
-> > is available, then we can extend that by doing the optimized memset
-> > up to the first Zicboz block size aligned address, then use the
-> > Zicboz zero instruction for each block to the last block size aligned
-> > address, and finally the optimized memset to the end.
-> > 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > ---
-> >  arch/riscv/lib/memset.S | 81 +++++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 81 insertions(+)
-> > 
-> > diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
-> > index 74e4c7feec00..786b85b5e9cc 100644
-> > --- a/arch/riscv/lib/memset.S
-> > +++ b/arch/riscv/lib/memset.S
-> > @@ -5,6 +5,12 @@
-> > 
-> >  #include <linux/linkage.h>
-> >  #include <asm/asm.h>
-> > +#include <asm/alternative-macros.h>
-> > +#include <asm/insn-def.h>
-> > +#include <asm/hwcap.h>
-> > +
-> > +#define ALT_ZICBOZ(old, new)	ALTERNATIVE(old, new, 0, RISCV_ISA_EXT_ZICBOZ, \
-> > +					    CONFIG_RISCV_ISA_ZICBOZ)
-> > 
-> >  /* void *memset(void *, int, size_t) */
-> >  ENTRY(__memset)
-> > @@ -15,6 +21,58 @@ WEAK(memset)
-> >  	sltiu	a3, a2, 16
-> >  	bnez	a3, .Lfinish
-> > 
-> > +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> > +	ALT_ZICBOZ("j .Ldo_memset", "nop")
+Hi,
+
+On 16.08.2022 23:41, Conor.Dooley@microchip.com wrote:
+> Hey all,
+> We've run into a bit of a problem with reserved memory on PolarFire, or
+> more accurately a pair of problems that seem to have opposite fixes.
 > 
-> This at least deserves a comment: the jump is PC-relative, so it'll only
-> work if alternative processing happens in a way that ensures these PC
-> offsets don't change.  I think this might actually work if all that section
-> stuff avoids touching the PC, but that'd need to be written down if we're
-> going to depend on it.
+> The first of these problems is triggered when trying to implement a
+> remoteproc driver. To get the reserved memory buffer, remoteproc
+> does an of_reserved_mem_lookup(), something like:
+> 
+> 	np = of_parse_phandle(pdev->of_node, "memory-region", 0);
+> 	if (!np)
+> 		return -EINVAL;
+> 
+> 	rmem = of_reserved_mem_lookup(np);
+> 	if (!rmem)
+> 		return -EINVAL;
+> 
+> of_reserved_mem_lookup() then uses reserved_mem[i].name to try and find
+> a match - but this was triggering kernel panics for us. We did some
+> debugging and found that the name string's pointer was pointing to an
+> address in the 0x4000_0000 range. The minimum reproduction for this
+> crash is attached - it hacks in some print_reserved_mem()s into
+> setup_vm_final() around a tlb flush so you can see the before/after.
+> (You'll need a reserved memory node in your dts to replicate)
+> 
+> The output is like so, with the same crash as in the remoteproc driver:
+> 
+> [    0.000000] Linux version 6.0.0-rc1-00001-g0d9d6953d834 (conor@wendy) (riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0, GNU ld (GNU Binutils) 2.37) #1 SMP Tue Aug 16 13:42:09 IST 2022
+> [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+> [    0.000000] Machine model: Microchip PolarFire-SoC Icicle Kit
+> [    0.000000] earlycon: ns16550a0 at MMIO32 0x0000000020100000 (options '115200n8')
+> [    0.000000] printk: bootconsole [ns16550a0] enabled
+> [    0.000000] printk: debug: skip boot console de-registration.
+> [    0.000000] efi: UEFI not found.
+> [    0.000000] before flush
+> [    0.000000] OF: reserved mem: debug name is fabricbuf@ae000000
+> [    0.000000] after flush
+> [    0.000000] Unable to handle kernel paging request at virtual address 00000000401c31ac
+> [    0.000000] Oops [#1]
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 6.0.0-rc1-00001-g0d9d6953d834 #1
+> [    0.000000] Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+> [    0.000000] epc : string+0x4a/0xea
+> [    0.000000]  ra : vsnprintf+0x1e4/0x336
+> [    0.000000] epc : ffffffff80335ea0 ra : ffffffff80338936 sp : ffffffff81203be0
+> [    0.000000]  gp : ffffffff812e0a98 tp : ffffffff8120de40 t0 : 0000000000000000
+> [    0.000000]  t1 : ffffffff81203e28 t2 : 7265736572203a46 s0 : ffffffff81203c20
+> [    0.000000]  s1 : ffffffff81203e28 a0 : ffffffff81203d22 a1 : 0000000000000000
+> [    0.000000]  a2 : ffffffff81203d08 a3 : 0000000081203d21 a4 : ffffffffffffffff
+> [    0.000000]  a5 : 00000000401c31ac a6 : ffff0a00ffffff04 a7 : ffffffffffffffff
+> [    0.000000]  s2 : ffffffff81203d08 s3 : ffffffff81203d00 s4 : 0000000000000008
+> [    0.000000]  s5 : ffffffff000000ff s6 : 0000000000ffffff s7 : 00000000ffffff00
+> [    0.000000]  s8 : ffffffff80d9821a s9 : ffffffff81203d22 s10: 0000000000000002
+> [    0.000000]  s11: ffffffff80d9821c t3 : ffffffff812f3617 t4 : ffffffff812f3617
+> [    0.000000]  t5 : ffffffff812f3618 t6 : ffffffff81203d08
+> [    0.000000] status: 0000000200000100 badaddr: 00000000401c31ac cause: 000000000000000d
+> [    0.000000] [<ffffffff80338936>] vsnprintf+0x1e4/0x336
+> [    0.000000] [<ffffffff80055ae2>] vprintk_store+0xf6/0x344
+> [    0.000000] [<ffffffff80055d86>] vprintk_emit+0x56/0x192
+> [    0.000000] [<ffffffff80055ed8>] vprintk_default+0x16/0x1e
+> [    0.000000] [<ffffffff800563d2>] vprintk+0x72/0x80
+> [    0.000000] [<ffffffff806813b2>] _printk+0x36/0x50
+> [    0.000000] [<ffffffff8068af48>] print_reserved_mem+0x1c/0x24
+> [    0.000000] [<ffffffff808057ec>] paging_init+0x528/0x5bc
+> [    0.000000] [<ffffffff808031ae>] setup_arch+0xd0/0x592
+> [    0.000000] [<ffffffff8080070e>] start_kernel+0x82/0x73c
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+> 
+> We traced this back to early_init_fdt_scan_reserved_mem() in
+> setup_bootmem() - moving it later back up the boot sequence to
+> after the dt has been remapped etc has fixed the problem for us.
+> 
+> The least movement to get it working is attached, and also pushed
+> here: git.kernel.org/conor/c/1735589baefc
 
-I believe the "old" instructions can be anything, so PC-relative jumps
-should always work. The "new" instructions cannot contain any branch
-targets outside its content though. I agree we should better document
-the constraints in arch/riscv/include/asm/alternative-macros.h as
-my beliefs come from some trial-and-error and also from reading the
-constraints in arm64's implementation, as it appears riscv's
-implementation was derived from there. I can try to do an ALTERNATIVE
-documenting patch independently of this series.
+Any updates on this?
+
+I have encountered the same issue with invalid reserved_mem[i].name 
+pointers recently, while working on a remoteproc driver for our 
+RISC-V-based SoC.
+
+I can confirm that "riscv: fix reserved memory setup" 
+(git.kernel.org/conor/c/1735589baefc) fixes the issue in our kernel 
+based on 5.15.x.
+
+Your patch does not seem to have any adverse side-effects either, so:
+
+Tested-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
+
+If there are newer versions or variants of the fix, I'll be glad to test 
+them too.
+
+By the way, I wonder why arm and aarch64 do not seem to be affected by 
+the issue. As far as I can see, these architectures also populate 
+reserved_mem[] before switching to the final memory mapping during 
+kernel init. I have not dug deep into that though.
 
 > 
-> That said, this is really just a static_branch implemented differently.  Can
-> we just use one?
-
-I don't think we can use static branches in assembly.
-
-Thanks,
-drew
-
+> The second problem is a bit more complicated to explain - but we
+> found the solution conflicted with the remoteproc fix as we had
+> to move early_init_fdt_scan_reserved_mem() _earlier_ in the boot
+> process to solve this one.
 > 
-> > +	/*
-> > +	 * t1 will be the Zicboz block size.
-> > +	 * Zero means we're not using Zicboz, and we don't when a1 != 0
-> > +	 */
-> > +	li	t1, 0
-> > +	bnez	a1, .Ldo_memset
-> > +	la	a3, riscv_cboz_block_size
-> > +	lw	t1, 0(a3)
-> > +
-> > +	/*
-> > +	 * Round to nearest Zicboz block-aligned address
-> > +	 * greater than or equal to the start address.
-> > +	 */
-> > +	addi	a3, t1, -1
-> > +	not	t2, a3			/* t2 is Zicboz block size mask */
-> > +	add	a3, t0, a3
-> > +	and	t3, a3, t2		/* t3 is Zicboz block aligned start */
-> > +
-> > +	/* Did we go too far or not have at least one block? */
-> > +	add	a3, a0, a2
-> > +	and	a3, a3, t2
-> > +	bgtu	a3, t3, .Ldo_zero
-> > +	li	t1, 0
-> > +	j	.Ldo_memset
-> > +
-> > +.Ldo_zero:
-> > +	/* Use Duff for initial bytes if there are any */
-> > +	bne	t3, t0, .Ldo_memset
-> > +
-> > +.Ldo_zero2:
-> > +	/* Calculate end address */
-> > +	and	a3, a2, t2
-> > +	add	a3, t0, a3
-> > +	sub	a4, a3, t0
-> > +
-> > +.Lzero_loop:
-> > +	CBO_ZERO(t0)
-> > +	add	t0, t0, t1
-> > +	bltu	t0, a3, .Lzero_loop
-> > +	li	t1, 0			/* We're done with Zicboz */
-> > +
-> > +	sub	a2, a2, a4		/* Update count */
-> > +	sltiu	a3, a2, 16
-> > +	bnez	a3, .Lfinish
-> > +
-> > +	/* t0 is Zicboz block size aligned, so it must be SZREG aligned */
-> > +	j	.Ldo_duff3
-> > +#endif
-> > +
-> > +.Ldo_memset:
-> >  	/*
-> >  	 * Round to nearest XLEN-aligned address
-> >  	 * greater than or equal to the start address.
-> > @@ -33,6 +91,18 @@ WEAK(memset)
-> > 
-> >  .Ldo_duff:
-> >  	/* Duff's device with 32 XLEN stores per iteration */
-> > +
-> > +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> > +	ALT_ZICBOZ("j .Ldo_duff2", "nop")
-> > +	beqz	t1, .Ldo_duff2
-> > +	/* a3, "end", is start of block aligned start. a1 is 0 */
-> > +	move    a3, t3
-> > +	sub	a4, a3, t0		/* a4 is SZREG aligned count */
-> > +	move	t4, a4			/* Save count for later, see below. */
-> > +	j	.Ldo_duff4
-> > +#endif
-> > +
-> > +.Ldo_duff2:
-> >  	/* Broadcast value into all bytes */
-> >  	andi	a1, a1, 0xff
-> >  	slli	a3, a1, 8
-> > @@ -44,10 +114,12 @@ WEAK(memset)
-> >  	or	a1, a3, a1
-> >  #endif
-> > 
-> > +.Ldo_duff3:
-> >  	/* Calculate end address */
-> >  	andi	a4, a2, ~(SZREG-1)
-> >  	add	a3, t0, a4
-> > 
-> > +.Ldo_duff4:
-> >  	andi	a4, a4, 31*SZREG	/* Calculate remainder */
-> >  	beqz	a4, .Lduff_loop		/* Shortcut if no remainder */
-> >  	neg	a4, a4
-> > @@ -100,6 +172,15 @@ WEAK(memset)
-> > 
-> >  	addi	t0, t0, 32*SZREG
-> >  	bltu	t0, a3, .Lduff_loop
-> > +
-> > +#ifdef CONFIG_RISCV_ISA_ZICBOZ
-> > +	ALT_ZICBOZ("j .Lcount_update", "nop")
-> > +	beqz	t1, .Lcount_update
-> > +	sub	a2, a2, t4		/* Difference was saved above */
-> > +	j	.Ldo_zero2
-> > +#endif
-> > +
-> > +.Lcount_update:
-> >  	andi	a2, a2, SZREG-1		/* Update count */
-> > 
-> >  .Lfinish:
+> We want to have a node in our devicetree that contains some memory
+> that is non-cached & marked as reserved-memory. Maybe we have just
+> missed something, but from what we've seen:
+> - the really early setup looks at the dtb, picks the highest bit
+>     of memory and puts the dtb etc there so it can start using it
+> - early_init_fdt_scan_reserved_mem() is then called, which figures
+>     out if memory is reserved or not.
+> 
+> Unfortunately, the highest bit of memory is the non-cached bit so
+> everything falls over, but we can avoid this by moving the call to
+> early_init_fdt_scan_reserved_mem() above the dtb memblock alloc that
+> takes place right before it in setup_bootmem().
+> 
+> Obviously, both of these changes are moving the function call in
+> opposite directions and we can only really do one of them. We are not
+> sure if what we are doing with the non-cached reserved-memory section
+> is just not permitted & cannot work - or if this is something that
+> was overlooked for RISC-V specifically and works for other archs.
+> 
+> It does seem like the first issue is a real bug, and I am happy to
+> submit the patch for that whenever - but having two problems with
+> opposite fixes seemed as if there was something else lurking that we
+> just don't have enough understanding to detect.
+> 
+> Any help would be great!
+> 
+> Thanks,
+> Conor.
+> 
+> 
+> 
+
+Regards,
+Evgenii
 
 _______________________________________________
 linux-riscv mailing list
