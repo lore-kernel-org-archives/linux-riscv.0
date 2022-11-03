@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F711C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 15:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D849C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Nov 2022 15:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tBMvVG4a0VVakmr8ceRa9vJVtioUuyqJMP3UR28r/UY=; b=whF5J9hUULVyQ8
-	5j6mkjIt+LIxuNhNFwAy6ZDW4EqvU1PTcDUBSKFQHqjXUr/AkSQEOmj3DtZCEav6RSJjfCmzn+TZe
-	BM0EAoLlOZ4REaiRze66n8URIoRrHK6YcmHTL7AHc5MJGeM4iXDR7xa7OsnXG6CPOeAMBowACCWtr
-	NPM96vO9ydUk9tzcBxy7cNVqjvgm8q4gK9/0LZ1puhymMOStsc//2DCbw1UmarV2b/pyNk4SQSvk5
-	OdUvo4pjrbCiiUgLmepTYyH40Pq60HTuh0bFs56cywddPk7d3K6HGQsTY0kVrnasanDd6W0Eqv2dO
-	qictP2KHVtzrrqfSba9Q==;
+	List-Owner; bh=RmQtL5Ka0WRAOLSdK5xXbjIGw2U8G2ZLTygRUJ93g9M=; b=2bUfvLEfRY0+rT
+	GSR88D1zaOY+fXQHfebJCLmbGJt/53pFYaryNX1Zyd1lm1x+Bbf06h1hP3+TrgQ27SrzhTorem7+O
+	JqEIU+zoV3ycmS/yFG4QE3J5naQ1YgXu7gi2Z1i3jNTGT/WACtWGN+SzRXggia5D5cwq5t1/4apYD
+	JOzXtbDrGdoLXeYn2b298epHTepOohHAoKFC9DjPDQAY3ap4/0avnux2nCTFCJhG8hqkLGUE0AXbJ
+	EG84yVOvmLPy+wiviPhS4lAuCZIRVAptgYi1jQ8EoHvOrtfmVAWWVKpWRiPFCf4clG6Vk4rXkShA6
+	FDRUU7/x169airhBL1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqbpi-000EOh-3L; Thu, 03 Nov 2022 15:08:42 +0000
+	id 1oqcJ8-000RgP-EV; Thu, 03 Nov 2022 15:39:06 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqbpK-000EBt-2I
-	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 15:08:20 +0000
+	id 1oqbyZ-000HoK-1Z
+	for linux-riscv@lists.infradead.org; Thu, 03 Nov 2022 15:17:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1667488095;
+	s=mimecast20190719; t=1667488669;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MLzJVyRQvNMkBYTyqF+CAZ1OHQes3dhnjH8NkXHBEKk=;
-	b=CY0XdSUNeD70Vl1nGxs1Lz+fnk0kusmK2S1UsPsNT8dLTmXjInbelY6+e3b5y7Ko5tIVIJ
-	GjNatx/L9IwHA5zc6/OiTWykTS/bAEj8ZzaX1UXKPxhZ3sbJ8ZDVRaIEoUtDDguhIUMpHD
-	qTYzz17K/R2E4/sKLw6Sj0PqzQp7mp8=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=Ayp5B1FtOoX/awXyyNk+Et491AUBiGcW44dxue5Nqxo=;
+	b=O2J/vwkWuYcIlCax1IKXc9CZTrJf1qDy6dKOw1KVev1a/R1ifF6EKnE1PvHjodtNs8fUJb
+	XIaa/RIJmjeYu9qwUte86O1qXj29lcT51bSH9tognRBSXqBIo5ycz57+jBxjCvyLtkom17
+	yIKrrWt6WuYlgh5hGnS4XGjH4RWKNI8=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-86-Wa01ClZzOvilNmNf2P9kbQ-1; Thu, 03 Nov 2022 11:08:14 -0400
-X-MC-Unique: Wa01ClZzOvilNmNf2P9kbQ-1
-Received: by mail-ej1-f69.google.com with SMTP id ga26-20020a1709070c1a00b007ad4a55d6e1so1432895ejc.6
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 08:08:14 -0700 (PDT)
+ us-mta-184-UDmNC9e1Pf6TlQKNac7jQQ-1; Thu, 03 Nov 2022 11:17:47 -0400
+X-MC-Unique: UDmNC9e1Pf6TlQKNac7jQQ-1
+Received: by mail-ed1-f71.google.com with SMTP id c9-20020a05640227c900b00463de74bc15so1594575ede.13
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Nov 2022 08:17:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MLzJVyRQvNMkBYTyqF+CAZ1OHQes3dhnjH8NkXHBEKk=;
-        b=bWy9kJqpI90pchQqR/vHdyrEl4+ChYzabEZHnXo4FDFJXGcNsNCqNAZa6BdWvOx3U7
-         9fBWRBvlY+CMxs1jEEErPIYjcFwFQOzGuKyiLFbZRscJfh0SlbRuIY01oNjVluq2odNb
-         RVh1c0+0vBsfFpqxDK/zle2Z5ataFj3dfk5qBdDWnPRoMv4bYf9WlPNN/hbETm5jxVef
-         aHpqjyD3bO2ksyuYKAJ5Hwt/9EzEkT2w7BusDjrjNjXck+njRMB7Zes04GJA/lQVN6Au
-         VvfGHIWpA9Zr3GudmeKVcFGsq+MfB5ecSunKNJLUp9GiVi3KhNVnNCm6klRfZO/nbOsL
-         SgHA==
-X-Gm-Message-State: ACrzQf0ErtEf+VhR75t35pp0AZPQ6Q3+++KreZbZq8OFZH9jajmR5P7z
-	WeAPwm7J5d1VlGCoB3EIKq/9L+zf5OF72hlpp8BM8ioXOl5KvqQq4DkEb3fPT964euP+2ftCdEp
-	ePwQUXHFZBkkYl6PgnmVuthk9ifca
-X-Received: by 2002:a05:6402:550e:b0:456:f79f:2bed with SMTP id fi14-20020a056402550e00b00456f79f2bedmr31117715edb.106.1667488093028;
-        Thu, 03 Nov 2022 08:08:13 -0700 (PDT)
-X-Google-Smtp-Source: AMsMyM6ksX1XHskAylW8hRvHj1WJtzsGVm4o7GE4R3Qlz1mullFc3dI571812AyMzkQixxOznTrmOg==
-X-Received: by 2002:a05:6402:550e:b0:456:f79f:2bed with SMTP id fi14-20020a056402550e00b00456f79f2bedmr31117664edb.106.1667488092781;
-        Thu, 03 Nov 2022 08:08:12 -0700 (PDT)
+        bh=Ayp5B1FtOoX/awXyyNk+Et491AUBiGcW44dxue5Nqxo=;
+        b=Wqn2CbKiQgarAD9hJ/6w1Mge1WFUEWcDhCJ588txI1pwKmmN1Hv3QH5Ps1TAKKlmrl
+         llvRycWorx5J83WMt2+WR7NfLWoTyexFvX6irsUKHW3wfP4loGyUg6zGBDRdwa2Znq22
+         SbYAUcAdPk9yAqdYqof42VbkbYx31i1/Ln8snqpFPcan6QUpDoPXpQICp2oFUix+ahK2
+         YLx2jX2KBP8wDw41W9T2v1U2nSgK8kLbrHzPZEg11N3NhN+j6ZMz3CMG/g5NGEpPMTxZ
+         nTzDByrpSHR1X0nrXXp81vS1kmNUB8MIX0+FYMV+8l1KWlipeTfsNtymhIg4P3AwRn+t
+         86Mg==
+X-Gm-Message-State: ACrzQf1+NPLopmHZbD2AOMLxWmYr+1wWkU9btsBR95O+jnBAuIy4OzAk
+	wVWs5AhkzR8OP5Bb/zV5n7fRfGcKP7i993zA9lk877cXwppbuWwv5RCrk6sAxcBi6mTqs5L1Lgl
+	pZuFC2H9pITTYvx4ZiFYDDDJiJKcU
+X-Received: by 2002:a05:6402:204d:b0:463:153d:6790 with SMTP id bc13-20020a056402204d00b00463153d6790mr27934882edb.293.1667488666688;
+        Thu, 03 Nov 2022 08:17:46 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM630sytXvddVtAZaAJHdRqOOceHpoBMlPyO4dZ3HgeOBssiaNPhkaiASNbBs9VIOouVbrocUg==
+X-Received: by 2002:a05:6402:204d:b0:463:153d:6790 with SMTP id bc13-20020a056402204d00b00463153d6790mr27934856edb.293.1667488666443;
+        Thu, 03 Nov 2022 08:17:46 -0700 (PDT)
 Received: from ?IPV6:2001:b07:6468:f312:1c09:f536:3de6:228c? ([2001:b07:6468:f312:1c09:f536:3de6:228c])
-        by smtp.googlemail.com with ESMTPSA id s28-20020a056402037c00b0045bccd8ab83sm646641edw.1.2022.11.03.08.08.10
+        by smtp.googlemail.com with ESMTPSA id 1-20020a170906210100b007317f017e64sm595545ejt.134.2022.11.03.08.17.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Nov 2022 08:08:11 -0700 (PDT)
-Message-ID: <bfa98587-3b36-3834-a4b9-585a0e0aa56a@redhat.com>
-Date: Thu, 3 Nov 2022 16:08:09 +0100
+        Thu, 03 Nov 2022 08:17:45 -0700 (PDT)
+Message-ID: <23bfd709-f99a-5a74-e4b9-1381b88453f1@redhat.com>
+Date: Thu, 3 Nov 2022 16:17:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.0
-Subject: Re: [PATCH 33/44] KVM: x86: Do VMX/SVM support checks directly in
- vendor code
+Subject: Re: [PATCH 36/44] KVM: x86: Do compatibility checks when onlining CPU
 To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
  Huacai Chen <chenhuacai@kernel.org>,
  Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
@@ -97,15 +96,15 @@ Cc: James Morse <james.morse@arm.com>,
  <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
  Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
 References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-34-seanjc@google.com>
+ <20221102231911.3107438-37-seanjc@google.com>
 From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <20221102231911.3107438-34-seanjc@google.com>
+In-Reply-To: <20221102231911.3107438-37-seanjc@google.com>
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221103_080818_209009_56BDF53D 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20221103_081751_222483_FF93E310 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,18 +123,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/3/22 00:19, Sean Christopherson wrote:
-> +	if (!boot_cpu_has(X86_FEATURE_MSR_IA32_FEAT_CTL) ||
-> +	    !boot_cpu_has(X86_FEATURE_VMX)) {
-> +		pr_err("VMX not enabled in MSR_IA32_FEAT_CTL\n");
-> +		return false;
+> From: Chao Gao<chao.gao@intel.com>
+> 
+> Do compatibility checks when enabling hardware to effectively add
+> compatibility checks when onlining a CPU.  Abort enabling, i.e. the
+> online process, if the (hotplugged) CPU is incompatible with the known
+> good setup.
 
-I think the reference to the BIOS should remain in these messages and in 
-svm.c (even though these days it's much less common for vendors to 
-default to disabled virtualization in the system setup).
-
-The check for X86_FEATURE_MSR_IA32_FEAT_CTL is not needed because 
-init_ia32_feat_ctl() will clear X86_FEATURE_VMX if the rdmsr fail (and 
-not set X86_FEATURE_MSR_IA32_FEAT_CTL).
+This paragraph is not true with this patch being before "KVM: Rename and 
+move CPUHP_AP_KVM_STARTING to ONLINE section".
 
 Paolo
 
