@@ -4,105 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2244EC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 07:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C7DC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 07:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sw6MZvzu/xkyYMTtL+6eEVwLAkrfCMHHRnOdGKTNuq0=; b=pa6iQk1cM0sbv1
-	4bOn8rWpL+3XoGca5X2roteuMlMrs/+FtAkvFHFzwBzlmU8d9r8jwDMinl1zh2Nn75VXSCU7T4ddQ
-	rRo5HIUODc7UkVlYmQ0wU+pRJfRWmDlil2PpCpv7iiSNasgANXqC8CofYJ66ei6doSD91Lhibvnxm
-	V4rkERa3MIftS3GciqMo2hcfsB3dNAerfYycimJ9Jh6JjfY57Tk+uBE1r9vUOsEaIpCBwP8XqIpO3
-	tViUb6k5ExbGPJXdc9fDbfi/qVnsMvsALyRH+BV17uHqbk448fDERID94XjW7dewVluH0ANR0YByi
-	qbqpqWrELQvr5O69u8MA==;
+	List-Owner; bh=mJw+ESUYGtDQCvSLI/MEew9DQPTzeKUIr/Qjgymd2wU=; b=vrLb0fodkjvm+T
+	UAq8Xb2dTWZGV4m3q3kcTBjS2FKF5ECODA7ZIHcYHxg9TP2oq+pHcf9nNGjzT4LiAeacy0abJHwoE
+	ph/T100B+VmQrCbY69QHSUQsOO4cCv6DZL6RctWtThTWCkfOFNNmexpADUspQerHzSNdnuPJRbyjQ
+	nRzSdmz9KJX+ShG3VgaZbegEWRXRQLKZbiGdU2WuI1KJyv4ZXuOt73v4eBxbIMG6j0rfsSnsFyXBx
+	X6vdfVYrxe5gjmBTd8FzeJZKRe62o8tZa4M+3Tz//RF6y2rcsjN2x8lUfsfGOSH4jlgaiVlyen+rY
+	zuRA5NeU5kclI2P9swEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqqyM-002kak-5d; Fri, 04 Nov 2022 07:18:38 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1oqrbr-002q24-Pn; Fri, 04 Nov 2022 07:59:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqqy7-002kUQ-Rw; Fri, 04 Nov 2022 07:18:26 +0000
-Received: by mail-pl1-x635.google.com with SMTP id b21so4108258plc.9;
-        Fri, 04 Nov 2022 00:18:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eA0yZupCmJu+lIFxWoscgsZofsCuVm6nQ+r3Bs4PfgM=;
-        b=pMTxZL/oe6jfdbdYCNUp+Xb6WGMwDJ0tqzYjFuCFVTbU1K6LCmp38IhtqgFEtGH1Fw
-         eLi3S+bCzf2+/rSdLI9BvXSs2AxVFQGLdZ/VpkCMRosDZICPg8K0E7aAi3VCg4WFPYDw
-         BfmWNQys/m/eitnUWQLYZ4i97xNTJmOpokS1/YmW7+tK6sMrbeSwt/lUvRFiVPBmwrU/
-         ivWuBjfa1WZ8S1UNebL0AtpJKNK0IoOPWmP7NKKqfcpMaASq0oFieIk/rtzcNf6p/IAa
-         QK7q17GoUs4Yjdkmho6a4WFZ4muIgt4Uy+uR4Vu4p0vmgfomnVLk+4/4y9tD9W4Njnx3
-         1t6w==
+	id 1oqrbf-002pzH-CQ
+	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 07:59:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1667548754;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EJeUF4PeIyDwWhg83Rm4e9DTJIlz0RfDdBHuS7iY8Qc=;
+	b=IVZqTWMIe/jNlV3Enr2mfszS1GxWf6UstFiNLcpPqlz8YM9O+pyHNCnvQ4A29e0WfX7Fl+
+	AR49YujeazEKux6ODN8WWsS93HjFr2QlGyxSATP2E4NocTRspsU804Vneb9OQdjQzabKgU
+	h3oEtRMhEqKHcGdmiRIuV1p+yAK/+/M=
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-584-d5CKHc12MQCJdMNXWfWn5Q-1; Fri, 04 Nov 2022 03:59:11 -0400
+X-MC-Unique: d5CKHc12MQCJdMNXWfWn5Q-1
+Received: by mail-ej1-f71.google.com with SMTP id nc4-20020a1709071c0400b0078a5ceb571bso2698878ejc.4
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 00:59:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eA0yZupCmJu+lIFxWoscgsZofsCuVm6nQ+r3Bs4PfgM=;
-        b=L4y7yDjWYjP3qnW3bosm9ab8/px+hoGZXt1PTLTOQc0CvDgKCYduIujUai2d4XDhdJ
-         n6GLPY439kwXHW4vJiSt6uwAGjmhOkHHOjrUWMIvUhujkkVSTwrnFc7mHXfSKRYVfC/n
-         LtqCEZXBGLJQn7DrComW6GyX7SUI7OyREIDlSgqdjaBZ9TZas9GLSF2A1hm9Zoh8Gvzg
-         i4IEnlQfTrGxJE++CgrLy3g5+HK8HbiYi3OyGpoPbb2x+gw6s9wV58bvgadFVkIHLzu4
-         2DoYbPJkPt1nH6Shql2gYT3yf7OzhYpLoC/k9be3qiKA8pRSm++BSeHsnMRmfEhm7KKl
-         QmUg==
-X-Gm-Message-State: ACrzQf1w6qSPKhqrs1d74eqALRPIjVemDT9kVYtDnies1cvmtdPUBp/+
-	OisAICM8nNHdWoRvj60HhoQ=
-X-Google-Smtp-Source: AMsMyM44DihVYXeoqfThPObIIFl16q8Fgq5Ol1s8X3KRnlnJD5T+n/qjAhXcJhbg7QI1HMtgLqbViQ==
-X-Received: by 2002:a17:902:d592:b0:17a:582:4eb with SMTP id k18-20020a170902d59200b0017a058204ebmr34136415plh.40.1667546300864;
-        Fri, 04 Nov 2022 00:18:20 -0700 (PDT)
-Received: from localhost ([192.55.54.55])
-        by smtp.gmail.com with ESMTPSA id y9-20020a17090322c900b00186f0f59c85sm1854838plg.235.2022.11.04.00.18.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Nov 2022 00:18:20 -0700 (PDT)
-Date: Fri, 4 Nov 2022 00:18:19 -0700
-From: Isaku Yamahata <isaku.yamahata@gmail.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Isaku Yamahata <isaku.yamahata@gmail.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Fabiano Rosas <farosas@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Yuan Yao <yuan.yao@intel.com>
-Subject: Re: [PATCH 36/44] KVM: x86: Do compatibility checks when onlining CPU
-Message-ID: <20221104071819.GD1063309@ls.amr.corp.intel.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-37-seanjc@google.com>
- <20221103210402.GB1063309@ls.amr.corp.intel.com>
- <Y2RB4qT02EkhMjPL@google.com>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EJeUF4PeIyDwWhg83Rm4e9DTJIlz0RfDdBHuS7iY8Qc=;
+        b=k/8FeC0ELZTEwRYepDaN3JkRgfqWGNt9QSmtvMMZp7tnTMmaMuraMqCLLdNoF6tCFl
+         TnGW0Ae64IicYSNbOuFyQo41qWfznQ9bVQuuiBHB3suZwvqIZuwxZ7HzHAFwm95/H2j2
+         Iwml+cJfdl9Tyd5eKX0cxGksgTAL793bR6WR6U3cWcyNXJN2AxkBoX1HWzMHioZOu4Cw
+         dIkyK7EVsmC1KXy3FTYZXnwEnRotBK2n9miym3DX2ahD49o6F/p0o3Cgc17wZqo7Pg9J
+         n4eyXU1pfoXk+SfMqiQ6yeLWHsJCwlFBUg7T1XPpKpqmkPsfRA8ix7ezOzhYN85BlQe6
+         XUow==
+X-Gm-Message-State: ACrzQf2JOZ46OocVGcESDEP7EWoL+DW5bMmE2DtW22w/XtTCEu79zV3Z
+	Z9rc4X4OjTtf8hKgTpcg02DqdEBg+R+ULJqVLB41qlmQ7VZMgd9ZHJGy09o1pus4tVtTB3tcsUz
+	/rO52rNYhCNWtScmb5v2LHxkWhF5d
+X-Received: by 2002:a05:6402:378c:b0:458:8053:6c5f with SMTP id et12-20020a056402378c00b0045880536c5fmr33842102edb.9.1667548749723;
+        Fri, 04 Nov 2022 00:59:09 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM4JQssOxBto/uy8zX5hPa1fJjqq666daf9UF+4lfquuNi1ItDIQofNjauQbNAII7zHijsljig==
+X-Received: by 2002:a05:6402:378c:b0:458:8053:6c5f with SMTP id et12-20020a056402378c00b0045880536c5fmr33842056edb.9.1667548749383;
+        Fri, 04 Nov 2022 00:59:09 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:4783:a68:c1ee:15c5? ([2001:b07:6468:f312:4783:a68:c1ee:15c5])
+        by smtp.googlemail.com with ESMTPSA id t24-20020aa7d4d8000000b00461a98a2128sm1576537edr.26.2022.11.04.00.59.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 04 Nov 2022 00:59:08 -0700 (PDT)
+Message-ID: <2d964d60-c2e9-ea00-37b4-ad82af9e013f@redhat.com>
+Date: Fri, 4 Nov 2022 08:59:05 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y2RB4qT02EkhMjPL@google.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.0
+Subject: Re: [PATCH 00/44] KVM: Rework kvm_init() and hardware enabling
+To: Isaku Yamahata <isaku.yamahata@gmail.com>,
+ Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Matthew Rosato <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>,
+ Vitaly Kuznetsov <vkuznets@redhat.com>, James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Atish Patra <atishp@atishpatra.org>,
+ David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Isaku Yamahata <isaku.yamahata@intel.com>,
+ Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+ <20221104071749.GC1063309@ls.amr.corp.intel.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <20221104071749.GC1063309@ls.amr.corp.intel.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_001823_920468_E7D9E456 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20221104_005915_531063_76779524 
+X-CRM114-Status: GOOD (  32.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,45 +116,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 03, 2022 at 10:34:10PM +0000,
-Sean Christopherson <seanjc@google.com> wrote:
+On 11/4/22 08:17, Isaku Yamahata wrote:
+> On Wed, Nov 02, 2022 at 11:18:27PM +0000,
+> Sean Christopherson <seanjc@google.com> wrote:
+> 
+>> Non-x86 folks, please test on hardware when possible.  I made a _lot_ of
+>> mistakes when moving code around.  Thankfully, x86 was the trickiest code
+>> to deal with, and I'm fairly confident that I found all the bugs I
+>> introduced via testing.  But the number of mistakes I made and found on
+>> x86 makes me more than a bit worried that I screwed something up in other
+>> arch code.
+>>
+>> This is a continuation of Chao's series to do x86 CPU compatibility checks
+>> during virtualization hardware enabling[1], and of Isaku's series to try
+>> and clean up the hardware enabling paths so that x86 (Intel specifically)
+>> can temporarily enable hardware during module initialization without
+>> causing undue pain for other architectures[2].  It also includes one patch
+>> from another mini-series from Isaku that provides the less controversial
+>> patches[3].
+>>
+>> The main theme of this series is to kill off kvm_arch_init(),
+>> kvm_arch_hardware_(un)setup(), and kvm_arch_check_processor_compat(), which
+>> all originated in x86 code from way back when, and needlessly complicate
+>> both common KVM code and architecture code.  E.g. many architectures don't
+>> mark functions/data as __init/__ro_after_init purely because kvm_init()
+>> isn't marked __init to support x86's separate vendor modules.
+>>
+>> The idea/hope is that with those hooks gone (moved to arch code), it will
+>> be easier for x86 (and other architectures) to modify their module init
+>> sequences as needed without having to fight common KVM code.  E.g. I'm
+>> hoping that ARM can build on this to simplify its hardware enabling logic,
+>> especially the pKVM side of things.
+>>
+>> There are bug fixes throughout this series.  They are more scattered than
+>> I would usually prefer, but getting the sequencing correct was a gigantic
+>> pain for many of the x86 fixes due to needing to fix common code in order
+>> for the x86 fix to have any meaning.  And while the bugs are often fatal,
+>> they aren't all that interesting for most users as they either require a
+>> malicious admin or broken hardware, i.e. aren't likely to be encountered
+>> by the vast majority of KVM users.  So unless someone _really_ wants a
+>> particular fix isolated for backporting, I'm not planning on shuffling
+>> patches.
+>>
+>> Tested on x86.  Lightly tested on arm64.  Compile tested only on all other
+>> architectures.
+> 
+> Thanks for the patch series. I the rebased TDX KVM patch series and it worked.
+> Since cpu offline needs to be rejected in some cases(To keep at least one cpu
+> on a package), arch hook for cpu offline is needed.
+> I can keep it in TDX KVM patch series.
 
-> On Thu, Nov 03, 2022, Isaku Yamahata wrote:
-> > On Wed, Nov 02, 2022 at 11:19:03PM +0000,
-> > Sean Christopherson <seanjc@google.com> wrote:
-> > > diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-> > > index f223c845ed6e..c99222b71fcc 100644
-> > > --- a/arch/x86/include/asm/kvm_host.h
-> > > +++ b/arch/x86/include/asm/kvm_host.h
-> > > @@ -1666,7 +1666,7 @@ struct kvm_x86_nested_ops {
-> > >  };
-> > >  
-> > >  struct kvm_x86_init_ops {
-> > > -	int (*check_processor_compatibility)(void);
-> > > +	int (*check_processor_compatibility)(int cpu);
-> > 
-> > Is this cpu argument used only for error message to include cpu number
-> > with avoiding repeating raw_smp_processor_id() in pr_err()?
-> 
-> Yep.
-> 
-> > The actual check is done on the current executing cpu.
-> > 
-> > If cpu != raw_smp_processor_id(), cpu is wrong. Although the function is called
-> > in non-preemptive context, it's a bit confusing. So voting to remove it and
-> > to use.
-> 
-> What if I rename the param is this_cpu?  I 100% agree the argument is confusing
-> as-is, but forcing all the helpers to manually grab the cpu is quite annoying.
+Yes, this patch looks good.
 
-Makes sense. Let's settle it with this_cpu.
--- 
-Isaku Yamahata <isaku.yamahata@gmail.com>
+Paolo
+
+> diff --git a/arch/x86/include/asm/kvm-x86-ops.h b/arch/x86/include/asm/kvm-x86-ops.h
+> index 23c0f4bc63f1..ef7bcb845d42 100644
+> --- a/arch/x86/include/asm/kvm-x86-ops.h
+> +++ b/arch/x86/include/asm/kvm-x86-ops.h
+> @@ -17,6 +17,7 @@ BUILD_BUG_ON(1)
+>   KVM_X86_OP(hardware_enable)
+>   KVM_X86_OP(hardware_disable)
+>   KVM_X86_OP(hardware_unsetup)
+> +KVM_X86_OP_OPTIONAL_RET0(offline_cpu)
+>   KVM_X86_OP(has_emulated_msr)
+>   KVM_X86_OP(vcpu_after_set_cpuid)
+>   KVM_X86_OP(is_vm_type_supported)
+> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> index 496c7c6eaff9..c420409aa96f 100644
+> --- a/arch/x86/include/asm/kvm_host.h
+> +++ b/arch/x86/include/asm/kvm_host.h
+> @@ -1468,6 +1468,7 @@ struct kvm_x86_ops {
+>   	int (*hardware_enable)(void);
+>   	void (*hardware_disable)(void);
+>   	void (*hardware_unsetup)(void);
+> +	int (*offline_cpu)(void);
+>   	bool (*has_emulated_msr)(struct kvm *kvm, u32 index);
+>   	void (*vcpu_after_set_cpuid)(struct kvm_vcpu *vcpu);
+>   
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 2ed5a017f7bc..17c5d6a76c93 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12039,6 +12039,11 @@ void kvm_arch_hardware_disable(void)
+>   	drop_user_return_notifiers();
+>   }
+>   
+> +int kvm_arch_offline_cpu(unsigned int cpu)
+> +{
+> +	return static_call(kvm_x86_offline_cpu)();
+> +}
+> +
+>   bool kvm_vcpu_is_reset_bsp(struct kvm_vcpu *vcpu)
+>   {
+>   	return vcpu->kvm->arch.bsp_vcpu_id == vcpu->vcpu_id;
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 620489b9aa93..4df79443fd11 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1460,6 +1460,7 @@ static inline void kvm_create_vcpu_debugfs(struct kvm_vcpu *vcpu) {}
+>   int kvm_arch_hardware_enable(void);
+>   void kvm_arch_hardware_disable(void);
+>   #endif
+> +int kvm_arch_offline_cpu(unsigned int cpu);
+>   int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu);
+>   bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu);
+>   int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu);
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index f6b6dcedaa0a..f770fdc662d0 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -5396,16 +5396,24 @@ static void hardware_disable_nolock(void *junk)
+>   	__this_cpu_write(hardware_enabled, false);
+>   }
+>   
+> +__weak int kvm_arch_offline_cpu(unsigned int cpu)
+> +{
+> +	return 0;
+> +}
+> +
+>   static int kvm_offline_cpu(unsigned int cpu)
+>   {
+> +	int r = 0;
+> +
+>   	mutex_lock(&kvm_lock);
+> -	if (kvm_usage_count) {
+> +	r = kvm_arch_offline_cpu(cpu);
+> +	if (!r && kvm_usage_count) {
+>   		preempt_disable();
+>   		hardware_disable_nolock(NULL);
+>   		preempt_enable();
+>   	}
+>   	mutex_unlock(&kvm_lock);
+> -	return 0;
+> +	return r;
+>   }
+>   
+>   static void hardware_disable_all_nolock(void)
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
