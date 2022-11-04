@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20BBC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EEBC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s08c4gpyCm733KZNwMgnfHJjlq3Mom+sqXdyQf0Ckek=; b=M1cGssNhVxXzhD
-	GYUvHQIyZ9JSOJ1ZsQSyaNhacnNdauvD8CIIk+plcPAjQO4X5spZhk+Bvx+YFHhlyt/twtlA2ePIy
-	Y1v4xeRQRerL96Ql+1OjhRVOyw9cIBcNlCiD31Y+dLtEWBuT/rKYlz2NlyqiCfivwaNPPakXcYTlA
-	BHj2p8vZ7pGR0VTFwBmodPFbe/1ci4WnDQVD/uRytkKQ5QzPR/OpKbL4DXHvfDbtppNxdmVCqU7BW
-	Ttn/1RH+H6zSoRfTkJR8gzMmBhvRJLh4MmGCMap1w/FU35Ze35QajChKcQNp2xZEo1lUr747Cdhjv
-	ObUywGtTjfnmrbYmzeEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I2oygw9Rx0eGkquTksNs863jJcpb51/Inj+3PgUR7a4=; b=jsnWKjJcKGQxYF
+	cEa38e45sU7m9k3Ohuh6qkRVEp4h9CwMnrD5Yu621uD9VSuBKvIcMVrdDAiClBsCAUGZeYhDo2C55
+	SGo0S2nfD+oXXHRSyqwiLs4p2ZdCR2piPhMB/nyxqI9VJbG6QrC3b7+cOLzDhhbKmlCQCJwbmxegj
+	Od+BeHc8IJsCxFzTyVm9y9FvtCoiq27THWHhx7HVBoa5kyIrycEHipG37L9IUHiijQecD3WRuH9CS
+	XrVPZpvw42UeVfUqcF1UgizQK7HJ9MXFdXt154jtquZQIc/25WMZxBvvdsdwQeNm0JcA3iKocS1a0
+	37xt7cOpVSGFHAFD9bbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or4s4-005LFq-Vy; Fri, 04 Nov 2022 22:09:05 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1or4so-005LMH-HM; Fri, 04 Nov 2022 22:09:50 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or4s1-005LFI-7H
-	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 22:09:03 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d20so5036359plr.10
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 15:09:00 -0700 (PDT)
+	id 1or4sl-005LL9-9p
+	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 22:09:48 +0000
+Received: by mail-ej1-x629.google.com with SMTP id ud5so16748964ejc.4
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 15:09:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=napPnSIw0O4XTTZP4wyQ6oPOXAEKNUr4s9A73CKQSGY=;
-        b=kD7U+cpuu24FxYIN5EAreZ+Lgq4/6Lmu0A/TMirFktAtEnJ6s/fxEjpZwCHASc/pe1
-         TDiNdvj+dOcC8LhggBtnkE46ljAq3pW23UkgihaSE8gBgkPhhCzFSB9VY2ZgAkHJhSEb
-         q4VCV/91gDwk1BtNNky6RFeYPBdHCUQQWAQadkKY438p0y4ZUxOJ8Zs4CnxDGpzuP7Ai
-         tFhD75PCzHmjqL6Kz7HTIuSZchB+VO8M/lRg2cDW+s5llYuLD0W2UZx57IiOMRRjqxDO
-         s+WhrkXWQzJM73VUKB+0azHenEKMKkoOzzmqLAsZ8WWi+1ieIxWFLGFNAGwTf0W/VuUU
-         fCpA==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=E5tz9kDARs7bEUpBgBU6vkYUGWPrxNGs4ZuVgd2D+O0=;
+        b=e63z/xZTYHs+wM70ZKty1cPbCAJVughzXg6uyiyaGr4cCcS0EUngASMR2Dey8Nlmv7
+         x471ErFdwXhh+agGiW0u8Eq3IYAq9L/OnLJeEXQe+A8bvEWUY8B4ZkTJcJ0B1+m52KiB
+         S3AZIRjpXmbUkG4EZ1HigN+/i/Cs9nHE0sy33v10NAHFH3zW4n4RbfKymGQ8putGtZqF
+         xxmkin+/H9oOa9ZTnOEa75YpnyUUUNQUJi/FSky8KTyQMHgg0kpT2SFs1RPgwxCDQ+4B
+         EBg4GVS+Vk0fjg1pDV9mRzU2JB/QN1Ubeav5I2M8MjtQUXTu3efFkVMRmE9+3e37Iwv5
+         u7fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=napPnSIw0O4XTTZP4wyQ6oPOXAEKNUr4s9A73CKQSGY=;
-        b=wQr7GmOyQScZr6xxDiwpSbhuroIQAgAu9/TMHoLT+Z002t6BonkWvV+y+EYuFQCAqt
-         DAJHAIt/qnggR0enf3aIHdryj0V2o5Yqe/IInInYo8wveMGHzroFqUfhWXb578zMD5Ex
-         0w9Zk1CbNyDam5yAx+0/lVmtv+jDmx/p+Tkx+5p+CdRhnDebpG2Xm5470Hlahh//1E3b
-         Bafj+w/PCiWPe2xM1j6Yax2Mkq/wkmzPFL7xHN9DNM0ijuf3oYz/uZQZrmh+hP5dS7Go
-         qMZke1ai3k1UKtktvllB5ACaNLB1Zslh1CXTVjIAC9jAIWQ0y9LCKw4l2pmPB80mDHk/
-         Ufsw==
-X-Gm-Message-State: ACrzQf1u0ZeATsNRkDvxcN8W5dnHcmz3LicP13yDqf9qXi8Z9RRNCpXH
-	MB6K/BpY4wSl7t0hobXt2D2CjA==
-X-Google-Smtp-Source: AMsMyM6oA5ahyPe5S23IV6l2y4Cn84YgPaoYV2u7BrPePhrp2+b/+qkXCRldxNDh4Izp85AArod68g==
-X-Received: by 2002:a17:902:d4c4:b0:186:acb0:e93c with SMTP id o4-20020a170902d4c400b00186acb0e93cmr380593plg.141.1667599739868;
-        Fri, 04 Nov 2022 15:08:59 -0700 (PDT)
-Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id m21-20020a170902bb9500b00186e2123506sm200448pls.300.2022.11.04.15.08.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Nov 2022 15:08:59 -0700 (PDT)
-Message-ID: <013150d0-c2cd-847a-6e6d-3292035b208d@rivosinc.com>
-Date: Fri, 4 Nov 2022 15:08:56 -0700
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=E5tz9kDARs7bEUpBgBU6vkYUGWPrxNGs4ZuVgd2D+O0=;
+        b=x0Ywos0EVQ2a+yYdYlEvu5fBvlC5eV7QlrMFYOACS3nhbkcRVn4ZxTshc6aL9UVcAh
+         IiCvoT3beTrL1imVQ8z27RWWaLTI4YDAkby9nqU2bkdO1uEWmtG8UzVFeA2uEs+9/NPg
+         oA56j0O4ooYxAmNYgaSqxgSgotehDx6cKPqP/ka6L0t8ucvO17g1QRmyyJhGN1pfhqsD
+         w70JRGMEgnkF0pEUzn9Q5Mffoeoo2Ge/MDLBwRMcJ3GxybNOAk24u6r8pyKMhgY4rVm9
+         3T0DIPLntU8rZeEOaWA7to1t4vpxf+o/uaajTCFhcrh+UYMkByHcGPV+tcNp1ikHp52k
+         Pa/Q==
+X-Gm-Message-State: ACrzQf0xdQUMWqZh5MMchRZsquK+tYK0QL3fD4mvN59O//PuHubl8Qw1
+	w/lb4YmhAQIcTbikJUwgb95mlpbCZBrpF5YGmjY=
+X-Google-Smtp-Source: AMsMyM7hOSo+MPQXTisKR46l8SXpBysoB5PG9CesHQ2UESeL+vAR1QVi8uCrmFqSUiYhWdkrvAt0e9X58nXzuNA6TwE=
+X-Received: by 2002:a17:906:371a:b0:7ad:c01c:6fa0 with SMTP id
+ d26-20020a170906371a00b007adc01c6fa0mr32068491ejc.267.1667599781913; Fri, 04
+ Nov 2022 15:09:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: [PATCH v12 08/17] riscv: Add task switch support for vector
-Content-Language: en-US
-To: Chris Stillson <stillson@rivosinc.com>
-Cc: Greentime Hu <greentime.hu@sifive.com>,
- Andrew Waterman <andrew@sifive.com>, Nick Knight <nick.knight@sifive.com>,
- Guo Ren <guoren@linux.alibaba.com>, Vincent Chen <vincent.chen@sifive.com>,
- Ruinland Tsai <ruinland.tsai@sifive.com>, kernel test robot <lkp@intel.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Oleg Nesterov <oleg@redhat.com>, Guo Ren <guoren@kernel.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- lkml <linux-kernel@vger.kernel.org>, linux-mm@kvack.org,
- Andy Chiu <andy.chiu@sifive.com>
-References: <20220921214439.1491510-1-stillson@rivosinc.com>
- <20220921214439.1491510-8-stillson@rivosinc.com>
-From: Vineet Gupta <vineetg@rivosinc.com>
-In-Reply-To: <20220921214439.1491510-8-stillson@rivosinc.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 4 Nov 2022 22:09:15 +0000
+Message-ID: <CA+V-a8u_u9Q6Hb8kOZVKFjGyPsc2HQt88c4y2Nh8dzx0XSebeA@mail.gmail.com>
+Subject: [QUERY]: RZ/Five (AX45MP) non-coherent DMA
+To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <Conor.Dooley@microchip.com>, 
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Chris Paterson <Chris.Paterson2@renesas.com>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_150901_525174_6F0BF7F9 
-X-CRM114-Status: GOOD (  29.71  )
+X-CRM114-CacheID: sfid-20221104_150947_360227_CE56745E 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,224 +81,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/21/22 14:43, Chris Stillson wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
-> 
-> This patch adds task switch support for vector. It supports partial lazy
-> save and restore mechanism. It also supports all lengths of vlen.
-> 
-> [guoren@linux.alibaba.com: First available porting to support vector
-> context switching]
-> [nick.knight@sifive.com: Rewrite vector.S to support dynamic vlen, xlen and
-> code refine]
-> [vincent.chen@sifive.com: Fix the might_sleep issue in vstate_save,
-> vstate_restore]
-> [andrew@sifive.com: Optimize task switch codes of vector]
-> [ruinland.tsai@sifive.com: Fix the arch_release_task_struct free wrong
-> datap issue]
-> 
-> Suggested-by: Andrew Waterman <andrew@sifive.com>
-> Co-developed-by: Nick Knight <nick.knight@sifive.com>
-> Signed-off-by: Nick Knight <nick.knight@sifive.com>
-> Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> Co-developed-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-> Signed-off-by: Ruinland Tsai <ruinland.tsai@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Reported-by: kernel test robot <lkp@intel.com>
-> Reported-by: kernel test robot <lkp@intel.com>
-> ---
->   arch/riscv/include/asm/switch_to.h | 66 ++++++++++++++++++++++++++++++
->   arch/riscv/kernel/Makefile         |  1 +
->   arch/riscv/kernel/process.c        | 43 +++++++++++++++++++
->   3 files changed, 110 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> index df1aa589b7fd..527951c033d4 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -7,11 +7,13 @@
->   #define _ASM_RISCV_SWITCH_TO_H
->   
->   #include <linux/jump_label.h>
-> +#include <linux/slab.h>
->   #include <linux/sched/task_stack.h>
->   #include <asm/hwcap.h>
->   #include <asm/processor.h>
->   #include <asm/ptrace.h>
->   #include <asm/csr.h>
-> +#include <asm/asm-offsets.h>
->   
->   #ifdef CONFIG_FPU
->   extern void __fstate_save(struct task_struct *save_to);
-> @@ -68,6 +70,68 @@ static __always_inline bool has_fpu(void) { return false; }
->   #define __switch_to_fpu(__prev, __next) do { } while (0)
->   #endif
->   
-> +#ifdef CONFIG_VECTOR
-> +extern struct static_key_false cpu_hwcap_vector;
-> +static __always_inline bool has_vector(void)
-> +{
-> +	return static_branch_likely(&cpu_hwcap_vector);
-> +}
-> +extern unsigned long riscv_vsize;
-> +extern void __vstate_save(struct __riscv_v_state *save_to, void *datap);
-> +extern void __vstate_restore(struct __riscv_v_state *restore_from, void *datap);
-> +
-> +static inline void __vstate_clean(struct pt_regs *regs)
-> +{
-> +	regs->status = (regs->status & ~(SR_VS)) | SR_VS_CLEAN;
-> +}
-> +
-> +static inline void vstate_off(struct task_struct *task,
-> +			      struct pt_regs *regs)
-> +{
-> +	regs->status = (regs->status & ~SR_VS) | SR_VS_OFF;
-> +}
-> +
-> +static inline void vstate_save(struct task_struct *task,
-> +			       struct pt_regs *regs)
-> +{
-> +	if ((regs->status & SR_VS) == SR_VS_DIRTY) {
-> +		struct __riscv_v_state *vstate = &(task->thread.vstate);
-> +
-> +		__vstate_save(vstate, vstate->datap);
-> +		__vstate_clean(regs);
-> +	}
-> +}
-> +
-> +static inline void vstate_restore(struct task_struct *task,
-> +				  struct pt_regs *regs)
-> +{
-> +	if ((regs->status & SR_VS) != SR_VS_OFF) {
-> +		struct __riscv_v_state *vstate = &(task->thread.vstate);
-> +
-> +		__vstate_restore(vstate, vstate->datap);
-> +		__vstate_clean(regs);
-> +	}
-> +}
-> +
-> +static inline void __switch_to_vector(struct task_struct *prev,
-> +				   struct task_struct *next)
-> +{
-> +	struct pt_regs *regs;
-> +
-> +	regs = task_pt_regs(prev);
-> +	if (unlikely(regs->status & SR_SD))
-> +		vstate_save(prev, regs);
-> +	vstate_restore(next, task_pt_regs(next));
-> +}
-> +
-> +#else
-> +static __always_inline bool has_vector(void) { return false; }
-> +#define riscv_vsize (0)
-> +#define vstate_save(task, regs) do { } while (0)
-> +#define vstate_restore(task, regs) do { } while (0)
-> +#define __switch_to_vector(__prev, __next) do { } while (0)
-> +#endif
+Hi All,
 
-All of this needs to be moved into vector.h for better containment.
-I would also wire in struct __riscv_v_state vstate in struct 
-thread_struct in this patch.
+When trying to add non coherent DMA support for the RZ/Five SoC, I was
+suggested to use the ALTERNATIVE() macro [0].
 
+My initial intention was to implement the alternative_call_x()
+something like what x86 has and from there call the C function, So
+while doing some experiments I realized that using the asm "call
+<func>" would cause adding the whole lot of registers in the clobbers
+list.
 
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 33bb60a354cd..35752fb6d145 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -55,6 +55,7 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
->   
->   obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
->   obj-$(CONFIG_FPU)		+= fpu.o
-> +obj-$(CONFIG_VECTOR)		+= vector.o
+As per my understanding the only correct approach to
+alternative_call_x() is if the function itself is inline assembly then
+we know the exact registers being used and then we could add them
+appropriately in the clobbers list.
 
-This needs to go into last patch which adds Kconfig/Makefile enabling.
+The problem with the above approach being we have quite a lot of C
+code [1] for the CMO and it also requires some register writes of the
+l2 cache controller, converting this to assembly would be a pain.
 
-> +
-> +	if (has_vector()) {
+* Is my understanding correct?
+* Is there any other approach I am missing?
+* Is there no way out apart from implementing inline asm?
 
-Would it make sense to add IS_ENABLED(CONFIG_VECTOR) inside this helper 
-- would help compiler remove the codegen completely for !VECTOR but 
-still having some build test coverage. Anyhow this is minor point and 
-can be added later.
+[0] https://patchwork.kernel.org/project/linux-riscv/cover/20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com/
 
-> +		struct __riscv_v_state *vstate = &(current->thread.vstate);
-> +
-> +		/* Enable vector and allocate memory for vector registers. */
-> +		if (!vstate->datap) {
-> +			vstate->datap = kzalloc(riscv_vsize, GFP_KERNEL);
-> +			if (WARN_ON(!vstate->datap))
-> +				return;
-> +		}
-> +		regs->status |= SR_VS_INITIAL;
-> +
-> +		/*
-> +		 * Restore the initial value to the vector register
-> +		 * before starting the user program.
-> +		 */
-> +		vstate_restore(current, regs);
-> +	}
-> +
-
-...
-
-> +#ifdef CONFIG_VECTOR
-> +	/* Reset vector state */
-> +	vstate_off(current, task_pt_regs(current));
-> +	memset(&current->thread.vstate, 0, RISCV_V_STATE_DATAP);
-> +#endif
-
-This doesn't check has_vector() as we want to unconditionally clean 
-memory for security reasons ?
-
-
->   }
->   
->   int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
->   {
->   	fstate_save(src, task_pt_regs(src));
->   	*dst = *src;
-> +	dst->thread.vstate.datap = NULL;
-
-has_vector() needed here ?
-
->   
-> +void arch_release_task_struct(struct task_struct *tsk)
-> +{
-> +	/* Free the vector context of datap. */
-> +	if (has_vector() && tsk->thread.vstate.datap)
-> +		kfree(tsk->thread.vstate.datap);
-> +}
-> +
->   int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->   {
->   	unsigned long clone_flags = args->flags;
-> @@ -175,7 +208,17 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
->   		p->thread.ra = (unsigned long)ret_from_kernel_thread;
->   		p->thread.s[0] = (unsigned long)args->fn;
->   		p->thread.s[1] = (unsigned long)args->fn_arg;
-> +		p->thread.vstate.datap = NULL;
->   	} else {
-> +		/* Allocate the datap for the user process if datap is NULL */
-> +		if (has_vector() && !p->thread.vstate.datap) {
-> +			void *datap = kzalloc(riscv_vsize, GFP_KERNEL);
-> +			/* Failed to allocate memory. */
-> +			if (!datap)
-> +				return -ENOMEM;
-> +			p->thread.vstate.datap = datap;
-> +			memset(&p->thread.vstate, 0, RISCV_V_STATE_DATAP);
-> +		}
->   		*childregs = *(current_pt_regs());
->   		if (usp) /* User fork */
->   			childregs->sp = usp;
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
