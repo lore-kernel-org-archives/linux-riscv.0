@@ -4,72 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EEBC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06FCC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=I2oygw9Rx0eGkquTksNs863jJcpb51/Inj+3PgUR7a4=; b=jsnWKjJcKGQxYF
-	cEa38e45sU7m9k3Ohuh6qkRVEp4h9CwMnrD5Yu621uD9VSuBKvIcMVrdDAiClBsCAUGZeYhDo2C55
-	SGo0S2nfD+oXXHRSyqwiLs4p2ZdCR2piPhMB/nyxqI9VJbG6QrC3b7+cOLzDhhbKmlCQCJwbmxegj
-	Od+BeHc8IJsCxFzTyVm9y9FvtCoiq27THWHhx7HVBoa5kyIrycEHipG37L9IUHiijQecD3WRuH9CS
-	XrVPZpvw42UeVfUqcF1UgizQK7HJ9MXFdXt154jtquZQIc/25WMZxBvvdsdwQeNm0JcA3iKocS1a0
-	37xt7cOpVSGFHAFD9bbA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ucxf9stpp+ZKf8VcY4AxmMngMybkZlMc6FxLnGu4KVc=; b=5CahAuG8bshYf9
+	HOd6QL8XN4bFN7fJcvFDxU3RRO2Q+Wlg/m5GJKy/k2eek1ktyeercrc4THdl/PVK0TNdkOqCRPPip
+	ZJOVKPXJyIT16IUBotvS6tPONe3vx3XDzprjVG/l6QeORBXLXNiZZdQoQ5oxFuOsy127Gq71X7k9D
+	8+26Qj/faz9jDtY7x3uzb2ke2luW4bg0Wy/Gf5Mjt9dJ2OJs1XVRuahjth6QE1+mVKSCRDumGnWXQ
+	hPN0BsUB2yVejQW46HoVJAX29x1ZxtZVlDjdvyDbdPBeimgvShwMocQWQKTjtFUm4KzreZhYwx4s0
+	CkQVPWkXFkNs0x1tI/Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or4so-005LMH-HM; Fri, 04 Nov 2022 22:09:50 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1or5Xp-005QDb-HG; Fri, 04 Nov 2022 22:52:13 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or4sl-005LL9-9p
-	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 22:09:48 +0000
-Received: by mail-ej1-x629.google.com with SMTP id ud5so16748964ejc.4
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 15:09:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=E5tz9kDARs7bEUpBgBU6vkYUGWPrxNGs4ZuVgd2D+O0=;
-        b=e63z/xZTYHs+wM70ZKty1cPbCAJVughzXg6uyiyaGr4cCcS0EUngASMR2Dey8Nlmv7
-         x471ErFdwXhh+agGiW0u8Eq3IYAq9L/OnLJeEXQe+A8bvEWUY8B4ZkTJcJ0B1+m52KiB
-         S3AZIRjpXmbUkG4EZ1HigN+/i/Cs9nHE0sy33v10NAHFH3zW4n4RbfKymGQ8putGtZqF
-         xxmkin+/H9oOa9ZTnOEa75YpnyUUUNQUJi/FSky8KTyQMHgg0kpT2SFs1RPgwxCDQ+4B
-         EBg4GVS+Vk0fjg1pDV9mRzU2JB/QN1Ubeav5I2M8MjtQUXTu3efFkVMRmE9+3e37Iwv5
-         u7fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=E5tz9kDARs7bEUpBgBU6vkYUGWPrxNGs4ZuVgd2D+O0=;
-        b=x0Ywos0EVQ2a+yYdYlEvu5fBvlC5eV7QlrMFYOACS3nhbkcRVn4ZxTshc6aL9UVcAh
-         IiCvoT3beTrL1imVQ8z27RWWaLTI4YDAkby9nqU2bkdO1uEWmtG8UzVFeA2uEs+9/NPg
-         oA56j0O4ooYxAmNYgaSqxgSgotehDx6cKPqP/ka6L0t8ucvO17g1QRmyyJhGN1pfhqsD
-         w70JRGMEgnkF0pEUzn9Q5Mffoeoo2Ge/MDLBwRMcJ3GxybNOAk24u6r8pyKMhgY4rVm9
-         3T0DIPLntU8rZeEOaWA7to1t4vpxf+o/uaajTCFhcrh+UYMkByHcGPV+tcNp1ikHp52k
-         Pa/Q==
-X-Gm-Message-State: ACrzQf0xdQUMWqZh5MMchRZsquK+tYK0QL3fD4mvN59O//PuHubl8Qw1
-	w/lb4YmhAQIcTbikJUwgb95mlpbCZBrpF5YGmjY=
-X-Google-Smtp-Source: AMsMyM7hOSo+MPQXTisKR46l8SXpBysoB5PG9CesHQ2UESeL+vAR1QVi8uCrmFqSUiYhWdkrvAt0e9X58nXzuNA6TwE=
-X-Received: by 2002:a17:906:371a:b0:7ad:c01c:6fa0 with SMTP id
- d26-20020a170906371a00b007adc01c6fa0mr32068491ejc.267.1667599781913; Fri, 04
- Nov 2022 15:09:41 -0700 (PDT)
-MIME-Version: 1.0
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 4 Nov 2022 22:09:15 +0000
-Message-ID: <CA+V-a8u_u9Q6Hb8kOZVKFjGyPsc2HQt88c4y2Nh8dzx0XSebeA@mail.gmail.com>
-Subject: [QUERY]: RZ/Five (AX45MP) non-coherent DMA
-To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <Conor.Dooley@microchip.com>, 
+	id 1or5Xl-005QAr-6S
+	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 22:52:10 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1or5Xg-0001sc-Lz; Fri, 04 Nov 2022 23:52:04 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: christoph.muellner@vrull.eu,
+	prabhakar.csengg@gmail.com,
+	conor@kernel.org,
+	philipp.tomsich@vrull.eu,
 	Heiko Stuebner <heiko@sntech.de>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Chris Paterson <Chris.Paterson2@renesas.com>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Subject: [PATCH RFC 3/9] RISC-V: add auipc elements to parse_asm header
+Date: Fri,  4 Nov 2022 23:51:47 +0100
+Message-Id: <20221104225153.2710873-4-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221104225153.2710873-1-heiko@sntech.de>
+References: <20221104225153.2710873-1-heiko@sntech.de>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_150947_360227_CE56745E 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20221104_155209_247297_B675795A 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +65,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+We will want to use the opcode parsing outside kdb as well and need
+at least the auipc element there.
 
-When trying to add non coherent DMA support for the RZ/Five SoC, I was
-suggested to use the ALTERNATIVE() macro [0].
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ arch/riscv/include/asm/parse_asm.h | 3 +++
+ 1 file changed, 3 insertions(+)
 
-My initial intention was to implement the alternative_call_x()
-something like what x86 has and from there call the C function, So
-while doing some experiments I realized that using the asm "call
-<func>" would cause adding the whole lot of registers in the clobbers
-list.
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+index f36368de839f..c287c1426aa7 100644
+--- a/arch/riscv/include/asm/parse_asm.h
++++ b/arch/riscv/include/asm/parse_asm.h
+@@ -100,6 +100,7 @@
+ #define RVC_C2_RD_OPOFF		7
+ 
+ /* parts of opcode for RVG*/
++#define OPCODE_AUIPC		0x17
+ #define OPCODE_BRANCH		0x63
+ #define OPCODE_JALR		0x67
+ #define OPCODE_JAL		0x6f
+@@ -129,6 +130,7 @@
+ 
+ #define FUNCT12_SRET		0x10200000
+ 
++#define MATCH_AUIPC		(OPCODE_AUIPC)
+ #define MATCH_JALR		(FUNCT3_JALR | OPCODE_JALR)
+ #define MATCH_JAL		(OPCODE_JAL)
+ #define MATCH_BEQ		(FUNCT3_BEQ | OPCODE_BRANCH)
+@@ -145,6 +147,7 @@
+ #define MATCH_C_JR		(FUNCT4_C_JR | OPCODE_C_2)
+ #define MATCH_C_JALR		(FUNCT4_C_JALR | OPCODE_C_2)
+ 
++#define MASK_AUIPC		0x7f
+ #define MASK_JALR		0x707f
+ #define MASK_JAL		0x7f
+ #define MASK_C_JALR		0xf07f
+-- 
+2.35.1
 
-As per my understanding the only correct approach to
-alternative_call_x() is if the function itself is inline assembly then
-we know the exact registers being used and then we could add them
-appropriately in the clobbers list.
-
-The problem with the above approach being we have quite a lot of C
-code [1] for the CMO and it also requires some register writes of the
-l2 cache controller, converting this to assembly would be a pain.
-
-* Is my understanding correct?
-* Is there any other approach I am missing?
-* Is there no way out apart from implementing inline asm?
-
-[0] https://patchwork.kernel.org/project/linux-riscv/cover/20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-[1] https://patchwork.kernel.org/project/linux-riscv/patch/20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Cheers,
-Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
