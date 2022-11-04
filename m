@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06FCC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4EAC43217
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 22:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ucxf9stpp+ZKf8VcY4AxmMngMybkZlMc6FxLnGu4KVc=; b=5CahAuG8bshYf9
-	HOd6QL8XN4bFN7fJcvFDxU3RRO2Q+Wlg/m5GJKy/k2eek1ktyeercrc4THdl/PVK0TNdkOqCRPPip
-	ZJOVKPXJyIT16IUBotvS6tPONe3vx3XDzprjVG/l6QeORBXLXNiZZdQoQ5oxFuOsy127Gq71X7k9D
-	8+26Qj/faz9jDtY7x3uzb2ke2luW4bg0Wy/Gf5Mjt9dJ2OJs1XVRuahjth6QE1+mVKSCRDumGnWXQ
-	hPN0BsUB2yVejQW46HoVJAX29x1ZxtZVlDjdvyDbdPBeimgvShwMocQWQKTjtFUm4KzreZhYwx4s0
-	CkQVPWkXFkNs0x1tI/Uw==;
+	List-Owner; bh=HkiJhfnyLA8AaVZg1/i4bXcFuoU2QyRaPdJ0j1ARo7w=; b=Q2y065/yqOfGvs
+	r9Pbsq0LS+tmA1aDPl4wDLITo36XMJZzGjvob6G3YvsTPWIYwz9bcYU732GXedvhWJI2YgwQt6KJt
+	0Lc7SdUSBe4GR0aOA9z4c/Ji8ZWv+kgUZhVBLtu5dX+LuNFCp+nqmpOlkCKDHIZAfBlfECdoQoKd1
+	kMI7UNOJMsT136Kkoym+bR+qIUo6GG2/fJywuE8xmzuInSVfJLdxZmDjXUANkyBwGhvO9VBmS94gD
+	prq4Zkizu+BBBgElhMVFGzK3Ypbsh2Ey6JfFTBFg+HRdnkd6QEgA2PIYBc5usxMLjk5xWSALPuqcK
+	nfVtaEgC6UZAcfvztp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or5Xp-005QDb-HG; Fri, 04 Nov 2022 22:52:13 +0000
+	id 1or5Xo-005QCy-2U; Fri, 04 Nov 2022 22:52:12 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or5Xl-005QAr-6S
+	id 1or5Xl-005QAn-0d
 	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 22:52:10 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1or5Xg-0001sc-Lz; Fri, 04 Nov 2022 23:52:04 +0100
+	id 1or5Xg-0001sc-2O; Fri, 04 Nov 2022 23:52:04 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -38,16 +38,16 @@ Cc: christoph.muellner@vrull.eu,
 	conor@kernel.org,
 	philipp.tomsich@vrull.eu,
 	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH RFC 3/9] RISC-V: add auipc elements to parse_asm header
-Date: Fri,  4 Nov 2022 23:51:47 +0100
-Message-Id: <20221104225153.2710873-4-heiko@sntech.de>
+Subject: [PATCH RFC 1/9] string: allow override for strstarts()
+Date: Fri,  4 Nov 2022 23:51:45 +0100
+Message-Id: <20221104225153.2710873-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221104225153.2710873-1-heiko@sntech.de>
 References: <20221104225153.2710873-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_155209_247297_B675795A 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20221104_155209_069670_C02907BB 
+X-CRM114-Status: UNSURE (   9.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -65,42 +65,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We will want to use the opcode parsing outside kdb as well and need
-at least the auipc element there.
+In some special cases it may be necessary to also override the
+inline strstarts() function, so move the relevant #ifdef in place.
 
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/riscv/include/asm/parse_asm.h | 3 +++
- 1 file changed, 3 insertions(+)
+ include/linux/string.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
-index f36368de839f..c287c1426aa7 100644
---- a/arch/riscv/include/asm/parse_asm.h
-+++ b/arch/riscv/include/asm/parse_asm.h
-@@ -100,6 +100,7 @@
- #define RVC_C2_RD_OPOFF		7
+diff --git a/include/linux/string.h b/include/linux/string.h
+index cf7607b32102..2e5483238532 100644
+--- a/include/linux/string.h
++++ b/include/linux/string.h
+@@ -206,6 +206,7 @@ extern ssize_t memory_read_from_buffer(void *to, size_t count, loff_t *ppos,
  
- /* parts of opcode for RVG*/
-+#define OPCODE_AUIPC		0x17
- #define OPCODE_BRANCH		0x63
- #define OPCODE_JALR		0x67
- #define OPCODE_JAL		0x6f
-@@ -129,6 +130,7 @@
+ int ptr_to_hashval(const void *ptr, unsigned long *hashval_out);
  
- #define FUNCT12_SRET		0x10200000
++#ifndef __HAVE_ARCH_STRSTARTS
+ /**
+  * strstarts - does @str start with @prefix?
+  * @str: string to examine
+@@ -215,6 +216,7 @@ static inline bool strstarts(const char *str, const char *prefix)
+ {
+ 	return strncmp(str, prefix, strlen(prefix)) == 0;
+ }
++#endif
  
-+#define MATCH_AUIPC		(OPCODE_AUIPC)
- #define MATCH_JALR		(FUNCT3_JALR | OPCODE_JALR)
- #define MATCH_JAL		(OPCODE_JAL)
- #define MATCH_BEQ		(FUNCT3_BEQ | OPCODE_BRANCH)
-@@ -145,6 +147,7 @@
- #define MATCH_C_JR		(FUNCT4_C_JR | OPCODE_C_2)
- #define MATCH_C_JALR		(FUNCT4_C_JALR | OPCODE_C_2)
+ size_t memweight(const void *ptr, size_t bytes);
  
-+#define MASK_AUIPC		0x7f
- #define MASK_JALR		0x707f
- #define MASK_JAL		0x7f
- #define MASK_C_JALR		0xf07f
 -- 
 2.35.1
 
