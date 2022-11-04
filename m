@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BF0C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 15:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D2FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 16:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HN6deqFxnimJdgrcgHHnFpxheDR6zf7zC2twZf8qnRQ=; b=Nu9LKqy1+kq41d
-	JJTuhbmUaE+xkhW+oK2PIHR1NH/zAklnlQ9mIqBzmC4KhmpNtxt3MxwlrPeQvNJB2OIUc2czxXdBy
-	xH1cgW3ZVWQXz94One+Ufu1qr5NuwfBGbQPLHvdq8uaLK/TWxDfXTFZgxXl69QJ67RzXe92dtY5AS
-	PE3mODzXUAWTysluLzam8vHoUaJvdJ0mC12vfc+r4oA2wd5/UDXlmEa/SGVlZLlJ+gwlWKhheWZKA
-	a8+x1TDpXQY2JT46qewXYPf+fVuBiGJKT/WHMtB3kAS6S0QvCw0rv4PIMjZNFHX+K3ZXcx2d86VFJ
-	fW3adyD+NZ/6iGsyWPyw==;
+	List-Owner; bh=5fnTzcpyALYWsHsLx2GTAlz49i5iZovmpq3xug6P/0U=; b=B2hmai0x+vQWvJ
+	+X8WDR97GeRAyRQTkc1pDigKbP1HYmJZ8DDO/46tlY2tVF1DDlwy0GSaE2YrrIdiaHtEeVS6aMwzM
+	EN5MQn2lpSmhLC+/WZgVGjZpoUza+ChMNV/qWDDqsaZDuANxqFUFqQ12LIKMhxUqlwvSGF8OSoyhx
+	wVN2ia0InBC9sWTrUu+oXPaTBTNGrqqUCUOYv8xu1P4JyEHxd8YLXA0kT0+ldS4kYHtcNfebwd9/R
+	I/Iknod+gao7mi7NXVYMLuw9LfS0YUCES+mbB0Q6qnlXeKskIfx3ZcayXrtu0gLhd1bbJP5d4tiPN
+	C+Fg4TZ5u47fju+yZ9sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqyoJ-004Hxq-9r; Fri, 04 Nov 2022 15:40:47 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1oqzbS-004RDL-TC; Fri, 04 Nov 2022 16:31:35 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oqyoE-004Hu0-AC
-	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 15:40:44 +0000
-Received: by mail-pf1-x433.google.com with SMTP id i3so4820355pfc.11
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 08:40:40 -0700 (PDT)
+	id 1oqzbQ-004RCF-GS
+	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 16:31:33 +0000
+Received: by mail-pg1-x531.google.com with SMTP id q1so4786457pgl.11
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Nov 2022 09:31:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aFlTeUJ4nQplolWHip6FrS/j8TYR0+QbDmRZAFvu7G8=;
-        b=slnKaxTVWka5uyvV8ksftk1iXtqkYG7wonGPtAtNy/P6RP4ZnWhdbZSV/6seXnMCof
-         dnF6JUiRfV2oVCETco2jEIOQzRouLfUDiH7vxFD2orQpNLxCcfMVtLr6ntSOZeUo+8A4
-         1WMtzeSAIQ00ZBggEzItHUadG+pi52a6RW5LTbSCWNWQHjLySk/BPh9TembQq8ly6ISW
-         XBS14fXfAOCGbRuWccsHUKA4no5JdNrqlAYc2mDDTkISHx1kXdJjDDClXTXp09r2HKHF
-         4YYshPvOotdfKVbVnw4u/+IsxQ4NAMvmIrkrc7+c9m8NGZEp/7DC/KTLI5ge39pksAS0
-         M2/g==
+        bh=tykh0C7NQoqMsiv0FEJ8nDBTc1ar6j/4SljcpXaw+gg=;
+        b=ZvfqWRbmiygXbQlvUXzlFPIy6pWgi3NnbKZ9axUfvTwSG1jmeczFdzfmEBk6JPul9u
+         KtfoNDPD7+7L7ckLKxE85H3i30VZE1cLcwZqr+9Pmyt/Uvr0gsenysKMrttjRd1DNmYa
+         taHLNc4BlGL4LuS+a5zOzje7JmI5lr7pLr83tPoJKPDxZ+8mRqo1TUsZIcKB3+pLirGc
+         61VotfoTC994tXlc+pHq0IWsR3SGM7VfiO/hK89Ek0CoqTLSvnWOMLSW6BMMx8STYHyn
+         tAWojTUjFC5IOfCMzJ25ZkS53CsxfaYW+If16SDvap+gn/hFvgnPNsAIXJ/ZXr/CVgup
+         nXnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=aFlTeUJ4nQplolWHip6FrS/j8TYR0+QbDmRZAFvu7G8=;
-        b=6VLeJdRVfDFekZkXCdkvVY/J3+/qx6wnItwzWaTSjOgmgcqMp1i9BRl/698AP0XUOT
-         Cmt7O+nqXlwbBmS/4VGMYNua4sTLJzQgXBumI3eayx/7M6IQVJWA61l7M4C+Ud2+XcP6
-         6K05Rh1OQuUdJLQWZWTwOwVn8nNrextLWLX+x1p0jJ0wFABFAMNAzbOhRvym1phJOn3E
-         vSPfSi0zFjiHhxG1du1Dg5+xJjsOa/mikbad7m7BjE7tXgDtKbCRcyXd+LuInujBbQal
-         VtCj62HXbhHxCSYW5143rsoXh3Bwnl/+hm2/PQvzxYOnSJKS0h5lGJmFCwWhGw/eJeiO
-         P7eg==
-X-Gm-Message-State: ACrzQf023iingIWBpHSGxwixIK7/EpR/dSzb4WY9bOhDTwSAukCOdtzM
-	Io6G90T1XnWZUoMfvp11tN99vA==
-X-Google-Smtp-Source: AMsMyM5MdI5VKNUr37j2LDfWFXfSalVZ70lqDfROHdw5vEhrWbzDEJP2xBkjkN31VBShKB5D+mx4vA==
-X-Received: by 2002:a62:1a8d:0:b0:544:1309:19f3 with SMTP id a135-20020a621a8d000000b00544130919f3mr36549720pfa.37.1667576439875;
-        Fri, 04 Nov 2022 08:40:39 -0700 (PDT)
+        bh=tykh0C7NQoqMsiv0FEJ8nDBTc1ar6j/4SljcpXaw+gg=;
+        b=2GpcszoS5wxvZ/ABmwbETWVeopU/9zbOwtn3jZoICmvyDlASKIM8aUIUhQxBgFI9x/
+         C0WA5iMGF5WslVbgFJ285ChgKUlAwkJWh2Xsfxb9ba/HLdjF+UGnq0MLpkA3QmvuTAl0
+         s7TQrsV3fu/549wRBF3FA18+rde8pX6KDUZDEnKr93VemmK5LJxcdilZ/6QYiyFpYuKV
+         voGE6hJPtz4Z7bT3g1YbIq/gIhEl9eh0N+V+X2l8seAL91vxiHK9P4UWtq7rm4sU3WUp
+         iI6i5EWdeXdLKB/xgCkcjwmR+GwYJUZ6V+ACXXIROyLGVWbs0kXPBws8uNPLeN0anKeM
+         I5yA==
+X-Gm-Message-State: ACrzQf2rxLvqfNtB26QN02mTbF2llQ386H/JHLt6qqrnoRa2i5ntaLQg
+	hL05feqxcjqmOKu5bglL+bGsqA==
+X-Google-Smtp-Source: AMsMyM4q4CNgN2lQ4PyaYyADoR+QimlVBokrxw9X6LS0+cBweFifUR+XVuuTHXr8UlnLM2zvHk12kA==
+X-Received: by 2002:a05:6a00:248e:b0:56e:ad31:b976 with SMTP id c14-20020a056a00248e00b0056ead31b976mr1059125pfv.51.1667579490004;
+        Fri, 04 Nov 2022 09:31:30 -0700 (PDT)
 Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id y133-20020a62ce8b000000b00565cbad9616sm2905778pfg.6.2022.11.04.08.40.39
+        by smtp.gmail.com with ESMTPSA id y133-20020a62ce8b000000b00565cbad9616sm2954667pfg.6.2022.11.04.09.31.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Nov 2022 08:40:39 -0700 (PDT)
-Date: Fri, 4 Nov 2022 15:40:36 +0000
+        Fri, 04 Nov 2022 09:31:29 -0700 (PDT)
+Date: Fri, 4 Nov 2022 16:31:25 +0000
 From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+To: Yuan Yao <yuan.yao@linux.intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
 	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
 	Anup Patel <anup@brainfault.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -90,22 +91,17 @@ Cc: Marc Zyngier <maz@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
 	Yuan Yao <yuan.yao@intel.com>
-Subject: Re: [PATCH 33/44] KVM: x86: Do VMX/SVM support checks directly in
- vendor code
-Message-ID: <Y2UydNBFR3e2DAe7@google.com>
+Subject: Re: [PATCH 08/44] KVM: x86: Move hardware setup/unsetup to init/exit
+Message-ID: <Y2U+XT0Sm+a69CaH@google.com>
 References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-34-seanjc@google.com>
- <bfa98587-3b36-3834-a4b9-585a0e0aa56a@redhat.com>
- <Y2QJ2TuyZImbFFvi@google.com>
- <c29e7d40-ddb9-def0-f944-a921a05a4bb2@redhat.com>
- <Y2QPSK1/6esl61wQ@google.com>
- <6c71fcca-c17f-5979-e15e-afcf08899064@redhat.com>
+ <20221102231911.3107438-9-seanjc@google.com>
+ <20221104062223.7kcrbt66mlmqxk7f@yy-desk-7060>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6c71fcca-c17f-5979-e15e-afcf08899064@redhat.com>
+In-Reply-To: <20221104062223.7kcrbt66mlmqxk7f@yy-desk-7060>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_084042_410603_80CB279B 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20221104_093132_557388_EC47FC35 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,77 +118,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 04, 2022, Paolo Bonzini wrote:
-> On 11/3/22 19:58, Sean Christopherson wrote:
-> > 
-> > diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-> > index 3e508f239098..ebe617ab0b37 100644
-> > --- a/arch/x86/kernel/cpu/common.c
-> > +++ b/arch/x86/kernel/cpu/common.c
-> > @@ -191,6 +191,8 @@ static void default_init(struct cpuinfo_x86 *c)
-> >                          strcpy(c->x86_model_id, "386");
-> >          }
-> >   #endif
+On Fri, Nov 04, 2022, Yuan Yao wrote:
+> On Wed, Nov 02, 2022 at 11:18:35PM +0000, Sean Christopherson wrote:
+> > To avoid having to unwind various setup, e.g registration of several
+> > notifiers, slot in the vendor hardware setup before the registration of
+> > said notifiers and callbacks.  Introducing a functional change while
+> > moving code is less than ideal, but the alternative is adding a pile of
+> > unwinding code, which is much more error prone, e.g. several attempts to
+> > move the setup code verbatim all introduced bugs.
+
+...
+
+> > @@ -9325,6 +9343,24 @@ int kvm_arch_init(void *opaque)
+> >  		kvm_caps.supported_xcr0 = host_xcr0 & KVM_SUPPORTED_XCR0;
+> >  	}
+> >
+> > +	rdmsrl_safe(MSR_EFER, &host_efer);
 > > +
-> > +       clear_cpu_cap(c, X86_FEATURE_MSR_IA32_FEAT_CTL);
-> >   }
-> >   static const struct cpu_dev default_cpu = {
+> > +	if (boot_cpu_has(X86_FEATURE_XSAVES))
+> > +		rdmsrl(MSR_IA32_XSS, host_xss);
+> > +
+> > +	kvm_init_pmu_capability();
+> > +
+> > +	r = ops->hardware_setup();
+> > +	if (r != 0)
+> > +		goto out_mmu_exit;
 > 
-> Not needed I think?  default_init does not call init_ia32_feat_ctl.
+> The failure case of ops->hardware_setup() is unwound
+> by kvm_arch_exit() before this patch, do we need to
+> keep that old behavior ?
 
-cpuid_deps is only processed by do_clear_cpu_cap(), so unless there's an explicit
-"clear" action, the dependencies will not be updated.  It kinda makes sense since
-hardware-based features shouldn't end up with scenarios where a dependent feature
-exists but the base feature does not (barring bad KVM setups :-) ).
+As called out in the changelog, the call to ops->hardware_setup() was deliberately
+slotted in before the call to kvm_timer_init() so that kvm_arch_init() wouldn't
+need to unwind more stuff if harware_setup() fails.
 
-That said, this seems like a bug waiting to happen, and unless I'm missing something
-it's quite straightforward to process all dependencies during setup.  Time to find
-out if Boris and co. agree :-)
-
-diff --git a/arch/x86/include/asm/cpufeature.h b/arch/x86/include/asm/cpufeature.h
-index 1a85e1fb0922..c4408d03b180 100644
---- a/arch/x86/include/asm/cpufeature.h
-+++ b/arch/x86/include/asm/cpufeature.h
-@@ -147,6 +147,7 @@ extern const char * const x86_bug_flags[NBUGINTS*32];
- 
- extern void setup_clear_cpu_cap(unsigned int bit);
- extern void clear_cpu_cap(struct cpuinfo_x86 *c, unsigned int bit);
-+extern void apply_cpuid_deps(struct cpuinfo_x86 *c);
- 
- #define setup_force_cpu_cap(bit) do { \
-        set_cpu_cap(&boot_cpu_data, bit);       \
-diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-index 3e508f239098..28ce31dadd7f 100644
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -1884,6 +1884,8 @@ static void identify_cpu(struct cpuinfo_x86 *c)
-                        c->x86_capability[i] |= boot_cpu_data.x86_capability[i];
-        }
- 
-+       apply_cpuid_deps(c);
-+
-        ppin_init(c);
- 
-        /* Init Machine Check Exception if available. */
-diff --git a/arch/x86/kernel/cpu/cpuid-deps.c b/arch/x86/kernel/cpu/cpuid-deps.c
-index c881bcafba7d..7e91e97973ca 100644
---- a/arch/x86/kernel/cpu/cpuid-deps.c
-+++ b/arch/x86/kernel/cpu/cpuid-deps.c
-@@ -138,3 +138,13 @@ void setup_clear_cpu_cap(unsigned int feature)
- {
-        do_clear_cpu_cap(NULL, feature);
- }
-+
-+void apply_cpuid_deps(struct cpuinfo_x86 *c)
-+{
-+       const struct cpuid_dep *d;
-+
-+       for (d = cpuid_deps; d->feature; d++) {
-+               if (!cpu_has(c, d->feature))
-+                       clear_cpu_cap(c, d->feature);
-+       }
-+}
-
+> > +	/*
+> > +	 * Point of no return!  DO NOT add error paths below this point unless
+> > +	 * absolutely necessary, as most operations from this point forward
+> > +	 * require unwinding.
+> > +	 */
+> > +	kvm_ops_update(ops);
+> > +
+> >  	kvm_timer_init();
+> >
+> >  	if (pi_inject_timer == -1)
+> > @@ -9336,8 +9372,32 @@ int kvm_arch_init(void *opaque)
+> >  		set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
+> >  #endif
+> >
+> > +	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
+> > +
+> > +	if (!kvm_cpu_cap_has(X86_FEATURE_XSAVES))
+> > +		kvm_caps.supported_xss = 0;
+> > +
+> > +#define __kvm_cpu_cap_has(UNUSED_, f) kvm_cpu_cap_has(f)
+> > +	cr4_reserved_bits = __cr4_reserved_bits(__kvm_cpu_cap_has, UNUSED_);
+> > +#undef __kvm_cpu_cap_has
+> > +
+> > +	if (kvm_caps.has_tsc_control) {
+> > +		/*
+> > +		 * Make sure the user can only configure tsc_khz values that
+> > +		 * fit into a signed integer.
+> > +		 * A min value is not calculated because it will always
+> > +		 * be 1 on all machines.
+> > +		 */
+> > +		u64 max = min(0x7fffffffULL,
+> > +			      __scale_tsc(kvm_caps.max_tsc_scaling_ratio, tsc_khz));
+> > +		kvm_caps.max_guest_tsc_khz = max;
+> > +	}
+> > +	kvm_caps.default_tsc_scaling_ratio = 1ULL << kvm_caps.tsc_scaling_ratio_frac_bits;
+> > +	kvm_init_msr_list();
+> >  	return 0;
+> >
+> > +out_mmu_exit:
+> > +	kvm_mmu_vendor_module_exit();
+> >  out_free_percpu:
+> >  	free_percpu(user_return_msrs);
+> >  out_free_x86_emulator_cache:
 
 _______________________________________________
 linux-riscv mailing list
