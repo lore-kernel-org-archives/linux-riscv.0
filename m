@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0E5C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Nov 2022 09:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6671DC433FE
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Nov 2022 22:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BLJ/ncme92wjYieIUg4NoY/rLP62ilWN/q3AD4hHkMY=; b=tcD3YueAQkSsne
-	/+kEpMO5m/3EFpqgeqfL4tc1xqA8i45ue0fedOaJ1X0lp0JCUah4TI83Ung7mOe15HvWCKqKFO7HV
-	SMkZxNYwjnRClj6maNQPVn3bl2iiPkiTo+OgTuOY6V9FrNWpIJcJzEwaIyLCQNNvMtn9YHPxMkub+
-	B82XzVznAvmhYXFlrvLTYjHAFWE5czkVEhTnylPZ8OEIVp8mu124a9Jde1R3HTQn3Wq2kO3Go4tzW
-	Vmw0Wx1Ei3bgBDc9Rc1egBE2B8JWE9PnP93ezYmXxzD6KiPItRTTvHd4e4LOWUz2GtBmDxfT9TW6i
-	lgd45f5PGGEoKXBlEI5A==;
+	List-Owner; bh=QZnn9PFFxKg4H9DnhY1bjKoOFc1BtzO4AomMRCE/U50=; b=UZOeMSbUcrQIO3
+	Gmkj+lLNoypGnjbya/ByFh33mjU8azR6oA81GiSCG+qGyvX+ghs1LtQJCDgr+DlUt025elRm9iB+S
+	gsKMlfGbrNYwTrtRSSiAtW1A6j0nc+wvS39gAJ6SjWPcboMlO+zWOfMoLd1r+ktehUB2sDoJW8edA
+	YqwOaMS3ITCe0z4ONlOyelpOTkP44SFCBg6vOwtd8J9rxd/jMqZsaTtCjsqYe73VTIXK3z8wgCoTf
+	v6d8b+3saX5qcAcNueiYbn091PKnpEzM4KXLgJ82lSd5kRgxYXUnd8k3TERn8gIFi37kvoFBZRTIB
+	bJNpK4RjDR4XE73Kv6NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1orFCo-006CmO-8W; Sat, 05 Nov 2022 09:11:10 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1orRrQ-007Kud-OV; Sat, 05 Nov 2022 22:41:56 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1orFCl-006CkB-Ni
-	for linux-riscv@lists.infradead.org; Sat, 05 Nov 2022 09:11:09 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id bj12so18690154ejb.13
-        for <linux-riscv@lists.infradead.org>; Sat, 05 Nov 2022 02:10:48 -0700 (PDT)
+	id 1orRrO-007KuJ-Ox
+	for linux-riscv@lists.infradead.org; Sat, 05 Nov 2022 22:41:56 +0000
+Received: by mail-ej1-x629.google.com with SMTP id k2so21627651ejr.2
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Nov 2022 15:41:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/S4Nm/C1Ue9AZYxd9MIbfz68XRVc7JF1TnQINz4VAIQ=;
-        b=cR/1Oo66x/Brv/JEj+qO1hbi3kih15mf9A3s7lxPdYH+0l1tJmlCIbcTTHkeWpDBRP
-         Cxy1GAFj9LlnWPbnGkJXZ5Xm7j93DRWWog8SugNO1B2kelqp1quoK0GnIp7FX4Vg+2bP
-         /et+yWe2ceBGTwztAALuWlDYCiuxkdTErlEXs01nqvj7Lfpx9v8zX3n/x+/61J04FCH+
-         Xa2p3ScsbyZeb+z9cLaFW/aJBplRA6k+G5pNh/WYc1wW2vAvc6lYfQ1eMx6tkRXjLgJW
-         LSfrwuyeVRplBVzBheixxhPyrMbsygWH9AEKFjcZadqivu5rr9fdJMJ87AzBTqXmE/TO
-         EJjA==
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HfmEXeFgbdMj3gsUyt6lpX1UpHQKV916HoEE3gJfFeo=;
+        b=XtkTbzPVNhvRHYgo7BUGgi5bqlcB8MqYHlLlnB8FnhvCMS094yVunIvf/jdsuZDOOs
+         tfY3Y9DNzzJ2Wesj0mIts1AHC8PWGmw98CEf4wnCCakpgtIlessS/13oUGakS1bvQZCu
+         uSxcYs62ym12RYwgIt+etHbyr2hnCSXtSFporz9RAp0K1tWu3EdtlaHnVPTXCJPRf6z7
+         I3ifM7mCMmlGF42+/cWEhObapyCR1WlDL41vpiZzoM0TP3/kooW8cD/ixd2lrTlar4nr
+         OJ3qC5Qo/Pc/h8XCxi4nlRvgdrLslg09LbMbkcviQMsRBFY3nEL8HLrGo+/TYuTdrQ2X
+         nSGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/S4Nm/C1Ue9AZYxd9MIbfz68XRVc7JF1TnQINz4VAIQ=;
-        b=EwrXBhPknp7/w43ZIc2OC+ovKeRWWoageDiMSCLnwDr7FWsTsL4yZpC4+nhavlxQSK
-         1EUyz8uTYLqXffxY4Ke0ZB5t6SSt9Cyf4WjHGJeUh7RNT4kmopiJAG6oen1Qa6YUWhV0
-         mxGpLa+1eJOb5KyeXUHE2wLK5mfIjdoQICj98xPVO7bkJ9iiwVCD5aA0bJ7Z3lUj5Hb6
-         qfT46RLjnWFoEsUMMnDdDzi077fdDVmoWNEc2rYKPs8LGVTH5uo8p7oTxyIqdSuqsTXT
-         gtmzxHnSq7B5uLQwpvwG2EQBPLBA1PuC3quwDFhz5H9UA0M/IxPp6Gy5/PSWhIJko3Cr
-         kHXA==
-X-Gm-Message-State: ACrzQf3iK9x4SR48qeJ4FIlnwWEmdZJjfzRA2DT9k0kO6+ClnNvSTXnv
-	rT/Rc9dG7ryC5Bfk/zplx9vHMh7yhk3GJT7jMdCFDQ==
-X-Google-Smtp-Source: AMsMyM5K/jvxRswoU4vnLuI5/+nOJ+I6WDcT5/WPAL6zKOeDQXmn7rJGWo+qao3LTg0DgaufUCRjBldD4YyYzK7MkFo=
-X-Received: by 2002:a17:906:dac8:b0:741:545b:796a with SMTP id
- xi8-20020a170906dac800b00741545b796amr38075449ejb.240.1667639446681; Sat, 05
- Nov 2022 02:10:46 -0700 (PDT)
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HfmEXeFgbdMj3gsUyt6lpX1UpHQKV916HoEE3gJfFeo=;
+        b=eWiSLdn1JDa4Rq/wnNrR+v8XA9XArW8EgDfFss4j0G5x2z86kWHuofAmuxyzOlvlKZ
+         m0uz3/Ae8muvDmfr1lanpJWHXCrIZy8koUv4+OBfZvLfl8RNzWQSbg8noGRUEsRFT5sc
+         GQm/zxVgHarKyjkof7kmWxt3WG8vLZw72/C4aDSWbbS/GOnGl1WdZXyMZWm9KimHnRA9
+         3MpTRTPlI6BGNhxY3WzChYIQrfakIa6MIsognYYQMIXY/818RZp3QUjrHrOhtg5Te3Wk
+         9GOCrOwtyvv8BQ89AeIU/Aa9GF3MrZsgIDZbyYGw20PsWk9ff69WdfmbedjDDTc1MQhD
+         iScQ==
+X-Gm-Message-State: ACrzQf0Plz0jwKzw1OaTSFYfOmNmSy0+ujeUN8uJffAFjNuW/2ag2jqN
+	t55ImCgNt2r+VTaSrnHvZpA6iwT0nVmnehuMMrk=
+X-Google-Smtp-Source: AMsMyM6ns4MEPdLaoD8n40DozQzUic8AQ7fU/pxX6sGEs2hcnnNui7DIE5vrzrSchKxyfsCAlQCAoqMogao9R5KGUJk=
+X-Received: by 2002:a17:906:371a:b0:7ad:c01c:6fa0 with SMTP id
+ d26-20020a170906371a00b007adc01c6fa0mr36486106ejc.267.1667688110637; Sat, 05
+ Nov 2022 15:41:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20221031213225.912258-1-geomatsi@gmail.com> <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
- <Y2WGIQ+m7jk5RPZv@curiosity>
-In-Reply-To: <Y2WGIQ+m7jk5RPZv@curiosity>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 5 Nov 2022 14:40:34 +0530
-Message-ID: <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1] riscv: support for hardware breakpoints/watchpoints
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: Andrew Bresticker <abrestic@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+References: <CA+V-a8u_u9Q6Hb8kOZVKFjGyPsc2HQt88c4y2Nh8dzx0XSebeA@mail.gmail.com>
+ <13365637.uLZWGnKmhe@diego>
+In-Reply-To: <13365637.uLZWGnKmhe@diego>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sat, 5 Nov 2022 22:41:24 +0000
+Message-ID: <CA+V-a8v=ki9MJ-rUfuGaEYznaFM61w=G4F8Opce4VM95P_DNsg@mail.gmail.com>
+Subject: Re: [QUERY]: RZ/Five (AX45MP) non-coherent DMA
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <Conor.Dooley@microchip.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Chris Paterson <Chris.Paterson2@renesas.com>, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221105_021107_801104_B9E1B426 
-X-CRM114-Status: GOOD (  39.37  )
+X-CRM114-CacheID: sfid-20221105_154154_871612_B4AE1FAD 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,204 +86,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
->
-> Hi Andrew,
->
-> > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
-> > > describes Trigger Module. Triggers can cause a breakpoint exception,
-> > > entry into Debug Mode, or a trace action without having to execute a
-> > > special instruction. For native debugging triggers can be used to
-> > > implement hardware breakpoints and watchpoints.
->
-> ... [snip]
->
-> > > Despite missing userspace debug, initial implementation can be tested
-> > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
-> > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
-> >
-> > We should also be able to enable the use of HW breakpoints (and
-> > watchpoints, modulo the issue mentioned below) in kdb, right?
->
-> Interesting. So far I didn't think about using hw breakpoints in kgdb.
-> I took a quick look at riscv and arm64 kgdb code. It looks like there
-> is nothing wrong in adding arch-specific implementation of the function
-> 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
-> Besides it looks like in this case it makes sense to handle KGDB earlier
-> than hw breakpoints in do_trap_break.
->
-> > > However this is not the case for watchpoints since there is no way to
-> > > figure out which watchpoint is triggered. IIUC there are two possible
-> > > options for doing this: using 'hit' bit in tdata1 or reading faulting
-> > > virtual address from STVAL. QEMU implements neither of them. Current
-> > > implementation opts for STVAL. So the following experimental QEMU patch
-> > > is required to make watchpoints work:
-> > >
-> > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
-> > > :  index 278d163803..8858be7411 100644
-> > > :  --- a/target/riscv/cpu_helper.c
-> > > :  +++ b/target/riscv/cpu_helper.c
-> > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
-> > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
-> > > :               tval = env->bins;
-> > > :               break;
-> > > :  +        case RISCV_EXCP_BREAKPOINT:
-> > > :  +            tval = env->badaddr;
-> > > :  +            env->badaddr = 0x0;
-> > > :  +            break;
-> > > :           default:
-> > > :               break;
-> > > :           }
-> > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
-> > > :  index 26ea764407..b4d1d566ab 100644
-> > > :  --- a/target/riscv/debug.c
-> > > :  +++ b/target/riscv/debug.c
-> > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
-> > > :
-> > > :       if (cs->watchpoint_hit) {
-> > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
-> > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
-> > > :               cs->watchpoint_hit = NULL;
-> > > :               do_trigger_action(env, DBG_ACTION_BP);
-> > > :           }
->
-> ... [snip]
->
-> > > +int arch_install_hw_breakpoint(struct perf_event *bp)
-> > > +{
-> > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> > > +       struct sbi_dbtr_data_msg *xmit;
-> > > +       struct sbi_dbtr_id_msg *recv;
-> > > +       struct perf_event **slot;
-> > > +       struct sbiret ret;
-> > > +       int err = 0;
-> > > +
-> > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
-> > > +       if (!xmit) {
-> > > +               err = -ENOMEM;
-> > > +               goto out;
-> > > +       }
-> > > +
-> > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
-> > > +       if (!recv) {
-> > > +               err = -ENOMEM;
-> > > +               goto out;
-> > > +       }
-> >
-> > Do these really need to be dynamically allocated?
->
-> According to SBI extension proposal, base address of this memory chunk
-> must be 16-bytes aligned. To simplify things, buffer with 'power of two
-> bytes' size (and >= 16 bytes) is allocated. In this case alignment of
-> the kmalloc buffer is guaranteed to be at least this size. IIUC more
-> efforts are needed to guarantee such alignment for a buffer on stack.
-
-Stack is not appropriate for this. Please use a per-CPU global
-data for this purpose which should be 16 byte aligned as well.
-
-You may also allocate a per-CPU 4K page at boot-time where
-CPU X will use it's own 4K page for xmit (upper half) and
-recv (lower half).
-
-Regards,
-Anup
-
->
-> > > +
-> > > +       xmit->tdata1 = info->trig_data1.value;
-> > > +       xmit->tdata2 = info->trig_data2;
-> > > +       xmit->tdata3 = info->trig_data3;
-> > > +
-> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_INSTALL,
-> > > +                       1, __pa(xmit) >> 4, __pa(recv) >> 4,
-> > > +                       0, 0, 0);
-> > > +       if (ret.error) {
-> > > +               pr_warn("%s: failed to install trigger\n", __func__);
-> > > +               err = -EIO;
-> > > +               goto out;
-> > > +       }
-> > > +
-> > > +       if (recv->idx >= dbtr_total_num) {
-> > > +               pr_warn("%s: invalid trigger index %lu\n", __func__, recv->idx);
-> > > +               err = -EINVAL;
-> > > +               goto out;
-> > > +       }
-> > > +
-> > > +       slot = this_cpu_ptr(&bp_per_reg[recv->idx]);
-> > > +       if (*slot) {
-> > > +               pr_warn("%s: slot %lu is in use\n", __func__, recv->idx);
-> > > +               err = -EBUSY;
-> > > +               goto out;
-> > > +       }
-> > > +
-> > > +       *slot = bp;
-> > > +
-> > > +out:
-> > > +       kfree(xmit);
-> > > +       kfree(recv);
-> > > +
-> > > +       return err;
-> > > +}
->
-> ... [snip]
->
-> > > +static int __init arch_hw_breakpoint_init(void)
-> > > +{
-> > > +       union riscv_dbtr_tdata1 tdata1;
-> > > +       struct sbiret ret;
-> > > +
-> > > +       if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
-> > > +               pr_info("%s: SBI_EXT_DBTR is not supported\n", __func__);
-> > > +               return 0;
-> > > +       }
-> > > +
-> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> > > +                       0, 0, 0, 0, 0, 0);
-> > > +       if (ret.error) {
-> > > +               pr_warn("%s: failed to detect triggers\n", __func__);
-> > > +               return 0;
-> > > +       }
-> > > +
-> > > +       pr_info("%s: total number of triggers: %lu\n", __func__, ret.value);
-> > > +
-> > > +       tdata1.value = 0;
-> > > +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
-> > > +
-> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> > > +                       tdata1.value, 0, 0, 0, 0, 0);
-> > > +       if (ret.error) {
-> > > +               pr_warn("%s: failed to detect triggers\n", __func__);
-> > > +               dbtr_total_num = 0;
-> > > +               return 0;
-> > > +       }
-> >
-> > nit: This is basically identical to hw_breakpoint_slots() -- just call
-> > it here, or perhaps pull the DBTR_NUM_TRIGGERS ECALL into its own
-> > function to reduce the duplication, e.g. 'dbtr_num_triggers(unsigned
-> > long type)'?
->
-> Good point. More similar requests will be added, e.g. for MCONTROL and
-> possibly other trigger types. So I will add a separate
-> 'dbtr_num_triggers' function.
->
-> > > +
-> > > +       pr_info("%s: total number of type %d triggers: %lu\n",
-> > > +               __func__, tdata1.type, ret.value);
-> > > +
-> > > +       dbtr_total_num = ret.value;
-> > > +
-> > > +       return 0;
-> > > +}
->
-> Thanks!
-> Sergey
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSGVpa28sCgpPbiBGcmksIE5vdiA0LCAyMDIyIGF0IDExOjA3IFBNIEhlaWtvIFN0w7xibmVy
+IDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+Cj4gSGkgUHJhYmhha2FyLAo+Cj4gQW0gRnJlaXRh
+ZywgNC4gTm92ZW1iZXIgMjAyMiwgMjM6MDk6MTUgQ0VUIHNjaHJpZWIgTGFkLCBQcmFiaGFrYXI6
+Cj4gPiBXaGVuIHRyeWluZyB0byBhZGQgbm9uIGNvaGVyZW50IERNQSBzdXBwb3J0IGZvciB0aGUg
+UlovRml2ZSBTb0MsIEkgd2FzCj4gPiBzdWdnZXN0ZWQgdG8gdXNlIHRoZSBBTFRFUk5BVElWRSgp
+IG1hY3JvIFswXS4KPiA+Cj4gPiBNeSBpbml0aWFsIGludGVudGlvbiB3YXMgdG8gaW1wbGVtZW50
+IHRoZSBhbHRlcm5hdGl2ZV9jYWxsX3goKQo+ID4gc29tZXRoaW5nIGxpa2Ugd2hhdCB4ODYgaGFz
+IGFuZCBmcm9tIHRoZXJlIGNhbGwgdGhlIEMgZnVuY3Rpb24sIFNvCj4gPiB3aGlsZSBkb2luZyBz
+b21lIGV4cGVyaW1lbnRzIEkgcmVhbGl6ZWQgdGhhdCB1c2luZyB0aGUgYXNtICJjYWxsCj4gPiA8
+ZnVuYz4iIHdvdWxkIGNhdXNlIGFkZGluZyB0aGUgd2hvbGUgbG90IG9mIHJlZ2lzdGVycyBpbiB0
+aGUgY2xvYmJlcnMKPiA+IGxpc3QuCj4gPgo+ID4gQXMgcGVyIG15IHVuZGVyc3RhbmRpbmcgdGhl
+IG9ubHkgY29ycmVjdCBhcHByb2FjaCB0bwo+ID4gYWx0ZXJuYXRpdmVfY2FsbF94KCkgaXMgaWYg
+dGhlIGZ1bmN0aW9uIGl0c2VsZiBpcyBpbmxpbmUgYXNzZW1ibHkgdGhlbgo+ID4gd2Uga25vdyB0
+aGUgZXhhY3QgcmVnaXN0ZXJzIGJlaW5nIHVzZWQgYW5kIHRoZW4gd2UgY291bGQgYWRkIHRoZW0K
+PiA+IGFwcHJvcHJpYXRlbHkgaW4gdGhlIGNsb2JiZXJzIGxpc3QuCj4KPiBJJ20gd29ya2luZyBp
+biBhIHF1aXRlIHNpbWlsYXIgYXJlYSByaWdodCBub3cgYW5kIEkndmUgQ2MnZWQgeW91IG9uIGEK
+PiBSRkMgc2VyaWVzIHdoZW4gSSdtIGFsc28gd29ya2VkIG9uIG1ha2VpbmcgY2FsbCB3b3JrIGlu
+IGFsdGVybmF0aXZlcy4KPgpHcmVhdCEuIEknbGwgZ28gdGhyb3VnaCB0aGUgc2VyaWVzIGFuZCB0
+YWtlIHNvbWUgaW5zcGlyYXRpb24gZnJvbSBpdC4KCj4gQXMgeW91IG5vdGVkLCB1c2luZyBhc3Nl
+bWJsZXIgZm9yIHRoZSBjYWxsJ2VkIGZ1bmN0aW9uIG1ha2VzIHRoaW5ncwo+IHdheSBlYXNpZXIg
+dG8gaGFuZGxlLgo+CjotKQoKPiA+IFRoZSBwcm9ibGVtIHdpdGggdGhlIGFib3ZlIGFwcHJvYWNo
+IGJlaW5nIHdlIGhhdmUgcXVpdGUgYSBsb3Qgb2YgQwo+ID4gY29kZSBbMV0gZm9yIHRoZSBDTU8g
+YW5kIGl0IGFsc28gcmVxdWlyZXMgc29tZSByZWdpc3RlciB3cml0ZXMgb2YgdGhlCj4gPiBsMiBj
+YWNoZSBjb250cm9sbGVyLCBjb252ZXJ0aW5nIHRoaXMgdG8gYXNzZW1ibHkgd291bGQgYmUgYSBw
+YWluLgo+ID4KPiA+ICogSXMgbXkgdW5kZXJzdGFuZGluZyBjb3JyZWN0Pwo+ID4gKiBJcyB0aGVy
+ZSBhbnkgb3RoZXIgYXBwcm9hY2ggSSBhbSBtaXNzaW5nPwo+ID4gKiBJcyB0aGVyZSBubyB3YXkg
+b3V0IGFwYXJ0IGZyb20gaW1wbGVtZW50aW5nIGlubGluZSBhc20/Cj4KPiBJbiB0aGUgaW5saW5l
+LWFzbSBwYXJ0IHRoYXQgd2lsbCBmb3JtIHRoZSBhbHRlcm5hdGl2ZSwgY2FuIHlvdQo+IG5vdCBq
+dXN0IHNhdmUgYW5kIHJlc3RvcmUgdGhlIHJlZ2lzdGVycyBtYW51YWxseSBhcm91bmQgdGhlCj4g
+YWN0dWFsIGNhbGw/Cj4KPiBBTFRFUk5BVElWRSgKPiBbMV0gLi4uIG5vcHMgLi4uLAo+IFsyXSAu
+Li4gQ01PIC4uLiwKPiBbM10gLi4uIFRIRUFEIC4uLiwKPiBbNF0gc2F2ZSByZWdpc3RlcnMgdG8g
+c3RhY2sKPiAgICAgY2FsbCBheDQ1bXAgZG1hLWZ1bmMKPiAgICAgcmVzdG9yZSByZWdpc3RlcnMg
+ZnJvbSBzdGFjawo+Cj4gVGhhdCB3YXkgeW91IHdvdWxkIG5vIGluY3VyIG1hbnkgcGVuYWx0aWVz
+IHRvIHRoZSBvdGhlciBhbHRlcm5hdGl2ZXMKPiBJIHRoaW5rLgo+CkFncmVlZCwgdGhhbmtzIGZv
+ciB0aGUgc3VnZ2VzdGlvbi4gSSdsbCBjb250aW51ZSBteSBpbnZlc3RpZ2F0aW9uIGluCnRoaXMg
+ZGlyZWN0aW9uLgoKQ2hlZXJzLApQcmFiaGFrYXIKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
