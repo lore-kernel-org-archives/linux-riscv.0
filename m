@@ -4,44 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA4EC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Nov 2022 23:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A0E5C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Nov 2022 09:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s87h6AZaItN9n4gHyBXbWNMcXX/7Mwd+cW9R0Af3244=; b=igMLgniUFguOHn
-	z4jQykvl1rUubXjqqbXhsUBY4YrGDsaZ5DYFo1uDdYf2rRno6auChN6BEyWRsGHOGGu33IfH4hb8e
-	9hmlvAfNIG8hBLyqwIYeVwo4SDD4DWFcsMv2rS8iNUcKBqWdysRNd7xfgcUBV77aUb4cWZBeZSOsP
-	zpR08RvpQv6cXvluLWSHne5WISTBMhqhNDt6A8BLySVcf8lFD1Zs1flHXnAl+2zfZ6KItlx/PUMBu
-	yY5W2umtvYxVxBrwWy0ALliFfsHt6oOGSuGWGTvRCblUVSu0JGGVN5g6Jym2fS3wsEtOiEGyoEIVJ
-	J+7yQZr5+B2ffNxztBow==;
+	List-Owner; bh=BLJ/ncme92wjYieIUg4NoY/rLP62ilWN/q3AD4hHkMY=; b=tcD3YueAQkSsne
+	/+kEpMO5m/3EFpqgeqfL4tc1xqA8i45ue0fedOaJ1X0lp0JCUah4TI83Ung7mOe15HvWCKqKFO7HV
+	SMkZxNYwjnRClj6maNQPVn3bl2iiPkiTo+OgTuOY6V9FrNWpIJcJzEwaIyLCQNNvMtn9YHPxMkub+
+	B82XzVznAvmhYXFlrvLTYjHAFWE5czkVEhTnylPZ8OEIVp8mu124a9Jde1R3HTQn3Wq2kO3Go4tzW
+	Vmw0Wx1Ei3bgBDc9Rc1egBE2B8JWE9PnP93ezYmXxzD6KiPItRTTvHd4e4LOWUz2GtBmDxfT9TW6i
+	lgd45f5PGGEoKXBlEI5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or5mN-005SNj-40; Fri, 04 Nov 2022 23:07:15 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1orFCo-006CmO-8W; Sat, 05 Nov 2022 09:11:10 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1or5mK-005SNK-D1
-	for linux-riscv@lists.infradead.org; Fri, 04 Nov 2022 23:07:13 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1or5m9-00020w-A4; Sat, 05 Nov 2022 00:07:01 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <Conor.Dooley@microchip.com>, "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Chris Paterson <Chris.Paterson2@renesas.com>, Biju Das <biju.das.jz@bp.renesas.com>, "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, linux-riscv <linux-riscv@lists.infradead.org>, Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Subject: Re: [QUERY]: RZ/Five (AX45MP) non-coherent DMA
-Date: Sat, 05 Nov 2022 00:07:00 +0100
-Message-ID: <13365637.uLZWGnKmhe@diego>
-In-Reply-To: <CA+V-a8u_u9Q6Hb8kOZVKFjGyPsc2HQt88c4y2Nh8dzx0XSebeA@mail.gmail.com>
-References: <CA+V-a8u_u9Q6Hb8kOZVKFjGyPsc2HQt88c4y2Nh8dzx0XSebeA@mail.gmail.com>
+	id 1orFCl-006CkB-Ni
+	for linux-riscv@lists.infradead.org; Sat, 05 Nov 2022 09:11:09 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id bj12so18690154ejb.13
+        for <linux-riscv@lists.infradead.org>; Sat, 05 Nov 2022 02:10:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/S4Nm/C1Ue9AZYxd9MIbfz68XRVc7JF1TnQINz4VAIQ=;
+        b=cR/1Oo66x/Brv/JEj+qO1hbi3kih15mf9A3s7lxPdYH+0l1tJmlCIbcTTHkeWpDBRP
+         Cxy1GAFj9LlnWPbnGkJXZ5Xm7j93DRWWog8SugNO1B2kelqp1quoK0GnIp7FX4Vg+2bP
+         /et+yWe2ceBGTwztAALuWlDYCiuxkdTErlEXs01nqvj7Lfpx9v8zX3n/x+/61J04FCH+
+         Xa2p3ScsbyZeb+z9cLaFW/aJBplRA6k+G5pNh/WYc1wW2vAvc6lYfQ1eMx6tkRXjLgJW
+         LSfrwuyeVRplBVzBheixxhPyrMbsygWH9AEKFjcZadqivu5rr9fdJMJ87AzBTqXmE/TO
+         EJjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/S4Nm/C1Ue9AZYxd9MIbfz68XRVc7JF1TnQINz4VAIQ=;
+        b=EwrXBhPknp7/w43ZIc2OC+ovKeRWWoageDiMSCLnwDr7FWsTsL4yZpC4+nhavlxQSK
+         1EUyz8uTYLqXffxY4Ke0ZB5t6SSt9Cyf4WjHGJeUh7RNT4kmopiJAG6oen1Qa6YUWhV0
+         mxGpLa+1eJOb5KyeXUHE2wLK5mfIjdoQICj98xPVO7bkJ9iiwVCD5aA0bJ7Z3lUj5Hb6
+         qfT46RLjnWFoEsUMMnDdDzi077fdDVmoWNEc2rYKPs8LGVTH5uo8p7oTxyIqdSuqsTXT
+         gtmzxHnSq7B5uLQwpvwG2EQBPLBA1PuC3quwDFhz5H9UA0M/IxPp6Gy5/PSWhIJko3Cr
+         kHXA==
+X-Gm-Message-State: ACrzQf3iK9x4SR48qeJ4FIlnwWEmdZJjfzRA2DT9k0kO6+ClnNvSTXnv
+	rT/Rc9dG7ryC5Bfk/zplx9vHMh7yhk3GJT7jMdCFDQ==
+X-Google-Smtp-Source: AMsMyM5K/jvxRswoU4vnLuI5/+nOJ+I6WDcT5/WPAL6zKOeDQXmn7rJGWo+qao3LTg0DgaufUCRjBldD4YyYzK7MkFo=
+X-Received: by 2002:a17:906:dac8:b0:741:545b:796a with SMTP id
+ xi8-20020a170906dac800b00741545b796amr38075449ejb.240.1667639446681; Sat, 05
+ Nov 2022 02:10:46 -0700 (PDT)
 MIME-Version: 1.0
+References: <20221031213225.912258-1-geomatsi@gmail.com> <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
+ <Y2WGIQ+m7jk5RPZv@curiosity>
+In-Reply-To: <Y2WGIQ+m7jk5RPZv@curiosity>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 5 Nov 2022 14:40:34 +0530
+Message-ID: <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
+Subject: Re: [RFC PATCH v1] riscv: support for hardware breakpoints/watchpoints
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: Andrew Bresticker <abrestic@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	linux-arch@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221104_160712_471522_B7A5598F 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20221105_021107_801104_B9E1B426 
+X-CRM114-Status: GOOD (  39.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,64 +89,197 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Prabhakar,
+On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+>
+> Hi Andrew,
+>
+> > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
+> > > describes Trigger Module. Triggers can cause a breakpoint exception,
+> > > entry into Debug Mode, or a trace action without having to execute a
+> > > special instruction. For native debugging triggers can be used to
+> > > implement hardware breakpoints and watchpoints.
+>
+> ... [snip]
+>
+> > > Despite missing userspace debug, initial implementation can be tested
+> > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
+> > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
+> >
+> > We should also be able to enable the use of HW breakpoints (and
+> > watchpoints, modulo the issue mentioned below) in kdb, right?
+>
+> Interesting. So far I didn't think about using hw breakpoints in kgdb.
+> I took a quick look at riscv and arm64 kgdb code. It looks like there
+> is nothing wrong in adding arch-specific implementation of the function
+> 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
+> Besides it looks like in this case it makes sense to handle KGDB earlier
+> than hw breakpoints in do_trap_break.
+>
+> > > However this is not the case for watchpoints since there is no way to
+> > > figure out which watchpoint is triggered. IIUC there are two possible
+> > > options for doing this: using 'hit' bit in tdata1 or reading faulting
+> > > virtual address from STVAL. QEMU implements neither of them. Current
+> > > implementation opts for STVAL. So the following experimental QEMU patch
+> > > is required to make watchpoints work:
+> > >
+> > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
+> > > :  index 278d163803..8858be7411 100644
+> > > :  --- a/target/riscv/cpu_helper.c
+> > > :  +++ b/target/riscv/cpu_helper.c
+> > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
+> > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
+> > > :               tval = env->bins;
+> > > :               break;
+> > > :  +        case RISCV_EXCP_BREAKPOINT:
+> > > :  +            tval = env->badaddr;
+> > > :  +            env->badaddr = 0x0;
+> > > :  +            break;
+> > > :           default:
+> > > :               break;
+> > > :           }
+> > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
+> > > :  index 26ea764407..b4d1d566ab 100644
+> > > :  --- a/target/riscv/debug.c
+> > > :  +++ b/target/riscv/debug.c
+> > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
+> > > :
+> > > :       if (cs->watchpoint_hit) {
+> > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
+> > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
+> > > :               cs->watchpoint_hit = NULL;
+> > > :               do_trigger_action(env, DBG_ACTION_BP);
+> > > :           }
+>
+> ... [snip]
+>
+> > > +int arch_install_hw_breakpoint(struct perf_event *bp)
+> > > +{
+> > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
+> > > +       struct sbi_dbtr_data_msg *xmit;
+> > > +       struct sbi_dbtr_id_msg *recv;
+> > > +       struct perf_event **slot;
+> > > +       struct sbiret ret;
+> > > +       int err = 0;
+> > > +
+> > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
+> > > +       if (!xmit) {
+> > > +               err = -ENOMEM;
+> > > +               goto out;
+> > > +       }
+> > > +
+> > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
+> > > +       if (!recv) {
+> > > +               err = -ENOMEM;
+> > > +               goto out;
+> > > +       }
+> >
+> > Do these really need to be dynamically allocated?
+>
+> According to SBI extension proposal, base address of this memory chunk
+> must be 16-bytes aligned. To simplify things, buffer with 'power of two
+> bytes' size (and >= 16 bytes) is allocated. In this case alignment of
+> the kmalloc buffer is guaranteed to be at least this size. IIUC more
+> efforts are needed to guarantee such alignment for a buffer on stack.
 
-Am Freitag, 4. November 2022, 23:09:15 CET schrieb Lad, Prabhakar:
-> When trying to add non coherent DMA support for the RZ/Five SoC, I was
-> suggested to use the ALTERNATIVE() macro [0].
-> 
-> My initial intention was to implement the alternative_call_x()
-> something like what x86 has and from there call the C function, So
-> while doing some experiments I realized that using the asm "call
-> <func>" would cause adding the whole lot of registers in the clobbers
-> list.
-> 
-> As per my understanding the only correct approach to
-> alternative_call_x() is if the function itself is inline assembly then
-> we know the exact registers being used and then we could add them
-> appropriately in the clobbers list.
+Stack is not appropriate for this. Please use a per-CPU global
+data for this purpose which should be 16 byte aligned as well.
 
-I'm working in a quite similar area right now and I've Cc'ed you on a
-RFC series when I'm also worked on makeing call work in alternatives.
+You may also allocate a per-CPU 4K page at boot-time where
+CPU X will use it's own 4K page for xmit (upper half) and
+recv (lower half).
 
-As you noted, using assembler for the call'ed function makes things
-way easier to handle.
+Regards,
+Anup
 
-> The problem with the above approach being we have quite a lot of C
-> code [1] for the CMO and it also requires some register writes of the
-> l2 cache controller, converting this to assembly would be a pain.
-> 
-> * Is my understanding correct?
-> * Is there any other approach I am missing?
-> * Is there no way out apart from implementing inline asm?
-
-In the inline-asm part that will form the alternative, can you
-not just save and restore the registers manually around the
-actual call?
-
-ALTERNATIVE(
-[1] ... nops ...,
-[2] ... CMO ...,
-[3] ... THEAD ...,
-[4] save registers to stack
-    call ax45mp dma-func
-    restore registers from stack
-
-That way you would no incur many penalties to the other alternatives
-I think.
-
-
-Heiko
-
-> [0] https://patchwork.kernel.org/project/linux-riscv/cover/20221019220242.4746-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> [1] https://patchwork.kernel.org/project/linux-riscv/patch/20221019220242.4746-3-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> 
-> Cheers,
-> Prabhakar
-
-
-
-
+>
+> > > +
+> > > +       xmit->tdata1 = info->trig_data1.value;
+> > > +       xmit->tdata2 = info->trig_data2;
+> > > +       xmit->tdata3 = info->trig_data3;
+> > > +
+> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_INSTALL,
+> > > +                       1, __pa(xmit) >> 4, __pa(recv) >> 4,
+> > > +                       0, 0, 0);
+> > > +       if (ret.error) {
+> > > +               pr_warn("%s: failed to install trigger\n", __func__);
+> > > +               err = -EIO;
+> > > +               goto out;
+> > > +       }
+> > > +
+> > > +       if (recv->idx >= dbtr_total_num) {
+> > > +               pr_warn("%s: invalid trigger index %lu\n", __func__, recv->idx);
+> > > +               err = -EINVAL;
+> > > +               goto out;
+> > > +       }
+> > > +
+> > > +       slot = this_cpu_ptr(&bp_per_reg[recv->idx]);
+> > > +       if (*slot) {
+> > > +               pr_warn("%s: slot %lu is in use\n", __func__, recv->idx);
+> > > +               err = -EBUSY;
+> > > +               goto out;
+> > > +       }
+> > > +
+> > > +       *slot = bp;
+> > > +
+> > > +out:
+> > > +       kfree(xmit);
+> > > +       kfree(recv);
+> > > +
+> > > +       return err;
+> > > +}
+>
+> ... [snip]
+>
+> > > +static int __init arch_hw_breakpoint_init(void)
+> > > +{
+> > > +       union riscv_dbtr_tdata1 tdata1;
+> > > +       struct sbiret ret;
+> > > +
+> > > +       if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
+> > > +               pr_info("%s: SBI_EXT_DBTR is not supported\n", __func__);
+> > > +               return 0;
+> > > +       }
+> > > +
+> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> > > +                       0, 0, 0, 0, 0, 0);
+> > > +       if (ret.error) {
+> > > +               pr_warn("%s: failed to detect triggers\n", __func__);
+> > > +               return 0;
+> > > +       }
+> > > +
+> > > +       pr_info("%s: total number of triggers: %lu\n", __func__, ret.value);
+> > > +
+> > > +       tdata1.value = 0;
+> > > +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
+> > > +
+> > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> > > +                       tdata1.value, 0, 0, 0, 0, 0);
+> > > +       if (ret.error) {
+> > > +               pr_warn("%s: failed to detect triggers\n", __func__);
+> > > +               dbtr_total_num = 0;
+> > > +               return 0;
+> > > +       }
+> >
+> > nit: This is basically identical to hw_breakpoint_slots() -- just call
+> > it here, or perhaps pull the DBTR_NUM_TRIGGERS ECALL into its own
+> > function to reduce the duplication, e.g. 'dbtr_num_triggers(unsigned
+> > long type)'?
+>
+> Good point. More similar requests will be added, e.g. for MCONTROL and
+> possibly other trigger types. So I will add a separate
+> 'dbtr_num_triggers' function.
+>
+> > > +
+> > > +       pr_info("%s: total number of type %d triggers: %lu\n",
+> > > +               __func__, tdata1.type, ret.value);
+> > > +
+> > > +       dbtr_total_num = ret.value;
+> > > +
+> > > +       return 0;
+> > > +}
+>
+> Thanks!
+> Sergey
 
 _______________________________________________
 linux-riscv mailing list
