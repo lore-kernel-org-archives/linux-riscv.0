@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B68FC433FE
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Nov 2022 10:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B35C43219
+	for <linux-riscv@archiver.kernel.org>; Sun,  6 Nov 2022 10:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cukjFe2fGyTSRM8rx8eP0Ln1bppZOCt95F5zht3tCfM=; b=g6AC0lStnsGUxU
-	Z4gMmY+3YF6VVElHJbT1LunkI/nFxjet0ZVIpejwGSTsd5Nv7b5XGqdwq8g6EFYkZCwRQVkJstxqw
-	4cvz+NpDJFLOXikl9qD5Tvh7uZkCcdcX6YnrEuhi216kiTW+v7cWu9M2R2/Nq3O5CS/TvKl1vzBxE
-	3Tdba+9owOo9Sa/Iz+Z/JC77CZGvRoj3FFoYQmmFZTP9b86+oI3BgYgYakxhwpBNqMq6W0dYsp39I
-	3WKVliMBtpUaU2peGrzzcWmc4tOVMtNNQZVhd3dJzlcq6JLaMkaHlCFwMj5pLaV8m+MAA9te9EjzW
-	4TNerY97lfHiKJe69FQg==;
+	List-Owner; bh=RQSLV/gYNDwtZhLlYOjpdgGKFSaF7l7Y1fvNS69QA3U=; b=XoT1GGL46Dwupn
+	MYCi6ahQvbQmDeu6xpKDwGXacofUxmR4WLbVN2kldiCidrXW7pO6etObbCUg+rWNzubXdLuAp2jFy
+	+fsZulagpEgpgKqFKEOTSc03aEswAQBi5lfCkvCeBjv0NM6WmlwhQkbIlfrOs0VZfp7kRoBo+hzaA
+	pYB+nN4F2htreeu7TbHfIMtTeqEWbXPh8CtYN5GlsGApS+lH2KG8gk+3oCFvOlIlXOGT9midUyuRC
+	eBLAME2l6jrB/z6zFirStD6eEVap8ZWgVPkYi8DVrH8vdPLfOGMctEZ28kCD1v1WvZAUOqw7Rw/hf
+	a1uOcyOENJHEpcMJDCmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1orcVR-007uam-2u; Sun, 06 Nov 2022 10:03:57 +0000
+	id 1orcVU-007uck-Vl; Sun, 06 Nov 2022 10:04:01 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1orcVL-007uWX-1K
-	for linux-riscv@lists.infradead.org; Sun, 06 Nov 2022 10:03:55 +0000
+	id 1orcVL-007uWQ-27
+	for linux-riscv@lists.infradead.org; Sun, 06 Nov 2022 10:03:57 +0000
 Received: from cgk-Precision-3650-Tower.. (unknown [219.141.235.82])
-	by APP-05 (Coremail) with SMTP id zQCowACnrKByhmdj7bRnCA--.7053S10;
-	Sun, 06 Nov 2022 18:03:35 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowACnrKByhmdj7bRnCA--.7053S6;
+	Sun, 06 Nov 2022 18:03:34 +0800 (CST)
 From: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -39,36 +39,37 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	liaochang1@huawei.com,
 	Chen Guokai <chenguokai17@mails.ucas.ac.cn>
-Subject: [PATCH v4 6/8] riscv/kprobe: Add code to check if kprobe can be optimized
-Date: Sun,  6 Nov 2022 18:03:14 +0800
-Message-Id: <20221106100316.2803176-7-chenguokai17@mails.ucas.ac.cn>
+Subject: [PATCH v4 2/8] riscv/kprobe: Allocate detour buffer from module area
+Date: Sun,  6 Nov 2022 18:03:10 +0800
+Message-Id: <20221106100316.2803176-3-chenguokai17@mails.ucas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221106100316.2803176-1-chenguokai17@mails.ucas.ac.cn>
 References: <20221106100316.2803176-1-chenguokai17@mails.ucas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACnrKByhmdj7bRnCA--.7053S10
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw13Zw45Cr1kCw17Gr4xXrb_yoW7Gry5pF
-	s5Ca4YqrWrJFZagrWfAws5JrWSyws5Gr48trW7K34Fvw12qr9Igan7Kr4avFnxGF409r17
-	AF40yry8uF43ZrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
-	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
-	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
-	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
-	C7M4IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
-	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
-	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF
-	0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
-	IF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x0JUPPEfUUUUU=
+X-CM-TRANSID: zQCowACnrKByhmdj7bRnCA--.7053S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7tr1DGF4kXrWfXr43Ww47XFb_yoW8uF4UpF
+	4DCr45JrZ8Z3W3G3y3twn5Z34Fva95ta17KrW2vF15ZwsxJr43Aw4vg3yrXrn8tr4a9Fy5
+	XrW29ryS9ayUA3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmj14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vY
+	z4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
+	02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE
+	4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4
+	IIrI8v6xkF7I0E8cxan2IY04v7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j
+	6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7
+	AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE
+	2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcV
+	C2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2Kfnx
+	nUUI43ZEXa7VUjbdbUUUUUU==
 X-Originating-IP: [219.141.235.82]
-X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiCgUCE2NnSRxR2gABsF
+X-CM-SenderInfo: xfkh0w5xrntxyrx6ztxlovh3xfdvhtffof0/1tbiBwMCE2NnTgRK2AAAsJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221106_020351_566281_7F8E5898 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20221106_020351_595008_0F372368 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,145 +90,66 @@ From: Liao Chang <liaochang1@huawei.com>
 
 From: Liao Chang <liaochang1@huawei.com>
 
-This patch add code to check if kprobe can be optimized, regular kprobe
-replaces single instruction with EBREAK or C.EBREAK, it just requires
-the instrumented instruction support execute out-of-line or simulation,
-while optimized kprobe patch AUIPC/JALR pair to do a long jump, it makes
-everything more compilated, espeically for kernel that is hybrid RVI and
-RVC binary, although AUIPC/JALR just need 8 bytes space, the bytes to
-patch are 10 bytes long at worst case to ensure no RVI would be
-truncated, so there are four methods to patch optimized kprobe.
+To address the limitation of PC-relative branch instruction on riscv
+architecture, detour buffer slot used for optprobes is allocated from
+the region, the distance of which from kernel should be less than 4GB.
 
-  - Replace 2 RVI with AUIPC/JALR.
-  - Replace 4 RVC with AUIPC/JALR.
-  - Replace 2 RVC and 1 RVI with AUIPC/JALR.
-  - Replace 3 RVC and 1 RVI with AUIPC/JALR, and patch C.NOP into last
-    two bytes for alignment.
-
-So it has to find out a instruction window large enough to patch
-AUIPC/JALR from the address instrumented breakpoint, meanwhile, ensure
-no instruction has chance to jump into the range of patched window.
+For the time being, Modules region always live before the kernel.
+But Vmalloc region reside far from kernel, the distance is half of the
+kernel address space (See Documentation/riscv/vm-layout.rst), hence it
+needs to override the alloc_optinsn_page() to make sure allocate detour
+buffer from jump-safe region.
 
 Signed-off-by: Liao Chang <liaochang1@huawei.com>
 Co-developed-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 Signed-off-by: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
 ---
- arch/riscv/kernel/probes/opt.c | 99 ++++++++++++++++++++++++++++++++--
- 1 file changed, 94 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/probes/kprobes.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-diff --git a/arch/riscv/kernel/probes/opt.c b/arch/riscv/kernel/probes/opt.c
-index 6d23c843832e..876bec539554 100644
---- a/arch/riscv/kernel/probes/opt.c
-+++ b/arch/riscv/kernel/probes/opt.c
-@@ -271,15 +271,103 @@ static void find_free_registers(struct kprobe *kp, struct optimized_kprobe *op,
- 	*ra = (kw == 1UL) ? 0 : __builtin_ctzl(kw & ~1UL);
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e6e950b7cf32..034eb7b13b3c 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -12,6 +12,7 @@
+ #include <asm/cacheflush.h>
+ #include <asm/bug.h>
+ #include <asm/patch.h>
++#include <asm/set_memory.h>
+ 
+ #include "decode-insn.h"
+ 
+@@ -84,6 +85,30 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
  }
  
-+static bool insn_jump_into_range(unsigned long addr, unsigned long start,
-+				 unsigned long end)
+ #ifdef CONFIG_MMU
++#if defined(CONFIG_OPTPROBES) && defined(CONFIG_64BIT)
++void *alloc_optinsn_page(void)
 +{
-+	kprobe_opcode_t insn = *(kprobe_opcode_t *)addr;
-+	unsigned long target, offset = GET_INSN_LENGTH(insn);
++	void *page;
 +
-+#ifdef CONFIG_RISCV_ISA_C
-+	if (offset == RVC_INSN_LEN) {
-+		if (riscv_insn_is_c_beqz(insn) || riscv_insn_is_c_bnez(insn))
-+			target = addr + rvc_branch_imme(insn);
-+		else if (riscv_insn_is_c_jal(insn) || riscv_insn_is_c_j(insn))
-+			target = addr + rvc_jal_imme(insn);
-+		else
-+			target = addr + offset;
-+		return (target >= start) && (target < end);
-+	}
++	page = __vmalloc_node_range(PAGE_SIZE, 1, MODULES_VADDR,
++				    MODULES_END, GFP_KERNEL,
++				    PAGE_KERNEL, 0, NUMA_NO_NODE,
++				    __builtin_return_address(0));
++	if (!page)
++		return NULL;
++
++	set_vm_flush_reset_perms(page);
++	/*
++	 * First make the page read-only, and only then make it executable to
++	 * prevent it from being W+X in between.
++	 */
++	set_memory_ro((unsigned long)page, 1);
++	set_memory_x((unsigned long)page, 1);
++
++	return page;
++}
 +#endif
 +
-+	if (riscv_insn_is_branch(insn))
-+		target = addr + rvi_branch_imme(insn);
-+	else if (riscv_insn_is_jal(insn))
-+		target = addr + rvi_jal_imme(insn);
-+	else
-+		target = addr + offset;
-+	return (target >= start) && (target < end);
-+}
-+
-+static int search_copied_insn(unsigned long paddr, struct optimized_kprobe *op)
-+{
-+	int i =  1;
-+	unsigned long offset = GET_INSN_LENGTH(*(kprobe_opcode_t *)paddr);
-+
-+	while ((i++ < MAX_COPIED_INSN) && (offset < 2 * RVI_INSN_LEN)) {
-+		if (riscv_probe_decode_insn((probe_opcode_t *)paddr + offset,
-+					    NULL) != INSN_GOOD)
-+			return -1;
-+		offset += GET_INSN_LENGTH(*(kprobe_opcode_t *)(paddr + offset));
-+	}
-+
-+	op->optinsn.length = offset;
-+	return 0;
-+}
-+
- /*
-- * If two free registers can be found at the beginning of both
-- * the start and the end of replaced code, it can be optimized
-- * Also, in-function jumps need to be checked to make sure that
-- * there is no jump to the second instruction to be replaced
-+ * The kprobe can be optimized when no in-function jump reaches to the
-+ * instructions replaced by optimized jump instructions(AUIPC/JALR).
-  */
- static bool can_optimize(unsigned long paddr, struct optimized_kprobe *op)
+ void *alloc_insn_page(void)
  {
--	return false;
-+	int ret;
-+	unsigned long addr, size = 0, offset = 0;
-+	struct kprobe *kp = get_kprobe((kprobe_opcode_t *)paddr);
-+
-+	/*
-+	 * Skip optimization if kprobe has been disarmed or instrumented
-+	 * instruction support XOI.
-+	 */
-+	if (!kp || (riscv_probe_decode_insn(&kp->opcode, NULL) != INSN_GOOD))
-+		return false;
-+
-+	/*
-+	 * Find a instruction window large enough to contain a pair
-+	 * of AUIPC/JALR, and ensure each instruction in this window
-+	 * supports XOI.
-+	 */
-+	ret = search_copied_insn(paddr, op);
-+	if (ret)
-+		return false;
-+
-+	if (!kallsyms_lookup_size_offset(paddr, &size, &offset))
-+		return false;
-+
-+	/* Check there is enough space for relative jump(AUIPC/JALR) */
-+	if (size - offset <= op->optinsn.length)
-+		return false;
-+
-+	/*
-+	 * Decode instructions until function end, check any instruction
-+	 * don't jump into the window used to emit optprobe(AUIPC/JALR).
-+	 */
-+	addr = paddr - offset;
-+	while (addr < paddr) {
-+		if (insn_jump_into_range(addr, paddr + RVC_INSN_LEN,
-+					 paddr + op->optinsn.length))
-+			return false;
-+		addr += GET_INSN_LENGTH(*(kprobe_opcode_t *)addr);
-+	}
-+
-+	addr = paddr + op->optinsn.length;
-+	while (addr < paddr - offset + size) {
-+		if (insn_jump_into_range(addr, paddr + RVC_INSN_LEN,
-+					 paddr + op->optinsn.length))
-+			return false;
-+		addr += GET_INSN_LENGTH(*(kprobe_opcode_t *)addr);
-+	}
-+
-+	return true;
- }
- 
- int arch_prepared_optinsn(struct arch_optimized_insn *optinsn)
+ 	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
 -- 
 2.25.1
 
