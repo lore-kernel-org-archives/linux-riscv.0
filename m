@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E591C43219
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 19:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D027CC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 19:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/u9tDPfDt352gZY2c5PVcGESa09CoFF7M21oR4gY+y8=; b=aoo+1ZULQHWPnS
-	R39ro14ggq5cDzezlLO5IQTLi2f2FIbGfJBmiq1ZIaOye86Q/sCCSOe2qcu7Fg1Jj3oAFr108NTvn
-	IdJQSspuTEXLYOu/rzuldOyumMd39GysU2EbuO8rQB6vll6FG2Rh5gozml1xLE+7TbTSYA0JfoqTr
-	KO2Pbe/r+t7Suu/zMTWLRPe6uOLMpNPFy+WUcg253ZFKo3qU/ENnOPntWkwQ7q9okCT+1bLwX2C2j
-	27Zb9rSBdgE1XFgathJ5VZiOu7uBALeyp6cAyixoUr0m4sQXS2omEPuZCfpOVoeEXaPLSku+oTAnZ
-	koep3RnjrlNYfDp4z/jA==;
+	List-Owner; bh=D50nF58Tw6+veu8AnK+sWsVEHcoeVUpwPm3CBeIoNqU=; b=n79Ru3pgdLMvhO
+	9ZQxgrRpE21EF7PhgzsTZYL4NjYwpY8DEWiLGSOyaMOahZTJSvIF7UpZVfz85JaBD8owj80z4tsjJ
+	2iZvGExNdMAa7+VZAg5OY87JDbDPLF0/HypxgCnM7U+VuB6m5zzmdGoeidP5xD5h5u6D5XC4Z+USL
+	DZYT2RgJt7Cv4RYrDWPV1+8L5tHKQyLS7Iqh5aipJmSdhcgbf6p0mO3BBjBiYDhoCPp3CeqwQ5VT6
+	zVz3Mcfoio5sa6wZN/XEJHIfyokS4M/sbEOQ3cOB8fFShzOidfS1fb14S4zsiCA9tDLKeliVH4lZT
+	pDvz4Fj6yGJB2A5m8hUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os7WN-00HTNw-TH; Mon, 07 Nov 2022 19:11:00 +0000
+	id 1os7WT-00HTQb-3Q; Mon, 07 Nov 2022 19:11:05 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os7Uh-00HSUT-B1; Mon, 07 Nov 2022 19:09:17 +0000
+	id 1os7Uh-00HSUg-B2; Mon, 07 Nov 2022 19:09:17 +0000
 Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A7IMGES008477;
-	Mon, 7 Nov 2022 19:08:53 GMT
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A7IMGET008477;
+	Mon, 7 Nov 2022 19:08:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
  from : to : cc : date : in-reply-to : references : content-type :
  content-transfer-encoding : mime-version; s=pp1;
- bh=35tiOQSLtBhpiOtSDCyJvMTBa1BQEbmXkVMynO0AJNU=;
- b=bA2xI6jDXMw9GkKQ/17B2PsR08MngGD0BHr9lBdCncbze6ptiqW8yVYRlK8PyOz23yvD
- JJticYfnUSdWXwC0raCaPFMyDmDoTxVBT9GKCamiHjyfA3WaKPEVh69kCZEg5iupN8BC
- kspshGIvi7umhulLeej6gduBxnKXpRSRNfNc2nYBp7PJ6EPMDgBFDwRGeGK/qvilR8vM
- +K/1gvJLsVNYQtqHUdHQkOMXAFenkN/6JGFGZ61Aakroetl1TyzMfmKYgotX48AULjFp
- eig846ulngDwsfy+DjKBvTFBUri0aJLQSx2IXlOKn62ajHxUP8ret3ZPJA/CaddJtlwY cw== 
+ bh=8yB1T9kkcj6JZp4TFm1A7hnrKTeQoKKGrd8tbPdyOEs=;
+ b=mPK9o5wVItAdUCHHrTW+8HPUpMJmXCn685NlXKeVscLMgyHN4njk8bVPEIHZQPcPLZqK
+ Ztz8RCrPoADtS/PrmmIEoIPAMygo0OG+ehIy/Xh5qIWr83a/qhrmNPRWHT7LucYzuM6v
+ GRY8EZO5Yi9cBmIGqjDcuXfelRLAZTOy12d0YJGmmFC79SKpFsiYDDpFKy4ciSN4pXgq
+ ZH3CiU5g+v8IvCRrWHCXajaSzXembp+poMANK9d6PkKxLctLIG6WcGSnTwltbKhrZ/q9
+ fu9tqSDViuxcUkN+0hEHKxNVgqwvD3l/8QHsqgCbXQ/CCD24BS1R0u7ACKjl2l8sEdL4 +A== 
 Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspayt-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspb26-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:53 +0000
+	Mon, 07 Nov 2022 19:08:57 +0000
 Received: from m0127361.ppops.net (m0127361.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 2A7GxdSO017285;
-	Mon, 7 Nov 2022 19:08:52 GMT
-Received: from ppma05wdc.us.ibm.com (1b.90.2fa9.ip4.static.sl-reverse.com [169.47.144.27])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspay5-1
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 2A7IgUpc024059;
+	Mon, 7 Nov 2022 19:08:56 GMT
+Received: from ppma01wdc.us.ibm.com (fd.55.37a9.ip4.static.sl-reverse.com [169.55.85.253])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspb1g-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:52 +0000
-Received: from pps.filterd (ppma05wdc.us.ibm.com [127.0.0.1])
-	by ppma05wdc.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 2A7J6Qwe004644;
-	Mon, 7 Nov 2022 19:08:51 GMT
-Received: from b01cxnp22036.gho.pok.ibm.com (b01cxnp22036.gho.pok.ibm.com [9.57.198.26])
-	by ppma05wdc.us.ibm.com with ESMTP id 3kngpksn53-1
+	Mon, 07 Nov 2022 19:08:56 +0000
+Received: from pps.filterd (ppma01wdc.us.ibm.com [127.0.0.1])
+	by ppma01wdc.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 2A7J6ZLd012249;
+	Mon, 7 Nov 2022 19:08:55 GMT
+Received: from b01cxnp22034.gho.pok.ibm.com (b01cxnp22034.gho.pok.ibm.com [9.57.198.24])
+	by ppma01wdc.us.ibm.com with ESMTP id 3kngs3smh7-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:51 +0000
-Received: from smtpav01.wdc07v.mail.ibm.com ([9.208.128.113])
-	by b01cxnp22036.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 2A7J8nEF22807444
+	Mon, 07 Nov 2022 19:08:55 +0000
+Received: from smtpav02.wdc07v.mail.ibm.com ([9.208.128.114])
+	by b01cxnp22034.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 2A7J8sh916712426
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Nov 2022 19:08:50 GMT
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 92AAC5805B;
-	Mon,  7 Nov 2022 19:08:49 +0000 (GMT)
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 896CB5804B;
-	Mon,  7 Nov 2022 19:08:44 +0000 (GMT)
+	Mon, 7 Nov 2022 19:08:54 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 26BC558068;
+	Mon,  7 Nov 2022 19:08:54 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 430D958060;
+	Mon,  7 Nov 2022 19:08:50 +0000 (GMT)
 Received: from li-479af74c-31f9-11b2-a85c-e4ddee11713b.ibm.com (unknown [9.65.225.56])
-	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  7 Nov 2022 19:08:44 +0000 (GMT)
-Message-ID: <c015f51c8011f1b8e9dbf55c8d3ffd7a3b001ba5.camel@linux.ibm.com>
-Subject: Re: [PATCH 27/44] KVM: Drop kvm_arch_{init,exit}() hooks
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  7 Nov 2022 19:08:50 +0000 (GMT)
+Message-ID: <13c194d02d02a0e2adc006c724809b63c11f1e80.camel@linux.ibm.com>
+Subject: Re: [PATCH 30/44] KVM: Drop kvm_arch_check_processor_compat() hook
 From: Eric Farman <farman@linux.ibm.com>
 To: Sean Christopherson <seanjc@google.com>,
         Paolo Bonzini
@@ -106,26 +106,26 @@ Cc: James Morse <james.morse@arm.com>,
  <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
         Thomas Gleixner
  <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
-Date: Mon, 07 Nov 2022 14:08:44 -0500
-In-Reply-To: <20221102231911.3107438-28-seanjc@google.com>
+Date: Mon, 07 Nov 2022 14:08:47 -0500
+In-Reply-To: <20221102231911.3107438-31-seanjc@google.com>
 References: <20221102231911.3107438-1-seanjc@google.com>
-	 <20221102231911.3107438-28-seanjc@google.com>
+	 <20221102231911.3107438-31-seanjc@google.com>
 User-Agent: Evolution 3.44.4 (3.44.4-2.fc36) 
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: EGRhxfVownb69WBbMarN5b--dY5-Hx8c
-X-Proofpoint-GUID: JbH8lnx2OyFdlHqJPERqpVN2xJ_qztsc
+X-Proofpoint-ORIG-GUID: RHHp999uHGQe6ZCvMSlBReRcUeSiiV8m
+X-Proofpoint-GUID: DuaePqxTnOnEid3ZLdZuErIqRkSISZr5
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.219,Aquarius:18.0.895,Hydra:6.0.545,FMLib:17.11.122.1
  definitions=2022-11-07_09,2022-11-07_02,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=949
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=793
  phishscore=0 impostorscore=0 lowpriorityscore=0 mlxscore=0 malwarescore=0
  bulkscore=0 spamscore=0 adultscore=0 suspectscore=0 priorityscore=1501
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2210170000
  definitions=main-2211070152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_110915_761019_39A552C9 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20221107_110915_765351_03402A34 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,22 +143,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 T24gV2VkLCAyMDIyLTExLTAyIGF0IDIzOjE4ICswMDAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
-b3RlOgo+IERyb3Aga3ZtX2FyY2hfaW5pdCgpIGFuZCBrdm1fYXJjaF9leGl0KCkgbm93IHRoYXQg
-YWxsIGltcGxlbWVudGF0aW9ucwo+IGFyZSBub3BzLgo+IAo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdl
-IGludGVuZGVkLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5q
-Y0Bnb29nbGUuY29tPgo+IC0tLQo+IMKgYXJjaC9hcm02NC9rdm0vYXJtLmPCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgfCAxMSAtLS0tLS0tLS0tLQo+IMKgYXJjaC9taXBzL2t2bS9taXBz
-LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCAtLS0tLS0tLS0tCj4gwqBhcmNo
-L3Bvd2VycGMvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCB8wqAgMSAtCj4gwqBhcmNoL3Bvd2VycGMv
-a3ZtL3Bvd2VycGMuY8KgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNSAtLS0tLQo+IMKgYXJjaC9yaXNj
-di9rdm0vbWFpbi5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgOSAtLS0tLS0tLS0K
-PiDCoGFyY2gvczM5MC9rdm0va3ZtLXMzOTAuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCAt
-LS0tLS0tLS0tCj4gwqBhcmNoL3g4Ni9rdm0veDg2LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIHwgMTAgLS0tLS0tLS0tLQo+IMKgaW5jbHVkZS9saW51eC9rdm1faG9zdC5owqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMyAtLS0KPiDCoHZpcnQva3ZtL2t2bV9tYWluLmPCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE5ICsrLS0tLS0tLS0tLS0tLS0tLS0KPiDC
-oDkgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA3NiBkZWxldGlvbnMoLSkKClJldmll
-d2VkLWJ5OiBFcmljIEZhcm1hbiA8ZmFybWFuQGxpbnV4LmlibS5jb20+CSMgczM5MApfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+b3RlOgo+IERyb3Aga3ZtX2FyY2hfY2hlY2tfcHJvY2Vzc29yX2NvbXBhdCgpIGFuZCBpdHMgc3Vw
+cG9ydCBjb2RlIG5vdyB0aGF0Cj4gYWxsCj4gYXJjaGl0ZWN0dXJlIGltcGxlbWVudGF0aW9ucyBh
+cmUgbm9wcy4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNA
+Z29vZ2xlLmNvbT4KPiAtLS0KPiDCoGFyY2gvYXJtNjQva3ZtL2FybS5jwqDCoMKgwqDCoMKgIHzC
+oCA3ICstLS0tLS0KPiDCoGFyY2gvbWlwcy9rdm0vbWlwcy5jwqDCoMKgwqDCoMKgIHzCoCA3ICst
+LS0tLS0KPiDCoGFyY2gvcG93ZXJwYy9rdm0vYm9vazNzLmPCoCB8wqAgMiArLQo+IMKgYXJjaC9w
+b3dlcnBjL2t2bS9lNTAwLmPCoMKgwqAgfMKgIDIgKy0KPiDCoGFyY2gvcG93ZXJwYy9rdm0vZTUw
+MG1jLmPCoCB8wqAgMiArLQo+IMKgYXJjaC9wb3dlcnBjL2t2bS9wb3dlcnBjLmMgfMKgIDUgLS0t
+LS0KPiDCoGFyY2gvcmlzY3Yva3ZtL21haW4uY8KgwqDCoMKgwqAgfMKgIDcgKy0tLS0tLQo+IMKg
+YXJjaC9zMzkwL2t2bS9rdm0tczM5MC5jwqDCoCB8wqAgNyArLS0tLS0tCj4gwqBhcmNoL3g4Ni9r
+dm0vc3ZtL3N2bS5jwqDCoMKgwqAgfMKgIDQgKystLQo+IMKgYXJjaC94ODYva3ZtL3ZteC92bXgu
+Y8KgwqDCoMKgIHzCoCA0ICsrLS0KPiDCoGFyY2gveDg2L2t2bS94ODYuY8KgwqDCoMKgwqDCoMKg
+wqAgfMKgIDUgLS0tLS0KPiDCoGluY2x1ZGUvbGludXgva3ZtX2hvc3QuaMKgwqAgfMKgIDQgKy0t
+LQo+IMKgdmlydC9rdm0va3ZtX21haW4uY8KgwqDCoMKgwqDCoMKgIHwgMjQgKy0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tCj4gwqAxMyBmaWxlcyBjaGFuZ2VkLCAxMyBpbnNlcnRpb25zKCspLCA2NyBk
+ZWxldGlvbnMoLSkKClJldmlld2VkLWJ5OiBFcmljIEZhcm1hbiA8ZmFybWFuQGxpbnV4LmlibS5j
+b20+CSMgczM5MAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
