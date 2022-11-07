@@ -4,59 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E02C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 18:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E591C43219
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 19:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=llADRzB1LMOHKyXKr5UsPwzwycDMnn48JOA1DvxYtKs=; b=zhLQzHhjYy1NF9
-	SVf7KbG46YwjLrvZBS+ok0ytIxYJ4WoNYsqvqRXbr4UqvNjIU3/eOvYIuU1nnJQspA3CvR6idbi0v
-	hnpgcfgHCca1HVaLAhsWyFcw/F04mfcSb9A7lfEf0hBNyFYarM/KhW0EA1iV6lAvS4WcK03dvqV0z
-	XS3OEsX9Py370Q5Yr+m5SBi266BnfbwPTEteKDRCaNebnBxV+CZp32y0TzHyGQTmepJlRFAnc6TLH
-	Naeuk/StYVbaczgtowGG4gYPVYW/RP4PmCsDHBIhkM1ELWirPESVSBbcH19GfuIGrVHrvxRWi9BOK
-	5wenpsgJupfO0a08+dXQ==;
+	List-Owner; bh=/u9tDPfDt352gZY2c5PVcGESa09CoFF7M21oR4gY+y8=; b=aoo+1ZULQHWPnS
+	R39ro14ggq5cDzezlLO5IQTLi2f2FIbGfJBmiq1ZIaOye86Q/sCCSOe2qcu7Fg1Jj3oAFr108NTvn
+	IdJQSspuTEXLYOu/rzuldOyumMd39GysU2EbuO8rQB6vll6FG2Rh5gozml1xLE+7TbTSYA0JfoqTr
+	KO2Pbe/r+t7Suu/zMTWLRPe6uOLMpNPFy+WUcg253ZFKo3qU/ENnOPntWkwQ7q9okCT+1bLwX2C2j
+	27Zb9rSBdgE1XFgathJ5VZiOu7uBALeyp6cAyixoUr0m4sQXS2omEPuZCfpOVoeEXaPLSku+oTAnZ
+	koep3RnjrlNYfDp4z/jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os6un-00HCqp-BK; Mon, 07 Nov 2022 18:32:09 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1os7WN-00HTNw-TH; Mon, 07 Nov 2022 19:11:00 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os6uk-00HCq1-Gz
-	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 18:32:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CF06AB81618;
-	Mon,  7 Nov 2022 18:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93BEDC433C1;
-	Mon,  7 Nov 2022 18:32:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667845923;
-	bh=dlmjP9ssLQcaBYiSfyLIT2bYn125NQOMTZhQKYAjXgE=;
-	h=Date:From:To:List-Id:Cc:Subject:References:In-Reply-To:From;
-	b=mhrjDEbhmFhr6AJINeU+l+gzY/cVtDaofNce/i05fzaXtG4Ipdy0tya2LfKIDmhq3
-	 XNQADOSdjk6AgpldScjWITOoiJuwU64Kh4dnaLm0IV8ZQ3lxpYZzY/K34wMqhaAmRW
-	 VcmIhQ2WoygKD96V+gwo70pcuGCLVeauwLLsdZfkWtpWpsihm+ZIIvaM81jUVenhGI
-	 UUjTUe9iw6tgRQvwHwfyX2VaGueHyN0RB8lpuyh9Gulmr3PAmbt7rmkWRxw5/Vbe/P
-	 xL03tBJsb3xlEkV9+9HBoVmtow127nyGyefuRq2NyU1NGYG+ds0qxgmroQ4zF2mCoF
-	 Q0ODxJK0irdsA==
-Date: Mon, 7 Nov 2022 18:31:59 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, kernel@esmil.dk, krzk@kernel.org,
-	masahiroy@kernel.org, mkl@pengutronix.de, davem@davemloft.net,
-	linux-riscv@lists.infradead.org, soc@kernel.org
-Subject: Re: Should we merge arch/riscv/boot/dts via the SOC tree?
-Message-ID: <Y2lPHzaHvpWjEoll@spud>
-References: <mhng-e4210f56-fcc3-4db8-abdb-d43b3ebe695d@palmer-ri-x1c9a>
+	id 1os7Uh-00HSUT-B1; Mon, 07 Nov 2022 19:09:17 +0000
+Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A7IMGES008477;
+	Mon, 7 Nov 2022 19:08:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=35tiOQSLtBhpiOtSDCyJvMTBa1BQEbmXkVMynO0AJNU=;
+ b=bA2xI6jDXMw9GkKQ/17B2PsR08MngGD0BHr9lBdCncbze6ptiqW8yVYRlK8PyOz23yvD
+ JJticYfnUSdWXwC0raCaPFMyDmDoTxVBT9GKCamiHjyfA3WaKPEVh69kCZEg5iupN8BC
+ kspshGIvi7umhulLeej6gduBxnKXpRSRNfNc2nYBp7PJ6EPMDgBFDwRGeGK/qvilR8vM
+ +K/1gvJLsVNYQtqHUdHQkOMXAFenkN/6JGFGZ61Aakroetl1TyzMfmKYgotX48AULjFp
+ eig846ulngDwsfy+DjKBvTFBUri0aJLQSx2IXlOKn62ajHxUP8ret3ZPJA/CaddJtlwY cw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspayt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 19:08:53 +0000
+Received: from m0127361.ppops.net (m0127361.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 2A7GxdSO017285;
+	Mon, 7 Nov 2022 19:08:52 GMT
+Received: from ppma05wdc.us.ibm.com (1b.90.2fa9.ip4.static.sl-reverse.com [169.47.144.27])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspay5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 19:08:52 +0000
+Received: from pps.filterd (ppma05wdc.us.ibm.com [127.0.0.1])
+	by ppma05wdc.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 2A7J6Qwe004644;
+	Mon, 7 Nov 2022 19:08:51 GMT
+Received: from b01cxnp22036.gho.pok.ibm.com (b01cxnp22036.gho.pok.ibm.com [9.57.198.26])
+	by ppma05wdc.us.ibm.com with ESMTP id 3kngpksn53-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 19:08:51 +0000
+Received: from smtpav01.wdc07v.mail.ibm.com ([9.208.128.113])
+	by b01cxnp22036.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 2A7J8nEF22807444
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 7 Nov 2022 19:08:50 GMT
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 92AAC5805B;
+	Mon,  7 Nov 2022 19:08:49 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 896CB5804B;
+	Mon,  7 Nov 2022 19:08:44 +0000 (GMT)
+Received: from li-479af74c-31f9-11b2-a85c-e4ddee11713b.ibm.com (unknown [9.65.225.56])
+	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  7 Nov 2022 19:08:44 +0000 (GMT)
+Message-ID: <c015f51c8011f1b8e9dbf55c8d3ffd7a3b001ba5.camel@linux.ibm.com>
+Subject: Re: [PATCH 27/44] KVM: Drop kvm_arch_{init,exit}() hooks
+From: Eric Farman <farman@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>,
+        Paolo Bonzini
+ <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+        Huacai Chen
+ <chenhuacai@kernel.org>,
+        Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>,
+        Anup Patel <anup@brainfault.org>,
+        Paul
+ Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Christian Borntraeger
+ <borntraeger@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        Matthew Rosato
+ <mjrosato@linux.ibm.com>,
+        Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: James Morse <james.morse@arm.com>,
+        Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Oliver Upton <oliver.upton@linux.dev>,
+        Atish Patra <atishp@atishpatra.org>,
+        David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Isaku Yamahata <isaku.yamahata@intel.com>,
+        Fabiano Rosas <farosas@linux.ibm.com>,
+        Michael Ellerman
+ <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
+        Thomas Gleixner
+ <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
+Date: Mon, 07 Nov 2022 14:08:44 -0500
+In-Reply-To: <20221102231911.3107438-28-seanjc@google.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+	 <20221102231911.3107438-28-seanjc@google.com>
+User-Agent: Evolution 3.44.4 (3.44.4-2.fc36) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-e4210f56-fcc3-4db8-abdb-d43b3ebe695d@palmer-ri-x1c9a>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: EGRhxfVownb69WBbMarN5b--dY5-Hx8c
+X-Proofpoint-GUID: JbH8lnx2OyFdlHqJPERqpVN2xJ_qztsc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.895,Hydra:6.0.545,FMLib:17.11.122.1
+ definitions=2022-11-07_09,2022-11-07_02,2022-06-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=949
+ phishscore=0 impostorscore=0 lowpriorityscore=0 mlxscore=0 malwarescore=0
+ bulkscore=0 spamscore=0 adultscore=0 suspectscore=0 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2210170000
+ definitions=main-2211070152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_103206_879928_46E4EA31 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20221107_110915_761019_39A552C9 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,90 +137,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 07, 2022 at 08:46:00AM -0800, Palmer Dabbelt wrote:
-> This has come up a bunch of times, but I don't think we've ever really
-> made a decision.  Historically that's not been such a big deal because
-> the RISC-V device trees were pretty inactive, but that's changed -- both
-> because Conor has been cleaning everything up, and also because there's
-> a bunch of SOCs showing up with RISC-V cores in them.  We talked about
-> this again at plumbers a few times, but Arnd wasn't around it person so
-> I figured it's best to just start an email thread and see how people
-> feel.
-> 
-> A lot of these new SOCs are based on Arm designs and the device trees
-> very much reflect that, so it makes sense to me to just keep the device
-> tree merges via as similar a path as possible.  IIUC that happens via
-> the SOC tree these days, so it makes sense to me that we start handling
-> the RISC-V device trees that way as well.  That would make things easier
-> for contributors, as they'll have one workflow for all their SOCs, but
-> also easier for me as a lot of this SOC stuff touches bits I really
-> don't understand and thus get kind of lost trying to review.
-
-Reviewing the Renesas/Allwinner stuff, it's p apparent to me that they
-need to go via the same tree for RISC-V and ARM.
-
-> Arnd: looks like you're handling most of the merges these days so this
-> would be increasing your workload.  I feel kind of bad just dumping a
-> bunch of stuff on you, but I think at least now the RISC-V DTS are in
-> reasonable shape so hopefully it's not that bad.
-
-Warning free at least... :)
-
-> It'd certainly help
-> things on my end, and I'm happy to try and re-direct some of that saved
-> time to helping out in SOC land but I'm not sure how well that'd work
-> out in practice as I'm pretty buried.
-
-As things stand, I'm the only one sending PRs from the RISC-V side for
-dt & I am down to send things whatever way.
-Since he expressed willingness off list, I'm happy to route things via
-the soc tree going forwards.
-
-> On a somewhat related note, Conor has offered to pick up the otherwise
-> unmaintained RISC-V SOCs.  That's sort of its own discussion, but if we
-> change over to the SOC tree we might as well just do everything at the
-> same time.
-> 
-> Presumably we'd want to adjust the MAINTAINERS file in a handful of ways
-> to make sure patches end up in the right place.
-
-Arnd mentioned that that should cover stuff in drivers/{soc,firmware} as
-well as the dt, so with the assumption that that MAINTAINERS entry looks
-something like:
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cf0f18502372..03e78d2e5cc6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17709,6 +17709,16 @@ F:	arch/riscv/
- N:	riscv
- K:	riscv
- 
-+RISC-V/MISC SOC SUPPORT
-+M:	Conor Dooley <conor@kernel.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+Q:	https://patchwork.kernel.org/project/linux-riscv/list/
-+T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-+F:	arch/riscv/boot/dts/
-+F:	drivers/soc/microchip/
-+F:	drivers/soc/sifive/
-+
- RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
- M:	Conor Dooley <conor.dooley@microchip.com>
- M:	Daire McNamara <daire.mcnamara@microchip.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks Palmer/Arnd,
-Conor.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDIyLTExLTAyIGF0IDIzOjE4ICswMDAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
+b3RlOgo+IERyb3Aga3ZtX2FyY2hfaW5pdCgpIGFuZCBrdm1fYXJjaF9leGl0KCkgbm93IHRoYXQg
+YWxsIGltcGxlbWVudGF0aW9ucwo+IGFyZSBub3BzLgo+IAo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdl
+IGludGVuZGVkLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFNlYW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5q
+Y0Bnb29nbGUuY29tPgo+IC0tLQo+IMKgYXJjaC9hcm02NC9rdm0vYXJtLmPCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgfCAxMSAtLS0tLS0tLS0tLQo+IMKgYXJjaC9taXBzL2t2bS9taXBz
+LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCAtLS0tLS0tLS0tCj4gwqBhcmNo
+L3Bvd2VycGMvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCB8wqAgMSAtCj4gwqBhcmNoL3Bvd2VycGMv
+a3ZtL3Bvd2VycGMuY8KgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNSAtLS0tLQo+IMKgYXJjaC9yaXNj
+di9rdm0vbWFpbi5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgOSAtLS0tLS0tLS0K
+PiDCoGFyY2gvczM5MC9rdm0va3ZtLXMzOTAuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCAt
+LS0tLS0tLS0tCj4gwqBhcmNoL3g4Ni9rdm0veDg2LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHwgMTAgLS0tLS0tLS0tLQo+IMKgaW5jbHVkZS9saW51eC9rdm1faG9zdC5owqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgMyAtLS0KPiDCoHZpcnQva3ZtL2t2bV9tYWluLmPCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDE5ICsrLS0tLS0tLS0tLS0tLS0tLS0KPiDC
+oDkgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCA3NiBkZWxldGlvbnMoLSkKClJldmll
+d2VkLWJ5OiBFcmljIEZhcm1hbiA8ZmFybWFuQGxpbnV4LmlibS5jb20+CSMgczM5MApfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
