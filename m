@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD2AC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 15:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFA6C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 16:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0lXb+fTcOX9JRWtA/twjUoBvwmI63Qrl2KYBL4Egyw0=; b=wqOF4tXzlciRCA
-	ZcasmZCubNza/nrmzgiYr1SQKzSIbQaOSyISJCuf3jbzldS8X44a18TUrbJTvPZZ7OmUXnYRATjK+
-	fyEuuipmB8S9r6rASD37sk5h+JPnByVIUC2eVAArw+LgW7YBTF2x3UHdWAQZkmXjKM1RQBiugMvjz
-	4Z8AkdUp/bffaZa9DviNA8gzO0iGzE+CU9bqLJynQ3wUyvtxPuPXBS5ChM6UbqH8kxZ8lRAeoR5NB
-	Ogm2kncbuBe53+RomIzKD5gO0gwPvKYDRP8ElVyMIdTRcSltRACKIXQJ/Tb/l95lvKfEreXHtfHQu
-	Z8nWxWS+x4OzHFL5+KTw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CUBZcCq8vGpdlBpUYnv3qa9jj9kI02GKN69UzeYkSEE=; b=29sUSYOY/+5OOT
+	fIj0eCP9g5QB0dDWz3KpDht5j9jzyeyf9nWD8LLT/3fkEWayQg0vOUrM/+rd0XNq71vdpEBnIdZzS
+	20CZB9p54Vb0WWRQkA697cGhjUxZsEg6iC4Url5GirddUldCx4a/ZINNHMtRno1GVjFPGfnWN2NpM
+	kXBjb9VHxueop1nVXYlQxhZz2aeMTQqLCS3zx6D0ekgCQPQc5MT3whlVyNnkawRWM8w0iomxYCMWX
+	Tz4dwVsKUYpN2u4GsuFXHXHbrGWozjdOnEW7OzT2p3ImyuIsyZadzYRzyFM8QZZAncxO4coY7Ij1P
+	8sMzgKHTaqDM1KF8GnLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os3rD-00FdXo-2Z; Mon, 07 Nov 2022 15:16:15 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1os4fY-00G1cI-V7; Mon, 07 Nov 2022 16:08:16 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os3r5-00FdUK-8a
-	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 15:16:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1667834167; x=1699370167;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Hua8FnSNgyK0XNfauia0YSWtJJuQvu8Oq20DaFtM3II=;
-  b=XLpF/dPO/Q6dQ6rgX/ASrV5H/5SyZkcgBX5Kz9ilH6+rrw1oYw9t9Z4l
-   mNa1TtPMk5pj3bQsiaXJXar2UkSsWGXUArG245bAV9KMefysRAAf9ExsG
-   FGZv4FVePeUn13t4pwS4hFstE33zcrS1Q/qAp3/jyEGWAcBVCqwEQAon/
-   5EklR+I1qqU2XtOq2RgUuas3AKLsrR+7P7/8b+auQqW1QxAjDnOlbOM9M
-   /6HObDI6oS8JZLFdxezmczVKHl4tXaSkTD0LgIfBRVSgES8ClD0qzvi7w
-   mYbhtn6lIqipcPuo0bP05FxxIFnOqaqp+wUwOJJaSMXjiGFZR6fJe8xR5
-   w==;
-X-IronPort-AV: E=Sophos;i="5.96,145,1665471600"; 
-   d="scan'208";a="198734479"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Nov 2022 08:16:06 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 7 Nov 2022 08:16:05 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Mon, 7 Nov 2022 08:16:03 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, "Daire
- McNamara" <daire.mcnamara@microchip.com>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>, Nick Kossifidis <mick@ics.forth.gr>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Valentina
- Fernandez" <valentina.fernandezalanis@microchip.com>, Evgenii Shatokhin
-	<e.shatokhin@yadro.com>
-Subject: [PATCH v1] riscv: fix reserved memory setup
-Date: Mon, 7 Nov 2022 15:15:25 +0000
-Message-ID: <20221107151524.3941467-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.38.0
+	id 1os4dY-00G0E0-UP
+	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 16:06:15 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id m204so12610604oib.6
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 08:06:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=0K3ivCfAEjRA7WG0HxWeDhVlRi7PC2DjwNTLkzhMj2I=;
+        b=jCRoOuQu58epPpyqZx3wf+FtQDsbtcOwvzYoMlbSKYZ33Y3fatWvzyxy0MO8JHNxjw
+         vkDz3nO76KHLZwnb3fs41HAD4BgnX+0jbyQ/SDU5yehp407ULsgbjx1Vs8dlBAuU5PWO
+         uS90Xjc4fIV67VT0hzyZ85KlgSxv5kH7QQiCDBJTHL994UP1aosUTHsZwOjOjn1P823J
+         ftn/jaxGclLEyBLjv7yzs+WFLfKUtahcr5t88HNBJ4c/ewwVyzMdSafgwUNQNg2obJ4I
+         WYNKQVuRQ4+lc0GO8Pxm88STtmlnVu7zDiqyIpAjF38orCV08wvvutE5oSIr9ns3TS/W
+         YnYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0K3ivCfAEjRA7WG0HxWeDhVlRi7PC2DjwNTLkzhMj2I=;
+        b=WvqCop5uE7XVjjF0hkZSmzl9YIVYKfDkQb1ovVjJtnhXLHK1e/UVTK6ha02ETnXnvJ
+         qMlw33ffAwkedYs+uWlQWqZg685+xVRQqH10oSqaUFmNEFFyjlrqr7OCyFCFvs6kkro+
+         PBHxzQhm1JOYDWxHzp37wDs4rIP7MuYXbi/nOLrri/NxKavbsha3Vu0S/qqr/ea47IDB
+         vzB9DIwxQYCUvvQBFh5UGj/oPgLCgbBXUtgASV1rZUKqcKxUf4VviiXP+fSJJvifbjfy
+         eZvuByayMjQ43D8CXVF5Qg9t0ji6Npba+AYZlsUNvZ1EMStWSBL/JqH3BXUTW/IZcnGF
+         LROA==
+X-Gm-Message-State: ACrzQf3M3aVvJfoWkBfloaORd8X3GetoFNaLHmorvxPPuRXffVLrouLn
+	yWjZEyd0f955J6684tteCCVTH3CB1ju9ERAk6r5d3g==
+X-Google-Smtp-Source: AMsMyM407GwKHYDzEnHIdEMAMozULbhoFfcSo0iQDkhxUwzAXQdo+MQTxHbPhMXwZGU6Fy43RMezE+ymVEJiaYRLAyw=
+X-Received: by 2002:a05:6808:e88:b0:351:2725:ed84 with SMTP id
+ k8-20020a0568080e8800b003512725ed84mr34444110oil.17.1667837170787; Mon, 07
+ Nov 2022 08:06:10 -0800 (PST)
 MIME-Version: 1.0
+References: <20221031213225.912258-1-geomatsi@gmail.com> <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
+ <Y2WGIQ+m7jk5RPZv@curiosity> <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
+ <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
+In-Reply-To: <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Mon, 7 Nov 2022 21:35:59 +0530
+Message-ID: <CAK9=C2UmfeY2JJ9YLH6Ve392N9LrY2jdNi6CFADMNQgN=vVFxg@mail.gmail.com>
+Subject: Re: [RFC PATCH v1] riscv: support for hardware breakpoints/watchpoints
+To: Andrew Bresticker <abrestic@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Sergey Matyukevich <geomatsi@gmail.com>, 
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_071607_331855_A7F87FC7 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20221107_080613_033845_4034A770 
+X-CRM114-Status: GOOD (  47.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +90,225 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, RISC-V sets up reserved memory using the "early" copy of the
-device tree. As a result, when trying to get a reserved memory region
-using of_reserved_mem_lookup(), the pointer to reserved memory regions
-is using the early, pre-virtual-memory address which causes a kernel
-panic when trying to use the buffer's name:
+On Mon, Nov 7, 2022 at 8:21 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
+>
+> On Sat, Nov 5, 2022 at 5:10 AM Anup Patel <anup@brainfault.org> wrote:
+> >
+> > On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+> > >
+> > > Hi Andrew,
+> > >
+> > > > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
+> > > > > describes Trigger Module. Triggers can cause a breakpoint exception,
+> > > > > entry into Debug Mode, or a trace action without having to execute a
+> > > > > special instruction. For native debugging triggers can be used to
+> > > > > implement hardware breakpoints and watchpoints.
+> > >
+> > > ... [snip]
+> > >
+> > > > > Despite missing userspace debug, initial implementation can be tested
+> > > > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
+> > > > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
+> > > >
+> > > > We should also be able to enable the use of HW breakpoints (and
+> > > > watchpoints, modulo the issue mentioned below) in kdb, right?
+> > >
+> > > Interesting. So far I didn't think about using hw breakpoints in kgdb.
+> > > I took a quick look at riscv and arm64 kgdb code. It looks like there
+> > > is nothing wrong in adding arch-specific implementation of the function
+> > > 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
+> > > Besides it looks like in this case it makes sense to handle KGDB earlier
+> > > than hw breakpoints in do_trap_break.
+> > >
+> > > > > However this is not the case for watchpoints since there is no way to
+> > > > > figure out which watchpoint is triggered. IIUC there are two possible
+> > > > > options for doing this: using 'hit' bit in tdata1 or reading faulting
+> > > > > virtual address from STVAL. QEMU implements neither of them. Current
+> > > > > implementation opts for STVAL. So the following experimental QEMU patch
+> > > > > is required to make watchpoints work:
+> > > > >
+> > > > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
+> > > > > :  index 278d163803..8858be7411 100644
+> > > > > :  --- a/target/riscv/cpu_helper.c
+> > > > > :  +++ b/target/riscv/cpu_helper.c
+> > > > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
+> > > > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
+> > > > > :               tval = env->bins;
+> > > > > :               break;
+> > > > > :  +        case RISCV_EXCP_BREAKPOINT:
+> > > > > :  +            tval = env->badaddr;
+> > > > > :  +            env->badaddr = 0x0;
+> > > > > :  +            break;
+> > > > > :           default:
+> > > > > :               break;
+> > > > > :           }
+> > > > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
+> > > > > :  index 26ea764407..b4d1d566ab 100644
+> > > > > :  --- a/target/riscv/debug.c
+> > > > > :  +++ b/target/riscv/debug.c
+> > > > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
+> > > > > :
+> > > > > :       if (cs->watchpoint_hit) {
+> > > > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
+> > > > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
+> > > > > :               cs->watchpoint_hit = NULL;
+> > > > > :               do_trigger_action(env, DBG_ACTION_BP);
+> > > > > :           }
+> > >
+> > > ... [snip]
+> > >
+> > > > > +int arch_install_hw_breakpoint(struct perf_event *bp)
+> > > > > +{
+> > > > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
+> > > > > +       struct sbi_dbtr_data_msg *xmit;
+> > > > > +       struct sbi_dbtr_id_msg *recv;
+> > > > > +       struct perf_event **slot;
+> > > > > +       struct sbiret ret;
+> > > > > +       int err = 0;
+> > > > > +
+> > > > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
+> > > > > +       if (!xmit) {
+> > > > > +               err = -ENOMEM;
+> > > > > +               goto out;
+> > > > > +       }
+> > > > > +
+> > > > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
+> > > > > +       if (!recv) {
+> > > > > +               err = -ENOMEM;
+> > > > > +               goto out;
+> > > > > +       }
+> > > >
+> > > > Do these really need to be dynamically allocated?
+> > >
+> > > According to SBI extension proposal, base address of this memory chunk
+> > > must be 16-bytes aligned. To simplify things, buffer with 'power of two
+> > > bytes' size (and >= 16 bytes) is allocated. In this case alignment of
+> > > the kmalloc buffer is guaranteed to be at least this size. IIUC more
+> > > efforts are needed to guarantee such alignment for a buffer on stack.
+>
+> You should be able to declare the struct with __aligned(16) to get the
+> desired alignment on the stack.
+>
+> > Stack is not appropriate for this. Please use a per-CPU global
+> > data for this purpose which should be 16 byte aligned as well.
+>
+> Is the desire to not use the stack purely a defensive measure, i.e. to
+> defend against a buggy or malicious firmware/hypervisor? That's fine,
+> I'm just curious if there's rationale beyond that (though I'd argue
+> we're already implicitly trusting whatever software is sitting below
+> us).
 
- Unable to handle kernel paging request at virtual address 00000000401c31ac
- Oops [#1]
- Modules linked in:
- CPU: 0 PID: 0 Comm: swapper Not tainted 6.0.0-rc1-00001-g0d9d6953d834 #1
- Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
- epc : string+0x4a/0xea
-  ra : vsnprintf+0x1e4/0x336
- epc : ffffffff80335ea0 ra : ffffffff80338936 sp : ffffffff81203be0
-  gp : ffffffff812e0a98 tp : ffffffff8120de40 t0 : 0000000000000000
-  t1 : ffffffff81203e28 t2 : 7265736572203a46 s0 : ffffffff81203c20
-  s1 : ffffffff81203e28 a0 : ffffffff81203d22 a1 : 0000000000000000
-  a2 : ffffffff81203d08 a3 : 0000000081203d21 a4 : ffffffffffffffff
-  a5 : 00000000401c31ac a6 : ffff0a00ffffff04 a7 : ffffffffffffffff
-  s2 : ffffffff81203d08 s3 : ffffffff81203d00 s4 : 0000000000000008
-  s5 : ffffffff000000ff s6 : 0000000000ffffff s7 : 00000000ffffff00
-  s8 : ffffffff80d9821a s9 : ffffffff81203d22 s10: 0000000000000002
-  s11: ffffffff80d9821c t3 : ffffffff812f3617 t4 : ffffffff812f3617
-  t5 : ffffffff812f3618 t6 : ffffffff81203d08
- status: 0000000200000100 badaddr: 00000000401c31ac cause: 000000000000000d
- [<ffffffff80338936>] vsnprintf+0x1e4/0x336
- [<ffffffff80055ae2>] vprintk_store+0xf6/0x344
- [<ffffffff80055d86>] vprintk_emit+0x56/0x192
- [<ffffffff80055ed8>] vprintk_default+0x16/0x1e
- [<ffffffff800563d2>] vprintk+0x72/0x80
- [<ffffffff806813b2>] _printk+0x36/0x50
- [<ffffffff8068af48>] print_reserved_mem+0x1c/0x24
- [<ffffffff808057ec>] paging_init+0x528/0x5bc
- [<ffffffff808031ae>] setup_arch+0xd0/0x592
- [<ffffffff8080070e>] start_kernel+0x82/0x73c
+The kernel stack is fixed size so it is best to avoid large structures
+or arrays on kernel stack.
 
-early_init_fdt_scan_reserved_mem() takes no arguments as it operates on
-initial_boot_params, which is populated by early_init_dt_verify(). On
-RISC-V, early_init_dt_verify() is called twice. Once, directly, in
-setup_arch() if CONFIG_BUILTIN_DTB is not enabled and once indirectly,
-very early in the boot process, by parse_dtb() when it calls
-early_init_dt_scan_nodes().
+Regards,
+Anup
 
-This first call uses dtb_early_va to set initial_boot_params, which is
-not usable later in the boot process when
-early_init_fdt_scan_reserved_mem() is called. On arm64 for example, the
-corresponding call to early_init_dt_scan_nodes() uses fixmap addresses
-and doesn't suffer the same fate.
-
-Move early_init_fdt_scan_reserved_mem() further along the boot sequence,
-after the direct call to early_init_dt_verify() in setup_arch() so that
-the names use the correct virtual memory addresses. The above supposed
-that CONFIG_BUILTIN_DTB was not set, but should work equally in the case
-where it is - unflatted_and_copy_device_tree() also updates
-initial_boot_params.
-
-Reported-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-Reported-by: Evgenii Shatokhin <e.shatokhin@yadro.com>
-Link: https://lore.kernel.org/linux-riscv/f8e67f82-103d-156c-deb0-d6d6e2756f5e@microchip.com/
-Fixes: 922b0375fc93 ("riscv: Fix memblock reservation for device tree blob")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/kernel/setup.c | 1 +
- arch/riscv/mm/init.c      | 1 -
- 2 files changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index ad76bb59b059..67ec1fadcfe2 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -283,6 +283,7 @@ void __init setup_arch(char **cmdline_p)
- 	else
- 		pr_err("No DTB found in kernel mappings\n");
- #endif
-+	early_init_fdt_scan_reserved_mem();
- 	misc_mem_init();
- 
- 	init_resources();
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b56a0a75533f..50a1b6edd491 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -262,7 +262,6 @@ static void __init setup_bootmem(void)
- 			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
- 	}
- 
--	early_init_fdt_scan_reserved_mem();
- 	dma_contiguous_reserve(dma32_phys_limit);
- 	if (IS_ENABLED(CONFIG_64BIT))
- 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
--- 
-2.38.0
-
+>
+> -Andrew
+>
+> >
+> > You may also allocate a per-CPU 4K page at boot-time where
+> > CPU X will use it's own 4K page for xmit (upper half) and
+> > recv (lower half).
+> >
+> > Regards,
+> > Anup
+> >
+> > >
+> > > > > +
+> > > > > +       xmit->tdata1 = info->trig_data1.value;
+> > > > > +       xmit->tdata2 = info->trig_data2;
+> > > > > +       xmit->tdata3 = info->trig_data3;
+> > > > > +
+> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_INSTALL,
+> > > > > +                       1, __pa(xmit) >> 4, __pa(recv) >> 4,
+> > > > > +                       0, 0, 0);
+> > > > > +       if (ret.error) {
+> > > > > +               pr_warn("%s: failed to install trigger\n", __func__);
+> > > > > +               err = -EIO;
+> > > > > +               goto out;
+> > > > > +       }
+> > > > > +
+> > > > > +       if (recv->idx >= dbtr_total_num) {
+> > > > > +               pr_warn("%s: invalid trigger index %lu\n", __func__, recv->idx);
+> > > > > +               err = -EINVAL;
+> > > > > +               goto out;
+> > > > > +       }
+> > > > > +
+> > > > > +       slot = this_cpu_ptr(&bp_per_reg[recv->idx]);
+> > > > > +       if (*slot) {
+> > > > > +               pr_warn("%s: slot %lu is in use\n", __func__, recv->idx);
+> > > > > +               err = -EBUSY;
+> > > > > +               goto out;
+> > > > > +       }
+> > > > > +
+> > > > > +       *slot = bp;
+> > > > > +
+> > > > > +out:
+> > > > > +       kfree(xmit);
+> > > > > +       kfree(recv);
+> > > > > +
+> > > > > +       return err;
+> > > > > +}
+> > >
+> > > ... [snip]
+> > >
+> > > > > +static int __init arch_hw_breakpoint_init(void)
+> > > > > +{
+> > > > > +       union riscv_dbtr_tdata1 tdata1;
+> > > > > +       struct sbiret ret;
+> > > > > +
+> > > > > +       if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
+> > > > > +               pr_info("%s: SBI_EXT_DBTR is not supported\n", __func__);
+> > > > > +               return 0;
+> > > > > +       }
+> > > > > +
+> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> > > > > +                       0, 0, 0, 0, 0, 0);
+> > > > > +       if (ret.error) {
+> > > > > +               pr_warn("%s: failed to detect triggers\n", __func__);
+> > > > > +               return 0;
+> > > > > +       }
+> > > > > +
+> > > > > +       pr_info("%s: total number of triggers: %lu\n", __func__, ret.value);
+> > > > > +
+> > > > > +       tdata1.value = 0;
+> > > > > +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
+> > > > > +
+> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
+> > > > > +                       tdata1.value, 0, 0, 0, 0, 0);
+> > > > > +       if (ret.error) {
+> > > > > +               pr_warn("%s: failed to detect triggers\n", __func__);
+> > > > > +               dbtr_total_num = 0;
+> > > > > +               return 0;
+> > > > > +       }
+> > > >
+> > > > nit: This is basically identical to hw_breakpoint_slots() -- just call
+> > > > it here, or perhaps pull the DBTR_NUM_TRIGGERS ECALL into its own
+> > > > function to reduce the duplication, e.g. 'dbtr_num_triggers(unsigned
+> > > > long type)'?
+> > >
+> > > Good point. More similar requests will be added, e.g. for MCONTROL and
+> > > possibly other trigger types. So I will add a separate
+> > > 'dbtr_num_triggers' function.
+> > >
+> > > > > +
+> > > > > +       pr_info("%s: total number of type %d triggers: %lu\n",
+> > > > > +               __func__, tdata1.type, ret.value);
+> > > > > +
+> > > > > +       dbtr_total_num = ret.value;
+> > > > > +
+> > > > > +       return 0;
+> > > > > +}
+> > >
+> > > Thanks!
+> > > Sergey
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
