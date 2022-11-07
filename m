@@ -4,77 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE6EC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 18:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1068C43217
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 18:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bROmlUSSfXZ2VfdOZvgm78vW3aN5LpA8hJtIl8eq6CA=; b=jSjL/04nqKcV16
-	PgD9J3Flgcgbc37NLgDn2oJgYxp5/6aiRUmcw68APRf1GA5K4gbIwWLfaxuah+T7/zzxQ+YhSKTLd
-	//DYMWxaPSvLG1hWNRqvmVDccqppr7OOx4yRa2ZEcQtDOt7qmkGuvfqqeSJOHeMuQ9D4XI76CFTSn
-	Pe4lJ/0z2F+keTQ80JI9+QANkrsIjdpWU3l1OPMNQSIC3SJsPsoxacpco32Hmzcv42VCGzken5om7
-	/cInoRa+WW6KQBedE7/jZfKJ4cJpXuyHlLKm8D+Pz7aRNuHkO0pW1LAE2XeKhyj7c8O4LVGN0J02d
-	/hXpJ9rSJ2AjiLYJgIfQ==;
+	List-Owner; bh=A8MbBVEgzTbvO7Un83nTYV7aOO5PyB29oejebnZnOiM=; b=mwtjopxjhLyJaK
+	2CiCu1EjRtSXCSLC9/t/aNfwPOrHJitmzXdMBx67SqHxfcvVa5iQR/+Zp3HOpDbGPRTV4nKcFSNFF
+	dCwNCKzQR/AIT/qHTK6eg/V1eJlk/axFpT2YiXhgVtKmtxNDQXmseqj9p6PyTxqCK/Mqmf1uPhTtx
+	Ymy46KOKOy6MFtDLw8AEWRdpNv/tmSiA6WFV/H0NcrEB9xpyYq4EuWReeNQLk173ac2T9v2GujR0j
+	Q+5klERCaWq/O7jpxYgUyxd5A2f0X6KEDcJAGOnx+pFqEVNpS/SMBohkfYxxPTKVt9QUUJNmBAj3s
+	JryNb+ngsp4tY3dFieTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os6hK-00H7U6-BD; Mon, 07 Nov 2022 18:18:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1os6lq-00H9Li-T0; Mon, 07 Nov 2022 18:22:54 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os6gP-00H7BE-L4
-	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 18:17:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3C79861234;
-	Mon,  7 Nov 2022 18:17:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B856CC4347C;
-	Mon,  7 Nov 2022 18:17:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667845034;
-	bh=xe7fMo4Kua9n3JiLpB5ttddzY6yu64WGLoSwGcPiCaQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vLd3QwnadAoxekjEhecUkcubKyn+7O5Rt7XZQia/an8wm6y9aAtiYEQj0UyUFWl2e
-	 fApn5rCpI1+Ha7mg3o8TJIyngLDhzU5/H4qZ32MkidfILXPZviAskPnndZvb+jnLvu
-	 haXFY+DBmHkUi4/Jx1QoW+GXiTOz6NnGuUE9c3W7/SpDiThcV4dYNtp8nFSEmyLhFC
-	 5C08PbeMoe0R4rxoKr2f1hsPyU4K2W3fjTQaph8ZDKadq8VuQuXUYGTjq91g8qSPxI
-	 gQ4f0ip6B4ELkYf0GhcfGBTvebMvTSfVL96ITPTfFM9EDTPU7Yj/5NSuKzJK1ebHTO
-	 LlvI8pC8M+Tbw==
-Date: Mon, 7 Nov 2022 18:17:08 +0000
-From: Conor Dooley <conor@kernel.org>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, geert+renesas@glider.be
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v5 0/7] Add support for Renesas RZ/Five SoC
-Message-ID: <Y2lLpCRpTQL+0dsR@spud>
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y17BWPuEcmY7Bba3@spud>
- <CA+V-a8uKQ8QvYi5qLC9O=QAQN5CxNB7cOTmw4vk+ndB2R8d3nQ@mail.gmail.com>
- <Y17+pHAg/SBJAEXq@spud>
- <CA+V-a8t-niCHSWo_CSRSkPS4ND12DAkiwxWxOM1vNn=oBKKd_w@mail.gmail.com>
- <CA+V-a8utoDSKcZFdtJ0BKwvPfcvf0WVH2Va-Fv_-pKC1FOOVsQ@mail.gmail.com>
+	id 1os6lR-00H9CO-2E; Mon, 07 Nov 2022 18:22:30 +0000
+Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A7IBq2u003348;
+	Mon, 7 Nov 2022 18:22:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
+ from : to : cc : date : in-reply-to : references : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=DdfWgA9vouqG75fSo60uN652MOW4sllCxUOKeP3RfcQ=;
+ b=eebFqKmEkCdsVhVRi/XbOsQdRoLwq4ZqlPHzBEH8C4MPmOdN3J6x8ZbxV5zTXLIgDm15
+ qQMOH8r09V5AhYha+kX4r724Ee4Rs17OS5mdepLKgsCtM6E+cKKeEzVbWBSKtzUU4YY/
+ aol74r7eqOMb3RVogdjXRRpLoaEf7XKjZLctN4O010ACm93+mKOIeOp847ulP5z3lJdS
+ a6r/G22054YYfe1JEjnORfLH3epvLYpdmC1s98grcGDpk1fzOzBAhj8oDY55/damEQhE
+ H/H/yzX12ifeRs3++3u3YxAL0OCP8U9NqLLbLLjBZeOyB0VpgKfGjSVo9Axrk8+wTTm8 9Q== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1uuwfut-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 18:22:12 +0000
+Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 2A7Gap89020063;
+	Mon, 7 Nov 2022 18:22:11 GMT
+Received: from ppma02dal.us.ibm.com (a.bd.3ea9.ip4.static.sl-reverse.com [169.62.189.10])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1uuwfu3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 18:22:11 +0000
+Received: from pps.filterd (ppma02dal.us.ibm.com [127.0.0.1])
+	by ppma02dal.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 2A7IL2m0022680;
+	Mon, 7 Nov 2022 18:22:10 GMT
+Received: from b01cxnp22034.gho.pok.ibm.com (b01cxnp22034.gho.pok.ibm.com [9.57.198.24])
+	by ppma02dal.us.ibm.com with ESMTP id 3kngnd5nhx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 07 Nov 2022 18:22:10 +0000
+Received: from smtpav04.wdc07v.mail.ibm.com ([9.208.128.116])
+	by b01cxnp22034.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 2A7IM8k714090930
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 7 Nov 2022 18:22:09 GMT
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D47C358062;
+	Mon,  7 Nov 2022 18:22:07 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1A18E5805F;
+	Mon,  7 Nov 2022 18:22:04 +0000 (GMT)
+Received: from li-479af74c-31f9-11b2-a85c-e4ddee11713b.ibm.com (unknown [9.65.225.56])
+	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  7 Nov 2022 18:22:03 +0000 (GMT)
+Message-ID: <1166ac40ae848d81e7fa7aeec056c91079d768d4.camel@linux.ibm.com>
+Subject: Re: [PATCH 09/44] KVM: Drop arch hardware (un)setup hooks
+From: Eric Farman <farman@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>,
+        Paolo Bonzini
+ <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+        Huacai Chen
+ <chenhuacai@kernel.org>,
+        Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>,
+        Anup Patel <anup@brainfault.org>,
+        Paul
+ Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Christian Borntraeger
+ <borntraeger@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        Matthew Rosato
+ <mjrosato@linux.ibm.com>,
+        Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: James Morse <james.morse@arm.com>,
+        Alexandru Elisei
+ <alexandru.elisei@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Oliver Upton <oliver.upton@linux.dev>,
+        Atish Patra <atishp@atishpatra.org>,
+        David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Isaku Yamahata <isaku.yamahata@intel.com>,
+        Fabiano Rosas <farosas@linux.ibm.com>,
+        Michael Ellerman
+ <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
+        Thomas Gleixner
+ <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
+Date: Mon, 07 Nov 2022 13:22:03 -0500
+In-Reply-To: <20221102231911.3107438-10-seanjc@google.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+	 <20221102231911.3107438-10-seanjc@google.com>
+User-Agent: Evolution 3.44.4 (3.44.4-2.fc36) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+V-a8utoDSKcZFdtJ0BKwvPfcvf0WVH2Va-Fv_-pKC1FOOVsQ@mail.gmail.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: otjvlxlCigjzwqXdeFPxNBxJt_I7IxRm
+X-Proofpoint-ORIG-GUID: dd3fkNzioIT2BrJda-qHcffczlDpzuYb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.219,Aquarius:18.0.895,Hydra:6.0.545,FMLib:17.11.122.1
+ definitions=2022-11-07_08,2022-11-07_02,2022-06-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ mlxlogscore=888 clxscore=1015 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 mlxscore=0 adultscore=0 spamscore=0 phishscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2210170000 definitions=main-2211070144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_101717_822238_54A0B1DF 
-X-CRM114-Status: GOOD (  33.65  )
+X-CRM114-CacheID: sfid-20221107_102229_257791_42E97C82 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,86 +137,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 07, 2022 at 06:03:41PM +0000, Lad, Prabhakar wrote:
-> Hi Conor,
-> 
-> On Sun, Oct 30, 2022 at 11:01 PM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> >
-> > Hi Conor,
-> >
-> > On Sun, Oct 30, 2022 at 10:46 PM Conor Dooley <conor@kernel.org> wrote:
-> > >
-> > > On Sun, Oct 30, 2022 at 10:37:01PM +0000, Lad, Prabhakar wrote:
-> > > > Hi Conor,
-> > > >
-> > > > On Sun, Oct 30, 2022 at 6:24 PM Conor Dooley <conor@kernel.org> wrote:
-> > > > >
-> > > > > On Fri, Oct 28, 2022 at 05:59:14PM +0100, Prabhakar wrote:
-> > > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > > > >
-> > > > > > Hi All,
-> > > > > >
-> > > > > > The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
-> > > > > > 1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
-> > > > > > as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
-> > > > > > entry-class social infrastructure gateway control and industrial gateway
-> > > > > > control.
-> > > > > >
-> > > > > > This patch series adds initial SoC DTSi support for Renesas RZ/Five
-> > > > > > (R9A07G043) SoC. Below is the list of IP blocks enabled in the initial
-> > > > > > board DTS which can be used to boot via initramfs on RZ/Five SMARC EVK:
-> > > > > > - AX45MP CPU
-> > > > > > - CPG
-> > > > > > - PINCTRL
-> > > > >
-> > > > > Hey,
-> > > > > Looks like you've got a pair of warnings here from dtbs_check. I tested
-> > > > > this on top of 20221028's next, with the three branches below merged in,
-> > > > > hopefully my merges aren't the source of them:
-> > > > >
-> > > > > linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: 'interrupt-controller' is a required property
-> > > > >         From schema: Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-> > > > > linux/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dtb: pinctrl@11030000: '#interrupt-cells' is a required property
-> > > > >         From schema: linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-> > > > >
-> > > > Thanks for the review and test. The warnings above are coming from [0]
-> > > > as support for IRQC is missing, once that is added the warnings should
-> > > > go away.
-> > >
-> > > Right. I merged in the stuff in Geert's trees & I don't think I saw any
-> > > pending patches in the cover that I missed. Is there something else that
-> > > adds the support that's not going to make v6.2? I got rid of all the
-> > > dtbs_check warnings for v6.1 and I'd really like to keep things that
-> > > way!
-> > >
-> > Sorry that pacth wasn't posted yet so I hadn't mentioned it in the
-> > cover letter. I'll make sure I get it posted asap and merged for v6.2.
-> >
-> I have got the patches out [0] which will fix the warnings seen above.
-
-Cool, thanks :)
-
-> 
-> BTW on the riscv patchwork I see status as fail "Patch does not apply
-> to for-next" does that mean I need to resend re-basing on your tree?
-
-Nah, I though that Geert would be applying this patchset, no?
-If that's the case, it only needs to apply to his tree.
-
-Geert, are you waiting for an ack from Palmer?
-
-> [0] https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221107175305.63975-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> 
-> Cheers,
-> Prabhakar
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDIyLTExLTAyIGF0IDIzOjE4ICswMDAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
+b3RlOgo+IERyb3Aga3ZtX2FyY2hfaGFyZHdhcmVfc2V0dXAoKSBhbmQga3ZtX2FyY2hfaGFyZHdh
+cmVfdW5zZXR1cCgpIG5vdwo+IHRoYXQKPiBhbGwgaW1wbGVtZW50YXRpb25zIGFyZSBub3BzLgo+
+IAo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlIGludGVuZGVkLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFNl
+YW4gQ2hyaXN0b3BoZXJzb24gPHNlYW5qY0Bnb29nbGUuY29tPgo+IC0tLQo+IMKgYXJjaC9hcm02
+NC9pbmNsdWRlL2FzbS9rdm1faG9zdC5owqDCoCB8wqAgMSAtCj4gwqBhcmNoL2FybTY0L2t2bS9h
+cm0uY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqAgNSAtLS0tLQo+IMKgYXJjaC9t
+aXBzL2luY2x1ZGUvYXNtL2t2bV9ob3N0LmjCoMKgwqAgfMKgIDEgLQo+IMKgYXJjaC9taXBzL2t2
+bS9taXBzLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDUgLS0tLS0KPiDCoGFy
+Y2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9rdm1faG9zdC5oIHzCoCAxIC0KPiDCoGFyY2gvcG93ZXJw
+Yy9rdm0vcG93ZXJwYy5jwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCA1IC0tLS0tCj4gwqBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmjCoMKgIHzCoCAxIC0KPiDCoGFyY2gvcmlzY3Yva3Zt
+L21haW4uY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDUgLS0tLS0KPiDCoGFyY2gv
+czM5MC9rdm0va3ZtLXMzOTAuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMCAtLS0tLS0tLS0t
+Cj4gwqBhcmNoL3g4Ni9rdm0veDg2LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHwgMTAgLS0tLS0tLS0tLQo+IMKgaW5jbHVkZS9saW51eC9rdm1faG9zdC5owqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCB8wqAgMiAtLQo+IMKgdmlydC9rdm0va3ZtX21haW4uY8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIHzCoCA3IC0tLS0tLS0KPiDCoDEyIGZpbGVzIGNoYW5nZWQsIDUz
+IGRlbGV0aW9ucygtKQoKUmV2aWV3ZWQtYnk6IEVyaWMgRmFybWFuIDxmYXJtYW5AbGludXguaWJt
+LmNvbT4JIyBzMzkwCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
