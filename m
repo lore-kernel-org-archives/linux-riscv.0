@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDFA6C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 16:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B755CC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 16:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CUBZcCq8vGpdlBpUYnv3qa9jj9kI02GKN69UzeYkSEE=; b=29sUSYOY/+5OOT
-	fIj0eCP9g5QB0dDWz3KpDht5j9jzyeyf9nWD8LLT/3fkEWayQg0vOUrM/+rd0XNq71vdpEBnIdZzS
-	20CZB9p54Vb0WWRQkA697cGhjUxZsEg6iC4Url5GirddUldCx4a/ZINNHMtRno1GVjFPGfnWN2NpM
-	kXBjb9VHxueop1nVXYlQxhZz2aeMTQqLCS3zx6D0ekgCQPQc5MT3whlVyNnkawRWM8w0iomxYCMWX
-	Tz4dwVsKUYpN2u4GsuFXHXHbrGWozjdOnEW7OzT2p3ImyuIsyZadzYRzyFM8QZZAncxO4coY7Ij1P
-	8sMzgKHTaqDM1KF8GnLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y8a6oloPXbDjGTnYgebVOrF82NXOFJvvIX09JrD/3kM=; b=qou24COKc68dfOFPTm2BE01dU2
+	LuO/XkyvN+kLAWe+vqVd6DWiVpzlhaHQJOuZNxUkkkcEeCiCfqxYCkwbbWNhigLWwU9SlO70R6Bw3
+	KIzIH0okYdxV+qUIVc92g1o/fq0zwZ0YL4d10sfYNKov3p6ecw3NDZXfe8UvZ70QIGiBJOPHpC6t1
+	n/ExUQt/uGnTIptNNsGvOaNrPMNMMAmAv2RLkNALx2+3dy514LyxI+hgdfsEFisePL0PnDjhMiLG+
+	SdTYNzJQtK/odKFjJpOrjWYnbBVQP+/y+tLAJS6aGTLOcXPFFIztDq+gKbF+8fxrT8nJUpwrg6oZi
+	A+Lzikow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os4fY-00G1cI-V7; Mon, 07 Nov 2022 16:08:16 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1os5Gt-00GM3d-Q0; Mon, 07 Nov 2022 16:46:51 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os4dY-00G0E0-UP
-	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 16:06:15 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id m204so12610604oib.6
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 08:06:11 -0800 (PST)
+	id 1os5GA-00GLJK-6E
+	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 16:46:10 +0000
+Received: by mail-pg1-x533.google.com with SMTP id h193so10919180pgc.10
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 08:46:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0K3ivCfAEjRA7WG0HxWeDhVlRi7PC2DjwNTLkzhMj2I=;
-        b=jCRoOuQu58epPpyqZx3wf+FtQDsbtcOwvzYoMlbSKYZ33Y3fatWvzyxy0MO8JHNxjw
-         vkDz3nO76KHLZwnb3fs41HAD4BgnX+0jbyQ/SDU5yehp407ULsgbjx1Vs8dlBAuU5PWO
-         uS90Xjc4fIV67VT0hzyZ85KlgSxv5kH7QQiCDBJTHL994UP1aosUTHsZwOjOjn1P823J
-         ftn/jaxGclLEyBLjv7yzs+WFLfKUtahcr5t88HNBJ4c/ewwVyzMdSafgwUNQNg2obJ4I
-         WYNKQVuRQ4+lc0GO8Pxm88STtmlnVu7zDiqyIpAjF38orCV08wvvutE5oSIr9ns3TS/W
-         YnYw==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :subject:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EW0pwjVNjZMsjQ4rgo3AByKUdX34ffUMtNXivNYRjZU=;
+        b=iuQvd/SY4HMVO8eh2FDeRfmuFXB/dftHBIq6vItZQH6zH0DpbIYvd6ahKEbkfa6Yb9
+         aHkAKJ2Xe0oaoAwLXjHJy7GQ/oFQ1iRT9NkvUfKe0SypnzjNam7WX1+5yAYmjvtMPd4A
+         w339N/bXvC5+Y1UNy69e8BTYAzGEp4juIK6QiXIzpIa6dT93V0riYBdXXr08avijqhLd
+         /hMDJcuYAX0YEVoh+0F9I3NJlHGazT/N7Cf3dGx0+vsnDZKKih8QvkjbEcG2dZ3Y58dj
+         AY2EzYWWRNjUPn1WlzI6eKz3z0qYdViUhQ6fRY+qL6hUbMy87RUql2ZSP9KP9VadghCq
+         /MPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :subject:date:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0K3ivCfAEjRA7WG0HxWeDhVlRi7PC2DjwNTLkzhMj2I=;
-        b=WvqCop5uE7XVjjF0hkZSmzl9YIVYKfDkQb1ovVjJtnhXLHK1e/UVTK6ha02ETnXnvJ
-         qMlw33ffAwkedYs+uWlQWqZg685+xVRQqH10oSqaUFmNEFFyjlrqr7OCyFCFvs6kkro+
-         PBHxzQhm1JOYDWxHzp37wDs4rIP7MuYXbi/nOLrri/NxKavbsha3Vu0S/qqr/ea47IDB
-         vzB9DIwxQYCUvvQBFh5UGj/oPgLCgbBXUtgASV1rZUKqcKxUf4VviiXP+fSJJvifbjfy
-         eZvuByayMjQ43D8CXVF5Qg9t0ji6Npba+AYZlsUNvZ1EMStWSBL/JqH3BXUTW/IZcnGF
-         LROA==
-X-Gm-Message-State: ACrzQf3M3aVvJfoWkBfloaORd8X3GetoFNaLHmorvxPPuRXffVLrouLn
-	yWjZEyd0f955J6684tteCCVTH3CB1ju9ERAk6r5d3g==
-X-Google-Smtp-Source: AMsMyM407GwKHYDzEnHIdEMAMozULbhoFfcSo0iQDkhxUwzAXQdo+MQTxHbPhMXwZGU6Fy43RMezE+ymVEJiaYRLAyw=
-X-Received: by 2002:a05:6808:e88:b0:351:2725:ed84 with SMTP id
- k8-20020a0568080e8800b003512725ed84mr34444110oil.17.1667837170787; Mon, 07
- Nov 2022 08:06:10 -0800 (PST)
-MIME-Version: 1.0
-References: <20221031213225.912258-1-geomatsi@gmail.com> <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
- <Y2WGIQ+m7jk5RPZv@curiosity> <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
- <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
-In-Reply-To: <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 7 Nov 2022 21:35:59 +0530
-Message-ID: <CAK9=C2UmfeY2JJ9YLH6Ve392N9LrY2jdNi6CFADMNQgN=vVFxg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1] riscv: support for hardware breakpoints/watchpoints
-To: Andrew Bresticker <abrestic@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Sergey Matyukevich <geomatsi@gmail.com>, 
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+        bh=EW0pwjVNjZMsjQ4rgo3AByKUdX34ffUMtNXivNYRjZU=;
+        b=IcnERHD2dtGTKvOqeydqMs+1AREJ+iKDe90eJaiW7UjmGT865uVbGwu1qxAJuu3ZTp
+         oaRtrYpGLE/N7h9IIxvtyQ6dYU58ic8D6yCC7HP8MeebWlNgqobnccTQAHsW9R/EjIuf
+         ldzdswCD7XuSQNQWAyxP59++ZU2NdpdrUtXaRyuCcl07YpEvT4xCmG7kdPhLAGmpUdJO
+         dftCFukCHgNMVQ7nhS9g9l6q6s82smjAaf7i4tCy2WTZix+FByoXHq8QBD/F00w2Vjwc
+         8DWm6T128pEXFpE26bau/QchsYffMCDW1aH/bVzI3GNTXfoMrr3mflzBYilJ38GY/ASn
+         F7tQ==
+X-Gm-Message-State: ANoB5pkLQmbSHPCEZ1dobLud/3feE7lQpPtlnornbNKkSc+qf5Ll/rbg
+	jHp53E8bOYlEOZDcU1z5BEAGCg==
+X-Google-Smtp-Source: AA0mqf4UDNIhvzVyN78Jom0q8JlAl+vfEHjgjMMkpb8O8b73d196gzQo4lTFKPuP0naElUpZOTx2mQ==
+X-Received: by 2002:a63:ef56:0:b0:470:6c2d:64eb with SMTP id c22-20020a63ef56000000b004706c2d64ebmr7236342pgk.49.1667839561438;
+        Mon, 07 Nov 2022 08:46:01 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id b6-20020a170903228600b00186b0ac12c5sm5207034plh.172.2022.11.07.08.46.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Nov 2022 08:46:00 -0800 (PST)
+Date: Mon, 07 Nov 2022 08:46:00 -0800 (PST)
+X-Google-Original-Date: Mon, 07 Nov 2022 08:45:59 PST (-0800)
+Subject: Should we merge arch/riscv/boot/dts via the SOC tree?
+CC: krzk@kernel.org, masahiroy@kernel.org, mkl@pengutronix.de, davem@davemloft.net,
+          linux-riscv@lists.infradead.org, soc@kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor@kernel.org>, kernel@esmil.dk
+Message-ID: <mhng-e4210f56-fcc3-4db8-abdb-d43b3ebe695d@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_080613_033845_4034A770 
-X-CRM114-Status: GOOD (  47.90  )
+X-CRM114-CacheID: sfid-20221107_084606_467740_2920BFC8 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,230 +82,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 7, 2022 at 8:21 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
->
-> On Sat, Nov 5, 2022 at 5:10 AM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> > >
-> > > Hi Andrew,
-> > >
-> > > > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
-> > > > > describes Trigger Module. Triggers can cause a breakpoint exception,
-> > > > > entry into Debug Mode, or a trace action without having to execute a
-> > > > > special instruction. For native debugging triggers can be used to
-> > > > > implement hardware breakpoints and watchpoints.
-> > >
-> > > ... [snip]
-> > >
-> > > > > Despite missing userspace debug, initial implementation can be tested
-> > > > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
-> > > > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
-> > > >
-> > > > We should also be able to enable the use of HW breakpoints (and
-> > > > watchpoints, modulo the issue mentioned below) in kdb, right?
-> > >
-> > > Interesting. So far I didn't think about using hw breakpoints in kgdb.
-> > > I took a quick look at riscv and arm64 kgdb code. It looks like there
-> > > is nothing wrong in adding arch-specific implementation of the function
-> > > 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
-> > > Besides it looks like in this case it makes sense to handle KGDB earlier
-> > > than hw breakpoints in do_trap_break.
-> > >
-> > > > > However this is not the case for watchpoints since there is no way to
-> > > > > figure out which watchpoint is triggered. IIUC there are two possible
-> > > > > options for doing this: using 'hit' bit in tdata1 or reading faulting
-> > > > > virtual address from STVAL. QEMU implements neither of them. Current
-> > > > > implementation opts for STVAL. So the following experimental QEMU patch
-> > > > > is required to make watchpoints work:
-> > > > >
-> > > > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
-> > > > > :  index 278d163803..8858be7411 100644
-> > > > > :  --- a/target/riscv/cpu_helper.c
-> > > > > :  +++ b/target/riscv/cpu_helper.c
-> > > > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
-> > > > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
-> > > > > :               tval = env->bins;
-> > > > > :               break;
-> > > > > :  +        case RISCV_EXCP_BREAKPOINT:
-> > > > > :  +            tval = env->badaddr;
-> > > > > :  +            env->badaddr = 0x0;
-> > > > > :  +            break;
-> > > > > :           default:
-> > > > > :               break;
-> > > > > :           }
-> > > > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
-> > > > > :  index 26ea764407..b4d1d566ab 100644
-> > > > > :  --- a/target/riscv/debug.c
-> > > > > :  +++ b/target/riscv/debug.c
-> > > > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
-> > > > > :
-> > > > > :       if (cs->watchpoint_hit) {
-> > > > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
-> > > > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
-> > > > > :               cs->watchpoint_hit = NULL;
-> > > > > :               do_trigger_action(env, DBG_ACTION_BP);
-> > > > > :           }
-> > >
-> > > ... [snip]
-> > >
-> > > > > +int arch_install_hw_breakpoint(struct perf_event *bp)
-> > > > > +{
-> > > > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> > > > > +       struct sbi_dbtr_data_msg *xmit;
-> > > > > +       struct sbi_dbtr_id_msg *recv;
-> > > > > +       struct perf_event **slot;
-> > > > > +       struct sbiret ret;
-> > > > > +       int err = 0;
-> > > > > +
-> > > > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
-> > > > > +       if (!xmit) {
-> > > > > +               err = -ENOMEM;
-> > > > > +               goto out;
-> > > > > +       }
-> > > > > +
-> > > > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
-> > > > > +       if (!recv) {
-> > > > > +               err = -ENOMEM;
-> > > > > +               goto out;
-> > > > > +       }
-> > > >
-> > > > Do these really need to be dynamically allocated?
-> > >
-> > > According to SBI extension proposal, base address of this memory chunk
-> > > must be 16-bytes aligned. To simplify things, buffer with 'power of two
-> > > bytes' size (and >= 16 bytes) is allocated. In this case alignment of
-> > > the kmalloc buffer is guaranteed to be at least this size. IIUC more
-> > > efforts are needed to guarantee such alignment for a buffer on stack.
->
-> You should be able to declare the struct with __aligned(16) to get the
-> desired alignment on the stack.
->
-> > Stack is not appropriate for this. Please use a per-CPU global
-> > data for this purpose which should be 16 byte aligned as well.
->
-> Is the desire to not use the stack purely a defensive measure, i.e. to
-> defend against a buggy or malicious firmware/hypervisor? That's fine,
-> I'm just curious if there's rationale beyond that (though I'd argue
-> we're already implicitly trusting whatever software is sitting below
-> us).
+This has come up a bunch of times, but I don't think we've ever really
+made a decision.  Historically that's not been such a big deal because
+the RISC-V device trees were pretty inactive, but that's changed -- both
+because Conor has been cleaning everything up, and also because there's
+a bunch of SOCs showing up with RISC-V cores in them.  We talked about
+this again at plumbers a few times, but Arnd wasn't around it person so
+I figured it's best to just start an email thread and see how people
+feel.
 
-The kernel stack is fixed size so it is best to avoid large structures
-or arrays on kernel stack.
+A lot of these new SOCs are based on Arm designs and the device trees
+very much reflect that, so it makes sense to me to just keep the device
+tree merges via as similar a path as possible.  IIUC that happens via
+the SOC tree these days, so it makes sense to me that we start handling
+the RISC-V device trees that way as well.  That would make things easier
+for contributors, as they'll have one workflow for all their SOCs, but
+also easier for me as a lot of this SOC stuff touches bits I really
+don't understand and thus get kind of lost trying to review.
 
-Regards,
-Anup
+Arnd: looks like you're handling most of the merges these days so this
+would be increasing your workload.  I feel kind of bad just dumping a
+bunch of stuff on you, but I think at least now the RISC-V DTS are in
+reasonable shape so hopefully it's not that bad.  It'd certainly help
+things on my end, and I'm happy to try and re-direct some of that saved
+time to helping out in SOC land but I'm not sure how well that'd work
+out in practice as I'm pretty buried.
 
->
-> -Andrew
->
-> >
-> > You may also allocate a per-CPU 4K page at boot-time where
-> > CPU X will use it's own 4K page for xmit (upper half) and
-> > recv (lower half).
-> >
-> > Regards,
-> > Anup
-> >
-> > >
-> > > > > +
-> > > > > +       xmit->tdata1 = info->trig_data1.value;
-> > > > > +       xmit->tdata2 = info->trig_data2;
-> > > > > +       xmit->tdata3 = info->trig_data3;
-> > > > > +
-> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_INSTALL,
-> > > > > +                       1, __pa(xmit) >> 4, __pa(recv) >> 4,
-> > > > > +                       0, 0, 0);
-> > > > > +       if (ret.error) {
-> > > > > +               pr_warn("%s: failed to install trigger\n", __func__);
-> > > > > +               err = -EIO;
-> > > > > +               goto out;
-> > > > > +       }
-> > > > > +
-> > > > > +       if (recv->idx >= dbtr_total_num) {
-> > > > > +               pr_warn("%s: invalid trigger index %lu\n", __func__, recv->idx);
-> > > > > +               err = -EINVAL;
-> > > > > +               goto out;
-> > > > > +       }
-> > > > > +
-> > > > > +       slot = this_cpu_ptr(&bp_per_reg[recv->idx]);
-> > > > > +       if (*slot) {
-> > > > > +               pr_warn("%s: slot %lu is in use\n", __func__, recv->idx);
-> > > > > +               err = -EBUSY;
-> > > > > +               goto out;
-> > > > > +       }
-> > > > > +
-> > > > > +       *slot = bp;
-> > > > > +
-> > > > > +out:
-> > > > > +       kfree(xmit);
-> > > > > +       kfree(recv);
-> > > > > +
-> > > > > +       return err;
-> > > > > +}
-> > >
-> > > ... [snip]
-> > >
-> > > > > +static int __init arch_hw_breakpoint_init(void)
-> > > > > +{
-> > > > > +       union riscv_dbtr_tdata1 tdata1;
-> > > > > +       struct sbiret ret;
-> > > > > +
-> > > > > +       if (sbi_probe_extension(SBI_EXT_DBTR) <= 0) {
-> > > > > +               pr_info("%s: SBI_EXT_DBTR is not supported\n", __func__);
-> > > > > +               return 0;
-> > > > > +       }
-> > > > > +
-> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> > > > > +                       0, 0, 0, 0, 0, 0);
-> > > > > +       if (ret.error) {
-> > > > > +               pr_warn("%s: failed to detect triggers\n", __func__);
-> > > > > +               return 0;
-> > > > > +       }
-> > > > > +
-> > > > > +       pr_info("%s: total number of triggers: %lu\n", __func__, ret.value);
-> > > > > +
-> > > > > +       tdata1.value = 0;
-> > > > > +       tdata1.type = RISCV_DBTR_TRIG_MCONTROL6;
-> > > > > +
-> > > > > +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_NUM_TRIGGERS,
-> > > > > +                       tdata1.value, 0, 0, 0, 0, 0);
-> > > > > +       if (ret.error) {
-> > > > > +               pr_warn("%s: failed to detect triggers\n", __func__);
-> > > > > +               dbtr_total_num = 0;
-> > > > > +               return 0;
-> > > > > +       }
-> > > >
-> > > > nit: This is basically identical to hw_breakpoint_slots() -- just call
-> > > > it here, or perhaps pull the DBTR_NUM_TRIGGERS ECALL into its own
-> > > > function to reduce the duplication, e.g. 'dbtr_num_triggers(unsigned
-> > > > long type)'?
-> > >
-> > > Good point. More similar requests will be added, e.g. for MCONTROL and
-> > > possibly other trigger types. So I will add a separate
-> > > 'dbtr_num_triggers' function.
-> > >
-> > > > > +
-> > > > > +       pr_info("%s: total number of type %d triggers: %lu\n",
-> > > > > +               __func__, tdata1.type, ret.value);
-> > > > > +
-> > > > > +       dbtr_total_num = ret.value;
-> > > > > +
-> > > > > +       return 0;
-> > > > > +}
-> > >
-> > > Thanks!
-> > > Sergey
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On a somewhat related note, Conor has offered to pick up the otherwise
+unmaintained RISC-V SOCs.  That's sort of its own discussion, but if we
+change over to the SOC tree we might as well just do everything at the
+same time.
+
+Presumably we'd want to adjust the MAINTAINERS file in a handful of ways
+to make sure patches end up in the right place.
 
 _______________________________________________
 linux-riscv mailing list
