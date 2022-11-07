@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D746C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 20:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38F1C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 21:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wBqywwYX6D5+qTTtMJ9Jc+r+mL/oCrisdcZ+o30GTCg=; b=Y8GOb5ZPgRdW6l
-	FgF2XIvvVgBZwFhS+b21mHFEcIZyB0Awy+e6m24jE+czmFBLiXvyZUP0MZNzkV/qvgdonkPas1iYQ
-	9cb9/6wEFTEzjNPhthnLOO5FVW8xpv6pX+KDdRWwQDMpQ+GupZiS1XFus+Sn5oXeGCuI3KT96++Zv
-	RnAS7c4znYhITbBrWd1HlFWhUCERf+rHydwu8rv9XbR41TaVpTQuP8R3QVQHykP85RQfKZUfGkrcS
-	iZyI+l0VQh6BAdIiqA3xyDnIhXTDk4aX6IEakoax2bVXtqiN4RKeahMd60hxQBaz9aCG/jTOzzhR7
-	jWK/gwZOl2b8fD8J1NfA==;
+	List-Owner; bh=JaNMfOJ1WFBplNnldbf5uxTi/TH/4FLWqPmdpsbqvog=; b=bCriikBaxUHv7o
+	31tFVxs8fWCsGq87ADSUcE9g1ZQ6ao1zr78e0Wqyvhxmu8xArPrLFxlZ+BVofhoXLLhE27b5eMrgk
+	RxCfoZCx83LSsAXkBDyedA10v0MCft+zkx2rH2ev7lAmHmo3D5V44wiHFycfin/DCKq1PMV0WiOry
+	wohIOut7FXd1DHa10gRapKAi7k+YHjdKLmGoNh2RbjQFwMeb298fSEJ2VP9MSpXe+mFbuP5ccHvnV
+	gn1u6OO55v7wJf9A9GO0sT6W4g1Oo6CAnv9anTnqfJh6XPok3F+nhGX+mnybSoO+gkorQHpVSDjkp
+	cEr1eLKgo8+pb1MiD9CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os96T-000PbG-AC; Mon, 07 Nov 2022 20:52:21 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1os9r8-000hSn-M7; Mon, 07 Nov 2022 21:40:34 +0000
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os96Q-000PYC-CP
-	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 20:52:20 +0000
-Received: by mail-lf1-x131.google.com with SMTP id f37so18410249lfv.8
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 12:52:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ljWDyV8wNeeRtLN+IMD41v2BcNY5eNwfoFOEwTA/0zo=;
-        b=giRuxQN/uXEkxs1LQyc+VNVSvqRO5T847JxrPW3jjWMXyWwh2nO9zh2CZt1TCkvBV6
-         udwfalmwHZ0DNOr3JUyN6jK1x4iNtmFRFsE6Vtc1TlHUmJ3qgpdkafl4UgNWhv//fmC3
-         QQnHqC91BdkKJKjFpbCxdzUfZ43O+E1E42dP48MsM9MoozhGkROMAit5lGP0m7coZRFg
-         WIa82fekdVtpEuv0SMzKty86D74I8lc313GiJacbfh4EnXiwioUcz27MrxLRNEczKX8E
-         poJRs59omzxF79jfYRCiFJ1qUx8nTiFtcNe9iklXlmTSplOH2B7uYvJYTVYbPyqqpu3G
-         GB4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ljWDyV8wNeeRtLN+IMD41v2BcNY5eNwfoFOEwTA/0zo=;
-        b=W1dKMXESTp0dtYG8unoUxdsrPUf7pznzI+kGWCznVw2Z9CyqoHF+BAblUW5NBkMsgG
-         hhGtvs9Pcq7zEdVK0H9qkbBdoWaWYxNon9lLL95lGejUkEtxf/0dO7edOUpT+PEl6+t7
-         RiMLECjMonpy+lmRTYncOT/h1MwudVaO5E0sY+lKfgGh7dfzu716iytqkmgHqx2hLMjD
-         vtEtt66pp1iAwUdv+9KfqxaRkyhTN7PUWcJQ0Hf9JYM6CHOYkS8WrOWji4ME2wJguVJt
-         0UJsdHh7KdGqrtszkDGvpdxDZnQOhBTb0XTygRmFvxpyrm4tQKs0x4qfDP00AufnQmKY
-         Hz2g==
-X-Gm-Message-State: ACrzQf1c/8tx2b1qiZmaanF6RlB2MO/4vBSeH/5EQ6I6NToU5Fn3+Omu
-	FbSaZgnVWqTpjzEYIeKXzfdSqU1o8ZeKwkeG
-X-Google-Smtp-Source: AMsMyM4Mhp/NO5fVOCEn/0jU9d+yhnzZDjk0W3/VeZ/rp5SJqpP5gbebj/ljIim+BuEB1TezjfYfWg==
-X-Received: by 2002:a05:6512:3da2:b0:4a2:6f93:2895 with SMTP id k34-20020a0565123da200b004a26f932895mr18946183lfv.437.1667854331821;
-        Mon, 07 Nov 2022 12:52:11 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id u8-20020a05651c130800b0026e02eb613csm1430120lja.18.2022.11.07.12.52.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Nov 2022 12:52:11 -0800 (PST)
-Date: Mon, 7 Nov 2022 23:52:10 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Andrew Bresticker <abrestic@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-Subject: Re: [RFC PATCH v1] riscv: support for hardware
- breakpoints/watchpoints
-Message-ID: <Y2lv+smon7d9tP4Y@curiosity>
-References: <20221031213225.912258-1-geomatsi@gmail.com>
- <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
- <Y2WGIQ+m7jk5RPZv@curiosity>
- <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
- <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
- <CAK9=C2UmfeY2JJ9YLH6Ve392N9LrY2jdNi6CFADMNQgN=vVFxg@mail.gmail.com>
- <CALE4mHp2vvv3tFVsDHn_hCrN7iF2aTugsu57cSXE=wrxq7wa2w@mail.gmail.com>
- <CAK9=C2V_DZ+8jQ0Dg+P7sbke_SPzOnYydfwNGc-P0abvBkWB-A@mail.gmail.com>
+	id 1os9r4-000gof-6u
+	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 21:40:33 +0000
+Received: from localhost (unknown [127.0.0.1])
+	by mta-01.yadro.com (Postfix) with ESMTP id 21C5A41200;
+	Mon,  7 Nov 2022 21:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:references:content-language:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received
+	:received:received; s=mta-01; t=1667857222; x=1669671623; bh=esC
+	ycxrxvZxM5Pm8Ikehw6aoj6hzkD7c5GQWfXbXSNI=; b=SnrTOZE/hAkiqhNhe/8
+	zC5CBOXk+n5d9doal91SEURgpbzKMZ4f7GzTT1rcOPDqSg2CmhPfN9VWNOKeaw1E
+	qRxvKsA57Ze0ThAJH+KuH/8VltvA4I73AOTYr++3oMJU1chjoar5uhUoR9dSfA4k
+	n96iTB9CnNh4dHcG8n4CNLAo=
+X-Virus-Scanned: amavisd-new at yadro.com
+Received: from mta-01.yadro.com ([127.0.0.1])
+	by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id n8uoBLs-ZLt2; Tue,  8 Nov 2022 00:40:22 +0300 (MSK)
+Received: from T-EXCH-02.corp.yadro.com (T-EXCH-02.corp.yadro.com [172.17.10.102])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mta-01.yadro.com (Postfix) with ESMTPS id 4B5A2411FB;
+	Tue,  8 Nov 2022 00:40:20 +0300 (MSK)
+Received: from T-EXCH-08.corp.yadro.com (172.17.11.58) by
+ T-EXCH-02.corp.yadro.com (172.17.10.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
+ 15.1.669.32; Tue, 8 Nov 2022 00:40:21 +0300
+Received: from [10.199.21.212] (10.199.21.212) by T-EXCH-08.corp.yadro.com
+ (172.17.11.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1118.9; Tue, 8 Nov 2022
+ 00:40:20 +0300
+Message-ID: <497c057d-4e7d-0dcb-fd4c-2c7ef6efb573@yadro.com>
+Date: Tue, 8 Nov 2022 00:40:19 +0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2V_DZ+8jQ0Dg+P7sbke_SPzOnYydfwNGc-P0abvBkWB-A@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
+Subject: Re: [PATCH v1] riscv: fix reserved memory setup
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Daire McNamara <daire.mcnamara@microchip.com>, "Anup
+ Patel" <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, "Nick
+ Kossifidis" <mick@ics.forth.gr>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Valentina Fernandez
+	<valentina.fernandezalanis@microchip.com>
+References: <20221107151524.3941467-1-conor.dooley@microchip.com>
+From: Evgenii Shatokhin <e.shatokhin@yadro.com>
+In-Reply-To: <20221107151524.3941467-1-conor.dooley@microchip.com>
+X-Originating-IP: [10.199.21.212]
+X-ClientProxiedBy: T-EXCH-01.corp.yadro.com (172.17.10.101) To
+ T-EXCH-08.corp.yadro.com (172.17.11.58)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_125218_451988_3473B5FB 
-X-CRM114-Status: GOOD (  44.21  )
+X-CRM114-CacheID: sfid-20221107_134030_969865_30957B2F 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,146 +89,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 07, 2022 at 11:19:59PM +0530, Anup Patel wrote:
-> On Mon, Nov 7, 2022 at 10:55 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
-> >
-> > On Mon, Nov 7, 2022 at 11:06 AM Anup Patel <apatel@ventanamicro.com> wrote:
-> > >
-> > > On Mon, Nov 7, 2022 at 8:21 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
-> > > >
-> > > > On Sat, Nov 5, 2022 at 5:10 AM Anup Patel <anup@brainfault.org> wrote:
-> > > > >
-> > > > > On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
-> > > > > >
-> > > > > > Hi Andrew,
-> > > > > >
-> > > > > > > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
-> > > > > > > > describes Trigger Module. Triggers can cause a breakpoint exception,
-> > > > > > > > entry into Debug Mode, or a trace action without having to execute a
-> > > > > > > > special instruction. For native debugging triggers can be used to
-> > > > > > > > implement hardware breakpoints and watchpoints.
-> > > > > >
-> > > > > > ... [snip]
-> > > > > >
-> > > > > > > > Despite missing userspace debug, initial implementation can be tested
-> > > > > > > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
-> > > > > > > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
-> > > > > > >
-> > > > > > > We should also be able to enable the use of HW breakpoints (and
-> > > > > > > watchpoints, modulo the issue mentioned below) in kdb, right?
-> > > > > >
-> > > > > > Interesting. So far I didn't think about using hw breakpoints in kgdb.
-> > > > > > I took a quick look at riscv and arm64 kgdb code. It looks like there
-> > > > > > is nothing wrong in adding arch-specific implementation of the function
-> > > > > > 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
-> > > > > > Besides it looks like in this case it makes sense to handle KGDB earlier
-> > > > > > than hw breakpoints in do_trap_break.
-> > > > > >
-> > > > > > > > However this is not the case for watchpoints since there is no way to
-> > > > > > > > figure out which watchpoint is triggered. IIUC there are two possible
-> > > > > > > > options for doing this: using 'hit' bit in tdata1 or reading faulting
-> > > > > > > > virtual address from STVAL. QEMU implements neither of them. Current
-> > > > > > > > implementation opts for STVAL. So the following experimental QEMU patch
-> > > > > > > > is required to make watchpoints work:
-> > > > > > > >
-> > > > > > > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
-> > > > > > > > :  index 278d163803..8858be7411 100644
-> > > > > > > > :  --- a/target/riscv/cpu_helper.c
-> > > > > > > > :  +++ b/target/riscv/cpu_helper.c
-> > > > > > > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
-> > > > > > > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
-> > > > > > > > :               tval = env->bins;
-> > > > > > > > :               break;
-> > > > > > > > :  +        case RISCV_EXCP_BREAKPOINT:
-> > > > > > > > :  +            tval = env->badaddr;
-> > > > > > > > :  +            env->badaddr = 0x0;
-> > > > > > > > :  +            break;
-> > > > > > > > :           default:
-> > > > > > > > :               break;
-> > > > > > > > :           }
-> > > > > > > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
-> > > > > > > > :  index 26ea764407..b4d1d566ab 100644
-> > > > > > > > :  --- a/target/riscv/debug.c
-> > > > > > > > :  +++ b/target/riscv/debug.c
-> > > > > > > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
-> > > > > > > > :
-> > > > > > > > :       if (cs->watchpoint_hit) {
-> > > > > > > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
-> > > > > > > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
-> > > > > > > > :               cs->watchpoint_hit = NULL;
-> > > > > > > > :               do_trigger_action(env, DBG_ACTION_BP);
-> > > > > > > > :           }
-> > > > > >
-> > > > > > ... [snip]
-> > > > > >
-> > > > > > > > +int arch_install_hw_breakpoint(struct perf_event *bp)
-> > > > > > > > +{
-> > > > > > > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> > > > > > > > +       struct sbi_dbtr_data_msg *xmit;
-> > > > > > > > +       struct sbi_dbtr_id_msg *recv;
-> > > > > > > > +       struct perf_event **slot;
-> > > > > > > > +       struct sbiret ret;
-> > > > > > > > +       int err = 0;
-> > > > > > > > +
-> > > > > > > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
-> > > > > > > > +       if (!xmit) {
-> > > > > > > > +               err = -ENOMEM;
-> > > > > > > > +               goto out;
-> > > > > > > > +       }
-> > > > > > > > +
-> > > > > > > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
-> > > > > > > > +       if (!recv) {
-> > > > > > > > +               err = -ENOMEM;
-> > > > > > > > +               goto out;
-> > > > > > > > +       }
-> > > > > > >
-> > > > > > > Do these really need to be dynamically allocated?
-> > > > > >
-> > > > > > According to SBI extension proposal, base address of this memory chunk
-> > > > > > must be 16-bytes aligned. To simplify things, buffer with 'power of two
-> > > > > > bytes' size (and >= 16 bytes) is allocated. In this case alignment of
-> > > > > > the kmalloc buffer is guaranteed to be at least this size. IIUC more
-> > > > > > efforts are needed to guarantee such alignment for a buffer on stack.
-> > > >
-> > > > You should be able to declare the struct with __aligned(16) to get the
-> > > > desired alignment on the stack.
-> > > >
-> > > > > Stack is not appropriate for this. Please use a per-CPU global
-> > > > > data for this purpose which should be 16 byte aligned as well.
-> > > >
-> > > > Is the desire to not use the stack purely a defensive measure, i.e. to
-> > > > defend against a buggy or malicious firmware/hypervisor? That's fine,
-> > > > I'm just curious if there's rationale beyond that (though I'd argue
-> > > > we're already implicitly trusting whatever software is sitting below
-> > > > us).
-> > >
-> > > The kernel stack is fixed size so it is best to avoid large structures
-> > > or arrays on kernel stack.
-> >
-> > Of course, though I'm not sure I'd consider 32 bytes "large" :)
-> 
-> The current patch only configures one trigger at a time but if
-> we are configuring multiple triggers in one-go then the trigger
-> array will grow.
-
-Existing architecture-specific calls (e.g. arch_install_hw_breakpoint)
-handle a single breakpoint. IIUC we may have to setup multiple triggers
-at once for masked watchpoints. A masked watchpoint watches many
-addresses simultanously, e.g. see https://sourceware.org/gdb/onlinedocs/gdb/Set-Watchpoints.html.
-Masked watchpoints can be converted into chained triggers which would
-require configuring multiple triggers in one-go.
-
-Do you have any other use-cases in mind ?
-
-Regards,
-Sergey
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiAwNy4xMS4yMDIyIDE4OjE1LCBDb25vciBEb29sZXkgd3JvdGU6Cj4gwqvQktC90LjQ
+vNCw0L3QuNC1ISDQlNCw0L3QvdC+0LUg0L/QuNGB0YzQvNC+INC+0YIg0LLQvdC10YjQvdC10LPQ
+viDQsNC00YDQtdGB0LDRgtCwIcK7Cj4gCj4gQ3VycmVudGx5LCBSSVNDLVYgc2V0cyB1cCByZXNl
+cnZlZCBtZW1vcnkgdXNpbmcgdGhlICJlYXJseSIgY29weSBvZiB0aGUKPiBkZXZpY2UgdHJlZS4g
+QXMgYSByZXN1bHQsIHdoZW4gdHJ5aW5nIHRvIGdldCBhIHJlc2VydmVkIG1lbW9yeSByZWdpb24K
+PiB1c2luZyBvZl9yZXNlcnZlZF9tZW1fbG9va3VwKCksIHRoZSBwb2ludGVyIHRvIHJlc2VydmVk
+IG1lbW9yeSByZWdpb25zCj4gaXMgdXNpbmcgdGhlIGVhcmx5LCBwcmUtdmlydHVhbC1tZW1vcnkg
+YWRkcmVzcyB3aGljaCBjYXVzZXMgYSBrZXJuZWwKPiBwYW5pYyB3aGVuIHRyeWluZyB0byB1c2Ug
+dGhlIGJ1ZmZlcidzIG5hbWU6Cj4gCj4gICBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBwYWdpbmcg
+cmVxdWVzdCBhdCB2aXJ0dWFsIGFkZHJlc3MgMDAwMDAwMDA0MDFjMzFhYwo+ICAgT29wcyBbIzFd
+Cj4gICBNb2R1bGVzIGxpbmtlZCBpbjoKPiAgIENQVTogMCBQSUQ6IDAgQ29tbTogc3dhcHBlciBO
+b3QgdGFpbnRlZCA2LjAuMC1yYzEtMDAwMDEtZzBkOWQ2OTUzZDgzNCAjMQo+ICAgSGFyZHdhcmUg
+bmFtZTogTWljcm9jaGlwIFBvbGFyRmlyZS1Tb0MgSWNpY2xlIEtpdCAoRFQpCj4gICBlcGMgOiBz
+dHJpbmcrMHg0YS8weGVhCj4gICAgcmEgOiB2c25wcmludGYrMHgxZTQvMHgzMzYKPiAgIGVwYyA6
+IGZmZmZmZmZmODAzMzVlYTAgcmEgOiBmZmZmZmZmZjgwMzM4OTM2IHNwIDogZmZmZmZmZmY4MTIw
+M2JlMAo+ICAgIGdwIDogZmZmZmZmZmY4MTJlMGE5OCB0cCA6IGZmZmZmZmZmODEyMGRlNDAgdDAg
+OiAwMDAwMDAwMDAwMDAwMDAwCj4gICAgdDEgOiBmZmZmZmZmZjgxMjAzZTI4IHQyIDogNzI2NTcz
+NjU3MjIwM2E0NiBzMCA6IGZmZmZmZmZmODEyMDNjMjAKPiAgICBzMSA6IGZmZmZmZmZmODEyMDNl
+MjggYTAgOiBmZmZmZmZmZjgxMjAzZDIyIGExIDogMDAwMDAwMDAwMDAwMDAwMAo+ICAgIGEyIDog
+ZmZmZmZmZmY4MTIwM2QwOCBhMyA6IDAwMDAwMDAwODEyMDNkMjEgYTQgOiBmZmZmZmZmZmZmZmZm
+ZmZmCj4gICAgYTUgOiAwMDAwMDAwMDQwMWMzMWFjIGE2IDogZmZmZjBhMDBmZmZmZmYwNCBhNyA6
+IGZmZmZmZmZmZmZmZmZmZmYKPiAgICBzMiA6IGZmZmZmZmZmODEyMDNkMDggczMgOiBmZmZmZmZm
+ZjgxMjAzZDAwIHM0IDogMDAwMDAwMDAwMDAwMDAwOAo+ICAgIHM1IDogZmZmZmZmZmYwMDAwMDBm
+ZiBzNiA6IDAwMDAwMDAwMDBmZmZmZmYgczcgOiAwMDAwMDAwMGZmZmZmZjAwCj4gICAgczggOiBm
+ZmZmZmZmZjgwZDk4MjFhIHM5IDogZmZmZmZmZmY4MTIwM2QyMiBzMTA6IDAwMDAwMDAwMDAwMDAw
+MDIKPiAgICBzMTE6IGZmZmZmZmZmODBkOTgyMWMgdDMgOiBmZmZmZmZmZjgxMmYzNjE3IHQ0IDog
+ZmZmZmZmZmY4MTJmMzYxNwo+ICAgIHQ1IDogZmZmZmZmZmY4MTJmMzYxOCB0NiA6IGZmZmZmZmZm
+ODEyMDNkMDgKPiAgIHN0YXR1czogMDAwMDAwMDIwMDAwMDEwMCBiYWRhZGRyOiAwMDAwMDAwMDQw
+MWMzMWFjIGNhdXNlOiAwMDAwMDAwMDAwMDAwMDBkCj4gICBbPGZmZmZmZmZmODAzMzg5MzY+XSB2
+c25wcmludGYrMHgxZTQvMHgzMzYKPiAgIFs8ZmZmZmZmZmY4MDA1NWFlMj5dIHZwcmludGtfc3Rv
+cmUrMHhmNi8weDM0NAo+ICAgWzxmZmZmZmZmZjgwMDU1ZDg2Pl0gdnByaW50a19lbWl0KzB4NTYv
+MHgxOTIKPiAgIFs8ZmZmZmZmZmY4MDA1NWVkOD5dIHZwcmludGtfZGVmYXVsdCsweDE2LzB4MWUK
+PiAgIFs8ZmZmZmZmZmY4MDA1NjNkMj5dIHZwcmludGsrMHg3Mi8weDgwCj4gICBbPGZmZmZmZmZm
+ODA2ODEzYjI+XSBfcHJpbnRrKzB4MzYvMHg1MAo+ICAgWzxmZmZmZmZmZjgwNjhhZjQ4Pl0gcHJp
+bnRfcmVzZXJ2ZWRfbWVtKzB4MWMvMHgyNAo+ICAgWzxmZmZmZmZmZjgwODA1N2VjPl0gcGFnaW5n
+X2luaXQrMHg1MjgvMHg1YmMKPiAgIFs8ZmZmZmZmZmY4MDgwMzFhZT5dIHNldHVwX2FyY2grMHhk
+MC8weDU5Mgo+ICAgWzxmZmZmZmZmZjgwODAwNzBlPl0gc3RhcnRfa2VybmVsKzB4ODIvMHg3M2MK
+PiAKPiBlYXJseV9pbml0X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSgpIHRha2VzIG5vIGFyZ3VtZW50
+cyBhcyBpdCBvcGVyYXRlcyBvbgo+IGluaXRpYWxfYm9vdF9wYXJhbXMsIHdoaWNoIGlzIHBvcHVs
+YXRlZCBieSBlYXJseV9pbml0X2R0X3ZlcmlmeSgpLiBPbgo+IFJJU0MtViwgZWFybHlfaW5pdF9k
+dF92ZXJpZnkoKSBpcyBjYWxsZWQgdHdpY2UuIE9uY2UsIGRpcmVjdGx5LCBpbgo+IHNldHVwX2Fy
+Y2goKSBpZiBDT05GSUdfQlVJTFRJTl9EVEIgaXMgbm90IGVuYWJsZWQgYW5kIG9uY2UgaW5kaXJl
+Y3RseSwKPiB2ZXJ5IGVhcmx5IGluIHRoZSBib290IHByb2Nlc3MsIGJ5IHBhcnNlX2R0YigpIHdo
+ZW4gaXQgY2FsbHMKPiBlYXJseV9pbml0X2R0X3NjYW5fbm9kZXMoKS4KPiAKPiBUaGlzIGZpcnN0
+IGNhbGwgdXNlcyBkdGJfZWFybHlfdmEgdG8gc2V0IGluaXRpYWxfYm9vdF9wYXJhbXMsIHdoaWNo
+IGlzCj4gbm90IHVzYWJsZSBsYXRlciBpbiB0aGUgYm9vdCBwcm9jZXNzIHdoZW4KPiBlYXJseV9p
+bml0X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSgpIGlzIGNhbGxlZC4gT24gYXJtNjQgZm9yIGV4YW1w
+bGUsIHRoZQo+IGNvcnJlc3BvbmRpbmcgY2FsbCB0byBlYXJseV9pbml0X2R0X3NjYW5fbm9kZXMo
+KSB1c2VzIGZpeG1hcCBhZGRyZXNzZXMKPiBhbmQgZG9lc24ndCBzdWZmZXIgdGhlIHNhbWUgZmF0
+ZS4KClRoYW5rIHlvdSBmb3IgbG9va2luZyBpbnRvIHRoaXMhCgpBcyBJIHdyb3RlIGVhcmxpZXIs
+IEkgcmFuIGludG8gdGhpcyBpc3N1ZSB0b28sIHdoaWxlIHdvcmtpbmcgb24gYSAKcmVtb3RlcHJv
+YyBkcml2ZXIgZm9yIG91ciBSSVNDLVYtYmFzZWQgU29DLgoKVGhlIHByb3Bvc2VkIHBhdGNoIGZp
+eGVzIHRoZSBidWcgZm9yIG1lIGFuZCBzZWVtcyB0byBoYXZlIG5vIHByb2JsZW1hdGljIApzaWRl
+LWVmZmVjdHMuIFNvOgoKVGVzdGVkLWJ5OiBFdmdlbmlpIFNoYXRva2hpbiA8ZS5zaGF0b2toaW5A
+eWFkcm8uY29tPgoKPiAKPiBNb3ZlIGVhcmx5X2luaXRfZmR0X3NjYW5fcmVzZXJ2ZWRfbWVtKCkg
+ZnVydGhlciBhbG9uZyB0aGUgYm9vdCBzZXF1ZW5jZSwKPiBhZnRlciB0aGUgZGlyZWN0IGNhbGwg
+dG8gZWFybHlfaW5pdF9kdF92ZXJpZnkoKSBpbiBzZXR1cF9hcmNoKCkgc28gdGhhdAo+IHRoZSBu
+YW1lcyB1c2UgdGhlIGNvcnJlY3QgdmlydHVhbCBtZW1vcnkgYWRkcmVzc2VzLiBUaGUgYWJvdmUg
+c3VwcG9zZWQKPiB0aGF0IENPTkZJR19CVUlMVElOX0RUQiB3YXMgbm90IHNldCwgYnV0IHNob3Vs
+ZCB3b3JrIGVxdWFsbHkgaW4gdGhlIGNhc2UKPiB3aGVyZSBpdCBpcyAtIHVuZmxhdHRlZF9hbmRf
+Y29weV9kZXZpY2VfdHJlZSgpIGFsc28gdXBkYXRlcwo+IGluaXRpYWxfYm9vdF9wYXJhbXMuCj4g
+Cj4gUmVwb3J0ZWQtYnk6IFZhbGVudGluYSBGZXJuYW5kZXogPHZhbGVudGluYS5mZXJuYW5kZXph
+bGFuaXNAbWljcm9jaGlwLmNvbT4KPiBSZXBvcnRlZC1ieTogRXZnZW5paSBTaGF0b2toaW4gPGUu
+c2hhdG9raGluQHlhZHJvLmNvbT4KPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
+eC1yaXNjdi9mOGU2N2Y4Mi0xMDNkLTE1NmMtZGViMC1kNmQ2ZTI3NTZmNWVAbWljcm9jaGlwLmNv
+bS8KPiBGaXhlczogOTIyYjAzNzVmYzkzICgicmlzY3Y6IEZpeCBtZW1ibG9jayByZXNlcnZhdGlv
+biBmb3IgZGV2aWNlIHRyZWUgYmxvYiIpCj4gU2lnbmVkLW9mZi1ieTogQ29ub3IgRG9vbGV5IDxj
+b25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KPiAtLS0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3Nl
+dHVwLmMgfCAxICsKPiAgIGFyY2gvcmlzY3YvbW0vaW5pdC5jICAgICAgfCAxIC0KPiAgIDIgZmls
+ZXMgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMK
+PiBpbmRleCBhZDc2YmI1OWIwNTkuLjY3ZWMxZmFkY2ZlMiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jp
+c2N2L2tlcm5lbC9zZXR1cC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IEBA
+IC0yODMsNiArMjgzLDcgQEAgdm9pZCBfX2luaXQgc2V0dXBfYXJjaChjaGFyICoqY21kbGluZV9w
+KQo+ICAgICAgICAgIGVsc2UKPiAgICAgICAgICAgICAgICAgIHByX2VycigiTm8gRFRCIGZvdW5k
+IGluIGtlcm5lbCBtYXBwaW5nc1xuIik7Cj4gICAjZW5kaWYKPiArICAgICAgIGVhcmx5X2luaXRf
+ZmR0X3NjYW5fcmVzZXJ2ZWRfbWVtKCk7Cj4gICAgICAgICAgbWlzY19tZW1faW5pdCgpOwo+IAo+
+ICAgICAgICAgIGluaXRfcmVzb3VyY2VzKCk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0v
+aW5pdC5jIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBpbmRleCBiNTZhMGE3NTUzM2YuLjUwYTFi
+NmVkZDQ5MSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ICsrKyBiL2FyY2gv
+cmlzY3YvbW0vaW5pdC5jCj4gQEAgLTI2Miw3ICsyNjIsNiBAQCBzdGF0aWMgdm9pZCBfX2luaXQg
+c2V0dXBfYm9vdG1lbSh2b2lkKQo+ICAgICAgICAgICAgICAgICAgICAgICAgICBtZW1ibG9ja19y
+ZXNlcnZlKGR0Yl9lYXJseV9wYSwgZmR0X3RvdGFsc2l6ZShkdGJfZWFybHlfdmEpKTsKPiAgICAg
+ICAgICB9Cj4gCj4gLSAgICAgICBlYXJseV9pbml0X2ZkdF9zY2FuX3Jlc2VydmVkX21lbSgpOwo+
+ICAgICAgICAgIGRtYV9jb250aWd1b3VzX3Jlc2VydmUoZG1hMzJfcGh5c19saW1pdCk7Cj4gICAg
+ICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSkKPiAgICAgICAgICAgICAgICAgIGh1
+Z2V0bGJfY21hX3Jlc2VydmUoUFVEX1NISUZUIC0gUEFHRV9TSElGVCk7Cj4gLS0KPiAyLjM4LjAK
+PiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
