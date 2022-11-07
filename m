@@ -4,81 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AE8C43217
-	for <linux-riscv@archiver.kernel.org>; Sun,  6 Nov 2022 12:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F038C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 01:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BpquQfLUtNtFYEqyQr+Jx1fXX3gaAENqHh/ak1w38EU=; b=eY5FZaAlvMESOe
-	S41yXyY1GsXp0TffzJf0i6MSMLsciyDhKh8HwpeX8JTDAxOjp9RU+ujtZKtMlSCp1A2Ij7AU7BH8r
-	04QZKioZTqTMXVovxj1VHYFLns+xtxVSyDw5eplEpnE+H5rxau/VyQoTpO6h34l7/ARRunrmrqmFa
-	pTIFWv/JTR00KJPUfNDgedcmANDnXvREkp58CeuIC2d4QO6Igz5D4oqkmhhNKivh9ZoZPdrW4ayjl
-	7EiRkn+TdwJ8UMsagigf/5KcFz34PHctiTE6gzQa8hv3x3rFrxkwK3gAOIeaVbgJy5NClzgUSO4ID
-	rzPLW0BVYG7Ta00HT74g==;
+	List-Owner; bh=dpNyR5VDjhnDYniwtrpkHkjaRWgnz2GofNcRrbeHMmM=; b=Oa584GzsmlmHrz
+	sxpS9A62srcBjgIf/fK4Z3msft4wKDWsDGFrQHq+p17cWwfi0Kw7DnPGq+1xR8+JF0Azp+YMcQmDQ
+	Sgmxa4HdcwzDmShNBNLKHlgBp3odO7Qdy5dzoXqeaveKu6dcJSwBuxdVtFT2dSH+Jxt15m+kWaQm7
+	rtF1nKNhRZQFoVEM77WmYUuAGxvURGG0UcWnHjrxUS+djqxdgkyVWAHmSj0topYtQfJps1D7FH2YF
+	6Rl6CJ15OxNqCHsyf3GRYHl9AP+WXRrdwr/X+Z3MqgkubJiq15g5H/Q+OUZLZoeJ6g9DUWSK2ENnB
+	lUSCE5S4mG25b9I4X5Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oreO3-008AG1-9U; Sun, 06 Nov 2022 12:04:27 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1orqy6-00Aqio-BR; Mon, 07 Nov 2022 01:30:30 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oreO0-008ADx-KS
-	for linux-riscv@lists.infradead.org; Sun, 06 Nov 2022 12:04:26 +0000
-Received: by mail-pf1-x432.google.com with SMTP id z26so8306356pff.1
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Nov 2022 04:04:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language:subject
-         :references:cc:to:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7WHoM4Iu4fJxp7HgcJoBzK0BlZg2s5EfrY+4N37pGSY=;
-        b=Dgepef9Ywlk+Bne97k4KA0Ls1tS+uiI7lvEMTzRG45yu5TaYWrohbVnbOb6yw9Vx+B
-         HnvuocWSr6F+xShFbxHBZTJki9hNrS+1n3dkTjUPgE8jRCkJmgoiZgxZ7LtyFO6QQkfF
-         KOFdpJziTjOl8ub7InvS3lJjaBdCvIppAVbPgOCE5F6wuPXjWVDcTRxgeI72BdMyM90T
-         /9cox17jsFfvAPfTuDllejwMwf5867E6hB+6LV4qXNBC4nNHpw1IGQ0kEeTeBo36L6XA
-         ntzh6z5P1Znw5CwEZfIlFPndvJuLCwWQrY8eKKEZup9PSdGN1boS29vlSeNy0bQgjZOH
-         lIRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:content-language:subject
-         :references:cc:to:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7WHoM4Iu4fJxp7HgcJoBzK0BlZg2s5EfrY+4N37pGSY=;
-        b=tx4f0+QnvvJZI3/H0YYW8FljFoUbVEPitcGo2KDdORNfQWt1Wkess1NWOPL81AquTZ
-         D3GME3buyRYFAmVRC/OrU59w17N6FO1aYQlhoAFK473jJK0Lg3FeF/aadc1K+4NS8sAv
-         YEPa5f6koKRms4j4ftBdJaUAIAIUgmD+EgZkRV2esYTwGZyCGffTH3BrKoE6hiqNZ4lL
-         7ARzod4GZCrZAfneLQQcRFbxUGbrrbHXC9OHE4DkKe331a67IAijFzNLu2pYbzuADnej
-         stfGvTxj1Ur/iOVRNCkwFjfaoNm6mo/vgqrXDDcYmZ6bi8TtIxZextE35/uOa+sTFpth
-         BA2w==
-X-Gm-Message-State: ACrzQf27935u6nc2gwQMnslYLrfxTkIJBHkrKx9nDS+sfrDa27VzPdRb
-	S3He1k91RRADw8HmPnxnKYY=
-X-Google-Smtp-Source: AMsMyM7KMlfHuBbOBAmRlK/2wwFT5NvjeQ+Gnze8bJIrH/qSzi9yTEp+tAwE1ocYNzW9o6nxzhkapQ==
-X-Received: by 2002:a63:6c8a:0:b0:46f:c6e0:8ee9 with SMTP id h132-20020a636c8a000000b0046fc6e08ee9mr29630094pgc.493.1667736255755;
-        Sun, 06 Nov 2022 04:04:15 -0800 (PST)
-Received: from [192.168.11.9] (KD106167171201.ppp-bb.dion.ne.jp. [106.167.171.201])
-        by smtp.gmail.com with ESMTPSA id k5-20020a170902c40500b001886ff822ffsm2993075plk.186.2022.11.06.04.04.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 06 Nov 2022 04:04:15 -0800 (PST)
-Message-ID: <07e0949f-fa9f-e4f8-2891-aaf9f84ede7c@gmail.com>
-Date: Sun, 6 Nov 2022 21:04:10 +0900
+	id 1orqxv-00Aqa3-1y; Mon, 07 Nov 2022 01:30:20 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.54])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4N5D8m0dV2zpSsn;
+	Mon,  7 Nov 2022 09:26:32 +0800 (CST)
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Mon, 7 Nov 2022 09:30:09 +0800
+Message-ID: <3b34d898-4690-c774-e92f-69796f9f5d37@huawei.com>
+Date: Mon, 7 Nov 2022 09:30:08 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-To: Bagas Sanjaya <bagasdotme@gmail.com>
-Cc: alexandre.ghiti@canonical.com, aou@eecs.berkeley.edu, corbet@lwn.net,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, Akira Yokosawa <akiyks@gmail.com>
-References: <20221106100239.53704-1-bagasdotme@gmail.com>
-Subject: Re: [PATCH] Documentation: riscv: tableize memory layout
-Content-Language: en-US
-From: Akira Yokosawa <akiyks@gmail.com>
-In-Reply-To: <20221106100239.53704-1-bagasdotme@gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.4.0
+Subject: Re: [PATCH 1/2] RISC-V: kexec: Fix memory leak of fdt buffer
+To: Li Huafei <lihuafei1@huawei.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <lizhengyu3@huawei.com>,
+	<u.kleine-koenig@pengutronix.de>, <rdunlap@infradead.org>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kexec@lists.infradead.org>
+References: <20221104095658.141222-1-lihuafei1@huawei.com>
+From: "liaochang (A)" <liaochang1@huawei.com>
+In-Reply-To: <20221104095658.141222-1-lihuafei1@huawei.com>
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi500012.china.huawei.com (7.221.188.12)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221106_040424_712326_C823160C 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221106_173019_480369_39158886 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +63,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bagas,
-
-On Sun,  6 Nov 2022 17:02:40 +0700, Bagas Sanjaya wrote:
-> The memory layout is written as table but it is inside literal code
-> block, which renders as preformatted text. Write the layout in reST
-> grid table instead.
-
-What's the purpose of this change?
-
-The tables in html/pdf output after this change are almost unreadable
-to my eyes due to the proportional font and random wrapping inside
-table columns.
-
-I think in this particular case, "literal block" is the right
-choice at least for html output, as can be seen at:
-
-   https://www.kernel.org/doc/html/latest/riscv/vm-layout.html
-   https://www.kernel.org/doc/html/next/riscv/vm-layout.html
-
-Yes, these very wide tables need horizontal scrolling in the alabaster
-theme (in next), but they look much nicer than your version.
-
-In pdf output, wide literal blocks are force-wrapped and don't look good.
-Using some smaller font size for latex might help, but most people don't
-care much of pdf outputs anyway, I guess.
-
-        Thanks, Akira
-> 
-> Signed-off-by: Bagas Sanjaya <bagasdotme@gmail.com>
-> ---
->  Documentation/riscv/vm-layout.rst | 120 +++++++++++++++---------------
->  1 file changed, 58 insertions(+), 62 deletions(-)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyMi8xMS80IDE3OjU2LCBMaSBIdWFmZWkg5YaZ6YGTOgo+IFRoaXMgaXMgcmVwb3J0
+ZWQgYnkga21lbWxlYWsgZGV0ZWN0b3I6Cj4gCj4gdW5yZWZlcmVuY2VkIG9iamVjdCAweGZmNjAw
+MDAwODI4NjQwMDAgKHNpemUgOTU4OCk6Cj4gICBjb21tICJrZXhlYyIsIHBpZCAxNDYsIGppZmZp
+ZXMgNDI5NDkwMDYzNCAoYWdlIDY0Ljc4OHMpCj4gICBoZXggZHVtcCAoZmlyc3QgMzIgYnl0ZXMp
+Ogo+ICAgICBkMCAwZCBmZSBlZCAwMCAwMCAxMiBlZCAwMCAwMCAwMCA0OCAwMCAwMCAxMSA0MCAg
+Li4uLi4uLi4uLi5ILi4uQAo+ICAgICAwMCAwMCAwMCAyOCAwMCAwMCAwMCAxMSAwMCAwMCAwMCAw
+MiAwMCAwMCAwMCAwMCAgLi4uKC4uLi4uLi4uLi4uLgo+ICAgYmFja3RyYWNlOgo+ICAgICBbPDAw
+MDAwMDAwZjk1YjE3YzQ+XSBrbWVtbGVha19hbGxvYysweDM0LzB4M2UKPiAgICAgWzwwMDAwMDAw
+MGI5ZWM4ZTNlPl0ga21hbGxvY19vcmRlcisweDljLzB4YzQKPiAgICAgWzwwMDAwMDAwMGE5NWNm
+MDJlPl0ga21hbGxvY19vcmRlcl90cmFjZSsweDM0LzB4YjYKPiAgICAgWzwwMDAwMDAwMGYwMWU2
+OGI0Pl0gX19rbWFsbG9jKzB4NWMyLzB4NjJhCj4gICAgIFs8MDAwMDAwMDAyYmQ0OTdiMj5dIGt2
+bWFsbG9jX25vZGUrMHg2Ni8weGQ2Cj4gICAgIFs8MDAwMDAwMDA5MDY1NDJmYT5dIG9mX2tleGVj
+X2FsbG9jX2FuZF9zZXR1cF9mZHQrMHhhNi8weDZlYQo+ICAgICBbPDAwMDAwMDAwZTExNjZiZGU+
+XSBlbGZfa2V4ZWNfbG9hZCsweDIwNi8weDRlYwo+ICAgICBbPDAwMDAwMDAwMzY1NDhlMDk+XSBr
+ZXhlY19pbWFnZV9sb2FkX2RlZmF1bHQrMHg0MC8weDRjCj4gICAgIFs8MDAwMDAwMDA3OWZiZTFi
+ND5dIHN5c19rZXhlY19maWxlX2xvYWQrMHgxYzQvMHgzMjIKPiAgICAgWzwwMDAwMDAwMDQwYzYy
+YzAzPl0gcmV0X2Zyb21fc3lzY2FsbCsweDAvMHgyCj4gCj4gSW4gZWxmX2tleGVjX2xvYWQoKSwg
+YSBidWZmZXIgaXMgYWxsb2NhdGVkIHZpYSBrdm1hbGxvYygpIHRvIHN0b3JlIGZkdC4KPiBXaGls
+ZSBpdCdzIG5vdCBmcmVlZCBiYWNrIHRvIHN5c3RlbSB3aGVuIGtleGVjIGtlcm5lbCBpcyByZWxv
+YWRlZCBvcgo+IHVubG9hZGVkLiAgVGhlbiBtZW1vcnkgbGVhayBpcyBjYXVzZWQuICBGaXggaXQg
+YnkgaW50cm9kdWNpbmcgcmlzY3YKPiBzcGVjaWZpYyBmdW5jdGlvbiBhcmNoX2tpbWFnZV9maWxl
+X3Bvc3RfbG9hZF9jbGVhbnVwKCksIGFuZCBmcmVlaW5nIHRoZQo+IGJ1ZmZlciB0aGVyZS4KPiAK
+PiBGaXhlczogNjI2MTU4NmUwYzkxICgiUklTQy1WOiBBZGQga2V4ZWNfZmlsZSBzdXBwb3J0IikK
+PiBTaWduZWQtb2ZmLWJ5OiBMaSBIdWFmZWkgPGxpaHVhZmVpMUBodWF3ZWkuY29tPgo+IC0tLQo+
+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmggfCAgNSArKysrKwo+ICBhcmNoL3Jpc2N2
+L2tlcm5lbC9lbGZfa2V4ZWMuYyAgfCAxMCArKysrKysrKysrCj4gIDIgZmlsZXMgY2hhbmdlZCwg
+MTUgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2tleGVjLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiBpbmRleCBlZWUyNjBl
+OGFiMzAuLjJiNTY3NjljYjUzMCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2tleGVjLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiBAQCAtMzks
+NiArMzksNyBAQCBjcmFzaF9zZXR1cF9yZWdzKHN0cnVjdCBwdF9yZWdzICpuZXdyZWdzLAo+ICAj
+ZGVmaW5lIEFSQ0hfSEFTX0tJTUFHRV9BUkNICj4gIAo+ICBzdHJ1Y3Qga2ltYWdlX2FyY2ggewo+
+ICsJdm9pZCAqZmR0OyAvKiBGb3IgQ09ORklHX0tFWEVDX0ZJTEUgKi8KPiAgCXVuc2lnbmVkIGxv
+bmcgZmR0X2FkZHI7Cj4gIH07Cj4gIAo+IEBAIC02Miw2ICs2MywxMCBAQCBpbnQgYXJjaF9rZXhl
+Y19hcHBseV9yZWxvY2F0aW9uc19hZGQoc3RydWN0IHB1cmdhdG9yeV9pbmZvICpwaSwKPiAgCQkJ
+CSAgICAgY29uc3QgRWxmX1NoZHIgKnJlbHNlYywKPiAgCQkJCSAgICAgY29uc3QgRWxmX1NoZHIg
+KnN5bXRhYik7Cj4gICNkZWZpbmUgYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQgYXJj
+aF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQKPiArCj4gK3N0cnVjdCBraW1hZ2U7Cj4gK2lu
+dCBhcmNoX2tpbWFnZV9maWxlX3Bvc3RfbG9hZF9jbGVhbnVwKHN0cnVjdCBraW1hZ2UgKmltYWdl
+KTsKPiArI2RlZmluZSBhcmNoX2tpbWFnZV9maWxlX3Bvc3RfbG9hZF9jbGVhbnVwIGFyY2hfa2lt
+YWdlX2ZpbGVfcG9zdF9sb2FkX2NsZWFudXAKPiAgI2VuZGlmCj4gIAo+ICAjZW5kaWYKPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvZWxmX2tleGVjLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC9lbGZfa2V4ZWMuYwo+IGluZGV4IDBjYjk0OTkyYzE1Yi4uZmYzMGZjYjQzZjQ3IDEwMDY0NAo+
+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2VsZl9rZXhlYy5jCj4gKysrIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwvZWxmX2tleGVjLmMKPiBAQCAtMjEsNiArMjEsMTQgQEAKPiAgI2luY2x1ZGUgPGxpbnV4
+L21lbWJsb2NrLmg+Cj4gICNpbmNsdWRlIDxhc20vc2V0dXAuaD4KPiAgCj4gK2ludCBhcmNoX2tp
+bWFnZV9maWxlX3Bvc3RfbG9hZF9jbGVhbnVwKHN0cnVjdCBraW1hZ2UgKmltYWdlKQo+ICt7Cj4g
+KwlrdmZyZWUoaW1hZ2UtPmFyY2guZmR0KTsKPiArCWltYWdlLT5hcmNoLmZkdCA9IE5VTEw7Cj4g
+Kwo+ICsJcmV0dXJuIGtleGVjX2ltYWdlX3Bvc3RfbG9hZF9jbGVhbnVwX2RlZmF1bHQoaW1hZ2Up
+Owo+ICt9CgpHb29kIGNhdGNoLExHVE0KClJldmlld2VkLWJ5OiBMaWFvIENoYW5nIDxsaWFvY2hh
+bmcxQGh1YXdlaS5jb20+Cgo+ICsKPiAgc3RhdGljIGludCByaXNjdl9rZXhlY19lbGZfbG9hZChz
+dHJ1Y3Qga2ltYWdlICppbWFnZSwgc3RydWN0IGVsZmhkciAqZWhkciwKPiAgCQkJCXN0cnVjdCBr
+ZXhlY19lbGZfaW5mbyAqZWxmX2luZm8sIHVuc2lnbmVkIGxvbmcgb2xkX3BiYXNlLAo+ICAJCQkJ
+dW5zaWduZWQgbG9uZyBuZXdfcGJhc2UpCj4gQEAgLTI5OCw2ICszMDYsOCBAQCBzdGF0aWMgdm9p
+ZCAqZWxmX2tleGVjX2xvYWQoc3RydWN0IGtpbWFnZSAqaW1hZ2UsIGNoYXIgKmtlcm5lbF9idWYs
+Cj4gIAkJcHJfZXJyKCJFcnJvciBhZGQgRFRCIGtidWYgcmV0PSVkXG4iLCByZXQpOwo+ICAJCWdv
+dG8gb3V0X2ZyZWVfZmR0Owo+ICAJfQo+ICsJLyogQ2FjaGUgdGhlIGZkdCBidWZmZXIgYWRkcmVz
+cyBmb3IgbWVtb3J5IGNsZWFudXAgKi8KPiArCWltYWdlLT5hcmNoLmZkdCA9IGZkdDsKPiAgCXBy
+X25vdGljZSgiTG9hZGVkIGRldmljZSB0cmVlIGF0IDB4JWx4XG4iLCBrYnVmLm1lbSk7Cj4gIAln
+b3RvIG91dDsKPiAgCgotLSAKQlIsCkxpYW8sIENoYW5nCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
