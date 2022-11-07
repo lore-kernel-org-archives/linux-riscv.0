@@ -4,128 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D027CC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 19:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D746C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Nov 2022 20:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D50nF58Tw6+veu8AnK+sWsVEHcoeVUpwPm3CBeIoNqU=; b=n79Ru3pgdLMvhO
-	9ZQxgrRpE21EF7PhgzsTZYL4NjYwpY8DEWiLGSOyaMOahZTJSvIF7UpZVfz85JaBD8owj80z4tsjJ
-	2iZvGExNdMAa7+VZAg5OY87JDbDPLF0/HypxgCnM7U+VuB6m5zzmdGoeidP5xD5h5u6D5XC4Z+USL
-	DZYT2RgJt7Cv4RYrDWPV1+8L5tHKQyLS7Iqh5aipJmSdhcgbf6p0mO3BBjBiYDhoCPp3CeqwQ5VT6
-	zVz3Mcfoio5sa6wZN/XEJHIfyokS4M/sbEOQ3cOB8fFShzOidfS1fb14S4zsiCA9tDLKeliVH4lZT
-	pDvz4Fj6yGJB2A5m8hUQ==;
+	List-Owner; bh=wBqywwYX6D5+qTTtMJ9Jc+r+mL/oCrisdcZ+o30GTCg=; b=Y8GOb5ZPgRdW6l
+	FgF2XIvvVgBZwFhS+b21mHFEcIZyB0Awy+e6m24jE+czmFBLiXvyZUP0MZNzkV/qvgdonkPas1iYQ
+	9cb9/6wEFTEzjNPhthnLOO5FVW8xpv6pX+KDdRWwQDMpQ+GupZiS1XFus+Sn5oXeGCuI3KT96++Zv
+	RnAS7c4znYhITbBrWd1HlFWhUCERf+rHydwu8rv9XbR41TaVpTQuP8R3QVQHykP85RQfKZUfGkrcS
+	iZyI+l0VQh6BAdIiqA3xyDnIhXTDk4aX6IEakoax2bVXtqiN4RKeahMd60hxQBaz9aCG/jTOzzhR7
+	jWK/gwZOl2b8fD8J1NfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os7WT-00HTQb-3Q; Mon, 07 Nov 2022 19:11:05 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1os96T-000PbG-AC; Mon, 07 Nov 2022 20:52:21 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1os7Uh-00HSUg-B2; Mon, 07 Nov 2022 19:09:17 +0000
-Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 2A7IMGET008477;
-	Mon, 7 Nov 2022 19:08:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
- from : to : cc : date : in-reply-to : references : content-type :
- content-transfer-encoding : mime-version; s=pp1;
- bh=8yB1T9kkcj6JZp4TFm1A7hnrKTeQoKKGrd8tbPdyOEs=;
- b=mPK9o5wVItAdUCHHrTW+8HPUpMJmXCn685NlXKeVscLMgyHN4njk8bVPEIHZQPcPLZqK
- Ztz8RCrPoADtS/PrmmIEoIPAMygo0OG+ehIy/Xh5qIWr83a/qhrmNPRWHT7LucYzuM6v
- GRY8EZO5Yi9cBmIGqjDcuXfelRLAZTOy12d0YJGmmFC79SKpFsiYDDpFKy4ciSN4pXgq
- ZH3CiU5g+v8IvCRrWHCXajaSzXembp+poMANK9d6PkKxLctLIG6WcGSnTwltbKhrZ/q9
- fu9tqSDViuxcUkN+0hEHKxNVgqwvD3l/8QHsqgCbXQ/CCD24BS1R0u7ACKjl2l8sEdL4 +A== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspb26-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:57 +0000
-Received: from m0127361.ppops.net (m0127361.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 2A7IgUpc024059;
-	Mon, 7 Nov 2022 19:08:56 GMT
-Received: from ppma01wdc.us.ibm.com (fd.55.37a9.ip4.static.sl-reverse.com [169.55.85.253])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3kp1vspb1g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:56 +0000
-Received: from pps.filterd (ppma01wdc.us.ibm.com [127.0.0.1])
-	by ppma01wdc.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 2A7J6ZLd012249;
-	Mon, 7 Nov 2022 19:08:55 GMT
-Received: from b01cxnp22034.gho.pok.ibm.com (b01cxnp22034.gho.pok.ibm.com [9.57.198.24])
-	by ppma01wdc.us.ibm.com with ESMTP id 3kngs3smh7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 07 Nov 2022 19:08:55 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com ([9.208.128.114])
-	by b01cxnp22034.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 2A7J8sh916712426
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Nov 2022 19:08:54 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 26BC558068;
-	Mon,  7 Nov 2022 19:08:54 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 430D958060;
-	Mon,  7 Nov 2022 19:08:50 +0000 (GMT)
-Received: from li-479af74c-31f9-11b2-a85c-e4ddee11713b.ibm.com (unknown [9.65.225.56])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  7 Nov 2022 19:08:50 +0000 (GMT)
-Message-ID: <13c194d02d02a0e2adc006c724809b63c11f1e80.camel@linux.ibm.com>
-Subject: Re: [PATCH 30/44] KVM: Drop kvm_arch_check_processor_compat() hook
-From: Eric Farman <farman@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>,
-        Paolo Bonzini
- <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-        Huacai Chen
- <chenhuacai@kernel.org>,
-        Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>,
-        Anup Patel <anup@brainfault.org>,
-        Paul
- Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Matthew Rosato
- <mjrosato@linux.ibm.com>,
-        Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: James Morse <james.morse@arm.com>,
-        Alexandru Elisei
- <alexandru.elisei@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        Atish Patra <atishp@atishpatra.org>,
-        David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Isaku Yamahata <isaku.yamahata@intel.com>,
-        Fabiano Rosas <farosas@linux.ibm.com>,
-        Michael Ellerman
- <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,
-        Thomas Gleixner
- <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
-Date: Mon, 07 Nov 2022 14:08:47 -0500
-In-Reply-To: <20221102231911.3107438-31-seanjc@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
-	 <20221102231911.3107438-31-seanjc@google.com>
-User-Agent: Evolution 3.44.4 (3.44.4-2.fc36) 
+	id 1os96Q-000PYC-CP
+	for linux-riscv@lists.infradead.org; Mon, 07 Nov 2022 20:52:20 +0000
+Received: by mail-lf1-x131.google.com with SMTP id f37so18410249lfv.8
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 12:52:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ljWDyV8wNeeRtLN+IMD41v2BcNY5eNwfoFOEwTA/0zo=;
+        b=giRuxQN/uXEkxs1LQyc+VNVSvqRO5T847JxrPW3jjWMXyWwh2nO9zh2CZt1TCkvBV6
+         udwfalmwHZ0DNOr3JUyN6jK1x4iNtmFRFsE6Vtc1TlHUmJ3qgpdkafl4UgNWhv//fmC3
+         QQnHqC91BdkKJKjFpbCxdzUfZ43O+E1E42dP48MsM9MoozhGkROMAit5lGP0m7coZRFg
+         WIa82fekdVtpEuv0SMzKty86D74I8lc313GiJacbfh4EnXiwioUcz27MrxLRNEczKX8E
+         poJRs59omzxF79jfYRCiFJ1qUx8nTiFtcNe9iklXlmTSplOH2B7uYvJYTVYbPyqqpu3G
+         GB4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ljWDyV8wNeeRtLN+IMD41v2BcNY5eNwfoFOEwTA/0zo=;
+        b=W1dKMXESTp0dtYG8unoUxdsrPUf7pznzI+kGWCznVw2Z9CyqoHF+BAblUW5NBkMsgG
+         hhGtvs9Pcq7zEdVK0H9qkbBdoWaWYxNon9lLL95lGejUkEtxf/0dO7edOUpT+PEl6+t7
+         RiMLECjMonpy+lmRTYncOT/h1MwudVaO5E0sY+lKfgGh7dfzu716iytqkmgHqx2hLMjD
+         vtEtt66pp1iAwUdv+9KfqxaRkyhTN7PUWcJQ0Hf9JYM6CHOYkS8WrOWji4ME2wJguVJt
+         0UJsdHh7KdGqrtszkDGvpdxDZnQOhBTb0XTygRmFvxpyrm4tQKs0x4qfDP00AufnQmKY
+         Hz2g==
+X-Gm-Message-State: ACrzQf1c/8tx2b1qiZmaanF6RlB2MO/4vBSeH/5EQ6I6NToU5Fn3+Omu
+	FbSaZgnVWqTpjzEYIeKXzfdSqU1o8ZeKwkeG
+X-Google-Smtp-Source: AMsMyM4Mhp/NO5fVOCEn/0jU9d+yhnzZDjk0W3/VeZ/rp5SJqpP5gbebj/ljIim+BuEB1TezjfYfWg==
+X-Received: by 2002:a05:6512:3da2:b0:4a2:6f93:2895 with SMTP id k34-20020a0565123da200b004a26f932895mr18946183lfv.437.1667854331821;
+        Mon, 07 Nov 2022 12:52:11 -0800 (PST)
+Received: from curiosity ([5.188.167.245])
+        by smtp.gmail.com with ESMTPSA id u8-20020a05651c130800b0026e02eb613csm1430120lja.18.2022.11.07.12.52.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Nov 2022 12:52:11 -0800 (PST)
+Date: Mon, 7 Nov 2022 23:52:10 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Andrew Bresticker <abrestic@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: Re: [RFC PATCH v1] riscv: support for hardware
+ breakpoints/watchpoints
+Message-ID: <Y2lv+smon7d9tP4Y@curiosity>
+References: <20221031213225.912258-1-geomatsi@gmail.com>
+ <CALE4mHo2yFPpF68RvvDbKji6_peAX60_cXqnFMxydJTLjnLnUQ@mail.gmail.com>
+ <Y2WGIQ+m7jk5RPZv@curiosity>
+ <CAAhSdy0bZsX1CCYvGJjHH4bXMJZU7eZ7dLcYR87CV4UaS+Kgeg@mail.gmail.com>
+ <CALE4mHq0+iJju23rDKQiR1PbY-2Cy0jqRCkCKBBOy6JB4e_z3Q@mail.gmail.com>
+ <CAK9=C2UmfeY2JJ9YLH6Ve392N9LrY2jdNi6CFADMNQgN=vVFxg@mail.gmail.com>
+ <CALE4mHp2vvv3tFVsDHn_hCrN7iF2aTugsu57cSXE=wrxq7wa2w@mail.gmail.com>
+ <CAK9=C2V_DZ+8jQ0Dg+P7sbke_SPzOnYydfwNGc-P0abvBkWB-A@mail.gmail.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: RHHp999uHGQe6ZCvMSlBReRcUeSiiV8m
-X-Proofpoint-GUID: DuaePqxTnOnEid3ZLdZuErIqRkSISZr5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.219,Aquarius:18.0.895,Hydra:6.0.545,FMLib:17.11.122.1
- definitions=2022-11-07_09,2022-11-07_02,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 mlxlogscore=793
- phishscore=0 impostorscore=0 lowpriorityscore=0 mlxscore=0 malwarescore=0
- bulkscore=0 spamscore=0 adultscore=0 suspectscore=0 priorityscore=1501
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2210170000
- definitions=main-2211070152
+Content-Disposition: inline
+In-Reply-To: <CAK9=C2V_DZ+8jQ0Dg+P7sbke_SPzOnYydfwNGc-P0abvBkWB-A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_110915_765351_03402A34 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20221107_125218_451988_3473B5FB 
+X-CRM114-Status: GOOD (  44.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,29 +97,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDIyLTExLTAyIGF0IDIzOjE4ICswMDAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
-b3RlOgo+IERyb3Aga3ZtX2FyY2hfY2hlY2tfcHJvY2Vzc29yX2NvbXBhdCgpIGFuZCBpdHMgc3Vw
-cG9ydCBjb2RlIG5vdyB0aGF0Cj4gYWxsCj4gYXJjaGl0ZWN0dXJlIGltcGxlbWVudGF0aW9ucyBh
-cmUgbm9wcy4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBTZWFuIENocmlzdG9waGVyc29uIDxzZWFuamNA
-Z29vZ2xlLmNvbT4KPiAtLS0KPiDCoGFyY2gvYXJtNjQva3ZtL2FybS5jwqDCoMKgwqDCoMKgIHzC
-oCA3ICstLS0tLS0KPiDCoGFyY2gvbWlwcy9rdm0vbWlwcy5jwqDCoMKgwqDCoMKgIHzCoCA3ICst
-LS0tLS0KPiDCoGFyY2gvcG93ZXJwYy9rdm0vYm9vazNzLmPCoCB8wqAgMiArLQo+IMKgYXJjaC9w
-b3dlcnBjL2t2bS9lNTAwLmPCoMKgwqAgfMKgIDIgKy0KPiDCoGFyY2gvcG93ZXJwYy9rdm0vZTUw
-MG1jLmPCoCB8wqAgMiArLQo+IMKgYXJjaC9wb3dlcnBjL2t2bS9wb3dlcnBjLmMgfMKgIDUgLS0t
-LS0KPiDCoGFyY2gvcmlzY3Yva3ZtL21haW4uY8KgwqDCoMKgwqAgfMKgIDcgKy0tLS0tLQo+IMKg
-YXJjaC9zMzkwL2t2bS9rdm0tczM5MC5jwqDCoCB8wqAgNyArLS0tLS0tCj4gwqBhcmNoL3g4Ni9r
-dm0vc3ZtL3N2bS5jwqDCoMKgwqAgfMKgIDQgKystLQo+IMKgYXJjaC94ODYva3ZtL3ZteC92bXgu
-Y8KgwqDCoMKgIHzCoCA0ICsrLS0KPiDCoGFyY2gveDg2L2t2bS94ODYuY8KgwqDCoMKgwqDCoMKg
-wqAgfMKgIDUgLS0tLS0KPiDCoGluY2x1ZGUvbGludXgva3ZtX2hvc3QuaMKgwqAgfMKgIDQgKy0t
-LQo+IMKgdmlydC9rdm0va3ZtX21haW4uY8KgwqDCoMKgwqDCoMKgIHwgMjQgKy0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tCj4gwqAxMyBmaWxlcyBjaGFuZ2VkLCAxMyBpbnNlcnRpb25zKCspLCA2NyBk
-ZWxldGlvbnMoLSkKClJldmlld2VkLWJ5OiBFcmljIEZhcm1hbiA8ZmFybWFuQGxpbnV4LmlibS5j
-b20+CSMgczM5MAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Mon, Nov 07, 2022 at 11:19:59PM +0530, Anup Patel wrote:
+> On Mon, Nov 7, 2022 at 10:55 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
+> >
+> > On Mon, Nov 7, 2022 at 11:06 AM Anup Patel <apatel@ventanamicro.com> wrote:
+> > >
+> > > On Mon, Nov 7, 2022 at 8:21 PM Andrew Bresticker <abrestic@rivosinc.com> wrote:
+> > > >
+> > > > On Sat, Nov 5, 2022 at 5:10 AM Anup Patel <anup@brainfault.org> wrote:
+> > > > >
+> > > > > On Sat, Nov 5, 2022 at 3:07 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+> > > > > >
+> > > > > > Hi Andrew,
+> > > > > >
+> > > > > > > > RISC-V Debug specification includes Sdtrig ISA extension. This extension
+> > > > > > > > describes Trigger Module. Triggers can cause a breakpoint exception,
+> > > > > > > > entry into Debug Mode, or a trace action without having to execute a
+> > > > > > > > special instruction. For native debugging triggers can be used to
+> > > > > > > > implement hardware breakpoints and watchpoints.
+> > > > > >
+> > > > > > ... [snip]
+> > > > > >
+> > > > > > > > Despite missing userspace debug, initial implementation can be tested
+> > > > > > > > on QEMU using kernel breakpoints, e.g. see samples/hw_breakpoint and
+> > > > > > > > register_wide_hw_breakpoint. Hardware breakpoints work on upstream QEMU.
+> > > > > > >
+> > > > > > > We should also be able to enable the use of HW breakpoints (and
+> > > > > > > watchpoints, modulo the issue mentioned below) in kdb, right?
+> > > > > >
+> > > > > > Interesting. So far I didn't think about using hw breakpoints in kgdb.
+> > > > > > I took a quick look at riscv and arm64 kgdb code. It looks like there
+> > > > > > is nothing wrong in adding arch-specific implementation of the function
+> > > > > > 'kgdb_arch_set_breakpoint' that will use hw breakpoints if possible.
+> > > > > > Besides it looks like in this case it makes sense to handle KGDB earlier
+> > > > > > than hw breakpoints in do_trap_break.
+> > > > > >
+> > > > > > > > However this is not the case for watchpoints since there is no way to
+> > > > > > > > figure out which watchpoint is triggered. IIUC there are two possible
+> > > > > > > > options for doing this: using 'hit' bit in tdata1 or reading faulting
+> > > > > > > > virtual address from STVAL. QEMU implements neither of them. Current
+> > > > > > > > implementation opts for STVAL. So the following experimental QEMU patch
+> > > > > > > > is required to make watchpoints work:
+> > > > > > > >
+> > > > > > > > :  diff --git a/target/riscv/cpu_helper.c b/target/riscv/cpu_helper.c
+> > > > > > > > :  index 278d163803..8858be7411 100644
+> > > > > > > > :  --- a/target/riscv/cpu_helper.c
+> > > > > > > > :  +++ b/target/riscv/cpu_helper.c
+> > > > > > > > :  @@ -1639,6 +1639,10 @@ void riscv_cpu_do_interrupt(CPUState *cs)
+> > > > > > > > :           case RISCV_EXCP_VIRT_INSTRUCTION_FAULT:
+> > > > > > > > :               tval = env->bins;
+> > > > > > > > :               break;
+> > > > > > > > :  +        case RISCV_EXCP_BREAKPOINT:
+> > > > > > > > :  +            tval = env->badaddr;
+> > > > > > > > :  +            env->badaddr = 0x0;
+> > > > > > > > :  +            break;
+> > > > > > > > :           default:
+> > > > > > > > :               break;
+> > > > > > > > :           }
+> > > > > > > > :  diff --git a/target/riscv/debug.c b/target/riscv/debug.c
+> > > > > > > > :  index 26ea764407..b4d1d566ab 100644
+> > > > > > > > :  --- a/target/riscv/debug.c
+> > > > > > > > :  +++ b/target/riscv/debug.c
+> > > > > > > > :  @@ -560,6 +560,7 @@ void riscv_cpu_debug_excp_handler(CPUState *cs)
+> > > > > > > > :
+> > > > > > > > :       if (cs->watchpoint_hit) {
+> > > > > > > > :           if (cs->watchpoint_hit->flags & BP_CPU) {
+> > > > > > > > :  +            env->badaddr = cs->watchpoint_hit->hitaddr;
+> > > > > > > > :               cs->watchpoint_hit = NULL;
+> > > > > > > > :               do_trigger_action(env, DBG_ACTION_BP);
+> > > > > > > > :           }
+> > > > > >
+> > > > > > ... [snip]
+> > > > > >
+> > > > > > > > +int arch_install_hw_breakpoint(struct perf_event *bp)
+> > > > > > > > +{
+> > > > > > > > +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
+> > > > > > > > +       struct sbi_dbtr_data_msg *xmit;
+> > > > > > > > +       struct sbi_dbtr_id_msg *recv;
+> > > > > > > > +       struct perf_event **slot;
+> > > > > > > > +       struct sbiret ret;
+> > > > > > > > +       int err = 0;
+> > > > > > > > +
+> > > > > > > > +       xmit = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*xmit)), GFP_ATOMIC);
+> > > > > > > > +       if (!xmit) {
+> > > > > > > > +               err = -ENOMEM;
+> > > > > > > > +               goto out;
+> > > > > > > > +       }
+> > > > > > > > +
+> > > > > > > > +       recv = kzalloc(SBI_MSG_SZ_ALIGN(sizeof(*recv)), GFP_ATOMIC);
+> > > > > > > > +       if (!recv) {
+> > > > > > > > +               err = -ENOMEM;
+> > > > > > > > +               goto out;
+> > > > > > > > +       }
+> > > > > > >
+> > > > > > > Do these really need to be dynamically allocated?
+> > > > > >
+> > > > > > According to SBI extension proposal, base address of this memory chunk
+> > > > > > must be 16-bytes aligned. To simplify things, buffer with 'power of two
+> > > > > > bytes' size (and >= 16 bytes) is allocated. In this case alignment of
+> > > > > > the kmalloc buffer is guaranteed to be at least this size. IIUC more
+> > > > > > efforts are needed to guarantee such alignment for a buffer on stack.
+> > > >
+> > > > You should be able to declare the struct with __aligned(16) to get the
+> > > > desired alignment on the stack.
+> > > >
+> > > > > Stack is not appropriate for this. Please use a per-CPU global
+> > > > > data for this purpose which should be 16 byte aligned as well.
+> > > >
+> > > > Is the desire to not use the stack purely a defensive measure, i.e. to
+> > > > defend against a buggy or malicious firmware/hypervisor? That's fine,
+> > > > I'm just curious if there's rationale beyond that (though I'd argue
+> > > > we're already implicitly trusting whatever software is sitting below
+> > > > us).
+> > >
+> > > The kernel stack is fixed size so it is best to avoid large structures
+> > > or arrays on kernel stack.
+> >
+> > Of course, though I'm not sure I'd consider 32 bytes "large" :)
+> 
+> The current patch only configures one trigger at a time but if
+> we are configuring multiple triggers in one-go then the trigger
+> array will grow.
+
+Existing architecture-specific calls (e.g. arch_install_hw_breakpoint)
+handle a single breakpoint. IIUC we may have to setup multiple triggers
+at once for masked watchpoints. A masked watchpoint watches many
+addresses simultanously, e.g. see https://sourceware.org/gdb/onlinedocs/gdb/Set-Watchpoints.html.
+Masked watchpoints can be converted into chained triggers which would
+require configuring multiple triggers in one-go.
+
+Do you have any other use-cases in mind ?
+
+Regards,
+Sergey
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
