@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF197C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E943C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A07gSHxFHtToj9Vxr/wtzJWyP1acAKD7okVDkIE5C0k=; b=IUGEtZanMFf/Rz
-	8Ea3DOV2A3i21LKO4FYbv4tOJWTmgBS0CGUpgLtMpBZdfoidD7SceSj+Ts8xKZp/KZibMMYY0h591
-	buTRw6F6N+LipTNgffrKJPmE2JIp20k+4YkGbi49qmnVjjBbPIlQz1JceSAQIsXOtH+3geAOl2eD8
-	TwbvVLDGWC3m+krAjynIFUumiB0ax+tv0RKHHJpNJUqHCfnrdVxMEJZDctAp85GZfQJ9sHIMtwd1U
-	nnOrEAw8gHryREJkrAKYz0R0zH4sAUCXI/UZ0roOQdAQovEu8TIbhJ0XGyzpYD0BkVNU79QvP//Z/
-	PseG33CKYYyeB8WjbXBQ==;
+	List-Owner; bh=imZCQ9fvcYqsxuj0DrKg/WF1pYTqurgAVxnEZjJ7O38=; b=MnCoTbqWukHWUy
+	kwJ7xyr9r0f8NeKmrDBJ77jXF6hLigM9/+/8V7HEbdDkKAqebDGiubgVv1e+fLGNUo9dwcYIC+Um6
+	YVzvIQTfURR5Bel4i9L3P2Lm1vx75WSroQ4QZ84fGHMd/i00acIulSwsb/hxmdFVu37YLMRQSiPQK
+	KOF1nXNtC3xDG53sKVwnrfTB62msE47vCLLZUKFj7Yz+ZjCzBeoY+uehGRjjwGV60wi56JBpr9SSg
+	ZpenCWZbER/HLRPS79O4UrYvKnDu0iXa0Q09k9oBdjR0ejtjGABtg1tgCxln5kFt5F4cjhimHhzHA
+	q6gQ0nz3RjQOuvMg9p6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMRA-004kGJ-Vp; Tue, 08 Nov 2022 11:06:37 +0000
+	id 1osMRT-004kPx-NW; Tue, 08 Nov 2022 11:06:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMQn-004k4o-2W; Tue, 08 Nov 2022 11:06:14 +0000
+	id 1osMQw-004k7t-In; Tue, 08 Nov 2022 11:06:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97743ED1;
-	Tue,  8 Nov 2022 03:06:17 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77B41113E;
+	Tue,  8 Nov 2022 03:06:26 -0800 (PST)
 Received: from pierre123.arm.com (unknown [10.57.5.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 918CD3F534;
-	Tue,  8 Nov 2022 03:06:08 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FE8E3F534;
+	Tue,  8 Nov 2022 03:06:17 -0800 (PST)
 From: Pierre Gondois <pierre.gondois@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: Pierre Gondois <pierre.gondois@arm.com>,
@@ -43,23 +43,21 @@ Cc: Pierre Gondois <pierre.gondois@arm.com>,
 	Sudeep Holla <sudeep.holla@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Gavin Shan <gshan@redhat.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	SeongJae Park <sj@kernel.org>,
+	Peter Chen <peter.chen@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org
-Subject: [PATCH 2/5] cacheinfo: Return error code in init_of_cache_level()
-Date: Tue,  8 Nov 2022 12:04:18 +0100
-Message-Id: <20221108110424.166896-3-pierre.gondois@arm.com>
+Subject: [PATCH 3/5] ACPI: PPTT: Remove acpi_find_cache_levels()
+Date: Tue,  8 Nov 2022 12:04:19 +0100
+Message-Id: <20221108110424.166896-4-pierre.gondois@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221108110424.166896-1-pierre.gondois@arm.com>
 References: <20221108110424.166896-1-pierre.gondois@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_030613_186051_16A88EC7 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221108_030622_705323_1C1981CD 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +74,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make init_of_cache_level() return an error code when the cache
-information parsing fails to help detecting missing information.
+acpi_find_cache_levels() is used at a single place and is short
+enough to be merged into the calling function. The removal allows
+an easier renaming of the calling function in the next patch.
 
-init_of_cache_level() is only called for riscv. Returning an error
-code instead of 0 will prevent detect_cache_attributes() to allocate
-memory if an incomplete DT is parsed.
+Also reorder the parameters in the 'reversed Christmas tree' order.
 
 Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
 ---
- drivers/base/cacheinfo.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/acpi/pptt.c | 21 ++++++---------------
+ 1 file changed, 6 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index a4308b48dd3e..6f6cd120c4f1 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -246,11 +246,11 @@ int init_of_cache_level(unsigned int cpu)
- 		of_node_put(prev);
- 		prev = np;
- 		if (!of_device_is_compatible(np, "cache"))
--			break;
-+			goto err_out;
- 		if (of_property_read_u32(np, "cache-level", &level))
--			break;
-+			goto err_out;
- 		if (level <= levels)
--			break;
-+			goto err_out;
- 		if (of_property_read_bool(np, "cache-size"))
- 			++leaves;
- 		if (of_property_read_bool(np, "i-cache-size"))
-@@ -265,6 +265,10 @@ int init_of_cache_level(unsigned int cpu)
- 	this_cpu_ci->num_leaves = leaves;
- 
- 	return 0;
-+
-+err_out:
-+	of_node_put(np);
-+	return -EINVAL;
+diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+index c91342dcbcd6..97c1d33822d1 100644
+--- a/drivers/acpi/pptt.c
++++ b/drivers/acpi/pptt.c
+@@ -281,19 +281,6 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
+ 	return NULL;
  }
  
- #else
+-static int acpi_find_cache_levels(struct acpi_table_header *table_hdr,
+-				  u32 acpi_cpu_id)
+-{
+-	int number_of_levels = 0;
+-	struct acpi_pptt_processor *cpu;
+-
+-	cpu = acpi_find_processor_node(table_hdr, acpi_cpu_id);
+-	if (cpu)
+-		number_of_levels = acpi_count_levels(table_hdr, cpu);
+-
+-	return number_of_levels;
+-}
+-
+ static u8 acpi_cache_type(enum cache_type type)
+ {
+ 	switch (type) {
+@@ -613,9 +600,10 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+  */
+ int acpi_find_last_cache_level(unsigned int cpu)
+ {
+-	u32 acpi_cpu_id;
++	struct acpi_pptt_processor *cpu_node;
+ 	struct acpi_table_header *table;
+ 	int number_of_levels = 0;
++	u32 acpi_cpu_id;
+ 
+ 	table = acpi_get_pptt();
+ 	if (!table)
+@@ -624,7 +612,10 @@ int acpi_find_last_cache_level(unsigned int cpu)
+ 	pr_debug("Cache Setup find last level CPU=%d\n", cpu);
+ 
+ 	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+-	number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
++	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
++	if (cpu_node)
++		number_of_levels = acpi_count_levels(table, cpu_node);
++
+ 	pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
+ 
+ 	return number_of_levels;
 -- 
 2.25.1
 
