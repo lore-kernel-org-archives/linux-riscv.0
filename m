@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86FE3C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB84C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4kh2EURLxhQU6VSV6PR5G49et/jlwDc5qlZLL1LBHEc=; b=Y6AH3U1jzQdYJT
-	UIa3FnGU3ms6wKBMJxFwIcay4TatGMggFD65kjdm5sdR7DcYNGJwuDsdJesUABWG7/YHDfOyFyRzn
-	sOBQRf3U6rfOsNWEVv1UXeIF+kEAfyw3JJrrDcLmV4OI2jluLekWrWfT5U6VnO3tC4RJ74DLgd7Vq
-	NlRVycfvsMC6XspA62jxaPAAXHYvPFIG0q1+93IhCWPRswDjz3OVl0QSH0tAicIhAAELLbsR4AFyU
-	A02qLMB5wl184JNUOTOqMnu3fXAAO4UfqGEsDGisYPN3+2i6nFO71qf59ypv1CiKSgxRDLv6WZw+8
-	W/qI7B4GA/9/Tkp8W9hA==;
+	List-Owner; bh=n2YnQoyeu1GAE3afwdcHKSlUQ2olpeDO3IuOFxTL6yY=; b=ptCgRSkOKYtp/x
+	crBmtSEaUP0sJh3rYaW+1fvSYghPCJBkxzeL9I37+ladvZSWZT6fi7iMJ4ot5nV5L0O58uwuW+I4C
+	ipqiA19Be4tb7xxK4OAqhwic3ZohUFl4usmP+QD3nEeh0M+02UqDtvkrudWZZqXWR7iFXKEv9r1KI
+	vrZ4/eGV/zofgZGKz2bQB6jHNvU6qSac4F3unmJMpRs+3AS0FTv7xiatncOp6bv/NomVKVvGVnBmh
+	0jHLghKlB2dr5yVLYQCeIE/msn3w+/VgG3NRP0T1aXpb0z6JaVAPHoJP1ONSChvyI66FfozKm8oyB
+	JybaSTR0ey4CInXLKa1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSHs-00702M-Lg; Tue, 08 Nov 2022 17:21:24 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1osSJF-0070PJ-EB; Tue, 08 Nov 2022 17:22:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSHh-00700M-F1; Tue, 08 Nov 2022 17:21:14 +0000
+	id 1osSJD-0070OV-Bs
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 17:22:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2804EB81B4D;
-	Tue,  8 Nov 2022 17:21:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33235C433C1;
-	Tue,  8 Nov 2022 17:21:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B77CF616B5;
+	Tue,  8 Nov 2022 17:22:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A90C433D6;
+	Tue,  8 Nov 2022 17:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667928070;
-	bh=DlMHpgYF6fEe5J2HjZk1J+WbnRi5LdPQe3AxBSfoBtA=;
+	s=k20201202; t=1667928166;
+	bh=EBlNNpN7MBm+O+67jLDhlUEULw61dZCE5Kh/19OPtsU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o6Cv5V6efM2n7JUbiYlknPcXf5YU+wsfF3ayVGOcCl6KzWjTQfpf9P/DxPBzki7xQ
-	 w0H4anKjaubXltO/ORS0AxYyYWMUW02TpkK0lxtNWvEuNTJgxy5kI1HkytTAI3BRMZ
-	 qAvnl6sZ56oXhnSc4GjGnL/EEuXmow5ZOmOh+AHCZcmB259ApGTdpLZJ1ZOS6P+ivR
-	 pmlVeEFZZ3yQ8sIs02fhYwk5S6jOPy7jynVJbJcbOWbsadqc7XwcQoVD+0PiJOCjQG
-	 C/CHCiih+Zy1HlFxwbn2gTA8HRZ2JKgNK6TfgHh2wnDl3aFbqqm+2mzG/YhPqBx/sv
-	 mau3HKmmFbgJw==
-Date: Tue, 8 Nov 2022 17:21:04 +0000
+	b=M3Qn0KdLF8TnGQvdKxzEauemDFC/wJjbGcUAsuoXqGm1H36vKWC7fz1uyQ4ja4gLL
+	 PtObRw8k5Io4fyWl8tVoH5XD69mYqJG3gVg5EwelDTjWg+DYw6KaSCjH7/lWOl7XgB
+	 /stqFfGY64EpQB3676Sum/0Ri3ngvLCUB5XbL+Wgf3PkesWmp2wcTUqyXp9tYNHtvo
+	 0JyvRUdJxSjeLycb1ViilsqYRjwmmCjrfM72A91yI6W38k+dS4SjjxLoHn22bcsLAi
+	 XZsiBILFlLJO7XDy+bw5izIso/JaPxCgIeKYx5kMRh3DMLYT4VpjptwDY0AlU0OTPl
+	 ItckxP0D//rpg==
+Date: Tue, 8 Nov 2022 17:22:40 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
+To: Vineet Gupta <vineetg@rivosinc.com>
 Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Chris Stillson <stillson@rivosinc.com>,
+	Greentime Hu <greentime.hu@sifive.com>,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Gavin Shan <gshan@redhat.com>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Jani Nikula <jani.nikula@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH 1/5] cacheinfo: Use riscv's init_cache_level() as generic
- OF implem
-Message-ID: <Y2qQABd9Xsubx77Q@spud>
-References: <20221108110424.166896-1-pierre.gondois@arm.com>
- <20221108110424.166896-2-pierre.gondois@arm.com>
- <Y2pirStbsJOidAkz@wendy>
- <20221108155906.3pssiipdfrm55q56@bogus>
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andy Chiu <andy.chiu@sifive.com>
+Subject: Re: [PATCH v12 04/17] riscv: Add vector feature to compile
+Message-ID: <Y2qQYAfZL7I2qXoo@spud>
+References: <20220921214439.1491510-1-stillson@rivosinc.com>
+ <20220921214439.1491510-4-stillson@rivosinc.com>
+ <87zgd2d6j1.fsf@all.your.base.are.belong.to.us>
+ <f4887649-3933-0a65-7ed5-1bf6bd842a46@rivosinc.com>
+ <Y2oLkQSdCBJPvZW/@wendy>
+ <95287691-752f-5920-2dbc-b9a5b144d0ac@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221108155906.3pssiipdfrm55q56@bogus>
+In-Reply-To: <95287691-752f-5920-2dbc-b9a5b144d0ac@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_092113_663063_86498DD7 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20221108_092247_464875_211A88B7 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +81,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 08, 2022 at 03:59:06PM +0000, Sudeep Holla wrote:
-> On Tue, Nov 08, 2022 at 02:07:41PM +0000, Conor Dooley wrote:
-> > On Tue, Nov 08, 2022 at 12:04:17PM +0100, Pierre Gondois wrote:
-> > > Riscv's implementation of init_of_cache_level() is following
-> > 
-> > heh, "Riscv" always looks a bit odd!
-> > Code movement looks fine, nothing surface level is broken on RISC-V.
-> > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> >
-> Thanks for the review and testing. I was planning to ask Pierre to cc you
-> next time but you seem to have covered that for me :).
+On Tue, Nov 08, 2022 at 09:17:26AM -0800, Vineet Gupta wrote:
+> On 11/7/22 23:56, Conor Dooley wrote:
+> > On Mon, Nov 07, 2022 at 04:04:28PM -0800, Vineet Gupta wrote:
+> > > +CC Andy, Conor
+> > > =
 
-Ye no worries.
-Feel free to add some sort of "R: Conor Dooley <conor@kernel.org>" entry
-where appropriate if you want to make sure I'll take a look - but I
-should see it anyway if it goes to the riscv list.
-Up to you.
+> > > On 11/7/22 09:21, Bj=F6rn T=F6pel wrote:
+> > > > > +config VECTOR
+> > > > > +	bool "VECTOR support"
+> > > > > +	depends on GCC_VERSION >=3D 120000 || CLANG_VERSION >=3D 130000
+> > > > > +	default n
+> > > > > +	help
+> > > > > +	  Say N here if you want to disable all vector related procedure
+> > > > > +	  in the kernel.
+> > > > > +
+> > > > > +	  If you don't know what to do here, say Y.
+> > > > > +
+> > > > > +endmenu
+> > > > "VECTOR" is not really consistent to how the other configs are name=
+d;
+> > > > RISCV_ISA_V, RISCV_ISA_VECTOR, RISCV_VECTOR?
+> > > =
+
+> > > Good point, I've changed it to RISCV_ISA_V to keep it consistent with
+> > > existing RISCV_ISA_C.
+> > =
+
+> > Hey Vineet, kinda randomly replying here but the wording makes it look
+> > like you're going to take this patchset on?
+> > If so, please check out v10 (think it was from April) as there are some
+> > comments on that version that IIRC remain un-resolved.
+> =
+
+> Sure thing. Although I only see a few from Christoph and kernel build bot.
+
+Yup, they were minor - I just don't wanna see them get lost :)
 
 
 _______________________________________________
