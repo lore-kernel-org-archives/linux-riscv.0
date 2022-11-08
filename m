@@ -4,198 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8613C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 01:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36B6C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 01:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cXVXpySIF3zVGrEBNcGQHAfnkv239uI7w+ZyFx1rZcY=; b=4WuqWcdnM762Vl
-	OrBgsxPOzOflOu9yAoYHfEr+gg5aT/21EXf7uZWL16cGAgnG/3AcRPK4M6wjzrk7NMfYgrOZyTDkr
-	2EZwm1dYihlk7FF3fsYWqAzgeoI/cRsjT0+vqhtgpL0ABE9r2Hesc43XGpmiStscs1Za71lfO8Fb8
-	MD9zdaSn5cJiSaeeiJ/QqCNZ/VPUTXcx5njjQP3kLp4o/pKKjFD3toRRONwjVzjEH8MJlRp8mGG7N
-	lJG9ZVuIdZvoHLz/GTB5wiwQ7Z4BKkBaoW6lucsLMB0bXJ9VPxvTJixLLAzrxOQbUo02HGEGNImMf
-	dNFUTlZap4YGOTVwjxzw==;
+	List-Owner; bh=Fuk7BC9RGbLmsXHZH6B1ARgG/kVBuB03+6kO0+VlJoU=; b=T0iQ+pujobRf0R
+	BLfSdZsjX0mi8yliA1Gl0NvfAlkJLPPmJb9qrwK66lvC6MVLzAcXOPt/CJJOUVYawfdTdvLL0aboR
+	P+lBmoleNAIagCJslPitcE3Smt1ETUc7TS9+m240GGESO6o8Lqp4ndyzGPmgbhcBxgDmbt7TO/TX2
+	amvu4aL+WkuNIbqLY+7c3h6fA41kYQXcfa0RvrvWv5oHqO4jqzd7hTSdtk8g/Batkl6MzKZ0/LyN1
+	c/hsjtwUWXLGLjmUYq6AM8mSALNtk6y8jR125bf525E8gQksflIpwRn7bRyfGcVAZvT8SdUAFRAoc
+	l1g6UEpdRm4QuGdO6XKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osD7i-001h7C-Af; Tue, 08 Nov 2022 01:09:54 +0000
-Received: from mga02.intel.com ([134.134.136.20])
+	id 1osDZA-001kdA-VA; Tue, 08 Nov 2022 01:38:16 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osD7V-001h4F-BO; Tue, 08 Nov 2022 01:09:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1667869781; x=1699405781;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=VkqNyk2uy7aZU4BJCc8txVHZE1SS4+Ujzdx5wfRzL4c=;
-  b=RHsLO8AasTCfKRBI+oq6Pq0y+jg9hhr7DGc/hoemzNIfwjQ1HW08caFk
-   N2ZDxOm24SbfZJXd+4+1cUBeD+lCAGy77bo9RERk7Kl0dedEE5pa0Do+g
-   TpdDdTX3Z+xZfKklrpaPSCivC8AvKdQj4mMkvrh4J7pZpV2vymaWoLCNJ
-   FfxyQ38V0EuwKD5/krOrZmg8uhP/WBAqBUxpDvX7rFY/NNOdKhJG8CbGj
-   0M2LuwJ2BcrHu4fhYVS6vd2c/l5lSi0RyztUQNofmLSBrfwFvtNPelAg3
-   rTba+bJ8qDYP94HL2OSNBoP3PBnpbGmOWIkFBhItVE+Y/ImvgWcB2Q4q4
-   w==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10524"; a="298081763"
-X-IronPort-AV: E=Sophos;i="5.96,145,1665471600"; 
-   d="scan'208";a="298081763"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Nov 2022 17:09:30 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10524"; a="705098742"
-X-IronPort-AV: E=Sophos;i="5.96,145,1665471600"; 
-   d="scan'208";a="705098742"
-Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
-  by fmsmga004.fm.intel.com with ESMTP; 07 Nov 2022 17:09:30 -0800
-Received: from fmsmsx610.amr.corp.intel.com (10.18.126.90) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Mon, 7 Nov 2022 17:09:29 -0800
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx610.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Mon, 7 Nov 2022 17:09:29 -0800
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31 via Frontend Transport; Mon, 7 Nov 2022 17:09:29 -0800
-Received: from NAM04-DM6-obe.outbound.protection.outlook.com (104.47.73.48) by
- edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2375.31; Mon, 7 Nov 2022 17:09:28 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Yqj7/9VmIbXC8sWWzshWUHoOZVBWO5A50PHV13zSwJ4O3Wu4aH6tm2ODuuhJYIZA8y1Q5UKJyfjdZewLxcs8jXRr0ICu6Sr/gR72hXQL6TjsvBVp/MSDXlASwgq8JCD338smfg/9yI0lemfqOtvBYvCOMGEKVj/MpD59QuUUTjYtSbcjbFD0Wk9ZRms+N4STopCmfbjU6F2dwhLvwCbehhTW0q8AkAIXUcxLWlF75lOzGhKvHx8fXSVmWTyCtfxwIuMR+U+aj81/RU1eNGotaYnZw9DISqL9vhbp1q0OXIK8Uj8vkzldwK361QA2W7+FZ4oEW+jahMhaq8Bi8haowQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VkqNyk2uy7aZU4BJCc8txVHZE1SS4+Ujzdx5wfRzL4c=;
- b=ktrt00OaBdyPTXiRYVEEyAxqKSJZCj4pdOnlEUrU910WkZ2nwB5VUfl643Q1YqUInmYX7aK2OZmBTpZKbfcEtFmTHJAqJ7Cc+b3fPR6auMsbaWRekzLSERUdCRIxxy3s9npxpG2Kg1NrplLW6u5+Cjaut8XwD3ocOEtOUk3FNWOSuHNF3ShWFJd/IARx16bEKZ2/oxd/ZOdGKdrQmM2/Z5rh2spJiAgCN965DOQk8kM7cMzZeJSyBq8nKJdLA9qakpA6ngoinXlZnGQa4lNNjym6ExCxXFp4bMF2hXEpkV0ta61OpHQGzuawyJQMTP2SsPMKrL+BXTs+wDEvfVIr8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BL1PR11MB5978.namprd11.prod.outlook.com (2603:10b6:208:385::18)
- by PH0PR11MB5078.namprd11.prod.outlook.com (2603:10b6:510:3e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5791.27; Tue, 8 Nov
- 2022 01:09:27 +0000
-Received: from BL1PR11MB5978.namprd11.prod.outlook.com
- ([fe80::6eb:99bf:5c45:a94b]) by BL1PR11MB5978.namprd11.prod.outlook.com
- ([fe80::6eb:99bf:5c45:a94b%3]) with mapi id 15.20.5791.026; Tue, 8 Nov 2022
- 01:09:27 +0000
-From: "Huang, Kai" <kai.huang@intel.com>
-To: "Christopherson,, Sean" <seanjc@google.com>, "isaku.yamahata@gmail.com"
-	<isaku.yamahata@gmail.com>
-CC: "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "Yao, Yuan" <yuan.yao@intel.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "Yamahata, Isaku"
-	<isaku.yamahata@intel.com>, "suzuki.poulose@arm.com"
-	<suzuki.poulose@arm.com>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"david@redhat.com" <david@redhat.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "mjrosato@linux.ibm.com"
-	<mjrosato@linux.ibm.com>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"farosas@linux.ibm.com" <farosas@linux.ibm.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "linux-s390@vger.kernel.org"
-	<linux-s390@vger.kernel.org>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>, "mpe@ellerman.id.au"
-	<mpe@ellerman.id.au>, "vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"maz@kernel.org" <maz@kernel.org>, "anup@brainfault.org"
-	<anup@brainfault.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"farman@linux.ibm.com" <farman@linux.ibm.com>, "james.morse@arm.com"
-	<james.morse@arm.com>, "kvmarm@lists.cs.columbia.edu"
-	<kvmarm@lists.cs.columbia.edu>, "aleksandar.qemu.devel@gmail.com"
-	<aleksandar.qemu.devel@gmail.com>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "atishp@atishpatra.org"
-	<atishp@atishpatra.org>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
-	"Gao, Chao" <chao.gao@intel.com>
-Subject: Re: [PATCH 00/44] KVM: Rework kvm_init() and hardware enabling
-Thread-Topic: [PATCH 00/44] KVM: Rework kvm_init() and hardware enabling
-Thread-Index: AQHY7xGUTp4lUVPML0yWgaOmsA79Vq4uXPOAgADckACABM0oAIAAOK8A
-Date: Tue, 8 Nov 2022 01:09:27 +0000
-Message-ID: <bf29fe1ac84cae8ddb06e566b56c653600a1901c.camel@intel.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
-	 <20221104071749.GC1063309@ls.amr.corp.intel.com>
-	 <Y2V1oslbw24/2Opd@google.com>
-	 <20221107214634.GE1063309@ls.amr.corp.intel.com>
-In-Reply-To: <20221107214634.GE1063309@ls.amr.corp.intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.44.4 (3.44.4-2.fc36) 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL1PR11MB5978:EE_|PH0PR11MB5078:EE_
-x-ms-office365-filtering-correlation-id: f3173709-8644-456d-08c0-08dac125e1b6
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: tRVN7ieVEs7UUPBr4s/6sRl4w30qcOlzXJ0bb4EXvUEO5NruxHDDGfhugZflEVHHky0k4r3zuwj1rcJ1BRFMBSytllvDW5zm9vbussiAbfu7cq0ME0zpUBTJ5zBABx96zq6yw/hjQaYqER1lx5F2MSRal6JQv9fWsywxbj1qI4YyJ3rkijevLFMgzotqAeAQbifEAbKzKq0CcgNY9NqvAaXWcTBNsCqyDZlR72Dq977kJnr7903EHeDwp4mhZ+6k9csCID3VAvqfAtHa7txS21YPsWA5euS9ExGMVSp6QbGwM2pnUQzc9ylfovHwd88qnv/lI2wT94xaD8o39PQp6rl6zEeBSgyyuY/idzg050ymkN9NZ20GOLaMkxhZw0rEh4n3dhlIR/cqixCjpsWVCH11/4mrAjbO3of6aWG63jmPRLYPtfg1IaNF5sfBlRfnjwkWjjRkOEV5WGDyBiPxwRTMu56Z9p3BGfNAK9Y+pBn4MGHX+eCO3n6tJLEewd5JspDgUgt7H2P0rMFwKIzqMRgl+mOc3lsbL7qwj67XZgscSoQbWI+vLt2an9CJcsbsf6zSfDD3Pd349uydzak1YhsqvET5v0v/RjISdOSs9tMOCm2WJF8SxJKWTrtUA1gXpGC8DYkgVfMw+SBELGKt/9Suf93mAHfufK8K/yTTM3WcxZ4VGoPu2tzXe8p06JVGZATPN5SSjS0N07fLkx4tr4NI2CxEqqnqRwC/JZ/dLQIugMh7VJ286DULquEX+i/CXR4iRGBUNjs8Dw3NLLnAog==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5978.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(376002)(39860400002)(396003)(136003)(346002)(366004)(451199015)(26005)(186003)(6512007)(83380400001)(82960400001)(38100700002)(2616005)(122000001)(38070700005)(7416002)(7406005)(5660300002)(2906002)(8936002)(41300700001)(6506007)(66946007)(71200400001)(478600001)(6486002)(107886003)(8676002)(66556008)(66446008)(66476007)(64756008)(76116006)(4326008)(54906003)(110136005)(91956017)(316002)(86362001)(36756003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a1lEMjc1UklnSWJpc2JKVml4ai9PNkxrRnordm9DMzNTdHJLbkFOOExGZmRH?=
- =?utf-8?B?cmJiOE5Td3dpZDlkUURzSzNDeDRtSmhoRmRrenVqTm1Ldk04NGlGSTRZNzBV?=
- =?utf-8?B?dzhFcVBZdWFoRlZwcXg1RS93UHV5Ky8yNm82bHdObjlpTzhVUzlLd0lyaG5s?=
- =?utf-8?B?eGVLall3NGY1RkZmL0VkeU1Galp6NGY2OU52bEdRRm9OdUgxQjk5MXZOa3FC?=
- =?utf-8?B?enM0ZXVwQytsU0JTcU1tbm1WNlFLYkVtWmNDZVlBY0lzeSt4cTRnWDUrVm8z?=
- =?utf-8?B?TjY0ZW1sUWtRZlVyMXhhdlhFcnlpdUZoaGJmdW12KzRLVUpQcGVQM25kS04y?=
- =?utf-8?B?cE5vcm1CZW5kVkRsNFJYQVVPb3gwRXNiOGhGWjN2T0c5V0pScjVudWN5N2w1?=
- =?utf-8?B?SjUxU1B5NXI0TWVHZGpzNGZHd1hwM29vdkVsTEd4L05uRzhHZ2ZvYU9rcnJl?=
- =?utf-8?B?cHFqOUJqaWVLK1BrSk9PM2xvbGdDN25HWGNUZkdFMERUdFZWMndMN2p3eElq?=
- =?utf-8?B?TFllU1pzRDR1M0VBOXZuSnNZQ2VaY3BMV1lPK1dlenVWeGZBUUdHbW9VNkt3?=
- =?utf-8?B?eUtQVHBUd1FZRGVtZjFobGw1dlpZTTBYYlJLVHllUmErVStiY3pjeFVaSlFF?=
- =?utf-8?B?QTQ4dFhCU0RYZ1hwWHozOTVIWStCWXY5YjJqT0ZrTFZMVjQwR0F0eXFLTCs1?=
- =?utf-8?B?UDI4Uk9paEJWRG1hWUUwNVl1bVA1ZnFCY25INnZRaE1OVEFJc01PVXJ4M2Nn?=
- =?utf-8?B?UDBqeWdXU2JlR3VVVWphcVo5WkZ1QVJxUnhpNXZmcVF2aGF5a1RIR1ZWbzlL?=
- =?utf-8?B?Ny8zdXNJSFVtOWp6L0paWHMvazFJbkVrU2pKbUVlenJXUStEaE5mK3lzUW43?=
- =?utf-8?B?a1huZkRvOHhPc09kOThXYTRQS0ZJMGRQYjY5QndiaGJmV0VyaUw0ZTEzNjha?=
- =?utf-8?B?Y2ppWjVUNWFJdjlRUkdXVVJCam95bW5jRFlJcmhHcW1NL1NHZ1R4M0tIR0Y1?=
- =?utf-8?B?SHZPK1o1Nmw5QXI2a1dac011dWd2NGpnUi9CYnFKbTdMcFU2bk1xMjRZY2dN?=
- =?utf-8?B?aGFPR3dNU1REM09sWEoxaHpUdExqaG1LRHMvaGVYeDFoMGhVMlpXbWYxQ0Q1?=
- =?utf-8?B?OTJQK0U3OXdUVG1EWFVoc2dUSU56MGpPUlBleGFGUjgvM2pPdWVNMXhYUXBh?=
- =?utf-8?B?a2h5NzE3TTJlcElrMlIxcjBENFdZWjNOcjAwWUdDY1ltSlpDU2pVUmhqVXVp?=
- =?utf-8?B?TFNSaWpDMFo5c3IrQ2FyZkswbC9KRzhSVElNZnZLY2w3ak02dE11OUQrZUR4?=
- =?utf-8?B?aWZOTHB0NzczaWkvOENXY1NPV203TWlITUR4TElRSXNYM0lpQ1pwQ1ljc0Va?=
- =?utf-8?B?UFJCcWJ0dUxKd3pDNi9oZElENU9FK005cWZ1dSs2MGsycmlBVllwTFFmeEJ3?=
- =?utf-8?B?clcwOEtpUXEreGZXWTBhKzcySzM4eURuUVVqeFpFcjBHaERFMThtK2RHbHlB?=
- =?utf-8?B?a0haeGt2UlFEY0Z6NWpNb0pQd3kzQXBZSGYvSFIwcDdQU2lzZTZhWGlSME84?=
- =?utf-8?B?MzFRUDVBcFVHOWZIOFJBTFJpT2RQNHNMQytTRkFjYzJTeGtUMTFrR0VobFhj?=
- =?utf-8?B?U3dxNm5oRkd1bnRDaEJ0aXlsNzB4R3V0RjV5RElsdVYwS1hoaC94cklZMk1s?=
- =?utf-8?B?bEZlZzJNUThWWFBvMW54SWNSV0h0Q25ZZm0zWEoyVlJQRXo0aWp2R2hhcG1j?=
- =?utf-8?B?YkR6eHhhRkRQUDFPM3hKVXI4YXVHRGd0SjcvVzUzaHFlZEhXa2RsZHRyTm4r?=
- =?utf-8?B?Z2RMLyt1VEdZQjFOWUlSalV5Y21rd2s0Tzcwa3hPZmNwdFNTempORlRVR3JD?=
- =?utf-8?B?eW40b3RTOXhCS2FoVkp4WmJpa0xTZ0tLZlF1eERZYURXUkVxaFJFOW1HZE9r?=
- =?utf-8?B?WThUZmFTalB2NXlaL2x1c2lqN2RaYVUvMGRWUVlqSmtkNmVraWtoQm92UzZI?=
- =?utf-8?B?aThCelBneVJpMUQyb2paYVpHTld6Ym1NOXlwT0EycWI0bGFMc1I5cDQ1MmtU?=
- =?utf-8?B?ZURuZiswTWZhWlNjb0VlTWllQzI4dmdtMnl3dEd3RUE0NFY5UHNCMGlFTnpt?=
- =?utf-8?B?VUFjQ2k0NXUvNjBkU1dpMnVXaFBVbFAwS0lPMW5GdWw3OCtMY2NoWXBGKzRh?=
- =?utf-8?B?Znc9PQ==?=
-Content-ID: <737100AB69F03E4EA2AF6DD9B8BD99F4@namprd11.prod.outlook.com>
+	id 1osDZ7-001kcC-Ki
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 01:38:15 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id m6so12510454pfb.0
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Nov 2022 17:38:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pdA0+o4nyWXXtAJUwdO+TLMgOFzpgSrlvCyZWaWI2z4=;
+        b=uUF3kWMxyWjpSj4fV0JBu57jdZdaitSPay1bfIGp0XFYDlcqtKIDm772KToGoDVuY4
+         k9NhItfI5Xy02zSY93Cz8FaCrS8XLcp/MtGhI5bT5m8nQWCfpGn+phXjMMcRfr+8pxZV
+         7bxnR51fohdrg2TI+WnAznLqy/w9xciGNh4WQzz/Tn/ccnE40nq6giHICh8zn/xqyAnz
+         DDvNBkZWpZI2cm/EKxjqsUV2dtHsRYfVlcokfFJOGJOnzOL4uUUogUKcH7jWFUqRjNCh
+         CVLoFVFMOaqlboAbAGKERaafeEe8W3UR9dHov2alPnaf+DPx++C5qIsxy2K0caHLXR6l
+         jkyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pdA0+o4nyWXXtAJUwdO+TLMgOFzpgSrlvCyZWaWI2z4=;
+        b=SZhedLm20aVLVABB72+0dm/wgBv+x1Y7+lqPz5nxqAPtArTYJuD1P47TUil1W6DhhN
+         I2c2WXqD1Py+Kg5tMkJPlowU4+jUtydFUgYinfsQA5jcd7LC/QpjYFABI7JFols/X1S5
+         6v3qJfK979Wc1iDIGP/O3cgzst46Xv+m1Otm3n/XRfA6wjDAJuyMyKYGk1N9N5kdYS7q
+         Y2aOjcdv9TEgq05WV5w421Uj+iIAaFoGxCR9t5hpMWbCCVNiAHs9bPT4YvvM/Cp4Jw1Z
+         48F5dyktz4kR+fLA9ckKXODoAQiprjxHXq7Xshy28dQEjHIsmHURYIvvtb72yNi59Fyh
+         DyYQ==
+X-Gm-Message-State: ACrzQf0byBCKLjj7PswH54iXs+2S65ysVtvr6vyu+KRAMmXXubAenA6j
+	76IK3E+Lw1sAipDeLQWdNHvKZg==
+X-Google-Smtp-Source: AMsMyM45kxmMVB29FW11WfTPJoOy/nQGourjL5hLHSIUpug+JZdQcZpcSqfddvvyRg+/HMEccH5/cA==
+X-Received: by 2002:a63:d90c:0:b0:462:cfa2:285b with SMTP id r12-20020a63d90c000000b00462cfa2285bmr45569279pgg.202.1667871490747;
+        Mon, 07 Nov 2022 17:38:10 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id p18-20020a170902ebd200b00176b63535adsm5560623plg.260.2022.11.07.17.38.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Nov 2022 17:38:10 -0800 (PST)
+Message-ID: <1634d6c4-40fa-1298-efa2-c606b1e57fd7@rivosinc.com>
+Date: Mon, 7 Nov 2022 17:38:08 -0800
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5978.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3173709-8644-456d-08c0-08dac125e1b6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Nov 2022 01:09:27.0631
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qMnjBY91n3Cjz0ECxgnFn2pNqk00oWRsibzMaAk6wp+8Ix1bjWtZX0+l+VGgTT9cekEfkmGg9PfQNvAqxmbQow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5078
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
+Subject: Re: [PATCH v12 09/17] riscv: Add ptrace vector support
+Content-Language: en-US
+To: Chris Stillson <stillson@rivosinc.com>
+Cc: Greentime Hu <greentime.hu@sifive.com>,
+ Vincent Chen <vincent.chen@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Andy Chiu <andy.chiu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ lkml <linux-kernel@vger.kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+References: <20220921214439.1491510-1-stillson@rivosinc.com>
+ <20220921214439.1491510-9-stillson@rivosinc.com>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <20220921214439.1491510-9-stillson@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221107_170941_462198_AC8BA010 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20221107_173813_936549_4B27A333 
+X-CRM114-Status: GOOD (  29.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,33 +95,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDIyLTExLTA3IGF0IDEzOjQ2IC0wODAwLCBJc2FrdSBZYW1haGF0YSB3cm90ZToN
-Cj4gPiBPbiBGcmksIE5vdiAwNCwgMjAyMiwgSXNha3UgWWFtYWhhdGEgd3JvdGU6DQo+ID4gPiBU
-aGFua3MgZm9yIHRoZSBwYXRjaCBzZXJpZXMuIEkgdGhlIHJlYmFzZWQgVERYIEtWTSBwYXRjaCBz
-ZXJpZXMgYW5kIGl0DQo+ID4gPiB3b3JrZWQuDQo+ID4gPiBTaW5jZSBjcHUgb2ZmbGluZSBuZWVk
-cyB0byBiZSByZWplY3RlZCBpbiBzb21lIGNhc2VzKFRvIGtlZXAgYXQgbGVhc3Qgb25lDQo+ID4g
-PiBjcHUNCj4gPiA+IG9uIGEgcGFja2FnZSksIGFyY2ggaG9vayBmb3IgY3B1IG9mZmxpbmUgaXMg
-bmVlZGVkLg0KPiA+IA0KPiA+IEkgaGF0ZSB0byBicmluZyB0aGlzIHVwIGJlY2F1c2UgSSBkb3Vi
-dCB0aGVyZSdzIGEgcmVhbCB1c2UgY2FzZSBmb3IgU1VTUEVORA0KPiA+IHdpdGgNCj4gPiBURFgs
-IGJ1dCB0aGUgQ1BVIG9mZmxpbmUgcGF0aCBpc24ndCBqdXN0IGZvciB0cnVlIG9mZmxpbmluZyBv
-ZiBDUFVzLsKgIFdoZW4NCj4gPiB0aGUNCj4gPiBzeXN0ZW0gZW50ZXJzIFNVU1BFTkQsIG9ubHkg
-dGhlIGluaXRpYXRpbmcgQ1BVIGdvZXMgdGhyb3VnaA0KPiA+IGt2bV9zdXNwZW5kKCkra3ZtX3Jl
-c3VtZSgpLA0KPiA+IGFsbCByZXNwb25kaW5nIENQVXMgZ28gdGhyb3VnaCBDUFUgb2ZmbGluZStv
-bmxpbmUuwqAgSS5lLiBkaXNhbGxvd2luZyBhbGwNCj4gPiBDUFVzIGZyb20NCj4gPiBnb2luZyAi
-b2ZmbGluZSIgd2lsbCBwcmV2ZW50IHN1c3BlbmRpbmcgdGhlIHN5c3RlbS4NCj4gDQo+IFRoZSBj
-dXJyZW50IFREWCBLVk0gaW1wbGVtZW50YXRpb24gZGlzYWxsb3dzIENQVSBwYWNrYWdlIGZyb20g
-b2ZmbGluZSBvbmx5DQo+IHdoZW4NCj4gVERzIGFyZSBydW5uaW5nLsKgIElmIG5vIFREIGlzIHJ1
-bm5pbmcsIENQVSBvZmZsaW5lIGlzIGFsbG93ZWQuwqAgU28gYmVmb3JlDQo+IFNVU1BFTkQsIFRE
-cyBuZWVkIHRvIGJlIGtpbGxlZCB2aWEgc3lzdGVtZCBvciBzb21ldGhpbmcuwqAgQWZ0ZXIga2ls
-bGluZyBURHMsDQo+IHRoZQ0KPiBzeXN0ZW0gY2FuIGVudGVyIGludG8gU1VTUEVORCBzdGF0ZS4N
-Cg0KVGhpcyBzZWVtcyBub3QgY29ycmVjdC4gIFlvdSBuZWVkIG9uZSBjcHUgZm9yIGVhY2ggdG8g
-YmUgb25saW5lIGluIG9yZGVyIHRvDQpjcmVhdGUgVEQgYXMgd2VsbCwgYXMgVERILk1ORy5LRVku
-Q09ORklHIG5lZWRzIHRvIGJlIGNhbGxlZCBvbiBhbGwgcGFja2FnZXMsDQpjb3JyZWN0Pw0KX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Trimmed CC list
+
+On 9/21/22 14:43, Chris Stillson wrote:
+> From: Greentime Hu <greentime.hu@sifive.com>
+> 
+> This patch adds ptrace support for riscv vector. The vector registers will
+> be saved in datap pointer of __riscv_v_state. This pointer will be set
+> right after the __riscv_v_state data structure then it will be put in ubuf
+> for ptrace system call to get or set. It will check if the datap got from
+> ubuf is set to the correct address or not when the ptrace system call is
+> trying to set the vector registers.
+> 
+> Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> ---
+>   arch/riscv/include/uapi/asm/ptrace.h |  6 +++
+>   arch/riscv/kernel/ptrace.c           | 71 ++++++++++++++++++++++++++++
+>   include/uapi/linux/elf.h             |  1 +
+>   3 files changed, 78 insertions(+)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+> index 6ee1ca2edfa7..2491875be80d 100644
+> --- a/arch/riscv/include/uapi/asm/ptrace.h
+> +++ b/arch/riscv/include/uapi/asm/ptrace.h
+> @@ -94,6 +94,12 @@ struct __riscv_v_state {
+>   	 */
+>   };
+>   
+> +/*
+> + * According to spec: The number of bits in a single vector register,
+> + * VLEN >= ELEN, which must be a power of 2, and must be no greater than
+> + * 2^16 = 65536bits = 8192bytes
+> + */
+> +#define RISCV_MAX_VLENB (8192)
+
+Need a line here.
+
+>   #endif /* __ASSEMBLY__ */
+>   
+>   #endif /* _UAPI_ASM_RISCV_PTRACE_H */
+> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+> index 2ae8280ae475..cce459ff551d 100644
+> --- a/arch/riscv/kernel/ptrace.c
+> +++ b/arch/riscv/kernel/ptrace.c
+> @@ -27,6 +27,9 @@ enum riscv_regset {
+>   #ifdef CONFIG_FPU
+>   	REGSET_F,
+>   #endif
+> +#ifdef CONFIG_VECTOR
+> +	REGSET_V,
+> +#endif
+>   };
+>   
+>   static int riscv_gpr_get(struct task_struct *target,
+> @@ -83,6 +86,64 @@ static int riscv_fpr_set(struct task_struct *target,
+>   }
+>   #endif
+>   
+> +#ifdef CONFIG_VECTOR
+> +static int riscv_vr_get(struct task_struct *target,
+> +			const struct user_regset *regset,
+> +			struct membuf to)
+> +{
+> +	struct __riscv_v_state *vstate = &target->thread.vstate;
+> +
+> +	/*
+> +	 * Ensure the vector registers have been saved to the memory before
+> +	 * copying them to membuf.
+> +	 */
+> +	if (target == current)
+> +		vstate_save(current, task_pt_regs(current));
+> +
+> +	/* Copy vector header from vstate. */
+> +	membuf_write(&to, vstate, RISCV_V_STATE_DATAP);
+> +	membuf_zero(&to, sizeof(void *));
+> +#if __riscv_xlen == 32
+> +	membuf_zero(&to, sizeof(__u32));
+> +#endif
+> +
+> +	/* Copy all the vector registers from vstate. */
+> +	return membuf_write(&to, vstate->datap, riscv_vsize);
+> +}
+> +
+> +static int riscv_vr_set(struct task_struct *target,
+> +			 const struct user_regset *regset,
+> +			 unsigned int pos, unsigned int count,
+> +			 const void *kbuf, const void __user *ubuf)
+> +{
+> +	int ret, size;
+> +	struct __riscv_v_state *vstate = &target->thread.vstate;
+> +
+> +	/* Copy rest of the vstate except datap and __padding. */
+> +	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate, 0,
+> +				 RISCV_V_STATE_DATAP);
+> +	if (unlikely(ret))
+> +		return ret;
+> +
+> +	/* Skip copy datap. */
+> +	size = sizeof(vstate->datap);
+> +	count -= size;
+> +	ubuf += size;
+> +#if __riscv_xlen == 32
+> +	/* Skip copy _padding. */
+> +	size = sizeof(vstate->__padding);
+> +	count -= size;
+> +	ubuf += size;
+> +#endif
+> +
+> +	/* Copy all the vector registers. */
+> +	pos = 0;
+> +	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate->datap,
+> +				 0, riscv_vsize);
+> +	return ret;
+> +}
+> +#endif
+> +
+>   static const struct user_regset riscv_user_regset[] = {
+>   	[REGSET_X] = {
+>   		.core_note_type = NT_PRSTATUS,
+> @@ -102,6 +163,16 @@ static const struct user_regset riscv_user_regset[] = {
+>   		.set = riscv_fpr_set,
+>   	},
+>   #endif
+> +#ifdef CONFIG_VECTOR
+> +	[REGSET_V] = {
+> +		.core_note_type = NT_RISCV_VECTOR,
+> +		.align = 16,
+> +		.n = (32 * RISCV_MAX_VLENB)/sizeof(__u32),
+> +		.size = sizeof(__u32),
+> +		.regset_get = riscv_vr_get,
+> +		.set = riscv_vr_set,
+> +	},
+> +#endif
+>   };
+>   
+>   static const struct user_regset_view riscv_user_native_view = {
+> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+> index c7b056af9ef0..5a5056c6a2a1 100644
+> --- a/include/uapi/linux/elf.h
+> +++ b/include/uapi/linux/elf.h
+> @@ -439,6 +439,7 @@ typedef struct elf64_shdr {
+>   #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+>   #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
+>   #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
+> +#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
+>   #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+>   #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
+>   #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
+
+I think we should break this one out as a seperate patch to be applied 
+independently, avoid merge conflicts (but this file doesn't change much 
+anyways. @Arnd or is it ok to carry with riscv change ?
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
