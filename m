@@ -4,35 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E943C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D79CC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=imZCQ9fvcYqsxuj0DrKg/WF1pYTqurgAVxnEZjJ7O38=; b=MnCoTbqWukHWUy
-	kwJ7xyr9r0f8NeKmrDBJ77jXF6hLigM9/+/8V7HEbdDkKAqebDGiubgVv1e+fLGNUo9dwcYIC+Um6
-	YVzvIQTfURR5Bel4i9L3P2Lm1vx75WSroQ4QZ84fGHMd/i00acIulSwsb/hxmdFVu37YLMRQSiPQK
-	KOF1nXNtC3xDG53sKVwnrfTB62msE47vCLLZUKFj7Yz+ZjCzBeoY+uehGRjjwGV60wi56JBpr9SSg
-	ZpenCWZbER/HLRPS79O4UrYvKnDu0iXa0Q09k9oBdjR0ejtjGABtg1tgCxln5kFt5F4cjhimHhzHA
-	q6gQ0nz3RjQOuvMg9p6Q==;
+	List-Owner; bh=NIrREkBBfzUpg79KU8D+WfLIWPQ9IAkkgwl1v2JHy90=; b=E2vevwFjO4JiR7
+	5FWWPy5ca1FqHXMx10aUjKWAMuUwIH7JD7ftS6mhqRW7ZXGSNhuj/rx5d5pLVR+/ogiOPB2u4FBmb
+	JMdK5l5XJ2LNWtHNnTrS/ANOMj2J5pGUkTqTyBrcIgi0jO9oPYvx998MXC4794QTL0srh1rSbOCIp
+	/KXDIQ+F6TQNuvh0Y3wi0ur21G9AcmSXE1YX24JTfkXiuhVZhq/rmyNWEnZAyLXT5XO7M2Umwm3BD
+	N+M4lY7XtSL7/HePK4UJowL6TFZoH/FQ2lFSJVPmqzuFS+QJMB78o3cftgZlRqXrRzImZs7dTxELf
+	xroYZlR6NVq/qZBe/Fww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMRT-004kPx-NW; Tue, 08 Nov 2022 11:06:55 +0000
+	id 1osMRh-004kXO-7L; Tue, 08 Nov 2022 11:07:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMQw-004k7t-In; Tue, 08 Nov 2022 11:06:24 +0000
+	id 1osMR7-004kDj-FF; Tue, 08 Nov 2022 11:06:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77B41113E;
-	Tue,  8 Nov 2022 03:06:26 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DBD91139F;
+	Tue,  8 Nov 2022 03:06:36 -0800 (PST)
 Received: from pierre123.arm.com (unknown [10.57.5.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FE8E3F534;
-	Tue,  8 Nov 2022 03:06:17 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E04A03F534;
+	Tue,  8 Nov 2022 03:06:27 -0800 (PST)
 From: Pierre Gondois <pierre.gondois@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: Pierre Gondois <pierre.gondois@arm.com>,
+	Jeremy Linton <jeremy.linton@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -43,21 +44,21 @@ Cc: Pierre Gondois <pierre.gondois@arm.com>,
 	Sudeep Holla <sudeep.holla@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Gavin Shan <gshan@redhat.com>,
-	Peter Chen <peter.chen@kernel.org>,
+	SeongJae Park <sj@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org
-Subject: [PATCH 3/5] ACPI: PPTT: Remove acpi_find_cache_levels()
-Date: Tue,  8 Nov 2022 12:04:19 +0100
-Message-Id: <20221108110424.166896-4-pierre.gondois@arm.com>
+Subject: [PATCH 4/5] ACPI: PPTT: Update acpi_find_last_cache_level() to acpi_get_cache_info()
+Date: Tue,  8 Nov 2022 12:04:20 +0100
+Message-Id: <20221108110424.166896-5-pierre.gondois@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221108110424.166896-1-pierre.gondois@arm.com>
 References: <20221108110424.166896-1-pierre.gondois@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_030622_705323_1C1981CD 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20221108_030633_648330_55A458F1 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,65 +75,250 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-acpi_find_cache_levels() is used at a single place and is short
-enough to be merged into the calling function. The removal allows
-an easier renaming of the calling function in the next patch.
+acpi_find_last_cache_level() allows to find the last level of cache
+for a given CPU. The function is only called on arm64 ACPI based
+platforms to check for cache information that would be missing in
+the CLIDR_EL1 register.
+To allow populating (struct cpu_cacheinfo).num_leaves by only parsing
+a PPTT, update acpi_find_last_cache_level() to get the 'split_levels',
+i.e. the number of cache levels being split in data/instruction
+caches.
 
-Also reorder the parameters in the 'reversed Christmas tree' order.
+It is assumed that there will not be data/instruction caches above a
+unified cache.
+If a split level consist of one data cache and no instruction cache
+(or opposite), then the missing cache will still be populated
+by default with minimal cache information, and maximal cpumask
+(all non-existing caches have the same fw_token).
 
+Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
 Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
 ---
- drivers/acpi/pptt.c | 21 ++++++---------------
- 1 file changed, 6 insertions(+), 15 deletions(-)
+ arch/arm64/kernel/cacheinfo.c |  9 +++--
+ drivers/acpi/pptt.c           | 69 ++++++++++++++++++++++++-----------
+ include/linux/cacheinfo.h     |  8 ++--
+ 3 files changed, 58 insertions(+), 28 deletions(-)
 
+diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
+index 97c42be71338..164255651d64 100644
+--- a/arch/arm64/kernel/cacheinfo.c
++++ b/arch/arm64/kernel/cacheinfo.c
+@@ -46,7 +46,7 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
+ int init_cache_level(unsigned int cpu)
+ {
+ 	unsigned int ctype, level, leaves;
+-	int fw_level;
++	int fw_level, ret;
+ 	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+ 
+ 	for (level = 1, leaves = 0; level <= MAX_CACHE_LEVEL; level++) {
+@@ -61,8 +61,11 @@ int init_cache_level(unsigned int cpu)
+ 
+ 	if (acpi_disabled)
+ 		fw_level = of_find_last_cache_level(cpu);
+-	else
+-		fw_level = acpi_find_last_cache_level(cpu);
++	else {
++		ret = acpi_get_cache_info(cpu, &fw_level, NULL);
++		if (ret < 0)
++			return ret;
++	}
+ 
+ 	if (fw_level < 0)
+ 		return fw_level;
 diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-index c91342dcbcd6..97c1d33822d1 100644
+index 97c1d33822d1..72a6ddc1c555 100644
 --- a/drivers/acpi/pptt.c
 +++ b/drivers/acpi/pptt.c
-@@ -281,19 +281,6 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
- 	return NULL;
+@@ -81,6 +81,7 @@ static inline bool acpi_pptt_match_type(int table_type, int type)
+  * acpi_pptt_walk_cache() - Attempt to find the requested acpi_pptt_cache
+  * @table_hdr: Pointer to the head of the PPTT table
+  * @local_level: passed res reflects this cache level
++ * @split_levels: Number of split cache levels (data/instruction).
+  * @res: cache resource in the PPTT we want to walk
+  * @found: returns a pointer to the requested level if found
+  * @level: the requested cache level
+@@ -100,6 +101,7 @@ static inline bool acpi_pptt_match_type(int table_type, int type)
+  */
+ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
+ 					 unsigned int local_level,
++					 unsigned int *split_levels,
+ 					 struct acpi_subtable_header *res,
+ 					 struct acpi_pptt_cache **found,
+ 					 unsigned int level, int type)
+@@ -113,6 +115,12 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
+ 	while (cache) {
+ 		local_level++;
+ 
++		if (split_levels && (acpi_pptt_match_type(cache->attributes,
++				ACPI_PPTT_CACHE_TYPE_DATA) ||
++				acpi_pptt_match_type(cache->attributes,
++				ACPI_PPTT_CACHE_TYPE_INSTR)))
++			*split_levels = local_level;
++
+ 		if (local_level == level &&
+ 		    cache->flags & ACPI_PPTT_CACHE_TYPE_VALID &&
+ 		    acpi_pptt_match_type(cache->attributes, type)) {
+@@ -135,8 +143,8 @@ static unsigned int acpi_pptt_walk_cache(struct acpi_table_header *table_hdr,
+ static struct acpi_pptt_cache *
+ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+ 		      struct acpi_pptt_processor *cpu_node,
+-		      unsigned int *starting_level, unsigned int level,
+-		      int type)
++		      unsigned int *starting_level, unsigned int *split_levels,
++		      unsigned int level, int type)
+ {
+ 	struct acpi_subtable_header *res;
+ 	unsigned int number_of_levels = *starting_level;
+@@ -149,7 +157,8 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
+ 		resource++;
+ 
+ 		local_level = acpi_pptt_walk_cache(table_hdr, *starting_level,
+-						   res, &ret, level, type);
++						   split_levels, res, &ret,
++						   level, type);
+ 		/*
+ 		 * we are looking for the max depth. Since its potentially
+ 		 * possible for a given node to have resources with differing
+@@ -165,29 +174,33 @@ acpi_find_cache_level(struct acpi_table_header *table_hdr,
  }
  
--static int acpi_find_cache_levels(struct acpi_table_header *table_hdr,
--				  u32 acpi_cpu_id)
--{
--	int number_of_levels = 0;
--	struct acpi_pptt_processor *cpu;
--
--	cpu = acpi_find_processor_node(table_hdr, acpi_cpu_id);
--	if (cpu)
--		number_of_levels = acpi_count_levels(table_hdr, cpu);
--
--	return number_of_levels;
--}
--
- static u8 acpi_cache_type(enum cache_type type)
- {
- 	switch (type) {
-@@ -613,9 +600,10 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+ /**
+- * acpi_count_levels() - Given a PPTT table, and a CPU node, count the caches
++ * acpi_count_levels() - Given a PPTT table, and a CPU node, count the cache
++ * levels and split cache levels (data/instruction).
+  * @table_hdr: Pointer to the head of the PPTT table
+  * @cpu_node: processor node we wish to count caches for
++ * @levels: Number of levels if success.
++ * @split_levels: Number of split cache levels (data/instruction) if success.
++ * Can by NULL.
+  *
+  * Given a processor node containing a processing unit, walk into it and count
+  * how many levels exist solely for it, and then walk up each level until we hit
+  * the root node (ignore the package level because it may be possible to have
+- * caches that exist across packages). Count the number of cache levels that
+- * exist at each level on the way up.
++ * caches that exist across packages). Count the number of cache levels and
++ * split cache levels (data/instruction) that exist at each level on the way
++ * up.
+  *
+- * Return: Total number of levels found.
++ * Return: 0 on success.
   */
- int acpi_find_last_cache_level(unsigned int cpu)
+ static int acpi_count_levels(struct acpi_table_header *table_hdr,
+-			     struct acpi_pptt_processor *cpu_node)
++				struct acpi_pptt_processor *cpu_node,
++				unsigned int *levels, unsigned int *split_levels)
  {
--	u32 acpi_cpu_id;
-+	struct acpi_pptt_processor *cpu_node;
- 	struct acpi_table_header *table;
- 	int number_of_levels = 0;
-+	u32 acpi_cpu_id;
+-	int total_levels = 0;
+-
+ 	do {
+-		acpi_find_cache_level(table_hdr, cpu_node, &total_levels, 0, 0);
++		acpi_find_cache_level(table_hdr, cpu_node, levels, split_levels, 0, 0);
+ 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+ 	} while (cpu_node);
  
+-	return total_levels;
++	return 0;
+ }
+ 
+ /**
+@@ -321,7 +334,7 @@ static struct acpi_pptt_cache *acpi_find_cache_node(struct acpi_table_header *ta
+ 
+ 	while (cpu_node && !found) {
+ 		found = acpi_find_cache_level(table_hdr, cpu_node,
+-					      &total_levels, level, acpi_type);
++					      &total_levels, NULL, level, acpi_type);
+ 		*node = cpu_node;
+ 		cpu_node = fetch_pptt_node(table_hdr, cpu_node->parent);
+ 	}
+@@ -589,36 +602,48 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
+ }
+ 
+ /**
+- * acpi_find_last_cache_level() - Determines the number of cache levels for a PE
++ * acpi_get_cache_info() - Determine the number of cache levels and
++ * split cache levels (data/instruction) and for a PE.
+  * @cpu: Kernel logical CPU number
++ * @levels: Number of levels if success.
++ * @split_levels: Number of levels being split (i.e. data/instruction)
++ * if success. Can by NULL.
+  *
+  * Given a logical CPU number, returns the number of levels of cache represented
+  * in the PPTT. Errors caused by lack of a PPTT table, or otherwise, return 0
+  * indicating we didn't find any cache levels.
+  *
+- * Return: Cache levels visible to this core.
++ * Return: -ENOENT if no PPTT table or no PPTT processor struct found.
++ *	   0 on success.
+  */
+-int acpi_find_last_cache_level(unsigned int cpu)
++int acpi_get_cache_info(unsigned int cpu, unsigned int *levels,
++				unsigned int *split_levels)
+ {
+ 	struct acpi_pptt_processor *cpu_node;
+ 	struct acpi_table_header *table;
+-	int number_of_levels = 0;
+ 	u32 acpi_cpu_id;
+ 
++	*levels = 0;
++	if (split_levels)
++		*split_levels = 0;
++
  	table = acpi_get_pptt();
  	if (!table)
-@@ -624,7 +612,10 @@ int acpi_find_last_cache_level(unsigned int cpu)
- 	pr_debug("Cache Setup find last level CPU=%d\n", cpu);
+ 		return -ENOENT;
+ 
+-	pr_debug("Cache Setup find last level CPU=%d\n", cpu);
++	pr_debug("Cache Setup: find cache levels for CPU=%d\n", cpu);
  
  	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
--	number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
-+	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-+	if (cpu_node)
-+		number_of_levels = acpi_count_levels(table, cpu_node);
-+
- 	pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
+ 	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+-	if (cpu_node)
+-		number_of_levels = acpi_count_levels(table, cpu_node);
++	if (!cpu_node)
++		return -ENOENT;
  
- 	return number_of_levels;
+-	pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
++	acpi_count_levels(table, cpu_node, levels, split_levels);
+ 
+-	return number_of_levels;
++	pr_debug("Cache Setup: last_level=%d split_levels=%d\n",
++			*levels, split_levels ? *split_levels : -1);
++
++	return 0;
+ }
+ 
+ /**
+diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+index ff0328f3fbb0..f992d81d211f 100644
+--- a/include/linux/cacheinfo.h
++++ b/include/linux/cacheinfo.h
+@@ -88,19 +88,21 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
+ int detect_cache_attributes(unsigned int cpu);
+ #ifndef CONFIG_ACPI_PPTT
+ /*
+- * acpi_find_last_cache_level is only called on ACPI enabled
++ * acpi_get_cache_info() is only called on ACPI enabled
+  * platforms using the PPTT for topology. This means that if
+  * the platform supports other firmware configuration methods
+  * we need to stub out the call when ACPI is disabled.
+  * ACPI enabled platforms not using PPTT won't be making calls
+  * to this function so we need not worry about them.
+  */
+-static inline int acpi_find_last_cache_level(unsigned int cpu)
++static inline int acpi_get_cache_info(unsigned int cpu,
++			unsigned int *levels, unsigned int *split_levels)
+ {
+ 	return 0;
+ }
+ #else
+-int acpi_find_last_cache_level(unsigned int cpu);
++int acpi_get_cache_info(unsigned int cpu,
++			unsigned int *levels, unsigned int *split_levels);
+ #endif
+ 
+ const struct attribute_group *cache_get_priv_group(struct cacheinfo *this_leaf);
 -- 
 2.25.1
 
