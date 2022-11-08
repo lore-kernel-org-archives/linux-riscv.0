@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0ABC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 15:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B050FC43219
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 15:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ds2TfaBRYMlQuPjsb6OIADAMyCS/sHElBR0vfvBYok=; b=N6QFeaBDrnQFE/
-	LhO8IGcMT2XODsDRUs2uQL29iihUtUivJUa/E1NF7a9TMvcNn2Qj1fyyVZugqQ1W6tCLZhQHTFgTz
-	/6snC8yTXuwVl64NycU6vnBNyZLrEHWzHymgkcOjD5RVxzMi531zlpVffD6VzjzgccSpbpRiOO/WN
-	X5M0pRJlfc+GQBV7LJMDsTMtFphqKvNrgryGVBShRYDhrzDzJf+pv/vme5bV4Cvjk0VDWR8H4e8VN
-	8ABrbCV0d4BwPT7k8KqXpRcC8asTkFNl0FZEBkzEi3AwY+evCUMl3OFY9lBBUG8to2ByJgKl1yfoe
-	ZYtTLks25D+3EkV9Cwgg==;
+	List-Owner; bh=2IQBJL6BuONTuGubL81AquTsq7/TELo4ezafPmo7qGs=; b=2UOHM0VA9UP7aL
+	0FANq9FkoV1U3wnq/MLnbp1KK02aUgkV+V1tIx1pH5ReMTD7d29tIQad92etDcLYy8SUo38fJMfSz
+	evsZfeBNP4A8muM6VTvdVmUQoaFP9oMslyJpU/TMbproL4Zkxq06cmeXJD0R6Y7pX4/pj8WX0mtjC
+	b3QY5hkpClTbcgeN29EGFaZ0GewirK3GGjWTahIvFlLXnOO9Ye7b7PGdEybOyIRviNGRuIkvQ50m/
+	Mo+yTxom60UOeAlFRAxaaMSsAl9r8qe72NWbhTeTlX2e7ePcASATCn3a8L1suN1IhDtfG77T98l8T
+	O0wNmgXggP9ubuk69pRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osQfw-006NsH-4G; Tue, 08 Nov 2022 15:38:08 +0000
-Received: from mail-qt1-f175.google.com ([209.85.160.175])
+	id 1osQl7-006SaU-3a; Tue, 08 Nov 2022 15:43:29 +0000
+Received: from mail-qk1-f178.google.com ([209.85.222.178])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osQft-006Npo-MV
-	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 15:38:06 +0000
-Received: by mail-qt1-f175.google.com with SMTP id c15so8833963qtw.8
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 07:38:04 -0800 (PST)
+	id 1osQl5-006SZq-DG
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 15:43:28 +0000
+Received: by mail-qk1-f178.google.com with SMTP id i9so9282407qki.10
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 07:43:25 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=e1z+a2J7Rl+GyLpkq46imOOD0yWvTx4mqso+OFzooPY=;
-        b=radpK7YNruzVZCDjhyaQYMZQ831nk46LSmpDZESlOBI2sZF4RRQ3zF4DWpp1JDjopU
-         u21rRlsnbrgNnGi84Uwn3llNSL7zGArgxPWoT4jynHIL76GWJCVXwLIbI7dFMuPHqD9X
-         1B3aFN6FLZkYqujSV19h67PMb9d9pf4Eclz33Yh5Z6uleuv/T/Dbf9CRCfvP0B9xfuFZ
-         pCv+cekd8aBSTvP9lNSArvBe8Kayx29brOGtDzaDZOs8w6S+qUjYPKxcq5opuCOgHisP
-         eo7zEL+DUcBL9viHqvwNI55mpi4oE7MOHZKWUGRG+DRLR4udrqGJD5vMqaLBHFRnMGCR
-         Pe3g==
-X-Gm-Message-State: ACrzQf3oQY9HhH0NbkwG6SA4Mp8rnY4lSA1BBo4feFiDCgaisx98zWRL
-	F06Y3NngddFskL0LSgCKmjhohtwBbFoNuzCe
-X-Google-Smtp-Source: AMsMyM6g3G9e/eU8ilLingESe4Hgg80Na1B+OROMsS3P8isSnVRH7QUPw3eu5voAq6bjdp/X5bPCqQ==
-X-Received: by 2002:a05:622a:6118:b0:3a5:758d:8f40 with SMTP id hg24-20020a05622a611800b003a5758d8f40mr14514515qtb.95.1667921883041;
-        Tue, 08 Nov 2022 07:38:03 -0800 (PST)
-Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com. [209.85.128.182])
-        by smtp.gmail.com with ESMTPSA id x18-20020a05620a259200b006e42a8e9f9bsm9414344qko.121.2022.11.08.07.38.01
+        bh=rBbeZBrYz0Ir8oJqm4j9qjBeLOLNJGXBr3pOfnglPQM=;
+        b=pu1FJ1iPiYxWBv0uyZzhXWjTlmF2Sh7KaRRCzodeIaPE6IMq6nebg1zbIKYw/9m0T1
+         +6in/hbiL0kPHlFlwrfsTiqyVepXWvr2j55JvSlQzszCW29oz7RvklQRy2Q6rmmQ0DKY
+         BNXArwmSlJGPWl5aeLagyqxe0Vc4rU6tebu0pxGkr5hGibdn9SJ1KB1FoZrtrAd09/bQ
+         cBgHhwe0uV05wMNtCwjpyhq+VTtLLhA+PKBfKTDzaMtRdAepvCEZhAS80UzlOGldmKpd
+         Ef3wHJ+w8O8oo6ata8L+uO+QzQfX6E2OhLnAxy47DlroxvH+yIPy7kLWQSThalhoyfjp
+         pGsQ==
+X-Gm-Message-State: ACrzQf3HX4hLBVsu1ahf+29k7sYJ8zgg0wvFRZN7uDP1nsjDurQsMs6f
+	FGMy/bEE7Bt6GEpNawzWYatjGLOWOW8qln34
+X-Google-Smtp-Source: AMsMyM6mtf882+/afcDg5qZYx9AeqFjziVPIdkh9e934vajB8UiMlMpr7ui4nCbuOdVG0VeZT+5z3w==
+X-Received: by 2002:ae9:f50a:0:b0:6e3:3b4f:2ab1 with SMTP id o10-20020ae9f50a000000b006e33b4f2ab1mr39494900qkg.314.1667922204989;
+        Tue, 08 Nov 2022 07:43:24 -0800 (PST)
+Received: from mail-yb1-f176.google.com (mail-yb1-f176.google.com. [209.85.219.176])
+        by smtp.gmail.com with ESMTPSA id c24-20020a05620a269800b006bba46e5eeasm9502874qkp.37.2022.11.08.07.43.23
         for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Nov 2022 07:38:01 -0800 (PST)
-Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-367cd2807f2so137459617b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 07:38:01 -0800 (PST)
-X-Received: by 2002:a81:12c8:0:b0:36a:bd6b:92fb with SMTP id
- 191-20020a8112c8000000b0036abd6b92fbmr51884942yws.316.1667921881301; Tue, 08
- Nov 2022 07:38:01 -0800 (PST)
+        Tue, 08 Nov 2022 07:43:24 -0800 (PST)
+Received: by mail-yb1-f176.google.com with SMTP id 7so13268564ybp.13
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 07:43:23 -0800 (PST)
+X-Received: by 2002:a05:6902:503:b0:6cf:c510:6a23 with SMTP id
+ x3-20020a056902050300b006cfc5106a23mr36322209ybs.380.1667922202961; Tue, 08
+ Nov 2022 07:43:22 -0800 (PST)
 MIME-Version: 1.0
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221028165921.94487-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20221028165921.94487-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221028165921.94487-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221028165921.94487-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 8 Nov 2022 16:37:49 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVFnCDz2FaH6hCxADBgrzkcCC8ASh2qDXbkcJq4=B1UUQ@mail.gmail.com>
-Message-ID: <CAMuHMdVFnCDz2FaH6hCxADBgrzkcCC8ASh2qDXbkcJq4=B1UUQ@mail.gmail.com>
-Subject: Re: [PATCH v5 3/7] riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
+Date: Tue, 8 Nov 2022 16:43:10 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXh-aWpty=JEwB4Lx5eZZ3Mm43gxjCx2yptV+MOWx4kaw@mail.gmail.com>
+Message-ID: <CAMuHMdXh-aWpty=JEwB4Lx5eZZ3Mm43gxjCx2yptV+MOWx4kaw@mail.gmail.com>
+Subject: Re: [PATCH v5 4/7] riscv: dts: renesas: Add initial devicetree for
+ Renesas RZ/Five SoC
 To: Prabhakar <prabhakar.csengg@gmail.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -74,8 +75,8 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com
 	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_073805_755656_146CD0D4 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20221108_074327_466350_F2377881 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,15 +96,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On Fri, Oct 28, 2022 at 6:59 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
 > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 >
-> Add ARCH_RENESAS config option to allow selecting the Renesas RISC-V SoCs.
-> We currently have the newly added RZ/Five (R9A07G043) RISC-V based SoC.
+> Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
+> Single).
+>
+> RZ/Five SoC is almost identical to RZ/G2UL Type-1 SoC (ARM64) hence we
+> will be reusing r9a07g043.dtsi [0] as a base DTSI for both the SoC's.
+> r9a07g043f.dtsi includes RZ/Five SoC specific blocks.
+>
+> Below are the RZ/Five SoC specific blocks added in the initial DTSI which
+> can be used to boot via initramfs on RZ/Five SMARC EVK:
+> - AX45MP CPU
+> - PLIC
+>
+> [0] arch/arm64/boot/dts/renesas/r9a07g043.dtsi
 >
 > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
 > v4 -> v5
-> * Sorted as per SoC name
-> * Included RB tag from Conor
+> * Fixed riscv,ndev value (should be 511)
+> * Reworked completely (sort of new patch)
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
