@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE434C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 18:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A5CC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 19:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aW5iEUt9Josn/XdAXK6o27dJNAJ+E9FIEHMaB9F/+ek=; b=pFaq49LYI+EQDk
-	jEv0LXBGzlUzFKzm19w2ZdNNDP6KFyncK82Ned/WeCL9UZc6Zjno0B+pJa8f1B/p7Sb4+0tEiKPRb
-	IbGhrwbMRaFBIobITId0LQB2qmC7VnHyURRXKRE2uXPGfgGOGd5GM+RfoAMKjWOOEbHexT2jxlfT4
-	N2/z8KhdxNePsdFoi57hQb+xmr1HMY5KN22oCoflR+rvNoyTrP48KyuQ/OGVYSrd/z5M+xBI6Wb/e
-	cEOU4GIvqy+Pm+kswGkaRvpKD+4YzAJn1ql5Fy1Pwo7n9jJPzJsHQI+9XQp2MuoTmtRewmP8GWiI8
-	/+9b8ILVkrV7ShdnTM8A==;
+	List-Owner; bh=o3QN57vxz3dxTqvgz9gCDxGMVAeqvi04MNlFxhcyps0=; b=Hjf58hFZitz+vz
+	63IpFif0vpb+eNyzMcSMsifc8ywGO2nzHyvFQybvsNuIuKzrZg3pgnKZ1Q00nsZ7bSwSX0hn+asoU
+	cltLpl1ERl44htvszRiyrJkgo6uyM+/PKaHS9V1GRmcujMvnp1hwpSoN+6mLQE4289DhcRIfWZLpW
+	Hx0JBGe8UlNoIomucRP5113wd40G0FNcLP81d3UiYCQjQEUA3m90vBHhAuVdE2sWDZZDJH8lhncCr
+	DkpnPVrAbJr0yHyWvwdGfTzW9sFcmm7Q1//H/2Q45GxiuXNAEY0O+LoMNOOBOr4w3d/Di2Xj2u+GQ
+	gRsiBf5vYlINTbLv+zjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osTOy-007VTw-1X; Tue, 08 Nov 2022 18:32:48 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1osU8L-007pLU-57; Tue, 08 Nov 2022 19:19:41 +0000
+Received: from mail-qt1-f173.google.com ([209.85.160.173])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osTOt-007VRW-Eh
-	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 18:32:46 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E199FB81BDE;
-	Tue,  8 Nov 2022 18:32:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BF60C433D6;
-	Tue,  8 Nov 2022 18:32:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667932359;
-	bh=icGd5GPv/GdZwBY/786e7bQnWud2lRKv3P3CCjaRWwE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a/QCsyZVFIsh05wFYGWDM5HvOPRftrE/fzPySxFQ1QLZO5vPvCQzLjemwA6U40rDN
-	 6eRue9wigTFnq1mnUKNWvYJbTvuPk5+oxl7fu1l41VXw54zXZ58d/ohmgRHKXllanJ
-	 rsHfhvV4RwTTky8/LlBWWA+b0PMg0Mm7Z2JsJTtkq+6WLSSNaYFTbuRM2lndXwwaqk
-	 VCZCJ/Bedf3tFCCzc0auvYy3jA7hvxazGUvCG+KnFEECTFdx5GZ6YEKT4OYmeqk+bE
-	 2P8ZsA4FJPAsOmqkUFhsx4XuDXmIX+yllRNvCE1ec0m5bEwsatB7mpn8brQXTLgUN2
-	 609wVqoWlAMSQ==
-Date: Tue, 8 Nov 2022 18:32:35 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v11 3/4] pwm: add microchip soft ip corePWM driver
-Message-ID: <Y2qgw2wAezkHSgg5@spud>
-References: <20221007113512.91501-1-conor.dooley@microchip.com>
- <20221007113512.91501-4-conor.dooley@microchip.com>
- <20221108155041.t4oppot5wy77jzgd@pengutronix.de>
+	id 1osU8I-007pFK-2o
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 19:19:39 +0000
+Received: by mail-qt1-f173.google.com with SMTP id e15so9237445qts.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 11:19:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1DHetEprijHwJyY7sxsB6FmGPNUrIdgk23YtAJeS+As=;
+        b=PVMFAKZZNPJuaYP3s8+QtSmriyeIyHPZw9bwlWZaJVK1cs6ZzRJ1rk0ww8j1D35bEO
+         miRK5aLK9/w28KxhU6DCp/SLJIpHhNKoutfRQ6JfLbW/TCRmTfNXVJPiSc882sDWI8Yt
+         rfuFNe48jLIT6UqSshJehwy6MbNyBTkr8Jp6K3UvCHkCZhjeY6ePzaXrUaxC7CkWb+mA
+         fvr87IlLl25NN/Quo7XVuAyzEZfbPxV15a+NKMQyjVlxOWhLZClkmRZgf6rGAvgVYFVN
+         +bd+S/P+l79pfKK7iEy6sRMefOE/e6/z4oQq1l+3hD8Ym7L4GOlDbJ0YMak3j837D7oZ
+         P19A==
+X-Gm-Message-State: ACrzQf106NIW1nHmjfbhMGOQIKlDDyIRue8/hvHJnvPc25IL883Sm5a/
+	EyUgUvBGemuKA+JtKNe6k+EgiC6CFe6BdGn5
+X-Google-Smtp-Source: AMsMyM4UXk3YIInWf6KGL6hvfTOrncBXgkQmI0LSBKKObD6WpBlQv8RQc53d4liufbcIEOKXTKW0Pw==
+X-Received: by 2002:ac8:5807:0:b0:3a4:f4dc:b316 with SMTP id g7-20020ac85807000000b003a4f4dcb316mr43977147qtg.139.1667935164974;
+        Tue, 08 Nov 2022 11:19:24 -0800 (PST)
+Received: from mail-yb1-f171.google.com (mail-yb1-f171.google.com. [209.85.219.171])
+        by smtp.gmail.com with ESMTPSA id m17-20020ae9e711000000b006ce580c2663sm9577109qka.35.2022.11.08.11.19.22
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Nov 2022 11:19:23 -0800 (PST)
+Received: by mail-yb1-f171.google.com with SMTP id z192so18578398yba.0
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 11:19:22 -0800 (PST)
+X-Received: by 2002:a05:6902:503:b0:6cf:c510:6a23 with SMTP id
+ x3-20020a056902050300b006cfc5106a23mr37163786ybs.380.1667935162186; Tue, 08
+ Nov 2022 11:19:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221108155041.t4oppot5wy77jzgd@pengutronix.de>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221028165921.94487-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdUKVxO24Qgyx37tbs5+m0Us0VF3eTZCC2KV=AC8z2JneQ@mail.gmail.com>
+ <CA+V-a8t5Qah3MNm2m__xnmgK-52=HC9QBPPudnB+1j4-FYJ_NA@mail.gmail.com>
+ <CAMuHMdWTJf24XR+KR8yVJOnfpgs-PkUf9b8B=PX9Dd4mfawD5Q@mail.gmail.com> <CA+V-a8vCGDHL1SUTEnD-WvoUGKSVL=xzDeQxy77=1vFJdk+fYg@mail.gmail.com>
+In-Reply-To: <CA+V-a8vCGDHL1SUTEnD-WvoUGKSVL=xzDeQxy77=1vFJdk+fYg@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 8 Nov 2022 20:19:10 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdU=K0o6KHVPUdfEu0tkH8kDMBg-WaRFcYS7r=azWEnfTQ@mail.gmail.com>
+Message-ID: <CAMuHMdU=K0o6KHVPUdfEu0tkH8kDMBg-WaRFcYS7r=azWEnfTQ@mail.gmail.com>
+Subject: Re: [PATCH v5 7/7] riscv: configs: defconfig: Enable Renesas RZ/Five SoC
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_103243_822393_CCF53B94 
-X-CRM114-Status: GOOD (  33.03  )
+X-CRM114-CacheID: sfid-20221108_111938_147579_648E6713 
+X-CRM114-Status: GOOD (  39.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,149 +91,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 08, 2022 at 04:50:41PM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello,
+Hi Prabhakar,
 
-Hello! Thanks for the review Uwe :)
+On Tue, Nov 8, 2022 at 6:23 PM Lad, Prabhakar
+<prabhakar.csengg@gmail.com> wrote:
+> On Tue, Nov 8, 2022 at 4:12 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > On Tue, Nov 8, 2022 at 5:07 PM Lad, Prabhakar
+> > <prabhakar.csengg@gmail.com> wrote:
+> > > On Tue, Nov 8, 2022 at 3:52 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > On Fri, Oct 28, 2022 at 6:59 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > >
+> > > > > Enable Renesas RZ/Five SoC config in defconfig. It allows the default
+> > > > > upstream kernel to boot on RZ/Five SMARC EVK board.
+> > > > >
+> > > > > Alongside enable SERIAL_SH_SCI config so that the serial driver used by
+> > > > > RZ/Five SoC is built-in.
+> > > > >
+> > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > > > ---
+> > > > > v4 -> v5
+> > > > > * No change
+> > > > >
+> > > > > v3 -> v4
+> > > > > * Explicitly enabled ARCH_R9A07G043 config (note I have restored the RB
+> > > > >   tags with this change)
+> > > > > * Used riscv instead of RISC-V in subject line
+> > > >
+> > > > Thanks for the update!
+> > > >
+> > > > > --- a/arch/riscv/configs/defconfig
+> > > > > +++ b/arch/riscv/configs/defconfig
+> > > > > @@ -29,6 +29,8 @@ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+> > > > >  CONFIG_SOC_SIFIVE=y
+> > > > >  CONFIG_SOC_STARFIVE=y
+> > > > >  CONFIG_SOC_VIRT=y
+> > > > > +CONFIG_ARCH_RENESAS=y
+> > > > > +CONFIG_ARCH_R9A07G043=y
+> > > >
+> > > > You forgot to refresh after moving ARCH_RENESAS in v5 of "riscv:
+> > > > Kconfig.socs: Add ARCH_RENESAS kconfig option", and after relying on
+> > > > ARCH_R9A07G043 in drivers/soc/renesas/Kconfig.
+> > > >
+> > > Sorry I missed your point here, could you please elaborate.
+> >
+> > I mean that the options have moved, so you should update
+> > your patch like this:
+> >
+> Ouch got that.
+>
+> >     --- a/arch/riscv/configs/defconfig
+> >     +++ b/arch/riscv/configs/defconfig
+> >     @@ -26,11 +26,10 @@ CONFIG_EXPERT=y
+> >      # CONFIG_SYSFS_SYSCALL is not set
+> >      CONFIG_PROFILING=y
+> >      CONFIG_SOC_MICROCHIP_POLARFIRE=y
+> >     +CONFIG_ARCH_RENESAS=y
+> >      CONFIG_SOC_SIFIVE=y
+> >      CONFIG_SOC_STARFIVE=y
+> >      CONFIG_SOC_VIRT=y
+> >     -CONFIG_ARCH_RENESAS=y
+> >     -CONFIG_ARCH_R9A07G043=y
+> >      CONFIG_SMP=y
+> >      CONFIG_HOTPLUG_CPU=y
+> >      CONFIG_PM=y
+> >     @@ -163,6 +159,7 @@ CONFIG_MAILBOX=y
+> >      CONFIG_RPMSG_CHAR=y
+> >      CONFIG_RPMSG_CTRL=y
+> >      CONFIG_RPMSG_VIRTIO=y
+> >     +CONFIG_ARCH_R9A07G043=y
+> >      CONFIG_EXT4_FS=y
+> >      CONFIG_EXT4_FS_POSIX_ACL=y
+> >      CONFIG_EXT4_FS_SECURITY=y
+> >
+> > > > >  CONFIG_SMP=y
+> > > > >  CONFIG_HOTPLUG_CPU=y
+> > > > >  CONFIG_PM=y
+> > > >
+> > > > PM and GPIOLIB are auto-selected by ARCH_R9A07G043 (through ARCH_RZG2L)
+> > > > resp. SOC_RENESAS, so they can be dropped.  But it's better to do this
+> > > > after the release of v6.2-rc1, when all pieces have fallen together.
+> > > >
+> > > Are you suggesting dropping it from defconfig?
+> >
+> > Yes, but not right now, as that would make it depend on my
+> > renesas-drivers-for-v6.2 branch to keep them enabled.
+> >
+> I was wondering if that's required by other platforms though.
+> CONFIG_PM was added for VIRT machine and GPIOLIB for HiFive.
 
-> On Fri, Oct 07, 2022 at 12:35:12PM +0100, Conor Dooley wrote:
+Does that matter? They would still get it, as long as they use the
+defconfig.
 
-> > +static int mchp_core_pwm_apply_locked(struct pwm_chip *chip, struct pw=
-m_device *pwm,
-> > +				      const struct pwm_state *state)
-> > +{
-> > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> > +	struct pwm_state current_state =3D pwm->state;
-> > +	bool period_locked;
-> > +	u64 duty_steps;
-> > +	u16 prescale;
-> > +	u8 period_steps;
-> > +
-> > +	if (!state->enabled) {
-> > +		mchp_core_pwm_enable(chip, pwm, false, current_state.period);
-> > +		return 0;
-> > +	}
-> > +
-> > +	/*
-> > +	 * If the only thing that has changed is the duty cycle or the polari=
-ty,
-> > +	 * we can shortcut the calculations and just compute/apply the new du=
-ty
-> > +	 * cycle pos & neg edges
-> > +	 * As all the channels share the same period, do not allow it to be
-> > +	 * changed if any other channels are enabled.
-> > +	 * If the period is locked, it may not be possible to use a period
-> > +	 * less than that requested. In that case, we just abort.
-> > +	 */
-> > +	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
-> > +
-> > +	if (period_locked) {
-> > +		u16 hw_prescale;
-> > +		u8 hw_period_steps;
-> > +
-> > +		mchp_core_pwm_calc_period(chip, state, &prescale, &period_steps);
-> > +		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRES=
-CALE);
-> > +		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_=
-PERIOD);
-> > +
-> > +		if ((period_steps + 1) * (prescale + 1) <
-> > +		    (hw_period_steps + 1) * (hw_prescale + 1))
-> > +			return -EINVAL;
-> > +
-> > +		/*
-> > +		 * It is possible that something could have set the period_steps
-> > +		 * register to 0xff, which would prevent us from setting a 100%
-> > +		 * or 0% relative duty cycle, as explained above in
-> > +		 * mchp_core_pwm_calc_period().
-> > +		 * The period is locked and we cannot change this, so we abort.
-> > +		 */
-> > +		if (hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
-> > +			return -EINVAL;
-> > +
-> > +		prescale =3D hw_prescale;
-> > +		period_steps =3D hw_period_steps;
-> > +	} else {
-> > +		int ret;
-> > +
-> > +		ret =3D mchp_core_pwm_calc_period(chip, state, &prescale, &period_st=
-eps);
-> > +		if (ret)
-> > +			return ret;
-> > +
-> > +		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
-> > +	}
-> > +
-> > +	duty_steps =3D mchp_core_pwm_calc_duty(chip, pwm, state, prescale, pe=
-riod_steps);
-> =
+If you want to remove unwanted platforms from your configuration,
+you do that in the .config file, not in the defconfig file.
+If you have CONFIG_PM=y in your .config, it will be retained.
 
-> Both mchp_core_pwm_calc_period and mchp_core_pwm_calc_duty call
-> clk_get_rate(), I suggest call this only once and pass the rate to these
-> two functions.
+Gr{oetje,eeting}s,
 
-Sure. I think the signatures of both of those functions could be reduced
-in the process which would be nice.
+                        Geert
 
-> Both branches of the if above start with calling
-> mchp_core_pwm_calc_period, this could be simplified, too.
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-	ret =3D mchp_core_pwm_calc_period(chip, state, &prescale, &period_steps);
-	if (ret)
-		return ret;
-
-	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
-
-	if (period_locked) {
-		u16 hw_prescale;
-		u8 hw_period_steps;
-
-		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
-		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PERIO=
-D);
-
-		if ((period_steps + 1) * (prescale + 1) <
-		    (hw_period_steps + 1) * (hw_prescale + 1))
-			return -EINVAL;
-
-		/*
-		 * It is possible that something could have set the period_steps
-		 * register to 0xff, which would prevent us from setting a 100%
-		 * or 0% relative duty cycle, as explained above in
-		 * mchp_core_pwm_calc_period().
-		 * The period is locked and we cannot change this, so we abort.
-		 */
-		if (hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
-			return -EINVAL;
-
-		prescale =3D hw_prescale;
-		period_steps =3D hw_period_steps;
-	} else {
-		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
-	}
-
-	duty_steps =3D mchp_core_pwm_calc_duty(chip, pwm, state, prescale, period_=
-steps);
-
-I'll aim for something like the (absolutely untested) above then when I
-respin.
-
-> (Hmm, in
-> exactly one of them you check the return code, wouldn't that be sensible
-> for both callers?)
-
-Been messing with rust a bit of late, I love the #[must_use] attribute.
-Looks to be an oversight since it's only going to return an error if the
-clock rate exceeds what the FPGA is actually capable of.
-
-Thanks again,
-Conor.
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
