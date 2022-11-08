@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B879FC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BD9C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 11:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ykoAnD7Rn/IeZtVie9WuD07P+LAsKEG2twKjvV6VEdc=; b=1IYInyo38hNK5l
-	zjLXb/O44NJjY+6Yp90tzdVFxslWTQ9h/hiBeJMApM16iZ3cCbUcuHHRKdG7chypeZK94qBlc7/6T
-	TGA1JAfYAdB0lQI97ngbP1Gb71ZxDcszbwomLHDq8qNeICfK3CxRPf0J6FyaNyqqJ7KeQ7dM6hfG4
-	CNMLhu4dCHn+rnhkWqPuNPpdmN2WCMqejsvPWvRsx5yNP+A89YGtBX2IQzGtl6iSQAwlV6FcMLUMl
-	S0kK/Q2Drta7hHqRCPjvat+xTgpiBDpUlP0XBkfNmzADlCQRnEGQBw08VXGVtVmC6Rh9Gwbe6qJI8
-	l/hPKPIYZoI5fn/vamXA==;
+	List-Owner; bh=3AbDrv5rGdjaXYzpIvS+7hrJ+eOmL/JzFyqecDTisRU=; b=Jniwx0cwi4gII8
+	aZHAAaFJ3mSwK5Fl36is8qt73uO3smJsyiQjvJDngvoqWUexfDvjEvf3x4N2REKTlrnBAItN6llyr
+	7ywRXv/j2JlwHRIv4irN54OnqKxC8vk8lGoe+HNnoFJD7ISDA9jSCde6/xo8IcZaed+zduTFtUD36
+	ocwhXbO+qMy1SWeqIRJuENxQK3ybaOJIl/tL0GHWi4xM14ToaC44p9McofiLTU4LH1NCsIlioFyaB
+	NQYFRhldBXzf06QQ6K2rX2ycgmZAYIIW1tIvPDcSjI0Zf1Ukm0vFQhv0F0uCOtvsH4ttOJGMgXej+
+	PR+/Ek9JQMxnZeFTfEJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMWj-004nJn-3U; Tue, 08 Nov 2022 11:12:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osMWN-004nAv-3O; Tue, 08 Nov 2022 11:12:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2C1F1424;
-	Tue,  8 Nov 2022 03:12:02 -0800 (PST)
-Received: from [192.168.1.12] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D56C3F534;
-	Tue,  8 Nov 2022 03:11:53 -0800 (PST)
-Message-ID: <554c4bf5-8981-3d0e-6cd4-68fc854bcb09@arm.com>
-Date: Tue, 8 Nov 2022 12:11:32 +0100
+	id 1osMrt-004swp-JJ; Tue, 08 Nov 2022 11:34:13 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1osMrp-004ss4-Sq
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 11:34:12 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.53])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4N65Vw2fD9zpWG1;
+	Tue,  8 Nov 2022 19:30:16 +0800 (CST)
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 8 Nov 2022 19:33:55 +0800
+Message-ID: <598bc40d-e826-f9cc-14fd-f4570051f4c6@huawei.com>
+Date: Tue, 8 Nov 2022 19:33:54 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: [PATCH 0/5] arch_topology: Build cacheinfo from primary CPU
-To: linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Gavin Shan <gshan@redhat.com>, SeongJae Park <sj@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org,
- Jeremy Linton <Jeremy.Linton@arm.com>, Rob Herring <robh@kernel.org>
-References: <20221108110424.166896-1-pierre.gondois@arm.com>
-Content-Language: en-US
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <20221108110424.166896-1-pierre.gondois@arm.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v4 0/8] Add OPTPROBES feature on RISCV
+To: Xim <chenguokai17@mails.ucas.ac.cn>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+	<bjorn@kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<rostedt@goodmis.org>, <mingo@redhat.com>, <sfr@canb.auug.org.au>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Liao Chang
+	<liaoclark@163.com>
+References: <20221106100316.2803176-1-chenguokai17@mails.ucas.ac.cn>
+ <87y1sm1z8j.fsf@all.your.base.are.belong.to.us>
+ <9A705974-A007-45E2-BC5D-A7E90821A258@mails.ucas.ac.cn>
+From: "liaochang (A)" <liaochang1@huawei.com>
+In-Reply-To: <9A705974-A007-45E2-BC5D-A7E90821A258@mails.ucas.ac.cn>
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemi500012.china.huawei.com (7.221.188.12)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_031159_300731_64AA4CD9 
-X-CRM114-Status: GOOD (  16.43  )
+X-CRM114-CacheID: sfid-20221108_033410_150104_838B9390 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,90 +67,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+ Rob Herring
-+ Jeremy Linton
-
-On 11/8/22 12:04, Pierre Gondois wrote:
-> [1] and [2] build the CPU topology from the cacheinfo information for
-> both DT/ACPI based systems and remove (struct cpu_topology).llc_id
-> which was used by ACPI only.
-> 
-> Creating the cacheinfo for secondary CPUs is done during early boot.
-> Preemption and interrupts are disabled at this stage. On PREEMPT_RT
-> kernels, allocating memory (and parsing the PPTT table for ACPI based
-> systems) triggers a:
->    'BUG: sleeping function called from invalid context' [4]
-> 
-> To prevent this bug, allocate the cacheinfo from the primary CPU when
-> preemption and interrupts are enabled and before booting secondary
-> CPUs. The cache levels/leaves are computed from DT/ACPI PPTT information
-> only, without relying on the arm64 CLIDR_EL1 register.
-> If no cache information is found in the DT/ACPI PPTT, then fallback
-> to the current state, triggering [4] on PREEMPT_RT kernels.
-> 
-> Patches to update the arm64 device trees that have incomplete cacheinfo
-> (mostly for missing the 'cache-level' or 'cache-unified' property)
-> have been sent at [3].
-> 
-> Tested platforms:
-> - ACPI + PPTT: Ampere Altra, Ampere eMAG, Cavium ThunderX2,
->    Kunpeng 920, Juno-r2
-> - DT: rb5, db845c, Juno-r2
-> 
-> [1] https://lore.kernel.org/all/20220704101605.1318280-1-sudeep.holla@arm.com/
-> [2] https://lore.kernel.org/all/20220720-arch_topo_fixes-v3-0-43d696288e84@arm.com/
-> [3] https://lore.kernel.org/all/20221107155825.1644604-1-pierre.gondois@arm.com/
-> [4] On an Ampere Altra, with PREEMPT_RT kernel based on v6.0.0-rc4:
-> 
-> 
-> [    7.560791] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:46
-> [    7.560794] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/111
-> [    7.560796] preempt_count: 1, expected: 0
-> [    7.560797] RCU nest depth: 1, expected: 1
-> [    7.560799] 3 locks held by swapper/111/0:
-> [    7.560800]  #0: ffff403e406cae98 (&pcp->lock){+.+.}-{3:3}, at: get_page_from_freelist+0x218/0x12c8
-> [    7.560811]  #1: ffffc5f8ed09f8e8 (rcu_read_lock){....}-{1:3}, at: rt_spin_trylock+0x48/0xf0
-> [    7.560820]  #2: ffff403f400b4fd8 (&zone->lock){+.+.}-{3:3}, at: rmqueue_bulk+0x64/0xa80
-> [    7.560824] irq event stamp: 0
-> [    7.560825] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-> [    7.560827] hardirqs last disabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
-> [    7.560830] softirqs last  enabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
-> [    7.560833] softirqs last disabled at (0): [<0000000000000000>] 0x0
-> [    7.560834] Preemption disabled at:
-> [    7.560835] [<ffffc5f8e9fd3c28>] migrate_enable+0x30/0x130
-> [    7.560838] CPU: 111 PID: 0 Comm: swapper/111 Tainted: G        W          6.0.0-rc4-[...]
-> [    7.560841] Call trace:
-> [...]
-> [    7.560870]  __kmalloc+0xbc/0x1e8
-> [    7.560873]  detect_cache_attributes+0x2d4/0x5f0
-> [    7.560876]  update_siblings_masks+0x30/0x368
-> [    7.560880]  store_cpu_topology+0x78/0xb8
-> [    7.560883]  secondary_start_kernel+0xd0/0x198
-> [    7.560885]  __secondary_switched+0xb0/0xb4
-> 
-> Pierre Gondois (5):
->    cacheinfo: Use riscv's init_cache_level() as generic OF implem
->    cacheinfo: Return error code in init_of_cache_level()
->    ACPI: PPTT: Remove acpi_find_cache_levels()
->    ACPI: PPTT: Update acpi_find_last_cache_level() to
->      acpi_get_cache_info()
->    arch_topology: Build cacheinfo from primary CPU
-> 
->   arch/arm64/kernel/cacheinfo.c |   9 ++-
->   arch/riscv/kernel/cacheinfo.c |  39 +------------
->   drivers/acpi/pptt.c           |  86 +++++++++++++++++------------
->   drivers/base/arch_topology.c  |  10 +++-
->   drivers/base/cacheinfo.c      | 101 ++++++++++++++++++++++++++++++----
->   include/linux/cacheinfo.h     |  10 +++-
->   6 files changed, 164 insertions(+), 91 deletions(-)
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgrlnKggMjAyMi8xMS84IDE5OjA0LCBYaW0g5YaZ6YGTOgo+IEhpIEJqw7ZybiwKPiAKPiBUaGFu
+a3MgZm9yIHlvdXIgZ3JlYXQgcmV2aWV3ISBTb21lIGV4cGxhbmF0aW9ucyBiZWxvdy4KPiAKPj4g
+MjAyMuW5tDEx5pyIOOaXpSAwMDo1NO+8jEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+
+IOWGmemBk++8mgo+Pgo+PiBIYXZlIHlvdSBydW4gdGhlIHNlcmllcyBvbiByZWFsIGhhcmR3YXJl
+LCBvciBqdXN0IHFlbXU/Cj4gCj4gQ3VycmVudGx5IG9ubHkgcWVtdSB0ZXN0cyBhcmUgbWFkZSwg
+SSB3aWxsIHRyeSB0byB0ZXN0IGl0IG9uIGEgRlBHQSByZWFsIGhhcmR3YXJlIHNvb24uCj4gCj4+
+IEFGQUlVLCB0aGUgYWxnb3JpdGhtIG9ubHkgdHJhY2tzIHJlZ2lzdGVycyB0aGF0IGFyZSAqaW4g
+dXNlKi4gWW91IGFyZQo+PiBhbHJlYWR5IHNjYW5uaW5nIHRoZSB3aG9sZSBmdW5jdGlvbiAobmV4
+dCBwYXRjaCkuIFdoYXQgYWJvdXQgdGhlIGNhbGxlcgo+PiBzYXZlZCByZWdpc3RlcnMgdGhhdCBh
+cmUgKm5vdCogdXNlZCBieSB0aGUgZnVuY3Rpb24gaW4gdGhlIHByb2JlIHJhbmdlPwo+PiBDYW4g
+dGhvc2UsIHBvdGVudGlhbGx5IHVudXNlZCwgcmVncyBiZSB1c2VkPwo+IAo+IEdyZWF0IG1pc3Np
+bmcgcGFydCEgSSBoYXZlIG1hZGUgYSBzdGF0aWMgYW5hbHl6YXRpb24gcmlnaHQgdXBvbiByZWNl
+aXZpbmcgdGhpcyBtYWlsLgo+IFRoZSByZXN1bHQgc2hvd3MgdGhhdCB0aGlzIG5ld2x5IHB1cnBv
+c2VkIGlkZWEgcmVhY2hlcyBhYm91dCB0aGUgc2FtZQo+IHN1Y2Nlc3MgcmF0ZSBvbiBteSB0ZXN0
+IHNldCAocnY2NCBkZWZjb25mIHdpdGggUlZJIG9ubHkpIHdoaWxlIHdoZW4gY29tYmluZWQsCj4g
+dGhleSBjYW4gcmVhY2ggYSBoaWdoZXIgc3VjY2VzcyByYXRlLCAxLzMgYWJvdmUgdGhlaXIgYmFz
+ZWxpbmUuIEEgcGF0Y2ggdGhhdAo+IGluY2x1ZGVzIHRoaXMgc3RyYXRlZ3kgd2lsbCBiZSBzZW50
+IHNvb24uCj4+Cj4+PiArc3RhdGljIHZvaWQgYXJjaF9maW5kX3JlZ2lzdGVyKHVuc2lnbmVkIGxv
+bmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kLAo+Pgo+PiBOaXQ7IFdoZW4gSSBzZWUgImFyY2hf
+IiBJIHRoaW5rIGl0J3MgZnVuY3Rpb25hbGl0eSB0aGF0IGNhbiBiZQo+PiBvdmVycmlkZGVuIHBl
+ci1hcmNoLiBUaGlzIGlzIG5vdCB0aGUgY2FzZSwgYnV0IGp1c3QgYSBoZWxwZXIgZm9yIFJWLgo+
+IAo+IEl0IGNhbiBiZSBleHBsYWluZWQgZnJvbSB0d28gYXNwZWN0cy4gRmlyc3QsIGl0IGNhbiBi
+ZSBleHRlbmRlZCB0byBtb3N0IFJJU0MKPiBhcmNocywgd2hpY2ggY2FuIGJlIGV4dHJhY3RlZCBp
+bnRvIHRoZSBjb21tb24gZmxvdyBvZiBLcHJvYmUuIFNlY29uZCwgaXQgaXMgaW5kZWVkCj4gYSBp
+bnRlcm5hbCBoZWxwZXIgZm9yIG5vdywgc28gSSB3aWxsIGNvcnJlY3QgdGhlIG5hbWUgaW4gdGhl
+IG5leHQgdmVyc2lvbi4KPiAKPj4+IHN0YXRpYyB2b2lkIGZpbmRfZnJlZV9yZWdpc3RlcnMoc3Ry
+dWN0IGtwcm9iZSAqa3AsIHN0cnVjdCBvcHRpbWl6ZWRfa3Byb2JlICpvcCwKPj4+IC0JCQkJaW50
+ICpyZDEsIGludCAqcmQyKQo+Pj4gKwkJCQlpbnQgKnJkLCBpbnQgKnJhKQo+Pgo+PiBOaXQ7IFBs
+ZWFzZSBnZXQgcmlkIG9mIHRoaXMgY29kZSBjaHVybiwganVzdCBuYW1lIHRoZSBwYXJhbWV0ZXJz
+Cj4+IGNvcnJlY3RseSBvbiBpbnRyb2R1Y3Rpb24gaW4gdGhlIHByZXZpb3VzIHBhdGNoLgo+IAo+
+IFdpbGwgYmUgZml4ZWQuCj4gCj4+PiArCSpyZCA9ICgoa3cgfCBvdykgPT0gMVVMKSA/IDAgOiBf
+X2J1aWx0aW5fY3R6bCgoa3cgfCBvdykgJiB+MVVMKTsKPj4+ICsJKnJhID0gKGt3ID09IDFVTCkg
+PyAwIDogX19idWlsdGluX2N0emwoa3cgJiB+MVVMKTsKPj4KPj4gSG1tLCBfX2J1aWx0aW5fY3R6
+bCBpcyB1bmRlZmluZWQgZm9yIDAsIHJpZ2h0PyBDYW4gdGhhdCBiZSB0cmlnZ2VyZWQKPj4gaGVy
+ZT8KClRoaXMgY29ybmVyIGNhc2UgaGFzIGJlZW4gdGFrZW4gaW50byBhY2NvdW50LCBsb29rIHRo
+ZXNlIGNvbmRpdGlvbiBwYXJ0cywKaWYga3cgPT0gMVVMIHRoaXMgZXhwcmVzc2lvbiB3aWxsIHJl
+dHVybiAwIGRpcmVjdGx5LCBubyBjaGFuY2UgdG8gaW52b2tlIF9fYnVpbHRpbl9jdHpsLgoKVGhh
+bmtzLgoKPiAKPiBXaWxsIGJlIGZpeGVkLgo+IAo+IFJlZ2FyZHMsCj4gR3Vva2FpIENoZW4KPiAK
+Ci0tIApCUiwKTGlhbywgQ2hhbmcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
