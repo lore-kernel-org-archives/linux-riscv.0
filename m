@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FC4C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 16:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625F1C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nOT3Gf0QSjJ11NJeBgQTlVmvS/qtyZbXbKaLxln/IxI=; b=NsYXh471HgYoKw
-	r0VsaBIYG3qzBeoEyldMBt6AglHKkiDk6GPYEYYDttyIJH0jgyagI0P0CAi2AWhBhToeKXB2p8m2p
-	hN4FA5NrwHwQLZR5RDVFg1wPbRbWRLJ/sQnMWVA1fJSDAljMMbTXH+S0MUZlYHk7N3VDQ1sA7jzki
-	1PAvJDxoehC92UHXoV/TvBLaR17L5ssrSD5hTjfvFjKJ3WEn49LV/g7I19QdgNuNe06ykhQ7N3YV4
-	WV8ikFGfKkOFxAeqMItUyv7FrsE3rtorQT6zrS0VrlONm9GuE2MS7p9xdc9au3G+mgk2FGbaqTnfx
-	WF9cvbjBq1kt6qd2RQlQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ibMVU3nIKXAAD0mJnVURJDLyq+Nr0+QQPoLn93AYHN8=; b=MsKSlcwTXGYTrc
+	jr7UUEYko2J8n1L8OrVClsr1WkzMc/Wr/c5CU+T3XtdFjJSb1bcEoYMq2sVTi0oMHclBE50y2IBFl
+	wFTJv2rmmlGtdRoeBRzEiB8aE9ser5AmkZoBp9QfJNvclGniQRbCFqAdyJhnyJ8zYci0TYGKHQaxk
+	B+N4CMJHl6UE3JYn3o+FGIbcjOgEBNvJzSy1EGB6pj00lxd6F36H6eWNLydmz7MgFjXnaPIZIf/EN
+	Y2+2IZYC0RgKM0FnW0F9d0I9gJs3FJWyEX1PzYqHxNe2xbcwxba8ih/gwIput4aDtWEJiS8uCC1A/
+	0DErXwqavoxyTuO5yLkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osRuS-006nnU-RD; Tue, 08 Nov 2022 16:57:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osRuH-006nQw-8c; Tue, 08 Nov 2022 16:57:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D30E1FB;
-	Tue,  8 Nov 2022 08:57:00 -0800 (PST)
-Received: from [10.57.5.11] (unknown [10.57.5.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1FCB3F703;
-	Tue,  8 Nov 2022 08:56:50 -0800 (PST)
-Message-ID: <1b2f25e5-cd60-a533-14be-a608f4c801bd@arm.com>
-Date: Tue, 8 Nov 2022 17:56:45 +0100
+	id 1osSAY-006yrm-GH; Tue, 08 Nov 2022 17:13:50 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1osSAV-006yqj-Fl
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 17:13:49 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 041BEB81BAC;
+	Tue,  8 Nov 2022 17:13:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24078C433C1;
+	Tue,  8 Nov 2022 17:13:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667927621;
+	bh=Q9Hg77J+hEn8L00u0qa6BZ7pMVT5amjAWhxu/7L9ZfU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Lo6dFWKcTlR9+dBOhuw/BumPrjFGR31fDofSYIHW4hMcd+70Ib7hElVF+T04rsJBd
+	 dttFiSyH4eZG7yDGwrdqJsrYliD7HmYwxmfbB+ZeNgqW+xUE8l9e+tHIMb0uz0CKn3
+	 zSqzGk3cgxLirqeItEJIKNTiWAu6fHIW3x+vO9EWgKG27jr3oeP3VXM6jco8a2N8l3
+	 DbpIhLnsy98oVwwEit8gHJS7Kqx0ZKhoQ3TFW674pEW+EpBp10prQz2wqwYrKlWTev
+	 Esnkqw7i+WHgTrojt5j2AcAxDDlxb1xuz5ilVudLyjxyHrT/4Qqr/T/h3Zcgwd4QII
+	 Cl8v5Jp+qcs9g==
+From: Nathan Chancellor <nathan@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	patches@lists.linux.dev,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH] RISC-V: vdso: Do not add missing symbols to version section in linker script
+Date: Tue,  8 Nov 2022 10:13:23 -0700
+Message-Id: <20221108171324.3377226-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: [PATCH 3/5] ACPI: PPTT: Remove acpi_find_cache_levels()
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Gavin Shan <gshan@redhat.com>, Peter Chen <peter.chen@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-References: <20221108110424.166896-1-pierre.gondois@arm.com>
- <20221108110424.166896-4-pierre.gondois@arm.com>
- <20221108161315.lmm3sakza5quyzlv@bogus>
-Content-Language: en-US
-From: Pierre Gondois <pierre.gondois@arm.com>
-In-Reply-To: <20221108161315.lmm3sakza5quyzlv@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_085701_395956_7692A2AF 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20221108_091347_712548_2F06CC08 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,38 +71,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Recently, ld.lld moved from '--undefined-version' to
+'--no-undefined-version' as the default, which breaks the compat vDSO
+build:
 
+  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_gettimeofday' failed: symbol not defined
+  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_clock_gettime' failed: symbol not defined
+  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_clock_getres' failed: symbol not defined
 
-On 11/8/22 17:13, Sudeep Holla wrote:
-> On Tue, Nov 08, 2022 at 12:04:19PM +0100, Pierre Gondois wrote:
->> acpi_find_cache_levels() is used at a single place and is short
->> enough to be merged into the calling function. The removal allows
->> an easier renaming of the calling function in the next patch.
->>
->> Also reorder the parameters in the 'reversed Christmas tree' order.
-> 
-> Not sure if the above is worth mentioning explicitly. Even if you do,
-> 'parameters' sounds very confusing to at-least me. I was searching for
-> the changes is some function parameters to understand what it was and
-> finally realised you meant the stack variable declaration order here.
-> Right ?
+These symbols are not present in the compat vDSO or the regular vDSO for
+32-bit but they are unconditionally included in the version section of
+the linker script, which is prohibited with '--no-undefined-version'.
 
-Yes right, I will use another word.
+Fix this issue by only including the symbols that are actually exported
+in the version section of the linker script.
 
-> 
-> 
-> Other than that, it looks good.
-> 
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> 
+Link: https://github.com/ClangBuiltLinux/linux/issues/1756
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/riscv/kernel/vdso/Makefile   | 3 +++
+ arch/riscv/kernel/vdso/vdso.lds.S | 2 ++
+ 2 files changed, 5 insertions(+)
 
-Regards,
-Pierre
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index f2e065671e4d..82416ebf4cca 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -28,6 +28,9 @@ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+ 
+ obj-y += vdso.o
+ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
++ifneq ($(filter vgettimeofday, $(vdso-syms)),)
++CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
++endif
+ 
+ # Disable -pg to prevent insert call site
+ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
+diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+index 01d94aae5bf5..150b1a572e61 100644
+--- a/arch/riscv/kernel/vdso/vdso.lds.S
++++ b/arch/riscv/kernel/vdso/vdso.lds.S
+@@ -68,9 +68,11 @@ VERSION
+ 	LINUX_4.15 {
+ 	global:
+ 		__vdso_rt_sigreturn;
++#ifdef HAS_VGETTIMEOFDAY
+ 		__vdso_gettimeofday;
+ 		__vdso_clock_gettime;
+ 		__vdso_clock_getres;
++#endif
+ 		__vdso_getcpu;
+ 		__vdso_flush_icache;
+ 	local: *;
+
+base-commit: f0c4d9fc9cc9462659728d168387191387e903cc
+-- 
+2.38.1
+
 
 _______________________________________________
 linux-riscv mailing list
