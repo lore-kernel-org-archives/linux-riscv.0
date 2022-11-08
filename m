@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB84C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B03C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n2YnQoyeu1GAE3afwdcHKSlUQ2olpeDO3IuOFxTL6yY=; b=ptCgRSkOKYtp/x
-	crBmtSEaUP0sJh3rYaW+1fvSYghPCJBkxzeL9I37+ladvZSWZT6fi7iMJ4ot5nV5L0O58uwuW+I4C
-	ipqiA19Be4tb7xxK4OAqhwic3ZohUFl4usmP+QD3nEeh0M+02UqDtvkrudWZZqXWR7iFXKEv9r1KI
-	vrZ4/eGV/zofgZGKz2bQB6jHNvU6qSac4F3unmJMpRs+3AS0FTv7xiatncOp6bv/NomVKVvGVnBmh
-	0jHLghKlB2dr5yVLYQCeIE/msn3w+/VgG3NRP0T1aXpb0z6JaVAPHoJP1ONSChvyI66FfozKm8oyB
-	JybaSTR0ey4CInXLKa1g==;
+	List-Owner; bh=LWbqZ8ZgxrNRh0lK5KCRBiuBsJtYChLNxDjNq3ycEiw=; b=pdzlwTrO3WlDyY
+	JSnhUGodSJ023Pgn1zncLAQWxhO62JECHB8i6v5SxKt243I9BKrMAHMFmxEnB5Ugn+q4lL+l2T1Zm
+	3nSXl++NV6p9kaBqX65RhhXB+VdR+62qC3rJkBrsH9fPa25p9D+tdGJbmaODZUaeb9oCZV5AJ4TVz
+	2mlLXNooI6q0yMGa24OP8Fjjzv6KPrhrtulW3YmMb3nLVlnAtiXPcJ+eqzlnHC0ghFQotFUL/2QHS
+	30KMbTSWMC7yQrafKFrPIHLwLHTxaXfQc2YdsHIwctv93LjfQap1xks16KN34udrrcUtHDMR7dEHK
+	rW5HCNDhig4PC6XugF2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSJF-0070PJ-EB; Tue, 08 Nov 2022 17:22:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1osSJj-0070aW-Pc; Tue, 08 Nov 2022 17:23:19 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSJD-0070OV-Bs
-	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 17:22:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B77CF616B5;
-	Tue,  8 Nov 2022 17:22:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A90C433D6;
-	Tue,  8 Nov 2022 17:22:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1667928166;
-	bh=EBlNNpN7MBm+O+67jLDhlUEULw61dZCE5Kh/19OPtsU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M3Qn0KdLF8TnGQvdKxzEauemDFC/wJjbGcUAsuoXqGm1H36vKWC7fz1uyQ4ja4gLL
-	 PtObRw8k5Io4fyWl8tVoH5XD69mYqJG3gVg5EwelDTjWg+DYw6KaSCjH7/lWOl7XgB
-	 /stqFfGY64EpQB3676Sum/0Ri3ngvLCUB5XbL+Wgf3PkesWmp2wcTUqyXp9tYNHtvo
-	 0JyvRUdJxSjeLycb1ViilsqYRjwmmCjrfM72A91yI6W38k+dS4SjjxLoHn22bcsLAi
-	 XZsiBILFlLJO7XDy+bw5izIso/JaPxCgIeKYx5kMRh3DMLYT4VpjptwDY0AlU0OTPl
-	 ItckxP0D//rpg==
-Date: Tue, 8 Nov 2022 17:22:40 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Chris Stillson <stillson@rivosinc.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Vincent Chen <vincent.chen@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Andy Chiu <andy.chiu@sifive.com>
-Subject: Re: [PATCH v12 04/17] riscv: Add vector feature to compile
-Message-ID: <Y2qQYAfZL7I2qXoo@spud>
-References: <20220921214439.1491510-1-stillson@rivosinc.com>
- <20220921214439.1491510-4-stillson@rivosinc.com>
- <87zgd2d6j1.fsf@all.your.base.are.belong.to.us>
- <f4887649-3933-0a65-7ed5-1bf6bd842a46@rivosinc.com>
- <Y2oLkQSdCBJPvZW/@wendy>
- <95287691-752f-5920-2dbc-b9a5b144d0ac@rivosinc.com>
+	id 1osSJg-0070YT-C5
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 17:23:18 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id x2so23566520edd.2
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 09:23:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=dC3L8rB3CkJyDbuZvPYnhdgYhGJJjGWGEHVBgM03GHs=;
+        b=IgUA4OfmcJprV1FMZVj2AsH/Vv1caqsiAxOyP8ItQcOxavflQq6m1SHf/Z2Q7sKksH
+         jNmhReqyWRlHw4PbXsnx68KMkNLWHbdcR7rGKfNLLTGG6+83KRD6GIVe2k9+Mp3egB0p
+         LlizWFnOdvO29+5sXSJpzOe/SV7T30jeGHby2i8VYybQTLqjzUXdv1wW921WMl6D9H8j
+         MXcGeS4Q1Qu9g3E2NxbhNCO4ldjzExw+gFvFQtsoR6WCeFRLIRBR+O0QmcZuSS8ebc3l
+         cj6DnW2hoRv3LIN+/6S1+aF7PhqwvVZyvoV3Q+5uA6uyWlWr3oWWQ44cQR+3MFl3tKNX
+         Zyng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dC3L8rB3CkJyDbuZvPYnhdgYhGJJjGWGEHVBgM03GHs=;
+        b=vP2npc0YzaZ4kO7WNpbSoi/WsHFSDx5xItHRTYw+icpnKTBojDndY5yWsyCNMFJIY2
+         g5a9JMp+nu0WdxuDBHtnpjMYfrvPB/sTtiJGwF69vew69NSDSgDIQEue0UzbkZeVu9Ea
+         qV2EYnA2njhdFokDfKa0vzm7ASsHJzB8nvQIydQXm/bX/QonkFDJY4OopGBJJfkCuOoT
+         5QwrsiJExvN5pOa3lP1gxNXI6dgbPpAd0QOP0ESVKu5oSGEjERgvHZRnw7rTmtO3/VCo
+         kJVs+ICsOD8CIPAA/KD8F4Svbv2j4v66ffrQ+xdJdfbZrB/ERY9LH8ac/r2cGgq6CmNW
+         0OHA==
+X-Gm-Message-State: ACrzQf31T4xtty9ztYsufMoPNko0QMEEqhTi7fDfoj0zrhxiQWI2zPDp
+	yR5gR8eYGlQpoVfKaKG8FWQHZ5ymCGytoc/wTQE=
+X-Google-Smtp-Source: AMsMyM4KBxQ83QplDTic1T/lCguYhFxZcj0K/xWDI5KytX5mkaRDpx64THZabd4ot55hyo8nCD5UsMnDqg9b2zQGIzM=
+X-Received: by 2002:aa7:c389:0:b0:463:5926:7254 with SMTP id
+ k9-20020aa7c389000000b0046359267254mr49367313edq.255.1667928194005; Tue, 08
+ Nov 2022 09:23:14 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <95287691-752f-5920-2dbc-b9a5b144d0ac@rivosinc.com>
+References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221028165921.94487-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdUKVxO24Qgyx37tbs5+m0Us0VF3eTZCC2KV=AC8z2JneQ@mail.gmail.com>
+ <CA+V-a8t5Qah3MNm2m__xnmgK-52=HC9QBPPudnB+1j4-FYJ_NA@mail.gmail.com> <CAMuHMdWTJf24XR+KR8yVJOnfpgs-PkUf9b8B=PX9Dd4mfawD5Q@mail.gmail.com>
+In-Reply-To: <CAMuHMdWTJf24XR+KR8yVJOnfpgs-PkUf9b8B=PX9Dd4mfawD5Q@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 8 Nov 2022 17:22:47 +0000
+Message-ID: <CA+V-a8vCGDHL1SUTEnD-WvoUGKSVL=xzDeQxy77=1vFJdk+fYg@mail.gmail.com>
+Subject: Re: [PATCH v5 7/7] riscv: configs: defconfig: Enable Renesas RZ/Five SoC
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_092247_464875_211A88B7 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20221108_092316_439843_E2EBA95E 
+X-CRM114-Status: GOOD (  28.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +91,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 08, 2022 at 09:17:26AM -0800, Vineet Gupta wrote:
-> On 11/7/22 23:56, Conor Dooley wrote:
-> > On Mon, Nov 07, 2022 at 04:04:28PM -0800, Vineet Gupta wrote:
-> > > +CC Andy, Conor
-> > > =
+Hi Geert,
 
-> > > On 11/7/22 09:21, Bj=F6rn T=F6pel wrote:
-> > > > > +config VECTOR
-> > > > > +	bool "VECTOR support"
-> > > > > +	depends on GCC_VERSION >=3D 120000 || CLANG_VERSION >=3D 130000
-> > > > > +	default n
-> > > > > +	help
-> > > > > +	  Say N here if you want to disable all vector related procedure
-> > > > > +	  in the kernel.
-> > > > > +
-> > > > > +	  If you don't know what to do here, say Y.
-> > > > > +
-> > > > > +endmenu
-> > > > "VECTOR" is not really consistent to how the other configs are name=
-d;
-> > > > RISCV_ISA_V, RISCV_ISA_VECTOR, RISCV_VECTOR?
-> > > =
+On Tue, Nov 8, 2022 at 4:12 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Tue, Nov 8, 2022 at 5:07 PM Lad, Prabhakar
+> <prabhakar.csengg@gmail.com> wrote:
+> > On Tue, Nov 8, 2022 at 3:52 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > On Fri, Oct 28, 2022 at 6:59 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >
+> > > > Enable Renesas RZ/Five SoC config in defconfig. It allows the default
+> > > > upstream kernel to boot on RZ/Five SMARC EVK board.
+> > > >
+> > > > Alongside enable SERIAL_SH_SCI config so that the serial driver used by
+> > > > RZ/Five SoC is built-in.
+> > > >
+> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > > ---
+> > > > v4 -> v5
+> > > > * No change
+> > > >
+> > > > v3 -> v4
+> > > > * Explicitly enabled ARCH_R9A07G043 config (note I have restored the RB
+> > > >   tags with this change)
+> > > > * Used riscv instead of RISC-V in subject line
+> > >
+> > > Thanks for the update!
+> > >
+> > > > --- a/arch/riscv/configs/defconfig
+> > > > +++ b/arch/riscv/configs/defconfig
+> > > > @@ -29,6 +29,8 @@ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+> > > >  CONFIG_SOC_SIFIVE=y
+> > > >  CONFIG_SOC_STARFIVE=y
+> > > >  CONFIG_SOC_VIRT=y
+> > > > +CONFIG_ARCH_RENESAS=y
+> > > > +CONFIG_ARCH_R9A07G043=y
+> > >
+> > > You forgot to refresh after moving ARCH_RENESAS in v5 of "riscv:
+> > > Kconfig.socs: Add ARCH_RENESAS kconfig option", and after relying on
+> > > ARCH_R9A07G043 in drivers/soc/renesas/Kconfig.
+> > >
+> > Sorry I missed your point here, could you please elaborate.
+>
+> I mean that the options have moved, so you should update
+> your patch like this:
+>
+Ouch got that.
 
-> > > Good point, I've changed it to RISCV_ISA_V to keep it consistent with
-> > > existing RISCV_ISA_C.
-> > =
+>     --- a/arch/riscv/configs/defconfig
+>     +++ b/arch/riscv/configs/defconfig
+>     @@ -26,11 +26,10 @@ CONFIG_EXPERT=y
+>      # CONFIG_SYSFS_SYSCALL is not set
+>      CONFIG_PROFILING=y
+>      CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>     +CONFIG_ARCH_RENESAS=y
+>      CONFIG_SOC_SIFIVE=y
+>      CONFIG_SOC_STARFIVE=y
+>      CONFIG_SOC_VIRT=y
+>     -CONFIG_ARCH_RENESAS=y
+>     -CONFIG_ARCH_R9A07G043=y
+>      CONFIG_SMP=y
+>      CONFIG_HOTPLUG_CPU=y
+>      CONFIG_PM=y
+>     @@ -163,6 +159,7 @@ CONFIG_MAILBOX=y
+>      CONFIG_RPMSG_CHAR=y
+>      CONFIG_RPMSG_CTRL=y
+>      CONFIG_RPMSG_VIRTIO=y
+>     +CONFIG_ARCH_R9A07G043=y
+>      CONFIG_EXT4_FS=y
+>      CONFIG_EXT4_FS_POSIX_ACL=y
+>      CONFIG_EXT4_FS_SECURITY=y
+>
+> > > >  CONFIG_SMP=y
+> > > >  CONFIG_HOTPLUG_CPU=y
+> > > >  CONFIG_PM=y
+> > >
+> > > PM and GPIOLIB are auto-selected by ARCH_R9A07G043 (through ARCH_RZG2L)
+> > > resp. SOC_RENESAS, so they can be dropped.  But it's better to do this
+> > > after the release of v6.2-rc1, when all pieces have fallen together.
+> > >
+> > Are you suggesting dropping it from defconfig?
+>
+> Yes, but not right now, as that would make it depend on my
+> renesas-drivers-for-v6.2 branch to keep them enabled.
+>
+I was wondering if that's required by other platforms though.
+CONFIG_PM was added for VIRT machine and GPIOLIB for HiFive.
 
-> > Hey Vineet, kinda randomly replying here but the wording makes it look
-> > like you're going to take this patchset on?
-> > If so, please check out v10 (think it was from April) as there are some
-> > comments on that version that IIRC remain un-resolved.
-> =
-
-> Sure thing. Although I only see a few from Christoph and kernel build bot.
-
-Yup, they were minor - I just don't wanna see them get lost :)
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
