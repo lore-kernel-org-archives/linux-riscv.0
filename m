@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034E7C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 12:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BF8C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 12:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r/DpjvfZiDS5VPeV9SVXVMlYnvBfD9jpQLVaO00YcmU=; b=1oKu7c+MlWkBYf
-	NZAs8B68EjCvh31MMLVZlwHQ9oNs9Zz7+ETvWCTpmk7MKuVbKiTeNCUpCNf86ve0TYjGfIOyoeriF
-	acidNvHpV7v7Aam9UC2MVUFZBiLzBk35JOxE49fKST+dwT17Aj3qzS2fJycN4BCDyTFflbhPhzRCi
-	YSVoSM0d01ZsVSSGyCVJFsD8f5KPALji3Be3QaW8+QzRffJWCNnDKcN0wivf3bBZGAmCwYgDwyCDQ
-	aZirX4kQ/iI2Y0T1sdPEWUnGkwWkVsQYgAeIMVhvl80E6zskQN3P+MQqxNaEaY3X7pTAHrItlsW8v
-	JHeJbjqpInerccWuzfWw==;
+	List-Owner; bh=jKibaQ56LktA0BSvqd6NAt0H+xmomLCdXeC7Z0EBmsU=; b=RvLdNn8QX7NBPT
+	2Ls6i4rYL8trskTUn5x/v9PHSC8KnDru5i2o6dH+BrNF+ydaDiakK6JCYq8D5pevPaN2rWmkKzQxH
+	r1VRa2UNxRrnd0yxzAkhtn+9Y7dlJeadPSS5S3+P8JPGjHQI4htsE8t1v+udeXAsz7cfNVx5hGvNS
+	IjtaBb9V3zWe67BshnwWNgqfh1kYXtw5udlypotJkgu0r2ajLno4AYP/Hr+RcYRqnMTcLHr7zvOCq
+	bgCq7PdyxaS8bDidnfk/qD0Th7Qqh3qUVoRkdo3+vZ+N42r5Ue4V9DIwqOb38B3OT+UXUDDw94Kxi
+	97e96EXoWjzvkXpJVg5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osNYV-0059Mq-5X; Tue, 08 Nov 2022 12:18:15 +0000
-Received: from smtp-out2.suse.de ([195.135.220.29])
+	id 1osO5G-005MMT-HE; Tue, 08 Nov 2022 12:52:06 +0000
+Received: from out3-smtp.messagingengine.com ([66.111.4.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osNYS-0059MB-K0; Tue, 08 Nov 2022 12:18:13 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out2.suse.de (Postfix) with ESMTP id BEAD01F897;
-	Tue,  8 Nov 2022 12:18:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1667909888; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QeUj1KQeijZc8VVyU5Jhg9NQ2cupqwdXYW1sF2iO20E=;
-	b=D7/6PUWNj0Ikd3aiqq8Zwis4IBwu0fRF8Xi40rePYUojl+9f0qZf9Gv4vfhpnFLVxzUnPu
-	RcHeQDtJ3HpYJrv0U7SQef4C+vbHSeDiOlSOgsq8BOOg6X35NS684w/Q6yl+j3GN/n8Jq/
-	hrZ4qJC25VSQ510tGYT6NW4Y7wB2bhM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1667909888;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QeUj1KQeijZc8VVyU5Jhg9NQ2cupqwdXYW1sF2iO20E=;
-	b=Eh5rMSTKnPpOmUDZVSU0beIStwJAZ205hU+JLe+dQuxTaTK28GlQozBvgsL7Mphpk3W+n1
-	BV6wqTs4PxVssMCg==
-Received: from hawking.suse.de (unknown [10.168.4.11])
-	by relay2.suse.de (Postfix) with ESMTP id EA6762C142;
-	Tue,  8 Nov 2022 12:18:07 +0000 (UTC)
-Received: by hawking.suse.de (Postfix, from userid 17005)
-	id 5D94D44039C; Tue,  8 Nov 2022 13:18:07 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,  Atish Patra
- <atishp@atishpatra.org>,  Palmer Dabbelt <palmer@dabbelt.com>,  Paul
- Walmsley <paul.walmsley@sifive.com>,  Andrew Jones
- <ajones@ventanamicro.com>,  Anup Patel <anup@brainfault.org>,
-  kvm@vger.kernel.org,  kvm-riscv@lists.infradead.org,
-  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: KVM: Exit run-loop immediately if xfer_to_guest
- fails
-References: <20221108115543.1425199-1-apatel@ventanamicro.com>
-X-Yow: Now that I have my ``APPLE,'' I comprehend COST ACCOUNTING!!
-Date: Tue, 08 Nov 2022 13:18:06 +0100
-In-Reply-To: <20221108115543.1425199-1-apatel@ventanamicro.com> (Anup Patel's
-	message of "Tue, 8 Nov 2022 17:25:43 +0530")
-Message-ID: <mvmiljpd4ht.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
-MIME-Version: 1.0
+	id 1osO5D-005MLM-Cp
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 12:52:05 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id ACA975C00CD;
+	Tue,  8 Nov 2022 07:51:58 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Tue, 08 Nov 2022 07:51:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm3; t=1667911918; x=1667998318; bh=sHZw9c0S7+
+	040MEW27mcXzSOhH0nluqzkCZq3pEorpM=; b=RANKIYPKCPOmGyaXcbIv9vT1vu
+	r1J3fbfci0+lnkg/1DZxe6HveVhRNGLuhtB0UKIGhfR757U2HKcodz44xfUSTPSs
+	9oqNQu6P1emZPI/DH9uUGKilRomtGb8LX4EopH7oz1Cw6uqx2ZuApe9b4fG1OpIe
+	kGaksJmtdDdlKCq6kpWRyIETmRskAmrfu40WMHrdJbUJ3f45ZEdEkLB0ammM9v7+
+	RL1XR/eCdPeHwa4dKJber24i9NMaPv0Hd4pH5SvVvCoxHdGwEfQnANKBwp8l0Yvz
+	oVfW9clgUvj6V9ISrypz6vNsgYT3sxUHJPf+muGS9ED1xpKiwXIp7h7rr30w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1667911918; x=1667998318; bh=sHZw9c0S7+040MEW27mcXzSOhH0n
+	luqzkCZq3pEorpM=; b=iJ0ytTxJBjYKlHSXsFV67916Fy29XrL56ggpf6egQXhQ
+	rkr1BYnNVFvytpogiGyj2lBD1Ie1LpZg2Ow7OYkITNPwipcD9aI/H6m+U021N4hE
+	Mtq8x+lXJnm9HzmY4VXeL4J0rkXUpruWckcYmAE5rE3spm35RRyXBZiV4YOWAVQa
+	iSZC7ikdfywBdyOOd3A79wGFyakZUxOjkU+dihaz6d5jQtlL73Cf5iHkzjHyH/wN
+	qhq5+1aNwM2mhplHw/DEhhsljV4CBiX8AwXanaYEXhcy8p6UH9tjPdKj1KvNKPTg
+	mvLPnAjqWR/6OYSl90W/a9g+wQrX5kf00J3YAlPSuw==
+X-ME-Sender: <xms:7lBqY3cUYhpkMA5t5ri_BRxc0SAVO5gWlMroGFKj0EtIJZQ1rlr2NQ>
+    <xme:7lBqY9O8z7Ef5t8xPMlCWOUWyk1PcwKi_RkRH1uAZrUCf9yrLyI8GoM5d1FKGtEb_
+    O_Ew8BEKZDKQ37o2VQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrfedtgdegiecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeevhfffledtgeehfeffhfdtgedvheejtdfgkeeuvefgudffteettdekkeeufeeh
+    udenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptd
+    enucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:7lBqYwhQ_VxZTcFCnALrsYJ0pkGI0eW6Kl8PJ212JX0IqVE6hodyyQ>
+    <xmx:7lBqY4-vBSqxDgV5hZH0rlsk9iZz3slzT_GFtdTDsaNemtqCrg5Org>
+    <xmx:7lBqYzv-PRasWPeT_xiomELWV2SFhQmYj_5lFlR20VK1fKO5MQs3GA>
+    <xmx:7lBqY3iFaQgHHBOWzC_OY3sYqtpJfv2MZUuKSNr25Rre-Zqqj66kaQ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 1075BB60086; Tue,  8 Nov 2022 07:51:57 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1115-g8b801eadce-fm-20221102.001-g8b801ead
+Mime-Version: 1.0
+Message-Id: <f98d5faf-dd4e-46c0-ba55-9438615b434f@app.fastmail.com>
+In-Reply-To: <Y2lPHzaHvpWjEoll@spud>
+References: <mhng-e4210f56-fcc3-4db8-abdb-d43b3ebe695d@palmer-ri-x1c9a>
+ <Y2lPHzaHvpWjEoll@spud>
+Date: Tue, 08 Nov 2022 13:51:37 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Conor Dooley" <conor@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>
+Cc: kernel@esmil.dk, "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Masahiro Yamada" <masahiroy@kernel.org>,
+ "Marc Kleine-Budde" <mkl@pengutronix.de>,
+ "David S . Miller" <davem@davemloft.net>, linux-riscv@lists.infradead.org,
+ soc@kernel.org
+Subject: Re: Should we merge arch/riscv/boot/dts via the SOC tree?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_041812_818256_7F9B0EFB 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20221108_045203_762513_5865199E 
+X-CRM114-Status: GOOD (  29.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +105,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Nov 08 2022, Anup Patel wrote:
-
-> If xfer_to_guest_mode_handle_work() fails in the run-loop then exit
-> the run-loop immediately instead of doing it after some more work.
+On Mon, Nov 7, 2022, at 19:31, Conor Dooley wrote:
+> On Mon, Nov 07, 2022 at 08:46:00AM -0800, Palmer Dabbelt wrote:
+>> This has come up a bunch of times, but I don't think we've ever really
+>> made a decision.  Historically that's not been such a big deal because
+>> the RISC-V device trees were pretty inactive, but that's changed -- both
+>> because Conor has been cleaning everything up, and also because there's
+>> a bunch of SOCs showing up with RISC-V cores in them.  We talked about
+>> this again at plumbers a few times, but Arnd wasn't around it person so
+>> I figured it's best to just start an email thread and see how people
+>> feel.
+>> 
+>> A lot of these new SOCs are based on Arm designs and the device trees
+>> very much reflect that, so it makes sense to me to just keep the device
+>> tree merges via as similar a path as possible.  IIUC that happens via
+>> the SOC tree these days, so it makes sense to me that we start handling
+>> the RISC-V device trees that way as well.  That would make things easier
+>> for contributors, as they'll have one workflow for all their SOCs, but
+>> also easier for me as a lot of this SOC stuff touches bits I really
+>> don't understand and thus get kind of lost trying to review.
 >
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/kvm/vcpu.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+> Reviewing the Renesas/Allwinner stuff, it's p apparent to me that they
+> need to go via the same tree for RISC-V and ARM.
 >
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 71ebbc4821f0..17d5b3f8c2ee 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -984,8 +984,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
->  	while (ret > 0) {
->  		/* Check conditions before entering the guest */
->  		ret = xfer_to_guest_mode_handle_work(vcpu);
-> -		if (!ret)
-> -			ret = 1;
-> +		if (ret)
-> +			continue;
+>> Arnd: looks like you're handling most of the merges these days so this
+>> would be increasing your workload.  I feel kind of bad just dumping a
+>> bunch of stuff on you, but I think at least now the RISC-V DTS are in
+>> reasonable shape so hopefully it's not that bad.
+>
+> Warning free at least... :)
 
-If that is supposed to exit the loop, it would be clearer to just use
-break.
+I don't see a problem with merging this through the SoC tree, it
+was always the plan to pick up related changes across architectures
+where needed.
 
-> +		ret = 1;
+The MIPS and PowerPC maintainers have so far preferred to handle
+the changes through their respective trees, everything else
+has been in the noise. Looking at the number of DT changesets since
+linux-5.0 per architecture, I see
 
-There is a condition on ret <= 0 later in the loop that no longer can be
-true.
+7748 arch/arm64/boot/dts
+6654 arch/arm/boot/dts
+197 arch/mips/boot/dts
+155 arch/riscv/boot/dts
+67 arch/powerpc/boot/dts
+35 arch/arc/boot/dts
+6 arch/openrisc/boot/dts
+5 arch/xtensa/boot/dts
+5 arch/nios2/boot/dts
+5 arch/microblaze/boot/dts
+2 arch/csky/boot/dts
+1 arch/loongarch/boot/dts
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+>> On a somewhat related note, Conor has offered to pick up the otherwise
+>> unmaintained RISC-V SOCs.  That's sort of its own discussion, but if we
+>> change over to the SOC tree we might as well just do everything at the
+>> same time.
+>> 
+>> Presumably we'd want to adjust the MAINTAINERS file in a handful of ways
+>> to make sure patches end up in the right place.
+>
+> Arnd mentioned that that should cover stuff in drivers/{soc,firmware} as
+> well as the dt, so with the assumption that that MAINTAINERS entry looks
+> something like:
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index cf0f18502372..03e78d2e5cc6 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -17709,6 +17709,16 @@ F:	arch/riscv/
+>  N:	riscv
+>  K:	riscv
+> 
+> +RISC-V/MISC SOC SUPPORT
+> +M:	Conor Dooley <conor@kernel.org>
+> +L:	linux-riscv@lists.infradead.org
+> +S:	Maintained
+> +Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+> +T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+> +F:	arch/riscv/boot/dts/
+> +F:	drivers/soc/microchip/
+> +F:	drivers/soc/sifive/
+
+I'd probably make separate entries here, at least for the
+drivers/soc/microchip directory, I can see that being shared with
+architectures other than RISC-V in the future, and the sifive
+directory should probably have at least a reviewer from
+sifive.com even if you plan to route the patches my way for
+them.
+
+    Ard
 
 _______________________________________________
 linux-riscv mailing list
