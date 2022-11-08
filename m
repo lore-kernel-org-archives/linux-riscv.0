@@ -4,105 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFF0C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 17:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE434C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Nov 2022 18:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rK+By5hSM3uGCRTsyUdWCDmOHAlg0PKVwYvH6m7PUVs=; b=QQKT4JfX8CY7cZ
-	jclsoy6Ykxa6R4tJ73gtToVQyNwRKZaWrR71qLcx9flzpcNCKNO68/KX02UN3BkfO9wyGJLOVRfs4
-	Ye8yiflPSaKzP3KDMVmdVvy/tj0lWFfpaw0zBK9dk4rZGvNgzclEJSYwDubjcjABw5kZ+pRbjdVj+
-	EqWUXeXtIHWFCTXuoC3W9/o689R4k+3fBJaAG+xDtzK9nUGRqrJeSqI4fqD2qoUzpBRD633Tji6TE
-	zZVVt3HRiwZEL8c2gHKCoTSnB+wF7I+HuJGINhO0kk+IKGIkbJxiALlm07YYLHtVvKsx+ugVaFtRO
-	glZrlX+6kwgiyIt5s+Ew==;
+	List-Owner; bh=aW5iEUt9Josn/XdAXK6o27dJNAJ+E9FIEHMaB9F/+ek=; b=pFaq49LYI+EQDk
+	jEv0LXBGzlUzFKzm19w2ZdNNDP6KFyncK82Ned/WeCL9UZc6Zjno0B+pJa8f1B/p7Sb4+0tEiKPRb
+	IbGhrwbMRaFBIobITId0LQB2qmC7VnHyURRXKRE2uXPGfgGOGd5GM+RfoAMKjWOOEbHexT2jxlfT4
+	N2/z8KhdxNePsdFoi57hQb+xmr1HMY5KN22oCoflR+rvNoyTrP48KyuQ/OGVYSrd/z5M+xBI6Wb/e
+	cEOU4GIvqy+Pm+kswGkaRvpKD+4YzAJn1ql5Fy1Pwo7n9jJPzJsHQI+9XQp2MuoTmtRewmP8GWiI8
+	/+9b8ILVkrV7ShdnTM8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSgP-007GCG-Nk; Tue, 08 Nov 2022 17:46:45 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1osTOy-007VTw-1X; Tue, 08 Nov 2022 18:32:48 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osSgL-007G5G-E2
-	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 17:46:43 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d20so13758273plr.10
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Nov 2022 09:46:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cjSjC5m99kmUUHYC704oOlI8KJi6LTudhKVnFW3q+Mo=;
-        b=ftWxPl3+8IfelsK/irLrvblaLrX6dvTk43ZU1RGb7E7QhEuhpuFGQnZUs1B/6eqA8Y
-         9uQybJjBJrLcnswih9ZuqdP/IGzw5N1LHsBYZwMjKm4pxbrW1ieLuxCyIbeQvnPHGIX9
-         KlKI+02Y2PtkvzGrkUCj7EVO4k0DJZDFtOtuUtFMvCioPX+FiFS160StdFwaRhG4AwZY
-         /X/0r60JYMQEe4UtsauftLe+islfrGWTT7n2RWyEhP6x94J5Vb4QTPr7DjEYHP04yepW
-         KF97tjKStfZxjB8uLonmnyGRloE774fNFuZ/STi6vuLRLYYB1EDXjhtfDOqD4TBoTzbU
-         ZVkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cjSjC5m99kmUUHYC704oOlI8KJi6LTudhKVnFW3q+Mo=;
-        b=dwYLzXiPytznHfh2nEBFXGLBceifI9woPs8BhohQlfWe9kKRw5ZyLZgfdSTwob3+yU
-         kQGrJeJ9dcxk2jHg2HuVgJxET3ZR02frc+eAdLTPEUj4+TewJhsWaladPZ8PaXKqNJ6H
-         Z19HagkL+RGeY80gwPdqHmVPm3PYPZQb8p47oAXsM9guwHnQYOmfHWFVVEYf7h3LNqAK
-         3FWpvS5b7lwrU0qN06tZv0PEKO5sFtPdqLchX71ojtzLXpytyuKcIny/iXsXzKBioxM2
-         8mPunKUI/m70fZmGSNK35F8u4AxZcihusyv9DG2xFsDE9NgpCO6DSmAYSjPwZ6Dn+XHc
-         4hHw==
-X-Gm-Message-State: ACrzQf0iURoQV07gC6vA0XYzFzzznZ32YQSUsbhdCfAIbhXu4G8n3W3q
-	PQXjMAtNZUbGCgDq0maIOuup1A==
-X-Google-Smtp-Source: AMsMyM6IejjlUU0y+myBNmX6xdBJY00CqsdAF2QTJKOsZh5WixYj1ODA6TQRcmab3f8JPfGm8K7ciQ==
-X-Received: by 2002:a17:902:ea04:b0:187:4923:56f4 with SMTP id s4-20020a170902ea0400b00187492356f4mr35142106plg.97.1667929596484;
-        Tue, 08 Nov 2022 09:46:36 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id b9-20020a170902d50900b00185402cfedesm7283578plg.246.2022.11.08.09.46.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Nov 2022 09:46:35 -0800 (PST)
-Date: Tue, 8 Nov 2022 17:46:32 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Isaku Yamahata <isaku.yamahata@gmail.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Fabiano Rosas <farosas@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Yuan Yao <yuan.yao@intel.com>
-Subject: Re: [PATCH 00/44] KVM: Rework kvm_init() and hardware enabling
-Message-ID: <Y2qV+IGKyKQItMj2@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221104071749.GC1063309@ls.amr.corp.intel.com>
- <Y2V1oslbw24/2Opd@google.com>
- <20221107214634.GE1063309@ls.amr.corp.intel.com>
+	id 1osTOt-007VRW-Eh
+	for linux-riscv@lists.infradead.org; Tue, 08 Nov 2022 18:32:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E199FB81BDE;
+	Tue,  8 Nov 2022 18:32:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BF60C433D6;
+	Tue,  8 Nov 2022 18:32:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1667932359;
+	bh=icGd5GPv/GdZwBY/786e7bQnWud2lRKv3P3CCjaRWwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a/QCsyZVFIsh05wFYGWDM5HvOPRftrE/fzPySxFQ1QLZO5vPvCQzLjemwA6U40rDN
+	 6eRue9wigTFnq1mnUKNWvYJbTvuPk5+oxl7fu1l41VXw54zXZ58d/ohmgRHKXllanJ
+	 rsHfhvV4RwTTky8/LlBWWA+b0PMg0Mm7Z2JsJTtkq+6WLSSNaYFTbuRM2lndXwwaqk
+	 VCZCJ/Bedf3tFCCzc0auvYy3jA7hvxazGUvCG+KnFEECTFdx5GZ6YEKT4OYmeqk+bE
+	 2P8ZsA4FJPAsOmqkUFhsx4XuDXmIX+yllRNvCE1ec0m5bEwsatB7mpn8brQXTLgUN2
+	 609wVqoWlAMSQ==
+Date: Tue, 8 Nov 2022 18:32:35 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 3/4] pwm: add microchip soft ip corePWM driver
+Message-ID: <Y2qgw2wAezkHSgg5@spud>
+References: <20221007113512.91501-1-conor.dooley@microchip.com>
+ <20221007113512.91501-4-conor.dooley@microchip.com>
+ <20221108155041.t4oppot5wy77jzgd@pengutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221107214634.GE1063309@ls.amr.corp.intel.com>
+In-Reply-To: <20221108155041.t4oppot5wy77jzgd@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221108_094641_521928_F7F546E1 
-X-CRM114-Status: GOOD (  29.40  )
+X-CRM114-CacheID: sfid-20221108_103243_822393_CCF53B94 
+X-CRM114-Status: GOOD (  33.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,90 +74,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 07, 2022, Isaku Yamahata wrote:
-> On Fri, Nov 04, 2022 at 08:27:14PM +0000,
-> Sean Christopherson <seanjc@google.com> wrote:
-> 
-> > On Fri, Nov 04, 2022, Isaku Yamahata wrote:
-> > > Thanks for the patch series. I the rebased TDX KVM patch series and it worked.
-> > > Since cpu offline needs to be rejected in some cases(To keep at least one cpu
-> > > on a package), arch hook for cpu offline is needed.
-> > 
-> > I hate to bring this up because I doubt there's a real use case for SUSPEND with
-> > TDX, but the CPU offline path isn't just for true offlining of CPUs.  When the
-> > system enters SUSPEND, only the initiating CPU goes through kvm_suspend()+kvm_resume(),
-> > all responding CPUs go through CPU offline+online.  I.e. disallowing all CPUs from
-> > going "offline" will prevent suspending the system.
-> 
-> The current TDX KVM implementation disallows CPU package from offline only when
-> TDs are running.  If no TD is running, CPU offline is allowed.  So before
-> SUSPEND, TDs need to be killed via systemd or something.  After killing TDs, the
-> system can enter into SUSPEND state.
+On Tue, Nov 08, 2022 at 04:50:41PM +0100, Uwe Kleine-K=F6nig wrote:
+> Hello,
 
-Ah, I assumed offlining was disallowed if TDX was enabled.
+Hello! Thanks for the review Uwe :)
 
-> > I don't see anything in the TDX series or the specs that suggests suspend+resume
-> > is disallowed when TDX is enabled, so blocking that seems just as wrong as
-> > preventing software from soft-offlining CPUs.
-> 
-> When it comes to SUSPEND, it means suspend-to-idle, ACPI S1, S3, or S4.
-> suspend-to-idle doesn't require CPU offline.
-> 
-> Although CPU related spec doesn't mention about S3, the ACPI spec says
-> 
->   7.4.2.2 System _S1 State (Sleeping with Processor Context Maintained)
->   The processor-complex context is maintained.
-> 
->   7.4.2.4 System _S3 State or 7.4.2.5 System _S4 State
->   The processor-complex context is not maintained.
-> 
-> It's safe to say the processor context related to TDX is complex, I think.
-> Let me summarize the situation. What do you think?
-> 
-> - While no TD running:
->   No additional limitation on CPU offline.
-> 
-> - On TD creation:
->   If any of whole cpu package is software offlined, TD creation fails.
->   Alternative: forcibly online necessary CPUs, create TD, and offline CPUs
+> On Fri, Oct 07, 2022 at 12:35:12PM +0100, Conor Dooley wrote:
 
-The alternative isn't really viable because there's no way the kernel can guarantee
-a CPU can be onlined, i.e. the kernel would need to fallback of disallowing TD
-creation anyways.
+> > +static int mchp_core_pwm_apply_locked(struct pwm_chip *chip, struct pw=
+m_device *pwm,
+> > +				      const struct pwm_state *state)
+> > +{
+> > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> > +	struct pwm_state current_state =3D pwm->state;
+> > +	bool period_locked;
+> > +	u64 duty_steps;
+> > +	u16 prescale;
+> > +	u8 period_steps;
+> > +
+> > +	if (!state->enabled) {
+> > +		mchp_core_pwm_enable(chip, pwm, false, current_state.period);
+> > +		return 0;
+> > +	}
+> > +
+> > +	/*
+> > +	 * If the only thing that has changed is the duty cycle or the polari=
+ty,
+> > +	 * we can shortcut the calculations and just compute/apply the new du=
+ty
+> > +	 * cycle pos & neg edges
+> > +	 * As all the channels share the same period, do not allow it to be
+> > +	 * changed if any other channels are enabled.
+> > +	 * If the period is locked, it may not be possible to use a period
+> > +	 * less than that requested. In that case, we just abort.
+> > +	 */
+> > +	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
+> > +
+> > +	if (period_locked) {
+> > +		u16 hw_prescale;
+> > +		u8 hw_period_steps;
+> > +
+> > +		mchp_core_pwm_calc_period(chip, state, &prescale, &period_steps);
+> > +		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRES=
+CALE);
+> > +		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_=
+PERIOD);
+> > +
+> > +		if ((period_steps + 1) * (prescale + 1) <
+> > +		    (hw_period_steps + 1) * (hw_prescale + 1))
+> > +			return -EINVAL;
+> > +
+> > +		/*
+> > +		 * It is possible that something could have set the period_steps
+> > +		 * register to 0xff, which would prevent us from setting a 100%
+> > +		 * or 0% relative duty cycle, as explained above in
+> > +		 * mchp_core_pwm_calc_period().
+> > +		 * The period is locked and we cannot change this, so we abort.
+> > +		 */
+> > +		if (hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
+> > +			return -EINVAL;
+> > +
+> > +		prescale =3D hw_prescale;
+> > +		period_steps =3D hw_period_steps;
+> > +	} else {
+> > +		int ret;
+> > +
+> > +		ret =3D mchp_core_pwm_calc_period(chip, state, &prescale, &period_st=
+eps);
+> > +		if (ret)
+> > +			return ret;
+> > +
+> > +		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
+> > +	}
+> > +
+> > +	duty_steps =3D mchp_core_pwm_calc_duty(chip, pwm, state, prescale, pe=
+riod_steps);
+> =
 
-> - TD running:
->   Although it's not required to keep all CPU packages online, keep CPU package
->   from offlining for TD destruction.
-> 
-> - TD destruction:
->   If any of whole cpu package is software offlined, TD destruction fails.
->   The current implementation prevents any cpu package from offlinining during
->   TD running.
->   Alternative:
->   - forcibly online necessary CPUs, destruct TD, and offline CPUs again and
->     allow CPU package to offline
->   - Stash TDX resources somewhere. When cpu packages are onlined, free those
->     release.
-> 
-> - On SUSPEND:
->   TODO: Allow CPU offline if S1 is requested.
+> Both mchp_core_pwm_calc_period and mchp_core_pwm_calc_duty call
+> clk_get_rate(), I suggest call this only once and pass the rate to these
+> two functions.
 
-Is this actually a TODO?  I assume the kernel doesn't actually try to offline
-CPUs in this case, i.e. it Just Works.
+Sure. I think the signatures of both of those functions could be reduced
+in the process which would be nice.
 
->   - suspend-to-idle: nothing to do because cpu offline isn't required
->   - ACPI S1: Need to allow offline CPUs.  This can be implemented by referencing
->     suspend_state_t pm_suspend_target_state is PM_SUSPEND_TO_STANBY.
->   - ACPI S3/S4: refuse cpu offline.  The system needs to kill all TDs before
->     starting SUSPEND process. This is what is implemented.
+> Both branches of the if above start with calling
+> mchp_core_pwm_calc_period, this could be simplified, too.
 
-Looks good, disallowing SUSPEND with active TDs is a reasonable tradeoff.  As
-above, I highly doubt anyone actually cares.
+	ret =3D mchp_core_pwm_calc_period(chip, state, &prescale, &period_steps);
+	if (ret)
+		return ret;
+
+	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
+
+	if (period_locked) {
+		u16 hw_prescale;
+		u8 hw_period_steps;
+
+		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
+		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PERIO=
+D);
+
+		if ((period_steps + 1) * (prescale + 1) <
+		    (hw_period_steps + 1) * (hw_prescale + 1))
+			return -EINVAL;
+
+		/*
+		 * It is possible that something could have set the period_steps
+		 * register to 0xff, which would prevent us from setting a 100%
+		 * or 0% relative duty cycle, as explained above in
+		 * mchp_core_pwm_calc_period().
+		 * The period is locked and we cannot change this, so we abort.
+		 */
+		if (hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
+			return -EINVAL;
+
+		prescale =3D hw_prescale;
+		period_steps =3D hw_period_steps;
+	} else {
+		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
+	}
+
+	duty_steps =3D mchp_core_pwm_calc_duty(chip, pwm, state, prescale, period_=
+steps);
+
+I'll aim for something like the (absolutely untested) above then when I
+respin.
+
+> (Hmm, in
+> exactly one of them you check the return code, wouldn't that be sensible
+> for both callers?)
+
+Been messing with rust a bit of late, I love the #[must_use] attribute.
+Looks to be an oversight since it's only going to return an error if the
+clock rate exceeds what the FPGA is actually capable of.
+
+Thanks again,
+Conor.
+
 
 _______________________________________________
 linux-riscv mailing list
