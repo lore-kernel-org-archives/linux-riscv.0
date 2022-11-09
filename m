@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4007C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Nov 2022 19:55:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F58C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Nov 2022 21:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Q8AC53B9A99cBj1OQR5j+Ibhsbl5KYbF75VuHrPm03s=; b=iXxMMKTNuYfte5MBaAGZLDKdOF
-	4e6sX7jYj1KICvBGCl2N9uKBtBtYK6lQWhvjqFEG1hGwNYffYkx+0rZSObJGY1mowt5A43IFstOaO
-	W3R+VAMBthyEElTkO3W98p/ml505Q8SfwX7aVAmdJ5PKoqcQ7z94CwQZKtBahFwDHju3CyP+0VHZU
-	EF7Sxn7JqxEkipKjkJSa9tmZHpJ9rSX2XnmQiboW4P5jINmdfslXUdevqWTJIMrB6LVs40dBDtYf0
-	mw/mgTgbUkskqcj2K1ZkRpV01TWjcY4yg7r3hwqF8U4ka5sL6Skb4uXSMA9SNXaa/pe1k9XTycqhq
-	h+msc3sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jCRrBi10+WuOltv2k6dOMdErhghyPyD1Dh6WD21BLJw=; b=iPuOh65H8m1/4r
+	qyr1zS81wJQO/3hJ9DWo7aUrW1f/jclZ5igOsD45tRTi8mLnNRBCDbHt8ol9if2xbUN2Ow5jxWkH4
+	n5QVj/oCKx7M6+a0+DyccRtSPG+g0PgJKoHDSoN7RQ3Dg7skreHJaFj3cUW+uiibrwL3Rd+YPmRzv
+	RmKdqT6pcx7ExgVTvYA5YlNZHSJOxeYy30LCIj8Yu2jV4RfY/RovC9E/G9NEaJOuZgnzSrlL/B5nm
+	emwUeBxGb16QD5V0DihPrYqtYGWBdTNlQJASawq5ZpORMI0Q/h/7F+cZPZxzZnAFaK+r4hhAF6BOa
+	QFfcRi4RaCgqoZmxeBsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osrAa-00Gnno-8n; Wed, 09 Nov 2022 19:55:32 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1ossRk-00HMyO-US; Wed, 09 Nov 2022 21:17:20 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1osrAW-00GnlF-1m
-	for linux-riscv@lists.infradead.org; Wed, 09 Nov 2022 19:55:30 +0000
-Received: by mail-pg1-x534.google.com with SMTP id h193so17093398pgc.10
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Nov 2022 11:55:26 -0800 (PST)
+	id 1ossRY-00HMsA-Qv; Wed, 09 Nov 2022 21:17:10 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id l6so73107pjj.0;
+        Wed, 09 Nov 2022 13:17:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Lhu0AaXEHpohB57ir2dSQXl6jTPxnwC4FKWIfCDgyuQ=;
-        b=KLrj/KYNV8XkhPS1iVxKu/aPMmyU1eZXY/F92davxqF98lFJkaDajitQpvLL4vIrUZ
-         RU7h9cdLzbmNLn0L1qXfQRwCmi310yFjxach5EiNriUwsj4QY8tSCN87JHeXJyddsuys
-         72M/pHU11niJlVMdwR5BejriAj5tTWIKSL3Zum9Kr5LjGnYIBB+KYcP7u+2Q/hzO4Ovc
-         tU1U6kuUmaW/d49VLzRNA0NrCOBTKDlZUJ48t/FF5HX9jTARqKnEoZUIP0SBy4fffs1f
-         QNQtfiVfaubbqysdwv5B8gG1PQb5SEDi45P+WAnFZXNK62PytNrCB9DDZsJJ9qdrmxMB
-         hRjg==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6o0JaodUdCinHCuijBKMPPDh4qNhM3W4CwZTMs5pShU=;
+        b=b7JdsqL98tFczElrzx45zPQRQqT+FLWQdW7GQ21VMf1VWbVkWvdPT7fPQVW9/YYGhj
+         fsJmZVTrJHZqpF5nrGm5JKasB3diwCu2Hs5yNW2C9n/rEZiCH7R7PnAEwZ/MGa/qzyIG
+         zfiOnumXidobU0/zuy474imLQWsj+TNcT1BwOR4wCZrc7nj9wEle1ahDUDnwTkt6UQJ1
+         bZGNJ9fqbFCNFUTDQDZYUF5tjtiVt+POwV9J5xnlurRxP4GFYN8l+xbrN6OKbV0N8j6j
+         kPz632gUkLxrLhg+OI3WB7b7hny2T7RaIKSOWnHn8CvNieatf9SjrSo7u+FU7dyzH4Jo
+         RWzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lhu0AaXEHpohB57ir2dSQXl6jTPxnwC4FKWIfCDgyuQ=;
-        b=BSTRUldu4N1Lx9y0oSQBxqM9MxNT5pplzQCUXXj5bFUz1jD7idFtzeTnuozdLg7qs+
-         S4S1/E2d/zUInRV7S8t5kdR69EvArEL5bidWhJff0QMeaaj80UGbTxkcx7GBW9GeNvKq
-         q+Fnvat3bXo6jztwfPxyEmJDq1M7ToeCaCItmqvsGyogKMvwcvSIGeFhfURpsGD2Cjkt
-         UsmTEGpCXpvtwYZxLims+gOuxEezEQeQsog4ucz2rDMm3GSEHTiQOu/BokBxQv1r+eUE
-         sSVN1yaCAtZClmtZYdx7o4RGEKk3nfJKqVlyltEyFWSM/eeHAIfenZmGOHU1n4Tm0ImI
-         ImCg==
-X-Gm-Message-State: ACrzQf15huNZsuSzpb3fmtT+uPGM6zmKj8Q6ON5xQ0jfvX5SSXbEBkxS
-	Mshi+kk6voK+mjhYTnjta14aIw==
-X-Google-Smtp-Source: AMsMyM4yxxTSRBnPGND+4E6OHwiGrFVk5cgGXo5F+I0YpXul+RM44cAyB0NLsjogLjCA7A1w6czz7Q==
-X-Received: by 2002:a05:6a00:1482:b0:56c:6a9c:3d7 with SMTP id v2-20020a056a00148200b0056c6a9c03d7mr62529169pfu.0.1668023725592;
-        Wed, 09 Nov 2022 11:55:25 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id d14-20020a170902654e00b00172f6726d8esm9466969pln.277.2022.11.09.11.55.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Nov 2022 11:55:24 -0800 (PST)
-Date: Wed, 09 Nov 2022 11:55:24 -0800 (PST)
-X-Google-Original-Date: Wed, 09 Nov 2022 11:55:21 PST (-0800)
-Subject: Re: [PATCH v5 0/7] Add support for Renesas RZ/Five SoC
-In-Reply-To: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  geert+renesas@glider.be, magnus.damm@gmail.com, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-  heiko@sntech.de, Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org,
-  anup@brainfault.org, Atish Patra <atishp@rivosinc.com>, heinrich.schuchardt@canonical.com,
-  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-renesas-soc@vger.kernel.org, prabhakar.csengg@gmail.com, biju.das.jz@bp.renesas.com,
-  prabhakar.mahadev-lad.rj@bp.renesas.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: prabhakar.csengg@gmail.com
-Message-ID: <mhng-563fb6cf-4505-4137-8da1-13f631e1c74f@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6o0JaodUdCinHCuijBKMPPDh4qNhM3W4CwZTMs5pShU=;
+        b=7t/ga172Tu/Knv53EKMqcGlD1np0ibRjAhvC2mTXz3Oe/FVCVFc1Jb6kSn38ieu5YD
+         xvhmhAGT+JXGTSzFbBl8BvmwpHwUw88cpoWoj/nCqsjBfkl2f3PUbJeVAsAA0zWt6ZUf
+         l4KshmYrcU7WKNQIGgjDwOwyg3pG5TXBEegt2hPYavtIz7p6Mnou54UcnORJcwSJ2la9
+         ozPR0KfDUIlOpxVDuNg4NVmYEQ7/bMirFrj5zfgejyq8N1YS/67QB6beoBsp/GBsKfx0
+         l9EeJMgzFmWjSOt1GetnT5+32vS3s/nqH+sgbzQmPmEXrq+lAo2X23fO6zzIOtKAMHv4
+         2wBQ==
+X-Gm-Message-State: ACrzQf2fBtawOcz9vu834nBrDuo0amx53uodIG+7fIXW9P+vEQvlRAIn
+	S/2Qm2BLeF5RnqqI13jClgJ22gAmRaMKV1ahXng=
+X-Google-Smtp-Source: AMsMyM5vTjPHFhQ2vYKc1ap+Gnz9Xnoi5f6pFtOuhyEULsih6osIQH75MdocdJksgvBY7Bht8TwzxWn0ElldlUKBtUU=
+X-Received: by 2002:a17:902:da82:b0:186:ee5a:47c7 with SMTP id
+ j2-20020a170902da8200b00186ee5a47c7mr63072929plx.82.1668028625070; Wed, 09
+ Nov 2022 13:17:05 -0800 (PST)
+MIME-Version: 1.0
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz> <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <87187c52-ae48-130b-6479-ae1023915bc1@suse.cz> <20221109155008.GC307514@darkstar.musicnaut.iki.fi>
+In-Reply-To: <20221109155008.GC307514@darkstar.musicnaut.iki.fi>
+From: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Date: Wed, 9 Nov 2022 22:16:53 +0100
+Message-ID: <CAGfqbt50b9rFEjbFPCZoQnNyBN+CAgBf6bxwpbr4z=tL_A97MQ@mail.gmail.com>
+Subject: Re: Deprecating and removing SLOB
+To: Vlastimil Babka <vbabka@suse.cz>, Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>, Christoph Lameter <cl@linux.com>, 
+	David Rientjes <rientjes@google.com>, Joonsoo Kim <iamjoonsoo.kim@lge.com>, 
+	Pekka Enberg <penberg@kernel.org>, Hyeonggon Yoo <42.hyeyoo@gmail.com>, 
+	Matthew Wilcox <willy@infradead.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Rustam Kovhaev <rkovhaev@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>, 
+	Tony Lindgren <tony@atomide.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Rich Felker <dalias@libc.org>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org, 
+	linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221109_115528_355423_6E1EE15F 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20221109_131708_912847_012DCE03 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,181 +92,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Oct 2022 09:59:14 PDT (-0700), prabhakar.csengg@gmail.com wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On Wednesday, 9 November 2022 16:50:08 CET Aaro Koskinen wrote:
+> Hi,
 >
-> Hi All,
+> On Wed, Nov 09, 2022 at 10:00:25AM +0100, Vlastimil Babka wrote:
+> > > On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
+> > >> I believe SLOB can be removed because:
+> > >>
+> > >> - AFAIK nobody really uses it? It strives for minimal memory footprint
+> > >> by putting all objects together, which has its CPU performance costs
+> > >> (locking, lack of percpu caching, searching for free space...). I'm not
+> > >> aware of any "tiny linux" deployment that opts for this. For example,
+> > >> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
+> > >> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
+> > >> SLOB impact is too much for those who tried. Googling for
+> > >> "CONFIG_SLOB=y" yielded nothing useful.
+> > >
+> > > I am all for removing SLOB.
+> > >
+> > > There are some devices with configs where SLOB is enabled by default.
+> > > Perhaps, the owners/maintainers of those devices/configs should be
+> > > included into this thread:
 >
-> The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
-> 1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
-> as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
-> entry-class social infrastructure gateway control and industrial gateway
-> control.
+> [...]
 >
-> This patch series adds initial SoC DTSi support for Renesas RZ/Five
-> (R9A07G043) SoC. Below is the list of IP blocks enabled in the initial
-> board DTS which can be used to boot via initramfs on RZ/Five SMARC EVK:
-> - AX45MP CPU
-> - CPG
-> - PINCTRL
-> - PLIC
-> - SCIF0
-> - SYSC
+> > > arch/arm/configs/omap1_defconfig:CONFIG_SLOB=y
 >
-> Useful links:
-> -------------
-> [0] https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
-> [1] http://www.andestech.com/en/products-solutions/andescore-processors/riscv-ax45mp/
+> I have been using SLUB on my OMAP1 boards with 32 MB RAM, because of
+> better debugging features and the memory footprint difference doesn't
+> really matter for my use cases. Looking at history why SLOB was added
+> there, it seems it came from 6cfce27c14aa ("omap1: Add omap1_defconfig")
+> when separate boards configs were merged, and SX1 board happened to have
+> SLOB in there. This board is nowadays only used in QEMU anyway.
 >
-> Patch series depends on the below patches (which are queued in the Renesas tree for v6.2):
-> ------------------------------------------------------------------------------------
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dt-bindings-for-v6.2&id=c27ce08b806d606cd5cd0e8252d1ed2b729b5b55
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-dt-bindings-for-v6.2&id=7dd1d57c052e88f98b9e9145461b13bca019d108
-> [2] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-soc-for-v6.2&id=b3acbca3c80e612478b354e43c1480c3fc15873e
-> [3] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-dt-for-v6.2&id=49669da644cf000eb79dbede55bd04acf3f2f0a0
-> [4] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/commit/?h=renesas-arm-dt-for-v6.2&id=b9a0be2054964026aa58966ce9724b672f210835
->
-> v4 -> v5:
-> ---------
-> * Rebased patches on -next
-> * Included RB tags
-> * Dropped patches #1 and #4 (form v4) as they are queued up by Renesas trees
-> * Patch #7 from v4 was not needed anymore so dropped it
-> * Patches #4 and #5 are new
->
-> v4: https://lore.kernel.org/all/20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v3: https://lore.kernel.org/lkml/20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v2: https://lore.kernel.org/all/20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> v1: https://lore.kernel.org/lkml/20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
->
-> Below are the logs from RZ/Five SMARC EVK:
-> ------------------------------------------
->
-> / # uname -ra;
-> Linux (none) 6.1.0-rc2-00036-gbad82a074f62 #145 SMP Fri Oct 28 17:18:41 BST 2022 riscv64 GNU/Linux
-> / # cat /proc/cpuinfo;
-> processor       : 0
-> hart            : 0
-> isa             : rv64imafdc
-> mmu             : sv39
-> uarch           : andestech,ax45mp
-> mvendorid       : 0x31e
-> marchid         : 0x8000000000008a45
-> mimpid          : 0x500
->
-> / # for i in machine family soc_id revision; do echo -n "$i: ";cat /sys/devices/
-> soc0/$i; done
-> machine: Renesas SMARC EVK based on r9a07g043f01
-> family: RZ/Five
-> soc_id: r9a07g043
-> revision: 0
-> / #
-> / # cat /proc/interrupts
->            CPU0
->   1:          0  SiFive PLIC 412 Level     1004b800.serial:rx err
->   2:         16  SiFive PLIC 414 Level     1004b800.serial:rx full
->   3:        402  SiFive PLIC 415 Level     1004b800.serial:tx empty
->   4:          0  SiFive PLIC 413 Level     1004b800.serial:break
->   5:      41826  RISC-V INTC   5 Edge      riscv-timer
->   6:         10  SiFive PLIC 416 Level     1004b800.serial:rx ready
-> IPI0:         0  Rescheduling interrupts
-> IPI1:         0  Function call interrupts
-> IPI2:         0  CPU stop interrupts
-> IPI3:         0  IRQ work interrupts
-> IPI4:         0  Timer broadcast interrupts
-> / #
-> / # cat /proc/meminfo
-> MemTotal:         882252 kB
-> MemFree:          860848 kB
-> MemAvailable:     858608 kB
-> Buffers:               0 kB
-> Cached:             1796 kB
-> SwapCached:            0 kB
-> Active:                0 kB
-> Inactive:             72 kB
-> Active(anon):          0 kB
-> Inactive(anon):       72 kB
-> Active(file):          0 kB
-> Inactive(file):        0 kB
-> Unevictable:        1796 kB
-> Mlocked:               0 kB
-> SwapTotal:             0 kB
-> SwapFree:              0 kB
-> Dirty:                 0 kB
-> Writeback:             0 kB
-> AnonPages:           108 kB
-> Mapped:             1200 kB
-> Shmem:                 0 kB
-> KReclaimable:       6760 kB
-> Slab:              12360 kB
-> SReclaimable:       6760 kB
-> SUnreclaim:         5600 kB
-> KernelStack:         620 kB
-> PageTables:           32 kB
-> SecPageTables:         0 kB
-> NFS_Unstable:          0 kB
-> Bounce:                0 kB
-> WritebackTmp:          0 kB
-> CommitLimit:      441124 kB
-> Committed_AS:        592 kB
-> VmallocTotal:   67108864 kB
-> VmallocUsed:        1132 kB
-> VmallocChunk:          0 kB
-> Percpu:               84 kB
-> HugePages_Total:       0
-> HugePages_Free:        0
-> HugePages_Rsvd:        0
-> HugePages_Surp:        0
-> Hugepagesize:       2048 kB
-> Hugetlb:               0 kB
-> / #
-> / #
->
-> Cheers,
-> Prabhakar
->
-> Lad Prabhakar (7):
->   dt-bindings: riscv: Sort the CPU core list alphabetically
->   dt-bindings: riscv: Add Andes AX45MP core to the list
->   riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
->   riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
->   riscv: dts: renesas: Add minimal DTS for Renesas RZ/Five SMARC EVK
->   MAINTAINERS: Add entry for Renesas RISC-V
->   riscv: configs: defconfig: Enable Renesas RZ/Five SoC
->
->  .../devicetree/bindings/riscv/cpus.yaml       | 11 ++-
->  MAINTAINERS                                   |  3 +-
->  arch/riscv/Kconfig.socs                       |  5 +
->  arch/riscv/boot/dts/Makefile                  |  1 +
->  arch/riscv/boot/dts/renesas/Makefile          |  2 +
->  arch/riscv/boot/dts/renesas/r9a07g043f.dtsi   | 57 ++++++++++++
->  .../boot/dts/renesas/r9a07g043f01-smarc.dts   | 27 ++++++
->  .../boot/dts/renesas/rzfive-smarc-som.dtsi    | 58 ++++++++++++
->  arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi | 91 +++++++++++++++++++
->  arch/riscv/configs/defconfig                  |  3 +
->  10 files changed, 252 insertions(+), 6 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/renesas/Makefile
->  create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
->  create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
->  create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
->  create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+> There are OMAP1 boards with only 16 MB, but support for those boards
+> will be removed. So from OMAP1 side, I don't think there is any real
+> need for SLOB anymore.
 
-Geert was mentioning taking these though one of his trees, that works 
-for me so
+Moreover, I always had issues with availability of socket buffers during USB
+device setup when trying to use SLOB on Amstrad Delta based on OMAP1510,
+the least powerful OMAP1.  Then, +1 for SLOB removal.
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-Happy to do a shared tag or whatever, but I think we can just skip that 
-here.  The only conflicts would be defconfig and Kconfig.socs, but I 
-don't think anything big is in the works for either -- unless Conor was 
-planning on re-spinning that Kconfig.socs rework?
-
-Thanks!
+Thanks,
+Janusz
 
 _______________________________________________
 linux-riscv mailing list
