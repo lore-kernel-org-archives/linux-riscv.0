@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7007C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 22:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B6EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 22:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
 	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Umyk6KEAL0z7rZ/mMW+gKvfkdNERZgCoPxRDZMGFJ2w=; b=JZZFvkrgc151iH
-	zksgUQgng292yWkPcTDeG3F1Uzbm8Qrb2xw7ANigHSHat/WLTZd5vDztvRrDwYXedMonMmo4mdlB5
-	5X5BvLQMckWQoh3ocqhTl2AjgelmzvuxwNajzJxGCZUm/2WMAtqTJ5nS8fI8x+69j1aB4hg1lzIDw
-	WKsMB5BR/0YtPuuFwnyFrWV/p7AefDR8asvPsmXHfnGjEj8ARXOTNh5qZU3LKsB+7J02H+nW9OmdM
-	aCmvTw2mrJbnsjHf6i0I6DicMPZlbF9MLCwv96FsvvYzc7KHhyIpWZcooDrkJ2AFbxTqOL67AKUZk
-	gKslhxfWcC1lRomw++QQ==;
+	List-Owner; bh=peGuAq8BXAm0KEvQxg3kcAXNqvyaPf1c3sOTYtLWw3M=; b=XYHUTjkApOs/Rl
+	gHPpteok6fOEcC0wHN57TTeZ0uuu5lJ7p8+UJNycPKB8UwIuvNjLa06FYXzoXxkjYhY6BP+WixqvH
+	jIR5nkYkGYgNi4BgRNaBSc3tp/gVRTwMrr8Gau1EZjzEBhbplt0QY6dE+rNshaOIRRMRkYl8TMpVY
+	fivBsI8Zu4NGb7WPvLm0cGItLXaQWxVFO7vDdq/aBVrxs7fv+Ib+/WU0qnU8otoFqAr6AudEZnyvS
+	/g/WAlSInw53E/tyz0+2AfmSZFSqJWBoz5TunqoBnCj+tD+Xtg3lSekTAsNTpQCu5bALxXZlal03V
+	FvC/52Mn9m0SmlXUl/WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGJu-00An61-6b; Thu, 10 Nov 2022 22:46:50 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1otGJv-00An6L-Hz; Thu, 10 Nov 2022 22:46:51 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGJq-00An4I-PG
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 22:46:48 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id l22-20020a17090a3f1600b00212fbbcfb78so6205412pjc.3
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 14:46:45 -0800 (PST)
+	id 1otGJr-00An4W-N8
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 22:46:49 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id q71so2937046pgq.8
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 14:46:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=88wxF7EFPI4oVF6TP1DUCBFSPf8iLofiNlQTDEC/2/E=;
-        b=Bd5wnWlpK7G2yQB6xFMcBNaY19/+Hp53I5ByjmFSt7jOjwEMxLP0JeT2nEgmOmC6gf
-         HAgp09tEWNs90/tiLbjVKe/lt9EJcH+6Lso1skB9teTnLw3NUzHiKFhiHrMHLYXsdivC
-         5xseIPqqfCxv5oPrUDNJN6i7kt0y6BQZu/tlPa/qi3nBumpu907ktTSyswJOpr7zEOhL
-         6VoiGP6cmaUIcaadSOhJ503SM/I9w2mxfm/tsv4PnDxn1h++dnmAh6JfRv/5OqhQb09l
-         qY9lKQP5kO/lt/hsgIt61hStPeA0it03UGeS6fey4Wa93SllNYAk9DUodq1IqEjMGD+y
-         8SvA==
+        bh=+HQDpPym5LjtymWxLp9cUJ2V2mQCjf8ma1sxDeE3Trs=;
+        b=4OVUeR2TK6kWC2W5gQrF/BlbpmApyFxOIyfASWXy/mRnhwY6WACExnL/RULtvMHmhe
+         C8fGSRkbItiDjQ8hVxrOJAUjyIV9xkxtMqjVzhxKALVXd78L2XmkjRJaSQ6/KaXgd2in
+         RrQMuyzZhqK16eo7uIywZbvcPNos8I658qoFY3EbmR+soPcjKYd9aO/IvGemRrwPd9hz
+         ckiSEIZEWJQSkF4mAimRjRnVoOIvtnHn1YNGa5Seemn+U4SdpDYGdPQqqEI4JFopF8BA
+         F2QwkNRxECouBslnr+PswF65YjcizTLqA6wgcr+rzHC1V9MsicfDO37acZq+CpwEH9wz
+         EBLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
          :subject:references:in-reply-to:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=88wxF7EFPI4oVF6TP1DUCBFSPf8iLofiNlQTDEC/2/E=;
-        b=7N6yRyAnojO1pP2oPEQR89zNH+VKwU16+0Z1eXdWxiyJt+Q1uemovAK2F/s+jFFc1o
-         v6tYeooefX5mtUQsGdppqprPhVo9bFB6wy0liKZ6KGS81/Sv6tI2PJTUmMxH1VKTz7q/
-         8i7UCsTOU8MDK9tY6ZJ8IeNT8I07/+fR+Fjwx6oo1znsd0aSxClvltfMcQqU0Uhxqujr
-         +pl0RVG5C80HLEx3gJZdhGbWzva68kvcyJQROD1qhKsVPGgbFUPP80GCTamH8jcUbTgm
-         5HRinRKfzlP/SDSEP6gFS5M2WAYIcUC0vYBo9cGd95mYCq1Q2l1fyZh85meO+7J+vKZy
-         l5Yg==
-X-Gm-Message-State: ACrzQf3+cNcOnrVVCAXZc+cKbqkjEfi0KzZK3/xp2frd9Jc/14tjr32N
-	Af4dHrVLDMBJi+T2k/kb1r6jZA==
-X-Google-Smtp-Source: AMsMyM46dMjtYOYxxhT+H8nuIspDfW4PXlfp8Sw3+5OSXjBnHTEwH17yXbjSY2l2DcZdiITD0hVxew==
-X-Received: by 2002:a17:90a:dc04:b0:213:8126:867c with SMTP id i4-20020a17090adc0400b002138126867cmr2361274pjv.183.1668120405202;
-        Thu, 10 Nov 2022 14:46:45 -0800 (PST)
+        bh=+HQDpPym5LjtymWxLp9cUJ2V2mQCjf8ma1sxDeE3Trs=;
+        b=KriozyU1gR1K75bmol12TaKvyJJGY8IYrHLV3tJ5Exgl6jxynRYgbP46V9lldibAqY
+         a7UKjh0QaQsrHBSB98wlqhWowj0a2HfoefxKaVyojTpBEbRSWg6X6hLFnPswzeG4z2R4
+         opHITc+eyanhLplNG6PvbV4YTG24CO4ig50+boGyhe+IuwvF/KedXX8zzh+Wl4tYo1cO
+         ge09bfWvmr1PUjYIkJtKLB+/sNAGUctUCbXxqEKBoo4Kg8AF7viQ5l7T2PUXk54gW+NG
+         KquzvNNOAJmmStr8c+ygwy6r7uhyANboNFGklEO5sP/YLuVvksQL0FPxUtfLykp3kmUx
+         aNGQ==
+X-Gm-Message-State: ACrzQf2+Sgnd8rsJAZQdfRZGzAwa/uOin6o7OTocv5sp+vA0iI+FRxy9
+	sI6zHwzC0+fsl1Mc3kuh58J6E9I2d5Fw2g==
+X-Google-Smtp-Source: AMsMyM6wdg+8KRdSAaiwO14Vxuxd+vx0l/jvivNeeD4ncPgJBLu1u77/UQZ2qL00jLHDi1FK6zWo0w==
+X-Received: by 2002:a63:6d49:0:b0:43c:4eef:bac7 with SMTP id i70-20020a636d49000000b0043c4eefbac7mr3654048pgc.356.1668120406609;
+        Thu, 10 Nov 2022 14:46:46 -0800 (PST)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id om8-20020a17090b3a8800b00216df8f03fdsm3594817pjb.50.2022.11.10.14.46.44
+        by smtp.gmail.com with ESMTPSA id r10-20020a17090a454a00b00214247ac1acsm3571235pjm.12.2022.11.10.14.46.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Nov 2022 14:46:44 -0800 (PST)
-In-Reply-To: <20221029113450.4027-1-jszhang@kernel.org>
-References: <20221029113450.4027-1-jszhang@kernel.org>
-Subject: Re: [PATCH] riscv: process: fix kernel info leakage
-Message-Id: <166812034327.20280.16820301693244403901.b4-ty@rivosinc.com>
+        Thu, 10 Nov 2022 14:46:46 -0800 (PST)
+In-Reply-To: <20221031182943.2453-1-jszhang@kernel.org>
+References: <20221031182943.2453-1-jszhang@kernel.org>
+Subject: Re: [PATCH] riscv: vdso: fix build with llvm
+Message-Id: <166812034329.20280.6345239431217056884.b4-ty@rivosinc.com>
 Date: Thu, 10 Nov 2022 14:45:43 -0800
 MIME-Version: 1.0
 X-Mailer: b4 0.11.0-dev-36ce3
 Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+To: Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+  Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_144647_061613_508B01C4 
-X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-CacheID: sfid-20221110_144647_768910_45AD1409 
+X-CRM114-Status: UNSURE (   6.59  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,20 +91,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Oct 2022 19:34:50 +0800, Jisheng Zhang wrote:
-> thread_struct's s[12] may contain random kernel memory content, which
-> may be finally leaked to userspace. This is a security hole. Fix it
-> by clearing the s[12] array in thread_struct when fork.
+On Tue, 1 Nov 2022 02:29:43 +0800, Jisheng Zhang wrote:
+> Even after commit 89fd4a1df829 ("riscv: jump_label: mark arguments as
+> const to satisfy asm constraints"), building with CC_OPTIMIZE_FOR_SIZE
+> + LLVM=1 can reproduce below build error:
 > 
-> As for kthread case, it's better to clear the s[12] array as well.
-> 
+>   CC      arch/riscv/kernel/vdso/vgettimeofday.o
+> In file included from <built-in>:4:
+> In file included from lib/vdso/gettimeofday.c:5:
+> In file included from include/vdso/datapage.h:17:
+> In file included from
+> include/vdso/processor.h:10:
+> In file included from
+> arch/riscv/include/asm/vdso/processor.h:7:
+> In file included from
+> include/linux/jump_label.h:112:
+> arch/riscv/include/asm/jump_label.h:42:3: error:
+> invalid operand fo
+> r inline asm constraint 'i'
+>                 "       .option push                            \n\t"
+>                 ^
+> 1 error generated.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] riscv: process: fix kernel info leakage
-      https://git.kernel.org/palmer/c/6510c78490c4
+[1/1] riscv: vdso: fix build with llvm
+      https://git.kernel.org/palmer/c/50f4dd657a0f
 
 Best regards,
 -- 
