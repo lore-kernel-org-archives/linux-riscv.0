@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9305CC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 22:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11FCC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 23:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=otbYtsTA0BL/gHFR5pR5HD9P081yEC1s3tVByDXP9Rw=; b=WIVwTHIox9pLyC
-	Ouq4KOjdaLPSX24Dwb9QJa6/GbfMtPB7B/RgXDoH0lLQC85NDJ3KCuWvF/9qm7elSX+b6XXYLo7HD
-	bRonROlGpfbADVT7posg0IC5fHbVMAmbIQT8a4K/9GRB/rJQsf9ju+7kZSvVUtaVV+eFvKzg4TZ2g
-	8Mk5T3JhEaAXlS3Z5O7yU4PJUOBrEiOAUe/Qi/l1YBiS9A+ttkZHaYu7EMvZnBhWgBwNtjmzzw5em
-	FddCHmakGngde3ed4Cj7iySy4GJdI8puI6Tpn340g2gySKa1KqspxEKPCpxYZp1r9VUxLwA0qxoB2
-	wRrOD/s1oXsn+/v8RnIA==;
+	List-Owner; bh=uj30wrpek0Fql98nwKPSX/Ct0XrwqeORBNFdHE4fSE0=; b=HfO6L2OiuhwXkd
+	q4PAiyL7Kr7cQs4PKGGs4JLfqhejTMZsFZ1oI8k7LZZ+ntLlHzeRvQtLXVeqEPo7nJt+u7ZBGohDy
+	otWNufr8KTH6KKNhyk9mpGPYoBv3RDDEtGRd12ft9dD7zZNSSyUJGtPzaDYd21Dl6cPj6brkbhhjy
+	lbKBwfZPn4UKhMS/JgtnNZWFYiJEmbsCI2qFHsDzXoxUBExVSghX14vhy4tUYbuFeUUfCLHwVwM6g
+	AbBo0+nBzmd+pF00MMEumsPTl5wrHAg4a7Vf9zCcV8QyWU7pQjEhsLKXqKZA8tEZwtyujAQMkr9/j
+	MGeaFCO/xJoRT9JL6gWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGVz-00Aspq-Ry; Thu, 10 Nov 2022 22:59:19 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1otGgc-00Awxl-VL; Thu, 10 Nov 2022 23:10:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGVw-00Asns-KF
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 22:59:18 +0000
-Received: by mail-pl1-x630.google.com with SMTP id p21so2791389plr.7
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 14:59:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LCiO+gXRF0lDVHlLBo3c4ej39VeZ3e6BYvKE2zsZKq0=;
-        b=abTOCpM9RICqb1ONalOCn5LkxeesH4sL8drYDcbMXZ7kf00g+YuIpyzU4MM/cveqUN
-         qweuuVXbHDaEYOpB2fvFUJ/8dB8L1x4/dbT3Tw452JhPAxjfIByRa/xziRHAHlkDIQW7
-         qVvFTRg94rg0VkuoHQkhasr4ks6dXRN7pgaNfFhs47M/OgE9odD2HzsUweTg6tuai6Ea
-         xKpQQVdSrZpzco6K6nR4sCVmSwI1mghyTguejHX9lokPPVS3gk53pqK4lyC+QNGNrpWc
-         ThI6Z0UNwrLX0Jq2x4Ze/dlzkGwrQsC/pu619Mx8MXENmFS23EjZKrOR+p5MSOXfAuEH
-         ZfcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LCiO+gXRF0lDVHlLBo3c4ej39VeZ3e6BYvKE2zsZKq0=;
-        b=Zgz9HCItexXAcFoc+0zf4KM5q0Z9q8o0Txh6ZsG+l8oeMXNfcs1Do6I6gjhat06cJi
-         7PVtvxVXdH4PD8/cuO1AVM0cqchPHeY70ONE/DXVYZn5qUEUPopUxPM7bqEDiJJpRYyQ
-         6t65qhJ3nd6x4V75Fe+/UhMbYT31pAfzcWDxs6qfy3651W2//k87QBUXhw31CEgpjkC3
-         7LJZDqOdjUn9P8zaCi0D6tta/9vhFv1PMo7rnj/adwFdSvYn//qMz/Cq0yLXvonlWlL3
-         jhbSr35fFAcUrBHMhcDVbu18Id/TDRnOnILieeYYQGH2r+Azp7x3OC2RXGoR7YqvIJsI
-         WGSQ==
-X-Gm-Message-State: ACrzQf1Se6xj0hF/dh4COe5IqkDQ+v+XQlXn8H6guGPC/ASKQPFVmLe5
-	cZFCxvOfJ1gAZSMReSpgjK2yYQ==
-X-Google-Smtp-Source: AMsMyM6QmlJIusDk6bkMVYwQaiW/f3iTlZWIxaYlNHDq8CwDnodWF9tpEOQ3GmtzvkQ7TR4kWRhTnQ==
-X-Received: by 2002:a17:902:eccb:b0:176:cf64:2f39 with SMTP id a11-20020a170902eccb00b00176cf642f39mr2423235plh.93.1668121154780;
-        Thu, 10 Nov 2022 14:59:14 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id a11-20020a170902eccb00b00186b7443082sm196815plh.195.2022.11.10.14.59.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Nov 2022 14:59:14 -0800 (PST)
-In-Reply-To: <20221107151524.3941467-1-conor.dooley@microchip.com>
-References: <20221107151524.3941467-1-conor.dooley@microchip.com>
-Subject: Re: [PATCH v1] riscv: fix reserved memory setup
-Message-Id: <166812084905.21827.16442600363878515593.b4-ty@rivosinc.com>
-Date: Thu, 10 Nov 2022 14:54:09 -0800
+	id 1otGga-00AwwV-Cm
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 23:10:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7EB3E61B97;
+	Thu, 10 Nov 2022 23:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C0B52C433B5;
+	Thu, 10 Nov 2022 23:10:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668121814;
+	bh=VyvqkhmfvPygyTuScNJXZ35iPK4Sj22wV1/y+Ggp/tY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=CZvIgXJw+6iu2XihbXFAwtthepV+oKFqSYWpHYaHwqWiiEG/FB7GjbR4D2OI3vzpN
+	 +Ss9/h41QNNo6PVu7Y+kgEpy//esBa/jsxJb+ksTFNRSWA9daoPJOHDWWlE4d1Mthx
+	 zsouWiinAh9AtpYBE6tghOWBDckik4HHjrvbP3PO3ibZ7QcoN8WRgx6DSxq9t/RDuX
+	 tQ34eRnZoIjdiHAjEzWbYYttx8efwn9Wh1Pu15UZB2iW8PbrlnsxP+Rc/6jbfpOE4L
+	 h1ygdob3L0Z72ZHi/C0nNWy3z7knbO7LbnT2dQZMIqL8Yp7ZfvUnyDIASt5gXy25On
+	 g2LMp+zrsmGAQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id A6FA4C395F8;
+	Thu, 10 Nov 2022 23:10:14 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-36ce3
-Cc: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
-  Albert Ou <aou@eecs.berkeley.edu>, Nick Kossifidis <mick@ics.forth.gr>, linux-kernel@vger.kernel.org,
-  Evgenii Shatokhin <e.shatokhin@yadro.com>, Anup Patel <anup@brainfault.org>,
-  Daire McNamara <daire.mcnamara@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-  Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v1] riscv: fix reserved memory setup
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <166812181467.9076.159650897116586866.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Nov 2022 23:10:14 +0000
+References: <20221107151524.3941467-1-conor.dooley@microchip.com>
+In-Reply-To: <20221107151524.3941467-1-conor.dooley@microchip.com>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ daire.mcnamara@microchip.com, anup@brainfault.org, atishp@rivosinc.com,
+ mick@ics.forth.gr, linux-kernel@vger.kernel.org,
+ valentina.fernandezalanis@microchip.com, e.shatokhin@yadro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_145916_738912_35E462B8 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20221110_151016_532962_5BFDD3B7 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,7 +77,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 7 Nov 2022 15:15:25 +0000, Conor Dooley wrote:
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Mon, 7 Nov 2022 15:15:25 +0000 you wrote:
 > Currently, RISC-V sets up reserved memory using the "early" copy of the
 > device tree. As a result, when trying to get a reserved memory region
 > using of_reserved_mem_lookup(), the pointer to reserved memory regions
@@ -132,14 +121,16 @@ On Mon, 7 Nov 2022 15:15:25 +0000, Conor Dooley wrote:
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [v1] riscv: fix reserved memory setup
+    https://git.kernel.org/riscv/c/50e63dd8ed92
 
-[1/1] riscv: fix reserved memory setup
-      https://git.kernel.org/palmer/c/50e63dd8ed92
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
