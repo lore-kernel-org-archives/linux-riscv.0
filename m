@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4C1C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 16:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAEAC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 16:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iUJ55sfIVhHvNBiolriL3bEckvt5+dEps+gFReHSRfY=; b=ldFG2wU8gXFtfD
-	18csifrYzwcoN5lyAwyv6zCZZSRK/LXKprJOPLwcIcKbWWuRZn72rqmgb2OmxMWFjTi2SOI3juhZ2
-	HiMa5h1FTPK2D0wrdPw5SjCHQTu22r1Z+xNAXh32Q+mEw7dK239vbDe9iOYA4byrM/p16IWrCf22j
-	G3gHWp7Yw+KGDywldUHKkFdWBl8CQCE2o9hQG9AH+tV3GPqo2APdnkq7XCTMDYF4KWTkNxoyjDDi4
-	qGtr4iX2ucpyKqGbnd+dT5JX6XniekwCZga3ygVqFpkJ0OS4Ys/sCtOJWf+P4vsm8af6QDaN/zQXb
-	AFWCktjSpKZL3fiLBx9w==;
+	List-Owner; bh=cCgGDIKSPoFuF+//wZnSSXlCbPEhhZXC1enpX1fODA8=; b=E03gl/NeVcubHY
+	TGghRp56i308r+QYA3czCJELt5Yubji4q0bZwg+Wl2WJni+rUqAfSZLDmwkj8EF/TdQaDVuqcgLeE
+	gSdIM5g5VtpMV3f7KcleP9sy5X1/1JBNZfYJBsjY2/E+Igvxo8wtGrsLd69wM1tegleHSiNZw2/4s
+	N83XgDerR2mZ+RFq5HE/qKrp/hu4xo9sSGfmvRL9qrbOXdr0JUEMfi8vbzzdM+jZZIGed8WtLKHB7
+	+CBIVELq83YziADEmx+jDZ49oeK9rpZMLCUKYqZCD+N1JiruW4P3g51xqxsi/BxmXZyHnwL8roQkm
+	g6XHvs97duvgI7jDEQ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otAFc-0076Bt-Jb; Thu, 10 Nov 2022 16:18:00 +0000
-Received: from mail-qt1-f172.google.com ([209.85.160.172])
+	id 1otAkD-007JzI-QI; Thu, 10 Nov 2022 16:49:37 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otAFW-00766q-PF
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 16:17:59 +0000
-Received: by mail-qt1-f172.google.com with SMTP id a27so1171758qtw.10
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 08:17:44 -0800 (PST)
+	id 1otAkB-007Jwu-Gu
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 16:49:36 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id c15-20020a17090a1d0f00b0021365864446so2025929pjd.4
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 08:49:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rPjVc+C4keVB9JNeySRKdiTbUPe13351AhOJe9TtZf8=;
+        b=OOR4bwRUplBbyMMh2BEwu+86VP3qxijSJnezQ7clymoLz9HUcLonm3WyVFc88kB5fY
+         O/E+L3vna3lCH6PwuGGALEpEbdqf//FCQPJXnQH0fruVZmuKpiXxpksMlHLNli5FBIVk
+         yHcqF3ftlcFWSWpaRO18yKIRlZ4MLKYwLTrjNA/qL4cv528Rj8wkmrotYw4AfXaxmJus
+         pcCX78Uh4a0+xqNPkY5yiRwsOaQfBATcwvX2XL8kq2aQkn5xXT0ESqE2s4sWnkM2XUP1
+         lN0YUhWFEsDiU77d2rUZObTRDQeLPD96HT9QdyztVtB+kfc9jl7KnKnrsPBskzRSRVH/
+         XRTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6MJ9qt3ttdnADO10aIiv9hXi2PKgV5UbNwkReeDt/YY=;
-        b=p1T2vqMClQWp8A8q9L0GUySHACGziZiYGepej+XIcdat4pEB1awiD1oTFljC7bQ7lH
-         mwO2Qe4/My3yDovR7QR2mV+FOoczS+Cx0wM6SD+bcJjzePcW6wzBwig/31+oVBAdXP9V
-         cwgJGaN2Znf0uYKdaESxIpgwqkfLorchIEeJyAlEPs1+YTRvWwCybGaCjtgRJgiM1faH
-         5qm3xW7Cy9htLEdAbYeBfP943OByx6qWM3bNsOPbdX9JA7h0oIx48qCfaCJHBWotOHaL
-         L9wdQ7jS92xOL2T5aL72SQ4gI4xUVzSKl9l+ZQvNNvp/sWV2tkWmRS0TE+wBYWuO8qKQ
-         HANg==
-X-Gm-Message-State: ACrzQf1VEZA4kZQRP7i7wC7kSJHhUimqvxuyYJDqyuZxQqx9q6BlQBsA
-	iQk0hMN3w67w3UtIK0XQ9H2ArJzpuVhNVQ==
-X-Google-Smtp-Source: AMsMyM5iZZ/TorWnTqdbJOlecKjnifa+9R5TXEqNRjvacEFLH3RoKXKevnQoN0VSNgQ/Xl5JxHWdyQ==
-X-Received: by 2002:a05:622a:5810:b0:3a5:1fa1:f2 with SMTP id fg16-20020a05622a581000b003a51fa100f2mr1366337qtb.91.1668097063044;
-        Thu, 10 Nov 2022 08:17:43 -0800 (PST)
-Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com. [209.85.219.182])
-        by smtp.gmail.com with ESMTPSA id a185-20020ae9e8c2000000b006fa0d98a037sm12934500qkg.87.2022.11.10.08.17.41
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Nov 2022 08:17:41 -0800 (PST)
-Received: by mail-yb1-f182.google.com with SMTP id e68so58073ybh.2
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 08:17:41 -0800 (PST)
-X-Received: by 2002:a25:6b07:0:b0:6cd:3a43:bfe5 with SMTP id
- g7-20020a256b07000000b006cd3a43bfe5mr52209529ybc.89.1668097061150; Thu, 10
- Nov 2022 08:17:41 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rPjVc+C4keVB9JNeySRKdiTbUPe13351AhOJe9TtZf8=;
+        b=nD8efhsqXir6RNj0IlwPF1mV/Qos1crYzicBZJ8IIuUthU5qVDlrIYXSgDGfUmaEya
+         HGNHI2dunr9MJnBgT4LrXqTalDhGx9nPuk010sajFOgerFdmuc9P6iPPMcAmgXT/MC4t
+         QMsS2uL47Ngt9jKVUgCJDdy0t2Pxd7+HSGCpa5QIZalHBu39whQDmSUTHqIQ/jKlVt0/
+         0Vw9PkNwC3+YWMOXkWP5E/oVfmAh7sb2qPFTauRsAimDbKa4CLu5dgJaDuP5nFCzoWY1
+         q+8w/NA1K+s5zbNpScIpxLFdLtK63lWDPPfzb1QBf6JkAzdT1DR9bUZGsYk0GIjmLuml
+         pulg==
+X-Gm-Message-State: ACrzQf1jmpQW0PkZnUfz+SUC8Q0ce7Bx15CoX50G3YUOIwjB4+CuP4L1
+	q7lWVMFgse8ac1Kep9vc9X1GVg==
+X-Google-Smtp-Source: AMsMyM7nQN/gdgW0z481CkQ/WjHrrL4d++/kzaSXhuKO9UuGt09a3AowKSZBoBJ0HDICWxNrCbdrGA==
+X-Received: by 2002:a17:902:d50c:b0:187:460:bf9c with SMTP id b12-20020a170902d50c00b001870460bf9cmr65545589plg.4.1668098974180;
+        Thu, 10 Nov 2022 08:49:34 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id c3-20020a17090a020300b00205d85cfb30sm3288107pjc.20.2022.11.10.08.49.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Nov 2022 08:49:33 -0800 (PST)
+Date: Thu, 10 Nov 2022 16:49:29 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Robert Hoo <robert.hu@linux.intel.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Eric Farman <farman@linux.ibm.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	Fabiano Rosas <farosas@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Yuan Yao <yuan.yao@intel.com>
+Subject: Re: [PATCH 37/44] KVM: Rename and move CPUHP_AP_KVM_STARTING to
+ ONLINE section
+Message-ID: <Y20rmaU14rZFFCZI@google.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+ <20221102231911.3107438-38-seanjc@google.com>
+ <301a8a33a5cbe5b4fd3efe03b05bb8410a46e9f5.camel@linux.intel.com>
 MIME-Version: 1.0
-References: <20221028165921.94487-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <mhng-563fb6cf-4505-4137-8da1-13f631e1c74f@palmer-ri-x1c9a> <Y2wZvZLAENWh6qvs@spud>
-In-Reply-To: <Y2wZvZLAENWh6qvs@spud>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 10 Nov 2022 17:17:29 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXtq67krGy++7y+x7jOTerZYpCfcJEY+nMpW=otGx8bSQ@mail.gmail.com>
-Message-ID: <CAMuHMdXtq67krGy++7y+x7jOTerZYpCfcJEY+nMpW=otGx8bSQ@mail.gmail.com>
-Subject: Re: [PATCH v5 0/7] Add support for Renesas RZ/Five SoC
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, prabhakar.csengg@gmail.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, magnus.damm@gmail.com, 
-	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, heiko@sntech.de, 
-	Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org, anup@brainfault.org, 
-	Atish Patra <atishp@rivosinc.com>, heinrich.schuchardt@canonical.com, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	biju.das.jz@bp.renesas.com, prabhakar.mahadev-lad.rj@bp.renesas.com
+Content-Disposition: inline
+In-Reply-To: <301a8a33a5cbe5b4fd3efe03b05bb8410a46e9f5.camel@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_081754_843128_77BF643E 
-X-CRM114-Status: GOOD (  32.10  )
+X-CRM114-CacheID: sfid-20221110_084935_612680_2CF2BDAD 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +119,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Thu, Nov 10, 2022, Robert Hoo wrote:
+> > -static int kvm_starting_cpu(unsigned int cpu)
+> > +static int kvm_online_cpu(unsigned int cpu)
+> >  {
+> > +	int ret = 0;
+> > +
+> >  	raw_spin_lock(&kvm_count_lock);
+> > -	if (kvm_usage_count)
+> > +	/*
+> > +	 * Abort the CPU online process if hardware virtualization
+> > cannot
+> > +	 * be enabled. Otherwise running VMs would encounter
+> > unrecoverable
+> > +	 * errors when scheduled to this CPU.
+> > +	 */
+> > +	if (kvm_usage_count) {
+> > +		WARN_ON_ONCE(atomic_read(&hardware_enable_failed));
+> > +
+> >  		hardware_enable_nolock(NULL);
+> > +		if (atomic_read(&hardware_enable_failed)) {
+> > +			atomic_set(&hardware_enable_failed, 0);
+> 
+> I see other places using this hardware_enable_failed with atomic_inc(),
+> should here use atomic_dec() instead of straightly set to 0?
 
-On Wed, Nov 9, 2022 at 10:21 PM Conor Dooley <conor@kernel.org> wrote:
-> On Wed, Nov 09, 2022 at 11:55:24AM -0800, Palmer Dabbelt wrote:
-> > On Fri, 28 Oct 2022 09:59:14 PDT (-0700), prabhakar.csengg@gmail.com wrote:
-> > > Lad Prabhakar (7):
-> > >   dt-bindings: riscv: Sort the CPU core list alphabetically
-> > >   dt-bindings: riscv: Add Andes AX45MP core to the list
-> > >   riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
-> > >   riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
-> > >   riscv: dts: renesas: Add minimal DTS for Renesas RZ/Five SMARC EVK
-> > >   MAINTAINERS: Add entry for Renesas RISC-V
-> > >   riscv: configs: defconfig: Enable Renesas RZ/Five SoC
->
-> > Geert was mentioning taking these though one of his trees, that works for me
-> > so
-> >
-> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Meh, both options are flawed.  E.g. if hardware_enable_failed was left dangling
+(the WARN above), then atomic_dec() won't remedy the problem and KVM will reject
+onlining CPUs indefinitely.  Forcing the atomic back to '0' will remedy that
+particular issue, but could lead to problems if there are other bugs.
 
-Series queued in renesas-devel for v6.2, spread across a few existing
-and new branches to be pulled by soc, taking into account dependencies.
+> Though here is embraced by spin_lock, hardware_enable_nolock() can be
+> invoked in other places in parallel?
 
-> > Happy to do a shared tag or whatever, but I think we can just skip that
-> > here.  The only conflicts would be defconfig and Kconfig.socs, but I don't
-> > think anything big is in the works for either -- unless Conor was planning
-> > on re-spinning that Kconfig.socs rework?
->
-> Uh, nah. I've got a wee bit (the removal of selects) that is "ready" but
-> there's zero urgency so it can wait for after v6.2-rc1. I don't think
-> it'd conflict anyway. The rest of it I need to sort out a v1 of, but I've
-> been distracted. Should be safe to take the defconfig & Kconfig.socs stuff
-> in terms of me doing anything.
->
-> Geert, would you be able to apply the first two patches on top of
-> v6.1-rc1 just in case, as you mentioned previously, it needs to become
-> part of a shared branch? Seems unlikely at this point in the cycle
-> though.
+Only because of a KVM bug, which gets fixed in the next patch:
 
-The bindings are in the existing renesas-dt-bindings-for-v6.2 branch,
-which is based on v6.1-rc1, and only had RZ/Five related commits anyway.
-
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+  KVM: Disable CPU hotplug during hardware enabling
 
 _______________________________________________
 linux-riscv mailing list
