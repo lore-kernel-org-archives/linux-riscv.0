@@ -4,76 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36B6EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 22:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A92DC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 22:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=peGuAq8BXAm0KEvQxg3kcAXNqvyaPf1c3sOTYtLWw3M=; b=XYHUTjkApOs/Rl
-	gHPpteok6fOEcC0wHN57TTeZ0uuu5lJ7p8+UJNycPKB8UwIuvNjLa06FYXzoXxkjYhY6BP+WixqvH
-	jIR5nkYkGYgNi4BgRNaBSc3tp/gVRTwMrr8Gau1EZjzEBhbplt0QY6dE+rNshaOIRRMRkYl8TMpVY
-	fivBsI8Zu4NGb7WPvLm0cGItLXaQWxVFO7vDdq/aBVrxs7fv+Ib+/WU0qnU8otoFqAr6AudEZnyvS
-	/g/WAlSInw53E/tyz0+2AfmSZFSqJWBoz5TunqoBnCj+tD+Xtg3lSekTAsNTpQCu5bALxXZlal03V
-	FvC/52Mn9m0SmlXUl/WQ==;
+	List-Owner; bh=s83EsR0pSlFrYq2ICmpCsoL3uQi0TkkSf2vcwxl0zz4=; b=bH/vIOtjZzHFak
+	yATNlVTF8yrnE8px6DihejMWnAv6x+rno27dJToizEdIJLsJ9tbZ2tRha3qxyDynYU3Sx4Yw63fAC
+	LdTDppKSTxmgwJlgBc1v0Jhl25mOOyWS/Pq9NwbfcP5cGqvd7XBl4FikIISfvXbe937SRRdQqRcJF
+	xuYvL8QnDPoU0Pzx+Bb7wRceaacpXUSH5/tml8Wcm6Xv/IKgU+IZbI+xpzJe/FVQSn8gHDyHM+esV
+	hY/Dm5ghuhB4n/QeS17MaULY/pYWjISO7e1XXsOBxXOVGIehGUXc/VtS1eCR9JXcc+EJ0LwGphSLb
+	Y6YSi7/vrZC4fa2cE0Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGJv-00An6L-Hz; Thu, 10 Nov 2022 22:46:51 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1otGNJ-00Ao3G-7H; Thu, 10 Nov 2022 22:50:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGJr-00An4W-N8
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 22:46:49 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id q71so2937046pgq.8
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 14:46:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+HQDpPym5LjtymWxLp9cUJ2V2mQCjf8ma1sxDeE3Trs=;
-        b=4OVUeR2TK6kWC2W5gQrF/BlbpmApyFxOIyfASWXy/mRnhwY6WACExnL/RULtvMHmhe
-         C8fGSRkbItiDjQ8hVxrOJAUjyIV9xkxtMqjVzhxKALVXd78L2XmkjRJaSQ6/KaXgd2in
-         RrQMuyzZhqK16eo7uIywZbvcPNos8I658qoFY3EbmR+soPcjKYd9aO/IvGemRrwPd9hz
-         ckiSEIZEWJQSkF4mAimRjRnVoOIvtnHn1YNGa5Seemn+U4SdpDYGdPQqqEI4JFopF8BA
-         F2QwkNRxECouBslnr+PswF65YjcizTLqA6wgcr+rzHC1V9MsicfDO37acZq+CpwEH9wz
-         EBLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+HQDpPym5LjtymWxLp9cUJ2V2mQCjf8ma1sxDeE3Trs=;
-        b=KriozyU1gR1K75bmol12TaKvyJJGY8IYrHLV3tJ5Exgl6jxynRYgbP46V9lldibAqY
-         a7UKjh0QaQsrHBSB98wlqhWowj0a2HfoefxKaVyojTpBEbRSWg6X6hLFnPswzeG4z2R4
-         opHITc+eyanhLplNG6PvbV4YTG24CO4ig50+boGyhe+IuwvF/KedXX8zzh+Wl4tYo1cO
-         ge09bfWvmr1PUjYIkJtKLB+/sNAGUctUCbXxqEKBoo4Kg8AF7viQ5l7T2PUXk54gW+NG
-         KquzvNNOAJmmStr8c+ygwy6r7uhyANboNFGklEO5sP/YLuVvksQL0FPxUtfLykp3kmUx
-         aNGQ==
-X-Gm-Message-State: ACrzQf2+Sgnd8rsJAZQdfRZGzAwa/uOin6o7OTocv5sp+vA0iI+FRxy9
-	sI6zHwzC0+fsl1Mc3kuh58J6E9I2d5Fw2g==
-X-Google-Smtp-Source: AMsMyM6wdg+8KRdSAaiwO14Vxuxd+vx0l/jvivNeeD4ncPgJBLu1u77/UQZ2qL00jLHDi1FK6zWo0w==
-X-Received: by 2002:a63:6d49:0:b0:43c:4eef:bac7 with SMTP id i70-20020a636d49000000b0043c4eefbac7mr3654048pgc.356.1668120406609;
-        Thu, 10 Nov 2022 14:46:46 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id r10-20020a17090a454a00b00214247ac1acsm3571235pjm.12.2022.11.10.14.46.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Nov 2022 14:46:46 -0800 (PST)
-In-Reply-To: <20221031182943.2453-1-jszhang@kernel.org>
-References: <20221031182943.2453-1-jszhang@kernel.org>
-Subject: Re: [PATCH] riscv: vdso: fix build with llvm
-Message-Id: <166812034329.20280.6345239431217056884.b4-ty@rivosinc.com>
-Date: Thu, 10 Nov 2022 14:45:43 -0800
+	id 1otGNG-00Ao1v-DJ
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 22:50:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EF71861B72;
+	Thu, 10 Nov 2022 22:50:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 55259C43470;
+	Thu, 10 Nov 2022 22:50:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668120616;
+	bh=M9LAVYZ92Xll7tzRG+y7J0TmMOHu9UY1fOYopwYmZt4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Oa1rCgaNhIhQdb8PE2MFAjrFYbwvbhkuXGRx2MghWoNI2X1I6Xa0v2UpQGYG2KqNa
+	 7dvJngTKnR58Svu/JR/O7BdIgOB70XTMX3i6Hb3/DVn4ueD12XC4P9ACzUTb8CpCXQ
+	 zZgCMjJZfjm6zpkp94kNLfAuRfN1PBxqxOPwr1mqJDS5lTAQ4P0y3lOdhiBCLj+WvJ
+	 HOAxru9PLRPEDUKR/cnunk0CxCHE4jMsv8T/7txoZxlT7Ks73fcBVFWf5pih07fUur
+	 aENYbtp2r4p/FfeOUolp7vwzelvPqqjJsWw+HiKuTU+ehWXnh8Prh6CT/wEwwYIM19
+	 ZLx8PhkbzOXmg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 25CA3E270EF;
+	Thu, 10 Nov 2022 22:50:16 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-36ce3
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
-  Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] riscv: vdso: fix build with llvm
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <166812061615.32242.2820818026881124201.git-patchwork-notify@kernel.org>
+Date: Thu, 10 Nov 2022 22:50:16 +0000
+References: <20221031182943.2453-1-jszhang@kernel.org>
+In-Reply-To: <20221031182943.2453-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_144647_768910_45AD1409 
-X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-CacheID: sfid-20221110_145018_527250_70BB5F19 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,7 +75,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 1 Nov 2022 02:29:43 +0800, Jisheng Zhang wrote:
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Tue,  1 Nov 2022 02:29:43 +0800 you wrote:
 > Even after commit 89fd4a1df829 ("riscv: jump_label: mark arguments as
 > const to satisfy asm constraints"), building with CC_OPTIMIZE_FOR_SIZE
 > + LLVM=1 can reproduce below build error:
@@ -115,14 +104,16 @@ On Tue, 1 Nov 2022 02:29:43 +0800, Jisheng Zhang wrote:
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - riscv: vdso: fix build with llvm
+    https://git.kernel.org/riscv/c/50f4dd657a0f
 
-[1/1] riscv: vdso: fix build with llvm
-      https://git.kernel.org/palmer/c/50f4dd657a0f
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
