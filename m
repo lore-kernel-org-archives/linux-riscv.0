@@ -4,113 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1DEC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 16:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4196BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 21:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eHGDYRCz8uagqB6ihDFTI4hQXI8gTQkKm9/ZFyT7K1M=; b=3XCbpb59esHZIs
-	HUFteFhF4IHgrPACV/YSVYJOT7UR5U2ZyO5z4hKcjhS9Nx0aLdmkbVg4KaBl4bdO9ftquJoVHVhkz
-	x5mUJrXvV1zuhHZrs5dYhPZ7p2KJzwH/m+eT07J0YY9qR+CRawqCWEVUdS/zI6S/JL1exaA3oHqRX
-	rkv9WM/l4fFJK7mMk4ZK+8sH7AEtLm2oXl9YHO3iKZFNzHBF0ktlrl5ss0TXgdYfH4IwYPbTv2KBG
-	jFwM70vhsN5wEJ9BufrDh5CLZ5pXXtf18QaZVDIxpU5F65g6S93i2KhZ0Mgd8/Tl240sIT7aQ6F4A
-	f5s/b6ZGbHHcgdUqfoLA==;
+	List-Owner; bh=pNcaid51bu9H3Rgf6yw3bZ4dMg4nj/E8u4PNd0mSNV0=; b=P6kbwQ4QYyqigQ
+	T0s/vnrJbgSjGwQRtIkAHcmh1aOuUg2xQjjAOhbzjNPjs7VFGmm+/ZB7vMYyp4X0el8cxX4ECdfai
+	mwK7n75CDFcgdsMzDEon4vXH2jQvWxwdUovFoQD58c2ZjYqLeFQDucaLBqPTb32I/c8/8xaK1UuGz
+	jiZwgLFgzJbLMazcqrWD00lZDRvJ15azWJwAApBgr/O1LAoCRHO1bc9Wt78Tet6AvzMxQIGTva9ub
+	BeRxwu9u73HZqhFmnuizvt38pJ3z3jgf0wnrWFoRxH0cbHVAMN7LekbaXNjP2xRO9z1benwhR6Vto
+	zSxTC0Na4RV81Dh0woqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otAtN-007PJz-UA; Thu, 10 Nov 2022 16:59:05 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1otEgD-00AKkg-FQ; Thu, 10 Nov 2022 21:01:45 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otAtK-007PHD-Fc
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 16:59:03 +0000
-Received: by mail-pl1-x630.google.com with SMTP id j12so1883449plj.5
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 08:59:01 -0800 (PST)
+	id 1otEgA-00AKcK-GG
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 21:01:44 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-13ae8117023so3491503fac.9
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 13:01:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=++qaNnNL5OJX09F4SmymJbSNGTe4YNGKf8knlNeZLIM=;
-        b=LnpIznW50UbJYIR0PEtWeJYNJ+5rH6MIlZozMzFMTwSQvTcP33ucW9c9lQSevvLDXI
-         QyB5+yXhMZUDNlkwdSbDFjM7JR9S8ttOodJeLQApsp/g1X2g7iaiRMpztbbtLirGmHXP
-         Ok5MPlCZ4tZXNzdoN/5EaAFNU5i/kMEU+Pj6UbsvHwVNko95a9bIdjWXiNhQrkyCMZcF
-         1gbXxHeTac5BLcvPalQHTWFwjbFrO0re69/ZDM4/c7ATiGknmYZEnSteDE0eFOsuiUGv
-         o02wNWrUZNQBtGle02WgOsPhE6Inb5/XeEtyenAcor9m9bnEppDYL8UdqJt6p1agDB2o
-         ED2w==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uSbodY8FqZ0Ciim/vAb77VV4F9ElrHL2UVuKiq5ungA=;
+        b=YMGD8nMS55gvLSoZ8tKrtFoOZ/Ve6TrHy42MgIRNg7/fmubAxDJH5DG0RW10SxvOeP
+         DjTT4GnaBPcWIi5FHosoNTKOgkLUY73yZvvLd9GalbDMFolHEKGR8P2hdFUvIFmPB/SO
+         BrV90aXQ1eoZkI6c1yhjIGCApzY+hu3tS/DTZEU/Fg2s7BMNOWpnAvF4Cuip1vbjLDDi
+         Wi0Cf6JFPCLTbtm34QorcHgGhquebmcOqtlB6bTQLk4Mr7H+4Eba3Bf+AHWKYeyJTbOW
+         TJMserRFDaCMIXo5v2+5i1CgxrdLo/ul7beHcB3VpcJHaJjJRJj3Y82oz8ECPN2Z55/w
+         fCMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=++qaNnNL5OJX09F4SmymJbSNGTe4YNGKf8knlNeZLIM=;
-        b=bE7prkfuaaZ7dOFDegWAJoo5rTRNWRYLueORshzhcb9B7O4Nmho50R4CAGfhJTwmWw
-         Vfs+Bxn39AT4BcCwH6eQ2hCovIBYx1s1H++tIGvRqSfRxHhtToXIQNgYMHs2GnbXKkFh
-         +Doib0A1tnwemr84yHE5QoJG4Si9nqixxGD2ACIZYQJk7wRYQdHwGFfdkxURlrsmkLAA
-         75TtrJokCZ3hU8dHzroyj0B0n6BF8/3PiscIuRnx1eJ7g4gviBZgoM80Fy4qTvKDrXm0
-         wD6QNON7W7O84uh2YcX7HcbF1uwWHv0vz1MH7lImMwI31nyHE2tB0BJDgbyqVq5MCA+G
-         k1gg==
-X-Gm-Message-State: ANoB5pmgWYMHbhUDOQCtBGHsX5M5+kVDsLHRr0p8RmT1iaLkYOslQi+B
-	B+LbdzcVjim7WKIAaFMc88EUjA==
-X-Google-Smtp-Source: AA0mqf4HLI0425WgRwXjVOczy7lGJ1ZoFRhJMikRvyU6kmBBe6o5W1MVmVmeziJeqm75+QzM+47Lew==
-X-Received: by 2002:a17:902:6aca:b0:188:736c:befa with SMTP id i10-20020a1709026aca00b00188736cbefamr1100928plt.8.1668099540938;
-        Thu, 10 Nov 2022 08:59:00 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id n63-20020a17090a5ac500b00200461cfa99sm3302123pji.11.2022.11.10.08.59.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Nov 2022 08:59:00 -0800 (PST)
-Date: Thu, 10 Nov 2022 16:58:56 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: "Huang, Kai" <kai.huang@intel.com>
-Cc: "farman@linux.ibm.com" <farman@linux.ibm.com>,
-	"frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"farosas@linux.ibm.com" <farosas@linux.ibm.com>,
-	"david@redhat.com" <david@redhat.com>,
-	"Yao, Yuan" <yuan.yao@intel.com>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"Yamahata, Isaku" <isaku.yamahata@intel.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"Gao, Chao" <chao.gao@intel.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
-Message-ID: <Y20t0AMNqvtyOwp2@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-39-seanjc@google.com>
- <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
- <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uSbodY8FqZ0Ciim/vAb77VV4F9ElrHL2UVuKiq5ungA=;
+        b=FGqFF2njIxorsH7XP8Z7zmohKqf8Fz54wsvQCQNrxtS18Zq7Cj8FUMDXBebZOiEqtG
+         mYeeRWqp/ZtSYLOgnH1Jy9exYQxeW4DJO2+DfuW8bp1FhJzmBXAD6Kjbokx+xqwUY7NZ
+         DGZRkL+RQTVvUlvtgVntYI+YW8zI5S5VkerU0JD3EIjayzUz47J3c7gcfi9nzHc2kEx8
+         DMK/AN2u3m7/vxbmbO+ywMzUHOx5c205ffHGBdDxg792DModgwMuqiTZMLPYG3UpNRni
+         fmGt6IYqkmeKG9MOA0EQ8bT8m6Fo4gDN3xrIi3DtrMNc8f23AYwBNQavz/PGdQXtTt5/
+         6irA==
+X-Gm-Message-State: ACrzQf3sIGBTQK+gwCdc+8qC1lz5cr30GjoksjaYm7XTis7z1myBqwCz
+	Q7Eps8m6C0Kmwy222d9bZg+e6DrFf0T/MtF/qchQYLXHBevLopHm
+X-Google-Smtp-Source: AMsMyM5Lbc1uK8AP5uOpZgGwnsT6w5cfTgiZG9wE2H4u+6rVvgryo+vd5IZC988GgRuXQXR3iL+1Gj8CZ3j8fJF1g8o=
+X-Received: by 2002:a05:6870:ab84:b0:13c:7d1c:5108 with SMTP id
+ gs4-20020a056870ab8400b0013c7d1c5108mr2177638oab.282.1668114096980; Thu, 10
+ Nov 2022 13:01:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+References: <mhng-9e6b4607-6bea-411c-b843-916c1e0798ee@palmerdabbelt-glaptop> <182c1d4e-a117-79d6-4dd1-8e3c8a447b4a@ghiti.fr>
+In-Reply-To: <182c1d4e-a117-79d6-4dd1-8e3c8a447b4a@ghiti.fr>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Thu, 10 Nov 2022 13:01:26 -0800
+Message-ID: <CACT4Y+YYAfTafFk7DE0B=qQFgkPXS7492AhBdY_CP1WdB8CGfA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Bump COMMAND_LINE_SIZE value to 1024
+To: Alex Ghiti <alex@ghiti.fr>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, macro@orcam.me.uk, david.abdurachmanov@gmail.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-api@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_085902_540867_9DF15D54 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20221110_130142_583029_E83EEAC3 
+X-CRM114-Status: GOOD (  40.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +82,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 10, 2022, Huang, Kai wrote:
-> On Thu, 2022-11-10 at 01:33 +0000, Huang, Kai wrote:
-> > > @@ -9283,7 +9283,13 @@ static int
-> > > kvm_x86_check_processor_compatibility(struct kvm_x86_init_ops *ops)
-> > > =A0	int cpu =3D smp_processor_id();
-> > > =A0	struct cpuinfo_x86 *c =3D &cpu_data(cpu);
-> > > =A0
-> > > -	WARN_ON(!irqs_disabled());
-> > > +	/*
-> > > +	 * Compatibility checks are done when loading KVM and when enabling
-> > > +	 * hardware, e.g. during CPU hotplug, to ensure all online CPUs are
-> > > +	 * compatible, i.e. KVM should never perform a compatibility check
-> > > on
-> > > +	 * an offline CPU.
-> > > +	 */
-> > > +	WARN_ON(!irqs_disabled() && cpu_active(cpu));
-> > > =A0
-> > =
-
-> > Also, the logic of:
-> > =
-
-> > 	!irqs_disabled() && cpu_active(cpu)
-> > =
-
-> > is quite weird.
-> > =
-
-> > The original "WARN(!irqs_disabled())" is reasonable because in STARTING
-> > section
-> > the IRQ is indeed disabled.
-> > =
-
-> > But this doesn't make sense anymore after we move to ONLINE section, in=
- which
-> > IRQ has already been enabled (see start_secondary()).=A0 IIUC the WARN_=
-ON()
-> > doesn't get exploded is purely because there's an additional cpu_active=
-(cpu)
-> > check.
-> > =
-
-> > So, a more reasonable check should be something like:
-> > =
-
-> > 	WARN_ON(irqs_disabled() || cpu_active(cpu) || !cpu_online(cpu));
-> > =
-
-> > Or we can simply do:
-> > =
-
-> > 	WARN_ON(!cpu_online(cpu) || cpu_active(cpu));
-> > =
-
-> > (because I don't know whether it's possible IRQ can somehow get disable=
-d in
-> > ONLINE section).
-> > =
-
-> > Btw above is purely based on code analysis, but I haven't done any test.
-> =
-
-> Hmm.. I wasn't thinking thoroughly.  I forgot CPU compatibility check also
-> happens on all online cpus when loading KVM.  For this case, IRQ is disab=
-led and
-> cpu_active() is true.  For the hotplug case, IRQ is enabled but  cpu_acti=
-ve() is
-> false.
-> =
-
-> So WARN_ON(!irqs_disabled() && cpu_active(cpu)) looks reasonable.  Sorry =
-for the
-> noise.  Just needed some time to connect the comment with the code.
-
-No worries, more than once while working through this code, I've considered=
- setting
-up one of those evidence boards from the movies with string and push pins t=
-o help
-connect all the dots.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyMSBKdW4gMjAyMSBhdCAwMDoxMSwgQWxleCBHaGl0aSA8YWxleEBnaGl0aS5mcj4g
+d3JvdGU6Cj4KPiBIaSBQYWxtZXIsCj4KPiBMZSAyMy8wNC8yMDIxIMOgIDA0OjU3LCBQYWxtZXIg
+RGFiYmVsdCBhIMOpY3JpdCA6Cj4gPiBPbiBGcmksIDAyIEFwciAyMDIxIDExOjMzOjMwIFBEVCAo
+LTA3MDApLCBtYWNyb0BvcmNhbS5tZS51ayB3cm90ZToKPiA+PiBPbiBGcmksIDIgQXByIDIwMjEs
+IERhdmlkIEFiZHVyYWNobWFub3Ygd3JvdGU6Cj4gPj4KPiA+Pj4gPiA+ID4gIFRoaXMgbWFjcm8g
+aXMgZXhwb3J0ZWQgYXMgYSBwYXJ0IG9mIHRoZSB1c2VyIEFQSSBzbyBpdCBtdXN0Cj4gPj4+IG5v
+dCBkZXBlbmQgb24KPiA+Pj4gPiA+ID4gS2NvbmZpZy4gIEFsc28gY2hhbmdpbmcgaXQgKHJhdGhl
+ciB0aGFuIHNheSBhZGRpbmcKPiA+Pj4gQ09NTUFORF9MSU5FX1NJWkVfVjIgb3IKPiA+Pj4gPiA+
+ID4gc3dpdGNoaW5nIHRvIGFuIGVudGlyZWx5IG5ldyBkYXRhIG9iamVjdCB0aGF0IGhhcyBpdHMg
+ZGltZW5zaW9uCj4gPj4+IHNldCBpbiBhCj4gPj4+ID4gPiA+IGRpZmZlcmVudCB3YXkpIHJlcXVp
+cmVzIGNhcmVmdWwgZXZhbHVhdGlvbiBhcyBleHRlcm5hbCBiaW5hcmllcwo+ID4+PiBoYXZlIGFu
+ZAo+ID4+PiA+ID4gPiB3aWxsIGhhdmUgdGhlIHZhbHVlIGl0IGV4cGFuZHMgdG8gY29tcGlsZWQg
+aW4sIHNvIGl0J3MgYSBwYXJ0Cj4gPj4+IG9mIHRoZSBBQkkKPiA+Pj4gPiA+ID4gdG9vLgo+ID4+
+PiA+ID4KPiA+Pj4gPiA+IFRoYW5rcywgSSBkaWRuJ3QgcmVhbGl6ZSB0aGlzIHdhcyBwYXJ0IG9m
+IHRoZSB1c2VyIEJJLiAgSW4gdGhhdAo+ID4+PiBjYXNlIHdlCj4gPj4+ID4gPiByZWFsbHkgY2Fu
+J3QgY2hhZ2UgaXQsIHNvIHdlJ2xsIGhhdmUgdG8gc29ydCBvdXQgc29tZSBvdGhlciB3YXkKPiA+
+Pj4gZG8gZml4Cj4gPj4+ID4gPiB3aGF0ZXZlciBpcyBnb2luZyBvbi4KPiA+Pj4gPiA+Cj4gPj4+
+ID4gPiBJJ3ZlIGRyb3BwZWQgdGhpcyBmcm9tIGZpeGVzLgo+ID4+PiA+Cj4gPj4+ID4gRG9lcyBp
+bmNyZWFzaW5nIENPTU1BTkRfTElORV9TSVpFIGJyZWFrIHVzZXItc3BhY2UgYmluYXJpZXM/IEkg
+d291bGQKPiA+Pj4gPiBleHBlY3QgaXQgdG8gd29yayB0aGUgc2FtZSB3YXkgYXMgYWRkaW5nIG5l
+dyBlbnVtIHZhbHVlcywgb3IgYWRkaW5nCj4gPj4+ID4gZmllbGRzIGF0IHRoZSBlbmQgb2YgdmVy
+c2lvbmVkIHN0cnVjdHMsIGV0Yy4KPiA+Pj4gPiBJIHdvdWxkIGFzc3VtZSB0aGUgb2xkIGJvb3Rs
+b2FkZXJzL2V0YyB3aWxsIG9ubHkgc3VwcG9ydCB1cCB0byB0aGUKPiA+Pj4gPiBvbGQsIHNtYWxs
+ZXIgbWF4IGNvbW1hbmQgbGluZSBzaXplLCB3aGlsZSB0aGUga2VybmVsIHdpbGwgc3VwcG9ydAo+
+ID4+PiA+IGxhcmdlciBjb21tYW5kIGxpbmUgc2l6ZSwgd2hpY2ggaXMgZmluZS4KPiA+Pj4gPiBI
+b3dldmVyLCBpZiBzb21ldGhpbmcgY29waWVzIC9wcm9jL2NtZGxpbmUgaW50byBhIGZpeGVkLXNp
+emUgYnVmZmVyCj4gPj4+ID4gYW5kIGV4cGVjdHMgdGhhdCB0byB3b3JrLCB0aGF0IHdpbGwgYnJl
+YWsuLi4gdGhhdCdzIHF1aXRlIHVuZm9ydHVuYXRlCj4gPj4+ID4gdXNlci1zcGFjZSBjb2RlLi4u
+IGlzIGl0IHdoYXQgd2UgYWZyYWlkIG9mPwo+ID4+PiA+Cj4gPj4+ID4gQWx0ZXJuYXRpdmVseSwg
+Y291bGQgZXhwb3NlIHRoZSBzYW1lIENPTU1BTkRfTElORV9TSVpFLCBidXQgaW50ZXJuYWxseQo+
+ID4+PiA+IHN1cHBvcnQgYSBsYXJnZXIgY29tbWFuZCBsaW5lPwo+ID4+Pgo+ID4+PiBMb29raW5n
+IGF0IGtlcm5lbCBjb21taXQgaGlzdG9yeSBJIHNlZSBQb3dlclBDIHN3aXRjaGVkIGZyb20gNTEy
+IHRvCj4gPj4+IDIwNDgsIGFuZCBJIGRvbid0IHNlZSBjb21wbGFpbnRzIGFib3V0IHRoZSBBQkkg
+b24gdGhlIG1haWxpbmcgbGlzdC4KPiA+Pj4KPiA+Pj4gSWYgQ09NTUFORF9MSU5FX1NJWkUgaXMg
+dXNlZCBieSB1c2VyIHNwYWNlIGFwcGxpY2F0aW9ucyBhbmQgd2UKPiA+Pj4gaW5jcmVhc2UgaXQg
+dGhlcmUgc2hvdWxkbid0IGJlIHByb2JsZW1zLiBJIHdvdWxkIGV4cGVjdCB0aGluZ3MgdG8KPiA+
+Pj4gd29yaywgYnV0IGp1c3QgZ2V0IHRydW5jYXRlZCBib290IGFyZ3M/IFRoYXQgaXMgdGhlIGFw
+cGxpY2F0aW9uIHdpbGwKPiA+Pj4gY29udGludWUgb25seSB0byBsb29rIGF0IHRoZSBpbml0aWFs
+IDUxMiBjaGFycy4KPiA+Pgo+ID4+ICBUaGUgbWFjcm8gaXMgaW4gYW4gaW5jbHVkZS91YXBpIGhl
+YWRlciwgc28gaXQncyBleHBvcnRlZCB0byB0aGUgdXNlcmxhbmQKPiA+PiBhbmQgYSBwYXJ0IG9m
+IHRoZSB1c2VyIEFQSS4gIEkgZG9uJ3Qga25vdyB3aGF0IHRoZSBjb25zZXF1ZW5jZXMgYXJlIGZv
+cgo+ID4+IHRoZSBSSVNDLVYgcG9ydCBzcGVjaWZpY2FsbHksIGJ1dCBpdCBoYXMgcmFpc2VkIG15
+IGF0dGVudGlvbiwgYW5kIEkgdGhpbmsKPiA+PiBpdCBoYXMgdG8gYmUgaW52ZXN0aWdhdGVkLgo+
+ID4+Cj4gPj4gIFBlcmhhcHMgaXQncyBPSyB0byBjaGFuZ2UgaXQgYWZ0ZXIgYWxsLCBidXQgeW91
+J2QgaGF2ZSB0byBnbyB0aHJvdWdoCj4gPj4ga25vd24vcG90ZW50aWFsIHVzZXJzIG9mIHRoaXMg
+bWFjcm8uICBJIGd1ZXNzIHRoZXJlIHNob3VsZG4ndCBiZSB0aGF0Cj4gPj4gbWFueQo+ID4+IG9m
+IHRoZW0uCj4gPj4KPiA+PiAgSW4gYW55IGNhc2UgaXQgY2Fubm90IGRlcGVuZCBvbiBLY29uZmln
+LCBiZWNhdXNlIHRoZSB1c2VybGFuZCB3b24ndCBoYXZlCj4gPj4gYWNjZXNzIHRvIHRoZSBjb25m
+aWd1cmF0aW9uLCBhbmQgdGhlbiBwcmVzdW1hYmx5IHdhbnRzIHRvIGhhbmRsZSBhbnkgYW5kCj4g
+Pj4gYWxsLgo+ID4KPiA+IEl0IGtpbmQgb2YgZmVlbHMgdG8gbWUgbGlrZSBDT01NQU5EX0xJTkVf
+U0laRSBzaG91bGRuJ3QgaGF2ZSBiZWVuIHBhcnQKPiA+IG9mIHRoZSBVQUJJIHRvIGJlZ2luIHdp
+dGguICBJIHNlbnQgYSBwYXRjaCB0byByZW1vdmUgaXQgZnJvbSB0aGUKPiA+IGFzbS1nZW5lcmlj
+IFVBQkksIGxldCdzIHNlZSBpZiBhbnlvbmUga25vd3Mgb2YgYSByZWFzb24gaXQgc2hvdWxkIGJl
+IFVBQkk6Cj4gPgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtYXJjaC8yMDIxMDQy
+MzAyNTU0NS4zMTM5NjUtMS1wYWxtZXJAZGFiYmVsdC5jb20vVC8jdQo+Cj4gQXJuZCBzZWVtZWQg
+dG8gYWdyZWUgd2l0aCB5b3UgYWJvdXQgcmVtb3ZpbmcgQ09NTUFORF9MSU5FX1NJWkUgZnJvbSB0
+aGUKPiBVQUJJLCBhbnkgcHJvZ3Jlc3Mgb24geW91ciBzaWRlPwoKV2FzIHRoaXMgZXZlciBtZXJn
+ZWQ/IERvbid0IHNlZSB0aGlzIGV2ZW4gaW4gbGludXgtbmV4dC4KCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
