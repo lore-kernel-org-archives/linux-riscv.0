@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033FDC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 07:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33A0C43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 08:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dkn8IQYuVT1ZfFLpQg06fE2hBsa3cdVBh8mlEFimFKo=; b=bSF+DQzrhcvhq4
-	uOawiltRvmdCGcInnT83Vdi6nMCkk9/3NhpU3pG+vAby7CEHs9kj9m1ji2IpGxV0gf0XFd8CgFou8
-	Pdwfm/d5C66JNY23zivblCW6DlSz3fhOCtoXM6j7qXHfLXVChlM9nas6pBSxgGNL8rn8RJZHORHIm
-	MPft6LvR+s6E3dNKuStD0PzTWntSsVqaqUZ657zFMJZxeLijPkfNbKTJZ4rlubZoBQA1L8FP6QMHI
-	WsGu6Tu60t+6wJl56BF8L+3xoMZRrbwHd0lpmBzwquModcECRJsvjpydiE6smpVewBmje0VIC+sXf
-	7TG86+iVNRr8oN8DyJVA==;
+	List-Owner; bh=f/bJWgPt3ee1rnjP9bsmSKX4XnGNy0q9g2XnVV3tO1s=; b=gl6Aq9kYdLiHSu
+	5b6DclV2fo3Cpc8jT/jKNph0QTYHH2J7tOnXqZX4zjXpiEZdeAssrCfYVAuzrBSMbEVe91Wb7XMdQ
+	DnPVqAUoxfVIV3w8CI5VfLQMWNcgB83/LGtrIdfRmW+J2GLoqu51gS4w0wOkjmt61vPRvLu08JjGK
+	/miDhqUpPJmknYVULh2Q+6z+UZlBejnRkc6d8rs/MkSi2mHCguFm/nAJ1slKIKJlKD1usQ7ccI342
+	zPl8LkcNZRtrKzMvj63fzt34ylh3vatS43mimmkc5MnJwHG9kzk8KcuMZQqKSMviBcdMIMgSeCwgP
+	wy6rbnogtFqoobm9uF8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ot22h-003oTE-Sf; Thu, 10 Nov 2022 07:32:07 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1ot3Ey-004K0Q-Hc; Thu, 10 Nov 2022 08:48:52 +0000
+Received: from mail-pl1-f170.google.com ([209.85.214.170])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ot22W-003oLS-Nj; Thu, 10 Nov 2022 07:31:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1668065517; x=1699601517;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=K4DExVACpt2lARFBBsyLRbh7EHo+YwPLCynabZeKIUc=;
-  b=bKwr6F+u5O/uwA0AbzWz4KZuXteMfuppDFTKGhNXmZnnrzmcy6NBF2FP
-   WKqe3wf697p85+AEmFrsXhPYxjtIpS2rhADiebKAHzRrLoftJg5yoxrgp
-   z6xTatM9jdkQkk2ZmhBv7UlPdg61f/pOq8oKuGuDj8cWdqT4KJhzDroBJ
-   vz35oqYWVBj805Xbdx8JXuujf/C5lbJqWzZkMkPXw5lu1s7amdGmJ3zKj
-   rq9tEFLNJgPdjI4YO5zluPd/U+GQV5JGjW6neoAkrnr9TfzdKJLkR6Gzc
-   feWQoR2ZH3KAHM8lci6U6YxtbxBHnEhxVENAJFaX2twmAViiQNDQltW4t
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10526"; a="313009369"
-X-IronPort-AV: E=Sophos;i="5.96,153,1665471600"; 
-   d="scan'208";a="313009369"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2022 23:31:53 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10526"; a="631556568"
-X-IronPort-AV: E=Sophos;i="5.96,153,1665471600"; 
-   d="scan'208";a="631556568"
-Received: from sqa-gate.sh.intel.com (HELO robert-ivt.tsp.org) ([10.239.48.212])
-  by orsmga007.jf.intel.com with ESMTP; 09 Nov 2022 23:31:43 -0800
-Message-ID: <ff0e8701d02ee161d064f92c8b742c2cc061bce0.camel@linux.intel.com>
-Subject: Re: [PATCH 32/44] KVM: x86: Unify pr_fmt to use module name for all
- KVM modules
-From: Robert Hoo <robert.hu@linux.intel.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
- <pbonzini@redhat.com>,  Marc Zyngier <maz@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger
- <borntraeger@linux.ibm.com>,  Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>, Matthew Rosato
- <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, Vitaly
- Kuznetsov <vkuznets@redhat.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Oliver Upton <oliver.upton@linux.dev>, Atish Patra <atishp@atishpatra.org>,
- David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,  kvmarm@lists.linux.dev,
- kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Isaku Yamahata <isaku.yamahata@intel.com>, 
- Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Chao Gao <chao.gao@intel.com>,  Thomas Gleixner
- <tglx@linutronix.de>, Yuan Yao <yuan.yao@intel.com>
-Date: Thu, 10 Nov 2022 15:31:42 +0800
-In-Reply-To: <20221102231911.3107438-33-seanjc@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
-	 <20221102231911.3107438-33-seanjc@google.com>
-X-Mailer: Evolution 3.28.5 (3.28.5-10.el7) 
-Mime-Version: 1.0
+	id 1ot3Ev-004JyY-H1
+	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 08:48:51 +0000
+Received: by mail-pl1-f170.google.com with SMTP id p12so922177plq.4
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 00:48:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Nj08uoQ5xO490n/iqA+9r1f6MFaSsf/Keu+IuBN/mxc=;
+        b=0d2CNdUo6UYMIPmDHo/qXGu+7Vkz/uRNWHiIR0eR63BPQjjr93Nnp3Ue0vFgsPQfib
+         9QW6f88i9cNV1ZL7l6/4S3tw5YVrgt5PsjfG2oNBwXL3RlbdblICEFGXRBxMsq8IEwi4
+         tv3NwXxqBHDkJW4QwSBzYK5DR40v+RpPapUKbqNmfh5Nwkw171cO83XXO0WZ9ybViuvR
+         nEKUspS6CaoldqwDU3FIyCKSquMIKNE2NZNKTHnDG7zGFLefFGMh58PDZG2W8hIJA/RE
+         EP5Zi9ZTeOdvf+Ho9hKdOAgNFxeFD3Hlu8gRYc3hEEgMGGfDLFihxKc+n6ImHgd7ACSR
+         Y8QQ==
+X-Gm-Message-State: ACrzQf28laMBo+Dpm66swRlpk4F/sk6AVxMfvTDp0skC0ypA76QnepxV
+	h0/idqXjtgDjs1yZDkvB1vaxb5fX+ck3WVvDcWg=
+X-Google-Smtp-Source: AMsMyM4/rxvFp8pqfGwJZsdJimYqWfkYUSxbisV3VoouRxT16X9f1iy+9n4YEmJzxdp6jMr+BSNbJGOtj09Hk7fZsyc=
+X-Received: by 2002:a17:90a:c917:b0:20a:a1a8:3719 with SMTP id
+ v23-20020a17090ac91700b0020aa1a83719mr1301526pjt.225.1668070126727; Thu, 10
+ Nov 2022 00:48:46 -0800 (PST)
+MIME-Version: 1.0
+References: <20221109212219.1598355-1-conor@kernel.org> <20221109212219.1598355-4-conor@kernel.org>
+In-Reply-To: <20221109212219.1598355-4-conor@kernel.org>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Thu, 10 Nov 2022 09:48:35 +0100
+Message-ID: <CANBLGcx6HM=G+PCth8Pg75zuHrQpF5M2HUNdr849ac4ZsbXu0A@mail.gmail.com>
+Subject: Re: [PATCH v1 3/4] MAINTAINERS: add an entry for StarFive devicetrees
+To: Conor Dooley <conor@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, soc@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221109_233156_843700_2CE767B7 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20221110_004849_579113_A4CB47FE 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +76,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2022-11-02 at 23:18 +0000, Sean Christopherson wrote:
-> Define pr_fmt using KBUILD_MODNAME for all KVM x86 code so that
-> printks
-> use consistent formatting across common x86, Intel, and AMD code.  In
-> addition to providing consistent print formatting, using
-> KBUILD_MODNAME,
-> e.g. kvm_amd and kvm_intel, allows referencing SVM and VMX (and SEV
-> and
-> SGX and ...) as technologies without generating weird messages, and
-> without causing naming conflicts with other kernel code, e.g. "SEV:
-> ",
-> "tdx: ", "sgx: " etc.. are all used by the kernel for non-KVM
-> subsystems.
-> 
-> Opportunistically move away from printk() for prints that need to be
-> modified anyways, e.g. to drop a manual "kvm: " prefix.
-> 
-> Opportunistically convert a few SGX WARNs that are similarly modified
-> to
-> WARN_ONCE; in the very unlikely event that the WARNs fire, odds are
-> good
-> that they would fire repeatedly and spam the kernel log without
-> providing
-> unique information in each print.
-> 
-> Note, defining pr_fmt yields undesirable results for code that uses
-> KVM's
-> printk wrappers, e.g. vcpu_unimpl().  But, that's a pre-existing
-> problem
-> as SVM/kvm_amd already defines a pr_fmt, and thankfully use of KVM's
-> wrappers is relatively limited in KVM x86 code.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On Wed, 9 Nov 2022 at 22:23, Conor Dooley <conor@kernel.org> wrote:
+>
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Emil looks after the downstream StarFive stuff, and agreed to look after
+> the upstream ones too.
+>
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks!
+
+Acked-by: Emil Renner Berthing <kernel@esmil.dk>
+
 > ---
->  arch/x86/kvm/cpuid.c            |  1 +
->  arch/x86/kvm/debugfs.c          |  2 ++
->  arch/x86/kvm/emulate.c          |  1 +
->  arch/x86/kvm/hyperv.c           |  1 +
->  arch/x86/kvm/i8254.c            |  4 ++--
->  arch/x86/kvm/i8259.c            |  4 +++-
->  arch/x86/kvm/ioapic.c           |  1 +
->  arch/x86/kvm/irq.c              |  1 +
->  arch/x86/kvm/irq_comm.c         |  7 +++---
->  arch/x86/kvm/kvm_onhyperv.c     |  1 +
->  arch/x86/kvm/lapic.c            |  8 +++----
->  arch/x86/kvm/mmu/mmu.c          |  6 ++---
->  arch/x86/kvm/mmu/page_track.c   |  1 +
->  arch/x86/kvm/mmu/spte.c         |  4 ++--
->  arch/x86/kvm/mmu/spte.h         |  4 ++--
->  arch/x86/kvm/mmu/tdp_iter.c     |  1 +
->  arch/x86/kvm/mmu/tdp_mmu.c      |  1 +
->  arch/x86/kvm/mtrr.c             |  1 +
->  arch/x86/kvm/pmu.c              |  1 +
->  arch/x86/kvm/smm.c              |  1 +
->  arch/x86/kvm/svm/avic.c         |  2 +-
->  arch/x86/kvm/svm/nested.c       |  2 +-
->  arch/x86/kvm/svm/pmu.c          |  2 ++
->  arch/x86/kvm/svm/sev.c          |  1 +
->  arch/x86/kvm/svm/svm.c          | 10 ++++-----
->  arch/x86/kvm/svm/svm_onhyperv.c |  1 +
->  arch/x86/kvm/svm/svm_onhyperv.h |  4 ++--
->  arch/x86/kvm/vmx/evmcs.c        |  1 +
->  arch/x86/kvm/vmx/evmcs.h        |  4 +---
->  arch/x86/kvm/vmx/nested.c       |  3 ++-
->  arch/x86/kvm/vmx/pmu_intel.c    |  5 +++--
->  arch/x86/kvm/vmx/posted_intr.c  |  2 ++
->  arch/x86/kvm/vmx/sgx.c          |  5 +++--
->  arch/x86/kvm/vmx/vmcs12.c       |  1 +
->  arch/x86/kvm/vmx/vmx.c          | 40 ++++++++++++++++---------------
+>  MAINTAINERS | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index a57c90be001f..040d49af9bdb 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19622,6 +19622,11 @@ M:     Ion Badulescu <ionut@badula.org>
+>  S:     Odd Fixes
+>  F:     drivers/net/ethernet/adaptec/starfire*
+>
+> +STARFIVE DEVICETREES
+> +M:     Emil Renner Berthing <kernel@esmil.dk>
+> +S:     Maintained
+> +F:     arch/riscv/boot/dts/starfive/
+> +
+>  STARFIVE JH7100 CLOCK DRIVERS
+>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>  S:     Maintained
 > --
->  arch/x86/kvm/vmx/vmx_ops.h      |  4 ++--
->  arch/x86/kvm/x86.c              | 28 ++++++++++++-----------
->  arch/x86/kvm/xen.c              |  1 +
->  38 files changed, 97 insertions(+), 70 deletions(-)
-> 
-After this patch set, still find some printk()s left in arch/x86/kvm/*,
-consider clean all of them up?
-
-arch/x86/kvm/lapic.c:1215:		printk(KERN_ERR "TODO:
-unsupported delivery mode %x\n",
-arch/x86/kvm/lapic.c:1506:		printk(KERN_ERR "Local APIC
-read with len = %x, "
-arch/x86/kvm/lapic.c:2586:		printk(KERN_ERR "malloc apic
-regs error for vcpu %x\n",
-arch/x86/kvm/ioapic.h:95:		printk(KERN_EMERG "assertion
-failed %s: %d: %s\n",	\
-arch/x86/kvm/ioapic.c:614:		printk(KERN_WARNING "ioapic:
-wrong length %d\n", len);
-arch/x86/kvm/ioapic.c:641:		printk(KERN_WARNING "ioapic:
-Unsupported size %d\n", len);
-arch/x86/kvm/mmu/mmu.c:1652:			printk(KERN_ERR "%s: %p
-%llx\n", __func__,
-arch/x86/kvm/svm/svm.c:3450:		printk(KERN_ERR "%s: unexpected
-exit_int_info 0x%x "
-arch/x86/kvm/vmx/posted_intr.c:322:				printk(
-KERN_INFO
-arch/x86/kvm/vmx/posted_intr.c:343:			printk(KERN_INF
-O "%s: failed to update PI IRTE\n",
-arch/x86/kvm/vmx/vmx.c:6507:			printk(KERN_WARNING
-"%s: Breaking out of NMI-blocked "
-arch/x86/kvm/x86.c:13027:		printk(KERN_INFO "irq bypass
-consumer (token %p) unregistration"
-
+> 2.37.2
+>
 
 _______________________________________________
 linux-riscv mailing list
