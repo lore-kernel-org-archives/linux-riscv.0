@@ -4,69 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB4DC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 01:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA10CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 02:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QwZqY9brFOsDD7LNZL6K3xoq0PIGQUwFy+isPOvmBAQ=; b=0IqQvDTJzLNZiP
-	LnEZVF1P/scnTC/sSmd4cciD30tcinZOqZgxbLRmcQ/nzTvl6iEbuZnGm2xVyW2u2rciLhVfooaiu
-	9nK//sYn1JEQ4fua3iiigEoFmrmBoFSJVLESkB81Oe3OfgTpb6E1ZxCteBwNEsjnd+xm2g4pqNk5H
-	FsigX5sVEWS9qmruByPrNVeKu4t6dDVV7ALKyDc7G/sLDrXESKit8zupWMxDupYozLbRb/a5xYoPQ
-	7TLEOQCw/zBMEs3GxbqoNkd45lToK8qwlyEWk0E6eUp1VeFH93dMDQz2yFsm7Pj/AOfQoenwbHrTy
-	pKO64TJSRtoyS3DT0v1Q==;
+	List-Owner; bh=IzdTwu3Q0ovaDabcNzVavi5BGXjdPeRfsoZWirS9pNQ=; b=aCTnZwDaufkSUT
+	K36nAFp1/pbl16/JNaPPh2LEdhfSqegAjNxeOodG+mju4VYFCqB7kp6mOim8E3pICEzumNbfqm+8U
+	WGd7Ayhxiz0js91NfkIl++YL8CbUupsa+ePlI5QGJMwTMIy9rMjATLysWgIOzg1L8TFYZLg+lVD4S
+	mIxi3ps3kCcY0JC8cm2NCtBEJ3ckSLwG44ecHZycpzWGfklBE/YHAD7JFdRnJ8+tAqlebJtYp4+tX
+	VToVII23laW9xUEEH7bnCV+lu/mYBs/eJreFTIL4QREyrErBWKoe90Vath+qgtmhHosKsArbJ1Oj+
+	Xh+ypku8MsB3SzjWnKOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oswix-001jDb-ET; Thu, 10 Nov 2022 01:51:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1osx34-001qmD-Na; Thu, 10 Nov 2022 02:12:10 +0000
+Received: from mga02.intel.com ([134.134.136.20])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oswiu-001jCg-BQ
-	for linux-riscv@lists.infradead.org; Thu, 10 Nov 2022 01:51:22 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 177A061D45
-	for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 01:51:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BCD1C43147
-	for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 01:51:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668045077;
-	bh=oKQwTFxHq2kGMa1vOhC7zSnxTLyv7w68uwwH5S/nliI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UYHpTR2osa/At5V9rma90+CY0h1rg1v2er7L0mB22stbhBlmugc6AcyivNg3UfygE
-	 jMrJzBKNITunZAIwg2JN48ZT5QemaEWsYodcu9XoEF90IRKC/ZiJBiC24G19xbJOo8
-	 UlBiacYo+NXc4TJvQgguynB5OPo+8eTGjs/i3s9BCtouYlpWg0Rpdj0YyhKRv6iX7V
-	 ay52QE9kxKWyORVxjxmwipJeHuRNS0krUf3IrdgOPBCsheisH21VjxOG6GXDD5/jpe
-	 U8ct0IFCoyaTWTsxHNscP/NTjJ4aAdE3Z9ZipGLlRMWDIhZ/yfZ2+sUn7deljGhJiB
-	 FMqhKCU8RJO9Q==
-Received: by mail-oi1-f182.google.com with SMTP id h132so514094oif.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Nov 2022 17:51:17 -0800 (PST)
-X-Gm-Message-State: ACrzQf1bKZ5Oxc9eDZISMqfiQqqh72f1Cj6+mkm3ZB2a46tdxH2BU7bv
-	VsFoNfUXkdQaycbJ7opNsKYeLxiAxp6dBniCLAI=
-X-Google-Smtp-Source: AMsMyM4MWhEeTyU4aE0ONp7ineIbT2o/2KCHK9CodVfC9wzPYs8zSZ/0JrI+Yf5WwekiZlcEN05rAOwpdwK659+BHfk=
-X-Received: by 2002:aca:c1d4:0:b0:359:b15f:23f2 with SMTP id
- r203-20020acac1d4000000b00359b15f23f2mr1024667oif.112.1668045076113; Wed, 09
- Nov 2022 17:51:16 -0800 (PST)
+	id 1osx2t-001qfO-3a; Thu, 10 Nov 2022 02:12:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1668046319; x=1699582319;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=8fFD56dxzIdCVv7sUmDRDuXnXsJhFv8J8DlSg219eA0=;
+  b=FBqpAAshcl1tT9vP1b/DUYERLfIVGo5Cq5sJ1b/jwtOxgppPr3+kRwhR
+   O/euDvMZh+f4r8q2yzU00bJh092s9vA8gHLkY/xiNo7Rl8WUUNcHMBsB4
+   /jNXdSQaQOX5bvpjRpKwBIMU2SI/L3KkdXl2e9iUUHk41fXXEJTH6Jh4q
+   FIl0+sCk0u3iqIwS7G8JWmZ2qzbC/RFjW8IhuhYfx/YeBmacZ4L2FBx/1
+   IEXcs0YBi7JOQYWKZ3eV3+erMU6Oj8/uI3SzugYvodhAdgHPz+rS2oNCa
+   rP9Fxmcq01Hn8BiPz1x8U0eKqxqluTMoeiNz6m2j4mb8hNvUsjiF9b6ke
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10526"; a="298675520"
+X-IronPort-AV: E=Sophos;i="5.96,152,1665471600"; 
+   d="scan'208";a="298675520"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Nov 2022 18:11:54 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10526"; a="636985967"
+X-IronPort-AV: E=Sophos;i="5.96,152,1665471600"; 
+   d="scan'208";a="636985967"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+  by orsmga002.jf.intel.com with ESMTP; 09 Nov 2022 18:11:53 -0800
+Received: from orsmsx611.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Wed, 9 Nov 2022 18:11:53 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ orsmsx611.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31 via Frontend Transport; Wed, 9 Nov 2022 18:11:53 -0800
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.107)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2375.31; Wed, 9 Nov 2022 18:11:53 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PKc3f6O5ecXuYZQzw3MEZnn7OI7/Jpjo+rKK6XDOMP00wnWNjBfCAPgpj3xi27Hmhfpu5tSsRVpxsRJlhDdATa36st6NpPmw7CEMuF9iQ4e2A+taeKHjkAUWGA1cwWamnKn8siwymuoxmJTWCantQ2mOKA6xLhXZMbvLIDHbQssa9ltjurJ3j89gO8H16CIQHjEcH52uxVcQk0i3Eu1PkhX9HUV9a37vyk64pdUBMQCgfpqlqSrctgVFIuKCL/rC1Zb45V0mA+FyKJdN2ytviaSasnW64wk7W5l1XYqtJ/KsP3wy7pOKCzIOchFvx1APCdEaT6f3+yG4FFJb+qBXDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8fFD56dxzIdCVv7sUmDRDuXnXsJhFv8J8DlSg219eA0=;
+ b=BNABpsuqK60KWpARF95uBpTo2mB/dpHjKrW+fjDBa5jjkcQTCdS6+P0ALGQHO4TTi9g1sGyjNUudFAtwWyD1QgTTbpSxgp8K/UEd90DV9Ow8Vtg4z7Hv4vq8uJkfiW9Wh48CGt3jBstM0l21bZtaOIQbcb1uBt4gcoqXmM7v+Og+b33RdPJkHbpzJlGIz8aE3/xjZO4Gt3QLP211v0aDpgMl7taoKfSU5aqQT2LFXUEMAzwAw73hzq5QgQqm35Op2AtU/rB/wLUJBVWlZQXPOIg9lj0jzYA16dZB8xEBnXzfGvW4xRy7DOp86R1FC436E+iqg/xUURS/jUJLG1y0sg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com (2603:10b6:208:385::18)
+ by DM8PR11MB5623.namprd11.prod.outlook.com (2603:10b6:8:25::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5791.26; Thu, 10 Nov
+ 2022 02:11:47 +0000
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::6eb:99bf:5c45:a94b]) by BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::6eb:99bf:5c45:a94b%3]) with mapi id 15.20.5791.026; Thu, 10 Nov 2022
+ 02:11:47 +0000
+From: "Huang, Kai" <kai.huang@intel.com>
+To: "farman@linux.ibm.com" <farman@linux.ibm.com>, "frankja@linux.ibm.com"
+	<frankja@linux.ibm.com>, "Christopherson,, Sean" <seanjc@google.com>,
+	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>, "vkuznets@redhat.com"
+	<vkuznets@redhat.com>, "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "palmer@dabbelt.com"
+	<palmer@dabbelt.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"maz@kernel.org" <maz@kernel.org>, "anup@brainfault.org"
+	<anup@brainfault.org>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "borntraeger@linux.ibm.com"
+	<borntraeger@linux.ibm.com>, "aleksandar.qemu.devel@gmail.com"
+	<aleksandar.qemu.devel@gmail.com>
+CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "atishp@atishpatra.org"
+	<atishp@atishpatra.org>, "farosas@linux.ibm.com" <farosas@linux.ibm.com>,
+	"david@redhat.com" <david@redhat.com>, "Yao, Yuan" <yuan.yao@intel.com>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "alexandru.elisei@arm.com"
+	<alexandru.elisei@arm.com>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"Yamahata, Isaku" <isaku.yamahata@intel.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "james.morse@arm.com" <james.morse@arm.com>,
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "Gao, Chao" <chao.gao@intel.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
+Thread-Topic: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
+Thread-Index: AQHY7xJy2pUg1L4bCkib6AOkbzD9bK43arEAgAAKuoA=
+Date: Thu, 10 Nov 2022 02:11:47 +0000
+Message-ID: <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+	 <20221102231911.3107438-39-seanjc@google.com>
+	 <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
+In-Reply-To: <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.44.4 (3.44.4-2.fc36) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL1PR11MB5978:EE_|DM8PR11MB5623:EE_
+x-ms-office365-filtering-correlation-id: 02decdf7-040c-44a0-8c2c-08dac2c0ebbe
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: PHf0NSzOjavqdxwx8nOmYNdz/VMIy/Qk0wSK6vxb0p+aVVqdI1VKftPdVBnvUWZ6e39In6Tz5p6lMZnXhvGoi3nCB8RiHR1oYOpCtaLYjSY6nXWqCJ1r5EepuOhoLEYDvvScq/CrB52+cMQOJrZ/D2zY6EbDEb+cTsb/WGU3JczZ5RnMNX1OP5LYYxjd/Ffxp5CfnZDSJgq8PMMrpheGg/m4iYVav6h0XxZwDMM45INioCyGVuu38K1sQD4U/AnCpdFlmt+PgMoN2vfkxQE50GvzySgLio622eip2reCEr7L+fjMQFOkV6jssK7g6MDY8v+KNg4MUfV7jKMrhwyUO/5YmUyQQjF2DcxbfJavIUsK0b11Ya9bi6V2kgi7yfVNUu9l2ryjP0L4o9Nqoz1N80TJcW25bFpomb4HDua6ujVF1CcDuMZRAN8lWlTgMKbGK4d1km4R9BxtImbV8Y3e5aePXwAbmVMFdQyA4ryu/BXaPsJD1+WLk2KsnKU6eRpZ6nNpcKaRwJbNDVBDNgZ8udDJTXjYaNddwRqXxVBqB94efHN0On1wH3Lwd+LY/DaAGXa+dw7QSPD/r7YPY/zpFpmGNx3S3h5a7Cks3TZLS137htewHBZ9YtI5ayrcA98veAB8zQkughZ1J+GGF7liuPI6Gxsu8Gx3Pjl728gq23gbvOXMfOakFtIA1RfbKyb+Nauk9iLSJfY4TkLMcomkrisx6bnBdonYiQrYHJhUaD0HEmGq3jDvpdguyqjAdp+2PG3s2lVGDWxKsw8NNMgsxpyMvgt5S0Cvtfs7gAdnXJ0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5978.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(346002)(136003)(366004)(376002)(39860400002)(396003)(451199015)(41300700001)(8936002)(5660300002)(7416002)(7406005)(66476007)(66556008)(36756003)(6506007)(2906002)(8676002)(66946007)(4326008)(91956017)(83380400001)(66446008)(54906003)(71200400001)(64756008)(76116006)(110136005)(316002)(4001150100001)(82960400001)(86362001)(2616005)(6486002)(38100700002)(122000001)(26005)(921005)(38070700005)(478600001)(186003)(6512007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TmdpZVdEeWh6bmIvSWVHeW5YSEl1QXRVaXdOVGNPVU1jajd5TVpXNFZHckZN?=
+ =?utf-8?B?cWo3UnJ3eWtJaGE3bFdTeHk0N3E4T3JDUlRwZVl3QzR0b3JUaDFaQ0xJbDVu?=
+ =?utf-8?B?c0htQWhrVUR4aVZBejdjUCswQmhQcklnUkMzSUQveGxmQnZMZmhZak9CekZ0?=
+ =?utf-8?B?ajZQQ0FOYlVSUDkxQncvWlg3QkVLY0luNm9pek9TdkZMdGU4V1dkaG1hNXVG?=
+ =?utf-8?B?aHh6SmV5R2ZqdFd3OFNzdjhWU0tKcXNZT24yTHJVWVYyUWNYNURsbjM2SGM5?=
+ =?utf-8?B?VkR6TkpOdC9SNHY3cENKR1lqYTlOSzJ1clYyV3VVcm1DWlVuUEYvM08wcnF3?=
+ =?utf-8?B?QUExNkw1TDJ2S2RvOTV4YmdWWVE0MVl1ZXlXUmh0WGdrbnloNnBrZyt1aWk5?=
+ =?utf-8?B?enlYKzNDalN2TFVSc2dEK2pOVW41djBiWXlWRWN6Tko4NUx0R0R4L0YyK2dO?=
+ =?utf-8?B?YVVDSGVTdDRYUEREdnF0a3A5TmNWTDFlbUgvVS81NGxKZzIybWZYMWZBRGlE?=
+ =?utf-8?B?ZzdmU2h1Y0R3bFZabGlTUVU4YnVTTnk1TFNITkdRQUNuTmc5dDMzRzJHWkJ6?=
+ =?utf-8?B?ZFkrbmZKYzZCbjE5OUtSWEJRODBVem5BSzZVQ21DTjlrblpxbDduQXljaTRI?=
+ =?utf-8?B?Mkd1Vk5pbzcvRDlDbUFwUXhaaTcxSTJTL081azBhQjZlUSsvU0lVMTRjY1U1?=
+ =?utf-8?B?WE12MHczcTZYdkpTcjF3YndlQmtBMVI0VndmMnFxeWpqa0hzRTRYUmZHcEFh?=
+ =?utf-8?B?d2FiekRzYnNxZ1JRTnU0VzF3VU94MUNlS2FQY2UyTE8yMXc4SHpwWFloZDdH?=
+ =?utf-8?B?UHRUZE1qNzRTcW1MaTBucjFBSUZYZ1BwSjVVWndzTXkxUlJZTlBYMG5WSVl0?=
+ =?utf-8?B?MzhyOEdsVkdobzU4b29JbTZ6YkpIZ1Vtbm9mRmFZQk5qRHBoQThxQ0V6cGM2?=
+ =?utf-8?B?U09mUEJaNDVvV3lGMHg4KzBYYVRiYXVOQXd4Qlc4UXY5dEVnTXJxbloxRkh6?=
+ =?utf-8?B?U2tEV0czbVJTZDVESHRiamNMOXdva1k3L2VqL1YxRjZlR3pXbHFTQzQrZ1pU?=
+ =?utf-8?B?Q3U2aWJteGZaUlpXZlBSaExwNXVBaUhOaTNEYVhSc3hkcnh1Yms2OEhYWG44?=
+ =?utf-8?B?R2xFbGxTTlRQemtFbE5TV3FITmJSaVAxRHU2d3hGeXU0eU1RY0VsTG1HMzdN?=
+ =?utf-8?B?YXgyd21KUFhyMUdyYmdUbFBqS0VzOXliUjNBbnRnWTFCdkowT1NocGR1Qy8y?=
+ =?utf-8?B?K3VCOTY1dE5lK2ZLQnBqTk02VXAzYlRLMlUvdU11MjZRL2NnalJ0WFNrWEtC?=
+ =?utf-8?B?RTRtRnIzWnZraVFoczV6SjVRMXUrMkROQnBDTEtQbGFYbk1iZHlxVmVPS0ZL?=
+ =?utf-8?B?cER3VnhmcUQxeGtjMW9makE0T25maTc3a21KaVlFSzQxdFJBMml6V2JlelQr?=
+ =?utf-8?B?VXU5d3BmVS9ySDM2WjRBSHFrR0RWL0tWUkdENVdKVnJzc3labUpoek05OWgw?=
+ =?utf-8?B?Qk1HTGczbWlaMmZMYnl3U2xNQmQyTFpHKzc5am1UOWZuOUJ3VFhhai92TUtx?=
+ =?utf-8?B?eDhBWDREWFUra0g0Q1pXL2N4S25Ca25iNXFNYjU2MzdxRFBOV2ZzQmZwWnRu?=
+ =?utf-8?B?UWdOS0xkRFZLR2tLN3pVNzVjVnV1cXp1UUZMbWkxQUtaaytlUmJJL1hDZVhl?=
+ =?utf-8?B?SWRENG5QMFJzSERTcTNmYUpSdmhDTWlRaWNQbHlvMDh4QU40aEFoaDJkc1dj?=
+ =?utf-8?B?T1ozMXdNLzdjZk1NU1ZwcHVGWjZ6ajlsUUlZektxV1BqRkpjSW91TEI0Ujk5?=
+ =?utf-8?B?bXpxcXVVRXpMSFJTSlpyYlRBSExxTzB4S3QzdnpLZEYwV1VYQWV1YjhHMS91?=
+ =?utf-8?B?R3hrZ3lIR0ZwUmVneEdhTmVzWTVhbWdQWFZ0cmJBWG5CY3NNeTJlRGwwak83?=
+ =?utf-8?B?UDEwTGR5VlU4eUlWSGk2Y3RDY3hOSnNsRDUwL09yL1dPbUVyWWs2Wk9hOGdQ?=
+ =?utf-8?B?ZUJjd3M0VkVjR1ZYUk1wMHJuWnVRUWdnQjBRL20vaFVJNW9heUlmZFVHVzkw?=
+ =?utf-8?B?YjZUQVNIbGRaZ084Slh2UlpOa3ZpZ3FIdmdSNGlRT0crMVVtOVJNMTdjTkFq?=
+ =?utf-8?B?Um54Z2I0V3dtRkRhTk01YVhyem1WRGcycFJuUzkvQ25IbHVNSlM4cVhzcnYw?=
+ =?utf-8?B?ZlE9PQ==?=
+Content-ID: <B4A2CA0E273F844484C40AD94BE99AB6@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <20221109054056.3618089-1-guoren@kernel.org> <20221109094503.he4ihaow7axjseuj@kamzik>
-In-Reply-To: <20221109094503.he4ihaow7axjseuj@kamzik>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 10 Nov 2022 09:51:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRoeog55EMEZeziLxX0QNxD_pjBh979y8zp6sVwdarNpQ@mail.gmail.com>
-Message-ID: <CAJF2gTRoeog55EMEZeziLxX0QNxD_pjBh979y8zp6sVwdarNpQ@mail.gmail.com>
-Subject: Re: [PATCH V2] riscv: asid: Fixup stale TLB entry cause application crash
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	conor.dooley@microchip.com, heiko@sntech.de, philipp.tomsich@vrull.eu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5978.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02decdf7-040c-44a0-8c2c-08dac2c0ebbe
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Nov 2022 02:11:47.0676
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hByuIVfhEWT4kJl35EcjgXjzPKbzGsj73dS2OqYua83XdA7DPtfoKNWaiWU3PT3Kd9Ltp4Ze7lClZzRMn6LIQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR11MB5623
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221109_175120_508221_9FEE03F2 
-X-CRM114-Status: GOOD (  42.83  )
+X-CRM114-CacheID: sfid-20221109_181159_272281_3236B328 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,176 +200,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 9, 2022 at 5:45 PM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Wed, Nov 09, 2022 at 12:40:56AM -0500, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > After use_asid_allocator is enabled, the userspace application will
-> > crash by stale TLB entries. Because only using cpumask_clear_cpu without
-> > local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
-> > Then set_mm_asid would cause the user space application to get a stale
-> > value by stale TLB entry, but set_mm_noasid is okay.
-> >
-> > Here is the symptom of the bug:
-> > unhandled signal 11 code 0x1 (coredump)
-> >    0x0000003fd6d22524 <+4>:     auipc   s0,0x70
-> >    0x0000003fd6d22528 <+8>:     ld      s0,-148(s0) # 0x3fd6d92490
-> > => 0x0000003fd6d2252c <+12>:    ld      a5,0(s0)
-> > (gdb) i r s0
-> > s0          0x8082ed1cc3198b21       0x8082ed1cc3198b21
-> > (gdb) x /2x 0x3fd6d92490
-> > 0x3fd6d92490:   0xd80ac8a8      0x0000003f
-> > The core dump file shows that register s0 is wrong, but the value in
-> > memory is correct. Because 'ld s0, -148(s0)' used a stale mapping entry
-> > in TLB and got a wrong result from an incorrect physical address.
-> >
-> > When the task ran on CPU0, which loaded/speculative-loaded the value of
-> > address(0x3fd6d92490), then the first version of the mapping entry was
-> > PTWed into CPU0's TLB.
-> > When the task switched from CPU0 to CPU1 (No local_tlb_flush_all here by
-> > asid), it happened to write a value on the address (0x3fd6d92490). It
-> > caused do_page_fault -> wp_page_copy -> ptep_clear_flush ->
-> > ptep_get_and_clear & flush_tlb_page.
-> > The flush_tlb_page used mm_cpumask(mm) to determine which CPUs need TLB
-> > flush, but CPU0 had cleared the CPU0's mm_cpumask in the previous
-> > switch_mm. So we only flushed the CPU1 TLB and set the second version
-> > mapping of the PTE. When the task switched from CPU1 to CPU0 again, CPU0
-> > still used a stale TLB mapping entry which contained a wrong target
-> > physical address. It raised a bug when the task happened to read that
-> > value.
-> >
-> > The solution is to keep all CPUs' footmarks of cpumask(mm) in switch_mm,
-> > which could prevent losing pieces of stuff during TLB flush.
-> >
-> > Fixes: 65d4b9c53017 ("RISC-V: Implement ASID allocator")
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > Cc: Anup Patel <apatel@ventanamicro.com>
-> > Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> > ---
-> > Changes in v2:
-> >  - Fixup nommu compile problem (Thx Conor, Also Reported-by: kernel
-> >    test robot <lkp@intel.com>)
-> >  - Keep cpumask_clear_cpu for noasid
-> > ---
-> >  arch/riscv/mm/context.c | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> > index 7acbfbd14557..f58e4b211595 100644
-> > --- a/arch/riscv/mm/context.c
-> > +++ b/arch/riscv/mm/context.c
-> > @@ -317,7 +317,11 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> >        */
-> >       cpu = smp_processor_id();
-> >
-> > -     cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> > +#ifdef CONFIG_MMU
-> > +     if (!static_branch_unlikely(&use_asid_allocator))
-> > +#endif
->
-> That's not very pretty. Can't we just do the following, instead?
->
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 7acbfbd14557..ace419761e31 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -16,10 +16,11 @@
->  #include <asm/cacheflush.h>
->  #include <asm/mmu_context.h>
->
-> -#ifdef CONFIG_MMU
->
->  DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-Define use_asid_allocator in nommu part? How about:
-
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 7acbfbd14557..ed3f8de7ef97 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -205,12 +205,16 @@ static void set_mm_noasid(struct mm_struct *mm)
-        local_flush_tlb_all();
- }
-
--static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-+static inline void set_mm(struct mm_struct *prev,
-+                         struct mm_struct *next, unsigned int cpu)
- {
--       if (static_branch_unlikely(&use_asid_allocator))
--               set_mm_asid(mm, cpu);
--       else
--               set_mm_noasid(mm);
-+       cpumask_set_cpu(cpu, mm_cpumask(next));
-+       if (static_branch_unlikely(&use_asid_allocator)) {
-+               set_mm_asid(next, cpu);
-+       } else {
-+               cpumask_clear_cpu(cpu, mm_cpumask(prev));
-+               set_mm_noasid(next);
-+       }
- }
-
- static int __init asids_init(void)
-@@ -264,7 +268,8 @@ static int __init asids_init(void)
- }
- early_initcall(asids_init);
- #else
--static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-+static inline void set_mm(struct mm_struct *prev,
-+                         struct mm_struct *next, unsigned int cpu)
- {
-        /* Nothing to do here when there is no MMU */
- }
-@@ -317,10 +322,7 @@ void switch_mm(struct mm_struct *prev, struct
-mm_struct *next,
-         */
-        cpu = smp_processor_id();
-
--       cpumask_clear_cpu(cpu, mm_cpumask(prev));
--       cpumask_set_cpu(cpu, mm_cpumask(next));
--
--       set_mm(next, cpu);
-+       set_mm(prev, next, cpu);
-
-        flush_icache_deferred(next, cpu);
-
->
-> +#ifdef CONFIG_MMU
-> +
->  static unsigned long asid_bits;
->  static unsigned long num_asids;
->  static unsigned long asid_mask;
->
->
-> Thanks,
-> drew
->
-> > +             cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> > +
-> >       cpumask_set_cpu(cpu, mm_cpumask(next));
-> >
-> >       set_mm(next, cpu);
-> > --
-> > 2.36.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
--- 
-Best Regards
- Guo Ren
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMDIyLTExLTEwIGF0IDAxOjMzICswMDAwLCBIdWFuZywgS2FpIHdyb3RlOg0KPiA+
+IEBAIC05MjgzLDcgKzkyODMsMTMgQEAgc3RhdGljIGludA0KPiA+IGt2bV94ODZfY2hlY2tfcHJv
+Y2Vzc29yX2NvbXBhdGliaWxpdHkoc3RydWN0IGt2bV94ODZfaW5pdF9vcHMgKm9wcykNCj4gPiDC
+oAlpbnQgY3B1ID0gc21wX3Byb2Nlc3Nvcl9pZCgpOw0KPiA+IMKgCXN0cnVjdCBjcHVpbmZvX3g4
+NiAqYyA9ICZjcHVfZGF0YShjcHUpOw0KPiA+IMKgDQo+ID4gLQlXQVJOX09OKCFpcnFzX2Rpc2Fi
+bGVkKCkpOw0KPiA+ICsJLyoNCj4gPiArCSAqIENvbXBhdGliaWxpdHkgY2hlY2tzIGFyZSBkb25l
+IHdoZW4gbG9hZGluZyBLVk0gYW5kIHdoZW4gZW5hYmxpbmcNCj4gPiArCSAqIGhhcmR3YXJlLCBl
+LmcuIGR1cmluZyBDUFUgaG90cGx1ZywgdG8gZW5zdXJlIGFsbCBvbmxpbmUgQ1BVcyBhcmUNCj4g
+PiArCSAqIGNvbXBhdGlibGUsIGkuZS4gS1ZNIHNob3VsZCBuZXZlciBwZXJmb3JtIGEgY29tcGF0
+aWJpbGl0eSBjaGVjaw0KPiA+IG9uDQo+ID4gKwkgKiBhbiBvZmZsaW5lIENQVS4NCj4gPiArCSAq
+Lw0KPiA+ICsJV0FSTl9PTighaXJxc19kaXNhYmxlZCgpICYmIGNwdV9hY3RpdmUoY3B1KSk7DQo+
+ID4gwqANCj4gDQo+IEFsc28sIHRoZSBsb2dpYyBvZjoNCj4gDQo+IAkhaXJxc19kaXNhYmxlZCgp
+ICYmIGNwdV9hY3RpdmUoY3B1KQ0KPiANCj4gaXMgcXVpdGUgd2VpcmQuDQo+IA0KPiBUaGUgb3Jp
+Z2luYWwgIldBUk4oIWlycXNfZGlzYWJsZWQoKSkiIGlzIHJlYXNvbmFibGUgYmVjYXVzZSBpbiBT
+VEFSVElORw0KPiBzZWN0aW9uDQo+IHRoZSBJUlEgaXMgaW5kZWVkIGRpc2FibGVkLg0KPiANCj4g
+QnV0IHRoaXMgZG9lc24ndCBtYWtlIHNlbnNlIGFueW1vcmUgYWZ0ZXIgd2UgbW92ZSB0byBPTkxJ
+TkUgc2VjdGlvbiwgaW4gd2hpY2gNCj4gSVJRIGhhcyBhbHJlYWR5IGJlZW4gZW5hYmxlZCAoc2Vl
+IHN0YXJ0X3NlY29uZGFyeSgpKS7CoCBJSVVDIHRoZSBXQVJOX09OKCkNCj4gZG9lc24ndCBnZXQg
+ZXhwbG9kZWQgaXMgcHVyZWx5IGJlY2F1c2UgdGhlcmUncyBhbiBhZGRpdGlvbmFsIGNwdV9hY3Rp
+dmUoY3B1KQ0KPiBjaGVjay4NCj4gDQo+IFNvLCBhIG1vcmUgcmVhc29uYWJsZSBjaGVjayBzaG91
+bGQgYmUgc29tZXRoaW5nIGxpa2U6DQo+IA0KPiAJV0FSTl9PTihpcnFzX2Rpc2FibGVkKCkgfHwg
+Y3B1X2FjdGl2ZShjcHUpIHx8ICFjcHVfb25saW5lKGNwdSkpOw0KPiANCj4gT3Igd2UgY2FuIHNp
+bXBseSBkbzoNCj4gDQo+IAlXQVJOX09OKCFjcHVfb25saW5lKGNwdSkgfHwgY3B1X2FjdGl2ZShj
+cHUpKTsNCj4gDQo+IChiZWNhdXNlIEkgZG9uJ3Qga25vdyB3aGV0aGVyIGl0J3MgcG9zc2libGUg
+SVJRIGNhbiBzb21laG93IGdldCBkaXNhYmxlZCBpbg0KPiBPTkxJTkUgc2VjdGlvbikuDQo+IA0K
+PiBCdHcgYWJvdmUgaXMgcHVyZWx5IGJhc2VkIG9uIGNvZGUgYW5hbHlzaXMsIGJ1dCBJIGhhdmVu
+J3QgZG9uZSBhbnkgdGVzdC4NCg0KSG1tLi4gSSB3YXNuJ3QgdGhpbmtpbmcgdGhvcm91Z2hseS4g
+IEkgZm9yZ290IENQVSBjb21wYXRpYmlsaXR5IGNoZWNrIGFsc28NCmhhcHBlbnMgb24gYWxsIG9u
+bGluZSBjcHVzIHdoZW4gbG9hZGluZyBLVk0uICBGb3IgdGhpcyBjYXNlLCBJUlEgaXMgZGlzYWJs
+ZWQgYW5kDQpjcHVfYWN0aXZlKCkgaXMgdHJ1ZS4gIEZvciB0aGUgaG90cGx1ZyBjYXNlLCBJUlEg
+aXMgZW5hYmxlZCBidXQgIGNwdV9hY3RpdmUoKSBpcw0KZmFsc2UuDQoNClNvIFdBUk5fT04oIWly
+cXNfZGlzYWJsZWQoKSAmJiBjcHVfYWN0aXZlKGNwdSkpIGxvb2tzIHJlYXNvbmFibGUuICBTb3Jy
+eSBmb3IgdGhlDQpub2lzZS4gIEp1c3QgbmVlZGVkIHNvbWUgdGltZSB0byBjb25uZWN0IHRoZSBj
+b21tZW50IHdpdGggdGhlIGNvZGUuDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
