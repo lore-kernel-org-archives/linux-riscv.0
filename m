@@ -4,65 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4F7C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 14:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20157C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 14:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Mi7H+Lgos5pF6J7VIx0Q2x1MRLnuRTiJhpEaBg6dE8=; b=xwrlOcv48y7Qgj
-	VQD7JBkdMAtJXkAEZWPxtjeZoN7YMrXH39AA7a7rqnJRP+Yw65UPOSihG6kwTYGBEMbXJ4TWS05Af
-	l8CbYsumyLbcnm5Wj9tNCn8z9wo9BnE2VLeBgWzTsnOa6gxxpfKcDPw/3deiiWH+SAD99wVVNBJsC
-	M81P5pR27oO5DN4TKa3ZVFBOqQ2KQmbB0Ud3javvubn3sf0EGDeQhU4NsOfdQDyhzthrqapcdA7R2
-	PRvaz7j63VSRzOMVfzL0gHLNCpaQV3ckTT2d9ZFncccRFHc3ltbiiP6yzAQPd8GGUDSer136hjMaH
-	YNDwqx57Y3WWYK9dkbAw==;
+	List-Owner; bh=4q7eJ4r81kAiytsmjRJStyycXWZ2TKtVU5hMNyjvRmQ=; b=loNecWA2cUip78
+	wnwJZD6LpQh2HcxX1djv74gw1P8uHWq9JvR4g1YVqgKjHyldmFcfcYZPffkYAY1nqCFGTkxab3bgN
+	TSpNX1EAUJtYjjdnmqgOS32kgaGcvHZ+t6WRgnXbmKRW0nLOAxuUa5cbmHuEkGgpyjBADcwjr16nO
+	2nNy++38fD/h/gkQaNTd8z408QBe19XyCVmHQ4h6wETgE8PQjKC5Jfn4wz1a7Q0JEN9ppPnhTHg0R
+	nCIrn5XwgqWMDxOXCRBPoRFkvd/J625NnjZqcfm4JgpNJxfB7yN8am1kiGgjR/TFBmE9T2rwmwiFh
+	9MVnpirjYwOESCzHjJFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otV4v-00GED0-8P; Fri, 11 Nov 2022 14:32:21 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1otV7A-00GF5a-Rx; Fri, 11 Nov 2022 14:34:40 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otV4s-00GE8m-2T; Fri, 11 Nov 2022 14:32:19 +0000
-Date: Fri, 11 Nov 2022 15:32:11 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1668177132;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sM3ULtPmMNa5Zsc2BrAAlowvN2+aHTb9kTu2ikkknUo=;
-	b=VWAKqxoJrY9vNNwzf41tyM+ukCdpZeV5ss+lVBEXPQeB+D0kKLB9pUllUigOkp4eSXxB1D
-	RvfC22wjGc1/QTNEjVfazYbqdKDNDDe4s5H9nfDE2AsKrt5M3pLN06rPu6wH9FmxXljTHl
-	yjiFVqoUeQzhDqOaosmi6RqDNyFb3bKeqxxjvD0YV+u0lPvJwgdBoZFoDoRl50Qtth9UmO
-	B50vpkimDeg7qASjqJARGce+mBUi1HvapsyPx9LVEvsx5A304NYc+F+L65S2Brh2nUckZN
-	tYfHuyAY71Skw/aBSDgaMSsSDKMZUFX3TmjWjDUqfSaDtDsvcyIuuxWqwpY8tA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1668177132;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sM3ULtPmMNa5Zsc2BrAAlowvN2+aHTb9kTu2ikkknUo=;
-	b=wBUQ8gsFyLG0esu/hMevTdnNN+Z/7s4k8ky59jFt1g+rppPJOejgcoJKQmQETQWFwm+5Wt
-	yl8VkdyamIZdKDAQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Conor.Dooley@microchip.com, jszhang@kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	anup@brainfault.org, atishp@atishpatra.org, tglx@linutronix.de,
-	rostedt@goodmis.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
+	id 1otV76-00GF3C-T7; Fri, 11 Nov 2022 14:34:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1668177277; x=1699713277;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=4ygzOMi23HMfHTqPtQCYLSBkdFKNLNhf+lrK1Ee473I=;
+  b=F5JVGE7a2jk+vp3L56gsqsti5BQprmQ+aQwQ/8KlCRQZw5SAFA1b606h
+   MuRU3suYTUz6lPOCWMvpXp2mJnKVl5GSUW96T0E1U3QpyjvZ/w9yqK3+t
+   hqY9/QwYTfw8XXbrwaGeZKt+6I0s+wbO/DBT5gm3h9FYkWP2eEjHzJNfp
+   ZywGCzNDek6Ucr89JhKxHnWr/XgxaqNC6rk7J8fBPqaSqfjRRS3uIT0Tv
+   7FHWP1PUvNuHJi030rqTDOI9hG5bqAIt+yPh+nkrkw+MFqgp+sVqOUZvc
+   DzBIQrsQTAhgd5TzsTuQ7XVdug1JiV5KGcV7hVSOq1TFkyTus60Z7kqmQ
+   g==;
+X-IronPort-AV: E=Sophos;i="5.96,156,1665471600"; 
+   d="scan'208";a="183119818"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Nov 2022 07:34:27 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Fri, 11 Nov 2022 07:34:08 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Fri, 11 Nov 2022 07:34:08 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Mgp5jLkgWzcvk6ncDpglN1U5XW1DXVXaL6SvOVtun1KWbtR4jL+Y54+BxzTtX0ZD1kK2Oip77Fgxt0PY51nEsRrc5GH89IpxlAFsPaHeax5vmRpI8DVTI0YZnQO98PlVvZMaPOzn9ONswUXXjqCs7/1dapGSjIM3fTnEuFz/V0FKIEwAnjSXxM2adcSpnlFzfcvCcMisLWFWOiI49DR/tze5YIINPdVjoxVgF3sRpqaq0f7QebSDBFDAyR06G+285epwgpTUjCqXcKMF37Uz1FeiYZCJ1nO9Gghr1Ck3QxXPdFwX8/9q0CdJPYDWucWSMTXwaxk9w7uZDVCsWwJHbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4ygzOMi23HMfHTqPtQCYLSBkdFKNLNhf+lrK1Ee473I=;
+ b=NzIeaWRn2Nw8y1juZtj48vwpyJ7RiVFiAosd0mNgF0QHyxEgFrloS229gNKikVNmhGU25euQ+Dd8ukHJd3MFs+FTezg2NbijrqTw9Z/Mi5Z3zPh0N6dtY/5pkOMcWmvq2yNCW7IxHZ6UL/+DFdvib2jFIsx8VSu9RVhZ+btxAZWdYnhk9WdYkYSJOzoJuYv3CV78oXlpqXJZFDLNP/3V4WJSB/fzKCRo67VzfLMaU92TShznR/IOga/s9VeEeHRjRj9kM4V1pst2lPPf1jL9xZHq04C4u4tbr9IIZH8+JMuyHQwXshsUenYxeEppT/LYkA7G3ahUQfnW5qzcgt2PDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4ygzOMi23HMfHTqPtQCYLSBkdFKNLNhf+lrK1Ee473I=;
+ b=SmH5B25ItgodBGtlw5V6EIa+jYbbj4A5wTIGTnR4XB7SIJhi3vYMyglUZbx51YM8gckej07uaBux0SkrvLbSliL7IVU5Nnsgnmt/9PhZe4OVYZu8be2MKIvNxEP4QRXSgFwVqtMz123DuEFe3mBOE67GaNMFw9b2rhdVFil1kF0=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by MW4PR11MB6569.namprd11.prod.outlook.com (2603:10b6:303:1e1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5813.14; Fri, 11 Nov
+ 2022 14:34:02 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::6a0a:e787:bf0d:83cf]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::6a0a:e787:bf0d:83cf%7]) with mapi id 15.20.5813.013; Fri, 11 Nov 2022
+ 14:34:02 +0000
+From: <Conor.Dooley@microchip.com>
+To: <bigeasy@linutronix.de>, <Conor.Dooley@microchip.com>,
+	<jszhang@kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<anup@brainfault.org>, <atishp@atishpatra.org>, <tglx@linutronix.de>,
+	<rostedt@goodmis.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
+	<kvm-riscv@lists.infradead.org>
 Subject: Re: [PATCH v2 0/5] riscv: add PREEMPT_RT support
-Message-ID: <Y25c626x6UPRtscs@linutronix.de>
+Thread-Topic: [PATCH v2 0/5] riscv: add PREEMPT_RT support
+Thread-Index: AQHYvWTJWdidtLbFYESs6cM+7jS71q3KyLAAgAFXEYCAAAVoAIBuFNKAgAAAhAA=
+Date: Fri, 11 Nov 2022 14:34:02 +0000
+Message-ID: <ea0188d3-3886-6cb6-6811-82e4ffd992b8@microchip.com>
 References: <20220831175920.2806-1-jszhang@kernel.org>
  <4488b1ec-aa34-4be5-3b9b-c65f052f5270@microchip.com>
  <YxIAmT2X9TU1CZhC@xhacker>
  <ea5cdba4-7a79-56b3-f8d7-7785569dedd6@microchip.com>
+ <Y25c626x6UPRtscs@linutronix.de>
+In-Reply-To: <Y25c626x6UPRtscs@linutronix.de>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB5154:EE_|MW4PR11MB6569:EE_
+x-ms-office365-filtering-correlation-id: 0eeba87c-b900-4de9-d275-08dac3f1c750
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 76a2u4D6rJ7WD/ptNEf8XSUzyCuA+UEU8cAo90w7qeQ7oR0nyyATkUSD9L68/ytXw4sbQ+Rja0woXJ+40UZ8HQFG5VPnSgWS0qZZf/bo/RnLSWCF+EqLEztUC+nUDVK4+rzTEAro2xWZA5Trgm/anH9bF5/HbkchTsDy+phPc7xaJT0yx1NRKQDJ/qlWxeZ55LiDgsXNrRkQCQpozR/YonFfAyTixkVApaf8bLjz2c5UsepWOIRsUTe1TYHTcmPjuJlJcM3AcSQXPwRCI9WD6zpsPsQ+F9sY0mOW4JayMxe8B0kiNocUZ+fquM7KWT5HKo7WgMrZqrcEcKMfRuKA3mX7bK7sXLj1GykVWvdlm+Vy4X5193xKKXwDtqdzUmwMVmCJfKRZSVL103zmAe0ZeptyGwdDjB+gwP8BVxSn2ohqwiBL/4Tgc/fluGfMB0vaTit002AySzbz+3T2euxmnCnq2pD7z948g7IM/Zh2U1kPWSPwufl+BmxqKF2zcICISaEFNmIFM6DSUZsuC7vo+r7vy9w5S07gq1nyoR+kj2YX+MfjwQ95+rKjVnQ3hyi18iM2eGrQmSVyyieSIyeDmQkEGX3UNiSoTmSHEHX/EKW2bcaD62vwIHcveFQ3VWwHHR+OXmN4lG+iFvchBe5hEIOOPtVkOhRHrXSmZwPbKhAgf7GykclXYZH02hECbhwtDhrKr5qnekrewYWU7tfRmupSY7MvWcgG6vRCW2fiBMVhawOG/Gc+0IcKHBJrC5Ue62gDss97o6WmAi9eP2HXET3SPk5k50dZR6t6Vcioa/ZktqHI2Qh/jHTeholQOmsYnJKvXfcg4qXP8RlKL0RzGA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(396003)(366004)(346002)(376002)(136003)(39860400002)(451199015)(41300700001)(31686004)(64756008)(8676002)(4744005)(66946007)(4326008)(66446008)(66476007)(66556008)(76116006)(5660300002)(110136005)(54906003)(316002)(2906002)(478600001)(71200400001)(7416002)(8936002)(6486002)(26005)(6506007)(6512007)(38070700005)(53546011)(2616005)(186003)(83380400001)(38100700002)(122000001)(91956017)(86362001)(36756003)(31696002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?S241SU0rNFBIRy92ZXhVSjMzb2RlaEF3c3BzTUhQR1djcXA3SVVnK1R6K0FU?=
+ =?utf-8?B?RmhyVVp5TnkyMEVsbUFjTlJzenpwYmVjSmhtY3ZzVTQ2akVKODArSFQ0RUNQ?=
+ =?utf-8?B?SXRnSXlxV1VzYWZFRTVHVVZGV0NCVVp0UlI2US83Q1l6S1J6UFI2c2NKYVRI?=
+ =?utf-8?B?TGo5K0xwZkZGWkowc2YxaGpUYVdEdEZzSW42QXlXbXBaVG4yT3VYemtpbGdI?=
+ =?utf-8?B?MlRkUndBdzJvcmJybU9TcGdoRENDa1J1bFEzaU1zSUxBQk1ReXZLQzJoOHh3?=
+ =?utf-8?B?RW95U0lmeGFISzRZRnEzRk54UXROdXJLcFg4bGtkZDcxZ21iNWNOTk5xNCti?=
+ =?utf-8?B?Rnp3cHRnKzl5WkdLeHhBNnB3TFdYVXpNZ0R1WXZkQlNBNnhOaVAyTWM4empU?=
+ =?utf-8?B?U05rWkdFMWE2WG5IL3VEYXUxbUx0SjV6Z1JhNWVGUWpmTkFqLzBjNmc1cCt2?=
+ =?utf-8?B?aUlJUmlCQ1dldnBPYldQT0VQSkQ3OHJ5Z0FzRDlHZExkdk1CdFIxTS80dHJh?=
+ =?utf-8?B?eTcvekNWMmdKU1RMS2E3YW1yU29YQjN1Sk56bkFHejJ4S3owalhwamJtTWV3?=
+ =?utf-8?B?dkZvK2NJei9QQ0ZpUjlUQnJyeUpSRFJBTWl5WkZkN3N0Q1hpVTNSVzVyZVh5?=
+ =?utf-8?B?VFd0Y3Q0ZGc0aExKemloaENZODQzTytXMHkyNjdQMnNpNkhFTkhHQzVSdUNJ?=
+ =?utf-8?B?QWhuWWVFejhXOExxOXVoa0loVlBsYVZSaHlBZS9pVGthWDQvR3BraUU5eDQz?=
+ =?utf-8?B?SzhwSHpsaXhHTHhjNFBnd0ozU2JXVlFpVDNpUndUVHVNUkRsdlRML0tOWjYy?=
+ =?utf-8?B?NUs3QTJLeHZhanR6QkZGZmFZelNUSTN5WFNBeEJwajUxb2F5dzMvK3pBNGNW?=
+ =?utf-8?B?QXBZTW53SzRnYms5VjR3Vy9nMlJwQi9lc1dkRGxHUEVablZmV3MydnNMMUtu?=
+ =?utf-8?B?SVh1TnFLaWJPelBDWVBBQkMzUjhzdWlSS0p5L0ZnVXdaVXNtUkZwN1I2dnFN?=
+ =?utf-8?B?TElqaSs0R2RtbnpIUlZ0bjJRSGdxMGtwVzJFY2IxeG81MExmdkdPWHg3VzVz?=
+ =?utf-8?B?NkNzZTBid0R1cEcwR05zMUJkcENUbVhJS2hacGVsZG5nZEVtS2ZqRzVESjVL?=
+ =?utf-8?B?bFFPRHlwbWE5cW8yN2puTG5CenI0bHBVVmlOc1hma2dkOEMzMmN1WDc0cEN5?=
+ =?utf-8?B?VGJZbjlkQXJwSXB2aXAxOTQ0akpKRnJ0cnhKRzRJNVV2ZmRmOEZLNkxtTk96?=
+ =?utf-8?B?YW1uMUVpSjUyZDNSS3orQVRMUE5iKyt1YklsczBjeXFZc3FZeUY2TUpMRm9P?=
+ =?utf-8?B?bGdBZE8yZE4vMCtabFNWOEV6WGVMTkY5UHRDRWI0MjRaTlVQUG5xT1Z5YnlX?=
+ =?utf-8?B?cUd5WmZOa3dHWHZhSk02cjd2Q09LUU41ejhtZVlucWh6Uzk4S3psR1AwV1di?=
+ =?utf-8?B?Q1hTaHRKeGJRWFFPY3RkWGlSMk96dmhrUDNRQkwzbkFpYlFyeTJ3cW4waElp?=
+ =?utf-8?B?Z0RRZW1LMFVnbUtMK3dDcDdhL2dDRzhrOU01TWF2TnJRb0ozZGpCTGVNNzBm?=
+ =?utf-8?B?TTZsK3dZUEFhUTJOM1AwbitRZnlLRjQ3dWRYOWtSOGVEQkE5WHBMOTNsZVBL?=
+ =?utf-8?B?dlZha0lTZFpjV1pMbERZZkpxVEZWVXZCRWlVaGVmOFVDT2packF0Z29aR21t?=
+ =?utf-8?B?ZGJ6RDNUQWZac2JjQmNVZUt6Z1o5Rjc0dEhCWU5kSGpqd0VxbGJHdldHNUxy?=
+ =?utf-8?B?angrbm0xNmwvSWhRSnpWNy93TnRHTDMreFhxait4cmUvdmFWR2kzamY0R1Fy?=
+ =?utf-8?B?cnhIUUNrdGFvSk9aQVdkcldvQTBzVStJTndqVDFXZDNwc3JnZmR3VWZienQy?=
+ =?utf-8?B?YzdUWXdvWnM1TUlZUlphaFRFckd3aTVDaHVxSVhFS0JkVVJRakJTU25BbmR0?=
+ =?utf-8?B?cFRZRktkSGRrOXZoOTJuUTQ3MlNhMHp0cTNURkVkQWxXdzc4dHg2Z1ZTN0l3?=
+ =?utf-8?B?TUMwNDExZHBFZjh0aW90V0FmMG9PL0RXUi9QMXNrZlhqRDRJZnFlY2VoNGgr?=
+ =?utf-8?B?ak5qVGZzUWZWSkt5QTFxMkl4VmtrcWJ6VC9pZlJWd05Sb3VDMm50QVQ4Zksz?=
+ =?utf-8?Q?cPn3QYeBkjLS4AlySEFSuZApk?=
+Content-ID: <5C6E6C4396324F4EADD015E2433E7BBC@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ea5cdba4-7a79-56b3-f8d7-7785569dedd6@microchip.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0eeba87c-b900-4de9-d275-08dac3f1c750
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2022 14:34:02.4218
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zqMB6WX3nMrtOzM4WFsA7aUm6rJmxAYYQg1S8NsZogWBzMhgOXLVnUgAU9t7yFudA9yCn3NBp9WceSHgO2HcMcdc9AwDFxW/9LWZv39rEKU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR11MB6569
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221111_063218_295953_3D46B8D2 
-X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-CacheID: sfid-20221111_063437_293977_79F63C1E 
+X-CRM114-Status: UNSURE (   9.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,17 +179,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-09-02 13:29:23 [+0000], Conor.Dooley@microchip.com wrote:
-> I'll give it a run through tonight or tomorrow & give you a full log
-> of what I saw. There's some splats all over the place for me, but I
-> can't tell if that's just knock-on from the other issues.
+On 11/11/2022 14:32, Sebastian Andrzej Siewior wrote:
+> On 2022-09-02 13:29:23 [+0000], Conor.Dooley@microchip.com wrote:
+>> I'll give it a run through tonight or tomorrow & give you a full log
+>> of what I saw. There's some splats all over the place for me, but I
+>> can't tell if that's just knock-on from the other issues.
+> 
+> Is there an update to this or the series as a whole?
 
-Is there an update to this or the series as a whole?
-
-> Thanks,
-> Conor.
-
-Sebastian
+Not from me.. completely forgot about it.
+I'll put it back in my todo list, sorry.
 
 _______________________________________________
 linux-riscv mailing list
