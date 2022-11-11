@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85C7C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 08:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499E1C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 09:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wo2jfbBuANFEpdXVSGM/8yq1qSBryi/N6SuX2e4znLU=; b=dR//QZFHFmnFu1
-	ZBq/GajHJC32e04rDAjxXrZRygN/vCx/r4haaC6juqOmRtH0JG7sSDAgCkXdR/ZEzzZzaRJEzrvOp
-	IBviiJyDfGJX09csYEYHK3OGR02qJV2C1GeaQN5CjpjNh5SLBlBTcqKU+3QvXGrO0AEnaB8HZtSds
-	zZkF++rIwPVS4qDXwunPIjNcwHYA3cYWeUA9wj6wHvXeiesXaOLVR0t2uP7Z20h4kjIakNlYzqCao
-	H04zh8O90QOxGAf5IINGWgYzSbS9YFLXY1CRrMmHllu+AmFLJy4DDZQw0UtNz9zmGWHLycB5OAzLS
-	kCiCySrUmYa9FSAWjnrg==;
+	List-Owner; bh=0S3BOwQX2fRRrDEfBkd4kY4kvtY9lt7CxPMkcY1Q68A=; b=vpBvL5xKBUABof
+	OBHXMtWVqL2LNiLFocUgstDqU4tYn9ZViLyTcEEFeFl/ElMMl5l08aolHlxm+yft+DHu1dpgdm/DD
+	T6wBvJb1GlWxFlb8fCnRY8/3k3bFNrlYk+RGrZlJCQ4d925WimIoRq3RqCpzXlLygk6mbwT8vZjnR
+	0rwnsF0uAijQOfX6lC2CJL1NBEYmd9IM7LguQogwIaSVhVE4+tdv0KK+bgoTizH1m0Oma6dxuDOGQ
+	j1bwhIwpWg7f1bs5pG5paFhKzfR7RFCAfFQjLJAK+YJLaBTT+ZxSdqGnelJgsK49Bv5zwuARQZ1wY
+	yIPWsyJmP5GLayQalK1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otPPy-00EDzO-V1; Fri, 11 Nov 2022 08:29:42 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1otQ11-00EVYz-JS; Fri, 11 Nov 2022 09:07:59 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otPPr-00EDwY-8c
-	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 08:29:37 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id f27so11057966eje.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 00:29:32 -0800 (PST)
+	id 1otQ0x-00EVWL-V1
+	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 09:07:58 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id h132so4410366oif.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 01:07:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lf3giwAMiTL69iTsaWeEw2qtvmJtf21YI6fNdLPl8xY=;
-        b=K6+uHl5cVWzocSa4VaSCNPJmC2aGjgNeNwXkrzp81/VEcm9IRSPo0Jtef7RLromQEM
-         DlJu45EfyOTZOGy0dkqGjRFvTyUHI0c4vXViLVogbPVCuB38fOlPXI29LdZClY9m4V7w
-         DzXwR9fAQOzb+AreQJ0UQHENe0QbfFffRls0QUUB4r4g6oYy6q7r1IYEBdXkJTD4w/sl
-         vTHs2V8eJnOCY5LNIGScLu5Gmep7pBvy/korqQML0LOp3JTKYBEUir5RQc0IlAAqrvUw
-         oLRcse9+0lp/TYn5y5ASJgebRqkoV5Q5xOitea+APB3heyumAN364iPCuM36E5pg/JwI
-         jTIA==
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xn4hzaJgmW74wHFSWaJP0C7Hb1AFQ8yMZSzGcgWTOY8=;
+        b=fMONzNJHFaeISk9j0fhhmxmv6RKjiGNlvwOEYxWzmeFGRm707i4piVcLTzdUcZMC2I
+         VF7Hl70DRN12vgbzf6uJWGmmGNsnJd1qRrWFclz5t9nN+J/p8AFFbg/gNL/8tl3wmB89
+         IoAt/8BdZIOVIbbi/hRwjvKtOwNiQmSt0ills=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lf3giwAMiTL69iTsaWeEw2qtvmJtf21YI6fNdLPl8xY=;
-        b=U3L46q+B7bxVWdINsjgq9d8Q+CPYqyoYG6YHsxyaoUObIOGaI3OlCDqKqg8KiNLot4
-         H5NCNCmkqaYXEvGboi8c0ntoD2bNT8t/7LIEOQOV81BH+10XIoiotPX+zquvRGeciKdF
-         NMvIXLHTPlTfHzEjgipI4nDqICB0iiedcawicaj1bDLec1dIhVPuxvHMxIgXwE6Whc1i
-         ULIOQoB8Q9LUZVUBmblcgUnlNvrnpHySal3eIYN22SLHTtyRXUZIq4EBM+Q6Sopp6cJX
-         efxIKS//pt0ARLZa+rHr5wfmrNEppPgs1k+9Elmp3hiQoSMorzA/8TAbouOg+37CCsfs
-         Je0A==
-X-Gm-Message-State: ANoB5pnVNLhknT7BWYQIcpLffel3MjDxOaD0iyocYJNjIiKk7uldxti6
-	hRroZN3+G/DUhGcRA9+ktDY3AA==
-X-Google-Smtp-Source: AA0mqf6xej+sc2LVPlx6uboKpREw+PGVEQcTDqJl/Vk3BfmY7PDiEnM0ISche5Wu4wjzAxcevCdSsw==
-X-Received: by 2002:a17:906:249a:b0:781:fcf6:e73a with SMTP id e26-20020a170906249a00b00781fcf6e73amr1024035ejb.352.1668155370806;
-        Fri, 11 Nov 2022 00:29:30 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id hd16-20020a170907969000b007ab1b4cab9bsm590498ejc.224.2022.11.11.00.29.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Nov 2022 00:29:30 -0800 (PST)
-Date: Fri, 11 Nov 2022 09:29:29 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: guoren@kernel.org
-Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	conor.dooley@microchip.com, heiko@sntech.de,
-	philipp.tomsich@vrull.eu, alex@ghiti.fr, hch@lst.de,
-	gary@garyguo.net, jszhang@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application
- crash
-Message-ID: <20221111082929.f5s5n53r63mkkney@kamzik>
-References: <20221111075902.798571-1-guoren@kernel.org>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xn4hzaJgmW74wHFSWaJP0C7Hb1AFQ8yMZSzGcgWTOY8=;
+        b=2xeITgNLIzmt63ZLkjxEosZz9KcRd/M8VAB8gbJFmSEpPY5oOBy8sxxwTjE2pZpY+A
+         fMekCrhowSczNhX2ds+fnxlXFUqJmxPuIpBp5tV88J4oRUF6ikmBh9/+pPA2IGlZDHVL
+         fnny+4+RvrY3MylaXvh9M/VVoVS9L5q/Uy5XXcjpB//rnlUrdLv159SSsrv5YQP6mTIW
+         kGQI9qHLAx+dSyr7FhfiCDht+iqzQqdKY/f5HoPZYxMJKvC6fKfpCrL4kAWtUydOEjNV
+         K6I1s3NNYBYOww5rAg/jZ/DiymwizZw151QFH8ao6zlpiRldwz31G7Kun4j4x1sxX5xf
+         ivng==
+X-Gm-Message-State: ANoB5plGB9ZGFy0/oBHfqiT97/RYywHxR4a/+AdkWYFcWYZ/D6+vUn0y
+	mMs9L7NEpA537WGqECof4DJ566z1Lc72FQrMsZx20c3phbZI
+X-Google-Smtp-Source: AA0mqf4kJv0cKPFbfNTldL3acQuypljQSeGl3FqPy5ZbmsYzCjWUuaioyoG3/m/3aJCVhxmuHjm1FFiRoQas7NnxGyo=
+X-Received: by 2002:a05:6808:22a5:b0:354:8922:4a1a with SMTP id
+ bo37-20020a05680822a500b0035489224a1amr319082oib.181.1668157673234; Fri, 11
+ Nov 2022 01:07:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221111075902.798571-1-guoren@kernel.org>
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+In-Reply-To: <20221111044207.1478350-1-apatel@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 11 Nov 2022 01:07:42 -0800
+Message-ID: <CAOnJCULbRSSjYvQP_2bysj1jd0_ywNjQ+gH7eteU7uJWZZ2KiQ@mail.gmail.com>
+Subject: Re: [PATCH 0/9] Linux RISC-V AIA Support
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221111_002935_370597_8A7F834D 
-X-CRM114-Status: GOOD (  35.97  )
+X-CRM114-CacheID: sfid-20221111_010756_195732_04C0A978 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,148 +86,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 11, 2022 at 02:59:02AM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> After use_asid_allocator is enabled, the userspace application will
-> crash by stale TLB entries. Because only using cpumask_clear_cpu without
-> local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
-> Then set_mm_asid would cause the user space application to get a stale
-> value by stale TLB entry, but set_mm_noasid is okay.
-> 
-> Here is the symptom of the bug:
-> unhandled signal 11 code 0x1 (coredump)
->    0x0000003fd6d22524 <+4>:     auipc   s0,0x70
->    0x0000003fd6d22528 <+8>:     ld      s0,-148(s0) # 0x3fd6d92490
-> => 0x0000003fd6d2252c <+12>:    ld      a5,0(s0)
-> (gdb) i r s0
-> s0          0x8082ed1cc3198b21       0x8082ed1cc3198b21
-> (gdb) x /2x 0x3fd6d92490
-> 0x3fd6d92490:   0xd80ac8a8      0x0000003f
-> The core dump file shows that register s0 is wrong, but the value in
-> memory is correct. Because 'ld s0, -148(s0)' used a stale mapping entry
-> in TLB and got a wrong result from an incorrect physical address.
-> 
-> When the task ran on CPU0, which loaded/speculative-loaded the value of
-> address(0x3fd6d92490), then the first version of the mapping entry was
-> PTWed into CPU0's TLB.
-> When the task switched from CPU0 to CPU1 (No local_tlb_flush_all here by
-> asid), it happened to write a value on the address (0x3fd6d92490). It
-> caused do_page_fault -> wp_page_copy -> ptep_clear_flush ->
-> ptep_get_and_clear & flush_tlb_page.
-> The flush_tlb_page used mm_cpumask(mm) to determine which CPUs need TLB
-> flush, but CPU0 had cleared the CPU0's mm_cpumask in the previous
-> switch_mm. So we only flushed the CPU1 TLB and set the second version
-> mapping of the PTE. When the task switched from CPU1 to CPU0 again, CPU0
-> still used a stale TLB mapping entry which contained a wrong target
-> physical address. It raised a bug when the task happened to read that
-> value.
-> 
->    CPU0                               CPU1
->    - switch 'task' in
->    - read addr (Fill stale mapping
->      entry into TLB)
->    - switch 'task' out (no tlb_flush)
->                                       - switch 'task' in (no tlb_flush)
->                                       - write addr cause pagefault
->                                         do_page_fault() (change to
->                                         new addr mapping)
->                                           wp_page_copy()
->                                             ptep_clear_flush()
->                                               ptep_get_and_clear()
->                                               & flush_tlb_page()
->                                         write new value into addr
->                                       - switch 'task' out (no tlb_flush)
->    - switch 'task' in (no tlb_flush)
->    - read addr again (Use stale
->      mapping entry in TLB)
->      get wrong value from old phyical
->      addr, BUG!
-> 
-> The solution is to keep all CPUs' footmarks of cpumask(mm) in switch_mm,
-> which could guarantee to invalidate all stale TLB entries during TLB
-> flush.
-> 
-> Fixes: 65d4b9c53017 ("RISC-V: Implement ASID allocator")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Anup Patel <apatel@ventanamicro.com>
-> Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> Changes in v3:
->  - Move set/clear cpumask(mm) into set_mm (Make code more pretty
->    with Andrew's advice)
->  - Optimize comment description
-> 
-> Changes in v2:
->  - Fixup nommu compile problem (Thx Conor, Also Reported-by: kernel
->    test robot <lkp@intel.com>)
->  - Keep cpumask_clear_cpu for noasid
-> ---
->  arch/riscv/mm/context.c | 30 ++++++++++++++++++++----------
->  1 file changed, 20 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 7acbfbd14557..0f784e3d307b 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -205,12 +205,24 @@ static void set_mm_noasid(struct mm_struct *mm)
->  	local_flush_tlb_all();
->  }
->  
-> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> +static inline void set_mm(struct mm_struct *prev,
-> +			  struct mm_struct *next, unsigned int cpu)
->  {
-> -	if (static_branch_unlikely(&use_asid_allocator))
-> -		set_mm_asid(mm, cpu);
-> -	else
-> -		set_mm_noasid(mm);
-> +	/*
-> +	 * The mm_cpumask indicates which harts' TLBs contain the virtual
-> +	 * address mapping of the mm. Compared to noasid, using asid
-> +	 * can't guarantee that stale TLB entries are invalidated because
-> +	 * the asid mechanism wouldn't flush TLB for every switch_mm for
-> +	 * performance. So when using asid, keep all CPUs footmarks in
-> +	 * cpumask() until mm reset.
-> +	 */
-> +	cpumask_set_cpu(cpu, mm_cpumask(next));
-> +	if (static_branch_unlikely(&use_asid_allocator)) {
-> +		set_mm_asid(next, cpu);
-> +	} else {
-> +		cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> +		set_mm_noasid(next);
-> +	}
->  }
->  
->  static int __init asids_init(void)
-> @@ -264,7 +276,8 @@ static int __init asids_init(void)
->  }
->  early_initcall(asids_init);
->  #else
-> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> +static inline void set_mm(struct mm_struct *prev,
-> +			  struct mm_struct *next, unsigned int cpu)
->  {
->  	/* Nothing to do here when there is no MMU */
->  }
-> @@ -317,10 +330,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
->  	 */
->  	cpu = smp_processor_id();
->  
-> -	cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> -	cpumask_set_cpu(cpu, mm_cpumask(next));
-> -
-> -	set_mm(next, cpu);
-> +	set_mm(prev, next, cpu);
->  
->  	flush_icache_deferred(next, cpu);
->  }
-> -- 
-> 2.36.1
+On Thu, Nov 10, 2022 at 8:42 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> The RISC-V AIA specification is now frozen as-per the RISC-V international
+> process. The latest frozen specifcation can be found at:
+> https://github.com/riscv/riscv-aia/releases/download/1.0-RC1/riscv-interrupts-1.0-RC1.pdf
+>
+> At a high-level, the AIA specification adds three things:
+> 1) AIA CSRs
+>    - Improved local interrupt support
+> 2) Incoming Message Signaled Interrupt Controller (IMSIC)
+>    - Per-HART MSI controller
+>    - Support MSI virtualization
+>    - Support IPI along with virtualization
+> 3) Advanced Platform-Level Interrupt Controller (APLIC)
+>    - Wired interrupt controller
+>    - In MSI-mode, converts wired interrupt into MSIs (i.e. MSI generator)
+>    - In Direct-mode, injects external interrupts directly into HARTs
+>
+> For an overview of the AIA specification, refer the recent AIA virtualization
+> talk at KVM Forum 2022:
+> https://static.sched.com/hosted_files/kvmforum2022/a1/AIA_Virtualization_in_KVM_RISCV_final.pdf
+> https://www.youtube.com/watch?v=r071dL8Z0yo
+>
+> This series adds required Linux irqchip drivers for AIA and it depends on
+> the recent "RISC-V IPI Improvements".
+> (Refer, https://lore.kernel.org/lkml/20221101143400.690000-1-apatel@ventanamicro.com/t/)
+>
+> To test this series, use QEMU v7.1 (or higher) and OpenSBI v1.1 (or higher).
+>
+> These patches can also be found in the riscv_aia_v1 branch at:
+> https://github.com/avpatel/linux.git
+>
+> Anup Patel (9):
+>   RISC-V: Add AIA related CSR defines
+>   RISC-V: Detect AIA CSRs from ISA string
+>   irqchip/riscv-intc: Add support for RISC-V AIA
+>   dt-bindings: Add RISC-V incoming MSI controller bindings
+>   irqchip: Add RISC-V incoming MSI controller driver
+>   dt-bindings: Add RISC-V advanced PLIC bindings
+>   irqchip: Add RISC-V advanced PLIC driver
+>   RISC-V: Select APLIC and IMSIC drivers for QEMU virt machine
+>   MAINTAINERS: Add entry for RISC-V AIA drivers
+>
+>  .../interrupt-controller/riscv,aplic.yaml     |  136 ++
+>  .../interrupt-controller/riscv,imsic.yaml     |  174 +++
+>  MAINTAINERS                                   |   12 +
+>  arch/riscv/Kconfig.socs                       |    2 +
+>  arch/riscv/include/asm/csr.h                  |   92 ++
+>  arch/riscv/include/asm/hwcap.h                |    8 +
+>  arch/riscv/kernel/cpu.c                       |    2 +
+>  arch/riscv/kernel/cpufeature.c                |    2 +
+>  drivers/irqchip/Kconfig                       |   32 +-
+>  drivers/irqchip/Makefile                      |    2 +
+>  drivers/irqchip/irq-riscv-aplic.c             |  656 +++++++++
+>  drivers/irqchip/irq-riscv-imsic.c             | 1207 +++++++++++++++++
+>  drivers/irqchip/irq-riscv-intc.c              |   37 +-
+>  include/linux/irqchip/riscv-aplic.h           |  117 ++
+>  include/linux/irqchip/riscv-imsic.h           |   92 ++
+>  15 files changed, 2564 insertions(+), 7 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+>  create mode 100644 drivers/irqchip/irq-riscv-aplic.c
+>  create mode 100644 drivers/irqchip/irq-riscv-imsic.c
+>  create mode 100644 include/linux/irqchip/riscv-aplic.h
+>  create mode 100644 include/linux/irqchip/riscv-imsic.h
+>
+> --
+> 2.34.1
 >
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+I am seeing the following boot failure with your branch and upstream
+qemu (tag: v7.2.0-rc0).
+It seems IPIs are probably not getting delivered after a point. I saw
+that IPIs are delivered in the same path earlier (via gdb).
+
+[    0.990152] NET: Registered PF_INET6 protocol family
+[    1.004885] Segment Routing with IPv6
+[    1.005385] In-situ OAM (IOAM) with IPv6
+[    1.006371] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.011609] NET: Registered PF_PACKET protocol family
+[    1.014877] 9pnet: Installing 9P2000 support
+[    1.015603] Key type dns_resolver registered
+[    1.026396] debug_vm_pgtable: [debug_vm_pgtable         ]:
+Validating architecture page table helpers
+[    1.144097] EXT4-fs (vda2): recovery complete
+[    1.146345] EXT4-fs (vda2): mounted filesystem with ordered data
+mode. Quota mode: disabled.
+[    1.147020] VFS: Mounted root (ext4 filesystem) on device 254:2.
+[    1.152238] devtmpfs: mounted
+[    1.183914] Freeing unused kernel image (initmem) memory: 2176K
+[    1.185898] Run /sbin/init as init process
+[   29.412287] rcu: INFO: rcu_sched self-detected stall on CPU
+[   29.412992] rcu:     3-....: (5250 ticks this GP)
+idle=fc3c/1/0x4000000000000002 softirq=78/78 fqs=2230
+[   29.413427]  (t=5251 jiffies g=-1047 q=3 ncpus=8)
+[   29.414199] CPU: 3 PID: 1 Comm: init Not tainted
+6.1.0-rc4-00024-g5b711f2d7b91 #198
+[   29.414578] Hardware name: riscv-virtio,qemu (DT)
+[   29.414896] epc : smp_call_function_many_cond+0x138/0x372
+[   29.415157]  ra : smp_call_function_many_cond+0x154/0x372
+[   29.415318] epc : ffffffff8008d2e6 ra : ffffffff8008d302 sp :
+ff2000000004bb40
+[   29.415512]  gp : ffffffff812e9eb0 tp : ff600000016d8000 t0 :
+ff6000007ed88610
+[   29.415686]  t1 : 00000000000000ff t2 : 0000000000000002 s0 :
+ff2000000004bc00
+[   29.415837]  s1 : ff6000007ed85448 a0 : 0000000000000007 a1 :
+00000000000000f7
+[   29.416008]  a2 : 0000000000000000 a3 : 0000000000000000 a4 :
+ff6000007edd1780
+[   29.416188]  a5 : 0000000000000001 a6 : ffffffff812eb1c0 a7 :
+ff600000016d8000
+[   29.416613]  s2 : ffffffff81323c30 s3 : ffffffff812e9964 s4 :
+0000000000000000
+[   29.416810]  s5 : 0000000000000000 s6 : ff6000007ed85440 s7 :
+0000000000000038
+[   29.416997]  s8 : 0000000000000003 s9 : ffffffff81323c30 s10:
+ff6000007ed85448
+[   29.417159]  s11: 0000000000000008 t3 : 00ffffffad08a000 t4 :
+ff60000001613e0c
+[   29.417331]  t5 : 0000000000000000 t6 : 00ffffffad177fff
+[   29.417482] status: 0000000200000120 badaddr: 0000000000000000
+cause: 8000000000000005
+[   29.417939] [<ffffffff8008d590>] on_each_cpu_cond_mask+0x20/0x32
+[   29.418179] [<ffffffff80008d32>] flush_icache_all+0x38/0x40
+[   29.418324] [<ffffffff80008eb2>] flush_icache_pte+0x4a/0x7a
+[   29.418442] [<ffffffff80139e00>] do_set_pte+0x132/0x192
+[   29.418594] [<ffffffff8010b42e>] filemap_map_pages+0x178/0x3a0
+[   29.418738] [<ffffffff8013ad00>] __handle_mm_fault+0x992/0xbac
+[   29.418876] [<ffffffff8013afde>] handle_mm_fault+0xc4/0x1d4
+[   29.419010] [<ffffffff80008372>] do_page_fault+0x120/0x326
+[   29.419145] [<ffffffff800033e6>] ret_from_exception+0x0/0xc
+
+
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
