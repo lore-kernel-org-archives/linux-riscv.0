@@ -4,56 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5195C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Nov 2022 23:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB47FC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 00:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=caRsjGg55Bv5G6rebXXpZqrw02MoHeDbayEabt/a1Ts=; b=elGRu+ZwVsktgi
-	XsqVxAAFkg/pfaMVZmackA+b4EKTswxHjw2z6eAxfdMF1imGX9oVYAVH/qVdRYRVjKm9RuwYPFKcp
-	f8jlcT2ZCgO/pFLcLBI9HcU7SED6D/MMXU6s2u0PzgfLr2JdjBuBxKrOrMAKtXmIYNzztabXKWw4X
-	83Mqpq+6gpTxWz8CNX++NYAAn5Rh5XRGIJLojXUptPTZz64cKyUkWFEOoy+MTb3JWmczdCTVqfm/p
-	83uWTKfPVQIPckey5yiiIYLBY61SOc5R5K3Jo1CZS3Klf8nxyl6hvwNAGm2c5SL7bGd9mjJyFhZew
-	NI2WK00SxdeJkZgrR37A==;
+	List-Owner; bh=sPYWlWy/rSLyh3L7ETcgGNRS/PoHbSEJb4bkXxoAnf0=; b=VQ01LVnaskONu7
+	TXtirN7msU5Pv/g4YGR9aX62sw+Rli3HHC/doaU5aAFtknZdtKJn4oJ2ROBTOWtHvziFGpfWetOdm
+	Kzb+HyBzpjc9HnvrjKhGpLW6E3D7vfFymj5Kxc7P2b8t/QlBfjAhrxRwnN37K+vNiykJHA+rP+TRq
+	PLv2hXKTBEvzPMklHbM6oK/K70iPUC7ZTTIXVYomtJub3kzUUbfNq0bvHqbbvVW4AbC2Raq+//lss
+	YxKZ9fOP/ORydQCxGCloBlGpbPWMZ5U6hLTg5RrR8HWJdnyhoX4iGng4ItDody4hGgoIa3XQ4/qLE
+	HmTRGoDxRPjxETB04IJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGo9-00B36t-Md; Thu, 10 Nov 2022 23:18:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otGny-00B31m-Ni; Thu, 10 Nov 2022 23:17:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBF8923A;
-	Thu, 10 Nov 2022 15:17:58 -0800 (PST)
-Received: from [192.168.122.164] (U203867.austin.arm.com [10.118.30.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14CB53F73D;
-	Thu, 10 Nov 2022 15:17:50 -0800 (PST)
-Message-ID: <285274e0-51bd-3334-1cb2-3af1b1aa1ba2@arm.com>
-Date: Thu, 10 Nov 2022 17:17:50 -0600
+	id 1otHYn-00BQnx-A9; Fri, 11 Nov 2022 00:06:17 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1otHYl-00BQmu-9P
+	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 00:06:16 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id 140so2017634pfz.6
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 16:06:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=sXQg6m0KDTXTm2nqz+lTg6WMBvdzJA0Ss4aaQqsqfi0=;
+        b=hNVPv+ey8HIvOZmC+WAnWIG8OYAeSlZS0xPLzYhDCZmnArotz5Y/nhfn9r9c8PCEFe
+         E8mVjVIva+def9PHp762BmRXmUoK5jg3heR3NAusrpN5STPSFfkervClje0NQa5CwXrE
+         HdlsTtSUM+MPo4+vdGUA38aqr644tAa7P5bI3VxUrx5hCBiuVMLzUakeu0v8EjWAOK7v
+         BgVrNZDyAWChq0qRi87Yhdn0EcEzkTu6Ae/6zTz8SPVNgwEGA83vKScQ/P1+h2fj3QJH
+         Ic9NMyWV4IhkYFZTb5wG6PyKY3kSFDqOOs7F1TgAuJpwI7fBOge9ep4GrU+eZD7ML8Bk
+         8lbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sXQg6m0KDTXTm2nqz+lTg6WMBvdzJA0Ss4aaQqsqfi0=;
+        b=LITsUxkW2eG00oqK+VNek+4pkbGzWHUZj1aa/FENoqPQKzMEb1AGuPqD2WyVUhzc5s
+         yepnq5A4l1WzAFuds1g+ZFoHYQe1NfgZ/jOk6JdC7Enkxz7aJtK2wZV56RtZ2WYuxm03
+         4rijrc6nNxwkMh+J7Qa6PQPhUwVqAff5Qu7WkWdoX6oA2Ckgjw9GASQUCPpj7V8oFfmV
+         aEZxiq1SLQlfk28D9JTPzu+RX+Z4Bo2B0EWNy+0LK7Nh7UI7L/s/V1i9D9mR4eLc3Wly
+         UF5euGNRfrhU/0HjYvbQ2m017MMXJMxtGdzYuID1v9ik1wMBaodB4E+jgDOhpiH9B9i0
+         s8gg==
+X-Gm-Message-State: ACrzQf0qmma1S0btOgpEtyZdz+6/k++QnhPepbYmBUOYGqNLQ04R7nK4
+	TeOrLMF+QMtWEbsw+vxF9n15Aw==
+X-Google-Smtp-Source: AMsMyM4gD1W2r9wxYtObzCBR9GM6UAk6Hoer15K7R44TK7byNmqvji7Uiit5OvUTQRObzAPBYqhIPw==
+X-Received: by 2002:a05:6a00:bef:b0:56e:3a98:1089 with SMTP id x47-20020a056a000bef00b0056e3a981089mr3906306pfu.38.1668125172489;
+        Thu, 10 Nov 2022 16:06:12 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id s18-20020a170903215200b00186a6b6350esm234146ple.268.2022.11.10.16.06.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Nov 2022 16:06:12 -0800 (PST)
+Date: Fri, 11 Nov 2022 00:06:08 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Isaku Yamahata <isaku.yamahata@gmail.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Eric Farman <farman@linux.ibm.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	Fabiano Rosas <farosas@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Yuan Yao <yuan.yao@intel.com>
+Subject: Re: [PATCH 36/44] KVM: x86: Do compatibility checks when onlining CPU
+Message-ID: <Y22R8GAvcuoWBELA@google.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+ <20221102231911.3107438-37-seanjc@google.com>
+ <20221103210402.GB1063309@ls.amr.corp.intel.com>
+ <Y2RB4qT02EkhMjPL@google.com>
+ <20221104071819.GD1063309@ls.amr.corp.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH 3/5] ACPI: PPTT: Remove acpi_find_cache_levels()
-Content-Language: en-US
-To: Pierre Gondois <pierre.gondois@arm.com>, linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Gavin Shan <gshan@redhat.com>, Peter Chen <peter.chen@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-References: <20221108110424.166896-1-pierre.gondois@arm.com>
- <20221108110424.166896-4-pierre.gondois@arm.com>
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20221108110424.166896-4-pierre.gondois@arm.com>
+Content-Disposition: inline
+In-Reply-To: <20221104071819.GD1063309@ls.amr.corp.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_151754_843135_E384F903 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20221110_160615_353879_1F717DBB 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,78 +115,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/8/22 05:04, Pierre Gondois wrote:
-> acpi_find_cache_levels() is used at a single place and is short
-> enough to be merged into the calling function. The removal allows
-> an easier renaming of the calling function in the next patch.
+On Fri, Nov 04, 2022, Isaku Yamahata wrote:
+> On Thu, Nov 03, 2022 at 10:34:10PM +0000,
+> Sean Christopherson <seanjc@google.com> wrote:
 > 
-> Also reorder the parameters in the 'reversed Christmas tree' order.
+> > On Thu, Nov 03, 2022, Isaku Yamahata wrote:
+> > > On Wed, Nov 02, 2022 at 11:19:03PM +0000,
+> > > Sean Christopherson <seanjc@google.com> wrote:
+> > > > diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> > > > index f223c845ed6e..c99222b71fcc 100644
+> > > > --- a/arch/x86/include/asm/kvm_host.h
+> > > > +++ b/arch/x86/include/asm/kvm_host.h
+> > > > @@ -1666,7 +1666,7 @@ struct kvm_x86_nested_ops {
+> > > >  };
+> > > >  
+> > > >  struct kvm_x86_init_ops {
+> > > > -	int (*check_processor_compatibility)(void);
+> > > > +	int (*check_processor_compatibility)(int cpu);
+> > > 
+> > > Is this cpu argument used only for error message to include cpu number
+> > > with avoiding repeating raw_smp_processor_id() in pr_err()?
+> > 
+> > Yep.
+> > 
+> > > The actual check is done on the current executing cpu.
+> > > 
+> > > If cpu != raw_smp_processor_id(), cpu is wrong. Although the function is called
+> > > in non-preemptive context, it's a bit confusing. So voting to remove it and
+> > > to use.
+> > 
+> > What if I rename the param is this_cpu?  I 100% agree the argument is confusing
+> > as-is, but forcing all the helpers to manually grab the cpu is quite annoying.
 > 
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> Makes sense. Let's settle it with this_cpu.
 
-This bit looks fine too:
+Finally got to actually change the code, and am not a fan of passing "this_cpu"
+everywhere.  It's not terrible, but it's not clearly better than just grabbing
+the CPU on-demand.  And while manually grabbing the CPU in the helpers is annoying,
+in at least two cases the pain is just shifted to the caller.
 
-Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
-
-
-> ---
->   drivers/acpi/pptt.c | 21 ++++++---------------
->   1 file changed, 6 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index c91342dcbcd6..97c1d33822d1 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -281,19 +281,6 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct acpi_table_he
->   	return NULL;
->   }
->   
-> -static int acpi_find_cache_levels(struct acpi_table_header *table_hdr,
-> -				  u32 acpi_cpu_id)
-> -{
-> -	int number_of_levels = 0;
-> -	struct acpi_pptt_processor *cpu;
-> -
-> -	cpu = acpi_find_processor_node(table_hdr, acpi_cpu_id);
-> -	if (cpu)
-> -		number_of_levels = acpi_count_levels(table_hdr, cpu);
-> -
-> -	return number_of_levels;
-> -}
-> -
->   static u8 acpi_cache_type(enum cache_type type)
->   {
->   	switch (type) {
-> @@ -613,9 +600,10 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
->    */
->   int acpi_find_last_cache_level(unsigned int cpu)
->   {
-> -	u32 acpi_cpu_id;
-> +	struct acpi_pptt_processor *cpu_node;
->   	struct acpi_table_header *table;
->   	int number_of_levels = 0;
-> +	u32 acpi_cpu_id;
->   
->   	table = acpi_get_pptt();
->   	if (!table)
-> @@ -624,7 +612,10 @@ int acpi_find_last_cache_level(unsigned int cpu)
->   	pr_debug("Cache Setup find last level CPU=%d\n", cpu);
->   
->   	acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> -	number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
-> +	cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> +	if (cpu_node)
-> +		number_of_levels = acpi_count_levels(table, cpu_node);
-> +
->   	pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
->   
->   	return number_of_levels;
-
+I'm going with your original suggestion of just grabbing raw_smp_processor_id()
+in the helpers that print the error message.
 
 _______________________________________________
 linux-riscv mailing list
