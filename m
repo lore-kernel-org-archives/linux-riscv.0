@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E7DC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 22:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732F0C43219
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 23:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BTeSEb3GzF/Kb3Glqoc1uFDf4rW8PibFCJw8+URTELw=; b=s5BIR+G1yI3Mvs
-	Jejky4YnhMHUkze2B8vqTDNqyNYOhYyF0nkjqLARuceeLf7exzrtqs3VGzsZ4YLJ2loSNgIRiiH1D
-	8aWpgI7103Uj31o1/qt8144cM1R05uNTmPUTzEcOdXbRSr/RxCgQYDAijfP7I6a5fmUwKzdv27qaQ
-	IHJdDO6UjrcEB6lw135dffN2/tX8o3Xfg76sfMaGkSFc6rc3vx4DjkxLYhxzgwR0sL7g8xLLdi6xn
-	LZeW9pxfGdc0UDhYktIomglwsFbS6hwuumDarKY/7WfR3y8kgUd+ZhtcdGgSBIHg0KyYFFGnVVw4v
-	FVx+2NFjaGS0vKQyfAHA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nfDYmdvO6rAybD20+cJQ5eVoL+xQMZ5dEI/Y2c1ogN0=; b=BNBBox+5U9Lduy
+	G28QMmGOrrhOo1OpxoWghAKF70fd9QV9IVcmxDJO82SrPCdULvApUh0Lge3opTvNZWYgEwMME/juj
+	P48ZGWgQadZ30qX8qoXFz/HLvPXkDkJhQzC+s7kYlv91AcU9KxSW2AKAE4+Wh5eJmwP8+rGOIX2XX
+	CQcFPfk7OkVEP7+H9GXf5x4zPLJeiwNUqcWT3fixgCQw+ZSTqHPidOLJFIKbFR3XGjAS6T1trKwfq
+	f6JRVxvOfYYCRGuq4IejNp3KJRYdVAldPrvDaTl4S/JENjA3RdhqV3h/cOMeih3bcjYmyTuNON0Yl
+	LNqM7JE1TeVd2Bt9AQYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otcYT-001ajf-Lf; Fri, 11 Nov 2022 22:31:21 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1otdHc-001nHG-Lt; Fri, 11 Nov 2022 23:18:00 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otcYP-001agy-GT
-	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 22:31:19 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id w10so4206965qvr.3
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 14:31:15 -0800 (PST)
+	id 1otdHX-001nFp-Qu
+	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 23:17:59 +0000
+Received: by mail-ed1-x534.google.com with SMTP id s12so9558008edd.5
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 15:17:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=g5QtNrTk+w8/73Vy3fSGZT5rE522rZx+3vx3VVx77Pw=;
-        b=4/1sXfbrZ8FjHb/XCuRiNI4Tkmqrjfe61YsZMRjH5IMEIR4XPXrqrQZCljGun93XkI
-         wAbpPWhO3iXyIaOywwixREQ2Ti9wf+MQe7VAxc9u3efD85AxuylWd57xuYo/xgwHB91K
-         elvPRmZIbBPJe11kpiyk/OwWAjCBBkwEH3wG+1r3W2izHmOwcIFhf++GejjBSRyBpiMu
-         FW0nmDuKbvv4+aEzSZtAR3ueo7qW7dcroe7ha6EzeRBT6KKN5yWlpGv8o+pORPLE3wKo
-         y/MtESZ/Yo5LKl+kN4hu3s+1QgKFXAR4nPTwUxXuIw9yTX7J/4jDH60Ehzha1bcbQ0nX
-         ngSg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=c/V4Tvnu8xKzei3gqNHSSk0cQMoifkGPJo/axbEJZd8=;
+        b=vJ9cQ4msT5FizoGXNLDkzygef9TaecVaS6ELLYICEd0cALrZprnET5ytfW7f+jPnwc
+         ZqqZS5c4z+Uvjgmc/ZVnTUAkgJQVCqiyBzrlW74efU5Rq0+AGU1olKPCtICsAXPb9RVy
+         g7+7yx3GHfkuBl/V7pD9jWmNS/Cx0IaQrbp7hS4dubG+Mi8t7PLQ3TrX6vkiAbaV+ayZ
+         6OtWwjxXaxrBUX43NIZnlN69Q+08ZKyCjpX9GUV+bb/Gx/wh9eiP0D71Ba8ta4JSnrZv
+         loUV1TuerPz6OwYslts8+OuOa4SjFKspFFdO8HNafzQj+FZdRLzqIfJf86n37jMrGJhy
+         Ur4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=g5QtNrTk+w8/73Vy3fSGZT5rE522rZx+3vx3VVx77Pw=;
-        b=pjdiOXxxYTItQsVgP4b239aSXMkep+1luD25c79EbE9Pv0DvjII9WJSgiRUfJF2m/z
-         sKCVdiIAoL69TO4RYigKyEZ69Ys+nMKbw5k0eFa8vmrkjxfiZWARAES4QZSKL28NtbT+
-         fueDmnHrgv/5i/hLIVbz3O3PZ+szg04BCeds1e4TY4ysI+eIMqUe6xC/DMNMgE3nrO7/
-         1vvbREhbnw4umwr9IAOI7lVNlpbxIafMeh/6DrW8E3dwG4YVvyN9FA01f6k//YjIWVzu
-         q5EEUcj5irVZruliMaU6/Uv8BGUhu/B2BzRFZBFZGUl6dUq0CCuS+Jolkms8Ssrrq3Ac
-         AkXw==
-X-Gm-Message-State: ANoB5pkok4TTFiMu4RozCciLp1N8cxgYZjZCtLLxBL3tf43Kt3JlM3bb
-	dFY8sb1fs4Gh8SyNrXV09Q3YuA==
-X-Google-Smtp-Source: AA0mqf5NktUO7qEAJTx0O1rFTkLU5Jp2OahXZ/Qb67noQ5Q83wTWsjjhUvzSyoFNotCpUIHl4SS/pA==
-X-Received: by 2002:a05:6214:883:b0:4b9:6eb4:ba10 with SMTP id cz3-20020a056214088300b004b96eb4ba10mr3938072qvb.75.1668205874321;
-        Fri, 11 Nov 2022 14:31:14 -0800 (PST)
-Received: from abrestic-xps.ba.rivosinc.com (pool-72-80-155-134.nycmny.fios.verizon.net. [72.80.155.134])
-        by smtp.gmail.com with ESMTPSA id c18-20020ac85192000000b0039c7b9522ecsm1907290qtn.35.2022.11.11.14.31.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Nov 2022 14:31:13 -0800 (PST)
-From: Andrew Bresticker <abrestic@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Bresticker <abrestic@rivosinc.com>
-Subject: [PATCH] RISC-V: Fix unannoted hardirqs-on in return to userspace slow-path
-Date: Fri, 11 Nov 2022 17:31:08 -0500
-Message-Id: <20221111223108.1976562-1-abrestic@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
+        bh=c/V4Tvnu8xKzei3gqNHSSk0cQMoifkGPJo/axbEJZd8=;
+        b=rMtM2Nt6IIMsKpbhH9C567zYn8FCOQij+bosBAnQYZyxZip9uugBvDKAmRmtSLu7Cb
+         H2//anY8n0S53YPb80w5GPXQ1DfsofqpW9YItot6Z7kMopfz7vEKdgY+6lUOnf5L0Z68
+         Cr3//pnHV3ssKkvABAT6J+1PlGASA0PYsL/W8hxSwQQOeOz7hoIe0uKZqxtaOy2mP8ee
+         yMh7hu2T6WOg9mMXlPIpyUErs+SjQubONx7DUmd3L83sk1UBELxDTudhhQHfNN2roqHV
+         BSqfvivCL3Pgp7eJ2BpTvsjmyB100oPj0qw8E3i0KBGDMq5T41bpfgrft2H6n0DooIz4
+         mmcw==
+X-Gm-Message-State: ANoB5pl9LM/VZRgGSBpC7Y1uUCX5AFGzGMRtGfv2cfwu1o99w1BB/Ddq
+	eZVKXlFu9L1O6fNF2dr7SoIbGvrzYyzECkRt1/ScNQ==
+X-Google-Smtp-Source: AA0mqf6CnsSp8fNgfMX50qDYT1LJo62hVQmYUfcvSTx6ntP+PqDMkOb/7Cxt7L4DcAcpRhpSbm7tRqil4epyWXDmtgk=
+X-Received: by 2002:a50:cc83:0:b0:461:9183:834b with SMTP id
+ q3-20020a50cc83000000b004619183834bmr3363168edi.196.1668208673060; Fri, 11
+ Nov 2022 15:17:53 -0800 (PST)
 MIME-Version: 1.0
+References: <20221111044207.1478350-1-apatel@ventanamicro.com> <20221111044207.1478350-8-apatel@ventanamicro.com>
+In-Reply-To: <20221111044207.1478350-8-apatel@ventanamicro.com>
+From: Andrew Bresticker <abrestic@rivosinc.com>
+Date: Fri, 11 Nov 2022 18:17:42 -0500
+Message-ID: <CALE4mHrfVcFJR+Ym-zdL+vPO9mrVAEfyBsnD0ZoMhuw73ey79Q@mail.gmail.com>
+Subject: Re: [PATCH 7/9] irqchip: Add RISC-V advanced PLIC driver
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221111_143117_796187_D943605E 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20221111_151755_922729_9E9A38FC 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,138 +89,859 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The return to userspace path in entry.S may enable interrupts without the
-corresponding lockdep annotation, producing a splat[0] when DEBUG_LOCKDEP
-is enabled. Simply calling __trace_hardirqs_on() here gets a bit messy
-due to the use of RA to point back to ret_from_exception, so just move
-the whole slow-path loop into C. It's more readable and it lets us use
-local_irq_{enable,disable}(), avoiding the need for manual annotations
-altogether.
+On Thu, Nov 10, 2022 at 11:45 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> The RISC-V advanced interrupt architecture (AIA) specification defines
+> a new interrupt controller for managing wired interrupts on a RISC-V
+> platform. This new interrupt controller is referred to as advanced
+> platform-level interrupt controller (APLIC) which can forward wired
+> interrupts to CPUs (or HARTs) as local interrupts OR as message
+> signaled interrupts.
+> (For more details refer https://github.com/riscv/riscv-aia)
+>
+> This patch adds an irqchip driver for RISC-V APLIC found on RISC-V
+> platforms.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  drivers/irqchip/Kconfig             |  12 +
+>  drivers/irqchip/Makefile            |   1 +
+>  drivers/irqchip/irq-riscv-aplic.c   | 656 ++++++++++++++++++++++++++++
+>  include/linux/irqchip/riscv-aplic.h | 117 +++++
+>  4 files changed, 786 insertions(+)
+>  create mode 100644 drivers/irqchip/irq-riscv-aplic.c
+>  create mode 100644 include/linux/irqchip/riscv-aplic.h
+>
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index 8246c08f0fd3..9f022e71d937 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -563,6 +563,18 @@ config SIFIVE_PLIC
+>
+>            If you don't know what to do here, say Y.
+>
+> +config RISCV_APLIC
+> +       bool "RISC-V Advanced Platform-Level Interrupt Controller"
+> +       depends on RISCV
+> +       select IRQ_DOMAIN_HIERARCHY
+> +       select GENERIC_MSI_IRQ_DOMAIN
+> +       help
+> +          This enables support for the APLIC chip found in RISC-V systems.
+> +          The APLIC controls device wired interrupts and forwards them to
+> +          each core as wired local interrupt or per-core MSIs.
+> +
+> +          If you don't know what to do here, say Y.
+> +
+>  config RISCV_IMSIC
+>         bool "RISC-V Incoming MSI Controller"
+>         depends on RISCV
+> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+> index 22c723cc6ec8..6154e5bc4228 100644
+> --- a/drivers/irqchip/Makefile
+> +++ b/drivers/irqchip/Makefile
+> @@ -96,6 +96,7 @@ obj-$(CONFIG_QCOM_MPM)                        += irq-qcom-mpm.o
+>  obj-$(CONFIG_CSKY_MPINTC)              += irq-csky-mpintc.o
+>  obj-$(CONFIG_CSKY_APB_INTC)            += irq-csky-apb-intc.o
+>  obj-$(CONFIG_RISCV_INTC)               += irq-riscv-intc.o
+> +obj-$(CONFIG_RISCV_APLIC)              += irq-riscv-aplic.o
+>  obj-$(CONFIG_RISCV_IMSIC)              += irq-riscv-imsic.o
+>  obj-$(CONFIG_SIFIVE_PLIC)              += irq-sifive-plic.o
+>  obj-$(CONFIG_IMX_IRQSTEER)             += irq-imx-irqsteer.o
+> diff --git a/drivers/irqchip/irq-riscv-aplic.c b/drivers/irqchip/irq-riscv-aplic.c
+> new file mode 100644
+> index 000000000000..e6d0e1bb15a8
+> --- /dev/null
+> +++ b/drivers/irqchip/irq-riscv-aplic.c
+> @@ -0,0 +1,656 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> + */
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/cpu.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqchip.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqchip/riscv-aplic.h>
+> +#include <linux/irqchip/riscv-imsic.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/module.h>
+> +#include <linux/msi.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/smp.h>
+> +
+> +#define APLIC_DEFAULT_PRIORITY         1
+> +#define APLIC_DISABLE_IDELIVERY                0
+> +#define APLIC_ENABLE_IDELIVERY         1
+> +#define APLIC_DISABLE_ITHRESHOLD       1
+> +#define APLIC_ENABLE_ITHRESHOLD                0
+> +
+> +struct aplic_msicfg {
+> +       phys_addr_t             base_ppn;
+> +       u32                     hhxs;
+> +       u32                     hhxw;
+> +       u32                     lhxs;
+> +       u32                     lhxw;
+> +};
+> +
+> +struct aplic_idc {
+> +       unsigned int            hart_index;
+> +       void __iomem            *regs;
+> +       struct aplic_priv       *priv;
+> +};
+> +
+> +struct aplic_priv {
+> +       struct device           *dev;
+> +       u32                     nr_irqs;
+> +       u32                     nr_idcs;
+> +       void __iomem            *regs;
+> +       struct irq_domain       *irqdomain;
+> +       struct aplic_msicfg     msicfg;
+> +       struct cpumask          lmask;
+> +};
+> +
+> +static unsigned int aplic_idc_parent_irq;
+> +static DEFINE_PER_CPU(struct aplic_idc, aplic_idcs);
+> +
+> +static void aplic_irq_unmask(struct irq_data *d)
+> +{
+> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+> +
+> +       writel(d->hwirq, priv->regs + APLIC_SETIENUM);
+> +
+> +       if (!priv->nr_idcs)
+> +               irq_chip_unmask_parent(d);
+> +}
+> +
+> +static void aplic_irq_mask(struct irq_data *d)
+> +{
+> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+> +
+> +       writel(d->hwirq, priv->regs + APLIC_CLRIENUM);
+> +
+> +       if (!priv->nr_idcs)
+> +               irq_chip_mask_parent(d);
+> +}
+> +
+> +static int aplic_set_type(struct irq_data *d, unsigned int type)
+> +{
+> +       u32 val = 0;
+> +       void __iomem *sourcecfg;
+> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+> +
+> +       switch (type) {
+> +       case IRQ_TYPE_NONE:
+> +               val = APLIC_SOURCECFG_SM_INACTIVE;
+> +               break;
+> +       case IRQ_TYPE_LEVEL_LOW:
+> +               val = APLIC_SOURCECFG_SM_LEVEL_LOW;
+> +               break;
+> +       case IRQ_TYPE_LEVEL_HIGH:
+> +               val = APLIC_SOURCECFG_SM_LEVEL_HIGH;
+> +               break;
+> +       case IRQ_TYPE_EDGE_FALLING:
+> +               val = APLIC_SOURCECFG_SM_EDGE_FALL;
+> +               break;
+> +       case IRQ_TYPE_EDGE_RISING:
+> +               val = APLIC_SOURCECFG_SM_EDGE_RISE;
+> +               break;
+> +       default:
+> +               return -EINVAL;
+> +       }
+> +
+> +       sourcecfg = priv->regs + APLIC_SOURCECFG_BASE;
+> +       sourcecfg += (d->hwirq - 1) * sizeof(u32);
+> +       writel(val, sourcecfg);
+> +
+> +       return 0;
+> +}
+> +
+> +#ifdef CONFIG_SMP
+> +static int aplic_set_affinity(struct irq_data *d,
+> +                             const struct cpumask *mask_val, bool force)
+> +{
+> +       struct aplic_priv *priv = irq_data_get_irq_chip_data(d);
+> +       struct aplic_idc *idc;
+> +       unsigned int cpu, val;
+> +       struct cpumask amask;
+> +       void __iomem *target;
+> +
+> +       if (!priv->nr_idcs)
+> +               return irq_chip_set_affinity_parent(d, mask_val, force);
+> +
+> +       cpumask_and(&amask, &priv->lmask, mask_val);
+> +
+> +       if (force)
+> +               cpu = cpumask_first(&amask);
+> +       else
+> +               cpu = cpumask_any_and(&amask, cpu_online_mask);
+> +
+> +       if (cpu >= nr_cpu_ids)
+> +               return -EINVAL;
+> +
+> +       idc = per_cpu_ptr(&aplic_idcs, cpu);
+> +       target = priv->regs + APLIC_TARGET_BASE;
+> +       target += (d->hwirq - 1) * sizeof(u32);
+> +       val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
+> +       val <<= APLIC_TARGET_HART_IDX_SHIFT;
+> +       val |= APLIC_DEFAULT_PRIORITY;
+> +       writel(val, target);
+> +
+> +       irq_data_update_effective_affinity(d, cpumask_of(cpu));
+> +
+> +       return IRQ_SET_MASK_OK_DONE;
+> +}
+> +#endif
+> +
+> +static struct irq_chip aplic_chip = {
+> +       .name           = "RISC-V APLIC",
+> +       .irq_mask       = aplic_irq_mask,
+> +       .irq_unmask     = aplic_irq_unmask,
+> +       .irq_set_type   = aplic_set_type,
+> +#ifdef CONFIG_SMP
+> +       .irq_set_affinity = aplic_set_affinity,
+> +#endif
+> +       .flags          = IRQCHIP_SET_TYPE_MASKED |
+> +                         IRQCHIP_SKIP_SET_WAKE |
+> +                         IRQCHIP_MASK_ON_SUSPEND,
+> +};
+> +
+> +static int aplic_irqdomain_translate(struct irq_domain *d,
+> +                                    struct irq_fwspec *fwspec,
+> +                                    unsigned long *hwirq,
+> +                                    unsigned int *type)
+> +{
+> +       if (WARN_ON(fwspec->param_count < 2))
+> +               return -EINVAL;
+> +       if (WARN_ON(!fwspec->param[0]))
+> +               return -EINVAL;
+> +
+> +       *hwirq = fwspec->param[0];
+> +       *type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
+> +
+> +       WARN_ON(*type == IRQ_TYPE_NONE);
+> +
+> +       return 0;
+> +}
+> +
+> +static int aplic_irqdomain_msi_alloc(struct irq_domain *domain,
+> +                                    unsigned int virq, unsigned int nr_irqs,
+> +                                    void *arg)
+> +{
+> +       int i, ret;
+> +       unsigned int type;
+> +       irq_hw_number_t hwirq;
+> +       struct irq_fwspec *fwspec = arg;
+> +       struct aplic_priv *priv = platform_msi_get_host_data(domain);
+> +
+> +       ret = aplic_irqdomain_translate(domain, fwspec, &hwirq, &type);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret = platform_msi_device_domain_alloc(domain, virq, nr_irqs);
+> +       if (ret)
+> +               return ret;
+> +
+> +       for (i = 0; i < nr_irqs; i++)
+> +               irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
+> +                                             &aplic_chip, priv);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct irq_domain_ops aplic_irqdomain_msi_ops = {
+> +       .translate      = aplic_irqdomain_translate,
+> +       .alloc          = aplic_irqdomain_msi_alloc,
+> +       .free           = platform_msi_device_domain_free,
+> +};
+> +
+> +static int aplic_irqdomain_idc_alloc(struct irq_domain *domain,
+> +                                    unsigned int virq, unsigned int nr_irqs,
+> +                                    void *arg)
+> +{
+> +       int i, ret;
+> +       unsigned int type;
+> +       irq_hw_number_t hwirq;
+> +       struct irq_fwspec *fwspec = arg;
+> +       struct aplic_priv *priv = domain->host_data;
+> +
+> +       ret = aplic_irqdomain_translate(domain, fwspec, &hwirq, &type);
+> +       if (ret)
+> +               return ret;
+> +
+> +       for (i = 0; i < nr_irqs; i++) {
+> +               irq_domain_set_info(domain, virq + i, hwirq + i,
+> +                                   &aplic_chip, priv, handle_simple_irq,
+> +                                   NULL, NULL);
+> +               irq_set_affinity(virq + i, &priv->lmask);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct irq_domain_ops aplic_irqdomain_idc_ops = {
+> +       .translate      = aplic_irqdomain_translate,
+> +       .alloc          = aplic_irqdomain_idc_alloc,
+> +       .free           = irq_domain_free_irqs_top,
+> +};
+> +
+> +static void aplic_init_hw_irqs(struct aplic_priv *priv)
+> +{
+> +       int i;
+> +
+> +       /* Disable all interrupts */
+> +       for (i = 0; i <= priv->nr_irqs; i += 32)
+> +               writel(-1U, priv->regs + APLIC_CLRIE_BASE +
+> +                           (i / 32) * sizeof(u32));
+> +
+> +       /* Set interrupt type and default priority for all interrupts */
+> +       for (i = 1; i <= priv->nr_irqs; i++) {
+> +               writel(0, priv->regs + APLIC_SOURCECFG_BASE +
+> +                         (i - 1) * sizeof(u32));
+> +               writel(APLIC_DEFAULT_PRIORITY,
+> +                      priv->regs + APLIC_TARGET_BASE +
+> +                      (i - 1) * sizeof(u32));
+> +       }
+> +
+> +       /* Clear APLIC domaincfg */
+> +       writel(0, priv->regs + APLIC_DOMAINCFG);
+> +}
+> +
+> +static void aplic_init_hw_global(struct aplic_priv *priv)
+> +{
+> +       u32 val;
+> +#ifdef CONFIG_RISCV_M_MODE
+> +       u32 valH;
+> +
+> +       if (!priv->nr_idcs) {
+> +               val = priv->msicfg.base_ppn;
+> +               valH = (priv->msicfg.base_ppn >> 32) &
+> +                       APLIC_xMSICFGADDRH_BAPPN_MASK;
+> +               valH |= (priv->msicfg.lhxw & APLIC_xMSICFGADDRH_LHXW_MASK)
+> +                       << APLIC_xMSICFGADDRH_LHXW_SHIFT;
+> +               valH |= (priv->msicfg.hhxw & APLIC_xMSICFGADDRH_HHXW_MASK)
+> +                       << APLIC_xMSICFGADDRH_HHXW_SHIFT;
+> +               valH |= (priv->msicfg.lhxs & APLIC_xMSICFGADDRH_LHXS_MASK)
+> +                       << APLIC_xMSICFGADDRH_LHXS_SHIFT;
+> +               valH |= (priv->msicfg.hhxs & APLIC_xMSICFGADDRH_HHXS_MASK)
+> +                       << APLIC_xMSICFGADDRH_HHXS_SHIFT;
+> +               writel(val, priv->regs + APLIC_xMSICFGADDR);
+> +               writel(valH, priv->regs + APLIC_xMSICFGADDRH);
+> +       }
+> +#endif
+> +
+> +       /* Setup APLIC domaincfg register */
+> +       val = readl(priv->regs + APLIC_DOMAINCFG);
+> +       val |= APLIC_DOMAINCFG_IE;
+> +       if (!priv->nr_idcs)
+> +               val |= APLIC_DOMAINCFG_DM;
+> +       writel(val, priv->regs + APLIC_DOMAINCFG);
+> +       if (readl(priv->regs + APLIC_DOMAINCFG) != val)
+> +               dev_warn(priv->dev,
+> +                        "unable to write 0x%x in domaincfg\n", val);
+> +}
+> +
+> +static void aplic_msi_write_msg(struct msi_desc *desc, struct msi_msg *msg)
+> +{
+> +       unsigned int group_index, hart_index, guest_index, val;
+> +       struct device *dev = msi_desc_to_dev(desc);
+> +       struct aplic_priv *priv = dev_get_drvdata(dev);
+> +       struct irq_data *d = irq_get_irq_data(desc->irq);
+> +       struct aplic_msicfg *mc = &priv->msicfg;
+> +       phys_addr_t tppn, tbppn, msg_addr;
+> +       void __iomem *target;
+> +
+> +       /* Save the MSI address and data */
+> +       msg_addr = (((u64)msg->address_hi) << 32) | msg->address_lo;
+> +       WARN_ON(msg->data > APLIC_TARGET_EIID_MASK);
+> +
+> +       /* Compute target HART PPN */
+> +       tppn = msg_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
+> +
+> +       /* Compute target HART Base PPN */
+> +       tbppn = tppn;
+> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
+> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
+> +       tbppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
+> +       WARN_ON(tbppn != mc->base_ppn);
 
-[0]:
-  ------------[ cut here ]------------
-  DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
-  WARNING: CPU: 2 PID: 1 at kernel/locking/lockdep.c:5512 check_flags+0x10a/0x1e0
-  Modules linked in:
-  CPU: 2 PID: 1 Comm: init Not tainted 6.1.0-rc4-00160-gb56b6e2b4f31 #53
-  Hardware name: riscv-virtio,qemu (DT)
-  epc : check_flags+0x10a/0x1e0
-  ra : check_flags+0x10a/0x1e0
-  <snip>
-   status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-  [<ffffffff808edb90>] lock_is_held_type+0x78/0x14e
-  [<ffffffff8003dae2>] __might_resched+0x26/0x22c
-  [<ffffffff8003dd24>] __might_sleep+0x3c/0x66
-  [<ffffffff80022c60>] get_signal+0x9e/0xa70
-  [<ffffffff800054a2>] do_notify_resume+0x6e/0x422
-  [<ffffffff80003c68>] ret_from_exception+0x0/0x10
-  irq event stamp: 44512
-  hardirqs last  enabled at (44511): [<ffffffff808f901c>] _raw_spin_unlock_irqrestore+0x54/0x62
-  hardirqs last disabled at (44512): [<ffffffff80008200>] __trace_hardirqs_off+0xc/0x14
-  softirqs last  enabled at (44472): [<ffffffff808f9fbe>] __do_softirq+0x3de/0x51e
-  softirqs last disabled at (44467): [<ffffffff80017760>] irq_exit+0xd6/0x104
-  ---[ end trace 0000000000000000 ]---
-  possible reason: unannotated irqs-on.
+platform_msi_write_msg() will get called with a zeroed-out msg_msg in
+the free_irq() path, triggering this warning. Should detect that case
+and (I assume) just write 0 to the APLIC target register.
 
-Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
----
-This should also theoretically be fixed by the conversion to generic entry,
-but it's not clear how far away that series is from landing.
----
- arch/riscv/kernel/entry.S  | 18 +++++-------------
- arch/riscv/kernel/signal.c | 34 +++++++++++++++++++++-------------
- 2 files changed, 26 insertions(+), 26 deletions(-)
+-Andrew
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index b9eda3fcbd6d..58dfa8595e19 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -263,12 +263,11 @@ ret_from_exception:
- #endif
- 	bnez s0, resume_kernel
- 
--resume_userspace:
- 	/* Interrupts must be disabled here so flags are checked atomically */
- 	REG_L s0, TASK_TI_FLAGS(tp) /* current_thread_info->flags */
- 	andi s1, s0, _TIF_WORK_MASK
--	bnez s1, work_pending
--
-+	bnez s1, resume_userspace_slow
-+resume_userspace:
- #ifdef CONFIG_CONTEXT_TRACKING_USER
- 	call user_enter_callable
- #endif
-@@ -368,19 +367,12 @@ resume_kernel:
- 	j restore_all
- #endif
- 
--work_pending:
-+resume_userspace_slow:
- 	/* Enter slow path for supplementary processing */
--	la ra, ret_from_exception
--	andi s1, s0, _TIF_NEED_RESCHED
--	bnez s1, work_resched
--work_notifysig:
--	/* Handle pending signals and notify-resume requests */
--	csrs CSR_STATUS, SR_IE /* Enable interrupts for do_notify_resume() */
- 	move a0, sp /* pt_regs */
- 	move a1, s0 /* current_thread_info->flags */
--	tail do_notify_resume
--work_resched:
--	tail schedule
-+	call do_work_pending
-+	j resume_userspace
- 
- /* Slow paths for ptrace. */
- handle_syscall_trace_enter:
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 5c591123c440..bfb2afa4135f 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -313,19 +313,27 @@ static void do_signal(struct pt_regs *regs)
- }
- 
- /*
-- * notification of userspace execution resumption
-- * - triggered by the _TIF_WORK_MASK flags
-+ * Handle any pending work on the resume-to-userspace path, as indicated by
-+ * _TIF_WORK_MASK. Entered from assembly with IRQs off.
-  */
--asmlinkage __visible void do_notify_resume(struct pt_regs *regs,
--					   unsigned long thread_info_flags)
-+asmlinkage __visible void do_work_pending(struct pt_regs *regs,
-+					  unsigned long thread_info_flags)
- {
--	if (thread_info_flags & _TIF_UPROBE)
--		uprobe_notify_resume(regs);
--
--	/* Handle pending signal delivery */
--	if (thread_info_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
--		do_signal(regs);
--
--	if (thread_info_flags & _TIF_NOTIFY_RESUME)
--		resume_user_mode_work(regs);
-+	do {
-+		if (thread_info_flags & _TIF_NEED_RESCHED) {
-+			schedule();
-+		} else {
-+			local_irq_enable();
-+			if (thread_info_flags & _TIF_UPROBE)
-+				uprobe_notify_resume(regs);
-+			/* Handle pending signal delivery */
-+			if (thread_info_flags & (_TIF_SIGPENDING |
-+						 _TIF_NOTIFY_SIGNAL))
-+				do_signal(regs);
-+			if (thread_info_flags & _TIF_NOTIFY_RESUME)
-+				resume_user_mode_work(regs);
-+		}
-+		local_irq_disable();
-+		thread_info_flags = read_thread_flags();
-+	} while (thread_info_flags & _TIF_WORK_MASK);
- }
--- 
-2.25.1
-
+> +
+> +       /* Compute target group and hart indexes */
+> +       group_index = (tppn >> APLIC_xMSICFGADDR_PPN_HHX_SHIFT(mc->hhxs)) &
+> +                    APLIC_xMSICFGADDR_PPN_HHX_MASK(mc->hhxw);
+> +       hart_index = (tppn >> APLIC_xMSICFGADDR_PPN_LHX_SHIFT(mc->lhxs)) &
+> +                    APLIC_xMSICFGADDR_PPN_LHX_MASK(mc->lhxw);
+> +       hart_index |= (group_index << mc->lhxw);
+> +       WARN_ON(hart_index > APLIC_TARGET_HART_IDX_MASK);
+> +
+> +       /* Compute target guest index */
+> +       guest_index = tppn & APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
+> +       WARN_ON(guest_index > APLIC_TARGET_GUEST_IDX_MASK);
+> +
+> +       /* Update IRQ TARGET register */
+> +       target = priv->regs + APLIC_TARGET_BASE;
+> +       target += (d->hwirq - 1) * sizeof(u32);
+> +       val = (hart_index & APLIC_TARGET_HART_IDX_MASK)
+> +                               << APLIC_TARGET_HART_IDX_SHIFT;
+> +       val |= (guest_index & APLIC_TARGET_GUEST_IDX_MASK)
+> +                               << APLIC_TARGET_GUEST_IDX_SHIFT;
+> +       val |= (msg->data & APLIC_TARGET_EIID_MASK);
+> +       writel(val, target);
+> +}
+> +
+> +static int aplic_setup_msi(struct aplic_priv *priv)
+> +{
+> +       struct device *dev = priv->dev;
+> +       struct aplic_msicfg *mc = &priv->msicfg;
+> +       const struct imsic_global_config *imsic_global;
+> +
+> +       /*
+> +        * The APLIC outgoing MSI config registers assume target MSI
+> +        * controller to be RISC-V AIA IMSIC controller.
+> +        */
+> +       imsic_global = imsic_get_global_config();
+> +       if (!imsic_global) {
+> +               dev_err(dev, "IMSIC global config not found\n");
+> +               return -ENODEV;
+> +       }
+> +
+> +       /* Find number of guest index bits (LHXS) */
+> +       mc->lhxs = imsic_global->guest_index_bits;
+> +       if (APLIC_xMSICFGADDRH_LHXS_MASK < mc->lhxs) {
+> +               dev_err(dev, "IMSIC guest index bits big for APLIC LHXS\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       /* Find number of HART index bits (LHXW) */
+> +       mc->lhxw = imsic_global->hart_index_bits;
+> +       if (APLIC_xMSICFGADDRH_LHXW_MASK < mc->lhxw) {
+> +               dev_err(dev, "IMSIC hart index bits big for APLIC LHXW\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       /* Find number of group index bits (HHXW) */
+> +       mc->hhxw = imsic_global->group_index_bits;
+> +       if (APLIC_xMSICFGADDRH_HHXW_MASK < mc->hhxw) {
+> +               dev_err(dev, "IMSIC group index bits big for APLIC HHXW\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       /* Find first bit position of group index (HHXS) */
+> +       mc->hhxs = imsic_global->group_index_shift;
+> +       if (mc->hhxs < (2 * APLIC_xMSICFGADDR_PPN_SHIFT)) {
+> +               dev_err(dev, "IMSIC group index shift should be >= %d\n",
+> +                       (2 * APLIC_xMSICFGADDR_PPN_SHIFT));
+> +               return -EINVAL;
+> +       }
+> +       mc->hhxs -= (2 * APLIC_xMSICFGADDR_PPN_SHIFT);
+> +       if (APLIC_xMSICFGADDRH_HHXS_MASK < mc->hhxs) {
+> +               dev_err(dev, "IMSIC group index shift big for APLIC HHXS\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       /* Compute PPN base */
+> +       mc->base_ppn = imsic_global->base_addr >> APLIC_xMSICFGADDR_PPN_SHIFT;
+> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HART(mc->lhxs);
+> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_LHX(mc->lhxw, mc->lhxs);
+> +       mc->base_ppn &= ~APLIC_xMSICFGADDR_PPN_HHX(mc->hhxw, mc->hhxs);
+> +
+> +       /* Use all possible CPUs as lmask */
+> +       cpumask_copy(&priv->lmask, cpu_possible_mask);
+> +
+> +       return 0;
+> +}
+> +
+> +/*
+> + * To handle an APLIC IDC interrupts, we just read the CLAIMI register
+> + * which will return highest priority pending interrupt and clear the
+> + * pending bit of the interrupt. This process is repeated until CLAIMI
+> + * register return zero value.
+> + */
+> +static void aplic_idc_handle_irq(struct irq_desc *desc)
+> +{
+> +       struct aplic_idc *idc = this_cpu_ptr(&aplic_idcs);
+> +       struct irq_chip *chip = irq_desc_get_chip(desc);
+> +       irq_hw_number_t hw_irq;
+> +       int irq;
+> +
+> +       chained_irq_enter(chip, desc);
+> +
+> +       while ((hw_irq = readl(idc->regs + APLIC_IDC_CLAIMI))) {
+> +               hw_irq = hw_irq >> APLIC_IDC_TOPI_ID_SHIFT;
+> +               irq = irq_find_mapping(idc->priv->irqdomain, hw_irq);
+> +
+> +               if (unlikely(irq <= 0))
+> +                       pr_warn_ratelimited("hw_irq %lu mapping not found\n",
+> +                                           hw_irq);
+> +               else
+> +                       generic_handle_irq(irq);
+> +       }
+> +
+> +       chained_irq_exit(chip, desc);
+> +}
+> +
+> +static void aplic_idc_set_delivery(struct aplic_idc *idc, bool en)
+> +{
+> +       u32 de = (en) ? APLIC_ENABLE_IDELIVERY : APLIC_DISABLE_IDELIVERY;
+> +       u32 th = (en) ? APLIC_ENABLE_ITHRESHOLD : APLIC_DISABLE_ITHRESHOLD;
+> +
+> +       /* Priority must be less than threshold for interrupt triggering */
+> +       writel(th, idc->regs + APLIC_IDC_ITHRESHOLD);
+> +
+> +       /* Delivery must be set to 1 for interrupt triggering */
+> +       writel(de, idc->regs + APLIC_IDC_IDELIVERY);
+> +}
+> +
+> +static int aplic_idc_dying_cpu(unsigned int cpu)
+> +{
+> +       if (aplic_idc_parent_irq)
+> +               disable_percpu_irq(aplic_idc_parent_irq);
+> +
+> +       return 0;
+> +}
+> +
+> +static int aplic_idc_starting_cpu(unsigned int cpu)
+> +{
+> +       if (aplic_idc_parent_irq)
+> +               enable_percpu_irq(aplic_idc_parent_irq,
+> +                                 irq_get_trigger_type(aplic_idc_parent_irq));
+> +
+> +       return 0;
+> +}
+> +
+> +static int aplic_setup_idc(struct aplic_priv *priv)
+> +{
+> +       int i, j, rc, cpu, setup_count = 0;
+> +       struct device_node *node = priv->dev->of_node;
+> +       struct device *dev = priv->dev;
+> +       struct of_phandle_args parent;
+> +       struct irq_domain *domain;
+> +       unsigned long hartid;
+> +       struct aplic_idc *idc;
+> +       u32 val;
+> +
+> +       /* Setup per-CPU IDC and target CPU mask */
+> +       for (i = 0; i < priv->nr_idcs; i++) {
+> +               if (of_irq_parse_one(node, i, &parent)) {
+> +                       dev_err(dev, "failed to parse parent for IDC%d.\n",
+> +                               i);
+> +                       return -EIO;
+> +               }
+> +
+> +               /* Skip IDCs which do not connect to external interrupts */
+> +               if (parent.args[0] != RV_IRQ_EXT)
+> +                       continue;
+> +
+> +               rc = riscv_of_parent_hartid(parent.np, &hartid);
+> +               if (rc) {
+> +                       dev_err(dev, "failed to parse hart ID for IDC%d.\n",
+> +                               i);
+> +                       return rc;
+> +               }
+> +
+> +               cpu = riscv_hartid_to_cpuid(hartid);
+> +               if (cpu < 0) {
+> +                       dev_warn(dev, "invalid cpuid for IDC%d\n", i);
+> +                       continue;
+> +               }
+> +
+> +               cpumask_set_cpu(cpu, &priv->lmask);
+> +
+> +               idc = per_cpu_ptr(&aplic_idcs, cpu);
+> +               WARN_ON(idc->priv);
+> +
+> +               idc->hart_index = i;
+> +               idc->regs = priv->regs + APLIC_IDC_BASE + i * APLIC_IDC_SIZE;
+> +               idc->priv = priv;
+> +
+> +               aplic_idc_set_delivery(idc, true);
+> +
+> +               /*
+> +                * Boot cpu might not have APLIC hart_index = 0 so check
+> +                * and update target registers of all interrupts.
+> +                */
+> +               if (cpu == smp_processor_id() && idc->hart_index) {
+> +                       val = idc->hart_index & APLIC_TARGET_HART_IDX_MASK;
+> +                       val <<= APLIC_TARGET_HART_IDX_SHIFT;
+> +                       val |= APLIC_DEFAULT_PRIORITY;
+> +                       for (j = 1; j <= priv->nr_irqs; j++)
+> +                               writel(val, priv->regs + APLIC_TARGET_BASE +
+> +                                           (j - 1) * sizeof(u32));
+> +               }
+> +
+> +               setup_count++;
+> +       }
+> +
+> +       /* Find parent domain and register chained handler */
+> +       domain = irq_find_matching_fwnode(riscv_get_intc_hwnode(),
+> +                                         DOMAIN_BUS_ANY);
+> +       if (!aplic_idc_parent_irq && domain) {
+> +               aplic_idc_parent_irq = irq_create_mapping(domain, RV_IRQ_EXT);
+> +               if (aplic_idc_parent_irq) {
+> +                       irq_set_chained_handler(aplic_idc_parent_irq,
+> +                                               aplic_idc_handle_irq);
+> +
+> +                       /*
+> +                        * Setup CPUHP notifier to enable IDC parent
+> +                        * interrupt on all CPUs
+> +                        */
+> +                       cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> +                                         "irqchip/riscv/aplic:starting",
+> +                                         aplic_idc_starting_cpu,
+> +                                         aplic_idc_dying_cpu);
+> +               }
+> +       }
+> +
+> +       /* Fail if we were not able to setup IDC for any CPU */
+> +       return (setup_count) ? 0 : -ENODEV;
+> +}
+> +
+> +static int aplic_probe(struct platform_device *pdev)
+> +{
+> +       struct device_node *node = pdev->dev.of_node;
+> +       struct device *dev = &pdev->dev;
+> +       struct aplic_priv *priv;
+> +       struct resource *regs;
+> +       phys_addr_t pa;
+> +       int rc;
+> +
+> +       regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> +       if (!regs) {
+> +               dev_err(dev, "cannot find registers resource\n");
+> +               return -ENOENT;
+> +       }
+> +
+> +       priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +       if (!priv)
+> +               return -ENOMEM;
+> +       platform_set_drvdata(pdev, priv);
+> +       priv->dev = dev;
+> +
+> +       priv->regs = devm_ioremap(dev, regs->start, resource_size(regs));
+> +       if (WARN_ON(!priv->regs)) {
+> +               dev_err(dev, "failed ioremap registers\n");
+> +               return -EIO;
+> +       }
+> +
+> +       of_property_read_u32(node, "riscv,num-sources", &priv->nr_irqs);
+> +       if (!priv->nr_irqs) {
+> +               dev_err(dev, "failed to get number of interrupt sources\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       /* Setup initial state APLIC interrupts */
+> +       aplic_init_hw_irqs(priv);
+> +
+> +       /* Setup IDCs or MSIs based on parent interrupts in DT node */
+> +       priv->nr_idcs = of_irq_count(node);
+> +       if (priv->nr_idcs)
+> +               rc = aplic_setup_idc(priv);
+> +       else
+> +               rc = aplic_setup_msi(priv);
+> +       if (rc)
+> +               return rc;
+> +
+> +       /* Setup global config and interrupt delivery */
+> +       aplic_init_hw_global(priv);
+> +
+> +       /* Create irq domain instance for the APLIC */
+> +       if (priv->nr_idcs)
+> +               priv->irqdomain = irq_domain_create_linear(
+> +                                               of_node_to_fwnode(node),
+> +                                               priv->nr_irqs + 1,
+> +                                               &aplic_irqdomain_idc_ops,
+> +                                               priv);
+> +       else
+> +               priv->irqdomain = platform_msi_create_device_domain(dev,
+> +                                               priv->nr_irqs + 1,
+> +                                               aplic_msi_write_msg,
+> +                                               &aplic_irqdomain_msi_ops,
+> +                                               priv);
+> +       if (!priv->irqdomain) {
+> +               dev_err(dev, "failed to add irq domain\n");
+> +               return -ENOMEM;
+> +       }
+> +
+> +       /* Advertise the interrupt controller */
+> +       if (priv->nr_idcs) {
+> +               dev_info(dev, "%d interrupts directly connected to %d CPUs\n",
+> +                        priv->nr_irqs, priv->nr_idcs);
+> +       } else {
+> +               pa = priv->msicfg.base_ppn << APLIC_xMSICFGADDR_PPN_SHIFT;
+> +               dev_info(dev, "%d interrupts forwared to MSI base %pa\n",
+> +                        priv->nr_irqs, &pa);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int aplic_remove(struct platform_device *pdev)
+> +{
+> +       struct aplic_priv *priv = platform_get_drvdata(pdev);
+> +
+> +       irq_domain_remove(priv->irqdomain);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct of_device_id aplic_match[] = {
+> +       { .compatible = "riscv,aplic" },
+> +       {}
+> +};
+> +
+> +static struct platform_driver aplic_driver = {
+> +       .driver = {
+> +               .name           = "riscv-aplic",
+> +               .of_match_table = aplic_match,
+> +       },
+> +       .probe = aplic_probe,
+> +       .remove = aplic_remove,
+> +};
+> +
+> +static int __init aplic_init(void)
+> +{
+> +       return platform_driver_register(&aplic_driver);
+> +}
+> +core_initcall(aplic_init);
+> diff --git a/include/linux/irqchip/riscv-aplic.h b/include/linux/irqchip/riscv-aplic.h
+> new file mode 100644
+> index 000000000000..88177eefd411
+> --- /dev/null
+> +++ b/include/linux/irqchip/riscv-aplic.h
+> @@ -0,0 +1,117 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
+> + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> + */
+> +#ifndef __LINUX_IRQCHIP_RISCV_APLIC_H
+> +#define __LINUX_IRQCHIP_RISCV_APLIC_H
+> +
+> +#include <linux/bitops.h>
+> +
+> +#define APLIC_MAX_IDC                  BIT(14)
+> +#define APLIC_MAX_SOURCE               1024
+> +
+> +#define APLIC_DOMAINCFG                        0x0000
+> +#define APLIC_DOMAINCFG_RDONLY         0x80000000
+> +#define APLIC_DOMAINCFG_IE             BIT(8)
+> +#define APLIC_DOMAINCFG_DM             BIT(2)
+> +#define APLIC_DOMAINCFG_BE             BIT(0)
+> +
+> +#define APLIC_SOURCECFG_BASE           0x0004
+> +#define APLIC_SOURCECFG_D              BIT(10)
+> +#define APLIC_SOURCECFG_CHILDIDX_MASK  0x000003ff
+> +#define APLIC_SOURCECFG_SM_MASK        0x00000007
+> +#define APLIC_SOURCECFG_SM_INACTIVE    0x0
+> +#define APLIC_SOURCECFG_SM_DETACH      0x1
+> +#define APLIC_SOURCECFG_SM_EDGE_RISE   0x4
+> +#define APLIC_SOURCECFG_SM_EDGE_FALL   0x5
+> +#define APLIC_SOURCECFG_SM_LEVEL_HIGH  0x6
+> +#define APLIC_SOURCECFG_SM_LEVEL_LOW   0x7
+> +
+> +#define APLIC_MMSICFGADDR              0x1bc0
+> +#define APLIC_MMSICFGADDRH             0x1bc4
+> +#define APLIC_SMSICFGADDR              0x1bc8
+> +#define APLIC_SMSICFGADDRH             0x1bcc
+> +
+> +#ifdef CONFIG_RISCV_M_MODE
+> +#define APLIC_xMSICFGADDR              APLIC_MMSICFGADDR
+> +#define APLIC_xMSICFGADDRH             APLIC_MMSICFGADDRH
+> +#else
+> +#define APLIC_xMSICFGADDR              APLIC_SMSICFGADDR
+> +#define APLIC_xMSICFGADDRH             APLIC_SMSICFGADDRH
+> +#endif
+> +
+> +#define APLIC_xMSICFGADDRH_L           BIT(31)
+> +#define APLIC_xMSICFGADDRH_HHXS_MASK   0x1f
+> +#define APLIC_xMSICFGADDRH_HHXS_SHIFT  24
+> +#define APLIC_xMSICFGADDRH_LHXS_MASK   0x7
+> +#define APLIC_xMSICFGADDRH_LHXS_SHIFT  20
+> +#define APLIC_xMSICFGADDRH_HHXW_MASK   0x7
+> +#define APLIC_xMSICFGADDRH_HHXW_SHIFT  16
+> +#define APLIC_xMSICFGADDRH_LHXW_MASK   0xf
+> +#define APLIC_xMSICFGADDRH_LHXW_SHIFT  12
+> +#define APLIC_xMSICFGADDRH_BAPPN_MASK  0xfff
+> +
+> +#define APLIC_xMSICFGADDR_PPN_SHIFT    12
+> +
+> +#define APLIC_xMSICFGADDR_PPN_HART(__lhxs) \
+> +       (BIT(__lhxs) - 1)
+> +
+> +#define APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) \
+> +       (BIT(__lhxw) - 1)
+> +#define APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs) \
+> +       ((__lhxs))
+> +#define APLIC_xMSICFGADDR_PPN_LHX(__lhxw, __lhxs) \
+> +       (APLIC_xMSICFGADDR_PPN_LHX_MASK(__lhxw) << \
+> +        APLIC_xMSICFGADDR_PPN_LHX_SHIFT(__lhxs))
+> +
+> +#define APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) \
+> +       (BIT(__hhxw) - 1)
+> +#define APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs) \
+> +       ((__hhxs) + APLIC_xMSICFGADDR_PPN_SHIFT)
+> +#define APLIC_xMSICFGADDR_PPN_HHX(__hhxw, __hhxs) \
+> +       (APLIC_xMSICFGADDR_PPN_HHX_MASK(__hhxw) << \
+> +        APLIC_xMSICFGADDR_PPN_HHX_SHIFT(__hhxs))
+> +
+> +#define APLIC_SETIP_BASE               0x1c00
+> +#define APLIC_SETIPNUM                 0x1cdc
+> +
+> +#define APLIC_CLRIP_BASE               0x1d00
+> +#define APLIC_CLRIPNUM                 0x1ddc
+> +
+> +#define APLIC_SETIE_BASE               0x1e00
+> +#define APLIC_SETIENUM                 0x1edc
+> +
+> +#define APLIC_CLRIE_BASE               0x1f00
+> +#define APLIC_CLRIENUM                 0x1fdc
+> +
+> +#define APLIC_SETIPNUM_LE              0x2000
+> +#define APLIC_SETIPNUM_BE              0x2004
+> +
+> +#define APLIC_GENMSI                   0x3000
+> +
+> +#define APLIC_TARGET_BASE              0x3004
+> +#define APLIC_TARGET_HART_IDX_SHIFT    18
+> +#define APLIC_TARGET_HART_IDX_MASK     0x3fff
+> +#define APLIC_TARGET_GUEST_IDX_SHIFT   12
+> +#define APLIC_TARGET_GUEST_IDX_MASK    0x3f
+> +#define APLIC_TARGET_IPRIO_MASK        0xff
+> +#define APLIC_TARGET_EIID_MASK 0x7ff
+> +
+> +#define APLIC_IDC_BASE                 0x4000
+> +#define APLIC_IDC_SIZE                 32
+> +
+> +#define APLIC_IDC_IDELIVERY            0x00
+> +
+> +#define APLIC_IDC_IFORCE               0x04
+> +
+> +#define APLIC_IDC_ITHRESHOLD           0x08
+> +
+> +#define APLIC_IDC_TOPI                 0x18
+> +#define APLIC_IDC_TOPI_ID_SHIFT        16
+> +#define APLIC_IDC_TOPI_ID_MASK 0x3ff
+> +#define APLIC_IDC_TOPI_PRIO_MASK       0xff
+> +
+> +#define APLIC_IDC_CLAIMI               0x1c
+> +
+> +#endif
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
