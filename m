@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BC1C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 04:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986B6C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Nov 2022 07:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jau8AF1MAKSw6A1bnmczg47HsXvJr1gr35AnyObmCi4=; b=sZwK+vWjYM/Cc0
-	ISNnBrpa2nW14q8PjnOHskAh3FIdgHi/u8lpAxnSyaCASgKvQnG35OAQxopSqV/KHfT+Vcjt3RM2v
-	SH9awzSw8KHQNnE7xnDurqAQXkHLHLun3Z8/o9EDrHSrajJ3G2j1lserMfye82flSUdCCo6DlmcH2
-	+w8ldEj5wvxNt5DrSD755ZEFJWlJOZe8do50UaCfnjjkFpl9qRjCKK33Xt50edxlqxVdu2tRq/XAd
-	4QOowCWhREOUQJsNBMHuWmsAExuafcfTjnSud1M+6x10QIp/7OxuveDjO/cnL9MBI/evW+YjIX2vZ
-	BeNR69HvFHrYHWHEa1QQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OGAQAl8IPV1yBclmHzpGwH1Z8wDB6aPVvtwO6rVynMs=; b=g6dQ060uVBFRsV
+	VNCouCqwyUVOx8jDsDjhqMe65Z9CdVRh4TnU8DBgNQ+lB395r7mFGZiE5LInalosXRIEt55BoQ1W+
+	NTe/YHCQqIiOK5f37o88M9n7dfq2h5T/EI25OvCS7abqpz/AlLVCffW+IcgUxhk4o7T1/JNyMlbmw
+	ryUTCaKECFV0toBcbptPpJBhg05vqPA0T8OQB2iXwQxXqfO1Wyqa5oHVISN3D/Evi+ZmpLaWfFcts
+	ieCO4MoikLE5aurS5uYTQqhKYbw7NJOqP+dB3qHAI0OkkPqhn7ObURpLYGh1JQBqjaa9OxzUnReJT
+	JGKJoIWVdyhQiLhPEc6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otLtQ-00CzT5-Ps; Fri, 11 Nov 2022 04:43:52 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1otOwy-00E90Y-Cf; Fri, 11 Nov 2022 07:59:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otLtA-00CzJ0-3d
-	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 04:43:37 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id q186so3949926oia.9
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Nov 2022 20:43:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=U8gSH7BcMR9LDTkxT6jjny0t/ryCD1BHxDOjt6nko30=;
-        b=B1fbdqeqOnEjmS7EmE5s2SyFAwtXh283Wobtd82xebmBEWTDII8pDruptfCG9by4OD
-         tNfL2DrTyXPnKHmsB763KykEg8WFc13JoOJ99qSRMvTI/SUc1XTyl6QhdLMPhqhKkvE5
-         gTFCRfzXoNxfFxLrAWweTeGdOQLiAabsl5NO7h6Yhz3XPdsee/yelTN7Q+4ICO4Vg9ik
-         AIhmtczOtaLdysRIlotaElBiWXA0Eib637rPNIrhLDpdE12CXtVrVXn8rH8/O0AwNz7T
-         tUj445tiDa8xIhQxoKqH9ywcZ/UhWMyU1KvXtpxgJYILzpcfRli//p2HkzoLFE4K0ZIc
-         R+Og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=U8gSH7BcMR9LDTkxT6jjny0t/ryCD1BHxDOjt6nko30=;
-        b=ryw2YC9Cjf2fhZK5Ufs90aNzaxsNj3gm+Az+i3oM2lxJyTU8Bj/kvo/NsLlGn/UUE7
-         bD33JOHv30fZCspY0GDBbUEDzNiTQw67LDiMdxTuOTRkyzuA4VfaeSvfVUH3uyN2UnK3
-         mHLLqw7L3PKZVxtgOchbX4LHh0BtJRZBvZDtjT84662MxNtg6JdaaPWXrZ4vWedWPJiM
-         nwNRzrpHlkrYyYGYr7TiGyIM2eB/fNaYHWK+eABJufFKcpvxu04m5kO83mOpRSZN0C0J
-         15YepMwdTs7QsUSy+XJ0b+E9qRONPKulbN2EJFwia+muKFOt1qJC0IgH//ksxL98OYjS
-         MAlg==
-X-Gm-Message-State: ACrzQf3izj3nYGtKpeEPcdBrZbVPsntBzrpKzx/docNO9CYdJRKchHTi
-	iyRbQA4AjSSZz4qKSVj3TZgmUQ==
-X-Google-Smtp-Source: AMsMyM47O4BVwT9ukeNOv94QQ2Gb+D+i7LnaMxMt3+onc4DfQh3ou/4WMkYMAO5SzNBICgMNslOAhA==
-X-Received: by 2002:aca:44d7:0:b0:35a:6dc0:2132 with SMTP id r206-20020aca44d7000000b0035a6dc02132mr2479193oia.266.1668141813088;
-        Thu, 10 Nov 2022 20:43:33 -0800 (PST)
-Received: from anup-ubuntu64-vm.. ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id k14-20020a056870350e00b0013d9bd4ad2esm787353oah.12.2022.11.10.20.43.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Nov 2022 20:43:32 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
+	id 1otOwc-00E8yi-PD
+	for linux-riscv@lists.infradead.org; Fri, 11 Nov 2022 07:59:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9A36561EC5;
+	Fri, 11 Nov 2022 07:59:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62CDAC433D6;
+	Fri, 11 Nov 2022 07:59:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668153560;
+	bh=7YM4Ka0ebCuIEuz50vxHPcJkntgQCHzI1KnrlWMijZQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bjKMK8gRmG1/YFfOrdCMYD4UqRsJ0z9YnF9AnNT90pFjQrCMqnd1FgjRxql1JeKX1
+	 f1r1SlN0S0fPWiJnDgrXXPboYMK2OLqIaAO0+d9cl9Wk05qISLZjLf4IlHFP/fRNsU
+	 4NvqEDnRiV8tTlAjqGJ/XfhXPKAH5U2Rdw6wDUmRbajXIX2DqIpE7k48zKLZrzWxYa
+	 ZNgU1Qw5/Sug37W0rZbq2wOTMLvOkbY5vi98CV+cbiSCs6+seywwaDeHoc64ZjvGOF
+	 /UW9GRmBJZbLY/0jUkj7lnrliWZCe/460qYO1tP2fMZ0rTMucpgED3PK5idBIjtyv4
+	 JGhcG/GPH4HCg==
+From: guoren@kernel.org
+To: anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	philipp.tomsich@vrull.eu,
+	alex@ghiti.fr,
+	hch@lst.de,
+	ajones@ventanamicro.com,
+	gary@garyguo.net,
+	jszhang@kernel.org
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 9/9] MAINTAINERS: Add entry for RISC-V AIA drivers
-Date: Fri, 11 Nov 2022 10:12:07 +0530
-Message-Id: <20221111044207.1478350-10-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221111044207.1478350-1-apatel@ventanamicro.com>
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application crash
+Date: Fri, 11 Nov 2022 02:59:02 -0500
+Message-Id: <20221111075902.798571-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221110_204336_181945_F7899614 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221110_235922_940978_DE2874B3 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +84,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer for RISC-V AIA drivers including the
-RISC-V INTC driver which supports both AIA and non-AIA platforms.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+After use_asid_allocator is enabled, the userspace application will
+crash by stale TLB entries. Because only using cpumask_clear_cpu without
+local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
+Then set_mm_asid would cause the user space application to get a stale
+value by stale TLB entry, but set_mm_noasid is okay.
+
+Here is the symptom of the bug:
+unhandled signal 11 code 0x1 (coredump)
+   0x0000003fd6d22524 <+4>:     auipc   s0,0x70
+   0x0000003fd6d22528 <+8>:     ld      s0,-148(s0) # 0x3fd6d92490
+=> 0x0000003fd6d2252c <+12>:    ld      a5,0(s0)
+(gdb) i r s0
+s0          0x8082ed1cc3198b21       0x8082ed1cc3198b21
+(gdb) x /2x 0x3fd6d92490
+0x3fd6d92490:   0xd80ac8a8      0x0000003f
+The core dump file shows that register s0 is wrong, but the value in
+memory is correct. Because 'ld s0, -148(s0)' used a stale mapping entry
+in TLB and got a wrong result from an incorrect physical address.
+
+When the task ran on CPU0, which loaded/speculative-loaded the value of
+address(0x3fd6d92490), then the first version of the mapping entry was
+PTWed into CPU0's TLB.
+When the task switched from CPU0 to CPU1 (No local_tlb_flush_all here by
+asid), it happened to write a value on the address (0x3fd6d92490). It
+caused do_page_fault -> wp_page_copy -> ptep_clear_flush ->
+ptep_get_and_clear & flush_tlb_page.
+The flush_tlb_page used mm_cpumask(mm) to determine which CPUs need TLB
+flush, but CPU0 had cleared the CPU0's mm_cpumask in the previous
+switch_mm. So we only flushed the CPU1 TLB and set the second version
+mapping of the PTE. When the task switched from CPU1 to CPU0 again, CPU0
+still used a stale TLB mapping entry which contained a wrong target
+physical address. It raised a bug when the task happened to read that
+value.
+
+   CPU0                               CPU1
+   - switch 'task' in
+   - read addr (Fill stale mapping
+     entry into TLB)
+   - switch 'task' out (no tlb_flush)
+                                      - switch 'task' in (no tlb_flush)
+                                      - write addr cause pagefault
+                                        do_page_fault() (change to
+                                        new addr mapping)
+                                          wp_page_copy()
+                                            ptep_clear_flush()
+                                              ptep_get_and_clear()
+                                              & flush_tlb_page()
+                                        write new value into addr
+                                      - switch 'task' out (no tlb_flush)
+   - switch 'task' in (no tlb_flush)
+   - read addr again (Use stale
+     mapping entry in TLB)
+     get wrong value from old phyical
+     addr, BUG!
+
+The solution is to keep all CPUs' footmarks of cpumask(mm) in switch_mm,
+which could guarantee to invalidate all stale TLB entries during TLB
+flush.
+
+Fixes: 65d4b9c53017 ("RISC-V: Implement ASID allocator")
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- MAINTAINERS | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Changes in v3:
+ - Move set/clear cpumask(mm) into set_mm (Make code more pretty
+   with Andrew's advice)
+ - Optimize comment description
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 046ff06ff97f..8b998144a1bf 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17713,6 +17713,18 @@ F:	drivers/perf/riscv_pmu.c
- F:	drivers/perf/riscv_pmu_legacy.c
- F:	drivers/perf/riscv_pmu_sbi.c
+Changes in v2:
+ - Fixup nommu compile problem (Thx Conor, Also Reported-by: kernel
+   test robot <lkp@intel.com>)
+ - Keep cpumask_clear_cpu for noasid
+---
+ arch/riscv/mm/context.c | 30 ++++++++++++++++++++----------
+ 1 file changed, 20 insertions(+), 10 deletions(-)
+
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 7acbfbd14557..0f784e3d307b 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -205,12 +205,24 @@ static void set_mm_noasid(struct mm_struct *mm)
+ 	local_flush_tlb_all();
+ }
  
-+RISC-V AIA DRIVERS
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-+F:	drivers/irqchip/irq-riscv-aplic.c
-+F:	drivers/irqchip/irq-riscv-imsic.c
-+F:	drivers/irqchip/irq-riscv-intc.c
-+F:	include/linux/irqchip/riscv-aplic.h
-+F:	include/linux/irqchip/riscv-imsic.h
-+
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
- M:	Palmer Dabbelt <palmer@dabbelt.com>
+-static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
++static inline void set_mm(struct mm_struct *prev,
++			  struct mm_struct *next, unsigned int cpu)
+ {
+-	if (static_branch_unlikely(&use_asid_allocator))
+-		set_mm_asid(mm, cpu);
+-	else
+-		set_mm_noasid(mm);
++	/*
++	 * The mm_cpumask indicates which harts' TLBs contain the virtual
++	 * address mapping of the mm. Compared to noasid, using asid
++	 * can't guarantee that stale TLB entries are invalidated because
++	 * the asid mechanism wouldn't flush TLB for every switch_mm for
++	 * performance. So when using asid, keep all CPUs footmarks in
++	 * cpumask() until mm reset.
++	 */
++	cpumask_set_cpu(cpu, mm_cpumask(next));
++	if (static_branch_unlikely(&use_asid_allocator)) {
++		set_mm_asid(next, cpu);
++	} else {
++		cpumask_clear_cpu(cpu, mm_cpumask(prev));
++		set_mm_noasid(next);
++	}
+ }
+ 
+ static int __init asids_init(void)
+@@ -264,7 +276,8 @@ static int __init asids_init(void)
+ }
+ early_initcall(asids_init);
+ #else
+-static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
++static inline void set_mm(struct mm_struct *prev,
++			  struct mm_struct *next, unsigned int cpu)
+ {
+ 	/* Nothing to do here when there is no MMU */
+ }
+@@ -317,10 +330,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	 */
+ 	cpu = smp_processor_id();
+ 
+-	cpumask_clear_cpu(cpu, mm_cpumask(prev));
+-	cpumask_set_cpu(cpu, mm_cpumask(next));
+-
+-	set_mm(next, cpu);
++	set_mm(prev, next, cpu);
+ 
+ 	flush_icache_deferred(next, cpu);
+ }
 -- 
-2.34.1
+2.36.1
 
 
 _______________________________________________
