@@ -4,125 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83116C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Nov 2022 01:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2050AC433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Nov 2022 07:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GbIrWN6n4JoLuAGR7RjMgOkSbKDhvNYIS0z9BQClsK8=; b=uJpwL9Kw36agNm
-	8qRARQJUsixwT7mI0hvCIcIfQjoIFPT7d5jneO+7PTNCf2ZQ1Qeu04HFvSSDScOdpK4AkusHTfo41
-	5Bf+IThc1U/YZitNQEQPJ7DFMzYhR4qs1TAAhIFkqVlgNIgneHypAT5LfWuyTD7iUyWiJEuPBTygg
-	XLx0lshlkdB0LVvdVG14GnBHhQGAdxkEGZd2y/Yn5ImJrflPXA76MSxHoEvTOApo5WcKrpM+CkzXF
-	CdSexgVf8xAl07XUFW2d0bomWY6DuPMNhuDN0pQyDlh6U0R/WnFzqb9ewxlSCr0kdgAT5atoR0CzZ
-	CWbpYpQmFRjeZEYabUWg==;
+	List-Owner; bh=yxNzaLFb6bDjMe+wJDgcgrocbdOwCsI8FE+71CtJutA=; b=ulVuoKCQ1SjsyA
+	GM38TEkakRikMJ+jP/Iv+khaa6LICTrNeg9n+48YUpqbRl74dzZunCcpzcimnc5X89SzsKuQXacIv
+	DpSqawFoiN+cGipMqe8OAM7b8NddqdE9jihEg5oPLt1iLSrhbpC5abIAY9NbVmP3b+DH4AK0PpX5M
+	varnjHCAswXcs6zncww8czk0HHCvcuH7meVWWsI3bVQtYJhPGDOURUTfXgk1q3sPY/fhor4GHkiZ8
+	ADUrYOIz+yta4Unv4EiBfhIDM9Ez607YLo0IwqZsvIDpPzw116uqgBvafqqJBmcyW826Xdng2YTAE
+	lGjzSyWraRzFHdndrbiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otfWJ-002Ot0-VW; Sat, 12 Nov 2022 01:41:20 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1otlEH-00436A-0B; Sat, 12 Nov 2022 07:47:05 +0000
+Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otfW8-002OjB-Lp
-	for linux-riscv@lists.infradead.org; Sat, 12 Nov 2022 01:41:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1668217268; x=1699753268;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=kWfbDk7epBE8N+lvIUYGuQa6NGCEfO5LUkxzV91Rv/U=;
-  b=b/Jn5+JpO5Mpq3Rh+EFK/00LLSNFOJsFb6V9HnZVwkJI06skjwN20+p5
-   HG6YFpyQIS3eZ6oLfex7T+CoCxacOF14898JqFBjM8qF+GmpCJudBUFlh
-   ADRfj14eM79YBvGWS2Qeb/b0wK+BR5+d8WiW7auo3WkUqGUnVBsaZScbR
-   TmWbv2SfxU+CiqbSKqifEaSvH/qL6BhBLjr2rnzLyZgaGSNLNN3tHZ6+D
-   kvkI7Jk+fyzSPHfx892WNtxWYPkEF9vFe2A0EU7lcfR+PxzdqkansssFv
-   tPn0suaLc6WG7Tm99GRRAfSJmGn2cuX55A2IpYdADKdxiZN7/YExScQxv
-   A==;
-X-IronPort-AV: E=Sophos;i="5.96,158,1665417600"; 
-   d="scan'208";a="214366058"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
-  by ob1.hgst.iphmx.com with ESMTP; 12 Nov 2022 09:41:02 +0800
-IronPort-SDR: J8sxs+CZDwRBjkj4tXon20Mni/2ya93TLfBCvrBonS5FBgSIk0aYHDy6MUsLLUqosvnbII90aM
- 0SFiVTP5BWW5nl4WF498H9ZGOnl9JPDKJOdMv1wUGnIiuivp6Yp5e5fc9MyTPAnoDtQTf2HFt7
- BBxCnMiV71cY6qDPvfvaMMg5IsZfpaE61BNiXTqTSfM66r5uQP3ZiWbpvZAq0IixLbtU7oZg2+
- KtAxsy+ZhkeKpyEXsHMxXB2klH3/mysabN7SqQVTDEWuckcY9IHWX2wSC6yDaBSMF0vcKP+Bow
- uLE=
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
-  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Nov 2022 17:00:04 -0800
-IronPort-SDR: QZvDKtdAgHO3mWOlIgQfsyxE+AKvH0gaRH7EYGqucylRAYXIhh590JZY6ZVQiJRHHH/NlwB2Eg
- uAqKaEZEkRd7m188dBe1ZqyRUwXNpbnuRqksJJolrhUVEONy6zpD9MP8uD9bBOj29+Wmtci4db
- b2CBa+BnG1HFfuwXbwNAMeSc3NSpqfK6RMvHRPSt3wYBJoh8oDU6ZhxIZGPX2vomKGzc5Ff0+i
- EANKGFAOQhfkQI9CXTFH0LrrHrYBb1YUaw7frA062Ol7zc6bxrUklH/txWb4UDn8X7kdfliJj3
- nUU=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
-  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Nov 2022 17:41:03 -0800
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4N8JFB4QrRz1RwvT
-	for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 17:41:02 -0800 (PST)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
-	reason="pass (just generated, assumed good)"
-	header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
-	opensource.wdc.com; h=content-transfer-encoding:content-type
-	:in-reply-to:organization:from:references:to:content-language
-	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
-	1668217260; x=1670809261; bh=kWfbDk7epBE8N+lvIUYGuQa6NGCEfO5LUkx
-	zV91Rv/U=; b=acKB5rbyd7hrfHD2WcnmJAZM0hles5KMhCVg5bTRE1bJsBgXIkJ
-	M6SPUmxSD5C2N2i0rsyaXU6WXmWxdiwNJmrU6d6KKRtdMwssBJwNBlai2aeYpfhF
-	aomIE2Iv5PVN4MdiMFAw/wiCSAmDTPtx7iUO/imZdktjrdIHn18KsKmvBmR72t5N
-	+CvXhDLB7523CvgEs/qSgWUeKr5vwKrq4me6zbHRVzds/J/TWH6Nht7oZRvXeKQl
-	zGZCqc2DAohrk0YWQcTYDerhSlA+qe8sAHlbvBhCWyRzfxxFADDczW/q35emG5yX
-	CmIcE/FubHNMVpb6fIbjRiJkRexAtVoUwgg==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
-	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id covMgxBMnsNG for <linux-riscv@lists.infradead.org>;
-	Fri, 11 Nov 2022 17:41:00 -0800 (PST)
-Received: from [10.225.163.43] (unknown [10.225.163.43])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4N8JF265dcz1RvLy;
-	Fri, 11 Nov 2022 17:40:54 -0800 (PST)
-Message-ID: <e4076fcb-9736-937d-634b-5b8fb342723e@opensource.wdc.com>
-Date: Sat, 12 Nov 2022 10:40:53 +0900
+	id 1otlED-0042vH-QH
+	for linux-riscv@lists.infradead.org; Sat, 12 Nov 2022 07:47:03 +0000
+Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-13c2cfd1126so7623838fac.10
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 23:46:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=q63GJUSuDThP3uhtQba7IfspRKrI38ddEA7KDeMNEBs=;
+        b=OU6VbUzxoJagZDCAhkjPlwn+dxRYKXSdHS3bm8UzVpdr8cEmzHxPs09JjfkImTKJN+
+         XFcsoC1FAX6ofpuAHdIai45gSdgIofR2A/1UQpByFY1wXPa4AWDTqWtrHBXOwNIQ1hKB
+         M58koGCywJ5peiq0aXvLGnIuwgNYfX2ec3S90=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q63GJUSuDThP3uhtQba7IfspRKrI38ddEA7KDeMNEBs=;
+        b=cyFwnRhr9PSEOQI5SWUFHG/GOhXgAGUi8PF0BWsYN+MqdUHC34Zkgq/h5aQzfl72D0
+         F/5zS9W8wgo/qsr2YlycDsw6lcuDerbk8jzGgNQsey/V7ooK5JEqB7MnAxZvZRQgnci4
+         qIty1+eutvf+o/AIRoqnCVoajHDu7mEbIbxKJIU6r16XtNhaOntVsxJb4HKLHgiR6Xtr
+         4d4/iW3x9ZCYKxpflvYobbQTbPzfnA6lucPmzlTNQYjDxXZLLo9RkdhZt/ZdzSUg3ebh
+         NBiH2ZPzyDcBTvPsdHz1yupdnSEafN2Rgq6I03G1Zl7D3iKYj+tNAb2KgLo7dnad89oy
+         RBug==
+X-Gm-Message-State: ANoB5plUBMLBZJDAhxFkvfuLndtvAc30rnhIHKxg3BzB1Dk2stDRwerk
+	EDajrscVu9H10wFxSzxy65i7fKDyycrZAqQ09afC
+X-Google-Smtp-Source: AA0mqf5UZ4i28VsBcXzC38GqHTvV3wPQq6gV4LbNJlcIfzZ/TtpvLnkdm9eKU7eM+H6GimyjKU6Bf9PqVPrLqR+IgVU=
+X-Received: by 2002:a05:6870:518:b0:13b:be90:a68a with SMTP id
+ j24-20020a056870051800b0013bbe90a68amr2736045oao.181.1668239209389; Fri, 11
+ Nov 2022 23:46:49 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.1
-Subject: Re: Deprecating and removing SLOB
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Vlastimil Babka <vbabka@suse.cz>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
- Christoph Lameter <cl@linux.com>, David Rientjes <rientjes@google.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>,
- Hyeonggon Yoo <42.hyeyoo@gmail.com>, Matthew Wilcox <willy@infradead.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Rustam Kovhaev <rkovhaev@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, Conor.Dooley@microchip.com,
- Paul Cercueil <paul@crapouillou.net>
-References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
- <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
- <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz> <Y260tkNHc2vFITJ3@spud>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <Y260tkNHc2vFITJ3@spud>
+References: <CAOnJCUK5Z6i39f5MJaRFhorGjcmBR=p_MapY_TDcR1e274wtpA@mail.gmail.com>
+ <mhng-76ad1ec7-7ad6-4223-9e6f-321ac56d6dee@palmer-ri-x1c9a>
+In-Reply-To: <mhng-76ad1ec7-7ad6-4223-9e6f-321ac56d6dee@palmer-ri-x1c9a>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 11 Nov 2022 23:46:38 -0800
+Message-ID: <CAOnJCUKKqJmJXvebn=12NciDe7iw016jpN6me-ZCH=50cCm+hg@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Do not issue remote fences until smp is available
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Conor Dooley <conor@kernel.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	aou@eecs.berkeley.edu, anup@brainfault.org, damien.lemoal@wdc.com, 
+	devicetree@vger.kernel.org, jszhang@kernel.org, 
+	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	robh+dt@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221111_174108_805395_402E763C 
-X-CRM114-Status: GOOD (  23.68  )
+X-CRM114-CacheID: sfid-20221111_234701_876371_63EE6757 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,71 +86,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/12/22 05:46, Conor Dooley wrote:
-> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
->> On 11/8/22 22:44, Pasha Tatashin wrote:
->>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
->>>>
->>>> Hi,
->>>>
->>>> as we all know, we currently have three slab allocators. As we discussed
->>>> at LPC [1], it is my hope that one of these allocators has a future, and
->>>> two of them do not.
->>>>
->>>> The unsurprising reasons include code maintenance burden, other features
->>>> compatible with only a subset of allocators (or more effort spent on the
->>>> features), blocking API improvements (more on that below), and my
->>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
->>>> without resorting to spelling out the letters.
->>>>
->>>> I think (but may be proven wrong) that SLOB is the easier target of the
->>>> two to be removed, so I'd like to focus on it first.
->>>>
->>>> I believe SLOB can be removed because:
->>>>
->>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
->>>> by putting all objects together, which has its CPU performance costs
->>>> (locking, lack of percpu caching, searching for free space...). I'm not
->>>> aware of any "tiny linux" deployment that opts for this. For example,
->>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
->>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
->>>> SLOB impact is too much for those who tried. Googling for
->>>> "CONFIG_SLOB=y" yielded nothing useful.
->>>
->>> I am all for removing SLOB.
->>>
->>> There are some devices with configs where SLOB is enabled by default.
->>> Perhaps, the owners/maintainers of those devices/configs should be
->>> included into this thread:
->>>
->>> tatashin@soleen:~/x/linux$ git grep SLOB=y
-> 
->>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
->>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
->>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
-> 
->>
->> Turns out that since SLOB depends on EXPERT, many of those lack it so
->> running make defconfig ends up with SLUB anyway, unless I miss something.
->> Only a subset has both SLOB and EXPERT:
->>
->>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
-> 
->> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
-> 
-> I suppose there's not really a concern with the virt defconfig, but I
-> did check the output of `make nommu_k210_defconfig" and despite not
-> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
-> 
-> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
-> boots etc, but I have no workloads or w/e to run on it.
+On Thu, Nov 10, 2022 at 1:42 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Mon, 31 Oct 2022 12:26:05 PDT (-0700), atishp@atishpatra.org wrote:
+> > On Mon, Oct 31, 2022 at 12:12 PM Conor Dooley <conor@kernel.org> wrote:
+> >>
+> >> On Fri, Oct 28, 2022 at 04:19:29PM -0700, Atish Patra wrote:
+> >> > It is useless to issue remote fences if there is a single core
+> >> > available. It becomes a bottleneck for sbi based rfences where
+> >> > we will be making those ECALLs for no reason. Early code patching
+> >> > because of static calls end up in this path.
+> >> >
+> >> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> >>
+> >> Hey Atish,
+> >> This doesn't apply for me to either fixes or for-next. What branch does
+> >> it apply to?
+> >> Thanks,
+> >> Conor.
+> >>
+> >> > ---
+> >> >  arch/riscv/mm/cacheflush.c | 4 ++++
+> >> >  1 file changed, 4 insertions(+)
+> >> >
+> >> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> >> > index f10cb47eac3a..7fafc8c26505 100644
+> >> > --- a/arch/riscv/mm/cacheflush.c
+> >> > +++ b/arch/riscv/mm/cacheflush.c
+> >> > @@ -19,6 +19,10 @@ void flush_icache_all(void)
+> >> >  {
+> >> >       local_flush_icache_all();
+> >> >
+> >> > +     /* No need to issue remote fence if only 1 cpu is online */
+> >> > +     if (num_online_cpus() == 1)
+> >> > +             return;
+> >> > +
+> >> >       if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
+> >> >               sbi_remote_fence_i(NULL);
+> >> >       else
+> >> > --
+> >> > 2.34.1
+> >> >
+> >
+> > Sorry I forgot to specify the dependencies for this patch. This patch
+> > is based on Anup's IPI series [1] as
+> > I assumed the IPI series would go first. I can rebase on top of the
+> > master if required.
+> > However, the issue will manifest only after Jisheng's patch[2] which
+> > moved the sbi_init to earlier and introduced the
+> > static key in the paging_init path.
+> >
+> > [1] https://patchwork.kernel.org/project/linux-riscv/patch/20220820065446.389788-8-apatel@ventanamicro.com/
+> > [2] https://lore.kernel.org/lkml/20220716115059.3509-1-jszhang@kernel.org/
+>
+> IMO we should just stop issuing the SBI remote fences at all, with the
+> code to do IPI-based fences we're just adding complexity for the slow
+> case.
 
-I will try with SLUB over the weekend.
+Sure. We can do that too. However, that will have some performance
+impact for any platform(existing and future ones) without imsic.
 
--- 
-Damien Le Moal
-Western Digital Research
+Is that acceptable ? Maybe it will encourage every vendor to implement
+AIA instead of PLIC ;)
 
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
