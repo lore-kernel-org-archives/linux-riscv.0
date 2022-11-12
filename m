@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2050AC433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Nov 2022 07:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A264C433FE
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Nov 2022 11:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yxNzaLFb6bDjMe+wJDgcgrocbdOwCsI8FE+71CtJutA=; b=ulVuoKCQ1SjsyA
-	GM38TEkakRikMJ+jP/Iv+khaa6LICTrNeg9n+48YUpqbRl74dzZunCcpzcimnc5X89SzsKuQXacIv
-	DpSqawFoiN+cGipMqe8OAM7b8NddqdE9jihEg5oPLt1iLSrhbpC5abIAY9NbVmP3b+DH4AK0PpX5M
-	varnjHCAswXcs6zncww8czk0HHCvcuH7meVWWsI3bVQtYJhPGDOURUTfXgk1q3sPY/fhor4GHkiZ8
-	ADUrYOIz+yta4Unv4EiBfhIDM9Ez607YLo0IwqZsvIDpPzw116uqgBvafqqJBmcyW826Xdng2YTAE
-	lGjzSyWraRzFHdndrbiQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9yRDTp3/JNjKKUq0gKZISwMzO55art5x5E+uGKSR1Ps=; b=hlRm/UmDohOd1e
+	j4YoZfMpSXWI+qxPzbkZN9SAF6IDLFdcNU3hU4ZtFHndbyuntYp9bafJ5yM6iE7i72qgnBs3THQ0M
+	hRidjsRNcnLYDaWCobnav3fW8YKNUicMxL5VgxXQwJw5gclchmjLFznBorqY5iSZgB+71wFSiFWWX
+	rSL1gvwf1A3Di7afh4E/ogSLSyr6ZyGpmgQ9xNTVo2dyZWNvvflIJp/MU9Mca1A0kXOPdqf1WOGVo
+	dToUrgWYNmn8BLZVcDZ0W5Xomskn8LpSCHiLjbkc0qkeDInrVbMS8UHVhAO0L0sMkaJ17yN00Y4qv
+	JM1oHvGP759FLhGnWlBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otlEH-00436A-0B; Sat, 12 Nov 2022 07:47:05 +0000
-Received: from mail-oa1-x2b.google.com ([2001:4860:4864:20::2b])
+	id 1otooF-005JeH-1C; Sat, 12 Nov 2022 11:36:27 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1otlED-0042vH-QH
-	for linux-riscv@lists.infradead.org; Sat, 12 Nov 2022 07:47:03 +0000
-Received: by mail-oa1-x2b.google.com with SMTP id 586e51a60fabf-13c2cfd1126so7623838fac.10
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Nov 2022 23:46:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=q63GJUSuDThP3uhtQba7IfspRKrI38ddEA7KDeMNEBs=;
-        b=OU6VbUzxoJagZDCAhkjPlwn+dxRYKXSdHS3bm8UzVpdr8cEmzHxPs09JjfkImTKJN+
-         XFcsoC1FAX6ofpuAHdIai45gSdgIofR2A/1UQpByFY1wXPa4AWDTqWtrHBXOwNIQ1hKB
-         M58koGCywJ5peiq0aXvLGnIuwgNYfX2ec3S90=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q63GJUSuDThP3uhtQba7IfspRKrI38ddEA7KDeMNEBs=;
-        b=cyFwnRhr9PSEOQI5SWUFHG/GOhXgAGUi8PF0BWsYN+MqdUHC34Zkgq/h5aQzfl72D0
-         F/5zS9W8wgo/qsr2YlycDsw6lcuDerbk8jzGgNQsey/V7ooK5JEqB7MnAxZvZRQgnci4
-         qIty1+eutvf+o/AIRoqnCVoajHDu7mEbIbxKJIU6r16XtNhaOntVsxJb4HKLHgiR6Xtr
-         4d4/iW3x9ZCYKxpflvYobbQTbPzfnA6lucPmzlTNQYjDxXZLLo9RkdhZt/ZdzSUg3ebh
-         NBiH2ZPzyDcBTvPsdHz1yupdnSEafN2Rgq6I03G1Zl7D3iKYj+tNAb2KgLo7dnad89oy
-         RBug==
-X-Gm-Message-State: ANoB5plUBMLBZJDAhxFkvfuLndtvAc30rnhIHKxg3BzB1Dk2stDRwerk
-	EDajrscVu9H10wFxSzxy65i7fKDyycrZAqQ09afC
-X-Google-Smtp-Source: AA0mqf5UZ4i28VsBcXzC38GqHTvV3wPQq6gV4LbNJlcIfzZ/TtpvLnkdm9eKU7eM+H6GimyjKU6Bf9PqVPrLqR+IgVU=
-X-Received: by 2002:a05:6870:518:b0:13b:be90:a68a with SMTP id
- j24-20020a056870051800b0013bbe90a68amr2736045oao.181.1668239209389; Fri, 11
- Nov 2022 23:46:49 -0800 (PST)
+	id 1otooC-005JdG-M3
+	for linux-riscv@lists.infradead.org; Sat, 12 Nov 2022 11:36:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 60A2FB80735;
+	Sat, 12 Nov 2022 11:36:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B5DC433D6;
+	Sat, 12 Nov 2022 11:36:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668252979;
+	bh=hDVkWMmXvy2usab42Pc4A58JK6SsyDaWks6I8QgP8bk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SjXafSr5zGyfTqqO0sFinbDUJUaU5S/UA2HoFSWvFS5lMOl+CUuzlfdh9RcQaFQNy
+	 pnNseQmagf4UeJB/kNtF0bHhmJbvvFMEh4LXdiRN5rOJ7UchYwfZHGhlgYcfXMGPoW
+	 w1J4SMKXVuV7bWpegZPcFmyz1KkzM2ciLMNAZQCsnK6dQwN2Kx1pD1uRQwi+3YSf68
+	 v7KSJT9/V8E7HXuAHMZ45SjsL3YkRG6PcdzYEriMdI5JhTVr0kKWa+raZqQr/oV7T7
+	 VuyCJIamdjNv+GPCZmSHQTvbfwpvJZHJ8qeehk03cGxrMkKI14Qpj3AOzu97LWUIIs
+	 3gvvZETRV/IXA==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: mm: Proper page permissions after initmem free
+Date: Sat, 12 Nov 2022 12:35:43 +0100
+Message-Id: <20221112113543.3165646-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-References: <CAOnJCUK5Z6i39f5MJaRFhorGjcmBR=p_MapY_TDcR1e274wtpA@mail.gmail.com>
- <mhng-76ad1ec7-7ad6-4223-9e6f-321ac56d6dee@palmer-ri-x1c9a>
-In-Reply-To: <mhng-76ad1ec7-7ad6-4223-9e6f-321ac56d6dee@palmer-ri-x1c9a>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 11 Nov 2022 23:46:38 -0800
-Message-ID: <CAOnJCUKKqJmJXvebn=12NciDe7iw016jpN6me-ZCH=50cCm+hg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Do not issue remote fences until smp is available
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Conor Dooley <conor@kernel.org>, Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	aou@eecs.berkeley.edu, anup@brainfault.org, damien.lemoal@wdc.com, 
-	devicetree@vger.kernel.org, jszhang@kernel.org, 
-	linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	robh+dt@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221111_234701_876371_63EE6757 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20221112_033624_904338_2703C9E6 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +69,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 10, 2022 at 1:42 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Mon, 31 Oct 2022 12:26:05 PDT (-0700), atishp@atishpatra.org wrote:
-> > On Mon, Oct 31, 2022 at 12:12 PM Conor Dooley <conor@kernel.org> wrote:
-> >>
-> >> On Fri, Oct 28, 2022 at 04:19:29PM -0700, Atish Patra wrote:
-> >> > It is useless to issue remote fences if there is a single core
-> >> > available. It becomes a bottleneck for sbi based rfences where
-> >> > we will be making those ECALLs for no reason. Early code patching
-> >> > because of static calls end up in this path.
-> >> >
-> >> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> >>
-> >> Hey Atish,
-> >> This doesn't apply for me to either fixes or for-next. What branch does
-> >> it apply to?
-> >> Thanks,
-> >> Conor.
-> >>
-> >> > ---
-> >> >  arch/riscv/mm/cacheflush.c | 4 ++++
-> >> >  1 file changed, 4 insertions(+)
-> >> >
-> >> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> >> > index f10cb47eac3a..7fafc8c26505 100644
-> >> > --- a/arch/riscv/mm/cacheflush.c
-> >> > +++ b/arch/riscv/mm/cacheflush.c
-> >> > @@ -19,6 +19,10 @@ void flush_icache_all(void)
-> >> >  {
-> >> >       local_flush_icache_all();
-> >> >
-> >> > +     /* No need to issue remote fence if only 1 cpu is online */
-> >> > +     if (num_online_cpus() == 1)
-> >> > +             return;
-> >> > +
-> >> >       if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
-> >> >               sbi_remote_fence_i(NULL);
-> >> >       else
-> >> > --
-> >> > 2.34.1
-> >> >
-> >
-> > Sorry I forgot to specify the dependencies for this patch. This patch
-> > is based on Anup's IPI series [1] as
-> > I assumed the IPI series would go first. I can rebase on top of the
-> > master if required.
-> > However, the issue will manifest only after Jisheng's patch[2] which
-> > moved the sbi_init to earlier and introduced the
-> > static key in the paging_init path.
-> >
-> > [1] https://patchwork.kernel.org/project/linux-riscv/patch/20220820065446.389788-8-apatel@ventanamicro.com/
-> > [2] https://lore.kernel.org/lkml/20220716115059.3509-1-jszhang@kernel.org/
->
-> IMO we should just stop issuing the SBI remote fences at all, with the
-> code to do IPI-based fences we're just adding complexity for the slow
-> case.
-
-Sure. We can do that too. However, that will have some performance
-impact for any platform(existing and future ones) without imsic.
-
-Is that acceptable ? Maybe it will encourage every vendor to implement
-AIA instead of PLIC ;)
-
---
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKNjQtYml0IFJJU0MtViBr
+ZXJuZWxzIGhhdmUgdGhlIGtlcm5lbCBpbWFnZSBtYXBwZWQgc2VwYXJhdGVseSwgYW5kIGluCmFk
+ZGl0aW9uIHRvIHRoZSBsaW5lYXIgbWFwLiBXaGVuIHRoZSBrZXJuZWwgaXMgbG9hZGVkLCB0aGUg
+bGluZWFyIG1hcApvZiBrZXJuZWwgaW1hZ2UgaXMgc2V0IHRvIFBBR0VfUkVBRCBwZXJtaXNzaW9u
+LCBhbmQgdGhlIGtlcm5lbCBtYXAgaXMKc2V0IHRvIFBBR0VfUkVBRCBhbmQgUEFHRV9FWEVDLgoK
+V2hlbiB0aGUgaW5pdG1lbSBpcyBmcmVlZCwgdGhlIGNvcnJlc3BvbmRpbmcgcGFnZXMgaW4gdGhl
+IGxpbmVhciBtYXAKc2hvdWxkIGJlIHJlc3RvcmVkIHRvIFBBR0VfUkVBRCBhbmQgUEFHRV9XUklU
+RS4gVGhlIGNvcnJlc3BvbmRpbmcKcGFnZXMgaW4gdGhlIGtlcm5lbCBtYXAgc2hvdWxkIGFsc28g
+YmUgcmVzdG9yZWQgdG8gUEFHRV9SRUFEIGFuZApQQUdFX1dSSVRFLCBieSByZW1vdmluZyB0aGUg
+UEFHRV9FWEVDIHBlcm1pc3Npb24sIGFuZCBhZGRpbmcKUEFHRV9XUklURS4KClRoaXMgaXMgbm90
+IHRoZSBjYXNlLiBGb3IgNjQtYml0IGtlcm5lbHMsIG9ubHkgdGhlIGxpbmVhciBtYXAgaXMKcmVz
+dG9yZWQgdG8gaXRzIHByb3BlciBwYWdlIHBlcm1pc3Npb25zIGF0IGluaXRtZW0gZnJlZSwgYW5k
+IG5vdCB0aGUKa2VybmVsbWFwLgoKSW4gcHJhY3Rpc2UgdGhpcyByZXN1bHRzIGluIHRoYXQgdGhl
+IGtlcm5lbCBjYW4gcG90ZW50aWFsbHkganVtcCB0bwpkZWFkIF9faW5pdCBjb2RlLCBhbmQgc3Rh
+cnQgZXhlY3V0aW5nIGludmFsaWQgMHhjYyBpbnN0cnVjdGlvbnMsCndpdGhvdXQgZ2V0dGluZyBh
+biBleGNlcHRpb24uCgpSZXN0b3JlIHRoZSBmcmVlZCBpbml0bWVtIHByb3Blcmx5LCBieSBzZXR0
+aW5nIGJvdGggdGhlIGFsaWFzIChrZXJuZWwKbWFwKSBhbmQgdGhlIGxpbmVhciBtYXAgdG8gdGhl
+IGNvcnJlY3QgcGVybWlzc2lvbnMuCgpGaXhlczogZTVjMzVmYTA0MDE5ICgicmlzY3Y6IE1hcCB0
+aGUga2VybmVsIHdpdGggY29ycmVjdCBwZXJtaXNzaW9ucyB0aGUgZmlyc3QgdGltZSIpClNpZ25l
+ZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jp
+c2N2L2tlcm5lbC9zZXR1cC5jIHwgMTAgKysrKysrLS0tLQogMSBmaWxlIGNoYW5nZWQsIDYgaW5z
+ZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9zZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwppbmRleCBhZDc2YmI1OWIwNTku
+LjM2MWU2MzUwNzBmZSAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYworKysg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCkBAIC0zMjEsMTAgKzMyMSwxMiBAQCBzdWJzeXNf
+aW5pdGNhbGwodG9wb2xvZ3lfaW5pdCk7CiAKIHZvaWQgZnJlZV9pbml0bWVtKHZvaWQpCiB7Ci0J
+aWYgKElTX0VOQUJMRUQoQ09ORklHX1NUUklDVF9LRVJORUxfUldYKSkKLQkJc2V0X2tlcm5lbF9t
+ZW1vcnkobG1fYWxpYXMoX19pbml0X2JlZ2luKSwgbG1fYWxpYXMoX19pbml0X2VuZCksCi0JCQkJ
+ICBJU19FTkFCTEVEKENPTkZJR182NEJJVCkgPwotCQkJCQlzZXRfbWVtb3J5X3J3IDogc2V0X21l
+bW9yeV9yd19ueCk7CisJaWYgKElTX0VOQUJMRUQoQ09ORklHX1NUUklDVF9LRVJORUxfUldYKSkg
+eworCQlpZiAoSVNfRU5BQkxFRChDT05GSUdfNjRCSVQpKQorCQkJc2V0X2tlcm5lbF9tZW1vcnko
+bG1fYWxpYXMoX19pbml0X2JlZ2luKSwgbG1fYWxpYXMoX19pbml0X2VuZCksCisJCQkJCSAgc2V0
+X21lbW9yeV9ydyk7CisJCXNldF9rZXJuZWxfbWVtb3J5KF9faW5pdF9iZWdpbiwgX19pbml0X2Vu
+ZCwgc2V0X21lbW9yeV9yd19ueCk7CisJfQogCiAJZnJlZV9pbml0bWVtX2RlZmF1bHQoUE9JU09O
+X0ZSRUVfSU5JVE1FTSk7CiB9CgpiYXNlLWNvbW1pdDogNDQyYmNiZmQyYzU0MDE1ODdiOTgzZTM0
+YmVkMGI0MDcyMTQ3MzVjMwotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
