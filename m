@@ -4,93 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FF0C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Nov 2022 21:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2EFDC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Nov 2022 22:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JXLvwuKRL8kWNKbztOhZ/+ri8gPaiiLr8qHenN/gxQE=; b=p68b9WXDxTucEe
-	aSiBn8M0LlzahZA1ugLunK42RcwvcbBrTSVa3hKv+BU3i1AE8KFWYykRJL1WZA6GpvBTUeqqj/utq
-	NBxugb/fl1K4XkB37RRMi6xi2BMsLukD64UwX/RdGhUsHyCyKM/JxELNrsU4gFv27hVmssMiWA3kR
-	GdF0gL1WgeEPii8Irksw9aq/4juTHtcFxSpiexnqQtDMrSdI2KfodXRQMbYgBV8IibGSNfEHNiUlD
-	C/4yXIfGG28ZHUzL5P6XnM+XWo1X4fX5P2zcvx27maNMBcy/GFA9sKVXtMwtEw0u/XB0rvcKZE1gu
-	cUAausDDDWu2sE/uYzIQ==;
+	List-Owner; bh=opd2N3uFkimI/Ta+t7reYBLG4xUjPXy36+Ky9rM9VVA=; b=NEEjGQ8RYLlCwC
+	lFhRgHcUplKMy+k+2uY+Fb9VOKk7hE3L+ktNbISnihTgYQE3UYzphMDnjMKaI90refWmnYhl1Vsld
+	WXoOw9LDNQjH4YR+SD6GlKlsdlonFqaySyPglUci3D7Y2Ekp4fUzIXBqAJ1XgllTzDGqOzUv958jy
+	UZv2dStWsaM6jwEWZE6OP6ML+DBxnlOO3WMVf91wMNTiMYa0jdR44VJ7XrtzTstF9QkknYkKx9MY7
+	1TSpxjLgrAp+BBmYgdZLuESoauV5Tf83wzYEa4ZVBXa02kWW9QO90ooSJpJfuyIMEgJOPdFEBkgC0
+	IwPHranqD6DdzGUX5uvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouKQW-00E1Rg-N4; Sun, 13 Nov 2022 21:22:04 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1ouL8B-00EXWa-3F; Sun, 13 Nov 2022 22:07:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouKQT-00E1IR-MG
-	for linux-riscv@lists.infradead.org; Sun, 13 Nov 2022 21:22:03 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 29A165C0040;
-	Sun, 13 Nov 2022 16:21:53 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute1.internal (MEProxy); Sun, 13 Nov 2022 16:21:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm2; t=1668374513; x=
-	1668460913; bh=41XsqqrtZaCPmz3R0QiN55X2zsU649LxW6CyggTOBgQ=; b=e
-	Omn3Suo8Oc0kU4YHCSixyFeJEYm38Y78b24Fn/V9G4kw0RT7/u04fFk1jcHOJ/ol
-	vKv55VmLH2JQyfvGY2VE2bhgmpK6V7LypV+nCoupRD7yxHai+a8InmwLl2Iv/vz7
-	6ej8jPu98jOFovYs0N+Sf1Lq6L0/1jDwzYWF9YQ/CYs9Gd1EkLXaqb4OkVjgL76p
-	eVm6bzPL/KPOwd49ykUjAz5mK1DB8RpB57yZSIvw65DlI+LUkDKrXyi8T4+rQr9/
-	OtWqOLrv8+UqzAuml6CMIKvHIOCilKvihoYloqcUrWm5goMdZBuLEuuVrwJYNHCi
-	9p1KLirsqBkN0A94FLRBQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1668374513; x=
-	1668460913; bh=41XsqqrtZaCPmz3R0QiN55X2zsU649LxW6CyggTOBgQ=; b=u
-	B3NqL3I2749BLXJ+Til1k7oa1Efk1kp63RGOoCmuhhATtjjbFOlKKimX/Va3Scfn
-	fPVvZJISiFkO/rZK7h5gaXSVv1Vdmz3mlvveaGgBhytTeWeZRj44ZDzzeG1PKQlM
-	Q2VRCTMrgJ+PfDAEIlXH6JftTEZHgHhCsMZ0EPMPqcBOT0V9E6o/j5D/UyHLj+Y3
-	i3gyG81bBfinYtvP7FrdvaHrnpgUoFBA9hPNo5YZmYys/20Xt6lv0MEJ6hWf+0Q+
-	MEE7boFJTj/kN7uu0ckyheep1/aKqfgPZk+tpPVTNseOu/+QZt45evQo68n32X8G
-	v/0W+4YtNVd9M3XOQyD4Q==
-X-ME-Sender: <xms:8F9xY4oU_T0ldh0R8d9Tuz7e7tj_0DY2NNQr9C8TQAtm-Gi9kV43jw>
-    <xme:8F9xY-rWY6iBMzFOfRp03ziiqkGhQZIB-xW4NiHxaFy0B8UhcqlQrxvVLDGVf2ELM
-    SXFSlLuNGm_xfXlTg>
-X-ME-Received: <xmr:8F9xY9MVsWhYxhLOuGK2MbEa2pRHp7YaHwur4kj-0DNKDBwQovJ4GDjuYB0m5dnw-ocO91wLo8VUOA0B0z_RzAJYErAuJZ_cLJmEqoF0yb62keajCjp-EWrthQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrgedtgdduhedtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtfeejnecuhfhrohhmpefurghm
-    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpefgtdfgleffkeevledvueetteefgfellefhjeetieeuhfehteeu
-    feefgfehfeevfeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:8F9xY_5IaQpIdgm6G1R1y28qH7A8_BvAxjKKCHZAk13vn6bypLvQmA>
-    <xmx:8F9xY34M1NAa55Dx27DpjmtsEU0UiB63VSskjIhcjpy3AkYtvFEV1Q>
-    <xmx:8F9xY_ghkbbiHJv5sYkykeD3Pt9Y6uUdWROJoxDrKGRGbRWDpVJXcw>
-    <xmx:8V9xY0uwYHFr7XGwuCnBFOQFYodVp2-yLTPaCbej-yVAdR9UpTMgJw>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 13 Nov 2022 16:21:51 -0500 (EST)
-Message-ID: <d28c69b9-0b78-aa96-1e73-6ef81539fa8b@sholland.org>
-Date: Sun, 13 Nov 2022 15:21:50 -0600
+	id 1ouL88-00EXVY-9r
+	for linux-riscv@lists.infradead.org; Sun, 13 Nov 2022 22:07:10 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 923FC60BD6;
+	Sun, 13 Nov 2022 22:07:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204B7C433D6;
+	Sun, 13 Nov 2022 22:07:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668377227;
+	bh=jNE8zIkyI1+HYEriWAuflYaEe1PmvFmWvfhpPo0vco0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YRVAt/G3ypRylBjmFk5OJPxe2w+IIRRnpcDQp9drDChqtvqQ2ALAj1CBwoY81W07D
+	 zOXMZg3cwuqCHyM7BTtOKxiXD8NJwRMzXn8vCHHwjoBm0jkGaZhErRDBvWSGDa/e8y
+	 PKP7yKT0jYJJ1/NV0s0nsEkerOBiyeWX7SZhMMhsfue9V63XorWO7H6QC15tUOWAh5
+	 7sDPqaFwobBLcxgi+btC7aWiWtsSsLTsFWAgEsZ0N6vBYicvlDUwoCt2z0gFubxPiI
+	 kYGzu98G2MxUn84eNI7K9m61dz8T7uh6hqjaD1BYWw1n9P2XxqAJY8QHdJUPd1IhMK
+	 p6w9wj5y5B5cQ==
+Date: Sun, 13 Nov 2022 22:07:02 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
+	philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
+	emil.renner.berthing@canonical.com,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH 6/7] RISC-V: add infrastructure to allow different str*
+ implementations
+Message-ID: <Y3FqhkLzYfARO8xf@spud>
+References: <20221110164924.529386-1-heiko@sntech.de>
+ <20221110164924.529386-7-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
- Thunderbird/102.3.3
-Subject: Re: [PATCH] riscv: mm: Proper page permissions after initmem free
-Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, Alexandre Ghiti <alex@ghiti.fr>
-References: <20221112113543.3165646-1-bjorn@kernel.org>
-From: Samuel Holland <samuel@sholland.org>
-In-Reply-To: <20221112113543.3165646-1-bjorn@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20221110164924.529386-7-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221113_132202_227033_130DEDF7 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20221113_140708_447567_4B1F7F3C 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +72,305 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvMTIvMjIgMDU6MzUsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gRnJvbTogQmrDtnJuIFTD
-tnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgo+IAo+IDY0LWJpdCBSSVNDLVYga2VybmVscyBoYXZl
-IHRoZSBrZXJuZWwgaW1hZ2UgbWFwcGVkIHNlcGFyYXRlbHksIGFuZCBpbgo+IGFkZGl0aW9uIHRv
-IHRoZSBsaW5lYXIgbWFwLiBXaGVuIHRoZSBrZXJuZWwgaXMgbG9hZGVkLCB0aGUgbGluZWFyIG1h
-cAo+IG9mIGtlcm5lbCBpbWFnZSBpcyBzZXQgdG8gUEFHRV9SRUFEIHBlcm1pc3Npb24sIGFuZCB0
-aGUga2VybmVsIG1hcCBpcwo+IHNldCB0byBQQUdFX1JFQUQgYW5kIFBBR0VfRVhFQy4KPiAKPiBX
-aGVuIHRoZSBpbml0bWVtIGlzIGZyZWVkLCB0aGUgY29ycmVzcG9uZGluZyBwYWdlcyBpbiB0aGUg
-bGluZWFyIG1hcAo+IHNob3VsZCBiZSByZXN0b3JlZCB0byBQQUdFX1JFQUQgYW5kIFBBR0VfV1JJ
-VEUuIFRoZSBjb3JyZXNwb25kaW5nCj4gcGFnZXMgaW4gdGhlIGtlcm5lbCBtYXAgc2hvdWxkIGFs
-c28gYmUgcmVzdG9yZWQgdG8gUEFHRV9SRUFEIGFuZAo+IFBBR0VfV1JJVEUsIGJ5IHJlbW92aW5n
-IHRoZSBQQUdFX0VYRUMgcGVybWlzc2lvbiwgYW5kIGFkZGluZwo+IFBBR0VfV1JJVEUuCj4gCj4g
-VGhpcyBpcyBub3QgdGhlIGNhc2UuIEZvciA2NC1iaXQga2VybmVscywgb25seSB0aGUgbGluZWFy
-IG1hcCBpcwo+IHJlc3RvcmVkIHRvIGl0cyBwcm9wZXIgcGFnZSBwZXJtaXNzaW9ucyBhdCBpbml0
-bWVtIGZyZWUsIGFuZCBub3QgdGhlCj4ga2VybmVsbWFwLgo+IAo+IEluIHByYWN0aXNlIHRoaXMg
-cmVzdWx0cyBpbiB0aGF0IHRoZSBrZXJuZWwgY2FuIHBvdGVudGlhbGx5IGp1bXAgdG8KPiBkZWFk
-IF9faW5pdCBjb2RlLCBhbmQgc3RhcnQgZXhlY3V0aW5nIGludmFsaWQgMHhjYyBpbnN0cnVjdGlv
-bnMsCj4gd2l0aG91dCBnZXR0aW5nIGFuIGV4Y2VwdGlvbi4KPiAKPiBSZXN0b3JlIHRoZSBmcmVl
-ZCBpbml0bWVtIHByb3Blcmx5LCBieSBzZXR0aW5nIGJvdGggdGhlIGFsaWFzIChrZXJuZWwKPiBt
-YXApIGFuZCB0aGUgbGluZWFyIG1hcCB0byB0aGUgY29ycmVjdCBwZXJtaXNzaW9ucy4KPiAKPiBG
-aXhlczogZTVjMzVmYTA0MDE5ICgicmlzY3Y6IE1hcCB0aGUga2VybmVsIHdpdGggY29ycmVjdCBw
-ZXJtaXNzaW9ucyB0aGUgZmlyc3QgdGltZSIpCj4gU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBl
-bCA8Ympvcm5Acml2b3NpbmMuY29tPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5j
-IHwgMTAgKysrKysrLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCA0IGRl
-bGV0aW9ucygtKQoKUmV2aWV3ZWQtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxAc2hvbGxhbmQu
-b3JnPgpUZXN0ZWQtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxAc2hvbGxhbmQub3JnPiAjIG9u
-IEQxCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Thu, Nov 10, 2022 at 05:49:23PM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> 
+> Depending on supported extensions on specific RISC-V cores,
+> optimized str* functions might make sense.
+> 
+> This adds basic infrastructure to allow patching the function calls
+> via alternatives later on.
+> 
+> The main idea is to have the core str* functions be inline functions
+> which then call the most optimized variant and this call then be
+> replaced via alternatives.
+> 
+> The big advantage is that we don't need additional calls.
+> Though we need to duplicate the generic functions as the main code
+> expects either itself or the architecture to provide the str* functions.
+> 
+> The added *_generic functions are done in assembler (taken from
+> disassembling the main-kernel functions for now) to allow us to control
+> the used registers.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/string.h | 66 +++++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/image-vars.h  |  6 +--
+>  arch/riscv/lib/Makefile         |  3 ++
+>  arch/riscv/lib/strcmp.S         | 39 +++++++++++++++++++
+>  arch/riscv/lib/strlen.S         | 29 +++++++++++++++
+>  arch/riscv/lib/strncmp.S        | 41 ++++++++++++++++++++
+>  6 files changed, 181 insertions(+), 3 deletions(-)
+>  create mode 100644 arch/riscv/lib/strcmp.S
+>  create mode 100644 arch/riscv/lib/strlen.S
+>  create mode 100644 arch/riscv/lib/strncmp.S
+> 
+> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+> index 909049366555..b98481d2d154 100644
+> --- a/arch/riscv/include/asm/string.h
+> +++ b/arch/riscv/include/asm/string.h
+> @@ -18,6 +18,72 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
+>  #define __HAVE_ARCH_MEMMOVE
+>  extern asmlinkage void *memmove(void *, const void *, size_t);
+>  extern asmlinkage void *__memmove(void *, const void *, size_t);
+> +
+> +#define __HAVE_ARCH_STRCMP
+> +extern asmlinkage int __strcmp_generic(const char *cs, const char *ct);
+> +
+> +static inline int strcmp(const char *cs, const char *ct)
+> +{
+> +#ifdef RISCV_EFISTUB
+> +	return __strcmp_generic(cs, ct);
+> +#else
+> +	register const char *a0 asm("a0") = cs;
+> +	register const char *a1 asm("a1") = ct;
+> +	register int a0_out asm("a0");
+> +
+> +	asm volatile("call __strcmp_generic\n\t"
+> +		: "=r"(a0_out)
+> +		: "r"(a0), "r"(a1)
+> +		: "ra", "t0", "t1", "t2");
+> +
+> +	return a0_out;
+> +#endif
+> +}
+> +
+> +#define __HAVE_ARCH_STRNCMP
+> +extern asmlinkage int __strncmp_generic(const char *cs,
+> +					const char *ct, size_t count);
+> +
+> +static inline int strncmp(const char *cs, const char *ct, size_t count)
+> +{
+> +#ifdef RISCV_EFISTUB
+> +	return __strncmp_generic(cs, ct, count);
+> +#else
+> +	register const char *a0 asm("a0") = cs;
+> +	register const char *a1 asm("a1") = ct;
+> +	register size_t a2 asm("a2") = count;
+> +	register int a0_out asm("a0");
+> +
+> +	asm volatile("call __strncmp_generic\n\t"
+> +		: "=r"(a0_out)
+> +		: "r"(a0), "r"(a1), "r"(a2)
+> +		: "ra", "t0", "t1", "t2");
+> +
+> +	return a0_out;
+> +#endif
+> +}
+> +
+> +#define __HAVE_ARCH_STRLEN
+> +extern asmlinkage __kernel_size_t __strlen_generic(const char *);
+> +
+> +static inline __kernel_size_t strlen(const char *s)
+> +{
+> +#ifdef RISCV_EFISTUB
+> +	return __strlen_generic(s);
+> +#else
+> +	register const char *a0 asm("a0") = s;
+> +	register int a0_out asm("a0");
+> +
+> +	asm volatile(
+> +		"call __strlen_generic\n\t"
+> +		: "=r"(a0_out)
+> +		: "r"(a0)
+> +		: "ra", "t0", "t1");
+> +
+> +	return a0_out;
+> +#endif
+> +}
+> +
+>  /* For those files which don't want to check by kasan. */
+>  #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
+>  #define memcpy(dst, src, len) __memcpy(dst, src, len)
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> index d6e5f739905e..2f270b9fde63 100644
+> --- a/arch/riscv/kernel/image-vars.h
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -25,10 +25,10 @@
+>   */
+>  __efistub_memcmp		= memcmp;
+>  __efistub_memchr		= memchr;
+> -__efistub_strlen		= strlen;
+> +__efistub___strlen_generic	= __strlen_generic;
+>  __efistub_strnlen		= strnlen;
+> -__efistub_strcmp		= strcmp;
+> -__efistub_strncmp		= strncmp;
+> +__efistub___strcmp_generic	= __strcmp_generic;
+> +__efistub___strncmp_generic	= __strncmp_generic;
+>  __efistub_strrchr		= strrchr;
+>  
+>  __efistub__start		= _start;
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 25d5c9664e57..6c74b0bedd60 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -3,6 +3,9 @@ lib-y			+= delay.o
+>  lib-y			+= memcpy.o
+>  lib-y			+= memset.o
+>  lib-y			+= memmove.o
+> +lib-y			+= strcmp.o
+> +lib-y			+= strlen.o
+> +lib-y			+= strncmp.o
+>  lib-$(CONFIG_MMU)	+= uaccess.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
+>  
+> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
+> new file mode 100644
+> index 000000000000..f23a5c5e39d8
+> --- /dev/null
+> +++ b/arch/riscv/lib/strcmp.S
+> @@ -0,0 +1,39 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
+> +#include <asm-generic/export.h>
+> +
+> +/* int __strcmp_generic(const char *cs, const char *ct) */
+> +ENTRY(__strcmp_generic)
+> +	/*
+> +	 * Returns
+> +	 *   a0 - comparison result, like strncmp
+
+The strncmp_generic one below says "like strncmp" too. Given the below
+copy paste stuff, is this one copy paste or intentional?
+
+> +	 *
+> +	 * Parameters
+> +	 *   a0 - string1
+> +	 *   a1 - string2
+> +	 *   a2 - number of characters to compare
+
+Above line is a copy paste error?
+
+> +	 *
+> +	 * Clobbers
+> +	 *   t0, t1, t2, t3, t4, t5
+
+As is this one?
+
+Other than those, seems to make sense?
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+> +	 */
+> +	mv	t2, a1
+> +1:
+> +	lbu	t1, 0(a0)
+> +	lbu	t0, 0(a1)
+> +	addi	a0, a0, 1
+> +	addi	a1, a1, 1
+> +	beq	t1, t0, 3f
+> +	li	a0, 1
+> +	bgeu	t1, t0, 2f
+> +	li	a0, -1
+> +2:
+> +	mv	a1, t2
+> +	ret
+> +3:
+> +	bnez	t1, 1b
+> +	li	a0, 0
+> +	j	2b
+> +END(__strcmp_generic)
+> +EXPORT_SYMBOL(__strcmp_generic)
+> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
+> new file mode 100644
+> index 000000000000..e0e7440ac724
+> --- /dev/null
+> +++ b/arch/riscv/lib/strlen.S
+> @@ -0,0 +1,29 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
+> +#include <asm-generic/export.h>
+> +
+> +/* int __strlen_generic(const char *s) */
+> +ENTRY(__strlen_generic)
+> +	/*
+> +	 * Returns
+> +	 *   a0 - string length
+> +	 *
+> +	 * Parameters
+> +	 *   a0 - String to measure
+> +	 *
+> +	 * Clobbers:
+> +	 *   t0, t1
+> +	 */
+> +	mv	t1, a0
+> +1:
+> +	lbu	t0, 0(t1)
+> +	bnez	t0, 2f
+> +	sub	a0, t1, a0
+> +	ret
+> +2:
+> +	addi	t1, t1, 1
+> +	j	1b
+> +END(__strlen_generic)
+> +EXPORT_SYMBOL(__strlen_generic)
+> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
+> new file mode 100644
+> index 000000000000..8d271cd0df72
+> --- /dev/null
+> +++ b/arch/riscv/lib/strncmp.S
+> @@ -0,0 +1,41 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
+> +#include <asm-generic/export.h>
+> +
+> +/* int __strncmp_generic(const char *cs, const char *ct, size_t count) */
+> +ENTRY(__strncmp_generic)
+> +	/*
+> +	 * Returns
+> +	 *   a0 - comparison result, like strncmp
+> +	 *
+> +	 * Parameters
+> +	 *   a0 - string1
+> +	 *   a1 - string2
+> +	 *   a2 - number of characters to compare
+> +	 *
+> +	 * Clobbers
+> +	 *   t0, t1, t2
+> +	 */
+> +	li	t0, 0
+> +1:
+> +	beq	a2, t0, 4f
+> +	add	t1, a0, t0
+> +	add	t2, a1, t0
+> +	lbu	t1, 0(t1)
+> +	lbu	t2, 0(t2)
+> +	beq	t1, t2, 3f
+> +	li	a0, 1
+> +	bgeu	t1, t2, 2f
+> +	li	a0, -1
+> +2:
+> +	ret
+> +3:
+> +	addi	t0, t0, 1
+> +	bnez	t1, 1b
+> +4:
+> +	li	a0, 0
+> +	j	2b
+> +END(__strncmp_generic)
+> +EXPORT_SYMBOL(__strncmp_generic)
+> -- 
+> 2.35.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
