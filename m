@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F205BC433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Nov 2022 00:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E70C433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Nov 2022 11:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d1EerDXaHDsV1gIoHC2YVX++tZaZ5kATA/1V53L8fjw=; b=d8ZIfiWgGvkVKY
-	zk6yrRn1L9C1tBJ+ObT0PcfVIQN86q42BlWwhrFq3QemdpEOGXDjxno2NQRF3tboD9+k/gnSd9QVw
-	+g+VgjxmXCAIDIUov02udQu95OBRhcIMVnc5T3sPjVBkHeHrk1fZHP6ASs9esOVXPfTFwrPnePl9w
-	liZ2y6xZN3IjRC3upu90YycjDVACWKgqF/dzXQkxs7rL4NX2Pk21unO6teMBei26MQDX8G+m5najT
-	0BWZEfMuQz1dsNjXyNwqhrrHCD69kb84xO3nuytgfvot8Ouda0NXAA4jaCiwAW0ovFgz3hYKuhePc
-	cgTNwaUE9muWD74wAP+w==;
+	List-Owner; bh=zvJLa325d0kwhLVxMU7c4VaESxI/7vATTN6pOIp5qYM=; b=m2A8ct7rap2U00
+	O73LO649Dj4oIy7Av0geA7MlQBnRsy8tyGHbPn4dtPrIXe+T5c9dI+x7pN8kuxy7EmHAhCJMYDHo+
+	6jss14u4y0bCL54mmjV73O8stCflOfDy/3Ikxj/2GVYIwqZiyNO/fjDY7QfSak84puuLBeLbFKBB6
+	dK3e6NgwHv0+Tyv0fYG0gFGxVNGsr5T/rHH8WVghI3KqiHRRREbeZp/ooxxy6fuR51AC+7yRI4k/r
+	4/2d/nazCaqJlycbmYESwt2+DT6iadB+NbKtmjwZeuwvTmEfVoKGi3NFo8UmCI0YiUkGF/rWzw7SB
+	8c8m3m9MWM5dYfBnhUwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ou0dF-008Wz9-Kb; Sun, 13 Nov 2022 00:13:53 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ouAox-00B3nm-ES; Sun, 13 Nov 2022 11:06:39 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ou0dD-008WyL-Lp
-	for linux-riscv@lists.infradead.org; Sun, 13 Nov 2022 00:13:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 9BAB9B80B8E;
-	Sun, 13 Nov 2022 00:13:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD44C433D6;
-	Sun, 13 Nov 2022 00:13:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668298425;
-	bh=AYKKSk+NIzy1pXYiJWh3WgsPRSax5Zh0r58tPDd7JT4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZvkR3HZthwx5ePtGifqfxyEv01o6VqM6J4nlSVLn9hR2iQB7LNIXAMldT28UJNyPJ
-	 +ZMurj53ypsyPph0FjgnVaFEtk9verpMLJ7PesL5ZeUN4Ae71QKIo5nKN9y64qyl53
-	 W6tGwTYYecE4+mqEpoLFp0ld/UXA7Io7nvy48fVAn6vA4j2EitBMg8O2qnw4oepoDg
-	 qp8THvwtisVsDKjdqkmortY/JbWMRgthsBdAtf9SSSsZ8ln5gWVzGAURVQxcsm5OmC
-	 eJJtRMwnvdPYwqeIf9+stzEmG/phD3uKwEA4Rw4QELpGvD0pFqhvIWakW+AusBmZmR
-	 IvDB7YanULmxg==
-Date: Sun, 13 Nov 2022 00:13:40 +0000
-From: Conor Dooley <conor@kernel.org>
+	id 1ouAou-00B3ls-LS
+	for linux-riscv@lists.infradead.org; Sun, 13 Nov 2022 11:06:38 +0000
+Received: by mail-ej1-x636.google.com with SMTP id t25so21979827ejb.8
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Nov 2022 03:06:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1lNkqm5mDHS7GJ3dOEBMgWRtlQ/aBzzuCqiGbGOTN6Q=;
+        b=WPijW6+w6bFv/6BfRE0a83Vyo18qlPKeHQ+gPFQw7RGsmomc5387pgA6QvZkfWLC+V
+         HTFYCNOtld/x2icd7maxkdWbIwkObecoC4Eznr/FpZszHyiGoFxEP6czsMQmg1FLl8C4
+         2b0u8ADg+nGk9jJoWDpC+vmr/EggRCAFUWpOXkpjJErM3tlaySKmMge30ldVKPMDF9oh
+         A9DxwMi7aGWKVHMFXfLSmND7Y+OL8KDYxB5ITinq16qXgnrei4vFmuIfAksSAfMM3exp
+         cOmDbh3zKAR9rLgUKg7S9/lTQL5hRiA+Amiy2vCohxLgQLJ7x3KP3VZ2xcB2kYwzs7oT
+         TS0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1lNkqm5mDHS7GJ3dOEBMgWRtlQ/aBzzuCqiGbGOTN6Q=;
+        b=0E640XtKrNJJGRh5Hm+C8zEXkTm6C5DOlKnz+SJs0P0Iv3ZNdbpdT5OcD4UJPJV3ey
+         w14oEw/rZIL8AVgZwjNXlW1lyzZMx9511/L+0qhsFqU10CNxIjzGkh6F0tTp5VI7wfr0
+         WcvdaehYMCT2v2ZQLCkrOr2hRq5Ryaud21Ke6a0qujrc9AKGudS8IjwzHZifflLlRGM+
+         +ErC0c/VxGG9RcLolWZd5h/ZY/JkfVBcqfw2H1SdBeLO9rI3mXGHEF0BEvU2tqezNZiG
+         v07XXt5OZKKA3pjTaM/b8EJ51d92ptqZDhDngt4lAW9gAAb0fFsKwOTRa8iebFhGtAvh
+         bgMg==
+X-Gm-Message-State: ANoB5pnDDzBH8fzr7XFODa3NJ12mhjkhiXeRXKMUPkVeEUgiw3saZ+7T
+	KiKoHeqQA7ea31Vy8b0cM+y7Nw==
+X-Google-Smtp-Source: AA0mqf5b67Xt/CHKfoOz8K1J9qJUTnyhFYZXylUlULKqCHA7cRhnTu/gTTCpIBU5VS4CUoIFPoFYMA==
+X-Received: by 2002:a17:906:b6d3:b0:7ae:4236:bfb5 with SMTP id ec19-20020a170906b6d300b007ae4236bfb5mr6931827ejb.428.1668337592188;
+        Sun, 13 Nov 2022 03:06:32 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id ky14-20020a170907778e00b00782539a02absm2840462ejc.194.2022.11.13.03.06.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 13 Nov 2022 03:06:31 -0800 (PST)
+Date: Sun, 13 Nov 2022 12:06:30 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
 To: debug@rivosinc.com
 Cc: palmer@dabbelt.com, jan.kiszka@siemens.com, kbingham@kernel.org,
 	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux@rivosinc.com
 Subject: Re: [PATCH] gdb-script: updated lx_current for riscv
-Message-ID: <Y3A2tPFbqcf1DPr5@spud>
+Message-ID: <20221113110630.y4uppv7d4ocm3lej@kamzik>
 References: <20221111195938.1499148-1-debug@rivosinc.com>
  <20221111195938.1499148-2-debug@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20221111195938.1499148-2-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221112_161351_871697_20935DF3 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20221113_030636_720737_1B006009 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +97,6 @@ On Fri, Nov 11, 2022 at 11:59:38AM -0800, debug@rivosinc.com wrote:
 > 
 > lx_current python gdb command defined in scripts/gdb/cpus.py updated
 > to support riscv architecture.
-
-The commit which added support for arm64 gave an explanation of why
-SP_EL0 needed to be checked. Would be nice if you could do the same here
-for RISC-V. See 526940e39626 ("scripts/gdb: add lx_current support for
-arm64") for what I mean.
-
-While you're at it, "scripts/gdb: add support for RISC-V" would appear
-to be a more standard $subject for this file.
-
-Thanks,
-Conor.
-
 > 
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 > ---
@@ -109,6 +114,14 @@ Conor.
 > +    elif utils.is_target_arch("riscv"):
 > +         current_task_addr = gdb.parse_and_eval("$tp")
 > +         if((current_task_addr.cast(utils.get_long_type()) >> 63) != 0):
+
+Shouldn't there be a get_long_type().sizeof == 8 check somewhere before
+shifting by 63? Or are 32-bit targets not supported at all for some
+reason?
+
+Thanks,
+drew
+
 > +             current_task = current_task_addr.cast(task_ptr_type)
 > +             return current_task.dereference()
 > +         else:
@@ -120,6 +133,11 @@ Conor.
 > -- 
 > 2.25.1
 > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
