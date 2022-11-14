@@ -4,107 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B6BC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BD3C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 15:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xFBm7c5r9gIfOdivONcbriKJuuRtv22E1SZ3jNzQLhY=; b=3hGWtVG4gziR8x
-	B8YZXTVN0y/1ur2NWd4ZJVcu+rNXELSDB4pKeY52pu6gd1rZnYhAt8FRVZh4Yrtm3lqGpRGr4JfxG
-	9CpaIlJioTAADFedA/WTGP4bdeuiGI9U+Dpf6zCssQ/G52EZorp41OfF3/xDQH63jbW8bAcu+xozx
-	OBWtOXfk/m9UiZILZQ62s/N2PK+7lS78dOgTljv7K0klHyNt9svuFt4zSO1CFRGk3TsQ1kGZ4msiT
-	rJCDwZVzu/ei5uuzufMP8aIK2T3k3s6lUfQ0OVFTt1PMBPtcTdJ5NqiRtJVNeYc88j6hYM4OMmpLX
-	39+AHtXW2LdUwEKz5cpg==;
+	List-Owner; bh=icwzvAlrXx7D//kIYqzmIeEebWT+AuAHXz8s9iYfUeg=; b=OCgXyPGLyFudkO
+	8s2IZKpJE68F4MPf2NIyHFpAyXC0adlOo17pHklOJdETQtUfFZesp5fMoZcNIA9Yqak3YrJbx7qJQ
+	9hz0sGl4DfDKT6jHNyOAkUzo+f84Gd8bR9sEnF4nWYEJdP3t8+Pe25Ot4o/6DvtSgcPDzMJIvey2m
+	mfnoxY0e5LP7nPwNp+Wb+Z4csk5OZy6qzpb6gb2Su4cWlUDv0VNmlGMhzRJnrBV20dDzUcv3D54Wi
+	RuhYOLsRYGupCbeQwdbskYb3YK8GhbwhdIIa+fGFNq/KLm+a4MfNf2KRoPHx06Ap1tuPvDqwQyp11
+	3f/VOXOGtcc/OWmdzzgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouapM-001xS9-Lz; Mon, 14 Nov 2022 14:52:48 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1oub1D-0025mK-N7; Mon, 14 Nov 2022 15:05:03 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouak2-001uAx-1J; Mon, 14 Nov 2022 14:47:21 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id b1-20020a17090a7ac100b00213fde52d49so10832500pjl.3;
-        Mon, 14 Nov 2022 06:47:13 -0800 (PST)
+	id 1oub19-0025k7-NH
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 15:05:02 +0000
+Received: by mail-oi1-x232.google.com with SMTP id n205so11667945oib.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 07:04:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RAVDiAC6zB9a2VA9cAkzTKrj8UeLfO95holBArk2auY=;
-        b=Ka6kGiT2ih/iWtCkXiSIg98dy3rf/kc4NpdyyEEbP8ONVZ/lg3ijoLiNp7Khx/vcbW
-         3hTRDokhrwSFGY98NXKEpI1pRZhEa1Wr5Vj9wgrbwkkdRrTSJ6Hx8jr744wyWU2oUovU
-         YVEkJh4B90VxOfeLyFQXZ+7obOJYv/sLhf6Z51AWlrj8npnPcszoVuAlf1Avc/hII4Pj
-         J7tXzxCzt8d8R8Tx9KKZ4Jpl6hRMaaHM7u/T2jNPFeuZ1ofeOUSziW2WczK8mU8/CWQt
-         A+eS3flkkjjUSDwxNkFJHI1WYlVWRU/8YumfqkP6qkOLSJ81yjJjxCc8/zYXvvebVbm2
-         Ngdw==
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ulAOjA75cdUjCrwoFzB3GNTnqeppGrkDtJATlYQPSco=;
+        b=lExNvcXwOiM309Kvig8jF70BuGGKOzlvekHmZScMYXQKI7kPvOCEcfLoIYpp/iFazb
+         ui2bUu0jH0Dgfe8kOLHBFR75CD+FDLj6ESAkjM9vwnu5jxHSxPhxvVMFm3xuGm6wcgCv
+         CFnki7JmgwOUm+PjLEGd4iZ8OF7tVSha7AvVZrPmJ8Dd+inAPiGNIgdJ+rTGKDnaEZbj
+         qXhtssXM5xgXjhuB8sr9rq/yoFi+saYHqXDZmHRGJOpjtiSkro31bi4j3GMHPvpC/KUf
+         L+SmaHRoJcbmLg6o1K0d7o5AgpcWZ4P4DEsxoUqYHsDjz4bi9im40fFEK50Ti98i60QM
+         EyfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RAVDiAC6zB9a2VA9cAkzTKrj8UeLfO95holBArk2auY=;
-        b=A7dZznkIGLM4zuLEo0cMt/gHkK6nvkuCqb2EDhRgw1sSB/A1G/Q/S0XK1merYeKqdb
-         YFQA2Fto4YHfkqgsZVuhCmuiBP0KF2z2S1OIJDcO4FaWS8/RtoiNCn4JyNJeJo1whGzA
-         z7fV9oXSPaz0map1GNlaMZm7EGJMwAM83CzciFzBQKWo+my+3PSQZeek5TUBYgH/bfS3
-         kMz4JURrUHN5Ltd5fipS25mnvUlEZtbC2ughCuJPa/ztxc/eiwQbn54pSIYYajYgdNlx
-         4P2uVjtseLKwx8IZQNtGuVoub0AFgfkgUAZl5SfkJEHGGnMUgY7zH/9oq85A6HlbMqVL
-         rrdg==
-X-Gm-Message-State: ANoB5pnypdeNUWnAseH2AYru6FfyZlkyum6ghHqnFAT+xWUmCpk3emcI
-	B0m2F1m8ye+tSuCeDvDRRNU=
-X-Google-Smtp-Source: AA0mqf7ZApoBFRJRPpdJdq81DvnXbtoMGmsjoAxn3Xthb1AblAdoyrTq9IJxqXo/qMAtFQ41XL/7Kw==
-X-Received: by 2002:a17:90a:4f4e:b0:212:ffd2:440a with SMTP id w14-20020a17090a4f4e00b00212ffd2440amr14297465pjl.7.1668437233159;
-        Mon, 14 Nov 2022 06:47:13 -0800 (PST)
-Received: from hyeyoo ([114.29.91.56])
-        by smtp.gmail.com with ESMTPSA id c14-20020a62f84e000000b0052d4cb47339sm6750816pfm.151.2022.11.14.06.47.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Nov 2022 06:47:12 -0800 (PST)
-Date: Mon, 14 Nov 2022 23:47:01 +0900
-From: Hyeonggon Yoo <42.hyeyoo@gmail.com>
-To: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>, Conor Dooley <conor@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Christoph Lameter <cl@linux.com>,
-	David Rientjes <rientjes@google.com>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Pekka Enberg <penberg@kernel.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Rustam Kovhaev <rkovhaev@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
-	Alexander Shiyan <shc_work@mail.ru>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	openrisc@lists.librecores.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
-	Conor.Dooley@microchip.com, Paul Cercueil <paul@crapouillou.net>
-Subject: Re: Deprecating and removing SLOB
-Message-ID: <Y3JU5cfyid1rBoOy@hyeyoo>
-References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
- <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
- <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz>
- <Y260tkNHc2vFITJ3@spud>
- <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
- <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
- <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
- <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ulAOjA75cdUjCrwoFzB3GNTnqeppGrkDtJATlYQPSco=;
+        b=OjsgTkLaG9q5QdYsBy4cHKBxCiVp4eQUnZsH+W8cL6XGpLM2lAOoM6vN6pCP2fvXCF
+         C/5DeLEYBBk4SMzmdzVGCQeT9kn5hvu2nHJGzWvlJS8cIWQBBGEGzofbjDRGSWevs3BN
+         8VfpMINeBcSCOqrAH8mJtqhSRisI2AE1nrQz+D0UvreTShXxA7cl9uWBVl3JM1g/dIIv
+         gWN7T5gfBrT/fbonYdht3Pw6LqWaPe0gjiqgdxJMzfci2+dxGBZXbdqtkz0G34zvavrx
+         YATuxtyZI44LzS+AFDACC8ubDWpqouaguc7ZqgWmTAz/SaZgN+BpOI53Glb4DRm7gcIf
+         qAPQ==
+X-Gm-Message-State: ANoB5pk63rWjFGYkpJGjupQcwT1bemURBv7+ZU66TY5wUDswBeJiicFj
+	6Yv6msOZF3bLUsFJByLWh9wySM9bL1rfrYuCZesyAgELjYlHTg==
+X-Google-Smtp-Source: AA0mqf6lT+kmg+JHdDm1daVMkl8lf3NcqyT8MzhszZniZ5XHEK8j9CkyFUgWxddEZpdnZ/vL0Rv1tENw2T9e86OzUbs=
+X-Received: by 2002:a05:6808:20a3:b0:359:c377:6f7 with SMTP id
+ s35-20020a05680820a300b00359c37706f7mr6006527oiw.271.1668438297561; Mon, 14
+ Nov 2022 07:04:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+ <20221111044207.1478350-5-apatel@ventanamicro.com> <9be58cb4-4ee8-a6e0-7a0a-f2f581e394d3@linaro.org>
+ <CAK9=C2X55CG6tjjiTPrecnnZZiwTOS1BSH3UTPa-fLBm38WdLA@mail.gmail.com> <3f469c79-fc4e-9c29-9c47-6dd8e28484a5@linaro.org>
+In-Reply-To: <3f469c79-fc4e-9c29-9c47-6dd8e28484a5@linaro.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Mon, 14 Nov 2022 20:34:45 +0530
+Message-ID: <CAK9=C2VEZhxgqEDxxKRyvs7NdeRvPzVH=Yy_c_t-tLWhCt3wqA@mail.gmail.com>
+Subject: Re: [PATCH 4/9] dt-bindings: Add RISC-V incoming MSI controller bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_064718_097291_F52EA666 
-X-CRM114-Status: GOOD (  50.32  )
+X-CRM114-CacheID: sfid-20221114_070459_814876_89798745 
+X-CRM114-Status: GOOD (  60.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,165 +91,335 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
-> On 11/14/22 18:36, Vlastimil Babka wrote:
-> > On 11/14/22 06:48, Damien Le Moal wrote:
-> >> On 11/14/22 10:55, Damien Le Moal wrote:
-> >>> On 11/12/22 05:46, Conor Dooley wrote:
-> >>>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
-> >>>>> On 11/8/22 22:44, Pasha Tatashin wrote:
-> >>>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
-> >>>>>>>
-> >>>>>>> Hi,
-> >>>>>>>
-> >>>>>>> as we all know, we currently have three slab allocators. As we discussed
-> >>>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
-> >>>>>>> two of them do not.
-> >>>>>>>
-> >>>>>>> The unsurprising reasons include code maintenance burden, other features
-> >>>>>>> compatible with only a subset of allocators (or more effort spent on the
-> >>>>>>> features), blocking API improvements (more on that below), and my
-> >>>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
-> >>>>>>> without resorting to spelling out the letters.
-> >>>>>>>
-> >>>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
-> >>>>>>> two to be removed, so I'd like to focus on it first.
-> >>>>>>>
-> >>>>>>> I believe SLOB can be removed because:
-> >>>>>>>
-> >>>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
-> >>>>>>> by putting all objects together, which has its CPU performance costs
-> >>>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
-> >>>>>>> aware of any "tiny linux" deployment that opts for this. For example,
-> >>>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
-> >>>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
-> >>>>>>> SLOB impact is too much for those who tried. Googling for
-> >>>>>>> "CONFIG_SLOB=y" yielded nothing useful.
-> >>>>>>
-> >>>>>> I am all for removing SLOB.
-> >>>>>>
-> >>>>>> There are some devices with configs where SLOB is enabled by default.
-> >>>>>> Perhaps, the owners/maintainers of those devices/configs should be
-> >>>>>> included into this thread:
-> >>>>>>
-> >>>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
-> >>>>
-> >>>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
-> >>>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
-> >>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
-> >>>>
-> >>>>>
-> >>>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
-> >>>>> running make defconfig ends up with SLUB anyway, unless I miss something.
-> >>>>> Only a subset has both SLOB and EXPERT:
-> >>>>>
-> >>>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
-> >>>>
-> >>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
-> >>>>
-> >>>> I suppose there's not really a concern with the virt defconfig, but I
-> >>>> did check the output of `make nommu_k210_defconfig" and despite not
-> >>>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
-> >>>>
-> >>>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
-> >>>> boots etc, but I have no workloads or w/e to run on it.
-> >>>
-> >>> I sent a patch to change the k210 defconfig to using SLUB. However...
-> > 
-> > Thanks!
-> > 
-> >>> The current default config using SLOB gives about 630 free memory pages
-> >>> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
-> >>> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
-> > 
-> > Thanks for the testing! How much RAM does the system have btw? I found 8MB
-> > somewhere, is that correct?
-> 
-> Yep, 8MB, that's it.
-> 
-> > So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
-> > difference [1]. But that was looking at Slab pages, not free pages. The
-> > extra overhead could be also in percpu allocations, code etc.
-> > 
-> >>> This is with a buildroot kernel 5.19 build including a shell and sd-card
-> >>> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
-> >>> definitely see more errors with shell commands failing due to allocation
-> >>> failures for the shell process fork. So as far as the K210 is concerned,
-> >>> switching to SLUB is not ideal.
-> >>>
-> >>> I would not want to hold on kernel mm improvements because of this toy
-> >>> k210 though, so I am not going to prevent SLOB deprecation. I just wish
-> >>> SLUB itself used less memory :)
+On Mon, Nov 14, 2022 at 5:52 PM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> On 14/11/2022 13:06, Anup Patel wrote:
+> > On Mon, Nov 14, 2022 at 3:19 PM Krzysztof Kozlowski
+> > <krzysztof.kozlowski@linaro.org> wrote:
 > >>
-> >> Did further tests with kernel 6.0.1:
-> >> * SLOB: 630 free pages after boot, shell working (occasional shell fork
-> >> failure happen though)
-> >> * SLAB: getting memory allocation for order 7 failures on boot already
-> >> (init process). Shell barely working (high frequency of shell command fork
-> >> failures)
-> 
-> I forgot to add here that the system was down to about 500 free pages
-> after boot (again from the shell with "cat /proc/vmstat").
-> 
-> >> * SLUB: getting memory allocation for order 7 failures on boot. I do get a
-> >> shell prompt but cannot run any shell command that involves forking a new
-> >> process.
-> 
-> For both slab and slub, I had cpu partial off, debug off and slab merge
-> on, as I suspected that would lead to less memory overhead.
-> I suspected memory fragmentation may be an issue but doing
-> 
-> echo 3 > /proc/sys/vm/drop_caches
-> 
-> before trying a shell command did not help much at all (it usually does on
-> that board with SLOB). Note that this is all with buildroot, so this echo
-> & redirect always works as it does not cause a shell fork.
-> 
+> >> On 11/11/2022 05:42, Anup Patel wrote:
+> >>> We add DT bindings document for RISC-V incoming MSI controller (IMSIC)
+> >>> defined by the RISC-V advanced interrupt architecture (AIA) specification.
+> >>>
+> >>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> >>> ---
+> >>>  .../interrupt-controller/riscv,imsic.yaml     | 174 ++++++++++++++++++
+> >>>  1 file changed, 174 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..05106eb1955e
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+> >>> @@ -0,0 +1,174 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,imsic.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: RISC-V Incoming MSI Controller (IMSIC)
+> >>> +
+> >>> +maintainers:
+> >>> +  - Anup Patel <anup@brainfault.org>
+> >>> +
+> >>> +description:
+> >>> +  The RISC-V advanced interrupt architecture (AIA) defines a per-CPU incoming
+> >>> +  MSI controller (IMSIC) for handling MSIs in a RISC-V platform. The RISC-V
+> >>> +  AIA specification can be found at https://github.com/riscv/riscv-aia.
+> >>> +
+> >>> +  The IMSIC is a per-CPU (or per-HART) device with separate interrupt file
+> >>> +  for each privilege level (machine or supervisor). The configuration of
+> >>> +  a IMSIC interrupt file is done using AIA CSRs and it also has a 4KB MMIO
+> >>> +  space to receive MSIs from devices. Each IMSIC interrupt file supports a
+> >>> +  fixed number of interrupt identities (to distinguish MSIs from devices)
+> >>> +  which is same for given privilege level across CPUs (or HARTs).
+> >>> +
+> >>> +  The arrangement of IMSIC interrupt files in MMIO space of a RISC-V platform
+> >>> +  follows a particular scheme defined by the RISC-V AIA specification. A IMSIC
+> >>> +  group is a set of IMSIC interrupt files co-located in MMIO space and we can
+> >>> +  have multiple IMSIC groups (i.e. clusters, sockets, chiplets, etc) in a
+> >>> +  RISC-V platform. The MSI target address of a IMSIC interrupt file at given
+> >>> +  privilege level (machine or supervisor) encodes group index, HART index,
+> >>> +  and guest index (shown below).
+> >>> +
+> >>> +  XLEN-1           >=24                                 12    0
+> >>> +  |                  |                                  |     |
+> >>> +  -------------------------------------------------------------
+> >>> +  |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
+> >>> +  -------------------------------------------------------------
+> >>> +
+> >>> +  The device tree of a RISC-V platform will have one IMSIC device tree node
+> >>> +  for each privilege level (machine or supervisor) which collectively describe
+> >>> +  IMSIC interrupt files at that privilege level across CPUs (or HARTs).
+> >>> +
+> >>> +allOf:
+> >>> +  - $ref: /schemas/interrupt-controller.yaml#
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    items:
+> >>> +      - enum:
+> >>> +          - vendor,chip-imsics
 > >>
-> >> So if we want to keep the k210 support functional with a shell, we need
-> >> slob. If we reduce that board support to only one application started as
-> >> the init process, then I guess anything is OK.
-> > 
-> > In [1] it was possible to save some more memory with more tuning. Some of
-> > that required boot parameters and other code changes. In another reply [2] I
-> > considered adding something like SLUB_TINY to take care of all that, so
-> > looks like it would make sense to proceed with that.
-> 
-> If you want me to test something, let me know.
+> >> There is no such vendor... As Conor pointed out, this does not look
+> >> correct. Compatibles must be real and specific.
+> >
+> > Previously, Rob had suggest to:
+> > 1) Mandate two compatible strings: one for implementation and
+> >     and second for specification
+> > 2) Since this is new specification with QEMU being the only
+> >     implementation, we add "vendor,chip-imsics" as dummy
+> >     implementation specific string for DT schema checkers
+> >     to pass the examples. Once we have an actual implementation,
+> >    we will replace this dummy string.
+> >
+> > Refer, https://www.spinics.net/lists/devicetree/msg442720.html
+>
+> And Rob did not propose vendor as vendor and chip-imsics as device. Read
+> his message again.
 
-Would you try this please?
+Okay
 
-diff --git a/mm/slub.c b/mm/slub.c
-index a24b71041b26..1c36c4b9aaa0 100644
---- a/mm/slub.c
-+++ b/mm/slub.c
-@@ -4367,9 +4367,7 @@ static int kmem_cache_open(struct kmem_cache *s, slab_flags_t flags)
- 	 * The larger the object size is, the more slabs we want on the partial
- 	 * list to avoid pounding the page allocator excessively.
- 	 */
--	s->min_partial = min_t(unsigned long, MAX_PARTIAL, ilog2(s->size) / 2);
--	s->min_partial = max_t(unsigned long, MIN_PARTIAL, s->min_partial);
--
-+	s->min_partial = 0;
- 	set_cpu_partial(s);
- 
- #ifdef CONFIG_NUMA
+>
+> >
+> >>
+> >>> +      - const: riscv,imsics
+> >>> +
+> >>> +  reg:
+> >>> +    minItems: 1
+> >>> +    maxItems: 128
+> >>
+> >> Is there a DTS with 128 reg items?
+> >
+> > Not at the moment since this is a new specification.
+> >
+> > The value "128" is because maximum number of
+> > IMSIC groups on an system with both IMSIC and
+> > APLIC is 128 where each IMSIC group has a
+> > separate base address. This is not a hard limit so
+> > I am willing to drop it as well.
+>
+> Is "separate base address" really a separate different range or just
+> spaced by few registers?
+
+Yes, "separate base address" of an IMSIC group
+means a separate different range.
+
+We can think of an IMSIC group as a CPU cluster or
+chiplet or die. The IMSIC files within a group are
+located next to each other whereas the groups can
+be far away from each other.
+
+>
+> >
+> >>
+> >>> +    description:
+> >>> +      Base address of each IMSIC group.
+> >>> +
+> >>> +  interrupt-controller: true
+> >>> +
+> >>> +  "#interrupt-cells":
+> >>> +    const: 0
+> >>> +
+> >>> +  msi-controller: true
+> >>
+> >> You want then msi-controller.yaml schema and you can drop properties
+> >> described there.
+> >
+> > Okay, I will include msi-controller.yaml in the next revision.
+> >
+> >>
+> >>> +
+> >>> +  interrupts-extended:
+> >>> +    minItems: 1
+> >>> +    maxItems: 32768
+> >>
+> >> I just wonder if you are not putting some random stuff here... just like
+> >> this "vendor" company.
+> >>
+> >> 32768 inputs it is quite a big chip. Are you sure you have so many pins
+> >> or internal connections?
+> >
+> > The interrupts-extended property describes the association of IMSIC
+> > interrupt files with the HARTs. If there are N HARTs then we will have
+> > N entries in the interrupts-extended (just like the existing PLIC DT bindings).
+> >
+> > For example, if the first entry points to HART1 and the second entry points
+> > to HART0 then the first interrupt file is associated with HART1 and the
+> > second interrupt file is associated with HART0.
+> >
+> > Currently, the "maxItems" limit reflects the max IMSICs which an APLIC
+> > domain can target on a system with both IMSIC and APLIC.
+> >
+> > Actually, there is a typo here. The "maxItems" should be 16384 as-per
+> > the frozen AIA specification. I will update "maxItems" accordingly in
+> > next patch revision.
+> >
+> >>
+> >>> +    description:
+> >>> +      This property represents the set of CPUs (or HARTs) for which given
+> >>> +      device tree node describes the IMSIC interrupt files. Each node pointed
+> >>> +      to should be a riscv,cpu-intc node, which has a riscv node (i.e. RISC-V
+> >>> +      HART) as parent.
+> >>> +
+> >>> +  riscv,num-ids:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >>> +    minimum: 63
+> >>> +    maximum: 2047
+> >>> +    description:
+> >>> +      Specifies how many interrupt identities are supported by IMSIC interrupt
+> >>> +      file.
+> >>> +
+> >>> +  riscv,num-guest-ids:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >>> +    minimum: 63
+> >>> +    maximum: 2047
+> >>> +    description:
+> >>> +      Specifies how many interrupt identities are supported by IMSIC guest
+> >>> +      interrupt file. When not specified the number of interrupt identities
+> >>> +      supported by IMSIC guest file is assumed to be same as specified by
+> >>> +      the riscv,num-ids property.
+> >>> +
+> >>> +  riscv,slow-ipi:
+> >>> +    type: boolean
+> >>> +    description:
+> >>> +      The presence of this property implies that software interrupts (i.e.
+> >>> +      IPIs) using IMSIC software injected MSIs is slower compared to other
+> >>> +      software interrupt mechanisms (such as SBI IPI) on the underlying
+> >>> +      RISC-V platform.
+> >>
+> >> Is this a property of software or hardware?
+> >
+> > This is a property of hardware (or implementation) because IPIs
+> > in IMSIC are software injected MSIs so if IMSIC is trap-n-emulated
+> > by a hypervisor then all writes to MSI register will trap to hypervisor
+> > in which case IPI injection via IMSIC is slow.
+> >
+> > The presence of "riscv,slow-ipi" DT property provides a hint to
+> > driver that using IPIs through IMSIC is slow on this platform so
+> > if there are other IPI mechanisms (such as SBI IPI calls) then
+> > OS should prefer those mechanisms.
+>
+> If this is specific to implementation, why it is not included already in
+> the compatible?
+>
+> The name is anyway too vague. What is "slow"? Describe real
+> characteristics of hardware, e.g. trapped via hypervisor.
+
+Okay, how about renaming it to "riscv,trap-n-emulated" ?
+
+Alternately, we can add "riscv,soft-imsics" as an implementation
+specific compatible string which hypervisors can use to describe
+trap-n-emulated IMSICs. This "riscv,soft-imsics" can also replace
+"vendor,chip-imsics" dummy string ?
 
 
-and booting with and without boot parameter slub_max_order=0?
+> >
+> >>
+> >>> +
+> >>> +  riscv,guest-index-bits:
+> >>> +    minimum: 0
+> >>> +    maximum: 7
+> >>> +    description:
+> >>> +      Specifies number of guest index bits in the MSI target address. When
+> >>> +      not specified it is assumed to be 0.
+> >>> +
+> >>> +  riscv,hart-index-bits:
+> >>> +    minimum: 0
+> >>> +    maximum: 15
+> >>> +    description:
+> >>> +      Specifies number of HART index bits in the MSI target address. When
+> >>> +      not specified it is estimated based on the interrupts-extended property.
+> >>> +
+> >>> +  riscv,group-index-bits:
+> >>> +    minimum: 0
+> >>> +    maximum: 7
+> >>> +    description:
+> >>> +      Specifies number of group index bits in the MSI target address. When
+> >>> +      not specified it is assumed to be 0.
+> >>
+> >> Then default: 0.
+> >
+> > Okay, I will update.
+> >
+> >>
+> >>> +
+> >>> +  riscv,group-index-shift:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >>> +    minimum: 24
+> >>> +    maximum: 55
+> >>> +    description:
+> >>> +      Specifies the least significant bit of the group index bits in the
+> >>
+> >> Please drop everywhere "Specifies the" and instead just describe the
+> >> hardware.
+> >
+> > Okay, I will update.
+> >
+> >>
+> >>> +      MSI target address. When not specified it is assumed to be 24.
+> >>> +
+> >>> +additionalProperties: false
+> >>
+> >> unevaluatedProperties: false and drop all properties already described
+> >> by other schemas.
+> >
+> > Okay, I will update.
+> >
+> >>
+> >>> +
+> >>> +required:
+> >>> +  - compatible
+> >>> +  - reg
+> >>> +  - interrupt-controller
+> >>> +  - msi-controller
+> >>> +  - interrupts-extended
+> >>> +  - riscv,num-ids
+> >>> +
+> >>> +examples:
+> >>> +  - |
+> >>> +    // Example 1 (Machine-level IMSIC files with just one group):
+> >>> +
+> >>> +    imsic_mlevel: interrupt-controller@24000000 {
+> >>> +      compatible = "vendor,chip-imsics", "riscv,imsics";
+> >>> +      interrupts-extended = <&cpu1_intc 11>,
+> >>> +                            <&cpu2_intc 11>,
+> >>> +                            <&cpu3_intc 11>,
+> >>> +                            <&cpu4_intc 11>;
+> >>> +      reg = <0x28000000 0x4000>;
+> >>> +      interrupt-controller;
+> >>> +      #interrupt-cells = <0>;
+> >>> +      msi-controller;
+> >>> +      riscv,num-ids = <127>;
+> >>> +    };
+> >>> +
+> >>> +  - |
+> >>> +    // Example 2 (Supervisor-level IMSIC files with two groups):
+> >>> +
+> >>> +    imsic_slevel: interrupt-controller@28000000 {
+> >>> +      compatible = "vendor,chip-imsics", "riscv,imsics";
+> >>
+> >> Please run scripts/checkpatch.pl and fix reported warnings.
+> >
+> > I did not see any warnings with ./scripts/checkpatch.pl.
+> >
+> > Is there any parameter of checkpatch.pl which I should try ?
+>
+> You should see here or with your DTS warnings about undocumented vendor
+> prefix.
 
-Thanks,
-Hyeonggon
+Okay, I will check.
 
-> 
-> > 
-> > [1]
-> > https://lore.kernel.org/all/Yg9xSWEaTZLA+hYt@ip-172-31-19-208.ap-northeast-1.compute.internal/
-> > [2] https://lore.kernel.org/all/eebc9dc8-6a45-c099-61da-230d06cb3157@suse.cz/
-> 
-> -- 
-> Damien Le Moal
-> Western Digital Research
+>
+> Best regards,
+> Krzysztof
+>
+
+Best Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
