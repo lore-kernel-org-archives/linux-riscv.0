@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF70C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 08:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA4DC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 08:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZBRU+dWOItdtA9MQzKYOGdVCwmmg6sQXmtPZD8dXGqE=; b=eZRiQQf2X81a7z
-	LEnDEJf6V26y4ODoAmQEE+WLgXiSaSlrwmFxjTd4IPp66Zws+C7s6mueH5k1XF8GIx4GmmsapXwn1
-	KaXPB6GMuue2z7CcUE7qOeYJdbfeHjoMhfrQR+Y80pXu4SRaXpnL/zB7Tj+T3XdUb+ejUHU3a6tFw
-	KSzA6wo22H4EldnK/sxtGCHVqH+F9a0umiyRJrR9Q0wpoh9hh/dxDYCG54007VhbwzHXMZfMhzEgE
-	40Mhc0Y+Syhire6fHFpwzeyKO4uBGpVAdOiTK38OZpJe4Xi+glPrDlM9Cln+B5+2wxDi3k7/rNHRh
-	YlrFiw5InSsEXhvkuijA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=DGXJ133KYUfpAMrNHKY48OiTes3vsZs2Ryt5DS770J8=; b=AQ2WL9xu2ycLKwEEFeIuPxZPI4
+	VYluxe/3lMEP6BwNpXadqjurW91meWt/L66tkHvsVReyAYdh5cVvq4KUdDLfxdORkHKSiQSlNQGyH
+	1jG9iCSwPCI1rTtCGmA14RoAl/rSMl0H5AmKAcA0sypSAv43m7bV2V3EUZZwwq372btdjqYyGWoKy
+	rC2LZfpZTZxVvt4tXOVvFTdgvdXLRK26Swex7mmrxbG1J9Jo7k4Z8ijNgubVmm1RoY135nxyZlniV
+	RnVZlmYvakP9iuSMkl8MB7MFoh6ZV/sir6L5sThYRO6Rq6N3S6DghrdMS9WfzIjVsq0tEkpe++kqj
+	8SO/EjBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouUqu-00Goaj-Ia; Mon, 14 Nov 2022 08:30:00 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1ouV6x-00GvSy-8G; Mon, 14 Nov 2022 08:46:35 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouUqr-00GoZD-Hd
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 08:29:59 +0000
-Received: by mail-ed1-x530.google.com with SMTP id x102so929261ede.0
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 00:29:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gVofUJ2Uq4x2TFW/dAc67Kc9J5o9mzOrEl2oknfp3Uo=;
-        b=id89WuoHkMYM53T95xk3EMrMHAWhLrZ/ESP3CSNO/yFzypSvXfoJSD+Ur7hoA3fuJ4
-         o5zIl4IWOv/IjsIa6TKvg9BEZ6Z8TRT4I/ELX5bQh039wh4p/UCCd698kG2YGummQN3p
-         zmpIP9ljwdwE0Qs1kRMAyLVRRc7BgYxzGX9DeBDJjV06hoF/EXFZeQTfkk0qmyCl6GN9
-         iXQdyuZJYalvc3/1IYFaijlkR6R2L4BLaS6etkzw4dq2dljUcc/hxI0NvirWfHYU5Q3j
-         Fqf9mplLRpFV8V5yudgz2ogiraLDCoNxWfNuId86fiW4S4YOpgqZNyGasUE+MgCI24xn
-         Whog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gVofUJ2Uq4x2TFW/dAc67Kc9J5o9mzOrEl2oknfp3Uo=;
-        b=tEwdBkcv8IzTM923IcsuEGSFmBk7ODMNgoCMtAYp34magg1TYd9/JJpNBigFZlzO/k
-         RuHIChWtulyRRMQgA5Y4MLHN4S3CHWDtFmWChLac8Y5IidARtsHt6IsuSI51aHMSzsAA
-         VnWTqo+M86jrNkN1ogqsVmUWjmdUmQBGFwfd5xO+vh6X5ShB2sIYz3TMkcD3lm9esMep
-         gfWN9QplMYqliipGWkHCQN7LkTj0++aYthqudWEhc/1MhEJmOseHSrR1qHi1CnmVqK62
-         bYlg+qS9RQKBy65aFh2jQXcLwell4I4EN+qjFwmeEH/zbH1Ft2lXX5+0TKwdLHLYMLXy
-         4Wow==
-X-Gm-Message-State: ANoB5plzUA2Qg4YOtua8LGTp5bEyN04tLmasT1bvdtF02SGuSKBkpHBw
-	zujI6ReDGAX5n8MqCtOsnkQrvg==
-X-Google-Smtp-Source: AA0mqf5VQ1rCXuvr5yEZrbbrDN0RiTgIAEg8HVy1HvJqENiAdesIIvhS9L10jFhuk6iwWGE1m2/cMg==
-X-Received: by 2002:a50:ee13:0:b0:463:a83c:e0af with SMTP id g19-20020a50ee13000000b00463a83ce0afmr9910985eds.158.1668414595909;
-        Mon, 14 Nov 2022 00:29:55 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id a5-20020a056402168500b0045bd257b307sm4426740edv.22.2022.11.14.00.29.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Nov 2022 00:29:55 -0800 (PST)
-Date: Mon, 14 Nov 2022 09:29:53 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH 2/9] RISC-V: Add Zicboz detection and block size parsing
-Message-ID: <20221114082953.pidqz5icx2vqkku3@kamzik>
-References: <20221027130247.31634-1-ajones@ventanamicro.com>
- <20221027130247.31634-3-ajones@ventanamicro.com>
- <Y17i8sRf4KXLFkrK@spud>
- <Y3FuniwXbN/hRNJj@spud>
+	id 1ouV6g-00GvKd-4e; Mon, 14 Nov 2022 08:46:20 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.53])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4N9jZS4TZcz15Md3;
+	Mon, 14 Nov 2022 16:45:52 +0800 (CST)
+Received: from [10.67.102.169] (10.67.102.169) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Mon, 14 Nov 2022 16:46:11 +0800
+CC: <yangyicong@hisilicon.com>, <corbet@lwn.net>, <peterz@infradead.org>,
+	<arnd@arndb.de>, <punit.agrawal@bytedance.com>,
+	<linux-kernel@vger.kernel.org>, <darren@os.amperecomputing.com>,
+	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
+	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
+	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
+	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
+	<prime.zeng@hisilicon.com>, Barry Song <v-songbaohua@oppo.com>, Nadav Amit
+	<namit@vmware.com>, Mel Gorman <mgorman@suse.de>
+Subject: Re: [PATCH v5 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+	<akpm@linux-foundation.org>, <linux-mm@kvack.org>,
+	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <linux-doc@vger.kernel.org>
+References: <20221028081255.19157-1-yangyicong@huawei.com>
+ <20221028081255.19157-3-yangyicong@huawei.com>
+ <86fbdc8c-0dcb-9b8f-d843-63460d8b1d6a@arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <9982dac0-9f2e-112a-d440-467c8e8f8aa4@huawei.com>
+Date: Mon, 14 Nov 2022 16:46:10 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y3FuniwXbN/hRNJj@spud>
+In-Reply-To: <86fbdc8c-0dcb-9b8f-d843-63460d8b1d6a@arm.com>
+X-Originating-IP: [10.67.102.169]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_002957_634279_D8EA2C85 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20221114_004618_601012_49EE3D3F 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +81,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 13, 2022 at 10:24:30PM +0000, Conor Dooley wrote:
-> On Sun, Oct 30, 2022 at 08:47:46PM +0000, Conor Dooley wrote:
-> > On Thu, Oct 27, 2022 at 03:02:40PM +0200, Andrew Jones wrote:
+On 2022/11/14 11:29, Anshuman Khandual wrote:
 > 
-> > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > > index fa427bdcf773..bf969218f609 100644
-> > > --- a/arch/riscv/kernel/cpu.c
-> > > +++ b/arch/riscv/kernel/cpu.c
-> > > @@ -144,6 +144,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
-> > >  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> > >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> > >  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> > > +	__RISCV_ISA_EXT_DATA(zicboz, RISCV_ISA_EXT_ZICBOZ),
 > 
-> Forgot to mention it at the time, but given Palmer submitted a resort of
-> this in canonical order recently - seems like zicboz should sort before
-> zihintpause?
-
-Will do for v2. Sorry for the delay on v2. I need to finish some other
-stuff before I can get back to this.
-
-Thanks,
-drew
-
+> On 10/28/22 13:42, Yicong Yang wrote:
+>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>> +{
+>> +	/*
+>> +	 * TLB batched flush is proved to be beneficial for systems with large
+>> +	 * number of CPUs, especially system with more than 8 CPUs. TLB shutdown
+>> +	 * is cheap on small systems which may not need this feature. So use
+>> +	 * a threshold for enabling this to avoid potential side effects on
+>> +	 * these platforms.
+>> +	 */
+>> +	if (num_online_cpus() <= CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB)
+>> +		return false;
+>> +
+>> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+>> +	if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+>> +		return false;
+>> +#endif
 > 
-> > >  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+> should_defer_flush() is immediately followed by set_tlb_ubc_flush_pending() which calls
+> arch_tlbbatch_add_mm(), triggering the actual TLBI flush via __flush_tlb_page_nosync().
+> It should be okay to check capability with this_cpu_has_cap() as the entire call chain
+> here is executed on the same cpu. But just wondering if cpus_have_const_cap() would be
+> simpler, consistent, and also cost effective ?
+> 
+
+ok. Checked cpus_have_const_cap() I think it matches your words.
+
+> Regardless, a comment is needed before the #ifdef block explaining why it does not make
+> sense to defer/batch when __tlbi()/__tlbi_user() implementation will execute 'dsb(ish)'
+> between two TLBI instructions to workaround the errata.
+> 
+
+The workaround for the errata mentioned the affected platforms need the tlbi+dsb to be done
+twice, so I'm not sure if we defer the final dsb will cause any problem so I think the judgement
+here is used for safety. I have no such platform to test if it's ok to defer the last dsb.
+
+>> +
+>> +	return true;
+>> +}
+>> +
+>> +static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
+>> +					struct mm_struct *mm,
+>> +					unsigned long uaddr)
+>> +{
+>> +	__flush_tlb_page_nosync(mm, uaddr);
+>> +}
+>> +
+>> +static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>> +{
+>> +	dsb(ish);
+>> +}
+> .
 > 
 
 _______________________________________________
