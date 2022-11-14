@@ -4,72 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF936C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25884C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kVT1AXVHvhCo3WDrRjRV8ZCzBFpmxpxFd1ytX/hQ+30=; b=XbseUVpv6OHyrQ
-	R0eK6CB7gOm7NpjOZANioQKncnBcOrm6fdy6MzEUA6CHqlEOQoIcXERFx4Hbp/L0khmEODD29Pk5E
-	6cVS0k3pKH2/EhQcHc8CoJY0nVYSVF4Nh4v66juC+lKWfqfOGDu0Dwm78E8p2BofmJiYxlG/PwVrF
-	fzp9JCYiD7OWIZxXfgBLK2oc9aq+MFS4Yug2UNtMlYWVvDpaLYMd4PvHeexUTkWR3G9ElEFGSjUo9
-	483iA+w9rdPxy/GUIKNbtvpAaI+Hyf7pYbvOkRujBZcdP99/sr2P6XKEZv/FxJEjs2hOy7rjJxTz8
-	NF3NSiwKm8/8ZaaTuq1A==;
+	List-Owner; bh=UJaHrwsEp3BnXAcWaSX/un6qF0guCrFNlYnS0V+CIUQ=; b=w8GkkStRr38ZmA
+	kjayCCzL8IWGTYoQ8xfPezhLmJiP4fC5JpjWvZpFWepcVtrGvCxnipZq0kUay2oSVdKm1qjTMiyPG
+	x2YKsgOlB1klNS4vZcjgWCF3q7a2W9a+DhuPcgWXvVAI25dcST4JZfqoQJzqCusp7L6j1SMSGr4rx
+	XMZAuCD0Tmp5Yb6ULvKKd8eRLHTMKkXFr/MQfufyKGkMVb3Gs/QiLCU5rPvBV/Lj5YITrU3QMAZzN
+	ih/konkjAxfi0fLc4b+JlVL6pKZWsivJnjvHGdsFEntg+s4H5uikgKA1Qapwo7siy85fCKLzXdEQC
+	EnE1Minp5luVHRE7STNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouaUh-001kMD-Qo; Mon, 14 Nov 2022 14:31:27 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1ouaaV-001nBc-54; Mon, 14 Nov 2022 14:37:27 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouaUe-001kJq-Ce
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 14:31:26 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id ud5so28787909ejc.4
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 06:31:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0+kjSSlddPk22SVRMFggPq/N9KnLax/UbPP+YXtClA8=;
-        b=1idhRw3Rk+WYVSbROB1Ca175BIS4sNqD5ZsdmUQetjRpB7gqx49HLW6E2Pi3HAPvdN
-         cZlx/05gtg3vgAq4NINYu+fQqBR3Sk8t7tiM1jjpg3gDAKdv7C/VeEWSBp8pxWRhHlm3
-         BrfzNsNCVasHIi6R9q2t8B7+6ptOmMERdAhg0wOcgRny4jUF9lKcczBXfBLyVmOmwLUC
-         R+YsUtCkQJ0WyNcc85hn5SlJIredaTdoLxNFxHu/95ML9FsrL99CTYrvMiRjZD4juF6U
-         AzrEbFeywYgq75CGW29TPbHce9E4z9ZDfhkHliPdmyKnF8OgFYAttKrKDmLi+6aoAiHh
-         rGfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0+kjSSlddPk22SVRMFggPq/N9KnLax/UbPP+YXtClA8=;
-        b=mjaARGdImk8r6ydJhoIPtcuvYnKp4mR7DlVQ+cvYHhBk+UILnDAk3toqudFCP4cRQe
-         MDT1OPkTuEj+muv2zv5QnAdhEk820RsNqLqzg92SjarFw1Jos9yjxWmk8Jw+VZZ5GhEM
-         0Eunj5rRErei6viqYcAqn+ltLqxbZ4MbymIcYCe4qOKcudZmFMithXpOfdXE49XANOwo
-         sS4oia6/ezYkxHBYKAXpawhvtx8bXyd/PwaMaM3uLjr9BO9bYuVEzE2/Y4OjdtsE8YUp
-         WnSFiUXG3CKYMEuT8q8O/UHWDLYzqy7ZGYohiO9fppwy3NLDYPIgwXYX6sT6+U8z3Dni
-         LIeQ==
-X-Gm-Message-State: ANoB5pkqnYRWdZ1FlrNkEdbk2z2rR2IlDItlKtvmEMblmQYKWu4vO4bb
-	8vkIsvaF+tvX1C9zotVjCHLEeprDubmhqbzgUnBF2A==
-X-Google-Smtp-Source: AA0mqf60ai9BHo0GcwXkrNjXmCjq91Ikp1TTN943sqQTLI4NqRKO/RIfJEpCxDyG+uuPn6nt16qH0IK1zMcpukpZJM8=
-X-Received: by 2002:a17:906:339b:b0:78d:3862:4488 with SMTP id
- v27-20020a170906339b00b0078d38624488mr9901616eja.683.1668436279748; Mon, 14
- Nov 2022 06:31:19 -0800 (PST)
+	id 1ouaaS-001n7r-7S
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 14:37:25 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id 63D1140002;
+	Mon, 14 Nov 2022 14:37:10 +0000 (UTC)
+Message-ID: <b82f4580-76a0-e02b-05c8-4a89e576da0c@ghiti.fr>
+Date: Mon, 14 Nov 2022 15:37:10 +0100
 MIME-Version: 1.0
-References: <20221111223108.1976562-1-abrestic@rivosinc.com> <Y3Ax0SBy20E2oEuP@spud>
-In-Reply-To: <Y3Ax0SBy20E2oEuP@spud>
-From: Andrew Bresticker <abrestic@rivosinc.com>
-Date: Mon, 14 Nov 2022 09:31:08 -0500
-Message-ID: <CALE4mHqw9J=+NoO_ixWFs4f=k-dRghU8fPa0swC-fwTyhTAYsw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Fix unannoted hardirqs-on in return to userspace slow-path
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@rivosinc.com>, Guo Ren <guoren@kernel.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH] riscv: mm: Proper page permissions after initmem free
+Content-Language: en-US
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ linux-kernel@vger.kernel.org
+References: <20221112113543.3165646-1-bjorn@kernel.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20221112113543.3165646-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_063124_659387_FC3B04F9 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20221114_063724_438892_411D521A 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,159 +58,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 12, 2022 at 6:52 PM Conor Dooley <conor@kernel.org> wrote:
->
-> On Fri, Nov 11, 2022 at 05:31:08PM -0500, Andrew Bresticker wrote:
-> > The return to userspace path in entry.S may enable interrupts without the
-> > corresponding lockdep annotation, producing a splat[0] when DEBUG_LOCKDEP
-> > is enabled. Simply calling __trace_hardirqs_on() here gets a bit messy
-> > due to the use of RA to point back to ret_from_exception, so just move
-> > the whole slow-path loop into C. It's more readable and it lets us use
-> > local_irq_{enable,disable}(), avoiding the need for manual annotations
-> > altogether.
-> >
-> > [0]:
-> >   ------------[ cut here ]------------
-> >   DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
-> >   WARNING: CPU: 2 PID: 1 at kernel/locking/lockdep.c:5512 check_flags+0x10a/0x1e0
-> >   Modules linked in:
-> >   CPU: 2 PID: 1 Comm: init Not tainted 6.1.0-rc4-00160-gb56b6e2b4f31 #53
-> >   Hardware name: riscv-virtio,qemu (DT)
-> >   epc : check_flags+0x10a/0x1e0
-> >   ra : check_flags+0x10a/0x1e0
-> >   <snip>
-> >    status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
-> >   [<ffffffff808edb90>] lock_is_held_type+0x78/0x14e
-> >   [<ffffffff8003dae2>] __might_resched+0x26/0x22c
-> >   [<ffffffff8003dd24>] __might_sleep+0x3c/0x66
-> >   [<ffffffff80022c60>] get_signal+0x9e/0xa70
-> >   [<ffffffff800054a2>] do_notify_resume+0x6e/0x422
-> >   [<ffffffff80003c68>] ret_from_exception+0x0/0x10
-> >   irq event stamp: 44512
-> >   hardirqs last  enabled at (44511): [<ffffffff808f901c>] _raw_spin_unlock_irqrestore+0x54/0x62
-> >   hardirqs last disabled at (44512): [<ffffffff80008200>] __trace_hardirqs_off+0xc/0x14
-> >   softirqs last  enabled at (44472): [<ffffffff808f9fbe>] __do_softirq+0x3de/0x51e
-> >   softirqs last disabled at (44467): [<ffffffff80017760>] irq_exit+0xd6/0x104
-> >   ---[ end trace 0000000000000000 ]---
-> >   possible reason: unannotated irqs-on.
-> >
-> > Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
-> > ---
-> > This should also theoretically be fixed by the conversion to generic entry,
-> > but it's not clear how far away that series is from landing.
->
-> Heh.. In case this makes the cut instead - what commit does this fix?
-
-Ah, right --
-
-Fixes: 3c4697982982 ("riscv: Enable LOCKDEP_SUPPORT & fixup
-TRACE_IRQFLAGS_SUPPORT")
-
--Andrew
-
->
-> > ---
-> >  arch/riscv/kernel/entry.S  | 18 +++++-------------
-> >  arch/riscv/kernel/signal.c | 34 +++++++++++++++++++++-------------
-> >  2 files changed, 26 insertions(+), 26 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index b9eda3fcbd6d..58dfa8595e19 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -263,12 +263,11 @@ ret_from_exception:
-> >  #endif
-> >       bnez s0, resume_kernel
-> >
-> > -resume_userspace:
-> >       /* Interrupts must be disabled here so flags are checked atomically */
-> >       REG_L s0, TASK_TI_FLAGS(tp) /* current_thread_info->flags */
-> >       andi s1, s0, _TIF_WORK_MASK
-> > -     bnez s1, work_pending
-> > -
-> > +     bnez s1, resume_userspace_slow
-> > +resume_userspace:
-> >  #ifdef CONFIG_CONTEXT_TRACKING_USER
-> >       call user_enter_callable
-> >  #endif
-> > @@ -368,19 +367,12 @@ resume_kernel:
-> >       j restore_all
-> >  #endif
-> >
-> > -work_pending:
-> > +resume_userspace_slow:
-> >       /* Enter slow path for supplementary processing */
-> > -     la ra, ret_from_exception
-> > -     andi s1, s0, _TIF_NEED_RESCHED
-> > -     bnez s1, work_resched
-> > -work_notifysig:
-> > -     /* Handle pending signals and notify-resume requests */
-> > -     csrs CSR_STATUS, SR_IE /* Enable interrupts for do_notify_resume() */
-> >       move a0, sp /* pt_regs */
-> >       move a1, s0 /* current_thread_info->flags */
-> > -     tail do_notify_resume
-> > -work_resched:
-> > -     tail schedule
-> > +     call do_work_pending
-> > +     j resume_userspace
-> >
-> >  /* Slow paths for ptrace. */
-> >  handle_syscall_trace_enter:
-> > diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> > index 5c591123c440..bfb2afa4135f 100644
-> > --- a/arch/riscv/kernel/signal.c
-> > +++ b/arch/riscv/kernel/signal.c
-> > @@ -313,19 +313,27 @@ static void do_signal(struct pt_regs *regs)
-> >  }
-> >
-> >  /*
-> > - * notification of userspace execution resumption
-> > - * - triggered by the _TIF_WORK_MASK flags
-> > + * Handle any pending work on the resume-to-userspace path, as indicated by
-> > + * _TIF_WORK_MASK. Entered from assembly with IRQs off.
-> >   */
-> > -asmlinkage __visible void do_notify_resume(struct pt_regs *regs,
-> > -                                        unsigned long thread_info_flags)
-> > +asmlinkage __visible void do_work_pending(struct pt_regs *regs,
-> > +                                       unsigned long thread_info_flags)
-> >  {
-> > -     if (thread_info_flags & _TIF_UPROBE)
-> > -             uprobe_notify_resume(regs);
-> > -
-> > -     /* Handle pending signal delivery */
-> > -     if (thread_info_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
-> > -             do_signal(regs);
-> > -
-> > -     if (thread_info_flags & _TIF_NOTIFY_RESUME)
-> > -             resume_user_mode_work(regs);
-> > +     do {
-> > +             if (thread_info_flags & _TIF_NEED_RESCHED) {
-> > +                     schedule();
-> > +             } else {
-> > +                     local_irq_enable();
-> > +                     if (thread_info_flags & _TIF_UPROBE)
-> > +                             uprobe_notify_resume(regs);
-> > +                     /* Handle pending signal delivery */
-> > +                     if (thread_info_flags & (_TIF_SIGPENDING |
-> > +                                              _TIF_NOTIFY_SIGNAL))
-> > +                             do_signal(regs);
-> > +                     if (thread_info_flags & _TIF_NOTIFY_RESUME)
-> > +                             resume_user_mode_work(regs);
-> > +             }
-> > +             local_irq_disable();
-> > +             thread_info_flags = read_thread_flags();
-> > +     } while (thread_info_flags & _TIF_WORK_MASK);
-> >  }
-> > --
-> > 2.25.1
-> >
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmrDtnJuLAoKT24gMTIvMTEvMjAyMiAxMjozNSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBG
+cm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4KPiA2NC1iaXQgUklTQy1W
+IGtlcm5lbHMgaGF2ZSB0aGUga2VybmVsIGltYWdlIG1hcHBlZCBzZXBhcmF0ZWx5LCBhbmQgaW4K
+PiBhZGRpdGlvbiB0byB0aGUgbGluZWFyIG1hcC4gV2hlbiB0aGUga2VybmVsIGlzIGxvYWRlZCwg
+dGhlIGxpbmVhciBtYXAKPiBvZiBrZXJuZWwgaW1hZ2UgaXMgc2V0IHRvIFBBR0VfUkVBRCBwZXJt
+aXNzaW9uLCBhbmQgdGhlIGtlcm5lbCBtYXAgaXMKPiBzZXQgdG8gUEFHRV9SRUFEIGFuZCBQQUdF
+X0VYRUMuCj4KPiBXaGVuIHRoZSBpbml0bWVtIGlzIGZyZWVkLCB0aGUgY29ycmVzcG9uZGluZyBw
+YWdlcyBpbiB0aGUgbGluZWFyIG1hcAo+IHNob3VsZCBiZSByZXN0b3JlZCB0byBQQUdFX1JFQUQg
+YW5kIFBBR0VfV1JJVEUuIFRoZSBjb3JyZXNwb25kaW5nCj4gcGFnZXMgaW4gdGhlIGtlcm5lbCBt
+YXAgc2hvdWxkIGFsc28gYmUgcmVzdG9yZWQgdG8gUEFHRV9SRUFEIGFuZAo+IFBBR0VfV1JJVEUs
+IGJ5IHJlbW92aW5nIHRoZSBQQUdFX0VYRUMgcGVybWlzc2lvbiwgYW5kIGFkZGluZwo+IFBBR0Vf
+V1JJVEUuCj4KPiBUaGlzIGlzIG5vdCB0aGUgY2FzZS4gRm9yIDY0LWJpdCBrZXJuZWxzLCBvbmx5
+IHRoZSBsaW5lYXIgbWFwIGlzCj4gcmVzdG9yZWQgdG8gaXRzIHByb3BlciBwYWdlIHBlcm1pc3Np
+b25zIGF0IGluaXRtZW0gZnJlZSwgYW5kIG5vdCB0aGUKPiBrZXJuZWxtYXAuCj4KPiBJbiBwcmFj
+dGlzZSB0aGlzIHJlc3VsdHMgaW4gdGhhdCB0aGUga2VybmVsIGNhbiBwb3RlbnRpYWxseSBqdW1w
+IHRvCj4gZGVhZCBfX2luaXQgY29kZSwgYW5kIHN0YXJ0IGV4ZWN1dGluZyBpbnZhbGlkIDB4Y2Mg
+aW5zdHJ1Y3Rpb25zLAo+IHdpdGhvdXQgZ2V0dGluZyBhbiBleGNlcHRpb24uCj4KPiBSZXN0b3Jl
+IHRoZSBmcmVlZCBpbml0bWVtIHByb3Blcmx5LCBieSBzZXR0aW5nIGJvdGggdGhlIGFsaWFzIChr
+ZXJuZWwKPiBtYXApIGFuZCB0aGUgbGluZWFyIG1hcCB0byB0aGUgY29ycmVjdCBwZXJtaXNzaW9u
+cy4KPgo+IEZpeGVzOiBlNWMzNWZhMDQwMTkgKCJyaXNjdjogTWFwIHRoZSBrZXJuZWwgd2l0aCBj
+b3JyZWN0IHBlcm1pc3Npb25zIHRoZSBmaXJzdCB0aW1lIikKPiBTaWduZWQtb2ZmLWJ5OiBCasO2
+cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5l
+bC9zZXR1cC5jIHwgMTAgKysrKysrLS0tLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9u
+cygrKSwgNCBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9z
+ZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IGluZGV4IGFkNzZiYjU5YjA1OS4u
+MzYxZTYzNTA3MGZlIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiAr
+KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gQEAgLTMyMSwxMCArMzIxLDEyIEBAIHN1
+YnN5c19pbml0Y2FsbCh0b3BvbG9neV9pbml0KTsKPiAgIAo+ICAgdm9pZCBmcmVlX2luaXRtZW0o
+dm9pZCkKPiAgIHsKPiAtCWlmIChJU19FTkFCTEVEKENPTkZJR19TVFJJQ1RfS0VSTkVMX1JXWCkp
+Cj4gLQkJc2V0X2tlcm5lbF9tZW1vcnkobG1fYWxpYXMoX19pbml0X2JlZ2luKSwgbG1fYWxpYXMo
+X19pbml0X2VuZCksCj4gLQkJCQkgIElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSA/Cj4gLQkJCQkJ
+c2V0X21lbW9yeV9ydyA6IHNldF9tZW1vcnlfcndfbngpOwo+ICsJaWYgKElTX0VOQUJMRUQoQ09O
+RklHX1NUUklDVF9LRVJORUxfUldYKSkgewo+ICsJCWlmIChJU19FTkFCTEVEKENPTkZJR182NEJJ
+VCkpCj4gKwkJCXNldF9rZXJuZWxfbWVtb3J5KGxtX2FsaWFzKF9faW5pdF9iZWdpbiksIGxtX2Fs
+aWFzKF9faW5pdF9lbmQpLAo+ICsJCQkJCSAgc2V0X21lbW9yeV9ydyk7Cj4gKwkJc2V0X2tlcm5l
+bF9tZW1vcnkoX19pbml0X2JlZ2luLCBfX2luaXRfZW5kLCBzZXRfbWVtb3J5X3J3X254KTsKCgpU
+aGF0J3Mgbml0cyBidXQgZm9yIDY0LWJpdCBrZXJuZWxzLCBkbyB3ZSByZWFsbHkgd2FudCB0byBt
+YWtlIHRoZSBrZXJuZWwgCm1hcHBpbmcgd3JpdGFibGU/IEkgdGhpbmsgY2F0Y2hpbmcgYSB3cml0
+ZSBhY2Nlc3MgaGVyZSB3b3VsZCBiZSBiZXR0ZXIgCmJlY2F1c2UgSU1PIHRoYXQgc2hvdWxkIG5v
+dCBoYXBwZW4uCgpUaGFua3MsCgpBbGV4CgoKPiArCX0KPiAgIAo+ICAgCWZyZWVfaW5pdG1lbV9k
+ZWZhdWx0KFBPSVNPTl9GUkVFX0lOSVRNRU0pOwo+ICAgfQo+Cj4gYmFzZS1jb21taXQ6IDQ0MmJj
+YmZkMmM1NDAxNTg3Yjk4M2UzNGJlZDBiNDA3MjE0NzM1YzMKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
