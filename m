@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3754C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 08:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95ECBC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 09:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z2eLHPi+Uo4VdjD4XDrvHp5g+rFSEqWowPLdAjIhJhw=; b=yJBeUlIakW5Nrh
-	3rOf0GggI0Bv7YQQgEN+CU+DB3/IAQyg4edznjoNajANDQKKqEfajLw8RwcDKebcBROzuYAK+Z1vU
-	mFfyg8YKYKKKAX3I5J5eEV4T4nfMtJqT6LnG6uZvgwc+DPGFpRw8eTlI7QEcycATSdDjX3rwFHe8y
-	4Ccvv0RKe0KAuXKM9vkRbgDbiG+sxPTJ/JzJeBRp5AbO3fldaJsgFrZLAhCk/40gOm8upWdE7AF2z
-	/HqIZGiBnc7DMLga35qui6HmwhAS8lZJLvMEMvvvJ6xztxNvJXuAvYSaBTkvOXotHusOUxpAb2BR1
-	u3eAnsrMzCHBd+YnRquQ==;
+	List-Owner; bh=fo8V/0QhkKJBSne/k2kxG0qrNSVuCK724KX/4zLb0Rw=; b=YgEFFxdUONzCB5
+	p23SkBuk7KjZSiYlVlYBM0SoJE9ZGHuBhGFyt2ztpx5FLXAzaViU9ijZTcGnjZsSiZW0QwNu/hMBU
+	oyTUqdHNoY/C2Z8f0LiSOrh7+x82F+aVd9/q+FxTc+ZA5tATRFZiMv7BH0MQNgrW7phtXWxqTAKuB
+	sA6AAGGPriVuT2R5hVghUs1UF2tDPImZsLz0e4el2PFtT64/OeY+8YNlhCf4HNTpLC4aejmxx4xt8
+	KXQkJ1onHuk8KPkjjDsoXPCXTlEh9ZEaaq5xBf4VI+FO8Y6gc7afa8n7QiBb2wYUI1bkLpubyqAG7
+	vK/3+Okm4U14U/sOfCgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouVJk-00H0OQ-IR; Mon, 14 Nov 2022 08:59:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ouVMU-00H1Se-Q6; Mon, 14 Nov 2022 09:02:38 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouVJi-00H0MJ-3Q
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 08:59:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1668416385; x=1699952385;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=4ZUDBICbMDZqlh25FYQGX210sivr3l1viVzgWGRSaEA=;
-  b=tnmn7NadOVEHb5263tQ2nvW1+rnOzcf+z6AfYD/yRbhL2f25/vf6vNFG
-   txcVVNAkC5znLApbuvmf8kKLLyAKWVfVo3YkSU6cEDBGNas+W/aBImnGW
-   JJbfypwK9icIEo5YBdoWPRGrlnEQkfWC3lDUTBCTk4/sL1puybEY0UIdx
-   bITtcBjJL/o4MAs0290YPei00hrGW34NMT26XOb1/A+HLyC66XcT3k2O/
-   EcBT/m9zby16i9pMEfuHPwnC5rvdhT0F1xZcZnzsBiLqhHssv5DWuh8+k
-   6NOj0qQjiMLT2wt0heQxzFHmE9xVbpzQTTzPmyWAlom2ZqBvZVAaPLDN4
-   A==;
-X-IronPort-AV: E=Sophos;i="5.96,161,1665471600"; 
-   d="scan'208";a="199668596"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Nov 2022 01:59:41 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 14 Nov 2022 01:59:41 -0700
-Received: from [10.159.245.112] (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Mon, 14 Nov 2022 01:59:39 -0700
-Message-ID: <4be97a62-4749-c3a3-5401-6e440c24c3f4@microchip.com>
-Date: Mon, 14 Nov 2022 09:59:37 +0100
+	id 1ouVMR-00H1Qd-Mo
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 09:02:37 +0000
+Received: by mail-ed1-x530.google.com with SMTP id x102so1037427ede.0
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 01:02:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=85z0FueDeeX/w3Y1hW/rg/FK4TTzV51haj7VJfYVY+Y=;
+        b=cU/WGLQ47YlFBkz3SzXQW8qPwSrx7snlBaAhdRLW+iIppj875eVKouALr1r6Ssoawj
+         ivLTT4BZaYq0tJRlgjO7d0u9UdCljcFSmJwP+tlAlHn+Rcyv9/M2K9c1eVrDdmrsJE6m
+         oBF17BbXOLaUKZLQ6ZgdbB9SS40xQDkppzLydGIIXD6YSF0oNGQeTXscgaPFsBBFAuTn
+         FShRXbiLv7/Z4w/Cc/9yVxbEwyNlRQ5eXNjmAWN2Km7SwXZztalajPPmdsxDsR9syJzS
+         vUEXI14K4YyhyIXBLn84xY6a61ylhdHu+R+xG7PBE4NQnAaeSo/E3NzQ9Lyh08VLBbVh
+         MucA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=85z0FueDeeX/w3Y1hW/rg/FK4TTzV51haj7VJfYVY+Y=;
+        b=e3VfczrcmzF5BlqnmwyNOdiN2Dc4urCmo6pO0tJvL9j9B9h59CBzlGCfXgbz8xNHRZ
+         IPo8K3ZR80ewF5LdXAi8kj76ze+eawFI8ur+DCo6foeeS1zDtxFUqlbIfDsLPD4wLqjf
+         CnYeqWYAafk0j+ZHFzroHfr4imWU+7htdBOBU+JAA3R46K0rk9oucg5tkg6TwXxGunYM
+         5MyCe6uqYguVwFjcZE8lAsAbrd2bEQv6x4kTIDUmpmgK5+LGZIgtLvQMxDyPepNnCcNM
+         jv0ZChKtcsw/hxkK/VoHeBV/V8Z6E2WSssp//DQSxfROMJtxRFeWCTUhPoax7kvIsxC7
+         PKmg==
+X-Gm-Message-State: ANoB5pllZLaVcdP7jN7lFxEtPKicjRYyzw+2odI8PFZQSLgwO7vDyYCe
+	awneHpSOR+ka9Aiceog+PuLfUAj4Cc/TMnJHrUWsCA==
+X-Google-Smtp-Source: AA0mqf6nXnxNB8DjWcrr7dD1lyFcvSY2ucw4lFnep9j5lmKVTaWv/vUXrbIG1XG/rUmaJHYaxbihG59sQwcMeJW5edY=
+X-Received: by 2002:a50:d657:0:b0:461:17e9:4ea3 with SMTP id
+ c23-20020a50d657000000b0046117e94ea3mr10358974edj.49.1668416553238; Mon, 14
+ Nov 2022 01:02:33 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v1 1/4] MAINTAINERS: add entries for misc. RISC-V SoC
- drivers and devicetrees
-To: Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <soc@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-References: <20221109212219.1598355-1-conor@kernel.org>
- <20221109212219.1598355-2-conor@kernel.org>
-Content-Language: en-US
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-In-Reply-To: <20221109212219.1598355-2-conor@kernel.org>
+References: <20221020075846.305576-1-apatel@ventanamicro.com>
+ <20221020075846.305576-4-apatel@ventanamicro.com> <Y1bs50GXeUoTcv2V@spud>
+In-Reply-To: <Y1bs50GXeUoTcv2V@spud>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 14 Nov 2022 14:32:04 +0530
+Message-ID: <CAAhSdy317XVDXO6DPaEwL7_xBbAO=RTmfQMiMu5DAdWOLa1iTA@mail.gmail.com>
+Subject: Re: [PATCH v5 3/4] RISC-V: Implement arch specific PMEM APIs
+To: Conor Dooley <conor@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mayuresh Chitale <mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_005946_187553_408EF9A8 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20221114_010235_986356_9C20E799 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,111 +83,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/11/2022 at 22:22, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Following some discussion both on & off list, I have volunteered to take
-> over maintaining the miscellaneous RISC-V devicetrees & soc drivers from
-> Palmer to ease his load.
-> 
-> So far only SiFive and Microchip have stuff in drivers/soc. For the
-> former, a SiFive entry exists with a dead GitHub repo - so remove that
-> to avoid confusion since the patches for drivers/soc & devicetrees will
-> be routed via my tree & other drivers go through their subsystem trees.
-> The Microchip directory only contains a RISC-V driver for now, but is
-> likely to contain drivers for other archs in the future. To that end,
-> change the PolarFire SoC entry to specifically mention the RISC-V driver
-> & the new directory level entry does not mention an architecture.
-> 
-> CC: Arnd Bergmann <arnd@arndb.de>
-> CC: Nicolas Ferre <nicolas.ferre@microchip.com>
+On Tue, Oct 25, 2022 at 1:22 AM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Thu, Oct 20, 2022 at 01:28:45PM +0530, Anup Patel wrote:
+> > The NVDIMM PMEM driver expects arch specific APIs for cache maintenance
+> > and if arch does not provide these APIs then NVDIMM PMEM driver will
+> > always use MEMREMAP_WT to map persistent memory which in-turn maps as
+> > UC memory type defined by the RISC-V Svpbmt specification.
+> >
+> > Now that the Svpbmt and Zicbom support is available in RISC-V kernel,
+> > we implement PMEM APIs using ALT_CMO_OP() macros so that the NVDIMM
+> > PMEM driver can use MEMREMAP_WB to map persistent memory.
+> >
+> > Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> > Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  arch/riscv/Kconfig     |  1 +
+> >  arch/riscv/mm/Makefile |  1 +
+> >  arch/riscv/mm/pmem.c   | 21 +++++++++++++++++++++
+> >  3 files changed, 23 insertions(+)
+> >  create mode 100644 arch/riscv/mm/pmem.c
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 6b48a3ae9843..025e2a1b1c60 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -25,6 +25,7 @@ config RISCV
+> >       select ARCH_HAS_GIGANTIC_PAGE
+> >       select ARCH_HAS_KCOV
+> >       select ARCH_HAS_MMIOWB
+> > +     select ARCH_HAS_PMEM_API
+> >       select ARCH_HAS_PTE_SPECIAL
+> >       select ARCH_HAS_SET_DIRECT_MAP if MMU
+> >       select ARCH_HAS_SET_MEMORY if MMU
+> > diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> > index d76aabf4b94d..3b368e547f83 100644
+> > --- a/arch/riscv/mm/Makefile
+> > +++ b/arch/riscv/mm/Makefile
+> > @@ -31,3 +31,4 @@ endif
+> >
+> >  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+> >  obj-$(CONFIG_RISCV_DMA_NONCOHERENT) += dma-noncoherent.o
+> > +obj-$(CONFIG_ARCH_HAS_PMEM_API) += pmem.o
+>
+> Hey Anup,
+> Might be a silly question - ARCH_HAS_PMEM_API is unconditionally enabled
+> right? It should therefore be okay to make this an obj-y?
 
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+Yes, it is simpler to just add pmem.o in obj-y
 
-Thanks Conor, best regards,
-   Nicolas
+I will update and send v6.
 
-> CC: Palmer Dabbelt <palmer@dabbelt.com>
-> Link: https://lore.kernel.org/linux-riscv/mhng-e4210f56-fcc3-4db8-abdb-d43b3ebe695d@palmer-ri-x1c9a/
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->   MAINTAINERS | 25 +++++++++++++++++++++++--
->   1 file changed, 23 insertions(+), 2 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 046ff06ff97f..b88ced1ff72c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -13627,6 +13627,12 @@ S:     Supported
->   F:     drivers/misc/atmel-ssc.c
->   F:     include/linux/atmel-ssc.h
-> 
-> +MICROCHIP SOC DRIVERS
-> +M:     Conor Dooley <conor@kernel.org>
-> +S:     Supported
-> +T:     git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-> +F:     drivers/soc/microchip/
-> +
->   MICROCHIP USB251XB DRIVER
->   M:     Richard Leitner <richard.leitner@skidata.com>
->   L:     linux-usb@vger.kernel.org
-> @@ -17749,12 +17755,21 @@ F:    drivers/mailbox/mailbox-mpfs.c
->   F:     drivers/pci/controller/pcie-microchip-host.c
->   F:     drivers/reset/reset-mpfs.c
->   F:     drivers/rtc/rtc-mpfs.c
-> -F:     drivers/soc/microchip/
-> +F:     drivers/soc/microchip/mpfs-sys-controller.c
->   F:     drivers/spi/spi-microchip-core-qspi.c
->   F:     drivers/spi/spi-microchip-core.c
->   F:     drivers/usb/musb/mpfs.c
->   F:     include/soc/microchip/mpfs.h
-> 
-> +RISC-V MISC SOC SUPPORT
-> +M:     Conor Dooley <conor@kernel.org>
-> +L:     linux-riscv@lists.infradead.org
-> +S:     Maintained
-> +Q:     https://patchwork.kernel.org/project/linux-riscv/list/
-> +T:     git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-> +F:     Documentation/devicetree/bindings/riscv/
-> +F:     arch/riscv/boot/dts/
-> +
->   RNBD BLOCK DRIVERS
->   M:     Md. Haris Iqbal <haris.iqbal@ionos.com>
->   M:     Jack Wang <jinpu.wang@ionos.com>
-> @@ -18781,7 +18796,6 @@ M:      Palmer Dabbelt <palmer@dabbelt.com>
->   M:     Paul Walmsley <paul.walmsley@sifive.com>
->   L:     linux-riscv@lists.infradead.org
->   S:     Supported
-> -T:     git https://github.com/sifive/riscv-linux.git
->   N:     sifive
->   K:     [^@]sifive
-> 
-> @@ -18800,6 +18814,13 @@ S:     Maintained
->   F:     Documentation/devicetree/bindings/dma/sifive,fu540-c000-pdma.yaml
->   F:     drivers/dma/sf-pdma/
-> 
-> +SIFIVE SOC DRIVERS
-> +M:     Conor Dooley <conor@kernel.org>
-> +L:     linux-riscv@lists.infradead.org
-> +S:     Maintained
-> +T:     git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-> +F:     drivers/soc/sifive/
-> +
->   SILEAD TOUCHSCREEN DRIVER
->   M:     Hans de Goede <hdegoede@redhat.com>
->   L:     linux-input@vger.kernel.org
-> --
-> 2.37.2
-> 
+Thanks,
+Anup
 
--- 
-Nicolas Ferre
 
+> Thanks
+> Conor.
+>
+> > diff --git a/arch/riscv/mm/pmem.c b/arch/riscv/mm/pmem.c
+> > new file mode 100644
+> > index 000000000000..089df92ae876
+> > --- /dev/null
+> > +++ b/arch/riscv/mm/pmem.c
+> > @@ -0,0 +1,21 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2022 Ventana Micro Systems Inc.
+> > + */
+> > +
+> > +#include <linux/export.h>
+> > +#include <linux/libnvdimm.h>
+> > +
+> > +#include <asm/cacheflush.h>
+> > +
+> > +void arch_wb_cache_pmem(void *addr, size_t size)
+> > +{
+> > +     ALT_CMO_OP(clean, addr, size, riscv_cbom_block_size);
+> > +}
+> > +EXPORT_SYMBOL_GPL(arch_wb_cache_pmem);
+> > +
+> > +void arch_invalidate_pmem(void *addr, size_t size)
+> > +{
+> > +     ALT_CMO_OP(inval, addr, size, riscv_cbom_block_size);
+> > +}
+> > +EXPORT_SYMBOL_GPL(arch_invalidate_pmem);
+> > --
+> > 2.34.1
+> >
 
 _______________________________________________
 linux-riscv mailing list
