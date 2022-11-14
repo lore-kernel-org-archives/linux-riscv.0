@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259CDC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 12:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957E3C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZUeeIgtICK/LAMuLn3KaA4xslhckSTIwgup2cagz36E=; b=uq3mkvIYoAcevI
-	qATl/6F8C5LQDUdmMxCEQpAf7Qx440lAiQz49KKXx2uMHYeqRLtfJGq1QDTuH4jzJmfBa8iGySW5S
-	caxfrj0bR/R+r8HabLpvy3VeDCFL3Jfe1VY9ZJdm0V/UPhvqvQMQ7GkvG31voH8eZlEX8+/I1B/gB
-	pe/MJeM5ZB8J3eycKQDkwbdOj6pI2GauSUmccaEN5LZg5sI8dImlcyC1hzkw0672CdO55SnEebIBW
-	b9dVDmaCN/56cOYN4OO/5TL+XLUba+RpDfwuRC7032JTCncXy4/odiFmD9OPHGda1Y5oMwJLDgmup
-	r5C1WePQ37cw8sM/DGiQ==;
+	List-Owner; bh=q/o66PETBy39y1EVOC3k/NRSJ8+vIzFUQ5pBlglj1pc=; b=VpQ50rFBeK7N92
+	GxUAwLoSfQT8OQPc477kimnvraiKgErOl/9GIFStfZJOmVrwQO+58n09yHWq4y1NKUchQnQl6IFbW
+	I1QDC3M57YEbCNcdOttF3ZAkuAmlYdOV8Po9o/pQjDjgvD9uLA2QPLHK8dZMJw2xRRwD/252f2iRa
+	gQfM4wij/ppwbzI2n6SKKL26T/6UeG+wxR6oWjMQGRstA8NHHpwylS5rbFGpGr/K+r8AnVK21LTZJ
+	cYQ56a98LSTq2oU8g/1739suDRqRsrJgpVycvrPp/haowGy42gsgfC3WGyyZ0NuJOxPXdZ//0bF6z
+	2GPoYfOjePvJRdFbEHXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYsi-000uft-Mp; Mon, 14 Nov 2022 12:48:08 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYsf-000ual-T9
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 12:48:07 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id r12so19103247lfp.1
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 04:48:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=vrull.eu; s=google;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=277nrnbYzAZk/w5w/zJEQJYzC9TXxmjAmZORtqnxwbU=;
-        b=oiHLmY3pa47eTHSa7CSjZSo4eMNx72CvsxvrRcOOoOIvzqbPNcv4IlbNS2U1mbc4Ht
-         GrQTHhUD6VXSgI+gqC9vTc2pXy8Wza1X+GUnrW5nSngG75pRBNpHdHpnxI98QJHyuHGO
-         gCaScJjsR2fcFJyZSIMAlDiOz6pMgADL7ug5cdxr5W7IOfwEzpBreTmhZFOZPcUSSTYw
-         Q+YL+HiQ1rZvqWLecgUc41bh122WbnXkA2ZpegcY+1fLcHj0dCbvMhL9PbrIvBIXd5kW
-         c2sQO0bp6JLsRK7uS1z2Kw1tq5+LDTckYML/9VDPYRrbfdC7HAT4vLgHBed7t0sr3Sz6
-         fQ3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=277nrnbYzAZk/w5w/zJEQJYzC9TXxmjAmZORtqnxwbU=;
-        b=arFUj4/UaC58+LJwhO/iO87EjVqJ7h92HGMFLMmc9vgAP0S75OtnndE7ffo1LDFeal
-         uFmpQYGrKj7zDsQAZRiWKC5Xc8gXfdJQ6WuRle8h9v2wPbiuZO7HZ8HXzv0f17YJa3fC
-         4mm4hEfct8e7whldnLTuy8bZ3R86bQOJMQtB29tqd5CORu2hHqXlvAVWlEyUxfchWqEf
-         p6YYfazujTXL1R4zTMx5Ib+YZUbHMP3mC/htEaYCbFoH8rCKU368HNWD2VJRsyOkYZx+
-         j8Sch1owVheu59jtCnYYfxWrXDYbX3JORfbk2I5v1R+trBM+Ebp9aVMd+CdtovsPF1Je
-         2+5w==
-X-Gm-Message-State: ANoB5pkUntRII8UlNdjk5XEUZ2affdVvV/Gj5iCeHX99Jz5vDpFEmhXt
-	NYGozONcxI5aYEvzXzKJW83dFk+Bf1yl60RfjJpY8A==
-X-Google-Smtp-Source: AA0mqf5MwWfb4vInIotloMa3VOdpLwMvYfT3Ee0+yPbVnXMBC1vCMsr0d4csqv7WF1K+lelWDxofALTZ6IeZds3hzxw=
-X-Received: by 2002:a05:6512:3497:b0:4b1:753b:e671 with SMTP id
- v23-20020a056512349700b004b1753be671mr3784906lfr.441.1668430076188; Mon, 14
- Nov 2022 04:47:56 -0800 (PST)
+	id 1ouaJR-001eOZ-5u; Mon, 14 Nov 2022 14:19:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ouaJF-001eKY-Tv; Mon, 14 Nov 2022 14:19:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71CAB23A;
+	Mon, 14 Nov 2022 06:19:37 -0800 (PST)
+Received: from [192.168.0.110] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61C753F73D;
+	Mon, 14 Nov 2022 06:19:21 -0800 (PST)
+Message-ID: <40f1b5ad-2165-bb81-1ff5-89786373fa14@arm.com>
+Date: Mon, 14 Nov 2022 19:49:13 +0530
 MIME-Version: 1.0
-References: <20221110164924.529386-1-heiko@sntech.de> <CAJM55Z8PBGWr6ej1GSfks8nCvK0q=sF8qDK6f8w=+Nh1mr4sSg@mail.gmail.com>
- <20221114113553.3dxrumhk72jouzek@kamzik> <2234530.yKVeVyVuyW@diego>
-In-Reply-To: <2234530.yKVeVyVuyW@diego>
-From: Philipp Tomsich <philipp.tomsich@vrull.eu>
-Date: Mon, 14 Nov 2022 13:47:45 +0100
-Message-ID: <CAAeLtUBSnVXmxMAtVg-X5gTgV_sMG_jx3ndzBZ_93fRgweD_7A@mail.gmail.com>
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, 
-	palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, 
-	conor@kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.2
+Subject: Re: [PATCH v5 2/2] arm64: support batched/deferred tlb shootdown
+ during page reclamation
+Content-Language: en-US
+To: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
+Cc: yangyicong@hisilicon.com, corbet@lwn.net, peterz@infradead.org,
+ arnd@arndb.de, punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
+ darren@os.amperecomputing.com, huzhanyuan@oppo.com, lipeifeng@oppo.com,
+ zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Barry Song <21cnbao@gmail.com>,
+ wangkefeng.wang@huawei.com, xhao@linux.alibaba.com,
+ prime.zeng@hisilicon.com, Barry Song <v-songbaohua@oppo.com>,
+ Nadav Amit <namit@vmware.com>, Mel Gorman <mgorman@suse.de>
+References: <20221028081255.19157-1-yangyicong@huawei.com>
+ <20221028081255.19157-3-yangyicong@huawei.com>
+ <86fbdc8c-0dcb-9b8f-d843-63460d8b1d6a@arm.com>
+ <9982dac0-9f2e-112a-d440-467c8e8f8aa4@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <9982dac0-9f2e-112a-d440-467c8e8f8aa4@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_044805_963446_160CF53E 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20221114_061938_066937_83FAF041 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +71,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxNCBOb3YgMjAyMiBhdCAxMjozOCwgSGVpa28gU3TDvGJuZXIgPGhlaWtvQHNudGVj
-aC5kZT4gd3JvdGU6Cj4KPiBBbSBNb250YWcsIDE0LiBOb3ZlbWJlciAyMDIyLCAxMjozNTo1MyBD
-RVQgc2NocmllYiBBbmRyZXcgSm9uZXM6Cj4gPiBPbiBNb24sIE5vdiAxNCwgMjAyMiBhdCAxMTo1
-NzoyOUFNICswMTAwLCBFbWlsIFJlbm5lciBCZXJ0aGluZyB3cm90ZToKPiA+ID4gT24gVGh1LCAx
-MCBOb3YgMjAyMiBhdCAxNzo1MCwgSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3Jv
-dGU6Cj4gPiAuLi4KPiA+ID4gPiBAQCAtMzE2LDggKzM4NCwxNSBAQCB2b2lkIF9faW5pdF9vcl9t
-b2R1bGUgcmlzY3ZfY3B1ZmVhdHVyZV9wYXRjaF9mdW5jKHN0cnVjdCBhbHRfZW50cnkgKmJlZ2lu
-LAo+ID4gPiA+ICAgICAgICAgICAgICAgICB9Cj4gPiA+ID4KPiA+ID4gPiAgICAgICAgICAgICAg
-ICAgdG1wID0gKDFVIDw8IGFsdC0+ZXJyYXRhX2lkKTsKPiA+ID4gPiAtICAgICAgICAgICAgICAg
-aWYgKGNwdV9yZXFfZmVhdHVyZSAmIHRtcCkKPiA+ID4gPiAtICAgICAgICAgICAgICAgICAgICAg
-ICBwYXRjaF90ZXh0X25vc3luYyhhbHQtPm9sZF9wdHIsIGFsdC0+YWx0X3B0ciwgYWx0LT5hbHRf
-bGVuKTsKPiA+ID4gPiArICAgICAgICAgICAgICAgaWYgKGNwdV9yZXFfZmVhdHVyZSAmIHRtcCkg
-ewo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIC8qIGRvIHRoZSBiYXNpYyBwYXRjaGlu
-ZyAqLwo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIHBhdGNoX3RleHRfbm9zeW5jKGFs
-dC0+b2xkX3B0ciwgYWx0LT5hbHRfcHRyLAo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIGFsdC0+YWx0X2xlbik7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgIHJpc2N2X2FsdGVybmF0aXZlX2ZpeF9hdWlwY19qYWxyKGFsdC0+
-b2xkX3B0ciwKPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBhbHQtPmFsdF9sZW4sCj4gPiA+ID4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWx0LT5vbGRfcHRyIC0gYWx0
-LT5hbHRfcHRyKTsKPiA+ID4KPiA+ID4gSGVyZSB5b3UncmUgY2FzdGluZyBhIHZvaWQgcG9pbnRl
-ciB0byBhbiBpbnN0cnVjdGlvbiB0byBhbiB1bnNpZ25lZAo+ID4gPiBpbnQgcG9pbnRlciwgYnV0
-IHNpbmNlIHdlIGVuYWJsZSBjb21wcmVzc2VkIGluc3RydWN0aW9ucyB0aGlzIG1heQo+ID4gPiBy
-ZXN1bHQgaW4gYW4gdW5hbGlnbmVkIHBvaW50ZXIuIFVzaW5nIHRoaXMgcG9pbnRlciB3aWxsIHdv
-cmssIGJ1dCBtYXkKPiA+ID4gYmUgc2xvdy4gRWcuIGZhdWx0IHRvIG0tbW9kZSB0byBiZSBwYXRj
-aGVkIHVwLiBXZSBhbHJlYWR5IGRvIHRoYXQgaW4KPiA+ID4gb3RoZXIgcGxhY2VzIGluIHRoZSBh
-cmNoL3Jpc2N2LCBidXQgSSdkIHByZWZlciBub3QgdG8gYWRkIG5ldwo+ID4gPiBpbnN0YW5jZXMg
-b2YgdGhpcy4KPiA+Cj4gPiBBbHRlcm5hdGl2ZSBpbnN0cnVjdGlvbiBzZXF1ZW5jZXMgKG9sZCBh
-bmQgbmV3KSBoYXZlIGNvbXByZXNzaW9uIGRpc2FibGVkLgo+Cj4gVGhhdCB3YXMgbXkgZmlyc3Qg
-dGhvdWdodCBhcyB3ZWxsLCBidXQgSSB0aGluayBFbWlsIHdhcyB0YWxraW5nIG1vcmUgYWJvdXQg
-dGhlCj4gcGxhY2VtZW50IG9mIHRoZSBhbHRlcm5hdGl2ZSBibG9jayBpbnNpZGUgdGhlIHJ1bm5p
-bmcga2VybmVsLgo+Cj4gaS5lLiBJIGd1ZXNzIHRoZSBzdGFydGluZyBwb2ludCBvZiBhbiBhbHRl
-cm5hdGl2ZSBzZXF1ZW5jZSBjb3VsZCBhbHNvIGJlIHVuYWxpZ25lZC4KCkluZGVlZC4gSW5zdHJ1
-Y3Rpb24gYWxpZ25tZW50IGlzIG9ubHkgZ3VhcmFudGVlZCB0byBiZSAxNmJpdHMsIGV2ZW4KZm9y
-IGxhcmdlciBpbnN0cnVjdGlvbnMuCgo+IFRob3VnaCBJIGRvbid0IF95ZXRfIHNlZSBob3cgYW4g
-aW1wcm92ZW1lbnQgY291bGQgbG9vayBsaWtlLgoKVGhlIGdlbmVyYWwgc3RyYXRlZ3kgd291bGQg
-YmUgbXVsdGlwbGUgc21hbGxlciBhY2Nlc3NlcyB0aGF0IGFyZSB0aGVuCnN0aXRjaGVkIHRvZ2V0
-aGVyLgpUaGlzIHdpbGwgcmVxdWlyZSAoZm9yIGEgMzJiaXQgb3Bjb2RlKSBhdCBsZWFzdCAyIGxv
-YWRzLCAxIHNoaWZ0IGFuZCAxCm9yIOKAlCBmb3IgYSBjcml0aWNhbCBwYXRoIG9mIDMgaW5zdHJ1
-Y3Rpb25zLgoKR2l2ZW4gdGhhdCB3ZSBhcmUgcnVubmluZyBvbiBSVjY0LCB5b3UgY2FuIGhhbmRs
-ZSB1cCB0byA0OGJpdCBieQphbGlnbmluZyBkb3duLCBwZXJmb3JtaW5nIGEgNjRiaXQgbG9hZCBh
-bmQgKGlmIG5lZWRlZCkgc2hpZnRpbmcuCgpGaW5hbGx5LCBwcm9maWxlcyBsb29rcyBsaWtlIGl0
-IHdpbGwgZ2l2ZSB1cyBzdXBwb3J0IGZvciBtaXNhbGlnbmVkCmxvYWRzIChzZWUgaHR0cHM6Ly9n
-aXRodWIuY29tL3Jpc2N2L3Jpc2N2LXByb2ZpbGVzL2Jsb2IvbWFpbi9wcm9maWxlcy5hZG9jI3J2
-YTIyLXByb2ZpbGVzCmFuZCB3aGVyZSB0aGUgWmljY2xzbSBleHRlbnNpb24gaXMgbWFuZGF0ZWQp
-LgoKUGhpbGlwcC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+
+
+On 11/14/22 14:16, Yicong Yang wrote:
+> On 2022/11/14 11:29, Anshuman Khandual wrote:
+>>
+>> On 10/28/22 13:42, Yicong Yang wrote:
+>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>>> +{
+>>> +	/*
+>>> +	 * TLB batched flush is proved to be beneficial for systems with large
+>>> +	 * number of CPUs, especially system with more than 8 CPUs. TLB shutdown
+>>> +	 * is cheap on small systems which may not need this feature. So use
+>>> +	 * a threshold for enabling this to avoid potential side effects on
+>>> +	 * these platforms.
+>>> +	 */
+>>> +	if (num_online_cpus() <= CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB)
+>>> +		return false;
+>>> +
+>>> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
+>>> +	if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
+>>> +		return false;
+>>> +#endif
+>> should_defer_flush() is immediately followed by set_tlb_ubc_flush_pending() which calls
+>> arch_tlbbatch_add_mm(), triggering the actual TLBI flush via __flush_tlb_page_nosync().
+>> It should be okay to check capability with this_cpu_has_cap() as the entire call chain
+>> here is executed on the same cpu. But just wondering if cpus_have_const_cap() would be
+>> simpler, consistent, and also cost effective ?
+>>
+> ok. Checked cpus_have_const_cap() I think it matches your words.
+> 
+>> Regardless, a comment is needed before the #ifdef block explaining why it does not make
+>> sense to defer/batch when __tlbi()/__tlbi_user() implementation will execute 'dsb(ish)'
+>> between two TLBI instructions to workaround the errata.
+>>
+> The workaround for the errata mentioned the affected platforms need the tlbi+dsb to be done
+> twice, so I'm not sure if we defer the final dsb will cause any problem so I think the judgement
+> here is used for safety. I have no such platform to test if it's ok to defer the last dsb.
+
+We should not defer TLB flush on such systems, as ensured by the above test and 'false'
+return afterwards. The only question is whether this decision should be taken at a CPU
+level (which is affected by the errata) or the whole system level.
+
+What is required now
+
+- Replace this_cpu_has_cap() with cpus_have_const_cap ?
+- Add the following comment before the #ifdef check
+
+/*
+ * TLB flush deferral is not required on systems, which are affected with
+ * ARM64_WORKAROUND_REPEAT_TLBI, as __tlbi()/__tlbi_user() implementation
+ * will have two consecutive TLBI instructions with a dsb(ish) in between
+ * defeating the purpose (i.e save overall 'dsb ish' cost).
+ */
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
