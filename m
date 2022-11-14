@@ -4,85 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A3C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 09:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28222C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 10:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2K8ARygTKyf+p5XJsRjOxVGygrldNRySisa/GwTkRDI=; b=GQ3NCw0yb+up80
-	Jjdaw8bGsz5Z32OUsJx5o2r493fyCKpb46SbhyuXAo48U1mqbfAGZdumQJnpPulrpodWOxu36huG+
-	bGGzWDu5pu4K5TCKKIaMr2VOgTZQ4xudL6iRA72CEtYlNM7E+LX81SIxOQeFU0iXPLtTXg3zBuDEM
-	8pguNTgwHK7LqCZMejkJjr58SlOcml8mxG8xBCniivE9zoLcZ3TfenIYjmzy2O82TXwK+YoAdOlqF
-	r/4fdCPu44ey7AI+Xq7hvD1yHeZoDWIp9knQSHhpRXZqk1PWEdQtyYohVrg/pzngiXFlg4FrBf6PG
-	j3oo/0ma1xzNH0INx/Sw==;
+	List-Owner; bh=nUSDBY2yN9jfNRIgnftflmSiPBWKbqkFim/TvWXbObI=; b=f3IwEBIwAfbvhW
+	anzX1iZgKvvQhnBG35kHVdXLx2byNbJUbK8hdBaHOhg1mYvLW/C+6qt+qnBYc8M3g701SQ7N9N8yE
+	gxswvL7xTBz7nSMOc3t5xz+72yJzgpETXx2J/DScqSLq6ssDXHEV+a6pUXQrL2t5FMfP+aDjNoVEL
+	nfy9/HaD4vs6H62MepfEIAkhe8gZp4BN7IckjJkhGmkjS5C2TPQqjFmu/NjdAi687QrmSYe8b/jb7
+	8UtCXuOkPKueKvkk352fNu5vzI0ALBjIrzJgSSlopKY0TtSF7zapMBpCH3JudgA0l6GTe+PvhktTh
+	W6sV1wKk1yVXr6c87g4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouW86-00HKC1-VR; Mon, 14 Nov 2022 09:51:51 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1ouXAG-00091I-7S; Mon, 14 Nov 2022 10:58:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouW83-00HJwQ-EP
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 09:51:49 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id u2so12421621ljl.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 01:51:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DT7Lqj5itHPkRsi+26ax9bJ9oaClt2yyUwZVkdk8a+4=;
-        b=rkmer+mc57x3Fd3FqVO0WATgmXDiXwPeIlaRDjJQ0OCnzV3u5OmWJw/DBKO3LzuyuB
-         dSXHkxMnA9yPkSRiOn9RfSAWnZxOYgiuu+spiyqVnS115DZz4d2Ub1l2pmRJI3tQndsn
-         8Y+YvXBeOsiWeHFI/yWuJ2vu3Ki0BiRnxvMjufznRHyz6sYlGYLP0xFaGxqHU0EYri62
-         EoIOETOzAXWkGlSt/eAw2v8xglrMtUUKF98qhpyWmhLZDEINfqxsgrDXoWsjtQhoVd14
-         eU8Af/IbQ46rHG/OUaED1O9AdJPoX+jkg4ZnFLuig0E4qN0CAQ496arCJlsUTEsh8LrZ
-         Zz+A==
+	id 1ouXAD-00090Z-Qk
+	for linux-riscv@bombadil.infradead.org; Mon, 14 Nov 2022 10:58:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=q9CAZfX4fEaiYHJxRPofStc3477hVqgh/WxqyU/tVkc=; b=FF8eGzRyxl9AP2cUibLZLB+UdO
+	9fng02gIZYOEy71VcX6jv4PJ9aMSL0mjb6IsjYAHkCqVS+MIIUq+mLs99mCVhPZVLwUG+481qIUMS
+	Q74SiNkB7XBeBGq8zkiRqbD+ujJCx5iryVwoxpwr6HZnda/iBsHt/mHKjqoy7VkSQJ+a76ogPtQfa
+	aeqhg2d4mzm/jnxYnLq/LaG3bFaIHqxIhepH3hMxDYA11/mxGuQj+2akv8l3knVMpuOa3rqYJEP93
+	Uc8pC6OWbO4oLCf45HTJLRENvqGOOtbI0fjaFiondNm1tA5i+z/rr2Pd1xeQSzmjEkTc5iBZFWxgt
+	0HA0dzmQ==;
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ouXA8-000oJ3-6z
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 10:58:02 +0000
+Received: from mail-yb1-f197.google.com (mail-yb1-f197.google.com [209.85.219.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 3766A412BF
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 10:57:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1668423467;
+	bh=q9CAZfX4fEaiYHJxRPofStc3477hVqgh/WxqyU/tVkc=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=HBb9UmYzGJ69Y/D7lJve3xFJsqkXuD2DO4y5H/lYOi4gtD89I/nWlrbKRhEUVH0Jp
+	 Ib2GvymVvKujxZEg3vnsvlzRpkyPJh0sucf4dzncYN+VrvgjkTHbuo7PfWW333aK0u
+	 I2DCL8s8lXgqbLcsCNrS0RJ6xg72lCnTOpms36yg1CEHlITNY6lQyxmNP6+VTqLaHe
+	 Bk2QOg/fcCiLR0sTK98FNWJfpZFbaBAU0R/l861V7Gw4RsSoxaD0914sY0A52Nods3
+	 JHeuLJ4i14YaO5x1SUv2wwu+y7w5BPuJlB2KZCTIuoDOWSTqz8zxXe+Ie9C8R4aRSZ
+	 sdM9yawFOonoA==
+Received: by mail-yb1-f197.google.com with SMTP id z125-20020a25c983000000b006dc905e6ccfso10061762ybf.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 02:57:47 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DT7Lqj5itHPkRsi+26ax9bJ9oaClt2yyUwZVkdk8a+4=;
-        b=nXWTk9HeS5Ajy4pdteajgwgtHlPCMwD9XED62C1ZfH5IU/AlUdTOLQKG8NgNYMsPKB
-         HjZIWcSfNEOjGpjR/7Dkh81RWFQBFw+9XSoJRIU7OArOzD3Ww53RW/qwQkPEQECOIjb2
-         tjU6RL/YytDWKmPfkkqW/pFbc5mGpEN+K9quz7GfloBhHh0FmbfSur8YBAMlHEsWSLp8
-         qbZH1QtpB/vEt2+O6P+atvjv5/vE6LIxl9wqhejEo6zYPOH3qkrF3Tt3hbuJQLC4TxoP
-         V7t4ZP2Jdf14lfQ5x/FQ2hT6gmlykmq15CdR1SMYxlFMxC832JqGnN3ucJC41T0SVnRI
-         uVFA==
-X-Gm-Message-State: ANoB5pnSw88inzPVL+dspAFeL8+N+V7RFa+85ngPIKRE96NDrzMJpd+v
-	s+ckwY874O/UBD0/GUq3wTmmLw==
-X-Google-Smtp-Source: AA0mqf7dzDqUeVCvtLWO7fBd1nQJvIEpv9wABDCV5cLCP95ikI/GSEWJu/NmFg/E68D5VS4GkjLNRg==
-X-Received: by 2002:a2e:b706:0:b0:277:d75:f1de with SMTP id j6-20020a2eb706000000b002770d75f1demr4173250ljo.272.1668419506902;
-        Mon, 14 Nov 2022 01:51:46 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id f2-20020a056512360200b004ae24559388sm1754456lfs.111.2022.11.14.01.51.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Nov 2022 01:51:46 -0800 (PST)
-Message-ID: <6da76cb0-428e-d35a-3b11-81c7efa22460@linaro.org>
-Date: Mon, 14 Nov 2022 10:51:45 +0100
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=q9CAZfX4fEaiYHJxRPofStc3477hVqgh/WxqyU/tVkc=;
+        b=No3H3Ts/kugmEQ3cjeZ5rm7TkoJjdT27aMFaiAqG2u8PnV0pku4STAP8rs4tvJALiG
+         N9rZZAePyxsby/odTqGxpKpMIw1hnZWyXJZCfgcve73kcNeCKtKxp44ox0xXyAJoHUSE
+         kFWha24/OmzUzk4tWBeso2QxHFJTFRuH9We97STUHKPlNCDrgZI4UqhO0K9gFK1KZ+Il
+         oKlPAsX0GK9BZTQAf516rIqmgxdgzXERPhUcdGI3qc6l9Szv/JoHjMgAfC53pXISYFcF
+         9wIUPPPqVxlfAWlpgbghiKz6luJnE82otAyccBB5h+GYAgI7TbiQ8BFR1nD3bXfCqwMt
+         5h4Q==
+X-Gm-Message-State: ANoB5pmJWbcAlDpag/mRMSYlVpklC+MGTPuhVm1MiHcG4WFsY9NahpJE
+	fXd//q5oOJQ5igq64iE8RDDPLq9xpDZK7EfxO48a6ItJMBnp/4PlDIneb1mocVStzJVxh2He+i4
+	iywWaMXEMAp6+qyblXfgJfqUyzGJslH8WIQXQJGF2h4OfzgjAtkFPypcYLA3JJg==
+X-Received: by 2002:a81:556:0:b0:378:5e3a:8fad with SMTP id 83-20020a810556000000b003785e3a8fadmr12316761ywf.78.1668423466290;
+        Mon, 14 Nov 2022 02:57:46 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf7wwRMgVurx749TijzN2M94hhiJ9uzfl/UNHpcqwCx4rp5ARrGLoiQvGZ/3NmA0BTPWweMgCuEJeO5yaVcr4BE=
+X-Received: by 2002:a81:556:0:b0:378:5e3a:8fad with SMTP id
+ 83-20020a810556000000b003785e3a8fadmr12316747ywf.78.1668423466101; Mon, 14
+ Nov 2022 02:57:46 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
-Content-Language: en-US
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-Cc: Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
- <anup@brainfault.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-7-apatel@ventanamicro.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221111044207.1478350-7-apatel@ventanamicro.com>
+References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de>
+In-Reply-To: <20221110164924.529386-6-heiko@sntech.de>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Mon, 14 Nov 2022 11:57:29 +0100
+Message-ID: <CAJM55Z8PBGWr6ej1GSfks8nCvK0q=sF8qDK6f8w=+Nh1mr4sSg@mail.gmail.com>
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, 
+	philipp.tomsich@vrull.eu, ajones@ventanamicro.com, 
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_015147_521072_EB922AEA 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20221114_105800_555712_75DC6609 
+X-CRM114-Status: GOOD (  25.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,180 +110,130 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/11/2022 05:42, Anup Patel wrote:
-> We add DT bindings document for RISC-V advanced platform level interrupt
-> controller (APLIC) defined by the RISC-V advanced interrupt architecture
-> (AIA) specification.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+On Thu, 10 Nov 2022 at 17:50, Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>
+> Alternatives live in a different section, so addresses used by call
+> functions will point to wrong locations after the patch got applied.
+>
+> Similar to arm64, adjust the location to consider that offset.
+>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
->  .../interrupt-controller/riscv,aplic.yaml     | 136 ++++++++++++++++++
->  1 file changed, 136 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> new file mode 100644
-> index 000000000000..0aa48571f3bc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> @@ -0,0 +1,136 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aplic.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
+>  1 file changed, 77 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 694267d1fe81..026512ca9c4c 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>         return cpu_req_feature;
+>  }
+>
+> +#include <asm/parse_asm.h>
 > +
-> +title: RISC-V Advancded Platform Level Interrupt Controller (APLIC)
+> +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
+> +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
 > +
-> +maintainers:
-> +  - Anup Patel <anup@brainfault.org>
+> +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
+> +{
+> +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
+> +}
 > +
-> +description:
-> +  The RISC-V advanced interrupt architecture (AIA) defines advanced platform
-> +  level interrupt controller (APLIC) for handling wired interrupts in a
-> +  RISC-V platform. The RISC-V AIA specification can be found at
-> +  https://github.com/riscv/riscv-aia.
+> +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
+> +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
+> +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
+> +#define AUIPC_PAD              (0x00001000)
+> +#define JALR_SHIFT             I_IMM_11_0_OPOFF
 > +
-> +  The RISC-V APLIC is implemented as hierarchical APLIC domains where all
-> +  interrupt sources connect to the root domain which can further delegate
-> +  interrupts to child domains. We have one device tree node for each APLIC
-> +  domain.
+> +#define to_jalr_imm(offset)                                            \
+> +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
 > +
-> +allOf:
-> +  - $ref: /schemas/interrupt-controller.yaml#
+> +#define to_auipc_imm(offset)                                           \
+> +       ((offset & JALR_SIGN_MASK) ?                                    \
+> +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
+> +       (offset & AUIPC_OFFSET_MASK))
 > +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - vendor,chip-aplic
-> +      - const: riscv,aplic
+> +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
+> +                                            unsigned int len, int patch_offset)
+> +{
+> +       int num_instr = len / sizeof(u32);
+> +       unsigned int call[2];
+> +       int i;
+> +       int imm1;
+> +       u32 rd1;
 > +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 16384
-> +    description:
-> +      The presence of this property implies that given APLIC domain directly
-> +      injects external interrupts to a set of RISC-V HARTS (or CPUs). Each
-> +      node pointed to should be a riscv,cpu-intc node, which has a riscv node
-> +      (i.e. RISC-V HART) as parent.
-> +
-> +  msi-parent:
-> +    description:
-> +      The presence of this property implies that given APLIC domain forwards
+> +       for (i = 0; i < num_instr; i++) {
+> +               /* is there a further instruction? */
+> +               if (i + 1 >= num_instr)
+> +                       continue;
 
-Drop "The presence of this property" and make it a proper sentence
-describing hardware.
-
-> +      wired interrupts as MSIs to a AIA incoming message signaled interrupt
-> +      controller (IMSIC). This property should be considered only when the
-> +      interrupts-extended property is absent.
-> +
-> +  riscv,num-sources:
-> +    $ref: "/schemas/types.yaml#/definitions/uint32"
-
-Drop quotes.
-
-> +    minimum: 1
-> +    maximum: 1023
-> +    description:
-> +      Specifies how many wired interrupts are supported by this APLIC domain.
-> +
-> +  riscv,children:
-> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> +    minItems: 1
-> +    maxItems: 1024
-> +    description:
-> +      This property represents a list of child APLIC domains for the given
-> +      APLIC domain. Each child APLIC domain is assigned child index in
-> +      increasing order with the first child APLIC domain assigned child
-> +      index 0. The APLIC domain child index is used by firmware to delegate
-> +      interrupts from the given APLIC domain to a particular child APLIC
-> +      domain.
-> +
-> +  riscv,delegate:
-> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> +    minItems: 1
-> +    maxItems: 1024
-> +    description:
-> +      This property represents a interrupt delegation list where each entry
-
-Drop "This property represents".
-
-> +      is a triple consisting of child APLIC domain phandle, first interrupt
-> +      number, and last interrupt number. The firmware will configure interrupt
-> +      delegation registers based on interrupt delegation list.
-> +
-> +additionalProperties: false
-
-Same comments as in previous patch,
+Isn't this the same as for (i = 0; i < num_instr - 1; i++) ?
 
 > +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - riscv,num-sources
+> +               if (!is_auipc_jalr_pair(*(alt_ptr + i), *(alt_ptr + i + 1)))
+> +                       continue;
 > +
-> +examples:
-> +  - |
-> +    // Example 1 (APIC domain directly injecting interrupt to HARTs):
+> +               /* call will use ra register */
+> +               rd1 = EXTRACT_RD_REG(*(alt_ptr + i));
+> +               if (rd1 != 1)
+> +                       continue;
 > +
-> +    aplic0: interrupt-controller@c000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 11>,
-> +                            <&cpu2_intc 11>,
-> +                            <&cpu3_intc 11>,
-> +                            <&cpu4_intc 11>;
-> +      reg = <0xc000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +      riscv,children = <&aplic1>;
-> +      riscv,delegate = <&aplic1 1 63>;
-> +    };
+> +               /* get and adjust new target address */
+> +               imm1 = EXTRACT_UTYPE_IMM(*(alt_ptr + i));
+> +               imm1 += EXTRACT_ITYPE_IMM(*(alt_ptr + i + 1));
+> +               imm1 -= patch_offset;
 > +
-> +    aplic1: interrupt-controller@d000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 9>,
-> +                            <&cpu2_intc 9>,
-> +                            <&cpu3_intc 9>,
-> +                            <&cpu4_intc 9>;
-> +      reg = <0xd000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
+> +               /* pick the original auipc + jalr */
+> +               call[0] = *(alt_ptr + i);
+> +               call[1] = *(alt_ptr + i + 1);
 > +
-> +  - |
-> +    // Example 2 (APIC domain forwarding interrupts as MSIs):
+> +               /* drop the old IMMs */
+> +               call[0] &= ~(U_IMM_31_12_MASK);
+> +               call[1] &= ~(I_IMM_11_0_MASK << I_IMM_11_0_OPOFF);
 > +
-> +    interrupt-controller@d000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      msi-parent = <&imsics>;
-> +      reg = <0xd000000 0x4000>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
+> +               /* add the adapted IMMs */
+> +               call[0] |= to_auipc_imm(imm1);
+> +               call[1] |= to_jalr_imm(imm1);
+> +
+> +               /* patch the call place again */
+> +               patch_text_nosync(alt_ptr + i * sizeof(u32), call, 8);
+> +       }
+> +}
+> +
+>  void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+>                                                   struct alt_entry *end,
+>                                                   unsigned int stage)
+> @@ -316,8 +384,15 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+>                 }
+>
+>                 tmp = (1U << alt->errata_id);
+> -               if (cpu_req_feature & tmp)
+> -                       patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> +               if (cpu_req_feature & tmp) {
+> +                       /* do the basic patching */
+> +                       patch_text_nosync(alt->old_ptr, alt->alt_ptr,
+> +                                         alt->alt_len);
+> +
+> +                       riscv_alternative_fix_auipc_jalr(alt->old_ptr,
+> +                                                        alt->alt_len,
+> +                                                        alt->old_ptr - alt->alt_ptr);
 
-It's almost the same as previous... don't add unnecessary examples
-(difference in one property usually does not mean you need new example).
+Here you're casting a void pointer to an instruction to an unsigned
+int pointer, but since we enable compressed instructions this may
+result in an unaligned pointer. Using this pointer will work, but may
+be slow. Eg. fault to m-mode to be patched up. We already do that in
+other places in the arch/riscv, but I'd prefer not to add new
+instances of this.
 
-> +    };
-> +...
-
-Best regards,
-Krzysztof
-
+> +               }
+>         }
+>  }
+>  #endif
+> --
+> 2.35.1
 
 _______________________________________________
 linux-riscv mailing list
