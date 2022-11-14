@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FD5C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 09:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184A3C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 09:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VhnLhJOtbyJgMjtsgpSHRS7Int0ade9eLj9Ng06/k8I=; b=LZhTsTDTx8emBr
-	NBLQJWrm6fi9fTJmg3aoQaauvoZZF8t2wF8hNhka1TUezrNxEt9H2Ow3hbcCm1oOHl37sJXRk99d7
-	Yh0afI9o/gpMbyIYR1XE+QNm4OLpd7lstnbiZtlsYaRQEcoBYgpbaVP3IgmHGGxBvsYm3lfBDBkmu
-	KSxMmdZr8BFUvfWYUtN9YVJCjuPV090zd1Epcuv7GRrjt5Cem+O8kp1uJgZ2/TKFRyOz5o+qVEmQM
-	1ZqZl/Shm7NuaV7IoJy301B9I1mB4k7M0LVLKYpYlHxmeAqZ8e3xEFrKqWdOb1bjPTqZ7ejR1v0qK
-	+8opCSlcDGN7r4QNg7iQ==;
+	List-Owner; bh=2K8ARygTKyf+p5XJsRjOxVGygrldNRySisa/GwTkRDI=; b=GQ3NCw0yb+up80
+	Jjdaw8bGsz5Z32OUsJx5o2r493fyCKpb46SbhyuXAo48U1mqbfAGZdumQJnpPulrpodWOxu36huG+
+	bGGzWDu5pu4K5TCKKIaMr2VOgTZQ4xudL6iRA72CEtYlNM7E+LX81SIxOQeFU0iXPLtTXg3zBuDEM
+	8pguNTgwHK7LqCZMejkJjr58SlOcml8mxG8xBCniivE9zoLcZ3TfenIYjmzy2O82TXwK+YoAdOlqF
+	r/4fdCPu44ey7AI+Xq7hvD1yHeZoDWIp9knQSHhpRXZqk1PWEdQtyYohVrg/pzngiXFlg4FrBf6PG
+	j3oo/0ma1xzNH0INx/Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouW5t-00HJ9j-DU; Mon, 14 Nov 2022 09:49:33 +0000
+	id 1ouW86-00HKC1-VR; Mon, 14 Nov 2022 09:51:51 +0000
 Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouW5p-00HJ6k-Qu
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 09:49:31 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id u2so12414274ljl.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 01:49:27 -0800 (PST)
+	id 1ouW83-00HJwQ-EP
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 09:51:49 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id u2so12421621ljl.3
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 01:51:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ImTXzzSRjgHWFzodYSl0ZMauOmNHYIoqH7O3oNlMHPk=;
-        b=NroDRhTgo9wX5eizp2mXtqzT+gIHYAyCHL/etgKCWWm7igL97ZDymZ9wfSlUb43o2P
-         yPQldjUy1un1+xybodXFw0wnxgistkdTprOj2oa79UsQ5l8UyArcnhk9Uo1vPPivgMTT
-         YN/upmWp1iIq0C+Tj2124iY3zIb9zs4maob0gcKLDoFdCdMjTEPzaaW7ml1XIHCbzJWf
-         WlWU5RoVKYpeCD68mcGQNB508m3J6rJtTXO7GER6QcsufmpBH4NoI5CcDuYdZDBgUC93
-         QrZ575im0XSTb4hi9rgujHhhoCOlAHwaBjfoqnZSOCMc7a4eSVHea8oHog2loLfvvhrO
-         BSkQ==
+        bh=DT7Lqj5itHPkRsi+26ax9bJ9oaClt2yyUwZVkdk8a+4=;
+        b=rkmer+mc57x3Fd3FqVO0WATgmXDiXwPeIlaRDjJQ0OCnzV3u5OmWJw/DBKO3LzuyuB
+         dSXHkxMnA9yPkSRiOn9RfSAWnZxOYgiuu+spiyqVnS115DZz4d2Ub1l2pmRJI3tQndsn
+         8Y+YvXBeOsiWeHFI/yWuJ2vu3Ki0BiRnxvMjufznRHyz6sYlGYLP0xFaGxqHU0EYri62
+         EoIOETOzAXWkGlSt/eAw2v8xglrMtUUKF98qhpyWmhLZDEINfqxsgrDXoWsjtQhoVd14
+         eU8Af/IbQ46rHG/OUaED1O9AdJPoX+jkg4ZnFLuig0E4qN0CAQ496arCJlsUTEsh8LrZ
+         Zz+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ImTXzzSRjgHWFzodYSl0ZMauOmNHYIoqH7O3oNlMHPk=;
-        b=bxyp5dXn4cw1oAKK1DdewNzRZSqI2eSDBgXNkmMk2KNoJ2ht5JBke4EjePLl7SDPtK
-         VqgzWlINMhjFA9Ln33SzeYTJ2FPNusO0rmu2lp7WWLqE5ucHAzN4otQI3D4n/HMuGzlS
-         Z2QLtZZrlQHNM/CxlCh3bz1U3/+rQQPcGBHAFkQiPw7qhU6gkoWwkIWXq7rWfoX2zpx6
-         849MvSbYDiwaCxnq64i7eDaOsI/p2V61i6xBwxDhty1LMvh4QjE1hBprGt0fJF2jND2e
-         xLXPBqhdQuBTaxqEQq8kPE+NEwjjvL2jMOrpjWgoz7mxMLMBqNMMnG0KMX9Y20ehXOaX
-         yeFQ==
-X-Gm-Message-State: ANoB5pl9ZB07cL5nNS1LpDTu40Sbp1SqLUGqS/Is+OAySOj9xecINCaI
-	rM2U5b0/fb6bs25dGWrM9OA+Iw==
-X-Google-Smtp-Source: AA0mqf6W/2H1XkevKiNWP5a3u3J4ww5Uic6TNPQb8nzLTT3yvz7U7ewCDsZ5Dl09YpvgfAGUpej1oA==
-X-Received: by 2002:a2e:a602:0:b0:277:8a07:521c with SMTP id v2-20020a2ea602000000b002778a07521cmr3602767ljp.335.1668419365869;
-        Mon, 14 Nov 2022 01:49:25 -0800 (PST)
+        bh=DT7Lqj5itHPkRsi+26ax9bJ9oaClt2yyUwZVkdk8a+4=;
+        b=nXWTk9HeS5Ajy4pdteajgwgtHlPCMwD9XED62C1ZfH5IU/AlUdTOLQKG8NgNYMsPKB
+         HjZIWcSfNEOjGpjR/7Dkh81RWFQBFw+9XSoJRIU7OArOzD3Ww53RW/qwQkPEQECOIjb2
+         tjU6RL/YytDWKmPfkkqW/pFbc5mGpEN+K9quz7GfloBhHh0FmbfSur8YBAMlHEsWSLp8
+         qbZH1QtpB/vEt2+O6P+atvjv5/vE6LIxl9wqhejEo6zYPOH3qkrF3Tt3hbuJQLC4TxoP
+         V7t4ZP2Jdf14lfQ5x/FQ2hT6gmlykmq15CdR1SMYxlFMxC832JqGnN3ucJC41T0SVnRI
+         uVFA==
+X-Gm-Message-State: ANoB5pnSw88inzPVL+dspAFeL8+N+V7RFa+85ngPIKRE96NDrzMJpd+v
+	s+ckwY874O/UBD0/GUq3wTmmLw==
+X-Google-Smtp-Source: AA0mqf7dzDqUeVCvtLWO7fBd1nQJvIEpv9wABDCV5cLCP95ikI/GSEWJu/NmFg/E68D5VS4GkjLNRg==
+X-Received: by 2002:a2e:b706:0:b0:277:d75:f1de with SMTP id j6-20020a2eb706000000b002770d75f1demr4173250ljo.272.1668419506902;
+        Mon, 14 Nov 2022 01:51:46 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id z10-20020a05651c11ca00b002773ac59697sm1954760ljo.0.2022.11.14.01.49.24
+        by smtp.gmail.com with ESMTPSA id f2-20020a056512360200b004ae24559388sm1754456lfs.111.2022.11.14.01.51.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Nov 2022 01:49:25 -0800 (PST)
-Message-ID: <9be58cb4-4ee8-a6e0-7a0a-f2f581e394d3@linaro.org>
-Date: Mon, 14 Nov 2022 10:49:24 +0100
+        Mon, 14 Nov 2022 01:51:46 -0800 (PST)
+Message-ID: <6da76cb0-428e-d35a-3b11-81c7efa22460@linaro.org>
+Date: Mon, 14 Nov 2022 10:51:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.2
-Subject: Re: [PATCH 4/9] dt-bindings: Add RISC-V incoming MSI controller
- bindings
+Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
 Content-Language: en-US
 To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -78,12 +77,12 @@ Cc: Atish Patra <atishp@atishpatra.org>,
  <anup@brainfault.org>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
 References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-5-apatel@ventanamicro.com>
+ <20221111044207.1478350-7-apatel@ventanamicro.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221111044207.1478350-5-apatel@ventanamicro.com>
+In-Reply-To: <20221111044207.1478350-7-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_014929_908763_31AFBD85 
-X-CRM114-Status: GOOD (  32.54  )
+X-CRM114-CacheID: sfid-20221114_015147_521072_EB922AEA 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,61 +100,43 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/11/2022 05:42, Anup Patel wrote:
-> We add DT bindings document for RISC-V incoming MSI controller (IMSIC)
-> defined by the RISC-V advanced interrupt architecture (AIA) specification.
+> We add DT bindings document for RISC-V advanced platform level interrupt
+> controller (APLIC) defined by the RISC-V advanced interrupt architecture
+> (AIA) specification.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  .../interrupt-controller/riscv,imsic.yaml     | 174 ++++++++++++++++++
->  1 file changed, 174 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+>  .../interrupt-controller/riscv,aplic.yaml     | 136 ++++++++++++++++++
+>  1 file changed, 136 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
 > new file mode 100644
-> index 000000000000..05106eb1955e
+> index 000000000000..0aa48571f3bc
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> @@ -0,0 +1,174 @@
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> @@ -0,0 +1,136 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,imsic.yaml#
+> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aplic.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: RISC-V Incoming MSI Controller (IMSIC)
+> +title: RISC-V Advancded Platform Level Interrupt Controller (APLIC)
 > +
 > +maintainers:
 > +  - Anup Patel <anup@brainfault.org>
 > +
 > +description:
-> +  The RISC-V advanced interrupt architecture (AIA) defines a per-CPU incoming
-> +  MSI controller (IMSIC) for handling MSIs in a RISC-V platform. The RISC-V
-> +  AIA specification can be found at https://github.com/riscv/riscv-aia.
+> +  The RISC-V advanced interrupt architecture (AIA) defines advanced platform
+> +  level interrupt controller (APLIC) for handling wired interrupts in a
+> +  RISC-V platform. The RISC-V AIA specification can be found at
+> +  https://github.com/riscv/riscv-aia.
 > +
-> +  The IMSIC is a per-CPU (or per-HART) device with separate interrupt file
-> +  for each privilege level (machine or supervisor). The configuration of
-> +  a IMSIC interrupt file is done using AIA CSRs and it also has a 4KB MMIO
-> +  space to receive MSIs from devices. Each IMSIC interrupt file supports a
-> +  fixed number of interrupt identities (to distinguish MSIs from devices)
-> +  which is same for given privilege level across CPUs (or HARTs).
-> +
-> +  The arrangement of IMSIC interrupt files in MMIO space of a RISC-V platform
-> +  follows a particular scheme defined by the RISC-V AIA specification. A IMSIC
-> +  group is a set of IMSIC interrupt files co-located in MMIO space and we can
-> +  have multiple IMSIC groups (i.e. clusters, sockets, chiplets, etc) in a
-> +  RISC-V platform. The MSI target address of a IMSIC interrupt file at given
-> +  privilege level (machine or supervisor) encodes group index, HART index,
-> +  and guest index (shown below).
-> +
-> +  XLEN-1           >=24                                 12    0
-> +  |                  |                                  |     |
-> +  -------------------------------------------------------------
-> +  |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
-> +  -------------------------------------------------------------
-> +
-> +  The device tree of a RISC-V platform will have one IMSIC device tree node
-> +  for each privilege level (machine or supervisor) which collectively describe
-> +  IMSIC interrupt files at that privilege level across CPUs (or HARTs).
+> +  The RISC-V APLIC is implemented as hierarchical APLIC domains where all
+> +  interrupt sources connect to the root domain which can further delegate
+> +  interrupts to child domains. We have one device tree node for each APLIC
+> +  domain.
 > +
 > +allOf:
 > +  - $ref: /schemas/interrupt-controller.yaml#
@@ -164,152 +145,130 @@ On 11/11/2022 05:42, Anup Patel wrote:
 > +  compatible:
 > +    items:
 > +      - enum:
-> +          - vendor,chip-imsics
-
-There is no such vendor... As Conor pointed out, this does not look
-correct. Compatibles must be real and specific.
-
-> +      - const: riscv,imsics
+> +          - vendor,chip-aplic
+> +      - const: riscv,aplic
 > +
 > +  reg:
-> +    minItems: 1
-> +    maxItems: 128
-
-Is there a DTS with 128 reg items?
-
-> +    description:
-> +      Base address of each IMSIC group.
+> +    maxItems: 1
 > +
 > +  interrupt-controller: true
 > +
 > +  "#interrupt-cells":
-> +    const: 0
-> +
-> +  msi-controller: true
-
-You want then msi-controller.yaml schema and you can drop properties
-described there.
-
+> +    const: 2
 > +
 > +  interrupts-extended:
 > +    minItems: 1
-> +    maxItems: 32768
-
-I just wonder if you are not putting some random stuff here... just like
-this "vendor" company.
-
-32768 inputs it is quite a big chip. Are you sure you have so many pins
-or internal connections?
-
+> +    maxItems: 16384
 > +    description:
-> +      This property represents the set of CPUs (or HARTs) for which given
-> +      device tree node describes the IMSIC interrupt files. Each node pointed
-> +      to should be a riscv,cpu-intc node, which has a riscv node (i.e. RISC-V
-> +      HART) as parent.
+> +      The presence of this property implies that given APLIC domain directly
+> +      injects external interrupts to a set of RISC-V HARTS (or CPUs). Each
+> +      node pointed to should be a riscv,cpu-intc node, which has a riscv node
+> +      (i.e. RISC-V HART) as parent.
 > +
-> +  riscv,num-ids:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 63
-> +    maximum: 2047
+> +  msi-parent:
 > +    description:
-> +      Specifies how many interrupt identities are supported by IMSIC interrupt
-> +      file.
-> +
-> +  riscv,num-guest-ids:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 63
-> +    maximum: 2047
-> +    description:
-> +      Specifies how many interrupt identities are supported by IMSIC guest
-> +      interrupt file. When not specified the number of interrupt identities
-> +      supported by IMSIC guest file is assumed to be same as specified by
-> +      the riscv,num-ids property.
-> +
-> +  riscv,slow-ipi:
-> +    type: boolean
-> +    description:
-> +      The presence of this property implies that software interrupts (i.e.
-> +      IPIs) using IMSIC software injected MSIs is slower compared to other
-> +      software interrupt mechanisms (such as SBI IPI) on the underlying
-> +      RISC-V platform.
+> +      The presence of this property implies that given APLIC domain forwards
 
-Is this a property of software or hardware?
+Drop "The presence of this property" and make it a proper sentence
+describing hardware.
 
+> +      wired interrupts as MSIs to a AIA incoming message signaled interrupt
+> +      controller (IMSIC). This property should be considered only when the
+> +      interrupts-extended property is absent.
 > +
-> +  riscv,guest-index-bits:
-> +    minimum: 0
-> +    maximum: 7
+> +  riscv,num-sources:
+> +    $ref: "/schemas/types.yaml#/definitions/uint32"
+
+Drop quotes.
+
+> +    minimum: 1
+> +    maximum: 1023
 > +    description:
-> +      Specifies number of guest index bits in the MSI target address. When
-> +      not specified it is assumed to be 0.
+> +      Specifies how many wired interrupts are supported by this APLIC domain.
 > +
-> +  riscv,hart-index-bits:
-> +    minimum: 0
-> +    maximum: 15
+> +  riscv,children:
+> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> +    minItems: 1
+> +    maxItems: 1024
 > +    description:
-> +      Specifies number of HART index bits in the MSI target address. When
-> +      not specified it is estimated based on the interrupts-extended property.
+> +      This property represents a list of child APLIC domains for the given
+> +      APLIC domain. Each child APLIC domain is assigned child index in
+> +      increasing order with the first child APLIC domain assigned child
+> +      index 0. The APLIC domain child index is used by firmware to delegate
+> +      interrupts from the given APLIC domain to a particular child APLIC
+> +      domain.
 > +
-> +  riscv,group-index-bits:
-> +    minimum: 0
-> +    maximum: 7
+> +  riscv,delegate:
+> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> +    minItems: 1
+> +    maxItems: 1024
 > +    description:
-> +      Specifies number of group index bits in the MSI target address. When
-> +      not specified it is assumed to be 0.
+> +      This property represents a interrupt delegation list where each entry
 
-Then default: 0.
+Drop "This property represents".
 
-> +
-> +  riscv,group-index-shift:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 24
-> +    maximum: 55
-> +    description:
-> +      Specifies the least significant bit of the group index bits in the
-
-Please drop everywhere "Specifies the" and instead just describe the
-hardware.
-
-> +      MSI target address. When not specified it is assumed to be 24.
+> +      is a triple consisting of child APLIC domain phandle, first interrupt
+> +      number, and last interrupt number. The firmware will configure interrupt
+> +      delegation registers based on interrupt delegation list.
 > +
 > +additionalProperties: false
 
-unevaluatedProperties: false and drop all properties already described
-by other schemas.
+Same comments as in previous patch,
 
 > +
 > +required:
 > +  - compatible
 > +  - reg
 > +  - interrupt-controller
-> +  - msi-controller
-> +  - interrupts-extended
-> +  - riscv,num-ids
+> +  - "#interrupt-cells"
+> +  - riscv,num-sources
 > +
 > +examples:
 > +  - |
-> +    // Example 1 (Machine-level IMSIC files with just one group):
+> +    // Example 1 (APIC domain directly injecting interrupt to HARTs):
 > +
-> +    imsic_mlevel: interrupt-controller@24000000 {
-> +      compatible = "vendor,chip-imsics", "riscv,imsics";
+> +    aplic0: interrupt-controller@c000000 {
+> +      compatible = "vendor,chip-aplic", "riscv,aplic";
 > +      interrupts-extended = <&cpu1_intc 11>,
 > +                            <&cpu2_intc 11>,
 > +                            <&cpu3_intc 11>,
 > +                            <&cpu4_intc 11>;
-> +      reg = <0x28000000 0x4000>;
+> +      reg = <0xc000000 0x4080>;
 > +      interrupt-controller;
-> +      #interrupt-cells = <0>;
-> +      msi-controller;
-> +      riscv,num-ids = <127>;
+> +      #interrupt-cells = <2>;
+> +      riscv,num-sources = <63>;
+> +      riscv,children = <&aplic1>;
+> +      riscv,delegate = <&aplic1 1 63>;
+> +    };
+> +
+> +    aplic1: interrupt-controller@d000000 {
+> +      compatible = "vendor,chip-aplic", "riscv,aplic";
+> +      interrupts-extended = <&cpu1_intc 9>,
+> +                            <&cpu2_intc 9>,
+> +                            <&cpu3_intc 9>,
+> +                            <&cpu4_intc 9>;
+> +      reg = <0xd000000 0x4080>;
+> +      interrupt-controller;
+> +      #interrupt-cells = <2>;
+> +      riscv,num-sources = <63>;
 > +    };
 > +
 > +  - |
-> +    // Example 2 (Supervisor-level IMSIC files with two groups):
+> +    // Example 2 (APIC domain forwarding interrupts as MSIs):
 > +
-> +    imsic_slevel: interrupt-controller@28000000 {
-> +      compatible = "vendor,chip-imsics", "riscv,imsics";
+> +    interrupt-controller@d000000 {
+> +      compatible = "vendor,chip-aplic", "riscv,aplic";
+> +      msi-parent = <&imsics>;
+> +      reg = <0xd000000 0x4000>;
+> +      interrupt-controller;
+> +      #interrupt-cells = <2>;
+> +      riscv,num-sources = <63>;
 
-Please run scripts/checkpatch.pl and fix reported warnings.
+It's almost the same as previous... don't add unnecessary examples
+(difference in one property usually does not mean you need new example).
+
+> +    };
+> +...
 
 Best regards,
 Krzysztof
