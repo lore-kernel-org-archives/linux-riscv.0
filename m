@@ -4,128 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F0CC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 11:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6298DC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 11:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jUF4DP5DnG9aLmiKRPdruGCx2dUZw2ydh+C/QR8xmlA=; b=2rn/PdEJVfBI+K
-	0VnIbyuh8Y7KyeE4/cWQ6DFhKYS78uSHu3emJLgsWZHKyEgGPQhyY3bYqisL1CumaCLCVl7VpuKep
-	5jz2OIf9b2Ff6t52IaEIPA8SflSLS4IoQqb4fWXdiR7sFiwYqSuIy+6sxGJSpC0ajmCb625xlmcLG
-	LxhbfIM/aY51OWN1UekUSo1ZL6NYJtPEOLI4JOpEje4/zBMjg8PVB29DoMgaB4xmIJA4z8qygUoI7
-	cDnvUULfrOb6/0nbxHyuIL1wt7LVpkLgnfLJGspovONV7IoWlGmNTEAFZlpuYQ1EhNaBlUAoKAbiZ
-	0Gg4g4/AB0Tu5E1dvAsA==;
+	List-Owner; bh=9I3Lf2F5LpVbDum7YiDQ+0UpdzQ9gyqHGJtQXp2SF9w=; b=D0dQ7EXwlsWPvA
+	5PImJils9n69cS3woO9UvsQDIwLCESOhE78TGQOXEC2yfuCmjhpg4VQ/CjLu18EBUyQZFLfbNxbXh
+	2NmA6YbXaPLfLYDK9BG+nkmvDCE1FlfplQH3JT3fpxv0InbtAT7g+kTzn7Q3hapCmJbI+0cwyQ/XT
+	P928XiPT7NeSpI7O6+K3v/9Yut+GWsPFKTXfqqpWN2xhGIdSaaP29g0r92UobNLirhh8SdDBQ0hXI
+	JMSoOkXOg+IRFJ1WkUn+R5yGEmoal6wXmQuhSFSH/vNt49h7wYtDkwl8f+3b/KikKqZeEG/w11pvV
+	Tu4z/w9LcH/1dbJYgF6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouXqz-000TXj-RF; Mon, 14 Nov 2022 11:42:17 +0000
-Received: from mail-sgaapc01on20616.outbound.protection.outlook.com ([2a01:111:f400:feab::616] helo=APC01-SG2-obe.outbound.protection.outlook.com)
+	id 1ouXzB-000Yd6-3O; Mon, 14 Nov 2022 11:50:45 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouXqw-000TUu-B6
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 11:42:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ZaG+dgn+Df6NAKPP2Cv0Ctcyyh5l82nhQ6xPJFdZgWPhKT9q7YRSxQKsPRzNMhUVcIj6aO2QE3SSHxB7CmLKDH+xbSU3/Ra+hWhTyEGAX83W+3Jzy4cOIfDnOsZHMQ7x0SuB5brvXnH0nFDmAJ0X6xdSnwhyeKvuxRhfjAXp4N09JTOulf24VLOqLYR9umI8JJyXMT2SYqJG5BD2sWcc8TjXo+ZWbPAwDeP84NcFZ7900E8HMcQLh4ZV8zu7P0qepwahwb9QXLdpawr4VxKbP4DXOgKrTmj7NvATEg9FBm3Kii55QUVNkbAOLu2P9069gJdOa1kIX3UO+FB9PWjbeQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vYHxGf8eKy/rpZFCWXJMzgKXV24tNrrk/BVMveLwphc=;
- b=L0ki5ctTNH7aXdFI7RM1CumcJjWs14RxiHxNnP9utJJL+9ccRAJ4u5NiGTpDIXkeL3RLMKufnfWPisfH8S8HDPjVBS2fIUKI065XjH2TgoSXknRRY/PzZInVUaBnXKAryem/4DrLEQJQVFne2IAHYf335SSfOWCxHD5vQjq93BfAB/gYl/SLcMDho/rHXzOqiEXuTNXlxavEfhfCKevPA/F/1nQHpt6YrRICflRqsQdjiYQg1El+6wIcap48FdvgPmIP5ZZgzbeLaQsVFhRSZ9HGXONdAK2OUK+aNccpoV5Q+hbtAVGQTGR+N3ucW+QaL74jjxPmfb3Sydz+9fOIdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=jaguarmicro.com; dmarc=pass action=none
- header.from=jaguarmicro.com; dkim=pass header.d=jaguarmicro.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jaguarmicro.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vYHxGf8eKy/rpZFCWXJMzgKXV24tNrrk/BVMveLwphc=;
- b=QZNvV2CnG2v7xZH3kOHWPBVAsx4h1svpuAcqQ7xR0AGQ6vw4mJs2Gk6IoaQuax8RZfLFaJ15SafzZ9uLEZQgylfXqySLyS5L0HRwqa0oMTcexIKfi6hN51Ka1Db0QZPDCCczE/Gw5V2ujvZsgA/AknhrJbtUEMVnS/rKZKX6IfhOOlVF9IFqMhHHt2FH/xU6ZzsQN+WQ5on8u8aQdSYetT1EZOf3QIucRs+f+C4iQ1xplBY1oqQvSabuOFclbKRACvZ8s/GqZghJk9H4XlAT5wFBP4nMyPqiKfT0AUmAq3kVRtwdLIOjCweVM6zPrWRKWN1/qiJyxVWuZ2xMIBeiXg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=jaguarmicro.com;
-Received: from PS2PR06MB3432.apcprd06.prod.outlook.com (2603:1096:300:62::16)
- by KL1PR06MB6259.apcprd06.prod.outlook.com (2603:1096:820:d9::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5813.17; Mon, 14 Nov
- 2022 11:42:01 +0000
-Received: from PS2PR06MB3432.apcprd06.prod.outlook.com
- ([fe80::3d93:4000:1302:3fea]) by PS2PR06MB3432.apcprd06.prod.outlook.com
- ([fe80::3d93:4000:1302:3fea%7]) with mapi id 15.20.5813.017; Mon, 14 Nov 2022
- 11:42:01 +0000
-From: "xiaowu.ding" <xiaowu.ding@jaguarmicro.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux@armlinux.org.uk
-Cc: nicolas.ferre@microchip.com,
-	claudiu.beznea@microchip.com,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Xiaowu Ding <xiaowu.ding@jaguarmicro.com>
-Subject: [PATCH v2] net:macb: driver support acpi mode
-Date: Mon, 14 Nov 2022 19:41:26 +0800
-Message-Id: <20221114114126.1881-1-xiaowu.ding@jaguarmicro.com>
-X-Mailer: git-send-email 2.34.1.windows.1
-In-Reply-To: <YxYuRaXxtyMIF/A6@lunn.ch>
-References: <YxYuRaXxtyMIF/A6@lunn.ch>
-X-ClientProxiedBy: SG2PR01CA0119.apcprd01.prod.exchangelabs.com
- (2603:1096:4:40::23) To PS2PR06MB3432.apcprd06.prod.outlook.com
- (2603:1096:300:62::16)
+	id 1ouXyh-000YLw-BE; Mon, 14 Nov 2022 11:50:17 +0000
+Received: by mail-pl1-x636.google.com with SMTP id p12so9840514plq.4;
+        Mon, 14 Nov 2022 03:50:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pxLw92CxNmXV7lUHwwNNh3pTOe6v+PoNrvkBfjZKYfc=;
+        b=KRZeS7F7eWOmhgnb4D7Y4+WqRwo8eLME20CHDJIBZlfXI6X4le5Kor2WIa1YVw4LM7
+         znrdNlx3rbhxecE9Q883iLc6fL9Jr+Hr2//jJdJGgVusXzXvJ+FyKKsiwr28hy8bsi1l
+         fqEM4oXGaIGnNPmocA7h0jot+GMhRXl9oF8B0Ny8L4UsLANYRDZG1D6LiaeAxeDvTdQd
+         nIoaI+6GXagI3hJ9Po9/vsKKQ7/5LJFeCdRQFWklw2UvLYZJT5hkxFmgiHe2s/DDRCGk
+         HZUXEwWGqYqOjM8TFuceqGQPQ5D1yYzFxPsMMqX89I7raHubUCEHlPV4W3DJG8nz5wrR
+         fALA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pxLw92CxNmXV7lUHwwNNh3pTOe6v+PoNrvkBfjZKYfc=;
+        b=KgWHs25HxeMnI/4M5ilK01PuDSPSqBWML8ltFHHgOH3GwzsQ3WRUn+CpbUQvyGZ+Xr
+         N/69WxD54RkgcTFj+q16joIIPZ+uYoxdUi72Cdn1a8/UnecRAs5EJPgIsK8M7NFeXwhs
+         3EGhLyov+EmQYtmPghVTt0t5H7eHZ3bfABsJzWgw+q+wNHszCXl0oOlpNuBxC1N+n+0D
+         aIN2RFL6Noi4R3os9kTYdqwbir7+tU9m6qcZZlI8jdFkoR3MDubwux3tlqFDbi4bNmEl
+         0vZYCg+/Z3T6SSxIuuE3guR37G7SC2nfX2HmdM4GGvvGvBUHvY5KBMNXLwy2KRaS61AN
+         VoiA==
+X-Gm-Message-State: ANoB5plnX56kbtxIBTCYbPDw/kglbpfTej3WUUrVLf7yMmKPyF/zp42h
+	MtRcOqKtWPY9QmCQ5du5G14=
+X-Google-Smtp-Source: AA0mqf51MvSUlnnQ65C1Z0llSKT9K+dncVmWd3bQIUneAAbtt+mMxubD8JoJPEXzsVKPNOov/K3OIg==
+X-Received: by 2002:a17:902:7843:b0:187:282c:9b9c with SMTP id e3-20020a170902784300b00187282c9b9cmr13412451pln.29.1668426614110;
+        Mon, 14 Nov 2022 03:50:14 -0800 (PST)
+Received: from hyeyoo ([114.29.91.56])
+        by smtp.gmail.com with ESMTPSA id x12-20020aa79acc000000b0056ddd2b5e9bsm6517901pfp.41.2022.11.14.03.50.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Nov 2022 03:50:13 -0800 (PST)
+Date: Mon, 14 Nov 2022 20:50:03 +0900
+From: Hyeonggon Yoo <42.hyeyoo@gmail.com>
+To: Vlastimil Babka <vbabka@suse.cz>
+Cc: Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Conor Dooley <conor@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Christoph Lameter <cl@linux.com>,
+	David Rientjes <rientjes@google.com>,
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+	Pekka Enberg <penberg@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Rustam Kovhaev <rkovhaev@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+	Alexander Shiyan <shc_work@mail.ru>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	openrisc@lists.librecores.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
+	Conor.Dooley@microchip.com, Paul Cercueil <paul@crapouillou.net>
+Subject: Re: Deprecating and removing SLOB
+Message-ID: <Y3Ira4A7jNF+5l2d@hyeyoo>
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
+ <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz>
+ <Y260tkNHc2vFITJ3@spud>
+ <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
+ <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
+ <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PS2PR06MB3432:EE_|KL1PR06MB6259:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72b41a55-5999-4829-d895-08dac6353ea2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	2bz6bdyB5w0Gn6jp75Jt2+f5QDkH+vokHw4JLCE9Aq91/dFngRdhEnChkglgtztkzIqNvRbUcO/DCebfE09uYD7UB0P58JuVTp0S9ORVeWfLlKShF+tjVoig8oYK/xL5mGnF40xRDJFjiCX3+bT9Dj/kk/YYneUeYpxEigaI5dSCK0V6o+QORTaCR0p6jg51L3pBM2EoUFOOaFq8cPEo9EqkZjtnrE+nkgzxe8zVO0DTYR+L/rADLmJtX1R77C9hqDh5WPemjqHCZZurkTeOkqHVx+PMxr65wSMTLWlyoaMU+jallm5AUiJuSVLVdABmLGTAZIRh2x0yS207Yngir7Uo0oZNDNbnniLM4uRC0qleuD+UWv2Qvgkuy1FhdhKNWUgdOUDtABym5Alw05M4ol/lCkZGIcSiUcf3BLd15nXGLiQr2xmk5cEeT9VekMT9LIrlmYMuraWyvaEPoBT9ndvbSIuqHpNpuu7jEiSm65Edd8avIYIJkvB6tgyPe7kDuCdvv+p7emjCSzVgeZoyR0Fm4ciL3TYdT+RhU66oojNp3j2bzzlqc8HkZDxcjMdAry6PgBk2tf1772x8eaTSp4IjEgv3aW01VAziUd2rkraA99xUhO+zR8ALpDAMpTNLJhtzW3g65U/XudWh7Tc9u6HXGrgEamjkjnAK9VA1Ob6pKYRa2/Go1HUrghjqRKGpeBoIYopNjou4N6YLBUSpStjV6XaOm8TfSiQratSJr7Pb7DQjRdkh7zijq9GbRpBu
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS2PR06MB3432.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(396003)(366004)(376002)(346002)(39840400004)(136003)(451199015)(2616005)(8936002)(478600001)(6486002)(6506007)(52116002)(107886003)(6666004)(2906002)(316002)(36756003)(41300700001)(86362001)(66476007)(66946007)(7416002)(1076003)(5660300002)(66556008)(186003)(8676002)(4326008)(26005)(6512007)(83380400001)(38100700002)(38350700002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?+zg+znuIAb+nX34z3+NrOmVOdClmkGBg41mVHovVuLlS/+ZkjL7sWWTgQyOQ?=
- =?us-ascii?Q?EIWPzgDzBZlBF0KROLt3AklZTy7H/fPnvaAfp+k65jePi192as6ubGvrxl8+?=
- =?us-ascii?Q?/LRRrs79il8FAOOoAm2yK2dTtWM8Mca9ERmINVcA/VFi4CivIOPBOTk4fX5c?=
- =?us-ascii?Q?/9I2LOCY2dbHoWmOGCiEr/ze2av7p3SjvA6d8VNBifw8Jf+wUImbXiKi3JsJ?=
- =?us-ascii?Q?TV5gQyuHGCzFGJUX9SpGnVei5wvdyRx9X93GD31aekJnAMcLcMAI5UvRzCKs?=
- =?us-ascii?Q?odMwdPzY6L3JzoD9WaTyE6Yy6f5EWJjxtCt5czdBgiSlN1qeahmbtxbbkjRa?=
- =?us-ascii?Q?Y3+u7TJmBNFYYGVVTYkI4HNESDUtPZzA+ZugeAmiLl+2n+Vaaat8jcvANTfi?=
- =?us-ascii?Q?u2re0+00U2/EoXILrrLFN6zU2sCMbdwklQXRw1Kw7qMmAFwQW4EbNIeIa8QV?=
- =?us-ascii?Q?RiqjCF1/1QUIc3hMVSbJEQ5ltns5MedsBxafTSqq9YV1HHN0gmBBemb0gFvn?=
- =?us-ascii?Q?0cWPz2ROWjEDFyTb+nEbIfEuoEMkJEWknL6o1mRdx/TPWhB2qlzpzmcjC4Gh?=
- =?us-ascii?Q?iykP19HDf1jpa3SCYi56kFo8H1tgaEB9KECCYsgcymPZiLQTOKHDzuRO3L+B?=
- =?us-ascii?Q?DW28bTFHmZGVG94BCOjvHMlU9UGviwzFFuZlwowIUNNEpyFnChFt5n4PFlrl?=
- =?us-ascii?Q?QAH4oCf1OiVqROhZfiJXh0VH9SaU26wWz/1BP/YhATncYd8XyLua4kbt+9JS?=
- =?us-ascii?Q?r5QzyhhA4uNFmUXmA6JFQdUqlssw19ZAXQvGuZ0riecJVyJ0EnkoBtZ93A2n?=
- =?us-ascii?Q?q02zErGx3rOaNVuPezhPrYKIutmnDj3gsRfhjgLPB4V5QyR4xv/sVrJ/bq8K?=
- =?us-ascii?Q?3Wdi6MjCuE8HgqJmS1tP9jktesK5C1jH04bmbjJ0mM9h1S1ZMTHk2I5KbWuY?=
- =?us-ascii?Q?+1f4vUzxmYDbxhuJCarsbibWZIvglhXgPFJvDj7ca+NFiq4Lz/ViisaVvfne?=
- =?us-ascii?Q?04IqSUtiGE8u3Zph54okH0GHPLYuVnwmbLQrncJAgbW67l2+OnvR/1XenYyf?=
- =?us-ascii?Q?W3BNYxSBL37sAb4HqWwc+McsiQ/8EQ7CrJ7/ZvtuMQBUcWL7IFVd72XUgqOq?=
- =?us-ascii?Q?GSygDiIozzc2OVg+b+pBI0+Ux5dv3TA2yVEvF8QraaTE/u1JGfth0C0p4zYI?=
- =?us-ascii?Q?miWWRZXBnj8nqKWblnzeFbotVIqN2o/VgC8nRaZYcF10O/zyAzpGc9ixiEll?=
- =?us-ascii?Q?iXXMgiVmXfEMdz2UvG7dBsiFqxSCCW0kg7u4b/X9HezW7TJIBBUB1vvxjihW?=
- =?us-ascii?Q?opuEJss1fo+SyzJ3vcxdX+FpBryq/aLvL/d4NDHGmahuog+fROvKvI5wmkMF?=
- =?us-ascii?Q?1aZxDpZ+Ze3XsdiDQ42TscFr0iIxFoatjQj8QmHF1YNHepai5BnYJ8NWZBDC?=
- =?us-ascii?Q?Ix8kXfHLyRU9gBs9dM5bxg525qZT6SRGSdQu2o0NxEUpA5ev3TQ2yX1FRSQB?=
- =?us-ascii?Q?2FhJ2bZuVwGm+HtI/54D4TE7M9BNoEVGzwQCYmMx/JR7fswROSRhyM3Z9Vv6?=
- =?us-ascii?Q?QnUZ9hGDBkMLFeGFVFqrhdn2YAucOvIGZe4S28mFH1u8dWJ1m3d5uejkP5Cc?=
- =?us-ascii?Q?tA=3D=3D?=
-X-OriginatorOrg: jaguarmicro.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72b41a55-5999-4829-d895-08dac6353ea2
-X-MS-Exchange-CrossTenant-AuthSource: PS2PR06MB3432.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2022 11:42:01.5428
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 1e45a5c2-d3e1-46b3-a0e6-c5ebf6d8ba7b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4mqqyraXgnAl7p0L0+nDJHBx5CcSjpCiyCvK0iXRt4mxb8fb06VFw9WcuSzUoJTkURP+XLY5CF5Gy3nwkbNbNpqKlEiuTRN2p2IrvUS+eY4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6259
+Content-Disposition: inline
+In-Reply-To: <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_034214_953366_DA5EC1E2 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20221114_035015_448988_3EDE61B7 
+X-CRM114-Status: GOOD (  46.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,220 +121,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Xiaowu Ding <xiaowu.ding@jaguarmicro.com>
+On Mon, Nov 14, 2022 at 10:36:31AM +0100, Vlastimil Babka wrote:
+> On 11/14/22 06:48, Damien Le Moal wrote:
+> > On 11/14/22 10:55, Damien Le Moal wrote:
+> >> On 11/12/22 05:46, Conor Dooley wrote:
+> >>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
+> >>>> On 11/8/22 22:44, Pasha Tatashin wrote:
+> >>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
+> >>>>>>
+> >>>>>> Hi,
+> >>>>>>
+> >>>>>> as we all know, we currently have three slab allocators. As we discussed
+> >>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
+> >>>>>> two of them do not.
+> >>>>>>
+> >>>>>> The unsurprising reasons include code maintenance burden, other features
+> >>>>>> compatible with only a subset of allocators (or more effort spent on the
+> >>>>>> features), blocking API improvements (more on that below), and my
+> >>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
+> >>>>>> without resorting to spelling out the letters.
+> >>>>>>
+> >>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
+> >>>>>> two to be removed, so I'd like to focus on it first.
+> >>>>>>
+> >>>>>> I believe SLOB can be removed because:
+> >>>>>>
+> >>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
+> >>>>>> by putting all objects together, which has its CPU performance costs
+> >>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
+> >>>>>> aware of any "tiny linux" deployment that opts for this. For example,
+> >>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
+> >>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
+> >>>>>> SLOB impact is too much for those who tried. Googling for
+> >>>>>> "CONFIG_SLOB=y" yielded nothing useful.
+> >>>>>
+> >>>>> I am all for removing SLOB.
+> >>>>>
+> >>>>> There are some devices with configs where SLOB is enabled by default.
+> >>>>> Perhaps, the owners/maintainers of those devices/configs should be
+> >>>>> included into this thread:
+> >>>>>
+> >>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
+> >>>
+> >>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
+> >>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
+> >>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
+> >>>
+> >>>>
+> >>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
+> >>>> running make defconfig ends up with SLUB anyway, unless I miss something.
+> >>>> Only a subset has both SLOB and EXPERT:
+> >>>>
+> >>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
+> >>>
+> >>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
+> >>>
+> >>> I suppose there's not really a concern with the virt defconfig, but I
+> >>> did check the output of `make nommu_k210_defconfig" and despite not
+> >>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
+> >>>
+> >>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
+> >>> boots etc, but I have no workloads or w/e to run on it.
+> >> 
+> >> I sent a patch to change the k210 defconfig to using SLUB. However...
+> 
+> Thanks!
+> 
+> >> The current default config using SLOB gives about 630 free memory pages
+> >> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
+> >> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
+> 
+> Thanks for the testing! How much RAM does the system have btw? I found 8MB
+> somewhere, is that correct?
+> So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
+> difference [1]. But that was looking at Slab pages, not free pages.
 
-Cadence gem driver suuport acpi mode. Current the macb driver
-just support device tree mode.So we add new acpi mode code with
-this driver.
+IIRC overhead of s->min_partial (between 5 and 10) was pretty big because SLUB
+caches at most (s->min_partial) * (nr of caches) * (size of slab) bytes of
+unused memory.
 
-Signed-off-by: Xiaowu Ding <xiaowu.ding@jaguarmicro.com>
----
-V1 -> V2: Add the fixed "pclk" and "hclk" clock within the acpi platform 
-          device create.And delete the clock related modify code within the patch V1.
----
+Passing slub_max_order=0 also may help a little bit.
 
- drivers/net/ethernet/cadence/macb_main.c | 118 +++++++++++++++++++----
- 1 file changed, 100 insertions(+), 18 deletions(-)
+> The extra overhead could be also in percpu allocations, code etc.
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index aa1b03f8bfe9..c98a8b64f9c1 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -38,6 +38,8 @@
- #include <linux/pm_runtime.h>
- #include <linux/ptp_classify.h>
- #include <linux/reset.h>
-+#include <linux/acpi.h>
-+#include <linux/acpi_mdio.h>
- #include "macb.h"
- 
- /* This structure is only used for MACB on SiFive FU540 devices */
-@@ -748,24 +750,26 @@ static const struct phylink_mac_ops macb_phylink_ops = {
- 	.mac_link_up = macb_mac_link_up,
- };
- 
--static bool macb_phy_handle_exists(struct device_node *dn)
-+static bool macb_phy_handle_exists(struct fwnode_handle *fwnode)
- {
--	dn = of_parse_phandle(dn, "phy-handle", 0);
--	of_node_put(dn);
--	return dn != NULL;
-+	struct fwnode_handle *phy_node;
-+
-+	phy_node = fwnode_find_reference(fwnode, "phy-handle", 0);
-+	fwnode_handle_put(phy_node);
-+	return !IS_ERR(phy_node);
- }
- 
- static int macb_phylink_connect(struct macb *bp)
- {
--	struct device_node *dn = bp->pdev->dev.of_node;
-+	struct fwnode_handle *fwnode = bp->pdev->dev.fwnode;
- 	struct net_device *dev = bp->dev;
- 	struct phy_device *phydev;
- 	int ret;
- 
--	if (dn)
--		ret = phylink_of_phy_connect(bp->phylink, dn, 0);
--
--	if (!dn || (ret && !macb_phy_handle_exists(dn))) {
-+	if (fwnode)
-+		ret = phylink_fwnode_phy_connect(bp->phylink, fwnode, 0);
-+	 /* historical device tree code so keep no change */
-+	if (!fwnode || (ret && !macb_phy_handle_exists(fwnode))) {
- 		phydev = phy_find_first(bp->mii_bus);
- 		if (!phydev) {
- 			netdev_err(dev, "no PHY found\n");
-@@ -852,7 +856,7 @@ static int macb_mii_probe(struct net_device *dev)
- 	return 0;
- }
- 
--static int macb_mdiobus_register(struct macb *bp)
-+static int macb_of_mdiobus_register(struct macb *bp)
- {
- 	struct device_node *child, *np = bp->pdev->dev.of_node;
- 
-@@ -888,6 +892,36 @@ static int macb_mdiobus_register(struct macb *bp)
- 	return mdiobus_register(bp->mii_bus);
- }
- 
-+static int macb_acpi_mdiobus_register(struct macb *bp)
-+{
-+	struct platform_device *pdev = bp->pdev;
-+	struct fwnode_handle *fwnode = pdev->dev.fwnode;
-+	struct fwnode_handle *child;
-+	u32 addr;
-+	int ret;
-+
-+	if (!IS_ERR_OR_NULL(fwnode_find_reference(fwnode, "fixed-link", 0)))
-+		return mdiobus_register(bp->mii_bus);
-+	fwnode_for_each_child_node(fwnode, child) {
-+		ret = acpi_get_local_address(ACPI_HANDLE_FWNODE(child), &addr);
-+		if (ret)
-+			continue;
-+
-+		ret = acpi_mdiobus_register(bp->mii_bus, fwnode);
-+	}
-+
-+	return mdiobus_register(bp->mii_bus);
-+}
-+
-+static int macb_mdiobus_register(struct macb *bp)
-+{
-+	/* macb of device tree mode register mdio bus */
-+	if (likely(is_of_node(bp->pdev->dev.fwnode)))
-+		return macb_of_mdiobus_register(bp);
-+	/* macb acpi mode register mdio bus */
-+	return macb_acpi_mdiobus_register(bp);
-+}
-+
- static int macb_mii_init(struct macb *bp)
- {
- 	int err = -ENXIO;
-@@ -4812,6 +4846,42 @@ static const struct of_device_id macb_dt_ids[] = {
- MODULE_DEVICE_TABLE(of, macb_dt_ids);
- #endif /* CONFIG_OF */
- 
-+#ifdef CONFIG_ACPI
-+
-+static const struct macb_config jmnd_gem_rgmii_config = {
-+	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_SG_DISABLED |
-+	    MACB_CAPS_JUMBO,
-+	.dma_burst_length = 16,
-+	.clk_init = macb_clk_init,
-+	.init = macb_init,
-+	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio
-+};
-+
-+static const struct macb_config jmnd_gem_rmii_config = {
-+	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_JUMBO,
-+	.dma_burst_length = 16,
-+	.clk_init = macb_clk_init,
-+	.init = macb_init,
-+	.jumbo_max_len = 10240,
-+	.usrio = &macb_default_usrio,
-+};
-+
-+static const struct acpi_device_id macb_acpi_ids[] = {
-+	{
-+	 .id = "JAMC00B0",
-+	 .driver_data = (kernel_ulong_t)&jmnd_gem_rgmii_config},
-+	{
-+	 .id = "JAMC00BA",
-+	 .driver_data = (kernel_ulong_t)&jmnd_gem_rmii_config},
-+	{
-+	 },
-+};
-+
-+MODULE_DEVICE_TABLE(acpi, macb_acpi_ids);
-+
-+#endif
-+
- static const struct macb_config default_gem_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
- 		MACB_CAPS_JUMBO |
-@@ -4855,6 +4925,17 @@ static int macb_probe(struct platform_device *pdev)
- 			clk_init = macb_config->clk_init;
- 			init = macb_config->init;
- 		}
-+	} else {   /*add gem support acpi */
-+		const struct acpi_device_id *match;
-+
-+		match =
-+		    acpi_match_device(pdev->dev.driver->acpi_match_table,
-+				      &pdev->dev);
-+		if (match && match->driver_data) {
-+			macb_config = (struct macb_config *)match->driver_data;
-+			clk_init = macb_config->clk_init;
-+			init = macb_config->init;
-+		}
- 	}
- 
- 	err = clk_init(pdev, &pclk, &hclk, &tx_clk, &rx_clk, &tsu_clk);
-@@ -4904,7 +4985,7 @@ static int macb_probe(struct platform_device *pdev)
- 		bp->jumbo_max_len = macb_config->jumbo_max_len;
- 
- 	bp->wol = 0;
--	if (of_get_property(np, "magic-packet", NULL))
-+	if (device_property_present(&pdev->dev, "magic-packet"))
- 		bp->wol |= MACB_WOL_HAS_MAGIC_PACKET;
- 	device_set_wakeup_capable(&pdev->dev, bp->wol & MACB_WOL_HAS_MAGIC_PACKET);
- 
-@@ -4952,15 +5033,13 @@ static int macb_probe(struct platform_device *pdev)
- 	if (bp->caps & MACB_CAPS_NEEDS_RSTONUBR)
- 		bp->rx_intr_mask |= MACB_BIT(RXUBR);
- 
--	err = of_get_ethdev_address(np, bp->dev);
--	if (err == -EPROBE_DEFER)
--		goto err_out_free_netdev;
--	else if (err)
-+	if (device_get_ethdev_address(&pdev->dev, dev))
- 		macb_get_hwaddr(bp);
- 
--	err = of_get_phy_mode(np, &interface);
--	if (err)
--		/* not found in DT, MII by default */
-+	/*add gem support acpi */
-+	interface = device_get_phy_mode(&pdev->dev);
-+	if (interface < 0)
-+		/* not found in DT and ACPI , MII by default */
- 		bp->phy_interface = PHY_INTERFACE_MODE_MII;
- 	else
- 		bp->phy_interface = interface;
-@@ -5255,6 +5334,9 @@ static struct platform_driver macb_driver = {
- 	.driver		= {
- 		.name		= "macb",
- 		.of_match_table	= of_match_ptr(macb_dt_ids),
-+#ifdef CONFIG_ACPI
-+		.acpi_match_table = ACPI_PTR(macb_acpi_ids),
-+#endif
- 		.pm	= &macb_pm_ops,
- 	},
- };
+SLUB do not use large amount of percpu allocator I think, less than
+30kB on such a small machine.
+
+Maybe also it would help reducing code size to disable CONFIG_MEMCG and CONFIG_TRACING,
+CONFIG_SLUB_DEBUG and CONFIG_SYSFS.
+
+I started from tinyconfig and enabled only necessary configs when testing in [1]
+(it's a bit laborious cuz pure tinyconfig does not even boot...).
+
+> >> This is with a buildroot kernel 5.19 build including a shell and sd-card
+> >> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
+> >> definitely see more errors with shell commands failing due to allocation
+> >> failures for the shell process fork. So as far as the K210 is concerned,
+> >> switching to SLUB is not ideal.
+> >> 
+> >> I would not want to hold on kernel mm improvements because of this toy
+> >> k210 though, so I am not going to prevent SLOB deprecation. I just wish
+> >> SLUB itself used less memory :)
+> > 
+> > Did further tests with kernel 6.0.1:
+> > * SLOB: 630 free pages after boot, shell working (occasional shell fork
+> > failure happen though)
+> > * SLAB: getting memory allocation for order 7 failures on boot already
+> > (init process). Shell barely working (high frequency of shell command fork
+> > failures)
+> > * SLUB: getting memory allocation for order 7 failures on boot. I do get a
+> > shell prompt but cannot run any shell command that involves forking a new
+> > process.
+> > 
+> > So if we want to keep the k210 support functional with a shell, we need
+> > slob. If we reduce that board support to only one application started as
+> > the init process, then I guess anything is OK.
+> 
+> In [1] it was possible to save some more memory with more tuning. Some of
+> that required boot parameters and other code changes. In another reply [2] I
+> considered adding something like SLUB_TINY to take care of all that, so
+> looks like it would make sense to proceed with that.
+> 
+> [1]
+> https://lore.kernel.org/all/Yg9xSWEaTZLA+hYt@ip-172-31-19-208.ap-northeast-1.compute.internal/
+> [2] https://lore.kernel.org/all/eebc9dc8-6a45-c099-61da-230d06cb3157@suse.cz/
+
 -- 
-2.17.1
-
+Thanks,
+Hyeonggon
 
 _______________________________________________
 linux-riscv mailing list
