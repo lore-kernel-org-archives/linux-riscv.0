@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6120FC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:49:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B6BC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 14:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TIAvS4VkWi+zjihonPYKHcvp7ftDRhgx1Q1PMl+mPp4=; b=ncLU/WleATUoFq
-	tkJIFyf0J0+kKzOFY0eZLVyU+CdThmmcC5lRP72pxCvjN38vr2eI+nHq1911zG88NuGjIlnuUWfdD
-	ghSBwj04NTFhfWbsuozgxuAb4e4GaL3FEoiCZluzEd/TMd6cDvk8NhmK1LeQVUa8ykOGmT25Dmad/
-	WAokzPvIu3H7sUB28AABFhCw5CpoofYG8lvEMyrh8EvZnz9j8w9usRSTeYUP/hPcuNJvngmEcIchK
-	BwCxJCCXr8P1IKNL7gyCp2Zd+MtMXWiy71VNy9CBDqu+2M617TeKooBI6wO5QfPm4YRQrKPFs8Q1v
-	8iH2ZstgFTxZZ7HR9U2g==;
+	List-Owner; bh=xFBm7c5r9gIfOdivONcbriKJuuRtv22E1SZ3jNzQLhY=; b=3hGWtVG4gziR8x
+	B8YZXTVN0y/1ur2NWd4ZJVcu+rNXELSDB4pKeY52pu6gd1rZnYhAt8FRVZh4Yrtm3lqGpRGr4JfxG
+	9CpaIlJioTAADFedA/WTGP4bdeuiGI9U+Dpf6zCssQ/G52EZorp41OfF3/xDQH63jbW8bAcu+xozx
+	OBWtOXfk/m9UiZILZQ62s/N2PK+7lS78dOgTljv7K0klHyNt9svuFt4zSO1CFRGk3TsQ1kGZ4msiT
+	rJCDwZVzu/ei5uuzufMP8aIK2T3k3s6lUfQ0OVFTt1PMBPtcTdJ5NqiRtJVNeYc88j6hYM4OMmpLX
+	39+AHtXW2LdUwEKz5cpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouamC-001vZh-6A; Mon, 14 Nov 2022 14:49:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ouapM-001xS9-Lz; Mon, 14 Nov 2022 14:52:48 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouag6-001qlL-RX
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 14:43:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DA5886121D
-	for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 14:43:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB1AC433D7
-	for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 14:43:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668436989;
-	bh=6nNWR5NerXSxecL8VdhiVVdD5zAsF47xRXXFuRVi82g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CaOv4GmA9WThiNQoxaRmtOKZjKJO/NJ3eJDkLr9+ZmtiMwayh6JaiW/TeKI7N8ikE
-	 P2YAUxXu7XEavF78nPnKqj5Qo+VWnmoz7M8D9CvP2vKO+gSEnF8/SEss2vyV79JaNc
-	 2UHX0p9dUJqtOVwbJSeC6l8QZgd98hwyPYpqaSkx1yAppcSDwjmW06r99AFxKJSFSX
-	 aWc2edzJ93jICFmlW0nsJfo2vDUa3Ju/rfi7hEjqaoyTtNYSaUe1yPyfaPTK3J/TJC
-	 3MHPJ1HoomaksKIAQURt5uENBDheRWFr+eeSVE7frITI2afmIDVvSyFb0OdsE4Cq2G
-	 ytjnrF6LksfrQ==
-Received: by mail-ed1-f49.google.com with SMTP id i21so17623783edj.10
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 06:43:09 -0800 (PST)
-X-Gm-Message-State: ANoB5pliBKHdE7/8kZcIsue0Pe+t35MM5vzZdiS8k2+gbz16LIrVgeWx
-	/PDgQ10wCkOzGEmEAnncUpQWSgI46aJ72fPeScM=
-X-Google-Smtp-Source: AA0mqf7Yp6iskpWJViQJphxrRDeaNe5w3LLeFe1XgUBaii/TniorFeH9en2nRW6mw31lC11oNAlTRSGSpKZmVuGL4zc=
-X-Received: by 2002:a05:6402:414e:b0:463:1a0c:4dd1 with SMTP id
- x14-20020a056402414e00b004631a0c4dd1mr11646984eda.137.1668436987703; Mon, 14
- Nov 2022 06:43:07 -0800 (PST)
+	id 1ouak2-001uAx-1J; Mon, 14 Nov 2022 14:47:21 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id b1-20020a17090a7ac100b00213fde52d49so10832500pjl.3;
+        Mon, 14 Nov 2022 06:47:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RAVDiAC6zB9a2VA9cAkzTKrj8UeLfO95holBArk2auY=;
+        b=Ka6kGiT2ih/iWtCkXiSIg98dy3rf/kc4NpdyyEEbP8ONVZ/lg3ijoLiNp7Khx/vcbW
+         3hTRDokhrwSFGY98NXKEpI1pRZhEa1Wr5Vj9wgrbwkkdRrTSJ6Hx8jr744wyWU2oUovU
+         YVEkJh4B90VxOfeLyFQXZ+7obOJYv/sLhf6Z51AWlrj8npnPcszoVuAlf1Avc/hII4Pj
+         J7tXzxCzt8d8R8Tx9KKZ4Jpl6hRMaaHM7u/T2jNPFeuZ1ofeOUSziW2WczK8mU8/CWQt
+         A+eS3flkkjjUSDwxNkFJHI1WYlVWRU/8YumfqkP6qkOLSJ81yjJjxCc8/zYXvvebVbm2
+         Ngdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RAVDiAC6zB9a2VA9cAkzTKrj8UeLfO95holBArk2auY=;
+        b=A7dZznkIGLM4zuLEo0cMt/gHkK6nvkuCqb2EDhRgw1sSB/A1G/Q/S0XK1merYeKqdb
+         YFQA2Fto4YHfkqgsZVuhCmuiBP0KF2z2S1OIJDcO4FaWS8/RtoiNCn4JyNJeJo1whGzA
+         z7fV9oXSPaz0map1GNlaMZm7EGJMwAM83CzciFzBQKWo+my+3PSQZeek5TUBYgH/bfS3
+         kMz4JURrUHN5Ltd5fipS25mnvUlEZtbC2ughCuJPa/ztxc/eiwQbn54pSIYYajYgdNlx
+         4P2uVjtseLKwx8IZQNtGuVoub0AFgfkgUAZl5SfkJEHGGnMUgY7zH/9oq85A6HlbMqVL
+         rrdg==
+X-Gm-Message-State: ANoB5pnypdeNUWnAseH2AYru6FfyZlkyum6ghHqnFAT+xWUmCpk3emcI
+	B0m2F1m8ye+tSuCeDvDRRNU=
+X-Google-Smtp-Source: AA0mqf7ZApoBFRJRPpdJdq81DvnXbtoMGmsjoAxn3Xthb1AblAdoyrTq9IJxqXo/qMAtFQ41XL/7Kw==
+X-Received: by 2002:a17:90a:4f4e:b0:212:ffd2:440a with SMTP id w14-20020a17090a4f4e00b00212ffd2440amr14297465pjl.7.1668437233159;
+        Mon, 14 Nov 2022 06:47:13 -0800 (PST)
+Received: from hyeyoo ([114.29.91.56])
+        by smtp.gmail.com with ESMTPSA id c14-20020a62f84e000000b0052d4cb47339sm6750816pfm.151.2022.11.14.06.47.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Nov 2022 06:47:12 -0800 (PST)
+Date: Mon, 14 Nov 2022 23:47:01 +0900
+From: Hyeonggon Yoo <42.hyeyoo@gmail.com>
+To: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>, Conor Dooley <conor@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Christoph Lameter <cl@linux.com>,
+	David Rientjes <rientjes@google.com>,
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+	Pekka Enberg <penberg@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Rustam Kovhaev <rkovhaev@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+	Alexander Shiyan <shc_work@mail.ru>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	openrisc@lists.librecores.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
+	Conor.Dooley@microchip.com, Paul Cercueil <paul@crapouillou.net>
+Subject: Re: Deprecating and removing SLOB
+Message-ID: <Y3JU5cfyid1rBoOy@hyeyoo>
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
+ <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz>
+ <Y260tkNHc2vFITJ3@spud>
+ <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
+ <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
+ <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
+ <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
 MIME-Version: 1.0
-References: <20221111223108.1976562-1-abrestic@rivosinc.com>
-In-Reply-To: <20221111223108.1976562-1-abrestic@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 14 Nov 2022 22:42:56 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRbcocqkmkLVmfYO-8ae-kY0bJwZ+sE-WDXfbF0Y_ZkWg@mail.gmail.com>
-Message-ID: <CAJF2gTRbcocqkmkLVmfYO-8ae-kY0bJwZ+sE-WDXfbF0Y_ZkWg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Fix unannoted hardirqs-on in return to userspace slow-path
-To: Andrew Bresticker <abrestic@rivosinc.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_064315_031246_A5706195 
-X-CRM114-Status: GOOD (  30.97  )
+X-CRM114-CacheID: sfid-20221114_064718_097291_F52EA666 
+X-CRM114-Status: GOOD (  50.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,198 +121,165 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 12, 2022 at 6:31 AM Andrew Bresticker <abrestic@rivosinc.com> wrote:
->
-> The return to userspace path in entry.S may enable interrupts without the
-> corresponding lockdep annotation, producing a splat[0] when DEBUG_LOCKDEP
-> is enabled. Simply calling __trace_hardirqs_on() here gets a bit messy
-> due to the use of RA to point back to ret_from_exception, so just move
-> the whole slow-path loop into C. It's more readable and it lets us use
-> local_irq_{enable,disable}(), avoiding the need for manual annotations
-> altogether.
-Could generic_entry solve your problem? please try:
-https://lore.kernel.org/linux-riscv/20221103075047.1634923-1-guoren@kernel.org/
+On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
+> On 11/14/22 18:36, Vlastimil Babka wrote:
+> > On 11/14/22 06:48, Damien Le Moal wrote:
+> >> On 11/14/22 10:55, Damien Le Moal wrote:
+> >>> On 11/12/22 05:46, Conor Dooley wrote:
+> >>>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
+> >>>>> On 11/8/22 22:44, Pasha Tatashin wrote:
+> >>>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
+> >>>>>>>
+> >>>>>>> Hi,
+> >>>>>>>
+> >>>>>>> as we all know, we currently have three slab allocators. As we discussed
+> >>>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
+> >>>>>>> two of them do not.
+> >>>>>>>
+> >>>>>>> The unsurprising reasons include code maintenance burden, other features
+> >>>>>>> compatible with only a subset of allocators (or more effort spent on the
+> >>>>>>> features), blocking API improvements (more on that below), and my
+> >>>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
+> >>>>>>> without resorting to spelling out the letters.
+> >>>>>>>
+> >>>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
+> >>>>>>> two to be removed, so I'd like to focus on it first.
+> >>>>>>>
+> >>>>>>> I believe SLOB can be removed because:
+> >>>>>>>
+> >>>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
+> >>>>>>> by putting all objects together, which has its CPU performance costs
+> >>>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
+> >>>>>>> aware of any "tiny linux" deployment that opts for this. For example,
+> >>>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
+> >>>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
+> >>>>>>> SLOB impact is too much for those who tried. Googling for
+> >>>>>>> "CONFIG_SLOB=y" yielded nothing useful.
+> >>>>>>
+> >>>>>> I am all for removing SLOB.
+> >>>>>>
+> >>>>>> There are some devices with configs where SLOB is enabled by default.
+> >>>>>> Perhaps, the owners/maintainers of those devices/configs should be
+> >>>>>> included into this thread:
+> >>>>>>
+> >>>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
+> >>>>
+> >>>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
+> >>>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
+> >>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
+> >>>>
+> >>>>>
+> >>>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
+> >>>>> running make defconfig ends up with SLUB anyway, unless I miss something.
+> >>>>> Only a subset has both SLOB and EXPERT:
+> >>>>>
+> >>>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
+> >>>>
+> >>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
+> >>>>
+> >>>> I suppose there's not really a concern with the virt defconfig, but I
+> >>>> did check the output of `make nommu_k210_defconfig" and despite not
+> >>>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
+> >>>>
+> >>>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
+> >>>> boots etc, but I have no workloads or w/e to run on it.
+> >>>
+> >>> I sent a patch to change the k210 defconfig to using SLUB. However...
+> > 
+> > Thanks!
+> > 
+> >>> The current default config using SLOB gives about 630 free memory pages
+> >>> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
+> >>> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
+> > 
+> > Thanks for the testing! How much RAM does the system have btw? I found 8MB
+> > somewhere, is that correct?
+> 
+> Yep, 8MB, that's it.
+> 
+> > So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
+> > difference [1]. But that was looking at Slab pages, not free pages. The
+> > extra overhead could be also in percpu allocations, code etc.
+> > 
+> >>> This is with a buildroot kernel 5.19 build including a shell and sd-card
+> >>> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
+> >>> definitely see more errors with shell commands failing due to allocation
+> >>> failures for the shell process fork. So as far as the K210 is concerned,
+> >>> switching to SLUB is not ideal.
+> >>>
+> >>> I would not want to hold on kernel mm improvements because of this toy
+> >>> k210 though, so I am not going to prevent SLOB deprecation. I just wish
+> >>> SLUB itself used less memory :)
+> >>
+> >> Did further tests with kernel 6.0.1:
+> >> * SLOB: 630 free pages after boot, shell working (occasional shell fork
+> >> failure happen though)
+> >> * SLAB: getting memory allocation for order 7 failures on boot already
+> >> (init process). Shell barely working (high frequency of shell command fork
+> >> failures)
+> 
+> I forgot to add here that the system was down to about 500 free pages
+> after boot (again from the shell with "cat /proc/vmstat").
+> 
+> >> * SLUB: getting memory allocation for order 7 failures on boot. I do get a
+> >> shell prompt but cannot run any shell command that involves forking a new
+> >> process.
+> 
+> For both slab and slub, I had cpu partial off, debug off and slab merge
+> on, as I suspected that would lead to less memory overhead.
+> I suspected memory fragmentation may be an issue but doing
+> 
+> echo 3 > /proc/sys/vm/drop_caches
+> 
+> before trying a shell command did not help much at all (it usually does on
+> that board with SLOB). Note that this is all with buildroot, so this echo
+> & redirect always works as it does not cause a shell fork.
+> 
+> >>
+> >> So if we want to keep the k210 support functional with a shell, we need
+> >> slob. If we reduce that board support to only one application started as
+> >> the init process, then I guess anything is OK.
+> > 
+> > In [1] it was possible to save some more memory with more tuning. Some of
+> > that required boot parameters and other code changes. In another reply [2] I
+> > considered adding something like SLUB_TINY to take care of all that, so
+> > looks like it would make sense to proceed with that.
+> 
+> If you want me to test something, let me know.
 
->
-> [0]:
->   ------------[ cut here ]------------
->   DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
->   WARNING: CPU: 2 PID: 1 at kernel/locking/lockdep.c:5512 check_flags+0x10a/0x1e0
->   Modules linked in:
->   CPU: 2 PID: 1 Comm: init Not tainted 6.1.0-rc4-00160-gb56b6e2b4f31 #53
->   Hardware name: riscv-virtio,qemu (DT)
->   epc : check_flags+0x10a/0x1e0
->   ra : check_flags+0x10a/0x1e0
->   <snip>
->    status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
->   [<ffffffff808edb90>] lock_is_held_type+0x78/0x14e
->   [<ffffffff8003dae2>] __might_resched+0x26/0x22c
->   [<ffffffff8003dd24>] __might_sleep+0x3c/0x66
->   [<ffffffff80022c60>] get_signal+0x9e/0xa70
->   [<ffffffff800054a2>] do_notify_resume+0x6e/0x422
->   [<ffffffff80003c68>] ret_from_exception+0x0/0x10
->   irq event stamp: 44512
->   hardirqs last  enabled at (44511): [<ffffffff808f901c>] _raw_spin_unlock_irqrestore+0x54/0x62
->   hardirqs last disabled at (44512): [<ffffffff80008200>] __trace_hardirqs_off+0xc/0x14
->   softirqs last  enabled at (44472): [<ffffffff808f9fbe>] __do_softirq+0x3de/0x51e
->   softirqs last disabled at (44467): [<ffffffff80017760>] irq_exit+0xd6/0x104
->   ---[ end trace 0000000000000000 ]---
->   possible reason: unannotated irqs-on.
->
-> Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
-> ---
-> This should also theoretically be fixed by the conversion to generic entry,
-> but it's not clear how far away that series is from landing.
-> ---
->  arch/riscv/kernel/entry.S  | 18 +++++-------------
->  arch/riscv/kernel/signal.c | 34 +++++++++++++++++++++-------------
->  2 files changed, 26 insertions(+), 26 deletions(-)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..58dfa8595e19 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -263,12 +263,11 @@ ret_from_exception:
->  #endif
->         bnez s0, resume_kernel
->
-> -resume_userspace:
->         /* Interrupts must be disabled here so flags are checked atomically */
->         REG_L s0, TASK_TI_FLAGS(tp) /* current_thread_info->flags */
->         andi s1, s0, _TIF_WORK_MASK
-> -       bnez s1, work_pending
-> -
-> +       bnez s1, resume_userspace_slow
-> +resume_userspace:
->  #ifdef CONFIG_CONTEXT_TRACKING_USER
->         call user_enter_callable
->  #endif
-> @@ -368,19 +367,12 @@ resume_kernel:
->         j restore_all
->  #endif
->
-> -work_pending:
-> +resume_userspace_slow:
->         /* Enter slow path for supplementary processing */
-> -       la ra, ret_from_exception
-> -       andi s1, s0, _TIF_NEED_RESCHED
-> -       bnez s1, work_resched
-> -work_notifysig:
-> -       /* Handle pending signals and notify-resume requests */
-> -       csrs CSR_STATUS, SR_IE /* Enable interrupts for do_notify_resume() */
->         move a0, sp /* pt_regs */
->         move a1, s0 /* current_thread_info->flags */
-> -       tail do_notify_resume
-> -work_resched:
-> -       tail schedule
-> +       call do_work_pending
-> +       j resume_userspace
->
->  /* Slow paths for ptrace. */
->  handle_syscall_trace_enter:
-> diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-> index 5c591123c440..bfb2afa4135f 100644
-> --- a/arch/riscv/kernel/signal.c
-> +++ b/arch/riscv/kernel/signal.c
-> @@ -313,19 +313,27 @@ static void do_signal(struct pt_regs *regs)
->  }
->
->  /*
-> - * notification of userspace execution resumption
-> - * - triggered by the _TIF_WORK_MASK flags
-> + * Handle any pending work on the resume-to-userspace path, as indicated by
-> + * _TIF_WORK_MASK. Entered from assembly with IRQs off.
->   */
-> -asmlinkage __visible void do_notify_resume(struct pt_regs *regs,
-> -                                          unsigned long thread_info_flags)
-> +asmlinkage __visible void do_work_pending(struct pt_regs *regs,
-> +                                         unsigned long thread_info_flags)
->  {
-> -       if (thread_info_flags & _TIF_UPROBE)
-> -               uprobe_notify_resume(regs);
-> -
-> -       /* Handle pending signal delivery */
-> -       if (thread_info_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
-> -               do_signal(regs);
-> -
-> -       if (thread_info_flags & _TIF_NOTIFY_RESUME)
-> -               resume_user_mode_work(regs);
-> +       do {
-> +               if (thread_info_flags & _TIF_NEED_RESCHED) {
-> +                       schedule();
-> +               } else {
-> +                       local_irq_enable();
-> +                       if (thread_info_flags & _TIF_UPROBE)
-> +                               uprobe_notify_resume(regs);
-> +                       /* Handle pending signal delivery */
-> +                       if (thread_info_flags & (_TIF_SIGPENDING |
-> +                                                _TIF_NOTIFY_SIGNAL))
-> +                               do_signal(regs);
-> +                       if (thread_info_flags & _TIF_NOTIFY_RESUME)
-> +                               resume_user_mode_work(regs);
-> +               }
-> +               local_irq_disable();
-> +               thread_info_flags = read_thread_flags();
-> +       } while (thread_info_flags & _TIF_WORK_MASK);
->  }
-The more graceful code has been written in kernel/entry/common.c.
-Let's base it on that:
+Would you try this please?
 
-static unsigned long exit_to_user_mode_loop(struct pt_regs *regs,
-                                            unsigned long ti_work)
-{
-        /*
-         * Before returning to user space ensure that all pending work
-         * items have been completed.
-         */
-        while (ti_work & EXIT_TO_USER_MODE_WORK) {
-
-                local_irq_enable_exit_to_user(ti_work);
-
-                if (ti_work & _TIF_NEED_RESCHED)
-                        schedule();
-
-                if (ti_work & _TIF_UPROBE)
-                        uprobe_notify_resume(regs);
-
-                if (ti_work & _TIF_PATCH_PENDING)
-                        klp_update_patch_state(current);
-
-                if (ti_work & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
-                        arch_do_signal_or_restart(regs);
-
-                if (ti_work & _TIF_NOTIFY_RESUME)
-                        resume_user_mode_work(regs);
-
-                /* Architecture specific TIF work */
-                arch_exit_to_user_mode_work(regs, ti_work);
-
-                /*
-                 * Disable interrupts and reevaluate the work flags as they
-                 * might have changed while interrupts and preemption was
-                 * enabled above.
-                 */
-                local_irq_disable_exit_to_user();
-
-                /* Check if any of the above work has queued a
-deferred wakeup */
-                tick_nohz_user_enter_prepare();
-
-                ti_work = read_thread_flags();
-        }
-
-        /* Return the latest work state for arch_exit_to_user_mode() */
-        return ti_work;
-}
-
-> --
-> 2.25.1
->
+diff --git a/mm/slub.c b/mm/slub.c
+index a24b71041b26..1c36c4b9aaa0 100644
+--- a/mm/slub.c
++++ b/mm/slub.c
+@@ -4367,9 +4367,7 @@ static int kmem_cache_open(struct kmem_cache *s, slab_flags_t flags)
+ 	 * The larger the object size is, the more slabs we want on the partial
+ 	 * list to avoid pounding the page allocator excessively.
+ 	 */
+-	s->min_partial = min_t(unsigned long, MAX_PARTIAL, ilog2(s->size) / 2);
+-	s->min_partial = max_t(unsigned long, MIN_PARTIAL, s->min_partial);
+-
++	s->min_partial = 0;
+ 	set_cpu_partial(s);
+ 
+ #ifdef CONFIG_NUMA
 
 
--- 
-Best Regards
- Guo Ren
+and booting with and without boot parameter slub_max_order=0?
+
+Thanks,
+Hyeonggon
+
+> 
+> > 
+> > [1]
+> > https://lore.kernel.org/all/Yg9xSWEaTZLA+hYt@ip-172-31-19-208.ap-northeast-1.compute.internal/
+> > [2] https://lore.kernel.org/all/eebc9dc8-6a45-c099-61da-230d06cb3157@suse.cz/
+> 
+> -- 
+> Damien Le Moal
+> Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
