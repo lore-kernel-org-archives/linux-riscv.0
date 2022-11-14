@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877BDC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 12:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FDCC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 12:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XXQtZrpEt1s54FqP5PJ68zYd78xwrG1wkplP612m9Qs=; b=JQ/o53v1QNW7G2
-	JL1JJrngxXOo4bHz8E8XbOF1jGmKBFiBmSQGihO2kLnDLZsy/eQIfdFmiOjjKiR30FD6UehCh9yKW
-	zt6XNLs7kjYqIh60XxppJz7/FjKAK4rdYqo+MsidemAO9kNtnxafk0M00qwOZazR+y+z1K2Y5VhJs
-	87VM9H5riCzJrIFctRsR4kvV/DMlqhoGo7TuvUBCpQWa6EoWNHIjFZ+cdi7csznnhEZ/lj+HpjD5M
-	t9iLahWB9HzAi71F9QnFot7ZhEVvZdo2+cVhgE6BQFgIlYr5d7sBF4TMgh0AEBkYFBSaRyI97GYmU
-	VP56YadQTATaoGhDTcFg==;
+	List-Owner; bh=MqQtruFB+WNLBuXjhNIDiq5p26BO1QssslIf/UzMS0Q=; b=xRBwv0eBI7Aoe7
+	wAGbig50WCLv8bNAw5QKZsrARhaWQvMYxVsjGSFu3gyFIsSmvDF+Gwjk5sRY2L0HkOg4kOMBZhTfr
+	uO8Q25pJtJIUj4nfPuma8iNiNS2tGL/182LfzePXg4uMM1+50bZzgCxgSuvBiOwYI/0lBo56vTyMn
+	I9VwFrTHjJAs6Cy96jRxm9W69AeGsidZBPMpBCDnvZ+m9Gx/571e2J30y8QtqzF3a6NS1PniGJfDY
+	9s49LUZgBJYuhjbM2rftXD6aev4hh9dXRGdaXck51RYihiMOXoG95/qLQxGn8qtIIQy4WWQhm2yPn
+	mnmEDzeeZr64nslhPffA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYaS-000oPf-T6; Mon, 14 Nov 2022 12:29:16 +0000
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
+	id 1ouYam-000oUf-HC; Mon, 14 Nov 2022 12:29:36 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYaO-000oOM-QJ
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 12:29:14 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id l42-20020a9d1b2d000000b0066c6366fbc3so6547440otl.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 04:29:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UBYAgk/8XQPB5WMV9514943bZAhbCeR6TpxGksmgvQw=;
-        b=IeHkTMEko2YpCueQyCJhLIgos/8B9AzexLBkQ3eslu8qVkYY0G2NSPTXch4PObCaof
-         v4AKwL8CmP2/6ks6MY6r0BlerBNZOSAHiLwjuEmrklgKAuPHpbultboz6DkbHd+yCyV6
-         UP2mKBZ9nPs9c6H3aZG01CIMOmHwJkPaXx50uMQoHTuU+fp+h1FJ8VWLDyTH886zEf3B
-         Htuu9eMIpbk/h5dFeVfAhR781kI0+4xdsYozkhRi9FbycnllKPH/9tvabkk4HVQDI5YF
-         bTNZfRaB7CuW9Zn046WXYi3EebzCxxZKORBT1bjtyYl9/yktRITzNntk0wH6+aM3ELBU
-         XwLA==
+	id 1ouYaj-000oTB-Cf
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 12:29:35 +0000
+Received: from mail-yb1-f198.google.com (mail-yb1-f198.google.com [209.85.219.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DA292423C3
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 12:29:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1668428962;
+	bh=ZjYjLXCHxCVOYpmvr6/HR55meSdpQL0pXQhoi2NzHxE=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=c/A9poBT6sg7NRll1Q3I74+tMQQPiD6wprxnjXBcN4qm8hOn45lnqsGuG99PKO3eP
+	 sgZpKvCSzvvogTdjUCTy2wuZJF5o62Jiy9t+Vb/xgNdXl0Otq7ncny0oazGGmcrDfD
+	 Z+NjkxgMKOhS0mm+ISF0XQphXOjxNSW7E5Qz9/fkhC2asq8mHxelYymKRTNh4AXec+
+	 BjNLXit9Fc4h8Ek94bJ1p3MT04YPMtWkKuC4p0K4NM47FeXm0hpIxYiwRr8JcX2sjl
+	 Kz/q7gRypuymfxd4gq4LsA91BFQ2brZ0xPg7pPr+MFn4Cb1j4ysnbRJnadJmdJ5Ui8
+	 NbcJHrGw1Lgow==
+Received: by mail-yb1-f198.google.com with SMTP id e189-20020a25e7c6000000b006e37f21e689so94249ybh.10
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 04:29:22 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UBYAgk/8XQPB5WMV9514943bZAhbCeR6TpxGksmgvQw=;
-        b=EaWzciZ1AfRs65ZKutUNgCSu6t/7HXpIom19kM3WWAokwwPWbSeZlmslKyTGJp0lec
-         ijs/hAMEsUwle+v4e1iYUT6Hmo8pQGSIsC8/Is1rIgbEaAdlrIEA9TzhZiUJIDGy2pdD
-         ZqQDBB9PnjGZ/AUzri4z5QFc8ioUFqjf3cklHzR1JsVPx/0wMfu73m9CH0X56YQkDt/5
-         F8G1XWc9yLwUMrgTONQjUlak6xVGDTYZ8v7yT3jnBv4UIip4oEGQQmGYXc5Otgm8UNlv
-         epVvbP4Lk0x9WXWAAWe8PDxK1kfnBKn80Q910ulfz2KZksk9/siJOjma6iz+X/7gubgF
-         Lcdw==
-X-Gm-Message-State: ANoB5pm1zF1H3ntkqIg5pQJAaIzbmCIKM1SUjKWVz2YloLWyVV6eH9MY
-	EiZtJAEdF1RhNOnvaotXHgz5l95mryxWhgAHLN0ZaQ==
-X-Google-Smtp-Source: AA0mqf4+mW6bbk6LR0Ggm2JGpzfrwwzBpZ6JzdyWi1Qw2SWqbMQ3blTzBVBnV2CPqQwCJ4AElEe5iJNWpGW5HZM9cTs=
-X-Received: by 2002:a9d:7345:0:b0:66c:5310:7745 with SMTP id
- l5-20020a9d7345000000b0066c53107745mr6491458otk.48.1668428951558; Mon, 14 Nov
- 2022 04:29:11 -0800 (PST)
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZjYjLXCHxCVOYpmvr6/HR55meSdpQL0pXQhoi2NzHxE=;
+        b=TLZzrh5i7D4t5RUdoJdi8kTtuT3+LBdLC2J+EM0bF14RV2JKtVQTyFzJB8i5+3t5Ti
+         SsY+lUjxdKubLIwF+p3B3J3lm5rTZOtd59jvo+Mm2ZDKS0p4W3JvIlYo6H0fIwLGsIdx
+         uVF1Z0NbqLaykRJUuB2VSz02weSBnXNPNZU3g8i9TRjWmjqQxevNnV40dl1YbE3WRCLc
+         l8PkscuoUu41u09YRndkeSxQPJ0KXqHr9NflEn6Wvjq8MuFnnduYUi6nGPOt3ujl0dFK
+         Y4pQVx94UZzbOBg5WpmEXnSWQTfOyXaNGDnEPSuSCgTYoaTx/ogTfjcBuqBperWKTb4W
+         TgAA==
+X-Gm-Message-State: ANoB5plhA6s6qKJjIR1y9N2v15arki3eP/eIaVlaGttzZkTDatthAmdh
+	acBMBQiGFucCOOFOaZ+ATz7sHZmIflVMEn2uIY1GKHkymEM8A0jrgez6dpf/OpLizPHTijPhp3f
+	SgpSVhxX0wmSNiZGaZ1h9gmb+dOF3EkUQ1c7GQbQoUZQbYl3NjqzUddmCnS4Kyw==
+X-Received: by 2002:a81:556:0:b0:378:5e3a:8fad with SMTP id 83-20020a810556000000b003785e3a8fadmr12615035ywf.78.1668428961016;
+        Mon, 14 Nov 2022 04:29:21 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf7wS1ePe3ADA7/g4WT3zzR1qbkmIrUih6+wsO760+XFCcX6DiRWiaMR32+bxdGimx0RljMHDJivnWKxZbnzmG4=
+X-Received: by 2002:a81:556:0:b0:378:5e3a:8fad with SMTP id
+ 83-20020a810556000000b003785e3a8fadmr12615015ywf.78.1668428960726; Mon, 14
+ Nov 2022 04:29:20 -0800 (PST)
 MIME-Version: 1.0
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-5-apatel@ventanamicro.com> <Y3EDuaW0zQSSfiQ/@spud>
-In-Reply-To: <Y3EDuaW0zQSSfiQ/@spud>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 14 Nov 2022 17:59:00 +0530
-Message-ID: <CAK9=C2WDQCnVnxKR6SFspdwope2KffyASLJDF_Ygo_417ekJ5w@mail.gmail.com>
-Subject: Re: [PATCH 4/9] dt-bindings: Add RISC-V incoming MSI controller bindings
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
-	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
+References: <20221110164924.529386-1-heiko@sntech.de> <CAJM55Z8PBGWr6ej1GSfks8nCvK0q=sF8qDK6f8w=+Nh1mr4sSg@mail.gmail.com>
+ <20221114113553.3dxrumhk72jouzek@kamzik> <2234530.yKVeVyVuyW@diego> <20221114121506.odv2vgc4whjrfwf4@kamzik>
+In-Reply-To: <20221114121506.odv2vgc4whjrfwf4@kamzik>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Mon, 14 Nov 2022 13:29:04 +0100
+Message-ID: <CAJM55Z85MdF5sKSXnzXuj5kk_RDZeRa4e1+J8c5oCXK7cat8KA@mail.gmail.com>
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, 
+	philipp.tomsich@vrull.eu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_042912_881196_F36FF356 
-X-CRM114-Status: GOOD (  43.73  )
+X-CRM114-CacheID: sfid-20221114_042934_128753_DB29EFD9 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,254 +92,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 13, 2022 at 8:18 PM Conor Dooley <conor@kernel.org> wrote:
->
-> Hey Anup,
->
-> On Fri, Nov 11, 2022 at 10:12:02AM +0530, Anup Patel wrote:
-> > dt-bindings: Add RISC-V incoming MSI controller bindings
->
-> nit: it looks like the usual prefix here is "dt-bindings:
-> interrupt-controller".
-
-Okay, I will update.
-
->
-> > We add DT bindings document for RISC-V incoming MSI controller (IMSIC)
-> > defined by the RISC-V advanced interrupt architecture (AIA) specification.
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  .../interrupt-controller/riscv,imsic.yaml     | 174 ++++++++++++++++++
-> >  1 file changed, 174 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> > new file mode 100644
-> > index 000000000000..05106eb1955e
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> > @@ -0,0 +1,174 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/interrupt-controller/riscv,imsic.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: RISC-V Incoming MSI Controller (IMSIC)
-> > +
-> > +maintainers:
-> > +  - Anup Patel <anup@brainfault.org>
-> > +
-> > +description:
->
-> Is this one of the situations where we want to have a | after
-> "description:" to preserve formatting?
-
-Okay, I will update.
-
->
-> > +  The RISC-V advanced interrupt architecture (AIA) defines a per-CPU incoming
-> > +  MSI controller (IMSIC) for handling MSIs in a RISC-V platform. The RISC-V
-> > +  AIA specification can be found at https://github.com/riscv/riscv-aia.
-> > +
-> > +  The IMSIC is a per-CPU (or per-HART) device with separate interrupt file
-> > +  for each privilege level (machine or supervisor). The configuration of
-> > +  a IMSIC interrupt file is done using AIA CSRs and it also has a 4KB MMIO
-> > +  space to receive MSIs from devices. Each IMSIC interrupt file supports a
-> > +  fixed number of interrupt identities (to distinguish MSIs from devices)
-> > +  which is same for given privilege level across CPUs (or HARTs).
-> > +
-> > +  The arrangement of IMSIC interrupt files in MMIO space of a RISC-V platform
-> > +  follows a particular scheme defined by the RISC-V AIA specification. A IMSIC
-> > +  group is a set of IMSIC interrupt files co-located in MMIO space and we can
-> > +  have multiple IMSIC groups (i.e. clusters, sockets, chiplets, etc) in a
-> > +  RISC-V platform. The MSI target address of a IMSIC interrupt file at given
-> > +  privilege level (machine or supervisor) encodes group index, HART index,
-> > +  and guest index (shown below).
-> > +
-> > +  XLEN-1           >=24                                 12    0
-> > +  |                  |                                  |     |
-> > +  -------------------------------------------------------------
-> > +  |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
-> > +  -------------------------------------------------------------
-> > +
-> > +  The device tree of a RISC-V platform will have one IMSIC device tree node
-> > +  for each privilege level (machine or supervisor) which collectively describe
-> > +  IMSIC interrupt files at that privilege level across CPUs (or HARTs).
-> > +
-> > +allOf:
-> > +  - $ref: /schemas/interrupt-controller.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - vendor,chip-imsics
->
-> Is it valid to have a dummy here? I did a bit of grepping & could not
-> see a single other yaml binding which used a placeholder like this -
-> other than the example schema itself. I assume you're trying to get
-> across the point that using the bare riscv,imsics is not okay and a
-> vendor should create a custom string for their implementation?
-
-Yes, this dummy is a placeholder to mandate two compatible strings.
-The dummy can eventually be replaced by some actual implementation
-compatible string.
-
->
-> Also, the file name says "riscv,imsic", the description says "IMSIC" but
-> you've used "imsics" in the compatible. Is this a typo, or a plural?
-
-Yes, the file name should be consistent. I will update the file name.
-
->
-> Thanks,
-> Conor.
->
-> > +      - const: riscv,imsics
-> > +
-> > +  reg:
-> > +    minItems: 1
-> > +    maxItems: 128
-> > +    description:
-> > +      Base address of each IMSIC group.
-> > +
-> > +  interrupt-controller: true
-> > +
-> > +  "#interrupt-cells":
-> > +    const: 0
-> > +
-> > +  msi-controller: true
-> > +
-> > +  interrupts-extended:
-> > +    minItems: 1
-> > +    maxItems: 32768
-> > +    description:
-> > +      This property represents the set of CPUs (or HARTs) for which given
-> > +      device tree node describes the IMSIC interrupt files. Each node pointed
-> > +      to should be a riscv,cpu-intc node, which has a riscv node (i.e. RISC-V
-> > +      HART) as parent.
-> > +
-> > +  riscv,num-ids:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    minimum: 63
-> > +    maximum: 2047
-> > +    description:
-> > +      Specifies how many interrupt identities are supported by IMSIC interrupt
-> > +      file.
-> > +
-> > +  riscv,num-guest-ids:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    minimum: 63
-> > +    maximum: 2047
-> > +    description:
-> > +      Specifies how many interrupt identities are supported by IMSIC guest
-> > +      interrupt file. When not specified the number of interrupt identities
-> > +      supported by IMSIC guest file is assumed to be same as specified by
-> > +      the riscv,num-ids property.
-> > +
-> > +  riscv,slow-ipi:
-> > +    type: boolean
-> > +    description:
-> > +      The presence of this property implies that software interrupts (i.e.
-> > +      IPIs) using IMSIC software injected MSIs is slower compared to other
-> > +      software interrupt mechanisms (such as SBI IPI) on the underlying
-> > +      RISC-V platform.
-> > +
-> > +  riscv,guest-index-bits:
-> > +    minimum: 0
-> > +    maximum: 7
-> > +    description:
-> > +      Specifies number of guest index bits in the MSI target address. When
-> > +      not specified it is assumed to be 0.
-> > +
-> > +  riscv,hart-index-bits:
-> > +    minimum: 0
-> > +    maximum: 15
-> > +    description:
-> > +      Specifies number of HART index bits in the MSI target address. When
-> > +      not specified it is estimated based on the interrupts-extended property.
-> > +
-> > +  riscv,group-index-bits:
-> > +    minimum: 0
-> > +    maximum: 7
-> > +    description:
-> > +      Specifies number of group index bits in the MSI target address. When
-> > +      not specified it is assumed to be 0.
-> > +
-> > +  riscv,group-index-shift:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    minimum: 24
-> > +    maximum: 55
-> > +    description:
-> > +      Specifies the least significant bit of the group index bits in the
-> > +      MSI target address. When not specified it is assumed to be 24.
-> > +
-> > +additionalProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - interrupt-controller
-> > +  - msi-controller
-> > +  - interrupts-extended
-> > +  - riscv,num-ids
-> > +
-> > +examples:
-> > +  - |
-> > +    // Example 1 (Machine-level IMSIC files with just one group):
-> > +
-> > +    imsic_mlevel: interrupt-controller@24000000 {
-> > +      compatible = "vendor,chip-imsics", "riscv,imsics";
-> > +      interrupts-extended = <&cpu1_intc 11>,
-> > +                            <&cpu2_intc 11>,
-> > +                            <&cpu3_intc 11>,
-> > +                            <&cpu4_intc 11>;
-> > +      reg = <0x28000000 0x4000>;
-> > +      interrupt-controller;
-> > +      #interrupt-cells = <0>;
-> > +      msi-controller;
-> > +      riscv,num-ids = <127>;
-> > +    };
-> > +
-> > +  - |
-> > +    // Example 2 (Supervisor-level IMSIC files with two groups):
-> > +
-> > +    imsic_slevel: interrupt-controller@28000000 {
-> > +      compatible = "vendor,chip-imsics", "riscv,imsics";
-> > +      interrupts-extended = <&cpu1_intc 9>,
-> > +                            <&cpu2_intc 9>,
-> > +                            <&cpu3_intc 9>,
-> > +                            <&cpu4_intc 9>;
-> > +      reg = <0x28000000 0x2000>, /* Group0 IMSICs */
-> > +            <0x29000000 0x2000>; /* Group1 IMSICs */
-> > +      interrupt-controller;
-> > +      #interrupt-cells = <0>;
-> > +      msi-controller;
-> > +      riscv,num-ids = <127>;
-> > +      riscv,group-index-bits = <1>;
-> > +      riscv,group-index-shift = <24>;
-> > +    };
-> > +...
-> > --
-> > 2.34.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Regards,
-Anup
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAxNCBOb3YgMjAyMiBhdCAxMzoxNSwgQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFu
+YW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBPbiBNb24sIE5vdiAxNCwgMjAyMiBhdCAxMjozODozOVBN
+ICswMTAwLCBIZWlrbyBTdMO8Ym5lciB3cm90ZToKPiA+IEFtIE1vbnRhZywgMTQuIE5vdmVtYmVy
+IDIwMjIsIDEyOjM1OjUzIENFVCBzY2hyaWViIEFuZHJldyBKb25lczoKPiA+ID4gT24gTW9uLCBO
+b3YgMTQsIDIwMjIgYXQgMTE6NTc6MjlBTSArMDEwMCwgRW1pbCBSZW5uZXIgQmVydGhpbmcgd3Jv
+dGU6Cj4gPiA+ID4gT24gVGh1LCAxMCBOb3YgMjAyMiBhdCAxNzo1MCwgSGVpa28gU3R1ZWJuZXIg
+PGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4gPiA+IC4uLgo+ID4gPiA+ID4gQEAgLTMxNiw4ICsz
+ODQsMTUgQEAgdm9pZCBfX2luaXRfb3JfbW9kdWxlIHJpc2N2X2NwdWZlYXR1cmVfcGF0Y2hfZnVu
+YyhzdHJ1Y3QgYWx0X2VudHJ5ICpiZWdpbiwKPiA+ID4gPiA+ICAgICAgICAgICAgICAgICB9Cj4g
+PiA+ID4gPgo+ID4gPiA+ID4gICAgICAgICAgICAgICAgIHRtcCA9ICgxVSA8PCBhbHQtPmVycmF0
+YV9pZCk7Cj4gPiA+ID4gPiAtICAgICAgICAgICAgICAgaWYgKGNwdV9yZXFfZmVhdHVyZSAmIHRt
+cCkKPiA+ID4gPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIHBhdGNoX3RleHRfbm9zeW5jKGFs
+dC0+b2xkX3B0ciwgYWx0LT5hbHRfcHRyLCBhbHQtPmFsdF9sZW4pOwo+ID4gPiA+ID4gKyAgICAg
+ICAgICAgICAgIGlmIChjcHVfcmVxX2ZlYXR1cmUgJiB0bXApIHsKPiA+ID4gPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgIC8qIGRvIHRoZSBiYXNpYyBwYXRjaGluZyAqLwo+ID4gPiA+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgcGF0Y2hfdGV4dF9ub3N5bmMoYWx0LT5vbGRfcHRyLCBhbHQt
+PmFsdF9wdHIsCj4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBhbHQtPmFsdF9sZW4pOwo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgcmlzY3ZfYWx0ZXJuYXRpdmVfZml4X2F1aXBjX2phbHIoYWx0LT5vbGRfcHRyLAo+
+ID4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgYWx0LT5hbHRfbGVuLAo+ID4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYWx0LT5vbGRfcHRyIC0gYWx0LT5hbHRf
+cHRyKTsKPiA+ID4gPgo+ID4gPiA+IEhlcmUgeW91J3JlIGNhc3RpbmcgYSB2b2lkIHBvaW50ZXIg
+dG8gYW4gaW5zdHJ1Y3Rpb24gdG8gYW4gdW5zaWduZWQKPiA+ID4gPiBpbnQgcG9pbnRlciwgYnV0
+IHNpbmNlIHdlIGVuYWJsZSBjb21wcmVzc2VkIGluc3RydWN0aW9ucyB0aGlzIG1heQo+ID4gPiA+
+IHJlc3VsdCBpbiBhbiB1bmFsaWduZWQgcG9pbnRlci4gVXNpbmcgdGhpcyBwb2ludGVyIHdpbGwg
+d29yaywgYnV0IG1heQo+ID4gPiA+IGJlIHNsb3cuIEVnLiBmYXVsdCB0byBtLW1vZGUgdG8gYmUg
+cGF0Y2hlZCB1cC4gV2UgYWxyZWFkeSBkbyB0aGF0IGluCj4gPiA+ID4gb3RoZXIgcGxhY2VzIGlu
+IHRoZSBhcmNoL3Jpc2N2LCBidXQgSSdkIHByZWZlciBub3QgdG8gYWRkIG5ldwo+ID4gPiA+IGlu
+c3RhbmNlcyBvZiB0aGlzLgo+ID4gPgo+ID4gPiBBbHRlcm5hdGl2ZSBpbnN0cnVjdGlvbiBzZXF1
+ZW5jZXMgKG9sZCBhbmQgbmV3KSBoYXZlIGNvbXByZXNzaW9uIGRpc2FibGVkLgo+ID4KPiA+IFRo
+YXQgd2FzIG15IGZpcnN0IHRob3VnaHQgYXMgd2VsbCwgYnV0IEkgdGhpbmsgRW1pbCB3YXMgdGFs
+a2luZyBtb3JlIGFib3V0IHRoZQo+ID4gcGxhY2VtZW50IG9mIHRoZSBhbHRlcm5hdGl2ZSBibG9j
+ayBpbnNpZGUgdGhlIHJ1bm5pbmcga2VybmVsLgo+ID4KPiA+IGkuZS4gSSBndWVzcyB0aGUgc3Rh
+cnRpbmcgcG9pbnQgb2YgYW4gYWx0ZXJuYXRpdmUgc2VxdWVuY2UgY291bGQgYWxzbyBiZSB1bmFs
+aWduZWQuCj4KPiBPaCwgSSBzZWUuCj4KPiA+Cj4gPiBUaG91Z2ggSSBkb24ndCBfeWV0XyBzZWUg
+aG93IGFuIGltcHJvdmVtZW50IGNvdWxkIGxvb2sgbGlrZS4KPgo+IEkgdGhpbmsgd2UgY2FuIHBh
+dGNoIHRoZSBhbHRlcm5hdGl2ZSBtYWNyb3MgdG8gYWRkIGFsaWdubWVudC4gU29tZXRoaW5nCj4g
+bGlrZQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUt
+bWFjcm9zLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLW1hY3Jvcy5oCj4g
+aW5kZXggZWMyZjNmMWI4MzZmLi4zYzMzMGE5MDY2ZjcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9hbHRlcm5hdGl2ZS1tYWNyb3MuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmgKPiBAQCAtMjAsNiArMjAsNyBAQAo+ICAgICAg
+ICAgQUxUX0VOVFJZIDg4NmIsIDg4OGYsIFx2ZW5kb3JfaWQsIFxlcnJhdGFfaWQsIDg4OWYgLSA4
+ODhmCj4gICAgICAgICAucG9wc2VjdGlvbgo+ICAgICAgICAgLnN1YnNlY3Rpb24gMQo+ICsgICAg
+ICAgLmJhbGlnbiA0Cj4gIDg4OCA6Cj4gICAgICAgICAub3B0aW9uIHB1c2gKPiAgICAgICAgIC5v
+cHRpb24gbm9ydmMKPiBAQCAtMzQsNiArMzUsNyBAQAo+ICAuZW5kbQo+Cj4gIC5tYWNybyBfX0FM
+VEVSTkFUSVZFX0NGRyBvbGRfYywgbmV3X2MsIHZlbmRvcl9pZCwgZXJyYXRhX2lkLCBlbmFibGUK
+PiArICAgICAgIC5iYWxpZ24gNAo+ICA4ODYgOgo+ICAgICAgICAgLm9wdGlvbiBwdXNoCj4gICAg
+ICAgICAub3B0aW9uIG5vcnZjCj4gQEAgLTQ5LDYgKzUxLDcgQEAKPgo+ICAubWFjcm8gX19BTFRF
+Uk5BVElWRV9DRkdfMiBvbGRfYywgbmV3X2NfMSwgdmVuZG9yX2lkXzEsIGVycmF0YV9pZF8xLCBl
+bmFibGVfMSwgXAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXdfY18yLCB2
+ZW5kb3JfaWRfMiwgZXJyYXRhX2lkXzIsIGVuYWJsZV8yCj4gKyAgICAgICAuYmFsaWduIDQKPiAg
+ODg2IDoKPiAgICAgICAgIC5vcHRpb24gcHVzaAo+ICAgICAgICAgLm9wdGlvbiBub3J2Ywo+IEBA
+IC04Nyw2ICs5MCw3IEBACj4gICAgICAgICBBTFRfRU5UUlkoIjg4NmIiLCAiODg4ZiIsIF9fc3Ry
+aW5naWZ5KHZlbmRvcl9pZCksIF9fc3RyaW5naWZ5KGVycmF0YV9pZCksICI4ODlmIC0gODg4ZiIp
+IFwKPiAgICAgICAgICIucG9wc2VjdGlvblxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICAiLnN1YnNlY3Rpb24gMVxuIiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICsgICAgICAgIi5iYWxp
+Z24gNFxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFwKPiAgICAgICAgICI4ODggOlxuIiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBcCj4gICAgICAgICAiLm9wdGlvbiBwdXNoXG4iICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgIi5vcHRp
+b24gbm9ydmNcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFwKPiBAQCAtMTAwLDYgKzEwNCw3IEBACj4gICAgICAgICAiLmVuZGlmXG4iCj4KPiAgI2RlZmlu
+ZSBfX0FMVEVSTkFUSVZFX0NGRyhvbGRfYywgbmV3X2MsIHZlbmRvcl9pZCwgZXJyYXRhX2lkLCBl
+bmFibGUpICBcCj4gKyAgICAgICAiLmJhbGlnbiA0XG4iICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgIjg4NiA6XG4iICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAgICAgICAg
+ICIub3B0aW9uIHB1c2hcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBcCj4gICAgICAgICAiLm9wdGlvbiBub3J2Y1xuIiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+IEBAIC0xMTYsNiArMTIxLDcgQEAKPiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlXzEsICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXdfY18y
+LCB2ZW5kb3JfaWRfMiwgZXJyYXRhX2lkXzIsICAgXAo+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBlbmFibGVfMikgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAg
+ICAgICIuYmFsaWduIDRcbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCj4gICAgICAgICAiODg2IDpcbiIgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ICAgICAgICAgIi5vcHRpb24gcHVzaFxu
+IiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiAgICAg
+ICAgICIub3B0aW9uIG5vcnZjXG4iICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBcCgpXaHkgbm90IGp1c3QgdXNlIGFjY2Vzc29ycz8gRWcuCgp1bnNpZ25lZCBp
+bnQgcmlzY3ZfaW5zdHJ1Y3Rpb25fYXQodm9pZCAqcCkKewogIHUxNiAqcGFyY2VsID0gcDsKICBy
+ZXR1cm4gKHVuc2lnbmVkIGludClwYXJjZWxbMF0gfCAodW5zaWduZWQgaW50KXBhcmNlbFsxXSA8
+PCAxNjsKfQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
