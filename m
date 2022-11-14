@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D60C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 12:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544A7C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Nov 2022 12:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RCHv1JIY+uNVWDWVapNTbYI3Ml75s2WPX5bQkb3Gu00=; b=ZP1gn2refx3TJ0
-	OpFX/DkgGtv3JwMiFoBHZLXAQqJjQJ5eTXsNZTu8MJ8MlGL38ZHJn2XEf19zZ6Uo9Vcq2gAQtQD19
-	9eCfROJSr59v9CIKNU00W9bl51VZv5oLcjg9LBqbXDBfHnz2YtFSJtcct4jMQc8pn8gZSnP4iiwHh
-	YT7jGHmLe4TYFNcxtrnZrwQnRiJXTiHFj56BJCO8fcUXMA68fRk3QpjeiqS4U31ahr4ryHQ91u1QA
-	wNN453B/cgArUES5M18zPV52rjAvP7rBgECZBOA4uuCokJtza6SQXIcV5dIXZG/JGYOv5LSAsBuSf
-	Iu8FBy9FFdsBh8azbv8g==;
+	List-Owner; bh=t0MOh/64XHZy0b94fCZgan8thNanfYfpUywrerFojOs=; b=D30lzFeXSb4YO7
+	3jxTh385YC0QBWfpQhnexopbQ6LXNU/DRO9OSXHnlidtF7RBPHGvv95mITe49PyByHTjRlhuxCW/K
+	G/YI5AXFPp76meiMn1XWheVQxAg5Xa52QGZxh7HS0fcaF9Y4wHJm22+/447Ox6mEVQicWkFG0Wu3c
+	qk2xk4YVLCD1dVifku9rO+J4UoMGunNCdkcsmb2dr+ZFTdapq7I001aTylOmBacFE2x3a2Dq6YyD8
+	lACVmjh7XsjecT3ZCX/L/qy8pG3bI3OLZfysF6PQAasRRwP0itRNi62ukCL3V8k0bgNZ8uC+Vgvn9
+	JMdjTalJ1H6anHeZSxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYMS-000joM-23; Mon, 14 Nov 2022 12:14:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ouYMr-000jw6-1T; Mon, 14 Nov 2022 12:15:13 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouYMO-000jlt-GU
-	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 12:14:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1668428085; x=1699964085;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5x8kfOIpOogLr2BemNcIjIgxcyOCSCKqrEm0zBjiMTQ=;
-  b=yjva59bUZfk7HY1qzOyCC0Bb7bsOtPQIc+MD4LwOuX3O7Q2w3Iuwe6RD
-   dzkgeyTJTZlnAW3AE5XJi57lCEqWDGwTDRvCrvhVABk81rVGsEFqkWOe+
-   G7MMYrObol+8XyJWhHpOUgOyg3lXkRvtWd1CTvZo8BMZWgvMMkLR/HR8e
-   Jauy/Ul1JWuSG2/yuiF9vdjnyIabBIMzoqgGJGePBfCccaRMbq8aZzfPB
-   lDJ1xHYYuBKqFa0WZ1bnSAVj4I4zVVALydZtbzP/IRsihCNwLOCfyQhe2
-   fJ28JeEHbdvHponGxMdlbIZbtwL72kRJ1/lTVfhuhdJBT18V2qhXjcHd1
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.96,161,1665471600"; 
-   d="scan'208";a="188868366"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Nov 2022 05:14:40 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 14 Nov 2022 05:14:38 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 14 Nov 2022 05:14:36 -0700
-Date: Mon, 14 Nov 2022 12:14:19 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Anup Patel <apatel@ventanamicro.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas
- Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
-	<anup@brainfault.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 4/9] dt-bindings: Add RISC-V incoming MSI controller
- bindings
-Message-ID: <Y3IxG4d7ELlcmp0c@wendy>
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-5-apatel@ventanamicro.com>
- <9be58cb4-4ee8-a6e0-7a0a-f2f581e394d3@linaro.org>
- <CAK9=C2X55CG6tjjiTPrecnnZZiwTOS1BSH3UTPa-fLBm38WdLA@mail.gmail.com>
+	id 1ouYMo-000juY-Bl
+	for linux-riscv@lists.infradead.org; Mon, 14 Nov 2022 12:15:11 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id i10so19155027ejg.6
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 04:15:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=wL7V7GrQjCt6c9Uec6kaTC78jJaZ1Xv6exvob5mIPRQ=;
+        b=HQ4d9zbrYmNIhWxfTBqb/ghylrpjKxxDg/CZqqa3LFxSOKESC/D9EjZfeVQjiqyraA
+         uitwiq/Ypy4wClOvovLNSXbe/RtRRSaZQn9cdsgqkbWyQoMvlN62CGc2dISLwlSU3TYG
+         +jV9nxCF+43p3H+woFGRVGRsmKTQIMpVulOqKkZ1kNu5BoCuPQRRdWe//Y9lP4PiNu3h
+         kiHXSCmNtPQZ1SfJI3z49RU1ag1GkqhjLaQ9b2pggXbcRtzSWExKtm1IfzVaK3FKvTIR
+         k/CJOg7HFrd4Tg0tQJANRE5nO1wkOnPlIUUWecl+msutlDs1zyUHq5I/2bLOetfZbXWe
+         RYvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wL7V7GrQjCt6c9Uec6kaTC78jJaZ1Xv6exvob5mIPRQ=;
+        b=rRuU3xxaKWAydkm8wOxNOGSgerF6Ek0rpToZkxNByuWIFaKxwTAQmuACb/9wb1ujow
+         R+nhPj+8UXLTEMtAmDUXZs9zXlXc4HtzJ0VptbBAAoGEM2ZaBzt6QToh0G4/S/p9nQVt
+         QEbQ3DoWDNCF3oOwGmU4naNKYrXD8qadjpPrTHnFlgRZqMp4bny40nbDO+IDyTqQyMS1
+         AE+XPpRFFbz4xXxo+T9ShuKZAZQK5t7wRbab2DiP0TKS3mciTtp/azL4RpC/xOJ5j2nR
+         goPnABNwEE8ghkVpkZ338eWL8K/4PSr16x1YirOmakdmPstbjW0++x8MkEtL3UNWxTR4
+         hEfQ==
+X-Gm-Message-State: ANoB5pliDi1tLAnANZ9GXifS3lRaYW586E2aKcUtH3bj0NhLvj8dHbfy
+	N9TIs/xcujQIicQobXZYU1E/og==
+X-Google-Smtp-Source: AA0mqf5tTlQvOPt7oLEBU5yqyZ0oojjkhVloSuPhdi425az0KiH28OymTIu862MHPkYZxDV8f8S7Tw==
+X-Received: by 2002:a17:906:e283:b0:78d:addf:67c3 with SMTP id gg3-20020a170906e28300b0078daddf67c3mr9770890ejb.253.1668428108874;
+        Mon, 14 Nov 2022 04:15:08 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id p27-20020a17090635db00b0072af4af2f46sm4088035ejb.74.2022.11.14.04.15.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Nov 2022 04:15:08 -0800 (PST)
+Date: Mon, 14 Nov 2022 13:15:06 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
+	conor@kernel.org, philipp.tomsich@vrull.eu
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched
+ alternatives
+Message-ID: <20221114121506.odv2vgc4whjrfwf4@kamzik>
+References: <20221110164924.529386-1-heiko@sntech.de>
+ <CAJM55Z8PBGWr6ej1GSfks8nCvK0q=sF8qDK6f8w=+Nh1mr4sSg@mail.gmail.com>
+ <20221114113553.3dxrumhk72jouzek@kamzik>
+ <2234530.yKVeVyVuyW@diego>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAK9=C2X55CG6tjjiTPrecnnZZiwTOS1BSH3UTPa-fLBm38WdLA@mail.gmail.com>
+In-Reply-To: <2234530.yKVeVyVuyW@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_041444_594977_04E4626F 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20221114_041510_429312_171C3AC2 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +91,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 14, 2022 at 05:36:06PM +0530, Anup Patel wrote:
-> On Mon, Nov 14, 2022 at 3:19 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org> wrote:
-> >
-> > On 11/11/2022 05:42, Anup Patel wrote:
-> > > We add DT bindings document for RISC-V incoming MSI controller (IMSIC)
-> > > defined by the RISC-V advanced interrupt architecture (AIA) specification.
-> > >
-> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > > ---
-> > >  .../interrupt-controller/riscv,imsic.yaml     | 174 ++++++++++++++++++
-> > >  1 file changed, 174 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> > > new file mode 100644
-> > > index 000000000000..05106eb1955e
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,imsic.yaml
-> > > @@ -0,0 +1,174 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/interrupt-controller/riscv,imsic.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: RISC-V Incoming MSI Controller (IMSIC)
-> > > +
-> > > +maintainers:
-> > > +  - Anup Patel <anup@brainfault.org>
-> > > +
-> > > +description:
-> > > +  The RISC-V advanced interrupt architecture (AIA) defines a per-CPU incoming
-> > > +  MSI controller (IMSIC) for handling MSIs in a RISC-V platform. The RISC-V
-> > > +  AIA specification can be found at https://github.com/riscv/riscv-aia.
-> > > +
-> > > +  The IMSIC is a per-CPU (or per-HART) device with separate interrupt file
-> > > +  for each privilege level (machine or supervisor). The configuration of
-> > > +  a IMSIC interrupt file is done using AIA CSRs and it also has a 4KB MMIO
-> > > +  space to receive MSIs from devices. Each IMSIC interrupt file supports a
-> > > +  fixed number of interrupt identities (to distinguish MSIs from devices)
-> > > +  which is same for given privilege level across CPUs (or HARTs).
-> > > +
-> > > +  The arrangement of IMSIC interrupt files in MMIO space of a RISC-V platform
-> > > +  follows a particular scheme defined by the RISC-V AIA specification. A IMSIC
-> > > +  group is a set of IMSIC interrupt files co-located in MMIO space and we can
-> > > +  have multiple IMSIC groups (i.e. clusters, sockets, chiplets, etc) in a
-> > > +  RISC-V platform. The MSI target address of a IMSIC interrupt file at given
-> > > +  privilege level (machine or supervisor) encodes group index, HART index,
-> > > +  and guest index (shown below).
-> > > +
-> > > +  XLEN-1           >=24                                 12    0
-> > > +  |                  |                                  |     |
-> > > +  -------------------------------------------------------------
-> > > +  |xxxxxx|Group Index|xxxxxxxxxxx|HART Index|Guest Index|  0  |
-> > > +  -------------------------------------------------------------
-> > > +
-> > > +  The device tree of a RISC-V platform will have one IMSIC device tree node
-> > > +  for each privilege level (machine or supervisor) which collectively describe
-> > > +  IMSIC interrupt files at that privilege level across CPUs (or HARTs).
-> > > +
-> > > +allOf:
-> > > +  - $ref: /schemas/interrupt-controller.yaml#
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    items:
-> > > +      - enum:
-> > > +          - vendor,chip-imsics
-> >
-> > There is no such vendor... As Conor pointed out, this does not look
-> > correct. Compatibles must be real and specific.
-> 
-> Previously, Rob had suggest to:
-> 1) Mandate two compatible strings: one for implementation and
->     and second for specification
-> 2) Since this is new specification with QEMU being the only
->     implementation, we add "vendor,chip-imsics" as dummy
->     implementation specific string for DT schema checkers
->     to pass the examples. Once we have an actual implementation,
->    we will replace this dummy string.
-> 
-> Refer, https://www.spinics.net/lists/devicetree/msg442720.html
+On Mon, Nov 14, 2022 at 12:38:39PM +0100, Heiko St=FCbner wrote:
+> Am Montag, 14. November 2022, 12:35:53 CET schrieb Andrew Jones:
+> > On Mon, Nov 14, 2022 at 11:57:29AM +0100, Emil Renner Berthing wrote:
+> > > On Thu, 10 Nov 2022 at 17:50, Heiko Stuebner <heiko@sntech.de> wrote:
+> > ...
+> > > > @@ -316,8 +384,15 @@ void __init_or_module riscv_cpufeature_patch_f=
+unc(struct alt_entry *begin,
+> > > >                 }
+> > > >
+> > > >                 tmp =3D (1U << alt->errata_id);
+> > > > -               if (cpu_req_feature & tmp)
+> > > > -                       patch_text_nosync(alt->old_ptr, alt->alt_pt=
+r, alt->alt_len);
+> > > > +               if (cpu_req_feature & tmp) {
+> > > > +                       /* do the basic patching */
+> > > > +                       patch_text_nosync(alt->old_ptr, alt->alt_pt=
+r,
+> > > > +                                         alt->alt_len);
+> > > > +
+> > > > +                       riscv_alternative_fix_auipc_jalr(alt->old_p=
+tr,
+> > > > +                                                        alt->alt_l=
+en,
+> > > > +                                                        alt->old_p=
+tr - alt->alt_ptr);
+> > > =
 
-AFAIU, <vendor> and <chip> are wildcards and do not have the same
-meaning as vendor & chip. That's going off of the dt submitting patches
-doc though and I don't know if the tooling supports this.
+> > > Here you're casting a void pointer to an instruction to an unsigned
+> > > int pointer, but since we enable compressed instructions this may
+> > > result in an unaligned pointer. Using this pointer will work, but may
+> > > be slow. Eg. fault to m-mode to be patched up. We already do that in
+> > > other places in the arch/riscv, but I'd prefer not to add new
+> > > instances of this.
+> > =
+
+> > Alternative instruction sequences (old and new) have compression disabl=
+ed.
+> =
+
+> That was my first thought as well, but I think Emil was talking more abou=
+t the
+> placement of the alternative block inside the running kernel.
+> =
+
+> i.e. I guess the starting point of an alternative sequence could also be =
+unaligned.
+
+Oh, I see.
+
+> =
+
+> Though I don't _yet_ see how an improvement could look like.
+
+I think we can patch the alternative macros to add alignment. Something
+like
+
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/inclu=
+de/asm/alternative-macros.h
+index ec2f3f1b836f..3c330a9066f7 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -20,6 +20,7 @@
+        ALT_ENTRY 886b, 888f, \vendor_id, \errata_id, 889f - 888f
+        .popsection
+        .subsection 1
++       .balign 4
+ 888 :
+        .option push
+        .option norvc
+@@ -34,6 +35,7 @@
+ .endm
+
+ .macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
++       .balign 4
+ 886 :
+        .option push
+        .option norvc
+@@ -49,6 +51,7 @@
+
+ .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enabl=
+e_1, \
+                                  new_c_2, vendor_id_2, errata_id_2, enable=
+_2
++       .balign 4
+ 886 :
+        .option push
+        .option norvc
+@@ -87,6 +90,7 @@
+        ALT_ENTRY("886b", "888f", __stringify(vendor_id), __stringify(errat=
+a_id), "889f - 888f") \
+        ".popsection\n"                                                 \
+        ".subsection 1\n"                                               \
++       ".balign 4\n"                                                   \
+        "888 :\n"                                                       \
+        ".option push\n"                                                \
+        ".option norvc\n"                                               \
+@@ -100,6 +104,7 @@
+        ".endif\n"
+
+ #define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable)  \
++       ".balign 4\n"                                                   \
+        "886 :\n"                                                       \
+        ".option push\n"                                                \
+        ".option norvc\n"                                               \
+@@ -116,6 +121,7 @@
+                                        enable_1,                       \
+                                   new_c_2, vendor_id_2, errata_id_2,   \
+                                        enable_2)                       \
++       ".balign 4\n"                                                   \
+        "886 :\n"                                                       \
+        ".option push\n"                                                \
+        ".option norvc\n"                                               \
 
 
 _______________________________________________
