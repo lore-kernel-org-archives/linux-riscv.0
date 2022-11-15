@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BE4C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 22:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD67C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 22:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zi2A2LvsPQGGuTsJ72ppYttVy71o6Zro0nbpM5uXYZA=; b=hb3wGFfDtRW/MQ
-	ck4qdB3mYXiyD9j7ddGKTOnqAZA19SbuIxbTj6eX4dUwT6aXSpzSYaTnECDpoHyUIl8zok65YItbi
-	7tBqHmhLtnezPY709hsHzwIikVFs+b4ATmXy4tVyPvBDRr2WZPMvb+T+skASfQOpwLTZHfIjJZLC2
-	8euWUT2BxVZ6SGxMKgERwYEKM3sTdnxBiGY3EwTGF2x/4Geywr8YBS+uXN5UuGErgEokz1qEa3/te
-	9lDF95sPu8b9D5sGTIRe528QzuPzSs4ak9kirfrwJTSvJa+12rghCECE+c78Jnwse2sUtpG97NncQ
-	/WkNnlrDhOwM1EaAGk/g==;
+	List-Owner; bh=OGiLvrCCpiKaog0AgRrCyP32pDr/pzeYu1CF8zUzY2g=; b=3/2PFJORZtdZaD
+	6gd2t1x9wpz672F4J4hI3ujq13CB7fSsIobFBnr4Cg8uyEkaHgN54ONhUJqyzzJyRdQ/DsXcseafq
+	VxI3jRhpWeYWG7n3C7m/ZMSS5+v/eLC926aEPvoAvfIuYLl82B3hvjjFEp6P3ZVniRBUxhOPoRXz3
+	W4uB4CPjL67OVIqqadgQ56wPexMT6QdCs+IVcAe1QHSXuqWubWtpztjPXKbSRsOvb1JXJCmeZ1wYY
+	lb5zk8ycI1UWOJGyIH3NPGlaPHMk2hAhf27Z5Lu1ZjS1IoDdRO4ujTRou2l84yuOY6SGCDxAJ6DD+
+	tzT71ZgPaGqu7KU/Up+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov4FP-00FNbQ-B9; Tue, 15 Nov 2022 22:17:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ov4R4-00FP3I-Tk; Tue, 15 Nov 2022 22:29:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov4FM-00FNac-JC
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 22:17:38 +0000
+	id 1ov4R2-00FP2p-KI
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 22:29:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 41AFDB81B50;
-	Tue, 15 Nov 2022 22:17:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D82BC433C1;
-	Tue, 15 Nov 2022 22:17:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 14A8E61A44;
+	Tue, 15 Nov 2022 22:29:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2875C433D6;
+	Tue, 15 Nov 2022 22:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668550652;
-	bh=0hu7rKCEN7EFEfQlBLLzIaScplCM3c5RZS+5NSeqKAY=;
+	s=k20201202; t=1668551379;
+	bh=5RTPqbqRHo17DhuTc7evD4YG3pNYusiYUpf6yFn71Rs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pEMH4orDzHDiNvbLvQQI0vvUFneS7XXW+lBWsmjjvGTxHw7FthyZ8ACBRJ9ZAafEp
-	 8fXBRcxEjfmu/ZkqgZg6FjJqrL461SNq4SN3KBAlqcrAxI+0UWreMhHdkCZBExDDyg
-	 bt9Rofs8zCs3WqEiSDNYCoWQhf9AFb/TpwOIzVmS3LIIViZnio42Z3WQGN2cBNDTV0
-	 o6HWlJ5MmUZ2EQNX1RARcN2M2ronhI1W5ZfCeBYJXiVcR66EwfjDmoWFPtm7daUw3F
-	 RoNmU+0HUjSop/wTxPsuJalBuPFAhczLY0W7/1QgXxXRhgSwZ/N/XOwEhZt/0fCxQC
-	 xpsduM0buvSrg==
-Date: Tue, 15 Nov 2022 22:17:27 +0000
+	b=YAlCAat6PiIT8BfzXkVnLtXkgTT9/M6YrwN+0+km30efTdPdnaGrliKPnN0RomA61
+	 6NXgBR4pb2GZprFVGudycwIM8R0mh3mLUtEv4eVBwGaUMrVJy6xwsiE46FHwKQ4GgE
+	 1Lq7t6YSOFPkhCLELvSuQ4y3wXuYEvRc2Q1Q3sk5y7ESy7Bjv0ni/4OTBGAjnpjU2C
+	 EhVEEpgzX4zF5iZh9NrKysV7Sk0eX0hdVn52TAgGr5YSc7JEP5542l6jmta69gfyIw
+	 jKN/HHNerlPyp0px0Bx9pUZFZQaCK6OzgNoeJ1LGyjABRKYUhdYbIFuUQqSKd/3/Zg
+	 7StinEPGyWvow==
+Date: Tue, 15 Nov 2022 22:29:34 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Vineet Gupta <vineetg@rivosinc.com>
-Cc: Conor.Dooley@microchip.com, bjorn@kernel.org, stillson@rivosinc.com,
-	greentime.hu@sifive.com, guoren@linux.alibaba.com,
-	vincent.chen@sifive.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ajones@ventanamicro.com
-Subject: Re: [PATCH v12 04/17] riscv: Add vector feature to compile
-Message-ID: <Y3QP9zjM3a4yifvi@spud>
-References: <20220921214439.1491510-1-stillson@rivosinc.com>
- <20220921214439.1491510-4-stillson@rivosinc.com>
- <87zgd2d6j1.fsf@all.your.base.are.belong.to.us>
- <98343aa8-b04d-fe58-8af8-4eeca03106d1@microchip.com>
- <9cda597c-1d31-4b8b-99ba-deab58975976@rivosinc.com>
+To: Anup Patel <apatel@ventanamicro.com>, palmer@dabbelt.com
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 8/9] RISC-V: Select APLIC and IMSIC drivers for QEMU virt
+ machine
+Message-ID: <Y3QSzkvV/4UvR1ME@spud>
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+ <20221111044207.1478350-9-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <9cda597c-1d31-4b8b-99ba-deab58975976@rivosinc.com>
+In-Reply-To: <20221111044207.1478350-9-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_141736_813719_C7A33B80 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20221115_142940_724830_80F1819C 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +81,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022 at 09:38:53AM -0800, Vineet Gupta wrote:
-> On 11/13/22 08:16, Conor.Dooley@microchip.com wrote:
-> > > > +config VECTOR
-> > > > +     bool "VECTOR support"
-> > > > +     depends on GCC_VERSION >= 120000 || CLANG_VERSION >= 130000
-> > > > +     default n
-> > > > +     help
-> > > > +       Say N here if you want to disable all vector related procedure
-> > > > +       in the kernel.
-> > > > +
-> > > > +       If you don't know what to do here, say Y.
-> > > > +
-> > > > +endmenu
-> > > "VECTOR" is not really consistent to how the other configs are named;
-> > > RISCV_ISA_V, RISCV_ISA_VECTOR, RISCV_VECTOR?
-> > It'd be RISCV_ISA_V to match the others single letter extentions, right?
+Hey Anup,
+
+On Fri, Nov 11, 2022 at 10:12:06AM +0530, Anup Patel wrote:
+> The QEMU virt machine supports APLIC and IMSIC emulation so let's
+> select APLIC and IMSIC drivers from SOC_VIRT kconfig option.
+
+I'm kinda torn with this as I've been trying to get rid of the selects
+from the file in the first place. As Maz seems to have decided that the
+SiFive plic driver is really the RISC-V plic driver - is there a reason
+not to either:
+- select the sifive plic at an arch level, or
+- put a "default RISCV" type thing in the driver entry?
+
+Similarly here, should we default the APLIC and IMSIC drivers to enabled
+for RISCV rather than using selects?
+
 > 
-> Yep.
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig.socs | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> > The toolchain dependency check here also seems rather naive.
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 69774bb362d6..c16b32eeadff 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -35,6 +35,8 @@ config SOC_VIRT
+>  	select GOLDFISH
+>  	select RTC_DRV_GOLDFISH if RTC_CLASS
+>  	select SIFIVE_PLIC
+> +	select RISCV_APLIC
+> +	select RISCV_IMSIC
+>  	select PM_GENERIC_DOMAINS if PM
+>  	select PM_GENERIC_DOMAINS_OF if PM && OF
+>  	select RISCV_SBI_CPUIDLE if CPU_IDLE && RISCV_SBI
+> -- 
+> 2.34.1
 > 
-> Indeed. I can build the code just fine with gcc-11 (and gcc-12), although my
-> reworked patcheset doesn't include all the orig patches including the
-> in-kernel xor stuff.
-
-By naive here I meant that checking cc alone is probably not a
-sufficient check for whether the toolchain supports the extension.
-What about the assembler etc?
-
-With Zicbom and Zihintpause we ran into problems with mixed usage, eg
-binutils 2.35 + gcc 12. In his Zicboz series Drew has gone with insn
-definitions - but while that's okay for something small like Zicboz,
-do we want to do that for something with as many instructions as vector?
-
-The alternative is cc-option, but that feels a lot less clean than what
-Drew cooked up here:
-https://lore.kernel.org/linux-riscv/20221027130247.31634-1-ajones@ventanamicro.com/
-
-I've not checked this because I am lazy, but I am also assuming that
-whoever put clang-13 in there picked it such that it doesn't require
-experimental extensions flags. Mostly just writing this to remind myself
-to check it at some point.
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
