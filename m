@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EC0C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 14:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A1AC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 14:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aAQ72PrfBYXPiU+klWQycLLEnslRlc9M2m89Eww5wDA=; b=MBE3e7Qg+fZeWN
-	+LKakFuxKZcbRHLVhkMm9bhp1aROl5aeGkmmeLiLccfsK54Ovug/+LckvZjxyHhd/RvJ8oR1J58wX
-	TUiNISyX/z2SzZE1fZu+NbsCfmQO5Gzy6Rv2qELcsBIC9Ue+pOHfZtkcqO6902JwxpOdBAW3Oq0DE
-	kaJ8JtjIVegcas5qSLm1cpDCCqfoRfLLEGQISl9lSxyHJDMroo77VaiVw4HoD0TOf2Jdmd04D64b4
-	v0lCPpo6WUbEnUCCKT2adHdM4aS6Xk0TqIOlGkSA16+pPIavNpi6a6Xpl0nQeiYFYk4ruMjC/LNDU
-	YVMhnOlGrD8sXsVvtjzQ==;
+	List-Owner; bh=b2bbv6Ipm+m67ftNAfRy5a6Lsc08HzVecw9KeHPvkTc=; b=LX/Ul32UipL1QE
+	EWBZHS9BZqM/HSWFPTjtYzjRlEXB70jbI+rCajma+j5lC6fei4I5WRWil+3u8td/CU0hugYObUXg/
+	10OMXmVlYC1UycGpGGX7u6Mq+LYOBo18g1FeaOEnZEy0ReGeecOOBbZ4iJNEyCFTCXnJ0p4Sz3xYF
+	JiN61pQqiBr7wuu8kC1CspbL8/KSspSdUEHB5LtSWR2iyx+7i0te55Pspinx1Qt66wJU/puzNUUe8
+	kZ1TK/zkvUVkezBYHPDGUSJZOY2HozHudXdBb3KNCR/cxGtZNrlurjrCnsbukkgKUhsHXSiBskK7E
+	rr1uWtjdGYtwEsvM9I5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouwtf-00BsQb-90; Tue, 15 Nov 2022 14:26:43 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ouww0-00BtNE-GE; Tue, 15 Nov 2022 14:29:08 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouwtY-00BsOQ-WE
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 14:26:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1668522397; x=1700058397;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+XERZkaZEnlrgczx883x+W1hcSu7sIngfJcKE+vi5KY=;
-  b=Acgal2CUM+ifr3jBJlNZzef55Z1LW/sLn+gC08rVzhy5U6J/wlywfkDW
-   /pQA+YuzCioVo6v5LqSp5N0FSqwXiGjCgKPgZQ6uU9il0CJFthZnzq7TI
-   CUQdhBufscmdJxl1eMi2dOxzMCYE/kzFcdPvISTq5Dz6KJKgmMVuD69gz
-   vCE7OegrVIKrGvSbPp4DEtuGdMwX4MxWEy5rE3o9qZrWqAx2kmEC31hSw
-   pj+w5egDL3C3uk1bKu3wXPeSXzkI716SmMx4swrxIjrtmPj9NXX5LcUMz
-   cZpUjWBMNaExfGLAQiMjkS0JL74W1X82/Gkx1+iUPclCLCWrm4llNgJ31
-   w==;
-X-IronPort-AV: E=Sophos;i="5.96,166,1665471600"; 
-   d="scan'208";a="189058136"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Nov 2022 07:26:33 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 15 Nov 2022 07:26:32 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 15 Nov 2022 07:26:30 -0700
-Date: Tue, 15 Nov 2022 14:26:13 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Song Shuai <suagrfillet@gmail.com>
-CC: <guoren@kernel.org>, <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mark.rutland@arm.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/3] riscv/ftrace: add ftrace_graph_func
-Message-ID: <Y3OhhZGlk5I5DN+f@wendy>
-References: <20221115061525.112757-1-suagrfillet@gmail.com>
- <20221115061525.112757-2-suagrfillet@gmail.com>
+	id 1ouwvy-00BtIz-0J
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 14:29:07 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id n20so15851064ejh.0
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 06:28:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=D/Re1O9DH2uniZAyOudlh9lB7yJvXS0vKWeR9pA+Tio=;
+        b=JdhpU0m7qQyPYImpCxM7odfn/SbTIiv+5pHCUR/L+InofJaqgATCGKCYeMtnrGgUMt
+         AVFbsIk4CX5jAsokTURHXtqcrXSJxXD7aC83CddQJyt1mElUEtVYK6g6wIhTwnmkIFbH
+         Yvw1gw1K7YdGcPBWOfGdFWwZnSw5kDPtUNJuamn8ug3ouEjKuNXVp2kY5zmRsULuEyD0
+         itghsmb2xRVO+kpKVD3ORDsa3Vzmgti1S8kx6xEZV87bQLhVDfbT9lsY5ZosiJJ2zOy3
+         KFxLUdGbQ/zYcaNP3boMvWM1vRl+UhmeUNMUl7CWpN+qB+o/zhcksenViShLMGwWPdYp
+         SEmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=D/Re1O9DH2uniZAyOudlh9lB7yJvXS0vKWeR9pA+Tio=;
+        b=HqtcLEw9NEn+oqSArGWZgM7L5+tb4dEraihCtb1Hgo0YUuN4K55xsQUc6yiEgB4qsd
+         t2GDyNXRhaxo0XOEN6b8gdpwGje4UbenVek04rLJmz8apEWWWrrVE8Ap4yk7IM2jNjNu
+         uiyp7SWgOUYMXLebJlasqD1cAemdSEDGCBWjF1RtSsM+ZoAHnX3EKTKlCI30CtHQS7ZN
+         nW93iJs5lQ/fk+nkLGIgMvDbgF/NH6GqEtTTqL6iCtL9VKQKUfL8kGY4uC+zbzm00Ror
+         VIh3FKt7OhT5ocJx1MGzjsPeCMlSVdooStRWW66AW+Vfg0wTs3nWnKm4dslKVMd431cR
+         EAVA==
+X-Gm-Message-State: ANoB5plgAFyGmPlJoey+plqtIJduEfNB+6QqFhPYR+RKjJ2Cb/3ELNZV
+	5MGUuCAgNnPMN3sq0RXn0fx9H+i1SqLPgUnN6cc=
+X-Google-Smtp-Source: AA0mqf7siFtnqM9gkDCoent5vTwz/7WCxPc5bFanYOJe7Se7Vl8pYGLbesNNesqSP4MvhFX567VLn1iGWnD9UTFkX+c=
+X-Received: by 2002:a17:906:4e42:b0:781:e568:294f with SMTP id
+ g2-20020a1709064e4200b00781e568294fmr14251930ejw.447.1668522534925; Tue, 15
+ Nov 2022 06:28:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221115061525.112757-2-suagrfillet@gmail.com>
+References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de>
+In-Reply-To: <20221110164924.529386-6-heiko@sntech.de>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 15 Nov 2022 14:28:27 +0000
+Message-ID: <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
+	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_062637_059937_384F3702 
-X-CRM114-Status: GOOD (  19.69  )
+X-CRM114-CacheID: sfid-20221115_062906_071373_F273915F 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,96 +87,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022 at 02:15:23PM +0800, Song Shuai wrote:
-> Here implements ftrace_graph_func as the function graph tracing function
-> with FTRACE_WITH_REGS defined.
-> 
-> function_graph_func gets the point of the parent IP and the frame pointer
-> from fregs and call prepare_ftrace_return for function graph tracing.
-> 
-> If FTRACE_WITH_REGS isn't defined, the enable/disable helpers of
-> ftrace_graph_[regs]_call remain for serving the !FTRACE_WITH_REGS
-> version ftrace_caller.
-> 
-> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+Hi Heiko,
 
-Hey Song,
-Last time I saw your email I'd swear it was "sugarfillet", just making
-sure that it is not a typo.
+Thank you for the patch.
 
-Anyways, checkpatch is whinging about some parenthesis stuff:
-https://patchwork.kernel.org/project/linux-riscv/patch/20221115061525.112757-2-suagrfillet@gmail.com/
-
-Would be nice to fix that when you resping.
-
-Thanks,
-Conor.
-
+On Thu, Nov 10, 2022 at 4:50 PM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>
+> Alternatives live in a different section, so addresses used by call
+> functions will point to wrong locations after the patch got applied.
+>
+> Similar to arm64, adjust the location to consider that offset.
+>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
->  arch/riscv/include/asm/ftrace.h | 13 +++++++++++--
->  arch/riscv/kernel/ftrace.c      | 16 ++++++++++++++++
->  2 files changed, 27 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 04dad3380041..b33c98070972 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -81,8 +81,17 @@ do {									\
->  struct dyn_ftrace;
->  int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
->  #define ftrace_init_nop ftrace_init_nop
-> -#endif
->  
-> -#endif
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-> +struct ftrace_ops;
-> +struct ftrace_regs;
-> +void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
-> +			struct ftrace_ops *op, struct ftrace_regs *fregs);
-> +#define ftrace_graph_func ftrace_graph_func
-> +#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
-> +
-> +#endif /* __ASSEMBLY__ */
-> +
-> +#endif /* CONFIG_DYNAMIC_FTRACE */
->  
->  #endif /* _ASM_RISCV_FTRACE_H */
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 2086f6585773..2d7ce77d4f33 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -196,6 +196,20 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+>  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
+>  1 file changed, 77 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 694267d1fe81..026512ca9c4c 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>         return cpu_req_feature;
 >  }
->  
->  #ifdef CONFIG_DYNAMIC_FTRACE
+>
+> +#include <asm/parse_asm.h>
 > +
-> +#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
+> +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
 > +
-> +void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
-> +			struct ftrace_ops *op, struct ftrace_regs *fregs)
+> +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
 > +{
-> +	struct pt_regs *regs = arch_ftrace_get_regs(fregs);
-> +	unsigned long *parent = (unsigned long *)&(regs->ra);
-> +
-> +	prepare_ftrace_return(parent, ip, frame_pointer(regs));
+> +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
 > +}
 > +
-> +#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
+> +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
+> +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
+> +#define AUIPC_PAD              (0x00001000)
+> +#define JALR_SHIFT             I_IMM_11_0_OPOFF
 > +
->  extern void ftrace_graph_call(void);
->  extern void ftrace_graph_regs_call(void);
->  int ftrace_enable_ftrace_graph_caller(void)
-> @@ -223,5 +237,7 @@ int ftrace_disable_ftrace_graph_caller(void)
->  	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
->  				    (unsigned long)&prepare_ftrace_return, false);
->  }
-> +#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> +#define to_jalr_imm(offset)                                            \
+> +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
 > +
->  #endif /* CONFIG_DYNAMIC_FTRACE */
->  #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
-> -- 
-> 2.20.1
-> 
+> +#define to_auipc_imm(offset)                                           \
+> +       ((offset & JALR_SIGN_MASK) ?                                    \
+> +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
+> +       (offset & AUIPC_OFFSET_MASK))
+> +
+> +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
+> +                                            unsigned int len, int patch_offset)
+> +{
+
+I am yet to test this with my ASM code yet, but maybe can we move this
+to [0] so that other erratas can make use of it too?
+
+[0] arch/riscv/kernel/patch.c
+
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
