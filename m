@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A1AC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 14:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23176C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 14:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b2bbv6Ipm+m67ftNAfRy5a6Lsc08HzVecw9KeHPvkTc=; b=LX/Ul32UipL1QE
-	EWBZHS9BZqM/HSWFPTjtYzjRlEXB70jbI+rCajma+j5lC6fei4I5WRWil+3u8td/CU0hugYObUXg/
-	10OMXmVlYC1UycGpGGX7u6Mq+LYOBo18g1FeaOEnZEy0ReGeecOOBbZ4iJNEyCFTCXnJ0p4Sz3xYF
-	JiN61pQqiBr7wuu8kC1CspbL8/KSspSdUEHB5LtSWR2iyx+7i0te55Pspinx1Qt66wJU/puzNUUe8
-	kZ1TK/zkvUVkezBYHPDGUSJZOY2HozHudXdBb3KNCR/cxGtZNrlurjrCnsbukkgKUhsHXSiBskK7E
-	rr1uWtjdGYtwEsvM9I5g==;
+	List-Owner; bh=/8elX0MU/Ux2e8Bmaogic0F8U3aIlLhkbN1f6MtUWxk=; b=Zn0qJARefRjdbH
+	+4zAJnrRnAYW0zzugPMsrG4tNW61msnC/NYB+7WcnK2xdHaBkd1CePtKl1AbTbfFDBW81OxTAj2Jb
+	/goaW5QlzVqtytfNyQCicYR9tkdTksa7FOatMSf8DhQ7OU53V0OwXSeb8ZjATZze4Z8ZSjisbBUBc
+	bfFfM5kRBraT3hu6rGunranls6+Z967rpEcg2PqGE4kYE4TonoQzCvkp8XcVMl01S035RYO+ll8AY
+	wpA9YOWn7o+jTMyDSE3VrhKxvzdC3eTyM/qu7Mbc/Uk8v+ubaMcQAqge1Mwdq+B82um3s9mkMDhPx
+	MTOoNswevEgeR82rNK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouww0-00BtNE-GE; Tue, 15 Nov 2022 14:29:08 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1oux5t-00BxHa-86; Tue, 15 Nov 2022 14:39:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouwvy-00BtIz-0J
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 14:29:07 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id n20so15851064ejh.0
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 06:28:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=D/Re1O9DH2uniZAyOudlh9lB7yJvXS0vKWeR9pA+Tio=;
-        b=JdhpU0m7qQyPYImpCxM7odfn/SbTIiv+5pHCUR/L+InofJaqgATCGKCYeMtnrGgUMt
-         AVFbsIk4CX5jAsokTURHXtqcrXSJxXD7aC83CddQJyt1mElUEtVYK6g6wIhTwnmkIFbH
-         Yvw1gw1K7YdGcPBWOfGdFWwZnSw5kDPtUNJuamn8ug3ouEjKuNXVp2kY5zmRsULuEyD0
-         itghsmb2xRVO+kpKVD3ORDsa3Vzmgti1S8kx6xEZV87bQLhVDfbT9lsY5ZosiJJ2zOy3
-         KFxLUdGbQ/zYcaNP3boMvWM1vRl+UhmeUNMUl7CWpN+qB+o/zhcksenViShLMGwWPdYp
-         SEmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D/Re1O9DH2uniZAyOudlh9lB7yJvXS0vKWeR9pA+Tio=;
-        b=HqtcLEw9NEn+oqSArGWZgM7L5+tb4dEraihCtb1Hgo0YUuN4K55xsQUc6yiEgB4qsd
-         t2GDyNXRhaxo0XOEN6b8gdpwGje4UbenVek04rLJmz8apEWWWrrVE8Ap4yk7IM2jNjNu
-         uiyp7SWgOUYMXLebJlasqD1cAemdSEDGCBWjF1RtSsM+ZoAHnX3EKTKlCI30CtHQS7ZN
-         nW93iJs5lQ/fk+nkLGIgMvDbgF/NH6GqEtTTqL6iCtL9VKQKUfL8kGY4uC+zbzm00Ror
-         VIh3FKt7OhT5ocJx1MGzjsPeCMlSVdooStRWW66AW+Vfg0wTs3nWnKm4dslKVMd431cR
-         EAVA==
-X-Gm-Message-State: ANoB5plgAFyGmPlJoey+plqtIJduEfNB+6QqFhPYR+RKjJ2Cb/3ELNZV
-	5MGUuCAgNnPMN3sq0RXn0fx9H+i1SqLPgUnN6cc=
-X-Google-Smtp-Source: AA0mqf7siFtnqM9gkDCoent5vTwz/7WCxPc5bFanYOJe7Se7Vl8pYGLbesNNesqSP4MvhFX567VLn1iGWnD9UTFkX+c=
-X-Received: by 2002:a17:906:4e42:b0:781:e568:294f with SMTP id
- g2-20020a1709064e4200b00781e568294fmr14251930ejw.447.1668522534925; Tue, 15
- Nov 2022 06:28:54 -0800 (PST)
+	id 1oux5K-00Bwns-Jd
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 14:38:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1668523127; x=1700059127;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5v0DP53feCYo7PgTo+QK93dELwfjr9wlhPwVR8nosZo=;
+  b=rp/M2QQRCGxzg6yHphn2oYSBvqKpIlB0+By7CZPhv2BaNDS3PGRibhD2
+   gZ5tKw+0Uy89jR6TIGUC+cvL0uMt70E2hyIwWwggoyGoJLZvMUwdRduEG
+   T+5r6NTABI8XbY9WpR6vgciFzW7yIAHKKJY1khGTPq1IbTkAWmFVXDSjt
+   U0SccAo6UNhKDhawtQ8Kk06dyLf8VHL8dfo3TWFq9Ix5TLsF0/TI+TkKv
+   fWg2Uhs8gnCABcm+MUDK4yqjDWxvoHpGKQhsMrywtvq1/kbS1dXpAfm1a
+   3amJkWQrBoCn5S1Q0cjGzP4bW1kXK64Qg5rqU8iJ0yoRr6bpsqUsk3mXK
+   g==;
+X-IronPort-AV: E=Sophos;i="5.96,166,1665471600"; 
+   d="scan'208";a="189059446"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Nov 2022 07:38:46 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 15 Nov 2022 07:38:45 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 15 Nov 2022 07:38:44 -0700
+Date: Tue, 15 Nov 2022 14:38:27 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Deepak Gupta <debug@rivosinc.com>
+CC: <aou@eecs.berkeley.edu>, <jan.kiszka@siemens.com>, <kbingham@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, Andrew Jones <ajones@ventanamicro.com>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3] scripts/gdb: add lx_current support for riscv
+Message-ID: <Y3OkY6myfea00BaK@wendy>
+References: <20221115012917.1781185-1-debug@rivosinc.com>
+ <20221115084923.1822572-1-debug@rivosinc.com>
 MIME-Version: 1.0
-References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de>
-In-Reply-To: <20221110164924.529386-6-heiko@sntech.de>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 15 Nov 2022 14:28:27 +0000
-Message-ID: <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
-	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Content-Disposition: inline
+In-Reply-To: <20221115084923.1822572-1-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_062906_071373_F273915F 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20221115_063846_680740_7A948B71 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +83,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hey Deepak,
 
-Thank you for the patch.
+On Tue, Nov 15, 2022 at 12:49:23AM -0800, Deepak Gupta wrote:
+> csr_sscratch CSR holds current task_struct address when hart is in
+> user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
+> register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
+> "tp" with expected user mode value and place current task_struct address
+> again in csr_scratch CSR.
+> 
+> This patch assumes "tp" is pointing to task_struct. If value in
+> csr_scratch is numerically greater than "tp" then it assumes csr_scratch
 
-On Thu, Nov 10, 2022 at 4:50 PM Heiko Stuebner <heiko@sntech.de> wrote:
->
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
->
-> Alternatives live in a different section, so addresses used by call
-> functions will point to wrong locations after the patch got applied.
->
-> Similar to arm64, adjust the location to consider that offset.
->
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+nit: s/scratch/sscratch/ ?
+
+> is correct address of current task_struct. This logic holds when
+>    - hart is in user space, "tp" will be less than csr_scratch.
+>    - hart is in kernel space but not in trap handler, "tp" will be more
+>      than csr_scratch (csr_scratch being equal to 0).
+>    - hart is executing trap handler
+>        - "tp" is still pointing to user mode but csr_scratch contains
+>           ptr to task_struct. Thus numerically higher.
+>        - "tp" is  pointing to task_struct but csr_scratch now contains
+>           either 0 or numerically smaller value (transiently holds
+>           user mode tp)
+> 
+> Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
+> 
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+
+I noticed when looking into patchwork complaining about checkpatch
+errors in v2, that b4 had actually downloaded v3 but I could not see
+this patch on the RISC-V list. I don't see a changelog anywhere here
+from v2 either, nor did you pick up Drew's Reviewed-by.
+
+What's the story there?
+
+One really minor thing below. Should be able to fix it up trivially up
+& submit a v4, CCing the linux-riscv list.
+
 > ---
->  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
->  1 file changed, 77 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 694267d1fe81..026512ca9c4c 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
->         return cpu_req_feature;
->  }
->
-> +#include <asm/parse_asm.h>
+>  scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
+>  scripts/gdb/linux/utils.py |  5 +++++
+>  2 files changed, 20 insertions(+)
+> 
+> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
+> index 15fc4626d236..ca5215a660c7 100644
+> --- a/scripts/gdb/linux/cpus.py
+> +++ b/scripts/gdb/linux/cpus.py
+> @@ -173,6 +173,21 @@ def get_current_task(cpu):
+>           else:
+>               raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
+>                                  "while running in userspace(EL0)")
+> +    elif utils.is_target_arch("riscv"):
+> +         current_tp = gdb.parse_and_eval("$tp")
+> +         scratch_reg = gdb.parse_and_eval("$sscratch")
 > +
-> +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
-> +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
+> +         # by default tp points to current task
+> +         current_task = current_tp.cast(task_ptr_type)
 > +
-> +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
-> +{
-> +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
-> +}
-> +
-> +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
-> +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
-> +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
-> +#define AUIPC_PAD              (0x00001000)
-> +#define JALR_SHIFT             I_IMM_11_0_OPOFF
-> +
-> +#define to_jalr_imm(offset)                                            \
-> +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
-> +
-> +#define to_auipc_imm(offset)                                           \
-> +       ((offset & JALR_SIGN_MASK) ?                                    \
-> +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
-> +       (offset & AUIPC_OFFSET_MASK))
-> +
-> +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
-> +                                            unsigned int len, int patch_offset)
-> +{
+> +         # scratch register is set 0 in trap handler after entering kernel.
+> +         # When hart is in user mode, scratch register is pointing to task_struct.
+> +         # and tp is used by user mode. So when scratch register holds larger value
+> +         # (negative address as ulong is larger value) than tp, then use scratch register.
+> +         if (scratch_reg.cast(utils.get_ulong_type()) >  current_tp.cast(utils.get_ulong_type())):
+                                                          ^^
+extra space here?
 
-I am yet to test this with my ASM code yet, but maybe can we move this
-to [0] so that other erratas can make use of it too?
 
-[0] arch/riscv/kernel/patch.c
-
-Cheers,
-Prabhakar
+> +             current_task = scratch_reg.cast(task_ptr_type)
+> +
+> +         return current_task.dereference()
+>      else:
+>          raise gdb.GdbError("Sorry, obtaining the current task is not yet "
+>                             "supported with this arch")
+> diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
+> index 1553f68716cc..ddaf3089170d 100644
+> --- a/scripts/gdb/linux/utils.py
+> +++ b/scripts/gdb/linux/utils.py
+> @@ -35,12 +35,17 @@ class CachedType:
+>  
+>  
+>  long_type = CachedType("long")
+> +ulong_type = CachedType("ulong")
+>  atomic_long_type = CachedType("atomic_long_t")
+>  
+>  def get_long_type():
+>      global long_type
+>      return long_type.get_type()
+>  
+> +def get_ulong_type():
+> +    global ulong_type
+> +    return ulong_type.get_type()
+> +
+>  def offset_of(typeobj, field):
+>      element = gdb.Value(0).cast(typeobj)
+>      return int(str(element[field].address).split()[0], 16)
+> -- 
+> 2.25.1
 
 _______________________________________________
 linux-riscv mailing list
