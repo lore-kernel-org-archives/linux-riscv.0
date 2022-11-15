@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8A3C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 20:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C96C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 20:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yaKBWyap2AGPlrEseGmeAQFqUDJJSjTMgz5CDjbLQhE=; b=1AeCsUyz2AZpWD
-	0aLaXu5UH/Nf/ioVPIwkxxVvsCgsM1nbLiSuB0CEEhFqkKb9QcxBCRWtRCSeXURYLN/RYW/h2o1h1
-	UmvS20rp0bfjA3l1SnYXM+EWqt7xWN42mfwLhHu+e/fYIlHLd1NeiCaxgx6VaQu+8r+6YKKuLPmYG
-	P7j9xEsT8eNAyn9gaAvv3SGP38mxetYKe0RseS/T+vwRhyH6e4SpjOKIiVgquX4OZ7eOQ5AaBn6C/
-	ojxWpinzHEj+kYTcNLmhl51ezX2wzZBgSTQsz9tG43sC8x3lTirrUBHCHAndqg57YvBLLbUUn67SA
-	npN6U3gpdx6iK3ION4ww==;
+	List-Owner; bh=IR996dpAAabwYqzxgMLOVZ1MoAqbtvi68dXCAuP4I+I=; b=X/rGn5RWtq/qjt
+	RRjl2nnfe8TWSzrP0ARXVWFn16nW04SPE8AtoEmAURCiHT3VHPCMQI3XaculOeH3vrBylH1JjgSeB
+	bN179nz1K/UKnNWQXMn09zs9AvJBMHMTYPrx97kYvCBFWlk0N9qh0tHAMCYcjwHrt7zvjotosGVmk
+	/SBZj5JtSeSxVd57kmqT/4A9R7ISl04yJZT64oJgbOxf4X/re1WN1nZd8JpSm36jn/oeeTTe7eTfa
+	1JgA7bHeXClSs9jwY8fZHugRE/YiHhBvzR318sZLcdHTrckxTR4xpRMFb5bkV6FZgsD3yPO/PhlY8
+	oCvZKvzouCMd74Ix5kjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov2M5-00EVwG-3l; Tue, 15 Nov 2022 20:16:25 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1ov2Qg-00EX6P-3W; Tue, 15 Nov 2022 20:21:10 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov2Lu-00EVsa-8m
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 20:16:16 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d20so14152804plr.10
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 12:16:08 -0800 (PST)
+	id 1ov2Qc-00EX4k-1P
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 20:21:08 +0000
+Received: by mail-pf1-x429.google.com with SMTP id c203so4003552pfc.11
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 12:21:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=T7LP3RGpmdXiMN5KPTn9/IO+rih2AglOTsvbEdRvS1Q=;
-        b=CuhvpEh+MwcQ8DdyO2LHPKc75+Mh4Tt/SrTxun8SjsbCLbKA/uujVn75/hrSWRbq3P
-         pp681Bo0ABWoVlpW4KZ12uslMC8XMyFowDj24K4rvmpM/9YujrW27P9Vv5MLxt+ZIfOV
-         Jm6zqwFB/7ZHai0ByGJfyD247/5LpCxHhMpkaFu377RaNtmMs+gPLXFcf0G1yQbvs+Rs
-         EYu+becUwCm5WaK54RGM6rYBIysavORuhi+fV9JxKIFpQITo1Jz1JNtjUgO7b5R2U1/e
-         xEGMqJLbi5RxqShnMYvwl9BbYi//M2ZHV0GVHxnWgbMAYD9A/uq/G/wppECfL4cNv6ol
-         hTbw==
+        bh=XxrH205VSL6PuZxNZy5QSHBg1esXqApruwRLQHoD1FQ=;
+        b=QoLsrppxCqrrm8Et/yxXiG7qWE0hiOrc+RLWkwKVvGYvEXTURW54Ct7G0aFnW7vDom
+         O3WnXZWOxSKhgS+uv00LIKaFYAiY4w1O0HuVw0sHlWnVNkXyDKqsQfpccjPy0o//76Ot
+         9HbC7sv+GYjRBhUyAvWsaFUrflZFb6BoKafnLIcIXy0vGyf6tKbOGR6vv68o6WUCslEQ
+         BOT4pCgeSJnKExa2xfKvrZGwBZhzuokrCi6o4yMRfhSIGNbmSd/1S94WiYpeZI3RH1jS
+         tMxrZXr8PoWD2Hx+ZMuaUIAmz2hZjOEiOFHGi/ELuekxNrIkmFIAeW4IyLdTJL7wajgf
+         6FdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T7LP3RGpmdXiMN5KPTn9/IO+rih2AglOTsvbEdRvS1Q=;
-        b=m1lggBhHYoVVn43dihWLYv4LUhqyhdYwKVIhWq+n/EYiQ5L4lI/U4GJWLoWNeDWf4t
-         ydWz0tYIbrm4t+JiEIkzrw8CncB6HjnW0HCwaNUE+W5eZ3CdgT9hHYmRdHmLYBa/P5XB
-         r/cD6MfZBWWCGra7PiUNoAoG5vo7mIeBWdToLzXxyZPOQjCDUdwRhq76aw7OjlS8gFFv
-         UEieMq1R6Cv+zv4jt0l2M/lkzYal6tsMlV7x6dJa3NJuY+6bnWCbOuXyDAGWpt9i8O5r
-         sAqVOo0lsrUPqnp2aDhMvqSIvrG6oQkcfjLE3gI4ewlW6voq/tFqQW8xbnj3Rvfdz12U
-         /+XQ==
-X-Gm-Message-State: ANoB5pniN9bI5OHRzHQom+v9+NMcJAYg3EVDDRSK+EvxxU2BBJ+ZTpcS
-	qNQcA8TOZRXPtU1g6MNhHOd3oA==
-X-Google-Smtp-Source: AA0mqf58/qb3pHX8jXG9rQwsI0kWr5CgUXW3YysHviPdV0VVEN3OAELl4gQs2//98Y2csv6jhLKLCw==
-X-Received: by 2002:a17:902:e8d5:b0:181:6c64:6dd3 with SMTP id v21-20020a170902e8d500b001816c646dd3mr5671131plg.123.1668543368117;
-        Tue, 15 Nov 2022 12:16:08 -0800 (PST)
+        bh=XxrH205VSL6PuZxNZy5QSHBg1esXqApruwRLQHoD1FQ=;
+        b=L7auKaW5dON9Z6pvzfucApIvcbqIttyVrTdH3eBRbWBbg8Ez6XepFnX9XxBSNHrHfF
+         esvlECzcL4VeqpdYn26IKnqTmZLdCr4Q8LDi8BObfJt7sO/eLlZS2DEPER5SwvawpC24
+         cPWvbPvBDfrlrsPUnu3URjr//b9zU5DY0jWoqbNv6dPf8P1t8k0e4ifRgQPVf7fY/N5q
+         KByIxdHURub2TYtjzET205R9q1OMsymghnESH9YUZkATWqVnPL70621cfab5MSB1xHfG
+         8lLwn5qfmEG1GJiBh5ZTglqHvR0NVuz2bEVi+nXxkzbLhPQiwK1YyLjMBcAJLjGOy+hJ
+         /nfg==
+X-Gm-Message-State: ANoB5pljO9IE0Vm3jtYvQUBRbplB5jwgNUDQI75i+B3RVcP1Ssv5qfRl
+	7yA3jSPS7NJatUv02JBKT4pVVQ==
+X-Google-Smtp-Source: AA0mqf7I+HCT8JLUK2SnELicaIfj+5Xh/wdDfnKOa9DuiFN7rhFS7bzZLz9XVMfRQzvW4tmCjZQXQw==
+X-Received: by 2002:aa7:9493:0:b0:56b:9ae8:ca05 with SMTP id z19-20020aa79493000000b0056b9ae8ca05mr19812088pfk.59.1668543664233;
+        Tue, 15 Nov 2022 12:21:04 -0800 (PST)
 Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id d62-20020a623641000000b0056c08c87196sm9173979pfa.48.2022.11.15.12.16.07
+        by smtp.gmail.com with ESMTPSA id o15-20020a170902d4cf00b001754fa42065sm10448477plg.143.2022.11.15.12.21.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Nov 2022 12:16:07 -0800 (PST)
-Date: Tue, 15 Nov 2022 20:16:04 +0000
+        Tue, 15 Nov 2022 12:21:03 -0800 (PST)
+Date: Tue, 15 Nov 2022 20:21:00 +0000
 From: Sean Christopherson <seanjc@google.com>
 To: "Huang, Kai" <kai.huang@intel.com>
 Cc: "farman@linux.ibm.com" <farman@linux.ibm.com>,
@@ -100,17 +100,18 @@ Cc: "farman@linux.ibm.com" <farman@linux.ibm.com>,
 	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
 	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Subject: Re: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
-Message-ID: <Y3PzhANShVlTXVg1@google.com>
+Message-ID: <Y3P0rAjywL1a7Pme@google.com>
 References: <20221102231911.3107438-1-seanjc@google.com>
  <20221102231911.3107438-39-seanjc@google.com>
  <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
  <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+ <Y3PzhANShVlTXVg1@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+In-Reply-To: <Y3PzhANShVlTXVg1@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_121614_319269_927E638C 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20221115_122106_108375_52BB820A 
+X-CRM114-Status: GOOD (  27.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,84 +128,97 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 10, 2022, Huang, Kai wrote:
-> On Thu, 2022-11-10 at 01:33 +0000, Huang, Kai wrote:
-> > > @@ -9283,7 +9283,13 @@ static int
-> > > kvm_x86_check_processor_compatibility(struct kvm_x86_init_ops *ops)
-> > > =A0	int cpu =3D smp_processor_id();
-> > > =A0	struct cpuinfo_x86 *c =3D &cpu_data(cpu);
-> > > =A0
-> > > -	WARN_ON(!irqs_disabled());
-> > > +	/*
-> > > +	 * Compatibility checks are done when loading KVM and when enabling
-> > > +	 * hardware, e.g. during CPU hotplug, to ensure all online CPUs are
-> > > +	 * compatible, i.e. KVM should never perform a compatibility check
-> > > on
-> > > +	 * an offline CPU.
-> > > +	 */
-> > > +	WARN_ON(!irqs_disabled() && cpu_active(cpu));
-> > > =A0
+On Tue, Nov 15, 2022, Sean Christopherson wrote:
+> On Thu, Nov 10, 2022, Huang, Kai wrote:
+> > On Thu, 2022-11-10 at 01:33 +0000, Huang, Kai wrote:
+> > > > @@ -9283,7 +9283,13 @@ static int
+> > > > kvm_x86_check_processor_compatibility(struct kvm_x86_init_ops *ops)
+> > > > =A0	int cpu =3D smp_processor_id();
+> > > > =A0	struct cpuinfo_x86 *c =3D &cpu_data(cpu);
+> > > > =A0
+> > > > -	WARN_ON(!irqs_disabled());
+> > > > +	/*
+> > > > +	 * Compatibility checks are done when loading KVM and when enabli=
+ng
+> > > > +	 * hardware, e.g. during CPU hotplug, to ensure all online CPUs a=
+re
+> > > > +	 * compatible, i.e. KVM should never perform a compatibility check
+> > > > on
+> > > > +	 * an offline CPU.
+> > > > +	 */
+> > > > +	WARN_ON(!irqs_disabled() && cpu_active(cpu));
+> > > > =A0
+> > > =
+
+> > > Also, the logic of:
+> > > =
+
+> > > 	!irqs_disabled() && cpu_active(cpu)
+> > > =
+
+> > > is quite weird.
+> > > =
+
+> > > The original "WARN(!irqs_disabled())" is reasonable because in STARTI=
+NG
+> > > section
+> > > the IRQ is indeed disabled.
+> > > =
+
+> > > But this doesn't make sense anymore after we move to ONLINE section, =
+in which
+> > > IRQ has already been enabled (see start_secondary()).=A0 IIUC the WAR=
+N_ON()
+> > > doesn't get exploded is purely because there's an additional cpu_acti=
+ve(cpu)
+> > > check.
+> > > =
+
+> > > So, a more reasonable check should be something like:
+> > > =
+
+> > > 	WARN_ON(irqs_disabled() || cpu_active(cpu) || !cpu_online(cpu));
+> > > =
+
+> > > Or we can simply do:
+> > > =
+
+> > > 	WARN_ON(!cpu_online(cpu) || cpu_active(cpu));
+> > > =
+
+> > > (because I don't know whether it's possible IRQ can somehow get disab=
+led in
+> > > ONLINE section).
+> > > =
+
+> > > Btw above is purely based on code analysis, but I haven't done any te=
+st.
 > > =
 
-> > Also, the logic of:
-> > =
-
-> > 	!irqs_disabled() && cpu_active(cpu)
-> > =
-
-> > is quite weird.
-> > =
-
-> > The original "WARN(!irqs_disabled())" is reasonable because in STARTING
-> > section
-> > the IRQ is indeed disabled.
-> > =
-
-> > But this doesn't make sense anymore after we move to ONLINE section, in=
- which
-> > IRQ has already been enabled (see start_secondary()).=A0 IIUC the WARN_=
-ON()
-> > doesn't get exploded is purely because there's an additional cpu_active=
-(cpu)
-> > check.
-> > =
-
-> > So, a more reasonable check should be something like:
-> > =
-
-> > 	WARN_ON(irqs_disabled() || cpu_active(cpu) || !cpu_online(cpu));
-> > =
-
-> > Or we can simply do:
-> > =
-
-> > 	WARN_ON(!cpu_online(cpu) || cpu_active(cpu));
-> > =
-
-> > (because I don't know whether it's possible IRQ can somehow get disable=
-d in
-> > ONLINE section).
-> > =
-
-> > Btw above is purely based on code analysis, but I haven't done any test.
+> > Hmm.. I wasn't thinking thoroughly.  I forgot CPU compatibility check a=
+lso
+> > happens on all online cpus when loading KVM.  For this case, IRQ is dis=
+abled and
+> > cpu_active() is true.  For the hotplug case, IRQ is enabled but  cpu_ac=
+tive() is
+> > false.
 > =
 
-> Hmm.. I wasn't thinking thoroughly.  I forgot CPU compatibility check also
-> happens on all online cpus when loading KVM.  For this case, IRQ is disab=
-led and
-> cpu_active() is true.  For the hotplug case, IRQ is enabled but  cpu_acti=
-ve() is
-> false.
+> Actually, you're right (and wrong).  You're right in that the WARN is fla=
+wed.  And
+> the reason for that is because you're wrong about the hotplug case.  In t=
+his version
+> of things, the compatibility checks are routed through hardware enabling,=
+ i.e. this
+> flow is used only when loading KVM.  This helper should only be called vi=
+a SMP function
+> call, which means that IRQs should always be disabled.
 
-Actually, you're right (and wrong).  You're right in that the WARN is flawe=
-d.  And
-the reason for that is because you're wrong about the hotplug case.  In thi=
-s version
-of things, the compatibility checks are routed through hardware enabling, i=
-.e. this
-flow is used only when loading KVM.  This helper should only be called via =
-SMP function
-call, which means that IRQs should always be disabled.
+Grr, but not routing through this helper is flawed in that KVM doesn't do t=
+he
+CR4 checks in the hardware enabling case.  Don't think that changes the WAR=
+N, but
+other patches in this series need tweaks.
 
 _______________________________________________
 linux-riscv mailing list
