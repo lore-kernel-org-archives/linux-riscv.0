@@ -4,47 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040BDC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 15:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2904CC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 17:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5qxZ9DkpcEropa/U5mQvW9PIo6ox8JbcYc/mKW+KpsA=; b=jNd9IqxfRE31W7
-	SNXDvbgn8Ej/hynLtWr6a1lkHbN7JErXI8QkHxR34Cqj0j9ArUX654eAPIl+mcTZMBosow9EI7h2G
-	I3i2M1+rQ5ZS+C4EHwp/c8qZKmRQYLbHeCO23HkzIJjKx8HlKyzDCgPoZUyOc/kQWlV5Ah3YCSG0/
-	SQUMrzwmpCjCx7ERBrCW9DHNx20RH/iahAm+eBLP7Nl4vti4JTgUvT545x36EvIGVp7L4+x09qArr
-	9mJbIqPCmfT2jdBVmCFpDtqHqceiRSQq9mumNgdZZlZB478YBkkncj4TUukPlod93porl0KCpPajP
-	SJFk5IUTF6SmUspdQyDg==;
+	List-Owner; bh=AB7SPTaVnVEiVlpwPTG4xEaPTjpkJr7HKsfLsY3pfxo=; b=eiWD2Ycro46V1e
+	DX9J+eBVV08Shw5ur/RY0BrqGY2eiJq2V7bhUh8nNnVZR3fbXNh/hZLLCs+LvJY8KfgiwSI5ehr4e
+	OxyoCGGIccnFChprCVnbcaMXoBCgAcDk2Ijc+veEjgl/JwqxxbFYLebkgHD7Svu+DxWZjGvOVCit/
+	aotF7IHi4cqjwaxL677n5ry1+bNa4vUhc6q9TUC6ShvYpQgw1hSOcLnM1ZyfvfTzhAgbZFBzrmiec
+	aCgn1MnPTnpBHeZYTcFlDkGn8Mj2QGFICBokpDGxKzwwAEXEpF6OT8eZo2VZA1f/W6FNDEpqyftuT
+	68wWSXbc4D4e/vVFzBXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouy1U-00CO3q-Fx; Tue, 15 Nov 2022 15:38:52 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1ouztl-00DXLW-GY; Tue, 15 Nov 2022 17:39:01 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouy1R-00CNvT-7M
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 15:38:50 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 7B002E000E;
-	Tue, 15 Nov 2022 15:38:37 +0000 (UTC)
-Message-ID: <dbf2c1f5-d435-4c16-dd16-697b0e7ce3d9@ghiti.fr>
-Date: Tue, 15 Nov 2022 16:38:37 +0100
+	id 1ouzti-00DXK9-Uh
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 17:39:00 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id b1-20020a17090a7ac100b00213fde52d49so14506091pjl.3
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 09:38:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7FSiCY31V/QWXzTLZ2fNFJ5cidEqBZ+gXLW64Grk/N8=;
+        b=DPE1B8LqqefUlBMXUOYA+VF9kIfGrHy7/L3SQnJRrX2ybhBDfbcTGqkPhGo+gYCAs/
+         Nn1Sg8kApxzjxsQH+axtSrCcxEQU7Vkkr1b1X0xdthhgCMPQk/VwWIq2aE2sPtdyyjHt
+         6Myk+7VCSn/8lE3sCnmg8BmJihCruZFjZGE4FQqBWbb16fP7UpG0Cfp8nx83AoFqQg8F
+         FQwS765cfWB6Xclp24Vt9JB9bFax8lINlh5y07Hq2y8iFTvFJwrRFWwDniYUnxKxt96P
+         vPRGVboImVmexj4XPvnMzf+/WguNXTWloUmT4L2cCj3jVAVZbM0P612WChqMv10s7iU0
+         KZIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7FSiCY31V/QWXzTLZ2fNFJ5cidEqBZ+gXLW64Grk/N8=;
+        b=ogOcQkIygssnHv7Fb4lHOdBBojDH8L8VJWmcNyyQvwOPBw5H+FTI9+H+DXmZe75gj/
+         Ni+41lP1tNWfsfeoN/4C4BDaqSV0rjsI7mpQ46V0GFJE19jrGv2bzwXIM4hcugN4IS9i
+         BXNcGv1JXltLhAx9fw5QRPf35HDg0Tspd+q4ob2vdbTsGSMcY1SBubyInLI2XteQk2tl
+         tZrG+CW2yd6MelAuHyuUBILkVfS7MLKzMKBBjkxq+I625cP6H7Xe3Q7hAnp33MY+lLhG
+         z4aEUyk+PuRsy/dDFXtedaAQxQ7aAzHxu1Po+Z8IRPn6Ec+qE2CRjJUb5dA3fHoUKHKd
+         YB3w==
+X-Gm-Message-State: ANoB5plnate57sLPvyoO1QvOwQn04x5kzXcl3BOOP9JHqcStzozJFz5J
+	3195SW40tq4VbfVhUJ/Ucu8Stw==
+X-Google-Smtp-Source: AA0mqf5hh2iafIsUZMWj4n4YK+7qwjikOKqTkk/QL5u4A6DJNJx4WchfkyMbIECRudOzaIoiT9C/AQ==
+X-Received: by 2002:a17:90b:2389:b0:213:971d:902e with SMTP id mr9-20020a17090b238900b00213971d902emr3335198pjb.123.1668533935247;
+        Tue, 15 Nov 2022 09:38:55 -0800 (PST)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id d7-20020a170903230700b00172fad607b3sm10272327plh.207.2022.11.15.09.38.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Nov 2022 09:38:54 -0800 (PST)
+Message-ID: <9cda597c-1d31-4b8b-99ba-deab58975976@rivosinc.com>
+Date: Tue, 15 Nov 2022 09:38:53 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.2
-Subject: Re: [PATCH v1 1/1] riscv: mm: call best_map_size many times during
- linear-mapping
+Subject: Re: [PATCH v12 04/17] riscv: Add vector feature to compile
 Content-Language: en-US
-To: panqinglin2020@iscas.ac.cn, palmer@dabbelt.com,
- linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, ajones@ventanamicro.com
-References: <20221006021223.3091711-1-panqinglin2020@iscas.ac.cn>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20221006021223.3091711-1-panqinglin2020@iscas.ac.cn>
+To: Conor.Dooley@microchip.com, bjorn@kernel.org, stillson@rivosinc.com
+Cc: greentime.hu@sifive.com, guoren@linux.alibaba.com,
+ vincent.chen@sifive.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, guoren@kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20220921214439.1491510-1-stillson@rivosinc.com>
+ <20220921214439.1491510-4-stillson@rivosinc.com>
+ <87zgd2d6j1.fsf@all.your.base.are.belong.to.us>
+ <98343aa8-b04d-fe58-8af8-4eeca03106d1@microchip.com>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <98343aa8-b04d-fe58-8af8-4eeca03106d1@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_073849_456087_D17BB2CC 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20221115_093859_016220_339494FA 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,62 +98,33 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Qinglin,
+On 11/13/22 08:16, Conor.Dooley@microchip.com wrote:
+>>> +config VECTOR
+>>> +     bool "VECTOR support"
+>>> +     depends on GCC_VERSION >= 120000 || CLANG_VERSION >= 130000
+>>> +     default n
+>>> +     help
+>>> +       Say N here if you want to disable all vector related procedure
+>>> +       in the kernel.
+>>> +
+>>> +       If you don't know what to do here, say Y.
+>>> +
+>>> +endmenu
+>> "VECTOR" is not really consistent to how the other configs are named;
+>> RISCV_ISA_V, RISCV_ISA_VECTOR, RISCV_VECTOR?
+> It'd be RISCV_ISA_V to match the others single letter extentions, right?
 
-On 06/10/2022 04:12, panqinglin2020@iscas.ac.cn wrote:
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->
-> Modify the best_map_size function to give map_size many times instead
-> of only once, so a memory region can be mapped by both PMD_SIZE and
-> PAGE_SIZE.
->
-> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> ---
->   arch/riscv/mm/init.c | 9 +++++----
->   1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b56a0a75533f..1b76d3fe4e26 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -673,10 +673,11 @@ void __init create_pgd_mapping(pgd_t *pgdp,
->   static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
->   {
->   	/* Upgrade to PMD_SIZE mappings whenever possible */
-> -	if ((base & (PMD_SIZE - 1)) || (size & (PMD_SIZE - 1)))
-> -		return PAGE_SIZE;
-> +	base &= PMD_SIZE - 1;
-> +	if (!base && size >= PMD_SIZE)
-> +		return PMD_SIZE;
->   
-> -	return PMD_SIZE;
-> +	return PAGE_SIZE;
->   }
->   
->   #ifdef CONFIG_XIP_KERNEL
-> @@ -1111,9 +1112,9 @@ static void __init setup_vm_final(void)
->   		if (end >= __pa(PAGE_OFFSET) + memory_limit)
->   			end = __pa(PAGE_OFFSET) + memory_limit;
->   
-> -		map_size = best_map_size(start, end - start);
->   		for (pa = start; pa < end; pa += map_size) {
->   			va = (uintptr_t)__va(pa);
-> +			map_size = best_map_size(pa, end - pa);
->   
->   			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
->   					   pgprot_from_va(va));
+Yep.
+
+> The toolchain dependency check here also seems rather naive.
+
+Indeed. I can build the code just fine with gcc-11 (and gcc-12), 
+although my reworked patcheset doesn't include all the orig patches 
+including the in-kernel xor stuff.
+
+-Vineet
 
 
-It works fine for me, so you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-FYI, I'm working right now on using hugepages of 1GB for the linear mapping.
-
-Thanks,
-
-Alex
 
 
 _______________________________________________
