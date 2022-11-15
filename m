@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9172CC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 06:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA04C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 09:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q1ac11b6wxGv4auAmglaYs6DZJv4yjnyn/hiWrF8xHo=; b=EWA5aYqiW6qn1k
-	FxtAem57ISAXNic03hqGaFaTLw6m8jcwbtEuMWRfEizsKw5rPjnuWa+NohnCRDB1rlhpEx33euXcT
-	Ppn1ByHXo1+wdyMFHgxhkEMoc+Ov+3wVC664tehLlLtJZH8aYCkHyzbZvnnfDtbr30Ba0CeiXtV+w
-	yOJfio5LGGaSMMmfwtIRWc2YsR2ILCnCvsgxcHHvcIYMUI6dHbQhculy0+fm5CWNzi8rPIaxTvEe+
-	KJkTcY3rDyuGON2hluS/5JB6mTkiT0FyxCAGWzT5rrlZosRkwNCNZlNijcqeA81q50aLEFSZNhkJ7
-	8IsWjn6e59+grYQzO6mA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SZmh91feBUCR4obxNyqO9YSppQ79fGQIf1IpBj0wX4Q=; b=TAr/UTKihyeK6H
+	QlblMIn6R3E4HDFXvIL8v9Y+zrkpUnZcqxOKoQh9sl4o7v2vf/rNkV4WPMqeU426h1j34Gck732ea
+	T8qbf63bPtI6W5ju+y2EujkBkT4iNXPuMkd1pl/8lBwDLsEUImhG3GTJpwv821AfNzHUbLqaByY0Q
+	tqcq6q0rwsrEV9e6q+UkbFjJi4ZVD3V/ukj/tp5LWSlwWEE981hbAHeBaOAiLYsk1SEr+ahMUdtCA
+	Qz1Z4F0a1hDbJY2Ir/svP8US2aP6TboVW3KtTPrqtNbBP4XkD0A/w3mv/n+PaM332lCd7vgUxJGBY
+	AtfkDf0eJ4e24uVO63dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouphw-008HAu-VD; Tue, 15 Nov 2022 06:46:08 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1ouruG-009AAe-9h; Tue, 15 Nov 2022 09:07:00 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ouphr-008H9J-UM
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 06:46:08 +0000
-Received: by mail-ej1-x633.google.com with SMTP id f18so705250ejz.5
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 22:46:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z333HxX5gPy9NORJdJPh5x75FiRSYhz5BQverCzuReI=;
-        b=BYRZsjOI09drJblN+gA12cyZBzdAun4cC1h8zEf9GkrquLLMRX5ayWTEWN4Z57waV8
-         fZTQI8SYKDcH1hwG/vI80csxKDACqnq9pIdyenEKFyszXO0zpb0aznjEeN6ATWrSJa5J
-         39IjedjKi5vX+cqOPa1k62yXGUgoyfU99WawtDeq3GgUT2t+7TpHG0oTvg63Kw6gEHXj
-         MZfj9iq2QZ2ZbDdllTg/xG5tohiRZ6eQMcKjlkqno0b/ChQAa6dzFQy56Ei8eSTnq9cS
-         Q2bmrElYaYn1MRm7XA5m32U6IyixhXIfHbvstxc73nGgmt5e2/0WniuznEoG6gMZcoks
-         C5bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z333HxX5gPy9NORJdJPh5x75FiRSYhz5BQverCzuReI=;
-        b=SPmG9c1yyeXUsyISMBNwwYUSWIYfAujNAzwjf0eAjQJ/gS4dHXuNnIHLM4QUS0Ew/m
-         Qo6ydeR9tsnhwDbLk5E9BJcOKGruqYxW7578YEvMi7r49cT43dEhEUSWMwXBt3HGK72u
-         7uXB6YfZhBX1MK2jiI2wIN5A7CrKd129DkYYea8LONMs/H2xPjLt8AGtWICZiaG4LkGj
-         H9kYG8Q5rAfX7WNhpjIzcqs0y3fHc8Mhy2oUW3vQjdOfE48ViotHYVwfuPQdVK3ZnH1t
-         JifkBuDECOJhrFd9q2+B096fYJ5SuJ18fzHRlRZ8a0hNsqjQrSK6q7RpwbEZE7vD13dp
-         AenA==
-X-Gm-Message-State: ANoB5plzjt6dsPb2PoduP0bBdt3P+33FMOXRRXhyd8OCkh/1h28qHX/x
-	tLiAF7x912zTItXnFsyCByIElQ==
-X-Google-Smtp-Source: AA0mqf4yokm7ojLEsAwKwb1SgOwx50ag245MHJ+A0ANJfRzFd5AidpHQIt6v3wBKwQUbXnMnqCZAug==
-X-Received: by 2002:a17:906:ae8b:b0:7ad:9892:921a with SMTP id md11-20020a170906ae8b00b007ad9892921amr12324383ejb.506.1668494761825;
-        Mon, 14 Nov 2022 22:46:01 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id k17-20020aa7c391000000b00467cc919072sm2809748edq.17.2022.11.14.22.46.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Nov 2022 22:46:01 -0800 (PST)
-Date: Tue, 15 Nov 2022 07:46:00 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: aou@eecs.berkeley.edu, jan.kiszka@siemens.com, kbingham@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH v2] scripts/gdb: add lx_current support for riscv
-Message-ID: <20221115064600.e6jzigbl23hwpuzi@kamzik>
-References: <20221111195938.1499148-2-debug@rivosinc.com>
- <20221115012917.1781185-1-debug@rivosinc.com>
+	id 1ouruD-009A8V-GL
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 09:06:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 03BF3B81333;
+	Tue, 15 Nov 2022 09:06:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0DDCC433D6;
+	Tue, 15 Nov 2022 09:06:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668503214;
+	bh=lQ25xsrNZM5Z1Ywp9OfLkW92htJuaG7QNPDZY6Gaer0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=BndV4nbll6dYyq+hmOudIIps0Es6DLuquMKLDoZ0ItQudlQ1X/ev70P8UrHfToCPz
+	 VdI8+mVlhmV7E7WuDj92mBMzdwGcz7K9TXpX0lVNUrkanYXOsZg8KWIAS8SgyYXzpx
+	 tpdwQ1iIXDc3jQOs7GKfcUoO/Q97l4xTs0et6XSnRxIdFP+A4wLMh5EaFwCQd6IltR
+	 Af+FHGuMSl3UvFOeiOP1i7rQRSCgBU/z0vo01MUPWHPLV8ICvhL1aFMhTc5rWWIR/P
+	 T/2eh11YZWSJITjq9FaiqRV+ZrVF4EZiI118gqIJNrVOXODK7qRZVJS/tQd41mqWne
+	 SVDwEorwYXLKw==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel@sholland.org>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: mm: Proper page permissions after initmem free
+Date: Tue, 15 Nov 2022 10:06:40 +0100
+Message-Id: <20221115090641.258476-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221115012917.1781185-1-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_224604_007279_F05DCCA8 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20221115_010657_713555_0699A644 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,109 +70,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 14, 2022 at 05:29:17PM -0800, Deepak Gupta wrote:
-> csr_sscratch CSR holds current task_struct address when hart is in user space.
-> trap handler on entry spills csr_sscratch into "tp" (x2) register and zeroes out
-> csr_sscratch CSR. trap handler on exit reloads "tp" with expected user mode value
-> and place current task_struct address again in csr_scratch CSR.
-> 
-> This patch assumes "tp" is pointing to task_struct. If value in csr_scratch is numerically
-> greater than "tp" then it assumes csr_scratch is correct address of current task_struct.
-> This logic holds when
->    - hart is in user space, "tp" will be less than csr_scratch.
->    - hart is in kernel space but not in trap handler, "tp" will be more than csr_scratch.
->    - hart is executing trap handler
->            - "tp" is still pointing to user mode but csr_scratch contains ptr to task_struct.
->              numerically higher.
->            - "tp" is now pointing to task_struct but csr_scratch now contains either 0 or numerically
->               smaller value.
-
-When is (csr_scratch != 0 && csr_scratch < tp)? IIUC, it should always be
-zero or >= tp.
-
-> 
-> Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
-
-Please wrap commit message lines at ~74.
-
-> 
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> ---
->  scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
->  scripts/gdb/linux/utils.py |  5 +++++
->  2 files changed, 20 insertions(+)
-> 
-> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
-> index 15fc4626d236..fd818d7896ce 100644
-> --- a/scripts/gdb/linux/cpus.py
-> +++ b/scripts/gdb/linux/cpus.py
-> @@ -173,6 +173,21 @@ def get_current_task(cpu):
->           else:
->               raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
->                                  "while running in userspace(EL0)")
-> +    elif utils.is_target_arch("riscv"):
-> +         current_tp = gdb.parse_and_eval("$tp")
-> +         scratch_reg = gdb.parse_and_eval("$sscratch")
-> +
-> +         # by default tp points to current task
-> +         current_task = current_tp.cast(task_ptr_type)
-> +         
-> +         # scratch register is set 0 in trap handler after entering kernel.
-> +         # When hart is in user mode, scratch register is pointing to task_struct.
-> +         # So when scratch register holds higher value (negative address as ulong is bigger value) than tp,
-
-Please wrap source lines at 100.
-
-> +         # then use scratch register
-> +         if (scratch_reg.cast(utils.get_ulong_type()) >  current_tp.cast(utils.get_ulong_type())):
-                                                          ^ extra space here
-
-> +             current_task = scratch_reg.cast(task_ptr_type)
-> +             
-> +         return current_task.dereference()
->      else:
->          raise gdb.GdbError("Sorry, obtaining the current task is not yet "
->                             "supported with this arch")
-> diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
-> index 1553f68716cc..ddaf3089170d 100644
-> --- a/scripts/gdb/linux/utils.py
-> +++ b/scripts/gdb/linux/utils.py
-> @@ -35,12 +35,17 @@ class CachedType:
->  
->  
->  long_type = CachedType("long")
-> +ulong_type = CachedType("ulong")
->  atomic_long_type = CachedType("atomic_long_t")
->  
->  def get_long_type():
->      global long_type
->      return long_type.get_type()
->  
-> +def get_ulong_type():
-> +    global ulong_type
-> +    return ulong_type.get_type()
-> +
->  def offset_of(typeobj, field):
->      element = gdb.Value(0).cast(typeobj)
->      return int(str(element[field].address).split()[0], 16)
-> -- 
-> 2.25.1
->
-
-Besides the line wrapping and the commit message clarification this looks
-good to me.
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKNjQtYml0IFJJU0MtViBr
+ZXJuZWxzIGhhdmUgdGhlIGtlcm5lbCBpbWFnZSBtYXBwZWQgc2VwYXJhdGVseSB0byBhbGlhcwp0
+aGUgbGluZWFyIG1hcC4gVGhlIGxpbmVhciBtYXAgYW5kIHRoZSBrZXJuZWwgaW1hZ2UgbWFwIGFy
+ZSBkb2N1bWVudGVkCmFzICJkaXJlY3QgbWFwcGluZyIgYW5kICJrZXJuZWwiIHJlc3BlY3RpdmVs
+eSBpbiBbMV0uCgpBdCBpbWFnZSBsb2FkIHRpbWUsIHRoZSBsaW5lYXIgbWFwIGNvcnJlc3BvbmRp
+bmcgdG8gdGhlIGtlcm5lbCBpbWFnZQppcyBzZXQgdG8gUEFHRV9SRUFEIHBlcm1pc3Npb24sIGFu
+ZCB0aGUga2VybmVsIGltYWdlIG1hcCBpcyBzZXQgdG8KUEFHRV9SRUFEfFBBR0VfRVhFQy4KCldo
+ZW4gdGhlIGluaXRtZW0gaXMgZnJlZWQsIHRoZSBwYWdlcyBpbiB0aGUgbGluZWFyIG1hcCBzaG91
+bGQgYmUKcmVzdG9yZWQgdG8gUEFHRV9SRUFEfFBBR0VfV1JJVEUsIHdoZXJlYXMgdGhlIGNvcnJl
+c3BvbmRpbmcgcGFnZXMgaW4KdGhlIGtlcm5lbCBpbWFnZSBtYXAgc2hvdWxkIGJlIHJlc3RvcmVk
+IHRvIFBBR0VfUkVBRCwgYnkgcmVtb3ZpbmcgdGhlClBBR0VfRVhFQyBwZXJtaXNzaW9uLgoKVGhp
+cyBpcyBub3QgdGhlIGNhc2UuIEZvciA2NC1iaXQga2VybmVscywgb25seSB0aGUgbGluZWFyIG1h
+cCBpcwpyZXN0b3JlZCB0byBpdHMgcHJvcGVyIHBhZ2UgcGVybWlzc2lvbnMgYXQgaW5pdG1lbSBm
+cmVlLCBhbmQgbm90IHRoZQprZXJuZWwgaW1hZ2UgbWFwLgoKSW4gcHJhY3Rpc2UgdGhpcyByZXN1
+bHRzIGluIHRoYXQgdGhlIGtlcm5lbCBjYW4gcG90ZW50aWFsbHkganVtcCB0bwpkZWFkIF9faW5p
+dCBjb2RlLCBhbmQgc3RhcnQgZXhlY3V0aW5nIGludmFsaWQgaW5zdHJ1Y3Rpb25zLCB3aXRob3V0
+CmdldHRpbmcgYW4gZXhjZXB0aW9uLgoKUmVzdG9yZSB0aGUgZnJlZWQgaW5pdG1lbSBwcm9wZXJs
+eSwgYnkgc2V0dGluZyBib3RoIHRoZSBrZXJuZWwgaW1hZ2UKbWFwIHRvIHRoZSBjb3JyZWN0IHBl
+cm1pc3Npb25zLgoKWzFdIERvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAoKRml4ZXM6
+IGU1YzM1ZmEwNDAxOSAoInJpc2N2OiBNYXAgdGhlIGtlcm5lbCB3aXRoIGNvcnJlY3QgcGVybWlz
+c2lvbnMgdGhlIGZpcnN0IHRpbWUiKQpTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
+bkByaXZvc2luYy5jb20+Ci0tLQp2MjogKiBEbyBub3Qgc2V0IHRoZSBrZXJuZWwgaW1hZ2UgbWFw
+IHRvIFBBR0VfV1JJVEUuIChBbGV4KQogICAgKiBNYXNzYWdlZCB0aGUgY29tbWl0IG1lc3NhZ2Ug
+YSBiaXQuCiAgICAKU2FtdWVsLCBJIHJlbW92ZWQgeW91ciBSZXZpZXdlZC1ieTovVGVzdGVkLWJ5
+OiBmb3IgdGhlIHYyLgotLS0KIGFyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgfCA5ICsrKysrLS0t
+LQogMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0
+dXAuYwppbmRleCA2N2VjMWZhZGNmZTIuLjg2YWNkNjkwZDUyOSAxMDA2NDQKLS0tIGEvYXJjaC9y
+aXNjdi9rZXJuZWwvc2V0dXAuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCkBAIC0z
+MjIsMTAgKzMyMiwxMSBAQCBzdWJzeXNfaW5pdGNhbGwodG9wb2xvZ3lfaW5pdCk7CiAKIHZvaWQg
+ZnJlZV9pbml0bWVtKHZvaWQpCiB7Ci0JaWYgKElTX0VOQUJMRUQoQ09ORklHX1NUUklDVF9LRVJO
+RUxfUldYKSkKLQkJc2V0X2tlcm5lbF9tZW1vcnkobG1fYWxpYXMoX19pbml0X2JlZ2luKSwgbG1f
+YWxpYXMoX19pbml0X2VuZCksCi0JCQkJICBJU19FTkFCTEVEKENPTkZJR182NEJJVCkgPwotCQkJ
+CQlzZXRfbWVtb3J5X3J3IDogc2V0X21lbW9yeV9yd19ueCk7CisJaWYgKElTX0VOQUJMRUQoQ09O
+RklHX1NUUklDVF9LRVJORUxfUldYKSkgeworCQlzZXRfa2VybmVsX21lbW9yeShsbV9hbGlhcyhf
+X2luaXRfYmVnaW4pLCBsbV9hbGlhcyhfX2luaXRfZW5kKSwgc2V0X21lbW9yeV9yd19ueCk7CisJ
+CWlmIChJU19FTkFCTEVEKENPTkZJR182NEJJVCkpCisJCQlzZXRfa2VybmVsX21lbW9yeShfX2lu
+aXRfYmVnaW4sIF9faW5pdF9lbmQsIHNldF9tZW1vcnlfbngpOworCX0KIAogCWZyZWVfaW5pdG1l
+bV9kZWZhdWx0KFBPSVNPTl9GUkVFX0lOSVRNRU0pOwogfQoKYmFzZS1jb21taXQ6IDIyZGNlMmI4
+OWQ2MDQzZDVjM2Y2ODM4NDI4NWZmZjU1MDYxMDkzMTcKLS0gCjIuMzcuMgoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
