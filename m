@@ -4,114 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C96C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 20:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788F9C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 20:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IR996dpAAabwYqzxgMLOVZ1MoAqbtvi68dXCAuP4I+I=; b=X/rGn5RWtq/qjt
-	RRjl2nnfe8TWSzrP0ARXVWFn16nW04SPE8AtoEmAURCiHT3VHPCMQI3XaculOeH3vrBylH1JjgSeB
-	bN179nz1K/UKnNWQXMn09zs9AvJBMHMTYPrx97kYvCBFWlk0N9qh0tHAMCYcjwHrt7zvjotosGVmk
-	/SBZj5JtSeSxVd57kmqT/4A9R7ISl04yJZT64oJgbOxf4X/re1WN1nZd8JpSm36jn/oeeTTe7eTfa
-	1JgA7bHeXClSs9jwY8fZHugRE/YiHhBvzR318sZLcdHTrckxTR4xpRMFb5bkV6FZgsD3yPO/PhlY8
-	oCvZKvzouCMd74Ix5kjA==;
+	List-Owner; bh=VtRiiQAq6jzvU8Dnz7XOrgt7a44Lp0LkfP4Vh/Z05To=; b=g9agbfwHYr/Xmi
+	3mTxO+a1B1mAb04zo8e4Uyldlk/VECvA9V2qkG4rB9wqyrDfkle+LrHu51GT8UfDASWN3GYfQdmoR
+	zzUEIlfMJjNEU5N5Ivv5wIyeWtEZqsr4V5LB7J0WRlLimS+oDJq7TKDCLsxCLmbPreA1bjeDr1fke
+	teW/4JuG2DuLbVL/VEg6Qxqryiaf3UDAz7WqA26Ra6yO9B7pJ1nh0KxF6+ZRTC9/A0JvXRGEgDsGs
+	zgAFS08eVvPVgmTFhdHCjWGaN6JAfffMxka+A2JQf7/7pnzaL5H7xaupV98YRnSzAIQVAaO2cJVi4
+	NkA5TP11TvY0EauPPE/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov2Qg-00EX6P-3W; Tue, 15 Nov 2022 20:21:10 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1ov2jU-00EeO4-Hy; Tue, 15 Nov 2022 20:40:36 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov2Qc-00EX4k-1P
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 20:21:08 +0000
-Received: by mail-pf1-x429.google.com with SMTP id c203so4003552pfc.11
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 12:21:04 -0800 (PST)
+	id 1ov2jJ-00EeBH-74
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 20:40:27 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id d13-20020a17090a3b0d00b00213519dfe4aso15005545pjc.2
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 12:40:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=XxrH205VSL6PuZxNZy5QSHBg1esXqApruwRLQHoD1FQ=;
-        b=QoLsrppxCqrrm8Et/yxXiG7qWE0hiOrc+RLWkwKVvGYvEXTURW54Ct7G0aFnW7vDom
-         O3WnXZWOxSKhgS+uv00LIKaFYAiY4w1O0HuVw0sHlWnVNkXyDKqsQfpccjPy0o//76Ot
-         9HbC7sv+GYjRBhUyAvWsaFUrflZFb6BoKafnLIcIXy0vGyf6tKbOGR6vv68o6WUCslEQ
-         BOT4pCgeSJnKExa2xfKvrZGwBZhzuokrCi6o4yMRfhSIGNbmSd/1S94WiYpeZI3RH1jS
-         tMxrZXr8PoWD2Hx+ZMuaUIAmz2hZjOEiOFHGi/ELuekxNrIkmFIAeW4IyLdTJL7wajgf
-         6FdQ==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AmLprh1sbZt2eCw30nE1Tak+7KqUeEPNgaa2olliB1I=;
+        b=ReFv9H8JORI6bQggp7WipRxKojLCqrHn3A54Qkd2vXlzxEQHkGai71M1d9foIK3No8
+         XvqDO4x1RgEt6qf5dd0xTKF1myzr6kqJfOKwfhw7DfHwl5GcLAhdes1yjV4QqoACv75f
+         kJvrTRBwO5rLl6YS9vMpSlrjsEjk4fj3ClPEurbda2t0E9ZbAO1gCqHNMym+ApWKrrdP
+         tTsejKyUG7B8adIYmCoUafwGUyr+Fj5qWC0UdgMHAdXsYFwhAPIprMciZu+NCFV2KwMU
+         yfdpuF1yrF7MmNzI+KWiJGf3BWvRNZDHC2ghIcn5TMgPFdqEhEgOLcWBZbii0M875+3l
+         F+yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XxrH205VSL6PuZxNZy5QSHBg1esXqApruwRLQHoD1FQ=;
-        b=L7auKaW5dON9Z6pvzfucApIvcbqIttyVrTdH3eBRbWBbg8Ez6XepFnX9XxBSNHrHfF
-         esvlECzcL4VeqpdYn26IKnqTmZLdCr4Q8LDi8BObfJt7sO/eLlZS2DEPER5SwvawpC24
-         cPWvbPvBDfrlrsPUnu3URjr//b9zU5DY0jWoqbNv6dPf8P1t8k0e4ifRgQPVf7fY/N5q
-         KByIxdHURub2TYtjzET205R9q1OMsymghnESH9YUZkATWqVnPL70621cfab5MSB1xHfG
-         8lLwn5qfmEG1GJiBh5ZTglqHvR0NVuz2bEVi+nXxkzbLhPQiwK1YyLjMBcAJLjGOy+hJ
-         /nfg==
-X-Gm-Message-State: ANoB5pljO9IE0Vm3jtYvQUBRbplB5jwgNUDQI75i+B3RVcP1Ssv5qfRl
-	7yA3jSPS7NJatUv02JBKT4pVVQ==
-X-Google-Smtp-Source: AA0mqf7I+HCT8JLUK2SnELicaIfj+5Xh/wdDfnKOa9DuiFN7rhFS7bzZLz9XVMfRQzvW4tmCjZQXQw==
-X-Received: by 2002:aa7:9493:0:b0:56b:9ae8:ca05 with SMTP id z19-20020aa79493000000b0056b9ae8ca05mr19812088pfk.59.1668543664233;
-        Tue, 15 Nov 2022 12:21:04 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id o15-20020a170902d4cf00b001754fa42065sm10448477plg.143.2022.11.15.12.21.03
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AmLprh1sbZt2eCw30nE1Tak+7KqUeEPNgaa2olliB1I=;
+        b=SIaKbtyTfNbeQfmPqqhebDgppEO6B2dKIFx7tqxNG+w2HBPfp1bNWrV9+oNkCvvN8x
+         L11xv2ak8hajDsHfC+Cgmq85f2gsHLmGd6EoMnDSs04XniVTiWNctBzvWr4svs04NZ6x
+         3QZ7G3jTB60ks7Ivh8SgdDjoZij3RL/eJvKNXvhIfVUg4AjHHeh2P/YZShdfIv5FptLz
+         xmAOtWlSh+CNl4F8Mz6OyujkFjJqbWGNSXubfdtVGvqVAgGw/KsEJoYBfaRSIf8PVt1R
+         WliK0f1/BLtL7G/3fpoQBlyqWKVVGUMJd22F9IMqDbuQM46M5/l9+Oo0nDFMLlE7sAJv
+         UhQQ==
+X-Gm-Message-State: ANoB5plojZylfgxePKwpcBg3LhhpjLTkWL3AYq+gydSVQYxBOxKNVAMr
+	DWB9H8pT7HW+en2mGLJ7IJTSjg==
+X-Google-Smtp-Source: AA0mqf46oscVlcpTunUVAvwzl+Wo5Dd2xMneGR/63DGXgiOcxbUbTw7knJPzQcsl8Fg35Wb44IFH5g==
+X-Received: by 2002:a17:90a:4e4a:b0:211:55d8:4cdd with SMTP id t10-20020a17090a4e4a00b0021155d84cddmr132065pjl.133.1668544823609;
+        Tue, 15 Nov 2022 12:40:23 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id y2-20020aa79e02000000b005672daedc8fsm9199721pfq.81.2022.11.15.12.40.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Nov 2022 12:21:03 -0800 (PST)
-Date: Tue, 15 Nov 2022 20:21:00 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: "Huang, Kai" <kai.huang@intel.com>
-Cc: "farman@linux.ibm.com" <farman@linux.ibm.com>,
-	"frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"farosas@linux.ibm.com" <farosas@linux.ibm.com>,
-	"david@redhat.com" <david@redhat.com>,
-	"Yao, Yuan" <yuan.yao@intel.com>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"Yamahata, Isaku" <isaku.yamahata@intel.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"Gao, Chao" <chao.gao@intel.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
-Message-ID: <Y3P0rAjywL1a7Pme@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-39-seanjc@google.com>
- <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
- <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
- <Y3PzhANShVlTXVg1@google.com>
+        Tue, 15 Nov 2022 12:40:23 -0800 (PST)
+From: Deepak Gupta <debug@rivosinc.com>
+To: conor.dooley@microchip.com
+Cc: ajones@ventanamicro.com,
+	aou@eecs.berkeley.edu,
+	debug@rivosinc.com,
+	jan.kiszka@siemens.com,
+	kbingham@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Subject: [PATCH v4] scripts/gdb: add lx_current support for riscv
+Date: Tue, 15 Nov 2022 12:40:03 -0800
+Message-Id: <20221115204003.1866421-1-debug@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <Y3OkY6myfea00BaK@wendy>
+References: <Y3OkY6myfea00BaK@wendy>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y3PzhANShVlTXVg1@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_122106_108375_52BB820A 
-X-CRM114-Status: GOOD (  27.64  )
+X-CRM114-CacheID: sfid-20221115_124025_494323_006E8F32 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,102 +92,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022, Sean Christopherson wrote:
-> On Thu, Nov 10, 2022, Huang, Kai wrote:
-> > On Thu, 2022-11-10 at 01:33 +0000, Huang, Kai wrote:
-> > > > @@ -9283,7 +9283,13 @@ static int
-> > > > kvm_x86_check_processor_compatibility(struct kvm_x86_init_ops *ops)
-> > > > =A0	int cpu =3D smp_processor_id();
-> > > > =A0	struct cpuinfo_x86 *c =3D &cpu_data(cpu);
-> > > > =A0
-> > > > -	WARN_ON(!irqs_disabled());
-> > > > +	/*
-> > > > +	 * Compatibility checks are done when loading KVM and when enabli=
-ng
-> > > > +	 * hardware, e.g. during CPU hotplug, to ensure all online CPUs a=
-re
-> > > > +	 * compatible, i.e. KVM should never perform a compatibility check
-> > > > on
-> > > > +	 * an offline CPU.
-> > > > +	 */
-> > > > +	WARN_ON(!irqs_disabled() && cpu_active(cpu));
-> > > > =A0
-> > > =
+csr_sscratch CSR holds current task_struct address when hart is in
+user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
+register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
+"tp" with expected user mode value and place current task_struct address
+again in csr_sscratch CSR.
 
-> > > Also, the logic of:
-> > > =
+This patch assumes "tp" is pointing to task_struct. If value in
+csr_sscratch is numerically greater than "tp" then it assumes csr_sscratch
+is correct address of current task_struct. This logic holds when
+   - hart is in user space, "tp" will be less than csr_sscratch.
+   - hart is in kernel space but not in trap handler, "tp" will be more
+     than csr_sscratch (csr_sscratch being equal to 0).
+   - hart is executing trap handler
+       - "tp" is still pointing to user mode but csr_sscratch contains
+          ptr to task_struct. Thus numerically higher.
+       - "tp" is  pointing to task_struct but csr_sscratch now contains
+          either 0 or numerically smaller value (transiently holds
+          user mode tp)
 
-> > > 	!irqs_disabled() && cpu_active(cpu)
-> > > =
+Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
 
-> > > is quite weird.
-> > > =
+Since patch has changed a little bit from v1 and I didn't include
+changelog earlier, here it is.
 
-> > > The original "WARN(!irqs_disabled())" is reasonable because in STARTI=
-NG
-> > > section
-> > > the IRQ is indeed disabled.
-> > > =
+---
+v1 --> v2:
+ - added logic to locate task_struct irrespective of priv
+ - made locating task_struct agnostic to bitness(32 vs 64).
+ - added caching of ulong type in scripts/gdb/linux/utils.py
+ - added more descriptive commit message
 
-> > > But this doesn't make sense anymore after we move to ONLINE section, =
-in which
-> > > IRQ has already been enabled (see start_secondary()).=A0 IIUC the WAR=
-N_ON()
-> > > doesn't get exploded is purely because there's an additional cpu_acti=
-ve(cpu)
-> > > check.
-> > > =
+v2 --> v3:
+ - amended commit message and source line to fit column width
 
-> > > So, a more reasonable check should be something like:
-> > > =
+v3 --> v4:
+ - amended commit message and remove whitespace in source
+ - added Reviewed-by for reviewers
+---
 
-> > > 	WARN_ON(irqs_disabled() || cpu_active(cpu) || !cpu_online(cpu));
-> > > =
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
+ scripts/gdb/linux/utils.py |  5 +++++
+ 2 files changed, 20 insertions(+)
 
-> > > Or we can simply do:
-> > > =
+diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
+index 15fc4626d236..14c22f82449b 100644
+--- a/scripts/gdb/linux/cpus.py
++++ b/scripts/gdb/linux/cpus.py
+@@ -173,6 +173,21 @@ def get_current_task(cpu):
+          else:
+              raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
+                                 "while running in userspace(EL0)")
++    elif utils.is_target_arch("riscv"):
++         current_tp = gdb.parse_and_eval("$tp")
++         scratch_reg = gdb.parse_and_eval("$sscratch")
++
++         # by default tp points to current task
++         current_task = current_tp.cast(task_ptr_type)
++
++         # scratch register is set 0 in trap handler after entering kernel.
++         # When hart is in user mode, scratch register is pointing to task_struct.
++         # and tp is used by user mode. So when scratch register holds larger value
++         # (negative address as ulong is larger value) than tp, then use scratch register.
++         if (scratch_reg.cast(utils.get_ulong_type()) > current_tp.cast(utils.get_ulong_type())):
++             current_task = scratch_reg.cast(task_ptr_type)
++
++         return current_task.dereference()
+     else:
+         raise gdb.GdbError("Sorry, obtaining the current task is not yet "
+                            "supported with this arch")
+diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
+index 1553f68716cc..ddaf3089170d 100644
+--- a/scripts/gdb/linux/utils.py
++++ b/scripts/gdb/linux/utils.py
+@@ -35,12 +35,17 @@ class CachedType:
+ 
+ 
+ long_type = CachedType("long")
++ulong_type = CachedType("ulong")
+ atomic_long_type = CachedType("atomic_long_t")
+ 
+ def get_long_type():
+     global long_type
+     return long_type.get_type()
+ 
++def get_ulong_type():
++    global ulong_type
++    return ulong_type.get_type()
++
+ def offset_of(typeobj, field):
+     element = gdb.Value(0).cast(typeobj)
+     return int(str(element[field].address).split()[0], 16)
+-- 
+2.25.1
 
-> > > 	WARN_ON(!cpu_online(cpu) || cpu_active(cpu));
-> > > =
-
-> > > (because I don't know whether it's possible IRQ can somehow get disab=
-led in
-> > > ONLINE section).
-> > > =
-
-> > > Btw above is purely based on code analysis, but I haven't done any te=
-st.
-> > =
-
-> > Hmm.. I wasn't thinking thoroughly.  I forgot CPU compatibility check a=
-lso
-> > happens on all online cpus when loading KVM.  For this case, IRQ is dis=
-abled and
-> > cpu_active() is true.  For the hotplug case, IRQ is enabled but  cpu_ac=
-tive() is
-> > false.
-> =
-
-> Actually, you're right (and wrong).  You're right in that the WARN is fla=
-wed.  And
-> the reason for that is because you're wrong about the hotplug case.  In t=
-his version
-> of things, the compatibility checks are routed through hardware enabling,=
- i.e. this
-> flow is used only when loading KVM.  This helper should only be called vi=
-a SMP function
-> call, which means that IRQs should always be disabled.
-
-Grr, but not routing through this helper is flawed in that KVM doesn't do t=
-he
-CR4 checks in the hardware enabling case.  Don't think that changes the WAR=
-N, but
-other patches in this series need tweaks.
 
 _______________________________________________
 linux-riscv mailing list
