@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFE3C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 18:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4FDC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 18:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IWC500yYZuffYsbzHQLj0cYJw1CgoFrtOZHvjPqHcJ4=; b=tunTj9WYD7736z
-	acUIm8aNHufMuVVv6AZwL2pReIH20fBKMwVudFcdRG5onv7o2/zsnsPWOgHoJbiirgpLPw+F5Fjdg
-	cFRj5qA71i6tj3USdkzVZps7RBuPwwM/+cGHJerPAv0eMNNTqNJdhmByeFcNc+PAeigZvKl1XynEN
-	D4eec1RnqVD1iMJBcivLAh6Kwc6jWcM7DzOJeECM6ruY1iRcUDjl0S/0lajvxFZsbQ1phnp7vWMWU
-	Cy3TgKkaPhiqyvxpB6Q1fBI2YHC/S2xN84aA1WnT2NOHKtqD3XtL43BirvGVPUED/E+SiyTT0h8ap
-	e6/bIAFqBjIZp+AMR4/A==;
+	List-Owner; bh=/olUKmXok13+xNJBaIEhlb7FCQu5HYSrg6ZLCHNe7LI=; b=MvTRSzaP/k9h9X
+	Ktph0zEFi24CYGPnpyj5CVVz286b+bXNUSlJ/LXvp8DHIajJ987uMICtKkqVDglA21inTvdTCCv+4
+	Yy/Br6A/7gLmWuygTMB0oxzveWGtrohE7vjYIL2HCX7U7kMSJwwh8gxdeGv4y6LnKcOKytIPa5T9Y
+	Qe3ODqq+bSxZG3OW6+4D8hb9VjCP1mV/uhailLrRUIIUMqbrDdFgBoQCTPDlm6G8z5UngSFOlkiVx
+	Fvjs3UMVxH8uAZI7hlL0aflY1N0wtEUVfpblzJ5qT9vREa39+6JynrCVfTIiDz3jKfGc7J9KjD2DP
+	627yZrb8XVfoKUkzGDig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov0Ym-00Dh8l-Kl; Tue, 15 Nov 2022 18:21:24 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ov0Z9-00DhIv-AS; Tue, 15 Nov 2022 18:21:47 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov0Yk-00Dh83-F1
-	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 18:21:24 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CF979B81A16;
-	Tue, 15 Nov 2022 18:21:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 258E5C4347C;
-	Tue, 15 Nov 2022 18:21:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668536479;
-	bh=kVzmN1nhvJ7rXQ8CtIjwZxxIsXnCovpfzTGFioT4v9U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ma3yBe1TSehHWYD1ASpuWsoYAedQbCS84Xf7g4d9vwu4EvXET9EAEnphGu15H5K70
-	 qKydZKkbHbfgNIFWIi8eL8SFvTG0lGFS7Ynyzqfl7jl+v8pWSbTEupW1NGTZM4nfj6
-	 cyq70hQGLPgmd/JaHe29ZGXUphBTPqYRvMXA7Kw5k/Pmywv8mOQEffIiaWWGWxz8PY
-	 RaSC5f2rq3BnV0EzOacujI1/bx4gTUuylISxwjNhMLGIFoRn8k3XkTixoXQ3vgZ2JW
-	 5UJaoDMGfE7gED5rGXdVY0YySZhG3DS4zeo8JhvcUVymdJNrYJS7i/IDl0lZ9Jf/S1
-	 vnnvIuaaDepYQ==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: bpf@vger.kernel.org,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Mykola Lysenko <mykolal@fb.com>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 2/2] selftests/bpf: Pass target triple to get_sys_includes macro
-Date: Tue, 15 Nov 2022 19:20:51 +0100
-Message-Id: <20221115182051.582962-2-bjorn@kernel.org>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20221115182051.582962-1-bjorn@kernel.org>
-References: <20221115182051.582962-1-bjorn@kernel.org>
+	id 1ov0Z5-00DhGI-Tt
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 18:21:45 +0000
+Received: by mail-ej1-x633.google.com with SMTP id m22so38102644eji.10
+        for <linux-riscv@lists.infradead.org>; Tue, 15 Nov 2022 10:21:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=loW6rE2gGS02TW4sdv28/5PXvnJnn8jUaLXyFyxIBBw=;
+        b=LA828D6tRnlkCLYZPkPlTBKFXEVeuzcoHeggCmhBc0leuImIicTgjH/A+lsrxXyCRm
+         xggvxWALf8U2q+BIWkcePsNbOyPLCnsPSmxrl6gAkDEAueKu7pk/hNz65g8gavkoeqhi
+         4VmODbsp98AehsvEizh8jJYMJVBzEj5Hc/alM4l3u114Pow4tjXx3lpnV5ZDEpT1nala
+         6pvwxu7T/QPMRcmyomJJAbSt5Y7mclWTorwM0nzDHjaSKjR+9xgjICe3RULoEN/3bsLr
+         MRnSGTNQ3h1fBnI4l/gCoOxwkzCMsLWDMNdmI5rLTXycIdi4bW0U5rwcaei703u8i0ME
+         Jb1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=loW6rE2gGS02TW4sdv28/5PXvnJnn8jUaLXyFyxIBBw=;
+        b=BfCV/pZuBQpPJ6BsGPdrBrGrXiCZMbBCa9TM0BHFZTfKsb/dWZdeR0xwKCvtzxy6xm
+         nuk9IWRe0XFfu4eOPV6Iy0S6l+/nKfhbY000J40CkFTyqy0h3lF23bAu+6ChylyniIkw
+         cbMixJXpJCKv9+sUxTZS1rBN78m+NEVOE74mT73Uc2pLqZYq7Og08MOXe3sov35KM4BH
+         CmvQXRkWosx4CvNhJCyzzm4EAbASAIHTVpOfkqs20o8YPXKzCnALDFJBJcVww+WNP0kg
+         lRwcfy/4a4MWl/G9fq/uy0ABvvbBzI48N9TSMJ7MYMSQbfCXGb6nnGQ1sfeMnomUPPX4
+         1Q6w==
+X-Gm-Message-State: ANoB5pmFvtG8xnxM6dlIA+UJET+rUO1eSrXDB14UavWBdY3Vi+sJxaVl
+	xkradNmJB2tGrp90FxbSyDrKPBZ9uiwfwa4PKvE=
+X-Google-Smtp-Source: AA0mqf6JCfjVF2CWf2wVuu3vn+PsZPYxNJ572dgDVuVXioqlruUP16R3Ykd7ViMw5b+tNOY1knzEH1M29bCy/oc7+38=
+X-Received: by 2002:a17:906:4e42:b0:781:e568:294f with SMTP id
+ g2-20020a1709064e4200b00781e568294fmr15100953ejw.447.1668536500767; Tue, 15
+ Nov 2022 10:21:40 -0800 (PST)
 MIME-Version: 1.0
+References: <20221115105135.1180490-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <Y3OgSAnst0qt5WSk@wendy>
+In-Reply-To: <Y3OgSAnst0qt5WSk@wendy>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 15 Nov 2022 18:21:14 +0000
+Message-ID: <CA+V-a8vL5r-xMeCiYRax-dM2Uo0ghgzRiyY99nNn089CjJwoBg@mail.gmail.com>
+Subject: Re: [PATCH 0/3] RZ/Five: Enable ADC/CANFD/I2C/OPP/Thermal Zones/TSU
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_102122_828031_9B1082AC 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20221115_102144_001017_70682C36 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,53 +86,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKV2hlbiBjcm9zcy1jb21w
-aWxpbmcgWzFdLCB0aGUgZ2V0X3N5c19pbmNsdWRlcyBtYWtlIG1hY3JvIHNob3VsZCB1c2UKdGhl
-IHRhcmdldCBzeXN0ZW0gaW5jbHVkZSBwYXRoLCBhbmQgbm90IHRoZSBidWlsZCBob3N0cyBzeXN0
-ZW0gaW5jbHVkZQpwYXRoLgoKTWFrZSBjbGFuZyBob25vciB0aGUgQ1JPU1NfQ09NUElMRSB0cmlw
-bGUuCgpbMV0gZS5nLiAiQVJDSD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2NjQtbGludXgtZ251
-LSBtYWtlIgoKU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29t
-PgotLS0KIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmlsZSB8IDEyICsrKysrKysr
-LS0tLQogMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRp
-ZmYgLS1naXQgYS90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUgYi90b29scy90
-ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUKaW5kZXggOGY4ZWRlMzBlOTRlLi5hMmExZWFl
-NzU4MjAgMTAwNjQ0Ci0tLSBhL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL2JwZi9NYWtlZmlsZQor
-KysgYi90b29scy90ZXN0aW5nL3NlbGZ0ZXN0cy9icGYvTWFrZWZpbGUKQEAgLTMwOSw5ICszMDks
-OSBAQCAkKFJFU09MVkVfQlRGSURTKTogJChIT1NUX0JQRk9CSikgfCAkKEhPU1RfQlVJTERfRElS
-KS9yZXNvbHZlX2J0ZmlkcwlcCiAjIFVzZSAnLWlkaXJhZnRlcic6IERvbid0IGludGVyZmVyZSB3
-aXRoIGluY2x1ZGUgbWVjaGFuaWNzIGV4Y2VwdCB3aGVyZSB0aGUKICMgYnVpbGQgd291bGQgaGF2
-ZSBmYWlsZWQgYW55d2F5cy4KIGRlZmluZSBnZXRfc3lzX2luY2x1ZGVzCi0kKHNoZWxsICQoMSkg
-LXYgLUUgLSA8L2Rldi9udWxsIDI+JjEgXAorJChzaGVsbCAkKDEpICQoMikgLXYgLUUgLSA8L2Rl
-di9udWxsIDI+JjEgXAogCXwgc2VkIC1uICcvPC4uLj4gc2VhcmNoIHN0YXJ0cyBoZXJlOi8sL0Vu
-ZCBvZiBzZWFyY2ggbGlzdC4veyBzfCBcKC8uKlwpfC1pZGlyYWZ0ZXIgXDF8cCB9JykgXAotJChz
-aGVsbCAkKDEpIC1kTSAtRSAtIDwvZGV2L251bGwgfCBncmVwICdfX3Jpc2N2X3hsZW4gJyB8IGF3
-ayAne3ByaW50ZigiLURfX3Jpc2N2X3hsZW49JWQgLURfX0JJVFNfUEVSX0xPTkc9JWQiLCAkJDMs
-ICQkMyl9JykKKyQoc2hlbGwgJCgxKSAkKDIpIC1kTSAtRSAtIDwvZGV2L251bGwgfCBncmVwICdf
-X3Jpc2N2X3hsZW4gJyB8IGF3ayAne3ByaW50ZigiLURfX3Jpc2N2X3hsZW49JWQgLURfX0JJVFNf
-UEVSX0xPTkc9JWQiLCAkJDMsICQkMyl9JykKIGVuZGVmCiAKICMgRGV0ZXJtaW5lIHRhcmdldCBl
-bmRpYW5uZXNzLgpAQCAtMzE5LDcgKzMxOSwxMSBAQCBJU19MSVRUTEVfRU5ESUFOID0gJChzaGVs
-bCAkKENDKSAtZE0gLUUgLSA8L2Rldi9udWxsIHwgXAogCQkJZ3JlcCAnZGVmaW5lIF9fQllURV9P
-UkRFUl9fIF9fT1JERVJfTElUVExFX0VORElBTl9fJykKIE1FTkRJQU49JChpZiAkKElTX0xJVFRM
-RV9FTkRJQU4pLC1tbGl0dGxlLWVuZGlhbiwtbWJpZy1lbmRpYW4pCiAKLUNMQU5HX1NZU19JTkNM
-VURFUyA9ICQoY2FsbCBnZXRfc3lzX2luY2x1ZGVzLCQoQ0xBTkcpKQoraWZuZXEgKCQoQ1JPU1Nf
-Q09NUElMRSksKQorQ0xBTkdfVEFSR0VUX0FSQ0ggPSAtLXRhcmdldD0kKG5vdGRpciAkKENST1NT
-X0NPTVBJTEU6JS09JSkpCitlbmRpZgorCitDTEFOR19TWVNfSU5DTFVERVMgPSAkKGNhbGwgZ2V0
-X3N5c19pbmNsdWRlcywkKENMQU5HKSwkKENMQU5HX1RBUkdFVF9BUkNIKSkKIEJQRl9DRkxBR1Mg
-PSAtZyAtV2Vycm9yIC1EX19UQVJHRVRfQVJDSF8kKFNSQ0FSQ0gpICQoTUVORElBTikgCQlcCiAJ
-ICAgICAtSSQoSU5DTFVERV9ESVIpIC1JJChDVVJESVIpIC1JJChBUElESVIpCQkJXAogCSAgICAg
-LUkkKGFic3BhdGggJChPVVRQVVQpLy4uL3Vzci9pbmNsdWRlKQpAQCAtNTM5LDcgKzU0Myw3IEBA
-ICQoZXZhbCAkKGNhbGwgREVGSU5FX1RFU1RfUlVOTkVSLHRlc3RfcHJvZ3Msbm9fYWx1MzIpKQog
-IyBEZWZpbmUgdGVzdF9wcm9ncyBCUEYtR0NDLWZsYXZvcmVkIHRlc3QgcnVubmVyLgogaWZuZXEg
-KCQoQlBGX0dDQyksKQogVFJVTk5FUl9CUEZfQlVJTERfUlVMRSA6PSBHQ0NfQlBGX0JVSUxEX1JV
-TEUKLVRSVU5ORVJfQlBGX0NGTEFHUyA6PSAkKEJQRl9DRkxBR1MpICQoY2FsbCBnZXRfc3lzX2lu
-Y2x1ZGVzLGdjYykKK1RSVU5ORVJfQlBGX0NGTEFHUyA6PSAkKEJQRl9DRkxBR1MpICQoY2FsbCBn
-ZXRfc3lzX2luY2x1ZGVzLGdjYywpCiAkKGV2YWwgJChjYWxsIERFRklORV9URVNUX1JVTk5FUix0
-ZXN0X3Byb2dzLGJwZl9nY2MpKQogZW5kaWYKIAotLSAKMi4zNy4yCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Conor,
+
+Thank you for the review.
+
+On Tue, Nov 15, 2022 at 2:21 PM Conor Dooley <conor.dooley@microchip.com> wrote:
+>
+> On Tue, Nov 15, 2022 at 10:51:32AM +0000, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Hi All,
+> >
+> > This patch series aims to enable support for below blocks
+> > on RZ/Five SoC/SMARC EVK:
+> > - ADC
+> > - CANFD
+> > - I2C
+> > - OPP
+> > - Thermal Zones
+> > - TSU
+> >
+> > Note, patches apply on top of [0].
+> >
+> > [0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/log/?h=renesas-riscv-dt-for-v6.2
+> >
+> > Cheers,
+> > Prabhakar
+> >
+> > Lad Prabhakar (3):
+> >   riscv: Kconfig: Enable cpufreq kconfig menu
+> >   riscv: dts: renesas: r9a07g043f/rzfive-smarc-som: Enable
+> >     ADC/OPP/Thermal Zones/TSU
+> >   riscv: dts: renesas: rzfive-smarc: Enable CANFD/I2C
+>
+> I know ~nothing about your SoC so idk if the values are correct, but I
+> did give it a go earlier to see if it did anything warning wise. Seeing
+> that it didn't cause any I am curious - how come these didn't land in
+> the original dts? Just waiting for driver stuff to land to support it?
+>
+I wanted bare minimal stuff in the initial patchset.
+
+> Anyway, no new warnings which is what I care about - I suppose that
+> makes it an acked-by?
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Can include that tag if you like. Either way, nice to see some of the
+> /delete-node/s etc being removed.
+>
+Thanks, Geert should pick the tag while picking the DTS/I patches.
+
+For the Kconfig patch it needs to go via the RISCV tree or can that be
+picked by Geert too with the rest of the other patches?
+
+Cheers,
+Prabhakar
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
