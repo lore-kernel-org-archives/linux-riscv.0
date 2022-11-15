@@ -4,69 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C995DC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 03:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD4AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 04:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=u+aHze1E4+4BNDZn5bYP++2sfUQsV0WBAPM8E8NBY0E=; b=nKtQFXtE/o1vWTTjnTioiptUvE
-	Ad+itb3HJ9HoyzMlsaZD/0fTOplGeMH5ArGMM7m5L5g1cOPsrtFd1ITuobscuz6fBFu1kzaZhFfKd
-	yykqrmTSwYZTpxuUMK+EqjDjjSj1wEy8crcBfKwSK3F+sQUUhHpSsAth7dcT0JqDxyfU5u5n6uaCK
-	3UMtW6e14CE69M9VqHOsNz8itR+B7axKo39FRo41XA0bYCQK4rIARn9YTMyzv4J614QbXh4AWeLPK
-	81CZBdGmRuEUsPJnV9dP8WfIccphr9KMZs7NqyPQ3XtW5VM4B/qw0YQGTEXRUVBlR4rs0Cw9EoifT
-	QYgjUSLg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hmp4grnbNNj89R5flXV2RzZkUoO7xgSN2F6JFUeWxhw=; b=hQBlMFvsGWCHQZ
+	ajVj8ssYEreutSnRwTYZMDY/POY7tjRe9h8xPbPcXJ61uuIjaqF29SD0X/AshVZc0VLLisqp0sGbf
+	dO3b99/9KGvJa3taG4WZMTAMG1F1eZUuXyfEcbQNHrDqUtBH5GuFzTC+8IYjXV1ZG0jyeBvzTAxJv
+	Jo0aG6huGGmZf6vgjwKADIIRUiVN/knKKl3iW5B3UTDXSuB1HgU+gNj+lmc2hjC75a4OxeTNMepTc
+	HUoPpW1xrSyRCj5TaqjZPS3MCrCwG08uVMEPHwjH9THJBWzhfGb7NJ8a6zEmH5u594S0pJD50A8QX
+	CJPcBaxyybiOrRzkSNKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oumj0-007Ddm-Ia; Tue, 15 Nov 2022 03:35:02 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ounV4-007ap5-UJ; Tue, 15 Nov 2022 04:24:42 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oumil-007DY8-6t; Tue, 15 Nov 2022 03:34:49 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4NBBXf463pzqSRP;
-	Tue, 15 Nov 2022 11:30:58 +0800 (CST)
-Received: from [10.67.102.169] (10.67.102.169) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Tue, 15 Nov 2022 11:34:44 +0800
-CC: <yangyicong@hisilicon.com>, <corbet@lwn.net>, <peterz@infradead.org>,
-	<arnd@arndb.de>, <punit.agrawal@bytedance.com>,
-	<linux-kernel@vger.kernel.org>, <darren@os.amperecomputing.com>,
-	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
-	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
-	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
-	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, Barry Song <v-songbaohua@oppo.com>, Nadav Amit
-	<namit@vmware.com>, Mel Gorman <mgorman@suse.de>
-Subject: Re: [PATCH v5 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
-	<akpm@linux-foundation.org>, <linux-mm@kvack.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <linux-doc@vger.kernel.org>
-References: <20221028081255.19157-1-yangyicong@huawei.com>
- <20221028081255.19157-3-yangyicong@huawei.com>
- <86fbdc8c-0dcb-9b8f-d843-63460d8b1d6a@arm.com>
- <9982dac0-9f2e-112a-d440-467c8e8f8aa4@huawei.com>
- <40f1b5ad-2165-bb81-1ff5-89786373fa14@arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <5bbd5364-fcec-5fc2-4780-e9b44f2ab135@huawei.com>
-Date: Tue, 15 Nov 2022 11:34:44 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1ounUt-007akG-GS
+	for linux-riscv@lists.infradead.org; Tue, 15 Nov 2022 04:24:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1668486271; x=1700022271;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=zVm/lvO4dFPl37sNuh3RAVrx6/5Q12U80ZVEygDyPZU=;
+  b=FYV25/GjO6Z+MVp9RQr7U1fF375A2A8VUR8+DoKyYkgD7f/tp3ZbVF2N
+   26gMyX6HM/xV7SElA0lLKD8SNHs7rlo9gVRdGROkMv2u320RbBtdynHTi
+   rPAskjVaiQd3x8sHyWlINFuR42AQ2JJBDtEDyc1TcvNc+D4J8pCfpNBjE
+   PpeNtZf6+3zZi4Nft8ajWiy7FLd2NPZIMzn80eQd0hwt3QrK3WfZvj/I7
+   0mvPK4Zh4KV7aV2VVJKMWaary4ykwOXj0J/2KyrJXGaqc8zm3wFbFr4R5
+   c2bA6j7Mukd8meCawev40cl4VjvHu94XPFTkBCCnbgNq50OldSbksrgOV
+   w==;
+X-IronPort-AV: E=Sophos;i="5.96,164,1665417600"; 
+   d="scan'208";a="214550646"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
+  by ob1.hgst.iphmx.com with ESMTP; 15 Nov 2022 12:24:24 +0800
+IronPort-SDR: 6PepzLUtM5Qax4JByT6Env+CuR7dOGl6BJ3tDdPQYdCfZbggazOu07TKujDCn2yF7N3VWbtjjC
+ Oy0LRQ3PzcTgUn1cZPp+xwN5B6ho8V0Fkec0Anmwo1OvLtu6CF3p9xZmMQ5/tdfMdSXlCjtr2w
+ 3WiQ3VbO4Pz6SaYehcoA8Nj/5N6X3fU1b6+RkQJ+JgrnhzeP8M66pcjK/YK2HOmqP1k8xdTvBV
+ g2GXeh3NSuFkFbkh3onlR3S50+TpvFxKrPGdM7nr51ERK6Bw4yWdlFilhF4v6c7gFbEtATRQMe
+ Bak=
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Nov 2022 19:37:38 -0800
+IronPort-SDR: tGow4xLsIPD7FTHKY39XzVWKlF+gC5aDMLczqupcyvhUClT+BQzp6BwQQux5ELFUwznO1ZOHgC
+ bzm2vSDDjGvAaTSzmvkLYpnj5KVtiLrUyT9kNzpAMVpbxEzmQRNxv+nGSl9Qxl+meL1t0Ku8Lw
+ ZasOL2hNHGfEtpiI1EPw3Npp0DoG5fflYxb1ZdrdCmNBA4lzpnmEUIzGPSgvsyZ4TesxC57+p0
+ CU+DgQKOemAAmYfXrYGbR8nLjwAT4v2P3v/U+MwRSqZQMCKMZdLFAk7zIMGLYvMhj3++nc9Drf
+ CHU=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Nov 2022 20:24:25 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4NBCkH5SQkz1Rwrq
+	for <linux-riscv@lists.infradead.org>; Mon, 14 Nov 2022 20:24:23 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+	reason="pass (just generated, assumed good)"
+	header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+	opensource.wdc.com; h=content-transfer-encoding:content-type
+	:in-reply-to:organization:from:references:to:content-language
+	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
+	1668486261; x=1671078262; bh=zVm/lvO4dFPl37sNuh3RAVrx6/5Q12U80ZV
+	EygDyPZU=; b=Oog0EPiwxGBbWXqjHLkZW/xat9OiH1vYPvJlPsA//cLW+dtK10H
+	tyBX+4IS/AVOL/uJ0wneEBcAS3vkxTuAF7QvUDLgMUVHznlnqX+UtYUFgj+NDbdS
+	49Ve81BZwUsXlNAbCcCvTXtGNfM8EwKDa28d0PqTB1VMBlgRKoJT9La5+T9CQ4rO
+	xZAt9NBRXwV8t3gp3ABnzkjWY+EVCXg+5L4tUQmRYKZSXubWWAusymxhMXdDyevF
+	GvCYWmEIz/zv6lSMQ/r2sWgV7EyZhyqdKm54DgwFzJsva8Rou8IW+aEivCQ/r60b
+	/qLHKaTvRPJm0NI+a42op/L69xLizgnQFNw==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id SS0Mkob_yFbk for <linux-riscv@lists.infradead.org>;
+	Mon, 14 Nov 2022 20:24:21 -0800 (PST)
+Received: from [10.225.163.46] (unknown [10.225.163.46])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4NBCk63pwsz1RvLy;
+	Mon, 14 Nov 2022 20:24:14 -0800 (PST)
+Message-ID: <97c0735c-3127-83d5-30ff-8e57c6634f6e@opensource.wdc.com>
+Date: Tue, 15 Nov 2022 13:24:13 +0900
 MIME-Version: 1.0
-In-Reply-To: <40f1b5ad-2165-bb81-1ff5-89786373fa14@arm.com>
-X-Originating-IP: [10.67.102.169]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.1
+Subject: Re: Deprecating and removing SLOB
+Content-Language: en-US
+To: Hyeonggon Yoo <42.hyeyoo@gmail.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>, Conor Dooley <conor@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Christoph Lameter
+ <cl@linux.com>, David Rientjes <rientjes@google.com>,
+ Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Rustam Kovhaev <rkovhaev@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Conor.Dooley@microchip.com,
+ Paul Cercueil <paul@crapouillou.net>
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
+ <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz> <Y260tkNHc2vFITJ3@spud>
+ <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
+ <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
+ <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
+ <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
+ <Y3JU5cfyid1rBoOy@hyeyoo>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <Y3JU5cfyid1rBoOy@hyeyoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221114_193447_665471_82B640BC 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20221114_202431_639539_63034F04 
+X-CRM114-Status: GOOD (  46.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +145,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/14 22:19, Anshuman Khandual wrote:
-> 
-> 
-> On 11/14/22 14:16, Yicong Yang wrote:
->> On 2022/11/14 11:29, Anshuman Khandual wrote:
+On 11/14/22 23:47, Hyeonggon Yoo wrote:
+> On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
+>> On 11/14/22 18:36, Vlastimil Babka wrote:
+>>> On 11/14/22 06:48, Damien Le Moal wrote:
+>>>> On 11/14/22 10:55, Damien Le Moal wrote:
+>>>>> On 11/12/22 05:46, Conor Dooley wrote:
+>>>>>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
+>>>>>>> On 11/8/22 22:44, Pasha Tatashin wrote:
+>>>>>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
+>>>>>>>>>
+>>>>>>>>> Hi,
+>>>>>>>>>
+>>>>>>>>> as we all know, we currently have three slab allocators. As we discussed
+>>>>>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
+>>>>>>>>> two of them do not.
+>>>>>>>>>
+>>>>>>>>> The unsurprising reasons include code maintenance burden, other features
+>>>>>>>>> compatible with only a subset of allocators (or more effort spent on the
+>>>>>>>>> features), blocking API improvements (more on that below), and my
+>>>>>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
+>>>>>>>>> without resorting to spelling out the letters.
+>>>>>>>>>
+>>>>>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
+>>>>>>>>> two to be removed, so I'd like to focus on it first.
+>>>>>>>>>
+>>>>>>>>> I believe SLOB can be removed because:
+>>>>>>>>>
+>>>>>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
+>>>>>>>>> by putting all objects together, which has its CPU performance costs
+>>>>>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
+>>>>>>>>> aware of any "tiny linux" deployment that opts for this. For example,
+>>>>>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
+>>>>>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
+>>>>>>>>> SLOB impact is too much for those who tried. Googling for
+>>>>>>>>> "CONFIG_SLOB=y" yielded nothing useful.
+>>>>>>>>
+>>>>>>>> I am all for removing SLOB.
+>>>>>>>>
+>>>>>>>> There are some devices with configs where SLOB is enabled by default.
+>>>>>>>> Perhaps, the owners/maintainers of those devices/configs should be
+>>>>>>>> included into this thread:
+>>>>>>>>
+>>>>>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
+>>>>>>
+>>>>>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
+>>>>>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
+>>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
+>>>>>>
+>>>>>>>
+>>>>>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
+>>>>>>> running make defconfig ends up with SLUB anyway, unless I miss something.
+>>>>>>> Only a subset has both SLOB and EXPERT:
+>>>>>>>
+>>>>>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
+>>>>>>
+>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
+>>>>>>
+>>>>>> I suppose there's not really a concern with the virt defconfig, but I
+>>>>>> did check the output of `make nommu_k210_defconfig" and despite not
+>>>>>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
+>>>>>>
+>>>>>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
+>>>>>> boots etc, but I have no workloads or w/e to run on it.
+>>>>>
+>>>>> I sent a patch to change the k210 defconfig to using SLUB. However...
 >>>
->>> On 10/28/22 13:42, Yicong Yang wrote:
->>>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->>>> +{
->>>> +	/*
->>>> +	 * TLB batched flush is proved to be beneficial for systems with large
->>>> +	 * number of CPUs, especially system with more than 8 CPUs. TLB shutdown
->>>> +	 * is cheap on small systems which may not need this feature. So use
->>>> +	 * a threshold for enabling this to avoid potential side effects on
->>>> +	 * these platforms.
->>>> +	 */
->>>> +	if (num_online_cpus() <= CONFIG_ARM64_NR_CPUS_FOR_BATCHED_TLB)
->>>> +		return false;
->>>> +
->>>> +#ifdef CONFIG_ARM64_WORKAROUND_REPEAT_TLBI
->>>> +	if (unlikely(this_cpu_has_cap(ARM64_WORKAROUND_REPEAT_TLBI)))
->>>> +		return false;
->>>> +#endif
->>> should_defer_flush() is immediately followed by set_tlb_ubc_flush_pending() which calls
->>> arch_tlbbatch_add_mm(), triggering the actual TLBI flush via __flush_tlb_page_nosync().
->>> It should be okay to check capability with this_cpu_has_cap() as the entire call chain
->>> here is executed on the same cpu. But just wondering if cpus_have_const_cap() would be
->>> simpler, consistent, and also cost effective ?
+>>> Thanks!
 >>>
->> ok. Checked cpus_have_const_cap() I think it matches your words.
+>>>>> The current default config using SLOB gives about 630 free memory pages
+>>>>> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
+>>>>> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
+>>>
+>>> Thanks for the testing! How much RAM does the system have btw? I found 8MB
+>>> somewhere, is that correct?
 >>
->>> Regardless, a comment is needed before the #ifdef block explaining why it does not make
->>> sense to defer/batch when __tlbi()/__tlbi_user() implementation will execute 'dsb(ish)'
->>> between two TLBI instructions to workaround the errata.
+>> Yep, 8MB, that's it.
+>>
+>>> So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
+>>> difference [1]. But that was looking at Slab pages, not free pages. The
+>>> extra overhead could be also in percpu allocations, code etc.
 >>>
->> The workaround for the errata mentioned the affected platforms need the tlbi+dsb to be done
->> twice, so I'm not sure if we defer the final dsb will cause any problem so I think the judgement
->> here is used for safety. I have no such platform to test if it's ok to defer the last dsb.
+>>>>> This is with a buildroot kernel 5.19 build including a shell and sd-card
+>>>>> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
+>>>>> definitely see more errors with shell commands failing due to allocation
+>>>>> failures for the shell process fork. So as far as the K210 is concerned,
+>>>>> switching to SLUB is not ideal.
+>>>>>
+>>>>> I would not want to hold on kernel mm improvements because of this toy
+>>>>> k210 though, so I am not going to prevent SLOB deprecation. I just wish
+>>>>> SLUB itself used less memory :)
+>>>>
+>>>> Did further tests with kernel 6.0.1:
+>>>> * SLOB: 630 free pages after boot, shell working (occasional shell fork
+>>>> failure happen though)
+>>>> * SLAB: getting memory allocation for order 7 failures on boot already
+>>>> (init process). Shell barely working (high frequency of shell command fork
+>>>> failures)
+>>
+>> I forgot to add here that the system was down to about 500 free pages
+>> after boot (again from the shell with "cat /proc/vmstat").
+>>
+>>>> * SLUB: getting memory allocation for order 7 failures on boot. I do get a
+>>>> shell prompt but cannot run any shell command that involves forking a new
+>>>> process.
+>>
+>> For both slab and slub, I had cpu partial off, debug off and slab merge
+>> on, as I suspected that would lead to less memory overhead.
+>> I suspected memory fragmentation may be an issue but doing
+>>
+>> echo 3 > /proc/sys/vm/drop_caches
+>>
+>> before trying a shell command did not help much at all (it usually does on
+>> that board with SLOB). Note that this is all with buildroot, so this echo
+>> & redirect always works as it does not cause a shell fork.
+>>
+>>>>
+>>>> So if we want to keep the k210 support functional with a shell, we need
+>>>> slob. If we reduce that board support to only one application started as
+>>>> the init process, then I guess anything is OK.
+>>>
+>>> In [1] it was possible to save some more memory with more tuning. Some of
+>>> that required boot parameters and other code changes. In another reply [2] I
+>>> considered adding something like SLUB_TINY to take care of all that, so
+>>> looks like it would make sense to proceed with that.
+>>
+>> If you want me to test something, let me know.
 > 
-> We should not defer TLB flush on such systems, as ensured by the above test and 'false'
-> return afterwards. The only question is whether this decision should be taken at a CPU
-> level (which is affected by the errata) or the whole system level.
+> Would you try this please?
 > 
-> What is required now
+> diff --git a/mm/slub.c b/mm/slub.c
+> index a24b71041b26..1c36c4b9aaa0 100644
+> --- a/mm/slub.c
+> +++ b/mm/slub.c
+> @@ -4367,9 +4367,7 @@ static int kmem_cache_open(struct kmem_cache *s, slab_flags_t flags)
+>  	 * The larger the object size is, the more slabs we want on the partial
+>  	 * list to avoid pounding the page allocator excessively.
+>  	 */
+> -	s->min_partial = min_t(unsigned long, MAX_PARTIAL, ilog2(s->size) / 2);
+> -	s->min_partial = max_t(unsigned long, MIN_PARTIAL, s->min_partial);
+> -
+> +	s->min_partial = 0;
+>  	set_cpu_partial(s);
+>  
+>  #ifdef CONFIG_NUMA
 > 
-> - Replace this_cpu_has_cap() with cpus_have_const_cap ?
-> - Add the following comment before the #ifdef check
 > 
+> and booting with and without boot parameter slub_max_order=0?
 
-Have respin the series according to the above comments:
-https://lore.kernel.org/lkml/20221115031425.44640-3-yangyicong@huawei.com/
+Test notes: I used Linus 6.1-rc5 as the base. That is the only thing I
+changed in buildroot default config for the sipeed maix bit card, booting
+with SD card. The test is: booting and run "cat /proc/vmstat" and register
+the nr_free_pages value. I repeated the boot + cat 3 to 4 times for each case.
 
-Thanks.
+Here are the results:
 
-> /*
->  * TLB flush deferral is not required on systems, which are affected with
->  * ARM64_WORKAROUND_REPEAT_TLBI, as __tlbi()/__tlbi_user() implementation
->  * will have two consecutive TLBI instructions with a dsb(ish) in between
->  * defeating the purpose (i.e save overall 'dsb ish' cost).
->  */
-> 
-> .
-> 
+6.1-rc5, SLOB:
+    - 623 free pages
+    - 629 free pages
+    - 629 free pages
+6.1-rc5, SLUB:
+    - 448 free pages
+    - 448 free pages
+    - 429 free pages
+6.1-rc5, SLUB + slub_max_order=0:
+    - Init error, shell prompt but no shell command working
+    - Init error, no shell prompt
+    - 508 free pages
+    - Init error, shell prompt but no shell command working
+6.1-rc5, SLUB + patch:
+    - Init error, shell prompt but no shell command working
+    - 433 free pages
+    - 448 free pages
+    - 423 free pages
+6.1-rc5, SLUB + slub_max_order=0 + patch:
+    - Init error, no shell prompt
+    - Init error, shell prompt, 499 free pages
+    - Init error, shell prompt but no shell command working
+    - Init error, no shell prompt
+
+No changes for SLOB results, expected.
+
+For default SLUB, I did get all clean boots this time and could run the
+cat command. But I do see shell fork failures if I keep running commands.
+
+For SLUB + slub_max_order=0, I only got one clean boot with 508 free
+pages. Remaining runs failed to give a shell prompt or allow running cat
+command. For the clean boot, I do see higher number of free pages.
+
+SLUB with the patch was nearly identical to SLUB without the patch.
+
+And SLUB+patch+slub_max_order=0 gave again a lot of errors/bad boot. I
+could run the cat command only once, giving 499 free pages, so better than
+regular SLUB. But it seems that the memory is more fragmented as
+allocations fail more often.
+
+Hope this helps. Let me know if you want to test something else.
+
+Cheers.
+
+-- 
+Damien Le Moal
+Western Digital Research
+
 
 _______________________________________________
 linux-riscv mailing list
