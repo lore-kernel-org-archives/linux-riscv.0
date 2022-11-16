@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3612BC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 08:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11038C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 08:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZRL4qDfOuUxP/kygFE5NQS/nhvB5FGRwVpIDgSB1K/0=; b=Se8ZOduBvssjvN
-	gVxQy8JsEZLPhklMZU1pB1MJdE9Vg/NObpT+glM4f33CuOJwbUXY65aBHHDSXoxVcQoEinWGHi8ZI
-	BFDcC63Q5P1lUp/U/PAoGo3gPQKjw4cldg5oZm3ashzYN/VPAQGng1qqBJtLzg3e0YEeMw8E815Jg
-	QQPavkd3MsQeEIxkpjwYenyaO0xKCzIzqf8MMsRqVYE2y3GvPOxDff3o860Y64ROUQVOtifcnmxsg
-	fFKHoUJWojdlZdI4Ckion/LLyPFvOShyJ8XHhD4rx9mNTtZPeBivdHOf0w1W7INeXepJ2K4UthmAn
-	W6dDeKCQ4qnGDNSvw/jg==;
+	List-Owner; bh=L5sR/eFCE1O5rfmhTWTTrFwYK2z/3qMRftBELPcw2Pc=; b=RRzuFvByfjuDrG
+	WAiY7epDoQacD1KhutL4C9ZDsNXw077p+/94DerfhMwMikCULsUQYUjSHrSe6vuOg/5gJTtXwQniZ
+	teWe2CQDLBYoFt2IoiY/D/Lbu2pU0RZMhwrlZ9EKJ+vgsbFiD9PyzVlgXoqEMEPBUUKaLapgLU83m
+	SyAA2EzsZZSPapZeNyUDdfdeesAnT1PqjPAHrFvaTt48ddXNacXap62x9DbiqeqNshWzjJO8JoPFa
+	mY6jDTJ5tasFMrzHl3/QHsdjrEqp7DYJW4illbz5fLjgmchJIQLvYQ5WEgpATnBj0M6sEV5JcZcP4
+	749eFCE91vWtzfT3elsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovDpo-001CjI-Vw; Wed, 16 Nov 2022 08:31:53 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1ovDs4-001DAT-0T; Wed, 16 Nov 2022 08:34:12 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovDpm-001Ci8-Mt
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 08:31:52 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id v17so25448809edc.8
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 00:31:49 -0800 (PST)
+	id 1ovDs1-001D8c-U2
+	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 08:34:11 +0000
+Received: by mail-ed1-x531.google.com with SMTP id l11so25500808edb.4
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 00:34:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tS8PUv2BnXdj/e48EPdxYpNqnXeXFkcZc+zp8GU4rM8=;
-        b=WxP/k5h0KFaDpNqAKuCbK/4RmL9nl6s8yMQBNSAoH4fVU3UefxYuMv9sFU4SD3uPrD
-         IOdd/yQZI6bTsyxx06Gccek5A4Jp0iPV/3sXWxZKt3vjgxf4eMpNxRtE8Lu8I2znGDMO
-         nQpx9tqXAsXa+efpxRxTSr+HpALmUHt081pEoq4uLcu3ymBx6o7BgPIkYFjraGESFuIX
-         D7LQPRmh+0b8dW0KI2vJH6TfLXxlmiCoej4TNpHs2/7RoGawxl4mi7JKtP24ONau7geG
-         v8l77g+Xp6oKkGjQvWP7fNYsuA8i0r0YWOTfjsA5gCmqPzp3ODHX3KTvK+cxO6yibAkU
-         aenQ==
+        bh=av6KDv62AGdGoFmcTHykVy0hCGItuh5CT9+Lv5jvyqs=;
+        b=AOsO8yEqQANtBMjyqTMpmYYoBZ8gDCxWQZj7HrEzHLLrDcp/A7qItf7JjYNt0gAAdi
+         CSN05Q4ANnOIWoLIIeNUXWk1qrRi6RP7hZSL0H8ccfO5U0KRg9bPFGEnPHuIxTuje2y6
+         HXkV40xlo6wzcJ0M6VmJVJp5Dug+kxoKW789TiIAvdjyQfrRIAMJAoU2P3XTp5imjYeD
+         ugmcZ7BpwjEkbd7Y5y7+1pvUCVmIK8XKkE5R6cctleP03bu5wYLJ/bgDKSDZ2AdsGDjk
+         cnXaER+3YQMpNpuOaZeYkNebgFh/Rd6gq/w/AlS2ixWhi/JZ1jYwfI2jdLko5EMtJk7H
+         Wu/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tS8PUv2BnXdj/e48EPdxYpNqnXeXFkcZc+zp8GU4rM8=;
-        b=I5Iu/QJ0xXX88yysLScPW5Phv3T3rpOVAju1wVDHJ6uz+We4k5aZ5Csh/r56HFZgVQ
-         TBV2fA1ChWpguc4lg/74bmeC2KJVeYBKrH1EjLZb1ZgDz8gi6fn0zeL8Yq3scMU6Ob7h
-         jUBG6lmOfmJDtO3+CdjIMHjK7G4K4GI+wxT78rRSx70EvHlHUZKF18bFz3jPgilN/Fp4
-         WGjychi/Xl1SYPGAi8RpLceQU/laECtYbOM9ASWfGNoe+61DmRuhvoxgYfbTqJkZabQU
-         HrkPjEx23W6iBKFwzO8Yq42GKkJSc0BGux9Y8ya0zxFZHiEBk8Ksz2E7JfZGchwgEmSo
-         kJuA==
-X-Gm-Message-State: ANoB5plTj4/0K3PEiDWNsIHndxxbIqfyj7ZXDzTOw1+6wgDahgdH594+
-	L87n9UgvjfFHu+7oC3qNxt72CDBJmdeV3g==
-X-Google-Smtp-Source: AA0mqf50IR+d7SOS4t8Am3GEziCbduajoKVUKUkZeNsRhaYb9wrRUNXebL3jFpOHEfNq5scEK1l4XA==
-X-Received: by 2002:aa7:cb0d:0:b0:463:ba10:9e2d with SMTP id s13-20020aa7cb0d000000b00463ba109e2dmr18134482edt.43.1668587508326;
-        Wed, 16 Nov 2022 00:31:48 -0800 (PST)
+        bh=av6KDv62AGdGoFmcTHykVy0hCGItuh5CT9+Lv5jvyqs=;
+        b=yx1dyW6X9MSBSCdzlxJZgqFvcIcMqoxVK3uGDU5GfY0MvlXFJ3sWZRSl6gLC9GvG8i
+         TWUgX95/V0FFjw38GJuSpVOr6BCrjL5jfO5KnRaRj7+ZTqmN81Gsd5KNX1nB/T95RYpF
+         cleFYdwTQPGRSpI/Vpx/ivRQC0QIfvUa3a0tUQ313yVx41S8bbQJu5EU0pd8fZFbgRJr
+         NLOytgPOR3iM0HiMPm4MmHkclLQjMkFrhdUOdWMA0kHgNOFi9KpM5eC10oiaXfjLNnVC
+         9k4M7C2HPUuWKmUJK1HAu+YP4On2+PzaHR2I7qCLEfAFj4Ghip5eH0WSrl9i/qpVqkMW
+         uAgA==
+X-Gm-Message-State: ANoB5pmVy3xxaxkxsp41q3+HlS/3Y7thUgs3KFzhOGICLROEgMSqYXfY
+	vySWOvQZVl17d/+LJ0q3sr/XGBfxAfxG7Q==
+X-Google-Smtp-Source: AA0mqf4KQyKv4ojZnu8XCNVz3uzBsl/9Q9V+SdHUQxstiySRh4iKvcpDN3BGoIAdFATuX0rYqawP1g==
+X-Received: by 2002:a05:6402:c09:b0:462:6b8e:1ddb with SMTP id co9-20020a0564020c0900b004626b8e1ddbmr17722279edb.276.1668587645307;
+        Wed, 16 Nov 2022 00:34:05 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id s26-20020a508d1a000000b0044e01e2533asm7236006eds.43.2022.11.16.00.31.47
+        by smtp.gmail.com with ESMTPSA id b3-20020a170906728300b007a559542fcfsm6511174ejl.70.2022.11.16.00.34.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 00:31:48 -0800 (PST)
-Date: Wed, 16 Nov 2022 09:31:46 +0100
+        Wed, 16 Nov 2022 00:34:05 -0800 (PST)
+Date: Wed, 16 Nov 2022 09:34:03 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Jamie Iles <jamie@jamieiles.com>
 Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 2/4] RISC-V: reduce mcount save space on RV32
-Message-ID: <20221116083146.w6g6sixfnmg7kr53@kamzik>
+Subject: Re: [PATCH v2 0/4] RISC-V: Dynamic ftrace support for RV32I
+Message-ID: <20221116083403.nastv4eqigdut66y@kamzik>
 References: <20221115200832.706370-1-jamie@jamieiles.com>
- <20221115200832.706370-3-jamie@jamieiles.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221115200832.706370-3-jamie@jamieiles.com>
+In-Reply-To: <20221115200832.706370-1-jamie@jamieiles.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_003150_769303_5807DCF3 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20221116_003409_994726_B3BB6C54 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,98 +88,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022 at 08:08:30PM +0000, Jamie Iles wrote:
-> For RV32 we can reduce the size of the ABI save+restore state by using
-> SZREG so that register stores are packed rather than on an 8 byte
-> boundary.
+On Tue, Nov 15, 2022 at 08:08:28PM +0000, Jamie Iles wrote:
+> This series enables dynamic ftrace support for RV32I bringing it to 
+> parity with RV64I.  Most of the work is already there, this is largely 
+> just assembly fixes to handle register sizes, correct handling of the 
+> psABI calling convention and Kconfig change.
 > 
-> Signed-off-by: Jamie Iles <jamie@jamieiles.com>
-> ---
->  arch/riscv/kernel/mcount.S | 32 ++++++++++++++++----------------
->  1 file changed, 16 insertions(+), 16 deletions(-)
+> Validated with all ftrace boot time self test with qemu for RV32I and 
+> RV64I in addition to real tracing on an RV32I FPGA design.
 > 
-> diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
-> index 9cf0904afd6d..613bd07c6268 100644
-> --- a/arch/riscv/kernel/mcount.S
-> +++ b/arch/riscv/kernel/mcount.S
-> @@ -15,8 +15,8 @@
->  
->  	.macro SAVE_ABI_STATE
->  	addi	sp, sp, -16
-> -	REG_S	s0, 0(sp)
-> -	REG_S	ra, 8(sp)
-> +	REG_S	s0, 0*SZREG(sp)
-> +	REG_S	ra, 1*SZREG(sp)
->  	addi	s0, sp, 16
->  	.endm
->  
-> @@ -25,24 +25,24 @@
->  	 * register if a0 was not saved.
->  	 */
->  	.macro SAVE_RET_ABI_STATE
-> -	addi	sp, sp, -32
-> -	REG_S	s0, 16(sp)
-> -	REG_S	ra, 24(sp)
-> -	REG_S	a0, 8(sp)
-> -	addi	s0, sp, 32
-> +	addi	sp, sp, -4*SZREG
-> +	REG_S	s0, 2*SZREG(sp)
-> +	REG_S	ra, 3*SZREG(sp)
-> +	REG_S	a0, 1*SZREG(sp)
+> Changes since v1 
+> (http://lists.infradead.org/pipermail/linux-riscv/2022-October/021103.html)
+> 
+>   - Fixed the use of SZREG in patch 2
+> 
+> Jamie Iles (4):
+>   RISC-V: use REG_S/REG_L for mcount
+>   RISC-V: reduce mcount save space on RV32
+>   RISC-V: preserve a1 in mcount
+>   RISC-V: enable dynamic ftrace for RV32I
+> 
+>  arch/riscv/Kconfig         | 10 ++++-----
+>  arch/riscv/kernel/mcount.S | 44 ++++++++++++++++++++------------------
+>  2 files changed, 28 insertions(+), 26 deletions(-)
 
-I probably would have taken the opportunity to put these lines
-in ascending order by offset, since it looks odd like this.
+Hi Jamie,
 
-Anyway,
+Please CC previous reviewers on the entire series when reposting.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Thanks,
+drew
 
-
-> +	addi	s0, sp, 4*SZREG
->  	.endm
->  
->  	.macro RESTORE_ABI_STATE
-> -	REG_L	ra, 8(sp)
-> -	REG_L	s0, 0(sp)
-> +	REG_L	ra, 1*SZREG(sp)
-> +	REG_L	s0, 0*SZREG(sp)
->  	addi	sp, sp, 16
->  	.endm
->  
->  	.macro RESTORE_RET_ABI_STATE
-> -	REG_L	ra, 24(sp)
-> -	REG_L	s0, 16(sp)
-> -	REG_L	a0, 8(sp)
-> -	addi	sp, sp, 32
-> +	REG_L	ra, 3*SZREG(sp)
-> +	REG_L	s0, 2*SZREG(sp)
-> +	REG_L	a0, 1*SZREG(sp)
-> +	addi	sp, sp, 4*SZREG
->  	.endm
->  
->  ENTRY(ftrace_stub)
-> @@ -101,10 +101,10 @@ ENTRY(MCOUNT_NAME)
->   * prepare_to_return(&ra_to_caller_of_caller, ra_to_caller)
->   */
->  do_ftrace_graph_caller:
-> -	addi	a0, s0, -8
-> +	addi	a0, s0, -SZREG
->  	mv	a1, ra
->  #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-> -	REG_L	a2, -16(s0)
-> +	REG_L	a2, -2*SZREG(s0)
->  #endif
->  	SAVE_ABI_STATE
->  	call	prepare_ftrace_return
-> @@ -117,7 +117,7 @@ do_ftrace_graph_caller:
->   * (*ftrace_trace_function)(ra_to_caller, ra_to_caller_of_caller)
->   */
->  do_trace:
-> -	REG_L	a1, -8(s0)
-> +	REG_L	a1, -SZREG(s0)
->  	mv	a0, ra
->  
->  	SAVE_ABI_STATE
+> 
 > -- 
 > 2.37.2
 > 
