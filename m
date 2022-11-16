@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FC8C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 19:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEF8C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 21:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dt245bz+FjFAGGC6ZUrpdzJnERdbTxWtLJdZlKD9isw=; b=MaLn7V7bTcLQMh
-	IaJaZFFyb8czl347MFYcisSLTAj8RcGMaRjtiO2ZxjL+gTAKIpc91We3pBHlWVB+C6gVwmeQzQ1N6
-	zdT5/BoOT4eGDIPSQh7enIaMbRjih0ebLPPgfPfIh+c/NaUQUcvDfRkqVPaxbowMurso49SntZHhK
-	+xnav1yBuAH6syQigj7suBwe9rlWhgnB5GNnoODYXd2u1DhdIlqZu15EFSstRv1NX2IvLeXnE8OWa
-	xG81jX/w46tI51JpK+m2H3Y52E8V6IrtpNTp86EKkcpYsIhMgcYr02qTih5wPi9l1gSjgciPPkR+b
-	ebU3A7pQAg9dw+kdjnQQ==;
+	List-Owner; bh=e1hi5brN4+TZUD5tT/M2V9MvmSsVh76+NWvdQoRF1mc=; b=ZQ4nduUSOr+upV
+	C2+8QdTtkVpUkZBjYCNs18tl1LR6W2JP62WHoYevLteV2XpwDXSrxKFLI5XjleywGQ8pP2z25AMtt
+	19Fyx5rXDiHRalK+/yCvf9dyET35O7tiS7Mz3it1zhsgjAWbVQlkms8yXwUtcRNFNmIXsreE3vdX/
+	pSDp6vSBhNtXjzM0/W9RuwGZgvFqK2jD/aUK+8zE0qzhuWIAlaJGCpXyElgFJ4bRoWpNSmSXfI/bM
+	yGMPupeheH8Uz8Kxb2hJpIIqBXdp0GOeVioPcegtwUddIrdZR/EQAQ/ZWI7fHnPVOUewY5H/y3GDI
+	/vTtMgFU6KmSQoDIdHGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovO4q-007M4Y-Ep; Wed, 16 Nov 2022 19:28:04 +0000
-Received: from mail-oa1-f44.google.com ([209.85.160.44])
+	id 1ovPZy-0082R5-6i; Wed, 16 Nov 2022 21:04:18 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovO4n-007M2p-Cs
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 19:28:03 +0000
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-13c2cfd1126so21259586fac.10
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 11:27:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ddXhyxWoWR+WuCeBU1+8MsAASKTX24pGAhHTry1xkHY=;
-        b=VFw+VUnfEObmTvhNj0KRzXBgBnoVfEhGT5ImZu/LbpDWzG4oMbRVUYG/WsH/p0Hlrh
-         FVfUpnKI1ZhltRZC8ouLUvGDstj052OMWTueT0gS6Iw/HK9cDLtDTX90mtDvrml/MEGg
-         MP8WJby6AHSf8NjIUbCyxI+HDCrPEqLghI3rww39sOSavBY3jopsfuyy+eODTrKtrNsJ
-         YoI56/PgnWF3bVXSjJkCZOCc6JeYSkfUWJejHsdhbxsNMtSFfi+qKeRB/6W3L/4tmKhp
-         W8xhkB/7SWzRqw8Cy3/kvPAo0ctQHRdSs4oA90jlM8vEDpvOc6QQwKijVHWfzflwFujq
-         a+Ow==
-X-Gm-Message-State: ANoB5plxwQ+yCqEPxeGi2lqsLTJune0boZboP3ZHla3cvlmOTaYIysGP
-	ALpTFpdI8LeNY+CVg8Hx8w==
-X-Google-Smtp-Source: AA0mqf4jU21nGD1Cah9qRaDMr7mqZE3Yy81FStzVZijy2j0rrHDWZ2yH/tP1NmDHcAc1cnaeHAQ2NQ==
-X-Received: by 2002:a05:6870:4192:b0:141:ae05:159e with SMTP id y18-20020a056870419200b00141ae05159emr2594008oac.39.1668626877885;
-        Wed, 16 Nov 2022 11:27:57 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id z41-20020a056870c22900b001324315bb6asm8432984oae.29.2022.11.16.11.27.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 11:27:57 -0800 (PST)
-Received: (nullmailer pid 759466 invoked by uid 1000);
-	Wed, 16 Nov 2022 19:27:59 -0000
-Date: Wed, 16 Nov 2022 13:27:59 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 6/9] dt-bindings: Add RISC-V advanced PLIC bindings
-Message-ID: <20221116192759.GA743769-robh@kernel.org>
-References: <20221111044207.1478350-1-apatel@ventanamicro.com>
- <20221111044207.1478350-7-apatel@ventanamicro.com>
+	id 1ovPZu-0082PQ-Qj
+	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 21:04:16 +0000
+Received: from [192.168.1.90] (unknown [188.27.33.151])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id C468966028E7;
+	Wed, 16 Nov 2022 21:04:06 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1668632647;
+	bh=tiAa/p8KzV3n6K1lJ9/iA6qi8H8A6tMn2pTryJbY0x4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TKggDaOE9bBTxwTCEwcJ2SQncpcY06Lit5md6A2SdlZX1/mtfc39lR026QGfzWeoX
+	 3VXjjHQtVn9oA5XUbpMKHkBZKd3COm9ymc7jWo/P70YgiyfvNDJgXV9VnBBLqC/qUP
+	 BO9eyGe5+jGHMmEmvPALYfBF4UPfvyMN7KY7G7nC3HD66W7ZYaj3eYy5l9J8Ewi8Lk
+	 1VGtR9zx7DaWaz/3/ru1Jj5k2eGx8IKerdxiSuefnHo/M4DIjAYBUNiFk526CapOvg
+	 lxWTuk5nW5oU0VXm3zR7HsVZqeFQ7O/XDtOqrYV3V5mnjuOc4wTQtPGBhpV4FTKcdS
+	 bFf0bTBNZ5rfA==
+Message-ID: <3b4b8aef-a06d-36b5-a143-78f0ce30eb77@collabora.com>
+Date: Wed, 16 Nov 2022 23:04:03 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221111044207.1478350-7-apatel@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v4 0/3] Enable initial support for StarFive VisionFive V1
+ SBC
+To: Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Michael Zhu <michael.zhu@starfivetech.com>,
+ Drew Fustini <drew@beagleboard.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com
+References: <20221017210542.979051-1-cristian.ciocaltea@collabora.com>
+ <Y3Ui9mmcvuWMw2AL@spud>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <Y3Ui9mmcvuWMw2AL@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_112801_456389_7DD75EFF 
-X-CRM114-Status: GOOD (  25.80  )
+X-CRM114-CacheID: sfid-20221116_130415_124512_0E7350C8 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,193 +78,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 11, 2022 at 10:12:04AM +0530, Anup Patel wrote:
-> We add DT bindings document for RISC-V advanced platform level interrupt
-> controller (APLIC) defined by the RISC-V advanced interrupt architecture
-> (AIA) specification.
+On 11/16/22 19:50, Conor Dooley wrote:
+> On Tue, Oct 18, 2022 at 12:05:39AM +0300, Cristian Ciocaltea wrote:
+>> The StarFive VisionFive V1 SBC [1] is similar with the already supported
+>> BeagleV Starlight Beta board, both being based on the StarFive JH7100 SoC.
+>>
+>> In addition to documenting the necessary compatibles, this patch series
+>> moves most of the content from jh7100-beaglev-starlight.dts to a new file
+>> jh7100-common.dtsi, to be shared between the two boards.
+>>
+>> No other changes are required in order to successfully boot the board.
+>>
+>> [1] https://github.com/starfive-tech/VisionFive
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../interrupt-controller/riscv,aplic.yaml     | 136 ++++++++++++++++++
->  1 file changed, 136 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> Hey Cristian,
 > 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> new file mode 100644
-> index 000000000000..0aa48571f3bc
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
-> @@ -0,0 +1,136 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aplic.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Advancded Platform Level Interrupt Controller (APLIC)
-> +
-> +maintainers:
-> +  - Anup Patel <anup@brainfault.org>
-> +
-> +description:
-> +  The RISC-V advanced interrupt architecture (AIA) defines advanced platform
-> +  level interrupt controller (APLIC) for handling wired interrupts in a
-> +  RISC-V platform. The RISC-V AIA specification can be found at
-> +  https://github.com/riscv/riscv-aia.
-> +
-> +  The RISC-V APLIC is implemented as hierarchical APLIC domains where all
-> +  interrupt sources connect to the root domain which can further delegate
-> +  interrupts to child domains. We have one device tree node for each APLIC
-> +  domain.
-> +
-> +allOf:
-> +  - $ref: /schemas/interrupt-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - vendor,chip-aplic
-> +      - const: riscv,aplic
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 16384
-> +    description:
-> +      The presence of this property implies that given APLIC domain directly
-> +      injects external interrupts to a set of RISC-V HARTS (or CPUs). Each
-> +      node pointed to should be a riscv,cpu-intc node, which has a riscv node
-> +      (i.e. RISC-V HART) as parent.
-> +
-> +  msi-parent:
-> +    description:
-> +      The presence of this property implies that given APLIC domain forwards
-> +      wired interrupts as MSIs to a AIA incoming message signaled interrupt
-> +      controller (IMSIC). This property should be considered only when the
-> +      interrupts-extended property is absent.
-> +
-> +  riscv,num-sources:
-> +    $ref: "/schemas/types.yaml#/definitions/uint32"
-> +    minimum: 1
-> +    maximum: 1023
-> +    description:
-> +      Specifies how many wired interrupts are supported by this APLIC domain.
-> +
-> +  riscv,children:
-> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> +    minItems: 1
-> +    maxItems: 1024
+> Apologies for the delay here, we've been sorting out re-routing RISC-V
+> DT stuff via the SoC tree. That should be sorted now, so I have picked
+> the series up. Should be at:
+> https://git.kernel.org/conor/c/a3fe69160c7328a284ebc711ccb689f3beec42dc
 
-As each entry is a single phandle:
+Hi Conor,
 
-       items:
-         maxItems: 1
+No problem, thanks for taking care of this!
 
-> +    description:
-> +      This property represents a list of child APLIC domains for the given
-> +      APLIC domain. Each child APLIC domain is assigned child index in
-> +      increasing order with the first child APLIC domain assigned child
-> +      index 0. The APLIC domain child index is used by firmware to delegate
-> +      interrupts from the given APLIC domain to a particular child APLIC
-> +      domain.
-> +
-> +  riscv,delegate:
-> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-> +    minItems: 1
-> +    maxItems: 1024
+Regards,
+Cristian
 
-       items:
-         items:
-           - description: child APLIC domain phandle
-           - description: ...
-           - description: ...
-
-> +    description:
-> +      This property represents a interrupt delegation list where each entry
-> +      is a triple consisting of child APLIC domain phandle, first interrupt
-> +      number, and last interrupt number. The firmware will configure interrupt
-> +      delegation registers based on interrupt delegation list.
-
-First and last are inclusive?
-
-Couldn't riscv,children and riscv,delegate be combined? How would they 
-be different? If some children don't have any delegated interrupts, you 
-could use -1 for the cells for example.
-
-An example showing the need would be nice.
-
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - riscv,num-sources
-> +
-> +examples:
-> +  - |
-> +    // Example 1 (APIC domain directly injecting interrupt to HARTs):
-
-Is than an x86 APIC or a typo?
-
-> +
-> +    aplic0: interrupt-controller@c000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 11>,
-> +                            <&cpu2_intc 11>,
-> +                            <&cpu3_intc 11>,
-> +                            <&cpu4_intc 11>;
-> +      reg = <0xc000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +      riscv,children = <&aplic1>;
-> +      riscv,delegate = <&aplic1 1 63>;
-> +    };
-> +
-> +    aplic1: interrupt-controller@d000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      interrupts-extended = <&cpu1_intc 9>,
-> +                            <&cpu2_intc 9>,
-> +                            <&cpu3_intc 9>,
-> +                            <&cpu4_intc 9>;
-> +      reg = <0xd000000 0x4080>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
-> +
-> +  - |
-> +    // Example 2 (APIC domain forwarding interrupts as MSIs):
-> +
-> +    interrupt-controller@d000000 {
-> +      compatible = "vendor,chip-aplic", "riscv,aplic";
-> +      msi-parent = <&imsics>;
-> +      reg = <0xd000000 0x4000>;
-> +      interrupt-controller;
-> +      #interrupt-cells = <2>;
-> +      riscv,num-sources = <63>;
-> +    };
-> +...
-> -- 
-> 2.34.1
+> Thanks,
+> Conor.
 > 
-> 
+>>
+>> Changes in v4:
+>>   - Rebased onto v6.1.0-rc1
+>>   - Fixed a conflict in patch 2/3 as pinctrl-starfive.h has been renamed
+>>     to pinctrl-starfive-jh7100.h
+>>
+>> Changes in v3:
+>>   - Added Reviewed-by tag from Krzysztof in patch 1/3
+>>   - Optimized patch 2/3 by enabling copy detection on "git format-patch",
+>>     as indicated by Krzysztof
+>>
+>> Changes in v2:
+>>   - Simplified documentation by using 'enum' instead of 'const' in
+>>     patch 1/3, according to Conor's review
+>>   - Added Reviewed-by tags from Conor
+>>
+>> Cristian Ciocaltea (3):
+>>    dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
+>>    riscv: dts: starfive: Add common DT for JH7100 based boards
+>>    riscv: dts: starfive: Add StarFive VisionFive V1 device tree
+>>
+>>   .../devicetree/bindings/riscv/starfive.yaml   |   4 +-
+>>   arch/riscv/boot/dts/starfive/Makefile         |   2 +-
+>>   .../dts/starfive/jh7100-beaglev-starlight.dts | 153 +-----------------
+>>   ...aglev-starlight.dts => jh7100-common.dtsi} |   3 -
+>>   .../jh7100-starfive-visionfive-v1.dts         |  20 +++
+>>   5 files changed, 25 insertions(+), 157 deletions(-)
+>>   copy arch/riscv/boot/dts/starfive/{jh7100-beaglev-starlight.dts => jh7100-common.dtsi} (96%)
+>>   create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+>>
+>>
+>> base-commit: 9abf2313adc1ca1b6180c508c25f22f9395cc780
+>> -- 
+>> 2.38.0
+>>
 
 _______________________________________________
 linux-riscv mailing list
