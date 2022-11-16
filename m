@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29476C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 09:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8FFC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 10:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FoumA+v48tHM7Abl56PyahNV0wk8cAdE1Qk9R78tV3Y=; b=CzjDe3Z0Zse6t4
-	EGXV1Dh33wr70WNmRSw3HWR12/mi0jMMD5MyaYXBkyixJfnsmELTpKvG10aFw80T/WIwn7ga2MbUQ
-	CWnm2DhNLz6XgmUnRJyWFlrcTn+KpKXqr+ysOQD7iZfJXfvVBrgbqganb5JpCB1jrMa9+IH6OUDFa
-	DBCVbhNFtYRj5WqB3Y/ttgPTq1szxMA7IQ055wquiY8XZzX21LhI/T7aX/JP5EFKmc1kfu3tGFr5I
-	hqGucQIXjOHmECbciuOhvkCkrAyrooNgmyj4ZjyQPv5LpHk9+KKOiC+MxwDQEttb6pPb6OdBm7uyA
-	K/ZxVhad7e/BpaBabmjw==;
+	List-Owner; bh=pcEJtSUkdv/lScNIa3baE1TyTmfZAC4/IQ8W4cLXJiM=; b=2edX2oIXJjcxtk
+	YbGiRZhRL/zB/TH5xfZ6wqNGkM2GR/e4FSrlX4zuZReMofRm2m8BM4K2xnuTiu30w+58Kcm0nnDkf
+	fY5SgMjMTFzH4IL8WOvdvigXxkTvfL064ynz+xhFWSFV7po+50yc26+iMCpeYvPGnVWb19vjeOXL0
+	LoIuHj67/qgbyinAPcnMO2p5qpb6ympEbf97vA1qk/2YVhuMM5JSfgu/RbPCS+U1sQcHB4yxK4P60
+	RNP8h3jcEguAkp88b1xwbMCpe/AbPpX16xLEkW753hiaXJUUdVQCz5KSQijXI+t/33KtlCbXS18Fk
+	22aW+BlXD3M01tXnjc2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovEh4-001geC-Di; Wed, 16 Nov 2022 09:26:54 +0000
-Received: from mail-qt1-f170.google.com ([209.85.160.170])
+	id 1ovFtb-002MrL-8V; Wed, 16 Nov 2022 10:43:55 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovEh1-001gct-Tq
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 09:26:53 +0000
-Received: by mail-qt1-f170.google.com with SMTP id c15so10313265qtw.8
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 01:26:50 -0800 (PST)
+	id 1ovFkx-002Gfd-FC
+	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 10:35:00 +0000
+Received: by mail-ot1-x332.google.com with SMTP id m7-20020a9d6447000000b0066da0504b5eso3814621otl.13
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 02:34:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UvHDrdWNJq6p+2GYaU9sc6HRRjXg7yWYn54epDm0dHI=;
+        b=jknnzhc7h4x3wJA9jBdy+65pzdGdPdyylHFCtOvxW3Pw3KIbBsGz4fzgSZKDPXIVT1
+         6a9ICbrfUODfviJcHgaGZMccDge6RvyanNLFQA9uCgSuKDQphcEvySdWLLi0YEwp+u0j
+         G6qOGHBnddoo3cKZUIERPjc+tTuafkkcU85wvS23YhoZHjkw1pLJJRgvrP/O3EnlhABj
+         Po/1o37x1riM7S3DbmQ8FG7LBL1BhD8sYhKwL84s9kX5vVVbDkOczE98D4JvkfsXUVi7
+         H+e2g4jCLHMMpTD1hscvLtVJezH30OGiZRNecLgQwvmSfhxEbWvfYVkvGBGDhTIXnuGU
+         n6Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=EGSh9ezbCO5Cs+0MRBpsxP1k4L0kzxgW9LPRl1yAGr0=;
-        b=h9rdSZXI757o9+Pm4ILE2Y9uhhHesl5128XfkrfmAXajiI73r+9Zk7xSAe2DN4JYgm
-         0H8JaePxx/z/bVIXGo8ortZzq2VX5WijVafIcHdbeWivMFwDgINvb7jvt1bcToiAl/1y
-         kbPXntiiyiy+zbpicc/d29hCPhYinQVV1jJxjFCClfShC8M+uCEN6U/K9hyHDoqCYtSS
-         noyEcsQWLNrBTJ9w8Yd1QRzvtLRK+853eIn/jlqm4SbBso2C1T9nRonnomvAL5hOiP+b
-         LxQGPqI/rDBfc4pXqCx0NPYdJA9G2YkOhrRvn2Z7E0FY3i3iPg9KmGx7Je8FO0LvKssk
-         k+UQ==
-X-Gm-Message-State: ANoB5pm9CScuZgd1LcMcIXxXRUVr8Gqgbrb33dt7eODLKPYhvJFT480F
-	801HLKuXl/KG9cOzkBIwD1NEVJzS47ubaw==
-X-Google-Smtp-Source: AA0mqf6Ix0Hwm9OZzQWT4+to3Beza3r0acCQ1TNiwogC/Hb4zelh8vHFpv0bxA/WuG3lCJT96+gHow==
-X-Received: by 2002:ac8:7e84:0:b0:3a5:3cc0:8139 with SMTP id w4-20020ac87e84000000b003a53cc08139mr19579794qtj.533.1668590809589;
-        Wed, 16 Nov 2022 01:26:49 -0800 (PST)
-Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
-        by smtp.gmail.com with ESMTPSA id c8-20020ac86608000000b0039d02911555sm8406986qtp.78.2022.11.16.01.26.48
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Nov 2022 01:26:49 -0800 (PST)
-Received: by mail-yb1-f172.google.com with SMTP id f201so19030326yba.12
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 01:26:48 -0800 (PST)
-X-Received: by 2002:a25:844b:0:b0:6de:6c43:3991 with SMTP id
- r11-20020a25844b000000b006de6c433991mr19268568ybm.604.1668590808744; Wed, 16
- Nov 2022 01:26:48 -0800 (PST)
+        bh=UvHDrdWNJq6p+2GYaU9sc6HRRjXg7yWYn54epDm0dHI=;
+        b=uTxrSVeqG2tjmZtkFBmL8GCv/iCGsEW0+HhmXS9Xq7oS2/vzffo5/6agyY4x2fG1gS
+         iz/NYb3xUIKz73De+BqfQC5aqMEpEuoBSqt80puX5wfjGFQF2J6GYkhR2Xq0rn9AzJLY
+         oznuhQGFLRKVkqLlsp9NUv5W+GNOqIODJki2EcFhkRj/LE/egaogLezSj7JQOaWKp8bH
+         RoDZ9lKR86BX3SOHjStiXEww9BQBflBKqNkUvemrAd7NjA0TJ8yB8DxbmR6KVsATYwOs
+         9aXmLjVc3Xa6qAugjVym0u0euXSNnyTSyVUNZXSxq6qW6QTRcBa7QD9wKeiKknISCaI1
+         1JKA==
+X-Gm-Message-State: ANoB5pk6lFmhs0ThqjzRq3NLEdjt1cAIRG2EJqw0qCu/4whyTIp+VkZE
+	gcjv3tSB+VkNfsm4T4lVnH9I4m78Q8+i95vpjUdt4g==
+X-Google-Smtp-Source: AA0mqf5uFDJIvoKh6oYwXem2Bw2v5rzobdymFcZkJUXvQ91kXntl6fLIfQ3vmWssZKwMpNvuUR9ZNcYbLbUc+9rEpA0=
+X-Received: by 2002:a9d:3e4:0:b0:662:2458:3ef7 with SMTP id
+ f91-20020a9d03e4000000b0066224583ef7mr10654090otf.150.1668594896741; Wed, 16
+ Nov 2022 02:34:56 -0800 (PST)
 MIME-Version: 1.0
-References: <20221115105135.1180490-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y3OgSAnst0qt5WSk@wendy> <CA+V-a8vL5r-xMeCiYRax-dM2Uo0ghgzRiyY99nNn089CjJwoBg@mail.gmail.com>
-In-Reply-To: <CA+V-a8vL5r-xMeCiYRax-dM2Uo0ghgzRiyY99nNn089CjJwoBg@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 16 Nov 2022 10:26:37 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXquU632vu37WkewmashjSxV8f8J6WGawAD4uL3B=6pHA@mail.gmail.com>
-Message-ID: <CAMuHMdXquU632vu37WkewmashjSxV8f8J6WGawAD4uL3B=6pHA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] RZ/Five: Enable ADC/CANFD/I2C/OPP/Thermal Zones/TSU
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Magnus Damm <magnus.damm@gmail.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
+References: <20221111044207.1478350-1-apatel@ventanamicro.com>
+ <20221111044207.1478350-5-apatel@ventanamicro.com> <Y3EDuaW0zQSSfiQ/@spud>
+ <CAK9=C2WDQCnVnxKR6SFspdwope2KffyASLJDF_Ygo_417ekJ5w@mail.gmail.com>
+ <Y3QT5Vy3RnIXobHz@spud> <3037b4f9-268d-df03-380c-393a5d01f3ba@linaro.org>
+In-Reply-To: <3037b4f9-268d-df03-380c-393a5d01f3ba@linaro.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 16 Nov 2022 16:04:45 +0530
+Message-ID: <CAK9=C2UpiM=UC27Bgm+QqSc=27g__QLL3y-wMVJGjO-N-XKThw@mail.gmail.com>
+Subject: Re: [PATCH 4/9] dt-bindings: Add RISC-V incoming MSI controller bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+	devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_012651_982200_44A798CA 
-X-CRM114-Status: GOOD (  33.19  )
+X-CRM114-CacheID: sfid-20221116_023459_564238_59629123 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,70 +93,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022 at 7:23 PM Lad, Prabhakar
-<prabhakar.csengg@gmail.com> wrote:
-> On Tue, Nov 15, 2022 at 2:21 PM Conor Dooley <conor.dooley@microchip.com> wrote:
-> > On Tue, Nov 15, 2022 at 10:51:32AM +0000, Prabhakar wrote:
-> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > >
-> > > Hi All,
-> > >
-> > > This patch series aims to enable support for below blocks
-> > > on RZ/Five SoC/SMARC EVK:
-> > > - ADC
-> > > - CANFD
-> > > - I2C
-> > > - OPP
-> > > - Thermal Zones
-> > > - TSU
-> > >
-> > > Note, patches apply on top of [0].
-> > >
-> > > [0] https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git/log/?h=renesas-riscv-dt-for-v6.2
-> > >
-> > > Cheers,
-> > > Prabhakar
-> > >
-> > > Lad Prabhakar (3):
-> > >   riscv: Kconfig: Enable cpufreq kconfig menu
-> > >   riscv: dts: renesas: r9a07g043f/rzfive-smarc-som: Enable
-> > >     ADC/OPP/Thermal Zones/TSU
-> > >   riscv: dts: renesas: rzfive-smarc: Enable CANFD/I2C
-> >
-> > I know ~nothing about your SoC so idk if the values are correct, but I
-> > did give it a go earlier to see if it did anything warning wise. Seeing
-> > that it didn't cause any I am curious - how come these didn't land in
-> > the original dts? Just waiting for driver stuff to land to support it?
-> >
-> I wanted bare minimal stuff in the initial patchset.
+On Wed, Nov 16, 2022 at 2:30 PM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
 >
-> > Anyway, no new warnings which is what I care about - I suppose that
-> > makes it an acked-by?
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > Can include that tag if you like. Either way, nice to see some of the
-> > /delete-node/s etc being removed.
+> On 15/11/2022 23:34, Conor Dooley wrote:
+> > On Mon, Nov 14, 2022 at 05:59:00PM +0530, Anup Patel wrote:
+> >> On Sun, Nov 13, 2022 at 8:18 PM Conor Dooley <conor@kernel.org> wrote:
 > >
-> Thanks, Geert should pick the tag while picking the DTS/I patches.
+> >>> Also, the file name says "riscv,imsic", the description says "IMSIC" but
+> >>> you've used "imsics" in the compatible. Is this a typo, or a plural?
+> >>
+> >> Yes, the file name should be consistent. I will update the file name.
+> >
+> > Is there a reason why the compatible is plural when all of the other
+> > mentions etc do not have an "s"? It really did look like a typo to me.
+> >
+> > It's the "incoming MSI controller", so I am unsure as to where the "s"
+> > actually even comes from. Why not just use "riscv,imsic"?
 >
-> For the Kconfig patch it needs to go via the RISCV tree or can that be
-> picked by Geert too with the rest of the other patches?
+> Yep, should be rather consistent with all others, and IMSIC stands for
+> Integrated Circuit?
 
-IMHO the Kconfig patch (or Conor's earlier version) should go through
-the RISCV tree, as there is no hard dependency.
+This is intentionally plural because even though we have one
+IMSIC per-CPU, Linux (and various OSes) expect one DT node
+as MSI controller targeting all CPUs.
 
-Yes, I can take it with an Acked-by, if all else fails, but the soc deadline
-is near.
+The plural compatible string "riscv,imsics" was chosen based
+on consensus on RISC-V AIA Task Group meetings.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
