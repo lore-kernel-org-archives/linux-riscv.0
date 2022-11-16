@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43564C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 13:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 904CCC43217
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 13:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8/ZJrcIJt3IAO0sf+tmHeO/ZUVNUFYATGa2r0fm+83M=; b=Q8HbBqk/cqsQ6u
-	9C3DgMwkYxw3858NSvkytz+3QH5CBJr/SBpnXeEDSIxiC5APTCMyf6vQW9unCSD++/t+7HY7KeFzx
-	T9Oz1Tp3Adj3HPhdszaKDVKCPEWz1etWxctidRNY7CXqTGY0c9w/MjPVUyITHkcKRSzXDwsvbyN4U
-	sihdTpV9CWfbo+0AMm6fWq1ayDGMdeGEJQj9fu477FKT5xCGNxpw+0f72N+GayTJ6l6gAEETMWAhK
-	e83d8jvS+26sP1whEmD287r+xeowULxPZfSCIin7x+NFwbvyC30LHYFZMyp22gbcFNV+GtpLtotmR
-	jxb5VBG0LwmSTol6ccxg==;
+	List-Owner; bh=/tRLQLLuGRic6p8SR94/cKT4mVAJSccyf+jrUSD+Ki4=; b=1LYJfrZR8TISnT
+	i7C6TFz1Gde+o80HzRppNqZlZ4uxVMcXu5RlsDlZG/GMKdEKPlRtUsde6UDtxcbDVEWw3rZEdYZqI
+	JXUD1V18sQyJurIw0kmWpt7Y2+ShqNNRuWaCom5o9xgEcjqAYtIM1L6G8f2mzbPuu/5Zw+Dz6/tqF
+	tXIpNMPhZV3hnbbyR8ndm0gv7xDb/z0kKs7zYyA+yGPRwofCSoZJLB3DRFW567P8lRaJeICJGcfms
+	4phZc3T1856ZonAbkutcB57Nwn0nYIKH05m+FBtamhYWrCj7EBu3Lwibyemr5w5/SeRZZf7J886IU
+	Nluj+qsbHrWWbDwSkgeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovItK-004JbO-3k; Wed, 16 Nov 2022 13:55:50 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ovItM-004Jcq-MK; Wed, 16 Nov 2022 13:55:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovIst-004JNo-II
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 13:55:25 +0000
+	id 1ovIsx-004JPX-KB
+	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 13:55:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1668606923; x=1700142923;
+  t=1668606928; x=1700142928;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=h5DisrySeivO+9ObvShvEku9XKX1a+6JwPj8X269yOw=;
-  b=oir3UshlR26dPjhTgul3Y7PC4dIikdTecpd9/Y9J0Uorg/puKmoN1bR7
-   FDFiV1qkm45HNthsQ3+GfMNrwsvHlNytD/AwIa33XQqPHQ6sfx23OWd+D
-   deRWphabP3S5+95eUhVua/rWeW/4mAuLEUUIgRGdarwYjEBmvhAyTCEgM
-   Cb8nnIgjzaggPLWI9Va0Uk9dKuXKGRyalqamQTtp2OAwnO62o0nH67doO
-   e9/WFuE9efqf4BlnskEtt3JEnG2K87Qd7QTA3yBeuMgCVBMALOR6viJQ1
-   QCLYMpUvksVPbXd2uBHBMCpDlba7cUowdLOfDZ4jMmE8CBwFG00xSTUuC
+  bh=liz7ptmwA8Wc5WJdgqZX4fcIXWT6fDzcoPjwflnj8TE=;
+  b=vw81YL87cbk5TE2F6nSN3mD7Sljmbp5/2PQgKUdSQGwbEsVG4b/qYNEr
+   6m41nxkPAzS5s5TVtBVKft77g0fs7X0Sd7OTu+rMr55vZWb8zB1UvfKs3
+   UHiWXAlHJpCd1eHruaVYt6/NJzF65f0qVo6YX5nFM8oRaVawUAzteASI5
+   rD4wvIaW5UA2XKhkGAt21NLcqR7xENkbe7s7B5+0HUILHiAOnvbuKHP1O
+   N7kIiducRBoE+n5ptqiuE8qQNfRrP2LJljRRJ3/paE+o0z8X7vgJuyGby
+   rUt08p0hmC/QEuVwDHInBzK9+sdjNsiY7vsVZl/tbRKBAz15sYxKhP3Zm
    w==;
 X-IronPort-AV: E=Sophos;i="5.96,167,1665471600"; 
-   d="scan'208";a="200047079"
+   d="scan'208";a="183798634"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Nov 2022 06:55:20 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Nov 2022 06:55:18 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 16 Nov 2022 06:55:19 -0700
+ 15.1.2507.12; Wed, 16 Nov 2022 06:55:16 -0700
 Received: from daire-X570.amer.actel.com (10.10.115.15) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.12 via Frontend Transport; Wed, 16 Nov 2022 06:55:16 -0700
+ 15.1.2507.12 via Frontend Transport; Wed, 16 Nov 2022 06:55:13 -0700
 From: <daire.mcnamara@microchip.com>
 To: <conor.dooley@microchip.com>, <robh+dt@kernel.org>,
 	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
@@ -56,16 +56,16 @@ To: <conor.dooley@microchip.com>, <robh+dt@kernel.org>,
 	<kw@linux.com>, <bhelgaas@google.com>, <linux-riscv@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
 CC: Daire McNamara <daire.mcnamara@microchip.com>
-Subject: [PATCH v1 2/9] PCI: microchip: Correct the DED and SEC interrupt bit offsets
-Date: Wed, 16 Nov 2022 13:54:57 +0000
-Message-ID: <20221116135504.258687-3-daire.mcnamara@microchip.com>
+Subject: [PATCH v1 1/9] PCI: microchip: Align register, offset, and mask names with hw docs
+Date: Wed, 16 Nov 2022 13:54:56 +0000
+Message-ID: <20221116135504.258687-2-daire.mcnamara@microchip.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221116135504.258687-1-daire.mcnamara@microchip.com>
 References: <20221116135504.258687-1-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_055523_693291_EA7BF045 
-X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-CacheID: sfid-20221116_055527_798561_3ABC6001 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,38 +85,178 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Daire McNamara <daire.mcnamara@microchip.com>
 
-The SEC and DED interrupt bits were the wrong way round so the SEC
-interrupt handler attempted to mask, unmask, and clear the DED interrupt
-and vice versa. Correct the bit offsets so each interrupt handler
-operates properly.
+Minor re-organisation so that macros representing registers ascend in
+numerical order and use the same names as their hardware documentation.
+Removed registers not used by the driver.
 
 Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/pci/controller/pcie-microchip-host.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/pci/controller/pcie-microchip-host.c | 122 +++++++++----------
+ 1 file changed, 60 insertions(+), 62 deletions(-)
 
 diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-index 80e7554722ca..30153fd1a2b3 100644
+index 0ebf7015e9af..80e7554722ca 100644
 --- a/drivers/pci/controller/pcie-microchip-host.c
 +++ b/drivers/pci/controller/pcie-microchip-host.c
-@@ -165,12 +165,12 @@
+@@ -30,66 +30,7 @@
+ #define MC_PCIE_BRIDGE_ADDR			(MC_PCIE1_BRIDGE_ADDR)
+ #define MC_PCIE_CTRL_ADDR			(MC_PCIE1_CTRL_ADDR)
+ 
+-/* PCIe Controller Phy Regs */
+-#define SEC_ERROR_CNT				0x20
+-#define DED_ERROR_CNT				0x24
+-#define SEC_ERROR_INT				0x28
+-#define  SEC_ERROR_INT_TX_RAM_SEC_ERR_INT	GENMASK(3, 0)
+-#define  SEC_ERROR_INT_RX_RAM_SEC_ERR_INT	GENMASK(7, 4)
+-#define  SEC_ERROR_INT_PCIE2AXI_RAM_SEC_ERR_INT	GENMASK(11, 8)
+-#define  SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT	GENMASK(15, 12)
+-#define  NUM_SEC_ERROR_INTS			(4)
+-#define SEC_ERROR_INT_MASK			0x2c
+-#define DED_ERROR_INT				0x30
+-#define  DED_ERROR_INT_TX_RAM_DED_ERR_INT	GENMASK(3, 0)
+-#define  DED_ERROR_INT_RX_RAM_DED_ERR_INT	GENMASK(7, 4)
+-#define  DED_ERROR_INT_PCIE2AXI_RAM_DED_ERR_INT	GENMASK(11, 8)
+-#define  DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT	GENMASK(15, 12)
+-#define  NUM_DED_ERROR_INTS			(4)
+-#define DED_ERROR_INT_MASK			0x34
+-#define ECC_CONTROL				0x38
+-#define  ECC_CONTROL_TX_RAM_INJ_ERROR_0		BIT(0)
+-#define  ECC_CONTROL_TX_RAM_INJ_ERROR_1		BIT(1)
+-#define  ECC_CONTROL_TX_RAM_INJ_ERROR_2		BIT(2)
+-#define  ECC_CONTROL_TX_RAM_INJ_ERROR_3		BIT(3)
+-#define  ECC_CONTROL_RX_RAM_INJ_ERROR_0		BIT(4)
+-#define  ECC_CONTROL_RX_RAM_INJ_ERROR_1		BIT(5)
+-#define  ECC_CONTROL_RX_RAM_INJ_ERROR_2		BIT(6)
+-#define  ECC_CONTROL_RX_RAM_INJ_ERROR_3		BIT(7)
+-#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_0	BIT(8)
+-#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_1	BIT(9)
+-#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_2	BIT(10)
+-#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_3	BIT(11)
+-#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_0	BIT(12)
+-#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_1	BIT(13)
+-#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_2	BIT(14)
+-#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_3	BIT(15)
+-#define  ECC_CONTROL_TX_RAM_ECC_BYPASS		BIT(24)
+-#define  ECC_CONTROL_RX_RAM_ECC_BYPASS		BIT(25)
+-#define  ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS	BIT(26)
+-#define  ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS	BIT(27)
+-#define LTSSM_STATE				0x5c
+-#define  LTSSM_L0_STATE				0x10
+-#define PCIE_EVENT_INT				0x14c
+-#define  PCIE_EVENT_INT_L2_EXIT_INT		BIT(0)
+-#define  PCIE_EVENT_INT_HOTRST_EXIT_INT		BIT(1)
+-#define  PCIE_EVENT_INT_DLUP_EXIT_INT		BIT(2)
+-#define  PCIE_EVENT_INT_MASK			GENMASK(2, 0)
+-#define  PCIE_EVENT_INT_L2_EXIT_INT_MASK	BIT(16)
+-#define  PCIE_EVENT_INT_HOTRST_EXIT_INT_MASK	BIT(17)
+-#define  PCIE_EVENT_INT_DLUP_EXIT_INT_MASK	BIT(18)
+-#define  PCIE_EVENT_INT_ENB_MASK		GENMASK(18, 16)
+-#define  PCIE_EVENT_INT_ENB_SHIFT		16
+-#define  NUM_PCIE_EVENTS			(3)
+-
+ /* PCIe Bridge Phy Regs */
+-#define PCIE_PCI_IDS_DW1			0x9c
+-
+-/* PCIe Config space MSI capability structure */
+-#define MC_MSI_CAP_CTRL_OFFSET			0xe0u
+-#define  MC_MSI_MAX_Q_AVAIL			(MC_NUM_MSI_IRQS_CODED << 1)
+-#define  MC_MSI_Q_SIZE				(MC_NUM_MSI_IRQS_CODED << 4)
+-
+ #define IMASK_LOCAL				0x180
+ #define  DMA_END_ENGINE_0_MASK			0x00000000u
+ #define  DMA_END_ENGINE_0_SHIFT			0
+@@ -137,7 +78,8 @@
+ #define ISTATUS_LOCAL				0x184
+ #define IMASK_HOST				0x188
+ #define ISTATUS_HOST				0x18c
+-#define MSI_ADDR				0x190
++#define IMSI_ADDR				0x190
++#define  MSI_ADDR				0x190
+ #define ISTATUS_MSI				0x194
+ 
+ /* PCIe Master table init defines */
+@@ -162,6 +104,62 @@
+ 
+ #define ATR_ENTRY_SIZE				32
+ 
++/* PCIe Controller Phy Regs */
++#define SEC_ERROR_EVENT_CNT			0x20
++#define DED_ERROR_EVENT_CNT			0x24
++#define SEC_ERROR_INT				0x28
++#define  SEC_ERROR_INT_TX_RAM_SEC_ERR_INT	GENMASK(3, 0)
++#define  SEC_ERROR_INT_RX_RAM_SEC_ERR_INT	GENMASK(7, 4)
++#define  SEC_ERROR_INT_PCIE2AXI_RAM_SEC_ERR_INT	GENMASK(11, 8)
++#define  SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT	GENMASK(15, 12)
++#define  NUM_SEC_ERROR_INTS			(4)
++#define SEC_ERROR_INT_MASK			0x2c
++#define DED_ERROR_INT				0x30
++#define  DED_ERROR_INT_TX_RAM_DED_ERR_INT	GENMASK(3, 0)
++#define  DED_ERROR_INT_RX_RAM_DED_ERR_INT	GENMASK(7, 4)
++#define  DED_ERROR_INT_PCIE2AXI_RAM_DED_ERR_INT	GENMASK(11, 8)
++#define  DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT	GENMASK(15, 12)
++#define  NUM_DED_ERROR_INTS			(4)
++#define DED_ERROR_INT_MASK			0x34
++#define ECC_CONTROL				0x38
++#define  ECC_CONTROL_TX_RAM_INJ_ERROR_0		BIT(0)
++#define  ECC_CONTROL_TX_RAM_INJ_ERROR_1		BIT(1)
++#define  ECC_CONTROL_TX_RAM_INJ_ERROR_2		BIT(2)
++#define  ECC_CONTROL_TX_RAM_INJ_ERROR_3		BIT(3)
++#define  ECC_CONTROL_RX_RAM_INJ_ERROR_0		BIT(4)
++#define  ECC_CONTROL_RX_RAM_INJ_ERROR_1		BIT(5)
++#define  ECC_CONTROL_RX_RAM_INJ_ERROR_2		BIT(6)
++#define  ECC_CONTROL_RX_RAM_INJ_ERROR_3		BIT(7)
++#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_0	BIT(8)
++#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_1	BIT(9)
++#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_2	BIT(10)
++#define  ECC_CONTROL_PCIE2AXI_RAM_INJ_ERROR_3	BIT(11)
++#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_0	BIT(12)
++#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_1	BIT(13)
++#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_2	BIT(14)
++#define  ECC_CONTROL_AXI2PCIE_RAM_INJ_ERROR_3	BIT(15)
++#define  ECC_CONTROL_TX_RAM_ECC_BYPASS		BIT(24)
++#define  ECC_CONTROL_RX_RAM_ECC_BYPASS		BIT(25)
++#define  ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS	BIT(26)
++#define  ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS	BIT(27)
++#define PCIE_EVENT_INT				0x14c
++#define  PCIE_EVENT_INT_L2_EXIT_INT		BIT(0)
++#define  PCIE_EVENT_INT_HOTRST_EXIT_INT		BIT(1)
++#define  PCIE_EVENT_INT_DLUP_EXIT_INT		BIT(2)
++#define  PCIE_EVENT_INT_MASK			GENMASK(2, 0)
++#define  PCIE_EVENT_INT_L2_EXIT_INT_MASK	BIT(16)
++#define  PCIE_EVENT_INT_HOTRST_EXIT_INT_MASK	BIT(17)
++#define  PCIE_EVENT_INT_DLUP_EXIT_INT_MASK	BIT(18)
++#define  PCIE_EVENT_INT_ENB_MASK		GENMASK(18, 16)
++#define  PCIE_EVENT_INT_ENB_SHIFT		16
++#define  NUM_PCIE_EVENTS			(3)
++
++/* PCIe Config space MSI capability structure */
++#define MC_MSI_CAP_CTRL_OFFSET			0xe0u
++#define  MC_MSI_MAX_Q_AVAIL			(MC_NUM_MSI_IRQS_CODED << 1)
++#define  MC_MSI_Q_SIZE				(MC_NUM_MSI_IRQS_CODED << 4)
++
++/* Events */
+ #define EVENT_PCIE_L2_EXIT			0
+ #define EVENT_PCIE_HOTRST_EXIT			1
  #define EVENT_PCIE_DLUP_EXIT			2
- #define EVENT_SEC_TX_RAM_SEC_ERR		3
- #define EVENT_SEC_RX_RAM_SEC_ERR		4
--#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		5
--#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		6
-+#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		5
-+#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		6
- #define EVENT_DED_TX_RAM_DED_ERR		7
- #define EVENT_DED_RX_RAM_DED_ERR		8
--#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		9
--#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		10
-+#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		9
-+#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		10
- #define EVENT_LOCAL_DMA_END_ENGINE_0		11
- #define EVENT_LOCAL_DMA_END_ENGINE_1		12
- #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+@@ -1086,7 +1084,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	      SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT;
+ 	writel_relaxed(val, ctrl_base_addr + SEC_ERROR_INT);
+ 	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_INT_MASK);
+-	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_CNT);
++	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
+ 
+ 	val = DED_ERROR_INT_TX_RAM_DED_ERR_INT |
+ 	      DED_ERROR_INT_RX_RAM_DED_ERR_INT |
+@@ -1094,7 +1092,7 @@ static int mc_platform_init(struct pci_config_window *cfg)
+ 	      DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT;
+ 	writel_relaxed(val, ctrl_base_addr + DED_ERROR_INT);
+ 	writel_relaxed(0, ctrl_base_addr + DED_ERROR_INT_MASK);
+-	writel_relaxed(0, ctrl_base_addr + DED_ERROR_CNT);
++	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
+ 
+ 	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
+ 	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
 -- 
 2.25.1
 
