@@ -4,112 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C6FC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 15:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C33C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 16:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xhgbIjcbGU5GqUUidgsjizH4I7Yp0a/cgxOFHGT9Xxg=; b=kv9zM/7fPTZgp9
-	VE8n49SmvslTC1vo2z3GmXN6G777FisTukdXTBoT0CB9ww4jJCOI5+Z7vNRxD+DRQmgVVlj5kDoB2
-	1qrcKmxPZJin65Jy46lOWJBxUvlNz8MOzN/dy8qZNTtysH47tzkMwq0l9pkvxeSaTuyh2jGDPZ6Jw
-	Aq4bFsT4oGn3HnDIgoVNn65vH0Zb4FMfP9bPAjpt/twRhVVjYJLBYNHpAS16sR3KBSjj+w8g1Yn86
-	hZ2yJLTIBJd+qg/yU8pVJ3/d1NRWyceIW39nv/rSFMCM9tHqAStbwneCez9p1elEidwIEjH6igx/J
-	0xbwy8Mx7ff3LOWDBnXw==;
+	List-Owner; bh=ByMvliiJyXEFLSt4dp4wEZjz4aPKmboNkXKuT4lRW7s=; b=Z33QEQlgyCDdJi
+	IQ4ZDbki1xfi0NvhCwfDpSXqPBxQCJtmP+sB63SOcejmnRUX6qlvFmHuGctQm5SV8H8aCJUQiM3d+
+	fgsfpcUj60qIKBgPE1A8GJQnMcNLGfmWwCDzOLvEHAFlnmkDItmsDAEKhDeTd4DMivC3er5u9Mkoz
+	Qj+/1XbAUoiPZzlo5Cjq0V6wchDuI1aytbe2EiI+7mkvgpGgKugkKOTGiKeYP3VPjXDNNYuz9xkQ2
+	tom43H9CFRw2qy3tnh3OTcNxbZWamcvcA30vrCHabZ+WuVTfGb/HAzXrsE2wqSAZ4AF5PmWadX4RP
+	vyHAkW1RXOFVGQ6asZ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovKiU-005bh7-M3; Wed, 16 Nov 2022 15:52:46 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1ovKq9-005ezO-VA; Wed, 16 Nov 2022 16:00:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovKiI-005bcF-OR
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 15:52:37 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id k5so16888258pjo.5
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 07:52:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=coErVjWyqhzO9EuKB5XSmlh7IJj5NvKWNvG7xdrbhC4=;
-        b=Axl8RQ6KDdRrT9Z9C/Q7WDP07ILGsJIsXvmq6hEH7xYRxr1KYM7WfFS4wN+lhhZ4fX
-         c4Jtlogr7Ros9vXyyEFv/zFAE8+4peFtT7kH9mbNBRnzYJ/2b8sYrYCafzb/t5b9hh4H
-         MzZxnel8UMmtPU7lGv2FYN+iMfYeZiXKTt6kJLjx0bmpPltUoJ0RtRfd1Ec/nG1HLpUR
-         NvlX1cr6oDpawENjKiQcMRdisM4zgyG2koLhhizlhvLd74nRufWrbXHhbtX0zrVof0Oh
-         3EiecDo5X1cIJiERj7KVmypmulB3/lI1LWoLIDeuu1zT2CC/G2udJFJRosnSOWJ19zuG
-         AhsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=coErVjWyqhzO9EuKB5XSmlh7IJj5NvKWNvG7xdrbhC4=;
-        b=J3tWFnSV+sRxsVldJet71A5EdodhLOZvsQA+DDTXmNKfTpXZhwfR++cjZoCHxexm9a
-         /Fay6vOt8qzyxy3aat5sCd/HYJABqTcocRvHKYpIUQ+tUHUALTbs7eXBU+zJfPGXm5vK
-         0FrUqeXGwzRgAqKxrNcaSyBSugbLDvwXL1/uKvLlv9YutJoJaTSfPct6QfQXsrb6GJKW
-         /FJGqp6VFwiTDzVPBxpEl/cCC83hAKAtjWCAGUC4pkkD8+/LTbN2aCs9HCeM1SIDDOxc
-         sGkTrK3ZFwMBhgLqcebuB7X6GcnZJsQcE9vUeCInAmezdeVrx2q3wYUV8gzuyphCdFSD
-         Thgw==
-X-Gm-Message-State: ANoB5pnPpsXImJA116rh0qwTcpiKyPznCiNdbwJAXNErHb9W736u878t
-	56tP822vvaZ8wdZd1Mi07wj8Fw==
-X-Google-Smtp-Source: AA0mqf7dFwkFbcATwoaCt8aciY1qylOnTaB4gr/nPlKa0OFTmbzR8xQHyljgxnYchchnXSvQiHP/Xg==
-X-Received: by 2002:a17:902:6944:b0:188:640f:f401 with SMTP id k4-20020a170902694400b00188640ff401mr9754670plt.44.1668613950911;
-        Wed, 16 Nov 2022 07:52:30 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id b14-20020a170902650e00b00177e5d83d3esm12341507plk.88.2022.11.16.07.52.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 07:52:30 -0800 (PST)
-Date: Wed, 16 Nov 2022 15:52:26 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: "Huang, Kai" <kai.huang@intel.com>
-Cc: "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"farman@linux.ibm.com" <farman@linux.ibm.com>,
-	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
-	"frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"Yao, Yuan" <yuan.yao@intel.com>,
-	"farosas@linux.ibm.com" <farosas@linux.ibm.com>,
-	"david@redhat.com" <david@redhat.com>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"Yamahata, Isaku" <isaku.yamahata@intel.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"Gao, Chao" <chao.gao@intel.com>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 13/44] KVM: x86: Serialize vendor module initialization
- (hardware setup)
-Message-ID: <Y3UHOg7E0iRFpjml@google.com>
-References: <20221102231911.3107438-1-seanjc@google.com>
- <20221102231911.3107438-14-seanjc@google.com>
- <e8e3b4c7bf3bd733c626618b57f9bf2f1835770e.camel@intel.com>
+	id 1ovKbm-005Yac-Ki; Wed, 16 Nov 2022 15:45:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4XDB6ZbR3Awa7mOslon9xFqMWj0psrdiARhozQeRyJA=; b=ojmz8ZQZRjWLwoZ+ZS6FE8f3wJ
+	CK/Bfmqct5VYOUjRLjwRUWfkj35XZefJ6rca1+nPPtygcRUJXw3oJxKETAjWhIaiftafRsk0CMEh/
+	J5wMjH2Yp5CEFUqc/1mDEFzmv3Mdc0yTnj+SwdQ0sRpQuWbK4I02ssc+mSnaitRZ9Z5Pb/uIPVtsU
+	st8GbHUXc6nOUdEUbfkWcYSrzPEq8tBNp8Q5TCrMo7R2Ryh6BF7TlrqxiIkBjw+Pw8cZuNB/6D6gn
+	mTk80fyh/EA5plmymKut6SRYIZtv3PlZQv81WS10aMHXoX+xNjxLwlZaIoKttXuf1J3/ppa8RmuTu
+	XBGgqr+w==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ovKLd-001NF8-IY; Wed, 16 Nov 2022 15:29:09 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id CE5513006A4;
+	Wed, 16 Nov 2022 16:29:05 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id A500120832696; Wed, 16 Nov 2022 16:29:05 +0100 (CET)
+Date: Wed, 16 Nov 2022 16:29:05 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: juri.lelli@redhat.com, rafael@kernel.org, catalin.marinas@arm.com,
+	linus.walleij@linaro.org, bsegall@google.com, guoren@kernel.org,
+	pavel@ucw.cz, agordeev@linux.ibm.com, linux-arch@vger.kernel.org,
+	vincent.guittot@linaro.org, mpe@ellerman.id.au,
+	chenhuacai@kernel.org, christophe.leroy@csgroup.eu,
+	linux-acpi@vger.kernel.org, agross@kernel.org, geert@linux-m68k.org,
+	linux-imx@nxp.com, vgupta@kernel.org, mattst88@gmail.com,
+	mturquette@baylibre.com, sammy@sammy.net, pmladek@suse.com,
+	linux-pm@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-um@lists.infradead.org, npiggin@gmail.com, tglx@linutronix.de,
+	linux-omap@vger.kernel.org, dietmar.eggemann@arm.com,
+	andreyknvl@gmail.com, gregkh@linuxfoundation.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	senozhatsky@chromium.org, svens@linux.ibm.com, jolsa@kernel.org,
+	tj@kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+	mark.rutland@arm.com, linux-ia64@vger.kernel.org,
+	dave.hansen@linux.intel.com,
+	virtualization@lists.linux-foundation.org,
+	James.Bottomley@hansenpartnership.com, jcmvbkbc@gmail.com,
+	thierry.reding@gmail.com, kernel@xen0n.name, cl@linux.com,
+	linux-s390@vger.kernel.org, vschneid@redhat.com,
+	john.ogness@linutronix.de, ysato@users.sourceforge.jp,
+	linux-sh@vger.kernel.org, festevam@gmail.com, deller@gmx.de,
+	daniel.lezcano@linaro.org, jonathanh@nvidia.com, dennis@kernel.org,
+	lenb@kernel.org, linux-xtensa@linux-xtensa.org,
+	kernel@pengutronix.de, gor@linux.ibm.com,
+	linux-arm-msm@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org, loongarch@lists.linux.dev,
+	shorne@gmail.com, chris@zankel.net, sboyd@kernel.org,
+	dinguyen@kernel.org, bristot@redhat.com,
+	alexander.shishkin@linux.intel.com, fweisbec@gmail.com,
+	lpieralisi@kernel.org, atishp@atishpatra.org,
+	linux@rasmusvillemoes.dk, kasan-dev@googlegroups.com,
+	will@kernel.org, boris.ostrovsky@oracle.com, khilman@kernel.org,
+	linux-csky@vger.kernel.org, pv-drivers@vmware.com,
+	linux-snps-arc@lists.infradead.org, mgorman@suse.de,
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
+	ulli.kroll@googlemail.com, linux-clk@vger.kernel.org,
+	rostedt@goodmis.org, ink@jurassic.park.msu.ru, bcain@quicinc.com,
+	tsbogend@alpha.franken.de, linux-parisc@vger.kernel.org,
+	ryabinin.a.a@gmail.com, sudeep.holla@arm.com, shawnguo@kernel.org,
+	davem@davemloft.net, dalias@libc.org, tony@atomide.com,
+	amakhalov@vmware.com, konrad.dybcio@somainline.org,
+	bjorn.andersson@linaro.org, glider@google.com, hpa@zytor.com,
+	sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-riscv@lists.infradead.org, vincenzo.frascino@arm.com,
+	anton.ivanov@cambridgegreys.com, jonas@southpole.se,
+	yury.norov@gmail.com, richard@nod.at, x86@kernel.org,
+	linux@armlinux.org.uk, mingo@redhat.com, aou@eecs.berkeley.edu,
+	hca@linux.ibm.com, richard.henderson@linaro.org,
+	stefan.kristiansson@saunalahti.fi, openrisc@lists.librecores.org,
+	acme@kernel.org, paul.walmsley@sifive.com,
+	linux-tegra@vger.kernel.org, namhyung@kernel.org,
+	andriy.shevchenko@linux.intel.com, jpoimboe@kernel.org,
+	dvyukov@google.com, jgross@suse.com, monstr@monstr.eu,
+	linux-mips@vger.kernel.org, palmer@dabbelt.com, anup@brainfault.org,
+	bp@alien8.de, johannes@sipsolutions.net,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 12/44] cpuidle,dt: Push RCU-idle into driver
+Message-ID: <Y3UBwYNY15ETUKy9@hirez.programming.kicks-ass.net>
+References: <20220919095939.761690562@infradead.org>
+ <20220919101521.139727471@infradead.org>
+ <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <e8e3b4c7bf3bd733c626618b57f9bf2f1835770e.camel@intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_075234_838472_F325DB18 
-X-CRM114-Status: GOOD (  26.04  )
+In-Reply-To: <CAPDyKFqTWd4W5Ofk76CtC4X43dxBTNHtmY9YzN355-vpviLsPw@mail.gmail.com>
+X-Mailman-Approved-At: Wed, 16 Nov 2022 08:00:39 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,68 +131,173 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 16, 2022, Huang, Kai wrote:
-> On Wed, 2022-11-02 at 23:18 +0000, Sean Christopherson wrote:
-> > Acquire a new mutex, vendor_module_lock, in kvm_x86_vendor_init() while
-> > doing hardware setup to ensure that concurrent calls are fully serialized.
-> > KVM rejects attempts to load vendor modules if a different module has
-> > already been loaded, but doesn't handle the case where multiple vendor
-> > modules are loaded at the same time, and module_init() doesn't run under
-> > the global module_mutex.
-> > 
-> > Note, in practice, this is likely a benign bug as no platform exists that
-> > supports both SVM and VMX, i.e. barring a weird VM setup, one of the
-> > vendor modules is guaranteed to fail a support check before modifying
-> > common KVM state.
-> > 
-> > Alternatively, KVM could perform an atomic CMPXCHG on .hardware_enable,
-> > but that comes with its own ugliness as it would require setting
-> > .hardware_enable before success is guaranteed, e.g. attempting to load
-> > the "wrong" could result in spurious failure to load the "right" module.
-> > 
-> > Introduce a new mutex as using kvm_lock is extremely deadlock prone due
-> > to kvm_lock being taken under cpus_write_lock(), and in the future, under
-> > under cpus_read_lock().  Any operation that takes cpus_read_lock() while
-> > holding kvm_lock would potentially deadlock, e.g. kvm_timer_init() takes
-> > cpus_read_lock() to register a callback.  In theory, KVM could avoid
-> > such problematic paths, i.e. do less setup under kvm_lock, but avoiding
-> > all calls to cpus_read_lock() is subtly difficult and thus fragile.  E.g.
-> > updating static calls also acquires cpus_read_lock().
-> > 
-> > Inverting the lock ordering, i.e. always taking kvm_lock outside
-> > cpus_read_lock(), is not a viable option, e.g. kvm_online_cpu() takes
-> > kvm_lock and is called under cpus_write_lock().
+
+Sorry; things keep getting in the way of finishing this :/
+
+As such, I need a bit of time to get on-track again..
+
+On Tue, Oct 04, 2022 at 01:03:57PM +0200, Ulf Hansson wrote:
+
+> > --- a/drivers/acpi/processor_idle.c
+> > +++ b/drivers/acpi/processor_idle.c
+> > @@ -1200,6 +1200,8 @@ static int acpi_processor_setup_lpi_stat
+> >                 state->target_residency = lpi->min_residency;
+> >                 if (lpi->arch_flags)
+> >                         state->flags |= CPUIDLE_FLAG_TIMER_STOP;
+> > +               if (lpi->entry_method == ACPI_CSTATE_FFH)
+> > +                       state->flags |= CPUIDLE_FLAG_RCU_IDLE;
 > 
-> "kvm_online_cpu() takes kvm_lock and is called under cpus_write_lock()" hasn't
-> happened yet.
-
-Doh, right.  Thanks!
-
-> > The lockdep splat below is dependent on future patches to take
-> > cpus_read_lock() in hardware_enable_all(), but as above, deadlock is
-> > already is already possible.
+> I assume the state index here will never be 0?
 > 
-> IIUC kvm_lock by design is supposed to protect vm_list, thus IMHO naturally it
-> doesn't fit to protect multiple vendor module loading.
+> If not, it may lead to that acpi_processor_ffh_lpi_enter() may trigger
+> CPU_PM_CPU_IDLE_ENTER_PARAM() to call ct_cpuidle_enter|exit() for an
+> idle-state that doesn't have the CPUIDLE_FLAG_RCU_IDLE bit set.
 
-A different way to look at it is that kvm_lock protects anything that is global to
-all of KVM, and it just so happens that lists and counters of VMs are the only
-such resources (lumping in the usage in vm_uevent_notify_change() and the future
-usage to protect kvm_usage_count).
+I'm not quite sure I see how. AFAICT this condition above implies
+acpi_processor_ffh_lpi_enter() gets called, no?
 
-> Looks above argument is good enough.  I am not sure  whether we need additional
-> justification which comes from future patches. :)
+Which in turn is an unconditional __CPU_PM_CPU_IDLE_ENTER() user, so
+even if idx==0, it ends up in ct_idle_{enter,exit}().
 
-To try to prevent someone from trying to eliminate the "extra" lock, like this
-series does for kvm_count_lock.  Hopefully future someones that want to clean up
-the code do a git blame to understand why the lock was introduced and don't waste
-their time running into the same issues (or worse, don't run into the issues and
-break KVM).
+> 
+> >                 state->enter = acpi_idle_lpi_enter;
+> >                 drv->safe_state_index = i;
+> >         }
+> > --- a/drivers/cpuidle/cpuidle-arm.c
+> > +++ b/drivers/cpuidle/cpuidle-arm.c
+> > @@ -53,6 +53,7 @@ static struct cpuidle_driver arm_idle_dr
+> >          * handler for idle state index 0.
+> >          */
+> >         .states[0] = {
+> > +               .flags                  = CPUIDLE_FLAG_RCU_IDLE,
+> 
+> Comparing arm64 and arm32 idle-states/idle-drivers, the $subject
+> series ends up setting the CPUIDLE_FLAG_RCU_IDLE for the ARM WFI idle
+> state (state zero), but only for the arm64 and psci cases (mostly
+> arm64). For arm32 we would need to update the ARM_CPUIDLE_WFI_STATE
+> too, as that is what most arm32 idle-drivers are using. My point is,
+> the code becomes a bit inconsistent.
 
-> Also, do you also want to update Documentation/virt/kvm/locking.rst" in this
-> patch?
+True.
 
-Hmm, yeah.  That'd also be a good place to document why kvm_lock isn't used.
+> Perhaps it's easier to avoid setting the CPUIDLE_FLAG_RCU_IDLE bit for
+> all of the ARM WFI idle states, for both arm64 and arm32?
+
+As per the below?
+
+> 
+> >                 .enter                  = arm_enter_idle_state,
+> >                 .exit_latency           = 1,
+> >                 .target_residency       = 1,
+
+> > --- a/include/linux/cpuidle.h
+> > +++ b/include/linux/cpuidle.h
+> > @@ -282,14 +282,18 @@ extern s64 cpuidle_governor_latency_req(
+> >         int __ret = 0;                                                  \
+> >                                                                         \
+> >         if (!idx) {                                                     \
+> > +               ct_idle_enter();                                        \
+> 
+> According to my comment above, we should then drop these calls to
+> ct_idle_enter and ct_idle_exit() here. Right?
+
+Yes, if we ensure idx==0 never has RCU_IDLE set then these must be
+removed.
+
+> >                 cpu_do_idle();                                          \
+> > +               ct_idle_exit();                                         \
+> >                 return idx;                                             \
+> >         }                                                               \
+> >                                                                         \
+> >         if (!is_retention)                                              \
+> >                 __ret =  cpu_pm_enter();                                \
+> >         if (!__ret) {                                                   \
+> > +               ct_idle_enter();                                        \
+> >                 __ret = low_level_idle_enter(state);                    \
+> > +               ct_idle_exit();                                         \
+> >                 if (!is_retention)                                      \
+> >                         cpu_pm_exit();                                  \
+> >         }                                                               \
+> >
+
+So the basic premise is that everything that needs RCU inside the idle
+callback must set CPUIDLE_FLAG_RCU_IDLE and by doing that promise to
+call ct_idle_{enter,exit}() themselves.
+
+Setting RCU_IDLE is required when there is RCU usage, however even if
+there is no RCU usage, setting RCU_IDLE is fine, as long as
+ct_idle_{enter,exit}() then get called.
+
+
+So does the below (delta) look better to you?
+
+--- a/drivers/acpi/processor_idle.c
++++ b/drivers/acpi/processor_idle.c
+@@ -1218,7 +1218,7 @@ static int acpi_processor_setup_lpi_stat
+ 		state->target_residency = lpi->min_residency;
+ 		if (lpi->arch_flags)
+ 			state->flags |= CPUIDLE_FLAG_TIMER_STOP;
+-		if (lpi->entry_method == ACPI_CSTATE_FFH)
++		if (i != 0 && lpi->entry_method == ACPI_CSTATE_FFH)
+ 			state->flags |= CPUIDLE_FLAG_RCU_IDLE;
+ 		state->enter = acpi_idle_lpi_enter;
+ 		drv->safe_state_index = i;
+--- a/drivers/cpuidle/cpuidle-arm.c
++++ b/drivers/cpuidle/cpuidle-arm.c
+@@ -53,7 +53,7 @@ static struct cpuidle_driver arm_idle_dr
+ 	 * handler for idle state index 0.
+ 	 */
+ 	.states[0] = {
+-		.flags			= CPUIDLE_FLAG_RCU_IDLE,
++		.flags			= 0,
+ 		.enter                  = arm_enter_idle_state,
+ 		.exit_latency           = 1,
+ 		.target_residency       = 1,
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -357,7 +357,7 @@ static int psci_idle_init_cpu(struct dev
+ 	 * PSCI idle states relies on architectural WFI to be represented as
+ 	 * state index 0.
+ 	 */
+-	drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
++	drv->states[0].flags = 0;
+ 	drv->states[0].enter = psci_enter_idle_state;
+ 	drv->states[0].exit_latency = 1;
+ 	drv->states[0].target_residency = 1;
+--- a/drivers/cpuidle/cpuidle-qcom-spm.c
++++ b/drivers/cpuidle/cpuidle-qcom-spm.c
+@@ -72,7 +72,7 @@ static struct cpuidle_driver qcom_spm_id
+ 	.owner = THIS_MODULE,
+ 	.states[0] = {
+ 		.enter			= spm_enter_idle_state,
+-		.flags			= CPUIDLE_FLAG_RCU_IDLE,
++		.flags			= 0,
+ 		.exit_latency		= 1,
+ 		.target_residency	= 1,
+ 		.power_usage		= UINT_MAX,
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -337,7 +337,7 @@ static int sbi_cpuidle_init_cpu(struct d
+ 	drv->cpumask = (struct cpumask *)cpumask_of(cpu);
+ 
+ 	/* RISC-V architectural WFI to be represented as state index 0. */
+-	drv->states[0].flags = CPUIDLE_FLAG_RCU_IDLE;
++	drv->states[0].flags = 0;
+ 	drv->states[0].enter = sbi_cpuidle_enter_state;
+ 	drv->states[0].exit_latency = 1;
+ 	drv->states[0].target_residency = 1;
+--- a/include/linux/cpuidle.h
++++ b/include/linux/cpuidle.h
+@@ -282,9 +282,7 @@ extern s64 cpuidle_governor_latency_req(
+ 	int __ret = 0;							\
+ 									\
+ 	if (!idx) {							\
+-		ct_idle_enter();					\
+ 		cpu_do_idle();						\
+-		ct_idle_exit();						\
+ 		return idx;						\
+ 	}								\
+ 									\
 
 _______________________________________________
 linux-riscv mailing list
