@@ -4,152 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6251C43219
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Nov 2022 23:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE85C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 01:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JbPP3uXCVDYb/UWPvaMMY+sMZ8BxTI9Dy6egMjLi+bY=; b=BgKQQwNm4HmqK4
-	UVKfQ0ksRG54okQlOkQS9Lk6flMw5RyPCjU1bmZOyohgFWTfLqHB1FATEXzh1h+7kjhw8QU3EgI1j
-	03UjFgw0WR+rnZmEGlHFmw2yK8hkOxQsUGYLcYKX67U72f/bnUi3GdmeMBDcReBK4/dGcS4frmpaK
-	87Lj3X/Cu2pFeUvXe7+ogbhwEoT5QqJkhI69kWCKOfa8rLrvNxYK8m/Ez3ARjbLNIfQDCkB72DAit
-	hQZ+H/jGGeCLJpdIsrPrg/orswQA7jK3qOD0qxwTbnezBB5TsMU63rRocy6VAnECKcfPCd19TbrLa
-	uxSpoX41JRKwGeNtfxGg==;
+	List-Owner; bh=pIu6waakesOVgSOtUiI4QTtWEv+5TDSkZS45w+Po7Z4=; b=EKSui4mv5KXUoA
+	Y80tYpMcdrYfDnfkKV/Jh8DZoQ4+K3L2/PtAchVTYZ+CX5Ge9DFAMho+p9soyvXzKT+JQe61JnE6o
+	tQS3yYnO/dn8uFFh2CpiESnP1hIBkl8lyJdxOaMPhNLXnvbqMqE3+MQVjgVkHdgQ+Bs4isQbAih2C
+	kgXIBPAqRgV77147EscJoWRJZ4b3Nzm0wyZ6kdoEEeB5fKxIKuiCohRLXRZgjUy9Czbmw02ujdIQ1
+	UqG6rAR6qgk1hq8/VCk9p3onWyV2dPcIWlDT7tSOkjggoYXidorChBK9WEgycb0OwhDjlK45dFqmp
+	vIvF0yDAazwf5K2tZ0rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov5kJ-00Fwtw-MK; Tue, 15 Nov 2022 23:53:39 +0000
-Received: from mail-eastusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c100::1] helo=na01-obe.outbound.protection.outlook.com)
+	id 1ov7WN-00GFPv-C3; Wed, 16 Nov 2022 01:47:23 +0000
+Received: from mga01.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ov5k8-00FwsV-Mv; Tue, 15 Nov 2022 23:53:29 +0000
+	id 1ov7WB-00GFNq-5a; Wed, 16 Nov 2022 01:47:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1668563231; x=1700099231;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=Mau0LE7ACRC5uxvYPmJkveKAExIXw120xLwnM8PzuPE=;
+  b=h5IFXbHs5pTmdf1a8VAH8c7IcXdg0xWemIegrAptR+eB34OHsb+9OzhP
+   yeGyrvKZxYQcJ9JJemnZiKD4g3n+77/uD5YlbBx4iwixra5i+ZhZxnMi6
+   QbFVd01KbJTnaoK0FhECWpjFBtEz1Q6P8UK+SDdaAk8EACvGUTHVUtKbX
+   bO6N8FdfapztXQTyh7UWSPD+Qz1nxr9zqNJ/fsDE3qbozYGrInGxwEICV
+   jw1XK3cyYyxx4S3Hs7N6t67bCK3pSdbcnF9mLONNEpgUwfk8eqygPHCNH
+   9z5S1u8wgR7fDr5GU9QgzyzhhDXratqWg8+/Wa0JpDRTQlw4PL4gtCLTp
+   A==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10532"; a="339228735"
+X-IronPort-AV: E=Sophos;i="5.96,167,1665471600"; 
+   d="scan'208";a="339228735"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2022 17:47:08 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10532"; a="813897182"
+X-IronPort-AV: E=Sophos;i="5.96,167,1665471600"; 
+   d="scan'208";a="813897182"
+Received: from fmsmsx603.amr.corp.intel.com ([10.18.126.83])
+  by orsmga005.jf.intel.com with ESMTP; 15 Nov 2022 17:47:07 -0800
+Received: from fmsmsx611.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 15 Nov 2022 17:47:06 -0800
+Received: from fmsmsx612.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx611.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Tue, 15 Nov 2022 17:47:06 -0800
+Received: from FMSEDG603.ED.cps.intel.com (10.1.192.133) by
+ fmsmsx612.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31 via Frontend Transport; Tue, 15 Nov 2022 17:47:06 -0800
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (104.47.56.175)
+ by edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2375.31; Tue, 15 Nov 2022 17:47:06 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Q2RU2o5oU1kpyrQK6ziDu/DHY1vQuLUXJS8Izp5DUViPz1CIJqKNkqcWtwAR1XyMMRFjBEVLEFXqdkdEqiFk8YCyWOi4JsWhde+iACzeWZ5mtdCeTGyiUcNumI596cu24r9pZPu3oAbZ/izXfhWbmppxJRCnL6VaSl6/uR+euq8Q+AWZNNE8cK3deOv0TaKz1YmDusAnWhgah1VMdXqufgqtMNrCkWhtsYrarLmDT7Z9Yfs3mpDg60MUTLagsx4nJbK3N5NFFkAPerIFWAxJZPGt6lz5v04zr8h4CGs47KFaYvX1Jr9gIX4q7cbAYllx4c4ctT3/5Chb8LGfP7uepA==
+ b=BM+WtL8obOtiBXd9s/gKH5TunKtCi5IfUm2Kd7N9EgqLp9l4lhUhdnGia3ZGA6skXLzvd1gCW5/q4euUTpV16/iGfK07s8q2xo/NreTMbamLYY+ScPxqivUKwpE2JX1Ul36r4MBD7UukHeKyvPnCJ8c656YF9nirtPBEWU9SAC8cmFaB2jXslKfwiKf1g1UXLPv5fMJd7s+AZMyLg/SOa7eaGGAoTCGQrBmvWtAU3u9qiOChIcBxo5BtNscrM+YJB+0ihtGUeeUJX+/C+oUkz2PQr+eVVGOrxeUf7JPb88RURuLVU8NUWEht8k/aiwUdC1N0PM5V/FqNmbVXg8lf5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A/h24+KAlJUir032lcuocK6slfOPynm839hYVKJMOmU=;
- b=f6R4hGrLwWl8rKa2xWGjbOkcPYg5ksitOjN6nq9Z7erl+AJn53wuBiX64oapt7luQBeHRlZHoMNg7buLiuspA2ziKdmjTkNyTUOe6X69E5PiAyVYzKpTHFMm9Y3WnAzcjX6+VvcRMR7NdHaPy0EgpojGDK7fRMoIucMIha18d1bAgWvEgqcEqvx1gjlP41y4qOFdRApahTpDH3pGC5gJjKl0EBrDTBUnFey7KPh8CyuB9QMOBnguAGrG6++6Ek5UFVi9DnsZMSGvvcxr/jugjlH/o4lIEX0cVKZ57LX6kUZfrgH2gWffEylQFvSlkHH72CZP/g4Cd+1s8piDhTp8Qw==
+ bh=Mau0LE7ACRC5uxvYPmJkveKAExIXw120xLwnM8PzuPE=;
+ b=imD6LkY7pP4SLhptmtE6Y0gQMAtWCMrUwycL4OmIsvryoF5jXRBSkdPsZPAl271XLjhpbSNoQhtczhDJfsoIRjrn8KSlGSfztx4ILZtIO4iTVUZHC/sfug7+aph+tlEL5u5zAv/y5elKiKrt6zBvgE8fnVS9z3B8v2FBMswPLQiXitgTnYUVzC2/KWXdRAKb/0YCykDMdpKUASBoPXQZ0tprTG86Ni1ziMfXB/S4SFEHAx4sv76pN9ZRVRTkCBy33AzvEhcbNXl44MiUOa42soKDg8/4IHcpwYoDweqDgfXsmdbadnKAlxNDpjidrfht3YGuFDvcol2EWABcxDXRmw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vmware.com; dmarc=pass action=none header.from=vmware.com;
- dkim=pass header.d=vmware.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vmware.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A/h24+KAlJUir032lcuocK6slfOPynm839hYVKJMOmU=;
- b=biDuyZGEn72ATWZGpJAo8XtjwhYc2Sj6tQhrXF2IL+Gf3/PdACpBNdkqiLaEJyUO2KaIjIcHE27CQsj34DEQMlpiQ+tMTCDGJrfBhNbUqSiUVnsePY/0/HzP098F4KtB4JWWHKsZjYeCFCtB5z99A2zK4YweuwgNi/OZ90sDZSs=
-Received: from BY3PR05MB8531.namprd05.prod.outlook.com (2603:10b6:a03:3ce::6)
- by SN6PR05MB4254.namprd05.prod.outlook.com (2603:10b6:805:35::18) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com (2603:10b6:208:385::18)
+ by BL1PR11MB5955.namprd11.prod.outlook.com (2603:10b6:208:386::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5813.16; Tue, 15 Nov
- 2022 23:38:33 +0000
-Received: from BY3PR05MB8531.namprd05.prod.outlook.com
- ([fe80::f57e:85ed:97ea:b642]) by BY3PR05MB8531.namprd05.prod.outlook.com
- ([fe80::f57e:85ed:97ea:b642%7]) with mapi id 15.20.5813.018; Tue, 15 Nov 2022
- 23:38:32 +0000
-From: Nadav Amit <namit@vmware.com>
-To: Yicong Yang <yangyicong@huawei.com>
-CC: Andrew Morton <akpm@linux-foundation.org>, Linux-MM <linux-mm@kvack.org>,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5813.18; Wed, 16 Nov
+ 2022 01:46:52 +0000
+Received: from BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::2fb7:be18:a20d:9b6e]) by BL1PR11MB5978.namprd11.prod.outlook.com
+ ([fe80::2fb7:be18:a20d:9b6e%9]) with mapi id 15.20.5813.017; Wed, 16 Nov 2022
+ 01:46:52 +0000
+From: "Huang, Kai" <kai.huang@intel.com>
+To: "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "Christopherson,, Sean" <seanjc@google.com>,
+	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>, "vkuznets@redhat.com"
+	<vkuznets@redhat.com>, "farman@linux.ibm.com" <farman@linux.ibm.com>,
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"maz@kernel.org" <maz@kernel.org>, "anup@brainfault.org"
+	<anup@brainfault.org>, "pbonzini@redhat.com" <pbonzini@redhat.com>,
+	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
+	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
+	"frankja@linux.ibm.com" <frankja@linux.ibm.com>
+CC: "oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, "Yao, Yuan" <yuan.yao@intel.com>,
+	"farosas@linux.ibm.com" <farosas@linux.ibm.com>, "david@redhat.com"
+	<david@redhat.com>, "james.morse@arm.com" <james.morse@arm.com>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>, "alexandru.elisei@arm.com"
+	<alexandru.elisei@arm.com>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"Yamahata, Isaku" <isaku.yamahata@intel.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
 	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, X86 ML <x86@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Anshuman
- Khandual <anshuman.khandual@arm.com>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, Jonathan Corbet <corbet@lwn.net>, Peter Zijlstra
-	<peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	"punit.agrawal@bytedance.com" <punit.agrawal@bytedance.com>, kernel list
-	<linux-kernel@vger.kernel.org>, "darren@os.amperecomputing.com"
-	<darren@os.amperecomputing.com>, "yangyicong@hisilicon.com"
-	<yangyicong@hisilicon.com>, "huzhanyuan@oppo.com" <huzhanyuan@oppo.com>,
-	"lipeifeng@oppo.com" <lipeifeng@oppo.com>, "zhangshiming@oppo.com"
-	<zhangshiming@oppo.com>, "guojian@oppo.com" <guojian@oppo.com>,
-	"realmz6@gmail.com" <realmz6@gmail.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "openrisc@lists.librecores.org"
-	<openrisc@lists.librecores.org>, linuxppc-dev
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
-	Barry Song <21cnbao@gmail.com>, "wangkefeng.wang@huawei.com"
-	<wangkefeng.wang@huawei.com>, haoxin <xhao@linux.alibaba.com>,
-	"prime.zeng@hisilicon.com" <prime.zeng@hisilicon.com>, Barry Song
-	<v-songbaohua@oppo.com>, Mel Gorman <mgorman@suse.de>
-Subject: Re: [PATCH v6 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-Thread-Topic: [PATCH v6 2/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-Thread-Index: AQHY+KCRQOqO5HL84U+KIvlNnJJGba5ApXuA
-Date: Tue, 15 Nov 2022 23:38:32 +0000
-Message-ID: <0D3A45FE-5367-40CD-A035-37F6EE98B25E@vmware.com>
-References: <20221115031425.44640-1-yangyicong@huawei.com>
- <20221115031425.44640-3-yangyicong@huawei.com>
-In-Reply-To: <20221115031425.44640-3-yangyicong@huawei.com>
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "kvmarm@lists.cs.columbia.edu"
+	<kvmarm@lists.cs.columbia.edu>, "Gao, Chao" <chao.gao@intel.com>,
+	"atishp@atishpatra.org" <atishp@atishpatra.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 13/44] KVM: x86: Serialize vendor module initialization
+ (hardware setup)
+Thread-Topic: [PATCH 13/44] KVM: x86: Serialize vendor module initialization
+ (hardware setup)
+Thread-Index: AQHY7xHq2cS0mXAh8EqkP3LwhIvmL65A3HGA
+Date: Wed, 16 Nov 2022 01:46:51 +0000
+Message-ID: <e8e3b4c7bf3bd733c626618b57f9bf2f1835770e.camel@intel.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+	 <20221102231911.3107438-14-seanjc@google.com>
+In-Reply-To: <20221102231911.3107438-14-seanjc@google.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-mailer: Apple Mail (2.3696.120.41.1.1)
+user-agent: Evolution 3.44.4 (3.44.4-2.fc36) 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vmware.com;
+ header.d=none;dmarc=none action=none header.from=intel.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BY3PR05MB8531:EE_|SN6PR05MB4254:EE_
-x-ms-office365-filtering-correlation-id: d8a34ad8-a90b-4178-50a1-08dac76281fc
+x-ms-traffictypediagnostic: BL1PR11MB5978:EE_|BL1PR11MB5955:EE_
+x-ms-office365-filtering-correlation-id: ba13ab62-4e14-4773-a7a4-08dac7746ef2
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  PQt7JzsVK+PuDMbZJ+FLPJZCPqmuEttug5yHCzQ2wWlby2ywOxn3y9E6ph/6GsbKZ6uC6Eh/keAJ2tU0utEWMkNOta8H6JKjoMv0xWMt1eg3Q/JS9VB4yyVRIKtNWUQxs2WO+DDH6lv+LwKaNOymGyCKJMW2C3B2CkBv+5GATgqjVOFufXTkdLTtY5iVxSZI5m6ttJzIRhjWRVa6oolvCI+3uO2yOTSN5AA4owLCTnDpezxL7p2sPvr5er4Cf6MGqwYf3e0Q8B7scuo5/2vWzaGJiTv9ySXUspTA/mu5F4U5TquDmQbVNpAvNlyo3SLrMzURnLz7h3VOu4ezelJNko1OG7sOQwN2TX+J6GfyjJe4HorRKkzNXtslPitn4Fxzr9VEZmvYPgGp20mgiBhdp+IFfxddkUlukg2SFI6H/fW6z+rt+rkEqtiezaqRmejx7zq2hBacpr69ANQPIOjLop9t7/bbUt5UUuUcCvuJ3MVSLDG/DsN96zG3itIGfj9A3QLa0D6lm+/m3snWfmvsfPm8O7semIwAEV125QuVmxFWe3JiwGhPWjEYbqg8ni/6dsaKRZh5bwl9HZHBsDfa8kMeD3QCwHzkrVN2EMYbzoNROzVEiv2c2/HMtpSNlCUkQ5q5lrwpzz7e2OqzrUPGI1w5RdhxUsVTBjRBb+wVvPRoPwTH+jMNAjg/aMVVRpjoxiEJ/Rmz8rTGzMqpM+AsKZQ3sjN+RoTV++nbm1lnGtunV2cIMBpS+Pr1oDYLA/Q7UkSnq30G+OBEcUL8TgGopkNyA3pwr6FCigP7KnsnZ1o=
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY3PR05MB8531.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(4636009)(39860400002)(136003)(346002)(366004)(396003)(376002)(451199015)(8676002)(76116006)(7406005)(8936002)(66446008)(36756003)(4744005)(478600001)(7416002)(53546011)(5660300002)(33656002)(66946007)(4326008)(64756008)(41300700001)(86362001)(66476007)(83380400001)(6506007)(66556008)(71200400001)(6512007)(2616005)(186003)(38100700002)(316002)(38070700005)(122000001)(54906003)(6486002)(6916009)(26005)(2906002)(45980500001);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: WZCT0SncC51GO28yUD+xZHv0F4f2xc+3Ke3MQyn8WbqwtI+86vkq/Ld3DvGoYtuj9/8awapGgAqMGb2Y1j5sUz8rWx233IuZV1NkW1nmCKLfJlv9dV7Fl10boHcuDdlHKvlXJkdUeodxyOD0neUoXoKYSG3SkHReH3KAV2e7tFC9QxpJ2arwPfobyI5XqSkxt6986GJSPhEqGay9V0QMF2JAYMUSmET3ijSDDn/96rIMfEsmUSvt/Sqt/GzbgohJ5lVlyi6igdM8HGmX44sz3ChRq6lQLugozcqY47cEs57J+jfiSB+3OVRMbLOd6m/wnDg+/53BmP5DZnZtvmm6xhjprt3LsmQbh6M14fpNYDF+3FASrqur4Ifjkruvg69UcI1C5Y9ORQpjZCaBQEHfxzMmzvOGPQ2CkNX1/pBojI/JGB+J612DsHTRdhjQWkHAnCSZtVsemoU1cnRe9BOhKlwCSFzOJvZx6jGgwayb4GUSKzg/q9Qegt6ipiWWwdYRlf6naIA5AUrJhqVDyu5KdDW0NbXBFiERHP6V47zXLy4+XqGhFqakdQLjtoS3HmW2xqzlzU4qC6HmhF9npPUBA5UodXCB7ZB7FknpQ42f7k+9l54lcyjp8Zpad3edk30ae0byU4EE6t42FlXPayWcNwsbHrLtAs6glZcHaOP7swghjVkXdzxnL2fB2iqF0allyj1N95bliC6EAG0fY1hMbR7y3WXRbYbSCvu3oDWDFFSAbW7fu2xvPaPRZvwys78Efe9GMJFwASOvTMnYdW/PzXvYAdIPJoJ0YPpJQBoWqfc=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5978.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(346002)(136003)(39860400002)(366004)(376002)(396003)(451199015)(71200400001)(478600001)(122000001)(6486002)(110136005)(54906003)(76116006)(186003)(316002)(26005)(6512007)(83380400001)(66556008)(4326008)(64756008)(8676002)(36756003)(2616005)(66946007)(66476007)(8936002)(91956017)(66446008)(41300700001)(38070700005)(921005)(38100700002)(5660300002)(82960400001)(7416002)(7406005)(6506007)(86362001)(2906002);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?NUZpSXBXYnkrRHozZnZpdWJPL2xtcjJ5RlJqeUxOMjYxMzdiUnJtNEorSUlP?=
- =?utf-8?B?UVpiTTZzOG5KYkJ3aXJtdnEyOXB4ZzJsSUhtSi8vNmgxVjQ2MzFhZFRWN1RS?=
- =?utf-8?B?MEZkTFF1dU5ZNUJKaXNMeE9USWc5TTBRWUtMN2IzMDUrSklxTDdNa2MvRGhW?=
- =?utf-8?B?MTJnVDVCZmFiZmQ3SkJ3Z3g5US9TRUx3ak1TSGRvUTllY2dnOXgzVWVkZTJn?=
- =?utf-8?B?SXNJb0lmWldkYWFxZEpBTERjTHFIMjQzYU5ZdkwzT3hKN0RzYmg2Y1d1UWFh?=
- =?utf-8?B?QXRVTVIyQkxuU2o4dlNuMXB1dHkxQWczbUJzOUtvNWJaNHhzZU9qRk5rM0Vs?=
- =?utf-8?B?ZWVETEpGRFo2dzBKU3gyUFNWaHllZnFITG44YVBIeGtra0V1OUJmMm9NQlIx?=
- =?utf-8?B?d2xDVndoSG1ac2NyWkxveCtSSVIwMVhuaGlhSUdKRk91T1lRMnU3dnJnNVdN?=
- =?utf-8?B?dVFycjJuSHBZeDNmVlp5VmRwY3Y0ejdxaXhobHgrR2YxQmlnb0V0bHBPc1h3?=
- =?utf-8?B?Vkcva3dMNVM2Yzh1Tyt4UGpmNHd1dEhRcVhTdUJnT1B1SDJjNlpDcS85SHF4?=
- =?utf-8?B?bU5hSUFQbzd5TThOQUVYVlZTdllVN3BlQkJWblZ0OEUrbHFkRUc5QitkanZs?=
- =?utf-8?B?aWxuSEs4dGNLaHhOMkpoVTloRkx2TDNiclJlaDlsYnRWQ1VwbHBRNkFiamhZ?=
- =?utf-8?B?aHBzSzhpWUx1cVhhRDgvWXNmZ0VkOCtMUDg0WEFLb0Rad2JXZzdxVlRYajV1?=
- =?utf-8?B?ZGMxR3RMMU9FVm5salRHQWlIUHFnYWpqdlU1TitjOTBPUkJ0UlRBajk0RUpm?=
- =?utf-8?B?S2RGSG4wYnVFUUNmYkdqT0s2YktqcCtPQzNZQ1hJclN5a0dORUN6RUVPWjQv?=
- =?utf-8?B?ZDV5aFFLK3pqdy8vcXBHYkszSWkvNXdkeFRYMlFzS1U2NER1aThRa3h2UzJI?=
- =?utf-8?B?dlBzQXRJaXRDUEp3SE1wOGRhblBvaE56bEwyQ3kvczhqanBpT2ZVYTI0WDZr?=
- =?utf-8?B?QW1qeGJRbVFiNllTbit0am9kTFlrQWxYR3ZLblp4eXVEQmxtV2JSdWpER2g3?=
- =?utf-8?B?TlRYWkJ5a0pvRjY2WDF6TlJhTjNQTndRRFRhQkYvSlBtYnZyNWJ1NC9uMWxv?=
- =?utf-8?B?c1paWnhQd2FHaVdaSWFyUndEMmNJd2FHUm5pY0k5MlRCQnMxQlQrSjliS1hq?=
- =?utf-8?B?NDJCc0wySEJXb1Buc3M2bTBPM0N4b0I1ZTZNWGdJNTNVOXFKTk5NMVIrWlFk?=
- =?utf-8?B?S2tQZnNVZFAvUWQ3VzVNb0l6UG8xUU1UTS96d3RJVVJRdG9LbTl4Wk00eGtQ?=
- =?utf-8?B?NkZKellFVVFRYU1YNTN0WDgvRm9EOWp2STRVSkI2SHk5NlQ3MXhaN3FJMGhU?=
- =?utf-8?B?QlV3cnJUMUk0OGpzcDJuNElqYVc4L01SUkRMb0JHdFNpOFBWSVRQTkJ5QkpM?=
- =?utf-8?B?b2FFeWgxNzgxdTU2akVVMXpFTGVOVUVocUJHeGgzV1pIZ0NaRFc1c3VpcWRk?=
- =?utf-8?B?aXh6ZWE5bzVYTWI2UytyeHY4aUdTVlhmVitTUXhSUDZLa05ybmZKSEd1SkNn?=
- =?utf-8?B?Q09ISDRPOGR3alpFajgyZWxTUTRHN09mYUtGZzlXZE9zZnVmQ1BoU2NpM3RZ?=
- =?utf-8?B?TEQzZzVYUTJWdEN2SWpNOEJML0FreXM5RFNZdWF3OGhOdmdad0ZOcVd1dFg1?=
- =?utf-8?B?K1VtMDNrcWQ1d242ellPRkJPUGwwSUt3eHE0SHFxM1Q4UHluWGFQVVUvOTds?=
- =?utf-8?B?TUJNRTc1dXZDSkd3UHFNYmdRNEVPZ0hTTloyOWdraXdBak9nNVp5MTRCb3c3?=
- =?utf-8?B?bFVTWHdqbnE5cFBFOTAvVG9WSTN5TGRvczNINThuNEsyMS9aNkZuRUg1eWJ3?=
- =?utf-8?B?Ym1vY01xRldGOUpQMURzVko3WjJTd1N5RUNQY3NxT0FYR3BQaWR2R3FnUThG?=
- =?utf-8?B?ZkZoaDQ0OWY5Y3p5ZVhla3ZJMlk1T0ZnY05JcDFFTmhwU05KQVJBZHRqaDg0?=
- =?utf-8?B?YWxkdTNCZkd3UGVaSHF5a0J6NFBhalpkcDZkclVFd04zZFhvd3dKTDFwL25h?=
- =?utf-8?B?V2tIWTVOQll5TG9kOW9LOGJKaC9XRFhnNVVwc3ZMS1ZRUXoxVFpOVnNiQWJT?=
- =?utf-8?Q?MLpTTCAPEKgttprb1oH+hKoW9?=
-Content-ID: <203C57998426924AAEC0E150DE930AEC@namprd05.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MmsvRGt0LzhNeU54QWk4Um0xNmNmQThVQUpla2lCK2VwRnduQjRxWk1VOHdy?=
+ =?utf-8?B?WlB3SkFOV2RZNUs3YW5JVnNwcU5xTENwWWJ4c1Q2a2JtL3VuV3Q1RXI2SW5s?=
+ =?utf-8?B?ZDVEWVZ4SmpJVThLdlY5dXdpS1dndmZHUVFiVi9DTk9Xem96MjJjT0o0WmpV?=
+ =?utf-8?B?bWNLN0FTTytWeVRQSEtJaUs2eERjSmNkbzNiUFVDR3o0S2pDTEMrT0J0aC9F?=
+ =?utf-8?B?a3dDSS9sSG84TmU3Q0Irai81STJIQ0FmVGMwOWVtUTRLTGZEeEpFSnJia0U4?=
+ =?utf-8?B?ekFyWGNxRlBJMXE1K0tyZjc5SWtOd2xvZ0toN0gxQS9KS3czUHlsbGhETFJu?=
+ =?utf-8?B?VXhoTHhZVVpLZUZUbm4vVXNKTG5GanJIc2NERFNxVXlZS1J5bVVlcmh0NUxS?=
+ =?utf-8?B?d2Q5ZzZzUWE5Yk1rSDNhcXNOcHhSVUp0dm1BT2ZDK0t0ano3MVI3UzdLT2Z5?=
+ =?utf-8?B?Zy9WcnFFWWN6a29WM1RmTDJYZnpGck8wdHN2RFpIOXNROFlwYlBRWWFDSHFS?=
+ =?utf-8?B?WnZxc2NJdGNKMUFROUlEMjFjR0NpamtFakVEZTZaeVoxNFZERjBqWGVpck1F?=
+ =?utf-8?B?Y3dIaEs4cTFnTG5KazZTNnAzVytFRHZHVG1JUGNFTEpjcDFVOE11aFBKT1dL?=
+ =?utf-8?B?dkVpNUgyRENwYm5vazRacjJ2WWtqMU8rOTh6T2hFaXdkM2g2Mm82VC9zNHg3?=
+ =?utf-8?B?Ky8wcUwxYmMrYnpVQUpnNXUzcWdUSVYySE4ySWh6YTFHUEhWS1N0S3VUYmJM?=
+ =?utf-8?B?dDc2bCtzRVJuNWpKK0N1Zld1SVdKNFF6OW8zVm1YRTlZck43OXhtZmYvTkQw?=
+ =?utf-8?B?RGFEMWUxT2w1ampKR0hoS3BQUG9oZkxTendQdmRmcW85aW1JYm56bDZuNjRy?=
+ =?utf-8?B?MGxYWWJVQjR6akZEK3Q4bFRQczl3TGV4UE5SK1QvWG5SdFh1Zk93R1o3RVhO?=
+ =?utf-8?B?d3prd0JLeHY2VWxxeGNRYXhKbWRJVU5uNWw4cVJKVndrTTdjSG1vaUNzSFFm?=
+ =?utf-8?B?NWh5dXVaSGpVWTUxUXBvWjltNDU0OHhMTXBrV0RvaVAyWDNXeTIwYmIrQUtX?=
+ =?utf-8?B?N2ZaV2prMWxBL3k2aVEzYUx1LzFHczdOUnZKUGJ6cExSMVlVRUd2cUNDaTB2?=
+ =?utf-8?B?ckZUTm1rNHRsMUNzay83L1BNWDJZZHczMWdlaERCUkI2YjFxUGJ5ZzhYM0dI?=
+ =?utf-8?B?VXBzVlR1TmR4RHlsRWJsSWJwVktLS1JxNGJCdmpRTXVUR1lJQ1hQb01ZQ3RP?=
+ =?utf-8?B?azdJeXI2VzRncVppeTZ2eGtmV3dFeCtNb0l0ZXBnYy8zalhIdnRidXhMZG13?=
+ =?utf-8?B?MmxsTUV3bkhNTmNyT2dNOWI2SXRKZzBJVVhuMWVkMEljeEFNLy9oRWppT1hL?=
+ =?utf-8?B?SWpNWU5tdTVyTWZLK3d2TG1GbHhRSkZhK21yc1grVHlZQ2JxVWJXYXkrZFd1?=
+ =?utf-8?B?VVNnVHQvem5VT2d5TVd2UEo3WklwNU5oRS9Kd25DS2hvRE0wQjljbDRPQjF5?=
+ =?utf-8?B?VnJPRUpkOUNld0EzSzFhcHlXUUFReDQwSVRrVmlVWTN1am0yelBsUDI1WnZP?=
+ =?utf-8?B?TDhvM3JWbFVkeHNVUDZubmFDUEp4RTdQem5vMnV2NTRPOWs1Q2J0MUJHdWdY?=
+ =?utf-8?B?WXZ5SU9mMDhKaXBDZGduWEVuclliOXJxRS80c0tkd0tzaWNkVEN1SjBYZ0Ur?=
+ =?utf-8?B?NmovQWFYb1V1K1lZbzNKdnRGQVZTRXZwMFQ5Q1UrbXpuclNySE5pNXlsSnJv?=
+ =?utf-8?B?M1VOUmQ1Y3hZR1hZVHZyT3pXSUxyOUZjbFBWM1hXWW1CK21mb2NxcjdpR0VF?=
+ =?utf-8?B?UWs2dHFLOEdhMTM5M0dZa0ttaldUSVhVSEh1K1dTeUR3YVBxSURHN0JJcGtq?=
+ =?utf-8?B?eTRydk5EWGpmaVZibTllMXFkMTY4UDJJSDM0K0s0L1M3a1R1dm1JOTBHQU1F?=
+ =?utf-8?B?aEE0U1lMQVZVN0trZWNQUUpGTXk2TUEzOGd1VVQ0TE9vTitVczN4UFlJRmJZ?=
+ =?utf-8?B?N0dxbUUrcis2eC9iOVlVU2o0Sm14Nlhsa1Y0SzQrblh6RnJhNGNuNUJlM3RZ?=
+ =?utf-8?B?NHpuK2JENmNNSlRVSGpjRThEWC9ualhDdXR6TDIyVXNHNjZiZEhZZk1WeldE?=
+ =?utf-8?B?WmVrcFhoK05CRWhQQUJwS1QrUllXZWRvQVBDejd6QlM0R2FPbVBDdUxnM0d4?=
+ =?utf-8?B?a1E9PQ==?=
+Content-ID: <1EFCF1F2EBB7CE48AB9819352B425CDF@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-OriginatorOrg: vmware.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BY3PR05MB8531.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d8a34ad8-a90b-4178-50a1-08dac76281fc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Nov 2022 23:38:32.7396
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5978.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba13ab62-4e14-4773-a7a4-08dac7746ef2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Nov 2022 01:46:51.7407
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b39138ca-3cee-4b4a-a4d6-cd83d9dd62f0
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rJ7QpwADEaLNDg4yHAU+xKUu07Kt4fxv2+Wsw/hflnIjmVDym5dydFY7Rrjb6BPrmdfeZjVwT8qPTzv4hoyxNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR05MB4254
+X-MS-Exchange-CrossTenant-userprincipalname: QKK1Ze0TAVAfwWgEyaoUrtbbVOPHC0I6JwVjIkCWtOO486x0EtRlFirBY/ui7f2i3e59aPw5QoBSkPS993g+Zg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB5955
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221115_155328_761182_5A4DA295 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20221115_174711_257152_D7EB41D2 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,27 +205,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTm92IDE0LCAyMDIyLCBhdCA3OjE0IFBNLCBZaWNvbmcgWWFuZyA8eWFuZ3lpY29uZ0BodWF3
-ZWkuY29tPiB3cm90ZToNCg0KPiBkaWZmIC0tZ2l0IGEvYXJjaC94ODYvaW5jbHVkZS9hc20vdGxi
-Zmx1c2guaCBiL2FyY2gveDg2L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmgNCj4gaW5kZXggOGE0OTdk
-OTAyYzE2Li41YmQ3OGFlNTVjZDQgMTAwNjQ0DQo+IC0tLSBhL2FyY2gveDg2L2luY2x1ZGUvYXNt
-L3RsYmZsdXNoLmgNCj4gKysrIGIvYXJjaC94ODYvaW5jbHVkZS9hc20vdGxiZmx1c2guaA0KPiBA
-QCAtMjY0LDcgKzI2NCw4IEBAIHN0YXRpYyBpbmxpbmUgdTY0IGluY19tbV90bGJfZ2VuKHN0cnVj
-dCBtbV9zdHJ1Y3QgKm1tKQ0KPiB9DQo+IA0KPiBzdGF0aWMgaW5saW5lIHZvaWQgYXJjaF90bGJi
-YXRjaF9hZGRfbW0oc3RydWN0IGFyY2hfdGxiZmx1c2hfdW5tYXBfYmF0Y2ggKmJhdGNoLA0KPiAt
-CQkJCQlzdHJ1Y3QgbW1fc3RydWN0ICptbSkNCj4gKwkJCQkJc3RydWN0IG1tX3N0cnVjdCAqbW0s
-DQo+ICsJCQkJCXVuc2lnbmVkIGxvbmcgdWFkZHIpDQoNCkxvZ2ljLXdpc2UgaXQgbG9va3MgZmlu
-ZS4gSSBub3RpY2UgdGhlIOKAnHY2IiwgYW5kIGl0IHNob3VsZCBub3QgYmUgYmxvY2tpbmcsDQpi
-dXQgSSB3b3VsZCBub3RlIHRoYXQgdGhlIG5hbWUgImFyY2hfdGxiYmF0Y2hfYWRkX21tKCnigJ0g
-ZG9lcyBub3QgbWFrZSBtdWNoDQpzZW5zZSBvbmNlIHRoZSBmdW5jdGlvbiBhbHNvIHRha2VzIGFu
-IGFkZHJlc3MuDQoNCkl0IGNvdWxk4oCZdmUgYmVlbiBzb21ldGhpbmcgbGlrZSBhcmNoX3NldF90
-bGJfdWJjX2ZsdXNoX3BlbmRpbmcoKSBidXQgdGhhdOKAmXMNCnRvbyBsb25nLiBJ4oCZbSBub3Qg
-dmVyeSBnb29kIHdpdGggbmFtaW5nLCBidXQgdGhlIGN1cnJlbnQgbmFtZSBpcyBub3QgZ3JlYXQu
-DQoNCg0KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, 2022-11-02 at 23:18 +0000, Sean Christopherson wrote:
+> Acquire a new mutex, vendor_module_lock, in kvm_x86_vendor_init() while
+> doing hardware setup to ensure that concurrent calls are fully serialized.
+> KVM rejects attempts to load vendor modules if a different module has
+> already been loaded, but doesn't handle the case where multiple vendor
+> modules are loaded at the same time, and module_init() doesn't run under
+> the global module_mutex.
+> 
+> Note, in practice, this is likely a benign bug as no platform exists that
+> supports both SVM and VMX, i.e. barring a weird VM setup, one of the
+> vendor modules is guaranteed to fail a support check before modifying
+> common KVM state.
+> 
+> Alternatively, KVM could perform an atomic CMPXCHG on .hardware_enable,
+> but that comes with its own ugliness as it would require setting
+> .hardware_enable before success is guaranteed, e.g. attempting to load
+> the "wrong" could result in spurious failure to load the "right" module.
+> 
+> Introduce a new mutex as using kvm_lock is extremely deadlock prone due
+> to kvm_lock being taken under cpus_write_lock(), and in the future, under
+> under cpus_read_lock().  Any operation that takes cpus_read_lock() while
+> holding kvm_lock would potentially deadlock, e.g. kvm_timer_init() takes
+> cpus_read_lock() to register a callback.  In theory, KVM could avoid
+> such problematic paths, i.e. do less setup under kvm_lock, but avoiding
+> all calls to cpus_read_lock() is subtly difficult and thus fragile.  E.g.
+> updating static calls also acquires cpus_read_lock().
+> 
+> Inverting the lock ordering, i.e. always taking kvm_lock outside
+> cpus_read_lock(), is not a viable option, e.g. kvm_online_cpu() takes
+> kvm_lock and is called under cpus_write_lock().
+
+"kvm_online_cpu() takes kvm_lock and is called under cpus_write_lock()" hasn't
+happened yet.
+
+> 
+> The lockdep splat below is dependent on future patches to take
+> cpus_read_lock() in hardware_enable_all(), but as above, deadlock is
+> already is already possible.
+
+IIUC kvm_lock by design is supposed to protect vm_list, thus IMHO naturally it
+doesn't fit to protect multiple vendor module loading.
+
+Looks above argument is good enough.  I am not sure  whether we need additional
+justification which comes from future patches. :)
+
+Also, do you also want to update Documentation/virt/kvm/locking.rst" in this
+patch?
+
+> 
+> 
+>   ======================================================
+>   WARNING: possible circular locking dependency detected
+>   6.0.0-smp--7ec93244f194-init2 #27 Tainted: G           O
+>   ------------------------------------------------------
+>   stable/251833 is trying to acquire lock:
+>   ffffffffc097ea28 (kvm_lock){+.+.}-{3:3}, at: hardware_enable_all+0x1f/0xc0 [kvm]
+> 
+>                but task is already holding lock:
+>   ffffffffa2456828 (cpu_hotplug_lock){++++}-{0:0}, at: hardware_enable_all+0xf/0xc0 [kvm]
+> 
+>                which lock already depends on the new lock.
+> 
+>                the existing dependency chain (in reverse order) is:
+> 
+>                -> #1 (cpu_hotplug_lock){++++}-{0:0}:
+>          cpus_read_lock+0x2a/0xa0
+>          __cpuhp_setup_state+0x2b/0x60
+>          __kvm_x86_vendor_init+0x16a/0x1870 [kvm]
+>          kvm_x86_vendor_init+0x23/0x40 [kvm]
+>          0xffffffffc0a4d02b
+>          do_one_initcall+0x110/0x200
+>          do_init_module+0x4f/0x250
+>          load_module+0x1730/0x18f0
+>          __se_sys_finit_module+0xca/0x100
+>          __x64_sys_finit_module+0x1d/0x20
+>          do_syscall_64+0x3d/0x80
+>          entry_SYSCALL_64_after_hwframe+0x63/0xcd
+> 
+>                -> #0 (kvm_lock){+.+.}-{3:3}:
+>          __lock_acquire+0x16f4/0x30d0
+>          lock_acquire+0xb2/0x190
+>          __mutex_lock+0x98/0x6f0
+>          mutex_lock_nested+0x1b/0x20
+>          hardware_enable_all+0x1f/0xc0 [kvm]
+>          kvm_dev_ioctl+0x45e/0x930 [kvm]
+>          __se_sys_ioctl+0x77/0xc0
+>          __x64_sys_ioctl+0x1d/0x20
+>          do_syscall_64+0x3d/0x80
+>          entry_SYSCALL_64_after_hwframe+0x63/0xcd
+> 
+>                other info that might help us debug this:
+> 
+>    Possible unsafe locking scenario:
+> 
+>          CPU0                    CPU1
+>          ----                    ----
+>     lock(cpu_hotplug_lock);
+>                                  lock(kvm_lock);
+>                                  lock(cpu_hotplug_lock);
+>     lock(kvm_lock);
+> 
+>                 *** DEADLOCK ***
+> 
+>   1 lock held by stable/251833:
+>    #0: ffffffffa2456828 (cpu_hotplug_lock){++++}-{0:0}, at: hardware_enable_all+0xf/0xc0 [kvm]
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/x86.c | 18 ++++++++++++++++--
+>  1 file changed, 16 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index a0ca401d3cdf..218707597bea 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -128,6 +128,7 @@ static int kvm_vcpu_do_singlestep(struct kvm_vcpu *vcpu);
+>  static int __set_sregs2(struct kvm_vcpu *vcpu, struct kvm_sregs2 *sregs2);
+>  static void __get_sregs2(struct kvm_vcpu *vcpu, struct kvm_sregs2 *sregs2);
+>  
+> +static DEFINE_MUTEX(vendor_module_lock);
+>  struct kvm_x86_ops kvm_x86_ops __read_mostly;
+>  
+>  #define KVM_X86_OP(func)					     \
+> @@ -9280,7 +9281,7 @@ void kvm_arch_exit(void)
+>  
+>  }
+>  
+> -int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+> +static int __kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+>  {
+>  	u64 host_pat;
+>  	int r;
+> @@ -9413,6 +9414,17 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+>  	kmem_cache_destroy(x86_emulator_cache);
+>  	return r;
+>  }
+> +
+> +int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+> +{
+> +	int r;
+> +
+> +	mutex_lock(&vendor_module_lock);
+> +	r = __kvm_x86_vendor_init(ops);
+> +	mutex_unlock(&vendor_module_lock);
+> +
+> +	return r;
+> +}
+>  EXPORT_SYMBOL_GPL(kvm_x86_vendor_init);
+>  
+>  void kvm_x86_vendor_exit(void)
+> @@ -9435,7 +9447,6 @@ void kvm_x86_vendor_exit(void)
+>  	cancel_work_sync(&pvclock_gtod_work);
+>  #endif
+>  	static_call(kvm_x86_hardware_unsetup)();
+> -	kvm_x86_ops.hardware_enable = NULL;
+>  	kvm_mmu_vendor_module_exit();
+>  	free_percpu(user_return_msrs);
+>  	kmem_cache_destroy(x86_emulator_cache);
+> @@ -9443,6 +9454,9 @@ void kvm_x86_vendor_exit(void)
+>  	static_key_deferred_flush(&kvm_xen_enabled);
+>  	WARN_ON(static_branch_unlikely(&kvm_xen_enabled.key));
+>  #endif
+> +	mutex_lock(&vendor_module_lock);
+> +	kvm_x86_ops.hardware_enable = NULL;
+> +	mutex_unlock(&vendor_module_lock);
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_x86_vendor_exit);
+>  
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
