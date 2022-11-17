@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141C0C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 19:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B27DC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 19:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6jt52uulGhqaguLNxWu9imwMPyMiIZB4HFmHo8IKJfQ=; b=nN7JT1EAH9OpeT
-	TPxK+XFfMllbArmzPHWhQ929J9vWoW7/MTlQ4DDRY7+X/QUq2iIsRsobQJ4VkmK+h679SbaD7RUH9
-	ZTN2CaA1jRddmn5V+7R7B5IAVoc5XuMvJv47lCkrAo32NZlMWO43R/PThJmwK8BvF/QNQ5SPW1rSg
-	npFV/73GDRoQFIZovGtBcB/dKrc7HGnEp33/0G0KgvnsONlSRwWdPkZQDiyj5FeOVNDOGeuSgxr/5
-	+RI7hMfNRbQAIOUZ8e/kW4t3kOqC/Pf4sZkK3HsCrqmhwkehmAOFpa+JNKQfg8dz8OiONNERpIfP4
-	Orx/dVQZ4u+zJQT+RC/w==;
+	List-Owner; bh=atpsq+mTmQE3TzxfoVv2U3QPfIWrkSThFx7c6gw5oB0=; b=VTnTR8e4BYKG1j
+	6gF0AgjA2Oa3IAnolHAXQ1WY8AFYi4JRCzvJSJyoYr68mVYACVwVGipTieO25MPHSlg6QpP1EPOx8
+	kUZGXUwvUWQECa1MCx9NwBGYXCsMIraJ1iJqUp183dwew0NZdzLBwSo9k9c8mUVhQeiNatwjlJdmH
+	bTZoenrfzKsZPt9pp06MZ30h1VIIoUbs7DFUvkzkp5vC7rIKWctI3KNKHyEp5f1HiVGuvRvzauIhr
+	flgADb25LvuosU2S4K22Y1KSaadcS385hW0hbcBpuWRvfpMsQKtsilQr0mO1ImyAV0cWJ1KPk8nGI
+	jfHEkEpDUtxTFE2184Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovkVi-00Gymp-E9; Thu, 17 Nov 2022 19:25:18 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ovkh7-00H0QH-3r; Thu, 17 Nov 2022 19:37:05 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovkVg-00GymH-7Y
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 19:25:17 +0000
+	id 1ovkh3-00H0PC-Tq
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 19:37:03 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 97396B821C2;
-	Thu, 17 Nov 2022 19:25:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61B2FC433C1;
-	Thu, 17 Nov 2022 19:25:10 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6202A62228;
+	Thu, 17 Nov 2022 19:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3078C433C1;
+	Thu, 17 Nov 2022 19:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668713112;
-	bh=uhIeKvgVfo1hBvIQHkhhEHq38wFUDZbWEAfYIe3i9oU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HieVomyzsdbSRWx0U5g2pOBNo7nWzCg9lLGe83lZ0VPtF1/SWS60bHq1Ye6fEE5ly
-	 cIlTuGW9Qz/yncze5gw0YK74M4EXNP7YwDxdoYQ9eRVry+qlROKV+JyWzpdBPJMW6H
-	 pCIZAPHau6b+CfwjR56wgrZ60yxP6b+z+rKXwwb/7gYlyyg2kZezn1TbA5wWbX3mwQ
-	 6gh4ACyG4a24aja63+UVqlFNI1nWxCv7qp40JkJojqt2jjJsObABHH5sSmyIHmJpzf
-	 PgDiieO4PQJkLnbEkzyXIqpMq7dXWtQRBk+LODoYSuSOVcGioKZnWSXLkJ10tqQltt
-	 I/55MgDoT5S9A==
-From: Conor Dooley <conor@kernel.org>
-To: Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Vattipalli Praveen <praveen.kumar@microchip.com>,
+	s=k20201202; t=1668713820;
+	bh=YCFOtk7JBzhIwUsv4FanZcQX+MYSaTlook2QWHvkNa4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jCKgellvHA8N2E2PGeI3BG0qtk6wUz5JkaSbIK9ZtXDR4rRcdzjUJGICxTD6ph7PW
+	 Gq01NGyvIEd2CfqlDG21VbU7v/3f0q+4KPEVsYUUgjCtfyw0fzYKmknL0WD5cYk1Py
+	 71wIn2Dp/4Y9B9RgLcR9qv2abT/2c7axs1XTPPe5vgNAFFgdr5sDDLzKIUkeTce2cN
+	 udMqvzekf6imAXhEXgPJx2pBrKRoolbRF5wjcEim7e4SIQ0RsYvHJxkX2zNSRb4UtY
+	 uD7rlCsr+5Flb2WXP/nvwZglm2BvOmI9IUjy0WYDKjggiYxNRztQl1xDLBX+ReIk1L
+	 uTpxg88mw3PoQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ovkh0-006opa-9Q;
+	Thu, 17 Nov 2022 19:36:58 +0000
+Date: Thu, 17 Nov 2022 19:36:57 +0000
+Message-ID: <86y1s9nzja.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] riscv: dts: microchip: remove pcie node from the sev kit
-Date: Thu, 17 Nov 2022 19:24:55 +0000
-Message-Id: <166871307494.3905205.15646099439203275372.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20221115152546.1425309-1-conor.dooley@microchip.com>
-References: <20221115152546.1425309-1-conor.dooley@microchip.com>
-MIME-Version: 1.0
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH] irqchip/sifive-plic: default to enabled
+In-Reply-To: <20221117185942.3896559-1-conor@kernel.org>
+References: <20221117185942.3896559-1-conor@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: conor@kernel.org, tglx@linutronix.de, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, conor.dooley@microchip.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_112516_462349_C434E919 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20221117_113702_067214_89AC22B6 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +89,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-On Tue, 15 Nov 2022 15:25:46 +0000, Conor Dooley wrote:
-> The SEV kit reference design does not hook up the PCIe root port to the
-> core complex including it is misleading.
-> The entry is a re-use mistake - I was not aware of this when I moved
-> the PCIe node out of mpfs.dtsi so that individual bistreams could
-> connect it to different fics etc.
+On Thu, 17 Nov 2022 18:59:43 +0000,
+Conor Dooley <conor@kernel.org> wrote:
 > 
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> [...]
+> The SiFive PLIC driver is used by all current implementations, including
+> those that do not have a SiFive PLIC. Default the driver to enabled,
+> with the intention of later removing the current "every SOC selects
+> this" situation in Kconfig.socs at the moment.
+> 
+> The speculative "potential others" in the description no longer makes
+> any sense, as the driver is always used. Update the Kconfig symbol's
+> description to reflect the driver's ubiquitous state.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Hey Marc,
+> 
+> I recall some discussion when this driver was extended to other PLICs a
+> few months ago:
+> https://lore.kernel.org/linux-riscv/20511a05f39408c8ffbcc98923c4abd2@kernel.org/
+> 
+> Perhaps I got the wrong impression, but it seemed to me that you intend
+> for future implementations to reuse this driver where possible?
 
-Applied to riscv-dt-for-next, thanks!
+Well, within reasons. People seem to have some very liberal
+interpretations of the architecture spec...
 
-[1/2] riscv: dts: microchip: remove pcie node from the sev kit
-      https://git.kernel.org/conor/c/1150f4cff831
-[2/2] riscv: dts: microchip: remove unused pcie clocks
-      https://git.kernel.org/conor/c/f4e700fd9466
+> 
+> I'd like to think, and surely will be proven wrong, that ~all future
+> plic implementations should be similar enough to fit that bill.
+> It's kinda on this basis that I figure switching this thing to default y
+> should be okay. It's already only buildable on RISC-V & every
+> implementation uses it, so no difference there.
+
+If you expect this to be present at all times, why isn't this selected
+by the architecture Kconfig instead? I always find it pretty odd to
+have something that is 'default y' and yet constrained by a 'depend
+MYARCH'. A 'select PLIC' would make a lot more sense.
+
+And then you can stop making this user selectable.
 
 Thanks,
-Conor.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
