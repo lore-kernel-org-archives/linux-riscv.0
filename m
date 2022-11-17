@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C091C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 04:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD2BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 07:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ii27u8s6TxEC9JcHd02sD5fYsknUBOo9xCwgfqwc/9k=; b=mN0lD0BbFe/aDOX6BKStpbhZUl
-	hoElMpZvs4zTfNBMQAEA2leoJsA+6ZpI4J+6GQo8ndBA6ut+swO0vA8XEMxlxJIWeJCf9CtR0Pmpo
-	DLw6PHGWZLpFHSGzq5zqIlNsQoJK2wB+976C6MF0PgO0PtclLsZlaVtd00ZyGHVq9SeoLjkCrJ87o
-	Jczu6Z7akDIZamMs41EJlSCOgdAmLs76CDOiCd0OOxSvlxe8LI0DaTgcPp5Lu2PIKMdaKysZFywxY
-	fk2f6q0MUxrVeOKjJQ+fPZ4t+jn8gmnlvEYGZZehDGxFz54TxELws/DDkwj+j4bD9b+Lz7WwY5OC6
-	MDmkfBQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VyP6TTEXfDrGQxn1ZKwytzMU98qt2adnbywgo2pNpL0=; b=p4sczx5NYyuzN3
+	jijIscOTU5FUg7ZrfccHei+/PDmTYD1TNFuxEq9u5y5BtvHycoyZpUWyOm4ks7uAKy2J0UBnx4P+7
+	oU5ypdmjeJA7RPSPdWau5so6dusMgsXfM8+8sUqBGCGFZA71W779b/t90tmFSadZErhV6P18/lxVM
+	9CwSphSPeTwMzfZQbqqNWbwRRMCG+MsPv2RsNi7eqIg9pIZSpAsQn5iJ6anPTaEWl6+u0MVYMyCRV
+	HpDZPawwL+oFgodKEQY5EYigpM4OT+3P+JifgHvGIltQ4wl5V55MJzmHz9Z00RZNSwnt07EAkePp7
+	r/CzAQaoBG03oGxCwwUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovWJk-00A8px-75; Thu, 17 Nov 2022 04:16:00 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1ovZeC-00BLP3-TU; Thu, 17 Nov 2022 07:49:20 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovWJg-00A8nc-SS
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 04:15:58 +0000
-Received: by mail-pg1-x536.google.com with SMTP id f3so922527pgc.2
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 20:15:55 -0800 (PST)
+	id 1ovZe9-00BLN4-Hz
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 07:49:18 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id n20so3184297ejh.0
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 23:49:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mDD27eRVr6Jpi3mv3EpbjZBfO7XDNZID1/HCkNCN7Lc=;
-        b=gq4qQ68HZFLk59q+PiEYGf4KzSPXoaHUCGwkgytoBfV4K3UXyLtQ2hMzRC5aOA5dXl
-         eaXR7lnrkMQ5OB82HlcrD6e4+rvYsdmKyUGqDxa5dzldStKrUaPEeB+uUO1cNDjU7sFO
-         2J5JcdaRhESAPx6/3TBJ+botN3IwFQ8UWQOBPtpqgMKy1AnYeOkWMKa6+1Eig6DYMkYN
-         larq/bjcceNN8CMNhOVRKuk2svcVPlK3XafSQL2ljGXKVqEsha6lkNZveRSYragc3+CC
-         61+10oaKb+iDkIrMZ3OuvCyQRiXmanL+ElMojCyZc3coiJMeGoDVZzsPVV2FwOPMlM0v
-         33tQ==
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Xk1oEmkTU9H7VPwZGQRzWhMrFXqC/l98G+URF+zUWzQ=;
+        b=p3bqfivjdCBVThsXjPyPdiWmaaJ3KVtlPvlz5ibGTO97w+eHWVfn3ztrpX8+02RK7r
+         /n5JnlCLCI05orLqcPnBRJK4R+bPsH9DYMeal9vY8O/vOzLc4mmwCZsA4wliTfZTD/1k
+         PEe15RfyOHC4LfhRlJjzmgGqh361hWndQ7IlH7s8FKh4uPggrazp48fXqGNPgix4TK4o
+         BDKKQojgrChhZSy7opOWSyzmfD7tDHYpsxqrcg8YAGkZUNJjKsmbIVZ0YHQOXERzAL1O
+         BoAEt7xZmV9I6scFQJ2TzP/tB/Ldx1CfxDktxIjwHv4zP90v4Hi+bevI+uQoZIZDbgWC
+         NPug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mDD27eRVr6Jpi3mv3EpbjZBfO7XDNZID1/HCkNCN7Lc=;
-        b=LqYYIj4t965fXtMeZ9x8gibYawQJ3828tQCL6bcwsh+As3g8EalMBk7wWd3N0MtKoI
-         xP6Xz0uKRVOVn6xovNaCYaeVcJ/wtDfJogCmD+zzOuPy7W5FYW2KInIqAkVJf9ZmAl92
-         hsuiqZlS0Npl7jOq4s5GkZtLjQCGD4UEavLf3I7wPkVKpQDqPUzJaeThnoNvPwXHHAOJ
-         bNj4jAuEbb5Dm6LdrIOKDQFnFOJi6T72WVk8azVk04GjHLJKdR5Rc2Lzdi04DHJBSgt2
-         ohr/i4xrXQZLsspwZJdv1wtjeQo/cIyWWRU8/bQT8uN2ODf6e7BxC7kbrNFwVK/zP7Tf
-         a9ig==
-X-Gm-Message-State: ANoB5pkC1jk3mQgYSdeJ7iTHWZCMC7gDQ2rt1AVQoXqIge08HxHp2EDr
-	v/2JwDynv1CmATPTF8iTBXfeOw==
-X-Google-Smtp-Source: AA0mqf5V6OHqKAmUjJGcpIKqwpZ/GjFFX4NKQgV3lxyTXpAi69qVN9PHK/mDtD9wPzRAO4Z61xHymQ==
-X-Received: by 2002:a63:712:0:b0:438:e0dc:9c53 with SMTP id 18-20020a630712000000b00438e0dc9c53mr478580pgh.322.1668658555199;
-        Wed, 16 Nov 2022 20:15:55 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id fu15-20020a17090ad18f00b0020d51aefb82sm431788pjb.19.2022.11.16.20.15.53
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Xk1oEmkTU9H7VPwZGQRzWhMrFXqC/l98G+URF+zUWzQ=;
+        b=Njsnzo8VaR4fKqHB6UR2xCsvEUsekMXZHipgDcTLPW5PC2hW8GMRWqeB6NVvh+8SUo
+         qfA4VR77Kop5MrEpsE4C2cP/0oZUU/G57I/4JdH7WxvS40fo1ZJYThYifjHzgFF9BEap
+         3R6Y9jTTkYlEROsHfh64IWRqhsTKOHTVxRlWAQb7fm/0HTvUTXt/4j7IwV4rtuJF4Ccg
+         LjqTPbWW3uQg6rxDjkcQDNEVMKF8Mhf61TI423Vyi84xw0UMWEEYBtRODHjdqlwIqkru
+         iez0KrIrl9BTEbWomy7T9OPdRnKgIJPWme7Sh2W5JaLs6JWx8iUfg8sTlNU+zPa8OLjJ
+         6pCg==
+X-Gm-Message-State: ANoB5pk6tCHqhI40Ahann6T227SgbSZ35abjJCiY5ZO7H5+g7nSYGcL7
+	zfr79lY18Qtiq1ZgH3oSI08=
+X-Google-Smtp-Source: AA0mqf6j48PnIuhUBdYjPPrRHGMG9asjsCw4Bqww/C899ryKZXZBQZkhjhSprEaQLgVNwgiNzYA7ag==
+X-Received: by 2002:a17:906:a157:b0:7a5:7e25:5b11 with SMTP id bu23-20020a170906a15700b007a57e255b11mr1120322ejb.254.1668671353636;
+        Wed, 16 Nov 2022 23:49:13 -0800 (PST)
+Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
+        by smtp.gmail.com with ESMTPSA id bk14-20020a170906b0ce00b007ad69e9d34dsm19988ejb.54.2022.11.16.23.49.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 20:15:54 -0800 (PST)
-Date: Wed, 16 Nov 2022 20:15:51 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	anup@brainfault.org, heiko@sntech.de, guoren@kernel.org,
-	mick@ics.forth.gr, alexandre.ghiti@canonical.com, bhe@redhat.com,
-	vgoyal@redhat.com, dyoung@redhat.com, corbet@lwn.net,
-	Conor.Dooley@microchip.com, bagasdotme@gmail.com,
-	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
-	k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
-Subject: Re: [PATCH V5 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
-Message-ID: <20221117041551.GA2197698@debug.ba.rivosinc.com>
-References: <20221026144208.373504-1-xianting.tian@linux.alibaba.com>
- <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
+        Wed, 16 Nov 2022 23:49:13 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Thu, 17 Nov 2022 08:49:10 +0100
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
+Cc: bpf@vger.kernel.org, Andrii Nakryiko <andrii@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Mykola Lysenko <mykolal@fb.com>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH bpf 1/2] selftests/bpf: Explicitly pass RESOLVE_BTFIDS to
+ sub-make
+Message-ID: <Y3XndllQ6kmFbztg@krava>
+References: <20221115182051.582962-1-bjorn@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20221115182051.582962-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_201557_132349_BD8E40EF 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20221116_234917_635126_6D4612D1 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +92,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 26, 2022 at 10:42:07PM +0800, Xianting Tian wrote:
->Add arch_crash_save_vmcoreinfo(), which exports VM layout(MODULES, VMALLOC,
->VMEMMAP ranges and KERNEL_LINK_ADDR), va bits and ram base for vmcore.
->
->Default pagetable levels and PAGE_OFFSET aren't same for different kernel
->version as below. For pagetable levels, it sets sv57 by default and falls
->back to setting sv48 at boot time if sv57 is not supported by the hardware.
->
->For ram base, the default value is 0x80200000 for qemu riscv64 env and,
->for example, is 0x200000 on the XuanTie 910 CPU.
->
-> * Linux Kernel 5.18 ~
-> *      PGTABLE_LEVELS = 5
-> *      PAGE_OFFSET = 0xff60000000000000
-> * Linux Kernel 5.17 ~
-> *      PGTABLE_LEVELS = 4
-> *      PAGE_OFFSET = 0xffffaf8000000000
-> * Linux Kernel 4.19 ~
-> *      PGTABLE_LEVELS = 3
-> *      PAGE_OFFSET = 0xffffffe000000000
->
->Since these configurations change from time to time and version to version,
->it is preferable to export them via vmcoreinfo than to change the crash's
->code frequently, it can simplify the development of crash tool.
->
->Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
->---
-> arch/riscv/kernel/Makefile     |  1 +
-> arch/riscv/kernel/crash_core.c | 21 +++++++++++++++++++++
-> 2 files changed, 22 insertions(+)
-> create mode 100644 arch/riscv/kernel/crash_core.c
->
->diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
->index db6e4b1294ba..4cf303a779ab 100644
->--- a/arch/riscv/kernel/Makefile
->+++ b/arch/riscv/kernel/Makefile
->@@ -81,6 +81,7 @@ obj-$(CONFIG_KGDB)		+= kgdb.o
-> obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
-> obj-$(CONFIG_KEXEC_FILE)	+= elf_kexec.o machine_kexec_file.o
-> obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
->+obj-$(CONFIG_CRASH_CORE)	+= crash_core.o
->
-> obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
->
->diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
->new file mode 100644
->index 000000000000..b351a3c01355
->--- /dev/null
->+++ b/arch/riscv/kernel/crash_core.c
->@@ -0,0 +1,21 @@
->+// SPDX-License-Identifier: GPL-2.0-only
->+
->+#include <linux/crash_core.h>
->+#include <linux/pagemap.h>
->+
->+void arch_crash_save_vmcoreinfo(void)
->+{
->+	VMCOREINFO_NUMBER(VA_BITS);
->+	VMCOREINFO_NUMBER(phys_ram_base);
->+
->+	vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
->+	vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
->+	vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
->+	vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
->+	vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
->+#ifdef CONFIG_64BIT
->+	vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
->+	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
->+#endif
->+	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
->+}
->-- 
->2.17.1
->
+On Tue, Nov 15, 2022 at 07:20:50PM +0100, Bj=F6rn T=F6pel wrote:
+> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+> =
 
-I had been looking around to play around with crash-utility.
-Applied v5 patches, triggered a crash and have been able to use crash tool with commands 
-like vtop/bt.
+> When cross-compiling selftests/bpf, the resolve_btfids binary end up
+> in a different directory, than the regular resolve_btfids
+> builds. Populate RESOLVE_BTFIDS for sub-make, so it can find the
+> binary.
+> =
 
-Tested-by: Deepak Gupta <debug@rivosinc.com>
+> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
 
-Thanks
-debug
+Acked-by: Jiri Olsa <jolsa@kernel.org>
+
+thanks,
+jirka
+
+> ---
+>  tools/testing/selftests/bpf/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> =
+
+> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftes=
+ts/bpf/Makefile
+> index e6cf21fad69f..8f8ede30e94e 100644
+> --- a/tools/testing/selftests/bpf/Makefile
+> +++ b/tools/testing/selftests/bpf/Makefile
+> @@ -200,7 +200,7 @@ $(OUTPUT)/sign-file: ../../../../scripts/sign-file.c
+>  $(OUTPUT)/bpf_testmod.ko: $(VMLINUX_BTF) $(wildcard bpf_testmod/Makefile=
+ bpf_testmod/*.[ch])
+>  	$(call msg,MOD,,$@)
+>  	$(Q)$(RM) bpf_testmod/bpf_testmod.ko # force re-compilation
+> -	$(Q)$(MAKE) $(submake_extras) -C bpf_testmod
+> +	$(Q)$(MAKE) $(submake_extras) RESOLVE_BTFIDS=3D$(RESOLVE_BTFIDS) -C bpf=
+_testmod
+>  	$(Q)cp bpf_testmod/bpf_testmod.ko $@
+>  =
+
+>  DEFAULT_BPFTOOL :=3D $(HOST_SCRATCH_DIR)/sbin/bpftool
+> =
+
+> base-commit: 47df8a2f78bc34ff170d147d05b121f84e252b85
+> -- =
+
+> 2.37.2
+> =
 
 
 _______________________________________________
