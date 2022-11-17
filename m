@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAD2BC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 07:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF092C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 08:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VyP6TTEXfDrGQxn1ZKwytzMU98qt2adnbywgo2pNpL0=; b=p4sczx5NYyuzN3
-	jijIscOTU5FUg7ZrfccHei+/PDmTYD1TNFuxEq9u5y5BtvHycoyZpUWyOm4ks7uAKy2J0UBnx4P+7
-	oU5ypdmjeJA7RPSPdWau5so6dusMgsXfM8+8sUqBGCGFZA71W779b/t90tmFSadZErhV6P18/lxVM
-	9CwSphSPeTwMzfZQbqqNWbwRRMCG+MsPv2RsNi7eqIg9pIZSpAsQn5iJ6anPTaEWl6+u0MVYMyCRV
-	HpDZPawwL+oFgodKEQY5EYigpM4OT+3P+JifgHvGIltQ4wl5V55MJzmHz9Z00RZNSwnt07EAkePp7
-	r/CzAQaoBG03oGxCwwUg==;
+	List-Owner; bh=4FWXVIdY/Vh2RyfwpZ1PXu2KlqVQj8fn38Fp3R+S/2Q=; b=zTmfM9MJ3kO1LN
+	A/4yinjUZape95aE4uZgcPryz0PRZ/tkxh5sQY6PgrjREqPtEuUysQlFjW1jio59fkGennat5K2nG
+	J1k+6rJq1V9BqcRlDyELtA+D/x5ET/cOhM4qSf8rvTeglg++7iAAHwTSWsx1cNiL4I2IV9esnDwRI
+	uTe0918/CUTfYyXQ2xRfQvlsjZopp6wEMP+cfnv29wwkXji8aYTQEvn4rJ0CujGLfoDGw13ezQ1KV
+	Nm0MWq38tQEZKl/GdNg+YKF8Nby+FoanYW6YvsR3yM5IqyIBWEPmugZoeXBLeMlIcIcAM/D+MthDs
+	aQf7lw1pjnotO98WgqnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovZeC-00BLP3-TU; Thu, 17 Nov 2022 07:49:20 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1ovaFd-00BZlQ-Cd; Thu, 17 Nov 2022 08:28:01 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovZe9-00BLN4-Hz
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 07:49:18 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id n20so3184297ejh.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 23:49:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Xk1oEmkTU9H7VPwZGQRzWhMrFXqC/l98G+URF+zUWzQ=;
-        b=p3bqfivjdCBVThsXjPyPdiWmaaJ3KVtlPvlz5ibGTO97w+eHWVfn3ztrpX8+02RK7r
-         /n5JnlCLCI05orLqcPnBRJK4R+bPsH9DYMeal9vY8O/vOzLc4mmwCZsA4wliTfZTD/1k
-         PEe15RfyOHC4LfhRlJjzmgGqh361hWndQ7IlH7s8FKh4uPggrazp48fXqGNPgix4TK4o
-         BDKKQojgrChhZSy7opOWSyzmfD7tDHYpsxqrcg8YAGkZUNJjKsmbIVZ0YHQOXERzAL1O
-         BoAEt7xZmV9I6scFQJ2TzP/tB/Ldx1CfxDktxIjwHv4zP90v4Hi+bevI+uQoZIZDbgWC
-         NPug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xk1oEmkTU9H7VPwZGQRzWhMrFXqC/l98G+URF+zUWzQ=;
-        b=Njsnzo8VaR4fKqHB6UR2xCsvEUsekMXZHipgDcTLPW5PC2hW8GMRWqeB6NVvh+8SUo
-         qfA4VR77Kop5MrEpsE4C2cP/0oZUU/G57I/4JdH7WxvS40fo1ZJYThYifjHzgFF9BEap
-         3R6Y9jTTkYlEROsHfh64IWRqhsTKOHTVxRlWAQb7fm/0HTvUTXt/4j7IwV4rtuJF4Ccg
-         LjqTPbWW3uQg6rxDjkcQDNEVMKF8Mhf61TI423Vyi84xw0UMWEEYBtRODHjdqlwIqkru
-         iez0KrIrl9BTEbWomy7T9OPdRnKgIJPWme7Sh2W5JaLs6JWx8iUfg8sTlNU+zPa8OLjJ
-         6pCg==
-X-Gm-Message-State: ANoB5pk6tCHqhI40Ahann6T227SgbSZ35abjJCiY5ZO7H5+g7nSYGcL7
-	zfr79lY18Qtiq1ZgH3oSI08=
-X-Google-Smtp-Source: AA0mqf6j48PnIuhUBdYjPPrRHGMG9asjsCw4Bqww/C899ryKZXZBQZkhjhSprEaQLgVNwgiNzYA7ag==
-X-Received: by 2002:a17:906:a157:b0:7a5:7e25:5b11 with SMTP id bu23-20020a170906a15700b007a57e255b11mr1120322ejb.254.1668671353636;
-        Wed, 16 Nov 2022 23:49:13 -0800 (PST)
-Received: from krava (2001-1ae9-1c2-4c00-726e-c10f-8833-ff22.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:726e:c10f:8833:ff22])
-        by smtp.gmail.com with ESMTPSA id bk14-20020a170906b0ce00b007ad69e9d34dsm19988ejb.54.2022.11.16.23.49.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 23:49:13 -0800 (PST)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Thu, 17 Nov 2022 08:49:10 +0100
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Cc: bpf@vger.kernel.org, Andrii Nakryiko <andrii@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Mykola Lysenko <mykolal@fb.com>, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH bpf 1/2] selftests/bpf: Explicitly pass RESOLVE_BTFIDS to
- sub-make
-Message-ID: <Y3XndllQ6kmFbztg@krava>
-References: <20221115182051.582962-1-bjorn@kernel.org>
+	id 1ovaFP-00BZbR-Lz; Thu, 17 Nov 2022 08:27:49 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.55])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4NCY1W70vLzHvtj;
+	Thu, 17 Nov 2022 16:27:11 +0800 (CST)
+Received: from localhost.localdomain (10.67.164.66) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Thu, 17 Nov 2022 16:27:43 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <akpm@linux-foundation.org>, <linux-mm@kvack.org>,
+	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <anshuman.khandual@arm.com>,
+	<linux-doc@vger.kernel.org>
+CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
+	<punit.agrawal@bytedance.com>, <linux-kernel@vger.kernel.org>,
+	<darren@os.amperecomputing.com>, <yangyicong@hisilicon.com>,
+	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
+	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
+	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
+	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
+	<prime.zeng@hisilicon.com>, Anshuman Khandual <khandual@linux.vnet.ibm.com>,
+	Barry Song <baohua@kernel.org>
+Subject: [PATCH v7 1/2] mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
+Date: Thu, 17 Nov 2022 16:26:47 +0800
+Message-ID: <20221117082648.47526-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20221117082648.47526-1-yangyicong@huawei.com>
+References: <20221117082648.47526-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221115182051.582962-1-bjorn@kernel.org>
+X-Originating-IP: [10.67.164.66]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_234917_635126_6D4612D1 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20221117_002748_109460_401205D6 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +71,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 15, 2022 at 07:20:50PM +0100, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> =
+From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
 
-> When cross-compiling selftests/bpf, the resolve_btfids binary end up
-> in a different directory, than the regular resolve_btfids
-> builds. Populate RESOLVE_BTFIDS for sub-make, so it can find the
-> binary.
-> =
+The entire scheme of deferred TLB flush in reclaim path rests on the
+fact that the cost to refill TLB entries is less than flushing out
+individual entries by sending IPI to remote CPUs. But architecture
+can have different ways to evaluate that. Hence apart from checking
+TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
+architecture specific.
 
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+Signed-off-by: Anshuman Khandual <khandual@linux.vnet.ibm.com>
+[https://lore.kernel.org/linuxppc-dev/20171101101735.2318-2-khandual@linux.vnet.ibm.com/]
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+[Rebase and fix incorrect return value type]
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Barry Song <baohua@kernel.org>
+Reviewed-by: Xin Hao <xhao@linux.alibaba.com>
+Tested-by: Punit Agrawal <punit.agrawal@bytedance.com>
+---
+ arch/x86/include/asm/tlbflush.h | 12 ++++++++++++
+ mm/rmap.c                       |  9 +--------
+ 2 files changed, 13 insertions(+), 8 deletions(-)
 
-Acked-by: Jiri Olsa <jolsa@kernel.org>
-
-thanks,
-jirka
-
-> ---
->  tools/testing/selftests/bpf/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> =
-
-> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftes=
-ts/bpf/Makefile
-> index e6cf21fad69f..8f8ede30e94e 100644
-> --- a/tools/testing/selftests/bpf/Makefile
-> +++ b/tools/testing/selftests/bpf/Makefile
-> @@ -200,7 +200,7 @@ $(OUTPUT)/sign-file: ../../../../scripts/sign-file.c
->  $(OUTPUT)/bpf_testmod.ko: $(VMLINUX_BTF) $(wildcard bpf_testmod/Makefile=
- bpf_testmod/*.[ch])
->  	$(call msg,MOD,,$@)
->  	$(Q)$(RM) bpf_testmod/bpf_testmod.ko # force re-compilation
-> -	$(Q)$(MAKE) $(submake_extras) -C bpf_testmod
-> +	$(Q)$(MAKE) $(submake_extras) RESOLVE_BTFIDS=3D$(RESOLVE_BTFIDS) -C bpf=
-_testmod
->  	$(Q)cp bpf_testmod/bpf_testmod.ko $@
->  =
-
->  DEFAULT_BPFTOOL :=3D $(HOST_SCRATCH_DIR)/sbin/bpftool
-> =
-
-> base-commit: 47df8a2f78bc34ff170d147d05b121f84e252b85
-> -- =
-
-> 2.37.2
-> =
+diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+index cda3118f3b27..8a497d902c16 100644
+--- a/arch/x86/include/asm/tlbflush.h
++++ b/arch/x86/include/asm/tlbflush.h
+@@ -240,6 +240,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
+ 	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
+ }
+ 
++static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
++{
++	bool should_defer = false;
++
++	/* If remote CPUs need to be flushed then defer batch the flush */
++	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
++		should_defer = true;
++	put_cpu();
++
++	return should_defer;
++}
++
+ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
+ {
+ 	/*
+diff --git a/mm/rmap.c b/mm/rmap.c
+index 2ec925e5fa6a..a9ab10bc0144 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -685,17 +685,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
+  */
+ static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
+ {
+-	bool should_defer = false;
+-
+ 	if (!(flags & TTU_BATCH_FLUSH))
+ 		return false;
+ 
+-	/* If remote CPUs need to be flushed then defer batch the flush */
+-	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
+-		should_defer = true;
+-	put_cpu();
+-
+-	return should_defer;
++	return arch_tlbbatch_should_defer(mm);
+ }
+ 
+ /*
+-- 
+2.24.0
 
 
 _______________________________________________
