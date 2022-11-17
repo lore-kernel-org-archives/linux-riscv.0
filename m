@@ -4,83 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA025C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 09:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A635C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 11:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WoKDgG5gY/9IrgwkG2aYHMRtwAZd0jOyuQmBS8aN+4w=; b=rZHVFkyMeVQn5D
-	sRe6hOQYuTZNAoVWO7pFtYdH8Y2w0a3WgfXSFPcHQ6uhCFEjfVWA/mlxoEPGztgQCC53b2k1CWtV7
-	IgY4LUykBsI1TnQFXadlNahov2cIWYqK3lof+cWDQqfCYC9HFZezwvVMsR4ylXaIglUqD23FrHLCW
-	kmbFz+0NeGFtPIoyg5d/IeXftcLPBNCXZNt7APzDyNmWBWFzNfEmAa3NbGcPlZ6WWJjMhg+JKXuux
-	AUTQiC0H9Kj/a2/yWyvwpp5hPP5iQkzlFez01FgnOihm6e6vLuHwuIZZHzJQNMA6UoMO/5qewxlvO
-	rzoMD6HV4sAKEyV+ybsA==;
+	List-Owner; bh=VN+Eo7iWsZUfPbPmi4wEgVDGjK5ov9dfd/M+1v92Sr0=; b=KAffyMCyGxLaCI
+	cOKWjyWQFPKLEFtQkXVcCYCR4veudfLu8LfSC7hqOiD1i+EwJJlkPz3PMvj2Xut3hQyaxziWz3VsL
+	OjUeYzATNjxxdxiOgzxDQON5b/uyuJMNWEZFQ16W+hRSasF+626bcu4O4EFGOK0SDQCRS93YRZ6zb
+	/CaTOrJ0Fd/uNEewST7xlC5tl15VTy3u2R9m8S6Pj5kWO6xCOMyNIjJ6MieG40Gi7S+GGYTIaBQzc
+	WsH4HPvcXhHJlqsj00HOv/OAITwOpEQoAROks9TLXe+tMfr3e3+UWzRmaX3HPYXUr4qIPKO3FV/MM
+	R9vVID9odT1Ukl5zHmGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovaxB-00Bylx-Q5; Thu, 17 Nov 2022 09:13:01 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ovdQH-00DSF4-4n; Thu, 17 Nov 2022 11:51:13 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovawv-00Byf3-4o; Thu, 17 Nov 2022 09:12:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nUeE98iw6CYI9P0UZFByNwbWM7T2dlFSVRfygox+oVI=; b=MgJlSA98izh3Lsqm003kpG/mL+
-	EevnyLvSFZGX2upk5Jm3WoFC0zvMiO9eBcctfFuhCt0XhehaHroYVKWnLvTx2YsjGIrzuGTlhwGvs
-	ycCoIWu5IDrMhT6T0Vi9JKGscYUfbfB21Xy6W0jd+DCfony3PxwWRKrtPSdJZrzWtEqZEBCvPcFMg
-	OLvECk1Ph+NKITycPx1vBHQR0FuPmuJhwXJ21vaX9wcNqYWS8QSTCsgQr4GqwF5v3RYfO9wdSx7gz
-	c1jMwXTl1i9DvI2bX3n8bA3RjH0bLkkRWvGkx0zXza/d9lP8P7CcehYOSzaseZ7O8CZ8vSGUJmsXd
-	ZRL7zqAw==;
-Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovawz-000qbk-Qm; Thu, 17 Nov 2022 09:12:49 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 220E230002E;
-	Thu, 17 Nov 2022 10:12:43 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 0A96220B67F5A; Thu, 17 Nov 2022 10:12:43 +0100 (CET)
-Date: Thu, 17 Nov 2022 10:12:42 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
-	x86@kernel.org, Guo Ren <guoren@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [RFC PATCH v2 6/8] treewide: Trace IPIs sent via
- smp_send_reschedule()
-Message-ID: <Y3X7CijMXpqQIHhk@hirez.programming.kicks-ass.net>
-References: <20221102182949.3119584-1-vschneid@redhat.com>
- <20221102183336.3120536-5-vschneid@redhat.com>
+	id 1ovdQE-00DSCS-0Q
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 11:51:11 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ovdQ7-0003ht-Sb; Thu, 17 Nov 2022 12:51:03 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+Date: Thu, 17 Nov 2022 12:51:02 +0100
+Message-ID: <3281765.mvXUDI8C0e@diego>
+In-Reply-To: <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
+References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de> <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221102183336.3120536-5-vschneid@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20221117_035110_077755_307B602D 
+X-CRM114-Status: GOOD (  22.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +58,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 02, 2022 at 06:33:34PM +0000, Valentin Schneider wrote:
+Am Dienstag, 15. November 2022, 15:28:27 CET schrieb Lad, Prabhakar:
+> Hi Heiko,
+> 
+> Thank you for the patch.
+> 
+> On Thu, Nov 10, 2022 at 4:50 PM Heiko Stuebner <heiko@sntech.de> wrote:
+> >
+> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> >
+> > Alternatives live in a different section, so addresses used by call
+> > functions will point to wrong locations after the patch got applied.
+> >
+> > Similar to arm64, adjust the location to consider that offset.
+> >
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> > ---
+> >  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
+> >  1 file changed, 77 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 694267d1fe81..026512ca9c4c 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+> >         return cpu_req_feature;
+> >  }
+> >
+> > +#include <asm/parse_asm.h>
+> > +
+> > +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
+> > +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
+> > +
+> > +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
+> > +{
+> > +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
+> > +}
+> > +
+> > +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
+> > +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
+> > +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
+> > +#define AUIPC_PAD              (0x00001000)
+> > +#define JALR_SHIFT             I_IMM_11_0_OPOFF
+> > +
+> > +#define to_jalr_imm(offset)                                            \
+> > +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
+> > +
+> > +#define to_auipc_imm(offset)                                           \
+> > +       ((offset & JALR_SIGN_MASK) ?                                    \
+> > +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
+> > +       (offset & AUIPC_OFFSET_MASK))
+> > +
+> > +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
+> > +                                            unsigned int len, int patch_offset)
+> > +{
+> 
+> I am yet to test this with my ASM code yet, but maybe can we move this
+> to [0] so that other erratas can make use of it too?
+> 
+> [0] arch/riscv/kernel/patch.c
 
-> diff --git a/kernel/smp.c b/kernel/smp.c
-> index c4d561cf50d45..44fa4b9b1f46b 100644
-> --- a/kernel/smp.c
-> +++ b/kernel/smp.c
-> @@ -167,6 +167,14 @@ send_call_function_ipi_mask(const struct cpumask *mask)
->  	arch_send_call_function_ipi_mask(mask);
->  }
->  
-> +void smp_send_reschedule(int cpu)
-> +{
-> +	/* XXX scheduler_ipi is inline :/ */
-> +	trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
-> +	arch_smp_send_reschedule(cpu);
-> +}
-> +EXPORT_SYMBOL_GPL(smp_send_reschedule);
+yeah, that sounds like a very good plan.
 
-Yeah, no.. I see some crazy archs do this, but no we're not exporting
-this in generic.
+I also want to make the to_foo_imm macros shared.
+I.e. right now they're just duplicated from the ftrace patching code.
+
+Heiko
+
+
 
 _______________________________________________
 linux-riscv mailing list
