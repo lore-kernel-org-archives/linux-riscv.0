@@ -4,133 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2616C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 00:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7C2C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 01:25:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MXkfQDT4dvg1MkX2A6QpOjFidmEx7jNFFlxgzbQSaCU=; b=CX4INs2KeBPIyX
-	GVurgQaAp3qxPYkN/FdJtBdV0LhnQBrXUF5giRRcMAnNZtJ06bz0TLSMxI3TfbKd9hOqNz7hSjs5D
-	1lRVdemkRtXnl/KP4aBwJ0JFlj7E1Ve+vb2mbCI1nigmPuw8jrbZ/nGTiUn8igkAiq278TWO4oJ3N
-	1IOWAlEkLEm5oGePSGh1q8NPSbpTo8el/pSqU+ObKefyN6OigPRMh3lfLNdY3hySuczmEWuYv58No
-	ikvXKURU2y4XMzkRtn7XRSEoiVe0p3PDUsI/GuY8Gx7e5pwMdzfOAZAUesyoznzBTKjwDsShnULIf
-	rXN3Qg1PEz/eJQRXod7Q==;
+	List-Owner; bh=3TYqjt6gCoxgXcnvCl3Kz2poB5vWxHXTlWzjMLrRtag=; b=PCoRGx02CW/pgG
+	XOUcWYNJkBY1wau+XJhS+3ggxmEzq6eFFOdFL29lMMRXysLMTxHmESUnmRvYNx7SLWT7asFFBXKXM
+	xCLXvl7D70kx+1RNVpBAnBxIkiVqgwD7YORpCxCt6bfwLd+if/h5ZElDPHEnbWHKBfSYPCGGAcEoI
+	NQgNiB/RPZGllTN7f41oyqbc7UXHfBBo3G9XU40dRLZOmIjpKx1x5mjbzdxez85OSvYgA2dDMHz4/
+	TnMPqpjDFD/y8YTsKwxZ4X0TqzKmjdesRSz4x48id2IqMyqgwUnBxJLx1zZPiJqugAM6jL9kZP8aY
+	9AxIqf3pWWC0GhP/qUOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovSgD-008xsQ-Pi; Thu, 17 Nov 2022 00:22:57 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1ovTes-009K6s-10; Thu, 17 Nov 2022 01:25:38 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovSg9-008xk8-Qu
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 00:22:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1668644573; x=1700180573;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=KXoWRv8rOB1+AtNCLdxcm0lfGHxErPjhaM0+VnSkGxw=;
-  b=X9AcsnOCA4sqewVOWXXMuUr4Mq1Y+nRyFMSGpA025wFF5o4PoRrcq8wv
-   9q78DxNo+IrE5zyu+avsqniaiEjeQ4C8x3qZOrbBfAQDfewbh9VewiPtE
-   wEI9mbJcEfwXYt4QlRbUHzPJ6/hRqt1xYheHJbnJSUTMeraAWZdGfBL64
-   WJou+J58KqC8LpSaGBWovpRJofsBOrdR4TdqyboEZckOQH4YHo+EQpCzj
-   ylYknVMuWz1UN8ExdEftAp1WlgymC4g2PR0cJDaITnwuKk01iYUPA1o2a
-   zeg61TBymUs4aqyYU4QJrfF3RFh5sAgzivcssBua5PJFVmMcYtPRA+ESZ
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.96,169,1665417600"; 
-   d="scan'208";a="221621152"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
-  by ob1.hgst.iphmx.com with ESMTP; 17 Nov 2022 08:22:51 +0800
-IronPort-SDR: QEvn0eMKWshNyQnbLpIlvlgTQPSq+EvLzcHG5yVeGmpE9RWkqilsNHs3mV7DjCRGqRaap3Wpuy
- Tlu3+XnLM/12B79AvXEmAU81srWCdbhEGRCcrMlHWlF0PHIlmxmh7xnJ4+tRi2AES1rbKE5YGO
- AUyg5VdaeFkljeTgRrUW+CmrR8ze81d1G/93+CkbNKQEkoW73lFDUF3AD7LhlU8QMuqDLZn6Mn
- Gy3Uz4iMzuhSb5gjehL/rVYTkT0LTj+qojjMi17MWUH2uXzRPV4aWepAbUkXAnvpsr7+IVnoMU
- kGo=
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
-  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Nov 2022 15:36:03 -0800
-IronPort-SDR: lSAUDtNpEJFZRDWkURwwmwpWUoFSZMk0549XcHSUu+Np4XEIgNuyk7b3lwofJVhKnMu/gg9dUp
- KOfbDYRD1gj6Kl/uysleoSDD99pFGDFi1G3y1M7ajZuW8bbYYGYaD0qysEPpCeu+aPEXTaxopM
- UHtXpm/PsEkJLMJWphX4xUrmq5V2qA9Zo4OLmTDkYj27ZSUaC38027S1JksPhVsDM+OHr0EtCY
- sHq7Slu6P5YaMNnagMNHipdzB9xs5+GVpQo8iCzywMmat3YY2BfLJ9symYcm6CdUAfPdJI8xxF
- zfQ=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
-  by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Nov 2022 16:22:52 -0800
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4NCLGg3CCsz1Rwt8
-	for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 16:22:51 -0800 (PST)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
-	reason="pass (just generated, assumed good)"
-	header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
-	opensource.wdc.com; h=content-transfer-encoding:content-type
-	:in-reply-to:organization:from:content-language:references:to
-	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
-	1668644568; x=1671236569; bh=KXoWRv8rOB1+AtNCLdxcm0lfGHxErPjhaM0
-	+VnSkGxw=; b=gKhk4WoIUkb8YKM5wFNOZi3cjklEw/b5QnzBD4weC+KaHIk6l/x
-	a/Xcb4BI5eS6IckGXGt42y2B4JtaMhpEAnZDL6EDVDuRFkIgrENNL+Tj1CyOI+9U
-	NFBgz1v7brmrZwAvR+EiKZNhZp7X3AOBTA/1x+9lwV69LbVTd2HhsJc1LdC+Yax7
-	kvGFrIe9Jh+I8JS3PpPP8jJEPPWIm7rOF0G16B5wMjv5hivOY7pl1/OVngncW0GT
-	W70wssJb0ZnRditLZJopgvhkxYwehIPhS+f5arm5T5bl/A+KnhViDKDNNsw/S385
-	eeGfqhj78FJd3/P3mEoD7zjbjYEg554Xh4g==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
-	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id En5kn8mWnw4s for <linux-riscv@lists.infradead.org>;
-	Wed, 16 Nov 2022 16:22:48 -0800 (PST)
-Received: from [10.225.54.48] (unknown [10.225.54.48])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4NCLGS0lckz1RvLy;
-	Wed, 16 Nov 2022 16:22:39 -0800 (PST)
-Message-ID: <e7f4e528-00d6-a05b-013c-475449ebd1d4@opensource.wdc.com>
-Date: Thu, 17 Nov 2022 09:22:38 +0900
+	id 1ovTeo-009K4m-8D
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 01:25:36 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 75F47CE1D24;
+	Thu, 17 Nov 2022 01:25:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 115AEC433D7;
+	Thu, 17 Nov 2022 01:25:24 +0000 (UTC)
+Date: Wed, 16 Nov 2022 20:25:21 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Chen Guokai <chenguokai17@mails.ucas.ac.cn>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ mingo@redhat.com, sfr@canb.auug.org.au, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, liaochang1@huawei.com, Peter Zijlstra
+ <peterz@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v4 2/8] riscv/kprobe: Allocate detour buffer from module
+ area
+Message-ID: <20221116202521.6c528955@gandalf.local.home>
+In-Reply-To: <20221106100316.2803176-3-chenguokai17@mails.ucas.ac.cn>
+References: <20221106100316.2803176-1-chenguokai17@mails.ucas.ac.cn>
+	<20221106100316.2803176-3-chenguokai17@mails.ucas.ac.cn>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.4.2
-Subject: Re: Deprecating and removing SLOB
-To: Vlastimil Babka <vbabka@suse.cz>, Hyeonggon Yoo <42.hyeyoo@gmail.com>
-Cc: Conor Dooley <conor@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, Christoph Lameter
- <cl@linux.com>, David Rientjes <rientjes@google.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>,
- Matthew Wilcox <willy@infradead.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Rustam Kovhaev <rkovhaev@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org,
- linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, Conor.Dooley@microchip.com,
- Paul Cercueil <paul@crapouillou.net>
-References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
- <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
- <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz> <Y260tkNHc2vFITJ3@spud>
- <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
- <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
- <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
- <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
- <Y3JU5cfyid1rBoOy@hyeyoo>
- <97c0735c-3127-83d5-30ff-8e57c6634f6e@opensource.wdc.com>
- <452c3833-9275-37c7-3d48-5c996c0e2557@suse.cz>
-Content-Language: en-US
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <452c3833-9275-37c7-3d48-5c996c0e2557@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_162254_007881_1A7E2D51 
-X-CRM114-Status: GOOD (  45.17  )
+X-CRM114-CacheID: sfid-20221116_172534_528188_B8C60594 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,231 +66,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/17 2:51, Vlastimil Babka wrote:
-> On 11/15/22 05:24, Damien Le Moal wrote:
->> On 11/14/22 23:47, Hyeonggon Yoo wrote:
->>> On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
->>>> On 11/14/22 18:36, Vlastimil Babka wrote:
->>>>> On 11/14/22 06:48, Damien Le Moal wrote:
->>>>>> On 11/14/22 10:55, Damien Le Moal wrote:
->>>>>>> On 11/12/22 05:46, Conor Dooley wrote:
->>>>>>>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
->>>>>>>>> On 11/8/22 22:44, Pasha Tatashin wrote:
->>>>>>>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
->>>>>>>>>>>
->>>>>>>>>>> Hi,
->>>>>>>>>>>
->>>>>>>>>>> as we all know, we currently have three slab allocators. As we discussed
->>>>>>>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
->>>>>>>>>>> two of them do not.
->>>>>>>>>>>
->>>>>>>>>>> The unsurprising reasons include code maintenance burden, other features
->>>>>>>>>>> compatible with only a subset of allocators (or more effort spent on the
->>>>>>>>>>> features), blocking API improvements (more on that below), and my
->>>>>>>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
->>>>>>>>>>> without resorting to spelling out the letters.
->>>>>>>>>>>
->>>>>>>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
->>>>>>>>>>> two to be removed, so I'd like to focus on it first.
->>>>>>>>>>>
->>>>>>>>>>> I believe SLOB can be removed because:
->>>>>>>>>>>
->>>>>>>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
->>>>>>>>>>> by putting all objects together, which has its CPU performance costs
->>>>>>>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
->>>>>>>>>>> aware of any "tiny linux" deployment that opts for this. For example,
->>>>>>>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
->>>>>>>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
->>>>>>>>>>> SLOB impact is too much for those who tried. Googling for
->>>>>>>>>>> "CONFIG_SLOB=y" yielded nothing useful.
->>>>>>>>>>
->>>>>>>>>> I am all for removing SLOB.
->>>>>>>>>>
->>>>>>>>>> There are some devices with configs where SLOB is enabled by default.
->>>>>>>>>> Perhaps, the owners/maintainers of those devices/configs should be
->>>>>>>>>> included into this thread:
->>>>>>>>>>
->>>>>>>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
->>>>>>>>
->>>>>>>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
->>>>>>>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
->>>>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
->>>>>>>>
->>>>>>>>>
->>>>>>>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
->>>>>>>>> running make defconfig ends up with SLUB anyway, unless I miss something.
->>>>>>>>> Only a subset has both SLOB and EXPERT:
->>>>>>>>>
->>>>>>>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
->>>>>>>>
->>>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
->>>>>>>>
->>>>>>>> I suppose there's not really a concern with the virt defconfig, but I
->>>>>>>> did check the output of `make nommu_k210_defconfig" and despite not
->>>>>>>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
->>>>>>>>
->>>>>>>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
->>>>>>>> boots etc, but I have no workloads or w/e to run on it.
->>>>>>>
->>>>>>> I sent a patch to change the k210 defconfig to using SLUB. However...
->>>>>
->>>>> Thanks!
->>>>>
->>>>>>> The current default config using SLOB gives about 630 free memory pages
->>>>>>> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
->>>>>>> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
->>>>>
->>>>> Thanks for the testing! How much RAM does the system have btw? I found 8MB
->>>>> somewhere, is that correct?
->>>>
->>>> Yep, 8MB, that's it.
->>>>
->>>>> So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
->>>>> difference [1]. But that was looking at Slab pages, not free pages. The
->>>>> extra overhead could be also in percpu allocations, code etc.
->>>>>
->>>>>>> This is with a buildroot kernel 5.19 build including a shell and sd-card
->>>>>>> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
->>>>>>> definitely see more errors with shell commands failing due to allocation
->>>>>>> failures for the shell process fork. So as far as the K210 is concerned,
->>>>>>> switching to SLUB is not ideal.
->>>>>>>
->>>>>>> I would not want to hold on kernel mm improvements because of this toy
->>>>>>> k210 though, so I am not going to prevent SLOB deprecation. I just wish
->>>>>>> SLUB itself used less memory :)
->>>>>>
->>>>>> Did further tests with kernel 6.0.1:
->>>>>> * SLOB: 630 free pages after boot, shell working (occasional shell fork
->>>>>> failure happen though)
->>>>>> * SLAB: getting memory allocation for order 7 failures on boot already
->>>>>> (init process). Shell barely working (high frequency of shell command fork
->>>>>> failures)
->>>>
->>>> I forgot to add here that the system was down to about 500 free pages
->>>> after boot (again from the shell with "cat /proc/vmstat").
->>>>
->>>>>> * SLUB: getting memory allocation for order 7 failures on boot. I do get a
->>>>>> shell prompt but cannot run any shell command that involves forking a new
->>>>>> process.
->>>>
->>>> For both slab and slub, I had cpu partial off, debug off and slab merge
->>>> on, as I suspected that would lead to less memory overhead.
->>>> I suspected memory fragmentation may be an issue but doing
->>>>
->>>> echo 3 > /proc/sys/vm/drop_caches
->>>>
->>>> before trying a shell command did not help much at all (it usually does on
->>>> that board with SLOB). Note that this is all with buildroot, so this echo
->>>> & redirect always works as it does not cause a shell fork.
->>>>
->>>>>>
->>>>>> So if we want to keep the k210 support functional with a shell, we need
->>>>>> slob. If we reduce that board support to only one application started as
->>>>>> the init process, then I guess anything is OK.
->>>>>
->>>>> In [1] it was possible to save some more memory with more tuning. Some of
->>>>> that required boot parameters and other code changes. In another reply [2] I
->>>>> considered adding something like SLUB_TINY to take care of all that, so
->>>>> looks like it would make sense to proceed with that.
->>>>
->>>> If you want me to test something, let me know.
->>>
->>> Would you try this please?
->>>
->>> diff --git a/mm/slub.c b/mm/slub.c
->>> index a24b71041b26..1c36c4b9aaa0 100644
->>> --- a/mm/slub.c
->>> +++ b/mm/slub.c
->>> @@ -4367,9 +4367,7 @@ static int kmem_cache_open(struct kmem_cache *s, slab_flags_t flags)
->>>  	 * The larger the object size is, the more slabs we want on the partial
->>>  	 * list to avoid pounding the page allocator excessively.
->>>  	 */
->>> -	s->min_partial = min_t(unsigned long, MAX_PARTIAL, ilog2(s->size) / 2);
->>> -	s->min_partial = max_t(unsigned long, MIN_PARTIAL, s->min_partial);
->>> -
->>> +	s->min_partial = 0;
->>>  	set_cpu_partial(s);
->>>  
->>>  #ifdef CONFIG_NUMA
->>>
->>>
->>> and booting with and without boot parameter slub_max_order=0?
->>
->> Test notes: I used Linus 6.1-rc5 as the base. That is the only thing I
->> changed in buildroot default config for the sipeed maix bit card, booting
->> with SD card. The test is: booting and run "cat /proc/vmstat" and register
->> the nr_free_pages value. I repeated the boot + cat 3 to 4 times for each case.
->>
->> Here are the results:
->>
->> 6.1-rc5, SLOB:
->>     - 623 free pages
->>     - 629 free pages
->>     - 629 free pages
->> 6.1-rc5, SLUB:
->>     - 448 free pages
->>     - 448 free pages
->>     - 429 free pages
->> 6.1-rc5, SLUB + slub_max_order=0:
->>     - Init error, shell prompt but no shell command working
->>     - Init error, no shell prompt
->>     - 508 free pages
->>     - Init error, shell prompt but no shell command working
->> 6.1-rc5, SLUB + patch:
->>     - Init error, shell prompt but no shell command working
->>     - 433 free pages
->>     - 448 free pages
->>     - 423 free pages
->> 6.1-rc5, SLUB + slub_max_order=0 + patch:
->>     - Init error, no shell prompt
->>     - Init error, shell prompt, 499 free pages
->>     - Init error, shell prompt but no shell command working
->>     - Init error, no shell prompt
->>
->> No changes for SLOB results, expected.
->>
->> For default SLUB, I did get all clean boots this time and could run the
->> cat command. But I do see shell fork failures if I keep running commands.
->>
->> For SLUB + slub_max_order=0, I only got one clean boot with 508 free
->> pages. Remaining runs failed to give a shell prompt or allow running cat
->> command. For the clean boot, I do see higher number of free pages.
->>
->> SLUB with the patch was nearly identical to SLUB without the patch.
->>
->> And SLUB+patch+slub_max_order=0 gave again a lot of errors/bad boot. I
->> could run the cat command only once, giving 499 free pages, so better than
->> regular SLUB. But it seems that the memory is more fragmented as
->> allocations fail more often.
->>
->> Hope this helps. Let me know if you want to test something else.
-> 
-> Could you please try this branch with CONFIG_SLUB_TINY=y?
-> https://git.kernel.org/pub/scm/linux/kernel/git/vbabka/linux.git/log/?h=slub-tiny-v1r0
-> 
-> Seeing your results I didn't modify default slub_max_order by this new
-> CONFIG (yet?) so maybe after trying the default, trying then also with
-> manual slub_max_order=0 and slub_max_order=1 would be useful too. Otherwise
-> it should be all changes to lower SLUB memory footprint. Hopefully it will
-> be visible in the number of free pages. But if fragmentation is an issue, it
-> might not be enough. BTW, during boot there should be a line "Built X
-> zonelists, mobility grouping ..." can you grep for it and provide please, I
-> wonder if mobility grouping ends up being off or on on that system.
+On Sun,  6 Nov 2022 18:03:10 +0800
+Chen Guokai <chenguokai17@mails.ucas.ac.cn> wrote:
 
-OK. Will try as soon as I can (before end of week hopefully). My pipeline is a
-little crowded right now :)
+> @@ -84,6 +85,30 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+>  }
+>  
+>  #ifdef CONFIG_MMU
+> +#if defined(CONFIG_OPTPROBES) && defined(CONFIG_64BIT)
+> +void *alloc_optinsn_page(void)
+> +{
+> +	void *page;
+> +
+> +	page = __vmalloc_node_range(PAGE_SIZE, 1, MODULES_VADDR,
+> +				    MODULES_END, GFP_KERNEL,
+> +				    PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +				    __builtin_return_address(0));
+> +	if (!page)
+> +		return NULL;
+> +
+> +	set_vm_flush_reset_perms(page);
+> +	/*
+> +	 * First make the page read-only, and only then make it executable to
+> +	 * prevent it from being W+X in between.
+> +	 */
+> +	set_memory_ro((unsigned long)page, 1);
+> +	set_memory_x((unsigned long)page, 1);
 
-> 
-> Thanks!
-> 
->> Cheers.
->>
-> 
+FYI, the above combination is going to be going away:
 
--- 
-Damien Le Moal
-Western Digital Research
+  https://lore.kernel.org/all/Y10OyLCLAAS6rsZv@hirez.programming.kicks-ass.net/
 
+-- Steve
+
+
+> +
+> +	return page;
+> +}
+> +#endif
+> +
 
 _______________________________________________
 linux-riscv mailing list
