@@ -4,103 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C52C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 13:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818B7C43217
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 14:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1ftBIydzvUJpACOdsYjaaItsxhhYQkOspGefcFg2Ewc=; b=nlZk9CpIfYasis
-	EFsr7hEO7v/0gD0vjLwBJeVLEV4+vr+TXFBmromIhH7pBXCwgogX2G8xuGLnqvQAkU1z+Q29KIfyg
-	AI4yLoDu4r2DTlAtRR1QrFwR8XB1JXn/cyXDSmxPn+ZBh3qY2N0iuKQGaSVbBR8eEu8sjQHAxK3vo
-	5C4vyw2CRmTZGKMahFg/b6BGGMZRy9oEWZDLoQZoEHXSPUNNhZ/RJc1/Yehf3Ec8a3CoL74ujBU5P
-	SDluBn9o903uz1enxU0DDFvJv1nCjg6He3E20y3HqcaoTyT9hNTzGFVeteErzFP4OCWrOzomCiQYz
-	43DWvO5+EruAZUn0alEg==;
+	List-Owner; bh=JcGGt9xh3izZJu+bXwxghHuqsDjUKGGDjgVvaCDwFWA=; b=zmUSVnuzfxwNEg
+	n5sm4Ww53p21gxX6BN6VsatjzGjIx9Xe9q/tUqSSsrsV/LIORlLyalYEeo5DHVcn7pGnChL00dOZ9
+	95RV4nGx0GI26uF2fPZ8PKFnhJclcj1SgXyfxZ2OrkJf5fGU+nZc/xnd1aWjPcmu63T1GCFUPkMC+
+	e0iUFY2qCoDqvmwqYMzTsGGQYl/aKPyNXHNF/BXyo8wHRuxR5JtxAT9zQUqCtpV4c2GihIHTaaSTg
+	RleSZrKZbqnWiL6f5Tn3TEfxKrVd7HmjPObd4iYl2Zd55avQ+yTEtmoRRWPubPI1WdumIGV2Wsucx
+	nBTdDJRqW7jWs5gq6sgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovfE8-00EYen-K1; Thu, 17 Nov 2022 13:46:48 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1ovfdP-00Ej7u-Pp; Thu, 17 Nov 2022 14:12:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oveAf-00DpAS-LB
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 12:39:20 +0000
-Received: by mail-lf1-x136.google.com with SMTP id r12so2599038lfp.1
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 04:39:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h4hrgwR9xnCDr51n3fdp00uxvM1qxvtjLs1CREbVNEk=;
-        b=HF4FiUQ6/w+AftRvyWCh5rJaRsMFRfTirfeRSE6ds+8XUVnSS6qJNMaxo3JpNrG50A
-         Xjp9lmgxkvNRlykHsH0zcWZ9UdBAsBroFZiaTQ1G4lzQOQDav/Jz5uV48YrTUgkb2cXb
-         XpBTBsQGd5Sgq8rLopfS6lxd0IowcFKcKuTrFmr5hFpQk7l/9m4bJlQuRA7O2/WDVQ0T
-         rphD84o8n6aleS5yqUvrkTv0+ycb3DoHaYEwc+RFJSPTXn+DMzEFty8xI3oyyhikohx/
-         fU+VSkSjAqISigf5wZEvTvELRqPLAmTk5/NO/2DmGErSEddtfWptZd2Mh1b17IyXvzsQ
-         VF0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h4hrgwR9xnCDr51n3fdp00uxvM1qxvtjLs1CREbVNEk=;
-        b=NlFxg++uASsa0bwlmD7rta0c0tzooz3vjJrdWauX9rSNHxC2jO4cWhNIIfkWJ4qm21
-         0wn+Cg/Ieg3TP+mtO7/QwdcqNwQgE/xUYoek5FYrIFT4o/aHYJl7fHhAjBvBOAzCtvYy
-         AA97XXpi+uu2RZPiFuTt4syJJty3f7636jNJi+IGoVEbn95Uksi9Lnr1b8O9esAk9GZk
-         GHNmunWr+fbDIGcCzuUhbo2VTXOelQ0oh6M6H2yZ6wbS8yA1l64q2t2TXCorm2A9eWod
-         Ln7DH7K3VXfeXF+yX6bGJQt4/1mC/+cDqiKDiMXV74AeaUYoPscWmag+QHhePv/75PJA
-         DdJg==
-X-Gm-Message-State: ANoB5pnQMI7xWCAzlkKV0JaRXD4blK9sPB7NgrOjivF709mMdUqJ5xmu
-	UIQXBds5ViasDSc0uzz+FEpEHw==
-X-Google-Smtp-Source: AA0mqf7ef6nEPygTMQnxCI1/Fv0CM3nx1MR0FVmF3GlFHePLr89X3zOSEWUT5w5HU7/15cNaNlt2zA==
-X-Received: by 2002:a05:6512:208a:b0:4b4:b2c6:5d28 with SMTP id t10-20020a056512208a00b004b4b2c65d28mr745241lfr.47.1668688746515;
-        Thu, 17 Nov 2022 04:39:06 -0800 (PST)
-Received: from krzk-bin.NAT.warszawa.vectranet.pl (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id u28-20020ac24c3c000000b004972b0bb426sm127855lfq.257.2022.11.17.04.39.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Nov 2022 04:39:05 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mtd@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-spi@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-watchdog@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [RFC PATCH 1/9] dt-bindings: drop redundant part of title of shared bindings
-Date: Thu, 17 Nov 2022 13:38:42 +0100
-Message-Id: <20221117123850.368213-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
-References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
+	id 1ovfdD-00Ej2w-70; Thu, 17 Nov 2022 14:12:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=MW5+NnO2Tu8NlwdFq3hDFtaofKcS5eP2XdeVQ9JCU3g=; b=AbnKE5Jc6O+H3xaGhMYqGrC3y9
+	YVacd7j962DPg4af6H/+3simUiSgbuK/6G4zOl6bRYUYuLlrfnrdtOe9kgHbyzTTSHzpcEqu7qPv4
+	i/tQVeVWKIRgJXbg5hWxJebKtN2EOimPdIUqJ5UPTvtVLIe3VOu+NAxDi+ao2G6T7X7leU6AgOQe+
+	EVJz3gbkA7CnSkui7IjODrAPkhoYTvJzucvlcmObLasetIt9Y4UcnCmj1L8efJmwNseYneU9uObMI
+	C3+2NforbJUN9mRB2v294ooOYsk2XW5dJTDvRy1Ypp9Befi7H88f/EarR5pfO0ONSMvNsDK5hGMyP
+	m8CTMzhg==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ovfd5-001hCk-C8; Thu, 17 Nov 2022 14:12:35 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 81A68300220;
+	Thu, 17 Nov 2022 15:12:32 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 6829C207D6247; Thu, 17 Nov 2022 15:12:32 +0100 (CET)
+Date: Thu, 17 Nov 2022 15:12:32 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+	x86@kernel.org, "Paul E. McKenney" <paulmck@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [RFC PATCH v2 8/8] sched, smp: Trace smp callback causing an IPI
+Message-ID: <Y3ZBUMteJysc1/lA@hirez.programming.kicks-ass.net>
+References: <20221102182949.3119584-1-vschneid@redhat.com>
+ <20221102183336.3120536-7-vschneid@redhat.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_043909_771119_7D546D7B 
-X-CRM114-Status: GOOD (  11.37  )
+Content-Disposition: inline
+In-Reply-To: <20221102183336.3120536-7-vschneid@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,325 +95,273 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Devicetree bindings document does not have to say in the title that
-it is a "binding", but instead just describe the hardware.  For shared
-(re-usable) schemas, name them all as "common properties".
+On Wed, Nov 02, 2022 at 06:33:36PM +0000, Valentin Schneider wrote:
+> The newly-introduced ipi_send_cpumask tracepoint has a "callback" parameter
+> which so far has only been fed with NULL.
+> 
+> While CSD_TYPE_SYNC/ASYNC and CSD_TYPE_IRQ_WORK share a similar backing
+> struct layout (meaning their callback func can be accessed without caring
+> about the actual CSD type), CSD_TYPE_TTWU doesn't even have a function
+> attached to its struct. This means we need to check the type of a CSD
+> before eventually dereferencing its associated callback.
+> 
+> This isn't as trivial as it sounds: the CSD type is stored in
+> __call_single_node.u_flags, which get cleared right before the callback is
+> executed via csd_unlock(). This implies checking the CSD type before it is
+> enqueued on the call_single_queue, as the target CPU's queue can be flushed
+> before we get to sending an IPI.
+> 
+> Furthermore, send_call_function_single_ipi() only has a CPU parameter, and
+> would need to have an additional argument to trickle down the invoked
+> function. This is somewhat silly, as the extra argument will always be
+> pushed down to the function even when nothing is being traced, which is
+> unnecessary overhead.
+> 
+> Two options present themselves:
+> a) Create copies of send_call_function_{single_ipi, ipi_mask}() that take
+>    an extra argument used for tracing, so that codepaths remain unchanged
+>    when tracing isn't in effect (a sort of manual -fipa-sra).
+> 
+> b) Stash the CSD func in somewhere as a side effect that
+>    the portion of send_call_function_{single_ipi, ipi_mask}() under the
+>    tracepoint's static key can fetch.
+> 
+> a) creates redundant code, and b) is quite fragile due to requiring extra
+> care for "reentrant" functions (async SMP calls).
+> 
+> This implements a).
+> 
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> ---
+>  kernel/irq_work.c   |  2 ++
+>  kernel/sched/core.c | 35 ++++++++++++++++++++++++-----------
+>  kernel/sched/smp.h  |  1 +
+>  kernel/smp.c        | 42 ++++++++++++++++++++++++++++++++++++++----
+>  4 files changed, 65 insertions(+), 15 deletions(-)
+> 
+> diff --git a/kernel/irq_work.c b/kernel/irq_work.c
+> index aec38c294ce68..fcfa75c4a5daf 100644
+> --- a/kernel/irq_work.c
+> +++ b/kernel/irq_work.c
+> @@ -24,6 +24,8 @@
+>  
+>  #include <trace/events/ipi.h>
+>  
+> +#include "sched/smp.h"
+> +
+>  static DEFINE_PER_CPU(struct llist_head, raised_list);
+>  static DEFINE_PER_CPU(struct llist_head, lazy_list);
+>  static DEFINE_PER_CPU(struct task_struct *, irq_workd);
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 02181f8072b5f..41196ca67e913 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -3743,17 +3743,30 @@ void sched_ttwu_pending(void *arg)
+>  	rq_unlock_irqrestore(rq, &rf);
+>  }
+>  
+> -void send_call_function_single_ipi(int cpu)
+> -{
+> -	struct rq *rq = cpu_rq(cpu);
+> -
+> -	if (!set_nr_if_polling(rq->idle)) {
+> -		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
+> -		arch_send_call_function_single_ipi(cpu);
+> -	} else {
+> -		trace_sched_wake_idle_without_ipi(cpu);
+> -	}
+> -}
+> +/*
+> + * We want a variant that traces the function causing the IPI to be sent, but
+> + * we don't want the extra argument to cause unnecessary overhead when tracing
+> + * isn't happening.
+> + */
+> +#define GEN_CFSI(suffix, IPI_EXP, ...)						\
+> +void send_call_function_single_ipi##suffix(__VA_ARGS__)				\
+> +{										\
+> +	struct rq *rq = cpu_rq(cpu);						\
+> +										\
+> +	if (!set_nr_if_polling(rq->idle)) {					\
+> +		IPI_EXP;							\
+> +		arch_send_call_function_single_ipi(cpu);			\
+> +	} else {								\
+> +		trace_sched_wake_idle_without_ipi(cpu);				\
+> +	}									\
+> +}
+> +
+> +GEN_CFSI(/* nop */,
+> +	 /* nop */,
+> +	 int cpu)
+> +GEN_CFSI(_trace,
+> +	 trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, func),
+> +	 int cpu, smp_call_func_t func)
+>  
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+*yuck*
+
+How about something like so?
+
 ---
- Documentation/devicetree/bindings/clock/qcom,gcc.yaml         | 2 +-
- Documentation/devicetree/bindings/dma/dma-common.yaml         | 2 +-
- Documentation/devicetree/bindings/dma/dma-controller.yaml     | 4 ++--
- Documentation/devicetree/bindings/dma/dma-router.yaml         | 4 ++--
- Documentation/devicetree/bindings/iio/adc/adc.yaml            | 2 +-
- .../devicetree/bindings/media/video-interface-devices.yaml    | 2 +-
- Documentation/devicetree/bindings/media/video-interfaces.yaml | 2 +-
- Documentation/devicetree/bindings/mmc/mmc-controller.yaml     | 2 +-
- Documentation/devicetree/bindings/mtd/nand-chip.yaml          | 2 +-
- Documentation/devicetree/bindings/mtd/nand-controller.yaml    | 2 +-
- .../bindings/net/bluetooth/bluetooth-controller.yaml          | 2 +-
- Documentation/devicetree/bindings/net/can/can-controller.yaml | 2 +-
- .../devicetree/bindings/net/ethernet-controller.yaml          | 2 +-
- Documentation/devicetree/bindings/net/ethernet-phy.yaml       | 2 +-
- Documentation/devicetree/bindings/net/mdio.yaml               | 2 +-
- Documentation/devicetree/bindings/opp/opp-v2-base.yaml        | 2 +-
- .../devicetree/bindings/power/reset/restart-handler.yaml      | 2 +-
- Documentation/devicetree/bindings/rtc/rtc.yaml                | 2 +-
- .../devicetree/bindings/soundwire/soundwire-controller.yaml   | 2 +-
- Documentation/devicetree/bindings/spi/spi-controller.yaml     | 2 +-
- Documentation/devicetree/bindings/watchdog/watchdog.yaml      | 2 +-
- 21 files changed, 23 insertions(+), 23 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
-index 1ab416c83c8d..d2de3d128b73 100644
---- a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/clock/qcom,gcc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+--- a/kernel/irq_work.c
++++ b/kernel/irq_work.c
+@@ -24,6 +24,8 @@
  
--title: Qualcomm Global Clock & Reset Controller Common Bindings
-+title: Qualcomm Global Clock & Reset Controller common parts
+ #include <trace/events/ipi.h>
  
- maintainers:
-   - Stephen Boyd <sboyd@kernel.org>
-diff --git a/Documentation/devicetree/bindings/dma/dma-common.yaml b/Documentation/devicetree/bindings/dma/dma-common.yaml
-index ad06d36af208..9b7b94fdbb0b 100644
---- a/Documentation/devicetree/bindings/dma/dma-common.yaml
-+++ b/Documentation/devicetree/bindings/dma/dma-common.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/dma/dma-common.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
++#include "sched/smp.h"
++
+ static DEFINE_PER_CPU(struct llist_head, raised_list);
+ static DEFINE_PER_CPU(struct llist_head, lazy_list);
+ static DEFINE_PER_CPU(struct task_struct *, irq_workd);
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -3763,16 +3763,17 @@ void sched_ttwu_pending(void *arg)
+ 	rq_unlock_irqrestore(rq, &rf);
+ }
  
--title: DMA Engine Generic Binding
-+title: DMA Engine common properties
+-void send_call_function_single_ipi(int cpu)
++bool send_call_function_single_ipi(int cpu)
+ {
+ 	struct rq *rq = cpu_rq(cpu);
  
- maintainers:
-   - Vinod Koul <vkoul@kernel.org>
-diff --git a/Documentation/devicetree/bindings/dma/dma-controller.yaml b/Documentation/devicetree/bindings/dma/dma-controller.yaml
-index 6d3727267fa8..225a141c7b5c 100644
---- a/Documentation/devicetree/bindings/dma/dma-controller.yaml
-+++ b/Documentation/devicetree/bindings/dma/dma-controller.yaml
-@@ -4,13 +4,13 @@
- $id: http://devicetree.org/schemas/dma/dma-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 	if (!set_nr_if_polling(rq->idle)) {
+-		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, NULL);
+ 		arch_send_call_function_single_ipi(cpu);
+-	} else {
+-		trace_sched_wake_idle_without_ipi(cpu);
++		return true;
+ 	}
++
++	trace_sched_wake_idle_without_ipi(cpu);
++	return false;
+ }
  
--title: DMA Controller Generic Binding
-+title: DMA Controller common properties
+ /*
+--- a/kernel/sched/smp.h
++++ b/kernel/sched/smp.h
+@@ -6,7 +6,7 @@
  
- maintainers:
-   - Vinod Koul <vkoul@kernel.org>
+ extern void sched_ttwu_pending(void *arg);
  
- allOf:
--  - $ref: "dma-common.yaml#"
-+  - $ref: dma-common.yaml#
+-extern void send_call_function_single_ipi(int cpu);
++extern bool send_call_function_single_ipi(int cpu);
  
- # Everything else is described in the common file
- properties:
-diff --git a/Documentation/devicetree/bindings/dma/dma-router.yaml b/Documentation/devicetree/bindings/dma/dma-router.yaml
-index 4b817f5dc30e..0ebd7bc6232b 100644
---- a/Documentation/devicetree/bindings/dma/dma-router.yaml
-+++ b/Documentation/devicetree/bindings/dma/dma-router.yaml
-@@ -4,13 +4,13 @@
- $id: http://devicetree.org/schemas/dma/dma-router.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+ #ifdef CONFIG_SMP
+ extern void flush_smp_call_function_queue(void);
+--- a/kernel/smp.c
++++ b/kernel/smp.c
+@@ -163,7 +163,6 @@ void __init call_function_init(void)
+ static inline void
+ send_call_function_ipi_mask(const struct cpumask *mask)
+ {
+-	trace_ipi_send_cpumask(mask, _RET_IP_, func);
+ 	arch_send_call_function_ipi_mask(mask);
+ }
  
--title: DMA Router Generic Binding
-+title: DMA Router common properties
+@@ -438,11 +437,16 @@ static void __smp_call_single_queue_debu
+ 	struct cfd_seq_local *seq = this_cpu_ptr(&cfd_seq_local);
+ 	struct call_function_data *cfd = this_cpu_ptr(&cfd_data);
+ 	struct cfd_percpu *pcpu = per_cpu_ptr(cfd->pcpu, cpu);
++	struct __call_single_data *csd;
++
++	csd = container_of(node, call_single_data_t, node.llist);
++	WARN_ON_ONCE(!(CSD_TYPE(csd) & (CSD_TYPE_SYNC | CSD_TYPE_ASYNC)));
  
- maintainers:
-   - Vinod Koul <vkoul@kernel.org>
+ 	cfd_seq_store(pcpu->seq_queue, this_cpu, cpu, CFD_SEQ_QUEUE);
+ 	if (llist_add(node, &per_cpu(call_single_queue, cpu))) {
+ 		cfd_seq_store(pcpu->seq_ipi, this_cpu, cpu, CFD_SEQ_IPI);
+ 		cfd_seq_store(seq->ping, this_cpu, cpu, CFD_SEQ_PING);
++		trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, csd->func);
+ 		send_call_function_single_ipi(cpu);
+ 		cfd_seq_store(seq->pinged, this_cpu, cpu, CFD_SEQ_PINGED);
+ 	} else {
+@@ -487,6 +491,27 @@ static __always_inline void csd_unlock(s
  
- allOf:
--  - $ref: "dma-common.yaml#"
-+  - $ref: dma-common.yaml#
+ static DEFINE_PER_CPU_SHARED_ALIGNED(call_single_data_t, csd_data);
  
- description:
-   DMA routers are transparent IP blocks used to route DMA request
-diff --git a/Documentation/devicetree/bindings/iio/adc/adc.yaml b/Documentation/devicetree/bindings/iio/adc/adc.yaml
-index db348fcbb52c..bd0f5fae256e 100644
---- a/Documentation/devicetree/bindings/iio/adc/adc.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/adc.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/iio/adc/adc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
++static __always_inline
++bool raw_smp_call_single_queue(int cpu, struct llist_node *node)
++{
++	/*
++	 * The list addition should be visible to the target CPU when it pops
++	 * the head of the list to pull the entry off it in the IPI handler
++	 * because of normal cache coherency rules implied by the underlying
++	 * llist ops.
++	 *
++	 * If IPIs can go out of order to the cache coherency protocol
++	 * in an architecture, sufficient synchronisation should be added
++	 * to arch code to make it appear to obey cache coherency WRT
++	 * locking and barrier primitives. Generic code isn't really
++	 * equipped to do the right thing...
++	 */
++	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
++		return send_call_function_single_ipi(cpu);
++
++	return false;
++}
++
+ void __smp_call_single_queue(int cpu, struct llist_node *node)
+ {
+ #ifdef CONFIG_CSD_LOCK_WAIT_DEBUG
+@@ -503,19 +528,28 @@ void __smp_call_single_queue(int cpu, st
+ #endif
  
--title: Generic IIO bindings for ADC channels
-+title: IIO common properties for ADC channels
+ 	/*
+-	 * The list addition should be visible to the target CPU when it pops
+-	 * the head of the list to pull the entry off it in the IPI handler
+-	 * because of normal cache coherency rules implied by the underlying
+-	 * llist ops.
+-	 *
+-	 * If IPIs can go out of order to the cache coherency protocol
+-	 * in an architecture, sufficient synchronisation should be added
+-	 * to arch code to make it appear to obey cache coherency WRT
+-	 * locking and barrier primitives. Generic code isn't really
+-	 * equipped to do the right thing...
+-	 */
+-	if (llist_add(node, &per_cpu(call_single_queue, cpu)))
+-		send_call_function_single_ipi(cpu);
++	 * We have to check the type of the CSD before queueing it, because
++	 * once queued it can have its flags cleared by
++	 *   flush_smp_call_function_queue()
++	 * even if we haven't sent the smp_call IPI yet (e.g. the stopper
++	 * executes migration_cpu_stop() on the remote CPU).
++	 */
++	if (trace_ipi_send_cpumask_enabled()) {
++		call_single_data_t *csd;
++		smp_call_func_t func;
++
++		csd = container_of(node, call_single_data_t, node.llist);
++
++		func = sched_ttwu_pending;
++		if (CSD_TYPE(csd) != CSD_TYPE_TTWU)
++			func = csd->func;
++
++		if (raw_smp_call_single_queue(cpu, node))
++			trace_ipi_send_cpumask(cpumask_of(cpu), _RET_IP_, func);
++		return;
++	}
++
++	raw_smp_call_single_queue(cpu, node);
+ }
  
- maintainers:
-   - Jonathan Cameron <jic23@kernel.org>
-diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-index 4527f56a5a6e..bd719cb1813e 100644
---- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-+++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/media/video-interface-devices.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
+ /*
+@@ -983,10 +1017,13 @@ static void smp_call_function_many_cond(
+ 		 * number of CPUs might be zero due to concurrent changes to the
+ 		 * provided mask.
+ 		 */
+-		if (nr_cpus == 1)
++		if (nr_cpus == 1) {
++			trace_ipi_send_cpumask(cpumask_of(last_cpu), _RET_IP_, func);
+ 			send_call_function_single_ipi(last_cpu);
+-		else if (likely(nr_cpus > 1))
+-			send_call_function_ipi_mask(cfd->cpumask_ipi);
++		} else if (likely(nr_cpus > 1)) {
++			trace_ipi_send_cpumask(mask, _RET_IP_, func);
++			send_call_function_ipi_mask(mask);
++		}
  
--title: Common bindings for video receiver and transmitter devices
-+title: Common properties for video receiver and transmitter devices
- 
- maintainers:
-   - Jacopo Mondi <jacopo@jmondi.org>
-diff --git a/Documentation/devicetree/bindings/media/video-interfaces.yaml b/Documentation/devicetree/bindings/media/video-interfaces.yaml
-index 68c3b9871cf3..e8cf73794772 100644
---- a/Documentation/devicetree/bindings/media/video-interfaces.yaml
-+++ b/Documentation/devicetree/bindings/media/video-interfaces.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/media/video-interfaces.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Common bindings for video receiver and transmitter interface endpoints
-+title: Common properties for video receiver and transmitter interface endpoints
- 
- maintainers:
-   - Sakari Ailus <sakari.ailus@linux.intel.com>
-diff --git a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
-index 802e3ca8be4d..a17f49738abd 100644
---- a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
-+++ b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/mmc/mmc-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: MMC Controller Generic Binding
-+title: MMC Controller common properties
- 
- maintainers:
-   - Ulf Hansson <ulf.hansson@linaro.org>
-diff --git a/Documentation/devicetree/bindings/mtd/nand-chip.yaml b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
-index 97ac3a3fbb52..20b195ef9b70 100644
---- a/Documentation/devicetree/bindings/mtd/nand-chip.yaml
-+++ b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/mtd/nand-chip.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: NAND Chip and NAND Controller Generic Binding
-+title: NAND Chip and NAND Controller common properties
- 
- maintainers:
-   - Miquel Raynal <miquel.raynal@bootlin.com>
-diff --git a/Documentation/devicetree/bindings/mtd/nand-controller.yaml b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
-index 359a015d4e5a..a004efc42842 100644
---- a/Documentation/devicetree/bindings/mtd/nand-controller.yaml
-+++ b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: NAND Chip and NAND Controller Generic Binding
-+title: NAND Chip and NAND Controller common properties
- 
- maintainers:
-   - Miquel Raynal <miquel.raynal@bootlin.com>
-diff --git a/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml b/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
-index 9309dc40f54f..8715adff5eaf 100644
---- a/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
-+++ b/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/net/bluetooth/bluetooth-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Bluetooth Controller Generic Binding
-+title: Bluetooth Controller common properties
- 
- maintainers:
-   - Marcel Holtmann <marcel@holtmann.org>
-diff --git a/Documentation/devicetree/bindings/net/can/can-controller.yaml b/Documentation/devicetree/bindings/net/can/can-controller.yaml
-index 1f0e98051074..3747b46cf9b6 100644
---- a/Documentation/devicetree/bindings/net/can/can-controller.yaml
-+++ b/Documentation/devicetree/bindings/net/can/can-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/net/can/can-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: CAN Controller Generic Binding
-+title: CAN Controller common properties
- 
- maintainers:
-   - Marc Kleine-Budde <mkl@pengutronix.de>
-diff --git a/Documentation/devicetree/bindings/net/ethernet-controller.yaml b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-index 3aef506fa158..26502c0f2aff 100644
---- a/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-+++ b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/net/ethernet-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Ethernet Controller Generic Binding
-+title: Ethernet Controller common properties
- 
- maintainers:
-   - David S. Miller <davem@davemloft.net>
-diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-index ad808e9ce5b9..0aa1b60e78cc 100644
---- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-+++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/net/ethernet-phy.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Ethernet PHY Generic Binding
-+title: Ethernet PHY common properties
- 
- maintainers:
-   - Andrew Lunn <andrew@lunn.ch>
-diff --git a/Documentation/devicetree/bindings/net/mdio.yaml b/Documentation/devicetree/bindings/net/mdio.yaml
-index b5706d4e7e38..b184689dd6b2 100644
---- a/Documentation/devicetree/bindings/net/mdio.yaml
-+++ b/Documentation/devicetree/bindings/net/mdio.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/net/mdio.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: MDIO Bus Generic Binding
-+title: MDIO Bus common properties
- 
- maintainers:
-   - Andrew Lunn <andrew@lunn.ch>
-diff --git a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
-index cf9c2f7bddc2..20ac432dc683 100644
---- a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
-+++ b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/opp/opp-v2-base.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Generic OPP (Operating Performance Points) Common Binding
-+title: Generic OPP (Operating Performance Points) common parts
- 
- maintainers:
-   - Viresh Kumar <viresh.kumar@linaro.org>
-diff --git a/Documentation/devicetree/bindings/power/reset/restart-handler.yaml b/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
-index 1f9a2aac53c0..8b52fd156d4c 100644
---- a/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
-+++ b/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/power/reset/restart-handler.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Restart and shutdown handler generic binding
-+title: Restart and shutdown handler common properties
- 
- maintainers:
-   - Sebastian Reichel <sre@kernel.org>
-diff --git a/Documentation/devicetree/bindings/rtc/rtc.yaml b/Documentation/devicetree/bindings/rtc/rtc.yaml
-index 0ec3551f12dd..00848a5a409e 100644
---- a/Documentation/devicetree/bindings/rtc/rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/rtc.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/rtc/rtc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: RTC Generic Binding
-+title: Real Time Clock common properties
- 
- maintainers:
-   - Alexandre Belloni <alexandre.belloni@bootlin.com>
-diff --git a/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml b/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
-index 4aad121eff3f..2176033850dc 100644
---- a/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
-+++ b/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/soundwire/soundwire-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: SoundWire Controller Generic Binding
-+title: SoundWire Controller common properties
- 
- maintainers:
-   - Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-diff --git a/Documentation/devicetree/bindings/spi/spi-controller.yaml b/Documentation/devicetree/bindings/spi/spi-controller.yaml
-index 01042a7f382e..6bbe073f894b 100644
---- a/Documentation/devicetree/bindings/spi/spi-controller.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-controller.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/spi/spi-controller.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: SPI Controller Generic Binding
-+title: SPI Controller common properties
- 
- maintainers:
-   - Mark Brown <broonie@kernel.org>
-diff --git a/Documentation/devicetree/bindings/watchdog/watchdog.yaml b/Documentation/devicetree/bindings/watchdog/watchdog.yaml
-index e3dfb02f0ca5..6875cf1c3159 100644
---- a/Documentation/devicetree/bindings/watchdog/watchdog.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/watchdog.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/watchdog/watchdog.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Watchdog Generic Bindings
-+title: Watchdog common properties
- 
- maintainers:
-   - Guenter Roeck <linux@roeck-us.net>
--- 
-2.34.1
-
+ 		cfd_seq_store(this_cpu_ptr(&cfd_seq_local)->pinged, this_cpu, CFD_SEQ_NOCPU, CFD_SEQ_PINGED);
+ 	}
 
 _______________________________________________
 linux-riscv mailing list
