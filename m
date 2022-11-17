@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F221C43217
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 15:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623CAC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 15:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dP86Q7nbQ77Fjll7FNe6wkV9FM56EBhw5W2zcJ8cFZo=; b=yhL7gzeJiVVHkJ
-	QLzjV1jxYNilbTRrMPM5Sm9wJTg9yWZZ6y01BdO50LGDeHKsy8O3paEwlmqy4xqG4TL3R8uAK7jMJ
-	egryu9BJqavnnn0ewsZ+w2+cqDF6+ZPlt1FwBXyijHMWchF65KNCvpAxvGJlUpK2mUtPDE7n6CHqj
-	FU/tercE/2Dx+1eF1TNikdhHJmjAeiT10oM9Ru2roDxQbYJvdkgCadS3CESO+Grqa7dsfqDcKzS5a
-	82PJNj2G2PFnYJ29UWdS0U4mVMKlL1kP6iEwNm94PGyNTq2rgxfiMZro1cSifRxKW2qsXJJ5VV8VW
-	yc4n6ueXwDk99db0joUQ==;
+	List-Owner; bh=1/N0WlU80V0trp/SGGCHMpSqrk55GkmPny7FVz5GJXk=; b=aU5R8gQAlZ1dRT
+	786NDIrf7jpmCmP9ynFv4h4yX5ltiKCwCk/9tKF5alo6B/BQO+ALWVTLHYKEYMxRpZyMvTQZNd/pg
+	LoOvfk0Dys7fhFBJOSmHWpohpkmYmeG4i8v0tnxuEsNMLcuUcP00/L5Fn5TkzGhN/wvzhWg1VmNkS
+	aPkeIwOwTkw+spKJtJP4v/kfSfxKV/ndrQ0m+7qPZiK4lOvNIWpzsa+UPKksAsNtbFQoKoXbaX8qG
+	1xe67KBXnlNK2QKryrJRocAyVG2j2WI1uSnqEsEeMClZMrc+RcXrFzlqL47dsn9n7TnQuZCgmRVPA
+	mfHtQuOGjnlgfQcysAAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovh2z-00FTtw-Nc; Thu, 17 Nov 2022 15:43:25 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ovhIP-00FcxU-Mk; Thu, 17 Nov 2022 15:59:21 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovh2w-00FTr7-0F; Thu, 17 Nov 2022 15:43:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 73F77B820D1;
-	Thu, 17 Nov 2022 15:43:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFE49C43141;
-	Thu, 17 Nov 2022 15:43:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668699798;
-	bh=IlMz1HuDGTEi4UcjN5UC5MjvYMpLuVoL5C47NsVRGi8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MV8KXCxPDxlnaKY59Ujsn17Jn1JdwF3WvZA/R6qSE+Vgo8B1k3a66PghuhUHoUAss
-	 q1qmQjdYWZ66do8Iotpe05/KaXsL/OOazs1FQlD5C0ptx+UgOdPtPy9PTTgN0cJ685
-	 sY5Yb7RLF2M2NYHHcEIT0vHf4q1CLDMkOVgYiJB7hM9K7cBlsRxDWVerLGrMYdr0o4
-	 zwWhRKYct7ge6cD3RECAtdsoAXfvaNmc9lYCMT1w7N0VL2GX9ZmgIMb2CBQtQ5a9UL
-	 osTF3yuuWf753W3Muwm9jNqMGvDF+HBrLhW/rdAm7AbW2yTaQLoymAeOKqA7ghtOtj
-	 dwvVHqvAKTJxA==
-Received: by mail-ed1-f41.google.com with SMTP id f7so3098033edc.6;
-        Thu, 17 Nov 2022 07:43:18 -0800 (PST)
-X-Gm-Message-State: ANoB5pnMlwSxm3xuW9ToAvF6LqUurpfHJizhgPAi+f+JHUoORp8s8XkF
-	63ucWYIR0P8fLyQ4KunviqKXMVYokCPlimR5WmI=
-X-Google-Smtp-Source: AA0mqf6yeL/kc+GepGU3lHwiws6jGGEpvGMgRGXApxJyDYVtsnBS08Lxnq97WJBlvE5zOz5GgDwYWXD1f3rHkpU/XMM=
-X-Received: by 2002:a05:6402:1a:b0:467:30ad:c4ca with SMTP id
- d26-20020a056402001a00b0046730adc4camr2658516edu.285.1668699796927; Thu, 17
- Nov 2022 07:43:16 -0800 (PST)
+	id 1ovhI7-00Fccl-FI; Thu, 17 Nov 2022 15:59:05 +0000
+Received: from frapeml500006.china.huawei.com (unknown [172.18.147.201])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4NCkxL2vgnz67FVn;
+	Thu, 17 Nov 2022 23:54:14 +0800 (CST)
+Received: from lhrpeml500005.china.huawei.com (7.191.163.240) by
+ frapeml500006.china.huawei.com (7.182.85.219) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Thu, 17 Nov 2022 16:58:57 +0100
+Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
+ (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.31; Thu, 17 Nov
+ 2022 15:58:56 +0000
+Date: Thu, 17 Nov 2022 15:58:55 +0000
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Andrew Lunn <andrew@lunn.ch>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-pm@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<linux-iio@vger.kernel.org>, <linux-input@vger.kernel.org>,
+	<linux-leds@vger.kernel.org>, <linux-media@vger.kernel.org>,
+	<linux-mips@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
+	<linux-mtd@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-can@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-pwm@vger.kernel.org>, <linux-rtc@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, <alsa-devel@alsa-project.org>,
+	<linux-spi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+	<virtualization@lists.linux-foundation.org>, <linux-watchdog@vger.kernel.org>
+Subject: Re: [RFC PATCH 5/9] dt-bindings: drop redundant part of title (end,
+ part two)
+Message-ID: <20221117155855.000066f7@Huawei.com>
+In-Reply-To: <20221117123850.368213-6-krzysztof.kozlowski@linaro.org>
+References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
+	<20221117123850.368213-6-krzysztof.kozlowski@linaro.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20221026144208.373504-1-xianting.tian@linux.alibaba.com> <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 17 Nov 2022 23:43:05 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS4XzZXLR_+mhWUce3HFNP0KrVdBAexq+RAxuHrThuhEg@mail.gmail.com>
-Message-ID: <CAJF2gTS4XzZXLR_+mhWUce3HFNP0KrVdBAexq+RAxuHrThuhEg@mail.gmail.com>
-Subject: Re: [PATCH V5 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	anup@brainfault.org, heiko@sntech.de, mick@ics.forth.gr, 
-	alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com, 
-	dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com, 
-	bagasdotme@gmail.com, kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	crash-utility@redhat.com, heinrich.schuchardt@canonical.com, 
-	k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
+X-Originating-IP: [10.202.227.76]
+X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
+ lhrpeml500005.china.huawei.com (7.191.163.240)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_074322_360360_FD5754AA 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20221117_075903_840889_CB0B9C27 
+X-CRM114-Status: UNSURE (   5.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,89 +86,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tested-by: Guo Ren <guoren@kernel.org>
+On Thu, 17 Nov 2022 13:38:46 +0100
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
 
-On Wed, Oct 26, 2022 at 10:42 PM Xianting Tian
-<xianting.tian@linux.alibaba.com> wrote:
->
-> Add arch_crash_save_vmcoreinfo(), which exports VM layout(MODULES, VMALLOC,
-> VMEMMAP ranges and KERNEL_LINK_ADDR), va bits and ram base for vmcore.
->
-> Default pagetable levels and PAGE_OFFSET aren't same for different kernel
-> version as below. For pagetable levels, it sets sv57 by default and falls
-> back to setting sv48 at boot time if sv57 is not supported by the hardware.
->
-> For ram base, the default value is 0x80200000 for qemu riscv64 env and,
-> for example, is 0x200000 on the XuanTie 910 CPU.
->
->  * Linux Kernel 5.18 ~
->  *      PGTABLE_LEVELS = 5
->  *      PAGE_OFFSET = 0xff60000000000000
->  * Linux Kernel 5.17 ~
->  *      PGTABLE_LEVELS = 4
->  *      PAGE_OFFSET = 0xffffaf8000000000
->  * Linux Kernel 4.19 ~
->  *      PGTABLE_LEVELS = 3
->  *      PAGE_OFFSET = 0xffffffe000000000
->
-> Since these configurations change from time to time and version to version,
-> it is preferable to export them via vmcoreinfo than to change the crash's
-> code frequently, it can simplify the development of crash tool.
->
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> ---
->  arch/riscv/kernel/Makefile     |  1 +
->  arch/riscv/kernel/crash_core.c | 21 +++++++++++++++++++++
->  2 files changed, 22 insertions(+)
->  create mode 100644 arch/riscv/kernel/crash_core.c
->
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index db6e4b1294ba..4cf303a779ab 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -81,6 +81,7 @@ obj-$(CONFIG_KGDB)            += kgdb.o
->  obj-$(CONFIG_KEXEC_CORE)       += kexec_relocate.o crash_save_regs.o machine_kexec.o
->  obj-$(CONFIG_KEXEC_FILE)       += elf_kexec.o machine_kexec_file.o
->  obj-$(CONFIG_CRASH_DUMP)       += crash_dump.o
-> +obj-$(CONFIG_CRASH_CORE)       += crash_core.o
->
->  obj-$(CONFIG_JUMP_LABEL)       += jump_label.o
->
-> diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
-> new file mode 100644
-> index 000000000000..b351a3c01355
-> --- /dev/null
-> +++ b/arch/riscv/kernel/crash_core.c
-> @@ -0,0 +1,21 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +#include <linux/crash_core.h>
-> +#include <linux/pagemap.h>
-> +
-> +void arch_crash_save_vmcoreinfo(void)
-> +{
-> +       VMCOREINFO_NUMBER(VA_BITS);
-> +       VMCOREINFO_NUMBER(phys_ram_base);
-> +
-> +       vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
-> +       vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
-> +       vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
-> +       vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
-> +       vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
-> +#ifdef CONFIG_64BIT
-> +       vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
-> +       vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
-> +#endif
-> +       vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
-> +}
-> --
-> 2.17.1
->
+> The Devicetree bindings document does not have to say in the title that
+> it is a "binding", but instead just describe the hardware.
+> 
+> Drop trailing "Node|Tree|Generic bindings" in various forms (also with
+> trailling full stop):
+> 
+>   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
+>     -not -name 'trivial-devices.yaml' \
+>     -exec sed -i -e 's/^title: \(.*\) [nN]ode [bB]indings\?\.\?$/title: \1/' {} \;
+> 
+>   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
+>     -not -name 'trivial-devices.yaml' \
+>     -exec sed -i -e 's/^title: \(.*\) [tT]ree [bB]indings\?\.\?$/title: \1/' {} \;
+> 
+>   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
+>     -not -name 'trivial-devices.yaml' \
+>     -exec sed -i -e 's/^title: \(.*\) [gG]eneric [bB]indings\?\.\?$/title: \1/' {} \;
+> 
+>   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
+>     -not -name 'trivial-devices.yaml' \
+>     -exec sed -i -e 's/^title: \(.*\) [bB]indings\? description\.\?$/title: \1/' {} \;
+> 
+>   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
+>     -not -name 'trivial-devices.yaml' \
+>     -exec sed -i -e 's/^title: \(.*\) [bB]indings\? document\.\?$/title: \1/' {} \;
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+FWIW eyeballed these as well and all look good to me.
+
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
 
--- 
-Best Regards
- Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
