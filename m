@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E57C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 16:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1E8C43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 16:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RwoeEWKBCymxOysMCEpxTwed8DI4zrTtiVb/Qp5TNaU=; b=e8eN45wp8HT+iT
-	KQVifiYOkg89TZAz0vnc8KWt4wRK3rXZseeLDX3DF9xGv21Bhusat5Yg6NJAoKo3XAJ+Hi5N9a+7j
-	EXYnLWN1SeHSRotCAJ7QXx9ICL1jmN2NKVGMo+nK+yTocYyW+A+d9pT2g3PF5bYE2ij1Adf+6cMU7
-	+XA1Kg1dwnyJPk6Q9dwX+siJG3+MBXYKzIZgmUsLBdK9psEbZtfXYolsQKfheDHKfQgJNsq+a+oP0
-	6hQjwoMO2WowPDXT7IyQtBCG+St2iU1bftDhdXi7f3SIqV2W07/AOS2sRo2NOqrrCAHvAjSmiAzBP
-	hg/XZd6fo1Ei+MUROVaA==;
+	List-Owner; bh=wSvJaBxymdedXGzW+wbni5m5dC8YiDx2RViVh5XwLMM=; b=gNhvhinBR0a/UN
+	LYM4Onh38qBiAX+dB396/wuclBzkVJ8Fh1FGPnfb2Z14JnFy6jdroDkPH2L/fwKYflGKHtmnGdlaV
+	TVbYs7Ozklwt9yAQzJuevJ/huiiyIkOV8Zv9MSz7hUt6/fkLp5Viu/WjPqrFtB8z/ekjF0fcemFtV
+	lhKUY8Fdq21RHGudDMcUSkK4Y0pZEhA0JfsFMM1ty9UL1n9tVTLkhxshSQIWlV/0Dkt62Edcj09eO
+	ko+RZVT0W9dQnou91FVvP3cXDY+HzjBJCrv++edYtOPBkB8c6hYtbMMQr8d51ufm2R51BKntr0+C5
+	m0dSAF5byQjCW0f/MQVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovhN8-00Ffyt-Tt; Thu, 17 Nov 2022 16:04:14 +0000
+	id 1ovhPR-00FhCt-6q; Thu, 17 Nov 2022 16:06:37 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovhKy-00Fefr-RE; Thu, 17 Nov 2022 16:02:04 +0000
-Received: from frapeml100003.china.huawei.com (unknown [172.18.147.201])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4NCl3S1NS9z6H7Rh;
-	Thu, 17 Nov 2022 23:59:32 +0800 (CST)
+	id 1ovhML-00FfY5-Ds; Thu, 17 Nov 2022 16:03:27 +0000
+Received: from fraeml741-chm.china.huawei.com (unknown [172.18.147.200])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4NCl2S2j0Yz6H6px;
+	Thu, 17 Nov 2022 23:58:40 +0800 (CST)
 Received: from lhrpeml500005.china.huawei.com (7.191.163.240) by
- frapeml100003.china.huawei.com (7.182.85.60) with Microsoft SMTP Server
+ fraeml741-chm.china.huawei.com (10.206.15.222) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Thu, 17 Nov 2022 17:01:58 +0100
+ 15.1.2375.31; Thu, 17 Nov 2022 17:03:23 +0100
 Received: from localhost (10.202.227.76) by lhrpeml500005.china.huawei.com
  (7.191.163.240) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.31; Thu, 17 Nov
- 2022 16:01:57 +0000
-Date: Thu, 17 Nov 2022 16:01:56 +0000
+ 2022 16:03:22 +0000
+Date: Thu, 17 Nov 2022 16:03:21 +0000
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -53,12 +53,12 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<linux-serial@vger.kernel.org>, <alsa-devel@alsa-project.org>,
 	<linux-spi@vger.kernel.org>, <linux-usb@vger.kernel.org>,
 	<virtualization@lists.linux-foundation.org>, <linux-watchdog@vger.kernel.org>
-Subject: Re: [RFC PATCH 7/9] dt-bindings: drop redundant part of title
- (beginning)
-Message-ID: <20221117160156.00004e31@Huawei.com>
-In-Reply-To: <20221117123850.368213-8-krzysztof.kozlowski@linaro.org>
+Subject: Re: [RFC PATCH 8/9] dt-bindings: clock: drop redundant part of
+ title
+Message-ID: <20221117160321.00003c45@Huawei.com>
+In-Reply-To: <20221117123850.368213-9-krzysztof.kozlowski@linaro.org>
 References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
-	<20221117123850.368213-8-krzysztof.kozlowski@linaro.org>
+	<20221117123850.368213-9-krzysztof.kozlowski@linaro.org>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 4.1.0 (GTK 3.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
@@ -67,8 +67,8 @@ X-ClientProxiedBy: lhrpeml100001.china.huawei.com (7.191.160.183) To
  lhrpeml500005.china.huawei.com (7.191.163.240)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_080201_076198_5411E68A 
-X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-CacheID: sfid-20221117_080325_655698_69BB79B8 
+X-CRM114-Status: UNSURE (   5.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,31 +86,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Nov 2022 13:38:48 +0100
+On Thu, 17 Nov 2022 13:38:49 +0100
 Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
 
 > The Devicetree bindings document does not have to say in the title that
 > it is a "Devicetree binding", but instead just describe the hardware.
 > 
-> Drop beginning "Devicetree bindings" in various forms:
+> Drop "Devicetree bindings" in various forms:
 > 
 >   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [dD]evice[ -]\?[tT]ree [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
+>     -exec sed -i -e 's/^title: [dD]evice[ -]\?[tT]ree [cC]lock [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2 Clock Controller/' {} \;
 > 
 >   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
-> 
->   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [dD][tT] [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
+>     -exec sed -i -e 's/^title: [cC]lock [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2 Clock Controller/' {} \;
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 LGTM
-
 Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-Oh for consistent capitalization though ;)
-
-
 
 _______________________________________________
 linux-riscv mailing list
