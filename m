@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A46C43217
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 09:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D937C43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 09:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aN6mr1GNrY9WUzbVk3ckix2c511Wsm4fMm0iE5raUCg=; b=xiLKWBHG81y00N
-	P4tuQi8gLQIKrFBWwpsntrS5HmwWUcpypWZnmL0lSOp1rJskiWWcuqqBSrF6wWv79Bxub/+QS1K3y
-	QhgJ7OSaMzZ1BeGwcY8/wJth8e/jk5ku8Cf+EMmNYvfLjet5vY7kCAtDhU/dPWKsMhjo++6BtwMfb
-	a8jGH/tylOAXRnt9gxS6MYonXkgMQeFQKlXmxn7sBfPM5kYX8yC5ex4Rzy5GHGGLV7Q4ukVsLueaW
-	SEKco2t+r+Pn6TXBLml95Ff567TVe0sKxxLxPdaRw1CYCFFNQjcsjshdLwSox74JW8FV2j6U+4MYQ
-	VmATFeibNo8HcR7fOTMg==;
+	List-Owner; bh=x6khUQIilWa+57z52ezUFxnqVas3b5vxIahVKh/sup8=; b=H29UQz/DyA2P7L
+	mX+QCsf/kBZwoNeGXBQ1YRGQLnxzcnNoMywMZxCnd1kJCP0bl6fYNIjqamFe0G6mLg8mKHVIXMy+g
+	AQwcvm9tVmsSc3eYTLlTHXj1sN0A2n/LxB5kan7+ngl6/rfoplW9jPlqYFZoJIyOx4hU4tNfFkQdp
+	UuFZ+qHiNzW/oPTD5pUbXpsu0BGYro6o+tL4K0VRhKbP/wKoQLheKo4YtAqmvmhetfCpPq5pXJNUA
+	qW6Q4XzYO6e8fCbbBqQa2BIcEU/N1RXIAsmH7zW9zwZlQSM3jEn7NZKrySrys1Uk3o30QQeopL5KL
+	VlDJiue6bcNrDqByUYvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovast-00Bwl7-3H; Thu, 17 Nov 2022 09:08:35 +0000
+	id 1ovavN-00Bxuf-Iz; Thu, 17 Nov 2022 09:11:09 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovasj-00BwjM-Mk; Thu, 17 Nov 2022 09:08:25 +0000
+	id 1ovavD-00BxqI-Nm; Thu, 17 Nov 2022 09:10:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=aQk2rEVdOyLC8MBnXpxdsdOtZKvioHnImfV1oOS2Xtg=; b=I3xClU65IacOMLf2bWeSauP7FF
-	FV50Hi48EBk2WK6Yehcm6XtdcO6hf4dsN2DMpSf1Q8J+ZcUcJOT8oIO1945EQRsvfdc4JvICopd0l
-	Ui4r6qLsEQxO7P9sxXUeh9gS9sZqkCJSKZK2ctS17TuNst0NjO4G5IjBK7pt6TA2UoyWMLe7JrlZ4
-	3rVanZNI9MF1KBvk8SzTNZKx8hjhh1qDV56hj7OC6Wv8JNJ6ypUqg8KZLLfwkKn7jGczcYvLbevRx
-	fdi5hL+kowpdqhlUAfa1HbfNoACRcwrRe8SG0NXXobWd3RkjDM5DSjIiSED2Yxip/fi/HuoFKOMRj
-	0mZtwn6g==;
+	bh=rs9mPbZMWkmGpFMwZXAxzgJsIHnGFVekqWq8NHBYPaE=; b=R1R3c0H1DMOPHL2EgzaQiKmWc6
+	4g7vKNmWUZA3OnVQZ/791nS7MV15HGuXYR4LWct/zjRRgTK+dNnL85b46VmpoobJ+EHG/3iX5n7IA
+	+equo9lBjaJUg3gTG+mevrb7K9jv6FfkkHfl2p47Rs0cy6NoLBkr9vyQZjccWCdTguIbSq3W8L+M+
+	g5vZQ/0UzVMiD70Ih/xvhFHjAJMHV/ca+Xik2nReUKV0TeWwkr909DO60dbGyjqIg2jCR8xKkeWGW
+	uwTyKLOnFvLCxPonjQNLfIhyogu3+VVn7IZf6T5ilF6RWcC9C3xOpf/z/mpnIIqLWzT4qucfdy49N
+	D47XaqmA==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovasi-000qMs-De; Thu, 17 Nov 2022 09:08:24 +0000
+	id 1ovavI-000qVG-8t; Thu, 17 Nov 2022 09:11:04 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D7E6F30002E;
-	Thu, 17 Nov 2022 10:08:15 +0100 (CET)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 7C93830002E;
+	Thu, 17 Nov 2022 10:10:57 +0100 (CET)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id C282320B670CB; Thu, 17 Nov 2022 10:08:15 +0100 (CET)
-Date: Thu, 17 Nov 2022 10:08:15 +0100
+	id 64B5420B670CB; Thu, 17 Nov 2022 10:10:57 +0100 (CET)
+Date: Thu, 17 Nov 2022 10:10:57 +0100
 From: Peter Zijlstra <peterz@infradead.org>
 To: Valentin Schneider <vschneid@redhat.com>
 Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -72,14 +72,14 @@ Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Russell King <linux@armlinux.org.uk>,
 	Nicholas Piggin <npiggin@gmail.com>, Guo Ren <guoren@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [RFC PATCH v2 4/8] smp: Trace IPIs sent via
- arch_send_call_function_ipi_mask()
-Message-ID: <Y3X5/65o8127DgZl@hirez.programming.kicks-ass.net>
+Subject: Re: [RFC PATCH v2 5/8] irq_work: Trace self-IPIs sent via
+ arch_irq_work_raise()
+Message-ID: <Y3X6oQdySdXBh7v8@hirez.programming.kicks-ass.net>
 References: <20221102182949.3119584-1-vschneid@redhat.com>
- <20221102183336.3120536-3-vschneid@redhat.com>
+ <20221102183336.3120536-4-vschneid@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221102183336.3120536-3-vschneid@redhat.com>
+In-Reply-To: <20221102183336.3120536-4-vschneid@redhat.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +96,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 02, 2022 at 06:33:32PM +0000, Valentin Schneider wrote:
-> This simply wraps around the arch function and prepends it with a
-> tracepoint, similar to send_call_function_single_ipi().
+On Wed, Nov 02, 2022 at 06:33:33PM +0000, Valentin Schneider wrote:
+> IPIs sent to remove CPUs via irq_work_queue_on() are now covered by
+> trace_ipi_send_cpumask(), add another instance of the tracepoint to cover
+> self-IPIs.
 > 
 > Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 > ---
->  kernel/smp.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+>  kernel/irq_work.c | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
 > 
-> diff --git a/kernel/smp.c b/kernel/smp.c
-> index e2ca1e2f31274..c4d561cf50d45 100644
-> --- a/kernel/smp.c
-> +++ b/kernel/smp.c
-> @@ -160,6 +160,13 @@ void __init call_function_init(void)
->  	smpcfd_prepare_cpu(smp_processor_id());
+> diff --git a/kernel/irq_work.c b/kernel/irq_work.c
+> index 7afa40fe5cc43..aec38c294ce68 100644
+> --- a/kernel/irq_work.c
+> +++ b/kernel/irq_work.c
+> @@ -22,6 +22,8 @@
+>  #include <asm/processor.h>
+>  #include <linux/kasan.h>
+>  
+> +#include <trace/events/ipi.h>
+> +
+>  static DEFINE_PER_CPU(struct llist_head, raised_list);
+>  static DEFINE_PER_CPU(struct llist_head, lazy_list);
+>  static DEFINE_PER_CPU(struct task_struct *, irq_workd);
+> @@ -74,6 +76,16 @@ void __weak arch_irq_work_raise(void)
+>  	 */
 >  }
 >  
-> +static inline void
+> +static inline void irq_work_raise(struct irq_work *work)
 
-Given the use of _RET_IP_, I would strongly recommend you use
-__always_inline.
+__always_inline, unless you want to occasionally only see it point to
+__irq_work_queue_local().
 
-> +send_call_function_ipi_mask(const struct cpumask *mask)
 > +{
-> +	trace_ipi_send_cpumask(mask, _RET_IP_, func);
-
-What's func?
-
-> +	arch_send_call_function_ipi_mask(mask);
+> +	if (trace_ipi_send_cpumask_enabled() && arch_irq_work_has_interrupt()) {
+> +		trace_ipi_send_cpumask(cpumask_of(smp_processor_id()),
+> +				       _RET_IP_,
+> +				       work->func);
+	}
+> +
+> +	arch_irq_work_raise();
 > +}
+> +
+>  /* Enqueue on current CPU, work must already be claimed and preempt disabled */
+>  static void __irq_work_queue_local(struct irq_work *work)
+>  {
+> @@ -99,7 +111,7 @@ static void __irq_work_queue_local(struct irq_work *work)
+>  
+>  	/* If the work is "lazy", handle it from next tick if any */
+>  	if (!lazy_work || tick_nohz_tick_stopped())
+> -		arch_irq_work_raise();
+> +		irq_work_raise(work);
+>  }
+>  
+>  /* Enqueue the irq work @work on the current CPU */
+> -- 
+> 2.31.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
