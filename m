@@ -4,95 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDB1C43217
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 14:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD82EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 15:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HIcSplueKnzqCCzIvXms9OeDAuluWLb6FTZsaQdDIFc=; b=EWpgZ5b5g8S6ci
-	69WonVqq0IoYo+Xz4qXKQBSpo+WvhD+Xez35pOPQ4DTUkQPZTN8NpLveIl5Fq5kBPBx5hFjjSz++a
-	dDAK2DazwYg/NSvdaAgENJogT4oazqoxUFItGNLIWgg19UY3k4n65WOZWfTspHU7iQSGbgqskXWPa
-	0gx6x9JDbj6sNEvnSM61A0YDDIjjGa7ZG2EEnFlj/zXeZXc/QIFZRXDeDVH4wGg46FBBPsOqRQgvt
-	NwCnKp0PRe7RHU89RRhC/0M9wRJrEOp+9UAeXXwtkuZ8lv7BBQkM2pIs9Z9AUTsHfgj7FBnJUduUt
-	6sPQjTSUMGRKjyn/+htA==;
+	List-Owner; bh=x35dvsKaoTwipGwhPVJLyy+j6woM+qFvh2qXO0ynzno=; b=gGfKCvzhFhoJ6f
+	8zW05Af3dsKqGu6hl2HrEenFNdcarfm0sz7A2lKKqAyW4/DJcpnwEm8XrrBNAXlEIDKQcuEvkPtVs
+	jJ4fGf2nPj8tYm0p0xBhKY/5620kN80KAlg3YeWSNgk2DntpaJUqbkcNeWiF5yE+oT++87aAW8QML
+	0x2c7RBqBC0bhpVY+XcCQ0T0+R/VNHTj4cPQsmFCoGbckIoeVlySCWXV+trftXbX8uMAdj48BlRCu
+	y/eBTROqII0Z+mwJh4E4+4wQzhyzbQkl3E6G7f6K8r5sR6a0vPJHpn8Vmo0rTPrxsxOUvYg6o+yhi
+	fxE1vAi1Z4/K7iYTlKNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovgLy-00F2SA-7R; Thu, 17 Nov 2022 14:58:58 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1ovgcp-00F9Zi-4X; Thu, 17 Nov 2022 15:16:23 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovgLu-00F2PX-IE
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 14:58:56 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id j16so3167246lfe.12
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 06:58:53 -0800 (PST)
+	id 1ovgcm-00F9Xn-H5
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 15:16:21 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id l22-20020a17090a3f1600b00212fbbcfb78so5680813pjc.3
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 07:16:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VSnIdJlrSu1RqwxbrwymcRNJoSgT34DNNQH025cvo20=;
-        b=Ur9szg1DKJvl3ubQjvlChH09oAO12tYaDGESWoJRFs5nbTcgL70iq6Rk6jcbyh2eSV
-         5sIr6XHiZbOMcG5vg6LYzpKXTZagjOTTXivxVfplX5GAD0O1/9QIYKFbd0XkOcolglVT
-         VrJu0CgFgUecUmcpa3we0bBiZQmSB6sCWxEucrm8wK9mxNNpZRyq2THIgu40f2wTK8zo
-         2iE5ibWayllqwdjGN++kkVQdW9OgLgRj0+rBH5OvzcLsoNEByi9LNspb+2B+W5wqkM41
-         Rwzp9Tu2wWCQ3oQ9fSXsHYYSxRuw8yfwAEchPTid10LtcwGqSDyeXQdG7IyHwjOChaWM
-         86bg==
+        d=google.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Geqy1MGLbG4CNNhTg6ig5gMw4IRIu2ApDkqg8kUu6fE=;
+        b=im3ECY8irru0d2J3PmRkK1oS6XMYGDmkKrSKiLpQr6kggh65U519LacoANhp99/wDs
+         yHeOZt/b6IK2ihlol7f0Ba2me3bs0cr3TxYhTcQThAifpYqs8dB3p/8NK2dEXBDay90O
+         bW6pXrP7B14I1MNWa+NfggtZKbyTz1rnHhMsVYBCQiIPWqcakktYyuja6CoTLxQtkpfs
+         JsqTKBMeEN72FgBWe/ihbCXP9h1x9TEb9ulziUgPn3ZIyNK23YQtGzg65j8/As9Xyk7K
+         3+HVs34s1miAiKC8ZfgoVMv73WwF3DJWJcQDYskZpYkejUuTFt6cPMAw/xSDBCQyvpM1
+         B6Kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VSnIdJlrSu1RqwxbrwymcRNJoSgT34DNNQH025cvo20=;
-        b=YSJ5A/zfFOjyieAl4vwBvTBaK8Tr2GjqOq2zHivehmFakjkqGDKtaF1xs+vA3n4Ij8
-         HdoTMfv3CK2wgb2oM9hf5s+VQG8B3KI9poXRNyChOC9SaNVIBWYAn5A++hVkLJF3ORJ/
-         QF9iyUSQgsjvuLH2oCUenSPN1osjdvt1w/J9FOFlncj1B/PztpmfW3UaE8bO4MI5P1vj
-         gAftbDwhA33QhjZWki8D15D3v7tryBN4iDenxzbn/xFZqV+zH3F0usBPD0Y14soV15sR
-         8nvROCp5wSziH07xzpwYK/d8kfN4Zo6QB/zMAyJLUgry+aeU3XkQQ/EXRxgtibJvOWIi
-         Mcew==
-X-Gm-Message-State: ANoB5plUmfKk/GC362aP9g+OG7wLXIHs1MutS0v2MbdN0LL1Gxiop9XG
-	68CTYVD4QfE+z4dWujuQFO017A==
-X-Google-Smtp-Source: AA0mqf4/hs47bXqsUk4ZLu/jQ1Wna1nuVovn6G3NWi6j/M3148XUWs2V/ZZa76pyYbEsKXo3MQAsvg==
-X-Received: by 2002:ac2:4a69:0:b0:4ac:d080:e1bd with SMTP id q9-20020ac24a69000000b004acd080e1bdmr1120397lfp.318.1668697131665;
-        Thu, 17 Nov 2022 06:58:51 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id r8-20020ac24d08000000b00492dfcc0e58sm186892lfi.53.2022.11.17.06.58.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Nov 2022 06:58:51 -0800 (PST)
-Message-ID: <2f35b9aa-1385-9c2b-ed60-721a835645dc@linaro.org>
-Date: Thu, 17 Nov 2022 15:58:49 +0100
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Geqy1MGLbG4CNNhTg6ig5gMw4IRIu2ApDkqg8kUu6fE=;
+        b=JxrRXZGID9gvI6w0Ho6pvH9TUnGM6kQRKukxaPxkje+91LheQF3HbtpeI3AE6unokC
+         3WHiE9Pn620NJigzykK9p2Xm6CR5QKnhtQZUA7I/ueHqX2Lh5iz2bWhcUXKkOxE1vgeL
+         2tnpLBtEr4AZAalkpTVAIIYW46DUvkfuSu59XRgv5c1avxqCkCI890JnwoG9tMyWpN09
+         eODeSVxaaT2LRJSzO6g+Xvt6bUUXQGypdeyrd37QHXlKd9KZAjWBaBYpbdBuf+lSoo7X
+         ja8vuXoF7zhMSr7ocYLuzCSoMYDO0NYT1lsCgJdHpvgzVl0KZf2b/D6Ibkxzl9Ouu420
+         fE8w==
+X-Gm-Message-State: ANoB5pmwnblYPeJJ1u7R1oopoKgBq4f7UBHiflBW/7h5TmnQNUOxeiRq
+	9SrqnNfN43uzEyThvxOm37xAkQ==
+X-Google-Smtp-Source: AA0mqf5Drbj5GGUy8zNXmPljMG8UuEFTPTHf+YuwVXyWlSocFeljs1OjIQ+Ab7mWXZMNXetmsxdGbQ==
+X-Received: by 2002:a17:90a:6b84:b0:20a:cbb0:3c9b with SMTP id w4-20020a17090a6b8400b0020acbb03c9bmr3280802pjj.81.1668698179289;
+        Thu, 17 Nov 2022 07:16:19 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id r12-20020a63e50c000000b00476dc914262sm1135777pgh.1.2022.11.17.07.16.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Nov 2022 07:16:18 -0800 (PST)
+Date: Thu, 17 Nov 2022 15:16:15 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: "Huang, Kai" <kai.huang@intel.com>
+Cc: "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
+	"Yao, Yuan" <yuan.yao@intel.com>,
+	"tglx@linutronix.de" <tglx@linutronix.de>,
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"Yamahata, Isaku" <isaku.yamahata@intel.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"pbonzini@redhat.com" <pbonzini@redhat.com>,
+	"david@redhat.com" <david@redhat.com>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"farosas@linux.ibm.com" <farosas@linux.ibm.com>,
+	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"chenhuacai@kernel.org" <chenhuacai@kernel.org>,
+	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>,
+	"vkuznets@redhat.com" <vkuznets@redhat.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"anup@brainfault.org" <anup@brainfault.org>,
+	"frankja@linux.ibm.com" <frankja@linux.ibm.com>,
+	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
+	"farman@linux.ibm.com" <farman@linux.ibm.com>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"atishp@atishpatra.org" <atishp@atishpatra.org>,
+	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
+	"Gao, Chao" <chao.gao@intel.com>
+Subject: Re: [PATCH 38/44] KVM: Disable CPU hotplug during hardware enabling
+Message-ID: <Y3ZQP3C1f8pk199t@google.com>
+References: <20221102231911.3107438-1-seanjc@google.com>
+ <20221102231911.3107438-39-seanjc@google.com>
+ <88e920944de70e7d69a98f74005b49c59b5aaa3b.camel@intel.com>
+ <b198fe971cecd301f0c7c66028cfd71dd7ba7e62.camel@intel.com>
+ <Y3PzhANShVlTXVg1@google.com>
+ <95ca433349eca601bdd2b16d70f59ba8e56d8e3f.camel@intel.com>
+ <Y3UZtoIidMyE8qVz@google.com>
+ <7fb66c497b6c41049167b05c63267cbc301b1c20.camel@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [RFC PATCH 1/9] dt-bindings: drop redundant part of title of
- shared bindings
-Content-Language: en-US
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-leds@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-mtd@lists.infradead.org, netdev@vger.kernel.org,
- linux-can@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-serial@vger.kernel.org, alsa-devel@alsa-project.org,
- linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
- virtualization@lists.linux-foundation.org, linux-watchdog@vger.kernel.org
-References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
- <20221117123850.368213-2-krzysztof.kozlowski@linaro.org>
- <Y3Y1xjOjijBsQLZA@lunn.ch>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <Y3Y1xjOjijBsQLZA@lunn.ch>
+Content-Disposition: inline
+In-Reply-To: <7fb66c497b6c41049167b05c63267cbc301b1c20.camel@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_065854_607356_5A113CDE 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221117_071620_608694_0572B9CF 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,24 +130,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2022 14:23, Andrew Lunn wrote:
->>  allOf:
->> -  - $ref: "dma-common.yaml#"
->> +  - $ref: dma-common.yaml#
->>  
->>  
->>  allOf:
->> -  - $ref: "dma-common.yaml#"
->> +  - $ref: dma-common.yaml#
+On Thu, Nov 17, 2022, Huang, Kai wrote:
+> On Wed, 2022-11-16 at 17:11 +0000, Sean Christopherson wrote:
+> > static int kvm_x86_check_processor_compatibility(void)
+> > {
+> >         int cpu = smp_processor_id();
+> >         struct cpuinfo_x86 *c = &cpu_data(cpu);
+> > 
+> >         /*
+> >          * Compatibility checks are done when loading KVM and when enabling
+> >          * hardware, e.g. during CPU hotplug, to ensure all online CPUs are
+> >          * compatible, i.e. KVM should never perform a compatibility check on
+> >          * an offline CPU.
+> >          */
+> >         WARN_ON(!cpu_online(cpu));
 > 
-> Looks like some other automated change made its way into this patch.
+> Looks good to me.  Perhaps this also can be removed, though.
 
-I forgot to mention in commit msg, but maybe better to drop it to reduce
-noise.
+Hmm, it's a bit superfluous, but I think it could fire if KVM messed up CPU
+hotplug again, e.g. if the for_each_online_cpu() => IPI raced with CPU unplug.
 
-Best regards,
-Krzysztof
+> And IMHO the removing of WARN_ON(!irq_disabled()) should be folded to the patch
+> "[PATCH 37/44] KVM: Rename and move CPUHP_AP_KVM_STARTING to ONLINE section". 
+> Because moving from STARTING section to ONLINE section changes the IRQ status
+> when the compatibility check is called.
 
+Yep, that's what I have coded up, just smushed it all together here.
 
 _______________________________________________
 linux-riscv mailing list
