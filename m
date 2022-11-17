@@ -4,44 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A635C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 11:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B925FC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 12:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VN+Eo7iWsZUfPbPmi4wEgVDGjK5ov9dfd/M+1v92Sr0=; b=KAffyMCyGxLaCI
-	cOKWjyWQFPKLEFtQkXVcCYCR4veudfLu8LfSC7hqOiD1i+EwJJlkPz3PMvj2Xut3hQyaxziWz3VsL
-	OjUeYzATNjxxdxiOgzxDQON5b/uyuJMNWEZFQ16W+hRSasF+626bcu4O4EFGOK0SDQCRS93YRZ6zb
-	/CaTOrJ0Fd/uNEewST7xlC5tl15VTy3u2R9m8S6Pj5kWO6xCOMyNIjJ6MieG40Gi7S+GGYTIaBQzc
-	WsH4HPvcXhHJlqsj00HOv/OAITwOpEQoAROks9TLXe+tMfr3e3+UWzRmaX3HPYXUr4qIPKO3FV/MM
-	R9vVID9odT1Ukl5zHmGw==;
+	List-Owner; bh=GPPmON1zaaSSyusDVX3g2VLfdQXueBIElgm+ZYijkUk=; b=g+TVVK4uo61p4X
+	oatmgKbcjhYgbxVkrK50QHSqK5YxW+2JVDnD05xEbESbepocDLH0dGQMPuapIxDdLixlkfF4DNksQ
+	wbC1ZaeSDZWJNVTjRVz4shsPRLP7zJ0zYaUHdLL3a8xVhYeDt6UQJw7LyYbo9/a+Ba4OHGK7gcVYx
+	b772Ct6PjR7IKAaLPu4DVYlEihbGCiWCTD0V7dyeNI9htBFenrExXYqUrU0tLuLF2nNn3hhFINmsZ
+	bdc27X0b0Lb8QA9cT+whMvFCCTEIhqXycL5/BxO7T6qbQQLRj49lz6GGzudTIdhPRVUlIgwVWCpmC
+	+w9C3easb1mpIMNx/nFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovdQH-00DSF4-4n; Thu, 17 Nov 2022 11:51:13 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oveB3-00DpS0-4X; Thu, 17 Nov 2022 12:39:33 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovdQE-00DSCS-0Q
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 11:51:11 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ovdQ7-0003ht-Sb; Thu, 17 Nov 2022 12:51:03 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-Date: Thu, 17 Nov 2022 12:51:02 +0100
-Message-ID: <3281765.mvXUDI8C0e@diego>
-In-Reply-To: <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
-References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de> <CA+V-a8v4=vvCMNRfOtgA2LQN+O5S3w6oQJfY5ZdBtSHCKJ=Hcw@mail.gmail.com>
+	id 1oveAi-00DpBL-2v
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 12:39:22 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id r12so2599129lfp.1
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 04:39:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ugMBQI/CGdLw5JdCEtKoVTwaKmCj5RmUXEMoLxKIBbk=;
+        b=lcPHPPZLPVoOh2gvUJWQXtKOOX+svrikFq3/iElv3IWxcU7NSiqM7IOaXs2C2lE1LK
+         NQ6Mz7EYFwXmyDOarXfupzphKJE/2muZN5dpHj1Ji5Q/l0UvY0bO8CFrfHvKOBMiI+uN
+         S/TPz9ieFvvfxxdSXt3WhiyXNJV4QoFZ1g+PkzZ+mDds6QZ+7D2h1GyWPOXifD82XpBi
+         Ft6RfBe9attwb737JofFZOKfzoS5WAjTDxQE2vnp0UKggWaxApdqploNwzYw1yZdrnuJ
+         YtUxd6G7fjvoTeu+xeLg+/kPu01LnjMI5ELRkq/DhmeqN5xwLzMsfXJDlWkL7wtqmLEL
+         96kQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ugMBQI/CGdLw5JdCEtKoVTwaKmCj5RmUXEMoLxKIBbk=;
+        b=u/6NTKdWZiKq0GY1ZOoI5Ivn58h6aK+GU1qFT257JIv/0wE6WanlSBhgOF1en05of5
+         iH0vAM5GnNrCejWRJ4NmDoinFhgjAw9YKm3HnzkXa5L0QrHUMIheFjWhKUJXTBddMdFU
+         vACeSrHGMSCykZUuSo6ATLrT71X58WP7DBQxpKBLBbQGLTiOBj+E+/QAJNYtkTMOfxM3
+         nbpvMvPOUckuWOfbpec15QtQK1ujBaZ85xaZqu9ASOHkuKcRlDRKDhL5GLU1vHusvS+v
+         MstVoFtPgsqDeRVCs8nZIVzZJ4dSpgYlnbbZ9RKbjCxsNbcdt06ovc9OIqoJDOoeM5mm
+         GiJw==
+X-Gm-Message-State: ANoB5plmBeZ9KLq8SQ3fzugW5TthyN2/xoZEJ9QJGBLb2Fyn9brWrBQq
+	8djfv7NlwWjD/t8V7fWQZ33MYg==
+X-Google-Smtp-Source: AA0mqf5J4zgczTAjGCzd24Jcix6qL84UxPJ/LL1MaY0euJIStPemkPT1hJEMAHEevs8ExijdUCjPEQ==
+X-Received: by 2002:a05:6512:746:b0:4a2:4f74:f47c with SMTP id c6-20020a056512074600b004a24f74f47cmr773458lfs.367.1668688748094;
+        Thu, 17 Nov 2022 04:39:08 -0800 (PST)
+Received: from krzk-bin.NAT.warszawa.vectranet.pl (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id u28-20020ac24c3c000000b004972b0bb426sm127855lfq.257.2022.11.17.04.39.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Nov 2022 04:39:07 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	alsa-devel@alsa-project.org,
+	linux-spi@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-watchdog@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [RFC PATCH 2/9] dt-bindings: memory-controllers: ti,gpmc-child: drop redundant part of title
+Date: Thu, 17 Nov 2022 13:38:43 +0100
+Message-Id: <20221117123850.368213-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
+References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_035110_077755_307B602D 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20221117_043912_202148_A1743198 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,73 +117,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 15. November 2022, 15:28:27 CET schrieb Lad, Prabhakar:
-> Hi Heiko,
-> 
-> Thank you for the patch.
-> 
-> On Thu, Nov 10, 2022 at 4:50 PM Heiko Stuebner <heiko@sntech.de> wrote:
-> >
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> >
-> > Alternatives live in a different section, so addresses used by call
-> > functions will point to wrong locations after the patch got applied.
-> >
-> > Similar to arm64, adjust the location to consider that offset.
-> >
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > ---
-> >  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
-> >  1 file changed, 77 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 694267d1fe81..026512ca9c4c 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
-> >         return cpu_req_feature;
-> >  }
-> >
-> > +#include <asm/parse_asm.h>
-> > +
-> > +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
-> > +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-> > +
-> > +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
-> > +{
-> > +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
-> > +}
-> > +
-> > +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
-> > +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
-> > +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
-> > +#define AUIPC_PAD              (0x00001000)
-> > +#define JALR_SHIFT             I_IMM_11_0_OPOFF
-> > +
-> > +#define to_jalr_imm(offset)                                            \
-> > +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
-> > +
-> > +#define to_auipc_imm(offset)                                           \
-> > +       ((offset & JALR_SIGN_MASK) ?                                    \
-> > +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
-> > +       (offset & AUIPC_OFFSET_MASK))
-> > +
-> > +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
-> > +                                            unsigned int len, int patch_offset)
-> > +{
-> 
-> I am yet to test this with my ASM code yet, but maybe can we move this
-> to [0] so that other erratas can make use of it too?
-> 
-> [0] arch/riscv/kernel/patch.c
+The Devicetree bindings document does not have to say in the title that
+it is a "Devicetree binding", but instead just describe the hardware.
 
-yeah, that sounds like a very good plan.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../devicetree/bindings/memory-controllers/ti,gpmc-child.yaml   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I also want to make the to_foo_imm macros shared.
-I.e. right now they're just duplicated from the ftrace patching code.
-
-Heiko
-
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ti,gpmc-child.yaml b/Documentation/devicetree/bindings/memory-controllers/ti,gpmc-child.yaml
+index 4a257fac577e..532a91d6c564 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/ti,gpmc-child.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/ti,gpmc-child.yaml
+@@ -4,7 +4,7 @@
+ $id: http://devicetree.org/schemas/memory-controllers/ti,gpmc-child.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: device tree bindings for children of the Texas Instruments GPMC
++title: Texas Instruments GPMC bus child nodes
+ 
+ maintainers:
+   - Tony Lindgren <tony@atomide.com>
+-- 
+2.34.1
 
 
 _______________________________________________
