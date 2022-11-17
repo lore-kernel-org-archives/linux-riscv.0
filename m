@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7A4C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 01:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C091C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 04:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CO9EXAUsdzeBmzpcEG0uGbMiY9V6xWgc7LP5+8g18Uo=; b=PGR6FrDurz4iua
-	etKIH12O0vS+4QrH+bILMFGltokPn0xtMf3nJSHAwGN9oWt4CsiHkHjbeqq2Aqd38tjfb53HNmjok
-	VqZtuZEsyYlQE77sRdWpXkYpNmLM9yLQ0g59PN1Su1yGFZ42ZwHzpuopf8x/urTyToFDfNhmfMIzq
-	/R+XGjg3Sqr/Aw6+o5KmH6YZh5AxdFqjwHRdS+QkfHmmfuVcmZB6lKCMWwM4kOpHjdwFQR/HZOrGg
-	+BAo4WtkkWV5h5Tffc+KHTeDachCGCLn2ziYIjrYHsiFd0s583vmpUeXrlGofO/Tx1Edh3Qcvi6Ua
-	D07mtQqCAL1hDbJlNnoQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ii27u8s6TxEC9JcHd02sD5fYsknUBOo9xCwgfqwc/9k=; b=mN0lD0BbFe/aDOX6BKStpbhZUl
+	hoElMpZvs4zTfNBMQAEA2leoJsA+6ZpI4J+6GQo8ndBA6ut+swO0vA8XEMxlxJIWeJCf9CtR0Pmpo
+	DLw6PHGWZLpFHSGzq5zqIlNsQoJK2wB+976C6MF0PgO0PtclLsZlaVtd00ZyGHVq9SeoLjkCrJ87o
+	Jczu6Z7akDIZamMs41EJlSCOgdAmLs76CDOiCd0OOxSvlxe8LI0DaTgcPp5Lu2PIKMdaKysZFywxY
+	fk2f6q0MUxrVeOKjJQ+fPZ4t+jn8gmnlvEYGZZehDGxFz54TxELws/DDkwj+j4bD9b+Lz7WwY5OC6
+	MDmkfBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovU8G-009Psr-1W; Thu, 17 Nov 2022 01:56:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ovWJk-00A8px-75; Thu, 17 Nov 2022 04:16:00 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovU8D-009PrQ-6E
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 01:55:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9A8AA6207A
-	for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 01:55:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82DC0C43146
-	for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 01:55:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668650155;
-	bh=S0DqzMJHKbSmIvt1FFR0xECdHab+RFIBJvJI8T2w/Tc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FILurbRxsifye76/ouoCgqE7Q7XsXu0jtZEqYQ/blOGZe4iwAE3DAcdHkSvQ9iTkL
-	 J+Dbz0uXB0i5AyaWIhZFlcwW8vf5pllQzyN7ilIkK/rGmQC2j0gnaQ/NrtygqtjfBD
-	 wgiV7Cvax0Wuy3SyfU/BvMX6gUxwIm9xylwzkBY6ofi6M8S+E1oV9mAIf0gYm8PlkG
-	 tQw0zq+XN6fV/PuOg0cgbYn6CECMxB0ocfC5Hu1r1cyvQNsAlDH8yk4RvdLtLM7TZo
-	 rw1eZktny/4nGr+mdpI/Br3vTqPc+ngDalg4s2/DLlG3ACQ54ijwjuvM2R3wg0yBrx
-	 pA/JXm8Ng8RNg==
-Received: by mail-ej1-f49.google.com with SMTP id n12so1515091eja.11
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 17:55:55 -0800 (PST)
-X-Gm-Message-State: ANoB5pkjuPrmA9i4djFKadwp6/nSjdfTbNJ4yccph4qXojUUsJJZlwDh
-	3F0m9VyesZOjZD2MnfFFT1tr8hMFjD00aSI67qM=
-X-Google-Smtp-Source: AA0mqf4FmoJXxKh1bucmvcCygXSBfBAcHJDD3FKzWJIRyNGTgEkiXem5V5rtshJXRD2fvl9OMRrUskOJMWYJgOlU844=
-X-Received: by 2002:a17:907:cf84:b0:78d:4795:ff1f with SMTP id
- ux4-20020a170907cf8400b0078d4795ff1fmr424058ejc.331.1668650153644; Wed, 16
- Nov 2022 17:55:53 -0800 (PST)
+	id 1ovWJg-00A8nc-SS
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 04:15:58 +0000
+Received: by mail-pg1-x536.google.com with SMTP id f3so922527pgc.2
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 20:15:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mDD27eRVr6Jpi3mv3EpbjZBfO7XDNZID1/HCkNCN7Lc=;
+        b=gq4qQ68HZFLk59q+PiEYGf4KzSPXoaHUCGwkgytoBfV4K3UXyLtQ2hMzRC5aOA5dXl
+         eaXR7lnrkMQ5OB82HlcrD6e4+rvYsdmKyUGqDxa5dzldStKrUaPEeB+uUO1cNDjU7sFO
+         2J5JcdaRhESAPx6/3TBJ+botN3IwFQ8UWQOBPtpqgMKy1AnYeOkWMKa6+1Eig6DYMkYN
+         larq/bjcceNN8CMNhOVRKuk2svcVPlK3XafSQL2ljGXKVqEsha6lkNZveRSYragc3+CC
+         61+10oaKb+iDkIrMZ3OuvCyQRiXmanL+ElMojCyZc3coiJMeGoDVZzsPVV2FwOPMlM0v
+         33tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mDD27eRVr6Jpi3mv3EpbjZBfO7XDNZID1/HCkNCN7Lc=;
+        b=LqYYIj4t965fXtMeZ9x8gibYawQJ3828tQCL6bcwsh+As3g8EalMBk7wWd3N0MtKoI
+         xP6Xz0uKRVOVn6xovNaCYaeVcJ/wtDfJogCmD+zzOuPy7W5FYW2KInIqAkVJf9ZmAl92
+         hsuiqZlS0Npl7jOq4s5GkZtLjQCGD4UEavLf3I7wPkVKpQDqPUzJaeThnoNvPwXHHAOJ
+         bNj4jAuEbb5Dm6LdrIOKDQFnFOJi6T72WVk8azVk04GjHLJKdR5Rc2Lzdi04DHJBSgt2
+         ohr/i4xrXQZLsspwZJdv1wtjeQo/cIyWWRU8/bQT8uN2ODf6e7BxC7kbrNFwVK/zP7Tf
+         a9ig==
+X-Gm-Message-State: ANoB5pkC1jk3mQgYSdeJ7iTHWZCMC7gDQ2rt1AVQoXqIge08HxHp2EDr
+	v/2JwDynv1CmATPTF8iTBXfeOw==
+X-Google-Smtp-Source: AA0mqf5V6OHqKAmUjJGcpIKqwpZ/GjFFX4NKQgV3lxyTXpAi69qVN9PHK/mDtD9wPzRAO4Z61xHymQ==
+X-Received: by 2002:a63:712:0:b0:438:e0dc:9c53 with SMTP id 18-20020a630712000000b00438e0dc9c53mr478580pgh.322.1668658555199;
+        Wed, 16 Nov 2022 20:15:55 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id fu15-20020a17090ad18f00b0020d51aefb82sm431788pjb.19.2022.11.16.20.15.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 16 Nov 2022 20:15:54 -0800 (PST)
+Date: Wed, 16 Nov 2022 20:15:51 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	anup@brainfault.org, heiko@sntech.de, guoren@kernel.org,
+	mick@ics.forth.gr, alexandre.ghiti@canonical.com, bhe@redhat.com,
+	vgoyal@redhat.com, dyoung@redhat.com, corbet@lwn.net,
+	Conor.Dooley@microchip.com, bagasdotme@gmail.com,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	crash-utility@redhat.com, heinrich.schuchardt@canonical.com,
+	k-hagio-ab@nec.com, hschauhan@nulltrace.org, yixun.lan@gmail.com
+Subject: Re: [PATCH V5 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
+Message-ID: <20221117041551.GA2197698@debug.ba.rivosinc.com>
+References: <20221026144208.373504-1-xianting.tian@linux.alibaba.com>
+ <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
 MIME-Version: 1.0
-References: <20221116031305.286634-1-suagrfillet@gmail.com>
- <20221116031305.286634-3-suagrfillet@gmail.com> <20221116084540.aslzynq4bmar6f46@kamzik>
-In-Reply-To: <20221116084540.aslzynq4bmar6f46@kamzik>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 17 Nov 2022 09:55:41 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSBdum6UwVkVq37mrH_GKssSMBCRAWKXKs31B3R3ypKpg@mail.gmail.com>
-Message-ID: <CAJF2gTSBdum6UwVkVq37mrH_GKssSMBCRAWKXKs31B3R3ypKpg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] riscv/ftrace: SAVE_ALL supports lightweight save
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Song Shuai <suagrfillet@gmail.com>, rostedt@goodmis.org, mhiramat@kernel.org, 
-	mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20221026144208.373504-2-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_175557_351304_3349D46E 
-X-CRM114-Status: GOOD (  31.97  )
+X-CRM114-CacheID: sfid-20221116_201557_132349_BD8E40EF 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,220 +92,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 16, 2022 at 4:45 PM Andrew Jones <ajones@ventanamicro.com> wrote:
+On Wed, Oct 26, 2022 at 10:42:07PM +0800, Xianting Tian wrote:
+>Add arch_crash_save_vmcoreinfo(), which exports VM layout(MODULES, VMALLOC,
+>VMEMMAP ranges and KERNEL_LINK_ADDR), va bits and ram base for vmcore.
 >
-> On Wed, Nov 16, 2022 at 11:13:04AM +0800, Song Shuai wrote:
-> > In order to make the function graph use ftrace directly, ftrace_caller
-> > should be adjusted to save the necessary regs against the pt_regs layout
-> > so it can call ftrace_graph_func reasonably.
-> >
-> > SAVE_ALL now saves all the regs according to the pt_regs struct. Here
-> > introduces a lightweight option for SAVE_ALL to save only the necessary
-> > regs for ftrace_caller.
-> >
-> > For convenience, the original argument setup for the tracing function in
-> > ftrace_[regs]_caller is killed and appended to the tail of SAVE_ALL.
-> >
-> > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-> > ---
-> >  arch/riscv/kernel/mcount-dyn.S | 110 +++++++++++++++++++++++++++------
-> >  1 file changed, 92 insertions(+), 18 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-> > index d171eca623b6..2f0a280bd7a0 100644
-> > --- a/arch/riscv/kernel/mcount-dyn.S
-> > +++ b/arch/riscv/kernel/mcount-dyn.S
-> > @@ -56,7 +56,51 @@
-> >       .endm
-> >
-> >  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-> > -     .macro SAVE_ALL
-> > +
-> > +/**
-> > +* SAVE_ALL - save regs against the pt_regs struct
-> > +*
-> > +* @all: tell if saving all the regs
+>Default pagetable levels and PAGE_OFFSET aren't same for different kernel
+>version as below. For pagetable levels, it sets sv57 by default and falls
+>back to setting sv48 at boot time if sv57 is not supported by the hardware.
 >
-> I find it odd to have a macro name that includes 'ALL' in it
-> to require a parameter 'all' to be set in order to actually save
-> all. I suggest renaming the macro to something like SAVE_REGS.
-SAVE_ABI_REGS <arg>
-arg = 0 -> SAVE_ABI in pt_regs
-arg = 1 -> SAVE_REGS
+>For ram base, the default value is 0x80200000 for qemu riscv64 env and,
+>for example, is 0x200000 on the XuanTie 910 CPU.
+>
+> * Linux Kernel 5.18 ~
+> *      PGTABLE_LEVELS = 5
+> *      PAGE_OFFSET = 0xff60000000000000
+> * Linux Kernel 5.17 ~
+> *      PGTABLE_LEVELS = 4
+> *      PAGE_OFFSET = 0xffffaf8000000000
+> * Linux Kernel 4.19 ~
+> *      PGTABLE_LEVELS = 3
+> *      PAGE_OFFSET = 0xffffffe000000000
+>
+>Since these configurations change from time to time and version to version,
+>it is preferable to export them via vmcoreinfo than to change the crash's
+>code frequently, it can simplify the development of crash tool.
+>
+>Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+>---
+> arch/riscv/kernel/Makefile     |  1 +
+> arch/riscv/kernel/crash_core.c | 21 +++++++++++++++++++++
+> 2 files changed, 22 insertions(+)
+> create mode 100644 arch/riscv/kernel/crash_core.c
+>
+>diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+>index db6e4b1294ba..4cf303a779ab 100644
+>--- a/arch/riscv/kernel/Makefile
+>+++ b/arch/riscv/kernel/Makefile
+>@@ -81,6 +81,7 @@ obj-$(CONFIG_KGDB)		+= kgdb.o
+> obj-$(CONFIG_KEXEC_CORE)	+= kexec_relocate.o crash_save_regs.o machine_kexec.o
+> obj-$(CONFIG_KEXEC_FILE)	+= elf_kexec.o machine_kexec_file.o
+> obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
+>+obj-$(CONFIG_CRASH_CORE)	+= crash_core.o
+>
+> obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
+>
+>diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
+>new file mode 100644
+>index 000000000000..b351a3c01355
+>--- /dev/null
+>+++ b/arch/riscv/kernel/crash_core.c
+>@@ -0,0 +1,21 @@
+>+// SPDX-License-Identifier: GPL-2.0-only
+>+
+>+#include <linux/crash_core.h>
+>+#include <linux/pagemap.h>
+>+
+>+void arch_crash_save_vmcoreinfo(void)
+>+{
+>+	VMCOREINFO_NUMBER(VA_BITS);
+>+	VMCOREINFO_NUMBER(phys_ram_base);
+>+
+>+	vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
+>+	vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
+>+	vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
+>+	vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
+>+	vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
+>+#ifdef CONFIG_64BIT
+>+	vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
+>+	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
+>+#endif
+>+	vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
+>+}
+>-- 
+>2.17.1
+>
 
-SAVE_ABI_REGS keeps the pt_regs layout and needs more stack space than SAVE_ABI.
+I had been looking around to play around with crash-utility.
+Applied v5 patches, triggered a crash and have been able to use crash tool with commands 
+like vtop/bt.
 
->
-> > +*
-> > +* If all is set, all the regs will be saved, otherwise only ABI
-> > +* related regs (a0-a7,epc,ra and optional s0) will be saved.
-> > +*
-> > +* For convenience the argument setup for tracing function is appended here.
-> > +* Especially $sp is passed as the 4th argument of the tracing function.
-> > +*
-> > +* After the stack is established,
-> > +*
-> > +* 0(sp) stores the PC of the traced function which can be accessed
-> > +* by &(fregs)->regs->epc in tracing function. Note that the real
-> > +* function entry address should be computed with -FENTRY_RA_OFFSET.
-> > +*
-> > +* 8(sp) stores the function return address (i.e. parent IP) that
-> > +* can be accessed by &(fregs)->regs->ra in tracing function.
-> > +*
-> > +* The other regs are saved at the respective localtion and accessed
-> > +* by the respective pt_regs member.
-> > +*
-> > +* Here is the layout of stack for your reference.
-> > +*
-> > +*
-> > +*                    =========
-> > +*                    |  pip  |
-> > +* PT_SIZE_ON_STACK  ->  =========
-> > +*                    + ..... +
-> > +*                    + t3-t6 +
-> > +*                    + s2-s11+
-> > +*                    + a0-a7 + --++++-> ftrace_caller saved
-> > +*                    + s1    +   +
-> > +*                    + s0    + --+
-> > +*                    + t0-t2 +   +
-> > +*                    + tp    +   +
-> > +*                    + gp    +   +
-> > +*                    + sp    +   +
-> > +*                    + ra    + --+ // parent IP
-> > +*            sp  ->  + epc   + --+ // PC of the traced function
-> > +*                    +++++++++
-> > +**/
-> > +     .macro SAVE_ALL, all=0
-> >       addi    sp, sp, -SZREG
-> >       addi    sp, sp, -PT_SIZE_ON_STACK
-> >
-> > @@ -67,14 +111,8 @@
-> >       REG_S x1,  PT_RA(sp)
-> >       REG_L x1,  PT_EPC(sp)
-> >
-> > -     REG_S x2,  PT_SP(sp)
-> > -     REG_S x3,  PT_GP(sp)
-> > -     REG_S x4,  PT_TP(sp)
-> > -     REG_S x5,  PT_T0(sp)
-> > -     REG_S x6,  PT_T1(sp)
-> > -     REG_S x7,  PT_T2(sp)
-> > -     REG_S x8,  PT_S0(sp)
-> > -     REG_S x9,  PT_S1(sp)
-> > +     /* always save the ABI regs */
-> > +
-> >       REG_S x10, PT_A0(sp)
-> >       REG_S x11, PT_A1(sp)
-> >       REG_S x12, PT_A2(sp)
-> > @@ -83,6 +121,18 @@
-> >       REG_S x15, PT_A5(sp)
-> >       REG_S x16, PT_A6(sp)
-> >       REG_S x17, PT_A7(sp)
-> > +
-> > +     /* save leftover regs for ftrace_regs_caller*/
-> > +
-> > +     .if \all == 1
-> > +     REG_S x2,  PT_SP(sp)
-> > +     REG_S x3,  PT_GP(sp)
-> > +     REG_S x4,  PT_TP(sp)
-> > +     REG_S x5,  PT_T0(sp)
-> > +     REG_S x6,  PT_T1(sp)
-> > +     REG_S x7,  PT_T2(sp)
-> > +     REG_S x8,  PT_S0(sp)
-> > +     REG_S x9,  PT_S1(sp)
-> >       REG_S x18, PT_S2(sp)
-> >       REG_S x19, PT_S3(sp)
-> >       REG_S x20, PT_S4(sp)
-> > @@ -97,22 +147,31 @@
-> >       REG_S x29, PT_T4(sp)
-> >       REG_S x30, PT_T5(sp)
-> >       REG_S x31, PT_T6(sp)
-> > +     .else
-> > +
-> > +     /* save s0 for ftrace_caller if FP_TEST defined */
-> > +
-> > +#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-> > +     REG_S x8,  PT_S0(sp)
-> > +#endif
-> > +     .endif
-> > +
-> > +     /* setup 4 args for tracing functions  */
-> > +
-> > +     addi    a0, ra, -FENTRY_RA_OFFSET // ip
-> > +     la      a1, function_trace_op
-> > +     REG_L   a2, 0(a1)               // op
-> > +     REG_L   a1, PT_SIZE_ON_STACK(sp) // parent_ip
-> > +     mv      a3, sp                  // fregs
->
-> Please line up the comments.
->
-> >       .endm
-> >
-> > -     .macro RESTORE_ALL
-> > +     .macro RESTORE_ALL, all=0
-> >       REG_L x1,  PT_RA(sp)
-> >       addi    sp, sp, PT_SIZE_ON_STACK
-> >       REG_S x1,  (sp)
-> >       addi    sp, sp, -PT_SIZE_ON_STACK
-> >       REG_L x1,  PT_EPC(sp)
-> > -     REG_L x2,  PT_SP(sp)
-> > -     REG_L x3,  PT_GP(sp)
-> > -     REG_L x4,  PT_TP(sp)
-> > -     REG_L x5,  PT_T0(sp)
-> > -     REG_L x6,  PT_T1(sp)
-> > -     REG_L x7,  PT_T2(sp)
-> > -     REG_L x8,  PT_S0(sp)
-> > -     REG_L x9,  PT_S1(sp)
-> > +
-> >       REG_L x10, PT_A0(sp)
-> >       REG_L x11, PT_A1(sp)
-> >       REG_L x12, PT_A2(sp)
-> > @@ -121,6 +180,16 @@
-> >       REG_L x15, PT_A5(sp)
-> >       REG_L x16, PT_A6(sp)
-> >       REG_L x17, PT_A7(sp)
-> > +
-> > +     .if \all == 1
-> > +     REG_L x2,  PT_SP(sp)
-> > +     REG_L x3,  PT_GP(sp)
-> > +     REG_L x4,  PT_TP(sp)
-> > +     REG_L x5,  PT_T0(sp)
-> > +     REG_L x6,  PT_T1(sp)
-> > +     REG_L x7,  PT_T2(sp)
-> > +     REG_L x8,  PT_S0(sp)
-> > +     REG_L x9,  PT_S1(sp)
-> >       REG_L x18, PT_S2(sp)
-> >       REG_L x19, PT_S3(sp)
-> >       REG_L x20, PT_S4(sp)
-> > @@ -136,6 +205,11 @@
-> >       REG_L x30, PT_T5(sp)
-> >       REG_L x31, PT_T6(sp)
-> >
-> > +     .else
-> > +#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-> > +     REG_L x8,  PT_S0(sp)
-> > +#endif
-> > +     .endif
-> >       addi    sp, sp, PT_SIZE_ON_STACK
-> >       addi    sp, sp, SZREG
-> >       .endm
-> > --
-> > 2.20.1
-> >
-> >
->
-> Thanks,
-> drew
+Tested-by: Deepak Gupta <debug@rivosinc.com>
 
+Thanks
+debug
 
-
--- 
-Best Regards
- Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
