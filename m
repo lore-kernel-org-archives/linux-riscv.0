@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2E8C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 16:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAF2C4708D
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 17:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qc3YFuNld4JWnx/ZCcC9zmclrkIKO73Pg9LNESoujJ0=; b=swLah9zD3DK66B5MhYQw9o2yF0
-	/CKerDC0nGjstg8+upeHvdc4fysMio8+Ty0wXUxgTUtptdn9Jv9YxN/zxTCnM9YvLYMw42I1dBEH3
-	+qRhcrFHEmsn802C6ocE4Sw+WZkBqmE09Zuk/NNICnPr1TxgVBIJEnLZOJy2/YPfAojo0PTGBNDR8
-	uQ1cA/fGbGqnVLQtUzKejzltDUyPYZGd0Z7dSV8UEHLtkOZmKLOqFu5+bXt99rfca0gFpf3EAeLja
-	QqF8OqQ2NNg06y72hMJGM2hPm/okshek/JpHi+m+63UDZ+F9hmw4eCqI/Eyvi7VHAXgApasPg5ktn
-	+gRFw0Tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+PU+XyzdLwD8cczNOvylbOOk0EchFdgcCj2X32xDJ14=; b=ARJI+J9RF6E4N2
+	Rx+yBmmaIqFg9x+E3ALzMHBCcl0E9K9NDx0iqg+kWJjrlX5gSlpJ6cfbBOn3Rjc2s2Ep7kFSZYe7A
+	o1huXJEey+VMKvttekNchoa9FmYgiqSP/YIMp8ePIfRGIGGCO/PetU6YaxHvb8ByLUJzaQAJA4jkt
+	+9SogBut46Wd9W0vpu9nrYY0HCit52U70tSc9X/cUKvd4jRZ8XNiMPLz1Ej2QHh9omrmnP1+EKWNC
+	XRYStv1YiwH0CcJzR5py5jcGCPIcTwYPzrZeI/40HvS6XU6lIfmd28nVWf4xnjbToDA8Ry9fLhbKt
+	R+7LlD/8XqpOIzfkxo/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovi5a-00GF1G-5O; Thu, 17 Nov 2022 16:50:10 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oviY0-00GK3V-PY; Thu, 17 Nov 2022 17:19:32 +0000
+Received: from mail-oa1-f51.google.com ([209.85.160.51])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovi5V-00GEzG-RN
-	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 16:50:09 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ovi5I-0000yr-1x; Thu, 17 Nov 2022 17:49:52 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ovi5F-004t6w-Uq; Thu, 17 Nov 2022 17:49:50 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ovi5G-00HKLR-AY; Thu, 17 Nov 2022 17:49:50 +0100
-Date: Thu, 17 Nov 2022 17:49:50 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20221117164950.cssukd63fywzuwua@pengutronix.de>
-References: <20221110093512.333881-1-conor.dooley@microchip.com>
- <20221110093512.333881-2-conor.dooley@microchip.com>
+	id 1oviXn-00GJyZ-BE; Thu, 17 Nov 2022 17:19:22 +0000
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-1322d768ba7so2914960fac.5;
+        Thu, 17 Nov 2022 09:19:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ger9SGrgkV6b0BuoQgNoj57O/fFgpDxNQNvEFGM4s8I=;
+        b=uU7hfGaygXlUJa3QX5bDkH32RadMAkuSmb5OBmHe5Ai/hgA1nOrubIHHsMNo7CSGCr
+         HxSknnXPMY9spQUrsBSvfUCKHD32jXmYWpjW4osj0PnakWCyPTgikow4/x16yyxG5dRf
+         jTYSyLVzAntDESs+eDjgc6307FcYYNVrV1xfRBaAKCXv0twdKy3o423F6RUltafVXI92
+         MGsnrvtUKKBy47AJxOk+8fDXUyu7mgADKrtT9dGGnJBv5wNsZrpo2s/ocyW5cNPn82rb
+         PQQqnqwBybOG8W31yIUCU6CjjXXp5ha40wy/AF4bo1wdr+aXcwt+6ZXYyi8COXWLySFt
+         SMtw==
+X-Gm-Message-State: ANoB5pm/e2Ez500Xg8DU3QMYGfWKCP3u26cEjBl06spxQklbFfUQzD/s
+	Oo/k1G1lyf31bz/NGLtAUQ==
+X-Google-Smtp-Source: AA0mqf5o4jhybeWewZl1XsiHOYq27Zp40VjC+VJXS9jK8YZdF+6zxmV04y0HajzNF6q5aF4D8E/GCg==
+X-Received: by 2002:a05:6870:4625:b0:13c:c80:6b46 with SMTP id z37-20020a056870462500b0013c0c806b46mr1850617oao.194.1668705555052;
+        Thu, 17 Nov 2022 09:19:15 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id q22-20020a9d6556000000b0066b9a6bf3bcsm558133otl.12.2022.11.17.09.19.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Nov 2022 09:19:14 -0800 (PST)
+Received: (nullmailer pid 3122049 invoked by uid 1000);
+	Thu, 17 Nov 2022 17:19:16 -0000
+Date: Thu, 17 Nov 2022 11:19:16 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-input@vger.kernel.org, linux-leds@vger.kernel.org, linux-media@vger.kernel.org, linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org, netdev@vger.kernel.org, linux-can@vger.kernel.org, linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org, alsa-devel@alsa-project.org, linux-spi@vger.kernel.org, linux-usb@vger.kernel.org, virtualization@lists.linux-foundation.org, linux-watchdog@vger.kernel.org
+Subject: Re: [RFC PATCH 1/9] dt-bindings: drop redundant part of title of
+ shared bindings
+Message-ID: <20221117171916.GA3116476-robh@kernel.org>
+References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
+ <20221117123850.368213-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <20221110093512.333881-2-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20221117123850.368213-2-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_085006_072588_12DA94A1 
-X-CRM114-Status: GOOD (  38.60  )
+X-CRM114-CacheID: sfid-20221117_091919_448137_D343E307 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,216 +75,337 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1326225900174493607=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Nov 17, 2022 at 01:38:42PM +0100, Krzysztof Kozlowski wrote:
+> The Devicetree bindings document does not have to say in the title that
+> it is a "binding", but instead just describe the hardware.  For shared
+> (re-usable) schemas, name them all as "common properties".
 
---===============1326225900174493607==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tfxqckqdcukevw6b"
-Content-Disposition: inline
+It's titles, so capitalize 'Common Properties'. Someday we may generate 
+a document from all the schemas.
 
-
---tfxqckqdcukevw6b
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello Conor,
-
-On Thu, Nov 10, 2022 at 09:35:12AM +0000, Conor Dooley wrote:
-> [...]
-> +
-> +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct pwm_devic=
-e *pwm,
-> +				 bool enable, u64 period)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u8 channel_enable, reg_offset, shift;
-> +
-> +	/*
-> +	 * There are two adjacent 8 bit control regs, the lower reg controls
-> +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper reg
-> +	 * and if so, offset by the bus width.
-> +	 */
-> +	reg_offset =3D MCHPCOREPWM_EN(pwm->hwpwm >> 3);
-> +	shift =3D pwm->hwpwm & 7;
-> +
-> +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offset);
-> +	channel_enable &=3D ~(1 << shift);
-> +	channel_enable |=3D (enable << shift);
-> +
-> +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset);
-> +	mchp_core_pwm->channel_enabled &=3D ~BIT(pwm->hwpwm);
-> +	mchp_core_pwm->channel_enabled |=3D enable << pwm->hwpwm;
-> +
-> +	/*
-> +	 * Notify the block to update the waveform from the shadow registers.
-> +	 * The updated values will not appear on the bus until they have been
-> +	 * applied to the waveform at the beginning of the next period. We must
-> +	 * write these registers and wait for them to be applied before
-> +	 * considering the channel enabled.
-> +	 * If the delay is under 1 us, sleep for at least 1 us anyway.
-> +	 */
-> +	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
-> +		u64 delay;
-> +
-> +		delay =3D div_u64(period, 1000u) ? : 1u;
-> +		writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-> +		usleep_range(delay, delay * 2);
-> +	}
-
-In some cases the delay could be prevented. e.g. when going from one
-disabled state to another. If you don't want to complicate the driver
-here, maybe point it out in a comment at least?
-
-It's not well defined if pwm_apply should only return when the new
-setting is actually active. (e.g. mxs doesn't wait)
-So I wonder: Are there any hardware restrictions between setting the
-SYNC_UPD flag and modifying the registers for duty and period? (I assume
-writing a new duty and period might then result in a glitch if the
-period just ends between the two writes.) Can you check if the hardware
-waits on such a completion, e.g. by reading that register?
-
-> +}
-> +
-> [...]
-> +
-> +static int mchp_core_pwm_apply_locked(struct pwm_chip *chip, struct pwm_=
-device *pwm,
-> +				      const struct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	struct pwm_state current_state =3D pwm->state;
-
-You're doing a copy of pwm->state just to use one of the members to pass
-it to mchp_core_pwm_enable.
-
-> +	bool period_locked;
-> +	u64 duty_steps, clk_rate;
-
-I think using unsigned long for clk_rate would be beneficial. The
-comparison against NSEC_PER_SEC might get cheaper (depending on how
-clever the compiler is), and calling mchp_core_pwm_calc_period
-should get cheaper, too. (At least on 32 bit archs.)
-
-> +	u16 prescale;
-> +	u8 period_steps;
-> +
-> +	if (!state->enabled) {
-> +		mchp_core_pwm_enable(chip, pwm, false, current_state.period);
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * If clk_rate is too big, the following multiplication might overflow.
-> +	 * However this is implausible, as the fabric of current FPGAs cannot
-> +	 * provide clocks at a rate high enough.
-> +	 */
-> +	clk_rate =3D clk_get_rate(mchp_core_pwm->clk);
-> +	if (clk_rate >=3D NSEC_PER_SEC)
-> +		return -EINVAL;
-> +
-> +	mchp_core_pwm_calc_period(state, clk_rate, &prescale, &period_steps);
-> +
-> +	/*
-> +	 * If the only thing that has changed is the duty cycle or the polarity,
-> +	 * we can shortcut the calculations and just compute/apply the new duty
-> +	 * cycle pos & neg edges
-> +	 * As all the channels share the same period, do not allow it to be
-> +	 * changed if any other channels are enabled.
-> +	 * If the period is locked, it may not be possible to use a period
-> +	 * less than that requested. In that case, we just abort.
-> +	 */
-> +	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
-> +
-> +	if (period_locked) {
-> +		u16 hw_prescale;
-> +		u8 hw_period_steps;
-> +
-> +		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCA=
-LE);
-> +		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PE=
-RIOD);
-> +
-> +		if ((period_steps + 1) * (prescale + 1) <
-> +		    (hw_period_steps + 1) * (hw_prescale + 1))
-> +			return -EINVAL;
-> +
-> +		/*
-> +		 * It is possible that something could have set the period_steps
-> +		 * register to 0xff, which would prevent us from setting a 100%
-> +		 * or 0% relative duty cycle, as explained above in
-> +		 * mchp_core_pwm_calc_period().
-> +		 * The period is locked and we cannot change this, so we abort.
-> +		 */
-> +		if (hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
-> +			return -EINVAL;
-> +
-> +		prescale =3D hw_prescale;
-> +		period_steps =3D hw_period_steps;
-> +	} else {
-> +		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
-> +	}
-> +
-> +	duty_steps =3D mchp_core_pwm_calc_duty(state, clk_rate, prescale, perio=
-d_steps);
-> +
-> +	/*
-> +	 * Because the period is per channel, it is possible that the requested
-> +	 * duty cycle is longer than the period, in which case cap it to the
-> +	 * period, IOW a 100% duty cycle.
-> +	 */
-> +	if (duty_steps > period_steps)
-> +		duty_steps =3D period_steps + 1;
-> +
-> +	mchp_core_pwm_apply_duty(chip, pwm, state, duty_steps, period_steps);
-> +
-> +	mchp_core_pwm_enable(chip, pwm, true, state->period);
-
-Don't you need to pass the previously configured period here?
-
-> +
-> +	return 0;
-> +}
-> [...]
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---tfxqckqdcukevw6b
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmN2ZisACgkQwfwUeK3K
-7AnrTgf9HYxavojYs+4gm3beFsxWaNe5EjKTGTY2LOEMUKeDrsNMsabdx/fPb04m
-s9szxna/p07wQ20Kp+zDSgDlbKyeCMm2m2aHh8K65jgUEZESRNmeUy7pXBAlXwX5
-9Q39d6cI2b6LOMTaTevEpBlgWDe+wkBm6lyo+cewVxZyGilCHOP37QL+fdSbs/8d
-1ryTwUkRU22vO6WnVD6mVlXin+43hNGtqKfrMQCAPolzOYBWAYEAwaKvr1mAujvy
-DdnRO27Zi8BQI+oyFgD3WcldC4ss+pIeP1rm4VGgh/zIkwpsuh/iDtq8SFD+VjP4
-27qpCZwIsuVNH3207VMs1/0j/BChXQ==
-=cnPa
------END PGP SIGNATURE-----
-
---tfxqckqdcukevw6b--
-
-
---===============1326225900174493607==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/clock/qcom,gcc.yaml         | 2 +-
+>  Documentation/devicetree/bindings/dma/dma-common.yaml         | 2 +-
+>  Documentation/devicetree/bindings/dma/dma-controller.yaml     | 4 ++--
+>  Documentation/devicetree/bindings/dma/dma-router.yaml         | 4 ++--
+>  Documentation/devicetree/bindings/iio/adc/adc.yaml            | 2 +-
+>  .../devicetree/bindings/media/video-interface-devices.yaml    | 2 +-
+>  Documentation/devicetree/bindings/media/video-interfaces.yaml | 2 +-
+>  Documentation/devicetree/bindings/mmc/mmc-controller.yaml     | 2 +-
+>  Documentation/devicetree/bindings/mtd/nand-chip.yaml          | 2 +-
+>  Documentation/devicetree/bindings/mtd/nand-controller.yaml    | 2 +-
+>  .../bindings/net/bluetooth/bluetooth-controller.yaml          | 2 +-
+>  Documentation/devicetree/bindings/net/can/can-controller.yaml | 2 +-
+>  .../devicetree/bindings/net/ethernet-controller.yaml          | 2 +-
+>  Documentation/devicetree/bindings/net/ethernet-phy.yaml       | 2 +-
+>  Documentation/devicetree/bindings/net/mdio.yaml               | 2 +-
+>  Documentation/devicetree/bindings/opp/opp-v2-base.yaml        | 2 +-
+>  .../devicetree/bindings/power/reset/restart-handler.yaml      | 2 +-
+>  Documentation/devicetree/bindings/rtc/rtc.yaml                | 2 +-
+>  .../devicetree/bindings/soundwire/soundwire-controller.yaml   | 2 +-
+>  Documentation/devicetree/bindings/spi/spi-controller.yaml     | 2 +-
+>  Documentation/devicetree/bindings/watchdog/watchdog.yaml      | 2 +-
+>  21 files changed, 23 insertions(+), 23 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
+> index 1ab416c83c8d..d2de3d128b73 100644
+> --- a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
+> +++ b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/clock/qcom,gcc.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Qualcomm Global Clock & Reset Controller Common Bindings
+> +title: Qualcomm Global Clock & Reset Controller common parts
+>  
+>  maintainers:
+>    - Stephen Boyd <sboyd@kernel.org>
+> diff --git a/Documentation/devicetree/bindings/dma/dma-common.yaml b/Documentation/devicetree/bindings/dma/dma-common.yaml
+> index ad06d36af208..9b7b94fdbb0b 100644
+> --- a/Documentation/devicetree/bindings/dma/dma-common.yaml
+> +++ b/Documentation/devicetree/bindings/dma/dma-common.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/dma/dma-common.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: DMA Engine Generic Binding
+> +title: DMA Engine common properties
+>  
+>  maintainers:
+>    - Vinod Koul <vkoul@kernel.org>
+> diff --git a/Documentation/devicetree/bindings/dma/dma-controller.yaml b/Documentation/devicetree/bindings/dma/dma-controller.yaml
+> index 6d3727267fa8..225a141c7b5c 100644
+> --- a/Documentation/devicetree/bindings/dma/dma-controller.yaml
+> +++ b/Documentation/devicetree/bindings/dma/dma-controller.yaml
+> @@ -4,13 +4,13 @@
+>  $id: http://devicetree.org/schemas/dma/dma-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: DMA Controller Generic Binding
+> +title: DMA Controller common properties
+>  
+>  maintainers:
+>    - Vinod Koul <vkoul@kernel.org>
+>  
+>  allOf:
+> -  - $ref: "dma-common.yaml#"
+> +  - $ref: dma-common.yaml#
+>  
+>  # Everything else is described in the common file
+>  properties:
+> diff --git a/Documentation/devicetree/bindings/dma/dma-router.yaml b/Documentation/devicetree/bindings/dma/dma-router.yaml
+> index 4b817f5dc30e..0ebd7bc6232b 100644
+> --- a/Documentation/devicetree/bindings/dma/dma-router.yaml
+> +++ b/Documentation/devicetree/bindings/dma/dma-router.yaml
+> @@ -4,13 +4,13 @@
+>  $id: http://devicetree.org/schemas/dma/dma-router.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: DMA Router Generic Binding
+> +title: DMA Router common properties
+>  
+>  maintainers:
+>    - Vinod Koul <vkoul@kernel.org>
+>  
+>  allOf:
+> -  - $ref: "dma-common.yaml#"
+> +  - $ref: dma-common.yaml#
+>  
+>  description:
+>    DMA routers are transparent IP blocks used to route DMA request
+> diff --git a/Documentation/devicetree/bindings/iio/adc/adc.yaml b/Documentation/devicetree/bindings/iio/adc/adc.yaml
+> index db348fcbb52c..bd0f5fae256e 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/adc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/adc.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/iio/adc/adc.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Generic IIO bindings for ADC channels
+> +title: IIO common properties for ADC channels
+>  
+>  maintainers:
+>    - Jonathan Cameron <jic23@kernel.org>
+> diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> index 4527f56a5a6e..bd719cb1813e 100644
+> --- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> +++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/media/video-interface-devices.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Common bindings for video receiver and transmitter devices
+> +title: Common properties for video receiver and transmitter devices
+>  
+>  maintainers:
+>    - Jacopo Mondi <jacopo@jmondi.org>
+> diff --git a/Documentation/devicetree/bindings/media/video-interfaces.yaml b/Documentation/devicetree/bindings/media/video-interfaces.yaml
+> index 68c3b9871cf3..e8cf73794772 100644
+> --- a/Documentation/devicetree/bindings/media/video-interfaces.yaml
+> +++ b/Documentation/devicetree/bindings/media/video-interfaces.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/media/video-interfaces.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Common bindings for video receiver and transmitter interface endpoints
+> +title: Common properties for video receiver and transmitter interface endpoints
+>  
+>  maintainers:
+>    - Sakari Ailus <sakari.ailus@linux.intel.com>
+> diff --git a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> index 802e3ca8be4d..a17f49738abd 100644
+> --- a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/mmc/mmc-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: MMC Controller Generic Binding
+> +title: MMC Controller common properties
+>  
+>  maintainers:
+>    - Ulf Hansson <ulf.hansson@linaro.org>
+> diff --git a/Documentation/devicetree/bindings/mtd/nand-chip.yaml b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
+> index 97ac3a3fbb52..20b195ef9b70 100644
+> --- a/Documentation/devicetree/bindings/mtd/nand-chip.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/mtd/nand-chip.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: NAND Chip and NAND Controller Generic Binding
+> +title: NAND Chip and NAND Controller common properties
+>  
+>  maintainers:
+>    - Miquel Raynal <miquel.raynal@bootlin.com>
+> diff --git a/Documentation/devicetree/bindings/mtd/nand-controller.yaml b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
+> index 359a015d4e5a..a004efc42842 100644
+> --- a/Documentation/devicetree/bindings/mtd/nand-controller.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: NAND Chip and NAND Controller Generic Binding
+> +title: NAND Chip and NAND Controller common properties
+>  
+>  maintainers:
+>    - Miquel Raynal <miquel.raynal@bootlin.com>
+> diff --git a/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml b/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
+> index 9309dc40f54f..8715adff5eaf 100644
+> --- a/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
+> +++ b/Documentation/devicetree/bindings/net/bluetooth/bluetooth-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/net/bluetooth/bluetooth-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Bluetooth Controller Generic Binding
+> +title: Bluetooth Controller common properties
+>  
+>  maintainers:
+>    - Marcel Holtmann <marcel@holtmann.org>
+> diff --git a/Documentation/devicetree/bindings/net/can/can-controller.yaml b/Documentation/devicetree/bindings/net/can/can-controller.yaml
+> index 1f0e98051074..3747b46cf9b6 100644
+> --- a/Documentation/devicetree/bindings/net/can/can-controller.yaml
+> +++ b/Documentation/devicetree/bindings/net/can/can-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/net/can/can-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: CAN Controller Generic Binding
+> +title: CAN Controller common properties
+>  
+>  maintainers:
+>    - Marc Kleine-Budde <mkl@pengutronix.de>
+> diff --git a/Documentation/devicetree/bindings/net/ethernet-controller.yaml b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
+> index 3aef506fa158..26502c0f2aff 100644
+> --- a/Documentation/devicetree/bindings/net/ethernet-controller.yaml
+> +++ b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/net/ethernet-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Ethernet Controller Generic Binding
+> +title: Ethernet Controller common properties
+>  
+>  maintainers:
+>    - David S. Miller <davem@davemloft.net>
+> diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> index ad808e9ce5b9..0aa1b60e78cc 100644
+> --- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> +++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/net/ethernet-phy.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Ethernet PHY Generic Binding
+> +title: Ethernet PHY common properties
+>  
+>  maintainers:
+>    - Andrew Lunn <andrew@lunn.ch>
+> diff --git a/Documentation/devicetree/bindings/net/mdio.yaml b/Documentation/devicetree/bindings/net/mdio.yaml
+> index b5706d4e7e38..b184689dd6b2 100644
+> --- a/Documentation/devicetree/bindings/net/mdio.yaml
+> +++ b/Documentation/devicetree/bindings/net/mdio.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/net/mdio.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: MDIO Bus Generic Binding
+> +title: MDIO Bus common properties
+>  
+>  maintainers:
+>    - Andrew Lunn <andrew@lunn.ch>
+> diff --git a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
+> index cf9c2f7bddc2..20ac432dc683 100644
+> --- a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
+> +++ b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/opp/opp-v2-base.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Generic OPP (Operating Performance Points) Common Binding
+> +title: Generic OPP (Operating Performance Points) common parts
+>  
+>  maintainers:
+>    - Viresh Kumar <viresh.kumar@linaro.org>
+> diff --git a/Documentation/devicetree/bindings/power/reset/restart-handler.yaml b/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
+> index 1f9a2aac53c0..8b52fd156d4c 100644
+> --- a/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
+> +++ b/Documentation/devicetree/bindings/power/reset/restart-handler.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/power/reset/restart-handler.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Restart and shutdown handler generic binding
+> +title: Restart and shutdown handler common properties
+>  
+>  maintainers:
+>    - Sebastian Reichel <sre@kernel.org>
+> diff --git a/Documentation/devicetree/bindings/rtc/rtc.yaml b/Documentation/devicetree/bindings/rtc/rtc.yaml
+> index 0ec3551f12dd..00848a5a409e 100644
+> --- a/Documentation/devicetree/bindings/rtc/rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/rtc.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/rtc/rtc.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: RTC Generic Binding
+> +title: Real Time Clock common properties
+>  
+>  maintainers:
+>    - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> diff --git a/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml b/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
+> index 4aad121eff3f..2176033850dc 100644
+> --- a/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
+> +++ b/Documentation/devicetree/bindings/soundwire/soundwire-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/soundwire/soundwire-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: SoundWire Controller Generic Binding
+> +title: SoundWire Controller common properties
+>  
+>  maintainers:
+>    - Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+> diff --git a/Documentation/devicetree/bindings/spi/spi-controller.yaml b/Documentation/devicetree/bindings/spi/spi-controller.yaml
+> index 01042a7f382e..6bbe073f894b 100644
+> --- a/Documentation/devicetree/bindings/spi/spi-controller.yaml
+> +++ b/Documentation/devicetree/bindings/spi/spi-controller.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/spi/spi-controller.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: SPI Controller Generic Binding
+> +title: SPI Controller common properties
+>  
+>  maintainers:
+>    - Mark Brown <broonie@kernel.org>
+> diff --git a/Documentation/devicetree/bindings/watchdog/watchdog.yaml b/Documentation/devicetree/bindings/watchdog/watchdog.yaml
+> index e3dfb02f0ca5..6875cf1c3159 100644
+> --- a/Documentation/devicetree/bindings/watchdog/watchdog.yaml
+> +++ b/Documentation/devicetree/bindings/watchdog/watchdog.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/watchdog/watchdog.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Watchdog Generic Bindings
+> +title: Watchdog common properties
+>  
+>  maintainers:
+>    - Guenter Roeck <linux@roeck-us.net>
+> -- 
+> 2.34.1
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1326225900174493607==--
-
