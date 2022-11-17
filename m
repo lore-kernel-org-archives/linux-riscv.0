@@ -4,79 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB7CC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Nov 2022 22:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2616C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Nov 2022 00:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BqcPtkPPGBPOTuniE4xHrp3u3socYVoexeaO4J4SBrM=; b=k+mdFVyBgyV1ZZZaPbT5RPqrFU
-	cN1z3JJZuujdm9QKaRkKT/5j+o257AwmOHhIdwKNQY2nQL0bR8sAtRAt3uWIOlkQnVF69fE1sdnHx
-	e0GnQrMijv4yRSrkrPngHAeQ5FbCgtV2uauKVlAGDGbss+bJB0bNwybxsPvnRB2TnQJ3+cr5bnqdu
-	tMSxusjNc8JTyWyF6Mf8Y2l3ta5G0CZvNgRyqsqVY3eHwCyGLy1kRQK0KSsfwAbGiDIp4a4StY5ta
-	Ui9V8PTkI169owlYYw2Vbj13cH1UxbyHy78StOk6l62cSFsK8TF359RN1KbJL88X8kjOfH/c3x7DY
-	3+g5BKQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MXkfQDT4dvg1MkX2A6QpOjFidmEx7jNFFlxgzbQSaCU=; b=CX4INs2KeBPIyX
+	GVurgQaAp3qxPYkN/FdJtBdV0LhnQBrXUF5giRRcMAnNZtJ06bz0TLSMxI3TfbKd9hOqNz7hSjs5D
+	1lRVdemkRtXnl/KP4aBwJ0JFlj7E1Ve+vb2mbCI1nigmPuw8jrbZ/nGTiUn8igkAiq278TWO4oJ3N
+	1IOWAlEkLEm5oGePSGh1q8NPSbpTo8el/pSqU+ObKefyN6OigPRMh3lfLNdY3hySuczmEWuYv58No
+	ikvXKURU2y4XMzkRtn7XRSEoiVe0p3PDUsI/GuY8Gx7e5pwMdzfOAZAUesyoznzBTKjwDsShnULIf
+	rXN3Qg1PEz/eJQRXod7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovQq1-008OD4-US; Wed, 16 Nov 2022 22:24:57 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1ovSgD-008xsQ-Pi; Thu, 17 Nov 2022 00:22:57 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovQpz-008OBO-Jx
-	for linux-riscv@lists.infradead.org; Wed, 16 Nov 2022 22:24:57 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id w4-20020a17090ac98400b002186f5d7a4cso158053pjt.0
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 14:24:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qPgbpEvrPuVtV0uX0POuwrvgxgpF8WubiM0vzcaA4so=;
-        b=IuJerhKF+yKKQ/RvTJicnq9jnKBtZEWexD+46jyVy8nzQF5qAOdY1A78s0uTKYWGDN
-         yvC/vIdJJ+I8AR3/AntyR/1SWO/Zx0Vcpp3RPrLMkdVRZE9dGCHUQaAI09vc1lC98mqo
-         8d0MZ/CtZJ8Z+F8Z87auOnZ+8eYSAQUCvluwEqgr/Eydal6QynNPOEFu+1xxWnAJcjMp
-         iEwILb/QGi2TnxMnJHMClym4i/o7H3T2SU0Wu0mYi5H+Kn5bsbBSlScr47TF14gLhsTb
-         N7KaoJ579MLL4pfnhRrvRnhtCTztsUk+dzB5rdPiLzuShw7gc61tSeBfd7Qb7rzfTzvG
-         HcOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qPgbpEvrPuVtV0uX0POuwrvgxgpF8WubiM0vzcaA4so=;
-        b=005AB1g3UASZWl8DKbFRd+01DqBWFl2hEKUyPtqnr+VXj5pgELat1tdWl47uDI6rmz
-         zQW/5k2OtGPpymsqIsXVXzkYVQB3/iqSlROpJ1doG9WePlyapsWYES2a2W800B4lcz0y
-         uTsfNXxrZir4Z0UX/+PjY+CEJoxmjP9fmQFoKOG2djbPFdlHc9FjLy3CUysELPdqDMsL
-         kp/IoE9neF9rRQIu3qoR11PQCgDEpGzS8w2VaLNijFESbg5xuOMeUQcTrd+x9bqFBde9
-         8mZMPQTR4MO4UHCSYClIIH+qZv7Je86y8vodFRHa+2IVIjAIMm2SqoYfMLKtsQeUJ8R7
-         OJdA==
-X-Gm-Message-State: ANoB5pnHiGiirQo9NxDwIIwzMXCug5mL5n1J+F9Tncne/xNieQSu/K0d
-	pB8Z54PIA56kFBZhC9e4y4whPQ==
-X-Google-Smtp-Source: AA0mqf5PnssZ+mPuqr2OAj2bkbk6JmM/+qfPN1Sfe8blCYJF791mmbSYKurUWVMooFwHnAgH2mzggQ==
-X-Received: by 2002:a17:90b:48cb:b0:213:f2c9:ce71 with SMTP id li11-20020a17090b48cb00b00213f2c9ce71mr5742149pjb.62.1668637490993;
-        Wed, 16 Nov 2022 14:24:50 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id 192-20020a6217c9000000b0056c04dee930sm11315551pfx.120.2022.11.16.14.24.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 16 Nov 2022 14:24:50 -0800 (PST)
-Date: Wed, 16 Nov 2022 14:24:48 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: conor.dooley@microchip.com, aou@eecs.berkeley.edu,
-	jan.kiszka@siemens.com, kbingham@kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, paul.walmsley@sifive.com
-Subject: Re: [PATCH v5] scripts/gdb: add lx_current support for riscv
-Message-ID: <20221116222448.GA2103144@debug.ba.rivosinc.com>
-References: <d65bddf3-c58a-1420-bff9-8333c10edb56@microchip.com>
- <20221115221051.1871569-1-debug@rivosinc.com>
- <20221116081649.yq7cy7isxj3nmzr3@kamzik>
+	id 1ovSg9-008xk8-Qu
+	for linux-riscv@lists.infradead.org; Thu, 17 Nov 2022 00:22:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1668644573; x=1700180573;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=KXoWRv8rOB1+AtNCLdxcm0lfGHxErPjhaM0+VnSkGxw=;
+  b=X9AcsnOCA4sqewVOWXXMuUr4Mq1Y+nRyFMSGpA025wFF5o4PoRrcq8wv
+   9q78DxNo+IrE5zyu+avsqniaiEjeQ4C8x3qZOrbBfAQDfewbh9VewiPtE
+   wEI9mbJcEfwXYt4QlRbUHzPJ6/hRqt1xYheHJbnJSUTMeraAWZdGfBL64
+   WJou+J58KqC8LpSaGBWovpRJofsBOrdR4TdqyboEZckOQH4YHo+EQpCzj
+   ylYknVMuWz1UN8ExdEftAp1WlgymC4g2PR0cJDaITnwuKk01iYUPA1o2a
+   zeg61TBymUs4aqyYU4QJrfF3RFh5sAgzivcssBua5PJFVmMcYtPRA+ESZ
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.96,169,1665417600"; 
+   d="scan'208";a="221621152"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
+  by ob1.hgst.iphmx.com with ESMTP; 17 Nov 2022 08:22:51 +0800
+IronPort-SDR: QEvn0eMKWshNyQnbLpIlvlgTQPSq+EvLzcHG5yVeGmpE9RWkqilsNHs3mV7DjCRGqRaap3Wpuy
+ Tlu3+XnLM/12B79AvXEmAU81srWCdbhEGRCcrMlHWlF0PHIlmxmh7xnJ4+tRi2AES1rbKE5YGO
+ AUyg5VdaeFkljeTgRrUW+CmrR8ze81d1G/93+CkbNKQEkoW73lFDUF3AD7LhlU8QMuqDLZn6Mn
+ Gy3Uz4iMzuhSb5gjehL/rVYTkT0LTj+qojjMi17MWUH2uXzRPV4aWepAbUkXAnvpsr7+IVnoMU
+ kGo=
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Nov 2022 15:36:03 -0800
+IronPort-SDR: lSAUDtNpEJFZRDWkURwwmwpWUoFSZMk0549XcHSUu+Np4XEIgNuyk7b3lwofJVhKnMu/gg9dUp
+ KOfbDYRD1gj6Kl/uysleoSDD99pFGDFi1G3y1M7ajZuW8bbYYGYaD0qysEPpCeu+aPEXTaxopM
+ UHtXpm/PsEkJLMJWphX4xUrmq5V2qA9Zo4OLmTDkYj27ZSUaC38027S1JksPhVsDM+OHr0EtCY
+ sHq7Slu6P5YaMNnagMNHipdzB9xs5+GVpQo8iCzywMmat3YY2BfLJ9symYcm6CdUAfPdJI8xxF
+ zfQ=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+  by uls-op-cesaip01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Nov 2022 16:22:52 -0800
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4NCLGg3CCsz1Rwt8
+	for <linux-riscv@lists.infradead.org>; Wed, 16 Nov 2022 16:22:51 -0800 (PST)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+	reason="pass (just generated, assumed good)"
+	header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+	opensource.wdc.com; h=content-transfer-encoding:content-type
+	:in-reply-to:organization:from:content-language:references:to
+	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
+	1668644568; x=1671236569; bh=KXoWRv8rOB1+AtNCLdxcm0lfGHxErPjhaM0
+	+VnSkGxw=; b=gKhk4WoIUkb8YKM5wFNOZi3cjklEw/b5QnzBD4weC+KaHIk6l/x
+	a/Xcb4BI5eS6IckGXGt42y2B4JtaMhpEAnZDL6EDVDuRFkIgrENNL+Tj1CyOI+9U
+	NFBgz1v7brmrZwAvR+EiKZNhZp7X3AOBTA/1x+9lwV69LbVTd2HhsJc1LdC+Yax7
+	kvGFrIe9Jh+I8JS3PpPP8jJEPPWIm7rOF0G16B5wMjv5hivOY7pl1/OVngncW0GT
+	W70wssJb0ZnRditLZJopgvhkxYwehIPhS+f5arm5T5bl/A+KnhViDKDNNsw/S385
+	eeGfqhj78FJd3/P3mEoD7zjbjYEg554Xh4g==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id En5kn8mWnw4s for <linux-riscv@lists.infradead.org>;
+	Wed, 16 Nov 2022 16:22:48 -0800 (PST)
+Received: from [10.225.54.48] (unknown [10.225.54.48])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4NCLGS0lckz1RvLy;
+	Wed, 16 Nov 2022 16:22:39 -0800 (PST)
+Message-ID: <e7f4e528-00d6-a05b-013c-475449ebd1d4@opensource.wdc.com>
+Date: Thu, 17 Nov 2022 09:22:38 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221116081649.yq7cy7isxj3nmzr3@kamzik>
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
+ Gecko/20100101 Thunderbird/102.4.2
+Subject: Re: Deprecating and removing SLOB
+To: Vlastimil Babka <vbabka@suse.cz>, Hyeonggon Yoo <42.hyeyoo@gmail.com>
+Cc: Conor Dooley <conor@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Christoph Lameter
+ <cl@linux.com>, David Rientjes <rientjes@google.com>,
+ Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Rustam Kovhaev <rkovhaev@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Conor.Dooley@microchip.com,
+ Paul Cercueil <paul@crapouillou.net>
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
+ <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz> <Y260tkNHc2vFITJ3@spud>
+ <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
+ <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
+ <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
+ <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
+ <Y3JU5cfyid1rBoOy@hyeyoo>
+ <97c0735c-3127-83d5-30ff-8e57c6634f6e@opensource.wdc.com>
+ <452c3833-9275-37c7-3d48-5c996c0e2557@suse.cz>
+Content-Language: en-US
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <452c3833-9275-37c7-3d48-5c996c0e2557@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221116_142455_846191_D43293B3 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20221116_162254_007881_1A7E2D51 
+X-CRM114-Status: GOOD (  45.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,125 +142,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 16, 2022 at 09:16:49AM +0100, Andrew Jones wrote:
->On Tue, Nov 15, 2022 at 02:10:51PM -0800, Deepak Gupta wrote:
->> csr_sscratch CSR holds current task_struct address when hart is in
->> user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
->> register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
->> "tp" with expected user mode value and place current task_struct address
->> again in csr_sscratch CSR.
+On 2022/11/17 2:51, Vlastimil Babka wrote:
+> On 11/15/22 05:24, Damien Le Moal wrote:
+>> On 11/14/22 23:47, Hyeonggon Yoo wrote:
+>>> On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
+>>>> On 11/14/22 18:36, Vlastimil Babka wrote:
+>>>>> On 11/14/22 06:48, Damien Le Moal wrote:
+>>>>>> On 11/14/22 10:55, Damien Le Moal wrote:
+>>>>>>> On 11/12/22 05:46, Conor Dooley wrote:
+>>>>>>>> On Fri, Nov 11, 2022 at 11:33:30AM +0100, Vlastimil Babka wrote:
+>>>>>>>>> On 11/8/22 22:44, Pasha Tatashin wrote:
+>>>>>>>>>> On Tue, Nov 8, 2022 at 10:55 AM Vlastimil Babka <vbabka@suse.cz> wrote:
+>>>>>>>>>>>
+>>>>>>>>>>> Hi,
+>>>>>>>>>>>
+>>>>>>>>>>> as we all know, we currently have three slab allocators. As we discussed
+>>>>>>>>>>> at LPC [1], it is my hope that one of these allocators has a future, and
+>>>>>>>>>>> two of them do not.
+>>>>>>>>>>>
+>>>>>>>>>>> The unsurprising reasons include code maintenance burden, other features
+>>>>>>>>>>> compatible with only a subset of allocators (or more effort spent on the
+>>>>>>>>>>> features), blocking API improvements (more on that below), and my
+>>>>>>>>>>> inability to pronounce SLAB and SLUB in a properly distinguishable way,
+>>>>>>>>>>> without resorting to spelling out the letters.
+>>>>>>>>>>>
+>>>>>>>>>>> I think (but may be proven wrong) that SLOB is the easier target of the
+>>>>>>>>>>> two to be removed, so I'd like to focus on it first.
+>>>>>>>>>>>
+>>>>>>>>>>> I believe SLOB can be removed because:
+>>>>>>>>>>>
+>>>>>>>>>>> - AFAIK nobody really uses it? It strives for minimal memory footprint
+>>>>>>>>>>> by putting all objects together, which has its CPU performance costs
+>>>>>>>>>>> (locking, lack of percpu caching, searching for free space...). I'm not
+>>>>>>>>>>> aware of any "tiny linux" deployment that opts for this. For example,
+>>>>>>>>>>> OpenWRT seems to use SLUB and the devices these days have e.g. 128MB
+>>>>>>>>>>> RAM, not up to 16 MB anymore. I've heard anecdotes that the performance
+>>>>>>>>>>> SLOB impact is too much for those who tried. Googling for
+>>>>>>>>>>> "CONFIG_SLOB=y" yielded nothing useful.
+>>>>>>>>>>
+>>>>>>>>>> I am all for removing SLOB.
+>>>>>>>>>>
+>>>>>>>>>> There are some devices with configs where SLOB is enabled by default.
+>>>>>>>>>> Perhaps, the owners/maintainers of those devices/configs should be
+>>>>>>>>>> included into this thread:
+>>>>>>>>>>
+>>>>>>>>>> tatashin@soleen:~/x/linux$ git grep SLOB=y
+>>>>>>>>
+>>>>>>>>>> arch/riscv/configs/nommu_k210_defconfig:CONFIG_SLOB=y
+>>>>>>>>>> arch/riscv/configs/nommu_k210_sdcard_defconfig:CONFIG_SLOB=y
+>>>>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_SLOB=y
+>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Turns out that since SLOB depends on EXPERT, many of those lack it so
+>>>>>>>>> running make defconfig ends up with SLUB anyway, unless I miss something.
+>>>>>>>>> Only a subset has both SLOB and EXPERT:
+>>>>>>>>>
+>>>>>>>>>> git grep CONFIG_EXPERT `git grep -l "CONFIG_SLOB=y"`
+>>>>>>>>
+>>>>>>>>> arch/riscv/configs/nommu_virt_defconfig:CONFIG_EXPERT=y
+>>>>>>>>
+>>>>>>>> I suppose there's not really a concern with the virt defconfig, but I
+>>>>>>>> did check the output of `make nommu_k210_defconfig" and despite not
+>>>>>>>> having expert it seems to end up CONFIG_SLOB=y in the generated .config.
+>>>>>>>>
+>>>>>>>> I do have a board with a k210 so I checked with s/SLOB/SLUB and it still
+>>>>>>>> boots etc, but I have no workloads or w/e to run on it.
+>>>>>>>
+>>>>>>> I sent a patch to change the k210 defconfig to using SLUB. However...
+>>>>>
+>>>>> Thanks!
+>>>>>
+>>>>>>> The current default config using SLOB gives about 630 free memory pages
+>>>>>>> after boot (cat /proc/vmstat). Switching to SLUB, this is down to about
+>>>>>>> 400 free memory pages (CONFIG_SLUB_CPU_PARTIAL is off).
+>>>>>
+>>>>> Thanks for the testing! How much RAM does the system have btw? I found 8MB
+>>>>> somewhere, is that correct?
+>>>>
+>>>> Yep, 8MB, that's it.
+>>>>
+>>>>> So 230 pages that's a ~920 kB difference. Last time we saw less  dramatic
+>>>>> difference [1]. But that was looking at Slab pages, not free pages. The
+>>>>> extra overhead could be also in percpu allocations, code etc.
+>>>>>
+>>>>>>> This is with a buildroot kernel 5.19 build including a shell and sd-card
+>>>>>>> boot. With SLUB, I get clean boots and a shell prompt as expected. But I
+>>>>>>> definitely see more errors with shell commands failing due to allocation
+>>>>>>> failures for the shell process fork. So as far as the K210 is concerned,
+>>>>>>> switching to SLUB is not ideal.
+>>>>>>>
+>>>>>>> I would not want to hold on kernel mm improvements because of this toy
+>>>>>>> k210 though, so I am not going to prevent SLOB deprecation. I just wish
+>>>>>>> SLUB itself used less memory :)
+>>>>>>
+>>>>>> Did further tests with kernel 6.0.1:
+>>>>>> * SLOB: 630 free pages after boot, shell working (occasional shell fork
+>>>>>> failure happen though)
+>>>>>> * SLAB: getting memory allocation for order 7 failures on boot already
+>>>>>> (init process). Shell barely working (high frequency of shell command fork
+>>>>>> failures)
+>>>>
+>>>> I forgot to add here that the system was down to about 500 free pages
+>>>> after boot (again from the shell with "cat /proc/vmstat").
+>>>>
+>>>>>> * SLUB: getting memory allocation for order 7 failures on boot. I do get a
+>>>>>> shell prompt but cannot run any shell command that involves forking a new
+>>>>>> process.
+>>>>
+>>>> For both slab and slub, I had cpu partial off, debug off and slab merge
+>>>> on, as I suspected that would lead to less memory overhead.
+>>>> I suspected memory fragmentation may be an issue but doing
+>>>>
+>>>> echo 3 > /proc/sys/vm/drop_caches
+>>>>
+>>>> before trying a shell command did not help much at all (it usually does on
+>>>> that board with SLOB). Note that this is all with buildroot, so this echo
+>>>> & redirect always works as it does not cause a shell fork.
+>>>>
+>>>>>>
+>>>>>> So if we want to keep the k210 support functional with a shell, we need
+>>>>>> slob. If we reduce that board support to only one application started as
+>>>>>> the init process, then I guess anything is OK.
+>>>>>
+>>>>> In [1] it was possible to save some more memory with more tuning. Some of
+>>>>> that required boot parameters and other code changes. In another reply [2] I
+>>>>> considered adding something like SLUB_TINY to take care of all that, so
+>>>>> looks like it would make sense to proceed with that.
+>>>>
+>>>> If you want me to test something, let me know.
+>>>
+>>> Would you try this please?
+>>>
+>>> diff --git a/mm/slub.c b/mm/slub.c
+>>> index a24b71041b26..1c36c4b9aaa0 100644
+>>> --- a/mm/slub.c
+>>> +++ b/mm/slub.c
+>>> @@ -4367,9 +4367,7 @@ static int kmem_cache_open(struct kmem_cache *s, slab_flags_t flags)
+>>>  	 * The larger the object size is, the more slabs we want on the partial
+>>>  	 * list to avoid pounding the page allocator excessively.
+>>>  	 */
+>>> -	s->min_partial = min_t(unsigned long, MAX_PARTIAL, ilog2(s->size) / 2);
+>>> -	s->min_partial = max_t(unsigned long, MIN_PARTIAL, s->min_partial);
+>>> -
+>>> +	s->min_partial = 0;
+>>>  	set_cpu_partial(s);
+>>>  
+>>>  #ifdef CONFIG_NUMA
+>>>
+>>>
+>>> and booting with and without boot parameter slub_max_order=0?
 >>
->> This patch assumes "tp" is pointing to task_struct. If value in
->> csr_sscratch is numerically greater than "tp" then it assumes csr_sscratch
->> is correct address of current task_struct. This logic holds when
->>    - hart is in user space, "tp" will be less than csr_sscratch.
->>    - hart is in kernel space but not in trap handler, "tp" will be more
->>      than csr_sscratch (csr_sscratch being equal to 0).
->>    - hart is executing trap handler
->>        - "tp" is still pointing to user mode but csr_sscratch contains
->>           ptr to task_struct. Thus numerically higher.
->>        - "tp" is  pointing to task_struct but csr_sscratch now contains
->>           either 0 or numerically smaller value (transiently holds
->>           user mode tp)
+>> Test notes: I used Linus 6.1-rc5 as the base. That is the only thing I
+>> changed in buildroot default config for the sipeed maix bit card, booting
+>> with SD card. The test is: booting and run "cat /proc/vmstat" and register
+>> the nr_free_pages value. I repeated the boot + cat 3 to 4 times for each case.
 >>
->> Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
+>> Here are the results:
 >>
->> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>> 6.1-rc5, SLOB:
+>>     - 623 free pages
+>>     - 629 free pages
+>>     - 629 free pages
+>> 6.1-rc5, SLUB:
+>>     - 448 free pages
+>>     - 448 free pages
+>>     - 429 free pages
+>> 6.1-rc5, SLUB + slub_max_order=0:
+>>     - Init error, shell prompt but no shell command working
+>>     - Init error, no shell prompt
+>>     - 508 free pages
+>>     - Init error, shell prompt but no shell command working
+>> 6.1-rc5, SLUB + patch:
+>>     - Init error, shell prompt but no shell command working
+>>     - 433 free pages
+>>     - 448 free pages
+>>     - 423 free pages
+>> 6.1-rc5, SLUB + slub_max_order=0 + patch:
+>>     - Init error, no shell prompt
+>>     - Init error, shell prompt, 499 free pages
+>>     - Init error, shell prompt but no shell command working
+>>     - Init error, no shell prompt
 >>
->> ---
->> Since patch has changed a little bit from v1 and I didn't include
->> changelog earlier, here it is.
+>> No changes for SLOB results, expected.
 >>
->> v1 --> v2:
->>  - added logic to locate task_struct irrespective of priv
->>  - made locating task_struct agnostic to bitness(32 vs 64).
->>  - added caching of ulong type in scripts/gdb/linux/utils.py
->>  - added more descriptive commit message
+>> For default SLUB, I did get all clean boots this time and could run the
+>> cat command. But I do see shell fork failures if I keep running commands.
 >>
->> v2 --> v3:
->>  - amended commit message and source line to fit column width
+>> For SLUB + slub_max_order=0, I only got one clean boot with 508 free
+>> pages. Remaining runs failed to give a shell prompt or allow running cat
+>> command. For the clean boot, I do see higher number of free pages.
 >>
->> v3 --> v4:
->>  - amended commit message and remove whitespace in source
->>  - added Reviewed-by for reviewers
+>> SLUB with the patch was nearly identical to SLUB without the patch.
 >>
->> v4 --> v5:
->>  - changing the order of changelog and sign off/review tags in commit
->> ---
->> ---
->
->Everything looks good, but you've got extra ---'s here. They don't hurt,
->but if you're still ironing out your workflow you may want to keep in
->mind that you don't need them. You only need one, which goes above the
->changelog.
->
->Thanks,
->drew
->
+>> And SLUB+patch+slub_max_order=0 gave again a lot of errors/bad boot. I
+>> could run the cat command only once, giving 499 free pages, so better than
+>> regular SLUB. But it seems that the memory is more fragmented as
+>> allocations fail more often.
+>>
+>> Hope this helps. Let me know if you want to test something else.
+> 
+> Could you please try this branch with CONFIG_SLUB_TINY=y?
+> https://git.kernel.org/pub/scm/linux/kernel/git/vbabka/linux.git/log/?h=slub-tiny-v1r0
+> 
+> Seeing your results I didn't modify default slub_max_order by this new
+> CONFIG (yet?) so maybe after trying the default, trying then also with
+> manual slub_max_order=0 and slub_max_order=1 would be useful too. Otherwise
+> it should be all changes to lower SLUB memory footprint. Hopefully it will
+> be visible in the number of free pages. But if fragmentation is an issue, it
+> might not be enough. BTW, during boot there should be a line "Built X
+> zonelists, mobility grouping ..." can you grep for it and provide please, I
+> wonder if mobility grouping ends up being off or on on that system.
 
-Noted. Thanks.
+OK. Will try as soon as I can (before end of week hopefully). My pipeline is a
+little crowded right now :)
 
->>  scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
->>  scripts/gdb/linux/utils.py |  5 +++++
->>  2 files changed, 20 insertions(+)
+> 
+> Thanks!
+> 
+>> Cheers.
 >>
->> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
->> index 15fc4626d236..14c22f82449b 100644
->> --- a/scripts/gdb/linux/cpus.py
->> +++ b/scripts/gdb/linux/cpus.py
->> @@ -173,6 +173,21 @@ def get_current_task(cpu):
->>           else:
->>               raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
->>                                  "while running in userspace(EL0)")
->> +    elif utils.is_target_arch("riscv"):
->> +         current_tp = gdb.parse_and_eval("$tp")
->> +         scratch_reg = gdb.parse_and_eval("$sscratch")
->> +
->> +         # by default tp points to current task
->> +         current_task = current_tp.cast(task_ptr_type)
->> +
->> +         # scratch register is set 0 in trap handler after entering kernel.
->> +         # When hart is in user mode, scratch register is pointing to task_struct.
->> +         # and tp is used by user mode. So when scratch register holds larger value
->> +         # (negative address as ulong is larger value) than tp, then use scratch register.
->> +         if (scratch_reg.cast(utils.get_ulong_type()) > current_tp.cast(utils.get_ulong_type())):
->> +             current_task = scratch_reg.cast(task_ptr_type)
->> +
->> +         return current_task.dereference()
->>      else:
->>          raise gdb.GdbError("Sorry, obtaining the current task is not yet "
->>                             "supported with this arch")
->> diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
->> index 1553f68716cc..ddaf3089170d 100644
->> --- a/scripts/gdb/linux/utils.py
->> +++ b/scripts/gdb/linux/utils.py
->> @@ -35,12 +35,17 @@ class CachedType:
->>
->>
->>  long_type = CachedType("long")
->> +ulong_type = CachedType("ulong")
->>  atomic_long_type = CachedType("atomic_long_t")
->>
->>  def get_long_type():
->>      global long_type
->>      return long_type.get_type()
->>
->> +def get_ulong_type():
->> +    global ulong_type
->> +    return ulong_type.get_type()
->> +
->>  def offset_of(typeobj, field):
->>      element = gdb.Value(0).cast(typeobj)
->>      return int(str(element[field].address).split()[0], 16)
->> --
->> 2.25.1
->>
+> 
+
+-- 
+Damien Le Moal
+Western Digital Research
+
 
 _______________________________________________
 linux-riscv mailing list
