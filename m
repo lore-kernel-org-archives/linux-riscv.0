@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E65C4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13380C433FE
 	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A6c0UeHQaCZEppbQ1HVK+yfGDzpQl6pcL8V734jEZeY=; b=K4xjSFluLLhxEp
-	LZdSvTakFPbEoHD5cFw01fD8WCDn7ZgDQT3EXDbs1ywYW0ezdlhUUHcGpJcILlwBaS61qbhA7Q8IJ
-	wYU7idkpdIWUq1F+2FHxwC4TNFWa2ZOZILw6uBUGQlfXHsE/wnLfqQniCEI2chNCp/0dUYziuek6T
-	Tv0RZxNMq4HrH96KMGnW5TOBMGusSPmbjCWZeqQcmiE1KLoGZd1oFFL5aT/ZjyQAc5SspFv3kxakK
-	172wf1hULJ9UXe96fo+HZxvqNkk5YO1OmDobiMo8Ipug3XSu/6u5wimtt/gCG8plgmYXLrT38uvwV
-	/Nm500aqo6z+OisC7WRg==;
+	List-Owner; bh=DwjgauSs1r/f/lJ8RkXMYZ4BRm3rFQMJW5Q3MBYrCeA=; b=Qmo6Bry/aIet/9
+	PzzgdD8WfIoVi0IzfSotkcfDk3ewDv5oJWF6KkTD+3t6oZMOisL5NgwuNXnS9RiZWtGUBr9WZb+F8
+	9PNDoGhDbiy/cIdwym9MuSqrkAhyjvNz92qLwkIV2mQVXMnigEI/VmK614mRVASGgfJ6xp4iv2+H6
+	ObFCuipRdGVJwSFAuCrtqIYwxEarjYm1UKeKK7Icq+M9kYEY18I0eUOatwlVsRkEmJnPnFgQnnWSD
+	WVakUsBwdOzH04h4hhJSJW7+4EdIGJypwC4RgRb1UWIbRNpDMgVuiWnQroWN3GuBRpAQajDB4tqPE
+	PQj2Jny6+m/gZ9y3C9Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovq0n-0019v8-Bp; Fri, 18 Nov 2022 01:17:45 +0000
+	id 1ovq0o-0019vk-Ls; Fri, 18 Nov 2022 01:17:46 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovq0k-0019pv-6G
+	id 1ovq0k-0019pw-6H
 	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:17:43 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 42A5A24E1FF;
-	Fri, 18 Nov 2022 09:17:21 +0800 (CST)
-Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:17:21 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 9E25524E206;
+	Fri, 18 Nov 2022 09:17:18 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 09:17:18 +0800
 Received: from ubuntu.localdomain (183.27.96.116) by EXMBX072.cuchost.com
  (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:17:20 +0800
+ 2022 09:17:17 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
 CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
@@ -48,9 +48,9 @@ CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
  Walleij" <linus.walleij@linaro.org>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 4/8] dt-bindings: sifive,ccache0: Support StarFive JH7110 SoC
-Date: Fri, 18 Nov 2022 09:17:10 +0800
-Message-ID: <20221118011714.70877-5-hal.feng@starfivetech.com>
+Subject: [PATCH v2 1/8] dt-bindings: riscv: Add StarFive JH7110 SoC and VisionFive2 board
+Date: Fri, 18 Nov 2022 09:17:07 +0800
+Message-ID: <20221118011714.70877-2-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221118011714.70877-1-hal.feng@starfivetech.com>
 References: <20221118011714.70877-1-hal.feng@starfivetech.com>
@@ -60,8 +60,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX072.cuchost.com
  (172.16.6.82)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_171742_394574_148A4D0C 
-X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-CacheID: sfid-20221117_171742_394882_79903E42 
+X-CRM114-Status: UNSURE (   9.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,53 +81,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Emil Renner Berthing <kernel@esmil.dk>
 
-This cache controller is also used on the StarFive JH7110 SoC.
+Add device tree bindings for the StarFive JH7110 RISC-V SoC [1]
+and the VisionFive2 board [2] equipped with it.
+
+[1]: https://doc-en.rvspace.org/Doc_Center/jh7110.html
+[2]: https://doc-en.rvspace.org/Doc_Center/visionfive_2.html
 
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../devicetree/bindings/riscv/sifive,ccache0.yaml          | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-index bf3f07421f7e..262d1d49ce25 100644
---- a/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-+++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
-@@ -25,6 +25,7 @@ select:
-           - sifive,ccache0
-           - sifive,fu540-c000-ccache
-           - sifive,fu740-c000-ccache
-+          - starfive,jh7110-ccache
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 5b36243fd674..64008c57e31f 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -22,6 +22,10 @@ properties:
+           - const: beagle,beaglev-starlight-jh7100-r0
+           - const: starfive,jh7100
  
-   required:
-     - compatible
-@@ -37,6 +38,7 @@ properties:
-               - sifive,ccache0
-               - sifive,fu540-c000-ccache
-               - sifive,fu740-c000-ccache
-+              - starfive,jh7110-ccache
-           - const: cache
-       - items:
-           - const: microchip,mpfs-ccache
-@@ -86,6 +88,7 @@ allOf:
-             enum:
-               - sifive,fu740-c000-ccache
-               - microchip,mpfs-ccache
-+              - starfive,jh7110-ccache
++      - items:
++          - const: starfive,visionfive-v2
++          - const: starfive,jh7110
++
+ additionalProperties: true
  
-     then:
-       properties:
-@@ -105,7 +108,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: sifive,fu740-c000-ccache
-+            enum:
-+              - sifive,fu740-c000-ccache
-+              - starfive,jh7110-ccache
- 
-     then:
-       properties:
+ ...
 -- 
 2.38.1
 
