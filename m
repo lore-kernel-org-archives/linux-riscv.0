@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CF7C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F006C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qrlw80T6T/bk+qnPsXHHb8KEBuw9nDqleksRoOyCtgM=; b=V0WHAtDw6PCW+e
-	Ow52eGrM5XFhXsy8WToQlhk0FhxMHTFDnp7edwcYMrGVKo0b2gho/Nc8gQlMZEkkstKnDhGdGX/zX
-	gZ2kG5ocUfJ3WMhfByJVTSlsDyAoTqi43gvgLDVJDMWR8jD1wngDcsGrn3A3+caX16E8Y6Q6f+o4U
-	iChVuYuDywACeYfn87zdbhtdMSv30474J2DVnqgt2pCHLDWlE6pGwK4+Js5WkXfiteAwxZRNktfJd
-	wwVlKyHJTTp/uT8FQG9WfhDuCy4+6oB3qvb1sGr2pq5EWxky94iPoRy1Zf5YY4VlOV/vhsmV8X3Ux
-	YWRfyWRZX9TQdGQVrxFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BU6GuGub6epMKtyWcooCPN1JULwwCU02zRBGtvsR2m0=; b=GATe2oET6Uy1jr
+	NMrLIAm9IZ/2yBnfn3Gcl+x/6dCYpSl5Fpz8r/Njk+RnqLUVLKptBs8MLxFaT59BWxmMK9Lk60XIx
+	XtaCpoE/e4Qrdd81YJzoH2WSu1IhmCVKgY8tH5rq9gEnTUwT6AF3sa/d4YRUFhboZwM8uCfUF3qhr
+	26wJaPnllU3cBwDghXVX73vtzUE4Ld4/ZqwahkMmzeg8iooRlYGwuqYVloCEpgw+u/p0q3vEQ/0ps
+	NPvW1ADkVCQy2sLaby1GKm8LCMTHhZhAXHhQ5PjHITPHKUXB0s/Tsnd4CDh46vbqMuMKiWSPPeC2P
+	IZLtDtLxciZV0dCwKFmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4xN-005hHV-CM; Fri, 18 Nov 2022 17:15:13 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1ow4yR-005hwP-UO; Fri, 18 Nov 2022 17:16:19 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4xK-005hFo-03
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:15:12 +0000
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1ow4yO-005ht0-Oy
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:16:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 286F93F481
-	for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 17:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1668791708;
-	bh=JOZUK9RGSwdPJyBqQhjDoeKgKG9IktmohsvMmg16Drk=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=ktPTIeqCh/Ooq6hundAd5mRPzREgOrhzrpML+xLv3i2dJEWS/NG7XIqJxJ7NKQvoM
-	 MPQRAbfjbpBexfrvR+T00YfGLK/gYqMswnpvtm5iIESU6qdQA0ujWQ55j4lEO9Vn3U
-	 VMwapxHpHGeesPnw3ihx6MGz2MQkOlkm4cpjrxXJuTDlvfbhUpEvGcmi5RInT1fYiG
-	 6QM1rNu5iQwPA5ILISCO4VbnnLhU2U3A3mpO6osrMFl9IDFPtMyC99pBQ8c09bRa1f
-	 4Wu2FX38V1R+OjRDpL4iWChR6bJle7L3ti683zPpu1TV/1SxvlpQejaXyPF/C5z750
-	 VlKId926gFHFg==
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-39967085ae9so1093907b3.11
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 09:15:08 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JOZUK9RGSwdPJyBqQhjDoeKgKG9IktmohsvMmg16Drk=;
-        b=zmhH03zWZPPB0fEI1SILdcDyugrbhQ6xO8okCmylC1TjrLh8gPwDxUXbQDizMemj8H
-         DBML7sXO8eNbPbSvQ+IpHh49rF5quvvEluKMzhgQRXDtIhXROoqNCY/IODpR9kA0e7Wt
-         3mUkacBq1j31AhOTu1LMlQ8tlM8mOeC1he4oVvy4+5pD9bDX8JPmpEUHWWHgft/2l2dx
-         kBuqNEkKu4tVLNgzboUNYZ7FIIO0ZtxFqrk6xjxF7B8MufC595sIh4iuXLYK1eyKF7Ke
-         0NqHNwGXX+eJCb4dm/myQKM9qacm2THue9NXnmpL0g5l/Pq6HxTNum3JH2MZptr99oU4
-         kB4Q==
-X-Gm-Message-State: ANoB5pkjJWjJs0l5qRH8WsEb49AJcSYKM9ftj29PzsBjesIsYehFfX00
-	0AIgS1AQE6yBEt3dxFL+h2s69am4FWWoyk3zJakuZbtTi/JDW2B1U8eZ2f3o4myWGiUtJsCH45E
-	hpJnEMMbad9ODiuBKuyx/GOF9Bgc4kiZa49I2SzU40d1pbiUwZZ6IA3z8en9NNA==
-X-Received: by 2002:a25:e80f:0:b0:6df:927f:38c9 with SMTP id k15-20020a25e80f000000b006df927f38c9mr7103653ybd.92.1668791707105;
-        Fri, 18 Nov 2022 09:15:07 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf4I4oZFvr41MjaIHsCGKb3O39hviHXG7d6XOFbJmPb2RtvH+a1VVrT4/f02mov5cJMQQ0aIly9y6uogaTo3+EY=
-X-Received: by 2002:a25:e80f:0:b0:6df:927f:38c9 with SMTP id
- k15-20020a25e80f000000b006df927f38c9mr7103630ybd.92.1668791706858; Fri, 18
- Nov 2022 09:15:06 -0800 (PST)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 2A4E4B824D5;
+	Fri, 18 Nov 2022 17:16:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D29C433B5;
+	Fri, 18 Nov 2022 17:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668791771;
+	bh=5YPCMtSudsRWbegWUYgcmmhxe/oN7JAwlQaeo32XQ2E=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Hvr0aRSi5Ym/Vx37FB8oFTXjD3VJVmDw/+Ty65nQblavVuPbV2kvWda0oNqdYYPP7
+	 GuA0j0/8JaDpkc2aCnc0X5Qod0GA0BlZaklZUGWyKs0o4FhJNZAxFqX6RNrMt6QcMv
+	 gmOtGU35th8XhGywEKpja4AH8SCFQfBtduXQhSNyr438jpT1ZbSMrR0YoWogslAcYo
+	 OOG3BaWhf5O1TpHAc7j33Tq8fuIHQ0QCWEkRTTPzE03umtwfEhy50l8uZlsDbHrI9o
+	 oM5mEzYcne1LvEBiwU32MkmI5bD94zyNzg7DQQV1VnOx/LIblDS1B9tzV6lMvHa6Zm
+	 Zch6LUjrowEBg==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH v2] Documentation: riscv: Document the sv57 VM layout
+Date: Fri, 18 Nov 2022 18:15:56 +0100
+Message-Id: <20221118171556.1612190-1-bjorn@kernel.org>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-References: <20221118010627.70576-1-hal.feng@starfivetech.com> <20221118010627.70576-14-hal.feng@starfivetech.com>
-In-Reply-To: <20221118010627.70576-14-hal.feng@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 18 Nov 2022 18:14:50 +0100
-Message-ID: <CAJM55Z8Vfoi5bPLNUOX-F5R5hfwg_20HiGLyjcmziYMiz24xBQ@mail.gmail.com>
-Subject: Re: [PATCH v2 13/14] reset: starfive: Add StarFive JH7110 reset driver
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_091510_408363_30E98386 
-X-CRM114-Status: GOOD (  26.29  )
+X-CRM114-CacheID: sfid-20221118_091617_213486_C1E5D125 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,155 +70,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Nov 2022 at 02:06, Hal Feng <hal.feng@starfivetech.com> wrote:
->
-> Add auxiliary driver to support StarFive JH7110 system
-> and always-on resets.
->
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
-> ---
->  drivers/reset/starfive/Kconfig                |  8 +++
->  drivers/reset/starfive/Makefile               |  1 +
->  .../reset/starfive/reset-starfive-jh7110.c    | 67 +++++++++++++++++++
->  .../reset/starfive/reset-starfive-jh71x0.h    |  7 ++
->  4 files changed, 83 insertions(+)
->  create mode 100644 drivers/reset/starfive/reset-starfive-jh7110.c
->
-> diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
-> index 9d15c4110e40..fab1a081af17 100644
-> --- a/drivers/reset/starfive/Kconfig
-> +++ b/drivers/reset/starfive/Kconfig
-> @@ -10,3 +10,11 @@ config RESET_STARFIVE_JH7100
->         default SOC_STARFIVE
->         help
->           This enables the reset controller driver for the StarFive JH7100 SoC.
-> +
-> +config RESET_STARFIVE_JH7110
-> +       bool "StarFive JH7110 Reset Driver"
-> +       depends on AUXILIARY_BUS && CLK_STARFIVE_JH7110_SYS
-> +       select RESET_STARFIVE_JH71X0
-> +       default CLK_STARFIVE_JH7110_SYS
-> +       help
-> +         This enables the reset controller driver for the StarFive JH7110 SoC.
-> diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
-> index f6aa12466fad..7a44b66fb9d5 100644
-> --- a/drivers/reset/starfive/Makefile
-> +++ b/drivers/reset/starfive/Makefile
-> @@ -2,3 +2,4 @@
->  obj-$(CONFIG_RESET_STARFIVE_JH71X0)            += reset-starfive-jh71x0.o
->
->  obj-$(CONFIG_RESET_STARFIVE_JH7100)            += reset-starfive-jh7100.o
-> +obj-$(CONFIG_RESET_STARFIVE_JH7110)            += reset-starfive-jh7110.o
-> diff --git a/drivers/reset/starfive/reset-starfive-jh7110.c b/drivers/reset/starfive/reset-starfive-jh7110.c
-> new file mode 100644
-> index 000000000000..00f3b4ecfb02
-> --- /dev/null
-> +++ b/drivers/reset/starfive/reset-starfive-jh7110.c
-> @@ -0,0 +1,67 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Reset driver for the StarFive JH7110 SoC
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2022 Hal Feng <hal.feng@starfivetech.com>
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
-> +
-> +#include "reset-starfive-jh71x0.h"
-> +
-> +#include <dt-bindings/reset/starfive-jh7110.h>
-> +
-> +static int jh7110_reset_probe(struct auxiliary_device *adev,
-> +                             const struct auxiliary_device_id *id)
-> +{
-> +       struct reset_info *info = (struct reset_info *)(id->driver_data);
-> +       void __iomem *base = dev_get_drvdata(adev->dev.parent);
-> +
-> +       if (!info || !base)
-> +               return -ENODEV;
-> +
-> +       return reset_starfive_jh71x0_register(&adev->dev, adev->dev.parent->of_node,
-> +                                             base + info->assert_offset,
-> +                                             base + info->status_offset,
-> +                                             info->asserted,
-> +                                             info->nr_resets,
-> +                                             false);
-> +}
-> +
-> +static const struct reset_info jh7110_sys_info = {
-> +       .nr_resets = JH7110_SYSRST_END,
-> +       .assert_offset = 0x2F8,
-> +       .status_offset = 0x308,
-> +       .asserted = NULL,
-> +};
-> +
-> +static const struct reset_info jh7110_aon_info = {
-> +       .nr_resets = JH7110_AONRST_END,
-> +       .assert_offset = 0x38,
-> +       .status_offset = 0x3C,
-> +       .asserted = NULL,
-> +};
-
-It doesn't seem like syscrg, aoncrg or stgcrg have any inverted lines.
-Do you know if any other CRGs do? If not you can just leave out the
-.asserted member and always pass NULL.
-
-> +static const struct auxiliary_device_id jh7110_reset_ids[] = {
-> +       {
-> +               .name = "clk_starfive_jh71x0.reset-sys",
-> +               .driver_data = (kernel_ulong_t)&jh7110_sys_info,
-> +       },
-> +       {
-> +               .name = "clk_starfive_jh71x0.reset-aon",
-> +               .driver_data = (kernel_ulong_t)&jh7110_aon_info,
-> +       },
-> +       { /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, jh7110_reset_ids);
-> +
-> +static struct auxiliary_driver jh7110_reset_driver = {
-> +       .probe          = jh7110_reset_probe,
-> +       .id_table       = jh7110_reset_ids,
-> +};
-> +module_auxiliary_driver(jh7110_reset_driver);
-> +
-> +MODULE_DESCRIPTION("StarFive JH7110 Reset Driver");
-> +MODULE_AUTHOR("Hal Feng <hal.feng@starfivetech.com>");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
-> index e6b27110de48..63a94ee1b395 100644
-> --- a/drivers/reset/starfive/reset-starfive-jh71x0.h
-> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
-> @@ -6,6 +6,13 @@
->  #ifndef __RESET_STARFIVE_JH71X0_H
->  #define __RESET_STARFIVE_JH71X0_H
->
-> +struct reset_info {
-> +       unsigned int nr_resets;
-> +       unsigned int assert_offset;
-> +       unsigned int status_offset;
-> +       const u32 *asserted;
-> +};
-
-This struct isn't used outside of reset-starfive-jh7110.c, so no need
-to define it in this header.
-Also consider calling it jh7110_reset_info so it blends in with the
-functions defined in that file.
-
->  int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
->                                    void __iomem *assert, void __iomem *status,
->                                    const u32 *asserted, unsigned int nr_resets,
-> --
-> 2.38.1
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIGhhcyBiZWVu
+IHN1cHBvcnRpbmcgdGhlICJzdjU3IiBhZGRyZXNzIHRyYW5zbGF0aW9uIG1vZGUgZm9yIGEKd2hp
+bGUsIGJ1dCBpcyBoYXMgbm90IGJlZW4gYWRkZWQgdG8gdGhlIFZNIGxheW91dCBkb2N1bWVudGF0
+aW9uLiBMZXQKdXMgZml4IHRoYXQuCgpTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
+bkByaXZvc2luYy5jb20+Ci0tLQp2MjogKiBDb3NtZXN0aWNzIChBbGV4KQogICAgKiBDb3JyZWN0
+ZWQga2FzYW4gYWRkcmVzcyAoQWxleCkKLS0tCiBEb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91
+dC5yc3QgfCAzNiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAxIGZpbGUgY2hhbmdl
+ZCwgMzYgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0t
+bGF5b3V0LnJzdCBiL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAppbmRleCA1YjM2
+ZTQ1ZmVmNjAuLjNiZTQ0ZTc0ZWM1ZCAxMDA2NDQKLS0tIGEvRG9jdW1lbnRhdGlvbi9yaXNjdi92
+bS1sYXlvdXQucnN0CisrKyBiL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdApAQCAt
+OTcsMyArOTcsMzkgQEAgUklTQy1WIExpbnV4IEtlcm5lbCBTVjQ4CiAgICBmZmZmZmZmZjAwMDAw
+MDAwIHwgICAtNCAgICBHQiB8IGZmZmZmZmZmN2ZmZmZmZmYgfCAgICAyIEdCIHwgbW9kdWxlcywg
+QlBGCiAgICBmZmZmZmZmZjgwMDAwMDAwIHwgICAtMiAgICBHQiB8IGZmZmZmZmZmZmZmZmZmZmYg
+fCAgICAyIEdCIHwga2VybmVsCiAgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19f
+X19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKworCitSSVNDLVYgTGludXggS2VybmVsIFNW
+NTcKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCis6OgorCisgPT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CisgICAgICBTdGFy
+dCBhZGRyICAgIHwgICBPZmZzZXQgICB8ICAgICBFbmQgYWRkciAgICAgfCAgU2l6ZSAgIHwgVk0g
+YXJlYSBkZXNjcmlwdGlvbgorID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAg
+ICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8CisgICAwMDAwMDAwMDAwMDAwMDAwIHwg
+ICAwICAgICAgICB8IDAwZmZmZmZmZmZmZmZmZmYgfCAgIDY0IFBCIHwgdXNlci1zcGFjZSB2aXJ0
+dWFsIG1lbW9yeSwgZGlmZmVyZW50IHBlciBtbQorICBfX19fX19fX19fX19fX19fX198X19fX19f
+X19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAg
+ICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgMDEwMDAw
+MDAwMDAwMDAwMCB8ICs2NCAgICAgUEIgfCBmZWZmZmZmZmZmZmZmZmZmIHwgfjE2SyBQQiB8IC4u
+LiBodWdlLCBhbG1vc3QgNjQgYml0cyB3aWRlIGhvbGUgb2Ygbm9uLWNhbm9uaWNhbAorICAgICAg
+ICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8
+IHZpcnR1YWwgbWVtb3J5IGFkZHJlc3NlcyB1cCB0byB0aGUgLTY0IFBCCisgICAgICAgICAgICAg
+ICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwgc3RhcnRp
+bmcgb2Zmc2V0IG9mIGtlcm5lbCBtYXBwaW5ncy4KKyAgX19fX19fX19fX19fX19fX19ffF9fX19f
+X19fX19fX3xfX19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBL
+ZXJuZWwtc3BhY2UgdmlydHVhbCBtZW1vcnksIHNoYXJlZCBiZXR3ZWVuIGFsbCBwcm9jZXNzZXM6
+CisgIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXworICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAg
+ICAgICAgIHwgICAgICAgICB8CisgICBmZjFiZmZmZmZlZTAwMDAwIHwgLTU3ICAgICBQQiB8IGZm
+MWJmZmZmZmVmZmZmZmYgfCAgICAyIE1CIHwgZml4bWFwCisgICBmZjFiZmZmZmZmMDAwMDAwIHwg
+LTU3ICAgICBQQiB8IGZmMWJmZmZmZmZmZmZmZmYgfCAgIDE2IE1CIHwgUENJIGlvCisgICBmZjFj
+MDAwMDAwMDAwMDAwIHwgLTU3ICAgICBQQiB8IGZmMWZmZmZmZmZmZmZmZmYgfCAgICAxIFBCIHwg
+dm1lbW1hcAorICAgZmYyMDAwMDAwMDAwMDAwMCB8IC01NiAgICAgUEIgfCBmZjVmZmZmZmZmZmZm
+ZmZmIHwgICAxNiBQQiB8IHZtYWxsb2MvaW9yZW1hcCBzcGFjZQorICAgZmY2MDAwMDAwMDAwMDAw
+MCB8IC00MCAgICAgUEIgfCBmZmRlZmZmZmZmZmZmZmZmIHwgICAzMiBQQiB8IGRpcmVjdCBtYXBw
+aW5nIG9mIGFsbCBwaHlzaWNhbCBtZW1vcnkKKyAgIGZmZGYwMDAwMDAwMDAwMDAgfCAgLTggICAg
+IFBCIHwgZmZmZmZmZmVmZmZmZmZmZiB8ICAgIDggUEIgfCBrYXNhbgorICBfX19fX19fX19fX19f
+X19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgfCBJZGVudGljYWwgbGF5b3V0IHRvIHRoZSAzOS1iaXQgb25lIGZyb20gaGVyZSBv
+bjoKKyAgX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXworICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAg
+ICAgICAgICAgIHwgICAgICAgICB8CisgICBmZmZmZmZmZjAwMDAwMDAwIHwgIC00ICAgICBHQiB8
+IGZmZmZmZmZmN2ZmZmZmZmYgfCAgICAyIEdCIHwgbW9kdWxlcywgQlBGCisgICBmZmZmZmZmZjgw
+MDAwMDAwIHwgIC0yICAgICBHQiB8IGZmZmZmZmZmZmZmZmZmZmYgfCAgICAyIEdCIHwga2VybmVs
+CisgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9f
+X19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KLS0gCjIuMzcuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
