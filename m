@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23FBC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 13:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BBCC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 13:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8pVf/ifUvJsBteq70Jbxm/2cuF85pb472kNI2zhSRrw=; b=CYs0B3xQA00g1o
-	yMwFlTBrbXNAwTSQ3KyNTuy1p3s3IVB0HBREZlHRThcYYd73dsW06hl7fnwgTwgn9N9p+JhOYMEVm
-	b2HCX1LRCzycfgF5CnhIsyjkAmXLEwqUiz0xXL5/aRFQLI6StJRCwC4Y7cniL6fhLpZUeASG3uKWF
-	tXXCdBIgYHk31h7jXyLjJ/P46qKGcr+j53AF7Nv+WZvObyQCmL+klY+l5mUN4UpNrNKAP2EJRXNl3
-	3efyKClToPvKEWSiQ/s8G2T/kr7OBOhkKzBBN609j48BpN6mvOGgmSDFxxhfPVgdTQsZ4RuvgVat1
-	twHCoOF6COnY1alBBytg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ycab4BmL8aDBwyQ4CsfbqYTrohlpBKLuNkUC9TUS00w=; b=rcbqZLw+umoT42
+	Sa7ZXyY02SJQZT1Ou3BRcMZuMVCuJVnjy2I+jvRIkGtbelSaaVqzdYdmFgvtfVr7hQ7IOXhHqq2Ib
+	+bs9Ohe/DD14GkuyBSCN6A5ApRn9Qj2bKZ3nDmfxFA/YC9njTxN7k6MHL/4syNOzUqLhrp27Lg+LH
+	oF3csQe/Ot+K1Kc22P+3jUIYqAQ18zzM/MDnhkhbgaYAE5pcF1n9FyZtrx/9zMzUCu/xEqR4/zAJb
+	/GWByEVSiZ0VflWSTckuXkWDlZJuLZUvZIh28lLZjs5GWaMIiqBShLwo8d/WGuq7t2GBZlbMqIypb
+	hET7+wuv4krhZeLWBhnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow1US-0048yw-6H; Fri, 18 Nov 2022 13:33:08 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1ow1UY-00491m-M5; Fri, 18 Nov 2022 13:33:14 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow1UN-0048nP-PL
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 13:33:05 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1ow1UO-0048ny-7O
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 13:33:07 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B29BB24DECD;
-	Fri, 18 Nov 2022 21:32:27 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 21:32:27 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 421B724DBC2;
+	Fri, 18 Nov 2022 21:32:28 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 21:32:28 +0800
 Received: from localhost.localdomain (183.27.96.116) by EXMBX068.cuchost.com
  (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 21:32:26 +0800
+ 2022 21:32:27 +0800
 From: Walker Chen <walker.chen@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
 	<devicetree@vger.kernel.org>
@@ -43,18 +43,20 @@ CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
 	<conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
 	Walker Chen <walker.chen@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 0/4] JH7110 Power Domain Support
-Date: Fri, 18 Nov 2022 21:32:12 +0800
-Message-ID: <20221118133216.17037-1-walker.chen@starfivetech.com>
+Subject: [PATCH v1 1/4] dt-bindings: power: Add StarFive JH7110 power domain definitions
+Date: Fri, 18 Nov 2022 21:32:13 +0800
+Message-ID: <20221118133216.17037-2-walker.chen@starfivetech.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20221118133216.17037-1-walker.chen@starfivetech.com>
+References: <20221118133216.17037-1-walker.chen@starfivetech.com>
 MIME-Version: 1.0
 X-Originating-IP: [183.27.96.116]
 X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
  (172.16.6.68)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_053304_118945_950DF079 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20221118_053304_460977_98E60068 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,67 +73,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds power domain controller driver for the StarFive JH7110 SoC.
-The series has been tested on the VisionFive 2 board.
+Add power domain definitions for the StarFive JH7110 SoC.
 
-This patchset should be applied after the patchset [1], [2], [3]:
-[1] https://lore.kernel.org/all/20221118010627.70576-1-hal.feng@starfivetech.com/
-[2] https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfivetech.com/
-[3] https://lore.kernel.org/all/20221118011714.70877-1-hal.feng@starfivetech.com/
-
-Walker Chen (4):
-  dt-bindings: power: Add StarFive JH7110 power domain definitions
-  dt-bindings: power: Add starfive,jh71xx-power bindings
-  soc: starfive: Add StarFive JH71XX pmu driver
-  riscv: dts: starfive: add power controller node
-
- .../bindings/power/starfive,jh71xx-power.yaml |  46 +++
- MAINTAINERS                                   |   8 +
- arch/riscv/boot/dts/starfive/jh7110.dtsi      |   7 +
- drivers/soc/Kconfig                           |   1 +
- drivers/soc/Makefile                          |   1 +
- drivers/soc/starfive/Kconfig                  |   9 +
- drivers/soc/starfive/Makefile                 |   3 +
- drivers/soc/starfive/jh71xx_pmu.c             | 380 ++++++++++++++++++
- include/dt-bindings/power/jh7110-power.h      |  18 +
- include/soc/starfive/pm_domains.h             |  15 +
- 10 files changed, 488 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml
- create mode 100644 drivers/soc/starfive/Kconfig
- create mode 100644 drivers/soc/starfive/Makefile
- create mode 100644 drivers/soc/starfive/jh71xx_pmu.c
+Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+---
+ include/dt-bindings/power/jh7110-power.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
  create mode 100644 include/dt-bindings/power/jh7110-power.h
- create mode 100644 include/soc/starfive/pm_domains.h
 
-
-base-commit: 094226ad94f471a9f19e8f8e7140a09c2625abaa
-prerequisite-patch-id: 8ebfffa09b478904bf7c516f76e2d824ddb60140
-prerequisite-patch-id: e8dd8258a4c4062eee2cf07c4607d52baea71f3a
-prerequisite-patch-id: d050d884d7b091ff30508a70f5ce5164bb3b72e5
-prerequisite-patch-id: 0e41f8cfd4861fcbf6f2e6a2559ce28f0450299e
-prerequisite-patch-id: 6e1652501859b85f101ff3b15ced585d43c71c1b
-prerequisite-patch-id: 587628a67adad5c655e5f998bf6c4a368ec07d3c
-prerequisite-patch-id: 596490c0e397df6c0249c1306fbb1d5bf00b5b83
-prerequisite-patch-id: dc873317826b50364344b25ac5cd74e811403f3d
-prerequisite-patch-id: a50150f41d8e874553023187e22eb24dffae8d16
-prerequisite-patch-id: 735e62255c75801bdc4c0b4107850bce821ff7f5
-prerequisite-patch-id: 9d2e83a2dd43e193f534283fab73e90b4f435043
-prerequisite-patch-id: 7a43e0849a9afa3c6f83547fd16d9271b07619e5
-prerequisite-patch-id: e7aa6fb05314bad6d94c465f3f59969871bf3d2e
-prerequisite-patch-id: 6276b2a23818c65ff2ad3d65b562615690cffee9
-prerequisite-patch-id: d834ece14ffb525b8c3e661e78736692f33fca9b
-prerequisite-patch-id: 4c17a3ce4dae9b788795d915bf775630f5c43c53
-prerequisite-patch-id: dabb913fd478e97593e45c23fee4be9fd807f851
-prerequisite-patch-id: ba61df106fbe2ada21e8f22c3d2cfaf7809c84b6
-prerequisite-patch-id: 287572fb64f83f5d931034f7c75674907584a087
-prerequisite-patch-id: 536114f0732646095ef5302a165672b3290d4c75
-prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
-prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
-prerequisite-patch-id: e09e995700a814a763aa304ad3881a7222acf556
-prerequisite-patch-id: 841cd71b556b480d6a5a5e332eeca70d6a76ec3f
-prerequisite-patch-id: d074c7ffa2917a9f754d5801e3f67bc980f9de4c
-prerequisite-patch-id: 5f59bc7cbbf1230e5ff4761fa7c1116d4e6e5d71
-prerequisite-patch-id: d5da3475c6a3588e11a1678feb565bdd459b548e
+diff --git a/include/dt-bindings/power/jh7110-power.h b/include/dt-bindings/power/jh7110-power.h
+new file mode 100644
+index 000000000000..24160c46fbaf
+--- /dev/null
++++ b/include/dt-bindings/power/jh7110-power.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: (GPL-2.0) */
++/*
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ * Author: Walker Chen <walker.chen@starfivetech.com>
++ */
++#ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
++#define __DT_BINDINGS_POWER_JH7110_POWER_H__
++
++#define JH7110_PD_SYSTOP	0
++#define JH7110_PD_CPU		1
++#define JH7110_PD_GPUA		2
++#define JH7110_PD_VDEC		3
++#define JH7110_PD_VOUT		4
++#define JH7110_PD_ISP		5
++#define JH7110_PD_VENC		6
++#define JH7110_PD_GPUB		7
++
++#endif
 -- 
 2.17.1
 
