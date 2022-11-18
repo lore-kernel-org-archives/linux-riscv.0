@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527B3C43219
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 22:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A34C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 22:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HIxu+03R8yciU4W9wx/+CbjTAsvZDYQiiNge9CG1GU0=; b=Ha+Ex+py4YUUhA
-	PzIzPOMqngc+kWFqkgJa6gbE5IOTSnqWzL5Fe1pfVprQou5QIO0bxJ5HkcdXtZzlE42CNFOX3yrVj
-	IlBCiE9N1Qe9w+X2lv2R1lLWpP8NV7246K6FLsbe7wWLU1FIdyc4s2R0Pl/6V5U67iGLadFvLEJ0o
-	tLTrlbWo890hTxpuCqU2xclfOmr0d+8vgkw08l1JrKx00KLl4OHEp0KgkXUfvcSB9B1a6eg14XPtr
-	i3as9QqfGRgxcXxei7kEvzKLWR0bUBnimPdzgSphW+oE9m4mPfX3HHhq0dyZST3Iri3FJefXAWQDa
-	fo7HhyzXIE7J8Z+OvleQ==;
+	List-Owner; bh=2VVHpovufvuPJntdV30T4pfuH1PnZLRrgIqD2l21H1s=; b=3iqUnvHnPF1xTb
+	poMBmsMiscB3dPR1slq0nC2k93Nfh5HrBl4CMy3mc51XoWVOGPPOvWTm4IgH2GirjPPKXHrIycWqC
+	EOOzc+3NxetOcllcSiErf4XM9NFBmPNMdb6KtVHggMHnb5wFfpXz6awe9h1jdjNcGpzoi2SorEkPm
+	axxHl+mnHt6yLVVEtvVJaH7i4iDI3kHGzrwdnD62gLzQfGoOH20joKL25YnBZVLMS1W8BDOOMsj9K
+	OybJgM7wZGzVWbSD21U7yJi3EAavN9sRhMgQ5aWi2r5B287zai7st8SeaZq4/h3ay0n0E3R4D6SQw
+	invTFMgBZtj2JMwqTAjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow9XE-008isC-JL; Fri, 18 Nov 2022 22:08:32 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ow9XC-008irH-9Q; Fri, 18 Nov 2022 22:08:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow9XA-008iqn-SP
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 22:08:30 +0000
+	id 1ow9X7-008ipY-Om
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 22:08:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 60375B8255F;
-	Fri, 18 Nov 2022 22:08:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2823C433D6;
-	Fri, 18 Nov 2022 22:08:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 237716279B;
+	Fri, 18 Nov 2022 22:08:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61230C433D7;
+	Fri, 18 Nov 2022 22:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668809306;
-	bh=WOIrg5wuQ/eYm0RGCd9AzJ1SkNKh8ZHQZT887tkJBKc=;
+	s=k20201202; t=1668809304;
+	bh=E9ca8QoCrIeSP5fRU5kfdctSssLXX9ouXkKzqOBNjD4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fNBBXenbJghECcBwCW5qdTw6wAjvL7jduhxB8A2pkoJkVqOx+k4H0eQF6NFTLL/zd
-	 4+9LFTWBy/O5uEij+YAWbX4zwZJ2kWLxFW+d2qtre2HJ+iodlZDdeLlL0U21qMSnuW
-	 9fpgMsHpw4JfIflnf6kOpPcaRqJ+/sVorrV69gmEPKXIIl1R3S4ymIg9qJecIvPr7x
-	 byyskpfs7wToPH3S1FZRca/U922vgPqeVdxVe51FimFyoHBIf38xVdBswFZmW+vY3m
-	 mdjDDbOUlIC/y32WWVCNRASX3eKi3jh5y6/Q3bSLi9WsZRPioN2buxA0lISc2pNV4S
-	 u72xp+NuSjZLQ==
+	b=kmJDD/fw94wmDBhtRUGESqVnEtg2VtA92zVS22hNG2x5zrRKg12JdbzWzxmWB5Ett
+	 Yv/n+XyUdoOf1P1varf4f0awdReaA9XGTywBt8H1XPKafY+yrCu7QlWDr8NL4Q912F
+	 oDQBNacyKoxCYtK5bzrAFHg500CIlru4fLj/y8X8t7ppzKE2ny43FbGr4GUDZoA7CO
+	 +ibAqueuLJpX4V+r3GXdMOBw3apua5h1MYE4GZgOrPBYln8YMC5tTFliyLYxn2hgRA
+	 DPbHf0Yz70GNl6y77jTngZbXfmJf6PyZOnn4Ees4M+I9GzQtbFjKwAv/4byQ1wjZLT
+	 BZKDfYCttyuAA==
 From: Conor Dooley <conor@kernel.org>
 To: Conor Dooley <conor.dooley@microchip.com>,
 	Jassi Brar <jassisinghbrar@gmail.com>
 Cc: Daire McNamara <daire.mcnamara@microchip.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] mailbox: mpfs: read the system controller's status
-Date: Fri, 18 Nov 2022 22:07:59 +0000
-Message-Id: <20221118220758.1101409-3-conor@kernel.org>
+Subject: [PATCH 1/2] soc: microchip: mpfs: handle failed system service requests
+Date: Fri, 18 Nov 2022 22:07:58 +0000
+Message-Id: <20221118220758.1101409-2-conor@kernel.org>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221118220758.1101409-1-conor@kernel.org>
 References: <20221118220758.1101409-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_140829_237183_E9C6BC9E 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20221118_140825_864624_B5F879A8 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,86 +76,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Some services explicitly return an error code in their response, but
-others rely on the system controller to set a status in its status
-register. The meaning of the bits varies based on what service is
-requested, so pass it back up to the driver that requested the service
-in the first place. The field in the message struct already existed, but
-was unused until now.
+If a service request fails, a non-zero, per-service error code will be
+set. Since the individual service drivers may wish to handle things
+differently, there's little point trying to do anything intelligent in
+the system controller driver. Let the caller know that things went wrong
+& leave the details of handling the error to it.
 
-If the system controller is busy, in which case we should never actually
-be in the interrupt handler, or if the service fails the mailbox itself
-should not be read. Callers should check the status before operating on
-the response.
-
-Fixes: 83d7b1560810 ("mbox: add polarfire soc system controller mailbox")
+Fixes: d0054a470c33 ("soc: add microchip polarfire soc system controller")
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/mailbox/mailbox-mpfs.c | 31 +++++++++++++++++++++++++++++--
- 1 file changed, 29 insertions(+), 2 deletions(-)
+ drivers/soc/microchip/mpfs-sys-controller.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
-index cfacb3f320a6..e9a72c5453e4 100644
---- a/drivers/mailbox/mailbox-mpfs.c
-+++ b/drivers/mailbox/mailbox-mpfs.c
-@@ -2,7 +2,7 @@
- /*
-  * Microchip PolarFire SoC (MPFS) system controller/mailbox controller driver
-  *
-- * Copyright (c) 2020 Microchip Corporation. All rights reserved.
-+ * Copyright (c) 2020-2022 Microchip Corporation. All rights reserved.
-  *
-  * Author: Conor Dooley <conor.dooley@microchip.com>
-  *
-@@ -23,6 +23,8 @@
- #define MAILBOX_REG_OFFSET		0x800u
- #define MSS_SYS_MAILBOX_DATA_OFFSET	0u
- #define SCB_MASK_WIDTH			16u
-+#define SCB_STATUS_SHIFT		16u
-+#define SCB_STATUS_MASK			GENMASK(31, SCB_STATUS_SHIFT)
+diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+index 6e20207b5756..539fc24b397d 100644
+--- a/drivers/soc/microchip/mpfs-sys-controller.c
++++ b/drivers/soc/microchip/mpfs-sys-controller.c
+@@ -52,6 +52,12 @@ int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct
  
- /* SCBCTRL service control register */
+ 	mutex_unlock(&transaction_lock);
  
-@@ -130,13 +132,38 @@ static void mpfs_mbox_rx_data(struct mbox_chan *chan)
- 	struct mpfs_mbox *mbox = (struct mpfs_mbox *)chan->con_priv;
- 	struct mpfs_mss_response *response = mbox->response;
- 	u16 num_words = ALIGN((response->resp_size), (4)) / 4U;
--	u32 i;
-+	u32 i, status;
- 
- 	if (!response->resp_msg) {
- 		dev_err(mbox->dev, "failed to assign memory for response %d\n", -ENOMEM);
- 		return;
- 	}
- 
-+	/*
-+	 * The status is stored in bits 31:16 of the SERVICES_SR register.
-+	 * It is only valid when BUSY == 0.
-+	 * We should *never* get an interrupt while the controller is
-+	 * still in the busy state. If we do, something has gone badly
-+	 * wrong & the content of the mailbox would not be valid.
-+	 */
-+	if (mpfs_mbox_busy(mbox)) {
-+		dev_err(mbox->dev, "got an interrupt but system controller is busy\n");
-+		response->resp_status = 0xDEAD;
-+		return;
-+	}
++	if (ret)
++		return ret;
 +
-+	status = readl_relaxed(mbox->ctrl_base + SERVICES_SR_OFFSET);
++	if (msg->response->resp_status)
++		ret = -EIO;
 +
-+	/*
-+	 * If the status of the individual servers is non-zero, the service has
-+	 * failed. The contents of the mailbox at this point are not be valid,
-+	 * so don't bother reading them. Set the status so that the driver
-+	 * implementing the service can handle the result.
-+	 */
-+	response->resp_status = (status & SCB_STATUS_MASK); >> SCB_STATUS_SHIFT;
-+	if (response->resp_status)
-+		return;
-+
- 	if (!mpfs_mbox_busy(mbox)) {
- 		for (i = 0; i < num_words; i++) {
- 			response->resp_msg[i] =
+ 	return ret;
+ }
+ EXPORT_SYMBOL(mpfs_blocking_transaction);
 -- 
 2.37.2
 
