@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD224C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 10:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48963C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 10:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OTpsg3HRm8nwEjYaAPJEAJCUK01+dR2rv8hZns34Lsc=; b=N0fsvQsIXtc9b2
-	lX2BMXtvrraKn3UNQYWU97e64xrXGtCEIpusEjhlFxCPWoeLhCXapwHr7o21htyLgtRqjE4vZFYIn
-	PR997tYQDN8kANdqH+AeeYPtdY37tkI/9OKIa56u5mnnYf0sFi2ASbgDRs2bFhISddOxrM7jM58nW
-	OB2RRiwW8wIDh6wPOFgRwUCxJK+z4DolQcvlVvCWqEEIEzE4LkVxN9NlYR9rh43aOKUedrp8sltu9
-	YcMdDsTrPCr/Oi//nE2GRZZODfpCiYYCG3OxgQVoapp/Akq+mXqEgQeb+GYoDQHynS3lzJwj0TW3P
-	5osjarqlDErpXvkl6krQ==;
+	List-Owner; bh=Ps3nNFgWC1GKPQDzk+/lN16eQpbijD6khO3Q0Ayt1zE=; b=iNB3NKk2tumUdC
+	UErQwyNMVRWY+4e3ZZlrUiLlCkMb9SViPD57MfCO+Wp0Qe3y+1aFp3/iMFL/zkwGRIpliTj7hP1nU
+	3/HsJSZgeTDhyt/+HkNMCvfn/UdVeG6tlCmXkBW5mvImPkEnL5mqf9oAe3AyGLAeX0JrOUI/w9fjJ
+	2leduWMl8FlTi8UytXfPWuvEE9+d8G5KNP1p+hvfSRQf1p+rtz+/JhDEM7I9S/jp6pZWMsp1ROCRc
+	afUNUHIbZ2xs9t7u0T4sdiCGU3mErutj8DugcVITSoserzanNYPFpSVPIxwv+auY2n4TVi8198BzY
+	QlYchu1ewLM8Yb9wjP9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovyre-003S08-L6; Fri, 18 Nov 2022 10:44:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ovyrj-003S2l-5W; Fri, 18 Nov 2022 10:44:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovyrX-003RvN-LB
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 10:44:49 +0000
+	id 1ovyra-003Rwa-7O
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 10:44:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 426436242A;
-	Fri, 18 Nov 2022 10:44:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C49D1C433D7;
-	Fri, 18 Nov 2022 10:44:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 90AB96241A;
+	Fri, 18 Nov 2022 10:44:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F21CC433D6;
+	Fri, 18 Nov 2022 10:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668768286;
-	bh=qC6743542xIKRAllyvxVqizsE1tEzX1YRdfQ4vU+JYg=;
+	s=k20201202; t=1668768289;
+	bh=W+cw8CbjTjtzmisgW+jbJ65nAVSygcxv7sm+idsmMMY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YOv+280w2fVSZVzyZ0o2P0ElyXNHGc0WTNYaN6JNcI4R0rr3HXW8KbYMvQ0i+s/mA
-	 ds1/4ELX0y2QerpqCqeaRIYDNblXC7I0T0mYn53IYx4p+2TmV8nPRdyzFzp7lozQDS
-	 wIkWDLFmvS6g4KvSriEnPWqZ7WncoWBvBEEKkUJt4t5Qpgq4UBVS41h1cAJRofDrRP
-	 E3AIFbIqFN9qOyahhlq5vkjmZE5e/iFO1tINE/JVHFeie+zHRMpjDweog7E11xXmOh
-	 DYIiKlSW+x5Rebstuosq2Hx8W78XS2Y9ezFyW0hpquWnP44DN/yH0+h2ElQ3yPUZ4b
-	 tThL5vYdXbMJg==
+	b=NOqPxHYYu82pZ61iRaesC23GHsmkrHKWF0U0tAiP5Q90stFsYyQTrFeHQXfyaJWnz
+	 wodTGfqNpoaEPRlw9XApvvq2V6B8Bhl0qgnbMHE63xwzb2dMErUejwegZeX8ns8KCa
+	 ZoexQJIwi7q8zN8t0S8Qe9o06OQOGVlzPQsMvPQxD7HxYHuXDjELUV2Qdf2pkhJJwO
+	 YfhzkckHJPo+PjmTKnSyPsNnbJe6HTIcM6GuKcI0uya724NC9iV7BJyTE/U7oRWBPc
+	 6qjAsYXxlCv724Mm+ekddLTrdn9FwuA7Vc0kIAPsdiDoJDSRZOrR9kA2xQuWEHRqnc
+	 X9x81Vyv+9Hjg==
 From: Conor Dooley <conor@kernel.org>
 To: Marc Zyngier <maz@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,16 +52,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 2/3] irqchip/riscv-intc: remove user selectability of RISCV_INTC
-Date: Fri, 18 Nov 2022 10:43:00 +0000
-Message-Id: <20221118104300.85016-3-conor@kernel.org>
+Subject: [PATCH v2 3/3] RISC-V: stop selecting SIFIVE_PLIC at the SoC level
+Date: Fri, 18 Nov 2022 10:43:01 +0000
+Message-Id: <20221118104300.85016-4-conor@kernel.org>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221118104300.85016-1-conor@kernel.org>
 References: <20221118104300.85016-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_024447_766766_112DBFB8 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20221118_024450_357742_5637E2E5 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +80,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Since commit e71ee06e3ca3 ("RISC-V: Force select RISCV_INTC for
-CONFIG_RISCV") the driver has been enabled at the arch level - and is
-mandatory anyway. There's no point exposing this as a choice to users,
-so stop bothering.
+The SIFIVE_PLIC driver is used by all current RISC-V SoCs & will be,
+where possible, used for future implementations. Rather than having each
+driver select the option on a case-by-case basis, do so at the arch
+level.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-I'd swear I had an interaction with someone a few months ago about the
-RISCV_INTC Kconfig options but I cannot for the file of me remember who.
-I hope this patch is not be going back on what I said then...
----
- drivers/irqchip/Kconfig | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+ arch/riscv/Kconfig      | 1 +
+ arch/riscv/Kconfig.socs | 5 -----
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index ecb3e3119d2e..4633a549ebbf 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -538,17 +538,8 @@ config TI_PRUSS_INTC
- 	  different processors within the SoC.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index fa78595a6089..846f61254dfc 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -123,6 +123,7 @@ config RISCV
+ 	select PCI_MSI if PCI
+ 	select RISCV_INTC
+ 	select RISCV_TIMER if RISCV_SBI
++	select SIFIVE_PLIC
+ 	select SPARSE_IRQ
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select THREAD_INFO_IN_TASK
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 69774bb362d6..15e391f38f75 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -3,7 +3,6 @@ menu "SoC selection"
+ config SOC_MICROCHIP_POLARFIRE
+ 	bool "Microchip PolarFire SoCs"
+ 	select MCHP_CLK_MPFS
+-	select SIFIVE_PLIC
+ 	help
+ 	  This enables support for Microchip PolarFire SoC platforms.
  
- config RISCV_INTC
--	bool "RISC-V Local Interrupt Controller"
-+	bool
- 	depends on RISCV
--	default y
--	help
--	   This enables support for the per-HART local interrupt controller
--	   found in standard RISC-V systems.  The per-HART local interrupt
--	   controller handles timer interrupts, software interrupts, and
--	   hardware interrupts. Without a per-HART local interrupt controller,
--	   a RISC-V system will be unable to handle any interrupts.
--
--	   If you don't know what to do here, say Y.
+@@ -13,7 +12,6 @@ config SOC_SIFIVE
+ 	select SERIAL_SIFIVE_CONSOLE if TTY
+ 	select CLK_SIFIVE
+ 	select CLK_SIFIVE_PRCI
+-	select SIFIVE_PLIC
+ 	select ERRATA_SIFIVE if !XIP_KERNEL
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+@@ -22,7 +20,6 @@ config SOC_STARFIVE
+ 	bool "StarFive SoCs"
+ 	select PINCTRL
+ 	select RESET_CONTROLLER
+-	select SIFIVE_PLIC
+ 	help
+ 	  This enables support for StarFive SoC platform hardware.
  
- config SIFIVE_PLIC
- 	bool
+@@ -34,7 +31,6 @@ config SOC_VIRT
+ 	select POWER_RESET_SYSCON_POWEROFF
+ 	select GOLDFISH
+ 	select RTC_DRV_GOLDFISH if RTC_CLASS
+-	select SIFIVE_PLIC
+ 	select PM_GENERIC_DOMAINS if PM
+ 	select PM_GENERIC_DOMAINS_OF if PM && OF
+ 	select RISCV_SBI_CPUIDLE if CPU_IDLE && RISCV_SBI
+@@ -47,7 +43,6 @@ config SOC_CANAAN
+ 	select CLINT_TIMER if RISCV_M_MODE
+ 	select SERIAL_SIFIVE if TTY
+ 	select SERIAL_SIFIVE_CONSOLE if TTY
+-	select SIFIVE_PLIC
+ 	select ARCH_HAS_RESET_CONTROLLER
+ 	select PINCTRL
+ 	select COMMON_CLK
 -- 
 2.37.2
 
