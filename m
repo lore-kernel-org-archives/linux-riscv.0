@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99ED5C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 08:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895FBC4167B
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 08:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NEpJqA2bGbGcl8QgebC46v3zhESlCYYKOsN1a9/vDz0=; b=4T2MkInNGxm//a
-	b2DwX0xzrX2SWFAi2xMpegCDOX267z7HioobNlH70EZ06s80l3x40gTLpRA6holzj1+75laJVtsR8
-	up7FXLkzeuYzBDfc4LBnCvGg0Bgmtaug+o0bdD14/MCPJdmEQJeC3ZxdKT7ypvef23mht5p0WmJsX
-	s9tPi/uxarPcxszVGdU+lJNRDen0LfU50uYsvRKk8tThh7AUcRr3y9LcZQhBn2poWTqOSuwnf+PEG
-	eJO1LQSVY6ixiooIb+7z43bgSjjdSTMdxNZ5CDhDHNRLiO120c3MmP8+CypFHUh7lpPlL8Jtpqf0A
-	ZPcfu89baFYMDv7uHzEg==;
+	List-Owner; bh=NRfcf5wHaMyvZfD0kIPmyVNZOlYj5h9Zvf00Dlaj7XE=; b=zlu2227yOznxMl
+	SqNzlWUvkAl1QkU14w1mruXqiovDoFoWXTQUpwU1a0LeLy9VHw1it9sKRI20g6zOFsx0no+8I5BgR
+	IHWOHB5cECfA0MEnqwNFOyZSIhvddHpgd8F4s0YkvdDjvDB0QX5lvMdYvITpPWO4xHjn45FcMXyqf
+	qsCnRX1KMNdcwnCGcq/CqPAF7VN88KwdbVawXp30CTkX8IwV4bnZOw5SU/UYPo+C0pRi/JFBi2CZG
+	f8LaYheYZTsniOQ+tRA0WgpQde8gdctYNyHZawMoCQ+UkCjQXeykRK/s6uHE35t7XV0z44A58o2q9
+	TcflQFnzjctuXAqzxV1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovwj5-002lkU-CS; Fri, 18 Nov 2022 08:27:55 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1ovwk1-002m9p-9M; Fri, 18 Nov 2022 08:28:53 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovwj1-002lj0-Gd
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 08:27:53 +0000
-Received: by mail-lj1-x230.google.com with SMTP id l8so5855912ljh.13
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 00:27:51 -0800 (PST)
+	id 1ovwji-002lz1-0a
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 08:28:36 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id s24so5860512ljs.11
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 00:28:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=MrA5CDs46lQZm6VaAVmPmV1Nyk9XIySNq9lvhXdo7k8=;
-        b=yIT6wd8Tn/4EigMdSev3RTx1dShvONUZ1o2LJic5y3UzW8LgMuG7uFp80Y8Mw7p+2i
-         u+Hx+MWiciMmXSYnrFx98cxa4sbmSAURAUt99p8E3r2tMmF0ygoLGxcFQPJrif3jPMLj
-         y0DxRVohO6j383Jju+uqZkJFVPAKCT7G1d+SNz0aRrDl59ec+iH3SvLunNJnRAN3fFHp
-         uj/yuz8SV/cGRRKi6lGP5BHU+Y9YeVlbn5zwGo+B4clkg1nQfYqsfFdJXz60NiVE7C5x
-         xoWYk/DHjlYtipany3Ms311spap+ZgR86DO9tnSirVslPkUYj7drcMZpd/Ds56w7qUSX
-         eO2g==
+        bh=DZabo7ibEwOOw8J7VwUfivpQWJQQOqpTQOP6qmrwcFs=;
+        b=c0DwlSGGZnpMt70g7cvHCqqLtClo+HqnYC/KDMQT/2C4Kgme2ED6Ajko4OIXpmbeXS
+         m5SIke4QdtVszOu65Cv1AnF200xxc1a/iy1cj+W/4WPUi1idnzCq3jL3rOCyXQ/Sy7Xo
+         FhxYYZmL7CP0ofdSTlNio6J4qvL4Gb4QE7SbMbyvGwdcz0q2lnaiEphLSDGuz3cWY979
+         gQT9VdBtzdRs59dL/dUgCq5BV84WRT+Q7ok8jIBAq5G8XWvjz6kIifP/efd7/+/UMkZu
+         +qzJPaRvsSeqy/GGhmsAycmFzituYnYzJUATh2BkazIz98eeuD3Eq9fkv2cSDtBNQpLB
+         eqpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MrA5CDs46lQZm6VaAVmPmV1Nyk9XIySNq9lvhXdo7k8=;
-        b=lNnT1kQ5fwwAXUWFmD89yc2OPy0aWNoA+pgXkfuMyaqZa+Z0wNp+esZLTkrr+KhPWU
-         4iwe79E+bxp3h6n4nNYWS/OZS/ovWF3FgYcEos7ggn94217vjY3oqs7zMGqlLEE5viz8
-         UwSCiVYgw7rnAKe8ABkSy70yl/JTceaCSddj2jgWRUJznqbw5Djw825sDHPKORIrsxY6
-         ABkQ/Mqe+Rtz+/9VvIdbjEjbusXACLmg+9bIT1nJL4jHYC6ePOUfgchz/jTTZQJdPswV
-         j4ptw6MbFojLQCVSZ+aiAdg4I3TDhSzi8FbhhnPKFg2xGh2aeUHc2gX1xLc56xfFHZCk
-         av8Q==
-X-Gm-Message-State: ANoB5plX8Qy/cRkEdQwF1XBpqWmMfRXi35RjHLlRXC0ElvVh+2zdSk4h
-	oeaXG6WaYWX2DccDxmA1CdLxWQ==
-X-Google-Smtp-Source: AA0mqf4FSTsj7jWLGFDuUM1KolU0pAAAlYx7n+VRF6tfHUnjgf3Tz4kJo9qfndGCbN01BGn3foVCSQ==
-X-Received: by 2002:a2e:9052:0:b0:26e:eeb:f9cf with SMTP id n18-20020a2e9052000000b0026e0eebf9cfmr2211769ljg.480.1668760070041;
-        Fri, 18 Nov 2022 00:27:50 -0800 (PST)
+        bh=DZabo7ibEwOOw8J7VwUfivpQWJQQOqpTQOP6qmrwcFs=;
+        b=z1ZG4EuNcx9/JZuJ0efLoMXhL+uQ7vDpU80gnKnRuZAoXxO7ljkEiUKxDCnuo1EiZs
+         /tgNIoTofZKZHPlcCHxVT7maU6Lbh7Js/gAvXv2cnKGGExr3aKBynxbgOyjN7UzER4Kd
+         cchxSnPz8PNjQfuIJ9SnSbbJ/wRo/H7GER8vi5gK2QDfOZDN/3bJ3OuXT97VY0TR9bTN
+         tb9pA1+9cuJRzJfg67bgxEafs1Q9flyKAX5WEqOJrPEhJHzPNp+OiJrl1wztTqRVMyj2
+         ajEhBcv6SCpyfO/B+OFRApmPoNRU0FmRk5DbPFJs4HmLS0cY6blumf+fK6MunqYS5Py0
+         ROhw==
+X-Gm-Message-State: ANoB5pmCdcCsdulLuJ0i6w1MnB/4MWmEhhJS8wB0EpJZNgYQPMsZzL76
+	9ZRB34UN+XE6sebuMn63808SGg==
+X-Google-Smtp-Source: AA0mqf5FUU/an0yPckwGnu0iJ8FLtTfHewcyaiyp5w+c6ymGf8LMkNj5Lkw1yXdUuHVX3l3x9IvIFA==
+X-Received: by 2002:a2e:a5c7:0:b0:277:8d48:27dd with SMTP id n7-20020a2ea5c7000000b002778d4827ddmr2207144ljp.192.1668760111721;
+        Fri, 18 Nov 2022 00:28:31 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id g27-20020a2eb0db000000b0026bf0d71b1esm573326ljl.93.2022.11.18.00.27.48
+        by smtp.gmail.com with ESMTPSA id d24-20020a056512369800b0049b8c0571e5sm564273lfs.113.2022.11.18.00.28.30
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Nov 2022 00:27:49 -0800 (PST)
-Message-ID: <06ac1c86-22f7-97ff-bf59-6fb0994dfcc5@linaro.org>
-Date: Fri, 18 Nov 2022 09:27:47 +0100
+        Fri, 18 Nov 2022 00:28:31 -0800 (PST)
+Message-ID: <578b686e-8461-a959-86c5-83a8be1dc981@linaro.org>
+Date: Fri, 18 Nov 2022 09:28:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.4.2
 Subject: Re: [RFC PATCH 1/9] dt-bindings: drop redundant part of title of
  shared bindings
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
 Cc: Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
  Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
@@ -87,12 +87,12 @@ Cc: Rob Herring <robh+dt@kernel.org>,
  linux-watchdog@vger.kernel.org
 References: <20221117123850.368213-1-krzysztof.kozlowski@linaro.org>
  <20221117123850.368213-2-krzysztof.kozlowski@linaro.org>
- <Y3Z0w6JH1f5zgwvW@spud>
+ <20221117220756.7a1bf734@xps-13>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <Y3Z0w6JH1f5zgwvW@spud>
+In-Reply-To: <20221117220756.7a1bf734@xps-13>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_002751_615088_B80C86B7 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20221118_002834_077331_52B7A12D 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +109,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2022 18:52, Conor Dooley wrote:
-> On Thu, Nov 17, 2022 at 01:38:42PM +0100, Krzysztof Kozlowski wrote:
+On 17/11/2022 22:07, Miquel Raynal wrote:
+> Hi Krzysztof,
+> 
+> krzysztof.kozlowski@linaro.org wrote on Thu, 17 Nov 2022 13:38:42 +0100:
+> 
 >> The Devicetree bindings document does not have to say in the title that
 >> it is a "binding", but instead just describe the hardware.  For shared
 >> (re-usable) schemas, name them all as "common properties".
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> ---
+>>  Documentation/devicetree/bindings/clock/qcom,gcc.yaml         | 2 +-
+>>  Documentation/devicetree/bindings/dma/dma-common.yaml         | 2 +-
+>>  Documentation/devicetree/bindings/dma/dma-controller.yaml     | 4 ++--
+>>  Documentation/devicetree/bindings/dma/dma-router.yaml         | 4 ++--
+>>  Documentation/devicetree/bindings/iio/adc/adc.yaml            | 2 +-
+>>  .../devicetree/bindings/media/video-interface-devices.yaml    | 2 +-
+>>  Documentation/devicetree/bindings/media/video-interfaces.yaml | 2 +-
+>>  Documentation/devicetree/bindings/mmc/mmc-controller.yaml     | 2 +-
+>>  Documentation/devicetree/bindings/mtd/nand-chip.yaml          | 2 +-
+>>  Documentation/devicetree/bindings/mtd/nand-controller.yaml    | 2 +-
+>>  .../bindings/net/bluetooth/bluetooth-controller.yaml          | 2 +-
+>>  Documentation/devicetree/bindings/net/can/can-controller.yaml | 2 +-
+>>  .../devicetree/bindings/net/ethernet-controller.yaml          | 2 +-
+>>  Documentation/devicetree/bindings/net/ethernet-phy.yaml       | 2 +-
+>>  Documentation/devicetree/bindings/net/mdio.yaml               | 2 +-
+>>  Documentation/devicetree/bindings/opp/opp-v2-base.yaml        | 2 +-
+>>  .../devicetree/bindings/power/reset/restart-handler.yaml      | 2 +-
+>>  Documentation/devicetree/bindings/rtc/rtc.yaml                | 2 +-
+>>  .../devicetree/bindings/soundwire/soundwire-controller.yaml   | 2 +-
+>>  Documentation/devicetree/bindings/spi/spi-controller.yaml     | 2 +-
+>>  Documentation/devicetree/bindings/watchdog/watchdog.yaml      | 2 +-
+>>  21 files changed, 23 insertions(+), 23 deletions(-)
+>>
 > 
+> [...]
 > 
->> diff --git a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
->> index 1ab416c83c8d..d2de3d128b73 100644
->> --- a/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
->> +++ b/Documentation/devicetree/bindings/clock/qcom,gcc.yaml
+>> diff --git a/Documentation/devicetree/bindings/mtd/nand-chip.yaml b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
+>> index 97ac3a3fbb52..20b195ef9b70 100644
+>> --- a/Documentation/devicetree/bindings/mtd/nand-chip.yaml
+>> +++ b/Documentation/devicetree/bindings/mtd/nand-chip.yaml
 >> @@ -4,7 +4,7 @@
->>  $id: http://devicetree.org/schemas/clock/qcom,gcc.yaml#
+>>  $id: http://devicetree.org/schemas/mtd/nand-chip.yaml#
 >>  $schema: http://devicetree.org/meta-schemas/core.yaml#
 >>  
->> -title: Qualcomm Global Clock & Reset Controller Common Bindings
->> +title: Qualcomm Global Clock & Reset Controller common parts
+>> -title: NAND Chip and NAND Controller Generic Binding
+>> +title: NAND Chip and NAND Controller common properties
+> 
+> I only see this now but the title should be
+> 
+> 	"NAND chip common properties"
+> 
 >>  
 >>  maintainers:
->>    - Stephen Boyd <sboyd@kernel.org>
-> 
-> 
->> diff --git a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
->> index cf9c2f7bddc2..20ac432dc683 100644
->> --- a/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
->> +++ b/Documentation/devicetree/bindings/opp/opp-v2-base.yaml
+>>    - Miquel Raynal <miquel.raynal@bootlin.com>
+>> diff --git a/Documentation/devicetree/bindings/mtd/nand-controller.yaml b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
+>> index 359a015d4e5a..a004efc42842 100644
+>> --- a/Documentation/devicetree/bindings/mtd/nand-controller.yaml
+>> +++ b/Documentation/devicetree/bindings/mtd/nand-controller.yaml
 >> @@ -4,7 +4,7 @@
->>  $id: http://devicetree.org/schemas/opp/opp-v2-base.yaml#
+>>  $id: http://devicetree.org/schemas/mtd/nand-controller.yaml#
 >>  $schema: http://devicetree.org/meta-schemas/core.yaml#
 >>  
->> -title: Generic OPP (Operating Performance Points) Common Binding
->> +title: Generic OPP (Operating Performance Points) common parts
->>  
->>  maintainers:
->>    - Viresh Kumar <viresh.kumar@linaro.org>
+>> -title: NAND Chip and NAND Controller Generic Binding
+>> +title: NAND Chip and NAND Controller common properties
 > 
-> Hey Krzysztof,
+> And here just "NAND controller..."
 > 
-> Hopefully I've not overlooked something obvious, but it wasnt noted in
-> the commit message - how come these two are "parts" rather than
-> "properties"? The opp one at least don't seem to have much more than
-> properties and patterProperties in it.
+> Of course the original purpose of your series is more to clean those
+> titles rather than fixing them and if you disagree I am fine doing it
+> myself aside, but if you could at the same time make the title more
+> accurate that would be perfect.
+> 
+> Either ways:
+> 
+> Acked-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-They should be properties, will fix in v2.
-
+Thanks, I update these manually, so I can correct the names to ones you
+mentioned. Thanks.
 
 Best regards,
 Krzysztof
