@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40083C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7B5C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 18:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FrxH7EkS0eBLOXHBTHJwOm7jnCJeH1OJGMlzeSNR6Z4=; b=gfgJDeISe7k7tg
-	8Eumra2CQa+fIuOmC9btWHp4zDNujgJez9L5cjR2kaTAIFkCUmw2LvHKHAUwVzZwE4+lc6GaWChmh
-	L1p+k29eeAaVYaW/JFZIEXb0EClUSKxcQir7NlIO5GQGmP7jb05BNzH74tqJARvnN+BzjRGiWn78N
-	xAYfFmYB0ZSbBKfG72eiIz12yC3GoJXka+WzguSmkt6LDrdEJf2cabHxqaexlGNLW00WaaFGwfO1G
-	9YxPkJF5U5J5EhwOu43if9+y4JuGeFj9DVhyzFY7TdmpJp+LDI/Gw9ewSvW6vIny/8mq1eNk4zpsZ
-	CNprIeD6ZkDVcId212Og==;
+	List-Owner; bh=FBvkAdQL8lPRC+i7qFOd4XUpvgyeTGFhbEke1bYO7es=; b=XFzJlkttgjMEsB
+	6wpVUQUkvdsTD+JabBg+JrdYVzEQh0eKjF0g0rYgwjnxqaIJmeBI4BJw1VkcIj2p2Ut/ZyaGtGEnC
+	RbOilJB4H09reC7IvgUNTDBVu6AqGGz4uf4iR6VB863vGGswBjBijAodd56lStRlkRCkXElWaUneP
+	55UWJVbgYMZxBh91LbaCH2H+KffZFL/axPMTsWaD2IVpqb7Aa9s5NOJdUMaai48iiQiJZ7Ec6z+nV
+	qYJTG9tp1YI/Bw4Enhn6xjkM7GbjYgSI60+w9Fisxr6paAyeCaktOyTevq2tKAcQ/AAkMmM0p/Mr3
+	Lvj/zPrQY55nZxNz14Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow5ax-0066yb-O1; Fri, 18 Nov 2022 17:56:07 +0000
+	id 1ow69w-006pRM-PH; Fri, 18 Nov 2022 18:32:16 +0000
 Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow5ar-0066rv-Fp
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:56:06 +0000
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com [209.85.128.198])
+	id 1ow69s-006p5x-Dp
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 18:32:15 +0000
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 3F8073F339
-	for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 17:55:59 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 423D03F135
+	for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 18:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1668794159;
-	bh=0Yx4LwoxGO4gELBT8j84eKvAZSVRQJCcfAAZoOkW6xo=;
+	s=20210705; t=1668796327;
+	bh=Djv3x6aUPv9PyyjT1iixDxyaYlLmiEBl3/NbYjudgXA=;
 	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=QZ//FurYMEjnt/4UOOWuMKVe3PV50AWfL9EHNndvwqwABHuz0dQh1Um8ScgziQ6fq
-	 z8fpHpMaUceAQDKU86BPnoW2CME3CvIkQ+MLGAa6W0rQcSPt/Rqb8TNTkLXi/16y1k
-	 alEeINqRZzG4U7W7xIN7ft65PfS/FfsyGPtTkc/Eo4FvRKI/eYqw1fkkoCsQZ2NUnk
-	 9vv8nJHLZD7SrRFyBlhW1wsZGGQeaCQHE50/R9l/8+Mxt5nCk1kUUrDsTzbb1/CN4K
-	 +532bF6r3TXbuXBbb7Vxku3kr2/Mflq9fD6OntYHRNh8Crr4a6utr7dZZom6Gl7meL
-	 ktcis7dEr1dTw==
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-398d108a04cso5740617b3.16
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 09:55:59 -0800 (PST)
+	b=n1qNvLZC0TwV9yiXYqXOA7zDS9EpEIlVbjtEnWk2c+PbivNvVj3oVHPAOvzNvERgE
+	 8rCELrzouQI8vrmUAG/uqu8/F2mku1zzZqmo7rPkRt4V1ixSELhf5N+CJkYLdsOcNC
+	 AIZBzGbPo3xMr+x+9KLtytJ7nDMNpxPrIVpzheb7zRy5iZA0vcAkoI3NpY2TEtcZIn
+	 X8OL2UB5iuV0Twiv9HlxyNZtC5WkP2pcNjTzRFLZqkiD2mTmTH6TzCKWFTACLeLFyG
+	 OQY6zqlpWiwXHRcloWFM/x301JcTXuC6d69SsdrEZuvpGQv8mQkSD6tCbsRoYAHV29
+	 3a7sMM17ffd9Q==
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-399c3d7b039so533517b3.3
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 10:32:07 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0Yx4LwoxGO4gELBT8j84eKvAZSVRQJCcfAAZoOkW6xo=;
-        b=gj7thZuMIV9KxjgSj9b4l6PRrLCyCKXWhN/DGcR+c8KGiSh+ekeva40Z+1wqNNaSW6
-         8i4AWVvERN9ntY4X83tMtrTxVdSCtrFSKBy5LXfcye5aZY0/s0cTXu9F6DcrwaeI/1Qn
-         RI9KjPlGdT55aE4gfPJ4ovmiTGHgyw6ijW+Zq0pdx/d9C86GXzW9zSrzjJaAQo0zC+u6
-         occtwkOrPVcPXofdOJTBiC+4yxOZOgg5m1lFKnePt5WKbIlzcrK3fzuhyrKeLHgoyk6P
-         clLdfNRi4EWky1sygGT0D6HXtORzFhEucC1/ayqWhf+xqN24YU7RCuukPL1ocEw0a5A+
-         ZD5g==
-X-Gm-Message-State: ANoB5plBRJfRr+Zc75N+ivBOJqtoZR3HLK5+tw02ZXaTFWWcPA5Zdham
-	k02Mko5xpfwM85OslY0kIWXzHTi2H4fyuRmYqk3d4cDon9CXKRb0G25MkvkyIbYPcG5cVIqz0pv
-	Focfd4jjbluXr+NY5m8XJmD8MXM9xfv5NmDVWKqqeefwAV7CeNXROIliZGYD2Rw==
-X-Received: by 2002:a81:9a0b:0:b0:370:2d3:c361 with SMTP id r11-20020a819a0b000000b0037002d3c361mr7429922ywg.251.1668794157272;
-        Fri, 18 Nov 2022 09:55:57 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf4X/I6qvXUaj8j659xYAf6Xh78fhOeaJMLEVRA7IEhZ0OhKSxtwJeWXI961OdXwiSzv2eekCAOkOn6eBdnAOrs=
-X-Received: by 2002:a81:9a0b:0:b0:370:2d3:c361 with SMTP id
- r11-20020a819a0b000000b0037002d3c361mr7429904ywg.251.1668794157042; Fri, 18
- Nov 2022 09:55:57 -0800 (PST)
+        bh=Djv3x6aUPv9PyyjT1iixDxyaYlLmiEBl3/NbYjudgXA=;
+        b=KMDFGlOp9ccxeP0psKViWhwzGrp71tIMP5Xt7zoCnWT/aq15RDDoYURvarqL8cjkw/
+         p/V9dxLtVbp9yJ4KE0c35k2qmw4CZ5trbhU2NGgXORJUXy9MIkNBQEw2cC5ztsxW8GDy
+         IzjnPRv1KZ1dMZcZyIqJiIjR6zWFJT1jsYmhK5RFl/asyXEGuccs5HFbPFsWuF6JKlT9
+         nD49vaBtBxw/RfLZ7ibC9gQA1sL1RiG/QVXM0+mAKIj7NK+8x5ppaEGipRlWqOUMZ/+B
+         Fk+8Lj8rTTeeFaFQl839h5rALDEtCcAHOWXGneHCi3o8xa8tNs1azSAZuSp79YqlPF+y
+         sdBw==
+X-Gm-Message-State: ANoB5pmy+iK8egz0gsm6SpL8hhgGUf/znHQ2fEFZyShiHELq0+9XjxVd
+	j4EvpjDlEOpv8GDp1fxB78BIPJ1aRm3RMvjpUZzDXA5/+rzF4F8morG0+GYGPM467dPcWcpj4zX
+	f2w54VG5c/9LWIlC5/Uc77tR5ySNNrke5OBcK9EjWgBPEfnTgrQOUTDTIlLESWw==
+X-Received: by 2002:a81:f805:0:b0:378:5e3a:8fad with SMTP id z5-20020a81f805000000b003785e3a8fadmr7655980ywm.78.1668796324640;
+        Fri, 18 Nov 2022 10:32:04 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf7XdIk5stDOfOFkR1tIl/cDaTWOTLW+0rpbUH31BIkAMdlgi7U1KbO8hjd4o6yHDyjGGNFzy/lAfdlxiS47ZOg=
+X-Received: by 2002:a81:f805:0:b0:378:5e3a:8fad with SMTP id
+ z5-20020a81f805000000b003785e3a8fadmr7655950ywm.78.1668796324303; Fri, 18 Nov
+ 2022 10:32:04 -0800 (PST)
 MIME-Version: 1.0
-References: <20221118011714.70877-1-hal.feng@starfivetech.com> <20221118011714.70877-8-hal.feng@starfivetech.com>
-In-Reply-To: <20221118011714.70877-8-hal.feng@starfivetech.com>
+References: <20221118133216.17037-1-walker.chen@starfivetech.com> <20221118133216.17037-4-walker.chen@starfivetech.com>
+In-Reply-To: <20221118133216.17037-4-walker.chen@starfivetech.com>
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Fri, 18 Nov 2022 18:55:40 +0100
-Message-ID: <CAJM55Z-rdicV69otq=YFsTSUNsg==Svf18b+3w-cMfb_BYcbGg@mail.gmail.com>
-Subject: Re: [PATCH v2 7/8] riscv: dts: starfive: Add StarFive JH7110
- VisionFive2 board device tree
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+Date: Fri, 18 Nov 2022 19:31:47 +0100
+Message-ID: <CAJM55Z9jfpOW49Z5cdR18T0w4Ae6CQAYF-AsCD8eOcPczwgoZA@mail.gmail.com>
+Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
+To: Walker Chen <walker.chen@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Ben Dooks <ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
 	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_095601_985410_D3003C13 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20221118_103212_953708_C31CACB7 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,174 +97,550 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Nov 2022 at 02:17, Hal Feng <hal.feng@starfivetech.com> wrote:
+On Fri, 18 Nov 2022 at 14:35, Walker Chen <walker.chen@starfivetech.com> wrote:
 >
-> From: Emil Renner Berthing <kernel@esmil.dk>
->
-> Add a minimal device tree for StarFive JH7110 VisionFive2 board.
-Missing space between VisionFive and 2.
+> Add generic power domain driver for the StarFive JH71XX SoC.
 
-> Support booting and basic clock/reset/pinctrl/uart drivers.
->
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> Co-developed-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
-> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
-> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+SoCs
+
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
 > ---
->  arch/riscv/boot/dts/starfive/Makefile         |   1 +
->  .../jh7110-starfive-visionfive-v2.dts         | 116 ++++++++++++++++++
->  2 files changed, 117 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>  MAINTAINERS                       |   8 +
+>  drivers/soc/Kconfig               |   1 +
+>  drivers/soc/Makefile              |   1 +
+>  drivers/soc/starfive/Kconfig      |   9 +
+>  drivers/soc/starfive/Makefile     |   3 +
+>  drivers/soc/starfive/jh71xx_pmu.c | 380 ++++++++++++++++++++++++++++++
+>  include/soc/starfive/pm_domains.h |  15 ++
+>  7 files changed, 417 insertions(+)
+>  create mode 100644 drivers/soc/starfive/Kconfig
+>  create mode 100644 drivers/soc/starfive/Makefile
+>  create mode 100644 drivers/soc/starfive/jh71xx_pmu.c
+>  create mode 100644 include/soc/starfive/pm_domains.h
 >
-> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-> index 0ea1bc15ab30..e1237dbc6aac 100644
-> --- a/arch/riscv/boot/dts/starfive/Makefile
-> +++ b/arch/riscv/boot/dts/starfive/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0
->  dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
-> +dtb-$(CONFIG_SOC_STARFIVE) += jh7110-starfive-visionfive-v2.dtb
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index a70c1d0f303e..112f1e698723 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19623,6 +19623,14 @@ F:     Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+>  F:     drivers/reset/starfive/
+>  F:     include/dt-bindings/reset/starfive*
+
+checkpatch.pl complains about not sorting these lines alphabetically.
+
+> +STARFIVE JH71XX PMU CONTROLLER DRIVER
+> +M:     Walker Chen <walker.chen@starfivetech.com>
+> +S:     Maintained
+> +F:     Documentation/devicetree/bindings/power/starfive*
+> +F:     drivers/soc/starfive/jh71xx_pmu.c
+> +F:     include/soc/starfive/pm_domains.h
+> +F:     include/dt-bindings/power/jh7110-power.h
+> +
+>  STATIC BRANCH/CALL
+>  M:     Peter Zijlstra <peterz@infradead.org>
+>  M:     Josh Poimboeuf <jpoimboe@kernel.org>
+> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+> index e461c071189b..628fda4d5ed9 100644
+> --- a/drivers/soc/Kconfig
+> +++ b/drivers/soc/Kconfig
+> @@ -21,6 +21,7 @@ source "drivers/soc/renesas/Kconfig"
+>  source "drivers/soc/rockchip/Kconfig"
+>  source "drivers/soc/samsung/Kconfig"
+>  source "drivers/soc/sifive/Kconfig"
+> +source "drivers/soc/starfive/Kconfig"
+>  source "drivers/soc/sunxi/Kconfig"
+>  source "drivers/soc/tegra/Kconfig"
+>  source "drivers/soc/ti/Kconfig"
+> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+> index 534669840858..cbe076f42068 100644
+> --- a/drivers/soc/Makefile
+> +++ b/drivers/soc/Makefile
+> @@ -27,6 +27,7 @@ obj-y                         += renesas/
+>  obj-y                          += rockchip/
+>  obj-$(CONFIG_SOC_SAMSUNG)      += samsung/
+>  obj-y                          += sifive/
+> +obj-y                          += starfive/
+>  obj-y                          += sunxi/
+>  obj-$(CONFIG_ARCH_TEGRA)       += tegra/
+>  obj-y                          += ti/
+> diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
 > new file mode 100644
-> index 000000000000..c8946cf3a268
+> index 000000000000..2bbcc1397b15
 > --- /dev/null
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> @@ -0,0 +1,116 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +++ b/drivers/soc/starfive/Kconfig
+> @@ -0,0 +1,9 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +config JH71XX_PMU
+> +       bool "Support PMU for StarFive JH71XX Soc"
+> +       depends on PM && (SOC_STARFIVE || COMPILE_TEST)
+> +       select PM_GENERIC_DOMAINS
+> +       help
+> +         Say y here to enable power domain support.
+
+Please expand this help text. Even checkpatch.pl complains about it.
+
+> +
+> diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
+> new file mode 100644
+> index 000000000000..13b589d6b5f3
+> --- /dev/null
+> +++ b/drivers/soc/starfive/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_JH71XX_PMU)       += jh71xx_pmu.o
+> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+> new file mode 100644
+> index 000000000000..e6c0083d166e
+> --- /dev/null
+> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+> @@ -0,0 +1,380 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
 > +/*
+> + * StarFive JH71XX Power Domain Controller Driver
+> + *
 > + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
 > + */
 > +
-> +/dts-v1/;
-> +#include "jh7110.dtsi"
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <dt-bindings/power/jh7110-power.h>
 > +
-> +/ {
-> +       model = "StarFive VisionFive V2";
-> +       compatible = "starfive,visionfive-v2", "starfive,jh7110";
+> +/* register offset */
+> +#define HW_EVENT_TURN_ON_MASK          0x04
+> +#define HW_EVENT_TURN_OFF_MASK         0x08
+> +#define SW_TURN_ON_POWER_MODE          0x0C
+> +#define SW_TURN_OFF_POWER_MODE         0x10
+> +#define SW_ENCOURAGE                   0x44
+> +#define PMU_INT_MASK                   0x48
+> +#define PCH_BYPASS                     0x4C
+> +#define PCH_PSTATE                     0x50
+> +#define PCH_TIMEOUT                    0x54
+> +#define LP_TIMEOUT                     0x58
+> +#define HW_TURN_ON_MODE                        0x5C
+> +#define CURR_POWER_MODE                        0x80
+> +#define PMU_EVENT_STATUS               0x88
+> +#define PMU_INT_STATUS                 0x8C
+> +
+> +/* sw encourage cfg */
+> +#define SW_MODE_ENCOURAGE_EN_LO                0x05
+> +#define SW_MODE_ENCOURAGE_EN_HI                0x50
+> +#define SW_MODE_ENCOURAGE_DIS_LO       0x0A
+> +#define SW_MODE_ENCOURAGE_DIS_HI       0xA0
+> +#define SW_MODE_ENCOURAGE_ON           0xFF
+> +
+> +/* pmu int status */
+> +#define PMU_INT_SEQ_DONE               BIT(0)
+> +#define PMU_INT_HW_REQ                 BIT(1)
+> +#define PMU_INT_SW_FAIL                        GENMASK(3, 2)
+> +#define PMU_INT_HW_FAIL                        GENMASK(5, 4)
+> +#define PMU_INT_PCH_FAIL               GENMASK(8, 6)
+> +#define PMU_INT_FAIL_MASK              (PMU_INT_SW_FAIL | \
+> +                                       PMU_INT_HW_FAIL | \
+> +                                       PMU_INT_PCH_FAIL)
+> +#define PMU_INT_ALL_MASK               (PMU_INT_SEQ_DONE | \
+> +                                       PMU_INT_HW_REQ | \
+> +                                       PMU_INT_FAIL_MASK)
+> +
+> +#define DELAY_US                       10
+> +#define TIMEOUT_US                     100000
 
-Again, please consult your colleagues if you're calling the board
-"VisionFive 2" or "VisionFive V2" and name the file, model and board
-accordingly.
+Please add a JH71XX_PMU_ prefix to these definitions to avoid
+accidentally clashing with a definition added to a generic header.
 
-> +       aliases {
-> +               serial0 = &uart0;
-> +       };
 > +
-> +       chosen {
-> +               linux,initrd-start = <0x46100000>;
-> +               linux,initrd-end = <0x4c000000>;
+> +struct starfive_power_dev {
+> +       struct generic_pm_domain genpd;
+> +       struct starfive_pmu *power;
+> +       uint32_t mask;
 
-These two lines don't belong here. They're added by the bootloader dynamically.
+u32
 
-> +               stdout-path = "serial0:115200";
+> +};
+> +
+> +struct starfive_pmu {
+> +       void __iomem *base;
+> +       spinlock_t lock;
+> +       int irq;
+> +       struct device *pdev;
+> +       struct starfive_power_dev *dev;
+> +       struct genpd_onecell_data genpd_data;
+> +       struct generic_pm_domain **genpd;
+> +};
+> +
+> +struct starfive_pmu_data {
+> +       const char * const name;
+> +       uint8_t bit;
 
-You're missing a n8.
+u8
 
-> +       };
-> +
-> +       cpus {
-> +               timebase-frequency = <4000000>;
-> +       };
-> +
-> +       memory@40000000 {
-> +               device_type = "memory";
-> +               reg = <0x0 0x40000000 0x1 0x0>;
-> +       };
-> +
-> +       gpio-restart {
-> +               compatible = "gpio-restart";
-> +               gpios = <&gpio 35 GPIO_ACTIVE_HIGH>;
-> +               priority = <224>;
-> +       };
+> +       unsigned int flags;
 > +};
 > +
-> +&osc {
-> +       clock-frequency = <24000000>;
-> +};
+> +static void __iomem *pmu_base;
 > +
-> +&clk_rtc {
-> +       clock-frequency = <32768>;
-> +};
+> +static inline void pmu_writel(u32 val, u32 offset)
+> +{
+> +       writel(val, pmu_base + offset);
+> +}
 > +
-> +&gmac0_rmii_refin {
-> +       clock-frequency = <50000000>;
-> +};
+> +void starfive_pmu_hw_event_turn_on(u32 mask)
+> +{
+> +       pmu_writel(mask, HW_EVENT_TURN_ON_MASK);
+> +}
+> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_on);
 > +
-> +&gmac0_rgmii_rxin {
-> +       clock-frequency = <125000000>;
-> +};
+> +void starfive_pmu_hw_event_turn_off(u32 mask)
+> +{
+> +       pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
+> +}
+> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
 > +
-> +&gmac1_rmii_refin {
-> +       clock-frequency = <50000000>;
-> +};
+> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
+> +{
+> +       struct starfive_pmu *pmu = pmd->power;
 > +
-> +&gmac1_rgmii_rxin {
-> +       clock-frequency = <125000000>;
-> +};
+> +       if (!pmd->mask) {
+> +               *is_on = false;
+> +               return -EINVAL;
+> +       }
 > +
-> +&i2stx_bclk_ext {
-> +       clock-frequency = <12288000>;
-> +};
+> +       *is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
 > +
-> +&i2stx_lrck_ext {
-> +       clock-frequency = <192000>;
-> +};
-> +
-> +&i2srx_bclk_ext {
-> +       clock-frequency = <12288000>;
-> +};
-> +
-> +&i2srx_lrck_ext {
-> +       clock-frequency = <192000>;
-> +};
-> +
-> +&tdm_ext {
-> +       clock-frequency = <49152000>;
-> +};
-> +
-> +&mclk_ext {
-> +       clock-frequency = <12288000>;
-> +};
-> +
-> +&gpio {
-> +       uart0_pins: uart0-0 {
-> +               tx-pins {
-> +                       pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
-> +                       bias-disable;
-> +                       drive-strength = <12>;
-> +                       input-disable;
-> +                       input-schmitt-disable;
-> +                       slew-rate = <0>;
-> +               };
-> +
-> +               rx-pins {
-> +                       pinmux = <GPIOMUX(6, GPOUT_LOW, GPOEN_DISABLE, GPI_SYS_UART0_RX)>;
-> +                       bias-pull-up;
+> +       return 0;
+> +}
 
-There are external pull-ups, so maybe change this line to
+Maybe just return an int where 0 = off, 1 = on and negative is an error.
 
-bias-disable; /* external pull-up */
+> +
+> +static int starfive_pmu_set_state(struct starfive_power_dev *pmd, bool on)
+> +{
+> +       struct starfive_pmu *pmu = pmd->power;
+> +       unsigned long flags;
+> +       uint32_t val;
+> +       uint32_t mode;
+> +       uint32_t encourage_lo;
+> +       uint32_t encourage_hi;
 
-> +                       drive-strength = <2>;
-> +                       input-enable;
-> +                       input-schmitt-enable;
-> +                       slew-rate = <0>;
-> +               };
-> +       };
+u32
+
+> +       bool is_on;
+> +       int ret;
+> +
+> +       if (!pmd->mask)
+> +               return -EINVAL;
+> +
+> +       if (is_on == on) {
+> +               dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
+> +                               pmd->genpd.name, on ? "en" : "dis");
+> +               return 0;
+> +       }
+> +
+> +       spin_lock_irqsave(&pmu->lock, flags);
+> +
+> +       if (on) {
+> +               mode = SW_TURN_ON_POWER_MODE;
+> +               encourage_lo = SW_MODE_ENCOURAGE_EN_LO;
+> +               encourage_hi = SW_MODE_ENCOURAGE_EN_HI;
+> +       } else {
+> +               mode = SW_TURN_OFF_POWER_MODE;
+> +               encourage_lo = SW_MODE_ENCOURAGE_DIS_LO;
+> +               encourage_hi = SW_MODE_ENCOURAGE_DIS_HI;
+> +       }
+> +
+> +       __raw_writel(pmd->mask, pmu->base + mode);
+> +
+> +       /* write SW_ENCOURAGE to make the configuration take effect */
+> +       __raw_writel(SW_MODE_ENCOURAGE_ON, pmu->base + SW_ENCOURAGE);
+> +       __raw_writel(encourage_lo, pmu->base + SW_ENCOURAGE);
+> +       __raw_writel(encourage_hi, pmu->base + SW_ENCOURAGE);
+> +
+> +       spin_unlock_irqrestore(&pmu->lock, flags);
+> +
+> +       if (on) {
+> +               ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
+> +                                               val & pmd->mask, DELAY_US,
+> +                                               TIMEOUT_US);
+> +               if (ret) {
+> +                       dev_err(pmu->pdev, "%s: failed to power on\n", pmd->genpd.name);
+> +                       return -ETIMEDOUT;
+> +               }
+> +       } else {
+> +               ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
+> +                                               !(val & pmd->mask), DELAY_US,
+> +                                               TIMEOUT_US);
+> +               if (ret) {
+> +                       dev_err(pmu->pdev, "%s: failed to power off\n", pmd->genpd.name);
+> +                       return -ETIMEDOUT;
+> +               }
+> +       }
+
+You can move the dev_err out. Eg. dev_err(pmu->pdev, "%s: failed to
+power %s\n", pmd->genpd.name, on ? "on" : "off")
+
+> +       return 0;
+> +}
+> +
+> +static int starfive_pmu_on(struct generic_pm_domain *genpd)
+> +{
+> +       struct starfive_power_dev *pmd = container_of(genpd,
+> +               struct starfive_power_dev, genpd);
+
+checkpatch.pl --strict complains that arguments doesn't match the open
+parenthesis
+
+> +
+> +       return starfive_pmu_set_state(pmd, true);
+> +}
+> +
+> +static int starfive_pmu_off(struct generic_pm_domain *genpd)
+> +{
+> +       struct starfive_power_dev *pmd = container_of(genpd,
+> +               struct starfive_power_dev, genpd);
+> +
+> +       return starfive_pmu_set_state(pmd, false);
+> +}
+> +
+> +static void starfive_pmu_int_enable(struct starfive_pmu *pmu, u32 mask, bool enable)
+> +{
+> +       u32 val = __raw_readl(pmu->base + PMU_INT_MASK);
+> +
+> +       if (enable)
+> +               val &= ~mask;
+> +       else
+> +               val |= mask;
+> +
+> +       __raw_writel(val, pmu->base + PMU_INT_MASK);
+> +}
+
+Consider adding comments to functions that need a lock to be held to
+be used safely.
+
+> +
+> +static irqreturn_t starfive_pmu_interrupt(int irq, void *data)
+> +{
+> +       struct starfive_pmu *pmu = data;
+> +       unsigned long flags;
+> +       u32 val;
+> +
+> +       spin_lock_irqsave(&pmu->lock, flags);
+> +       val = __raw_readl(pmu->base + PMU_INT_STATUS);
+> +
+> +       if (val & PMU_INT_SEQ_DONE)
+> +               dev_dbg(pmu->pdev, "sequence done.\n");
+> +       if (val & PMU_INT_HW_REQ)
+> +               dev_dbg(pmu->pdev, "hardware encourage requestion.\n");
+> +       if (val & PMU_INT_SW_FAIL)
+> +               dev_err(pmu->pdev, "software encourage fail.\n");
+> +       if (val & PMU_INT_HW_FAIL)
+> +               dev_err(pmu->pdev, "hardware encourage fail.\n");
+> +       if (val & PMU_INT_PCH_FAIL)
+> +               dev_err(pmu->pdev, "p-channel fail event.\n");
+> +
+> +       /* clear interrupts */
+> +       __raw_writel(val, pmu->base + PMU_INT_STATUS);
+> +       __raw_writel(val, pmu->base + PMU_EVENT_STATUS);
+> +
+> +       spin_unlock_irqrestore(&pmu->lock, flags);
+> +
+> +       return IRQ_HANDLED;
+> +}
+> +
+> +static int starfive_pmu_probe(struct platform_device *pdev)
+> +{
+> +       struct device *dev = &pdev->dev;
+> +       struct device_node *np = dev->of_node;
+> +       const struct starfive_pmu_data *entry, *table;
+> +       struct starfive_pmu *pmu;
+> +       unsigned int i;
+> +       uint8_t max_bit = 0;
+> +       int ret;
+> +
+> +       pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
+> +       if (!pmu)
+> +               return -ENOMEM;
+> +
+> +       pmu_base = pmu->base = devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(pmu->base))
+> +               return PTR_ERR(pmu->base);
+> +
+> +       /* initialize pmu interrupt  */
+> +       pmu->irq = platform_get_irq(pdev, 0);
+> +       if (pmu->irq < 0)
+> +               return pmu->irq;
+> +
+> +       ret = devm_request_irq(dev, pmu->irq, starfive_pmu_interrupt,
+> +                              0, pdev->name, pmu);
+> +       if (ret)
+> +               dev_err(dev, "request irq failed.\n");
+> +
+> +       table = of_device_get_match_data(dev);
+> +       if (!table)
+> +               return -EINVAL;
+> +
+> +       pmu->pdev = dev;
+> +       pmu->genpd_data.num_domains = 0;
+> +       i = 0;
+> +       for (entry = table; entry->name; entry++) {
+> +               max_bit = max(max_bit, entry->bit);
+> +               i++;
+> +       }
+> +
+> +       if (!i)
+> +               return -ENODEV;
+> +
+> +       pmu->genpd_data.num_domains = max_bit + 1;
+> +
+> +       pmu->dev = devm_kcalloc(dev, pmu->genpd_data.num_domains,
+> +                                 sizeof(struct starfive_power_dev),
+> +                                 GFP_KERNEL);
+> +       if (!pmu->dev)
+> +               return -ENOMEM;
+> +
+> +       pmu->genpd = devm_kcalloc(dev, pmu->genpd_data.num_domains,
+> +                                   sizeof(struct generic_pm_domain *),
+> +                                   GFP_KERNEL);
+> +       if (!pmu->genpd)
+> +               return -ENOMEM;
+> +
+> +       pmu->genpd_data.domains = pmu->genpd;
+> +
+> +       i = 0;
+> +       for (entry = table; entry->name; entry++) {
+> +               struct starfive_power_dev *pmd = &pmu->dev[i];
+> +               bool is_on;
+> +
+> +               pmd->power = pmu;
+> +               pmd->mask = BIT(entry->bit);
+> +               pmd->genpd.name = entry->name;
+> +               pmd->genpd.flags = entry->flags;
+> +
+> +               ret = starfive_pmu_get_state(pmd, &is_on);
+> +               if (ret)
+> +                       dev_warn(dev, "unable to get current state for %s\n",
+> +                                pmd->genpd.name);
+> +
+> +               pmd->genpd.power_on = starfive_pmu_on;
+> +               pmd->genpd.power_off = starfive_pmu_off;
+> +
+> +               pm_genpd_init(&pmd->genpd, NULL, !is_on);
+> +               pmu->genpd[entry->bit] = &pmd->genpd;
+> +
+> +               i++;
+> +       }
+> +
+> +       spin_lock_init(&pmu->lock);
+> +       starfive_pmu_int_enable(pmu, PMU_INT_ALL_MASK & ~PMU_INT_PCH_FAIL, true);
+> +
+> +       ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
+> +       if (ret) {
+> +               dev_err(dev, "failed to register genpd driver: %d\n", ret);
+> +               return ret;
+> +       }
+> +
+> +       dev_info(dev, "registered %u power domains\n", i);
+> +
+> +       return 0;
+> +}
+> +
+> +static const struct starfive_pmu_data jh7110_power_domains[] = {
+> +       {
+> +               .name = "SYSTOP",
+> +               .bit = JH7110_PD_SYSTOP,
+> +               .flags = GENPD_FLAG_ALWAYS_ON,
+> +       }, {
+> +               .name = "CPU",
+> +               .bit = JH7110_PD_CPU,
+> +               .flags = GENPD_FLAG_ALWAYS_ON,
+> +       }, {
+> +               .name = "GPUA",
+> +               .bit = JH7110_PD_GPUA,
+> +       }, {
+> +               .name = "VDEC",
+> +               .bit = JH7110_PD_VDEC,
+> +       }, {
+> +               .name = "VOUT",
+> +               .bit = JH7110_PD_VOUT,
+> +       }, {
+> +               .name = "ISP",
+> +               .bit = JH7110_PD_ISP,
+> +       }, {
+> +               .name = "VENC",
+> +               .bit = JH7110_PD_VENC,
+> +       }, {
+> +               .name = "GPUB",
+> +               .bit = JH7110_PD_GPUB,
+> +       }, {
+> +               /* sentinel */
+> +       },
 > +};
 > +
-> +&uart0 {
-> +       pinctrl-names = "default";
-> +       pinctrl-0 = <&uart0_pins>;
-> +       status = "okay";
+> +static const struct of_device_id starfive_pmu_of_match[] = {
+> +       {
+> +               .compatible = "starfive,jh7110-pmu",
+> +               .data = &jh7110_power_domains,
+> +       }, {
+> +               /* sentinel */
+> +       }
 > +};
+> +
+> +static struct platform_driver jh71xx_pmu_driver = {
+> +       .driver = {
+> +               .name = "jh71xx-pmu",
+> +               .of_match_table = starfive_pmu_of_match,
+> +       },
+> +       .probe  = starfive_pmu_probe,
+> +};
+> +builtin_platform_driver(jh71xx_pmu_driver);
+
+You're using a mix of starfive_, starfive_pmu_ and jh71xx_pmu_
+prefixes. Please choose one, preferably jh71xx_pmu_ since that's what
+you call the driver.
+
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/soc/starfive/pm_domains.h b/include/soc/starfive/pm_domains.h
+> new file mode 100644
+> index 000000000000..a20e28e9baf3
+> --- /dev/null
+> +++ b/include/soc/starfive/pm_domains.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + * Author: Walker Chen <walker.chen@starfivetech.com>
+> + */
+> +
+> +#ifndef __SOC_STARFIVE_PMDOMAINS_H__
+> +#define __SOC_STARFIVE_PMDOMAINS_H__
+> +
+> +#include <linux/types.h>
+> +
+> +void starfive_pmu_hw_event_turn_on(u32 mask);
+> +void starfive_pmu_hw_event_turn_off(u32 mask);
+> +
+> +#endif /* __SOC_STARFIVE_PMDOMAINS_H__ */
+
+The header and functions within are named very generic, but
+implemented by the jh71xx-specific driver.
+
+Also who should use this header? These functions are never called by
+anything in this series.
+
 > --
-> 2.38.1
+> 2.17.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
