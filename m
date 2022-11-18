@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC6FC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 842FDC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 03:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
+	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3GZkL3zhfAr/+J2xx2L0orFx2jwNqH1i/gr02c9I8j0=; b=BHLWcBTPJR1Pe+
-	GvVKnxAgjLCuJ42PEZj5NIk+HVjY6hPScRxlBkgyeCM5SbDE9rTjhGWvTYHW/KM1MQqRTnxBg2TIj
-	xtGbqy1mR1WzY7fzAqSPQjbXGIPMWv7luZahIuaF4uWvc3GK/EsMlN4cqH/z+NDz2lp8NT6RhnRDU
-	zgVOi5LKylfaTDzFyvdQ+1jItrRF67fiZKy/2jTlImeMgivoxb5RtqA9pVXp9DVo8n2+Wynn62NfA
-	TCmfJA0QECmX7oF1SUuw0wq+ghwdAI8aq5xkyhCTJclT8yf7aDB0ZBQMckACp8aQso3ml6ybktUIz
-	quNMrwAqq4uB5QZAqysw==;
+	List-Owner; bh=9mMarkR2hHSXrT+HatE0m8zTTP5q6D4s/D6sF948VeE=; b=OLetnPVfDX8P8V
+	a35xnJZP2CHB7ddcyhh9BFO1Jps/quPnSs1OkthKhFiQguxsgyEH8WcQXC5YGScPBZq+c1jzTUUjl
+	VF0qKsUprTY3OXx5IwUGKDPqEtBN7lGo4TnMLyR5Qp4Cn8MRdsGLOMMf1Q6LqFk9bKNkHjLi/jNEf
+	2mxdGSgMISKNocFrWDSDgCXM21MwrsU6VgPWDSgTrwXf4kfcftvCNKcFF0W2j3oJexzUVyyAA0vGi
+	b0eToe786xHDfSt19eVcG0gSBi9w/H2DSKuBGERHfz8o+RMc6CtBgxV28hxNvBl8r+Ro1BAZA6MJi
+	73GgZUmGH0uieQslXYeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovqNc-001Esp-1g; Fri, 18 Nov 2022 01:41:20 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1ovsUM-001oOo-I7; Fri, 18 Nov 2022 03:56:26 +0000
+Received: from mail-oo1-f42.google.com ([209.85.161.42])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovqNZ-001Ei9-2i
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:41:19 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.53])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4NCztn5Y6gzJnfJ;
-	Fri, 18 Nov 2022 09:37:53 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Fri, 18 Nov 2022 09:41:03 +0800
-Message-ID: <dadac419-acda-7ba5-b7bb-4bc5b6fee92d@huawei.com>
-Date: Fri, 18 Nov 2022 09:41:03 +0800
+	id 1ovsUD-001oM4-2W
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 03:56:18 +0000
+Received: by mail-oo1-f42.google.com with SMTP id t15-20020a4a96cf000000b0049f7e18db0dso609429ooi.10
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Nov 2022 19:56:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=date:subject:message-id:references:in-reply-to:cc:to:from
+         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Tfxi4m72wJDyyyRk1r1gIS4usq7HPix4iuACaDy6u/8=;
+        b=7UTB3qW+y8fgWvBb3RTpZIhi+K53hp0naOqLyXn5KeeS3/wECrXavyV+aQeNrfTp+W
+         +/3BGuY9FfBbGm9OMpbRFXpJNWiyvQGaaEKKIsIrZtuKMqe6oYAUwor97g2/2OCmOo4Y
+         3ZmSmbQPkYXUQxZbbYQBXn4SasYuleW0ikEjJ0YFtxZC+SP/gJNj6foXs9K0/6DQjdEI
+         hKJ1Matiedzfm5tAy9uVdwYm0urv75cYF8hQ2KAQLt83Ct8J0QOGpIPKKYriPPILEp7S
+         jBP5biaPViimgpHHhWRqLuU9C4dH4ezE/0fyRCH+Lm+/b4+3YaCuuUZGEzLsW2JPxNNS
+         V3kg==
+X-Gm-Message-State: ANoB5pnNeS7qbk9k6jloJ8HzdF7nFbR3EXRii6msy1TQ1n1Otj0emuyh
+	aqRjX0OPE1HkCHf4pgNzBw==
+X-Google-Smtp-Source: AA0mqf7N7myWgaJT6ZUUlriqZmuzPomf0ckaoERhMXeGZBOJTOq3ZutJEDELIXaz1RGOFiNZqsXuxA==
+X-Received: by 2002:a4a:aece:0:b0:48b:f37a:c28f with SMTP id v14-20020a4aaece000000b0048bf37ac28fmr2735429oon.36.1668743775080;
+        Thu, 17 Nov 2022 19:56:15 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id g38-20020a9d2da9000000b0066cc0525476sm1090311otb.75.2022.11.17.19.56.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Nov 2022 19:56:14 -0800 (PST)
+Received: (nullmailer pid 397831 invoked by uid 1000);
+	Fri, 18 Nov 2022 03:56:14 -0000
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v4 2/8] riscv/kprobe: Allocate detour buffer from module
- area
-To: Steven Rostedt <rostedt@goodmis.org>, Chen Guokai
-	<chenguokai17@mails.ucas.ac.cn>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<mingo@redhat.com>, <sfr@canb.auug.org.au>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Linus Torvalds
-	<torvalds@linux-foundation.org>
-References: <20221106100316.2803176-1-chenguokai17@mails.ucas.ac.cn>
- <20221106100316.2803176-3-chenguokai17@mails.ucas.ac.cn>
- <20221116202521.6c528955@gandalf.local.home>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <20221116202521.6c528955@gandalf.local.home>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
+From: Rob Herring <robh@kernel.org>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jianlong Huang <jianlong.huang@starfivetech.com>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org, Emil Renner Berthing <emil.renner.berthing@canonical.com>, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+In-Reply-To: <20221118011108.70715-3-hal.feng@starfivetech.com>
+References: <20221118011108.70715-1-hal.feng@starfivetech.com>
+ <20221118011108.70715-3-hal.feng@starfivetech.com>
+Message-Id: <166874355750.392596.1548443526558920682.robh@kernel.org>
+Subject:  Re: [PATCH v2 2/5] dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+Date: Thu, 17 Nov 2022 21:56:14 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_174117_292988_6C031078 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221117_195617_143671_5ACED52F 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,31 +74,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi8xMS8xNyA5OjI1LCBTdGV2ZW4gUm9zdGVkdCDlhpnpgZM6Cj4gT24gU3VuLCAg
-NiBOb3YgMjAyMiAxODowMzoxMCArMDgwMAo+IENoZW4gR3Vva2FpIDxjaGVuZ3Vva2FpMTdAbWFp
-bHMudWNhcy5hYy5jbj4gd3JvdGU6Cj4gCj4+IEBAIC04NCw2ICs4NSwzMCBAQCBpbnQgX19rcHJv
-YmVzIGFyY2hfcHJlcGFyZV9rcHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPj4gIH0KPj4gIAo+PiAg
-I2lmZGVmIENPTkZJR19NTVUKPj4gKyNpZiBkZWZpbmVkKENPTkZJR19PUFRQUk9CRVMpICYmIGRl
-ZmluZWQoQ09ORklHXzY0QklUKQo+PiArdm9pZCAqYWxsb2Nfb3B0aW5zbl9wYWdlKHZvaWQpCj4+
-ICt7Cj4+ICsJdm9pZCAqcGFnZTsKPj4gKwo+PiArCXBhZ2UgPSBfX3ZtYWxsb2Nfbm9kZV9yYW5n
-ZShQQUdFX1NJWkUsIDEsIE1PRFVMRVNfVkFERFIsCj4+ICsJCQkJICAgIE1PRFVMRVNfRU5ELCBH
-RlBfS0VSTkVMLAo+PiArCQkJCSAgICBQQUdFX0tFUk5FTCwgMCwgTlVNQV9OT19OT0RFLAo+PiAr
-CQkJCSAgICBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+PiArCWlmICghcGFnZSkKPj4g
-KwkJcmV0dXJuIE5VTEw7Cj4+ICsKPj4gKwlzZXRfdm1fZmx1c2hfcmVzZXRfcGVybXMocGFnZSk7
-Cj4+ICsJLyoKPj4gKwkgKiBGaXJzdCBtYWtlIHRoZSBwYWdlIHJlYWQtb25seSwgYW5kIG9ubHkg
-dGhlbiBtYWtlIGl0IGV4ZWN1dGFibGUgdG8KPj4gKwkgKiBwcmV2ZW50IGl0IGZyb20gYmVpbmcg
-VytYIGluIGJldHdlZW4uCj4+ICsJICovCj4+ICsJc2V0X21lbW9yeV9ybygodW5zaWduZWQgbG9u
-ZylwYWdlLCAxKTsKPj4gKwlzZXRfbWVtb3J5X3goKHVuc2lnbmVkIGxvbmcpcGFnZSwgMSk7Cj4g
-Cj4gRllJLCB0aGUgYWJvdmUgY29tYmluYXRpb24gaXMgZ29pbmcgdG8gYmUgZ29pbmcgYXdheToK
-PiAKPiAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9ZMTBPeUxDTEFBUzZyc1p2QGhpcmV6
-LnByb2dyYW1taW5nLmtpY2tzLWFzcy5uZXQvCgpUaGFua3MgZm9yIHJlbWluZGluZywgaSB3aWxs
-IHVzZSB0aGlzIEFQSSBpbiBuZXh0IHJldmlzaW9uLgo+IC0tIFN0ZXZlCj4gCj4gCj4+ICsKPj4g
-KwlyZXR1cm4gcGFnZTsKPj4gK30KPj4gKyNlbmRpZgo+PiArCj4gCgotLSAKQlIsCkxpYW8sIENo
-YW5nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+On Fri, 18 Nov 2022 09:11:05 +0800, Hal Feng wrote:
+> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+> 
+> Add pinctrl bindings for StarFive JH7110 SoC sys pinctrl controller.
+> 
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 165 ++++++++++++++++++
+>  1 file changed, 165 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+> 
+
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.example.dts:21:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No such file or directory
+   21 |         #include <dt-bindings/clock/starfive-jh7110.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [scripts/Makefile.lib:406: Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.example.dtb] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:1492: dt_binding_check] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221118011108.70715-3-hal.feng@starfivetech.com
+
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
