@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628B0C43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FACC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uzHburz0utDUbZ5ZLrrho6LERLHLR7C2ul6TVKIgr8I=; b=rLXFSSC+RO/0X4
-	R2SEDkI6ixJSIDSxjXmzFWzRe9Y5G0qgm17RsAk0w9C8h+iv7yRXsVMHcknSiVXD06hbGIHSnwerp
-	JMNqGkFAzeOc2W5zhjqW0SbhsfT5bdkZettPekD/Xn7W4G1aJ3mnH0UJelE8hUrg3CgH1H6R72mzh
-	sPmeGGchVl9Z/yS8Fg8LXC5lgG7iaUkBGdxz43A0TTKDmo1PyyNJN9zfxF7EAKbKLeNwbD7+HpSjv
-	bYAqZ/usoTKlhEn7LCzK/59FE7UBQ07dWJvULGiFHHFGJos8OB3DwHAs4kUQZozdmoHn0QhHja2MK
-	xMfB425twm9aN2mgAc1w==;
+	List-Owner; bh=B8qP5PQ4OuG/NxPmFlsj+miPpr1PcjBfn+qm/ADk2pk=; b=nGyWoS6wnHuHId
+	NW6yKNdd1nFOltvc7Ge0bUwuLS2c3gRsWmc4JAAT4Axf8kUMr3kV7U1m1BM2h+nLERi9kqor8v6N9
+	jCEQ+QAx5h5vFzHgn7O1MEuCzIGe2kylhZtQkTZZZSuuMXZY3mxUEGP0JHXfdiQ3x615o0lxs3fn8
+	BQRthYDlJKT/vMdGSJv6UyW7Hk/HyWITCHkpUPmRloybonDMlsdeih64MIy1dJ45RXA27KgAOjMEx
+	wgwGVWrh5SYcJLBSuSGl5HM4Ubb+15e6a09tyjA7ZVGtb/nwbI/apoyNTCr5iaGWjd+gffKB9kNXG
+	akJHKLJsT6si/bL/9lCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovpuj-0018qT-RS; Fri, 18 Nov 2022 01:11:29 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1ovpus-0018tt-GY; Fri, 18 Nov 2022 01:11:38 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovpud-0018oZ-An
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:11:26 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	id 1ovpuo-0018og-P7
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:11:36 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 84EFA24E1F5;
-	Fri, 18 Nov 2022 09:11:12 +0800 (CST)
-Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:11:12 +0800
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C30CD24E0AC;
+	Fri, 18 Nov 2022 09:11:14 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 09:11:14 +0800
 Received: from ubuntu.localdomain (183.27.96.116) by EXMBX072.cuchost.com
  (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:11:11 +0800
+ 2022 09:11:14 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	Jianlong Huang <jianlong.huang@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/5] dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
-Date: Fri, 18 Nov 2022 09:11:05 +0800
-Message-ID: <20221118011108.70715-3-hal.feng@starfivetech.com>
+Subject: [PATCH v2 5/5] pinctrl: starfive: Add StarFive JH7110 aon controller driver
+Date: Fri, 18 Nov 2022 09:11:08 +0800
+Message-ID: <20221118011108.70715-6-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221118011108.70715-1-hal.feng@starfivetech.com>
 References: <20221118011108.70715-1-hal.feng@starfivetech.com>
@@ -58,8 +58,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX072.cuchost.com
  (172.16.6.82)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_171123_765889_A105BFD3 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20221117_171135_114709_55B3FFF6 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,186 +78,226 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jianlong Huang <jianlong.huang@starfivetech.com>
 
-Add pinctrl bindings for StarFive JH7110 SoC sys pinctrl controller.
+Add pinctrl driver for StarFive JH7110 SoC aon pinctrl controller.
 
+Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 165 ++++++++++++++++++
- 1 file changed, 165 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+ drivers/pinctrl/starfive/Makefile             |   2 +-
+ drivers/pinctrl/starfive/pinctrl-jh7110-aon.c | 192 ++++++++++++++++++
+ 2 files changed, 193 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/pinctrl/starfive/pinctrl-jh7110-aon.c
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+diff --git a/drivers/pinctrl/starfive/Makefile b/drivers/pinctrl/starfive/Makefile
+index 404929f760e8..17cdd1b0e650 100644
+--- a/drivers/pinctrl/starfive/Makefile
++++ b/drivers/pinctrl/starfive/Makefile
+@@ -5,4 +5,4 @@ obj-$(CONFIG_PINCTRL_STARFIVE) += pinctrl-starfive.o
+ 
+ # SoC Drivers
+ obj-$(CONFIG_PINCTRL_STARFIVE_JH7100)	+= pinctrl-starfive-jh7100.o
+-obj-$(CONFIG_PINCTRL_STARFIVE_JH7110)	+= pinctrl-jh7110-sys.o
++obj-$(CONFIG_PINCTRL_STARFIVE_JH7110)	+= pinctrl-jh7110-sys.o pinctrl-jh7110-aon.o
+diff --git a/drivers/pinctrl/starfive/pinctrl-jh7110-aon.c b/drivers/pinctrl/starfive/pinctrl-jh7110-aon.c
 new file mode 100644
-index 000000000000..79623f884a9c
+index 000000000000..7929ecbc03e6
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
-@@ -0,0 +1,165 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-sys-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pinctrl/starfive/pinctrl-jh7110-aon.c
+@@ -0,0 +1,192 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Pinctrl / GPIO driver for StarFive JH7110 SoC aon controller
++ *
++ * Copyright (C) 2022 StarFive Technology Co., Ltd.
++ */
 +
-+title: StarFive JH7110 Sys Pin Controller
++#include <linux/err.h>
++#include <linux/gpio/driver.h>
++#include <linux/init.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/of_irq.h>
++#include <linux/of_platform.h>
++#include <linux/pinctrl/pinconf.h>
++#include <linux/pinctrl/pinconf-generic.h>
++#include <linux/pinctrl/pinctrl.h>
++#include <linux/pinctrl/pinmux.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
 +
-+description: |
-+  Bindings for the JH7110 RISC-V SoC from StarFive Technology Ltd.
++#include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
 +
-+  Out of the SoC's many pins only the ones named PAD_GPIO0 to PAD_GPIO63
-+  can be multiplexed and have configurable bias, drive strength,
-+  schmitt trigger etc.
-+  Some peripherals have their I/O go through the 64 "GPIOs". This also
-+  includes a number of other UARTs, I2Cs, SPIs, PWMs etc.
-+  All these peripherals are connected to all 64 GPIOs such that
-+  any GPIO can be set up to be controlled by any of the peripherals.
++#include "../core.h"
++#include "../pinconf.h"
++#include "../pinmux.h"
++#include "pinctrl-starfive.h"
 +
-+maintainers:
-+  - Jianlong Huang <jianlong.huang@starfivetech.com>
++#define JH7110_AON_NGPIO		4
++#define JH7110_AON_GC_BASE		64
 +
-+properties:
-+  compatible:
-+    const: starfive,jh7110-sys-pinctrl
++/* registers */
++#define JH7110_AON_DOEN			0x0
++#define JH7110_AON_DOUT			0x4
++#define JH7110_AON_GPI			0x8
++#define JH7110_AON_GPIOIN		0x2c
 +
-+  reg:
-+    maxItems: 1
++#define JH7110_AON_GPIOEN		0xc
++#define JH7110_AON_GPIOIS		0x10
++#define JH7110_AON_GPIOIC		0x14
++#define JH7110_AON_GPIOIBE		0x18
++#define JH7110_AON_GPIOIEV		0x1c
++#define JH7110_AON_GPIOIE		0x20
++#define JH7110_AON_GPIORIS		0x28
++#define JH7110_AON_GPIOMIS		0x28
 +
-+  reg-names:
-+    items:
-+      - const: control
++#define AON_GPO_PDA_0_5_CFG		0x30
 +
-+  clocks:
-+    maxItems: 1
++static const struct pinctrl_pin_desc jh7110_aon_pins[] = {
++	PINCTRL_PIN(PAD_TESTEN,		"TESTEN"),
++	PINCTRL_PIN(PAD_RGPIO0,		"RGPIO0"),
++	PINCTRL_PIN(PAD_RGPIO1,		"RGPIO1"),
++	PINCTRL_PIN(PAD_RGPIO2,		"RGPIO2"),
++	PINCTRL_PIN(PAD_RGPIO3,		"RGPIO3"),
++	PINCTRL_PIN(PAD_RSTN,		"RSTN"),
++	PINCTRL_PIN(PAD_GMAC0_MDC,	"GMAC0_MDC"),
++	PINCTRL_PIN(PAD_GMAC0_MDIO,	"GMAC0_MDIO"),
++	PINCTRL_PIN(PAD_GMAC0_RXD0,	"GMAC0_RXD0"),
++	PINCTRL_PIN(PAD_GMAC0_RXD1,	"GMAC0_RXD1"),
++	PINCTRL_PIN(PAD_GMAC0_RXD2,	"GMAC0_RXD2"),
++	PINCTRL_PIN(PAD_GMAC0_RXD3,	"GMAC0_RXD3"),
++	PINCTRL_PIN(PAD_GMAC0_RXDV,	"GMAC0_RXDV"),
++	PINCTRL_PIN(PAD_GMAC0_RXC,	"GMAC0_RXC"),
++	PINCTRL_PIN(PAD_GMAC0_TXD0,	"GMAC0_TXD0"),
++	PINCTRL_PIN(PAD_GMAC0_TXD1,	"GMAC0_TXD1"),
++	PINCTRL_PIN(PAD_GMAC0_TXD2,	"GMAC0_TXD2"),
++	PINCTRL_PIN(PAD_GMAC0_TXD3,	"GMAC0_TXD3"),
++	PINCTRL_PIN(PAD_GMAC0_TXEN,	"GMAC0_TXEN"),
++	PINCTRL_PIN(PAD_GMAC0_TXC,	"GMAC0_TXC"),
++};
 +
-+  resets:
-+    maxItems: 1
++static int jh7110_aon_set_one_pin_mux(struct starfive_pinctrl *sfp,
++				      unsigned int pin,
++				      unsigned int din, u32 dout,
++				      u32 doen, u32 func)
++{
++	if (pin < sfp->gc.ngpio && func == 0)
++		starfive_set_gpiomux(sfp, pin, din, dout, doen);
 +
-+  gpio-controller: true
++	return 0;
++}
 +
-+  "#gpio-cells":
-+    const: 2
++static int jh7110_aon_get_padcfg_base(struct starfive_pinctrl *sfp,
++				      unsigned int pin)
++{
++	if (pin < PAD_GMAC0_MDC)
++		return AON_GPO_PDA_0_5_CFG;
 +
-+  interrupts:
-+    maxItems: 1
-+    description: The GPIO parent interrupt.
++	return -1;
++}
 +
-+  interrupt-controller: true
++static void jh7110_aon_irq_handler(struct irq_desc *desc)
++{
++	struct starfive_pinctrl *sfp = starfive_from_irq_desc(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	unsigned long mis;
++	unsigned int pin;
 +
-+  "#interrupt-cells":
-+    const: 2
++	chained_irq_enter(chip, desc);
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - gpio-controller
-+  - "#gpio-cells"
-+  - interrupts
-+  - interrupt-controller
-+  - "#interrupt-cells"
++	mis = readl_relaxed(sfp->base + JH7110_AON_GPIOMIS);
++	for_each_set_bit(pin, &mis, JH7110_AON_NGPIO)
++		generic_handle_domain_irq(sfp->gc.irq.domain, pin);
 +
-+patternProperties:
-+  '-[0-9]+$':
-+    type: object
-+    patternProperties:
-+      '-pins$':
-+        type: object
-+        description: |
-+          A pinctrl node should contain at least one subnode representing the
-+          pinctrl groups available on the machine. Each subnode will list the
-+          pins it needs, and how they should be configured, with regard to
-+          muxer configuration, system signal configuration, pin groups for
-+          vin/vout module, pin voltage, mux functions for output, mux functions
-+          for output enable, mux functions for input.
++	chained_irq_exit(chip, desc);
++}
 +
-+        properties:
-+          pinmux:
-+            description: |
-+              The list of GPIOs and their mux settings that properties in the
-+              node apply to. This should be set using the GPIOMUX macro.
-+            $ref: "/schemas/pinctrl/pinmux-node.yaml#/properties/pinmux"
++static int jh7110_aon_init_hw(struct gpio_chip *gc)
++{
++	struct starfive_pinctrl *sfp = container_of(gc,
++			struct starfive_pinctrl, gc);
 +
-+          bias-disable: true
++	/* mask all GPIO interrupts */
++	writel_relaxed(0, sfp->base + JH7110_AON_GPIOIE);
++	/* clear edge interrupt flags */
++	writel_relaxed(0, sfp->base + JH7110_AON_GPIOIC);
++	writel_relaxed(0x0f, sfp->base + JH7110_AON_GPIOIC);
++	/* enable GPIO interrupts */
++	writel_relaxed(1, sfp->base + JH7110_AON_GPIOEN);
++	return 0;
++}
 +
-+          bias-pull-up:
-+            type: boolean
++static const struct starfive_gpio_irq_reg jh7110_aon_irq_reg = {
++	.is_reg_base	= JH7110_AON_GPIOIS,
++	.ic_reg_base	= JH7110_AON_GPIOIC,
++	.ibe_reg_base	= JH7110_AON_GPIOIBE,
++	.iev_reg_base	= JH7110_AON_GPIOIEV,
++	.ie_reg_base	= JH7110_AON_GPIOIE,
++	.ris_reg_base	= JH7110_AON_GPIORIS,
++	.mis_reg_base	= JH7110_AON_GPIOMIS,
++};
 +
-+          bias-pull-down:
-+            type: boolean
++static const struct starfive_pinctrl_soc_info jh7110_aon_pinctrl_info = {
++	.pins		= jh7110_aon_pins,
++	.npins		= ARRAY_SIZE(jh7110_aon_pins),
++	.ngpios		= JH7110_AON_NGPIO,
++	.gc_base	= JH7110_AON_GC_BASE,
++	.flags		= 1,
++	.dout_reg_base	= JH7110_AON_DOUT,
++	.dout_mask	= GENMASK(3, 0),
++	.doen_reg_base	= JH7110_AON_DOEN,
++	.doen_mask	= GENMASK(2, 0),
++	.gpi_reg_base	= JH7110_AON_GPI,
++	.gpi_mask	= GENMASK(3, 0),
++	.gpioin_reg_base	   = JH7110_AON_GPIOIN,
++	.irq_reg		   = &jh7110_aon_irq_reg,
++	.starfive_set_one_pin_mux  = jh7110_aon_set_one_pin_mux,
++	.starfive_get_padcfg_base  = jh7110_aon_get_padcfg_base,
++	.starfive_gpio_irq_handler = jh7110_aon_irq_handler,
++	.starfive_gpio_init_hw	   = jh7110_aon_init_hw,
++};
 +
-+          drive-strength:
-+            enum: [ 2, 4, 8, 12 ]
++static const struct of_device_id jh7110_aon_pinctrl_of_match[] = {
++	{
++		.compatible = "starfive,jh7110-aon-pinctrl",
++		.data = &jh7110_aon_pinctrl_info,
++	},
++	{ /* sentinel */ }
++};
 +
-+          input-enable: true
++static int jh7110_aon_pinctrl_probe(struct platform_device *pdev)
++{
++	const struct starfive_pinctrl_soc_info *pinctrl_info;
 +
-+          input-disable: true
++	pinctrl_info = of_device_get_match_data(&pdev->dev);
++	if (!pinctrl_info)
++		return -ENODEV;
 +
-+          input-schmitt-enable: true
++	return starfive_pinctrl_probe(pdev, pinctrl_info);
++}
 +
-+          input-schmitt-disable: true
++static struct platform_driver jh7110_aon_pinctrl_driver = {
++	.driver = {
++		.name = "starfive-jh7110-aon-pinctrl",
++		.of_match_table = of_match_ptr(jh7110_aon_pinctrl_of_match),
++	},
++	.probe = jh7110_aon_pinctrl_probe,
++};
 +
-+          slew-rate:
-+            maximum: 1
++static int __init jh7110_aon_pinctrl_init(void)
++{
++	return platform_driver_register(&jh7110_aon_pinctrl_driver);
++}
++arch_initcall(jh7110_aon_pinctrl_init);
 +
-+        additionalProperties: false
-+
-+    additionalProperties: false
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/starfive-jh7110.h>
-+    #include <dt-bindings/reset/starfive-jh7110.h>
-+    #include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
-+
-+        soc {
-+                #address-cells = <2>;
-+                #size-cells = <2>;
-+
-+                gpio: gpio@13040000 {
-+                        compatible = "starfive,jh7110-sys-pinctrl";
-+                        reg = <0x0 0x13040000 0x0 0x10000>;
-+                        reg-names = "control";
-+                        clocks = <&syscrg_clk JH7110_SYSCLK_IOMUX>;
-+                        resets = <&syscrg_rst JH7110_SYSRST_IOMUX>;
-+                        interrupts = <86>;
-+                        interrupt-controller;
-+                        #interrupt-cells = <2>;
-+                        #gpio-cells = <2>;
-+                        gpio-controller;
-+                        status = "okay";
-+
-+                        uart0_pins: uart0-0 {
-+                                tx-pins {
-+                                        pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
-+                                        bias-disable;
-+                                        drive-strength = <12>;
-+                                        input-disable;
-+                                        input-schmitt-disable;
-+                                        slew-rate = <0>;
-+                                };
-+
-+                                rx-pins {
-+                                        pinmux = <GPIOMUX(6, GPOUT_LOW, GPOEN_DISABLE, GPI_SYS_UART0_RX)>;
-+                                        bias-pull-up;
-+                                        drive-strength = <2>;
-+                                        input-enable;
-+                                        input-schmitt-enable;
-+                                        slew-rate = <0>;
-+                                };
-+                        };
-+                };
-+
-+                uart0 {
-+                        pinctrl-names = "default";
-+                        pinctrl-0 = <&uart0_pins>;
-+                        status = "okay";
-+                };
-+        };
-+
-+...
++MODULE_DESCRIPTION("Pinctrl driver for the StarFive JH7110 SoC aon controller");
++MODULE_AUTHOR("Jianlong Huang <jianlong.huang@starfivetech.com>");
 -- 
 2.38.1
 
