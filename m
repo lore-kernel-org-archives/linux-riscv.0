@@ -4,91 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51531C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 13:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C23FBC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 13:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X73bOkNPMuZ1ZnuVRlP/55NCQGHJjhhk1XS/sjQ/Scc=; b=Cshk8X9+Hnhs1G
-	PzRGbRV7D9YIbP8MiyX6Rm+4EDlZc5+O8nt3io/Gaix2puncysWFZRzVUxKbGag745iFEYRCwcnde
-	0kykrPrepsQw7Vn2PtpXTVTIduKMG4qCanEq5pIooh4QyUykvg1p8kOfn7PReykfLLCTFdK7JMKHs
-	pGxyBCz/0pNTniuV1pEvZN00nnlBegeZfA/KRV5rbV6j5nP4tujhZ5h3Y0l790JR/pQ0mXfVfJ8h8
-	M8jlCj7R7ZszEoQtUletjtp6fty5FZvulxjyNEbXItIbaXA82sh7YN6JKqpKKJ74BvmB/5rZ5xc3b
-	cXOQhDqAVGbMu7XLZ+2g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8pVf/ifUvJsBteq70Jbxm/2cuF85pb472kNI2zhSRrw=; b=CYs0B3xQA00g1o
+	yMwFlTBrbXNAwTSQ3KyNTuy1p3s3IVB0HBREZlHRThcYYd73dsW06hl7fnwgTwgn9N9p+JhOYMEVm
+	b2HCX1LRCzycfgF5CnhIsyjkAmXLEwqUiz0xXL5/aRFQLI6StJRCwC4Y7cniL6fhLpZUeASG3uKWF
+	tXXCdBIgYHk31h7jXyLjJ/P46qKGcr+j53AF7Nv+WZvObyQCmL+klY+l5mUN4UpNrNKAP2EJRXNl3
+	3efyKClToPvKEWSiQ/s8G2T/kr7OBOhkKzBBN609j48BpN6mvOGgmSDFxxhfPVgdTQsZ4RuvgVat1
+	twHCoOF6COnY1alBBytg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow1By-0044TZ-D8; Fri, 18 Nov 2022 13:14:02 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow1Bv-0044SO-Gv
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 13:14:00 +0000
-Received: by mail-lf1-x136.google.com with SMTP id s8so8139371lfc.8
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 05:13:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/mC7g00gLN2qAMlY7fOURh7m2CYVc3PZUkw88havBT0=;
-        b=KUfK0birxVBcDUOBbE0GJqnRaBPKLSm+SxEy9mV65Idlfe+gcbMO4qUSlfx9puhdTS
-         zhTCV8yeu7coT9jsq8qymHCvanzzFG5KEdDLyrJikxS6fRnjg6KnMM99CGMvBaEylIKl
-         OGlOwrAe0du0GT4UWEU+RHH3MPsgp6zBP4QjtzxCm9eLuIPbeMbXT9Ff5qV1Rsq4Dcct
-         uxpiiQbyT+bUlRqfLd2JTjkkaL35QovXHguOEIz4KpV4C3vm9+Mdz3C+Ten8ZTRy66vf
-         qXiac6ILU5reQZKFFFs6FsCYEKmaabSKzCydfuV73sy0ue0mibGAgR+kZVYIRq4HSTK4
-         hDLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/mC7g00gLN2qAMlY7fOURh7m2CYVc3PZUkw88havBT0=;
-        b=iQyBtZtERdujT/uK2SJa7yaeHIAX9S4jlTIssnAWGMyIgxI8Xcrige/HCQCF1QzdqK
-         kKzVTrSTWmG5b7LR7dhoiEcAoBGOUEKMiu4a6CbPaK2LJBQQjtnWMUgXKnEnNiK1pmmZ
-         l78FQDT+BY38IhYIgYWrzIKWbTtSM/FyEOJSO9NmZFsZKp04Y/qrNB5bPZS8MnmvZlnr
-         uOWO1Cw7qkUKwMgad/VcwANGOJt7R3P6yF66O36D+Hmp/xK6fd7w3xXxcGtgh5zTU5w2
-         JW9SDPUr1fKY+3wt1SXQEwc6YUBYEyRB8FkUyZ/mFATKaCS5t5dU6hBj990fHpnaeUI7
-         Fdcw==
-X-Gm-Message-State: ANoB5pkNKcbo0nUS7ElfAmM6wGopfmTE4rvw5gS3fkBrvlnS/6CvMu0X
-	/rhRITP4QhwubzMT37fRHoZqQB1xdO2YZyJS
-X-Google-Smtp-Source: AA0mqf78HbKGQTDOE4+BiDimvNgdVBquA9KsjqNs1WBwaWJLdYE6jZKT54YGJ6xe8zDTOOCYp1M5xg==
-X-Received: by 2002:a19:4918:0:b0:4b3:a78b:2e7d with SMTP id w24-20020a194918000000b004b3a78b2e7dmr2359952lfa.363.1668777235606;
-        Fri, 18 Nov 2022 05:13:55 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id g23-20020a2ea4b7000000b0026dce0a5ca9sm649802ljm.70.2022.11.18.05.13.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 18 Nov 2022 05:13:54 -0800 (PST)
-Message-ID: <1707d9f6-47bf-c611-7484-7bcabe3c872b@linaro.org>
-Date: Fri, 18 Nov 2022 14:13:53 +0100
+	id 1ow1US-0048yw-6H; Fri, 18 Nov 2022 13:33:08 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ow1UN-0048nP-PL
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 13:33:05 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id B29BB24DECD;
+	Fri, 18 Nov 2022 21:32:27 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 21:32:27 +0800
+Received: from localhost.localdomain (183.27.96.116) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 21:32:26 +0800
+From: Walker Chen <walker.chen@starfivetech.com>
+To: <linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+	<conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+	Walker Chen <walker.chen@starfivetech.com>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v1 0/4] JH7110 Power Domain Support
+Date: Fri, 18 Nov 2022 21:32:12 +0800
+Message-ID: <20221118133216.17037-1-walker.chen@starfivetech.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v2 1/8] dt-bindings: riscv: Add StarFive JH7110 SoC and
- VisionFive2 board
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Ben Dooks <ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Marc Zyngier <maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- linux-kernel@vger.kernel.org
-References: <20221118011714.70877-1-hal.feng@starfivetech.com>
- <20221118011714.70877-2-hal.feng@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221118011714.70877-2-hal.feng@starfivetech.com>
+X-Originating-IP: [183.27.96.116]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
+ (172.16.6.68)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_051359_593936_1564247F 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221118_053304_118945_950DF079 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +71,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2022 02:17, Hal Feng wrote:
-> From: Emil Renner Berthing <kernel@esmil.dk>
-> 
-> Add device tree bindings for the StarFive JH7110 RISC-V SoC [1]
-> and the VisionFive2 board [2] equipped with it.
-> 
-> [1]: https://doc-en.rvspace.org/Doc_Center/jh7110.html
+This patchset adds power domain controller driver for the StarFive JH7110 SoC.
+The series has been tested on the VisionFive 2 board.
 
-As Conor said, I think Links are preferred. With that:
+This patchset should be applied after the patchset [1], [2], [3]:
+[1] https://lore.kernel.org/all/20221118010627.70576-1-hal.feng@starfivetech.com/
+[2] https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfivetech.com/
+[3] https://lore.kernel.org/all/20221118011714.70877-1-hal.feng@starfivetech.com/
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Walker Chen (4):
+  dt-bindings: power: Add StarFive JH7110 power domain definitions
+  dt-bindings: power: Add starfive,jh71xx-power bindings
+  soc: starfive: Add StarFive JH71XX pmu driver
+  riscv: dts: starfive: add power controller node
 
-Best regards,
-Krzysztof
+ .../bindings/power/starfive,jh71xx-power.yaml |  46 +++
+ MAINTAINERS                                   |   8 +
+ arch/riscv/boot/dts/starfive/jh7110.dtsi      |   7 +
+ drivers/soc/Kconfig                           |   1 +
+ drivers/soc/Makefile                          |   1 +
+ drivers/soc/starfive/Kconfig                  |   9 +
+ drivers/soc/starfive/Makefile                 |   3 +
+ drivers/soc/starfive/jh71xx_pmu.c             | 380 ++++++++++++++++++
+ include/dt-bindings/power/jh7110-power.h      |  18 +
+ include/soc/starfive/pm_domains.h             |  15 +
+ 10 files changed, 488 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml
+ create mode 100644 drivers/soc/starfive/Kconfig
+ create mode 100644 drivers/soc/starfive/Makefile
+ create mode 100644 drivers/soc/starfive/jh71xx_pmu.c
+ create mode 100644 include/dt-bindings/power/jh7110-power.h
+ create mode 100644 include/soc/starfive/pm_domains.h
+
+
+base-commit: 094226ad94f471a9f19e8f8e7140a09c2625abaa
+prerequisite-patch-id: 8ebfffa09b478904bf7c516f76e2d824ddb60140
+prerequisite-patch-id: e8dd8258a4c4062eee2cf07c4607d52baea71f3a
+prerequisite-patch-id: d050d884d7b091ff30508a70f5ce5164bb3b72e5
+prerequisite-patch-id: 0e41f8cfd4861fcbf6f2e6a2559ce28f0450299e
+prerequisite-patch-id: 6e1652501859b85f101ff3b15ced585d43c71c1b
+prerequisite-patch-id: 587628a67adad5c655e5f998bf6c4a368ec07d3c
+prerequisite-patch-id: 596490c0e397df6c0249c1306fbb1d5bf00b5b83
+prerequisite-patch-id: dc873317826b50364344b25ac5cd74e811403f3d
+prerequisite-patch-id: a50150f41d8e874553023187e22eb24dffae8d16
+prerequisite-patch-id: 735e62255c75801bdc4c0b4107850bce821ff7f5
+prerequisite-patch-id: 9d2e83a2dd43e193f534283fab73e90b4f435043
+prerequisite-patch-id: 7a43e0849a9afa3c6f83547fd16d9271b07619e5
+prerequisite-patch-id: e7aa6fb05314bad6d94c465f3f59969871bf3d2e
+prerequisite-patch-id: 6276b2a23818c65ff2ad3d65b562615690cffee9
+prerequisite-patch-id: d834ece14ffb525b8c3e661e78736692f33fca9b
+prerequisite-patch-id: 4c17a3ce4dae9b788795d915bf775630f5c43c53
+prerequisite-patch-id: dabb913fd478e97593e45c23fee4be9fd807f851
+prerequisite-patch-id: ba61df106fbe2ada21e8f22c3d2cfaf7809c84b6
+prerequisite-patch-id: 287572fb64f83f5d931034f7c75674907584a087
+prerequisite-patch-id: 536114f0732646095ef5302a165672b3290d4c75
+prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+prerequisite-patch-id: e09e995700a814a763aa304ad3881a7222acf556
+prerequisite-patch-id: 841cd71b556b480d6a5a5e332eeca70d6a76ec3f
+prerequisite-patch-id: d074c7ffa2917a9f754d5801e3f67bc980f9de4c
+prerequisite-patch-id: 5f59bc7cbbf1230e5ff4761fa7c1116d4e6e5d71
+prerequisite-patch-id: d5da3475c6a3588e11a1678feb565bdd459b548e
+-- 
+2.17.1
 
 
 _______________________________________________
