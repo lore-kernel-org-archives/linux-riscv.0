@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F006C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E5DC43219
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BU6GuGub6epMKtyWcooCPN1JULwwCU02zRBGtvsR2m0=; b=GATe2oET6Uy1jr
-	NMrLIAm9IZ/2yBnfn3Gcl+x/6dCYpSl5Fpz8r/Njk+RnqLUVLKptBs8MLxFaT59BWxmMK9Lk60XIx
-	XtaCpoE/e4Qrdd81YJzoH2WSu1IhmCVKgY8tH5rq9gEnTUwT6AF3sa/d4YRUFhboZwM8uCfUF3qhr
-	26wJaPnllU3cBwDghXVX73vtzUE4Ld4/ZqwahkMmzeg8iooRlYGwuqYVloCEpgw+u/p0q3vEQ/0ps
-	NPvW1ADkVCQy2sLaby1GKm8LCMTHhZhAXHhQ5PjHITPHKUXB0s/Tsnd4CDh46vbqMuMKiWSPPeC2P
-	IZLtDtLxciZV0dCwKFmQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WxbU2HByyoEUOQabUp4fSoobNqnxSVdfwO8Q1yQuDfo=; b=j6gx9Mucwxiahk
+	K1FML555apGJlpuLBlLV5ayGTIRupUK6SE4Lg6xN2v4XT/Pwde844G+w2ad5gf8uORm/2XwslgJva
+	xLhwExSHrocvQ/yKlRpwiLXWVciK3pD7OQYf+KwhdcW76m8lC/Nkdqlw05zJPyn0WjxzYFWcVUKq7
+	353b12sdITfD9sv4vL+QcjP18QyMaCx9s+aJhtrXcC8jG3dGQWkJiaB8CEP6jmB5ozgfU7kIpFX04
+	ea+DjFLQ06g76iqInRUdfw0ek0wrUWagCLks/A4CG8HP7HfOJVkdcySzZ1BLhvCnZuPq4Jlq7KRyP
+	dl3bpaLEsBd/8MK64ShA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4yR-005hwP-UO; Fri, 18 Nov 2022 17:16:19 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ow50i-005jIN-NR; Fri, 18 Nov 2022 17:18:40 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4yO-005ht0-Oy
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:16:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1ow50f-005jHe-RG
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:18:39 +0000
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2A4E4B824D5;
-	Fri, 18 Nov 2022 17:16:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D29C433B5;
-	Fri, 18 Nov 2022 17:16:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668791771;
-	bh=5YPCMtSudsRWbegWUYgcmmhxe/oN7JAwlQaeo32XQ2E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Hvr0aRSi5Ym/Vx37FB8oFTXjD3VJVmDw/+Ty65nQblavVuPbV2kvWda0oNqdYYPP7
-	 GuA0j0/8JaDpkc2aCnc0X5Qod0GA0BlZaklZUGWyKs0o4FhJNZAxFqX6RNrMt6QcMv
-	 gmOtGU35th8XhGywEKpja4AH8SCFQfBtduXQhSNyr438jpT1ZbSMrR0YoWogslAcYo
-	 OOG3BaWhf5O1TpHAc7j33Tq8fuIHQ0QCWEkRTTPzE03umtwfEhy50l8uZlsDbHrI9o
-	 oM5mEzYcne1LvEBiwU32MkmI5bD94zyNzg7DQQV1VnOx/LIblDS1B9tzV6lMvHa6Zm
-	 Zch6LUjrowEBg==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v2] Documentation: riscv: Document the sv57 VM layout
-Date: Fri, 18 Nov 2022 18:15:56 +0100
-Message-Id: <20221118171556.1612190-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.37.2
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DE0DB3F487
+	for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 17:18:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1668791915;
+	bh=Ihl+Je3Z+y8gG//tf2j+pj2UsuFi/UkCnl/8sS+58OE=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=AjLhQ40i1l+2Hc8kL1a9pZ1f0v/938FYIp2MYmTAxeVorh+GFsDhiI+gbv0aPbtsS
+	 U4MmRrOQWcwtCIh5QO6AAzd8B/azM4dBob2Mmbet0+b1QE75nVnLIJXd+JpRujlfOX
+	 daO5Rwk4YGVpTC9uhtGGx29sSTIpIKL+m3cDLZ8SNWgX4WPdkgaqrBelcknCbu4+VY
+	 jcnCGM+8ue7H6j+SR/qDdhfIJil2ivAWsDnEECnRFsV0YK1/Q3BzvcNGYYYTXm2e4L
+	 SGFJofoOHEsVwqWsPEYpsAh/qpLmxkimyaaDqEVUdLKWzMRPmCQ5FkWiEZyb7qkFdc
+	 iXTlHt780PZlw==
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-348608c1cd3so55147057b3.10
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 09:18:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ihl+Je3Z+y8gG//tf2j+pj2UsuFi/UkCnl/8sS+58OE=;
+        b=FSunWnOd/FqSzB5e/5eOFrfIOLDzV3e9RkDmZ9ITE4ELrGpsIE1ERAo0SbNn9s3J/0
+         LfhuXSF3eu2aMpqUcefurkBEe1IMSo2Te0oTm9rTGCg7rb5mW0p/zdDQUDuw5Hduw5ti
+         y4MXqMEJeqqP9exSzFu8qhoXH3FK8pX4FNdpPBht7skZlP9sjDw3seTfR/v7Z/iDIfQH
+         tq317bHO0KtfMvV+TH+gxmFf101PPEqikCzIjb11rFB2V+t+LS9+8p2ECSvvjvHx0BDK
+         WxLZgN3imwMVdHY0/OaO8VyCXhEXag32TlorR5cXquNob1fE9bCVf9TPwfCdPFfyLPxu
+         Etdg==
+X-Gm-Message-State: ANoB5plBKiyNfJV0iRcfZ1I5/fAZxiEStruyp6Ge+aPtuDbc8A0jy3OU
+	xRktTutcB+68bqwto7GaQlQSFCpHOFCLnDKDXX5S0pYWPJ7SrU/adBUTUObRgU8v7U2lsJayFff
+	gUK/nbDBxSrohaERWtpay1rMRRfNGWu1tx2cxomf324qli0hb9a81h1m8EWeS9g==
+X-Received: by 2002:a25:3b51:0:b0:6de:f83b:3160 with SMTP id i78-20020a253b51000000b006def83b3160mr7210020yba.467.1668791914852;
+        Fri, 18 Nov 2022 09:18:34 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf6gNMjZV4v2icTvtOBtm8WnqynWPCLqrTz9saKsC/CrUDCNOM3JEQ5u9gZtmPCMVbMaRenaOlMRVu0ODuMyivY=
+X-Received: by 2002:a25:3b51:0:b0:6de:f83b:3160 with SMTP id
+ i78-20020a253b51000000b006def83b3160mr7210002yba.467.1668791914667; Fri, 18
+ Nov 2022 09:18:34 -0800 (PST)
 MIME-Version: 1.0
+References: <20221118010627.70576-1-hal.feng@starfivetech.com> <20221118010627.70576-15-hal.feng@starfivetech.com>
+In-Reply-To: <20221118010627.70576-15-hal.feng@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Fri, 18 Nov 2022 18:18:18 +0100
+Message-ID: <CAJM55Z8t8yotMTWVw2J7gtGMyx5no2onj-YcfB6d1BY0ACeDJg@mail.gmail.com>
+Subject: Re: [PATCH v2 14/14] clk: starfive: jh71x0: Don't register aux
+ devices if JH7110 reset is disabled
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_091617_213486_C1E5D125 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20221118_091838_031549_BD6724B4 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,78 +94,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKUklTQy1WIGhhcyBiZWVu
-IHN1cHBvcnRpbmcgdGhlICJzdjU3IiBhZGRyZXNzIHRyYW5zbGF0aW9uIG1vZGUgZm9yIGEKd2hp
-bGUsIGJ1dCBpcyBoYXMgbm90IGJlZW4gYWRkZWQgdG8gdGhlIFZNIGxheW91dCBkb2N1bWVudGF0
-aW9uLiBMZXQKdXMgZml4IHRoYXQuCgpTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9y
-bkByaXZvc2luYy5jb20+Ci0tLQp2MjogKiBDb3NtZXN0aWNzIChBbGV4KQogICAgKiBDb3JyZWN0
-ZWQga2FzYW4gYWRkcmVzcyAoQWxleCkKLS0tCiBEb2N1bWVudGF0aW9uL3Jpc2N2L3ZtLWxheW91
-dC5yc3QgfCAzNiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAxIGZpbGUgY2hhbmdl
-ZCwgMzYgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0t
-bGF5b3V0LnJzdCBiL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAppbmRleCA1YjM2
-ZTQ1ZmVmNjAuLjNiZTQ0ZTc0ZWM1ZCAxMDA2NDQKLS0tIGEvRG9jdW1lbnRhdGlvbi9yaXNjdi92
-bS1sYXlvdXQucnN0CisrKyBiL0RvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdApAQCAt
-OTcsMyArOTcsMzkgQEAgUklTQy1WIExpbnV4IEtlcm5lbCBTVjQ4CiAgICBmZmZmZmZmZjAwMDAw
-MDAwIHwgICAtNCAgICBHQiB8IGZmZmZmZmZmN2ZmZmZmZmYgfCAgICAyIEdCIHwgbW9kdWxlcywg
-QlBGCiAgICBmZmZmZmZmZjgwMDAwMDAwIHwgICAtMiAgICBHQiB8IGZmZmZmZmZmZmZmZmZmZmYg
-fCAgICAyIEdCIHwga2VybmVsCiAgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19f
-X19fX19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKworCitSSVNDLVYgTGludXggS2VybmVsIFNW
-NTcKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCis6OgorCisgPT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CisgICAgICBTdGFy
-dCBhZGRyICAgIHwgICBPZmZzZXQgICB8ICAgICBFbmQgYWRkciAgICAgfCAgU2l6ZSAgIHwgVk0g
-YXJlYSBkZXNjcmlwdGlvbgorID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PQorICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAg
-ICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8CisgICAwMDAwMDAwMDAwMDAwMDAwIHwg
-ICAwICAgICAgICB8IDAwZmZmZmZmZmZmZmZmZmYgfCAgIDY0IFBCIHwgdXNlci1zcGFjZSB2aXJ0
-dWFsIG1lbW9yeSwgZGlmZmVyZW50IHBlciBtbQorICBfX19fX19fX19fX19fX19fX198X19fX19f
-X19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAg
-ICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAgICAgfAorICAgMDEwMDAw
-MDAwMDAwMDAwMCB8ICs2NCAgICAgUEIgfCBmZWZmZmZmZmZmZmZmZmZmIHwgfjE2SyBQQiB8IC4u
-LiBodWdlLCBhbG1vc3QgNjQgYml0cyB3aWRlIGhvbGUgb2Ygbm9uLWNhbm9uaWNhbAorICAgICAg
-ICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgIHwgICAgICAgICB8
-IHZpcnR1YWwgbWVtb3J5IGFkZHJlc3NlcyB1cCB0byB0aGUgLTY0IFBCCisgICAgICAgICAgICAg
-ICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwgc3RhcnRp
-bmcgb2Zmc2V0IG9mIGtlcm5lbCBtYXBwaW5ncy4KKyAgX19fX19fX19fX19fX19fX19ffF9fX19f
-X19fX19fX3xfX19fX19fX19fX19fX19fX198X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwKKyAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBL
-ZXJuZWwtc3BhY2UgdmlydHVhbCBtZW1vcnksIHNoYXJlZCBiZXR3ZWVuIGFsbCBwcm9jZXNzZXM6
-CisgIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXworICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAg
-ICAgICAgIHwgICAgICAgICB8CisgICBmZjFiZmZmZmZlZTAwMDAwIHwgLTU3ICAgICBQQiB8IGZm
-MWJmZmZmZmVmZmZmZmYgfCAgICAyIE1CIHwgZml4bWFwCisgICBmZjFiZmZmZmZmMDAwMDAwIHwg
-LTU3ICAgICBQQiB8IGZmMWJmZmZmZmZmZmZmZmYgfCAgIDE2IE1CIHwgUENJIGlvCisgICBmZjFj
-MDAwMDAwMDAwMDAwIHwgLTU3ICAgICBQQiB8IGZmMWZmZmZmZmZmZmZmZmYgfCAgICAxIFBCIHwg
-dm1lbW1hcAorICAgZmYyMDAwMDAwMDAwMDAwMCB8IC01NiAgICAgUEIgfCBmZjVmZmZmZmZmZmZm
-ZmZmIHwgICAxNiBQQiB8IHZtYWxsb2MvaW9yZW1hcCBzcGFjZQorICAgZmY2MDAwMDAwMDAwMDAw
-MCB8IC00MCAgICAgUEIgfCBmZmRlZmZmZmZmZmZmZmZmIHwgICAzMiBQQiB8IGRpcmVjdCBtYXBw
-aW5nIG9mIGFsbCBwaHlzaWNhbCBtZW1vcnkKKyAgIGZmZGYwMDAwMDAwMDAwMDAgfCAgLTggICAg
-IFBCIHwgZmZmZmZmZmVmZmZmZmZmZiB8ICAgIDggUEIgfCBrYXNhbgorICBfX19fX19fX19fX19f
-X19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCBJZGVudGljYWwgbGF5b3V0IHRvIHRoZSAzOS1iaXQgb25lIGZyb20gaGVyZSBv
-bjoKKyAgX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19ffF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXworICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAg
-ICAgICAgICAgIHwgICAgICAgICB8CisgICBmZmZmZmZmZjAwMDAwMDAwIHwgIC00ICAgICBHQiB8
-IGZmZmZmZmZmN2ZmZmZmZmYgfCAgICAyIEdCIHwgbW9kdWxlcywgQlBGCisgICBmZmZmZmZmZjgw
-MDAwMDAwIHwgIC0yICAgICBHQiB8IGZmZmZmZmZmZmZmZmZmZmYgfCAgICAyIEdCIHwga2VybmVs
-CisgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9f
-X19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KLS0gCjIuMzcuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On Fri, 18 Nov 2022 at 02:06, Hal Feng <hal.feng@starfivetech.com> wrote:
+>
+> The JH7110 clock drivers will not register redundant auxiliary
+> devices if the JH7110 reset auxiliary driver is disabled.
+>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  drivers/clk/starfive/clk-starfive-jh71x0.c | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/starfive/clk-starfive-jh71x0.c b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> index dda19c6937cb..4e69f56b00cc 100644
+> --- a/drivers/clk/starfive/clk-starfive-jh71x0.c
+> +++ b/drivers/clk/starfive/clk-starfive-jh71x0.c
+> @@ -333,7 +333,7 @@ const struct clk_ops *starfive_jh71x0_clk_ops(u32 max)
+>  }
+>  EXPORT_SYMBOL_GPL(starfive_jh71x0_clk_ops);
+>
+> -#if IS_ENABLED(CONFIG_CLK_STARFIVE_JH7110_SYS)
+> +#if IS_ENABLED(CONFIG_RESET_STARFIVE_JH7110)
+
+I don't see any reason you'd want to build a kernel that needs the
+clock driver but not the resets, so I don't think this is something we
+should optimize for. I'd just drop this patch and let such broken
+kernels register the auxiliary devices even when no reset driver is
+there to use them.
+
+>  static void jh7110_reset_unregister_adev(void *_adev)
+>  {
+> @@ -384,4 +384,13 @@ int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
+>  }
+>  EXPORT_SYMBOL_GPL(jh7110_reset_controller_register);
+>
+> +#else /* !CONFIG_RESET_STARFIVE_JH7110 */
+> +
+> +int jh7110_reset_controller_register(struct jh71x0_clk_priv *priv,
+> +                                    const char *adev_name,
+> +                                    u32 adev_id)
+> +{
+> +       return 0;
+> +}
+> +
+>  #endif
+> --
+> 2.38.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
