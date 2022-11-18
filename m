@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FA9C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 16:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AA8C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 16:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w0iNCQzLqrJFBHAeSAWfDu+fyNa+whkg4LPVrP79HH0=; b=I4EMXS+MCg/oBc
-	KUvJLZllUZfgCUbFMS8lIn+Br5zUv4u6N0pCGjdk0DZDCXl9wwuoOUcn8OaN9GzaQxXbOvWSCUDEa
-	VgJ6/fcobx5idF44oHqzcMLH8BgHYagk9j0waiX0Kph/c7HDFrtZyNfDATEchyF32nw5boJr4A6RH
-	iYmnrMW1NRSH/pQbFWfVEM6TFxCcu98wJ8qXe5Oe9SoJlOeo3krLdNrOxHkmNkWu9AL6SiIP7Kxjz
-	Hprj+Ry/hXGHXSu4KaWgXQWqFFd0dw6mmt4/oaQ8KnZgdONcqgGsoWn8fGQd37caRkx5RmvvoJ6WK
-	NO3Ku4d1P9zz4IEOlF7A==;
+	List-Owner; bh=zl4DF1Y0ld4W+g3ewERJRhiqtBC1mcYdqLL/0E/atFo=; b=zQQhNZdzuMKhS7
+	+qKo+0Z4bLT4LQTzx5RLyxriMPEqwnMkGOLoHCsaNnEpwbN6VftU6jPn3gAR9+H+aaqALV5Fe5AKi
+	/RJ10uHWO/3vfqszvTAp+0W2xppz736j5ZVK7wJghyR9Y6HPxj1zOHR0ry/uRJL+Xp2QiPeTEKv8T
+	gEWjuzutQm9eXKYSlqFGmqQOTlRBIi/wMGe//8KrDmJJ6BrnQqPIKKNzfO1MdIpqfYxl364CMJSqT
+	jcnpd4T5uzIGufthLlhzNrFYtei6OUkwZWgRhD4wv0XqLw0ItZ/8csYNL9YXQiJgVd7IcJjM8Zg27
+	MAUTqfYSn2803m21MDMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4If-005MF6-DE; Fri, 18 Nov 2022 16:33:09 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1ow4PH-005PTG-7W; Fri, 18 Nov 2022 16:39:59 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow4Ic-005MDJ-Ud
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 16:33:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1ow4PD-005PPv-3H
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 16:39:57 +0000
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id F326CB82404;
-	Fri, 18 Nov 2022 16:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 635B1C433D7;
-	Fri, 18 Nov 2022 16:33:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668789183;
-	bh=IqJQioZejkz3+H/MmRXx03w8XCPGGVBE8BoNHDB2CUU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=k6aozHSqaYzjE8vFZuM9O6ILZ+bQjKOs0Ov93IaP1Fi7+9P7DyKseki3P2GeA8gYi
-	 TSvl1umtkrmKZcgNUDHAJmPYMfIBBwD8mMsl1X5nsseOtq29p05jhYbTCvvZwbnBat
-	 jlrnfJwgXLwWBWwnudfPa3Pkf4tHkKOKQaI8s12gOsdPhzRK+JuxXZDDcbOKLIo8OJ
-	 gsBTCPiuFDs25CmHcFdZCtI7dc25vwdRDs65C+iGToQVAUwesTrphdfAE3lycZJJDN
-	 sHFCucTv+I1T6nDDwbRP/CGoc3N4u+Kvre8CCpgSZNnpcPhQmGPlnJ089qtZpapoSr
-	 NJfN23OGk7hxw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, Alexandre Ghiti
- <alexandre.ghiti@canonical.com>
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Jonathan Corbet
- <corbet@lwn.net>,
- linux-doc@vger.kernel.org
-Subject: Re: [PATCH] Documentation: riscv: Document the sv57 VM layout
-In-Reply-To: <da4eaceb-9561-4744-d3c9-459b6a70783f@ghiti.fr>
-References: <20221031180230.1420544-1-bjorn@kernel.org>
- <da4eaceb-9561-4744-d3c9-459b6a70783f@ghiti.fr>
-Date: Fri, 18 Nov 2022 17:33:01 +0100
-Message-ID: <87r0y0rznm.fsf@all.your.base.are.belong.to.us>
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 4B32F3F328
+	for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 16:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1668789593;
+	bh=SsveInIwU24siw10wAq/NG6g2hNfWM6tCvxZ3GyhJoo=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=BpK/hgogY7klKwLnz5h9htcZo6pIz1bBDDbVZWE6RvtU8/TXVpZ7ATW5O+Y/Kx7Lx
+	 W8u0OuMZKgQWlwzzv92/eHs87LhabBH+YgktOG6nr8wS9uxwGAIHER4RIAIzhdBpxN
+	 RajOMiRrTf62kzeNp671keyDfBsSB5xXgK3n9Lgr50ZCvQP8a3j37G7eEpvDher8iP
+	 kfPTRURxZXR5rC5PvxkqKF7dNxa+kqErKF38EIL+As8FK+cBJDy+G7OZdmPzcFOGZc
+	 q6ic2FvHLdNRLFjJHbIZ4L1Xwhtg+SpX9qArBC0se3aYB/UpQrJDZ/6aWYqgOAF/oR
+	 B9oeO5itmvK6g==
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-391bd92f931so45158437b3.22
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 08:39:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SsveInIwU24siw10wAq/NG6g2hNfWM6tCvxZ3GyhJoo=;
+        b=uHz/yzDSjInBJIdj3WuuU8PLAOCT99M1x9OHvz57VOImlrxvS5NIMXZbZ+0ictZiDF
+         mI6z3cTOFy5J+caD69gNPdqnh4Q1wgplF1hvYvHv8C9s4VUUfn5ZAVtxW0ye7VlsSyhK
+         2gpdvfKaFmK0H/hXR5/LyuKIa/tVierlVoc9GpFqYIbREqS7dexsB2hIiEJqpZYRSqwi
+         pG6n0HGhH1DEl5SlM/pDooHh1wAZc26+/ia6i92yC4mVLswG0jf8Aoi/8vdzlaHQjCiF
+         RwoZWbxIAwnaS7GNwey9CuPCjyf3QXB+yu6HtkmJTirxsKgx7KUk7Tm435cggirWWZ0A
+         T8aA==
+X-Gm-Message-State: ANoB5pn30fvxE2nYEUaE6/Gq4BD7D+SK0jb/aP/cjpEDRhjbYSQVpPiz
+	WM9WQTVrMmpXTkeWFWnXblyEPM+4avaeCDm1gcd/ctZo9+qBnsaEfldRGZUesw1lXdINZGK4cE9
+	BUi0C/FCBQmvBL+KURd63c04eHPAXFqgvCQWJqaykqiXZhkKwqoH6cP5EgP9xJg==
+X-Received: by 2002:a81:9a0b:0:b0:370:2d3:c361 with SMTP id r11-20020a819a0b000000b0037002d3c361mr7130561ywg.251.1668789592129;
+        Fri, 18 Nov 2022 08:39:52 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf5Yld5FemVhuwD7WkUFVAvYXFldId6zOG67hlerCJ0EArUo8YQNLpF0HZrvMzsx8hyDkoM7JQBj9nkzNnyf8Nk=
+X-Received: by 2002:a81:9a0b:0:b0:370:2d3:c361 with SMTP id
+ r11-20020a819a0b000000b0037002d3c361mr7130538ywg.251.1668789591844; Fri, 18
+ Nov 2022 08:39:51 -0800 (PST)
 MIME-Version: 1.0
+References: <20221118010627.70576-1-hal.feng@starfivetech.com> <20221118010627.70576-5-hal.feng@starfivetech.com>
+In-Reply-To: <20221118010627.70576-5-hal.feng@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Fri, 18 Nov 2022 17:39:35 +0100
+Message-ID: <CAJM55Z8z9OLU5_Z0HiyKN0mMZHrKSkGJqbP_1QOw3nEt6b5MxQ@mail.gmail.com>
+Subject: Re: [PATCH v2 04/14] reset: starfive: Factor out common JH71X0 reset code
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_083307_186272_6ABAE121 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221118_083955_607846_B46C18D6 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +93,390 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cml0ZXM6Cgo+IFZlcnkgdmVyeSBuaXQg
-YnV0ICIrNjQiIGlzIG5vdCBjb3JyZWN0bHkgYWxpZ25lZCA6KQoKVGhhbmtzISBJJ2xsIGZpeCB0
-aGF0IQoKPj4gKyAgIGZmZGZmZmZmMDAwMDAwMDAgfCAgLSA4ICAgIFBCIHwgZmZmZmZmZmVmZmZm
-ZmZmZiB8ICAgIDggUEIgfCBrYXNhbgo+IFRvIG1lLCB0aGUga2FzYW4gc3RhcnQgYWRkcmVzcyBp
-cyB3cm9uZywgYW4gc3Y1NyBrZXJuZWwgcHJvZHVjZXMgdGhlIAo+IGZvbGxvd2luZyBvdXRwdXQg
-Zm9yIG1lOgo+Cj4gW8KgwqDCoCAwLjAwMDAwMF3CoMKgwqDCoMKgwqDCoCBrYXNhbiA6IDB4ZmZk
-ZjAwMDAwMDAwMDAwMCAtIDB4ZmZmZmZmZmYwMDAwMDAwMMKgwqAgCgpJbmRlZWQhIEdvb2QgY2F0
-Y2ghIFdpbGwgZml4LgoKPiBBbmQgYWdhaW4gdmVyeSB2ZXJ5IG5pdDogdGhlcmUgaXMgYSBzcGFj
-ZSBiZXR3ZWVuIHRoZSAnLScgYW5kICc4JyA6KQoKSSdsbCBmaXggdGhhdCBpbiB0aGUgdjIuCgpU
-aGFua3MgZm9yIGhhdmluZyBhIGxvb2shCgoKQ2hlZXJzLApCasO2cm4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, 18 Nov 2022 at 02:06, Hal Feng <hal.feng@starfivetech.com> wrote:
+>
+> From: Emil Renner Berthing <kernel@esmil.dk>
+>
+> The StarFive JH7100 SoC has additional reset controllers for audio and
+> video, but the registers follow the same structure. On the JH7110 the
+> reset registers don't get their own memory range, but instead follow the
+> clock control registers. The registers still follow the same structure
+> though, so let's factor out the common code to handle all these cases.
+>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Co-developed-by: Hal Feng <hal.feng@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  drivers/reset/starfive/Kconfig                |   4 +
+>  drivers/reset/starfive/Makefile               |   2 +
+>  .../reset/starfive/reset-starfive-jh7100.c    | 121 ++----------------
+>  ...rfive-jh7100.c => reset-starfive-jh71x0.c} |  92 ++++---------
+>  .../reset/starfive/reset-starfive-jh71x0.h    |  14 ++
+>  5 files changed, 56 insertions(+), 177 deletions(-)
+>  copy drivers/reset/starfive/{reset-starfive-jh7100.c => reset-starfive-jh71x0.c} (50%)
+>  create mode 100644 drivers/reset/starfive/reset-starfive-jh71x0.h
+>
+> diff --git a/drivers/reset/starfive/Kconfig b/drivers/reset/starfive/Kconfig
+> index cddebdba7177..9d15c4110e40 100644
+> --- a/drivers/reset/starfive/Kconfig
+> +++ b/drivers/reset/starfive/Kconfig
+> @@ -1,8 +1,12 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>
+> +config RESET_STARFIVE_JH71X0
+> +       bool
+> +
+>  config RESET_STARFIVE_JH7100
+>         bool "StarFive JH7100 Reset Driver"
+>         depends on SOC_STARFIVE || COMPILE_TEST
+> +       select RESET_STARFIVE_JH71X0
+>         default SOC_STARFIVE
+>         help
+>           This enables the reset controller driver for the StarFive JH7100 SoC.
+> diff --git a/drivers/reset/starfive/Makefile b/drivers/reset/starfive/Makefile
+> index 670d049423f5..f6aa12466fad 100644
+> --- a/drivers/reset/starfive/Makefile
+> +++ b/drivers/reset/starfive/Makefile
+> @@ -1,2 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_RESET_STARFIVE_JH71X0)            += reset-starfive-jh71x0.o
+> +
+>  obj-$(CONFIG_RESET_STARFIVE_JH7100)            += reset-starfive-jh7100.o
+> diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
+> index fc44b2fb3e03..43248e8135fd 100644
+> --- a/drivers/reset/starfive/reset-starfive-jh7100.c
+> +++ b/drivers/reset/starfive/reset-starfive-jh7100.c
+> @@ -5,14 +5,10 @@
+>   * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+>   */
+>
+> -#include <linux/bitmap.h>
+> -#include <linux/io.h>
+> -#include <linux/io-64-nonatomic-lo-hi.h>
+> -#include <linux/iopoll.h>
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/platform_device.h>
+> -#include <linux/reset-controller.h>
+> -#include <linux/spinlock.h>
+> +
+> +#include "reset-starfive-jh71x0.h"
+>
+>  #include <dt-bindings/reset/starfive-jh7100.h>
+>
+> @@ -48,114 +44,19 @@ static const u64 jh7100_reset_asserted[2] = {
+>         0,
+>  };
+>
+> -struct jh7100_reset {
+> -       struct reset_controller_dev rcdev;
+> -       /* protect registers against concurrent read-modify-write */
+> -       spinlock_t lock;
+> -       void __iomem *base;
+> -};
+> -
+> -static inline struct jh7100_reset *
+> -jh7100_reset_from(struct reset_controller_dev *rcdev)
+> -{
+> -       return container_of(rcdev, struct jh7100_reset, rcdev);
+> -}
+> -
+> -static int jh7100_reset_update(struct reset_controller_dev *rcdev,
+> -                              unsigned long id, bool assert)
+> -{
+> -       struct jh7100_reset *data = jh7100_reset_from(rcdev);
+> -       unsigned long offset = BIT_ULL_WORD(id);
+> -       u64 mask = BIT_ULL_MASK(id);
+> -       void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + offset * sizeof(u64);
+> -       void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+> -       u64 done = jh7100_reset_asserted[offset] & mask;
+> -       u64 value;
+> -       unsigned long flags;
+> -       int ret;
+> -
+> -       if (!assert)
+> -               done ^= mask;
+> -
+> -       spin_lock_irqsave(&data->lock, flags);
+> -
+> -       value = readq(reg_assert);
+> -       if (assert)
+> -               value |= mask;
+> -       else
+> -               value &= ~mask;
+> -       writeq(value, reg_assert);
+> -
+> -       /* if the associated clock is gated, deasserting might otherwise hang forever */
+> -       ret = readq_poll_timeout_atomic(reg_status, value, (value & mask) == done, 0, 1000);
+> -
+> -       spin_unlock_irqrestore(&data->lock, flags);
+> -       return ret;
+> -}
+> -
+> -static int jh7100_reset_assert(struct reset_controller_dev *rcdev,
+> -                              unsigned long id)
+> -{
+> -       return jh7100_reset_update(rcdev, id, true);
+> -}
+> -
+> -static int jh7100_reset_deassert(struct reset_controller_dev *rcdev,
+> -                                unsigned long id)
+> -{
+> -       return jh7100_reset_update(rcdev, id, false);
+> -}
+> -
+> -static int jh7100_reset_reset(struct reset_controller_dev *rcdev,
+> -                             unsigned long id)
+> -{
+> -       int ret;
+> -
+> -       ret = jh7100_reset_assert(rcdev, id);
+> -       if (ret)
+> -               return ret;
+> -
+> -       return jh7100_reset_deassert(rcdev, id);
+> -}
+> -
+> -static int jh7100_reset_status(struct reset_controller_dev *rcdev,
+> -                              unsigned long id)
+> -{
+> -       struct jh7100_reset *data = jh7100_reset_from(rcdev);
+> -       unsigned long offset = BIT_ULL_WORD(id);
+> -       u64 mask = BIT_ULL_MASK(id);
+> -       void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+> -       u64 value = readq(reg_status);
+> -
+> -       return !((value ^ jh7100_reset_asserted[offset]) & mask);
+> -}
+> -
+> -static const struct reset_control_ops jh7100_reset_ops = {
+> -       .assert         = jh7100_reset_assert,
+> -       .deassert       = jh7100_reset_deassert,
+> -       .reset          = jh7100_reset_reset,
+> -       .status         = jh7100_reset_status,
+> -};
+> -
+>  static int __init jh7100_reset_probe(struct platform_device *pdev)
+>  {
+> -       struct jh7100_reset *data;
+> -
+> -       data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
+> -       if (!data)
+> -               return -ENOMEM;
+> -
+> -       data->base = devm_platform_ioremap_resource(pdev, 0);
+> -       if (IS_ERR(data->base))
+> -               return PTR_ERR(data->base);
+> +       void __iomem *base = devm_platform_ioremap_resource(pdev, 0);
+>
+> -       data->rcdev.ops = &jh7100_reset_ops;
+> -       data->rcdev.owner = THIS_MODULE;
+> -       data->rcdev.nr_resets = JH7100_RSTN_END;
+> -       data->rcdev.dev = &pdev->dev;
+> -       data->rcdev.of_node = pdev->dev.of_node;
+> -       spin_lock_init(&data->lock);
+> +       if (IS_ERR(base))
+> +               return PTR_ERR(base);
+>
+> -       return devm_reset_controller_register(&pdev->dev, &data->rcdev);
+> +       return reset_starfive_jh7100_register(&pdev->dev, pdev->dev.of_node,
+> +                                             base + JH7100_RESET_ASSERT0,
+> +                                             base + JH7100_RESET_STATUS0,
+> +                                             jh7100_reset_asserted,
+> +                                             JH7100_RSTN_END,
+> +                                             true);
+>  }
+>
+>  static const struct of_device_id jh7100_reset_dt_ids[] = {
+> diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
+> similarity index 50%
+> copy from drivers/reset/starfive/reset-starfive-jh7100.c
+> copy to drivers/reset/starfive/reset-starfive-jh71x0.c
+> index fc44b2fb3e03..1e230f3f9841 100644
+> --- a/drivers/reset/starfive/reset-starfive-jh7100.c
+> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
+> @@ -6,53 +6,20 @@
+>   */
+>
+>  #include <linux/bitmap.h>
+> +#include <linux/device.h>
+>  #include <linux/io.h>
+>  #include <linux/io-64-nonatomic-lo-hi.h>
+>  #include <linux/iopoll.h>
+> -#include <linux/mod_devicetable.h>
+> -#include <linux/platform_device.h>
+>  #include <linux/reset-controller.h>
+>  #include <linux/spinlock.h>
+>
+> -#include <dt-bindings/reset/starfive-jh7100.h>
+> -
+> -/* register offsets */
+> -#define JH7100_RESET_ASSERT0   0x00
+> -#define JH7100_RESET_ASSERT1   0x04
+> -#define JH7100_RESET_ASSERT2   0x08
+> -#define JH7100_RESET_ASSERT3   0x0c
+> -#define JH7100_RESET_STATUS0   0x10
+> -#define JH7100_RESET_STATUS1   0x14
+> -#define JH7100_RESET_STATUS2   0x18
+> -#define JH7100_RESET_STATUS3   0x1c
+> -
+> -/*
+> - * Writing a 1 to the n'th bit of the m'th ASSERT register asserts
+> - * line 32m + n, and writing a 0 deasserts the same line.
+> - * Most reset lines have their status inverted so a 0 bit in the STATUS
+> - * register means the line is asserted and a 1 means it's deasserted. A few
+> - * lines don't though, so store the expected value of the status registers when
+> - * all lines are asserted.
+> - */
+> -static const u64 jh7100_reset_asserted[2] = {
+> -       /* STATUS0 */
+> -       BIT_ULL_MASK(JH7100_RST_U74) |
+> -       BIT_ULL_MASK(JH7100_RST_VP6_DRESET) |
+> -       BIT_ULL_MASK(JH7100_RST_VP6_BRESET) |
+> -       /* STATUS1 */
+> -       BIT_ULL_MASK(JH7100_RST_HIFI4_DRESET) |
+> -       BIT_ULL_MASK(JH7100_RST_HIFI4_BRESET),
+> -       /* STATUS2 */
+> -       BIT_ULL_MASK(JH7100_RST_E24) |
+> -       /* STATUS3 */
+> -       0,
+> -};
+> -
+>  struct jh7100_reset {
+>         struct reset_controller_dev rcdev;
+>         /* protect registers against concurrent read-modify-write */
+>         spinlock_t lock;
+> -       void __iomem *base;
+> +       void __iomem *assert;
+> +       void __iomem *status;
+> +       const u64 *asserted;
+>  };
+>
+>  static inline struct jh7100_reset *
+> @@ -67,9 +34,9 @@ static int jh7100_reset_update(struct reset_controller_dev *rcdev,
+>         struct jh7100_reset *data = jh7100_reset_from(rcdev);
+>         unsigned long offset = BIT_ULL_WORD(id);
+>         u64 mask = BIT_ULL_MASK(id);
+> -       void __iomem *reg_assert = data->base + JH7100_RESET_ASSERT0 + offset * sizeof(u64);
+> -       void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+> -       u64 done = jh7100_reset_asserted[offset] & mask;
+> +       void __iomem *reg_assert = data->assert + offset * sizeof(u64);
+> +       void __iomem *reg_status = data->status + offset * sizeof(u64);
+> +       u64 done = data->asserted ? data->asserted[offset] & mask : 0;
+>         u64 value;
+>         unsigned long flags;
+>         int ret;
+> @@ -123,10 +90,10 @@ static int jh7100_reset_status(struct reset_controller_dev *rcdev,
+>         struct jh7100_reset *data = jh7100_reset_from(rcdev);
+>         unsigned long offset = BIT_ULL_WORD(id);
+>         u64 mask = BIT_ULL_MASK(id);
+> -       void __iomem *reg_status = data->base + JH7100_RESET_STATUS0 + offset * sizeof(u64);
+> +       void __iomem *reg_status = data->status + offset * sizeof(u64);
+>         u64 value = readq(reg_status);
+>
+> -       return !((value ^ jh7100_reset_asserted[offset]) & mask);
+> +       return !((value ^ data->asserted[offset]) & mask);
+>  }
+>
+>  static const struct reset_control_ops jh7100_reset_ops = {
+> @@ -136,38 +103,29 @@ static const struct reset_control_ops jh7100_reset_ops = {
+>         .status         = jh7100_reset_status,
+>  };
+>
+> -static int __init jh7100_reset_probe(struct platform_device *pdev)
+> +int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
+> +                                  void __iomem *assert, void __iomem *status,
+> +                                  const u64 *asserted, unsigned int nr_resets,
+> +                                  bool is_module)
+>  {
+>         struct jh7100_reset *data;
+>
+> -       data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
+> +       data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+>         if (!data)
+>                 return -ENOMEM;
+>
+> -       data->base = devm_platform_ioremap_resource(pdev, 0);
+> -       if (IS_ERR(data->base))
+> -               return PTR_ERR(data->base);
+> -
+>         data->rcdev.ops = &jh7100_reset_ops;
+> -       data->rcdev.owner = THIS_MODULE;
+> -       data->rcdev.nr_resets = JH7100_RSTN_END;
+> -       data->rcdev.dev = &pdev->dev;
+> -       data->rcdev.of_node = pdev->dev.of_node;
+> +       if (is_module)
+> +               data->rcdev.owner = THIS_MODULE;
+
+nit: consider just passing the owner directly, so this would just be
+data->rcdev.owner = owner;
+
+..and callers that used false can just pass NULL.
+
+> +       data->rcdev.nr_resets = nr_resets;
+> +       data->rcdev.dev = dev;
+> +       data->rcdev.of_node = of_node;
+
+Is it important to register this with the auxiliary device and not
+just use the parent device?
+If not you can just always pass the device that has the right of_node
+and have this be
+
+data->rcdev.of_node = dev->of_node;
+
+> +
+>         spin_lock_init(&data->lock);
+> +       data->assert = assert;
+> +       data->status = status;
+> +       data->asserted = asserted;
+>
+> -       return devm_reset_controller_register(&pdev->dev, &data->rcdev);
+> +       return devm_reset_controller_register(dev, &data->rcdev);
+>  }
+> -
+> -static const struct of_device_id jh7100_reset_dt_ids[] = {
+> -       { .compatible = "starfive,jh7100-reset" },
+> -       { /* sentinel */ }
+> -};
+> -
+> -static struct platform_driver jh7100_reset_driver = {
+> -       .driver = {
+> -               .name = "jh7100-reset",
+> -               .of_match_table = jh7100_reset_dt_ids,
+> -               .suppress_bind_attrs = true,
+> -       },
+> -};
+> -builtin_platform_driver_probe(jh7100_reset_driver, jh7100_reset_probe);
+> +EXPORT_SYMBOL_GPL(reset_starfive_jh7100_register);
+> diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
+> new file mode 100644
+> index 000000000000..10770c55ab0e
+> --- /dev/null
+> +++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
+> @@ -0,0 +1,14 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
+> + */
+> +
+> +#ifndef __RESET_STARFIVE_JH71X0_H
+> +#define __RESET_STARFIVE_JH71X0_H
+> +
+> +int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
+> +                                  void __iomem *assert, void __iomem *status,
+> +                                  const u64 *asserted, unsigned int nr_resets,
+> +                                  bool is_module);
+> +
+> +#endif /* __RESET_STARFIVE_JH71X0_H */
+> --
+> 2.38.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
