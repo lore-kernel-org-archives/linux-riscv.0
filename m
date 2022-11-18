@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414F2C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8C5C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 17:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BuyMqwj6WA35TC3ahWSYazZAB+RNvQVggrWQgUZjcSw=; b=nBiRMpcbrxbxwX
-	ftBYDpFANc7itc5jO0zadz1Z24Xp/ozPmtd2PLZbKQh4PlZZg3ZsvF11TYrUlzjZBmfjg7mmjg4ca
-	529io7bMevTzi3TpJqCqVjU12WMcpGekQNacQYPXFWvaUo0pfI9fBugHN6WgLLdiKSct7kOjOykLw
-	qUii0aBjabwxkU19aRNulbQZ2d/6mmS5mDytgwUg1IPAgLUNHxaBkErgO2haFXVlFAdnjCw+QOYPV
-	d7XS/wTiSjmSrccyQnWO5pql4SOODYawfsGHo6UYJrAQMqRtrXG3tidBjEMIGLC8gVo/4eSGttPDu
-	yus8545Gbu0SS4JkGqPw==;
+	List-Owner; bh=EhVBwkKVsjWBZa2G6HYaYMDalZws+wEcBBU1hN91xJM=; b=TpxbHfbzpEPXMV
+	+k0bJ/sqK/LovHJkjeNNhPRlk3G45rhkk0aVSDJze/I2SjV/xaOs4yJYZqqwn6/cRnV8UvLThEw+w
+	IB0+Kq5Gl5q4KDrK6kqCo+r9TK5khP+lhu6ji0cPU7uFcZhETcWIWfbwua0Wm/vIH/C/MS64TnbH9
+	0L1iiMnqzvdd8CnFhsxMiD/3V3ngQXyYiJ0sONFavPphnF8aMlCiAoP9Ntf2OEgCXaJboHhB6n1/7
+	Q593scKbcPMvS3oU+2cB73FRL2L2GM9uTX3puf26yGFnC3oWMc1R5MnxPLp0Mm44NLW7Jk3hCv2CB
+	ZmJuZtQZccyzisOeclpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow5EI-005rDr-M7; Fri, 18 Nov 2022 17:32:42 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1ow5EL-005rFd-9S; Fri, 18 Nov 2022 17:32:45 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ow5EF-005rAW-2x
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:32:40 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d20so5136610plr.10
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 09:32:36 -0800 (PST)
+	id 1ow5EF-005r8R-30
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 17:32:42 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id d13-20020a17090a3b0d00b00213519dfe4aso5686324pjc.2
+        for <linux-riscv@lists.infradead.org>; Fri, 18 Nov 2022 09:32:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9NBmSk7fBSAJxNI2xlbnnvVbJDd4rleDkNQ22MfWjS4=;
-        b=F0LYXy04+BTUjesxYiznzIMp2EPv6TsAXbgRS7pQaL8OVC5YVDOU5m8FLAC/FIzrky
-         g023O0gv5uUPYMTsf65qv4ardfNDmUcl38ECWjHwojCt7NXtJVG3KJKr1l6WR8RljrFP
-         rtiSJ0hvZ+xve4POcmFgudRMFpS3FTy5EaS4Gp6yEvXM8t7ByKn/EOEiFaG72rgpdwtE
-         Ia1Qz9fLb20rSXAqzcEWosodqLqAhvtnpMJWCkTJmbTsx6dmQL6By1FcxZHnAhuYj8tx
-         Rx9JHHuYX8ZUr+6rVgwnFnQKpG7/Ap36Kcc5H9AbqX6x0fsKxCcuJeXrTC8tCsXKkK0B
-         4qFw==
+        bh=um7o47dkwC3+Xw39j9lUuqY5O+T3nm01Mm5u8aYpugQ=;
+        b=bKlIx655pe3B+kU4aGQHe83PsarqTSNkJgq+XRCvic+rix3rZvypD7FAQbl8gYsUDD
+         2dqZGBtB6qVDypNdijaMpfpWr6w3V1lCNGGYMbnLbA65mBemShhEZCqNslu6hoBVgH9y
+         WXM4UVDYWXnn3+7o46j4i9UXJAAji3tVB8cuqQovq73rJGr0HNMVFD/aOkFvchMxaY0H
+         ORKxWsayMeW6gda+HNYq5r/Y550hpY8CvB/o/OoYOEvDY1AvF++rH0nH1tAsrxmIHGF9
+         uCTu9N9MGMeS0NwwteNRRl39+9BlK7I56LV/O1p4hh2+cWTNLA0GDcKkrGvXwDpZaMBJ
+         hMAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9NBmSk7fBSAJxNI2xlbnnvVbJDd4rleDkNQ22MfWjS4=;
-        b=Utrgpk79hR7DIfJUCCdderrzIAvnJEnWxWO7CTb4HZWq1KuwBV3L72SYRl3WMez3S2
-         jizDjEjCQoHyubsjNO+snQAeqlKwVR07+wDlOLiI4MbfYLz9dzD+QsVePPwnkYbYS2tZ
-         ClGjZ/IvqIaHANoLgFBKB+Kx9fGzbwkNjVmgqR/lEJ0hYaLk3nOxedRUwN4kYHNNeb9S
-         xniPVc8Dob9VmwBsMtCpIjwdLNz3ajLaJiKtU/qMWk6Tjrv3x0gH4p9oEPipOgvzdVAw
-         eIGY29a8tHRrJYIxPezkjM4IA3f31IvC1MVQWKGf0klQMcegnArR5ZfZov5d2WfqpgHW
-         bXmA==
-X-Gm-Message-State: ANoB5pnxhhFvn0Ja3m3nLCHWf+d7QnV7/K8GyBU8SolqIPpHTmzD76kH
-	3HwETNxEZuWInhZjBpaHNfo=
-X-Google-Smtp-Source: AA0mqf4QhHX9xixekXRosr4UFGQ5KWFFv0b2o6M8eemOOc2cuROcW7yNBijARk3dISgqt+U20PDZ2A==
-X-Received: by 2002:a17:902:cf0e:b0:17c:5b01:f227 with SMTP id i14-20020a170902cf0e00b0017c5b01f227mr620277plg.3.1668792755984;
-        Fri, 18 Nov 2022 09:32:35 -0800 (PST)
+        bh=um7o47dkwC3+Xw39j9lUuqY5O+T3nm01Mm5u8aYpugQ=;
+        b=4fRKx3qfhjO/iendEe8nbaXaQFZnrwjNGmb6YQBAtbUZO2kZqe//pqca/Vp8AW4w28
+         AwuYzeV5u8QMECTxDkKKWcI3nPhlwr+t6eSBS+NAGQh8MK8z8NTNgdSVjV//d1mPhTKG
+         mxSqqZ5al/120ZXLQiNLYpHOsVPU8RFxDLbMgZM2bGhytzOvfLFN/7DfFecWtHTk9sLy
+         00AuHLdrHng+LxrXO6dBsk1rfYlnq7XaUs5HVdq0SEukA7a5nNbWGihj/TlkUYl3WdcG
+         IjyX+4xifKCYt6tP8TE3pxLyXjKQD7MDMdH+jPVPW58jdFEYAtgWQyXPZY+w35iSbh4j
+         UonQ==
+X-Gm-Message-State: ANoB5pms5CLI73LCNov7b+rwUE64F7hbko1WyRXynLDkXrdHBVvCZeZO
+	A337XNOGWzM9y4TBVM7krrI=
+X-Google-Smtp-Source: AA0mqf58OB6QcS+3YK1TMkO/KdVKNF6E9CzOlYkfERJcrBVIDQJ6MLk3ufE/xMOPiz3L5aZbV96Y7w==
+X-Received: by 2002:a17:90b:3d90:b0:212:de1c:a007 with SMTP id pq16-20020a17090b3d9000b00212de1ca007mr15291940pjb.30.1668792752983;
+        Fri, 18 Nov 2022 09:32:32 -0800 (PST)
 Received: from localhost.localdomain ([112.2.231.196])
-        by smtp.gmail.com with ESMTPSA id u7-20020a656707000000b00476b6b7f339sm3037979pgf.11.2022.11.18.09.32.33
+        by smtp.gmail.com with ESMTPSA id u7-20020a656707000000b00476b6b7f339sm3037979pgf.11.2022.11.18.09.32.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Nov 2022 09:32:35 -0800 (PST)
+        Fri, 18 Nov 2022 09:32:32 -0800 (PST)
 From: Song Shuai <suagrfillet@gmail.com>
 To: guoren@kernel.org,
 	rostedt@goodmis.org,
@@ -71,16 +71,16 @@ To: guoren@kernel.org,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH v3 2/2] riscv/ftrace: make ftrace_caller call ftrace_graph_func
-Date: Sat, 19 Nov 2022 01:32:17 +0800
-Message-Id: <20221118173217.888077-3-suagrfillet@gmail.com>
+Subject: [PATCH v3 1/2] riscv/ftrace: add ftrace_graph_func
+Date: Sat, 19 Nov 2022 01:32:16 +0800
+Message-Id: <20221118173217.888077-2-suagrfillet@gmail.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20221118173217.888077-1-suagrfillet@gmail.com>
 References: <20221118173217.888077-1-suagrfillet@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_093239_160284_9A35D2EC 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20221118_093239_161090_6E5CF1E7 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,238 +97,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to make the function graph use ftrace directly, ftrace_caller
-should be adjusted to save the necessary regs against the pt_regs layout
-so it can call ftrace_graph_func reasonably.
+Here implements ftrace_graph_func as the function graph tracing function
+with FTRACE_WITH_REGS defined.
 
-SAVE_ALL now saves all the regs according to the pt_regs struct. Here
-supersedes SAVE_ALL by SAVE_ABI_REGS which has an extra option to allow
-saving only the necessary ABI-related regs for ftrace_caller.
+function_graph_func gets the point of the parent IP and the frame pointer
+from fregs and call prepare_ftrace_return for function graph tracing.
 
-ftrace_caller and ftrace_regs_caller save their regs with the respective
-option of SAVE_ABI_REGS, then call the tracing function, especially
-graph_ops's ftrace_graph_func. So the ftrace_graph_[regs]_call labels
-aren't needed anymore if FTRACE_WITH_REGS is defined.
-
-As the previous patch described, the ftrace_caller remains with its
-ftrace_graph_call if FTRACE_WITH_REGS isn't defined,
-
-For convenience, the original argument setup for the tracing function in
-ftrace_[regs]_caller is killed and appended to the tail of SAVE_ABI_REGS.
+If FTRACE_WITH_REGS isn't defined, the enable/disable helpers of
+ftrace_graph_[regs]_call are revised for serving only ftrace_graph_call
+in the !FTRACE_WITH_REGS version ftrace_caller.
 
 Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 ---
- arch/riscv/kernel/mcount-dyn.S | 143 ++++++++++++++++++++++++---------
- 1 file changed, 105 insertions(+), 38 deletions(-)
+ arch/riscv/include/asm/ftrace.h | 13 +++++++++++--
+ arch/riscv/kernel/ftrace.c      | 30 +++++++++++++-----------------
+ 2 files changed, 24 insertions(+), 19 deletions(-)
 
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 64bc79816f5e..c70f04711a2e 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -57,19 +57,55 @@
- 	.endm
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 34b0b523865a..01bebb28eabe 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -107,8 +107,17 @@ do {									\
+ struct dyn_ftrace;
+ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
+ #define ftrace_init_nop ftrace_init_nop
+-#endif
  
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
--	.macro SAVE_ALL
+-#endif
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++struct ftrace_ops;
++struct ftrace_regs;
++void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
++		       struct ftrace_ops *op, struct ftrace_regs *fregs);
++#define ftrace_graph_func ftrace_graph_func
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
 +
-+/**
-+* SAVE_ABI_REGS - save regs against the pt_regs struct
-+*
-+* @all: tell if saving all the regs
-+*
-+* If all is set, all the regs will be saved, otherwise only ABI
-+* related regs (a0-a7,epc,ra and optional s0) will be saved.
-+*
-+* For convenience the argument setup for tracing function is appended here.
-+* Especially $sp is passed as the 4th argument of the tracing function.
-+*
-+* After the stack is established,
-+*
-+* 0(sp) stores the PC of the traced function which can be accessed
-+* by &(fregs)->regs->epc in tracing function. Note that the real
-+* function entry address should be computed with -FENTRY_RA_OFFSET.
-+*
-+* 8(sp) stores the function return address (i.e. parent IP) that
-+* can be accessed by &(fregs)->regs->ra in tracing function.
-+*
-+* The other regs are saved at the respective localtion and accessed
-+* by the respective pt_regs member.
-+*
-+* Here is the layout of stack for your reference.
-+*
-+* PT_SIZE_ON_STACK  ->  +++++++++
-+*                       + ..... +
-+*                       + t3-t6 +
-+*                       + s2-s11+
-+*                       + a0-a7 + --++++-> ftrace_caller saved
-+*                       + s1    +   +
-+*                       + s0    + --+
-+*                       + t0-t2 +   +
-+*                       + tp    +   +
-+*                       + gp    +   +
-+*                       + sp    +   +
-+*                       + ra    + --+ // parent IP
-+*               sp  ->  + epc   + --+ // PC
-+*                       +++++++++
-+**/
-+	.macro SAVE_ABI_REGS, all=0
- 	addi	sp, sp, -PT_SIZE_ON_STACK
++#endif /* __ASSEMBLY__ */
++
++#endif /* CONFIG_DYNAMIC_FTRACE */
  
- 	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
-+
-+	// always save the ABI regs
-+
- 	REG_S x10, PT_A0(sp)
- 	REG_S x11, PT_A1(sp)
- 	REG_S x12, PT_A2(sp)
-@@ -78,6 +114,18 @@
- 	REG_S x15, PT_A5(sp)
- 	REG_S x16, PT_A6(sp)
- 	REG_S x17, PT_A7(sp)
-+
-+	// save the leftover regs
-+
-+	.if \all == 1
-+	REG_S x2,  PT_SP(sp)
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x4,  PT_TP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
- 	REG_S x18, PT_S2(sp)
- 	REG_S x19, PT_S3(sp)
- 	REG_S x20, PT_S4(sp)
-@@ -92,19 +140,28 @@
- 	REG_S x29, PT_T4(sp)
- 	REG_S x30, PT_T5(sp)
- 	REG_S x31, PT_T6(sp)
-+
-+	// save s0 if FP_TEST defined
-+
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_S x8,  PT_S0(sp)
-+#endif
-+	.endif
-+
-+	// setup 4 args for tracing functions
-+
-+	addi	a0, t0, -FENTRY_RA_OFFSET	// ip
-+	la	a1, function_trace_op
-+	REG_L	a2, 0(a1)			// op
-+	REG_L	a1, PT_RA(sp)			// parent_ip
-+	mv	a3, sp				// fregs
-+
- 	.endm
+ #endif /* _ASM_RISCV_FTRACE_H */
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 8c77f236fc71..651ce5808b77 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -169,32 +169,28 @@ void prepare_ftrace_return(unsigned long *parent, unsigned long self_addr,
+ }
  
--	.macro RESTORE_ALL
-+	.macro RESTORE_ABI_REGS, all=0
- 	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
- 	REG_L x10, PT_A0(sp)
- 	REG_L x11, PT_A1(sp)
- 	REG_L x12, PT_A2(sp)
-@@ -113,6 +170,16 @@
- 	REG_L x15, PT_A5(sp)
- 	REG_L x16, PT_A6(sp)
- 	REG_L x17, PT_A7(sp)
+ #ifdef CONFIG_DYNAMIC_FTRACE
++#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
++		       struct ftrace_ops *op, struct ftrace_regs *fregs)
++{
++	struct pt_regs *regs = arch_ftrace_get_regs(fregs);
++	unsigned long *parent = (unsigned long *)&regs->ra;
 +
-+	.if \all == 1
-+	REG_L x2,  PT_SP(sp)
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x4,  PT_TP(sp)
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
- 	REG_L x18, PT_S2(sp)
- 	REG_L x19, PT_S3(sp)
- 	REG_L x20, PT_S4(sp)
-@@ -128,10 +195,16 @@
- 	REG_L x30, PT_T5(sp)
- 	REG_L x31, PT_T6(sp)
- 
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_L x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	.endm
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
-+#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
-@@ -160,33 +233,27 @@ ftrace_graph_call:
- 	jr t0
- ENDPROC(ftrace_caller)
- 
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
++	prepare_ftrace_return(parent, ip, frame_pointer(regs));
++}
 +#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- ENTRY(ftrace_regs_caller)
--	SAVE_ALL
+ extern void ftrace_graph_call(void);
+-extern void ftrace_graph_regs_call(void);
+ int ftrace_enable_ftrace_graph_caller(void)
+ {
+-	int ret;
 -
--	addi	a0, t0, -FENTRY_RA_OFFSET
--	la	a1, function_trace_op
--	REG_L	a2, 0(a1)
--	REG_L	a1, PT_RA(sp)
--	mv	a3, sp
-+	SAVE_ABI_REGS 1
+-	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, true, true);
+-	if (ret)
+-		return ret;
+-
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
++	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+ 				    (unsigned long)&prepare_ftrace_return, true, true);
+ }
  
- ftrace_regs_call:
- 	.global ftrace_regs_call
- 	call	ftrace_stub
- 
--#ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, PT_RA
--	REG_L	a1, PT_T0(sp)
--	addi	a1, a1, -FENTRY_RA_OFFSET
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
--	mv	a2, s0
--#endif
--ftrace_graph_regs_call:
--	.global ftrace_graph_regs_call
--	call	ftrace_stub
--#endif
- 
--	RESTORE_ALL
-+	RESTORE_ABI_REGS 1
- 	jr t0
- ENDPROC(ftrace_regs_caller)
-+
-+ENTRY(ftrace_caller)
-+	SAVE_ABI_REGS 0
-+
-+ftrace_call:
-+	.global ftrace_call
-+	call	ftrace_stub
-+
-+	RESTORE_ABI_REGS 0
-+	jr t0
-+ENDPROC(ftrace_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+ int ftrace_disable_ftrace_graph_caller(void)
+ {
+-	int ret;
+-
+-	ret = __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, false, true);
+-	if (ret)
+-		return ret;
+-
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_regs_call,
++	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+ 				    (unsigned long)&prepare_ftrace_return, false, true);
+ }
++#endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+ #endif /* CONFIG_DYNAMIC_FTRACE */
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
 -- 
 2.20.1
 
