@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2E8C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD383C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Nov 2022 01:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2gfG043ORx3hwhyUcjOyXU9J897QUJIw0UlLpFtcqrU=; b=imAHRLFw1hc5SP
-	FjPJvBqYCylKLuJUZOddEmPeqtplJzTCTDRQcbOh93OO1Go+wEXLcA+SJdQi+vajlP/wV6XLhdjwl
-	jO5Js8gEJrxK08TvKwPUt1TWrBuJcjwg+dV915xZaPO95F6rSjIzKk/gZX7eE03PFqRiFzZF5Etco
-	P9VyINKBVDGHNW+48YKaw7+8wMesMUsNLr18u8zyqDmInzgqTB0yjBaDQo3r0AT2vvsXFlM1L9phh
-	x3nDw7DxperAbybZGOHaoM+z6VSH5yMw9hHVA0PULuzR+20KLhYwTdrDSjIAruPWUYtf0o1c6p0Fw
-	EypsCfNom114kfHXsEsQ==;
+	List-Owner; bh=LPw37e0h63wSpv/VX1TgVTWnvJ1dcQp7UQ0Wk0RLcX4=; b=DFzNg7LeBZSBKj
+	5BkOaqVYIknpZdYIyTOx4wJF8+obocpmIZpcJpJOpI9OSJFZ+Jrs4o5RhnWnxFdrJEs7xu2qmIZn8
+	wXtHgF9kbA/Cmv3eYoqN0CXityVAIEdfOkObEBtxAAoiDX6D2Rq8ZIcuLtwLqlmiYonP8P4htr2lT
+	8+tqzYL8c9hLaYc6N2sFqNhLUJukPkQeZFdA3FTWFbcHMCOpPuzzyWIQMuhyc8ryPa4cLB5/XhK7a
+	Qj6lJrulJoxkfZSBWfD6CDPrzd8Y1YdN/sRtGDh46JKtJym5olzD9EOpLu2ts7ifU4Nbm/Ht9PEnJ
+	P0DtaMSY9HuI27xjJmeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovpqj-0016wj-9f; Fri, 18 Nov 2022 01:07:21 +0000
+	id 1ovpqm-0016yk-LN; Fri, 18 Nov 2022 01:07:24 +0000
 Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ovpqf-0016uB-TL
-	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:07:19 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1ovpqj-0016uE-Fy
+	for linux-riscv@lists.infradead.org; Fri, 18 Nov 2022 01:07:23 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 2378424E1D4;
-	Fri, 18 Nov 2022 09:06:33 +0800 (CST)
-Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:06:33 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 4DF5324E1BA;
+	Fri, 18 Nov 2022 09:06:35 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
+ 2022 09:06:35 +0800
 Received: from ubuntu.localdomain (183.27.96.116) by EXMBX072.cuchost.com
  (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 18 Nov
- 2022 09:06:32 +0800
+ 2022 09:06:34 +0800
 From: Hal Feng <hal.feng@starfivetech.com>
 To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-clk@vger.kernel.org>
@@ -46,9 +46,9 @@ CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
 	<p.zabel@pengutronix.de>, Emil Renner Berthing
 	<emil.renner.berthing@canonical.com>, Hal Feng <hal.feng@starfivetech.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 05/14] reset: starfive: Rename "jh7100" to "jh71x0" for the common code
-Date: Fri, 18 Nov 2022 09:06:18 +0800
-Message-ID: <20221118010627.70576-6-hal.feng@starfivetech.com>
+Subject: [PATCH v2 08/14] dt-bindings: reset: Add StarFive JH7110 system and always-on reset definitions
+Date: Fri, 18 Nov 2022 09:06:21 +0800
+Message-ID: <20221118010627.70576-9-hal.feng@starfivetech.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221118010627.70576-1-hal.feng@starfivetech.com>
 References: <20221118010627.70576-1-hal.feng@starfivetech.com>
@@ -58,8 +58,8 @@ X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX072.cuchost.com
  (172.16.6.82)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221117_170718_253737_D9786534 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20221117_170721_858340_BFA4A320 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,170 +76,199 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-For the common code will be shared with the StarFive JH7110 SoC.
+From: Emil Renner Berthing <kernel@esmil.dk>
 
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+Add resets for the StarFive JH7110 system (SYS) and always-on (AON)
+reset controller.
+
 Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
 Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
 ---
- .../reset/starfive/reset-starfive-jh7100.c    |  2 +-
- .../reset/starfive/reset-starfive-jh71x0.c    | 50 +++++++++----------
- .../reset/starfive/reset-starfive-jh71x0.h    |  2 +-
- 3 files changed, 27 insertions(+), 27 deletions(-)
+ MAINTAINERS                                 |   5 +-
+ include/dt-bindings/reset/starfive-jh7110.h | 154 ++++++++++++++++++++
+ 2 files changed, 157 insertions(+), 2 deletions(-)
+ create mode 100644 include/dt-bindings/reset/starfive-jh7110.h
 
-diff --git a/drivers/reset/starfive/reset-starfive-jh7100.c b/drivers/reset/starfive/reset-starfive-jh7100.c
-index 43248e8135fd..4be8510f1dd9 100644
---- a/drivers/reset/starfive/reset-starfive-jh7100.c
-+++ b/drivers/reset/starfive/reset-starfive-jh7100.c
-@@ -51,7 +51,7 @@ static int __init jh7100_reset_probe(struct platform_device *pdev)
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e97dac9c0ee4..eeab26f5597c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -19614,12 +19614,13 @@ F:	Documentation/devicetree/bindings/pinctrl/starfive,jh7100-pinctrl.yaml
+ F:	drivers/pinctrl/starfive/
+ F:	include/dt-bindings/pinctrl/pinctrl-starfive-jh7100.h
  
--	return reset_starfive_jh7100_register(&pdev->dev, pdev->dev.of_node,
-+	return reset_starfive_jh71x0_register(&pdev->dev, pdev->dev.of_node,
- 					      base + JH7100_RESET_ASSERT0,
- 					      base + JH7100_RESET_STATUS0,
- 					      jh7100_reset_asserted,
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.c b/drivers/reset/starfive/reset-starfive-jh71x0.c
-index 1e230f3f9841..fa80912ef08e 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.c
-+++ b/drivers/reset/starfive/reset-starfive-jh71x0.c
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Reset driver for the StarFive JH7100 SoC
-+ * Reset driver for the StarFive JH71X0 SoCs
-  *
-  * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
-  */
-@@ -13,7 +13,7 @@
- #include <linux/reset-controller.h>
- #include <linux/spinlock.h>
+-STARFIVE JH7100 RESET CONTROLLER DRIVERS
++STARFIVE RESET CONTROLLER DRIVERS
+ M:	Emil Renner Berthing <kernel@esmil.dk>
++M:	Hal Feng <hal.feng@starfivetech.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
+ F:	drivers/reset/starfive/
+-F:	include/dt-bindings/reset/starfive-jh7100.h
++F:	include/dt-bindings/reset/starfive*
  
--struct jh7100_reset {
-+struct jh71x0_reset {
- 	struct reset_controller_dev rcdev;
- 	/* protect registers against concurrent read-modify-write */
- 	spinlock_t lock;
-@@ -22,16 +22,16 @@ struct jh7100_reset {
- 	const u64 *asserted;
- };
- 
--static inline struct jh7100_reset *
--jh7100_reset_from(struct reset_controller_dev *rcdev)
-+static inline struct jh71x0_reset *
-+jh71x0_reset_from(struct reset_controller_dev *rcdev)
- {
--	return container_of(rcdev, struct jh7100_reset, rcdev);
-+	return container_of(rcdev, struct jh71x0_reset, rcdev);
- }
- 
--static int jh7100_reset_update(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_update(struct reset_controller_dev *rcdev,
- 			       unsigned long id, bool assert)
- {
--	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
- 	unsigned long offset = BIT_ULL_WORD(id);
- 	u64 mask = BIT_ULL_MASK(id);
- 	void __iomem *reg_assert = data->assert + offset * sizeof(u64);
-@@ -60,34 +60,34 @@ static int jh7100_reset_update(struct reset_controller_dev *rcdev,
- 	return ret;
- }
- 
--static int jh7100_reset_assert(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_assert(struct reset_controller_dev *rcdev,
- 			       unsigned long id)
- {
--	return jh7100_reset_update(rcdev, id, true);
-+	return jh71x0_reset_update(rcdev, id, true);
- }
- 
--static int jh7100_reset_deassert(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_deassert(struct reset_controller_dev *rcdev,
- 				 unsigned long id)
- {
--	return jh7100_reset_update(rcdev, id, false);
-+	return jh71x0_reset_update(rcdev, id, false);
- }
- 
--static int jh7100_reset_reset(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_reset(struct reset_controller_dev *rcdev,
- 			      unsigned long id)
- {
- 	int ret;
- 
--	ret = jh7100_reset_assert(rcdev, id);
-+	ret = jh71x0_reset_assert(rcdev, id);
- 	if (ret)
- 		return ret;
- 
--	return jh7100_reset_deassert(rcdev, id);
-+	return jh71x0_reset_deassert(rcdev, id);
- }
- 
--static int jh7100_reset_status(struct reset_controller_dev *rcdev,
-+static int jh71x0_reset_status(struct reset_controller_dev *rcdev,
- 			       unsigned long id)
- {
--	struct jh7100_reset *data = jh7100_reset_from(rcdev);
-+	struct jh71x0_reset *data = jh71x0_reset_from(rcdev);
- 	unsigned long offset = BIT_ULL_WORD(id);
- 	u64 mask = BIT_ULL_MASK(id);
- 	void __iomem *reg_status = data->status + offset * sizeof(u64);
-@@ -96,25 +96,25 @@ static int jh7100_reset_status(struct reset_controller_dev *rcdev,
- 	return !((value ^ data->asserted[offset]) & mask);
- }
- 
--static const struct reset_control_ops jh7100_reset_ops = {
--	.assert		= jh7100_reset_assert,
--	.deassert	= jh7100_reset_deassert,
--	.reset		= jh7100_reset_reset,
--	.status		= jh7100_reset_status,
-+static const struct reset_control_ops jh71x0_reset_ops = {
-+	.assert		= jh71x0_reset_assert,
-+	.deassert	= jh71x0_reset_deassert,
-+	.reset		= jh71x0_reset_reset,
-+	.status		= jh71x0_reset_status,
- };
- 
--int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
-+int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
- 				   void __iomem *assert, void __iomem *status,
- 				   const u64 *asserted, unsigned int nr_resets,
- 				   bool is_module)
- {
--	struct jh7100_reset *data;
-+	struct jh71x0_reset *data;
- 
- 	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return -ENOMEM;
- 
--	data->rcdev.ops = &jh7100_reset_ops;
-+	data->rcdev.ops = &jh71x0_reset_ops;
- 	if (is_module)
- 		data->rcdev.owner = THIS_MODULE;
- 	data->rcdev.nr_resets = nr_resets;
-@@ -128,4 +128,4 @@ int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_no
- 
- 	return devm_reset_controller_register(dev, &data->rcdev);
- }
--EXPORT_SYMBOL_GPL(reset_starfive_jh7100_register);
-+EXPORT_SYMBOL_GPL(reset_starfive_jh71x0_register);
-diff --git a/drivers/reset/starfive/reset-starfive-jh71x0.h b/drivers/reset/starfive/reset-starfive-jh71x0.h
-index 10770c55ab0e..3c70982dd56e 100644
---- a/drivers/reset/starfive/reset-starfive-jh71x0.h
-+++ b/drivers/reset/starfive/reset-starfive-jh71x0.h
-@@ -6,7 +6,7 @@
- #ifndef __RESET_STARFIVE_JH71X0_H
- #define __RESET_STARFIVE_JH71X0_H
- 
--int reset_starfive_jh7100_register(struct device *dev, struct device_node *of_node,
-+int reset_starfive_jh71x0_register(struct device *dev, struct device_node *of_node,
- 				   void __iomem *assert, void __iomem *status,
- 				   const u64 *asserted, unsigned int nr_resets,
- 				   bool is_module);
+ STATIC BRANCH/CALL
+ M:	Peter Zijlstra <peterz@infradead.org>
+diff --git a/include/dt-bindings/reset/starfive-jh7110.h b/include/dt-bindings/reset/starfive-jh7110.h
+new file mode 100644
+index 000000000000..1a5bab671161
+--- /dev/null
++++ b/include/dt-bindings/reset/starfive-jh7110.h
+@@ -0,0 +1,154 @@
++/* SPDX-License-Identifier: GPL-2.0 OR MIT */
++/*
++ * Copyright (C) 2021-2022 Emil Renner Berthing <kernel@esmil.dk>
++ */
++
++#ifndef __DT_BINDINGS_RESET_STARFIVE_JH7110_H__
++#define __DT_BINDINGS_RESET_STARFIVE_JH7110_H__
++
++/* SYSCRG resets */
++#define JH7110_SYSRST_JTAG2APB			0
++#define JH7110_SYSRST_SYSCON			1
++#define JH7110_SYSRST_IOMUX			2
++#define JH7110_SYSRST_BUS			3
++#define JH7110_SYSRST_DEBUG			4
++#define JH7110_SYSRST_CORE0			5
++#define JH7110_SYSRST_CORE1			6
++#define JH7110_SYSRST_CORE2			7
++#define JH7110_SYSRST_CORE3			8
++#define JH7110_SYSRST_CORE4			9
++#define JH7110_SYSRST_CORE0_ST			10
++#define JH7110_SYSRST_CORE1_ST			11
++#define JH7110_SYSRST_CORE2_ST			12
++#define JH7110_SYSRST_CORE3_ST			13
++#define JH7110_SYSRST_CORE4_ST			14
++#define JH7110_SYSRST_TRACE0			15
++#define JH7110_SYSRST_TRACE1			16
++#define JH7110_SYSRST_TRACE2			17
++#define JH7110_SYSRST_TRACE3			18
++#define JH7110_SYSRST_TRACE4			19
++#define JH7110_SYSRST_TRACE_COM			20
++#define JH7110_SYSRST_GPU_APB			21
++#define JH7110_SYSRST_GPU_DOMA			22
++#define JH7110_SYSRST_NOC_BUS_APB_BUS		23
++#define JH7110_SYSRST_NOC_BUS_AXICFG0_AXI	24
++#define JH7110_SYSRST_NOC_BUS_CPU_AXI		25
++#define JH7110_SYSRST_NOC_BUS_DISP_AXI		26
++#define JH7110_SYSRST_NOC_BUS_GPU_AXI		27
++#define JH7110_SYSRST_NOC_BUS_ISP_AXI		28
++#define JH7110_SYSRST_NOC_BUS_DDRC		29
++#define JH7110_SYSRST_NOC_BUS_STG_AXI		30
++#define JH7110_SYSRST_NOC_BUS_VDEC_AXI		31
++
++#define JH7110_SYSRST_NOC_BUS_VENC_AXI		32
++#define JH7110_SYSRST_AXI_CFG1_DEC_AHB		33
++#define JH7110_SYSRST_AXI_CFG1_DEC_MAIN		34
++#define JH7110_SYSRST_AXI_CFG0_DEC_MAIN		35
++#define JH7110_SYSRST_AXI_CFG0_DEC_MAIN_DIV	36
++#define JH7110_SYSRST_AXI_CFG0_DEC_HIFI4	37
++#define JH7110_SYSRST_DDR_AXI			38
++#define JH7110_SYSRST_DDR_OSC			39
++#define JH7110_SYSRST_DDR_APB			40
++#define JH7110_SYSRST_DOM_ISP_TOP_N		41
++#define JH7110_SYSRST_DOM_ISP_TOP_AXI		42
++#define JH7110_SYSRST_DOM_VOUT_TOP_SRC		43
++#define JH7110_SYSRST_CODAJ12_AXI		44
++#define JH7110_SYSRST_CODAJ12_CORE		45
++#define JH7110_SYSRST_CODAJ12_APB		46
++#define JH7110_SYSRST_WAVE511_AXI		47
++#define JH7110_SYSRST_WAVE511_BPU		48
++#define JH7110_SYSRST_WAVE511_VCE		49
++#define JH7110_SYSRST_WAVE511_APB		50
++#define JH7110_SYSRST_VDEC_JPG_ARB_JPG		51
++#define JH7110_SYSRST_VDEC_JPG_ARB_MAIN		52
++#define JH7110_SYSRST_AXIMEM0_AXI		53
++#define JH7110_SYSRST_WAVE420L_AXI		54
++#define JH7110_SYSRST_WAVE420L_BPU		55
++#define JH7110_SYSRST_WAVE420L_VCE		56
++#define JH7110_SYSRST_WAVE420L_APB		57
++#define JH7110_SYSRST_AXIMEM1_AXI		58
++#define JH7110_SYSRST_AXIMEM2_AXI		59
++#define JH7110_SYSRST_INTMEM			60
++#define JH7110_SYSRST_QSPI_AHB			61
++#define JH7110_SYSRST_QSPI_APB			62
++#define JH7110_SYSRST_QSPI_REF			63
++
++#define JH7110_SYSRST_SDIO0_AHB			64
++#define JH7110_SYSRST_SDIO1_AHB			65
++#define JH7110_SYSRST_GMAC1_AXI			66
++#define JH7110_SYSRST_GMAC1_AHB			67
++#define JH7110_SYSRST_MAILBOX			68
++#define JH7110_SYSRST_SPI0_APB			69
++#define JH7110_SYSRST_SPI1_APB			70
++#define JH7110_SYSRST_SPI2_APB			71
++#define JH7110_SYSRST_SPI3_APB			72
++#define JH7110_SYSRST_SPI4_APB			73
++#define JH7110_SYSRST_SPI5_APB			74
++#define JH7110_SYSRST_SPI6_APB			75
++#define JH7110_SYSRST_I2C0_APB			76
++#define JH7110_SYSRST_I2C1_APB			77
++#define JH7110_SYSRST_I2C2_APB			78
++#define JH7110_SYSRST_I2C3_APB			79
++#define JH7110_SYSRST_I2C4_APB			80
++#define JH7110_SYSRST_I2C5_APB			81
++#define JH7110_SYSRST_I2C6_APB			82
++#define JH7110_SYSRST_UART0_APB			83
++#define JH7110_SYSRST_UART0_CORE		84
++#define JH7110_SYSRST_UART1_APB			85
++#define JH7110_SYSRST_UART1_CORE		86
++#define JH7110_SYSRST_UART2_APB			87
++#define JH7110_SYSRST_UART2_CORE		88
++#define JH7110_SYSRST_UART3_APB			89
++#define JH7110_SYSRST_UART3_CORE		90
++#define JH7110_SYSRST_UART4_APB			91
++#define JH7110_SYSRST_UART4_CORE		92
++#define JH7110_SYSRST_UART5_APB			93
++#define JH7110_SYSRST_UART5_CORE		94
++#define JH7110_SYSRST_SPDIF_APB			95
++
++#define JH7110_SYSRST_PWMDAC_APB		96
++#define JH7110_SYSRST_PDM_DMIC			97
++#define JH7110_SYSRST_PDM_APB			98
++#define JH7110_SYSRST_I2SRX_APB			99
++#define JH7110_SYSRST_I2SRX_BCLK		100
++#define JH7110_SYSRST_I2STX0_APB		101
++#define JH7110_SYSRST_I2STX0_BCLK		102
++#define JH7110_SYSRST_I2STX1_APB		103
++#define JH7110_SYSRST_I2STX1_BCLK		104
++#define JH7110_SYSRST_TDM_AHB			105
++#define JH7110_SYSRST_TDM_CORE			106
++#define JH7110_SYSRST_TDM_APB			107
++#define JH7110_SYSRST_PWM_APB			108
++#define JH7110_SYSRST_WDT_APB			109
++#define JH7110_SYSRST_WDT_CORE			110
++#define JH7110_SYSRST_CAN0_APB			111
++#define JH7110_SYSRST_CAN0_CORE			112
++#define JH7110_SYSRST_CAN0_TIMER		113
++#define JH7110_SYSRST_CAN1_APB			114
++#define JH7110_SYSRST_CAN1_CORE			115
++#define JH7110_SYSRST_CAN1_TIMER		116
++#define JH7110_SYSRST_TIMER_APB			117
++#define JH7110_SYSRST_TIMER0			118
++#define JH7110_SYSRST_TIMER1			119
++#define JH7110_SYSRST_TIMER2			120
++#define JH7110_SYSRST_TIMER3			121
++#define JH7110_SYSRST_INT_CTRL_APB		122
++#define JH7110_SYSRST_TEMP_APB			123
++#define JH7110_SYSRST_TEMP_CORE			124
++#define JH7110_SYSRST_JTAG_CERTIFICATION	125
++
++#define	JH7110_SYSRST_END			126
++
++/* AONCRG resets */
++#define JH7110_AONRST_GMAC0_AXI			0
++#define JH7110_AONRST_GMAC0_AHB			1
++#define JH7110_AONRST_AON_IOMUX			2
++#define JH7110_AONRST_PMU_APB			3
++#define JH7110_AONRST_PMU_WKUP			4
++#define JH7110_AONRST_RTC_APB			5
++#define JH7110_AONRST_RTC_CAL			6
++#define JH7110_AONRST_RTC_32K			7
++
++#define	JH7110_AONRST_END			8
++
++#endif /* __DT_BINDINGS_RESET_STARFIVE_JH7110_H__ */
 -- 
 2.38.1
 
