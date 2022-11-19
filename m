@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA72CC4321E
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 02:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF31C4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 02:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t/hEnBxSFmqEBHHf10/LrQe85H6WWzy/2xxr/Owbe18=; b=ai86xJuSbsQ59p
-	kA766anuv+mxCraTKuxnB+EbaGKcbWcFDaqHWUUuLi9/N7lo5/MjbAxtfwyc39sRasb8HvOsOPpaS
-	wg4QCOwrO9L5u5qzVFL/H3hVXuvVXhcv6HRqxaqCJXaTrjBNHHy0/TE/oK3iUhVh1SVqycosF4WHB
-	rN6jNSr7AATq6V5HgYScrCh9ffkX9oj21Pmk+vkfrrro4+bYZDDErDKWRJKItZOteIWmWVwBqQU5O
-	U+1RTcLuEkLsassD8lOYLdgffX/IzPGrwBueLzX79iReR/U/kYUYaifgexGo5R4rosQ8wGRI8MFtq
-	NREvx3jp9MU3dKzGiCvw==;
+	List-Owner; bh=lBi9ExDOjFDd8NCDH695fyy/KbbCHtbS4dSByVi4grI=; b=SQrIM2QG/sJnVH
+	rZf0SWxkPZYKzRfIiEkb5sSpRA2zfIXmdlPaNQfd/m4xt4UIh1Vch29aLCH74+l8sMotRX8XJYfEx
+	v7doObjzwYqQSEx//hrEreOV1IVuGNEfRtcdpMYwej9bVaRKo8e5WhiLhU6Z3mEsfWnXaJCj+vesi
+	V9Bart7t8hsSf7L1dX7n03bSujZXmlJT4tZd0Mb1y5IDjF2S8uIwpdZLT/rD1JUxQnUQOHNV9m4J7
+	kOHodjx0gdZORk7jmHJHHCPf5LyKwu46A6BVzVUrpXE6NeUfkZDa/KRD2eAbmkbCaZZPqnq8FtKzi
+	VC1WvbP46oYOd75hhaVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owDNp-00AGmN-R6; Sat, 19 Nov 2022 02:15:05 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1owDNv-00AGps-2F; Sat, 19 Nov 2022 02:15:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owDNf-00AGfY-2h
-	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 02:14:57 +0000
+	id 1owDNs-00AGnn-Ee
+	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 02:15:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id AAAEBB8267C;
-	Sat, 19 Nov 2022 02:14:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BE9CC433B5;
-	Sat, 19 Nov 2022 02:14:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EF57362833;
+	Sat, 19 Nov 2022 02:15:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4F1C433D6;
+	Sat, 19 Nov 2022 02:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668824092;
-	bh=7t0xRrnIEQ68I9fHMwxnnOTFjlzaIsIK2u18Ds4NKLE=;
+	s=k20201202; t=1668824107;
+	bh=QvhJOzVmm3gfKwAkJB0VVaEnCmZQv/y+wytvKVfGwbE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fUVFLQopEdQOD2xajKiHQgzmQaY9BHj0O5hmBWw+HxynZp/44y5ONxzPOsQ/l5Clo
-	 cZxGTWdsHBoIQrbJj6Pl+1T1RUJDI2FFUdfZw0J/SP3fisdxwT78APrqz/ECT/VXWU
-	 5/bKuOEHspj2uXUUlW7USs9rgGCQZRPpu4nq0EMi4cN0u1o9PP2+cdi6P39mcIA23h
-	 J5VSPM9+7n5L0vfhoXNBFHYZdtf2HIJPb98dtR653ipO5Oh8Fa2dgXMtuKQDQv4Pcz
-	 ucD6L/4+O5p5Gx/YjTQFO3UU1D8OMLkGuamPX2X60JofxijZf67kvyrqgGXpRBsEH3
-	 qWyeInRQARQhQ==
+	b=pmHCcXueuBOo7k0PrjinmPT/hnAu9XU8OsA60oyUfZ72+AiLQHXjagPUGPA2aacf3
+	 QyyWwS0ekd3fWAgeX2C/LGcvIp0X3GHuCznlS8iB9EKGOqgfE19ochwlMqDcYvwSHn
+	 XH7vV0ZclgkPy2vyqmFJHbUpTeqFKQYfTmTmQJxMcbwJhSTGLSyxgm7Q/5ypc8s/Pv
+	 KwTWDdoeerbJ1mHBRcZB501ifEAsLaFERGecDCDDztVeTfAalLelYwmld7JS7tMvbd
+	 5tY6eJMeAEVC00UTQeREZdiMoa7My5CsLWIl9BoFFAriwZ2g0h/ZKK7iGPuSuYinmM
+	 RvatfoRyMgryA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <nathan@kernel.org>,
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
-	paul.walmsley@sifive.com,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
 	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
 	aou@eecs.berkeley.edu,
-	jszhang@kernel.org,
+	bin.meng@windriver.com,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 26/27] RISC-V: vdso: Do not add missing symbols to version section in linker script
-Date: Fri, 18 Nov 2022 21:13:51 -0500
-Message-Id: <20221119021352.1774592-26-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 03/18] riscv: dts: sifive unleashed: Add PWM controlled LEDs
+Date: Fri, 18 Nov 2022 21:14:44 -0500
+Message-Id: <20221119021459.1775052-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221119021352.1774592-1-sashal@kernel.org>
-References: <20221119021352.1774592-1-sashal@kernel.org>
+In-Reply-To: <20221119021459.1775052-1-sashal@kernel.org>
+References: <20221119021459.1775052-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_181455_545733_30C436F9 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20221118_181508_697700_411202DA 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +85,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nathan Chancellor <nathan@kernel.org>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-[ Upstream commit fcae44fd36d052e956e69a64642fc03820968d78 ]
+[ Upstream commit 8bc8824d30193eb7755043d5bb65fa7f0d11a595 ]
 
-Recently, ld.lld moved from '--undefined-version' to
-'--no-undefined-version' as the default, which breaks the compat vDSO
-build:
+This adds the 4 PWM controlled green LEDs to the HiFive Unleashed device
+tree. The schematic doesn't specify any special function for the LEDs,
+so they're added here without any default triggers and named d1, d2, d3
+and d4 just like in the schematic.
 
-  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_gettimeofday' failed: symbol not defined
-  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_clock_gettime' failed: symbol not defined
-  ld.lld: error: version script assignment of 'LINUX_4.15' to symbol '__vdso_clock_getres' failed: symbol not defined
-
-These symbols are not present in the compat vDSO or the regular vDSO for
-32-bit but they are unconditionally included in the version section of
-the linker script, which is prohibited with '--no-undefined-version'.
-
-Fix this issue by only including the symbols that are actually exported
-in the version section of the linker script.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/1756
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Tested-by: Conor Dooley <conor.dooley@microchip.com>
-Link: https://lore.kernel.org/r/20221108171324.3377226-1-nathan@kernel.org/
+Link: https://lore.kernel.org/r/20221012110928.352910-1-emil.renner.berthing@canonical.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/vdso/Makefile   | 3 +++
- arch/riscv/kernel/vdso/vdso.lds.S | 2 ++
- 2 files changed, 5 insertions(+)
+ .../boot/dts/sifive/hifive-unleashed-a00.dts  | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 84ac0fe612e7..db6548509bb3 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -28,6 +28,9 @@ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index 60846e88ae4b..dddabfbbc7a9 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -3,6 +3,8 @@
  
- obj-y += vdso.o
- CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
-+ifneq ($(filter vgettimeofday, $(vdso-syms)),)
-+CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
-+endif
+ #include "fu540-c000.dtsi"
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pwm/pwm.h>
  
- # Disable -pg to prevent insert call site
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
-diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index e9111f700af0..3729cb28aac8 100644
---- a/arch/riscv/kernel/vdso/vdso.lds.S
-+++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -65,9 +65,11 @@ VERSION
- 	LINUX_4.15 {
- 	global:
- 		__vdso_rt_sigreturn;
-+#ifdef HAS_VGETTIMEOFDAY
- 		__vdso_gettimeofday;
- 		__vdso_clock_gettime;
- 		__vdso_clock_getres;
-+#endif
- 		__vdso_getcpu;
- 		__vdso_flush_icache;
- 	local: *;
+ /* Clock frequency (in Hz) of the PCB crystal for rtcclk */
+ #define RTCCLK_FREQ		1000000
+@@ -46,6 +48,42 @@ gpio-restart {
+ 		compatible = "gpio-restart";
+ 		gpios = <&gpio 10 GPIO_ACTIVE_LOW>;
+ 	};
++
++	led-controller {
++		compatible = "pwm-leds";
++
++		led-d1 {
++			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d1";
++		};
++
++		led-d2 {
++			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d2";
++		};
++
++		led-d3 {
++			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d3";
++		};
++
++		led-d4 {
++			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
++			active-low;
++			color = <LED_COLOR_ID_GREEN>;
++			max-brightness = <255>;
++			label = "d4";
++		};
++	};
+ };
+ 
+ &uart0 {
 -- 
 2.35.1
 
