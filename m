@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A72BC4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 12:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE9FC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 12:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JkSVWlAuKn58LoeU2gVFanDnr92dWWtJ/cV+b7jTej8=; b=G/fUAivFBuqVzY
-	RY2lFiCAhM1LGcxNCd+r4/DFisCQocNNwhTOUYawLg8yHgckVokPG3pwSE+XV+woAOIfWndYTI6E9
-	Jw+eZbGhfSxiO9x46L2OkWE8qLQqL82dqfw4yOASq8ty6+bWcirpG6CwhnI4xJnjybXtHI3C8LX5B
-	InAED7tH0n4NMkBbBs1f5au9pUmBipq6AnJR9tunAV4kToNAo4FA2scIYZi4ECUXA7YDVl7Qx18gu
-	X+AsBMuch0EJKGJAouJfAGzKYMuTv3rLqRlWwdecQSBfhHVuaVQlMlM5OzZzdEgFrvM6OkOS+qjwf
-	1aCVMP14jZwhwoqxnaWQ==;
+	List-Owner; bh=Jch1aydGS+dIcKDvpCalppEnIBxSFWKVUPuktXxHGAE=; b=0+FyeU0xGJoV/W
+	zK2vnDTx4GxYPMguVWqVmLIwjTSCRcDvy8mtZVu8PC8b1720Ew3T7Ze9fp9FdyI7cKenUk/dhqnwU
+	hSZ3Q6Nrhe5LxppwYxZH3UlKCxrupV0nbIttPARYNr/S/H/5Cn4Jv1RvyMqoVGRbQsQ/mGpahNqtP
+	nkUZysIE5v+Yd10uPlrTnd0H2xQGDnVSN3FKIJMeZlVDAwTkyzgfYG+iDvtqFE/T49yh1UCwytLpX
+	zKBJ0tz7Jkni/3ZoElxfQUWeYbWYsCcr81rvnUtiikSR7K/ieXgTaP8ARTPccbx3ygeZ7X1jsHxJq
+	qi75cMd3+pMuuPboQqkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owMxQ-00DXcr-Vo; Sat, 19 Nov 2022 12:28:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1owN9y-00DlzU-Ud; Sat, 19 Nov 2022 12:41:26 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owMxO-00DXcV-HF
-	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 12:28:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D729260959;
-	Sat, 19 Nov 2022 12:28:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDDB2C433D6;
-	Sat, 19 Nov 2022 12:28:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668860905;
-	bh=wE5OEvsthhALiWj82z3FTGHoJwibmtNBVW6RpZKEPTI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e8xb/bFoMKPcdDTdUndazLOIPlFWtx82eSSFaOWsk2jxglhOiQ0bV4wTd02jhQrv1
-	 7MsN5LHIlMISHv57/P5gA6qYR8GtX/9MNTfEkqCEsM0mBpsxowaBESy0BLEDDsm2Zh
-	 /zh7a+sUa1lA8OKKdW3h7a46NXA4vx6vGx1zC2iU5G/1uxxr0BeHxLddqTtE24Lms4
-	 RsXTtVa3QOBRGhKBB0Ltv9QJW+WsBYubq5f21Dv9F+zfOdSAAZqNJMvIKMeXso0wng
-	 PRnBm+TUTt7y443jzg4e0beRHkm8T7ItN7on+hlw6mh/YVktT7kf56PhmFzizoPYG8
-	 8ZGSyzU60Trxg==
-Date: Sat, 19 Nov 2022 12:28:21 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Corentin Labbe <clabbe@baylibre.com>
-Cc: aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] riscv: defconfig: add SERIAL_8250_DW
-Message-ID: <Y3jL5QAI3c/joB3o@spud>
-References: <20221119121953.3897171-1-clabbe@baylibre.com>
+	id 1owN9w-00Dlmp-4e
+	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 12:41:25 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-12c8312131fso8987490fac.4
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Nov 2022 04:41:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ukIKYhKcZQpJNegqQ3ExbTO6FMrR9OLmlAf7eR0n2TU=;
+        b=Dw0k+yWMHTCoPUk2OuSG3qdmxFTLbjwhGbhCa7cWdMqxgac5/bT/ks8OArPGczeRGB
+         i9V0rT5g87bCv/ZC4xLKB9KiKz8QxImao4c45SDYUyBiFdoBHoBmYQfVX7+27hIi6K2i
+         5LsTsUiPEIvVwzNgoqwMAWCPVD7WhBp2kxGt5Uswp+2t0puVx7ci4pejoRNmsck3O9zI
+         zkvfRqoM8IhbHjE/ghPyVMmg0/2XCNHRXikvL2CBI15tjxZ1eSI/OEC0AzGG5OfSDkOr
+         vr5Noz/xSjKKYyL1TnK7FNw1Q5nZXhe78C1wkJ1MlN7iYO6k9r5Kz11vgFX/TPcT+KvC
+         U7Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ukIKYhKcZQpJNegqQ3ExbTO6FMrR9OLmlAf7eR0n2TU=;
+        b=m2ZNLx6A2+fkff0xcoan5cWEotsbGZu5KYxSyDBjF2txq6sEd+6UZy4YyDSBvcKred
+         PHufESPmOGCdsnMN8gXReKYbQKyyzK31VL/5TEKcbpYqCGvS8jo8vU0qbBY8x7bm8lnu
+         FuBuuDxnJwC8kP+0qGGGB6kgQ8ikE6AEsU03kVa4dkJj9N8cAai6yGHfhb37orKa7Q4e
+         FN/t8ZBk7fi+BGpaugnO9dXKRJO7VUpBUCP4ymm7MDa9OW38psTLMegmQHCNwMrJD6pw
+         U/5U0OdApEfoBoLjITIgcAG7uZyodXMcNrGKjx8pXeF8kp2uXxCafOjxD7ptpE3I9SnF
+         oTPw==
+X-Gm-Message-State: ANoB5plKbZfyGDxhcEjUIQFIbLWflobs8zw50ooXQ6mfc393jRGtxjqr
+	3CB/kxvaZ2JXtoq2PtwdxZNgoSHlY/l9tT3Nep1Wxg==
+X-Google-Smtp-Source: AA0mqf59eo6RB/JabY5iA+XwD4aELknMkiZwGCBNgxjw+gr7HUVOJK9NzHuAqsU7+shp++Rs2Hml8og4EeVGVLSpunQ=
+X-Received: by 2002:a05:6870:ad0e:b0:132:a767:a2ba with SMTP id
+ nt14-20020a056870ad0e00b00132a767a2bamr6249902oab.271.1668861681057; Sat, 19
+ Nov 2022 04:41:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221119121953.3897171-1-clabbe@baylibre.com>
+References: <20221114090536.1662624-1-apatel@ventanamicro.com> <Y3JvwagRsMOJyayy@spud>
+In-Reply-To: <Y3JvwagRsMOJyayy@spud>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Sat, 19 Nov 2022 18:11:08 +0530
+Message-ID: <CAK9=C2VRbUiFS2dCNVoC4KJNe4L+EMXNpfSfTrGoFuLRko1TkA@mail.gmail.com>
+Subject: Re: [PATCH v6 0/3] Add PMEM support for RISC-V
+To: Conor Dooley <conor@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Atish Patra <atishp@atishpatra.org>, Heiko Stuebner <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221119_042826_631792_0210729C 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20221119_044124_208390_BBE2E03B 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +87,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 19, 2022 at 12:19:53PM +0000, Corentin Labbe wrote:
-> jh7100-starfive-visionfive-v1 DTB was recently added, but all my try to
-> boot it in kernelCI failed.
-> This is due to a missing serial driver in defconfig.
-> So let's add CONFIG_SERIAL_8250_DW which is needed.
-> 
-> Signed-off-by: Corentin Labbe <clabbe@baylibre.com>
+On Mon, Nov 14, 2022 at 10:11 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> Hey Anup,
+>
+> Looks like patches 2 and 3 are failing for the nommu defconfigs:
+> https://patchwork.kernel.org/project/linux-riscv/list/?series=694995
+> Unfortunately, if the build fails NIPA doesn't appear to save a log.
+>
+> In case it's relevant, should be gcc-11 & bintutils 2.37.
 
-See here also, StarFive guys posted the same patch:
-https://lore.kernel.org/linux-riscv/Y3d0tL6UoAbdhHKE@spud/
+I tried nommu defconfigs with gcc-12.1.0 and binutils-2.39 and I did
+not see any failure.
 
-I'll try to harangue Palmer into picking up one for v6.2 & if it
-happens to be this one:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Regards,
+Anup
 
-Thanks,
-Conor.
-
-> ---
->  arch/riscv/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index f7f32448f160..9a35ff88bec2 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -123,6 +123,7 @@ CONFIG_MICROSEMI_PHY=y
->  CONFIG_INPUT_MOUSEDEV=y
->  CONFIG_SERIAL_8250=y
->  CONFIG_SERIAL_8250_CONSOLE=y
-> +CONFIG_SERIAL_8250_DW=y
->  CONFIG_SERIAL_OF_PLATFORM=y
->  CONFIG_SERIAL_SH_SCI=y
->  CONFIG_VIRTIO_CONSOLE=y
-> -- 
-> 2.37.4
-> 
+>
+> Thanks,
+> Conor.
+>
+> On Mon, Nov 14, 2022 at 02:35:33PM +0530, Anup Patel wrote:
+> > The Linux NVDIMM PEM drivers require arch support to map and access the
+> > persistent memory device. This series adds RISC-V PMEM support using
+> > recently added Svpbmt and Zicbom support.
+> >
+> > First two patches are fixes and remaining two patches add the required
+> > PMEM support for Linux RISC-V.
+> >
+> > These patches can also be found in riscv_pmem_v6 branch at:
+> > https://github.com/avpatel/linux.git
+> >
+> > Changes since v5:
+> >  - Rebased on Linux-6.1-rc5
+> >  - Directly add pmem.o in obj-y of PATCH3
+> >  - Dropped PATCH1 since this is already merged.
+> >
+> > Changes since v4:
+> >  - Simplify PATCH2 by implementing RISC-V specific arch_memremap_wb()
+> >
+> > Changes since v3:
+> >  - Pickup correct version of Drew's patch as PATCH1
+> >
+> > Changes since v2:
+> >  - Rebased on Linux-6.1-rc1
+> >  - Replaced PATCH1 with the patch proposed by Drew
+> >
+> > Changes since v1:
+> >  - Fix error reported by test bot
+> >    https://lore.kernel.org/all/202208272028.IwrNZ0Ur-lkp@intel.com/
+> >
+> > Anup Patel (3):
+> >   RISC-V: Fix MEMREMAP_WB for systems with Svpbmt
+> >   RISC-V: Implement arch specific PMEM APIs
+> >   RISC-V: Enable PMEM drivers
+> >
+> >  arch/riscv/Kconfig           |  1 +
+> >  arch/riscv/configs/defconfig |  1 +
+> >  arch/riscv/include/asm/io.h  |  5 +++++
+> >  arch/riscv/mm/Makefile       |  1 +
+> >  arch/riscv/mm/pmem.c         | 21 +++++++++++++++++++++
+> >  5 files changed, 29 insertions(+)
+> >  create mode 100644 arch/riscv/mm/pmem.c
+> >
+> > --
+> > 2.34.1
+> >
 
 _______________________________________________
 linux-riscv mailing list
