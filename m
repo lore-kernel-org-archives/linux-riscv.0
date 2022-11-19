@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C49C433FE
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 02:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7780DC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Nov 2022 02:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rm/3wwfQ/WMiDXoZ5d+ZmlZOaZEnLGIxLbSaJEl3TWo=; b=DmO34a/rYQ4UtY
-	mzKVs2GL3EMKjWKlBlIP8Md93oXpAjQDiqOQwn07DXrLRqcyyrZL/4YBBYXOuwwaclGoMQ40VF8HW
-	JM1jKbhz5LddgNLwMmVPh+R+YuTRFeW+kh1LcjLkFVaOBgzgy2xka9YM+yX1VhLZqgosEkqJab/nZ
-	bQKZDtTSPDTGkcwHETr0ol1J7AZT8S0gY2aycSN2Ki7hY9eocsADhFEJw6DQ0WwPm5sPDbmdYP3DZ
-	R164BFhK/uROWEFLOMIFeluBE+sGb3KkvPmn3KpVnCkHwPCuXqz4UAqOK0fsCNOBq0AXXRS4YgqOu
-	vF5swqmlpAoRyDJbWNFQ==;
+	List-Owner; bh=CFU9LudiNEpC9dRxWhVy/VSjeRJ1NUb6oLIQoqBX7k4=; b=jaBdxmSkUq6K/T
+	jydBQxV0yGoimXRVU9O6eUfvbeSWoq+HwER5HlrM89Su2qDPnnNAMxmoJbSxHHNhHzUemsofxcssC
+	iExBOUEAb/iki3Bd7tnwcdO6RfbsDJjCXCH6Xjk9LfTQoBst0CHYqTgxxpOPza0DOLd7KyFqsi5IK
+	SvNkw6OAm24CK0bVMRlNw7s4JBqrSJ48QEtdt68l12M3Ak/0FHKxeKJp0SLHgq0kMl4z0nD8oJD7g
+	g8aMIKKnDs3oJTAUYDYeku4XvanqPps/Fk4WDRAJS4vhnL0YIBJoVRWbiGJP6qPTmayUC1Dmz5t/S
+	SV9Mdwylypq2wnHeyL6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owDPA-00AHXw-M8; Sat, 19 Nov 2022 02:16:28 +0000
+	id 1owDQL-00AI9v-DA; Sat, 19 Nov 2022 02:17:41 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owDON-00AH7l-K2
-	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 02:15:41 +0000
+	id 1owDOo-00AHMx-BX
+	for linux-riscv@lists.infradead.org; Sat, 19 Nov 2022 02:16:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2F1B6B82672;
-	Sat, 19 Nov 2022 02:15:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C909BC433C1;
-	Sat, 19 Nov 2022 02:15:35 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id F3000B82676;
+	Sat, 19 Nov 2022 02:16:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83A1DC433D6;
+	Sat, 19 Nov 2022 02:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668824136;
-	bh=yjQ99BQ+hsRK0Umb/tiUk8l4Y/ViyKyhCBcCEgyoA6k=;
+	s=k20201202; t=1668824163;
+	bh=CQytZuh4lAVbWMGShkYSAQPXRU25fdzUw6prq3XT1/Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gM6kGPJEYwBi21otezDZZMPE2Rl7w7eo+Q236/2zs1QBb0Ou+WIMmymMWUNpoH32s
-	 t3ymtxx+3ruAgIYGkRG6Fy3JSomyNE21Vz5ZrRjp8+agKnvq6p+OTq4NFE8QPD2ysu
-	 f7/sC5L72/Vu6Ju/GkCmX2h7e0IRMdlR7602Tg9NQ7Pe8BVSJTIIhOVMKg3dGqV/0n
-	 oMhAZH3IvemJ/m6B3bSZq+Kn0xcqcN1Mh6YqzFfvv4oNCEoACw9sR2lWxZ3cXfNiz/
-	 C5Nd55yy1t69D0O2amt5TWwDCnkJRt4qBJaX/JQ9QLFm8Qi3KvTVdf3+8eG8tqNCcz
-	 mCksmfVWZOrmA==
+	b=szC4v83422323E0IbO4gJioOC+v1jcweMy+0eac9qd8lhxkcHFBNROxFMPchK0eOI
+	 /yLfX9XOqeLWijiL22FLdEe6QoWsQapVSe31Ik2yL7CT+VruV3lEs67oG0rr8dnxIS
+	 DxnjHEhEW5cyvrrS9BMabNjDN55wEP6z+hizcJY5ZFmHDDBgZr6w1qNQXJdaLVEsH6
+	 WhGLDcwwmXLpjOQgFX9lDqK8LnH1I3/DsBYmrHFftHVEcuE4P8v010j78QBLcY9cCl
+	 8ZhxtEB86aJcDuFwvbvK3fEePvzEgddumW+ylwGBS5RiHyEHvQmBcDSqcs6hHI2m7b
+	 bQRFUPsQq2ubw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -54,18 +54,18 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	aou@eecs.berkeley.edu,
 	jszhang@kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 17/18] RISC-V: vdso: Do not add missing symbols to version section in linker script
-Date: Fri, 18 Nov 2022 21:14:58 -0500
-Message-Id: <20221119021459.1775052-17-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 10/11] RISC-V: vdso: Do not add missing symbols to version section in linker script
+Date: Fri, 18 Nov 2022 21:15:42 -0500
+Message-Id: <20221119021543.1775315-10-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221119021459.1775052-1-sashal@kernel.org>
-References: <20221119021459.1775052-1-sashal@kernel.org>
+In-Reply-To: <20221119021543.1775315-1-sashal@kernel.org>
+References: <20221119021543.1775315-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221118_181540_005866_CDE15D2F 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20221118_181606_758019_5D1060BA 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,10 +113,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  2 files changed, 5 insertions(+)
 
 diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 926ab3960f9e..c92b55a0ec1c 100644
+index a4ee3a0e7d20..c533ac869aa2 100644
 --- a/arch/riscv/kernel/vdso/Makefile
 +++ b/arch/riscv/kernel/vdso/Makefile
-@@ -28,6 +28,9 @@ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+@@ -20,6 +20,9 @@ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
  
  obj-y += vdso.o vdso-syms.o
  CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
@@ -124,13 +124,13 @@ index 926ab3960f9e..c92b55a0ec1c 100644
 +CPPFLAGS_vdso.lds += -DHAS_VGETTIMEOFDAY
 +endif
  
- # Disable -pg to prevent insert call site
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE)
+ # Disable gcov profiling for VDSO code
+ GCOV_PROFILE := n
 diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-index e6f558bca71b..b3e58402c342 100644
+index f66a091cb890..4c45adf23259 100644
 --- a/arch/riscv/kernel/vdso/vdso.lds.S
 +++ b/arch/riscv/kernel/vdso/vdso.lds.S
-@@ -64,9 +64,11 @@ VERSION
+@@ -62,9 +62,11 @@ VERSION
  	LINUX_4.15 {
  	global:
  		__vdso_rt_sigreturn;
