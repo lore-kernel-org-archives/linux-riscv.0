@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAA0C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 14:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937C2C433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 14:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1zyQ9JgeSc7rsctFiaKYVSChPzLPruGeuPq+5gsTlVU=; b=pDQq8dRLBQoe6Z
-	aJc2mzGiffHrhQgFqetiiA5VUqEZrwspTvxKkjhQwdo4h7xWIXcz+DjwHrz9RW2nYsYkWQ5McLRcR
-	0382wxu471I91WEaPSli2PUd8+Dy4JdQmP9I20+do3n/Wow7c56VtIRigzv7ZyLa0G7rZefxFdsza
-	tbBKW3zne3M8acGzm9Uj9XxiFtMm7mUfYZSp7X0vSilClJ5ND8kH1+LM7qGLEFFzNCyh333Q4mKuK
-	Gy2oB4FO327u91RMgpMf6kciiz4lH8KKm6hN1iOmJDvk2IMZrJ/J7VW39eLQD5Jk8KtNe1TwSMnwX
-	vC1tsLykWX0g/X6EtvVQ==;
+	List-Owner; bh=m9wvCGjz7Dmu3i+zEOhBbMfwaBHEwBnCCASll4SFjbo=; b=UpEbgGXqhLb2eH
+	4d1MGUyiMyoy7/kebJBkGOGobG/Z12nbuyyzbw6TeTsTQyYyVrkMSr/zqFH8wwGGtaROj7Rw+evw0
+	HIHMJKSKpuOCx6guuanFKC9CE3g4EGCVa/62zQMi8ABFwwbV1zcgW5ll5ByK6kQoO186ETRm8pa8V
+	up3JWQP5XunuFh17rr2pB2c0KnyuvgGNweG9/lHLLS6HTjwdMN/g04IvVyVulK8rvimJdVfDeOQLU
+	Ib2oFT+PtN1IGkBZhnu5KIa+H3mN97ssRvvXb6TkclrO/t7DkxkVM/GMKXfz0dBKpiT4pc2gYVrS8
+	amueEVhtaRBxmANohG6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owlIt-004nUl-2F; Sun, 20 Nov 2022 14:28:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1owllQ-0054T3-P4; Sun, 20 Nov 2022 14:57:44 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owlIq-004nTj-Pw
-	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 14:28:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1owllM-0054Ls-N2
+	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 14:57:43 +0000
+Received: from mail-yb1-f199.google.com (mail-yb1-f199.google.com [209.85.219.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 16C8560C5C;
-	Sun, 20 Nov 2022 14:28:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6407C433D6;
-	Sun, 20 Nov 2022 14:28:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668954491;
-	bh=ZyTdR46YHnrIKCr3ypza1lyjyvfhcyJlCC9EQ4CL9Qw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BKuUuq7ArZdPGwIubzAT9eJp3NWq8a5wOgtoZVkvi6AsDW4icVR/rmq/LsrMn3Frj
-	 jJ0IJolr731DBC7/lnH0xjK3IJ67Dl7HTA0+FBT2hM+etAQqdqJxwnAffT+Q1rm5w4
-	 CpD2SmRJbDcOznoeXE+f9RSYjoHT9ebONxG6Wr8zJo73jUgx6oIVnlwdXHWA+GouFs
-	 d423jE1Nl9KPg7YasDzlDTnE7n3WPxMqFuqI8SsNt4sx6Zv2qjeidSvDpOADjWqZwK
-	 vp1yKZO+xtFJCrGj5t7uumHs6dEfTgvPXCGlJyAPc7xiIvieNZ98vY4f+Kk6AHS0Nc
-	 6qjPrLFJbsWPg==
-Date: Sun, 20 Nov 2022 14:28:06 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Jisheng Zhang <jszhang@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id DFA213F12E
+	for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 14:57:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1668956255;
+	bh=EAN+jo73jsNjm6NxFzDUZqmJuYIU7qlxt8bnncU4Mvs=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=EweKhtbH0S4qHM3v9TJZWO4zW5LGRlwI3e55xlQOmYfJBZPVcIwG43FJah3h9/Loo
+	 VUaMHTXJQodT2fa7ASDA+f2Cnn0kyGB8seZ0KGs0dPC/V0Xx1+Lyp+6gaXrL5Ma8V1
+	 fjPf35TYhk+BVklKXQulT2RPxAAFQ8ZbBfbjSqKKJ6CKkaeaZ+oU3oLTCD+bX2+2Hq
+	 vzjGc8C1azmt4LubMx3RyAaWd4Wbw/NUSKnj9K5tw4zgM4uXn6TElTwCIaWqLSYwtD
+	 U5+xOW/shvAzj21CB1VmDChL76vMreGSMBOyyhB2wGccZ9x9Ct23rh3cclEpXu902F
+	 Oa6dm4htjpYfw==
+Received: by mail-yb1-f199.google.com with SMTP id f8-20020a25bd88000000b006dda2c86272so8952393ybh.5
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 06:57:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EAN+jo73jsNjm6NxFzDUZqmJuYIU7qlxt8bnncU4Mvs=;
+        b=PoZaGnOFQa1jdtulVQZdP1RxO05IBaYWjsFCwNVcT9injSvxdr+1FgR8Q74HCyLU1Z
+         Awo8mMV1kjDQwkCNZfyAgHINSAK1RT6N5a4ftgXU2F/RNrAItbedt0jnmpEysY2NfFrQ
+         z2aUFv9jlOkhkoZEmS7Di8DXi5vWMWd3vvi7blQF+KuKCSazeGXzxPgVCaxvjLoiDF80
+         qyGEMFOF99culstG0cbJdmUK821wxaKREKUmCQWrvrK7MANbxD1rbhUjMtEWn2TLyITt
+         ztDlNGMiKevt+Cbwz6TfZ4Oty6vGYhS3g3uTzuDIo3BVnRlijujo10lwMpBwStqjYyrt
+         7Vvw==
+X-Gm-Message-State: ANoB5pmMaMRco3++bL0DdAU0FgNaalDDIJod5qSrGaBlUECS8Lfec8OX
+	f9VqqkH4trTt2tifHDUiU12QkE0qoXV8q/IIkR/7yc6vrGB6GXehuqs+ZmCqmNdGDSL34qwZRaR
+	gU03C71uP1qUfDjHUna3EqRhPrBTozthCJUOkhNlzezRsnX+L3NjSgHL5SJ01eg==
+X-Received: by 2002:a25:ce45:0:b0:6de:39c1:9cb3 with SMTP id x66-20020a25ce45000000b006de39c19cb3mr3991252ybe.469.1668956254635;
+        Sun, 20 Nov 2022 06:57:34 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf6QE5DtMEWnYNqTxZPXyHbUY3mIe3kVEW/kzSrOH//tkMR00zlzUTh2qwSJqJcuQ+yytC0Ib4Ivku6ASbIQfe0=
+X-Received: by 2002:a25:ce45:0:b0:6de:39c1:9cb3 with SMTP id
+ x66-20020a25ce45000000b006de39c19cb3mr3991228ybe.469.1668956254419; Sun, 20
+ Nov 2022 06:57:34 -0800 (PST)
+MIME-Version: 1.0
+References: <20221120082114.3030-1-jszhang@kernel.org> <20221120082114.3030-6-jszhang@kernel.org>
+In-Reply-To: <20221120082114.3030-6-jszhang@kernel.org>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Sun, 20 Nov 2022 15:57:17 +0100
+Message-ID: <CAJM55Z_f=zp3Z=wno_yr7csAUMQ472RiZXD19CrDTTxmGAmU4w@mail.gmail.com>
 Subject: Re: [PATCH 5/7] riscv: dts: bouffalolab: add the bl808 SoC base
  device tree
-Message-ID: <Y3o5dqPX7ScTs9qj@spud>
-References: <20221120082114.3030-1-jszhang@kernel.org>
- <20221120082114.3030-6-jszhang@kernel.org>
- <Y3oJSfsNFE9Cn0Al@spud>
- <32ffd3f857ce9c08462ce8a7b2e40871c2f2c275.camel@icenowy.me>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <32ffd3f857ce9c08462ce8a7b2e40871c2f2c275.camel@icenowy.me>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Jiri Slaby <jirislaby@kernel.org>, 
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221120_062812_898181_16F80BB9 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20221120_065741_152033_8FF1967B 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +94,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBOb3YgMjAsIDIwMjIgYXQgMDc6NTg6NTZQTSArMDgwMCwgSWNlbm93eSBaaGVuZyB3
-cm90ZToKPiDlnKggMjAyMi0xMS0yMOaYn+acn+aXpeeahCAxMTowMiArMDAwMO+8jENvbm9yIERv
-b2xleeWGmemBk++8mgo+ID4gT24gU3VuLCBOb3YgMjAsIDIwMjIgYXQgMDQ6MjE6MTJQTSArMDgw
-MCwgSmlzaGVuZyBaaGFuZyB3cm90ZToKPiA+ID4gQWRkIGEgYmFpc2MgZHRzaSBmb3IgdGhlIGJv
-dWZmYWxvbGFiIGJsODA4IFNvQy4KCj4gPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqBwbGljOiBpbnRlcnJ1cHQtY29udHJvbGxlckBlMDAwMDAwMCB7Cj4gPiA+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJ0aGVhZCxj
-OTAwLXBsaWMiOwo+ID4gCj4gPiBIbW0sIHRoaXMgb25lIGZhaWxzIHZhbGlkYXRpb24gdG9vLiBM
-aWtlbHkgeW91IG5lZWQgdG8gYWRkIGEKPiA+ICJib3VmZmFsb2xhYixwbGljIiB0byB0aGUgcGxp
-YyBkdC1iaW5kaW5nIG9yIG90aGVyd2lzZSBtb2RpZnkgdGhlCj4gPiBiaW5kaW5nIHN1Y2ggdGhh
-dCB0aGVhZCxjOTAwLXBsaWMgb24gaXQncyBvd24gaXMgcGVybWl0dGVkLiBDQyBTYW11ZWwKPiA+
-IG9uCj4gPiB0aGF0IHBhdGNoIHBsZWFzZSBpbiBjYXNlIGhlIGhhcyBhbiBvcGluaW9uIG9uIGl0
-Lgo+IAo+IFBlcnNvbmFsbHkgSSBwcmVmZXIgYSBzaW5nbGUgYzkwMC1wbGljIGluIGNvbXBhdGli
-bGUsIGJlY2F1c2UgdGhlIFBMSUMKPiBkb2Vzbid0IGxvb2sgc28gY29uZmlndXJhYmxlIGluIEM5
-MDYvQzkxMCAodGhlIGludGVycnVwdCBzb3VyY2UgbnVtYmVyCj4gaXMgcmVhbGx5IGFkanVzdGFi
-bGUsIGJ1dCBpdCdzIGFscmVhZHkgaW4gdGhlIHJpc2N2LG5kZXYgcHJvcGVydHkpLgoKUmlnaHQs
-IGlmIGFsbCBpbXBsZW1lbnRhdGlvbnMgYXJlIGdvaW5nIHRvIGJlIGlkZW50aWNhbCAobW9kdWxv
-IHRoZQpyaXNjdixuZGV2KSBhbGxvd2luZyB0aGVhZCxjOTAwLXBsaWMgaW4gaXNvbGF0aW9uIG1h
-a2VzIHNlbnNlIHRvIG1lLgpJIGhhZCBhIGJpdCBvZiBhIGNoZWNrIGluIHRoZSBoaXN0b3J5ICYg
-aXQgbG9va3MgbGlrZSB0aGVyZSB3YXMgbm8gCmV4cGxhbmF0aW9uIGdpdmVuIGZvciB3aHkgdGhl
-IEQxIG5lZWRlZCBhIHNwZWNpZmljIGNvbXBhdGlibGUgKGFsdGhvdWdoCnRoZXJlJ3Mgbm8gaGFy
-bSBpbiBoYXZpbmcgb25lIGluIGNhc2Ugc29tZXRoaW5nIGNvbWVzIHVwIGluIHRoZSBmdXR1cmUK
-dGhhdCdkIHJlcXVpcmUgc3BlY2lhbCBoYW5kbGluZyBmb3IgYSBnaXZlbiBpbXBsZW1lbnRhdGlv
-bikuCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Sun, 20 Nov 2022 at 09:32, Jisheng Zhang <jszhang@kernel.org> wrote:
+>
+> Add a baisc dtsi for the bouffalolab bl808 SoC.
+>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/boot/dts/Makefile               |  1 +
+>  arch/riscv/boot/dts/bouffalolab/bl808.dtsi | 74 ++++++++++++++++++++++
+>  2 files changed, 75 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+>
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index ff174996cdfd..b525467152b2 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,4 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +subdir-y += bouffalolab
+>  subdir-y += sifive
+>  subdir-y += starfive
+>  subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> new file mode 100644
+> index 000000000000..c98ebb14ee10
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> @@ -0,0 +1,74 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> +/*
+> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +       compatible = "bouffalolab,bl808";
+> +       #address-cells = <1>;
+> +       #size-cells = <1>;
+> +
+> +       cpus {
+> +               timebase-frequency = <1000000>;
+> +               #address-cells = <1>;
+> +               #size-cells = <0>;
+> +
+> +               cpu0: cpu@0 {
+> +                       compatible = "thead,c906", "riscv";
+> +                       device_type = "cpu";
+> +                       reg = <0>;
+> +                       d-cache-block-size = <64>;
+> +                       d-cache-sets = <256>;
+> +                       d-cache-size = <32768>;
+> +                       i-cache-block-size = <64>;
+> +                       i-cache-sets = <128>;
+> +                       i-cache-size = <32768>;
+> +                       mmu-type = "riscv,sv39";
+> +                       riscv,isa = "rv64imafdc";
+> +
+> +                       cpu0_intc: interrupt-controller {
+> +                               compatible = "riscv,cpu-intc";
+> +                               interrupt-controller;
+> +                               #address-cells = <0>;
+> +                               #interrupt-cells = <1>;
+> +                       };
+> +               };
+> +       };
+> +
+> +       xtal: xtal-clk {
+> +               compatible = "fixed-clock";
+> +               clock-frequency = <40000000>;
+
+This was discussed many times before, but I think the conclusion was
+that the frequency is a property of the crystal on the board, so this
+should be 0 in the SoC dtsi, and then overwritten in the board device
+tree.
+
+> +               clock-output-names = "xtal";
+> +               #clock-cells = <0>;
+> +       };
+> +
+> +       soc {
+> +               compatible = "simple-bus";
+> +               ranges;
+> +               interrupt-parent = <&plic>;
+> +               dma-noncoherent;
+> +               #address-cells = <1>;
+> +               #size-cells = <1>;
+> +
+> +               uart0: serial@30002000 {
+> +                       compatible = "bouffalolab,uart";
+> +                       reg = <0x30002000 0x1000>;
+> +                       interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&xtal>;
+> +                       status = "disabled";
+> +               };
+> +
+> +               plic: interrupt-controller@e0000000 {
+> +                       compatible = "thead,c900-plic";
+> +                       reg = <0xe0000000 0x4000000>;
+> +                       interrupts-extended = <&cpu0_intc 0xffffffff>,
+> +                                             <&cpu0_intc 9>;
+> +                       interrupt-controller;
+> +                       #address-cells = <0>;
+> +                       #interrupt-cells = <2>;
+> +                       riscv,ndev = <64>;
+> +               };
+> +       };
+> +};
+> --
+> 2.37.2
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
