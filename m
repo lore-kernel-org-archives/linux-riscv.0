@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4F9C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 08:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B2DC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 09:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qQOwW1ERZ0cLjgfK6CE9PCEfiaBu7FBLpMmPRoRkOzo=; b=4E/jkInuedrXrq
-	vUWJbY0jFcOuFzEsSCqBFDRLjqz5cigow6oi5SOKBzOm+tgUFcPDB9cM2usCRsrLGBG7KskYRUXvs
-	Kt2ETRBylOvSa+DOMzv8hVEGikrPvHhXAuqn2I3CUCwXy57zlezCigB/OVl8HC7/tnqLYLgXQO9PQ
-	/khFHpbnOpx/+wWBHGiLst4ktrTU4F9Dei35AywGF1cmZ4ksYr0J/ZaS8jpALp8+qa0RebCqaXEDG
-	kkSUu4sNz0hTo5vCMO2lguUeBIdwXsO+8WPUZsYQ3zR+JzVgOQXqKu95ZQORAydHj/1rqzB5nWnIL
-	oSwicmpZBG8r0AX+tEmw==;
+	List-Owner; bh=lpf1xV1SSFlF91VPQTyGg55VEg2qqC4pRMAL/k2bi84=; b=zYh0qyVBPR+MLL
+	y/4algBZXCoh+8OUsSM5945Ey/zSepOjFl+b0qpbQk7NGmMKZmTEYi+IED4ul1xWjLwk72MEzkMrX
+	ibIaZgkW1hPZamFxfNTifWf+Tl/1eV7RcNpQ2ftMagGRt7A064N7twDG5fmFBAckSHH/d4YPK4Bc0
+	yHibK4OYszNxJrDmBQEQcTGgtTvCxBz8BPFjwTBrvhVxvTv2VUuNqsnMXc0nA33zWVpluy1s8YZWr
+	CY7zArMkmvF6KotCoCvmn1y6GLqxDvEm6lNJu7X+tEtL61o5aNNKKarfaYLNX004WVYB3Jk2jutpK
+	jO8qB0xGJeo9PeKskruA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owfuc-0035CB-Df; Sun, 20 Nov 2022 08:42:50 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1owgND-003Boz-Nk; Sun, 20 Nov 2022 09:12:23 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owfuY-00359D-TL
-	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 08:42:48 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id v28so8738958pfi.12
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 00:42:45 -0800 (PST)
+	id 1owgNA-003BoU-Sy
+	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 09:12:22 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id t17so7369794pjo.3
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 01:12:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=i+vTHLv2t8e2dZjqwxHsggGsRbhxbyfOV9rsfRHb70Y=;
-        b=nTZjZgw9+nloB9RAXQaDlB0LG++6l2z1uj8Tod+65bSvolYhUqtqww0K+IDkwUG18O
-         3byDH3QFl952d8bDiLmHoNodwtdVOFO3o2kTspdYNyzYd+b8suFIuNN3sA0qQqndS4u0
-         JhkwUEMAgByCBeHrMrhKim2puHs60L9AeekSokrBp7EKcBZa4NycP0MThDSzkiDz0fEo
-         H6Z4BwnEYXVYXwYsXv0+992NB2E8tggx6DmgBGgupeTUKu8WF1VEsUVEa1PH0qdqOqDk
-         jXdffIrRDqvjmRC6thKIr+vIf2w1ciyQtX9CORI1TvX8WDLdyOb8o/W3nbWDBPQ/PZta
-         u6vQ==
+        bh=rekVEDKKlijw7I/2Qf31vZa1TulCD9iTi5HOGYS/PLk=;
+        b=C2WZax14f5SkUzd4O3PNrmtFTC/w+YH5ebqMXfcH5DvU4TzZyyBGCzDr3AOcw3fNj5
+         yJhHkijjHf+eUnb88FlsHynTlxrnXc7SEueO54KK8sr7kJHOen0hN+SYLYqUuhQGdGbG
+         lXT3Ohp3KRut6/aD7erwPb2t1q5z9Te/DBjDNo5risNzwsPlW3cysG6XWJSR7UUt/WLh
+         hWDd4+mNeyH8EbNto9Taj2FCa53oA5hPqlNC4UoJhi3/balQ3LnZ1FPaLf8d/aDPCrmj
+         pLoOdC8hzJn+5tmKYKnE6BLOx4J2trcjpOaFeEocSSmeSErZ9Dr2cbGMtaBRXHAtEnVq
+         ZaMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=i+vTHLv2t8e2dZjqwxHsggGsRbhxbyfOV9rsfRHb70Y=;
-        b=tvU6zKrrvl4k9CDC7lKgbrl2+6A8bdtEYKwO2oqt05kFibZ+RestkWoTAK9s+Jr6cH
-         XO/htItnYqCNyvelWlfx6PcXz886hiRmvh2bDDLBcAAlcCjcPliLD3YMQd+alIQ1V/CN
-         FTy7WQAw1PNuGWW9h26cvGL/9+Dk6Xi5A/mnuEl6dnQdsFSTu0T2ZYDbfLRLeMxwtNiG
-         mQZEzW7uofEKjajK3zdhaqmfyh+GmBcJUNpogRCPC4NwVVvjxxxPwsokxA5S5dnSN12u
-         70GNoxMG2QF3a0G4VTFKYa0ViXkDy0H5TGcyBhezqvO62jj4yhtp7hqI2oRY+koPh1sk
-         TFvw==
-X-Gm-Message-State: ANoB5pkYRnb1jhA8tZOKt7Ch3cHFNfhqIv6AfrxyK4oRBaCh6pb/soej
-	v27kidT+5n6YaBBRj+CVS7k=
-X-Google-Smtp-Source: AA0mqf5bFOXHpw5L9JJLHbwXCwglTcZQxipn/dXDlE23EloecQddqgL0MJueC+Lmmntj+/GCu+MoYA==
-X-Received: by 2002:a05:6a00:99b:b0:56d:3de3:c401 with SMTP id u27-20020a056a00099b00b0056d3de3c401mr15510972pfg.6.1668933765241;
-        Sun, 20 Nov 2022 00:42:45 -0800 (PST)
-Received: from localhost.localdomain ([122.192.14.194])
-        by smtp.gmail.com with ESMTPSA id q40-20020a17090a17ab00b00212735c8898sm8188273pja.30.2022.11.20.00.42.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Nov 2022 00:42:44 -0800 (PST)
-From: Song Shuai <suagrfillet@gmail.com>
-To: guoren@kernel.org,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mark.rutland@arm.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Song Shuai <suagrfillet@gmail.com>
-Subject: [PATCH v4 2/2] riscv/ftrace: make ftrace_caller call ftrace_graph_func
-Date: Sun, 20 Nov 2022 16:42:30 +0800
-Message-Id: <20221120084230.910152-3-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20221120084230.910152-1-suagrfillet@gmail.com>
-References: <20221120084230.910152-1-suagrfillet@gmail.com>
+        bh=rekVEDKKlijw7I/2Qf31vZa1TulCD9iTi5HOGYS/PLk=;
+        b=K08xX/0h0TbVVP+w8nD0+Z1D7X6U1NPpvefSIJ5GklLdUPAFu2o+fq+gDxzaHaX3c+
+         gcThnGGRk1G7Jm0z6lV0jdgZqrsN470L9/OX2RVgszg1GaeueTeBglP7TIS6tcSSdPtK
+         KqOtaBD3G884qan285D517M0N48lN0xK+HIEzfvbQBgal5HuNt/jN0tH0KNE16Uktzgb
+         94uQO4/gOOsXXaShhkKVgmlnjqmEvRDG40iAoiWwqGnjKJ7Lla+Yh23OCO+3o15tYhbZ
+         yJfNthP9wLKZ0P7NouC2s5EvEyhYP8Ad+b8vpyS/baJ2+efotGUlWt4DoflafxgSDIrp
+         A+GQ==
+X-Gm-Message-State: ANoB5pmxxe1rFgT1NwlTyYM1rKQTJm3wjizfapvyKsN+GJR7VXXDLVmG
+	YfwOckTPIxhWrSodPvMS6LgW8UOwP/ndOewd7Zs=
+X-Google-Smtp-Source: AA0mqf4vTe0Ybq/3/VHIqM7d+6C/bTPB1GxUDmLT8wRMuvBKK2ijhCybePhbgLPaIiIC6xTvBPTzc4WVdcv3mBQcRPA=
+X-Received: by 2002:a17:902:6847:b0:183:6555:38ef with SMTP id
+ f7-20020a170902684700b00183655538efmr6808724pln.157.1668935538643; Sun, 20
+ Nov 2022 01:12:18 -0800 (PST)
 MIME-Version: 1.0
+References: <20221118173217.888077-1-suagrfillet@gmail.com> <CAJF2gTTHWtm-nYD0SdcvnxAXkiNOVBZAkVx8SkJL2w-K9iaWZQ@mail.gmail.com>
+In-Reply-To: <CAJF2gTTHWtm-nYD0SdcvnxAXkiNOVBZAkVx8SkJL2w-K9iaWZQ@mail.gmail.com>
+From: Song Shuai <suagrfillet@gmail.com>
+Date: Sun, 20 Nov 2022 09:12:06 +0000
+Message-ID: <CAAYs2=hvw0eKDpZtxmQzqXrgvfoj+XD9qCjcAmddZLQvOEqtHQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] riscv/ftrace: make function graph use ftrace directly
+To: Guo Ren <guoren@kernel.org>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221120_004246_967648_1E23BFD5 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20221120_011220_978495_FB223CE8 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,247 +82,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In order to make the function graph use ftrace directly, ftrace_caller
-should be adjusted to save the necessary regs against the pt_regs layout
-so it can call ftrace_graph_func reasonably.
-
-SAVE_ALL now saves all the regs according to the pt_regs struct. Here
-supersedes SAVE_ALL by SAVE_ABI_REGS which has an extra option to allow
-saving only the necessary ABI-related regs for ftrace_caller.
-
-ftrace_caller and ftrace_regs_caller save their regs with the respective
-option of SAVE_ABI_REGS, then call the tracing function, especially
-graph_ops's ftrace_graph_func. So the ftrace_graph_[regs]_call labels
-aren't needed anymore if FTRACE_WITH_REGS is defined.
-
-As the previous patch described, the ftrace_caller remains with its
-ftrace_graph_call if FTRACE_WITH_REGS isn't defined,
-
-For convenience, the original argument setup for the tracing function in
-ftrace_[regs]_caller is separated as PREPARE_ARGS.
-
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
----
- arch/riscv/kernel/mcount-dyn.S | 142 ++++++++++++++++++++++++---------
- 1 file changed, 104 insertions(+), 38 deletions(-)
-
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 64bc79816f5e..466c6ef217b1 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -57,19 +57,52 @@
- 	.endm
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
--	.macro SAVE_ALL
-+
-+/**
-+* SAVE_ABI_REGS - save regs against the pt_regs struct
-+*
-+* @all: tell if saving all the regs
-+*
-+* If all is set, all the regs will be saved, otherwise only ABI
-+* related regs (a0-a7,epc,ra and optional s0) will be saved.
-+*
-+* After the stack is established,
-+*
-+* 0(sp) stores the PC of the traced function which can be accessed
-+* by &(fregs)->regs->epc in tracing function. Note that the real
-+* function entry address should be computed with -FENTRY_RA_OFFSET.
-+*
-+* 8(sp) stores the function return address (i.e. parent IP) that
-+* can be accessed by &(fregs)->regs->ra in tracing function.
-+*
-+* The other regs are saved at the respective localtion and accessed
-+* by the respective pt_regs member.
-+*
-+* Here is the layout of stack for your reference.
-+*
-+* PT_SIZE_ON_STACK  ->  +++++++++
-+*                       + ..... +
-+*                       + t3-t6 +
-+*                       + s2-s11+
-+*                       + a0-a7 + --++++-> ftrace_caller saved
-+*                       + s1    +   +
-+*                       + s0    + --+
-+*                       + t0-t2 +   +
-+*                       + tp    +   +
-+*                       + gp    +   +
-+*                       + sp    +   +
-+*                       + ra    + --+ // parent IP
-+*               sp  ->  + epc   + --+ // PC
-+*                       +++++++++
-+**/
-+	.macro SAVE_ABI_REGS, all=0
- 	addi	sp, sp, -PT_SIZE_ON_STACK
- 
- 	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
-+
-+	// always save the ABI regs
-+
- 	REG_S x10, PT_A0(sp)
- 	REG_S x11, PT_A1(sp)
- 	REG_S x12, PT_A2(sp)
-@@ -78,6 +111,18 @@
- 	REG_S x15, PT_A5(sp)
- 	REG_S x16, PT_A6(sp)
- 	REG_S x17, PT_A7(sp)
-+
-+	// save the leftover regs
-+
-+	.if \all == 1
-+	REG_S x2,  PT_SP(sp)
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x4,  PT_TP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
- 	REG_S x18, PT_S2(sp)
- 	REG_S x19, PT_S3(sp)
- 	REG_S x20, PT_S4(sp)
-@@ -92,19 +137,19 @@
- 	REG_S x29, PT_T4(sp)
- 	REG_S x30, PT_T5(sp)
- 	REG_S x31, PT_T6(sp)
-+
-+	// save s0 if FP_TEST defined
-+
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_S x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	.endm
- 
--	.macro RESTORE_ALL
-+	.macro RESTORE_ABI_REGS, all=0
- 	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
- 	REG_L x10, PT_A0(sp)
- 	REG_L x11, PT_A1(sp)
- 	REG_L x12, PT_A2(sp)
-@@ -113,6 +158,16 @@
- 	REG_L x15, PT_A5(sp)
- 	REG_L x16, PT_A6(sp)
- 	REG_L x17, PT_A7(sp)
-+
-+	.if \all == 1
-+	REG_L x2,  PT_SP(sp)
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x4,  PT_TP(sp)
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
- 	REG_L x18, PT_S2(sp)
- 	REG_L x19, PT_S3(sp)
- 	REG_L x20, PT_S4(sp)
-@@ -128,10 +183,25 @@
- 	REG_L x30, PT_T5(sp)
- 	REG_L x31, PT_T6(sp)
- 
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_L x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	.endm
-+
-+	.macro PREPARE_ARGS
-+	addi	a0, t0, -FENTRY_RA_OFFSET	// ip
-+	la	a1, function_trace_op
-+	REG_L	a2, 0(a1)			// op
-+	REG_L	a1, PT_RA(sp)			// parent_ip
-+	mv	a3, sp				// fregs
-+	.endm
-+
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
-+#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
-@@ -160,33 +230,29 @@ ftrace_graph_call:
- 	jr t0
- ENDPROC(ftrace_caller)
- 
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- ENTRY(ftrace_regs_caller)
--	SAVE_ALL
--
--	addi	a0, t0, -FENTRY_RA_OFFSET
--	la	a1, function_trace_op
--	REG_L	a2, 0(a1)
--	REG_L	a1, PT_RA(sp)
--	mv	a3, sp
-+	SAVE_ABI_REGS 1
-+	PREPARE_ARGS
- 
- ftrace_regs_call:
- 	.global ftrace_regs_call
- 	call	ftrace_stub
- 
--#ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, PT_RA
--	REG_L	a1, PT_T0(sp)
--	addi	a1, a1, -FENTRY_RA_OFFSET
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
--	mv	a2, s0
--#endif
--ftrace_graph_regs_call:
--	.global ftrace_graph_regs_call
--	call	ftrace_stub
--#endif
- 
--	RESTORE_ALL
-+	RESTORE_ABI_REGS 1
- 	jr t0
- ENDPROC(ftrace_regs_caller)
-+
-+ENTRY(ftrace_caller)
-+	SAVE_ABI_REGS 0
-+	PREPARE_ARGS
-+
-+ftrace_call:
-+	.global ftrace_call
-+	call	ftrace_stub
-+
-+	RESTORE_ABI_REGS 0
-+	jr t0
-+ENDPROC(ftrace_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IOS6jjIwMjLlubQxMeaciDIw5pel5ZGo5pelIDA0
+OjI25YaZ6YGT77yaCj4KPiBPbiBTYXQsIE5vdiAxOSwgMjAyMiBhdCAxOjMyIEFNIFNvbmcgU2h1
+YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSW4gUklTQy1WIGFyY2hp
+dGVjdHVyZSwgd2hlbiB3ZSBlbmFibGUgdGhlIGZ0cmFjZV9ncmFwaCB0cmFjZXIgb24gc29tZQo+
+ID4gZnVuY3Rpb25zLCB0aGUgZnVuY3Rpb24gdHJhY2luZ3Mgb24gb3RoZXIgZnVuY3Rpb25zIHdp
+bGwgc3VmZmVyIGV4dHJhCj4gPiBncmFwaCB0cmFjaW5nIHdvcmsuIEluIGVzc2VuY2UsIGdyYXBo
+X29wcyBpc24ndCBsaW1pdGVkIGJ5IGl0cyBmdW5jX2hhc2gKPiA+IGR1ZSB0byB0aGUgZ2xvYmFs
+IGZ0cmFjZV9ncmFwaF9bcmVnc11fY2FsbCBsYWJlbC4gVGhhdCBzaG91bGQgYmUgY29ycmVjdGVk
+Lgo+ID4KPiA+IFdoYXQgaW5zcGlyZXMgbWUgaXMgdGhlIGNvbW1pdCAwYzA1OTNiNDVjOWIgKCJ4
+ODYvZnRyYWNlOiBNYWtlIGZ1bmN0aW9uCj4gPiBncmFwaCB1c2UgZnRyYWNlIGRpcmVjdGx5Iikg
+dGhhdCB1c2VzIGdyYXBoX29wczo6ZnVuYyBmdW5jdGlvbiB0byBpbnN0YWxsCj4gPiByZXR1cm5f
+aG9va2VyIGFuZCBtYWtlcyB0aGUgZnVuY3Rpb24gY2FsbGVkIGFnYWluc3QgaXRzIGZ1bmNfaGFz
+aC4KPiA+Cj4gPiBUaGlzIHNlcmllcyBvZiBwYXRjaGVzIG1ha2VzIGZ1bmN0aW9uIGdyYXBoIHVz
+ZSBmdHJhY2UgZGlyZWN0bHkgZm9yIHJpc2N2Lgo+ID4KPiA+IElmIEZUUkFDRV9XSVRIX1JFR1Mg
+aXNuJ3QgZGVmaW5lZCwgZnRyYWNlX2NhbGxlciBrZWVwcyBmdHJhY2VfZ3JhcGhfY2FsbAo+ID4g
+c28gdGhhdCBpdCBjYW4gYmUgcmVwbGFjZWQgd2l0aCB0aGUgY2FsbGluZyBvZiBwcmVwYXJlX2Z0
+cmFjZV9yZXR1cm4gYnkKPiA+IHRoZSBlbmFibGUvZGlzYWJsZSBoZWxwZXIuCj4gPgo+ID4gQXMg
+Zm9yIGRlZmluaW5nIEZUUkFDRV9XSVRIX1JFR1MsIGZ0cmFjZV9jYWxsZXIgaXMgYWRqdXN0ZWQg
+dG8gc2F2ZSB0aGUKPiA+IG5lY2Vzc2FyeSByZWdzIGFnYWluc3QgdGhlIHB0X3JlZ3MgbGF5b3V0
+LCBzbyBpdCBjYW4gcmVhc29uYWJseSBjYWxsIHRoZQo+ID4gZ3JhcGhfb3BzOjpmdW5jIGZ1bmN0
+aW9uIC0gZnRyYWNlX2dyYXBoX2Z1bmMuIEFuZCBmdHJhY2VfZ3JhcGhfW3JlZ3NdX2NhbGwKPiA+
+IGFuZCBpdHMgZW5hYmxlL2Rpc2FibGUgaGVscGVyIGFyZW4ndCBuZWVkZWQuCj4gPgo+ID4gVGhl
+IHRlc3RzIGdlbmVyYXRlZCBieSBDT05GSUdfRlRSQUNFX1NUQVJUVVBfVEVTVCBoYXZlIHBhc3Nl
+ZCBpbiB0aGUgbG9jYWwKPiA+IHFlbXUtc3lzdGVtLXJpc2N2NjQgdmlydCBtYWNoaW5lLiBUaGUg
+Zm9sbG93aW5nIGlzIHRoZSBsb2cgZHVyaW5nIHN0YXJ0dXAuCj4gPgo+ID4gYGBgCj4gPiBOb3Yg
+MTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogVGVzdGluZyB0cmFjZXIgZnVuY3Rpb246IFBBU1NF
+RAo+ID4gTm92IDE1IDAzOjA3OjEzIHN0YWdlNCBrZXJuZWw6IFRlc3RpbmcgZHluYW1pYyBmdHJh
+Y2U6IFBBU1NFRAo+ID4gTm92IDE1IDAzOjA3OjEzIHN0YWdlNCBrZXJuZWw6IFRlc3RpbmcgZHlu
+YW1pYyBmdHJhY2Ugb3BzICMxOgo+ID4gTm92IDE1IDAzOjA3OjEzIHN0YWdlNCBrZXJuZWw6ICgx
+IDAgMSAwIDApCj4gPiBOb3YgMTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogKDEgMSAyIDAgMCkK
+PiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiAoMiAxIDMgMCAzNjUpCj4gPiBOb3Yg
+MTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogKDIgMiA0IDAgMzk5KQo+ID4gTm92IDE1IDAzOjA3
+OjEzIHN0YWdlNCBrZXJuZWw6ICgzIDIgNCAwIDE0NjA3MSkKPiA+IE5vdiAxNSAwMzowNzoxMyBz
+dGFnZTQga2VybmVsOiAoMyAzIDUgMCAxNDYxMDUpIFBBU1NFRAo+ID4gTm92IDE1IDAzOjA3OjEz
+IHN0YWdlNCBrZXJuZWw6IFRlc3RpbmcgZHluYW1pYyBmdHJhY2Ugb3BzICMyOgo+ID4gTm92IDE1
+IDAzOjA3OjEzIHN0YWdlNCBrZXJuZWw6ICgxIDAgMSA1ODkgMCkKPiA+IE5vdiAxNSAwMzowNzox
+MyBzdGFnZTQga2VybmVsOiAoMSAxIDIgNjM1IDApCj4gPiBOb3YgMTUgMDM6MDc6MTMgc3RhZ2U0
+IGtlcm5lbDogKDIgMSAzIDEgMikKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiAo
+MiAyIDQgMTI1IDEyNikKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiAoMyAyIDQg
+MTQ2MDAxIDE0NjA3OCkKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiAoMyAzIDUg
+MTQ2MDM1IDE0NjExMikgUEFTU0VECj4gPiBOb3YgMTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDog
+VGVzdGluZyBmdHJhY2UgcmVjdXJzaW9uOiBQQVNTRUQKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFn
+ZTQga2VybmVsOiBUZXN0aW5nIGZ0cmFjZSByZWN1cnNpb24gc2FmZTogUEFTU0VECj4gPiBOb3Yg
+MTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogVGVzdGluZyBmdHJhY2UgcmVnczogUEFTU0VECj4g
+PiBOb3YgMTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogVGVzdGluZyB0cmFjZXIgbm9wOiBQQVNT
+RUQKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiBUZXN0aW5nIHRyYWNlciBpcnFz
+b2ZmOiBQQVNTRUQKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiBUZXN0aW5nIHRy
+YWNlciB3YWtldXA6Cj4gPiBOb3YgMTUgMDM6MDc6MTMgc3RhZ2U0IGtlcm5lbDogc2NoZWQ6IERM
+IHJlcGxlbmlzaCBsYWdnZWQgdG9vIG11Y2gKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2Vy
+bmVsOiBQQVNTRUQKPiA+IE5vdiAxNSAwMzowNzoxMyBzdGFnZTQga2VybmVsOiBUZXN0aW5nIHRy
+YWNlciB3YWtldXBfcnQ6IFBBU1NFRAo+ID4gTm92IDE1IDAzOjA3OjEzIHN0YWdlNCBrZXJuZWw6
+IFRlc3RpbmcgdHJhY2VyIHdha2V1cF9kbDogUEFTU0VECj4gPiBOb3YgMTUgMDM6MDc6MTMgc3Rh
+Z2U0IGtlcm5lbDogVGVzdGluZyB0cmFjZXIgZnVuY3Rpb25fZ3JhcGg6IFBBU1NFRAo+ID4gYGBg
+Cj4gPgo+ID4gTm90ZSB0aGF0IHRoZSBjaGFuZ2VzIG9mIG1jb3VudC1keW4uUyBjb25mbGljdHMg
+d2l0aCB0aGlzIHVubWVyZ2VkCj4gPiBjb21taXQgKHJpc2N2OiBlbnRyeTogY29uc29saWRhdGUg
+Z2VuZXJhbCByZWdzIHNhdmluZy9yZXN0b3JpbmcpLgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
+cmcvbGludXgtcmlzY3YvMjAyMjExMDMwNzUwNDcuMTYzNDkyMy0xNS1ndW9yZW5Aa2VybmVsLm9y
+Zwo+ID4KPiA+IENoYW5nZXMgc2luY2UgdjI6Cj4gPiAtIGxpbmUgdXAgdGhlIGNvbW1lbnRzIFtB
+bmRyZXddCj4gPiAtIHJlbmFtZSBTQVZFX0FMTCBhcyBTQVZFX0FCSV9SRUdTIFtHdW8gUmVuXQo+
+ID4gLSBjb25zb2xpZGF0ZSB0aGUgbW9kaWZpY2F0aW9ucyBvZiBtY291bnQtZHluLlMgaW50byBv
+bmUgcGF0Y2ggW0d1byBSZW5dCj4gPiAtIGFkYXB0IHRoaXMgc2VyaWVzIGJhc2VkIG9uIFtyaXNj
+djogZnRyYWNlOiBGaXh1cCBmdHJhY2UgZGV0b3VyIGNvZGVdWzFdIFtHdW8gUmVuXQo+IFRlc3Rl
+ZC1ieTogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4KPiBodHRwczovL2dpdGh1Yi5jb20v
+Z3VvcmVuODMvbGludXgvdHJlZS9mdHJhY2VfZml4dXBfdjMKPgpUaGFua3MgZm9yIHlvdXIgdGVz
+dHMuCgpBbmQgdGhlIFBSRVBBUkVfQVJHUyB5b3Ugc3VnZ2VzdGVkIGhhcyBiZWVuIGFkZGVkIGlu
+IHRoZSB2NCB0aHJlYWQuCkhlcmUgaXMgdGhlIGxpbmsgZm9yIHlvdXIgY29udmVuaWVuY2UuCmh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIxMTIwMDg0MjMwLjkxMDE1Mi0x
+LXN1YWdyZmlsbGV0QGdtYWlsLmNvbS8KCj4gPgo+ID4gWzFdOiBodHRwczovL2xvcmUua2VybmVs
+Lm9yZy9saW51eC1yaXNjdi8yMDIyMDkyMTAzNDkxMC4zMTQyNDY1LTEtZ3VvcmVuQGtlcm5lbC5v
+cmcvCj4gPiB2MiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIy
+MTExNjAzMTMwNS4yODY2MzQtMS1zdWFncmZpbGxldEBnbWFpbC5jb20vCj4gPgo+ID4gQ2hhbmdl
+cyBzaW5jZSB2MToKPiA+IC0gZml4IHRoZSBjaGVja3BhdGNoIHdhcm5pbmdzIGluIHBhdGNoIDEK
+PiA+IHYxIExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIxMTE1
+MDYxNTI1LjExMjc1Ny0xLXN1YWdyZmlsbGV0QGdtYWlsLmNvbQo+ID4KPiA+IFNvbmcgU2h1YWkg
+KDIpOgo+ID4gICByaXNjdi9mdHJhY2U6IGFkZCBmdHJhY2VfZ3JhcGhfZnVuYwo+ID4gICByaXNj
+di9mdHJhY2U6IG1ha2UgZnRyYWNlX2NhbGxlciBjYWxsIGZ0cmFjZV9ncmFwaF9mdW5jCj4gPgo+
+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmggfCAgMTMgKystCj4gPiAgYXJjaC9y
+aXNjdi9rZXJuZWwvZnRyYWNlLmMgICAgICB8ICAzMCArKystLS0tCj4gPiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvbWNvdW50LWR5bi5TICB8IDE0MyArKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0t
+LQo+ID4gIDMgZmlsZXMgY2hhbmdlZCwgMTI5IGluc2VydGlvbnMoKyksIDU3IGRlbGV0aW9ucygt
+KQo+ID4KPiA+IC0tCj4gPiAyLjIwLjEKPiA+Cj4KPgo+IC0tCj4gQmVzdCBSZWdhcmRzCj4gIEd1
+byBSZW4KVGhhbmtzLApTb25nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
