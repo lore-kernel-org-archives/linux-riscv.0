@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF31C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 11:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5B6C433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 11:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J8gClmlZlrIDhjBenO4pT4e5cMYzHq/wvcMYSBnAPVs=; b=x4aCjAbH1c4ntA
-	7PXAUfX/sjD/VShcoZj3HlIwovxj7FpPTgkWR6ETH1m1qj0Hccg0zmiEdZOrShkTC3vAf1FHK9p+o
-	r4x55wbvUffg/sZkHxsMMZObqYGVXD23Noa0eQ0bBIkKHeAtM2ZzKjTHj+E+lUkbPw2fX7pUwC3IZ
-	suB1gx29V2wgefrNJq2jr8GOcLpDz/25XZMspbCqDQgbLU25c9l/EmgYvRFODdtA9Y47CXh2LJRY0
-	gV/EK8SZKTKHpRATc7qVnWppBPnf8CPISnBvyl1R/KgoFnlCfE+IjEzf9uPdaFi/sasg9CQgjVj3u
-	KsO1rs5It2zqr5k9XPDg==;
+	List-Owner; bh=N/INSGOpwaqvesuUbS6wIZ3uuRfEzKmxfWiyHkGJxcM=; b=PNo/iK4WiEPsqK
+	pfqzscd+xWEwkxzVr2tDaCAEFEPGCfXDo02Ta1mtl4xhYjplEjUNpNEiUZ6pHE5ihaOley2Qr8p95
+	zQ6KNPSHZlMI7bXcyLGBbvmwPnxKzqnJJVMH40dBjQVc91JpODzWv2cNWfu73gg8qPTyTF9D7HJIQ
+	OOmTHP1EzNdefrzvNTtWWT3xTiVxT03IaMWyteuDGe4viUwhj7qYG6qdp3D8X3I+verFgzdhGAzpo
+	W3YB75dXFFgryUQmkmOzBZLk9LJmfxbJdG8EnWPEAO2uW+EEAFlhZXNPxHEwjkefHO87pYLh+yQVo
+	s5YBcxPM9SR2EUZQgaLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owiCd-003r35-AG; Sun, 20 Nov 2022 11:09:35 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1owiQM-003rma-J2; Sun, 20 Nov 2022 11:23:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owiCa-003r2Z-AK
-	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 11:09:33 +0000
+	id 1owiQJ-003rm5-9J
+	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 11:23:44 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B5E11B80AFC;
-	Sun, 20 Nov 2022 11:09:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ADF9C433D6;
-	Sun, 20 Nov 2022 11:09:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 83ED160C32;
+	Sun, 20 Nov 2022 11:23:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E5F2C433D6;
+	Sun, 20 Nov 2022 11:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1668942569;
-	bh=vnyH8G1WUbHbEn7eQvky+ZPnOfOJ4emdGiMvxdIUtSU=;
+	s=k20201202; t=1668943421;
+	bh=8PFD1joXMpo0BIBLMMAMUhQ88Ub256i63VmGt7znFMA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XgiEMPVSngYVdZ7fTokegvHRQhWn8tlEaWT0A86kyG7WIt11GOw7N5AkaEYp+sTy5
-	 2f552pb6+g4zD+BL0IqVvHcpgnrNc32HZUPC1OBnl6O6OP5P4YhBtI+Aybddao0OD4
-	 6neM5gWBr5j+i9oR+t5Gq9mH3n2EZSUXeXgUydZFaBYwBGZ7OugaPWGPrgLvRaTfQ4
-	 2SrgomtnHgXi9Q3LT2BBV7C60NKqEOd4IqYgDnmT3p7o7IT3+dmGQgYiV95G9ypQ7v
-	 Q39Xu32JzP1L1wlHPCsZ78qcG4Pb8v4aRVTOwIMULtlLcSuFCpQiEPtHd2mDyGc95L
-	 +SIoaaVCGE5og==
-Date: Sun, 20 Nov 2022 11:09:24 +0000
+	b=ak+99zcWQngP8/4sLvjEZHL5BhaaEgvSTPNGIGUEDpu2IcblbH1Kv0wbbnBxjsdE/
+	 ZHMz221O0gTOFI6DOAq/VDmJsSvUUKHp+yjNQyIfQfpG/HO1YQP7HY+GfypE8fcY8M
+	 AM+3Vq6c0mMnepP19/8QGnFtA49OFhKK23DIEcKnIIsilP0/a4NaTlGPnOPa5zhq3n
+	 0FAe7zjy2LI9SQ05TyycfnGqJ9Fm5fIvDeIjSwS6TDn2hZ31sA3je35olQq7ijzVml
+	 sFWL2BhgiUlQNcFdr6GrZgjHHG+ztei+++hm57Iw8Gzsf7g9MKMjB9DbVgVELDxOVu
+	 7coGSy0dMEq4g==
+Date: Sun, 20 Nov 2022 11:23:36 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 6/7] riscv: dts: bouffalolab: add Sipeed M1S dock
- devicetree
-Message-ID: <Y3oK5B2yYL8+JzLs@spud>
-References: <20221120082114.3030-1-jszhang@kernel.org>
- <20221120082114.3030-7-jszhang@kernel.org>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Subject: Re: [PATCH 02/12] dt-bindings: riscv: Add T-HEAD C906 and C910
+ compatibles
+Message-ID: <Y3oOOOdG4e24ByEc@spud>
+References: <20220815050815.22340-1-samuel@sholland.org>
+ <20220815050815.22340-3-samuel@sholland.org>
+ <76d9c4fb368dca87c64494b927706d0b18d712d2.camel@icenowy.me>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221120082114.3030-7-jszhang@kernel.org>
+In-Reply-To: <76d9c4fb368dca87c64494b927706d0b18d712d2.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221120_030932_547369_3770B783 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20221120_032343_384513_C53617BE 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +76,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 20, 2022 at 04:21:13PM +0800, Jisheng Zhang wrote:
-> Sipeed manufactures a M1S system-on-module and dock board, add basic
-> support for them.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/boot/dts/bouffalolab/Makefile      |  2 ++
->  .../boot/dts/bouffalolab/bl808-sipeed-m1s.dts | 30 +++++++++++++++++++
->  2 files changed, 32 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/bouffalolab/Makefile
->  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dts
-> 
-> diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
-> new file mode 100644
-> index 000000000000..42e17e1a97bd
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/bouffalolab/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_SOC_BOUFFALOLAB) += bl808-sipeed-m1s.dtb
-> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dts
-> new file mode 100644
-> index 000000000000..64421fb2ad67
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dts
-> @@ -0,0 +1,30 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
-> +/*
-> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "bl808.dtsi"
-> +
-> +/ {
-> +	model = "Sipeed M1S";
-> +	compatible = "sipeed,m1s", "bouffalolab,bl808";
-
-These compatibles also need to be defined, in a bouffalolab.yaml in the
-riscv/ bindings subdirectory. Otherwise:
-arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtb:0:0: /: failed to match any schema with compatible: ['sipeed,m1s', 'bouffalolab,bl808']
-
-Thanks,
-Conor.
-
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:2000000n8";
-> +	};
-> +
-> +	memory@50000000 {
-> +		device_type = "memory";
-> +		reg = <0x50000000 0x04000000>;
-> +	};
-> +};
-> +
-> +&uart0 {
-> +	status = "okay";
-> +};
-> -- 
-> 2.37.2
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMDQsIDIwMjIgYXQgMTA6NTc6NThBTSArMDgwMCwgSWNlbm93eSBaaGVuZyB3
+cm90ZToKPiDlnKggMjAyMi0wOC0xNeaYn+acn+S4gOeahCAwMDowOCAtMDUwMO+8jFNhbXVlbCBI
+b2xsYW5k5YaZ6YGT77yaCj4gPiBUaGUgQzkwNiBhbmQgQzkxMCBhcmUgUklTQy1WIENQVSBjb3Jl
+cyBmcm9tIFQtSEVBRCBTZW1pY29uZHVjdG9yLgo+ID4gTm90YWJseSwgdGhlIEM5MDYgY29yZSBp
+cyB1c2VkIGluIHRoZSBBbGx3aW5uZXIgRDEgU29DLgo+IAo+IENvdWxkIHRoaXMgZ2V0IGFwcGxp
+ZWQgZmlyc3Q/Cj4gCj4gQzkwNiBhbmQgQzkxMCBub3cgaGF2ZSBhIGZpeGVkLWNvbmZpZ3VyYXRp
+b24gb3Blbi1zb3VyY2UgdmVyc2lvbiwgd2hpY2gKPiBtZWFucyB0aGVzZSBjb3JlcyBjb3VsZCBi
+ZSBwbGF5ZWQgYnkgYW55b25lLCBhbmQgaGF2aW5nIHRoZW0gaW4gdGhlIERUCj4gYmluZGluZyBy
+ZWFsbHkgaGVscHMgcGVvcGxlLiBJbiBhZGRpdGlvbiBJIGFtIGF3YXJlIG9mIHNvbWUgQzkwNi0K
+PiBlcXVpcHBlZCBTb0Mgb3V0IG9mIEFsbHdpbm5lci4KCkkndmUgYXBwbGllZCB0aGlzIG9uZSBw
+YXRjaCBhcyB2Ni4yIG1hdGVyaWFsIHNpbmNlIEkgZG91YnQgdGhpcyBzZXJpZXMgaXMKZ29ubmEg
+bWFrZSBpdCAmIHRoZSBCb3VmZmFsb2xhYnMgZHQgaXMgZ29pbmcgdG8gbmVlZCB0aGlzIGNvbXBh
+dGlibGUgdG9vLgpJIGFwcGxpZWQgaXQgb24gdG9wIG9mIHY2LjEtcmMxIGp1c3QgaW4gY2FzZToK
+Cmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvY29ub3IvYy8wZDgxNDAwMGFkMzU4OWJmNGY2OWM5Y2Iy
+NWEzYjc3YmJkNTVmZmVjCgo+IAo+ID4gCj4gPiBTaWduZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFu
+ZCA8c2FtdWVsQHNob2xsYW5kLm9yZz4KPiA+IC0tLQo+ID4gCj4gPiDCoERvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwgfCAyICsrCj4gPiDCoDEgZmlsZSBj
+aGFuZ2VkLCAyIGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9jcHVzLnlhbWwKPiA+IGIvRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2NwdXMueWFtbAo+ID4gaW5kZXggODczZGQxMmY2
+ZTg5Li5jZTIxNjFkOTExNWEgMTAwNjQ0Cj4gPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRy
+ZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sCj4gPiArKysgYi9Eb2N1bWVudGF0aW9uL2Rldmlj
+ZXRyZWUvYmluZGluZ3MvcmlzY3YvY3B1cy55YW1sCj4gPiBAQCAtMzgsNiArMzgsOCBAQCBwcm9w
+ZXJ0aWVzOgo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHNpZml2ZSx1NQo+ID4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHNpZml2ZSx1Nwo+ID4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCAtIGNhbmFhbixrMjEwCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgLSB0aGVhZCxjOTA2Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSB0aGVh
+ZCxjOTEwCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGNvbnN0OiByaXNjdgo+ID4gwqDCoMKg
+wqDCoMKgIC0gaXRlbXM6Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGVudW06Cj4gCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
