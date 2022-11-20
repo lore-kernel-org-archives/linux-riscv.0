@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00889C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 02:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E281CC433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Nov 2022 03:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tkYhc2UNePhoRfyzmieMc20edkGeXGze5T1TFUwoXAY=; b=Dqwys2OjJXPZPh
-	cxnUhl4cR8NxJ1C52fTz/sH2GKXMbr2LZ9xU4DBee5TMjnB+jI2ttYxh8U5OvNvUX0tKNIUC4qgrq
-	USzmDv69cfZ0ykgQDZDJ6pRAUZeYENdSqDnatnk3jyDFIvZJj5OtRVli461awPQfp0NzkkN8RLyPu
-	0rCg48AhLZtw4gEBJM2EvPo/wbdDy5sp7khbEBtzMKeEenWJHXlYlUPc3ne6/6ttTpaEwnKHIAGN1
-	2uWOF79wJuOfIMDcSc0NO5vqZ+o1Vd8yC1w28wPKazyRkWliLXEv3qknYiA8mDCF5L3LranU3FEIX
-	zVd4vpEJkt0HDWYD68uA==;
+	List-Owner; bh=XhbvqOIrhY577BsY4GImhGVrfnpiHdM6n2zA6NS0zkY=; b=TSyk0fzENlOyVR
+	x85xx7xZn/NmbSR8vf3TIKbhwDA5MMK7S3HUzPDA61O0vopphmMTFSQWbVrh/k76EBZhOuaxho0hq
+	vF8OjBwyL4t75Xk7or+hFz3ZTzyIoDUm7TdWtx4qgVtpbgV4WEj059SZYgLiDdwpla61BUYY61ywU
+	D7//TLplMsa5gaDA5OA8yXM5AKRva9SciivD5VDJXUcElSWBjKS1vnyEfaFNza8AwOeWT1PborCPm
+	iai122LTr+86RkUkgv4WfDoaKRuaPhaK83h7cCZH0lAoSQQbwZHnqo90NY7YtORD9hBrAJxzJg0/v
+	w9hKDDCWEabrOhco09aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owaOC-001I6I-M3; Sun, 20 Nov 2022 02:49:00 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1owaO7-001I4g-KD
-	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 02:48:58 +0000
-Received: from [198.18.0.1] (unknown [124.16.97.152])
-	by APP-01 (Coremail) with SMTP id qwCowABXXjaVlXljf0ozAA--.29401S3;
-	Sun, 20 Nov 2022 10:48:53 +0800 (CST)
-Message-ID: <ffac3083-923f-ea03-84c3-16d97b5183d5@iscas.ac.cn>
-Date: Sun, 20 Nov 2022 10:48:53 +0800
+	id 1owbAU-001gjN-1A; Sun, 20 Nov 2022 03:38:54 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1owbAQ-001giQ-9E
+	for linux-riscv@lists.infradead.org; Sun, 20 Nov 2022 03:38:52 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id CC1DCB80A4A
+	for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 03:38:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCE7CC433B5
+	for <linux-riscv@lists.infradead.org>; Sun, 20 Nov 2022 03:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1668915524;
+	bh=7uBQe17zqyWwAgw1tl1lmly2OHTqQ1g7KNe+gXWVbFk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=i8w/uNHmviqLUqXX+rI7pt1tbjwYsBVhUgwHqSmFQ280k/4Zc9L2s8A1l9iD/AfdV
+	 8ibtILD5IrQU0R04xuT5HVmQTnInD1Ag/EL12y+66heKFleIhU/BugDQoUvBNG7DvP
+	 qK5Fxllo4NIg4ML/OG/jMy1LI+ZP2jAhbOi3XfcpVkETH6FqmMLN4RD34yz7bwh7VA
+	 TZv6v5ZkNKnrhDm2BdxZoTTejdDSmv7MWwf8BVDQPzAdVure3+yfaTqpnr4HR2Gn70
+	 zljph32bqXKozAiY8TOZMR3ttn08oQM2OqyEUizFnKVQtu6N8MYH5rs3YRLcLDyOAR
+	 vaqyswO3CtZJw==
+Received: by mail-ej1-f45.google.com with SMTP id n21so21673578ejb.9
+        for <linux-riscv@lists.infradead.org>; Sat, 19 Nov 2022 19:38:44 -0800 (PST)
+X-Gm-Message-State: ANoB5pm75FzGUcCw5wCLQMmwE59hUAblszyaK5sujsJdwMbKBD7DQ4o9
+	1hclqkGRxTHWoLkOtVV0kwZ0yNSEvPT+ND1z8Ok=
+X-Google-Smtp-Source: AA0mqf5fRqvUMSeOCsgEG2TBdWH+K9jvjjrYrKHKpmALyrPd9GsIq2DcoWkOQDKtUHrqmd87R7uXwEftpPxwhEOdPkA=
+X-Received: by 2002:a17:907:cf84:b0:78d:4795:ff1f with SMTP id
+ ux4-20020a170907cf8400b0078d4795ff1fmr11375721ejc.331.1668915523015; Sat, 19
+ Nov 2022 19:38:43 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0)
- Gecko/20100101 Thunderbird/102.4.2
-Subject: Re: [PATCH v7 2/3] riscv: mm: support Svnapot in hugetlb page
-To: Conor Dooley <conor@kernel.org>
-Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
- xuyinan@ict.ac.cn, ajones@ventanamicro.com
-References: <20221119112242.3593646-1-panqinglin2020@iscas.ac.cn>
- <20221119112242.3593646-3-panqinglin2020@iscas.ac.cn> <Y3kgTIMBZs69GQdS@spud>
-From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-In-Reply-To: <Y3kgTIMBZs69GQdS@spud>
-X-CM-TRANSID: qwCowABXXjaVlXljf0ozAA--.29401S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3Cr48KF1xAryfCF1fur18uFg_yoWkJryxpF
-	WxGFsxXF4UJryUGw1Iqr4DJ3Zxtr1Fqa1UKr97ta1UA3s29rn3u3s8Gw1akryxCrWkWw4x
-	urW8K3ZxuFnrtFJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
-	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15Mc
-	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2
-	V7IY0VAS07AlzVAYIcxG8wCY02Avz4vE14v_Gr1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUqqjyUUUUU
-X-Originating-IP: [124.16.97.152]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiBwQQDGN440Ku6QABsj
+References: <20221118173217.888077-1-suagrfillet@gmail.com> <20221118173217.888077-3-suagrfillet@gmail.com>
+In-Reply-To: <20221118173217.888077-3-suagrfillet@gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 20 Nov 2022 11:38:30 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRo+tifz8DqXsAMoK25=_d4f1OqKg=uA=J+75WejprRjA@mail.gmail.com>
+Message-ID: <CAJF2gTRo+tifz8DqXsAMoK25=_d4f1OqKg=uA=J+75WejprRjA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] riscv/ftrace: make ftrace_caller call ftrace_graph_func
+To: Song Shuai <suagrfillet@gmail.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221119_184856_115403_3E868AE3 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20221119_193850_656864_36E18F75 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,420 +76,256 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+On Sat, Nov 19, 2022 at 1:32 AM Song Shuai <suagrfillet@gmail.com> wrote:
+>
+> In order to make the function graph use ftrace directly, ftrace_caller
+> should be adjusted to save the necessary regs against the pt_regs layout
+> so it can call ftrace_graph_func reasonably.
+>
+> SAVE_ALL now saves all the regs according to the pt_regs struct. Here
+> supersedes SAVE_ALL by SAVE_ABI_REGS which has an extra option to allow
+> saving only the necessary ABI-related regs for ftrace_caller.
+>
+> ftrace_caller and ftrace_regs_caller save their regs with the respective
+> option of SAVE_ABI_REGS, then call the tracing function, especially
+> graph_ops's ftrace_graph_func. So the ftrace_graph_[regs]_call labels
+> aren't needed anymore if FTRACE_WITH_REGS is defined.
+>
+> As the previous patch described, the ftrace_caller remains with its
+> ftrace_graph_call if FTRACE_WITH_REGS isn't defined,
+>
+> For convenience, the original argument setup for the tracing function in
+> ftrace_[regs]_caller is killed and appended to the tail of SAVE_ABI_REGS.
+>
+> Signed-off-by: Song Shuai <suagrfillet@gmail.com>
+> ---
+>  arch/riscv/kernel/mcount-dyn.S | 143 ++++++++++++++++++++++++---------
+>  1 file changed, 105 insertions(+), 38 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+> index 64bc79816f5e..c70f04711a2e 100644
+> --- a/arch/riscv/kernel/mcount-dyn.S
+> +++ b/arch/riscv/kernel/mcount-dyn.S
+> @@ -57,19 +57,55 @@
+>         .endm
+>
+>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> -       .macro SAVE_ALL
+> +
+> +/**
+> +* SAVE_ABI_REGS - save regs against the pt_regs struct
+> +*
+> +* @all: tell if saving all the regs
+> +*
+> +* If all is set, all the regs will be saved, otherwise only ABI
+> +* related regs (a0-a7,epc,ra and optional s0) will be saved.
+> +*
+> +* For convenience the argument setup for tracing function is appended here.
+> +* Especially $sp is passed as the 4th argument of the tracing function.
+> +*
+> +* After the stack is established,
+> +*
+> +* 0(sp) stores the PC of the traced function which can be accessed
+> +* by &(fregs)->regs->epc in tracing function. Note that the real
+> +* function entry address should be computed with -FENTRY_RA_OFFSET.
+> +*
+> +* 8(sp) stores the function return address (i.e. parent IP) that
+> +* can be accessed by &(fregs)->regs->ra in tracing function.
+> +*
+> +* The other regs are saved at the respective localtion and accessed
+> +* by the respective pt_regs member.
+> +*
+> +* Here is the layout of stack for your reference.
+> +*
+> +* PT_SIZE_ON_STACK  ->  +++++++++
+> +*                       + ..... +
+> +*                       + t3-t6 +
+> +*                       + s2-s11+
+> +*                       + a0-a7 + --++++-> ftrace_caller saved
+> +*                       + s1    +   +
+> +*                       + s0    + --+
+> +*                       + t0-t2 +   +
+> +*                       + tp    +   +
+> +*                       + gp    +   +
+> +*                       + sp    +   +
+> +*                       + ra    + --+ // parent IP
+> +*               sp  ->  + epc   + --+ // PC
+> +*                       +++++++++
+> +**/
+> +       .macro SAVE_ABI_REGS, all=0
+>         addi    sp, sp, -PT_SIZE_ON_STACK
+>
+>         REG_S t0,  PT_EPC(sp)
+>         REG_S x1,  PT_RA(sp)
+> -       REG_S x2,  PT_SP(sp)
+> -       REG_S x3,  PT_GP(sp)
+> -       REG_S x4,  PT_TP(sp)
+> -       REG_S x5,  PT_T0(sp)
+> -       REG_S x6,  PT_T1(sp)
+> -       REG_S x7,  PT_T2(sp)
+> -       REG_S x8,  PT_S0(sp)
+> -       REG_S x9,  PT_S1(sp)
+> +
+> +       // always save the ABI regs
+> +
+>         REG_S x10, PT_A0(sp)
+>         REG_S x11, PT_A1(sp)
+>         REG_S x12, PT_A2(sp)
+> @@ -78,6 +114,18 @@
+>         REG_S x15, PT_A5(sp)
+>         REG_S x16, PT_A6(sp)
+>         REG_S x17, PT_A7(sp)
+> +
+> +       // save the leftover regs
+> +
+> +       .if \all == 1
+> +       REG_S x2,  PT_SP(sp)
+> +       REG_S x3,  PT_GP(sp)
+> +       REG_S x4,  PT_TP(sp)
+> +       REG_S x5,  PT_T0(sp)
+> +       REG_S x6,  PT_T1(sp)
+> +       REG_S x7,  PT_T2(sp)
+> +       REG_S x8,  PT_S0(sp)
+> +       REG_S x9,  PT_S1(sp)
+>         REG_S x18, PT_S2(sp)
+>         REG_S x19, PT_S3(sp)
+>         REG_S x20, PT_S4(sp)
+> @@ -92,19 +140,28 @@
+>         REG_S x29, PT_T4(sp)
+>         REG_S x30, PT_T5(sp)
+>         REG_S x31, PT_T6(sp)
+> +
+> +       // save s0 if FP_TEST defined
+> +
+> +       .else
+> +#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+> +       REG_S x8,  PT_S0(sp)
+> +#endif
+> +       .endif
+> +
+> +       // setup 4 args for tracing functions
+> +
+> +       addi    a0, t0, -FENTRY_RA_OFFSET       // ip
+> +       la      a1, function_trace_op
+> +       REG_L   a2, 0(a1)                       // op
+> +       REG_L   a1, PT_RA(sp)                   // parent_ip
+> +       mv      a3, sp                          // fregs
+Moving parameters preparation into SAVE_ABI_REGS is not a good idea.
+Give them a separate .macro: PREPARE_ARGS.
 
-Thanks for your comments. Will fix them in next version :)
+> +
+>         .endm
+>
+> -       .macro RESTORE_ALL
+> +       .macro RESTORE_ABI_REGS, all=0
+>         REG_L t0,  PT_EPC(sp)
+>         REG_L x1,  PT_RA(sp)
+> -       REG_L x2,  PT_SP(sp)
+> -       REG_L x3,  PT_GP(sp)
+> -       REG_L x4,  PT_TP(sp)
+> -       REG_L x5,  PT_T0(sp)
+> -       REG_L x6,  PT_T1(sp)
+> -       REG_L x7,  PT_T2(sp)
+> -       REG_L x8,  PT_S0(sp)
+> -       REG_L x9,  PT_S1(sp)
+>         REG_L x10, PT_A0(sp)
+>         REG_L x11, PT_A1(sp)
+>         REG_L x12, PT_A2(sp)
+> @@ -113,6 +170,16 @@
+>         REG_L x15, PT_A5(sp)
+>         REG_L x16, PT_A6(sp)
+>         REG_L x17, PT_A7(sp)
+> +
+> +       .if \all == 1
+> +       REG_L x2,  PT_SP(sp)
+> +       REG_L x3,  PT_GP(sp)
+> +       REG_L x4,  PT_TP(sp)
+> +       REG_L x5,  PT_T0(sp)
+> +       REG_L x6,  PT_T1(sp)
+> +       REG_L x7,  PT_T2(sp)
+> +       REG_L x8,  PT_S0(sp)
+> +       REG_L x9,  PT_S1(sp)
+>         REG_L x18, PT_S2(sp)
+>         REG_L x19, PT_S3(sp)
+>         REG_L x20, PT_S4(sp)
+> @@ -128,10 +195,16 @@
+>         REG_L x30, PT_T5(sp)
+>         REG_L x31, PT_T6(sp)
+>
+> +       .else
+> +#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+> +       REG_L x8,  PT_S0(sp)
+> +#endif
+> +       .endif
+>         addi    sp, sp, PT_SIZE_ON_STACK
+>         .endm
+>  #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+>
+> +#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+>  ENTRY(ftrace_caller)
+>         SAVE_ABI
+>
+> @@ -160,33 +233,27 @@ ftrace_graph_call:
+>         jr t0
+>  ENDPROC(ftrace_caller)
+>
+> -#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> +#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+>  ENTRY(ftrace_regs_caller)
+> -       SAVE_ALL
+> -
+> -       addi    a0, t0, -FENTRY_RA_OFFSET
+> -       la      a1, function_trace_op
+> -       REG_L   a2, 0(a1)
+> -       REG_L   a1, PT_RA(sp)
+> -       mv      a3, sp
+> +       SAVE_ABI_REGS 1
+>
+>  ftrace_regs_call:
+>         .global ftrace_regs_call
+>         call    ftrace_stub
+>
+> -#ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> -       addi    a0, sp, PT_RA
+> -       REG_L   a1, PT_T0(sp)
+> -       addi    a1, a1, -FENTRY_RA_OFFSET
+> -#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+> -       mv      a2, s0
+> -#endif
+> -ftrace_graph_regs_call:
+> -       .global ftrace_graph_regs_call
+> -       call    ftrace_stub
+> -#endif
+>
+> -       RESTORE_ALL
+> +       RESTORE_ABI_REGS 1
+>         jr t0
+>  ENDPROC(ftrace_regs_caller)
+> +
+> +ENTRY(ftrace_caller)
+> +       SAVE_ABI_REGS 0
+> +
+> +ftrace_call:
+> +       .global ftrace_call
+> +       call    ftrace_stub
+> +
+> +       RESTORE_ABI_REGS 0
+> +       jr t0
+> +ENDPROC(ftrace_caller)
+>  #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> --
+> 2.20.1
+>
 
-Thanks,
-Qinglin
 
-On 11/20/22 2:28 AM, Conor Dooley wrote:
-> Hey Qinglin,
-> Couple minor comments here.
-> 
-> On Sat, Nov 19, 2022 at 07:22:41PM +0800, panqinglin2020@iscas.ac.cn wrote:
->> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->>
->> Svnapot can be used to support 64KB hugetlb page, so it can become a new
->> option when using hugetlbfs. Add a basic implementation of hugetlb page,
->> and support 64KB as a size in it by using Svnapot.
->>
->> For test, boot kernel with command line contains "default_hugepagesz=64K
->> hugepagesz=64K hugepages=20" and run a simple test like this:
->>
->> tools/testing/selftests/vm/map_hugetlb 1 16
->>
->> And it should be passed.
->>
->> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 31f9a5a160a0..c0307b942ed2 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -43,7 +43,7 @@ config RISCV
->>   	select ARCH_USE_QUEUED_RWLOCKS
->>   	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
->>   	select ARCH_WANT_FRAME_POINTERS
->> -	select ARCH_WANT_GENERAL_HUGETLB
->> +	select ARCH_WANT_GENERAL_HUGETLB if !RISCV_ISA_SVNAPOT
->>   	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
->>   	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
->>   	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
->> diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
->> index a5c2ca1d1cd8..854f5db2f45d 100644
->> --- a/arch/riscv/include/asm/hugetlb.h
->> +++ b/arch/riscv/include/asm/hugetlb.h
->> @@ -2,7 +2,39 @@
->>   #ifndef _ASM_RISCV_HUGETLB_H
->>   #define _ASM_RISCV_HUGETLB_H
->>   
->> -#include <asm-generic/hugetlb.h>
->>   #include <asm/page.h>
->>   
->> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
->> +#define __HAVE_ARCH_HUGE_PTE_CLEAR
->> +void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
->> +		    pte_t *ptep, unsigned long sz);
->> +
->> +#define __HAVE_ARCH_HUGE_SET_HUGE_PTE_AT
->> +void set_huge_pte_at(struct mm_struct *mm,
->> +		     unsigned long addr, pte_t *ptep, pte_t pte);
->> +
->> +#define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
->> +pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->> +			      unsigned long addr, pte_t *ptep);
->> +
->> +#define __HAVE_ARCH_HUGE_PTEP_CLEAR_FLUSH
->> +pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->> +			    unsigned long addr, pte_t *ptep);
->> +
->> +#define __HAVE_ARCH_HUGE_PTEP_SET_WRPROTECT
->> +void huge_ptep_set_wrprotect(struct mm_struct *mm,
->> +			     unsigned long addr, pte_t *ptep);
->> +
->> +#define __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
->> +int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->> +			       unsigned long addr, pte_t *ptep,
->> +			       pte_t pte, int dirty);
->> +
->> +pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags);
->> +#define arch_make_huge_pte arch_make_huge_pte
->> +
->> +#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
->> +
->> +#include <asm-generic/hugetlb.h>
->> +
->>   #endif /* _ASM_RISCV_HUGETLB_H */
->> diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
->> index 932dadfdca54..130a91b30588 100644
->> --- a/arch/riscv/mm/hugetlbpage.c
->> +++ b/arch/riscv/mm/hugetlbpage.c
->> @@ -2,6 +2,273 @@
->>   #include <linux/hugetlb.h>
->>   #include <linux/err.h>
->>   
->> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
->> +pte_t *huge_pte_alloc(struct mm_struct *mm,
->> +		      struct vm_area_struct *vma,
->> +		      unsigned long addr,
->> +		      unsigned long sz)
->> +{
->> +	pgd_t *pgd;
->> +	p4d_t *p4d;
->> +	pud_t *pud;
->> +	pmd_t *pmd;
->> +	pte_t *pte = NULL;
->> +	unsigned long order;
->> +
->> +	pgd = pgd_offset(mm, addr);
->> +	p4d = p4d_alloc(mm, pgd, addr);
->> +	if (!p4d)
->> +		return NULL;
->> +
->> +	pud = pud_alloc(mm, p4d, addr);
->> +	if (!pud)
->> +		return NULL;
-> 
-> Please put a line of whitespace after if statements, for loops etc, just
-> makes the code a little nicer to read...
-> 
->> +	if (sz == PUD_SIZE) {
->> +		pte = (pte_t *)pud;
->> +		goto out;
->> +	}
->> +
->> +	if (sz == PMD_SIZE) {
->> +		if (want_pmd_share(vma, addr) && pud_none(*pud))
->> +			pte = huge_pmd_share(mm, vma, addr, pud);
->> +		else
->> +			pte = (pte_t *)pmd_alloc(mm, pud, addr);
->> +		goto out;
->> +	}
-> 
-> ..so here too..
-> 
->> +	pmd = pmd_alloc(mm, pud, addr);
->> +	if (!pmd)
->> +		return NULL;
->> +
->> +	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++) {
->> +		if (napot_cont_size(order) == sz) {
->> +			pte = pte_alloc_map(mm, pmd, (addr & ~napot_cont_mask(order)));
->> +			break;
->> +		}
->> +	}
-> 
-> ...and here.
-> 
->> +out:
->> +	WARN_ON_ONCE(pte && pte_present(*pte) && !pte_huge(*pte));
->> +	return pte;
->> +}
->> +
->> +pte_t *huge_pte_offset(struct mm_struct *mm,
->> +		       unsigned long addr,
->> +		       unsigned long sz)
->> +{
->> +	pgd_t *pgd;
->> +	p4d_t *p4d;
->> +	pud_t *pud;
->> +	pmd_t *pmd;
->> +	pte_t *pte = NULL;
->> +	unsigned long order;
->> +
->> +	pgd = pgd_offset(mm, addr);
->> +	if (!pgd_present(*pgd))
->> +		return NULL;
->> +	p4d = p4d_offset(pgd, addr);
->> +	if (!p4d_present(*p4d))
->> +		return NULL;
->> +
->> +	pud = pud_offset(p4d, addr);
->> +	if (sz == PUD_SIZE)
->> +		/* must be pud huge, non-present or none */
->> +		return (pte_t *)pud;
->> +	if (!pud_present(*pud))
->> +		return NULL;
->> +
->> +	pmd = pmd_offset(pud, addr);
->> +	if (sz == PMD_SIZE)
->> +		/* must be pmd huge, non-present or none */
->> +		return (pte_t *)pmd;
->> +	if (!pmd_present(*pmd))
->> +		return NULL;
->> +
->> +	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++) {
->> +		if (napot_cont_size(order) == sz) {
->> +			pte = pte_offset_kernel(pmd, (addr & ~napot_cont_mask(order)));
->> +			break;
->> +		}
->> +	}
->> +	return pte;
->> +}
->> +
->> +static pte_t get_clear_contig(struct mm_struct *mm,
->> +			      unsigned long addr,
->> +			      pte_t *ptep,
->> +			      unsigned long pte_num)
->> +{
->> +	pte_t orig_pte = ptep_get(ptep);
->> +	unsigned long i;
->> +
->> +	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
->> +		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
->> +
->> +		if (pte_dirty(pte))
->> +			orig_pte = pte_mkdirty(orig_pte);
->> +
->> +		if (pte_young(pte))
->> +			orig_pte = pte_mkyoung(orig_pte);
->> +	}
->> +	return orig_pte;
->> +}
->> +
->> +static pte_t get_clear_contig_flush(struct mm_struct *mm,
->> +				    unsigned long addr,
->> +				    pte_t *ptep,
->> +				    unsigned long pte_num)
->> +{
->> +	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pte_num);
->> +	bool valid = !pte_none(orig_pte);
->> +	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
->> +
->> +	if (valid)
->> +		flush_tlb_range(&vma, addr, addr + (PAGE_SIZE * pte_num));
->> +
->> +	return orig_pte;
->> +}
->> +
->> +pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
->> +{
->> +	unsigned long order;
->> +
->> +	for_each_napot_order(order) {
->> +		if (shift == napot_cont_shift(order)) {
->> +			entry = pte_mknapot(entry, order);
->> +			break;
->> +		}
->> +	}
->> +	if (order == NAPOT_ORDER_MAX)
->> +		entry = pte_mkhuge(entry);
->> +
->> +	return entry;
->> +}
->> +
->> +void set_huge_pte_at(struct mm_struct *mm,
->> +		     unsigned long addr,
->> +		     pte_t *ptep,
->> +		     pte_t pte)
->> +{
->> +	int i;
->> +	int pte_num;
->> +
->> +	if (!pte_napot(pte)) {
->> +		set_pte_at(mm, addr, ptep, pte);
->> +		return;
->> +	}
->> +
->> +	pte_num = napot_pte_num(napot_cont_order(pte));
->> +	for (i = 0; i < pte_num; i++, ptep++, addr += PAGE_SIZE)
->> +		set_pte_at(mm, addr, ptep, pte);
->> +}
->> +
->> +int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->> +			       unsigned long addr,
->> +			       pte_t *ptep,
->> +			       pte_t pte,
->> +			       int dirty)
->> +{
->> +	pte_t orig_pte;
->> +	int i;
->> +	int pte_num;
->> +	struct mm_struct *mm = vma->vm_mm;
->> +
->> +	if (!pte_napot(pte))
->> +		return ptep_set_access_flags(vma, addr, ptep, pte, dirty);
->> +
->> +	pte_num = napot_pte_num(napot_cont_order(pte));
->> +	ptep = huge_pte_offset(mm, addr,
->> +			       napot_cont_size(napot_cont_order(pte)));
->> +	orig_pte = get_clear_contig_flush(mm, addr, ptep, pte_num);
->> +
->> +	if (pte_dirty(orig_pte))
->> +		pte = pte_mkdirty(pte);
->> +
->> +	if (pte_young(orig_pte))
->> +		pte = pte_mkyoung(pte);
->> +
->> +	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
->> +		set_pte_at(mm, addr, ptep, pte);
->> +
->> +	return true;
->> +}
->> +
->> +pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->> +			      unsigned long addr,
->> +			      pte_t *ptep)
->> +{
->> +	int pte_num;
->> +	pte_t orig_pte = ptep_get(ptep);
->> +
->> +	if (!pte_napot(orig_pte))
->> +		return ptep_get_and_clear(mm, addr, ptep);
->> +
->> +	pte_num = napot_pte_num(napot_cont_order(orig_pte));
->> +
->> +	return get_clear_contig(mm, addr, ptep, pte_num);
->> +}
->> +
->> +void huge_ptep_set_wrprotect(struct mm_struct *mm,
->> +			     unsigned long addr,
->> +			     pte_t *ptep)
->> +{
->> +	int i;
->> +	int pte_num;
->> +	pte_t pte = ptep_get(ptep);
->> +
->> +	if (!pte_napot(pte)) {
->> +		ptep_set_wrprotect(mm, addr, ptep);
->> +		return;
->> +	}
->> +
->> +	pte_num = napot_pte_num(napot_cont_order(pte));
->> +	ptep = huge_pte_offset(mm, addr, napot_cont_size(4UL));
->> +
->> +	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
->> +		ptep_set_wrprotect(mm, addr, ptep);
->> +}
->> +
->> +pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->> +			    unsigned long addr,
->> +			    pte_t *ptep)
->> +{
->> +	int pte_num;
->> +	pte_t pte = ptep_get(ptep);
->> +
->> +	if (!pte_napot(pte))
->> +		return ptep_clear_flush(vma, addr, ptep);
->> +
->> +	pte_num = napot_pte_num(napot_cont_order(pte));
->> +
->> +	return get_clear_contig_flush(vma->vm_mm, addr, ptep, pte_num);
->> +}
->> +
->> +void huge_pte_clear(struct mm_struct *mm,
->> +		    unsigned long addr,
->> +		    pte_t *ptep,
->> +		    unsigned long sz)
->> +{
->> +	int i, pte_num = 1;
->> +	pte_t pte = READ_ONCE(*ptep);
->> +
->> +	if (pte_napot(pte))
->> +		pte_num = napot_pte_num(napot_cont_order(pte));
->> +
->> +	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
->> +		pte_clear(mm, addr, ptep);
->> +}
->> +
->> +static __init int napot_hugetlbpages_init(void)
->> +{
->> +	if (has_svnapot()) {
->> +		unsigned long order;
->> +
->> +		for_each_napot_order(order)
->> +			hugetlb_add_hstate(order);
->> +	}
->> +	return 0;
->> +}
->> +arch_initcall(napot_hugetlbpages_init);
->> +#endif /*CONFIG_RISCV_ISA_SVNAPOT*/
->> +
->>   int pud_huge(pud_t pud)
->>   {
->>   	return pud_leaf(pud);
->> @@ -18,8 +285,17 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
->>   		return true;
->>   	else if (IS_ENABLED(CONFIG_64BIT) && size == PUD_SIZE)
->>   		return true;
->> -	else
->> +	else if (!has_svnapot())
->> +		return false;
->> +	else {
-> 
-> Here, could you please add {} around the other branches of this if
-> statement please?
-> 
-> Thanks,
-> Conor.
-> 
-> 
->> +		unsigned long order;
->> +
->> +		for_each_napot_order(order) {
->> +			if (size == napot_cont_size(order))
->> +				return true;
->> +		}
->>   		return false;
->> +	}
->>   }
->>   
->>   #ifdef CONFIG_CONTIG_ALLOC
->> -- 
->> 2.37.4
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
