@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F566C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 11:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA5EC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 11:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IwH+o7525p4lXdeWBd+/amVAqZ7/0w/4lcu3ZcXo4rU=; b=0q/KoH15har/0r
-	S8xMAktNbpokdEuASSufpaJ/S9vlK+ZOe4KGKsI3oY2REuZjS+TJO0HWBj75jXUgrVde/S0FDF8zU
-	yPVtO7LanX08NTImsD8QvVeqYEqZf6fv/qHJ9SzN/JBhZSLQc2+u4UEqhHhK64Q7RVDgpBwadQ9I4
-	qK06mkwhSB1v75HHdQVPLNwpHeDxu1jkv+gYKgcVGZSmrov+x1+XH4zk3HYtRoeDVJPvXlzm0aZ7G
-	eDIZFMpSc3qotzR4A/PyVBRLqZjmllXEJ4bccpl3iOQ0YmENNtW4mLV4nMF1jIkYbq5TqnPNrs0Rc
-	GWAVxYl4ayMzCIaro5eA==;
+	List-Owner; bh=v3J21gcwkorAD76B2Hfk5mUFf16kUJSyZsUCZRanCZY=; b=zCJSoJGc7rhdXH
+	BA541/ueB9vpBLgrcjUKKNJUG7tbEu3XvGp0Y8UgAiizwcyhnuG9yqpDUmhQileqTmfoKvqUOEbmc
+	eaaGC7O2w6q5P+HHJSaV52W9ylUv6oHLNLuQ75VaHCR60DftNuz7ON75rgaY/vM9ya/PWnIYe/yZB
+	s1MU42Zb/E5b4PWQq8EOR0OqnMj6KdVwA7xgb39jTFOusPPxFY/AFHFbNNH7swJBRxRi6mUA8YRpK
+	Vm7H5BpG8Ef+zjVZVlnWJe16ikoONymuCiNiTnCdxovF23q8UTKjXD+kc+df6fw5gFLQPlBRI19CH
+	XVc5ChNzoVaT1G4tjqJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox58K-00CzSw-6P; Mon, 21 Nov 2022 11:38:40 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1ox5JE-00D4jH-EZ; Mon, 21 Nov 2022 11:49:56 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox58G-00CzRD-QT
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 11:38:38 +0000
-Received: from mail-yb1-f197.google.com (mail-yb1-f197.google.com [209.85.219.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1ox5JA-00D4gp-Tm
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 11:49:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 44D4B3F54C
-	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 11:38:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1669030715;
-	bh=k1LFdNn2YthCqXfDo2Al9HOEWWRFBoST7OMZo/loF+4=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=qQ8GF2PFJQe0ondbPn9KpePolZeE1DCKWnPRm56IMDk88w2zK9Zpy9idVkUprUBt3
-	 jkzpC9PlwKjo6el/z7T5MlZVEzsLu24aa1TW1l7YjsETi/B1liUtAzPM1zlGdCtgs4
-	 qtE19++7cSBqoisFsV2WTIYxL6Ww383Se8cbWhqCy+Xt4d48vxfc0f0WOTIvK6HFu8
-	 vhyCcXhZo4bXlHeHdFEiPoGx1E6PmUfrYXPMrrZNu37v36HlimV04T5aD5YC+4sBIy
-	 ojRUuI21RWdd9bPGAHmoEuAwC7P8a6wc3U8Hnp0nRIl9DRUz3uTq6UR2CnNwU7Barn
-	 3eZrQY0GjyLGw==
-Received: by mail-yb1-f197.google.com with SMTP id y6-20020a25b9c6000000b006c1c6161716so10682058ybj.8
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 03:38:35 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k1LFdNn2YthCqXfDo2Al9HOEWWRFBoST7OMZo/loF+4=;
-        b=r2MVRIwJ27AI0CkM9r33BsZ1QXiLnGXLswseyDypbFfgi22KB2L2Dp1yIgV/4zN2uC
-         cEMPwRtb0N2OIhk0HytexDX7Jh+ZDASbQRFYMak9MTR/zMpCtp3UxyvDv2vvtwZF5A74
-         cLcMtrz8elODlr3Y2fSH82h+6zQuPpWFPsfOPg9NgNoyADhFieReVE48qtisH6ygF1SK
-         9M5Ft2TIY7ACys6D2XgJV/a/Y8U4H3p5hieidVL+ZPzA27igwo1hOUx3RhjrufAR8W9B
-         NUjx53y0Y1CRTNykZDU+vyzqmceEaGEvBMGP7/e6zx6RbTspU/5mOZyiy5yy58TKUKq6
-         i/Ow==
-X-Gm-Message-State: ANoB5pnWCrX+jEgvCYbVrsnPzZ/pF0qLzPxbnXLRDVrc2yBgypRMwYVj
-	/SVcGcv+/AgX0lw6rBZUtIZaXEW2MRvYSz48LuRQucbZRhqKKJH37CLK3be7oVwNCAEt9yOLfmq
-	TzLETiuEqiSNbVE9TcRK1ubCpRweaZoVKD/VfpbwQjbqkYq5AYTz+vA6DMT+BWQ==
-X-Received: by 2002:a25:e80f:0:b0:6df:927f:38c9 with SMTP id k15-20020a25e80f000000b006df927f38c9mr16158711ybd.92.1669030713973;
-        Mon, 21 Nov 2022 03:38:33 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf5WqnZPCDXzAGWO5+CsGrfvY5dZ99oEse/5+ZdgxQLRmeJNBWFQZouQa8Zd7b6wtc3vX0BNaCAIpFXWIf5Gs/k=
-X-Received: by 2002:a25:e80f:0:b0:6df:927f:38c9 with SMTP id
- k15-20020a25e80f000000b006df927f38c9mr16158698ybd.92.1669030713733; Mon, 21
- Nov 2022 03:38:33 -0800 (PST)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 8689FB80ED7
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 11:49:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DEAC43149
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 11:49:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669031389;
+	bh=5vI8JvevhgIDvxPX1gOwtUjLBTg3B81ycpocNkF8FV4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Gyo6N+ViiZeQM5Bni27qRcz04CNVFXHRibzQsxrNpHzQMMfTxeOND7ewL4ze7+l7S
+	 FohgPU350VQQ97VXzMgW4Z3aIrrIutlWJxE9FGHRuXY3fZeqehoN6UOBWra3MyzqqP
+	 uvN63hFWSavY5v59uz2+Dq+90CetNIPLY4cRBU2HDSTGXrfEtqRcdzHJ5BIESsvbsa
+	 3Fp3qPk3Z+qMwZRymFsYoh8ThphGgvnPgHVjSEmDQ4/lsdleodeG50F6Xsm0mxq3ft
+	 ivJCuXKhOs1Xspc1kHO9O9Yz93IiFvBfJPbdiyVgsHZHxYeTHlN6OqQ0yXupPlnVxg
+	 g+5D/ma2CWviw==
+Received: by mail-ej1-f52.google.com with SMTP id bj12so27819323ejb.13
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 03:49:49 -0800 (PST)
+X-Gm-Message-State: ANoB5pkXO80H3GPEXdZJsMfxEkl8PS4yoOQV2jxnYrh/nAkTO/jzo5KG
+	WW1jHaPhJ97CC5eBohwGyTRpMtlJzTFoJlSi4iA=
+X-Google-Smtp-Source: AA0mqf7IGdpPka84hURv/SGsDGL0UCuUHm7NY7HOxN5XXdgeYhsAILSPcgdgIVHyRUMbB0cJPJfCAD28dQd87hV0gh0=
+X-Received: by 2002:a17:906:4a8a:b0:7ad:bc84:2f23 with SMTP id
+ x10-20020a1709064a8a00b007adbc842f23mr15741203eju.262.1669031387277; Mon, 21
+ Nov 2022 03:49:47 -0800 (PST)
 MIME-Version: 1.0
-References: <20221118010627.70576-1-hal.feng@starfivetech.com>
- <20221118010627.70576-11-hal.feng@starfivetech.com> <8153973d-e8ad-e47a-3808-bbcdbfd169a5@linaro.org>
-In-Reply-To: <8153973d-e8ad-e47a-3808-bbcdbfd169a5@linaro.org>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Mon, 21 Nov 2022 12:38:17 +0100
-Message-ID: <CAJM55Z9ouj=jD2Otx3fK4W1wgnPjecUgFuKksw5CmU6SraM_Nw@mail.gmail.com>
-Subject: Re: [PATCH v2 10/14] dt-bindings: clock: Add StarFive JH7110
- always-on clock and reset generator
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-kernel@vger.kernel.org
+References: <20221109064937.3643993-1-guoren@kernel.org> <20221109064937.3643993-3-guoren@kernel.org>
+ <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
+In-Reply-To: <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 21 Nov 2022 19:49:35 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT-WQMFttHDPq69mL=xdT+AuvzfHML90iX2eT1noyuUnw@mail.gmail.com>
+Message-ID: <CAJF2gTT-WQMFttHDPq69mL=xdT+AuvzfHML90iX2eT1noyuUnw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: stacktrace: Make walk_stackframe cross pt_regs frame
+To: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, peterz@infradead.org, 
+	arnd@arndb.de, linux-arch@vger.kernel.org, keescook@chromium.org, 
+	paulmck@kernel.org, frederic@kernel.org, nsaenzju@redhat.com, 
+	changbin.du@intel.com, vincent.chen@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>, Palmer Dabbelt <palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_033837_002974_6EB901F3 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20221121_034953_289688_FECC849C 
+X-CRM114-Status: GOOD (  27.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +85,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Nov 2022 at 09:49, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+On Mon, Nov 21, 2022 at 5:53 PM Guo Ren <guoren@kernel.org> wrote:
 >
-> On 18/11/2022 02:06, Hal Feng wrote:
-> > From: Emil Renner Berthing <kernel@esmil.dk>
+> On Wed, Nov 9, 2022 at 2:50 PM <guoren@kernel.org> wrote:
 > >
-> > Add bindings for the always-on clock and reset generator (AONCRG) on the
-> > JH7110 RISC-V SoC by StarFive Ltd.
+> > From: Guo Ren <guoren@linux.alibaba.com>
 > >
-> > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > The current walk_stackframe with FRAME_POINTER would stop unwinding at
+> > ret_from_exception:
+> >   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
+> >   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
+> >   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
+> >   Call Trace:
+> >   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
+> >   [<ffffffe000aecf48>] show_stack+0x32/0x4a
+> >   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
+> >   [<ffffffe000af1648>] dump_stack+0x14/0x1c
+> >   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
+> >   [<ffffffe000239aec>] __might_sleep+0x10/0x18
+> >   [<ffffffe000afe3fe>] down_read+0x22/0xa4
+> >   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
+> >   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+> >
+> > The optimization would help walk_stackframe cross the pt_regs frame and
+> > get more backtrace of debug info:
+> >   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
+> >   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
+> >   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
+> >   Call Trace:
+> >   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
+> >   [<ffffffe000aecf48>] show_stack+0x32/0x4a
+> >   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
+> >   [<ffffffe000af1648>] dump_stack+0x14/0x1c
+> >   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
+> >   [<ffffffe000239aec>] __might_sleep+0x10/0x18
+> >   [<ffffffe000afe3fe>] down_read+0x22/0xa4
+> >   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
+> >   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+> >   [<ffffffe000613c06>] riscv_intc_irq+0x1a/0x72
+> >   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+> >   [<ffffffe00033f44a>] vma_link+0x54/0x160
+> >   [<ffffffe000341d7a>] mmap_region+0x2cc/0x4d0
+> >   [<ffffffe000342256>] do_mmap+0x2d8/0x3ac
+> >   [<ffffffe000326318>] vm_mmap_pgoff+0x70/0xb8
+> >   [<ffffffe00032638a>] vm_mmap+0x2a/0x36
+> >   [<ffffffe0003cfdde>] elf_map+0x72/0x84
+> >   [<ffffffe0003d05f8>] load_elf_binary+0x69a/0xec8
+> >   [<ffffffe000376240>] bprm_execve+0x246/0x53a
+> >   [<ffffffe00037786c>] kernel_execve+0xe8/0x124
+> >   [<ffffffe000aecdf2>] run_init_process+0xfa/0x10c
+> >   [<ffffffe000aece16>] try_to_run_init_process+0x12/0x3c
+> >   [<ffffffe000afa920>] kernel_init+0xb4/0xf8
+> >   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+> >
+> > Here is the error injection test code for the above output:
+> >  drivers/irqchip/irq-riscv-intc.c:
+> >  static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+> >  {
+> >         unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
+> > +       u32 tmp; __get_user(tmp, (u32 *)0);
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> > Cc: Changbin Du <changbin.du@intel.com>
 > > ---
-> >  .../clock/starfive,jh7110-aoncrg.yaml         | 76 +++++++++++++++++++
-> >  1 file changed, 76 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+> >  arch/riscv/kernel/entry.S      | 2 +-
+> >  arch/riscv/kernel/stacktrace.c | 9 +++++++++
+> >  2 files changed, 10 insertions(+), 1 deletion(-)
 > >
-> > diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-> > new file mode 100644
-> > index 000000000000..afbb205e294f
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
-> > @@ -0,0 +1,76 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/clock/starfive,jh7110-aoncrg.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index b9eda3fcbd6d..329cf51fcd4d 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -248,7 +248,7 @@ ret_from_syscall_rejected:
+> >         andi t0, t0, _TIF_SYSCALL_WORK
+> >         bnez t0, handle_syscall_trace_exit
+> >
+> > -ret_from_exception:
+> > +ENTRY(ret_from_exception)
+> >         REG_L s0, PT_STATUS(sp)
+> >         csrc CSR_STATUS, SR_IE
+> >  #ifdef CONFIG_TRACE_IRQFLAGS
+> > diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> > index bcfe9eb55f80..75c8dd64fc48 100644
+> > --- a/arch/riscv/kernel/stacktrace.c
+> > +++ b/arch/riscv/kernel/stacktrace.c
+> > @@ -16,6 +16,8 @@
+> >
+> >  #ifdef CONFIG_FRAME_POINTER
+> >
+> > +extern asmlinkage void ret_from_exception(void);
 > > +
-> > +title: StarFive JH7110 Always-On Clock and Reset Generator
-> > +
-> > +maintainers:
-> > +  - Emil Renner Berthing <kernel@esmil.dk>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: starfive,jh7110-aoncrg
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Main Oscillator
-> > +      - description: RTC clock
->
-> Real Time Clock clock? :) I don't think the input to clock controller is
-> the output of RTC...
+> >  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+> >                              bool (*fn)(void *, unsigned long), void *arg)
+> >  {
+> > @@ -59,6 +61,13 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+> >                         fp = frame->fp;
+> >                         pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+> >                                                    &frame->ra);
+> > +                       if (pc == (unsigned long) ret_from_exception) {
+> I forgot ret_from_syscall because I tested it on the generic_entry
+> series base. I would merge this patch into the generic_entry series as
+> an optimization.
+No, the patch is correct. The ret_from_syscall is unnecessary because
+it's from user space.
 
-The description is bad, but even the documentation calls it "clk_rtc"
-even though it's really an optional input from a 32k oscillator.
-
-> Best regards,
-> Krzysztof
 >
+> > +                               if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+> > +                                       break;
+> > +
+> > +                               pc = ((struct pt_regs *)sp)->epc;
+> > +                               fp = ((struct pt_regs *)sp)->s0;
+> > +                       }
+> >                 }
+> >
+> >         }
+> > --
+> > 2.36.1
+> >
+>
+>
+> --
+> Best Regards
+>  Guo Ren
+
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
