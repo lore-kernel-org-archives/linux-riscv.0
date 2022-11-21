@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BA4C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 23:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05CCC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 00:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UV1AyATgjrKBfEDivaISq5Q9qW0ltD+LsyEAHTUG500=; b=AJit3uyxW1bhvD
-	3ju4L/oQhiFOVS66CYcn7WBDCZL15/PwFcI2FDne3Eg+QXHuOlNmI+lJOT7LZM79t2+Yim0tZooew
-	yVZg835ffHUS4Y+KQoaO62z8ycNJ6o/6AQATtE+I7Ty4dttrWEKqpOxFMEjphkqmZvVpNZcD03+AS
-	+FIMTx7yy3zIt45cqUiHbVqyDVwdL5nGZblHX47v86FjU2AUwSpAmmgzsbTozK+H6btAP8gETbRQG
-	RW1S3hO+VHB8UYMX9+HC+HsGkv0f02fUqA9knPZE4G4DsQsEaqnG9o/G39ysem9ldiPjM6eVbyIx+
-	y86FImw2HNPRM3ZYNzGg==;
+	List-Owner; bh=ReVf6ek1UTDAeVxF3qLB3YpYgIuiNCGa/ueqW914ufE=; b=aoIOAsphf1YSFW
+	HXXQWwiLnwNtJqv8MDs/UjlhFDghxVGPiRKklC+K1jMY65gmT8gI0Y4I0ZWRUo/NBDnAzlG1wnvrv
+	BGigcaTRSn5Yi2TZuX+mf6a+oZmqlM6QzyVZ3Gmmp/9Q+PNNBvqei0T9LJMJrjUJkTV+GYFzU7GdU
+	RFUyTf1k/M/N0z8AjCNJGOyuMPIk102wBYVMYrZL9daHY/cejYJSYLvbXGRSu1zg9p7iAWcD6x2CI
+	EbNwIn1uYr/H/0iqcje79xp/kXhqGKnHKTYNxGznYE56A+biFAp0nkxFfQYr7vkPW5rk/pRKynM0a
+	lVjtGTkC2N/QNrd0QeGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxGYv-001S8D-NG; Mon, 21 Nov 2022 23:50:53 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1oxGi0-001Sxc-9M; Tue, 22 Nov 2022 00:00:16 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxGYs-001S6g-CM
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 23:50:51 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46-20020a9d0631000000b00666823da25fso8360906otn.0
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 15:50:49 -0800 (PST)
+	id 1oxGhw-001SxH-Up
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 00:00:14 +0000
+Received: by mail-ej1-x636.google.com with SMTP id f27so32200626eje.1
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 16:00:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9qJGSmI/PVM4rhm2z0vPY9+1OW24z6YeaOBoyxuNZ2Y=;
-        b=pZeRXuaDR4YUAfk9pdiqFA9TNENllOMQJLmkdrsc2MdWnAAdd30cd7c7ROFGKUDQf6
-         +ZNNNZ6KQrQS7mXrU5dtHljL+yC4zTULQH3K6B1tf9UZpkaXG5sbD0ytAKxL8yhOTF1I
-         veCJvHxCJEFLT1214Au5yOvydOw7ieR3Csaxo=
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TDao0LAfm434A/ExSO5wjCivz8a5JjQXxBlQrokb6kc=;
+        b=BvmnoiVL/h6tWsjPo0Aeq5Q6cccWN4F5urXLhgO0z4WBigedoRyeQdFpafRKgsAtcn
+         73wdA8JtiNHbEgi/O8B/BJA80ST+4lDy9f2EAm32YYWh+aXGh/2KFGcEEDGJlD5rlCLz
+         NBGu4UwUKW87TEmFQeWPh/4o4KbNbZhsHgbrcPwNE31yXlwbi3qrchCQ5g3P8DN+ZLnt
+         bGuq1j2eZ97M6AmHQPW+2bB5h35md4Z98ToBuySGvhKsfKo3ajCuhq/wE2ZwZTgX8CEl
+         Ww6fc79vl+qqZTutHb++Qs12E5633QiTgALWojAgOorjcincy8aM0mp7NslBzh+WN5LO
+         sBdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9qJGSmI/PVM4rhm2z0vPY9+1OW24z6YeaOBoyxuNZ2Y=;
-        b=qfjS8vm8AEvSvh9eA5cmR1r7xlokPtKP+MnzQB8n0HYQAiEpo3oGdD8z+L/Hn7MB64
-         nYQOKxj44jGGKxlC4gsNkMMRTIJJAt4ErEvZEKWi9YDj6uWN+b0qewcPThopEOccGerd
-         ajvVke6nSu1IubCxSnGrsMWAi+Gtcffhl2cshbOgAjx3NKfX9jJN5wXL4CB0hzH/oVqo
-         D+gil9j3zOaPF9S9f20cksxCaS7dJ9Smdwsy/VwrNnYYHcmJLocm4H31TWeLvMEXni6O
-         cVnCJ/heO/tYJFCsJ/MjGAzF8aBQc7hVgsvu+CtzQcCXWgFnpQdoL0S0d3L+/6lNW3Hv
-         vABA==
-X-Gm-Message-State: ANoB5plpkrDlurjvIihryR57WG4Zd7lbXVrp3YiXGTvrZcTqjvvne11p
-	mmi20CaROtf0wpk/bNFz2ShSNN0pu7Zv8vFb4kwW
-X-Google-Smtp-Source: AA0mqf7kgYx54Yys6ETxvNQky+UEeKJ5p7LWh6nQdHq65TGyGvoY5M23v26YV+tFfDLtE9o9NFgqlU+8tlQQZEuniNM=
-X-Received: by 2002:a05:6830:22f2:b0:669:3797:c1b4 with SMTP id
- t18-20020a05683022f200b006693797c1b4mr10436192otc.293.1669074648514; Mon, 21
- Nov 2022 15:50:48 -0800 (PST)
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TDao0LAfm434A/ExSO5wjCivz8a5JjQXxBlQrokb6kc=;
+        b=rNfIvD97T87f2/bjuCcTd6eSZxBcfDTZwdOJNEOJXTFYWK3hZX7N71+JnhMM+oktqv
+         c4lz4GeTK7yFInxxBfeUlOuglGT48i3aUDL+Hn4fdxia24wfhcl1iCdqtoeyxF9mI4Vz
+         xQktU5Qi8/UoH6GWNw0rF9nop2GwY16BSaJhFpqthIhrAAzBMXaLQtPXBWYuOT5hZAkg
+         ovfjxS40qopkypGLkU25+0kAfi9X8VfXpZzbQgYyfvfWMNy8dp2/xHxdnVMso3b+oBdH
+         OZz3HP774dzu5UsUdGh1hmSvG/eODCH4TL1jpCyCQdhWx++kUbJp17DD42Bu1+HTx21p
+         vcKA==
+X-Gm-Message-State: ANoB5pnnMw6ombdK/uZ6o3dQd2ZdECw8R78xsccYu7v6B/u2206Is94p
+	CUDOdTuqHs7oSAfiPMBN8o1E9vw/Fg32aWxr2mU=
+X-Google-Smtp-Source: AA0mqf7wirXB9UcHj6bBpQrNPdemVwDrSaetF1MqXaP4SBD99f+fgWONo6kDIZi+Va+xTy91kr2tenOEPO+UiZSIetk=
+X-Received: by 2002:a17:906:79c4:b0:778:e3e2:8311 with SMTP id
+ m4-20020a17090679c400b00778e3e28311mr2574608ejo.342.1669075210604; Mon, 21
+ Nov 2022 16:00:10 -0800 (PST)
 MIME-Version: 1.0
-References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-2-atishp@rivosinc.com>
- <20221101123008.e3bwen6f2yxi3whi@kamzik>
-In-Reply-To: <20221101123008.e3bwen6f2yxi3whi@kamzik>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 21 Nov 2022 15:50:37 -0800
-Message-ID: <CAOnJCU+wf=CR12GONjBougZGs+ZQV1MoDAK-w+ALQatEECoFBQ@mail.gmail.com>
-Subject: Re: [RFC 1/9] RISC-V: Define a helper function to probe number of
- hardware counters
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Will Deacon <will@kernel.org>
+References: <20221110164924.529386-1-heiko@sntech.de> <CA+V-a8vSVY590SUkg81cC8Kq7FjzxdcJ5m2VG=94m0ntis7+8w@mail.gmail.com>
+ <CA+V-a8sqEjLKdGm67Sm5YbYUVRuntAM0Wqw_Gk+V6i9x+b1Exg@mail.gmail.com> <14108757.uLZWGnKmhe@diego>
+In-Reply-To: <14108757.uLZWGnKmhe@diego>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Mon, 21 Nov 2022 23:59:43 +0000
+Message-ID: <CA+V-a8sq8=mG5VZ3QTRUT=cx-p4L+yNVTskeuNaRxhF-4NJx9A@mail.gmail.com>
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
+	ajones@ventanamicro.com, emil.renner.berthing@canonical.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_155050_686803_A7D5D693 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20221121_160013_033774_2C52AF1D 
+X-CRM114-Status: GOOD (  27.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +83,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 1, 2022 at 5:30 AM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Mon, Jul 18, 2022 at 10:01:57AM -0700, Atish Patra wrote:
-> > KVM module needs to know how many hardware counters the platform supports.
-> > Otherwise, it will not be able to show optimal value of virtual
->                                         ^ the
-> > counters to the guest.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/perf/riscv_pmu_sbi.c   | 23 +++++++++++++++++------
-> >  include/linux/perf/riscv_pmu.h |  4 ++++
-> >  2 files changed, 21 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index 24124546844c..1723af68ffa1 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -27,6 +27,7 @@
-> >   */
-> >  static union sbi_pmu_ctr_info *pmu_ctr_list;
-> >  static unsigned int riscv_pmu_irq;
-> > +static struct riscv_pmu *rvpmu;
->
-> Do we really need rvpmu? From a quick scan of the series it's only used
-> for num_hw_counters, which has to be added to struct riscv_pmu, and
-> num_counters. How about instead creating a static global for num_counters
-
-Yes. I added rvpmu just for future usage if any.
-
-> and then getting num_hw_counters by iterating pmu_ctr_list. If we want
-
-iteration is fine as we are doing that for hpm_width anyways.
-
-> riscv_pmu_sbi_get_num_hw_ctrs() to be faster, then we can cache the value
-> in a static variable in the function.
->
-
-We have cmask now which can be cached in a static variable. We need to
-retrieve the
-counter width and the hardware counters for kvm. I have combined PATCH
-1 & PATCH 2
-to return both the values in one function.
-
-> Thanks,
-> drew
-
-
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSGVpa28sCgpPbiBNb24sIE5vdiAyMSwgMjAyMiBhdCAxMDoxNyBQTSBIZWlrbyBTdMO8Ym5l
+ciA8aGVpa29Ac250ZWNoLmRlPiB3cm90ZToKPgo+IEFtIE1vbnRhZywgMjEuIE5vdmVtYmVyIDIw
+MjIsIDIyOjMxOjM2IENFVCBzY2hyaWViIExhZCwgUHJhYmhha2FyOgo+ID4gSGkgSGVpa28sCj4g
+Pgo+ID4gT24gTW9uLCBOb3YgMjEsIDIwMjIgYXQgMzowNiBQTSBMYWQsIFByYWJoYWthcgo+ID4g
+PHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiA+ID4KPHNuaXA+Cj4gPiBTb21l
+IG1vcmUgaW5mb3JtYXRpb24sCj4gPgo+ID4gLSBJZiBJIGRyb3AgdGhlIHJpc2N2X2FsdGVybmF0
+aXZlX2ZpeF9hdWlwY19qYWxyKCkgY2FsbCBhZnRlcgo+ID4gcGF0Y2hfdGV4dF9ub3N5bmMoKSBh
+bmQgdGhlbiBwcmludCB0aGUgYWx0LT5vbGRfcHRyIGluc3RydWN0aW9ucwo+ID4gYmVmb3JlIHBh
+dGNoaW5nIEkgY2FuIHNlZSB0aGUgaW5zdHJ1Y3Rpb25zIGFzIDB4MTMgKG5vcCkgd2hpY2ggaXMK
+PiA+IGNvcnJlY3QuCj4gPgo+ID4gLSBpZiBJIGNhbGwgcmlzY3ZfYWx0ZXJuYXRpdmVfZml4X2F1
+aXBjX2phbHIoKSBjYWxsIGFmdGVyCj4gPiBwYXRjaF90ZXh0X25vc3luYygpIGFuZCB0aGVuIHBy
+aW50IHRoZSBhbHQtPm9sZF9wdHIgaW5zdHJ1Y3Rpb25zCj4gPiBiZWZvcmUgcGF0Y2hpbmcgSSBk
+b250IHNlZSAweDEzIChub3ApIGNvbnNpc3RlbnRseSBmb3Igb2xkCj4gPiBpbnN0cnVjdGlvbnMu
+Cj4KPiB3aGljaCBpcyB0byBiZSBleHBlY3RlZCBJIGd1ZXNzLgo+Cj4gYWx0LT5vbGRfcHRyIHBv
+aW50cyB0byB0aGUgbWVtb3J5IGxvY2F0aW9uIHdoZXJlIHRoZSBsaXZlIGtlcm5lbCBjb2RlCj4g
+bGl2ZXMuCj4KQWdyZWVkLgoKPiBJLmUuIHRoZSBjb2RlIGF0IHRoaXMgbG9jYXRpb24gaXMgdGhl
+IHRoaW5nIHRoZSBrZXJuZWwgYWN0dWFsbHkgcnVucy4KPiBUaGUgY29kZSBhdCB0aGlzIGxvY2F0
+aW9uIHRoZW4gZ2V0cyBvdmVyd3JpdHRlbiBieSB0aGUgYWx0ZXJuYXRpdmUKPiBhc3NlbWJseS4K
+PgpCdXQgc2hvdWxkbid0IHRoZSBhY3R1YWwgY29kZSBiZSBub3BzIGJlZm9yZSBwYXRjaGluZz8K
+Cj4KPiA+IC0gSWYgSSByZXBsYWNlIHRoZSBub3AncyBpbiB0aGUgb2xkIGluc3RydWN0aW9ucyB3
+aXRoIG15IGFzc2VtYmx5IGNvZGUKPiA+IG9mIHJ6L2ZpdmUgY21vIGFuZCB0aGVuIGp1c3QgdXNl
+IHBhdGNoX3RleHRfbm9zeW5jKCkgSSBjYW4gc2VlIHRoZQo+ID4gY29ycmVjdCBhY3R1YWwgaW5z
+dHJ1Y3Rpb24gYmVpbmcgcHJpbnRlZCBhcGFydCBmcm9tIGphbHIgKGlzIHNvbWUgc29ydAo+ID4g
+b2Ygb2Zmc2V0IGFkZGVkIHRvIGl0IGFzIEkgc2VlIGxhc3QgNCBiaXRzIG1hdGNoPykgYW5kIHRo
+ZW4gaXMKPiA+IHJlcGxhY2VkIGNvcnJlY3RseSBieSB0aGUgc2FtZSBhbHQgaW5zdHJ1Y3Rpb25z
+IGFwYXJ0IGZyb20gdGhlIGphbHIKPiA+IChsb2cgWzBdKS4KPiA+Cj4gPiAtIElmIEkgcmVwbGFj
+ZSB0aGUgbm9wJ3MgaW4gdGhlIG9sZCBpbnN0cnVjdGlvbnMgd2l0aCBteSBhc3NlbWJseSBjb2Rl
+Cj4gPiBvZiByei9maXZlIGNtbyBhbmQgdGhlbiB1c2UgcGF0Y2hfdGV4dF9ub3N5bmMoKSBhbmQK
+PiA+IHJpc2N2X2FsdGVybmF0aXZlX2ZpeF9hdWlwY19qYWxyKCkgSSBjYW4gc2VlIHRoZSBhY3R1
+YWwgb2xkCj4gPiBpbnN0cnVjdGlvbnMgZGlmZmVycyBhIGJpdCBhbmQgYWdhaW4gdGhlIGphbHIg
+aW5zdHJ1Y3Rpb24gZGlmZmVycyB0b28KPiA+IGluIHRoZSBwYXRjaGVkIGNvZGUgKGxvZyBbMV0p
+Lgo+ID4KPiA+IFswXSBodHRwczovL3Bhc3RlLmRlYmlhbi5uZXQvMTI2MTQxMi8KPiA+IFsxXSBo
+dHRwczovL3Bhc3RlLmRlYmlhbi5uZXQvMTI2MTQxMy8KPiA+Cj4gPiBBdHRhY2hlZCBpcyB0aGUg
+b2JqdW1wIG9mIGRtYS1ub25jb2hlcmVudC5vIGZvciByZWZlcmVuY2UuCj4KPiBJIGRpZCByZWFk
+IHRoYXQgb2JqZHVtcHMgYXJlIG5vdCByZWFsbHkgY29uY2x1c2l2ZSB3aGVuIGxvb2tpbmcKPiBh
+dCBhdWlwYyArIGphbHIgaW5zdHJ1Y3Rpb25zLCBoZW5jZSB0aGUgcHJpbnRpbmcgb2YgdGhlIGFj
+dHVhbCBpbnN0cnVjdGlvbnMuCj4KPiBBcyBlaXRoZXIgbWFudWFsbHkgb3Igd2l0aCBhIGhlbHBl
+ciBsaWtlCj4KPiAgICAgICAgIGh0dHBzOi8vbHVwbGFiLmdpdGxhYi5pby9ydmNvZGVjanMvI3E9
+MHhmNGMwODBlNwo+Cj4geW91IGNhbiB0aGVuIGRlY29kZSB0aGUgYWN0dWFsIGluc3RydWN0aW9u
+IGFuZCBjb21wYXJlLgo+Ck9LLCBJIHdpbGwgZ2l2ZSBpdCBhIHRyeS4KCgo+IEluIHlvdXIgbG9n
+IHRoZSB0d28gamFsciBpbnN0cnVjdGlvbnMgZGVjb2RlIHRvIGRpZmZlcmVudCBvZmZzZXRzLAo+
+ICAgICAgICAgamFsciB4MSwgeDEsIC0xODAKPiB2cwo+ICAgICAgICAgamFsciB4MSwgeDEsIC04
+MzQKPgo+IENhbiB5b3UgY2hlY2sgd2hhdCB0aGUgcGF0Y2hfb2Zmc2V0IHZhbHVlIGlzIGluIHlv
+dXIgY2FzZT8KPgpJJ2xsIGNoZWNrIHRoYXQgYW5kIGxldCB5b3Uga25vdy4KCj4gSW50ZXJlc3Rp
+bmdseSB0aGUKPiAgICAgICAgIGF1aXBjIHgxLCAwCj4gaXMgMCBmb3IgYm90aCBjYXNlcy4KPgo+
+IEknbGwgdHJ5IHRvIGJ1aWxkIGEgcmVhbCB0ZXN0LXNldHVwIG1pbWljaW5nIHdoYXQgeW91J3Jl
+IGRvaW5nCj4gdG9tb3Jyb3cgKGV1cm9wZWFuIHRvbW9ycm93KS4KPgpUaGFuayB5b3UhCgpDaGVl
+cnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
