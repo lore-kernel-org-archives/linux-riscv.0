@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA791C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 09:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F313DC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 09:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1cHxGDKPzVQxTpgcc0XsHxNIbFaCmEXb9Q9wEA12i4c=; b=aEoebp+//Jh5Rp
-	azRtkC8/ELt42qOTrga+e02RN4hdRQFxia9tR5Rsih/BRhSqDnyJmNde9YNo/OnlQCM+/hV2VUcLv
-	RFVxUWBwggCy+Z4tJNFbuISzFxxcgg5AlHxTGgWw7PyouyJtlwSEJMAGDQnR8tvvjhdOFV9TUeRH8
-	S0/wJKlEBJa/e6699bdh2eU8hCFmRbO5ntNX5Y/ECZMx/iXg2ICNTIHuBJvoIm/BXFx5orC7Wg2X6
-	WghDZtT1HrIl37ZrPkaLAPTCmvgn02jnYMAUt8qNZARsE1hjn/dBP8Lzha6twwGg4qHK3cWqEJyqL
-	j8Gw9ActrLiBEOZj0oVg==;
+	List-Owner; bh=mM7acrV4PwQIrqqjCX2n07bcOI0IFjQmqFwqxj0zFgo=; b=Zo7yyvBKhzecZR
+	0NNx6V+QvV6t9cLt56Pv5ubXqnLG2oRYdXYUOvm2iD4j65yGSSDmWf4R3fffmTMcdVMFbuiQuOEVD
+	L3w4rsT49OKiGR7GrimSa70SOdxtketpNPk91ajqT8gc941Aw0I9ojqtyDB5mTmGIcGMXjvtJw+Ms
+	GPuZGL6A0If+J94dPbzkD7Xdyy2ptDJorIqbU+iRI65P1Wah5MiECbRxEzRxWb3GKLSpv5fvYDfQ8
+	/h9NbJrvNwC351n+OkdLXRrFOAF2jesYmMWVBbI85BZga4IlUtZMPsmi1qunMxGMYtvLVkVRi8q7Y
+	4k5l+4IwtX06IlA0adug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox3Rq-00BzWQ-Bn; Mon, 21 Nov 2022 09:50:42 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1ox3Ut-00C0ov-6x; Mon, 21 Nov 2022 09:53:51 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox3Rn-00BzUG-Cc
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 09:50:40 +0000
-Received: by mail-ej1-x635.google.com with SMTP id f18so27234664ejz.5
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 01:50:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xFQDqkAyqijtwe7ymd/0K6jiv9owQzxk/WizQB1KDOs=;
-        b=HC5Z/gW0xEL+4m8UWRKOYrXs19NGK/Lg+MEjy7PBZhOhfbkgDt5uMlmREf6oC5KNrO
-         LIMceJpUHDTzuKxOaTrtkpRJWSin2gROQwCtMqjveUaLeNtRIqDX8D+sYyLVg6FK8KcN
-         dfxAEj0e77GCDYHhZzVJ2WJF79hwnOM72+8wVEhrci+1RDlwPHorurpxslMmH9KwnOB7
-         leksDFUTuWzyhuwWF9698QLEWqRaNLVPNnXUi1Gz+8h5JxauOEPA2geDEHNj4m8ETSJw
-         9qcduICd+CaCZ5TCwztYTP+uIAEOYQ6pK3bM/YEBktAWPcl7RberH5+AmcVXoKcYbWP/
-         aOuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xFQDqkAyqijtwe7ymd/0K6jiv9owQzxk/WizQB1KDOs=;
-        b=CaT7kVeuizgj0QJZsvHpAQ5rGSoSO+N8MjOfljLE9t/AHfSNx7/3b+vn+aotIsCkTT
-         4w28mZ0X14GRAhIStDB0i+gjxD3/PD9jPVQ9a4smi55Q1DEZIMrarLKKIBF3DNmnD6tN
-         FCssDR/clzsWIJ1VQZW0bwKawZ4/Zb8BWl/NN5nzFpkkXpeqGdo5JbYY2J0DurHanve+
-         gyu40b727gvE3mIeEYfJbwQBkjmhNKEz/dOLnAYOjIbvfbyEU+Ur86s3AUqD1658m237
-         mCeqMpJvfj/PIHHMBUKlUu378eNT21TU9lklO/eYxRACabweSc1STp8y4nnIOC4b4vX4
-         MjBQ==
-X-Gm-Message-State: ANoB5pkjudIOoWPjbQpVdm/sAcFX0/GBUL3a97iu6sj8sdZmPjkadpq/
-	J87MEoUQYL42tB/ZXSsvq0U2/Nu5tdDr8SPWMig=
-X-Google-Smtp-Source: AA0mqf7HSYgyBz4vFpca9KCzG6rEQv0pp3XUl48hxg4vU6Tqv1z5wK0OZ3PZ1QLYMePpUzzOsuIm13lcmtrlm9QDVoA=
-X-Received: by 2002:a17:906:3792:b0:7aa:97c7:2bfe with SMTP id
- n18-20020a170906379200b007aa97c72bfemr14531899ejc.196.1669024236468; Mon, 21
- Nov 2022 01:50:36 -0800 (PST)
+	id 1ox3Up-00C0kw-G5
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 09:53:49 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D264CB80AB2
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 09:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C31C433D7
+	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 09:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669024422;
+	bh=YOu3n64Tj7XKfjexEDDMs01w9nySaXbJautW19RY7rk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EkYKBEv/JLMpETaD3fmit9KxL9w0cetRO8GDNkvFJuUPMCKe/pz5emv3c7b3XziuC
+	 O4+U2B8TKt7pUlz2ACWLgGwUvyN1/cD66CLfOpEVfBLdoAdtuMG6JswDZlM0vHOKbN
+	 fOy1LLDp0N7OCW/sMIUGAW+Ac67ez0t5Y/OJJbCtnTZe+uz1OOAh+MWs/suHqIUybs
+	 fi3rBBDlKCDJCpWOxBHhhpcAu+DkO5fdJDkXZrjc6Zgxtd8Wq411B2Ym7p8Jfsfa2P
+	 6AhLItAhgB5Dn9V4tpu+K+fCcK20A4whHREwB4V8n0MalguF80S9Euk+yPnlMhHvy0
+	 yaTWF5gJuE5Eg==
+Received: by mail-ej1-f46.google.com with SMTP id f27so27306286eje.1
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 01:53:42 -0800 (PST)
+X-Gm-Message-State: ANoB5pnyLvhYqElKgysUWFmNzWzQorolA46FbGJVrSCMovQQFuhuvJXV
+	GQxodbqCQgMr5mhuNEoy8nrs88e2U3XkZ9b5xQQ=
+X-Google-Smtp-Source: AA0mqf5gjyu2O31/o45ixHAU9CeNugJbqJmGKGzyyhNGh5D1oUhTne5cGDqJ4XF7f1It7xERrf5JNYGAQNOS2JGDxew=
+X-Received: by 2002:a17:906:19d7:b0:7b2:b782:e1df with SMTP id
+ h23-20020a17090619d700b007b2b782e1dfmr10699627ejd.308.1669024420821; Mon, 21
+ Nov 2022 01:53:40 -0800 (PST)
 MIME-Version: 1.0
-References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-6-heiko@sntech.de>
-In-Reply-To: <20221110164924.529386-6-heiko@sntech.de>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 21 Nov 2022 09:50:09 +0000
-Message-ID: <CA+V-a8tNjE+eeZEafnCXbXMdhEdzOXcft2UJNYbXxs0+Pag58Q@mail.gmail.com>
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
-	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
+References: <20221109064937.3643993-1-guoren@kernel.org> <20221109064937.3643993-3-guoren@kernel.org>
+In-Reply-To: <20221109064937.3643993-3-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 21 Nov 2022 17:53:28 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
+Message-ID: <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: stacktrace: Make walk_stackframe cross pt_regs frame
+To: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	conor.dooley@microchip.com, heiko@sntech.de, peterz@infradead.org, 
+	arnd@arndb.de, linux-arch@vger.kernel.org, keescook@chromium.org, 
+	paulmck@kernel.org, frederic@kernel.org, nsaenzju@redhat.com, 
+	changbin.du@intel.com, vincent.chen@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Guo Ren <guoren@linux.alibaba.com>, Palmer Dabbelt <palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_015039_450801_1F380CCD 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20221121_015347_845367_761CB28E 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,183 +84,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On Thu, Nov 10, 2022 at 4:50 PM Heiko Stuebner <heiko@sntech.de> wrote:
+On Wed, Nov 9, 2022 at 2:50 PM <guoren@kernel.org> wrote:
 >
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Alternatives live in a different section, so addresses used by call
-> functions will point to wrong locations after the patch got applied.
+> The current walk_stackframe with FRAME_POINTER would stop unwinding at
+> ret_from_exception:
+>   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
+>   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
+>   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
+>   Call Trace:
+>   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
+>   [<ffffffe000aecf48>] show_stack+0x32/0x4a
+>   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
+>   [<ffffffe000af1648>] dump_stack+0x14/0x1c
+>   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
+>   [<ffffffe000239aec>] __might_sleep+0x10/0x18
+>   [<ffffffe000afe3fe>] down_read+0x22/0xa4
+>   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
+>   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
 >
-> Similar to arm64, adjust the location to consider that offset.
+> The optimization would help walk_stackframe cross the pt_regs frame and
+> get more backtrace of debug info:
+>   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
+>   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
+>   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
+>   Call Trace:
+>   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
+>   [<ffffffe000aecf48>] show_stack+0x32/0x4a
+>   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
+>   [<ffffffe000af1648>] dump_stack+0x14/0x1c
+>   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
+>   [<ffffffe000239aec>] __might_sleep+0x10/0x18
+>   [<ffffffe000afe3fe>] down_read+0x22/0xa4
+>   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
+>   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+>   [<ffffffe000613c06>] riscv_intc_irq+0x1a/0x72
+>   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
+>   [<ffffffe00033f44a>] vma_link+0x54/0x160
+>   [<ffffffe000341d7a>] mmap_region+0x2cc/0x4d0
+>   [<ffffffe000342256>] do_mmap+0x2d8/0x3ac
+>   [<ffffffe000326318>] vm_mmap_pgoff+0x70/0xb8
+>   [<ffffffe00032638a>] vm_mmap+0x2a/0x36
+>   [<ffffffe0003cfdde>] elf_map+0x72/0x84
+>   [<ffffffe0003d05f8>] load_elf_binary+0x69a/0xec8
+>   [<ffffffe000376240>] bprm_execve+0x246/0x53a
+>   [<ffffffe00037786c>] kernel_execve+0xe8/0x124
+>   [<ffffffe000aecdf2>] run_init_process+0xfa/0x10c
+>   [<ffffffe000aece16>] try_to_run_init_process+0x12/0x3c
+>   [<ffffffe000afa920>] kernel_init+0xb4/0xf8
+>   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
 >
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Here is the error injection test code for the above output:
+>  drivers/irqchip/irq-riscv-intc.c:
+>  static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
+>  {
+>         unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
+> +       u32 tmp; __get_user(tmp, (u32 *)0);
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> Cc: Changbin Du <changbin.du@intel.com>
 > ---
->  arch/riscv/kernel/cpufeature.c | 79 +++++++++++++++++++++++++++++++++-
->  1 file changed, 77 insertions(+), 2 deletions(-)
+>  arch/riscv/kernel/entry.S      | 2 +-
+>  arch/riscv/kernel/stacktrace.c | 9 +++++++++
+>  2 files changed, 10 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 694267d1fe81..026512ca9c4c 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -298,6 +298,74 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
->         return cpu_req_feature;
->  }
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index b9eda3fcbd6d..329cf51fcd4d 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -248,7 +248,7 @@ ret_from_syscall_rejected:
+>         andi t0, t0, _TIF_SYSCALL_WORK
+>         bnez t0, handle_syscall_trace_exit
 >
-> +#include <asm/parse_asm.h>
+> -ret_from_exception:
+> +ENTRY(ret_from_exception)
+>         REG_L s0, PT_STATUS(sp)
+>         csrc CSR_STATUS, SR_IE
+>  #ifdef CONFIG_TRACE_IRQFLAGS
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index bcfe9eb55f80..75c8dd64fc48 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -16,6 +16,8 @@
+>
+>  #ifdef CONFIG_FRAME_POINTER
+>
+> +extern asmlinkage void ret_from_exception(void);
 > +
-> +DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
-> +DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-> +
-> +static inline bool is_auipc_jalr_pair(long insn1, long insn2)
-> +{
-> +       return is_auipc_insn(insn1) && is_jalr_insn(insn2);
-> +}
-> +
-> +#define JALR_SIGN_MASK         BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
-> +#define JALR_OFFSET_MASK       I_IMM_11_0_MASK
-> +#define AUIPC_OFFSET_MASK      U_IMM_31_12_MASK
-> +#define AUIPC_PAD              (0x00001000)
-> +#define JALR_SHIFT             I_IMM_11_0_OPOFF
-> +
-> +#define to_jalr_imm(offset)                                            \
-> +       ((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
-> +
-> +#define to_auipc_imm(offset)                                           \
-> +       ((offset & JALR_SIGN_MASK) ?                                    \
-> +       ((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :    \
-> +       (offset & AUIPC_OFFSET_MASK))
-> +
-> +static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
-> +                                            unsigned int len, int patch_offset)
-> +{
-> +       int num_instr = len / sizeof(u32);
-> +       unsigned int call[2];
-> +       int i;
-> +       int imm1;
-> +       u32 rd1;
-> +
-> +       for (i = 0; i < num_instr; i++) {
-> +               /* is there a further instruction? */
-> +               if (i + 1 >= num_instr)
-> +                       continue;
-> +
-> +               if (!is_auipc_jalr_pair(*(alt_ptr + i), *(alt_ptr + i + 1)))
-> +                       continue;
-> +
-> +               /* call will use ra register */
-> +               rd1 = EXTRACT_RD_REG(*(alt_ptr + i));
-> +               if (rd1 != 1)
-> +                       continue;
-> +
-> +               /* get and adjust new target address */
-> +               imm1 = EXTRACT_UTYPE_IMM(*(alt_ptr + i));
-> +               imm1 += EXTRACT_ITYPE_IMM(*(alt_ptr + i + 1));
-> +               imm1 -= patch_offset;
-> +
-> +               /* pick the original auipc + jalr */
-> +               call[0] = *(alt_ptr + i);
-> +               call[1] = *(alt_ptr + i + 1);
-> +
-> +               /* drop the old IMMs */
-> +               call[0] &= ~(U_IMM_31_12_MASK);
-> +               call[1] &= ~(I_IMM_11_0_MASK << I_IMM_11_0_OPOFF);
-> +
-> +               /* add the adapted IMMs */
-> +               call[0] |= to_auipc_imm(imm1);
-> +               call[1] |= to_jalr_imm(imm1);
-> +
-> +               /* patch the call place again */
-> +               patch_text_nosync(alt_ptr + i * sizeof(u32), call, 8);
-> +       }
-> +}
-> +
+>  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>                              bool (*fn)(void *, unsigned long), void *arg)
+>  {
+> @@ -59,6 +61,13 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>                         fp = frame->fp;
+>                         pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+>                                                    &frame->ra);
+> +                       if (pc == (unsigned long) ret_from_exception) {
+I forgot ret_from_syscall because I tested it on the generic_entry
+series base. I would merge this patch into the generic_entry series as
+an optimization.
 
-I have the below assembly code which I have tested without the
-alternatives for the RZ/Five CMO,
+> +                               if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
+> +                                       break;
+> +
+> +                               pc = ((struct pt_regs *)sp)->epc;
+> +                               fp = ((struct pt_regs *)sp)->s0;
+> +                       }
+>                 }
+>
+>         }
+> --
+> 2.36.1
+>
 
-#define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)        \
-asm volatile(".option push\n\t\n\t"                    \
-         ".option norvc\n\t"                    \
-         ".option norelax\n\t"                    \
-         "addi sp,sp,-16\n\t"                    \
-         "sd    s0,0(sp)\n\t"                    \
-         "sd    ra,8(sp)\n\t"                    \
-         "addi    s0,sp,16\n\t"                    \
-         "mv a4,%6\n\t"                        \
-         "mv a3,%5\n\t"                        \
-         "mv a2,%4\n\t"                        \
-         "mv a1,%3\n\t"                        \
-         "mv a0,%0\n\t"                        \
-         "call rzfive_cmo\n\t"                    \
-         "ld    ra,8(sp)\n\t"                    \
-         "ld    s0,0(sp)\n\t"                    \
-         "addi    sp,sp,16\n\t"                    \
-         ".option pop\n\t"                        \
-         : : "r"(_cachesize),                    \
-         "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),    \
-         "r"((unsigned long)(_start) + (_size)),            \
-         "r"((unsigned long) (_start)),                \
-         "r"((unsigned long) (_size)),                \
-         "r"((unsigned long) (_dir)),                \
-         "r"((unsigned long) (_ops))                \
-         : "a0", "a1", "a2", "a3", "a4", "memory")
 
-Now when integrate this with ALTERNATIVE_2() as below,
-
-#define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)        \
-asm volatile(ALTERNATIVE_2(                        \
-    __nops(14),                            \
-    "mv a0, %1\n\t"                            \
-    "j 2f\n\t"                            \
-    "3:\n\t"                            \
-    "cbo." __stringify(_op) " (a0)\n\t"                \
-    "add a0, a0, %0\n\t"                        \
-    "2:\n\t"                            \
-    "bltu a0, %2, 3b\n\t"                        \
-    __nops(8), 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,    \
-    ".option push\n\t\n\t"                        \
-    ".option norvc\n\t"                        \
-    ".option norelax\n\t"                        \
-    "addi sp,sp,-16\n\t"                        \
-    "sd    s0,0(sp)\n\t"                        \
-    "sd    ra,8(sp)\n\t"                        \
-    "addi    s0,sp,16\n\t"                        \
-    "mv a4,%6\n\t"                            \
-    "mv a3,%5\n\t"                            \
-    "mv a2,%4\n\t"                            \
-    "mv a1,%3\n\t"                            \
-    "mv a0,%0\n\t"                            \
-    "call rzfive_cmo\n\t"                \
-    "ld    ra,8(sp)\n\t"                        \
-    "ld    s0,0(sp)\n\t"                        \
-    "addi    sp,sp,16\n\t"                        \
-    ".option pop\n\t"                        \
-    , ANDESTECH_VENDOR_ID,                        \
-            ERRATA_ANDESTECH_NO_IOCP, CONFIG_ERRATA_RZFIVE_CMO)    \
-    : : "r"(_cachesize),                        \
-    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),    \
-    "r"((unsigned long)(_start) + (_size)),            \
-    "r"((unsigned long) (_start)),                \
-    "r"((unsigned long) (_size)),                \
-    "r"((unsigned long) (_dir)),                \
-    "r"((unsigned long) (_ops))                \
-    : "a0", "a1", "a2", "a3", "a4", "memory")
-
-I am seeing kernel panic with this change. Looking at the
-riscv_alternative_fix_auipc_jalr() implementation it assumes the rest
-of the alternative options are calls too. Is my understanding correct
-here?
-
-Do you think this is the correct approach in my case?
-
-Note, I wanted to test with ALTERNATIVE_2() first to make sure
-everything is okay and then later test my ALTERNATIVE_3()
-implementation.
-
-Cheers,
-Prabhakar
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
