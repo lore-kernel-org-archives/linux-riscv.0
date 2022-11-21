@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA129C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 15:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58879C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 17:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yef2R6aqWTR97Jz1b3Lq0yVLvbhC4bsCKmdEBma+kmY=; b=AoStPz53CFXAZ0
-	cMnA0iTZgd538EsUFSjO4b5jCDagajGeWRG9pdfKm1VwIKFFk89WqBm+Z4Ay8b0F6DcMJQsgSUO0G
-	wWVRa2EnpzPJi8n74GwtARDxBGOUeF0L8KoB8zesU2YF5B23vj4XWgk2c1B1MFXm7KKwnwRwIJO9R
-	FJzI2yXMngHWglrgWKEHMRZp7oV2Vil5K7MbTtPdeO08fejKEMUyurmM9mHSw79y3VtkILwt1NowT
-	+SPpbXotT2QecRWTjjONCQS89BPw0Kx5QTLuUSU8PPxTFU1w0zSBMkp/n57AvNyMn2a33i6TWDZlZ
-	aaq9rGBUcy7KwmfcEejg==;
+	List-Owner; bh=97zLSB7yBCD5KS7w2molXFHshrcvnmUdfwOPV48jfRI=; b=DyYKLwMC/EORsL
+	byWEWRvZ1GFyXJsK7xeD0ZvsbR39UkNN2hhKvmHm6RJbGr7KPiOcdYr1jkT0oWJg0xQqxu6Z1KXo8
+	mn5MLB+JKZsK9ZtTagSF66RztFZdFUlsKtY43GFG7+oxC+y8RaXEDU2ZucnAj8R0D0h7Br4SgcOCN
+	n2A7Pg6wLqasrqZeL2WrCJmktg8F3zPe5l8UmXJt0z9sc7f6AEZ1vdYEkuVIHO/3hCVJED9tlYqom
+	wKQvu0ORWJnZQPgiqautOvseUXCZPm5Uy4UfgVrjcgixa0k2Ldn/yfcRy1e8txcaJ635vw2QpWBA0
+	Dhsg6Rq4Ib3lUtjk20QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox8oB-00FFF0-KO; Mon, 21 Nov 2022 15:34:07 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oxAC6-00G8Ko-Sf; Mon, 21 Nov 2022 17:02:54 +0000
+Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox8kE-00FCPa-0m
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 15:30:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669044602; x=1700580602;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=NJfSeDq4t7eXJ+r8Flfm6fvOs6zAa043c4LOLwT19p4=;
-  b=zFH6Fn7Ph0Or/Lo/AR4S61X6CXFq2poKOW9CRy+co6ZwLL+kZKLdxBcb
-   cGceq5t53v2olaqQ3eL7y5OROlohDQmo9Y1VviSWFnGqzakj/Xg9BGftV
-   O3T4pG7ue68qVZBqdd0S6PhneQPsJKWinGY/mme/W5Chfm64WwX8T36A4
-   oRvPtSwy71isvWzVXFw0C/F4k4aat5ZfRmFbCcCDOCn6kfCb+Gg8+NXeH
-   BeXX5Gp8CQOSwxoPPa5rIg3MGBE2fFtz4Tz47Ff3uFupCcKJ5340D2Xy2
-   CCa5TGdlpBREmeDojG03BEGnr13dFUBiZJueN+z+Xwv0X7AXk0RGqyVT1
-   w==;
-X-IronPort-AV: E=Sophos;i="5.96,181,1665471600"; 
-   d="scan'208";a="184498651"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Nov 2022 08:30:01 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 21 Nov 2022 08:29:58 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 21 Nov 2022 08:29:56 -0700
-Date: Mon, 21 Nov 2022 15:29:39 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
-	Thierry Reding <thierry.reding@gmail.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, <linux-kernel@vger.kernel.org>,
-	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <Y3uZY5mt/ZIWk3sS@wendy>
-References: <20221110093512.333881-1-conor.dooley@microchip.com>
- <20221110093512.333881-2-conor.dooley@microchip.com>
- <20221117164950.cssukd63fywzuwua@pengutronix.de>
- <Y3Zxkt3OSPQc46Q2@spud>
- <20221117210433.n5j7upqqksld42mu@pengutronix.de>
- <Y3avobkvYK3ydKTS@spud>
+	id 1oxABv-00G8IE-R6; Mon, 21 Nov 2022 17:02:45 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 74C2B220D3;
+	Mon, 21 Nov 2022 17:02:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1669050160; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=waH8qi7rSOq7I4vWunq+Hx7MA0/6o23u8Uhy7medoKs=;
+	b=M3t81rO8cMELjgUY3Pdvd3u12xeF18kly28iM45Jh2xBoA0q2rqwb0X1LTQJ7XKitDOpmg
+	C7kIz1ftFw/3KzsErpk7pinZ8z5Ecv924W6QC4bxFzdhwCNayzo79WGuPIOHQ5GuHtijlT
+	cZfAnna+18wBK9/wokB1Iwkp2Ft+kzg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1669050160;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=waH8qi7rSOq7I4vWunq+Hx7MA0/6o23u8Uhy7medoKs=;
+	b=tyZD79BhpWMMOi79km59eEyhlhrTkn1DIB8dMHZeEyXRwr6a+tN9XlBAvcIgXaWLoiX7dC
+	n3OtrqDkpmh6CiAg==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id E13501377F;
+	Mon, 21 Nov 2022 17:02:39 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id Slg/Ni+ve2OJdAAAMHmgww
+	(envelope-from <vbabka@suse.cz>); Mon, 21 Nov 2022 17:02:39 +0000
+Message-ID: <e7861283-4280-7019-126c-cf56b89c37e7@suse.cz>
+Date: Mon, 21 Nov 2022 18:02:39 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y3avobkvYK3ydKTS@spud>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: Deprecating and removing SLOB
+Content-Language: en-US
+To: Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+ Hyeonggon Yoo <42.hyeyoo@gmail.com>
+Cc: Conor Dooley <conor@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Christoph Lameter
+ <cl@linux.com>, David Rientjes <rientjes@google.com>,
+ Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Rustam Kovhaev <rkovhaev@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Josh Triplett <josh@joshtriplett.org>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Alexander Shiyan <shc_work@mail.ru>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, openrisc@lists.librecores.org,
+ linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Conor.Dooley@microchip.com,
+ Paul Cercueil <paul@crapouillou.net>
+References: <b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz>
+ <CA+CK2bD-uVGJ0=9uc7Lt5zwY+2PM2RTcfOhxEd65S7TvTrJULA@mail.gmail.com>
+ <c1caa5ce-eeaf-8038-2dea-051c98aade45@suse.cz> <Y260tkNHc2vFITJ3@spud>
+ <a5bba3ca-da19-293c-c01b-a28291533466@opensource.wdc.com>
+ <93079aba-362e-5d1e-e9b4-dfe3a84da750@opensource.wdc.com>
+ <44da078c-b630-a249-bf50-67df83cd8347@suse.cz>
+ <35650fd4-3152-56db-7c27-b9997e31cfc7@opensource.wdc.com>
+ <Y3JU5cfyid1rBoOy@hyeyoo>
+ <97c0735c-3127-83d5-30ff-8e57c6634f6e@opensource.wdc.com>
+ <452c3833-9275-37c7-3d48-5c996c0e2557@suse.cz>
+ <6a1883c4-4c3f-545a-90e8-2cd805bcf4ae@opensource.wdc.com>
+From: Vlastimil Babka <vbabka@suse.cz>
+In-Reply-To: <6a1883c4-4c3f-545a-90e8-2cd805bcf4ae@opensource.wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_073002_199607_496D1FC2 
-X-CRM114-Status: GOOD (  47.20  )
+X-CRM114-CacheID: sfid-20221121_090244_082014_89ECEFDA 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,199 +119,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 17, 2022 at 10:03:13PM +0000, Conor Dooley wrote:
-> On Thu, Nov 17, 2022 at 10:04:33PM +0100, Uwe Kleine-K=F6nig wrote:
-> > On Thu, Nov 17, 2022 at 05:38:26PM +0000, Conor Dooley wrote:
-> > > On Thu, Nov 17, 2022 at 05:49:50PM +0100, Uwe Kleine-K=F6nig wrote:
-> > > > Hello Conor,
-> > > =
+On 11/21/22 05:30, Damien Le Moal wrote:
+> On 11/17/22 02:51, Vlastimil Babka wrote:
+>> On 11/15/22 05:24, Damien Le Moal wrote:
+>>> On 11/14/22 23:47, Hyeonggon Yoo wrote:
+>>>> On Mon, Nov 14, 2022 at 08:35:31PM +0900, Damien Le Moal wrote:
+>>>
+>>> Test notes: I used Linus 6.1-rc5 as the base. That is the only thing I
+>>> changed in buildroot default config for the sipeed maix bit card, booting
+>>> with SD card. The test is: booting and run "cat /proc/vmstat" and register
+>>> the nr_free_pages value. I repeated the boot + cat 3 to 4 times for each case.
+>>>
+>>> Here are the results:
+>>>
+>>> 6.1-rc5, SLOB:
+>>>     - 623 free pages
+>>>     - 629 free pages
+>>>     - 629 free pages
+>>> 6.1-rc5, SLUB:
+>>>     - 448 free pages
+>>>     - 448 free pages
+>>>     - 429 free pages
+>>> 6.1-rc5, SLUB + slub_max_order=0:
+>>>     - Init error, shell prompt but no shell command working
+>>>     - Init error, no shell prompt
+>>>     - 508 free pages
+>>>     - Init error, shell prompt but no shell command working
+>>> 6.1-rc5, SLUB + patch:
+>>>     - Init error, shell prompt but no shell command working
+>>>     - 433 free pages
+>>>     - 448 free pages
+>>>     - 423 free pages
+>>> 6.1-rc5, SLUB + slub_max_order=0 + patch:
+>>>     - Init error, no shell prompt
+>>>     - Init error, shell prompt, 499 free pages
+>>>     - Init error, shell prompt but no shell command working
+>>>     - Init error, no shell prompt
+>>>
+>>> No changes for SLOB results, expected.
+>>>
+>>> For default SLUB, I did get all clean boots this time and could run the
+>>> cat command. But I do see shell fork failures if I keep running commands.
+>>>
+>>> For SLUB + slub_max_order=0, I only got one clean boot with 508 free
+>>> pages. Remaining runs failed to give a shell prompt or allow running cat
+>>> command. For the clean boot, I do see higher number of free pages.
+>>>
+>>> SLUB with the patch was nearly identical to SLUB without the patch.
+>>>
+>>> And SLUB+patch+slub_max_order=0 gave again a lot of errors/bad boot. I
+>>> could run the cat command only once, giving 499 free pages, so better than
+>>> regular SLUB. But it seems that the memory is more fragmented as
+>>> allocations fail more often.
+>>>
+>>> Hope this helps. Let me know if you want to test something else.
+>> 
+>> Could you please try this branch with CONFIG_SLUB_TINY=y?
+>> https://git.kernel.org/pub/scm/linux/kernel/git/vbabka/linux.git/log/?h=slub-tiny-v1r0
+>> 
+>> Seeing your results I didn't modify default slub_max_order by this new
+>> CONFIG (yet?) so maybe after trying the default, trying then also with
+>> manual slub_max_order=0 and slub_max_order=1 would be useful too. Otherwise
+>> it should be all changes to lower SLUB memory footprint. Hopefully it will
+>> be visible in the number of free pages. But if fragmentation is an issue, it
+>> might not be enough. BTW, during boot there should be a line "Built X
+>> zonelists, mobility grouping ..." can you grep for it and provide please, I
+>> wonder if mobility grouping ends up being off or on on that system.
+> 
+> I ran your branch with CONFIG_SLUB_TINY=y. Here are the results with 3-4
+> runs per config:
+> 
+> * tiny slub with default slub_max_order:
+> 	- Clean boot, 579 free pages
+> 	- Clean boot, 575 free pages
+> 	- Clean boot, 579 free pages
+> 
+> * tiny slub with slub_max_order=0 as boot argument:
+>         - Init error, shell prompt but no shell command working
+> 	- Init error, shell prompt, 592 free pages
+> 	- Init error, shell prompt, 591 free pages
+> 	- Init error, shell prompt, 591 free pages
+> 
+> * tiny slub with slub_max_order=1 as boot argument:
+> 	- Clean boot, 601 free pages
+> 	- Clean boot, 601 free pages
+> 	- Clean boot, 591 free pages
+> 	- Clean boot, 601 free pages
 
-> > > Hello Uwe,
-> > > =
+Oh that's great result, better than I'd hope!
+I'll change the default slub_max_order=1 with CONFIG_SLUB_TINY then.
 
-> > > > On Thu, Nov 10, 2022 at 09:35:12AM +0000, Conor Dooley wrote:
-> > > > > [...]
-> > > > > +
-> > > > > +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct p=
-wm_device *pwm,
-> > > > > +				 bool enable, u64 period)
-> > > > > +{
-> > > > > +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(c=
-hip);
-> > > > > +	u8 channel_enable, reg_offset, shift;
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * There are two adjacent 8 bit control regs, the lower reg con=
-trols
-> > > > > +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper=
- reg
-> > > > > +	 * and if so, offset by the bus width.
-> > > > > +	 */
-> > > > > +	reg_offset =3D MCHPCOREPWM_EN(pwm->hwpwm >> 3);
-> > > > > +	shift =3D pwm->hwpwm & 7;
-> > > > > +
-> > > > > +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offs=
-et);
-> > > > > +	channel_enable &=3D ~(1 << shift);
-> > > > > +	channel_enable |=3D (enable << shift);
-> > > > > +
-> > > > > +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset=
-);
-> > > > > +	mchp_core_pwm->channel_enabled &=3D ~BIT(pwm->hwpwm);
-> > > > > +	mchp_core_pwm->channel_enabled |=3D enable << pwm->hwpwm;
-> > > > > +
-> > > > > +	/*
-> > > > > +	 * Notify the block to update the waveform from the shadow regi=
-sters.
-> > > > > +	 * The updated values will not appear on the bus until they hav=
-e been
-> > > > > +	 * applied to the waveform at the beginning of the next period.=
- We must
-> > > > > +	 * write these registers and wait for them to be applied before
-> > > > > +	 * considering the channel enabled.
-> > > > > +	 * If the delay is under 1 us, sleep for at least 1 us anyway.
-> > > > > +	 */
-> > > > > +	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
-> > > > > +		u64 delay;
-> > > > > +
-> > > > > +		delay =3D div_u64(period, 1000u) ? : 1u;
-> > > > > +		writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-> > > > > +		usleep_range(delay, delay * 2);
-> > > > > +	}
-> > > > =
+> For all cases, mobility grouping was reported as off:
+> 
+> [    0.000000] Built 1 zonelists, mobility grouping off.  Total pages: 2020
 
-> > > > In some cases the delay could be prevented. e.g. when going from one
-> > > > disabled state to another. If you don't want to complicate the driv=
-er
-> > > > here, maybe point it out in a comment at least?
-> > > =
+Yeah, expected that would be the case, thanks for confirming.
 
-> > > Maybe this is my naivity talking, but I'd rather wait. Is there not t=
-he
-> > > chance that we re-enter pwm_apply() before the update has actually go=
-ne
-> > > through?
-> > =
+> So it looks like your tiny slub branch with slub_max_order=1 puts us
+> almost on par with slob and that slub_max_order=0 seems to be generating
+> more fragmentation leading to unreliable boot. I also tried
+> slub_max_order=2, which gives clean boot and around 582 free pages, almost
+> the same as the default.
+> 
+> With this branch applied, I have no issues with having slob deprecated :)
+> Thanks !
 
-> > My idea was to do something like that:
-> > =
+Great, thanks for the testing!
 
-> > 	int mchp_core_pwm_apply(....)
-> > 	{
-> > 		if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
-> > 			/*
-> > 			 * We're still waiting for an update, don't
-> > 			 * interfer until it's completed.
-> > 			 */
-> > 			while (readl_relaxed(mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD)) {
-> > 				cpu_relax();
-> > 				if (waited_unreasonably_long())
-> > 					return -ETIMEOUT;
-> > 			}
-> > 		}
-> > =
-
-> > 		update_period_and_duty(...);
-> > 		return 0;
-> > 	}
-
-So I was doing some fiddling, and the following works reasonably well:
-	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
-		u32 delay =3D MCHPCOREPWM_TIMEOUT_US;
-		u32 sync_upd;
-		int ret;
-
-		writel_relaxed(1u, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-
-		ret =3D read_poll_timeout(readl, sync_upd, !sync_upd, delay/100, delay,
-					false, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-		if (ret)
-			dev_dbg(mchp_core_pwm->chip.dev,
-				"timed out waiting for shadow register sync\n");
-	}
-
-but...
-
-> > This way you don't have to wait at all if the calls to pwm_apply() are
-> > infrequent. Of course this only works this way, if you can determine if
-> > there is a pending update.
-> =
-
-> Ah I think I get what you mean now about waiting for completion &
-> reading the bit. I don't know off the top of my head if that bit is
-> readable. Docs say that they're R/W but I don't know if that means that
-> an AXI read works or if the value is actually readable. I'll try
-> something like this if I can.
-
-...it does not implement what I think you suggested & comes with the
-drawback of inconsistent behaviour depending on whether the timeout is
-hit or not.
-
-Instead, waiting in apply(), as you suggested, & get_state() looks to be the
-better option, using the same sort of logic as above, say:
-static int mchp_core_pwm_wait_for_sync_update(struct mchp_core_pwm_chip *mc=
-hp_core_pwm,
-					      unsigned int channel)
-{
-	int ret;
-
-	/*
-	 * If a shadow register is used for this PWM channel, and iff there is
-	 * a pending update to the waveform, we must wait for it to be applied
-	 * before attempting to read its state, as reading the registers yields
-	 * the currently implemented settings, the new ones are only readable
-	 * once the current period has ended.
-	 *
-	 * Rather large delays are possible, in the seconds, so to avoid waiting
-	 * around for **too** long - cap the wait at 100 ms.
-	 */
-	if (mchp_core_pwm->sync_update_mask & (1 << channel)) {
-		u32 delay =3D MCHPCOREPWM_TIMEOUT_US;
-		u32 sync_upd;
-
-		writel_relaxed(1u, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-
-		ret =3D read_poll_timeout(readl, sync_upd, !sync_upd, delay/100, delay,
-					false, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-		if (ret)
-			return -ETIMEDOUT;
-	}
-
-	return 0;
-}
-
-I think that strikes a good balance? We return quickly & don't blocker
-the caller, but simultaneously try to prevent them from either trying to
-apply new settings or get the current settings until the last request
-has gone though?
-
-get_state() returns void though, is it valid behaviour to wait for the
-timeout there?
-I had a check in the core code and found some places where the call in
-looks like:
-	struct pwm_state s1, s2; =
-
-	chip->ops->get_state(chip, pwm, &s1);
-In this case, exiting early would leave us with a completely wrong
-idead of the state, if it was to time out.
-
-Either way, it seems like either way we would be misleading the caller
-of get_state() - perhaps the way around that is to do the wait & then
-just carry on with get_state()?
-In that scenario, you'd get the new settings where possible and the old ones
-otherwise.
-Returning if the timeout is hit would give you the new settings where possi=
-ble
-& otherwise you'd get whatever was passed to get_state().
-I'm not really sure which of those two situations would be preferred?
-
-Thanks,
-Conor.
+>> 
+>> Thanks!
+>> 
+>>> Cheers.
+>>>
+>> 
+> 
 
 
 _______________________________________________
