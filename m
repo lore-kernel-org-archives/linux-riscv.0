@@ -4,55 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03C7C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 17:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F99C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 17:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=L08kAo0Vk/6p5SVpBBiZPmfmNUYfLPkwibcQGAbeUfI=; b=3tYPfhqDwxoDwC
-	dSkCrKkmhU9BJN+QuttHdIdBqWlHdGUzpx9ZrttJvZfbHBspp8Jb/4xa4fqfdmRF+vn0OeU1qYYnw
-	C1FXXE2UVic745wWsnx9GYkJer2GJ9GxGuslnYiXtEMCQu/JY45+9WpK6PmMNApiCC+dlLk4vEh3J
-	wAWWQQaxlG3BHqfUXvfJO5ex2jQF2JXLy7hIYnWEDT+eSMKvtg2Go1jL5P0aTJljEAoYtuSz1tqT2
-	Oy7LKgmkYC0fgwXTxGJLVgpopctyuGZ0s8t++JMzjp8kMQa6xrGwv+CwTOXma8e2MTL3EUYQ+EX1J
-	giq7rtNCbPxIl9O/afzw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gMCZuaf+TiXIbk8Jb462UiJ3Y5uCed8dx5309CkdjjE=; b=k92JbLli8OwFvn
+	JxYI58AU4Uxk0EDR6SYuNqcXNF4+etzy+7oSCMAcnUXXkX2HPANtj3VbRf2kXKcD2tv6ouTzAmJmh
+	68JtNFeaaSfVPf32/xcdlPYgFjTElfVGHUreIDdHR9GZODlTGShdVC7GzbzP53vF3Inxguc0QMd/n
+	R6Bpi1wVTtDgaRNxH1VDCNucQPv2ocS2Ie90JB2NwCk43+/k5ult2lX/GYpjA7N0rmBYm/gStfmNA
+	F50AsVXYk4hFMNGaIiVgNsT4+r134q7mddobATX7cX3vceYcnhAY0eFW/rI1k/HLsSlY+VxA7us4G
+	aCzzT/uifgevFwkMsuDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxAKd-00GBas-2V; Mon, 21 Nov 2022 17:11:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oxALg-00GC4Q-EF; Mon, 21 Nov 2022 17:12:48 +0000
+Received: from smtp-out2.suse.de ([195.135.220.29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxAKa-00GBZB-IW
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 17:11:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1oxAL8-00GBl4-Ex; Mon, 21 Nov 2022 17:12:24 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F3F7E61356;
-	Mon, 21 Nov 2022 17:11:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFD60C433D7;
-	Mon, 21 Nov 2022 17:11:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669050698;
-	bh=5FK7KR+hwZeRWeQht9ieqZkpONb8vAk/9u0hkHt4SDU=;
-	h=Date:From:List-Id:To:Cc:Subject:From;
-	b=j5HWukBqWDgnWFjWwfdtoYZlTYeiPtfbMJq+nwIJ160/6lZXMIw1nYzNrCRQZ6Qjl
-	 C3kah6oKL2yxXb/Y3qqGYZvuhZddFXQ6QqLFQqpc/qyIqFDs0y3ebTDq02jB0RX9hp
-	 xSmUZ+rfKudcHJkvUzUej2czQjBOn4GUggNU9hqy1mmj/Qya0/pTgifxV3OS7PfOr3
-	 s9Uh5E7u3cM9G6x67p9Rp8VUfeYvcUgGNv6Xu9qIOD4TmUQ48AXMHp3N1nWD4Gv5Ul
-	 dsIoUWwGenfukbAbtve0AOgz7LlqTRdjbmmqU8O1deaga7fVGCYCDx7nA7aX9k8XLf
-	 Cuin3neZOPMiQ==
-Date: Mon, 21 Nov 2022 17:11:35 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, conor@kernel.org
-Subject: RISC-V DT for v6.2
-Message-ID: <Y3uxRylpTUqy9iUC@spud>
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 03BA61F8C2;
+	Mon, 21 Nov 2022 17:12:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1669050733; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dnIAeIAMlXNqqoq+MRWq7Ss/UQhtQKGy702t3mo/oSI=;
+	b=vtxbq3qyPUuQaVPk7kHB/WHSzZIrm9Y2mRjQyHWtIiBDU7Afxc2YO/cJUrhKM07bi5kT1t
+	40aACKtw/WJdDmj2ZXllFn6f1VotHkRdEqURMW0H34Ss1wvgG8iiIr/mSFTUVEEh5WOYvg
+	piYYTFWU9jX9Dh9MihoQcgOZUjHxKRM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1669050733;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dnIAeIAMlXNqqoq+MRWq7Ss/UQhtQKGy702t3mo/oSI=;
+	b=NwLapaWOl3WOxfwvprXJYVdZjoiksjS26EaUETGccE0tN5nvi9CECdpuFNHdQnKo+IdQkF
+	n0FmW/ncPlubHHAw==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 9D2F51377F;
+	Mon, 21 Nov 2022 17:12:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id +MO+JWyxe2MQeQAAMHmgww
+	(envelope-from <vbabka@suse.cz>); Mon, 21 Nov 2022 17:12:12 +0000
+From: Vlastimil Babka <vbabka@suse.cz>
+To: Christoph Lameter <cl@linux.com>,
+	David Rientjes <rientjes@google.com>,
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+	Pekka Enberg <penberg@kernel.org>
+Cc: Hyeonggon Yoo <42.hyeyoo@gmail.com>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	patches@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Russell King <linux@armlinux.org.uk>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Conor Dooley <conor@kernel.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org
+Subject: [PATCH 12/12] mm, slob: rename CONFIG_SLOB to CONFIG_SLOB_DEPRECATED
+Date: Mon, 21 Nov 2022 18:12:02 +0100
+Message-Id: <20221121171202.22080-13-vbabka@suse.cz>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20221121171202.22080-1-vbabka@suse.cz>
+References: <20221121171202.22080-1-vbabka@suse.cz>
 MIME-Version: 1.0
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_091140_731349_C877E357 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20221121_091214_875737_249392D2 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,100 +118,370 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As explained in [1], we would like to remove SLOB if possible.
 
-Hey Arnd,
+- There are no known users that need its somewhat lower memory footprint
+  so much that they cannot handle SLUB (after some modifications by the
+  previous patches) instead.
 
-I've gone and done this the way I would if it'd been for Palmer, so lmk
-if there's something you'd rather see changed. Perhaps you'd prefer to
-see PRs per vendor?
+- It is an extra maintenance burden, and a number of features are
+  incompatible with it.
 
-There's a minor conflict here with the Renesas DT changes - I picked up
-a patch the other day that's needed by more than one series that
-conflicts with a re-order of cpus.yaml which Geert took when adding the
-Renesas RISC-V stuff. Resolution should be trivial.
+- It blocks the API improvement of allowing kfree() on objects allocated
+  via kmem_cache_alloc().
 
-I'll to get the PRs out slightly earlier going forward, but that was a
-bit hard this time around.. There's a couple non-urgent fixes in here
-too for a similar reason.
+As the first step, rename the CONFIG_SLOB option in the slab allocator
+configuration choice to CONFIG_SLOB_DEPRECATED. Add CONFIG_SLOB
+depending on CONFIG_SLOB_DEPRECATED as an internal option to avoid code
+churn. This will cause existing .config files and defconfigs with
+CONFIG_SLOB=y to silently switch to the default (and recommended
+replacement) SLUB, while still allowing SLOB to be configured by anyone
+that notices and needs it. But those should contact the slab maintainers
+and linux-mm@kvack.org as explained in the updated help. With no valid
+objections, the plan is to update the existing defconfigs to SLUB and
+remove SLOB in a few cycles.
 
-Thanks,
-Conor.
+To make SLUB more suitable replacement for SLOB, a CONFIG_SLUB_TINY
+option was introduced to limit SLUB's memory overhead.
+There is a number of defconfigs specifying CONFIG_SLOB=y. As part of
+this patch, update them to select CONFIG_SLUB and CONFIG_SLUB_TINY.
 
-The following changes since commit 9abf2313adc1ca1b6180c508c25f22f9395cc780:
+[1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
 
-  Linux 6.1-rc1 (2022-10-16 15:36:24 -0700)
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Cc: Tony Lindgren <tony@atomide.com>
+Cc: Jonas Bonn <jonas@southpole.se>
+Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
+Cc: Stafford Horne <shorne@gmail.com>
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Josh Triplett <josh@joshtriplett.org>
+Cc: Conor Dooley <conor@kernel.org>
+Cc: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: <linux-arm-kernel@lists.infradead.org>
+Cc: <linux-omap@vger.kernel.org>
+Cc: <openrisc@lists.librecores.org>
+Cc: <linux-riscv@lists.infradead.org>
+Cc: <linux-sh@vger.kernel.org>
+Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
+---
+ arch/arm/configs/clps711x_defconfig            |  3 ++-
+ arch/arm/configs/collie_defconfig              |  3 ++-
+ arch/arm/configs/multi_v4t_defconfig           |  3 ++-
+ arch/arm/configs/omap1_defconfig               |  3 ++-
+ arch/arm/configs/pxa_defconfig                 |  3 ++-
+ arch/arm/configs/tct_hammer_defconfig          |  3 ++-
+ arch/arm/configs/xcep_defconfig                |  3 ++-
+ arch/openrisc/configs/or1ksim_defconfig        |  3 ++-
+ arch/openrisc/configs/simple_smp_defconfig     |  3 ++-
+ arch/riscv/configs/nommu_k210_defconfig        |  3 ++-
+ arch/riscv/configs/nommu_k210_sdcard_defconfig |  3 ++-
+ arch/riscv/configs/nommu_virt_defconfig        |  3 ++-
+ arch/sh/configs/rsk7201_defconfig              |  3 ++-
+ arch/sh/configs/rsk7203_defconfig              |  3 ++-
+ arch/sh/configs/se7206_defconfig               |  3 ++-
+ arch/sh/configs/shmin_defconfig                |  3 ++-
+ arch/sh/configs/shx3_defconfig                 |  3 ++-
+ kernel/configs/tiny.config                     |  5 +++--
+ mm/Kconfig                                     | 17 +++++++++++++++--
+ 19 files changed, 52 insertions(+), 21 deletions(-)
 
-are available in the Git repository at:
+diff --git a/arch/arm/configs/clps711x_defconfig b/arch/arm/configs/clps711x_defconfig
+index 92481b2a88fa..adcee238822a 100644
+--- a/arch/arm/configs/clps711x_defconfig
++++ b/arch/arm/configs/clps711x_defconfig
+@@ -14,7 +14,8 @@ CONFIG_ARCH_EDB7211=y
+ CONFIG_ARCH_P720T=y
+ CONFIG_AEABI=y
+ # CONFIG_COREDUMP is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+ CONFIG_UNIX=y
+diff --git a/arch/arm/configs/collie_defconfig b/arch/arm/configs/collie_defconfig
+index 2a2d2cb3ce2e..69341c33e0cc 100644
+--- a/arch/arm/configs/collie_defconfig
++++ b/arch/arm/configs/collie_defconfig
+@@ -13,7 +13,8 @@ CONFIG_CMDLINE="noinitrd root=/dev/mtdblock2 rootfstype=jffs2 fbcon=rotate:1"
+ CONFIG_FPE_NWFPE=y
+ CONFIG_PM=y
+ # CONFIG_SWAP is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+ CONFIG_UNIX=y
+diff --git a/arch/arm/configs/multi_v4t_defconfig b/arch/arm/configs/multi_v4t_defconfig
+index e2fd822f741a..b60000a89aff 100644
+--- a/arch/arm/configs/multi_v4t_defconfig
++++ b/arch/arm/configs/multi_v4t_defconfig
+@@ -25,7 +25,8 @@ CONFIG_ARM_CLPS711X_CPUIDLE=y
+ CONFIG_JUMP_LABEL=y
+ CONFIG_PARTITION_ADVANCED=y
+ # CONFIG_COREDUMP is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_MTD=y
+ CONFIG_MTD_CMDLINE_PARTS=y
+ CONFIG_MTD_BLOCK=y
+diff --git a/arch/arm/configs/omap1_defconfig b/arch/arm/configs/omap1_defconfig
+index 70511fe4b3ec..246f1bba7df5 100644
+--- a/arch/arm/configs/omap1_defconfig
++++ b/arch/arm/configs/omap1_defconfig
+@@ -42,7 +42,8 @@ CONFIG_MODULE_FORCE_UNLOAD=y
+ CONFIG_PARTITION_ADVANCED=y
+ CONFIG_BINFMT_MISC=y
+ # CONFIG_SWAP is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
+index d60cc9cc4c21..0a0f12df40b5 100644
+--- a/arch/arm/configs/pxa_defconfig
++++ b/arch/arm/configs/pxa_defconfig
+@@ -49,7 +49,8 @@ CONFIG_PARTITION_ADVANCED=y
+ CONFIG_LDM_PARTITION=y
+ CONFIG_CMDLINE_PARTITION=y
+ CONFIG_BINFMT_MISC=y
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_COMPACTION is not set
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+diff --git a/arch/arm/configs/tct_hammer_defconfig b/arch/arm/configs/tct_hammer_defconfig
+index 3b29ae1fb750..6bd38b6f22c4 100644
+--- a/arch/arm/configs/tct_hammer_defconfig
++++ b/arch/arm/configs/tct_hammer_defconfig
+@@ -19,7 +19,8 @@ CONFIG_FPE_NWFPE=y
+ CONFIG_MODULES=y
+ CONFIG_MODULE_UNLOAD=y
+ # CONFIG_SWAP is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_NET=y
+ CONFIG_PACKET=y
+ CONFIG_UNIX=y
+diff --git a/arch/arm/configs/xcep_defconfig b/arch/arm/configs/xcep_defconfig
+index ea59e4b6bfc5..6bd9f71b71fc 100644
+--- a/arch/arm/configs/xcep_defconfig
++++ b/arch/arm/configs/xcep_defconfig
+@@ -26,7 +26,8 @@ CONFIG_MODULE_UNLOAD=y
+ CONFIG_MODVERSIONS=y
+ CONFIG_MODULE_SRCVERSION_ALL=y
+ # CONFIG_BLOCK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_COMPAT_BRK is not set
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ CONFIG_NET=y
+diff --git a/arch/openrisc/configs/or1ksim_defconfig b/arch/openrisc/configs/or1ksim_defconfig
+index 6e1e004047c7..0116e465238f 100644
+--- a/arch/openrisc/configs/or1ksim_defconfig
++++ b/arch/openrisc/configs/or1ksim_defconfig
+@@ -10,7 +10,8 @@ CONFIG_EXPERT=y
+ # CONFIG_AIO is not set
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_MODULES=y
+ # CONFIG_BLOCK is not set
+ CONFIG_OPENRISC_BUILTIN_DTB="or1ksim"
+diff --git a/arch/openrisc/configs/simple_smp_defconfig b/arch/openrisc/configs/simple_smp_defconfig
+index ff49d868e040..b990cb6c9309 100644
+--- a/arch/openrisc/configs/simple_smp_defconfig
++++ b/arch/openrisc/configs/simple_smp_defconfig
+@@ -16,7 +16,8 @@ CONFIG_EXPERT=y
+ # CONFIG_AIO is not set
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_MODULES=y
+ # CONFIG_BLOCK is not set
+ CONFIG_OPENRISC_BUILTIN_DTB="simple_smp"
+diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+index 96fe8def644c..79b3ccd58ff0 100644
+--- a/arch/riscv/configs/nommu_k210_defconfig
++++ b/arch/riscv/configs/nommu_k210_defconfig
+@@ -25,7 +25,8 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ CONFIG_EMBEDDED=y
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_MMU is not set
+ CONFIG_SOC_CANAAN=y
+ CONFIG_NONPORTABLE=y
+diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+index 379740654373..6b80bb13b8ed 100644
+--- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
++++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+@@ -17,7 +17,8 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ CONFIG_EMBEDDED=y
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_MMU is not set
+ CONFIG_SOC_CANAAN=y
+ CONFIG_NONPORTABLE=y
+diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
+index 1a56eda5ce46..4cf0f297091e 100644
+--- a/arch/riscv/configs/nommu_virt_defconfig
++++ b/arch/riscv/configs/nommu_virt_defconfig
+@@ -22,7 +22,8 @@ CONFIG_EXPERT=y
+ # CONFIG_KALLSYMS is not set
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_MMU is not set
+ CONFIG_SOC_VIRT=y
+ CONFIG_NONPORTABLE=y
+diff --git a/arch/sh/configs/rsk7201_defconfig b/arch/sh/configs/rsk7201_defconfig
+index 619c18699459..376e95fa77bc 100644
+--- a/arch/sh/configs/rsk7201_defconfig
++++ b/arch/sh/configs/rsk7201_defconfig
+@@ -10,7 +10,8 @@ CONFIG_USER_NS=y
+ CONFIG_PID_NS=y
+ CONFIG_BLK_DEV_INITRD=y
+ # CONFIG_AIO is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_PROFILING=y
+ CONFIG_MODULES=y
+ # CONFIG_BLK_DEV_BSG is not set
+diff --git a/arch/sh/configs/rsk7203_defconfig b/arch/sh/configs/rsk7203_defconfig
+index d00fafc021e1..1d5fd67a3949 100644
+--- a/arch/sh/configs/rsk7203_defconfig
++++ b/arch/sh/configs/rsk7203_defconfig
+@@ -11,7 +11,8 @@ CONFIG_USER_NS=y
+ CONFIG_PID_NS=y
+ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_KALLSYMS_ALL=y
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_PROFILING=y
+ CONFIG_MODULES=y
+ # CONFIG_BLK_DEV_BSG is not set
+diff --git a/arch/sh/configs/se7206_defconfig b/arch/sh/configs/se7206_defconfig
+index 122216123e63..78e0e7be57ee 100644
+--- a/arch/sh/configs/se7206_defconfig
++++ b/arch/sh/configs/se7206_defconfig
+@@ -21,7 +21,8 @@ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_KALLSYMS_ALL=y
+ # CONFIG_ELF_CORE is not set
+ # CONFIG_COMPAT_BRK is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_PROFILING=y
+ CONFIG_MODULES=y
+ CONFIG_MODULE_UNLOAD=y
+diff --git a/arch/sh/configs/shmin_defconfig b/arch/sh/configs/shmin_defconfig
+index c0b6f40d01cc..e078b193a78a 100644
+--- a/arch/sh/configs/shmin_defconfig
++++ b/arch/sh/configs/shmin_defconfig
+@@ -9,7 +9,8 @@ CONFIG_LOG_BUF_SHIFT=14
+ # CONFIG_FUTEX is not set
+ # CONFIG_EPOLL is not set
+ # CONFIG_SHMEM is not set
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ # CONFIG_BLK_DEV_BSG is not set
+ CONFIG_CPU_SUBTYPE_SH7706=y
+ CONFIG_MEMORY_START=0x0c000000
+diff --git a/arch/sh/configs/shx3_defconfig b/arch/sh/configs/shx3_defconfig
+index 32ec6eb1eabc..aa353dff7f19 100644
+--- a/arch/sh/configs/shx3_defconfig
++++ b/arch/sh/configs/shx3_defconfig
+@@ -20,7 +20,8 @@ CONFIG_USER_NS=y
+ CONFIG_PID_NS=y
+ # CONFIG_CC_OPTIMIZE_FOR_SIZE is not set
+ CONFIG_KALLSYMS_ALL=y
+-CONFIG_SLOB=y
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+ CONFIG_PROFILING=y
+ CONFIG_KPROBES=y
+ CONFIG_MODULES=y
+diff --git a/kernel/configs/tiny.config b/kernel/configs/tiny.config
+index 8a44b93da0f3..c2f9c912df1c 100644
+--- a/kernel/configs/tiny.config
++++ b/kernel/configs/tiny.config
+@@ -7,5 +7,6 @@ CONFIG_KERNEL_XZ=y
+ # CONFIG_KERNEL_LZO is not set
+ # CONFIG_KERNEL_LZ4 is not set
+ # CONFIG_SLAB is not set
+-# CONFIG_SLUB is not set
+-CONFIG_SLOB=y
++# CONFIG_SLOB_DEPRECATED is not set
++CONFIG_SLUB=y
++CONFIG_SLUB_TINY=y
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 5941cb34e30d..dcc49c69552f 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -219,17 +219,30 @@ config SLUB
+ 	   and has enhanced diagnostics. SLUB is the default choice for
+ 	   a slab allocator.
+ 
+-config SLOB
++config SLOB_DEPRECATED
+ 	depends on EXPERT
+-	bool "SLOB (Simple Allocator)"
++	bool "SLOB (Simple Allocator - DEPRECATED)"
+ 	depends on !PREEMPT_RT
+ 	help
++	   Deprecated and scheduled for removal in a few cycles. SLUB
++	   recommended as replacement. CONFIG_SLUB_TINY can be considered
++	   on systems with 16MB or less RAM.
++
++	   If you need SLOB to stay, please contact linux-mm@kvack.org and
++	   people listed in the SLAB ALLOCATOR section of MAINTAINERS file,
++	   with your use case.
++
+ 	   SLOB replaces the stock allocator with a drastically simpler
+ 	   allocator. SLOB is generally more space efficient but
+ 	   does not perform as well on large systems.
+ 
+ endchoice
+ 
++config SLOB
++	bool
++	default y
++	depends on SLOB_DEPRECATED
++
+ config SLUB_TINY
+ 	bool "Configure SLUB for minimal memory footprint"
+ 	depends on SLUB && EXPERT
+-- 
+2.38.1
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-dt-for-v6.2-mw0
-
-for you to fetch changes up to 4563db4b7988613570d435e7846e553ecf92e521:
-
-  Merge branch 'riscv-thead_c9xx' into riscv-dt-for-next (2022-11-20 11:14:41 +0000)
-
-----------------------------------------------------------------
-RISC-V DeviceTrees for v6.2
-
-dt-bindings:
-- new compatibles to support the StarFive VisionFive & thead CPU cores
-- a fix for the PolarFire SoC's pwm binding, merged through my tree as
-  suggested by the PWM maintainers.
-
-Microchip:
-- Non-urgent fix for the node address not matches the reg in a way that
-  the checkers don't complain about
-- Add GPIO controlled LEDs for Icicle
-- Support for the "CCC" clocks in the FPGA fabric. Previously these
-  used fixed-frequency clocks in the dt, but if which CCC is in use is
-  known, as in the v2022.09 Icicle Kit Reference Design, the rates can
-  be read dynamically. It's an "is known" as it *can* be set via
-  constraints in the FPGA tooling but does not have to be.
-- A fix for the Icicle's pwm-cells
-- Removal of some unused PCI clocks
-
-StarFive:
-- Addition of the VisionFive DT, which has been a long time coming!
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (8):
-      riscv: dts: microchip: add the mpfs' fabric clock control
-      riscv: dts: microchip: fix memory node unit address for icicle
-      dt-bindings: pwm: fix microchip corePWM's pwm-cells
-      riscv: dts: microchip: fix the icicle's #pwm-cells
-      Merge branch 'riscv-visionfive_v1' into riscv-dt-for-next
-      riscv: dts: microchip: remove pcie node from the sev kit
-      riscv: dts: microchip: remove unused pcie clocks
-      Merge branch 'riscv-thead_c9xx' into riscv-dt-for-next
-
-Cristian Ciocaltea (3):
-      dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
-      riscv: dts: starfive: Add common DT for JH7100 based boards
-      riscv: dts: starfive: Add StarFive VisionFive V1 device tree
-
-Emil Renner Berthing (1):
-      riscv: dts: microchip: icicle: Add GPIO controlled LEDs
-
-Samuel Holland (1):
-      dt-bindings: riscv: Add T-HEAD C906 and C910 compatibles
-
- Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml   |   4 +++-
- Documentation/devicetree/bindings/riscv/cpus.yaml              |   2 ++
- Documentation/devicetree/bindings/riscv/starfive.yaml          |   4 +++-
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi      |  33 +++++++++++++++++----------------
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts              |  36 +++++++++++++++++++++++++++++++++++-
- arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi         |   4 ++--
- arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi      |   4 ++--
- arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi         |  29 -----------------------------
- arch/riscv/boot/dts/microchip/mpfs.dtsi                        |  32 ++++++++++++++++++++++++++++++++
- arch/riscv/boot/dts/starfive/Makefile                          |   2 +-
- arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts      | 153 +--------------------------------------------------------------------------------------------------------------------------------------------------------
- arch/riscv/boot/dts/starfive/jh7100-common.dtsi                | 161 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts |  20 ++++++++++++++++++++
- 13 files changed, 279 insertions(+), 205 deletions(-)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100-common.dtsi
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
 
 _______________________________________________
 linux-riscv mailing list
