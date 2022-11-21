@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB35C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 19:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920F2C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 20:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iZ9qWa9E576QUnB993i8aGPR9mvT5skBZVcuuQnsCwo=; b=SeU4eJGgQ2+/X3
-	7SsYNk5j3pACK2YNJQLAd/ahpyCvJzkShaklZepZP2yltHDL5PwNQ7U51rDd+ZISRRF56V0/3tBeY
-	pwyrR43IgAM0K1ZGZRTyI0SQy7wCcPmpr26YnMbh67FZ1BwLXUk2HdWlhtM93rUIGnd2khCrIJgOK
-	ts/lda5PEPTrr9h4GE2bi6VTCGPIqpDDiP8J8jLCiiEiy22jSHg7Z/XuywX4YEoh1vuAOsku1XRIp
-	0jud4qaVnLwwWEcvY79syJwE9ubeR/C1Y2GAi/J0ImjpqNhZ4fMH0Kj23un1dQ433qB10mN8yIgCN
-	Sc8FBzrH1WpAwjoW390g==;
+	List-Owner; bh=YymjAi0lFyJCUYtGdb7da//VMR55VTzB/Qfrh0zXB88=; b=MAmER9hmIaQ4jI
+	clBDHPC5CqWwiVv/gfpohdqH1QxtjQhoc+NAn87aJgG661GrbzZDmDtSWKL6ttI+jAcgXLs5VVuSN
+	nZyg08PXom4atIfd151sOH8iooC94EhJUas2Im2G5fv52ZRYy5FcXft+Oi7lIN/VpTs98z/074mYB
+	eg04t+7j8qcKESFmtsLprv1ANbWJMLNSQ6UDcz3YV0bCC7FXIp0IDlUpX7zF2d7AGxGWyJFwvT33I
+	FNvnDwmoQ8qwxW6YCs8W1Bvfz3y3/1mvvqcF0RIswCnebJNuxcGpBNbmWE6zJmHKpdBM1kKArj+Ea
+	SjDZzawhEww5GXx+bPaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxCir-00HJHv-Od; Mon, 21 Nov 2022 19:44:53 +0000
-Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
+	id 1oxCxV-00HOdu-6H; Mon, 21 Nov 2022 20:00:01 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxCif-00HJFU-Ps; Mon, 21 Nov 2022 19:44:44 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id F2C97220E5;
-	Mon, 21 Nov 2022 19:44:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1669059880; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HK8SHrswSKDS6/O+Mgs+PmBluOOCcSpzcSHcaJVrEzE=;
-	b=sGBGsUvnd5vxckcevJ68UxFxz1PoSqb+HhkiZGIEIDv5PR4YlOP0Zat6gVJdddKiT400ks
-	wisOjKNDBHCc4+joBpswgAQDQXnYetJ9aUaT7Wg9UcqlRbNDkiHk7BWVRvebwJDG2sibT+
-	RwgzKgvvOsvdRGQJ/P8vcVMnR/oOku0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1669059880;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HK8SHrswSKDS6/O+Mgs+PmBluOOCcSpzcSHcaJVrEzE=;
-	b=RHu+rInak5/4nHVa3RdOHmAbZaaxIEagdc61JXpBnzjGyWi4Zyr3p6vQ7MuqiWEOoxE/qR
-	Nt9yrf83lq8MtuDQ==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 6022D1376E;
-	Mon, 21 Nov 2022 19:44:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id sE6GFifVe2O+QwAAMHmgww
-	(envelope-from <vbabka@suse.cz>); Mon, 21 Nov 2022 19:44:39 +0000
-Message-ID: <53c6d988-7147-2233-6904-f881e7c067b6@suse.cz>
-Date: Mon, 21 Nov 2022 20:42:53 +0100
+	id 1oxCxS-00HOc4-CE
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 19:59:59 +0000
+Received: by mail-lf1-x132.google.com with SMTP id g12so20455762lfh.3
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 11:59:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GSLg3lnlnQB1hP6JwVcBXUauPug+4FyuOo+oBexYadI=;
+        b=Kk3GxXmPIvdzM6UsD2FitntVNHVBbwxpLrNVpPWxak/p00HCqWN+Lt4/xZ3Ztihhei
+         UyO1MG2KuzYDgBBi/lBG8VjFOQW88dQbKu+QF/7mBmXvuovQk+dROY1mc2X9Oh12/JD9
+         XU/gqQWmZXdsFf9UbZP3Yt5TmD99KyaDJRg178vIebxQAnAxLpd5tXIyrUTcV5qODl8o
+         ndjpcGChExJKvne+P9T0Sx5p75qw+QJyvYWEXkRRZTR4MjcgmgCAw0GogABcKJ5bo+B0
+         GnVozVDbWeph/Xvh5SIHFJxji2+prAXDUmPsMvHKpzx8H02rRriNAvIAiKLpnjxocyuR
+         yWKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GSLg3lnlnQB1hP6JwVcBXUauPug+4FyuOo+oBexYadI=;
+        b=m58tOMpRPkkp2b0eTmhgSH3VOFKuOlgRpgthyFAwEarMb2SHMjZSEwCHpX0DB0YF0n
+         uiJ8+rsZIbSyqq4O+2aza5BahtsXZFj4VmzeiXvseUrFgWTLQMcx+ga3/7y3YQMMaj0n
+         R3/CVR52oFFX9SkB9Lwi8cxwsESv2HJSFJT9WCQyBJIgrCk2tBr1YISroPJ8lz6jp8un
+         qJdUKU2uinjwYwknPjGzCSSkJ1H3b6DkHYsezrbM2JG+8XEtEttspwSoeYXOzgRAyhKj
+         iBn46PgVJZ7a9qhQ+Fo9wsNCZ8o8cgBQZR+BNy+GPsISQvuS/1nggypuoLZs26omNMvG
+         vnbg==
+X-Gm-Message-State: ANoB5pnVkpp6EJSDPpH/ha52IUuzuKHnhMB/PKrQUxr4HIy7UVP/IO70
+	dnemLVSC8ZluUu82s1LqWRY=
+X-Google-Smtp-Source: AA0mqf614JoCXiwhlXfpZPATW4kb+3f4M4d4pYgxugmAgR7pbvKpon7OmkDr+g3KCOiv15Z1E2ZrEw==
+X-Received: by 2002:ac2:52b6:0:b0:4a8:df88:f4d2 with SMTP id r22-20020ac252b6000000b004a8df88f4d2mr6282701lfm.463.1669060792940;
+        Mon, 21 Nov 2022 11:59:52 -0800 (PST)
+Received: from curiosity ([5.188.167.245])
+        by smtp.gmail.com with ESMTPSA id be40-20020a056512252800b00497a61453a9sm2162437lfb.243.2022.11.21.11.59.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Nov 2022 11:59:51 -0800 (PST)
+Date: Mon, 21 Nov 2022 22:59:50 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: guoren@kernel.org
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	conor.dooley@microchip.com, heiko@sntech.de,
+	philipp.tomsich@vrull.eu, alex@ghiti.fr, hch@lst.de,
+	ajones@ventanamicro.com, gary@garyguo.net, jszhang@kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application
+ crash
+Message-ID: <Y3vYtobn72sqA2Tq@curiosity>
+References: <20221111075902.798571-1-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.0
-Subject: Re: [PATCH 12/12] mm, slob: rename CONFIG_SLOB to
- CONFIG_SLOB_DEPRECATED
-Content-Language: en-US
-To: Christoph Lameter <cl@linux.com>, David Rientjes <rientjes@google.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, Pekka Enberg <penberg@kernel.org>
-Cc: Hyeonggon Yoo <42.hyeyoo@gmail.com>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Matthew Wilcox <willy@infradead.org>, patches@lists.linux.dev,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Russell King <linux@armlinux.org.uk>, Aaro Koskinen <aaro.koskinen@iki.fi>,
- Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Arnd Bergmann <arnd@arndb.de>, Josh Triplett <josh@joshtriplett.org>,
- Conor Dooley <conor@kernel.org>,
- Damien Le Moal <damien.lemoal@opensource.wdc.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- openrisc@lists.librecores.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org
-References: <20221121171202.22080-1-vbabka@suse.cz>
- <20221121171202.22080-13-vbabka@suse.cz>
-From: Vlastimil Babka <vbabka@suse.cz>
-In-Reply-To: <20221121171202.22080-13-vbabka@suse.cz>
+Content-Disposition: inline
+In-Reply-To: <20221111075902.798571-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_114442_018256_6F34DBD6 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20221121_115958_440744_35E1AAB1 
+X-CRM114-Status: GOOD (  35.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +91,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/21/22 18:12, Vlastimil Babka wrote:
-> As explained in [1], we would like to remove SLOB if possible.
+> After use_asid_allocator is enabled, the userspace application will
+> crash by stale TLB entries. Because only using cpumask_clear_cpu without
+> local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
+> Then set_mm_asid would cause the user space application to get a stale
+> value by stale TLB entry, but set_mm_noasid is okay.
 > 
-> - There are no known users that need its somewhat lower memory footprint
->    so much that they cannot handle SLUB (after some modifications by the
->    previous patches) instead.
+> Here is the symptom of the bug:
+> unhandled signal 11 code 0x1 (coredump)
+>    0x0000003fd6d22524 <+4>:     auipc   s0,0x70
+>    0x0000003fd6d22528 <+8>:     ld      s0,-148(s0) # 0x3fd6d92490
+> => 0x0000003fd6d2252c <+12>:    ld      a5,0(s0)
+> (gdb) i r s0
+> s0          0x8082ed1cc3198b21       0x8082ed1cc3198b21
+> (gdb) x /2x 0x3fd6d92490
+> 0x3fd6d92490:   0xd80ac8a8      0x0000003f
+> The core dump file shows that register s0 is wrong, but the value in
+> memory is correct. Because 'ld s0, -148(s0)' used a stale mapping entry
+> in TLB and got a wrong result from an incorrect physical address.
 > 
-> - It is an extra maintenance burden, and a number of features are
->    incompatible with it.
+> When the task ran on CPU0, which loaded/speculative-loaded the value of
+> address(0x3fd6d92490), then the first version of the mapping entry was
+> PTWed into CPU0's TLB.
+> When the task switched from CPU0 to CPU1 (No local_tlb_flush_all here by
+> asid), it happened to write a value on the address (0x3fd6d92490). It
+> caused do_page_fault -> wp_page_copy -> ptep_clear_flush ->
+> ptep_get_and_clear & flush_tlb_page.
+> The flush_tlb_page used mm_cpumask(mm) to determine which CPUs need TLB
+> flush, but CPU0 had cleared the CPU0's mm_cpumask in the previous
+> switch_mm. So we only flushed the CPU1 TLB and set the second version
+> mapping of the PTE. When the task switched from CPU1 to CPU0 again, CPU0
+> still used a stale TLB mapping entry which contained a wrong target
+> physical address. It raised a bug when the task happened to read that
+> value.
 > 
-> - It blocks the API improvement of allowing kfree() on objects allocated
->    via kmem_cache_alloc().
+>    CPU0                               CPU1
+>    - switch 'task' in
+>    - read addr (Fill stale mapping
+>      entry into TLB)
+>    - switch 'task' out (no tlb_flush)
+>                                       - switch 'task' in (no tlb_flush)
+>                                       - write addr cause pagefault
+>                                         do_page_fault() (change to
+>                                         new addr mapping)
+>                                           wp_page_copy()
+>                                             ptep_clear_flush()
+>                                               ptep_get_and_clear()
+>                                               & flush_tlb_page()
+>                                         write new value into addr
+>                                       - switch 'task' out (no tlb_flush)
+>    - switch 'task' in (no tlb_flush)
+>    - read addr again (Use stale
+>      mapping entry in TLB)
+>      get wrong value from old phyical
+>      addr, BUG!
 > 
-> As the first step, rename the CONFIG_SLOB option in the slab allocator
-> configuration choice to CONFIG_SLOB_DEPRECATED. Add CONFIG_SLOB
-> depending on CONFIG_SLOB_DEPRECATED as an internal option to avoid code
-> churn. This will cause existing .config files and defconfigs with
-> CONFIG_SLOB=y to silently switch to the default (and recommended
-> replacement) SLUB, while still allowing SLOB to be configured by anyone
-> that notices and needs it. But those should contact the slab maintainers
-> and linux-mm@kvack.org as explained in the updated help. With no valid
-> objections, the plan is to update the existing defconfigs to SLUB and
-> remove SLOB in a few cycles.
+> The solution is to keep all CPUs' footmarks of cpumask(mm) in switch_mm,
+> which could guarantee to invalidate all stale TLB entries during TLB
+> flush.
 > 
-> To make SLUB more suitable replacement for SLOB, a CONFIG_SLUB_TINY
-> option was introduced to limit SLUB's memory overhead.
-> There is a number of defconfigs specifying CONFIG_SLOB=y. As part of
-> this patch, update them to select CONFIG_SLUB and CONFIG_SLUB_TINY.
+> Fixes: 65d4b9c53017 ("RISC-V: Implement ASID allocator")
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Anup Patel <apatel@ventanamicro.com>
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+> Changes in v3:
+>  - Move set/clear cpumask(mm) into set_mm (Make code more pretty
+>    with Andrew's advice)
+>  - Optimize comment description
+> 
+> Changes in v2:
+>  - Fixup nommu compile problem (Thx Conor, Also Reported-by: kernel
+>    test robot <lkp@intel.com>)
+>  - Keep cpumask_clear_cpu for noasid
+> ---
+>  arch/riscv/mm/context.c | 30 ++++++++++++++++++++----------
+>  1 file changed, 20 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> index 7acbfbd14557..0f784e3d307b 100644
+> --- a/arch/riscv/mm/context.c
+> +++ b/arch/riscv/mm/context.c
+> @@ -205,12 +205,24 @@ static void set_mm_noasid(struct mm_struct *mm)
+>  	local_flush_tlb_all();
+>  }
+>  
+> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
+> +static inline void set_mm(struct mm_struct *prev,
+> +			  struct mm_struct *next, unsigned int cpu)
+>  {
+> -	if (static_branch_unlikely(&use_asid_allocator))
+> -		set_mm_asid(mm, cpu);
+> -	else
+> -		set_mm_noasid(mm);
+> +	/*
+> +	 * The mm_cpumask indicates which harts' TLBs contain the virtual
+> +	 * address mapping of the mm. Compared to noasid, using asid
+> +	 * can't guarantee that stale TLB entries are invalidated because
+> +	 * the asid mechanism wouldn't flush TLB for every switch_mm for
+> +	 * performance. So when using asid, keep all CPUs footmarks in
+> +	 * cpumask() until mm reset.
+> +	 */
+> +	cpumask_set_cpu(cpu, mm_cpumask(next));
+> +	if (static_branch_unlikely(&use_asid_allocator)) {
+> +		set_mm_asid(next, cpu);
+> +	} else {
+> +		cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> +		set_mm_noasid(next);
+> +	}
+>  }
+>  
+>  static int __init asids_init(void)
+> @@ -264,7 +276,8 @@ static int __init asids_init(void)
+>  }
+>  early_initcall(asids_init);
+>  #else
+> -static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
+> +static inline void set_mm(struct mm_struct *prev,
+> +			  struct mm_struct *next, unsigned int cpu)
+>  {
+>  	/* Nothing to do here when there is no MMU */
+>  }
+> @@ -317,10 +330,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>  	 */
+>  	cpu = smp_processor_id();
+>  
+> -	cpumask_clear_cpu(cpu, mm_cpumask(prev));
+> -	cpumask_set_cpu(cpu, mm_cpumask(next));
+> -
+> -	set_mm(next, cpu);
+> +	set_mm(prev, next, cpu);
+>  
+>  	flush_icache_deferred(next, cpu);
+>  }
 
-Hm I forgot - some of those defconfigs might not actually be for so tiny 
-devices to need CONFIG_SLUB_TINY (or SLOB previously). For those it 
-would make more sense to simply remove CONFIG_SLOB=y and leave it to the 
-default choice, which is SLUB (without _TINY). Feel free to point those 
-out to me and I'll adjust. Thanks.
+Tested-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 
-> [1] https://lore.kernel.org/all/b35c3f82-f67b-2103-7d82-7a7ba7521439@suse.cz/
-> 
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
-> Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>
-> Cc: Tony Lindgren <tony@atomide.com>
-> Cc: Jonas Bonn <jonas@southpole.se>
-> Cc: Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>
-> Cc: Stafford Horne <shorne@gmail.com>
-> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> Cc: Rich Felker <dalias@libc.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Josh Triplett <josh@joshtriplett.org>
-> Cc: Conor Dooley <conor@kernel.org>
-> Cc: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: Geert Uytterhoeven <geert@linux-m68k.org>
-> Cc: <linux-arm-kernel@lists.infradead.org>
-> Cc: <linux-omap@vger.kernel.org>
-> Cc: <openrisc@lists.librecores.org>
-> Cc: <linux-riscv@lists.infradead.org>
-> Cc: <linux-sh@vger.kernel.org>
-> Signed-off-by: Vlastimil Babka <vbabka@suse.cz>
-
+Thanks,
+Sergey
 
 _______________________________________________
 linux-riscv mailing list
