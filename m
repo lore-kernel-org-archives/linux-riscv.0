@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41B4C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 13:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB11C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 13:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MysAdpQPKgbaz22CUvz/EbRnWmc86vjxZQg96C2ni+g=; b=zFesji1cldqu0e
-	6UF54+J6hViUpgkUDLocQIj/iR1QE/jN2wSTR8m3YwRKYLMCGO4RvRbx776UzCxndRJaNY9DrSDCH
-	uW7l+LoUPEd4Vn9TWkkXArV/v6LJQVU7cJW1tFv5Wgq14FUuzKReGn1zkvQrU+IPe/q/6wjJByVEM
-	T8WnxcbNgCtLaKfeRCphe2GTNMbgky0F1ixPdFzs8SNRSfRpjLztDaE7QQ7A2tp+Y9Du+PG4RQc7I
-	Qg+N86IA0pG5C7QBDXJ49wuU7x5A0PO8qwlgg126bJ7L/Kf1gJ0AsnYAzwOK5+rduvaTPVeRnHNaP
-	mIsO9xaAuEaRprmnh6ig==;
+	List-Owner; bh=sGVQnDbtQKZa1ncG8TEbzAddk/5r1Sq8bIyIO48wqw4=; b=2dl1wIF/fGH1/8
+	90zMLqA2rmJCp0xTswyl24xvQc+vxCCrQTvxXCTWJGVM5AOCS0XnGCEPIm2B4JKV4EM6Hkdgb6438
+	iTDtgpGq8iQuyAYrXDkOx00UwUIFsCopQplpXREFb05m3wHGgoHzWC17ToxpCMZ8KvYmZrmUd51rA
+	8KUwBFeklROPnnsRU70mEKLRbAwKFguvXL0d5TLAd26SXYTTMpNSrg9h1FfbrztlApM+a80fxx5+6
+	iDyDGzMmoqnTN6ZgNB3PYFyALJmdKsA6lgsbzsLcFqq5zySXe3x0UybrDRLDTfdNLMDKYCSSXiXBH
+	LB1pNZE48B8HSdFjRCIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox6vd-00Dyy3-J7; Mon, 21 Nov 2022 13:33:41 +0000
-Received: from mail-qt1-f180.google.com ([209.85.160.180])
+	id 1ox70C-00E1Tj-1h; Mon, 21 Nov 2022 13:38:24 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox6vQ-00Dysc-LS; Mon, 21 Nov 2022 13:33:30 +0000
-Received: by mail-qt1-f180.google.com with SMTP id h24so7196041qta.9;
-        Mon, 21 Nov 2022 05:33:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=W52hjy2XgXbLvoau/TZhYUdh0mFs9ky77EejBWrKJL0=;
-        b=4seFYRiDw1h1n1Dr2TaTKoMV3ZQDjeoh4h1/JI+NV4oQSA4PG8pBojMvHAmCwZuXzC
-         K5abSVdUQXsv8Mr1oJlo1EXLF866gp+J1Bvhe2i7CYb/McybAcElx5sSf/+ufEFahKJY
-         UaM2YaT14vY1lkO8EvqCYiEq/bMWciJ7zlNbC/8lkSB4kXXWN+bIouwQQSv0cUCX/WDj
-         jgUgt5HJp3CLNg84qDoYl9h0D6xwGQqEZ4iW4wIMrjrw6Cx/A34ZvkLQ7CGlCkMTLnSQ
-         kHeXNmvaUNISHB4PIkZgoqziv6G5JhjvrqAKecG4QvTb+OfLwVCISpQXa6ipK4T7hByv
-         Bo2w==
-X-Gm-Message-State: ANoB5pkQ30Y9fG1NgFozLI1pUThAaT3048mhTg8QEvVAOCOujG4L7a++
-	bHFL0U+SkFdNLyFoTedI5tC2HRQfyzmhVQ==
-X-Google-Smtp-Source: AA0mqf5EjdBzSHxxXIOYOrGouDAMnsr55bUUz3sGc1uoaDYN6/m5ICXQh99yD25B8BJLsQbL62hYag==
-X-Received: by 2002:ac8:5148:0:b0:35c:d017:2fd7 with SMTP id h8-20020ac85148000000b0035cd0172fd7mr17177071qtn.579.1669037605551;
-        Mon, 21 Nov 2022 05:33:25 -0800 (PST)
-Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com. [209.85.128.181])
-        by smtp.gmail.com with ESMTPSA id bi40-20020a05620a31a800b006f7ee901674sm8123082qkb.2.2022.11.21.05.33.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Nov 2022 05:33:23 -0800 (PST)
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-3938dc90ab0so94275407b3.4;
-        Mon, 21 Nov 2022 05:33:23 -0800 (PST)
-X-Received: by 2002:a81:4f4c:0:b0:357:66a5:bb25 with SMTP id
- d73-20020a814f4c000000b0035766a5bb25mr17212924ywb.383.1669037603130; Mon, 21
- Nov 2022 05:33:23 -0800 (PST)
+	id 1ox707-00E1PN-Ic; Mon, 21 Nov 2022 13:38:21 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4NG7fq46ZczFqPg;
+	Mon, 21 Nov 2022 21:34:59 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Mon, 21 Nov 2022 21:38:13 +0800
+Received: from [10.67.111.195] (10.67.111.195) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Mon, 21 Nov 2022 21:38:13 +0800
+Message-ID: <bb1c22ef-8cdb-2fc8-5ff7-f6cd92bf935d@huawei.com>
+Date: Mon, 21 Nov 2022 21:38:12 +0800
 MIME-Version: 1.0
-References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org> <20221121110615.97962-8-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221121110615.97962-8-krzysztof.kozlowski@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 21 Nov 2022 14:33:11 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUtT3=F-3XLb604VUvKxNQBWK1y0rMnMn0kASKjQGw=3g@mail.gmail.com>
-Message-ID: <CAMuHMdUtT3=F-3XLb604VUvKxNQBWK1y0rMnMn0kASKjQGw=3g@mail.gmail.com>
-Subject: Re: [PATCH v2 7/9] dt-bindings: drop redundant part of title (beginning)
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andrew Lunn <andrew@lunn.ch>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
-	linux-leds@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, netdev@vger.kernel.org, 
-	linux-can@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	linux-serial@vger.kernel.org, alsa-devel@alsa-project.org, 
-	linux-spi@vger.kernel.org, linux-usb@vger.kernel.org, 
-	virtualization@lists.linux-foundation.org, linux-watchdog@vger.kernel.org, 
-	Stephen Boyd <sboyd@kernel.org>, Vinod Koul <vkoul@kernel.org>, Jonathan Cameron <jic23@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Viresh Kumar <vireshk@kernel.org>, 
-	Sebastian Reichel <sre@kernel.org>, Mark Brown <broonie@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.0
+Subject: Re: [PATCH -next] RISC-V: KVM: optimize kvm_arch_hardware_enable()
+To: Andrew Jones <ajones@ventanamicro.com>
+CC: <anup@brainfault.org>, <atishp@atishpatra.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20221121003915.2817102-1-chenlifu@huawei.com>
+ <20221121105333.rap67cpmst3odiid@kamzik>
+From: chenlifu <chenlifu@huawei.com>
+In-Reply-To: <20221121105333.rap67cpmst3odiid@kamzik>
+X-Originating-IP: [10.67.111.195]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_053328_716785_83B15394 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20221121_053819_994050_26D56B67 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +68,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 21, 2022 at 12:09 PM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> The Devicetree bindings document does not have to say in the title that
-> it is a "Devicetree binding", but instead just describe the hardware.
->
-> Drop beginning "Devicetree bindings" in various forms:
->
->   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [dD]evice[ -]\?[tT]ree [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
->
->   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
->
->   find Documentation/devicetree/bindings/ -type f -name '*.yaml' \
->     -exec sed -i -e 's/^title: [dD][tT] [bB]indings\? for \([tT]he \)\?\(.*\)$/title: \u\2/' {} \;
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
->  .../devicetree/bindings/interrupt-controller/renesas,irqc.yaml  | 2 +-
-
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjIvMTEvMjEgMTg6NTMsIEFuZHJldyBKb25lcyDlhpnpgZM6Cj4gT24gTW9uLCBOb3Yg
+MjEsIDIwMjIgYXQgMDg6Mzk6MTVBTSArMDgwMCwgQ2hlbiBMaWZ1IHdyb3RlOgo+PiBUaGUgdmFs
+dWVzIG9mIENTUl9IRURFTEVHIGFuZCBDU1JfSElERUxFRyByZWdpc3RlcnMgYXJlIGNvbnN0YW50
+cywKPj4gc28gY2hhbmdlIHRoZW0gZnJvbSB2YXJpYWJsZXMgdG8gbWFjcm9zLgo+Pgo+PiBTaWdu
+ZWQtb2ZmLWJ5OiBDaGVuIExpZnUgPGNoZW5saWZ1QGh1YXdlaS5jb20+Cj4+IC0tLQo+PiAgIGFy
+Y2gvcmlzY3Yva3ZtL21haW4uYyB8IDMxICsrKysrKysrKysrKystLS0tLS0tLS0tLS0tLS0tLS0K
+Pj4gICAxIGZpbGUgY2hhbmdlZCwgMTMgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4+
+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS9tYWluLmMgYi9hcmNoL3Jpc2N2L2t2bS9t
+YWluLmMKPj4gaW5kZXggZGYyZDg3MTY4NTFmLi43MDE5NmIwM2I2ZjkgMTAwNjQ0Cj4+IC0tLSBh
+L2FyY2gvcmlzY3Yva3ZtL21haW4uYwo+PiArKysgYi9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPj4g
+QEAgLTEyLDEwICsxMiwyMSBAQAo+PiAgICNpbmNsdWRlIDxsaW51eC9rdm1faG9zdC5oPgo+PiAg
+ICNpbmNsdWRlIDxhc20vY3NyLmg+Cj4+ICAgI2luY2x1ZGUgPGFzbS9od2NhcC5oPgo+PiAgICNp
+bmNsdWRlIDxhc20vc2JpLmg+Cj4+ICAgCj4+ICsjZGVmaW5lIEVYQ19IRURFTEVHICgoMVVMIDw8
+IEVYQ19JTlNUX01JU0FMSUdORUQpIHwgXAo+PiArCQkgICAgICgxVUwgPDwgRVhDX0JSRUFLUE9J
+TlQpICAgICAgfCBcCj4+ICsJCSAgICAgKDFVTCA8PCBFWENfU1lTQ0FMTCkgICAgICAgICB8IFwK
+Pj4gKwkJICAgICAoMVVMIDw8IEVYQ19JTlNUX1BBR0VfRkFVTFQpIHwgXAo+PiArCQkgICAgICgx
+VUwgPDwgRVhDX0xPQURfUEFHRV9GQVVMVCkgfCBcCj4+ICsJCSAgICAgKDFVTCA8PCBFWENfU1RP
+UkVfUEFHRV9GQVVMVCkpCj4+ICsKPj4gKyNkZWZpbmUgSVJRX0hJREVMRUcgKCgxVUwgPDwgSVJR
+X1ZTX1NPRlQpICB8IFwKPj4gKwkJICAgICAoMVVMIDw8IElSUV9WU19USU1FUikgfCBcCj4+ICsJ
+CSAgICAgKDFVTCA8PCBJUlFfVlNfRVhUKSkKPj4gKwo+PiAgIGxvbmcga3ZtX2FyY2hfZGV2X2lv
+Y3RsKHN0cnVjdCBmaWxlICpmaWxwLAo+PiAgIAkJCXVuc2lnbmVkIGludCBpb2N0bCwgdW5zaWdu
+ZWQgbG9uZyBhcmcpCj4+ICAgewo+PiAgIAlyZXR1cm4gLUVJTlZBTDsKPj4gICB9Cj4+IEBAIC0z
+MCwyOSArNDEsMTMgQEAgaW50IGt2bV9hcmNoX2hhcmR3YXJlX3NldHVwKHZvaWQgKm9wYXF1ZSkK
+Pj4gICAJcmV0dXJuIDA7Cj4+ICAgfQo+PiAgIAo+PiAgIGludCBrdm1fYXJjaF9oYXJkd2FyZV9l
+bmFibGUodm9pZCkKPj4gICB7Cj4+IC0JdW5zaWduZWQgbG9uZyBoaWRlbGVnLCBoZWRlbGVnOwo+
+PiAtCj4+IC0JaGVkZWxlZyA9IDA7Cj4+IC0JaGVkZWxlZyB8PSAoMVVMIDw8IEVYQ19JTlNUX01J
+U0FMSUdORUQpOwo+PiAtCWhlZGVsZWcgfD0gKDFVTCA8PCBFWENfQlJFQUtQT0lOVCk7Cj4+IC0J
+aGVkZWxlZyB8PSAoMVVMIDw8IEVYQ19TWVNDQUxMKTsKPj4gLQloZWRlbGVnIHw9ICgxVUwgPDwg
+RVhDX0lOU1RfUEFHRV9GQVVMVCk7Cj4+IC0JaGVkZWxlZyB8PSAoMVVMIDw8IEVYQ19MT0FEX1BB
+R0VfRkFVTFQpOwo+PiAtCWhlZGVsZWcgfD0gKDFVTCA8PCBFWENfU1RPUkVfUEFHRV9GQVVMVCk7
+Cj4+IC0JY3NyX3dyaXRlKENTUl9IRURFTEVHLCBoZWRlbGVnKTsKPj4gLQo+PiAtCWhpZGVsZWcg
+PSAwOwo+PiAtCWhpZGVsZWcgfD0gKDFVTCA8PCBJUlFfVlNfU09GVCk7Cj4+IC0JaGlkZWxlZyB8
+PSAoMVVMIDw8IElSUV9WU19USU1FUik7Cj4+IC0JaGlkZWxlZyB8PSAoMVVMIDw8IElSUV9WU19F
+WFQpOwo+PiAtCWNzcl93cml0ZShDU1JfSElERUxFRywgaGlkZWxlZyk7Cj4+IC0KPj4gKwljc3Jf
+d3JpdGUoQ1NSX0hFREVMRUcsIEVYQ19IRURFTEVHKTsKPj4gKwljc3Jfd3JpdGUoQ1NSX0hJREVM
+RUcsIElSUV9ISURFTEVHKTsKPj4gICAJY3NyX3dyaXRlKENTUl9IQ09VTlRFUkVOLCAtMVVMKTsK
+Pj4gLQo+PiAgIAljc3Jfd3JpdGUoQ1NSX0hWSVAsIDApOwo+PiAgIAo+PiAgIAlyZXR1cm4gMDsK
+Pj4gICB9Cj4+ICAgCj4+IC0tIAo+PiAyLjM3LjEKPj4KPiAKPiBJIGRvbid0IHRoaW5rIHRoaXMg
+b3B0aW1pemVzIGFueXRoaW5nLiBJJ20gcHJldHR5IHN1cmUgdGhlIGNvbXBpbGVyIHdpbGwKPiBs
+b2FkIHRoZSBpbnB1dCB0byBjc3Jfd3JpdGUoKSBpbiB0aGUgbW9zdCBlZmZpY2llbnQgd2F5IGl0
+IGNhbiwgcmVnYXJkbGVzcwo+IG9mIHVzaW5nIGEgY29uc3RhbnQgb3IgYnVpbGRpbmcgdGhlIGlu
+cHV0IG91dCBvZiBjb25zdGFudHMuIFRoaXMgY291bGQKPiBtYXliZSBiZSBjb25zaWRlcmVkIGEg
+Y29kZSBjbGVhbnVwLCBidXQsIGluIHRoaXMgY2FzZSwgaXQncyByZWFsbHkgaW4gdGhlCj4gZXll
+IG9mIHRoZSBiZWhvbGRlci4KPiAKPiBUaGFua3MsCj4gZHJldwoKVGhhbmtzIGRyZXfvvIx5b3Un
+cmUgcmlnaHQuCkkgY29tcGFyZWQgdHdvIHZlcnNpb24gYXJjaC9yaXNjdi9rdm0vbWFpbi5vIGZp
+bGVzLCB0aGV5IGFyZSBzYW1lLgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
