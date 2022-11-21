@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F313DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 09:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39899C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 10:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mM7acrV4PwQIrqqjCX2n07bcOI0IFjQmqFwqxj0zFgo=; b=Zo7yyvBKhzecZR
-	0NNx6V+QvV6t9cLt56Pv5ubXqnLG2oRYdXYUOvm2iD4j65yGSSDmWf4R3fffmTMcdVMFbuiQuOEVD
-	L3w4rsT49OKiGR7GrimSa70SOdxtketpNPk91ajqT8gc941Aw0I9ojqtyDB5mTmGIcGMXjvtJw+Ms
-	GPuZGL6A0If+J94dPbzkD7Xdyy2ptDJorIqbU+iRI65P1Wah5MiECbRxEzRxWb3GKLSpv5fvYDfQ8
-	/h9NbJrvNwC351n+OkdLXRrFOAF2jesYmMWVBbI85BZga4IlUtZMPsmi1qunMxGMYtvLVkVRi8q7Y
-	4k5l+4IwtX06IlA0adug==;
+	List-Owner; bh=rLmwqhtwkELIWMWgF44JNXVD2VtQAe+F1gvZe3Yc/58=; b=utaVxqn06isNk+
+	7q/E995JWhM9gEYspRmFIRVgkqKCHfsKHJpp8Cb74Q5UH4//c0ItzUVS6OtWbysMNgr4xrA3X8JrF
+	AbXFEGIXIAin4fWYRcmJrSp7RL/gWdV4eREVa3twLom1fuePhOr7YKdCp+b8y2k+/w9bF6lOwZbJA
+	R3LCE5tketou7rviqFeeWh700VXIfQMLOux57IUWgGnkc03FankV0Z/pXp51DG5ZWoWI5p9hjkyp8
+	QQZrrUzF1xuc/lWoxMpzsLW4ggZNP1VJDnlmHsbmFnqRZPrJ39EJ5bHhFV9SmCdYnnRlOcDNkXCWU
+	V7OwIBQ/nn9cEbFCUo/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox3Ut-00C0ov-6x; Mon, 21 Nov 2022 09:53:51 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ox3gs-00C5dt-AB; Mon, 21 Nov 2022 10:06:14 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox3Up-00C0kw-G5
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 09:53:49 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id D264CB80AB2
-	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 09:53:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C31C433D7
-	for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 09:53:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669024422;
-	bh=YOu3n64Tj7XKfjexEDDMs01w9nySaXbJautW19RY7rk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EkYKBEv/JLMpETaD3fmit9KxL9w0cetRO8GDNkvFJuUPMCKe/pz5emv3c7b3XziuC
-	 O4+U2B8TKt7pUlz2ACWLgGwUvyN1/cD66CLfOpEVfBLdoAdtuMG6JswDZlM0vHOKbN
-	 fOy1LLDp0N7OCW/sMIUGAW+Ac67ez0t5Y/OJJbCtnTZe+uz1OOAh+MWs/suHqIUybs
-	 fi3rBBDlKCDJCpWOxBHhhpcAu+DkO5fdJDkXZrjc6Zgxtd8Wq411B2Ym7p8Jfsfa2P
-	 6AhLItAhgB5Dn9V4tpu+K+fCcK20A4whHREwB4V8n0MalguF80S9Euk+yPnlMhHvy0
-	 yaTWF5gJuE5Eg==
-Received: by mail-ej1-f46.google.com with SMTP id f27so27306286eje.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 01:53:42 -0800 (PST)
-X-Gm-Message-State: ANoB5pnyLvhYqElKgysUWFmNzWzQorolA46FbGJVrSCMovQQFuhuvJXV
-	GQxodbqCQgMr5mhuNEoy8nrs88e2U3XkZ9b5xQQ=
-X-Google-Smtp-Source: AA0mqf5gjyu2O31/o45ixHAU9CeNugJbqJmGKGzyyhNGh5D1oUhTne5cGDqJ4XF7f1It7xERrf5JNYGAQNOS2JGDxew=
-X-Received: by 2002:a17:906:19d7:b0:7b2:b782:e1df with SMTP id
- h23-20020a17090619d700b007b2b782e1dfmr10699627ejd.308.1669024420821; Mon, 21
- Nov 2022 01:53:40 -0800 (PST)
+	id 1ox3gq-00C5d1-68
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 10:06:13 +0000
+Received: by mail-lj1-x229.google.com with SMTP id x21so13894788ljg.10
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 02:06:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ETYUju+ev/hPzpv+l4JC8044Dj0mUXTx4GlVsgZjN38=;
+        b=iYo9iX04wVOZdT5EObsUtBWobIewodTvdRf8V0NODR74jwWMed+4YuLtDriVY2mWdB
+         8IO+AP5pPJj1asjIYQUufuR4O9zo3sHPmX2vJjyDWHNoAO9ATSTIvMTac0hiGeZu2ZOP
+         6hL7dvTVnZqlZTIp3fXv3P4tlv5DOGqcgfwTq/GEd4Btr90VXLGk8Z3zw/3+OLJL6aJz
+         MGfB+yQKhpedI8h60zu4pv8j0raeb7LPTHf5cfyT3hG0ssRYHZMWOhrEix2LPQtk7h2G
+         5tJe2YL0yoCfyXfanSGkY7C9p3hC5UclJplcZ8VZEA4o/YyuoDaBgwLLg0aqXiaqujQE
+         9/jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ETYUju+ev/hPzpv+l4JC8044Dj0mUXTx4GlVsgZjN38=;
+        b=Vi/EeDaGcvG7PCR0P8qGh4Ci8K+vUtxKH7TaaHQYNFXkDKz3zitB5rku+mG4BO/Pv1
+         nbINXRv4B9KvctMF3nJowYn/Oaf1UY1L8v6BmWZyOk5ZgHgL0n+kOtIgPrGoZ8CB48bN
+         Dr6qTlnzjVHzyC+UhYS0W9gRJBiZLd2TGLnRGowBPPhNWiZFlLgIB6Xk4agxleXEm5r7
+         /ptTrAlzJHO7R6kqaQGa7mqt43U0Gy8iW3esi2v5rV9Ox25Jd2rV/9NJ8DdVky518Od4
+         suQ9GusM318eamG9aN6V6PYSFZa6i7dIKBtgWPOz3VwQr17osCuRxAP/8KpCJ73vfkDl
+         03ZA==
+X-Gm-Message-State: ANoB5plOc56H+Vt3jZGVB4ihJ85r3BQIfydJbMU4Jupgw2DXLTHm7Rae
+	LvtDyfIf3I8IkMA8wU4FCX4RNA==
+X-Google-Smtp-Source: AA0mqf49LlvU9Pg6aP1uODsFd7BBPuYMotIvAVv05VGR/gjZCU6kQGPeu2jafd9bNMv501DNwGoAog==
+X-Received: by 2002:a2e:a263:0:b0:276:be89:5616 with SMTP id k3-20020a2ea263000000b00276be895616mr5077797ljm.347.1669025168551;
+        Mon, 21 Nov 2022 02:06:08 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id a26-20020ac25e7a000000b004b4930d53b5sm1958536lfr.134.2022.11.21.02.06.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Nov 2022 02:06:08 -0800 (PST)
+Message-ID: <08cdf11c-b399-3f45-7dc6-0f75407128bb@linaro.org>
+Date: Mon, 21 Nov 2022 11:06:06 +0100
 MIME-Version: 1.0
-References: <20221109064937.3643993-1-guoren@kernel.org> <20221109064937.3643993-3-guoren@kernel.org>
-In-Reply-To: <20221109064937.3643993-3-guoren@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 21 Nov 2022 17:53:28 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
-Message-ID: <CAJF2gTREDPrr7z-78P5MZavwQZhrgZ8+MoS07agzPMqvf86ipA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: stacktrace: Make walk_stackframe cross pt_regs frame
-To: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	conor.dooley@microchip.com, heiko@sntech.de, peterz@infradead.org, 
-	arnd@arndb.de, linux-arch@vger.kernel.org, keescook@chromium.org, 
-	paulmck@kernel.org, frederic@kernel.org, nsaenzju@redhat.com, 
-	changbin.du@intel.com, vincent.chen@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Palmer Dabbelt <palmer@rivosinc.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH 1/3] dt-bindings: timer: sifive,clint: add comaptibles for
+ T-Head's C9xx
+To: Icenowy Zheng <uwu@icenowy.me>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20221121041757.418645-1-uwu@icenowy.me>
+ <20221121041757.418645-2-uwu@icenowy.me>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221121041757.418645-2-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_015347_845367_761CB28E 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20221121_020612_258995_C93A6216 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,125 +100,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 9, 2022 at 2:50 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> The current walk_stackframe with FRAME_POINTER would stop unwinding at
-> ret_from_exception:
->   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
->   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
->   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
->   Call Trace:
->   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
->   [<ffffffe000aecf48>] show_stack+0x32/0x4a
->   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
->   [<ffffffe000af1648>] dump_stack+0x14/0x1c
->   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
->   [<ffffffe000239aec>] __might_sleep+0x10/0x18
->   [<ffffffe000afe3fe>] down_read+0x22/0xa4
->   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
->   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
->
-> The optimization would help walk_stackframe cross the pt_regs frame and
-> get more backtrace of debug info:
->   BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1518
->   in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: init
->   CPU: 0 PID: 1 Comm: init Not tainted 5.10.113-00021-g15c15974895c-dirty #192
->   Call Trace:
->   [<ffffffe0002038c8>] walk_stackframe+0x0/0xee
->   [<ffffffe000aecf48>] show_stack+0x32/0x4a
->   [<ffffffe000af1618>] dump_stack_lvl+0x72/0x8e
->   [<ffffffe000af1648>] dump_stack+0x14/0x1c
->   [<ffffffe000239ad2>] ___might_sleep+0x12e/0x138
->   [<ffffffe000239aec>] __might_sleep+0x10/0x18
->   [<ffffffe000afe3fe>] down_read+0x22/0xa4
->   [<ffffffe000207588>] do_page_fault+0xb0/0x2fe
->   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
->   [<ffffffe000613c06>] riscv_intc_irq+0x1a/0x72
->   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
->   [<ffffffe00033f44a>] vma_link+0x54/0x160
->   [<ffffffe000341d7a>] mmap_region+0x2cc/0x4d0
->   [<ffffffe000342256>] do_mmap+0x2d8/0x3ac
->   [<ffffffe000326318>] vm_mmap_pgoff+0x70/0xb8
->   [<ffffffe00032638a>] vm_mmap+0x2a/0x36
->   [<ffffffe0003cfdde>] elf_map+0x72/0x84
->   [<ffffffe0003d05f8>] load_elf_binary+0x69a/0xec8
->   [<ffffffe000376240>] bprm_execve+0x246/0x53a
->   [<ffffffe00037786c>] kernel_execve+0xe8/0x124
->   [<ffffffe000aecdf2>] run_init_process+0xfa/0x10c
->   [<ffffffe000aece16>] try_to_run_init_process+0x12/0x3c
->   [<ffffffe000afa920>] kernel_init+0xb4/0xf8
->   [<ffffffe000201b80>] ret_from_exception+0x0/0xc
->
-> Here is the error injection test code for the above output:
->  drivers/irqchip/irq-riscv-intc.c:
->  static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
->  {
->         unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
-> +       u32 tmp; __get_user(tmp, (u32 *)0);
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> Cc: Changbin Du <changbin.du@intel.com>
-> ---
->  arch/riscv/kernel/entry.S      | 2 +-
->  arch/riscv/kernel/stacktrace.c | 9 +++++++++
->  2 files changed, 10 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..329cf51fcd4d 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -248,7 +248,7 @@ ret_from_syscall_rejected:
->         andi t0, t0, _TIF_SYSCALL_WORK
->         bnez t0, handle_syscall_trace_exit
->
-> -ret_from_exception:
-> +ENTRY(ret_from_exception)
->         REG_L s0, PT_STATUS(sp)
->         csrc CSR_STATUS, SR_IE
->  #ifdef CONFIG_TRACE_IRQFLAGS
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index bcfe9eb55f80..75c8dd64fc48 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -16,6 +16,8 @@
->
->  #ifdef CONFIG_FRAME_POINTER
->
-> +extern asmlinkage void ret_from_exception(void);
-> +
->  void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->                              bool (*fn)(void *, unsigned long), void *arg)
->  {
-> @@ -59,6 +61,13 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->                         fp = frame->fp;
->                         pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
->                                                    &frame->ra);
-> +                       if (pc == (unsigned long) ret_from_exception) {
-I forgot ret_from_syscall because I tested it on the generic_entry
-series base. I would merge this patch into the generic_entry series as
-an optimization.
-
-> +                               if (unlikely(!__kernel_text_address(pc) || !fn(arg, pc)))
-> +                                       break;
-> +
-> +                               pc = ((struct pt_regs *)sp)->epc;
-> +                               fp = ((struct pt_regs *)sp)->s0;
-> +                       }
->                 }
->
->         }
-> --
-> 2.36.1
->
+On 21/11/2022 05:17, Icenowy Zheng wrote:
+> T-Head C906/C910 CLINT is not compliant to SiFive ones (and even not
+> compliant to the newcoming ACLINT spec) because of lack of mtime
+> register.
+> 
+> Add a compatible string formatted like the C9xx-specific PLIC
+> compatible, and do not allow a SiFive one as fallback because they're
+> not really compliant.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 
 
--- 
-Best Regards
- Guo Ren
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
