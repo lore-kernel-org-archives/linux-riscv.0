@@ -4,114 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFB6C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 12:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96C3C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 13:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvKe5ZTXuaR3y7D3+Kr+sXQIjM/KaVqNJll/dxI+EYA=; b=YVT5jTmDhFosfw
-	LgPPXGrUAWKG3osBe02Jek6VtRnMyVbkvT0i3RHKBVPLmhRoO8mqA/3Up4vDtok1QcXjz0MostCp6
-	N2cG7dY2WTFuK0npNlN0Aadvsrc3opYWbMoweJh5uPSQZddl3YyRNaimrLnAeX8VhivTVRGC/4SdH
-	dufS4AVWvTE/sSIzK1VUVnrRhoNWE8YG14YfS4a/vV1RwANmhFYsmu310oLpPWHvVQ+9wzQsw3zY1
-	g4pw1GdIyD0zpWwUUD5wWyz26ir40KSOSVqgNFaGx/58C+Miory7oSYDe9a8cIvkmFQ4/ZYWPrOyL
-	tmuMmrKYMH0JSOBp60wQ==;
+	List-Owner; bh=phCC/NHwMPCorzcMnG+Hnyk68M0lAD1quhZXTlKw/1g=; b=NXR3rkVm6TDVsv
+	wL33+o+67Wc7APm13Pw0JJ1acdqrKoR5Z7xoFmtCmbY1ObdXdpFawupnNd5ErRnmpFZn9XRhSUGc2
+	u3TotIEIdXpxt9CuOaNj7e2WnT2xVAV5CQbj89/6pZ9QzAwsEdyD8WKhpGVNx1gWm0nPbjli+2aQN
+	XUWQweYKjYaCIB3dhDYD32W6kFpo6O5eK3XI8Hcba2lMmZVTqiC5TyX6RsWQTyjdGGUoTA9rFfpsi
+	eg5AMBjkmXo+1yq7YqESjHUCNlO2G6PHMtaGDAI/9T/ryznhKzp6HP8UEKzdBfWrTED/y95MNW1UR
+	3XMXuxbUziub3hqc2m7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox5iX-00DORx-22; Mon, 21 Nov 2022 12:16:05 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ox4dB-00Cmrd-18
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 11:06:35 +0000
-Received: by mail-lf1-x134.google.com with SMTP id j16so18243504lfe.12
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 03:06:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UFWc0lyVlH95oooJGcIUPfd8EfwgVQvFO8qkEV+ffsc=;
-        b=r7hKUlGFZHSmUo8e9T5ttNSJVAtUIkxa+sycNhz6yjMvfgsi4BsfKebzRywymxymx0
-         5u8F1YiUTZQCXcqMn0sfhionqeBApbXWdupVJzyFaxfv5GrU+U3eV6uFF8Uc+bn9QYY9
-         Lms8Y8Dy0jualOb6Q3esqic3f7gurcqjMFZcZ+d9NzQOJ86H32u/XDiWQ2YkDuliRZvv
-         nRAaqsKnXNUtg68nfvEmkjWN8H79Sk3dDjy/u/sisLO3c+s0yeylT32uwz3f7gvWfFaj
-         gF7udl05HElld877JkEGkfP5OdFi8KqGkr7SLX3btVOqu0mHwPCN9Sin0XvK+TjDxtSD
-         nJpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UFWc0lyVlH95oooJGcIUPfd8EfwgVQvFO8qkEV+ffsc=;
-        b=g09vj+48il2NOD8Ji2vhBS91qwKJunBjwxXT7iq+QUur2KwEJ7MeD1WKeFD3R7wG/z
-         MiNDcVdfTOQcU9lzvI49wNE8EZNH5cwpreOt2j1g6ILjUwRKHzof8XFSRc0Au+4Cdnlj
-         P/e5G2+fl2dtjb3/xLcdtgEbVALrLUoBr44sFZFe/zrN0mSnxxNYR8uEde6/WgBnWJbA
-         Fu1TkXk/6kSWSg/JW+XWOqild5rRYr6lBiW5sjKckAtaNZQwA14uDQ+emgIIqMSFwu5/
-         Qfdnj/QZp2gpL1QcE3SZcplSJCS123HKFMeehZt1BYsqDA4nUMtaEnFXPkckUVGY0w1/
-         CRIQ==
-X-Gm-Message-State: ANoB5plFH5Pyousn5N9cg93UIGN/21CjXtc0wueKRPaf1ZwyJoY+WxEG
-	xr2ZquhcFXT67GvnNU+DlhrNkw==
-X-Google-Smtp-Source: AA0mqf636Kajsl/vCtaPitrxYhf2ypiEKfsGbHJhGytuU/U+YWfw7NKkZ181BWLvvcggxq6Qzec5vw==
-X-Received: by 2002:a19:dc08:0:b0:4b4:6460:24d with SMTP id t8-20020a19dc08000000b004b46460024dmr5540013lfg.386.1669028786293;
-        Mon, 21 Nov 2022 03:06:26 -0800 (PST)
-Received: from krzk-bin.NAT.warszawa.vectranet.pl (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id n1-20020a05651203e100b0049313f77755sm1991521lfq.213.2022.11.21.03.06.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Nov 2022 03:06:25 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-mtd@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-rtc@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-spi@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-watchdog@vger.kernel.org,
-	Stephen Boyd <sboyd@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Subject: [PATCH v2 3/9] dt-bindings: clock: st,stm32mp1-rcc: add proper title
-Date: Mon, 21 Nov 2022 12:06:09 +0100
-Message-Id: <20221121110615.97962-4-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
-References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
+	id 1ox6cs-00DwhF-QS; Mon, 21 Nov 2022 13:14:18 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1ox6cn-00Dwfx-Hv
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 13:14:17 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C4E9624E2BA;
+	Mon, 21 Nov 2022 21:13:41 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 21 Nov
+ 2022 21:13:41 +0800
+Received: from [192.168.125.106] (113.72.144.23) by EXMBX072.cuchost.com
+ (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 21 Nov
+ 2022 21:13:41 +0800
+Message-ID: <dc09d673-906c-0cd2-2f16-5ee0af3691e2@starfivetech.com>
+Date: Mon, 21 Nov 2022 21:13:27 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v2 02/14] clk: starfive: Rename "jh7100" to "jh71x0" for
+ the common code
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Conor Dooley
+	<conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+References: <20221118010627.70576-1-hal.feng@starfivetech.com>
+ <20221118010627.70576-3-hal.feng@starfivetech.com>
+ <CAJM55Z-Zftr29oGzeBFzOKuGixABSJEzPF-R2c0U9Pg5qDcRCQ@mail.gmail.com>
+ <13578755-ab98-7567-258d-bc6c4164ee6c@starfivetech.com>
+ <CAJM55Z-a1Pg2q7ZyvhwU2sp9YpsJZmE8y161UM-Ap7egCdgYVw@mail.gmail.com>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <CAJM55Z-a1Pg2q7ZyvhwU2sp9YpsJZmE8y161UM-Ap7egCdgYVw@mail.gmail.com>
+X-Originating-IP: [113.72.144.23]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX072.cuchost.com
+ (172.16.6.82)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_030629_103860_CE7737EA 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20221121_051414_276119_45962C7D 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +84,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device name in the title, because "Reset Clock Controller" sounds
-too generic.
+On Mon, 21 Nov 2022 12:32:24 +0100, Emil Renner Berthing wrote:
+> On Mon, 21 Nov 2022 at 08:16, Hal Feng <hal.feng@starfivetech.com> wrote:
+> >
+> > On Sat, 19 Nov 2022 00:26:27 +0800, Emil Renner Berthing wrote:
+> > > On Fri, 18 Nov 2022 at 02:06, Hal Feng <hal.feng@starfivetech.com> wrote:
+> > > >
+> > > > Rename "clk-starfive-jh7100.h" to "clk-starfive-jh71x0.h" and rename
+> > > > some variables from "jh7100" or "JH7100" to "jh71x0" or "JH71X0".
+> > > >
+> > > > Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+> > >
+> > > The patch is fine, but I'm a little unsure about this Co-developed-by.
+> > > This patch is taken directly from my jh7110 branch so does Hal sending
+> > > it count as co-developed-by?
+> >
+> > Your original patch merged patch 1 and patch 2. Suggested by Stephen, I
+> > split the patch into two patches, and I need to add a new commit. My
+> > previous thinking was that the Co-developed-by tag should not be added
+> > to the commit author, so I added it to you.
+> 
+> Even if you didn't just copy it[1] I still don't think splitting
+> patches counts as "developed by". You can set the author of new
+> commits or copy them from a previous commit with git commit -c.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
----
- Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Okay, I will remove my Co-developed-by tag in patch 1, 2, 4, 5 and set the
+commit author as you.
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-index 242fe922b035..5194be0b410e 100644
---- a/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp1-rcc.yaml
-@@ -4,7 +4,7 @@
- $id: http://devicetree.org/schemas/clock/st,stm32mp1-rcc.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Reset Clock Controller Binding
-+title: STMicroelectronics STM32MP1 Reset Clock Controller
- 
- maintainers:
-   - Gabriel Fernandez <gabriel.fernandez@foss.st.com>
--- 
-2.34.1
+> 
+> [1]: https://github.com/esmil/linux/commit/df4bcbc307e97cb6a0e7b8ed5ecc66487395176d
 
+Oh, I don't even know you still work on JH7110 and update on github.. All
+your patches were cherry-picked from your gitlab branch. There is no doubt
+that we did the same thing for this patch.
+
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
