@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 22:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76728C43219
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Nov 2022 22:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eFKOSqKLDXDsVQOYXpZ2v5HSFs1Eq2NYPKDZU7Y1Amk=; b=bx0LhfNm5czjmv
-	FHL5S///Poh0Lapk4A+dbZQJrIzwBDU4prZJJyhiVgLFiEeyG340sRlKNK4achmnqDZWNuJVNw8SH
-	2qi4cP+GngRhTPAHsRdV60IgzUQeCe9jJ9rcqDQ5oEYNly8/9j9b98z/yzCR1uxu8dDb8Ya0Fobov
-	3XjOk02cmXC1HMBzeWmh35UvRegieZAWw/7Xy5DYNqlUnQOKPOvRcQiLGoz6wmbWt//PU+50AGLY1
-	cxhEa4g5eh0HID775ktx2RPzz7uFvwh8SWFNLACNj6EJnafgGw35zEzqXkeTugt5b9UBgugYPMuU7
-	384pHjrnmloUX/eKPsog==;
+	List-Owner; bh=PDQ91zxHopWidTMalX4gzqFmOFYI5X5g+aQ5TKoby5g=; b=kXKNgMlF/wgaV2
+	H9MzvOoTmra2SSYK8iJkSfYE4jxUm0u9p691XdvbrMkSfZDCQ0njlB6GZ09Y5iaqTesSmA2NlEqwB
+	CnCZ5/IitqMfe6VGi+LteDhRQhawO53yrMVn+Fh6XZSWTOOM0clPyIr1MBewV6d6n6pNrNpUTEchg
+	3P2ca8xqblQMJKN2xhHbg5/aHOklXgAd2U0lnEk3sjM1um2AlX3z8nxSuuW88ktTb63kCUDIAWSks
+	wYkn20AbkaDyk5f5/rUjMpSlKGB5WOrguc5ZT6kHomm7Zwid3VVZG5PAOwHJwnScwUgOuY5ROb0ip
+	s6OSNMcsJI7TgniSS6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxF7S-000mO9-Ck; Mon, 21 Nov 2022 22:18:26 +0000
+	id 1oxF7T-000mP4-Pe; Mon, 21 Nov 2022 22:18:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxF7P-000mLf-3B
-	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 22:18:24 +0000
+	id 1oxF7Q-000mN4-N9
+	for linux-riscv@lists.infradead.org; Mon, 21 Nov 2022 22:18:26 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D981E6149F;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 532A3614C5;
+	Mon, 21 Nov 2022 22:18:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0133C433D6;
 	Mon, 21 Nov 2022 22:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F76AC433C1;
-	Mon, 21 Nov 2022 22:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669069101;
-	bh=WcD2ybXJSAZYlOtR2LSjGbZlpJ0NRs6W6tIvU9o+TD8=;
+	s=k20201202; t=1669069103;
+	bh=tHpQxQq0I3Nv/AqKujXXZpXk5FWAzTV8ovqrazYylmU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jU0WSjjDmijf6hS+mp6F71jPCF9V2rsgIiHK7e7eEJzFY6pf5mkgZnzt3iBR7SgH0
-	 fZLka0h+gI4baVfQHNmm87bbR+CU5G7c6jKrQneQUYOWBFXDuxjKbD2qll8G/LIMzq
-	 q/Fk2XuETtW6nL8DvNUzmmx8BU1V63mJy/etIqwVR2huOKQ1eyCZxS5U/DgBaGth68
-	 fE0il/bW3Ntcmf/bDyuxt+D9Finuwo4ZtpZ4glY1CTpgQeP5T5ilPLfdwJbPE+1H6G
-	 kifVQL3CUzHIXSPrws7wczHX08qkIXrSH5EzNz3fHIoeVZhyvm5GDGlTPVweksHQiM
-	 +zyPTnQPYuP0g==
+	b=ahhD/mmgkL43J1FtqDGQv1JruQXSTl+kBbC/iJziwcR0bRSnyoj0NL7F4Lv7/ybbc
+	 xJsZ6CxIiqUM32Hu00tmgfDqGXo3T1Sa9b2uWCksISczcKzDqaZt9IgVMl7MdSoSN9
+	 6c3jhr7pzSI1w06b7bIivEiMallc2hql4etXHLgKevt5NRV6ghpxsqGyLJB1tZ8v+c
+	 vT/wESPjIbD8pM1cvyGbL28d4i1bm++aq57acr7Pu96GgaArhIFDnIsaCtWXreoAiE
+	 xXTkw1tbdt0hV4O+/j9AFdRfCu74alxCg/A65ti5ot1P8IJ0JnIpGZAenN0UMWTQrf
+	 ci1Re8/jo5r9w==
 From: Conor Dooley <conor@kernel.org>
 To: linux-riscv@lists.infradead.org
 Cc: Conor Dooley <conor.dooley@microchip.com>,
@@ -53,16 +53,16 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH v1 3/7] RISC-V: kbuild: convert all use of SOC_FOO to ARCH_FOO
-Date: Mon, 21 Nov 2022 22:14:11 +0000
-Message-Id: <20221121221414.109965-4-conor@kernel.org>
+Subject: [PATCH v1 4/7] RISC-V: stop selecting SIFIVE_PLIC at the SoC level
+Date: Mon, 21 Nov 2022 22:14:12 +0000
+Message-Id: <20221121221414.109965-5-conor@kernel.org>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221121221414.109965-1-conor@kernel.org>
 References: <20221121221414.109965-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_141823_229992_AD9C6298 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20221121_141824_819343_75EC6F61 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +81,72 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert all non user visible use of SOC_FOO symbols to their ARCH_FOO
-variants. The canaan DTs are an outlier in that they're gated at the
-directory and the file level. Drop the directory level gating while we
-are swapping the symbol names over.
+The SIFIVE_PLIC driver is used by all current RISC-V SoCs & will be,
+where possible, used for future implementations. Rather than having each
+SoC select the option in Kconfig.socs, do so at the arch level.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Makefile                    |  2 +-
- arch/riscv/boot/dts/Makefile           |  2 +-
- arch/riscv/boot/dts/canaan/Makefile    | 14 +++++++-------
- arch/riscv/boot/dts/microchip/Makefile |  8 ++++----
- arch/riscv/boot/dts/sifive/Makefile    |  4 ++--
- arch/riscv/boot/dts/starfive/Makefile  |  2 +-
- 6 files changed, 16 insertions(+), 16 deletions(-)
+ arch/riscv/Kconfig      | 1 +
+ arch/riscv/Kconfig.socs | 5 -----
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 0d13b597cb55..46a520c1273c 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -131,7 +131,7 @@ endif
- endif
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index fec54872ab45..d7334e02d20b 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -125,6 +125,7 @@ config RISCV
+ 	select PCI_MSI if PCI
+ 	select RISCV_INTC
+ 	select RISCV_TIMER if RISCV_SBI
++	select SIFIVE_PLIC
+ 	select SPARSE_IRQ
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select THREAD_INFO_IN_TASK
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 203d1c528ef4..ce920f627f6d 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -6,7 +6,6 @@ config ARCH_MICROCHIP_POLARFIRE
+ config SOC_MICROCHIP_POLARFIRE
+ 	bool "Microchip PolarFire SoCs"
+ 	select MCHP_CLK_MPFS
+-	select SIFIVE_PLIC
+ 	help
+ 	  This enables support for Microchip PolarFire SoC platforms.
  
- ifneq ($(CONFIG_XIP_KERNEL),y)
--ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
-+ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_ARCH_CANAAN),yy)
- KBUILD_IMAGE := $(boot)/loader.bin
- else
- ifeq ($(CONFIG_EFI_ZBOOT),)
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index b0ff5fbabb0c..0c97d673b775 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- subdir-y += sifive
- subdir-y += starfive
--subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
-+subdir-y += canaan
- subdir-y += microchip
- subdir-y += renesas
+@@ -24,7 +23,6 @@ config SOC_SIFIVE
+ 	select SERIAL_SIFIVE_CONSOLE if TTY
+ 	select CLK_SIFIVE
+ 	select CLK_SIFIVE_PRCI
+-	select SIFIVE_PLIC
+ 	select ERRATA_SIFIVE if !XIP_KERNEL
+ 	help
+ 	  This enables support for SiFive SoC platform hardware.
+@@ -36,7 +34,6 @@ config SOC_STARFIVE
+ 	bool "StarFive SoCs"
+ 	select PINCTRL
+ 	select RESET_CONTROLLER
+-	select SIFIVE_PLIC
+ 	help
+ 	  This enables support for StarFive SoC platform hardware.
  
-diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-index befe4eb7527b..520623264c87 100644
---- a/arch/riscv/boot/dts/canaan/Makefile
-+++ b/arch/riscv/boot/dts/canaan/Makefile
-@@ -1,9 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_CANAAN) += canaan_kd233.dtb
--dtb-$(CONFIG_SOC_CANAAN) += k210_generic.dtb
--dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_bit.dtb
--dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_dock.dtb
--dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_go.dtb
--dtb-$(CONFIG_SOC_CANAAN) += sipeed_maixduino.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += canaan_kd233.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += k210_generic.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_bit.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_dock.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maix_go.dtb
-+dtb-$(CONFIG_ARCH_CANAAN) += sipeed_maixduino.dtb
- 
--obj-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_SOC_CANAAN_K210_DTB_SOURCE))
-+obj-$(CONFIG_ARCH_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_ARCH_CANAAN_K210_DTB_SOURCE))
-diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-index 7427a20934f3..259c3c802cab 100644
---- a/arch/riscv/boot/dts/microchip/Makefile
-+++ b/arch/riscv/boot/dts/microchip/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
--dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
--dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
--dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
-+dtb-$(CONFIG_ARCH_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-index d90e4eb0ade8..6a5fbd4ed96a 100644
---- a/arch/riscv/boot/dts/sifive/Makefile
-+++ b/arch/riscv/boot/dts/sifive/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb \
--			    hifive-unmatched-a00.dtb
-+dtb-$(CONFIG_ARCH_SIFIVE) += hifive-unleashed-a00.dtb \
-+			     hifive-unmatched-a00.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index 039c143cba33..7b00a48580ca 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb jh7100-starfive-visionfive-v1.dtb
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-beaglev-starlight.dtb jh7100-starfive-visionfive-v1.dtb
+@@ -51,7 +48,6 @@ config SOC_VIRT
+ 	select POWER_RESET_SYSCON_POWEROFF
+ 	select GOLDFISH
+ 	select RTC_DRV_GOLDFISH if RTC_CLASS
+-	select SIFIVE_PLIC
+ 	select PM_GENERIC_DOMAINS if PM
+ 	select PM_GENERIC_DOMAINS_OF if PM && OF
+ 	select RISCV_SBI_CPUIDLE if CPU_IDLE && RISCV_SBI
+@@ -67,7 +63,6 @@ config SOC_CANAAN
+ 	select CLINT_TIMER if RISCV_M_MODE
+ 	select SERIAL_SIFIVE if TTY
+ 	select SERIAL_SIFIVE_CONSOLE if TTY
+-	select SIFIVE_PLIC
+ 	select ARCH_HAS_RESET_CONTROLLER
+ 	select PINCTRL
+ 	select COMMON_CLK
 -- 
 2.37.2
 
