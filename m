@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 791B0C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 13:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8B0C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 14:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MpM/aPS3AuFC6LADuW9elk24yuvY0jivZiTHNKfflnA=; b=w1P40IiI75NHYq
-	mMMVkW5S5HZ+8uYhVAArYP4HOurpbkm8G0oKE6Rnls6ieenK7Weu8aPjff+eRhqHHBn66wup0H1nF
-	jlf03x/fZZpaUb7/eqeuIZuW9O0iFRWRfJ+VuFW5SGjUuxy4C8M5kzDl9Mj5SadqKGywfszMRwj2H
-	8o9wi1T2pDC6vHRUPFWjzyklgko+3YXGf6yiLlJpg/2aP+kF9/lP2GU8MM3l7lT5kfVnvBBxzyvt8
-	ZtlVVz19U8RaeEz/Y6gignYVWdQQXzLvxpsEcByBcip1KTwlF+F5bdBSUQdqqmW0xQo72qK9/fDTc
-	v73V42PEwcDtSAXv7kEw==;
+	List-Owner; bh=35i3PPOokIET2xupCgLJwk/TL6ab8iv39xxHTUgDi+4=; b=Q/SNqf4zqtx3gD
+	8AmtL0BWfwz1O0SUOZVcsUXVVkjynHK4X1eoLCfmrqQEXMguDQ/DQtVSyDr9REXnC1KP/VwBPe10t
+	FoefxpUIw4PXFDIdwGSWjNacrE5GNGupMGwMF4FN1tLCg/A724nHIoarhq/S92d4uJtHmBo5NL2r4
+	yFkfcaCtDadhCcD/ZxBHBYqmKxxF+Ck7Q7qDuy8R1l0HYwC3f+vael3PZelrwy9nA13yajOsBr6+Z
+	ILUorNYJPSRy+NsJNM6JgzVDLjw/RlyPe5IWJGNmoE1MfwIaK/HSh3LaDMpKgyWzQ0YepDoq6jRzP
+	CwmjlbnvUunGaH9/jG7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxTEP-009c9e-Pb; Tue, 22 Nov 2022 13:22:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxTEM-009buZ-F3
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 13:22:32 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D43AC24E1BB;
-	Tue, 22 Nov 2022 21:22:04 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 21:22:05 +0800
-Received: from [192.168.125.96] (113.72.144.23) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 21:22:03 +0800
-Message-ID: <f21b0aa9-2ac8-ae28-755a-d530171f930a@starfivetech.com>
-Date: Tue, 22 Nov 2022 21:22:03 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 2/4] dt-bindings: power: Add starfive,jh71xx-power
- bindings
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20221118133216.17037-1-walker.chen@starfivetech.com>
- <20221118133216.17037-3-walker.chen@starfivetech.com>
- <99302e53-c0c9-cfe8-4e6a-c70e8428d9c3@linaro.org>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <99302e53-c0c9-cfe8-4e6a-c70e8428d9c3@linaro.org>
-X-Originating-IP: [113.72.144.23]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+	id 1oxUQd-00A1We-2J; Tue, 22 Nov 2022 14:39:15 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oxUQa-00A1Tn-NN
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 14:39:14 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id 597445C029A;
+	Tue, 22 Nov 2022 09:39:05 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Tue, 22 Nov 2022 09:39:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm3; t=1669127945; x=1669214345; bh=HgcTvrOzWb
+	rPEnstFV8N3bfoqJK7apCCploBv7wYBhw=; b=ESNGfJ+jFIkSMLlVpTo1AUnlfw
+	fEipvAPutMXPzQJUxlnQfY3kxH2bJ3fuQKJ8h55IDz/fR2qhS+W+45GMsxRXqIFd
+	cB5+3/XptWILd0mn4JQzjJBTEES08cbi3puH5jUm465BWVBL5RggcWbICOXuMhPs
+	t5jJ3xdwzgAHCqLVH1aqdtStc7JjQVVGJr/iyDfz42c0RhO3dQoEgs1dSoXPj4Qj
+	374WxO4XAkS06aS0rNsP+kMxNkcSqZt3tMyg/deGO8XPbhcRPJeoykLgXGm28pjT
+	nJnjrux6m/n+klkFWmDvRo4wRodkDDkQh7dA2gtF9jdYC/2XFR31dsCFiKIg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1669127945; x=1669214345; bh=HgcTvrOzWbrPEnstFV8N3bfoqJK7
+	apCCploBv7wYBhw=; b=cRh1RRtVVPMzGEbUpD2FiVLytODIaaZqxnOmTE/Ge/3C
+	9SJS08wBZ4QnB5dPMae3O0KSeL110kih5naj5qMjmpQcBnvA7D2aUqvDvOR7/BlG
+	noqDKfELYq8nBSkbO+5oYu/IdX2dIhXZcbtmp4XNQY3+4uSjqJFv+/JqgtfnjVdq
+	iqeUIwdawzEFfRJID52x4aj4HwICtbauRYephzCPh1cVKi8rqVGfRJtanjvrqweP
+	J/+iHSBk1WuJI/4ATm/zj0opS7rvXBlvnRk8t5upS4oU4vzGvdhaYLkxRKgwlwAd
+	79bAKaKXrmY9y/LnzY330R6p9RQMol3liT23Dl3k7Q==
+X-ME-Sender: <xms:Cd98Y9zdQ0pAfhz3A-rvWW42Fd3bRYp_kTBzca3UEQcV_NyuhfetDg>
+    <xme:Cd98Y9Q6_y70zf3aSolSSWjbT90RQwK_ZZRDeSvS7ZbutkD4DmkB3ORjMraFC0Elh
+    K_Bb8rQnAFNbjXZYLk>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrheelgdefjecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
+    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
+    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
+    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
+    hnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:Cd98Y3XcVlxLI8ukN8uUG-VPUsxvFjMu4qwAB8mdOwdAKPSp2iynUQ>
+    <xmx:Cd98Y_hnzFG5MFeEaxvaLWMl8PwURpDAv911LbY1pZnYafzQGQqnZg>
+    <xmx:Cd98Y_DYVJ6HB-GodaowopaC-vwrIs3Btqx19IV_jCwLCEzmFp-C_w>
+    <xmx:Cd98Y056G6pU38nS_JpZZfg92gTyqIOuzvozC-CpnW-6BMIYloTOhw>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 0FD8CB60086; Tue, 22 Nov 2022 09:39:04 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1115-g8b801eadce-fm-20221102.001-g8b801ead
+Mime-Version: 1.0
+Message-Id: <608037ab-1e9c-4f70-b85c-5665a4bb1769@app.fastmail.com>
+In-Reply-To: <Y3u0Oydiv2Wauda2@spud>
+References: <Y3u0Oydiv2Wauda2@spud>
+Date: Tue, 22 Nov 2022 15:38:40 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Conor Dooley" <conor@kernel.org>, soc@kernel.org
+Cc: linux-riscv@lists.infradead.org, "Palmer Dabbelt" <palmer@dabbelt.com>
+Subject: Re: RISC-V SoC Drivers for v6.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_052230_703489_4F738B72 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20221122_063913_096446_49127AE4 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +100,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/21 18:13, Krzysztof Kozlowski wrote:
-> On 18/11/2022 14:32, Walker Chen wrote:
->> Add bindings for the power domain controller on the StarFive JH71XX SoC.
->> 
-> 
-> Subject: drop second, redundant "bindings".
+On Mon, Nov 21, 2022, at 18:24, Conor Dooley wrote:
+> Hey Arnd,
+>
+> Same stuff applies here: lmk if there's something you'd rather see changed.
+> Perhaps you'd prefer to see PRs per vendor? Although I think that's less
+> likely to matter here than in the DT stuff. Again, I'll try to get the PR
+> out a bit earlier next time.
 
-Will fix.
+Applied, this looks fine, just a few things to keep in mind:
 
-> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->>  .../bindings/power/starfive,jh71xx-power.yaml | 46 +++++++++++++++++++
-> 
-> 1st patch should be squashed here. Headers are part of bindings file.
+- please add "[GIT PULL]" to the subject line of the email
+- Splitting up a large pull request into smaller ones can be
+  helpful to make sure things don't go in unnoticed. I try to
+  (briefly) look at each patch, but if you have 20 boring but
+  large patches, and a small but important patch that I may
+  need to comment on, that is a good reason to split.
 
-Will be done in the next version of patch.
+> Not too much to see here, Yang Yingliang has added some error handling
+> to the setup of the driver that reports SiFive cache topology
+> information. I've put it on -next given how far we are in the release
+> cycle, feel free to put it on fixes if you disagree :)
 
-> 
->>  1 file changed, 46 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml
->> 
->> diff --git a/Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml b/Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml
->> new file mode 100644
->> index 000000000000..2537303b4829
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/power/starfive,jh71xx-power.yaml
-> 
-> Filename like compatible.
+This is fine either way, as none of the fixes are likely to cause
+any real issues. I usually like to err on the side of having too much
+in the fixes branch instead of risking to miss something, but I'm
+just as happy to follow your preference here.
 
-As mentioned in the previous email, the compatible in the driver should be changed to "starfive,jh7110-power".
+> RISC-V SoC drivers for v6.2
+>
+> SiFive:
+> - add probe error handling to the ccache driver
 
-> 
->> @@ -0,0 +1,46 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/power/starfive,jh71xx-power.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: StarFive JH71xx Power Domains Controller
->> +
->> +maintainers:
->> +  - Walker Chen <walker.chen@starfivetech.com>
->> +
->> +description: |
->> +  StarFive JH71xx SoCs include support for multiple power domains which can be
->> +  powered on/off by software based on different application scenes to save power.
->> +
->> +properties:
->> +  compatible:
->> +    items:
-> 
-> No items. You have just one item,
+Since this tag description becomes part of the git history, try to write
+it like you would write a commit log in the future. Ideally that
+avoids bulleted lists (I know they are easy) and instead uses full
+sentences that explain things about the state of the patches. If there
+are bugfixes, are users likely to need the fixes or were they found
+through inspection? For new features, explain who would have the
+corresponding hardware and what it does. Again, what you have here
+is not wrong, but it can always get better.
 
-Yes, this issue will be fixed. Thank you for your advice.
-
-Best Regards,
-Walker Chen
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
