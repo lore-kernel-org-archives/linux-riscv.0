@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF624C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 10:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38747C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 10:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o+A+I5QjpH5CoQ00m4rRgvjAjYH1SkA5e81z1pqBhZA=; b=NxXyp9Xx8kTSPa
-	AubLaXcHc57HC4OaH+/CxzJ/zHUC9uzjVsmyWalViFflO5EMC9r9WMu5MVEW9cakzAoQD2Le+ddCW
-	5E5CHZegWE8KNFTIMyigXVpmkik+vJfhFAoGNz1y9zDkyOG0y30dELhOfpTH7k7EASNgk8lzAkDFu
-	2DaOWaQxBr0KkS4ggrjb3OF5nstba2egbM+9Sr7hCVqR4PgK10UbGvWfl9ucnlmOtwDrCLEcOORj6
-	bAz/2Ur/4iY5QzNUc7NoCsET4HZUR0r3N5LMN1Z/lmUP/Gaojrh8aVnGOKlgd0+QdhKb6h30uUHzf
-	kGr0r/takJGbKj6RgDvg==;
+	List-Owner; bh=60gzIVRY+eOGjuf7hGbnQ4iKuHZTb8GnrpabveElzcE=; b=B5A+y/xwFTcY8P
+	X5BFElwBDcR5LAQ7gAmdb+5HaV4rbHCvBypANWAjx5AocqGr5wGYDKEagzPIh7BW4Xn8ZNUeWweXE
+	WDn/x9Erb2qT4pvlzX9vH2GIGXfiJdaaCSU8iLH+opncUdhshuIArXBi4QEoHHnmRWjpXlTqgKo+/
+	CJpP4QOC/jCH2jKB0X3ckOwHsY67Q6lSk0HT7P41peLMMBj91cuqGL7cRpsht1+WwwVVBOpdTAjq9
+	1n/OrsgXXvL+xD9gkclSthLuKW/WMBzmUlcS3dtCQpVgQEomlD+m17sA1OtjmbqiozNh8xF2H2rFH
+	CAjIPPOVyoADhVws9U1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxQN7-007jwb-O9; Tue, 22 Nov 2022 10:19:21 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxQKj-007inR-B1
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 10:16:57 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 37BC624DE73;
-	Tue, 22 Nov 2022 18:16:22 +0800 (CST)
-Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 18:16:22 +0800
-Received: from [192.168.125.106] (113.72.144.23) by EXMBX072.cuchost.com
- (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 18:16:21 +0800
-Message-ID: <b57bdf1c-19f4-3d70-7618-16817669abc5@starfivetech.com>
-Date: Tue, 22 Nov 2022 18:16:07 +0800
+	id 1oxQU9-007nm8-1B; Tue, 22 Nov 2022 10:26:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oxQTJ-007nKg-Qc
+	for linux-riscv@bombadil.infradead.org; Tue, 22 Nov 2022 10:25:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9Ffx34EpUvz/wk2V0TkLGpQPfUVhIxoixoNZG+R5yhU=; b=QwrASGbbvD+6BK7uDHCEEDI9sP
+	z0aPvMgqBAJ1c5Ez5vUSyxGrp7/hKR3aC3so3rtMHvNMP4g5WiXwBZvombZ4nMFCiYN+RVlB5LAXa
+	ji1MqoqVLW7TJTMTNEMejalrvbGOCYl557/7Dra6Ud7bzfmxvl4tisFtlE//sVEK5asGlM2QmSVjw
+	jOZlhPrBDJ6jmN81E6a0WAIGJSNiGFl5EFebnBa4eeWZPVhEdRM/+DmrI0lxUCTiwKn+BHb1N/UL5
+	3Kusr2z7edDDHz6sAYyVegkeDHmy5XZDiqOrCkFHdIzTXJJB+zNCj7AWpAKOByabxeyFHGRi+gWGH
+	qqtfnNqA==;
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oxQF5-003P1v-NP
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 10:11:08 +0000
+Received: by mail-pl1-x632.google.com with SMTP id y10so11981332plp.3
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 02:10:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9Ffx34EpUvz/wk2V0TkLGpQPfUVhIxoixoNZG+R5yhU=;
+        b=TVN5V6A7gjqPVkAUn4JbFNorOWRrBKFn7ykWEJFI2TJyoLwiq9OSTR31A7QwxM/sgq
+         KMg0c+/ECORPxlNsN7/S07SNEgU7QXb2cUDS2ry1M5DkXy0wp3y18EEdHQvJYEmYK/Rl
+         C4OS51EMJa4XoawksMYV/Cf9b5L1ulCHoVN65dRBkBMOIDHvmj8jN2tkIGErvk/9QZG8
+         vsxqY2OPl5wDk2T4Ja6eJ0XKeO3maMTXu6xlKRLV5URoxFCGq+WOl6szvf11N02f8hpi
+         B34fRWv1L4KyL4bhKSwrv1dEOgWY/rFh3gVsHIVXnfFcWQUalNUho/A+qyH5hiABzQ8l
+         F42w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9Ffx34EpUvz/wk2V0TkLGpQPfUVhIxoixoNZG+R5yhU=;
+        b=yD6/H6arvQPTlr97/RYWR+mAQuS32UmjlhnZYtRXM7BkKB+b1loQWkmRdG9fGKQrJT
+         uemkx16EGLOrAF1Hpl5W3tHH5nja0ZEOG+bjLLLFJ5r/FhnM/hw8vgME3K88Dm69seGe
+         4PUAgCLaGna2e98bMXm1R/kHQQKJCy+zwgFPEUzOxfaRmu0l5mX94xBcBVbVlkzcWowF
+         c/9WAheLbX9hVTK0Poo4YbIu4uYErp+FHGJKWbFJhqpeBdLe+gDm07qTI/nYSIlTgkFl
+         VQK+Af4URFBvybrZEcgfB9mXSJhfpCV2IDdl4T1iQZ37KMiFEP3/Sh+7Pm5dvuLT+Akr
+         p3mA==
+X-Gm-Message-State: ANoB5plNKsYtB5dCOUh/Z53mvKw2QIYqeaDTCNcJCS5mZLarPUQEQW5L
+	a/PeviAcYpGJkFAVaxYe36i7b0iJNY/in7DBbgXKyCCeVno=
+X-Google-Smtp-Source: AA0mqf7EWECK5efgWxORmvkHfTeEiAaT/+7tYzpwh78/RlRBi/8M0vH9zW9E6QMP8gG5GC3WkLfXJn+8uC6/tjmYfu8=
+X-Received: by 2002:a17:902:6847:b0:183:6555:38ef with SMTP id
+ f7-20020a170902684700b00183655538efmr6778345pln.157.1669111858051; Tue, 22
+ Nov 2022 02:10:58 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v2 4/8] dt-bindings: sifive,ccache0: Support StarFive
- JH7110 SoC
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
-	<ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier
-	<maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Linus
- Walleij" <linus.walleij@linaro.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-References: <20221118011714.70877-1-hal.feng@starfivetech.com>
- <20221118011714.70877-5-hal.feng@starfivetech.com> <Y3duiJguYE6VrVLP@spud>
- <Y3dvCPP1g0LzzHFO@spud>
- <a5193e23-efe1-fa65-15de-d53b80b87d63@starfivetech.com>
- <Y3yRTuo69JUsfLqk@wendy>
- <0f9e423e-37c0-a838-bf25-f9b6784a31d0@starfivetech.com>
- <Y3yd+tfFl4yvXOx6@wendy>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <Y3yd+tfFl4yvXOx6@wendy>
-X-Originating-IP: [113.72.144.23]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX072.cuchost.com
- (172.16.6.82)
-X-YovoleRuleAgent: yovoleflag
+References: <20220923100149.2647325-1-suagrfillet@gmail.com>
+In-Reply-To: <20220923100149.2647325-1-suagrfillet@gmail.com>
+From: Song Shuai <suagrfillet@gmail.com>
+Date: Tue, 22 Nov 2022 10:10:46 +0000
+Message-ID: <CAAYs2=hx49ahtY3pe1z241Vd1mRNZjc-oigubmKy0aGqg6T8ag@mail.gmail.com>
+Subject: Re: [PATCH RESEND] riscv : select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
+To: Guo Ren <guoren@kernel.org>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu
+Cc: guoren@linux.alibaba.com, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_021653_724276_6A6329A2 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20221122_101104_057379_37C43ABF 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +96,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Nov 2022 10:01:30 +0000, Conor Dooley wrote:
-> On Tue, Nov 22, 2022 at 05:55:57PM +0800, Hal Feng wrote:
-> > On Tue, 22 Nov 2022 09:07:26 +0000, Conor Dooley wrote:
-> > > On Tue, Nov 22, 2022 at 04:40:23PM +0800, Hal Feng wrote:
-> > > > On Fri, 18 Nov 2022 19:39:52 +0800, Conor Dooley wrote:
-> > > > > On Fri, Nov 18, 2022 at 11:37:50AM +0000, Conor Dooley wrote:
-> > > > > > On Fri, Nov 18, 2022 at 09:17:10AM +0800, Hal Feng wrote:
-> > > > > > > From: Emil Renner Berthing <kernel@esmil.dk>
-> > > > > > > 
-> > > > > > > This cache controller is also used on the StarFive JH7110 SoC.
-> > > > > > 
-> > > > > > "... and configured identically to that of the FU740"?
-> > > > > > Anyways,
-> > > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > 
-> > > > > Actually, after looking at the next patch - why can you not fall back to
-> > > > > the fu740 one since you appear to have the same configuration as it?
-> > > > 
-> > > > Right, I will drop this patch and use "sifive,fu740-c000-ccache" as
-> > > > compatible in dts.
-> > > 
-> > > Uh, that's not quite what I was suggesting. Rather than using that one
-> > > in isolation, you can do the following in your dt:
-> > > "starfive,jh7110-ccache", "sifive,fu740-c000-ccache"
-> > > 
-> > > And then in the driver we need to make no changes - unless down the line
-> > > we find some sort of issue that requires special handling etc. There's
-> > > no harm in having a "starfive,jh7110-ccache" IMO.
-> > 
-> > Just like what microchip did as blow?
-
-below
-
-> > 
-> > Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml:
-> > properties:
-> >   compatible:
-> >     oneOf:
-> >       - items:
-> >           - enum:
-> >               - sifive,ccache0
-> >               - sifive,fu540-c000-ccache
-> >               - sifive,fu740-c000-ccache
-> >               - starfive,jh7110-ccache
-> >           - const: cache
-> >       - items:
-> >           - const: microchip,mpfs-ccache
-> >           - const: sifive,fu540-c000-ccache
-> >           - const: cache
-> 
-> No, I don't think this is correct either. You'd do something like:
-> 
-> >       - items:
-> >           - const: starfive,jh7110-ccache
-> >           - const: sifive,fu740-c000-ccache
-> >           - const: cache
-
-Yeah, this is what I mean. Thanks.
-
-Best regards,
-Hal
-
-> 
-> And then the driver needs no changes.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiDkuo4yMDIy5bm0OeaciDIz5pel5ZGo
+5LqUIDEwOjAz5YaZ6YGT77yaCj4KPiByaXNjdiBub3cgdXNlcyAtZnBhdGNoYWJsZS1mdW5jdGlv
+bi1lbnRyeSB3aXRoIGR5bmFtaWMgZnRyYWNlIGFmdGVyCj4gdGhlIGBhZmM3NmI4YjhgIGNvbW1p
+dCwgd2hpY2ggbWVhbnMgcmVjb3JkbWNvdW50IHNob3VsZG4ndCBiZSBjYWxsZWQKPiB0byBjcmVh
+dGUgdGhlIF9fbWNvdW50X2xvYyBzZWN0aW9uIGJlZm9yZSB0aGUgdm1saW51eCBsaW5raW5nLgo+
+Cj4gV2Ugc2hvdWxkIHNlbGVjdCBGVFJBQ0VfTUNPVU5UX1VTRV9QQVRDSEFCTEVfRlVOQ1RJT05f
+RU5UUlkgdG8gdGVsbAo+IE1ha2VmaWxlIG5vdCB0byBydW4gcmVjb3JkbWNvdW50Lgo+CkhpLEd1
+bzoKCkNhbiB0aGlzIHBhdGNoIHNxdWVlemUgaW50byB5b3VyIHYzIHNlcmllcyA/CgpUaGFua3Ms
+ClNvbmcKPiBTaWduZWQtb2ZmLWJ5OiBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+
+Cj4gLS0tCj4gIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDEgKwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBp
+bnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jp
+c2N2L0tjb25maWcKPiBpbmRleCBjMjJmNTgxNTU5NDguLjI1ZGI4Y2VhODc2YSAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAt
+MjQ2LDYgKzI0Niw3IEBAIGNvbmZpZyBBUkNIX1JWNjRJCj4gICAgICAgICBzZWxlY3QgSEFWRV9E
+WU5BTUlDX0ZUUkFDRSBpZiAhWElQX0tFUk5FTCAmJiBNTVUgJiYgJChjYy1vcHRpb24sLWZwYXRj
+aGFibGUtZnVuY3Rpb24tZW50cnk9OCkKPiAgICAgICAgIHNlbGVjdCBIQVZFX0RZTkFNSUNfRlRS
+QUNFX1dJVEhfUkVHUyBpZiBIQVZFX0RZTkFNSUNfRlRSQUNFCj4gICAgICAgICBzZWxlY3QgSEFW
+RV9GVFJBQ0VfTUNPVU5UX1JFQ09SRCBpZiAhWElQX0tFUk5FTAo+ICsgICAgICAgc2VsZWN0IEZU
+UkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWSBpZiBEWU5BTUlDX0ZUUkFD
+RQo+ICAgICAgICAgc2VsZWN0IEhBVkVfRlVOQ1RJT05fR1JBUEhfVFJBQ0VSCj4gICAgICAgICBz
+ZWxlY3QgSEFWRV9GVU5DVElPTl9UUkFDRVIgaWYgIVhJUF9LRVJORUwKPiAgICAgICAgIHNlbGVj
+dCBTV0lPVExCIGlmIE1NVQo+IC0tCj4gMi4yMC4xCj4KCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
