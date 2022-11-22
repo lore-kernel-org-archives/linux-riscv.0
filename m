@@ -4,44 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93019C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 11:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFA7C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 12:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pOL6MFl7gWXiJlVr4kcUsCe07l4nS7OyPnYUMK2J8k4=; b=Cl8+FrI+beolJg
-	KOv05tSbFwmvcLEaeQNho5ztyQ1hUsQkfTOatYHQ7cs56IhlNumHq0WB+yT4Tpulnr12BuuPMbBZn
-	6D7rKyluvaRbcRW0c/gvkkD98/EiU3c8d0QVMjLNuKLH+v163EBcvpehpBYL1wz3Uh6XcD9VXztgM
-	QS/MfoG6tDPpiCwMt076wmesJ4ySX/tAgStSrK2/qMfG4oJWgmOj+t5CmLHHv1coPJcbsdYWHyB+y
-	uqlMxqDuy/yxCKviYv1TjHxVpirrWPN1JxShmo4cWEh9eXvTfp6I4IZHwRCSL+MtTuL5TSya+qucj
-	N5EwVwYF1U/0UNB29pLw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H45Tzb7GjL+g9Yvls3Hz68AhzSv2ECB5FjEQP3U7ABA=; b=ruQ1TdM1z5nQ69
+	e8/Pbu02adLpwuUhYPpJnvi10lCkQ9Hugm29NvEnG/9Tcy0RNA0G2SC6gu1DfCKeb66x/0RK+y7RD
+	/TKQhMNod0y2GJU4LJi7ujvFoA0Ru9Oi+Hy4/GRmU8g3g03/TvDibK2OeiKkgwtsxGWcJ51KSmVEI
+	/gWHrIDFkYj3uWzXjBTicnX5aBLbCWfHbPHhkuR1lUOcArbKOveofoqIZtN+EhiOfXnZh60plM3o2
+	Afcga1w2RGgQUPXZmyPVXFAR3miYl/WcKessSKydN/nuQXXf1KGq/AnVbTuACwF6WKAMFa9SlTIWb
+	yKudib+VDgeoSS2BJ3MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxRaa-008Qeh-7A; Tue, 22 Nov 2022 11:37:20 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oxSDS-008wMp-9N; Tue, 22 Nov 2022 12:17:30 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxRaX-008QcW-1C
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 11:37:18 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oxRaT-0000Cm-O2; Tue, 22 Nov 2022 12:37:13 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-Date: Tue, 22 Nov 2022 12:37:13 +0100
-Message-ID: <4429380.iIbC2pHGDl@diego>
-In-Reply-To: <11144018.nUPlyArG6x@diego>
-References: <20221110164924.529386-1-heiko@sntech.de> <CA+V-a8u=vrrvhWCo+W28kbogMYHULuO3B6qcDeAEPEgzp+sVWg@mail.gmail.com> <11144018.nUPlyArG6x@diego>
+	id 1oxSDL-008w66-BK
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 12:17:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669119443; x=1700655443;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=RzUAmT+mOx/mY30QUVZdyICgGAvt8beLzIIw/PvKyEU=;
+  b=FMwRf2U+cKsCvI6/Q7YuKjHwRMsq293jFHp/U+rniJyo4IhLj/BAmQhh
+   vNUg2fvhgnYo3q5EXosKjCXXTNDh/iSJ9TXnjFUucaTh63nxIX1Ft2AFp
+   BuKieXEkgGwsBJZBT99pXBLMM1NVwV0eanW7MxzMdcXr6ZJDPY4f2KJaN
+   lNNOtIrJuzznvLyokxAZnnpP+8X7LIXt+TC9WxxqtotD4RRM8XM44AJV0
+   4d/H7eV2d9xGLW3cfA3aYx6DPMnaIFahdplWpNF9r9wNtYyDKccrqzW9a
+   S7kcGca29S9Gq3G2jE68yvHMX3eo9tJRND0YIIt8GpUj/gcl2VT4bqjHS
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,183,1665471600"; 
+   d="scan'208";a="200899064"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Nov 2022 05:17:10 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 22 Nov 2022 05:17:05 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Tue, 22 Nov 2022 05:17:03 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
+CC: Conor Dooley <conor.dooley@microchip.com>, Samuel Holland
+	<samuel@sholland.org>, Anup Patel <anup@brainfault.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+	<aou@eecs.berkeley.edu>, <atishp@atishpatra.org>, <dmitriy@oss-tech.org>,
+	<paul.walmsley@sifive.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v2] Revert "clocksource/drivers/riscv: Events are stopped during CPU suspend"
+Date: Tue, 22 Nov 2022 12:16:21 +0000
+Message-ID: <20221122121620.3522431-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_033717_094704_20974C72 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20221122_041723_448318_8FB8C4C5 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,116 +76,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 22. November 2022, 12:19:40 CET schrieb Heiko St=FCbner:
-> Am Dienstag, 22. November 2022, 11:59:57 CET schrieb Lad, Prabhakar:
-> > Hi Heiko,
-> > =
+This reverts commit 232ccac1bd9b5bfe73895f527c08623e7fa0752d.
 
-> > On Mon, Nov 21, 2022 at 10:17 PM Heiko St=FCbner <heiko@sntech.de> wrot=
-e:
-> > >
-> > > Am Montag, 21. November 2022, 22:31:36 CET schrieb Lad, Prabhakar:
-> > > > Hi Heiko,
-> > > >
-> > <snip>
-> > > As either manually or with a helper like
-> > >
-> > >         https://luplab.gitlab.io/rvcodecjs/#q=3D0xf4c080e7
-> > >
-> > > you can then decode the actual instruction and compare.
-> > >
-> > > In your log the two jalr instructions decode to different offsets,
-> > >         jalr x1, x1, -180
-> > > vs
-> > >         jalr x1, x1, -834
-> > >
-> > > Can you check what the patch_offset value is in your case?
-> > >
-> > patch_offset for the above case is -654.
-> =
+On the subject of suspend, the RISC-V SBI spec states:
+> Request the SBI implementation to put the calling hart in a platform
+> specific suspend (or low power) state specified by the suspend_type
+> parameter. The hart will automatically come out of suspended state and
+> resume normal execution when it receives an interrupt or platform
+> specific hardware event.
 
-> which is a big indicator that the auipc-jalr-fixup function is not catchi=
-ng
-> the instruction ... i.e. -180 - 654 =3D -834.
-> =
+This does not cover whether any given events actually reach the hart or
+not, just what the hart will do if it receives an event. On PolarFire
+SoC, and potentially other SiFive based implementations, events from the
+RISC-V timer do reach a hart during suspend. This is not the case for
+the implementation on the Allwinner D1 - there timer events are not
+received during suspend.
 
-> I managed to reproduce that issue with your branch now
-> (after hacking up stuff a bit to run in qemu :-) ).
-> =
+To fix this, the x86 C3STOP feature was enabled for the timer driver -
+but this has broken both RCU stall detection and timers generally on
+PolarFire SoC (and potentially other SiFive based implementations).
 
-> I'll try to find out where the fixup fails.
+If an AXI read to the PCIe controller on PolarFire SoC times out, the
+system will stall, however, with this patch applied, the system just
+locks up without RCU stalling:
+	io scheduler mq-deadline registered
+	io scheduler kyber registered
+	microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
+	microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: axi read request error
+	microchip-pcie 2000000000.pcie: axi read timeout
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	Freeing initrd memory: 7332K
 
-imagine me with a slightly red head now ... as there is a slightly
-embarrassing mistake in the fixup function ;-) .
+Similarly issues were reported with clock_nanosleep() - with a test app
+that sleeps each cpu for 6, 5, 4, 3 ms respectively, HZ=250 & the blamed
+commit in place, the sleep times are rounded up to the next jiffy:
 
+== CPU: 1 ==      == CPU: 2 ==      == CPU: 3 ==      == CPU: 4 ==
+Mean: 7.974992    Mean: 7.976534    Mean: 7.962591    Mean: 3.952179
+Std Dev: 0.154374 Std Dev: 0.156082 Std Dev: 0.171018 Std Dev: 0.076193
+Hi: 9.472000      Hi: 10.495000     Hi: 8.864000      Hi: 4.736000
+Lo: 6.087000      Lo: 6.380000      Lo: 4.872000      Lo: 3.403000
+Samples: 521      Samples: 521      Samples: 521      Samples: 521
 
-When going from void* to unsigned int* pointers I have missed
-adjusting the actual patch-location.
+Fortunately, the D1 has a second timer, which is "currently used in
+preference to the RISC-V/SBI timer driver" so a revert here does not
+hurt operation of D1 in it's current form.
 
-The call needs to be
-	patch_text_nosync(alt_ptr + i, call, 8);
+Ultimately, a DeviceTree property (or node) will be added to encode the
+behaviour of the timers, but until then revert the addition of
+CLOCK_EVT_FEAT_C3STOP.
 
-instead of the current
-	patch_text_nosync(alt_ptr + i * sizeof(u32), call, 8);
+Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
+Link: https://github.com/riscv-non-isa/riscv-sbi-doc/issues/98/
+Link: https://lore.kernel.org/linux-riscv/bf6d3b1f-f703-4a25-833e-972a44a04114@sholland.org/
+Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
+CC: Samuel Holland <samuel@sholland.org>
+CC: Anup Patel <anup@brainfault.org>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
 
-In my str* cases this didn't matter because "i" was 0 there, but in your
-longer assembly it actually patched the wrong location.
+For v2, I have re-worked the commit message to (hopefully) add improved
+context.
 
+CC: aou@eecs.berkeley.edu
+CC: atishp@atishpatra.org
+CC: daniel.lezcano@linaro.org
+CC: dmitriy@oss-tech.org
+CC: paul.walmsley@sifive.com
+CC: tglx@linutronix.de
+CC: linux-kernel@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+---
+ drivers/clocksource/timer-riscv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Heiko
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-For reference, my debug prints to find where the patching fails was:
-
-diff --git a/arch/riscv/errata/renesas/errata.c b/arch/riscv/errata/renesas=
-/errata.c
-index 986f1c762d72..a5a47c5e9ff8 100644
---- a/arch/riscv/errata/renesas/errata.c
-+++ b/arch/riscv/errata/renesas/errata.c
-@@ -72,6 +72,7 @@ static void riscv_alternative_fix_auipc_jalr(unsigned int=
- *alt_ptr,
-        u32 rd1;
- =
-
-        for (i =3D 0; i < num_instr; i++) {
-+printk("%s: looking at inst 0x%x\n", __func__, *(alt_ptr + i));
-                /* is there a further instruction? */
-                if (i + 1 >=3D num_instr)
-                        continue;
-@@ -84,6 +85,7 @@ static void riscv_alternative_fix_auipc_jalr(unsigned int=
- *alt_ptr,
-                if (rd1 !=3D 1)
-                        continue;
- =
-
-+printk("%s: -> found a auipc + jalr pair\n", __func__);
-                /* get and adjust new target address */
-                imm1 =3D EXTRACT_UTYPE_IMM(*(alt_ptr + i));
-                imm1 +=3D EXTRACT_ITYPE_IMM(*(alt_ptr + i + 1));
-@@ -101,8 +103,10 @@ static void riscv_alternative_fix_auipc_jalr(unsigned =
-int *alt_ptr,
-                call[0] |=3D to_auipc_imm(imm1);
-                call[1] |=3D to_jalr_imm(imm1);
- =
-
-+printk("%s: patching to 0x%x and 0x%x\n", __func__, call[0], call[1]);
-                /* patch the call place again */
--               patch_text_nosync(alt_ptr + i * sizeof(u32), call, 8);
-+               patch_text_nosync(alt_ptr + i, call, 8);
-+printk("%s: patched to 0x%x and 0x%x\n", __func__, *(alt_ptr + i), *(alt_p=
-tr + i + 1));
-        }
- }
- =
-
-and then realizing that the "patching to" and "patched to" where different.
-
-
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 969a552da8d2..a0d66fabf073 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -51,7 +51,7 @@ static int riscv_clock_next_event(unsigned long delta,
+ static unsigned int riscv_clock_event_irq;
+ static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+ 	.name			= "riscv_timer_clockevent",
+-	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
++	.features		= CLOCK_EVT_FEAT_ONESHOT,
+ 	.rating			= 100,
+ 	.set_next_event		= riscv_clock_next_event,
+ };
+-- 
+2.38.1
 
 
 _______________________________________________
