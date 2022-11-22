@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB96C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 09:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB17BC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 09:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m1DDWYPH4l8cmc3PwuSifTMO59MpZoetCnrVUr4Hg8M=; b=IcClQlsMTnh7l1
-	Zs1dm/7yY2feQz2HPBRi1LJXE01SdwjmF7eZgEtqRcxCt/9L6isp+MgLwUyyC79ozEMrY5RhBRF0w
-	8/kLjf9Y+Q3MZs0yzSy5/2u17djYuprFyUtfmAP6Kd9q2OYX3TgB47FAiFc31y1r1ekQlRJLAf4vP
-	kBY4Dl+WRf4Slb/ir8PDIuu71DzBViayYNMUCgcjuPlRxIWEhy2TY3i9XReNPCT1lxgFmYgy+xE4O
-	bSPa7DDNee/ZTHtgrCczLUd7SScd3PYTJOfu0U0pYEeQLqvolxHsrzZZuPusYf1Abawk+sl5cw/9t
-	vI3Ej8xQbiTeVIWSKudQ==;
+	List-Owner; bh=DBpy4Qcwwbk1VImArp25GlPx3ZLq+clxvHwvWyuSLOU=; b=ZIk1h2flltUg6t
+	Wa/glmtaW+uyeolSeVB8OPsFhdzZLX1l3XPW/Z//6Pv5pmWHOYJBEPo+czyCP6t3HkQAB9c+ny2d5
+	X1RBeBY+q8HDCco2XUGiV5c8UnYhE97fEAa4quPy7wDO381NMIT2XS0dPKewIjSXGthICdDOAEpyA
+	PUy9U3+/1GdPJZm13uZ8gIIwYsGBEkhHd12BQoCwy0rqNtZGOKspKB70VlyzwcHNC6siOCAtUYRFx
+	jTNJP8zJWp4dX/DLVmp3FzD6Gyr6CSwcFvsFTeUu3SbgM42BFouvzqZPasBvm1La3milWIIN0TwqP
+	1dA7/QY/dLff/zFwNgVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxPev-0073aP-Qy; Tue, 22 Nov 2022 09:33:41 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oxPrl-007HJb-MG; Tue, 22 Nov 2022 09:46:57 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxPcW-00720k-3T
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 09:31:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669109472; x=1700645472;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/qQAYvEgVF63UmcnW0hjrnTOtcodjexdS0yGahH79ZA=;
-  b=aHY1sIgmCFXE4rnjBymFEXj3RW41lErCIQaLgBHgtRVEA6MDKkLUctEu
-   CeONSSjP8u08odcO5Rfr5tyVRsZyBtWou2BGsa/4Yp4W0t5gXy170llN2
-   4ftrM6dk9v1/fp530Rt4OYGwhoDPLMER6IATAGkloLfSIxaHuQVMV++z8
-   vcWJMnASiJgmkZbYNkHHvPYIcz0em+py9c2dIY0MliBAgbRCI46mU/h+r
-   +y15ErzRO+yE4cWqpaAsLF11J4Wo3n+xb/vaIs4aInxQzHA/ce3tPTm8b
-   jnslPDTnU7oNq0qG+AjYYtthmpkDEAlCV6Xn9IecikqUUvdpQRcAB8ntQ
-   A==;
-X-IronPort-AV: E=Sophos;i="5.96,183,1665471600"; 
-   d="scan'208";a="124561251"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Nov 2022 02:31:10 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 22 Nov 2022 02:31:09 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 22 Nov 2022 02:31:08 -0700
-Date: Tue, 22 Nov 2022 09:30:50 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Xu Yilun <yilun.xu@intel.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-fpga@vger.kernel.org>, Cyril Jean
-	<cyril.jean@microchip.com>, Wu Hao <hao.wu@intel.com>, Tom Rix
-	<trix@redhat.com>, Moritz Fischer <mdf@kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [RFC] fpga: add PolarFire SoC IAP support
-Message-ID: <Y3yWyn2UQjECZ4kJ@wendy>
-References: <20221121225748.124900-1-conor@kernel.org>
- <Y3w/zFCcP+CXGCqS@yilunxu-OptiPlex-7050>
+	id 1oxPrh-007HBV-NE
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 09:46:55 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id t17so12119800pjo.3
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 01:46:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fb2a2qPkiNyV79EPxFgoQUH1bBZRJ4pPl8l2Hu7egWs=;
+        b=qkbeDWaMEih+xSYda34uaUzUrXMbtjUx6DZiDrTlV3PKpZtjBHk3b7xM2iVwoRB4a+
+         IrBsAc0gcc2G/JprUzBk1toHVkr5LQLp5qHmRn6wGF4LCqIhV/qMZL6UQ7yOFinI/VnS
+         R/vVv3UK5jVy7/jZ2DZEtKTPGDbupucmn5N/6dI4mgAX9DtHKZNSfl7OT/15R5XkkQqu
+         /vbEk9P4Zf0h2Ac3E/UDTlFpKjOdiirCZfIViNQTaRq6YAoLtHv4D5hcvhwxnrU43JbK
+         nuPXwh+/fWsGu7R9/9M8smCG5JZqVk/E7dECDpzFvEr0De6usViiCOvv/idyUCMvxmzM
+         O3Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fb2a2qPkiNyV79EPxFgoQUH1bBZRJ4pPl8l2Hu7egWs=;
+        b=FNPb91sQNdorOQnNPop1hZwZZIduJV9fKNZ/i/UN+xRVyGobBQibx9WO7s58zPQB2T
+         xwfGEj9kKoblIabk8opqOyXwBm7h82z/N0hv8F2vUcTJD96SxHVpZRWvPusQ4v/KaF10
+         9i3hz4cXdHju0+jUw7jkTKFUVv4Jn7uxRcpSdjIOtWBt0k2kwBbIxQJH6QnV4F6Evt+f
+         1lqWhPe1AjpRJP2AT2MDTsq3o9/S/rNhprMpyR1wipQbEM9XHm5inbFjMH8h3OxmlUaH
+         TJSfUOgeIhtGdyDc9vn+6t/FtV/k6WCeM14a431PimTYmWUl99dyz4ZlWPQL3deY0wso
+         RQSA==
+X-Gm-Message-State: ANoB5pmPzZEYHyg5JVy1ucSL6LutC1eMvvfX8ST6UyyhO1B4iDJSFp2p
+	Vyk+CYQuEKZYWnyfu3z0b5oWnQ5eKXgwGfJTUNU=
+X-Google-Smtp-Source: AA0mqf7IOUg8BcWStSC1num5dHrWSE+I+Al0NduEjlhEQtr6fNKF9LF2IPsvZnwLi5cQQHMQjf+Ua0MktKrb0TlETIY=
+X-Received: by 2002:a17:902:ca04:b0:17f:7f7e:70c7 with SMTP id
+ w4-20020a170902ca0400b0017f7f7e70c7mr5070065pld.107.1669110411632; Tue, 22
+ Nov 2022 01:46:51 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y3w/zFCcP+CXGCqS@yilunxu-OptiPlex-7050>
+References: <20221122075440.1165172-1-suagrfillet@gmail.com> <Y3yO+ii+NEVPTYFo@wendy>
+In-Reply-To: <Y3yO+ii+NEVPTYFo@wendy>
+From: Song Shuai <suagrfillet@gmail.com>
+Date: Tue, 22 Nov 2022 09:46:40 +0000
+Message-ID: <CAAYs2=h7jQMAHyixusGneXSvHACaS+7YDxNE5pCfJotjHpOkxA@mail.gmail.com>
+Subject: Re: [PATCH] riscv/ftrace: fix ftrace_modify_call bug
+To: Conor Dooley <conor.dooley@microchip.com>, guoren@kernel.org
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_013112_362191_3AB557E2 
-X-CRM114-Status: GOOD (  68.89  )
+X-CRM114-CacheID: sfid-20221122_014653_803062_6F1D083B 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,510 +82,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 22, 2022 at 11:19:40AM +0800, Xu Yilun wrote:
-> On 2022-11-21 at 22:57:49 +0000, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> > 
-> > Add support for "IAP" reprogramming of the FPGA fabric on PolarFire SoC.
-> > 
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> > 
-> > Hey all,
-> > RFC yadda yadda, but not asking people to look at the code per se -
-> > really what I am sending this RFC to achieve is a bit of feedback on
-> > what the re-programming "flow" looks like.
-> > 
-> > PolarFire and the SoC variants are flash FPGAs. All well and good for
-> > PolarFire, but for PolarFire SoC in IAP mode it is re-programmed from
-> > the on-board SoC. The spi-slave stuff that Ivan upstreamed recently
-> > works too, but that's only when you have an external programmer.
-> > 
-> > IAP, or In Application Programming, a programming running on the cpu
-> > cores writes the FPGA bitstream, or I suppose "firmware" in Linux land,
-> > out to a flash chip which the system then will use to reprogram the
-> > FPGA. When IAP is initiated, the system controller will take the FPGA
-> > down completely & do the reprogramming. This means, once Linux (or some
-> 
-> Do you mean the Linux OS, FPGA mgr driver & reprograming Application are
-> all running on the SoC?
-
-Aye. What we have is 4 RISC-V cores running Linux & then the system
-controller. The system controller is accessed via a mailbox, but is part
-of the SoC. The fpga manager driver is, as you might imagine, running on
-the RISC-V cores.
-I suppose the "reprogramming Application" is part of the system
-controller functionality & yea, runs on the SoC.
-
-> > other program) kicks off the re-programming (in write_complete() below)
-> > the system will *immediately* power cycle, whether the reprogramming
-> > passes or not. You can see in my write_complete() implementation, that I
-> > do not expect the function to return, unless we catch an error case early.
-> 
-> I don't think an FPGA driver could have an interface to power cycle the
-> whole system.
-
-Right. That was kinda my assumption too.
-
-> > From my cursory looking around, there doesnt appear to me to be all that
-> > much info in-tree about what each FPGA does when you reprogram it, but
-> > it doesn't appear that for other FPGAs the CPUs get shut down during
-> > this kind of self-reprogramming?
-> > 
-> > The alternative approach would be to use the "auto update" mode, which
-> > just installs an image that will not be used until the FPGA is rebooted
-> > in the regular way. Then, on reboot, the system controller would pluck
-> 
-> This seems to be a better way from OS perspective.
-
-Again, yup. I just was not sure if there was an expectation that the
-device would be reprogrammed once write_complete() terminated.
-
-> > the image from its flash chip and program the FPGA with it. From the
-> > last time I looked at the documentation (and the implementations) it
-> > seemed that people had custom (and out of tree) ways to initiate/handle
-> > the programming, so perhaps I have the freedom to do the "auto update"
-> > approach, even if it may be a little different to other implementations?
-> 
-> FPGA manager framework takes care of the runtime FPGA reprograming, a
-> main concern is the removal and re-enumeration of the sub devices when
-> an FPGA region is being reprogramed. Otherwise, OS is not aware of the
-> change of the devices and may just crash.
-
-Right. I don't think I need to worry about this since initiating a
-reprogramming from within Linux would take take the CPUs down too!
-
-> For your "auto update" mode, I assume it doesn't affect the running
-> devices at all, just do flash read/write. So maybe leverage MTD is just
-> fine?
-
-Aye, it would just write the image to the flash, set up the relevant
-bits to make sure auto-update would trigger & validate the bitstream
-written to the flash. Then nothing would happen until the user reboots
-their system.
-
-Thanks for your help,
-Conor.
-
-> > If I've missed something, please let me know. I hope I have!
-> > 
-> > I've only recently got a board capable of testing this & have not yet
-> > tested my code here in anger etc, it's just the high level thoughts
-> > about how to approach the re-programming in an FPGA manager friendly way
-> > that I'm looking for comments on.
-> > 
-> > @LKP folks, if you happen to see this - you can disable building this
-> > patch, it won't without some dependencies ;)
-> > 
-> > Thanks,
-> > Conor.
-> > ---
-> >  drivers/fpga/Kconfig         |   6 +
-> >  drivers/fpga/Makefile        |   1 +
-> >  drivers/fpga/microchip-iap.c | 350 +++++++++++++++++++++++++++++++++++
-> >  3 files changed, 357 insertions(+)
-> >  create mode 100644 drivers/fpga/microchip-iap.c
-> > 
-> > diff --git a/drivers/fpga/Kconfig b/drivers/fpga/Kconfig
-> > index 6c416955da53..525d753a28a4 100644
-> > --- a/drivers/fpga/Kconfig
-> > +++ b/drivers/fpga/Kconfig
-> > @@ -255,6 +255,12 @@ config FPGA_M10_BMC_SEC_UPDATE
-> >  	  (BMC) and provides support for secure updates for the BMC image,
-> >  	  the FPGA image, the Root Entry Hashes, etc.
-> >  
-> > +config FPGA_MGR_MICROCHIP_IAP
-> > +	tristate "Microchip Polarfire IAP FPGA manager"
-> > +	depends on POLARFIRE_SOC_SYS_CTRL
-> > +	help
-> > +	  NOP
-> > +
-> >  config FPGA_MGR_MICROCHIP_SPI
-> >  	tristate "Microchip Polarfire SPI FPGA manager"
-> >  	depends on SPI
-> > diff --git a/drivers/fpga/Makefile b/drivers/fpga/Makefile
-> > index 42ae8b58abce..df1dfb54046b 100644
-> > --- a/drivers/fpga/Makefile
-> > +++ b/drivers/fpga/Makefile
-> > @@ -19,6 +19,7 @@ obj-$(CONFIG_FPGA_MGR_XILINX_SPI)	+= xilinx-spi.o
-> >  obj-$(CONFIG_FPGA_MGR_ZYNQ_FPGA)	+= zynq-fpga.o
-> >  obj-$(CONFIG_FPGA_MGR_ZYNQMP_FPGA)	+= zynqmp-fpga.o
-> >  obj-$(CONFIG_FPGA_MGR_VERSAL_FPGA)	+= versal-fpga.o
-> > +obj-$(CONFIG_FPGA_MGR_MICROCHIP_IAP)	+= microchip-iap.o
-> >  obj-$(CONFIG_FPGA_MGR_MICROCHIP_SPI)	+= microchip-spi.o
-> >  obj-$(CONFIG_ALTERA_PR_IP_CORE)		+= altera-pr-ip-core.o
-> >  obj-$(CONFIG_ALTERA_PR_IP_CORE_PLAT)	+= altera-pr-ip-core-plat.o
-> > diff --git a/drivers/fpga/microchip-iap.c b/drivers/fpga/microchip-iap.c
-> > new file mode 100644
-> > index 000000000000..10f25ec64d32
-> > --- /dev/null
-> > +++ b/drivers/fpga/microchip-iap.c
-> > @@ -0,0 +1,350 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Microchip Polarfire SoC "IAP" FPGA reprogramming.
-> > + *
-> > + * Copyright (c) 2022 Microchip Corporation. All rights reserved.
-> > + *
-> > + * Author: Conor Dooley <conor.dooley@microchip.com>
-> > + */
-> > +#include <linux/module.h>
-> > +#include <linux/mtd/mtd.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/fpga/fpga-mgr.h>
-> > +#include <soc/microchip/mpfs.h>
-> > +
-> > +#define IAP_DEFAULT_MBOX_OFFSET		0u
-> > +#define IAP_DEFAULT_RESP_OFFSET		0u
-> > +
-> > +#define IAP_FEATURE_CMD_OPCODE		0x05
-> > +#define IAP_FEATURE_CMD_DATA_SIZE	0u
-> > +#define IAP_FEATURE_RESP_SIZE		33u
-> > +#define IAP_FEATURE_CMD_DATA		NULL
-> > +#define IAP_FEATURE_ENABLED		BIT(5)
-> > +
-> > +#define IAP_VERIFY_CMD_OPCODE		0x22
-> > +#define IAP_VERIFY_CMD_DATA_SIZE	0u
-> > +#define IAP_VERIFY_RESP_SIZE		1u
-> > +#define IAP_VERIFY_CMD_DATA		NULL
-> > +
-> > +#define IAP_PROGRAM_CMD_OPCODE		0x42
-> > +#define IAP_PROGRAM_CMD_DATA_SIZE	0u
-> > +#define IAP_PROGRAM_RESP_SIZE		1u
-> > +#define IAP_PROGRAM_CMD_DATA		NULL
-> > +
-> > +#define IAP_DIRECTORY_WIDTH		4u
-> > +#define IAP_UPGRADE_INDEX		1u
-> > +#define IAP_UPGRADE_DIRECTORY		(IAP_UPGRADE_INDEX * 0x4)
-> > +#define IAP_IMAGE_INDEX			2u
-> > +#define IAP_IMAGE_DIRECTORY		(IAP_IMAGE_INDEX * 0x4)
-> > +#define IAP_IMAGE_ADDRESS		(IAP_IMAGE_INDEX * 0xA00000)
-> > +
-> > +struct mpf_iap_config {
-> > +	u8 feature_response_size;
-> > +};
-> > +
-> > +struct mpf_iap_priv {
-> > +	struct mpfs_sys_controller *sys_controller;
-> > +	struct device *dev;
-> > +	struct fpga_region *region;
-> > +	struct mpf_iap_config *config;
-> > +	struct mtd_info *flash;
-> > +};
-> > +
-> > +static enum fpga_mgr_states mpf_iap_state(struct fpga_manager *mgr)
-> > +{
-> > +	struct mpf_iap_priv *priv = mgr->priv;
-> > +	struct mpfs_mss_response *response;
-> > +	struct mpfs_mss_msg *message;
-> > +	u32 *response_msg;
-> > +	int ret;
-> > +	enum fpga_mgr_states rc = FPGA_MGR_STATE_WRITE_INIT_ERR;
-> > +
-> > +	response_msg = devm_kzalloc(priv->dev,
-> > +				    IAP_FEATURE_RESP_SIZE * sizeof(response_msg),
-> > +				    GFP_KERNEL);
-> > +	if (!response_msg)
-> > +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
-> > +
-> > +	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
-> > +	if (!response) {
-> > +		devm_kfree(priv->dev, response_msg);
-> > +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
-> > +	}
-> > +
-> > +	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
-> > +	if (!response) {
-> > +		devm_kfree(priv->dev, response_msg);
-> > +		devm_kfree(priv->dev, response);
-> > +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
-> > +	}
-> > +
-> > +	/*
-> > +	 * To verify that IAP is possible, the "Query Security Service Request"
-> > +	 * is performed. Bit 5 of byte 1 is "UL_IAP" & if it is set, IAP is not
-> > +	 * possible.
-> > +	 * This service has no command data & does not overload mbox_offset.
-> > +	 * The size of the response varies between PolarFire & PolarFire SoC.
-> > +	 */
-> > +	response->resp_msg = response_msg;
-> > +	response->resp_size = IAP_FEATURE_RESP_SIZE;
-> > +	message->cmd_opcode = IAP_FEATURE_CMD_OPCODE;
-> > +	message->cmd_data_size = IAP_FEATURE_CMD_DATA_SIZE;
-> > +	message->response = response;
-> > +	message->cmd_data = IAP_FEATURE_CMD_DATA;
-> > +	message->mbox_offset = IAP_DEFAULT_MBOX_OFFSET;
-> > +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
-> > +
-> > +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
-> > +	if (ret | response->resp_status) {
-> > +		rc = FPGA_MGR_STATE_UNKNOWN;
-> > +		goto out;
-> > +	}
-> > +
-> > +	if (!(response_msg[1] & IAP_FEATURE_ENABLED))
-> > +		rc = FPGA_MGR_STATE_OPERATING;
-> > +
-> > +out:
-> > +	devm_kfree(priv->dev, response_msg);
-> > +	devm_kfree(priv->dev, response);
-> > +	devm_kfree(priv->dev, message);
-> > +
-> > +	return rc;
-> > +}
-> > +
-> > +static int mpf_iap_write_init(struct fpga_manager *mgr, struct fpga_image_info *info,
-> > +			      const char *buf, size_t count)
-> > +{
-> > +	struct mpf_iap_priv *priv = mgr->priv;
-> > +	size_t *bytes_read;
-> > +	u32 upgrade_address;
-> > +
-> > +	priv->flash = mpfs_sys_controller_get_flash(priv->sys_controller);
-> > +	if (!priv->flash)
-> > +		return PTR_ERR(priv->flash);
-> > +
-> > +	/*
-> > +	 * We need to read the "SPI DIRECTORY" in the first 1 KiB, to see if
-> > +	 * the index 1 has an address in it. If it is non zero, IAP will fail.
-> > +	 * As the system controller will initiate upgrade mode instead.
-> > +	 */
-> > +	int ret = mtd_read(priv->flash, IAP_UPGRADE_DIRECTORY, IAP_DIRECTORY_WIDTH,
-> > +			   bytes_read, (u_char *) &upgrade_address);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (*bytes_read != IAP_DIRECTORY_WIDTH || upgrade_address)
-> > +		return -EIO;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int mpf_iap_write(struct fpga_manager *mgr, const char *buf, size_t count)
-> > +{
-> > +	/*
-> > +	 * No parsing etc of the bitstream is required. The system controller
-> > +	 * will do all of that itself - including verifying that the bitstream
-> > +	 * is valid.
-> > +	 */
-> > +	struct mpf_iap_priv *priv = mgr->priv;
-> > +	size_t *bytes_written;
-> > +	u32 image_address = IAP_IMAGE_ADDRESS;
-> > +
-> > +	/*
-> > +	 * We need to write the "SPI DIRECTORY" to the first 1 KiB, telling
-> > +	 * the system controller where to find the actual bitstream.
-> > +	 */
-> > +	int ret = mtd_write(priv->flash, IAP_IMAGE_DIRECTORY, IAP_DIRECTORY_WIDTH,
-> > +			    bytes_written, (u_char *) &image_address);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (*bytes_written != IAP_DIRECTORY_WIDTH)
-> > +		return -EIO;
-> > +
-> > +	ret = mtd_write(priv->flash, (loff_t) image_address, count, bytes_written, (u_char *) buf);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (*bytes_written != count)
-> > +		return -EIO;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int mpf_iap_write_complete(struct fpga_manager *mgr, struct fpga_image_info *info)
-> > +{
-> > +	struct mpf_iap_priv *priv = mgr->priv;
-> > +	struct mpfs_mss_response *response;
-> > +	struct mpfs_mss_msg *message;
-> > +	u32 *response_msg;
-> > +	int ret = 0;
-> > +
-> > +	response_msg = devm_kzalloc(priv->dev,
-> > +				    IAP_FEATURE_RESP_SIZE * sizeof(response_msg),
-> > +				    GFP_KERNEL);
-> > +	if (!response_msg)
-> > +		return -ENOMEM;
-> > +
-> > +	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
-> > +	if (!response) {
-> > +		devm_kfree(priv->dev, response_msg);
-> > +		return -ENOMEM;
-> > +	}
-> > +
-> > +	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
-> > +	if (!response) {
-> > +		devm_kfree(priv->dev, response_msg);
-> > +		devm_kfree(priv->dev, response);
-> > +		return -ENOMEM;
-> > +	}
-> > +
-> > +	/*
-> > +	 * The system controller can verify that an image in the flash is valid.
-> > +	 * Rather than duplicate the check in this driver, call the relevant
-> > +	 * service from the system controller instead.
-> > +	 * This service has no command data and no response data. It overloads
-> > +	 * mbox_offset with the image index in the flash's SPI directory where
-> > +	 * the bitstream is located.
-> > +	 */
-> > +	response->resp_msg = response_msg;
-> > +	response->resp_size = IAP_VERIFY_RESP_SIZE;
-> > +	message->cmd_opcode = IAP_VERIFY_CMD_OPCODE;
-> > +	message->cmd_data_size = IAP_VERIFY_CMD_DATA_SIZE;
-> > +	message->response = response;
-> > +	message->cmd_data = IAP_VERIFY_CMD_DATA;
-> > +	message->mbox_offset = IAP_IMAGE_INDEX;
-> > +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
-> > +
-> > +	pr_info("ran IAP_VERIFY_RESP_SIZE\n");
-> > +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
-> > +	if (ret | response->resp_status) {
-> > +		ret = ret ? ret : -EBADMSG;
-> > +		goto out;
-> > +	}
-> > +
-> > +	/*
-> > +	 * If the validation has passed, initiate IAP.
-> > +	 * This service has no command data and no response data. It overloads
-> > +	 * mbox_offset with the image index in the flash's SPI directory where
-> > +	 * the bitstream is located.
-> > +	 * Once we attempt IAP either:
-> > +	 * - it passes and the board reboots
-> > +	 * - it fails and the board reboots to recover
-> > +	 * - the system controller aborts and we exit "gracefully"
-> > +	 * This function will never return 0.
-> > +	 */
-> > +	response->resp_msg = response_msg;
-> > +	response->resp_size = IAP_PROGRAM_RESP_SIZE;
-> > +	message->cmd_opcode = IAP_PROGRAM_CMD_OPCODE;
-> > +	message->cmd_data_size = IAP_PROGRAM_CMD_DATA_SIZE;
-> > +	message->response = response;
-> > +	message->cmd_data = IAP_PROGRAM_CMD_DATA;
-> > +	message->mbox_offset = IAP_IMAGE_INDEX;
-> > +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
-> > +
-> > +	pr_info("ran IAP_PROGRAM_CMD_OPCODE\n");
-> > +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
-> > +	if (ret)
-> > +		goto out;
-> > +
-> > +	/*
-> > +	 * This return 0 is dead code. Either the IAP will fail, or it will pass
-> > +	 * & the FPGA will be rebooted in which case mpfs_blocking_transaction()
-> > +	 * will never return and Linux will die.
-> > +	 */
-> > +	return 0;
-> > +
-> > +out:
-> > +	devm_kfree(priv->dev, response_msg);
-> > +	devm_kfree(priv->dev, response);
-> > +	devm_kfree(priv->dev, message);
-> > +	return ret;
-> > +}
-> > +
-> > +static const struct fpga_manager_ops mpf_iap_ops = {
-> > +	.state = mpf_iap_state,
-> > +	.write_init = mpf_iap_write_init,
-> > +	.write = mpf_iap_write,
-> > +	.write_complete = mpf_iap_write_complete,
-> > +};
-> > +
-> > +static int mpf_iap_run(struct device *dev)
-> > +{
-> > +	struct fpga_manager *mgr;
-> > +	struct fpga_image_info *info;
-> > +	int ret;
-> > +
-> > +	printk("starting to test the fpga manager\n");
-> > +
-> > +	mgr = fpga_mgr_get(dev);
-> > +	info = fpga_image_info_alloc(dev);
-> > +
-> > +	info->firmware_name = devm_kstrdup(dev, "pf_bitstream.fw", GFP_KERNEL);
-> > +	ret = fpga_mgr_lock(mgr);
-> > +	if (ret) {
-> > +		dev_err(dev, "couldnt lock the manager\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = fpga_mgr_load(mgr, info);
-> > +	if (ret) {
-> > +		dev_err(dev, "couldnt load the firmware\n");
-> > +		return ret;
-> > +	}
-> > +
-> > +	fpga_mgr_unlock(mgr);
-> > +	fpga_mgr_put(mgr);
-> > +	fpga_image_info_free(info);
-> > +
-> > +	dev_info(dev, "test complete\n");
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static int mpf_iap_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct mpf_iap_priv *priv;
-> > +	struct fpga_manager *mgr;
-> > +	int ret;
-> > +
-> > +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> > +	if (!priv)
-> > +		return -ENOMEM;
-> > +
-> > +	priv->sys_controller = mpfs_sys_controller_get(dev);
-> > +	if (IS_ERR(priv->sys_controller))
-> > +		return dev_err_probe(dev, PTR_ERR(priv->sys_controller),
-> > +				     "Could not register as a sub device of the system controller\n");
-> > +
-> > +	priv->dev = dev;
-> > +	platform_set_drvdata(pdev, priv);
-> > +
-> > +	mgr = devm_fpga_mgr_register(dev, "Microchip MPF(S) IAP FPGA Manager",
-> > +				     &mpf_iap_ops, priv);
-> > +	if (IS_ERR(mgr))
-> > +		return dev_err_probe(dev, PTR_ERR(mgr),
-> > +				     "Could not register FPGA manager.\n");
-> > +
-> > +	enum fpga_mgr_states state = mpf_iap_state(mgr);
-> > +	//ret = mpf_iap_run(dev);
-> > +	ret = 1;
-> > +	if (ret)
-> > +		dev_err_probe(dev, ret, "IAP failed");
-> > +
-> > +	dev_info(dev, "Registered Microchip MPF(S) IAP FPGA Manager %u\n", state);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static struct platform_driver mpf_iap_driver = {
-> > +	.driver = {
-> > +		.name = "mpfs-iap",
-> > +	},
-> > +	.probe = mpf_iap_probe,
-> > +};
-> > +module_platform_driver(mpf_iap_driver);
-> > +
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> > +MODULE_DESCRIPTION("PolarFire SoC IAP FPGA reprogramming");
-> > -- 
-> > 2.37.2
-> > 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4g5LqOMjAyMuW5tDEx5pyI
+MjLml6XlkajkuowgMDg6NTflhpnpgZPvvJoKPgo+IE9uIFR1ZSwgTm92IDIyLCAyMDIyIGF0IDAz
+OjU0OjQwUE0gKzA4MDAsIFNvbmcgU2h1YWkgd3JvdGU6Cj4gPiBXaXRoIHRoaXMgY29tbWl0IChy
+aXNjdjogZnRyYWNlOiBSZWR1Y2UgdGhlIGRldG91ciBjb2RlIHNpemUgdG8gaGFsZikKPgo+IEFG
+QUlDVCB0aGUgYWJvdmUgcGF0Y2ggaGFzIG5vdCBiZWVuIGFwcGxpZWQgJiB0aGlzIHBhdGNoIGhl
+cmUgc2hvdWxkIGJlCj4gZm9sZGVkIGludG8gdGhlIG9mZmVuZGluZyBwYXRjaD8KPiBJJ3ZlIG1h
+cmtlZCB0aGlzIG9uZSBhcyAiTm90IEFwcGxpY2FibGUiIGluIHBhdGNod29yayBhcyBhIHJlc3Vs
+dCwgYnV0Cj4gbGV0IG1lIGtub3cgaWYgdGhhdCBpcyBhbiBpbmNvcnJlY3QgYXNzdW1wdGlvbi4K
+Pgo+IFRoYW5rcywKPiBDb25vci4KPgpIaSwgQ29ub3I6CgpTb3JyeSB0byBkaXN0dXJiIHlvdSB3
+aXRoIHRoaXMgcGF0Y2ggd2l0aG91dCBhZ2FpbnN0IHRoZSBtZXJnZWQgY29tbWl0IGxpc3QsCgpU
+aGlzIHBhdGNoIGFjdHVhbGx5IGlzIGNyZWF0ZWQgZm9yIGZpeGluZyAocmlzY3Y6IGZ0cmFjZTog
+UmVkdWNlIHRoZQpkZXRvdXIgY29kZSBzaXplIHRvIGhhbGYpCndoaWNoIGhhcyBub3QgYmVlbiBt
+ZXJnZWQgeWV0LgoKQXMgR3VvIHJlcGxpZWQsIGhlIHdpbGwgZm9sZCBpdCBpbiB0aGUgdGFyZ2V0
+IHBhdGNoLiBZb3UgY2FuIGlnbm9yZQp0aGlzIG9uZS4gU29ycnkgYWdhaW4uCgpCVFcsIGZvciBk
+aXNwZWxsaW5nIHlvdXIgY29uZnVzaW9uIGFib3V0IG15IGVtYWlsIG5hbWUuCkFjdHVhbGx5LCBp
+dCB3YXMgbWlzc3BlbGxlZCB3aGVuIHJlZ2lzdGVyaW5nLCBidXQgSSBrZWVwIGl0IGZvciBkYWls
+eSB1c2UuClNvIHlvdSBjYW4gc2VuZCBpdCB3aXRob3V0IGNvbmNlcm4uIDpQCgotLSBTb25nCgoK
+U29ycnkgZm9yIGJvdGhlcmluZyB5b3Ugd2l0aCB0aGUKPiA+IHBhdGNoZWQsIGZ0cmFjZSBidWcg
+b2NjdXJyZWQgV2hlbiBob3N0aW5nIGtwcm9iZSBhbmQgZnVuY3Rpb24gdHJhY2VyCj4gPiBhdCB0
+aGUgc2FtZSBmdW5jdGlvbi4KPiA+Cj4gPiBPYnZpb3VzbHksIHRoZSB2YXJpYWJsZSBjYWxsZXIg
+aW4gZnRyYWNlX21vZGlmeV9jYWxsIHdhcyBhc3NpZ25lZCBieQo+ID4gcmVjLT5pcCB3aXRoIDQg
+b2Zmc2V0IGZhaWxpbmcgdGhlIGNvZGUgcmVwbGFjaW5nIGF0IGZ1bmN0aW9uIGVudHJ5Lgo+ID4g
+QW5kIHRoZSBjYWxsZXIgc2hvdWxkIGJlIGFzc2lnbmVkIGJ5IHJlYy0+aXAgZGlyZWN0bHkgdG8g
+aW5kaWNhdGUKPiA+IHRoZSBmdW5jdGlvbiBlbnRyeS4KPiA+Cj4gPiBUaGUgZm9sbG93aW5nIGlz
+IHRoZSBmdHJhY2UgYnVnIGxvZy4KPiA+Cj4gPiBgYGAKPiA+IFsgIDQxOS42MzI4NTVdIDAwMDAw
+MDAwZjg3NzY4MDM6IGV4cGVjdGVkIChmZmUwMDI5NyAxYTQyODJlNykgYnV0IGdvdCAoMWE4Mjgy
+ZTcgZjAyMjcxNzkpCj4gPiBbICA0MTkuNjMzMzkwXSAtLS0tLS0tLS0tLS1bIGZ0cmFjZSBidWcg
+XS0tLS0tLS0tLS0tLQo+ID4gWyAgNDE5LjYzMzU1M10gZnRyYWNlIGZhaWxlZCB0byBtb2RpZnkK
+PiA+IFsgIDQxOS42MzM1NjldIFs8ZmZmZmZmZmY4MDIwOTFjYz5dIGtlcm5lbF9yZWFkKzB4MC8w
+eDUyCj4gPiBbICA0MTkuNjMzODYzXSAgYWN0dWFsOiAgIDk3OjAyOmUwOmZmOmU3OjgyOjgyOjFh
+Cj4gPiBbICA0MTkuNjM0MDg3XSBVcGRhdGluZyBmdHJhY2UgY2FsbCBzaXRlIHRvIGNhbGwgYSBk
+aWZmZXJlbnQgZnRyYWNlIGZ1bmN0aW9uCj4gPiBbICA0MTkuNjM0Mjc5XSBmdHJhY2UgcmVjb3Jk
+IGZsYWdzOiBlMDAwMDAwMgo+ID4gWyAgNDE5LjYzNDQ4N10gICgyKSBSCj4gPiBbICA0MTkuNjM0
+NDg3XSAgZXhwZWN0ZWQgdHJhbXA6IGZmZmZmZmZmODAwMDkzY2MKPiA+IFsgIDQxOS42MzQ5MzVd
+IC0tLS0tLS0tLS0tLVsgY3V0IGhlcmUgXS0tLS0tLS0tLS0tLQo+ID4gYGBgCj4gPgo+ID4gU2ln
+bmVkLW9mZi1ieTogU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgo+ID4gLS0tCj4g
+PiAgYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNlLmMgfCAyICstCj4gPiAgMSBmaWxlIGNoYW5nZWQs
+IDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3Yva2VybmVsL2Z0cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvZnRyYWNlLmMKPiA+IGlu
+ZGV4IDhjNzdmMjM2ZmM3MS4uNjFiMjRkNzY3ZTJlIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvZnRyYWNlLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2Z0cmFjZS5jCj4g
+PiBAQCAtMTMyLDcgKzEzMiw3IEBAIGludCBmdHJhY2VfbW9kaWZ5X2NhbGwoc3RydWN0IGR5bl9m
+dHJhY2UgKnJlYywgdW5zaWduZWQgbG9uZyBvbGRfYWRkciwKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgIHVuc2lnbmVkIGxvbmcgYWRkcikKPiA+ICB7Cj4gPiAgICAgICB1bnNpZ25lZCBpbnQgY2Fs
+bFsyXTsKPiA+IC0gICAgIHVuc2lnbmVkIGxvbmcgY2FsbGVyID0gcmVjLT5pcCArIDQ7Cj4gPiAr
+ICAgICB1bnNpZ25lZCBsb25nIGNhbGxlciA9IHJlYy0+aXA7Cj4gPiAgICAgICBpbnQgcmV0Owo+
+ID4KPiA+ICAgICAgIG1ha2VfY2FsbF90MChjYWxsZXIsIG9sZF9hZGRyLCBjYWxsKTsKPiA+IC0t
+Cj4gPiAyLjIwLjEKPiA+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
