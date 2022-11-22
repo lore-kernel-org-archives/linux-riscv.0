@@ -4,111 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CC4C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 17:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA9AC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 17:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EF9bR95tXD/BTqfq5MJvGl8OyY0ZuAHbzfKz5OiybZE=; b=rAo+4sh73tTeki
-	LT7mXHqVyc7+5BEJU5MtgJnBfGFy/R1CUQS70TU4nPM2PVpiq9i91ZL+ZrVpZSlyuOqwauj8sqqsc
-	VESVuH0VSZ6gpNuRcslZXH3U4W6+JVdiSII/uzK2kUIURR3z52SqpIYWv3u0mKiECnYCmeY6aLKZG
-	czNU3ImIs7aH3+2NR4pDNGipDkCYFTzTbUFbFleFbK3ylIthBSaWm7TmdddW0OePaDzafp6QVvMmw
-	fqhykJ/mYaUzqfW/0jyoo7zH+hF3sl4Gki6I0k6cEgyau0us6Rwe4hLUWCFE9mU9KFbNdOiLBl7bB
-	jZ90Y6NTJbKTVSXFZvSg==;
+	List-Owner; bh=4CwXptt7gxn44fzzukBjCdVXEgVAL+JI6fT4D8PYkUY=; b=GiHhjmUDtpprfj
+	I8lcsXr7HGV0iuNTsKJMcNEAMu5Do6MsBxoXiAtxEvGQ0a/ZTWVjTojhomxxu6MqTnTVonLCm53T3
+	5FJRQPN2Vp42eg/FZQmRTU5P/sy2+CrjDhSDkInlq1nICXVcm1Cf3gaLrrrxdWOqH5hhoTWNYhZc4
+	hXVxAVrQTLg2xP4LZehyDXDjHZwuLNGI2kcFtjGeHycHSFGcaeR4zpVu/1Vves/vc9slV8k7IkVLQ
+	2TKSvV2kOACFXoPO74LLkqxZl0xfKhNpKOuogNBmQJd0PZz+yNjY3lQnC/hMRqBY6TaZXdFdizRu1
+	mFMA2gmqiN4+hSaHYFxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxWsh-00B0Ax-Mr; Tue, 22 Nov 2022 17:16:23 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1oxX4P-00B3as-Ob; Tue, 22 Nov 2022 17:28:29 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxWsW-00B06z-Aq; Tue, 22 Nov 2022 17:16:14 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id 412F65C01AC;
-	Tue, 22 Nov 2022 12:16:07 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute3.internal (MEProxy); Tue, 22 Nov 2022 12:16:07 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm3; t=1669137367; x=1669223767; bh=AWib7uk/pX
-	ojLTP6WLnsRKQNx+DKIkZTOrXloBCRaME=; b=lySZ7U8uKnWn00jTXtr9CAy5eX
-	nv56f5UzD8Tk1XQ/zM5Lhx6iJpKUBacT8Jhv8GyD2PflS6Y7GxJQc0fIKYqg5Oes
-	CFa1i/Ts0YaZ3w+29HTSOtSLJVf8UyxvgO7Elc+4A1sD1p/Xc15Cgj/ipv+7sC75
-	6w/wVc+YoF9EFV6ZnauvYJWW3dZBEdWUU3Bunbq5pUvgvqvufeUJEzM47bRam58J
-	c3BOM4tOLUQkAGfA/RhyWi1+/qHvJbvC8bLwEEGaDCDs9qV6wxZFKoq3UYhXxQKt
-	Wh8d/wv3tWb9gfqRvidRS+ZMd1z1j9zWUlznP4LRf6uszZiJKJUYJDZHHY8Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1669137367; x=1669223767; bh=AWib7uk/pXojLTP6WLnsRKQNx+DK
-	IkZTOrXloBCRaME=; b=WsG7hmw+LKirM0tmH9Kzn5cWIv1cpT8+lNht2XAQJ9s3
-	4ZLi37KXbwyfZUymR+BePagoJCdji1Vzcj0n80TQIde9wB6INMz6g6O95orGjmgQ
-	D4kmajLzD+hdqXIR6sGDItFx17483bKqA/prajubW26vU7eE2HfQ48F4RU3AbTOn
-	BflQWRTk2zMsv9br6one4vxpVJ+2Kq+zgKTclR29Zf4FJW/LONRJf+GU2SCd5pYG
-	J4BngUHmANTkgBSU86Eb3htMc55hA4qxKx5rSTTKWS1MsK5pY95N8jw9lUbptr/n
-	4Z8nSzdK1pAXa5mMpKlxS3WdFwiL2He3irWZfBm6bA==
-X-ME-Sender: <xms:0wN9Y7qPWw2exYVs5wfHuy9rYZCZQuHgMhVEQFannzbjtddQn3BQ4g>
-    <xme:0wN9Y1pqiwYlVCjjKrkgcm3wu_Akhjhp7R2xmRAGsKVts_mSuo6Fr9nHjS2-N14PA
-    LmVoU5uRDXDxBzCiFA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrheelgdeilecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdetrhhn
-    ugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtth
-    gvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedtkeet
-    ffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrh
-    hnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:0wN9Y4N8QRmdxsSzxLfB-wzAErGuIyYmXrIV7YRp5MuOsZXSFqmatg>
-    <xmx:0wN9Y-4hZz5AMF7CfedaolyttL0YesCLDNyMIosGKiGFB-DvxEr6EQ>
-    <xmx:0wN9Y64KESJLM4L1wu3Xny3rpN-0y311CrDXA6fAwwRQHLgNIP87NQ>
-    <xmx:1wN9Y2EvqHiCPXzlZoDK1Y6SAsHx1IrtLMuRFmYZSqKK8S6eDS_6EQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 30CBAB60086; Tue, 22 Nov 2022 12:16:03 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.7.0-alpha0-1115-g8b801eadce-fm-20221102.001-g8b801ead
-Mime-Version: 1.0
-Message-Id: <501fbee3-cd3d-461c-9c79-0a5f2d1382b6@app.fastmail.com>
-In-Reply-To: <ab663f18-429a-7d86-f128-6db73fc07b8a@suse.cz>
-References: <20221121171202.22080-1-vbabka@suse.cz>
- <bc2f3ca9-e49a-4ca1-8b63-cbc7773d23d5@app.fastmail.com>
- <ab663f18-429a-7d86-f128-6db73fc07b8a@suse.cz>
-Date: Tue, 22 Nov 2022 18:15:39 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Vlastimil Babka" <vbabka@suse.cz>, "Christoph Lameter" <cl@linux.com>,
- "David Rientjes" <rientjes@google.com>,
- "Joonsoo Kim" <iamjoonsoo.kim@lge.com>, "Pekka Enberg" <penberg@kernel.org>
-Cc: "Hyeonggon Yoo" <42.hyeyoo@gmail.com>,
- "Roman Gushchin" <roman.gushchin@linux.dev>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- "Matthew Wilcox" <willy@infradead.org>, patches@lists.linux.dev,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Conor Dooley" <conor@kernel.org>,
- "Damien Le Moal" <damien.lemoal@opensource.wdc.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Janusz Krzysztofik" <jmkrzyszt@gmail.com>,
- "Jonas Bonn" <jonas@southpole.se>,
- "Josh Triplett" <josh@joshtriplett.org>,
- "Kees Cook" <keescook@chromium.org>,
- linux-arm-kernel@lists.infradead.org,
- Linux-OMAP <linux-omap@vger.kernel.org>, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, openrisc@lists.librecores.org,
- "Rich Felker" <dalias@libc.org>, "Russell King" <linux@armlinux.org.uk>,
- "Stafford Horne" <shorne@gmail.com>,
- "Stefan Kristiansson" <stefan.kristiansson@saunalahti.fi>,
- "Tony Lindgren" <tony@atomide.com>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>
-Subject: Re: [PATCH 00/12] Introduce CONFIG_SLUB_TINY and deprecate SLOB
+	id 1oxX4N-00B3YN-0W
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 17:28:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A9786B81CF4;
+	Tue, 22 Nov 2022 17:28:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53FBBC433C1;
+	Tue, 22 Nov 2022 17:28:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669138101;
+	bh=bPGORzn/O+lk6aHPgo/zL2qYgbZzPpf9Wn0quTNAY3Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=knhLOPsIKyVoFTl5kAH4EdE983hWomqK6BYc1AVmzMlyiMs5jtoo45vIdA0aeqNjz
+	 5//NlABsPxh6h4eMGj2709VOZQqBLfECd/gASvC3VJENWGaW6VvCGH+CIbHPE+x/jw
+	 URGVd0bwof88pR5PIoq2rcGhdw8bjQTNmA58hWj+lW0qLqeYihzKmmxcdvthRGxhYM
+	 cK+r/HR+Obi6P/sUz3q5QKNem9MyFb+gSjwFf3cFIj/A5nCdOshyUs/dOMSgXt6lo2
+	 DdCBSo0cUrGU3p20A2OmSvfOEuT+x+gXDAB26tjqzcgrVYhm0viWpc12mAlOwaJiql
+	 hqYdaGxHVC8Nw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1oxX4E-007vIc-W4;
+	Tue, 22 Nov 2022 17:28:19 +0000
+Date: Tue, 22 Nov 2022 17:28:18 +0000
+Message-ID: <86o7syoq4t.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] irqchip/sifive-plic: drop quirk for two-cell variant
+In-Reply-To: <20221121042026.419383-1-uwu@icenowy.me>
+References: <20221121042026.419383-1-uwu@icenowy.me>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: uwu@icenowy.me, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, samuel@sholland.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_091612_702141_389C5FF4 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20221122_092827_246208_D13C3D5A 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,45 +88,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 22, 2022, at 17:59, Vlastimil Babka wrote:
-> On 11/22/22 17:33, Arnd Bergmann wrote:
->> On Mon, Nov 21, 2022, at 18:11, Vlastimil Babka wrote:
->> I can imagine those machines wanting to use sysfs in general
->> but not for the slab caches, so having a separate knob to
->> configure out the sysfs stuff could be useful without having
->> to go all the way to SLUB_TINY.
->
-> Right, but AFAIK that wouldn't save much except some text size and kobjects,
-> so probably negligible for >32MB?
+On Mon, 21 Nov 2022 04:20:26 +0000,
+Icenowy Zheng <uwu@icenowy.me> wrote:
+> 
+> As the special handling of edge-triggered interrupts are defined in the
+> PLIC spec, we can assume it's not a quirk, but a feature of the PLIC
+> spec; thus making it a quirk and use quirk-based codepath is not so
+> necessary.
 
-Makes sense, I assume you have a better idea of how much this
-could save. I'm not at all worried about the .text size, but
-my initial guess was that the metadata for sysfs would be
-noticeable.
+It *is* necessary.
 
->> For the options that trade off performance against lower
->> fragmentation (MIN/MAX_PARTIAL, KMALLOC_RECLAIM, percpu
->> slabs), I wonder if it's possible to have a boot time
->> default based on the amount of RAM per CPU to have a better
->> tuned system on most cases, rather than having to go
->> to one extreme or the other at compile time.
->
-> Possible for some of these things, but for others that brings us back to the
-> question what are the actual observed issues. If it's low memory in absolute
-> number of pages, these can help, but if it's fragmentation (and the kind if
-> RAM sizes should have page grouping by mobility enabled), ditching e.g. the
-> KMALLOC_RECLAIM could make it worse. Unfortunately some of these tradeoffs
-> can be rather unpredictable.
+> 
+> Move to a #interrupt-cells-based practice which will allow both device
+> trees without interrupt flags and with interrupt flags work for all
+> compatible strings.
 
-Are there any obvious wins on memory uage? I would guess that it
-would be safe to e.g. ditch percpu slabs when running with less
-128MB per CPU, and the MIN/MAX_PARTIAL values could easily
-be a function of the number of pages in total or per cpu,
-whichever makes most sense. As a side-effect, those could also
-grow slightly larger on huge systems by scaling them with
-log2(totalpages).
+No. You're tying together two unrelated concepts:
 
-     Arnd
+- Edges get dropped in some implementations (and only some). You can
+  argue that the architecture allows it, but I see it is an
+  implementation bug.
+
+- The need for expressing additional information in the interrupt
+  specifier is not necessarily related to the above. Other interrupt
+  controllers use extra cells to encode the interrupt affinity, for
+  example.
+
+I want these two things to be kept separate. Otherwise, once we get
+some fancy ACPI support for RISCV (no, please...), we'll have to redo
+the whole thing...
+
+> In addition, this addresses a stable version DT binding violation --
+> Linux v5.19 comes with "thead,c900-plic" with #interrupt-cells defined to
+> be 1 instead of 2, this commit will allow DTs that complies to Linux
+> v5.19 binding work (although no such DT is devliered to the public now).
+
+*That* is what should get fixed.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
