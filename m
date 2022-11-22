@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF501C43217
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 14:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5B2C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 15:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Si8UlZATXUjMwui7+YJLkSWjqEew5R5HIEHNAc6SiVk=; b=Y2vNcuMGaI/iEm
-	PgkPU83iGB/y5fav9YoSdj6brNl7s10zgJU+NxXLsld3PUmVvHypsHGB2+rmSvNNhVtRKUV72Fud3
-	TUDgSm4Ef2eDY24tieBpzWu9DUQM7E1OPDY52m7SrJIm+hmnb9znkK8cxjFZrBQOSSOpTm/vk+UqM
-	rGWXDDlr7j8ubxfjRdOlmq20dbE2dN2DCbcDiO1ozZme/KUeTeIPUY6kyt3x7uBBV3OK0K/DEOjJL
-	ulhTE7IF4loHuDvJKEsVphrutbcovsA+T3FyMRtEF0oliGZ/peQpvppUTen3bVuNXbnLnuUK4Cdma
-	C4pw8wZsTnEPrzjqxGXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=4NF5FiS2cg6kO2G49Yx8CO/aK2lCjD/xP+jygOOnDQQ=; b=XXZQ7KM9qYH6o7TmlGRQPmDUIh
+	qmO0C4QTlsg7hqdpbgm7MHAlXPwcE1ALwhdnzbsHRd+7zpNZobTy1jl1G7SclS0LTMLPD6XVRc6gS
+	8qRyDP6+hK1kxkn5up2kuiUjiSfmjshVlVZyrj169yNafJAz/puPomn8sBJP5YB32ZIObuSnzI+J7
+	rEPIIXasZhJGp0zrEyAqtYOoEfjNt6Wmb8q40T88FEBFQwsUM6mKWNEOeSwvz+U7DI6oQ+lRwDCx7
+	MyHAtY5PTchE6SvLQcvC/Yb202vNP8edKJLnHnKY9RqLD3QGj/njA/J0nyr0qbwx093Ye+i+fd3tE
+	pM8W/KFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxUiW-00A82W-50; Tue, 22 Nov 2022 14:57:44 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oxUlL-00A9F3-91; Tue, 22 Nov 2022 15:00:39 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxUiQ-00A7xc-3k
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 14:57:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669129057; x=1700665057;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ptcKDaqf3gRRwrB0yaoMEgRygHe9Kq+LCx/IHTSE3fY=;
-  b=wgmk4/8ftGopG3oAqYKZ5dz71voVTiXCL7aGprz4aRmhoVBA2aVDFwDQ
-   2GT0iwlEbH+nKzjCyxF79ipU0cSS6gjKHfpG6bzGHbuJ6QfwUyMnc56nC
-   n5VLcVp4cX2Vau0kQU/evEFAnL8bGJShFY9OVxmEGU2ZKfsF7ajTy4Jb2
-   U+gVh/3CVEFk7ZMBVIJgOALf8JJ7yxA+wwaw/m/ugUceLFof4SkBN2VCy
-   BOt1imkom/YBf6GqlJS6c+SLxAG/E8fPYARldeS32xWw05IHExI7v11Bg
-   7uMDVOBOuaXkvDJg29H9cqwl+BHDnTtrIkiLK5LHIjD2JO6UF/ON72K1O
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.96,184,1665471600"; 
-   d="scan'208";a="124605464"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Nov 2022 07:57:30 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 22 Nov 2022 07:57:26 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 22 Nov 2022 07:57:23 -0700
-Date: Tue, 22 Nov 2022 14:57:05 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Anup Patel <anup@brainfault.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Anup Patel
-	<apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel
- Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
-	Samuel Holland <samuel@sholland.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add optional DT property
- riscv,timer-can-wake-cpu
-Message-ID: <Y3zjQXqEHsaoVVvf@wendy>
-References: <20220727114302.302201-1-apatel@ventanamicro.com>
- <20220727114302.302201-2-apatel@ventanamicro.com>
- <372e37bf-ac90-c371-ad9e-b9c18e1cc059@linaro.org>
- <CAK9=C2WjU+2cD7UZbja3TT++KCdRyWroT=50dw=fzi5mX30rcw@mail.gmail.com>
- <7a0477a0-9f0f-87d6-4070-30321745f4cc@linaro.org>
- <CAAhSdy20p5bkVanKGkGyArn94hWJhwncztnX7U+4WkN9-v7NsA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAhSdy20p5bkVanKGkGyArn94hWJhwncztnX7U+4WkN9-v7NsA@mail.gmail.com>
+	id 1oxUko-00A91e-22
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 15:00:12 +0000
+Received: by mail-pg1-x533.google.com with SMTP id b62so14336864pgc.0
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 07:00:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e8Tw5fHcTZzbSzK7WDa8C+XaUgJaXo0qN5pr/H7EMQA=;
+        b=kkmL/Pp+l8cRUF1T+0CM/AEUlrcG+6/tnZorn1meU+SYKYzMtn4tE9qzuJlXl2024P
+         sQ/PQqLJdNLjfUueWVQlNXIYFQ72gaWL+OfYfPelScZtSMZzAJv/0SOtLgc9jZKY4BK6
+         9uaJf555bvV21mMCVLCe2NIPRzmrmtmZ9AKvkPvKXMSw1v8HguNO+OIghconMdmcSPr9
+         6Kk//ml9VJGdhD4bVtDXELzl6unlUzBrhZ48U23buoFzxKvfUvcHIvMZl7UJw3ImuX17
+         sI5RCLbI4XzvHmIvs7E8aSUAyfELUXhhy95CLKev0YRrNdDVvZ4NNxbdW/yB8USTVRrd
+         PrMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=e8Tw5fHcTZzbSzK7WDa8C+XaUgJaXo0qN5pr/H7EMQA=;
+        b=qi98reExdG4AMAME28OCmJbq8yIdoREpuAolbqwo8jJWq8/02VlEGM6YiSEl/QHqYy
+         Co4YuE/N7v/G5lHayl50iN/8OIwZkIkWWKdjd4GybrLEut44QT/eHftAte77jxZmGDdz
+         rnisJtyZMPU06Uj/p6DqgqDZNPnjP6/PWMocWWyRb0R1rg+T0S/3OajeNr7TNeAnDqAL
+         YNpgHeeT049N15V6WWe9/8O2Y38UAlQ+URTdfZ6hkhJbzhgVHlzEC0TsjMaHb8D3aI+z
+         zlapSYLpkMyBMJrdOYq27npGqL82hyOH6TseMaANw/unQ/6i3RY/gnG2ZgvE+id+nT70
+         p1sw==
+X-Gm-Message-State: ANoB5pk9+HB7Ms/U6KzM3xxxJsnETtRP+pqsiMYcEdf1wLoY4ZFzsP1L
+	RKKDC7ViStEtSxFPZDaMDDxJn8fhlLWFJQ==
+X-Google-Smtp-Source: AA0mqf4037s5rz87VCZs9Uvr65SLGN1v/kc7w9QZZgbAlTMorOm/8jwJ+IHL+EDqUCDDg1jTnyj0sw==
+X-Received: by 2002:a63:485a:0:b0:45b:f8be:7402 with SMTP id x26-20020a63485a000000b0045bf8be7402mr4655631pgk.484.1669129200511;
+        Tue, 22 Nov 2022 07:00:00 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id 23-20020a17090a0a9700b002182cd64b1csm12376501pjw.1.2022.11.22.06.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Nov 2022 07:00:00 -0800 (PST)
+Date: Tue, 22 Nov 2022 07:00:00 -0800 (PST)
+X-Google-Original-Date: Tue, 22 Nov 2022 06:59:58 PST (-0800)
+Subject: Re: RISC-V SoC Drivers for v6.2
+In-Reply-To: <608037ab-1e9c-4f70-b85c-5665a4bb1769@app.fastmail.com>
+CC: Conor Dooley <conor@kernel.org>, soc@kernel.org, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-3945534f-98a0-453a-8a1b-3e1c8f3441a4@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_065738_308430_EAB0F0DC 
-X-CRM114-Status: GOOD (  34.31  )
+X-CRM114-CacheID: sfid-20221122_070006_367795_7F7292E1 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,122 +83,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Anup,
+On Tue, 22 Nov 2022 06:38:40 PST (-0800), Arnd Bergmann wrote:
+> On Mon, Nov 21, 2022, at 18:24, Conor Dooley wrote:
+>> Hey Arnd,
+>>
+>> Same stuff applies here: lmk if there's something you'd rather see changed.
+>> Perhaps you'd prefer to see PRs per vendor? Although I think that's less
+>> likely to matter here than in the DT stuff. Again, I'll try to get the PR
+>> out a bit earlier next time.
+>
+> Applied, this looks fine, just a few things to keep in mind:
 
-I've been meaning to get back to you on this stuff for quite a while,
-but unfortunately I've gotten distracted with other stuff every time I
-got close. Apologies for that :(
+Thanks!
 
-On Wed, Jul 27, 2022 at 07:04:57PM +0530, Anup Patel wrote:
-> On Wed, Jul 27, 2022 at 6:05 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org> wrote:
-> >
-> > On 27/07/2022 14:21, Anup Patel wrote:
-> > > On Wed, Jul 27, 2022 at 5:37 PM Krzysztof Kozlowski
-> > > <krzysztof.kozlowski@linaro.org> wrote:
-> > >>
-> > >> On 27/07/2022 13:43, Anup Patel wrote:
-> > >
-> > > Since, there is no dedicated timer node, we use CPU compatible string
-> > > for probing the per-CPU timer.
-> >
-> > Next time you add a properties:
-> > riscv,saata-can-wake-cpu
-> > riscv,usb-can-wake-cpu
-> > riscv,interrupt-controller-can-wake-cpu
-> >
-> > and so on and keep explaining that "historically" you did not define
-> > separate nodes, so thus must be in CPU node.
-> 
-> This is a one-of-case with RISC-V DeviceTree where we are living with
-> the fact that there is no timer DT node. If we add a timer DT node now
-> then we have to deal with compatibility for existing platforms.
+> - please add "[GIT PULL]" to the subject line of the email
 
-I don't really understand the argument here. Perhaps this made sense a
-few months ago, but it no longer does IMO.
+FWIW, here's the script I use to send pull requests: https://github.com/palmer-dabbelt/home/blob/master/.local/src/git-send-pull.bash
 
-We have existing platforms that interpreted the SBI spec (or perhaps
-predated the SBI spec in the relevant form?) differently. I've pasted it
-several times now I feel but it's relevant so pasting it here again...
-
-On the subject of suspend, the RISC-V SBI spec states:
-> Request the SBI implementation to put the calling hart in a platform
-> specific suspend (or low power) state specified by the suspend_type
-> parameter. The hart will automatically come out of suspended state and
-> resume normal execution when it receives an interrupt or platform
-> specific hardware event.
-
-This does not cover whether a given event actually reaches the hart or
-not, just what the hart will do if it receives an event. For the
-implementation on the Allwinner D1, timer events are not received during
-suspend.
-
-Through-out the various bits of conversation so far, I have been
-operating on the assumption that on PolarFire SoC, and potentially other
-SiFive based implementations, events from the RISC-V timer do reach a
-hart during suspend.
-I realised while writing this response that I have never actually tested
-it - the C3STOP flag caused problems for me during regular operation &
-not while using some DT defined sleep states.
-I've been learning/piecing together the bits of what is happening here as
-time goes on, so I made an assumption that may or may not be correct, and
-I am still oh-so-far from an understanding.
-I just took it for granted that the existing driver worked correctly for
-"old" SiFive stuff which MPFS is based on & figured that with ~the same
-core complex as the fu540 that we'd behave similarly.
-Perhaps that was not a good idea & please let me know if I've been
-barking up the wrong tree.
-
-Do we know definitively what is/isn't the case for any of the existing
-platforms?
-I can test some stuff, but it'll take some time as it's a bad week in
-my neck of the woods.
-
-> If we add a timer DT node now
-> then we have to deal with compatibility for existing platforms.
-
-In terms of what to encode in a DT, and given the spec never says that
-the timer interrupt must arrive during suspend, we must assume, by
-default, that no timer events arrive during suspend.
-
-We have a bunch of existing platforms that may (do?) get timer events
-during suspend, the opposite of the proposed default behaviour.
-
-I'm trying to follow the line of reasoning but I fail to see how taking
-either the property or node approach allows us to maintain behaviour for
-exiting platforms that that do see timer events during suspend without
-adding *something* to the DT. No matter what we add, we've got some sort
-of backwards compatibility issue, right?
-
-I noted the above:
-
-> Since, there is no dedicated timer node, we use CPU compatible string
-> for probing the per-CPU timer.
-
-If we could rely on the cpu compatible why would we need to add a
-dt-property anyway? Forgive my naivety here, but is the timer event in
-suspend behaviour not a "core complex" level attribute rather than a
-something that can be consistently determined by the cpu compatible?
-
-Either way, we need to figure out why enabling C3STOP is causing other
-timer issues even when we are not in some sort of sleep state & do
-something about that - or figure out some different way to communicate
-the behavioural differences.
-I would expect timers to continue working "normally" with the flag set,
-even if how they work is subtly different?
-On a D1, with the C3STOP "feature" flag set, and it's custom timer
-implementation unused, how do timers behave?
-
-Hopefully I've missed something blatant here Anup!
-
-Thanks,
-Conor.
-
+> - Splitting up a large pull request into smaller ones can be
+>   helpful to make sure things don't go in unnoticed. I try to
+>   (briefly) look at each patch, but if you have 20 boring but
+>   large patches, and a small but important patch that I may
+>   need to comment on, that is a good reason to split.
+>
+>> Not too much to see here, Yang Yingliang has added some error handling
+>> to the setup of the driver that reports SiFive cache topology
+>> information. I've put it on -next given how far we are in the release
+>> cycle, feel free to put it on fixes if you disagree :)
+>
+> This is fine either way, as none of the fixes are likely to cause
+> any real issues. I usually like to err on the side of having too much
+> in the fixes branch instead of risking to miss something, but I'm
+> just as happy to follow your preference here.
+>
+>> RISC-V SoC drivers for v6.2
+>>
+>> SiFive:
+>> - add probe error handling to the ccache driver
+>
+> Since this tag description becomes part of the git history, try to write
+> it like you would write a commit log in the future. Ideally that
+> avoids bulleted lists (I know they are easy) and instead uses full
+> sentences that explain things about the state of the patches. If there
+> are bugfixes, are users likely to need the fixes or were they found
+> through inspection? For new features, explain who would have the
+> corresponding hardware and what it does. Again, what you have here
+> is not wrong, but it can always get better.
+>
+>       Arnd
 
 _______________________________________________
 linux-riscv mailing list
