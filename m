@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE40C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 01:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B015CC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 03:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mSnD0KpCspxvNZReocQ7vJ1zI0gGMOqhkgTGiqZ7Rb8=; b=Kj5M+Wt+Q+OQu6
-	9/RKgxAMMxM1dj4rFFZW3jJ1J0kZhW+R/oajIFWgnFaTIU9rDECYkyv2hwdTjmSLZloMwwEWr/oO8
-	p1ny4YIkCBKAZsckBx0eiuaIN5mh4L6OLcP9B6doRrEgUz2ivmQjBTGra847dFamp1ttVa6Bz/Gdn
-	g2OlPqQdtQvBIW1Yxoo0egxBl8TOkidCP3hlu/Rryz+YfRhjspLJolWK5n/BPCheRGnpu478NTmJt
-	SHZXOEth/tXQQM43RN/etw8p3F1PL+bZVT6JgQ7WbtdrOQ1pnEIduOWuz91P/iauGusL65+A6wxDF
-	/KzvkBEs4kgbmPVxnsNA==;
+	List-Owner; bh=zqkpGTezGRu4DDULLBUQ+XEq0jIG2Yqqz9Rqyq/0eRI=; b=v/NE+jXZaudd+w
+	nfb2BP00moIbL47lNo/TMYYgHoy4ZFeft66G1a5v/ZTpnQQtGS3Nw3jHYzVlkS5+UqH/CrNO9BzSR
+	YPGzRdC6nXu6Do4EolXBFMuJj75QNDexlSzYFUjyBBcGtTKFm2ioRZ1Eong+3Wji7IF9/yGMqClgb
+	8+OLBerDtyu0neS17t7uxYDsZ3Qy9a8XLyfLgLmDS9h76aR6HTlr1DnRMickJl52Rt7VYiAJKzpWp
+	qAqWVIFq7VTet59X1ByxJVLLFYcrplJ6+nNKO2XugIc0aG3WwAMa3KlRZTDi8utC3IHX5R17x/sGN
+	5hxoLhHYbQW/NxssZOJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxIMr-002E8s-Ge; Tue, 22 Nov 2022 01:46:33 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxIMl-002E1S-D3
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 01:46:29 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 6F8A524DBE9;
-	Tue, 22 Nov 2022 09:46:02 +0800 (CST)
-Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 09:46:02 +0800
-Received: from [192.168.125.106] (113.72.144.23) by EXMBX072.cuchost.com
- (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 22 Nov
- 2022 09:46:03 +0800
-Message-ID: <126b0517-2f10-4a31-e76d-8afb1aff6275@starfivetech.com>
-Date: Tue, 22 Nov 2022 09:45:47 +0800
+	id 1oxJyS-0035PT-M6; Tue, 22 Nov 2022 03:29:28 +0000
+Received: from mga17.intel.com ([192.55.52.151])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oxJyJ-0035Hb-OZ
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 03:29:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1669087759; x=1700623759;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S6z92L+m75YxaknVKLmh1u1fFB+90zwwmUmD+jERNQY=;
+  b=FyXLY8PziZCU3oDatgQxcgCEBGl4ysG6faGJ680qkfTorencqERbSjye
+   W1QXSjN54cZv/5yOkW0w4dXJecC7G+VKGLtiIqR7/q/V70m2kx1YCxVg5
+   Jpogq9WcVlktaz9Duwt7f6sbgqHOF4mV04Li4qAbzRBpixhotQfq+RCvi
+   wgvlRL8Bf0a3ZDXTjX8C4SQVPei+cTpTsHvdGdy6ZMnaGI7ARS3aOUtfT
+   KJniLixC2s6DeR8FsAc1KFuYsb0bC0VA9qQ5AGLoRljBhnWVZjSgD+j50
+   Xaw0th8LWJAP+6XrgTXtKDvBEzp2Q8snW33VTGhTJ7gMhpPvgaGnygs6U
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10538"; a="294107847"
+X-IronPort-AV: E=Sophos;i="5.96,182,1665471600"; 
+   d="scan'208";a="294107847"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Nov 2022 19:29:14 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10538"; a="815950400"
+X-IronPort-AV: E=Sophos;i="5.96,182,1665471600"; 
+   d="scan'208";a="815950400"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
+  by orsmga005.jf.intel.com with ESMTP; 21 Nov 2022 19:29:11 -0800
+Date: Tue, 22 Nov 2022 11:19:40 +0800
+From: Xu Yilun <yilun.xu@intel.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-fpga@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Cyril Jean <cyril.jean@microchip.com>, Wu Hao <hao.wu@intel.com>,
+	Tom Rix <trix@redhat.com>, Moritz Fischer <mdf@kernel.org>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [RFC] fpga: add PolarFire SoC IAP support
+Message-ID: <Y3w/zFCcP+CXGCqS@yilunxu-OptiPlex-7050>
+References: <20221121225748.124900-1-conor@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v2 09/14] dt-bindings: clock: Add StarFive JH7110 system
- clock and reset generator
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, Conor Dooley
-	<conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
-	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-References: <20221118010627.70576-1-hal.feng@starfivetech.com>
- <20221118010627.70576-10-hal.feng@starfivetech.com>
- <CAJM55Z_Gq22NiVYHawvjsehL8j3agvp_b2RCgabdTki+ovWa8Q@mail.gmail.com>
-From: Hal Feng <hal.feng@starfivetech.com>
-In-Reply-To: <CAJM55Z_Gq22NiVYHawvjsehL8j3agvp_b2RCgabdTki+ovWa8Q@mail.gmail.com>
-X-Originating-IP: [113.72.144.23]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX072.cuchost.com
- (172.16.6.82)
-X-YovoleRuleAgent: yovoleflag
+Content-Disposition: inline
+In-Reply-To: <20221121225748.124900-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_174627_742440_DE661EA5 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20221121_192919_915301_259888E2 
+X-CRM114-Status: GOOD (  58.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +81,479 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 19 Nov 2022 00:50:41 +0800, Emil Renner Berthing wrote:
-> On Fri, 18 Nov 2022 at 02:06, Hal Feng <hal.feng@starfivetech.com> wrote:
-> > diff --git a/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> > new file mode 100644
-> > index 000000000000..a8cafbc0afe2
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
-> > @@ -0,0 +1,80 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/clock/starfive,jh7110-syscrg.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: StarFive JH7110 System Clock and Reset Generator
-> > +
-> > +maintainers:
-> > +  - Emil Renner Berthing <kernel@esmil.dk>
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: starfive,jh7110-syscrg
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: Main Oscillator (24 MHz)
-> > +      - description: RMII reference clock
-> > +      - description: RGMII RX clock
-> > +      - description: I2S TX bit clock
-> > +      - description: I2S TX left/right clock
-> > +      - description: I2S RX bit clock
-> > +      - description: I2S RX left/right clock
-> > +      - description: TDM
-> > +      - description: mclk
+On 2022-11-21 at 22:57:49 +0000, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Maybe you could ask your colleagues for a better description of these clocks.
+> Add support for "IAP" reprogramming of the FPGA fabric on PolarFire SoC.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> 
+> Hey all,
+> RFC yadda yadda, but not asking people to look at the code per se -
+> really what I am sending this RFC to achieve is a bit of feedback on
+> what the re-programming "flow" looks like.
+> 
+> PolarFire and the SoC variants are flash FPGAs. All well and good for
+> PolarFire, but for PolarFire SoC in IAP mode it is re-programmed from
+> the on-board SoC. The spi-slave stuff that Ivan upstreamed recently
+> works too, but that's only when you have an external programmer.
+> 
+> IAP, or In Application Programming, a programming running on the cpu
+> cores writes the FPGA bitstream, or I suppose "firmware" in Linux land,
+> out to a flash chip which the system then will use to reprogram the
+> FPGA. When IAP is initiated, the system controller will take the FPGA
+> down completely & do the reprogramming. This means, once Linux (or some
 
-OK, I will improve the description.
+Do you mean the Linux OS, FPGA mgr driver & reprograming Application are
+all running on the SoC?
 
-Best regards,
-Hal
+> other program) kicks off the re-programming (in write_complete() below)
+> the system will *immediately* power cycle, whether the reprogramming
+> passes or not. You can see in my write_complete() implementation, that I
+> do not expect the function to return, unless we catch an error case early.
+
+I don't think an FPGA driver could have an interface to power cycle the
+whole system.
+
+> 
+> From my cursory looking around, there doesnt appear to me to be all that
+> much info in-tree about what each FPGA does when you reprogram it, but
+> it doesn't appear that for other FPGAs the CPUs get shut down during
+> this kind of self-reprogramming?
+> 
+> The alternative approach would be to use the "auto update" mode, which
+> just installs an image that will not be used until the FPGA is rebooted
+> in the regular way. Then, on reboot, the system controller would pluck
+
+This seems to be a better way from OS perspective.
+
+> the image from its flash chip and program the FPGA with it. From the
+> last time I looked at the documentation (and the implementations) it
+> seemed that people had custom (and out of tree) ways to initiate/handle
+> the programming, so perhaps I have the freedom to do the "auto update"
+> approach, even if it may be a little different to other implementations?
+
+FPGA manager framework takes care of the runtime FPGA reprograming, a
+main concern is the removal and re-enumeration of the sub devices when
+an FPGA region is being reprogramed. Otherwise, OS is not aware of the
+change of the devices and may just crash.
+
+For your "auto update" mode, I assume it doesn't affect the running
+devices at all, just do flash read/write. So maybe leverage MTD is just
+fine?
+
+Thanks,
+Yilun
+
+> 
+> If I've missed something, please let me know. I hope I have!
+> 
+> I've only recently got a board capable of testing this & have not yet
+> tested my code here in anger etc, it's just the high level thoughts
+> about how to approach the re-programming in an FPGA manager friendly way
+> that I'm looking for comments on.
+> 
+> @LKP folks, if you happen to see this - you can disable building this
+> patch, it won't without some dependencies ;)
+> 
+> Thanks,
+> Conor.
+> ---
+>  drivers/fpga/Kconfig         |   6 +
+>  drivers/fpga/Makefile        |   1 +
+>  drivers/fpga/microchip-iap.c | 350 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 357 insertions(+)
+>  create mode 100644 drivers/fpga/microchip-iap.c
+> 
+> diff --git a/drivers/fpga/Kconfig b/drivers/fpga/Kconfig
+> index 6c416955da53..525d753a28a4 100644
+> --- a/drivers/fpga/Kconfig
+> +++ b/drivers/fpga/Kconfig
+> @@ -255,6 +255,12 @@ config FPGA_M10_BMC_SEC_UPDATE
+>  	  (BMC) and provides support for secure updates for the BMC image,
+>  	  the FPGA image, the Root Entry Hashes, etc.
+>  
+> +config FPGA_MGR_MICROCHIP_IAP
+> +	tristate "Microchip Polarfire IAP FPGA manager"
+> +	depends on POLARFIRE_SOC_SYS_CTRL
+> +	help
+> +	  NOP
+> +
+>  config FPGA_MGR_MICROCHIP_SPI
+>  	tristate "Microchip Polarfire SPI FPGA manager"
+>  	depends on SPI
+> diff --git a/drivers/fpga/Makefile b/drivers/fpga/Makefile
+> index 42ae8b58abce..df1dfb54046b 100644
+> --- a/drivers/fpga/Makefile
+> +++ b/drivers/fpga/Makefile
+> @@ -19,6 +19,7 @@ obj-$(CONFIG_FPGA_MGR_XILINX_SPI)	+= xilinx-spi.o
+>  obj-$(CONFIG_FPGA_MGR_ZYNQ_FPGA)	+= zynq-fpga.o
+>  obj-$(CONFIG_FPGA_MGR_ZYNQMP_FPGA)	+= zynqmp-fpga.o
+>  obj-$(CONFIG_FPGA_MGR_VERSAL_FPGA)	+= versal-fpga.o
+> +obj-$(CONFIG_FPGA_MGR_MICROCHIP_IAP)	+= microchip-iap.o
+>  obj-$(CONFIG_FPGA_MGR_MICROCHIP_SPI)	+= microchip-spi.o
+>  obj-$(CONFIG_ALTERA_PR_IP_CORE)		+= altera-pr-ip-core.o
+>  obj-$(CONFIG_ALTERA_PR_IP_CORE_PLAT)	+= altera-pr-ip-core-plat.o
+> diff --git a/drivers/fpga/microchip-iap.c b/drivers/fpga/microchip-iap.c
+> new file mode 100644
+> index 000000000000..10f25ec64d32
+> --- /dev/null
+> +++ b/drivers/fpga/microchip-iap.c
+> @@ -0,0 +1,350 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Microchip Polarfire SoC "IAP" FPGA reprogramming.
+> + *
+> + * Copyright (c) 2022 Microchip Corporation. All rights reserved.
+> + *
+> + * Author: Conor Dooley <conor.dooley@microchip.com>
+> + */
+> +#include <linux/module.h>
+> +#include <linux/mtd/mtd.h>
+> +#include <linux/of_device.h>
+> +#include <linux/fpga/fpga-mgr.h>
+> +#include <soc/microchip/mpfs.h>
+> +
+> +#define IAP_DEFAULT_MBOX_OFFSET		0u
+> +#define IAP_DEFAULT_RESP_OFFSET		0u
+> +
+> +#define IAP_FEATURE_CMD_OPCODE		0x05
+> +#define IAP_FEATURE_CMD_DATA_SIZE	0u
+> +#define IAP_FEATURE_RESP_SIZE		33u
+> +#define IAP_FEATURE_CMD_DATA		NULL
+> +#define IAP_FEATURE_ENABLED		BIT(5)
+> +
+> +#define IAP_VERIFY_CMD_OPCODE		0x22
+> +#define IAP_VERIFY_CMD_DATA_SIZE	0u
+> +#define IAP_VERIFY_RESP_SIZE		1u
+> +#define IAP_VERIFY_CMD_DATA		NULL
+> +
+> +#define IAP_PROGRAM_CMD_OPCODE		0x42
+> +#define IAP_PROGRAM_CMD_DATA_SIZE	0u
+> +#define IAP_PROGRAM_RESP_SIZE		1u
+> +#define IAP_PROGRAM_CMD_DATA		NULL
+> +
+> +#define IAP_DIRECTORY_WIDTH		4u
+> +#define IAP_UPGRADE_INDEX		1u
+> +#define IAP_UPGRADE_DIRECTORY		(IAP_UPGRADE_INDEX * 0x4)
+> +#define IAP_IMAGE_INDEX			2u
+> +#define IAP_IMAGE_DIRECTORY		(IAP_IMAGE_INDEX * 0x4)
+> +#define IAP_IMAGE_ADDRESS		(IAP_IMAGE_INDEX * 0xA00000)
+> +
+> +struct mpf_iap_config {
+> +	u8 feature_response_size;
+> +};
+> +
+> +struct mpf_iap_priv {
+> +	struct mpfs_sys_controller *sys_controller;
+> +	struct device *dev;
+> +	struct fpga_region *region;
+> +	struct mpf_iap_config *config;
+> +	struct mtd_info *flash;
+> +};
+> +
+> +static enum fpga_mgr_states mpf_iap_state(struct fpga_manager *mgr)
+> +{
+> +	struct mpf_iap_priv *priv = mgr->priv;
+> +	struct mpfs_mss_response *response;
+> +	struct mpfs_mss_msg *message;
+> +	u32 *response_msg;
+> +	int ret;
+> +	enum fpga_mgr_states rc = FPGA_MGR_STATE_WRITE_INIT_ERR;
+> +
+> +	response_msg = devm_kzalloc(priv->dev,
+> +				    IAP_FEATURE_RESP_SIZE * sizeof(response_msg),
+> +				    GFP_KERNEL);
+> +	if (!response_msg)
+> +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
+> +
+> +	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
+> +	if (!response) {
+> +		devm_kfree(priv->dev, response_msg);
+> +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
+> +	}
+> +
+> +	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
+> +	if (!response) {
+> +		devm_kfree(priv->dev, response_msg);
+> +		devm_kfree(priv->dev, response);
+> +		return FPGA_MGR_STATE_WRITE_INIT_ERR;
+> +	}
+> +
+> +	/*
+> +	 * To verify that IAP is possible, the "Query Security Service Request"
+> +	 * is performed. Bit 5 of byte 1 is "UL_IAP" & if it is set, IAP is not
+> +	 * possible.
+> +	 * This service has no command data & does not overload mbox_offset.
+> +	 * The size of the response varies between PolarFire & PolarFire SoC.
+> +	 */
+> +	response->resp_msg = response_msg;
+> +	response->resp_size = IAP_FEATURE_RESP_SIZE;
+> +	message->cmd_opcode = IAP_FEATURE_CMD_OPCODE;
+> +	message->cmd_data_size = IAP_FEATURE_CMD_DATA_SIZE;
+> +	message->response = response;
+> +	message->cmd_data = IAP_FEATURE_CMD_DATA;
+> +	message->mbox_offset = IAP_DEFAULT_MBOX_OFFSET;
+> +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
+> +
+> +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
+> +	if (ret | response->resp_status) {
+> +		rc = FPGA_MGR_STATE_UNKNOWN;
+> +		goto out;
+> +	}
+> +
+> +	if (!(response_msg[1] & IAP_FEATURE_ENABLED))
+> +		rc = FPGA_MGR_STATE_OPERATING;
+> +
+> +out:
+> +	devm_kfree(priv->dev, response_msg);
+> +	devm_kfree(priv->dev, response);
+> +	devm_kfree(priv->dev, message);
+> +
+> +	return rc;
+> +}
+> +
+> +static int mpf_iap_write_init(struct fpga_manager *mgr, struct fpga_image_info *info,
+> +			      const char *buf, size_t count)
+> +{
+> +	struct mpf_iap_priv *priv = mgr->priv;
+> +	size_t *bytes_read;
+> +	u32 upgrade_address;
+> +
+> +	priv->flash = mpfs_sys_controller_get_flash(priv->sys_controller);
+> +	if (!priv->flash)
+> +		return PTR_ERR(priv->flash);
+> +
+> +	/*
+> +	 * We need to read the "SPI DIRECTORY" in the first 1 KiB, to see if
+> +	 * the index 1 has an address in it. If it is non zero, IAP will fail.
+> +	 * As the system controller will initiate upgrade mode instead.
+> +	 */
+> +	int ret = mtd_read(priv->flash, IAP_UPGRADE_DIRECTORY, IAP_DIRECTORY_WIDTH,
+> +			   bytes_read, (u_char *) &upgrade_address);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (*bytes_read != IAP_DIRECTORY_WIDTH || upgrade_address)
+> +		return -EIO;
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpf_iap_write(struct fpga_manager *mgr, const char *buf, size_t count)
+> +{
+> +	/*
+> +	 * No parsing etc of the bitstream is required. The system controller
+> +	 * will do all of that itself - including verifying that the bitstream
+> +	 * is valid.
+> +	 */
+> +	struct mpf_iap_priv *priv = mgr->priv;
+> +	size_t *bytes_written;
+> +	u32 image_address = IAP_IMAGE_ADDRESS;
+> +
+> +	/*
+> +	 * We need to write the "SPI DIRECTORY" to the first 1 KiB, telling
+> +	 * the system controller where to find the actual bitstream.
+> +	 */
+> +	int ret = mtd_write(priv->flash, IAP_IMAGE_DIRECTORY, IAP_DIRECTORY_WIDTH,
+> +			    bytes_written, (u_char *) &image_address);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (*bytes_written != IAP_DIRECTORY_WIDTH)
+> +		return -EIO;
+> +
+> +	ret = mtd_write(priv->flash, (loff_t) image_address, count, bytes_written, (u_char *) buf);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (*bytes_written != count)
+> +		return -EIO;
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpf_iap_write_complete(struct fpga_manager *mgr, struct fpga_image_info *info)
+> +{
+> +	struct mpf_iap_priv *priv = mgr->priv;
+> +	struct mpfs_mss_response *response;
+> +	struct mpfs_mss_msg *message;
+> +	u32 *response_msg;
+> +	int ret = 0;
+> +
+> +	response_msg = devm_kzalloc(priv->dev,
+> +				    IAP_FEATURE_RESP_SIZE * sizeof(response_msg),
+> +				    GFP_KERNEL);
+> +	if (!response_msg)
+> +		return -ENOMEM;
+> +
+> +	response = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_response), GFP_KERNEL);
+> +	if (!response) {
+> +		devm_kfree(priv->dev, response_msg);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	message = devm_kzalloc(priv->dev, sizeof(struct mpfs_mss_msg), GFP_KERNEL);
+> +	if (!response) {
+> +		devm_kfree(priv->dev, response_msg);
+> +		devm_kfree(priv->dev, response);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	/*
+> +	 * The system controller can verify that an image in the flash is valid.
+> +	 * Rather than duplicate the check in this driver, call the relevant
+> +	 * service from the system controller instead.
+> +	 * This service has no command data and no response data. It overloads
+> +	 * mbox_offset with the image index in the flash's SPI directory where
+> +	 * the bitstream is located.
+> +	 */
+> +	response->resp_msg = response_msg;
+> +	response->resp_size = IAP_VERIFY_RESP_SIZE;
+> +	message->cmd_opcode = IAP_VERIFY_CMD_OPCODE;
+> +	message->cmd_data_size = IAP_VERIFY_CMD_DATA_SIZE;
+> +	message->response = response;
+> +	message->cmd_data = IAP_VERIFY_CMD_DATA;
+> +	message->mbox_offset = IAP_IMAGE_INDEX;
+> +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
+> +
+> +	pr_info("ran IAP_VERIFY_RESP_SIZE\n");
+> +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
+> +	if (ret | response->resp_status) {
+> +		ret = ret ? ret : -EBADMSG;
+> +		goto out;
+> +	}
+> +
+> +	/*
+> +	 * If the validation has passed, initiate IAP.
+> +	 * This service has no command data and no response data. It overloads
+> +	 * mbox_offset with the image index in the flash's SPI directory where
+> +	 * the bitstream is located.
+> +	 * Once we attempt IAP either:
+> +	 * - it passes and the board reboots
+> +	 * - it fails and the board reboots to recover
+> +	 * - the system controller aborts and we exit "gracefully"
+> +	 * This function will never return 0.
+> +	 */
+> +	response->resp_msg = response_msg;
+> +	response->resp_size = IAP_PROGRAM_RESP_SIZE;
+> +	message->cmd_opcode = IAP_PROGRAM_CMD_OPCODE;
+> +	message->cmd_data_size = IAP_PROGRAM_CMD_DATA_SIZE;
+> +	message->response = response;
+> +	message->cmd_data = IAP_PROGRAM_CMD_DATA;
+> +	message->mbox_offset = IAP_IMAGE_INDEX;
+> +	message->resp_offset = IAP_DEFAULT_RESP_OFFSET;
+> +
+> +	pr_info("ran IAP_PROGRAM_CMD_OPCODE\n");
+> +	ret = mpfs_blocking_transaction(priv->sys_controller, message);
+> +	if (ret)
+> +		goto out;
+> +
+> +	/*
+> +	 * This return 0 is dead code. Either the IAP will fail, or it will pass
+> +	 * & the FPGA will be rebooted in which case mpfs_blocking_transaction()
+> +	 * will never return and Linux will die.
+> +	 */
+> +	return 0;
+> +
+> +out:
+> +	devm_kfree(priv->dev, response_msg);
+> +	devm_kfree(priv->dev, response);
+> +	devm_kfree(priv->dev, message);
+> +	return ret;
+> +}
+> +
+> +static const struct fpga_manager_ops mpf_iap_ops = {
+> +	.state = mpf_iap_state,
+> +	.write_init = mpf_iap_write_init,
+> +	.write = mpf_iap_write,
+> +	.write_complete = mpf_iap_write_complete,
+> +};
+> +
+> +static int mpf_iap_run(struct device *dev)
+> +{
+> +	struct fpga_manager *mgr;
+> +	struct fpga_image_info *info;
+> +	int ret;
+> +
+> +	printk("starting to test the fpga manager\n");
+> +
+> +	mgr = fpga_mgr_get(dev);
+> +	info = fpga_image_info_alloc(dev);
+> +
+> +	info->firmware_name = devm_kstrdup(dev, "pf_bitstream.fw", GFP_KERNEL);
+> +	ret = fpga_mgr_lock(mgr);
+> +	if (ret) {
+> +		dev_err(dev, "couldnt lock the manager\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = fpga_mgr_load(mgr, info);
+> +	if (ret) {
+> +		dev_err(dev, "couldnt load the firmware\n");
+> +		return ret;
+> +	}
+> +
+> +	fpga_mgr_unlock(mgr);
+> +	fpga_mgr_put(mgr);
+> +	fpga_image_info_free(info);
+> +
+> +	dev_info(dev, "test complete\n");
+> +
+> +	return ret;
+> +}
+> +
+> +static int mpf_iap_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct mpf_iap_priv *priv;
+> +	struct fpga_manager *mgr;
+> +	int ret;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->sys_controller = mpfs_sys_controller_get(dev);
+> +	if (IS_ERR(priv->sys_controller))
+> +		return dev_err_probe(dev, PTR_ERR(priv->sys_controller),
+> +				     "Could not register as a sub device of the system controller\n");
+> +
+> +	priv->dev = dev;
+> +	platform_set_drvdata(pdev, priv);
+> +
+> +	mgr = devm_fpga_mgr_register(dev, "Microchip MPF(S) IAP FPGA Manager",
+> +				     &mpf_iap_ops, priv);
+> +	if (IS_ERR(mgr))
+> +		return dev_err_probe(dev, PTR_ERR(mgr),
+> +				     "Could not register FPGA manager.\n");
+> +
+> +	enum fpga_mgr_states state = mpf_iap_state(mgr);
+> +	//ret = mpf_iap_run(dev);
+> +	ret = 1;
+> +	if (ret)
+> +		dev_err_probe(dev, ret, "IAP failed");
+> +
+> +	dev_info(dev, "Registered Microchip MPF(S) IAP FPGA Manager %u\n", state);
+> +
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver mpf_iap_driver = {
+> +	.driver = {
+> +		.name = "mpfs-iap",
+> +	},
+> +	.probe = mpf_iap_probe,
+> +};
+> +module_platform_driver(mpf_iap_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
+> +MODULE_DESCRIPTION("PolarFire SoC IAP FPGA reprogramming");
+> -- 
+> 2.37.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
