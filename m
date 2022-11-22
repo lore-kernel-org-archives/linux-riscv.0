@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563DFC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 08:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D04C4321E
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 08:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fVH137t2ibcCMWc0sfSEXBdQ9vT3qgvpLZ7/frG4TgQ=; b=ONkj31tHESbPoZ
-	7edkvbrOPqzdl6dz4GM0rN8z9j1LbsDJhMkjpyVpeq+yN20awK/3OgRsD+NYWe+evUtWpmXKac0fv
-	NuqB2aK9u4LkK8HK0FtWsEwpGvPWv2OaIY8qIV0wP2jsz7N9PQLHxTPxuaKu33aa+WvBzDVIDpkJO
-	zhKmlTzQblC6GgpzMz74zTq2u2D7UqS4alqPOkZwmAECEJjsBFPc8LJGgCON2Njaig/gEXk6WMiKM
-	b6viEJvGvfnCUjq7ZU7TD4lX99O385J7WzCK1YyVQwcwum+8pq1IRjTxUbNQ556CniXhjU5xJK13y
-	jAVX3RJoSdlw7BKvv0bg==;
+	List-Owner; bh=NlN73VLHgJxouKNbofVnPoy7Pz4FYFdaRGeH3ElP4Z8=; b=CRIAY4RAaeMWP7
+	CMBrIHbOKIZIYxnowTalIV7kuEhqaVd+h/HbtgBttKGdX/aSLWjXmDM35svmMbDJOBvkSk8vPdr+C
+	5AXFQmaJWJYng00pbG7lyfRYx8iRDONrWUQtZWC8uhfe4zsqOrkqGXhzznrmQ0N/mQjnrd/xakks6
+	9uUfW6YIrFCiWc9zHy6kCnDavo3DjLsc72q8Fa+sGt7uhcjV27mVlMjDacxQNkRH67xhJN0/krcck
+	E6w3uHyIINd2A7vKiWhbc5655YdLafdJ7ZLRHNXrWy2d67DiG0L4SWCQcah98pAxmQJ3WagaAPS7D
+	PSQKe7WNc/bbeRFHqC4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxP5t-006dgF-9v; Tue, 22 Nov 2022 08:57:29 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oxP6P-006dyT-AJ; Tue, 22 Nov 2022 08:58:01 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxP5q-006dbx-I4
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 08:57:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id EB596B8198D
-	for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 08:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A268CC433C1
-	for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 08:57:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669107441;
-	bh=20Lb4h4hKpElcqPKAPVKg9tS5raMSAP/TDIlwV1az40=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uWH7CDpdL2iwmIELLKCz4rek722osss3GXQYbAFdGjkS0PWSgsiY0we5Y8VXCo1/d
-	 6wxrYxof0Rnd+v3r6auFdcGKQwVD/dtWr1RzE4GRzugzJZVx60lp7CyRJoHI6jgxS2
-	 UWSGqNHSGXeqeu6HvrMkf8X/kNNX0rvYGAeqTJ1/NVnZyWCMfcsT4hbpFqS28qt3+W
-	 h2y2m+z1Eo2umITqsBAcOP+K1/+cz0JaJVO3GQU9c/afEQIhpCz+WvGCINfFfr5cYD
-	 QvHH57xHyZQdICgor2AY1YBAICMQmL1efJcVlcO9/XUJysdSwAQO/MckRr0E/7sgbP
-	 cgP6SoguI293g==
-Received: by mail-ej1-f43.google.com with SMTP id bj12so34127982ejb.13
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 00:57:21 -0800 (PST)
-X-Gm-Message-State: ANoB5pk28+WM5pVbEn/KuTjrmEorkGzYBMi9jIL5k66IkZNYKMllcYAQ
-	LwCSbIgL1H67bhhtmJvc1ZhaKa1Zm/RUqtRNxyo=
-X-Google-Smtp-Source: AA0mqf4DOIC6AqTPH/jK9xIvXwr2uEcUK3FVPG51NR8naPKVpoOXx/4BCLx9XJyVjzm3dlsJX4z+d5s11dXiD6tDCXA=
-X-Received: by 2002:a17:906:19d7:b0:7b2:b782:e1df with SMTP id
- h23-20020a17090619d700b007b2b782e1dfmr14901373ejd.308.1669107439947; Tue, 22
- Nov 2022 00:57:19 -0800 (PST)
-MIME-Version: 1.0
-References: <20221122075440.1165172-1-suagrfillet@gmail.com>
-In-Reply-To: <20221122075440.1165172-1-suagrfillet@gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 22 Nov 2022 16:57:07 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQWuu2wUk-7WhFdov0PG5R1z_F_+OLqHM0nGnMiC1Yi_w@mail.gmail.com>
-Message-ID: <CAJF2gTQWuu2wUk-7WhFdov0PG5R1z_F_+OLqHM0nGnMiC1Yi_w@mail.gmail.com>
-Subject: Re: [PATCH] riscv/ftrace: fix ftrace_modify_call bug
+	id 1oxP6J-006duK-AF
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 08:57:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669107475; x=1700643475;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+SSTtDJKH/DT1imwO1wWLGEs22th08LxjRQLt0jLVxY=;
+  b=ERlhdN8vVKRivIzb09ijkGc+K5wk+GEpu9vOU5vlw0NpgjI94Q0sI2CF
+   FsYvMCyJbsKKoiZp1voJO0zyO0qJML9GACFrUJkaJbBRyl7YB23M9D2y4
+   iQ/neefFROXzJJ7xJ2u+OBFkR4FbhYvn2k2VK0h0lmFkkoGuGv+L2TcN9
+   V1YRm5MZcdO8durV4Pt/MX0Gj/FWk6n3OrJvl8395PlHsH2bMSb98feww
+   05Kl3DJD1YD7mKPY3vobxDHQ83T/bQ4bSObpO7FRBYvBxwkG/zZbu6zxI
+   BXrK5d26t2pKCV3Fkhzakw0N3MJA7+cWmKsl+IA0zWS+u/mwiA0M8JSeY
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,183,1665471600"; 
+   d="scan'208";a="124555764"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Nov 2022 01:57:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 22 Nov 2022 01:57:49 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 22 Nov 2022 01:57:48 -0700
+Date: Tue, 22 Nov 2022 08:57:30 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
 To: Song Shuai <suagrfillet@gmail.com>
-Cc: rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+CC: <guoren@kernel.org>, <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mark.rutland@arm.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] riscv/ftrace: fix ftrace_modify_call bug
+Message-ID: <Y3yO+ii+NEVPTYFo@wendy>
+References: <20221122075440.1165172-1-suagrfillet@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221122075440.1165172-1-suagrfillet@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_005726_917766_EF457EF6 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20221122_005755_433619_C93C471D 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +82,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 22, 2022 at 3:54 PM Song Shuai <suagrfillet@gmail.com> wrote:
->
+On Tue, Nov 22, 2022 at 03:54:40PM +0800, Song Shuai wrote:
 > With this commit (riscv: ftrace: Reduce the detour code size to half)
+
+AFAICT the above patch has not been applied & this patch here should be
+folded into the offending patch?
+I've marked this one as "Not Applicable" in patchwork as a result, but
+let me know if that is an incorrect assumption.
+
+Thanks,
+Conor.
+
 > patched, ftrace bug occurred When hosting kprobe and function tracer
 > at the same function.
->
+> 
 > Obviously, the variable caller in ftrace_modify_call was assigned by
 > rec->ip with 4 offset failing the code replacing at function entry.
 > And the caller should be assigned by rec->ip directly to indicate
 > the function entry.
-Thank you, it's my fault, but I think the problem is:
-
-Before (riscv: ftrace: Reduce the detour code size to half)
-     0: REG_S  ra, -SZREG(sp)
-     4: auipc  ra, ?          <- We need "rec->ip + 4" here
-     8: jalr   ?(ra)
-    12: REG_L  ra, -SZREG(sp)
-
-After (riscv: ftrace: Reduce the detour code size to half)
-     0: auipc  t0, ?  <- We needn't "rec->ip + 4" anymore
-     4: jalr   t0, ?(t0)
-
-I copied rec->ip + 4 blindly, then caused the bug. Right?
-
->
+> 
 > The following is the ftrace bug log.
->
+> 
 > ```
 > [  419.632855] 00000000f8776803: expected (ffe00297 1a4282e7) but got (1a8282e7 f0227179)
 > [  419.633390] ------------[ ftrace bug ]------------
@@ -120,33 +115,28 @@ I copied rec->ip + 4 blindly, then caused the bug. Right?
 > [  419.634487]  expected tramp: ffffffff800093cc
 > [  419.634935] ------------[ cut here ]------------
 > ```
->
+> 
 > Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 > ---
 >  arch/riscv/kernel/ftrace.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
->
+> 
 > diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
 > index 8c77f236fc71..61b24d767e2e 100644
 > --- a/arch/riscv/kernel/ftrace.c
 > +++ b/arch/riscv/kernel/ftrace.c
 > @@ -132,7 +132,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
->                        unsigned long addr)
+>  		       unsigned long addr)
 >  {
->         unsigned int call[2];
-> -       unsigned long caller = rec->ip + 4;
-> +       unsigned long caller = rec->ip;
->         int ret;
->
->         make_call_t0(caller, old_addr, call);
-> --
+>  	unsigned int call[2];
+> -	unsigned long caller = rec->ip + 4;
+> +	unsigned long caller = rec->ip;
+>  	int ret;
+>  
+>  	make_call_t0(caller, old_addr, call);
+> -- 
 > 2.20.1
->
-
-
--- 
-Best Regards
- Guo Ren
+> 
 
 _______________________________________________
 linux-riscv mailing list
