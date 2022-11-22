@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05CCC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 00:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FEEC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 00:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ReVf6ek1UTDAeVxF3qLB3YpYgIuiNCGa/ueqW914ufE=; b=aoIOAsphf1YSFW
-	HXXQWwiLnwNtJqv8MDs/UjlhFDghxVGPiRKklC+K1jMY65gmT8gI0Y4I0ZWRUo/NBDnAzlG1wnvrv
-	BGigcaTRSn5Yi2TZuX+mf6a+oZmqlM6QzyVZ3Gmmp/9Q+PNNBvqei0T9LJMJrjUJkTV+GYFzU7GdU
-	RFUyTf1k/M/N0z8AjCNJGOyuMPIk102wBYVMYrZL9daHY/cejYJSYLvbXGRSu1zg9p7iAWcD6x2CI
-	EbNwIn1uYr/H/0iqcje79xp/kXhqGKnHKTYNxGznYE56A+biFAp0nkxFfQYr7vkPW5rk/pRKynM0a
-	lVjtGTkC2N/QNrd0QeGQ==;
+	List-Owner; bh=vqXO8x09LeUKBev4ZyprxXBl6SX/IjVLUCE9iCBTQpQ=; b=ltuQ66ULJT759Z
+	TNxoTSz9APFQ5AHhwgmlw/MRzy1GrRCiutZfEI5Xy1e/0wW/bUKL9kJOf/nHnkOTRNnmkLU9sbAjT
+	TioxS68sPnoPt+QJb64FxqexYtEP9Gwpx295NB4aGTTWYvpKVWmTygq1aUVbkwEUKo3VpeGVkgzHv
+	n2zSTp6jJ1I//rjDd/iiVoCzIeUewy6qfk4gt04THUTJ9p4fCE77OT3qic/wFDhCsr4DDyWPcy60l
+	Vb38My3JqReqi0HVtFVenWmzIfwWerCzIRkgABz1tXXGJC2VxFBIZS1Am9NRuFb1cRc1FJ4B8JQmq
+	998NJl/jXIgoicG1M60g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxGi0-001Sxc-9M; Tue, 22 Nov 2022 00:00:16 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1oxGqb-001UPM-J3; Tue, 22 Nov 2022 00:09:09 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxGhw-001SxH-Up
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 00:00:14 +0000
-Received: by mail-ej1-x636.google.com with SMTP id f27so32200626eje.1
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 16:00:11 -0800 (PST)
+	id 1oxGqX-001UOx-88
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 00:09:08 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id b21so12046992plc.9
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 16:09:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TDao0LAfm434A/ExSO5wjCivz8a5JjQXxBlQrokb6kc=;
-        b=BvmnoiVL/h6tWsjPo0Aeq5Q6cccWN4F5urXLhgO0z4WBigedoRyeQdFpafRKgsAtcn
-         73wdA8JtiNHbEgi/O8B/BJA80ST+4lDy9f2EAm32YYWh+aXGh/2KFGcEEDGJlD5rlCLz
-         NBGu4UwUKW87TEmFQeWPh/4o4KbNbZhsHgbrcPwNE31yXlwbi3qrchCQ5g3P8DN+ZLnt
-         bGuq1j2eZ97M6AmHQPW+2bB5h35md4Z98ToBuySGvhKsfKo3ajCuhq/wE2ZwZTgX8CEl
-         Ww6fc79vl+qqZTutHb++Qs12E5633QiTgALWojAgOorjcincy8aM0mp7NslBzh+WN5LO
-         sBdw==
+        d=baylibre-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uKZLqRGf8BJZDh7jHE36jyMimT2zwRKVGJSlSOPTg+U=;
+        b=wQZOIJONcXbHkFZq1G9+Bpu8n0iCVTwZ7lvZrD5WcJphzDlJUz7sExbOZuOqaLexNr
+         oIPGcBT7Mc0PdoZ27QztOPUyPA9Et98Y8Ek/QPpLUPJ9YB448175QKBwIuqa/nUOUQDt
+         OgF8zWAj2CxQhsQWRUg1g+ztNWifkgeeiP/Ek05OwR4MHL4GUsHbOl5jyDvMr3apb+n4
+         kSprFu0hqOwVFO8pWA4EuVUhk4ZZCNwijjn7/dQSYmascGJIKxzw7d7PRao5aDjPJKta
+         CNH5550NIlaxs0eGS4O98OhX8ht1zpYxs+k2FLV2UtfbXEvKmfJv18dshu4eaZADbFy+
+         D75g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TDao0LAfm434A/ExSO5wjCivz8a5JjQXxBlQrokb6kc=;
-        b=rNfIvD97T87f2/bjuCcTd6eSZxBcfDTZwdOJNEOJXTFYWK3hZX7N71+JnhMM+oktqv
-         c4lz4GeTK7yFInxxBfeUlOuglGT48i3aUDL+Hn4fdxia24wfhcl1iCdqtoeyxF9mI4Vz
-         xQktU5Qi8/UoH6GWNw0rF9nop2GwY16BSaJhFpqthIhrAAzBMXaLQtPXBWYuOT5hZAkg
-         ovfjxS40qopkypGLkU25+0kAfi9X8VfXpZzbQgYyfvfWMNy8dp2/xHxdnVMso3b+oBdH
-         OZz3HP774dzu5UsUdGh1hmSvG/eODCH4TL1jpCyCQdhWx++kUbJp17DD42Bu1+HTx21p
-         vcKA==
-X-Gm-Message-State: ANoB5pnnMw6ombdK/uZ6o3dQd2ZdECw8R78xsccYu7v6B/u2206Is94p
-	CUDOdTuqHs7oSAfiPMBN8o1E9vw/Fg32aWxr2mU=
-X-Google-Smtp-Source: AA0mqf7wirXB9UcHj6bBpQrNPdemVwDrSaetF1MqXaP4SBD99f+fgWONo6kDIZi+Va+xTy91kr2tenOEPO+UiZSIetk=
-X-Received: by 2002:a17:906:79c4:b0:778:e3e2:8311 with SMTP id
- m4-20020a17090679c400b00778e3e28311mr2574608ejo.342.1669075210604; Mon, 21
- Nov 2022 16:00:10 -0800 (PST)
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uKZLqRGf8BJZDh7jHE36jyMimT2zwRKVGJSlSOPTg+U=;
+        b=J918cBp8R5rCdgtwMUKO+tmjlOec2HPhAmYpP6BzUDYkcIDHr7OXtTcM4LUsDRCjrJ
+         11KBxMW3rZWu8nhYhdnaJxUvHwmvBXZHMdBPDIJqsRpLHOO+iCGQRLavjJptRr+Ul6UV
+         5fb0AMo6OtV5JcGBoaA9l6Rawl+g5K9HMVeZ/GUiwFFpaFayBQ9w8g52hgw47BBHAjMx
+         wPV80ehTAKcDTnVqebbbBe+z1iN33qflgetps9VTtWGENkPz78TW4g367I0L7t+M2lvs
+         XNIOv72x6iX1s2WW2AY3OdaUAMrP6xNLlU9FVVpmAZeOWXbedftVr3BvT15lGnp9qohe
+         S09A==
+X-Gm-Message-State: ANoB5plZcyBWApK2F/1sPuy6gt+3l/Qo8YQIKYwQU9il61lQWWubM5E7
+	a9STF0tWNH9w5XZ85Dn1aUJYpA==
+X-Google-Smtp-Source: AA0mqf7M4ltKeAX+jDnV5k1VqRATMO6szxw65EoAXC+2gMC+LMZRb/5GoMTuKt/Ai1V1AsAKWC6sFw==
+X-Received: by 2002:a17:90a:dd82:b0:212:fdb1:720b with SMTP id l2-20020a17090add8200b00212fdb1720bmr29143847pjv.66.1669075742029;
+        Mon, 21 Nov 2022 16:09:02 -0800 (PST)
+Received: from localhost ([75.172.139.56])
+        by smtp.gmail.com with ESMTPSA id x22-20020a170902821600b001873aa85e1fsm10211035pln.305.2022.11.21.16.09.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Nov 2022 16:09:01 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Walker Chen <walker.chen@starfivetech.com>,
+ linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
+ <conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Walker Chen <walker.chen@starfivetech.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
+In-Reply-To: <20221118133216.17037-4-walker.chen@starfivetech.com>
+References: <20221118133216.17037-1-walker.chen@starfivetech.com>
+ <20221118133216.17037-4-walker.chen@starfivetech.com>
+Date: Mon, 21 Nov 2022 16:09:00 -0800
+Message-ID: <7hedtvam03.fsf@baylibre.com>
 MIME-Version: 1.0
-References: <20221110164924.529386-1-heiko@sntech.de> <CA+V-a8vSVY590SUkg81cC8Kq7FjzxdcJ5m2VG=94m0ntis7+8w@mail.gmail.com>
- <CA+V-a8sqEjLKdGm67Sm5YbYUVRuntAM0Wqw_Gk+V6i9x+b1Exg@mail.gmail.com> <14108757.uLZWGnKmhe@diego>
-In-Reply-To: <14108757.uLZWGnKmhe@diego>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Mon, 21 Nov 2022 23:59:43 +0000
-Message-ID: <CA+V-a8sq8=mG5VZ3QTRUT=cx-p4L+yNVTskeuNaRxhF-4NJx9A@mail.gmail.com>
-Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
-	ajones@ventanamicro.com, emil.renner.berthing@canonical.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_160013_033774_2C52AF1D 
-X-CRM114-Status: GOOD (  27.05  )
+X-CRM114-CacheID: sfid-20221121_160905_539114_9E3E5C02 
+X-CRM114-Status: GOOD (  36.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +87,304 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSGVpa28sCgpPbiBNb24sIE5vdiAyMSwgMjAyMiBhdCAxMDoxNyBQTSBIZWlrbyBTdMO8Ym5l
-ciA8aGVpa29Ac250ZWNoLmRlPiB3cm90ZToKPgo+IEFtIE1vbnRhZywgMjEuIE5vdmVtYmVyIDIw
-MjIsIDIyOjMxOjM2IENFVCBzY2hyaWViIExhZCwgUHJhYmhha2FyOgo+ID4gSGkgSGVpa28sCj4g
-Pgo+ID4gT24gTW9uLCBOb3YgMjEsIDIwMjIgYXQgMzowNiBQTSBMYWQsIFByYWJoYWthcgo+ID4g
-PHByYWJoYWthci5jc2VuZ2dAZ21haWwuY29tPiB3cm90ZToKPiA+ID4KPHNuaXA+Cj4gPiBTb21l
-IG1vcmUgaW5mb3JtYXRpb24sCj4gPgo+ID4gLSBJZiBJIGRyb3AgdGhlIHJpc2N2X2FsdGVybmF0
-aXZlX2ZpeF9hdWlwY19qYWxyKCkgY2FsbCBhZnRlcgo+ID4gcGF0Y2hfdGV4dF9ub3N5bmMoKSBh
-bmQgdGhlbiBwcmludCB0aGUgYWx0LT5vbGRfcHRyIGluc3RydWN0aW9ucwo+ID4gYmVmb3JlIHBh
-dGNoaW5nIEkgY2FuIHNlZSB0aGUgaW5zdHJ1Y3Rpb25zIGFzIDB4MTMgKG5vcCkgd2hpY2ggaXMK
-PiA+IGNvcnJlY3QuCj4gPgo+ID4gLSBpZiBJIGNhbGwgcmlzY3ZfYWx0ZXJuYXRpdmVfZml4X2F1
-aXBjX2phbHIoKSBjYWxsIGFmdGVyCj4gPiBwYXRjaF90ZXh0X25vc3luYygpIGFuZCB0aGVuIHBy
-aW50IHRoZSBhbHQtPm9sZF9wdHIgaW5zdHJ1Y3Rpb25zCj4gPiBiZWZvcmUgcGF0Y2hpbmcgSSBk
-b250IHNlZSAweDEzIChub3ApIGNvbnNpc3RlbnRseSBmb3Igb2xkCj4gPiBpbnN0cnVjdGlvbnMu
-Cj4KPiB3aGljaCBpcyB0byBiZSBleHBlY3RlZCBJIGd1ZXNzLgo+Cj4gYWx0LT5vbGRfcHRyIHBv
-aW50cyB0byB0aGUgbWVtb3J5IGxvY2F0aW9uIHdoZXJlIHRoZSBsaXZlIGtlcm5lbCBjb2RlCj4g
-bGl2ZXMuCj4KQWdyZWVkLgoKPiBJLmUuIHRoZSBjb2RlIGF0IHRoaXMgbG9jYXRpb24gaXMgdGhl
-IHRoaW5nIHRoZSBrZXJuZWwgYWN0dWFsbHkgcnVucy4KPiBUaGUgY29kZSBhdCB0aGlzIGxvY2F0
-aW9uIHRoZW4gZ2V0cyBvdmVyd3JpdHRlbiBieSB0aGUgYWx0ZXJuYXRpdmUKPiBhc3NlbWJseS4K
-PgpCdXQgc2hvdWxkbid0IHRoZSBhY3R1YWwgY29kZSBiZSBub3BzIGJlZm9yZSBwYXRjaGluZz8K
-Cj4KPiA+IC0gSWYgSSByZXBsYWNlIHRoZSBub3AncyBpbiB0aGUgb2xkIGluc3RydWN0aW9ucyB3
-aXRoIG15IGFzc2VtYmx5IGNvZGUKPiA+IG9mIHJ6L2ZpdmUgY21vIGFuZCB0aGVuIGp1c3QgdXNl
-IHBhdGNoX3RleHRfbm9zeW5jKCkgSSBjYW4gc2VlIHRoZQo+ID4gY29ycmVjdCBhY3R1YWwgaW5z
-dHJ1Y3Rpb24gYmVpbmcgcHJpbnRlZCBhcGFydCBmcm9tIGphbHIgKGlzIHNvbWUgc29ydAo+ID4g
-b2Ygb2Zmc2V0IGFkZGVkIHRvIGl0IGFzIEkgc2VlIGxhc3QgNCBiaXRzIG1hdGNoPykgYW5kIHRo
-ZW4gaXMKPiA+IHJlcGxhY2VkIGNvcnJlY3RseSBieSB0aGUgc2FtZSBhbHQgaW5zdHJ1Y3Rpb25z
-IGFwYXJ0IGZyb20gdGhlIGphbHIKPiA+IChsb2cgWzBdKS4KPiA+Cj4gPiAtIElmIEkgcmVwbGFj
-ZSB0aGUgbm9wJ3MgaW4gdGhlIG9sZCBpbnN0cnVjdGlvbnMgd2l0aCBteSBhc3NlbWJseSBjb2Rl
-Cj4gPiBvZiByei9maXZlIGNtbyBhbmQgdGhlbiB1c2UgcGF0Y2hfdGV4dF9ub3N5bmMoKSBhbmQK
-PiA+IHJpc2N2X2FsdGVybmF0aXZlX2ZpeF9hdWlwY19qYWxyKCkgSSBjYW4gc2VlIHRoZSBhY3R1
-YWwgb2xkCj4gPiBpbnN0cnVjdGlvbnMgZGlmZmVycyBhIGJpdCBhbmQgYWdhaW4gdGhlIGphbHIg
-aW5zdHJ1Y3Rpb24gZGlmZmVycyB0b28KPiA+IGluIHRoZSBwYXRjaGVkIGNvZGUgKGxvZyBbMV0p
-Lgo+ID4KPiA+IFswXSBodHRwczovL3Bhc3RlLmRlYmlhbi5uZXQvMTI2MTQxMi8KPiA+IFsxXSBo
-dHRwczovL3Bhc3RlLmRlYmlhbi5uZXQvMTI2MTQxMy8KPiA+Cj4gPiBBdHRhY2hlZCBpcyB0aGUg
-b2JqdW1wIG9mIGRtYS1ub25jb2hlcmVudC5vIGZvciByZWZlcmVuY2UuCj4KPiBJIGRpZCByZWFk
-IHRoYXQgb2JqZHVtcHMgYXJlIG5vdCByZWFsbHkgY29uY2x1c2l2ZSB3aGVuIGxvb2tpbmcKPiBh
-dCBhdWlwYyArIGphbHIgaW5zdHJ1Y3Rpb25zLCBoZW5jZSB0aGUgcHJpbnRpbmcgb2YgdGhlIGFj
-dHVhbCBpbnN0cnVjdGlvbnMuCj4KPiBBcyBlaXRoZXIgbWFudWFsbHkgb3Igd2l0aCBhIGhlbHBl
-ciBsaWtlCj4KPiAgICAgICAgIGh0dHBzOi8vbHVwbGFiLmdpdGxhYi5pby9ydmNvZGVjanMvI3E9
-MHhmNGMwODBlNwo+Cj4geW91IGNhbiB0aGVuIGRlY29kZSB0aGUgYWN0dWFsIGluc3RydWN0aW9u
-IGFuZCBjb21wYXJlLgo+Ck9LLCBJIHdpbGwgZ2l2ZSBpdCBhIHRyeS4KCgo+IEluIHlvdXIgbG9n
-IHRoZSB0d28gamFsciBpbnN0cnVjdGlvbnMgZGVjb2RlIHRvIGRpZmZlcmVudCBvZmZzZXRzLAo+
-ICAgICAgICAgamFsciB4MSwgeDEsIC0xODAKPiB2cwo+ICAgICAgICAgamFsciB4MSwgeDEsIC04
-MzQKPgo+IENhbiB5b3UgY2hlY2sgd2hhdCB0aGUgcGF0Y2hfb2Zmc2V0IHZhbHVlIGlzIGluIHlv
-dXIgY2FzZT8KPgpJJ2xsIGNoZWNrIHRoYXQgYW5kIGxldCB5b3Uga25vdy4KCj4gSW50ZXJlc3Rp
-bmdseSB0aGUKPiAgICAgICAgIGF1aXBjIHgxLCAwCj4gaXMgMCBmb3IgYm90aCBjYXNlcy4KPgo+
-IEknbGwgdHJ5IHRvIGJ1aWxkIGEgcmVhbCB0ZXN0LXNldHVwIG1pbWljaW5nIHdoYXQgeW91J3Jl
-IGRvaW5nCj4gdG9tb3Jyb3cgKGV1cm9wZWFuIHRvbW9ycm93KS4KPgpUaGFuayB5b3UhCgpDaGVl
-cnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+Hi Walker,
+
+Walker Chen <walker.chen@starfivetech.com> writes:
+
+> Add generic power domain driver for the StarFive JH71XX SoC.
+>
+> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+
+A bit more detail about the features power domain hardware would be
+helpful for reviewers.  I'm assuming there's no public documenation for
+this, but if there is, a link to that would be great also.
+
+[...]
+
+> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
+> new file mode 100644
+> index 000000000000..e6c0083d166e
+> --- /dev/null
+> +++ b/drivers/soc/starfive/jh71xx_pmu.c
+> @@ -0,0 +1,380 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * StarFive JH71XX Power Domain Controller Driver
+> + *
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#include <linux/interrupt.h>
+> +#include <linux/io.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+> +#include <dt-bindings/power/jh7110-power.h>
+> +
+> +/* register offset */
+> +#define HW_EVENT_TURN_ON_MASK		0x04
+> +#define HW_EVENT_TURN_OFF_MASK		0x08
+> +#define SW_TURN_ON_POWER_MODE		0x0C
+> +#define SW_TURN_OFF_POWER_MODE		0x10
+> +#define SW_ENCOURAGE			0x44
+> +#define PMU_INT_MASK			0x48
+> +#define PCH_BYPASS			0x4C
+> +#define PCH_PSTATE			0x50
+> +#define PCH_TIMEOUT			0x54
+> +#define LP_TIMEOUT			0x58
+> +#define HW_TURN_ON_MODE			0x5C
+> +#define CURR_POWER_MODE			0x80
+> +#define PMU_EVENT_STATUS		0x88
+> +#define PMU_INT_STATUS			0x8C
+> +
+> +/* sw encourage cfg */
+> +#define SW_MODE_ENCOURAGE_EN_LO		0x05
+> +#define SW_MODE_ENCOURAGE_EN_HI		0x50
+> +#define SW_MODE_ENCOURAGE_DIS_LO	0x0A
+> +#define SW_MODE_ENCOURAGE_DIS_HI	0xA0
+> +#define SW_MODE_ENCOURAGE_ON		0xFF
+> +
+> +/* pmu int status */
+> +#define PMU_INT_SEQ_DONE		BIT(0)
+> +#define PMU_INT_HW_REQ			BIT(1)
+> +#define PMU_INT_SW_FAIL			GENMASK(3, 2)
+> +#define PMU_INT_HW_FAIL			GENMASK(5, 4)
+> +#define PMU_INT_PCH_FAIL		GENMASK(8, 6)
+> +#define PMU_INT_FAIL_MASK		(PMU_INT_SW_FAIL | \
+> +					PMU_INT_HW_FAIL | \
+> +					PMU_INT_PCH_FAIL)
+> +#define PMU_INT_ALL_MASK		(PMU_INT_SEQ_DONE | \
+> +					PMU_INT_HW_REQ | \
+> +					PMU_INT_FAIL_MASK)
+> +
+> +#define DELAY_US			10
+> +#define TIMEOUT_US			100000
+
+Where do these delay/timeout numbers come from?  Is this just based one
+experimentation, or is this something described by the HW docs.  Please
+add some comments.
+
+> +
+> +struct starfive_power_dev {
+> +	struct generic_pm_domain genpd;
+> +	struct starfive_pmu *power;
+> +	uint32_t mask;
+> +};
+> +
+> +struct starfive_pmu {
+> +	void __iomem *base;
+> +	spinlock_t lock;
+> +	int irq;
+> +	struct device *pdev;
+> +	struct starfive_power_dev *dev;
+> +	struct genpd_onecell_data genpd_data;
+> +	struct generic_pm_domain **genpd;
+> +};
+> +
+> +struct starfive_pmu_data {
+> +	const char * const name;
+> +	uint8_t bit;
+> +	unsigned int flags;
+> +};
+> +
+> +static void __iomem *pmu_base;
+> +
+> +static inline void pmu_writel(u32 val, u32 offset)
+> +{
+> +	writel(val, pmu_base + offset);
+> +}
+
+You use writel() in this helper, but __raw_writel() throughout the rest
+of the driver.  If that's intentional, you should explain a bit more
+about why.  If not, please make it consistent.
+
+If you're going to use a wrapper/helper, you should use it throughout.
+But in this case, I'm not sure it's adding anything to readability.  In
+fact, it's only adding confusion since you don't use it for most of the
+register accesses.
+
+> +void starfive_pmu_hw_event_turn_on(u32 mask)
+> +{
+> +	pmu_writel(mask, HW_EVENT_TURN_ON_MASK);
+> +}
+> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_on);
+> +
+> +void starfive_pmu_hw_event_turn_off(u32 mask)
+> +{
+> +	pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
+> +}
+> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
+
+This looks wrong.  Why are you allowing external users to power on/off the
+domains?  The sate of the domain should be managed by the PM core (and
+runtime PM use-counts etc.) allowing external users to change the domain
+state is going to lead to the PM core being confused about the state of
+the domain.
+
+> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
+> +{
+> +	struct starfive_pmu *pmu = pmd->power;
+> +
+> +	if (!pmd->mask) {
+> +		*is_on = false;
+> +		return -EINVAL;
+> +	}
+> +
+> +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_pmu_set_state(struct starfive_power_dev *pmd, bool on)
+> +{
+> +	struct starfive_pmu *pmu = pmd->power;
+> +	unsigned long flags;
+> +	uint32_t val;
+> +	uint32_t mode;
+> +	uint32_t encourage_lo;
+> +	uint32_t encourage_hi;
+> +	bool is_on;
+> +	int ret;
+> +
+> +	if (!pmd->mask)
+> +		return -EINVAL;
+> +
+> +	if (is_on == on) {
+
+Comparing an uninitialzed stack variable to 'on'?
+
+> +		dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
+> +				pmd->genpd.name, on ? "en" : "dis");
+
+Using dev_info() will probably make this a bit verbose.  I'd suggest
+dev_dbg() for this kind of message.
+
+> +		return 0;
+> +	}
+> +
+> +	spin_lock_irqsave(&pmu->lock, flags);
+> +
+> +	if (on) {
+> +		mode = SW_TURN_ON_POWER_MODE;
+> +		encourage_lo = SW_MODE_ENCOURAGE_EN_LO;
+> +		encourage_hi = SW_MODE_ENCOURAGE_EN_HI;
+> +	} else {
+> +		mode = SW_TURN_OFF_POWER_MODE;
+> +		encourage_lo = SW_MODE_ENCOURAGE_DIS_LO;
+> +		encourage_hi = SW_MODE_ENCOURAGE_DIS_HI;
+> +	}
+> +
+> +	__raw_writel(pmd->mask, pmu->base + mode);
+> +
+> +	/* write SW_ENCOURAGE to make the configuration take effect */
+> +	__raw_writel(SW_MODE_ENCOURAGE_ON, pmu->base + SW_ENCOURAGE);
+> +	__raw_writel(encourage_lo, pmu->base + SW_ENCOURAGE);
+> +	__raw_writel(encourage_hi, pmu->base + SW_ENCOURAGE);
+
+This "encourage" feature is peculiar.  What happens if you do not do
+this?  Does it take a lot longer for the domain to change state? or does
+it not change at all?  In the absence of HW specs, a bit of description
+here would be helpful.
+
+> +	spin_unlock_irqrestore(&pmu->lock, flags);
+> +
+> +	if (on) {
+> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
+> +						val & pmd->mask, DELAY_US,
+> +						TIMEOUT_US);
+> +		if (ret) {
+> +			dev_err(pmu->pdev, "%s: failed to power on\n", pmd->genpd.name);
+> +			return -ETIMEDOUT;
+> +		}
+> +	} else {
+> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
+> +						!(val & pmd->mask), DELAY_US,
+> +						TIMEOUT_US);
+> +		if (ret) {
+> +			dev_err(pmu->pdev, "%s: failed to power off\n", pmd->genpd.name);
+> +			return -ETIMEDOUT;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_pmu_on(struct generic_pm_domain *genpd)
+> +{
+> +	struct starfive_power_dev *pmd = container_of(genpd,
+> +		struct starfive_power_dev, genpd);
+> +
+> +	return starfive_pmu_set_state(pmd, true);
+> +}
+> +
+> +static int starfive_pmu_off(struct generic_pm_domain *genpd)
+> +{
+> +	struct starfive_power_dev *pmd = container_of(genpd,
+> +		struct starfive_power_dev, genpd);
+> +
+> +	return starfive_pmu_set_state(pmd, false);
+> +}
+> +
+> +static void starfive_pmu_int_enable(struct starfive_pmu *pmu, u32 mask, bool enable)
+> +{
+> +	u32 val = __raw_readl(pmu->base + PMU_INT_MASK);
+> +
+> +	if (enable)
+> +		val &= ~mask;
+> +	else
+> +		val |= mask;
+> +
+> +	__raw_writel(val, pmu->base + PMU_INT_MASK);
+> +}
+> +
+> +static irqreturn_t starfive_pmu_interrupt(int irq, void *data)
+> +{
+> +	struct starfive_pmu *pmu = data;
+> +	unsigned long flags;
+> +	u32 val;
+> +
+> +	spin_lock_irqsave(&pmu->lock, flags);
+
+I don't think you need to spinlock in the interrupt itself, as
+interrupts will already be disabled, and this handler is not
+IRQF_SHARED.
+
+> +	val = __raw_readl(pmu->base + PMU_INT_STATUS);
+> +
+> +	if (val & PMU_INT_SEQ_DONE)
+> +		dev_dbg(pmu->pdev, "sequence done.\n");
+> +	if (val & PMU_INT_HW_REQ)
+> +		dev_dbg(pmu->pdev, "hardware encourage requestion.\n");
+> +	if (val & PMU_INT_SW_FAIL)
+> +		dev_err(pmu->pdev, "software encourage fail.\n");
+> +	if (val & PMU_INT_HW_FAIL)
+> +		dev_err(pmu->pdev, "hardware encourage fail.\n");
+> +	if (val & PMU_INT_PCH_FAIL)
+> +		dev_err(pmu->pdev, "p-channel fail event.\n");
+> +
+> +	/* clear interrupts */
+> +	__raw_writel(val, pmu->base + PMU_INT_STATUS);
+> +	__raw_writel(val, pmu->base + PMU_EVENT_STATUS);
+> +
+> +	spin_unlock_irqrestore(&pmu->lock, flags);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+
+[...]
+
+Kevin
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
