@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C31AC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 21:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45768C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 23:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HMSGoOXA1zf8O73LgW72F5rHwl9yZKc+0VpDqJE3xAo=; b=j1cCK1+rIODISd
-	nt+UaDG6Yt0neCLL/X/dliX1CMtTSatXesNfdoOtyADfU66AEVDiQ/CRhvij6q6ff4Vc+K+xV/6nY
-	5+0OOQtZU9USdJWOHl9mKbQJx8xndmWgrLusV85ZEEYfQQasi9XfiyQUqnvVwlSkDEICMdCmK2Ad2
-	bAEFz22LPLYFfP3aT3sIFRmlrsgIItFH9YRFAA7Vzb3/IeYP8B05AwPLnM62TJVLR/RkdMRWfPJ53
-	wE8mZ9ZyT94JaA4NTOLdxQJfpxdmliKpiGPqobTJ7ro7IfFsFd89fbDOlZVghyMUI7PF0bXnG8bFx
-	Uk79tn/uaSaKX5f31wZg==;
+	List-Owner; bh=Wijqe8YpkxVLy6OJezv7afovGnqylpZ73YqCskNhVN8=; b=nTsGk1GXCryAGT
+	FSj+9Nd6QlB6KruLB29kH3ONXtgSCjMS1xmJf+JNSdpqD6U61MKm/zc8eIN/LseHcIKF6i5TjRwpq
+	umc+ByU6B02AUomN9ui2dOMOoaum66E3Qa6iv6vOPxvbjGRzEP0lZwBqqhcS4lVGW//6TXxndwxn+
+	X1c3bpAm7Ve7f6XN1cZq4tUujpQKJGcjdGWLSPFyMJrl9gQf+z7BmEZWjFU0cJxhZoR497Dz7YVVG
+	ZTEeAeNDR63Xz7IixA4dqI2AhRJ3hkXmf7fvm2Z/HyAuUPc2JrxE0AiQYcCUngmNSNtVdIfv/O+Bp
+	9zpYdUbv9arTSstVBJaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxaxR-00C0yi-Jw; Tue, 22 Nov 2022 21:37:33 +0000
-Received: from mail-il1-f172.google.com ([209.85.166.172])
+	id 1oxcNn-00CGWW-Sl; Tue, 22 Nov 2022 23:08:51 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxaxO-00C0xR-QP
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 21:37:32 +0000
-Received: by mail-il1-f172.google.com with SMTP id h17so3587794ila.6
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 13:37:30 -0800 (PST)
+	id 1oxcNk-00CGUw-7B
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 23:08:49 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-1322d768ba7so19020809fac.5
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 15:08:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=dnwQLll7j5glmZ/FjjNqX7xxGcy9V27kLQ/eS+TZVJc=;
+        b=Lx8eewRkUxV3R1eURWJaWYl8C7rb8Jrllpe6eat9wUzdDXp9I+nMCRhjPTmjugOrFJ
+         Yxg3YSRF7z9VvJ3uAcebFjHtyQUrh2zoiO3YdumK+IPnLzsxRP05ihX9WPw7CAtsYq05
+         wHmpzaIL1mjKSlVrNluHjwKTkLqb+LN336+TY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wYuFRqLNqtbjraOouiWkagMjg88w0HPqis6czLPeub4=;
-        b=QenxwHntoNFffY+GfnkkPMGZTlKfPhi5a9WhXvmCwbT8QjOgnIKMVrwvn4aSbNC1Av
-         26EbN5rgaPELoTEdCINOahftOuJbO/wRPBNHUKoe75ArNK3QpCnTXdoPw04CNY8rVLQa
-         g4iXcrszLy6RezFpLTRDiy8wKUPHg9ll3sFCKq3R3S0gthr3G5bPWIsioVdPpqdUWv2R
-         lFxp1Z8WUu/Z/BnOmzByNYjVYbqovwMPJfPUBwA2x5UZnguLIMkYLIGcXEUbZhrw5wWt
-         d3AzTojXLjE3Qh7k8aJe+ZUK18XI3W9nzGauXRh+cPKgyL1rR+z6ZnXDK6/4QurGGx2F
-         u8cw==
-X-Gm-Message-State: ANoB5pn1sKZpANcvRqMx1vQMW2hI64+nrA4IE2ma+Gmp1vbtCJcZ3N0X
-	Be+dX3gxXvkGx1Tb/MKaJw==
-X-Google-Smtp-Source: AA0mqf7q2sbxK3tUm65CzOZyUynrHlmB0F9b9om4Gd847uJg297ZztoQje/lG3t10QRLf01ocxNSkw==
-X-Received: by 2002:a92:b741:0:b0:302:39d5:937e with SMTP id c1-20020a92b741000000b0030239d5937emr2930451ilm.37.1669153049468;
-        Tue, 22 Nov 2022 13:37:29 -0800 (PST)
-Received: from robh_at_kernel.org ([64.188.179.252])
-        by smtp.gmail.com with ESMTPSA id g5-20020a05663810e500b0034294118e1bsm5724889jae.126.2022.11.22.13.37.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Nov 2022 13:37:29 -0800 (PST)
-Received: (nullmailer pid 618630 invoked by uid 1000);
-	Tue, 22 Nov 2022 21:37:31 -0000
-Date: Tue, 22 Nov 2022 15:37:31 -0600
-From: Rob Herring <robh@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, Frank Rowand <frowand.list@gmail.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Message-ID: <20221122213731.GB583854-robh@kernel.org>
-References: <20221122084141.1849421-1-alexghiti@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dnwQLll7j5glmZ/FjjNqX7xxGcy9V27kLQ/eS+TZVJc=;
+        b=cZTYQLv8SgQIuGGhdpiq+obT6Ur1GPiCLkFrOBB86RFvoPTk6ErV480Kl/XpG/TdX7
+         Rm1lWJbyYQhYM4chWifYGggVkJTI+6fpzXCpReE6liVfP0tdxgH7aU9kfUXtdb8G8afs
+         B6o6+5v4NbIo55Gp9JP7kS05rVueB8jC41Ht5Ge4zg3d0cykBxRRw7bp3EUrdBZIlqZc
+         fxw+jZtTH/J8T7RuaX/BmNzxGVDim6+ocXD/may9XdvBkBq2LpSFXEDx1vKsqJ6dQi1i
+         NdBercvOucpRe+lGPGObCFV6uhnqxRXjL2a4F4ZP9WfXaisKboKATUcYC9Cxg1TlWkG5
+         rv8Q==
+X-Gm-Message-State: ANoB5pmY6RUmgJSzMc22hbcJYkOsf+jlzakfSTwDwwzQPCOXO3iNqyx/
+	ttJfTyr4w+JbNflNKmhYVTKBg5VZgXy6Mq6zAsJB
+X-Google-Smtp-Source: AA0mqf7hEsP/35Av5P+L3H+s8znmbb5O5QBMHQfJXJW5q8XxBmNGJHt1qUBIl2sA9KpAOxR17ddZQCW1dlrZACVSrQc=
+X-Received: by 2002:a05:6870:c18a:b0:142:870e:bd06 with SMTP id
+ h10-20020a056870c18a00b00142870ebd06mr11786804oad.181.1669158525178; Tue, 22
+ Nov 2022 15:08:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221122084141.1849421-1-alexghiti@rivosinc.com>
+References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-7-atishp@rivosinc.com>
+ <20221101142631.du54p4kyhlgf54cr@kamzik>
+In-Reply-To: <20221101142631.du54p4kyhlgf54cr@kamzik>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 22 Nov 2022 15:08:34 -0800
+Message-ID: <CAOnJCUJfakcoiWh4vFk5_BcTKfoSDbx+wtmh7MW4cPYog7q4BQ@mail.gmail.com>
+Subject: Re: [RFC 6/9] RISC-V: KVM: Add SBI PMU extension support
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_133730_878042_EF238FBC 
-X-CRM114-Status: GOOD (  33.62  )
+X-CRM114-CacheID: sfid-20221122_150848_269011_E860A278 
+X-CRM114-Status: GOOD (  33.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +87,192 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 22, 2022 at 09:41:41AM +0100, Alexandre Ghiti wrote:
-> During the early page table creation, we used to set the mapping for
-> PAGE_OFFSET to the kernel load address: but the kernel load address is
-> always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-> pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-> PAGE_OFFSET is).
-> 
-> But actually we don't have to establish this mapping (ie set va_pa_offset)
-> that early in the boot process because:
-> 
-> - first, setup_vm installs a temporary kernel mapping and among other
->   things, discovers the system memory,
-> - then, setup_vm_final creates the final kernel mapping and takes
->   advantage of the discovered system memory to create the linear
->   mapping.
-> 
-> During the first phase, we don't know the start of the system memory and
-> then until the second phase is finished, we can't use the linear mapping at
-> all and phys_to_virt/virt_to_phys translations must not be used because it
-> would result in a different translation from the 'real' one once the final
-> mapping is installed.
-> 
-> So here we simply delay the initialization of va_pa_offset to after the
-> system memory discovery. But to make sure noone uses the linear mapping
-> before, we add some guard in the DEBUG_VIRTUAL config.
-> 
-> Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-> in a better TLB utilization.
-> 
-> Note that we rely on the firmware to protect itself using PMP.
-> 
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
-> 
-> Note that this patch is rebased on top of:
-> [PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
-> 
->  arch/riscv/include/asm/page.h | 16 ++++++++++++++++
->  arch/riscv/mm/init.c          | 25 +++++++++++++++++++------
->  arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
->  drivers/of/fdt.c              |  5 ++++-
->  4 files changed, 55 insertions(+), 7 deletions(-)
+On Tue, Nov 1, 2022 at 7:26 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> On Mon, Jul 18, 2022 at 10:02:02AM -0700, Atish Patra wrote:
+> > SBI PMU extension allows KVM guests to configure/start/stop/query about
+> > the PMU counters in virtualized enviornment as well.
+> >
+> > In order to allow that, KVM implements the entire SBI PMU extension.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  arch/riscv/kvm/vcpu_sbi.c     | 11 +++++
+> >  arch/riscv/kvm/vcpu_sbi_pmu.c | 81 +++++++++++++++++++++++++++++++++++
+> >  2 files changed, 92 insertions(+)
+> >  create mode 100644 arch/riscv/kvm/vcpu_sbi_pmu.c
+> >
+> > diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+> > index d45e7da3f0d3..da9f7959340e 100644
+> > --- a/arch/riscv/kvm/vcpu_sbi.c
+> > +++ b/arch/riscv/kvm/vcpu_sbi.c
+> > @@ -50,6 +50,16 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
+> >  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+> >  extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+> >
+> > +#ifdef CONFIG_RISCV_PMU_SBI
+> > +extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+> > +#else
+> > +static const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
+> > +     .extid_start = -1UL,
+> > +     .extid_end = -1UL,
+> > +     .handler = NULL,
+> > +};
+> > +#endif
+> > +
+> >  static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+> >       &vcpu_sbi_ext_v01,
+> >       &vcpu_sbi_ext_base,
+> > @@ -58,6 +68,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
+> >       &vcpu_sbi_ext_rfence,
+> >       &vcpu_sbi_ext_srst,
+> >       &vcpu_sbi_ext_hsm,
+> > +     &vcpu_sbi_ext_pmu,
+> >       &vcpu_sbi_ext_experimental,
+> >       &vcpu_sbi_ext_vendor,
+> >  };
+> > diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> > new file mode 100644
+> > index 000000000000..90c51a95d4f4
+> > --- /dev/null
+> > +++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+> > @@ -0,0 +1,81 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (c) 2022 Rivos Inc
+> > + *
+> > + * Authors:
+> > + *     Atish Patra <atishp@rivosinc.com>
+> > + */
+> > +
+> > +#include <linux/errno.h>
+> > +#include <linux/err.h>
+> > +#include <linux/kvm_host.h>
+> > +#include <asm/csr.h>
+> > +#include <asm/sbi.h>
+> > +#include <asm/kvm_vcpu_sbi.h>
+> > +
+> > +static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> > +                                unsigned long *out_val,
+> > +                                struct kvm_cpu_trap *utrap,
+> > +                                bool *exit)
+> > +{
+> > +     int ret = -EOPNOTSUPP;
+> > +     struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
+> > +     unsigned long funcid = cp->a6;
+> > +     uint64_t temp;
+>
+> I think we need something like
+>
+>    if (!vcpu_to_pmu(vcpu)->enabled)
+>       return -EOPNOTSUPP;
+>
+> here. Where 'enabled' is only true when we successfully initialize
+> the pmu. And, successful initialization depends on
 
-[...]
+Yes. I have added the flag. But should we do the check here or
+respective function
+as a paranoia sanity check ?
 
-> diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-> index 7b571a631639..04e3ecb51722 100644
-> --- a/drivers/of/fdt.c
-> +++ b/drivers/of/fdt.c
-> @@ -895,8 +895,11 @@ static void __early_init_dt_declare_initrd(unsigned long start,
->  	 * enabled since __va() is called too early. ARM64 does make use
->  	 * of phys_initrd_start/phys_initrd_size so we can skip this
->  	 * conversion.
-> +	 * On RISCV64, the usage of __va() before the linear mapping exists
-> +	 * is wrong.
+> IS_ENABLED(CONFIG_RISCV_PMU_SBI) and
 
-I assume the 'does make use of phys_initrd_start/phys_initrd_size so we 
-can skip this conversion' comment applies to RiscV too. Or you just 
-don't care if initrd addresses are not setup?
+Why do we need to guard under CONFIG_RISCV_PMU_SBI ?
+vcpu_sbi_pmu.c is only compiled under CONFIG_RISCV_PMU_SBI
 
-Please rework the comment removing what platforms can skip this. Which 
-platforms skip it is obvious from the code. 'Why' is not, so that's what 
-the comment is for.
+If CONFIG_RISCV_PMU_SBI is not enabled, probe function will return failure.
+
+In fact, I think we should also add the pmu enabled check in the probe function
+itself. Probe function(kvm_sbi_ext_pmu_probe) should only true when
+both vcpu_to_pmu(vcpu)->enabled and
+riscv_isa_extension_available(NULL, SSCOFPMF) are true.
+
+Thoughts?
+
+> riscv_isa_extension_available(NULL, SSCOFPMF) as well as not
+> failing other things. And, KVM userspace should be able to
+> disable the pmu, which keep enabled from being set as well.
+>
+We already have provisions for disabling sscofpmf from guests via ISA
+one reg interface.
+Do you mean disable the entire PMU from userspace ?
+
+Currently, ARM64 enables pmu from user space using device control APIs
+on vcpu fd.
+Are you suggesting we should do something like that ?
+
+If PMU needs to have device control APIs (either via vcpu fd or its
+own), we can retrieve
+the hpmcounter width and count from there as well.
+
+> > +
+> > +     switch (funcid) {
+> > +     case SBI_EXT_PMU_NUM_COUNTERS:
+> > +             ret = kvm_riscv_vcpu_pmu_num_ctrs(vcpu, out_val);
+> > +             break;
+> > +     case SBI_EXT_PMU_COUNTER_GET_INFO:
+> > +             ret = kvm_riscv_vcpu_pmu_ctr_info(vcpu, cp->a0, out_val);
+> > +             break;
+> > +     case SBI_EXT_PMU_COUNTER_CFG_MATCH:
+> > +#if defined(CONFIG_32BIT)
+> > +             temp = ((uint64_t)cp->a5 << 32) | cp->a4;
+> > +#else
+> > +             temp = cp->a4;
+> > +#endif
+> > +             ret = kvm_riscv_vcpu_pmu_ctr_cfg_match(vcpu, cp->a0, cp->a1, cp->a2, cp->a3, temp);
+> > +             if (ret >= 0) {
+> > +                     *out_val = ret;
+> > +                     ret = 0;
+> > +             }
+> > +             break;
+> > +     case SBI_EXT_PMU_COUNTER_START:
+> > +#if defined(CONFIG_32BIT)
+> > +             temp = ((uint64_t)cp->a4 << 32) | cp->a3;
+> > +#else
+> > +             temp = cp->a3;
+> > +#endif
+> > +             ret = kvm_riscv_vcpu_pmu_ctr_start(vcpu, cp->a0, cp->a1, cp->a2, temp);
+> > +             break;
+> > +     case SBI_EXT_PMU_COUNTER_STOP:
+> > +             ret = kvm_riscv_vcpu_pmu_ctr_stop(vcpu, cp->a0, cp->a1, cp->a2);
+> > +             break;
+> > +     case SBI_EXT_PMU_COUNTER_FW_READ:
+> > +             ret = kvm_riscv_vcpu_pmu_ctr_read(vcpu, cp->a0, out_val);
+> > +             break;
+> > +     default:
+> > +             ret = -EOPNOTSUPP;
+> > +     }
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +unsigned long kvm_sbi_ext_pmu_probe(unsigned long extid)
+> > +{
+> > +     /*
+> > +      * PMU Extension is only available to guests if privilege mode filtering
+> > +      * is available. Otherwise, guest will always count events while the
+> > +      * execution is in hypervisor mode.
+> > +      */
+> > +     return riscv_isa_extension_available(NULL, SSCOFPMF);
+> > +}
+> > +
+> > +const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu = {
+> > +     .extid_start = SBI_EXT_PMU,
+> > +     .extid_end = SBI_EXT_PMU,
+> > +     .handler = kvm_sbi_ext_pmu_handler,
+> > +     .probe = kvm_sbi_ext_pmu_probe,
+> > +};
+> > --
+> > 2.25.1
+> >
+>
+> Thanks,
+> drew
 
 
->  	 */
-> -	if (!IS_ENABLED(CONFIG_ARM64)) {
-> +	if (!IS_ENABLED(CONFIG_ARM64) &&
-> +	    !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
->  		initrd_start = (unsigned long)__va(start);
->  		initrd_end = (unsigned long)__va(end);
->  		initrd_below_start_ok = 1;
-> -- 
-> 2.37.2
-> 
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
