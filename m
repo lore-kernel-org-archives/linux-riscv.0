@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FBBC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 07:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F03C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 07:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bOonZu9vfI+E3wjLBPcl5OJzpdWn5TJQtI8FEmCTMvQ=; b=ke4YDY8CB96Shb
-	q2I6LCkx6BLQMPvXhQaeIpfOOoAAlbnS0cv6/RorBoispe+KFOKtshB8AjZ2dVdthGmz/9y3OdA6n
-	qxCYmSH0uvy2N9RthzHQMCc9vP/j7unK9JTx3NYYVK0fqDEZrArPi+znktjjNViAZcwKwT5EYYuyZ
-	799KCnEUwT6oOfjj7KNTQV12bPqtcHZsHrq8OJbbJE4CwuqgmjxYQOOpIZO5b+DdNVGTKoT6ETIUV
-	fxNNB0ESvcsILBnh5cDdsO+WoKBxiLb4qIoFAxFTixzYBDtNcMX0K9lJXZYfbxnUnlev0jTg+xTxv
-	KrjgwZmOP3t3770kxV7g==;
+	List-Owner; bh=gZmjCovX80EP2iDdGp2fsBUnkbEr3K+tbJDJ88g3ZME=; b=Mgk1QCX23MlcvK
+	DA8ao66J0095I3YlYtRXUPNUpJUSsq0db9gHpFe5VHBXEpfgKvleOYWdQEcOIVx8TCUGU+Npfedcv
+	X8vVKO5SeTQBI9TlNauR9VxEArZyBXnagOS37TUjA/MpA43nlab3nL1AsmGpTnQCiO4j6AB3D63gc
+	kcQrpaRNf4s20Zu637N9bkIX4E38HiooON8tnVnlusZ2FIpCvciSTaLFGV/UWyJx9ynNviGY3T+9/
+	0WEAGcjotOZLAvlXMsj2BbMTLiuCOxljTb6uzPAbd0HXEzB32TN2oxO89+c3hw0ZF8pNKgblm52Be
+	aKRTJ5mr7LpThmhd9BaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxNuS-005nQs-78; Tue, 22 Nov 2022 07:41:36 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1oxNub-005nlg-8Z; Tue, 22 Nov 2022 07:41:45 +0000
+Received: from sender4-op-o18.zoho.com ([136.143.188.18])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxNuO-005nAl-IJ
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 07:41:33 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id a29so22284659lfj.9
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Nov 2022 23:41:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vZgEuShZPFvGmlrbVu6jnnJSD8pbk7ahYnQJQ5wn0pk=;
-        b=Mk8EUJ3Sx3oXYHl0xM9T+/JmMikNxAA2Jrijsah9gHwhOsarE7+/7rCOMgRVdAi7he
-         gaBKk2R37J1zzOGVATS8wpJjoOveMvsWH54RGMYWhoN2mFEyUG9pEy/E/HzTVTiMoY05
-         vPYpwi0km37F0pHzCWXY8b9paAgeF87jdox71Tildp7I8n1GDimBZ6+Plo0ymvElmMTZ
-         41zSo/Gxf44sC1e41wOXEVJchH/l7efH/9D5Fu3bwhbGkcNaDtwjTENM0u/iKV8XCDZA
-         pC4osLGbF0ZX1vfmVE+/163BmTggGjlGrnLQneRP5jYptizwJgIjFy8wPtl9fv5UsuYS
-         clig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vZgEuShZPFvGmlrbVu6jnnJSD8pbk7ahYnQJQ5wn0pk=;
-        b=Ykjk/V9ElYKuK6ep9sEjT+gX0xPP0ZhcQS2VsQ++3io2qLewtAEEYMGEuRx8emhsQX
-         PjdsJooVFIcF5Kgp9QrdKPGpwcXdqIPA8Ivtj31HKvmcZEkxyXiupZuiW9OIgNUmCzqV
-         4JnDTpp0L+uqqfK4SgeGYN1kIq9Qy4b+nhF9sy3cz38nBGDVvErfdTk791CqLy81wt0W
-         zmRurXtbAaWCjyPpKKi6Sh3+Amf9TBl+OPYjZ6el4DOO5a7gZVE8ta/63AARRNG7AlD5
-         dxbFCJ8cDQRvGJqThOYrQbNwg3DVuZLSzC+sR+ORNRod5ZvbzEb5jqodG/FZnxz9HP/R
-         S+yQ==
-X-Gm-Message-State: ANoB5pkMljsv8C9ilcq/frUMYTXCp4O0nvhMt8zNawterQVdNNAWou/4
-	XZGqq+MHah3XKN09muKMp4l8FOhUBy0UzJ9T
-X-Google-Smtp-Source: AA0mqf7TStaiGDTFZUcD6Pjywwt89ly9JYpeR/JJ6ptzRJUT6v6QpzUVC8GK8nCrwcmjKs0mJw01tw==
-X-Received: by 2002:a19:4f52:0:b0:4a6:2ff5:ddd2 with SMTP id a18-20020a194f52000000b004a62ff5ddd2mr8167514lfk.166.1669102888604;
-        Mon, 21 Nov 2022 23:41:28 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id y22-20020a2eb016000000b0026daf4fc0f7sm1758305ljk.92.2022.11.21.23.41.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Nov 2022 23:41:27 -0800 (PST)
-Message-ID: <f59e53b0-0915-e8e9-7e49-05ca6a9eac95@linaro.org>
-Date: Tue, 22 Nov 2022 08:41:26 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v2 07/14] dt-bindings: clock: Add StarFive JH7110 system
- and always-on clock definitions
-Content-Language: en-US
-To: Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Rob Herring <robh+dt@kernel.org>,
+	id 1oxNuY-005nf6-3U
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 07:41:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1669102896; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=YqA87QW/3JpiBXgyEi1gDKmIXTOzfkgeskrWThHVTE0RU4KYBbUSNif8Yq3An2qcs6xPdK+de0Uq0akZOx6zd6elX4WnE4uj6F41Kx1qiPo40yjj+QuF663EwFt6y8bCPOwQM7c4ZOsqQXfQ4alnyxi6oUw1VqaUE6ItRGgIc00=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1669102896; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
+	bh=b7Rx3DilGCP5lCz1j9EnhzYAfhA1dEnQkYpfsFyULHI=; 
+	b=cO7egFhVwCWN1RbtDPLu8iKeqwMuCrqrCstEi/qtFyXJnQQt7fGUUmrIRIB/JGajK2Cq7nIMTlp7pQcK7mq0tlXsGHiQFeh+SQtLqv/NlWy3e4u8+FCeFf+tYiLbXeZOEO4ZJk6R0Ts4qg9mMBOOTXeZ0qrDx99AjTxX6nsdnfI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1669102896;
+	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
+	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
+	bh=b7Rx3DilGCP5lCz1j9EnhzYAfhA1dEnQkYpfsFyULHI=;
+	b=QGs2QRaSj4ngLjmlTGF03F2rC6ETgz/rwmuxWNjPybZ3seTFe5ktcgC+muA7qRfs
+	+VRS/cQffh9aLTVBt7HrZt2P0YX6G0q7wbFRCle038WN1Zyv9C1H5tbY67otH9MNJjo
+	MKadpz7RZ2mNgx9JbscAoCJYULO9PRJMLc7GJE0w=
+Received: from [127.0.0.1] (112.94.100.29 [112.94.100.29]) by mx.zohomail.com
+	with SMTPS id 1669102895638415.06106473348734; Mon, 21 Nov 2022 23:41:35 -0800 (PST)
+Date: Tue, 22 Nov 2022 15:41:27 +0800
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- linux-kernel@vger.kernel.org
-References: <20221118010627.70576-1-hal.feng@starfivetech.com>
- <20221118010627.70576-8-hal.feng@starfivetech.com>
- <4d1fbddc-ee8b-1ab3-d1a9-8496bda3f668@linaro.org>
- <1db979d5-1fb6-f3c9-8ce0-e3e2e23e5d14@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <1db979d5-1fb6-f3c9-8ce0-e3e2e23e5d14@starfivetech.com>
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>
+CC: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_2/3=5D_dt-bindings=3A_timer=3A_si?= =?US-ASCII?Q?five=2Cclint=3A_add_compatible_for_OpenC906?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
+References: <20221121041757.418645-1-uwu@icenowy.me> <20221121041757.418645-3-uwu@icenowy.me> <98005150-83a7-5439-0db1-d93d459c3809@linaro.org> <b924d37d716fa8b1fd93102b1d51fac221f43d59.camel@icenowy.me> <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
+Message-ID: <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
+MIME-Version: 1.0
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221121_234132_646562_ACE52DF0 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20221121_234142_223997_137EF181 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,63 +77,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/11/2022 02:02, Hal Feng wrote:
-> On Mon, 21 Nov 2022 09:45:11 +0100, Krzysztof Kozlowski wrote:
->> On 18/11/2022 02:06, Hal Feng wrote:
->>> From: Emil Renner Berthing <kernel@esmil.dk>
->>>
->>> Add all clock outputs for the StarFive JH7110 system (SYS) and
->>> always-on (AON) clock generator.
->>>
->>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
->>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
->>> ---
->>>  MAINTAINERS                                 |   5 +-
->>>  include/dt-bindings/clock/starfive-jh7110.h | 234 ++++++++++++++++++++
->>>  2 files changed, 237 insertions(+), 2 deletions(-)
->>>  create mode 100644 include/dt-bindings/clock/starfive-jh7110.h
->>>
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index e6f1060e7964..e97dac9c0ee4 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -19598,12 +19598,13 @@ M:	Ion Badulescu <ionut@badula.org>
->>>  S:	Odd Fixes
->>>  F:	drivers/net/ethernet/adaptec/starfire*
->>>  
->>> -STARFIVE JH7100 CLOCK DRIVERS
->>> +STARFIVE CLOCK DRIVERS
->>>  M:	Emil Renner Berthing <kernel@esmil.dk>
->>> +M:	Hal Feng <hal.feng@starfivetech.com>
->>>  S:	Maintained
->>>  F:	Documentation/devicetree/bindings/clock/starfive,jh7100-*.yaml
->>>  F:	drivers/clk/starfive/
->>> -F:	include/dt-bindings/clock/starfive-jh7100*.h
->>> +F:	include/dt-bindings/clock/starfive*
->>>  
->>>  STARFIVE JH7100 PINCTRL DRIVER
->>>  M:	Emil Renner Berthing <kernel@esmil.dk>
->>> diff --git a/include/dt-bindings/clock/starfive-jh7110.h b/include/dt-bindings/clock/starfive-jh7110.h
->>
->> Filename based / the same as compatible (or bindings filename).
-> 
-> Should I split this file into two files for "SYSCRG" and "AONCRG", which
-> maybe named as "starfive-jh7110-sys.h" and "starfive-jh7110-aon.h". Ditto
-> for the patch 8.
-
-Does not have to be, but anyway naming must follow compatible naming, so
-vendor,soc-device.
-
-Best regards,
-Krzysztof
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Cgrkuo4gMjAyMuW5tDEx5pyIMjLml6UgR01UKzA4OjAwIOS4i+WNiDM6MzU6NDgsIEtyenlzenRv
+ZiBLb3psb3dza2kgPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4g5YaZ5YiwOgo+T24g
+MjIvMTEvMjAyMiAwODoxOCwgSWNlbm93eSBaaGVuZyB3cm90ZToKPj4g5ZyoIDIwMjItMTEtMjHm
+mJ/mnJ/kuIDnmoQgMTE6MDYgKzAxMDDvvIxLcnp5c3p0b2YgS296bG93c2tp5YaZ6YGT77yaCj4+
+PiBPbiAyMS8xMS8yMDIyIDA1OjE3LCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+Pj4+IFQtSGVhZCBP
+cGVuQzkwNiBpcyBhIG9wZW4tc291cmNlLWxpY2Vuc2VkIGZpeGVkLWNvbmZpZ3VyYXRpb24gb2YK
+Pj4+PiBDOTA2LAo+Pj4+IHdoaWNoIGlzIG5vdyBwdWJsaWMgYW5kIGFibGUgdG8gYmUgaW50ZWdy
+YXRlZC4KPj4+Pgo+Pj4+IEFkZCBhIGNvbXBhdGlibGUgZm9yIHRoZSBDTElOVCBzaGlwcGVkIGFz
+IHBhcnQgb2YgT3BlbkM5MDYsIHdoaWNoCj4+Pj4gc2hvdWxkCj4+Pj4ganVzdCBiZSBvcmRpbmFy
+eSBDOXh4IENMSU5ULgo+Pj4+Cj4+Pj4gU2lnbmVkLW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1
+QGljZW5vd3kubWU+Cj4+Pj4gLS0tCj4+Pj4gwqBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
+ZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwgfCAxICsKPj4+PiDCoDEgZmlsZSBjaGFuZ2Vk
+LCAxIGluc2VydGlvbigrKQo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdAo+Pj4+IGEvRG9jdW1lbnRhdGlv
+bi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1sCj4+Pj4gYi9Eb2N1
+bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPj4+
+PiBpbmRleCBhYWRhNjk1NzIxNmMuLjg2NzAzZTk5NWUzMSAxMDA2NDQKPj4+PiAtLS0gYS9Eb2N1
+bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPj4+
+PiArKysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNs
+aW50LnlhbWwKPj4+PiBAQCAtMzUsNiArMzUsNyBAQCBwcm9wZXJ0aWVzOgo+Pj4+IMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIC0gY29uc3Q6IHNpZml2ZSxjbGludDAKPj4+PiDCoMKgwqDCoMKgwqAgLSBp
+dGVtczoKPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGVudW06Cj4+Pj4gK8KgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIC0gdGhlYWQsb3BlbmM5MDYtY2xpbnQKPj4+PiDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIC0gYWxsd2lubmVyLHN1bjIwaS1kMS1jbGludAo+Pj4KPj4+IEFkZCBl
+bnRyaWVzIHNvcnRlZCBhbHBoYWJldGljYWxseS4gVGhpcyBzaG91bGQgYmUgc3F1YXNoZWQgd2l0
+aAo+Pj4gcHJldmlvdXMKPj4+IHBhdGNoLgo+PiAKPj4gSSBtYWtlIGl0IGEgc2VwZXJhdGVkIHBh
+dGNoIGJlY2F1c2UgSSB0aGluayBpdCdzIGEgcXVlc3Rpb25hYmxlCj4+IGFwcHJvYWNoLgo+PiAK
+Pj4gSWYgeW91IHRoaW5rIGl0J3Mgb2theSwgSSB3aWxsIGp1c3Qgc3F1YXNoIGl0IGFuZCBwdXQg
+aXQgYXMgdGhlIHNlY29uZAo+PiBwYXRjaCBpbiB0aGUgbmV4dCBpdGVyYXRpb24sIHdpdGggYWRk
+aW5nIG9wZW5jOTA2LXBsaWMgYXMgdGhlIGZpcnN0Cj4+IG9uZS4KPgo+V2hhdCBpcyBhIHF1ZXN0
+aW9uYWJsZSBhcHByb2FjaD8gV2h5IGNvbW1pdCBtc2cgaXMgbm90IHNheWluZyB0aGlzPwoKQWgg
+SSBtZW50aW9uZWQgaXQgaW4gdGhlIGNvdmVyIGxldHRlci4gVGhlIHByb2JsZW0gaXMganVzdCBJ
+IGRvdWJ0IHdoZXRoZXIKYmluZGluZyBzdHJpbmdzIGZvciBzaW5nbGUgU29DcyBhcmUgbmVjZXNz
+YXJ5LgoKPgo+QmVzdCByZWdhcmRzLAo+S3J6eXN6dG9mCj4KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
