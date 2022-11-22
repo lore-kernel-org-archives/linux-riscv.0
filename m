@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E525AC4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 10:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E346C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Nov 2022 11:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hafNTveii9LkzYvlTPdjD+rBXBQ8cON76GL7e5u/1u8=; b=BtH48O9w9RQ+Y+
-	btpgdRw7WqXPaYwLozMGrdN82dDtfrWkX82Sldtwjcvm4YqLQYBm7mzWkluCcXjDQrsoaVnhJqibv
-	78mGUozlwfB6al6hn+bQYl5hMlY1T9IymfxeWOYMBUf31gMWnrFYR3Q1EGmwsEQ8l+s1jfoSVJb3u
-	EX8axxj0ePCDYy5aSUpKSkG5oLpAyIoLJ43KrcXGVlvOg2SJPqMtK7pGruuJi69PLRvnznOGDX0Kg
-	K/ZxgDCVj5oM3N8oJpfDXNXqpnegip7MZY0Mk/c8qgvO6E3sgBcGuxDxF5vB718XIZCd5Vr4J0cro
-	fjuYzqjm+N2S76ivkvNA==;
+	List-Owner; bh=8Kuvn8elIWcmkAh+tU7Ki+6zjJQR9N+0gJgLQMt5zvs=; b=xOb35l0z4CPm+O
+	11KCnWt4NHdiNdmn4qvIeexM+vaUXJH7A16Su55WTkiuSBJSaNq38QIHHFDA1bUVLZ8hinft1+4y7
+	IJTZ85auEDvbGLsbZBjha2E/TwUNkkYB1Xt99/JB2fgczOfxTpN6AQJxyUZ//euMVIF+/y8JD705Q
+	wrdO0qOnwcJYyAXYM8/fS+q5GWSBKRhZBjasZ5iSz2X065qS1NeDpmUVkxJHCIsHxMl0tvA6wUCo6
+	264eE37iletk0lZbMRKanctG6ef9GIvgwKvaxt85YCdX8deT4bhph9Hmy/vAiSsyKM7h6P4SAlP5d
+	Y6SH7FckRoMz/IL6AC4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxQd7-007v23-3V; Tue, 22 Nov 2022 10:35:53 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1oxR0w-008DAl-IT; Tue, 22 Nov 2022 11:00:30 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxQd3-007ulZ-Ep
-	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 10:35:51 +0000
-Received: from mail-yb1-f200.google.com (mail-yb1-f200.google.com [209.85.219.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 10EEC3F479
-	for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 10:35:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1669113346;
-	bh=5zJKgeVGZmLVAXevDGlsNfSshltWSGYw3d8eMnb+lIA=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=pR0iPF1enR7Jq9/RDdOxOf1jYD5l1wvWmsz16U0qqUWVlmHvYzZFC7bX0hqNHpJqU
-	 Y/VowcpNaADz6osxPwpWFyfkxgKZGW714yr+ot64/jNj81HUTDOpKSsKR48Bq3W0cZ
-	 +yaIh05OJdtTnzF8sPx0D0kOd6aAZHA/5nWHNSB8YVm1KV3TLH2EjYp0r4EIceX/2a
-	 HHdAllHgPpSrSmGFISjsk8p47ZiIat+FxcyiMaLbNt3woCGIQfLdto4MfoLr1Y6GUR
-	 L7lXKSPfg1z3FQFTX5dWiNNXMvqw3lEt4hK/fqA7e+BHCrMvP1EO5kgCKf25e6qOyP
-	 YZVe6IbAZ3F9A==
-Received: by mail-yb1-f200.google.com with SMTP id i10-20020a25f20a000000b006ea4f43c0ddso7393981ybe.21
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 02:35:46 -0800 (PST)
+	id 1oxR0t-008D9J-Db
+	for linux-riscv@lists.infradead.org; Tue, 22 Nov 2022 11:00:28 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id l11so20089088edb.4
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 03:00:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dx58DAv+1aiUMkVrUatdB4Y9xKdBD59doksYCTdqrn4=;
+        b=jFw/kT0JTfKMbkPkL7R2d2PcP/Y8ySQk13xry3b+8Lyz1UomUUAyBWrbj/MYHuuNCs
+         R9xJ4r02Q1hIfYekFQtr0G+O0jPxtlYqCcoZUIyL682YJhUEkW3qJ/6EFzyHjVoYcp9A
+         udwrsSHUG7VFq3k6CSryIk3AbHw1Y4P/3aBhaajoNmyuzs1jKUolP+gemt3ajKMvfuwo
+         gBqNvar4yAq00xYi3Eg/ohz7LcX/qhc5w5ZT2DpPb1RWljj80Uee9aYt945gL/I7/d7/
+         L4EnM0yJJmL54qOTc++kRntvGrt54xYHJCK+XDCveil9uOhjjD4bPgqcahx6b2J8X6WW
+         fmYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5zJKgeVGZmLVAXevDGlsNfSshltWSGYw3d8eMnb+lIA=;
-        b=Ph1ui7jJzoGmVqy2Ob9SwlpJ/C0l9Yg4fgM4r+WVPnG7EgK5qNmAox/yZXc7ynINX7
-         wmpSk9Syu1cYJg6vQXMPO+pj9JQ+Xq4rbKbIEI3Cd1G8ayoP9LFilM7b/qV4DHxHehXn
-         dm8YrmlV43WfipT7M4aC+8FEFT+63h8UtEzGWzFFHsdfiRsxJJlwaQNL4/hYm7ThyXLk
-         vfpSP2isVbiz+xx5IkgzD3lCAV+AbVZEb3Z+KhMacy/DM1ijTGbmm/uZEbi/NbiMpwhv
-         XvfC/4x3wkNGm8Fji6/mTKpv8MiwUix7XDJVMIYzmn5OQrvzeo/XfmePgQvGkSMxpAXj
-         turw==
-X-Gm-Message-State: ANoB5pnxwIh90dCt3rKSqSYGxdoQ2G3T2Bw3dWBfv3Oav5c9w/4q5GEK
-	HNhfKfEz8DYbSCT8AEEJUIBWfsuappY6EBV3tEgpVMNYCj8j7R6ylWVWmjazkZE5Wsmwma7LUo0
-	IiLGR6W42TAPNg7HNt4AZPUzyjS8MLjkss/tjqM/yzNWBCwWq+6OxCa5ILe1hvQ==
-X-Received: by 2002:a81:4ed0:0:b0:39b:2705:501 with SMTP id c199-20020a814ed0000000b0039b27050501mr6707276ywb.326.1669113344954;
-        Tue, 22 Nov 2022 02:35:44 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf5vKLtUztzm9gaB/lzhK2k8U2ZuZGMCv5M6kPMPlh1R0C7N1egHiQAH8o2IMhW9OMm3sahzXcklxwXcPjKUzns=
-X-Received: by 2002:a81:4ed0:0:b0:39b:2705:501 with SMTP id
- c199-20020a814ed0000000b0039b27050501mr6707261ywb.326.1669113344732; Tue, 22
- Nov 2022 02:35:44 -0800 (PST)
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dx58DAv+1aiUMkVrUatdB4Y9xKdBD59doksYCTdqrn4=;
+        b=n/xHGKV/+9wf8dNFsPDVAVnqDoa7n6cmRcwo1siHKzoN90o+bUUfHaXU8h8nEIEzij
+         Al2BkqmvvEoxQtItqOgHabRRH7NzpESipQRd3Dlyt/a+7fDuj0Ph4KHPFNfXNU/Fd0uC
+         EVMCl1HEr5WZpcmf1vgG183S3f+wGsSK5kfSWrailq51xgOiclZQl29nFMIPneJ8h96O
+         060gjjX8db91NFMPWJJvzog6N2lHLEACjyHS/vD8cIkE4vS+vWJ+y4TADi61Ii8eIYdh
+         NbTRvNwzCdZ+biOwSSc+e5eV8CdlXcecEH0O3eGKWiSGHLb06mkWf3lBfkHa4OPsjXZ0
+         4hig==
+X-Gm-Message-State: ANoB5pl11wj8z5Prh+6zcEhf5CumkcvIgJAgXnhAHrWj8AhTNTjxTFym
+	WjMAuhDN6hLBfYVflmTc30udAJTxrTBOYkVSOc2+X8vE676+sw==
+X-Google-Smtp-Source: AA0mqf4Tju0YCYCuezCVDW/4HfBrJgLX6/AuX8alzZ8InSY50PNYzBgg6ZOX17rKd94Wjs5Sc8UNI5kbbDgck/IgoM4=
+X-Received: by 2002:aa7:cc08:0:b0:461:8a43:e93 with SMTP id
+ q8-20020aa7cc08000000b004618a430e93mr19676530edt.275.1669114823871; Tue, 22
+ Nov 2022 03:00:23 -0800 (PST)
 MIME-Version: 1.0
-References: <20221118011714.70877-1-hal.feng@starfivetech.com>
- <20221118011714.70877-5-hal.feng@starfivetech.com> <Y3duiJguYE6VrVLP@spud>
- <Y3dvCPP1g0LzzHFO@spud> <a5193e23-efe1-fa65-15de-d53b80b87d63@starfivetech.com>
- <Y3yRTuo69JUsfLqk@wendy> <0f9e423e-37c0-a838-bf25-f9b6784a31d0@starfivetech.com>
- <Y3yd+tfFl4yvXOx6@wendy> <b57bdf1c-19f4-3d70-7618-16817669abc5@starfivetech.com>
-In-Reply-To: <b57bdf1c-19f4-3d70-7618-16817669abc5@starfivetech.com>
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Date: Tue, 22 Nov 2022 11:35:28 +0100
-Message-ID: <CAJM55Z-aQfvUZXNtaorAk4acpbbVsj-f-8TQn6uZXQosD=MORA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/8] dt-bindings: sifive,ccache0: Support StarFive
- JH7110 SoC
-To: Hal Feng <hal.feng@starfivetech.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Conor Dooley <conor@kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Ben Dooks <ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20221110164924.529386-1-heiko@sntech.de> <CA+V-a8vSVY590SUkg81cC8Kq7FjzxdcJ5m2VG=94m0ntis7+8w@mail.gmail.com>
+ <CA+V-a8sqEjLKdGm67Sm5YbYUVRuntAM0Wqw_Gk+V6i9x+b1Exg@mail.gmail.com> <14108757.uLZWGnKmhe@diego>
+In-Reply-To: <14108757.uLZWGnKmhe@diego>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 22 Nov 2022 10:59:57 +0000
+Message-ID: <CA+V-a8u=vrrvhWCo+W28kbogMYHULuO3B6qcDeAEPEgzp+sVWg@mail.gmail.com>
+Subject: Re: [PATCH 5/7] RISC-V: fix auipc-jalr addresses in patched alternatives
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
+	ajones@ventanamicro.com, emil.renner.berthing@canonical.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_023550_144249_4C9598FF 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20221122_030027_490897_C5DC47A0 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,86 +83,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Nov 2022 at 11:16, Hal Feng <hal.feng@starfivetech.com> wrote:
->
-> On Tue, 22 Nov 2022 10:01:30 +0000, Conor Dooley wrote:
-> > On Tue, Nov 22, 2022 at 05:55:57PM +0800, Hal Feng wrote:
-> > > On Tue, 22 Nov 2022 09:07:26 +0000, Conor Dooley wrote:
-> > > > On Tue, Nov 22, 2022 at 04:40:23PM +0800, Hal Feng wrote:
-> > > > > On Fri, 18 Nov 2022 19:39:52 +0800, Conor Dooley wrote:
-> > > > > > On Fri, Nov 18, 2022 at 11:37:50AM +0000, Conor Dooley wrote:
-> > > > > > > On Fri, Nov 18, 2022 at 09:17:10AM +0800, Hal Feng wrote:
-> > > > > > > > From: Emil Renner Berthing <kernel@esmil.dk>
-> > > > > > > >
-> > > > > > > > This cache controller is also used on the StarFive JH7110 SoC.
-> > > > > > >
-> > > > > > > "... and configured identically to that of the FU740"?
-> > > > > > > Anyways,
-> > > > > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > > >
-> > > > > > Actually, after looking at the next patch - why can you not fall back to
-> > > > > > the fu740 one since you appear to have the same configuration as it?
-> > > > >
-> > > > > Right, I will drop this patch and use "sifive,fu740-c000-ccache" as
-> > > > > compatible in dts.
-> > > >
-> > > > Uh, that's not quite what I was suggesting. Rather than using that one
-> > > > in isolation, you can do the following in your dt:
-> > > > "starfive,jh7110-ccache", "sifive,fu740-c000-ccache"
-> > > >
-> > > > And then in the driver we need to make no changes - unless down the line
-> > > > we find some sort of issue that requires special handling etc. There's
-> > > > no harm in having a "starfive,jh7110-ccache" IMO.
-> > >
-> > > Just like what microchip did as blow?
->
-> below
->
-> > >
-> > > Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml:
-> > > properties:
-> > >   compatible:
-> > >     oneOf:
-> > >       - items:
-> > >           - enum:
-> > >               - sifive,ccache0
-> > >               - sifive,fu540-c000-ccache
-> > >               - sifive,fu740-c000-ccache
-> > >               - starfive,jh7110-ccache
-> > >           - const: cache
-> > >       - items:
-> > >           - const: microchip,mpfs-ccache
-> > >           - const: sifive,fu540-c000-ccache
-> > >           - const: cache
-> >
-> > No, I don't think this is correct either. You'd do something like:
-> >
-> > >       - items:
-> > >           - const: starfive,jh7110-ccache
-> > >           - const: sifive,fu740-c000-ccache
-
-For the record I don't think the line above should be there. The
-fu7400-c000 is a specific tapeout and pretending the JH7110 is that
-tapeout is not right. Especially when there is already the
-"sifive,ccache0" string for the generic IP.
-
-> > >           - const: cache
->
-> Yeah, this is what I mean. Thanks.
->
-> Best regards,
-> Hal
->
-> >
-> > And then the driver needs no changes.
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSGVpa28sCgpPbiBNb24sIE5vdiAyMSwgMjAyMiBhdCAxMDoxNyBQTSBIZWlrbyBTdMO8Ym5l
+ciA8aGVpa29Ac250ZWNoLmRlPiB3cm90ZToKPgo+IEFtIE1vbnRhZywgMjEuIE5vdmVtYmVyIDIw
+MjIsIDIyOjMxOjM2IENFVCBzY2hyaWViIExhZCwgUHJhYmhha2FyOgo+ID4gSGkgSGVpa28sCj4g
+Pgo8c25pcD4KPiBBcyBlaXRoZXIgbWFudWFsbHkgb3Igd2l0aCBhIGhlbHBlciBsaWtlCj4KPiAg
+ICAgICAgIGh0dHBzOi8vbHVwbGFiLmdpdGxhYi5pby9ydmNvZGVjanMvI3E9MHhmNGMwODBlNwo+
+Cj4geW91IGNhbiB0aGVuIGRlY29kZSB0aGUgYWN0dWFsIGluc3RydWN0aW9uIGFuZCBjb21wYXJl
+Lgo+Cj4gSW4geW91ciBsb2cgdGhlIHR3byBqYWxyIGluc3RydWN0aW9ucyBkZWNvZGUgdG8gZGlm
+ZmVyZW50IG9mZnNldHMsCj4gICAgICAgICBqYWxyIHgxLCB4MSwgLTE4MAo+IHZzCj4gICAgICAg
+ICBqYWxyIHgxLCB4MSwgLTgzNAo+Cj4gQ2FuIHlvdSBjaGVjayB3aGF0IHRoZSBwYXRjaF9vZmZz
+ZXQgdmFsdWUgaXMgaW4geW91ciBjYXNlPwo+CnBhdGNoX29mZnNldCBmb3IgdGhlIGFib3ZlIGNh
+c2UgaXMgLTY1NC4KCkNoZWVycywKUHJhYmhha2FyCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
