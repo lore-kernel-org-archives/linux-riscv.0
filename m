@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3909DC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26033C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cIMShAUsi1XKOAl80rCFAaW2d2A8CoR94A+zPlkyR7U=; b=2awIwvSJBDAmfT
-	lpCOy7RCLFFNOZpAiCN0w1U9VRH9BBZvw7lH7tm62cwwxfFq3FWKFr9o45CPy+VJE0xfE1wOEUwi2
-	WdlkH3ADV1EY9SgIHPSiNCHhdfNmsiwQr4S6O3vYNKYaq6HjPqjI8lo1u2l5xeJ8vBC/LqOCpx8c1
-	J0J14Z/twqyfJhFxGVj/6qGjgym0ZC3MuNN5+MKNY1q7zRTGgj+h6eDuCU2WmiLJuwGBl4whEUIzs
-	comfkLWgF0QegPBMndMO4aCV8cZoRjcjQqhWmP/iVXpoGcNtNThcZFhhDJC+ffAo7D/fv3V457LTv
-	9khQpzR2ih0MP43RMy4w==;
+	List-Owner; bh=UCEUJ08FHh0sFYiY/e/f3YB5Svaq43raUSKC0jz0rVI=; b=4q2drvZ2jz0WOD
+	+ugo95DFICePj3AGhwXOb9aRT2XIyp1t3ty3zJ901gG/oAD4sVtjd2U43e+OyAcWimh5w/EliPHQ6
+	WcGvE4NUrE2cuURSJQBrcp7Xxo1WQ7JKrvhMCz1Uh5f/f/GUifxjRapBSA9jAPtkjROb0RHBMeKQW
+	50DPF0gtCtxbdYTYoqG/xdTelhqfUi3JNgboBdq8UgWiYBRDOPtRs/0ATCkxj/1+b6+BXLBA35VQY
+	B/AI6UyrzC/s96T3s2PpUtYq4OGUpTGWvW4GL0gtau1ZVaLaJVzCMLp7dNUg86yK2GLxARzoaOa6T
+	01SfAIn9NW0J/6q/nhrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxwzc-002Ro7-CI; Wed, 23 Nov 2022 21:09:16 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oxxI0-002VzP-0f; Wed, 23 Nov 2022 21:28:16 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxwzZ-002RnH-Mb
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:09:15 +0000
+	id 1oxxHw-002Vxp-Cu
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:28:14 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5EFB0B824C0;
-	Wed, 23 Nov 2022 21:09:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 958DAC433D6;
-	Wed, 23 Nov 2022 21:09:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A9B4A61F31;
+	Wed, 23 Nov 2022 21:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B049C433D6;
+	Wed, 23 Nov 2022 21:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669237751;
-	bh=pl7Qiqa3fxBm6Q+/LK3Xnpo0DhZBZ76AOO6EJVopoXI=;
+	s=k20201202; t=1669238891;
+	bh=aXYuVL56OUqCkmkuBtTiGlD0vJDEW1H10E3zF/4GBnE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VjAogGXCl7hgXsWnZY97PqUFczkd2/EWuPp0xSd1ogZ48HbJBUcOSyjmatPjRCiMl
-	 u2QsbsBpsWUo6FQS9jNnS0nJymO/UZrePE1U2X8x4HFo7y7r0KdHaYV8vxSclEMlIo
-	 JDus8bYmd7liwPTBszcu1C63JWbpKh763yXht1CoJ+s6qKUDjl44O3kUwvcnqagjxg
-	 2nnjeO0bbwI9BJIZSYz1FyEsr5zxEDgC8iGim+il1kODAwo3v2vidw0dW5DYylspKB
-	 Vu0Mb0+VjJ67b4V+vIFTN+4ORdHKhvZdnV40/Wl0SBPwtbxGJ8Q6Apk5heAnv38klx
-	 1T6kT9u0u7kLQ==
-Date: Wed, 23 Nov 2022 21:09:06 +0000
+	b=eW3PAD8vvRz1vpgKL+baw0/U0ISwR6jtuzN+bRUUr9GPUE1B0IWowOl8cxG7mepPB
+	 08vsCMWuB8+O8SZ7V0zIen0I33ZSENkSPUVTcCFzq+3wrF5lw7QdSqGzBuT6WsL/Y4
+	 5hNlXuj2d16Tf8qofl8IiKG/2pUCLKof4ysE843L+L8rQDrrOApsR97vgow+BQGdZV
+	 G/ooHLf7diRnXDH0HpBelkbXWRqAY/+1x1oeAXStfh7eUYubBwtspSd/LE1iLf4Ndj
+	 CFW9Z2S/WLvA+klxhEESdD4TzRSKx2bMMI8LlWsj7RB9U5emK2968/fIJXSlD4mIfD
+	 fZV1oN0wRC7IQ==
+Date: Wed, 23 Nov 2022 21:28:06 +0000
 From: Conor Dooley <conor@kernel.org>
 To: daire.mcnamara@microchip.com
 Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
@@ -50,17 +50,17 @@ Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
 	palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org,
 	kw@linux.com, bhelgaas@google.com, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v1 1/9] PCI: microchip: Align register, offset, and mask
- names with hw docs
-Message-ID: <Y36L8nnZw46mm8x/@spud>
+Subject: Re: [PATCH v1 2/9] PCI: microchip: Correct the DED and SEC interrupt
+ bit offsets
+Message-ID: <Y36QZt1bsfsroIjM@spud>
 References: <20221116135504.258687-1-daire.mcnamara@microchip.com>
- <20221116135504.258687-2-daire.mcnamara@microchip.com>
+ <20221116135504.258687-3-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221116135504.258687-2-daire.mcnamara@microchip.com>
+In-Reply-To: <20221116135504.258687-3-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_130913_905210_816667A9 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20221123_132812_494894_AC871EBD 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +77,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 16, 2022 at 01:54:56PM +0000, daire.mcnamara@microchip.com wrote:
+On Wed, Nov 16, 2022 at 01:54:57PM +0000, daire.mcnamara@microchip.com wrote:
 > From: Daire McNamara <daire.mcnamara@microchip.com>
 > 
-> Minor re-organisation so that macros representing registers ascend in
-> numerical order and use the same names as their hardware documentation.
-> Removed registers not used by the driver.
-> 
+> The SEC and DED interrupt bits were the wrong way round so the SEC
+> interrupt handler attempted to mask, unmask, and clear the DED interrupt
+> and vice versa. Correct the bit offsets so each interrupt handler
+> operates properly.
+
+Firstly, does this need a fixes tag for backporting?
+If it does, then you should probably put this as patch #1 in the series.
+
+
 > Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  drivers/pci/controller/pcie-microchip-host.c | 122 +++++++++----------
->  1 file changed, 60 insertions(+), 62 deletions(-)
+>  drivers/pci/controller/pcie-microchip-host.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 0ebf7015e9af..80e7554722ca 100644
+> index 80e7554722ca..30153fd1a2b3 100644
 > --- a/drivers/pci/controller/pcie-microchip-host.c
 > +++ b/drivers/pci/controller/pcie-microchip-host.c
+> @@ -165,12 +165,12 @@
+>  #define EVENT_PCIE_DLUP_EXIT			2
+>  #define EVENT_SEC_TX_RAM_SEC_ERR		3
+>  #define EVENT_SEC_RX_RAM_SEC_ERR		4
+> -#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		5
+> -#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		6
+> +#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		5
+> +#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		6
 
-> @@ -137,7 +78,8 @@
->  #define ISTATUS_LOCAL				0x184
->  #define IMASK_HOST				0x188
->  #define ISTATUS_HOST				0x18c
-> -#define MSI_ADDR				0x190
-> +#define IMSI_ADDR				0x190
-> +#define  MSI_ADDR				0x190
-
-Trivial, trivial comment - I think it would look more intentional as:
-#define  MSI_ADDR				IMSI_ADDR
-
-Otherwise this seems grand to me, modulo the SoB issue.
+The order in the registers is:
+TX_RAM, RX_RAM, PCIE2AXI_RAM, AXI2PCIE_RAM
+Fix looks correct to me on that basis:
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks,
-Conor.
-
+>  #define EVENT_DED_TX_RAM_DED_ERR		7
+>  #define EVENT_DED_RX_RAM_DED_ERR		8
+> -#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		9
+> -#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		10
+> +#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		9
+> +#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		10
+>  #define EVENT_LOCAL_DMA_END_ENGINE_0		11
+>  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
+>  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+> -- 
+> 2.25.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
