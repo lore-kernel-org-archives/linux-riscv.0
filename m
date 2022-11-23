@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26033C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B60C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UCEUJ08FHh0sFYiY/e/f3YB5Svaq43raUSKC0jz0rVI=; b=4q2drvZ2jz0WOD
-	+ugo95DFICePj3AGhwXOb9aRT2XIyp1t3ty3zJ901gG/oAD4sVtjd2U43e+OyAcWimh5w/EliPHQ6
-	WcGvE4NUrE2cuURSJQBrcp7Xxo1WQ7JKrvhMCz1Uh5f/f/GUifxjRapBSA9jAPtkjROb0RHBMeKQW
-	50DPF0gtCtxbdYTYoqG/xdTelhqfUi3JNgboBdq8UgWiYBRDOPtRs/0ATCkxj/1+b6+BXLBA35VQY
-	B/AI6UyrzC/s96T3s2PpUtYq4OGUpTGWvW4GL0gtau1ZVaLaJVzCMLp7dNUg86yK2GLxARzoaOa6T
-	01SfAIn9NW0J/6q/nhrA==;
+	List-Owner; bh=s5sVBTg0nwi3C3BhQrFtakjL0+LnMFdqH4zbUejTGas=; b=yzuIYO9wl8b2DT
+	+rI4hjcFmGrkg/3VUdWTcqWAyo7q5KwF5K5C62lqD89XUuSk8gWaBSBIM3Drf6xPtIazi4qCJmYc1
+	RWcUIS638bxw4D3n7HVIX+1n67qedmgDudfE+Gbn8hVTSyMREyUol1eLxEoQuGrpv/RBR/Qg6U8tx
+	eOGFumI8eMsOsiDyg/NnNu5fVdaU+Qj2Uqg5aG7i5bdUvDhwsBg0eah9SsGNjHQlDjG9AR9bw0pxW
+	nB5Gq8QYNRFXSUYnoGkFgQuKd+vKKBVK6yfsK09vJTUSTZ9bDyjO3cKaP647J5vSWsQ9vS59PHFlV
+	JOMGFoc3Yn34P81+qAdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxxI0-002VzP-0f; Wed, 23 Nov 2022 21:28:16 +0000
+	id 1oxxNs-002Wt1-EW; Wed, 23 Nov 2022 21:34:20 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxxHw-002Vxp-Cu
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:28:14 +0000
+	id 1oxxNo-002WsT-N5
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:34:18 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A9B4A61F31;
-	Wed, 23 Nov 2022 21:28:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B049C433D6;
-	Wed, 23 Nov 2022 21:28:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EB75961F34;
+	Wed, 23 Nov 2022 21:34:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3D8C433D6;
+	Wed, 23 Nov 2022 21:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669238891;
-	bh=aXYuVL56OUqCkmkuBtTiGlD0vJDEW1H10E3zF/4GBnE=;
+	s=k20201202; t=1669239255;
+	bh=ttMnqx4iEKEd6geGNacCiYRbZj8zxa04+xKggspTI3U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eW3PAD8vvRz1vpgKL+baw0/U0ISwR6jtuzN+bRUUr9GPUE1B0IWowOl8cxG7mepPB
-	 08vsCMWuB8+O8SZ7V0zIen0I33ZSENkSPUVTcCFzq+3wrF5lw7QdSqGzBuT6WsL/Y4
-	 5hNlXuj2d16Tf8qofl8IiKG/2pUCLKof4ysE843L+L8rQDrrOApsR97vgow+BQGdZV
-	 G/ooHLf7diRnXDH0HpBelkbXWRqAY/+1x1oeAXStfh7eUYubBwtspSd/LE1iLf4Ndj
-	 CFW9Z2S/WLvA+klxhEESdD4TzRSKx2bMMI8LlWsj7RB9U5emK2968/fIJXSlD4mIfD
-	 fZV1oN0wRC7IQ==
-Date: Wed, 23 Nov 2022 21:28:06 +0000
+	b=pdX0/svkQ/HYg3xS3rH6GcyUNRLwoipJuiIoygPCKDNw+pLtkul/tX757vACpYGtR
+	 MpvHKe6k1Tb+iT91JVu4FK3toFOR4Az9ePc6k0aa94gQ1+ix+KqTbFDrieh+wK/gJc
+	 Ppv9XHefhHc3s2gtDMADjnMc7oHB10KYGHKygBkaeflbErUVlML+bbop6qe7ZG8vFX
+	 Pbu9mvMSPje3BJilqEGydf34aXaSS6QuG2ZDWL0i1b0IT2lvOQS+qHHSu+dByXDIms
+	 qUILaMekxYgX4AkuAZkZBaZRG+7Kf7m/DpCGsCk58TtYVqOOv7PBP4rIZSJqS5fpgZ
+	 aylWlicVQFkXQ==
+Date: Wed, 23 Nov 2022 21:34:10 +0000
 From: Conor Dooley <conor@kernel.org>
 To: daire.mcnamara@microchip.com
 Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
@@ -50,17 +50,17 @@ Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
 	palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org,
 	kw@linux.com, bhelgaas@google.com, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v1 2/9] PCI: microchip: Correct the DED and SEC interrupt
- bit offsets
-Message-ID: <Y36QZt1bsfsroIjM@spud>
+Subject: Re: [PATCH v1 3/9] PCI: microchip: Enable event handlers to access
+ bridge and ctrl ptrs
+Message-ID: <Y36R0jXXx6AwrLub@spud>
 References: <20221116135504.258687-1-daire.mcnamara@microchip.com>
- <20221116135504.258687-3-daire.mcnamara@microchip.com>
+ <20221116135504.258687-4-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221116135504.258687-3-daire.mcnamara@microchip.com>
+In-Reply-To: <20221116135504.258687-4-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_132812_494894_AC871EBD 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20221123_133416_845569_3631893D 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +77,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 16, 2022 at 01:54:57PM +0000, daire.mcnamara@microchip.com wrote:
+Hey Daire,
+
+On Wed, Nov 16, 2022 at 01:54:58PM +0000, daire.mcnamara@microchip.com wrote:
 > From: Daire McNamara <daire.mcnamara@microchip.com>
 > 
-> The SEC and DED interrupt bits were the wrong way round so the SEC
-> interrupt handler attempted to mask, unmask, and clear the DED interrupt
-> and vice versa. Correct the bit offsets so each interrupt handler
-> operates properly.
+> Minor re-organisation so that event handlers can access both a pointer
+> to the bridge area of the PCIe rootport and the ctrl area of the PCIe
+> rootport.
 
-Firstly, does this need a fixes tag for backporting?
-If it does, then you should probably put this as patch #1 in the series.
+Perhaps explaining why we would want to access both, when we've not
+needed to so far, would be helpful so that this commit message will make
+sense in isolation would be nice. The mechanics of the change seem good
+to me though:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
+Thanks,
+Conor.
 
+> 
 > Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  drivers/pci/controller/pcie-microchip-host.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
+>  drivers/pci/controller/pcie-microchip-host.c | 31 ++++++++++----------
+>  1 file changed, 16 insertions(+), 15 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 80e7554722ca..30153fd1a2b3 100644
+> index 30153fd1a2b3..a81e6d25e347 100644
 > --- a/drivers/pci/controller/pcie-microchip-host.c
 > +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -165,12 +165,12 @@
->  #define EVENT_PCIE_DLUP_EXIT			2
->  #define EVENT_SEC_TX_RAM_SEC_ERR		3
->  #define EVENT_SEC_RX_RAM_SEC_ERR		4
-> -#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		5
-> -#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		6
-> +#define EVENT_SEC_PCIE2AXI_RAM_SEC_ERR		5
-> +#define EVENT_SEC_AXI2PCIE_RAM_SEC_ERR		6
-
-The order in the registers is:
-TX_RAM, RX_RAM, PCIE2AXI_RAM, AXI2PCIE_RAM
-Fix looks correct to me on that basis:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
->  #define EVENT_DED_TX_RAM_DED_ERR		7
->  #define EVENT_DED_RX_RAM_DED_ERR		8
-> -#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		9
-> -#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		10
-> +#define EVENT_DED_PCIE2AXI_RAM_DED_ERR		9
-> +#define EVENT_DED_AXI2PCIE_RAM_DED_ERR		10
->  #define EVENT_LOCAL_DMA_END_ENGINE_0		11
->  #define EVENT_LOCAL_DMA_END_ENGINE_1		12
->  #define EVENT_LOCAL_DMA_ERROR_ENGINE_0		13
+> @@ -654,9 +654,10 @@ static inline u32 reg_to_event(u32 reg, struct event_map field)
+>  	return (reg & field.reg_mask) ? BIT(field.event_bit) : 0;
+>  }
+>  
+> -static u32 pcie_events(void __iomem *addr)
+> +static u32 pcie_events(struct mc_pcie *port)
+>  {
+> -	u32 reg = readl_relaxed(addr);
+> +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> +	u32 reg = readl_relaxed(ctrl_base_addr + PCIE_EVENT_INT);
+>  	u32 val = 0;
+>  	int i;
+>  
+> @@ -666,9 +667,10 @@ static u32 pcie_events(void __iomem *addr)
+>  	return val;
+>  }
+>  
+> -static u32 sec_errors(void __iomem *addr)
+> +static u32 sec_errors(struct mc_pcie *port)
+>  {
+> -	u32 reg = readl_relaxed(addr);
+> +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> +	u32 reg = readl_relaxed(ctrl_base_addr + SEC_ERROR_INT);
+>  	u32 val = 0;
+>  	int i;
+>  
+> @@ -678,9 +680,10 @@ static u32 sec_errors(void __iomem *addr)
+>  	return val;
+>  }
+>  
+> -static u32 ded_errors(void __iomem *addr)
+> +static u32 ded_errors(struct mc_pcie *port)
+>  {
+> -	u32 reg = readl_relaxed(addr);
+> +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> +	u32 reg = readl_relaxed(ctrl_base_addr + DED_ERROR_INT);
+>  	u32 val = 0;
+>  	int i;
+>  
+> @@ -690,9 +693,10 @@ static u32 ded_errors(void __iomem *addr)
+>  	return val;
+>  }
+>  
+> -static u32 local_events(void __iomem *addr)
+> +static u32 local_events(struct mc_pcie *port)
+>  {
+> -	u32 reg = readl_relaxed(addr);
+> +	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> +	u32 reg = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
+>  	u32 val = 0;
+>  	int i;
+>  
+> @@ -704,15 +708,12 @@ static u32 local_events(void __iomem *addr)
+>  
+>  static u32 get_events(struct mc_pcie *port)
+>  {
+> -	void __iomem *bridge_base_addr =
+> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+>  	u32 events = 0;
+>  
+> -	events |= pcie_events(ctrl_base_addr + PCIE_EVENT_INT);
+> -	events |= sec_errors(ctrl_base_addr + SEC_ERROR_INT);
+> -	events |= ded_errors(ctrl_base_addr + DED_ERROR_INT);
+> -	events |= local_events(bridge_base_addr + ISTATUS_LOCAL);
+> +	events |= pcie_events(port);
+> +	events |= sec_errors(port);
+> +	events |= ded_errors(port);
+> +	events |= local_events(port);
+>  
+>  	return events;
+>  }
 > -- 
 > 2.25.1
 > 
