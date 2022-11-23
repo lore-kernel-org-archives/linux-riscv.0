@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A7EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711D3C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZOqxyXsD7cQj7gJPatUk+0lZ8ESqmNyR53eMs7CRng4=; b=Je3r2SY5H/OEZE
-	5a0W6CDt8TxwlM/VDW2/CGebxcWizocDURlKVxDg1cjkBkYviwzmhbcE7g7Q3o+ISafHPgpSdMPKK
-	Gbcd2PqLuTTWsZguHQ3eRUqDZRxJxV0Awrnl/WmluXBm+TWMZkGY3PkJ9ncqpvWBSnL0Ra7XrQGoT
-	IgwnvnzQDmhTcr5oD7SxFU7xacAWj+fX7z6FDOmMCLKJU0KGBkho3hIFmIrVpje7//MWo/AgW5Gn6
-	rkfWd9sJ4MJBGryhwfICCM9bODHXHb4qfkZ0gaOT69VTMrJVWRKU8xFcwds7803nwv18Wr7tdU9vV
-	tSHaYrNtRikVOORbsJkg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Uqmq9UTZLA8Y9QyORM4W5bqWvlpBMRb3ahpnThH1dj0=; b=UZjgb+Werx0mYb
+	vm/N10r9KTap14iWQSv0yvvIJ1pn+YqWtOP2baSQ2NGn7j3MdA6BzJCaaoK/6UZ+zoG2Ix+CyPdyN
+	ovDpbQRwYkdVaRXTKaONsI4zG7rhpaVwd93Tqp2ISRCHhs9cSpEmqgshs33Z7Vckp2f+j2NfgAUj5
+	fuz4dkUJOJx7WdQILEtgZ07Hx0u6kU60LK6q1Q0BzVFTfQCEefIw5XkjpI/DKq853KSlhNrUOmMY2
+	JFqqpw5j3xQ6Jdulu25AKbO74qFFTqM44zHOOpr1hGmSikdy75ofPRxSpkbvWBb5YE0vCGhvUODQC
+	tUstB9n2dxa9DeMqKtVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrX4-000NMG-GB; Wed, 23 Nov 2022 15:19:26 +0000
+	id 1oxri8-000S8f-UI; Wed, 23 Nov 2022 15:30:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrX1-000NK6-98
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:19:24 +0000
+	id 1oxri6-000S7K-3b
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:30:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 2822B61B59;
-	Wed, 23 Nov 2022 15:19:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D24C433C1;
-	Wed, 23 Nov 2022 15:19:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A7DDE61D98;
+	Wed, 23 Nov 2022 15:30:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91D79C433C1;
+	Wed, 23 Nov 2022 15:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669216761;
-	bh=3H3vMqUsQmNXXkdqKJfmgSW/egj9FDENfVTPaP6+qAM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mbr1ML+rZ3tuUOMFTKOQ2+nl9SQroYHL+XVO/LMgRLCB6TAIXFMQe/N7MyaetbGQb
-	 xb8vfny9wHaFPR5n0mHPInD7BleStI5tVIiPWx2yanhnepMZrzN/ilLOAElKsO7W5k
-	 +5JHMl5yV6ctya8eve2bERbyI6Q/yICSK5SA2mNVQVuEeDZ7OMWea22uwJLksdyH6q
-	 AtLXqW+EjzAr0RPmjJOXM/4rq/azUddFYDgdWj2mPbw8FKoG0p3LV+mSmd1WxTXwhu
-	 oCyfP4udqnktAdYvrurVK/FWzw1cAJCtwhUAWaPV9bxI1uWbufb/3mDc/1bTt/KK9W
-	 Y1IghW53EKlFA==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
+	s=k20201202; t=1669217449;
+	bh=4dZb4bbu5nzbrpcp2lGes9HS8mCCcHsdRpxYEfzRlwI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=M5MrsbnmZ0e9R/vIHwWihmiXz3synJ+YTNPwOjj8S2ToOkfV+b7gt6q6Yf0W6OpBj
+	 SghD9p6rqTgwFteO2uCV61k3JlOilkYlxCjmAkbq2CEefBDLhlJR1xWuSI5RKua6MI
+	 A8W7I1QOk3oJgZ6SrzRqPGUofGcQ1HDsyH5wFR7KO6dMbkMPSCivo65T5JfkciUadJ
+	 cZkQ6qvliDm8fnHu2lvkNP13ajAvacBFGqmC+6zUAhJ9Vvokrb+DxfXjTRnfiqqmba
+	 kAOIDchEPRuwFqlv2ngxcJ1eFOKb9wSregiDidcZpBCW6yJOpx9NtkdDaoEokv2BEZ
+	 zEofxybFcJQ+A==
+Date: Wed, 23 Nov 2022 23:20:59 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Rix <trix@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH v2 1/5] kbuild: add test-{le,ge,lt,gt} macros
-Date: Thu, 24 Nov 2022 00:18:24 +0900
-Message-Id: <20221123151828.509565-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH v2] riscv: vdso: fix section overlapping under some
+ conditions
+Message-ID: <Y346Ww9Dt2f1Kipl@xhacker>
+References: <20221102170254.1925-1-jszhang@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221102170254.1925-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_071923_438333_6BA341F8 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20221123_073050_203598_0D35A6BF 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,120 +75,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Because GNU Make is only able to handle strings, it is very hard to
-perform arighmetic in Makefiles.
+On Thu, Nov 03, 2022 at 01:02:54AM +0800, Jisheng Zhang wrote:
+> lkp reported a build error, I tried the config and can reproduce
+> build error as below:
+> 
+>   VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
+> ld.lld: error: section .note file range overlaps with .text
+> >>> .note range is [0x7C8, 0x803]
+> >>> .text range is [0x800, 0x1993]
+> 
+> ld.lld: error: section .text file range overlaps with .dynamic
+> >>> .text range is [0x800, 0x1993]
+> >>> .dynamic range is [0x808, 0x937]
+> 
+> ld.lld: error: section .note virtual address range overlaps with .text
+> >>> .note range is [0x7C8, 0x803]
+> >>> .text range is [0x800, 0x1993]
+> 
+> Fix it by setting DISABLE_BRANCH_PROFILING which will disable branch
+> tracing for vdso, thus avoid useless _ftrace_annotated_branch section
+> and _ftrace_branch section. Although we can also fix it by removing
+> the hardcoded .text begin address, but I think that's another story
+> and should be put into another patch.
+> 
+> Link: https://lore.kernel.org/lkml/202210122123.Cc4FPShJ-lkp@intel.com/#r
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 
-When we compare two integers, we invokes shell. One example is in the
-top Makefile:
+Gentle ping? This fix is still missing in mainline.
 
-  ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-
-This is more expensive than using built-in functions since it forks a
-process.
-
-If we know the two have the same number of digits, we can do better.
-
-This commit adds four macros, test-le, test-ge, test-lt, test-gt.
-
-$(call test-lt, A, B) is evaluated to 'y' if A is less than B, or
-empty otherwise. This will replace $(call shell test A -lt B).
-
-Again, the limitation is that A and B must have the same number of
-digits because these macros are based on $(sort ) function.
-
-  $(call test-lt, 1, 9)    -->  y        (Works!)
-  $(call test-lt, 10, 9)   -->  y        (Not work...)
-
-To make the latter work, you need to add '0' prefix to align the number
-of digits:
-
-  $(call test-lt, 10, 09)  -->  empty    (Works!)
-
-Actually, we can live with this limitation in many places. As for the
-example above, we know $(CONFIG_LLD_VERSION) is 6-digits because the
-minimal supported version of LLVM is 11.0.0.
-
-So, the shell invocation can be replaced with more efficient code:
-
-  ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
-
-Of course, this assumption will break when LLVM 100 is released, but it
-will be far in the future.
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
-(no changes since v1)
-
- Makefile               |  2 +-
- arch/riscv/Makefile    |  2 +-
- arch/x86/Makefile      |  2 +-
- scripts/Kbuild.include | 10 ++++++++++
- 4 files changed, 13 insertions(+), 3 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 6f846b1f2618..eb80332f7b51 100644
---- a/Makefile
-+++ b/Makefile
-@@ -986,7 +986,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
- # Check for frame size exceeding threshold during prolog/epilog insertion
- # when using lld < 13.0.0.
- ifneq ($(CONFIG_FRAME_WARN),0)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
- endif
- endif
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 0d13b597cb55..faf2c2177094 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -37,7 +37,7 @@ else
- endif
- 
- ifeq ($(CONFIG_LD_IS_LLD),y)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
- 	KBUILD_CFLAGS += -mno-relax
- 	KBUILD_AFLAGS += -mno-relax
- ifndef CONFIG_AS_IS_LLVM
-diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-index 415a5d138de4..e72c7a49cd59 100644
---- a/arch/x86/Makefile
-+++ b/arch/x86/Makefile
-@@ -211,7 +211,7 @@ endif
- KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
- 
- ifdef CONFIG_LTO_CLANG
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
- endif
- endif
-diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-index cbe28744637b..9996f34327cb 100644
---- a/scripts/Kbuild.include
-+++ b/scripts/Kbuild.include
-@@ -11,6 +11,16 @@ space   := $(empty) $(empty)
- space_escape := _-_SPACE_-_
- pound := \#
- 
-+###
-+# Comparison macros.
-+# Usage: $(call test-le, A, B)
-+# works like shell's "test A -le B", but A and B must have the same number of
-+# digits since it is just ASCII sort.
-+test-le = $(if $(filter $1, $(firstword $(sort $1 $2))),y)
-+test-ge = $(call test-le, $2, $1)
-+test-lt = $(if $(filter-out $2, $(firstword $(sort $1 $2))),y)
-+test-gt = $(call test-lt, $2, $1)
-+
- ###
- # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
- dot-target = $(dir $@).$(notdir $@)
--- 
-2.34.1
-
+> ---
+> 
+> Since v1:
+>  - fix the issue by setting DISABLE_BRANCH_PROFILING
+> 
+>  arch/riscv/kernel/vdso/Makefile | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index f2e065671e4d..d6092ff678fd 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -17,6 +17,7 @@ vdso-syms += flush_icache
+>  obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
+>  
+>  ccflags-y := -fno-stack-protector
+> +ccflags-y += -DDISABLE_BRANCH_PROFILING
+>  
+>  ifneq ($(c-gettimeofday-y),)
+>    CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+> -- 
+> 2.37.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
