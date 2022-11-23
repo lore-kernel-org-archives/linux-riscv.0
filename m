@@ -4,97 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18353C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 05:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F383C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 05:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ayMQpcD2GSUwfPatHGbekFGJald7DC3Mb6KplgNNEPU=; b=vUk8nJS8Y4z8v5
-	tjotA9IqRg33Ve5YBaPoEZtPTArExSePVrsgbjq67qcfGFjUQMtbPVaM0kwl2c3B+bmmN0TBiVcww
-	XcHJpduVtHJw9BEvQROxy4P6qisTXVUKqEKnwNS9we7n1HLn4Gzongno9pjle2Z8L66DN4ara2pKn
-	8vfo5Vx3Jo2cfTeKnQHxwjV174efER0/xtjj57tD+DebTSZ8isKb2qxecapUwKEYmpy9qY/7aB+//
-	8e+H5JWUMzzejml6tCDOsvjcE2I+su9iT6/Zmd6J3cJ9e/2xkh7NSNoW2PqIeqW7U9xp51KchuATK
-	VC7TtBpLCMVCONmhyLZw==;
+	List-Owner; bh=CSvMQWXUP90UvpWq4Te5OXoGjQqkAVw2vg0f6+/gatc=; b=dSJ4WJWRHVWMbY
+	Ng6ut/XKObh5KOfqV9I0YY/vOTI6A4tyE5o72vvswtJ2ntoI/N3JN9Jndhi2619xvGaJBXAk9epsj
+	w5L1lZr9WKELyy/mh3gSBE2YJsyzKoBu+7T1Is7ag86Tr0F4TFcvYNWIE0gp10U+sLpiUv1oC76OC
+	pnDbwlqWrP6Iv8bUF/XVPePT/t/3utEXfjzkcmz13alqVeJo3m3t+0UVK0hqDPho6sJGNonLevWOk
+	GRmDEkmH00n9wl0Y7DdgrO/8dWa1gkotDtn/lyXfmTO3NEVySepAmyTW/JdAV4Xwbr2lO4eIxux/n
+	9GMNXyJdRn4Fg6QnX/bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxiTN-00EMDt-IW; Wed, 23 Nov 2022 05:39:01 +0000
+	id 1oxiXO-00EOZC-7T; Wed, 23 Nov 2022 05:43:10 +0000
 Received: from out5-smtp.messagingengine.com ([66.111.4.29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxiSm-00ELhF-LB
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 05:38:26 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id AD25D5C013A;
-	Wed, 23 Nov 2022 00:38:23 -0500 (EST)
+	id 1oxiXK-00EOWv-PX
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 05:43:08 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id 223C35C010A;
+	Wed, 23 Nov 2022 00:43:06 -0500 (EST)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute1.internal (MEProxy); Wed, 23 Nov 2022 00:38:23 -0500
+  by compute5.internal (MEProxy); Wed, 23 Nov 2022 00:43:06 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:content-type:date:date:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669181903; x=
-	1669268303; bh=b+lrH+QMj1sidBK3NzEoHaF2wilAWh8S7o4I69zVMpk=; b=c
-	Psy6wTltwsDiZuEhfF6aDH2A7TEWAsJD6BfAGsgNpi58OummEuI1MytdBNUq26dm
-	PTwtupwXDgN4QfF0mwjG3lgl46c+qWqAE7fElqqFJpTS+r/y0ou4ynW7Rb5rEibP
-	9Uo3GaEwP0mYrKCAse8ey0FS4unu7VP6KbXA8oPGqEV58GD1SGdR557/NWWmEOHU
-	YfnmHd3aQQMH82vJUsw9Vy85N04Fy2dF26RGttee4ExV0QGJyormQyItIZ+JUD5Q
-	GJ7sGGzLhezSvdEMkQ77eOTikP994vTW+BvWrl1WaZxOUjhALP5/F3SJgwzJCqai
-	OPiEdkrb2BaJbqc8vewbg==
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669182186; x=
+	1669268586; bh=tSVppnYkpeXnvHJUaWTsGY07NlSPhzPn1JiOoH5/HyE=; b=D
+	3eSJv+20H8TXCSPTvFOo/bOny1fv8RxplvzQVkb2/Izev6Oy84wT9DlLyFcpK4Bu
+	x8Yrdp4r3DK88kGRuI/O905Uh2jSscSAsvhWHQznWg0fHnepnrt0leigEByh6tlv
+	EJ2tVOM5NPQmLVW0h+ycQtIedE76znn7KcmDABXIZjSqLZY5A+ggryv3HhUmIwHE
+	M10OkSqEuB+cFZibEP/bhDgn1JBD82cDdpwnfK0wmIZZnxxPq3nJxdrf12FAtXPZ
+	2/WmsT9Jtg7vwJfbKXr/EY8IX37ndvBzLBxFUUXLYYRjprAb0J8DVc3mjtgUq07f
+	vUM5d18tsXeX5OTaMW6tw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669181903; x=
-	1669268303; bh=b+lrH+QMj1sidBK3NzEoHaF2wilAWh8S7o4I69zVMpk=; b=M
-	IxBMiyqJjBxAjJX9w/ZtRVb/kyGpe+tDUIu4V+7QinA2TwAbqLFcg9WHP5oWi2R8
-	IHGTuwwMPqq2cwmgZOkeTNv3BCGWLmms5SGVtB6EtSTbMubid3pjftwUOyQBW8Eq
-	b4ncuHpx/SX7+tYxaPi5YGgfkq0xvlW2goHmjUKQlozHYQS4aV8c1gVda8dbaTb4
-	EHi3iwmtBklLItezSSpmloY+EWYLwxnPu4Q7t7752zRufkw++e0CyID8P9ePzfrj
-	2aIg2Q+jZMae8ml5mKDsYsMF4foy/Zbs/sJSG8BSi9khxF+tOTI/sj5Smv39iVv9
-	TRKaZqfgtdYQSYdgzRpyA==
-X-ME-Sender: <xms:z7F9Y1biPa51tdIDlLKFnkl6xiMgNCkKeU4TdqSMbbsq0Sw5_NEIHQ>
-    <xme:z7F9Y8a-8EwTP1ZQUNdndpT-tCZHqHN2xcIiwSAzHlHcQHB9iNN6GgAeoNcFiEu1f
-    81pZr37_6AQmIKGyg>
-X-ME-Received: <xmr:z7F9Y392z5emSsGk03SxUXn8D8lFjFkYjm2I2XsxzPHEi3MCt7oV6jOiAZWUCHYNUMSwduBhsZoDu-vTX6e4qtUc-VMeeva0_QREB3Vsomqh2llIVBiDDkZOFA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedriedtgdekiecutefuodetggdotefrodftvf
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669182186; x=
+	1669268586; bh=tSVppnYkpeXnvHJUaWTsGY07NlSPhzPn1JiOoH5/HyE=; b=c
+	9vHnGChIlGMiLqQBwDo7DCJUOF9wunu4vWnKXpcn1UCPdGh8W0E+NgcDeYmlhNx9
+	rkHX0arpD+C8hcik6BlSpth6Go3v1PZC/H0Nz1cQNivWaoZgPVaNZITtL6Y+F6U8
+	j0tqFrDfWR+Kdwm7cz11nWrZEhAs4UbBmaJ8twbWWOTQhmjat+BcFPo0VBSb8FC1
+	rR38kJh657AecYfVB/5Mk6ukMgi/meDvmvDvLEMQ2w1012Ncp+Uy+ofjTZE8W+KY
+	laPQ+oqHvkP/0ZC9hVFp18e/GI2zntt+rxtkmvsvxWSP7cWbBtx+5t1CGlmFnME6
+	KHhONFZY6oikTUfUqgSXg==
+X-ME-Sender: <xms:6bJ9Y3m-XQyW_cW19EF0O7_qSgwYBs78gcIFkmZOEvtLFK-ybK7Mbg>
+    <xme:6bJ9Y63rjEr4m1DW9F5hobFuuR7BWw4SXQx-ahVEkqlN5DrPFLBTxbGKKXf4A9tX9
+    oGwA-ISkycPysVRww>
+X-ME-Received: <xmr:6bJ9Y9oemprdq9BqkxXaBkmpK3H8lQuomL0oD6G39wfSDt1bQWVprKsTOo5cTENRaMvclgl8N7Q-Groz_h2aT64mh01_Ipcm72IHtQsMyJRKfOcqkT9OepogFQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedriedtgdekkecutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefkffggfgfuvfevfhfhjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+    fjughrpefkffggfgfvvehfhffujggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
     vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnhepkeejleelfeeitdfhtdfgkeeghedufeduueegffdvhfdukeelleef
-    tdetjeehuddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    ftrfgrthhtvghrnhepjefgfffhudejfedtuedugeeutdetgfeiteffffehjeeugfeuvdeh
+    jeetfedtffdtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
     homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:z7F9Yzr6wqs1evL-Xx_ulLBHTlyRPi29wcZuhWHxEifiwBI2QADWPA>
-    <xmx:z7F9YwprkISaCtLOc-SuY2LH38Ga8BJIytmCMui-coqHF_wsQhgtmQ>
-    <xmx:z7F9Y5QrxwujqUQV0ALXbdg_i-27kfcQpB7GWkR9yAjHmPQUN1emmQ>
-    <xmx:z7F9Y1RLjwmuuYfxAwrLoPErs42jb9dGki_zD5bu_VkPDF22iGR2Vw>
+X-ME-Proxy: <xmx:6bJ9Y_lqMg3jiaGs7hy7HpZRfc5co6xof8uTYu8XKCLGZTLHMJ9kBg>
+    <xmx:6bJ9Y10GY7LEHQ-c-r5q1s5_6nbAfmI-kg3zXJmNBOfY7jjMejfSlQ>
+    <xmx:6bJ9Y-vfg_AHIULqTZmNT0_ucgTU-gEurRoRsnaY54BKr-Q_pzj7hA>
+    <xmx:6rJ9Y001uFlYr4G8WozL5W2N2KX3RNkMAw0Vr4dYKx3UD3j-IqK3zw>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Nov 2022 00:38:22 -0500 (EST)
-Message-ID: <a591599e-d133-e19a-4898-5645c3862daa@sholland.org>
-Date: Tue, 22 Nov 2022 23:38:22 -0600
+ 23 Nov 2022 00:43:04 -0500 (EST)
+Message-ID: <2b329306-9706-7156-ad18-b87e4da666d9@sholland.org>
+Date: Tue, 22 Nov 2022 23:43:04 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
  Thunderbird/102.3.3
-Subject: Re: [PATCH] cpuidle: riscv-sbi: Stop using non-retentive suspend
 Content-Language: en-US
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, conor.dooley@microchip.com,
- anup@brainfault.org, Conor Dooley <conor@kernel.org>, rafael@kernel.org,
- daniel.lezcano@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@rivosinc.com
-References: <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9>
- <57114829-c205-dece-abdb-1100947286d4@sholland.org>
- <CAK9=C2WLOa_zgboFE5UCgnwMB-kbWMAVtmXsBxoswqY63-5QHw@mail.gmail.com>
+To: Conor Dooley <conor.dooley@microchip.com>,
+ Anup Patel <anup@brainfault.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Andrew Jones
+ <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20220727114302.302201-1-apatel@ventanamicro.com>
+ <20220727114302.302201-2-apatel@ventanamicro.com>
+ <372e37bf-ac90-c371-ad9e-b9c18e1cc059@linaro.org>
+ <CAK9=C2WjU+2cD7UZbja3TT++KCdRyWroT=50dw=fzi5mX30rcw@mail.gmail.com>
+ <7a0477a0-9f0f-87d6-4070-30321745f4cc@linaro.org>
+ <CAAhSdy20p5bkVanKGkGyArn94hWJhwncztnX7U+4WkN9-v7NsA@mail.gmail.com>
+ <Y3zjQXqEHsaoVVvf@wendy>
 From: Samuel Holland <samuel@sholland.org>
-In-Reply-To: <CAK9=C2WLOa_zgboFE5UCgnwMB-kbWMAVtmXsBxoswqY63-5QHw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add optional DT property
+ riscv,timer-can-wake-cpu
+In-Reply-To: <Y3zjQXqEHsaoVVvf@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_213824_813686_0D6767BF 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20221122_214306_974760_4F5BB4CB 
+X-CRM114-Status: GOOD (  29.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +120,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+Hi Conor,
 
-On 11/22/22 23:35, Anup Patel wrote:
-> On Wed, Nov 23, 2022 at 10:41 AM Samuel Holland <samuel@sholland.org> wrote:
->> On 11/22/22 09:28, Palmer Dabbelt wrote:
->>> I also think we should stop entering non-retentive suspend until we can
->>> sort out how reliably wake up from it, as the SBI makes that a
->>> platform-specific detail.  If the answer there is "non-retentive suspend
->>> is fine on the D1 as long as we don't use the SBI timers" then that
->>> seems fine, we just need some way to describe that in Linux -- that
->>> doesn't fix other platforms and other interrupts, but at least it's a
->>> start.
->>
->> We need some way to describe the situation from the SBI implementation
->> to Linux.
->>
->> Non-retentive suspend is fine on the D1 as long as either one of these
->> conditions is met:
->>  1) we don't use the SBI timers, or
->>  2) the SBI timer implementation does not use the CLINT
->>
->> And it is up to the SBI implementation which timer hardware it uses, so
->> the SBI implementation needs to patch this information in to the DT at
->> runtime.
+On 11/22/22 08:57, Conor Dooley wrote:
+>> If we add a timer DT node now
+>> then we have to deal with compatibility for existing platforms.
 > 
-> Rather than SBI implementation patching information in DT, it is much
-> simpler to add a quirk in RISC-V timer driver for D1 platform (i.e. based
-> on D1 compatible string in root node).
+> In terms of what to encode in a DT, and given the spec never says that
+> the timer interrupt must arrive during suspend, we must assume, by
+> default, that no timer events arrive during suspend.
+> 
+> We have a bunch of existing platforms that may (do?) get timer events
+> during suspend, the opposite of the proposed default behaviour.
+> 
+> I'm trying to follow the line of reasoning but I fail to see how taking
+> either the property or node approach allows us to maintain behaviour for
+> exiting platforms that that do see timer events during suspend without
+> adding *something* to the DT. No matter what we add, we've got some sort
+> of backwards compatibility issue, right?
 
-It would be simpler, but it would be wrong, as I just explained.
+In the absence of bugs/limitations in Linux timer code (like the ones
+you are seeing on PolarFire), the backwards compatibility issue with
+setting C3STOP by default is that non-retentive idle states will be
+ignored unless:
+ 1) the DT property is added (i.e. firmware upgrade), or
+ 2) some other timer driver is available.
+No other behavior should be affected.
 
-Only the SBI implementation knows if the SBI timer extension can wake
-any given CPU from any given non-retentive suspend state.
+On the other hand, if C3STOP defaults to off, then the backwards
+compatibility issue concerns platforms that can currently boot Linux,
+but which cannot use cpuidle because they need the flag. If they were to
+upgrade their firmware, and Linux is provided a DTB that includes both
+idle states and the property, these platforms would unexpectedly fail to
+boot. (They would enter an idle state and never wake up.)
+
+Assuming no such platforms exist, then it would actually be better to
+default C3STOP to off.
+
+Now, this says nothing about how the property should be named -- we can
+set C3STOP based on the absence of a property, just as easily as we can
+clear C3STOP based on the presence of a property.
+
+> I noted the above:
+> 
+>> Since, there is no dedicated timer node, we use CPU compatible string
+>> for probing the per-CPU timer.
+> 
+> If we could rely on the cpu compatible why would we need to add a
+> dt-property anyway? Forgive my naivety here, but is the timer event in
+> suspend behaviour not a "core complex" level attribute rather than a
+> something that can be consistently determined by the cpu compatible?
+
+I do not support using either the CPU compatible (not specific enough)
+or the board compatible (too many to list, but still not specific
+enough). Consider that not all CPUs in a system may need this property.
+
+> Either way, we need to figure out why enabling C3STOP is causing other
+> timer issues even when we are not in some sort of sleep state & do
+> something about that - or figure out some different way to communicate
+> the behavioural differences.
+> I would expect timers to continue working "normally" with the flag set,
+> even if how they work is subtly different?
+
+Definitely agree here. My intention was not to affect anything other
+than cpuidle behavior.
+
+> On a D1, with the C3STOP "feature" flag set, and it's custom timer
+> implementation unused, how do timers behave?
+
+D1 is uniprocessor, so I build with CONFIG_SMP=n. In this case,
+CONFIG_GENERIC_CLOCKEVENTS_BROADCAST=n, and thus
+__tick_broadcast_oneshot_control() returns -EBUSY, forcing
+cpuidle_enter_state() to choose a retentive idle state.
 
 Regards,
 Samuel
