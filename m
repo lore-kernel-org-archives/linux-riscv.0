@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC68EC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BAFC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ss2aNIHKh4jAGN/WNPr/pBkXtakg6jBs6LnhkYvTCWc=; b=v3ZTY20pgpcxtel0pyAGDa4CMi
-	wU0FxecDDb1oVFGebc30eseLZPGnOjE18+EqFF0zSEaNQrHXmxWPb4RClfTctpfXzrhogmjjmntLp
-	stwfOdMSKq2R8TuAj69vj+3gH1kfQHrSoPOF+c+bUdGV/lTr1Mh+x23h0QY53u37w2lHEKMvMQ1R7
-	WsrD1V5k8QqcsSoi7cAv/asMkFlGc+q94i9CQXR5GSl6RbzzWqeGVpmQJ1Y/fzaVZlslfXcb9fLPG
-	aNoMnZwUE1BtxVseMiubYhlqUELr0XRXlyZlSvbpmWGIhyunMBjlxqqnVIU+mTMbtO+Lx/fB/cQzD
-	wt+pBHIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=54ZCirhwxovjPr55Wy9uRUN19ziI+gpUtJnVpXPbKSA=; b=nSw5vaZKxBuV20
+	Ng7AF60Ofk/XFxsNdl7Ij3MuNfKByvfGrD0YCWClVn6MXTAkK1QzB4Ex54Tg3RaDoSRVpFTfJTm09
+	S90ZqRWNI4P20oF4svTrL9T3c8jS8YqtggqLKUGfoPOd0gN0D9qq1lj5YwCKkCQ/0q+/11AZBA8iv
+	eINkPPsoxxCzzfE/TAuIxj2GpfKm2Vx1jZokXztJMZkon1TyEUo599/RjE+wjZ3raOkxHzTmKfoZC
+	9Vd2JGstg9BnzMWG+GjuR1DoAzwyTEav0ohYu9c1IxhPOSCLnJUho1kBk2019AWhb3TexKPcbvfNZ
+	b1ttxLkl+FIlAUCHEGVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrqz-000WlI-1A; Wed, 23 Nov 2022 15:40:01 +0000
+	id 1oxrrB-000WxV-Cp; Wed, 23 Nov 2022 15:40:13 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrqF-000WP2-Q9; Wed, 23 Nov 2022 15:39:16 +0000
+	id 1oxrr3-000WpV-NR
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:40:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5D3C161D96;
-	Wed, 23 Nov 2022 15:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A9DFC433D7;
-	Wed, 23 Nov 2022 15:39:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0059261DB5;
+	Wed, 23 Nov 2022 15:40:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C1D1C4347C;
+	Wed, 23 Nov 2022 15:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669217954;
-	bh=pCgyV6URGkswg9KKfkXhBda5Iki1k2lO8qrKykFSEt8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=F3k9sXYZXMZbJL2KgSGmWiPRXMvHRdfTCIP9VQmjXd650/uUYXwTHEqUWxxttSOWT
-	 hB9b2sL956S0bUti6tuHTy2XEt5HjAbHeCo+axvVAD2rZcRJx2sPwnWchFDK3MrGxa
-	 yAlYOmKN8Mg4CXN+fkDD7QVG2+Cel0JnNA0akTveOPTARV97+qqsyEi6hpO6vdCsSE
-	 LSyr4JBajkK5pYVRAYm5iecBZGybtYAXBVbkB+5aKcTmslEywj8Jzp0bx/0VpZMrY2
-	 D5rI9GA2AAWuXzKpflAIq18/MHA6MmSTayBSrTtAwCYcKH0rMZJiTAzR77dwqComaB
-	 rsQQ9HVyYiq1w==
-Date: Wed, 23 Nov 2022 15:39:00 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
-	netdev@vger.kernel.org, linux-can@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
-	alsa-devel@alsa-project.org, linux-spi@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-watchdog@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v2 5/9] dt-bindings: drop redundant part of title (end,
- part two)
-Message-ID: <Y34+lGKAxewL8B1w@sirena.org.uk>
-References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
- <20221121110615.97962-6-krzysztof.kozlowski@linaro.org>
+	s=k20201202; t=1669218004;
+	bh=HxcuD2UbWsx5DYi4tBcZiIRhQNFgPWwQufJ/o/enGok=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ePFKEAd38TsRrBrBQqvPK9w+TGFxwJG3MCRaqDl1Pz2JBC38SefHsoz+6Ps5YMBF0
+	 Um4iBfSvZC9lJBodeVuxv80CpO4RveMFqkW9If6t3x6+Q06P/EFk1SIIDdGozkdGcL
+	 H49O5wX2OlMumcWweuM5S+mgRKAQG5VpwilAdvk5FLf1lz3bPlTQrAPOZJWitckJQM
+	 cPxfInscoeFR45edoPzwKpr3wullyRq0XaJEvMlleX1urnlL3hfKevlBTJcn86OZ0A
+	 16Ea4GWmAMBzKVjP5bhy4jdlDjtTRfFcsHBUu/DFna69pKKAYIdOYIJL4nYmL0MCa3
+	 NzzAP+aHOb4nQ==
+From: guoren@kernel.org
+To: anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	jolsa@redhat.com,
+	bp@suse.de,
+	jpoimboe@kernel.org,
+	suagrfillet@gmail.com,
+	andy.chiu@sifive.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V3 0/5] riscv: ftrace: Fixup ftrace detour code & Optimization
+Date: Wed, 23 Nov 2022 10:39:45 -0500
+Message-Id: <20221123153950.2911981-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-In-Reply-To: <20221121110615.97962-6-krzysztof.kozlowski@linaro.org>
-X-Cookie: I'm rated PG-34!!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_073915_904575_F6155E9F 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20221123_074005_904791_ACC890A4 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +77,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4474602451788929019=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Guo Ren <guoren@linux.alibaba.com>
 
---===============4474602451788929019==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3A/ckh57FM2wa6K8"
-Content-Disposition: inline
+The previous ftrace detour implementation fc76b8b8011 ("riscv: Using
+PATCHABLE_FUNCTION_ENTRY instead of MCOUNT") contain three problems.
 
+ - The most horrible bug is preemption panic which found by Andy [1].
+   Let's disable preemption for ftrace first, and Andy could continue
+   the ftrace preemption work.
+ - The "-fpatchable-function-entry= CFLAG" wasted code size !RISCV_ISA_C.
+ - The ftrace detour implementation wasted code size. 
 
---3A/ckh57FM2wa6K8
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The first three patches solve the above problems, and the last two
+patches is from [2]:
 
-On Mon, Nov 21, 2022 at 12:06:11PM +0100, Krzysztof Kozlowski wrote:
-> The Devicetree bindings document does not have to say in the title that
-> it is a "binding", but instead just describe the hardware.
+In RISC-V architecture, when we enable the ftrace_graph tracer on some
+functions, the function tracings on other functions will suffer extra
+graph tracing work. In essence, graph_ops isn't limited by its func_hash
+due to the global ftrace_graph_[regs]_call label. That should be
+corrected.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+What inspires me is the commit 0c0593b45c9b ("x86/ftrace: Make function
+graph use ftrace directly") that uses graph_ops::func function to
+install return_hooker and makes the function called against its
+func_hash.
 
---3A/ckh57FM2wa6K8
-Content-Type: application/pgp-signature; name="signature.asc"
+This series of patches makes function graph use ftrace directly for
+riscv.
 
------BEGIN PGP SIGNATURE-----
+If FTRACE_WITH_REGS isn't defined, ftrace_caller keeps ftrace_graph_call
+so that it can be replaced with the calling of prepare_ftrace_return by
+the enable/disable helper.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmN+PpQACgkQJNaLcl1U
-h9D31gf/diT1M+7KeH7O9XMaZE9GvQx7EpNfWPd6EPxvzUkePN6w8u24ztB2s1gn
-LKqFnrfx5FQwvbCsjmuHqePIJ6kdBJHpd8zn0XYx/cJQJlR/lFm5FPbdjhDnfcCC
-lH4+dPqm7Tms/Dmlw8z49shzkjbAkN5O81QNFCdqvgYfp94E6kUVysgHobbu7DzT
-8dtk4IMR8dgd1gsVYd3RlfLDv7zlhti06pOwAYvL7I/+ELvcFRXtGgOq8p8EMd//
-e9dFGh61GX0//8+cYUSUG2Qb/npn7nA2mFko17JRUU21NrTgMn1qbJvntYvhfKqj
-AqDREqKbfhSeQVkKulAfyfkiBA4hNg==
-=SxY0
------END PGP SIGNATURE-----
+As for defining FTRACE_WITH_REGS, ftrace_caller is adjusted to save the
+necessary regs against the pt_regs layout, so it can reasonably call the
+graph_ops::func function - ftrace_graph_func. And ftrace_graph_[regs]_call
+and its enable/disable helper aren't needed.
 
---3A/ckh57FM2wa6K8--
+Test log:
 
+The tests generated by CONFIG_FTRACE_STARTUP_TEST have passed in the
+local
+qemu-system-riscv64 virt machine. The following is the log during
+startup.
 
---===============4474602451788929019==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+```
+Nov 15 03:07:13 stage4 kernel: Testing tracer function: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing dynamic ftrace: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing dynamic ftrace ops #1: 
+Nov 15 03:07:13 stage4 kernel: (1 0 1 0 0)  
+Nov 15 03:07:13 stage4 kernel: (1 1 2 0 0)  
+Nov 15 03:07:13 stage4 kernel: (2 1 3 0 365) 
+Nov 15 03:07:13 stage4 kernel: (2 2 4 0 399) 
+Nov 15 03:07:13 stage4 kernel: (3 2 4 0 146071) 
+Nov 15 03:07:13 stage4 kernel: (3 3 5 0 146105) PASSED
+Nov 15 03:07:13 stage4 kernel: Testing dynamic ftrace ops #2: 
+Nov 15 03:07:13 stage4 kernel: (1 0 1 589 0)  
+Nov 15 03:07:13 stage4 kernel: (1 1 2 635 0)  
+Nov 15 03:07:13 stage4 kernel: (2 1 3 1 2)  
+Nov 15 03:07:13 stage4 kernel: (2 2 4 125 126) 
+Nov 15 03:07:13 stage4 kernel: (3 2 4 146001 146078) 
+Nov 15 03:07:13 stage4 kernel: (3 3 5 146035 146112) PASSED
+Nov 15 03:07:13 stage4 kernel: Testing ftrace recursion: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing ftrace recursion safe: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing ftrace regs: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer nop: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer irqsoff: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer wakeup:
+Nov 15 03:07:13 stage4 kernel: sched: DL replenish lagged too much
+Nov 15 03:07:13 stage4 kernel: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer wakeup_rt: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer wakeup_dl: PASSED
+Nov 15 03:07:13 stage4 kernel: Testing tracer function_graph: PASSED
+
+[1]: https://lpc.events/event/16/contributions/1171/
+[2]: https://lore.kernel.org/lkml/20221120084230.910152-1-suagrfillet@gmail.com/ 
+
+Changes in V3
+ - Include [2] for maintenance. [Song Shuai]
+
+Changes in V2:
+https://lore.kernel.org/linux-riscv/20220921034910.3142465-1-guoren@kernel.org/
+ - Add Signed-off for preemption fixup.
+
+Changes in V1:
+https://lore.kernel.org/linux-riscv/20220916103817.9490-1-guoren@kernel.org/
+
+Andy Chiu (1):
+  riscv: ftrace: Fixup panic by disabling preemption
+
+Guo Ren (2):
+  riscv: ftrace: Remove wasted nops for !RISCV_ISA_C
+  riscv: ftrace: Reduce the detour code size to half
+
+Song Shuai (2):
+  riscv: ftrace: Add ftrace_graph_func
+  riscv: ftrace: Make ftrace_caller call ftrace_graph_func
+
+ arch/riscv/Kconfig              |   2 +-
+ arch/riscv/Makefile             |   6 +-
+ arch/riscv/include/asm/ftrace.h |  63 +++++++++---
+ arch/riscv/kernel/ftrace.c      |  91 ++++++----------
+ arch/riscv/kernel/mcount-dyn.S  | 177 +++++++++++++++++++++-----------
+ 5 files changed, 202 insertions(+), 137 deletions(-)
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4474602451788929019==--
-
