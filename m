@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4069AC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 04:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A871C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 04:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WSdN6xyYk2R+ZHud2wGohN4BUu4dxoSHCKj20qnpf/s=; b=IfDjWWxCHCOBK4
-	12pMM2X0vtsCERd/4/iMot19teOLFhEqB9w+y8SpA0GgX2/3YMIvicDNPSUM9xA6JjWRtTMRkv1SI
-	nxctbLtL6zefc7JZzvyokI8/BnOYjn/TbdGS1/I9/B4rbeU+l5SHOcr1bruTYRqiHgBcDLC3OMdoI
-	ug5iPq6weOqwJi6cJ5dLrB9ykiz3Sh7XrfkAGg1gl+u+Da7RRy8+J3fLA6z25H6fiAJKgqNRWqOpq
-	uszG9VKunisbvjJVHn7gx4+v6uoLplQR/2VhXk+2se+PcSwC0WzFyiW+g0OZJgay2L0MthsSUZMQV
-	bnY1PQm4Q4cOqvhlQTvA==;
+	List-Owner; bh=xq54eRJxnOmeF/+8T7TjDy5Wl4I6zl8/B3THGGikgE0=; b=XL5IaZUH70Oggx
+	OX4lJfE9Yz6nhRGNxuIChBALflJ1f4us2/fSww6EMBCgfpeJNzydJQoE9kABgP70FcKdk/dlaXJ5W
+	HJ0ITm/IVKMtkYSecN2rsjQWueppTSBKC6MAc5b9Q3jTHGqUiRLL9WyahvDfp4yuCUk4LHBfqmCMx
+	maD15y1yl3hyR4hnDHru0YPQlwgyMpwtfqF3MVTAWHdolkp6DN5oUtCrUm/RdS+iOIvffHEnaJKWi
+	d0Us2PzYoghHadY0tQ8hvfSkA3rqbsvSYOBtOsgttymcHS4xuKeQWSgwV6op0pvYtMlGxs+ELEcb8
+	gU7TWELF3nIW1ZjXe0bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxhXQ-00Dx6a-4m; Wed, 23 Nov 2022 04:39:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oxhXT-00Dx8n-7i; Wed, 23 Nov 2022 04:39:11 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxhXC-00Dx1U-Pr; Wed, 23 Nov 2022 04:38:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BC96461990;
-	Wed, 23 Nov 2022 04:38:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DBDC433C1;
-	Wed, 23 Nov 2022 04:38:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669178332;
-	bh=QqrDbDLRcAQr4MUv+oZ9PutfTqVkNXwAFQlJXbN9odk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e//Q0Igg0hWRrSaEgwdgmlRQd6QUnoz7COLqfkBnj6LOQdy+G730Ld4a0mtbj4mXF
-	 2Ns0fWlqq5UDuwlf9gZi0p759DWrC6wlC8ge0bN3ZHQX7ihQg5stNciFtDWoi+LjF+
-	 jWzWEBluurxmktSYXewY3T9nYOayIZyWy4v5xTekb99HPZYHOBbHZT0xSp18BLpDTb
-	 NaAioF2pMRU0zHtAQ3RqHqTT9WvlSrvbvq0f834SNj6byw1vq/7zTaiB7b45SOLdS0
-	 ZrrsM+AKFkbmsFDsQ5lzS4sSEz1POrgSXaqhxXHOGYxGm3acH0ikOnG+UML9Urblga
-	 OhyWc3tcT/vgQ==
-Date: Wed, 23 Nov 2022 10:08:47 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
-	netdev@vger.kernel.org, linux-can@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
-	alsa-devel@alsa-project.org, linux-spi@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	linux-watchdog@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Viresh Kumar <vireshk@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v2 1/9] dt-bindings: drop redundant part of title of
- shared bindings
-Message-ID: <Y32j1+T3bBVTEDxO@matsya>
-References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
- <20221121110615.97962-2-krzysztof.kozlowski@linaro.org>
+	id 1oxhXI-00Dx3O-JN
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 04:39:02 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id y24so18288137edi.10
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 20:38:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=PzZCAVhgIGVLswjaFfxEO+dCPuF2+u2Rp/jDQU+vVAM=;
+        b=XBgJ4I4sqW+4RNjCxQMwkrK5UwNLy4vQKdfOKUUQiH/L88qrdJ2J2oCOWDo/5byVFl
+         iKUPBBYKOhD/ERy9SmRRa/2w/T32N1FWUUUk5IRRwGZ0LgLTT4zxiVYqI3qIN8e7gkC9
+         5WL5BxTJQhkPtCBSkBNRWsfwMjbJOqBeQfr4JL32DcMO+zHfTHt5NSFnrBWYYq3HqgVy
+         Gkd+rXWF9oV8JRj8ah7VaxkAp93f5xguQzKXKGEvT4gGiaI4t6TVW4pFp/ZF/XDymQ5g
+         OpgNny0xWPtyyiB0Zg0wmHOMlv6nfL1IfjSBRP5aVit+OKFiTGH/aPnZdH70VFPHDZ2q
+         wdmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PzZCAVhgIGVLswjaFfxEO+dCPuF2+u2Rp/jDQU+vVAM=;
+        b=EexI0LChfB5NpQ00DbAjca8Ic2LWThDtltt5CEyhGT+ZqjjJPpQrV34bM81TS0HXSG
+         u3iQ8nij+uGopw9ZcwJcphcIk+6gqYeH1Ub+fCQ8230BAdJemg3L0Z/22CYHvE5FO2FY
+         9pxoZcTSrXOwN9LmuRjSF7MtAaZ1JeRAXtRD0dCOAQgYMzxud3baKvc+4CKn0KQSQgMR
+         Ks6iYgk+ISLOC6Rr0lMtnVj5pgTcHYlqnTz4hQWqyJN9gytrZQqRFe6/3YEZAwyGU/Mh
+         U/OHP0/jc6KO+mnM8HGmemrUUPkYooluaKjcBVo0dV7iDvCHOM5LxjbiHotY0rQPfFn/
+         z9GQ==
+X-Gm-Message-State: ANoB5pnpfwyagvao/Gy+eJb4qwn7iNIJIUurKCvg3u239jDC+dhqyv3Z
+	x7HYRaU2B+Qn6o0L2jlgc2iCaje1aGeSdRihHHP6+A==
+X-Google-Smtp-Source: AA0mqf6WPfIAJ6c0cLJ9PPutrpPFpEsgC9J9GCvPoaNl8ON5Ooey22h3Uz/LYXCjjQBhXyrE6kRl4/WRCFoyvZSQauA=
+X-Received: by 2002:a05:6402:114f:b0:462:1e07:1dd7 with SMTP id
+ g15-20020a056402114f00b004621e071dd7mr24271030edw.293.1669178336210; Tue, 22
+ Nov 2022 20:38:56 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221121110615.97962-2-krzysztof.kozlowski@linaro.org>
+References: <Y3ywTzv3vbgRXQGG@wendy> <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9>
+In-Reply-To: <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 23 Nov 2022 10:08:45 +0530
+Message-ID: <CAAhSdy0KuWMXyZ3v5WCt-28oR2kn1tQ-duC5W4Zv9MXjYP2mvA@mail.gmail.com>
+Subject: Re: [PATCH] cpuidle: riscv-sbi: Stop using non-retentive suspend
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: conor.dooley@microchip.com, apatel@ventanamicro.com, 
+	Conor Dooley <conor@kernel.org>, rafael@kernel.org, daniel.lezcano@linaro.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-pm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_203854_920087_F8BC4584 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20221122_203900_701355_FD701175 
+X-CRM114-Status: GOOD (  64.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,25 +88,173 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21-11-22, 12:06, Krzysztof Kozlowski wrote:
-> The Devicetree bindings document does not have to say in the title that
-> it is a "binding", but instead just describe the hardware.  For shared
-> (re-usable) schemas, name them all as "common properties".
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Acked-by: Guenter Roeck <linux@roeck-us.net> # watchdog
-> Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> # IIO
-> Acked-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> ---
->  Documentation/devicetree/bindings/dma/dma-common.yaml           | 2 +-
->  Documentation/devicetree/bindings/dma/dma-controller.yaml       | 2 +-
->  Documentation/devicetree/bindings/dma/dma-router.yaml           | 2 +-
+On Tue, Nov 22, 2022 at 8:58 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> On Tue, 22 Nov 2022 03:19:43 PST (-0800), conor.dooley@microchip.com wrote:
+> > On Tue, Nov 22, 2022 at 11:06:15AM +0530, Anup Patel wrote:
+> >> On Tue, Nov 22, 2022 at 10:46 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+> >> >
+> >> > On Mon, 21 Nov 2022 19:45:07 PST (-0800), anup@brainfault.org wrote:
+> >> > > On Tue, Nov 22, 2022 at 2:27 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+> >> > >>
+> >> > >> From: Palmer Dabbelt <palmer@rivosinc.com>
+> >> > >>
+> >> > >> As per [1], whether or not the core can wake up from non-retentive
+> >> > >> suspend is a platform-specific detail.  We don't have any way to encode
+> >> > >> that, so just stop using them until we've sorted that out.
+> >> > >>
+> >> > >> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/issues/98#issuecomment-1288564687
+> >> > >> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+> >> > >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> >> > >
+> >> > > This is just unnecessary maintenance churn and it's not the
+> >> > > right way to go. Better to fix this the right way instead of having
+> >> > > a temporary fix.
+> >> > >
+> >> > > I had already sent-out a patch series 5 months back to describe
+> >> > > this in DT:
+> >> > > https://lore.kernel.org/lkml/20220727114302.302201-1-apatel@ventanamicro.com/
+> >> > >
+> >> > > No one has commented/suggested anything (except Samuel
+> >> > > Holland and Sudeep Holla).
+> >> >
+> >> > I see some comments from Krzysztof here
+> >> > <https://lore.kernel.org/lkml/7a0477a0-9f0f-87d6-4070-30321745f4cc@linaro.org/>
+> >> > as well.  Looks like everyone is pointing out that having our CPU nodes
+> >> > encode timers is a bad idea, my guess is that they're probably right.
+> >>
+> >> Adding a separate timer DT node, creates a new set of compatibility
+> >> issues for existing platforms. I am fine updating my series to have
+> >> separate timer DT node but do we want to go in this direction ?
+> >
+> > I don't really follow. How is there a compatibility issue created by
+> > adding a new node that is not added for a new property? Both will
+> > require changes to the device tree. (You need not reply here, I am going
+> > to review the other thread, it's been on my todo list for too long. Been
+> > caught up with non-coherent stuff & our sw release cycle..)
+> >
+> >> Even if ARM has a separate timer DT node, the timers are still part
+> >> of the CPU. It depends on how we see the DT bindings aligning with
+> >> actual HW.
+> >>
+> >> >
+> >> > > Please review this series. I can quickly address comments to
+> >> > > make this available for Linux-6.2. Until this series is merged,
+> >> > > the affected platforms can simply remove non-retentive suspend
+> >> > > states from their DT.
+> >> >
+> >> > That leaves us with a dependency between kernel versions and DT
+> >> > bindings: kernels with the current driver will result in broken systems
+> >> > with the non-retentive suspend states in the DT they boot with when
+> >> > those states can't wake up the CPU.
+> >
+> > Can someone point me at a (non D1 or virt) system that has suspend
+> > states in the DT that would need fixing?
+> >
+> >> This is not a new problem we are facing. Even in the ARM world,
+> >> the DT bindings grew organically over time based on newer platform
+> >> requirements.
+> >>
+> >> Now that we have a platform which does not want the time
+> >> C3STOP feature, we need to first come-up with DT bindings
+> >> to support this platform instead of temporarily disabling
+> >> features which don't work on this platform.
+> >
+> > It's the opposite surely? It should be "now that we have a platform that
+> > *does want* the C3STOP feature", right?
+>
+> IMO we just shouldn't be turning on C3STOP at all.  Sure it's making the
+> problem here go away, but it's trying to emulate a bunch of Intel timer
+> features we don't have on RISC-V and ending up in a bunch of fallback
+> paths.
+>
+> If we need some workaround in the timer subsystem to sort out the
+> non-retentive states then we can sort that out, but my guess is that
+> vendors are just going to 3
 
-Acked-By: Vinod Koul <vkoul@kernel.org>
+Actually, it will be better if we set C3STOP in the RISC-V timer driver
+only for D1 (and future platforms that might need it). We can easily
+do this based on the D1 compatible string from the root DT node.
 
--- 
-~Vinod
+>
+> >> > > With all due respect, NACK to this patch from my side.
+> >
+> > As Samuel pointed out that the D1 doesn't actually use the timer in
+> > question, I think we are okay here?
+>
+> IIUC it just should use the sunxi timer driver, but that requires some
+> priority changes (and presumably breaks
+>
+> That said, I guess I'm confused about what's actually broken here.  My
+> understanding of the problem is: The D1's firmware disables some
+> interrupts during non-retentive suspend, which results in SBI timers
+> failing to wake up the core.  The patch to add C3STOP makes the core
+> come back from sleep, but that results in a bunch of other timer-related
+> issues.
+>
+> So IMO we should revert the C3STOP patch as it's causing regressions
+> (ie, old workloads break in order to make new ones work).  Seems like
+> folks mostly agree on that one?
+
+Yes, I agree.
+
+We can go a step further and add quirks in the RISC-V timer driver which
+only sets C3STOP for certain platforms (e.g. D1).
+
+>
+> I also think we should stop entering non-retentive suspend until we can
+> sort out how reliably wake up from it, as the SBI makes that a
+> platform-specific detail.  If the answer there is "non-retentive suspend
+> is fine on the D1 as long as we don't use the SBI timers" then that
+> seems fine, we just need some way to describe that in Linux -- that
+> doesn't fix other platforms and other interrupts, but at least it's a
+> start.
+>
+> Sorry if I've just misunderstood something here?
+
+Rather than "stop entering non-retentive suspend", we should improve
+the relevant drivers.
+
+>
+> >
+> >> > >>
+> >> > >> ---
+> >> > >>
+> >> > >> This should allow us to revert 232ccac1bd9b ("clocksource/drivers/riscv:
+> >> > >> Events are stopped during CPU suspend"), which fixes suspend on the D1
+> >> > >> but breaks timers everywhere.
+> >> > >> ---
+> >> > >>  drivers/cpuidle/cpuidle-riscv-sbi.c | 11 +++++++++++
+> >> > >>  1 file changed, 11 insertions(+)
+> >> > >>
+> >> > >> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> >> > >> index 05fe2902df9a..9d1063a54495 100644
+> >> > >> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+> >> > >> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> >> > >> @@ -214,6 +214,17 @@ static bool sbi_suspend_state_is_valid(u32 state)
+> >> > >>         if (state > SBI_HSM_SUSPEND_NON_RET_DEFAULT &&
+> >> > >>             state < SBI_HSM_SUSPEND_NON_RET_PLATFORM)
+> >> > >>                 return false;
+> >> > >> +
+> >> > >> +       /*
+> >> > >> +        * Whether or not RISC-V systems deliver interrupts to harts in a
+> >> > >> +        * non-retentive suspend state is a platform-specific detail.  This can
+> >> > >> +        * leave the hart unable to wake up, so just mark these states as
+> >> > >> +        * unsupported until we have a mechanism to expose these
+> >> > >> +        * platform-specific details to Linux.
+> >> > >> +        */
+> >> > >> +       if (state & SBI_HSM_SUSP_NON_RET_BIT)
+> >> > >> +               return false;
+> >> > >> +
+> >> > >>         return true;
+> >> > >>  }
+> >> > >>
+> >> > >> --
+> >> > >> 2.38.1
+> >> > >>
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
