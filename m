@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BAFC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 12:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356C6C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 13:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2AraoN2j22XG++g+/B1eHCb9Nu8wkf4w3TAmiUrp7A0=; b=vxmnrQTrlxGCje
-	BkzNpiUY+ASYST1ccTvoZtOmBa4KSb7ilz3lI0LZMbnCRYoNTgYONzYWAceNcn/Pe8/GPsczMKdVZ
-	gMQjbsd+Td+Hhs7reQI1U+VNTUoQbCJ6HzvaAX0m1c2IHp9aAjykUXVh4FuRmsPHpeCyJkeg/t9t2
-	eNHoKw0oS8pj44h3RxxsetwZO/IdTxQToOFySq4FJ73DYTLQKH6YDJ10wad0zPYYW+BWYiLhV9jdC
-	p0qScn2Vq3igVt1I1ysPVetKJSvSS1m26PbR9G+S/TV9vxOHmx0ocGCnSTUOL08kJL/tNCtco9sf8
-	pTyP/QwQYUmGztuexp3Q==;
+	List-Owner; bh=x9OKIdqW4Sypc5ETeFI+PLIgdvT0Lb3Zd+KiJuxlCs4=; b=J105k5Bx/9SubU
+	T7acORAn+SoLhK6NsWA6aY4w96ptb6OYbPHgs5Ccb4jZHujNkgJEcpbAtJxr+R2UfslbL6l5uZxfy
+	/cOVXD1QBHTRfAnyxAUSLKpTpBGxciiX1dQ6OBVqY5Tk1DnOCO7VXKLA4a3+7Le7e559pPAVPJ4sr
+	GjYW4cvNSxtUJ6N/ZIbnruJbdbvGT0U9NkZlxnI6C0Vpb8BG+iwat6/1IWv2yqRbmVYXSUC5cX1qd
+	b/zAho547U+Qtada9d9oXVBa3tfHz95mpJ6hqJOWiNqcGp3CudTew4jbOyiL15sRUff93qI/4JHjC
+	gD/6phQuhhfktlJMUPzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxp2E-00GyFS-Hy; Wed, 23 Nov 2022 12:39:26 +0000
-Received: from sender4-op-o18.zoho.com ([136.143.188.18])
+	id 1oxpX1-00H9N7-91; Wed, 23 Nov 2022 13:11:15 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxp2B-00GyD2-CL
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 12:39:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1669207143; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=ikEiYeHuptVDuqrf0mTh4ZCwfw+gCxpPKR+0ZP72uK5BCWIbdxOpJ7nJscVwM2M5XHjsG9EUSxja5MyK9RGnWq5BXKlz2H5DlVPphOuecUHSfHIQAOYa/dac5uwPob0gKjFj+faKcyBeuxXjNoNQHEbQ4Or4GAP6VwRNFtv6dvc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1669207143; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=s9PPGCpeJg603JwEoPuSbAcaz9zus2eoJM9ERQFOsvw=; 
-	b=e2vxqdbJyy6tbN0/17QWTmp/lnS4USAj1OlF7MUN6tCBcv1/e2mBNjwPwqujZ2ASafClJT3dyvWZC9XlaA2hXBFmaPekNc4NUYNCiClXwK8PJf8ZKD4ft03MSMYSNDXVCXiWdjnJr8CPvDLy5hvwEZg1N3oMZqm7TDL55Sxucjo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1669207143;
-	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=s9PPGCpeJg603JwEoPuSbAcaz9zus2eoJM9ERQFOsvw=;
-	b=ZKHhqsxgPF95Y3GJOiZLgVhq+j7w8SfzEzRp30NyXrtjHxe027arWHJDFzQKoUnO
-	hpLGJFDf9+5Stiwl3FPOQQ/NjA4ZPUmH2AOlPP5v6KQxcu3nkPWyo56JBbOjiNRKNRy
-	HF3QyU+lfXKWbW9PFddxLXx9Erifg94dCkMb7Bdc=
-Received: from edelgard.fodlan.icenowy.me (112.94.103.239 [112.94.103.239]) by mx.zohomail.com
-	with SMTPS id 1669207140839317.13150239847846; Wed, 23 Nov 2022 04:39:00 -0800 (PST)
-Message-ID: <16d01eebc1693916fc74e1e75458d6c0f080cf37.camel@icenowy.me>
-Subject: Re: [PATCH] irqchip/sifive-plic: drop quirk for two-cell variant
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Palmer Dabbelt
- <palmer@dabbelt.com>,  Paul Walmsley <paul.walmsley@sifive.com>, Samuel
- Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-Date: Wed, 23 Nov 2022 20:38:56 +0800
-In-Reply-To: <86o7syoq4t.wl-maz@kernel.org>
-References: <20221121042026.419383-1-uwu@icenowy.me>
-	 <86o7syoq4t.wl-maz@kernel.org>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	id 1oxpWv-00H9J9-Tn
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 13:11:13 +0000
+Received: by mail-wm1-x331.google.com with SMTP id r9-20020a1c4409000000b003d02dd48c45so1067565wma.0
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Nov 2022 05:11:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qO5DEzg9eRRuBV8jaHiQFeKu/GccCwk1qPJfoU46Cww=;
+        b=CnW9K5MsY6Wf3jSh4utny6DqmahPNJagWfriIUNy/qkhQn32bRwL97MDUUxOZnePgy
+         FNj9HyyK3YrOn4SJlbbd0p0tzEzvPBASXSZxdsEzqRQjbLbAoqwCmzTg3x+JE5kD3uF6
+         OPIYScYRFaexia9m7Q+XiCf8wJJIOeuMu4BweOJRP5UCLo3sujWNFSCrgRP32HNL7hR/
+         cytBZ4+TqETXckTFUcKymTjTCM60UNgWiTLFmJN1MweY3sagJKkpu9ODoHe1Yhp/k8+5
+         NGpAK4e+LCmx96FgecBhWn1uOBVCA42nTf4wb/bMXvH8ndaqKyffyhmywl3KlYDCH3bI
+         njxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qO5DEzg9eRRuBV8jaHiQFeKu/GccCwk1qPJfoU46Cww=;
+        b=4fDD79KEpzklqEXHMrZcUQshyBtLjQHqf2rEPoujSWIvbboIGkGS5pTsayEMQMCkhS
+         /+s8lLdgttgiJrZY0tzoi9G0d8vbn9wiixoV8qjt5L+YIwmznylYHLVy6ZECypsoBjzI
+         jjVRq1z3kF/N0mVQeqJWtuOMqu7kItJpC2PNzEjOCZuVr9jZBLH+8Vg9s+wTINy2DJQV
+         rKV1qW1TNKnbTw1v7wSfaNb+TnNlWih74iLVH2DaoKF5wPtIycVN7q+a2/cb4QazMCEX
+         LpstGRlDkI5C/q4NLHL8N2FOwuTRdwL2ck2/wO0GW3OpiXlZZHDcLA7WDqPDm1mT/ceb
+         JFCg==
+X-Gm-Message-State: ANoB5pn1WX0uPCmLoy8TqT1gIVe/yXsREzxOzITSGZv/V9IDQOK+MIEA
+	ihoYcaJcTaYPlGS0scWnNGd4gw==
+X-Google-Smtp-Source: AA0mqf76uYwMlzyOM+qud4kNA0YszPN/V2Rdqoq71qfx3tbuoZucNH9evqNJ+7NlMDTFJJOvHad5ug==
+X-Received: by 2002:a05:600c:4f12:b0:3cf:e7bd:303a with SMTP id l18-20020a05600c4f1200b003cfe7bd303amr7157554wmq.151.1669209066243;
+        Wed, 23 Nov 2022 05:11:06 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id dn14-20020a05600c654e00b003cf4d99fd2asm2372934wmb.6.2022.11.23.05.11.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Nov 2022 05:11:05 -0800 (PST)
+Date: Wed, 23 Nov 2022 14:11:04 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [RFC 5/9] RISC-V: KVM: Add skeleton support for perf
+Message-ID: <20221123131104.zglb3osa5tsgkkkb@kamzik>
+References: <20220718170205.2972215-1-atishp@rivosinc.com>
+ <20220718170205.2972215-6-atishp@rivosinc.com>
+ <20221101141329.j4qtvjf6kmqixt2r@kamzik>
+ <CAOnJCULMbTp6WhVRWHxzFnUgCJJV01hcyukQxSEih-sYt5TJWg@mail.gmail.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <CAOnJCULMbTp6WhVRWHxzFnUgCJJV01hcyukQxSEih-sYt5TJWg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_043923_503925_766C3506 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20221123_051110_002043_A468EB66 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +93,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjItMTEtMjLmmJ/mnJ/kuoznmoQgMTc6MjggKzAwMDDvvIxNYXJjIFp5bmdpZXLlhpnp
-gZPvvJoKPiBPbiBNb24sIDIxIE5vdiAyMDIyIDA0OjIwOjI2ICswMDAwLAo+IEljZW5vd3kgWmhl
-bmcgPHV3dUBpY2Vub3d5Lm1lPiB3cm90ZToKPiA+IAo+ID4gQXMgdGhlIHNwZWNpYWwgaGFuZGxp
-bmcgb2YgZWRnZS10cmlnZ2VyZWQgaW50ZXJydXB0cyBhcmUgZGVmaW5lZCBpbgo+ID4gdGhlCj4g
-PiBQTElDIHNwZWMsIHdlIGNhbiBhc3N1bWUgaXQncyBub3QgYSBxdWlyaywgYnV0IGEgZmVhdHVy
-ZSBvZiB0aGUKPiA+IFBMSUMKPiA+IHNwZWM7IHRodXMgbWFraW5nIGl0IGEgcXVpcmsgYW5kIHVz
-ZSBxdWlyay1iYXNlZCBjb2RlcGF0aCBpcyBub3Qgc28KPiA+IG5lY2Vzc2FyeS4KPiAKPiBJdCAq
-aXMqIG5lY2Vzc2FyeS4KPiAKPiA+IAo+ID4gTW92ZSB0byBhICNpbnRlcnJ1cHQtY2VsbHMtYmFz
-ZWQgcHJhY3RpY2Ugd2hpY2ggd2lsbCBhbGxvdyBib3RoCj4gPiBkZXZpY2UKPiA+IHRyZWVzIHdp
-dGhvdXQgaW50ZXJydXB0IGZsYWdzIGFuZCB3aXRoIGludGVycnVwdCBmbGFncyB3b3JrIGZvciBh
-bGwKPiA+IGNvbXBhdGlibGUgc3RyaW5ncy4KPiAKPiBOby4gWW91J3JlIHR5aW5nIHRvZ2V0aGVy
-IHR3byB1bnJlbGF0ZWQgY29uY2VwdHM6Cj4gCj4gLSBFZGdlcyBnZXQgZHJvcHBlZCBpbiBzb21l
-IGltcGxlbWVudGF0aW9ucyAoYW5kIG9ubHkgc29tZSkuIFlvdSBjYW4KPiDCoCBhcmd1ZSB0aGF0
-IHRoZSBhcmNoaXRlY3R1cmUgYWxsb3dzIGl0LCBidXQgSSBzZWUgaXQgaXMgYW4KPiDCoCBpbXBs
-ZW1lbnRhdGlvbiBidWcuCgpBcyB0aGUgc3BlY2lmaWNhdGlvbiBhbGxvd3MgaXQsIGl0J3Mgbm90
-IGFuIGltcGxlbWVudGF0aW9uIGJ1ZyAtLSBhbmQKZm9yIHRob3NlIHdoaWNoIGRvIG5vdCBzaG93
-IHRoaXMgcHJvYmxlbSwgaXQncyBwb3NzaWJsZSB0aGF0IGl0J3MganVzdAphbGwgdXNpbmcgdGhl
-IHNhbWUgdHJpZ2dlciB0eXBlIChlLmcuIFJvY2tldCkuCgo+IAo+IC0gVGhlIG5lZWQgZm9yIGV4
-cHJlc3NpbmcgYWRkaXRpb25hbCBpbmZvcm1hdGlvbiBpbiB0aGUgaW50ZXJydXB0Cj4gwqAgc3Bl
-Y2lmaWVyIGlzIG5vdCBuZWNlc3NhcmlseSByZWxhdGVkIHRvIHRoZSBhYm92ZS4gT3RoZXIgaW50
-ZXJydXB0Cj4gwqAgY29udHJvbGxlcnMgdXNlIGV4dHJhIGNlbGxzIHRvIGVuY29kZSB0aGUgaW50
-ZXJydXB0IGFmZmluaXR5LCBmb3IKPiDCoCBleGFtcGxlLgoKSSB0aGluayBpbiB0aGVzZSBzaXR1
-YXRpb25zLCBpZiB0aGUgaW50ZXJydXB0IGNvbnRyb2xsZXIgZG9lcyBub3QKY29udGFpbiBhbnkg
-c3BlY2lhbCBoYW5kbGluZyBmb3IgZWRnZSBpbnRlcnJ1cHRzLCB3ZSBjYW4ganVzdCBkZXNjcmli
-ZQp0aGVtIGFzIGxldmVsIG9uZXMgaW4gU1cuCgo+IAo+IEkgd2FudCB0aGVzZSB0d28gdGhpbmdz
-IHRvIGJlIGtlcHQgc2VwYXJhdGUuIE90aGVyd2lzZSwgb25jZSB3ZSBnZXQKPiBzb21lIGZhbmN5
-IEFDUEkgc3VwcG9ydCBmb3IgUklTQ1YgKG5vLCBwbGVhc2UuLi4pLCB3ZSdsbCBoYXZlIHRvIHJl
-ZG8KPiB0aGUgd2hvbGUgdGhpbmcuLi4KPiAKPiA+IEluIGFkZGl0aW9uLCB0aGlzIGFkZHJlc3Nl
-cyBhIHN0YWJsZSB2ZXJzaW9uIERUIGJpbmRpbmcgdmlvbGF0aW9uIC0KPiA+IC0KPiA+IExpbnV4
-IHY1LjE5IGNvbWVzIHdpdGggInRoZWFkLGM5MDAtcGxpYyIgd2l0aCAjaW50ZXJydXB0LWNlbGxz
-Cj4gPiBkZWZpbmVkIHRvCj4gPiBiZSAxIGluc3RlYWQgb2YgMiwgdGhpcyBjb21taXQgd2lsbCBh
-bGxvdyBEVHMgdGhhdCBjb21wbGllcyB0bwo+ID4gTGludXgKPiA+IHY1LjE5IGJpbmRpbmcgd29y
-ayAoYWx0aG91Z2ggbm8gc3VjaCBEVCBpcyBkZXZsaWVyZWQgdG8gdGhlIHB1YmxpYwo+ID4gbm93
-KS4KPiAKPiAqVGhhdCogaXMgd2hhdCBzaG91bGQgZ2V0IGZpeGVkLgoKU3VwcG9ydGluZyBhbGwg
-c3RhYmxlIHZlcnNpb25zJyBEVCBiaW5kaW5nIGlzIG91ciBwcm9taXNlLCBJIHRoaW5rLgoKPiAK
-PiBUaGFua3MsCj4gCj4gwqDCoMKgwqDCoMKgwqDCoE0uCj4gCgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Nov 22, 2022 at 04:46:14PM -0800, Atish Patra wrote:
+...
+> > > +     kvpmu->num_hw_ctrs = num_hw_ctrs;
+> > > +     kvpmu->num_fw_ctrs = num_fw_ctrs;
+> >
+> > Maybe it's coming later, but we need to give KVM userspace control over
+> > the number of counters to allow it to migrate to a larger set of hosts.
+> > Also, a previous patch said the virtual width must be the same as the
+> > host width for the hw counters, so we need userspace to know what that
+> > is in order to determine to which hosts it can migrate a guest.
+> >
+> 
+> Yes. The entire user space access control needs to be sketched out.
+> We probably need another one reg interface to set/get the number of
+> counters/width.
+> 
+> However, Is it a common to migrate a guest between different hosts
+> with different PMU capabilities ?
+>
+
+Ideally we'd be able to define a virtual CPU+PMU which represents the
+least common denominator of a set of hosts, allowing VMs which use that
+VCPU model to migrate among all the hosts. x86 pulls this off pretty well,
+but arm64 doesn't. In the least, I think a goal should be to enable
+migration of VMs from hosts with less extensions and less PMU counters to
+hosts with more, as that would support host upgrades without having to
+recreate VMs.
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
