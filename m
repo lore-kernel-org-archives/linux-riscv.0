@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7000BC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECA8C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vbpnAlC97LAKdXX3V7EUfEdacBHAB/cMTfmv0WzuCWU=; b=2TITMO6bJMxmt4
-	4ti7o7hMcGibYeq2tuREyNlRl+N5EjlgZrW+GqoEU72uRV6aXd37morA0GjNB2d4kpOzWtfJjqLcr
-	u2Zr1vQtj5y9T2Oq5YiZ8b8bQMAEKBRJNvEflZYap4hUNLEvC51Cpp/23e0vL9cKPH2cSYBQ5gRh8
-	ISVIVNhvy9N/mgQWeiGfZr8fJJvVMLSXeOQaeMLeF7p1qAdf5mM1Uv1Uo17u/NlebZQEKBNdgpR0A
-	mlRj9yGOcQdvMUwJ+L0ybeH3uzVW01Hxbdnbw3uGjaTISaE2nfYbhDZqwyk2zYTX/W3tUbqyXazxt
-	5rs4B+8QVhKyqca4qwYg==;
+	List-Owner; bh=v+LbRyIWkzhbk0R0mqO3YN0pCE+3Pd/0zMxBkjanewA=; b=1x/99FziQYWYTW
+	OEMHOb9QSZPpGvjdm1uGh/PPKDxzWMxlAzZbFqAesxAJMZUYVCVWiewK7KJ44Kkk07DRj+kqQUiy9
+	B5Y6dJFagiyWsHhXMlfwpjS/PWL32U5+wgdMV7/yazrSIpPXcl/8UW2TBv+FDSZufFtgJxW2LCkSL
+	ucRUbXD2ydALr14cIYFFt/4uEz4cy/bHVKdcL3ivuxaKe3xIZNhriSPADBwTU8cELFh1+Jmw1iYXX
+	u4i1/JhUIidwtMdA9XdrjUZFS5lCPzavSvADXTef6R+ntayd3gQ9tlC3ekpbwqAg+mG+IrwmyFBnQ
+	O/VQsoAI06sRfYkBGBYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrlG-000TkB-Jp; Wed, 23 Nov 2022 15:34:06 +0000
+	id 1oxrnd-000UtX-Af; Wed, 23 Nov 2022 15:36:33 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrkt-000TYP-Vd
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:33:45 +0000
+	id 1oxrnZ-000Uql-RA
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:36:31 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 79D26B82108;
-	Wed, 23 Nov 2022 15:33:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D521CC433D6;
-	Wed, 23 Nov 2022 15:33:39 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 416E2B82108;
+	Wed, 23 Nov 2022 15:36:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78167C433D6;
+	Wed, 23 Nov 2022 15:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669217621;
-	bh=L+7mmGSwYmB27FnIUdnUXABjZk7v8plFfYZee6on5P4=;
+	s=k20201202; t=1669217787;
+	bh=HZhzktOoDe/GEDqHDGyY18dESmqG5q+xXSAft4Q3o64=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jcp4scnFf95K8fs7MLYgfmNNGjNYl+47x/Tc5/QwKp2DvUvXiuyW/Ej0T+tZRLv1y
-	 hfLbkffrtAH+IGaDnrwl86ysgWUrvtXoyjqNXb8miTGIVw3o4Oko7lFnJ5HOe5kb1F
-	 olMoa2OyFK/GXyfJ34U2Y45ST1My6Yj9AA5HA8MBf5Kuyy2Y929aP2b8a2yxbtbcGs
-	 gaxhBrQ5uQsXyrhCDbiTl/gwJASvqyrKoR4I+SyfIUJ/02CrWaZmtvUoqDXkDm8tKx
-	 3dJ6I+6rBtKArHE66wu9+PxgtSuytS9YXCpNfr0/4Jm27AlOQkpzl+n6jDCS31weg3
-	 k1/Is6TlrGIUw==
-Date: Wed, 23 Nov 2022 23:23:51 +0800
+	b=IBbNL7BwmqqR0QzV7oTARYzvN1gvt+4swSNBoNL1f4iLbmxaKN5y+LJVhmmix2mG1
+	 b2kHDHcPpMf4/1+P+mep1JmxGuwQoyZU6l/wreh13C0Rs7sG/T6iXjX2htVPHQncIk
+	 IMQhkA7HpSVEqX4W+A8y5gTy6Totma2gQp6b5oKAV8C+HhLB6En9M5/D9QG9aUv6VQ
+	 JCYP//1Mq5gk7vgKahhC2VGx8YHFLIApBb9viPdzEmQncbUJ41s+8p4JJ5kMxv9yQw
+	 SBlOQBTOJcNXuyse0/Ve52k20hX+mxQOF1uxY/HoFb83SBv74ldSa7+Gz0gveoyGEX
+	 UG4JzM72Xjmmw==
+Date: Wed, 23 Nov 2022 23:26:32 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: fix race when vmap stack overflow
-Message-ID: <Y347B0x4VUNOd6V7@xhacker>
-References: <20221030124517.2370-1-jszhang@kernel.org>
- <CAJF2gTRPECoPFHXKZZ8bRc27YSYv7z4xkYh+hTmfzmZg8=2Ejg@mail.gmail.com>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de,
+	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com,
+	heiko@sntech.de, lazyparser@gmail.com, falcon@tinylab.org,
+	chenhuacai@kernel.org, apatel@ventanamicro.com,
+	atishp@atishpatra.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	mark.rutland@arm.com, zouyipeng@huawei.com, bigeasy@linutronix.de,
+	David.Laight@aculab.com, chenzhongjin@huawei.com,
+	greentime.hu@sifive.com, andy.chiu@sifive.com,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH -next V8 00/14] riscv: Add GENERIC_ENTRY support and
+ related features
+Message-ID: <Y347qONxftY4C+GB@xhacker>
+References: <20221103075047.1634923-1-guoren@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTRPECoPFHXKZZ8bRc27YSYv7z4xkYh+hTmfzmZg8=2Ejg@mail.gmail.com>
+In-Reply-To: <20221103075047.1634923-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_073344_400414_637CDC61 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20221123_073630_188356_2DC68E94 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,103 +81,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 30, 2022 at 09:23:51PM +0800, Guo Ren wrote:
-> Reviewed-by: Guo Ren <guoren@kernel.org>
+On Thu, Nov 03, 2022 at 03:50:33AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
 > 
-
-Gentle ping? This patch is still missing in mainline.
-
-> On Sun, Oct 30, 2022 at 8:54 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > Currently, when detecting vmap stack overflow, riscv firstly switches
-> > to the so called shadow stack, then use this shadow stack to call the
-> > get_overflow_stack() to get the overflow stack. However, there's
-> > a race here if two or more harts use the same shadow stack at the same
-> > time.
-> >
-> > To solve this race, we introduce spin_shadow_stack atomic var, which
-> > will be swap between its own address and 0 in atomic way, when the
-> > var is set, it means the shadow_stack is being used; when the var
-> > is cleared, it means the shadow_stack isn't being used.
-> >
-> > Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Suggested-by: Guo Ren <guoren@kernel.org>
-> > ---
-> > Since v2:
-> >  - use REG_AMOSWAP
-> >  - add comment to the purpose of smp_store_release()
-> >
-> > Since v1:
-> >  - use smp_store_release directly
-> >  - use unsigned int instead of atomic_t
-> >
-> >
-> >  arch/riscv/include/asm/asm.h | 1 +
-> >  arch/riscv/kernel/entry.S    | 4 ++++
-> >  arch/riscv/kernel/traps.c    | 9 +++++++++
-> >  3 files changed, 14 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> > index 1b471ff73178..acf563072b8b 100644
-> > --- a/arch/riscv/include/asm/asm.h
-> > +++ b/arch/riscv/include/asm/asm.h
-> > @@ -23,6 +23,7 @@
-> >  #define REG_L          __REG_SEL(ld, lw)
-> >  #define REG_S          __REG_SEL(sd, sw)
-> >  #define REG_SC         __REG_SEL(sc.d, sc.w)
-> > +#define REG_AMOSWAP    __REG_SEL(amoswap.d, amoswap.w)
-> >  #define REG_ASM                __REG_SEL(.dword, .word)
-> >  #define SZREG          __REG_SEL(8, 4)
-> >  #define LGREG          __REG_SEL(3, 2)
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index b9eda3fcbd6d..ea6b78dac739 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -404,6 +404,10 @@ handle_syscall_trace_exit:
-> >
-> >  #ifdef CONFIG_VMAP_STACK
-> >  handle_kernel_stack_overflow:
-> > +1:     la sp, spin_shadow_stack
-> > +       REG_AMOSWAP sp, sp, (sp)
-> > +       bnez sp, 1b
-> > +
-> >         la sp, shadow_stack
-> >         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
-> >
-> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > index f3e96d60a2ff..dea47f329708 100644
-> > --- a/arch/riscv/kernel/traps.c
-> > +++ b/arch/riscv/kernel/traps.c
-> > @@ -221,11 +221,20 @@ asmlinkage unsigned long get_overflow_stack(void)
-> >                 OVERFLOW_STACK_SIZE;
-> >  }
-> >
-> > +unsigned long spin_shadow_stack;
-> > +
-> >  asmlinkage void handle_bad_stack(struct pt_regs *regs)
-> >  {
-> >         unsigned long tsk_stk = (unsigned long)current->stack;
-> >         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
-> >
-> > +       /*
-> > +        * to ensure spin flag is set after the sp is used in entry.S:
-> > +        * //load per-cpu overflow stack.
-> > +        * REG_L sp, -8(sp)
-> > +        */
-> > +       smp_store_release(&spin_shadow_stack, 0);
-> > +
-> >         console_verbose();
-> >
-> >         pr_emerg("Insufficient stack space to handle exception!\n");
-> > --
-> > 2.37.2
-> >
+> The patches convert riscv to use the generic entry infrastructure from
+> kernel/entry/*. Additionally, add independent irq stacks (IRQ_STACKS)
+> for percpu to prevent kernel stack overflows. Add generic_entry based
+> STACKLEAK support. Some optimization for entry.S with new .macro and
+> merge ret_from_kernel_thread into ret_from_fork.
 > 
+> We have tested it with rv64, rv32, rv64 + 32rootfs, all are passed.
+> 
+> You can directly try it with:
+> [1] https://github.com/guoren83/linux/tree/generic_entry_v8
+> 
+> Any reviews and tests are helpful.
+
+Thanks for this series,
+
+Tested-by: Jisheng Zhang <jszhang@kernel.org>
+
+> 
+> v8:
+>  - Rebase on palmer/for-next branch (20221102)
+>  - Add save/restore_from_x5_to_x31 .macro (JishengZhang)
+>  - Consolidate ret_from_kernel_thread into ret_from_fork (JishengZhang)
+>  - Optimize __noinstr_section comment (JiangshanLai)
+> 
+> v7:
+> https://lore.kernel.org/linux-riscv/20221015114702.3489989-1-guoren@kernel.org/
+>  - Fixup regs_irqs_disabled with SR_PIE
+>  - Optimize stackleak_erase -> stackleak_erase_on_task_stack (Thx Mark
+>    Rutland)
+>  - Add BUG_ON(!irqs_disabled()) in trap handlers
+>  - Using regs_irqs_disabled in __do_page_fault
+>  - Remove unnecessary irq disable in ret_from_exception and add comment 
+> 
+> v6:
+> https://lore.kernel.org/linux-riscv/20221002012451.2351127-1-guoren@kernel.org/
+>  - Use THEAD_SIZE_ORDER for thread size adjustment in kconfig (Thx Arnd)
+>  - Move call_on_stack to inline style (Thx Peter Zijlstra)
+>  - Fixup fp chain broken (Thx Chen Zhongjin)
+>  - Remove common entry modification, and fixup page_fault entry (Thx
+>    Peter Zijlstra)
+>  - Treat some traps as nmi entry (Thx Peter Zijlstra)
+> 
+> v5:
+> https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
+>  - Add riscv own stackleak patch instead of generic entry modification
+>    (by Mark Rutland)
+>  - Add EXPERT dependency for THREAD_SIZE (by Arnd)
+>  - Add EXPERT dependency for IRQ_STACK (by Sebastian, David Laight)
+>  - Corrected __trap_section (by Peter Zijlstra)
+>  - Add Tested-by (Yipeng Zou)
+>  - Use CONFIG_SOFTIRQ_ON_OWN_STACK replace "#ifndef CONFIG_PREEMPT_RT"
+>  - Fixup systrace_enter compile error
+>  - Fixup exit_to_user_mode_prepare preempt_disable warning
+> 
+> V4:
+> https://lore.kernel.org/linux-riscv/20220908022506.1275799-1-guoren@kernel.org/
+>  - Fixup entry.S with "la" bug (by Conor.Dooley)
+>  - Fixup missing noinstr bug (by Peter Zijlstra)
+> 
+> V3:
+> https://lore.kernel.org/linux-riscv/20220906035423.634617-1-guoren@kernel.org/
+>  - Fixup CONFIG_COMPAT=n compile error
+>  - Add THREAD_SIZE_ORDER config
+>  - Optimize elf_kexec.c warning fixup
+>  - Add static to irq_stack_ptr definition
+> 
+> V2:
+> https://lore.kernel.org/linux-riscv/20220904072637.8619-1-guoren@kernel.org/
+>  - Fixup compile error by include "riscv: ptrace: Remove duplicate
+>    operation"
+>  - Fixup compile warning
+>    Reported-by: kernel test robot <lkp@intel.com>
+>  - Add test repo link in cover letter
+> 
+> V1:
+> https://lore.kernel.org/linux-riscv/20220903163808.1954131-1-guoren@kernel.org/
+> 
+> 
+> Dao Lu (1):
+>   riscv: Add support for STACKLEAK gcc plugin
+> 
+> Guo Ren (9):
+>   riscv: elf_kexec: Fixup compile warning
+>   riscv: compat_syscall_table: Fixup compile warning
+>   riscv: ptrace: Remove duplicate operation
+>   riscv: traps: Add noinstr to prevent instrumentation inserted
+>   riscv: convert to generic entry
+>   riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+>   riscv: Support HAVE_SOFTIRQ_ON_OWN_STACK
+>   riscv: Add config of thread stack size
+>   riscv: Typo fixup for addi -> andi in comment
+> 
+> Jisheng Zhang (3):
+>   riscv: remove extra level wrappers of trace_hardirqs_{on,off}
+>   riscv: consolidate ret_from_kernel_thread into ret_from_fork
+>   riscv: entry: consolidate general regs saving/restoring
+> 
+> Lai Jiangshan (1):
+>   compiler_types.h: Add __noinstr_section() for noinstr
+> 
+>  arch/riscv/Kconfig                    |  21 ++
+>  arch/riscv/include/asm/asm.h          |  63 +++++
+>  arch/riscv/include/asm/csr.h          |   1 -
+>  arch/riscv/include/asm/entry-common.h |   8 +
+>  arch/riscv/include/asm/ptrace.h       |  10 +-
+>  arch/riscv/include/asm/stacktrace.h   |   5 +
+>  arch/riscv/include/asm/syscall.h      |   6 +
+>  arch/riscv/include/asm/thread_info.h  |  27 +--
+>  arch/riscv/include/asm/vmap_stack.h   |  28 +++
+>  arch/riscv/kernel/Makefile            |   3 +-
+>  arch/riscv/kernel/elf_kexec.c         |   2 +-
+>  arch/riscv/kernel/entry.S             | 327 +++-----------------------
+>  arch/riscv/kernel/irq.c               | 110 +++++++++
+>  arch/riscv/kernel/mcount-dyn.S        |  56 +----
+>  arch/riscv/kernel/process.c           |   5 +-
+>  arch/riscv/kernel/ptrace.c            |  44 ----
+>  arch/riscv/kernel/signal.c            |  21 +-
+>  arch/riscv/kernel/sys_riscv.c         |  27 +++
+>  arch/riscv/kernel/trace_irq.c         |  27 ---
+>  arch/riscv/kernel/trace_irq.h         |  11 -
+>  arch/riscv/kernel/traps.c             |  74 ++++--
+>  arch/riscv/mm/fault.c                 |  16 +-
+>  drivers/firmware/efi/libstub/Makefile |   2 +-
+>  include/linux/compiler_types.h        |  15 +-
+>  24 files changed, 407 insertions(+), 502 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/entry-common.h
+>  create mode 100644 arch/riscv/include/asm/vmap_stack.h
+>  delete mode 100644 arch/riscv/kernel/trace_irq.c
+>  delete mode 100644 arch/riscv/kernel/trace_irq.h
 > 
 > -- 
-> Best Regards
->  Guo Ren
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
