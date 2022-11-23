@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD25C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97E4C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 15:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UfQl3ISJROfin3dN4OLBhM2NQNjJP1/8ywyl4NE/UAs=; b=J3AOglKiOty9vT
-	McSxq/HddyhQCpcAS6mP7b8aAM2vxPXSg0J+82SOtNmmqGC8UmVTW4UeMRVRbyA7YajK4K5Tr9G+3
-	T0xcU7fthWa6yCuCRk+3t8A4vWyJsgVpac89FOZSS7ycF63hHeR7TE3A+6RISs8kqUcHJBm8LlZ7T
-	wRUD87my6XubzvIt25nOZZXunrhDik0OnFgKSund9M9SmlkI0Q3MbLbi6xKBUGiQdMdCnmYF1TXoH
-	d/BoVxI91N5G9rX9DMpLx8AQzdv4/hPqdZNeK+NcaqwPuLwZg7r2uyvg3mQ2F0kXJhMlX9K0/2ixQ
-	06WvfndOhEd2a74Tvgog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+kewTEFgKvthUP3LpohiMHpvAQCF7pa9CNrjGX1wtA=; b=mkjE560UcA/6o7QnTo1shliZJE
+	Ed+XLmZnn320w2t89QOvaCAA9G9jtHo+iA00S8+XAfyxWRxloJ3BP7n+cqcp5Ll7oF4C3qyhONvLi
+	Lpg1EstjdRFR6RwBntjpS2qIWY73xcdnT7v+GVP3594R37CnoaqVBdcWpu+IWvlGV+OVPtndu58Xm
+	89MV+4CNwtZEfIN217zL5KcoKecm+457IAsH+suatoR22tGOXN35QmO72/hODOnfgW5Xcind8CZn/
+	u0xa93nrWtWdZ79qQFqS45Y2RQb3+3x3JpzpeVtr01n4Rzuw9QJGgXNyXJpPFZUzeamh0UcUhEBaN
+	mqtdGM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrrY-000XGx-9W; Wed, 23 Nov 2022 15:40:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oxrvL-000Z5e-2T; Wed, 23 Nov 2022 15:44:31 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxrrU-000XCt-H3
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 15:40:34 +0000
+	id 1oxruq-000Yv4-D4; Wed, 23 Nov 2022 15:44:01 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 18B9E61DBB;
-	Wed, 23 Nov 2022 15:40:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE7B6C433D6;
-	Wed, 23 Nov 2022 15:40:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D5BA2B8208E;
+	Wed, 23 Nov 2022 15:43:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EA89C433D6;
+	Wed, 23 Nov 2022 15:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669218031;
-	bh=LvDWkebzqIcj6lyYVhxG3SUkKIDjdF9n3kVqbRNzao8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=amYL1r/6R8CWL/O9UT5e06gMcTFDYLCQZZFWQ1srAg1FtMz+cG8LKIiYsoYxbKNPj
-	 p7Bn9DBPPYmptt6MV+3C0BJKB6q/F0/6C6IAA23Ms0x0XDXYzgBF/XnQ8shpFF5MfI
-	 fLlwDKxYEhxzeL4lEhnnE4x2AVk+rcVvTigdHCk14tMBrcAyqaFmFF3jx9kXhIA4rE
-	 srZsnA6eky/sWfKyKNxlHDGD2Q2C72L+v22pGQD5qJGkQweI/mg0D8tN2w4XLr+vHu
-	 keVUzaeknjbtZjaiHILRs/BPN543mRLt11necZ+uE0BZh6pmYpQ95vHc1f+1pl7AV0
-	 h8jjjk9ggwKKQ==
-From: guoren@kernel.org
-To: anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	jolsa@redhat.com,
-	bp@suse.de,
-	jpoimboe@kernel.org,
-	suagrfillet@gmail.com,
-	andy.chiu@sifive.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V3 5/5] riscv: ftrace: Make ftrace_caller call ftrace_graph_func
-Date: Wed, 23 Nov 2022 10:39:50 -0500
-Message-Id: <20221123153950.2911981-6-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221123153950.2911981-1-guoren@kernel.org>
-References: <20221123153950.2911981-1-guoren@kernel.org>
+	s=k20201202; t=1669218237;
+	bh=StrD+dB5u8Vcvhdu1J0yzbIhWxVUSSaCEXA8q6qXH6M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EAcsGtHkQu0j8o/AsR1zQOSAMoHzYiGZzCNI192tK8toJkZFTEA0nHjzpVwOAki5W
+	 56d4OXjCoFbrdSL8iyRal3OFHPP6pg859dn4/blZFzsZ6+n1KVl5o3AsCJIWfZV2WB
+	 0UuOOMxX8k4XhCC8Uzw9P+V2Yzdj1gNie77riZ9riRgrYBVXGr9A0EDSKOaaprmppk
+	 7BLFa/SUfGSrFTlEPOo0uHvvkIwmA3T0OE15sUzNsZ61/FJlN7P0k3CAIVwEsbYToo
+	 H8WF/ULVWxmqPNEXqVK7PgU/gneXdXSopvxoaSudnfnHrqh31pfiNuZrpyXxqLhuXI
+	 dfGICcT33p5AQ==
+Date: Wed, 23 Nov 2022 15:43:46 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
+	linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
+	netdev@vger.kernel.org, linux-can@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
+	alsa-devel@alsa-project.org, linux-spi@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-watchdog@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
+Subject: Re: [PATCH v2 6/9] dt-bindings: drop redundant part of title (end,
+ part three)
+Message-ID: <Y34/sh0TQqyNOrZi@sirena.org.uk>
+References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
+ <20221121110615.97962-7-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
+In-Reply-To: <20221121110615.97962-7-krzysztof.kozlowski@linaro.org>
+X-Cookie: I'm rated PG-34!!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_074032_749909_D88C1954 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20221123_074400_605986_71F21731 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,251 +91,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6345902266576514365=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Song Shuai <suagrfillet@gmail.com>
 
-In order to make the function graph use ftrace directly, ftrace_caller
-should be adjusted to save the necessary regs against the pt_regs layout
-so it can call ftrace_graph_func reasonably.
+--===============6345902266576514365==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="M0yaUN06E1HOYGuo"
+Content-Disposition: inline
 
-SAVE_ALL now saves all the regs according to the pt_regs struct. Here
-supersedes SAVE_ALL by SAVE_ABI_REGS which has an extra option to allow
-saving only the necessary ABI-related regs for ftrace_caller.
 
-ftrace_caller and ftrace_regs_caller save their regs with the respective
-option of SAVE_ABI_REGS, then call the tracing function, especially
-graph_ops's ftrace_graph_func. So the ftrace_graph_[regs]_call labels
-aren't needed anymore if FTRACE_WITH_REGS is defined.
+--M0yaUN06E1HOYGuo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-As the previous patch described, the ftrace_caller remains with its
-ftrace_graph_call if FTRACE_WITH_REGS isn't defined,
+On Mon, Nov 21, 2022 at 12:06:12PM +0100, Krzysztof Kozlowski wrote:
+> The Devicetree bindings document does not have to say in the title that
+> it is a "binding", but instead just describe the hardware.
 
-For convenience, the original argument setup for the tracing function in
-ftrace_[regs]_caller is separated as PREPARE_ARGS.
+Acked-by: Mark Brown <broonie@kernel.org>
 
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Tested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/kernel/mcount-dyn.S | 142 ++++++++++++++++++++++++---------
- 1 file changed, 104 insertions(+), 38 deletions(-)
+--M0yaUN06E1HOYGuo
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 64bc79816f5e..466c6ef217b1 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -57,19 +57,52 @@
- 	.endm
- 
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
--	.macro SAVE_ALL
-+
-+/**
-+* SAVE_ABI_REGS - save regs against the pt_regs struct
-+*
-+* @all: tell if saving all the regs
-+*
-+* If all is set, all the regs will be saved, otherwise only ABI
-+* related regs (a0-a7,epc,ra and optional s0) will be saved.
-+*
-+* After the stack is established,
-+*
-+* 0(sp) stores the PC of the traced function which can be accessed
-+* by &(fregs)->regs->epc in tracing function. Note that the real
-+* function entry address should be computed with -FENTRY_RA_OFFSET.
-+*
-+* 8(sp) stores the function return address (i.e. parent IP) that
-+* can be accessed by &(fregs)->regs->ra in tracing function.
-+*
-+* The other regs are saved at the respective localtion and accessed
-+* by the respective pt_regs member.
-+*
-+* Here is the layout of stack for your reference.
-+*
-+* PT_SIZE_ON_STACK  ->  +++++++++
-+*                       + ..... +
-+*                       + t3-t6 +
-+*                       + s2-s11+
-+*                       + a0-a7 + --++++-> ftrace_caller saved
-+*                       + s1    +   +
-+*                       + s0    + --+
-+*                       + t0-t2 +   +
-+*                       + tp    +   +
-+*                       + gp    +   +
-+*                       + sp    +   +
-+*                       + ra    + --+ // parent IP
-+*               sp  ->  + epc   + --+ // PC
-+*                       +++++++++
-+**/
-+	.macro SAVE_ABI_REGS, all=0
- 	addi	sp, sp, -PT_SIZE_ON_STACK
- 
- 	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
-+
-+	// always save the ABI regs
-+
- 	REG_S x10, PT_A0(sp)
- 	REG_S x11, PT_A1(sp)
- 	REG_S x12, PT_A2(sp)
-@@ -78,6 +111,18 @@
- 	REG_S x15, PT_A5(sp)
- 	REG_S x16, PT_A6(sp)
- 	REG_S x17, PT_A7(sp)
-+
-+	// save the leftover regs
-+
-+	.if \all == 1
-+	REG_S x2,  PT_SP(sp)
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x4,  PT_TP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
- 	REG_S x18, PT_S2(sp)
- 	REG_S x19, PT_S3(sp)
- 	REG_S x20, PT_S4(sp)
-@@ -92,19 +137,19 @@
- 	REG_S x29, PT_T4(sp)
- 	REG_S x30, PT_T5(sp)
- 	REG_S x31, PT_T6(sp)
-+
-+	// save s0 if FP_TEST defined
-+
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_S x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	.endm
- 
--	.macro RESTORE_ALL
-+	.macro RESTORE_ABI_REGS, all=0
- 	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
- 	REG_L x10, PT_A0(sp)
- 	REG_L x11, PT_A1(sp)
- 	REG_L x12, PT_A2(sp)
-@@ -113,6 +158,16 @@
- 	REG_L x15, PT_A5(sp)
- 	REG_L x16, PT_A6(sp)
- 	REG_L x17, PT_A7(sp)
-+
-+	.if \all == 1
-+	REG_L x2,  PT_SP(sp)
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x4,  PT_TP(sp)
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
- 	REG_L x18, PT_S2(sp)
- 	REG_L x19, PT_S3(sp)
- 	REG_L x20, PT_S4(sp)
-@@ -128,10 +183,25 @@
- 	REG_L x30, PT_T5(sp)
- 	REG_L x31, PT_T6(sp)
- 
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_L x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	.endm
-+
-+	.macro PREPARE_ARGS
-+	addi	a0, t0, -FENTRY_RA_OFFSET	// ip
-+	la	a1, function_trace_op
-+	REG_L	a2, 0(a1)			// op
-+	REG_L	a1, PT_RA(sp)			// parent_ip
-+	mv	a3, sp				// fregs
-+	.endm
-+
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
-+#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
-@@ -160,33 +230,29 @@ ftrace_graph_call:
- 	jr t0
- ENDPROC(ftrace_caller)
- 
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- ENTRY(ftrace_regs_caller)
--	SAVE_ALL
--
--	addi	a0, t0, -FENTRY_RA_OFFSET
--	la	a1, function_trace_op
--	REG_L	a2, 0(a1)
--	REG_L	a1, PT_RA(sp)
--	mv	a3, sp
-+	SAVE_ABI_REGS 1
-+	PREPARE_ARGS
- 
- ftrace_regs_call:
- 	.global ftrace_regs_call
- 	call	ftrace_stub
- 
--#ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, PT_RA
--	REG_L	a1, PT_T0(sp)
--	addi	a1, a1, -FENTRY_RA_OFFSET
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
--	mv	a2, s0
--#endif
--ftrace_graph_regs_call:
--	.global ftrace_graph_regs_call
--	call	ftrace_stub
--#endif
- 
--	RESTORE_ALL
-+	RESTORE_ABI_REGS 1
- 	jr t0
- ENDPROC(ftrace_regs_caller)
-+
-+ENTRY(ftrace_caller)
-+	SAVE_ABI_REGS 0
-+	PREPARE_ARGS
-+
-+ftrace_call:
-+	.global ftrace_call
-+	call	ftrace_stub
-+
-+	RESTORE_ABI_REGS 0
-+	jr t0
-+ENDPROC(ftrace_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
--- 
-2.36.1
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmN+P7IACgkQJNaLcl1U
+h9BvLwf+MbWgPhuuE/RNAOPtXpIBFmNsCUxYdu0csUjyJgNENFj+zdwqH6yI3/v5
+sVYRJF6Ze/c9y1Pokpk0G+MobI3H0JfEA6zRId+Uxnf65RT46OZWAqStaZipWhR+
+MqQJeau+/Wkq9EliMzXIY+Z1abRsNxFpOmxQfU6Kr85gGzubG6jqMBBQHSKS9a/3
+Deso3bTySefdyuzX9lZss2JUAvomH8WP1F3J7w/FFiBXs4r+04kkd5sboUbL40Xk
+9faUc2iAuQOUXtZ1O9P/qbpUmy+LhEMICPgGMN6SeU8G1af87tErxqa0p9c34Y35
+t/bDc74sRhfEPZZhpmCN+J7XV65OAQ==
+=yi41
+-----END PGP SIGNATURE-----
+
+--M0yaUN06E1HOYGuo--
+
+
+--===============6345902266576514365==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6345902266576514365==--
+
