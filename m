@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C34C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 05:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3638C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 05:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M3ApPwtvRrDF0/pAI7xSWY4JoB+puwbX5pPCjdZdK3k=; b=26E6PextBFWXf6
-	cBdRshGxKswqK7Gd9nD50Bqbzt6p93EuvUdGsFBGcfLFWUUQo1PwRn3ujQOUD6NXKtcC4p45vH5px
-	FXj8KEKxeIoKWuYjrtNRHWygIB2BkjS0o5ByR1gVwIe36nCJptq8WG89sKGsiIDkWiZexfyGptZOb
-	FvyWQ2Bq2Y7EUJ2HRcc2EJVIWkQ7azZhAA+/h9MR+TOkkT+PYrsN84gCFI7bivkZnsIKdsSSxmHnq
-	ieCj/cYqU5rKiB46lK5MXgUJGms1Xx6qdt91tuNH1asXOa9y4WDm8tf4YdF8pLN9Cnj9Z7gSh6/XS
-	LVY4AG6VVjNhL9CtMbVQ==;
+	List-Owner; bh=D/cvoeUHT/UAj5tKKfSFv+rsUXRMNmFkx5oV8/PTRw8=; b=S6Xrn0EXJ8qZ9q
+	x6CLL91xVftDi3rAbePIvcqyGWgVELXLhiM7hbuknWl9islCKRkaDm1uy+2vrbMQlu2wammpMMv/o
+	KZsqYPs+wvN/gseYvGbfsMHS2ib9Alggfmf0RLIlFdi4ClsGmV9Emca03ekJVF+p7CbS9vpdl8frL
+	bsDWHUhCF+sK1bLr2p6T/NhVdoVM2Q9aS+qzwZDZNuv3k7CnN0fYtUbpY0N4aiEnuFb/dGGs+NjEd
+	OLO5B8uZc55ahwV9CHQKfK/KBpikG8mG9B6b1PkPvqnrp2mwopmd7b5vFqyJLHyd6CCGlctOsCGAz
+	U31i5oKOrGIUPtjk26vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxi2p-00EBJA-VU; Wed, 23 Nov 2022 05:11:35 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1oxiQa-00EKYq-Bn; Wed, 23 Nov 2022 05:36:08 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxi2l-00EBEj-Ow
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 05:11:34 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id B39725C003D;
-	Wed, 23 Nov 2022 00:11:25 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute3.internal (MEProxy); Wed, 23 Nov 2022 00:11:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669180285; x=
-	1669266685; bh=eogm4ppMAc25OF3LnRI9k1TWSra/SrVN7IBRyFCgOQc=; b=Y
-	xg+/ff25c/CXj8ksv96a00I815P3NxuythMmL3t0SDezXO01kjZ4MTbGr5eRz/rs
-	syjmF3Ke2M2q/jR3DjYqDFo03XXGVViWaBUjmq7puXG6N+DxqF8529EzN+oVSOtT
-	rDf+9C9hJUyDMKtcrY0HURjuA6+WTB8QCanW/syvD4+Yayemf/FlZY38ar+LtdKe
-	dxXNLiGhrDWlgkHScbLzwPoHOfQPJI30I7Ouhn0nFyUJj+vNNQA00TV3W2Hr9/33
-	PEmYzLD8G+1iiEXSeYqU7w6rA7lbq5seoOvwvssF3NoK3RchNHnxTElxEQv6bDa/
-	8yg2UcKlfFuHLX74L2iBA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669180285; x=
-	1669266685; bh=eogm4ppMAc25OF3LnRI9k1TWSra/SrVN7IBRyFCgOQc=; b=l
-	elf/BSfx3+Tfs4B595lO+jPOVPptIF09t6e1/BC4eMH5dUgji8QbBWLTQQEVVSsp
-	zx3Dc2Sms1mDe5qTMbjZu/8RzT+TsUMNCZG9yZnCM10uoCT/6CmtsDgylHy8+CiD
-	zWcZhMflDATtIKt6TEjVpOFC/7X2NvZkBW8P5jbcEkKd+94rlfWSmpo3DFdiqLEO
-	6hTIuiIHM4MZPqNLS5R8QtBECu5DKvimCDZqljN8Zt9M5KEVQZ6S61NekZ0Ru2ps
-	SeS53YhRlCfH6uqZtTkMkSZ5IaxbUgMfftlrdn4FXoZmYMjzPl2cCK6itXB77IEg
-	kEf9qm/khbTfJa+pPuYjg==
-X-ME-Sender: <xms:fat9Y0szua3jffDXHzt-r-jnV2R8zwihQ9R9kCWuepw7CPBFNAiv5w>
-    <xme:fat9YxdVCve7d21aKqgKJAxI0WXdrwCVwYyGSsCxaOvX_fgN0JT8EfCKiC_LsP97g
-    kfxa3os8WbWZWlVUw>
-X-ME-Received: <xmr:fat9Y_w8bdJ2d9Jc3dVMXwis8oONz0Hfn146-DyWOxpM6fHMEM3wMUaYyHErdkHiXesxIzrudZnNUXfeK_31Kga6NzEGhF0rgmTQSoaiKlilQ7LwXXZG7QevHw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedriedtgdekudcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefkffggfgfvvehfhffujggtgfesthekredttdefjeenucfhrhhomhepufgrmhhu
-    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnheptdeitdejvdejveffveejffffjeekfefhgeehjeeijefgkedtfeeh
-    leetfeekvdfgnecuffhomhgrihhnpehgihhthhhusgdrtghomhdpkhgvrhhnvghlrdhorh
-    hgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgr
-    mhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:fat9Y3PLgMJFqtf_kQUKAJdFhAQGWhnnUd8cAc8-XOJGl5N6WrGs8A>
-    <xmx:fat9Y0-25wtoUFaKCQJOVhAsrF-ECOH7mSVf1eKGw0ArMaEh4csWZw>
-    <xmx:fat9Y_U1LlN_41gWZ-vcu-f8MJ24VM6OGl_xL2iBYqcPW8m4uJ3ZQg>
-    <xmx:fat9Y_WvwQwLDZaXOg4UY7_1cB6mLKg8JzdF1e4ZLCUGfQ1Q3begiQ>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 23 Nov 2022 00:11:24 -0500 (EST)
-Message-ID: <57114829-c205-dece-abdb-1100947286d4@sholland.org>
-Date: Tue, 22 Nov 2022 23:11:23 -0600
+	id 1oxiQD-00EKOe-AF
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 05:35:49 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-14279410bf4so17937306fac.8
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Nov 2022 21:35:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UyGDSFNUaTTEMKnKYZB8pKfyRedwZJqPE2HT6gVc/Kc=;
+        b=KQd4DuUvWugD0Onfs4QqsG8DlIi7orLmAM4hRS6DW3XVAAgaxTaLxMTHH3QPbfGZBr
+         Wl8Guue9wicxRCtmBcga0sdF5H8AiJAZ/1iv14bRC7krTG7MfRGeqMimpWkGvIcaZxIf
+         IDgUTAnjTyZ3b+bdS9k7LuS3BIiXjtygZTIrT0mV1xCSoW6ID32Ypat0wyB3LXsw5SGN
+         6z+AXVNYftDiywPGDJOdsephRxG8usUSznAs7TyTcTVXdTlFuT2aDcXB9qoKOil7vxsJ
+         iXtKIz+NbRtW6tsU3g7rxbcCjUo3PqaZ0QftncV4ijEZ0L8d/abCFtDGy8dclK//U7lB
+         k8ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UyGDSFNUaTTEMKnKYZB8pKfyRedwZJqPE2HT6gVc/Kc=;
+        b=1QAjWo+EFLkriGAouGzyinndZ2mqaHXpHtrKwuL2wJbk82XrdZacexVUWti0jJfLkm
+         7zffLv0sC/BtNhU49T+oKoDfZijKALHlEyjK/9SMvcEJUx2f0WAe4rQ/tX40rUhGor6p
+         50MYcq3OadnxTit6g7wWlMel+O8oGJ46vN4cPxsZsjVYtVzGhuAfRfkTQ4Hjpp0fqepM
+         Rjy9GtZibHg/4XBAoueLf7CpgD9DZb9fHMWhEerVZ4HyI0CKjfOFKY1NBi7LdVodje3L
+         YK5kwfw8j1da4zeEkh1kVwwqrZJi8potmJbn4rGDVU7VTz7Cr2gPb4D0fm+/SW78nyP6
+         +z0g==
+X-Gm-Message-State: ANoB5pkq+oWqEpVi+0LLdoj1LJHB5sPNAZtAJ01h0PqzPgXdKOV4r+Qe
+	l2Z6yrtqg3qM387QcSPZfJ1noYViWdSoLbua4Zr7/Q==
+X-Google-Smtp-Source: AA0mqf6lc+iP+7Sak7isl2cm4qkptP9US+fAqELAR+6pilz9PEqebvaPt65jIiJQ6kEsqhJ+LvfMaRZt1NdGg6x6NqQ=
+X-Received: by 2002:a05:6870:3b0a:b0:142:ff0f:3db with SMTP id
+ gh10-20020a0568703b0a00b00142ff0f03dbmr4962571oab.17.1669181743154; Tue, 22
+ Nov 2022 21:35:43 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
- Thunderbird/102.3.3
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>, conor.dooley@microchip.com
-Cc: apatel@ventanamicro.com, anup@brainfault.org,
- Conor Dooley <conor@kernel.org>, rafael@kernel.org,
- daniel.lezcano@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>,
- aou@eecs.berkeley.edu, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@rivosinc.com
-References: <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9>
-From: Samuel Holland <samuel@sholland.org>
+References: <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9> <57114829-c205-dece-abdb-1100947286d4@sholland.org>
+In-Reply-To: <57114829-c205-dece-abdb-1100947286d4@sholland.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 23 Nov 2022 11:05:32 +0530
+Message-ID: <CAK9=C2WLOa_zgboFE5UCgnwMB-kbWMAVtmXsBxoswqY63-5QHw@mail.gmail.com>
 Subject: Re: [PATCH] cpuidle: riscv-sbi: Stop using non-retentive suspend
-In-Reply-To: <mhng-6299f108-11af-4e70-9981-d7e7b3be0b9a@palmer-ri-x1c9>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, conor.dooley@microchip.com, anup@brainfault.org, 
+	Conor Dooley <conor@kernel.org>, rafael@kernel.org, daniel.lezcano@linaro.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, linux-pm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221122_211132_376090_885A05E2 
-X-CRM114-Status: GOOD (  62.22  )
+X-CRM114-CacheID: sfid-20221122_213545_399973_DBC99633 
+X-CRM114-Status: GOOD (  75.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,167 +83,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyLAoKT24gMTEvMjIvMjIgMDk6MjgsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+IE9u
-IFR1ZSwgMjIgTm92IDIwMjIgMDM6MTk6NDMgUFNUICgtMDgwMCksIGNvbm9yLmRvb2xleUBtaWNy
-b2NoaXAuY29tIHdyb3RlOgo+PiBPbiBUdWUsIE5vdiAyMiwgMjAyMiBhdCAxMTowNjoxNUFNICsw
-NTMwLCBBbnVwIFBhdGVsIHdyb3RlOgo+Pj4gT24gVHVlLCBOb3YgMjIsIDIwMjIgYXQgMTA6NDYg
-QU0gUGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+Cj4+PiB3cm90ZToKPj4+ID4K
-Pj4+ID4gT24gTW9uLCAyMSBOb3YgMjAyMiAxOTo0NTowNyBQU1QgKC0wODAwKSwgYW51cEBicmFp
-bmZhdWx0Lm9yZyB3cm90ZToKPj4+ID4gPiBPbiBUdWUsIE5vdiAyMiwgMjAyMiBhdCAyOjI3IEFN
-IFBhbG1lciBEYWJiZWx0Cj4+PiA8cGFsbWVyQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4+PiA+ID4+
-Cj4+PiA+ID4+IEZyb206IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPgo+Pj4g
-PiA+Pgo+Pj4gPiA+PiBBcyBwZXIgWzFdLCB3aGV0aGVyIG9yIG5vdCB0aGUgY29yZSBjYW4gd2Fr
-ZSB1cCBmcm9tIG5vbi1yZXRlbnRpdmUKPj4+ID4gPj4gc3VzcGVuZCBpcyBhIHBsYXRmb3JtLXNw
-ZWNpZmljIGRldGFpbC7CoCBXZSBkb24ndCBoYXZlIGFueSB3YXkgdG8KPj4+IGVuY29kZQo+Pj4g
-PiA+PiB0aGF0LCBzbyBqdXN0IHN0b3AgdXNpbmcgdGhlbSB1bnRpbCB3ZSd2ZSBzb3J0ZWQgdGhh
-dCBvdXQuCj4+PiA+ID4+Cj4+PiA+ID4+IExpbms6Cj4+PiBodHRwczovL2dpdGh1Yi5jb20vcmlz
-Y3Ytbm9uLWlzYS9yaXNjdi1zYmktZG9jL2lzc3Vlcy85OCNpc3N1ZWNvbW1lbnQtMTI4ODU2NDY4
-Nwo+Pj4gPiA+PiBGaXhlczogNmFiZjMyZjFkOWM1ICgiY3B1aWRsZTogQWRkIFJJU0MtViBTQkkg
-Q1BVIGlkbGUgZHJpdmVyIikKPj4+ID4gPj4gU2lnbmVkLW9mZi1ieTogUGFsbWVyIERhYmJlbHQg
-PHBhbG1lckByaXZvc2luYy5jb20+Cj4+PiA+ID4KPj4+ID4gPiBUaGlzIGlzIGp1c3QgdW5uZWNl
-c3NhcnkgbWFpbnRlbmFuY2UgY2h1cm4gYW5kIGl0J3Mgbm90IHRoZQo+Pj4gPiA+IHJpZ2h0IHdh
-eSB0byBnby4gQmV0dGVyIHRvIGZpeCB0aGlzIHRoZSByaWdodCB3YXkgaW5zdGVhZCBvZiBoYXZp
-bmcKPj4+ID4gPiBhIHRlbXBvcmFyeSBmaXguCj4+PiA+ID4KPj4+ID4gPiBJIGhhZCBhbHJlYWR5
-IHNlbnQtb3V0IGEgcGF0Y2ggc2VyaWVzIDUgbW9udGhzIGJhY2sgdG8gZGVzY3JpYmUKPj4+ID4g
-PiB0aGlzIGluIERUOgo+Pj4gPiA+Cj4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIw
-MjIwNzI3MTE0MzAyLjMwMjIwMS0xLWFwYXRlbEB2ZW50YW5hbWljcm8uY29tLwo+Pj4gPiA+Cj4+
-PiA+ID4gTm8gb25lIGhhcyBjb21tZW50ZWQvc3VnZ2VzdGVkIGFueXRoaW5nIChleGNlcHQgU2Ft
-dWVsCj4+PiA+ID4gSG9sbGFuZCBhbmQgU3VkZWVwIEhvbGxhKS4KPj4+ID4KPj4+ID4gSSBzZWUg
-c29tZSBjb21tZW50cyBmcm9tIEtyenlzenRvZiBoZXJlCj4+PiA+Cj4+PiA8aHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvbGttbC83YTA0NzdhMC05ZjBmLTg3ZDYtNDA3MC0zMDMyMTc0NWY0Y2NAbGlu
-YXJvLm9yZy8+Cj4+PiA+IGFzIHdlbGwuwqAgTG9va3MgbGlrZSBldmVyeW9uZSBpcyBwb2ludGlu
-ZyBvdXQgdGhhdCBoYXZpbmcgb3VyIENQVQo+Pj4gbm9kZXMKPj4+ID4gZW5jb2RlIHRpbWVycyBp
-cyBhIGJhZCBpZGVhLCBteSBndWVzcyBpcyB0aGF0IHRoZXkncmUgcHJvYmFibHkgcmlnaHQuCj4+
-Pgo+Pj4gQWRkaW5nIGEgc2VwYXJhdGUgdGltZXIgRFQgbm9kZSwgY3JlYXRlcyBhIG5ldyBzZXQg
-b2YgY29tcGF0aWJpbGl0eQo+Pj4gaXNzdWVzIGZvciBleGlzdGluZyBwbGF0Zm9ybXMuIEkgYW0g
-ZmluZSB1cGRhdGluZyBteSBzZXJpZXMgdG8gaGF2ZQo+Pj4gc2VwYXJhdGUgdGltZXIgRFQgbm9k
-ZSBidXQgZG8gd2Ugd2FudCB0byBnbyBpbiB0aGlzIGRpcmVjdGlvbiA/Cj4+Cj4+IEkgZG9uJ3Qg
-cmVhbGx5IGZvbGxvdy4gSG93IGlzIHRoZXJlIGEgY29tcGF0aWJpbGl0eSBpc3N1ZSBjcmVhdGVk
-IGJ5Cj4+IGFkZGluZyBhIG5ldyBub2RlIHRoYXQgaXMgbm90IGFkZGVkIGZvciBhIG5ldyBwcm9w
-ZXJ0eT8gQm90aCB3aWxsCj4+IHJlcXVpcmUgY2hhbmdlcyB0byB0aGUgZGV2aWNlIHRyZWUuIChZ
-b3UgbmVlZCBub3QgcmVwbHkgaGVyZSwgSSBhbSBnb2luZwo+PiB0byByZXZpZXcgdGhlIG90aGVy
-IHRocmVhZCwgaXQncyBiZWVuIG9uIG15IHRvZG8gbGlzdCBmb3IgdG9vIGxvbmcuIEJlZW4KPj4g
-Y2F1Z2h0IHVwIHdpdGggbm9uLWNvaGVyZW50IHN0dWZmICYgb3VyIHN3IHJlbGVhc2UgY3ljbGUu
-LikKPj4KPj4+IEV2ZW4gaWYgQVJNIGhhcyBhIHNlcGFyYXRlIHRpbWVyIERUIG5vZGUsIHRoZSB0
-aW1lcnMgYXJlIHN0aWxsIHBhcnQKPj4+IG9mIHRoZSBDUFUuIEl0IGRlcGVuZHMgb24gaG93IHdl
-IHNlZSB0aGUgRFQgYmluZGluZ3MgYWxpZ25pbmcgd2l0aAo+Pj4gYWN0dWFsIEhXLgo+Pj4KPj4+
-ID4KPj4+ID4gPiBQbGVhc2UgcmV2aWV3IHRoaXMgc2VyaWVzLiBJIGNhbiBxdWlja2x5IGFkZHJl
-c3MgY29tbWVudHMgdG8KPj4+ID4gPiBtYWtlIHRoaXMgYXZhaWxhYmxlIGZvciBMaW51eC02LjIu
-IFVudGlsIHRoaXMgc2VyaWVzIGlzIG1lcmdlZCwKPj4+ID4gPiB0aGUgYWZmZWN0ZWQgcGxhdGZv
-cm1zIGNhbiBzaW1wbHkgcmVtb3ZlIG5vbi1yZXRlbnRpdmUgc3VzcGVuZAo+Pj4gPiA+IHN0YXRl
-cyBmcm9tIHRoZWlyIERULgo+Pj4gPgo+Pj4gPiBUaGF0IGxlYXZlcyB1cyB3aXRoIGEgZGVwZW5k
-ZW5jeSBiZXR3ZWVuIGtlcm5lbCB2ZXJzaW9ucyBhbmQgRFQKPj4+ID4gYmluZGluZ3M6IGtlcm5l
-bHMgd2l0aCB0aGUgY3VycmVudCBkcml2ZXIgd2lsbCByZXN1bHQgaW4gYnJva2VuCj4+PiBzeXN0
-ZW1zCj4+PiA+IHdpdGggdGhlIG5vbi1yZXRlbnRpdmUgc3VzcGVuZCBzdGF0ZXMgaW4gdGhlIERU
-IHRoZXkgYm9vdCB3aXRoIHdoZW4KPj4+ID4gdGhvc2Ugc3RhdGVzIGNhbid0IHdha2UgdXAgdGhl
-IENQVS4KPj4KPj4gQ2FuIHNvbWVvbmUgcG9pbnQgbWUgYXQgYSAobm9uIEQxIG9yIHZpcnQpIHN5
-c3RlbSB0aGF0IGhhcyBzdXNwZW5kCj4+IHN0YXRlcyBpbiB0aGUgRFQgdGhhdCB3b3VsZCBuZWVk
-IGZpeGluZz8KPj4KPj4+IFRoaXMgaXMgbm90IGEgbmV3IHByb2JsZW0gd2UgYXJlIGZhY2luZy4g
-RXZlbiBpbiB0aGUgQVJNIHdvcmxkLAo+Pj4gdGhlIERUIGJpbmRpbmdzIGdyZXcgb3JnYW5pY2Fs
-bHkgb3ZlciB0aW1lIGJhc2VkIG9uIG5ld2VyIHBsYXRmb3JtCj4+PiByZXF1aXJlbWVudHMuCj4+
-Pgo+Pj4gTm93IHRoYXQgd2UgaGF2ZSBhIHBsYXRmb3JtIHdoaWNoIGRvZXMgbm90IHdhbnQgdGhl
-IHRpbWUKPj4+IEMzU1RPUCBmZWF0dXJlLCB3ZSBuZWVkIHRvIGZpcnN0IGNvbWUtdXAgd2l0aCBE
-VCBiaW5kaW5ncwo+Pj4gdG8gc3VwcG9ydCB0aGlzIHBsYXRmb3JtIGluc3RlYWQgb2YgdGVtcG9y
-YXJpbHkgZGlzYWJsaW5nCj4+PiBmZWF0dXJlcyB3aGljaCBkb24ndCB3b3JrIG9uIHRoaXMgcGxh
-dGZvcm0uCj4+Cj4+IEl0J3MgdGhlIG9wcG9zaXRlIHN1cmVseT8gSXQgc2hvdWxkIGJlICJub3cg
-dGhhdCB3ZSBoYXZlIGEgcGxhdGZvcm0gdGhhdAo+PiAqZG9lcyB3YW50KiB0aGUgQzNTVE9QIGZl
-YXR1cmUiLCByaWdodD8KPiAKPiBJTU8gd2UganVzdCBzaG91bGRuJ3QgYmUgdHVybmluZyBvbiBD
-M1NUT1AgYXQgYWxsLsKgIFN1cmUgaXQncyBtYWtpbmcgdGhlCj4gcHJvYmxlbSBoZXJlIGdvIGF3
-YXksIGJ1dCBpdCdzIHRyeWluZyB0byBlbXVsYXRlIGEgYnVuY2ggb2YgSW50ZWwgdGltZXIKPiBm
-ZWF0dXJlcyB3ZSBkb24ndCBoYXZlIG9uIFJJU0MtViBhbmQgZW5kaW5nIHVwIGluIGEgYnVuY2gg
-b2YgZmFsbGJhY2sKPiBwYXRocy4KCldoaWxlIHRoZSBjb21tZW50IGluIGluY2x1ZGUvbGludXgv
-Y2xvY2tjaGlwcy5oIGFuZCB0aGUgbmFtZSBvZiB0aGUgZmxhZwppbXBseSB0aGF0IEMzU1RPUCBp
-cyBJbnRlbC1zcGVjaWZpYywgaXQgcmVhbGx5IGlzbid0LiBUaGUgZmxhZyBpcyB1c2VkCm9uIEFS
-TSwgTUlQUywgYW5kIFBvd2VyUEMgYXMgd2VsbC4KCkhvd2V2ZXIgd2UgZG8gaXQsIHRoZSBlbmQg
-Z29hbCBoZXJlIGlzIG1ha2luZyB0aWNrX2Jyb2FkY2FzdF9lbnRlcigpCnJldHVybiBub256ZXJv
-ICh3aGVuIGNhbGxlZCBmcm9tIGluc2lkZSBjcHVpZGxlX2VudGVyX3N0YXRlKCkpLCB0aHVzCmlu
-aGliaXRpbmcgTGludXggZnJvbSB1c2luZyBpZGxlIHN0YXRlcyB3aXRoIHRoZSAibG9jYWwtdGlt
-ZXItc3RvcCIKcHJvcGVydHkgc2V0IGluIHRoZSBEVC4KCkxvb2tpbmcgZG93biBpbnNpZGUgdGlj
-a19icm9hZGNhc3Rfb25lc2hvdF9jb250cm9sKCksIGl0IGFwcGVhcnMKQ0xPQ0tfRVZUX0ZFQVRf
-QzNTVE9QIHJlYWxseSBpcyByZXF1aXJlZCB0byBtYWtlIHRoaXMgaGFwcGVuLgoKV2hhdCBhcmUg
-eW91IHJlZmVycmluZyB0byBieSAiZmFsbGJhY2sgcGF0aHMiPwoKV2UgY291bGQgYWRkIGFub3Ro
-ZXIgQ0xPQ0tfRVZUX0ZFQVRfPz8/IGZsYWcsIGJ1dCBob3cgc2hvdWxkIGl0IGRpZmZlcgpmcm9t
-IENMT0NLX0VWVF9GRUFUX0MzU1RPUD8KCj4gSWYgd2UgbmVlZCBzb21lIHdvcmthcm91bmQgaW4g
-dGhlIHRpbWVyIHN1YnN5c3RlbSB0byBzb3J0IG91dCB0aGUKPiBub24tcmV0ZW50aXZlIHN0YXRl
-cyB0aGVuIHdlIGNhbiBzb3J0IHRoYXQgb3V0LCBidXQgbXkgZ3Vlc3MgaXMgdGhhdAo+IHZlbmRv
-cnMgYXJlIGp1c3QgZ29pbmcgdG8gMwoKKHlvdXIgbWVzc2FnZSBnb3QgY3V0IG9mZiBoZXJlKQoK
-Pj4+ID4gPiBXaXRoIGFsbCBkdWUgcmVzcGVjdCwgTkFDSyB0byB0aGlzIHBhdGNoIGZyb20gbXkg
-c2lkZS4KPj4KPj4gQXMgU2FtdWVsIHBvaW50ZWQgb3V0IHRoYXQgdGhlIEQxIGRvZXNuJ3QgYWN0
-dWFsbHkgdXNlIHRoZSB0aW1lciBpbgo+PiBxdWVzdGlvbiwgSSB0aGluayB3ZSBhcmUgb2theSBo
-ZXJlPwo+IAo+IElJVUMgaXQganVzdCBzaG91bGQgdXNlIHRoZSBzdW54aSB0aW1lciBkcml2ZXIs
-IGJ1dCB0aGF0IHJlcXVpcmVzIHNvbWUKPiBwcmlvcml0eSBjaGFuZ2VzIChhbmQgcHJlc3VtYWJs
-eSBicmVha3MKCihhbmQgaGVyZSB0b28pCgpEMSBjdXJyZW50bHkgdXNlcyBzdW40aV90aWNrIChy
-YXRpbmcgMzUwKSBvdmVyIHJpc2N2X3RpbWVyX2Nsb2NrZXZlbnQKKHJhdGluZyAxMDApLiBUaGUg
-cmF0aW5ncyBhcmUgZmluZSBhcyBpcy4KCj4gVGhhdCBzYWlkLCBJIGd1ZXNzIEknbSBjb25mdXNl
-ZCBhYm91dCB3aGF0J3MgYWN0dWFsbHkgYnJva2VuIGhlcmUuwqAgTXkKPiB1bmRlcnN0YW5kaW5n
-IG9mIHRoZSBwcm9ibGVtIGlzOiBUaGUgRDEncyBmaXJtd2FyZSBkaXNhYmxlcyBzb21lCj4gaW50
-ZXJydXB0cyBkdXJpbmcgbm9uLXJldGVudGl2ZSBzdXNwZW5kLCB3aGljaCByZXN1bHRzIGluIFNC
-SSB0aW1lcnMKPiBmYWlsaW5nIHRvIHdha2UgdXAgdGhlIGNvcmUuCgpUaGUgRDEncyBoYXJkd2Fy
-ZSBjYW5ub3QgZGVsaXZlciB0aGUgUklTQy1WIGFyY2hpdGVjdHVyYWwgdGltZXIKaW50ZXJydXB0
-IHdoaWxlIHRoZSBDOTA2IGNvcmUgaXMgcG93ZXJlZCBvZmYuIEl0IGNhbm5vdCBkZWxpdmVyIHRo
-ZQpSSVNDLVYgYXJjaGl0ZWN0dXJhbCBleHRlcm5hbCBpbnRlcnJ1cHQgZWl0aGVyLCBidXQgdGhl
-IFNvQyBwcm92aWRlcyBhCnNpZGUgY2hhbm5lbCBmb3IgYWxsIG9mIHRoZSBQTElDIGlucHV0cywg
-c28gdGhleSBfY2FuXyB3YWtlIHVwIHRoZSBDUFUuClNvIHRoZSBuZXQgcmVzdWx0IGlzIHRoYXQg
-dGhlIENMSU5UIGlzIHRoZSBvbmx5IHBlcmlwaGVyYWwgdW5hYmxlIHRvCndha2UgdGhlIENQVS4K
-Cj4gVGhlIHBhdGNoIHRvIGFkZCBDM1NUT1AgbWFrZXMgdGhlIGNvcmUKPiBjb21lIGJhY2sgZnJv
-bSBzbGVlcCwgYnV0IHRoYXQgcmVzdWx0cyBpbiBhIGJ1bmNoIG9mIG90aGVyIHRpbWVyLXJlbGF0
-ZWQKPiBpc3N1ZXMuCgpObywgQzNTVE9QIF9pbmhpYml0c18gTGludXggZnJvbSBlbnRlcmluZyBp
-ZGxlIHN0YXRlcyB0aGF0IGJvdGg6CiAxKSByZWx5IG9uIHRoYXQgY2xvY2tldmVudCBkZXZpY2Ug
-dG8gd2FrZSB0aGUgbG9jYWwgQ1BVLCBhbmQKIDIpIGNhdXNlIHRoYXQgY2xvY2tldmVudCBkZXZp
-Y2UgdG8gc3RvcCB3b3JraW5nLCBhcyBzaWduaWZpZWQgYnkgdGhlCiAgICBDUFVJRExFX0ZMQUdf
-VElNRVJfU1RPUCBmbGFnLCB3aGljaCBpcyBzZXQgYnkgdGhlIGxvY2FsLXRpbWVyLXN0b3AKICAg
-IHByb3BlcnR5IGluIHRoZSBpZGxlIHN0YXRlIERUIG5vZGUuCgpUaGF0IG1lYW5zIGVudGVyaW5n
-IHRoZSBpZGxlIHN0YXRlIGlzIGFsbG93ZWQgaWYgTGludXggY2FuIHNvbHZlIHRoYXQKZmlyc3Qg
-Y29uZGl0aW9uIGJ5IGZpbmRpbmcgYW5vdGhlciBjbG9ja2V2ZW50IGRldmljZSBvbiBzb21lIG90
-aGVyIENQVQp0byB3YWtlIHRoZSBsb2NhbCBDUFUgd2l0aCBhbiBJUEkuIFRoYXQgaXMgdGhlIHB1
-cnBvc2Ugb2YgdGhlIGJyb2FkY2FzdAp0aW1lciBtZWNoYW5pc20uCgpJbiB0aGUgY2FzZSBvZiB0
-aGUgRDEsIHNpbmNlIGl0IGlzIHNpbmdsZSBjb3JlLCB0aGVyZSBpcyBubyBvdGhlciBDUFUgdG8K
-YnJvYWRjYXN0IGEgdGltZXIgZXZlbnQuIFNvIGlmIHJpc2N2X3RpbWVyX2Nsb2NrZXZlbnQgaXMg
-dGhlIG9ubHkKY2xvY2tldmVudCBkZXZpY2UsIHRoZW4gdGlja19icm9hZGNhc3RfZW50ZXIoKSBz
-aG91bGQgcmV0dXJuIG5vbnplcm8sCmFuZCBmaW5kX2RlZXBlc3Rfc3RhdGUoKSB3aWxsIHBpY2sg
-YSByZXRlbnRpdmUgaWRsZSBzdGF0ZSBpbnN0ZWFkLgoKVGhpcyBpcyB0aGUgYWxyZWFkeS1leGlz
-dGluZyBtZWNoYW5pc20gZm9yIG9ubHkgZW50ZXJpbmcgaWRsZSBzdGF0ZXMgd2UKY2FuIHJlbGlh
-Ymx5IHdha2UgdXAgZnJvbS4gOikKCj4gU28gSU1PIHdlIHNob3VsZCByZXZlcnQgdGhlIEMzU1RP
-UCBwYXRjaCBhcyBpdCdzIGNhdXNpbmcgcmVncmVzc2lvbnMKCkkgYWdyZWUgdGhhdCBjbGVhcmx5
-IHNvbWV0aGluZyBpcyBnb2luZyB3cm9uZyBpbiB0aGUgTGludXggY29kZSB0byBjYXVzZQpwcm9i
-bGVtcyBvbiBTTVAgc3lzdGVtcyBsaWtlIFBvbGFyRmlyZS4gSSBkbyBub3QgcmVhbGx5IHVuZGVy
-c3RhbmQgdGhlCmJyb2FkY2FzdCB0aW1lciBpbnRlcm5hbHMsIGJ1dCB3aGF0IEkgZG8ga25vdyBp
-czoKIDEpIEJ5IHNldHRpbmcgQ0xPQ0tfRVZUX0ZFQVRfQzNTVE9QLCB3ZSBpbmhpYml0IHRoZSBS
-SVNDLVYgdGltZXIgZnJvbQogICAgYmVpbmcgdXNlZCBhcyB0aGUgYnJvYWRjYXN0IHRpbWVyICh0
-aWNrX2NoZWNrX2Jyb2FkY2FzdF9kZXZpY2UoKSksCiAgICBhbmQgSUlVQyBmYWxsIGJhY2sgdG8g
-a2VybmVsL3RpbWUvdGljay1icm9hZGNhc3QtaHJ0aW1lci5jLiBNYXliZQogICAgc29tZXRoaW5n
-IGdvZXMgd3JvbmcgdGhlcmU/CiAyKSBUaGUgYnJvYWRjYXN0IHRpbWVyIHdha2VzIHVwIENQVXMg
-dmlhIElQSXMuIE1heWJlIHNvbWV0aGluZyBnb2VzCiAgICB3cm9uZyB3aXRoIElQSSBkZWxpdmVy
-eT8gKFRoaXMgcmFpc2VzIHRoZSBxdWVzdGlvbiBvZiBpZiB3ZSBuZWVkCiAgICBhbm90aGVyIERU
-IHByb3BlcnR5IGZvciByZWNlaXZpbmcgSVBJcyBpbiBub24tcmV0ZW50aXZlIHN1c3BlbmQuKQoK
-QnV0IG5laXRoZXIgb2YgdGhlc2Ugc2hvdWxkIGFmZmVjdCBiZWhhdmlvciB3aGVuIG5vdCB1c2lu
-ZyBicm9hZGNhc3QgdGltZXJzLgoKPiAoaWUsIG9sZCB3b3JrbG9hZHMgYnJlYWsgaW4gb3JkZXIg
-dG8gbWFrZSBuZXcgb25lcyB3b3JrKS7CoCBTZWVtcyBsaWtlCj4gZm9sa3MgbW9zdGx5IGFncmVl
-IG9uIHRoYXQgb25lPwoKV2VsbCwgZm9yIHRoZSBEMSBzcGVjaWZpY2FsbHksIHRoZXJlIGlzIG5v
-IG5ldyB3b3JrbG9hZCB0aGF0IHRoZSBDM1NUT1AKcGF0Y2ggbWFrZXMgd29yay4gTm9uLXJldGVu
-dGl2ZSBzdXNwZW5kIHdvcmtlZCB0aGVyZSBhbHJlYWR5LCBhcyBJIGhhdmUKZXhwbGFpbmVkLiBU
-aGUgcGF0Y2ggd2FzIGFsd2F5cyBhYm91dCBiZWluZyBjb21wbGlhbnQgdG8gdGhlIHNwZWMuCgo+
-IEkgYWxzbyB0aGluayB3ZSBzaG91bGQgc3RvcCBlbnRlcmluZyBub24tcmV0ZW50aXZlIHN1c3Bl
-bmQgdW50aWwgd2UgY2FuCj4gc29ydCBvdXQgaG93IHJlbGlhYmx5IHdha2UgdXAgZnJvbSBpdCwg
-YXMgdGhlIFNCSSBtYWtlcyB0aGF0IGEKPiBwbGF0Zm9ybS1zcGVjaWZpYyBkZXRhaWwuwqAgSWYg
-dGhlIGFuc3dlciB0aGVyZSBpcyAibm9uLXJldGVudGl2ZSBzdXNwZW5kCj4gaXMgZmluZSBvbiB0
-aGUgRDEgYXMgbG9uZyBhcyB3ZSBkb24ndCB1c2UgdGhlIFNCSSB0aW1lcnMiIHRoZW4gdGhhdAo+
-IHNlZW1zIGZpbmUsIHdlIGp1c3QgbmVlZCBzb21lIHdheSB0byBkZXNjcmliZSB0aGF0IGluIExp
-bnV4IC0tIHRoYXQKPiBkb2Vzbid0IGZpeCBvdGhlciBwbGF0Zm9ybXMgYW5kIG90aGVyIGludGVy
-cnVwdHMsIGJ1dCBhdCBsZWFzdCBpdCdzIGEKPiBzdGFydC4KCldlIG5lZWQgc29tZSB3YXkgdG8g
-ZGVzY3JpYmUgdGhlIHNpdHVhdGlvbiBmcm9tIHRoZSBTQkkgaW1wbGVtZW50YXRpb24KdG8gTGlu
-dXguCgpOb24tcmV0ZW50aXZlIHN1c3BlbmQgaXMgZmluZSBvbiB0aGUgRDEgYXMgbG9uZyBhcyBl
-aXRoZXIgb25lIG9mIHRoZXNlCmNvbmRpdGlvbnMgaXMgbWV0OgogMSkgd2UgZG9uJ3QgdXNlIHRo
-ZSBTQkkgdGltZXJzLCBvcgogMikgdGhlIFNCSSB0aW1lciBpbXBsZW1lbnRhdGlvbiBkb2VzIG5v
-dCB1c2UgdGhlIENMSU5UCgpBbmQgaXQgaXMgdXAgdG8gdGhlIFNCSSBpbXBsZW1lbnRhdGlvbiB3
-aGljaCB0aW1lciBoYXJkd2FyZSBpdCB1c2VzLCBzbwp0aGUgU0JJIGltcGxlbWVudGF0aW9uIG5l
-ZWRzIHRvIHBhdGNoIHRoaXMgaW5mb3JtYXRpb24gaW4gdG8gdGhlIERUIGF0CnJ1bnRpbWUuCgpS
-ZWdhcmRzLApTYW11ZWwKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Wed, Nov 23, 2022 at 10:41 AM Samuel Holland <samuel@sholland.org> wrote:
+>
+> Hi Palmer,
+>
+> On 11/22/22 09:28, Palmer Dabbelt wrote:
+> > On Tue, 22 Nov 2022 03:19:43 PST (-0800), conor.dooley@microchip.com wrote:
+> >> On Tue, Nov 22, 2022 at 11:06:15AM +0530, Anup Patel wrote:
+> >>> On Tue, Nov 22, 2022 at 10:46 AM Palmer Dabbelt <palmer@rivosinc.com>
+> >>> wrote:
+> >>> >
+> >>> > On Mon, 21 Nov 2022 19:45:07 PST (-0800), anup@brainfault.org wrote:
+> >>> > > On Tue, Nov 22, 2022 at 2:27 AM Palmer Dabbelt
+> >>> <palmer@rivosinc.com> wrote:
+> >>> > >>
+> >>> > >> From: Palmer Dabbelt <palmer@rivosinc.com>
+> >>> > >>
+> >>> > >> As per [1], whether or not the core can wake up from non-retentive
+> >>> > >> suspend is a platform-specific detail.  We don't have any way to
+> >>> encode
+> >>> > >> that, so just stop using them until we've sorted that out.
+> >>> > >>
+> >>> > >> Link:
+> >>> https://github.com/riscv-non-isa/riscv-sbi-doc/issues/98#issuecomment-1288564687
+> >>> > >> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+> >>> > >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> >>> > >
+> >>> > > This is just unnecessary maintenance churn and it's not the
+> >>> > > right way to go. Better to fix this the right way instead of having
+> >>> > > a temporary fix.
+> >>> > >
+> >>> > > I had already sent-out a patch series 5 months back to describe
+> >>> > > this in DT:
+> >>> > >
+> >>> https://lore.kernel.org/lkml/20220727114302.302201-1-apatel@ventanamicro.com/
+> >>> > >
+> >>> > > No one has commented/suggested anything (except Samuel
+> >>> > > Holland and Sudeep Holla).
+> >>> >
+> >>> > I see some comments from Krzysztof here
+> >>> >
+> >>> <https://lore.kernel.org/lkml/7a0477a0-9f0f-87d6-4070-30321745f4cc@linaro.org/>
+> >>> > as well.  Looks like everyone is pointing out that having our CPU
+> >>> nodes
+> >>> > encode timers is a bad idea, my guess is that they're probably right.
+> >>>
+> >>> Adding a separate timer DT node, creates a new set of compatibility
+> >>> issues for existing platforms. I am fine updating my series to have
+> >>> separate timer DT node but do we want to go in this direction ?
+> >>
+> >> I don't really follow. How is there a compatibility issue created by
+> >> adding a new node that is not added for a new property? Both will
+> >> require changes to the device tree. (You need not reply here, I am going
+> >> to review the other thread, it's been on my todo list for too long. Been
+> >> caught up with non-coherent stuff & our sw release cycle..)
+> >>
+> >>> Even if ARM has a separate timer DT node, the timers are still part
+> >>> of the CPU. It depends on how we see the DT bindings aligning with
+> >>> actual HW.
+> >>>
+> >>> >
+> >>> > > Please review this series. I can quickly address comments to
+> >>> > > make this available for Linux-6.2. Until this series is merged,
+> >>> > > the affected platforms can simply remove non-retentive suspend
+> >>> > > states from their DT.
+> >>> >
+> >>> > That leaves us with a dependency between kernel versions and DT
+> >>> > bindings: kernels with the current driver will result in broken
+> >>> systems
+> >>> > with the non-retentive suspend states in the DT they boot with when
+> >>> > those states can't wake up the CPU.
+> >>
+> >> Can someone point me at a (non D1 or virt) system that has suspend
+> >> states in the DT that would need fixing?
+> >>
+> >>> This is not a new problem we are facing. Even in the ARM world,
+> >>> the DT bindings grew organically over time based on newer platform
+> >>> requirements.
+> >>>
+> >>> Now that we have a platform which does not want the time
+> >>> C3STOP feature, we need to first come-up with DT bindings
+> >>> to support this platform instead of temporarily disabling
+> >>> features which don't work on this platform.
+> >>
+> >> It's the opposite surely? It should be "now that we have a platform that
+> >> *does want* the C3STOP feature", right?
+> >
+> > IMO we just shouldn't be turning on C3STOP at all.  Sure it's making the
+> > problem here go away, but it's trying to emulate a bunch of Intel timer
+> > features we don't have on RISC-V and ending up in a bunch of fallback
+> > paths.
+>
+> While the comment in include/linux/clockchips.h and the name of the flag
+> imply that C3STOP is Intel-specific, it really isn't. The flag is used
+> on ARM, MIPS, and PowerPC as well.
+>
+> However we do it, the end goal here is making tick_broadcast_enter()
+> return nonzero (when called from inside cpuidle_enter_state()), thus
+> inhibiting Linux from using idle states with the "local-timer-stop"
+> property set in the DT.
+>
+> Looking down inside tick_broadcast_oneshot_control(), it appears
+> CLOCK_EVT_FEAT_C3STOP really is required to make this happen.
+>
+> What are you referring to by "fallback paths"?
+>
+> We could add another CLOCK_EVT_FEAT_??? flag, but how should it differ
+> from CLOCK_EVT_FEAT_C3STOP?
+>
+> > If we need some workaround in the timer subsystem to sort out the
+> > non-retentive states then we can sort that out, but my guess is that
+> > vendors are just going to 3
+>
+> (your message got cut off here)
+>
+> >>> > > With all due respect, NACK to this patch from my side.
+> >>
+> >> As Samuel pointed out that the D1 doesn't actually use the timer in
+> >> question, I think we are okay here?
+> >
+> > IIUC it just should use the sunxi timer driver, but that requires some
+> > priority changes (and presumably breaks
+>
+> (and here too)
+>
+> D1 currently uses sun4i_tick (rating 350) over riscv_timer_clockevent
+> (rating 100). The ratings are fine as is.
+>
+> > That said, I guess I'm confused about what's actually broken here.  My
+> > understanding of the problem is: The D1's firmware disables some
+> > interrupts during non-retentive suspend, which results in SBI timers
+> > failing to wake up the core.
+>
+> The D1's hardware cannot deliver the RISC-V architectural timer
+> interrupt while the C906 core is powered off. It cannot deliver the
+> RISC-V architectural external interrupt either, but the SoC provides a
+> side channel for all of the PLIC inputs, so they _can_ wake up the CPU.
+> So the net result is that the CLINT is the only peripheral unable to
+> wake the CPU.
+>
+> > The patch to add C3STOP makes the core
+> > come back from sleep, but that results in a bunch of other timer-related
+> > issues.
+>
+> No, C3STOP _inhibits_ Linux from entering idle states that both:
+>  1) rely on that clockevent device to wake the local CPU, and
+>  2) cause that clockevent device to stop working, as signified by the
+>     CPUIDLE_FLAG_TIMER_STOP flag, which is set by the local-timer-stop
+>     property in the idle state DT node.
+>
+> That means entering the idle state is allowed if Linux can solve that
+> first condition by finding another clockevent device on some other CPU
+> to wake the local CPU with an IPI. That is the purpose of the broadcast
+> timer mechanism.
+>
+> In the case of the D1, since it is single core, there is no other CPU to
+> broadcast a timer event. So if riscv_timer_clockevent is the only
+> clockevent device, then tick_broadcast_enter() should return nonzero,
+> and find_deepest_state() will pick a retentive idle state instead.
+>
+> This is the already-existing mechanism for only entering idle states we
+> can reliably wake up from. :)
+>
+> > So IMO we should revert the C3STOP patch as it's causing regressions
+>
+> I agree that clearly something is going wrong in the Linux code to cause
+> problems on SMP systems like PolarFire. I do not really understand the
+> broadcast timer internals, but what I do know is:
+>  1) By setting CLOCK_EVT_FEAT_C3STOP, we inhibit the RISC-V timer from
+>     being used as the broadcast timer (tick_check_broadcast_device()),
+>     and IIUC fall back to kernel/time/tick-broadcast-hrtimer.c. Maybe
+>     something goes wrong there?
+>  2) The broadcast timer wakes up CPUs via IPIs. Maybe something goes
+>     wrong with IPI delivery? (This raises the question of if we need
+>     another DT property for receiving IPIs in non-retentive suspend.)
+>
+> But neither of these should affect behavior when not using broadcast timers.
+>
+> > (ie, old workloads break in order to make new ones work).  Seems like
+> > folks mostly agree on that one?
+>
+> Well, for the D1 specifically, there is no new workload that the C3STOP
+> patch makes work. Non-retentive suspend worked there already, as I have
+> explained. The patch was always about being compliant to the spec.
+>
+> > I also think we should stop entering non-retentive suspend until we can
+> > sort out how reliably wake up from it, as the SBI makes that a
+> > platform-specific detail.  If the answer there is "non-retentive suspend
+> > is fine on the D1 as long as we don't use the SBI timers" then that
+> > seems fine, we just need some way to describe that in Linux -- that
+> > doesn't fix other platforms and other interrupts, but at least it's a
+> > start.
+>
+> We need some way to describe the situation from the SBI implementation
+> to Linux.
+>
+> Non-retentive suspend is fine on the D1 as long as either one of these
+> conditions is met:
+>  1) we don't use the SBI timers, or
+>  2) the SBI timer implementation does not use the CLINT
+>
+> And it is up to the SBI implementation which timer hardware it uses, so
+> the SBI implementation needs to patch this information in to the DT at
+> runtime.
+
+Rather than SBI implementation patching information in DT, it is much
+simpler to add a quirk in RISC-V timer driver for D1 platform (i.e. based
+on D1 compatible string in root node).
+
+Regards,
+Anup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
