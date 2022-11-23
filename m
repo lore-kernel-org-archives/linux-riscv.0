@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B60C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A30C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 21:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s5sVBTg0nwi3C3BhQrFtakjL0+LnMFdqH4zbUejTGas=; b=yzuIYO9wl8b2DT
-	+rI4hjcFmGrkg/3VUdWTcqWAyo7q5KwF5K5C62lqD89XUuSk8gWaBSBIM3Drf6xPtIazi4qCJmYc1
-	RWcUIS638bxw4D3n7HVIX+1n67qedmgDudfE+Gbn8hVTSyMREyUol1eLxEoQuGrpv/RBR/Qg6U8tx
-	eOGFumI8eMsOsiDyg/NnNu5fVdaU+Qj2Uqg5aG7i5bdUvDhwsBg0eah9SsGNjHQlDjG9AR9bw0pxW
-	nB5Gq8QYNRFXSUYnoGkFgQuKd+vKKBVK6yfsK09vJTUSTZ9bDyjO3cKaP647J5vSWsQ9vS59PHFlV
-	JOMGFoc3Yn34P81+qAdw==;
+	List-Owner; bh=OO0LtsgQt1kERqq+nb2G4dvBbIlYXfS5Fv5IbQ3d53k=; b=46/YXHlxrlLRgn
+	ol8vDnf/B4tX8j1IZUPP6pLLBIsPyPvCEygIEo0dQ4zR4YoRRR/eMh4Lyr7y2m2tDCk4NN2lVt4MO
+	TtQ1T3ioZp0J7cyjDIGVYMO48KAGgMz0NG46aDKnd7wSx4WOE6jBLYiaAE8nG9CF3gqnHBSMa7mYI
+	QlW/IVMg+ecCIeJDGaFfiHhJs1Zu0dCF61Ubk0xNk/upR0/rkBeZm7adNOH8V23mXXDwyRnvDRAZo
+	r4Ks65uDUb5yFT62KPf12OCoKPz2VAg4Y1KWW5K4wQmThqA5cPxSVvGFV6sr1sZDrdQAUbiY5mQRP
+	yveZHeM0v/3DKlmzocLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxxNs-002Wt1-EW; Wed, 23 Nov 2022 21:34:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oxxlQ-002bQf-8h; Wed, 23 Nov 2022 21:58:40 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxxNo-002WsT-N5
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:34:18 +0000
+	id 1oxxlM-002bOx-Jh
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 21:58:38 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EB75961F34;
-	Wed, 23 Nov 2022 21:34:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3D8C433D6;
-	Wed, 23 Nov 2022 21:34:12 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A1ED5B82507;
+	Wed, 23 Nov 2022 21:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF829C433C1;
+	Wed, 23 Nov 2022 21:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669239255;
-	bh=ttMnqx4iEKEd6geGNacCiYRbZj8zxa04+xKggspTI3U=;
+	s=k20201202; t=1669240711;
+	bh=/4n+Spc+ltblmwtJHhvxBgY8u1GVTKc0G55iQgfMppE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pdX0/svkQ/HYg3xS3rH6GcyUNRLwoipJuiIoygPCKDNw+pLtkul/tX757vACpYGtR
-	 MpvHKe6k1Tb+iT91JVu4FK3toFOR4Az9ePc6k0aa94gQ1+ix+KqTbFDrieh+wK/gJc
-	 Ppv9XHefhHc3s2gtDMADjnMc7oHB10KYGHKygBkaeflbErUVlML+bbop6qe7ZG8vFX
-	 Pbu9mvMSPje3BJilqEGydf34aXaSS6QuG2ZDWL0i1b0IT2lvOQS+qHHSu+dByXDIms
-	 qUILaMekxYgX4AkuAZkZBaZRG+7Kf7m/DpCGsCk58TtYVqOOv7PBP4rIZSJqS5fpgZ
-	 aylWlicVQFkXQ==
-Date: Wed, 23 Nov 2022 21:34:10 +0000
+	b=hP++qYrUtKfpPY16ErGKEilq8Mh5rSyLoG2hoX+Ex5QUAvNeKzYF2E/0kemchntJy
+	 NTNxJwEM82TonQJnp7wgLYDln6Zb3U/85dWtE7moUbtcpk+rWa90kvw90HPpHLIVYB
+	 1MrjEY+Ctpz3tuDfhdX7SCLA29fdBn+RTjulxSCPC3WnbznkaTZJs/ELs47sC6DUfT
+	 we2R0RApfTCZ3sSIuse8XnBbwHq96/nmJQe9eu8m7ScLD0RRuVmZqbxNHsNAoJNrhy
+	 DFEG5xUR1TaTBDHtYkJO/Mn6oEE6FVe/gEIjsENem1Y1MUiV6VaSR0gP/ECmndBmrl
+	 jK+h81MRbvonA==
+Date: Wed, 23 Nov 2022 21:58:26 +0000
 From: Conor Dooley <conor@kernel.org>
 To: daire.mcnamara@microchip.com
 Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
@@ -50,17 +50,17 @@ Cc: conor.dooley@microchip.com, robh+dt@kernel.org,
 	palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org,
 	kw@linux.com, bhelgaas@google.com, linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v1 3/9] PCI: microchip: Enable event handlers to access
- bridge and ctrl ptrs
-Message-ID: <Y36R0jXXx6AwrLub@spud>
+Subject: Re: [PATCH v1 4/9] PCI: microchip: Clean up initialisation of
+ interrupts
+Message-ID: <Y36Xgr7NobqA2BCh@spud>
 References: <20221116135504.258687-1-daire.mcnamara@microchip.com>
- <20221116135504.258687-4-daire.mcnamara@microchip.com>
+ <20221116135504.258687-5-daire.mcnamara@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221116135504.258687-4-daire.mcnamara@microchip.com>
+In-Reply-To: <20221116135504.258687-5-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_133416_845569_3631893D 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20221123_135836_961661_E3150C5C 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,107 +77,236 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Daire,
-
-On Wed, Nov 16, 2022 at 01:54:58PM +0000, daire.mcnamara@microchip.com wrote:
+On Wed, Nov 16, 2022 at 01:54:59PM +0000, daire.mcnamara@microchip.com wrote:
 > From: Daire McNamara <daire.mcnamara@microchip.com>
 > 
-> Minor re-organisation so that event handlers can access both a pointer
-> to the bridge area of the PCIe rootport and the ctrl area of the PCIe
-> rootport.
+> Refactor interrupt handling in _init() function into
+> disable_interrupts(), init_interrupts(), clear_sec_errors() and clear
+> ded_errors().  It was unwieldy and prone to bugs. Then clearly disable
+> interrupts as soon as possible and only enable interrupts after address
+> translation errors are setup to prevent spurious axi2pcie and pcie2axi
+              ^^^^^^
+Is that meant to read "after address translation is" or "after address
+translation handling is"?
 
-Perhaps explaining why we would want to access both, when we've not
-needed to so far, would be helpful so that this commit message will make
-sense in isolation would be nice. The mechanics of the change seem good
-to me though:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
+> translation errors being reported
 > 
 > Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  drivers/pci/controller/pcie-microchip-host.c | 31 ++++++++++----------
->  1 file changed, 16 insertions(+), 15 deletions(-)
+>  drivers/pci/controller/pcie-microchip-host.c | 148 ++++++++++++-------
+>  1 file changed, 92 insertions(+), 56 deletions(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
-> index 30153fd1a2b3..a81e6d25e347 100644
+> index a81e6d25e347..ecd4d3f3e3d4 100644
 > --- a/drivers/pci/controller/pcie-microchip-host.c
 > +++ b/drivers/pci/controller/pcie-microchip-host.c
-> @@ -654,9 +654,10 @@ static inline u32 reg_to_event(u32 reg, struct event_map field)
->  	return (reg & field.reg_mask) ? BIT(field.event_bit) : 0;
+> @@ -986,39 +986,65 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
+>  	return 0;
 >  }
 >  
-> -static u32 pcie_events(void __iomem *addr)
-> +static u32 pcie_events(struct mc_pcie *port)
+> -static int mc_platform_init(struct pci_config_window *cfg)
+> +static inline void mc_clear_secs(struct mc_pcie *port)
 >  {
-> -	u32 reg = readl_relaxed(addr);
+> -	struct device *dev = cfg->parent;
+> -	struct platform_device *pdev = to_platform_device(dev);
+> -	struct mc_pcie *port;
+> -	void __iomem *bridge_base_addr;
+> -	void __iomem *ctrl_base_addr;
+> -	int ret;
+> -	int irq;
+> -	int i, intx_irq, msi_irq, event_irq;
 > +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> +	u32 reg = readl_relaxed(ctrl_base_addr + PCIE_EVENT_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -666,9 +667,10 @@ static u32 pcie_events(void __iomem *addr)
->  	return val;
->  }
->  
-> -static u32 sec_errors(void __iomem *addr)
-> +static u32 sec_errors(struct mc_pcie *port)
->  {
-> -	u32 reg = readl_relaxed(addr);
+> +
+> +	writel_relaxed(GENMASK(15, 0), ctrl_base_addr + SEC_ERROR_INT);
+
+I think it'd be nice if the GENMASK()s in this function and below were
+#defined above somewhere.
+
+> +	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
+> +}
+> +
+> +static inline void mc_clear_deds(struct mc_pcie *port)
+> +{
 > +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> +	u32 reg = readl_relaxed(ctrl_base_addr + SEC_ERROR_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -678,9 +680,10 @@ static u32 sec_errors(void __iomem *addr)
->  	return val;
->  }
->  
-> -static u32 ded_errors(void __iomem *addr)
-> +static u32 ded_errors(struct mc_pcie *port)
->  {
-> -	u32 reg = readl_relaxed(addr);
-> +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
-> +	u32 reg = readl_relaxed(ctrl_base_addr + DED_ERROR_INT);
->  	u32 val = 0;
->  	int i;
->  
-> @@ -690,9 +693,10 @@ static u32 ded_errors(void __iomem *addr)
->  	return val;
->  }
->  
-> -static u32 local_events(void __iomem *addr)
-> +static u32 local_events(struct mc_pcie *port)
->  {
-> -	u32 reg = readl_relaxed(addr);
+> +
+> +	writel_relaxed(GENMASK(15, 0), ctrl_base_addr + DED_ERROR_INT);
+> +	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
+> +}
+> +
+> +static void mc_disable_interrupts(struct mc_pcie *port)
+> +{
 > +	void __iomem *bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> +	u32 reg = readl_relaxed(bridge_base_addr + ISTATUS_LOCAL);
->  	u32 val = 0;
->  	int i;
+> +	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+>  	u32 val;
+> -	int err;
 >  
-> @@ -704,15 +708,12 @@ static u32 local_events(void __iomem *addr)
+> -	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> -	if (!port)
+> -		return -ENOMEM;
+> -	port->dev = dev;
+> +	/* ensure ecc bypass is enabled */
+> +	val = ECC_CONTROL_TX_RAM_ECC_BYPASS | ECC_CONTROL_RX_RAM_ECC_BYPASS |
+> +		ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS | ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS;
+
+Pedantic maybe, but could we format this as:
+		ECC_CONTROL_TX_RAM_ECC_BYPASS |
+		ECC_CONTROL_RX_RAM_ECC_BYPASS |
+		ECC_CONTROL_PCIE2AXI_RAM_ECC_BYPASS |
+		ECC_CONTROL_AXI2PCIE_RAM_ECC_BYPASS;
+And the same below for the PCIE_EVENT_FOO stuff, I think it'd make
+things a bit easier on the eye.
+
+Anyways, SEC and DED stuff that I usually see on startup are gone - at
+least on the setup I have :)
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+> +	writel_relaxed(val, ctrl_base_addr + ECC_CONTROL);
 >  
->  static u32 get_events(struct mc_pcie *port)
->  {
-> -	void __iomem *bridge_base_addr =
-> -		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
-> -	void __iomem *ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
->  	u32 events = 0;
+> -	ret = mc_pcie_init_clks(dev);
+> -	if (ret) {
+> -		dev_err(dev, "failed to get clock resources, error %d\n", ret);
+> -		return -ENODEV;
+> -	}
+> +	/* disable sec errors and clear any outstanding */
+> +	writel_relaxed(GENMASK(15, 0), ctrl_base_addr + SEC_ERROR_INT_MASK);
+> +	mc_clear_secs(port);
 >  
-> -	events |= pcie_events(ctrl_base_addr + PCIE_EVENT_INT);
-> -	events |= sec_errors(ctrl_base_addr + SEC_ERROR_INT);
-> -	events |= ded_errors(ctrl_base_addr + DED_ERROR_INT);
-> -	events |= local_events(bridge_base_addr + ISTATUS_LOCAL);
-> +	events |= pcie_events(port);
-> +	events |= sec_errors(port);
-> +	events |= ded_errors(port);
-> +	events |= local_events(port);
+> -	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+> -	if (IS_ERR(port->axi_base_addr))
+> -		return PTR_ERR(port->axi_base_addr);
+> +	/* disable ded errors and clear any outstanding */
+> +	writel_relaxed(GENMASK(15, 0), ctrl_base_addr + DED_ERROR_INT_MASK);
+> +	mc_clear_deds(port);
 >  
->  	return events;
+> -	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> -	ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> +	/* disable local interrupts and clear any outstanding */
+> +	writel_relaxed(0, bridge_base_addr + IMASK_LOCAL);
+> +	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_LOCAL);
+> +	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_MSI);
+> +
+> +	/* disable PCIe events and clear any outstanding */
+> +	val = PCIE_EVENT_INT_L2_EXIT_INT | PCIE_EVENT_INT_HOTRST_EXIT_INT |
+> +	      PCIE_EVENT_INT_DLUP_EXIT_INT | PCIE_EVENT_INT_L2_EXIT_INT_MASK |
+> +	      PCIE_EVENT_INT_HOTRST_EXIT_INT_MASK |
+> +	      PCIE_EVENT_INT_DLUP_EXIT_INT_MASK;
+> +	writel_relaxed(val, ctrl_base_addr + PCIE_EVENT_INT);
+> +
+> +	/* disable host interrupts and clear any outstanding */
+> +	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
+> +	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+> +}
+> +
+> +static int mc_init_interrupts(struct platform_device *pdev, struct mc_pcie *port)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	int irq;
+> +	int i, intx_irq, msi_irq, event_irq;
+> +	int ret;
+>  
+> -	port->msi.vector_phy = MSI_ADDR;
+> -	port->msi.num_vectors = MC_NUM_MSI_IRQS;
+>  	ret = mc_pcie_init_irq_domains(port);
+>  	if (ret) {
+>  		dev_err(dev, "failed creating IRQ domains\n");
+> @@ -1036,11 +1062,11 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  			return -ENXIO;
+>  		}
+>  
+> -		err = devm_request_irq(dev, event_irq, mc_event_handler,
+> +		ret = devm_request_irq(dev, event_irq, mc_event_handler,
+>  				       0, event_cause[i].sym, port);
+> -		if (err) {
+> +		if (ret) {
+>  			dev_err(dev, "failed to request IRQ %d\n", event_irq);
+> -			return err;
+> +			return ret;
+>  		}
+>  	}
+>  
+> @@ -1065,44 +1091,54 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  	/* Plug the main event chained handler */
+>  	irq_set_chained_handler_and_data(irq, mc_handle_event, port);
+>  
+> -	/* Hardware doesn't setup MSI by default */
+> -	mc_pcie_enable_msi(port, cfg->win);
+> +	return 0;
+> +}
+>  
+> -	val = readl_relaxed(bridge_base_addr + IMASK_LOCAL);
+> -	val |= PM_MSI_INT_INTX_MASK;
+> -	writel_relaxed(val, bridge_base_addr + IMASK_LOCAL);
+> +static int mc_platform_init(struct pci_config_window *cfg)
+> +{
+> +	struct device *dev = cfg->parent;
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct mc_pcie *port;
+> +	void __iomem *bridge_base_addr;
+> +	void __iomem *ctrl_base_addr;
+> +	int ret;
+>  
+> -	writel_relaxed(val, ctrl_base_addr + ECC_CONTROL);
+> +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> +	if (!port)
+> +		return -ENOMEM;
+> +	port->dev = dev;
+>  
+> -	val = PCIE_EVENT_INT_L2_EXIT_INT |
+> -	      PCIE_EVENT_INT_HOTRST_EXIT_INT |
+> -	      PCIE_EVENT_INT_DLUP_EXIT_INT;
+> -	writel_relaxed(val, ctrl_base_addr + PCIE_EVENT_INT);
+> +	ret = mc_pcie_init_clks(dev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to get clock resources, error %d\n", ret);
+> +		return -ENODEV;
+> +	}
+>  
+> -	val = SEC_ERROR_INT_TX_RAM_SEC_ERR_INT |
+> -	      SEC_ERROR_INT_RX_RAM_SEC_ERR_INT |
+> -	      SEC_ERROR_INT_PCIE2AXI_RAM_SEC_ERR_INT |
+> -	      SEC_ERROR_INT_AXI2PCIE_RAM_SEC_ERR_INT;
+> -	writel_relaxed(val, ctrl_base_addr + SEC_ERROR_INT);
+> -	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_INT_MASK);
+> -	writel_relaxed(0, ctrl_base_addr + SEC_ERROR_EVENT_CNT);
+> +	port->axi_base_addr = devm_platform_ioremap_resource(pdev, 1);
+> +	if (IS_ERR(port->axi_base_addr))
+> +		return PTR_ERR(port->axi_base_addr);
+>  
+> -	val = DED_ERROR_INT_TX_RAM_DED_ERR_INT |
+> -	      DED_ERROR_INT_RX_RAM_DED_ERR_INT |
+> -	      DED_ERROR_INT_PCIE2AXI_RAM_DED_ERR_INT |
+> -	      DED_ERROR_INT_AXI2PCIE_RAM_DED_ERR_INT;
+> -	writel_relaxed(val, ctrl_base_addr + DED_ERROR_INT);
+> -	writel_relaxed(0, ctrl_base_addr + DED_ERROR_INT_MASK);
+> -	writel_relaxed(0, ctrl_base_addr + DED_ERROR_EVENT_CNT);
+> +	mc_disable_interrupts(port);
+>  
+> -	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
+> -	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+> +	bridge_base_addr = port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> +	ctrl_base_addr = port->axi_base_addr + MC_PCIE_CTRL_ADDR;
+> +
+> +	port->msi.vector_phy = MSI_ADDR;
+> +	port->msi.num_vectors = MC_NUM_MSI_IRQS;
+> +
+> +	/* Hardware doesn't setup MSI by default */
+> +	mc_pcie_enable_msi(port, cfg->win);
+>  
+>  	/* Configure Address Translation Table 0 for PCIe config space */
+>  	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
+>  			     cfg->res.start, resource_size(&cfg->res));
+>  
+> -	return mc_pcie_setup_windows(pdev, port);
+> +	ret = mc_pcie_setup_windows(pdev, port);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* address translation is up; safe to enable interrupts */
+> +	return mc_init_interrupts(pdev, port);
 >  }
+>  
+>  static const struct pci_ecam_ops mc_ecam_ops = {
 > -- 
 > 2.25.1
 > 
