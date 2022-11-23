@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A29D3C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 13:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EFAC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 13:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l0h3g8TeiAXu6wWUwF6ISMmUwIMAbfxYGBxiTMyV8rM=; b=fc5ROwwBxkq2f2
-	oy2ddA98ZVXdkYNFZNHCk21UVfYeohCLC6lz7KtLacTr2Yc4QkcwWc1fLM10AbUtq4KvRpFPnpghF
-	8RfdSjEODThYzNkwsXjr0OuF8EWJO1iBDamLm87yHlpj3TqOnPxVl1vsEOVwyzuvn0OLVI0XGMl5B
-	QZZLWnGdxUfd96YAwutGDRO7nDDbuMqmYE1i16a6qEUiitvsMM++CuQ8Yr4RER+spv9oxowy2yHdN
-	DCN8IagYodX2PityUEcMLWcOES0+kdF1QSgRns0/WX3AemGhUB1kQeUrdwNczNkGITg/iXMYpcxCY
-	7N44uO5PTE0Gu0xHUzbQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K9tCLDXRS7bwUomUG8wWkO6ksCNNK2l0EU9HcAchwP4=; b=n4Qdpb/7t1AkF7K0D+gSjUR35e
+	YAxadXwLh72/+8TSjUdVuPLLO1UxHN+nFIcYCltGAHzhBg46JyhofnyQwTS4Ok77cjHnTsb/UGWak
+	0PQK/cSq5j23ZyF8q4+vqMwGpk5d9J++PzA/K3Xquyxi+2eW/2PwZhMfzjAh5CaAP3Rqwtc5BaS78
+	GYP0SRFiP3VtgCR4dPPtm04FyGVTkLDqvN8f/EiPEywteJwgyVIFLEobim+l/lcmYQVc9Y4JECItd
+	4NGdWqVdqqnTrQ88Rhl8OlvIoo9xvoFNgszOREtrIKc/R02zjsLSTXZNZ/vODcKCRLITCaSWz1wxn
+	X1Cdd6qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxpvn-00HIKx-2R; Wed, 23 Nov 2022 13:36:51 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1oxqAl-00HNsL-PE; Wed, 23 Nov 2022 13:52:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxpvc-00HIFt-9I
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 13:36:41 +0000
-Received: by mail-wm1-x330.google.com with SMTP id t25-20020a1c7719000000b003cfa34ea516so2769296wmi.1
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Nov 2022 05:36:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hMgYAJPhRyqpy0UXUjrB3ea5pmGtcKs5Fqde6i7Nj3I=;
-        b=SW/c4hJbN8TTlANr3vNJK5slrOe41QSdJUahynWVeaw6FftkA/D1M969Dg4QQXXFV6
-         GR2ncUeFn5gUnpSLm6ukuUfqPRt8Ca4GwFzVx9Kdzq5hv9btgU1O4mgNhNWS120gfd4E
-         hzaahcWhaeXT2YCmHJla7yl6H+7EiZUPOEHwDL2bfk0rgRD23d+NsVTa20B/jl47MT0K
-         ibpDPRWjVRGb0nAkvvNu8cHQ10x6ukbxL0Ju/cGV7YIkfjWS3aFRog5lEI72USAC78W/
-         Z9tLCNOjeOpkptob1pUoV036dzwMl4nLBstCpxxDpTnNFL8FxohNFTje5WAaqKKOv9Bn
-         GBSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hMgYAJPhRyqpy0UXUjrB3ea5pmGtcKs5Fqde6i7Nj3I=;
-        b=UoUgYjjnYr1UAXrCllAmbLQWU9wFaaLC+qqEryCnCmP9PuuNrVX7P1olAKDgwPsLbv
-         JAPaqUDWnbPmX34blYdNigpKX/WHnE8P9AwDbQmUfApRXebzLECWrUtzMdA6w0438mEn
-         nunS8QY6TWv4xihqHa6mQ48LDn3fjw7zyXRPyGZ/v0MAhax664mWe+eQrRF30xyvXsrR
-         WO6i+hm560LNOzPhjtigiijaiJzMFZa5XC/XF/nf82YFY9DnLYduCgMdy9W/DpLuVAT+
-         eePm1uvG8jTzB66ab/va1iSypB67FxQtQBc3fRME2pfZdnijXmUzRvtMj94x+zvCvcPf
-         aYFQ==
-X-Gm-Message-State: ANoB5pl+aHAy4ncN1yM1+YK9PcTPGSZeGw1ckJkC1NE33bh6SPcvfnue
-	hFeGqHT10Su68l9u+yFrg6QQRA==
-X-Google-Smtp-Source: AA0mqf53LRFa5Bbp5he9If0mv7pYNlmgIJ7+W+KuA3BYsVtGKFjDhkCi0Sb0k6NCu1LaVjh9Ww7qBw==
-X-Received: by 2002:a05:600c:1ca4:b0:3cf:7125:fc1d with SMTP id k36-20020a05600c1ca400b003cf7125fc1dmr6594039wms.70.1669210598097;
-        Wed, 23 Nov 2022 05:36:38 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id h17-20020a05600c315100b003cf483ee8e0sm2511573wmo.24.2022.11.23.05.36.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Nov 2022 05:36:37 -0800 (PST)
-Date: Wed, 23 Nov 2022 14:36:36 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Guo Ren <guoren@kernel.org>, kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC 5/9] RISC-V: KVM: Add skeleton support for perf
-Message-ID: <20221123133636.gke3626aolfrnevy@kamzik>
-References: <20220718170205.2972215-1-atishp@rivosinc.com>
- <20220718170205.2972215-6-atishp@rivosinc.com>
- <20221101141329.j4qtvjf6kmqixt2r@kamzik>
- <CAOnJCULMbTp6WhVRWHxzFnUgCJJV01hcyukQxSEih-sYt5TJWg@mail.gmail.com>
- <CAOnJCUKpdV3u8X6BSC+-rhV0Q8q2tdsa8r_KTH5FWCh2LV2q8Q@mail.gmail.com>
+	id 1oxqAD-00HNbl-1x; Wed, 23 Nov 2022 13:51:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8D4C061CB0;
+	Wed, 23 Nov 2022 13:51:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B70F3C433D6;
+	Wed, 23 Nov 2022 13:51:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669211504;
+	bh=yn6IQg9xUUV9CgWL40Zq6y52rg1mn5sa8oD03o5v7Xs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UKfpNKKUztgIyNLf4JyG/Wh9x1SnC70ZZ6CMkTeLD14mkOzGlAm4+qghDz9TTaJEY
+	 oavU1DO373ElaIHQhIEpVZi9OKHf+AB7y5AZ3a0QM4K6Mda5mlxZI6uj77Y+34o3+z
+	 tC1+zaqNCkF1IRGWjNnvY9xTloZLlUjIwvwDNzzHVs6iAjJgjo18LVCElB+Z+suDGy
+	 RWQBO44v5C47KQUPl5LJXsrQ6VqWTj1W9The96h2CM4sfIP1b0DOy3ZhTq1Wp6bXDL
+	 C50DRWElKcd6PEaRVrgU5hEWY/A3MmvIZ+aqD+I2bHVUKaydHWSJ+FVF1rDhM8vyJp
+	 Av8NqbWSqNyRA==
+Date: Wed, 23 Nov 2022 13:51:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
+	linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
+	netdev@vger.kernel.org, linux-can@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
+	alsa-devel@alsa-project.org, linux-spi@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-watchdog@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: Re: [PATCH v2 1/9] dt-bindings: drop redundant part of title of
+ shared bindings
+Message-ID: <Y34lZFSBEwuI6G+a@sirena.org.uk>
+References: <20221121110615.97962-1-krzysztof.kozlowski@linaro.org>
+ <20221121110615.97962-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOnJCUKpdV3u8X6BSC+-rhV0Q8q2tdsa8r_KTH5FWCh2LV2q8Q@mail.gmail.com>
+In-Reply-To: <20221121110615.97962-2-krzysztof.kozlowski@linaro.org>
+X-Cookie: I'm rated PG-34!!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_053640_329536_AAC01B36 
-X-CRM114-Status: GOOD (  16.99  )
+X-CRM114-CacheID: sfid-20221123_055145_166476_AD35A072 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +92,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2348290735776820214=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-...
-> > > > -     csr_write(CSR_HCOUNTEREN, -1UL);
-> > > > +     /* VS should access only TM bit. Everything else should trap */
-> > > > +     csr_write(CSR_HCOUNTEREN, 0x02);
-> > >
-> > > This looks like something that should be broken out into a separate patch
-> > > with a description of what happens now when guests try to access the newly
-> > > trapping counter registers. We should probably also create a TM define.
-> > >
-> >
-> > Done.
-> >
-> 
-> As we allow cycles & instret for host user space now [1], should we do the same
-> for guests as well ? I would prefer not to but same user space
-> software will start to break
-> they will run inside a guest.
-> 
-> https://lore.kernel.org/all/20220928131807.30386-1-palmer@rivosinc.com/
->
 
-Yeah, it seems like we should either forbid access to unprivileged users
-or ensure the numbers include some random noise. For guests, a privileged
-KVM userspace should need to explicitly request access for them, ensuring
-that the creation of privileged guests is done by conscious choice.
+--===============2348290735776820214==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sez8m7aAndejrS5d"
+Content-Disposition: inline
 
-Thanks,
-drew
+
+--sez8m7aAndejrS5d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Nov 21, 2022 at 12:06:07PM +0100, Krzysztof Kozlowski wrote:
+> The Devicetree bindings document does not have to say in the title that
+> it is a "binding", but instead just describe the hardware.  For shared
+> (re-usable) schemas, name them all as "common properties".
+
+Acked-by: Mark Brown <broonie@kernel.org>
+
+--sez8m7aAndejrS5d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmN+JWMACgkQJNaLcl1U
+h9CJ0gf/ajSRpLgN3RoHR7wLxFr99y5vWRywVoOaKU+lLq3UY2O6a9ssY8wOblzx
+J9LbUP4Acep2fofTZCX1Ks2sTUHXNBB95SaeCwpSD/MX2HltHr0QvTGh8Lc9EfRf
+f4l/ayjov4DbVsOJ019O7MKSgyuKezLb6Rj/5S38OrqdREbbzDoFe2ah8rSxpA8m
+OQPEsY4eAbVfELEo/JQ86QYXN8gT6p3qA0+8IxDb0D+iLi3JCIz3GTrn+ZCudWRS
+DkbD00vhGbeEaAbI/ufYp/KUWT0wfIoONENSAdGhmGMd+deqbmOt1Ryt+YoEt49j
+pRMeSDCxuBZIpBjQfw7H+5ofOT8jsg==
+=hoZL
+-----END PGP SIGNATURE-----
+
+--sez8m7aAndejrS5d--
+
+
+--===============2348290735776820214==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2348290735776820214==--
+
