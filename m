@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20A6C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 18:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D76AC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Nov 2022 19:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yyXeQRHSeMFLFNWsl9elwRaKawAHhQh1YrjguSdWEsc=; b=oGScxbpH75tgXm
-	ISoK19/lI/+L7KDGUMSSDaQgdYFruuLe0K6WqLxb9ShmEAbSDMT/6xBWKTtpFBXkEW4pxTJ0jlfyf
-	KVKhMyZQj1M6/P+pKSzjXsC/5CtLB6na4QodTqKgx3jECVWK4Rj1swBLNYtXdd4yuPxmy45AzgLjo
-	VDhzFEMzMDK5nhD9h3wnDNYPIYtIXwkAIlQZSGBcsphCJI9p/5+9ywdT6IOvXIst5L6EqpEmRBoXS
-	qTpwKRMzyboCeidA6qDU1j/D50OblyhL1FOh33D6eDAaiJKaW4fYD4s++IgRslH9gu66QjtNgODn/
-	u7eGersziUeGMgf+kuRA==;
+	List-Owner; bh=bTZxFo2r1U97x6x7mmOOMSQZHt+WDg1ke21I0hOwESs=; b=ZmLn6YeB7L3UqZ
+	rDq2WA1aOXM7gLQT8ap7qlqVVLrzPzXkyUOU4WLfUWvhzcHI477N3ONbz6fYJo1PI2MFQxQk2j9bI
+	NrbsFFFBh8PO8md2r1ALbgnnsquccSyfrAi2WbIcY4wn84uQIBNlJYHrAx/r9pp1B9xqbZS40e3yz
+	/ohyh05aGi927Ez5nOa47yf6PW5zch3oj9gWNJk5hm/bE5sWUdI2nllSl6GIxqGZaUBOYESldXZSy
+	7DE2/qMNBdN1K6JE0/O11qA5tfqSynAIcovYWkyv5FRRYuZ4zRez/Jr+jwbxnnfjUatNn9GxORhn3
+	JCdLIDhqom5Mlgw08O/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxua0-001fSv-Hm; Wed, 23 Nov 2022 18:34:40 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oxvBM-001uAa-GJ; Wed, 23 Nov 2022 19:13:16 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oxuYH-001elM-Jq
-	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 18:32:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669228374; x=1700764374;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=nNJj4/SNlznTLYes66f3xfwnOOogTO0GLozcvfHLa+E=;
-  b=YtEeewIUT4nZ/NSN9c4qEKSOdbCb5z/JhRN3rXsG2PFyzscg12xcJPWe
-   Z9IxLsNJ755uMtq/EAxeHSCO5WvaMgq7CjZ9MaA0nGWoahMtRJMmrL19V
-   6fDC98FUrLTtynsfNcs6Vs/AgkUf1PNSJHDyvTk2UniZD4e8RygrOPX2m
-   guqjorolWmRY6zeyBgX+Qi/hgQ3KUhFYUNuQbY73nkdWVdh/WXZh3uSBU
-   RaeqKpZyi90M2QB0vWuu8kWQ8Y8pmk/XZJzTgmBflglKN3ZzDA0ZWuetq
-   z2lEPRIOOfqmfqWd+MSME2hrwfH9YTp6ett9RMSdx/jdGtBmS0RGCVx29
-   g==;
-X-IronPort-AV: E=Sophos;i="5.96,187,1665471600"; 
-   d="scan'208";a="184837932"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 23 Nov 2022 04:50:13 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 23 Nov 2022 04:49:48 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 23 Nov 2022 04:49:45 -0700
-Date: Wed, 23 Nov 2022 11:49:28 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Samuel Holland <samuel@sholland.org>
-CC: Anup Patel <anup@brainfault.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>, Anup Patel <apatel@ventanamicro.com>, Rob
- Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Andrew
- Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add optional DT property
- riscv,timer-can-wake-cpu
-Message-ID: <Y34IyMroJA6TfrKN@wendy>
-References: <20220727114302.302201-1-apatel@ventanamicro.com>
- <20220727114302.302201-2-apatel@ventanamicro.com>
- <372e37bf-ac90-c371-ad9e-b9c18e1cc059@linaro.org>
- <CAK9=C2WjU+2cD7UZbja3TT++KCdRyWroT=50dw=fzi5mX30rcw@mail.gmail.com>
- <7a0477a0-9f0f-87d6-4070-30321745f4cc@linaro.org>
- <CAAhSdy20p5bkVanKGkGyArn94hWJhwncztnX7U+4WkN9-v7NsA@mail.gmail.com>
- <Y3zjQXqEHsaoVVvf@wendy>
- <2b329306-9706-7156-ad18-b87e4da666d9@sholland.org>
+	id 1oxvBJ-001tz0-1H
+	for linux-riscv@lists.infradead.org; Wed, 23 Nov 2022 19:13:14 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-14286d5ebc3so18612271fac.3
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Nov 2022 11:12:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=xYNUdKeKDvT8mT9/ZHcNVoishfiUIhq0BFNbiLz19yA=;
+        b=GkcQ4aDShxTS/4JJ20x52W1asLWeep8pqcGzmv6Dc8t7/RytG/dgK1GAiBGHIoG7Jx
+         tczb1a1x73VjicRSW1kWfAi31UZ5tUgBU0ZUXf248ak/5xaTu+LFg6f8dW57NDqJBuJh
+         1wIhteLDo9cI+ZCcHbud0ARTw2Hdq39z3Dw1o=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xYNUdKeKDvT8mT9/ZHcNVoishfiUIhq0BFNbiLz19yA=;
+        b=peBrPmeWIGq2o9UVqGD89bbB+8xVtlrcjMQIXc+Losk+rS4tADYda7d4uIHMu73h9V
+         FrUC3VHnzOm9FjB3A90glyPx8MnUoouQoIxDi1wFeVwG3JR5RHsf2E24/9GGODH2F/8i
+         Uca6vfdFNK1tTvJ71eMRMXOgBBLy6cfdfoZdA45kLTVGqXN6evfX0HWQbJIoChK9miv9
+         zqnPIZf0q8rEx4HYdyxXE8f24DZV8lmVLVzbmfGMkhUqiBzGhjiKS7GyVMBQ3e8ayBbl
+         n2hSCmIa4PcLW/TGLhtjHsqhDy6VOPmlvMbJ/r8/d/4coNhJBiCtG8e703EoPI2+uL+9
+         GVOg==
+X-Gm-Message-State: ANoB5pn9U1kar4kMFfVHXM3Y8aqcUllTrGJ4r8dFQPAkn4uYDWvlaYU0
+	p9J2F6l1HrpTfAefBbuVK+waNsPG2Cez9jQKzkBR
+X-Google-Smtp-Source: AA0mqf6d8vQn5ev/ye6UXLq4CqtVLPskx6ulLg13YkrxhwLoJns2WzFhIK+fFbFPYH268AZACOKu9GGMmCXIwqcrxa4=
+X-Received: by 2002:a05:6870:60a4:b0:132:79b1:f85 with SMTP id
+ t36-20020a05687060a400b0013279b10f85mr8030534oae.274.1669230765966; Wed, 23
+ Nov 2022 11:12:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2b329306-9706-7156-ad18-b87e4da666d9@sholland.org>
+References: <20221121133303.1782246-1-alexghiti@rivosinc.com> <CAJM55Z8+QyYKEwnMia2wjg+uYYnB=J40oSU8yDxoKm8Se+TnVA@mail.gmail.com>
+In-Reply-To: <CAJM55Z8+QyYKEwnMia2wjg+uYYnB=J40oSU8yDxoKm8Se+TnVA@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 23 Nov 2022 11:12:35 -0800
+Message-ID: <CAOnJCUKd+aUDc8a8xQO6sxViWwEp6-fDhJqAjt+ZfsipPFSJ0g@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Sync efi page table's kernel mappings before switching
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, linux-efi@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_103253_750066_91C2D6B5 
-X-CRM114-Status: GOOD (  44.54  )
+X-CRM114-CacheID: sfid-20221123_111313_097144_8F9CDC37 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,115 +85,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Samuel,
+On Wed, Nov 23, 2022 at 9:19 AM Emil Renner Berthing
+<emil.renner.berthing@canonical.com> wrote:
+>
+> Hi Alexandre,
+>
+> On Mon, 21 Nov 2022 at 14:33, Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+> >
+> > The EFI page table is initially created as a copy of the kernel page table.
+> > With VMAP_STACK enabled, kernel stacks are allocated in the vmalloc area:
+> > if the stack is allocated in a new PGD (one that was not present at the
+> > moment of the efi page table creation or not synced in a previous vmalloc
+> > fault), the kernel will take a trap when switching to the efi page table
+> > when the vmalloc kernel stack is accessed, resulting in a kernel panic.
+> >
+> > Fix that by updating the efi kernel mappings before switching to the efi
+> > page table.
+> >
+> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+>
+> Thanks for the patch! With this applied on the Ubuntu 5.19 kernel I
+> can enable CONFIG_VMAP_STACK and cat /sys/firmware/efi/efivars/* on
+> the Unmatched without locking up. So
+>
+> Tested-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+>
+> > ---
+> >  arch/riscv/include/asm/efi.h     |  6 +++++-
+> >  arch/riscv/include/asm/pgalloc.h | 11 ++++++++---
+> >  2 files changed, 13 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
+> > index f74879a8f1ea..e229d7be4b66 100644
+> > --- a/arch/riscv/include/asm/efi.h
+> > +++ b/arch/riscv/include/asm/efi.h
+> > @@ -10,6 +10,7 @@
+> >  #include <asm/mmu_context.h>
+> >  #include <asm/ptrace.h>
+> >  #include <asm/tlbflush.h>
+> > +#include <asm/pgalloc.h>
+> >
+> >  #ifdef CONFIG_EFI
+> >  extern void efi_init(void);
+> > @@ -20,7 +21,10 @@ extern void efi_init(void);
+> >  int efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md);
+> >  int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md);
+> >
+> > -#define arch_efi_call_virt_setup()      efi_virtmap_load()
+> > +#define arch_efi_call_virt_setup()      ({             \
+> > +               sync_kernel_mappings(efi_mm.pgd);       \
+> > +               efi_virtmap_load();                     \
+> > +       })
+> >  #define arch_efi_call_virt_teardown()   efi_virtmap_unload()
+> >
+> >  #define ARCH_EFI_IRQ_FLAGS_MASK (SR_IE | SR_SPIE)
+> > diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+> > index 947f23d7b6af..59dc12b5b7e8 100644
+> > --- a/arch/riscv/include/asm/pgalloc.h
+> > +++ b/arch/riscv/include/asm/pgalloc.h
+> > @@ -127,6 +127,13 @@ static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+> >  #define __p4d_free_tlb(tlb, p4d, addr)  p4d_free((tlb)->mm, p4d)
+> >  #endif /* __PAGETABLE_PMD_FOLDED */
+> >
+> > +static inline void sync_kernel_mappings(pgd_t *pgd)
+> > +{
+> > +       memcpy(pgd + USER_PTRS_PER_PGD,
+> > +              init_mm.pgd + USER_PTRS_PER_PGD,
+> > +              (PTRS_PER_PGD - USER_PTRS_PER_PGD) * sizeof(pgd_t));
+> > +}
+> > +
+> >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> >  {
+> >         pgd_t *pgd;
+> > @@ -135,9 +142,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> >         if (likely(pgd != NULL)) {
+> >                 memset(pgd, 0, USER_PTRS_PER_PGD * sizeof(pgd_t));
+> >                 /* Copy kernel mappings */
+> > -               memcpy(pgd + USER_PTRS_PER_PGD,
+> > -                       init_mm.pgd + USER_PTRS_PER_PGD,
+> > -                       (PTRS_PER_PGD - USER_PTRS_PER_PGD) * sizeof(pgd_t));
+> > +               sync_kernel_mappings(pgd);
+> >         }
+> >         return pgd;
+> >  }
+> > --
+> > 2.37.2
+> >
 
-On Tue, Nov 22, 2022 at 11:43:04PM -0600, Samuel Holland wrote:
-> On 11/22/22 08:57, Conor Dooley wrote:
-> >> If we add a timer DT node now
-> >> then we have to deal with compatibility for existing platforms.
-> > 
-> > In terms of what to encode in a DT, and given the spec never says that
-> > the timer interrupt must arrive during suspend, we must assume, by
-> > default, that no timer events arrive during suspend.
-> > 
-> > We have a bunch of existing platforms that may (do?) get timer events
-> > during suspend, the opposite of the proposed default behaviour.
-> > 
-> > I'm trying to follow the line of reasoning but I fail to see how taking
-> > either the property or node approach allows us to maintain behaviour for
-> > exiting platforms that that do see timer events during suspend without
-> > adding *something* to the DT. No matter what we add, we've got some sort
-> > of backwards compatibility issue, right?
-> 
-> In the absence of bugs/limitations in Linux timer code (like the ones
-> you are seeing on PolarFire), the backwards compatibility issue with
-> setting C3STOP by default is that non-retentive idle states will be
-> ignored unless:
->  1) the DT property is added (i.e. firmware upgrade), or
->  2) some other timer driver is available.
-> No other behavior should be affected.
+Thanks for the fix. With the correct Fixes tag in commit description:A
 
-Aye, which I think is fine, in the context of platforms supported by
-upstream Linux. Right now, nothing in-tree seems to use idle states:
-- the SiFive stuff is more demo than anything
-- we've not really got to that point with our reference PolarFire stuff
-  (although I can't speak for any customers)
-- the K210 is a toy (sorry Damien!)
-- the StarFive lads have moved on to the jh7110
-- the D1 (although it's not an in-tree config) needs C3STOP by default,
-  so its behaviour is positively affected.
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
-If there's someone with an out-of-tree idle config, there's not really
-much that we can do about it?
 
-> On the other hand, if C3STOP defaults to off, then the backwards
-> compatibility issue concerns platforms that can currently boot Linux,
-> but which cannot use cpuidle because they need the flag. If they were to
-> upgrade their firmware, and Linux is provided a DTB that includes both
-> idle states and the property, these platforms would unexpectedly fail to
-> boot. (They would enter an idle state and never wake up.)
-> 
-> Assuming no such platforms exist, then it would actually be better to
-> default C3STOP to off.
-
-Yeah, *assuming* no such platforms exist I agree - but the D1 is one of
-such platforms (albeit in a specific configuration) so I think we have
-to default C3STOP to on.
-
-> Now, this says nothing about how the property should be named -- we can
-> set C3STOP based on the absence of a property, just as easily as we can
-> clear C3STOP based on the presence of a property.
-> 
-> > I noted the above:
-> > 
-> >> Since, there is no dedicated timer node, we use CPU compatible string
-> >> for probing the per-CPU timer.
-> > 
-> > If we could rely on the cpu compatible why would we need to add a
-> > dt-property anyway? Forgive my naivety here, but is the timer event in
-> > suspend behaviour not a "core complex" level attribute rather than a
-> > something that can be consistently determined by the cpu compatible?
-> 
-> I do not support using either the CPU compatible (not specific enough)
-> or the board compatible (too many to list, but still not specific
-> enough). Consider that not all CPUs in a system may need this property.
-
-Yeah, I was just trying to understand where Anup was coming from and
-teasing out the different bits of logic. I do not think that using the
-CPU compatible is a good idea - my understanding was that how a CPU with
-a given compatible is integrated into a core complex determines which
-timer (or interrupt etc) is capable of what.
-
-> > Either way, we need to figure out why enabling C3STOP is causing other
-> > timer issues even when we are not in some sort of sleep state & do
-> > something about that - or figure out some different way to communicate
-> > the behavioural differences.
-> > I would expect timers to continue working "normally" with the flag set,
-> > even if how they work is subtly different?
-> 
-> Definitely agree here. My intention was not to affect anything other
-> than cpuidle behavior.
-> 
-> > On a D1, with the C3STOP "feature" flag set, and it's custom timer
-> > implementation unused, how do timers behave?
-> 
-> D1 is uniprocessor, so I build with CONFIG_SMP=n. In this case,
-> CONFIG_GENERIC_CLOCKEVENTS_BROADCAST=n, and thus
-> __tick_broadcast_oneshot_control() returns -EBUSY, forcing
-> cpuidle_enter_state() to choose a retentive idle state.
-
-Right & that makes sense for someone building a D1 focused kernel (and
-is what I do for my Nezha IIRC) but if someone builds a multiplatform
-kernel you're going to end up with CONFIG_SMP=y (but I'd imagine that in
-that scenario they'll have the sunxi,foo-timer's driver enabled). At
-this point, it's something I should go and dig out my board for though..
-
-I was mainly just curious if the D1 also exhibits the borked timer
-behaviour that I see.
-
-Thanks again Samuel,
-Conor.
-
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
