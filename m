@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C62C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 15:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C3AC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 15:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nKbwCqK0+4+GVzAOTRlE4VkFZOGXHHMHB4l8dhU7810=; b=vS9uYW3NAKp2Vh
-	7eygZ8ercJ5Gpa39+93IJjVlD9K0SoqiOt3y8UxIa1UE1pLtXtgTYo+qr0Z5b3W3kr8V1MSV99jB3
-	dQzTKJagt3v7k6WLtWAPGPjyAZXTVLYjmj3ZquzdqG1RXEZzqFZ/tgu6+96YY0JgXCVHEtd6G47/j
-	HSIjBJ57ObkQd3Knk95X0SHhcEoTSEltRicoSIUe3U7amytquuep0iWgW5+0CxQBMl39y0SnnTvF7
-	GMWZWfXtb1fULSZeOXT6Zmucv5S1mbI8opEmwO72oSKMwhDOZjcdDRV4VPbTBui2w2Hi7M7gPPILo
-	3GMsyvxkw5jxFlJOCXrg==;
+	List-Owner; bh=mBpjxN13pLcVsYHLdzJcvNJyw1yqWbkeHHQUpzrMQGY=; b=tTcNUkh1w8M6wD
+	vEBVakfURLESiltzaAC1X27LiwWBudpjJ1vWUZCfIJObyof5G2a7XQagPlASxb01DeEJObpR+nMHd
+	MM37+p6zSbk0okIi0zl/zlSxTrykXnwPQWv2lXb5irnDG9DSpA9I8vKYDTDeCKPq1KqzwFkkDVapJ
+	K694xQqAuZXbXwNvgHNsbHFpjbTLvQIyGwtztvos6LNt2TA4ePHhF/jDRiaNnMrOUQeOFuKWfE35n
+	bQgphDa/adNenUbP+R31nSR9KBCaxLo4euqz4BajsmV8zF3+Tzjwvc9H4f1rrVJ2gRG7BUzVgp5+m
+	0x9TgnToJI6QsqbgAsLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyECI-009iTr-Dh; Thu, 24 Nov 2022 15:31:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oyEHJ-009kLm-2B; Thu, 24 Nov 2022 15:36:41 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyECF-009iSi-US
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 15:31:29 +0000
+	id 1oyEHE-009kIh-Tt
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 15:36:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 335DF6219E
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 15:31:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13BBAC43470
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 15:31:26 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E362CB82870;
+	Thu, 24 Nov 2022 15:36:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58B4AC433D6;
+	Thu, 24 Nov 2022 15:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669303886;
-	bh=TDMuBu38U1AMrW3mcmFNJeSUQwnbe0WArXcInbl7bVw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZuYiUni2iJILK+gszXOLekonZV+0uIJj/L/WPxCoRl+yYv+dFpQvc5+SydWxHv3Xw
-	 69QWcf3PR0TTYDpWHctJdPxiYnFr3FukFy5ekJvYvxt/sS2odZPp3Zm3xpKxzNsKcN
-	 hRwkIM+oh1NslDAowSJ4RfXqsk/o3RNIh3YV7CTpFIgjMq6JPciXbor8NwOU+6vLMu
-	 iAOnzrtchM0YNLI34AyZ2qKDIBX3AeGn4cld6Y9u7LqRkRkZGw93UIf0lTwAHXhHrj
-	 EEkyflTgbEcStMh4UyKigVSuWI9klRDPOxNeEi6w7DhZuZM1rJZTW/SjbsS4ZXrEOG
-	 SQOjVnTno5TCQ==
-Received: by mail-ej1-f44.google.com with SMTP id e27so4827605ejc.12
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 07:31:25 -0800 (PST)
-X-Gm-Message-State: ANoB5pkWOAFcfC0PLjxCHP/wmOjON4CJhDtXFGQiQxaWl7BaC1HlHop2
-	ajj6k3aanrWI4V96r6VvsFzfYlRbftzxLdIq8Gs=
-X-Google-Smtp-Source: AA0mqf5uEZ6EnzDTd1z6S1Ab2kydukpFXBLZV5kE7YxTMsmWCnZlk8uwjby79zF1TP73le5ESnqyrMl96pMNQAAuw/M=
-X-Received: by 2002:a17:906:19d7:b0:7b2:b782:e1df with SMTP id
- h23-20020a17090619d700b007b2b782e1dfmr23920529ejd.308.1669303884230; Thu, 24
- Nov 2022 07:31:24 -0800 (PST)
+	s=k20201202; t=1669304193;
+	bh=8rxiCGS/bv4hDYE4yDGosi/N9IlXi+djd+AiAfrpk4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=atA/uXkuZUQY/Xh1jlgP7Ue0bRhTpP8MQ6qe4PUAubdG1U01/Y0f265vwmhOsHuBP
+	 DUj76WqPsXrL7VXS97l2z2P5hYnMHWP2kPNpfZaeb52NW01aR2y6oWwm5pc/++K/RD
+	 kmMAa8U7NbBbAsiLdz/j0VlO6rGVMZfSYCDtd4gSJpfPwXQ6MUnGIhTrCZCw0FMFGa
+	 buQ3MwILVCHUXHqtORW1PyV6c34ZvfmE53x47ZRDs2VvagMkdbYLcbHX4h1qWbGKz6
+	 PNtNLMWz8OLWweYylay27nzpiXU0/j24phKmzV5/cFwDoqdKGMnrEWWLZSGT9o1o1G
+	 IfJkrB2D6q1XA==
+Date: Thu, 24 Nov 2022 23:26:42 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: palmer@dabbelt.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH v2] riscv: VMAP_STACK overflow detection thread-safe
+Message-ID: <Y3+NMjOQW+yA1Kqj@xhacker>
+References: <20221124094845.1907443-1-debug@rivosinc.com>
 MIME-Version: 1.0
-References: <20221123142025.1504030-1-suagrfillet@gmail.com>
- <20221123142025.1504030-2-suagrfillet@gmail.com> <CAJF2gTTwvApRaGhZJxOrdcjWUC9DN-WF_7EKcHXx5HZ9Jkd5EA@mail.gmail.com>
- <CAAYs2=ghhMmmrM4Bktvw9iGiajS5PLd1=Z61j2ZfhbhGUi4ekg@mail.gmail.com>
-In-Reply-To: <CAAYs2=ghhMmmrM4Bktvw9iGiajS5PLd1=Z61j2ZfhbhGUi4ekg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 24 Nov 2022 23:31:11 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTWSr0qYTnRORSexEHMqUt-Lj6xZd0O-fUgC+f74FfCZA@mail.gmail.com>
-Message-ID: <CAJF2gTTWSr0qYTnRORSexEHMqUt-Lj6xZd0O-fUgC+f74FfCZA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] riscv/ftrace: add DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
-To: Song Shuai <suagrfillet@gmail.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
-	peterz@infradead.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20221124094845.1907443-1-debug@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_073128_084601_795BB0B9 
-X-CRM114-Status: GOOD (  28.70  )
+X-CRM114-CacheID: sfid-20221124_073637_303054_4AB1CC14 
+X-CRM114-Status: GOOD (  30.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,88 +67,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBOb3YgMjQsIDIwMjIgYXQgMToyNyBBTSBTb25nIFNodWFpIDxzdWFncmZpbGxldEBn
-bWFpbC5jb20+IHdyb3RlOgo+Cj4gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IOS6jjIwMjLl
-ubQxMeaciDIz5pel5ZGo5LiJIDIzOjAy5YaZ6YGT77yaCj4gPgo+ID4gQ29vbCBqb2IsIHRoeC4K
-PiA+Cj4gPiBPbiBXZWQsIE5vdiAyMywgMjAyMiBhdCAxMDoyMCBQTSBTb25nIFNodWFpIDxzdWFn
-cmZpbGxldEBnbWFpbC5jb20+IHdyb3RlOgo+ID4+Cj4gPj4gVGhpcyBwYXRjaCBhZGRzIERZTkFN
-SUNfRlRSQUNFX1dJVEhfRElSRUNUX0NBTExTIHN1cHBvcnQgZm9yIFJJU0MtVi4KPiA+Pgo+ID4+
-IHNlbGVjdCB0aGUgRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJFQ1RfQ0FMTFMgdG8gcHJvdmlkZSB0
-aGUKPiA+PiByZWdpc3Rlcl9mdHJhY2VfZGlyZWN0W19tdWx0aV0gaW50ZXJmYWNlcyBhbGxvd2lu
-ZyB1c2VycyB0byByZWdpc3Rlcgo+ID4+IHRoZSBjdXN0b21lZCB0cmFtcG9saW5lIChkaXJlY3Rf
-Y2FsbGVyKSBhcyB0aGUgbWNvdW50IGZvciBvbmUgb3IKPiA+PiBtb3JlIHRhcmdldCBmdW5jdGlv
-bnMuIEFuZCBtb2RpZnlfZnRyYWNlX2RpcmVjdFtfbXVsdGldIGFyZSBhbHNvCj4gPj4gcHJvdmlk
-ZWQgZm9yIG1vZGlmeWluZyBkaXJlY3RfY2FsbGVyLgo+ID4+Cj4gPj4gVG8gbWFrZSB0aGUgZGly
-ZWN0X2NhbGxlciBhbmQgdGhlIG90aGVyIGZ0cmFjZSBob29rcyAoZWcuIGZ1bmN0aW9uL2ZncmFw
-aAo+ID4+IHRyYWNlciwga1tyZXRdcHJvYmVzKSBjby1leGlzdCwgYSB0ZW1wb3JhcnkgcmVnaXN0
-ZXIgaXMgbm9taW5hdGVkIHRvCj4gPj4gc3RvcmUgdGhlIGFkZHJlc3Mgb2YgZGlyZWN0X2NhbGxl
-ciBpbiBmdHJhY2VfcmVnc19jYWxsZXIuIEFmdGVyIHRoZQo+ID4+IHNldHRpbmcgb2YgdGhlIGFk
-ZHJlc3MgZGlyZWN0X2NhbGxlciBieSBkaXJlY3Rfb3BzLT5mdW5jIGFuZCB0aGUKPiA+PiBSRVNU
-T1JFX1JFR1MgaW4gZnRyYWNlX3JlZ3NfY2FsbGVyLCBkaXJlY3RfY2FsbGVyIHdpbGwgYmUganVt
-cGVkIHRvCj4gPj4gYnkgdGhlIGBqcmAgaW5zdC4KPiA+Pgo+ID4+IFNpZ25lZC1vZmYtYnk6IFNv
-bmcgU2h1YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4KPiA+PiAtLS0KPiA+PiAgYXJjaC9yaXNj
-di9LY29uZmlnICAgICAgICAgICAgICB8IDEgKwo+ID4+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2Z0cmFjZS5oIHwgNiArKysrKysKPiA+PiAgYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5T
-ICB8IDQgKysrKwo+ID4+ICAzIGZpbGVzIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKykKPiA+Pgo+
-ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcK
-PiA+PiBpbmRleCAzOWVjOGQ2MjhjZjYuLmQwODNlYzA4ZDBiNiAxMDA2NDQKPiA+PiAtLS0gYS9h
-cmNoL3Jpc2N2L0tjb25maWcKPiA+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+PiBAQCAt
-Mjc4LDYgKzI3OCw3IEBAIGNvbmZpZyBBUkNIX1JWNjRJCj4gPj4gICAgICAgICBzZWxlY3QgQVJD
-SF9TVVBQT1JUU19JTlQxMjggaWYgQ0NfSEFTX0lOVDEyOAo+ID4+ICAgICAgICAgc2VsZWN0IEhB
-VkVfRFlOQU1JQ19GVFJBQ0UgaWYgIVhJUF9LRVJORUwgJiYgTU1VICYmICQoY2Mtb3B0aW9uLC1m
-cGF0Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5PTgpCj4gPj4gICAgICAgICBzZWxlY3QgSEFWRV9EWU5B
-TUlDX0ZUUkFDRV9XSVRIX1JFR1MgaWYgSEFWRV9EWU5BTUlDX0ZUUkFDRQo+ID4+ICsgICAgICAg
-c2VsZWN0IEhBVkVfRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJFQ1RfQ0FMTFMKPiA+PiAgICAgICAg
-IHNlbGVjdCBIQVZFX0ZUUkFDRV9NQ09VTlRfUkVDT1JEIGlmICFYSVBfS0VSTkVMCj4gPj4gICAg
-ICAgICBzZWxlY3QgSEFWRV9GVU5DVElPTl9HUkFQSF9UUkFDRVIKPiA+PiAgICAgICAgIHNlbGVj
-dCBIQVZFX0ZVTkNUSU9OX1RSQUNFUiBpZiAhWElQX0tFUk5FTCAmJiAhUFJFRU1QVElPTgo+ID4+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Z0cmFjZS5oIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+ID4+IGluZGV4IDAxYmViYjI4ZWFiZS4uYmU0ZDU3NTY2
-MTM5IDEwMDY0NAo+ID4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmgKPiA+
-PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Z0cmFjZS5oCj4gPj4gQEAgLTExNCw2ICsx
-MTQsMTIgQEAgc3RydWN0IGZ0cmFjZV9yZWdzOwo+ID4+ICB2b2lkIGZ0cmFjZV9ncmFwaF9mdW5j
-KHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcgcGFyZW50X2lwLAo+ID4+ICAgICAgICAg
-ICAgICAgICAgICAgICAgc3RydWN0IGZ0cmFjZV9vcHMgKm9wLCBzdHJ1Y3QgZnRyYWNlX3JlZ3Mg
-KmZyZWdzKTsKPiA+PiAgI2RlZmluZSBmdHJhY2VfZ3JhcGhfZnVuYyBmdHJhY2VfZ3JhcGhfZnVu
-Ywo+ID4+ICsKPiA+PiArc3RhdGljIGlubGluZSB2b2lkIGFyY2hfZnRyYWNlX3NldF9kaXJlY3Rf
-Y2FsbGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bnNpZ25lZCBsb25nIGFkZHIpCj4gPj4gK3sK
-PiA+PiArICAgICAgICAgICAgICAgcmVncy0+dDEgPSBhZGRyOwo+ID4KPiA+IEhvdyBhYm91dCBy
-ZWdzLT50MCA9IGFkZHI7ID8KPiA+IEFuZCBkZWxldGUgYWxsIG1jb3VudC1keW4uUyBtb2RpZmlj
-YXRpb24uCj4gPgo+IFRoZSBkaXJlY3RfY2FsbGVyIGhhcyB0aGUgc2FtZSBwcm9ncmFtIGxheW91
-dCBhcyB0aGUgZnRyYWNlX2NhbGxlciwgd2hpY2ggbWVhbnMKPiB0aGUgcmVnIHQwIHdpbGwgbmV2
-ZXIgYmUgY2hhbmdlZCB3aGVuIGRpcmVjdF9jYWxsZXIgcmV0dXJucy4KPgo+IElmIHJlZ3MtPnQw
-IGNoYW5nZXMgaGVyZSBhbmQgZnRyYWNlX3JlZ3NfY2FsbGVyIGV4ZWN1dGVzIGBqciB0MGAsCj4g
-ZGlyZWN0X2NhbGxlciB3aWxsIGVudGVyIHRoZSBkZWFkIGxvb3AuCj4KPiBBY3R1YWxseSB0aGUg
-cmVnIHQwIGFsd2F5cyBzYXZlcyB0aGUgYWRkcmVzcyBvZiBmdW5jdGlvbiBlbnRyeSB3aXRoIDhC
-Cj4gb2Zmc2V0LCBpdCBzaG91bGQgb25seQo+IGNoYW5nZWQgYnkgdGhlIElQTU9ESUZZIG9wcyBp
-bnN0ZWFkIG9mIHRoZSBkaXJlY3Rfb3BzLgpIb3cgYWJvdXQ6CnN0YXRpYyBpbmxpbmUgdm9pZCBh
-cmNoX2Z0cmFjZV9zZXRfZGlyZWN0X2NhbGxlcihzdHJ1Y3QgcHRfcmVncyAqcmVncywKdW5zaWdu
-ZWQgbG9uZyBhZGRyKQp7CiAgICAgICAgICAgICAgIHJlZ3MtPnQxID0gcmVncy0+dDA7CiAgICAg
-ICAgICAgICAgIHJlZ3MtPnQwID0gYWRkcjsKCmRpcmVjdF9jYWxsZXI6CmFkZCBzcCxzcCwtPwpz
-ZCB0MSw/KHNwKQpzZCByYSw/KHNwKQpjYWxsIGZvbwpsZCB0MSw/KHNwKQpsZCByYSw/KHNwKQph
-ZGQgc3Asc3AsPwpqciB0MSAvLyA8LSBiYWNrIHRvIGZ1bmN0aW9uIGVudHJ5CgpBbmQgZGVsZXRl
-IGFsbCBtY291bnQtZHluLlMgbW9kaWZpY2F0aW9uLgoKPiA+Pgo+ID4+ICt9Cj4gPj4gKwo+ID4+
-ICAjZW5kaWYgLyogQ09ORklHX0RZTkFNSUNfRlRSQUNFX1dJVEhfUkVHUyAqLwo+ID4+Cj4gPj4g
-ICNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9r
-ZXJuZWwvbWNvdW50LWR5bi5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gPj4g
-aW5kZXggNDY2YzZlZjIxN2IxLi5iODljODVhNTg1NjkgMTAwNjQ0Cj4gPj4gLS0tIGEvYXJjaC9y
-aXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvbWNv
-dW50LWR5bi5TCj4gPj4gQEAgLTIzMyw2ICsyMzMsNyBAQCBFTkRQUk9DKGZ0cmFjZV9jYWxsZXIp
-Cj4gPj4gICNlbHNlIC8qIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8KPiA+PiAg
-RU5UUlkoZnRyYWNlX3JlZ3NfY2FsbGVyKQo+ID4+ICAgICAgICAgU0FWRV9BQklfUkVHUyAxCj4g
-Pj4gKyAgICAgICBSRUdfUyAgIHgwLCBQVF9UMShzcCkKPiA+PiAgICAgICAgIFBSRVBBUkVfQVJH
-Uwo+ID4+Cj4gPj4gIGZ0cmFjZV9yZWdzX2NhbGw6Cj4gPj4gQEAgLTI0MSw3ICsyNDIsMTAgQEAg
-ZnRyYWNlX3JlZ3NfY2FsbDoKPiA+Pgo+ID4+Cj4gPj4gICAgICAgICBSRVNUT1JFX0FCSV9SRUdT
-IDEKPiA+PiArICAgICAgIGJuZXogICAgdDEsLkxkaXJlY3QKPiA+PiAgICAgICAgIGpyIHQwCj4g
-Pj4gKy5MZGlyZWN0Ogo+ID4+ICsgICAgICAganIgdDEKPiA+PiAgRU5EUFJPQyhmdHJhY2VfcmVn
-c19jYWxsZXIpCj4gPj4KPiA+PiAgRU5UUlkoZnRyYWNlX2NhbGxlcikKPiA+PiAtLQo+ID4+IDIu
-MjAuMQo+ID4+Cj4gPgo+ID4KPiA+IC0tCj4gPiBCZXN0IFJlZ2FyZHMKPiA+ICBHdW8gUmVuCgoK
-Ci0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Thu, Nov 24, 2022 at 01:48:45AM -0800, Deepak Gupta wrote:
+> commit 31da94c25aea ("riscv: add VMAP_STACK overflow detection") added
+> support for CONFIG_VMAP_STACK. If overflow is detected, CPU switches to
+> `shadow_stack` temporarily before switching finally to per-cpu
+> `overflow_stack`.
+> 
+> If two CPUs/harts are racing and end up in over flowing kernel stack, one
+> or both will end up corrupting each other state because `shadow_stack` is
+> not per-cpu. This patch optimizes per-cpu overflow stack switch by
+> directly picking per-cpu `overflow_stack` and gets rid of `shadow_stack`.
+> 
+> Following are the changes in this patch
+> 
+>  - Defines an asm macro to obtain per-cpu symbols in destination
+>    register.
+>  - In entry.S, when overflow is detected, per-cpu overflow stack is
+>    located using per-cpu asm macro. Computing per-cpu symbol requires
+>    a temporary register. x31 is saved away into CSR_SCRATCH
+
+This only works if CSR_SCRATCH doesn't contain any valid reg saving,
+but.. see below.
+
+>    (CSR_SCRATCH is anyways zero since we're in kernel).
+> 
+
+To be honest, before [1] I have similar idea to keep the percpu usage,
+however, the solution doesn't work. The key here is that there's
+another VMAP_STACK bug in current riscv implementation: it only checks
+vmap stack overflow when comming from kernelspace, but vmap should
+check when comming from both kernelspace and userspace. So we can't
+assume CSR_SCRATCH is always zero and free to use. The only available
+solution is my fix[1] which only makes use of tp. But since[1] modifies
+lots of code, it's not idea to merge it as a fix, so [2] is suggested
+and sent out.
+
+PS: I planed to send a fix for the missing FROM_USERSPACE after the
+race fix is merged.
+
+
+[1]https://lore.kernel.org/linux-riscv/20220925175356.681-1-jszhang@kernel.org/T/#t
+[2]https://lore.kernel.org/linux-riscv/Y347B0x4VUNOd6V7@xhacker/T/#t
+
+> Please see Links for additional relevant disccussion and alternative
+> solution.
+> 
+> Tested by `echo EXHAUST_STACK > /sys/kernel/debug/provoke-crash/DIRECT`
+> Kernel crash log below
+> 
+>  Insufficient stack space to handle exception!/debug/provoke-crash/DIRECT
+>  Task stack:     [0xff20000010a98000..0xff20000010a9c000]
+>  Overflow stack: [0xff600001f7d98370..0xff600001f7d99370]
+>  CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
+>  Hardware name: riscv-virtio,qemu (DT)
+>  epc : __memset+0x60/0xfc
+>   ra : recursive_loop+0x48/0xc6 [lkdtm]
+>  epc : ffffffff808de0e4 ra : ffffffff0163a752 sp : ff20000010a97e80
+>   gp : ffffffff815c0330 tp : ff600000820ea280 t0 : ff20000010a97e88
+>   t1 : 000000000000002e t2 : 3233206874706564 s0 : ff20000010a982b0
+>   s1 : 0000000000000012 a0 : ff20000010a97e88 a1 : 0000000000000000
+>   a2 : 0000000000000400 a3 : ff20000010a98288 a4 : 0000000000000000
+>   a5 : 0000000000000000 a6 : fffffffffffe43f0 a7 : 00007fffffffffff
+>   s2 : ff20000010a97e88 s3 : ffffffff01644680 s4 : ff20000010a9be90
+>   s5 : ff600000842ba6c0 s6 : 00aaaaaac29e42b0 s7 : 00fffffff0aa3684
+>   s8 : 00aaaaaac2978040 s9 : 0000000000000065 s10: 00ffffff8a7cad10
+>   s11: 00ffffff8a76a4e0 t3 : ffffffff815dbaf4 t4 : ffffffff815dbaf4
+>   t5 : ffffffff815dbab8 t6 : ff20000010a9bb48
+>  status: 0000000200000120 badaddr: ff20000010a97e88 cause: 000000000000000f
+>  Kernel panic - not syncing: Kernel stack overflow
+>  CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
+>  Hardware name: riscv-virtio,qemu (DT)
+>  Call Trace:
+>  [<ffffffff80006754>] dump_backtrace+0x30/0x38
+>  [<ffffffff808de798>] show_stack+0x40/0x4c
+>  [<ffffffff808ea2a8>] dump_stack_lvl+0x44/0x5c
+>  [<ffffffff808ea2d8>] dump_stack+0x18/0x20
+>  [<ffffffff808dec06>] panic+0x126/0x2fe
+>  [<ffffffff800065ea>] walk_stackframe+0x0/0xf0
+>  [<ffffffff0163a752>] recursive_loop+0x48/0xc6 [lkdtm]
+>  SMP: stopping secondary CPUs
+>  ---[ end Kernel panic - not syncing: Kernel stack overflow ]---
+> 
+> Cc: Guo Ren <guoren@kernel.org>
+> Cc: Jisheng Zhang <jszhang@kernel.org>
+> Link: https://lore.kernel.org/linux-riscv/Y347B0x4VUNOd6V7@xhacker/T/#t
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> 
+> ---
+> v1 --> v2:
+>  - asm macro to locate per-cpu symbol requires a temp reg.
+>    When stack overflow happens, in trap handler we don't have spare regs
+>    except sp.
+>    v1 had a place holder in `thread_info` to spill a register.
+>    v2 instead uses CSR_SCRATCH register because it's free to use.
+> 
+>  - v2 made per-cpu macro more readable.
+>  - v2 fixed a bug that would've broken 32bit support.
+> 
+>  - v1 called it a fix over 31da94c25aea. v2 calls it alternative/
+>    optimization solution
+> ---
+>  arch/riscv/include/asm/asm.h    | 17 ++++++++++
+>  arch/riscv/kernel/asm-offsets.c |  1 +
+>  arch/riscv/kernel/entry.S       | 57 ++++++---------------------------
+>  arch/riscv/kernel/traps.c       | 12 +------
+>  4 files changed, 29 insertions(+), 58 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+> index 1b471ff73178..1eb479cb9ae4 100644
+> --- a/arch/riscv/include/asm/asm.h
+> +++ b/arch/riscv/include/asm/asm.h
+> @@ -69,6 +69,7 @@
+>  
+>  #ifdef __ASSEMBLY__
+>  
+> +#include <asm/asm-offsets.h>
+>  /* Common assembly source macros */
+>  
+>  /*
+> @@ -80,6 +81,22 @@
+>  	.endr
+>  .endm
+>  
+> +#ifdef CONFIG_32BIT
+> +#define PER_CPU_OFFSET_SHIFT 2
+> +#else
+> +#define PER_CPU_OFFSET_SHIFT 3
+> +#endif
+> +
+> +.macro asm_per_cpu dst sym tmp
+> +	REG_L \tmp, TASK_TI_CPU_NUM(tp)
+> +	slli  \tmp, \tmp, PER_CPU_OFFSET_SHIFT
+> +	la    \dst, __per_cpu_offset
+> +	add   \dst, \dst, \tmp
+> +	REG_L \tmp, 0(\dst)
+> +	la    \dst, \sym
+> +	add   \dst, \dst, \tmp
+> +.endm
+> +
+>  #endif /* __ASSEMBLY__ */
+>  
+>  #endif /* _ASM_RISCV_ASM_H */
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index df9444397908..a7da051159cf 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -38,6 +38,7 @@ void asm_offsets(void)
+>  	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+>  	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+>  
+> +	OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
+>  	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+>  	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+>  	OFFSET(TASK_THREAD_F2,  task_struct, thread.fstate.f[2]);
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index b9eda3fcbd6d..2e90d9ccddd0 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -10,9 +10,11 @@
+>  #include <asm/asm.h>
+>  #include <asm/csr.h>
+>  #include <asm/unistd.h>
+> +#include <asm/page.h>
+>  #include <asm/thread_info.h>
+>  #include <asm/asm-offsets.h>
+>  #include <asm/errata_list.h>
+> +#include <linux/sizes.h>
+>  
+>  #if !IS_ENABLED(CONFIG_PREEMPTION)
+>  .set resume_kernel, restore_all
+> @@ -404,54 +406,15 @@ handle_syscall_trace_exit:
+>  
+>  #ifdef CONFIG_VMAP_STACK
+>  handle_kernel_stack_overflow:
+> -	la sp, shadow_stack
+> -	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+> +	/* we reach here from kernel context, sscratch must be 0 */
+> +	csrrw x31, CSR_SCRATCH, x31
+> +	asm_per_cpu sp, overflow_stack, x31
+> +	li x31, OVERFLOW_STACK_SIZE
+> +	add sp, sp, x31
+> +	/* zero out x31 again and restore x31 */
+> +	xor x31, x31, x31
+> +	csrrw x31, CSR_SCRATCH, x31
+>  
+> -	//save caller register to shadow stack
+> -	addi sp, sp, -(PT_SIZE_ON_STACK)
+> -	REG_S x1,  PT_RA(sp)
+> -	REG_S x5,  PT_T0(sp)
+> -	REG_S x6,  PT_T1(sp)
+> -	REG_S x7,  PT_T2(sp)
+> -	REG_S x10, PT_A0(sp)
+> -	REG_S x11, PT_A1(sp)
+> -	REG_S x12, PT_A2(sp)
+> -	REG_S x13, PT_A3(sp)
+> -	REG_S x14, PT_A4(sp)
+> -	REG_S x15, PT_A5(sp)
+> -	REG_S x16, PT_A6(sp)
+> -	REG_S x17, PT_A7(sp)
+> -	REG_S x28, PT_T3(sp)
+> -	REG_S x29, PT_T4(sp)
+> -	REG_S x30, PT_T5(sp)
+> -	REG_S x31, PT_T6(sp)
+> -
+> -	la ra, restore_caller_reg
+> -	tail get_overflow_stack
+> -
+> -restore_caller_reg:
+> -	//save per-cpu overflow stack
+> -	REG_S a0, -8(sp)
+> -	//restore caller register from shadow_stack
+> -	REG_L x1,  PT_RA(sp)
+> -	REG_L x5,  PT_T0(sp)
+> -	REG_L x6,  PT_T1(sp)
+> -	REG_L x7,  PT_T2(sp)
+> -	REG_L x10, PT_A0(sp)
+> -	REG_L x11, PT_A1(sp)
+> -	REG_L x12, PT_A2(sp)
+> -	REG_L x13, PT_A3(sp)
+> -	REG_L x14, PT_A4(sp)
+> -	REG_L x15, PT_A5(sp)
+> -	REG_L x16, PT_A6(sp)
+> -	REG_L x17, PT_A7(sp)
+> -	REG_L x28, PT_T3(sp)
+> -	REG_L x29, PT_T4(sp)
+> -	REG_L x30, PT_T5(sp)
+> -	REG_L x31, PT_T6(sp)
+> -
+> -	//load per-cpu overflow stack
+> -	REG_L sp, -8(sp)
+>  	addi sp, sp, -(PT_SIZE_ON_STACK)
+>  
+>  	//save context to overflow stack
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index f3e96d60a2ff..eef3a87514c7 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -208,18 +208,8 @@ int is_valid_bugaddr(unsigned long pc)
+>  #endif /* CONFIG_GENERIC_BUG */
+>  
+>  #ifdef CONFIG_VMAP_STACK
+> -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+> +DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+>  		overflow_stack)__aligned(16);
+> -/*
+> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+> - * to get per-cpu overflow stack(get_overflow_stack).
+> - */
+> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+> -asmlinkage unsigned long get_overflow_stack(void)
+> -{
+> -	return (unsigned long)this_cpu_ptr(overflow_stack) +
+> -		OVERFLOW_STACK_SIZE;
+> -}
+>  
+>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>  {
+> -- 
+> 2.25.1
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
