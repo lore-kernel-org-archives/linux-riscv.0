@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF023C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA4EC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vN+VvYpgNwhqplVqS+1lMft3MKDYrp+AcLg0C+LCVGU=; b=kEOqqvGctYpewh
-	/fb+9C5b3mOFjjx800oAcDjvuR59IOfPx4AeuPFRfcEun7Jk3N0YK6uzeH5XemmWUjirVz8DMRJ5T
-	b0ipP7/Uqz3x5eDfweVPV0TQbx9M7Pqb1h2GDGRfdWCO4pOVOm7aQsEALaPU0zMIyajgZq/DfjAEu
-	ZxatYnDyd5AIqQ87E2NhijOc44h0siF4iLRuapzSC5Y6pljEL6lMi0li/31EephLfZ5fCcgFNbeW1
-	vfz/L0CyyQ7P8WMDYpyM+bP9j+mTYJB+e9ILpurOREyRDBTOaIbP14u3Z5On8I46pWcua1dMjRnGq
-	MlJH1/JXKCNfBL26WyqQ==;
+	List-Owner; bh=8huytCswKgWIOxkqEBpUcGZPd0XyZN8l3n9mzw5uug4=; b=PYxDjrLnXBwCcL
+	KTt1x4Ly5GhR9p9eCfTjmJvfnEZrLDfefntovPEvBxWBQNWCHd34brZlfWDiCrYvKkcnY9ZZX6GFz
+	MCnElq03DU+ctVLk8+8z6RjazbHo0NEQZbsno/b03pWI+BseNZuf5Bkf9U1Z03+OWKqWcYPnWhmqZ
+	VYK+zpJAPPDFwSkR/V4Nn5FhLGcpuuOapdPOT7Xqz0XIOaRvC4kUuxhbeolO0H7S19Yzj5UdGrdBE
+	lRVIYRXQhpJohDB+WD0GkDoQdqnkHr1DNd4wlhF1rltKMtWN5j5ta/SipQaolPGWb2/5zFotTdjFV
+	zti3TPoF0COpxHMtw8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFwQ-00AR2L-Sg; Thu, 24 Nov 2022 17:23:14 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1oyFwV-00AR6E-8S; Thu, 24 Nov 2022 17:23:19 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFvy-00AQhp-7I
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 17:22:48 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id z4so3378221wrr.3
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:43 -0800 (PST)
+	id 1oyFvz-00AQir-I0
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 17:22:50 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id z4so3378277wrr.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mTqb56t1MZLGmiNAO1wdyZdWaJfReceiuidXqQh2rDM=;
-        b=KfjvVurbEEHmImk+BeMXSlP/P01FDdtROFgje3lqyafzq1l4MuAk6zvv+z0YWgWo8Y
-         qYtq3m1dI5DLDLUhoIAXE4e40Dfv2h6UmmZZU+c9o3uzw3jimtlE3ocNBBIzu2XMsuNf
-         5oaqcqjMKECmp3a9HfSnJnclz1sS2ubq5lTZCrvBzQUbVYX3KgeDGrzYN839iPz51ZAW
-         XHYcU5mbzwp31XiQ1LaQCsQ48eNgQMZKh70IrmqpXpjOOP93zVno0PXYRuZamL0/xa/a
-         sLr/GDKp3xezK69+wlRTlS3BAE/3cGvl3PzSmE+ff2q/LJZdJwtkCSnrZocWN/IEyESl
-         s/Bg==
+        bh=kf4MkbDtYqPHkzp1NQggOVlfAtAYmGWu5F6jTUCxlB8=;
+        b=qYafnLysxGBAXMN4EjaffIZ65qJZh+y5w1H1fYwJARO8HEQdUwBlR1K0NUxbEqLcMq
+         VbJ/DpIJwHYlfO2p/BdkFL3/ulkBdcTj5mODYt0ZQKAvS6srKRc1A82jXkYC9g4M7epZ
+         0fbTKvJSfjSwFfWdbL5y1Cmw5HaQqg+ANmz7X8DlqXaRD/vfHruQLAIwWQE+d7vGSYWT
+         cH/x18lKJYMlsWozqfjUGaMv3UdipMKGJIozGN21DcGb1Hj8NMZ2+Q1N6KjdQwN0XHPE
+         U333xrUw7VTwFUkFK2pi/ftm6G12v9S0odXONtKjTRTtH5M9QOkjmpHG0Z1N1X8KsbWl
+         j6jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mTqb56t1MZLGmiNAO1wdyZdWaJfReceiuidXqQh2rDM=;
-        b=RPonHDRuH7CCuQmcd6A9iKZkL7rj3hEdV9ZgBLfOjQ9FDPN0Aw4T1MJv5LcA26aBvI
-         I4E7u0zDt82bzLgRe9ciDzVS3O0khWC3OKvS6RkMjX/03rtf3r1L92XtDlGniTb4KesC
-         86jecKpnEGHIq29dlM4c87UYDUUiyCDU0s1pbmYdZ4kXzAPZ6w2hgV49psMl/eC+L7FG
-         J3fnwxHPY6w65aKYO68xXvjDwtqysx0hL79Rwr98d5d5fnnnAgQiAV+wSr6aLdgFHAOw
-         ZGmF6oaHdoOypiUYDE6+tAxy+FgXk8FRPcSEej0sz5wB5mgRrtcQlb1rdb+iqY3qEukU
-         Pjfw==
-X-Gm-Message-State: ANoB5plrsjDYTj2aAokGNi/oieNrthlobLEizqJRUWBSNGwa4IzrIuDi
-	4QhmwqKYtwS+rNrQmeN4piM=
-X-Google-Smtp-Source: AA0mqf57Qf4xEDouq8EP9JiPsPwdGe9ZW24Iy8vCM2dBBoxAkEPGGF7rQ7z12eOZeKURbyRZNPForA==
-X-Received: by 2002:adf:ff89:0:b0:22e:38b:95ff with SMTP id j9-20020adfff89000000b0022e038b95ffmr10650363wrr.202.1669310562597;
-        Thu, 24 Nov 2022 09:22:42 -0800 (PST)
+        bh=kf4MkbDtYqPHkzp1NQggOVlfAtAYmGWu5F6jTUCxlB8=;
+        b=1EKj2X0/XPX0YR2VrvgpwlMBGTv5kqIiuuSksxCDC9JURKW7cGv+ajgIW48oV1Zba3
+         k2SZWesLN6IZ9bZ5DrjMYTMMuw/D9bElqP5u1Ih5thrhkjoAxAQpwBsDQrdVqUaGxnAZ
+         jeN+8/FyRMUYSwyjCLNmtg2yjW2pDqgiHhU/cp27E9PaDWx77TP9n2cq8bF5ZC27KKCZ
+         WZHiMrPSF0611Zq6Qz10SkE+65OtjanumgW/WGpz8A7FmED9PKXjHbDpSrW3T3Hyzz+G
+         Tm43osIL4fo5gR125XwEgj3ipQB1DUSQo11e3K1EYruqgq3IUcS3SWqNMiLTYH3VTsLw
+         Uh8g==
+X-Gm-Message-State: ANoB5pkY+N5wteIRf+209zVG3PlT8YQqhqoVpqHhB2T0Z5PZpF8+4v36
+	Sv05UpkV0mjY3IaBz1fLww0=
+X-Google-Smtp-Source: AA0mqf53uMvA9midyy+RxAuGlfEqI9h3gmkfBfuFydND+Sko1oOZNqSfyk3uBDaUm8F2FOuZHmJJGg==
+X-Received: by 2002:adf:fdc7:0:b0:241:d7ab:db8f with SMTP id i7-20020adffdc7000000b00241d7abdb8fmr12173981wrs.285.1669310563686;
+        Thu, 24 Nov 2022 09:22:43 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:89ee:3f5d:1c99:35d8])
-        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.40
+        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Nov 2022 09:22:41 -0800 (PST)
+        Thu, 24 Nov 2022 09:22:43 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -85,16 +85,16 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 3/7] riscv: errata: Add Andes alternative ports
-Date: Thu, 24 Nov 2022 17:22:03 +0000
-Message-Id: <20221124172207.153718-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH DO NOT REVIEW v4 4/7] riscv: errata: andes: Fix auipc-jalr addresses in patched alternatives
+Date: Thu, 24 Nov 2022 17:22:04 +0000
+Message-Id: <20221124172207.153718-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_092246_319298_0B932A07 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20221124_092247_623775_46CB37EC 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,191 +113,104 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add required ports of the Alternative scheme for Andes CPU cores.
+This patch is added just for building purpose, as patch [0] will export
+this in its next version.
+
+https://patchwork.kernel.org/project/linux-riscv/patch/20221110164924.529386-6-heiko@sntech.de/
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
-RFC v3 -> v4
-* New patch
+Note, as Heiko will be exporting riscv_alternative_fix_auipc_jalr() function
+so that it can be used other erratas Ive just included for compilation.
 ---
- arch/riscv/Kconfig.erratas           | 22 +++++++++
- arch/riscv/errata/Makefile           |  1 +
- arch/riscv/errata/andes/Makefile     |  1 +
- arch/riscv/errata/andes/errata.c     | 68 ++++++++++++++++++++++++++++
- arch/riscv/include/asm/alternative.h |  3 ++
- arch/riscv/include/asm/errata_list.h |  5 ++
- arch/riscv/kernel/alternative.c      |  5 ++
- 7 files changed, 105 insertions(+)
- create mode 100644 arch/riscv/errata/andes/Makefile
- create mode 100644 arch/riscv/errata/andes/errata.c
+ arch/riscv/errata/andes/errata.c | 71 ++++++++++++++++++++++++++++++++
+ 1 file changed, 71 insertions(+)
 
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index 69621ae6d647..74b44e5dd710 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -1,5 +1,27 @@
- menu "CPU errata selection"
- 
-+config ERRATA_ANDES
-+	bool "Andes AX45MP errata"
-+	depends on !XIP_KERNEL
-+	select RISCV_ALTERNATIVE
-+	help
-+	  All Andes errata Kconfig depend on this Kconfig. Disabling
-+	  this Kconfig will disable all Andes errata. Please say "Y"
-+	  here if your platform uses Andes CPU cores.
-+
-+	  Otherwise, please say "N" here to avoid unnecessary overhead.
-+
-+config ERRATA_ANDES_CMO
-+	bool "Apply Andes cache management errata"
-+	depends on ERRATA_ANDES && MMU
-+	select RISCV_DMA_NONCOHERENT
-+	default y
-+	help
-+	  This will apply the cache management errata to handle the
-+	  non-standard handling on non-coherent operations on Andes cores.
-+
-+	  If you don't know what to do here, say "Y".
-+
- config ERRATA_SIFIVE
- 	bool "SiFive errata"
- 	depends on !XIP_KERNEL
-diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-index a1055965fbee..81828e80f6dc 100644
---- a/arch/riscv/errata/Makefile
-+++ b/arch/riscv/errata/Makefile
-@@ -1,2 +1,3 @@
- obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
- obj-$(CONFIG_ERRATA_THEAD) += thead/
-+obj-$(CONFIG_ERRATA_ANDES) += andes/
-diff --git a/arch/riscv/errata/andes/Makefile b/arch/riscv/errata/andes/Makefile
-new file mode 100644
-index 000000000000..2d644e19caef
---- /dev/null
-+++ b/arch/riscv/errata/andes/Makefile
-@@ -0,0 +1 @@
-+obj-y += errata.o
 diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
-new file mode 100644
-index 000000000000..ec3e052ca8c7
---- /dev/null
+index ec3e052ca8c7..4061ad4983bc 100644
+--- a/arch/riscv/errata/andes/errata.c
 +++ b/arch/riscv/errata/andes/errata.c
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Erratas to be applied for Andes CPU cores
-+ *
-+ *  Copyright (C) 2022 Renesas Electronics Corporation.
-+ *
-+ * Author: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+
-+#include <asm/alternative.h>
-+#include <asm/cacheflush.h>
-+#include <asm/errata_list.h>
-+#include <asm/patch.h>
-+#include <asm/vendorid_list.h>
-+
-+static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigned long impid)
-+{
-+	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_CMO))
-+		return false;
-+
-+	if (arch_id != 0x8000000000008a45 || impid != 0x500)
-+		return false;
-+
-+	riscv_cbom_block_size = 1;
-+	riscv_noncoherent_supported();
-+
-+	return true;
-+}
-+
-+static u32 andes_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
-+{
-+	u32 cpu_req_errata = 0;
-+
-+	if (errata_probe_iocp(stage, archid, impid))
-+		cpu_req_errata |= BIT(ERRATA_ANDESTECH_NO_IOCP);
-+
-+	return cpu_req_errata;
-+}
-+
-+void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+					      unsigned long archid, unsigned long impid,
-+					      unsigned int stage)
-+{
-+	u32 cpu_req_errata = andes_errata_probe(stage, archid, impid);
-+	struct alt_entry *alt;
-+	u32 tmp;
-+
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+		return;
-+
-+	for (alt = begin; alt < end; alt++) {
-+		if (alt->vendor_id != ANDESTECH_VENDOR_ID)
-+			continue;
-+		if (alt->errata_id >= ERRATA_ANDESTECH_NUMBER)
-+			continue;
-+
-+		tmp = (1U << alt->errata_id);
-+		if (cpu_req_errata & tmp) {
-+			patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-+
-+			riscv_alternative_fix_auipc_jalr(alt->old_ptr, alt->alt_len,
-+							 alt->old_ptr - alt->alt_ptr);
-+		}
-+	}
-+}
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 6511dd73e812..d8012af30cbd 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -46,6 +46,9 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- void thead_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 			     unsigned long archid, unsigned long impid,
- 			     unsigned int stage);
-+void andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-+			     unsigned long archid, unsigned long impid,
-+			     unsigned int stage);
- 
- void riscv_cpufeature_patch_func(struct alt_entry *begin, struct alt_entry *end,
- 				 unsigned int stage);
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 4180312d2a70..2ba7e6e74540 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -9,6 +9,11 @@
- #include <asm/csr.h>
+@@ -13,9 +13,80 @@
+ #include <asm/alternative.h>
+ #include <asm/cacheflush.h>
+ #include <asm/errata_list.h>
++#include <asm/parse_asm.h>
+ #include <asm/patch.h>
++#include <asm/sbi.h>
  #include <asm/vendorid_list.h>
  
-+#ifdef CONFIG_ERRATA_ANDES
-+#define ERRATA_ANDESTECH_NO_IOCP	0
-+#define ERRATA_ANDESTECH_NUMBER		1
-+#endif
++/* Copy of Heiko's code from patch [0]
++ * [0] https://patchwork.kernel.org/project/linux-riscv/patch/20221110164924.529386-6-heiko@sntech.de/
++ */
++DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
++DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
 +
- #ifdef CONFIG_ERRATA_SIFIVE
- #define	ERRATA_SIFIVE_CIP_453 0
- #define	ERRATA_SIFIVE_CIP_1200 1
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index a7d26a00beea..4ded3e9aa3bc 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -47,6 +47,11 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
- 	case THEAD_VENDOR_ID:
- 		cpu_mfr_info->patch_func = thead_errata_patch_func;
- 		break;
-+#endif
-+#ifdef CONFIG_ERRATA_ANDES
-+	case ANDESTECH_VENDOR_ID:
-+		cpu_mfr_info->patch_func = andes_errata_patch_func;
-+		break;
- #endif
- 	default:
- 		cpu_mfr_info->patch_func = NULL;
++static inline bool is_auipc_jalr_pair(long insn1, long insn2)
++{
++	return is_auipc_insn(insn1) && is_jalr_insn(insn2);
++}
++
++#define JALR_SIGN_MASK		BIT(I_IMM_SIGN_OPOFF - I_IMM_11_0_OPOFF)
++#define JALR_OFFSET_MASK	I_IMM_11_0_MASK
++#define AUIPC_OFFSET_MASK	U_IMM_31_12_MASK
++#define AUIPC_PAD		(0x00001000)
++#define JALR_SHIFT		I_IMM_11_0_OPOFF
++
++#define to_jalr_imm(offset)						\
++	((offset & I_IMM_11_0_MASK) << I_IMM_11_0_OPOFF)
++
++#define to_auipc_imm(offset)						\
++	((offset & JALR_SIGN_MASK) ?					\
++	((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) :			\
++	(offset & AUIPC_OFFSET_MASK))
++
++static void riscv_alternative_fix_auipc_jalr(unsigned int *alt_ptr,
++					     unsigned int len, int patch_offset)
++{
++	int num_instr = len / sizeof(u32);
++	unsigned int call[2];
++	int i;
++	int imm1;
++	u32 rd1;
++
++	for (i = 0; i < num_instr; i++) {
++		/* is there a further instruction? */
++		if (i + 1 >= num_instr)
++			continue;
++
++		if (!is_auipc_jalr_pair(*(alt_ptr + i), *(alt_ptr + i + 1)))
++			continue;
++
++		/* call will use ra register */
++		rd1 = EXTRACT_RD_REG(*(alt_ptr + i));
++		if (rd1 != 1)
++			continue;
++
++		/* get and adjust new target address */
++		imm1 = EXTRACT_UTYPE_IMM(*(alt_ptr + i));
++		imm1 += EXTRACT_ITYPE_IMM(*(alt_ptr + i + 1));
++		imm1 -= patch_offset;
++
++		/* pick the original auipc + jalr */
++		call[0] = *(alt_ptr + i);
++		call[1] = *(alt_ptr + i + 1);
++
++		/* drop the old IMMs */
++		call[0] &= ~(U_IMM_31_12_MASK);
++		call[1] &= ~(I_IMM_11_0_MASK << I_IMM_11_0_OPOFF);
++
++		/* add the adapted IMMs */
++		call[0] |= to_auipc_imm(imm1);
++		call[1] |= to_jalr_imm(imm1);
++
++		/* patch the call place again */
++		patch_text_nosync(alt_ptr + i, call, 8);
++	}
++}
++
+ static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigned long impid)
+ {
+ 	if (!IS_ENABLED(CONFIG_ERRATA_ANDES_CMO))
 -- 
 2.25.1
 
