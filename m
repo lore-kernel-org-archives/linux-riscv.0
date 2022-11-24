@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096E8C43219
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 11:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE32C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 11:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wjaRhbQDKsNHRqSF6fM2th+60bdybyzYyeUjb5uFolg=; b=3ZRdfAJ2lKOoFP
-	5rdfjGMRFnMQvZE3r7lsVuKaUElmY3XX7QnEMh89176ppbapkgn7NEHadnYVp/DnQ64YAHmdZy9G5
-	Oj95ly3h6DE3qUwpmmeUaQhzy+/oMXXm3U2CW2Zx9A3UaweNtdXubVfYwo2zhAow0XzvRehvZvtFd
-	msx+1teCY1c2R1qQvH9PibGA0FBGDbsSL9CL8ieo/+iClUfANQQeWtw0q84wHUe9UY+pMi0ynJb9y
-	aPRq+gQE8vWD/2YKJ/SQQ/9rxfBoIkHLf+wr1M9+FkCuz15OX6x3+w0ZNsIl6ejV1mpZt/TCHyGE5
-	QODCCesDmBfQfoovCCxA==;
+	List-Owner; bh=FqAXyN/KBbzzVbVsi0egBB+iRDhHHA+ZMVuMNca+1Ec=; b=zuexZJDGClzBLs
+	gBfnBhEXcZIepxXG3161EjoOYjek5WuET3N88uLIc9oRU4dLzeDXzO617VI9bkqXLswMr1dMIznSc
+	zzDT/RT3y7mf9Iy5FUpeB5w+deKIOTfFecFhD2vPbuX0iGE8EtgsrmJqP3J+5a+cEVMM6rCCwRs1T
+	sAdZTen8Zk4kKpr47mrUzll6G4n8qSQyZ+EH9c13wnxrEGNJ6V3q0pu3HSi9SbIUkWm3TyawDRhQJ
+	7ZJJwsjEVNWxZr0rSrR62BbBvq3b+Spw7NakfLY691Dsba1jTQUlgDr9rYKhWKDuSZXYJlP3STCHT
+	DJF9ToUumbNofJ8nIhbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyAnj-008CvS-H8; Thu, 24 Nov 2022 11:53:55 +0000
+	id 1oyApH-008DRr-1H; Thu, 24 Nov 2022 11:55:31 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyAnd-008Cpi-AP
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 11:53:53 +0000
+	id 1oyApE-008DQh-IK
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 11:55:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669290829; x=1700826829;
+  t=1669290928; x=1700826928;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=L0VDwyYomy/w1eYQNlU5SlJ/2j8lPvsGDjWLiSBLex8=;
-  b=aDpWaQyCBz+Ts+4yRLDEzOrPDIbro6J8EoNiDOnQBr8JXn344F2mscMY
-   fS66XA8Ky1A5TOBKPyDg4P09MDUz6hQ9zQFlv4IDgl/eKw7QwRoP9yNFV
-   2tkzM1dMCyZ/FMu+qMuDFZ/tBkgme5qMFokZ2HXjLrSFBV9ep1P7CKPlf
-   ho70f/6QuzDE++17IkoSG7fPZ0k5ZykmLUZxdT/j0f2Rg/VJi9Wb1+sNf
-   Yv5pVYczWyseJFtykv68okp91M2DWZPdvKI819g0V80bXy8Iz0GZAHnmj
-   1dyOgWVM5t+wuyopWXoQmqexEyxuA8prvm6nCdoq2VmV1PIEkIiftZoSe
+  bh=55nH4LmzDK+5WNB9MoXsKRknvVrM2IQDWXw3Al5UU80=;
+  b=EDy6qYR8OiqLFY9zK45oL63khFfMVHFVedyC8cO4xaHg3udrXdxyeSU8
+   xQSjz1mnID1Q+wNM3flz+a9zk88mUh5AbRPCKaiUbJ0on0Ly1Y7YHlEsn
+   IyhBMbGj2MW0eaMmmL1f5HRQrWjvV0BZ1ATDNrHLDQf//H0TQu4blVmQy
+   XGS8N3UGxbigQNr/UFk7C9F4DZiAdJLCdxknozEXVNb+2y8Sj6/T+XCpP
+   5YnRIruMCKnwRccuUvbGkVFe9ypLrzBoXFO0YmUuS9g1XbgXrn8kLHs40
+   wiUt1QWhRWIU4BR2Mz8S9yP94mmEGBWIyCeQWt6Y0hkau1sA0u4LsEp+R
    g==;
 X-IronPort-AV: E=Sophos;i="5.96,190,1665471600"; 
-   d="scan'208";a="124940697"
+   d="scan'208";a="124940786"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Nov 2022 04:53:42 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Nov 2022 04:55:27 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 24 Nov 2022 04:53:40 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
+ 15.1.2507.12; Thu, 24 Nov 2022 04:55:23 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 24 Nov 2022 04:53:37 -0700
-Date: Thu, 24 Nov 2022 11:53:19 +0000
+ Transport; Thu, 24 Nov 2022 04:55:20 -0700
+Date: Thu, 24 Nov 2022 11:55:01 +0000
 From: Conor Dooley <conor.dooley@microchip.com>
-To: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-CC: Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Atish Patra
-	<atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, Eric Biederman
-	<ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-api@vger.kernel.org>, Michael Kerrisk
-	<mtk.manpages@gmail.com>, <linux-man@vger.kernel.org>, Jiatai He
-	<jiatai2021@iscas.ac.cn>, Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v3 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <Y39bL1Vp8Fx7ZD6g@wendy>
+To: Samuel Ortiz <sameo@rivosinc.com>
+CC: "Hongren (Zenithal) Zheng" <i@zenithal.me>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Atish Patra <atishp@rivosinc.com>, Anup Patel
+	<anup@brainfault.org>, Eric Biederman <ebiederm@xmission.com>, Kees Cook
+	<keescook@chromium.org>, <linux-mm@kvack.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-api@vger.kernel.org>, Michael Kerrisk <mtk.manpages@gmail.com>,
+	<linux-man@vger.kernel.org>, Jiatai He <jiatai2021@iscas.ac.cn>, Heiko
+ Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH v3 2/3] RISC-V: uapi: add HWCAP for Bitmanip/Scalar Crypto
+Message-ID: <Y39blUaC/jHiOYCk@wendy>
 References: <YqYz+xDsXr/tNaNu@Sun>
- <YqY0aSngjI0Hc5d4@Sun>
+ <YqY0i22SdbHjB/MX@Sun>
+ <Y385rS/5zDaDJ3Os@vermeer>
+ <Y39AXYPFzSiBngwI@wendy>
+ <Y39Lwp4rQc3Qkl0i@vermeer>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YqY0aSngjI0Hc5d4@Sun>
+In-Reply-To: <Y39Lwp4rQc3Qkl0i@vermeer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_035349_449881_B1EE7BA0 
-X-CRM114-Status: GOOD (  31.94  )
+X-CRM114-CacheID: sfid-20221124_035528_683910_08A7DFC4 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,185 +92,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Hongren,
+On Thu, Nov 24, 2022 at 11:47:30AM +0100, Samuel Ortiz wrote:
 
-On Mon, Jun 13, 2022 at 02:46:01AM +0800, Hongren (Zenithal) Zheng wrote:
-> This patch parses Zb/Zk related string from DT and
-> output them in cpuinfo
+> Patch #1 is definitely needed regardless of which interface we pick for
+> exposing the ISA strings to userspace.
 
-Could you please wrap changelogs at 72 character rather than 50?
-
-> 
-> One thing worth noting is that if DT provides zk,
-> all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
-> 
-> Note that zk is a valid extension name and the current
-> DT binding spec allows this.
-
-Where is the "DT binding spec" for this?
-At the time, IIRC, putting any multiletter extensions in a DT was
-a violation of the dt-binding, so I am interested in seeing what spec
-had covered this.
-
-> This patch also changes the logical id of
-> existing multi-letter extensions and adds a statement
-> that instead of logical id compatibility, the order
-> is needed.
-> 
-> There currently lacks a mechanism to merge them when
-> producing cpuinfo. Namely if you provide a riscv,isa
-> "rv64imafdc_zk_zks", the cpuinfo output would be
-> "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
-> _zksh_zkt"
-> 
-> Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-> Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-> ---
->  arch/riscv/include/asm/hwcap.h | 20 +++++++++++++++++++-
->  arch/riscv/kernel/cpu.c        | 14 ++++++++++++++
->  arch/riscv/kernel/cpufeature.c | 33 +++++++++++++++++++++++++++++++++
->  3 files changed, 66 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 4e2486881840..02c454a12683 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -49,9 +49,27 @@ extern unsigned long elf_hwcap;
->   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
->   * extensions while all the multi-letter extensions should define the next
->   * available logical extension id.
-> + *
-> + * The order of them should be maintained according to the riscv-isa-manual.
-> + * As this is an internal API, changing the id of one extension does
-> + * not affect compatibility.
-
-Hmm, not too sure about this. See 61a41d16ad20 ("RISC-V: Print SSTC in
-canonical order"), where Palmer re-sorted another one of these internal
-APIs (isa_ext_arr) in a different order to what it would appear you're
-proposing here.
-
-I am really really bad when it comes to specs, manuals etc - is there a
-link to the specific part of the riscv-isa-manual that we can use here
-for reference? Otherwise I'd much rather stick with what I **thought**
-was the "canonical order", _Sfoo_Zfoo_Xfoo.
-
-Or are these slightly different - and fit in the "Additional Standard
-Extension Names" category rather than "Machine-level Instruction-Set
-Extensions"?
-
-The only ones I see pointed out in the current table [0] are Ztso,
-Zicsr, Zifencei & Zam which is what I (maybe wrongly!!) assumed to be
-the exceptions to the S before Z rule.
-
-I tried to have a look in the "bitmanip-1.0.0" pdf at [2], but I don't
-see it use the word "Standard" anywhere. As I already said, this stuff
-confuses me no end so some clarification would be really helpful :)
-
-The same applies to the crypto stuff.
-
-In other news, since Palmer did do a re-order, and its been several
-months - you'll need to rebase & re-submit anyway.
+I took another look at #1, and I feel more confused about what
+constitutes canonical order than I did before! If you know better than
+I, and you probably do since you're interested in these 6 month old
+patches, some insight would be appreciated!
 
 Thanks,
 Conor.
 
-0 - https://github.com/riscv/riscv-isa-manual/blob/master/src/naming.tex#L132
-1 - https://github.com/riscv/riscv-isa-manual/blob/master/src/naming.tex#L182
-2 - https://github.com/riscv/riscv-bitmanip/releases/tag/1.0.0
-
->   */
->  enum riscv_isa_ext_id {
-> -	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> +	RISCV_ISA_EXT_ZBA = RISCV_ISA_EXT_BASE,
-> +	RISCV_ISA_EXT_ZBB,
-> +	RISCV_ISA_EXT_ZBC,
-> +	RISCV_ISA_EXT_ZBKB,
-> +	RISCV_ISA_EXT_ZBKC,
-> +	RISCV_ISA_EXT_ZBKX,
-> +	RISCV_ISA_EXT_ZBS,
-> +	RISCV_ISA_EXT_ZKND,
-> +	RISCV_ISA_EXT_ZKNE,
-> +	RISCV_ISA_EXT_ZKNH,
-> +	RISCV_ISA_EXT_ZKR,
-> +	RISCV_ISA_EXT_ZKSED,
-> +	RISCV_ISA_EXT_ZKSH,
-> +	RISCV_ISA_EXT_ZKT,
-> +	RISCV_ISA_EXT_SSCOFPMF,
->  	RISCV_ISA_EXT_SVPBMT,
->  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->  };
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index fba9e9f46a8c..d9ff9bff3d45 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -87,6 +87,20 @@ int riscv_of_parent_hartid(struct device_node *node)
->   *    extensions by an underscore.
->   */
->  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> +	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-> +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> +	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-> +	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
-> +	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
-> +	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
-> +	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-> +	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
-> +	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
-> +	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
-> +	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
-> +	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
-> +	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
-> +	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index a6f62a6d1edd..0c2638365ec2 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -199,6 +199,39 @@ void __init riscv_fill_hwcap(void)
->  			} else {
->  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
->  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-> +				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
-> +				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
-> +				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
-> +				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
-> +				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
-> +				SET_ISA_EXT_MAP("zbkc", RISCV_ISA_EXT_ZBKC);
-> +				SET_ISA_EXT_MAP("zbks", RISCV_ISA_EXT_ZBKX);
-> +				SET_ISA_EXT_MAP("zknd", RISCV_ISA_EXT_ZKND);
-> +				SET_ISA_EXT_MAP("zkne", RISCV_ISA_EXT_ZKNE);
-> +				SET_ISA_EXT_MAP("zknh", RISCV_ISA_EXT_ZKNH);
-> +				SET_ISA_EXT_MAP("zksed", RISCV_ISA_EXT_ZKSED);
-> +				SET_ISA_EXT_MAP("zksh", RISCV_ISA_EXT_ZKSH);
-> +				SET_ISA_EXT_MAP("zkr", RISCV_ISA_EXT_ZKR);
-> +				SET_ISA_EXT_MAP("zkt", RISCV_ISA_EXT_ZKT);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKB);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKC);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKX);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKND);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNE);
-> +				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNH);
-> +				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKB);
-> +				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKC);
-> +				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKX);
-> +				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSED);
-> +				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSH);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKB);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKC);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKX);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKND);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNE);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNH);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKR);
-> +				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKT);
->  			}
->  #undef SET_ISA_EXT_MAP
->  		}
-> -- 
-> 2.35.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
