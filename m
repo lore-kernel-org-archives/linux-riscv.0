@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6B2C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 10:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3ABEC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 10:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=23ppNtmjYTYmse+86Af1hmjiD2pTvOPcgYT9e6K458E=; b=V7PAa6jMOORSl2
-	bb9RKP/STOvFmRxRf52eKZ41YRTY4rEfY1dRgbAVIUu9LWdFMi/rK0fPmqryJPdmdBiiprBmFiYoN
-	xyoDHIfVlD0akg3KQKk5kW2Ag3d8EU/TUp0xBEeMGTbQOnDOOFyKjCspLw/dhB3lnOrIPp7e7+VRD
-	7xIk+kOxl8JpgKfhuMKTuuUFnP1mHBDUJLTFSw3cRw+cwDuBFwJJRHUmGUlEOY7eP5anJ/ijU1gfx
-	lClf/UpHK3/YWFCao63x9svcAt7OIrt0Q7LXsMU1HORiQLHdpVlY5La6ZD/po/HrBb8AAK7CnzjmQ
-	F51uVmEkDU/yeEyqpPUQ==;
+	List-Owner; bh=Sz2BQBrDh++ETl4a0EzhoeqriLwdzq5VUQoyYiyByDY=; b=gvufek2s4Dps2q
+	n67CyGzNBdQtIBAvPHl5KkVZT6oIxU8xJgseUKv+Sibcmch5w5ccspui65hnWW4G5TeM1RE8IkC64
+	26JTNlt9iJDH6+PI9/1oHvFnHprdh8OyJtiohdBpB41xX47LAuOAutvVZNG8nKOgUp4ktr05+kvJ1
+	WePxvbOh1wzmr580jjcfYS+HukKjdy/SrsThfdW7ztKNLZkWQi/qN182s+pVyxAmZVONY1afRexN7
+	ziGWU6qvN/r0KHafO9+dC/ss+SRpvFNtHrPEek+AAAGcXlsVGTI4aUqWYfmr/DKWlY+p//y4QYaou
+	31wwAU7sZ8w/+vFLUH6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy9Ja-007ZGB-Kx; Thu, 24 Nov 2022 10:18:42 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1oy9YT-007icW-9R; Thu, 24 Nov 2022 10:34:05 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy9JW-007ZDx-Rz
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 10:18:40 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id v82so1142306oib.4
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 02:18:38 -0800 (PST)
+	id 1oy9XQ-007hTn-Ed
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 10:33:02 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id m19so718021edj.8
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 02:32:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=zGiZlBvNiwhpkqsR+b3pszQBQ7Auh+g6CaM/s8BUrYg=;
-        b=YDyoj+Zi8XAnNDRzcGL99v05D7zM8bWz+3OqIzyD2w4N2pJALRtx8fJ8jFEHjuO6DL
-         Mu+mYCeMpo/gbYQ5WroHlgcWIZHJ69btnS3eLz5Ww0okQo6qof1zG2bsnzX7kNEOJJ/z
-         6wUTLbB8asyfYc7hleNjb2knO4EabRB9LnoeQ=
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/Fwv0fBaAtUGyjSvz8Eubu4WI6tfxvAGSEBjrtHfM94=;
+        b=R+veBmryJx4bjvNU4yQpLYI4xOGK5WSei4TFOGSsJ6CxLP27d+kxKBz3iUR9fA4IxX
+         SMnZEu7CLp3KwyXQKgWs+zSP6Ch9iM8GB3nikg+wvH3zL8+5+RqnJaFIDM5q50FmmaWy
+         WBi/got/nDXWVhECiF7GU3BYildUNLZmiZMQvsZmXcGs1F307/YNgKlHzUwMT7MwlsNa
+         CIgjFYBTVRnp91Om5Kurv7dmm1BT1yENpGc100kF7xxVMpQ22cfQnt0FEqv/FssI/6mC
+         Pz1lRORynIO5fCYwPKJ0BHL+uKSV/zZRLrShQdE7QZ05s+dJ1O/1uA7moSbqYz0jMZKx
+         hPJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zGiZlBvNiwhpkqsR+b3pszQBQ7Auh+g6CaM/s8BUrYg=;
-        b=aA4VqOqRIg11jLc5ivMTb9ApVqcI3MfHkv864BKRqci6B8n+rSgi+SlvSr3jNnN7rZ
-         26yMfPUAjVVHs1nooI5yKQg5yboaKf3Yfg4ugDJa3jYb2k+YKXK4nQqr6RctM4PMzN5j
-         zbpEjqz5kPBbz7Hfis34Ky8uThya87PT9eqpaZLxeMoVw82EhWr/Rua9uQwF+OUPvZZP
-         WPeKwixaFYxTJgnMcUkjP0WpGfGoqZioXyv7WS93vzHnPZOMXrNtnttfK7tjsAo2A93v
-         s16ZIXEGOUqFLpU7kbLtC0MF4fgGbC9QVQQ9rDpeiXYTHx4iAm6FIlsL68cJ8eAqDgVV
-         FitA==
-X-Gm-Message-State: ANoB5pnhtSa5Yy23vxUHRMU35Db7dmqQXhTLfDloTGxaZWuNXNJKEUoi
-	5Gz/cBK4Xuggtl2FdMzz7W+f1SZt3Dscxk+yIarB
-X-Google-Smtp-Source: AA0mqf6C5dlDvnPsT44KvSrCnZApXT9e7P7KCYteZn1aOOsjl4G37U/m6ORn0KcUFQTwHGkePw8WKf/CRMGz0a8DiPo=
-X-Received: by 2002:a05:6808:51:b0:359:f091:104 with SMTP id
- v17-20020a056808005100b00359f0910104mr19097584oic.274.1669285117693; Thu, 24
- Nov 2022 02:18:37 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Fwv0fBaAtUGyjSvz8Eubu4WI6tfxvAGSEBjrtHfM94=;
+        b=yDQOLLXR0E7rp6p/B7PoCRr61/r0dyTZgRVbczeWOWSKUMyfZ/YjN5iySfY3LJJLgZ
+         0XKeBsmyOD7FAiBE9dXANIAdwhfYneWOE9skidHuyMyso+2owhreDrIUH5sNhTy0EisQ
+         28OL6EhMdJta7H4q7IP56kPXN2/CLItYRRB2B2j+0I/GEttNB12snxPtlHDVx+3m4O/0
+         i+Oh1WOmYTR6nKjjduEglhGJR0buHkzeu2mj2HgFWJBiOAbF1P7nQpx8Ww/UIUhLTodk
+         g62JCY6gG9yBNh3xMw/id7ub+hfg6hwMlOCOGEY/hi7milu6uLWxMFMIjdBh6BS+dXL0
+         fD8Q==
+X-Gm-Message-State: ANoB5pl599vJOARoLxSMFguB+BxDxaiLy0pBCxpehCaJxp6e9qPchdd1
+	ZNs8lM3zvJh0CSzynuvew7pK2A==
+X-Google-Smtp-Source: AA0mqf6l3YnM1QkmkvtGrkaGbUvKvN03fiMpWHkPotubU8vmj+xb1xgCJEkB80pFtKPXCbX1K3IyGA==
+X-Received: by 2002:a05:6402:1f03:b0:468:7be6:55e7 with SMTP id b3-20020a0564021f0300b004687be655e7mr29511275edb.345.1669285976903;
+        Thu, 24 Nov 2022 02:32:56 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id 18-20020a170906201200b0077f20a722dfsm266341ejo.165.2022.11.24.02.32.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Nov 2022 02:32:56 -0800 (PST)
+Date: Thu, 24 Nov 2022 11:32:55 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] riscv: vdso: remove hardcoded 0x800 .text section
+ start addr
+Message-ID: <20221124103255.33prhf3gf6xtwlsk@kamzik>
+References: <20221123161805.1579-1-jszhang@kernel.org>
 MIME-Version: 1.0
-References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-7-atishp@rivosinc.com>
- <20221101142631.du54p4kyhlgf54cr@kamzik> <CAOnJCUJfakcoiWh4vFk5_BcTKfoSDbx+wtmh7MW4cPYog7q4BQ@mail.gmail.com>
- <20221123135842.uyw46kbybgb7unm2@kamzik>
-In-Reply-To: <20221123135842.uyw46kbybgb7unm2@kamzik>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 24 Nov 2022 02:18:26 -0800
-Message-ID: <CAOnJCUKZV+0Xts6C4QY7X+Wak0ZR_f8wPtEAtH4PEmh2-_AcWw@mail.gmail.com>
-Subject: Re: [RFC 6/9] RISC-V: KVM: Add SBI PMU extension support
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Will Deacon <will@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20221123161805.1579-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_021838_924311_2AC0B532 
-X-CRM114-Status: GOOD (  34.39  )
+X-CRM114-CacheID: sfid-20221124_023300_568362_C8D3EE50 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,117 +92,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 23, 2022 at 5:58 AM Andrew Jones <ajones@ventanamicro.com> wrote:
->
-> On Tue, Nov 22, 2022 at 03:08:34PM -0800, Atish Patra wrote:
-> > On Tue, Nov 1, 2022 at 7:26 AM Andrew Jones <ajones@ventanamicro.com> wrote:
-> > >
-> > > On Mon, Jul 18, 2022 at 10:02:02AM -0700, Atish Patra wrote:
-> ...
-> > > > +static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> > > > +                                unsigned long *out_val,
-> > > > +                                struct kvm_cpu_trap *utrap,
-> > > > +                                bool *exit)
-> > > > +{
-> > > > +     int ret = -EOPNOTSUPP;
-> > > > +     struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-> > > > +     unsigned long funcid = cp->a6;
-> > > > +     uint64_t temp;
-> > >
-> > > I think we need something like
-> > >
-> > >    if (!vcpu_to_pmu(vcpu)->enabled)
-> > >       return -EOPNOTSUPP;
-> > >
-> > > here. Where 'enabled' is only true when we successfully initialize
-> > > the pmu. And, successful initialization depends on
-> >
-> > Yes. I have added the flag. But should we do the check here or
-> > respective function
-> > as a paranoia sanity check ?
->
-> I think something like above that returns a not-supported error should be
-> in all the entry points, like the top level SBI call handler. Functions
-> that should never be called unless the PMU is active could have WARNs
-> added for sanity checks.
->
+On Thu, Nov 24, 2022 at 12:18:05AM +0800, Jisheng Zhang wrote:
+> It seems the hardcoded 0x800 isn't necessary, but removing it brings a
 
-Sure. Will add those checks.
+s/, but/and/
 
-> >
-> > > IS_ENABLED(CONFIG_RISCV_PMU_SBI) and
-> >
-> > Why do we need to guard under CONFIG_RISCV_PMU_SBI ?
-> > vcpu_sbi_pmu.c is only compiled under CONFIG_RISCV_PMU_SBI
-> >
-> > If CONFIG_RISCV_PMU_SBI is not enabled, probe function will return failure.
->
-> You're right. We don't need explicit config checks for things that can't
-> exist without the config.
->
-> >
-> > In fact, I think we should also add the pmu enabled check in the probe function
-> > itself. Probe function(kvm_sbi_ext_pmu_probe) should only true when
-> > both vcpu_to_pmu(vcpu)->enabled and
-> > riscv_isa_extension_available(NULL, SSCOFPMF) are true.
-> >
-> > Thoughts?
->
-> Agreed.
->
-> >
-> > > riscv_isa_extension_available(NULL, SSCOFPMF) as well as not
-> > > failing other things. And, KVM userspace should be able to
-> > > disable the pmu, which keep enabled from being set as well.
-> > >
-> > We already have provisions for disabling sscofpmf from guests via ISA
-> > one reg interface.
-> > Do you mean disable the entire PMU from userspace ?
->
-> Yes. We may need to configure a VM without a PMU to increase its
-> migratability, workaround errata, or just for testing/debugging purposes.
->
-> >
-> > Currently, ARM64 enables pmu from user space using device control APIs
-> > on vcpu fd.
-> > Are you suggesting we should do something like that ?
->
-> Yes. Although choosing which KVM API should be used could probably be
-> thought-out again. x86 uses VM ioctls.
->
+> small vdso.so and aligns with other architectures.
 
-How does it handle hetergenous systems in per VM ioctls ?
+This commit message didn't really satisfy my desire to understand why
+the comment and '. = 0x800' were there in the first place and if its safe
+to remove now, so I tried to do some of my own digging. I found
 
-> >
-> > If PMU needs to have device control APIs (either via vcpu fd or its
-> > own), we can retrieve
-> > the hpmcounter width and count from there as well.
->
-> Right. We need to decide how the VM/VCPU + PMU user interface should look.
-> A separate PMU device, like arm64 has, sounds good, but the ioctl
-> sequences for initialization may get more tricky.
->
+commit 5b9304933730 ("x86 vDSO: generate vdso-syms.lds")
+commit f6b46ebf904f ("x86 vDSO: new layout")
 
-Do we really need a per VM interface ? I was thinking we can just
-continue to use
-one reg interface for PMU as well. We probably need two of them.
+which removes the comment and hard coding for x86 by changing the vdso
+Makefile. Then looking at
 
-1. To enable/disable SBI extension
-    -- The probe function will depend on this
-2. PMU specific get/set
-    -- Number of hpmcounters
-    -- hpmcounter width
-    -- enable PMU
+commit 9031fefde6f2 ("arm64: VDSO support")
 
+we see that it starts with the new Makefile approach and doesn't bother
+with the hard coding from the start. As riscv also started with the new
+Makefile approach it also could have dropped the hard coding from the
+start (I guess).
 
-> Thanks,
-> drew
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/kernel/vdso/vdso.lds.S | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+> index 150b1a572e61..7be7e618d59c 100644
+> --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> @@ -31,13 +31,7 @@ SECTIONS
+>  
+>  	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+>  
+> -	/*
+> -	 * This linker script is used both with -r and with -shared.
+> -	 * For the layouts to match, we need to skip more than enough
+> -	 * space for the dynamic symbol table, etc. If this amount is
+> -	 * insufficient, ld -shared will error; simply increase it here.
+> -	 */
+> -	. = 0x800;
+> +	. = ALIGN(4);
 
+I realize 4 is used here now because I questioned the 16, but after doing
+my digging I think a larger alignment may be better. Loading the text may
+be done with 8 byte or larger reads, so having the section aligned to a
+larger size would be better reading it. We might as well use 16, like
+arm64 does, and like you had before?
 
+Also, having enough separation between data and text seems to be
+important for cache reasons, based on the comment in
+./arch/x86/entry/vdso/vdso-layout.lds.S and other vdso history.
+Maybe we should move .note, .eh_frame_hdr, and .eh_frame below
+.rodata like x86 has it?
 
--- 
-Regards,
-Atish
+Thanks,
+drew
+
+>  	.text		: { *(.text .text.*) }		:text
+>  
+>  	.data		: {
+> -- 
+> 2.37.2
+> 
 
 _______________________________________________
 linux-riscv mailing list
