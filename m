@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C3EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 09:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C344CC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 09:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yeiJKJGEGyqlpHwvdOsueBcBLN0dr6V6ICGA/dKZKMQ=; b=ASREmbQZ78srKT
-	rFaclp56aR64iKtaY0XUnFG2LVbYXybIqd5bWDM/a0JMqc9i76h/TUUQiDG7bxBr5oz5VC1CnWtm/
-	eux+5si4HXu3E80kgo5T+AS53xCMx34pqe5fipUNxhSnxi5R5GwanKMeceXJrGSLe3BaRdhvirdJE
-	G6rBxJQHiy9AlrZfBf1U4TATLRem842VItE5b54iHAcAN9gGpSGyDqYI4VKDOKITZxj79tZxchOTL
-	yNSKizkcgMbmQThsApFfFE4RG/zEXF0YBZac0OgpmsKtAPgIuZtHiULBZalw2NssmikJ1FtlEqXW0
-	GlCvs+6eaYYA5++i87cA==;
+	List-Owner; bh=Giw+LYPAbzjgF2ELInQl9Imv+/0lDbP0DVdd9UQLyQU=; b=FyBI8/ZYfsIg0D
+	Z3YEbu2Mby6IVw/y/+jOOKqYiLfqSiw8dNwe4U7lDQd/RyDyX1ijykLWh3mkt34NKfrC3wZ3b5Ngu
+	q5zYkgg2g1Ytu/VLWedF/dG8Q3EGzNHpf27vZilnYI9xTjamfTchgVZ5bu2QVfH7D/dRlVs2xLygo
+	QkB9GtqcR/fZWAS+kbFH8+fIn8Gkp4BjCyZTgS+x28zF1LCvQLXaPnFMwNzP71E/S7CVrJQxMPD7q
+	ZZXOc5bF1legrW80D+No3poHoaUmThZA34Aj4c2iRWFyhVuEYu6L/L0lV5Q7bb9qUuYZvuWDkgLaJ
+	CQgsw9IyiWuhc33rejuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy85W-006nMT-6i; Thu, 24 Nov 2022 09:00:06 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oy89r-006qNp-64; Thu, 24 Nov 2022 09:04:35 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy85S-006nGP-DY
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 09:00:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669280402; x=1700816402;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SYMn1xjyNPJRlpfzzjpdSX05OnXmyIiSsLWKetV8rHk=;
-  b=ITWsyFUnl5lcSOrQfwuRV17rHf/P0qF9DjbCOKXF/HkmOyWng3x9GsYX
-   CrkYh638jkeB+iXwI/FuACpb1dS0JR+YlxcQAwZMWSnqIJRMWmbZ6IzIw
-   CJwanYPrsoBOOZ5Xv6kGMLlG9REjAenDrV+FAkR9V8c9KUSn9VM1JwyBM
-   yigYbFhRqAO0UIgZZo+XNwe+bhj0i9izBl2dClmZDPZ3JHi5pPvmlof3O
-   ztrQXt8ne5ntMdR002qflSLxr/DaF4zkWaqpaL1ThJfa1z164jK+VozgX
-   eAG80bYV3myRgHHhCPCojRTbKGSHxxTesgzx2z7emI0xQydtvuA8NcBmG
-   g==;
-X-IronPort-AV: E=Sophos;i="5.96,190,1665471600"; 
-   d="scan'208";a="124918613"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Nov 2022 01:59:53 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 24 Nov 2022 01:59:51 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 24 Nov 2022 01:59:50 -0700
-Date: Thu, 24 Nov 2022 08:59:32 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Deepak Gupta <debug@rivosinc.com>
-CC: Guo Ren <guoren@kernel.org>, <palmer@dabbelt.com>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<paul.walmsley@sifive.com>, Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH] riscv: VMAP_STACK overflow detection thread-safe
-Message-ID: <Y38ydMoqmqOPfBs0@wendy>
-References: <20221124005006.1788315-1-debug@rivosinc.com>
- <CAJF2gTQ=Vr6neABtz9JSCei6oPEsyWTpb-Y=Rxt5jy6n1VEtGA@mail.gmail.com>
- <CAKC1njRfxNx8r5SP7qsbouCFfb1L4w63paQibb=cFCBhWDXNXA@mail.gmail.com>
- <CAJF2gTRC-qm76=aaLh75amO0JJLO2P4eZaJXH-TBSV0c7iqUBA@mail.gmail.com>
- <20221124071022.GA1149630@debug.ba.rivosinc.com>
+	id 1oy89k-006qGe-HF
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 09:04:31 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-1322d768ba7so1322443fac.5
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 01:04:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GskdefzDhpEJdGPupN73trBGgVe2XcooqSs6tZjZg+E=;
+        b=clwCIfMJqaJ0fQEwDkADVQu6BE0lfReVFb9n6+9d/WHIJrWK8pmsDFzcHSNh+q5FL5
+         iKMqTRrVgT6nmZgmVV5KZe1LTGExe3COTBFaCFVkThZC3MzR6gY8ibDhMstZoLLjE1+j
+         CXZ9MEW17ik+wp8O823aI2Z2hERUesuhNOmSg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GskdefzDhpEJdGPupN73trBGgVe2XcooqSs6tZjZg+E=;
+        b=zZc4VyrLGqkRPuPfftJI+ybzL+RreGPhesxCbQFOnuSzDteT6nazoVA3GWfukC8+u+
+         YT+fe4mT+XBM6LlHlfwic/2boRRdW3dIZ/jn2cEwUkxip2XoPENa0NQot2cdqBftXcrU
+         ad/GAzKvYiDn35QcrbSKdWu0hhWjqqwm/Buf2QNSsSibh1L5cw7L8DzN+axQWxlNVInA
+         YFtpv35qDRNhw+0yENKRjthe2BH8MY5Mwc8/n/U2WNZ/M+FhaSPjBkBdrnJ8rdtcB2W+
+         NsFWBrnuuZQUBsDZeCPTvbEpaYK7EK+fTmzns6sAoWbjL/o3YfNWbTG+LjYHtTd2f7Sw
+         uc3Q==
+X-Gm-Message-State: ANoB5pkxPsfMEgqPex9Y5UnY+/7nSCNEenlNmkhMRJj+BsITpHTwctfU
+	sLshpt5zN1Mds3rtdwSkRCWBBrJ22oeYPvmSSKty
+X-Google-Smtp-Source: AA0mqf48nDcZ5pOw8inOJMr+cmGIXfYN/bZRBYRNG8WluVWZ7S+k4L2pJQZvJLssjgZFGEwvT+XVs+wM4BU4BUdqbpM=
+X-Received: by 2002:a05:6870:c18a:b0:142:870e:bd06 with SMTP id
+ h10-20020a056870c18a00b00142870ebd06mr15305401oad.181.1669280666095; Thu, 24
+ Nov 2022 01:04:26 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221124071022.GA1149630@debug.ba.rivosinc.com>
+References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-6-atishp@rivosinc.com>
+ <20221101141329.j4qtvjf6kmqixt2r@kamzik> <CAOnJCULMbTp6WhVRWHxzFnUgCJJV01hcyukQxSEih-sYt5TJWg@mail.gmail.com>
+ <CAOnJCUKpdV3u8X6BSC+-rhV0Q8q2tdsa8r_KTH5FWCh2LV2q8Q@mail.gmail.com> <20221123133636.gke3626aolfrnevy@kamzik>
+In-Reply-To: <20221123133636.gke3626aolfrnevy@kamzik>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 24 Nov 2022 01:04:15 -0800
+Message-ID: <CAOnJCULUH09HPZL6Ks-xUsiDLQPR6xOv2g+ic9Gd3uwea6hCyQ@mail.gmail.com>
+Subject: Re: [RFC 5/9] RISC-V: KVM: Add skeleton support for perf
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_010002_619249_79DBF00E 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20221124_010428_877698_7AD50ED2 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +88,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 23, 2022 at 11:10:22PM -0800, Deepak Gupta wrote:
-> On Thu, Nov 24, 2022 at 02:31:25PM +0800, Guo Ren wrote:
-> > On Thu, Nov 24, 2022 at 1:57 PM Deepak Gupta <debug@rivosinc.com> wrote:
-
-> > > On Wed, Nov 23, 2022 at 5:28 PM Guo Ren <guoren@kernel.org> wrote:
-
-> > > > On Thu, Nov 24, 2022 at 8:50 AM Deepak Gupta <debug@rivosinc.com> wrote:
-
-> > > >> Fixes: 31da94c25aea835ceac00575a9fd206c5a833fed
+On Wed, Nov 23, 2022 at 5:36 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> ...
+> > > > > -     csr_write(CSR_HCOUNTEREN, -1UL);
+> > > > > +     /* VS should access only TM bit. Everything else should trap */
+> > > > > +     csr_write(CSR_HCOUNTEREN, 0x02);
 > > > >
-> > > > The patch gives more significant change than the Fixes, and Fixes would expand to the previous stable versions. Please don't set it as a Fixes, but an improved OVERSTACK dead path performance feature.
+> > > > This looks like something that should be broken out into a separate patch
+> > > > with a description of what happens now when guests try to access the newly
+> > > > trapping counter registers. We should probably also create a TM define.
 > > > >
-> > > 
-> > > Not a performance feature but more like correctness.
-> > > If kernel died and two CPUs raced to kernel stack overflow,
-> > > death post-mortem should be straightforward.
-> > We already have had a fixup, and your patch likes a feature with a
-> > significant change.
-> > https://lore.kernel.org/linux-riscv/20221030124517.2370-1-jszhang@kernel.org/
-> > If it is for correctness, the simple lock is enough.
-> 
-> Sure lock is enough. It's different way to solve the problem. But I don't
-> think it qualifies as significant change.
+> > >
+> > > Done.
+> > >
+> >
+> > As we allow cycles & instret for host user space now [1], should we do the same
+> > for guests as well ? I would prefer not to but same user space
+> > software will start to break
+> > they will run inside a guest.
+> >
+> > https://lore.kernel.org/all/20220928131807.30386-1-palmer@rivosinc.com/
+> >
+>
+> Yeah, it seems like we should either forbid access to unprivileged users
+> or ensure the numbers include some random noise. For guests, a privileged
+> KVM userspace should need to explicitly request access for them, ensuring
+> that the creation of privileged guests is done by conscious choice.
+>
 
-Something to bear in mind is where in the cycle we are - there's likely
-just over a week left before v6.1.
-Since the lock is sufficient to fix the problem for v6.1, it's easy to
-view this patch as an optimisation or improvement that should go on top
-of that, smaller, patch.
-Especially when you have some questions yourself about the correctness
-for 32 bit!
-I've got no technical comment to make about the discussion here, but
-looking in from the "outside", that's the easy conclusion to jump to.
+If I understand you correctly, you are suggesting we only enable TM
+bit in hcounteren ?
+We also need a mechanism to enable the hcounteren bits from KVM guest userspace.
+
+I can think of the following approaches.
+
+1. The CYCLE, INSTRET enabling can also be via one reg interface.
+2. We can enable it during first virtual instruction trap if these
+bits in guest scounteren
+are enabled.
+
+> Thanks,
+> drew
 
 
->	REG_S x31, TASK_TI_SPILL_REG(tp)
->	asm_per_cpu sp, overflow_stack, x31
->	li x31, OVERFLOW_STACK_SIZE
->	add sp, sp, x31
->	REG_L x31, TASK_TI_SPILL_REG(tp)
 
-btw, for this sort of thing, could you please use some whitespace to
-align the operands? Makes things significantly more readable.
-
-Thanks,
-Conor.
-
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
