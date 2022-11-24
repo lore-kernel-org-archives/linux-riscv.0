@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7693C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 09:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5899EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 09:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ju5irkY3rX/xfUf1BW996kkJXWhszr80g5nU+XParK8=; b=MB4uNJxCi0Nc/Q
-	F9wEkbGNW4u47iS5q+TJYy1WmSOwMnCcHw9Gm1nS2eqwQuSOorh3YeJJi2FbhCubJDSebnveILuDj
-	FrUfrgDEu9LCR2MCPaXl8ln2w5p+ldm/I8ebazwaCqo6QxjvgcVnXDZzraQqW849Q0v/0URUHOMj/
-	aavKMpUptOkeUPmO73jAtHQxLd4S7W91wG0qoxdQ9pXuGlrJ+/3L8G9BcVz9OKJWooGoq8CfophLX
-	vcBce6cPku1zLYvBk5ZmtauvMgcavMBHgFQJ0DVjSuUzRjqcKUNkHExbzGOZ8zzx/ze1fhCjmhjUL
-	jA09JNoboluu/d1R6TXg==;
+	List-Owner; bh=jISGtpq92DcxJKqB96fmBA+BTZvSFUomr3/aiFvPl84=; b=MVsNeMfpmkE09Y
+	JxyC36lxKpJAysumhjAYIhwXu8UQWbwC6w+UfV5gtH5jeQbU+ST3OlvbEJNO7Bc+4oS24It5A8h02
+	AVSSIcGH9fjrrP0qR5zmNap9RzlF/ODQui8INE4Oz5c+utmqG45/H8jZEsG7W6achLyt8SVCxkn4I
+	/tpjt1J6GS6A7UdMC6ABKBOmyhAqJXPu7TEd2e8cGiIBKXs0+tj5zFBEGToNKKjzVSh7cKYZm9mjG
+	a4pbTv+MK33+FsFDCTlp9quH7E7XWrezEnpB/exaXd+0aMTrVn3nBvyEQCstWjbab45zAoXvWnEKK
+	rXdqe92e2viHKMy4i6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy8OD-0070Hv-Dp; Thu, 24 Nov 2022 09:19:25 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1oy8Ph-0071AG-3R; Thu, 24 Nov 2022 09:20:57 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy8OB-0070Fr-AE
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 09:19:24 +0000
-Received: by mail-wm1-x332.google.com with SMTP id a11-20020a05600c2d4b00b003cf6f5fd9f1so792954wmg.2
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 01:19:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=21RtI83U3AWt3cyeCJ2XmHc2ruDDyw09Go561vbFieg=;
-        b=7q/OaKPtQ4IeYxQHQaC4aOn7zrvJ3Yr8RQyWvwQwcRu0jouQ1mzKgLwVH1+4CtBlT0
-         WqqJ97pJd1e6ipFHKwm0vRnNnfYpGlLhc2UVYB6Y3U09PlrX4FMMxevbcWyLBOcWWvdL
-         YPv7ecnuSiy00N+7f+ChYRhSk6+HTph4f7mDMJbWkd6ugWorOzKjS6YqG0JAZHmStWk9
-         LcfhTIxE312OlgUaD+s8Rvw/FR0tfahl+821ZbxKeb7qg4IZqU93u76IUVMvn9sRUgy/
-         C7aBU3zL62yibHNI9wYEf0E3JQhpAIlj8kMyT9+IlFD31olty3dqCnVlvD1G4WzsbGzJ
-         Ccgg==
+	id 1oy8Pd-007166-8P
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 09:20:55 +0000
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6D3183F221
+	for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:20:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1669281650;
+	bh=VRx51K+Grac4imHy1DHLCU82k/uWawM5zQfqB1/2368=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=BTSb5oDPfk5kVdVNwh/WPgxbI/s03ycVt3H5olgJTv9wwLfLdHt+lPsGUA1RYeRrr
+	 E+QELyzw7H9wkP6y64I6UlTd9z4511LRkY9EsWZ3sKZrfDF0hY8rAx5Q4XHNDuJaxR
+	 6uD28+ZjNaZerOIbKO33njc0E5A0XyiuYi9jTrykz5g1cVgWBFfCafTOtnn427W2pa
+	 3b9mfcDffeaTqB6MQb8HnSpEKSO8r3+Z6+QjACugugQrd5KxD4Jah5SgGHW7lb9uRm
+	 hgOueE+0qB0KF6yzt4oNdmqRLD1/k5YurnzaAaxAsh9WFzI5dneKAM4jrCq3vTybq6
+	 Omvj4AS2I7vnA==
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-368994f4bc0so10852507b3.14
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 01:20:50 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=21RtI83U3AWt3cyeCJ2XmHc2ruDDyw09Go561vbFieg=;
-        b=BbZYZDAphLQPzxMJerKK9RxtDuA/AjQF4fRQ1PJ9UZs+/hz4ducv2du10E6AprhZ2E
-         ThSXOUFwd/ogjl9wLT6lZGzXfyK2+7PaQZ84r9RN8cRW6zgXBYIIknD5sU/yXUrkATfc
-         AvH8PdAX3fn3Zrwih1m00FKm6/ORezs5WXZ7Cv817JaJO357uOk9AVbhFQ5vXfOupq1k
-         OdxHdUemSxKjgW1Rh3uc1tdQ2bAdYJAGO8GkAMCqKZxRZAEfLWpBaJC9aiQcqCDfyRnm
-         mSJ0icOEW8TuJUXW2CX1e9/UaduLxlm/RCT9OprE98hWPtwloHVxYcUYUyUWMw+qYTrH
-         +2mw==
-X-Gm-Message-State: ANoB5pmQdxRLxNDfwVusShxSabRHni3XNGwBLHYDovHxXWSaYzjijoku
-	bkS/0Mr97c3ynMbPd6iC/1oPMw==
-X-Google-Smtp-Source: AA0mqf44COThVTh8STo2F/PdfE1hAhOPrq1SYQrMQOFcuboOXsdNStHJxfmCn7TEZsRRJCXahEuHCw==
-X-Received: by 2002:a05:600c:3b04:b0:3cf:6fd8:95a4 with SMTP id m4-20020a05600c3b0400b003cf6fd895a4mr22693692wms.73.1669281560664;
-        Thu, 24 Nov 2022 01:19:20 -0800 (PST)
-Received: from vermeer ([145.224.92.100])
-        by smtp.gmail.com with ESMTPSA id b10-20020adfde0a000000b0022e57e66824sm898859wrm.99.2022.11.24.01.19.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Nov 2022 01:19:20 -0800 (PST)
-Date: Thu, 24 Nov 2022 10:19:16 +0100
-From: Samuel Ortiz <sameo@rivosinc.com>
-To: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
-	linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>,
-	Heiko Stuebner <heiko@sntech.de>, Conor.Dooley@microchip.com
-Subject: Re: [PATCH v3 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <Y383FE6/w2sLd4I5@vermeer>
-References: <YqYz+xDsXr/tNaNu@Sun>
- <YqY0aSngjI0Hc5d4@Sun>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VRx51K+Grac4imHy1DHLCU82k/uWawM5zQfqB1/2368=;
+        b=lYwiuoTIcHki6ZJbtxaJGr2YJEBrOeCEMyX5D7VxbbQtSq69K4EGgDF8KOdQ7gvAuE
+         /d1CEvES8BbEgGNeOphnaeBdUbTmXsCal6I6r0WsCWHXcWTE2OgzkeLEuvHtbeJkbSFz
+         uo3SmKProTOwjO98Xhqe2FqokQ3sG+HfgyvnTpa/ZLOqaVYasMUtdPTprbt4my8BB9e8
+         eZXcDJa1bKr6rA1D5RkAlDxnctYVsK2/xs35z6kbSVlQa1y6SfOsBs9LpxA+qWOHRDk2
+         AebE9P9q1dmjeuK1lr18Rl7wnfUtfQYYafY7uws6xzgkmQXxx9uo9nD21Asl5D0eIQtu
+         oI5Q==
+X-Gm-Message-State: ANoB5pk7rDBUVWo/i6l5kAQNKdS4rWY0sSKieVjXfiMUQLyd6iGc5qVi
+	hBpiCxOKi/EPH9CfEadN1PQsWtWsB3uqkbAh+r8kLAcCT4/7Lxhbc5slVd8iNe49HR3hW7T02aB
+	wyWnuEhTdQvwL8xEj9mEx4Ql+mrazAGjjHWIW7RK/nfYUcEwLprkRIKIaFsbqjg==
+X-Received: by 2002:a25:4a86:0:b0:6f1:215a:2dbe with SMTP id x128-20020a254a86000000b006f1215a2dbemr3191239yba.469.1669281648234;
+        Thu, 24 Nov 2022 01:20:48 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf4H7k0go2dHlua8ClKkvM8qah93F0sS9CYUiwz8DhwGeE2xOLmvodSBoY+vtCQ2wxqkd5uAMT6yRu2cukAu/Qc=
+X-Received: by 2002:a25:4a86:0:b0:6f1:215a:2dbe with SMTP id
+ x128-20020a254a86000000b006f1215a2dbemr3191211yba.469.1669281648005; Thu, 24
+ Nov 2022 01:20:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YqY0aSngjI0Hc5d4@Sun>
+References: <20221118011714.70877-1-hal.feng@starfivetech.com>
+ <20221118011714.70877-2-hal.feng@starfivetech.com> <202211190418.2AJ4IQjc072382@SH1-CSMTP-DB111.sundns.com>
+ <ca3e341a-3dc3-39d6-7e26-89ba65aa9473@starfivetech.com>
+In-Reply-To: <ca3e341a-3dc3-39d6-7e26-89ba65aa9473@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Thu, 24 Nov 2022 10:20:32 +0100
+Message-ID: <CAJM55Z-zgR=LKqtg4ioj9Ez1CT7wchrNWWPVT5XAMPF736OcRA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/8] dt-bindings: riscv: Add StarFive JH7110 SoC and
+ VisionFive2 board
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Ben Dooks <ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Linus Walleij <linus.walleij@linaro.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_011923_381884_DA9FD2A3 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20221124_012053_733604_360E0BEA 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +104,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, 24 Nov 2022 at 06:56, Hal Feng <hal.feng@starfivetech.com> wrote:
+>
+> On Sat, 19 Nov 2022 01:28:48 +0800, Emil Renner Berthing wrote:
+> > On Fri, 18 Nov 2022 at 02:17, Hal Feng <hal.feng@starfivetech.com> wrote:
+> > >
+> > > From: Emil Renner Berthing <kernel@esmil.dk>
+> > >
+> > > Add device tree bindings for the StarFive JH7110 RISC-V SoC [1]
+> > > and the VisionFive2 board [2] equipped with it.
+> > >
+> > > [1]: https://doc-en.rvspace.org/Doc_Center/jh7110.html
+> > > [2]: https://doc-en.rvspace.org/Doc_Center/visionfive_2.html
+> > >
+> > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> > > Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/riscv/starfive.yaml | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > index 5b36243fd674..64008c57e31f 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+> > > @@ -22,6 +22,10 @@ properties:
+> > >            - const: beagle,beaglev-starlight-jh7100-r0
+> > >            - const: starfive,jh7100
+> > >
+> > > +      - items:
+> > > +          - const: starfive,visionfive-v2
+> >
+> > I think StarFive has switched to just calling it VisionFive 2 and not
+> > V2. Please check up on this before committing to the compatible
+> > string.
+> >
+> > Also there are going to be different revisions of the VisionFive 2
+> > board, so maybe consider adding eg. starfive,visionfive-2-v1.1 and
+> > starfive,visionfive-2-v1,2b early.
+>
+> I checked that the official name of this board is "VisionFive 2". The
+> board has version A and version B, which are different in gmac and phy
+> chip. The version A board has one 1000M and one 100M Ethernet ports
+> while the version B board has two 1000M Ethernet ports. In dts, they
+> have different configuration parameters for gmac. So I would like to
+> distinguish them by two compatibles as below in the next version.
+>
+>       - items:
+>           - enum:
+>               - starfive,visionfive-2-va
+>               - starfive,visionfive-2-vb
+>           - const: starfive,jh7110
 
-On Mon, Jun 13, 2022 at 02:46:01AM +0800, Hongren (Zenithal) Zheng wrote:
-> This patch parses Zb/Zk related string from DT and
-> output them in cpuinfo
-> 
-> One thing worth noting is that if DT provides zk,
-> all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
-> 
-> Note that zk is a valid extension name and the current
-> DT binding spec allows this.
-> 
-> This patch also changes the logical id of
-> existing multi-letter extensions and adds a statement
-> that instead of logical id compatibility, the order
-> is needed.
-> 
-> There currently lacks a mechanism to merge them when
-> producing cpuinfo. Namely if you provide a riscv,isa
-> "rv64imafdc_zk_zks", the cpuinfo output would be
-> "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
-> _zksh_zkt"
-> 
-> Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-> Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-FWIW, after some rebasing:
+Cool. Though the silkscreen on my board says "VisionFive 2 V1.2B" so I
+think it would be less confusing if you used that as the model, and
+"starfive,visionfive-2-v1.2b" as the compatible string for the board.
 
-Tested-by: Samuel Ortiz <sameo@rivosinc.com>
 
-Cheers,
-Samuel.
+> Best regards,
+> Hal
+>
+> >
+> > > +          - const: starfive,jh7110
+> > > +
+> > >  additionalProperties: true
+>
 
 _______________________________________________
 linux-riscv mailing list
