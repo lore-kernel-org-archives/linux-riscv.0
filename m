@@ -4,65 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC1BC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 22:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA5EC43217
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 22:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dfx3OOsSjYzPxPumwA/eiz/t49CK/3oaEOugwHjFgBk=; b=hrbaU2DbbPNsTM
-	YO3K5jrlEDklOOgU+jcwalzeoTYiuxtQMACFe8WKtnmMG8WjuwZhpzrI4rAr/JHjJuJj09lH4wDiE
-	rUQu70bqG6kK8AnjC9OYIvJdL75jQmyzqWh7SfMeksCJTKGCEetQoYx3DmlVTQJgBElKJoymQRoYs
-	JL1jCSdUnGw8qZdfpHd9U0NaP1nwOSx4OzAD9hJ4Z7yEQ6g4rIaKe+2VY2bYCqV8BZ6Riba8LrDdl
-	TTR+oq7XEwJLMNaC65XJUUIln/Fyl9d3Y1MVaBm46/WgrolSYfPNAUSvD2xvfaHkBWPbCXYdtTIbt
-	9gdAflu+8w8d1GABT/bw==;
+	List-Owner; bh=ptNzOt+Rz+9dHofUflU+u52bDOhfCK+VPTEyFkU75Sg=; b=xIuXtB2v237Ed0
+	IPO6GXHeBTXnk5fw12ZSVnTvWwF9p3qIY7lc0bgd5bdhDE8xRCRRsYYh0M4qBvCDLdmny/GCMiyOE
+	i6cCWHWfgYE7k8JZBFPaqJQajA2GG7eOeFEnyzWLbxTxrKwHYKrB/Yu88U4NnVtpeH7O7iYUN1xJN
+	s+gMPB/mqGOd06GuqfkVygrQw5Ty104sLeZaYpe5UduzaGVhOuajF9ifwf67gtzzC4LbuRoqxJUMF
+	THSLqeTNKthWb3Omy4qFHUBtJ+WcU/d14OmPh9oh0daant/2QdM4YCIeIydxGJldGGYLC1BClPzXO
+	n40WYins6mqMG7sbFHow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyKa3-00BggG-9Y; Thu, 24 Nov 2022 22:20:27 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oyKcm-00BhBk-Om; Thu, 24 Nov 2022 22:23:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyKZz-00Bgek-Lm
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 22:20:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 28D6AB82903;
-	Thu, 24 Nov 2022 22:20:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A604C433B5;
-	Thu, 24 Nov 2022 22:20:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669328420;
-	bh=XH4bQAQgI4eseVSTFvlZqCEPFCpPt/Y+lqbzeKYOX/E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C18BI9AaVGnv9hcWoLeKvBfykg0tURljrRA9kdalMSWJ4A4V7N2qtX2OLbCRI3Hk3
-	 2H+g3iUbiPsu09WN59DcAgXM2jUJs2gr+pQtxuWjpKGEKVAtfCVQI9yYz5u6jptIsc
-	 aHfZSF3adyEUf/d3L1my194gi5WIL6NjsdY4Pc3DpGbbf2JO4NFiSL+mCPA06mnQgX
-	 raKLVur2feyLf8zVc/uKQ1aoM+zSI8zVAkHi8/GqN3ZAfP29tTBap1iQtskLEvm8+L
-	 684yMjb6Oy3Hn0efq+vNVYNeTux0MXoCcrRUVWVguuuQ3Yul7MBQKVl38ZqYXyUFmP
-	 NLVvnle7IuAew==
-Date: Thu, 24 Nov 2022 22:20:16 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Paul Walmsley <paul@pwsan.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Atish Patra <atishp@rivosinc.com>,
-	corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
-	conor.dooley@microchip.com, linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux@rivosinc.com
-Subject: Re: [PATCH 2/4] Documentation: RISC-V: Allow patches for
- non-standard behavior
-Message-ID: <Y3/uIOxnm3pNHLEJ@spud>
-References: <20221013045619.18906-1-palmer@rivosinc.com>
- <20221013045619.18906-3-palmer@rivosinc.com>
- <alpine.DEB.2.21.999.2211181027590.4480@utopia.booyaka.com>
+	id 1oyKcj-00BhAi-R8
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 22:23:15 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oyKcf-0008Gs-Ma; Thu, 24 Nov 2022 23:23:09 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
+Subject: Re: [PATCH 7/7] RISC-V: add zbb support to string functions
+Date: Thu, 24 Nov 2022 23:23:08 +0100
+Message-ID: <14728581.RDIVbhacDa@diego>
+In-Reply-To: <Y3F936DrR6SMcJvR@spud>
+References: <20221110164924.529386-1-heiko@sntech.de> <20221110164924.529386-8-heiko@sntech.de> <Y3F936DrR6SMcJvR@spud>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.999.2211181027590.4480@utopia.booyaka.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_142024_021180_D5A537F7 
-X-CRM114-Status: GOOD (  41.82  )
+X-CRM114-CacheID: sfid-20221124_142313_908428_D220E58A 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,102 +58,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Paul,
-I thought you'd got an answer but noticed today you'd not so...
-
-On Fri, Nov 18, 2022 at 10:49:18AM +0000, Paul Walmsley wrote:
-> Hi, 
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > index b22525290073..ac5555fd9788 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -59,6 +59,7 @@ enum riscv_isa_ext_id {
+> >  	RISCV_ISA_EXT_ZIHINTPAUSE,
+> >  	RISCV_ISA_EXT_SSTC,
+> >  	RISCV_ISA_EXT_SVINVAL,
+> > +	RISCV_ISA_EXT_ZBB,
 > 
-> On Wed, 12 Oct 2022, Palmer Dabbelt wrote:
-> 
-> > From: Palmer Dabbelt <palmer@rivosinc.com>
-> > 
-> > The patch acceptance policy forbids accepting support for non-standard
-> > behavior.  This policy was written in order to both steer implementers
-> > towards the standards and to avoid coupling the upstream kernel too
-> > tightly to vendor-specific features.  Those were good goals, but in
-> > practice the policy just isn't working: every RISC-V system we have
-> > needs vendor-specific behavior in the kernel and we end up taking that
-> > support which violates the policy.  That's confusing for contributors,
-> > which is the main reason we have a written policy in the first place.
-> > 
-> > So let's just start taking code for vendor-defined behavior.
-> 
-> I think I understand the motivation behind this patch: to align the stated 
-> patch acceptance policy with the actual maintenance practice for 
-> arch/riscv.  Along those lines, how about the following tweaks, based on 
-> your original patch?
-> 
-> Probably the most significant proposed change from what you wrote is to 
-> temporarily drop the section about accepting patches for hardware that 
-> doesn't yet exist.
-> I know arch/x86 does this,
+> With ZIHINTPAUSE before SSTC and SVINIVAL I assume this is not something
+> we are canonically ordering but I never, ever know which ones we are
+> allowed to re-order at will.
 
-IIRC it was x86 that was cited as the example at LPC...
-
-> but my recollection is that 
-> the maintainers there started doing that after the key x86 hardware 
-> manufacturers established a track record of consistently releasing 
-> mass-market hardware that implemented what they promised.
-
-> Not sure we're at that point with RISC-V yet.
-
-... and you're probably not wrong there either.
-
-> We'll get there at some point, but maybe 
-> we can add that clause back in once that happens?
+I guess we could extend the comments with suitable hints,
+which could help in the future.
 
 > 
-> From: Paul Walmsley <paul.walmsley@sifive.com>
-> Date: Fri, 18 Nov 2022 02:16:17 -0600
-> Subject: [PATCH] Documentation: RISC-V: Allow patches for widely available
->  hardware
+> >  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> >  };
 > 
-> This patch, based on an earlier patch from Palmer, updates the patch
-> acceptance policy to note that the maintainers may also accept patches
-> for RISC-V hardware that contains features that may not be strictly
-> RISC-V-compliant, but which is widely available.  The intention here
-> is to align the stated policy with the de-facto upstream Linux policy.
-
-NGL, this commit message is kinda confusing. If this version is used
-instead of Palmer's, then any mention of the earlier patch should be
-dropped IMO. In fact, his original commit message should apply here too,
-no?
-
-> Link: https://lore.kernel.org/linux-riscv/20221013045619.18906-3-palmer@rivosinc.com/  # Palmer's original patch
-> Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
-> ---
->  Documentation/riscv/patch-acceptance.rst | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index bf9dd6764bad..66ff36a57e20 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -166,6 +166,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+> >  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> >  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> >  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> > +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+> >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+> >  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> >  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
 > 
-> diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
-> index 5da6f9b273d6..2e3f9ecdd977 100644
-> --- a/Documentation/riscv/patch-acceptance.rst
-> +++ b/Documentation/riscv/patch-acceptance.rst
-> @@ -29,7 +29,12 @@ their own custom extensions.  These custom extensions aren't required
->  to go through any review or ratification process by the RISC-V
->  Foundation.  To avoid the maintenance complexity and potential
->  performance impact of adding kernel code for implementor-specific
-> +RISC-V extensions, we'll only consider patches for extensions that
-> +either:
-> +
-> +- Have been officially frozen or ratified by the RISC-V Foundation, or
-> +- Have been implemented in hardware that is widely available, per standard
-> +  Linux practice
-> +
-> +(Implementors, may, of course, maintain their own Linux kernel
-> +trees containing code for any custom extensions that they wish.)
+> This one I do know that Palmer wants canonically ordered.
+> 
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 026512ca9c4c..f19b9d4e2dca 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -201,6 +201,7 @@ void __init riscv_fill_hwcap(void)
+> >  			} else {
+> >  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+> >  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+> > +				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
+> >  				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+> >  				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+> >  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+> 
+> This one looks like it is, sstc aside. Same question as above, can I
+> reorder this one? I'll send a patch for it if I can...
 
-I have no preference for whichever version, but I think some of the
-people at LPC did want to be able to add support for stuff that was not
-publicly available who may have one ;)
+hmm, I don't see the difference between cpu.c above
+(..., svpbmt, zbb, zicbom, ...) and here
+(..., svpbmt, zbb, zicbom, ...)
 
-Folded into the original, I guess this one also is:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-Certainly less headache potential this way,
-Conor.
+> > diff --git a/arch/riscv/lib/strcmp_zbb.S b/arch/riscv/lib/strcmp_zbb.S
+> > new file mode 100644
+> > index 000000000000..aff9b941d3ee
+> > --- /dev/null
+> > +++ b/arch/riscv/lib/strcmp_zbb.S
+> > @@ -0,0 +1,91 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copyright (c) 2022 VRULL GmbH
+> > + * Author: Christoph Muellner <christoph.muellner@vrull.eu>
+> 
+> Is a Co-developed-by: appropriate then?
+
+I'd think so ... i.e. the assembly is from Christoph, but is originally
+part of a pending glibc patchset, hence Christoph and me
+decided on the co-developed thingy :-) .
+
+> > +	/* Main loop for aligned string.  */
+> > +	.p2align 3
+> > +1:
+> > +	REG_L	data1, 0(src1)
+> > +	REG_L	data2, 0(src2)
+> > +	orc.b	data1_orcb, data1
+> > +	bne	data1_orcb, m1, 2f
+> > +	addi	src1, src1, SZREG
+> > +	addi	src2, src2, SZREG
+> > +	beq	data1, data2, 1b
+> > +
+> > +	/* Words don't match, and no null byte in the first
+> > +	 * word. Get bytes in big-endian order and compare.  */
+> > +#ifndef CONFIG_CPU_BIG_ENDIAN
+> 
+> I know this is a lift from the reference implementation in the spec, but
+> do we actually need this ifndef section?
+
+I don't know, but _if_ big endian support comes in the future,
+having one place less to break also might be helpful? :-)
+
+
+
+Heiko
+
 
 
 _______________________________________________
