@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8E1C43219
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 19:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D651EC43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 19:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i47PfRzdHPQ36I4TJulMh/0jhrFhUJ+IjNXQ8HY8v6o=; b=mhnUyyNF86OiuA
-	BoFnZwtF9t2JtdHH8YpDz34R+SRufaxcWUlS3+9J12jN1nA9u/p7ZxUlhqrNSsR4NTrmgNVujJMLC
-	qxB41jXUwAgAJJGmXZ4zAXkOF0yVYnutdKPFOICgU7RPGaoe1Oo8rUvxPvLxWqdzULfJcrwJHRW8p
-	P92y4zZlbF0heLL5GbpLRcp8xWY7CBJSwV5IqheCp27eDnL/r9sY5mBmOm02ZzBKbTNRDPIxIwxZO
-	TqyrhRb92sHhn0vbwez/TmChz7EQ19Brmc1GH3EwhSB/eoAIWJ7E/jbpbC6a+6i3Lzgl6VQfAYp1Y
-	jQiGp9L/zJMgxIM92s+A==;
+	List-Owner; bh=YjVAIj4LCedC0BmIbwD/ZeGUAnR6IOjyw5fOy3IgJLU=; b=RNDI656T33jA+6
+	jVr1CNpsnwQ5eGEe7fKP9FhuYZNdD1SKthQWonre+gE+HcP3SeHzK2h4Y3LAECXa19P9jps4Kw2Aw
+	yuQV6QZpTMXJ2sZOSxzEBM3wUiiVg1ZSJ+3tB34WypzWIPN8YN8GH0A5xUmKlDlQq/zvInymTwsZr
+	+h2z33W5mC+AlU7ll8/SgGHr8e8SBLWpSXJKFbarjoNIfT5GIa5/8ArcwUGN+Upb5TXMWlUhIZGGv
+	hVZ2RuFfvrGPWQUU/FMfSQF89kVM02thNxH8TXl7sK/Tm08HmcMsL08lPRRsh6PQ4ilK5SrhvGdQk
+	rGrVEgxTBp1FTVYujWvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyI6J-00BHvG-47; Thu, 24 Nov 2022 19:41:35 +0000
+	id 1oyIH9-00BKXr-3O; Thu, 24 Nov 2022 19:52:47 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyI6F-00BHtX-JX
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 19:41:33 +0000
+	id 1oyIH5-00BKWt-Qv
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 19:52:45 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B107FB828B5;
-	Thu, 24 Nov 2022 19:41:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 109F2C433C1;
-	Thu, 24 Nov 2022 19:41:22 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 2824AB821DD;
+	Thu, 24 Nov 2022 19:52:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658A3C433D6;
+	Thu, 24 Nov 2022 19:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669318887;
-	bh=8nMprFxd6bPUC6N+QF2IIgflbHnknGxL158ItvZo3pk=;
+	s=k20201202; t=1669319560;
+	bh=hEIk4OHUWU0NzVkJWRgtpUsQoG9Otd0q92ku0LLOXiA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iptiuqYP+LEKiq/VT2TTo5T2Vnd2t3FxQPKVUlVQLG+ln6niIoifIIcShoKDMcNZV
-	 L/6OEOLhr96XhdUIlHhHuHl95DY7qNvRozghc05b+JYj0b4rrVdnkv+RsSkAnrMl4+
-	 mcKz1IfMkZISdt/jD9zf2iaupOLBK+RmtcQX5fcRY0AtGFN8DLmtq39m0KoC1+SIHi
-	 w+wo6jfHAprNdgP9sM0k+oekYYYIZVLkXd8Aw0ziVDD+uzvQs4n7reStN5FC8ESgUq
-	 VnouIoDEeHMn+NSeTqXOYfXGVs7g0l6WQEWNnaK9xW/YFCeF+we47GMl/XvNozpjs7
-	 jgcW6Ryszz5mw==
-Date: Thu, 24 Nov 2022 19:41:20 +0000
+	b=sP14ENjUJRtGK2NYT5uEXID4fr68u47NVOKJGsjz99zGQ7fhj17h+Qw97jNA2vs3d
+	 KzcPIvX/E7acsK1T5K5BhKmu9H6liKS+tgEi3s0WLuAVtTqlkQhPDhj+0OUVgESQsO
+	 hz2VgmVByDlX/aDZsaRLYqPrjbyChb5+hZutVYm+SINNa2eCPs7ho/D8Jwd21LcePC
+	 m5wdWW/Ar3rOlqbMAbC98AZ4v+JKZS+K1Z2VWPZKNj7l7dDZi//kLVuqH7xRJOc8dw
+	 nEKgthPa/lrGEUpVxc+zV/ulldt7DUZzRe6zhHxUsqf7JQYc0FOO/Dib3N8Z/EEqD9
+	 HW3hiboTey+Jw==
+Date: Thu, 24 Nov 2022 19:52:33 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Prabhakar <prabhakar.csengg@gmail.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -63,15 +63,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v4 0/7] AX45MP: Add support to non-coherent DMA
-Message-ID: <Y3/I4KzHnzyPo1Fe@spud>
+Subject: Re: [PATCH v4 1/7] riscv: asm: alternative-macros: Introduce
+ ALTERNATIVE_3() macro
+Message-ID: <Y3/LgZkR1hkblJ8D@spud>
 References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20221124172207.153718-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_114132_031160_949FD16C 
-X-CRM114-Status: GOOD (  41.78  )
+X-CRM114-CacheID: sfid-20221124_115244_224381_3A7CF5D0 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,217 +90,154 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey!
-
-On Thu, Nov 24, 2022 at 05:22:00PM +0000, Prabhakar wrote:
+On Thu, Nov 24, 2022 at 05:22:01PM +0000, Prabhakar wrote:
 > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> Hi All,
-> 
-> On the Andes AX45MP core, cache coherency is a specification option so it
-> may not be supported. In this case DMA will fail. To get around with this
-> issue this patch series does the below:
-> 
-> 1] Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> block that allows dynamic adjustment of memory attributes in the runtime.
-> It contains a configurable amount of PMA entries implemented as CSR
-> registers to control the attributes of memory locations in interest. PMA
-> regions are passed from the l2 node which are configured as
-> non-cacheable + bufferable with the SBI call.
-> 
->         l2cache: cache-controller@13400000 {
->                 ....
->                 andestech,pma-regions = <0x58000000 0x08000000
->                                          (AX45MP_PMACFG_ETYP_NAPOT |
->                                           AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF)>;
->                 ....
->         };
-> 
-> 2] We provide callbacks to synchronize specific content between memory and
-> cache.
-> 
->         - arch_sync_dma_for_device()
->         - arch_sync_dma_for_cpu()
-> 
-> Below are the configs that are enabled:
-> 
->         - DMA_GLOBAL_POOL
->         - RISCV_DMA_NONCOHERENT
-> 
-> 3] We reserve the shared DMA pool, so the DMA memory requests go through
->    this pool:
-> 
->         reserved-memory {
->                 #address-cells = <2>;
->                 #size-cells = <2>;
->                 ranges;
-> 
->                 reserved: linux,cma@58000000 {
->                         compatible = "shared-dma-pool";
->                         no-map;
->                         linux,dma-default;
->                         reg = <0x0 0x58000000 0x0 0x08000000>;
->                 };
->         };
-> 
-> 
-> Below is the L2 cache DT node:
-> 
->         l2cache: cache-controller@13400000 {
->                 compatible = "andestech,ax45mp-cache", "cache";
->                 cache-size = <0x40000>;
->                 cache-line-size = <64>;
->                 cache-sets = <1024>;
->                 cache-unified;
->                 reg = <0x0 0x13400000 0x0 0x100000>;
->                 andestech,pma-regions = <0x0 0x58000000 0x0 0x08000000 0x0
->                                          (AX45MP_PMACFG_ETYP_NAPOT |
->                                           AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF)>;
->                 interrupts = <SOC_PERIPHERAL_IRQ(476, IRQ_TYPE_LEVEL_HIGH)>;
->         };
-> 
-> Due to the above approach custom SBI calls have been implemented. The
-> above implementation is in preparation for adding support for Renesas
-> RZ/Five SoC which uses the AX45MP core. As with the above approach the
-> kernel image might not be generic so that it can be used on other
-> platforms.
-> 
-> OpenSBI implementation isn't upstreamed yet, public repo for access is
-> available at [0].
-> 
-> [0] https://github.com/renesas-rz/rz_opensbi/tree/work/OpenSBI-PMA
-> 
-> Note,
-> - This series requires testing on Cores with zibcom and T-Head SoCs
-> - Ive used GCC 9.4.0 for compilation
+> Introduce ALTERNATIVE_3() macro.
 
-Just dumping the following, which I saw with gcc 12.1 & binutils 2.39
-while building allmodconfig. Perhaps it is worth you upgrading to a
-recent toolchain for testing purposes. FWIW, I applied your patches on
-top of 20221122.
+Bit perfunctory I think! There's a lovely comment down below that would
+make for a better commit message if you were to yoink it.
+Content looks about what I'd expect to see though.
 
-/stuff/linux/arch/riscv/mm/dma-noncoherent.c: Assembler messages:
-/stuff/linux/arch/riscv/mm/dma-noncoherent.c:62: Error: attempt to move .org backwards
-/stuff/linux/arch/riscv/mm/dma-noncoherent.c:66: Error: attempt to move .org backwards
-/stuff/linux/arch/riscv/mm/dma-noncoherent.c:84: Error: attempt to move .org backwards
-/stuff/linux/arch/riscv/mm/dma-noncoherent.c:96: Error: attempt to move .org backwards
-
-
-In file included from /stuff/linux/arch/riscv/errata/andes/errata.c:16:
-/stuff/linux/arch/riscv/errata/andes/errata.c: In function 'is_auipc_insn':
-/stuff/linux/arch/riscv/errata/andes/errata.c:25:34: error: 'MASK_AUIPC' undeclared (first use in this function)
-   25 | DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-      |                                  ^~~~~~~~~~
-/stuff/linux/arch/riscv/include/asm/parse_asm.h:175:25: note: in definition of macro 'DECLARE_INSN'
-  175 |         return (insn & (INSN_MASK)) == (INSN_MATCH); \
-      |                         ^~~~~~~~~
-/stuff/linux/arch/riscv/errata/andes/errata.c:25:34: note: each undeclared identifier is reported only once for each function it appears in
-   25 | DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-      |                                  ^~~~~~~~~~
-/stuff/linux/arch/riscv/include/asm/parse_asm.h:175:25: note: in definition of macro 'DECLARE_INSN'
-  175 |         return (insn & (INSN_MASK)) == (INSN_MATCH); \
-      |                         ^~~~~~~~~
-/stuff/linux/arch/riscv/errata/andes/errata.c:25:21: error: 'MATCH_AUIPC' undeclared (first use in this function); did you mean 'OPC_AUIPC'?
-   25 | DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-      |                     ^~~~~~~~~~~
-/stuff/linux/arch/riscv/include/asm/parse_asm.h:175:41: note: in definition of macro 'DECLARE_INSN'
-  175 |         return (insn & (INSN_MASK)) == (INSN_MATCH); \
-      |                                         ^~~~~~~~~~
-/stuff/linux/arch/riscv/errata/andes/errata.c: In function 'riscv_alternative_fix_auipc_jalr':
-/stuff/linux/arch/riscv/errata/andes/errata.c:64:23: error: implicit declaration of function 'EXTRACT_RD_REG' [-Werror=implicit-function-declaration]
-   64 |                 rd1 = EXTRACT_RD_REG(*(alt_ptr + i));
-      |                       ^~~~~~~~~~~~~~
-/stuff/linux/arch/riscv/errata/andes/errata.c:69:24: error: implicit declaration of function 'EXTRACT_UTYPE_IMM'; did you mean 'EXTRACT_BTYPE_IMM'? [-Werror=implicit-function-declaration]
-   69 |                 imm1 = EXTRACT_UTYPE_IMM(*(alt_ptr + i));
-      |                        ^~~~~~~~~~~~~~~~~
-      |                        EXTRACT_BTYPE_IMM
-/stuff/linux/arch/riscv/errata/andes/errata.c:78:30: error: 'U_IMM_31_12_MASK' undeclared (first use in this function); did you mean 'J_IMM_19_12_MASK'?
-   78 |                 call[0] &= ~(U_IMM_31_12_MASK);
-      |                              ^~~~~~~~~~~~~~~~
-      |                              J_IMM_19_12_MASK
-/stuff/linux/arch/riscv/errata/andes/errata.c: In function 'is_auipc_insn':
-/stuff/linux/arch/riscv/include/asm/parse_asm.h:176:1: error: control reaches end of non-void function [-Werror=return-type]
-  176 | }
-      | ^
-/stuff/linux/arch/riscv/errata/andes/errata.c:25:1: note: in expansion of macro 'DECLARE_INSN'
-   25 | DECLARE_INSN(auipc, MATCH_AUIPC, MASK_AUIPC)
-      | ^~~~~~~~~~~~
-cc1: all warnings being treated as errors
-
-
-> - Tested all the IP blocks on RZ/Five which use DMA
-> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
 > RFC v3 -> v4
-> * Implemented ALTERNATIVE_3() macro 
-> * Now using runtime patching mechanism instead of compile time config
-> * Added Andes CMO as and errata
-> * Fixed comments pointed by Geert
+> * New patch
+> ---
+>  arch/riscv/include/asm/alternative-macros.h | 94 +++++++++++++++++++++
+>  1 file changed, 94 insertions(+)
 > 
-> RFC v2-> RFC v3
-> * Fixed review comments pointed by Conor
-> * Move DT binding into cache folder
-> * Fixed DT binding check issue
-> * Added andestech,ax45mp-cache.h header file
-> * Now passing the flags for the PMA setup as part of andestech,pma-regions
->   property.
-> * Added andestech,inst/data-prefetch and andestech,tag/data-ram-ctl
->   properties to configure the L2 cache.
-> * Registered the cache driver as platform driver
-> 
-> RFC v1-> RFC v2
-> * Moved out the code from arc/riscv to drivers/soc/renesas
-> * Now handling the PMA setup as part of the L2 cache
-> * Now making use of dma-noncoherent.c instead SoC specific implementation.
-> * Dropped arch_dma_alloc() and arch_dma_free()
-> * Switched to RISCV_DMA_NONCOHERENT
-> * Included DT binding doc
-> 
-> RFC v2: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> RFC v1: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> 
-> Cheers,
-> Prabhakar
-> 
-> Lad Prabhakar (7):
->   riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
->   riscv: asm: vendorid_list: Add Andes Technology to the vendors list
->   riscv: errata: Add Andes alternative ports
->   riscv: errata: andes: Fix auipc-jalr addresses in patched alternatives
->   riscv: mm: dma-noncoherent: Pass direction and operation to
->     ALT_CMO_OP()
->   dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation
->     for L2 cache controller
->   soc: renesas: Add L2 cache management for RZ/Five SoC
-> 
->  .../cache/andestech,ax45mp-cache.yaml         |  93 ++++
->  arch/riscv/Kconfig.erratas                    |  22 +
->  arch/riscv/errata/Makefile                    |   1 +
->  arch/riscv/errata/andes/Makefile              |   1 +
->  arch/riscv/errata/andes/errata.c              | 139 ++++++
->  arch/riscv/include/asm/alternative-macros.h   |  94 ++++
->  arch/riscv/include/asm/alternative.h          |   3 +
->  arch/riscv/include/asm/cacheflush.h           |  12 +
->  arch/riscv/include/asm/errata_list.h          |  45 +-
->  arch/riscv/include/asm/vendorid_list.h        |   1 +
->  arch/riscv/kernel/alternative.c               |   5 +
->  arch/riscv/mm/dma-noncoherent.c               |  15 +-
->  drivers/soc/renesas/Kconfig                   |   7 +
->  drivers/soc/renesas/Makefile                  |   2 +
->  drivers/soc/renesas/rzfive/Kconfig            |   6 +
->  drivers/soc/renesas/rzfive/Makefile           |   3 +
->  drivers/soc/renesas/rzfive/ax45mp_cache.c     | 415 ++++++++++++++++++
->  drivers/soc/renesas/rzfive/ax45mp_sbi.h       |  29 ++
->  .../cache/andestech,ax45mp-cache.h            |  38 ++
->  19 files changed, 918 insertions(+), 13 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
->  create mode 100644 arch/riscv/errata/andes/Makefile
->  create mode 100644 arch/riscv/errata/andes/errata.c
->  create mode 100644 drivers/soc/renesas/rzfive/Kconfig
->  create mode 100644 drivers/soc/renesas/rzfive/Makefile
->  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_cache.c
->  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_sbi.h
->  create mode 100644 include/dt-bindings/cache/andestech,ax45mp-cache.h
-> 
+> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+> index ec2f3f1b836f..1caf4306b3d6 100644
+> --- a/arch/riscv/include/asm/alternative-macros.h
+> +++ b/arch/riscv/include/asm/alternative-macros.h
+> @@ -69,6 +69,34 @@
+>  				   new_c_2, vendor_id_2, errata_id_2,	\
+>  					IS_ENABLED(CONFIG_k_2)
+>  
+> +.macro __ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+> +				  new_c_2, vendor_id_2, errata_id_2, enable_2, \
+> +				  new_c_3, vendor_id_3, errata_id_3, enable_3
+> +886 :
+> +	.option push
+> +	.option norvc
+> +	.option norelax
+> +	\old_c
+> +	.option pop
+> +887 :
+> +	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+> +	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+> +	ALT_NEW_CONTENT \vendor_id_3, \errata_id_3, \enable_3, \new_c_3
+> +.endm
+> +
+> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					CONFIG_k_1,			\
+> +				  new_c_2, vendor_id_2, errata_id_2,	\
+> +					CONFIG_k_2,			\
+> +				  new_c_3, vendor_id_3, errata_id_3,	\
+> +					CONFIG_k_3)			\
+> +	__ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					IS_ENABLED(CONFIG_k_1),		\
+> +				   new_c_2, vendor_id_2, errata_id_2,	\
+> +					IS_ENABLED(CONFIG_k_2),		\
+> +				   new_c_3, vendor_id_3, errata_id_3,	\
+> +					IS_ENABLED(CONFIG_k_3)
+> +
+>  #else /* !__ASSEMBLY__ */
+>  
+>  #include <asm/asm.h>
+> @@ -135,6 +163,36 @@
+>  				   new_c_2, vendor_id_2, errata_id_2,	\
+>  					IS_ENABLED(CONFIG_k_2))
+>  
+> +#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					enable_1,			\
+> +				   new_c_2, vendor_id_2, errata_id_2,	\
+> +					enable_2,			\
+> +				   new_c_3, vendor_id_3, errata_id_3,	\
+> +					enable_3)			\
+> +	"886 :\n"							\
+> +	".option push\n"						\
+> +	".option norvc\n"						\
+> +	".option norelax\n"						\
+> +	old_c "\n"							\
+> +	".option pop\n"							\
+> +	"887 :\n"							\
+> +	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
+> +	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)	\
+> +	ALT_NEW_CONTENT(vendor_id_3, errata_id_3, enable_3, new_c_3)
+> +
+> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					CONFIG_k_1,			\
+> +				  new_c_2, vendor_id_2, errata_id_2,	\
+> +					CONFIG_k_2,			\
+> +				  new_c_3, vendor_id_3, errata_id_3,	\
+> +					CONFIG_k_3)			\
+> +	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					IS_ENABLED(CONFIG_k_1),		\
+> +				   new_c_2, vendor_id_2, errata_id_2,	\
+> +					IS_ENABLED(CONFIG_k_2),	\
+> +				   new_c_3, vendor_id_3, errata_id_3,	\
+> +					IS_ENABLED(CONFIG_k_3))
+> +
+>  #endif /* __ASSEMBLY__ */
+>  
+>  #else /* CONFIG_RISCV_ALTERNATIVE */
+> @@ -153,6 +211,14 @@
+>  					CONFIG_k_2)			\
+>         __ALTERNATIVE_CFG old_c
+>  
+> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					CONFIG_k_1,			\
+> +				  new_c_2, vendor_id_2, errata_id_2,	\
+> +					CONFIG_k_2,			\
+> +				  new_c_3, vendor_id_3, errata_id_3,	\
+> +					CONFIG_k_3)			\
+> +       __ALTERNATIVE_CFG old_c
+> +
+>  #else /* !__ASSEMBLY__ */
+>  
+>  #define __ALTERNATIVE_CFG(old_c)  \
+> @@ -167,6 +233,14 @@
+>  					CONFIG_k_2) \
+>         __ALTERNATIVE_CFG(old_c)
+>  
+> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +					CONFIG_k_1,			\
+> +				  new_c_2, vendor_id_2, errata_id_2,	\
+> +					CONFIG_k_2,			\
+> +				  new_c_3, vendor_id_3, errata_id_3,	\
+> +					CONFIG_k_3) \
+> +       __ALTERNATIVE_CFG(old_c)
+> +
+>  #endif /* __ASSEMBLY__ */
+>  #endif /* CONFIG_RISCV_ALTERNATIVE */
+>  
+> @@ -202,4 +276,24 @@
+>  					new_content_2, vendor_id_2,	\
+>  					    errata_id_2, CONFIG_k_2)
+>  
+> +/*
+> + * A vendor wants to replace an old_content, but another vendor has used
+> + * ALTERNATIVE_2() to patch its customized content at the same location. In
+> + * this case, this vendor can create a new macro ALTERNATIVE_3() based
+> + * on the following sample code and then replace ALTERNATIVE_2() with
+> + * ALTERNATIVE_3() to append its customized content.
+> + */
+> +#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1,		\
+> +					errata_id_1, CONFIG_k_1,	\
+> +				   new_content_2, vendor_id_2,		\
+> +					errata_id_2, CONFIG_k_2,	\
+> +				   new_content_3, vendor_id_3,		\
+> +					errata_id_3, CONFIG_k_3)	\
+> +	_ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1,	\
+> +					    errata_id_1, CONFIG_k_1,	\
+> +					new_content_2, vendor_id_2,	\
+> +					    errata_id_2, CONFIG_k_2,	\
+> +					new_content_3, vendor_id_3,	\
+> +					    errata_id_3, CONFIG_k_3)
+> +
+>  #endif
 > -- 
 > 2.25.1
 > 
