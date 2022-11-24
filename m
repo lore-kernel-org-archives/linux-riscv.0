@@ -4,44 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB6EC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 18:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30749C43219
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 19:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EzzKH/qdeM1H7yVYsAVx/KwGG6P7y9bm0/FWwLi3qj8=; b=aBs+Xsc0unUvhQ
-	6LjU64JBuCHv5K11o+/wc3UW9kqmNn2O8LvqwcBAeKVGB7whEhRUgn6N38PTqO5oHQf/P4yOaucQ8
-	y3Ff3Z0U1WBaYrL3scB0CLT+P9uhyD6k4tW80zMZlhvhrtG4M1Wn3yjutdW6EWRJnUagBoT4FCRON
-	alzslN76raVXmXVjmS/WaEgh5+5ybUx1uZqOYtgiFQ/35004Rd+bpH88AFJ8cVfOzYsfEZ7IJQAHP
-	1lEP7AauEWcK+HQn4IauOCGyChrjpkGG/H11fJ4s37wSXE4m9wCwXHgMgEJXl24zP1HjR9mrIgDFa
-	CFO10n9n1vIrHFXfnjTQ==;
+	List-Owner; bh=w1NgoSV2qgcWlfUfPbDpNIZbwJykJKyeD6YCc8bJoUc=; b=MnszV0rx9W13sV
+	3Yw0umItPzeW/yiYh3aSeq92IXMXTiumI5EkcBwxda4r3Va8OohYfj6E18xJpLu0CFGZpF7f3RQ2j
+	c63wvxh7oj7Yb7lS6kCJu6SsFqnEWRMsQB3zsAdzzAbKtMhwwBhGBX0DKQaoA0U/rnZjl7yN/Oyp3
+	qDYEgDkRF9gwG9UfsSq1NPg9YyzDPCl7MlIAmAMq/XUjtZ1uVSub2J133eoB9JIJLgZ0GtyzsDFo1
+	+ZrwEFDQAKenasjpz8qZ/bVUf/hywBS1/h4fZ9qbng8HVpG442nMuyy6mu1JLPfx8bRNb97UdqACn
+	VVhIyt+qW5OjVqjSazzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyGzU-00AuyN-D9; Thu, 24 Nov 2022 18:30:28 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oyHh2-00BBO3-Lj; Thu, 24 Nov 2022 19:15:28 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyGzQ-00Auva-Hg
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 18:30:26 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oyGzE-0007Jc-Tu; Thu, 24 Nov 2022 19:30:12 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org, Prabhakar <prabhakar.csengg@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v4 7/7] soc: renesas: Add L2 cache management for RZ/Five SoC
-Date: Thu, 24 Nov 2022 19:30:11 +0100
-Message-ID: <5382916.ejJDZkT8p0@diego>
-In-Reply-To: <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1oyHgz-00BBI5-Ey
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 19:15:27 +0000
+Received: by mail-ej1-x632.google.com with SMTP id m22so5922654eji.10
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 11:15:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FWeAC6tVqoQ6bNA7whBca/Z25C/J+Qx03REs2nGyD7A=;
+        b=lPSQbOINQxMXT+unJ0mshlxYmnlkNXq1M658zJNMI6XNi60l8MdT4SqaAKByvLexEt
+         L81yxMT3JA8b+ku9YUOab8bjrQ2S+DwYX3DjsefZzvwKHDZmFpeE50l8/w32qvrAZiYg
+         efhZr0c7YGbjYQ+3Fo6cayGSIU1jEE1BzjGmqxBhZUXYrkx2+8ryQCKl5ICk4VWI0gzj
+         HqUjUHKvYS8KLqPa5rwwfFKBD7FKmZtC8USRuA09eXEZ94+GQFoi+3QIT1gPfRhI3OGT
+         HDPbFqPKnCeTSKFT7/c+e5G7ph6Dg3pGl7/7ArPE4gHQ6LakyEiq/74acw0OnlB+JW2w
+         1V4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FWeAC6tVqoQ6bNA7whBca/Z25C/J+Qx03REs2nGyD7A=;
+        b=yMoLsu+ffi5hCKwyjU0SvENnkx+M9mSbCxiqqQGLCTztJZ6PNIJ7amX14rs6NlZXBB
+         9R/5ucEQ26MFhhzszdTPKH/JFNdDnnlv2vDEb8YwbGWQBAyDtXwrWPu/ODK3THxzvBS3
+         l2HescEIKA6T6Dd1uxzGYMEU1g9U9jqeoIwA1zo+WgDG0HQV+YyJN1RlQ2MnEu3FOwk6
+         3xR0d/IsRGVjmRcatyOp+hupHVdqyqBiOyTiuu6YwKYtbuCW6750qFwvVOvW5r+GtuKF
+         i77sNy293meJ3bOfAmXXqoLdXfnydYw/QVj2hzXlcK7h7nunBgyM/lrTW89T129m5GOz
+         GFag==
+X-Gm-Message-State: ANoB5pkWUVhmmKdJXoL+LkQ0hSRPTHQmSILuBVoRXC0Ualhjxz7buyov
+	x0bx7Fugow1D29wu+T8AMth8q/jKeI7nD8yo3z4=
+X-Google-Smtp-Source: AA0mqf5ok9xKhUigClOCzJ/g0cQ1rY0k5p19eoRhweDVXGsjFwjIINpC/tel64cTzP0N5/jVCdXGqfEtPHiuLf8z7zE=
+X-Received: by 2002:a17:906:79c4:b0:778:e3e2:8311 with SMTP id
+ m4-20020a17090679c400b00778e3e28311mr14512080ejo.342.1669317321518; Thu, 24
+ Nov 2022 11:15:21 -0800 (PST)
 MIME-Version: 1.0
+References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <4542837.QJadu78ljV@diego>
+In-Reply-To: <4542837.QJadu78ljV@diego>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Thu, 24 Nov 2022 19:14:54 +0000
+Message-ID: <CA+V-a8uB8LVc4rPehYOYM2OKa4hW2TPegB2zmm5xV-ZcznqNQA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/7] riscv: errata: Add Andes alternative ports
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_103024_771919_AF69BFD7 
-X-CRM114-Status: GOOD (  42.27  )
+X-CRM114-CacheID: sfid-20221124_111525_563641_7448E837 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,250 +91,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 24. November 2022, 18:22:07 CET schrieb Prabhakar:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> On the AX45MP core, cache coherency is a specification option so it may
-> not be supported. In this case DMA will fail. As a workaround, firstly we
-> allocate a global dma coherent pool from which DMA allocations are taken
-> and marked as non-cacheable + bufferable using the PMA region as specified
-> in the device tree. Synchronization callbacks are implemented to
-> synchronize when doing DMA transactions.
-> 
-> The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
-> block that allows dynamic adjustment of memory attributes in the runtime.
-> It contains a configurable amount of PMA entries implemented as CSR
-> registers to control the attributes of memory locations in interest.
-> 
-> Below are the memory attributes supported:
-> * Device, Non-bufferable
-> * Device, bufferable
-> * Memory, Non-cacheable, Non-bufferable
-> * Memory, Non-cacheable, Bufferable
-> * Memory, Write-back, No-allocate
-> * Memory, Write-back, Read-allocate
-> * Memory, Write-back, Write-allocate
-> * Memory, Write-back, Read and Write-allocate
-> 
-> This patch adds support to configure the memory attributes of the memory
-> regions as passed from the l2 cache node and exposes the cache management
-> ops.
-> 
-> More info about PMA (section 10.3):
-> Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> RFC v3 -> v4
-> * Made use of runtime patching instead of compile time
-> * Now just exposing single function ax45mp_no_iocp_cmo() for CMO handling
-> * Added a check to make sure cache line size is always 64 bytes
-> * Renamed folder rzf -> rzfive
-> * Improved Kconfig description
-> * Dropped L2 cache configuration
-> * Dropped unnecessary casts
-> * Fixed comments pointed by Geert, apart from use of PTR_ALIGN_XYZ() macros.
-> ---
->  arch/riscv/include/asm/cacheflush.h       |   8 +
->  arch/riscv/include/asm/errata_list.h      |  32 +-
->  drivers/soc/renesas/Kconfig               |   7 +
->  drivers/soc/renesas/Makefile              |   2 +
->  drivers/soc/renesas/rzfive/Kconfig        |   6 +
->  drivers/soc/renesas/rzfive/Makefile       |   3 +
->  drivers/soc/renesas/rzfive/ax45mp_cache.c | 415 ++++++++++++++++++++++
->  drivers/soc/renesas/rzfive/ax45mp_sbi.h   |  29 ++
->  8 files changed, 496 insertions(+), 6 deletions(-)
->  create mode 100644 drivers/soc/renesas/rzfive/Kconfig
->  create mode 100644 drivers/soc/renesas/rzfive/Makefile
->  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_cache.c
->  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_sbi.h
-> 
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index 4a04d1be7c67..3226f3aceafe 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -61,6 +61,14 @@ static inline void riscv_noncoherent_supported(void) {}
->  #define SYS_RISCV_FLUSH_ICACHE_LOCAL 1UL
->  #define SYS_RISCV_FLUSH_ICACHE_ALL   (SYS_RISCV_FLUSH_ICACHE_LOCAL)
->  
-> +#ifdef CONFIG_AX45MP_L2_CACHE
-> +extern asmlinkage void ax45mp_no_iocp_cmo(unsigned int cache_size, void *vaddr,
-> +					  size_t size, int dir, int ops);
-> +#else
-> +inline void ax45mp_no_iocp_cmo(unsigned int cache_size, void *vaddr,
-> +			       size_t size, int dir, int ops) {}
-> +#endif
-> +
->  #include <asm-generic/cacheflush.h>
->  
->  #endif /* _ASM_RISCV_CACHEFLUSH_H */
-> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> index 48e899a8e7a9..300fed3bfd80 100644
-> --- a/arch/riscv/include/asm/errata_list.h
-> +++ b/arch/riscv/include/asm/errata_list.h
-> @@ -125,8 +125,8 @@ asm volatile(ALTERNATIVE(						\
->  #define THEAD_SYNC_S	".long 0x0190000b"
->  
->  #define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)		\
-> -asm volatile(ALTERNATIVE_2(						\
-> -	__nops(6),							\
-> +asm volatile(ALTERNATIVE_3(						\
-> +	__nops(14),							\
->  	"mv a0, %1\n\t"							\
->  	"j 2f\n\t"							\
->  	"3:\n\t"							\
-> @@ -134,7 +134,7 @@ asm volatile(ALTERNATIVE_2(						\
->  	"add a0, a0, %0\n\t"						\
->  	"2:\n\t"							\
->  	"bltu a0, %2, 3b\n\t"						\
-> -	"nop", 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,		\
-> +	__nops(8), 0, CPUFEATURE_ZICBOM, CONFIG_RISCV_ISA_ZICBOM,	\
->  	"mv a0, %1\n\t"							\
->  	"j 2f\n\t"							\
->  	"3:\n\t"							\
-> @@ -142,8 +142,28 @@ asm volatile(ALTERNATIVE_2(						\
->  	"add a0, a0, %0\n\t"						\
->  	"2:\n\t"							\
->  	"bltu a0, %2, 3b\n\t"						\
-> -	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
-> -			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
-> +	THEAD_SYNC_S "\n\t"						\
-> +	__nops(8), THEAD_VENDOR_ID,					\
-> +			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO,	\
-> +	".option push\n\t\n\t"						\
-> +	".option norvc\n\t"						\
-> +	".option norelax\n\t">						\
-
-alternatives already do the norvc + norelax options anyway for old and new instructions,
-so the .option stuff shouldn't be necessary I guess?
-
-
-> +	"addi sp,sp,-16\n\t"						\
-> +	"sd s0,0(sp)\n\t"						\
-> +	"sd ra,8(sp)\n\t"						\
-> +	"addi s0,sp,16\n\t"						\
-> +	"mv a4,%6\n\t"							\
-> +	"mv a3,%5\n\t"							\
-> +	"mv a2,%4\n\t"							\
-> +	"mv a1,%3\n\t"							\
-> +	"mv a0,%0\n\t"							\
-> +	"call ax45mp_no_iocp_cmo\n\t"					\
-> +	"ld ra,8(sp)\n\t"						\
-> +	"ld s0,0(sp)\n\t"						\
-> +	"addi sp,sp,16\n\t"						\
-> +	".option pop\n\t",						\
-> +	ANDESTECH_VENDOR_ID, ERRATA_ANDESTECH_NO_IOCP,			\
-> +	CONFIG_ERRATA_ANDES_CMO)					\
->  	: : "r"(_cachesize),						\
->  	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
->  	    "r"((unsigned long)(_start) + (_size)),			\
-> @@ -151,7 +171,7 @@ asm volatile(ALTERNATIVE_2(						\
->  	    "r"((unsigned long)(_size)),				\
->  	    "r"((unsigned long)(_dir)),					\
->  	    "r"((unsigned long)(_ops))					\
-> -	: "a0")
-> +	: "a0", "a1", "a2", "a3", "a4", "memory")
->  
->  #define THEAD_C9XX_RV_IRQ_PMU			17
->  #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
-
-[...]
-
-> +static int ax45mp_configure_l2_cache(struct device_node *np)
-> +{
-> +	int ret;
-> +
-> +	ret = of_property_read_u32(np, "cache-line-size", &ax45mp_priv->ax45mp_cache_line_size);
-> +	if (ret) {
-> +		pr_err("Failed to get cache-line-size defaulting to 64 bytes\n");
-> +		ax45mp_priv->ax45mp_cache_line_size = SZ_64;
-> +	}
-> +
-> +	if (ax45mp_priv->ax45mp_cache_line_size != SZ_64) {
-> +		pr_err("Expected cache-line-size to 64 bytes (found:%u). Defaulting to 64 bytes\n",
-> +		       ax45mp_priv->ax45mp_cache_line_size);
-> +		ax45mp_priv->ax45mp_cache_line_size = SZ_64;
-> +	}
-> +
-> +	ax45mp_priv->ucctl_ok = ax45mp_cpu_cache_controlable();
-> +	ax45mp_priv->l2cache_enabled = ax45mp_cpu_l2c_ctl_status() & AX45MP_L2_CACHE_CTL_CEN_MASK;
-> +
-> +	return 0;
-> +}
-> +
-> +static int ax45mp_l2c_probe(struct platform_device *pdev)
-> +{
-> +	struct device_node *np = pdev->dev.of_node;
-> +	int ret;
-> +
-> +	ax45mp_priv = devm_kzalloc(&pdev->dev, sizeof(*ax45mp_priv), GFP_KERNEL);
-> +	if (!ax45mp_priv)
-> +		return -ENOMEM;
-> +
-> +	ax45mp_priv->l2c_base = devm_of_iomap(&pdev->dev, pdev->dev.of_node, 0, NULL);
-> +	if (!ax45mp_priv->l2c_base) {
-> +		ret = -ENOMEM;
-> +		goto l2c_err;
-> +	}
-> +
-> +	ret = ax45mp_configure_l2_cache(np);
-> +	if (ret)
-> +		goto l2c_err;
-> +
-> +	ret = ax45mp_configure_pma_regions(np);
-> +	if (ret)
-> +		goto l2c_err;
-> +
-> +	static_branch_disable(&ax45mp_l2c_configured);
-> +
-> +	return 0;
-> +
-> +l2c_err:
-> +	devm_kfree(&pdev->dev, ax45mp_priv);
-> +	ax45mp_priv = NULL;
-> +	return ret;
-> +}
-> +
-> +static const struct of_device_id ax45mp_cache_ids[] = {
-> +	{ .compatible = "andestech,ax45mp-cache" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver ax45mp_l2c_driver = {
-> +	.driver = {
-> +		.name = "ax45mp-l2c",
-> +		.of_match_table = ax45mp_cache_ids,
-> +	},
-> +	.probe = ax45mp_l2c_probe,
-> +};
-> +
-> +static int __init ax45mp_cache_init(void)
-> +{
-> +	static_branch_enable(&ax45mp_l2c_configured);
-> +	return platform_driver_register(&ax45mp_l2c_driver);
-
-the ordering is racy I think.
-
-I.e. in the function called from the cmo operations (ax45mp*_range)
-you need to access ax45mp_priv and its line-size element.
-
-But when you enable the static branch the driver is not yet registered
-but even more important, also not probed yet.
-
-So I guess the static-branch-enable should be living at the end of
-ax45mp_l2c_probe()
-
-
-Heiko
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSGVpa28sCgpUaGFuayB5b3UgZm9yIHRoZSByZXZpZXcuCgpPbiBUaHUsIE5vdiAyNCwgMjAy
+MiBhdCA2OjI1IFBNIEhlaWtvIFN0w7xibmVyIDxoZWlrb0BzbnRlY2guZGU+IHdyb3RlOgo+Cj4g
+QW0gRG9ubmVyc3RhZywgMjQuIE5vdmVtYmVyIDIwMjIsIDE4OjIyOjAzIENFVCBzY2hyaWViIFBy
+YWJoYWthcjoKPiA+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5y
+akBicC5yZW5lc2FzLmNvbT4KPiA+Cj4gPiBBZGQgcmVxdWlyZWQgcG9ydHMgb2YgdGhlIEFsdGVy
+bmF0aXZlIHNjaGVtZSBmb3IgQW5kZXMgQ1BVIGNvcmVzLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6
+IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4K
+PiA+IC0tLQo+ID4gUkZDIHYzIC0+IHY0Cj4gPiAqIE5ldyBwYXRjaAo+ID4gLS0tCj4KPiA+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2VycmF0YS9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvZXJyYXRh
+L01ha2VmaWxlCj4gPiBpbmRleCBhMTA1NTk2NWZiZWUuLjgxODI4ZTgwZjZkYyAxMDA2NDQKPiA+
+IC0tLSBhL2FyY2gvcmlzY3YvZXJyYXRhL01ha2VmaWxlCj4gPiArKysgYi9hcmNoL3Jpc2N2L2Vy
+cmF0YS9NYWtlZmlsZQo+ID4gQEAgLTEsMiArMSwzIEBACj4gPiAgb2JqLSQoQ09ORklHX0VSUkFU
+QV9TSUZJVkUpICs9IHNpZml2ZS8KPiA+ICBvYmotJChDT05GSUdfRVJSQVRBX1RIRUFEKSArPSB0
+aGVhZC8KPiA+ICtvYmotJChDT05GSUdfRVJSQVRBX0FOREVTKSArPSBhbmRlcy8KPgo+IGFscGhh
+YmV0aWNhbCBzb3J0aW5nIHBsZWFzZQo+Cj4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Vy
+cmF0YS9hbmRlcy9lcnJhdGEuYyBiL2FyY2gvcmlzY3YvZXJyYXRhL2FuZGVzL2VycmF0YS5jCj4g
+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi5lYzNlMDUyY2E4
+YzcKPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL2FyY2gvcmlzY3YvZXJyYXRhL2FuZGVzL2Vy
+cmF0YS5jCj4gPiBAQCAtMCwwICsxLDY4IEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZp
+ZXI6IEdQTC0yLjAtb25seQo+ID4gKy8qCj4gPiArICogRXJyYXRhcyB0byBiZSBhcHBsaWVkIGZv
+ciBBbmRlcyBDUFUgY29yZXMKPiA+ICsgKgo+ID4gKyAqICBDb3B5cmlnaHQgKEMpIDIwMjIgUmVu
+ZXNhcyBFbGVjdHJvbmljcyBDb3Jwb3JhdGlvbi4KPiA+ICsgKgo+ID4gKyAqIEF1dGhvcjogTGFk
+IFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tPgo+ID4g
+KyAqLwo+ID4gKwo+ID4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KPiA+ICsjaW5jbHVkZSA8
+bGludXgvbW9kdWxlLmg+Cj4gPiArCj4gPiArI2luY2x1ZGUgPGFzbS9hbHRlcm5hdGl2ZS5oPgo+
+ID4gKyNpbmNsdWRlIDxhc20vY2FjaGVmbHVzaC5oPgo+ID4gKyNpbmNsdWRlIDxhc20vZXJyYXRh
+X2xpc3QuaD4KPiA+ICsjaW5jbHVkZSA8YXNtL3BhdGNoLmg+Cj4gPiArI2luY2x1ZGUgPGFzbS92
+ZW5kb3JpZF9saXN0Lmg+Cj4gPiArCj4gPiArc3RhdGljIGJvb2wgZXJyYXRhX3Byb2JlX2lvY3Ao
+dW5zaWduZWQgaW50IHN0YWdlLCB1bnNpZ25lZCBsb25nIGFyY2hfaWQsIHVuc2lnbmVkIGxvbmcg
+aW1waWQpCj4gPiArewo+ID4gKyAgICAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19FUlJBVEFfQU5E
+RVNfQ01PKSkKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwo+ID4gKwo+ID4gKyAgICAg
+aWYgKGFyY2hfaWQgIT0gMHg4MDAwMDAwMDAwMDA4YTQ1IHx8IGltcGlkICE9IDB4NTAwKQo+ID4g
+KyAgICAgICAgICAgICByZXR1cm4gZmFsc2U7Cj4gPiArCj4gPiArICAgICByaXNjdl9jYm9tX2Js
+b2NrX3NpemUgPSAxOwo+Cj4gYXMgdGhpcyBpcyBtYWlubHkgdG8gbWFrZSB0aGUgY29yZSBjYm8g
+Y29kZSBoYXBweSwgbWF5YmUgYWRkIGEgY29tbWVudAo+IGFib3ZlIHRoYXQgbGluZSB0byBleHBs
+YWluLgo+CkFncmVlZCwgSSdsbCBhZGQgYSBjb21tZW50IGhlcmUuCgo+Cj4gPiArICAgICByaXNj
+dl9ub25jb2hlcmVudF9zdXBwb3J0ZWQoKTsKPiA+ICsKPiA+ICsgICAgIHJldHVybiB0cnVlOwo+
+ID4gK30KPiA+ICsKPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0
+ZXJuYXRpdmUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUuaAo+ID4gaW5k
+ZXggNjUxMWRkNzNlODEyLi5kODAxMmFmMzBjYmQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2FsdGVybmF0aXZlLmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vYWx0ZXJuYXRpdmUuaAo+ID4gQEAgLTQ2LDYgKzQ2LDkgQEAgdm9pZCBzaWZpdmVfZXJyYXRh
+X3BhdGNoX2Z1bmMoc3RydWN0IGFsdF9lbnRyeSAqYmVnaW4sIHN0cnVjdCBhbHRfZW50cnkgKmVu
+ZCwKPiA+ICB2b2lkIHRoZWFkX2VycmF0YV9wYXRjaF9mdW5jKHN0cnVjdCBhbHRfZW50cnkgKmJl
+Z2luLCBzdHJ1Y3QgYWx0X2VudHJ5ICplbmQsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB1bnNpZ25lZCBsb25nIGFyY2hpZCwgdW5zaWduZWQgbG9uZyBpbXBpZCwKPiA+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGludCBzdGFnZSk7Cj4gPiArdm9pZCBhbmRlc19l
+cnJhdGFfcGF0Y2hfZnVuYyhzdHJ1Y3QgYWx0X2VudHJ5ICpiZWdpbiwgc3RydWN0IGFsdF9lbnRy
+eSAqZW5kLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBhcmNo
+aWQsIHVuc2lnbmVkIGxvbmcgaW1waWQsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICB1
+bnNpZ25lZCBpbnQgc3RhZ2UpOwo+Cj4gYWdhaW4gYWxwaGFiZXRpY2FsIHBsZWFzZSAoaS5lLiBh
+Ym92ZSBzaWZpdmUpCj4KPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+ZXJyYXRhX2xpc3QuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4g
+aW5kZXggNDE4MDMxMmQyYTcwLi4yYmE3ZTZlNzQ1NDAgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2VycmF0YV9saXN0LmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4gQEAgLTksNiArOSwxMSBAQAo+ID4gICNpbmNsdWRlIDxh
+c20vY3NyLmg+Cj4gPiAgI2luY2x1ZGUgPGFzbS92ZW5kb3JpZF9saXN0Lmg+Cj4gPgo+ID4gKyNp
+ZmRlZiBDT05GSUdfRVJSQVRBX0FOREVTCj4gPiArI2RlZmluZSBFUlJBVEFfQU5ERVNURUNIX05P
+X0lPQ1AgICAgIDAKPiA+ICsjZGVmaW5lIEVSUkFUQV9BTkRFU1RFQ0hfTlVNQkVSICAgICAgICAg
+ICAgICAxCj4gPiArI2VuZGlmCj4gPiArCj4gPiAgI2lmZGVmIENPTkZJR19FUlJBVEFfU0lGSVZF
+Cj4gPiAgI2RlZmluZSAgICAgIEVSUkFUQV9TSUZJVkVfQ0lQXzQ1MyAwCj4gPiAgI2RlZmluZSAg
+ICAgIEVSUkFUQV9TSUZJVkVfQ0lQXzEyMDAgMQo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+a2VybmVsL2FsdGVybmF0aXZlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9hbHRlcm5hdGl2ZS5jCj4g
+PiBpbmRleCBhN2QyNmEwMGJlZWEuLjRkZWQzZTlhYTNiYyAxMDA2NDQKPiA+IC0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL2FsdGVybmF0aXZlLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2Fs
+dGVybmF0aXZlLmMKPiA+IEBAIC00Nyw2ICs0NywxMSBAQCBzdGF0aWMgdm9pZCBfX2luaXRfb3Jf
+bW9kdWxlIHJpc2N2X2ZpbGxfY3B1X21mcl9pbmZvKHN0cnVjdCBjcHVfbWFudWZhY3R1cmVyX2lu
+Zgo+ID4gICAgICAgY2FzZSBUSEVBRF9WRU5ET1JfSUQ6Cj4gPiAgICAgICAgICAgICAgIGNwdV9t
+ZnJfaW5mby0+cGF0Y2hfZnVuYyA9IHRoZWFkX2VycmF0YV9wYXRjaF9mdW5jOwo+ID4gICAgICAg
+ICAgICAgICBicmVhazsKPiA+ICsjZW5kaWYKPiA+ICsjaWZkZWYgQ09ORklHX0VSUkFUQV9BTkRF
+Uwo+ID4gKyAgICAgY2FzZSBBTkRFU1RFQ0hfVkVORE9SX0lEOgo+ID4gKyAgICAgICAgICAgICBj
+cHVfbWZyX2luZm8tPnBhdGNoX2Z1bmMgPSBhbmRlc19lcnJhdGFfcGF0Y2hfZnVuYzsKPiA+ICsg
+ICAgICAgICAgICAgYnJlYWs7Cj4KPiBhbmQgYWdhaW4gYWxwaGFiZXRpY2FsIHBsZWFzZQo+Ck9v
+cHMgSSBtaXNzZWQgdGhhdCwgSSdsbCBzb3J0IHRoaXMgYW5kIGFsbCB0aGUgYWJvdmUuCgpDaGVl
+cnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
