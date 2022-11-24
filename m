@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030CAC352A1
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEF7C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MWn79Z6bwLUzslg5NRCzQJKFfVfU/PbNHZJ7koPAguY=; b=NvH0lbygq5WOgP
-	vuTTXVpiYvox+1W9Fb833gPu7KN2PoPwHQsB9swK4b2CJv4p9Aunj1rrfRec+vW94LDXnnM3m+zBb
-	s7qFdOtJGhm4MpVVPLg+UpJ+61s5xWsrVKkbH0ohpPDZ7KqEt28qbnbu/LUcCYFwlZMxbju6KleNq
-	mZZAB33p0ws6Jl6UHLcYLpa2T81HSjvTtIpQtVFl/XXGM6XPFqRrG4ap2YHVl18fmsFviGkO0pPAk
-	V4hFGLdVziSe/89NbHWXIWmWXgmYCxe+z0l0ELpVv57Ykdqp2O2nik0TICtxWxh6xUgkZ/M9Mn1mG
-	gzyZ8e7WZsSuxNe9pKxQ==;
+	List-Owner; bh=pTduddAjWlSW1Hu9r+dIH0q6XZZcOqDjt/aAEB7Vmgo=; b=xvjh/ceooilPW+
+	0xCkSN8NNZWUgY8jlljeM93netrFBsd5HOU8xZZK0Q5M2brBhsBo+wWHAfBuKn86cApLR+JCUEdqn
+	vXh1JmZEneeqe4ciULtaaP5vUFNcGNqbPc2x4XMmGJUa1EnVP4k6cS1P6uStMHaHx+04EGBEekx8Z
+	4wBljBlpha6ScVtHvYPQj0Dg99fpSr5HDAnnVMCqhy6YZHJkaPRARxqHfobydx1+bRhJ9mhn01Ivn
+	unGTspRjD6ioSz5QnqZD6pukTKlioj44WvGTVXi3WZG6j6uQqhJKSNW8ZUEk0+nDNJsuvVTMyYtSJ
+	GPedzdqL9qQULWMLWM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFw4-00AQnm-KU; Thu, 24 Nov 2022 17:22:52 +0000
+	id 1oyFwE-00AQry-GS; Thu, 24 Nov 2022 17:23:02 +0000
 Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFvv-00AQfy-Ti
+	id 1oyFvv-00AQgT-TB
 	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 17:22:45 +0000
-Received: by mail-wm1-x329.google.com with SMTP id j5-20020a05600c410500b003cfa9c0ea76so1694708wmi.3
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:40 -0800 (PST)
+Received: by mail-wm1-x329.google.com with SMTP id ay14-20020a05600c1e0e00b003cf6ab34b61so4406066wmb.2
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vGTeIsZb6dwV09Jxzafi+tDu+2zt3FcJZOZJD63Nq5c=;
-        b=A8LwDLViXjTFC1n697iLKxetZVRA1pt1BHLBlG57fgEUyDIx3T36ft5hVIQ4PWKzmP
-         SEWBgibKQyMivuFK3DxZaAUP+1xQfM5MQm5PUNzOwwhy6pinBh7c1A0N00k+eca3HU40
-         doCckp/rLWs5W8eYAuB/1QNLKN/T2K5t5LgTEMO5dl+cSkBD6azgc26KjPazGrTu7tBe
-         UsuuPUnMpPH8o+flRy/pS+igcqSvnvLnemkQvzO0njGh16HP33hXmD6NolW8/jx5CwlA
-         9zZE/8pwDgITjGWh7k23C+uldZMkh2eXjUJ6lumuOfiz8TNIFPPedzTKOpaKWlvQq5nQ
-         +MHw==
+        bh=utYHq/Eub/BXbR5vrvSJsruIG0O9SmYPcZyptCx8AhU=;
+        b=Npx+EPqniIEdw0EGXuCVh/54/X2bN/m9Ko8XV6byM7vi6TFjX6rxSlG+IXu1nwxbN9
+         u3oQhCq9Xyr/SS9lUJAvnbNJ8++PpWAvj4DYNW0ypn0RC8fi+mPwpcDd8dNRRGIulcFC
+         Qbisx1RteagjzWBSAoE649Y/WYFrfKcLVeGkhB49mTkiLyf26sh5bwDIhsFtQbfX7Li6
+         N4uaVDVzLkz7kfsoU/giseFXlLTk0qHHl+/3MVqXy3jDpVigxfQEWMu2AEh9ij/5M4Ye
+         nbrVlTqQnLLIYETbjzD8HtUduC8AYGf0Uzr7Tui1nE9uu8BvCOtwpsq7kVqKRCau2f8G
+         VYBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vGTeIsZb6dwV09Jxzafi+tDu+2zt3FcJZOZJD63Nq5c=;
-        b=BvBevT0szePF/HnaER/9uIMcTgwYGDC13Z1CUls563Ndqo/gxQwqo/LoZDT6hXrpkW
-         LFZ2lzh+9h7wLcAEsHTFIWsiegnsTa/enNCCX2DKk8F/epLGOhP093brz4/VEPQhm74P
-         p+EiiLyoMs0PwxZv/c2eEN2t3ukykrgIu4BtTZ02asfi3CHLyYCTuQ9ygicM2oJJ0fK/
-         WfHu8R6GFSBtCpBYLJuVBmk48ZPcY7SyEeldPS+ScYEMcJkhDeDfe+BR4gnGluY7qEq+
-         PAd+ZKDclC/CScDFIithDFdvg54yanDa9y8Wh07FUALQxVbARLITl2upzLQC1VLyRzXS
-         W/2w==
-X-Gm-Message-State: ANoB5pklFQ/tsS3XMaXqgKaFSolgSD5SQT72VJW0wWdSkeMCI9danAgu
-	RwT4nO3826a0Lpkq8JfQarA=
-X-Google-Smtp-Source: AA0mqf4/eGyD9maTGYn7KxarvFxZbqpMMQXISgDYXlp/nDaqQuuYHzBHEsZXJQoOOkcvNv2BBWShUw==
-X-Received: by 2002:a05:600c:3108:b0:3cf:8058:43b8 with SMTP id g8-20020a05600c310800b003cf805843b8mr12220757wmo.95.1669310559371;
-        Thu, 24 Nov 2022 09:22:39 -0800 (PST)
+        bh=utYHq/Eub/BXbR5vrvSJsruIG0O9SmYPcZyptCx8AhU=;
+        b=LdKZF5VDSK7bc5D6ds9fdXep/p1B88TQHpDjUMNVi+D8D2RfqNIL6eyJtVXf/YAdRB
+         HfTCTZtPM951WgEERIiaoyZJxU97BqRr63ZMuI9m6UZeU5r5YYge9+OnswJHd3OetwYe
+         djbYF2CFQ4rf3tNZI/u7Q69ngTr5EafXOa5A4pMefz7dRKHlGuwPJaKV4zaKY73fuu6n
+         t8cxe/7wk6saM+OHkwx63ZCYBOZ4wiTXD9nD0C/Pq7xzqmS30jITOuMsbl0YHyxhzoa2
+         ziYPLgXLK9t7dP3p+XI1v30i4Rf9OS86kGKBx1LS8TFSnxpmU8HqyndJj2ic4AiisbMS
+         gVgw==
+X-Gm-Message-State: ANoB5plrcUdgnwtjCcG+yNkC6FjzeS40KmIn+3zyqwo0jgY2bFP2u7Em
+	/mQMy/XoKMDQyiVosS1y6Oc=
+X-Google-Smtp-Source: AA0mqf7zKWGNZV2S6uoeTnYAAunHGD4Gcv0UaFe1QxECQqw2HOvWZNeKoOOsjFHF9DXN8XqFA8XrbQ==
+X-Received: by 2002:a1c:4b12:0:b0:3cf:90de:7724 with SMTP id y18-20020a1c4b12000000b003cf90de7724mr28080170wma.18.1669310560602;
+        Thu, 24 Nov 2022 09:22:40 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:89ee:3f5d:1c99:35d8])
-        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.38
+        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Nov 2022 09:22:38 -0800 (PST)
+        Thu, 24 Nov 2022 09:22:39 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -85,16 +85,17 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 1/7] riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
-Date: Thu, 24 Nov 2022 17:22:01 +0000
-Message-Id: <20221124172207.153718-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 2/7] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+Date: Thu, 24 Nov 2022 17:22:02 +0000
+Message-Id: <20221124172207.153718-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_092244_020502_C49F3F5F 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20221124_092244_031825_ACE0D882 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,147 +114,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Introduce ALTERNATIVE_3() macro.
+Add Andes Technology to the vendors list.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 RFC v3 -> v4
 * New patch
 ---
- arch/riscv/include/asm/alternative-macros.h | 94 +++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index ec2f3f1b836f..1caf4306b3d6 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -69,6 +69,34 @@
- 				   new_c_2, vendor_id_2, errata_id_2,	\
- 					IS_ENABLED(CONFIG_k_2)
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index cb89af3f0704..e55407ace0c3 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,6 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
  
-+.macro __ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
-+				  new_c_2, vendor_id_2, errata_id_2, enable_2, \
-+				  new_c_3, vendor_id_3, errata_id_3, enable_3
-+886 :
-+	.option push
-+	.option norvc
-+	.option norelax
-+	\old_c
-+	.option pop
-+887 :
-+	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
-+	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-+	ALT_NEW_CONTENT \vendor_id_3, \errata_id_3, \enable_3, \new_c_3
-+.endm
-+
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					CONFIG_k_1,			\
-+				  new_c_2, vendor_id_2, errata_id_2,	\
-+					CONFIG_k_2,			\
-+				  new_c_3, vendor_id_3, errata_id_3,	\
-+					CONFIG_k_3)			\
-+	__ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					IS_ENABLED(CONFIG_k_1),		\
-+				   new_c_2, vendor_id_2, errata_id_2,	\
-+					IS_ENABLED(CONFIG_k_2),		\
-+				   new_c_3, vendor_id_3, errata_id_3,	\
-+					IS_ENABLED(CONFIG_k_3)
-+
- #else /* !__ASSEMBLY__ */
++#define ANDESTECH_VENDOR_ID	0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
  
- #include <asm/asm.h>
-@@ -135,6 +163,36 @@
- 				   new_c_2, vendor_id_2, errata_id_2,	\
- 					IS_ENABLED(CONFIG_k_2))
- 
-+#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					enable_1,			\
-+				   new_c_2, vendor_id_2, errata_id_2,	\
-+					enable_2,			\
-+				   new_c_3, vendor_id_3, errata_id_3,	\
-+					enable_3)			\
-+	"886 :\n"							\
-+	".option push\n"						\
-+	".option norvc\n"						\
-+	".option norelax\n"						\
-+	old_c "\n"							\
-+	".option pop\n"							\
-+	"887 :\n"							\
-+	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
-+	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)	\
-+	ALT_NEW_CONTENT(vendor_id_3, errata_id_3, enable_3, new_c_3)
-+
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					CONFIG_k_1,			\
-+				  new_c_2, vendor_id_2, errata_id_2,	\
-+					CONFIG_k_2,			\
-+				  new_c_3, vendor_id_3, errata_id_3,	\
-+					CONFIG_k_3)			\
-+	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					IS_ENABLED(CONFIG_k_1),		\
-+				   new_c_2, vendor_id_2, errata_id_2,	\
-+					IS_ENABLED(CONFIG_k_2),	\
-+				   new_c_3, vendor_id_3, errata_id_3,	\
-+					IS_ENABLED(CONFIG_k_3))
-+
- #endif /* __ASSEMBLY__ */
- 
- #else /* CONFIG_RISCV_ALTERNATIVE */
-@@ -153,6 +211,14 @@
- 					CONFIG_k_2)			\
-        __ALTERNATIVE_CFG old_c
- 
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					CONFIG_k_1,			\
-+				  new_c_2, vendor_id_2, errata_id_2,	\
-+					CONFIG_k_2,			\
-+				  new_c_3, vendor_id_3, errata_id_3,	\
-+					CONFIG_k_3)			\
-+       __ALTERNATIVE_CFG old_c
-+
- #else /* !__ASSEMBLY__ */
- 
- #define __ALTERNATIVE_CFG(old_c)  \
-@@ -167,6 +233,14 @@
- 					CONFIG_k_2) \
-        __ALTERNATIVE_CFG(old_c)
- 
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1,	\
-+					CONFIG_k_1,			\
-+				  new_c_2, vendor_id_2, errata_id_2,	\
-+					CONFIG_k_2,			\
-+				  new_c_3, vendor_id_3, errata_id_3,	\
-+					CONFIG_k_3) \
-+       __ALTERNATIVE_CFG(old_c)
-+
- #endif /* __ASSEMBLY__ */
- #endif /* CONFIG_RISCV_ALTERNATIVE */
- 
-@@ -202,4 +276,24 @@
- 					new_content_2, vendor_id_2,	\
- 					    errata_id_2, CONFIG_k_2)
- 
-+/*
-+ * A vendor wants to replace an old_content, but another vendor has used
-+ * ALTERNATIVE_2() to patch its customized content at the same location. In
-+ * this case, this vendor can create a new macro ALTERNATIVE_3() based
-+ * on the following sample code and then replace ALTERNATIVE_2() with
-+ * ALTERNATIVE_3() to append its customized content.
-+ */
-+#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1,		\
-+					errata_id_1, CONFIG_k_1,	\
-+				   new_content_2, vendor_id_2,		\
-+					errata_id_2, CONFIG_k_2,	\
-+				   new_content_3, vendor_id_3,		\
-+					errata_id_3, CONFIG_k_3)	\
-+	_ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1,	\
-+					    errata_id_1, CONFIG_k_1,	\
-+					new_content_2, vendor_id_2,	\
-+					    errata_id_2, CONFIG_k_2,	\
-+					new_content_3, vendor_id_3,	\
-+					    errata_id_3, CONFIG_k_3)
-+
- #endif
 -- 
 2.25.1
 
