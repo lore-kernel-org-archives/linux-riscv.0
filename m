@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAE3C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 01:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC08C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 01:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AD7JYKkssDIRzvo5+Dkaxq9RCWP3h5vz2pSUSk2eLtQ=; b=uxlcYnrgdkJttI
-	VDyzDm5gn3iuE13ufsEXTgwIC6aYUYc7ktqSxOlgzzWOfk1W7zAP8sc+wg3a1Yjl3WdahIsOWOAND
-	y+NtqIg15i8xh6iqT/sgRDDfALOzmd6Mn6QcklI8zrIkPD4ghm2oH41viTMabinXrvDe+DbKDUgOd
-	OQK6qsOyXpkOFynFkUw1GdHGOwIXSY2YZ55XE2ItQYsCHKSzakOOa+kL8PHn5pW5lWHBd1wMJksp9
-	/00Fg6RgSJFjbnQ0v4C/91OuxjYCbggNh6bu44M2aas3lNLYuOqy+bkEpz8oQUVZueA+bfxPyYZhn
-	OykdUQWniRg4DhaZonTA==;
+	List-Owner; bh=GpKMHbes+Pa4EhxoVlZNG9z7KmEf9r84WJ1JNrlyKo0=; b=XYnpODifTbMHYS
+	InITz+mykPDSBZ1zeGVWBJ7el6GxN9AUJ0qTRZ3+rRmjfKv3BE7/HB/Kll6FOciE0Dtcf8Hn9NPZP
+	3fHe67sckS55ZJIPEziLfgX1Gs3t9bvxTq2rjS+OUGLYuw3YAU1761D5FPSAOphCUKVN8RR+K8Q1l
+	D0tCaiPLgC7YBDITQxkp1FNx0ca8EtHg4FGUk/u1cEjUQjP6kdTf9MdzUfRDwiDaYH2dwVkAs5zw8
+	onGSI1JF2GCY5h8BOYpbIlRGSzGuBmXN98y0monagPa7pqnNsivv4+x/4uTxlTBkfla7mLUWreIms
+	VHw3QNH7JJigh9sHywiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy16V-003PLi-TU; Thu, 24 Nov 2022 01:32:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oy16S-003PIf-QK
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 01:32:39 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 2685BB823F3
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 01:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C863BC433D7
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 01:32:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669253553;
-	bh=4nSnxwdUPmYAGT6duIaIO31mScbmF3wIMYLMmaAncQc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WzjFNoyE3mMqNk0VtbxdnD2jUKqAPq2IlLivuTbMqRRdPZpOlS1nsCl15KNVvtDv5
-	 xVGafrNn7O5Wxwtp15p516QWUJfQ0wrQe6VoJADQdupv1LIL9SyVHP20FRNQjvJieX
-	 AZ6MWSmlj9YY1onis+V3Cjnnn/gWzpAbChMDEnk9+Xmw7sQqRY7+HqN57Kiu0R7eTn
-	 2rer4yZT8gflqOrzWgtc96pSJWJdEsk3389eeFXhy79a6SU9Y7l3VEBIGCbUXTUWEe
-	 4hryfFbGeVCp4KCq2V0erk1H2wsyTYjtE2tqUpCZ7QHr2QShIey/U+ycRKvdADGwOX
-	 QbDw2v4aOEQwA==
-Received: by mail-ed1-f41.google.com with SMTP id x102so692702ede.0
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Nov 2022 17:32:33 -0800 (PST)
-X-Gm-Message-State: ANoB5pl5nT9Xr9opionLVdfXKt78nIFTVf2JiQYma3lG9/LlyWQh2jLg
-	VwzE67dlyOqIDRv8eLPC/PZc9LJMFkm3VHYnJFw=
-X-Google-Smtp-Source: AA0mqf58AFGmGZGjyXPc1soHaRYEklfndJj062EieeeH9C3P1zt3Js6YdW6ncZXcEGaxWBeLeFdfWxNeRybXJQf5gKY=
-X-Received: by 2002:a05:6402:1a:b0:467:30ad:c4ca with SMTP id
- d26-20020a056402001a00b0046730adc4camr28191161edu.285.1669253551967; Wed, 23
- Nov 2022 17:32:31 -0800 (PST)
+	id 1oy1VJ-003cFK-HD; Thu, 24 Nov 2022 01:58:17 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oy1VD-003btz-R4
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 01:58:15 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 3CCD724E15C;
+	Thu, 24 Nov 2022 09:57:16 +0800 (CST)
+Received: from EXMBX072.cuchost.com (172.16.6.82) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 24 Nov
+ 2022 09:57:16 +0800
+Received: from [192.168.125.106] (183.27.97.81) by EXMBX072.cuchost.com
+ (172.16.6.82) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 24 Nov
+ 2022 09:57:15 +0800
+Message-ID: <f26a5b7e-4329-67fe-5179-f8cd255de032@starfivetech.com>
+Date: Thu, 24 Nov 2022 09:57:48 +0800
 MIME-Version: 1.0
-References: <20221124005006.1788315-1-debug@rivosinc.com>
-In-Reply-To: <20221124005006.1788315-1-debug@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 24 Nov 2022 09:32:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSwMZQvSNxb2_5GNrVG0pwfXWsHmp8zZG=gFHnhc95bjQ@mail.gmail.com>
-Message-ID: <CAJF2gTSwMZQvSNxb2_5GNrVG0pwfXWsHmp8zZG=gFHnhc95bjQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: VMAP_STACK overflow detection thread-safe
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: palmer@dabbelt.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, 
-	Jisheng Zhang <jszhang@kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v2 1/8] dt-bindings: riscv: Add StarFive JH7110 SoC and
+ VisionFive2 board
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Ben Dooks
+	<ben.dooks@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier
+	<maz@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+	<mturquette@baylibre.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Linus
+ Walleij" <linus.walleij@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+References: <20221118011714.70877-1-hal.feng@starfivetech.com>
+ <20221118011714.70877-2-hal.feng@starfivetech.com>
+ <202211190418.2AJ4ImtE072425@SH1-CSMTP-DB111.sundns.com>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <202211190418.2AJ4ImtE072425@SH1-CSMTP-DB111.sundns.com>
+X-Originating-IP: [183.27.97.81]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX072.cuchost.com
+ (172.16.6.82)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221123_173237_188217_676B15C1 
-X-CRM114-Status: GOOD (  32.83  )
+X-CRM114-CacheID: sfid-20221123_175812_169644_10CC3ABE 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,255 +85,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 24, 2022 at 8:50 AM Deepak Gupta <debug@rivosinc.com> wrote:
->
-> commit 31da94c25aea835ceac00575a9fd206c5a833fed added support for
-> CONFIG_VMAP_STACK. If overflow is detected, CPU switches to `shadow_stack`
-> temporarily before switching finally to per-cpu `overflow_stack`.
->
-> If two CPUs/harts are racing and end up in over flowing kernel stack, one
-> or both will end up corrupting each other state because `shadow_stack` is
-> not per-cpu.
->
-> Following are the changes in this patch
->
->  - Defines an asm macro to obtain per-cpu symbols in destination
->    register.
->  - Computing per-cpu symbol requires a temporary register. When stack is
->    out of question, a place is needed to spill a register. `thread_info`
->    is good location to have spill register.
->  - In entry.S when overflow is detected x31 is spilled into thread_info.
->    x31 is used as temp reg for asm macro to locate per-cpu overflow stack
->
-> Other relevant disccussion on this
-> https://lore.kernel.org/linux-riscv/Y347B0x4VUNOd6V7@xhacker/T/#t
->
-> Tested by `echo EXHAUST_STACK > /sys/kernel/debug/provoke-crash/DIRECT`
->
-> [  286.223273] Insufficient stack space to handle exception!/debug/provoke-crash/DIRECT
-> [  286.223878] Task stack:     [0xff20000010a98000..0xff20000010a9c000]
-> [  286.224411] Overflow stack: [0xff600001f7d98370..0xff600001f7d99370]
-> [  286.226057] CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
-> [  286.227139] Hardware name: riscv-virtio,qemu (DT)
-> [  286.228000] epc : __memset+0x60/0xfc
-> [  286.229299]  ra : recursive_loop+0x48/0xc6 [lkdtm]
-> [  286.231457] epc : ffffffff808de0e4 ra : ffffffff0163a752 sp : ff20000010a97e80
-> [  286.232207]  gp : ffffffff815c0330 tp : ff600000820ea280 t0 : ff20000010a97e88
-> [  286.233584]  t1 : 000000000000002e t2 : 3233206874706564 s0 : ff20000010a982b0
-> [  286.234293]  s1 : 0000000000000012 a0 : ff20000010a97e88 a1 : 0000000000000000
-> [  286.234998]  a2 : 0000000000000400 a3 : ff20000010a98288 a4 : 0000000000000000
-> [  286.235697]  a5 : 0000000000000000 a6 : fffffffffffe43f0 a7 : 00007fffffffffff
-> [  286.236384]  s2 : ff20000010a97e88 s3 : ffffffff01644680 s4 : ff20000010a9be90
-> [  286.237743]  s5 : ff600000842ba6c0 s6 : 00aaaaaac29e42b0 s7 : 00fffffff0aa3684
-> [  286.238691]  s8 : 00aaaaaac2978040 s9 : 0000000000000065 s10: 00ffffff8a7cad10
-> [  286.239591]  s11: 00ffffff8a76a4e0 t3 : ffffffff815dbaf4 t4 : ffffffff815dbaf4
-> [  286.240537]  t5 : ffffffff815dbab8 t6 : ff20000010a9bb48
-> [  286.241540] status: 0000000200000120 badaddr: ff20000010a97e88 cause: 000000000000000f
-> [  286.242979] Kernel panic - not syncing: Kernel stack overflow
-> [  286.244106] CPU: 1 PID: 205 Comm: bash Not tainted 6.1.0-rc2-00001-g328a1f96f7b9 #34
-> [  286.245276] Hardware name: riscv-virtio,qemu (DT)
-> [  286.245929] Call Trace:
-> [  286.246954] [<ffffffff80006754>] dump_backtrace+0x30/0x38
-> [  286.247813] [<ffffffff808de798>] show_stack+0x40/0x4c
-> [  286.248429] [<ffffffff808ea2a8>] dump_stack_lvl+0x44/0x5c
-> [  286.249439] [<ffffffff808ea2d8>] dump_stack+0x18/0x20
-> [  286.250056] [<ffffffff808dec06>] panic+0x126/0x2fe
-> [  286.250642] [<ffffffff800065ea>] walk_stackframe+0x0/0xf0
-> [  286.251357] [<ffffffff0163a752>] recursive_loop+0x48/0xc6 [lkdtm]
-> [  286.253321] SMP: stopping secondary CPUs
-> [  286.256724] ---[ end Kernel panic - not syncing: Kernel stack overflow ]---
->
-> Fixes: 31da94c25aea835ceac00575a9fd206c5a833fed
-The patch gives more significant change than the Fixes, and Fixes
-would expand to the previous stable versions. Please don't set it as a
-Fixes, but an improved OVERSTACK dead path performance feature.
+On Fri, 18 Nov 2022 19:31:36 +0800, Conor Dooley wrote:
+> On Fri, Nov 18, 2022 at 09:17:07AM +0800, Hal Feng wrote:
+> > From: Emil Renner Berthing <kernel@esmil.dk>
+> > 
+> > Add device tree bindings for the StarFive JH7110 RISC-V SoC [1]
+> > and the VisionFive2 board [2] equipped with it.
+> > 
+> > [1]: https://doc-en.rvspace.org/Doc_Center/jh7110.html
+> > [2]: https://doc-en.rvspace.org/Doc_Center/visionfive_2.html
+> 
+> Could you make these two into "Link:" tags please?
+> Otherwise,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
-> Cc: Guo Ren <guoren@kernel.org>
-> Cc: Jisheng Zhang <jszhang@kernel.org>
->
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> ---
->  arch/riscv/include/asm/asm.h         | 11 ++++++
->  arch/riscv/include/asm/thread_info.h |  3 ++
->  arch/riscv/kernel/asm-offsets.c      |  4 +++
->  arch/riscv/kernel/entry.S            | 54 ++++------------------------
->  arch/riscv/kernel/traps.c            | 12 +------
->  5 files changed, 26 insertions(+), 58 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> index 1b471ff73178..373eba843331 100644
-> --- a/arch/riscv/include/asm/asm.h
-> +++ b/arch/riscv/include/asm/asm.h
-> @@ -69,6 +69,7 @@
->
->  #ifdef __ASSEMBLY__
->
-> +#include <asm/asm-offsets.h>
->  /* Common assembly source macros */
->
->  /*
-> @@ -80,6 +81,16 @@
->         .endr
->  .endm
->
-> +.macro asm_per_cpu dst sym tmp
-> +       REG_L \tmp, TASK_TI_CPU_NUM(tp)
-> +       slli \tmp, \tmp, 0x3
-> +       la \dst, __per_cpu_offset
-> +       add \dst, \dst, \tmp
-> +       REG_L \tmp, 0(\dst)
-> +       la \dst, \sym
-> +       add \dst, \dst, \tmp
-Another tricky asm code of using percpu, I don't know how the percpu
-maintenance guy thinks.
-Percpu is really complex to be used here. That's why I don't like
-Jisheng's previous idea, although I haven't given an explicitly
-opposed comment.
-Keep simple and direct.
-> +.endm
-> +
->  #endif /* __ASSEMBLY__ */
->
->  #endif /* _ASM_RISCV_ASM_H */
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index 67322f878e0d..7e17dc07cf11 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -65,6 +65,9 @@ struct thread_info {
->          */
->         long                    kernel_sp;      /* Kernel stack pointer */
->         long                    user_sp;        /* User stack pointer */
-> +#ifdef CONFIG_VMAP_STACK
-> +       long                    spill_reg;      /* per cpu scratch space to spill a single register */
-> +#endif
->         int                     cpu;
->  };
->
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index df9444397908..bed3c83bfb8f 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -38,6 +38,10 @@ void asm_offsets(void)
->         OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
->         OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
->
-> +       OFFSET(TASK_TI_CPU_NUM, task_struct, thread_info.cpu);
-> +#ifdef CONFIG_VMAP_STACK
-> +       OFFSET(TASK_TI_SPILL_REG, task_struct, thread_info.spill_reg);
-> +#endif
->         OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
->         OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
->         OFFSET(TASK_THREAD_F2,  task_struct, thread.fstate.f[2]);
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..12f285cec136 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -10,9 +10,11 @@
->  #include <asm/asm.h>
->  #include <asm/csr.h>
->  #include <asm/unistd.h>
-> +#include <asm/page.h>
->  #include <asm/thread_info.h>
->  #include <asm/asm-offsets.h>
->  #include <asm/errata_list.h>
-> +#include <linux/sizes.h>
->
->  #if !IS_ENABLED(CONFIG_PREEMPTION)
->  .set resume_kernel, restore_all
-> @@ -404,54 +406,12 @@ handle_syscall_trace_exit:
->
->  #ifdef CONFIG_VMAP_STACK
->  handle_kernel_stack_overflow:
-> -       la sp, shadow_stack
-> -       addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
-> +       REG_S x31, TASK_TI_SPILL_REG(tp)
-> +       asm_per_cpu sp, overflow_stack, x31
-> +       li x31, OVERFLOW_STACK_SIZE
-> +       add sp, sp, x31
-> +       REG_L x31, TASK_TI_SPILL_REG(tp)
->
-> -       //save caller register to shadow stack
-> -       addi sp, sp, -(PT_SIZE_ON_STACK)
-> -       REG_S x1,  PT_RA(sp)
-> -       REG_S x5,  PT_T0(sp)
-> -       REG_S x6,  PT_T1(sp)
-> -       REG_S x7,  PT_T2(sp)
-> -       REG_S x10, PT_A0(sp)
-> -       REG_S x11, PT_A1(sp)
-> -       REG_S x12, PT_A2(sp)
-> -       REG_S x13, PT_A3(sp)
-> -       REG_S x14, PT_A4(sp)
-> -       REG_S x15, PT_A5(sp)
-> -       REG_S x16, PT_A6(sp)
-> -       REG_S x17, PT_A7(sp)
-> -       REG_S x28, PT_T3(sp)
-> -       REG_S x29, PT_T4(sp)
-> -       REG_S x30, PT_T5(sp)
-> -       REG_S x31, PT_T6(sp)
-> -
-> -       la ra, restore_caller_reg
-> -       tail get_overflow_stack
-> -
-> -restore_caller_reg:
-> -       //save per-cpu overflow stack
-> -       REG_S a0, -8(sp)
-> -       //restore caller register from shadow_stack
-> -       REG_L x1,  PT_RA(sp)
-> -       REG_L x5,  PT_T0(sp)
-> -       REG_L x6,  PT_T1(sp)
-> -       REG_L x7,  PT_T2(sp)
-> -       REG_L x10, PT_A0(sp)
-> -       REG_L x11, PT_A1(sp)
-> -       REG_L x12, PT_A2(sp)
-> -       REG_L x13, PT_A3(sp)
-> -       REG_L x14, PT_A4(sp)
-> -       REG_L x15, PT_A5(sp)
-> -       REG_L x16, PT_A6(sp)
-> -       REG_L x17, PT_A7(sp)
-> -       REG_L x28, PT_T3(sp)
-> -       REG_L x29, PT_T4(sp)
-> -       REG_L x30, PT_T5(sp)
-> -       REG_L x31, PT_T6(sp)
-> -
-> -       //load per-cpu overflow stack
-> -       REG_L sp, -8(sp)
-Yes, your patch gives a good performance here. But what do we gain?
+OK, will fix it in the next version. Thanks.
 
->         addi sp, sp, -(PT_SIZE_ON_STACK)
->
->         //save context to overflow stack
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index f3e96d60a2ff..eef3a87514c7 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -208,18 +208,8 @@ int is_valid_bugaddr(unsigned long pc)
->  #endif /* CONFIG_GENERIC_BUG */
->
->  #ifdef CONFIG_VMAP_STACK
-> -static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
-> +DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
->                 overflow_stack)__aligned(16);
-> -/*
-> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-> - * to get per-cpu overflow stack(get_overflow_stack).
-> - */
-> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
-> -asmlinkage unsigned long get_overflow_stack(void)
-> -{
-> -       return (unsigned long)this_cpu_ptr(overflow_stack) +
-> -               OVERFLOW_STACK_SIZE;
-> -}
->
->  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->  {
-> --
-> 2.25.1
->
-
-
--- 
-Best Regards
- Guo Ren
+Best regards,
+Hal
 
 _______________________________________________
 linux-riscv mailing list
