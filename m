@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88ADEC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 21:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC1BC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 22:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L6t2kxvX4o96ljGRQnQNT0yq7vQEz2R71up9B8XN8Zw=; b=wVqvgrdVv4oQ7G
-	7yl7S9LjHb5SDL7IETZ33dfSNST4yucL2uGK1nsRBb6blFIirZ16+zcHjlUQcql2nhkZA3x66/Mt/
-	cShn8ZmjQIDENu/Tze4fnRBwf4el6hViP7CQrpavqXMyHaQpnvOhU55xk3CHjqn0QXucUGxdfoSyi
-	OkANytBcy9TZEpfuuWcpnuvS9U2sYdgGdv/yZYZxNhqPzl9mhkxZMPYsocJRNSG0b8tectsWQQf+9
-	9bXNnISPJ2P4OwwnQBSZZlR6Z9428JixQjnyvt5iR8ryfMN/Ykf1wZuAYNioY5iVtipBFE3OYxuH/
-	/MB/So0TWxK7pDb7nJsQ==;
+	List-Owner; bh=dfx3OOsSjYzPxPumwA/eiz/t49CK/3oaEOugwHjFgBk=; b=hrbaU2DbbPNsTM
+	YO3K5jrlEDklOOgU+jcwalzeoTYiuxtQMACFe8WKtnmMG8WjuwZhpzrI4rAr/JHjJuJj09lH4wDiE
+	rUQu70bqG6kK8AnjC9OYIvJdL75jQmyzqWh7SfMeksCJTKGCEetQoYx3DmlVTQJgBElKJoymQRoYs
+	JL1jCSdUnGw8qZdfpHd9U0NaP1nwOSx4OzAD9hJ4Z7yEQ6g4rIaKe+2VY2bYCqV8BZ6Riba8LrDdl
+	TTR+oq7XEwJLMNaC65XJUUIln/Fyl9d3Y1MVaBm46/WgrolSYfPNAUSvD2xvfaHkBWPbCXYdtTIbt
+	9gdAflu+8w8d1GABT/bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyJrz-00BbQE-NC; Thu, 24 Nov 2022 21:34:55 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oyKa3-00BggG-9Y; Thu, 24 Nov 2022 22:20:27 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyJrw-00BbPT-UH
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 21:34:54 +0000
+	id 1oyKZz-00Bgek-Lm
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 22:20:25 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 61444B828D7;
-	Thu, 24 Nov 2022 21:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD20CC433C1;
-	Thu, 24 Nov 2022 21:34:45 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 28D6AB82903;
+	Thu, 24 Nov 2022 22:20:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A604C433B5;
+	Thu, 24 Nov 2022 22:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669325690;
-	bh=G7tq99AoCNw2Xyp3xJA4Kg8jdEf+0S2KwzmYMu05gZw=;
+	s=k20201202; t=1669328420;
+	bh=XH4bQAQgI4eseVSTFvlZqCEPFCpPt/Y+lqbzeKYOX/E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q1i92Ptk1p413+xx6gb1nSmnsGxUb5Xkqkp95JWpTQ9eg2pXbiOjU0XSXYIXL/MFL
-	 01fvTBXkG5FiiW6jfAoKUuh7SrtGfcllYKQbX883f8ZpxgYw1R3djENPzwV9nA2hc7
-	 2TE/mdLfC79dz4ROChtLoAqiV2pNt1YdmgY1cvNoAt9LKhg300t2OuGu4tufIzSDi8
-	 uWmKuYlWndEQN13vqxr+jlL4t21d9sRYkSbny/xZ6LqGO7jA5p6AOtfQQvGXgJyyAP
-	 MkEV7JuLXhsvIEk1fytfkIi+QioU2tyjhqxlrs/jVX8SyPLv+fl0sazHR+E60L50K+
-	 g3SdkzCUNYv+A==
-Date: Thu, 24 Nov 2022 21:34:43 +0000
+	b=C18BI9AaVGnv9hcWoLeKvBfykg0tURljrRA9kdalMSWJ4A4V7N2qtX2OLbCRI3Hk3
+	 2H+g3iUbiPsu09WN59DcAgXM2jUJs2gr+pQtxuWjpKGEKVAtfCVQI9yYz5u6jptIsc
+	 aHfZSF3adyEUf/d3L1my194gi5WIL6NjsdY4Pc3DpGbbf2JO4NFiSL+mCPA06mnQgX
+	 raKLVur2feyLf8zVc/uKQ1aoM+zSI8zVAkHi8/GqN3ZAfP29tTBap1iQtskLEvm8+L
+	 684yMjb6Oy3Hn0efq+vNVYNeTux0MXoCcrRUVWVguuuQ3Yul7MBQKVl38ZqYXyUFmP
+	 NLVvnle7IuAew==
+Date: Thu, 24 Nov 2022 22:20:16 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v4 7/7] soc: renesas: Add L2 cache management for RZ/Five
- SoC
-Message-ID: <Y3/jc1g8uEHdyqwp@spud>
-References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <Y3/ivrvx4A+OImtW@spud>
+To: Paul Walmsley <paul@pwsan.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Atish Patra <atishp@rivosinc.com>,
+	corbet@lwn.net, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux@rivosinc.com
+Subject: Re: [PATCH 2/4] Documentation: RISC-V: Allow patches for
+ non-standard behavior
+Message-ID: <Y3/uIOxnm3pNHLEJ@spud>
+References: <20221013045619.18906-1-palmer@rivosinc.com>
+ <20221013045619.18906-3-palmer@rivosinc.com>
+ <alpine.DEB.2.21.999.2211181027590.4480@utopia.booyaka.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y3/ivrvx4A+OImtW@spud>
+In-Reply-To: <alpine.DEB.2.21.999.2211181027590.4480@utopia.booyaka.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_133453_142125_4B8FA359 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221124_142024_021180_D5A537F7 
+X-CRM114-Status: GOOD (  41.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,16 +79,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 24, 2022 at 09:31:42PM +0000, Conor Dooley wrote:
-> On Thu, Nov 24, 2022 at 05:22:07PM +0000, Prabhakar wrote:
-> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Hey Paul,
+I thought you'd got an answer but noticed today you'd not so...
 
-> > +	ax45mp_priv->ucctl_ok = ax45mp_cpu_cache_controlable();
+On Fri, Nov 18, 2022 at 10:49:18AM +0000, Paul Walmsley wrote:
+> Hi, 
+> 
+> On Wed, 12 Oct 2022, Palmer Dabbelt wrote:
+> 
+> > From: Palmer Dabbelt <palmer@rivosinc.com>
+> > 
+> > The patch acceptance policy forbids accepting support for non-standard
+> > behavior.  This policy was written in order to both steer implementers
+> > towards the standards and to avoid coupling the upstream kernel too
+> > tightly to vendor-specific features.  Those were good goals, but in
+> > practice the policy just isn't working: every RISC-V system we have
+> > needs vendor-specific behavior in the kernel and we end up taking that
+> > support which violates the policy.  That's confusing for contributors,
+> > which is the main reason we have a written policy in the first place.
+> > 
+> > So let's just start taking code for vendor-defined behavior.
+> 
+> I think I understand the motivation behind this patch: to align the stated 
+> patch acceptance policy with the actual maintenance practice for 
+> arch/riscv.  Along those lines, how about the following tweaks, based on 
+> your original patch?
+> 
+> Probably the most significant proposed change from what you wrote is to 
+> temporarily drop the section about accepting patches for hardware that 
+> doesn't yet exist.
+> I know arch/x86 does this,
 
-> That function name is a typo, should be called ax45mp_cpu_cache_cache_controllable().
+IIRC it was x86 that was cited as the example at LPC...
 
+> but my recollection is that 
+> the maintainers there started doing that after the key x86 hardware 
+> manufacturers established a track record of consistently releasing 
+> mass-market hardware that implemented what they promised.
 
-And so is my suggestion! s/cache_cache/cache/
+> Not sure we're at that point with RISC-V yet.
+
+... and you're probably not wrong there either.
+
+> We'll get there at some point, but maybe 
+> we can add that clause back in once that happens?
+
+> 
+> From: Paul Walmsley <paul.walmsley@sifive.com>
+> Date: Fri, 18 Nov 2022 02:16:17 -0600
+> Subject: [PATCH] Documentation: RISC-V: Allow patches for widely available
+>  hardware
+> 
+> This patch, based on an earlier patch from Palmer, updates the patch
+> acceptance policy to note that the maintainers may also accept patches
+> for RISC-V hardware that contains features that may not be strictly
+> RISC-V-compliant, but which is widely available.  The intention here
+> is to align the stated policy with the de-facto upstream Linux policy.
+
+NGL, this commit message is kinda confusing. If this version is used
+instead of Palmer's, then any mention of the earlier patch should be
+dropped IMO. In fact, his original commit message should apply here too,
+no?
+
+> Link: https://lore.kernel.org/linux-riscv/20221013045619.18906-3-palmer@rivosinc.com/  # Palmer's original patch
+> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> Signed-off-by: Paul Walmsley <paul.walmsley@sifive.com>
+> ---
+>  Documentation/riscv/patch-acceptance.rst | 13 +++++++++----
+>  1 file changed, 9 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
+> index 5da6f9b273d6..2e3f9ecdd977 100644
+> --- a/Documentation/riscv/patch-acceptance.rst
+> +++ b/Documentation/riscv/patch-acceptance.rst
+> @@ -29,7 +29,12 @@ their own custom extensions.  These custom extensions aren't required
+>  to go through any review or ratification process by the RISC-V
+>  Foundation.  To avoid the maintenance complexity and potential
+>  performance impact of adding kernel code for implementor-specific
+> +RISC-V extensions, we'll only consider patches for extensions that
+> +either:
+> +
+> +- Have been officially frozen or ratified by the RISC-V Foundation, or
+> +- Have been implemented in hardware that is widely available, per standard
+> +  Linux practice
+> +
+> +(Implementors, may, of course, maintain their own Linux kernel
+> +trees containing code for any custom extensions that they wish.)
+
+I have no preference for whichever version, but I think some of the
+people at LPC did want to be able to add support for stuff that was not
+publicly available who may have one ;)
+
+Folded into the original, I guess this one also is:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Certainly less headache potential this way,
+Conor.
+
 
 _______________________________________________
 linux-riscv mailing list
