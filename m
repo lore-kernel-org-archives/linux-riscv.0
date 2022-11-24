@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEF7C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34F3C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Nov 2022 17:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pTduddAjWlSW1Hu9r+dIH0q6XZZcOqDjt/aAEB7Vmgo=; b=xvjh/ceooilPW+
-	0xCkSN8NNZWUgY8jlljeM93netrFBsd5HOU8xZZK0Q5M2brBhsBo+wWHAfBuKn86cApLR+JCUEdqn
-	vXh1JmZEneeqe4ciULtaaP5vUFNcGNqbPc2x4XMmGJUa1EnVP4k6cS1P6uStMHaHx+04EGBEekx8Z
-	4wBljBlpha6ScVtHvYPQj0Dg99fpSr5HDAnnVMCqhy6YZHJkaPRARxqHfobydx1+bRhJ9mhn01Ivn
-	unGTspRjD6ioSz5QnqZD6pukTKlioj44WvGTVXi3WZG6j6uQqhJKSNW8ZUEk0+nDNJsuvVTMyYtSJ
-	GPedzdqL9qQULWMLWM9Q==;
+	List-Owner; bh=H1B+pPwTiT30M9ty09Npb8HPpI39Sk6V0ApLfLwIyNk=; b=V1JH5GRdUKMxW6
+	9PTXN/C70klPUEQ6f+lEDVuhDqjjF4MhENi4RhbhoWRJbOAKLyHAyrH/cWbPXBmj48u1YbWOjnQ9m
+	trzZjXmuU0H3ErRdPPgpgr5W0pgkp+5NT9ojpSaZ6XkuEJ/v+CxKo8hneQSUXaaVWAI5nyBFVBz57
+	8eJwVieEjQNjxXeLZ69XTu5R99VsHxWvK+s/ca7G6dkvhPaet+lz0yDGGV+i2LJCEJUTmaBxwryB8
+	2Ge37TxAoMqiiSnJhtu6nX0f3aR5iCluZSBrs6Z5OFFQG0WyUz4Jq/zj78t64zrwAgxsyzMcjTVUe
+	KTmqX+6u1vc68mkgjh5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFwE-00AQry-GS; Thu, 24 Nov 2022 17:23:02 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1oyFwK-00AQwz-PL; Thu, 24 Nov 2022 17:23:08 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyFvv-00AQgT-TB
-	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 17:22:45 +0000
-Received: by mail-wm1-x329.google.com with SMTP id ay14-20020a05600c1e0e00b003cf6ab34b61so4406066wmb.2
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:41 -0800 (PST)
+	id 1oyFvy-00AQjZ-LY
+	for linux-riscv@lists.infradead.org; Thu, 24 Nov 2022 17:22:48 +0000
+Received: by mail-wr1-x433.google.com with SMTP id z4so3378345wrr.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 09:22:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=utYHq/Eub/BXbR5vrvSJsruIG0O9SmYPcZyptCx8AhU=;
-        b=Npx+EPqniIEdw0EGXuCVh/54/X2bN/m9Ko8XV6byM7vi6TFjX6rxSlG+IXu1nwxbN9
-         u3oQhCq9Xyr/SS9lUJAvnbNJ8++PpWAvj4DYNW0ypn0RC8fi+mPwpcDd8dNRRGIulcFC
-         Qbisx1RteagjzWBSAoE649Y/WYFrfKcLVeGkhB49mTkiLyf26sh5bwDIhsFtQbfX7Li6
-         N4uaVDVzLkz7kfsoU/giseFXlLTk0qHHl+/3MVqXy3jDpVigxfQEWMu2AEh9ij/5M4Ye
-         nbrVlTqQnLLIYETbjzD8HtUduC8AYGf0Uzr7Tui1nE9uu8BvCOtwpsq7kVqKRCau2f8G
-         VYBQ==
+        bh=JvgWfL4HI/QgKyNL1kR3QOr26Xuun8VUqB/AbzIo99c=;
+        b=A+faFO7PyjtwbJVGQsiRq8Iod0sOFBjJO5hAzsbz8lwsfBMsPCTZOkzuj3p1JBEpnh
+         D0Oa+O1YwjUDIhm1AFvCZ02AvD+aOrLequEPSQTaBqZDS7tTDzHjg6RZ5B2IlOeKnxYF
+         7nt06jE9icHEZ/fRXeq/dNTOtCgP9YFagD852Nebh8Gi/ZXYmYopUrq9iBKFRH1a49aD
+         NKYAg51LVzMO2HcgErVoSXJ4D8x/qesbyJKY+WHbMxGL90qtUsonC8sw3ke04aqNQkmE
+         FqG6nHTQlNBoOnautNel3wWvcAlGF1etoIWs7rZHqaBOOLzMn3JDGcctzeApwm3AbvPy
+         mOEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=utYHq/Eub/BXbR5vrvSJsruIG0O9SmYPcZyptCx8AhU=;
-        b=LdKZF5VDSK7bc5D6ds9fdXep/p1B88TQHpDjUMNVi+D8D2RfqNIL6eyJtVXf/YAdRB
-         HfTCTZtPM951WgEERIiaoyZJxU97BqRr63ZMuI9m6UZeU5r5YYge9+OnswJHd3OetwYe
-         djbYF2CFQ4rf3tNZI/u7Q69ngTr5EafXOa5A4pMefz7dRKHlGuwPJaKV4zaKY73fuu6n
-         t8cxe/7wk6saM+OHkwx63ZCYBOZ4wiTXD9nD0C/Pq7xzqmS30jITOuMsbl0YHyxhzoa2
-         ziYPLgXLK9t7dP3p+XI1v30i4Rf9OS86kGKBx1LS8TFSnxpmU8HqyndJj2ic4AiisbMS
-         gVgw==
-X-Gm-Message-State: ANoB5plrcUdgnwtjCcG+yNkC6FjzeS40KmIn+3zyqwo0jgY2bFP2u7Em
-	/mQMy/XoKMDQyiVosS1y6Oc=
-X-Google-Smtp-Source: AA0mqf7zKWGNZV2S6uoeTnYAAunHGD4Gcv0UaFe1QxECQqw2HOvWZNeKoOOsjFHF9DXN8XqFA8XrbQ==
-X-Received: by 2002:a1c:4b12:0:b0:3cf:90de:7724 with SMTP id y18-20020a1c4b12000000b003cf90de7724mr28080170wma.18.1669310560602;
-        Thu, 24 Nov 2022 09:22:40 -0800 (PST)
+        bh=JvgWfL4HI/QgKyNL1kR3QOr26Xuun8VUqB/AbzIo99c=;
+        b=ZaRoaYYJdX+qh4km2BTH132bIhkfhM8IJjEuJUrR/T7gDJh/QYGEGWnMMspVckcF6h
+         wb9FfSimiHOCUjwtg5cfuq3mJ3rpaeW1PK/CakGRLMhvRCGI1tnGy6NRLZzUqIKhy5k1
+         m1fwKfyCM4PGlPljrR3bnWIT5A8yfzfS4jzjZgVUeUsDgp+1xEW390QTHT5b/u0lhike
+         XpkWvhAItNVDhdytkE/ULPIDOsTXrCdeaSpdwSUFxK6jC6jBm3sXyVQ+j89mYUFkvvo9
+         F08KWBy3nulZBBlseRJ3sj1Zgk03B73shTWBbxE8D9MB+eX7JGiSqyHXdVGnbxhczedn
+         /wNA==
+X-Gm-Message-State: ANoB5pk2iRX+6ZTxB0Riw+vpo46Um29rUuO6Z5t5OnLzzLAl1k0BsDzt
+	ojueJtJItiU8o5nfeqIafac=
+X-Google-Smtp-Source: AA0mqf7G2aWca5qucK+oikgDePhg68/fqggGGElJZNwed81giUpGn+yWkND+InHRlX0jtNqHe4zr4g==
+X-Received: by 2002:a5d:5e87:0:b0:241:e7a6:db08 with SMTP id ck7-20020a5d5e87000000b00241e7a6db08mr7017188wrb.349.1669310565021;
+        Thu, 24 Nov 2022 09:22:45 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:89ee:3f5d:1c99:35d8])
-        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.39
+        by smtp.gmail.com with ESMTPSA id v17-20020a05600c445100b003c64c186206sm2698086wmn.16.2022.11.24.09.22.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Nov 2022 09:22:39 -0800 (PST)
+        Thu, 24 Nov 2022 09:22:44 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -85,17 +85,16 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 2/7] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
-Date: Thu, 24 Nov 2022 17:22:02 +0000
-Message-Id: <20221124172207.153718-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 5/7] riscv: mm: dma-noncoherent: Pass direction and operation to ALT_CMO_OP()
+Date: Thu, 24 Nov 2022 17:22:05 +0000
+Message-Id: <20221124172207.153718-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_092244_031825_ACE0D882 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221124_092246_772587_EE8D11B9 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +113,105 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add Andes Technology to the vendors list.
+Pass direction and operation to ALT_CMO_OP() macro.
+
+This is in preparation for adding errata for the Andes CPU core.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 RFC v3 -> v4
 * New patch
 ---
- arch/riscv/include/asm/vendorid_list.h | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/include/asm/cacheflush.h  |  4 ++++
+ arch/riscv/include/asm/errata_list.h |  8 ++++++--
+ arch/riscv/mm/dma-noncoherent.c      | 15 ++++++++++-----
+ 3 files changed, 20 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index cb89af3f0704..e55407ace0c3 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -5,6 +5,7 @@
- #ifndef ASM_VENDOR_LIST_H
- #define ASM_VENDOR_LIST_H
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index f6fbe7042f1c..4a04d1be7c67 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -8,6 +8,10 @@
  
-+#define ANDESTECH_VENDOR_ID	0x31e
- #define SIFIVE_VENDOR_ID	0x489
- #define THEAD_VENDOR_ID		0x5b7
+ #include <linux/mm.h>
  
++#define NON_COHERENT_SYNC_DMA_FOR_DEVICE	0
++#define NON_COHERENT_SYNC_DMA_FOR_CPU		1
++#define NON_COHERENT_DMA_PREP			2
++
+ static inline void local_flush_icache_all(void)
+ {
+ 	asm volatile ("fence.i" ::: "memory");
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 2ba7e6e74540..48e899a8e7a9 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -124,7 +124,7 @@ asm volatile(ALTERNATIVE(						\
+ #define THEAD_flush_A0	".long 0x0275000b"
+ #define THEAD_SYNC_S	".long 0x0190000b"
+ 
+-#define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
++#define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)		\
+ asm volatile(ALTERNATIVE_2(						\
+ 	__nops(6),							\
+ 	"mv a0, %1\n\t"							\
+@@ -146,7 +146,11 @@ asm volatile(ALTERNATIVE_2(						\
+ 			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
+ 	: : "r"(_cachesize),						\
+ 	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
+-	    "r"((unsigned long)(_start) + (_size))			\
++	    "r"((unsigned long)(_start) + (_size)),			\
++	    "r"((unsigned long)(_start)),				\
++	    "r"((unsigned long)(_size)),				\
++	    "r"((unsigned long)(_dir)),					\
++	    "r"((unsigned long)(_ops))					\
+ 	: "a0")
+ 
+ #define THEAD_C9XX_RV_IRQ_PMU			17
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+index d919efab6eba..e2b82034f504 100644
+--- a/arch/riscv/mm/dma-noncoherent.c
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -19,13 +19,16 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+ 
+ 	switch (dir) {
+ 	case DMA_TO_DEVICE:
+-		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size,
++			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
+ 		break;
+ 	case DMA_FROM_DEVICE:
+-		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size,
++			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
+ 		break;
+ 	case DMA_BIDIRECTIONAL:
+-		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size,
++			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
+ 		break;
+ 	default:
+ 		break;
+@@ -42,7 +45,8 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 		break;
+ 	case DMA_FROM_DEVICE:
+ 	case DMA_BIDIRECTIONAL:
+-		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size,
++			   dir, NON_COHERENT_SYNC_DMA_FOR_CPU);
+ 		break;
+ 	default:
+ 		break;
+@@ -53,7 +57,8 @@ void arch_dma_prep_coherent(struct page *page, size_t size)
+ {
+ 	void *flush_addr = page_address(page);
+ 
+-	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
++	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size,
++		   0, NON_COHERENT_DMA_PREP);
+ }
+ 
+ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
 -- 
 2.25.1
 
