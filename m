@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1D0C43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA5FC43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Eosdq9gm+XU8h/DPllX+gmjj4xhAXhjiIqtLh6AFWis=; b=SZHE6N5wQzO2pu
-	26jJxd/axlp3u0r1IIAVv0jDRbFmyU1G0rZjwSqPcExXE5hM+3ekDxU09st9uWHKDIELooxzu/stc
-	i/OAqMPYKJaButL3HKm7c0MgN6YJtn4lYcRp/G9oRKv3B1ivzxVxuUCyeaMb21LGshaYlWGgykVBj
-	I7AZ8rSWJVLeo7OHjm8Rpo/2aX1lp/NZQu3LRc/ACaxLE/rcg7cqtOVokSM5MQR+uibAfpdKEKY0m
-	1nSL+q5x2WlP2mZhr0oBvYRVt+/oU2jBpWQdUd9eddJqwbPGF+z8DNgWd9qY87cm1wrl/hduTKlNm
-	jzPIau6RsJfIsR2mQokQ==;
+	List-Owner; bh=HWUZ+LVAzOmBj71RgMJzIbnVj7tlL2rsEo4iWtSpBAI=; b=qulqvROKugwKhg
+	AiyaZYh3uNRWGTDa1MTplIbDfnvt9yyTMkHGcCDhnBGOGUyuz1xKuVFKbbsrhd1bO9Qil+wSSNd61
+	DbRfXLru/h+qDKKJ2r5IjyG6tOLE3uQdzqMtQMTSo2v4t5A7WNQQkABZJFd8HZMfUIYwV2shjCBHp
+	U6WwA+y571/9TZ2tpNm6CLH6LQHJQtmyDc7NV7L8DedhZhCQjR6Am9A9m38Quhmxy3BxoeLhcvS7A
+	mpUsVEYdcayMbUJEPOPig6lcR2FpdWvr0wyo2s6dveaYsjqmJ1y21rQNLdKd1nmIj1j06ZUewzqIV
+	Q0gea2DCVOqP8w7kYf1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiXF-002zAq-BA; Fri, 25 Nov 2022 23:55:09 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1oyiZn-0030Wq-Jy; Fri, 25 Nov 2022 23:57:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiPf-002v1a-Op; Fri, 25 Nov 2022 23:47:21 +0000
-Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
-	by mailout.nyi.internal (Postfix) with ESMTP id 2D83A5C00FB;
-	Fri, 25 Nov 2022 18:47:19 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute1.internal (MEProxy); Fri, 25 Nov 2022 18:47:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1669420039; x=1669506439; bh=V6
-	MbhYfVD6c6BFLlGZgGaEzDFxsQdBBvIonrpxOU5Qg=; b=koo8/vrroIQVqYzhBI
-	rUrRwJV9sFPs6v4eSOvU7lLJ4GLK0O2cub1nIJz8BWubb9G6bhAIKWvI+lwKBSa7
-	DNBDiyi8t63u6QMFaWf1YDHxJvuXeEC++LkhmPlMwXzexaH1zILo7KTL5raTtefg
-	3rfH+xGjK/qdv1QyPA4amXQZeKvStOlO59VmMlHEX/a6UuEdbJz2oC1wwCbXpzXx
-	kb0xioVke0MyJGHA3kxIz3LjI4hF4FSkbQIVOZejUqxg67TqbW+2Vjd/YWDYHCgd
-	tkU4WB3ss86B421pfRrP7STIlf1oRuwqFNdLiHK5b2q5ygpS4Q1QMVCDYhZU/I21
-	UeRQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1669420039; x=1669506439; bh=V6MbhYfVD6c6B
-	FLlGZgGaEzDFxsQdBBvIonrpxOU5Qg=; b=idB09pC3M92di/zk5tX9bwUx2Q2qh
-	EsHoyCcbfr3JzpEAsny/ORy5vn8+JlhytVQvkfrUocOAOE1RFSqsoTx/JRi6zxWO
-	4bRQaPKBtky9MIMGVvtS7Nt/98eA/fsxAHQvOBUzkBui6eurZTRUjdvocYERrlPZ
-	Y4WvKTmRCRbPV4kqwjc8uxgYQTK9e3YuCiD+t3Y1Unxc5q1F29z8XMJP+5oqJJeR
-	/VBK4JWYsj/1riQUmJxrc7gMtHoV7AHzk/oyUjdloN6UZPZHN7HmDtBshScDLqDy
-	l0uuyRwpj4LWmFYNYvd5jYBWoYDgud53QanT/o6b+vsdfkrs+rtJ65RrQ==
-X-ME-Sender: <xms:B1SBY6C8KqXA0dE9hUvfpPDH5oyCI68qZZU7BFfF8NG-eYNgYaEX_g>
-    <xme:B1SBY0gsIKSc9dtSE4Zel9-ekjQnwtboWp6CG6rAEw7K8GxODvUjAVJyrkOPX2FBo
-    gCyxW0oRuBS-lqC5A>
-X-ME-Received: <xmr:B1SBY9niOwOisXgxkTBGDXdBFKcb6lGsfXar9Ss84RiCV3PHnpWYLime3Xut7j2a30p92qSCULLg8029NSnzHAf2xr6OUVHXnG4wvBwdtglFdC7JfS1lEeUt2oXE2yo2MSJ1nA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
-    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
-    frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
-    feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
-    hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:B1SBY4z4PcHDCQrP_3iT4XxzxrK_CZyAVr6OAmF_kW1NpCGj6GMxnw>
-    <xmx:B1SBY_RfBLpY3zoVhUB-qKrsdglu1LUE6JPN-wW6lbKjPSB4zltAbQ>
-    <xmx:B1SBYzav6K8W1tcOclM2kWBm7itcpd1eG1MC7OzfJ8vhH3rpOx1jWg>
-    <xmx:B1SBY0DgGAvA9S2pyZ0ti9TH0O_dk9qTqZmTV2w1phcOh0nrIv_pYw>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Nov 2022 18:47:17 -0500 (EST)
-From: Samuel Holland <samuel@sholland.org>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-sunxi@lists.linux.dev,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
+	id 1oyiZj-0030UA-3m
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 23:57:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2C84460F21;
+	Fri, 25 Nov 2022 23:57:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4BD1C433D7;
+	Fri, 25 Nov 2022 23:57:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669420661;
+	bh=jaLKaGAKU1UL+34Cy5mouKhCDu7jQB71LFKr8lUwsm0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gjyk63PFqldQb5NpmQjaLrr5/MhsDXRBGqbl/eZQ6VqzIyeVDH8G9mV4dYkxgrO5j
+	 WXjSm/vq0rEgQJWPSu30fHWoRBT44jUW7RMOaNQwnagSDFIOc5H1RnL51hN7nDP+2u
+	 W7wCEgdPUYAHu4dxkD2CDZ6z3rrgWQ4sXd4u6gGcvAlwcFm8ZC7aZ4MTlufTmJ2tjf
+	 hciw6cpW5Hh/WTNx8xbAKBpFr9vR2BvVIXcX3a7yIDdRmNbsg16o9VuLBZSNDc26tK
+	 gWhBvvDWqeSpu3SG7GtleoDvDhGtiWgdegBaoXjHQYIjHciE9nT3dXpJKTx1wChdw7
+	 /zUeWxl50kGJw==
+Date: Fri, 25 Nov 2022 23:57:36 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Anup Patel <apatel@ventanamicro.com>,
-	Atish Patra <atishp@rivosinc.com>,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Guo Ren <guoren@kernel.org>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>
-Subject: [PATCH v2 12/12] riscv: defconfig: Enable the Allwinner D1 platform and drivers
-Date: Fri, 25 Nov 2022 17:46:56 -0600
-Message-Id: <20221125234656.47306-13-samuel@sholland.org>
-X-Mailer: git-send-email 2.37.4
-In-Reply-To: <20221125234656.47306-1-samuel@sholland.org>
-References: <20221125234656.47306-1-samuel@sholland.org>
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] dt-bindings: timer: Add bindings for the RISC-V
+ timer device
+Message-ID: <Y4FWcOtBHW/n8cjG@spud>
+References: <20221125112105.427045-1-apatel@ventanamicro.com>
+ <20221125112105.427045-3-apatel@ventanamicro.com>
+ <Y4C+kwLdMYkkrm/2@wendy>
+ <CAAhSdy2XkW-3NsKiCFhz4MYG3U-=CF1ysN8hxQK0SGaUgAAznA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy2XkW-3NsKiCFhz4MYG3U-=CF1ysN8hxQK0SGaUgAAznA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_154719_896275_67EB4978 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221125_155743_267506_8053386B 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,99 +86,118 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that several D1-based boards are supported, enable the platform in
-our defconfig. Build in the drivers which are necessary to boot, such as
-the pinctrl, MMC, RTC (which provides critical clocks), SPI (for flash),
-and watchdog (which may be left enabled by the bootloader). Other common
-onboard peripherals are enabled as modules.
+On Fri, Nov 25, 2022 at 07:18:48PM +0530, Anup Patel wrote:
+> On Fri, Nov 25, 2022 at 6:40 PM Conor Dooley <conor.dooley@microchip.com> wrote:
+> >
+> > Hey Anup,
+> >
+> > For the future, could you please CC me on all patches in a series that I
+> > have previously reviewed?
+> 
+> Okay.
+> 
+> >
+> > On Fri, Nov 25, 2022 at 04:51:04PM +0530, Anup Patel wrote:
+> > > We add DT bindings for a separate RISC-V timer DT node which can
+> > > be used to describe implementation specific behaviour (such as
+> > > timer interrupt not triggered during non-retentive suspend).
+> > >
+> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > > ---
+> > >  .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
+> > >  1 file changed, 52 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/timer/riscv,timer.yaml b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> > > new file mode 100644
+> > > index 000000000000..cf53dfff90bc
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> > > @@ -0,0 +1,52 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/timer/riscv,timer.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: RISC-V timer
+> > > +
+> > > +maintainers:
+> > > +  - Anup Patel <anup@brainfault.org>
+> > > +
+> > > +description: |+
+> > > +  RISC-V platforms always have a RISC-V timer device for the supervisor-mode
+> > > +  based on the time CSR defined by the RISC-V privileged specification. The
+> > > +  timer interrupts of this device are configured using the RISC-V SBI Time
+> > > +  extension or the RISC-V Sstc extension.
+> > > +
+> > > +  The clock frequency of RISC-V timer device is specified via the
+> > > +  "timebase-frequency" DT property of "/cpus" DT node which is described
+> > > +  in Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    enum:
+> > > +      - riscv,timer
+> > > +
+> > > +  interrupts-extended:
+> > > +    minItems: 1
+> > > +    maxItems: 4096   # Should be enough?
+> > > +
+> > > +  riscv,timer-cant-wake-cpu:
+> > > +    type: boolean
+> > > +    description:
+> > > +      If present, the timer interrupt can't wake up the CPU from
+> > > +      suspend/idle state.
+> >
+> > I'm really not sure about this... I would be inclined to think that if
+> > someone does not specify then we should assume that they took the
+> > scroogiest view of the spec and so do not get events during suspend.
+> >
+> > I suppose you could then argue that their DT is wrong & it's their fault
+> > though. Plus the existing platforms behave this way & we avoid having to
+> > retrofit stuff here.
+> 
+> Yes, the DT property is defined to keep things working for
+> existing platforms.
+> 
+> IMO, people should always read the DT bindings document at time of
+> creating DT for their platform. If there are queries then they can always
+> shoot email to the maintainers on LKML.
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+Aye, I suppose so. For every platform that may exist that this change
+hurts, there's likely another one that it fixes a timer for... /shrug
 
-(no changes since v1)
+Binding itself looks grand though & we are in lessor of two evils
+territory, so:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
- arch/riscv/configs/defconfig | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+Thanks for turning around a v3 promptly Anup!
+Conor.
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 05fd5fcf24f9..8dfe0550c0e6 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -25,6 +25,7 @@ CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
-+CONFIG_ARCH_SUNXI=y
- CONFIG_SOC_MICROCHIP_POLARFIRE=y
- CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_STARFIVE=y
-@@ -118,22 +119,31 @@ CONFIG_VIRTIO_NET=y
- CONFIG_MACB=y
- CONFIG_E1000E=y
- CONFIG_R8169=y
-+CONFIG_STMMAC_ETH=m
- CONFIG_MICROSEMI_PHY=y
- CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_OF_PLATFORM=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
-+CONFIG_I2C_MV64XXX=m
- CONFIG_SPI=y
- CONFIG_SPI_SIFIVE=y
-+CONFIG_SPI_SUN6I=y
- # CONFIG_PTP_1588_CLOCK is not set
--CONFIG_GPIOLIB=y
- CONFIG_GPIO_SIFIVE=y
-+CONFIG_WATCHDOG=y
-+CONFIG_SUNXI_WATCHDOG=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
- CONFIG_DRM_NOUVEAU=m
-+CONFIG_DRM_SUN4I=m
- CONFIG_DRM_VIRTIO_GPU=m
- CONFIG_FB=y
- CONFIG_FRAMEBUFFER_CONSOLE=y
-@@ -146,19 +156,30 @@ CONFIG_USB_OHCI_HCD=y
- CONFIG_USB_OHCI_HCD_PLATFORM=y
- CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
-+CONFIG_USB_MUSB_HDRC=m
-+CONFIG_USB_MUSB_SUNXI=m
-+CONFIG_NOP_USB_XCEIV=m
- CONFIG_MMC=y
- CONFIG_MMC_SDHCI=y
- CONFIG_MMC_SDHCI_PLTFM=y
- CONFIG_MMC_SDHCI_CADENCE=y
- CONFIG_MMC_SPI=y
-+CONFIG_MMC_SUNXI=y
- CONFIG_RTC_CLASS=y
-+CONFIG_RTC_DRV_SUN6I=y
-+CONFIG_DMADEVICES=y
-+CONFIG_DMA_SUN6I=m
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
-+CONFIG_SUN8I_DE2_CCU=m
-+CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
- CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
-+CONFIG_PHY_SUN4I_USB=m
-+CONFIG_NVMEM_SUNXI_SID=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
- CONFIG_EXT4_FS_SECURITY=y
--- 
-2.37.4
-
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - interrupts-extended
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    timer {
+> > > +      compatible = "riscv,timer";
+> > > +      interrupts-extended = <&cpu1intc 5>,
+> > > +                            <&cpu2intc 5>,
+> > > +                            <&cpu3intc 5>,
+> > > +                            <&cpu4intc 5>;
+> > > +    };
+> > > +...
+> > > --
+> > > 2.34.1
+> > >
+> 
+> Regards,
+> Anup
 
 _______________________________________________
 linux-riscv mailing list
