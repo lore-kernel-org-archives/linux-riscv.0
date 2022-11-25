@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0E1C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 20:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F33AC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 21:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rZlsl/84cbNo2kqqhyhlnURpuklgtsCQfnUhZNfiui4=; b=s75GUARI/zazUl
-	qximggR0TykbCZzv+1KvfumgJOmmc3/vlTPm4Jhu0owqMf5BmNOrvAS40avq47gX/HWfCQew1bq8f
-	6LXITtYjJgddtRnjC7W9Odqbv3bUQ+O6g/B9oZYsuVuN5Z/+HdB9ImYTYRgJajm3vNSjwDn3XlDqF
-	Yl20zMw7HToAQmK0jQsmaVZ8lkGT5xFfr8ALrqhoJfenQvR06m7DgjCOPiYXbxAwYzHggiP5PwE5Z
-	LNWFqW9HZJlPG6TTFIFl0KTNl2ZGuciI7CQ6rfwSI5AAymc0mFXlNtXTSVwzElY5v6ZFlSkAYlBEC
-	GMDTWaeQAIfvCEobex2Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KY4ToIzHYdFvr8SDddk3IvgSjFnB3eQQo3k2HTt4FOA=; b=xnH5nMzEz/aAVJBzz7/9btchqA
+	qu2T9Jpf379933QvIz6AFkQ4Hi+uyyoUfqbVAXINP+9DULeeM7BQ7D6MK5VjT9aBO1xO+ySdHBm3n
+	IX54+0i+eL2SgMXoPQZU5rC6wogw+AZHZ+sYw5SILmhuDJN0Si8zJNZskD86P1TLYWgAmpAjcfkiH
+	yW1JkqWEpzdpUvwb8bgRibCIBAD5MkzhyOlKXVOILhW4yaE75yb8Mo9czWzVKWPV7Ga9CWDln2fQ8
+	V7SBOGWF6e+sK8zINr3s3iW2wTHnDZW+5XnC3FSETERBLO+kZWvI0xKX2PiqDoCDJVaZWVR8tka0u
+	wMPoKAvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyfhZ-0029FR-9Z; Fri, 25 Nov 2022 20:53:37 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1oygLo-002Gcd-BZ; Fri, 25 Nov 2022 21:35:12 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyfhW-0029DN-H2
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 20:53:35 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id ud5so12713737ejc.4
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 12:53:30 -0800 (PST)
+	id 1oygLl-002Gb6-50
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 21:35:11 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id a1-20020a17090abe0100b00218a7df7789so8685963pjs.5
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 13:35:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6sD/Opg2kMqx/4KzDzQ2UqRnrUwBi1wf4XCjq+pkybA=;
-        b=bm45a8aZ6R6jyfumNKlTQyyX9hJCa0YY6TrulwUgivh5dhWtAX1bCCMmZ08MHPJr5C
-         mPuiZLrNlD35kkTOdRQX3P6vmYKq6k88AiAyxUNTeiLX5kZfS2FIb8F4LVRwMRwLyoBR
-         sBJarFQgNJ2Rw5J5CTM0fKSLfGS+AMheq8vm7Gh+7GgYzxeLXtgK4Grq9hEMOJ1Puc+p
-         BhPbWAPaKANSNaWrUuHQ9wofHHU5krRiyj+W/YRKUPUtL115CxeSSL4kRBpZIiJV7n9M
-         fmP1eSAOAmUa2Tl6bgoTtzluUzFDlRbkjk3BeOHi8tPpqN9oxOyHgn7udlOJIrpMhNwW
-         Ngag==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=j19IwnC8RkwHj/wJbasgF1K7q6L4NDpWoMvT/gTRM0I=;
+        b=HnHwFCtS5HanJQq80MvNg+egi/Zbc3q5eblpduEwSXtJZCG7GY5Waqc+UNxejAypfi
+         ptTkkTZaUPyckmHBnUhSk0DfoPfbcWpznIRNnHDxQf4ZZfpX6jsadDmnPOJTCB7t+zcq
+         DVz/P7T2RAjka178ljnEOejs7WsHcq5ucxgASTj/RUqPuFNVD2aO31n3HHKqPxwbGXAp
+         CgknCT0Le2v8s0JCLW0Luet/88s4rscY7cVVcVzBknBATb2l849sI0mbupuoWL7yOwlm
+         pWFrSwYfo7a9YDbSttyAcLi07z9SrvSPi7/qKo3B2n1a2ynTRn19zXzcuuM7dLAdtZSM
+         lMCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6sD/Opg2kMqx/4KzDzQ2UqRnrUwBi1wf4XCjq+pkybA=;
-        b=QYlY8PTzy2MnXWrCqyg75ZRvly5jw+KBmdtZVyadBrr1Q/yARixL/onF2Y/iDjpZsk
-         BqLMbL2W3rB3BcPaYBQ/kzUt69zIXx2J4usrJKAFKRbs7XYFRvMncPfO064eg518RdrT
-         sXPVpKm9llnG27FbMzUq0WDI4cl1SrUZQrZxswhjg+2/4wF7uLGgWDi5pCTvjM2F9DfB
-         8JyR/yAFRj+Qd1Bl3GlwNJBdxzbCSxOIrF5ZakJID062sKzBZrwGBawAE6BxZXMbVasY
-         zo2Ce1dr6ViR33vY8wscJHoFIQS+P6ijLYIG9jNV6zUhTjsL98Q5xjf+lhjpXrrZdSxj
-         wFNA==
-X-Gm-Message-State: ANoB5pm76hAHXb0pV1VdFbpjWLgneej0sVXZ2E3CZ0od0xquJbLUwL4v
-	DbTQdqPQMVlpXtclisNWFcdEIKQ/cdkep6lEZ4I=
-X-Google-Smtp-Source: AA0mqf6ZqeXlwkzzwv31EFgGaPOJIe9a20QRlRigNwZ5FuDhorinVjP2uOsFChpXkysNFQeb3b9Pc4fGT34f1ILc/Ro=
-X-Received: by 2002:a17:906:8a57:b0:7ad:a030:4915 with SMTP id
- gx23-20020a1709068a5700b007ada0304915mr34077097ejc.267.1669409609046; Fri, 25
- Nov 2022 12:53:29 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=j19IwnC8RkwHj/wJbasgF1K7q6L4NDpWoMvT/gTRM0I=;
+        b=D8MmRiACxmlrLWrMQ5RZ8o0Z9ghVA7+K/ZELccDVDFLSA8Ms7NK6YplfnXhSluzMQy
+         RH06JpJnwdzBtBArG8wj7RLvLsV7vQZi8+YY/HsqHM7dgWq9gkj+QvHp8WDAiGebaEYz
+         pZCMkO2Ro+id427ZV1VQ2ImibTFHmyfBePLdpZw1psxqJY8iii1DIaQwo2XazEdtvWRj
+         +wc0NnPXZgOmw+QEftzs0WhgCPb7yEBxHJVxMcXG+DFdam5CrlO5mh7oOY2uERY5VqLt
+         +yv1w4ipVxEL4VfGF42MHK1U7Di2OtU3ZTArU3nUvX10789G7xvn+eSFAQH46ZCjOp5g
+         ROqg==
+X-Gm-Message-State: ANoB5pmoNuZK84I3uJpK+fa/7LbX/Uuoz4A66xmBczECKC23h9EMqXaD
+	zo36bBHp0GVyv1p8dMBGJC3Cv5HCIBRu8A==
+X-Google-Smtp-Source: AA0mqf5XCPljPOokHY/PUd0jBF87iUDZ4r4IHMTLVevRsZyfqnT+DZaP9DbWc+kjTYPygeNH5RagKQ==
+X-Received: by 2002:a17:902:d2c7:b0:189:d3b:61f4 with SMTP id n7-20020a170902d2c700b001890d3b61f4mr20217931plc.169.1669412105998;
+        Fri, 25 Nov 2022 13:35:05 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id c200-20020a624ed1000000b00574d8d64560sm504655pfb.175.2022.11.25.13.35.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Nov 2022 13:35:05 -0800 (PST)
+Date: Fri, 25 Nov 2022 13:35:03 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: palmer@dabbelt.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH v2] riscv: VMAP_STACK overflow detection thread-safe
+Message-ID: <20221125213503.GB2037421@debug.ba.rivosinc.com>
+References: <20221124094845.1907443-1-debug@rivosinc.com>
+ <Y3+NMjOQW+yA1Kqj@xhacker>
 MIME-Version: 1.0
-References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221124172207.153718-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <3689906.Lt9SDvczpP@diego> <CA+V-a8uQh=q8ksTe8ttHkJThcoYtggSU-AXUqPGYnam0CiqZWw@mail.gmail.com>
- <3b5e52c5-7a1c-8bdd-b076-0c5e13463274@sholland.org>
-In-Reply-To: <3b5e52c5-7a1c-8bdd-b076-0c5e13463274@sholland.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 25 Nov 2022 20:53:02 +0000
-Message-ID: <CA+V-a8tZgswanaN2gbmWzswO4pLLQ884aQa+KVNLwjDS9YqS=A@mail.gmail.com>
-Subject: Re: [PATCH v4 5/7] riscv: mm: dma-noncoherent: Pass direction and
- operation to ALT_CMO_OP()
-To: Samuel Holland <samuel@sholland.org>
-Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
-	Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <Y3+NMjOQW+yA1Kqj@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_125334_585254_5F235150 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20221125_133509_435576_F527D3DE 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +85,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgU2FtdWVsLAoKVGhhbmsgeW91IGZvciB0aGUgcmV2aWV3LgoKT24gRnJpLCBOb3YgMjUsIDIw
-MjIgYXQgNjo0OSBQTSBTYW11ZWwgSG9sbGFuZCA8c2FtdWVsQHNob2xsYW5kLm9yZz4gd3JvdGU6
-Cj4KPiBPbiAxMS8yNC8yMiAxMzoxOCwgTGFkLCBQcmFiaGFrYXIgd3JvdGU6Cj4gPiBIaSBIZWlr
-bywKPiA+Cj4gPiBUaGFuayB5b3UgZm9yIHRoZSByZXZpZXcuCj4gPgo+ID4gT24gVGh1LCBOb3Yg
-MjQsIDIwMjIgYXQgNjoyOSBQTSBIZWlrbyBTdMO8Ym5lciA8aGVpa29Ac250ZWNoLmRlPiB3cm90
-ZToKPiA+Pgo+ID4+IEFtIERvbm5lcnN0YWcsIDI0LiBOb3ZlbWJlciAyMDIyLCAxODoyMjowNSBD
-RVQgc2NocmllYiBQcmFiaGFrYXI6Cj4gPj4+IEZyb206IExhZCBQcmFiaGFrYXIgPHByYWJoYWth
-ci5tYWhhZGV2LWxhZC5yakBicC5yZW5lc2FzLmNvbT4KPiA+Pj4KPiA+Pj4gUGFzcyBkaXJlY3Rp
-b24gYW5kIG9wZXJhdGlvbiB0byBBTFRfQ01PX09QKCkgbWFjcm8uCj4gPj4+Cj4gPj4+IFRoaXMg
-aXMgaW4gcHJlcGFyYXRpb24gZm9yIGFkZGluZyBlcnJhdGEgZm9yIHRoZSBBbmRlcyBDUFUgY29y
-ZS4KPiA+Pgo+ID4+IGNhbiB5b3UgcHJvdmlkZSBtb3JlIGV4cGxhbmF0aW9uIHdoeSB0aGF0IGlz
-IG5lY2Vzc2FyeSBwbGVhc2U/Cj4gPj4gSSBndWVzcyB5b3Ugd2FudCB0byB1c2UgZGlmZmVyZW50
-IGNhY2hlIG9wZXJhdGlvbnMgZm9yIHNvbWUgY2FzZXM/Cj4gPj4KPiA+IFllcyBiYXNpY2FsbHkg
-dG8gY2FsbCBkaWZmZXJlbnQgY2FjaGUgb3BlcmF0aW9ucyBiYXNlZCBvbiB0aGUgZGlyIGFuZAo+
-ID4gb3BlcmF0aW9ucyAoYW5kIGFsc28gdGhpcyBhbGxvd3MgdG8gZXhwb3J0IGp1c3Qgb25lIGZ1
-bmN0aW9uIHRvIGhhbmRsZQo+ID4gdGhlIGVycmF0YSkuIEknbGwgdXBkYXRlIHRoZSBjb21taXQg
-bWVzc2FnZSBpbiB0aGUgbmV4dCB2ZXJzaW9uLgo+Cj4gVGhpcyBtYWtlcyB0aGluZ3MgbGVzcyBl
-ZmZpY2llbnQsIGJlY2F1c2UgaXQgcmVxdWlyZXMgbW9yZSBpbnN0cnVjdGlvbnMKPiBhbmQgcmVn
-aXN0ZXJzIGluc2lkZSB0aGUgYWx0ZXJuYXRpdmUgc2VjdGlvbiwgYW5kIHlvdXIgZnVuY3Rpb24K
-PiBkdXBsaWNhdGVzIHRoZSBsb2dpYyBmcm9tIGFyY2hfc3luY19kbWFfZm9yX2RldmljZSgpLiBU
-aGUgYWx0ZXJuYXRpdmUgaXMKPiBhbHJlYWR5IHBhc3NlZCB0aGUgb3BlcmF0aW9uIChjbGVhbi9m
-bHVzaC9pbnZhbGlkYXRlKSBhcyBhIHRva2VuLCBzbyB5b3UKPiBjYW4gY29uc3RydWN0IHRoZSBm
-dW5jdGlvbiBuYW1lIHdpdGggdG9rZW4gcGFzdGluZy4KPgpJIGRpZCB0aGluayBhYm91dCBpdCBi
-dXQgdGhhdCBkaWRuJ3QgaGVscCBmb3IgZXhhbXBsZSBpbiB0aGUKYXJjaF9kbWFfcHJlcF9jb2hl
-cmVudCgpIHdlIGFyZSBjYWxsaW5nIGZsdXNoIHRva2VuLCBidXQgb24gUlovRml2ZQpmb3IgYXJj
-aF9kbWFfcHJlcF9jb2hlcmVudCgpIHdlIGhhdmUgdG8gZG8gbm90aGluZy4KCkNoZWVycywKUHJh
-Ymhha2FyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Thu, Nov 24, 2022 at 11:26:42PM +0800, Jisheng Zhang wrote:
+>On Thu, Nov 24, 2022 at 01:48:45AM -0800, Deepak Gupta wrote:
+>> commit 31da94c25aea ("riscv: add VMAP_STACK overflow detection") added
+>> support for CONFIG_VMAP_STACK. If overflow is detected, CPU switches to
+>> `shadow_stack` temporarily before switching finally to per-cpu
+>> `overflow_stack`.
+>>
+>> If two CPUs/harts are racing and end up in over flowing kernel stack, one
+>> or both will end up corrupting each other state because `shadow_stack` is
+>> not per-cpu. This patch optimizes per-cpu overflow stack switch by
+>> directly picking per-cpu `overflow_stack` and gets rid of `shadow_stack`.
+>>
+>> Following are the changes in this patch
+>>
+>>  - Defines an asm macro to obtain per-cpu symbols in destination
+>>    register.
+>>  - In entry.S, when overflow is detected, per-cpu overflow stack is
+>>    located using per-cpu asm macro. Computing per-cpu symbol requires
+>>    a temporary register. x31 is saved away into CSR_SCRATCH
+>
+>This only works if CSR_SCRATCH doesn't contain any valid reg saving,
+>but.. see below.
+>
+>>    (CSR_SCRATCH is anyways zero since we're in kernel).
+>>
+>
+>To be honest, before [1] I have similar idea to keep the percpu usage,
+>however, the solution doesn't work. The key here is that there's
+>another VMAP_STACK bug in current riscv implementation: it only checks
+>vmap stack overflow when comming from kernelspace, but vmap should
+>check when comming from both kernelspace and userspace. So we can't
+
+Why do we need to check if space is available or not when coming from user space.
+Kernel stack is fresh and just starting out it's life.
+
+>assume CSR_SCRATCH is always zero and free to use. The only available
+>solution is my fix[1] which only makes use of tp. But since[1] modifies
+>lots of code, it's not idea to merge it as a fix, so [2] is suggested
+>and sent out.
+>
+>PS: I planed to send a fix for the missing FROM_USERSPACE after the
+>race fix is merged.
+>
+>
+>[1]https://lore.kernel.org/linux-riscv/20220925175356.681-1-jszhang@kernel.org/T/#t
+>[2]https://lore.kernel.org/linux-riscv/Y347B0x4VUNOd6V7@xhacker/T/#t
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
