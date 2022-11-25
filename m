@@ -4,82 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B3AC43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 16:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7103AC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 17:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Rtt+0GlJD2/JuHfa7BXFZ0eQt1OwKCPavclkRRXPCM=; b=XbeP4ZvWD78pND
-	QzaXT9jKYNk1srLA8zn8oM6Iz23X4RtGV9TZ02TWPdiy/WyJxpHcX1XUen+NS1ea/QuMetUf6HCzN
-	orNdBswgVM6locpFXDZosUqmJfLVuUVaUbhNmGLyLsN2vJ1/5u2X2MWC/MVeV/L5LyHxgkXhe3uyV
-	Fv9AYAeLQWr7HW2fMfP3lufSQDGZPtGTnKfN3AZWHpO9nqj4HBffL3bmpdkBDB/2ehbFMmWXOz+tS
-	H4fOSscF+eTysnzghxyQGF0zhGHcWffJcuAMVFyMwBn98y+YLQ48WG7Vh35lUkU7/83WPoJFH+Z4m
-	cjdc26mDQYNhlmlhAyBQ==;
+	List-Owner; bh=qNGa7W6bwWxG0yRTFnN+gqSbiA1NcAR/3/aRWXAGU78=; b=2f+/JRa/qxwM+i
+	lQISaG5YyhfqETNeMsaOU18OF1ekZrjTjYBOJTr7of+zgyZQl0shvZ7PCMV/nXgR09yxPcYd+fdI8
+	UNgT2I0Gu/TGJczgGpC1irPxnk1U7zCQ+s2Yjmq0r0WTzlA9XhqJolUzQWc5WWr9pathC5E/xsF/s
+	Op94SodB4m97JYu4e5/SV7T9PWeaTt6PWJ8eoISvQxrOxCAqPV+aJHCscEQHs9YLBBrdONlNvVcOi
+	yPk8AJq3x+VFGq81AtGJbyGNhec8m1bVyXzQ89BumVLjZTnLWDbHYGWDi8iiviLaR/1wTL5663E2c
+	DVyhFqhFTP0pstCbuHxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oybut-000Ual-Ds; Fri, 25 Nov 2022 16:51:07 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oyc5t-000a1c-LE; Fri, 25 Nov 2022 17:02:29 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oybuq-000UXw-Pa
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 16:51:06 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0879CB82B93;
-	Fri, 25 Nov 2022 16:51:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C106C433C1;
-	Fri, 25 Nov 2022 16:50:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669395061;
-	bh=icHKk06I7LpqiDqMP789HRUwYmQW5jPo6VqdPDTS/l0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fW+oXsPKDd4V7QfsuSQ8mi7itl3qhA+l/jsjxp4R/tQbLLacjNOTuvmDFGKAJmST/
-	 Ns6JCKP+scAu/e1n0oWRGYl+XJn5quEPOizb96pg6sFF6eAiDtQjwQEB+fM6m0XSyB
-	 wxqbHzuB/Z2nnh7UAlOyIMhIcWjoYq3/Qs63H2NIczJ8gBtazTsxtN7MGq3EFAQbC+
-	 Qz7olmfgnO2AVTXZb3Bd6FP3CbRufW//0y0ogMGm+tP223+leTuRpplXZF5mYIek/e
-	 fNc/5un+ub/9cXPeAUjncq2bqDzMScZw4y9Nnhi3glWGdSG89NAsFp4X3PiY+H8ooG
-	 lbp+OS619LKiA==
-Date: Fri, 25 Nov 2022 16:50:54 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Guo Ren <guoren@kernel.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [PATCH v4 6/7] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
- binding documentation for L2 cache controller
-Message-ID: <Y4DybtJuw9f5vl/D@spud>
-References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20221124172207.153718-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <70d1bfde-f57f-1741-08d3-23e362793595@linaro.org>
- <CA+V-a8s2awLp=YvbhA1Ohe500Oh1easLUcG9V4_FWov7Pf2i6g@mail.gmail.com>
- <9b0f8312-2caa-b9f3-edf3-1b720532f559@linaro.org>
- <Y4C0Jn1hl81ZCxOt@wendy>
- <ab0e55a2-d99a-328e-4f54-6a75936a1c81@linaro.org>
+	id 1oyc5q-000ZzU-Ll
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 17:02:28 +0000
+Received: by mail-oi1-x236.google.com with SMTP id n205so5012719oib.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 09:02:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=vrull.eu; s=google;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d8p2er6vYfqCfqFsOuZ0+G7Otheq3kxzcZn+N3z+8V0=;
+        b=KFpSrk5d0tH9IJd2C5hc70tQFloQ0QERwXIrXVcf2GauZ1icF5YCbqcRBPn295kyIg
+         OaZmjeoD+kBzn/KSWa82qNyU2OkzExXsboBUmk953Ue9KWc0QYNtQhoNdRdbwpv8lBN9
+         XuYDRT6gab5SkVlF4EUvInssE0az4BBA7s9GHySg3Fq1qaSjTfn0awiWxVpE2rTfXc4i
+         wQ/8rcBBizWnUIupStASmzPMGBUHSzJuVxgfocm59n/K0OzDUH299oGnFDAtaRN9Y0x/
+         s97/6fBYsdVVUbQIN62PxojL0XriRQjhEpEM89gmSjwvQFF/SCz3P+ijQnTtKwv3zH7F
+         VbDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d8p2er6vYfqCfqFsOuZ0+G7Otheq3kxzcZn+N3z+8V0=;
+        b=LzB+WnacIatAn/3BhVC+C5VKdePTbeRNRCTDl85FlMA1UcJNFPc7onKMqyDYrM5I/8
+         +e/JIRChFm6o6MfvgR56+Y08p2SLqfk4GVB/wMWaa3fKfiknUW07tysQZsfzO9cMClTZ
+         ApuSt3DxKixXEt6JdSL5jStC56ytdz+RPvDWDabohYUO9enVVoyLeGXoCgC+vb5LedGN
+         k8mu8UpolIyFfBehvpC3OMIwP4TyZxNaXzh39ESZwrnNczADNLtJdiqpod6+/z/it8BA
+         cejM8HpMqXaljUjNCDa3SBGcuMsKUB/3FHqUsV25glNs0fRRwdLxk1iOrbnm/hNTHUbl
+         OM1w==
+X-Gm-Message-State: ANoB5pkY8Vgi2RuEhHyjUspbCDYXunwFkC0oVNpcUain2k9KUoa8IVLw
+	c/gCCCoNu+xVej4WlHSxKgntaO7qnEZlCsOk5O8lJw==
+X-Google-Smtp-Source: AA0mqf4K4vWoFGs8wFjHZLCFzIGCFID6VHCpWPM3KNrOH/4k9l2OTzZTL/9bac77Yyl2Df7euim0Y7gujIEEHlW69KY=
+X-Received: by 2002:aca:f307:0:b0:354:3e50:f66c with SMTP id
+ r7-20020acaf307000000b003543e50f66cmr9100522oih.112.1669395743901; Fri, 25
+ Nov 2022 09:02:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ab0e55a2-d99a-328e-4f54-6a75936a1c81@linaro.org>
+References: <20221110164924.529386-1-heiko@sntech.de> <14728581.RDIVbhacDa@diego>
+ <Y3/xGhkbf6qEr+5r@spud> <3259590.VLH7GnMWUR@phil> <20221125074933.2xuyaeuk5kmi5miw@kamzik>
+ <CAEg0e7h9skbWPVDsz9CdB8dATN5XM9eT-uPY0A7xRZmX=qTU6A@mail.gmail.com>
+ <20221125152821.ytipefad7oxv733t@kamzik> <CAEg0e7g132REPxisSFJZorXbSqzb4q1Tj7FC8G9pDMymt0qZuw@mail.gmail.com>
+ <Y4Dv0Vfz6AAg/X19@spud>
+In-Reply-To: <Y4Dv0Vfz6AAg/X19@spud>
+From: =?UTF-8?Q?Christoph_M=C3=BCllner?= <christoph.muellner@vrull.eu>
+Date: Fri, 25 Nov 2022 18:02:12 +0100
+Message-ID: <CAEg0e7h-m6oMYd+W2=89t4iPLKLz6TsLzKzUmAq1vuOTeawsUQ@mail.gmail.com>
+Subject: Re: [PATCH 7/7] RISC-V: add zbb support to string functions
+To: Conor Dooley <conor@kernel.org>
+Cc: Andrew Jones <ajones@ventanamicro.com>, Heiko Stuebner <heiko@sntech.de>, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu, 
+	emil.renner.berthing@canonical.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_085105_150417_F0683CB4 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20221125_090226_727306_920F8058 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,62 +87,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 04:55:11PM +0100, Krzysztof Kozlowski wrote:
-> On 25/11/2022 13:25, Conor Dooley wrote:
-> > On Fri, Nov 25, 2022 at 01:12:18PM +0100, Krzysztof Kozlowski wrote:
-> >> On 25/11/2022 11:34, Lad, Prabhakar wrote:
-> >>>>> +/* Device, Non-bufferable */
-> >>>>> +#define AX45MP_PMACFG_MTYP_DEV_NON_BUF                       (0 << 2)
-> >>>>> +/* Device, bufferable */
-> >>>>> +#define AX45MP_PMACFG_MTYP_DEV_BUF                   (1 << 2)
-> >>>>> +/* Memory, Non-cacheable, Non-bufferable */
-> >>>>> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF     (2 << 2)
-> >>>>> +/* Memory, Non-cacheable, Bufferable */
-> >>>>> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF         (3 << 2)
-> >>>>
-> >>>> What are all these? They don't look like flags, because 3 = 1 | 2...
-> >>>> they don't look like constants, because we do not use shifts in
-> >>>> constants. Are these some register values? I also do not see the header
-> >>>> being used in the code, so why having a bindings header if it is not
-> >>>> used (DTS is not usage...)?
-> >>>>
-> >>> These are register bit values for the MTYP[5:2] field. The DTS example
-> >>> in the binding doc (above) uses these macros. I haven't included the
-> >>> DTS/I patches with this patchset yet do think I should?
-> >>
-> >> Then why storing it as bindings? Bindings headers describe the interface
-> >> implemented by drivers and used by DTS, but this is not implemented by
-> >> drivers.
-> > 
-> > IIUC, some of these properties are non-discoverable attributes of the
-> > cache controller. I see two things that could be done here that are
-> > "better" than #defining bits:
-> 
-> I did not comment about properties. I comment about constants. Why
-> register values/offsets/addresses are in this particular case suitable
-> for binding headers?
-
-I don't think we disagree here. I'm not in favour of the defines either
-here. Perhaps I confused you by accidentally not adding Prabhakar to the
-to field.
-
-The dt needs to convey his particular cache implementation's bufferable
-and/or coherent regions so I was suggesting alternatives for conveying
-this information, without resorting to defines.
-
-> > - add an RZ/Five specific compatible and use match data to set the
-> >   attributes which is only possible if the pma-regions are set on a
-> >   per SoC basis
-> > - make pma-regions into a child node, in which andestech,non-cacheable
-> >   andestech,non-bufferable etc are properties of the child node
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjUsIDIwMjIgYXQgNTozOSBQTSBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5l
+bC5vcmc+IHdyb3RlOgo+Cj4gT24gRnJpLCBOb3YgMjUsIDIwMjIgYXQgMDU6MzU6MzlQTSArMDEw
+MCwgQ2hyaXN0b3BoIE3DvGxsbmVyIHdyb3RlOgo+ID4gT24gRnJpLCBOb3YgMjUsIDIwMjIgYXQg
+NDoyOCBQTSBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+
+ID4gPiAvKgo+ID4gPiAgKiBFYWNoIHN1Yi1saXN0IGlzIHNvcnRlZCBhbHBoYWJldGljYWxseS4K
+PiA+ID4gICovCj4gPiA+ICNkZWZpbmUgU19FWFRFTlNJT05TICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ID4gICAgICAgICBfX1JJU0NWX0lT
+QV9FWFRfREFUQShzc2NvZnBtZiwgUklTQ1ZfSVNBX0VYVF9TU0NPRlBNRiksICAgICAgICAgXAo+
+ID4gPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzdGMsIFJJU0NWX0lTQV9FWFRfU1NU
+QyksICAgICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEo
+c3ZpbnZhbCwgUklTQ1ZfSVNBX0VYVF9TVklOVkFMKSwgICAgICAgICAgIFwKPiA+ID4gICAgICAg
+ICBfX1JJU0NWX0lTQV9FWFRfREFUQShzdnBibXQsIFJJU0NWX0lTQV9FWFRfU1ZQQk1UKSwKPiA+
+ID4KPiA+ID4gI2RlZmluZSBaaV9FWFRFTlNJT05TICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gPiAgICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9E
+QVRBKHppY2JvbSwgUklTQ1ZfSVNBX0VYVF9aSUNCT00pLCAgICAgICAgICAgICBcCj4gPiA+ICAg
+ICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoemloaW50cGF1c2UsIFJJU0NWX0lTQV9FWFRfWklI
+SU5UUEFVU0UpLAo+ID4gPgo+ID4gPiAjZGVmaW5lIFpiX0VYVEVOU0lPTlMgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiA+ICAgICAgICAgX19S
+SVNDVl9JU0FfRVhUX0RBVEEoemJiLCBSSVNDVl9JU0FfRVhUX1pJQ0JPTSksICAgICAgICAgICAg
+ICAgIFwKPiA+ID4KPiA+ID4gc3RhdGljIHN0cnVjdCByaXNjdl9pc2FfZXh0X2RhdGEgaXNhX2V4
+dF9hcnJbXSA9IHsKPiA+ID4gICAgICAgICBaaV9FWFRFTlNJT05TCj4gPiA+ICAgICAgICAgWmJf
+RVhURU5TSU9OUwo+ID4gPiAgICAgICAgIFNfRVhURU5TSU9OUwo+ID4gPiAgICAgICAgIF9fUklT
+Q1ZfSVNBX0VYVF9EQVRBKCIiLCBSSVNDVl9JU0FfRVhUX01BWCksCj4gPiA+IH07Cj4gPgo+ID4g
+SXQgbWlnaHQgYmUgd29ydGggdG8gbG9vayBob3cgQmludXRpbHMgYXJlIGdyb3VwaW5nIHRoZW06
+Cj4gPiAgIGh0dHBzOi8vc291cmNld2FyZS5vcmcvZ2l0Lz9wPWJpbnV0aWxzLWdkYi5naXQ7YT1i
+bG9iO2Y9YmZkL2VsZnh4LXJpc2N2LmMjbDEyNjEKPiA+Cj4gPiBUaGV5IGFsc28gZ3JvdXAgZXh0
+ZW5zaW9ucyB0b2dldGhlciBidXQgdXNlIHRoZSBmb2xsb3dpbmcgZ3JvdXBzOgo+ID4KPiA+IGNv
+bnN0IHN0cnVjdCByaXNjdl9zdXBwb3J0ZWRfZXh0ICpyaXNjdl9hbGxfc3VwcG9ydGVkX2V4dFtd
+ID0KPiA+IHsKPiA+ICAgcmlzY3Zfc3VwcG9ydGVkX3N0ZF9leHQsCj4gPiAgIHJpc2N2X3N1cHBv
+cnRlZF9zdGRfel9leHQsCj4gPiAgIHJpc2N2X3N1cHBvcnRlZF9zdGRfc19leHQsCj4gPiAgIHJp
+c2N2X3N1cHBvcnRlZF9zdGRfenhtX2V4dCwKPiA+ICAgcmlzY3Zfc3VwcG9ydGVkX3ZlbmRvcl94
+X2V4dCwKPiA+ICAgTlVMTAo+ID4gfTsKPgo+IEkgdGhpbmsgaW4gdGhpcyBjYXNlLCBEcmV3J3Mg
+ZGlmZmVyZW50aWF0aW9uIGJldHdlZW4gWmkgJiBaYiBpcyBhbgo+IGltcHJvdmVtZW50IDopCgoK
+VGhhdCBtaWdodCBiZSB0aGUgY2FzZSwgYnV0IGl0IGFsc28gYnJpbmdzIHVwIHRoZSBmb2xsb3dp
+bmcgcXVlc3Rpb25zOgpXaGVyZSB0byBwdXQgWmYqIGV4dGVuc2lvbnMgKGJldHdlZW4gWmkgYW5k
+IFpiKT8KV2hlcmUgdG8gcHV0IFprKiBhbmQgWnYqIChhZnRlciBaYiopPwpBZGRpbmcgYSBzdWJn
+cm91cCBmb3IgZWFjaCBae059KiBleHRlbnNpb24gbWlnaHQgcmVzdWx0IGluIG1hbnkgc21hbGwK
+Z3JvdXBzIHdpdGggbGl0dGxlIGJlbmVmaXQuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
