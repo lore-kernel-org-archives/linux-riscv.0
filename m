@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA129C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 10:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D78AC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 10:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hht22+U9Ld/Bgm85yCNMWlRK/S++pL247c1RevcCXwA=; b=XsgG9g5yQ81jgx
-	Qf0TG4lJ3h+HWqWfH8kdVT6sT/XEX/jvTlk6QnHBOJdlWIW1lFUdGWJ3QSIuDszTvFcCfq1KPp4sY
-	/FNEC/Mlvf699pEYCvju+Cs0OwmL1KhurbRjbSsc8PuGIRSHw1rdAygKCv1w1RJ6g2rAnFg7snEjo
-	e40tSK+Tsue8JMiuCP/mJv8nnNL2kcqE5WKR2nsl1XQrN6V4h41xyImq4ek+pJYqLV7jHiLU/Sd1Q
-	/ScA4snPkhYzQBaGFl+T2NjCbwRrGbbEMtJ2F7L71eUA6kiQ7p798pjU1VP2+snxx5sKKFNQ+/H7U
-	CZ0M1WjdVaYJ5QHuknWw==;
+	List-Owner; bh=bXJKdYqe7uONeKD8dSAqWUZIGDM5iCBxzh65uLoWRgk=; b=kFOwErLUNGgPyP
+	VJ60exIrOLWemUeAxc9GlDYqwuRkEslIOlsdD8prpDD0FXLC4ds+9wllztZIBqMyK/hVN3JXzAp1W
+	2BZz4UdkfC8JaNXniKiXegs5IzDlotKbLI3JCa7L0dhftnT5Xtduv5BDo46m0c0SX85ZT0AsbPAIU
+	weJf2mVkQwic23RYrDaWabFRxDvL8eTxiOJkP5wEiqaIhHTiqx/1Rlcz4rrfWrkNdEFZyVYFdwBaR
+	Q0JgWClZ0FbjdNJzv4a1LVyMoAASn9ymF5XxpX622yOL9l2NnwtLexryPUGY8up90Eaq8mTZET2lH
+	ydB6htTdKYu4M1xakINw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyVut-00FPz5-Am; Fri, 25 Nov 2022 10:26:43 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyVab-00FDfm-Vk
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 10:05:49 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 431EE24E1F0;
-	Fri, 25 Nov 2022 18:05:00 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 25 Nov
- 2022 18:05:00 +0800
-Received: from [192.168.125.96] (183.27.97.81) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 25 Nov
- 2022 18:04:59 +0800
-Message-ID: <95b05ac3-31a9-50dc-8eeb-eb3a9f883a6b@starfivetech.com>
-Date: Fri, 25 Nov 2022 18:04:59 +0800
+	id 1oyVyS-00FRzm-Up; Fri, 25 Nov 2022 10:30:25 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oyVdG-00FEoC-Ko
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 10:08:34 +0000
+Received: by mail-ed1-x531.google.com with SMTP id s5so5679890edc.12
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 02:08:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=LW+tamRHbjP1mfqbA3Ded0ngAklCtatsu4yoSddFO8c=;
+        b=TA54suU8YpDsgwK+gCYNC1hnRxH/GXp5jshHxJFpA2ZeQYIq345/e0qRfmJmeuJBM6
+         uZTk4HvkQowFDjP9Om3gj78PNhHXT1jpWAfUtpq4h6KnOjDqc+l+0QhrtBlPvaDvejJg
+         PTkxVTGXu9CuXPBHNVT8G0Qv1Wk6x2GD7v6oNMS0KkDxWWprmz91SOXjp1I8z8Jrv2SQ
+         Vnio8BQXhijH6HaPELKvoKcQPvwJBtVBGjZwH8Yipi4EJnKKzagnJwxyoJtFxk/vRgzx
+         ZZ9v28PfthRlOfH6A4j7mCTxFGpR01pQG2rHC8ILpPECe6tI8OpGJ5/xQg6uOxghEKrL
+         3png==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LW+tamRHbjP1mfqbA3Ded0ngAklCtatsu4yoSddFO8c=;
+        b=SP3FXB33KV5H4YIUMuAP3zr++MBi8vwmH3YNyaGZGjOaxc3vgoaC+PSY3eT7IkhAc/
+         Hm1ZKgK7OjG2+F7S76tUT5faCPYpfkq0Lfg8P13S77EH2BHU2N9B3exJ9jdXLndCURMz
+         yDaloS3gcX8waDpcsbjQQeyUqVDodTrh9AuftUyiBF2OCrDKwPW7vaR7DVdjlJ9WksDn
+         KbxnCQirByAM+7/WHjZbpil3PkEhKrzUZCVPBO/az/IcjtwkPYSh7w9y0rVrZGRAvyhX
+         VMy23PyklWFyz55VPNyJsWPnp2HpFaKJHXWevoqt9YxdSYIABzbbCJTBOZ3kn6Gi7zeD
+         Un0Q==
+X-Gm-Message-State: ANoB5pkG9ikd5pVkZeMqAS3u7BBaym2syO4+3UTA+xD+aCLX3IiIVWSs
+	OrwJY9zIHgA9cAxmeC7KklWNzFMFcYyz3yU/Ia8=
+X-Google-Smtp-Source: AA0mqf4b5LchYvnEyBXJafepREoQx51r3HyOSAelZFgx98WKe8rtMye2xP54PO+EREtz7Qs/WaF6DOR5mbCt+BneGR8=
+X-Received: by 2002:a05:6402:530b:b0:461:f919:caa4 with SMTP id
+ eo11-20020a056402530b00b00461f919caa4mr34465411edb.255.1669370907771; Fri, 25
+ Nov 2022 02:08:27 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
-Content-Language: en-US
+References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-4-prabhakar.mahadev-lad.rj@bp.renesas.com> <Y3/SZPjzXsd8dfkl@spud>
+In-Reply-To: <Y3/SZPjzXsd8dfkl@spud>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 25 Nov 2022 10:08:01 +0000
+Message-ID: <CA+V-a8ucDPnbnuVz+yfLtB=mhsBL9Rr9Aa7zg+rQ3sfu_5kyJw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/7] riscv: errata: Add Andes alternative ports
 To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20221118133216.17037-1-walker.chen@starfivetech.com>
- <20221118133216.17037-4-walker.chen@starfivetech.com> <Y3giSQ0YccyY2tVk@spud>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <Y3giSQ0YccyY2tVk@spud>
-X-Originating-IP: [183.27.97.81]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_020546_507054_3A918317 
-X-CRM114-Status: GOOD (  48.07  )
+X-CRM114-CacheID: sfid-20221125_020832_990443_CCF3E7DF 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,561 +96,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/19 8:24, Conor Dooley wrote:
-> Hey Walker,
-> 
-> On Fri, Nov 18, 2022 at 09:32:15PM +0800, Walker Chen wrote:
->> Add generic power domain driver for the StarFive JH71XX SoC.
->> 
->> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
->> ---
->> diff --git a/drivers/soc/starfive/Kconfig b/drivers/soc/starfive/Kconfig
->> new file mode 100644
->> index 000000000000..2bbcc1397b15
->> --- /dev/null
->> +++ b/drivers/soc/starfive/Kconfig
->> @@ -0,0 +1,9 @@
->> +# SPDX-License-Identifier: GPL-2.0
->> +
->> +config JH71XX_PMU
->> +	bool "Support PMU for StarFive JH71XX Soc"
->> +	depends on PM && (SOC_STARFIVE || COMPILE_TEST)
-> 
-> `default SOC_STARFIVE` perhaps?
+Hi Conor,
 
-OK, 'default SOC_STARFIVE' will be added to the next line of 'depends on PM && (SOC_STARFIVE || COMPILE_TEST)'
+Thank you for the review.
 
-> 
->> +	select PM_GENERIC_DOMAINS
->> +	help
->> +	  Say y here to enable power domain support.
->> +
->> diff --git a/drivers/soc/starfive/Makefile b/drivers/soc/starfive/Makefile
->> new file mode 100644
->> index 000000000000..13b589d6b5f3
->> --- /dev/null
->> +++ b/drivers/soc/starfive/Makefile
->> @@ -0,0 +1,3 @@
->> +# SPDX-License-Identifier: GPL-2.0
->> +
->> +obj-$(CONFIG_JH71XX_PMU)	+= jh71xx_pmu.o
->> diff --git a/drivers/soc/starfive/jh71xx_pmu.c b/drivers/soc/starfive/jh71xx_pmu.c
->> new file mode 100644
->> index 000000000000..e6c0083d166e
->> --- /dev/null
->> +++ b/drivers/soc/starfive/jh71xx_pmu.c
->> @@ -0,0 +1,380 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * StarFive JH71XX Power Domain Controller Driver
->> + *
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + */
->> +
->> +#include <linux/interrupt.h>
->> +#include <linux/io.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/of_device.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pm_domain.h>
->> +#include <dt-bindings/power/jh7110-power.h>
->>
->> +/* register offset */
->> +#define HW_EVENT_TURN_ON_MASK		0x04
->> +#define HW_EVENT_TURN_OFF_MASK		0x08
->> +#define SW_TURN_ON_POWER_MODE		0x0C
->> +#define SW_TURN_OFF_POWER_MODE		0x10
->> +#define SW_ENCOURAGE			0x44
->> +#define PMU_INT_MASK			0x48
->> +#define PCH_BYPASS			0x4C
->> +#define PCH_PSTATE			0x50
->> +#define PCH_TIMEOUT			0x54
->> +#define LP_TIMEOUT			0x58
->> +#define HW_TURN_ON_MODE			0x5C
->> +#define CURR_POWER_MODE			0x80
->> +#define PMU_EVENT_STATUS		0x88
->> +#define PMU_INT_STATUS			0x8C
->> +
->> +/* sw encourage cfg */
->> +#define SW_MODE_ENCOURAGE_EN_LO		0x05
->> +#define SW_MODE_ENCOURAGE_EN_HI		0x50
->> +#define SW_MODE_ENCOURAGE_DIS_LO	0x0A
->> +#define SW_MODE_ENCOURAGE_DIS_HI	0xA0
->> +#define SW_MODE_ENCOURAGE_ON		0xFF
->> +
->> +/* pmu int status */
->> +#define PMU_INT_SEQ_DONE		BIT(0)
->> +#define PMU_INT_HW_REQ			BIT(1)
->> +#define PMU_INT_SW_FAIL			GENMASK(3, 2)
->> +#define PMU_INT_HW_FAIL			GENMASK(5, 4)
->> +#define PMU_INT_PCH_FAIL		GENMASK(8, 6)
->> +#define PMU_INT_FAIL_MASK		(PMU_INT_SW_FAIL | \
->> +					PMU_INT_HW_FAIL | \
->> +					PMU_INT_PCH_FAIL)
->> +#define PMU_INT_ALL_MASK		(PMU_INT_SEQ_DONE | \
->> +					PMU_INT_HW_REQ | \
->> +					PMU_INT_FAIL_MASK)
->> +
->> +#define DELAY_US			10
->> +#define TIMEOUT_US			100000
-> 
-> Some JH71XX_PMU_ prefixes for the above, as I think Emil pointed out,
-> would be great.
+On Thu, Nov 24, 2022 at 8:22 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Thu, Nov 24, 2022 at 05:22:03PM +0000, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > Add required ports of the Alternative scheme for Andes CPU cores.
+>
+> You've got a lot of nice info in your cover letter that would be nice in
+> the git history. Could you add some of the commentary about why the
+> Andes cache needs special handling from there to this commit message
+> please?
+>
+Sure, I'll update the commit message here.
 
-I will modify the name of macro according to your suggestions.
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> > RFC v3 -> v4
+> > * New patch
+> > ---
+> >  arch/riscv/Kconfig.erratas           | 22 +++++++++
+> >  arch/riscv/errata/Makefile           |  1 +
+> >  arch/riscv/errata/andes/Makefile     |  1 +
+> >  arch/riscv/errata/andes/errata.c     | 68 ++++++++++++++++++++++++++++
+> >  arch/riscv/include/asm/alternative.h |  3 ++
+> >  arch/riscv/include/asm/errata_list.h |  5 ++
+> >  arch/riscv/kernel/alternative.c      |  5 ++
+> >  7 files changed, 105 insertions(+)
+> >  create mode 100644 arch/riscv/errata/andes/Makefile
+> >  create mode 100644 arch/riscv/errata/andes/errata.c
+>
+> > diff --git a/arch/riscv/errata/andes/errata.c b/arch/riscv/errata/andes/errata.c
+> > new file mode 100644
+> > index 000000000000..ec3e052ca8c7
+> > --- /dev/null
+> > +++ b/arch/riscv/errata/andes/errata.c
+> > @@ -0,0 +1,68 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Erratas to be applied for Andes CPU cores
+> > + *
+> > + *  Copyright (C) 2022 Renesas Electronics Corporation.
+> > + *
+> > + * Author: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > + */
+> > +
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +
+> > +#include <asm/alternative.h>
+> > +#include <asm/cacheflush.h>
+> > +#include <asm/errata_list.h>
+> > +#include <asm/patch.h>
+> > +#include <asm/vendorid_list.h>
+> > +
+> > +static bool errata_probe_iocp(unsigned int stage, unsigned long arch_id, unsigned long impid)
+>
+> To the lay reader, what's an "iocp" when it's at home? "I/O coherency
+> port"? Again, commit message would be a good place for the introduction
+> of that term :)
+>
+Agree, I'll update that.
 
-> 
->> +struct starfive_power_dev {
->> +	struct generic_pm_domain genpd;
->> +	struct starfive_pmu *power;
->> +	uint32_t mask;
->> +};
->> +
->> +struct starfive_pmu {
->> +	void __iomem *base;
->> +	spinlock_t lock;
->> +	int irq;
->> +	struct device *pdev;
->> +	struct starfive_power_dev *dev;
->> +	struct genpd_onecell_data genpd_data;
->> +	struct generic_pm_domain **genpd;
->> +};
->> +
->> +struct starfive_pmu_data {
->> +	const char * const name;
->> +	uint8_t bit;
->> +	unsigned int flags;
-> 
-> Generally, ordering pointers first in these structs would be nice.
+> > +{
+> > +     if (!IS_ENABLED(CONFIG_ERRATA_ANDES_CMO))
+> > +             return false;
+> > +
+> > +     if (arch_id != 0x8000000000008a45 || impid != 0x500)
+>
+> Can you #define these?
+>
+> > +             return false;
+> > +
+> > +     riscv_cbom_block_size = 1;
+> > +     riscv_noncoherent_supported();
+> > +
+> > +     return true;
+> > +}
+> > +
+> > +static u32 andes_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
+> > +{
+> > +     u32 cpu_req_errata = 0;
+> > +
+>
+> I read some code and when it does the opposite of what I'd expect, I
+> feel inclined to add a comment. In this case, you're probing for the
+> presence of the port `probe_iocp()`, but the interesting case is when
+> you don't find it. You can leave it uncommented if you like, but even
+> something like the below I think fits.
+>
+>         /*
+>          * In the absence of the I/O Coherency Port, access to certain peripherals
+>          * requires vendor specific DMA handling.
+>          */
+Makes sense, I'll include the above.
 
-These structs are referenced from drivers/soc/bcm/bcm63xx/bcm63xx-power.c
+> > +     if (errata_probe_iocp(stage, archid, impid))
+> > +             cpu_req_errata |= BIT(ERRATA_ANDESTECH_NO_IOCP);
+> > +
+> > +     return cpu_req_errata;
+> > +}
+> > +
+> > +void __init_or_module andes_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> > +                                           unsigned long archid, unsigned long impid,
+> > +                                           unsigned int stage)
+> > +{
+> > +     u32 cpu_req_errata = andes_errata_probe(stage, archid, impid);
+> > +     struct alt_entry *alt;
+> > +     u32 tmp;
+> > +
+> > +     if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +             return;
+> > +
+> > +     for (alt = begin; alt < end; alt++) {
+> > +             if (alt->vendor_id != ANDESTECH_VENDOR_ID)
+> > +                     continue;
+> > +             if (alt->errata_id >= ERRATA_ANDESTECH_NUMBER)
+> > +                     continue;
+> > +
+> > +             tmp = (1U << alt->errata_id);
+>
+> Is this not BIT(alt->errata_id)?
+>
+Yep, I will switch to BIT().
 
-> 
->> +};
->> +
->> +static void __iomem *pmu_base;
->> +
->> +static inline void pmu_writel(u32 val, u32 offset)
->> +{
->> +	writel(val, pmu_base + offset);
->> +}
->> +
->> +void starfive_pmu_hw_event_turn_on(u32 mask)
->> +{
->> +	pmu_writel(mask, HW_EVENT_TURN_ON_MASK);
->> +}
->> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_on);
->> +
->> +void starfive_pmu_hw_event_turn_off(u32 mask)
->> +{
->> +	pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
->> +}
->> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
-> 
-> Where are the users for these exports? Also, should they be exported as
-> GPL?
-> 
-> Either way, what is the point of the extra layer of abstraction here
-> around the writel()?
-
-The two export functions are only prepared for GPU module. But accordint to
- the latest information, it seems that there is no open source plan for GPU. 
-So the two functions will be drop in next version of patch.
-
-> 
->> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
->> +{
->> +	struct starfive_pmu *pmu = pmd->power;
->> +
->> +	if (!pmd->mask) {
->> +		*is_on = false;
->> +		return -EINVAL;
->> +	}
->> +
->> +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
-> 
-> Is there a specific reason that you are using the __raw variants here
-> (and elsewhere) in the driver?
-
-Will use unified function '__raw_readl' and '__raw_writel'
-
-> 
->> +
->> +	return 0;
->> +}
->> +
->> +static int starfive_pmu_set_state(struct starfive_power_dev *pmd, bool on)
->> +{
->> +	struct starfive_pmu *pmu = pmd->power;
->> +	unsigned long flags;
->> +	uint32_t val;
->> +	uint32_t mode;
->> +	uint32_t encourage_lo;
->> +	uint32_t encourage_hi;
->> +	bool is_on;
->> +	int ret;
->> +
->> +	if (!pmd->mask)
->> +		return -EINVAL;
->> +
->> +	if (is_on == on) {
->> +		dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
->> +				pmd->genpd.name, on ? "en" : "dis");
-> 
-> Am I missing something here: you've just declared is_on, so it must be
-> false & therefore this check is all a little pointless? The check just
-> becomes if (false == on) which I don't think is what you're going for
-> here? Or did I miss something obvious?
-
-Sorry, indeed I missed several lines of code. It should be witten like this:
-	ret = jh71xx_pmu_get_state(pmd, &is_on);
-        if (ret) {
-                dev_dbg(pmu->pdev, "unable to get current state for %s\n",
-                        pmd->genpd.name);
-                return ret;
-        }
-
-        if (is_on == on) {
-                dev_dbg(pmu->pdev, "pm domain [%s] is already %sable status.\n",
-                        pmd->genpd.name, on ? "en" : "dis");
-                return 0;
-        }
-
-> 
->> +		return 0;
->> +	}
->> +
->> +	spin_lock_irqsave(&pmu->lock, flags);
->> +
->> +	if (on) {
->> +		mode = SW_TURN_ON_POWER_MODE;
->> +		encourage_lo = SW_MODE_ENCOURAGE_EN_LO;
->> +		encourage_hi = SW_MODE_ENCOURAGE_EN_HI;
->> +	} else {
->> +		mode = SW_TURN_OFF_POWER_MODE;
->> +		encourage_lo = SW_MODE_ENCOURAGE_DIS_LO;
->> +		encourage_hi = SW_MODE_ENCOURAGE_DIS_HI;
->> +	}
->> +
->> +	__raw_writel(pmd->mask, pmu->base + mode);
->> +
->> +	/* write SW_ENCOURAGE to make the configuration take effect */
->> +	__raw_writel(SW_MODE_ENCOURAGE_ON, pmu->base + SW_ENCOURAGE);
-> 
-> Is register "sticky"? IOW, could you set it in probe and leave this mode
-> always on? Or does it need to be set every time you want to use this
-> feature?
-
-These power domain registers need to be set by other module according to the specific situation. 
-For example some power domains should be turned off via System PM mechanism when system goes to sleep, 
-and then they are turned on when system resume.
-
-> 
->> +	__raw_writel(encourage_lo, pmu->base + SW_ENCOURAGE);
->> +	__raw_writel(encourage_hi, pmu->base + SW_ENCOURAGE);
->> +
->> +	spin_unlock_irqrestore(&pmu->lock, flags);
->> +
->> +	if (on) {
->> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
->> +						val & pmd->mask, DELAY_US,
->> +						TIMEOUT_US);
->> +		if (ret) {
->> +			dev_err(pmu->pdev, "%s: failed to power on\n", pmd->genpd.name);
->> +			return -ETIMEDOUT;
->> +		}
->> +	} else {
->> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
->> +						!(val & pmd->mask), DELAY_US,
->> +						TIMEOUT_US);
-> 
-> Could you not just decide the 3rd arg outside of the readl_poll..() and
-> save on duplicating the wait logic here?
-
-Seems that the readl_poll..() can only be called in two cases 
-because the CURR_POWER_MODE register is read to val and then operation with mask every time.
-
-> 
->> +		if (ret) {
->> +			dev_err(pmu->pdev, "%s: failed to power off\n", pmd->genpd.name);
->> +			return -ETIMEDOUT;
->> +		}
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int starfive_pmu_on(struct generic_pm_domain *genpd)
->> +{
->> +	struct starfive_power_dev *pmd = container_of(genpd,
->> +		struct starfive_power_dev, genpd);
->> +
->> +	return starfive_pmu_set_state(pmd, true);
->> +}
->> +
->> +static int starfive_pmu_off(struct generic_pm_domain *genpd)
->> +{
->> +	struct starfive_power_dev *pmd = container_of(genpd,
->> +		struct starfive_power_dev, genpd);
->> +
->> +	return starfive_pmu_set_state(pmd, false);
->> +}
->> +
->> +static void starfive_pmu_int_enable(struct starfive_pmu *pmu, u32 mask, bool enable)
->> +{
->> +	u32 val = __raw_readl(pmu->base + PMU_INT_MASK);
->> +
->> +	if (enable)
->> +		val &= ~mask;
->> +	else
->> +		val |= mask;
->> +
->> +	__raw_writel(val, pmu->base + PMU_INT_MASK);
->> +}
->> +
->> +static irqreturn_t starfive_pmu_interrupt(int irq, void *data)
->> +{
->> +	struct starfive_pmu *pmu = data;
->> +	unsigned long flags;
->> +	u32 val;
->> +
->> +	spin_lock_irqsave(&pmu->lock, flags);
->> +	val = __raw_readl(pmu->base + PMU_INT_STATUS);
->> +
->> +	if (val & PMU_INT_SEQ_DONE)
->> +		dev_dbg(pmu->pdev, "sequence done.\n");
->> +	if (val & PMU_INT_HW_REQ)
->> +		dev_dbg(pmu->pdev, "hardware encourage requestion.\n");
->> +	if (val & PMU_INT_SW_FAIL)
->> +		dev_err(pmu->pdev, "software encourage fail.\n");
->> +	if (val & PMU_INT_HW_FAIL)
->> +		dev_err(pmu->pdev, "hardware encourage fail.\n");
->> +	if (val & PMU_INT_PCH_FAIL)
->> +		dev_err(pmu->pdev, "p-channel fail event.\n");
->> +
->> +	/* clear interrupts */
->> +	__raw_writel(val, pmu->base + PMU_INT_STATUS);
->> +	__raw_writel(val, pmu->base + PMU_EVENT_STATUS);
->> +
->> +	spin_unlock_irqrestore(&pmu->lock, flags);
->> +
->> +	return IRQ_HANDLED;
->> +}
->> +
->> +static int starfive_pmu_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct device_node *np = dev->of_node;
->> +	const struct starfive_pmu_data *entry, *table;
->> +	struct starfive_pmu *pmu;
->> +	unsigned int i;
->> +	uint8_t max_bit = 0;
->> +	int ret;
->> +
->> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
->> +	if (!pmu)
->> +		return -ENOMEM;
->> +
->> +	pmu_base = pmu->base = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(pmu->base))
->> +		return PTR_ERR(pmu->base);
->> +
->> +	/* initialize pmu interrupt  */
->> +	pmu->irq = platform_get_irq(pdev, 0);
->> +	if (pmu->irq < 0)
->> +		return pmu->irq;
->> +
->> +	ret = devm_request_irq(dev, pmu->irq, starfive_pmu_interrupt,
->> +			       0, pdev->name, pmu);
->> +	if (ret)
->> +		dev_err(dev, "request irq failed.\n");
->> +
->> +	table = of_device_get_match_data(dev);
->> +	if (!table)
->> +		return -EINVAL;
->> +
->> +	pmu->pdev = dev;
->> +	pmu->genpd_data.num_domains = 0;
->> +	i = 0;
->> +	for (entry = table; entry->name; entry++) {
->> +		max_bit = max(max_bit, entry->bit);
->> +		i++;
->> +	}
-> 
-> This looks like something that could be replaced by the functions in
-> linux/list.h, no? Same below.
-
-Nowadays other platforms on linux mainline mostly write in this way or write like this: 
-	for (i = 0; i < num; i++) {
-		...
-		pm_genpd_init(&pmd[i]->genpd, NULL, !is_on);
-	}
-
-> 
->> +
->> +	if (!i)
->> +		return -ENODEV;
->> +
->> +	pmu->genpd_data.num_domains = max_bit + 1;
->> +
->> +	pmu->dev = devm_kcalloc(dev, pmu->genpd_data.num_domains,
->> +				  sizeof(struct starfive_power_dev),
->> +				  GFP_KERNEL);
->> +	if (!pmu->dev)
->> +		return -ENOMEM;
->> +
->> +	pmu->genpd = devm_kcalloc(dev, pmu->genpd_data.num_domains,
->> +				    sizeof(struct generic_pm_domain *),
->> +				    GFP_KERNEL);
-> 
-> This two allocations both look like checkpatch would whinge about their
-> alignment.
-
-Yes, I will adjust these alignment. Thank you for your remind.
-
-> 
->> +	if (!pmu->genpd)
->> +		return -ENOMEM;
->> +
->> +	pmu->genpd_data.domains = pmu->genpd;
->> +
->> +	i = 0;
->> +	for (entry = table; entry->name; entry++) {
->> +		struct starfive_power_dev *pmd = &pmu->dev[i];
->> +		bool is_on;
->> +
->> +		pmd->power = pmu;
->> +		pmd->mask = BIT(entry->bit);
->> +		pmd->genpd.name = entry->name;
->> +		pmd->genpd.flags = entry->flags;
->> +
->> +		ret = starfive_pmu_get_state(pmd, &is_on);
->> +		if (ret)
->> +			dev_warn(dev, "unable to get current state for %s\n",
->> +				 pmd->genpd.name);
-> 
-> In what scenario would it not be possible to get the state? Again, I
-> hope I'm not missing something obvious. From what I can see, this is the
-> only caller of starfive_pmu_get_state(), which looks like:
->> > +	struct starfive_pmu *pmu = pmd->power;
->> > +
->> > +	if (!pmd->mask) {
-
-> How can !pmd->mask evaluate to true, given it's just been set to BIT(n)?
-> 
->> > +		*is_on = false;
->> > +		return -EINVAL;
->> > +	}
->> > +
->> > +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
->> > +
->> > +	return 0;
-> 
-> If I've not missed something, looks like you could likely remove the
-> function and just do the readl() here?
-
-I will modify the code like this:
-static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, bool on)
-{
-	int ret;
-	...
-	
-	ret = jh71xx_pmu_get_state(pmd, &is_on);
-	if (ret) {
-		dev_dbg(pmu->pdev, "unable to get current state for %s\n",
-			pmd->genpd.name);
-		return ret;
-	}
-
-	if (is_on == on) {
-		dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
-			 pmd->genpd.name, on ? "en" : "dis");
-		return 0;
-	}
-	...
-}
-
-This place where jh71xx_pmu_get_state() is called will return and then can not set the state 
-for power domain if pmd->mask is missed to assign a value.
-
-> 
->> +
->> +		pmd->genpd.power_on = starfive_pmu_on;
->> +		pmd->genpd.power_off = starfive_pmu_off;
->> +
->> +		pm_genpd_init(&pmd->genpd, NULL, !is_on);
->> +		pmu->genpd[entry->bit] = &pmd->genpd;
->> +
->> +		i++;
->> +	}
->> +
->> +	spin_lock_init(&pmu->lock);
->> +	starfive_pmu_int_enable(pmu, PMU_INT_ALL_MASK & ~PMU_INT_PCH_FAIL, true);
->> +
->> +	ret = of_genpd_add_provider_onecell(np, &pmu->genpd_data);
->> +	if (ret) {
->> +		dev_err(dev, "failed to register genpd driver: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	dev_info(dev, "registered %u power domains\n", i);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct starfive_pmu_data jh7110_power_domains[] = {
-> 
-> Is this driver jh7110 only or actually jh71XX? Have you just started out
-> by implementing one SoC both intend to support both?
-
-JH7110 is our first SoC, probably the next generation of SoC jh7120 still use this controller driver.
-Maybe now the naming for JH71XX is not very suitable.
-
-> 
->> +	{
->> +		.name = "SYSTOP",
->> +		.bit = JH7110_PD_SYSTOP,
->> +		.flags = GENPD_FLAG_ALWAYS_ON,
->> +	}, {
->> +		.name = "CPU",
->> +		.bit = JH7110_PD_CPU,
->> +		.flags = GENPD_FLAG_ALWAYS_ON,
->> +	}, {
->> +		.name = "GPUA",
->> +		.bit = JH7110_PD_GPUA,
->> +	}, {
->> +		.name = "VDEC",
->> +		.bit = JH7110_PD_VDEC,
->> +	}, {
->> +		.name = "VOUT",
->> +		.bit = JH7110_PD_VOUT,
->> +	}, {
->> +		.name = "ISP",
->> +		.bit = JH7110_PD_ISP,
->> +	}, {
->> +		.name = "VENC",
->> +		.bit = JH7110_PD_VENC,
->> +	}, {
->> +		.name = "GPUB",
->> +		.bit = JH7110_PD_GPUB,
->> +	}, {
->> +		/* sentinel */
->> +	},
-> 
-> Can drop this , after the sentinel ;)
-> 
-> I don't know /jack/ about power domain stuff, so I can barely review
-> this at all sadly.
-> Thanks,
-> Conor.
-
-Thank you for taking the time to review the code, you helped me a lot. Thank you so much.
-
-Best Regards,
-Walker Chen
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
