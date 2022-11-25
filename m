@@ -4,48 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29298C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 14:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0011C43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 15:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VKAIfkW4YlHuOGAWH/dzSsI8/IHXZbwQPgG5CDo1wQk=; b=eJ4rwSnMnbbQLy
-	ByyVxctVoE2NEnbfVByc9A/OtLJPNXzSJ8+5tkp73hBbxqxBrmhxm2iNAmaPJ390rLG3GGjof5mzo
-	77g5IbwWqo7UOM171yb4G2uHdoowZ5eguhI/sEZBuNeQyhiv44RXetY3Oy06/vhRbcXVag4lchbe2
-	a12UBlQmZdR0K3pphrVJpdWekYhEsz08p8V0sQr76Qf9EbSUTvRt/FgIHhziPOL5YTVGNkoGkGtNo
-	Za31eFXvCj8SLG6lahqWExeZEhEWtLmb3WETJfZyZGBtOzk9ibHGReZgZ2zem3K+cDi/BmpP1J5yO
-	lg4FASS8jSB/nBbi8yNg==;
+	List-Owner; bh=N0cge1ygmqlv9jk6QNUjrLbm0B6gz7gmdLQhiGNAVy4=; b=ASoETGsv7GcvFj
+	glgJafQSO4ddErPPIn75z3HZQjRysBnWyKAIq+hypEZ4I96vDODd2VJ2jjgbBA3+ur+MRZ/KjwzUZ
+	BGSiWo06FsyVEuYLoDl1SOUn6TfIiFhkcIqdCjgWeqxU6iQ/BrVnVPp2x4uzllGL0h06EZgw1wSO1
+	gydWPOqW0vXFoWJ50w2ltwUIOi4Sanhcu3qnvTAp3ukBdV0PsWxAvnfVCSVY3NO0JpiEAXBIJT0UU
+	8UyemNbBXbf+8mMbFL5JXah5m+4hU/dGfPOE9xyn9oZHA6Hzw0JDtDVVnlnrB3jIZSDP1dZ945GRL
+	p/4sNyMVzpCGMxiGPtIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZci-00H0WO-7J; Fri, 25 Nov 2022 14:24:12 +0000
-Received: from relay11.mail.gandi.net ([217.70.178.231])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZce-00H0Sp-DE
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 14:24:11 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 75AF3100003;
-	Fri, 25 Nov 2022 14:23:43 +0000 (UTC)
-Message-ID: <3e881e9e-4931-3c50-3c15-06785f48bae2@ghiti.fr>
-Date: Fri, 25 Nov 2022 15:23:43 +0100
+	id 1oyaUK-00HRDI-Eu; Fri, 25 Nov 2022 15:19:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oyaOE-00HO5J-0f; Fri, 25 Nov 2022 15:13:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3EBC12B;
+	Fri, 25 Nov 2022 07:13:20 -0800 (PST)
+Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A4F63F587;
+	Fri, 25 Nov 2022 07:13:10 -0800 (PST)
+Date: Fri, 25 Nov 2022 15:13:08 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, Ionela.Voinescu@arm.com,
+	Rob.Herring@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Gavin Shan <gshan@redhat.com>, Alexei Starovoitov <ast@kernel.org>,
+	SeongJae Park <sj@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
+Subject: Re: [PATCH v2 5/5] arch_topology: Build cacheinfo from primary CPU
+Message-ID: <20221125151308.2vr25mnkctfj6h7b@bogus>
+References: <20221121171217.3581004-1-pierre.gondois@arm.com>
+ <20221121171217.3581004-6-pierre.gondois@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v7 2/3] riscv: mm: support Svnapot in hugetlb page
-Content-Language: en-US
-To: panqinglin2020@iscas.ac.cn, palmer@dabbelt.com,
- linux-riscv@lists.infradead.org
-Cc: jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
- ajones@ventanamicro.com
-References: <20221119112242.3593646-1-panqinglin2020@iscas.ac.cn>
- <20221119112242.3593646-3-panqinglin2020@iscas.ac.cn>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20221119112242.3593646-3-panqinglin2020@iscas.ac.cn>
+Content-Disposition: inline
+In-Reply-To: <20221121171217.3581004-6-pierre.gondois@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_062408_743380_7151E5A5 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20221125_071318_253963_81412BFB 
+X-CRM114-Status: GOOD (  40.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,201 +69,236 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvMTkvMjIgMTI6MjIsIHBhbnFpbmdsaW4yMDIwQGlzY2FzLmFjLmNuIHdyb3RlOgo+IEZy
-b206IFFpbmdsaW4gUGFuIDxwYW5xaW5nbGluMjAyMEBpc2Nhcy5hYy5jbj4KPgo+IFN2bmFwb3Qg
-Y2FuIGJlIHVzZWQgdG8gc3VwcG9ydCA2NEtCIGh1Z2V0bGIgcGFnZSwgc28gaXQgY2FuIGJlY29t
-ZSBhIG5ldwo+IG9wdGlvbiB3aGVuIHVzaW5nIGh1Z2V0bGJmcy4gQWRkIGEgYmFzaWMgaW1wbGVt
-ZW50YXRpb24gb2YgaHVnZXRsYiBwYWdlLAo+IGFuZCBzdXBwb3J0IDY0S0IgYXMgYSBzaXplIGlu
-IGl0IGJ5IHVzaW5nIFN2bmFwb3QuCj4KPiBGb3IgdGVzdCwgYm9vdCBrZXJuZWwgd2l0aCBjb21t
-YW5kIGxpbmUgY29udGFpbnMgImRlZmF1bHRfaHVnZXBhZ2Vzej02NEsKPiBodWdlcGFnZXN6PTY0
-SyBodWdlcGFnZXM9MjAiIGFuZCBydW4gYSBzaW1wbGUgdGVzdCBsaWtlIHRoaXM6Cj4KPiB0b29s
-cy90ZXN0aW5nL3NlbGZ0ZXN0cy92bS9tYXBfaHVnZXRsYiAxIDE2Cj4KPiBBbmQgaXQgc2hvdWxk
-IGJlIHBhc3NlZC4KPgo+IFNpZ25lZC1vZmYtYnk6IFFpbmdsaW4gUGFuIDxwYW5xaW5nbGluMjAy
-MEBpc2Nhcy5hYy5jbj4KPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNo
-L3Jpc2N2L0tjb25maWcKPiBpbmRleCAzMWY5YTVhMTYwYTAuLmMwMzA3Yjk0MmVkMiAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBA
-QCAtNDMsNyArNDMsNyBAQCBjb25maWcgUklTQ1YKPiAgIAlzZWxlY3QgQVJDSF9VU0VfUVVFVUVE
-X1JXTE9DS1MKPiAgIAlzZWxlY3QgQVJDSF9XQU5UX0RFRkFVTFRfVE9QRE9XTl9NTUFQX0xBWU9V
-VCBpZiBNTVUKPiAgIAlzZWxlY3QgQVJDSF9XQU5UX0ZSQU1FX1BPSU5URVJTCj4gLQlzZWxlY3Qg
-QVJDSF9XQU5UX0dFTkVSQUxfSFVHRVRMQgo+ICsJc2VsZWN0IEFSQ0hfV0FOVF9HRU5FUkFMX0hV
-R0VUTEIgaWYgIVJJU0NWX0lTQV9TVk5BUE9UCj4gICAJc2VsZWN0IEFSQ0hfV0FOVF9IVUdFX1BN
-RF9TSEFSRSBpZiA2NEJJVAo+ICAgCXNlbGVjdCBBUkNIX1dBTlRTX1RIUF9TV0FQIGlmIEhBVkVf
-QVJDSF9UUkFOU1BBUkVOVF9IVUdFUEFHRQo+ICAgCXNlbGVjdCBCSU5GTVRfRkxBVF9OT19EQVRB
-X1NUQVJUX09GRlNFVCBpZiAhTU1VCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vaHVnZXRsYi5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9odWdldGxiLmgKPiBpbmRleCBh
-NWMyY2ExZDFjZDguLjg1NGY1ZGIyZjQ1ZCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2h1Z2V0bGIuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHVnZXRsYi5o
-Cj4gQEAgLTIsNyArMiwzOSBAQAo+ICAgI2lmbmRlZiBfQVNNX1JJU0NWX0hVR0VUTEJfSAo+ICAg
-I2RlZmluZSBfQVNNX1JJU0NWX0hVR0VUTEJfSAo+ICAgCj4gLSNpbmNsdWRlIDxhc20tZ2VuZXJp
-Yy9odWdldGxiLmg+Cj4gICAjaW5jbHVkZSA8YXNtL3BhZ2UuaD4KPiAgIAo+ICsjaWZkZWYgQ09O
-RklHX1JJU0NWX0lTQV9TVk5BUE9UCj4gKyNkZWZpbmUgX19IQVZFX0FSQ0hfSFVHRV9QVEVfQ0xF
-QVIKPiArdm9pZCBodWdlX3B0ZV9jbGVhcihzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQg
-bG9uZyBhZGRyLAo+ICsJCSAgICBwdGVfdCAqcHRlcCwgdW5zaWduZWQgbG9uZyBzeik7Cj4gKwo+
-ICsjZGVmaW5lIF9fSEFWRV9BUkNIX0hVR0VfU0VUX0hVR0VfUFRFX0FUCj4gK3ZvaWQgc2V0X2h1
-Z2VfcHRlX2F0KHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+ICsJCSAgICAgdW5zaWduZWQgbG9uZyBh
-ZGRyLCBwdGVfdCAqcHRlcCwgcHRlX3QgcHRlKTsKPiArCj4gKyNkZWZpbmUgX19IQVZFX0FSQ0hf
-SFVHRV9QVEVQX0dFVF9BTkRfQ0xFQVIKPiArcHRlX3QgaHVnZV9wdGVwX2dldF9hbmRfY2xlYXIo
-c3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gKwkJCSAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciwgcHRl
-X3QgKnB0ZXApOwo+ICsKPiArI2RlZmluZSBfX0hBVkVfQVJDSF9IVUdFX1BURVBfQ0xFQVJfRkxV
-U0gKPiArcHRlX3QgaHVnZV9wdGVwX2NsZWFyX2ZsdXNoKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAq
-dm1hLAo+ICsJCQkgICAgdW5zaWduZWQgbG9uZyBhZGRyLCBwdGVfdCAqcHRlcCk7Cj4gKwo+ICsj
-ZGVmaW5lIF9fSEFWRV9BUkNIX0hVR0VfUFRFUF9TRVRfV1JQUk9URUNUCj4gK3ZvaWQgaHVnZV9w
-dGVwX3NldF93cnByb3RlY3Qoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gKwkJCSAgICAgdW5zaWdu
-ZWQgbG9uZyBhZGRyLCBwdGVfdCAqcHRlcCk7Cj4gKwo+ICsjZGVmaW5lIF9fSEFWRV9BUkNIX0hV
-R0VfUFRFUF9TRVRfQUNDRVNTX0ZMQUdTCj4gK2ludCBodWdlX3B0ZXBfc2V0X2FjY2Vzc19mbGFn
-cyhzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwKPiArCQkJICAgICAgIHVuc2lnbmVkIGxvbmcg
-YWRkciwgcHRlX3QgKnB0ZXAsCj4gKwkJCSAgICAgICBwdGVfdCBwdGUsIGludCBkaXJ0eSk7Cj4g
-Kwo+ICtwdGVfdCBhcmNoX21ha2VfaHVnZV9wdGUocHRlX3QgZW50cnksIHVuc2lnbmVkIGludCBz
-aGlmdCwgdm1fZmxhZ3NfdCBmbGFncyk7Cj4gKyNkZWZpbmUgYXJjaF9tYWtlX2h1Z2VfcHRlIGFy
-Y2hfbWFrZV9odWdlX3B0ZQo+ICsKPiArI2VuZGlmIC8qQ09ORklHX1JJU0NWX0lTQV9TVk5BUE9U
-Ki8KPiArCj4gKyNpbmNsdWRlIDxhc20tZ2VuZXJpYy9odWdldGxiLmg+Cj4gKwo+ICAgI2VuZGlm
-IC8qIF9BU01fUklTQ1ZfSFVHRVRMQl9IICovCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0v
-aHVnZXRsYnBhZ2UuYyBiL2FyY2gvcmlzY3YvbW0vaHVnZXRsYnBhZ2UuYwo+IGluZGV4IDkzMmRh
-ZGZkY2E1NC4uMTMwYTkxYjMwNTg4IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvbW0vaHVnZXRs
-YnBhZ2UuYwo+ICsrKyBiL2FyY2gvcmlzY3YvbW0vaHVnZXRsYnBhZ2UuYwo+IEBAIC0yLDYgKzIs
-MjczIEBACj4gICAjaW5jbHVkZSA8bGludXgvaHVnZXRsYi5oPgo+ICAgI2luY2x1ZGUgPGxpbnV4
-L2Vyci5oPgo+ICAgCj4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfSVNBX1NWTkFQT1QKPiArcHRlX3Qg
-Kmh1Z2VfcHRlX2FsbG9jKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+ICsJCSAgICAgIHN0cnVjdCB2
-bV9hcmVhX3N0cnVjdCAqdm1hLAo+ICsJCSAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciwKPiArCQkg
-ICAgICB1bnNpZ25lZCBsb25nIHN6KQo+ICt7Cj4gKwlwZ2RfdCAqcGdkOwo+ICsJcDRkX3QgKnA0
-ZDsKPiArCXB1ZF90ICpwdWQ7Cj4gKwlwbWRfdCAqcG1kOwo+ICsJcHRlX3QgKnB0ZSA9IE5VTEw7
-Cj4gKwl1bnNpZ25lZCBsb25nIG9yZGVyOwo+ICsKPiArCXBnZCA9IHBnZF9vZmZzZXQobW0sIGFk
-ZHIpOwo+ICsJcDRkID0gcDRkX2FsbG9jKG1tLCBwZ2QsIGFkZHIpOwo+ICsJaWYgKCFwNGQpCj4g
-KwkJcmV0dXJuIE5VTEw7Cj4gKwo+ICsJcHVkID0gcHVkX2FsbG9jKG1tLCBwNGQsIGFkZHIpOwo+
-ICsJaWYgKCFwdWQpCj4gKwkJcmV0dXJuIE5VTEw7Cj4gKwlpZiAoc3ogPT0gUFVEX1NJWkUpIHsK
-PiArCQlwdGUgPSAocHRlX3QgKilwdWQ7Cj4gKwkJZ290byBvdXQ7Cj4gKwl9Cj4gKwo+ICsJaWYg
-KHN6ID09IFBNRF9TSVpFKSB7Cj4gKwkJaWYgKHdhbnRfcG1kX3NoYXJlKHZtYSwgYWRkcikgJiYg
-cHVkX25vbmUoKnB1ZCkpCj4gKwkJCXB0ZSA9IGh1Z2VfcG1kX3NoYXJlKG1tLCB2bWEsIGFkZHIs
-IHB1ZCk7Cj4gKwkJZWxzZQo+ICsJCQlwdGUgPSAocHRlX3QgKilwbWRfYWxsb2MobW0sIHB1ZCwg
-YWRkcik7Cj4gKwkJZ290byBvdXQ7Cj4gKwl9Cj4gKwlwbWQgPSBwbWRfYWxsb2MobW0sIHB1ZCwg
-YWRkcik7Cj4gKwlpZiAoIXBtZCkKPiArCQlyZXR1cm4gTlVMTDsKPiArCj4gKwlmb3IgKG9yZGVy
-ID0gTkFQT1RfQ09OVF9PUkRFUl9CQVNFOyBvcmRlciA8IE5BUE9UX09SREVSX01BWDsgb3JkZXIr
-Kykgewo+ICsJCWlmIChuYXBvdF9jb250X3NpemUob3JkZXIpID09IHN6KSB7Cj4gKwkJCXB0ZSA9
-IHB0ZV9hbGxvY19tYXAobW0sIHBtZCwgKGFkZHIgJiB+bmFwb3RfY29udF9tYXNrKG9yZGVyKSkp
-Owo+ICsJCQlicmVhazsKPiArCQl9Cj4gKwl9Cj4gK291dDoKPiArCVdBUk5fT05fT05DRShwdGUg
-JiYgcHRlX3ByZXNlbnQoKnB0ZSkgJiYgIXB0ZV9odWdlKCpwdGUpKTsKPiArCXJldHVybiBwdGU7
-Cj4gK30KPiArCj4gK3B0ZV90ICpodWdlX3B0ZV9vZmZzZXQoc3RydWN0IG1tX3N0cnVjdCAqbW0s
-Cj4gKwkJICAgICAgIHVuc2lnbmVkIGxvbmcgYWRkciwKPiArCQkgICAgICAgdW5zaWduZWQgbG9u
-ZyBzeikKPiArewo+ICsJcGdkX3QgKnBnZDsKPiArCXA0ZF90ICpwNGQ7Cj4gKwlwdWRfdCAqcHVk
-Owo+ICsJcG1kX3QgKnBtZDsKPiArCXB0ZV90ICpwdGUgPSBOVUxMOwo+ICsJdW5zaWduZWQgbG9u
-ZyBvcmRlcjsKPiArCj4gKwlwZ2QgPSBwZ2Rfb2Zmc2V0KG1tLCBhZGRyKTsKPiArCWlmICghcGdk
-X3ByZXNlbnQoKnBnZCkpCj4gKwkJcmV0dXJuIE5VTEw7Cj4gKwlwNGQgPSBwNGRfb2Zmc2V0KHBn
-ZCwgYWRkcik7Cj4gKwlpZiAoIXA0ZF9wcmVzZW50KCpwNGQpKQo+ICsJCXJldHVybiBOVUxMOwo+
-ICsKPiArCXB1ZCA9IHB1ZF9vZmZzZXQocDRkLCBhZGRyKTsKPiArCWlmIChzeiA9PSBQVURfU0la
-RSkKPiArCQkvKiBtdXN0IGJlIHB1ZCBodWdlLCBub24tcHJlc2VudCBvciBub25lICovCj4gKwkJ
-cmV0dXJuIChwdGVfdCAqKXB1ZDsKPiArCWlmICghcHVkX3ByZXNlbnQoKnB1ZCkpCj4gKwkJcmV0
-dXJuIE5VTEw7Cj4gKwo+ICsJcG1kID0gcG1kX29mZnNldChwdWQsIGFkZHIpOwo+ICsJaWYgKHN6
-ID09IFBNRF9TSVpFKQo+ICsJCS8qIG11c3QgYmUgcG1kIGh1Z2UsIG5vbi1wcmVzZW50IG9yIG5v
-bmUgKi8KPiArCQlyZXR1cm4gKHB0ZV90ICopcG1kOwo+ICsJaWYgKCFwbWRfcHJlc2VudCgqcG1k
-KSkKPiArCQlyZXR1cm4gTlVMTDsKPiArCj4gKwlmb3IgKG9yZGVyID0gTkFQT1RfQ09OVF9PUkRF
-Ul9CQVNFOyBvcmRlciA8IE5BUE9UX09SREVSX01BWDsgb3JkZXIrKykgewo+ICsJCWlmIChuYXBv
-dF9jb250X3NpemUob3JkZXIpID09IHN6KSB7Cj4gKwkJCXB0ZSA9IHB0ZV9vZmZzZXRfa2VybmVs
-KHBtZCwgKGFkZHIgJiB+bmFwb3RfY29udF9tYXNrKG9yZGVyKSkpOwo+ICsJCQlicmVhazsKPiAr
-CQl9Cj4gKwl9Cj4gKwlyZXR1cm4gcHRlOwo+ICt9CgoKSXQncyByZWFsbHkgdG9vIGJhZCB3ZSBj
-YW4ndCB1c2UgZ2VuZXJpYyBjb2RlwqAgZm9yIHRoYXQgKyBhbiBhcmNoIApzcGVjaWZpYyBjYWxs
-YmFjayBoZXJlLCBoYXZlIHlvdSB0cmllZCB0byBkbyBzbz8KCgo+ICsKPiArc3RhdGljIHB0ZV90
-IGdldF9jbGVhcl9jb250aWcoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gKwkJCSAgICAgIHVuc2ln
-bmVkIGxvbmcgYWRkciwKPiArCQkJICAgICAgcHRlX3QgKnB0ZXAsCj4gKwkJCSAgICAgIHVuc2ln
-bmVkIGxvbmcgcHRlX251bSkKPiArewo+ICsJcHRlX3Qgb3JpZ19wdGUgPSBwdGVwX2dldChwdGVw
-KTsKPiArCXVuc2lnbmVkIGxvbmcgaTsKPiArCj4gKwlmb3IgKGkgPSAwOyBpIDwgcHRlX251bTsg
-aSsrLCBhZGRyICs9IFBBR0VfU0laRSwgcHRlcCsrKSB7Cj4gKwkJcHRlX3QgcHRlID0gcHRlcF9n
-ZXRfYW5kX2NsZWFyKG1tLCBhZGRyLCBwdGVwKTsKPiArCj4gKwkJaWYgKHB0ZV9kaXJ0eShwdGUp
-KQo+ICsJCQlvcmlnX3B0ZSA9IHB0ZV9ta2RpcnR5KG9yaWdfcHRlKTsKPiArCj4gKwkJaWYgKHB0
-ZV95b3VuZyhwdGUpKQo+ICsJCQlvcmlnX3B0ZSA9IHB0ZV9ta3lvdW5nKG9yaWdfcHRlKTsKPiAr
-CX0KPiArCXJldHVybiBvcmlnX3B0ZTsKPiArfQoKClNhbWUgaGVyZTogY2FuJ3Qgd2Ugc2hhcmUg
-Y29kZSB3aXRoIGFybTY0PwoKCj4gKwo+ICtzdGF0aWMgcHRlX3QgZ2V0X2NsZWFyX2NvbnRpZ19m
-bHVzaChzdHJ1Y3QgbW1fc3RydWN0ICptbSwKPiArCQkJCSAgICB1bnNpZ25lZCBsb25nIGFkZHIs
-Cj4gKwkJCQkgICAgcHRlX3QgKnB0ZXAsCj4gKwkJCQkgICAgdW5zaWduZWQgbG9uZyBwdGVfbnVt
-KQo+ICt7Cj4gKwlwdGVfdCBvcmlnX3B0ZSA9IGdldF9jbGVhcl9jb250aWcobW0sIGFkZHIsIHB0
-ZXAsIHB0ZV9udW0pOwo+ICsJYm9vbCB2YWxpZCA9ICFwdGVfbm9uZShvcmlnX3B0ZSk7Cj4gKwlz
-dHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3Qgdm1hID0gVExCX0ZMVVNIX1ZNQShtbSwgMCk7Cj4gKwo+ICsJ
-aWYgKHZhbGlkKQo+ICsJCWZsdXNoX3RsYl9yYW5nZSgmdm1hLCBhZGRyLCBhZGRyICsgKFBBR0Vf
-U0laRSAqIHB0ZV9udW0pKTsKPiArCj4gKwlyZXR1cm4gb3JpZ19wdGU7Cj4gK30KCgpIZXJlIGFn
-YWluOiBhcm02NCBkb2VzIHNvbWV0aGluZyB2ZXJ5IHNpbWlsYXIgLgoKCj4gKwo+ICtwdGVfdCBh
-cmNoX21ha2VfaHVnZV9wdGUocHRlX3QgZW50cnksIHVuc2lnbmVkIGludCBzaGlmdCwgdm1fZmxh
-Z3NfdCBmbGFncykKPiArewo+ICsJdW5zaWduZWQgbG9uZyBvcmRlcjsKPiArCj4gKwlmb3JfZWFj
-aF9uYXBvdF9vcmRlcihvcmRlcikgewo+ICsJCWlmIChzaGlmdCA9PSBuYXBvdF9jb250X3NoaWZ0
-KG9yZGVyKSkgewo+ICsJCQllbnRyeSA9IHB0ZV9ta25hcG90KGVudHJ5LCBvcmRlcik7Cj4gKwkJ
-CWJyZWFrOwo+ICsJCX0KPiArCX0KPiArCWlmIChvcmRlciA9PSBOQVBPVF9PUkRFUl9NQVgpCj4g
-KwkJZW50cnkgPSBwdGVfbWtodWdlKGVudHJ5KTsKPiArCj4gKwlyZXR1cm4gZW50cnk7Cj4gK30K
-CgpJc24ndCBpdCBwb3NzaWJsZSB0byBkbyB0aGUgZm9sbG93aW5nIGluc3RlYWQ/CgppZiAoc2hp
-ZnQgPj0gbmFwb3RfY29udF9zaGlmdChOQVBPVF9PUkRFUl9NQVgpKQoKIMKgwqDCoCBlbnRyeSA9
-IHB0ZV9ta2h1Z2UoZW50cnkpOwoKZWxzZQoKIMKgwqDCoCBlbnRyeSA9IHB0ZV9ta25hcG90KGVu
-dHJ5LCBvcmRlcik7CgoKPiArCj4gK3ZvaWQgc2V0X2h1Z2VfcHRlX2F0KHN0cnVjdCBtbV9zdHJ1
-Y3QgKm1tLAo+ICsJCSAgICAgdW5zaWduZWQgbG9uZyBhZGRyLAo+ICsJCSAgICAgcHRlX3QgKnB0
-ZXAsCj4gKwkJICAgICBwdGVfdCBwdGUpCj4gK3sKPiArCWludCBpOwo+ICsJaW50IHB0ZV9udW07
-Cj4gKwo+ICsJaWYgKCFwdGVfbmFwb3QocHRlKSkgewo+ICsJCXNldF9wdGVfYXQobW0sIGFkZHIs
-IHB0ZXAsIHB0ZSk7Cj4gKwkJcmV0dXJuOwo+ICsJfQo+ICsKPiArCXB0ZV9udW0gPSBuYXBvdF9w
-dGVfbnVtKG5hcG90X2NvbnRfb3JkZXIocHRlKSk7Cj4gKwlmb3IgKGkgPSAwOyBpIDwgcHRlX251
-bTsgaSsrLCBwdGVwKyssIGFkZHIgKz0gUEFHRV9TSVpFKQo+ICsJCXNldF9wdGVfYXQobW0sIGFk
-ZHIsIHB0ZXAsIHB0ZSk7Cj4gK30KPiArCj4gK2ludCBodWdlX3B0ZXBfc2V0X2FjY2Vzc19mbGFn
-cyhzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwKPiArCQkJICAgICAgIHVuc2lnbmVkIGxvbmcg
-YWRkciwKPiArCQkJICAgICAgIHB0ZV90ICpwdGVwLAo+ICsJCQkgICAgICAgcHRlX3QgcHRlLAo+
-ICsJCQkgICAgICAgaW50IGRpcnR5KQo+ICt7Cj4gKwlwdGVfdCBvcmlnX3B0ZTsKPiArCWludCBp
-Owo+ICsJaW50IHB0ZV9udW07Cj4gKwlzdHJ1Y3QgbW1fc3RydWN0ICptbSA9IHZtYS0+dm1fbW07
-Cj4gKwo+ICsJaWYgKCFwdGVfbmFwb3QocHRlKSkKPiArCQlyZXR1cm4gcHRlcF9zZXRfYWNjZXNz
-X2ZsYWdzKHZtYSwgYWRkciwgcHRlcCwgcHRlLCBkaXJ0eSk7Cj4gKwo+ICsJcHRlX251bSA9IG5h
-cG90X3B0ZV9udW0obmFwb3RfY29udF9vcmRlcihwdGUpKTsKPiArCXB0ZXAgPSBodWdlX3B0ZV9v
-ZmZzZXQobW0sIGFkZHIsCj4gKwkJCSAgICAgICBuYXBvdF9jb250X3NpemUobmFwb3RfY29udF9v
-cmRlcihwdGUpKSk7Cj4gKwlvcmlnX3B0ZSA9IGdldF9jbGVhcl9jb250aWdfZmx1c2gobW0sIGFk
-ZHIsIHB0ZXAsIHB0ZV9udW0pOwo+ICsKPiArCWlmIChwdGVfZGlydHkob3JpZ19wdGUpKQo+ICsJ
-CXB0ZSA9IHB0ZV9ta2RpcnR5KHB0ZSk7Cj4gKwo+ICsJaWYgKHB0ZV95b3VuZyhvcmlnX3B0ZSkp
-Cj4gKwkJcHRlID0gcHRlX21reW91bmcocHRlKTsKPiArCj4gKwlmb3IgKGkgPSAwOyBpIDwgcHRl
-X251bTsgaSsrLCBhZGRyICs9IFBBR0VfU0laRSwgcHRlcCsrKQo+ICsJCXNldF9wdGVfYXQobW0s
-IGFkZHIsIHB0ZXAsIHB0ZSk7Cj4gKwo+ICsJcmV0dXJuIHRydWU7Cj4gK30KPiArCj4gK3B0ZV90
-IGh1Z2VfcHRlcF9nZXRfYW5kX2NsZWFyKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAo+ICsJCQkgICAg
-ICB1bnNpZ25lZCBsb25nIGFkZHIsCj4gKwkJCSAgICAgIHB0ZV90ICpwdGVwKQo+ICt7Cj4gKwlp
-bnQgcHRlX251bTsKPiArCXB0ZV90IG9yaWdfcHRlID0gcHRlcF9nZXQocHRlcCk7Cj4gKwo+ICsJ
-aWYgKCFwdGVfbmFwb3Qob3JpZ19wdGUpKQo+ICsJCXJldHVybiBwdGVwX2dldF9hbmRfY2xlYXIo
-bW0sIGFkZHIsIHB0ZXApOwo+ICsKPiArCXB0ZV9udW0gPSBuYXBvdF9wdGVfbnVtKG5hcG90X2Nv
-bnRfb3JkZXIob3JpZ19wdGUpKTsKPiArCj4gKwlyZXR1cm4gZ2V0X2NsZWFyX2NvbnRpZyhtbSwg
-YWRkciwgcHRlcCwgcHRlX251bSk7Cj4gK30KPiArCj4gK3ZvaWQgaHVnZV9wdGVwX3NldF93cnBy
-b3RlY3Qoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gKwkJCSAgICAgdW5zaWduZWQgbG9uZyBhZGRy
-LAo+ICsJCQkgICAgIHB0ZV90ICpwdGVwKQo+ICt7Cj4gKwlpbnQgaTsKPiArCWludCBwdGVfbnVt
-Owo+ICsJcHRlX3QgcHRlID0gcHRlcF9nZXQocHRlcCk7Cj4gKwo+ICsJaWYgKCFwdGVfbmFwb3Qo
-cHRlKSkgewo+ICsJCXB0ZXBfc2V0X3dycHJvdGVjdChtbSwgYWRkciwgcHRlcCk7Cj4gKwkJcmV0
-dXJuOwo+ICsJfQo+ICsKPiArCXB0ZV9udW0gPSBuYXBvdF9wdGVfbnVtKG5hcG90X2NvbnRfb3Jk
-ZXIocHRlKSk7Cj4gKwlwdGVwID0gaHVnZV9wdGVfb2Zmc2V0KG1tLCBhZGRyLCBuYXBvdF9jb250
-X3NpemUoNFVMKSk7Cj4gKwo+ICsJZm9yIChpID0gMDsgaSA8IHB0ZV9udW07IGkrKywgYWRkciAr
-PSBQQUdFX1NJWkUsIHB0ZXArKykKPiArCQlwdGVwX3NldF93cnByb3RlY3QobW0sIGFkZHIsIHB0
-ZXApOwo+ICt9Cj4gKwo+ICtwdGVfdCBodWdlX3B0ZXBfY2xlYXJfZmx1c2goc3RydWN0IHZtX2Fy
-ZWFfc3RydWN0ICp2bWEsCj4gKwkJCSAgICB1bnNpZ25lZCBsb25nIGFkZHIsCj4gKwkJCSAgICBw
-dGVfdCAqcHRlcCkKPiArewo+ICsJaW50IHB0ZV9udW07Cj4gKwlwdGVfdCBwdGUgPSBwdGVwX2dl
-dChwdGVwKTsKPiArCj4gKwlpZiAoIXB0ZV9uYXBvdChwdGUpKQo+ICsJCXJldHVybiBwdGVwX2Ns
-ZWFyX2ZsdXNoKHZtYSwgYWRkciwgcHRlcCk7Cj4gKwo+ICsJcHRlX251bSA9IG5hcG90X3B0ZV9u
-dW0obmFwb3RfY29udF9vcmRlcihwdGUpKTsKPiArCj4gKwlyZXR1cm4gZ2V0X2NsZWFyX2NvbnRp
-Z19mbHVzaCh2bWEtPnZtX21tLCBhZGRyLCBwdGVwLCBwdGVfbnVtKTsKPiArfQo+ICsKPiArdm9p
-ZCBodWdlX3B0ZV9jbGVhcihzdHJ1Y3QgbW1fc3RydWN0ICptbSwKPiArCQkgICAgdW5zaWduZWQg
-bG9uZyBhZGRyLAo+ICsJCSAgICBwdGVfdCAqcHRlcCwKPiArCQkgICAgdW5zaWduZWQgbG9uZyBz
-eikKPiArewo+ICsJaW50IGksIHB0ZV9udW0gPSAxOwo+ICsJcHRlX3QgcHRlID0gUkVBRF9PTkNF
-KCpwdGVwKTsKPiArCj4gKwlpZiAocHRlX25hcG90KHB0ZSkpCj4gKwkJcHRlX251bSA9IG5hcG90
-X3B0ZV9udW0obmFwb3RfY29udF9vcmRlcihwdGUpKTsKPiArCj4gKwlmb3IgKGkgPSAwOyBpIDwg
-cHRlX251bTsgaSsrLCBhZGRyICs9IFBBR0VfU0laRSwgcHRlcCsrKQo+ICsJCXB0ZV9jbGVhciht
-bSwgYWRkciwgcHRlcCk7Cj4gK30KPiArCj4gK3N0YXRpYyBfX2luaXQgaW50IG5hcG90X2h1Z2V0
-bGJwYWdlc19pbml0KHZvaWQpCj4gK3sKPiArCWlmIChoYXNfc3ZuYXBvdCgpKSB7Cj4gKwkJdW5z
-aWduZWQgbG9uZyBvcmRlcjsKPiArCj4gKwkJZm9yX2VhY2hfbmFwb3Rfb3JkZXIob3JkZXIpCj4g
-KwkJCWh1Z2V0bGJfYWRkX2hzdGF0ZShvcmRlcik7Cj4gKwl9Cj4gKwlyZXR1cm4gMDsKPiArfQo+
-ICthcmNoX2luaXRjYWxsKG5hcG90X2h1Z2V0bGJwYWdlc19pbml0KTsKPiArI2VuZGlmIC8qQ09O
-RklHX1JJU0NWX0lTQV9TVk5BUE9UKi8KPiArCj4gICBpbnQgcHVkX2h1Z2UocHVkX3QgcHVkKQo+
-ICAgewo+ICAgCXJldHVybiBwdWRfbGVhZihwdWQpOwo+IEBAIC0xOCw4ICsyODUsMTcgQEAgYm9v
-bCBfX2luaXQgYXJjaF9odWdldGxiX3ZhbGlkX3NpemUodW5zaWduZWQgbG9uZyBzaXplKQo+ICAg
-CQlyZXR1cm4gdHJ1ZTsKPiAgIAllbHNlIGlmIChJU19FTkFCTEVEKENPTkZJR182NEJJVCkgJiYg
-c2l6ZSA9PSBQVURfU0laRSkKPiAgIAkJcmV0dXJuIHRydWU7Cj4gLQllbHNlCj4gKwllbHNlIGlm
-ICghaGFzX3N2bmFwb3QoKSkKPiArCQlyZXR1cm4gZmFsc2U7Cj4gKwllbHNlIHsKPiArCQl1bnNp
-Z25lZCBsb25nIG9yZGVyOwo+ICsKPiArCQlmb3JfZWFjaF9uYXBvdF9vcmRlcihvcmRlcikgewo+
-ICsJCQlpZiAoc2l6ZSA9PSBuYXBvdF9jb250X3NpemUob3JkZXIpKQo+ICsJCQkJcmV0dXJuIHRy
-dWU7Cj4gKwkJfQo+ICAgCQlyZXR1cm4gZmFsc2U7Cj4gKwl9Cj4gICB9Cj4gICAKPiAgICNpZmRl
-ZiBDT05GSUdfQ09OVElHX0FMTE9DCgoKSU1PIGZvciBtb3N0IG9mIHRoZSBmdW5jdGlvbnMgYWJv
-dmUsIHdlIGRvbid0IG5lZWQgYSBkdXBsaWNhdGUgb2YgCmFybTY0L2dlbmVyaWMgZnVuY3Rpb25z
-LCBvdGhlcndpc2Ugd2Ugc2hvdWxkIHJlYWxseSBhcmd1ZSB3aHkgd2UgbmVlZCAKdGhlbS4gSSdt
-IHNvcnJ5IG15IGNvbW1lbnQgaW50ZXJ2ZW5lcyB0aGlzIGxhdGUsIGJ1dCBJIHJlYWxseSB0aGlu
-ayBpdCdzIAp3b3J0aCBnaXZpbmcgaXQgYSB0cnkgbWVyZ2luZyB3aXRoIGV4aXN0aW5nIGZ1bmN0
-aW9ucywgaXQgaXMgcXVpdGUgaGFyZCAKdG8gcmV2aWV3IHRoaXMgd2F5LgoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Nov 21, 2022 at 06:12:13PM +0100, Pierre Gondois wrote:
+> commit 3fcbf1c77d08 ("arch_topology: Fix cache attributes detection
+> in the CPU hotplug path")
+> adds a call to detect_cache_attributes() to populate the cacheinfo
+> before updating the siblings mask. detect_cache_attributes() allocates
+> memory and can take the PPTT mutex (on ACPI platforms). On PREEMPT_RT
+> kernels, on secondary CPUs, this triggers a:
+>   'BUG: sleeping function called from invalid context' [1]
+> as the code is executed with preemption and interrupts disabled.
+> 
+> The primary CPU was previously storing the cache information using
+> the now removed (struct cpu_topology).llc_id:
+> commit 5b8dc787ce4a ("arch_topology: Drop LLC identifier stash from
+> the CPU topology")
+> 
+> allocate_cache_info() tries to build the cacheinfo from the primary
+> CPU prior secondary CPUs boot, if the DT/ACPI description
+> contains cache information.
+> If allocate_cache_info() fails, then fallback to the current state
+> for the cacheinfo allocation. [1] will be triggered in such case.
+> 
+> When unplugging a CPU, the cacheinfo memory cannot be freed. If it
+> was, then the memory would be allocated early by the re-plugged
+> CPU and would trigger [1].
+> 
+> Note that populate_cache_leaves() might be called multiple times
+> due to populate_leaves being moved up. This is required since
+> detect_cache_attributes() might be called with per_cpu_cacheinfo(cpu)
+> being allocated but not populated.
+> 
+> [1]:
+> [    7.560791] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:46
+> [    7.560794] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/111
+> [    7.560796] preempt_count: 1, expected: 0
+> [    7.560797] RCU nest depth: 1, expected: 1
+> [    7.560799] 3 locks held by swapper/111/0:
+> [    7.560800]  #0: ffff403e406cae98 (&pcp->lock){+.+.}-{3:3}, at: get_page_from_freelist+0x218/0x12c8
+> [    7.560811]  #1: ffffc5f8ed09f8e8 (rcu_read_lock){....}-{1:3}, at: rt_spin_trylock+0x48/0xf0
+> [    7.560820]  #2: ffff403f400b4fd8 (&zone->lock){+.+.}-{3:3}, at: rmqueue_bulk+0x64/0xa80
+> [    7.560824] irq event stamp: 0
+> [    7.560825] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+> [    7.560827] hardirqs last disabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+> [    7.560830] softirqs last  enabled at (0): [<ffffc5f8e9f7d594>] copy_process+0x5dc/0x1ab8
+> [    7.560833] softirqs last disabled at (0): [<0000000000000000>] 0x0
+> [    7.560834] Preemption disabled at:
+> [    7.560835] [<ffffc5f8e9fd3c28>] migrate_enable+0x30/0x130
+> [    7.560838] CPU: 111 PID: 0 Comm: swapper/111 Tainted: G        W          6.0.0-rc4-rt6-[...]
+> [    7.560841] Call trace:
+> [...]
+> [    7.560870]  __kmalloc+0xbc/0x1e8
+> [    7.560873]  detect_cache_attributes+0x2d4/0x5f0
+> [    7.560876]  update_siblings_masks+0x30/0x368
+> [    7.560880]  store_cpu_topology+0x78/0xb8
+> [    7.560883]  secondary_start_kernel+0xd0/0x198
+> [    7.560885]  __secondary_switched+0xb0/0xb4
+> 
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> ---
+>  drivers/base/arch_topology.c | 10 ++++++-
+>  drivers/base/cacheinfo.c     | 56 +++++++++++++++++++++++++++++-------
+>  include/linux/cacheinfo.h    |  1 +
+>  3 files changed, 55 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index e7d6e6657ffa..54be88f658a0 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -825,7 +825,7 @@ __weak int __init parse_acpi_topology(void)
+>  #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+>  void __init init_cpu_topology(void)
+>  {
+> -	int ret;
+> +	int cpu, ret;
+>  
+>  	reset_cpu_topology();
+>  	ret = parse_acpi_topology();
+> @@ -840,6 +840,14 @@ void __init init_cpu_topology(void)
+>  		reset_cpu_topology();
+>  		return;
+>  	}
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		ret = allocate_cache_info(cpu);
+> +		if (ret) {
+> +			pr_err("Early cacheinfo failed, ret = %d\n", ret);
+
+Is it better to be more specific in the error message or do you think
+error code will suffice ? Something like
+
+"Early cacheinfo allocation failed, ret = %d\n"
+
+> +			break;
+> +		}
+> +	}
+>  }
+>  
+>  void store_cpu_topology(unsigned int cpuid)
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index 6f6cd120c4f1..429a55e7c5e2 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -371,10 +371,6 @@ static void free_cache_attributes(unsigned int cpu)
+>  		return;
+>  
+>  	cache_shared_cpu_map_remove(cpu);
+> -
+> -	kfree(per_cpu_cacheinfo(cpu));
+> -	per_cpu_cacheinfo(cpu) = NULL;
+> -	cache_leaves(cpu) = 0;
+>  }
+>  
+>  int __weak init_cache_level(unsigned int cpu)
+> @@ -387,18 +383,56 @@ int __weak populate_cache_leaves(unsigned int cpu)
+>  	return -ENOENT;
+>  }
+>  
+> +int allocate_cache_info(unsigned int cpu)
+> +{
+> +	struct cpu_cacheinfo *this_cpu_ci;
+> +	unsigned int levels, split_levels;
+> +	int ret;
+> +
+> +	if (acpi_disabled) {
+> +		ret = init_of_cache_level(cpu);
+> +		if (ret < 0)
+> +			return ret;
+> +	} else {
+> +		ret = acpi_get_cache_info(cpu, &levels, &split_levels);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		this_cpu_ci = get_cpu_cacheinfo(cpu);
+> +		this_cpu_ci->num_levels = levels;
+> +		/*
+> +		 * This assumes that:
+> +		 * - there cannot be any split caches (data/instruction)
+> +		 *   above a unified cache
+> +		 * - data/instruction caches come by pair
+> +		 */
+> +		this_cpu_ci->num_leaves = levels + split_levels;
+> +	}
+> +	if (!cache_leaves(cpu))
+> +		return -ENOENT;
+> +
+
+The above part is more fetching info than allocating. Does it make sense
+to rename along similar lines.
+
+> +	per_cpu_cacheinfo(cpu) = kcalloc(cache_leaves(cpu),
+> +					 sizeof(struct cacheinfo), GFP_ATOMIC);
+> +	if (per_cpu_cacheinfo(cpu) == NULL) {
+> +		cache_leaves(cpu) = 0;
+> +		return -ENOMEM;
+> +	}
+> +
+
+IIReadC, detect_cache_attributes also have above allocation, does it make
+sense to consolidate into one inline function or something ?
+
+> +	return ret;
+> +}
+> +
+>  int detect_cache_attributes(unsigned int cpu)
+>  {
+>  	int ret;
+>  
+> -	/* Since early detection of the cacheinfo is allowed via this
+> -	 * function and this also gets called as CPU hotplug callbacks via
+> -	 * cacheinfo_cpu_online, the initialisation can be skipped and only
+> -	 * CPU maps can be updated as the CPU online status would be update
+> -	 * if called via cacheinfo_cpu_online path.
+> +	/* Since early initialization/allocation of the cacheinfo is allowed
+> +	 * via allocate_cache_info() and this also gets called as CPU hotplug
+> +	 * callbacks via cacheinfo_cpu_online, the init/alloc can be skipped
+> +	 * as it will happen only once (the cacheinfo memory is never freed).
+> +	 * Just populate the cacheinfo.
+>  	 */
+>  	if (per_cpu_cacheinfo(cpu))
+> -		goto update_cpu_map;
+> +		goto populate_leaves;
+>  
+>  	if (init_cache_level(cpu) || !cache_leaves(cpu))
+>  		return -ENOENT;
+> @@ -410,6 +444,7 @@ int detect_cache_attributes(unsigned int cpu)
+>  		return -ENOMEM;
+>  	}
+>  
+> +populate_leaves:
+>  	/*
+>  	 * populate_cache_leaves() may completely setup the cache leaves and
+>  	 * shared_cpu_map or it may leave it partially setup.
+> @@ -418,7 +453,6 @@ int detect_cache_attributes(unsigned int cpu)
+>  	if (ret)
+>  		goto free_ci;
+>  
+> -update_cpu_map:
+>  	/*
+>  	 * For systems using DT for cache hierarchy, fw_token
+>  	 * and shared_cpu_map will be set up here only if they are
+> diff --git a/include/linux/cacheinfo.h b/include/linux/cacheinfo.h
+> index f992d81d211f..7d390806b788 100644
+> --- a/include/linux/cacheinfo.h
+> +++ b/include/linux/cacheinfo.h
+> @@ -85,6 +85,7 @@ int populate_cache_leaves(unsigned int cpu);
+>  int cache_setup_acpi(unsigned int cpu);
+>  bool last_level_cache_is_valid(unsigned int cpu);
+>  bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y);
+> +int allocate_cache_info(unsigned int cpu);
+>  int detect_cache_attributes(unsigned int cpu);
+>  #ifndef CONFIG_ACPI_PPTT
+>  /*
+> -- 
+> 2.25.1
+> 
+
+With above nits fixed or discussed further to retain as is, you can add
+
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+
+-- 
+Regards,
+Sudeep
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
