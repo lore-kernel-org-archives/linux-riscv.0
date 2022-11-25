@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E02C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 11:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F0EC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 11:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=R5ovMY56G4fZmEe4sQ7+fqesw92IEde8CdyyYFYeG9Y=; b=fPJW6LNCSXEVlb
-	SyvVweZev0Ps3GT10pa9fkQsJkLZrwVerXb4SzH21Y6BcVxWxhzwCBWijEAMP7F4fFGl5lZ2TLAxT
-	oYPg1Qx3QmokQw+YqgO6rxikiZkfbnHJz03W/nlzV3GDhGRfOlGtUQe1bLq5UCb6579Car0d4ku3O
-	MS75RMgT5ZrJ1UFDDR7AL7+eU9JObM7ksi8MGpVeg3EX8QAolHGg91G0IIXY2l9ttZaP+AqQgJwZ7
-	+1uOX6OspY1D0az8UYFwrpUE3yPVJ4FaKS4hmFvmUFIb6WeKdiUgiqfGSLwBJ+T0WXSY/jpOxhSLf
-	Jf+cjJPagfV+3TC6D9Dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qBwMXu10YIa+MrEdSEW1VcURhagF/y/d8bmob6EH5h8=; b=v82GO9Er3/F69u
+	j4RlWNmK9OMjpDHVWFpxpRXY3ouoXK/ciW45BUk8zLbSDvugu66fSeKwU/Ko/0XH3c03Q6zUF0BiR
+	49LCYSq6Lxr7KJjG4z3HNwTHc4Kvtr4SbGS19J+zKY1hD+Uij8RrkEt6i2cxTEadZTXilQkKtfV1h
+	ZUIQawiws7l9oRPyH60Y6bxYifW96xcT2ZiMyTu/afXkPaf228FWBh77PesIzW74WOwpfSbLzI2PX
+	kNgP13NgyOLqrf/91cyDdG7j+pVo1KGoi54uRoDQrlzrJ+ZKBTuPricD3Gk7UD0qt+i+zpslNVGuu
+	f1Xjer80pVbcBR3WtfVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyWng-00G3cc-Cs; Fri, 25 Nov 2022 11:23:20 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1oyWnr-00G3ik-TD; Fri, 25 Nov 2022 11:23:31 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyWlv-00G2Q7-NK
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 11:21:33 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 62so3683406pgb.13
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 03:21:29 -0800 (PST)
+	id 1oyWlz-00G2TB-Lf
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 11:21:37 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id k5so3446456pjo.5
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 03:21:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vYP+2oM34cmJFG3V0Ltp7GNtutJIbBXEhCpqNRxYA1c=;
-        b=Pj9Bv7nv0hGxcqolfF4+yd/oe3Ub2fzfkcuWjrMi0VinpJH7fvdtr/YljSrODKWK0f
-         FM+Mz95Ur9WpLh6f0vCmbssVFWKWW2ofL/8GDnurs+S0sQiggICep5VwM2LXFol6x39I
-         VidgCoZBzSc/iITMBjwMr6oD8SDGBCXmlYseTtMP6EAqIiGyrcbLVj/aWlZlvIJVrE8X
-         XCIDAbGNlmDkUOdyCXP80IqSGHQa/rtF0lFEalT59kd7Z3ns30vsO3buNBshk1Ou/CtZ
-         RkgoP5HGq+zNCis3/uBJRtzaqXjfKRsy/UrYeKJDNpEsFezHd+IU/xnMvU+wH5KoJRrr
-         ReeA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bu6gMWlGL1798v9tVBYC6q+OA3VeKQCQFwAOJPQbKO0=;
+        b=To90HQsu+nRhrpBaf8hoVduWXUfZ1tr9GO8p1fFwpVasAb3QZFs9HML/Qrn1vrBE7C
+         3vsuD281OG3+H1XN4yvrHCeF683B/dTB9o68D0P0JqmhXXS2OFvmXp/ayHdWWhlLbFA1
+         1CD37gIN/DfDUk5meIAc+lAmcFJmB+nbYa+m+YwDLmYAr9PqnpiIWCEXBAe3MZzVSM4H
+         6tAdLsJNKS8hamjUTFwrq+Td+h8NOuRo1Z9pgDp60Do59P+x/KYvKWLXjQWiYLdYLzcP
+         rtHK1GwJdups2WWAH6HJ4p+1l+tYOGlUGE0dwQI1jI5Y+xS1T3BdF1HEvknSqfc7YIHL
+         QyGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vYP+2oM34cmJFG3V0Ltp7GNtutJIbBXEhCpqNRxYA1c=;
-        b=UsySWa70titxARI9zRB6CSSc9dfD4wgF08NVbjysFfhuRMldtn3d34EyAo5brUVlkB
-         XGXBrTJ86qniHQS+cshH3xW69+IVP2mpzF+JWlZ8trkHzwVIQokyNKORrECepUe8JA/a
-         jh29e6VIDwWKGFuwlw151wTyd4HAqlzsmUtns0u8prgwX9d7Vm3rqs8WkVxkioSoDUW6
-         MIWAWBL7Qmt/ipKvHUjO2SbvkyYo/WQC9jec1EWMdTw8/G1GJXwP4gplhsJzLzM2SxBk
-         y/8cdqke1fq+nPO2n1+BsJIKhxeAW4lVZswFoSx2muY76uD5Qdh1lAKZOKig950arVXA
-         cKPA==
-X-Gm-Message-State: ANoB5pm6nCbTFNLVuy78PwhIUvBs6GCamG6WLyiV5QQitZaOP7SHOoLK
-	bfPC50j/a0VvXYUgam0w53DRrw==
-X-Google-Smtp-Source: AA0mqf60LcLJuXxWEdKaVgoRREe0TX/v6dAlHlqUjeI4LuwEdKNOY1o0jWc8FMMP6h8gnDcCdeadMA==
-X-Received: by 2002:a63:131a:0:b0:476:f92f:885a with SMTP id i26-20020a63131a000000b00476f92f885amr16224287pgl.478.1669375288411;
-        Fri, 25 Nov 2022 03:21:28 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Bu6gMWlGL1798v9tVBYC6q+OA3VeKQCQFwAOJPQbKO0=;
+        b=n/B5WU+PafxpH+IyTFB0LINbV2PR75+YFGQgYrrRtJ4udQitId97YzMu0aAmJ10uzi
+         OajtWf3ISa3iboNPouPifMbRjLhDCmHc7uOKG/apYAdimPM0nHszod136vckI5F/4IwE
+         uFs++wZubrqn4Ldh16CdWv8tE4/DnRUSSx5r4IM2G7R/UkUqwGK1tV/Kb5vG9qKQ2vdi
+         7emNkjrujDpsolvHCbhFGGQjyhz0UbOTr8xpE+nStlO8/WALO5huowO7ux+k48vCdgrj
+         mJVTe513+x797o3OoK6vonmOtOB50w7YUPGxS/RMbups3DHov1cX0xrfe0AMu51x8L9K
+         gh/Q==
+X-Gm-Message-State: ANoB5pn2cdBenI0w1nJSK7Wxw1pXwPOc61i6M1wwQFYlWGqSzZIFJWRz
+	T+N29fBbpwc3RiHwRTM3zSmE5w==
+X-Google-Smtp-Source: AA0mqf6g24tHjlg8F5EfnWXfFlEVrgU699VXSpbDgg0ghtBXNTb315U16mtrNFdCP2BZ6q5QaQdR2w==
+X-Received: by 2002:a17:90b:1d45:b0:218:6db5:fd98 with SMTP id ok5-20020a17090b1d4500b002186db5fd98mr41313988pjb.164.1669375293993;
+        Fri, 25 Nov 2022 03:21:33 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id e66-20020a621e45000000b0057488230704sm2834335pfe.219.2022.11.25.03.21.23
+        by smtp.gmail.com with ESMTPSA id e66-20020a621e45000000b0057488230704sm2834335pfe.219.2022.11.25.03.21.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Nov 2022 03:21:27 -0800 (PST)
+        Fri, 25 Nov 2022 03:21:33 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -73,16 +74,19 @@ Cc: Andrew Jones <ajones@ventanamicro.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v3 0/3] Improve CLOCK_EVT_FEAT_C3STOP feature setting
-Date: Fri, 25 Nov 2022 16:51:02 +0530
-Message-Id: <20221125112105.427045-1-apatel@ventanamicro.com>
+Subject: [PATCH v3 1/3] Revert "clocksource/drivers/riscv: Events are stopped during CPU suspend"
+Date: Fri, 25 Nov 2022 16:51:03 +0530
+Message-Id: <20221125112105.427045-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221125112105.427045-1-apatel@ventanamicro.com>
+References: <20221125112105.427045-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_032131_850369_B0F1EF7A 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221125_032135_743177_C2800BD1 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +103,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series improves the RISC-V timer driver to set CLOCK_EVT_FEAT_C3STOP
-feature based on RISC-V platform capabilities.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-These patches can also be found in riscv_timer_dt_imp_v3 branch at:
-https://github.com/avpatel/linux.git
+This reverts commit 232ccac1bd9b5bfe73895f527c08623e7fa0752d.
 
-Changes since v2:
- - Include Conor's revert patch as the first patch and rebased other patches
- - Update PATCH2 to document bindings for separate RISC-V timer DT node
- - Update PATCH3 based on RISC-V timer DT node bindings
+On the subject of suspend, the RISC-V SBI spec states:
+> Request the SBI implementation to put the calling hart in a platform
+> specific suspend (or low power) state specified by the suspend_type
+> parameter. The hart will automatically come out of suspended state and
+> resume normal execution when it receives an interrupt or platform
+> specific hardware event.
 
-Changes since v1:
- - Rebased on Linux-5.19-rc8
- - Renamed "riscv,always-on" DT property to "riscv,timer-can-wake-cpu"
+This does not cover whether any given events actually reach the hart or
+not, just what the hart will do if it receives an event. On PolarFire
+SoC, and potentially other SiFive based implementations, events from the
+RISC-V timer do reach a hart during suspend. This is not the case for
+the implementation on the Allwinner D1 - there timer events are not
+received during suspend.
 
-Anup Patel (2):
-  dt-bindings: timer: Add bindings for the RISC-V timer device
-  clocksource: timer-riscv: Set CLOCK_EVT_FEAT_C3STOP based on DT
+To fix this, the C3STOP feature was enabled for the timer driver -
+but this has broken both RCU stall detection and timers generally on
+PolarFire SoC (and potentially other SiFive based implementations).
 
-Conor Dooley (1):
-  Revert "clocksource/drivers/riscv: Events are stopped during CPU
-    suspend"
+If an AXI read to the PCIe controller on PolarFire SoC times out, the
+system will stall, however, with this patch applied, the system just
+locks up without RCU stalling:
+	io scheduler mq-deadline registered
+	io scheduler kyber registered
+	microchip-pcie 2000000000.pcie: host bridge /soc/pcie@2000000000 ranges:
+	microchip-pcie 2000000000.pcie:      MEM 0x2008000000..0x2087ffffff -> 0x0008000000
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: axi read request error
+	microchip-pcie 2000000000.pcie: axi read timeout
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: sec error in pcie2axi buffer
+	microchip-pcie 2000000000.pcie: ded error in pcie2axi buffer
+	Freeing initrd memory: 7332K
 
- .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
- drivers/clocksource/timer-riscv.c             | 12 ++++-
- 2 files changed, 63 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
+Similarly issues were reported with clock_nanosleep() - with a test app
+that sleeps each cpu for 6, 5, 4, 3 ms respectively, HZ=250 & the blamed
+commit in place, the sleep times are rounded up to the next jiffy:
 
+== CPU: 1 ==      == CPU: 2 ==      == CPU: 3 ==      == CPU: 4 ==
+Mean: 7.974992    Mean: 7.976534    Mean: 7.962591    Mean: 3.952179
+Std Dev: 0.154374 Std Dev: 0.156082 Std Dev: 0.171018 Std Dev: 0.076193
+Hi: 9.472000      Hi: 10.495000     Hi: 8.864000      Hi: 4.736000
+Lo: 6.087000      Lo: 6.380000      Lo: 4.872000      Lo: 3.403000
+Samples: 521      Samples: 521      Samples: 521      Samples: 521
+
+Fortunately, the D1 has a second timer, which is "currently used in
+preference to the RISC-V/SBI timer driver" so a revert here does not
+hurt operation of D1 in its current form.
+
+Ultimately, a DeviceTree property (or node) will be added to encode the
+behaviour of the timers, but until then revert the addition of
+CLOCK_EVT_FEAT_C3STOP.
+
+Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
+Link: https://github.com/riscv-non-isa/riscv-sbi-doc/issues/98/
+Link: https://lore.kernel.org/linux-riscv/bf6d3b1f-f703-4a25-833e-972a44a04114@sholland.org/
+Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
+CC: Samuel Holland <samuel@sholland.org>
+CC: Anup Patel <anup@brainfault.org>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/clocksource/timer-riscv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 969a552da8d2..a0d66fabf073 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -51,7 +51,7 @@ static int riscv_clock_next_event(unsigned long delta,
+ static unsigned int riscv_clock_event_irq;
+ static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+ 	.name			= "riscv_timer_clockevent",
+-	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
++	.features		= CLOCK_EVT_FEAT_ONESHOT,
+ 	.rating			= 100,
+ 	.set_next_event		= riscv_clock_next_event,
+ };
 -- 
 2.34.1
 
