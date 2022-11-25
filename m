@@ -4,50 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24A93C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 13:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E55C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 13:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CDBIytseaRiOZOUevMlMt6UnIbbRh6frCLRaDkD3gVE=; b=C0wsl9QX811s3p
-	5XFX+c7cp9Z9Iizu96U+hPxwcw3p5/hMq4YcZqB+ZndhBv/IKUkE6B5g7sVIuvuRFnMvByHIwBicm
-	ikS8r8EDP7GY0kjrt6u0KPjKm1Avbs9JOYoccNRAS+OOgQQXRu2v35FN8xc19qNTPKBdXqLKn8leb
-	fB+NWxI34qfPVP40a/OtcREEN61zligdcmr+c3+HZY9YRu1D6FjQdfzBnK/Zml3QVnPjOxQk446xJ
-	G+j0GlqaJ1SYhqWe32sVXbHw6WB2XjGtyu8jsq25XUM4KhGN7txot2Q6jJO3p/jkrZxclzTaMhUiB
-	pu4bpv0d4Ic9tcItBVbA==;
+	List-Owner; bh=pklHs/jjubxJ0wN8cqCpgzSieHI6xOS6rw7keQLZhBU=; b=ple+jM77VS960d
+	ziShoZqRzxdNhKZICbN/Wmh8bU+fFSIEuHK9kKlDPH/VPf4ZDB1OcCNf2KKjpCgq0g0NhFoCExMDE
+	ojs12WOyaNpwwvX8BFIZk7YOhDH3rNBLXArD+1CI+p2P75tgcnPXZx1johw5NAkwwolvOPEwPZXhU
+	0UZWtbgV25xF3PWQRqIpAVoPfu41YmW8e94ZhfWxRACeGNjTVB/Sz+KxM5MshDKNw0dlO3gsT3GBN
+	4iLF9pmZllqS90i0CjDLgRd1oKlycqQCqnTm+sIn+bU6E4IfqtP63TUgwzcCELpVojOm+15clfzZJ
+	nxaPdV7B1LCLmOx8T3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZ3b-00GmWi-Ld; Fri, 25 Nov 2022 13:47:55 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1oyZ4p-00Gn5u-F8; Fri, 25 Nov 2022 13:49:11 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZ3Y-00GmU3-Pi
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 13:47:54 +0000
-Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 56C071BF20F;
-	Fri, 25 Nov 2022 13:47:47 +0000 (UTC)
-Message-ID: <e90289af-f557-58f2-f4c8-f79feab4f185@ghiti.fr>
-Date: Fri, 25 Nov 2022 14:47:46 +0100
+	id 1oyZ4m-00Gn2b-SI
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 13:49:10 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id f18so10488765ejz.5
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 05:49:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=haJ0+Zw47DZVHxADOM5rnvXmfvM6Vo6rvKK2ck9USDw=;
+        b=sFFdm5VLwq5bMwcixBi8KzpcffeWlzb8cFahuwLkIMYirXdu9PWyHn5ZG8NZGPiOoA
+         eGf+nJ4paoV33Or+npRq89akv5+bRI8dnHCRc0ON/19qKCmjMgECiFzM5oUMkblw64HX
+         d8vP5vt+NQLYhYA2WdY3CDR/RgZgkpPUeW6zejf/f5+VJMdJ+tdAv98gk+ebCbffB/8E
+         jDDfaa/jqYJP63vpooT6DRkUHYoT2K3lmAddRYm+xAj2z4+lACYH+7iO8+n2KFSV98s8
+         jnvTp7h7Y6J1GyAzHuVPUI9LN0DNKiyECaqUeq0Pn5ar/Uxhb9ICrae1zxn4pAPrlnG2
+         NQ9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=haJ0+Zw47DZVHxADOM5rnvXmfvM6Vo6rvKK2ck9USDw=;
+        b=4TTKMNqSVZHDC1khXff6epukOqhO/Bc944w7122xkaODLkC1RYH4edxTP9FcV0hGSV
+         o7csDIqp2+f0kV0GlyijF1BBJL1OHAvaZIf+h/VqSKVPkl2QqkxiEapQvqz88d8tNJQI
+         8Ib3LHpoxVg81b2jR23Zor9sJGUTsp4Yhr/bVV/acQYQLhCGuP1zvfKb1AE7JRVFTXEj
+         aVe54UW1YmmdEVGIbDy4GqxuU64jMh2whCYG0UhmzhsUBWshHv7G5BzxFAYnbmmRlzEa
+         vI0PLQjYR1hn2rAh0xAOr2ZdsB7GPIqVGDGNb69n3kx5pf4MowUSRK5opIfMiolcoFUa
+         ykrg==
+X-Gm-Message-State: ANoB5pltE6KxHTOChYkxRuOToKU+zCA/IsHYGBhml4aBT+7+T1nAr+tn
+	cZp7bS+9/lyZh2YXMXJXTwyoP88SNxjaQvtvWgBeYw==
+X-Google-Smtp-Source: AA0mqf4TEIj1Wj5VNktFmonDfC53U8wK+8q62VC+/rbuEe3GSX7/nwkJ7AratjgzcKPA6MzRLmMCtimLoQK6v5EOfvs=
+X-Received: by 2002:a17:906:6dd5:b0:78d:a633:b55 with SMTP id
+ j21-20020a1709066dd500b0078da6330b55mr33442611ejt.106.1669384141244; Fri, 25
+ Nov 2022 05:49:01 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH] riscv: increase boot command line size to 1K
-Content-Language: en-US
-To: Andrea Righi <andrea.righi@canonical.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20221125133713.314796-1-andrea.righi@canonical.com>
- <6fee29f8-8150-e6ec-e2ec-210610a7e27d@ghiti.fr>
- <Y4DGxWLIVx9p9TS+@righiandr-XPS-13-7390>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <Y4DGxWLIVx9p9TS+@righiandr-XPS-13-7390>
+References: <20221125112105.427045-1-apatel@ventanamicro.com>
+ <20221125112105.427045-3-apatel@ventanamicro.com> <Y4C+kwLdMYkkrm/2@wendy>
+In-Reply-To: <Y4C+kwLdMYkkrm/2@wendy>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 25 Nov 2022 19:18:48 +0530
+Message-ID: <CAAhSdy2XkW-3NsKiCFhz4MYG3U-=CF1ysN8hxQK0SGaUgAAznA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] dt-bindings: timer: Add bindings for the RISC-V
+ timer device
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, 
+	Atish Patra <atishp@atishpatra.org>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_054753_124112_17F3EA14 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20221125_054908_935190_BC6ABAA2 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,95 +86,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/25/22 14:44, Andrea Righi wrote:
-> On Fri, Nov 25, 2022 at 02:41:11PM +0100, Alexandre Ghiti wrote:
->> Hi Andrea,
->>
->> On 11/25/22 14:37, Andrea Righi wrote:
->>> Kernel parameters string is limited to 512 characters on riscv (using
->>> the default from include/uapi/asm-generic/setup.h).
->>>
->>> In some testing environments (e.g., qemu with long kernel parameters
->>> string) we may exceed this limit, triggering errors like the following:
->>>
->>> [    3.331893] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
->>> [    3.332625] CPU: 2 PID: 1 Comm: sh Not tainted 6.1.0-rc6-kc #1
->>> [    3.333233] Hardware name: riscv-virtio,qemu (DT)
->>> [    3.333550] Call Trace:
->>> [    3.333736] [<ffffffff800062b6>] dump_backtrace+0x1c/0x24
->>> [    3.334053] [<ffffffff806e8f54>] show_stack+0x2c/0x38
->>> [    3.334260] [<ffffffff806f2d06>] dump_stack_lvl+0x5a/0x7c
->>> [    3.334483] [<ffffffff806f2d3c>] dump_stack+0x14/0x1c
->>> [    3.334687] [<ffffffff806e92fa>] panic+0x116/0x2d0
->>> [    3.334878] [<ffffffff8001b0aa>] do_exit+0x80a/0x810
->>> [    3.335079] [<ffffffff8001b1d0>] do_group_exit+0x24/0x70
->>> [    3.335287] [<ffffffff8001b234>] __wake_up_parent+0x0/0x20
->>> [    3.335502] [<ffffffff80003cee>] ret_from_syscall+0x0/0x2
->>> [    3.335857] SMP: stopping secondary CPUs
->>> [    3.337561] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000 ]---
->>>
->>> It seems reasonable enough to increase the default command line size to
->>> 1024, like arm, to prevent issues like the one reported above.
->>>
->>> Signed-off-by: Andrea Righi <andrea.righi@canonical.com>
->>> ---
->>>    arch/riscv/include/asm/setup.h      | 7 +++++++
->>>    arch/riscv/include/uapi/asm/setup.h | 7 +++++++
->>>    2 files changed, 14 insertions(+)
->>>    create mode 100644 arch/riscv/include/asm/setup.h
->>>    create mode 100644 arch/riscv/include/uapi/asm/setup.h
->>>
->>> diff --git a/arch/riscv/include/asm/setup.h b/arch/riscv/include/asm/setup.h
->>> new file mode 100644
->>> index 000000000000..f4fe549aab40
->>> --- /dev/null
->>> +++ b/arch/riscv/include/asm/setup.h
->>> @@ -0,0 +1,7 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +#ifndef __ASMRISCV_SETUP_H
->>> +#define __ASMRISCV_SETUP_H
->>> +
->>> +#include <uapi/asm/setup.h>
->>> +
->>> +#endif /* __ASMRISCV_SETUP_H */
->>> diff --git a/arch/riscv/include/uapi/asm/setup.h b/arch/riscv/include/uapi/asm/setup.h
->>> new file mode 100644
->>> index 000000000000..5738f93ae437
->>> --- /dev/null
->>> +++ b/arch/riscv/include/uapi/asm/setup.h
->>> @@ -0,0 +1,7 @@
->>> +/* SPDX-License-Identifier: GPL-2.0 */
->>> +#ifndef _UAPI__ASMRISCV_SETUP_H
->>> +#define _UAPI__ASMRISCV_SETUP_H
->>> +
->>> +#define COMMAND_LINE_SIZE 1024
->>> +
->>> +#endif /* _UAPI__ASMRISCV_SETUP_H */
->>
->> Just for reference to previous discussions regarding this: https://lore.kernel.org/lkml/CACT4Y+YYAfTafFk7DE0B=qQFgkPXS7492AhBdY_CP1WdB8CGfA@mail.gmail.com/T/
->>
->> Thanks,
->>
->> Alex
-> Ah! It has been address/discussed already, great! Thanks for pointing
-> that out and sorry for the unnecessary patch. :)
-
-
-Not unnecessary at all, that will hopefully trigger a new discussion 
-because no progress was made so far :)
-
-
-> -Andrea
+On Fri, Nov 25, 2022 at 6:40 PM Conor Dooley <conor.dooley@microchip.com> wrote:
 >
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Hey Anup,
+>
+> For the future, could you please CC me on all patches in a series that I
+> have previously reviewed?
+
+Okay.
+
+>
+> On Fri, Nov 25, 2022 at 04:51:04PM +0530, Anup Patel wrote:
+> > We add DT bindings for a separate RISC-V timer DT node which can
+> > be used to describe implementation specific behaviour (such as
+> > timer interrupt not triggered during non-retentive suspend).
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
+> >  1 file changed, 52 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/timer/riscv,timer.yaml b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> > new file mode 100644
+> > index 000000000000..cf53dfff90bc
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> > @@ -0,0 +1,52 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/timer/riscv,timer.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: RISC-V timer
+> > +
+> > +maintainers:
+> > +  - Anup Patel <anup@brainfault.org>
+> > +
+> > +description: |+
+> > +  RISC-V platforms always have a RISC-V timer device for the supervisor-mode
+> > +  based on the time CSR defined by the RISC-V privileged specification. The
+> > +  timer interrupts of this device are configured using the RISC-V SBI Time
+> > +  extension or the RISC-V Sstc extension.
+> > +
+> > +  The clock frequency of RISC-V timer device is specified via the
+> > +  "timebase-frequency" DT property of "/cpus" DT node which is described
+> > +  in Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - riscv,timer
+> > +
+> > +  interrupts-extended:
+> > +    minItems: 1
+> > +    maxItems: 4096   # Should be enough?
+> > +
+> > +  riscv,timer-cant-wake-cpu:
+> > +    type: boolean
+> > +    description:
+> > +      If present, the timer interrupt can't wake up the CPU from
+> > +      suspend/idle state.
+>
+> I'm really not sure about this... I would be inclined to think that if
+> someone does not specify then we should assume that they took the
+> scroogiest view of the spec and so do not get events during suspend.
+>
+> I suppose you could then argue that their DT is wrong & it's their fault
+> though. Plus the existing platforms behave this way & we avoid having to
+> retrofit stuff here.
+
+Yes, the DT property is defined to keep things working for
+existing platforms.
+
+IMO, people should always read the DT bindings document at time of
+creating DT for their platform. If there are queries then they can always
+shoot email to the maintainers on LKML.
+
+>
+> > +
+> > +additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - interrupts-extended
+> > +
+> > +examples:
+> > +  - |
+> > +    timer {
+> > +      compatible = "riscv,timer";
+> > +      interrupts-extended = <&cpu1intc 5>,
+> > +                            <&cpu2intc 5>,
+> > +                            <&cpu3intc 5>,
+> > +                            <&cpu4intc 5>;
+> > +    };
+> > +...
+> > --
+> > 2.34.1
+> >
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
