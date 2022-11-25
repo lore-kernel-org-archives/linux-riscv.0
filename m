@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A71C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 10:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4391C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 10:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5s7KE059zNUSNpwPoumy7uYTIV1K1EELJykJPCHi3bg=; b=WiFC+4JCV1SR6M
-	+Wnh2zQMJTsjcdQX18aKQIrvPeKKiLYkwQHHfd7gLAeBrmxizU8A2dceBMrPhDHptSKD7pvoYZTy+
-	y+4smiXANdDItWaJInGqgaZRQRsL7FULGN2IigariFCmXP3GK2x6Ld+gmXurLYA1NaJ/CnhwRiKaW
-	YA7Oh9CjlFfsVoBZiePHaAkktROnMuIFepJJx1edJxbHc+vYEg9778QtyuSTKDaTbJJFcHJDZ/yu+
-	WB87h7jqW1OBQz04Ug6Hxiifwrl3Qg+uV0QvGoyJsl+NCod4Ck33EJ9d8dBdWGcGgpaACfB95wwHW
-	mZvACRUsOCEVvhqGWD/A==;
+	List-Owner; bh=0PXmOL2YnJ7SDWEYNrG3838I9vJF5ifleL6izAUPUWs=; b=fnxbliZQaC3f+h
+	T7WCLecBR+PIGsg5sTsl8cllcNJ24352uknJxg8i73ecbwf3L6YAXDUZ4IcDlWQbWFpPyOHr5RViI
+	/e0S+51BI0J3dAH6zjmpbHsohfkVsukt4IWZ9fjJI1yoXGMPUQS5gk0UKzLHASAmsYGOYoMO8CLo+
+	yEeWpOWzhj2eLgruq0NGZRvOR/agPr7HzAyz/t+jAt0xKNWaeXsCp+YytOJLD+YBNGoeO1sJlLR87
+	I51pvBusHLOdRFA41Nr9DYAM+q0Riw9xpH0I2dTMDL6pq0L3y3BnwtV7pYbPJsroDsPl9O87qNDDS
+	1KGnSfKDF4rtns7mL5vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyWGg-00Fg98-PW; Fri, 25 Nov 2022 10:49:14 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1oyWOg-00Fmrh-NC; Fri, 25 Nov 2022 10:57:30 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyW4g-00FX0X-0i
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 10:36:56 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id ha10so9425143ejb.3
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 02:36:49 -0800 (PST)
+	id 1oyWHt-00FgtV-3u
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 10:50:31 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id x102so5925283ede.0
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 02:50:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TAA5+MTosfMlNvoe36JT1THP0OI7Tftg0ZLwKpzdNig=;
-        b=deDNxf2lRCheq9V0vXDBA6reUMtumtqZcNEppvF215oH5eHmU2HzYSolGZUK/Pnipp
-         ndLiI4v8j3Y7U1lrHi3O1y+0YOpYb+J11Lcr4O81WqM9mpYE7HAz1kWBNjHI8302hwe9
-         2XBID3Dr0tUxMINLtQNaBey/kaAxgD8sYeI5JcqUJ7YuVHyBUiIfWe1YOIZgSngSCqjG
-         zAgIa1VDH6JwZQCV9+r/JcZuv4lCaqCL097tAWQe2mJHBRJdNb6MryVOVIn/Edv6xyiG
-         Hej2YtTIjQiAljHr6dpaQDLRrLMQzQIJIO9/O0d9zgVBibhtRQKFdU28bMjmeoGw9DRb
-         vYgQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=A/E4R8Z9vrBXFHFvfcYyMavMqZpCJuiJoWLEI/AkE8g=;
+        b=pQzSnEwehr7G9R5Ns1sfF0zy3WsrGotdhRcjmF8GazI6zYzApHSz8y5AuJ5pMmVMVv
+         DBRo24DN4Kv8d7l1g6lHpatOI/qPBldxwdgmDbOJW9kGS+CZOU9d4Dj1slj0SAQixHrg
+         fs+xt3hwJ0Z4G+QA868uj6YD5Q75mD9kRj4uN9vbIleAAZwg73eTjtE/eOh9pIpmucyu
+         ww/EIRHbUewpFbuLa1CLj9XDMvDwpLM1iLV2Oao4jUse922LI6ll7hpsotkYoz/yWUxz
+         3yd/3NWUIh3+zaiRZTka5JWh/ZOTEJL073hay580pHoM+T053j1tiirBW+meDDVQ0PD9
+         QLpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TAA5+MTosfMlNvoe36JT1THP0OI7Tftg0ZLwKpzdNig=;
-        b=1eMrIcGkLW8IoZmjkhO0DMKzDt3jkQ+vTas/2xuIdD72FkFISbD2lIwiN+7hAR3FcK
-         qVxfEZbU/F0GzELDh1lSFll+IknLcZ/4nuCnP51XOIwrRFIQYBSWcl00DhrpbYEkv8kv
-         M7AYA5Cw2nc5gFOXI4MHBkf8TBY1Kf+hTqsaMXfxGdUUemSHzCVn11CIQtVATmY2x0Cm
-         GRG65n5jkuiMdUbnYZDtabsVo7o7GB16ZDKOohM4Lc1/MbrcbtCdoTkyznfvSvJqsFmp
-         DwTXtyE4ftEgMVYJhatv1BFFNr0Gf9eJC7wnk3NGiS8UUbxTWOxlhEh03o1i9xmQIXBw
-         j6WQ==
-X-Gm-Message-State: ANoB5pn3SBQHS3bz+/tz0AdH/c6fTs26Bo+IdaY2Xj2/NChP/jftF4r8
-	NgG13SOwQk+utOd+juyRGsOnKzJR+QtciCzgFIw=
-X-Google-Smtp-Source: AA0mqf5v4s+UiXApNhf+ddpsOWAtYV+uHFxYvnI+gH7ytNyYHKGnV6H8idKdOR9FnvEhkFCHFEi45im9VjNaU3DDanQ=
-X-Received: by 2002:a17:907:7650:b0:781:e568:294f with SMTP id
- kj16-20020a170907765000b00781e568294fmr17396469ejc.447.1669372607905; Fri, 25
- Nov 2022 02:36:47 -0800 (PST)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A/E4R8Z9vrBXFHFvfcYyMavMqZpCJuiJoWLEI/AkE8g=;
+        b=FFG2Wj/c2/3hcU56c8Sd/9mZiVTPUVvmg2OhEuFkBfVksO21e7KZp+TxIrGtne8wlk
+         rVU064+ghQ7drNNeH7VIzMsMInxmvJJ98v6YwD1WRedlTfICMl3RWmVSd4EL6n7R9eW6
+         +44CpK2NCtqZFZATnK1cb+b3G2+Los8aLKtAV++yuKYau46ZViJXAeMa8j8zm1co9RHb
+         OmBh9tCaxJUjxiFOk+HTcERjWAydimPq8XK10F3lkqoz7iSR4/7Q4SzXLx6zIwMTnQtt
+         4H7R9nI9WYmF60MlXS7TrCxLbBTtbRFzW50F4nVWLmcA2aRY6JFzkBgMsQm4RqaGcjCS
+         Trkg==
+X-Gm-Message-State: ANoB5pmw9H7JyhEFkZ5Z25ZBoHtyHoJDYk/Jl5TnjgG2AOeJq24TB4u9
+	emsxLuxBvWo0VJ5Z3R0zf8Uopt2Bl6Qbdd50NOI=
+X-Google-Smtp-Source: AA0mqf48VmVMylchbZBLPGvovc4hMu2QogRuAPxi2M3/2snLzg08wNz/U1kpCLEuGw8ik6DSQkPAbjzigxPy+5Z6Qzg=
+X-Received: by 2002:a05:6402:2987:b0:45c:a9d3:d535 with SMTP id
+ eq7-20020a056402298700b0045ca9d3d535mr33929361edb.0.1669373427448; Fri, 25
+ Nov 2022 02:50:27 -0800 (PST)
 MIME-Version: 1.0
 References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <4801607.MHq7AAxBmi@diego> <CA+V-a8sT8VxpeM=eBgmDeojOka-LDmvP4JkhVfEDKi3D3VOsmw@mail.gmail.com>
- <3217756.bB369e8A3T@diego>
-In-Reply-To: <3217756.bB369e8A3T@diego>
+ <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com> <Y3/ivrvx4A+OImtW@spud>
+In-Reply-To: <Y3/ivrvx4A+OImtW@spud>
 From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 25 Nov 2022 10:36:21 +0000
-Message-ID: <CA+V-a8uXxCupvW9eQGs4=XnertvZUfi_KVAF5SUcmqmPHT_+xA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/7] riscv: asm: alternative-macros: Introduce
- ALTERNATIVE_3() macro
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+Date: Fri, 25 Nov 2022 10:50:01 +0000
+Message-ID: <CA+V-a8uBrx-+S59_zMz6kyLurVs4z0f+WxuUKc8k3VQWuZYWWA@mail.gmail.com>
+Subject: Re: [PATCH v4 7/7] soc: renesas: Add L2 cache management for RZ/Five SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
 	Rob Herring <robh+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
 	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
@@ -81,8 +78,8 @@ Cc: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_023650_171520_9BCF9469 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20221125_025029_414967_639B1048 
+X-CRM114-Status: GOOD (  56.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +91,342 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSGVpa28sCgpPbiBGcmksIE5vdiAyNSwgMjAyMiBhdCAxMDoyMCBBTSBIZWlrbyBTdMO8Ym5l
-ciA8aGVpa29Ac250ZWNoLmRlPiB3cm90ZToKPgo+IEFtIEZyZWl0YWcsIDI1LiBOb3ZlbWJlciAy
-MDIyLCAxMTowMjoyMSBDRVQgc2NocmllYiBMYWQsIFByYWJoYWthcjoKPiA+IEhpIEhlaWtvLAo+
-ID4KPiA+IE9uIFRodSwgTm92IDI0LCAyMDIyIGF0IDc6NTggUE0gSGVpa28gU3TDvGJuZXIgPGhl
-aWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IEFtIERvbm5lcnN0YWcsIDI0LiBOb3Zl
-bWJlciAyMDIyLCAyMDo1MjozMyBDRVQgc2NocmllYiBDb25vciBEb29sZXk6Cj4gPiA+ID4gT24g
-VGh1LCBOb3YgMjQsIDIwMjIgYXQgMDU6MjI6MDFQTSArMDAwMCwgUHJhYmhha2FyIHdyb3RlOgo+
-ID4gPiA+ID4gRnJvbTogTGFkIFByYWJoYWthciA8cHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJw
-LnJlbmVzYXMuY29tPgo+ID4gPiA+ID4KPiA+ID4gPiA+IEludHJvZHVjZSBBTFRFUk5BVElWRV8z
-KCkgbWFjcm8uCj4gPiA+ID4KPiA+ID4gPiBCaXQgcGVyZnVuY3RvcnkgSSB0aGluayEgVGhlcmUn
-cyBhIGxvdmVseSBjb21tZW50IGRvd24gYmVsb3cgdGhhdCB3b3VsZAo+ID4gPiA+IG1ha2UgZm9y
-IGEgYmV0dGVyIGNvbW1pdCBtZXNzYWdlIGlmIHlvdSB3ZXJlIHRvIHlvaW5rIGl0Lgo+ID4gPiA+
-IENvbnRlbnQgbG9va3MgYWJvdXQgd2hhdCBJJ2QgZXhwZWN0IHRvIHNlZSB0aG91Z2guCj4gPiA+
-Cj4gPiA+IEFsc28gYm90aCB0aGUgY29tbWVudCBvbiB0aGUgb3JpZ2luYWwgQUxURVJOQVRJVkVf
-MiBhbmQgdGhlIG5ldyBBTFRFUk5BVElWRV8zCj4gPiA+IHNob3VsZCBwcm9iYWJseSBiZSBtZXJn
-ZWQgaW50byBhIHNpbmdsZSBjb21tZW50IGV4cGxhaW5pbmcgdGhpcyBvbmNlIGZvciBhbGwKPiA+
-ID4gQUxURVJOQVRJVkVfeCB2YXJpYW50cy4KPiA+ID4KPiA+ID4gRXNwZWNpYWxseSB3aXRoIHRo
-ZSBkbWEgc3R1ZmYsIEknbSBwcmV0dHkgc3VyZSB3ZSdsbCBnZXQgYXQgbGVhc3QgYW4gQUxURVJO
-QVRJVkVfNAo+ID4gPiBpZiBub3QgZXZlbiBtb3JlIDstKSAuIFNvIHdlIGRlZm5pdGx5IGRvbid0
-IHdhbnQgdG8gcmVwZWF0IHRoaXMgbXVsdGlwbGUgdGltZXMuCj4gPiA+Cj4gPiBEbyBhZ3JlZS4g
-SG93IGFib3V0IHRoZSBiZWxvdz8KPiA+Cj4gPiAvKgo+ID4gICogU2ltaWxhciB0byB3aGF0IEFM
-VEVSTkFUSVZFXzIoKSBtYWNybyBkb2VzIGJ1dCB3aXRoIGFuIGFkZGl0aW9uYWwKPiA+ICAqIHZl
-bmRvciBjb250ZW50Lgo+ID4gICovCj4gPgo+ID4gU28gdGhlIG90aGVyIEFMVEVSTkFUSVZFXzIr
-KCkgbWFjcm9zIHdpbGwga2VlcCBvbiBidWlsZGluZyBvbiBpdC4KPgo+IE15IGlkZWEgd2FzIG1v
-cmUgbGlrZSBoYXZpbmcgX29uZV8gY29tbWVudCBibG9jayBvZiBzb21ldGhpbmcgbGlrZQo+Cj4g
-LS0tLS0KPiAvKgo+ICAqIEFMVEVSTkFUSVZFX3ggbWFjcm9zIGFsbG93IHByb3ZpZGluZyBtdWx0
-aXBsZSByZXBsYWNlbWVudCBvcHRpb25zCj4gICogZm9yIGFuIEFMVEVSTkFUSVZFIGNvZGUgc2Vj
-dGlvbi4gVGhpcyBpcyBoZWxwZnVsIGlmIG11bHRpcGxlCj4gICogaW1wbGVtZW50YXRpb24gdmFy
-aWFudHMgZm9yIHRoZSBzYW1lIGZ1bmN0aW9uYWxpdHkgZXhpc3QgZm9yCj4gICogZGlmZmVyZW50
-IGNwdSBjb3Jlcy4KPiAgKgo+ICAqIFVzYWdlOgo+ICAqICAgQUxURVJOQVRJVkVfeChvbGRfY29u
-dGVudCwKPiAgKiAgICAgIG5ld19jb250ZW50MSwgdmVuZG9yX2lkMSwgZXJyYXRhX2lkMSwgQ09O
-RklHX2sxLAo+ICAqICAgICAgbmV3X2NvbnRlbnQyLCB2ZW5kb3JfaWQyLCBlcnJhdGFfaWQyLCBD
-T05GSUdfazIsCj4gICogICAgICAuLi4KPiAgKiAgICAgIG5ld19jb250ZW50eCwgdmVuZG9yX2lk
-eCwgZXJyYXRhX2lkeCwgQ09ORklHX2t4KQo+ICAqLwo+Cj4gI2RlZmluZSBBTFRFUk5BVElWRV8y
-KC4uLikKPiAjZGVmaW5lIEFMVEVSTkFUSVZFXzMoLi4uKQo+IGV0Ywo+IC0tLS0tCj4KTEdUTSwg
-SSdsbCBpbmNsdWRlIHRoZSBhYm92ZSBpbiB0aGUgbmV4dCB2ZXJzaW9uLgoKPiBTbyB0aGlzIHdv
-dWxkIGluY2x1ZGUgZHJvcHBpbmcgdGhlIG9sZCBjb21tZW50IG92ZXIgQUxURVJOQVRJVkUyCj4K
-QWdyZWVkLCBJJ2xsIGRyb3AgaXQgaW4gdGhlIHNhbWUgcGF0Y2guCgpDaGVlcnMsClByYWJoYWth
-cgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Conor,
+
+Thank you for the review.
+
+On Thu, Nov 24, 2022 at 9:31 PM Conor Dooley <conor@kernel.org> wrote:
+>
+> On Thu, Nov 24, 2022 at 05:22:07PM +0000, Prabhakar wrote:
+> > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> >
+> > On the AX45MP core, cache coherency is a specification option so it may
+>
+> How about:
+> "Cache coherency is an option feature of the AX45MP core, so it may not
+> be supported."
+>
+Sure, I'll update that.
+
+> I keep finding that sentence kinda hard..
+>
+> > In this case DMA will fail.
+> "The AX45MP predates the standard extensions for cache management, so an
+> alternate approach is required to support non-coherent DMA for SoCs
+> where this feature is not available, such as the Renesas RZ/Five."
+>
+> (you've gotta explain somewhere why this is in drivers/soc/renesas lol)
+>
+I dont want to touch that fiery topic ;)
+
+> > As a workaround, firstly we
+>
+> How about:
+> " Since the cache management instructions cannot be used, we instead
+> allocate..."
+>
+Sure, I'll update that.
+
+> > allocate a global dma coherent pool from which DMA allocations are taken
+> > and marked as non-cacheable + bufferable using the PMA region as specified
+> > in the device tree. Synchronization callbacks are implemented to
+> > synchronize when doing DMA transactions.
+> >
+> > The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+> > block that allows dynamic adjustment of memory attributes in the runtime.
+> > It contains a configurable amount of PMA entries implemented as CSR
+> > registers to control the attributes of memory locations in interest.
+> >
+> > Below are the memory attributes supported:
+> > * Device, Non-bufferable
+> > * Device, bufferable
+> > * Memory, Non-cacheable, Non-bufferable
+> > * Memory, Non-cacheable, Bufferable
+> > * Memory, Write-back, No-allocate
+> > * Memory, Write-back, Read-allocate
+> > * Memory, Write-back, Write-allocate
+> > * Memory, Write-back, Read and Write-allocate
+> >
+> > This patch adds support to configure the memory attributes of the memory
+> > regions as passed from the l2 cache node and exposes the cache management
+> > ops.
+> >
+> > More info about PMA (section 10.3):
+> > Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+>
+> But yeah, this is basically the sort of stuff that'd be nice to have in
+> the previous patch!
+>
+Agreed, I'll include this in the binding patch too.
+
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> > RFC v3 -> v4
+> > * Made use of runtime patching instead of compile time
+> > * Now just exposing single function ax45mp_no_iocp_cmo() for CMO handling
+> > * Added a check to make sure cache line size is always 64 bytes
+> > * Renamed folder rzf -> rzfive
+> > * Improved Kconfig description
+> > * Dropped L2 cache configuration
+> > * Dropped unnecessary casts
+> > * Fixed comments pointed by Geert, apart from use of PTR_ALIGN_XYZ() macros.
+> > ---
+> >  arch/riscv/include/asm/cacheflush.h       |   8 +
+> >  arch/riscv/include/asm/errata_list.h      |  32 +-
+> >  drivers/soc/renesas/Kconfig               |   7 +
+> >  drivers/soc/renesas/Makefile              |   2 +
+> >  drivers/soc/renesas/rzfive/Kconfig        |   6 +
+> >  drivers/soc/renesas/rzfive/Makefile       |   3 +
+> >  drivers/soc/renesas/rzfive/ax45mp_cache.c | 415 ++++++++++++++++++++++
+> >  drivers/soc/renesas/rzfive/ax45mp_sbi.h   |  29 ++
+> >  8 files changed, 496 insertions(+), 6 deletions(-)
+> >  create mode 100644 drivers/soc/renesas/rzfive/Kconfig
+> >  create mode 100644 drivers/soc/renesas/rzfive/Makefile
+> >  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_cache.c
+> >  create mode 100644 drivers/soc/renesas/rzfive/ax45mp_sbi.h
+>
+> > diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
+> > index 660498252ec5..e7810256c60d 100644
+> > --- a/drivers/soc/renesas/Kconfig
+> > +++ b/drivers/soc/renesas/Kconfig
+> > @@ -340,9 +340,16 @@ if RISCV
+> >  config ARCH_R9A07G043
+> >       bool "RISC-V Platform support for RZ/Five"
+> >       select ARCH_RZG2L
+> > +     select AX45MP_L2_CACHE
+> > +     select DMA_GLOBAL_POOL
+> > +     select ERRATA_ANDES
+> > +     select ERRATA_ANDES_CMO
+> > +     select RISCV_DMA_NONCOHERENT
+>
+> Is this not redundant due to the select by ERRATA_ANDES_CMO?
+>
+Indeed, I'll drop it.
+
+> >       help
+> >         This enables support for the Renesas RZ/Five SoC.
+> >
+> > +source "drivers/soc/renesas/rzfive/Kconfig"
+> > +
+> >  endif # RISCV
+> >
+> >  config RST_RCAR
+>
+> > diff --git a/drivers/soc/renesas/rzfive/Makefile b/drivers/soc/renesas/rzfive/Makefile
+> > new file mode 100644
+> > index 000000000000..2012e7fb978d
+> > --- /dev/null
+> > +++ b/drivers/soc/renesas/rzfive/Makefile
+> > @@ -0,0 +1,3 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +
+> > +obj-$(CONFIG_AX45MP_L2_CACHE) += ax45mp_cache.o
+> > diff --git a/drivers/soc/renesas/rzfive/ax45mp_cache.c b/drivers/soc/renesas/rzfive/ax45mp_cache.c
+> > new file mode 100644
+> > index 000000000000..4e0d0545d3af
+>
+> Mainly just whizzing through the driver itself..
+>
+> > +static int ax45mp_configure_pma_regions(struct device_node *np)
+> > +{
+> > +     const char *propname = "andestech,pma-regions";
+> > +     u32 start, size, flags;
+> > +     unsigned int entry_id;
+> > +     unsigned int i;
+> > +     int count;
+> > +     int ret;
+> > +
+> > +     count = of_property_count_elems_of_size(np, propname, sizeof(u32) * 3);
+> > +     if (count < 0)
+> > +             return count;
+> > +
+> > +     if (count > AX45MP_MAX_PMA_REGIONS)
+> > +             return -EINVAL;
+> > +
+> > +     for (i = 0, entry_id = 0 ; entry_id < count ; i += 3, entry_id++) {
+> > +             of_property_read_u32_index(np, propname, i, &start);
+> > +             of_property_read_u32_index(np, propname, i + 1, &size);
+> > +             of_property_read_u32_index(np, propname, i + 2, &flags);
+> > +             ret = ax45mp_sbi_set_pma(start, size, flags, entry_id);
+> > +             if (!ret)
+> > +                     pr_err("Failed to setup PMA region 0x%x - 0x%x flags: 0x%x",
+> > +                            start, start + size, flags);
+>
+> I have to ask - is it okay to just continue here if a RMA region setup
+> fails?
+>
+Ok so incase of failures "ebreak" is called, so continuing doesn't
+cause any harm I guess.
+
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+>
+> > +static bool ax45mp_cpu_cache_controlable(void)
+> > +{
+> > +     return (((ax45mp_cpu_get_micm_cfg_status() & AX45MP_MICM_CFG_ISZ_MASK) ||
+> > +              (ax45mp_cpu_get_mdcm_cfg_status() & AX45MP_MDCM_CFG_DSZ_MASK)) &&
+> > +             (ax45mp_cpu_get_misa_cfg_status() & AX45MP_MISA_20_MASK) &&
+> > +             (ax45mp_cpu_get_mmsc_cfg_status() & AX45MP_MMSC_CFG_CCTLCSR_MASK) &&
+> > +             (ax45mp_cpu_get_mcache_ctl_status() & AX45MP_MCACHE_CTL_CCTL_SUEN_MASK));
+>
+> That's a bit of a mouthful lol!
+>
+>
+> > +static void ax45mp_cpu_dma_inval_range(void *vaddr, size_t size)
+>
+> Not mine to look after so /shrug but this looks like the sort of thing
+> that could do with a comment or two explaining the invalidation process.
+>
+Sure, I'll add some comments.
+
+> > +{
+> > +     char cache_buf[2][AX45MP_MAX_CACHE_LINE_SIZE];
+> > +     unsigned long start = (unsigned long)vaddr;
+> > +     unsigned long end = start + size;
+> > +     unsigned long old_start = start;
+> > +     unsigned long old_end = end;
+> > +     unsigned long line_size;
+> > +     unsigned long flags;
+> > +
+> > +     if (static_branch_unlikely(&ax45mp_l2c_configured) && !ax45mp_priv)
+> > +             return;
+> > +
+> > +     if (unlikely(start == end))
+> > +             return;
+> > +
+> > +     line_size = ax45mp_priv->ax45mp_cache_line_size;
+> > +
+> > +     memset(&cache_buf, 0x0, sizeof(cache_buf));
+> > +     start = start & (~(line_size - 1));
+> > +     end = ((end + line_size - 1) & (~(line_size - 1)));
+> > +
+> > +     local_irq_save(flags);
+> > +     if (unlikely(start != old_start))
+> > +             memcpy(&cache_buf[0][0], (void *)start, line_size);
+> > +
+> > +     if (unlikely(end != old_end))
+> > +             memcpy(&cache_buf[1][0], (void *)(old_end & (~(line_size - 1))), line_size);
+> > +
+> > +     ax45mp_cpu_dcache_inval_range(vaddr, (void *)end, line_size);
+> > +
+> > +     if (unlikely(start != old_start))
+> > +             memcpy((void *)start, &cache_buf[0][0], (old_start & (line_size - 1)));
+> > +
+> > +     if (unlikely(end != old_end))
+> > +             memcpy((void *)(old_end + 1),
+> > +                    &cache_buf[1][(old_end & (line_size - 1)) + 1],
+> > +                    end - old_end - 1);
+> > +
+> > +     local_irq_restore(flags);
+> > +}
+>
+> > +static int ax45mp_configure_l2_cache(struct device_node *np)
+> > +{
+> > +     int ret;
+> > +
+> > +     ret = of_property_read_u32(np, "cache-line-size", &ax45mp_priv->ax45mp_cache_line_size);
+> > +     if (ret) {
+> > +             pr_err("Failed to get cache-line-size defaulting to 64 bytes\n");
+>                                                      ^
+> Looks like you need a comma here...
+>
+OK.
+
+> > +             ax45mp_priv->ax45mp_cache_line_size = SZ_64;
+> > +     }
+> > +
+> > +     if (ax45mp_priv->ax45mp_cache_line_size != SZ_64) {
+> > +             pr_err("Expected cache-line-size to 64 bytes (found:%u). Defaulting to 64 bytes\n",
+>                                                    ^
+> ...and a "be" here.
+>
+> Would you also benefit from a pr_fmt here since you have no device? Or
+> else you could save the dev to your ax45mp_priv and avail of dev_err
+> here?
+>
+Sure, I'll switch to dev_err()
+
+> > +                    ax45mp_priv->ax45mp_cache_line_size);
+> > +             ax45mp_priv->ax45mp_cache_line_size = SZ_64;
+> > +     }
+> > +
+> > +     ax45mp_priv->ucctl_ok = ax45mp_cpu_cache_controlable();
+>                                                  ^
+> That function name is a typo, should be called ax45mp_cpu_cache_cache_controllable().
+>
+Ok, I'll rename it to ax45mp_cpu_cache_controllable().
+
+> > +     ax45mp_priv->l2cache_enabled = ax45mp_cpu_l2c_ctl_status() & AX45MP_L2_CACHE_CTL_CEN_MASK;
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int ax45mp_l2c_probe(struct platform_device *pdev)
+> > +{
+> > +     struct device_node *np = pdev->dev.of_node;
+> > +     int ret;
+> > +
+> > +     ax45mp_priv = devm_kzalloc(&pdev->dev, sizeof(*ax45mp_priv), GFP_KERNEL);
+> > +     if (!ax45mp_priv)
+> > +             return -ENOMEM;
+> > +
+> > +     ax45mp_priv->l2c_base = devm_of_iomap(&pdev->dev, pdev->dev.of_node, 0, NULL);
+> > +     if (!ax45mp_priv->l2c_base) {
+> > +             ret = -ENOMEM;
+> > +             goto l2c_err;
+> > +     }
+> > +
+> > +     ret = ax45mp_configure_l2_cache(np);
+> > +     if (ret)
+> > +             goto l2c_err;
+> > +
+> > +     ret = ax45mp_configure_pma_regions(np);
+> > +     if (ret)
+> > +             goto l2c_err;
+> > +
+> > +     static_branch_disable(&ax45mp_l2c_configured);
+> > +
+> > +     return 0;
+> > +
+> > +l2c_err:
+> > +     devm_kfree(&pdev->dev, ax45mp_priv);
+> > +     ax45mp_priv = NULL;
+> > +     return ret;
+> > +}
+>
+> > diff --git a/drivers/soc/renesas/rzfive/ax45mp_sbi.h b/drivers/soc/renesas/rzfive/ax45mp_sbi.h
+> > new file mode 100644
+> > index 000000000000..1604874954d0
+> > --- /dev/null
+> > +++ b/drivers/soc/renesas/rzfive/ax45mp_sbi.h
+> > @@ -0,0 +1,29 @@
+> > +/* SPDX-License-Identifier: GPL-2.0+ */
+> > +
+> > +#ifndef __AX45MP_SBI_H
+> > +#define __AX45MP_SBI_H
+> > +
+> > +#define SBI_EXT_ANDES                0x0900031E
+> > +
+> > +enum ax45mp_sbi_ext_fid {
+> > +     AX45MP_SBI_EXT_GET_MCACHE_CTL_STATUS = 0,
+>
+> Is that zero not implied?
+>
+I had a feeling we always had to explicitly specify in the Linux
+coding standard.
+
+Cheers,
+Prabhakar
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
