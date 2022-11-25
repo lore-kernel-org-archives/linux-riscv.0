@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22327C43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1D0C43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d8qQXodyEjYbg89VZfKANtKwuH73l2JWaxzPaEnWwFg=; b=xHlsT368WOVvN1
-	eVnF6M9cp2wJ6/O+5AropqX+fneYJMMIvWCbf5Ck8g1cLVwlOJ4LwXtRTaNuxmyV66Wocz8VnJspg
-	Ha9BJfSIDWNeufUb1BHPN9LqS7rSXK9lFhXDk7UZ+RE7Ehufh+WrGM3gYLpOxzwJltMunDkn5yFcL
-	sbWIX9IkcRiXm4Viv4mZD7SohAVyBzzVv36+qU1olMqG7Dep5auJTIgciXp5pzOrVhSJ45i70lXqW
-	qT8r8wPY4qgzsqGI6cWVvLWs13KhNEeDxGq0MgW+kxZZgSGm/878M6q/B9L/yD5ycJLWr/otas0lw
-	2jm22qWjQEYb+gJbwtvg==;
+	List-Owner; bh=Eosdq9gm+XU8h/DPllX+gmjj4xhAXhjiIqtLh6AFWis=; b=SZHE6N5wQzO2pu
+	26jJxd/axlp3u0r1IIAVv0jDRbFmyU1G0rZjwSqPcExXE5hM+3ekDxU09st9uWHKDIELooxzu/stc
+	i/OAqMPYKJaButL3HKm7c0MgN6YJtn4lYcRp/G9oRKv3B1ivzxVxuUCyeaMb21LGshaYlWGgykVBj
+	I7AZ8rSWJVLeo7OHjm8Rpo/2aX1lp/NZQu3LRc/ACaxLE/rcg7cqtOVokSM5MQR+uibAfpdKEKY0m
+	1nSL+q5x2WlP2mZhr0oBvYRVt+/oU2jBpWQdUd9eddJqwbPGF+z8DNgWd9qY87cm1wrl/hduTKlNm
+	jzPIau6RsJfIsR2mQokQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiWE-002ycR-0V; Fri, 25 Nov 2022 23:54:06 +0000
+	id 1oyiXF-002zAq-BA; Fri, 25 Nov 2022 23:55:09 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiPe-002v0V-9j; Fri, 25 Nov 2022 23:47:19 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailout.nyi.internal (Postfix) with ESMTP id A2CDE5C00FF;
-	Fri, 25 Nov 2022 18:47:17 -0500 (EST)
+	id 1oyiPf-002v1a-Op; Fri, 25 Nov 2022 23:47:21 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id 2D83A5C00FB;
+	Fri, 25 Nov 2022 18:47:19 -0500 (EST)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute4.internal (MEProxy); Fri, 25 Nov 2022 18:47:17 -0500
+  by compute1.internal (MEProxy); Fri, 25 Nov 2022 18:47:19 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1669420037; x=1669506437; bh=jW
-	7hMrs2yRGXm4ZrKeCsDCSPx2KNwLZpuisfRrm55zw=; b=OeuzKKVNueXBL9qRWe
-	xkukNPLU1E8j9LIRjH5AitYJgKpXdYIZ/4KJF6Ee59NoB1XLhVJD+IZ8hRjNuG2m
-	TWPODTp6GwClWvP8V/BVrBFva9kAOyp1+lJJL5xRGcfbk6c8ga/haW0kU9PVNEB+
-	Kx3xrvkF93GKAY3PAN7L52BOPNwcCdJs/OBVp000tcUasdt5LIp2QL9vUiEqi93R
-	fYiYhe0O2Wiu4f6nAZ3nE08ia0Lon3OCt0LjwqIrskNL9HNxdyz3f9JWS4D5+QVR
-	uSJwDeXxQVtd2whXjxcWLA1AjrLw6r5Y1LNJzEKY103Q8i3lX7yb4j57yNsTP7TR
-	/0gw==
+	:subject:subject:to:to; s=fm2; t=1669420039; x=1669506439; bh=V6
+	MbhYfVD6c6BFLlGZgGaEzDFxsQdBBvIonrpxOU5Qg=; b=koo8/vrroIQVqYzhBI
+	rUrRwJV9sFPs6v4eSOvU7lLJ4GLK0O2cub1nIJz8BWubb9G6bhAIKWvI+lwKBSa7
+	DNBDiyi8t63u6QMFaWf1YDHxJvuXeEC++LkhmPlMwXzexaH1zILo7KTL5raTtefg
+	3rfH+xGjK/qdv1QyPA4amXQZeKvStOlO59VmMlHEX/a6UuEdbJz2oC1wwCbXpzXx
+	kb0xioVke0MyJGHA3kxIz3LjI4hF4FSkbQIVOZejUqxg67TqbW+2Vjd/YWDYHCgd
+	tkU4WB3ss86B421pfRrP7STIlf1oRuwqFNdLiHK5b2q5ygpS4Q1QMVCDYhZU/I21
+	UeRQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1669420037; x=1669506437; bh=jW7hMrs2yRGXm
-	4ZrKeCsDCSPx2KNwLZpuisfRrm55zw=; b=UU5loxuNG/twZMBBUxC111manfA76
-	MGyVRpu7EOUngJRiJePYXZNA0z5lrPHqukJUn94BySc5GKIW0QYJUrPRRo4M6Uyr
-	buKnSz2Fjvk1cIGeIwloYTTJ5yixyVGFeW9cbAU7B6pA3Odtk0MD6nUOn7WLwY+N
-	URZ2bDUsjjcoqEUUKIq2W6jpb5Er5VzUOa5qpBuATjxr74Nslu+OmFkzgvqLO3Tm
-	OEY/JUVvp2pUeSqXv6tCeI518ruk402gC3oHf2/CSIpep1RahrWlDqrw4vGbPk0T
-	imQjo2/bjXD312MSRMy54/L+LmXu8Hb+r2q2dTUv7jGgZTJrINA/EqeiQ==
-X-ME-Sender: <xms:BVSBY8oniJrbjUlpcGGJBsUo8xJZhy7nj5hYzK6Wm0yuO--KCSg5Ng>
-    <xme:BVSBYyqJ5kH4kaB6OO1uYV0u8aVaIcN_59Ydc9c1AoO-LV8fuhqH9xynIgRI8T-Aj
-    LCu5p-3KGMoL3z4TQ>
-X-ME-Received: <xmr:BVSBYxN7fASOmEDti3aGwY95LuZXLmePt0_OlMn9FVH2fVQ5v6SV87OLR-8nkZaZVc9WNL_82y1DaJSW3X3gzwJoORi8EpRhz_3Xjsc8lgjdPZKLk_1w9214iUSmOVQLsBelmQ>
+	:x-sasl-enc; s=fm1; t=1669420039; x=1669506439; bh=V6MbhYfVD6c6B
+	FLlGZgGaEzDFxsQdBBvIonrpxOU5Qg=; b=idB09pC3M92di/zk5tX9bwUx2Q2qh
+	EsHoyCcbfr3JzpEAsny/ORy5vn8+JlhytVQvkfrUocOAOE1RFSqsoTx/JRi6zxWO
+	4bRQaPKBtky9MIMGVvtS7Nt/98eA/fsxAHQvOBUzkBui6eurZTRUjdvocYERrlPZ
+	Y4WvKTmRCRbPV4kqwjc8uxgYQTK9e3YuCiD+t3Y1Unxc5q1F29z8XMJP+5oqJJeR
+	/VBK4JWYsj/1riQUmJxrc7gMtHoV7AHzk/oyUjdloN6UZPZHN7HmDtBshScDLqDy
+	l0uuyRwpj4LWmFYNYvd5jYBWoYDgud53QanT/o6b+vsdfkrs+rtJ65RrQ==
+X-ME-Sender: <xms:B1SBY6C8KqXA0dE9hUvfpPDH5oyCI68qZZU7BFfF8NG-eYNgYaEX_g>
+    <xme:B1SBY0gsIKSc9dtSE4Zel9-ekjQnwtboWp6CG6rAEw7K8GxODvUjAVJyrkOPX2FBo
+    gCyxW0oRuBS-lqC5A>
+X-ME-Received: <xmr:B1SBY9niOwOisXgxkTBGDXdBFKcb6lGsfXar9Ss84RiCV3PHnpWYLime3Xut7j2a30p92qSCULLg8029NSnzHAf2xr6OUVHXnG4wvBwdtglFdC7JfS1lEeUt2oXE2yo2MSJ1nA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
@@ -64,13 +64,13 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdote
     frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
     feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
     hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:BVSBYz7l-vNlG8FPvZN9W0ImRwnB_ciCE3rczOs0l3RsEuiDDm3-Cg>
-    <xmx:BVSBY74TNaEc-kw2TmA-b1vZoKZwOJFzI0OcCwfMBHRvgyL7-jsXCQ>
-    <xmx:BVSBYzi4ZMsmU8Pxh8QwstW8F63Nb4Hi7KauWwqB0MaXXSzUPacc0g>
-    <xmx:BVSBYyJWiVwGJNTMpmR_-ZEV_9RjiJp2gk25ly3LFqU_TbCdmP8Snw>
+X-ME-Proxy: <xmx:B1SBY4z4PcHDCQrP_3iT4XxzxrK_CZyAVr6OAmF_kW1NpCGj6GMxnw>
+    <xmx:B1SBY_RfBLpY3zoVhUB-qKrsdglu1LUE6JPN-wW6lbKjPSB4zltAbQ>
+    <xmx:B1SBYzav6K8W1tcOclM2kWBm7itcpd1eG1MC7OzfJ8vhH3rpOx1jWg>
+    <xmx:B1SBY0DgGAvA9S2pyZ0ti9TH0O_dk9qTqZmTV2w1phcOh0nrIv_pYw>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Nov 2022 18:47:16 -0500 (EST)
+ 25 Nov 2022 18:47:17 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -97,16 +97,17 @@ Cc: devicetree@vger.kernel.org,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Stanislav Jakubek <stano.jakubek@gmail.com>
-Subject: [PATCH v2 11/12] riscv: Add the Allwinner SoC family Kconfig option
-Date: Fri, 25 Nov 2022 17:46:55 -0600
-Message-Id: <20221125234656.47306-12-samuel@sholland.org>
+Subject: [PATCH v2 12/12] riscv: defconfig: Enable the Allwinner D1 platform and drivers
+Date: Fri, 25 Nov 2022 17:46:56 -0600
+Message-Id: <20221125234656.47306-13-samuel@sholland.org>
 X-Mailer: git-send-email 2.37.4
 In-Reply-To: <20221125234656.47306-1-samuel@sholland.org>
 References: <20221125234656.47306-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_154718_445921_D139644A 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20221125_154719_896275_67EB4978 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,52 +124,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allwinner manufactures the sunxi family of application processors. This
-includes the "sun8i" series of ARMv7 SoCs, the "sun50i" series of ARMv8
-SoCs, and now the "sun20i" series of 64-bit RISC-V SoCs.
+Now that several D1-based boards are supported, enable the platform in
+our defconfig. Build in the drivers which are necessary to boot, such as
+the pinctrl, MMC, RTC (which provides critical clocks), SPI (for flash),
+and watchdog (which may be left enabled by the bootloader). Other common
+onboard peripherals are enabled as modules.
 
-The first SoC in the sun20i series is D1, containing a single T-HEAD
-C906 core. D1s is a low-pin-count variant of D1 with co-packaged DRAM.
-
-Most peripherals are shared across the entire chip family. In fact, the
-ARMv7 T113 SoC is pin-compatible and almost entirely register-compatible
-with the D1s.
-
-This means many existing device drivers can be reused. To facilitate
-this reuse, name the symbol ARCH_SUNXI, since that is what the existing
-drivers have as their dependency.
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
-Changes in v2:
- - Sort Kconfig as if we had done s/SOC_/ARCH_/ for future-proofing
+(no changes since v1)
 
- arch/riscv/Kconfig.socs | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/riscv/configs/defconfig | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 69774bb362d6..4c1dc2ca11f9 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -26,6 +26,15 @@ config SOC_STARFIVE
- 	help
- 	  This enables support for StarFive SoC platform hardware.
- 
-+config ARCH_SUNXI
-+	bool "Allwinner sun20i SoCs"
-+	select ERRATA_THEAD if MMU && !XIP_KERNEL
-+	select SIFIVE_PLIC
-+	select SUN4I_TIMER
-+	help
-+	  This enables support for Allwinner sun20i platform hardware,
-+	  including boards based on the D1 and D1s SoCs.
-+
- config SOC_VIRT
- 	bool "QEMU Virt Machine"
- 	select CLINT_TIMER if RISCV_M_MODE
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 05fd5fcf24f9..8dfe0550c0e6 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -25,6 +25,7 @@ CONFIG_BLK_DEV_INITRD=y
+ CONFIG_EXPERT=y
+ # CONFIG_SYSFS_SYSCALL is not set
+ CONFIG_PROFILING=y
++CONFIG_ARCH_SUNXI=y
+ CONFIG_SOC_MICROCHIP_POLARFIRE=y
+ CONFIG_SOC_SIFIVE=y
+ CONFIG_SOC_STARFIVE=y
+@@ -118,22 +119,31 @@ CONFIG_VIRTIO_NET=y
+ CONFIG_MACB=y
+ CONFIG_E1000E=y
+ CONFIG_R8169=y
++CONFIG_STMMAC_ETH=m
+ CONFIG_MICROSEMI_PHY=y
+ CONFIG_INPUT_MOUSEDEV=y
++CONFIG_KEYBOARD_SUN4I_LRADC=m
+ CONFIG_SERIAL_8250=y
+ CONFIG_SERIAL_8250_CONSOLE=y
++CONFIG_SERIAL_8250_DW=y
+ CONFIG_SERIAL_OF_PLATFORM=y
+ CONFIG_VIRTIO_CONSOLE=y
+ CONFIG_HW_RANDOM=y
+ CONFIG_HW_RANDOM_VIRTIO=y
++CONFIG_I2C_MV64XXX=m
+ CONFIG_SPI=y
+ CONFIG_SPI_SIFIVE=y
++CONFIG_SPI_SUN6I=y
+ # CONFIG_PTP_1588_CLOCK is not set
+-CONFIG_GPIOLIB=y
+ CONFIG_GPIO_SIFIVE=y
++CONFIG_WATCHDOG=y
++CONFIG_SUNXI_WATCHDOG=y
++CONFIG_REGULATOR=y
++CONFIG_REGULATOR_FIXED_VOLTAGE=y
+ CONFIG_DRM=m
+ CONFIG_DRM_RADEON=m
+ CONFIG_DRM_NOUVEAU=m
++CONFIG_DRM_SUN4I=m
+ CONFIG_DRM_VIRTIO_GPU=m
+ CONFIG_FB=y
+ CONFIG_FRAMEBUFFER_CONSOLE=y
+@@ -146,19 +156,30 @@ CONFIG_USB_OHCI_HCD=y
+ CONFIG_USB_OHCI_HCD_PLATFORM=y
+ CONFIG_USB_STORAGE=y
+ CONFIG_USB_UAS=y
++CONFIG_USB_MUSB_HDRC=m
++CONFIG_USB_MUSB_SUNXI=m
++CONFIG_NOP_USB_XCEIV=m
+ CONFIG_MMC=y
+ CONFIG_MMC_SDHCI=y
+ CONFIG_MMC_SDHCI_PLTFM=y
+ CONFIG_MMC_SDHCI_CADENCE=y
+ CONFIG_MMC_SPI=y
++CONFIG_MMC_SUNXI=y
+ CONFIG_RTC_CLASS=y
++CONFIG_RTC_DRV_SUN6I=y
++CONFIG_DMADEVICES=y
++CONFIG_DMA_SUN6I=m
+ CONFIG_VIRTIO_PCI=y
+ CONFIG_VIRTIO_BALLOON=y
+ CONFIG_VIRTIO_INPUT=y
+ CONFIG_VIRTIO_MMIO=y
++CONFIG_SUN8I_DE2_CCU=m
++CONFIG_SUN50I_IOMMU=y
+ CONFIG_RPMSG_CHAR=y
+ CONFIG_RPMSG_CTRL=y
+ CONFIG_RPMSG_VIRTIO=y
++CONFIG_PHY_SUN4I_USB=m
++CONFIG_NVMEM_SUNXI_SID=y
+ CONFIG_EXT4_FS=y
+ CONFIG_EXT4_FS_POSIX_ACL=y
+ CONFIG_EXT4_FS_SECURITY=y
 -- 
 2.37.4
 
