@@ -4,77 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E55C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 13:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80AA0C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 14:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pklHs/jjubxJ0wN8cqCpgzSieHI6xOS6rw7keQLZhBU=; b=ple+jM77VS960d
-	ziShoZqRzxdNhKZICbN/Wmh8bU+fFSIEuHK9kKlDPH/VPf4ZDB1OcCNf2KKjpCgq0g0NhFoCExMDE
-	ojs12WOyaNpwwvX8BFIZk7YOhDH3rNBLXArD+1CI+p2P75tgcnPXZx1johw5NAkwwolvOPEwPZXhU
-	0UZWtbgV25xF3PWQRqIpAVoPfu41YmW8e94ZhfWxRACeGNjTVB/Sz+KxM5MshDKNw0dlO3gsT3GBN
-	4iLF9pmZllqS90i0CjDLgRd1oKlycqQCqnTm+sIn+bU6E4IfqtP63TUgwzcCELpVojOm+15clfzZJ
-	nxaPdV7B1LCLmOx8T3Gg==;
+	List-Owner; bh=hgu2M7nyUcKbJChHHA+qQKZ10a41fI+s0Sme0vYsMfs=; b=WRXGgUmFAgSSTE
+	llbvw2B3n3RyOcBHfn8IKk2VzPepMv7DqvSvWwlFN1JRNkUFVgOTw2urQ0qDa1qesREilDb6kSCQO
+	pXxXKdSENJDfOCUrXuJPDCy3l3Aq0orEcYGuKujfEc292Pub1u83I5uQW1i5ebtmWVHtmZ5gOnzOz
+	PJ9XgDe6auapOlyp+a6/unWhsLrmlDHayvMMbRVrrzhxIF4wrVrcou2h33MyNDPyAXK8qOt07uT2+
+	SSCKqrY7bW6+xaMLgS/Q8boUjc91NbFgzsK59S8xJ6LpmkBPTJx2uyVXGcsY8YlOmD9ryVsqijXmK
+	egN82YILVJgjP2pjLrGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZ4p-00Gn5u-F8; Fri, 25 Nov 2022 13:49:11 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1oyZaW-00GzSG-M4; Fri, 25 Nov 2022 14:21:56 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyZ4m-00Gn2b-SI
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 13:49:10 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id f18so10488765ejz.5
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 05:49:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=haJ0+Zw47DZVHxADOM5rnvXmfvM6Vo6rvKK2ck9USDw=;
-        b=sFFdm5VLwq5bMwcixBi8KzpcffeWlzb8cFahuwLkIMYirXdu9PWyHn5ZG8NZGPiOoA
-         eGf+nJ4paoV33Or+npRq89akv5+bRI8dnHCRc0ON/19qKCmjMgECiFzM5oUMkblw64HX
-         d8vP5vt+NQLYhYA2WdY3CDR/RgZgkpPUeW6zejf/f5+VJMdJ+tdAv98gk+ebCbffB/8E
-         jDDfaa/jqYJP63vpooT6DRkUHYoT2K3lmAddRYm+xAj2z4+lACYH+7iO8+n2KFSV98s8
-         jnvTp7h7Y6J1GyAzHuVPUI9LN0DNKiyECaqUeq0Pn5ar/Uxhb9ICrae1zxn4pAPrlnG2
-         NQ9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=haJ0+Zw47DZVHxADOM5rnvXmfvM6Vo6rvKK2ck9USDw=;
-        b=4TTKMNqSVZHDC1khXff6epukOqhO/Bc944w7122xkaODLkC1RYH4edxTP9FcV0hGSV
-         o7csDIqp2+f0kV0GlyijF1BBJL1OHAvaZIf+h/VqSKVPkl2QqkxiEapQvqz88d8tNJQI
-         8Ib3LHpoxVg81b2jR23Zor9sJGUTsp4Yhr/bVV/acQYQLhCGuP1zvfKb1AE7JRVFTXEj
-         aVe54UW1YmmdEVGIbDy4GqxuU64jMh2whCYG0UhmzhsUBWshHv7G5BzxFAYnbmmRlzEa
-         vI0PLQjYR1hn2rAh0xAOr2ZdsB7GPIqVGDGNb69n3kx5pf4MowUSRK5opIfMiolcoFUa
-         ykrg==
-X-Gm-Message-State: ANoB5pltE6KxHTOChYkxRuOToKU+zCA/IsHYGBhml4aBT+7+T1nAr+tn
-	cZp7bS+9/lyZh2YXMXJXTwyoP88SNxjaQvtvWgBeYw==
-X-Google-Smtp-Source: AA0mqf4TEIj1Wj5VNktFmonDfC53U8wK+8q62VC+/rbuEe3GSX7/nwkJ7AratjgzcKPA6MzRLmMCtimLoQK6v5EOfvs=
-X-Received: by 2002:a17:906:6dd5:b0:78d:a633:b55 with SMTP id
- j21-20020a1709066dd500b0078da6330b55mr33442611ejt.106.1669384141244; Fri, 25
- Nov 2022 05:49:01 -0800 (PST)
+	id 1oyZaT-00GzNe-0T
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 14:21:55 +0000
+Received: (Authenticated sender: alex@ghiti.fr)
+	by mail.gandi.net (Postfix) with ESMTPSA id ACE501C0003;
+	Fri, 25 Nov 2022 14:21:38 +0000 (UTC)
+Message-ID: <8dab35cd-070b-519f-b435-c2f01287cf53@ghiti.fr>
+Date: Fri, 25 Nov 2022 15:21:38 +0100
 MIME-Version: 1.0
-References: <20221125112105.427045-1-apatel@ventanamicro.com>
- <20221125112105.427045-3-apatel@ventanamicro.com> <Y4C+kwLdMYkkrm/2@wendy>
-In-Reply-To: <Y4C+kwLdMYkkrm/2@wendy>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 25 Nov 2022 19:18:48 +0530
-Message-ID: <CAAhSdy2XkW-3NsKiCFhz4MYG3U-=CF1ysN8hxQK0SGaUgAAznA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] dt-bindings: timer: Add bindings for the RISC-V
- timer device
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.4.2
+Subject: Re: [PATCH v7 1/3] riscv: mm: modify pte format for Svnapot
+To: panqinglin2020@iscas.ac.cn, palmer@dabbelt.com,
+ linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org, xuyinan@ict.ac.cn, conor@kernel.org,
+ ajones@ventanamicro.com
+References: <20221119112242.3593646-1-panqinglin2020@iscas.ac.cn>
+ <20221119112242.3593646-2-panqinglin2020@iscas.ac.cn>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20221119112242.3593646-2-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_054908_935190_BC6ABAA2 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20221125_062153_483228_772B90E8 
+X-CRM114-Status: GOOD (  28.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,113 +57,235 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 6:40 PM Conor Dooley <conor.dooley@microchip.com> wrote:
->
-> Hey Anup,
->
-> For the future, could you please CC me on all patches in a series that I
-> have previously reviewed?
+Hi Qinglin,
 
-Okay.
-
+On 11/19/22 12:22, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 >
-> On Fri, Nov 25, 2022 at 04:51:04PM +0530, Anup Patel wrote:
-> > We add DT bindings for a separate RISC-V timer DT node which can
-> > be used to describe implementation specific behaviour (such as
-> > timer interrupt not triggered during non-retentive suspend).
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
-> >  1 file changed, 52 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/timer/riscv,timer.yaml b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
-> > new file mode 100644
-> > index 000000000000..cf53dfff90bc
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
-> > @@ -0,0 +1,52 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/timer/riscv,timer.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: RISC-V timer
-> > +
-> > +maintainers:
-> > +  - Anup Patel <anup@brainfault.org>
-> > +
-> > +description: |+
-> > +  RISC-V platforms always have a RISC-V timer device for the supervisor-mode
-> > +  based on the time CSR defined by the RISC-V privileged specification. The
-> > +  timer interrupts of this device are configured using the RISC-V SBI Time
-> > +  extension or the RISC-V Sstc extension.
-> > +
-> > +  The clock frequency of RISC-V timer device is specified via the
-> > +  "timebase-frequency" DT property of "/cpus" DT node which is described
-> > +  in Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - riscv,timer
-> > +
-> > +  interrupts-extended:
-> > +    minItems: 1
-> > +    maxItems: 4096   # Should be enough?
-> > +
-> > +  riscv,timer-cant-wake-cpu:
-> > +    type: boolean
-> > +    description:
-> > +      If present, the timer interrupt can't wake up the CPU from
-> > +      suspend/idle state.
+> Add one static key to enable/disable svnapot support, enable this static
+> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+> option is set. It will influence the behavior of has_svnapot. All code
+> dependent on svnapot should make sure that has_svnapot return true firstly.
 >
-> I'm really not sure about this... I would be inclined to think that if
-> someone does not specify then we should assume that they took the
-> scroogiest view of the spec and so do not get events during suspend.
+> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+> 64KB napot size is supported in spec, so some macros has only 64KB version.
 >
-> I suppose you could then argue that their DT is wrong & it's their fault
-> though. Plus the existing platforms behave this way & we avoid having to
-> retrofit stuff here.
-
-Yes, the DT property is defined to keep things working for
-existing platforms.
-
-IMO, people should always read the DT bindings document at time of
-creating DT for their platform. If there are queries then they can always
-shoot email to the maintainers on LKML.
-
+> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 >
-> > +
-> > +additionalProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - interrupts-extended
-> > +
-> > +examples:
-> > +  - |
-> > +    timer {
-> > +      compatible = "riscv,timer";
-> > +      interrupts-extended = <&cpu1intc 5>,
-> > +                            <&cpu2intc 5>,
-> > +                            <&cpu3intc 5>,
-> > +                            <&cpu4intc 5>;
-> > +    };
-> > +...
-> > --
-> > 2.34.1
-> >
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7cd981f96f48..31f9a5a160a0 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -394,6 +394,20 @@ config RISCV_ISA_C
+>   
+>   	  If you don't know what to do here, say Y.
+>   
+> +config RISCV_ISA_SVNAPOT
+> +	bool "SVNAPOT extension support"
+> +	depends on 64BIT && MMU
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	  Allow kernel to detect SVNAPOT ISA-extension dynamically in boot time
+> +	  and enable its usage.
+> +
+> +	  SVNAPOT extension helps to mark contiguous PTEs as a range
+> +	  of contiguous virtual-to-physical translations, with a naturally
+> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+> +	  size.
+> +
+>   config RISCV_ISA_SVPBMT
+>   	bool "SVPBMT extension support"
+>   	depends on 64BIT && MMU
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b22525290073..15cda8f131aa 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+>    */
+>   enum riscv_isa_ext_id {
+>   	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> +	RISCV_ISA_EXT_SVNAPOT,
+>   	RISCV_ISA_EXT_SVPBMT,
+>   	RISCV_ISA_EXT_ZICBOM,
+>   	RISCV_ISA_EXT_ZIHINTPAUSE,
+> @@ -69,6 +70,7 @@ enum riscv_isa_ext_id {
+>    */
+>   enum riscv_isa_ext_key {
+>   	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+> +	RISCV_ISA_EXT_KEY_SVNAPOT,
+>   	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>   	RISCV_ISA_EXT_KEY_SVINVAL,
+>   	RISCV_ISA_EXT_KEY_MAX,
+> @@ -90,6 +92,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+>   		return RISCV_ISA_EXT_KEY_FPU;
+>   	case RISCV_ISA_EXT_d:
+>   		return RISCV_ISA_EXT_KEY_FPU;
+> +	case RISCV_ISA_EXT_SVNAPOT:
+> +		return RISCV_ISA_EXT_KEY_SVNAPOT;
+>   	case RISCV_ISA_EXT_ZIHINTPAUSE:
+>   		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>   	case RISCV_ISA_EXT_SVINVAL:
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index ac70b0fd9a9a..349fad5e35de 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -16,11 +16,6 @@
+>   #define PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
+>   #define PAGE_MASK	(~(PAGE_SIZE - 1))
+>   
+> -#ifdef CONFIG_64BIT
+> -#define HUGE_MAX_HSTATE		2
+> -#else
+> -#define HUGE_MAX_HSTATE		1
 
-Regards,
-Anup
+
+It looks like the definition for the 32-bit case disappeared in your 
+patchset.
+
+
+> -#endif
+>   #define HPAGE_SHIFT		PMD_SHIFT
+>   #define HPAGE_SIZE		(_AC(1, UL) << HPAGE_SHIFT)
+>   #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index dc42375c2357..598958cbda50 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -74,6 +74,40 @@ typedef struct {
+>    */
+>   #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>   
+> +/*
+> + * [63] Svnapot definitions:
+> + * 0 Svnapot disabled
+> + * 1 Svnapot enabled
+> + */
+> +#define _PAGE_NAPOT_SHIFT	63
+> +#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
+> +/*
+> + * Only 64KB (order 4) napot ptes supported.
+> + */
+> +#define NAPOT_CONT_ORDER_BASE 4
+> +enum napot_cont_order {
+> +	NAPOT_CONT64KB_ORDER = NAPOT_CONT_ORDER_BASE,
+> +	NAPOT_ORDER_MAX,
+> +};
+> +
+> +#define for_each_napot_order(order)						\
+> +	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++)
+> +#define for_each_napot_order_rev(order)						\
+> +	for (order = NAPOT_ORDER_MAX - 1;					\
+> +	     order >= NAPOT_CONT_ORDER_BASE; order--)
+> +#define napot_cont_order(val)	(__builtin_ctzl((val.pte >> _PAGE_PFN_SHIFT) << 1))
+
+
+Maybe nit but I would have added + 1 instead of shifting by 1 here, it 
+sounds clearer to me.
+
+
+> +
+> +#define napot_cont_shift(order)	((order) + PAGE_SHIFT)
+> +#define napot_cont_size(order)	BIT(napot_cont_shift(order))
+> +#define napot_cont_mask(order)	(napot_cont_size(order) - 1UL)
+> +#define napot_pte_num(order)	BIT(order)
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +#define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
+> +#else
+> +#define HUGE_MAX_HSTATE		2
+> +#endif
+> +
+>   /*
+>    * [62:61] Svpbmt Memory Type definitions:
+>    *
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index c61ae83aadee..5b8301586518 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -6,10 +6,12 @@
+>   #ifndef _ASM_RISCV_PGTABLE_H
+>   #define _ASM_RISCV_PGTABLE_H
+>   
+> +#include <linux/jump_label.h>
+>   #include <linux/mmzone.h>
+>   #include <linux/sizes.h>
+>   
+>   #include <asm/pgtable-bits.h>
+> +#include <asm/hwcap.h>
+>   
+>   #ifndef CONFIG_MMU
+>   #define KERNEL_LINK_ADDR	PAGE_OFFSET
+> @@ -264,10 +266,38 @@ static inline pte_t pud_pte(pud_t pud)
+>   	return __pte(pud_val(pud));
+>   }
+>   
+> +static __always_inline bool has_svnapot(void)
+> +{
+> +	return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVNAPOT]);
+> +}
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +
+> +static inline unsigned long pte_napot(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_NAPOT;
+> +}
+> +
+> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+> +{
+> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
+> +	unsigned long napot_bit = BIT(pos);
+> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+> +
+> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+> +}
+> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
+> +
+>   /* Yields the page frame number (PFN) of a page table entry */
+>   static inline unsigned long pte_pfn(pte_t pte)
+>   {
+> -	return __page_val_to_pfn(pte_val(pte));
+> +	unsigned long val  = pte_val(pte);
+> +	unsigned long res  = __page_val_to_pfn(val);
+> +
+> +	if (has_svnapot())
+> +		res = res & (res - (val >> _PAGE_NAPOT_SHIFT));
+> +
+> +	return res;
+>   }
+>   
+>   #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index bf9dd6764bad..88495f5fcafd 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -165,6 +165,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+>   	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>   	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>   	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>   	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>   	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>   	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 694267d1fe81..ad12fb5363c3 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -205,6 +205,7 @@ void __init riscv_fill_hwcap(void)
+>   				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>   				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+>   				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
+> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>   			}
+>   #undef SET_ISA_EXT_MAP
+>   		}
 
 _______________________________________________
 linux-riscv mailing list
