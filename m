@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D8DC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 07:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB6AC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 08:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dHhGZ3H5GWawwTzKNHTvcaYpzl5o5RvmHsNUcDjokMY=; b=ewZc2OnkTDm8TA
-	rXMk1by/vQlsH6uJtcjvdjAUlBFPEFwq6hniE+lBjsRslADitD1BobT80n5Ey3wLwZhuQoza54Cem
-	eDFbYa70tTCSoh7eY6zNdv25KDH/Ob0eQqWqCKILYDd8xA5cWcSvOw/lieVz6qIkGyQc2w+YqsMdd
-	LIIRiX8Pp/Pxiydnsj6kavZG49k5xYx3Cjzlk6oD8qaE4l1bqgIYuOQCUcqtMi3wCEsAIIolVFPK/
-	5qg6qZrGwdJky4U8pbXCmaPxOgXweIlR3LaKsQkB9mZWG0MjEFIXLcc7MgDA/XnwjtdjS/eKc9v1i
-	kAy2fBxs3CoZV89BB7ZA==;
+	List-Owner; bh=K5w5WfkjcYI+XLpPHXZn6YQw9HfeVjyEcK2+d52j3nY=; b=eA6X//DctLTkgo
+	VTiH4UixqXy8MCPf9AliUPYDGDvk+A5D4wVgmT+YZelH1dM0ehY4245Lt9TjA+wFu5X4FueSpM2u0
+	OuBvj4rgsSZzCe5yHQy/LEs0q+SEb2faOACzNmt7sDbZcoHTcb5ZkpPXFt6F1jm7H5R6XWAOkW+bK
+	v1dBcCF8yswXtuMd0x9VLw31eL9xU7aCC0Q3628stJbyDZFpqxFgsWo50qjYCFx3w9J7XrAhbAM/4
+	i3fWb0fZ3zBwr5ZX19MaenYm2gW162/CQxI3WxWYTOEPnFHnVgY27mmnw/npgDPLVAySF3o47q8YV
+	faubQAHyT9yEqv7RZuzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyTSw-00EE5W-Cs; Fri, 25 Nov 2022 07:49:42 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1oyTsd-00ERmk-Tl; Fri, 25 Nov 2022 08:16:15 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyTSt-00EE2T-OZ
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 07:49:41 +0000
-Received: by mail-ed1-x529.google.com with SMTP id z63so5309564ede.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Nov 2022 23:49:38 -0800 (PST)
+	id 1oyTsb-00ERkg-HO
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 08:16:15 +0000
+Received: by mail-lf1-x130.google.com with SMTP id f13so5743850lfa.6
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 00:16:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pxXWpp6Ba+0+cy6kemnlOL8iJBO6oeAGebdcNl90rq8=;
-        b=AfVdRI6SMjU6cAgADMlddq2dMEX7nSgGt8uBFWn8jAhfYDgltY9pN2Lc//jK9GZMdQ
-         F6oJV3JdgJG+Tnb+n18ZMBLyTEsscnhh+qfpXI/gNm7rspdSi2HB9hAf8jrSuSjtVrSj
-         glIp0GxMq8ho/25jP40O59jqOjJ68eQ17prga7YDkxUH38ztakhhYxm9ulU74KfpwnvT
-         oJVYuGjhIl84WQw0UkGh+1wg1+M/4Du5wxIP1lS919gC0jNuhFmw3gPSw2bStopz+ZSu
-         Xf9RIjKfh0AQJOPo//n2n9ihxbbByuUpo1iqWCML2gwedraVvSCXjfbOB6BqFotKEg7V
-         z+0w==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=N+VqwQA0ACSOHUN95caT7MOy4QsSBG574lC0jyV4pT8=;
+        b=m0mzFThbUlv8y9i5L6R9m6xTXf/K9T8scg4/1yMpDP0SG8fMA3utdjWye6zPasnDsG
+         PvA4m5+sfvYm59Tyk0G3lUOd2YtTyRG8hKeYbQj+M19+OFSjbvhm5yT4nRTEb6dYXcYD
+         sihPMgJn2RNfHzv4eUiZGZDDx77+IajNNLSL8LFVw8mkMWPsH2Izq+5lmSrFLS7+06AQ
+         jZksOItOh5A7nngow+DFdTLG2YbJZg61yhnNlGeEBylpy7GpJSxHsAs9mcwZl27O5R0m
+         dABAdbOk0WtBjXmiqYt+E5xCJDlMtmDJr1JpYXm5Dm5lzS+r7ghQgiyrXl1ap+3EJP3H
+         jFPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pxXWpp6Ba+0+cy6kemnlOL8iJBO6oeAGebdcNl90rq8=;
-        b=h54+HI15ytVVnUl6J95dnl8tjqlm0eG77ykc47nBVTVn5djD/+9Vsta7NlML0wInC1
-         Emp9r7KvytzplgXLXO2YU4UwhEbDz5o4O1CBAHU5I13kgdwxXpSIOCGF7YDX6ege/jXt
-         1qsmMav2nLhg0YB+pYw3e7Gii+lNgCAg6KCatyMkLBdr6igrtDzKR5teZ7TMoNN7Qt1p
-         xYQtj9Dmz6v1knA13qgSMZrM5tpyIVfU2wLmbd/EsR7UvoLTBPD83lJ190M+XVvD9nkI
-         vGjyUyX1eYuM5ZgVLSr+aZTqgA6iSxmDBWVx89dQ1vswWz23VJovMKQREI1VLV2G4UAh
-         E78w==
-X-Gm-Message-State: ANoB5pm/Bi7NxSBKsozmggX2OCxa74V4Eqw1NvDO5KrP0C8bGmXH1rYN
-	oyFDTBoGpf/aaRtZDGzkCxS0Uw==
-X-Google-Smtp-Source: AA0mqf5V+5r/Zi3AcAjDjkOWjb1cCnYypCb2n9V/YMJIX6n/fuTi2G03zCTfD/Hk2WQA4OPA0/3Gog==
-X-Received: by 2002:aa7:c754:0:b0:469:1ddf:9251 with SMTP id c20-20020aa7c754000000b004691ddf9251mr29057724eds.110.1669362576344;
-        Thu, 24 Nov 2022 23:49:36 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id pk3-20020a170906d7a300b0078d38cda2b1sm1261517ejb.202.2022.11.24.23.49.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Nov 2022 23:49:35 -0800 (PST)
-Date: Fri, 25 Nov 2022 08:49:33 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, christoph.muellner@vrull.eu,
-	prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu,
-	emil.renner.berthing@canonical.com
-Subject: Re: [PATCH 7/7] RISC-V: add zbb support to string functions
-Message-ID: <20221125074933.2xuyaeuk5kmi5miw@kamzik>
-References: <20221110164924.529386-1-heiko@sntech.de>
- <14728581.RDIVbhacDa@diego>
- <Y3/xGhkbf6qEr+5r@spud>
- <3259590.VLH7GnMWUR@phil>
+        bh=N+VqwQA0ACSOHUN95caT7MOy4QsSBG574lC0jyV4pT8=;
+        b=ToQbWVcUnZse0f3/lJwRr0UwBP5LQbfmabK07+6NkySXeztLdvRqkEc3nOb3vDQmme
+         IeSB+IEhWd2RMoftqApb+tly+aRD+F36aZtFVs+p1vtRCLg6KV0ibOUaZ2y2MfVm8TmF
+         9dae7GDu89UWzRez22j5yilSedL/YVsXHD0r5jmnnpiY5LauU+2nRgLf94wCvHZQxXCg
+         wMu/2ZXtis99Gxgc3sp1GUZyVf/heLKEyPOrad3lH0gBqnpqDGt7c7hu2SaVn20UEtYk
+         bWXNaayh5TdwgRaCz5GF1MoIOj8wM2nl/18bafhU0gm3ri0jvJAFqbbRYyvBVh9wmtx8
+         cSMA==
+X-Gm-Message-State: ANoB5plJl0IzJuNAIWy7y2C2uQEIgIsgoqHZGuj24eBMw08KCnvMsAX8
+	YMD6EFzHz0OUOoWOqrD7M1ljyQ==
+X-Google-Smtp-Source: AA0mqf4iaewyz6Uvj5Y0H3Db+e4I6RPK2U+Ekg8QFcNrOfYlB2u1eoC7Fz9f7pu7oXoec1WtyRkI3w==
+X-Received: by 2002:ac2:5f6c:0:b0:4a2:bca5:76bc with SMTP id c12-20020ac25f6c000000b004a2bca576bcmr6118153lfc.123.1669364171902;
+        Fri, 25 Nov 2022 00:16:11 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id m4-20020a056512014400b004aa543f3748sm41444lfo.130.2022.11.25.00.16.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Nov 2022 00:16:11 -0800 (PST)
+Message-ID: <70d1bfde-f57f-1741-08d3-23e362793595@linaro.org>
+Date: Fri, 25 Nov 2022 09:16:09 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3259590.VLH7GnMWUR@phil>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v4 6/7] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
+ binding documentation for L2 cache controller
+Content-Language: en-US
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+ Anup Patel <apatel@ventanamicro.com>, Andrew Jones
+ <ajones@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221124172207.153718-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221124_234939_839622_49184DA9 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20221125_001613_654866_83B31BD6 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +101,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 12:51:54AM +0100, Heiko Stuebner wrote:
-> Am Donnerstag, 24. November 2022, 23:32:58 CET schrieb Conor Dooley:
-> > On Thu, Nov 24, 2022 at 11:23:08PM +0100, Heiko St=FCbner wrote:
-...
-> > > > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > > > > index bf9dd6764bad..66ff36a57e20 100644
-> > > > > --- a/arch/riscv/kernel/cpu.c
-> > > > > +++ b/arch/riscv/kernel/cpu.c
-> > > > > @@ -166,6 +166,7 @@ static struct riscv_isa_ext_data isa_ext_arr[=
-] =3D {
-> > > > >  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> > > > >  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> > > > >  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> > > > > +	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-> > > > >  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> > > > >  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
-> > > > >  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> > > > =
+On 24/11/2022 18:22, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> 
+> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> describes the L2 cache block.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> RFC v3 -> v4
+> * Dropped l2 cache configuration parameters
+> * s/larger/large
+> * Added minItems/maxItems for andestech,pma-regions
+> ---
+>  .../cache/andestech,ax45mp-cache.yaml         | 93 +++++++++++++++++++
+>  .../cache/andestech,ax45mp-cache.h            | 38 ++++++++
+>  2 files changed, 131 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+>  create mode 100644 include/dt-bindings/cache/andestech,ax45mp-cache.h
+> 
+> diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> new file mode 100644
+> index 000000000000..bf255b177d0a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> @@ -0,0 +1,93 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (C) 2022 Renesas Electronics Corp.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Andestech AX45MP L2 Cache Controller
+> +
+> +maintainers:
+> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> +
+> +description:
+> +  A level-2 cache (L2C) is used to improve the system performance by providing
+> +  a large amount of cache line entries and reasonable access delays. The L2C
+> +  is shared between cores, and a non-inclusive non-exclusive policy is used.
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - andestech,ax45mp-cache
+> +
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: andestech,ax45mp-cache
+> +      - const: cache
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  cache-line-size:
+> +    const: 64
+> +
+> +  cache-level:
+> +    const: 2
+> +
+> +  cache-sets:
+> +    const: 1024
+> +
+> +  cache-size:
+> +    enum: [131072, 262144, 524288, 1048576, 2097152]
+> +
+> +  cache-unified: true
+> +
+> +  next-level-cache: true
+> +
+> +  andestech,pma-regions:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> +    minItems: 1
+> +    maxItems: 16
+> +    items:
+> +      minItems: 3
+> +      maxItems: 3
 
-> > > > This one I do know that Palmer wants canonically ordered.
-> > =
+Instead:
+items:
+  items:
+    - description: Explain
+    - description: what is
+    - description: here
 
-> > btw, idk if you noticed but I appear to have picked canonical ordering
-> > as today's thing to get confused about a lot.
-> > =
+> +    description: Optional array of memory regions to be set in the PMA.
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - cache-line-size
+> +  - cache-level
+> +  - cache-sets
+> +  - cache-size
+> +  - cache-unified
+> +  - interrupts
+> +  - reg
 
-> > You put zbb after the S extentions - does that meant it is *not* an
-> > "Additional Standard Extension" but rather a regular Z one?
-> =
+Keep the same order as properties appear in the "properties:"
 
-> This confuses me completely now :-) .
->
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/cache/andestech,ax45mp-cache.h>
+> +
+> +    cache-controller@2010000 {
+> +        reg = <0x13400000 0x100000>;
+> +        compatible = "andestech,ax45mp-cache", "cache";
+> +        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
+> +        cache-line-size = <64>;
+> +        cache-level = <2>;
+> +        cache-sets = <1024>;
+> +        cache-size = <262144>;
+> +        cache-unified;
+> +        andestech,pma-regions = <0x58000000 0x08000000
+> +                                 (AX45MP_PMACFG_ETYP_NAPOT | AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF)>;
+> +    };
+> diff --git a/include/dt-bindings/cache/andestech,ax45mp-cache.h b/include/dt-bindings/cache/andestech,ax45mp-cache.h
+> new file mode 100644
+> index 000000000000..aa1cad24075d
+> --- /dev/null
+> +++ b/include/dt-bindings/cache/andestech,ax45mp-cache.h
+> @@ -0,0 +1,38 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * This header provides constants for Andes AX45MP PMA configuration
+> + *
+> + * Copyright (C) 2022 Renesas Electronics Corp.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
+> +#define __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H
+> +
+> +/* OFF: PMA entry is disabled */
+> +#define AX45MP_PMACFG_ETYP_DISABLED			0
+> +/* Naturally aligned power of 2 region */
+> +#define AX45MP_PMACFG_ETYP_NAPOT			3
+> +
+> +/* Device, Non-bufferable */
+> +#define AX45MP_PMACFG_MTYP_DEV_NON_BUF			(0 << 2)
+> +/* Device, bufferable */
+> +#define AX45MP_PMACFG_MTYP_DEV_BUF			(1 << 2)
+> +/* Memory, Non-cacheable, Non-bufferable */
+> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_NON_BUF	(2 << 2)
+> +/* Memory, Non-cacheable, Bufferable */
+> +#define AX45MP_PMACFG_MTYP_MEM_NON_CACHE_BUF		(3 << 2)
 
-Can we instead post a patch to the spec that changes the order to
-alphabetical? The only other option I see is to develop a tool which sorts
-extensions and every RISC-V developer keeps it in their back pocket. A
-kernel specific tool to check each list we want to keep sorted would be
-nice too.
+What are all these? They don't look like flags, because 3 = 1 | 2...
+they don't look like constants, because we do not use shifts in
+constants. Are these some register values? I also do not see the header
+being used in the code, so why having a bindings header if it is not
+used (DTS is not usage...)?
 
-My preference would be to change the spec to alphabetical order, though,
-because the spec isn't explicit[*] enough to write a tool that can handle
-all cases. We'll end up needing to have conversations like this one to
-write the tool and eventually the tool will be what everyone looks to,
-rather than the spec...
 
-[*] The spec uses words like 'can', 'should', and 'conventional'.
+> +/* Memory, Write-back, No-allocate */
+> +#define AX45MP_PMACFG_MTYP_MEM_WB_NA			(8 << 2)
+> +/* Memory, Write-back, Read-allocate */
+> +#define AX45MP_PMACFG_MTYP_MEM_WB_RA			(9 << 2)
+> +/* Memory, Write-back, Write-allocate */
+> +#define AX45MP_PMACFG_MTYP_MEM_WB_WA			(10 << 2)
+> +/* Memory, Write-back, Read and Write-allocate */
+> +#define AX45MP_PMACFG_MTYP_MEM_WB_R_WA			(11 << 2)
+> +
+> +/* AMO instructions are supported */
+> +#define AX45MP_PMACFG_NAMO_AMO_SUPPORT			(0 << 6)
+> +/* AMO instructions are not supported */
+> +#define AX45MP_PMACFG_NAMO_AMO_NO_SUPPORT		(1 << 6)
+> +
+> +#endif /* __DT_BINDINGS_ANDESTECH_AX45MP_CACHE_H */
 
-Thanks,
-drew
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
