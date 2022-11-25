@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26944C4167D
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F9AC43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UyBcux2lJwlqjUFy0bxMdYPKyn1fVYlbBnhVPHq5r/M=; b=qxo41hYleGNFmU
-	pdn8yIMZk2RLdaF/YWxx9/S5KouwQMRGWnCi92SOHOAUbtmBtq5witmYyQ/Ag2MPTZJdM244JpTxi
-	Vz6lMGxh3FB7ujthFRG9uMFDPRlFJNgvdvKaAgRjciR5oAH4iileVkw5GIxrkaSZuwEp3oVyO2AvN
-	v8x2pIHQstOA6yx+l+qsmSCbwW+0sDU3ukAi0Zi8W5EpJpgmuOG2tj6UDBt+WGn5FY0p8F0jgwXzU
-	786Z53Y4mgegYcYgkH4SKOFZiNV6uYQyYc2lkhYhh3OFRfh0oKTEKLN7zg4JUu7dCtI34CZswnwnb
-	nyJJymQpvv821iF49goQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yFvWy+LY77FlcR98XmLerRfmpSH9R8s0hKf62hrnGLM=; b=bbSMtiUY7gu8UP
+	pSVMEA8DGCkxLlm9GrWlZ7mlJqEuCeF62MVv8oIYihEkztXKEOBJFoEwgSz64yH30AdrUQmgvwu/T
+	aWoe1Fhf78S5maVsNjGaByKn3AbY4IcMXtGxeBWunUEflgj3GPUnUzrUUPghv8GdnZQ464BRrkeoD
+	Z3srb50G56mn38tc/gz4QOuoYeM0vgVJxotVfPFdUEtXWlYERu30Ise0UcvTe7swrvcdwYnPTEzAj
+	QPim/2llZVUc7+zadBLxRa5swLMvYmKtlU/50R0bEAa/w27Srj4YDO+C4hXdD8PEJBBPGisT6xUIR
+	Eqr9dBI+2AyTOi2x9Sqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiQ2-002vDu-CN; Fri, 25 Nov 2022 23:47:42 +0000
+	id 1oyiQe-002vaQ-U6; Fri, 25 Nov 2022 23:48:21 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiPP-002unT-Ve; Fri, 25 Nov 2022 23:47:06 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.nyi.internal (Postfix) with ESMTP id 369185C00EA;
-	Fri, 25 Nov 2022 18:47:00 -0500 (EST)
+	id 1oyiPR-002ur0-Ia; Fri, 25 Nov 2022 23:47:07 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id EEFE35C00C8;
+	Fri, 25 Nov 2022 18:47:04 -0500 (EST)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute5.internal (MEProxy); Fri, 25 Nov 2022 18:47:00 -0500
+  by compute3.internal (MEProxy); Fri, 25 Nov 2022 18:47:04 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
-	 s=fm2; t=1669420020; x=1669506420; bh=xss0NdGfxEL3CqgP3XiRfb0uF
-	osgnXP9+IiAsE1Thgg=; b=TiwTnu+ijK3ioN3rUPrG7GcwIsv9yPVS/QbvdReEH
-	CzRgECthxp10Phj7cZoASkqtnpKt0dJ8FjWhMli1Oe2difUXnncGnZeGiuaQfw7T
-	xtAZ8pINEiXNa/AyujD1iFymj4y5nGbuvPwDD1XnDx+6VoRacmLZeZiHxQI6Yeku
-	rdTVuBk0aPn8ZKN52rpMAp6b8EfxBwAbahyBIgPqeOcufivKaHkSMTo0OC4lg2q3
-	l8OPpg+ksX6KmfiJ51/gf07RmvQA52VbWABd7lH0Ro/gJ9ELQP3AO/w6tR1I6t3W
-	FHJUQuy6eERc2w2ue/15KbjNdOgx2hoojc7uMmRcL3OVg==
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1669420024; x=1669506424; bh=kN
+	0WFCG125D5ehSdOWNDPr96iJsAT9nPUC8NxGh4TM8=; b=Pp3irVqVCSRxnfXPH+
+	xB9CRTIawHYEgbbHWMbsJZkVX8eEQTN4wk/CxzaVpMJgdXC8cwPGvRKUNItsDbMt
+	4CFXIyFoKZe+O9UdKvF1v0rOji8TeElbUI/R5ymasUAkhjNU26R06KiQWLbJ4l/y
+	3Ay5y+QWCBiR7XYot+08Mjiit1cyzuu9uqkhJkfaxluKDd20QJgvQQTAwxItsuTV
+	PzvELlG/G5dehDNmcfiEs+6hrezxdFtUxiYqoxtFrmbWcKWrC+6ehK8By9zf+lTU
+	7e5D6itIJoN2p0eXsRThhV5Dfq+fRDDKijGtrr9KNYP9/12Jo92S/BVYibNMlqIj
+	UxPQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:message-id
-	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1669420020; x=1669506420; bh=xss0NdGfxEL3CqgP3XiRfb0uFosgnXP9+Ii
-	AsE1Thgg=; b=dYyxs87sMlQhLwCMCLt8rwz5qBHZmppSTDfDw2XCpxiRnGfuo5S
-	xUCdX7bmllx/rEpxbJ5k5FGkgVSgOHPmfAe98iLsknTyxeDv2NJ6d+rPOG+xO1Uq
-	T6lxkLUb+svdnns5lr+crcqPOM11Ixv2TwnujVU3DAkJFOc57DVAzvfoUHd7SlDF
-	wHvCUntHUr4Ar80f6/miEEys7o1oUMih2Gxe4qK1RwzkFZzNSAt1V+oaMIV7vZX6
-	1Wg+c8FEbfyfR2rE+epe1epT0Genl4ECZBxb6W/5/jOTbVruCapemHWTo5ccNVHZ
-	BI9ByPQX1Dyolh4k3LeciNo4XdNpExln25w==
-X-ME-Sender: <xms:8lOBY_drji0q2NwwhoJYzDuc1UEZW_i25TTkhYcoe3JY66vZszSNUw>
-    <xme:8lOBY1P-TVxaFeh3DmzMgfIKzFhEFjAttuTTaFVM28Gy2yCdUJKqulAcKwEXqH5iG
-    JNodRkq7Ldw9aYz3w>
-X-ME-Received: <xmr:8lOBY4gzmMWrhqoCzUnzzU29_QW9UBJqbbJDj2YtmvNMh0Amtpr5MmReZbERFvcrkndBb-qRZa34XxBTI4Ly4C_Mlo6zKZQS40DeJCxwUhxtG3UAnqiJ2amolwllncm5PUv1KQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigddutdcutefuodetggdotefrodftvf
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1669420024; x=1669506424; bh=kN0WFCG125D5e
+	hSdOWNDPr96iJsAT9nPUC8NxGh4TM8=; b=PMpVovnUsahjl0PzQ6hiIwUbbmYCG
+	poWN1Um5gg3NDIepxEFfOw3ugZn9GtmbbVldfPV0DnFyMmY/AhZVdRH2mZUNOeqB
+	U+u65hUnPp1Rwh7w/WmTdgfYW0jmJ4m6UxccyuOF78IMEL8PCHZLGULJCRfjC0sp
+	NV/HKsgJEWyY8TVkphZ1UdEbU9TZp6Hx4b5jU+wUyLZINMG0kaeFdPvcKBijrhiI
+	biIvERyuTcnMzQfEMf1dHd4m6tkTofRuSIZy2jh1hqh2C4zuW4YJ2XCrLFItTPEP
+	xIWYq6kL+mRa/VhQHc76iM9X8UNWSPGMisTvLFl+q0nKg7HbBBZxJDJSQ==
+X-ME-Sender: <xms:-FOBYxTv8vvbeovW1mlaLjlGdvUkKCa7QOrKgzItPuJUJCwhoJZNAQ>
+    <xme:-FOBY6zfoY8BhRT_upX8YPdg0BkL6CgeHnUP53rYrNLVSFC7jYwPDuZCd6za1wTfw
+    boA9vphAmH6wRM9oQ>
+X-ME-Received: <xmr:-FOBY20c0eh-O23QvN4iRHuhD_imTWhwuiiKMqLnj4QXNG5DnYFCdj5YkeFDo1CCRtfU3dLlgOGl-0TLBFEPNxAvijaw00fOJNG9F0gZWHCdME0inpLAM2-w-glVdCxf7fHMQQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
-    jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
-    htthgvrhhnpeekheffteehtdetfffgfeetteejvdefleeuvedufffguedtjedvheelvddv
-    fffhveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdr
-    ohhrgh
-X-ME-Proxy: <xmx:8lOBYw-NXZac8qLVMn2TCTebiUt99PbvQeFvgU_B9ojyOsOzElaiyg>
-    <xmx:8lOBY7tNqFqYF1xILMOXszW2opcPT0ZM6Fw9BonglBtqTJowhrZYKA>
-    <xmx:8lOBY_G2ySJcFgQRrMEI9YnUkgGdfLrSJM37ZTxWuZMg5qm-KPlmiQ>
-    <xmx:9FOBY8uTx5DXUGW8Y0BPd5uU7S64vl4qKtHw98pl6uAbpv9s_nxsZQ>
+    fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
+    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+    frrghtthgvrhhnpefghfevhffgheejhefgkeehueffgeehffejgeehueduueeffffhhfeu
+    iefhueffhfenucffohhmrghinhepuggvvhhitggvthhrvggvrdhorhhgnecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhho
+    lhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:-FOBY5B08v_2w2e14ZNipgVdHaS_OelJSM3CDzZWELLzsXpqrP-UNA>
+    <xmx:-FOBY6jF-F_atWYglbLp4uCRRsu0k5zRnifoziph_qKMoajSnfa3TA>
+    <xmx:-FOBY9q0R8b828YYZMOOBfrRXt9siW0uRwFSyo2EuD-C3IVD14QCmw>
+    <xmx:-FOBYxS5Z0Lplo2R-5s4Ve5fwmb4v1bOvxvl-gNbatXkC7tin40f2Q>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Nov 2022 18:46:57 -0500 (EST)
+ 25 Nov 2022 18:47:03 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -96,15 +97,18 @@ Cc: devicetree@vger.kernel.org,
 	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Stanislav Jakubek <stano.jakubek@gmail.com>
-Subject: [PATCH v2 00/12] riscv: Allwinner D1/D1s platform support
-Date: Fri, 25 Nov 2022 17:46:44 -0600
-Message-Id: <20221125234656.47306-1-samuel@sholland.org>
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v2 03/12] dt-bindings: riscv: Add Allwinner D1/D1s board compatibles
+Date: Fri, 25 Nov 2022 17:46:47 -0600
+Message-Id: <20221125234656.47306-4-samuel@sholland.org>
 X-Mailer: git-send-email 2.37.4
+In-Reply-To: <20221125234656.47306-1-samuel@sholland.org>
+References: <20221125234656.47306-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_154704_548488_0AE3C6F9 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20221125_154705_697034_4263034B 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,126 +125,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds the Kconfig/defconfig plumbing and devicetrees for a
-range of Allwinner D1 and D1s-based boards. Many features are already
-enabled, including USB, Ethernet, and WiFi.
+Several SoMs and boards are available that feature the Allwinner D1 or
+D1s SoC. Document their compatible strings.
 
-The devicetrees use bindings from the following series which have not
-yet been merged:
- - In-package LDO regulators:
-   https://lore.kernel.org/lkml/20221125040112.18160-1-samuel@sholland.org/
- - Ethernet MAC binding fixes (not a new issue with D1):
-   https://lore.kernel.org/lkml/20221125202008.64595-1-samuel@sholland.org/
- - RTL8723DS Bluetooth (has driver support, missing documentation):
-   https://lore.kernel.org/lkml/20221125040956.18648-1-samuel@sholland.org/
- - TI ADC101C ADC (has driver support, missing documentation):
-   https://lore.kernel.org/lkml/20221125220903.8632-1-samuel@sholland.org/
-
-The only remaining DT validation issue is that gpio-fan is missing a
-YAML conversion, although one is on the list here:
-https://lore.kernel.org/lkml/20220126200350.3633576-1-clabbe@baylibre.com/
-
-$ make ARCH=riscv CROSS_COMPILE=riscv64-linux-musl- dtbs_check
-  SYNC    include/config/auto.conf.cmd
-  LINT    Documentation/devicetree/bindings
-  CHKDT   Documentation/devicetree/bindings/processed-schema.json
-  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-480p.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-720p.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-dock.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dtb
-  DTC_CHK arch/riscv/boot/dts/allwinner/sun20i-d1s-mangopi-mq.dtb
-arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dtb:0:0: /fan: failed to match any schema with compatible: ['gpio-fan']
-
-I tested this series (DMIC, Ethernet, LEDs, MMC, PMIC, touch, and USB,
-all where available) on the following boards:
- - sun20i-d1-devterm-v3.14
- - sun20i-d1-dongshan-nezha-stu
- - sun20i-d1-lichee-rv-86-panel-480p
- - sun20i-d1-mangopi-mq-pro
- - sun20i-d1-nezha
- - sun20i-d1s-mangopi-mq
+Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
 Changes in v2:
  - Add MangoPi MQ (non-Pro) board
- - Split into separate files for sharing with D1s/R528/T113
- - Use SOC_PERIPHERAL_IRQ macro for interrupts
- - Rename osc24M to dcxo and move the frequency to the board DTs
- - Drop analog LDOs due to the missing binding
- - Correct tcon_top DSI clock reference
- - Add DMIC, DSI controller, and DPHY (bindings are in linux-next)
- - Add CPU OPP table
- - Common regulators moved to MangoPi MQ patch, removed analog LDOs
- - Removed LRADC (depends on analog LDOs)
- - Added XR829 host-wake interrupt
- - Added DMIC sound card to Lichee RV dock and Lichee RV 86 Panel
- - Removed LRADC (depends on analog LDOs)
- - Added LED (GPIO shared between onboard LED and backlight regulator)
- - Added PMIC GPIO controller node (binding merged for 6.2)
- - Sort Kconfig as if we had done s/SOC_/ARCH_/ for future-proofing
 
-Samuel Holland (12):
-  MAINTAINERS: Match the sun20i family of Allwinner SoCs
-  dt-bindings: vendor-prefixes: Add Allwinner D1/D1s board vendors
-  dt-bindings: riscv: Add Allwinner D1/D1s board compatibles
-  riscv: dts: allwinner: Add the D1/D1s SoC devicetree
-  riscv: dts: allwinner: Add MangoPi MQ devicetree
-  riscv: dts: allwinner: Add Allwinner D1 Nezha devicetree
-  riscv: dts: allwinner: Add Sipeed Lichee RV devicetrees
-  riscv: dts: allwinner: Add MangoPi MQ Pro devicetree
-  riscv: dts: allwinner: Add Dongshan Nezha STU devicetree
-  riscv: dts: allwinner: Add ClockworkPi and DevTerm devicetrees
-  riscv: Add the Allwinner SoC family Kconfig option
-  riscv: defconfig: Enable the Allwinner D1 platform and drivers
-
- .../devicetree/bindings/riscv/sunxi.yaml      |  69 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   4 +
- MAINTAINERS                                   |   2 +-
- arch/riscv/Kconfig.socs                       |   9 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/allwinner/Makefile        |  11 +
- .../allwinner/sun20i-common-regulators.dtsi   |  35 +
- .../allwinner/sun20i-d1-clockworkpi-v3.14.dts | 253 ++++++
- .../dts/allwinner/sun20i-d1-devterm-v3.14.dts |  36 +
- .../sun20i-d1-dongshan-nezha-stu.dts          | 118 +++
- .../sun20i-d1-lichee-rv-86-panel-480p.dts     |  29 +
- .../sun20i-d1-lichee-rv-86-panel-720p.dts     |  10 +
- .../sun20i-d1-lichee-rv-86-panel.dtsi         | 118 +++
- .../allwinner/sun20i-d1-lichee-rv-dock.dts    |  96 ++
- .../dts/allwinner/sun20i-d1-lichee-rv.dts     |  88 ++
- .../allwinner/sun20i-d1-mangopi-mq-pro.dts    | 143 +++
- .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 167 ++++
- arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  |  66 ++
- .../dts/allwinner/sun20i-d1s-mangopi-mq.dts   | 135 +++
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |  76 ++
- .../boot/dts/allwinner/sunxi-d1-t113.dtsi     |  15 +
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 844 ++++++++++++++++++
- arch/riscv/configs/defconfig                  |  23 +-
- 23 files changed, 2346 insertions(+), 2 deletions(-)
+ .../devicetree/bindings/riscv/sunxi.yaml      | 69 +++++++++++++++++++
+ 1 file changed, 69 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/riscv/sunxi.yaml
- create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-common-regulators.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-480p.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-720p.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-dock.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1s-mangopi-mq.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
 
+diff --git a/Documentation/devicetree/bindings/riscv/sunxi.yaml b/Documentation/devicetree/bindings/riscv/sunxi.yaml
+new file mode 100644
+index 000000000000..9edb5e5992b1
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/sunxi.yaml
+@@ -0,0 +1,69 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/sunxi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allwinner RISC-V SoC-based boards
++
++maintainers:
++  - Chen-Yu Tsai <wens@csie.org>
++  - Jernej Skrabec <jernej.skrabec@gmail.com>
++  - Samuel Holland <samuel@sholland.org>
++
++description:
++  Allwinner RISC-V SoC-based boards
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: Dongshan Nezha STU SoM
++        items:
++          - const: 100ask,dongshan-nezha-stu
++          - const: allwinner,sun20i-d1
++
++      - description: D1 Nezha board
++        items:
++          - const: allwinner,d1-nezha
++          - const: allwinner,sun20i-d1
++
++      - description: ClockworkPi R-01 SoM and v3.14 board
++        items:
++          - const: clockwork,r-01-clockworkpi-v3.14
++          - const: allwinner,sun20i-d1
++
++      - description: ClockworkPi R-01 SoM, v3.14 board, and DevTerm expansion
++        items:
++          - const: clockwork,r-01-devterm-v3.14
++          - const: clockwork,r-01-clockworkpi-v3.14
++          - const: allwinner,sun20i-d1
++
++      - description: Lichee RV SoM
++        items:
++          - const: sipeed,lichee-rv
++          - const: allwinner,sun20i-d1
++
++      - description: Carrier boards for the Lichee RV SoM
++        items:
++          - enum:
++              - sipeed,lichee-rv-86-panel-480p
++              - sipeed,lichee-rv-86-panel-720p
++              - sipeed,lichee-rv-dock
++          - const: sipeed,lichee-rv
++          - const: allwinner,sun20i-d1
++
++      - description: MangoPi MQ board
++        items:
++          - const: widora,mangopi-mq
++          - const: allwinner,sun20i-d1s
++
++      - description: MangoPi MQ Pro board
++        items:
++          - const: widora,mangopi-mq-pro
++          - const: allwinner,sun20i-d1
++
++additionalProperties: true
++
++...
 -- 
 2.37.4
 
