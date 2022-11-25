@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C1BEC4167B
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 13:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B95DC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 13:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L2PBuj9Jx5iqwkHc6Bf4fWw9gtp4CUP3uNos+3cY7zE=; b=EWFG7Le2Sd/n9E
-	nygKO6gLtnMHSnGwbfhodBAqodrAJHL8klACw05xfKnRTn6a8uu+CprK4FFPics/VO3GqxxXaC6tb
-	YSDedjdSDkSBa3ZF4xeVYd8sgXnqiG5UjeeCG1VqCVKqEpnYw7ySx7gOIHQpTSjZI+pz+5OZRROdy
-	DYRNtO9pejnh8Avk/tcOiPNcPUWQ0dsg+ACFmSyDFiFyB18rxWJ2s/NA5dQjUQ5g77SF2eAowLYE9
-	IZMkVAOtYzbyT6N0OQopVgl5ZTRoEjx721eEp45AxPI/A1NTlINCYZoTddakGWTCO161TIPpH5Sim
-	ouQIwg8LHqKr9Y2c04Uw==;
+	List-Owner; bh=sbFhngSm2K+Dir0sVCr0KPFmtfAa9rwbcE63aru+c40=; b=2x2+pqaO45/pcW
+	L2VEmAPTb5UakwOpFE7yJbbNn1bGvb00M6ACWubHmCV1eF0k4wGdK0Ckbb6myFTy184Gn1h+56NsO
+	rmzq5DbQbwfDwNSkF1BZjyQMk6NYS6EZe/jy4MDT8IstUBvZXAwlgpbIV0H3T2SBWc7b0/G/uNtlO
+	dotwuTqr97R9Jeac4Pm5njF3F5+RjE5HXftbqDXeicxqS+pTv2ydVfUoJPJaJaUSZz7P7k0T2CQdm
+	GlkPX5YyYSn9HbVxuFlsZG2ZrMcM7LsEKcLGEOMHjA8NJUgpkMjJ98sQBmEf3jc/EU+B4d/9ZbWPJ
+	ihQDJJuFAAhn6ApjMIxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyYQ0-00GaiR-GW; Fri, 25 Nov 2022 13:07:00 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1oyYSz-00GbSh-RH; Fri, 25 Nov 2022 13:10:05 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyYPx-00GahU-9s
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 13:06:59 +0000
-Received: by mail-ej1-x634.google.com with SMTP id vv4so10263954ejc.2
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 05:06:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TJLey7GpifqavHRoBifTQZLqld8WN/1b6ELJ+q34KaQ=;
-        b=k0pNkyw6TFVU6NHo4LkonM6wi9tgUMtvgMlMc81urQqm00OWu2Xr7nYcD2PJkSYb9x
-         EjLs7qjW5IMwNSuS2uCP3zF0GNIBRP5NvcEkCjk+2FCSSD+ZSP6Vm5pRvU2qBFPxROPg
-         NaqUZH8Bg1lfPcIcK/yS5GZSveFHB0/DKOy8GDYqgHHWzUf7M909GkCbdjA64VilWG9/
-         qsdLpmJwQtAY1C8KfyaWmkY0GKfp78vyo2Xsi97uMrHvQU/IQvhq2gNDTKiixrRamDoS
-         4GIRh8fdRJvOZ25YEDMVLEqsCbkUNFOHnyz3+rJOIWAa76/m+1InXxYKVajebEB7UOZQ
-         Hf5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TJLey7GpifqavHRoBifTQZLqld8WN/1b6ELJ+q34KaQ=;
-        b=GA7xPTjAK3VQ1aWkZbo76siXD9Bqu+IYQ5WRvOIGnowxWMaN+2dvoHfBisS/uEjl72
-         J6rxmO6LnhN/e0V4b18YO4Nc45kPK1BBEKmZH2jLEabSdgBF4pbZdJ0ipxprnVpzn9jB
-         owfADiJUkqeYdkXdRi0A6HbrLhsodvOQyTscjlC4wDOL0SaIZXil6YhwodUTu8OANhBr
-         zRbq8WrmcVzo1sWHtqhLT2ZqGXmpS5Q1lCxZE+NNrGMRGjngYp8nNYeeVglQFF9jQebh
-         dgV4cfFYKlu1+05/LM7ARF9JqKwJP4dy3/9DJoWHw4LKyCHy8KAiXOJ4W/MdVpHadGke
-         x2sA==
-X-Gm-Message-State: ANoB5plioPGs8H7T+hl2s4cFJVsnSBlxSKVnQ1kNoRmk6mCJnNIAYBy0
-	Ph9B74fpkBIB7vmDUAF4jajxqKKpJxxt3w==
-X-Google-Smtp-Source: AA0mqf6G9ROzHaSZ78Of60duPBl4Wb/Iv2uGgjYYJcfr2X++Jtn+8RGtuRb5yaBsviDAumVT+jVX7A==
-X-Received: by 2002:a17:906:1495:b0:7ad:d250:b904 with SMTP id x21-20020a170906149500b007add250b904mr15967424ejc.633.1669381613432;
-        Fri, 25 Nov 2022 05:06:53 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id i13-20020a17090639cd00b0078d957e65b6sm1542420eje.23.2022.11.25.05.06.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Nov 2022 05:06:53 -0800 (PST)
-Date: Fri, 25 Nov 2022 14:06:47 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	prabhakar.csengg@gmail.com
-Subject: Re: [PATCH 1/4] riscv: Don't duplicate __ALTERNATIVE_CFG in
- __ALTERNATIVE_CFG_2
-Message-ID: <20221125130647.rufk3zho5mdracpq@kamzik>
-References: <20221125113959.35328-1-ajones@ventanamicro.com>
- <20221125113959.35328-2-ajones@ventanamicro.com>
+	id 1oyYSw-00GbRd-2o
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 13:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669381801; x=1700917801;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nHHNQkkTSvWPra268e5xRIEmlNkhUo8hFOPoiAYY6nA=;
+  b=ik7aXBunC+sMzoxdMs776ImqUVIXHZsWb0jRl30dIsIDVNMT2cM3ZWPC
+   IhqDbVH1z8tsJcjFhJi0FAjk6JWFTAL5dqzTnibBhMrteJWv7mCUQ95g+
+   xEIuLddjI70dNoUzNkr/J39ceuCyQclzvFtvM93rLILynoYOXx035nVYo
+   rCaGZIRgAG3Rk57jvaZiSpLGNpApyz/80E7OV8o3Uhj2A6JB2j1sL4DUw
+   M3ukKnkdHqaVZiJGvBZUtvus1fr5KTv5YUTic5UrILjn6BD73PlZfRUEr
+   OoIFdiBAZBhazvc2bjAMcXWRu1Om26EUAxt31vXtnbGA6mTax/Kfws5/Y
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,193,1665471600"; 
+   d="scan'208";a="190541512"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Nov 2022 06:09:59 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Fri, 25 Nov 2022 06:09:59 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Fri, 25 Nov 2022 06:09:57 -0700
+Date: Fri, 25 Nov 2022 13:09:39 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Anup Patel <apatel@ventanamicro.com>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Andrew
+ Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, Samuel
+ Holland <samuel@sholland.org>, Anup Patel <anup@brainfault.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/3] dt-bindings: timer: Add bindings for the RISC-V
+ timer device
+Message-ID: <Y4C+kwLdMYkkrm/2@wendy>
+References: <20221125112105.427045-1-apatel@ventanamicro.com>
+ <20221125112105.427045-3-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221125113959.35328-2-ajones@ventanamicro.com>
+In-Reply-To: <20221125112105.427045-3-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_050657_367314_0EE08E72 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20221125_051002_157251_30930494 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +88,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 12:39:56PM +0100, Andrew Jones wrote:
-> Build __ALTERNATIVE_CFG_2 by adding on to __ALTERNATIVE_CFG rather
-> than duplicating it.
+Hey Anup,
+
+For the future, could you please CC me on all patches in a series that I
+have previously reviewed?
+
+On Fri, Nov 25, 2022 at 04:51:04PM +0530, Anup Patel wrote:
+> We add DT bindings for a separate RISC-V timer DT node which can
+> be used to describe implementation specific behaviour (such as
+> timer interrupt not triggered during non-retentive suspend).
 > 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/alternative-macros.h | 18 ++----------------
->  1 file changed, 2 insertions(+), 16 deletions(-)
+>  .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
 > 
-> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-> index ec2f3f1b836f..64be770df89a 100644
-> --- a/arch/riscv/include/asm/alternative-macros.h
-> +++ b/arch/riscv/include/asm/alternative-macros.h
-> @@ -49,14 +49,7 @@
->  
->  .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
->  				  new_c_2, vendor_id_2, errata_id_2, enable_2
-> -886 :
-> -	.option push
-> -	.option norvc
-> -	.option norelax
-> -	\old_c
-> -	.option pop
-> -887 :
-> -	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
-> +	__ALTERNATIVE_CFG old_c, new_c_1, vendor_id_1, errata_id_1, enable_1
+> diff --git a/Documentation/devicetree/bindings/timer/riscv,timer.yaml b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> new file mode 100644
+> index 000000000000..cf53dfff90bc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
+> @@ -0,0 +1,52 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/timer/riscv,timer.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V timer
+> +
+> +maintainers:
+> +  - Anup Patel <anup@brainfault.org>
+> +
+> +description: |+
+> +  RISC-V platforms always have a RISC-V timer device for the supervisor-mode
+> +  based on the time CSR defined by the RISC-V privileged specification. The
+> +  timer interrupts of this device are configured using the RISC-V SBI Time
+> +  extension or the RISC-V Sstc extension.
+> +
+> +  The clock frequency of RISC-V timer device is specified via the
+> +  "timebase-frequency" DT property of "/cpus" DT node which is described
+> +  in Documentation/devicetree/bindings/riscv/cpus.yaml
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - riscv,timer
+> +
+> +  interrupts-extended:
+> +    minItems: 1
+> +    maxItems: 4096   # Should be enough?
+> +
+> +  riscv,timer-cant-wake-cpu:
+> +    type: boolean
+> +    description:
+> +      If present, the timer interrupt can't wake up the CPU from
+> +      suspend/idle state.
 
-I just realized that I forgot my slashes on these macro arguments.
+I'm really not sure about this... I would be inclined to think that if
+someone does not specify then we should assume that they took the
+scroogiest view of the spec and so do not get events during suspend.
 
-I'll wait for other feedback before sending a v2.
+I suppose you could then argue that their DT is wrong & it's their fault
+though. Plus the existing platforms behave this way & we avoid having to
+retrofit stuff here.
 
-Thanks,
-drew
-
->  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
->  .endm
->  
-> @@ -116,14 +109,7 @@
->  					enable_1,			\
->  				   new_c_2, vendor_id_2, errata_id_2,	\
->  					enable_2)			\
-> -	"886 :\n"							\
-> -	".option push\n"						\
-> -	".option norvc\n"						\
-> -	".option norelax\n"						\
-> -	old_c "\n"							\
-> -	".option pop\n"							\
-> -	"887 :\n"							\
-> -	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
-> +	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1) \
->  	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
->  
->  #define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - interrupts-extended
+> +
+> +examples:
+> +  - |
+> +    timer {
+> +      compatible = "riscv,timer";
+> +      interrupts-extended = <&cpu1intc 5>,
+> +                            <&cpu2intc 5>,
+> +                            <&cpu3intc 5>,
+> +                            <&cpu4intc 5>;
+> +    };
+> +...
 > -- 
-> 2.38.1
+> 2.34.1
 > 
 
 _______________________________________________
