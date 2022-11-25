@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42710C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 15:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AF9C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 15:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GszfaxfKcQu4Iri44D8htrJoC3WisL7k/iWZ8j2aZpk=; b=iPgVap2JwJSiuo
-	X4g5ItgZdnvKyFqJj+eIaKzNK63gKD4brE4jDLdXYXs+xg3TvdsZIDjU80xpZO9KJgoUwQA5hoU4x
-	EiKPuNfQORrk9Lxsc2EJ5Zmo/Rpvh2qjAIrNMmXF84tINYZhNXEZ79wYtioujba9v3HCztdTiZbnO
-	DAQEcHgypNJ9XgeQeJ37oYHgSmvrrHcgUEo47cklEbaDH4kLpiIT/sBWprOKX929j4HV49ggtsAwj
-	h9/Wtr5leSmAYN3eOT/aHaDCjDwVRt8QXzAwTiLcAE9Pjnji6h4+WtG4oghNY4Wea0t9NP73tXDGw
-	69d3bU3igMtl1UJNcxTg==;
+	List-Owner; bh=lu5RpuxmcUu76QLPsjOv2xFEaYriT5G8h+koTTieOV8=; b=2fSqa+TAYzN5Zo
+	31IYRdMre9KsnopR6zFGgN0itvbE5EIjq26b5YeRltx4cpyFynePbRlJPqOZoD+jQ1Tjl3wT2ag94
+	Yox78nTtQCxr4y90ZcwXaEDSjk0Ar2rOoJHs6Cd5QiJjyzfiHHedOzckL8Rx5GbZA+HehHTucSFIm
+	kfnxlaLCa8v3J/D4S2hq/inlKjNfmteYPKhBUHvfi75HFO8lK5fCczBORGN5HpxuY3O+QX+HJwuhY
+	z/UnbwkM2JFSY3fagdH4N9uJjltpZw24dLtdt6BV2ibIdREa+vWGiMZf+LS7F0mle91H0HUCR5M6A
+	jDm1hWUcgFV8VCtqk2vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyaVr-00HSFW-8n; Fri, 25 Nov 2022 15:21:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyaTf-00HQpA-HW; Fri, 25 Nov 2022 15:18:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F5142B;
-	Fri, 25 Nov 2022 07:18:59 -0800 (PST)
-Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48CE23F587;
-	Fri, 25 Nov 2022 07:18:50 -0800 (PST)
-Date: Fri, 25 Nov 2022 15:18:47 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org, Ionela.Voinescu@arm.com,
-	Rob.Herring@arm.com, Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Gavin Shan <gshan@redhat.com>, Peter Chen <peter.chen@kernel.org>,
-	SeongJae Park <sj@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-acpi@vger.kernel.org
-Subject: Re: [PATCH v2 4/5] ACPI: PPTT: Update acpi_find_last_cache_level()
- to acpi_get_cache_info()
-Message-ID: <20221125151847.ortklu4ptaftua6u@bogus>
-References: <20221121171217.3581004-1-pierre.gondois@arm.com>
- <20221121171217.3581004-5-pierre.gondois@arm.com>
+	id 1oyacx-00HVcY-7j; Fri, 25 Nov 2022 15:28:31 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oyacu-00HVZv-AF
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 15:28:29 +0000
+Received: by mail-ed1-x533.google.com with SMTP id e13so6832294edj.7
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 07:28:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XnOtugZQ8sKit8rBpEH1KbjcSR2I2daq7GWfdhsj27Y=;
+        b=YCqzl8mGWfFd7KbML5P3dw9zhNfCCRbqYANdti0+Ojkzn5TPdlAr8kFc/7z/7YYNXT
+         wJ7dRSUzkiCrS5PM4udLun3QAbEyFW/z4A69e9CsC+B9u8/KLw2KGF2g/UL0P3/sSQ1p
+         ekCHr7ROW0l5ssPuhsBooe5OcOjuhkXWsnUwMLldqS1zqewPmdeVFHgdnFm5itF7yZcS
+         8HcMrXm0v8mPkhW9p+dQoRUO5dwwgx+uSXhPcan0w6XRKxTpKRo8oyeY8I1xgZ+E3D+h
+         8pnVzfwiGENkTNBJBjkgE4eyKUs7LSAyzkJshiinMclQPBpjS8LO/dFLxv1h0fJHDqTj
+         aLqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XnOtugZQ8sKit8rBpEH1KbjcSR2I2daq7GWfdhsj27Y=;
+        b=nZqTl0247aZYLGHW2A0KEi7/YtL3als5bXE9j+TNRAwCG4tlZekJ9c4OC3xdQpKF+V
+         /+RC1olox80mkraDaE2cKbosmoZJR2y9CAgbnLPim7KFQUo/qpFhAxaG9A11UVIWRW5j
+         29X0Zyw6I2k2LwkiAhzsfDPUdpUDjcGQZUldUYckDhxBFVgN00E7M7gVOt1MKj1Bk7Rz
+         8r/oLYX/VVSdMowesVWblXqpdGZeYt9O0x/Csy6j01L/Eg8u1DqoYW5tbyQ+tn4z7fC6
+         aBVMM5kV+BNkAERXitFASg+e3OwHEdIWM06QeTfhAzRFSsJtrxQskoYnoDPK7vPI2RMX
+         o7Sg==
+X-Gm-Message-State: ANoB5plK31yibhfNvaiC06mEwuIMWDwt20kmIyln6slL9C7a1KbGOysP
+	mDUi4lfYcnV59p+Mj4W66/HmFg==
+X-Google-Smtp-Source: AA0mqf50p/O/4ckfy6IZYFc4H0X95hd5XhampZ0Np+gmJ9wPxr/ekM2ubsPhRBq5ez9EC3SbNEyTWQ==
+X-Received: by 2002:a05:6402:2987:b0:45c:a9d3:d535 with SMTP id eq7-20020a056402298700b0045ca9d3d535mr35155965edb.0.1669390103572;
+        Fri, 25 Nov 2022 07:28:23 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id r20-20020a170906365400b0078d9b967962sm1668623ejb.65.2022.11.25.07.28.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Nov 2022 07:28:23 -0800 (PST)
+Date: Fri, 25 Nov 2022 16:28:21 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Christoph =?utf-8?Q?M=C3=BCllner?= <christoph.muellner@vrull.eu>
+Cc: Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu,
+	emil.renner.berthing@canonical.com
+Subject: Re: [PATCH 7/7] RISC-V: add zbb support to string functions
+Message-ID: <20221125152821.ytipefad7oxv733t@kamzik>
+References: <20221110164924.529386-1-heiko@sntech.de>
+ <14728581.RDIVbhacDa@diego>
+ <Y3/xGhkbf6qEr+5r@spud>
+ <3259590.VLH7GnMWUR@phil>
+ <20221125074933.2xuyaeuk5kmi5miw@kamzik>
+ <CAEg0e7h9skbWPVDsz9CdB8dATN5XM9eT-uPY0A7xRZmX=qTU6A@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221121171217.3581004-5-pierre.gondois@arm.com>
+In-Reply-To: <CAEg0e7h9skbWPVDsz9CdB8dATN5XM9eT-uPY0A7xRZmX=qTU6A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_071855_673037_3A776041 
-X-CRM114-Status: GOOD (  22.97  )
+X-CRM114-CacheID: sfid-20221125_072828_408507_42FDE8EF 
+X-CRM114-Status: GOOD (  33.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +92,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 21, 2022 at 06:12:12PM +0100, Pierre Gondois wrote:
-> acpi_find_last_cache_level() allows to find the last level of cache
-> for a given CPU. The function is only called on arm64 ACPI based
-> platforms to check for cache information that would be missing in
-> the CLIDR_EL1 register.
-> To allow populating (struct cpu_cacheinfo).num_leaves by only parsing
-> a PPTT, update acpi_find_last_cache_level() to get the 'split_levels',
-> i.e. the number of cache levels being split in data/instruction
-> caches.
-> 
-> It is assumed that there will not be data/instruction caches above a
-> unified cache.
-> If a split level consist of one data cache and no instruction cache
-> (or opposite), then the missing cache will still be populated
-> by default with minimal cache information, and maximal cpumask
-> (all non-existing caches have the same fw_token).
-> 
-> Suggested-by: Jeremy Linton <jeremy.linton@arm.com>
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-> Reviewed-by: Jeremy Linton <jeremy.linton@arm.com>
-> ---
->  arch/arm64/kernel/cacheinfo.c |  9 +++--
->  drivers/acpi/pptt.c           | 76 +++++++++++++++++++++++------------
->  include/linux/cacheinfo.h     |  8 ++--
->  3 files changed, 61 insertions(+), 32 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
-> index 97c42be71338..164255651d64 100644
-> --- a/arch/arm64/kernel/cacheinfo.c
-> +++ b/arch/arm64/kernel/cacheinfo.c
-> @@ -46,7 +46,7 @@ static void ci_leaf_init(struct cacheinfo *this_leaf,
->  int init_cache_level(unsigned int cpu)
->  {
->  	unsigned int ctype, level, leaves;
-> -	int fw_level;
-> +	int fw_level, ret;
->  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
->  
->  	for (level = 1, leaves = 0; level <= MAX_CACHE_LEVEL; level++) {
-> @@ -61,8 +61,11 @@ int init_cache_level(unsigned int cpu)
->  
->  	if (acpi_disabled)
->  		fw_level = of_find_last_cache_level(cpu);
-> -	else
-> -		fw_level = acpi_find_last_cache_level(cpu);
-> +	else {
+On Fri, Nov 25, 2022 at 12:26:42PM +0100, Christoph M=FCllner wrote:
+> On Fri, Nov 25, 2022 at 8:49 AM Andrew Jones <ajones@ventanamicro.com>
+> wrote:
+> =
 
-You need to add braces to if as well in such cases. I think checkpatch
-might tell you that. Just found this by chance.
+> > On Fri, Nov 25, 2022 at 12:51:54AM +0100, Heiko Stuebner wrote:
+> > > Am Donnerstag, 24. November 2022, 23:32:58 CET schrieb Conor Dooley:
+> > > > On Thu, Nov 24, 2022 at 11:23:08PM +0100, Heiko St=FCbner wrote:
+> > ...
+> > > > > > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > > > > > > index bf9dd6764bad..66ff36a57e20 100644
+> > > > > > > --- a/arch/riscv/kernel/cpu.c
+> > > > > > > +++ b/arch/riscv/kernel/cpu.c
+> > > > > > > @@ -166,6 +166,7 @@ static struct riscv_isa_ext_data
+> > isa_ext_arr[] =3D {
+> > > > > > >       __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+> > > > > > >       __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> > > > > > >       __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> > > > > > > +     __RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+> > > > > > >       __RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+> > > > > > >       __RISCV_ISA_EXT_DATA(zihintpause,
+> > RISCV_ISA_EXT_ZIHINTPAUSE),
+> > > > > > >       __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+> > > > > >
+> > > > > > This one I do know that Palmer wants canonically ordered.
+> > > >
+> > > > btw, idk if you noticed but I appear to have picked canonical order=
+ing
+> > > > as today's thing to get confused about a lot.
+> > > >
+> > > > You put zbb after the S extentions - does that meant it is *not* an
+> > > > "Additional Standard Extension" but rather a regular Z one?
+> > >
+> > > This confuses me completely now :-) .
+> > >
+> >
+> > Can we instead post a patch to the spec that changes the order to
+> > alphabetical? The only other option I see is to develop a tool which so=
+rts
+> > extensions and every RISC-V developer keeps it in their back pocket. A
+> > kernel specific tool to check each list we want to keep sorted would be
+> > nice too.
+> >
+> > My preference would be to change the spec to alphabetical order, though,
+> > because the spec isn't explicit[*] enough to write a tool that can hand=
+le
+> > all cases. We'll end up needing to have conversations like this one to
+> > write the tool and eventually the tool will be what everyone looks to,
+> > rather than the spec...
+> >
+> > [*] The spec uses words like 'can', 'should', and 'conventional'.
+> >
+> =
 
-Anyways, this looks good to me.
+> The unpriv spec is clear about the canonical order (table "Standard ISA
+> extension names"):
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+The caption under table 27.1 does indeed declare the table defines the
+canonical order and that it *must* be used for the name string, but
+almost everywhere else in chapter 27 the word "should" is used to suggest
+how extensions be ordered (only X-extensions say where they must be).
 
+> 1) Base ISA
+> 2) Standard Unpriv Extension (non alphabetical)
 
--- 
-Regards,
-Sudeep
+The 'non alphabetical' part makes this a PITA.
+
+And section 27.6 says the first letter "conventionally indicates...". I
+suppose we can assume it "must indicate"?
+
+> 3) Standard Supervisor-Level Extensions
+
+Are the conventions for the first character of S-extensions defined? I've
+seen 'Ss' for "Privileged arch and Supervisor-level extensions", e.g.
+Sscofpmf. 'Sv' for virtual memory (I guess) related extensions, e.g.
+Svinval, and we appear to be using alphabetical order for them.
+
+> 4) Standard Machine-Level Extensions
+> 5) Non-Standard (Vendor) Extensions
+
+Anyway, for the relatively easier problem of this kernel list and this
+patch, we could do something with defines like below in order to try and
+keep the order right.
+
+/*
+ * Each sub-list is sorted alphabetically.
+ */
+#define S_EXTENSIONS                                                    \
+        __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),         \
+        __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),                 \
+        __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),           \
+        __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+
+#define Zi_EXTENSIONS                                                   \
+        __RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),             \
+        __RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+
+#define Zb_EXTENSIONS                                                   \
+        __RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZICBOM),                \
+
+static struct riscv_isa_ext_data isa_ext_arr[] =3D {
+        Zi_EXTENSIONS
+        Zb_EXTENSIONS
+        S_EXTENSIONS
+        __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+};
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
