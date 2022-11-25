@@ -4,71 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE20CC43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DABEC46467
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vqBqiV9X96JmLQdatrjylr2Etg6x4ZjWU4H9tXSj3xw=; b=nyo5cPOkXa+PDs
-	bq8uKZ0T9eK2BLnn7iYyxydpKy0UnzB6gTnkKgTPn5d2GprlQ9gHYs586XwRitUHX7UOsH9sAeso0
-	bI8+OnGWnG3WAajaqQ5VXynoPAr0ayh3yLVS9CrAuWs3uXtGAEDe9xPgz14I8FES7N9xlgFwgkKWs
-	rfXRYJ83yNYJZR/KQwV9MazPK5k7HSGKtxODLXeoO+xt8dIE7wGhDQ3OA2VAFqXrt5eeEb3TDAEBF
-	aAOTjU5SgzDd8sAN/BbaFBGa60PaDShctTWvrm+sN6Rp/j23tpA5qKwl1G2CN0cuxPYEIdq7Nel1m
-	GL7Adn5nxF8O20nbxdzw==;
+	List-Owner; bh=2TyiSIN4tSmybKTfuG1TJhELz0M4R2jrKdC8TSWFgfY=; b=K4f2qUbWDmYhSW
+	IneEBO9EDbsloel5h1MSAarNwsJTg4rdV/eZ/wA+Kly9Zaqp54Jn4Cl4qmAJPb7GKzVmgYtmU+tPI
+	S1n1x0syN2rwUNURz3AVa6FYJ0PkzqGCcLGpS3WJOmDl5JHvkkA5J9neHKjVLYJGa4sANB5rVN2SH
+	S/ggQp4tk02lGYRee/przTH8xOwr/e0GvnIuboV9lGdM4JvwrJen7nV1cWi4tqGD56QpKj+JOkpXp
+	juZNMy3o9MC+9uW7dxZ6/OEJklRawWnI6eLlwimXUiO/3f5zXaNEJEB8sBA2KYvvK9fb7hnpdQQDG
+	DHaeONCccy03opwwpB9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiMf-002tto-28; Fri, 25 Nov 2022 23:44:13 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oyiPr-002v6r-S2; Fri, 25 Nov 2022 23:47:31 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiMc-002tsC-0B
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 23:44:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CEEE7B82C8B;
-	Fri, 25 Nov 2022 23:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 867C4C433D6;
-	Fri, 25 Nov 2022 23:44:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669419846;
-	bh=dx4KFqZ6EVEnjfrcSXRUt1F3Np6H36TlPzTa24JlEx4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZihZxuLZ6WTXu6nyondE9tQSnFousiW66KNNMR8suvn9ygAJqzp4ufvTJbcothExe
-	 HNvsrPXtQoF8xhWyAUrH0Edp7GK2zaEOxx9Q9/QQ1apLau8oYjnKffLdy6GjP14iGm
-	 OhhEVjfxEQsGErGbID1aIY6kVXE2XX5E2jMsu7IjMqJVvCn+NVn5fSHFAz6xs86dt5
-	 d3GyQP8sxUXbXJC1n2daiv+oyaPeHzEfbjSRAsguD4PRzMn3Ewxc27qXDZTZ5WVM2i
-	 R879aTdgDi+/06ZO/xHjwB8Q9ACve5H/o7qayY45TX95q7My4yzXF+go9UIpBF+3Za
-	 K2Rjb3MbrsOTw==
-Date: Fri, 25 Nov 2022 23:44:01 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	id 1oyiPP-002upG-Vf; Fri, 25 Nov 2022 23:47:06 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id 5A05E5C0102;
+	Fri, 25 Nov 2022 18:47:03 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute1.internal (MEProxy); Fri, 25 Nov 2022 18:47:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1669420023; x=1669506423; bh=oc
+	0vqOxK1/ubxsXqJRc0i0XePMXd2FLoXsdGEJA3VdU=; b=cDOSrn7HJKWbmYj7r/
+	9yI5ULM0q+StizVKU0Eq6TuZgOr038kWzW+LwnaREwNYbe0IqAKGYiVZ0Hzoxtuw
+	LyfpyF2E9cDwqxcAVJrjnRv8Zfpitsi38QNyLhKhh5zwd3ZypU8XGS1npbrxAfg0
+	TWFV7k9ZLIy/qADf88zj+84/J/MePN+ogfPYuvEIIlevFXbpCgb4iDv//FO1foYg
+	JzXSLDU9DHduLBeAdE6M/LJg5LiMMwmAiI3Oo0TmCG3lWjWK+4NUCwkYFW7FhXKL
+	1MDUIwJPOjdZvQDoS2RGcImJPh5P5pIlLd4bJdg5LC4mXPiDDbtYUOpFWnmaZjiV
+	/DAw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1669420023; x=1669506423; bh=oc0vqOxK1/ubx
+	sXqJRc0i0XePMXd2FLoXsdGEJA3VdU=; b=p0wuJvSCFfV8OqAkErXyz6sNTILUa
+	Isyr6j1qXYU5XbxNbCrw105TVGMhovDkZJneWU3glcnV/15GYBJ5WbQru6uAksbS
+	UZ0tIncqCEPzYDcEKwFFFPQFyKmMJSVv1/BtEi83WJov7o2gnURiX7yzPyvnAvYg
+	0bBbw78Q1ux53e5FrZEefUXk7mHi29oJ6X7deAPhBYC5dZVBA8aVu3rD6KiJs4jM
+	Lhq1mhFprenNOte4rRSlFzAxa4WZSkX0XzwLR7UqVlc1nu2hbcoWKrQqAWgAF50b
+	D7vipOHt9N2++N3Sj/EB+zMED+CUjtN0vyHIFIh5IbnjcsMA8hJXmNUUQ==
+X-ME-Sender: <xms:91OBY_lnoVcXCG2ckxn2_ffmkzT_dd7n_NMq1QN04KWQuIQ1cueuPQ>
+    <xme:91OBYy0XpWJzNtTTSmcHPiTVI0mj7julC6p56LaahzLrC7SOalnkw2KLzKT_k4Y7K
+    ulbDkfOM1L1YXeA_Q>
+X-ME-Received: <xmr:91OBY1qk-a3rApzP1B2p88dd2MqyQjj3dCalGe8S8uuRY6MEiIF-jIt5oI8nBrlhA-As2_tx_453lwg170BAK51PA08KpYnd4NkNBDOSALHfKeAGpDB62c0HIdPN9WDZ52o2CQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenfg
+    hrlhcuvffnffculdejmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
+    necuhfhrohhmpefurghmuhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllh
+    grnhgurdhorhhgqeenucggtffrrghtthgvrhhnpeelvedtvddvveeikeeiffejgffgueei
+    teeileevlefhueekjedvvdfgieevkeelfeenucffohhmrghinheptghlohgtkhifohhrkh
+    hpihdrtghomhdpmhgrnhhgohhpihdrtggtnecuvehluhhsthgvrhfuihiivgeptdenucfr
+    rghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:91OBY3lCzzB5ZtRN5gFkHsOwpJOTPbbGt0T7HWQMwQc5QxlxiPsf1Q>
+    <xmx:91OBY93Hx2_F1fIClOG1ZYCndOe2mI7xOGmipAHBNmsUFBsn42MuZg>
+    <xmx:91OBY2tDQ3yxaioSF5X9dxplY7LV0Tv0I7k-ZP3aww0GRDdjLIsHMw>
+    <xmx:91OBY4G7255r_PrbDHaXUzNQKKvzrFvsVoR1v6tVz8dfYVDHrdLInQ>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 25 Nov 2022 18:47:02 -0500 (EST)
+From: Samuel Holland <samuel@sholland.org>
+To: Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
+	Conor Dooley <conor@kernel.org>,
+	linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
 	Samuel Holland <samuel@sholland.org>,
-	Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v3 3/3] clocksource: timer-riscv: Set
- CLOCK_EVT_FEAT_C3STOP based on DT
-Message-ID: <Y4FTQenbPLXy/9Bz@spud>
-References: <20221125112105.427045-1-apatel@ventanamicro.com>
- <20221125112105.427045-4-apatel@ventanamicro.com>
- <Y4C/YOoHxX5dxwG3@wendy>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v2 02/12] dt-bindings: vendor-prefixes: Add Allwinner D1/D1s board vendors
+Date: Fri, 25 Nov 2022 17:46:46 -0600
+Message-Id: <20221125234656.47306-3-samuel@sholland.org>
+X-Mailer: git-send-email 2.37.4
+In-Reply-To: <20221125234656.47306-1-samuel@sholland.org>
+References: <20221125234656.47306-1-samuel@sholland.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y4C/YOoHxX5dxwG3@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_154410_359873_D749B574 
-X-CRM114-Status: GOOD (  38.02  )
+X-CRM114-CacheID: sfid-20221125_154704_546342_CD68CE71 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,96 +126,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 01:13:04PM +0000, Conor Dooley wrote:
-> On Fri, Nov 25, 2022 at 04:51:05PM +0530, Anup Patel wrote:
-> > We should set CLOCK_EVT_FEAT_C3STOP for a clock_event_device only
-> > when riscv,timer-cant-wake-up DT property is present in the RISC-V
-> > timer DT node.
-> > 
-> > This way CLOCK_EVT_FEAT_C3STOP feature is set for clock_event_device
-> > based on RISC-V platform capabilities rather than having it set for
-> > all RISC-V platforms.
-> 
-> I need to go do some testing on what setting the C3STOP flag does on
-> platforms other than PolarFire SoC. I'm not sure that we should be
-> enabling this flag *at all* until we know that it does not break on
-> other platforms too.
+Some boards using the Allwinner D1 or D1s SoC are made by vendors not
+previously documented.
 
-I tried my fu540 & fu740 - both of those seem to exhibit broken timer
-behaviour with C3STOP set. Ethernet doesn't work upstream on the
-VisionFive, so I didn't go through the hassle of testing that - but I
-would imagine it is the same as the fu740. Whenever I get a VisionFive 2
-I'll give that a try too.
+Clockwork Tech LLC (https://www.clockworkpi.com/) manufactures the
+ClockworkPi and DevTerm boards.
 
-I did try the D1 (thanks for fielding my dumb questions Samuel) but I
-was not able to get the thing to boot if I disabled the sunxi timer :/
-Ethernet would not come up in U-Boot, clearly I did something not
-right..
+Beijing Widora Technology Co., Ltd. (https://mangopi.cc/) manufactures
+the MangoPi family of boards.
 
-Obviously we need to fix things & get it backported etc, so taking a
-pragmatic approach: I think that it is better to merge this stuff even
-though it there's a pretty good chance I think that it'll break the
-SBI timer on a D1, since it is not intended that it will be used.
+Acked-by: Rob Herring <robh@kernel.org>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
-It does make me worried about some of the other platforms though, like
-that Bouffalolabs SoC that Jisheng sent in a DT for. It's also using
-thead stuff so I wonder if it needs C3STOP too. I've added Jisheng to
-CC :)
+(no changes since v1)
 
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > ---
-> >  drivers/clocksource/timer-riscv.c | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> > index a0d66fabf073..0c8bdd168a45 100644
-> > --- a/drivers/clocksource/timer-riscv.c
-> > +++ b/drivers/clocksource/timer-riscv.c
-> > @@ -28,6 +28,7 @@
-> >  #include <asm/timex.h>
-> >  
-> >  static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> > +static bool riscv_timer_cant_wake_cpu;
-> >  
-> >  static int riscv_clock_next_event(unsigned long delta,
-> >  		struct clock_event_device *ce)
-> > @@ -85,6 +86,8 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
-> >  
-> >  	ce->cpumask = cpumask_of(cpu);
-> >  	ce->irq = riscv_clock_event_irq;
-> > +	if (riscv_timer_cant_wake_cpu)
-> > +		ce->features |= CLOCK_EVT_FEAT_C3STOP;
-> >  	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
-> >  
-> >  	enable_percpu_irq(riscv_clock_event_irq,
-> > @@ -139,6 +142,13 @@ static int __init riscv_timer_init_dt(struct device_node *n)
-> >  	if (cpuid != smp_processor_id())
-> >  		return 0;
-> >  
-> > +	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
-> > +	if (child) {
-> > +		riscv_timer_cant_wake_cpu = of_property_read_bool(child,
-> > +						"riscv,timer-cant-wake-cpu");
-> > +		of_node_put(child);
-> > +	}
-> > +
-> >  	domain = NULL;
-> >  	child = of_get_compatible_child(n, "riscv,cpu-intc");
-> >  	if (!child) {
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Anyway, the mechanics of the change here look good to me. The re-use of
-child is understandable but a little odd though, since riscv,timer /is
-not/ actually a child. That's relatively minor thing to change though.
-
-I'm still not happy about turning on C3STOP when we have not figured out
-why it's breaking timer behaviour, but I think that's the lessor of two
-evils. Somewhat reluctantly:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-I'll try to spend some time looking into why it's broken.
-
-Thanks,
-Conor.
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 592e43911a07..f2c67b7418e4 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -262,6 +262,8 @@ patternProperties:
+     description: Cirrus Logic, Inc.
+   "^cisco,.*":
+     description: Cisco Systems, Inc.
++  "^clockwork,.*":
++    description: Clockwork Tech LLC
+   "^cloudengines,.*":
+     description: Cloud Engines, Inc.
+   "^cnm,.*":
+@@ -1430,6 +1432,8 @@ patternProperties:
+     description: Shenzhen whwave Electronics, Inc.
+   "^wi2wi,.*":
+     description: Wi2Wi, Inc.
++  "^widora,.*":
++    description: Beijing Widora Technology Co., Ltd.
+   "^wiligear,.*":
+     description: Wiligear, Ltd.
+   "^willsemi,.*":
+-- 
+2.37.4
 
 
 _______________________________________________
