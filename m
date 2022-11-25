@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D93C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 11:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E02C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 11:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hb/afxFUMMR8KzYR8QeXp+F7eDKc4BvfrNTQuJ/qFLg=; b=K4mKuasP3aBMF6
-	6yqPeyciUp0Dsi+ZImW4e8NeopWJQ5EKFwHOIcVJmyBsOSbJtYicv2Jff0sMk7jx+nHEOa7rS/Sih
-	6upjgR0OJkuKb1mrg9tj3bqfvjatEoGFPr7krOis4keGYpOHvEeT7OJ56tN99qPkt5UWJgdLZ9SG2
-	gC4H4iI6vRkOmmmJJtrAEAGLdxD0y+LOI6aTvp+AmvGJ1CrW7s4ANvXUjxy4oeX9hExa2yethpFnU
-	Y8M2yd9o/uw5hqrI+KmzV9/h/HCAfaSdrgzRMLxtQ5Z9s6UfbEt/EsDs0s15nViT0SCyxlgyfGXah
-	4xHdnW9v6G3FGMd6LISw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R5ovMY56G4fZmEe4sQ7+fqesw92IEde8CdyyYFYeG9Y=; b=fPJW6LNCSXEVlb
+	SyvVweZev0Ps3GT10pa9fkQsJkLZrwVerXb4SzH21Y6BcVxWxhzwCBWijEAMP7F4fFGl5lZ2TLAxT
+	oYPg1Qx3QmokQw+YqgO6rxikiZkfbnHJz03W/nlzV3GDhGRfOlGtUQe1bLq5UCb6579Car0d4ku3O
+	MS75RMgT5ZrJ1UFDDR7AL7+eU9JObM7ksi8MGpVeg3EX8QAolHGg91G0IIXY2l9ttZaP+AqQgJwZ7
+	+1uOX6OspY1D0az8UYFwrpUE3yPVJ4FaKS4hmFvmUFIb6WeKdiUgiqfGSLwBJ+T0WXSY/jpOxhSLf
+	Jf+cjJPagfV+3TC6D9Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyWiu-00G0mz-Jf; Fri, 25 Nov 2022 11:18:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oyWng-00G3cc-Cs; Fri, 25 Nov 2022 11:23:20 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyWiq-00G0hj-5R
-	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 11:18:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669375099; x=1700911099;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=exPqwwcPvWlmDULPLtKdVviUlO9FBM4xFir3ZuZSLAQ=;
-  b=fzrBcF9pGmIbgLy+4RLV268XfNk/mHfOL57tLJo+sZ5IjXm/pkjWM9oK
-   CVIIEEGu4U2lFJwPAzTj3Ze9DYUxNwxeh5V/ZK0cMmvW5cmDWMyafSmnB
-   MjkwOgzmQ43VxSYIdgPtgyJzsiyzAyLIqxVRyfNtNQv/g68YW5S5uWuCN
-   vK8CFtvo5A/DY7gPPtMe1QmWunSSICzpDXhMXPaed1Kl1mPpsYY/NFPMb
-   k9Cx82PTtka20Z3Ht5ynNYrv58+V84xHzfcbh4MPvydKZio7x4XaxK/mc
-   0+EWBfF+RoIqt1HIDUrbeLn0tj63Co/y6thm8r8LUUfX0iG4tnx6tdHqw
-   g==;
-X-IronPort-AV: E=Sophos;i="5.96,193,1665471600"; 
-   d="scan'208";a="188642591"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Nov 2022 04:18:10 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 25 Nov 2022 04:18:02 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Fri, 25 Nov 2022 04:18:00 -0700
-Date: Fri, 25 Nov 2022 11:17:42 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Walker Chen <walker.chen@starfivetech.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, "Rafael J . Wysocki"
-	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
-Message-ID: <Y4CkVnmdEhCsyckH@wendy>
-References: <20221118133216.17037-1-walker.chen@starfivetech.com>
- <20221118133216.17037-4-walker.chen@starfivetech.com>
- <Y3giSQ0YccyY2tVk@spud>
- <95b05ac3-31a9-50dc-8eeb-eb3a9f883a6b@starfivetech.com>
+	id 1oyWlv-00G2Q7-NK
+	for linux-riscv@lists.infradead.org; Fri, 25 Nov 2022 11:21:33 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 62so3683406pgb.13
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Nov 2022 03:21:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vYP+2oM34cmJFG3V0Ltp7GNtutJIbBXEhCpqNRxYA1c=;
+        b=Pj9Bv7nv0hGxcqolfF4+yd/oe3Ub2fzfkcuWjrMi0VinpJH7fvdtr/YljSrODKWK0f
+         FM+Mz95Ur9WpLh6f0vCmbssVFWKWW2ofL/8GDnurs+S0sQiggICep5VwM2LXFol6x39I
+         VidgCoZBzSc/iITMBjwMr6oD8SDGBCXmlYseTtMP6EAqIiGyrcbLVj/aWlZlvIJVrE8X
+         XCIDAbGNlmDkUOdyCXP80IqSGHQa/rtF0lFEalT59kd7Z3ns30vsO3buNBshk1Ou/CtZ
+         RkgoP5HGq+zNCis3/uBJRtzaqXjfKRsy/UrYeKJDNpEsFezHd+IU/xnMvU+wH5KoJRrr
+         ReeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vYP+2oM34cmJFG3V0Ltp7GNtutJIbBXEhCpqNRxYA1c=;
+        b=UsySWa70titxARI9zRB6CSSc9dfD4wgF08NVbjysFfhuRMldtn3d34EyAo5brUVlkB
+         XGXBrTJ86qniHQS+cshH3xW69+IVP2mpzF+JWlZ8trkHzwVIQokyNKORrECepUe8JA/a
+         jh29e6VIDwWKGFuwlw151wTyd4HAqlzsmUtns0u8prgwX9d7Vm3rqs8WkVxkioSoDUW6
+         MIWAWBL7Qmt/ipKvHUjO2SbvkyYo/WQC9jec1EWMdTw8/G1GJXwP4gplhsJzLzM2SxBk
+         y/8cdqke1fq+nPO2n1+BsJIKhxeAW4lVZswFoSx2muY76uD5Qdh1lAKZOKig950arVXA
+         cKPA==
+X-Gm-Message-State: ANoB5pm6nCbTFNLVuy78PwhIUvBs6GCamG6WLyiV5QQitZaOP7SHOoLK
+	bfPC50j/a0VvXYUgam0w53DRrw==
+X-Google-Smtp-Source: AA0mqf60LcLJuXxWEdKaVgoRREe0TX/v6dAlHlqUjeI4LuwEdKNOY1o0jWc8FMMP6h8gnDcCdeadMA==
+X-Received: by 2002:a63:131a:0:b0:476:f92f:885a with SMTP id i26-20020a63131a000000b00476f92f885amr16224287pgl.478.1669375288411;
+        Fri, 25 Nov 2022 03:21:28 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
+        by smtp.gmail.com with ESMTPSA id e66-20020a621e45000000b0057488230704sm2834335pfe.219.2022.11.25.03.21.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Nov 2022 03:21:27 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Anup Patel <anup@brainfault.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v3 0/3] Improve CLOCK_EVT_FEAT_C3STOP feature setting
+Date: Fri, 25 Nov 2022 16:51:02 +0530
+Message-Id: <20221125112105.427045-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <95b05ac3-31a9-50dc-8eeb-eb3a9f883a6b@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_031820_316307_41BBDB09 
-X-CRM114-Status: GOOD (  55.86  )
+X-CRM114-CacheID: sfid-20221125_032131_850369_B0F1EF7A 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,267 +99,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 06:04:59PM +0800, Walker Chen wrote:
-> On 2022/11/19 8:24, Conor Dooley wrote:
-> > On Fri, Nov 18, 2022 at 09:32:15PM +0800, Walker Chen wrote:
+This series improves the RISC-V timer driver to set CLOCK_EVT_FEAT_C3STOP
+feature based on RISC-V platform capabilities.
 
-> >> +void starfive_pmu_hw_event_turn_off(u32 mask)
-> >> +{
-> >> +	pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
-> >> +}
-> >> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
-> > 
-> > Where are the users for these exports? Also, should they be exported as
-> > GPL?
-> > 
-> > Either way, what is the point of the extra layer of abstraction here
-> > around the writel()?
-> 
-> The two export functions are only prepared for GPU module. But accordint to
->  the latest information, it seems that there is no open source plan for GPU. 
-> So the two functions will be drop in next version of patch.
+These patches can also be found in riscv_timer_dt_imp_v3 branch at:
+https://github.com/avpatel/linux.git
 
-That's a shame!
+Changes since v2:
+ - Include Conor's revert patch as the first patch and rebased other patches
+ - Update PATCH2 to document bindings for separate RISC-V timer DT node
+ - Update PATCH3 based on RISC-V timer DT node bindings
 
-> >> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
-> >> +{
-> >> +	struct starfive_pmu *pmu = pmd->power;
-> >> +
-> >> +	if (!pmd->mask) {
-> >> +		*is_on = false;
-> >> +		return -EINVAL;
-> >> +	}
-> >> +
-> >> +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
-> > 
-> > Is there a specific reason that you are using the __raw variants here
-> > (and elsewhere) in the driver?
-> 
-> Will use unified function '__raw_readl' and '__raw_writel'
+Changes since v1:
+ - Rebased on Linux-5.19-rc8
+ - Renamed "riscv,always-on" DT property to "riscv,timer-can-wake-cpu"
 
-No no, I want to know *why* you are using the __raw accessors here. My
-understanding was that __raw variants are unbarriered & unordered with
-respect to other io accesses.
+Anup Patel (2):
+  dt-bindings: timer: Add bindings for the RISC-V timer device
+  clocksource: timer-riscv: Set CLOCK_EVT_FEAT_C3STOP based on DT
 
-I do notice that the bcm driver you mentioned uses the __raw variants,
-but only __raw variants - whereas you use readl() which is ordered and
-barriered & __raw_readl().
+Conor Dooley (1):
+  Revert "clocksource/drivers/riscv: Events are stopped during CPU
+    suspend"
 
-Is there a reason why you would not use readl() or readl_relaxed()?
+ .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
+ drivers/clocksource/timer-riscv.c             | 12 ++++-
+ 2 files changed, 63 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
 
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static int starfive_pmu_set_state(struct starfive_power_dev *pmd, bool on)
-> >> +{
-> >> +	struct starfive_pmu *pmu = pmd->power;
-> >> +	unsigned long flags;
-> >> +	uint32_t val;
-> >> +	uint32_t mode;
-> >> +	uint32_t encourage_lo;
-> >> +	uint32_t encourage_hi;
-> >> +	bool is_on;
-> >> +	int ret;
-> >> +
-> >> +	if (!pmd->mask)
-> >> +		return -EINVAL;
-> >> +
-> >> +	if (is_on == on) {
-> >> +		dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
-> >> +				pmd->genpd.name, on ? "en" : "dis");
-> > 
-> > Am I missing something here: you've just declared is_on, so it must be
-> > false & therefore this check is all a little pointless? The check just
-> > becomes if (false == on) which I don't think is what you're going for
-> > here? Or did I miss something obvious?
-> 
-> Sorry, indeed I missed several lines of code. It should be witten like this:
-> 	ret = jh71xx_pmu_get_state(pmd, &is_on);
->         if (ret) {
->                 dev_dbg(pmu->pdev, "unable to get current state for %s\n",
->                         pmd->genpd.name);
->                 return ret;
->         }
-
-Heh, this looks more sane :)
-
-> 
->         if (is_on == on) {
->                 dev_dbg(pmu->pdev, "pm domain [%s] is already %sable status.\n",
->                         pmd->genpd.name, on ? "en" : "dis");
->                 return 0;
->         }
-> 
-> > 
-> >> +		return 0;
-> >> +	}
-> >> +
-> >> +	spin_lock_irqsave(&pmu->lock, flags);
-> >> +
-> >> +	if (on) {
-> >> +		mode = SW_TURN_ON_POWER_MODE;
-> >> +		encourage_lo = SW_MODE_ENCOURAGE_EN_LO;
-> >> +		encourage_hi = SW_MODE_ENCOURAGE_EN_HI;
-> >> +	} else {
-> >> +		mode = SW_TURN_OFF_POWER_MODE;
-> >> +		encourage_lo = SW_MODE_ENCOURAGE_DIS_LO;
-> >> +		encourage_hi = SW_MODE_ENCOURAGE_DIS_HI;
-> >> +	}
-> >> +
-> >> +	__raw_writel(pmd->mask, pmu->base + mode);
-> >> +
-> >> +	/* write SW_ENCOURAGE to make the configuration take effect */
-> >> +	__raw_writel(SW_MODE_ENCOURAGE_ON, pmu->base + SW_ENCOURAGE);
-> > 
-> > Is register "sticky"? IOW, could you set it in probe and leave this mode
-> > always on? Or does it need to be set every time you want to use this
-> > feature?
-> 
-> These power domain registers need to be set by other module according to the
-> specific situation. 
-> For example some power domains should be turned off via System PM mechanism
-> when system goes to sleep, 
-> and then they are turned on when system resume.
-
-I was just wondering if SW_MODE_ENCOURAGE_ON would retain it's value
-during operation or if it had to be written every time. It's fine if
-that's not the case.
-
-> >> +	__raw_writel(encourage_lo, pmu->base + SW_ENCOURAGE);
-> >> +	__raw_writel(encourage_hi, pmu->base + SW_ENCOURAGE);
-> >> +
-> >> +	spin_unlock_irqrestore(&pmu->lock, flags);
-> >> +
-> >> +	if (on) {
-> >> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
-> >> +						val & pmd->mask, DELAY_US,
-> >> +						TIMEOUT_US);
-> >> +		if (ret) {
-> >> +			dev_err(pmu->pdev, "%s: failed to power on\n", pmd->genpd.name);
-> >> +			return -ETIMEDOUT;
-> >> +		}
-> >> +	} else {
-> >> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
-> >> +						!(val & pmd->mask), DELAY_US,
-> >> +						TIMEOUT_US);
-> > 
-> > Could you not just decide the 3rd arg outside of the readl_poll..() and
-> > save on duplicating the wait logic here?
-> 
-> Seems that the readl_poll..() can only be called in two cases 
-> because the CURR_POWER_MODE register is read to val and then operation with mask every time.
-> 
-
-I'm sorry, I completely forgot that read*_poll..() actually not actually
-a function. Please ignore this comment!
-
-> >> +static int starfive_pmu_probe(struct platform_device *pdev)
-> >> +{
-> >> +	struct device *dev = &pdev->dev;
-> >> +	struct device_node *np = dev->of_node;
-> >> +	const struct starfive_pmu_data *entry, *table;
-> >> +	struct starfive_pmu *pmu;
-> >> +	unsigned int i;
-> >> +	uint8_t max_bit = 0;
-> >> +	int ret;
-> >> +
-> >> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
-> >> +	if (!pmu)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	pmu_base = pmu->base = devm_platform_ioremap_resource(pdev, 0);
-> >> +	if (IS_ERR(pmu->base))
-> >> +		return PTR_ERR(pmu->base);
-> >> +
-> >> +	/* initialize pmu interrupt  */
-> >> +	pmu->irq = platform_get_irq(pdev, 0);
-> >> +	if (pmu->irq < 0)
-> >> +		return pmu->irq;
-> >> +
-> >> +	ret = devm_request_irq(dev, pmu->irq, starfive_pmu_interrupt,
-> >> +			       0, pdev->name, pmu);
-> >> +	if (ret)
-> >> +		dev_err(dev, "request irq failed.\n");
-> >> +
-> >> +	table = of_device_get_match_data(dev);
-> >> +	if (!table)
-> >> +		return -EINVAL;
-> >> +
-> >> +	pmu->pdev = dev;
-> >> +	pmu->genpd_data.num_domains = 0;
-> >> +	i = 0;
-> >> +	for (entry = table; entry->name; entry++) {
-> >> +		max_bit = max(max_bit, entry->bit);
-> >> +		i++;
-> >> +	}
-> > 
-> > This looks like something that could be replaced by the functions in
-> > linux/list.h, no? Same below.
-> 
-> Nowadays other platforms on linux mainline mostly write in this way or write like this: 
-> 	for (i = 0; i < num; i++) {
-> 		...
-> 		pm_genpd_init(&pmd[i]->genpd, NULL, !is_on);
-> 	}
-
-That's not what this specific bit of code is doing though, right? You're
-walking jh7110_power_domains to find the highest bit. I was looking at what
-some other drivers do, and took a look at drivers/soc/qcom/rpmhpd.c
-where they know the size of this struct at compile time & so can do
-store the number of power domains in the match data. If you did that,
-you could use a loop like the one other platforms use.
-
-> >> +	if (!pmu->genpd)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	pmu->genpd_data.domains = pmu->genpd;
-> >> +
-> >> +	i = 0;
-> >> +	for (entry = table; entry->name; entry++) {
-
-And it's the same here. By now, you should know how many power domains
-you have, no?
-
-Anyways, as I said before I don't know much about this power domain
-stuff, it's just that these two loops seem odd.
-
-> >> +		struct starfive_power_dev *pmd = &pmu->dev[i];
-> >> +		bool is_on;
-> >> +
-> >> +		pmd->power = pmu;
-> >> +		pmd->mask = BIT(entry->bit);
-> >> +		pmd->genpd.name = entry->name;
-> >> +		pmd->genpd.flags = entry->flags;
-> >> +
-> >> +		ret = starfive_pmu_get_state(pmd, &is_on);
-> >> +		if (ret)
-> >> +			dev_warn(dev, "unable to get current state for %s\n",
-> >> +				 pmd->genpd.name);
-
-> >> +static const struct starfive_pmu_data jh7110_power_domains[] = {
-> > 
-> > Is this driver jh7110 only or actually jh71XX? Have you just started out
-> > by implementing one SoC both intend to support both?
-> 
-> JH7110 is our first SoC, probably the next generation of SoC jh7120 still
-> use this controller driver.
-> Maybe now the naming for JH71XX is not very suitable.
-
-Right. My question was more about if this supported the JH7100 too, but
-I saw from your answer to Emil that it won't. I don't have a preference
-as to whether you call it jh71xx or jh7110, I'll leave that up to
-yourselves and Emil. This particular struct should still be called
-`jh7110_power_domains` though since it is particular to this SoC, no
-matter what you end up calling the file etc.
-
-> > I don't know /jack/ about power domain stuff, so I can barely review
-> > this at all sadly.
-
-> Thank you for taking the time to review the code, you helped me a lot.
-> Thank you so much.
-
-No worries, looking forward to getting my board :)
+-- 
+2.34.1
 
 
 _______________________________________________
