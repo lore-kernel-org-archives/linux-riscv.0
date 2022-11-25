@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834A3C43217
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65D0C43217
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Nov 2022 23:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xP1jafk8JVj1TKXqCAB12lI+3eaTlfLkp/s/HcviBQk=; b=fSBAFHk/iw0fJ4
-	Knx18rbqpeXsaEgFRtDGMT3Ggk/1EgAOavtHPS01/4j0YgQJa3jI9ut1nLndC7IAduT9DNpW0LQHc
-	3ev8+tgsBvfwbKOi/RKyZ1Og/XfcTA7R0eJNbRdbkwZsljd2aDx2Piz9iTf/ejORRkY6i/L4yh6bo
-	i211tkj0onAAq81aDXZkoC220usQaSPt8kX+JPBo9OE9AW+rCeyueeyCXQXFJmGfp0cvm+vl4+L3c
-	FaeOJKtIkOfKyFS2mOWyU2y2BwFSWW5zg8/4duDaGBWcZvNyNMrNOlG5pa9k4cpYenmgRCjH68iy+
-	zHRxdVPXRSviG5uH7BGQ==;
+	List-Owner; bh=HKXsvcD1sBF14K+rG9FKDtic56+dtRIbWSCx33Ft+bU=; b=AlNC3kz+oDiwWP
+	YRxeZqKwXvFbl7p9cW38DIq0hbu70aoj2MWTd4b25wd2xj1+mdFDhiAuO01Mnj74UyXRckLD0VlLI
+	SwG3TwY9BQimcZfysksym2HYRh9b/SU92ikIlx6Y9+Xvcahr3zkl/zmikn4mUJ7ictiPiRS3r93hL
+	F2zDZwu3udehs21YhwaLLoox/Ah3p2xChkmf7o3WJMS4bUuaAPIxRfKcs5PfRU/iQNRVGnLWnEePm
+	0waIWG0n51Qe6FbT9x6vYWbVdj+O0xXI0IyIIykV1Qq23upksUcw7Qm4wDrjRmCnhIWaM4aAzfSO3
+	flpoK7Yakz0aq4sO+neQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiUa-002xoY-6w; Fri, 25 Nov 2022 23:52:24 +0000
+	id 1oyiVO-002yFG-Bb; Fri, 25 Nov 2022 23:53:14 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyiPb-002uyU-9M; Fri, 25 Nov 2022 23:47:17 +0000
+	id 1oyiPc-002uz8-PX; Fri, 25 Nov 2022 23:47:19 +0000
 Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.nyi.internal (Postfix) with ESMTP id AA7515C00EA;
-	Fri, 25 Nov 2022 18:47:14 -0500 (EST)
+	by mailout.nyi.internal (Postfix) with ESMTP id 2DC045C00C8;
+	Fri, 25 Nov 2022 18:47:16 -0500 (EST)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute2.internal (MEProxy); Fri, 25 Nov 2022 18:47:14 -0500
+  by compute2.internal (MEProxy); Fri, 25 Nov 2022 18:47:16 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1669420034; x=1669506434; bh=lp
-	BC9qotmaGEHEPnCf47hznVhBx/bTmBO6U31NxnFo4=; b=UER4zFjKAWRy8gzLWy
-	hn22WQxWfVoqNoT3RVS1fHDS/55nP7vhRFVCZhYjJFp5cFe+pwlVfsbCoCeWxAaP
-	sfEnpoqf+4FfUsbzveslcG1kmb/f49qt8QYJ2N3DuAec5oEsQTo/DpVsWNc+csFg
-	8HiQL9ewt5uO5lzwrZUODZvfk0VD2Z4Qydr3MWoB+ZXm4zBoXA0Np16ckqxrePdJ
-	3NFPlGYSHLMCcxsfTN3+jeKo78r2cUqmrmIzlFXeL67dmFT5oaW8eOkN+rIaPvDV
-	sTimiWI6zt0F7iUWu42IwFW+/WMjaIO7Zwyi6/n4nAbG2t2953ISCAcfUFbD8Y3q
-	Tp8g==
+	:subject:subject:to:to; s=fm2; t=1669420036; x=1669506436; bh=Fj
+	nmw3+n3dnO65hbN9PfmiuCI87wjbUsQApmVRUHJck=; b=LrQGhxsTifnfT2U4m9
+	2hipkk9b9WWNVTVyVuPGjkpTPDSYtzuOGcRVBYFp/e/16f9VGqqrX9i7s1maBtCF
+	znlPEOjtE4Sv/bEc1FhXAqvWafeWbVDgcXQJ2svNz4nzw8pyj+//FGqZGisP7rcA
+	aJqUPzym9ZfLyoX5H94+bylk+KxuY6lD/GT+lAXPVK2WlEraRad2fh8NpVHMERFh
+	KePSRPYX0zuaPcVcoXp5wzL8z45Me2eMbBtodHWEorKI5BXHvAyuRqrJhuyMKTIg
+	qhG5bsEQmaDsDaTJcCClf0eE1/wkmM56D/M4X86gJ4oh3M5Pcl8Fo7b80hIaO/hw
+	7S+g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1669420034; x=1669506434; bh=lpBC9qotmaGEH
-	EPnCf47hznVhBx/bTmBO6U31NxnFo4=; b=CdUuZ7blDObgcslUike83hVpIKNtW
-	+bEOYgTOA4BCwPPDU27NrCjOo0zfJ53vI0Wl0tIsG/P7a8mmdtvIseOMn/tNzgrU
-	ynN4Ov7gO4kXepZOdiOp7wkfnyzLrdDxapEHdG+skqZPoh0UMC6wZFbeJJZHwdfP
-	rf6DouP7n45Ap91hdbdcBz/MHKwUSPrL+a3ftRdFfozQPawaOmCkMyXQoNphwfEl
-	5PnSWT6QZzhOFDvHdetS2/eFaasb52V51GUKZmdZ/vbyFm72hy4+wusyQ9bPzuOe
-	ltWOz+ob+EMK4J6F4Pb7FN/Q3U+zbVjG8+m3Isen4TKxwI3LXEaxVOoNA==
-X-ME-Sender: <xms:AlSBY0HC7y_XYCVOnq2NXROZbOmgiwgHZKpZC8DmtS6XgZv47FpsAA>
-    <xme:AlSBY9U3fov0i3YLhvG2ZEVkyE25OwNfaYz-0WoF7iumfDRWlouq509T0l7ezEtnJ
-    l2V9yrXOIx_KbASTw>
-X-ME-Received: <xmr:AlSBY-J7o_ARGE-yuLqnK8H7P9_OOmFQvVTgLPZjp0BULRI_qhze1f-HPugQ2vh3qcBlQ7MeqGS_Qt4hzdMMomHmx9RnBmbhA4jw3_YtN4h8K1EyxR2kA7fCAPK1r0ETGqxMXg>
+	:x-sasl-enc; s=fm1; t=1669420036; x=1669506436; bh=Fjnmw3+n3dnO6
+	5hbN9PfmiuCI87wjbUsQApmVRUHJck=; b=N/2YxGT1/tcoHFSiTpf0vgQs9xAEe
+	ezn+Swd2OW2HvNuqDpo/uIIix4xRTyu+wjiLaAf9cXrSReJ0miMBYt0t4S9KV5j5
+	3qUlRZBgp5mZ57lR6cDmsjMX0kiUanaB6jVGtz4CL3wZLRoP3Npx9cDEODwpQVMR
+	wGNesVjrZWoaeOMgToqHwaDywP7wX42j7O/QYsfFT0HaSVOe9+L5I8VNZ4JB7ChL
+	LPoDIxGV7PQdm3pXcCpDGcKP5z8CMPwJS31u2tc1a9jNMsb24svTpUxAhjLxONpd
+	KVW4Gh+a6mX6ovFCUNjo9xMxC/no2of1dARBGgnUL7IhWt9b5ltVGh+zw==
+X-ME-Sender: <xms:BFSBY6_fa7vw0_FwyFptB-A8Zsmi2BmvyeKSr1dQBdHHw-QBicxojg>
+    <xme:BFSBY6uTL_f9WNbplR-OBkJqL45i5bKKmL4g9XUxKSEfcvFfhPfwn-mSWJhkvKPMT
+    xEVC2jJjA7GGHkYcg>
+X-ME-Received: <xmr:BFSBYwDa8WBGmUNe10cmwxJCDrOdrd1qWPlIoVxKkw_V2dbUY6-JUcMs77AeG6b9xIf69nUsX28XZ-wXBv9faVdTk4Oa_5Z2DQOKyKHduuQ3912jTvyXMU-QiW-xcXj0Gmc5qQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieeigdduudcutefuodetggdotefrodftvf
     curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
     uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
     fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
     lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
     frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
-    feeitdevteenucevlhhushhtvghrufhiiigvpeefnecurfgrrhgrmhepmhgrihhlfhhroh
+    feeitdevteenucevlhhushhtvghrufhiiigvpeehnecurfgrrhgrmhepmhgrihhlfhhroh
     hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:AlSBY2E3JMx_M-ORriVj-lvioe0bEnGoQsxE86qOb07WoUecC3ms3g>
-    <xmx:AlSBY6V-3NzSAfuiaAoZcHiRUOmppfr6VCwdI0czk3ZwbgM16kvsiQ>
-    <xmx:AlSBY5PGrHqbVAkVr6WK8fj8D9Kwa2TVOShBC5J10vJxSra9fIpQKg>
-    <xmx:AlSBY0227O0lZCPZD1lairaKKAl-76xHAt6TJM2q53qW-VD8fytG9A>
+X-ME-Proxy: <xmx:BFSBYyc-uc3Ogs58FBhmUN-l5Coj3xPtJCFSKGe4lds4wTMGhY5PHA>
+    <xmx:BFSBY_NE7l_NOzb-aL6zmlwXJhbx0ZqnKOX4EBIR8l7xznONmoQWRg>
+    <xmx:BFSBY8lJULXM_JjWm8yky_AT-wu5GU_k5qI_SydjuiudoNkn4gZibA>
+    <xmx:BFSBYyO1lu7WVySxYjo1q7ouw4Hfww6TLx6klT8VvdylvKDh2YinRA>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 25 Nov 2022 18:47:13 -0500 (EST)
+ 25 Nov 2022 18:47:14 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -97,16 +97,16 @@ Cc: devicetree@vger.kernel.org,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Stanislav Jakubek <stano.jakubek@gmail.com>
-Subject: [PATCH v2 09/12] riscv: dts: allwinner: Add Dongshan Nezha STU devicetree
-Date: Fri, 25 Nov 2022 17:46:53 -0600
-Message-Id: <20221125234656.47306-10-samuel@sholland.org>
+Subject: [PATCH v2 10/12] riscv: dts: allwinner: Add ClockworkPi and DevTerm devicetrees
+Date: Fri, 25 Nov 2022 17:46:54 -0600
+Message-Id: <20221125234656.47306-11-samuel@sholland.org>
 X-Mailer: git-send-email 2.37.4
 In-Reply-To: <20221125234656.47306-1-samuel@sholland.org>
 References: <20221125234656.47306-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221125_154715_435594_569E5D1F 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20221125_154716_976085_78955371 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,45 +123,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The 100ask Dongshan Nezha STU is a system-on-module that can be used
-standalone or with a carrier board. The SoM provides gigabit Ethernet,
-HDMI, a USB peripheral port, and WiFi/Bluetooth via an RTL8723DS chip.
+Clockwork Tech manufactures several SoMs for their RasPi CM3-compatible
+"ClockworkPi" mainboard. Their R-01 SoM features the Allwinner D1 SoC.
+The R-01 contains only the CPU, DRAM, and always-on voltage regulation;
+it does not merit a separate devicetree.
 
-The "DIY" carrier board exposes almost every pin from the D1 SoC to 0.1"
-headers, but contains no digital circuitry, so it does not have its own
-devicetree.
+The ClockworkPi mainboard features analog audio, a MIPI-DSI panel, USB
+host and peripheral ports, an Ampak AP6256 WiFi/Bluetooth module, and an
+X-Powers AXP228 PMIC for managing a Li-ion battery.
+
+The DevTerm is a complete system which extends the ClockworkPi mainboard
+with a MIPI-DSI panel and a pair of expansion boards. These expansion
+boards provide a fan, a USB keyboard, speakers, and a thermal printer.
 
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
-(no changes since v1)
+Changes in v2:
+ - Added PMIC GPIO controller node (binding merged for 6.2)
 
- arch/riscv/boot/dts/allwinner/Makefile        |   1 +
- .../sun20i-d1-dongshan-nezha-stu.dts          | 118 ++++++++++++++++++
- 2 files changed, 119 insertions(+)
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
+ arch/riscv/boot/dts/allwinner/Makefile        |   2 +
+ .../allwinner/sun20i-d1-clockworkpi-v3.14.dts | 253 ++++++++++++++++++
+ .../dts/allwinner/sun20i-d1-devterm-v3.14.dts |  36 +++
+ 3 files changed, 291 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
 
 diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts/allwinner/Makefile
-index 2ed586fafaea..87f70b1af6b4 100644
+index 87f70b1af6b4..1c91be38ea16 100644
 --- a/arch/riscv/boot/dts/allwinner/Makefile
 +++ b/arch/riscv/boot/dts/allwinner/Makefile
-@@ -1,4 +1,5 @@
+@@ -1,4 +1,6 @@
  # SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-dongshan-nezha-stu.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-clockworkpi-v3.14.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-devterm-v3.14.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-dongshan-nezha-stu.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-480p.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-720p.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-dock.dtb
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
 new file mode 100644
-index 000000000000..c549a1c5fbf0
+index 000000000000..4289e724f948
 --- /dev/null
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
-@@ -0,0 +1,118 @@
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
+@@ -0,0 +1,253 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
 +// Copyright (C) 2022 Samuel Holland <samuel@sholland.org>
 +
 +#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
 +
 +/dts-v1/;
 +
@@ -169,37 +177,17 @@ index 000000000000..c549a1c5fbf0
 +#include "sun20i-common-regulators.dtsi"
 +
 +/ {
-+	model = "Dongshan Nezha STU";
-+	compatible = "100ask,dongshan-nezha-stu", "allwinner,sun20i-d1";
++	model = "ClockworkPi v3.14 (R-01)";
++	compatible = "clockwork,r-01-clockworkpi-v3.14", "allwinner,sun20i-d1";
 +
 +	aliases {
-+		ethernet0 = &emac;
++		ethernet0 = &ap6256;
 +		mmc0 = &mmc0;
 +		serial0 = &uart0;
 +	};
 +
 +	chosen {
 +		stdout-path = "serial0:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&pio 2 1 GPIO_ACTIVE_HIGH>; /* PC1 */
-+		};
-+	};
-+
-+	reg_usbvbus: usbvbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usbvbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&pio 3 19 GPIO_ACTIVE_HIGH>; /* PD19 */
-+		enable-active-high;
-+		vin-supply = <&reg_vcc>;
 +	};
 +
 +	/*
@@ -213,6 +201,11 @@ index 000000000000..c549a1c5fbf0
 +		regulator-max-microvolt = <1100000>;
 +		vin-supply = <&reg_vcc>;
 +	};
++
++	wifi_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>; /* PG11/GPIO3 */
++	};
 +};
 +
 +&cpu0 {
@@ -223,23 +216,134 @@ index 000000000000..c549a1c5fbf0
 +	clock-frequency = <24000000>;
 +};
 +
-+&ehci0 {
++&ehci1 {
 +	status = "okay";
 +};
 +
-+&emac {
-+	pinctrl-0 = <&rgmii_pe_pins>;
++&i2c0 {
++	pinctrl-0 = <&i2c0_pb10_pins>;
 +	pinctrl-names = "default";
-+	phy-handle = <&ext_rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&reg_vcc_3v3>;
 +	status = "okay";
-+};
 +
-+&mdio {
-+	ext_rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
++	axp221: pmic@34 {
++		compatible = "x-powers,axp228", "x-powers,axp221";
++		reg = <0x34>;
++		interrupt-parent = <&pio>;
++		interrupts = <4 9 IRQ_TYPE_LEVEL_LOW>; /* PE9/GPIO2 */
++		interrupt-controller;
++		#interrupt-cells = <1>;
++
++		ac_power_supply: ac-power {
++			compatible = "x-powers,axp221-ac-power-supply";
++		};
++
++		axp_adc: adc {
++			compatible = "x-powers,axp221-adc";
++			#io-channel-cells = <1>;
++		};
++
++		battery_power_supply: battery-power {
++			compatible = "x-powers,axp221-battery-power-supply";
++		};
++
++		axp_gpio: gpio {
++			compatible = "x-powers,axp221-gpio";
++			gpio-controller;
++			#gpio-cells = <2>;
++		};
++
++		regulators {
++			x-powers,dcdc-freq = <3000>;
++
++			reg_dcdc1: dcdc1 {
++				regulator-name = "sys-3v3";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_dcdc3: dcdc3 {
++				regulator-name = "sys-1v8";
++				regulator-always-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++			};
++
++			reg_aldo1: aldo1 {
++				regulator-name = "aud-3v3";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_aldo2: aldo2 {
++				regulator-name = "disp-3v3";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_aldo3: aldo3 {
++				regulator-name = "vdd-wifi";
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++			};
++
++			/* DLDO1 and ELDO1-3 are connected in parallel. */
++			reg_dldo1: dldo1 {
++				regulator-name = "vbat-wifi-a";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			/* DLDO2-DLDO4 are connected in parallel. */
++			reg_dldo2: dldo2 {
++				regulator-name = "vcc-3v3-ext-a";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_dldo3: dldo3 {
++				regulator-name = "vcc-3v3-ext-b";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_dldo4: dldo4 {
++				regulator-name = "vcc-3v3-ext-c";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_eldo1: eldo1 {
++				regulator-name = "vbat-wifi-b";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_eldo2: eldo2 {
++				regulator-name = "vbat-wifi-c";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			reg_eldo3: eldo3 {
++				regulator-name = "vbat-wifi-d";
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++		};
++
++		usb_power_supply: usb-power {
++			compatible = "x-powers,axp221-usb-power-supply";
++			status = "disabled";
++		};
 +	};
 +};
 +
@@ -247,15 +351,38 @@ index 000000000000..c549a1c5fbf0
 +	broken-cd;
 +	bus-width = <4>;
 +	disable-wp;
-+	vmmc-supply = <&reg_vcc_3v3>;
++	vmmc-supply = <&reg_dcdc1>;
 +	vqmmc-supply = <&reg_vcc_3v3>;
 +	pinctrl-0 = <&mmc0_pins>;
 +	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
-+&ohci0 {
++&mmc1 {
++	bus-width = <4>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	non-removable;
++	vmmc-supply = <&reg_dldo1>;
++	vqmmc-supply = <&reg_aldo3>;
++	pinctrl-0 = <&mmc1_pins>;
++	pinctrl-names = "default";
 +	status = "okay";
++
++	ap6256: wifi@1 {
++		compatible = "brcm,bcm43456-fmac", "brcm,bcm4329-fmac";
++		reg = <1>;
++		interrupt-parent = <&pio>;
++		interrupts = <6 10 IRQ_TYPE_LEVEL_LOW>; /* PG10/GPIO4 */
++		interrupt-names = "host-wake";
++	};
++};
++
++&ohci1 {
++	status = "okay";
++};
++
++&pio {
++	vcc-pg-supply = <&reg_ldoa>;
 +};
 +
 +&uart0 {
@@ -264,16 +391,75 @@ index 000000000000..c549a1c5fbf0
 +	status = "okay";
 +};
 +
++&uart1 {
++	uart-has-rtscts;
++	pinctrl-0 = <&uart1_pg6_pins>, <&uart1_pg8_rts_cts_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		interrupt-parent = <&pio>;
++		interrupts = <6 17 IRQ_TYPE_LEVEL_HIGH>; /* PG17/GPIO6 */
++		device-wakeup-gpios = <&pio 6 16 GPIO_ACTIVE_HIGH>; /* PG16/GPIO7 */
++		shutdown-gpios = <&pio 6 18 GPIO_ACTIVE_HIGH>; /* PG18/GPIO5 */
++		max-speed = <1500000>;
++		vbat-supply = <&reg_dldo1>;
++		vddio-supply = <&reg_aldo3>;
++	};
++};
++
 +&usb_otg {
-+	dr_mode = "otg";
++	dr_mode = "peripheral";
 +	status = "okay";
 +};
 +
 +&usbphy {
-+	usb0_id_det-gpios = <&pio 3 21 GPIO_ACTIVE_HIGH>; /* PD21 */
-+	usb0_vbus_det-gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
-+	usb0_vbus-supply = <&reg_usbvbus>;
++	usb0_vbus_power-supply = <&ac_power_supply>;
++	usb1_vbus-supply = <&reg_vcc>;
 +	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
+new file mode 100644
+index 000000000000..bc5c84f22762
+--- /dev/null
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
+@@ -0,0 +1,36 @@
++// SPDX-License-Identifier: (GPL-2.0+ or MIT)
++// Copyright (C) 2022 Samuel Holland <samuel@sholland.org>
++
++#include "sun20i-d1-clockworkpi-v3.14.dts"
++
++/ {
++	model = "Clockwork DevTerm (R-01)";
++	compatible = "clockwork,r-01-devterm-v3.14",
++		     "clockwork,r-01-clockworkpi-v3.14",
++		     "allwinner,sun20i-d1";
++
++	fan {
++		compatible = "gpio-fan";
++		gpios = <&pio 3 10 GPIO_ACTIVE_HIGH>; /* PD10/GPIO41 */
++		gpio-fan,speed-map = <0    0>,
++				     <6000 1>;
++		#cooling-cells = <2>;
++	};
++
++	i2c-gpio-0 {
++		compatible = "i2c-gpio";
++		sda-gpios = <&pio 3 14 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>; /* PD14/GPIO44 */
++		scl-gpios = <&pio 3 15 (GPIO_ACTIVE_HIGH|GPIO_OPEN_DRAIN)>; /* PD15/GPIO45 */
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		adc@54 {
++			compatible = "ti,adc101c";
++			reg = <0x54>;
++			interrupt-parent = <&pio>;
++			interrupts = <4 12 IRQ_TYPE_LEVEL_LOW>; /* PE12/GPIO35 */
++			vref-supply = <&reg_dldo2>;
++			#io-channel-cells = <1>;
++		};
++	};
 +};
 -- 
 2.37.4
