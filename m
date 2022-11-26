@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B96CC4167B
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Nov 2022 16:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73672C4321E
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Nov 2022 16:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uUC35rintWjnZvgUEP0czn4MjpBk3jwbqINPA1LrJnU=; b=Z+VMZ3fl+UQ9gr
-	sBuA8QAGOoAhNUoB+5s+3i6TkMuqM0NQEt4pgesZgu6ZQi3oNWuBMCM2w5W1LTyGPkbxaYu347qTy
-	C+QFcN9QR7EFnhh/h15ghDFT+DqhSpY3VId1CkS3uT71Put5RG61HSJyq3fxjTfAHenWl+YOZ01gm
-	Tkk3qOsU/UOMEeNVl89rArGukmMxomb/M5W43vZNLrhbh/g6LoZ3GKT0JlTB4ZLW1N8uVxe8DeH8Q
-	BacbsbNNJ/M3FhYwb6eApjwfpceKxGmO/4vpebyBmpwaiLLLRreA/1wEjZ2EtEo+W0l3oPu7nH1pU
-	JBe/VEWeGb0anUy3DSSQ==;
+	List-Owner; bh=qkx7VlLiabaVC7PHTyT/0Rw+l6BxiaS7f18UsXF7ueQ=; b=AnJO0nUnXHYs0T
+	Un3wdh0F8EkD7Xz9im6VMlXVcQ7R6CXqsIhWzOiX43n6//j1rstGYkV+6DNwbfezW7U9bKsDXnOsy
+	qYk/lCSOVVa2NrL+rIUQhAcSDe9GniPI2mkboqJ+lWfU6GRMwizOisJXafYFkDe6LsoOEFSFrFV2R
+	bS2xhij7dUauGZdmYmnXGaWGtYcjjSluOuzuKM1B0CFeWGP+FoK3sAFimCgIjSJQIKEQgdic6QFuK
+	//bnFps7+KdCNZSF1E4YnyyJGaVQjWND2+Ej1rGy9OH8bYYZt5yHmlGBKRIQ/ULzlm0KImXAEHyFX
+	jVDfu2P/RNdazKoJkQtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyxbl-0071MC-Ls; Sat, 26 Nov 2022 16:00:49 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1oyxf4-0072oj-FE; Sat, 26 Nov 2022 16:04:14 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oyxbi-0071Jm-Pv
-	for linux-riscv@lists.infradead.org; Sat, 26 Nov 2022 16:00:48 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-141ca09c2fbso8380193fac.6
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Nov 2022 08:00:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wpP6JR3ohpFtxNxi+eQL8kVyFvR7jXdT/GTV32yyhaQ=;
-        b=kofHMRzIYR+4yok+psbGjNw6OL2V8qRtJW6d0Tb9Z/tdOqPn3OkZQFgFAOnI0+F6Lk
-         Nuyvd+wJ3W5mJlTQjlXEBngB5lzzs2FHj8YXcBEnudGLl6kb+JsE08kpBoQr/MVfU3Tq
-         VVHMJKNaIto1H7BzgeGp4q3Oa+A5rwYyGS3P59UiBUHRNkZq+4QyFz2rzdQGhVWP7v8a
-         ku6Ko8H8ZWWhjK+gazLuQ/3gPbOm8ipfNZefedBKHyikDJ9a4DP8aF2AEWgEX8lI/zhG
-         Ocl6hMJmT+4jiwhoWivL82vx8XQNIk+11ka59vd1gSkK+7BVfGX9aypZaHDQwXzZNpbo
-         HDlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wpP6JR3ohpFtxNxi+eQL8kVyFvR7jXdT/GTV32yyhaQ=;
-        b=1VTCiIHIsphqRV100cXh1ApoKnLjN6q2TJw5fX3Uek0ZGO91E9KLtI9jd161oOn+b6
-         iluTRYAs9NmLWVseyAoLBM/YHu0LUH5xkoXoHZZOrUQAyBYmKTeD9PWGh82xxQsXUYoB
-         7xTPDaquRtRiy3S0mNF4G79XUpM+dTBWFkYT91M3AG7j1crPbxeI+fFTXBFXicr52dW1
-         22jzLxBhjLqd09D9EKrC3uRh0wjaNvFQP0HOmyZyBaGc6BueUW5xc5576GjSKHPhGqdk
-         C7NttL5Tfz8YsT03Odcbmq0klBgtlkKSVMP9BbYm1Webo+vid84G7Gcnujp7BxCuiA+o
-         S6Mg==
-X-Gm-Message-State: ANoB5pkHlLyBtSyRE+/9rGnA4Ovh9CsjxJYMhvdDyDrIVv9lH5cOIWXa
-	Q0pmAEyXawqp/RGkSDHtFDkQIc5yr8DjUu2s2Y9ZiQ==
-X-Google-Smtp-Source: AA0mqf5T3W5wYZEA20m4aqdjFwdIOFOK3DoSU1V4DKJiwp6OUmqa/TjZw9wDOAtKYpyETFIWvYiKOJF6IpYeCCkFUPE=
-X-Received: by 2002:a05:6870:3b0a:b0:142:ff0f:3db with SMTP id
- gh10-20020a0568703b0a00b00142ff0f03dbmr14192735oab.17.1669478442429; Sat, 26
- Nov 2022 08:00:42 -0800 (PST)
+	id 1oyxep-0072hq-Ul; Sat, 26 Nov 2022 16:04:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 80059B818C6;
+	Sat, 26 Nov 2022 16:03:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9319C433C1;
+	Sat, 26 Nov 2022 16:03:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669478636;
+	bh=I3oNLAP3k0VDPBsE+OwGRfWZ2bU2j6dd+5v0b5Q9tmA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OAsemZityeg5XfYsehUAUZJDHWgGIQwOc0fwhwONNlKW5SpvMrbLZ4Hez8HrbTZza
+	 t+0DV4D7yxIc8gFG2TzkAxI5VikhOcK2+OsSuBJ4HGpQQwCAmsD4DAEllVpgDK7iEN
+	 ob9kpDW82FfvJ6DVTuYs+Sv85igEyzmxo9w5I/JRQ848B7VuUEgHqZBhHafXAvs+gB
+	 LPUVd4xgoWfsDq2gbXnyxCRgQlzjaux5QOU/4zFboieGEuUfWmfgcuAfnvyH0pOTIa
+	 Ci6VQmTGjeYk6maCYRo5jIWoVa995b+B4LPktjN+PULOsv0o7id/DCjWPo4omIgl/+
+	 BrWdCDDsDMFcg==
+Date: Sat, 26 Nov 2022 16:03:49 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-sunxi@lists.linux.dev, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>
+Subject: Re: [PATCH v2 04/12] riscv: dts: allwinner: Add the D1/D1s SoC
+ devicetree
+Message-ID: <Y4I45Uu6eFKUo69B@spud>
+References: <20221125234656.47306-1-samuel@sholland.org>
+ <20221125234656.47306-5-samuel@sholland.org>
 MIME-Version: 1.0
-References: <20221114093904.1669461-1-apatel@ventanamicro.com>
- <20221114093904.1669461-4-apatel@ventanamicro.com> <87y1rxubty.wl-maz@kernel.org>
- <CAK9=C2UeMVnMBKOgO_nseUZnmvG+CUu7xaRXtt6j3Esr+ap04g@mail.gmail.com> <87sfi5u6wx.wl-maz@kernel.org>
-In-Reply-To: <87sfi5u6wx.wl-maz@kernel.org>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Sat, 26 Nov 2022 21:30:31 +0530
-Message-ID: <CAK9=C2V351pAjjP4pkrOuUDzOv1xBKO7+iJvPJgQ2swoBFo=8w@mail.gmail.com>
-Subject: Re: [PATCH v11 3/7] genirq: Add mechanism to multiplex a single HW IPI
-To: Marc Zyngier <maz@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
-	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20221125234656.47306-5-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221126_080046_866910_A8AFED89 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20221126_080400_313203_2DF47CE3 
+X-CRM114-Status: GOOD (  24.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,85 +89,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 26, 2022 at 7:58 PM Marc Zyngier <maz@kernel.org> wrote:
->
-> On Sat, 26 Nov 2022 13:31:46 +0000,
-> Anup Patel <apatel@ventanamicro.com> wrote:
-> >
-> > On Sat, Nov 26, 2022 at 6:12 PM Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Mon, 14 Nov 2022 09:39:00 +0000,
-> > > Anup Patel <apatel@ventanamicro.com> wrote:
-> > > >
-> > > > +struct ipi_mux_control {
-> > > > +     void                            *data;
-> > > > +     unsigned int                    nr;
-> > >
-> > > Honestly, I think we can get rid of this. The number of IPIs Linux
-> > > uses is pretty small, and assuming a huge value (like 32) would be
-> > > enough. It would save looking up this value on each IPI handling.
-> >
-> > I had kept in-case some driver wanted to create fewer (< 32)
-> > muxed IPIs.
->
-> I'm fine with being able to specifying the max, but I'm not sure there
-> is a need to keep track of it any further. Certainly, the overhead of
-> loading this value on each IPI could be removed. On most architecture,
-> for_each_set_bit() and co and better optimised with a fixed number of
-> bits.
+On Fri, Nov 25, 2022 at 05:46:48PM -0600, Samuel Holland wrote:
+> D1 (aka D1-H), D1s (aka F133), R528, and T113 are a family of SoCs based
+> on a single die, or at a pair of dies derived from the same design.
+> 
+> D1 and D1s contain a single T-HEAD Xuantie C906 CPU, whereas R528 and
+> T113 contain a pair of Cortex-A7's.
 
-Okay, I will update like you suggested.
+Is this "additionally contain" or a case of the D1 is the R528 but with
+s/arm/riscv/? It's the latter, right?
 
->
-> > > > +static const struct irq_chip ipi_mux_chip = {
-> > > > +     .name           = "IPI Mux",
-> > > > +     .irq_mask       = ipi_mux_mask,
-> > > > +     .irq_unmask     = ipi_mux_unmask,
-> > > > +     .ipi_send_mask  = ipi_mux_send_mask,
-> > > > +};
-> > >
-> > > I really think this could either be supplied by the irqchip, or
-> > > somehow patched to avoid the pointless imux->ops->ipi_mux_send
-> > > indirection. Pointer chasing hurts.
-> >
-> > Once we remove ipi_mux_pre/post_handle() callbacks, the
-> > "ops" will be pointless and we will be able to remove one level
-> > of indirection here.
-> >
-> > We certainly need a mux irqchip to implement the
-> > mask/unmask semantics for muxed IPIs.
->
-> I'm not disputing that last point.
->
-> > > > +/**
-> > > > + * ipi_mux_create - Create virtual IPIs multiplexed on top of a single
-> > > > + * parent IPI.
-> > > > + * @parent_virq:     virq of the parent per-CPU IRQ
-> > > > + * @nr_ipi:          number of virtual IPIs to create. This should
-> > > > + *                   be <= BITS_PER_TYPE(int)
-> > > > + * @ops:             multiplexing operations for the parent IPI
-> > > > + * @data:            opaque data used by the multiplexing operations
-> > >
-> > > What is the use for data? If anything, that data should be passed via
-> > > the mux interrupt. But the whole point of this is to make the mux
-> > > invisible. So this whole 'data' business is a mystery to me.
-> >
-> > This is added only to pass back driver data in ipi_mux_send().
->
-> Again, what is the purpose of such data? If you need per-interrupt
-> data, this should be provided by the requester of the interrupt.
+> D1 and R528 are the full version of
+> the chip with a BGA package, whereas D1s and T113 are low-pin-count QFP
+> variants.
+> 
+> Because the original design supported both ARM and RISC-V CPUs, some
+> peripherals are duplicated. In addition, all variants except D1s contain
+> a HiFi 4 DSP with its own set of peripherals.
+> 
+> The devicetrees are organized to minimize duplication:
+>  - Common perhiperals are described in sunxi-d1s-t113.dtsi
+>  - DSP-related peripherals are described in sunxi-d1-t113.dtsi
+>  - RISC-V specific hardware is described in sun20i-d1s.dtsi
+>  - Functionality unique to the D1 variant is described in sun20i-d1.dtsi
+> 
+> The SOC_PERIPHERAL_IRQ macro handles the different #interrupt-cells
+> values between the ARM (GIC) and RISC-V (PLIC) versions of the SoC.
 
-Currently, the irqchip drivers that we care about don't need this
-data pointer so I will remove it. If required we can add it in future.
+Modulo the warnings I replied to the cover with & one minor comment
+below:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+> Changes in v2:
+>  - Split into separate files for sharing with D1s/R528/T113
+>  - Use SOC_PERIPHERAL_IRQ macro for interrupts
+>  - Rename osc24M to dcxo and move the frequency to the board DTs
+>  - Drop analog LDOs due to the missing binding
+>  - Correct tcon_top DSI clock reference
+>  - Add DMIC, DSI controller, and DPHY (bindings are in linux-next)
+>  - Add CPU OPP table
+> 
+>  arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  |  66 ++
+>  arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi |  76 ++
+>  .../boot/dts/allwinner/sunxi-d1-t113.dtsi     |  15 +
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 844 ++++++++++++++++++
+>  4 files changed, 1001 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1-t113.dtsi
+>  create mode 100644 arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+
+
+> diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> new file mode 100644
+> index 000000000000..c8815cbf0b46
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+> @@ -0,0 +1,844 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> +// Copyright (C) 2021-2022 Samuel Holland <samuel@sholland.org>
+> +
+> +#include <dt-bindings/clock/sun6i-rtc.h>
+> +#include <dt-bindings/clock/sun8i-de2.h>
+> +#include <dt-bindings/clock/sun8i-tcon-top.h>
+> +#include <dt-bindings/clock/sun20i-d1-ccu.h>
+> +#include <dt-bindings/clock/sun20i-d1-r-ccu.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/reset/sun8i-de2.h>
+> +#include <dt-bindings/reset/sun20i-d1-ccu.h>
+> +#include <dt-bindings/reset/sun20i-d1-r-ccu.h>
+> +
+> +/ {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	dcxo: dcxo-clk {
+> +		compatible = "fixed-clock";
+> +		/* This value must be overridden by the board */
+> +		clock-frequency = <0>;
+
+Since this is a "must", can you drop the clock-frequency = <0> here so
+that if someone doesn't override it in their board dt-validate
+complains?
 
 Thanks,
-Anup
+Conor.
+
+> +		clock-output-names = "dcxo";
+> +		#clock-cells = <0>;
+> +	};
+> +
+ 
 
 _______________________________________________
 linux-riscv mailing list
