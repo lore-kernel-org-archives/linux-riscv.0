@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC46C4167B
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Nov 2022 22:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748A0C43217
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Nov 2022 23:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+3DKahsH51PF5JzJ0E/8IH8n3Kv6dsXBP0I2AYunoTw=; b=qq3CXrBtWbgp6D
-	KzISnOZ4qty1ma8S6DO+WzTkwMGHTt8/P+kMbGB/Z8QpYreQIgu7SbCB9u39DW75dTyI9wJf/pM/O
-	QaDCjZquf4gdapimcESYKF25x2pqmRKwjzhJxv6hz8xKCpslMnHELQHHZO8Cac28rIanVIhbDRDdd
-	g+BFQAeBVflymjXcol6r8l1nCRF1OTdb5PqfueTvMPVn1zMgBPdPLGhem3rWDfvxi+46fgC5qNXIt
-	IYuhTr1atwa4DW1kdeobZoNEbNeyB0CTgiPpMbVemPM3eRjwQSVQx4sSHPP79g2ajMYItxduov6LF
-	LPAyDGqIuDGZkXawIr1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3oSO/shVXofyq82zGWn8N7MWL9I+E30lv4o8vAg40e4=; b=ZbnpfuzMq7F78j
+	/T8KkDZeFnqAPO5fH/wUyBMPSjIrlif6ZSmc8y29kCORx7sG1X4u/u+kduzvSAHaAl5AE33OcgdUx
+	0PyPXKgqApi4BTno+1uLXU6uyHWcezrczXmjT0vRtVnsECVwfyqxH+TDnSDwoX0GLON5j1pPvUbLP
+	qYDCIUJgzjgM7u/PTZnmPT7EtmZQ/NQ5rLceYybsD8MpGp8dmaV/osgqAw4uVsEQQsIsOKUeChnou
+	iPEjeuN93sBaQCHHKCfkgQgW6dhoJWgTckELO7o1RzShLFEpGrPTWVoWD4P2zw9p26EVis3v1oiIe
+	6YToCfAgTmmGMAooCOLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oz46C-008XMa-CK; Sat, 26 Nov 2022 22:56:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oz4nz-008cGy-Or; Sat, 26 Nov 2022 23:41:55 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oz467-008XKW-RM
-	for linux-riscv@lists.infradead.org; Sat, 26 Nov 2022 22:56:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4793660B41;
-	Sat, 26 Nov 2022 22:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F234C433D6;
-	Sat, 26 Nov 2022 22:56:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669503393;
-	bh=m3ZEUK0zXePJycyJFWyVV/OydFcxPrFRvDSAjxSAbFg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PO2FYMebNnz4Pbfnw8L4jSaDjHMCbBhjOKGHHL0XHqdTEbi9z/rQObYtc5Y1R8A90
-	 BfP+J0A5NJQO/9ZpskWhGvFqo5+N4UbA0/KELhr4nfVkR0ZcrD5JbPC1XmRdq5UvCz
-	 pFFTHtOLfHL63Xa2FRll9c/1SMNrWbyeqdSa70SK2xcfK3idyIdASCNjALTZ63eR3K
-	 ohcsiMfWB1/6ELvIZtYDEiD5am3qskj/aG4I3aGJiffQ6/AUoPbLkPFBggduWJ0HJm
-	 nCMros1t7GTgCwsh69Z3buA7Ohtivt+nh04MO1b+ORFjDV8YmaxH8p9/yBPTU9m54E
-	 8g2ZlTEp/i1OA==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1oz4nr-008cAD-Oh
+	for linux-riscv@lists.infradead.org; Sat, 26 Nov 2022 23:41:51 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.nyi.internal (Postfix) with ESMTP id 77DCB5C0086;
+	Sat, 26 Nov 2022 18:41:37 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute4.internal (MEProxy); Sat, 26 Nov 2022 18:41:37 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1669506097; x=1669592497; bh=hd
+	Uvaq3eie+r9PF0OlqmeKbt0IxTHeoQ0MpLNYqZ+Rw=; b=v3pJv01hvFZgVgBf5i
+	f0EYSp/uRP5bRKPb98jG6wyoGjDKJ86s44lYOshly4tSHC15PscpRd+EEOGs4leV
+	Kylk+B8QrUMURrXM72wEpRBocB5F4O1d+Y3WJ+RlOFo0o2yXvXwIh7IdbCIV8LcP
+	MvJBVEjRe1PXCzCI5x4X6i4DBWfPimFgbAkZY9Wb0GMKgut45UI7IMK0zgxuPp61
+	iX0Fo2/ibcF+34L7MkzqjRUfQ83Y5k9/YpQ3KpUQAx5Lk5xBuQiOSB5pZIzZaprU
+	KfA/iD9EnafJsPX2qXv8koGWTxj+rcdkhm/aOgq7vnBMWc/da3Q6l586EBjo4eCc
+	Dw1Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1669506097; x=1669592497; bh=hdUvaq3eie+r9
+	PF0OlqmeKbt0IxTHeoQ0MpLNYqZ+Rw=; b=gsAnqY0Nb/awF1P2O2Lu59+V0m/rj
+	vJ015EBWac5kpbqbWosQPU22cCGZYUQ6bl64nYCS4EyXRj6zTXwSxuzBoexycv6Q
+	mMKZTYhNFgoATjx0gVEZc4qR3SIeGcuxHFvE7/6ilfL4p5iPYJWxSplua99Xs2J5
+	R/RUeiJwYO27i8ShLujxXBwjH/qDqNeHh52/re4iRY00jL9JLOLWsnZRbunS6xrw
+	OVpXik5R1Hv24F25g34GPXu7PRku0qI2to9HefDSP4UI09XWbEteuE1KWVmqr39k
+	XVXPYW23FwRNkDE4JUP4F0RJz6ANQSYKkD8akM65xgCnzIwCvV0G2I32Q==
+X-ME-Sender: <xms:MaSCY4sf3l963pYo5lT7QckfoxVaq0Cx-MRt0laeF3Dqe4BUJCdpeA>
+    <xme:MaSCY1dsBEgK6GeVePj697u2VDlw8XvfFi9xcvPtA7zcdXMFib8x2nFh97hU5ztzt
+    vNblKkCn2VG5S3DTg>
+X-ME-Received: <xmr:MaSCYzyjzOxh5WEoBe1xuDi-xajHdJxt3g9p3bkxqklGugYw32QXN3tLMIB1c8FaKctINHBYTWuZRjkJifmI9sm97ev5-h3ELXbGh9WzD2ukHTDOiP4Hxq69gtDUi4TbpgHfOg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieekgdduudcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
+    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+    frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
+    feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+    hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:MaSCY7PU_HUhJ7nalq7PYIYoBekOPTqMQjh4IW34T71yTnS-PRKY6A>
+    <xmx:MaSCY48mB--425paSDSrUVYdJyhsODkcTZEKDxSUNwJJtMQQ7Mg-DQ>
+    <xmx:MaSCYzWBakHwFaRfdE4cSDsJpbf1r4MtkOPvcOAdjlssBDKDhpzcLA>
+    <xmx:MaSCY3mX9aq-Dk3jgUL_yAGCb3uxcImGx7fsaw5twbk4eI_S3UfQXw>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 26 Nov 2022 18:41:36 -0500 (EST)
+From: Samuel Holland <samuel@sholland.org>
+To: Marc Zyngier <maz@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Rix <trix@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH v3 1/5] kbuild: add test-{le,ge,lt,gt} macros
-Date: Sun, 27 Nov 2022 07:56:20 +0900
-Message-Id: <20221126225624.751661-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/3] genirq: Simplify cond_unmask_eoi_irq()
+Date: Sat, 26 Nov 2022 17:41:32 -0600
+Message-Id: <20221126234134.32660-2-samuel@sholland.org>
+X-Mailer: git-send-email 2.37.4
+In-Reply-To: <20221126234134.32660-1-samuel@sholland.org>
+References: <20221126234134.32660-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221126_145635_981371_06FF8F7B 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20221126_154148_459646_E07BD4CF 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,122 +106,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Because GNU Make is handle strings, it is very hard to perform math in
-Makefiles.
+This function calls .irq_eoi in three places, making the logic hard to
+follow. Rearrange the function so that .irq_eoi is called only once.
 
-When we compare two integers, we invokes shell. One example is in the
-top Makefile:
+The only time .irq_eoi is not called is when all three if checks fail,
+so return early in that case. threads_oneshot can only be nonzero if
+IRQS_ONESHOT is set, so the IRQS_ONESHOT check can be omitted there.
 
-  ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
+The IRQS_ONESHOT condition from the first if statement must then be
+copied to the unmask_irq() condition.
 
-This is more expensive than using built-in functions since it forks a
-process.
+Furthermore, if IRQS_ONESHOT is set, mask_irq() must have been called
+in the parent function, so the irqd_irq_masked() check is redundant.
 
-If we know the two have the same number of digits, we can do better.
-
-This commit adds four macros, test-le, test-ge, test-lt, test-gt.
-
-$(call test-lt, A, B) is evaluated to 'y' if A is less than B, or
-empty otherwise. This will replace $(call shell test A -lt B).
-
-Again, the limitation is that A and B must have the same number of
-digits because these macros are based on $(sort ) function.
-
-  $(call test-lt, 1, 9)    -->  y        (Works!)
-  $(call test-lt, 10, 9)   -->  y        (Not work...)
-
-To make the latter work, you need to add '0' prefix to align the number
-of digits:
-
-  $(call test-lt, 10, 09)  -->  empty    (Works!)
-
-Actually, we can live with this limitation in many places. As for the
-example above, we know $(CONFIG_LLD_VERSION) is 6-digits because the
-minimal supported version of LLVM is 11.0.0 (or CONFIG_LLD_VERSION=0
-if the linker is not LLD, this case also works.)
-
-So, the shell invocation can be replaced with more efficient code:
-
-  ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
-
-Of course, this assumption will break when LLVM 100 is released, but it
-will be far in the future.
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
+Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
-Changes in v3:
-  - Ensure the given parameters are not empty
+ kernel/irq/chip.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
- Makefile               |  2 +-
- arch/riscv/Makefile    |  2 +-
- arch/x86/Makefile      |  2 +-
- scripts/Kbuild.include | 10 ++++++++++
- 4 files changed, 13 insertions(+), 3 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 6f846b1f2618..eb80332f7b51 100644
---- a/Makefile
-+++ b/Makefile
-@@ -986,7 +986,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
- # Check for frame size exceeding threshold during prolog/epilog insertion
- # when using lld < 13.0.0.
- ifneq ($(CONFIG_FRAME_WARN),0)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
- endif
- endif
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 0d13b597cb55..faf2c2177094 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -37,7 +37,7 @@ else
- endif
+diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
+index 8ac37e8e738a..672bad021a1f 100644
+--- a/kernel/irq/chip.c
++++ b/kernel/irq/chip.c
+@@ -658,10 +658,15 @@ EXPORT_SYMBOL_GPL(handle_level_irq);
  
- ifeq ($(CONFIG_LD_IS_LLD),y)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
- 	KBUILD_CFLAGS += -mno-relax
- 	KBUILD_AFLAGS += -mno-relax
- ifndef CONFIG_AS_IS_LLVM
-diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-index 415a5d138de4..e72c7a49cd59 100644
---- a/arch/x86/Makefile
-+++ b/arch/x86/Makefile
-@@ -211,7 +211,7 @@ endif
- KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
- 
- ifdef CONFIG_LTO_CLANG
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
- endif
- endif
-diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-index cbe28744637b..4b8cf464b53b 100644
---- a/scripts/Kbuild.include
-+++ b/scripts/Kbuild.include
-@@ -11,6 +11,16 @@ space   := $(empty) $(empty)
- space_escape := _-_SPACE_-_
- pound := \#
- 
-+###
-+# Comparison macros.
-+# Usage: $(call test-le, A, B)
-+# works like shell's "test A -le B", use with care bacause it is ASCII sort.
-+# If A and B have the same number of digits, it works as expected.
-+test-le = $(and $(strip $1),$(strip $2),$(filter $1, $(firstword $(sort $1 $2))),y)
-+test-ge = $(call test-le, $2, $1)
-+test-lt = $(and $(strip $1),$(strip $2),$(filter-out $2, $(firstword $(sort $1 $2))),y)
-+test-gt = $(call test-lt, $2, $1)
+ static void cond_unmask_eoi_irq(struct irq_desc *desc, struct irq_chip *chip)
+ {
+-	if (!(desc->istate & IRQS_ONESHOT)) {
+-		chip->irq_eoi(&desc->irq_data);
++	/*
++	 * Do not send an EOI if the thread will do it later in
++	 * unmask_threaded_irq().
++	 */
++	if ((chip->flags & IRQCHIP_EOI_THREADED) && desc->threads_oneshot)
+ 		return;
+-	}
 +
- ###
- # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
- dot-target = $(dir $@).$(notdir $@)
++	chip->irq_eoi(&desc->irq_data);
++
+ 	/*
+ 	 * We need to unmask in the following cases:
+ 	 * - Oneshot irq which did not wake the thread (caused by a
+@@ -669,12 +674,8 @@ static void cond_unmask_eoi_irq(struct irq_desc *desc, struct irq_chip *chip)
+ 	 *   completely).
+ 	 */
+ 	if (!irqd_irq_disabled(&desc->irq_data) &&
+-	    irqd_irq_masked(&desc->irq_data) && !desc->threads_oneshot) {
+-		chip->irq_eoi(&desc->irq_data);
++	    (desc->istate & IRQS_ONESHOT) && !desc->threads_oneshot)
+ 		unmask_irq(desc);
+-	} else if (!(chip->flags & IRQCHIP_EOI_THREADED)) {
+-		chip->irq_eoi(&desc->irq_data);
+-	}
+ }
+ 
+ /**
 -- 
-2.34.1
+2.37.4
 
 
 _______________________________________________
