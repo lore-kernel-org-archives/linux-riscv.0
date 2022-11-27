@@ -4,91 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B079C43217
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Nov 2022 23:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14CF0C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 05:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pSVRrK+LXmLLevgwvH7PHZIfDUJKQ+v4LVR1ZWajm98=; b=Pz5vlms3BGZaBm
-	DhXYCaQszhq18WIjeX0V1yR9/dM/fkxaSh6szusCNThn86hLWzk2JY0yoS6BzihA85PjrDpaYyg08
-	z3N5/I3ZyUN3YV/8U4sWW89W2nR75LWWQs2UGYHPjcxjF6TTB1TCsr+sYPNJTDC/13zVC/yh7Qxd8
-	TM5BvcGalCYYxouYALA7ZWiLDIv4EMhf/KeuHuARAQYc5LjpwLfbbjRjj+gGx5/4n4Tc1tpXrpC9q
-	IQBf6t+CdPWhM4B86vZWVtoBKFquZeZhWTZxHRLFHcKXj2MGJqtQKWASafH8KS1UcZ0kATZAd2EDz
-	5HooeJeibF2QZXj/n68g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rx+B5JnPQxDasBv+T/P5cOcdQMXLdsvDSOZapHBUXjM=; b=O3wQLCoqMYUXN0
+	rmfpIiNJ4iJm24yFW5aMzmU9jXujAMLY+yN6T1X2hSzaH790tWmIczKD1Pw/67Hu25LeatvZK9LxU
+	y/GrB0gEEprlez7phqTu+qCcZZY6YK7Bp+g5fpt5x2sUwh48McNNQcAhHmrZ5KeAArJTOTr6sBf7A
+	Lv4glMa56BWK6seR7Oi50rqCLjOFST8PMkoByxocC+IR0ZchYr7JiaahvjxBX5FUU7clWj78+FCaV
+	JVXpGpbdSJB1ZFvT2p2Dg8auqNlXv5/QxlQbfkgKDRhCzuMINbcwCpUn+6FNXU796ldeU6l33KUdo
+	/APR/Hny2280zPgLcOJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oz4nx-008cGa-CS; Sat, 26 Nov 2022 23:41:53 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1ozAMV-009hIz-2k; Sun, 27 Nov 2022 05:37:55 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oz4nr-008cAC-Og
-	for linux-riscv@lists.infradead.org; Sat, 26 Nov 2022 23:41:50 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailout.nyi.internal (Postfix) with ESMTP id 8CFC05C007D;
-	Sat, 26 Nov 2022 18:41:36 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute3.internal (MEProxy); Sat, 26 Nov 2022 18:41:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
-	 s=fm2; t=1669506096; x=1669592496; bh=w8La255xXVxnIR3cniemxgpr5
-	Ih0kN7ITTRYd2se9fw=; b=sqf6qn2xRtMfNHG6XRPyhYmZkhWPE1aNEncXv+m69
-	9zbjDacLmOYZJqbcXAw3jqQcIodP1xcLMJ22p9sxNk3XBEJ4uUjB/BBr7GWwgnY2
-	ia+43kwWX20Su2xE4ZDbJ/LcQY3A6f+IRu/v8kathzas3fgfhnC4pumVUNC7oZyq
-	JuG9vYvIPscBV5sEhfepk2zv1mpnG3W0YC5aNVNW0kXhne4pyGkiwqqaD1++g59k
-	uzvRRtLdYJFPKOnAxuZbVRTbGc9CDEUTArR7TdDBjH5XQEQeD0P+b+g8Y5KKVx+s
-	D2D+8onoYBqmKSYbudaI1vRxhJ8J8EZZ+cfObXfM5kHrA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:message-id
-	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1669506096; x=1669592496; bh=w8La255xXVxnIR3cniemxgpr5Ih0kN7ITTR
-	Yd2se9fw=; b=IbqWh3TaV6qKJQM08vxuTMuj3FyizQWqvb5brfdLWGbYOZlJPne
-	wW7KmuLoGTGBoqeDQy3UN7vGsLMNysuqGlyANkXAgLTLy21NyykxEx8JMfVFAIsS
-	kv9NIwm1lonJn3Pf3G7x4XUZCxh/ArpaI2mq/NH5KHFhzjYx8QKTfoppYXwXrMq1
-	0TLremPYcnQxmvR/LpSIh2v9JDU1dYSMwIc5i2UCe9JgCwOyj2BMOZiV/dJacG0t
-	lugpGyJv8rHDINidpMKTzRKj11+qOvJb8YEquvHW+xmZQw9ppeHLX1I76kjjntq9
-	ae3XJ51TslXJ6k9eK8NFLsEl78fJ0Z6fSZg==
-X-ME-Sender: <xms:MKSCY0rOhwgXOP_0jZY36oAHZcg2NFc3EgVVRmIZWgRdnoY7YoAyMg>
-    <xme:MKSCY6ptV0WBzqWqmKc9BzOA-3ALwaRub-xYA3xZRahf0YJGcRj3qwMy97HwxlmR5
-    DW94YBRIkWW3OhBvg>
-X-ME-Received: <xmr:MKSCY5PF2I6wejzSAXzwPVEBYNwZOP1SS2MdIh2MFARhnUbpuWnW_b0cccCMmYjtMfiYoe00Ayl2MbHotSirJC1-9tuE-zqqtrA4cgBf5x4Ju3WiI84b_zwx8sX3EPwNy32M6g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrieekgdduvdcutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
-    jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
-    htthgvrhhnpeekheffteehtdetfffgfeetteejvdefleeuvedufffguedtjedvheelvddv
-    fffhveenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdr
-    ohhrgh
-X-ME-Proxy: <xmx:MKSCY76dNXZPTT4FNdppGvplIpm4n07ijFJhABYDaISnB1Dlgpk06Q>
-    <xmx:MKSCYz6i-OuOQulPLaZTMeUNtwHC_TbLvBHSykAY7AzFX5M5Aa4hfw>
-    <xmx:MKSCY7hkr7BMIgXYnR_GURMZXDP6W4v1sZM8lr-oqdJ8OluZS4CtAQ>
-    <xmx:MKSCY5QClTv7GAv9QTb2Ayly3zazOiioh9fPZrder1dcmg4fYoMPnQ>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 26 Nov 2022 18:41:35 -0500 (EST)
-From: Samuel Holland <samuel@sholland.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] genirq: oneshot-safe threaded EOIs
-Date: Sat, 26 Nov 2022 17:41:31 -0600
-Message-Id: <20221126234134.32660-1-samuel@sholland.org>
-X-Mailer: git-send-email 2.37.4
+	id 1ozAMR-009hFQ-0a
+	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 05:37:53 +0000
+Received: by mail-ej1-x630.google.com with SMTP id i10so18631839ejg.6
+        for <linux-riscv@lists.infradead.org>; Sat, 26 Nov 2022 21:37:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=3KmLRsY6EbWCmI5X/CBpgkjwnWpgkXgjDD4h7S5TYCk=;
+        b=1p2v7B2RsFmkYAMqlgRvDlJHOfwtDMLCA3HO2KsSpfQghuwklX4irNM4a8lt3sacrq
+         8lAxQb6BkH/xPrwi5+neRY9TqzqCZ/+iYOykkPGl66jY/tuPXcgSHpLfegBQJWIjbECX
+         Yi0CqjuIvD+Us1Zzjm9NfXnJNaxRk/oJ9IrOxMLa+b0PDsXv/gqTeucSRCpYF0Si2m6L
+         VSEVC7BkXHewNfnXsttQxkIRXCGdYhNgMJ+NuGrh0doAdd+qfvLu0ZgXdV+KePBoz3ZO
+         YmT6ZvTTEcUodEtQXjAjU1Ef1993Z7e67/O8XLe3vmFbCk0sRHcHHxbkJ8Mruo2uhObB
+         LYyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3KmLRsY6EbWCmI5X/CBpgkjwnWpgkXgjDD4h7S5TYCk=;
+        b=XUVn3bXJWKhhRdOO3luQMcSYl49ytdywCfKrJjXS6CiGUgFheMA7HCiJp99Ye6uU7w
+         ON+4vrfjUzS70bpHniN2ci0wb+6kLuX9S4GuiWjWFNrr7JgsuwlP3FA2xvgjLlSFoycL
+         0QPBavdeICgis41yKl535a+jT3areYMJS8TRfjHUoJ4KeXPTuMZjA4+Wl8k8PT8bvc4M
+         dWj0SeniSdeHzZKW5gf63wlPL217yvKg1N5i1e+BaXaCtSdBUSj+6C++wZbv5SUJre/3
+         fkKikFBFi5v08rrp/YPFo6xSEhDhoiE+WV+Ii4UiQ46OMyNmlWdfhQmQeEPaMKmFPvor
+         FA+Q==
+X-Gm-Message-State: ANoB5pnZQ2xJs9K48LXMuwZaIwVekuKJGCR+eeo+IdrHZh+3UKtTL1oI
+	OeZWiecvGcDXp7teTMRCVRZEtGfBqkcj+HUPR3BnDQ==
+X-Google-Smtp-Source: AA0mqf6LzeaQimBGW1kKOub+iapLV0NhxUTpEiWNOIft5d5+94PzEc6kyScrPJvVEp2bUrVArm18SByL8ZSAi8FbNcI=
+X-Received: by 2002:a17:907:a044:b0:7bc:27ab:6b2d with SMTP id
+ gz4-20020a170907a04400b007bc27ab6b2dmr10678920ejc.750.1669527467928; Sat, 26
+ Nov 2022 21:37:47 -0800 (PST)
 MIME-Version: 1.0
+References: <20221027130247.31634-1-ajones@ventanamicro.com> <20221027130247.31634-6-ajones@ventanamicro.com>
+In-Reply-To: <20221027130247.31634-6-ajones@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sun, 27 Nov 2022 11:07:36 +0530
+Message-ID: <CAAhSdy0eKP-4uvK--N97CDcqq+yemXSzSE1neGhSEeETo6y3xQ@mail.gmail.com>
+Subject: Re: [PATCH 5/9] RISC-V: KVM: Provide UAPI for Zicboz block size
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor.dooley@microchip.com>, 
+	Atish Patra <atishp@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221126_154148_459653_128E7DBC 
-X-CRM114-Status: UNSURE (   6.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221126_213751_301428_FAA46682 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +88,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is the optimization that I promised back in
-https://lore.kernel.org/lkml/20220701202440.59059-1-samuel@sholland.org/
-and got back around to cleaning up. To quote that cover letter:
+On Thu, Oct 27, 2022 at 6:34 PM Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> We're about to allow guests to use the Zicboz extension. KVM
+> userspace needs to know the cache block size in order to
+> properly advertise it to the guest. Provide a virtual config
+> register for userspace to get it with the GET_ONE_REG API, but
+> setting it cannot be supported, so disallow SET_ONE_REG.
+>
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 
-"A further optimization is to take advantage of the fact that multiple
-IRQs can be claimed at once. This allows removing the mask operations
-for oneshot IRQs -- i.e. the combination of IRQCHIP_ONESHOT_SAFE and
-IRQCHIP_EOI_THREADED, which is not currently supported."
+Looks good to me.
 
-Or in other words, we reuse the oneshot infrastructure for EOIs instead
-of masking.
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-There a a few functions/variables that probably should be renamed now
-that I have muddied what "oneshot" means. I elected not to do that in
-this version to avoid distracting from the functional changes.
+Regards,
+Anup
 
-
-Samuel Holland (3):
-  genirq: Simplify cond_unmask_eoi_irq()
-  genirq: Add support for oneshot-safe threaded EOIs
-  irqchip/sifive-plic: Enable oneshot-safe threaded EOIs
-
- drivers/irqchip/irq-sifive-plic.c |  2 ++
- kernel/irq/chip.c                 | 21 ++++++++++++---------
- kernel/irq/manage.c               | 15 ++++++++++-----
- 3 files changed, 24 insertions(+), 14 deletions(-)
-
--- 
-2.37.4
-
+> ---
+>  arch/riscv/include/uapi/asm/kvm.h | 1 +
+>  arch/riscv/kvm/vcpu.c             | 7 +++++++
+>  2 files changed, 8 insertions(+)
+>
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 8985ff234c01..4bbf55cb2b70 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -49,6 +49,7 @@ struct kvm_sregs {
+>  struct kvm_riscv_config {
+>         unsigned long isa;
+>         unsigned long zicbom_block_size;
+> +       unsigned long zicboz_block_size;
+>  };
+>
+>  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 71ebbc4821f0..18a739070b51 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -270,6 +270,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+>                         return -EINVAL;
+>                 reg_val = riscv_cbom_block_size;
+>                 break;
+> +       case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+> +               if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOZ))
+> +                       return -EINVAL;
+> +               reg_val = riscv_cboz_block_size;
+> +               break;
+>         default:
+>                 return -EINVAL;
+>         }
+> @@ -329,6 +334,8 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+>                 break;
+>         case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+>                 return -EOPNOTSUPP;
+> +       case KVM_REG_RISCV_CONFIG_REG(zicboz_block_size):
+> +               return -EOPNOTSUPP;
+>         default:
+>                 return -EINVAL;
+>         }
+> --
+> 2.37.3
+>
+>
+> --
+> kvm-riscv mailing list
+> kvm-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
