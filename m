@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E7BC43217
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 16:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15900C43217
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 16:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YRpyFiY6ODzDmlzSeox3A2NoihyZU4qNFw6YBo86+Jc=; b=S6172mvJ5w1OEB
-	mMiiT9FkwH2iKx0g1zHivj+8J5j2LTR62q5uZ3hXJYbN6eOcG8iGR4nJBGCTRzUdiWDoVNu1FEypj
-	us6b+VDFtTsEs5K/9iyKBbif6gMm2/W9hdgIxn8DGwhZZgYKNqN+dOEtrPTLbrHytqTwQgbcPh4Fu
-	iFSZ904YqT6OHfIFIAFPMLrS4K9NFk8/7cvg42JiwPDB/IP07HQR9JqXMVMNUBPRNUdpkuctlScg4
-	xeQ064cNVHSDGQuZM8DiFkW6wdZEOWRrt8kMFUCCM+GVdoWVAELwF4F/SlUl/AkzO2NR05et8fuE3
-	Ug6zdLD7Ylk9e4IksUrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQnT/HwgSYLfnHexwpocvLg52KZeL+dC1aWqdkMnZL4=; b=gKn2aqFO1UAaPY5MDqhYinpX4H
+	l4hdewdUY6IL7jbazfGLu0N3NEOXmlgTgN1Bu4vN5Vn8+kgJOHtS3BLZeFYLSmRCuQQwmoPPBXeWu
+	krxikICqMluGz+8rYBNSa0mzei16AKWw6RrhGMPv1h7hLS0CKmtgoy26r9mmW57j+zBej6BrbE107
+	qZcalhd78qiTe9mfmbW7XFnInEyKC2+JCuEhPoCqdlu7sHhPoikducMVnVsJELgMJv0VRPwyCcess
+	uPgSu/FhFR02nECs2kxngUZZPyfqFw97QI2HME8N/mByQRm4yWxYOlZcOkTY7m+D5tMdkcdnmuLUs
+	TxChNzVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozKTR-00CHeg-Bw; Sun, 27 Nov 2022 16:25:45 +0000
-Received: from mail-io1-f42.google.com ([209.85.166.42])
+	id 1ozKUA-00CHvW-MJ; Sun, 27 Nov 2022 16:26:30 +0000
+Received: from maynard.decadent.org.uk ([95.217.213.242])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozKTI-00CHb4-9h
-	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 16:25:37 +0000
-Received: by mail-io1-f42.google.com with SMTP id q21so6093147iod.4
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Nov 2022 08:25:34 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4iphqB3V3njdrZMtNw34CrJe3N2iDEl+tDNQa/YZi+c=;
-        b=aeZK9Tw5GheENRrWWd2UY08k2WZS/E2c+Yh6GI02zJ/FEV3uQSXPrIfsKC/B6RRj35
-         wXlTYEpDbAHBkFU33KTC00qHRjBZF+ob+qYfL1sjJSMoYJ7XxxUaqlL8Vh4d2xEb51gp
-         8EMZ9o4nKMkcU+ZQr1mxRGrm2nagofMbfKTil7qCbi7/BjJLxrvqMBR8LwFXN7CuWJw/
-         5RpegTXmNVuHKrcT7KdZUm6Ri5LhoBCcrsWv9JbCUH+YliOC2t+Ih1t3hEGvaarlptzs
-         PDoHT3R2C3Gz3RWlY417eZbHNwV4q5xwrfcPaNCnon9QJYLzqusrl67HBQ8pKoa5Y/bY
-         ivOg==
-X-Gm-Message-State: ANoB5pl6bNb/LePZFeooeN0nvvGCp82G1sGcrzdsko2Hl2tXnZ8OAUlg
-	gxkIZB/aT+q77y/V2GinGJyP38XAmg==
-X-Google-Smtp-Source: AA0mqf5lRxAYsVtOblQJx782nbVWv9R6LXYMbMBaqudpFkDUV0f2N191eAUEFpzjYklx5TzPd3089g==
-X-Received: by 2002:a05:6638:4709:b0:389:e195:e8fb with SMTP id cs9-20020a056638470900b00389e195e8fbmr214618jab.254.1669566333650;
-        Sun, 27 Nov 2022 08:25:33 -0800 (PST)
-Received: from robh_at_kernel.org ([2605:ef80:80c3:406b:3c03:158a:46b4:95c8])
-        by smtp.gmail.com with ESMTPSA id z15-20020a056e02088f00b003029afc3672sm3083058ils.36.2022.11.27.08.25.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Nov 2022 08:25:32 -0800 (PST)
-Received: (nullmailer pid 7242 invoked by uid 1000);
-	Sun, 27 Nov 2022 16:25:30 -0000
+	id 1ozKU7-00CHtw-S3
+	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 16:26:29 +0000
+Received: from 213.219.160.184.adsl.dyn.edpnet.net ([213.219.160.184] helo=deadeye)
+	by maynard with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ben@decadent.org.uk>)
+	id 1ozKTU-0003A3-4R; Sun, 27 Nov 2022 17:25:48 +0100
+Received: from ben by deadeye with local (Exim 4.96)
+	(envelope-from <ben@decadent.org.uk>)
+	id 1ozKTT-000fZI-1S;
+	Sun, 27 Nov 2022 17:25:47 +0100
+Message-ID: <a28d32c965f363ce099bd0a65e1c82b75a98128a.camel@decadent.org.uk>
+Subject: Re: [PATCH -next V8 06/14] riscv: convert to generic entry
+From: Ben Hutchings <ben@decadent.org.uk>
+To: guoren@kernel.org, arnd@arndb.de, palmer@rivosinc.com,
+ tglx@linutronix.de,  peterz@infradead.org, luto@kernel.org,
+ conor.dooley@microchip.com, heiko@sntech.de,  jszhang@kernel.org,
+ lazyparser@gmail.com, falcon@tinylab.org,  chenhuacai@kernel.org,
+ apatel@ventanamicro.com, atishp@atishpatra.org,  palmer@dabbelt.com,
+ paul.walmsley@sifive.com, mark.rutland@arm.com,  zouyipeng@huawei.com,
+ bigeasy@linutronix.de, David.Laight@aculab.com,  chenzhongjin@huawei.com,
+ greentime.hu@sifive.com, andy.chiu@sifive.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Date: Sun, 27 Nov 2022 17:25:42 +0100
+In-Reply-To: <20221103075047.1634923-7-guoren@kernel.org>
+References: <20221103075047.1634923-1-guoren@kernel.org>
+	 <20221103075047.1634923-7-guoren@kernel.org>
+User-Agent: Evolution 3.46.1-1 
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Rob Herring <robh+dt@kernel.org>, linux-serial@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, =?utf-8?q?=2C?= Ilpo =?utf-8?q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Jiri Slaby <jirislaby@kernel.org>, Conor Dooley <conor@kernel.org>
-In-Reply-To: <20221127132448.4034-6-jszhang@kernel.org>
-References: <20221127132448.4034-1-jszhang@kernel.org>
- <20221127132448.4034-6-jszhang@kernel.org>
-Message-Id: <166956617880.3839.1241284612339331336.robh@kernel.org>
-Subject: Re: [PATCH v2 5/9] dt-bindings: riscv: Add bouffalolab bl808 board
- compatibles
-Date: Sun, 27 Nov 2022 10:25:30 -0600
+X-SA-Exim-Connect-IP: 213.219.160.184
+X-SA-Exim-Mail-From: ben@decadent.org.uk
+X-SA-Exim-Scanned: No (on maynard); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221127_082536_357558_C45A381C 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20221127_082627_913509_537D51B7 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +71,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3508281251343078544=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 27 Nov 2022 21:24:44 +0800, Jisheng Zhang wrote:
-> Several SoMs and boards are available that feature the Bouffalolab
-> bl808 SoC. Document the compatible strings.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  .../bindings/riscv/bouffalolab.yaml           | 34 +++++++++++++++++++
->  1 file changed, 34 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> 
+--===============3508281251343078544==
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-hBvg3hkgZJx22/D8ziHr"
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/riscv/bouffalolab.yaml:20:36: [error] syntax error: mapping values are not allowed here (syntax)
+--=-hBvg3hkgZJx22/D8ziHr
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-dtschema/dtc warnings/errors:
-make[1]: *** Deleting file 'Documentation/devicetree/bindings/riscv/bouffalolab.example.dts'
-Documentation/devicetree/bindings/riscv/bouffalolab.yaml:20:36: mapping values are not allowed in this context
-make[1]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/riscv/bouffalolab.example.dts] Error 1
-make[1]: *** Waiting for unfinished jobs....
-./Documentation/devicetree/bindings/riscv/bouffalolab.yaml:20:36: mapping values are not allowed in this context
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/riscv/bouffalolab.yaml: ignoring, error parsing file
-make: *** [Makefile:1492: dt_binding_check] Error 2
+On Thu, 2022-11-03 at 03:50 -0400, guoren@kernel.org wrote:
+[...]
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+[...]
+> +asmlinkage void do_sys_ecall_u(struct pt_regs *regs)
+> +{
+> +	syscall_t syscall;
+> +	ulong nr =3D regs->a7;
+> +
+> +	regs->epc +=3D 4;
+> +	regs->orig_a0 =3D regs->a0;
+> +	regs->a0 =3D -ENOSYS;
+> +
+> +	nr =3D syscall_enter_from_user_mode(regs, nr);
+> +#ifdef CONFIG_COMPAT
+> +	if ((regs->status & SR_UXL) =3D=3D SR_UXL_32)
+> +		syscall =3D compat_sys_call_table[nr];
+> +	else
+> +#endif
+> +		syscall =3D sys_call_table[nr];
+> +
+> +	if (nr < NR_syscalls)
 
-doc reference errors (make refcheckdocs):
+This bounds check needs to be done before indexing the system call
+table, not after.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221127132448.4034-6-jszhang@kernel.org
+Ben.
 
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
+> +		regs->a0 =3D syscall(regs->orig_a0, regs->a1, regs->a2,
+> +				   regs->a3, regs->a4, regs->a5, regs->a6);
+> +	syscall_exit_to_user_mode(regs);
+> +}
+[...]
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+--=20
+Ben Hutchings
+This sentence contradicts itself - no actually it doesn't.
 
-pip3 install dtschema --upgrade
+--=-hBvg3hkgZJx22/D8ziHr
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-Please check and re-submit after running the above command.
+-----BEGIN PGP SIGNATURE-----
 
+iQIzBAABCgAdFiEErCspvTSmr92z9o8157/I7JWGEQkFAmODj4YACgkQ57/I7JWG
+EQkoFw//VAo67zlrTxZHe2lYe0Ggy+uVwqPDewOAWHaBTb4oR4xyh78CqsJfE8Ul
+n8FAKOkPoxofhFFiVVpRDqEcvQ+SxigzmGQHENIM1xivjO8CkxNp9Ee7HYvacl6z
+zL18FpRaq5gEvy35xA3fSn8T00hxeDo/Pe1tALWylNnkgrDPYbUH9y8OiJ//BPZh
+4JndT+gEhdDuV046NtDj/2RvoXffePAc1mhvdKH5qOYIkz6ibWDmvLi/ug7I84C5
+fP30LeNg6WjB2M8y/2SXejdap+B/omSFCx732OohnwUu1FJqSsFET7pV08WBz+ae
+mMGN83ODVuWOXY68fwRx6Pup4sCg6eux/+7WqVCFoJd4nrAcquzB80TCfOp9lNEy
+q/UEypfRBKGMBOtzfIX2V3QO5R1whrB41zsHjGF43xN/ht2yMYydjO+IzuIGY04Q
+pAnyBazXVz5WTZlCbojKExLMgsDbkw7B35OWEpF5xmfhe8+7pxlkM2+th6BNf0ku
+Zj+FSgrVvnbfuxD+A0nQN97qbTpITdaCLe8T8inYh1CAVTSVYSi8s2cbL61kVEAC
+jaGY7LAN83nzphpX2uw3Zp48K2teHN1pPXbGg56we19HVoIl5EvcS+cU7wSmfDm2
+FqXp51wz4t0OFldn6mXVzbiwrwYSqeV0z/l8CyGrVtSUXzdT/h4=
+=LsGl
+-----END PGP SIGNATURE-----
+
+--=-hBvg3hkgZJx22/D8ziHr--
+
+
+--===============3508281251343078544==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3508281251343078544==--
+
