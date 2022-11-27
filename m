@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691BEC4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C19DC47089
 	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 13:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lnanvtpA8nlzoSXCVSU+E4Tsi98e1DZzXCtgeF+tIHc=; b=JtttpnZIeHwEKj
-	b04jD3jNhSN+Cvl2UXTmYLwA2BRuE4Yt6QD3XLjJ7+KcHKmUQCLZeCMTxe2WNu/yWeqKNEtrnG5o2
-	cr3xC2cRepdLoSsL907FAPn1mGPooIcNRRc039w0+qSFzeHjSpZvyVrhiEuvXvxQD/CX59WTxUal2
-	QNPys+0V45NG8wsT9HI1TuRQ/yXqmx2bmITctZiznvaUdSXVRco8dXSjir+tIWyMoRcipzC9C3tlu
-	9PuVqWFxp7iJ1v/OY6XmnXPM/vrll3Y+stfgKXCQPLUMg2o0BBwpjRP9X0elmBGqgxEG1g1gnyXiv
-	MAPkFy95L8FJNbN3Iy+g==;
+	List-Owner; bh=0k7eYRYUnf4b4F+z5jyNnOcJ9avYPyZF8Eoylz1DtJo=; b=Y9olvShEk0LZJf
+	SFFCf/cPF0bL1DSEk6rJSHl98WXPwqgMvGeRbLq8WIjOfJvYsEesYsAPKwm6vTtJmWl6qPjBUEj8n
+	HAWxi7A9WVdmeiGCEnraza7G2V3m+MUkX9kpUal+t8RvKkHRf43k1wKZIaqcmkwen9+knaebDlFLW
+	QH01xMvqPcQX90DrQCU3XOkM0IXpusufI+TPqHo8LIphElPoyRXrC1e7Hn5t6ovODep2a02Jvs1On
+	sQYa4YuxfzZ1gDVxVKAyIS7bRCB4RTs2aqOQlR51JvnJbYgE3TcDerJ8az1KN/9wbZxEs9M11Aolq
+	XvNZ8n3eVi4iuOSNWtIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozHo7-00BPmS-AZ; Sun, 27 Nov 2022 13:34:55 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1ozHo4-00BPkE-Ig; Sun, 27 Nov 2022 13:34:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozHo4-00BPjz-LA
-	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 13:34:54 +0000
+	id 1ozHo0-00BPhM-5t
+	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 13:34:50 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 627CEB80AFE;
-	Sun, 27 Nov 2022 13:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821D5C433D6;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B3E8560DD0;
 	Sun, 27 Nov 2022 13:34:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A1E2C43470;
+	Sun, 27 Nov 2022 13:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669556090;
-	bh=U1BBZe96a/tTQWl6eRpC2brtXLC0B1aCss8DfwQWm5o=;
+	s=k20201202; t=1669556087;
+	bh=PBUTy2eGP3X73ZrovR8nmdnmy22Lx1y+blkzvj39cfs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XYFxDEK1GpNY7U8Lsg8VPWSi//ri1THgjsu2MKQp/e8LedIJHigaZHuxb5yN8ekTG
-	 1HhcAlVcTp5GxJX8JMoxw7rIDlEp1DeSdAk4nor1pnPLEBbfUUplbyZ0mo7F3wUOVQ
-	 zHA7EHm0HOJB79YcrKMZhgBJc+fxvjE74eIzf7+2SlIMm/KulqkVol6g4nYgiSK/tH
-	 /K/qdcjvUNZTdB0uO+xks6ZkkWSSOcE1oB0/ibaoyFhyiJ7g0YdJ/lF1rCQ24eIS4A
-	 Npjvipr//7Ms10m/M25yTNa5tzudfvSgKLG2A8bCtUPdjFfre8rHK1v+Mq9SYaalLw
-	 9g09jh0u5wXtw==
+	b=MGDCXrgQ5TKh4dZVdT9ZgH8JKlmzhLeze+X5G0wGyGO8HWWze8h9RXp5wx86hnfrC
+	 K5M6Zm/qqMqyoAPmacVkI2KXaJvG6885laGTcikJ4Ps+bEuwN6cuYsQhybXP/OfODf
+	 woU70zUfr2OB/9wPc5PhRdrS4blgYs+9v3kjW9uRh9F/UPL55tz+7Gn7GG+IZqCzbn
+	 1K1ZluqVSy5Dw/7/gp3wfWyhvQCfC6Fq4Ifmq6X9eAOIh1mW3qq+QV4b95GjgL/Mzc
+	 +/2OI15ClzjGBtA0Kqh15f6aqEisgXol8DGHc3RqLwZimCY/ggSOxpVi9YkutVo1XC
+	 FMO7WtLKA1/NQ==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Rob Herring <robh+dt@kernel.org>,
 	Conor Dooley <conor@kernel.org>,
@@ -55,19 +55,17 @@ To: Rob Herring <robh+dt@kernel.org>,
 Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 3/9] riscv: add the Bouffalolab SoC family Kconfig option
-Date: Sun, 27 Nov 2022 21:24:42 +0800
-Message-Id: <20221127132448.4034-4-jszhang@kernel.org>
+	linux-serial@vger.kernel.org
+Subject: [PATCH v2 2/9] serial: bflb_uart: add Bouffalolab UART Driver
+Date: Sun, 27 Nov 2022 21:24:41 +0800
+Message-Id: <20221127132448.4034-3-jszhang@kernel.org>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221127132448.4034-1-jszhang@kernel.org>
 References: <20221127132448.4034-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221127_053452_870178_678DB859 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221127_053448_338761_79D547CB 
+X-CRM114-Status: GOOD (  26.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +82,689 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Bouffalolab bl808 SoC contains three riscv CPUs, namely M0, D0 and
-LP. The D0 is 64bit RISC-V GC compatible, so can run linux.
+Add the driver for Bouffalolab UART IP which is found in Bouffalolab
+SoCs such as bl808.
+
+UART driver probe will create path named "/dev/ttySx".
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig.socs | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/tty/serial/Kconfig       |  18 +
+ drivers/tty/serial/Makefile      |   1 +
+ drivers/tty/serial/bflb_uart.c   | 610 +++++++++++++++++++++++++++++++
+ include/uapi/linux/serial_core.h |   3 +
+ 4 files changed, 632 insertions(+)
+ create mode 100644 drivers/tty/serial/bflb_uart.c
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 69774bb362d6..90256f44ed4a 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -1,5 +1,11 @@
- menu "SoC selection"
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index 434f83168546..056a8144e2cc 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -179,6 +179,24 @@ config SERIAL_ATMEL_TTYAT
  
-+config SOC_BOUFFALOLAB
-+	bool "Bouffalolab SoCs"
-+	select SIFIVE_PLIC
+ 	  Say Y if you have an external 8250/16C550 UART.  If unsure, say N.
+ 
++config SERIAL_BFLB
++	tristate "Bouffalolab serial port support"
++	select SERIAL_CORE
++	depends on COMMON_CLK
 +	help
-+	  This enables support for Bouffalolab SoC platforms.
++	  This enables the driver for the Bouffalolab's serial.
 +
- config SOC_MICROCHIP_POLARFIRE
- 	bool "Microchip PolarFire SoCs"
- 	select MCHP_CLK_MPFS
++config SERIAL_BFLB_CONSOLE
++	bool "Support for console on Bouffalolab serial port"
++	depends on SERIAL_BFLB
++	select SERIAL_CORE_CONSOLE
++	select SERIAL_EARLYCON
++	help
++	  Say Y here if you wish to use a Bouffalolab UART as the
++	  system console (the system console is the device which
++	  receives all kernel messages and warnings and which allows
++	  logins in single user mode) as /dev/ttySn.
++
+ config SERIAL_KGDB_NMI
+ 	bool "Serial console over KGDB NMI debugger port"
+ 	depends on KGDB_SERIAL_CONSOLE
+diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
+index 238a9557b487..8509cdc11d87 100644
+--- a/drivers/tty/serial/Makefile
++++ b/drivers/tty/serial/Makefile
+@@ -25,6 +25,7 @@ obj-$(CONFIG_SERIAL_8250) += 8250/
+ 
+ obj-$(CONFIG_SERIAL_AMBA_PL010) += amba-pl010.o
+ obj-$(CONFIG_SERIAL_AMBA_PL011) += amba-pl011.o
++obj-$(CONFIG_SERIAL_BFLB) += bflb_uart.o
+ obj-$(CONFIG_SERIAL_CLPS711X) += clps711x.o
+ obj-$(CONFIG_SERIAL_PXA_NON8250) += pxa.o
+ obj-$(CONFIG_SERIAL_SA1100) += sa1100.o
+diff --git a/drivers/tty/serial/bflb_uart.c b/drivers/tty/serial/bflb_uart.c
+new file mode 100644
+index 000000000000..1816c5c71cae
+--- /dev/null
++++ b/drivers/tty/serial/bflb_uart.c
+@@ -0,0 +1,610 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Based on bflb_uart.c, by Bouffalolab team
++ *
++ * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/console.h>
++#include <linux/kernel.h>
++#include <linux/init.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/serial.h>
++#include <linux/serial_core.h>
++#include <linux/tty.h>
++#include <linux/tty_flip.h>
++
++#define UART_UTX_CONFIG			0x00
++#define  UART_CR_UTX_EN			BIT(0)
++#define  UART_CR_UTX_CTS_EN		BIT(1)
++#define  UART_CR_UTX_FRM_EN		BIT(2)
++#define  UART_CR_UTX_PRT_EN		BIT(4)
++#define  UART_CR_UTX_PRT_SEL		BIT(5)
++#define  UART_CR_UTX_BIT_CNT_D_MSK	GENMASK(10, 8)
++#define  UART_CR_UTX_BIT_CNT_P_MSK	GENMASK(12, 11)
++#define UART_URX_CONFIG			0x04
++#define  UART_CR_URX_EN			BIT(0)
++#define  UART_CR_URX_PRT_EN		BIT(4)
++#define  UART_CR_URX_PRT_SEL		BIT(5)
++#define  UART_CR_URX_BIT_CNT_D_MSK	GENMASK(10, 8)
++#define UART_BIT_PRD			0x08
++#define  UART_CR_UTX_BIT_PRD_MSK	GENMASK(15, 0)
++#define  UART_CR_URX_BIT_PRD_MSK	GENMASK(31, 16)
++#define UART_DATA_CONFIG		0x0c
++#define  UART_CR_UART_BIT_INV		BIT(0)
++#define UART_URX_RTO_TIMER		0x18
++#define  UART_CR_URX_RTO_VALUE_MSK	GENMASK(7, 0)
++#define UART_SW_MODE			0x1c
++#define UART_INT_STS			0x20
++#define  UART_UTX_END_INT		BIT(0)
++#define  UART_URX_END_INT		BIT(1)
++#define  UART_UTX_FIFO_INT		BIT(2)
++#define  UART_URX_FIFO_INT		BIT(3)
++#define  UART_URX_RTO_INT		BIT(4)
++#define  UART_URX_PCE_INT		BIT(5)
++#define  UART_UTX_FER_INT		BIT(6)
++#define  UART_URX_FER_INT		BIT(7)
++#define  UART_URX_LSE_INT		BIT(8)
++#define UART_INT_MASK			0x24
++#define UART_INT_CLEAR			0x28
++#define UART_INT_EN			0x2c
++#define UART_STATUS			0x30
++#define  UART_STS_UTX_BUS_BUSY		BIT(0)
++#define UART_FIFO_CONFIG_0		0x80
++#define  UART_DMA_TX_EN			BIT(0)
++#define  UART_DMA_RX_EN			BIT(1)
++#define  UART_TX_FIFO_CLR		BIT(2)
++#define  UART_RX_FIFO_CLR		BIT(3)
++#define  UART_TX_FIFO_OVERFLOW		BIT(4)
++#define  UART_TX_FIFO_UNDERFLOW		BIT(5)
++#define  UART_RX_FIFO_OVERFLOW		BIT(6)
++#define  UART_RX_FIFO_UNDERFLOW		BIT(7)
++#define UART_FIFO_CONFIG_1		0x84
++#define  UART_TX_FIFO_CNT_MSK		GENMASK(5, 0)
++#define  UART_RX_FIFO_CNT_MSK		GENMASK(13, 8)
++#define  UART_TX_FIFO_TH_MSK		GENMASK(20, 16)
++#define  UART_RX_FIFO_TH_MSK		GENMASK(28, 24)
++#define UART_FIFO_WDATA			0x88
++#define UART_FIFO_RDATA			0x8c
++#define  UART_FIFO_RDATA_MSK		GENMASK(7, 0)
++
++#define BFLB_UART_MAXPORTS		8
++#define BFLB_UART_BAUD			2000000
++#define BFLB_UART_RX_FIFO_TH		7
++#define BFLB_UART_TX_FIFO_TH		15
++#define BFLB_UART_URX_RTO_TIME		0x4f
++
++struct bflb_uart_port {
++	struct uart_port port;
++	struct clk *clk;
++};
++
++static struct bflb_uart_port *bflb_uart_ports[BFLB_UART_MAXPORTS];
++
++static inline u32 rdl(struct uart_port *port, u32 reg)
++{
++	return readl_relaxed(port->membase + reg);
++}
++
++static inline void wrl(struct uart_port *port, u32 reg, u32 value)
++{
++	writel_relaxed(value, port->membase + reg);
++}
++
++static inline void wrb(struct uart_port *port, u32 reg, u8 value)
++{
++	writeb_relaxed(value, port->membase + reg);
++}
++
++static unsigned int bflb_uart_tx_empty(struct uart_port *port)
++{
++	return (rdl(port, UART_FIFO_CONFIG_1) & UART_TX_FIFO_CNT_MSK) ? TIOCSER_TEMT : 0;
++}
++
++static unsigned int bflb_uart_get_mctrl(struct uart_port *port)
++{
++	return TIOCM_CAR | TIOCM_DSR | TIOCM_CTS;
++}
++
++static void bflb_uart_set_mctrl(struct uart_port *port, unsigned int sigs)
++{
++}
++
++static void bflb_uart_start_tx(struct uart_port *port)
++{
++	u32 val;
++
++	val = rdl(port, UART_UTX_CONFIG);
++	val |= UART_CR_UTX_EN;
++	wrl(port, UART_UTX_CONFIG, val);
++
++	val = rdl(port, UART_FIFO_CONFIG_1);
++	val &= ~UART_TX_FIFO_TH_MSK;
++	val |= FIELD_PREP(UART_TX_FIFO_TH_MSK, BFLB_UART_TX_FIFO_TH);
++	wrl(port, UART_FIFO_CONFIG_1, val);
++
++	val = rdl(port, UART_INT_MASK);
++	val &= ~UART_UTX_FIFO_INT;
++	wrl(port, UART_INT_MASK, val);
++}
++
++static void bflb_uart_stop_tx(struct uart_port *port)
++{
++	u32 val;
++
++	val = rdl(port, UART_INT_MASK);
++	val |= UART_UTX_FIFO_INT;
++	wrl(port, UART_INT_MASK, val);
++}
++
++static void bflb_uart_stop_rx(struct uart_port *port)
++{
++	u32 val;
++
++	val = rdl(port, UART_URX_CONFIG);
++	val &= ~UART_CR_URX_EN;
++	wrl(port, UART_URX_CONFIG, val);
++
++	val = rdl(port, UART_INT_MASK);
++	val |= UART_URX_FIFO_INT | UART_URX_RTO_INT | UART_URX_FER_INT;
++	wrl(port, UART_INT_MASK, val);
++}
++
++static void bflb_uart_set_termios(struct uart_port *port,
++				  struct ktermios *termios,
++				  const struct ktermios *old)
++{
++	unsigned long flags;
++	u32 valt, valr, val;
++	unsigned int baud, min;
++
++	spin_lock_irqsave(&port->lock, flags);
++
++	/* set data length */
++	val = tty_get_char_size(termios->c_cflag) - 1;
++	valt = FIELD_PREP(UART_CR_UTX_BIT_CNT_D_MSK, val);
++
++	/* calculate parity */
++	termios->c_cflag &= ~CMSPAR;	/* no support mark/space */
++	if (termios->c_cflag & PARENB) {
++		valt |= UART_CR_UTX_PRT_EN;
++		if (termios->c_cflag & PARODD)
++			valt |= UART_CR_UTX_PRT_SEL;
++	}
++
++	valr = valt;
++
++	/* calculate stop bits */
++	if (termios->c_cflag & CSTOPB)
++		val = 2;
++	else
++		val = 1;
++	valt |= FIELD_PREP(UART_CR_UTX_BIT_CNT_P_MSK, val);
++
++	/* flow control */
++	if (termios->c_cflag & CRTSCTS)
++		valt |= UART_CR_UTX_CTS_EN;
++
++	/* enable TX freerunning mode */
++	valt |= UART_CR_UTX_FRM_EN;
++
++	valt |= UART_CR_UTX_EN;
++	valr |= UART_CR_URX_EN;
++
++	wrl(port, UART_UTX_CONFIG, valt);
++	wrl(port, UART_URX_CONFIG, valr);
++
++	min = port->uartclk / (UART_CR_UTX_BIT_PRD_MSK + 1);
++	baud = uart_get_baud_rate(port, termios, old, min, 4000000);
++
++	val = DIV_ROUND_CLOSEST(port->uartclk, baud) - 1;
++	val = FIELD_PREP(UART_CR_UTX_BIT_PRD_MSK, val);
++	val |= FIELD_PREP(UART_CR_URX_BIT_PRD_MSK, val);
++	wrl(port, UART_BIT_PRD, val);
++
++	uart_update_timeout(port, termios->c_cflag, baud);
++
++	spin_unlock_irqrestore(&port->lock, flags);
++}
++
++static void bflb_uart_rx_chars(struct uart_port *port)
++{
++	u8 ch;
++
++	while (rdl(port, UART_FIFO_CONFIG_1) & UART_RX_FIFO_CNT_MSK) {
++		ch = FIELD_GET(UART_FIFO_RDATA_MSK, rdl(port, UART_FIFO_RDATA));
++		port->icount.rx++;
++
++		if (uart_handle_sysrq_char(port, ch))
++			continue;
++		uart_insert_char(port, 0, 0, ch, TTY_NORMAL);
++	}
++
++	spin_unlock(&port->lock);
++	tty_flip_buffer_push(&port->state->port);
++	spin_lock(&port->lock);
++}
++
++static void bflb_uart_tx_chars(struct uart_port *port)
++{
++	struct circ_buf *xmit = &port->state->xmit;
++	unsigned int count;
++
++	if (port->x_char) {
++		/* Send special char - probably flow control */
++		wrl(port, UART_FIFO_WDATA, port->x_char);
++		port->x_char = 0;
++		port->icount.tx++;
++		return;
++	}
++
++	if (uart_circ_empty(xmit) || uart_tx_stopped(port)) {
++		bflb_uart_stop_tx(port);
++		return;
++	}
++
++	count = BFLB_UART_TX_FIFO_TH;
++	do {
++		wrl(port, UART_FIFO_WDATA, xmit->buf[xmit->tail]);
++		xmit->tail = (xmit->tail + 1) & (UART_XMIT_SIZE - 1);
++		port->icount.tx++;
++		if (uart_circ_empty(xmit))
++			break;
++	} while (--count > 0);
++
++	if (uart_circ_chars_pending(xmit) < WAKEUP_CHARS)
++		uart_write_wakeup(port);
++
++	if (uart_circ_empty(xmit))
++		bflb_uart_stop_tx(port);
++}
++
++static irqreturn_t bflb_uart_interrupt(int irq, void *data)
++{
++	struct uart_port *port = data;
++	u32 isr, val;
++
++	isr = rdl(port, UART_INT_STS);
++	wrl(port, UART_INT_CLEAR, isr);
++
++	spin_lock(&port->lock);
++
++	if (isr & UART_URX_FER_INT) {
++		/* RX FIFO error interrupt */
++		val = rdl(port, UART_FIFO_CONFIG_0);
++		if (val & UART_RX_FIFO_OVERFLOW)
++			port->icount.overrun++;
++
++		val |= UART_RX_FIFO_CLR;
++		wrl(port, UART_FIFO_CONFIG_0, val);
++	}
++
++	if (isr & (UART_URX_FIFO_INT | UART_URX_RTO_INT))
++		bflb_uart_rx_chars(port);
++
++	if (isr & UART_UTX_FIFO_INT)
++		bflb_uart_tx_chars(port);
++
++	spin_unlock(&port->lock);
++
++	return IRQ_RETVAL(isr);
++}
++
++static void bflb_uart_config_port(struct uart_port *port, int flags)
++{
++	port->type = PORT_BFLB;
++}
++
++static int bflb_uart_startup(struct uart_port *port)
++{
++	unsigned long flags;
++	int ret;
++	u32 val;
++
++	ret = devm_request_irq(port->dev, port->irq, bflb_uart_interrupt,
++			       IRQF_SHARED, port->name, port);
++	if (ret) {
++		dev_err(port->dev, "fail to request serial irq %d, ret=%d\n",
++			port->irq, ret);
++		return ret;
++	}
++
++	spin_lock_irqsave(&port->lock, flags);
++
++	wrl(port, UART_INT_MASK, ~0);
++
++	wrl(port, UART_DATA_CONFIG, 0);
++	wrl(port, UART_SW_MODE, 0);
++	wrl(port, UART_URX_RTO_TIMER, FIELD_PREP(UART_CR_URX_RTO_VALUE_MSK, BFLB_UART_URX_RTO_TIME));
++
++	val = rdl(port, UART_FIFO_CONFIG_1);
++	val &= ~UART_RX_FIFO_TH_MSK;
++	val |= FIELD_PREP(UART_RX_FIFO_TH_MSK, BFLB_UART_RX_FIFO_TH);
++	wrl(port, UART_FIFO_CONFIG_1, val);
++
++	/* Unmask RX interrupts now */
++	val = rdl(port, UART_INT_MASK);
++	val &= ~(UART_URX_FIFO_INT | UART_URX_RTO_INT | UART_URX_FER_INT);
++	wrl(port, UART_INT_MASK, val);
++
++	val = rdl(port, UART_UTX_CONFIG);
++	val |= UART_CR_UTX_EN;
++	wrl(port, UART_UTX_CONFIG, val);
++	val = rdl(port, UART_URX_CONFIG);
++	val |= UART_CR_URX_EN;
++	wrl(port, UART_URX_CONFIG, val);
++
++	spin_unlock_irqrestore(&port->lock, flags);
++
++	return 0;
++}
++
++static void bflb_uart_shutdown(struct uart_port *port)
++{
++	unsigned long flags;
++
++	spin_lock_irqsave(&port->lock, flags);
++	/* mask all interrupts now */
++	wrl(port, UART_INT_MASK, ~0);
++	spin_unlock_irqrestore(&port->lock, flags);
++}
++
++static const char *bflb_uart_type(struct uart_port *port)
++{
++	return (port->type == PORT_BFLB) ? "BFLB UART" : NULL;
++}
++
++static int bflb_uart_verify_port(struct uart_port *port,
++				 struct serial_struct *ser)
++{
++	if (ser->type != PORT_UNKNOWN && ser->type != PORT_BFLB)
++		return -EINVAL;
++	return 0;
++}
++
++static const struct uart_ops bflb_uart_ops = {
++	.tx_empty = bflb_uart_tx_empty,
++	.get_mctrl = bflb_uart_get_mctrl,
++	.set_mctrl = bflb_uart_set_mctrl,
++	.start_tx = bflb_uart_start_tx,
++	.stop_tx = bflb_uart_stop_tx,
++	.stop_rx = bflb_uart_stop_rx,
++	.startup = bflb_uart_startup,
++	.shutdown = bflb_uart_shutdown,
++	.set_termios = bflb_uart_set_termios,
++	.type = bflb_uart_type,
++	.config_port = bflb_uart_config_port,
++	.verify_port = bflb_uart_verify_port,
++};
++
++#ifdef CONFIG_SERIAL_BFLB_CONSOLE
++static void bflb_console_putchar(struct uart_port *port, unsigned char ch)
++{
++	while (!(rdl(port, UART_FIFO_CONFIG_1) & UART_TX_FIFO_CNT_MSK))
++		cpu_relax();
++	wrb(port, UART_FIFO_WDATA, ch);
++}
++
++/*
++ * Interrupts are disabled on entering
++ */
++static void bflb_uart_console_write(struct console *co, const char *s,
++				    u_int count)
++{
++	struct uart_port *port = &bflb_uart_ports[co->index]->port;
++	u32 status, reg, mask;
++
++	/* save then disable interrupts */
++	mask = rdl(port, UART_INT_MASK);
++	reg = ~0;
++	wrl(port, UART_INT_MASK, reg);
++
++	/* Make sure that tx is enabled */
++	reg = rdl(port, UART_UTX_CONFIG);
++	reg |= UART_CR_UTX_EN;
++	wrl(port, UART_UTX_CONFIG, reg);
++
++	uart_console_write(port, s, count, bflb_console_putchar);
++
++	/* wait for TX done */
++	do {
++		status = rdl(port, UART_STATUS);
++	} while ((status & UART_STS_UTX_BUS_BUSY));
++
++	/* restore IRQ mask */
++	wrl(port, UART_INT_MASK, mask);
++}
++
++static int bflb_uart_console_setup(struct console *co, char *options)
++{
++	struct uart_port *port;
++	struct bflb_uart_port *bp;
++	int baud = BFLB_UART_BAUD;
++	int bits = 8;
++	int parity = 'n';
++	int flow = 'n';
++	u32 val;
++
++	if (co->index >= BFLB_UART_MAXPORTS || co->index < 0)
++		return -EINVAL;
++
++	bp = bflb_uart_ports[co->index];
++	if (!bp)
++		/* Port not initialized yet - delay setup */
++		return -ENODEV;
++
++	port = &bp->port;
++
++	val = rdl(port, UART_UTX_CONFIG);
++	val |= UART_CR_UTX_EN;
++	wrl(port, UART_UTX_CONFIG, val);
++
++	if (options)
++		uart_parse_options(options, &baud, &parity, &bits, &flow);
++
++	return uart_set_options(port, co, baud, parity, bits, flow);
++}
++
++static struct uart_driver bflb_uart_driver;
++static struct console bflb_uart_console = {
++	.name = "ttyS",
++	.write = bflb_uart_console_write,
++	.device = uart_console_device,
++	.setup = bflb_uart_console_setup,
++	.flags = CON_PRINTBUFFER,
++	.index = -1,
++	.data = &bflb_uart_driver,
++};
++
++static int __init bflb_uart_console_init(void)
++{
++	register_console(&bflb_uart_console);
++	return 0;
++}
++console_initcall(bflb_uart_console_init);
++
++#define BFLB_UART_CONSOLE (&bflb_uart_console)
++
++static void bflb_uart_earlycon_write(struct console *co, const char *s,
++				     unsigned int count)
++{
++	struct earlycon_device *dev = co->data;
++
++	uart_console_write(&dev->port, s, count, bflb_console_putchar);
++}
++
++static int __init bflb_uart_earlycon_setup(struct earlycon_device *dev,
++					   const char *options)
++{
++	if (!dev->port.membase)
++		return -ENODEV;
++
++	dev->con->write = bflb_uart_earlycon_write;
++
++	return 0;
++}
++OF_EARLYCON_DECLARE(bflb_uart, "bouffalolab,uart", bflb_uart_earlycon_setup);
++
++#else
++
++#define BFLB_UART_CONSOLE NULL
++
++#endif /* CONFIG_SERIAL_BFLB_CONSOLE */
++
++static struct uart_driver bflb_uart_driver = {
++	.owner = THIS_MODULE,
++	.driver_name = "bflb_uart",
++	.dev_name = "ttyS",
++	.nr = BFLB_UART_MAXPORTS,
++	.cons = BFLB_UART_CONSOLE,
++};
++
++static int bflb_uart_probe(struct platform_device *pdev)
++{
++	struct uart_port *port;
++	struct bflb_uart_port *bp;
++	struct resource *res;
++	int index, irq;
++
++	index = of_alias_get_id(pdev->dev.of_node, "serial");
++	if (unlikely(index < 0 || index >= BFLB_UART_MAXPORTS)) {
++		dev_err(&pdev->dev, "got a wrong serial alias id %d\n", index);
++		return -EINVAL;
++	}
++
++	bp = devm_kzalloc(&pdev->dev, sizeof(*bp), GFP_KERNEL);
++	if (!bp)
++		return -ENOMEM;
++
++	bflb_uart_ports[index] = bp;
++	platform_set_drvdata(pdev, bp);
++	port = &bp->port;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	port->membase = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(port->membase))
++		return PTR_ERR(port->membase);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	port->mapbase = res->start;
++	port->irq = irq;
++	port->line = index;
++	port->type = PORT_BFLB;
++	port->iotype = UPIO_MEM;
++	port->fifosize = 32;
++	port->ops = &bflb_uart_ops;
++	port->flags = UPF_BOOT_AUTOCONF;
++	port->dev = &pdev->dev;
++	port->has_sysrq = IS_ENABLED(CONFIG_SERIAL_BFLB_CONSOLE);
++
++	bp->clk = devm_clk_get_enabled(&pdev->dev, NULL);
++	if (IS_ERR(bp->clk))
++		return PTR_ERR(bp->clk);
++	port->uartclk = clk_get_rate(bp->clk);
++
++	return uart_add_one_port(&bflb_uart_driver, port);
++}
++
++static int bflb_uart_remove(struct platform_device *pdev)
++{
++	struct bflb_uart_port *bp = platform_get_drvdata(pdev);
++
++	uart_remove_one_port(&bflb_uart_driver, &bp->port);
++	bflb_uart_ports[bp->port.line] = NULL;
++
++	return 0;
++}
++
++static const struct of_device_id bflb_uart_match[] = {
++	{
++		.compatible = "bouffalolab,bl808-uart",
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, bflb_uart_match);
++
++static struct platform_driver bflb_uart_platform_driver = {
++	.probe	= bflb_uart_probe,
++	.remove	= bflb_uart_remove,
++	.driver	= {
++		.name		= "bflb_uart",
++		.of_match_table	= of_match_ptr(bflb_uart_match),
++	},
++};
++
++static int __init bflb_uart_init(void)
++{
++	int ret;
++
++	ret = uart_register_driver(&bflb_uart_driver);
++	if (ret)
++		return ret;
++
++	ret = platform_driver_register(&bflb_uart_platform_driver);
++	if (ret)
++		uart_unregister_driver(&bflb_uart_driver);
++
++	return ret;
++}
++
++static void __exit bflb_uart_exit(void)
++{
++	platform_driver_unregister(&bflb_uart_platform_driver);
++	uart_unregister_driver(&bflb_uart_driver);
++}
++
++module_init(bflb_uart_init);
++module_exit(bflb_uart_exit);
++
++MODULE_DESCRIPTION("Bouffalolab UART driver");
++MODULE_AUTHOR("Jisheng Zhang <jszhang@kernel.org>");
++MODULE_LICENSE("GPL");
+diff --git a/include/uapi/linux/serial_core.h b/include/uapi/linux/serial_core.h
+index 3ba34d8378bd..dabbb5ea2857 100644
+--- a/include/uapi/linux/serial_core.h
++++ b/include/uapi/linux/serial_core.h
+@@ -276,4 +276,7 @@
+ /* Sunplus UART */
+ #define PORT_SUNPLUS	123
+ 
++/* Bouffalolab UART */
++#define PORT_BFLB	124
++
+ #endif /* _UAPILINUX_SERIAL_CORE_H */
 -- 
 2.38.1
 
