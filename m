@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15900C43217
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 16:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788F3C43217
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Nov 2022 17:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQnT/HwgSYLfnHexwpocvLg52KZeL+dC1aWqdkMnZL4=; b=gKn2aqFO1UAaPY5MDqhYinpX4H
-	l4hdewdUY6IL7jbazfGLu0N3NEOXmlgTgN1Bu4vN5Vn8+kgJOHtS3BLZeFYLSmRCuQQwmoPPBXeWu
-	krxikICqMluGz+8rYBNSa0mzei16AKWw6RrhGMPv1h7hLS0CKmtgoy26r9mmW57j+zBej6BrbE107
-	qZcalhd78qiTe9mfmbW7XFnInEyKC2+JCuEhPoCqdlu7sHhPoikducMVnVsJELgMJv0VRPwyCcess
-	uPgSu/FhFR02nECs2kxngUZZPyfqFw97QI2HME8N/mByQRm4yWxYOlZcOkTY7m+D5tMdkcdnmuLUs
-	TxChNzVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=irMXiTomAUfS9m6dXXjynDznUm+kjI8tkXr+ThN0gFU=; b=rxbKkpTJDqudxP
+	ATC05TvsnQXMu1nxmAsWw0bBIwpd0O2GA62dDmM0p9n6TSOkLmBd4xeCezGMKgWz3mKjQ1bMmEXRO
+	fqcYMxJ97Q4KS9lBjP0I6g5v/MYF+XGnMV6x7Tb0oNCQZimnXaEvvzXrx+Hkx6uIjIt6XzoPuLHI3
+	9t1te7jDv47h4l2ZyW1aWbVILx0SPVrr03MN0hqbGBhcTamoR0lNjHVkxlcm68xXJBYNXBmSFMM8D
+	RThJGeXnk/+9La7dShU3abWRjIhYKeirUt2p3cElNE2Um18mRQPVXJT7l2CsROuuGLj2fYLnSwL4i
+	f6QXOwolCdTAl8sUt+SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozKUA-00CHvW-MJ; Sun, 27 Nov 2022 16:26:30 +0000
-Received: from maynard.decadent.org.uk ([95.217.213.242])
+	id 1ozLLe-00CbX0-H5; Sun, 27 Nov 2022 17:21:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozKU7-00CHtw-S3
-	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 16:26:29 +0000
-Received: from 213.219.160.184.adsl.dyn.edpnet.net ([213.219.160.184] helo=deadeye)
-	by maynard with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1ozKTU-0003A3-4R; Sun, 27 Nov 2022 17:25:48 +0100
-Received: from ben by deadeye with local (Exim 4.96)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1ozKTT-000fZI-1S;
-	Sun, 27 Nov 2022 17:25:47 +0100
-Message-ID: <a28d32c965f363ce099bd0a65e1c82b75a98128a.camel@decadent.org.uk>
-Subject: Re: [PATCH -next V8 06/14] riscv: convert to generic entry
-From: Ben Hutchings <ben@decadent.org.uk>
-To: guoren@kernel.org, arnd@arndb.de, palmer@rivosinc.com,
- tglx@linutronix.de,  peterz@infradead.org, luto@kernel.org,
- conor.dooley@microchip.com, heiko@sntech.de,  jszhang@kernel.org,
- lazyparser@gmail.com, falcon@tinylab.org,  chenhuacai@kernel.org,
- apatel@ventanamicro.com, atishp@atishpatra.org,  palmer@dabbelt.com,
- paul.walmsley@sifive.com, mark.rutland@arm.com,  zouyipeng@huawei.com,
- bigeasy@linutronix.de, David.Laight@aculab.com,  chenzhongjin@huawei.com,
- greentime.hu@sifive.com, andy.chiu@sifive.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Date: Sun, 27 Nov 2022 17:25:42 +0100
-In-Reply-To: <20221103075047.1634923-7-guoren@kernel.org>
-References: <20221103075047.1634923-1-guoren@kernel.org>
-	 <20221103075047.1634923-7-guoren@kernel.org>
-User-Agent: Evolution 3.46.1-1 
+	id 1ozLLZ-00CbUl-PM
+	for linux-riscv@lists.infradead.org; Sun, 27 Nov 2022 17:21:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E9B5D60DED;
+	Sun, 27 Nov 2022 17:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92350C433D6;
+	Sun, 27 Nov 2022 17:21:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669569699;
+	bh=RbCdGgC86wp3IrVQB8kh4eO/EyjCHT42dZFvCZpk/+E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bBMFXK1XCqZSlP6OynF8hySHk5Qk7DpLm+s66cDs+n4ztSQKlOSuP1BgvhyizhhMk
+	 JGC9AKOhXRbqrdGsQWiK2dDLg4SU3P9MvRuTFRVElW8HdVVKN5twCpIr/iycITj2ER
+	 ZI+VUPNqz5Q1eiwCwcwiinxrt4PwdX0h4ZbnQzbgbMCGWxtadp7VEAhoS8ve+1z1Cg
+	 /2xlHZQKdpTG2v7bSNbJKK86lyul1owd7SBJRUB8nOMWcBGcVywY4i2cs3juL/41Ps
+	 vrkfwjEx++VHZlzkPzt9kHvqVTZPVq7PsxxmNlZbw/eGxlT38FbA6t05o6Ns+97tLR
+	 7BJ9XhP4BnvAg==
+Date: Sun, 27 Nov 2022 17:21:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v2 6/9] riscv: dts: bouffalolab: add the bl808 SoC base
+ device tree
+Message-ID: <Y4OcngDlw/4Szt7g@spud>
+References: <20221127132448.4034-1-jszhang@kernel.org>
+ <20221127132448.4034-7-jszhang@kernel.org>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 213.219.160.184
-X-SA-Exim-Mail-From: ben@decadent.org.uk
-X-SA-Exim-Scanned: No (on maynard); SAEximRunCond expanded to false
+Content-Disposition: inline
+In-Reply-To: <20221127132448.4034-7-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221127_082627_913509_537D51B7 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221127_092141_946775_F18548BE 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,93 +67,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3508281251343078544=="
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, linux-serial@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, linux-riscv@lists.infradead.org, Jiri Slaby <jirislaby@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
++CC Icenowy
 
---===============3508281251343078544==
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-hBvg3hkgZJx22/D8ziHr"
-
-
---=-hBvg3hkgZJx22/D8ziHr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, 2022-11-03 at 03:50 -0400, guoren@kernel.org wrote:
-[...]
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-[...]
-> +asmlinkage void do_sys_ecall_u(struct pt_regs *regs)
-> +{
-> +	syscall_t syscall;
-> +	ulong nr =3D regs->a7;
+On Sun, Nov 27, 2022 at 09:24:45PM +0800, Jisheng Zhang wrote:
+> Add a baisc dtsi for the bouffalolab bl808 SoC.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/boot/dts/bouffalolab/bl808.dtsi | 74 ++++++++++++++++++++++
+>  1 file changed, 74 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> new file mode 100644
+> index 000000000000..f4b170ccc32e
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> @@ -0,0 +1,74 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> +/*
+> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> + */
 > +
-> +	regs->epc +=3D 4;
-> +	regs->orig_a0 =3D regs->a0;
-> +	regs->a0 =3D -ENOSYS;
+> +#include <dt-bindings/interrupt-controller/irq.h>
 > +
-> +	nr =3D syscall_enter_from_user_mode(regs, nr);
-> +#ifdef CONFIG_COMPAT
-> +	if ((regs->status & SR_UXL) =3D=3D SR_UXL_32)
-> +		syscall =3D compat_sys_call_table[nr];
-> +	else
-> +#endif
-> +		syscall =3D sys_call_table[nr];
+> +/ {
+> +	compatible = "bouffalolab,bl808";
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
 > +
-> +	if (nr < NR_syscalls)
+> +	cpus {
+> +		timebase-frequency = <1000000>;
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "thead,c906", "riscv";
+> +			device_type = "cpu";
+> +			reg = <0>;
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <256>;
+> +			d-cache-size = <32768>;
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <128>;
+> +			i-cache-size = <32768>;
+> +			mmu-type = "riscv,sv39";
+> +			riscv,isa = "rv64imafdc";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +				#address-cells = <0>;
+> +				#interrupt-cells = <1>;
+> +			};
+> +		};
+> +	};
+> +
+> +	xtal: xtal-clk {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		/* This value must be overridden by the board */
+> +		clock-frequency = <0>;
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		ranges;
+> +		interrupt-parent = <&plic>;
+> +		dma-noncoherent;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +
+> +		uart0: serial@30002000 {
+> +			compatible = "bouffalolab,bl808-uart";
+> +			reg = <0x30002000 0x1000>;
+> +			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&xtal>;
+> +			status = "disabled";
+> +		};
+> +
+> +		plic: interrupt-controller@e0000000 {
+> +			compatible = "thead,c900-plic";
 
-This bounds check needs to be done before indexing the system call
-table, not after.
+Hmm, @Icenowy - should this use your new open-c906-plic compatible from
+20221121041757.418645-4-uwu@icenowy.me ?
 
-Ben.
+As is, dtbs_check gives a:
+bl808-sipeed-m1s-dock.dtb: interrupt-controller@e0000000: compatible: 'oneOf' conditional failed, one must be fixed:
+        ['thead,c900-plic'] is too short
 
-> +		regs->a0 =3D syscall(regs->orig_a0, regs->a1, regs->a2,
-> +				   regs->a3, regs->a4, regs->a5, regs->a6);
-> +	syscall_exit_to_user_mode(regs);
-> +}
-[...]
-
---=20
-Ben Hutchings
-This sentence contradicts itself - no actually it doesn't.
-
---=-hBvg3hkgZJx22/D8ziHr
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEErCspvTSmr92z9o8157/I7JWGEQkFAmODj4YACgkQ57/I7JWG
-EQkoFw//VAo67zlrTxZHe2lYe0Ggy+uVwqPDewOAWHaBTb4oR4xyh78CqsJfE8Ul
-n8FAKOkPoxofhFFiVVpRDqEcvQ+SxigzmGQHENIM1xivjO8CkxNp9Ee7HYvacl6z
-zL18FpRaq5gEvy35xA3fSn8T00hxeDo/Pe1tALWylNnkgrDPYbUH9y8OiJ//BPZh
-4JndT+gEhdDuV046NtDj/2RvoXffePAc1mhvdKH5qOYIkz6ibWDmvLi/ug7I84C5
-fP30LeNg6WjB2M8y/2SXejdap+B/omSFCx732OohnwUu1FJqSsFET7pV08WBz+ae
-mMGN83ODVuWOXY68fwRx6Pup4sCg6eux/+7WqVCFoJd4nrAcquzB80TCfOp9lNEy
-q/UEypfRBKGMBOtzfIX2V3QO5R1whrB41zsHjGF43xN/ht2yMYydjO+IzuIGY04Q
-pAnyBazXVz5WTZlCbojKExLMgsDbkw7B35OWEpF5xmfhe8+7pxlkM2+th6BNf0ku
-Zj+FSgrVvnbfuxD+A0nQN97qbTpITdaCLe8T8inYh1CAVTSVYSi8s2cbL61kVEAC
-jaGY7LAN83nzphpX2uw3Zp48K2teHN1pPXbGg56we19HVoIl5EvcS+cU7wSmfDm2
-FqXp51wz4t0OFldn6mXVzbiwrwYSqeV0z/l8CyGrVtSUXzdT/h4=
-=LsGl
------END PGP SIGNATURE-----
-
---=-hBvg3hkgZJx22/D8ziHr--
-
-
---===============3508281251343078544==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +			reg = <0xe0000000 0x4000000>;
+> +			interrupts-extended = <&cpu0_intc 0xffffffff>,
+> +					      <&cpu0_intc 9>;
+> +			interrupt-controller;
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			riscv,ndev = <64>;
+> +		};
+> +	};
+> +};
+> -- 
+> 2.38.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3508281251343078544==--
-
