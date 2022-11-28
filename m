@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70884C43217
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 15:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C11FC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 16:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fkdLXYoimVUJUkJCUi8VEfRALtlI7CmxLMnw2hrTXoA=; b=vRk9MQmcbze5MU
-	k7nOseDX0XjK6nVrSJ5purHCMp+3IBnJPvSWA8PgFkOPg3f0S61twDGzdNUmtCSm4EKxm2ucajGDi
-	lLLLgX+XhiG6vHPp3EziSdclWSanaiWMyBBuhhqdqmPdCTczuMWxa+/VnTxRmqW05QMjOaJtMDMN/
-	EdKMQBCw+AtwQ7y8iCaj3eDeLu+TUY/5mTKImo1FdWBufg4LvO9t9J56cDhyqLprrBx/5oItlABJd
-	IWEDGhPhZFeCedJ5admWFj6+cczMByQ4NcD/RLWUSw/XwrFCfdTktw8rrCaaZ1RIdnfGE56wg2P3w
-	zAOVHTHbO1foPVbSX1Qg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H93kPFbcD/BIPQDMKSqJHyi+LFyc0hlUXRo5/UMVj7U=; b=088JgsqqVHIAQr
+	uUTplDujWJmCIU30Fj+xsJ/mRDI10E5yGdxuUNvRFXI9yimJf8ccsMV68E9ssMCwQs8SG/Au0srTP
+	twlqkxXYgpC4rOuVLrUxIyT8hh2HWwpVNUvJGRIrIAcCAnyWCOcHH/sBB6mdRSCSCbsz+PDWknf0N
+	ws3ebjqFa/tjDnXdDMdRJouwajcCmcwmWpxyDh7WM1LUQVR4zA2i4EjNDHDWU4sLQXgw/TUF8Afou
+	C4Fh81hHD/vc3LhZLHjwIiVw6MUhI62yMr7kTSMzxDNqnQYiz07wUorSWX6fqJ7aED9yR7CFcISWc
+	8u336FEWbd03TEntuOJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozg9e-002WYZ-91; Mon, 28 Nov 2022 15:34:46 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1ozgaK-002gCx-Ct; Mon, 28 Nov 2022 16:02:20 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozg9b-002WWE-3x
-	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 15:34:44 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id E9F0ACE0EA2;
-	Mon, 28 Nov 2022 15:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81EB5C433C1;
-	Mon, 28 Nov 2022 15:34:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669649675;
-	bh=S8NODlgq6yx6QV34sB+y37vgj9EEiEXVMGyItAX775s=;
-	h=From:To:Cc:Subject:Date:From;
-	b=f79Po3mBof5dcoujxSful43bPbrxJczrsl0eYLUe2UsHHGS/HlmTKuS3NWehoRbGb
-	 4EwfJ+1RkWCVOoEsD/j5E2XMNm5f4T+6uuNySlnUkwt0k3BcWOipoLrMSB02ny3ss/
-	 O4xCi5DS36CE4jorzan095InEXC30vhFd2wcqucxHbdJy8SpGkNyrG1n8EYizw+wIk
-	 BEtonJAmwDZfOs0v8MF1Qx8ie56EY7LxJBxvNFlDK+mtpgXLexWLigZxoEwGDQ+gUH
-	 9fenw6T7emij2c+mkWoew8caLViQntHvIcq0WyxXxaJ0IlELEzTevlHuvFoFNOBFEM
-	 lx9WW97d2W8Sw==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: head: use 0 as the default text_offset
-Date: Mon, 28 Nov 2022 23:24:42 +0800
-Message-Id: <20221128152442.3403-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.37.2
+	id 1ozgaH-002gBv-UV
+	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 16:02:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1669651337; x=1701187337;
+  h=date:from:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=szx3V/THdgBnLdEMF5U5QuumyUgo5RkTBLtv41gapAo=;
+  b=B3nmhsMAUHFK0BZl2EKrNUhubWHu+MTFVETpsoeeMQrTLKJcOlggyZ/2
+   /yLopi7eM0UQZpgdl3h06dAaUwz/DdBMsPxvQvQ6X+BjOZ7JhcOyLmQVg
+   DxLOBl+p/lAK8JQfF8regmaccJP7+Ij1041sGOETRScAf5TtgyImSoae3
+   SsDR8mk5Y0zxodvzKpJASEzW8Xv0bTjoHXVnXzUmXkI11zdRLx+DrvJNF
+   fhcKf9A1sLXmgwFP2gUR/JkaEjK0lcSZK8HvbqcwU4umemR0rXRIuxDRN
+   fSFYRUf6C5KWtCjkaqW3tHgqUyOpIARrMamcggbAxEFtXXFcQdmn+xanF
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10545"; a="316702274"
+X-IronPort-AV: E=Sophos;i="5.96,200,1665471600"; 
+   d="scan'208";a="316702274"
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2022 08:01:38 -0800
+X-IronPort-AV: E=McAfee;i="6500,9779,10545"; a="732189888"
+X-IronPort-AV: E=Sophos;i="5.96,200,1665471600"; 
+   d="scan'208";a="732189888"
+Received: from steinint-mobl1.ger.corp.intel.com ([10.249.34.136])
+  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2022 08:01:33 -0800
+Date: Mon, 28 Nov 2022 18:01:28 +0200 (EET)
+From: =?ISO-8859-15?Q?Ilpo_J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+cc: Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+    Conor Dooley <conor@kernel.org>, 
+    Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, 
+    linux-serial <linux-serial@vger.kernel.org>
+Subject: Re: [PATCH v2 2/9] serial: bflb_uart: add Bouffalolab UART Driver
+In-Reply-To: <Y4TD48v84CJcMS+S@xhacker>
+Message-ID: <e1f689d2-d337-5a42-e4c9-91c1d338b42b@linux.intel.com>
+References: <20221127132448.4034-1-jszhang@kernel.org> <20221127132448.4034-3-jszhang@kernel.org> <c0406076-04e1-6b81-1bba-ac684516d898@kernel.org> <Y4TD48v84CJcMS+S@xhacker>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_073443_356401_17169353 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20221128_080218_064938_B4D760A0 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +84,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 0f327f2aaad6 ("RISC-V: Add an Image header that boot loader can
-parse.") adds an image header which "is based on ARM64 boot image
-header and provides an opportunity to combine both ARM64 & RISC-V
-image headers in future.". At that time, arm64's default text_offset
-is 0x80000, this is to give "512 KB of guaranteed BSS space to put
-the swapper page tables" as commit cfa7ede20f13 ("arm64: set TEXT_OFFSET
-to 0x0 in preparation for removing it entirely") pointed out, but
-riscv doesn't need the space, so use 0 as the default text_offset.
+On Mon, 28 Nov 2022, Jisheng Zhang wrote:
 
-Before this patch, booting linux kernel on Sipeed bl808 M1s Dock
-with u-boot booti cmd:
-[    0.000000] OF: fdt: Ignoring memory range 0x50000000 - 0x50200000
-...
-[    0.000000]   DMA32    [mem 0x0000000050200000-0x0000000053ffffff]
-As can be seen, 2MB DDR(0x50000000 - 0x501fffff) can't be used by
-linux.
+> On Mon, Nov 28, 2022 at 07:10:41AM +0100, Jiri Slaby wrote:
+> > On 27. 11. 22, 14:24, Jisheng Zhang wrote:
+> > > +static void bflb_uart_tx_chars(struct uart_port *port)
+> > 
+> > Again:
+> > 
+> > Are you unable to use the TX helper? If so:
+> 
+> You know serial subsystem better than me, may I ask for more
+> details? For example,
+> Besides uart_xmit_advance(), do you expect other TX helpers? If yes,
+> can you please list them?
 
-After this patch, the 64MB DDR is fully usable by linux
-[    0.000000]   DMA32    [mem 0x0000000050000000-0x0000000053ffffff]
+Please take on look on commit 8275b48b278096edc1e3ea5aa9cf946a10022f79.
+The changes following that commit convert some drivers to use the tx 
+helper so you can look into them to see examples.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/kernel/head.S | 12 +-----------
- 1 file changed, 1 insertion(+), 11 deletions(-)
+> > * why?
+> > * use uart_advance_xmit() at least.
+> 
+> Do you mean uart_xmit_advance()? in the do while loop below?
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index b865046e4dbb..ef95943f7a70 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -38,18 +38,8 @@ ENTRY(_start)
- 	.word 0
- #endif
- 	.balign 8
--#ifdef CONFIG_RISCV_M_MODE
--	/* Image load offset (0MB) from start of RAM for M-mode */
-+	/* Image load offset (0MB) from start of RAM */
- 	.dword 0
--#else
--#if __riscv_xlen == 64
--	/* Image load offset(2MB) from start of RAM */
--	.dword 0x200000
--#else
--	/* Image load offset(4MB) from start of RAM */
--	.dword 0x400000
--#endif
--#endif
- 	/* Effective size of kernel image */
- 	.dword _end - _start
- 	.dword __HEAD_FLAGS
+Yes, Jiri had the name wrong. But your code looked like it could use 
+the tx helper instead.
+
 -- 
-2.37.2
-
+ i.
 
 _______________________________________________
 linux-riscv mailing list
