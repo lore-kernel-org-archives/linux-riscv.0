@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12D2C43217
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 10:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DED1C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 10:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qTV/z3geHV612limm7BoCxwxrON/EHJV4oAA0xAbj0s=; b=kSxAOsPSpXhmGS
-	93fTZJ/cNUROY4WABIJJfDDIdAVDpKYP1pjzgI25uaO3L0P9tk/DiNCP4H9wMEnCad/uxW+MXRSI4
-	cRD5wMK7f94oJWbGvWpIxT7owidHSJo6W0Ns3U+9M6CVQ8IvVwJEMeApUYanSMpXplV/iLaL8efsU
-	LsWrGaMoDH+i1J3TWEhZXC6G5nIIHvoGJWyhuQ/HPsLF/3Sc3/rC3R+9kPfZHmYhOYKvTISVKjgos
-	LGwewI7d/z84WY2innT1WZxF5alkV4916COsRlRn9ck5xqaV9sb1Jpyq/YieFsNMVHR6JE5SYaiZf
-	HLBpLP6MY5PT+7HVVcdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KLXbfi3kT1YtMlhapANiWzCMyeS8bYrwxtOb/6+juFU=; b=HrjOujiujuzfdP
+	jNW2D6yVgmcjQyPikTRH4+/u1oqYCCC6kd7QHz1MFyV/ZzVnGT6ps7tXLl48fUQsxTTLu0riXqkc3
+	lhN4/Jgbmtts3Clawx1cwT7KN9tPPleddCeSJKlw4pVjuhnuIBg+tRrQmt/F8X0GJ7eLLbo4CPS+u
+	l7GH+qmg4USUIdHFNwRoqN09jqV+maYqxPSbKKE3MfK5hP89Gm4N/fhbe8CUbLmWSuOiOqHyIiNnb
+	td+ET/c9ps7yOQYrLGG6I8iowUGxjxJgGR+jaS/jjG3UujJ5AEuNiKT614drW7XmchLrv+V1kCw2y
+	6zZqODxSNW5OGtToUUTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozbLe-0011X1-3p; Mon, 28 Nov 2022 10:26:50 +0000
+	id 1ozbLf-0011XW-A6; Mon, 28 Nov 2022 10:26:51 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozbLX-0011Ss-Ax
+	id 1ozbLX-0011Sr-BI
 	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 10:26:46 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1ozbLR-0004Xi-Vh; Mon, 28 Nov 2022 11:26:38 +0100
+	id 1ozbLS-0004Xi-AW; Mon, 28 Nov 2022 11:26:38 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -41,14 +41,16 @@ Cc: christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	emil.renner.berthing@canonical.com,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v2 0/13] Zbb string optimizations and call support in alternatives
-Date: Mon, 28 Nov 2022 11:26:19 +0100
-Message-Id: <20221128102632.435174-1-heiko@sntech.de>
+Subject: [PATCH v2 01/13] RISC-V: add prefix to all constants/macros in parse_asm.h
+Date: Mon, 28 Nov 2022 11:26:20 +0100
+Message-Id: <20221128102632.435174-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221128102632.435174-1-heiko@sntech.de>
+References: <20221128102632.435174-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_022643_426004_C0BF2380 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20221128_022643_591695_44E04CEF 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,104 +69,315 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-The Zbb extension can be used to make string functions run a lot
-faster.
+Some of the constants and macros already have suitable
+RV_, RVG_ or RVC_ prefixes.
 
-To allow There are essentially two problems to solve:
-- making it possible for str* functions to replace what they do
-  in a performant way
+Extend this to the rest of the file as well, as we want
+to use these things in a broader scope soon.
 
-  This is done by inlining the core functions and then
-  using alternatives to call the actual variant.
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/parse_asm.h | 194 ++++++++++++++---------------
+ arch/riscv/kernel/kgdb.c           |  12 +-
+ 2 files changed, 103 insertions(+), 103 deletions(-)
 
-  This of course will need a more intelligent selection mechanism
-  down the road when more variants may exist using different
-  available extensions.
-
-- actually allowing calls in alternatives
-  Function calls use auipc + jalr to reach those 32bit relative
-  addresses but when they're compiled the offset will be wrong
-  as alternatives live in a different section. So when the patch
-  gets applied the address will point to the wrong location.
-
-  So similar to arm64 the target addresses need to be updated.
-
-  This is probably also helpful for other things needing more
-  complex code in alternatives.
-
-
-In my half-scientific test-case of running the functions in question
-on a 95 character string in a loop of 10000 iterations, the Zbb
-variants shave off around 2/3 of the original runtime.
-
-
-For v2 I got into some sort of cleanup spree for the general instruction
-parsing that already existed. A number of places do their own
-instruction parsing and I tried consolidating some of them.
-
-Noteable, the kvm parts still do, but I had to stop somewhere :-)
-
-
-changes since v1:
-- a number of generalizations/cleanups for instruction parsing
-- use accessor function to access instructions (Emil)
-- actually patch the correct location when having more than one
-  instruction in an alternative block
-- string function cleanups (comments etc) (Conor)
-- move zbb extension above s* extensions in cpu.c lists
-
-changes since rfc:
-- make Zbb code actually work
-- drop some unneeded patches
-- a lot of cleanups
-
-Heiko Stuebner (13):
-  RISC-V: add prefix to all constants/macros in parse_asm.h
-  RISC-V: detach funct-values from their offset
-  RISC-V: add ebreak instructions to definitions
-  RISC-V: Move riscv_insn_is_* macros into a common header
-  RISC-V: rename parse_asm.h to insn.h
-  RISC-V: kprobes: use central defined funct3 constants
-  RISC-V: add auipc elements to parse_asm header
-  RISC-V: add U-type imm parsing to parse_asm header
-  RISC-V: add rd reg parsing to parse_asm header
-  RISC-V: fix auipc-jalr addresses in patched alternatives
-  efi/riscv: libstub: mark when compiling libstub
-  RISC-V: add infrastructure to allow different str* implementations
-  RISC-V: add zbb support to string functions
-
- arch/riscv/Kconfig                       |  23 ++
- arch/riscv/include/asm/alternative.h     |   3 +
- arch/riscv/include/asm/errata_list.h     |   3 +-
- arch/riscv/include/asm/hwcap.h           |   1 +
- arch/riscv/include/asm/insn.h            | 292 +++++++++++++++++++++++
- arch/riscv/include/asm/parse_asm.h       | 219 -----------------
- arch/riscv/include/asm/string.h          |  83 +++++++
- arch/riscv/kernel/alternative.c          |  72 ++++++
- arch/riscv/kernel/cpu.c                  |   1 +
- arch/riscv/kernel/cpufeature.c           |  29 ++-
- arch/riscv/kernel/image-vars.h           |   6 +-
- arch/riscv/kernel/kgdb.c                 |  63 ++---
- arch/riscv/kernel/probes/simulate-insn.c |  19 +-
- arch/riscv/kernel/probes/simulate-insn.h |  26 +-
- arch/riscv/lib/Makefile                  |   6 +
- arch/riscv/lib/strcmp.S                  |  38 +++
- arch/riscv/lib/strcmp_zbb.S              |  96 ++++++++
- arch/riscv/lib/strlen.S                  |  29 +++
- arch/riscv/lib/strlen_zbb.S              | 115 +++++++++
- arch/riscv/lib/strncmp.S                 |  41 ++++
- arch/riscv/lib/strncmp_zbb.S             | 112 +++++++++
- drivers/firmware/efi/libstub/Makefile    |   2 +-
- 22 files changed, 978 insertions(+), 301 deletions(-)
- create mode 100644 arch/riscv/include/asm/insn.h
- delete mode 100644 arch/riscv/include/asm/parse_asm.h
- create mode 100644 arch/riscv/lib/strcmp.S
- create mode 100644 arch/riscv/lib/strcmp_zbb.S
- create mode 100644 arch/riscv/lib/strlen.S
- create mode 100644 arch/riscv/lib/strlen_zbb.S
- create mode 100644 arch/riscv/lib/strncmp.S
- create mode 100644 arch/riscv/lib/strncmp_zbb.S
-
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+index f36368de839f..c52b8ae02cfe 100644
+--- a/arch/riscv/include/asm/parse_asm.h
++++ b/arch/riscv/include/asm/parse_asm.h
+@@ -6,37 +6,37 @@
+ #include <linux/bits.h>
+ 
+ /* The bit field of immediate value in I-type instruction */
+-#define I_IMM_SIGN_OPOFF	31
+-#define I_IMM_11_0_OPOFF	20
+-#define I_IMM_SIGN_OFF		12
+-#define I_IMM_11_0_OFF		0
+-#define I_IMM_11_0_MASK		GENMASK(11, 0)
++#define RV_I_IMM_SIGN_OPOFF	31
++#define RV_I_IMM_11_0_OPOFF	20
++#define RV_I_IMM_SIGN_OFF	12
++#define RV_I_IMM_11_0_OFF	0
++#define RV_I_IMM_11_0_MASK	GENMASK(11, 0)
+ 
+ /* The bit field of immediate value in J-type instruction */
+-#define J_IMM_SIGN_OPOFF	31
+-#define J_IMM_10_1_OPOFF	21
+-#define J_IMM_11_OPOFF		20
+-#define J_IMM_19_12_OPOFF	12
+-#define J_IMM_SIGN_OFF		20
+-#define J_IMM_10_1_OFF		1
+-#define J_IMM_11_OFF		11
+-#define J_IMM_19_12_OFF		12
+-#define J_IMM_10_1_MASK		GENMASK(9, 0)
+-#define J_IMM_11_MASK		GENMASK(0, 0)
+-#define J_IMM_19_12_MASK	GENMASK(7, 0)
++#define RV_J_IMM_SIGN_OPOFF	31
++#define RV_J_IMM_10_1_OPOFF	21
++#define RV_J_IMM_11_OPOFF	20
++#define RV_J_IMM_19_12_OPOFF	12
++#define RV_J_IMM_SIGN_OFF	20
++#define RV_J_IMM_10_1_OFF	1
++#define RV_J_IMM_11_OFF		11
++#define RV_J_IMM_19_12_OFF	12
++#define RV_J_IMM_10_1_MASK	GENMASK(9, 0)
++#define RV_J_IMM_11_MASK	GENMASK(0, 0)
++#define RV_J_IMM_19_12_MASK	GENMASK(7, 0)
+ 
+ /* The bit field of immediate value in B-type instruction */
+-#define B_IMM_SIGN_OPOFF	31
+-#define B_IMM_10_5_OPOFF	25
+-#define B_IMM_4_1_OPOFF		8
+-#define B_IMM_11_OPOFF		7
+-#define B_IMM_SIGN_OFF		12
+-#define B_IMM_10_5_OFF		5
+-#define B_IMM_4_1_OFF		1
+-#define B_IMM_11_OFF		11
+-#define B_IMM_10_5_MASK		GENMASK(5, 0)
+-#define B_IMM_4_1_MASK		GENMASK(3, 0)
+-#define B_IMM_11_MASK		GENMASK(0, 0)
++#define RV_B_IMM_SIGN_OPOFF	31
++#define RV_B_IMM_10_5_OPOFF	25
++#define RV_B_IMM_4_1_OPOFF	8
++#define RV_B_IMM_11_OPOFF	7
++#define RV_B_IMM_SIGN_OFF	12
++#define RV_B_IMM_10_5_OFF	5
++#define RV_B_IMM_4_1_OFF	1
++#define RV_B_IMM_11_OFF		11
++#define RV_B_IMM_10_5_MASK	GENMASK(5, 0)
++#define RV_B_IMM_4_1_MASK	GENMASK(3, 0)
++#define RV_B_IMM_11_MASK	GENMASK(0, 0)
+ 
+ /* The register offset in RVG instruction */
+ #define RVG_RS1_OPOFF		15
+@@ -100,71 +100,71 @@
+ #define RVC_C2_RD_OPOFF		7
+ 
+ /* parts of opcode for RVG*/
+-#define OPCODE_BRANCH		0x63
+-#define OPCODE_JALR		0x67
+-#define OPCODE_JAL		0x6f
+-#define OPCODE_SYSTEM		0x73
++#define RVG_OPCODE_BRANCH	0x63
++#define RVG_OPCODE_JALR		0x67
++#define RVG_OPCODE_JAL		0x6f
++#define RVG_OPCODE_SYSTEM	0x73
+ 
+ /* parts of opcode for RVC*/
+-#define OPCODE_C_0		0x0
+-#define OPCODE_C_1		0x1
+-#define OPCODE_C_2		0x2
++#define RVC_OPCODE_C0		0x0
++#define RVC_OPCODE_C1		0x1
++#define RVC_OPCODE_C2		0x2
+ 
+ /* parts of funct3 code for I, M, A extension*/
+-#define FUNCT3_JALR		0x0
+-#define FUNCT3_BEQ		0x0
+-#define FUNCT3_BNE		0x1000
+-#define FUNCT3_BLT		0x4000
+-#define FUNCT3_BGE		0x5000
+-#define FUNCT3_BLTU		0x6000
+-#define FUNCT3_BGEU		0x7000
++#define RVG_FUNCT3_JALR		0x0
++#define RVG_FUNCT3_BEQ		0x0
++#define RVG_FUNCT3_BNE		0x1000
++#define RVG_FUNCT3_BLT		0x4000
++#define RVG_FUNCT3_BGE		0x5000
++#define RVG_FUNCT3_BLTU		0x6000
++#define RVG_FUNCT3_BGEU		0x7000
+ 
+ /* parts of funct3 code for C extension*/
+-#define FUNCT3_C_BEQZ		0xc000
+-#define FUNCT3_C_BNEZ		0xe000
+-#define FUNCT3_C_J		0xa000
+-#define FUNCT3_C_JAL		0x2000
+-#define FUNCT4_C_JR		0x8000
+-#define FUNCT4_C_JALR		0xf000
+-
+-#define FUNCT12_SRET		0x10200000
+-
+-#define MATCH_JALR		(FUNCT3_JALR | OPCODE_JALR)
+-#define MATCH_JAL		(OPCODE_JAL)
+-#define MATCH_BEQ		(FUNCT3_BEQ | OPCODE_BRANCH)
+-#define MATCH_BNE		(FUNCT3_BNE | OPCODE_BRANCH)
+-#define MATCH_BLT		(FUNCT3_BLT | OPCODE_BRANCH)
+-#define MATCH_BGE		(FUNCT3_BGE | OPCODE_BRANCH)
+-#define MATCH_BLTU		(FUNCT3_BLTU | OPCODE_BRANCH)
+-#define MATCH_BGEU		(FUNCT3_BGEU | OPCODE_BRANCH)
+-#define MATCH_SRET		(FUNCT12_SRET | OPCODE_SYSTEM)
+-#define MATCH_C_BEQZ		(FUNCT3_C_BEQZ | OPCODE_C_1)
+-#define MATCH_C_BNEZ		(FUNCT3_C_BNEZ | OPCODE_C_1)
+-#define MATCH_C_J		(FUNCT3_C_J | OPCODE_C_1)
+-#define MATCH_C_JAL		(FUNCT3_C_JAL | OPCODE_C_1)
+-#define MATCH_C_JR		(FUNCT4_C_JR | OPCODE_C_2)
+-#define MATCH_C_JALR		(FUNCT4_C_JALR | OPCODE_C_2)
+-
+-#define MASK_JALR		0x707f
+-#define MASK_JAL		0x7f
+-#define MASK_C_JALR		0xf07f
+-#define MASK_C_JR		0xf07f
+-#define MASK_C_JAL		0xe003
+-#define MASK_C_J		0xe003
+-#define MASK_BEQ		0x707f
+-#define MASK_BNE		0x707f
+-#define MASK_BLT		0x707f
+-#define MASK_BGE		0x707f
+-#define MASK_BLTU		0x707f
+-#define MASK_BGEU		0x707f
+-#define MASK_C_BEQZ		0xe003
+-#define MASK_C_BNEZ		0xe003
+-#define MASK_SRET		0xffffffff
++#define RVC_FUNCT3_C_BEQZ	0xc000
++#define RVC_FUNCT3_C_BNEZ	0xe000
++#define RVC_FUNCT3_C_J		0xa000
++#define RVC_FUNCT3_C_JAL	0x2000
++#define RVC_FUNCT4_C_JR		0x8000
++#define RVC_FUNCT4_C_JALR	0xf000
++
++#define RVG_FUNCT12_SRET	0x10200000
++
++#define RVG_MATCH_JALR		(RVG_FUNCT3_JALR | RVG_OPCODE_JALR)
++#define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
++#define RVG_MATCH_BEQ		(RVG_FUNCT3_BEQ | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BNE		(RVG_FUNCT3_BNE | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BLT		(RVG_FUNCT3_BLT | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BGE		(RVG_FUNCT3_BGE | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BLTU		(RVG_FUNCT3_BLTU | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BGEU		(RVG_FUNCT3_BGEU | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_SRET		(RVG_FUNCT12_SRET | RVG_OPCODE_SYSTEM)
++#define RVC_MATCH_C_BEQZ	(RVC_FUNCT3_C_BEQZ | RVC_OPCODE_C1)
++#define RVC_MATCH_C_BNEZ	(RVC_FUNCT3_C_BNEZ | RVC_OPCODE_C1)
++#define RVC_MATCH_C_J		(RVC_FUNCT3_C_J | RVC_OPCODE_C1)
++#define RVC_MATCH_C_JAL		(RVC_FUNCT3_C_JAL | RVC_OPCODE_C1)
++#define RVC_MATCH_C_JR		(RVC_FUNCT4_C_JR | RVC_OPCODE_C2)
++#define RVC_MATCH_C_JALR	(RVC_FUNCT4_C_JALR | RVC_OPCODE_C2)
++
++#define RVG_MASK_JALR		0x707f
++#define RVG_MASK_JAL		0x7f
++#define RVC_MASK_C_JALR		0xf07f
++#define RVC_MASK_C_JR		0xf07f
++#define RVC_MASK_C_JAL		0xe003
++#define RVC_MASK_C_J		0xe003
++#define RVG_MASK_BEQ		0x707f
++#define RVG_MASK_BNE		0x707f
++#define RVG_MASK_BLT		0x707f
++#define RVG_MASK_BGE		0x707f
++#define RVG_MASK_BLTU		0x707f
++#define RVG_MASK_BGEU		0x707f
++#define RVC_MASK_C_BEQZ		0xe003
++#define RVC_MASK_C_BNEZ		0xe003
++#define RVG_MASK_SRET		0xffffffff
+ 
+ #define __INSN_LENGTH_MASK	_UL(0x3)
+ #define __INSN_LENGTH_GE_32	_UL(0x3)
+ #define __INSN_OPCODE_MASK	_UL(0x7F)
+-#define __INSN_BRANCH_OPCODE	_UL(OPCODE_BRANCH)
++#define __INSN_BRANCH_OPCODE	_UL(RVG_OPCODE_BRANCH)
+ 
+ /* Define a series of is_XXX_insn functions to check if the value INSN
+  * is an instance of instruction XXX.
+@@ -180,26 +180,26 @@ static inline bool is_ ## INSN_NAME ## _insn(long insn) \
+ #define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
+ #define RVC_X(X, s, mask) RV_X(X, s, mask)
+ 
+-#define EXTRACT_JTYPE_IMM(x) \
++#define RV_EXTRACT_JTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, J_IMM_10_1_OPOFF, J_IMM_10_1_MASK) << J_IMM_10_1_OFF) | \
+-	(RV_X(x_, J_IMM_11_OPOFF, J_IMM_11_MASK) << J_IMM_11_OFF) | \
+-	(RV_X(x_, J_IMM_19_12_OPOFF, J_IMM_19_12_MASK) << J_IMM_19_12_OFF) | \
+-	(RV_IMM_SIGN(x_) << J_IMM_SIGN_OFF); })
++	(RV_X(x_, RV_J_IMM_10_1_OPOFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OFF) | \
++	(RV_X(x_, RV_J_IMM_11_OPOFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OFF) | \
++	(RV_X(x_, RV_J_IMM_19_12_OPOFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OFF) | \
++	(RV_IMM_SIGN(x_) << RV_J_IMM_SIGN_OFF); })
+ 
+-#define EXTRACT_ITYPE_IMM(x) \
++#define RV_EXTRACT_ITYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, I_IMM_11_0_OPOFF, I_IMM_11_0_MASK)) | \
+-	(RV_IMM_SIGN(x_) << I_IMM_SIGN_OFF); })
++	(RV_X(x_, RV_I_IMM_11_0_OPOFF, RV_I_IMM_11_0_MASK)) | \
++	(RV_IMM_SIGN(x_) << RV_I_IMM_SIGN_OFF); })
+ 
+-#define EXTRACT_BTYPE_IMM(x) \
++#define RV_EXTRACT_BTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, B_IMM_4_1_OPOFF, B_IMM_4_1_MASK) << B_IMM_4_1_OFF) | \
+-	(RV_X(x_, B_IMM_10_5_OPOFF, B_IMM_10_5_MASK) << B_IMM_10_5_OFF) | \
+-	(RV_X(x_, B_IMM_11_OPOFF, B_IMM_11_MASK) << B_IMM_11_OFF) | \
+-	(RV_IMM_SIGN(x_) << B_IMM_SIGN_OFF); })
++	(RV_X(x_, RV_B_IMM_4_1_OPOFF, RV_B_IMM_4_1_MASK) << RV_B_IMM_4_1_OFF) | \
++	(RV_X(x_, RV_B_IMM_10_5_OPOFF, RV_B_IMM_10_5_MASK) << RV_B_IMM_10_5_OFF) | \
++	(RV_X(x_, RV_B_IMM_11_OPOFF, RV_B_IMM_11_MASK) << RV_B_IMM_11_OFF) | \
++	(RV_IMM_SIGN(x_) << RV_B_IMM_SIGN_OFF); })
+ 
+-#define EXTRACT_RVC_J_IMM(x) \
++#define RVC_EXTRACT_JTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+ 	(RVC_X(x_, RVC_J_IMM_3_1_OPOFF, RVC_J_IMM_3_1_MASK) << RVC_J_IMM_3_1_OFF) | \
+ 	(RVC_X(x_, RVC_J_IMM_4_OPOFF, RVC_J_IMM_4_MASK) << RVC_J_IMM_4_OFF) | \
+@@ -210,7 +210,7 @@ static inline bool is_ ## INSN_NAME ## _insn(long insn) \
+ 	(RVC_X(x_, RVC_J_IMM_10_OPOFF, RVC_J_IMM_10_MASK) << RVC_J_IMM_10_OFF) | \
+ 	(RVC_IMM_SIGN(x_) << RVC_J_IMM_SIGN_OFF); })
+ 
+-#define EXTRACT_RVC_B_IMM(x) \
++#define RVC_EXTRACT_BTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+ 	(RVC_X(x_, RVC_B_IMM_2_1_OPOFF, RVC_B_IMM_2_1_MASK) << RVC_B_IMM_2_1_OFF) | \
+ 	(RVC_X(x_, RVC_B_IMM_4_3_OPOFF, RVC_B_IMM_4_3_MASK) << RVC_B_IMM_4_3_OFF) | \
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 963ed7edcff2..030a129900db 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -69,19 +69,19 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 			rs1_num = decode_register_index(op_code, RVC_C2_RS1_OPOFF);
+ 			*next_addr = regs_ptr[rs1_num];
+ 		} else if (is_c_j_insn(op_code) || is_c_jal_insn(op_code)) {
+-			*next_addr = EXTRACT_RVC_J_IMM(op_code) + pc;
++			*next_addr = RVC_EXTRACT_JTYPE_IMM(op_code) + pc;
+ 		} else if (is_c_beqz_insn(op_code)) {
+ 			rs1_num = decode_register_index_short(op_code,
+ 							      RVC_C1_RS1_OPOFF);
+ 			if (!rs1_num || regs_ptr[rs1_num] == 0)
+-				*next_addr = EXTRACT_RVC_B_IMM(op_code) + pc;
++				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
+ 			else
+ 				*next_addr = pc + 2;
+ 		} else if (is_c_bnez_insn(op_code)) {
+ 			rs1_num =
+ 			    decode_register_index_short(op_code, RVC_C1_RS1_OPOFF);
+ 			if (rs1_num && regs_ptr[rs1_num] != 0)
+-				*next_addr = EXTRACT_RVC_B_IMM(op_code) + pc;
++				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
+ 			else
+ 				*next_addr = pc + 2;
+ 		} else {
+@@ -90,7 +90,7 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 	} else {
+ 		if ((op_code & __INSN_OPCODE_MASK) == __INSN_BRANCH_OPCODE) {
+ 			bool result = false;
+-			long imm = EXTRACT_BTYPE_IMM(op_code);
++			long imm = RV_EXTRACT_BTYPE_IMM(op_code);
+ 			unsigned long rs1_val = 0, rs2_val = 0;
+ 
+ 			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
+@@ -121,12 +121,12 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 			else
+ 				*next_addr = pc + 4;
+ 		} else if (is_jal_insn(op_code)) {
+-			*next_addr = EXTRACT_JTYPE_IMM(op_code) + pc;
++			*next_addr = RV_EXTRACT_JTYPE_IMM(op_code) + pc;
+ 		} else if (is_jalr_insn(op_code)) {
+ 			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
+ 			if (rs1_num)
+ 				*next_addr = ((unsigned long *)regs)[rs1_num];
+-			*next_addr += EXTRACT_ITYPE_IMM(op_code);
++			*next_addr += RV_EXTRACT_ITYPE_IMM(op_code);
+ 		} else if (is_sret_insn(op_code)) {
+ 			*next_addr = pc;
+ 		} else {
 -- 
 2.35.1
 
