@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257E4C46467
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 10:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D39C43217
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 10:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SZt8Pjpl7JDXB2lrrnAhtHGdHPYxEqTcENa4+lm9PIc=; b=3zIsx6zdv9koWf
-	v19q8q+fFKuX1dp4I38AmhfRiBbljBapTNNWZUslBQaFGAwJHgWh2Xe8HsEyMUqd1Fg1ez5WFp26O
-	dJmoqCYzIjVc24wX198ySyW2VzINQ6/0vzCeVOVOhjksYLmOLnRxoKGW+OCXpNkYKpMyG79pejR5A
-	o+6HSol0oUCoD+pQQEmH6B3Ferta3BV084SWK4yKoHLGod9sTw9QJAKpYDhK7C8DXVEXT5x/bEvPA
-	dJSR8sRBrulHJXmJvhqfWy9a5NKXjYTwWDuhVtEtu5XIHlbiwUcmSiYLbBrMPD8voCyT1X801l84T
-	2ihmPRDO1/lKy4So/gtw==;
+	List-Owner; bh=KxGDUNlsfIXYq1bqsnZsdL7vXWl/oynRBbc3z/YdE9c=; b=l7HxUeEpxaZPfS
+	NcK9a4MI9I1txQbMEJA8DSOtgWqChy6U5A8+NcqZ2ioQITUXlPYDoJXMQ3TcvAoroiieRXhER3BSG
+	yMMRhFE7msw4UTXwWT+csJYL+QYgcfWtDwNog+AWhLnBFatAsbTfvypzWPYpCqGZ7veimA9bcdESr
+	aMpLsCZM4mXI+IBuOdId6qsmnpxc1t56OjyPZ4+fmpZrcDc/CxJhTEeyqYi/vNsLwd+VbzUD5ZtZ9
+	daZt9JZ7eFkZ5Na1hZUjJ19mKhNkw9eQLT+BVYMkhCbRbvX0e4CGPLXoDYKZPc+74SgXaQ1W5He+/
+	pjo6W74ssNkVpkyJlGmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozb7o-000wnP-Hm; Mon, 28 Nov 2022 10:12:32 +0000
+	id 1ozbD5-000yiO-LG; Mon, 28 Nov 2022 10:17:59 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozb7k-000wl0-PI
-	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 10:12:30 +0000
+	id 1ozbD3-000ygN-3x
+	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 10:17:59 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 759C261042;
-	Mon, 28 Nov 2022 10:12:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E067C433D6;
-	Mon, 28 Nov 2022 10:12:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6B72561089
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 10:17:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D36D2C4347C
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 10:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669630346;
-	bh=u89aOTJopm5tzMbQZRi0aLUZMGuYaAIU5HPAPaFbrYg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tA71LX2K+I/jJhM2ALB1Ec6vFXPMSlU1IrsxnPGS5+n2LsZ6j2kLcz7LN7SMTuyk6
-	 9wtMzBJezeEAHf5Ew5IBV8D+wQVL03oD9yts9NtNtTVgXHTdgYVocg8VZ7+cPSyp04
-	 o312tL8/bGzH7xeK3WsLKEDB4w4+QlpGkFxy46Z8jepPCUtGVlhdaOuarSGLGMChsE
-	 VEFIJe/NNAqdJPGIZbnOuui9YlBmxM2S1XlWOo0K3REkR2Csy13OSLKntMDHBzgPZV
-	 6vUvyVtcWPQrUN8x8Yq7rkTxxyd/QVSD1YZcj9pok6dU0wgIP9RZDhsdKdHR7ItLbx
-	 So8WdNqib+bqg==
-From: guoren@kernel.org
-To: suagrfillet@gmail.com,
-	guoren@kernel.org
-Cc: aou@eecs.berkeley.edu,
-	bp@suse.de,
-	jolsa@redhat.com,
-	jpoimboe@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	mark.rutland@arm.com,
-	mhiramat@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	peterz@infradead.org,
-	rostedt@goodmis.org
-Subject: [PATCH 2/2] samples: ftrace: Add riscv support for SAMPLE_FTRACE_DIRECT[_MULTI]
-Date: Mon, 28 Nov 2022 05:12:01 -0500
-Message-Id: <20221128101201.4144527-2-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221128101201.4144527-1-guoren@kernel.org>
-References: <CAAYs2=hNAwDk7=F077ityNykZJCCvGVyXsxRzZO3s7rKwOPpUg@mail.gmail.com>
- <20221128101201.4144527-1-guoren@kernel.org>
+	s=k20201202; t=1669630675;
+	bh=0MUn60ZEBcS5ItrYkuHz15fNwlGisqMA6Q9B68kzkho=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DUAk5Hl3ZB0p/Rs/T64RSJLj24Zzi9FHFPDnWNtw6NrZbEA4X6qq7xpOX1quiEyGQ
+	 j0qEEVjJ93KAdM/H5q96swt08D5+kAGTVZ9/yA5om2qC4RmKarRKRzk1uTBUP87KNG
+	 ArgC5fwUtuKAuYaXeOT6H7ORm4GeUILtZn2lZ0wA3IuL7yh9H5WbCNoe24Y0/HyPs7
+	 a6mgUmO6siOOcysTbUYclIY7xaPuKAkWGWwYlDrqK5P7bEFb8g6cAL9hDCUgeGyEj7
+	 D61kpfCx8/6ndZbgrbhVy4+7WgOsQjFsokPwAQmVbzSZt2/swm0o78cfS0gNuwAgqE
+	 JoRbIlVOgu+2Q==
+Received: by mail-ej1-f47.google.com with SMTP id vp12so23229083ejc.8
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 02:17:55 -0800 (PST)
+X-Gm-Message-State: ANoB5plRbxlHI1H54NA1LZcD6xUdXD9yxhmDvOvVnLUItPilM2j4mn09
+	uomLLZVztHectx7APmYBWb3447VbPSiQS1E40QA=
+X-Google-Smtp-Source: AA0mqf6ikWF1asQF3YBC10JQHUtfmR19FRsRbSUoFqzTAFxrMPIMVdTdOt5yAqAwLuas9ZFHTyAc264LtVoXwfKQUlU=
+X-Received: by 2002:a17:906:1546:b0:741:5c0e:1058 with SMTP id
+ c6-20020a170906154600b007415c0e1058mr41905543ejd.472.1669630673952; Mon, 28
+ Nov 2022 02:17:53 -0800 (PST)
 MIME-Version: 1.0
+References: <20221123142025.1504030-1-suagrfillet@gmail.com>
+ <20221123142025.1504030-2-suagrfillet@gmail.com> <CAJF2gTTwvApRaGhZJxOrdcjWUC9DN-WF_7EKcHXx5HZ9Jkd5EA@mail.gmail.com>
+ <CAAYs2=ghhMmmrM4Bktvw9iGiajS5PLd1=Z61j2ZfhbhGUi4ekg@mail.gmail.com>
+ <CAJF2gTTWSr0qYTnRORSexEHMqUt-Lj6xZd0O-fUgC+f74FfCZA@mail.gmail.com>
+ <CAAYs2=ifvfY3QW07LXL+B6KH6b3EELMcXuz6ja_rYNE=G4+=qQ@mail.gmail.com>
+ <CAJF2gTQ6hEyfpo1wTUp1UwAGP1kMpEYjLqR-fz6UrCMjHN1VuQ@mail.gmail.com> <CAAYs2=hNAwDk7=F077ityNykZJCCvGVyXsxRzZO3s7rKwOPpUg@mail.gmail.com>
+In-Reply-To: <CAAYs2=hNAwDk7=F077ityNykZJCCvGVyXsxRzZO3s7rKwOPpUg@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 28 Nov 2022 18:17:42 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTLuXKKRw7UOmZB4qkVhcLFkQUiFAcKouX7DLAy-SsWNg@mail.gmail.com>
+Message-ID: <CAJF2gTTLuXKKRw7UOmZB4qkVhcLFkQUiFAcKouX7DLAy-SsWNg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv/ftrace: add DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
+To: Song Shuai <suagrfillet@gmail.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	rostedt@goodmis.org, mhiramat@kernel.org, mark.rutland@arm.com, 
+	peterz@infradead.org, jolsa@redhat.com, bp@suse.de, jpoimboe@kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_021228_993277_4BCB7386 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20221128_021757_309573_062D8666 
+X-CRM114-Status: GOOD (  37.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,320 +82,164 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Song Shuai <suagrfillet@gmail.com>
-
-select HAVE_SAMPLE_FTRACE_DIRECT and HAVE_SAMPLE_FTRACE_DIRECT_MULTI
-for ARCH_RV64I in arch/riscv/Kconfig. And add riscv asm code for
-the ftrace-direct*.c files in samples/ftrace/.
-
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Co-developed-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
-Below is modified by Guo Ren:
-
-diff --git a/samples/ftrace/ftrace-direct-modify.c
-b/samples/ftrace/ftrace-direct-modify.c
-index 5582d000d803..d970b46ecc4e 100644
---- a/samples/ftrace/ftrace-direct-modify.c
-+++ b/samples/ftrace/ftrace-direct-modify.c
-@@ -29,6 +29,7 @@ asm ("        .pushsection    .text, \"ax\",
-@progbits\n"
- "      .globl          my_tramp1\n"
- "   my_tramp1:\n"
- "      addi sp,sp,-16\n"
-+"      move t0,t1\n"
- "      sd   t0,0(sp)\n"
- "      sd   ra,8(sp)\n"
- "      call my_direct_func1\n"
-diff --git a/samples/ftrace/ftrace-direct-multi-modify.c
-b/samples/ftrace/ftrace-direct-multi-modify.c
-index 43e02d39c652..9534e18fa6ed 100644
---- a/samples/ftrace/ftrace-direct-multi-modify.c
-+++ b/samples/ftrace/ftrace-direct-multi-modify.c
-@@ -28,6 +28,7 @@ asm ("        .pushsection    .text, \"ax\",
-@progbits\n"
- "   my_tramp1:\n"
- "       addi sp,sp,-24\n"
- "       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
- "       sd   t0,8(sp)\n"
- "       sd   ra,16(sp)\n"
- "       call my_direct_func1\n"
-diff --git a/samples/ftrace/ftrace-direct-multi.c
-b/samples/ftrace/ftrace-direct-multi.c
-index df91339d3095..2111478b0463 100644
---- a/samples/ftrace/ftrace-direct-multi.c
-+++ b/samples/ftrace/ftrace-direct-multi.c
-@@ -23,6 +23,7 @@ asm ("       .pushsection    .text, \"ax\",
-@progbits\n"
- "   my_tramp:\n"
- "       addi sp,sp,-24\n"
- "       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
- "       sd   t0,8(sp)\n"
- "       sd   ra,16(sp)\n"
- "       call my_direct_func\n"
-diff --git a/samples/ftrace/ftrace-direct-too.c
-b/samples/ftrace/ftrace-direct-too.c
-index fe3b8c4f3336..e80981d3dc0a 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -27,6 +27,7 @@ asm ("       .pushsection    .text, \"ax\",
-@progbits\n"
- "       sd   a0,0(sp)\n"
- "       sd   a1,8(sp)\n"
- "       sd   a2,16(sp)\n"
-+"       move t0,t1\n"
- "       sd   t0,24(sp)\n"
- "       sd   ra,32(sp)\n"
- "       call my_direct_func\n"
-diff --git a/samples/ftrace/ftrace-direct.c
-b/samples/ftrace/ftrace-direct.c
-index 0784024b6653..b6cae1b5cb66 100644
---- a/samples/ftrace/ftrace-direct.c
-+++ b/samples/ftrace/ftrace-direct.c
-@@ -22,6 +22,7 @@ asm ("       .pushsection    .text, \"ax\",
-@progbits\n"
- "   my_tramp:\n"
- "       addi sp,sp,-24\n"
- "       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
- "       sd   t0,8(sp)\n"
- "       sd   ra,16(sp)\n"
- "       call my_direct_func\n"
----
- arch/riscv/Kconfig                          |  2 ++
- samples/ftrace/ftrace-direct-modify.c       | 34 ++++++++++++++++++
- samples/ftrace/ftrace-direct-multi-modify.c | 38 +++++++++++++++++++++
- samples/ftrace/ftrace-direct-multi.c        | 23 +++++++++++++
- samples/ftrace/ftrace-direct-too.c          | 27 +++++++++++++++
- samples/ftrace/ftrace-direct.c              | 23 +++++++++++++
- 6 files changed, 147 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2828537abfcd..0a1da03e88c2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -279,6 +279,8 @@ config ARCH_RV64I
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-+	select HAVE_SAMPLE_FTRACE_DIRECT
-+	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
-diff --git a/samples/ftrace/ftrace-direct-modify.c b/samples/ftrace/ftrace-direct-modify.c
-index 39146fa83e20..6a633ff4cf6d 100644
---- a/samples/ftrace/ftrace-direct-modify.c
-+++ b/samples/ftrace/ftrace-direct-modify.c
-@@ -22,6 +22,40 @@ extern void my_tramp2(void *);
- 
- static unsigned long my_ip = (unsigned long)schedule;
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"	addi sp,sp,-16\n"
-+"	move t0,t1\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func1\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"	addi sp,sp,-16\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func2\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi-modify.c b/samples/ftrace/ftrace-direct-multi-modify.c
-index 65aa94d96f4e..9534e18fa6ed 100644
---- a/samples/ftrace/ftrace-direct-multi-modify.c
-+++ b/samples/ftrace/ftrace-direct-multi-modify.c
-@@ -20,6 +20,44 @@ void my_direct_func2(unsigned long ip)
- extern void my_tramp1(void *);
- extern void my_tramp2(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func1\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func2\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi.c b/samples/ftrace/ftrace-direct-multi.c
-index 41ded7c615c7..2111478b0463 100644
---- a/samples/ftrace/ftrace-direct-multi.c
-+++ b/samples/ftrace/ftrace-direct-multi.c
-@@ -15,6 +15,29 @@ void my_direct_func(unsigned long ip)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
-index 6690468c5cc2..e80981d3dc0a 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -17,6 +17,33 @@ void my_direct_func(struct vm_area_struct *vma,
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-40\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   a1,8(sp)\n"
-+"       sd   a2,16(sp)\n"
-+"       move t0,t1\n"
-+"       sd   t0,24(sp)\n"
-+"       sd   ra,32(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   a1,8(sp)\n"
-+"       ld   a2,16(sp)\n"
-+"       ld   t0,24(sp)\n"
-+"       ld   ra,32(sp)\n"
-+"       addi sp,sp,40\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct.c b/samples/ftrace/ftrace-direct.c
-index e8f1e440b9b8..b6cae1b5cb66 100644
---- a/samples/ftrace/ftrace-direct.c
-+++ b/samples/ftrace/ftrace-direct.c
-@@ -14,6 +14,29 @@ void my_direct_func(struct task_struct *p)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       move t0,t1\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjUsIDIwMjIgYXQgMjozMyBQTSBTb25nIFNodWFpIDxzdWFncmZpbGxldEBn
+bWFpbC5jb20+IHdyb3RlOgo+Cj4gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IOS6jjIwMjLl
+ubQxMeaciDI15pel5ZGo5LqUIDAzOjEw5YaZ6YGT77yaCj4gPgo+ID4gT24gRnJpLCBOb3YgMjUs
+IDIwMjIgYXQgOTo1MyBBTSBTb25nIFNodWFpIDxzdWFncmZpbGxldEBnbWFpbC5jb20+IHdyb3Rl
+Ogo+ID4gPgo+ID4gPiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4g5LqOMjAyMuW5tDEx5pyI
+MjTml6Xlkajlm5sgMTU6MzHlhpnpgZPvvJoKPiA+ID4gPgo+ID4gPiA+IE9uIFRodSwgTm92IDI0
+LCAyMDIyIGF0IDE6MjcgQU0gU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiB3cm90
+ZToKPiA+ID4gPiA+Cj4gPiA+ID4gPiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4g5LqOMjAy
+MuW5tDEx5pyIMjPml6XlkajkuIkgMjM6MDLlhpnpgZPvvJoKPiA+ID4gPiA+ID4KPiA+ID4gPiA+
+ID4gQ29vbCBqb2IsIHRoeC4KPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gT24gV2VkLCBOb3YgMjMs
+IDIwMjIgYXQgMTA6MjAgUE0gU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiB3cm90
+ZToKPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+PiBUaGlzIHBhdGNoIGFkZHMgRFlOQU1JQ19GVFJB
+Q0VfV0lUSF9ESVJFQ1RfQ0FMTFMgc3VwcG9ydCBmb3IgUklTQy1WLgo+ID4gPiA+ID4gPj4KPiA+
+ID4gPiA+ID4+IHNlbGVjdCB0aGUgRFlOQU1JQ19GVFJBQ0VfV0lUSF9ESVJFQ1RfQ0FMTFMgdG8g
+cHJvdmlkZSB0aGUKPiA+ID4gPiA+ID4+IHJlZ2lzdGVyX2Z0cmFjZV9kaXJlY3RbX211bHRpXSBp
+bnRlcmZhY2VzIGFsbG93aW5nIHVzZXJzIHRvIHJlZ2lzdGVyCj4gPiA+ID4gPiA+PiB0aGUgY3Vz
+dG9tZWQgdHJhbXBvbGluZSAoZGlyZWN0X2NhbGxlcikgYXMgdGhlIG1jb3VudCBmb3Igb25lIG9y
+Cj4gPiA+ID4gPiA+PiBtb3JlIHRhcmdldCBmdW5jdGlvbnMuIEFuZCBtb2RpZnlfZnRyYWNlX2Rp
+cmVjdFtfbXVsdGldIGFyZSBhbHNvCj4gPiA+ID4gPiA+PiBwcm92aWRlZCBmb3IgbW9kaWZ5aW5n
+IGRpcmVjdF9jYWxsZXIuCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gVG8gbWFrZSB0aGUgZGly
+ZWN0X2NhbGxlciBhbmQgdGhlIG90aGVyIGZ0cmFjZSBob29rcyAoZWcuIGZ1bmN0aW9uL2ZncmFw
+aAo+ID4gPiA+ID4gPj4gdHJhY2VyLCBrW3JldF1wcm9iZXMpIGNvLWV4aXN0LCBhIHRlbXBvcmFy
+eSByZWdpc3RlciBpcyBub21pbmF0ZWQgdG8KPiA+ID4gPiA+ID4+IHN0b3JlIHRoZSBhZGRyZXNz
+IG9mIGRpcmVjdF9jYWxsZXIgaW4gZnRyYWNlX3JlZ3NfY2FsbGVyLiBBZnRlciB0aGUKPiA+ID4g
+PiA+ID4+IHNldHRpbmcgb2YgdGhlIGFkZHJlc3MgZGlyZWN0X2NhbGxlciBieSBkaXJlY3Rfb3Bz
+LT5mdW5jIGFuZCB0aGUKPiA+ID4gPiA+ID4+IFJFU1RPUkVfUkVHUyBpbiBmdHJhY2VfcmVnc19j
+YWxsZXIsIGRpcmVjdF9jYWxsZXIgd2lsbCBiZSBqdW1wZWQgdG8KPiA+ID4gPiA+ID4+IGJ5IHRo
+ZSBganJgIGluc3QuCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gU2lnbmVkLW9mZi1ieTogU29u
+ZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgo+ID4gPiA+ID4gPj4gLS0tCj4gPiA+ID4g
+PiA+PiAgYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICB8IDEgKwo+ID4gPiA+ID4gPj4g
+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNlLmggfCA2ICsrKysrKwo+ID4gPiA+ID4gPj4g
+IGFyY2gvcmlzY3Yva2VybmVsL21jb3VudC1keW4uUyAgfCA0ICsrKysKPiA+ID4gPiA+ID4+ICAz
+IGZpbGVzIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKykKPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4g
+PiA+ID4gPiA+PiBpbmRleCAzOWVjOGQ2MjhjZjYuLmQwODNlYzA4ZDBiNiAxMDA2NDQKPiA+ID4g
+PiA+ID4+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiA+ID4gPj4gKysrIGIvYXJjaC9y
+aXNjdi9LY29uZmlnCj4gPiA+ID4gPiA+PiBAQCAtMjc4LDYgKzI3OCw3IEBAIGNvbmZpZyBBUkNI
+X1JWNjRJCj4gPiA+ID4gPiA+PiAgICAgICAgIHNlbGVjdCBBUkNIX1NVUFBPUlRTX0lOVDEyOCBp
+ZiBDQ19IQVNfSU5UMTI4Cj4gPiA+ID4gPiA+PiAgICAgICAgIHNlbGVjdCBIQVZFX0RZTkFNSUNf
+RlRSQUNFIGlmICFYSVBfS0VSTkVMICYmIE1NVSAmJiAkKGNjLW9wdGlvbiwtZnBhdGNoYWJsZS1m
+dW5jdGlvbi1lbnRyeT04KQo+ID4gPiA+ID4gPj4gICAgICAgICBzZWxlY3QgSEFWRV9EWU5BTUlD
+X0ZUUkFDRV9XSVRIX1JFR1MgaWYgSEFWRV9EWU5BTUlDX0ZUUkFDRQo+ID4gPiA+ID4gPj4gKyAg
+ICAgICBzZWxlY3QgSEFWRV9EWU5BTUlDX0ZUUkFDRV9XSVRIX0RJUkVDVF9DQUxMUwo+ID4gPiA+
+ID4gPj4gICAgICAgICBzZWxlY3QgSEFWRV9GVFJBQ0VfTUNPVU5UX1JFQ09SRCBpZiAhWElQX0tF
+Uk5FTAo+ID4gPiA+ID4gPj4gICAgICAgICBzZWxlY3QgSEFWRV9GVU5DVElPTl9HUkFQSF9UUkFD
+RVIKPiA+ID4gPiA+ID4+ICAgICAgICAgc2VsZWN0IEhBVkVfRlVOQ1RJT05fVFJBQ0VSIGlmICFY
+SVBfS0VSTkVMICYmICFQUkVFTVBUSU9OCj4gPiA+ID4gPiA+PiBkaWZmIC0tZ2l0IGEvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnRyYWNl
+LmgKPiA+ID4gPiA+ID4+IGluZGV4IDAxYmViYjI4ZWFiZS4uYmU0ZDU3NTY2MTM5IDEwMDY0NAo+
+ID4gPiA+ID4gPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+ID4gPiA+
+ID4gPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9mdHJhY2UuaAo+ID4gPiA+ID4gPj4g
+QEAgLTExNCw2ICsxMTQsMTIgQEAgc3RydWN0IGZ0cmFjZV9yZWdzOwo+ID4gPiA+ID4gPj4gIHZv
+aWQgZnRyYWNlX2dyYXBoX2Z1bmModW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQgbG9uZyBwYXJl
+bnRfaXAsCj4gPiA+ID4gPiA+PiAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBmdHJhY2Vf
+b3BzICpvcCwgc3RydWN0IGZ0cmFjZV9yZWdzICpmcmVncyk7Cj4gPiA+ID4gPiA+PiAgI2RlZmlu
+ZSBmdHJhY2VfZ3JhcGhfZnVuYyBmdHJhY2VfZ3JhcGhfZnVuYwo+ID4gPiA+ID4gPj4gKwo+ID4g
+PiA+ID4gPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBhcmNoX2Z0cmFjZV9zZXRfZGlyZWN0X2NhbGxl
+cihzdHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgbG9uZyBhZGRyKQo+ID4gPiA+ID4gPj4g
+K3sKPiA+ID4gPiA+ID4+ICsgICAgICAgICAgICAgICByZWdzLT50MSA9IGFkZHI7Cj4gPiA+ID4g
+PiA+Cj4gPiA+ID4gPiA+IEhvdyBhYm91dCByZWdzLT50MCA9IGFkZHI7ID8KPiA+ID4gPiA+ID4g
+QW5kIGRlbGV0ZSBhbGwgbWNvdW50LWR5bi5TIG1vZGlmaWNhdGlvbi4KPiA+ID4gPiA+ID4KPiA+
+ID4gPiA+IFRoZSBkaXJlY3RfY2FsbGVyIGhhcyB0aGUgc2FtZSBwcm9ncmFtIGxheW91dCBhcyB0
+aGUgZnRyYWNlX2NhbGxlciwgd2hpY2ggbWVhbnMKPiA+ID4gPiA+IHRoZSByZWcgdDAgd2lsbCBu
+ZXZlciBiZSBjaGFuZ2VkIHdoZW4gZGlyZWN0X2NhbGxlciByZXR1cm5zLgo+ID4gPiA+ID4KPiA+
+ID4gPiA+IElmIHJlZ3MtPnQwIGNoYW5nZXMgaGVyZSBhbmQgZnRyYWNlX3JlZ3NfY2FsbGVyIGV4
+ZWN1dGVzIGBqciB0MGAsCj4gPiA+ID4gPiBkaXJlY3RfY2FsbGVyIHdpbGwgZW50ZXIgdGhlIGRl
+YWQgbG9vcC4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBBY3R1YWxseSB0aGUgcmVnIHQwIGFsd2F5cyBz
+YXZlcyB0aGUgYWRkcmVzcyBvZiBmdW5jdGlvbiBlbnRyeSB3aXRoIDhCCj4gPiA+ID4gPiBvZmZz
+ZXQsIGl0IHNob3VsZCBvbmx5Cj4gPiA+ID4gPiBjaGFuZ2VkIGJ5IHRoZSBJUE1PRElGWSBvcHMg
+aW5zdGVhZCBvZiB0aGUgZGlyZWN0X29wcy4KPiA+ID4gPiBIb3cgYWJvdXQ6Cj4gPiA+ID4gc3Rh
+dGljIGlubGluZSB2b2lkIGFyY2hfZnRyYWNlX3NldF9kaXJlY3RfY2FsbGVyKHN0cnVjdCBwdF9y
+ZWdzICpyZWdzLAo+ID4gPiA+IHVuc2lnbmVkIGxvbmcgYWRkcikKPiA+ID4gPiB7Cj4gPiA+ID4g
+ICAgICAgICAgICAgICAgcmVncy0+dDEgPSByZWdzLT50MDsKPiA+ID4gPiAgICAgICAgICAgICAg
+ICByZWdzLT50MCA9IGFkZHI7Cj4gPiA+ID4KPiA+ID4gPiBkaXJlY3RfY2FsbGVyOgo+ID4gPiA+
+IGFkZCBzcCxzcCwtPwo+ID4gPiA+IHNkIHQxLD8oc3ApCj4gPiA+IGRpcmVjdF9jYWxsZXIgYWxz
+byBzZXJ2ZXMgYXMgdGhlIGZpcnN0IHRyYW1wb2xpbmUgYXMgZnRyYWNlX2NhbGxlciwgbGlrZSB0
+aGlzOgo+ID4gPiBgYGAKPiA+ID4gZnVuYyAtLSBkaXJlY3RfY2FsbGVyCj4gPiA+ICAgICAgICAg
+LS0gZnRyYWNlX1tyZWdzXV9jYWxsZXIKPiA+ID4gYGBgCj4gPiA+IFNvIHRoZSB0MSBpbiB0aGlz
+IGxpbmUgaGFzIHRvIGJlIHQwIHRvIHNhdmUgdGhlIFBDLgo+ID4KPiA+IGRpcmVjdF9jYWxsZXI6
+Cj4gPiBhZGQgc3Asc3AsLT8KPiA+IHNkIHQxLD8oc3ApCj4gPiBzZCB0MCwgPyhzbykKPiA+IHNk
+IHJhLD8oc3ApCj4gPiBtb3YgdDAsIHQxCj4gVGhpcyBmb28gaXMgdGhlIHRyYWNpbmcgZnVuY3Rp
+b24gYWxvbmcgd2l0aCB0aGUgZGlyZWN0X2NhbGxlciwKPiBhbmQgaXQgaGFzIHRoZSBzYW1lIHBh
+cmFtZXRlcnMgYXMgdGhlIHRhcmdldCBmdW5jdGlvbi4KPiBTbyB0aGUgdDAgb3IgdDEgaGVyZSBt
+ZWFucyBub3RoaW5nIGZvciB0aGlzIGZvbyBmdW5jdGlvbi4KPgo+IE5vIG9mZmVuc2UsIGJ1dCB3
+aGF0J3MgdGhlIHB1cnBvc2Ugb2YgdGhpcyBtdiBpbnN0PwpIZXJlIGlzIG15IG1vZGlmaWNhdGlv
+bjogWzFdClsxXTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjExMjgx
+MDEyMDEuNDE0NDUyNy0xLWd1b3JlbkBrZXJuZWwub3JnLwoKSSd2ZSB0ZXN0ZWQgbGlrZSB0aGlz
+Ogptb3VudCAtdCBkZWJ1Z2ZzIG5vbmUgL3N5cy9rZXJuZWwvZGVidWcvCmNkIC9zeXMva2VybmVs
+L2RlYnVnL3RyYWNpbmcvCmVjaG8gaGFuZGxlX21tX2ZhdWx0ID4gc2V0X2Z0cmFjZV9maWx0ZXIK
+ZWNobyAncjpteXIgaGFuZGxlX21tX2ZhdWx0JyA+IGtwcm9iZV9ldmVudHMKZWNobyBmdW5jdGlv
+biA+IGN1cnJlbnRfdHJhY2VyCmVjaG8gMSA+IGV2ZW50cy9rcHJvYmVzL215ci9lbmFibGUKaW5z
+bW9kIC9yb290L2Z0cmFjZS9mdHJhY2UtZGlyZWN0LXRvby5rbwpjYXQgdHJhY2UKCiAgICAgICAg
+ICAgICBjYXQtMTM3ICAgICBbMDAwXSAuLi4uLiAgMzEzMi4yMzE5NDg6IGhhbmRsZV9tbV9mYXVs
+dAo8LWRvX3BhZ2VfZmF1bHQKICAgICAgICAgICAgIGNhdC0xMzcgICAgIFswMDBdIC4uLi4uICAz
+MTMyLjIzMTk3MzogbXlfZGlyZWN0X2Z1bmM6CmhhbmRsZSBtbSBmYXVsdCB2bWE9MDAwMDAwMDAx
+YmE1OGIxNyBhZGRyZXNzPWFhYWFhYWFhYjY4OWM4IGZsYWdzPTI1NAogICAgICAgICAgICAgY2F0
+LTEzNyAgICAgWzAwMF0gLi4uLi4gIDMxMzIuMjMyNjIyOiBteXI6Cihkb19wYWdlX2ZhdWx0KzB4
+MTc2LzB4NDI0IDwtIGhhbmRsZV9tbV9mYXVsdCkKICAgICAgICAgICAgIGNhdC0xMzcgICAgIFsw
+MDBdIC4uLi4uICAzMTMyLjIzMjcyNDogaGFuZGxlX21tX2ZhdWx0CjwtZG9fcGFnZV9mYXVsdAog
+ICAgICAgICAgICAgY2F0LTEzNyAgICAgWzAwMF0gLi4uLi4gIDMxMzIuMjMyNzUwOiBteV9kaXJl
+Y3RfZnVuYzoKaGFuZGxlIG1tIGZhdWx0IHZtYT0wMDAwMDAwMDFiYTU4YjE3IGFkZHJlc3M9YWFh
+YWFhYWFiN2RmOWMgZmxhZ3M9MjU0CiAgICAgICAgICAgICBjYXQtMTM3ICAgICBbMDAwXSAuLi4u
+LiAgMzEzMi4yMzMzODU6IG15cjoKKGRvX3BhZ2VfZmF1bHQrMHgxNzYvMHg0MjQgPC0gaGFuZGxl
+X21tX2ZhdWx0KQogICAgICAgICAgICAgY2F0LTEzNyAgICAgWzAwMF0gLi4uLi4gIDMxMzIuMjMz
+NzQ0OiBoYW5kbGVfbW1fZmF1bHQKPC1kb19wYWdlX2ZhdWx0CiAgICAgICAgICAgICBjYXQtMTM3
+ICAgICBbMDAwXSAuLi4uLiAgMzEzMi4yMzM3NzI6IG15X2RpcmVjdF9mdW5jOgpoYW5kbGUgbW0g
+ZmF1bHQgdm1hPTAwMDAwMDAwMWJhNThiMTcgYWRkcmVzcz1hYWFhYWFhYWIyYjJjOCBmbGFncz0z
+NTQKICAgICAgICAgICAgIGNhdC0xMzcgICAgIFswMDBdIC4uLi4uICAzMTMyLjIzNDM5MjogbXly
+OgooZG9fcGFnZV9mYXVsdCsweDE3Ni8weDQyNCA8LSBoYW5kbGVfbW1fZmF1bHQpCiAgICAgICAg
+ICAgICBjYXQtMTM3ICAgICBbMDAwXSAuLi4uLiAgMzEzMi4yMzQ0ODA6IGhhbmRsZV9tbV9mYXVs
+dAo8LWRvX3BhZ2VfZmF1bHQKICAgICAgICAgICAgIGNhdC0xMzcgICAgIFswMDBdIC4uLi4uICAz
+MTMyLjIzNDUwNTogbXlfZGlyZWN0X2Z1bmM6CmhhbmRsZSBtbSBmYXVsdCB2bWE9MDAwMDAwMDAx
+YmE1OGIxNyBhZGRyZXNzPWFhYWFhYWFhYjVhZmMwIGZsYWdzPTM1NAogICAgICAgICAgICAgY2F0
+LTEzNyAgICAgWzAwMF0gLi4uLi4gIDMxMzIuMjM1MTQ5OiBteXI6Cihkb19wYWdlX2ZhdWx0KzB4
+MTc2LzB4NDI0IDwtIGhhbmRsZV9tbV9mYXVsdCkKICAgICAgICAgICAgIGNhdC0xMzcgICAgIFsw
+MDBdIC4uLi4uICAzMTMyLjIzNTI2MzogaGFuZGxlX21tX2ZhdWx0CjwtZG9fcGFnZV9mYXVsdAog
+ICAgICAgICAgICAgY2F0LTEzNyAgICAgWzAwMF0gLi4uLi4gIDMxMzIuMjM1Mjg5OiBteV9kaXJl
+Y3RfZnVuYzoKaGFuZGxlIG1tIGZhdWx0IHZtYT0wMDAwMDAwMDcxYTA5NmRlIGFkZHJlc3M9ZmZm
+ZmZmZjdmYWM1MzAgZmxhZ3M9MjU0CiAgICAgICAgICAgICBjYXQtMTM3ICAgICBbMDAwXSAuLi4u
+LiAgMzEzMi4yMzU4OTM6IG15cjoKKGRvX3BhZ2VfZmF1bHQrMHgxNzYvMHg0MjQgPC0gaGFuZGxl
+X21tX2ZhdWx0KQoKCj4gPiBjYWxsIGZvbwo+ID4gbGQgdDAsPyhzcCkKPiA+IGxkIHQxLD8oc3Ap
+Cj4gPiBsZCByYSw/KHNwKQo+ID4gYWRkIHNwLHNwLD8KPiA+IGpyIHQxIC8vIDwtIGJhY2sgdG8g
+ZnVuY3Rpb24gZW50cnkKPiBXaGVuIGRpcmVjdF9jYWxsZXIgd29ya3MgYXMgdGhlIGZpcnN0IHRy
+YW1wb2xpbmUKPiB0aGUgY29udGVudCBvZiB0MSBoZXJlIG1lYW5zIG5vdGhpbmcgZm9yIHRoZSB0
+YXJnZXQgZnVuY3Rpb24sIG5laXRoZXIKPiBQQyBub3IgUElQLgo+ID4KPiA+Cj4gPiA+ID4gc2Qg
+cmEsPyhzcCkKPiA+ID4gPiBjYWxsIGZvbwo+ID4gPiA+IGxkIHQxLD8oc3ApCj4gPiA+IEFuZCB0
+aGlzIGxpbmUuCj4gPiA+ID4gbGQgcmEsPyhzcCkKPiA+ID4gPiBhZGQgc3Asc3AsPwo+ID4gPiA+
+IGpyIHQxIC8vIDwtIGJhY2sgdG8gZnVuY3Rpb24gZW50cnkKPiA+ID4gPgo+ID4gPiA+IEFuZCBk
+ZWxldGUgYWxsIG1jb3VudC1keW4uUyBtb2RpZmljYXRpb24uCj4gPiA+ID4KPiA+ID4gPiA+ID4+
+Cj4gPiA+ID4gPiA+PiArfQo+ID4gPiA+ID4gPj4gKwo+ID4gPiA+ID4gPj4gICNlbmRpZiAvKiBD
+T05GSUdfRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdTICovCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4g
+Pj4gICNlbmRpZiAvKiBfX0FTU0VNQkxZX18gKi8KPiA+ID4gPiA+ID4+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQt
+ZHluLlMKPiA+ID4gPiA+ID4+IGluZGV4IDQ2NmM2ZWYyMTdiMS4uYjg5Yzg1YTU4NTY5IDEwMDY0
+NAo+ID4gPiA+ID4gPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LWR5bi5TCj4gPiA+
+ID4gPiA+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQtZHluLlMKPiA+ID4gPiA+ID4+
+IEBAIC0yMzMsNiArMjMzLDcgQEAgRU5EUFJPQyhmdHJhY2VfY2FsbGVyKQo+ID4gPiA+ID4gPj4g
+ICNlbHNlIC8qIENPTkZJR19EWU5BTUlDX0ZUUkFDRV9XSVRIX1JFR1MgKi8KPiA+ID4gPiA+ID4+
+ICBFTlRSWShmdHJhY2VfcmVnc19jYWxsZXIpCj4gPiA+ID4gPiA+PiAgICAgICAgIFNBVkVfQUJJ
+X1JFR1MgMQo+ID4gPiA+ID4gPj4gKyAgICAgICBSRUdfUyAgIHgwLCBQVF9UMShzcCkKPiA+ID4g
+PiA+ID4+ICAgICAgICAgUFJFUEFSRV9BUkdTCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gIGZ0
+cmFjZV9yZWdzX2NhbGw6Cj4gPiA+ID4gPiA+PiBAQCAtMjQxLDcgKzI0MiwxMCBAQCBmdHJhY2Vf
+cmVnc19jYWxsOgo+ID4gPiA+ID4gPj4KPiA+ID4gPiA+ID4+Cj4gPiA+ID4gPiA+PiAgICAgICAg
+IFJFU1RPUkVfQUJJX1JFR1MgMQo+ID4gPiA+ID4gPj4gKyAgICAgICBibmV6ICAgIHQxLC5MZGly
+ZWN0Cj4gPiA+ID4gPiA+PiAgICAgICAgIGpyIHQwCj4gPiA+ID4gPiA+PiArLkxkaXJlY3Q6Cj4g
+PiA+ID4gPiA+PiArICAgICAgIGpyIHQxCj4gPiA+ID4gPiA+PiAgRU5EUFJPQyhmdHJhY2VfcmVn
+c19jYWxsZXIpCj4gPiA+ID4gPiA+Pgo+ID4gPiA+ID4gPj4gIEVOVFJZKGZ0cmFjZV9jYWxsZXIp
+Cj4gPiA+ID4gPiA+PiAtLQo+ID4gPiA+ID4gPj4gMi4yMC4xCj4gPiA+ID4gPiA+Pgo+ID4gPiA+
+ID4gPgo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAtLQo+ID4gPiA+ID4gPiBCZXN0IFJlZ2FyZHMK
+PiA+ID4gPiA+ID4gIEd1byBSZW4KPiA+ID4gPgo+ID4gPiA+Cj4gPiA+ID4KPiA+ID4gPiAtLQo+
+ID4gPiA+IEJlc3QgUmVnYXJkcwo+ID4gPiA+ICBHdW8gUmVuCj4gPiA+IFRoYW5rcywKPiA+ID4g
+U29uZwo+ID4KPiA+Cj4gPgo+ID4gLS0KPiA+IEJlc3QgUmVnYXJkcwo+ID4gIEd1byBSZW4KCgoK
+LS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
