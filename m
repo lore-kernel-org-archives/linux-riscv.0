@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C11FC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 16:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A019C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 16:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H93kPFbcD/BIPQDMKSqJHyi+LFyc0hlUXRo5/UMVj7U=; b=088JgsqqVHIAQr
-	uUTplDujWJmCIU30Fj+xsJ/mRDI10E5yGdxuUNvRFXI9yimJf8ccsMV68E9ssMCwQs8SG/Au0srTP
-	twlqkxXYgpC4rOuVLrUxIyT8hh2HWwpVNUvJGRIrIAcCAnyWCOcHH/sBB6mdRSCSCbsz+PDWknf0N
-	ws3ebjqFa/tjDnXdDMdRJouwajcCmcwmWpxyDh7WM1LUQVR4zA2i4EjNDHDWU4sLQXgw/TUF8Afou
-	C4Fh81hHD/vc3LhZLHjwIiVw6MUhI62yMr7kTSMzxDNqnQYiz07wUorSWX6fqJ7aED9yR7CFcISWc
-	8u336FEWbd03TEntuOJA==;
+	List-Owner; bh=Q2g9CLy75GFCM3H/CUgSMc+EY1BPyln3aE500DEC9gU=; b=47ro3SRf3O29d0
+	B3qUNZFUTSYIPgVN34OEj2iexEVijzwf7m23902qCF54Bd4kgpBTfSIornfXxGubZ1C/wKTMK6ZqC
+	dydVFEvin1R6oQkmXDRXCpTmPi4+NFMgtXFkXj6Wmsx04tDr2xSFLukVPdF9+yNtTnbg16fzw8Vpd
+	Y27YkoV7bJSgOBBGz6qxQdIOvECSdTdnYDR2jE1Evcv6c3tpFt3z9KgujfFBAmjfAeCkVpyZH0PAO
+	hVPiCY6vvN0jRXA02jbIV2tUG+nV//UmiPA0GdBtzsgSuZs7H9lDZpu6aY2XH0Jd2LpkYF6MTrHs0
+	jt3geLEUxQJ4eLx1t1BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozgaK-002gCx-Ct; Mon, 28 Nov 2022 16:02:20 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1ozgbn-002gmL-Dl; Mon, 28 Nov 2022 16:03:51 +0000
+Received: from smtp-out1.suse.de ([2001:67c:2178:6::1c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozgaH-002gBv-UV
-	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 16:02:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1669651337; x=1701187337;
-  h=date:from:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=szx3V/THdgBnLdEMF5U5QuumyUgo5RkTBLtv41gapAo=;
-  b=B3nmhsMAUHFK0BZl2EKrNUhubWHu+MTFVETpsoeeMQrTLKJcOlggyZ/2
-   /yLopi7eM0UQZpgdl3h06dAaUwz/DdBMsPxvQvQ6X+BjOZ7JhcOyLmQVg
-   DxLOBl+p/lAK8JQfF8regmaccJP7+Ij1041sGOETRScAf5TtgyImSoae3
-   SsDR8mk5Y0zxodvzKpJASEzW8Xv0bTjoHXVnXzUmXkI11zdRLx+DrvJNF
-   fhcKf9A1sLXmgwFP2gUR/JkaEjK0lcSZK8HvbqcwU4umemR0rXRIuxDRN
-   fSFYRUf6C5KWtCjkaqW3tHgqUyOpIARrMamcggbAxEFtXXFcQdmn+xanF
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10545"; a="316702274"
-X-IronPort-AV: E=Sophos;i="5.96,200,1665471600"; 
-   d="scan'208";a="316702274"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2022 08:01:38 -0800
-X-IronPort-AV: E=McAfee;i="6500,9779,10545"; a="732189888"
-X-IronPort-AV: E=Sophos;i="5.96,200,1665471600"; 
-   d="scan'208";a="732189888"
-Received: from steinint-mobl1.ger.corp.intel.com ([10.249.34.136])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2022 08:01:33 -0800
-Date: Mon, 28 Nov 2022 18:01:28 +0200 (EET)
-From: =?ISO-8859-15?Q?Ilpo_J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
+	id 1ozgbk-002gks-CZ
+	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 16:03:49 +0000
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out1.suse.de (Postfix) with ESMTP id E7CBA21BB4;
+	Mon, 28 Nov 2022 16:03:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1669651426; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G+/cSTvQGSKuihsIOEU271usRMSNRubkrFCCNR/vHtA=;
+	b=gvhOdQAhJOZ4d4F6QzPEf/iGvAJG9p9Xc4ACcjX+wne1a7VrqG8PXWZy3ZfROltWvHrvHU
+	IU2MMki6K0LM2nM1sKkTeUxn+3boC2eSann5EBDMw1ZYMnhzAexyPjx9XE6EZPrgViqzDt
+	fsCq1qb6NvOF9WRaRNPfjAA9ZVbB/nc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1669651426;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G+/cSTvQGSKuihsIOEU271usRMSNRubkrFCCNR/vHtA=;
+	b=17hrYVGACstTDz1PANhqhIcXlO7rnmOPs7o0Cu9lacgJq7ncDqe9QrtQOgKoafjwzY+zq2
+	YJBS5Fsg57yRZwBw==
+Received: from hawking.suse.de (unknown [10.168.4.11])
+	by relay2.suse.de (Postfix) with ESMTP id B17632C141;
+	Mon, 28 Nov 2022 16:03:46 +0000 (UTC)
+Received: by hawking.suse.de (Postfix, from userid 17005)
+	id 8E81744002E; Mon, 28 Nov 2022 17:03:46 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
 To: Jisheng Zhang <jszhang@kernel.org>
-cc: Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-    Conor Dooley <conor@kernel.org>, 
-    Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-    linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    linux-serial <linux-serial@vger.kernel.org>
-Subject: Re: [PATCH v2 2/9] serial: bflb_uart: add Bouffalolab UART Driver
-In-Reply-To: <Y4TD48v84CJcMS+S@xhacker>
-Message-ID: <e1f689d2-d337-5a42-e4c9-91c1d338b42b@linux.intel.com>
-References: <20221127132448.4034-1-jszhang@kernel.org> <20221127132448.4034-3-jszhang@kernel.org> <c0406076-04e1-6b81-1bba-ac684516d898@kernel.org> <Y4TD48v84CJcMS+S@xhacker>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt
+ <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Atish Patra
+ <atishp@rivosinc.com>,  linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: head: use 0 as the default text_offset
+References: <20221128152442.3403-1-jszhang@kernel.org>
+X-Yow: ...Get me a GIN and TONIC!!...make it HAIR TONIC!!
+Date: Mon, 28 Nov 2022 17:03:46 +0100
+In-Reply-To: <20221128152442.3403-1-jszhang@kernel.org> (Jisheng Zhang's
+	message of "Mon, 28 Nov 2022 23:24:42 +0800")
+Message-ID: <mvm35a383rx.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_080218_064938_B4D760A0 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20221128_080348_593942_0B83BC17 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +84,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Nov 2022, Jisheng Zhang wrote:
+On Nov 28 2022, Jisheng Zhang wrote:
 
-> On Mon, Nov 28, 2022 at 07:10:41AM +0100, Jiri Slaby wrote:
-> > On 27. 11. 22, 14:24, Jisheng Zhang wrote:
-> > > +static void bflb_uart_tx_chars(struct uart_port *port)
-> > 
-> > Again:
-> > 
-> > Are you unable to use the TX helper? If so:
-> 
-> You know serial subsystem better than me, may I ask for more
-> details? For example,
-> Besides uart_xmit_advance(), do you expect other TX helpers? If yes,
-> can you please list them?
+> Commit 0f327f2aaad6 ("RISC-V: Add an Image header that boot loader can
+> parse.") adds an image header which "is based on ARM64 boot image
+> header and provides an opportunity to combine both ARM64 & RISC-V
+> image headers in future.". At that time, arm64's default text_offset
+> is 0x80000, this is to give "512 KB of guaranteed BSS space to put
+> the swapper page tables" as commit cfa7ede20f13 ("arm64: set TEXT_OFFSET
+> to 0x0 in preparation for removing it entirely") pointed out, but
+> riscv doesn't need the space, so use 0 as the default text_offset.
 
-Please take on look on commit 8275b48b278096edc1e3ea5aa9cf946a10022f79.
-The changes following that commit convert some drivers to use the tx 
-helper so you can look into them to see examples.
-
-> > * why?
-> > * use uart_advance_xmit() at least.
-> 
-> Do you mean uart_xmit_advance()? in the do while loop below?
-
-Yes, Jiri had the name wrong. But your code looked like it could use 
-the tx helper instead.
+Doesn't that clash with the memory reserved for openSBI?
 
 -- 
- i.
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
