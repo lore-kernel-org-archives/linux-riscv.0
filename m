@@ -4,65 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B0AC46467
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 08:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B1DC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Nov 2022 08:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBZqql7QdKZyWPppVEaR8piTvbaIZxUu5A7/2w9Wzn0=; b=W0qxZ75nQh+NeNjqGIsG2mO/hH
-	Bn7OzHLhNzZtHMgCGzAz2aHJefBwHznZi2os7GoT1U58l+v/YapMDpb35/dEHdSJfegfmDXRxCsYL
-	HxtBVfDga4oURt7A+uPW1Sz82LDKGl1jlKfeKGvblGwFEZ5wPbhEDTAdpecVOCnTkqVkvsfp4U+YQ
-	BiTl6mmG8XEh/9nXc3iE11rAlNhh3tGgGEnTCTe8y8RvGO+yY10zdIAKfJfrq5EjexrpIM5xct8aC
-	WQ2Hh9n5EnvS6sw2q5Xz7z6vRIlN37hT9bTniFq3onG8CaHnxXFWE1ctv/S3RHAbEVcyDUT+eb+w3
-	zBwMaHpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SSA2gP661pm65FG4xkTDBJRb467RrQExlqoumlfAtWo=; b=IDtCBoZSyGcUsk
+	nyE7qv+tk246WDlDg2piaEiFDbsv//eLwe60Pmct4Jmd6tsSuQAymU7wFgF91MvDXg8ZzJkhLzhT6
+	TX41QqSlBu9Rcm3kguxPdf5xXZdGnzqIx6xeG+0LGl+G4LCHkI0L/Nd5YXGRUJqPZCBgnkvg3+9oO
+	2E3DJhbQRRl8GoKmBxqojeqGHDWQoImCFvrjria+kT24ASreoSptUfykNhM0iCw2GxcY7JC5mrpDU
+	w1Tc68rLQqwA6udUQuRXPtXhmQc1Huk8BJkrcc6d+DAZPL4eyDPm24nTA3W2HgLbZfY95ocw2ws4A
+	EJtyH+PfNYjlLYlP9BZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozZRc-000C8Q-N5; Mon, 28 Nov 2022 08:24:52 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1ozZZQ-000GRS-Eq; Mon, 28 Nov 2022 08:32:56 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozZRY-000C45-Fn
-	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 08:24:50 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ozZRS-0005PL-St; Mon, 28 Nov 2022 09:24:42 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ozZRR-000mOL-0D; Mon, 28 Nov 2022 09:24:41 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1ozZRR-000sND-57; Mon, 28 Nov 2022 09:24:41 +0100
-Date: Mon, 28 Nov 2022 09:24:41 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	"Wesley W. Terpstra" <wesley@sifive.com>, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] pwm: sifive: Always let the first pwm_apply_state
- succeed
-Message-ID: <20221128082441.wsqcpuxqk6cynako@pengutronix.de>
-References: <20221109113724.519021-1-emil.renner.berthing@canonical.com>
- <20221109120102.ylnseq2w33rvt7fz@pengutronix.de>
- <CAJM55Z-EVXB6FTWwh_vY_B3LoVv+b7TCQCE7asB8G8wkEwui_g@mail.gmail.com>
- <20221109153311.cszr7fgfmyelwra3@pengutronix.de>
- <CAJM55Z8vpJ0XtQqnsFMLE4rkyV11ePbNjtYx0u4pgM9-MT=Kvg@mail.gmail.com>
+	id 1ozZZK-000GLk-9f
+	for linux-riscv@lists.infradead.org; Mon, 28 Nov 2022 08:32:53 +0000
+Received: by mail-lf1-x131.google.com with SMTP id b3so16219739lfv.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 00:32:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=983vZmfe7jg3PD5EB3eQ9LeCd23DV+eV1fr/DcjdUm8=;
+        b=CjVdRdltMTd1Id79iqrTL6Zur0PPWkP39IltMT39Kf03+T+sPoC+4iWi1M8cdJbUb9
+         Qh8nD2yt4fRd0gd9rH/GeAwFUb0P7Q7W83sHjOdHY8zVF3Q2G40GtKcnqCfaaLvTzBsd
+         yRYt4immw2ZPDiRAiU26EqQCmoN3h6shyYUoVmIeC5mxNLiU1oSV0NDCiN/nkcQZ6AlW
+         bd4a3nTuF7ivIZAFsVZcX/WZgMsPv0yp7GmZ0Sm/yU9nQMWPOy0eWXOXHF/lCF4bYsD4
+         DKXhrYglw6DNAm7DkBpeZXHJ9d9OT2C5HxFWqFb573XtMRpKcTvd2SYbhUMp5fZs109j
+         DXXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=983vZmfe7jg3PD5EB3eQ9LeCd23DV+eV1fr/DcjdUm8=;
+        b=BR+IfbJAYbJavkDnHh/EqHeoQtsc80l1A4eM1RMT+Pm7MNaA8IApQNbnYzI3Qt8mAo
+         qu4Vw/i8maVjN272oeJsYlckzM7+z0j2y5emshtNRnPDhWL5zeyOisanX45DWJKbNT8H
+         UiKy0I0LtwM1C5HLvWQQ9+RZ4IMk572CGMZCxaaY5nO9h39z5x8ldIbXrQ9waj96gBe1
+         L/HRe5B65c4kwZyy1NL+4sjngixybuE8Y6r4sG1DxWj6HFrFGzUbJYP3FuLs6+0l/3vL
+         KRohAb1OfWUsbcdX0Xzy4gEz4jMOUoeNiHjRvwdzQltELKD94ALxdgL05rdS4FISWfI4
+         nQPw==
+X-Gm-Message-State: ANoB5pmRxHCHTcoae2XrLHt8tGp94RWjHQ03as8bRkwqZF9syVzRNl4+
+	Jxk+Q9SrbPjikc68/emWHswW+w==
+X-Google-Smtp-Source: AA0mqf7AFRRbcu4251GazNH8EBAc/6JlexTcxGgKBsiqYhIA67n+8prqtL2Sq/j3X5x6hAj6biLCgQ==
+X-Received: by 2002:ac2:430e:0:b0:4b4:9c0b:f4d3 with SMTP id l14-20020ac2430e000000b004b49c0bf4d3mr16235202lfh.349.1669624366437;
+        Mon, 28 Nov 2022 00:32:46 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id bf37-20020a2eaa25000000b002793cf0e9e8sm1162098ljb.122.2022.11.28.00.32.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Nov 2022 00:32:46 -0800 (PST)
+Message-ID: <093ea507-4c42-1af9-4896-64c1a918432e@linaro.org>
+Date: Mon, 28 Nov 2022 09:32:45 +0100
 MIME-Version: 1.0
-In-Reply-To: <CAJM55Z8vpJ0XtQqnsFMLE4rkyV11ePbNjtYx0u4pgM9-MT=Kvg@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v2 1/5] dt-bindings: pinctrl: Add StarFive JH7110 pinctrl
+ definitions
+Content-Language: en-US
+To: Jianlong Huang <jianlong.huang@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ linux-kernel@vger.kernel.org
+References: <20221118011108.70715-1-hal.feng@starfivetech.com>
+ <20221118011108.70715-2-hal.feng@starfivetech.com>
+ <eb3974a3-f715-f5b0-cac7-551af26bd17b@linaro.org>
+ <08db0f3b-5222-9460-26ba-0e6380d16583@linaro.org>
+ <0ceba170-f844-e733-a49e-e67746f9f836@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <0ceba170-f844-e733-a49e-e67746f9f836@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_002448_582697_E6523B61 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20221128_003250_397681_C6D186A3 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,82 +98,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3762047980275174605=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 28/11/2022 01:48, Jianlong Huang wrote:
 
---===============3762047980275174605==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kaygonhhwcbbtokq"
-Content-Disposition: inline
+>>>> +/* aon_iomux doen */
+>>>> +#define GPOEN_AON_PTC0_OE_N_4			2
+>>>> +#define GPOEN_AON_PTC0_OE_N_5			3
+>>>> +#define GPOEN_AON_PTC0_OE_N_6			4
+>>>> +#define GPOEN_AON_PTC0_OE_N_7			5
+>>>> +
+>>>
+>>> It looks like you add register constants to the bindings. Why? The
+>>> bindings are not the place to represent hardware programming model. Not
+>>> mentioning that there is no benefit in this.
+>>
+>> Also: this entire file should be dropped, but if it stays, you have to
+>> name it matching bindings or compatible (vendor,device.h).
+> 
+> Thanks your comments.
+> These macros are used to configure pinctrl in dts, so the file should stay,
 
+Why they should stay? What's the reason? If it is not a constant used by
+driver, then register values should not be placed in the bindings, so
+drop it.
 
---kaygonhhwcbbtokq
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Best regards,
+Krzysztof
 
-Hello,
-
-On Wed, Nov 16, 2022 at 06:41:06PM +0100, Emil Renner Berthing wrote:
-> On Wed, 9 Nov 2022 at 16:33, Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> > On Wed, Nov 09, 2022 at 01:45:43PM +0100, Emil Renner Berthing wrote:
-> > > How about we merge this bug fix that can easily be backported first
-> > > and then look at how it should be handled properly?
-> >
-> > I thought it wouldn't be that hard to do it right from the start,
-> > but I admit it's harder than I expected to get right. My prototype looks
-> > as follows:
->=20
-> This works for me (modulo the two extra {'s). I'd still prefer merging
-
-Yeah, didn't even try to compile it.
-
-> the simpler version and then this on top for ease of backporting, but
-> as long as the race is fixed I'm fine. Will you send a cleaned up
-> version of this?
-
-I'd let Thierry decide what he want here. Depending on his choice I can
-clean up my suggestion (inclusive compile test) on the then relevant
-state of the driver.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---kaygonhhwcbbtokq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOEcEUACgkQwfwUeK3K
-7AnD8gf/dT+Idh5F//NM08TsmrSjFwGL4iPC9RfTbR+drkH+TzqExwotU0ZXtyez
-PP7g1a7fBGQyKwwXxmk56rPjoxw4XQIHKdnodzgu8PajwgKKdjTNBhd3HZHUx8I+
-2vA+/X60pzU/HBAuXkHm8wLj0BoShsgQYEclABI92tJKbUiM+46D0bTQjAXgrFcf
-xT4HrrftNnRB1cdjyD2DJdBSgVZBkr62NJf1LVklhnxMtmwXPHtROWfJqOZsIJBc
-drH9DgITkhN6r5oIQtpQ+idbxKYdU137CNSbGbWIFDgwAeammcyPqxXjeVQnk9oT
-RcGUSJSsXZ7y5O2nm4FJtqsgl1qjMQ==
-=cKDE
------END PGP SIGNATURE-----
-
---kaygonhhwcbbtokq--
-
-
---===============3762047980275174605==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3762047980275174605==--
-
