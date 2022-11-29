@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A013C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 16:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C8CC4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 16:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NvqgeMwpFqOaXbpBOr4J17/GueR4EbZyqqRw517lRZI=; b=LRTUcFaYE55QeB
-	tE3TJK7xcuqp/BbteDPLtfI18IiKblvW8BUEjaX1UYkh7yE/NJLyijoOk0kjLvFEkI+G8pkYNAzls
-	W31lVrvEmsLWkDlP4xhR/UCg6nWdiSr6vMgUp9ylAzjNVfNfgZlvUdb9PC2/HoUhtcIABxOe23wwn
-	RdWLnBNQfAzxQCXXrq0zHCsaCWBM/Q3b40RoJkn2+ggtHXSak3dAy9Bmua+mdasgzcj3wq3kpTjXA
-	4mxwLaNwm47aImo3UwrvgvNAiX6zbjj8YuJjmhLBp1QjPgjXIDecjNA6wZNGSUCuUrPRPROgtVOR3
-	TSHeOqjM3Ms9tk335MkA==;
+	List-Owner; bh=6qRpPYkhi1PTrtywY/z8iCsgwpNOL2hA2+/YqqBt6xE=; b=VzrXonAr5ThZIp
+	pTl/6hfnPk54CT6L5869s2V/sopyFuwAScqBo3pqQAEUkjPjzepGhUpsSX8bGgOkVZ6zGGKtTDXgO
+	o6Gpuo0BGwm2pdkHeQR3Bdtg7qbmBiKjgaTeRZKB3rb7kWWOXNtSamhC7vxVEBjtcPln9Cl7Pi5aS
+	1bg6ghK/M8PvAMIZ4+ifDzAmHhKNbZRdvaNYcm6HoJ8JkTgvEFVCzSgwcjQ+q07kZqS9uIWy08naJ
+	568QN5ezlj6+ECF+lkSGYn/sZI+HMTYlVJq2lHqzAmq0bWAlQisxjSKr0TRIbBGUbORwsah3Z6p93
+	14PfJ1cl7C9ysR9g3sFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p03Zv-00AA3U-SR; Tue, 29 Nov 2022 16:35:27 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1p03pX-00AH4J-Ns; Tue, 29 Nov 2022 16:51:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p03Zr-00AA1W-8X
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 16:35:25 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id td2so21050264ejc.5
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 08:35:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3bzDizWscfG3+hy+wself0b3DVK5MDIXm+6RTdbFH5M=;
-        b=oUJcgUiEmyeHeYloNm0QtToFOY5zMJBCwrftfRPOnkKtOVuKk7+GwO3oAez4IF2W2W
-         iFlE6Ix5Gzp9GbBh6ZJgAPQ46OJLugCXgH5cBQmCX5xnPYcesE1NHk5SLC4lZd/AHTYs
-         fpdLQzTa2qsNhqrO4mzxnDCmMKbkL8hVfxq7ZUk/iQopUM+jj5oCmDLP2eYolMeucN7X
-         Z7Fsf2vj4W9XYsEKKKlFNLCTrHTyyGHcZ6Xk6uld1JDFPfzQJUXWe2uhQnMqEeXJ/8X3
-         3JtOoXqXhCqrFwMei4sNneOXhoJri7YOy54a9atbaJgFZxbGwIod7P19Gki5zvAaUgow
-         j/kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3bzDizWscfG3+hy+wself0b3DVK5MDIXm+6RTdbFH5M=;
-        b=KqUZfl988Nho6jEydwaZvMgb9Wr6J35rg8IGXkeznOuyn0NuDtFOLLIynw2Yvf+4e5
-         VRYLmSmqGgpTcWoz7/qxBzBqZAQcFXO4np6rLft6++IQ2Lk7a1wAG+RStxLON8bA16cm
-         wkOucDhP9BFEfRDuXbot28hzuK3ATDILaLJh3szKBSu0PsxaPh0BON0fZeqyjfMAEzvL
-         Eb5gRyHE18uOkOZJ8g+k16YxuNeA5i7g5ZgbjywT8ChATIRdHVCWmIxG3WeyY6U5tJ6T
-         3YG2kPxyeDBVcVfqE67vCpoB4w/h/tAq0w4WNZcZTa11v4JWODpCUJ4iQPS7YlNIR7vA
-         Upow==
-X-Gm-Message-State: ANoB5pl4zCid40YisxqUNM5i/8hxr9LCoF1LKVoahtEmI7WgbILmHnOj
-	8BE4ro719EqW6gkIyjcFUi20Xw==
-X-Google-Smtp-Source: AA0mqf4kb0IlYXvkh3prsQJvS9xn5izyFm+Qr5JLbh7kcOgKD6eJpTpGiTJNOYeTOOF/IS3ECyBZPg==
-X-Received: by 2002:a17:906:c011:b0:778:f9b6:6fc with SMTP id e17-20020a170906c01100b00778f9b606fcmr49024807ejz.580.1669739721090;
-        Tue, 29 Nov 2022 08:35:21 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id j18-20020a1709066dd200b0077016f4c6d4sm6343233ejt.55.2022.11.29.08.35.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 08:35:20 -0800 (PST)
-Date: Tue, 29 Nov 2022 17:35:19 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
-	conor@kernel.org, devicetree@vger.kernel.org, guoren@kernel.org,
-	heiko@sntech.de, krzysztof.kozlowski+dt@linaro.org,
-	linux-kernel@vger.kernel.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh+dt@kernel.org
-Subject: Re: [RFC 2/2] RISC-V: resort all extensions in "canonical" order
-Message-ID: <20221129163519.mzgn3nrfiguc2v2s@kamzik>
+	id 1p03ou-00AGiY-Pl
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 16:50:58 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 275C161811;
+	Tue, 29 Nov 2022 16:50:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD7C9C433D6;
+	Tue, 29 Nov 2022 16:50:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669740655;
+	bh=IdahP6huwuOhsZoNDIagIDmphdiN6quvNOXg01Cv/cE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Hpx8xwdEWqaVdWOJ8DwK5GqrwKyqe0pEZNF3ZGIGp5HZFg/v1O+Nh5BG4/hUCN+Sy
+	 dmvbPcDYnH2TBYv0ZaKF35sHry+e5JpnLZT/wr3hyy/3a53Fx0EfifbDuZxtizzOqR
+	 9Fp0F9xJz7+B1qKs0KczQFNV3PqzQ1C9DHDDQH2f3+MyENRzSfy2i5Yz0Wr62k1EA1
+	 bkwpf1MgcouUi1QEJaFqMU7p0CsN/VQoSiSxRmjGaQNR5mbqsyJmwiWR6zev4DaB7D
+	 jXxaCcZaR0LyriqoDq6RULZ7//uyMBAkzvNahTEtzcbwXXesSyUG+bP3TohU7zvTqc
+	 rHQjF6WONHZPw==
+Date: Tue, 29 Nov 2022 16:50:49 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+	devicetree@vger.kernel.org, guoren@kernel.org, heiko@sntech.de,
+	krzysztof.kozlowski+dt@linaro.org, linux-kernel@vger.kernel.org,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org
+Subject: Re: [RFC 0/2] Putting some basic order on isa extension stuff
+Message-ID: <Y4Y4aZUEhCch1Sg+@spud>
 References: <Y4XvnHIPw8ZuBZEk@wendy>
- <20221129144742.2935581-3-conor.dooley@microchip.com>
+ <20221129144742.2935581-1-conor.dooley@microchip.com>
+ <20221129154832.27or3ywsx7npuqzq@kamzik>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221129144742.2935581-3-conor.dooley@microchip.com>
+In-Reply-To: <20221129154832.27or3ywsx7npuqzq@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_083523_327025_CC4E92AC 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20221129_085056_911571_1154D048 
+X-CRM114-Status: GOOD (  26.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,137 +77,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 29, 2022 at 02:47:43PM +0000, Conor Dooley wrote:
-> Per the comment in cpu.c, re-sort all lists/tables/enums/whatever in
-> arch/riscv (apart from KVM) in the current edition of what the isa
-> manual considers to be "canonical" order.
+On Tue, Nov 29, 2022 at 04:48:32PM +0100, Andrew Jones wrote:
+> On Tue, Nov 29, 2022 at 02:47:41PM +0000, Conor Dooley wrote:
+> > RFC:
+> > - I have not even tested this, I just did an allmodconfig
+> > - I don't know if I re-ordered something that is sacrosanct
+> > - I don't know if I changed all of the instances
+> > - I didn't write a proper commit message for "patch" 2/2
+> > 
+> > With those caveats out of the way - all I did here was try to make
+> > things consistent so that it'd be easier to point patch submitters at a
+> > "do this order please".
+> > 
+> > I never know which of these can be moved without breaking stuff - but
+> > they all seem to be internal use stuff since they're not in uapi?
+> > 
+> > @drew, I didn't touch the KVM ones - are they re-sortable too? My base
+> > here is rc7 so if you did a reorder at any point there I'd not see it ;)
 > 
-> None of this is in uapi, so we are free to re-order it? I'm never sure
-> when it comes to hwcap...
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/include/asm/hwcap.h | 6 +++---
->  arch/riscv/kernel/cpu.c        | 4 ++--
->  arch/riscv/kernel/cpufeature.c | 4 ++--
->  3 files changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index b22525290073..d7d5f27619ee 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -53,12 +53,12 @@ extern unsigned long elf_hwcap;
->   * available logical extension id.
->   */
->  enum riscv_isa_ext_id {
-> -	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> -	RISCV_ISA_EXT_SVPBMT,
-> -	RISCV_ISA_EXT_ZICBOM,
-> +	RISCV_ISA_EXT_ZICBOM = RISCV_ISA_EXT_BASE,
->  	RISCV_ISA_EXT_ZIHINTPAUSE,
-> +	RISCV_ISA_EXT_SSCOFPMF,
->  	RISCV_ISA_EXT_SSTC,
->  	RISCV_ISA_EXT_SVINVAL,
-> +	RISCV_ISA_EXT_SVPBMT,
->  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> Right, we can't touch enum KVM_RISCV_ISA_EXT_ID as that's UAPI. All new
+> extensions must be added at the bottom. We originally also had to keep
+> kvm_isa_ext_arr[] in that order, but commit 1b5cbb8733f9 ("RISC-V: KVM:
 
-Or,
+Right, I knew that something had been changed in KVM land. It's probably
+a good idea to say sort them all alphabetically apart from whichever
+ones must be in other orders & explicitly note the reasons in-place.
 
-@@ -48,17 +48,16 @@ extern unsigned long elf_hwcap;
- /*
-  * This enum represent the logical ID for each multi-letter RISC-V ISA extension.
-  * The logical ID should start from RISCV_ISA_EXT_BASE and must not exceed
-- * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-- * extensions while all the multi-letter extensions should define the next
-- * available logical extension id.
-+ * RISCV_ISA_EXT_MAX. While the order doesn't matter, we keep it sorted
-+ * alphabetically for neatness.
-  */
- enum riscv_isa_ext_id {
-        RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-+       RISCV_ISA_EXT_SSTC,
-+       RISCV_ISA_EXT_SVINVAL,
-        RISCV_ISA_EXT_SVPBMT,
-        RISCV_ISA_EXT_ZICBOM,
-        RISCV_ISA_EXT_ZIHINTPAUSE,
--       RISCV_ISA_EXT_SSTC,
--       RISCV_ISA_EXT_SVINVAL,
-        RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
+> Make ISA ext mappings explicit") allows us to list its elements in any
+> order, which means we could sort them in canonical order, if we wanted
+> to. I think I'd rather have them in alphabetical order, though (they
+> nearly are at the moment, except for the bottom two...) The only other
+> place we have ISA extensions listed in KVM is in a switch statement,
+> which of course doesn't matter, and it's currently in alphabetical order.
 
+I did see the one in uAPI for KVM. Your idea in 2/2 of doing
+alphabetical unless otherwise stated works for me as I just want
+something concrete! If it works for the chief too, I'll resubmit and
+drop the RFC...
 
->  };
->  
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index 5e42c92a8456..1d0fa0ebf6a8 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -150,12 +150,12 @@ device_initcall(riscv_cpuinfo_init);
->   *    extensions by an underscore.
->   */
->  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> +	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
->  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
->  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> -	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-> -	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
->  };
-
-Yes, this one should be put in canonical order (I guess).
-
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 694267d1fe81..d3df72c4b94f 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -199,12 +199,12 @@ void __init riscv_fill_hwcap(void)
->  				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
->  				set_bit(*ext - 'a', this_isa);
->  			} else {
-> -				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-> -				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
->  				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
->  				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
-> +				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
->  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
->  				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-> +				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-
-Or,
-
-@@ -199,12 +199,16 @@ void __init riscv_fill_hwcap(void)
-                                this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
-                                set_bit(*ext - 'a', this_isa);
-                        } else {
-+                               /*
-+                                * While the order doesn't matter here, we sort
-+                                * alphabetically for neatness.
-+                                */
-                                SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-+                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-+                               SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-                                SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-                                SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
-                                SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
--                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
--                               SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
-                        }
- #undef SET_ISA_EXT_MAP
-                }
-
->  			}
->  #undef SET_ISA_EXT_MAP
->  		}
-> -- 
-> 2.38.1
->
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
