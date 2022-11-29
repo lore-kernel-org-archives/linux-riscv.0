@@ -4,82 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF520C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 05:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000EDC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 05:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cfqAsWJPvsEPb1QbFLLVMsRZ402cTgMM/ZEPj1z6hmY=; b=w3YH9RYyUPZfwr
-	B//xliQXGQaopSj0EeMZj4P6yHpz+AM4WWnl1gCEfWaaT5Rx5NeF52DjFZ9j8BWM1F2TxbOHi1gRA
-	env4JCOj30KR9hM8VvgMuO55v45c7Ct3K6vlW4inLhg2k6JYtOumC2aLxNDu4GdRfeGO9KmIglbvF
-	Xlox6p/dQ3qTWS67j4WI0plAQrrNPPEIWRRh1Zcii1NyogZ+AmL3HZ4cZRq355J2SBnoDMrCuD43I
-	2p39/77XuQmQDHnZmvjKakuQCKapNJJoOQqUKU1wkdkhQrUTDt1N6JszyVS4P7AngFnxyS7VPAz8b
-	yKjrHhCKDe+sn53zn8wA==;
+	List-Owner; bh=oQLFPiN2WFIOZNdu+bBmvBs86f1EtTE8ifDzAZi/gg4=; b=Pf0HdXFQRqtH+M
+	5sZ3Pqel0ON4ElkDXMaXkmzAmveuJuRE/amVjxdVQwQreQzhQF0DZ8jVca2wiFhLKotfrLzUxFz3z
+	t0eYm1Lw79+JfEUV98LKfo+RCy0HcK059iP3iGrUpCXVC0i56YuDA6Gw4R0po/3LF+0cjpma08vaZ
+	OxkI310w/E2Q0mvh3vIMKE7klWf4g9z5wLJZGX7/LByFbf/rdaxFHzpZKlrA78nNZM2s0iYOGfI1N
+	veIuiZ6fs0+5TXTVPA+Cra4GzDbjv0tyhYkJNTsoyzeILdHycOWAOU5tvwJWlZd5Zip5Vz9ZGypQv
+	MewD31D/SBj0DNKUOy7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oztRn-006XfG-Lj; Tue, 29 Nov 2022 05:46:23 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1oztTy-006Ymp-BW; Tue, 29 Nov 2022 05:48:38 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oztRk-006Xcj-Q4
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 05:46:22 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id o7-20020a05600c510700b003cffc0b3374so10003671wms.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 21:46:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HD7x5LbR33AXrxQu51beO1G2A7rcknzhC17f6V/q6WA=;
-        b=BQUjUq/abpPMUKx7kDHWQPniuBMZ/SoyzcNBUx+f61DXcq6lSMqogL/vR9GTx1b939
-         2YdZRlidock6vR4dUKjdGaX1xxBOWzKRsTRZ7LyY81iHEF4Cywyt81UTBUHfZaf1Esgi
-         5U7sVwtZXhI/g3l55sBpTDvQSEPJProgt8GPRmuT9iaRHuZn6tv4s0l+wltoN+suBxkp
-         Y5tNNpgPmgU+EtXvzQuTtrfqW3zDgfCshKEU1hTnDmkf5/z+dqx7FuhmpQ1sLoubRqUt
-         6lWKhqbiArdmKg01wCgdKTAvnmtrUOV25vIfP2uEXzd95oKg/MjB/HrKjHOKLSBvBq26
-         X7ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HD7x5LbR33AXrxQu51beO1G2A7rcknzhC17f6V/q6WA=;
-        b=IALU6GXQsA+pnADT6Buv1zZQAde/uY0DJ33JndO/leZxA5db0WFvELTYzK1fZ+/sPu
-         wB+sBTnIhyhdg7CCUls4PwgvF3AU+7Jp2uE6+tVNHJCgpGXJnocFUAlu5XlOCCWB4gZn
-         kYBUnyo27EEd3KQoD4cZ2V7Hzhe1NDsF5dvwTJ221WxGnFs/BlpTR8eSwdT3fkGIoG7P
-         j8wOGXXQKRv+oBQ/ExGygjk9YjOkbeo4IKA7JXZHOTUNSo/8enTjjFQ4jNgp1VuLrR3v
-         LlCV9aAuKz1x+RhQ6VvRMmusysfAcaeNOGbBxuICrpUFsiPDGjjyzmd6lYJJm3Oil9lR
-         eLpg==
-X-Gm-Message-State: ANoB5pkeM0l6tZuy1jG4kRpFeXyaYm9wzjqygeJFMkABxmLQM0eJhUaQ
-	KxFwrVj0dQkVuBXRO8aANWTBVTRzd/UCMA==
-X-Google-Smtp-Source: AA0mqf5KLXL6iv9L9l1kcDPpytL/st2EhbV/q40zSXAbSz7I3BYA93wtvFGhaOW/fH+TVZ8dwXatug==
-X-Received: by 2002:a05:600c:3d18:b0:3cf:b7bf:352d with SMTP id bh24-20020a05600c3d1800b003cfb7bf352dmr32068568wmb.106.1669700777581;
-        Mon, 28 Nov 2022 21:46:17 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id p21-20020a1c5455000000b003b4cba4ef71sm698389wmi.41.2022.11.28.21.46.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Nov 2022 21:46:17 -0800 (PST)
-Date: Tue, 29 Nov 2022 06:46:16 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 8/9] RISC-V: KVM: Add ONE_REG interface for mvendorid,
- marchid, and mimpid
-Message-ID: <20221129054616.4zju5z7ipg6wki7l@kamzik>
-References: <20221128161424.608889-1-apatel@ventanamicro.com>
- <20221128161424.608889-9-apatel@ventanamicro.com>
+	id 1oztTv-006YlD-OL; Tue, 29 Nov 2022 05:48:37 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id DD4BD5C01DE;
+	Tue, 29 Nov 2022 00:48:34 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute3.internal (MEProxy); Tue, 29 Nov 2022 00:48:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669700914; x=
+	1669787314; bh=OtfQNo4nBjhbfnvx8isDNgBx4T5htxvRGKcm6tW94mg=; b=o
+	avnOvJEzRNfJ7QUj2BqBionlqcCj/DsrLIsZ3IwKxhy5538k1ZzBTSRtClb04QuM
+	G2Y8ugcQmJDnPw4vuUSlUlTV13DlrmnSLgsa71pGkWXp+IY0jWc6LkRTEK2JO+1Y
+	gOUv3XY9Dlk4c9lMZnF+KQioKtF1q3JKx9hqnVQEGaIssLMQoMG6sIhy6YkST6V0
+	GA4f2g8rIv+H+LT0YZaxce2SIC3rybJLoH0dk7YWbgMFpilZKV4xWaS3EI4Vg1yN
+	pudsB3axUtlccw92duJY0HgswWEdxQYyZ0eKf/EtDgHcv72iEl8TBJDyts//x0q7
+	kHx/IAJqWpMhlvq5Mdcyg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669700914; x=
+	1669787314; bh=OtfQNo4nBjhbfnvx8isDNgBx4T5htxvRGKcm6tW94mg=; b=e
+	T84H1ozXR+7bsLn30kqtVVW/xXB160B9oiA9AcQRX9Ld8A9c3sCzILEiGJOYH2GC
+	dQMtKBhkLfa/VvQbMy1ZMkhk+GDvOg1kl+zFl2sSSlkIUuOpi0pJDDaVYvQAVUBM
+	qTOv4x3eSNuk4+rjfctj3w6n0n90iYgP6vMk/NI+lIEcCZv1A8oDQGZDd0zHIn8/
+	7qLF/ZzBDNEjvr3+bYwgdOPa5QbjLiFlkNjElT2foITOcsqVK7fMIb1rjK83fV6e
+	dIhEALlnMuwaZJA9X3xeqYA8Lr4scOrhLkKJdDEgar84YRiQZq3I6J7nDrppzquC
+	EotvH36gFIQrPLDJxDDCA==
+X-ME-Sender: <xms:MZ2FYy0GJnIOdwFN6ZYPPzr3ULSQeCz83ro34gjwHFGjM4lLbiwMJQ>
+    <xme:MZ2FY1ErL8O0gihDnKlSVlqRQvQCu1ldPteOs2LA4ZcL3z2563SIVFQWaFcgt6Aid
+    W9dypPnPeTQb8Sgug>
+X-ME-Received: <xmr:MZ2FY66PDKB_m2iiDzVViphUSkU-M5pK0U6g-UJym6_hcL-qXbfwRtxGPjkh4KKe1wRktMWSNvMWcIHu6e5cnWtYONkgTm19xGehKTekyE5lmsNgqBqsGfin-g>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrjeefgdeklecutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefkffggfgfvvehfhffujggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnhepteeuvddvveeigefhkeduueduudefgfdvleejgfeiuefgjefhteei
+    hfdtleffgeelnecuffhomhgrihhnpegrnhguvghsthgvtghhrdgtohhmnecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhho
+    lhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:Mp2FYz3tugtGPNTJlPrs0FVGIA4iDG_IuTpKu8k2XsV8BUKor3NkKQ>
+    <xmx:Mp2FY1GVO8bfXIyBPllldm06Ip7cS4oKyn2iSk1_sLOJuoyWSLxYjw>
+    <xmx:Mp2FY8_1F1UbL5viVm-RsYz2Uhu9r7b7Dj84ecrgi6ACNt6jFCvRiA>
+    <xmx:Mp2FY8kX6RIb12MRVwEMimvW_EmQDzR2b9ERm97fYWRCUI9BFaOmuQ>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 29 Nov 2022 00:48:32 -0500 (EST)
+Message-ID: <df0fed9d-6d0a-3e76-1ebf-920e4d19d624@sholland.org>
+Date: Mon, 28 Nov 2022 23:48:32 -0600
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221128161424.608889-9-apatel@ventanamicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Content-Language: en-US
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: opensbi@lists.infradead.org, Anup Patel <apatel@ventanamicro.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>,
+ Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Nathan Chancellor
+ <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ Biju Das <biju.das.jz@bp.renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <bf8e33fd-a752-d5d5-859e-14302d069f2d@sholland.org>
+ <CA+V-a8sz4i_wenTyA5tVTVB8dQWLmuXCf3CGYOPC+C07GJ8WTw@mail.gmail.com>
+ <CAMuHMdWQO_usrJwmVYDx6o-CpzmotVZLt176eKbqLzY-GXiDng@mail.gmail.com>
+ <CA+V-a8s5mZoLMhjjpo_89taaBx+M_EwXMZUu-TUpZc8Q3bw4ug@mail.gmail.com>
+From: Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v4 7/7] soc: renesas: Add L2 cache management for RZ/Five
+ SoC
+In-Reply-To: <CA+V-a8s5mZoLMhjjpo_89taaBx+M_EwXMZUu-TUpZc8Q3bw4ug@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_214620_853016_7057CE04 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20221128_214835_945700_363D186B 
+X-CRM114-Status: GOOD (  29.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +125,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 28, 2022 at 09:44:23PM +0530, Anup Patel wrote:
-> We add ONE_REG interface for VCPU mvendorid, marchid, and mimpid
-> so that KVM user-space can change this details to support migration
-> across heterogeneous hosts.
+On 11/28/22 06:08, Lad, Prabhakar wrote:
+> Hi Geert,
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/include/uapi/asm/kvm.h |  3 +++
->  arch/riscv/kvm/vcpu.c             | 27 +++++++++++++++++++++++++++
->  2 files changed, 30 insertions(+)
+> On Sun, Nov 27, 2022 at 9:55 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>>
+>> Hi Prabhakar,
+>>
+>> On Sat, Nov 26, 2022 at 10:10 PM Lad, Prabhakar
+>> <prabhakar.csengg@gmail.com> wrote:
+>>> On Fri, Nov 25, 2022 at 7:43 PM Samuel Holland <samuel@sholland.org> wrote:
+>>>> On 11/24/22 11:22, Prabhakar wrote:
+>>>>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>>>>
+>>>>> On the AX45MP core, cache coherency is a specification option so it may
+>>>>> not be supported. In this case DMA will fail. As a workaround, firstly we
+>>>>> allocate a global dma coherent pool from which DMA allocations are taken
+>>>>> and marked as non-cacheable + bufferable using the PMA region as specified
+>>>>> in the device tree. Synchronization callbacks are implemented to
+>>>>> synchronize when doing DMA transactions.
+>>>>>
+>>>>> The Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+>>>>> block that allows dynamic adjustment of memory attributes in the runtime.
+>>>>> It contains a configurable amount of PMA entries implemented as CSR
+>>>>> registers to control the attributes of memory locations in interest.
+>>>>>
+>>>>> Below are the memory attributes supported:
+>>>>> * Device, Non-bufferable
+>>>>> * Device, bufferable
+>>>>> * Memory, Non-cacheable, Non-bufferable
+>>>>> * Memory, Non-cacheable, Bufferable
+>>>>> * Memory, Write-back, No-allocate
+>>>>> * Memory, Write-back, Read-allocate
+>>>>> * Memory, Write-back, Write-allocate
+>>>>> * Memory, Write-back, Read and Write-allocate
+>>>>>
+>>>>> This patch adds support to configure the memory attributes of the memory
+>>>>> regions as passed from the l2 cache node and exposes the cache management
+>>>>> ops.
+>>>>
+>>>> Forgive my ignorance, but why do you need both a DMA pool and explicit
+>>>> cache maintenance? Wouldn't the purpose of marking a memory region as
+>>>> permanently non-cacheable be to avoid cache maintenance? And likewise,
+>>>> if you are doing cache maintenance anyway, why does it matter if/how the
+>>>> memory is cacheable?
+>>>>
+>>> "Memory, Non-cacheable, Bufferable" raises an AXI signal for
+>>> transactions hence needing SW implementation for cache maintenance.
+>>>
+>>>>> More info about PMA (section 10.3):
+>>>>> Link: http://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
+>>>>>
+>>>>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>
+>>>>> +static int ax45mp_configure_pma_regions(struct device_node *np)
+>>>>> +{
+>>>>> +     const char *propname = "andestech,pma-regions";
+>>>>> +     u32 start, size, flags;
+>>>>> +     unsigned int entry_id;
+>>>>> +     unsigned int i;
+>>>>> +     int count;
+>>>>> +     int ret;
+>>>>> +
+>>>>> +     count = of_property_count_elems_of_size(np, propname, sizeof(u32) * 3);
+>>>>> +     if (count < 0)
+>>>>> +             return count;
+>>>>> +
+>>>>> +     if (count > AX45MP_MAX_PMA_REGIONS)
+>>>>> +             return -EINVAL;
+>>>>> +
+>>>>> +     for (i = 0, entry_id = 0 ; entry_id < count ; i += 3, entry_id++) {
+>>>>> +             of_property_read_u32_index(np, propname, i, &start);
+>>>>> +             of_property_read_u32_index(np, propname, i + 1, &size);
+>>>>> +             of_property_read_u32_index(np, propname, i + 2, &flags);
+>>>>> +             ret = ax45mp_sbi_set_pma(start, size, flags, entry_id);
+>>>>> +             if (!ret)
+>>>>> +                     pr_err("Failed to setup PMA region 0x%x - 0x%x flags: 0x%x",
+>>>>> +                            start, start + size, flags);
+>>>>> +     }
+>>>>> +
+>>>>> +     return 0;
+>>>>> +}
+>>>>
+>>>> If firmware support is required to set up these PMA regions, why is
+>>>> Linux doing this at all? The firmware has access to the devicetree as
+>>>> well. It can set this up before entering S-mode, and then you don't need
+>>>> to expose this capability via an SBI extension. In fact, firmware could
+>>>> generate the reserved-memory node based on these regions at runtime (or
+>>>> vice versa).
+>>>>
+>>> That's a good point. I'll do some research on this and get back.
+>>>
+>>> Btw are there any existing examples where the firmware adds DT nodes?
+>>
+>> /memory, reserved-memory, optee on ARM, RPC status on R-Car Gen3/4, ...
+>>
+> On the TF-A we pass the FDT blob to u-boot and this does the magic.
 > 
-> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index 8985ff234c01..92af6f3f057c 100644
-> --- a/arch/riscv/include/uapi/asm/kvm.h
-> +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -49,6 +49,9 @@ struct kvm_sregs {
->  struct kvm_riscv_config {
->  	unsigned long isa;
->  	unsigned long zicbom_block_size;
-> +	unsigned long mvendorid;
-> +	unsigned long marchid;
-> +	unsigned long mimpid;
->  };
->  
->  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 312a8a926867..7c08567097f0 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -276,6 +276,15 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
->  			return -EINVAL;
->  		reg_val = riscv_cbom_block_size;
->  		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
-> +		reg_val = vcpu->arch.mvendorid;
-> +		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(marchid):
-> +		reg_val = vcpu->arch.marchid;
-> +		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(mimpid):
-> +		reg_val = vcpu->arch.mimpid;
-> +		break;
->  	default:
->  		return -EINVAL;
->  	}
-> @@ -338,6 +347,24 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
->  		break;
->  	case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
->  		return -EOPNOTSUPP;
-> +	case KVM_REG_RISCV_CONFIG_REG(mvendorid):
-> +		if (!vcpu->arch.ran_atleast_once)
-> +			vcpu->arch.mvendorid = reg_val;
-> +		else
-> +			return -EBUSY;
-> +		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(marchid):
-> +		if (!vcpu->arch.ran_atleast_once)
-> +			vcpu->arch.marchid = reg_val;
-> +		else
-> +			return -EBUSY;
-> +		break;
-> +	case KVM_REG_RISCV_CONFIG_REG(mimpid):
-> +		if (!vcpu->arch.ran_atleast_once)
-> +			vcpu->arch.mimpid = reg_val;
-> +		else
-> +			return -EBUSY;
-> +		break;
->  	default:
->  		return -EINVAL;
->  	}
-> -- 
-> 2.34.1
->
+> On the RISC-V what would be the correct approach?
+> - We setup the PMA regions in OpenSBI
+> - We provide a vendor specific EXT to check if the PMA is setup
+> - In u-boot ft_board_setup() callback add the reserved-memory node
+> 
+> Does the above approach sound good or is there a better approach I'm missing?
 
-At some point we should patch Documentation/virt/kvm/api.rst to describe
-the possible errors we have. It's missing EOPNOTSUPP and EBUSY.
+My suggestion was to fix up the DT in OpenSBI itself. See
+lib/utils/fdt/fdt_fixup.c in the OpenSBI source tree. There is also a
+platform hook for this. Then OpenSBI passes the FDT to U-Boot, and
+U-Boot passes it on to Linux. No SBI extension is needed in that case.
 
-Also, I see a couple places were we use EOPNOTSUPP that would be better
-as EBUSY. And finally I wonder if we shouldn't use ENOENT when the reg_num
-is wrong/unknown, which would allow us to differentiate between bad
-reg_num and bad reg_val in set-one ioctls.
+If you optionally want your U-Boot to support loading a replacement FDT
+from disk, then ft_board_setup() would need to copy the reserved-memory
+nodes from U-Boot's control FDT to the loaded FDT. But this logic is the
+same for all reserved-memory nodes, including the one OpenSBI adds
+already. U-Boot has some code for this copying which you could reuse.
 
-I can send an RFC series to better describe these thoughts.
+Regards,
+Samuel
 
-And for this patch,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
