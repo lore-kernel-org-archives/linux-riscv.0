@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E62C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 23:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67260C4321E
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 23:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TqHhed5joDyLQDLJzUZdGUi5Rc0Y2mnhfgJM2Tyq1Uk=; b=A78jdMh77ZVz07
-	7s+aDvWyLMDL8Hr+R/CPw5fp59/2BjcnXjDp8Q8YFJ5Cayr3F2y8bIEgNWHm2H8wQOWUaygONvCPW
-	lLk9DlCvMI/RTIh8KeDwmJdqlWFwAuk3tvwyK4NtgKav1bo01EfRaqOqG0XxrJdAu3Mlp4SKn4QzQ
-	j7xGCxHJIeM/3AP1M483b7loBLnsGESLJAiZctFkYlc0XQMeqNNVDcSB1xmpQfoVCPNInV+oRIwlh
-	6gFYHULlgkrk0UC2Q4E1hZrbV4IWNtg/+z+WbEby9PZiiS6JNJYeYKKl+atAJjOSQLOvEA065dwBb
-	wcGgvW/HB4+luWuN/ufQ==;
+	List-Owner; bh=UgxLTF8las95CexzxYvbxA+fqNwzidISXeBowUPK0FY=; b=NSE6Mn3fCfFmy7
+	hE6Au4bfoZTiQS0xLttn3kaapPZs3wp9P3lc1CRfFTPEdVpA9mzWhy6CbsSGFAIg50bquJpC65Y5s
+	g5hljFV1GAqG8NLCJbabqOFE+ui68ICPu1LdFonE35AmrBSbPAOi1pqEncg8bu3QaPnaG7YQ/K01Y
+	ZD7jdt7zRJFvuaodT1Zgi28KW6CdsuWQFGXHmGMrSOefSRQl1WqfifyDcxS5sb3DfJKqwjbt9LoN6
+	2iihUQDE5Dc1bQqQdPGYLbu+5uy5cOt1Ljv53/FeC95BwEzPwpNkxSaruTclVO83Yu65xlZJ+zycU
+	GMYmvBrQKeHX4um9U2JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p09jQ-00Bbpy-B5; Tue, 29 Nov 2022 23:09:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1p09n2-00Bc8z-Gn; Tue, 29 Nov 2022 23:13:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p09jN-00BbpR-Nm
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 23:09:39 +0000
+	id 1p09mz-00Bc8Z-Lm
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 23:13:22 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 82A8D6193C;
-	Tue, 29 Nov 2022 23:09:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12BAFC433C1;
-	Tue, 29 Nov 2022 23:09:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1D37F61941;
+	Tue, 29 Nov 2022 23:13:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CEE5C433C1;
+	Tue, 29 Nov 2022 23:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669763375;
-	bh=h/I9WE2TfNER0oZbr2EzVV/5EUaxq//X/yipSB6BEcc=;
+	s=k20201202; t=1669763600;
+	bh=aQKpeOFpW69ooTs1xwWqEZTPx5WEiJ2oeybjsnwqbmQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W8oI/baH+4/6XzD3ks6sVgmygAfuplJfADpIe556vinzxNmc1NxQV5IOOR2gmjulu
-	 kfZq+9YZwqEX1HK0PiPoExP6GXI5HJi/MBIPDUH1zZiqNh6rGhHMKNg1BgYE2Ru9A0
-	 kXWZG7/uU11RO7X1CVV8TQL1dVsK4+sppyNOzEUhg4ML+gtuCIP4R61lntzwMy7c6r
-	 ZV0Y9f44EOlDkRAz8Bj9uRn+5EC5jnwBDw5oSQBVsAtIQWJc+Ds/IARB2nD14HMLL9
-	 5JjQmoYmIs2wGHHeh+KbGumj3ksWbdmb4xbc7sxzv7NZtfQN49EtzSeNgS97TIXj2e
-	 ni7GazlrgxqBw==
-Date: Tue, 29 Nov 2022 23:09:31 +0000
+	b=GGNosxmXTlJfTcC6l2owHcZ3tpMWy7ZlKJBNQ/52hrJsmUvsnVGyoMClHFOB4lEeg
+	 IBtz0agEPQ6aqKq0gJ7p0n8eoJdj5dVgBouKyOB79Rt46mFiz/XMZsM/iIcKEGbfnA
+	 5ZNhKEYoVnvt3xMN/BE8cYzZDbjMxpk2YPFiUazeX5w0idBmUTrN9yyS8C5fh71zwN
+	 SF0B7bt7kmIIMcf0HC0m5T3bWdIdsoAdWx3Akf8bzW7VYQTkUo4kSOCQ3SZM8BeE+b
+	 phbyF2vGL6pibTGWUUYi1DVd+LnD0E2C3ybUD2+EkQenkPoNeUS4R9r43Hghp5F9mN
+	 9ToIHN/eROjjA==
+Date: Tue, 29 Nov 2022 23:13:16 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
@@ -50,17 +50,16 @@ Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
 	emil.renner.berthing@canonical.com,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 04/13] RISC-V: Move riscv_insn_is_* macros into a
- common header
-Message-ID: <Y4aRK9CvoH56A+Ai@spud>
+Subject: Re: [PATCH v2 05/13] RISC-V: rename parse_asm.h to insn.h
+Message-ID: <Y4aSDIXBywjtJQbD@spud>
 References: <20221128102632.435174-1-heiko@sntech.de>
- <20221128102632.435174-5-heiko@sntech.de>
+ <20221128102632.435174-6-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221128102632.435174-5-heiko@sntech.de>
+In-Reply-To: <20221128102632.435174-6-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_150937_893120_48F20646 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20221129_151321_772307_13E55F8C 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +76,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 28, 2022 at 11:26:23AM +0100, Heiko Stuebner wrote:
+On Mon, Nov 28, 2022 at 11:26:24AM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > 
-> Right now the riscv kernel has (at least) two independent sets
-> of functions to check if an encoded instruction is of a specific
-> type. One in kgdb and one kprobes simulate-insn code.
-> 
-> More parts of the kernel will probably need this in the future,
-> so instead of allowing this duplication to go on further,
-> move macros that do the function declaration in a common header,
-> similar to at least aarch64.
-> 
+> The current parse_asm header should become a more centralized place
+> for everything concerning parsing and constructing instructions.
+
+Heh, I opened this mail in mutt without reading $subject and my gut
+instinct was to say "parse_asm" doesn't feel like the right name for
+this content...
+
+> We already have a header insn-def.h similar to aarch64, so rename
+> parse_asm.h to insn.h (again similar to aarch64) to show that it's
+> meant for more than simple instruction parsing.
+
+...and then I realised what that patch was doing :)
+rg parse_asm | wc -l
+0
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Still doesn't build though due to trailing stuff from prior commits.
+
 > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
->  arch/riscv/include/asm/parse_asm.h       | 41 ++++++++++++++++----
->  arch/riscv/kernel/kgdb.c                 | 49 ++++++++----------------
->  arch/riscv/kernel/probes/simulate-insn.h | 26 +++----------
->  3 files changed, 54 insertions(+), 62 deletions(-)
-
+>  arch/riscv/include/asm/{parse_asm.h => insn.h} | 0
+>  arch/riscv/kernel/kgdb.c                       | 2 +-
+>  arch/riscv/kernel/probes/simulate-insn.h       | 2 +-
+>  3 files changed, 2 insertions(+), 2 deletions(-)
+>  rename arch/riscv/include/asm/{parse_asm.h => insn.h} (100%)
+> 
+> diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/insn.h
+> similarity index 100%
+> rename from arch/riscv/include/asm/parse_asm.h
+> rename to arch/riscv/include/asm/insn.h
+> diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+> index 61237aeb493c..2e0266ae6bd7 100644
+> --- a/arch/riscv/kernel/kgdb.c
+> +++ b/arch/riscv/kernel/kgdb.c
+> @@ -11,7 +11,7 @@
+>  #include <linux/string.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/gdb_xml.h>
+> -#include <asm/parse_asm.h>
+> +#include <asm/insn.h>
+>  
+>  enum {
+>  	NOT_KGDB_BREAK = 0,
 > diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
-> index cb6ff7dccb92..29fb16cd335c 100644
+> index 29fb16cd335c..a19aaa0feb44 100644
 > --- a/arch/riscv/kernel/probes/simulate-insn.h
 > +++ b/arch/riscv/kernel/probes/simulate-insn.h
-> @@ -3,14 +3,7 @@
+> @@ -3,7 +3,7 @@
 >  #ifndef _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
 >  #define _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
 >  
-> -#define __RISCV_INSN_FUNCS(name, mask, val)				\
-> -static __always_inline bool riscv_insn_is_##name(probe_opcode_t code)	\
-> -{									\
-> -	BUILD_BUG_ON(~(mask) & (val));					\
-> -	return (code & (mask)) == (val);				\
-> -}									\
-> -bool simulate_##name(u32 opcode, unsigned long addr,			\
-> -		     struct pt_regs *regs)
-> +#include <asm/parse_asm.h>
+> -#include <asm/parse_asm.h>
+> +#include <asm/insn.h>
 >  
 >  #define RISCV_INSN_REJECTED(name, code)					\
 >  	do {								\
-> @@ -30,18 +23,9 @@ __RISCV_INSN_FUNCS(fence,	0x7f, 0x0f);
->  		}							\
->  	} while (0)
->  
-> -__RISCV_INSN_FUNCS(c_j,		0xe003, 0xa001);
-> -__RISCV_INSN_FUNCS(c_jr,	0xf007, 0x8002);
-> -__RISCV_INSN_FUNCS(c_jal,	0xe003, 0x2001);
-> -__RISCV_INSN_FUNCS(c_jalr,	0xf007, 0x9002);
-> -__RISCV_INSN_FUNCS(c_beqz,	0xe003, 0xc001);
-> -__RISCV_INSN_FUNCS(c_bnez,	0xe003, 0xe001);
-> -__RISCV_INSN_FUNCS(c_ebreak,	0xffff, 0x9002);
-> -
-> -__RISCV_INSN_FUNCS(auipc,	0x7f, 0x17);
-> -__RISCV_INSN_FUNCS(branch,	0x7f, 0x63);
-> -
-> -__RISCV_INSN_FUNCS(jal,		0x7f, 0x6f);
-> -__RISCV_INSN_FUNCS(jalr,	0x707f, 0x67);
-> +bool simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *regs);
-> +bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
-> +bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
-> +bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
-
-I assume the other ones didn't actually have a user and so didn't need a
-function created? Code movement here looks fine. Dropping the double
-definitions is always nice :)
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
+> -- 
+> 2.35.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
