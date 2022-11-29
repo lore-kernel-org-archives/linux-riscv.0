@@ -4,62 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC9FC4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 22:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19625C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 22:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BEpGYmphdH/uOh1GgX/OfOGxqG4NN1+/UtnF0k0Bg4s=; b=N3GbIDMLMv3tzc
-	vM44IekhetW5D693FKvlRnTBeIqlhc8WkeBdjvSHJVQzHbLoT5+HD99ZI7b7s6cxxies82vMHaU5F
-	/Zn5KoKEU/oDORyEKCg6iGy2RmND/18pGu52TIgH4hzJf1d3AUi/7VzA+AEsEp5CnC3mtiAJnxI9Q
-	yvL1/X0adjpq+R5vIkzmuITcOyp9oGd38Af0fCSXWtinUR6/jc9gzHhZfWEGktFnemZ+cS+N8PE/l
-	DViCYRFPAW4tr6mGDbgr3GaZ/Fh6v2DJBRtMQPO4uX00amu6t+TK1JsbYM9JJyApHRVGVGIrCqekP
-	wwofR4lUQ3/mXMcI5Dgw==;
+	List-Owner; bh=Um0Viw6JxlS0ZKttviPid6gsnaFDN+G6FGtISEu7Uao=; b=0ablnUlulaSxTO
+	e49+ZG6A840hJ4Mbw5WY7jjFQpAOdOWd00r5kChWYVmRjUVNte0K0ov6TGnBe67fu861qrI5LA5gC
+	+Ar4hzD5rUbjOFdD21dcWA1r4FPiU0pRIYWy4La77wfRg7kJnk8X59I+evNyPACySfkvnhHfZep7C
+	Z665i4RHNmCK520qbF9txFrjyu9ABAqdSal8kst5ao+AK77igQdrYbtTVlTYJB3EyEURyeH3SJiLh
+	CF/ObXsrkxD3Px8igg2CrCGZSCj35/K38RAEbFgdKr8k0p4afnh6JB38LH6jmyyhJMyPumsXwdzHq
+	soHoj/Q4li6Jnv+7Danw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p08h1-00BUsj-Bq; Tue, 29 Nov 2022 22:03:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p08np-00BVzR-Dy; Tue, 29 Nov 2022 22:10:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p08gy-00BUrN-6F
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 22:03:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BC2B461956;
-	Tue, 29 Nov 2022 22:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A31FC433D6;
-	Tue, 29 Nov 2022 22:03:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669759383;
-	bh=KVGfjMTAph8lVCMEB/VJa2YacWSsfVe1Z1vkIXNj9J0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fun+nWtJakaP+ej+HZ6cha8D54t8Ai65tlnzoWYagybqXAdBpWtSMRwpa5IYnNv6v
-	 r9sXUlb+tQcqwUq90OEksUePpvdFP1oYqR6Kzc74KmSf1Ou7rZGl73+X4qYzZtW3Nr
-	 hA6+1/bE3G4/gSDwR+8oP18Zdv5aXkqdONH8U5gXOMIpH3ijXjHkdb1612ngsixnLR
-	 z95+0UyvAsyU8ZvFQsbvl5r+5vhXFg1VgDm5GzLhBdTP3d/fpywGXGTS8Kn4007d6P
-	 Wsv9pN4sVcMBJfs6POx6G8eR79a/vB0m21Qyg1t040xsCXv1omri/cApH7tano0tM0
-	 12T99cq4kptcw==
-Date: Tue, 29 Nov 2022 22:02:58 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
-	philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
-	emil.renner.berthing@canonical.com,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 0/13] Zbb string optimizations and call support in
- alternatives
-Message-ID: <Y4aBklZNUi4z6oWM@spud>
-References: <20221128102632.435174-1-heiko@sntech.de>
+	id 1p08nn-00BVz5-0k
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 22:10:08 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1p08ni-0006MF-TH; Tue, 29 Nov 2022 23:10:02 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 4/5] RISC-V: hwprobe: Support probing of misaligned accesss performance
+Date: Tue, 29 Nov 2022 23:10:02 +0100
+Message-ID: <5662455.1IzOArtZ34@diego>
+In-Reply-To: <mhng-e4edd80d-2aa6-4a56-a13d-2d75d7ddd82f@palmer-ri-x1c9a>
+References: <mhng-e4edd80d-2aa6-4a56-a13d-2d75d7ddd82f@palmer-ri-x1c9a>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221128102632.435174-1-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_140304_353405_0D3AAF3C 
-X-CRM114-Status: GOOD (  33.36  )
+X-CRM114-CacheID: sfid-20221129_141007_113804_CB7CAE63 
+X-CRM114-Status: GOOD (  30.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,121 +58,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Yo Heiko,
+Am Dienstag, 29. November 2022, 22:18:18 CET schrieb Palmer Dabbelt:
+> On Tue, 29 Nov 2022 13:09:49 PST (-0800), heiko@sntech.de wrote:
+> > Am Donnerstag, 13. Oktober 2022, 18:35:50 CET schrieb Palmer Dabbelt:
+> >> This allows userspace to select various routines to use based on the
+> >> performance of misaligned access on the target hardware.
+> >>
+> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> >
+> > [...]
+> >
+> >> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> >> index cbda062de9bd..54bdcf9a5049 100644
+> >> --- a/arch/riscv/include/asm/cpufeature.h
+> >> +++ b/arch/riscv/include/asm/cpufeature.h
+> >> @@ -18,4 +18,6 @@ struct riscv_cpuinfo {
+> >>
+> >>  DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+> >>
+> >> +DECLARE_PER_CPU(long, misaligned_access_speed);
+> >
+> > just my 2ct ... wouldn't it make sense to have struct riscv_cpuinfo
+> > as the central instance for all cpu-related stuff, so
+> > misaligned_access_speed could also be part of it?
+> 
+> I remember going through this one a few times and ending up here despite 
+> some cleaner-looking ways of doing it.  That way does look cleaner, 
+> though, so I'll give it a shot and we'll see what happens...
+> 
+> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> >> index 553d755483ed..1599e40cd170 100644
+> >> --- a/arch/riscv/kernel/cpufeature.c
+> >> +++ b/arch/riscv/kernel/cpufeature.c
+> >> @@ -222,6 +226,22 @@ void __init riscv_fill_hwcap(void)
+> >>  			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
+> >>  		else
+> >>  			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
+> >> +
+> >> +		/*
+> >> +		 * Check for the performance of misaligned accesses.
+> >> +		 */
+> >> +		cpu = hartid_to_cpuid_map(hartid);
+> >> +		if (cpu < 0)
+> >> +			continue;
+> >> +
+> >> +		if (of_property_read_string(node, "riscv,misaligned-access-performance", &misaligned)) {
+> >
+> > I think this wants a "!" in front :-) .
+> >
+> > of_property_read_string() returns 0 on success, so running this
+> > results in a nullptr right now.
+> 
+> Thanks.  I'd not gotten around to actually running this so I bet it's 
+> broken in a bunch of ways.  Did you try it out?  I was really hoping to 
+> find some time to get at least the simple stuff in for this cycle, but 
+> too many things keep coming up.
 
-On Mon, Nov 28, 2022 at 11:26:19AM +0100, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> The Zbb extension can be used to make string functions run a lot
-> faster.
-> 
-> To allow There are essentially two problems to solve:
-> - making it possible for str* functions to replace what they do
->   in a performant way
-> 
->   This is done by inlining the core functions and then
->   using alternatives to call the actual variant.
-> 
->   This of course will need a more intelligent selection mechanism
->   down the road when more variants may exist using different
->   available extensions.
-> 
-> - actually allowing calls in alternatives
->   Function calls use auipc + jalr to reach those 32bit relative
->   addresses but when they're compiled the offset will be wrong
->   as alternatives live in a different section. So when the patch
->   gets applied the address will point to the wrong location.
-> 
->   So similar to arm64 the target addresses need to be updated.
-> 
->   This is probably also helpful for other things needing more
->   complex code in alternatives.
-> 
-> 
-> In my half-scientific test-case of running the functions in question
-> on a 95 character string in a loop of 10000 iterations, the Zbb
-> variants shave off around 2/3 of the original runtime.
-> 
-> 
-> For v2 I got into some sort of cleanup spree for the general instruction
-> parsing that already existed. A number of places do their own
-> instruction parsing and I tried consolidating some of them.
-> 
-> Noteable, the kvm parts still do, but I had to stop somewhere :-)
+I ran the code today, so bumped into the "!" issue.
+I'm not yet "using" it, but that will come in the next days.
 
-One minor thing, since I don't see it mentioned nor a base-commit, could
-you note what the series is based on? I'm sure by the time this is
-closer to being applied it will be capable of being build automagically
-but for now (at least on the patchwork side of things) it's not being
-built as it cannot figure out where to apply it:
-https://patchwork.kernel.org/project/linux-riscv/list/?series=699641
+And no worries about that time-thingy, your series already provides
+a nice pointer for the general direction to with things, so that is helpful
+in its own right.
 
-Thanks,
-Conor.
+I will simply report any brokeness I find when it happens ;-) .
 
-> changes since v1:
-> - a number of generalizations/cleanups for instruction parsing
-> - use accessor function to access instructions (Emil)
-> - actually patch the correct location when having more than one
->   instruction in an alternative block
-> - string function cleanups (comments etc) (Conor)
-> - move zbb extension above s* extensions in cpu.c lists
-> 
-> changes since rfc:
-> - make Zbb code actually work
-> - drop some unneeded patches
-> - a lot of cleanups
-> 
-> Heiko Stuebner (13):
->   RISC-V: add prefix to all constants/macros in parse_asm.h
->   RISC-V: detach funct-values from their offset
->   RISC-V: add ebreak instructions to definitions
->   RISC-V: Move riscv_insn_is_* macros into a common header
->   RISC-V: rename parse_asm.h to insn.h
->   RISC-V: kprobes: use central defined funct3 constants
->   RISC-V: add auipc elements to parse_asm header
->   RISC-V: add U-type imm parsing to parse_asm header
->   RISC-V: add rd reg parsing to parse_asm header
->   RISC-V: fix auipc-jalr addresses in patched alternatives
->   efi/riscv: libstub: mark when compiling libstub
->   RISC-V: add infrastructure to allow different str* implementations
->   RISC-V: add zbb support to string functions
-> 
->  arch/riscv/Kconfig                       |  23 ++
->  arch/riscv/include/asm/alternative.h     |   3 +
->  arch/riscv/include/asm/errata_list.h     |   3 +-
->  arch/riscv/include/asm/hwcap.h           |   1 +
->  arch/riscv/include/asm/insn.h            | 292 +++++++++++++++++++++++
->  arch/riscv/include/asm/parse_asm.h       | 219 -----------------
->  arch/riscv/include/asm/string.h          |  83 +++++++
->  arch/riscv/kernel/alternative.c          |  72 ++++++
->  arch/riscv/kernel/cpu.c                  |   1 +
->  arch/riscv/kernel/cpufeature.c           |  29 ++-
->  arch/riscv/kernel/image-vars.h           |   6 +-
->  arch/riscv/kernel/kgdb.c                 |  63 ++---
->  arch/riscv/kernel/probes/simulate-insn.c |  19 +-
->  arch/riscv/kernel/probes/simulate-insn.h |  26 +-
->  arch/riscv/lib/Makefile                  |   6 +
->  arch/riscv/lib/strcmp.S                  |  38 +++
->  arch/riscv/lib/strcmp_zbb.S              |  96 ++++++++
->  arch/riscv/lib/strlen.S                  |  29 +++
->  arch/riscv/lib/strlen_zbb.S              | 115 +++++++++
->  arch/riscv/lib/strncmp.S                 |  41 ++++
->  arch/riscv/lib/strncmp_zbb.S             | 112 +++++++++
->  drivers/firmware/efi/libstub/Makefile    |   2 +-
->  22 files changed, 978 insertions(+), 301 deletions(-)
->  create mode 100644 arch/riscv/include/asm/insn.h
->  delete mode 100644 arch/riscv/include/asm/parse_asm.h
->  create mode 100644 arch/riscv/lib/strcmp.S
->  create mode 100644 arch/riscv/lib/strcmp_zbb.S
->  create mode 100644 arch/riscv/lib/strlen.S
->  create mode 100644 arch/riscv/lib/strlen_zbb.S
->  create mode 100644 arch/riscv/lib/strncmp.S
->  create mode 100644 arch/riscv/lib/strncmp_zbb.S
-> 
-> -- 
-> 2.35.1
-> 
+
+Heiko
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
