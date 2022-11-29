@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A639C46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA6AC4321E
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EndRqNSCiSyMOaJJii99TbPtgshiAt9bbdZqz8J80L0=; b=4NTU30TGAJ8zqL
-	w4ThKWvHYqJeTCnry2I/dLhNPaLeS7zx1bwMWGh9c6BSUxBWUo+6Lqg1E8neYbJvmBsvSaa2wAMvh
-	yylw6HK6pkteY9bI1WURjAphQBYtGYLLJhsGeN/9rh5IVzOFWsK8OnON13ks/0Y8LX+w78R3R0tpY
-	LJaaC9rpNKrqViyStVgzyYTHjdFPMLG9EP51wJW+xaSZHoVSs7t7TbkkQg8hMaVFnHIAL5jsgWfsC
-	rST3ScTrsRW1WCDqJi15k2GWc+Y64O+yXPfJMV0mIBDNFZE8mSKzU+reEHN9A5+KtDmQj27Iqhc69
-	SZig+TrxbARIPEfTsQpQ==;
+	List-Owner; bh=zdk5Sc5Dd+pcexeGsu5hpSfsAiNbrl4nlPMrapz6gUo=; b=pz3Slq7BcSJ/NV
+	HXtp6iheMtlXJdZ4GQAK+xXPMKqUvXIJhqzRE6YtLXu1Jp8RTWeoKgB+Kmel7NzO/vLn4VZVBl5Oq
+	b4Nq78nc7O2fMwPf+8dQnc1pC0MN/4x1tFuOSq91dgB0AbQOFOxzTWv4g0qY9TuhGUvS4/YctWGzq
+	lkwMFBNroNU9UE2/jYM43l7NxrgpQznBd2F2KR/EsOGmkbvWWxCy0fvEf1q2l7BllwdfCLa02OtRb
+	Huw/GYXslk2zhmvRnPtQ8dRV0o45UCqzwfgbhsyS5v1IRe7TiurpZP+36oK4DZ77AefY1bGsclSVe
+	bZgHPhlF387dw383nb5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01xD-009S0G-Vs; Tue, 29 Nov 2022 14:51:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1p01xI-009S2e-69; Tue, 29 Nov 2022 14:51:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01xA-009Rxl-Qi
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:51:22 +0000
+	id 1p01xB-009Rx4-7U
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:51:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669733480; x=1701269480;
+  t=1669733481; x=1701269481;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=1i28Wk5Zmf2QpwRYWuzzGRuioCBIh5xXRO+2UEVDDDs=;
-  b=c2NmL31zpzmTnTz1I5ew3sBm0NrvgpQh9YVc2bPV0RZaNa3qnxsiDLE1
-   rDwrS4FfoUesMr/lyZ/fS+QQM34TkXnAcTabNG3TI2H5Cjrp2e+rQcsUB
-   RMZ3pJR1VMSJH5S5AxYtle5g/3kO8TylQusa17siIzkhntLovNf/jL4qP
-   b36/n3HFAYx3WyFqp70cuwuTihEHMlPA/PVYhckwU0ptvg7V8QKHVtQxN
-   +VU2iDZCRDBVU/P3+bZQfvYzcVw2gA4imoiqoyJjfI59ndpUw/lo0v5kr
-   SV54TU+kv0C+f0v+Ygpy077XEZZ7DMJYX9EXQ31OLXfFjmNpxuLJVGI7k
-   Q==;
+  bh=CX12l/BYcHckW0nxt5dW6uGaSf9bcCVSRsIUm2MrbaY=;
+  b=CDp2w59xCD6LSvrcuyn7jgU/XJisFsNp5OYHfHt+XUN/Lh9Huk9pLsyn
+   VIbg9WvVX0Hxwo+F6tu6LcTXcLboiXEAN51U57s44wmYPpE2iFv7P9Wvr
+   HseJCXf59//A9EEjuRePeTAPz4m96xS/LqhchaZ0fHIpWL9wJvjuD9/ue
+   7b6fTi9eBq3Hk5YbrjpdXOqQECxRUOlW1ebPA6nLiZvdoGnVkwfV95qHa
+   M7O535gVCL+k2EtDq/OqichGiAErpS6j2yS81UaPgoLUANxvk81T7u69B
+   aUCEs7jkbmo0NI4UMqIgC5Gb9KcWMO8yRZechuso6TW9KJBjk9fYHAHe7
+   A==;
 X-IronPort-AV: E=Sophos;i="5.96,203,1665471600"; 
-   d="scan'208";a="125626126"
+   d="scan'208";a="190983230"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Nov 2022 07:51:15 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Nov 2022 07:51:17 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 29 Nov 2022 07:51:13 -0700
+ 15.1.2507.12; Tue, 29 Nov 2022 07:51:15 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Tue, 29 Nov 2022 07:51:11 -0700
+ Transport; Tue, 29 Nov 2022 07:51:13 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <linux-riscv@lists.infradead.org>
 CC: Conor Dooley <conor.dooley@microchip.com>, <ajones@ventanamicro.com>,
@@ -56,16 +56,16 @@ CC: Conor Dooley <conor.dooley@microchip.com>, <ajones@ventanamicro.com>,
 	<guoren@kernel.org>, <heiko@sntech.de>, <krzysztof.kozlowski+dt@linaro.org>,
 	<linux-kernel@vger.kernel.org>, <palmer@dabbelt.com>,
 	<paul.walmsley@sifive.com>, <robh+dt@kernel.org>
-Subject: [RFC 0/2] Putting some basic order on isa extension stuff
-Date: Tue, 29 Nov 2022 14:47:41 +0000
-Message-ID: <20221129144742.2935581-1-conor.dooley@microchip.com>
+Subject: [RFC 1/2] RISC-V: clarify ISA string ordering rules in cpu.c
+Date: Tue, 29 Nov 2022 14:47:42 +0000
+Message-ID: <20221129144742.2935581-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <Y4XvnHIPw8ZuBZEk@wendy>
 References: <Y4XvnHIPw8ZuBZEk@wendy>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_065121_033435_722505F6 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20221129_065121_364046_15B7D404 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +82,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RFC:
-- I have not even tested this, I just did an allmodconfig
-- I don't know if I re-ordered something that is sacrosanct
-- I don't know if I changed all of the instances
-- I didn't write a proper commit message for "patch" 2/2
+While the list of rules may have been accurate when created, it now
+lacks some clarity in the face of isa-manual updates. Specifically:
 
-With those caveats out of the way - all I did here was try to make
-things consistent so that it'd be easier to point patch submitters at a
-"do this order please".
+- there is no mention here of a distinction between regular 'Z'
+  extensions which are "Additional Standard Extensions" and "Zxm"
+  extensions which are "Standard Machine-Level Extensions"
 
-I never know which of these can be moved without breaking stuff - but
-they all seem to be internal use stuff since they're not in uapi?
+- there is also no explicit mention of where either should be sorted in
+  the list
 
-@drew, I didn't touch the KVM ones - are they re-sortable too? My base
-here is rc7 so if you did a reorder at any point there I'd not see it ;)
+- underscores are only required between two *multi-letter* extensions but
+  the list of rules implies that this is required between a multi-letter
+  extension and any other extension. IOW "rv64imafdzicsr_zifencei" is a
+  valid string
 
-CC: conor.dooley@microchip.com
-CC: ajones@ventanamicro.com
-CC: aou@eecs.berkeley.edu
-CC: conor@kernel.org
-CC: devicetree@vger.kernel.org
-CC: guoren@kernel.org
-CC: heiko@sntech.de
-CC: krzysztof.kozlowski+dt@linaro.org
-CC: linux-kernel@vger.kernel.org
-CC: linux-riscv@lists.infradead.org
-CC: palmer@dabbelt.com
-CC: paul.walmsley@sifive.com
-CC: robh+dt@kernel.org
+Attempt to clean up the list of rules, by adding information on the
+above & sprinkling in some white space for readability.
 
-Conor Dooley (2):
-  RISC-V: clarify ISA string ordering rules in cpu.c
-  RISC-V: resort all extensions in "canonical" order
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/kernel/cpu.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
- arch/riscv/include/asm/hwcap.h |  6 +++---
- arch/riscv/kernel/cpu.c        | 26 +++++++++++++++++++-------
- arch/riscv/kernel/cpufeature.c |  4 ++--
- 3 files changed, 24 insertions(+), 12 deletions(-)
-
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 852ecccd8920..5e42c92a8456 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -120,20 +120,32 @@ device_initcall(riscv_cpuinfo_init);
+ 		.uprop = #UPROP,				\
+ 		.isa_ext_id = EXTID,				\
+ 	}
++
+ /*
+  * Here are the ordering rules of extension naming defined by RISC-V
+  * specification :
+- * 1. All extensions should be separated from other multi-letter extensions
+- *    by an underscore.
++ *
++ * 1. All multi-letter extensions should be separated from other multi-letter
++ *    extensions by an underscore.
++ *
+  * 2. The first letter following the 'Z' conventionally indicates the most
+  *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+- *    If multiple 'Z' extensions are named, they should be ordered first
+- *    by category, then alphabetically within a category.
++ *    'Z' extensions should be sorted after single-letter extensions and before
++ *    any higher-privileged extensions.
++ *    If multiple 'Z' extensions are named, they should be ordered first by
++ *    category, then alphabetically within a category.
++ *
+  * 3. Standard supervisor-level extensions (starts with 'S') should be
+  *    listed after standard unprivileged extensions.  If multiple
+  *    supervisor-level extensions are listed, they should be ordered
+  *    alphabetically.
+- * 4. Non-standard extensions (starts with 'X') must be listed after all
++ *
++ * 4  Standard machine-level extensions (starts with 'Zxm') should be
++ *    listed after any lower-privileged, standard extensions.  If multiple
++ *    machine-level extensions are listed, they should be ordered
++ *    alphabetically.
++ *
++ * 5. Non-standard extensions (starts with 'X') must be listed after all
+  *    standard extensions. They must be separated from other multi-letter
+  *    extensions by an underscore.
+  */
 -- 
 2.38.1
 
