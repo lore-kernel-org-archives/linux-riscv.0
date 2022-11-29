@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74464C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 05:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC58C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 05:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DUPXjoqPpryVfRSvBnG+fyNLgTTpxIqrkDtxi/K6wvs=; b=cSgoMzXUu+7TCu
-	VhrYFhr7TjClh3uaE6XRN7VtjQryBCsTaa0iApliizBGZ4CX9F+5dcskmV17AbSBoJhesiEdDdGpx
-	NzRph6tsWZYRpjWaL9euDA4zHETCRmVPuRoV2aVfr94vfiOpwgLeZidYGerZcEXJvH9Znp+5/R7lz
-	QH8SnbokCM9tOgUt5m5Aa+53hHfVymTiU71wlA0EUiBx8Stg3nFOc/46YbZ1vkVLl534vaxqStQc+
-	O8sfrcnQr3hxlu7kKBy6du0nVH8JtButt30QK1XkCfPiU2Bz3mRvR/D/b+JJIJr1WV0A//lcobf2H
-	AbJZFrxYh9MpeYfyzNdA==;
+	List-Owner; bh=qOOzcnj2SLPGgGHA6y+vJea2gdQ9XvK5xI32MklE6Hk=; b=OuPArRh/H07VXp
+	IE13W1s6VRz3q1AtgX2aIY01WwNmVfSqon7oikMr0bl911o+iajZuoQGoEp8UP+fvea6uIlZnJNTV
+	ugaJ/UROlqXXectbVHx+pPzl/RG7nFSPI6iOHvSXEdP1ETkcZZ+zqtXcb+e/p2x98VkVrzAK5Ucqv
+	N5jq/3HVGE/aI7DFS8r4MIODlXp7+95JPq3GFvtGykjJwpf5XMuYhS+hT6bLS8GZ3wZsCh/ft5H2r
+	48YX020GuYAfF1Hj8PxruHMOnB2rKyR+Ucy4mRHmy5CW5a3gdT2EpSwtfREAi0pxn9rdPcM650/UO
+	NyZd7cyqOR4zDiFiWyPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozt3z-006Nv2-1w; Tue, 29 Nov 2022 05:21:47 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1ozt4a-006OII-DR; Tue, 29 Nov 2022 05:22:24 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozt3w-006Ns9-Ie
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 05:21:45 +0000
-Received: by mail-wr1-x433.google.com with SMTP id n3so20301665wrp.5
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 21:21:42 -0800 (PST)
+	id 1ozt4Y-006ODn-5M
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 05:22:23 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id o5so11301767wrm.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Nov 2022 21:22:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gYIgS9wavWTQxom2MJ9tshe8CLRx28IqX95DlGjmTVU=;
-        b=ILN9ASxgD5Mclt1SjFrHgHV0dysZ0WP+PKmni3yTjqjyFxE0exN5YRpwgFxlZ1oTNG
-         hVfSKHaheY5vLb6XcwCwK/H6E+uwyRbr8vyMHi+hvpv8kc15wr2px1OCot+8lI6Q4CuC
-         6LbgxuVGKU7GDlGfhOflU32KTb148z6NX80x5fUZFR/m3lXUZ0mG3KEKF9VcnfVl9HW7
-         aEK3IrDJao01snfQFniBjN9fLFKaTHdnkQhP75BYrWvmKNlwUEowGaC/+2Y0O9TPCMex
-         FyAh6tt3mA1h06C3tVowOagZ6AZ69wqkCprBkG6WRp9DOxZZOMLD0MEVZZOcO4qeQlsp
-         NP5A==
+        bh=VX+itqdtRrB43wl3kKgpncV8GANmiBc0pfcxw2yUuLM=;
+        b=bG/IrQ/Jixzo6903r9hdiDVrqSlnGMjeHDlGeazVMHCkysWbRtlm/GeJRZvt+CRWWl
+         W742Q2rnyombXejTvQ7gcaZl4N7K8AJXrYys3m2CHDKY6fptemRY4xey51NIYgBfdpEV
+         4vXYqPl68pOufbrcBNozppHSP9Igq+6RWmLPg+0CxBAHZWzAUB9BGnkFhjQckBmRE0fw
+         CL6Utxu+ZMfHuSD1H2+5WWT+UKHPolCf3993tJi6aRmXyVnK2KTCyaBiewLdCDv91Sok
+         L0PSv5bAifCxKQRiSXiBTm4amKUjVcYuQ8Dh44fDHd9vmA2MtpMTZ2dZfyq3ASyXUtAN
+         OJDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gYIgS9wavWTQxom2MJ9tshe8CLRx28IqX95DlGjmTVU=;
-        b=TOGtzr/QLRs1K8/yTr9ovDcCeN6/hIeg9MEeNY/RizS9GbNlSML2dMDnlubvXx2XAD
-         6y7u+/D+BPFjnxZGJlqxV2rPAWfgFwIQlAgHB/8hWHKQXP3m3ap4z3GrJAHbCarPbB/E
-         tjfkWVUabgWvwFQjnT7JeRDOCSwjkk9mg4xNkeCMaLQvOc1ghCAMQa4fqoGhT6Es4d/V
-         8gdVR8nkcmFz47evb+cLJKDQJthDJt0YKBYdvr96E+slCqGO8PDUMm67w1pRWSbAR0fH
-         6hexQDhlMmaIAu8YGfqcHBU5MBzR+rQdu29ZYXahtCW1D7EDIssMruilKV/6vWdu37Ct
-         51gw==
-X-Gm-Message-State: ANoB5pnMZ7PDdHM3Z8O8VWQ7QmOJfWT7zznta7rTm7d6BSBQNe8M5Elb
-	ygRAh6CUWtJmFFmNHL92DT3UVQ==
-X-Google-Smtp-Source: AA0mqf5RAQI+qSWpaCf/qgkdVGaOnsgmv73eZHpMRbLqpYhxE+0JzBIjypWTrIlCw7OVJQtx5MZ9Yg==
-X-Received: by 2002:a5d:4e4f:0:b0:242:1a8b:98b7 with SMTP id r15-20020a5d4e4f000000b002421a8b98b7mr4282228wrt.699.1669699301144;
-        Mon, 28 Nov 2022 21:21:41 -0800 (PST)
+        bh=VX+itqdtRrB43wl3kKgpncV8GANmiBc0pfcxw2yUuLM=;
+        b=I6F/Hsu1OVgekefP1ecRt2uEl100uB78pYSw/zGcxDuPKlV5zLZGytTVjdW15oFDgi
+         YO4WI4wIZ22LqN4QrlnVi4D/2R8Lwi2QLFghYRWA3kEHzdYIkQFbgvRqXRFDRo19QdeI
+         WZiWYFQr6lPms3iFaFspURXojPezs2dmEcjC9aw437H8xX3Cg4XqqvTD6eZ1EuoOC2pj
+         NCirUtz3Hd1BWgj3q+1d2z1lSEKvdzSu9wuqS07AFxJeDivC+QJiiTqmZ4mUHIfFSctZ
+         s+J1ZlpKg/68BWGtZ1dOKtfLdhdN7Ipu6ceU8LElX33GnkydsgYGZimxasO4jp4npAg/
+         5SRA==
+X-Gm-Message-State: ANoB5pmdZC9ZYNCeDfDR8U88Q34sfmS0Gf3Sc6Eixx8sFOV5xU9FLPqg
+	fjwWZSeTCsZhYF2DDTS1yKHs+Gw0wvi8vA==
+X-Google-Smtp-Source: AA0mqf5kd2rGATn4w0hFZs+L6eWBIfmaBzTGS2MjDUeIdf1p0JbHZPqT6eh18lSMKNcQd+csJcJ8kg==
+X-Received: by 2002:adf:f244:0:b0:242:1da0:4984 with SMTP id b4-20020adff244000000b002421da04984mr3305960wrp.240.1669699338615;
+        Mon, 28 Nov 2022 21:22:18 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id y14-20020adff14e000000b00226dba960b4sm12733162wro.3.2022.11.28.21.21.40
+        by smtp.gmail.com with ESMTPSA id dn6-20020a05600c654600b003cf894dbc4fsm712294wmb.25.2022.11.28.21.22.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Nov 2022 21:21:40 -0800 (PST)
-Date: Tue, 29 Nov 2022 06:21:39 +0100
+        Mon, 28 Nov 2022 21:22:18 -0800 (PST)
+Date: Tue, 29 Nov 2022 06:22:17 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Paolo Bonzini <pbonzini@redhat.com>,
@@ -69,16 +69,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/9] RISC-V: Export sbi_get_mvendorid() and friends
-Message-ID: <20221129052139.t7txrey3u45ssl2u@kamzik>
+Subject: Re: [PATCH 7/9] RISC-V: KVM: Save mvendorid, marchid, and mimpid
+ when creating VCPU
+Message-ID: <20221129052217.7rpw33yrr6i6kncx@kamzik>
 References: <20221128161424.608889-1-apatel@ventanamicro.com>
- <20221128161424.608889-7-apatel@ventanamicro.com>
+ <20221128161424.608889-8-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221128161424.608889-7-apatel@ventanamicro.com>
+In-Reply-To: <20221128161424.608889-8-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_212144_635439_C20313EA 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20221128_212222_303549_DD81F4C2 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,14 +96,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 28, 2022 at 09:44:21PM +0530, Anup Patel wrote:
-> The sbi_get_mvendorid(), sbi_get_marchid(), and sbi_get_mimpid()
-> can be used by KVM module so let us export these functions.
+On Mon, Nov 28, 2022 at 09:44:22PM +0530, Anup Patel wrote:
+> We should save VCPU mvendorid, marchid, and mimpid at the time
+> of creating VCPU so that we don't have to do host SBI call every
+> time Guest/VM ask for these details.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/kernel/sbi.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/riscv/include/asm/kvm_host.h |  5 +++++
+>  arch/riscv/kvm/vcpu.c             |  6 ++++++
+>  arch/riscv/kvm/vcpu_sbi_base.c    | 11 +++++------
+>  3 files changed, 16 insertions(+), 6 deletions(-)
 >
 
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
