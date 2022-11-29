@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CDDC4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 11:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E023C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 11:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:CC:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=3DjATfLITk1aVtP0GpyOBgMmzvlFosE2vmM2ifIFMks=; b=QxSqamvkAt1QWYVFerYzk1EHvO
-	gBPr97Hgw98FWMuffzfeFdTH+b5DBE2BjeENtpTGxgKRmXU7cC/Nt9HdO/Fr9wPP2eY67Cam1MIy2
-	LmSOadrZ6ImotBLoqQFUGejC3WVoJxVF/QZH5K7bJHJgjofw5/vxtUCX8j7dmyJ2LU1jq6hoA1thJ
-	qFPv8pwZxj5IrqiD4MNF6juuM9u9veAuGYpPGK5QSx1eLsycSIVhbWnhwlAc9SfDJY9DvLZ0gqiVQ
-	xUZEB6skRSuSZmxNwAJZXkOjHPbFnouWDRa+3iDK5GVhrWPxhIl48qS8V3dbg2v7PLYm3krSuD/ua
-	2j5DJkZQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OEp/Ub5utksF3hAIjvKJmMP1ZGFUB8dv7hiBaGZC1Kk=; b=UU1gucVeuFTvcW
+	ACdI+Dd1KqSbQJtdLgZm++jYPhjIA2Bx0KXCHGgkkrqKZTNjsAQqc/Dn4pSAPnRP6UiRlcnJoqW5i
+	kAwuewylyLZDd2W02+vmC6iTUSX0r/naLssIKj011k+rBP610qZvAY/03jjcEa0ftFFjLhNthekiT
+	yDnnLqg85lGOB4uFbw/xE63nANiEJDrcgdzBkh6jLWzy+QjMjO1zqiYVjxZzKdAuF5x8NhSpok+Rh
+	Wdm4lXVWp6pLJmp5JbMZD9NQWu7CV7v0PBpDT4zpaHcAPFC63WoxJ6EesTjnf17iHXpaXYB844zGX
+	vQZtNZthRK7R+8ndQKaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozyUu-008PUa-TA; Tue, 29 Nov 2022 11:09:56 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1ozyyt-008VOx-3p; Tue, 29 Nov 2022 11:40:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozyUj-008PLR-98; Tue, 29 Nov 2022 11:09:47 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.53])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4NM02T6VXhzRpc6;
-	Tue, 29 Nov 2022 19:08:49 +0800 (CST)
-Received: from [10.67.102.169] (10.67.102.169) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+	id 1ozyyn-008VMZ-OK
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 11:40:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669722050; x=1701258050;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dj3yv782CgVSbDWsCFTsi9bDR5Zdl0MYjrJXe4M+W9k=;
+  b=xv+BTDw7ehMFnLPZEH6Gxp5qBeHbYlzogIxqpLWgiFgiOQEwE2Rajcrj
+   nuXY+H13bV1e9zoRQV3PH2h02+nnKttawsf1VF6SFAjsiiG3lV+IyMqS7
+   YESJ9nYSw2TG0qpIvrnGRylG4l3fmaWn3ATWBNBoSi4+yUpHnbhZm6DiN
+   dJtTljKZfTc7l4vVkofZuqhM6OzKPYvZs9TFsxnohUPyeaaSlgg9Q2esf
+   H50mn7+S/DBARGKHvwDdi3Vp+m3W6riv+azeVBuQmzT9CVuApIHV405e8
+   V9Z4g4vsrREUMZSWFZle9QzDD1dy/JeqcorAdGy9tXxcUotZWNaENhkjZ
+   g==;
+X-IronPort-AV: E=Sophos;i="5.96,203,1665471600"; 
+   d="scan'208";a="185661326"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Nov 2022 04:40:43 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Tue, 29 Nov 2022 19:09:28 +0800
-CC: <anshuman.khandual@arm.com>, <corbet@lwn.net>, <peterz@infradead.org>,
-	<arnd@arndb.de>, <punit.agrawal@bytedance.com>,
-	<linux-kernel@vger.kernel.org>, <darren@os.amperecomputing.com>,
-	<yangyicong@hisilicon.com>, <huzhanyuan@oppo.com>, <lipeifeng@oppo.com>,
-	<zhangshiming@oppo.com>, <guojian@oppo.com>, <realmz6@gmail.com>,
-	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, Barry Song <21cnbao@gmail.com>,
-	<wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, <linux-mm@kvack.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v7 0/2] arm64: support batched/deferred tlb shootdown
- during page reclamation
-From: Yicong Yang <yangyicong@huawei.com>
-To: <akpm@linux-foundation.org>, <catalin.marinas@arm.com>, <will@kernel.org>
-References: <20221117082648.47526-1-yangyicong@huawei.com>
-Message-ID: <938c4c00-8cf9-b37a-d70e-04262d86f01c@huawei.com>
-Date: Tue, 29 Nov 2022 19:09:28 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+ 15.1.2507.12; Tue, 29 Nov 2022 04:40:33 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 29 Nov 2022 04:40:31 -0700
+Date: Tue, 29 Nov 2022 11:40:12 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Jones <ajones@ventanamicro.com>, <palmer@dabbelt.com>
+Subject: Re: [PATCH 2/2] dt-bindings: riscv: fix single letter canonical order
+Message-ID: <Y4XvnHIPw8ZuBZEk@wendy>
+References: <Y4UJQYgCpnZJji9o@spud>
+ <mhng-8141aa74-17c6-4692-a658-b5e4faad0c14@palmer-ri-x1c9a>
+ <20221129051911.5xetsgfukxiljuhf@kamzik>
 MIME-Version: 1.0
-In-Reply-To: <20221117082648.47526-1-yangyicong@huawei.com>
-X-Originating-IP: [10.67.102.169]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20221129051911.5xetsgfukxiljuhf@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_030945_669367_5D08DD16 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20221129_034049_879453_9889CB01 
+X-CRM114-Status: GOOD (  53.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,111 +75,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, heiko@sntech.de, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, robh+dt@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, guoren@kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-a gentle ping...
+Yo Drew, Palmer,
 
-Hi Andrew, Will and Catalin,
+(preserving the conversation in case any DT folks want to chime
+in on the ABI comment)
 
-is it ok to pick this series?
+On 29/11/2022 05:19, Andrew Jones wrote:
+> On Mon, Nov 28, 2022 at 03:41:19PM -0800, Palmer Dabbelt wrote:
+>> On Mon, 28 Nov 2022 11:17:21 PST (-0800), Conor Dooley wrote:
+>>> On Mon, Nov 28, 2022 at 10:12:17AM -0800, Palmer Dabbelt wrote:
+>>>> On Mon, 28 Nov 2022 10:08:05 PST (-0800), Conor Dooley wrote:
+>>>>> On Mon, Nov 28, 2022 at 09:41:03AM -0800, Palmer Dabbelt wrote:
+>>>>>> On Thu, 24 Nov 2022 05:42:20 PST (-0800), heiko@sntech.de wrote:
+>>>>>>> Am Donnerstag, 24. November 2022, 14:04:41 CET schrieb Conor Dooley:
+>>>>>>>> I used the wikipedia table for ordering extensions when updating the
+>>>>>>>> pattern here in foo.
+>>>>>>>
+>>>>>>>          ^ foo? :-)
+>>>>>>>
+>>>>>>>> Unfortunately that table did not match canonical order, as defined by
+>>>>>>>> the RISC-V ISA Manual, which defines extension ordering in (what is
+>>>>>>>> currently) Table 41, "Standard ISA extension names". Fix things up by
+>>>>>>>> re-sorting v (vector) and adding p (packed-simd) & j (dynamic
+>>>>>>>> languages). The e (reduced integer) and g (general) extensions are still
+>>>>>>>> intentionally left out.
+>>>>>>>>
+>>>>>>>> Link: https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-unpriv-pdf-from-asciidoc-15112022 # Chapter 29.5
+>>>>>>>> Fixes: 299824e68bd0 ("dt-bindings: riscv: add new riscv,isa strings for emulators")
+>>>>>>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>>>>>>
+>>>>>>> So I have compared the new pattern to the isa manual,
+>>>>>>> and it looks like the order checks out, so
+>>>>>>
+>>>>>> Which ISA manual?
+>>>>>
+>>>>> For me, isa manual is the above github repo.
+>>>>
+>>>> Which commit, though?
+>>>
+>>> mutt won't let me paste a clown face emoticon.
+>>>
+>>>>>> There have been many mutually incompatible ISA string
+>>>>>> encoding rules, at least one of them was a change to the extension ordering.
+>>>>>> It's not entirely clear what the right answer is here, as we can't really
+>>>>>> parse ISA strings without also knowing the version of the ISA manual we're
+>>>>>> meant to parse them against.  Maybe we just accept everything?
+>>>>>
+>>>>> I don't think accepting everything is the right thing to do. A minimal
+>>>>> amount of validation is still needed here, but I think we can deprecate
+>>>>> the DT property entirely & make it optional if a new-and-improved way of
+>>>>> encoding the in DT is used.
+>>>>
+>>>> Sorry, by "everything" I meant "everything that's even been allowed by the
+>>>> ISA manual".  Just accetping anything would be bad ;)
 
-Thanks.
+I agree. I can always relax the regex if something comes to light - but
+it's already pretty forgiving about the ordering of stuff - especially
+the multiletter extensions.
 
-On 2022/11/17 16:26, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>>
+>>>>>> IMO it's time to just stop using the ISA string.  It's not a stable
+>>>>>> interface, trying to treat it as such just leads to headaches.  We should
+>>>>>> just come up with some DT-specific way of encoding whatever HW features are
+>>>>>> in question.  Sure it'll be a bit of work to write that all down in the DT
+>>>>>> bindings, but it's going to be way less work than trying to keep around all
+>>>>>> this ISA string parsing code.
+>>>>>
+>>>>> I'm a glutton for punishment, I'll try and come up with some sort of
+>>>>> other way to encode this information in DT that requires less parsing
+>>>>> and validation. As I said on IRC, something that more resembles:
+>>>>> if (of_property_wahtever("riscv,isa-foo")) { do_enable_foo() }
+>>>>
+>>>> That seems way simpler to me, thanks!  We'll still need to support whatever
+>>>> was here as a legacy format, but at least we won't need to add a bunch of
+>>>> new stuff to it -- that's where the parsing starts to get really
+>>>> complicated.
 > 
-> Though ARM64 has the hardware to do tlb shootdown, the hardware
-> broadcasting is not free.
-> A simplest micro benchmark shows even on snapdragon 888 with only
-> 8 cores, the overhead for ptep_clear_flush is huge even for paging
-> out one page mapped by only one process:
-> 5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
+> While it's easy for Linux to add new DT nodes when new extension support is
+> added, it's not so easy to add new ACPI objects. The current plan for ACPI
+> is to use the ISA string[1]. With that in mind, I think Linux should
+> continue to parse the string for DT as well.
+
+I was thinking about how to implement this at the gym this morning,
+before even reading this mail, and I have gotten cold feet about doing
+riscv,isa-foo stuff anyway.
+
+I don't really want to create a confusing, two-location way of turning
+features on. We would be either forcing all other operating systems to
+switch away from using riscv,isa too or creating a difference between
+how Linux handles things compared to, say, FreeBSD or U-Boot.
+IOW, if the "v" in riscv,isa turned it on for FreeBSD and a boolean DT
+property of riscv,isa-v did it for Linux. I really dislike the idea of
+that...
+
+If we are going to have to parse it *anyway* for ACPI, then I think
+there's little merit unfortunately.
+
+I think we would also end up ballooning the code with a bunch of checks
+for the different extensions which I am not keen on either.
+Completely relaxing any parsing rules, as discussed below, seems like
+a less user-hostile & more "application" independent way of proceeding.
+
+> [1] https://docs.google.com/document/d/1LlCefO_0GQ_7Tf3lzfMPETEfMlGo2FfLRJ09IMqJKEk/edit
 > 
-> While pages are mapped by multiple processes or HW has more CPUs,
-> the cost should become even higher due to the bad scalability of
-> tlb shootdown.
+>>>
+>>> Yah, and "deprecated" in dt-schema doesn't actually do anything at the
+>>> moment other than let humans know not to use something. Just gonna have
+>>> to do some sort of "feature-wise AND" between the existing things we
+
+That should be s/AND/OR/
+
+>>> parse from the isa string & whatever riscv,isa-foo stuff later on.
+>>
+>> I suppose this is more of a Rob question, but could we just make the DT
+>> bindings match the current ISA manual's rules and then have the kernel's
+>> "riscv,isa" string parser accept more orderings to remain compatible?
+>>
+>> Sort of a API vs ABI stability question, but for DTB and bindngs.
+
+AFAIU, the kernel needs to keep supporting only what was ever in a
+dt-binding to satisfy the DT ABI and our current regex is compatible
+with that so that's fine.
+Whether or not we have laxer rules within the kernel is fine, as long
+as we support whatever we specified previously in the binding.
+
+>>>> FWIW, there's a similar dicussion going on in GCC land right now.
+>>>>
+>>>>>> I know I've said the opposite before, but there's just been way too many
+>>>>>> breakages here to assume they're going to stop.
+>>>>>
+>>>>> :upside_down_face:
+>>>>>
+>>>>> Either way, I think these two patches are worth taking in the mean time.
+>>>>
+>>>> Yep, just as long as it doesn't break any of the strings that were valid
+>>>> according to previous versions of the ISA manual I'm fine with it.
+>>>
+>>> I don't think so. I had been looking around for a supposed order for
+>>> where to actually put H, which had been dropped - and the only place I
+>>> recall seeing that was Wikipedia - which now seems like an awful
+>>> decision since the order there looks kinda off anything I see in dozen
+>>> or so spec PDFs I have downloaded. But that's where I got the K & V
+>>> ordering from that I now think is wrong (and doesn't match any PDF I
+>>> have). The other changes relax rules and add letters so they should be
+>>> okay too.
+>>
+>> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+I am assuming that w/ these tags I can take this with other DT stuff,
+since they're kinda unrelated to the ongoing conversation.
+
+>> as it sounds like there aren't even any fixed rules, so I guess none of this
+>> even matters?
 > 
-> The same benchmark can result in 16.99% CPU consumption on ARM64
-> server with around 100 cores according to Yicong's test on patch
-> 4/4.
-> 
-> This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
-> 1. only send tlbi instructions in the first stage -
-> 	arch_tlbbatch_add_mm()
-> 2. wait for the completion of tlbi by dsb while doing tlbbatch
-> 	sync in arch_tlbbatch_flush()
-> Testing on snapdragon shows the overhead of ptep_clear_flush
-> is removed by the patchset. The micro benchmark becomes 5% faster
-> even for one page mapped by single process on snapdragon 888.
-> 
-> With this support we're possible to do more optimization for memory
-> reclamation and migration[*].
-> 
-> [*] https://lore.kernel.org/lkml/393d6318-aa38-01ed-6ad8-f9eac89bf0fc@linux.alibaba.com/
-> 
-> -v7:
-> 1. rename arch_tlbbatch_add_mm() to arch_tlbbatch_add_pending() as suggested, since it
->    takes an extra address for arm64, per Nadav and Anshuman. Also mentioned in the commit.
-> 2. add tags from Xin Hao, thanks.
-> Link: https://lore.kernel.org/lkml/20221115031425.44640-1-yangyicong@huawei.com/
-> 
-> -v6:
-> 1. comment we don't defer TLB flush on platforms affected by ARM64_WORKAROUND_REPEAT_TLBI
-> 2. use cpus_have_const_cap() instead of this_cpu_has_cap()
-> 3. add tags from Punit, Thanks.
-> 4. default enable the feature when cpus >= 8 rather than > 8, since the original
->    improvement is observed on snapdragon 888 with 8 cores.
-> Link: https://lore.kernel.org/lkml/20221028081255.19157-1-yangyicong@huawei.com/
-> 
-> -v5:
-> 1. Make ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH depends on EXPERT for this stage on arm64.
-> 2. Make a threshold of CPU numbers for enabling batched TLP flush on arm64
-> Link: https://lore.kernel.org/linux-arm-kernel/20220921084302.43631-1-yangyicong@huawei.com/T/
-> 
-> -v4:
-> 1. Add tags from Kefeng and Anshuman, Thanks.
-> 2. Limit the TLB batch/defer on systems with >4 CPUs, per Anshuman
-> 3. Merge previous Patch 1,2-3 into one, per Anshuman
-> Link: https://lore.kernel.org/linux-mm/20220822082120.8347-1-yangyicong@huawei.com/
-> 
-> -v3:
-> 1. Declare arch's tlbbatch defer support by arch_tlbbatch_should_defer() instead
->    of ARCH_HAS_MM_CPUMASK, per Barry and Kefeng
-> 2. Add Tested-by from Xin Hao
-> Link: https://lore.kernel.org/linux-mm/20220711034615.482895-1-21cnbao@gmail.com/
-> 
-> -v2:
-> 1. Collected Yicong's test result on kunpeng920 ARM64 server;
-> 2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
->    according to the comments of Peter Zijlstra and Dave Hansen
-> 3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
->    is empty according to the comments of Nadav Amit
-> 
-> Thanks, Peter, Dave and Nadav for your testing or reviewing
-> , and comments.
-> 
-> -v1:
-> https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
-> 
-> Anshuman Khandual (1):
->   mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
-> 
-> Barry Song (1):
->   arm64: support batched/deferred tlb shootdown during page reclamation
-> 
->  .../features/vm/TLB/arch-support.txt          |  2 +-
->  arch/arm64/Kconfig                            |  6 +++
->  arch/arm64/include/asm/tlbbatch.h             | 12 +++++
->  arch/arm64/include/asm/tlbflush.h             | 52 ++++++++++++++++++-
->  arch/x86/include/asm/tlbflush.h               | 17 +++++-
->  include/linux/mm_types_task.h                 |  4 +-
->  mm/rmap.c                                     | 19 +++----
->  7 files changed, 93 insertions(+), 19 deletions(-)
->  create mode 100644 arch/arm64/include/asm/tlbbatch.h
-> 
+> IMHO, we should try to get the spec changed to say that the only order
+> which matters is that single letter extensions come first (in any order)
+
+Good luck, I'll +1 your PR.
+
+> and then multi-letter extensions come after (in any order). Parsing
+> becomes simple and we can publish the string in proc in any order too,
+> maybe preferring alphabetical order for neatness.
+
+Devil's advocate, then we break someone's parser that relied expects
+things to be how they were ordered by a prior version of the spec?
+
+Either way, I am happy to vote for a world in which the stuff we put
+into /proc follows the loosest possible wording that has ever been
+using in the spec (and in fact, I think we *need* to do that).
+
+Per the thread on the Zbb stuff, the table claims it "defines the
+canonical order in which extension names must appear in the name
+string, with top-to-bottom in table indicating first-to-last in the
+name string, e.g., RV32IMACV is legal, whereas RV32IMAVC is not." 
+
+It does not contain an entry for Zihintpause & I cannot see anywhere
+in the current incarnation* of the naming.tex document that tells us
+how to sort unmentioned Standard Additional Extensions - just that
+"Standard supervisor-level extensions should be listed after standard
+unprivileged extensions" & "Standard machine-level extensions should
+be listed after standard lesser-privileged extensions"
+
+(as an aside, I think that second quote is missing a comma after
+standard)
+
+The implication there, is that something like Zihintpause could, per
+this version of the spec*, be placed anywhere in the string once the
+"Base Integer ISA" constraint is satisfied (or not permitted in the
+string at all?). Have I missed something? This particular situation
+has been the cause of all of my confusion lately - the doc says it
+defines the order by the table, which then has no generic entry for
+"Additional Standard Extensions".
+
+* 10eea63205f371ed649355f4cf7a80716335958f
+
+Anyways, I feel hopelessly confused by all of this stuff & I wish
+we could just write down exactly what *we* are doing w.r.t. internal
+kernel representation (yeah yeah https://xkcd.com/927/) as absolutely
+noone seems to be sure what to do. Maybe in the "patch acceptance"
+document.
+
+In terms of our own parsing of the isa string, assuming single-letter
+followed by multiletter is about the only assumption that I think we
+should be making.
+I don't think that parsing in any order after that really becomes an
+issue unless we have x depends on y sort of things where x is not
+explicitly required.
+
+The specs currently say:
+"Some ISA extensions depend on the presence of other extensions, e.g.,
+``D'' depends on ``F'' and ``F'' depends on ``Zicsr''.  These
+dependences may be implicit in the ISA name: for example, RV32IF is
+equivalent to RV32IFZicsr, and RV32ID is equivalent to RV32IFD and
+RV32IFDZicsr."
+
+That'd mean that out-of-canonical-order processing isn't too bad since
+the more expansive extension would imply the others too.
+Who knows if that will hold for future extensions, but maybe we can
+deal with things down the road.
+
+I'll take a look at the current parser to at least get things
+straightened out in my own head and then maybe submit a patch for the
+docs as mentioned above so we can at least point patch submitters
+at something concrete?
+
+I am really sorry for all of the "chaos" that I've sown over the last
+few days on this sort of subject, but everyone is doing different things
+and it triggers my OCD heh. Knowing where we stand would be nice :)
+
+Thanks,
+Conor.
+
 
 _______________________________________________
 linux-riscv mailing list
