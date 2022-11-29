@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E12C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 09:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD80FC4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 09:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yCZcyktkGziPzAFiDZ0UNx5MlUHpT4e6CKEsP97bBxk=; b=K4BiI02RAN2580
-	AklyAQTsICm792Mt6prD6xxTCyTXYC1cpi0igmPCeiM0IHmcEJZ251L4TqWMoRr4pMAYrnnRPsGgZ
-	kWQVOtfOqv1Xd5rTBtozT5+wjMTOoahql6rroNNoVOK8o0+faJ38NB5THD4Sr5pFw7NVizlESfIxC
-	w7N12lYrzE/wwfCHVAci8iSxPcdmDejzXwgaM0BWHX9HSES0bnSgxQQN1pFCjrL3sB6Ju1W3Hz79/
-	+HffkbQYRRO8PvPl+aYzYqu5b6cEDoxEax6tmbaaRzTXc7UfiyjoCD1bD3t+e/qzyMLdZ4kBo4v35
-	4E2/hfNeQHqa7HUz67Lw==;
+	List-Owner; bh=iVGcthNQsu5EO0UH8ndg0yowcQiCsIxcpwIPuA0b7Go=; b=FDMRa39bKyFg/N
+	U8BpIqyrbxq6vxbMydg8TH+wwo0w1+e5YtF05XurpBsy1o1/Q+AaJTyXg+AWF1cpvtIp+YULkgNiK
+	YUAX75gyB+hd/rql8wawZK7OJVnFby5ijdjkybWWk/UECxcolAp6DpNqCtHW98pKskplon03TToOl
+	cXWvQ78NzBiWajRrobUAoDSkre0TFI7O9nvswNqRWhrkoZmFjgxf0G8iscU9tKdlhxu90ZFKMTCDK
+	cCgorMlH0BJ5x+sXIHRvSjiB5LdLC9I1NWg/fBIXIm4eRYRFDbxxMVBFZ6drO3q02k1XLlaFz7W57
+	hT1x5zSImn3pT/DTVJEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozwl5-007lYv-3P; Tue, 29 Nov 2022 09:18:31 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1ozxFU-007yCg-FS; Tue, 29 Nov 2022 09:49:56 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozwl2-007lSQ-6Q
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 09:18:29 +0000
-Received: by mail-ot1-x335.google.com with SMTP id t19-20020a9d7753000000b0066d77a3d474so8658897otl.10
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 01:18:19 -0800 (PST)
+	id 1ozxFQ-007y9t-M9
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 09:49:54 +0000
+Received: by mail-wr1-x429.google.com with SMTP id v1so21133155wrt.11
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 01:49:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mq+M8I9ourU5JGtvx7CAysaHGTlBXUBBlVJ4IO6dNtE=;
-        b=gTre9Yd3WAvRWIMI92/UAwT5NcIIH6E5wVaoD4seOyfwY69cg/1Si04zngmFyhD5vl
-         IA1J0wXEgF5Xfco9cTAHWQucjz4q2HvJmfWkKpuNUPVAjfhB0aTqqihy+vAw/4LytSPG
-         1NjE2/zhaoOsqdEP3ifcOFsgJI+beASwqgDEhmVw0VXEgvooAZyHtMwLlQLCVtXoXdSv
-         yAVhe6tOg68xMHM1fs0xZzupemF+oUlRTdxsh+KkQIJbfnkRxI+HPcFCzGmpoAGJSkMo
-         3XjGyyhF/+Z3sIy9BSE2VLBl3o7XfoPz0mvfj8W3GfLMDq9jPh5KrM2NGVuZNu/CYkLY
-         YEsA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q3VJNLqaoParKnxQkXEzpamhDPk61h5s+M+YlUhHQZA=;
+        b=ZJnjbklBy0/vi4/gLVGwjfY3rP7ClWLH/eAzzxxO5X3adYgFbXj/tsKYvDYx6Zv709
+         n31Tq1n0wTfg5xYxI7ewYkyFVhHAyLRB6jyCtNmbONTLH/c3BUjPkA1+Afv+e9qfWRHu
+         SFrpJqyOKXVCiF3CLzmXgMwBy+8nRR1cT+eEnzrjsUo6dwysQgO1g0aURKRLOqmL9Dfu
+         jZjC8kViQmgDOnKRCLQJmLex9QUN3BPHlYQzl5PcKWElXEhmbFcccVMddGlvLC2SAghG
+         VZEC4rl3UecO3ueJPDOZCVDzNWTT1WT7p9diP6Ij+cY6mYVwvVjPQ5Vv8EfPKP+E2t+m
+         KUVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Mq+M8I9ourU5JGtvx7CAysaHGTlBXUBBlVJ4IO6dNtE=;
-        b=ecp5fD+L4E+al9AArtoM+MB+7wTijd5OHp2rq2xdLXATW8u3s2Eop1wprxV0AjCZwo
-         7XM88BOVIKhSB6NbQHFwnHxT7U8+gDONuVFy/Co6W3Mw2YnbrqGTWs2yct5siWOdjslL
-         GGnPteSoYEtwoizsgl5HCvy+lg98EhH60JPOkQrwzsvjrHHusP0nnrn+3QUpvJVbsQHR
-         9g4bjA72xfA9jNnrTqT2YO8g92R+A87mC1hW9byPK3RZgjn80jzn86m3qgrc0lKP/Zm/
-         E5LXEsqDU//4wQBDvvvRp/QAr/usRk8OMX0jg2rrG4dEUdVrRd0FG4+cPZZzuzJtRl5V
-         H2QQ==
-X-Gm-Message-State: ANoB5pnqfotfgioR8MPZnigQYHrLEEURqb0nnWe2hH9pOwVGgQAg1sjk
-	+HPVrH5Li3XwS3YsQoSvmJcbO1nd+d/kIUGv5TYuUQ==
-X-Google-Smtp-Source: AA0mqf4M9WPpgu5o0bKUU3S1DuefQLuGU6o98qT9aYktvIskR/xEHM0BML0V0+dmJtYh3k3fBUNNlSPYZGZ5+LtVrNs=
-X-Received: by 2002:a9d:5e0f:0:b0:662:2458:3ef7 with SMTP id
- d15-20020a9d5e0f000000b0066224583ef7mr27837215oti.150.1669713498572; Tue, 29
- Nov 2022 01:18:18 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q3VJNLqaoParKnxQkXEzpamhDPk61h5s+M+YlUhHQZA=;
+        b=kWeRGBdOg+s2o+MMp269e6m1tcC5OvmBTYyyKyA9PfEp+IfZojma1EZ8qZwsASwnIu
+         p1L/y17FYhhz+4raXHC7YpCC7cYIEbupMFirmiYBRROkhX5vKtJikjjG+QtqiUZr2xv0
+         hbywKzPiSiyGPpp6XF6cblY/+t0Cx8Tq9pG9CwSgUBfHJey2LFDOw1Xaf5iufN4yV6+J
+         2XdCBUUTWUjjEDQZ1lgUwZ3Qz6Mj4TAb92Kpwy58uY0MdCbtNjZQJvxsLE9dZ1WwVSFU
+         ouXzMuf06j31Lk1TF8vFj9Qqy7FCea8iqgYIUpilCHhrCCPpjnEK9vm7od49dtuD/34e
+         Vliw==
+X-Gm-Message-State: ANoB5pkfBAhzvM1tGViPWZqAIq/YJBIzsLVUi5XHjMcHcrCGBhiDOFQ4
+	3mzu0a0siOtswIOepXjugptkm2NLyw8T5w==
+X-Google-Smtp-Source: AA0mqf7ZBCQNYEfkwig7bma/A7K/S7f8jdtg1y9bROw98BH59b/7MtMM0dtGqo6QNibJlvdTHroSxA==
+X-Received: by 2002:a5d:42d0:0:b0:241:d8e2:868d with SMTP id t16-20020a5d42d0000000b00241d8e2868dmr26442076wrr.671.1669715389003;
+        Tue, 29 Nov 2022 01:49:49 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id p17-20020a05600c359100b003c6b9749505sm1479577wmq.30.2022.11.29.01.49.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Nov 2022 01:49:48 -0800 (PST)
+Date: Tue, 29 Nov 2022 10:49:46 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: panqinglin2020@iscas.ac.cn
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+	xuyinan@ict.ac.cn, conor@kernel.org, alex@ghiti.fr,
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v8 1/3] riscv: mm: modify pte format for Svnapot
+Message-ID: <20221129094946.efbjzr2hbs3ieeyk@kamzik>
+References: <20221128022719.328770-1-panqinglin2020@iscas.ac.cn>
+ <20221128022719.328770-2-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-References: <e39851df-251d-662d-3319-af9d948a9430@sholland.org> <mhng-028a3e75-6cd0-4775-ac68-3e0eb70c91ae@palmer-ri-x1c9>
-In-Reply-To: <mhng-028a3e75-6cd0-4775-ac68-3e0eb70c91ae@palmer-ri-x1c9>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Tue, 29 Nov 2022 14:48:08 +0530
-Message-ID: <CAK9=C2VCXLOMBa4JQPRDjXQN5LnNdp3gFKmuMb28EONbkHiRpg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: head: use 0 as the default text_offset
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: samuel@sholland.org, Atish Patra <atishp@rivosinc.com>, jszhang@kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20221128022719.328770-2-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_011828_267778_BD247A1D 
-X-CRM114-Status: GOOD (  53.23  )
+X-CRM114-CacheID: sfid-20221129_014952_789261_F028A542 
+X-CRM114-Status: GOOD (  31.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,163 +91,244 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 29, 2022 at 11:50 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Mon, Nov 28, 2022 at 10:27:17AM +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> Add one static key to enable/disable svnapot support, enable this static
+> key when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+> option is set. It will influence the behavior of has_svnapot. All code
+> dependent on svnapot should make sure that has_svnapot return true firstly.
+> 
+> Modify PTE definition for Svnapot, and creates some functions in pgtable.h
+> to mark a PTE as napot and check if it is a Svnapot PTE. Until now, only
+> 64KB napot size is supported in spec, so some macros has only 64KB version.
+> 
+> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 3b41165a8b10..1671938f2f81 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -394,6 +394,20 @@ config RISCV_ISA_C
+>  
+>  	  If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_SVNAPOT
+> +	bool "SVNAPOT extension support"
+> +	depends on 64BIT && MMU
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	  Allow kernel to detect SVNAPOT ISA-extension dynamically in boot time
+> +	  and enable its usage.
+> +
+> +	  SVNAPOT extension helps to mark contiguous PTEs as a range
+> +	  of contiguous virtual-to-physical translations, with a naturally
+> +	  aligned power-of-2 (NAPOT) granularity larger than the base 4KB page
+> +	  size.
+> +
+>  config RISCV_ISA_SVPBMT
+>  	bool "SVPBMT extension support"
+>  	depends on 64BIT && MMU
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index b22525290073..15cda8f131aa 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+>   */
+>  enum riscv_isa_ext_id {
+>  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> +	RISCV_ISA_EXT_SVNAPOT,
+>  	RISCV_ISA_EXT_SVPBMT,
+>  	RISCV_ISA_EXT_ZICBOM,
+>  	RISCV_ISA_EXT_ZIHINTPAUSE,
+> @@ -69,6 +70,7 @@ enum riscv_isa_ext_id {
+>   */
+>  enum riscv_isa_ext_key {
+>  	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
+> +	RISCV_ISA_EXT_KEY_SVNAPOT,
+>  	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
+>  	RISCV_ISA_EXT_KEY_SVINVAL,
+>  	RISCV_ISA_EXT_KEY_MAX,
+> @@ -90,6 +92,8 @@ static __always_inline int riscv_isa_ext2key(int num)
+>  		return RISCV_ISA_EXT_KEY_FPU;
+>  	case RISCV_ISA_EXT_d:
+>  		return RISCV_ISA_EXT_KEY_FPU;
+> +	case RISCV_ISA_EXT_SVNAPOT:
+> +		return RISCV_ISA_EXT_KEY_SVNAPOT;
+>  	case RISCV_ISA_EXT_ZIHINTPAUSE:
+>  		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
+>  	case RISCV_ISA_EXT_SVINVAL:
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index ac70b0fd9a9a..349fad5e35de 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -16,11 +16,6 @@
+>  #define PAGE_SIZE	(_AC(1, UL) << PAGE_SHIFT)
+>  #define PAGE_MASK	(~(PAGE_SIZE - 1))
+>  
+> -#ifdef CONFIG_64BIT
+> -#define HUGE_MAX_HSTATE		2
+> -#else
+> -#define HUGE_MAX_HSTATE		1
+> -#endif
+>  #define HPAGE_SHIFT		PMD_SHIFT
+>  #define HPAGE_SIZE		(_AC(1, UL) << HPAGE_SHIFT)
+>  #define HPAGE_MASK              (~(HPAGE_SIZE - 1))
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index dc42375c2357..598958cbda50 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -74,6 +74,40 @@ typedef struct {
+>   */
+>  #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>  
+> +/*
+> + * [63] Svnapot definitions:
+> + * 0 Svnapot disabled
+> + * 1 Svnapot enabled
+> + */
+> +#define _PAGE_NAPOT_SHIFT	63
+> +#define _PAGE_NAPOT		BIT(_PAGE_NAPOT_SHIFT)
+> +/*
+> + * Only 64KB (order 4) napot ptes supported.
+> + */
+> +#define NAPOT_CONT_ORDER_BASE 4
+> +enum napot_cont_order {
+> +	NAPOT_CONT64KB_ORDER = NAPOT_CONT_ORDER_BASE,
+> +	NAPOT_ORDER_MAX,
+> +};
+> +
+> +#define for_each_napot_order(order)						\
+> +	for (order = NAPOT_CONT_ORDER_BASE; order < NAPOT_ORDER_MAX; order++)
+> +#define for_each_napot_order_rev(order)						\
+> +	for (order = NAPOT_ORDER_MAX - 1;					\
+> +	     order >= NAPOT_CONT_ORDER_BASE; order--)
+> +#define napot_cont_order(val)	(__builtin_ctzl((val.pte >> _PAGE_PFN_SHIFT) << 1))
+> +
+> +#define napot_cont_shift(order)	((order) + PAGE_SHIFT)
+> +#define napot_cont_size(order)	BIT(napot_cont_shift(order))
+> +#define napot_cont_mask(order)	(napot_cont_size(order) - 1UL)
+> +#define napot_pte_num(order)	BIT(order)
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +#define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
+> +#else
+> +#define HUGE_MAX_HSTATE		2
+> +#endif
+> +
+>  /*
+>   * [62:61] Svpbmt Memory Type definitions:
+>   *
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index c61ae83aadee..af6174e3fd97 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -6,10 +6,12 @@
+>  #ifndef _ASM_RISCV_PGTABLE_H
+>  #define _ASM_RISCV_PGTABLE_H
+>  
+> +#include <linux/jump_label.h>
+>  #include <linux/mmzone.h>
+>  #include <linux/sizes.h>
+>  
+>  #include <asm/pgtable-bits.h>
+> +#include <asm/hwcap.h>
+>  
+>  #ifndef CONFIG_MMU
+>  #define KERNEL_LINK_ADDR	PAGE_OFFSET
+> @@ -264,10 +266,45 @@ static inline pte_t pud_pte(pud_t pud)
+>  	return __pte(pud_val(pud));
+>  }
+>  
+> +static __always_inline bool has_svnapot(void)
+> +{
+> +	return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVNAPOT]);
+
+I'm not sure if this should be likely or unlikely.
+
+> +}
+> +
+> +#ifdef CONFIG_RISCV_ISA_SVNAPOT
+> +
+> +static inline unsigned long pte_napot(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_NAPOT;
+> +}
+> +
+> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+> +{
+> +	int pos = order - 1 + _PAGE_PFN_SHIFT;
+> +	unsigned long napot_bit = BIT(pos);
+> +	unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
+> +
+> +	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+> +}
+> +
+> +#else
+> +
+> +static inline unsigned long pte_napot(pte_t pte)
+> +{
+> +	return 0;
+> +}
+> +
+> +#endif /* CONFIG_RISCV_ISA_SVNAPOT */
+> +
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -	return __page_val_to_pfn(pte_val(pte));
+> +	unsigned long res  = __page_val_to_pfn(pte_val(pte));
+> +
+> +	if (has_svnapot() && pte_napot(pte))
+
+We've been burned with static branches inside heavily used inline
+functions before (see [1]). There's a series[2] that was meant to
+help with this. I haven't seen a refresh of that though.
+
+[1] https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sholland.org/
+[2] https://lore.kernel.org/all/20221006070818.3616-1-jszhang@kernel.org/
+
+> +		res = res & (res - 1UL);
+> +
+> +	return res;
+>  }
+>  
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index bf9dd6764bad..88495f5fcafd 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -165,6 +165,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>  	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+>  	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 694267d1fe81..ad12fb5363c3 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -205,6 +205,7 @@ void __init riscv_fill_hwcap(void)
+>  				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>  				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+>  				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
+> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>  			}
+>  #undef SET_ISA_EXT_MAP
+>  		}
+> -- 
+> 2.37.4
 >
-> On Mon, 28 Nov 2022 21:04:48 PST (-0800), samuel@sholland.org wrote:
-> > On 11/28/22 14:11, Atish Kumar Patra wrote:
-> >> On Mon, Nov 28, 2022 at 7:34 AM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >>>
-> >>> Commit 0f327f2aaad6 ("RISC-V: Add an Image header that boot loader can
-> >>> parse.") adds an image header which "is based on ARM64 boot image
-> >>> header and provides an opportunity to combine both ARM64 & RISC-V
-> >>> image headers in future.". At that time, arm64's default text_offset
-> >>> is 0x80000, this is to give "512 KB of guaranteed BSS space to put
-> >>> the swapper page tables" as commit cfa7ede20f13 ("arm64: set TEXT_OFFSET
-> >>> to 0x0 in preparation for removing it entirely") pointed out, but
-> >>> riscv doesn't need the space, so use 0 as the default text_offset.
-> >>>
-> >>> Before this patch, booting linux kernel on Sipeed bl808 M1s Dock
-> >>> with u-boot booti cmd:
-> >>> [    0.000000] OF: fdt: Ignoring memory range 0x50000000 - 0x50200000
-> >>> ...
-> >>> [    0.000000]   DMA32    [mem 0x0000000050200000-0x0000000053ffffff]
-> >>> As can be seen, 2MB DDR(0x50000000 - 0x501fffff) can't be used by
-> >>> linux.
-> >>>
-> >>> After this patch, the 64MB DDR is fully usable by linux
-> >>> [    0.000000]   DMA32    [mem 0x0000000050000000-0x0000000053ffffff]
-> >>>
-> >>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> >>> ---
-> >>>  arch/riscv/kernel/head.S | 12 +-----------
-> >>>  1 file changed, 1 insertion(+), 11 deletions(-)
-> >>>
-> >>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> >>> index b865046e4dbb..ef95943f7a70 100644
-> >>> --- a/arch/riscv/kernel/head.S
-> >>> +++ b/arch/riscv/kernel/head.S
-> >>> @@ -38,18 +38,8 @@ ENTRY(_start)
-> >>>         .word 0
-> >>>  #endif
-> >>>         .balign 8
-> >>> -#ifdef CONFIG_RISCV_M_MODE
-> >>> -       /* Image load offset (0MB) from start of RAM for M-mode */
-> >>> +       /* Image load offset (0MB) from start of RAM */
-> >>>         .dword 0
-> >>> -#else
-> >>> -#if __riscv_xlen == 64
-> >>> -       /* Image load offset(2MB) from start of RAM */
-> >>> -       .dword 0x200000
-> >>> -#else
-> >>> -       /* Image load offset(4MB) from start of RAM */
-> >>> -       .dword 0x400000
-> >>> -#endif
-> >>> -#endif
-> >>
-> >> NACK.
-> >> RV64 needs to boot at a 2MB aligned address and RV32 needs to boot at
-> >> a 4MB aligned address.
-> >> The firmware is assumed to live at the start of DRAM for Linux running
-> >> in S-mode.
-> >
-> > What needs to happen so we can stop making this assumption? If the SBI
-> > implementation wants to reserve memory, it should use the devicetree to
-> > do so. OpenSBI already does this.
->
-> IMO we've really screwed up the boot flow on RISC-V.  Having Linux
-> reserve space for the firmware is just all backwards, Linux can't know
-> how much memory the firmware needs (which manifests under large hart
-> counts in OpenSBI, for example).  Unfortunately there's no specification
-> that defines these platform-level details, so we're stuck depending on
-> unspecified behavior like this.
->
-> I think we could fix this by either making Linux's early boot relocation
-> code work sanely (fix whatever bugs are there, document what can't be
-> fixed, and then add some sort of Image flag to tell firmware the kernel
-> can be relocated) or relying on relocatable firmware, but both of those
-> come with some costs ...
 
-Clearly, there is a misunderstanding about the "offset" field in the kernel
-image header.
+Besides the static branch questions, this looks good to me
 
-The "offset" field is not for reserving memory for firmware (OpenSBI). The
-value of "offset" is a hint to bootloader that kernel expects to be booted
-at a particular aligned physical address (2M for RV64 and 4M for RV32).
-This "offset" hint is based on the fact that the kernel tries its best to use
-huge mappings for kernel virtual addresses which results in good
-performance in kernel space.
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-In fact, even today a bootloader can happily load the kernel at the
-RAM_START and it will boot perfectly fine.
-
-The real issue is that whenever __pa(PAGE_OFFSET) > RAM_START,
-kernel will reserve memory from RAM_START to __pa(PAGE_OFFSET)
-and this will happen irrespective where the firmware is running. The
-patch posted by Alex tries to solve this issue whereas the current patch
-tries to change the "offset" in the image header which is totally wrong.
-
-Also, the Linux reserved-memory DT bindings define a standard way
-to inform the kernel about reserved memory areas. The OpenSBI
-firmware uses reserved-memory DT bindings to reserve its own
-memory so kernel does not have to guess anything.
-
->
-> > Throwing away 2 MiB of RAM is quite wasteful considering we have
-> > multiple SoCs (D1s, BL808) that are limited to 64 MiB of in-package RAM.
->
-> ... and I'd argue that users on systems don't want to pay those costs.
-> In fact, I'd argue that systems like that don't want resident firmware
-> at all.
->
-> So let's just add a CONFIG_SBI=n, and then just use direct drivers for
-> everything.  If the firmware doesn't need to be resident then it's
-> pretty straight-forward to support these 0 offsets, so we can just add
-> that as another Kconfig.  Sure this will trip up firmware that depends
-> on these fixed reservations, but saying "the resident firmware fits in 0
-> superpages" is just as much of a platform-specific dependency as saying
-> "the resident firmware fits in 1 superpage".  If firmware can't handle
-> this field in the Image format then we're going to end up with breakages
-> at some point, it might as well be now.
-
-The firmware (OpenSBI) does not depend on any fixed memory
-reservations from the kernel. It is capable of running from any
-memory location since it is compiled using -fPIC.
-
->
-> If these systems don't have all the ISA bits necessary to avoid M-mode
-> entirely then we can just implement a tiny M-mode stub in Linux that
-> gets left around during early boot and then shims stuff to S-mode.
-> That'll be a bit of a headache and with some extensions it can be
-> avoided, the standard stuff won't allow for that until the latest round
-> of specs is done but if it's possible via whatever custom extensions are
-> in these things then that's probably the way to go.
-
-Another misunderstanding here is that SBI stuff == firmware stuff. All
-RISC-V hypervisors implement the SBI spec for Guest/VM. In absence
-of SBI, how will Guest/VM bring-up secondary VCPUs or reboot itself ?
-
-In fact without SBI, all paravirt approaches (such as steal time
-accounting, time scaling, system reset, CPU hotplug etc) become
-fragmented across hypervisors. Do we expect all hypervisors (proprietary
-or opensource) send their own non-standard driver support to Linux
-which is otherwise standardized through SBI spec ?
-
-The M-mode can have dedicated resources (debug CSRs, PMU
-counter configuration CSRs, etc) so in absence of SBI how will
-S-mode use these features? We have more M-mode only resources
-being defined by RVI (example Resumable NMIs) which will eventually
-require SBI abstraction for S-mode.
-
-Let alone CSRs, on future platforms, the M-mode will have attestation
-capability so without SBI how will S-mode get this attestation facility.
-
->
-> We'll probably also end up shaking out some bugs in that early
-> relocation code, but again no big deal: we'll need to chase those down
-> at some point, it might as well be now.
-
-Regards,
-Anup
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
