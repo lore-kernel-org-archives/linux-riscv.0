@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24FDC4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 15:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD02C4167B
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 15:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4rrsZH0E/V0swvd4Vh7RanKgC0jPYyEcAWi4N1Ka8zA=; b=lE43qI43ftkqkH
-	98LjZgH7hByTmXLSq31CMm/y4iwQK12uLAbm3RkIzUYH3nqg5K8iN3JgLjUmJpwNYnpfmtvaZVZVS
-	B+Z7VUbhSRWs8yoezJrVaAoZf26Y0J7VUYt/Qc9djTXBXMB9uBuwCMzyW+Wa/NoiFr5xxBi9dFuYT
-	YeZqGJEzsLe9OKwtNh41YG93ERKLyGuXzLI8QTRn7v79CO+CtOaVFoB+y9Av3vJHFYydjz0FzUUFi
-	Bwb2pgjDRt3KnV8iptHUwwoox5y7v3Tw1T1jVfDR6uzt5wTk0Pd2TwEr9utcO7atDXmrnDWebPCWW
-	1Z/R/cp3pdsiso5cWZ/g==;
+	List-Owner; bh=urtzqU8UlOEXsYKOuJvmtuEN9iGAHc0n/wOeWDxdEh8=; b=NEVqYtp2SzxINu
+	d9MwapZXsbN9Bw3CVt4To22IaPcs+GBF5LFFsXbNvn4hdZi8iqKwUdhf/Y5YorUYxqsNRB6HIEvYb
+	63rX4LSdFBpF9tCtQ2kvijRTl1kc1eRZi8VjHsVNxezKpnyHmxScaiHzz+T+3RfeYIMVY2IRSpTEe
+	AvzzJKoZ7e/z6UyIIk2jiPiz8i8HIetPdL+fA3T0OZSapNBHDagx+LAruFO+jgMiMLaVc8hUZulzt
+	/fc4e8r/GnhLM7K6e4k4h95UZO8Oui9NOPC1PXfhagAfUGW38QfAXYfcLVOHVgbuxh61E9C9hqqPp
+	J99w0aJzwoKqJvCwt/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p026q-009XFz-Ky; Tue, 29 Nov 2022 15:01:20 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1p02Mq-009elR-Fc; Tue, 29 Nov 2022 15:17:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p026a-009X6L-S3
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 15:01:08 +0000
-Received: by mail-ej1-x629.google.com with SMTP id b2so18161948eja.7
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 07:01:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AhLl7r1HGVU7YRWytAeW1LwK6+bVBtwP1ln3M6k7lLA=;
-        b=b/81PVYn2t7vHOYF0Vp2UZPuyzjg/ZaU/78otRm5yU7bvcoh7wCjc6l4JQy/NbohRS
-         t8JvrVOnzqEAOzA/YVNHgP7yWVBIp77LdO1BLGNcWgsXpfFYZqC0z9aeL3+OIPhIW65N
-         V/ABLlKGuzDWipRQ96gOKwziHqiN05uwFatKZemXbEC++hwvaTbuUfl2N1X6oJJTB3BY
-         RCjUt9CFPbJ/pz8HUoeOiIhBP+GF82cYNoJdjwZo5wJEhW+8x4GJj13ubB9n7R6/jAfi
-         TTqvA7pCAPfrhfzkZrsjFdHvi6iFvT0KSNdl95dgvCZnVXuxT8OAH1go9jJ/vr+/0hCs
-         87oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AhLl7r1HGVU7YRWytAeW1LwK6+bVBtwP1ln3M6k7lLA=;
-        b=vuVqf1MHd6FB5QsOjLebiTPyX0NrQkQey7iy2m1TCQnctO/Sq2yWVUjq2adE4WgkH4
-         gEp7S3x//ct7yfZkOt85h210ZigzzDUuBk8jhZHxZcc/UFhrc6qjsRVuLXdap9cSpzuf
-         ORzD0vQ9fEKmh+K7s3h9BnHE4EMURDq4Eqr30jAzfKUKpFHe1yCFLxQcLLngU4DXV9P6
-         sKJGLsDqFS4TjSOgKIE29O9woPVecbCA7z3xL04rfF+V+Qx6xUXvi3fD7QAGEBVdz9N0
-         V36aT6XBq+qNX+wOvpQ3j1/AVT6N4FDEglROfeekboZWP5ov5gGxjC7LBw/qmybHnluF
-         imNg==
-X-Gm-Message-State: ANoB5pmgY4/PR6dfyWW9M9yvy8ND3GdJbsszu6OrtJAZAW5fRdD2HAaL
-	ntFooBEpmog2k9pWH7HE46IPNnnfOpWnpQ==
-X-Google-Smtp-Source: AA0mqf47AKOUr4JSVaF0zMfFekOXN+dfs2svk6G6FSL+8YruCbEKgOZ9hWC8pWb2WpkJkICfB1XHkA==
-X-Received: by 2002:a17:906:65c4:b0:7ad:d250:b907 with SMTP id z4-20020a17090665c400b007add250b907mr47958486ejn.737.1669734061718;
-        Tue, 29 Nov 2022 07:01:01 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id p35-20020a056402502300b00463b9d47e1fsm6301162eda.71.2022.11.29.07.01.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 07:01:01 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	prabhakar.csengg@gmail.com
-Subject: [PATCH v2 4/4] riscv: Don't duplicate _ALTERNATIVE_CFG* macros
-Date: Tue, 29 Nov 2022 16:00:53 +0100
-Message-Id: <20221129150053.50464-5-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20221129150053.50464-1-ajones@ventanamicro.com>
-References: <20221129150053.50464-1-ajones@ventanamicro.com>
+	id 1p02Mm-009egg-FX
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 15:17:50 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CBAF46179B;
+	Tue, 29 Nov 2022 15:17:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 582DDC43470;
+	Tue, 29 Nov 2022 15:17:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669735066;
+	bh=e+Hn5pR9Mx/HnkooeOoLey+ZYeFJJe+XXIc7bPgCKm4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y+T8dgIbASyqpaWpLk5pHZ0L5E6CRZyXadDwEvmFUtI7rXtupctEwe1WcHAZrYl/K
+	 tSEtd+r5BIKX1xhHoafIyS4cpLID3+udc+csgh1izJuTlDHkg5UkTov8xvpe0hquz/
+	 yLzLOKYKdC2oMsuWLFh5XdLrKYVyG14pzVU6WCHYVrVBg1+quHCvu1/4D+6R8dbznL
+	 JcoGi1Wnf2CMbWH/nBN5P2g9pdHJSYfd6oJZ9Qb8s+aydHONh0gTjjEafc8F4hUBmE
+	 AZN2Uh5hunRustX/kwhTDbtowkqoa+ZquHoa57UmjqwAl9gTH9EJbioRssIUikygu8
+	 2HErlwX3yK4Xw==
+Date: Tue, 29 Nov 2022 23:07:51 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, samuel@sholland.org,
+	Atish Patra <atishp@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: head: use 0 as the default text_offset
+Message-ID: <Y4YgR12aQAgZyEck@xhacker>
+References: <e39851df-251d-662d-3319-af9d948a9430@sholland.org>
+ <mhng-028a3e75-6cd0-4775-ac68-3e0eb70c91ae@palmer-ri-x1c9>
+ <CAK9=C2VCXLOMBa4JQPRDjXQN5LnNdp3gFKmuMb28EONbkHiRpg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK9=C2VCXLOMBa4JQPRDjXQN5LnNdp3gFKmuMb28EONbkHiRpg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_070106_281664_06EEA4D2 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221129_071748_670741_929571AA 
+X-CRM114-Status: GOOD (  65.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,107 +76,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reduce clutter by only defining the _ALTERNATIVE_CFG* macros once,
-rather than once for assembly and once for C. To do that, we need to
-add __ALTERNATIVE_CFG* macros to the assembly side, but those are
-one-liners. Also take the opportunity to do a bit of reformatting,
-taking full advantage of the fact checkpatch gives us 100 char lines.
+On Tue, Nov 29, 2022 at 02:48:08PM +0530, Anup Patel wrote:
+> On Tue, Nov 29, 2022 at 11:50 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >
+> > On Mon, 28 Nov 2022 21:04:48 PST (-0800), samuel@sholland.org wrote:
+> > > On 11/28/22 14:11, Atish Kumar Patra wrote:
+> > >> On Mon, Nov 28, 2022 at 7:34 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+> > >>>
+> > >>> Commit 0f327f2aaad6 ("RISC-V: Add an Image header that boot loader can
+> > >>> parse.") adds an image header which "is based on ARM64 boot image
+> > >>> header and provides an opportunity to combine both ARM64 & RISC-V
+> > >>> image headers in future.". At that time, arm64's default text_offset
+> > >>> is 0x80000, this is to give "512 KB of guaranteed BSS space to put
+> > >>> the swapper page tables" as commit cfa7ede20f13 ("arm64: set TEXT_OFFSET
+> > >>> to 0x0 in preparation for removing it entirely") pointed out, but
+> > >>> riscv doesn't need the space, so use 0 as the default text_offset.
+> > >>>
+> > >>> Before this patch, booting linux kernel on Sipeed bl808 M1s Dock
+> > >>> with u-boot booti cmd:
+> > >>> [    0.000000] OF: fdt: Ignoring memory range 0x50000000 - 0x50200000
+> > >>> ...
+> > >>> [    0.000000]   DMA32    [mem 0x0000000050200000-0x0000000053ffffff]
+> > >>> As can be seen, 2MB DDR(0x50000000 - 0x501fffff) can't be used by
+> > >>> linux.
+> > >>>
+> > >>> After this patch, the 64MB DDR is fully usable by linux
+> > >>> [    0.000000]   DMA32    [mem 0x0000000050000000-0x0000000053ffffff]
+> > >>>
+> > >>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > >>> ---
+> > >>>  arch/riscv/kernel/head.S | 12 +-----------
+> > >>>  1 file changed, 1 insertion(+), 11 deletions(-)
+> > >>>
+> > >>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > >>> index b865046e4dbb..ef95943f7a70 100644
+> > >>> --- a/arch/riscv/kernel/head.S
+> > >>> +++ b/arch/riscv/kernel/head.S
+> > >>> @@ -38,18 +38,8 @@ ENTRY(_start)
+> > >>>         .word 0
+> > >>>  #endif
+> > >>>         .balign 8
+> > >>> -#ifdef CONFIG_RISCV_M_MODE
+> > >>> -       /* Image load offset (0MB) from start of RAM for M-mode */
+> > >>> +       /* Image load offset (0MB) from start of RAM */
+> > >>>         .dword 0
+> > >>> -#else
+> > >>> -#if __riscv_xlen == 64
+> > >>> -       /* Image load offset(2MB) from start of RAM */
+> > >>> -       .dword 0x200000
+> > >>> -#else
+> > >>> -       /* Image load offset(4MB) from start of RAM */
+> > >>> -       .dword 0x400000
+> > >>> -#endif
+> > >>> -#endif
+> > >>
+> > >> NACK.
+> > >> RV64 needs to boot at a 2MB aligned address and RV32 needs to boot at
+> > >> a 4MB aligned address.
+> > >> The firmware is assumed to live at the start of DRAM for Linux running
+> > >> in S-mode.
+> > >
+> > > What needs to happen so we can stop making this assumption? If the SBI
+> > > implementation wants to reserve memory, it should use the devicetree to
+> > > do so. OpenSBI already does this.
+> >
+> > IMO we've really screwed up the boot flow on RISC-V.  Having Linux
+> > reserve space for the firmware is just all backwards, Linux can't know
+> > how much memory the firmware needs (which manifests under large hart
+> > counts in OpenSBI, for example).  Unfortunately there's no specification
+> > that defines these platform-level details, so we're stuck depending on
+> > unspecified behavior like this.
+> >
+> > I think we could fix this by either making Linux's early boot relocation
+> > code work sanely (fix whatever bugs are there, document what can't be
+> > fixed, and then add some sort of Image flag to tell firmware the kernel
+> > can be relocated) or relying on relocatable firmware, but both of those
+> > come with some costs ...
+> 
+> Clearly, there is a misunderstanding about the "offset" field in the kernel
+> image header.
+> 
+> The "offset" field is not for reserving memory for firmware (OpenSBI). The
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/alternative-macros.h | 53 +++++++--------------
- 1 file changed, 17 insertions(+), 36 deletions(-)
+This is also my understanding -- offset != reserve memory for firmware.
 
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 9ea95331a280..7226e2462584 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -44,23 +44,14 @@
- 	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
- .endm
- 
--#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
--	ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k)
--
- .macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
- 				new_c_2, vendor_id_2, errata_id_2, enable_2
- 	ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable_1
- 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
- .endm
- 
--#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
--					CONFIG_k_1,			\
--				  new_c_2, vendor_id_2, errata_id_2,	\
--					CONFIG_k_2)			\
--	ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
--					IS_ENABLED(CONFIG_k_1),		\
--				 new_c_2, vendor_id_2, errata_id_2,	\
--					IS_ENABLED(CONFIG_k_2)
-+#define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
-+#define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
- 
- #else /* !__ASSEMBLY__ */
- 
-@@ -102,27 +93,21 @@
- 	"887 :\n"							\
- 	ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
- 
--#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
--	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
--
--#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
--					enable_1,			\
--				   new_c_2, vendor_id_2, errata_id_2,	\
--					enable_2)			\
--	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1) \
-+#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, errata_id_2, enable_2)	\
-+	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
- 	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
- 
--#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
--					CONFIG_k_1,			\
--				  new_c_2, vendor_id_2, errata_id_2,	\
--					CONFIG_k_2)			\
--	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,	\
--					IS_ENABLED(CONFIG_k_1),		\
--				   new_c_2, vendor_id_2, errata_id_2,	\
--					IS_ENABLED(CONFIG_k_2))
--
- #endif /* __ASSEMBLY__ */
- 
-+#define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
-+	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
-+
-+#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
-+	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
-+				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
-+
- #else /* CONFIG_RISCV_ALTERNATIVE */
- #ifdef __ASSEMBLY__
- 
-@@ -173,13 +158,9 @@
-  * on the following sample code and then replace ALTERNATIVE() with
-  * ALTERNATIVE_2() to append its customized content.
-  */
--#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1,		\
--					errata_id_1, CONFIG_k_1,	\
--				   new_content_2, vendor_id_2,		\
--					errata_id_2, CONFIG_k_2)	\
--	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1,	\
--					    errata_id_1, CONFIG_k_1,	\
--					new_content_2, vendor_id_2,	\
--					    errata_id_2, CONFIG_k_2)
-+#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
-+	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
-+					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
- 
- #endif
--- 
-2.38.1
+> value of "offset" is a hint to bootloader that kernel expects to be booted
+> at a particular aligned physical address (2M for RV64 and 4M for RV32).
+> This "offset" hint is based on the fact that the kernel tries its best to use
+> huge mappings for kernel virtual addresses which results in good
+> performance in kernel space.
 
+IIUC, the "offset" is used to tell bootloader to load the kernel to
+linux_start_ram + offset, whether align to 2MB or not isn't the target.
+u-boot's booti_setup() clearly indicates this usage.
+So if linux_start_ram isn't 2MB aligned, linux_start_ram + offset isn't
+2MB aligned either. IMHO, if we do care about performance, it's the
+bootloader's job to chose a suitable linux_start_ram.
+
+And the reason arm64 used text_offset is to ensure space to put the
+swapper page tables, after v4.6, text_offset in arm64 is 0 as well.
+
+> 
+> In fact, even today a bootloader can happily load the kernel at the
+> RAM_START and it will boot perfectly fine.
+> 
+> The real issue is that whenever __pa(PAGE_OFFSET) > RAM_START,
+> kernel will reserve memory from RAM_START to __pa(PAGE_OFFSET)
+> and this will happen irrespective where the firmware is running. The
+> patch posted by Alex tries to solve this issue whereas the current patch
+> tries to change the "offset" in the image header which is totally wrong.
+> 
+> Also, the Linux reserved-memory DT bindings define a standard way
+> to inform the kernel about reserved memory areas. The OpenSBI
+> firmware uses reserved-memory DT bindings to reserve its own
+> memory so kernel does not have to guess anything.
+> 
+> >
+> > > Throwing away 2 MiB of RAM is quite wasteful considering we have
+> > > multiple SoCs (D1s, BL808) that are limited to 64 MiB of in-package RAM.
+> >
+> > ... and I'd argue that users on systems don't want to pay those costs.
+> > In fact, I'd argue that systems like that don't want resident firmware
+> > at all.
+> >
+> > So let's just add a CONFIG_SBI=n, and then just use direct drivers for
+> > everything.  If the firmware doesn't need to be resident then it's
+> > pretty straight-forward to support these 0 offsets, so we can just add
+> > that as another Kconfig.  Sure this will trip up firmware that depends
+> > on these fixed reservations, but saying "the resident firmware fits in 0
+> > superpages" is just as much of a platform-specific dependency as saying
+> > "the resident firmware fits in 1 superpage".  If firmware can't handle
+> > this field in the Image format then we're going to end up with breakages
+> > at some point, it might as well be now.
+> 
+> The firmware (OpenSBI) does not depend on any fixed memory
+> reservations from the kernel. It is capable of running from any
+> memory location since it is compiled using -fPIC.
+> 
+> >
+> > If these systems don't have all the ISA bits necessary to avoid M-mode
+> > entirely then we can just implement a tiny M-mode stub in Linux that
+> > gets left around during early boot and then shims stuff to S-mode.
+> > That'll be a bit of a headache and with some extensions it can be
+> > avoided, the standard stuff won't allow for that until the latest round
+> > of specs is done but if it's possible via whatever custom extensions are
+> > in these things then that's probably the way to go.
+> 
+> Another misunderstanding here is that SBI stuff == firmware stuff. All
+> RISC-V hypervisors implement the SBI spec for Guest/VM. In absence
+> of SBI, how will Guest/VM bring-up secondary VCPUs or reboot itself ?
+> 
+> In fact without SBI, all paravirt approaches (such as steal time
+> accounting, time scaling, system reset, CPU hotplug etc) become
+> fragmented across hypervisors. Do we expect all hypervisors (proprietary
+> or opensource) send their own non-standard driver support to Linux
+> which is otherwise standardized through SBI spec ?
+> 
+> The M-mode can have dedicated resources (debug CSRs, PMU
+> counter configuration CSRs, etc) so in absence of SBI how will
+> S-mode use these features? We have more M-mode only resources
+> being defined by RVI (example Resumable NMIs) which will eventually
+> require SBI abstraction for S-mode.
+> 
+> Let alone CSRs, on future platforms, the M-mode will have attestation
+> capability so without SBI how will S-mode get this attestation facility.
+> 
+> >
+> > We'll probably also end up shaking out some bugs in that early
+> > relocation code, but again no big deal: we'll need to chase those down
+> > at some point, it might as well be now.
+> 
+> Regards,
+> Anup
 
 _______________________________________________
 linux-riscv mailing list
