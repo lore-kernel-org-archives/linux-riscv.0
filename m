@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90643C4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 03:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F631C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 05:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HTXaoCjCbwmWfctIQhKD8B2gb+m4PimWh9U1FX+VOE4=; b=hfVaE/q3jIIqIl
-	iUK9ANSM5sQdwWZeOIBpAYCmnZvdah7IeKVp8ZS5Lnc/zMfqkfGjtjZvsBHogieougpxf8lpe6GEI
-	fEZP1pU1v9laSdrLV8fEahANTvPueV1XwduUohobveVWZ9ZVpUheV8rNouEJnErJ9oSzt6jllESE0
-	0HqSZ8xr9Xjx4rKdzr75bT4ls+zzpbq52VOouRtAtBgQq4rvmCHf2V+L02XgM6dz/5htl0We3tVoi
-	dU8ekA696cEt3rVSV9MT1vJHPSrkr11K/+Lao4Uwb2ZB7A97jm4N6Bq8nCg3wNPu1bGn1B+xwOXjg
-	xQhxs/z+ZcmR9eQ+DeHg==;
+	List-Owner; bh=OSJZjMbsbyvL9Mf2alWuoQEjhrlEeTBVngJounXau/o=; b=quxB4ro0P1nhSh
+	XrjaHjwTc3YN7qARQ5CePYf1U7lOJMbFDKemr9fY/6AiMGT7EQR2JTM2CKSaOq6SAAMocUjNMZE6k
+	sHOaBro5Kg2bb00LaXsFqalcn7z2C9sxd7Cw44VwEhji17m/EDhqAkcLV9lE7FuYhlH5nPiK2NvLp
+	68RlekGR/G6enMUE1NleWG1gq1d7qtPlpkCrgVbk2Yk/6QZOgx3eQQOTzRs6/tXRXH4Wan9MtTCL8
+	kjxeQXWegwMjYPSxl7BChXpOKcXmp4HEFUrqKES6yOJziYiIYU53e9HvDkp0bFQaurwptJ/cS8Gen
+	UEjgZXQ78wLW44lfj8xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozrN7-005kDn-Ez; Tue, 29 Nov 2022 03:33:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ozsnk-006HQC-Tl; Tue, 29 Nov 2022 05:05:00 +0000
+Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozrN3-005k9e-Al
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 03:33:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CC1486153C;
-	Tue, 29 Nov 2022 03:33:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67630C433C1;
-	Tue, 29 Nov 2022 03:33:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669692800;
-	bh=yRZZpSHTru37pP0xVWI5dcSVEuncVSTYs2Ve2DQgqwA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RApm8RpioNq7YDRhAq0ghgch/Ceh5G4TrrKqaBjoj/MM69Xqe7Eb9HExiRXqobKRe
-	 rTPlWp1pDHeCS5utYERKhXMwChlrYJw7xFL/qUnxYSv8fUyASsaKaMfv5AyPl/0Rr/
-	 z6LjRMlCzW/j3tW5iQWwogn0vk1a9/1aJqLrTYRBQ3W6ll+6Y6mT4YViUMVluehWjY
-	 jE8qUG8K7Kg8JeDJecPbaB81nqBzXJQSaMAFDQsHrwWQtNNGqcs9B3mRcLYQC4mh1i
-	 FNmisTatbwOv8rySKPIymLV6e3kaKGwj59qDjL4I+P037XfSmOCXr3GJ8DYc1W1HIU
-	 UaVlIUVLvogRQ==
-From: guoren@kernel.org
-To: anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	jolsa@redhat.com,
-	bp@suse.de,
-	jpoimboe@kernel.org,
-	suagrfillet@gmail.com,
-	andy.chiu@sifive.com,
-	mark.rutland@arm.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V4 7/7] samples: ftrace: Add riscv support for SAMPLE_FTRACE_DIRECT[_MULTI]
-Date: Mon, 28 Nov 2022 22:32:30 -0500
-Message-Id: <20221129033230.255947-8-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221129033230.255947-1-guoren@kernel.org>
-References: <20221129033230.255947-1-guoren@kernel.org>
+	id 1ozsnh-006HOK-R7
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 05:05:00 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id 203F25C00CD;
+	Tue, 29 Nov 2022 00:04:52 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute2.internal (MEProxy); Tue, 29 Nov 2022 00:04:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669698292; x=
+	1669784692; bh=7JBhdj+AHR3dAIOe2gseZvC2qPeV3j2qkNBk4trRfdg=; b=C
+	u/lwyGeGHbV7DLYWZDlYiiimjmuOdbSgS641XgIEUQ7MBev0WjcgeIHQMAbEcHk4
+	65BpayAEHpDHbDiCB/m2Z9zLcMOlw6C7J0G2rvLjSP2w1J9BSuvkwNshtpD1No3y
+	f5tMtz1cpzIhLpqvcXakaR8RGQfEXIvtyx3J04I0E+Kc6ffcyLjmHyWPiCSB9laH
+	NsQM0GlYNgeNJsnBcWbv3qQ0ti84bUCpYQzWH+NigWFX9XcWoZ9USH2tzvB0p2sD
+	P3pFXz480A7pGRk57PXUpfpEchkaYKiWU6ffw0xgkl/wSwyGSDcB0TwNccYSk4oJ
+	fweD6Ta6BDy4FtNz7e6Rg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669698292; x=
+	1669784692; bh=7JBhdj+AHR3dAIOe2gseZvC2qPeV3j2qkNBk4trRfdg=; b=M
+	Vu04DsZaIrNTK11Enq8h9uAbbPbvIaamnkXUTZBLEv7sjT+11TU41YBQELfhjLGm
+	a3P25LiOtrxYn6bvV4m3J2eiKL5LA83xq9zjUDp12XrsU5klWwAD/VpRKgBXCK5u
+	hkTuZhwWBImjHi+E/l3Y2Y4WqKFlqUkjwjx1DMSBsrr8vl2psZNzH8400dxG2tAm
+	bwGedGIkQtGxb5/4hBqyH/KezVaZ1Szyo6dB03NRh+POlhHqPAmcAhfG2z72CU7L
+	UGJ1n/Ig3AyVAlEXfAAZkJ+Obzd+lIR/P6EZBpKlTprXweLbH6L/6s2eYv5ykHpN
+	l1sW+5yCa3bfRKW5l2fOA==
+X-ME-Sender: <xms:85KFY6KfoQMhrb7HMjbHOMzpYT3fP9Ke5tqf-ezBHQQGQ__OrvLNVA>
+    <xme:85KFYyKgiq58ka_VtYmf3KYgbKJGjpNUzT7I6d_xQTVE98ZYrlQBnxy1HxlyxVu2Q
+    8gsdUAT0bZjDdZ9Bg>
+X-ME-Received: <xmr:85KFY6sSne-_znocklpvykGzxlTcfzkm9NsTm8ztCzYyQzYR7flNiKHm0TNA3EuQzESY4y9YV3A5C8T9BGLB8C4NgPGJXOxzgRY3HvouWM5Vy_irREQTk69wWg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvgedrjeefgdektdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+    fjughrpefkffggfgfuvfevfhfhjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnheptedvueevffevvdelgfffledugeeuleehjeegveekjeeuheefvdeh
+    kefhuefhteevnecuffhomhgrihhnpehhvggrugdrshgsnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdr
+    ohhrgh
+X-ME-Proxy: <xmx:85KFY_YALunrmAOPH5LYQ33_dhtr6OUgWW8LHG8LgloEIO6JCOZA8w>
+    <xmx:85KFYxYxfxDpTGth7XDSVHIgd3-XwsLIfhNzUESACXFmX7bh-7RsPA>
+    <xmx:85KFY7BGcCFZ14w1ytw8NukUPSYTBY8V3v6GbSrmpysEx_isFrXITw>
+    <xmx:9JKFY0yA_QE09KOH-z5mv2C9Ns6IPnRu8_DiFLIIGMMl43PHQrR2eg>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 29 Nov 2022 00:04:49 -0500 (EST)
+Message-ID: <e39851df-251d-662d-3319-af9d948a9430@sholland.org>
+Date: Mon, 28 Nov 2022 23:04:48 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Subject: Re: [PATCH] riscv: head: use 0 as the default text_offset
+Content-Language: en-US
+To: Atish Kumar Patra <atishp@rivosinc.com>,
+ Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20221128152442.3403-1-jszhang@kernel.org>
+ <CAHBxVyHg0fU9msnV4vgp4oK6aZZv+nc9mFTbTRjHNsgJAG0eyg@mail.gmail.com>
+From: Samuel Holland <samuel@sholland.org>
+In-Reply-To: <CAHBxVyHg0fU9msnV4vgp4oK6aZZv+nc9mFTbTRjHNsgJAG0eyg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_193321_499528_4911A163 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20221128_210458_458345_58AA3736 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,234 +109,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Song Shuai <suagrfillet@gmail.com>
+On 11/28/22 14:11, Atish Kumar Patra wrote:
+> On Mon, Nov 28, 2022 at 7:34 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+>>
+>> Commit 0f327f2aaad6 ("RISC-V: Add an Image header that boot loader can
+>> parse.") adds an image header which "is based on ARM64 boot image
+>> header and provides an opportunity to combine both ARM64 & RISC-V
+>> image headers in future.". At that time, arm64's default text_offset
+>> is 0x80000, this is to give "512 KB of guaranteed BSS space to put
+>> the swapper page tables" as commit cfa7ede20f13 ("arm64: set TEXT_OFFSET
+>> to 0x0 in preparation for removing it entirely") pointed out, but
+>> riscv doesn't need the space, so use 0 as the default text_offset.
+>>
+>> Before this patch, booting linux kernel on Sipeed bl808 M1s Dock
+>> with u-boot booti cmd:
+>> [    0.000000] OF: fdt: Ignoring memory range 0x50000000 - 0x50200000
+>> ...
+>> [    0.000000]   DMA32    [mem 0x0000000050200000-0x0000000053ffffff]
+>> As can be seen, 2MB DDR(0x50000000 - 0x501fffff) can't be used by
+>> linux.
+>>
+>> After this patch, the 64MB DDR is fully usable by linux
+>> [    0.000000]   DMA32    [mem 0x0000000050000000-0x0000000053ffffff]
+>>
+>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>> ---
+>>  arch/riscv/kernel/head.S | 12 +-----------
+>>  1 file changed, 1 insertion(+), 11 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+>> index b865046e4dbb..ef95943f7a70 100644
+>> --- a/arch/riscv/kernel/head.S
+>> +++ b/arch/riscv/kernel/head.S
+>> @@ -38,18 +38,8 @@ ENTRY(_start)
+>>         .word 0
+>>  #endif
+>>         .balign 8
+>> -#ifdef CONFIG_RISCV_M_MODE
+>> -       /* Image load offset (0MB) from start of RAM for M-mode */
+>> +       /* Image load offset (0MB) from start of RAM */
+>>         .dword 0
+>> -#else
+>> -#if __riscv_xlen == 64
+>> -       /* Image load offset(2MB) from start of RAM */
+>> -       .dword 0x200000
+>> -#else
+>> -       /* Image load offset(4MB) from start of RAM */
+>> -       .dword 0x400000
+>> -#endif
+>> -#endif
+> 
+> NACK.
+> RV64 needs to boot at a 2MB aligned address and RV32 needs to boot at
+> a 4MB aligned address.
+> The firmware is assumed to live at the start of DRAM for Linux running
+> in S-mode.
 
-select HAVE_SAMPLE_FTRACE_DIRECT and HAVE_SAMPLE_FTRACE_DIRECT_MULTI
-for ARCH_RV64I in arch/riscv/Kconfig. And add riscv asm code for
-the ftrace-direct*.c files in samples/ftrace/.
+What needs to happen so we can stop making this assumption? If the SBI
+implementation wants to reserve memory, it should use the devicetree to
+do so. OpenSBI already does this.
 
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Tested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig                          |  2 ++
- samples/ftrace/ftrace-direct-modify.c       | 33 ++++++++++++++++++
- samples/ftrace/ftrace-direct-multi-modify.c | 37 +++++++++++++++++++++
- samples/ftrace/ftrace-direct-multi.c        | 22 ++++++++++++
- samples/ftrace/ftrace-direct-too.c          | 26 +++++++++++++++
- samples/ftrace/ftrace-direct.c              | 22 ++++++++++++
- 6 files changed, 142 insertions(+)
+Throwing away 2 MiB of RAM is quite wasteful considering we have
+multiple SoCs (D1s, BL808) that are limited to 64 MiB of in-package RAM.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2828537abfcd..0a1da03e88c2 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -279,6 +279,8 @@ config ARCH_RV64I
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-+	select HAVE_SAMPLE_FTRACE_DIRECT
-+	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
- 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
-diff --git a/samples/ftrace/ftrace-direct-modify.c b/samples/ftrace/ftrace-direct-modify.c
-index 39146fa83e20..5788cbc8b247 100644
---- a/samples/ftrace/ftrace-direct-modify.c
-+++ b/samples/ftrace/ftrace-direct-modify.c
-@@ -22,6 +22,39 @@ extern void my_tramp2(void *);
- 
- static unsigned long my_ip = (unsigned long)schedule;
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"	addi sp,sp,-16\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func1\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"	addi sp,sp,-16\n"
-+"	sd   t0,0(sp)\n"
-+"	sd   ra,8(sp)\n"
-+"	call my_direct_func2\n"
-+"	ld   t0,0(sp)\n"
-+"	ld   ra,8(sp)\n"
-+"	addi sp,sp,16\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi-modify.c b/samples/ftrace/ftrace-direct-multi-modify.c
-index 65aa94d96f4e..43e02d39c652 100644
---- a/samples/ftrace/ftrace-direct-multi-modify.c
-+++ b/samples/ftrace/ftrace-direct-multi-modify.c
-@@ -20,6 +20,43 @@ void my_direct_func2(unsigned long ip)
- extern void my_tramp1(void *);
- extern void my_tramp2(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("	.pushsection    .text, \"ax\", @progbits\n"
-+"	.type		my_tramp1, @function\n"
-+"	.globl		my_tramp1\n"
-+"   my_tramp1:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func1\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp1, .-my_tramp1\n"
-+
-+"	.type		my_tramp2, @function\n"
-+"	.globl		my_tramp2\n"
-+"   my_tramp2:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func2\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"	jr t0\n"
-+"	.size		my_tramp2, .-my_tramp2\n"
-+"	.popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-multi.c b/samples/ftrace/ftrace-direct-multi.c
-index 41ded7c615c7..df91339d3095 100644
---- a/samples/ftrace/ftrace-direct-multi.c
-+++ b/samples/ftrace/ftrace-direct-multi.c
-@@ -15,6 +15,28 @@ void my_direct_func(unsigned long ip)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
-index 6690468c5cc2..fe3b8c4f3336 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -17,6 +17,32 @@ void my_direct_func(struct vm_area_struct *vma,
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-40\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   a1,8(sp)\n"
-+"       sd   a2,16(sp)\n"
-+"       sd   t0,24(sp)\n"
-+"       sd   ra,32(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   a1,8(sp)\n"
-+"       ld   a2,16(sp)\n"
-+"       ld   t0,24(sp)\n"
-+"       ld   ra,32(sp)\n"
-+"       addi sp,sp,40\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
-diff --git a/samples/ftrace/ftrace-direct.c b/samples/ftrace/ftrace-direct.c
-index e8f1e440b9b8..0784024b6653 100644
---- a/samples/ftrace/ftrace-direct.c
-+++ b/samples/ftrace/ftrace-direct.c
-@@ -14,6 +14,28 @@ void my_direct_func(struct task_struct *p)
- 
- extern void my_tramp(void *);
- 
-+#ifdef CONFIG_RISCV
-+
-+asm ("       .pushsection    .text, \"ax\", @progbits\n"
-+"       .type           my_tramp, @function\n"
-+"       .globl          my_tramp\n"
-+"   my_tramp:\n"
-+"       addi sp,sp,-24\n"
-+"       sd   a0,0(sp)\n"
-+"       sd   t0,8(sp)\n"
-+"       sd   ra,16(sp)\n"
-+"       call my_direct_func\n"
-+"       ld   a0,0(sp)\n"
-+"       ld   t0,8(sp)\n"
-+"       ld   ra,16(sp)\n"
-+"       addi sp,sp,24\n"
-+"       jr t0\n"
-+"       .size           my_tramp, .-my_tramp\n"
-+"       .popsection\n"
-+);
-+
-+#endif /* CONFIG_RISCV */
-+
- #ifdef CONFIG_X86_64
- 
- #include <asm/ibt.h>
--- 
-2.36.1
+Regards,
+Samuel
 
 
 _______________________________________________
