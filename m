@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B862C4167B
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 23:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD92C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 23:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ow7qbgcKNI3sTkZ2qd5ZBODy1LBwPBCnT/i+7I16nTQ=; b=0THHD4otMO1e5E
-	Lyw8sWCwmXQr0CyrYs5y94SsGDyyC+AHXcjRWjYuYDk9rBjvuMrFEYLaLWkTOk+qx7nZngv6nHBwr
-	5QJXMpHpXsvB2qad4XAHmFYeSn5LF3+dSQ1R7xP3elGAIaczNN7tqXXNmQI3rd8R2Hvz7nF6JS5mO
-	ZvdeoVkrj/FxwY9FqGxPU040jTb1e27QcpSWcI/mI0NXk/YYs2bVCfE5vJtonpz3Tpj2H+lxFQszx
-	E5vW2umjiUt5BzLUVOJAZLckZQuM6WEOX1ksZRH4ASp/ednLvXdHUiaXb8NUneqnM8vkPoim74pGu
-	nvgnmmjom6oKrrs+r5Qw==;
+	List-Owner; bh=IbEftyZgYXs0AlLPv4HPLSSMX4H20a0+ELsX8AwJH4E=; b=TUbuhnPOJD1V8v
+	Py41BOHEe1lv8P0vCIsXWtZd2O0kyVibQDhNs+Hh3dF4PfnGWRUL/fQKGNI6aUi3Co4UvTJ6orGis
+	IpV5k9TZd3M6Cr9IJz7+0dXudlXldJjz7SzJLTJe6M3A9GnKOh2qoHYTIIDDmUxEsarfqwfk4RTdQ
+	0hCqit9EPeDfmW48CtYyTRlbV2J7chwLOtxsONn1UftSu7wVoVYS5nd3cXDmsuQzG0lnw9uCV5csF
+	iIv/lPILIyhQ0+gpSTPCg/qsVO3JkVAXZG7XvsrXrSh94G57sL4hL6IxMjqASQnGlb7FK16sq1e+5
+	NsxrkeTwnioDCcNW3gbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0A9E-00Beje-BC; Tue, 29 Nov 2022 23:36:20 +0000
+	id 1p0ABV-00Betu-9M; Tue, 29 Nov 2022 23:38:41 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0A9B-00BejJ-L8
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 23:36:19 +0000
+	id 1p0ABS-00BetI-6Q
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 23:38:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 068056193C;
-	Tue, 29 Nov 2022 23:36:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80624C433C1;
-	Tue, 29 Nov 2022 23:36:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B41A461959;
+	Tue, 29 Nov 2022 23:38:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 406DEC433C1;
+	Tue, 29 Nov 2022 23:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669764976;
-	bh=bVIoaqCWV6P162xm3I0vOILLmYooAOmklzO263Ptdlw=;
+	s=k20201202; t=1669765117;
+	bh=FrUnOt6YtDF3ZynBcgqOSbbRuepdptZM0S8LSrFnWPs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zz/dMcqXFY1cIC5x4caLZB0WZ/VGshFGxZ4vSGnTFtzncWHeZTaGBv9lCdVKUaMUc
-	 scUODNZkTKHWGdWESR+3ytk75Pb3F8Q3gq/GlQvwLQikmRCRSuF3HO4oLWc450Sc/l
-	 s6Lco3TPnmlXnpmH8wz75cHWBqjs1D4ISSKWORLtiUj6qwYyNxMVzdsX9SINuqwUNG
-	 /KaEUmTCobAjjM8WTb+yYcJe/fmcxRLyW9GmxmCOfp4eEvQQ8gdevxGCeiC9WotXTO
-	 vRIDTXMUPCB/YaIEYz8nFEnj9vtDWpyFD4djT7nkqz+I5QwEkpiY1bEXrFeaEQGDi8
-	 y/qV6STkTx15g==
-Date: Tue, 29 Nov 2022 23:36:12 +0000
+	b=B5yxmKscUaY/EAPBBqr++3BJNe9S+z74nwPnZNHFHkmhXezxHIqmBZAm/+NaVOrmz
+	 0aTu3XfYj0YKGMs1OEeF3J2hLRJyi1lK9onC3QNWNmcFeWYrRVDqugHcHlpcUWpwGM
+	 C3KRpxYdvX4TjVEBbs5vDrUYfOSeTQyuUVwoofr7KhRSkz1OPJwHoaH/zbDTA6IgUU
+	 DneNYgrwfwrUpfsbKNtvSQwKCNcqgs0VBVI6yGHlEQof3sb36yEHVg9KSkRUytVayj
+	 JX2t3B5thVInr5TqP6vr8VNGA0oHffh5M4ky+e7meBpnjwA3rDHUTapLF1kL9Y0tr6
+	 LowRUICSXo+uA==
+Date: Tue, 29 Nov 2022 23:38:32 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
@@ -50,16 +50,17 @@ Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
 	emil.renner.berthing@canonical.com,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 07/13] RISC-V: add auipc elements to parse_asm header
-Message-ID: <Y4aXbBGT346eo/qG@spud>
+Subject: Re: [PATCH v2 08/13] RISC-V: add U-type imm parsing to parse_asm
+ header
+Message-ID: <Y4aX+KJ8sC2XRO1E@spud>
 References: <20221128102632.435174-1-heiko@sntech.de>
- <20221128102632.435174-8-heiko@sntech.de>
+ <20221128102632.435174-9-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221128102632.435174-8-heiko@sntech.de>
+In-Reply-To: <20221128102632.435174-9-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_153617_791811_9E362ACD 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20221129_153838_293276_EC3D1286 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +77,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 28, 2022 at 11:26:26AM +0100, Heiko Stuebner wrote:
+On Mon, Nov 28, 2022 at 11:26:27AM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> RISC-V: add auipc elements to parse_asm header 
+>
+> RISC-V: add U-type imm parsing to parse_asm header
 
-This header is no longer called parse_asm ;)
+Ditto.
 
-> We will want to use the opcode parsing outside kdb as well and need
-
-Will we? Commit bikeshedding time, but mentioning the motivation would
-be appreciated.
-
-> at least the auipc element there.
+> Similar to other existing types, allow extracting the immediate
+> for a U-type instruction.
+> 
+> U-type immediates are special in that regard, that the value
+> in the instruction in bits [31:12] already represents the same
+> bits of the immediate, so no shifting is required.
 > 
 > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+How is this different to the patch I left an R-b for on v1?
+It doesn't look different, so
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+?
+
 > ---
->  arch/riscv/include/asm/insn.h | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/riscv/include/asm/insn.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
 > diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-> index bfd306f85ec7..f10cb0fdfa96 100644
+> index f10cb0fdfa96..1caed8fe5204 100644
 > --- a/arch/riscv/include/asm/insn.h
 > +++ b/arch/riscv/include/asm/insn.h
-> @@ -118,6 +118,7 @@
->  #define RVC_C2_RD_OPOFF		7
+> @@ -34,6 +34,15 @@
+>  #define RV_J_IMM_11_MASK	GENMASK(0, 0)
+>  #define RV_J_IMM_19_12_MASK	GENMASK(7, 0)
 >  
->  /* parts of opcode for RVG*/
-> +#define RVG_OPCODE_AUIPC	0x17
->  #define RVG_OPCODE_BRANCH	0x63
->  #define RVG_OPCODE_JALR		0x67
->  #define RVG_OPCODE_JAL		0x6f
-> @@ -149,6 +150,7 @@
->  #define RVG_FUNCT12_EBREAK	0x1
->  #define RVG_FUNCT12_SRET	0x102
+> +/*
+> + * U-type IMMs contain the upper 20bits [31:20] of an immediate with
+> + * the rest filled in by zeros, so no shifting required. Similarly,
+> + * bit31 contains the signed state, so no sign extension necessary.
+> + */
+> +#define RV_U_IMM_SIGN_OPOFF	31
+> +#define RV_U_IMM_31_12_OPOFF	0
+> +#define RV_U_IMM_31_12_MASK	GENMASK(31, 12)
+> +
+>  /* The bit field of immediate value in B-type instruction */
+>  #define RV_B_IMM_SIGN_OPOFF	31
+>  #define RV_B_IMM_10_5_OPOFF	25
+> @@ -235,6 +244,10 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+>  #define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
+>  #define RVC_X(X, s, mask) RV_X(X, s, mask)
 >  
-> +#define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
->  #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
->  #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
->  #define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
-> @@ -167,6 +169,7 @@
->  #define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
->  #define RVC_MATCH_C_EBREAK	(RVC_ENCODE_FUNCT4(C_EBREAK) | RVC_OPCODE_C2)
->  
-> +#define RVG_MASK_AUIPC		RV_INSN_OPCODE_MASK
->  #define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
->  #define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
->  #define RVC_MASK_C_JALR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
-> @@ -203,6 +206,7 @@ __RISCV_INSN_FUNCS(c_jal, RVC_MASK_C_JAL, RVC_MATCH_C_JAL)
->  #else
->  #define riscv_insn_is_c_jal(opcode) 0
->  #endif
-> +__RISCV_INSN_FUNCS(auipc, RVG_MASK_AUIPC, RVG_MATCH_AUIPC)
->  __RISCV_INSN_FUNCS(jalr, RVG_MASK_JALR, RVG_MATCH_JALR)
->  __RISCV_INSN_FUNCS(jal, RVG_MASK_JAL, RVG_MATCH_JAL)
->  __RISCV_INSN_FUNCS(c_jr, RVC_MASK_C_JR, RVC_MATCH_C_JR)
-
-This fixes the build error that's been lingering for a few patches, so
-please re-order things so as not to break bisection :)
-
-With the nits above fixed & assuming that this survives as its own
-commit:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
+> +#define RV_EXTRACT_UTYPE_IMM(x) \
+> +	({typeof(x) x_ = (x); \
+> +	(RV_X(x_, RV_U_IMM_31_12_OPOFF, RV_U_IMM_31_12_MASK)); })
+> +
+>  #define RV_EXTRACT_JTYPE_IMM(x) \
+>  	({typeof(x) x_ = (x); \
+>  	(RV_X(x_, RV_J_IMM_10_1_OPOFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OFF) | \
+> -- 
+> 2.35.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
