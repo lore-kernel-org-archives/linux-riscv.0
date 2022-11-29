@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC333C4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A639C46467
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r/xtM1xqrtXGXCiReYPJfFI3gwc0b3wa+iN85IrmYkE=; b=fjG7yiHR3+5ZPS
-	XzbMlPqrHhYoLcBLALfo3qsnzYf7OzHB7rDYqLzy7EIWU1fvCyQVuKOcfBEXKI159f41URebSteRI
-	m0xghaQzU76fjYjSH1PMl0Rz6oY38KK/uqcW+aYMuJ3e/oeEj3TUa7qMOtu4Uu2/Ejf5ZYd+Tuj0S
-	ofr/MmRgsKMSuA8DsMWCa5GGGkdikAuK7CRMDaV47XMo1J175kibXCQVUABZtWeSlfbVbjztkQZFM
-	NEAT9lM49V/oVcQDDVO19snrASzQkOXFqTif/ZA1mfg+AP2pvgz50s4rPgfcMiO/06iUjSFw54Hiw
-	rESstfYGtTsCaL1vGL6A==;
+	List-Owner; bh=EndRqNSCiSyMOaJJii99TbPtgshiAt9bbdZqz8J80L0=; b=4NTU30TGAJ8zqL
+	w4ThKWvHYqJeTCnry2I/dLhNPaLeS7zx1bwMWGh9c6BSUxBWUo+6Lqg1E8neYbJvmBsvSaa2wAMvh
+	yylw6HK6pkteY9bI1WURjAphQBYtGYLLJhsGeN/9rh5IVzOFWsK8OnON13ks/0Y8LX+w78R3R0tpY
+	LJaaC9rpNKrqViyStVgzyYTHjdFPMLG9EP51wJW+xaSZHoVSs7t7TbkkQg8hMaVFnHIAL5jsgWfsC
+	rST3ScTrsRW1WCDqJi15k2GWc+Y64O+yXPfJMV0mIBDNFZE8mSKzU+reEHN9A5+KtDmQj27Iqhc69
+	SZig+TrxbARIPEfTsQpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01tk-009PZI-LO; Tue, 29 Nov 2022 14:47:48 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01sk-009OjR-Tj
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:46:52 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D4D5C24E06F;
-	Tue, 29 Nov 2022 22:46:19 +0800 (CST)
-Received: from EXMBX065.cuchost.com (172.16.6.65) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 29 Nov
- 2022 22:46:19 +0800
-Received: from [192.168.0.104] (219.128.233.15) by EXMBX065.cuchost.com
- (172.16.6.65) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 29 Nov
- 2022 22:46:17 +0800
-Message-ID: <3db802d6-114f-097a-6c69-e7b40e4d2764@starfivetech.com>
-Date: Tue, 29 Nov 2022 22:46:54 +0800
+	id 1p01xD-009S0G-Vs; Tue, 29 Nov 2022 14:51:24 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p01xA-009Rxl-Qi
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:51:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669733480; x=1701269480;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=1i28Wk5Zmf2QpwRYWuzzGRuioCBIh5xXRO+2UEVDDDs=;
+  b=c2NmL31zpzmTnTz1I5ew3sBm0NrvgpQh9YVc2bPV0RZaNa3qnxsiDLE1
+   rDwrS4FfoUesMr/lyZ/fS+QQM34TkXnAcTabNG3TI2H5Cjrp2e+rQcsUB
+   RMZ3pJR1VMSJH5S5AxYtle5g/3kO8TylQusa17siIzkhntLovNf/jL4qP
+   b36/n3HFAYx3WyFqp70cuwuTihEHMlPA/PVYhckwU0ptvg7V8QKHVtQxN
+   +VU2iDZCRDBVU/P3+bZQfvYzcVw2gA4imoiqoyJjfI59ndpUw/lo0v5kr
+   SV54TU+kv0C+f0v+Ygpy077XEZZ7DMJYX9EXQ31OLXfFjmNpxuLJVGI7k
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.96,203,1665471600"; 
+   d="scan'208";a="125626126"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Nov 2022 07:51:15 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 29 Nov 2022 07:51:13 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Tue, 29 Nov 2022 07:51:11 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <linux-riscv@lists.infradead.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, <ajones@ventanamicro.com>,
+	<aou@eecs.berkeley.edu>, <conor@kernel.org>, <devicetree@vger.kernel.org>,
+	<guoren@kernel.org>, <heiko@sntech.de>, <krzysztof.kozlowski+dt@linaro.org>,
+	<linux-kernel@vger.kernel.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <robh+dt@kernel.org>
+Subject: [RFC 0/2] Putting some basic order on isa extension stuff
+Date: Tue, 29 Nov 2022 14:47:41 +0000
+Message-ID: <20221129144742.2935581-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <Y4XvnHIPw8ZuBZEk@wendy>
+References: <Y4XvnHIPw8ZuBZEk@wendy>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.0
-Subject: Re: [PATCH v2 1/5] dt-bindings: pinctrl: Add StarFive JH7110 pinctrl
- definitions
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Hal Feng
-	<hal.feng@starfivetech.com>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>
-CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
- Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
-References: <20221118011108.70715-1-hal.feng@starfivetech.com>
- <20221118011108.70715-2-hal.feng@starfivetech.com>
- <eb3974a3-f715-f5b0-cac7-551af26bd17b@linaro.org>
- <08db0f3b-5222-9460-26ba-0e6380d16583@linaro.org>
- <0ceba170-f844-e733-a49e-e67746f9f836@starfivetech.com>
- <093ea507-4c42-1af9-4896-64c1a918432e@linaro.org>
- <30c21787-0c48-ff50-1d63-8e69bdcdbe30@starfivetech.com>
- <339be655-aee7-e1a4-51be-28ea20de6792@linaro.org>
-Content-Language: en-US
-From: Jianlong Huang <jianlong.huang@starfivetech.com>
-In-Reply-To: <339be655-aee7-e1a4-51be-28ea20de6792@linaro.org>
-X-Originating-IP: [219.128.233.15]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX065.cuchost.com
- (172.16.6.65)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_064647_394064_6E91F48A 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20221129_065121_033435_722505F6 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,59 +82,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Nov 2022 08:49:49 +0100, Krzysztof Kozlowski wrote:
-> On 29/11/2022 02:47, Jianlong Huang wrote:
->> On Mon, 28 Nov 2022 09:32:45 +0100, Krzysztof Kozlowski wrote:
->>> On 28/11/2022 01:48, Jianlong Huang wrote:
->>>
->>>>>>> +/* aon_iomux doen */
->>>>>>> +#define GPOEN_AON_PTC0_OE_N_4			2
->>>>>>> +#define GPOEN_AON_PTC0_OE_N_5			3
->>>>>>> +#define GPOEN_AON_PTC0_OE_N_6			4
->>>>>>> +#define GPOEN_AON_PTC0_OE_N_7			5
->>>>>>> +
->>>>>>
->>>>>> It looks like you add register constants to the bindings. Why? The
->>>>>> bindings are not the place to represent hardware programming model. Not
->>>>>> mentioning that there is no benefit in this.
->>>>>
->>>>> Also: this entire file should be dropped, but if it stays, you have to
->>>>> name it matching bindings or compatible (vendor,device.h).
->>>>
->>>> Thanks your comments.
->>>> These macros are used to configure pinctrl in dts, so the file should stay,
->>>
->>> Why they should stay? What's the reason? If it is not a constant used by
->>> driver, then register values should not be placed in the bindings, so
->>> drop it.
->>>
->> 
->> Thanks.
->> 
->> These macros in binding header(example, DOUT, DOEN etc) will be used in DTS,
->> and driver will parse the DT for pinctrl configuration.
->> 
->> Example in dts:
->> uart0_pins: uart0-0 {
->> 	tx-pins {
->> 		pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
-> 
-> This is usage in DTS and is not an argument to store register
-> addresses/offsets as bindings. What is the usage (of define, not value)
-> in the driver?
-> 
+RFC:
+- I have not even tested this, I just did an allmodconfig
+- I don't know if I re-ordered something that is sacrosanct
+- I don't know if I changed all of the instances
+- I didn't write a proper commit message for "patch" 2/2
 
-The existing implementation reuse the macros for DTS and driver.
-Do you mean we need to separate the macros, one for DTS and one for driver usage?
-Or you have any better suggestion?
+With those caveats out of the way - all I did here was try to make
+things consistent so that it'd be easier to point patch submitters at a
+"do this order please".
 
-These macros are the value of register, not register addresses/offsets,
-except for with prefix of GPI.
+I never know which of these can be moved without breaking stuff - but
+they all seem to be internal use stuff since they're not in uapi?
 
-Drivers rarely reference macros directly, mostly parsing dts and writing them to registers.
- 
-Best regards,
-Jianlong Huang
+@drew, I didn't touch the KVM ones - are they re-sortable too? My base
+here is rc7 so if you did a reorder at any point there I'd not see it ;)
+
+CC: conor.dooley@microchip.com
+CC: ajones@ventanamicro.com
+CC: aou@eecs.berkeley.edu
+CC: conor@kernel.org
+CC: devicetree@vger.kernel.org
+CC: guoren@kernel.org
+CC: heiko@sntech.de
+CC: krzysztof.kozlowski+dt@linaro.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+CC: palmer@dabbelt.com
+CC: paul.walmsley@sifive.com
+CC: robh+dt@kernel.org
+
+Conor Dooley (2):
+  RISC-V: clarify ISA string ordering rules in cpu.c
+  RISC-V: resort all extensions in "canonical" order
+
+ arch/riscv/include/asm/hwcap.h |  6 +++---
+ arch/riscv/kernel/cpu.c        | 26 +++++++++++++++++++-------
+ arch/riscv/kernel/cpufeature.c |  4 ++--
+ 3 files changed, 24 insertions(+), 12 deletions(-)
+
+-- 
+2.38.1
 
 
 _______________________________________________
