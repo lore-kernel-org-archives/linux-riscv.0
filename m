@@ -4,83 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19B2C46467
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC333C4321E
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 14:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zudKnGMYVBgNFeORopkmdBI3m87iEBdzRP39lhZhxoo=; b=m8NoLerQZl4/Q+
-	H1AGfPoYBYw2GqRbpPc4Lxl7JBg/LTh4DHSEK5KXPTW9VSj0OfzeyeGGbXYKuBb5T4L9boWunPcE5
-	g3I6F0zl24lh4X6cJUOK16oIxiGMNZGSaGUDj/bm7r2BTdH4ED1EvzB3wscVkVWToqwiWrn0j6ueP
-	JSgkmCoqh/ZmJ2kBLuEiC9ANScb3G2Bo7jKotaBHe1I4gkGJZF5BUjoP2p6J74R8WRdf4NxgfbQSM
-	l1n+OoM3jubss+xeTshw+Vtot6CnWhglwLwTXyGuSrn/wCtMTkzgpqSZjiWnslkqj44Sos0yefiIF
-	Rv3rRAtixNNHEMWWa8qg==;
+	List-Owner; bh=r/xtM1xqrtXGXCiReYPJfFI3gwc0b3wa+iN85IrmYkE=; b=fjG7yiHR3+5ZPS
+	XzbMlPqrHhYoLcBLALfo3qsnzYf7OzHB7rDYqLzy7EIWU1fvCyQVuKOcfBEXKI159f41URebSteRI
+	m0xghaQzU76fjYjSH1PMl0Rz6oY38KK/uqcW+aYMuJ3e/oeEj3TUa7qMOtu4Uu2/Ejf5ZYd+Tuj0S
+	ofr/MmRgsKMSuA8DsMWCa5GGGkdikAuK7CRMDaV47XMo1J175kibXCQVUABZtWeSlfbVbjztkQZFM
+	NEAT9lM49V/oVcQDDVO19snrASzQkOXFqTif/ZA1mfg+AP2pvgz50s4rPgfcMiO/06iUjSFw54Hiw
+	rESstfYGtTsCaL1vGL6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01s0-009OSB-Lj; Tue, 29 Nov 2022 14:46:00 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p01rq-009OHo-Ei
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:45:52 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id n21so34300686ejb.9
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 06:45:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+KiG5truOza4yGHW/YJc4GVs+QTaR7KP6zpQYmRX9k4=;
-        b=Pn7C38fmI2y6m3hRQbrEsRn0KW8HG8WoDVpx39Ph1BYozt9EPQPjParJkEzWhxS58H
-         VWI7vxHvh0lVE8M6MHeMZWNR4XjEQHLock9iiksqk7LCi0QcwJVtXyRqrNmMMLi6ln6x
-         rOJwGJeBsG2iD/0cZ658jBCmZR7ujmKhb1y9pKnS1fNp+1ijNzryXFIIodpECCce5lGf
-         VuqTz/Oip14I5/8JrZIEZ2Yd1YBHDLnLi42IF7ZAxeln5fnj8POUqgX3glbCVRSudhl7
-         +CW5krIgeji0amCtDvDnRKA4Rgj4hoOhkSi1v0wu+zXH1f68MqJsJTRCsAPXGzSvL18F
-         lyyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+KiG5truOza4yGHW/YJc4GVs+QTaR7KP6zpQYmRX9k4=;
-        b=1LU0p6OLC15nJ5tadQRf/oBADMGblqTF1aPyOtHUayPzQe2XWalR6NsaVsWDU8MMx+
-         5mcM8bMk5vToTLeHUoLE7QnQa6FuCYe+o5w+pFFPWd8hHXjHmlL2IrNmmZvmPBIH7Q9F
-         lBUDwyFp+zulhtvlgUDwJqvYs0A3H4HI/t/70Jo7vVozAOSrWnvLUJbfqyxJvZBSeEyv
-         P8E2VySJK0y2pw2DK/en71io7yPwUy82xyXuRdGr916pB8bH1EqQmX1ZR7NSrtZ07rPk
-         mC4wmY4njt/0yc0b16FYH3WMKHl+iwEvDlH1w4gX5L+tWxT0vUZf3rZ7aNXeUk0YiNC5
-         QCAw==
-X-Gm-Message-State: ANoB5pmuwpVdsQYZVG8sr+zKOFQVAxmkqwMvqVSHfkAU0oxL/bo6+PTi
-	+QqpVBRrzNyZJr/IZzWxWTLHGUimFV7tgA==
-X-Google-Smtp-Source: AA0mqf7vTq/e4AMDTYOQP3C6P6tGw3a1ZaYMsMH/+OUcQDZvZOm9gCtc+8WvInvNzO06dLIupumUiA==
-X-Received: by 2002:a17:906:882:b0:7ad:e161:b026 with SMTP id n2-20020a170906088200b007ade161b026mr43155309eje.760.1669733147410;
-        Tue, 29 Nov 2022 06:45:47 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id c7-20020a50f607000000b00461e4498666sm6410577edn.11.2022.11.29.06.45.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 06:45:46 -0800 (PST)
-Date: Tue, 29 Nov 2022 15:45:45 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	prabhakar.csengg@gmail.com
-Subject: Re: [PATCH 1/4] riscv: Don't duplicate __ALTERNATIVE_CFG in
- __ALTERNATIVE_CFG_2
-Message-ID: <20221129144545.p62id4ztwhcitfhg@kamzik>
-References: <20221125113959.35328-1-ajones@ventanamicro.com>
- <20221125113959.35328-2-ajones@ventanamicro.com>
- <20221125130647.rufk3zho5mdracpq@kamzik>
- <Y4DCfCR8RJR7tqvT@wendy>
+	id 1p01tk-009PZI-LO; Tue, 29 Nov 2022 14:47:48 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p01sk-009OjR-Tj
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 14:46:52 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id D4D5C24E06F;
+	Tue, 29 Nov 2022 22:46:19 +0800 (CST)
+Received: from EXMBX065.cuchost.com (172.16.6.65) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 29 Nov
+ 2022 22:46:19 +0800
+Received: from [192.168.0.104] (219.128.233.15) by EXMBX065.cuchost.com
+ (172.16.6.65) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Tue, 29 Nov
+ 2022 22:46:17 +0800
+Message-ID: <3db802d6-114f-097a-6c69-e7b40e4d2764@starfivetech.com>
+Date: Tue, 29 Nov 2022 22:46:54 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y4DCfCR8RJR7tqvT@wendy>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v2 1/5] dt-bindings: pinctrl: Add StarFive JH7110 pinctrl
+ definitions
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Hal Feng
+	<hal.feng@starfivetech.com>, <linux-riscv@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, "Rob
+ Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
+References: <20221118011108.70715-1-hal.feng@starfivetech.com>
+ <20221118011108.70715-2-hal.feng@starfivetech.com>
+ <eb3974a3-f715-f5b0-cac7-551af26bd17b@linaro.org>
+ <08db0f3b-5222-9460-26ba-0e6380d16583@linaro.org>
+ <0ceba170-f844-e733-a49e-e67746f9f836@starfivetech.com>
+ <093ea507-4c42-1af9-4896-64c1a918432e@linaro.org>
+ <30c21787-0c48-ff50-1d63-8e69bdcdbe30@starfivetech.com>
+ <339be655-aee7-e1a4-51be-28ea20de6792@linaro.org>
+Content-Language: en-US
+From: Jianlong Huang <jianlong.huang@starfivetech.com>
+In-Reply-To: <339be655-aee7-e1a4-51be-28ea20de6792@linaro.org>
+X-Originating-IP: [219.128.233.15]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX065.cuchost.com
+ (172.16.6.65)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_064550_540255_29542C13 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20221129_064647_394064_6E91F48A 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +85,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 25, 2022 at 01:26:20PM +0000, Conor Dooley wrote:
-> On Fri, Nov 25, 2022 at 02:06:47PM +0100, Andrew Jones wrote:
+On Tue, 29 Nov 2022 08:49:49 +0100, Krzysztof Kozlowski wrote:
+> On 29/11/2022 02:47, Jianlong Huang wrote:
+>> On Mon, 28 Nov 2022 09:32:45 +0100, Krzysztof Kozlowski wrote:
+>>> On 28/11/2022 01:48, Jianlong Huang wrote:
+>>>
+>>>>>>> +/* aon_iomux doen */
+>>>>>>> +#define GPOEN_AON_PTC0_OE_N_4			2
+>>>>>>> +#define GPOEN_AON_PTC0_OE_N_5			3
+>>>>>>> +#define GPOEN_AON_PTC0_OE_N_6			4
+>>>>>>> +#define GPOEN_AON_PTC0_OE_N_7			5
+>>>>>>> +
+>>>>>>
+>>>>>> It looks like you add register constants to the bindings. Why? The
+>>>>>> bindings are not the place to represent hardware programming model. Not
+>>>>>> mentioning that there is no benefit in this.
+>>>>>
+>>>>> Also: this entire file should be dropped, but if it stays, you have to
+>>>>> name it matching bindings or compatible (vendor,device.h).
+>>>>
+>>>> Thanks your comments.
+>>>> These macros are used to configure pinctrl in dts, so the file should stay,
+>>>
+>>> Why they should stay? What's the reason? If it is not a constant used by
+>>> driver, then register values should not be placed in the bindings, so
+>>> drop it.
+>>>
+>> 
+>> Thanks.
+>> 
+>> These macros in binding header(example, DOUT, DOEN etc) will be used in DTS,
+>> and driver will parse the DT for pinctrl configuration.
+>> 
+>> Example in dts:
+>> uart0_pins: uart0-0 {
+>> 	tx-pins {
+>> 		pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
 > 
-> > I just realized that I forgot my slashes on these macro arguments.
-> > 
-> > I'll wait for other feedback before sending a v2.
+> This is usage in DTS and is not an argument to store register
+> addresses/offsets as bindings. What is the usage (of define, not value)
+> in the driver?
 > 
-> While I think of it, perhaps for v2 you could yoink that comment
-> improvement of Heiko's:
-> https://lore.kernel.org/linux-riscv/CA+V-a8to-Wr2x8qbxnktTzXrWjTGvtCqwXT27A8EmHTTG7Lbkg@mail.gmail.com/T/#m92aee3a065a01a023e0960aec9c0acb8f9fcc77c
->
 
-It looks like Prabhakar plans to do that when respinning, so I'll leave
-that and just post v2 with the macro fix.
+The existing implementation reuse the macros for DTS and driver.
+Do you mean we need to separate the macros, one for DTS and one for driver usage?
+Or you have any better suggestion?
 
-Thanks,
-drew
+These macros are the value of register, not register addresses/offsets,
+except for with prefix of GPI.
+
+Drivers rarely reference macros directly, mostly parsing dts and writing them to registers.
+ 
+Best regards,
+Jianlong Huang
+
 
 _______________________________________________
 linux-riscv mailing list
