@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13E6C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 03:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FAC5C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 03:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ByPjF29oKXkDw7l28Nip7xumMhn82u5LdK07nrXUdns=; b=SexgH962TAQQTW
-	pB/J9Deb8lVMkeUNnnfCOBjd/Kov4oClo+bkHKsbEl9xk4qSm6zEMvBei22qGFIX2ivi1G4MBj+BP
-	Wj3DeK19gwdLsawpEaNP12ShcUIlFQlCQcHjt3cIj3YRMZwkGFAVbKUMJl8DuqHUxapBeNqh7pG6i
-	43Qn0SWHY37EDVnJQ+beR7NZIzmJ+K1CDU3Kt4pwgCQ3A+PVAAZzKDpycHtI9UhgvkrS6NtoRW2gX
-	QIUx0wAIuzjIhBO5uYNYgjqKT5N/Qyu1olLFjNhziw+z3P/ImCdP5BrzKfhKqXRevuYVl9CH6VVBL
-	IqofVys1hZi8FzdDjZ2Q==;
+	List-Owner; bh=hyKHys7CJ+E/XNSeLqo7kUI5lVtm0y8opQTqTckBQcQ=; b=HnmX1QUzGyEV5Z
+	rv4Bp7edD9dxQ3tGHooVT5etV2VRQFM+yOP/AqBa9wDxj/4ac0jsuYeOZGFptNOfDokHVxx2AiCbB
+	X1lV8Detmof9uDjMEYwmlPax3TsxsB4vd4ZeLZCKyKu4cQfXnz6X6bg4Zk7AgvJx/t8W8YXLaF6DX
+	OCi6no7r+svTOEsuzsfF86gOGrBl4ySk9V9ebMzgREfHqywbgHe5I8uz0vT3aVCFvmx6TvzaFPdMW
+	5v/aHI2IiSRt9YsxlYZIkGPT/IOQa63ZOGvXwJQSmPFySDDlLr9JVLG3gtc2VV5kN8/GB6wCrK+2E
+	fypBAZyL8VcW5g6n3pBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozrMZ-005jmP-2l; Tue, 29 Nov 2022 03:32:51 +0000
+	id 1ozrMf-005jqU-C4; Tue, 29 Nov 2022 03:32:57 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ozrMV-005jko-LP
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 03:32:49 +0000
+	id 1ozrMb-005jnt-UB
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 03:32:55 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 33A7061563;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 758D1609FA;
+	Tue, 29 Nov 2022 03:32:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 495BEC433C1;
 	Tue, 29 Nov 2022 03:32:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C086AC43470;
-	Tue, 29 Nov 2022 03:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669692766;
-	bh=vVvv9Dl3Ond8/L8UdaSALSgt+hLH0wBtdq85SQamt6I=;
+	s=k20201202; t=1669692772;
+	bh=K44IU5zSr+xRSYeCBFFHSvlbL/P6QS9pgaMT4XAkl6o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XJESHQJrO4KYoVBp10iKOSvt6JEN5l5QRp2/fnu5LqhygqWwVS5LRUa2dxb8G4xVv
-	 SzuT+lOHQQNsxnQ/CROZ3O1QoouPaN8f4poLM+BUVgcBV666AeQrhAJLgg1N8MPefB
-	 3PgRsRvVRvnUB9cj4fzlbU8ybPL6oqbvpJcgbl7e8W5Eu6DMJSzKjcuBXdmKlW5oBT
-	 Ku6nh+IWFEZ9JGXaIhXVgNc/iGRJ9frv2qfljSZDBcGGuqSSOahOGa5qXICACpeKsm
-	 UigBuAckMEKodDT0rxVjtVgJw5qlX/k6khQ/e2cSVBoSEe+7by74josWmh1rAdSmsu
-	 GauCgW4LJiILg==
+	b=JfE3oA5mgIwqLGrffA4x/XQlpl+PMzc9gjYvnBjXyuTbiniCSQxD8ob+NUI/DItKL
+	 4+nT8+0XM652AS1VRhoVtKrbHMc9hDpSKtPqzDbWAs2dQCjt6rVDG2cvF7aRXYlL9U
+	 CpMmWLe6ojyuppm+G5mt9KY58hJ6m8L25Pxjf4c3x04OSV/+EdltM5R3aC0bbe/5Y2
+	 9trkjq31gePrrBdZBp1yM7xqtb6+byICy40k/F1SmgopjOJ2D9Ql6etifZF4NHV9S0
+	 Uk3o/IcOnOyrKrTO0OhuETVa9jTV/BJgI+YgK8IBrj1yJVqqlwFE3prSKcRXKxegsG
+	 DOvKxUlXS3ZlQ==
 From: guoren@kernel.org
 To: anup@brainfault.org,
 	paul.walmsley@sifive.com,
@@ -58,17 +58,19 @@ To: anup@brainfault.org,
 	mark.rutland@arm.com
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V4 1/7] riscv: ftrace: Fixup panic by disabling preemption
-Date: Mon, 28 Nov 2022 22:32:24 -0500
-Message-Id: <20221129033230.255947-2-guoren@kernel.org>
+Subject: [PATCH V4 2/7] riscv: ftrace: Remove wasted nops for !RISCV_ISA_C
+Date: Mon, 28 Nov 2022 22:32:25 -0500
+Message-Id: <20221129033230.255947-3-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221129033230.255947-1-guoren@kernel.org>
 References: <20221129033230.255947-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221128_193247_829123_2D621E44 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20221128_193254_047533_3A1DDD6E 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +87,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andy.chiu@sifive.com>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
-forming a jump that jumps to an address over 4K. This may cause errors
-if we want to enable kernel preemption and remove dependency from
-patching code with stop_machine(). For example, if a task was switched
-out on auipc. And, if we changed the ftrace function before it was
-switched back, then it would jump to an address that has updated 11:0
-bits mixing with previous XLEN:12 part.
+When CONFIG_RISCV_ISA_C=n, -fpatchable-function-entry=8 would generate
+more nops than we expect. Because it treat nop opcode as 0x00000013
+instead of 0x0001.
 
-p: patched area performed by dynamic ftrace
-ftrace_prologue:
-p|      REG_S   ra, -SZREG(sp)
-p|      auipc   ra, 0x? ------------> preempted
-					...
-				change ftrace function
-					...
-p|      jalr    -?(ra) <------------- switched back
-p|      REG_L   ra, -SZREG(sp)
-func:
-	xxx
-	ret
+Dump of assembler code for function dw_pcie_free_msi:
+   0xffffffff806fce94 <+0>:     sd      ra,-8(sp)
+   0xffffffff806fce98 <+4>:     auipc   ra,0xff90f
+   0xffffffff806fce9c <+8>:     jalr    -684(ra) # 0xffffffff8000bbec
+<ftrace_caller>
+   0xffffffff806fcea0 <+12>:    ld      ra,-8(sp)
+   0xffffffff806fcea4 <+16>:    nop /* wasted */
+   0xffffffff806fcea8 <+20>:    nop /* wasted */
+   0xffffffff806fceac <+24>:    nop /* wasted */
+   0xffffffff806fceb0 <+28>:    nop /* wasted */
+   0xffffffff806fceb4 <+0>:     addi    sp,sp,-48
+   0xffffffff806fceb8 <+4>:     sd      s0,32(sp)
+   0xffffffff806fcebc <+8>:     sd      s1,24(sp)
+   0xffffffff806fcec0 <+12>:    sd      s2,16(sp)
+   0xffffffff806fcec4 <+16>:    sd      s3,8(sp)
+   0xffffffff806fcec8 <+20>:    sd      ra,40(sp)
+   0xffffffff806fcecc <+24>:    addi    s0,sp,48
 
-Fixes: afc76b8b8011 ("riscv: Using PATCHABLE_FUNCTION_ENTRY instead of MCOUNT")
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
-@Andy, could you give the patch a Signed-off-by? I just copy your most
-important comment, so the first author should be you. First, let's fix
-the problem caused by my previous patch, and you can continue your
-ftrace preemption work.
----
- arch/riscv/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7cd981f96f48..1d0e5838b11b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -280,7 +280,7 @@ config ARCH_RV64I
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
--	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
-+	select HAVE_FUNCTION_TRACER if !XIP_KERNEL && !PREEMPTION
- 	select SWIOTLB if MMU
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 1c8ec656e916..36cc609c5d03 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -11,7 +11,11 @@ LDFLAGS_vmlinux :=
+ ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+ 	LDFLAGS_vmlinux := --no-relax
+ 	KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
++ifeq ($(CONFIG_RISCV_ISA_C),y)
+ 	CC_FLAGS_FTRACE := -fpatchable-function-entry=8
++else
++	CC_FLAGS_FTRACE := -fpatchable-function-entry=4
++endif
+ endif
  
- endchoice
+ ifeq ($(CONFIG_CMODEL_MEDLOW),y)
 -- 
 2.36.1
 
