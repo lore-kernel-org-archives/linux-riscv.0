@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88E70C4321E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 22:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28C5C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Nov 2022 22:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=5qs9uYET8HPDWvIB3PX5SgzKIr+VyiZpfff05BtejbI=; b=AYAvfiOPQii+CpYbqffVrASI4E
-	rLzqBnvLn/hEb7mG/FH6dr2Qinl9uorZnIHVTyfdW74ShwG+Ebmu1lCiOeTE2fR+Z6U1YTbqazGCS
-	dlo467PM9sP4dzhFGzaLPshWDlKO8D3TCHWMH/nawTLWAPKO0ALbUVgxzkVQuA4SqtqzdAikA7RI0
-	ZRYD/fAxcR8ltmkyyX1RPp6Zk5xs0o7exyg5MV62lI2BK+ZALvcuhBHJmoHrsRYb2mLVCYrH2qniw
-	iOuOe59MECSH4NhnNeOGuB8gjAkm1rrVDPlg5uCgr3K89e081IqmX1V7K6Q4Bp2LzxOr700Lf8aTa
-	a60HbsgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Oetp3HWgfoK6GAIuPdd5gSu5xNpcjBv/qr5nFC/TdZg=; b=keVuq/Pcn2Phwy
+	Dq4axbEmfj9yImXzW56dBPB/sxTHYWu16mDWA68+jGZNspn4M0t51U2addtobwgJw7zR48JLK5Dk/
+	yQyQQm7b0kNFYkyhkEFFgUEIedkrQ6Ry0AKdbwDH+pOgQMokxjZqbq4XdIDHoCrAVK23vnB1Hb0p8
+	AcaJmnrUU9Rk4C2Z759gADr7L/Zpjd222qOFJVfAbzrxzCx9sEAaDdTvAcx3wAEIITkpD1X5/y9gB
+	GQLqx+5CghMQxJIc0NBvZ3+be+UfFZ7VB32OPV8ju6Nt26hJx+l7Y1VfYrpqDPhfTxcrWMuBdzJON
+	hn+Oi6CN4HGm8eRse0Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p09Ky-00BZsW-DN; Tue, 29 Nov 2022 22:44:24 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1p09OT-00BaFC-BL; Tue, 29 Nov 2022 22:48:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p09Ku-00BZs1-OG
-	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 22:44:22 +0000
-Received: by mail-pf1-x433.google.com with SMTP id 9so15115317pfx.11
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 14:44:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OW1FokMK/uVT4wrTxg9C5QYQh4UVCAiAvCLC3qALgec=;
-        b=PqxXiu/pOgKjs7JqXC+gE2l2AMjgPvMP477QodAHZZCSIrQztHoxeXg958ekT0M936
-         +GLESsaGf3XurOlCavCnjAt2pmorDRq1BSD3SUK/u/BRJpiM+pptM4UmZt44ttyGI29m
-         tI+siuSEw6niFc3L7Gvhyzc/Tx2UBcLj20hZvaKExr6aQvAkNaEOaVLNpsZcfFrIgnRI
-         +FDv6x1KOa5DZ9Bx4soE2sbYNZO/cqmgSMYQa/70Iiqt1n2grK6Ku8FN+dZ0IYZg3Ka+
-         FZvy8DvW0QhnMqOld5Y3OadRKkboxELosmPvrSmYi2qmmyn9qvJdzaruGdz2Get+BNVO
-         gC0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OW1FokMK/uVT4wrTxg9C5QYQh4UVCAiAvCLC3qALgec=;
-        b=3gtaCNwHydfHjp4YVJw/bbbDRqGI5H7QHBJUmEqLNmvNgmy+l1INNjDxISqekIK7pl
-         V2/mGwOSKveDoMcfcl9XvOtWWzZQ2C12DXpZHllFXaJzXsgbe2SjYwSYQUfxhHWr6Suc
-         0J2CMnMOHvVTQTRdu0M7lJF4MQH/IFMrCUcPrjNOFj8WP5lBU8WQ2mM+i3ogo0sVLbKQ
-         Ahbeit2BdNfH2C5JstfTR/zKXYnn3n581x6OboS2apiBXbuiBzrgS0SNb2ntl6ORmqMW
-         czJTd4AitF4z8bfPEXuC7jtQvmCd63sBE45GbtzNLA0Q8tptVGFWpKaICREgOGO8Yc7i
-         2ZZQ==
-X-Gm-Message-State: ANoB5pnhFNxQ8agSCvUS81ilA8XK0qfA7abMKSfpdCMMQKm/RxCUDTOU
-	DcvGGbB5zfkQVQW12fW2HdTLWgko4hUqUw==
-X-Google-Smtp-Source: AA0mqf4sbKR/VJKieb8/YSKYNtUTIqdHzKAFp58OVSIh8iCG2VxL09KPhntNPijH2XE3oYI3lkGjuQ==
-X-Received: by 2002:a63:5408:0:b0:478:31a5:3656 with SMTP id i8-20020a635408000000b0047831a53656mr7947465pgb.273.1669761858728;
-        Tue, 29 Nov 2022 14:44:18 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id u185-20020a6260c2000000b0053e38ac0ff4sm10404801pfb.115.2022.11.29.14.44.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 14:44:18 -0800 (PST)
-Date: Tue, 29 Nov 2022 14:44:18 -0800 (PST)
-X-Google-Original-Date: Tue, 29 Nov 2022 14:44:09 PST (-0800)
-Subject: Re: [PATCH v1 4/5] RISC-V: hwprobe: Support probing of misaligned accesss performance
-In-Reply-To: <5662455.1IzOArtZ34@diego>
-CC: linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: heiko@sntech.de
-Message-ID: <mhng-48817427-657b-4830-8ca5-9529ff4e3398@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1p09OQ-00BaEj-Cq
+	for linux-riscv@lists.infradead.org; Tue, 29 Nov 2022 22:48:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E66EC61913;
+	Tue, 29 Nov 2022 22:47:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D24C433D6;
+	Tue, 29 Nov 2022 22:47:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669762077;
+	bh=Hfky1NSAxpmj8LF8c7wDQijgPQ+YreXmOCPkn35oz0c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rExtkf6jbTVaYIfQWUUmvCtt53YsuUbAKahBtk6B8BJJR1aTZ8+C3wFW9zFOvnjL6
+	 lDBdh3TZZxxAGm8FjhxavGJwQj74ictw1oWLKdlMcKBW9mQ4Dmsh5MhCLN3zcxf+5x
+	 icSju3Qi4HvXQGLHu0Hgsp4nemOiU916xOQrjQ++fPghBvV5UMK1h0xpV92VbkgKp/
+	 AcYalIjkgDjO+qWSY5nYjt/kVHygD5XF0Cpj85kuN916UmVYq/o74+t9URmtUhKEkj
+	 fBPSJq7uMg5rStv+LjmZDQpZ/UmrLxKwJIuuMFgk0ZcxWGHYfDYnA4wXFji/3i8F9c
+	 VmLpHDj9wBoNg==
+Date: Tue, 29 Nov 2022 22:47:52 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
+	philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
+	emil.renner.berthing@canonical.com,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v2 02/13] RISC-V: detach funct-values from their offset
+Message-ID: <Y4aMGFOuc8kPL/I+@spud>
+References: <20221128102632.435174-1-heiko@sntech.de>
+ <20221128102632.435174-3-heiko@sntech.de>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221128102632.435174-3-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_144420_996212_BA40C511 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20221129_144758_530668_5537BCF4 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,85 +71,184 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Nov 2022 14:10:02 PST (-0800), heiko@sntech.de wrote:
-> Am Dienstag, 29. November 2022, 22:18:18 CET schrieb Palmer Dabbelt:
->> On Tue, 29 Nov 2022 13:09:49 PST (-0800), heiko@sntech.de wrote:
->> > Am Donnerstag, 13. Oktober 2022, 18:35:50 CET schrieb Palmer Dabbelt:
->> >> This allows userspace to select various routines to use based on the
->> >> performance of misaligned access on the target hardware.
->> >>
->> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> >
->> > [...]
->> >
->> >> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
->> >> index cbda062de9bd..54bdcf9a5049 100644
->> >> --- a/arch/riscv/include/asm/cpufeature.h
->> >> +++ b/arch/riscv/include/asm/cpufeature.h
->> >> @@ -18,4 +18,6 @@ struct riscv_cpuinfo {
->> >>
->> >>  DECLARE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
->> >>
->> >> +DECLARE_PER_CPU(long, misaligned_access_speed);
->> >
->> > just my 2ct ... wouldn't it make sense to have struct riscv_cpuinfo
->> > as the central instance for all cpu-related stuff, so
->> > misaligned_access_speed could also be part of it?
->>
->> I remember going through this one a few times and ending up here despite
->> some cleaner-looking ways of doing it.  That way does look cleaner,
->> though, so I'll give it a shot and we'll see what happens...
->>
->> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> >> index 553d755483ed..1599e40cd170 100644
->> >> --- a/arch/riscv/kernel/cpufeature.c
->> >> +++ b/arch/riscv/kernel/cpufeature.c
->> >> @@ -222,6 +226,22 @@ void __init riscv_fill_hwcap(void)
->> >>  			bitmap_copy(riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
->> >>  		else
->> >>  			bitmap_and(riscv_isa, riscv_isa, this_isa, RISCV_ISA_EXT_MAX);
->> >> +
->> >> +		/*
->> >> +		 * Check for the performance of misaligned accesses.
->> >> +		 */
->> >> +		cpu = hartid_to_cpuid_map(hartid);
->> >> +		if (cpu < 0)
->> >> +			continue;
->> >> +
->> >> +		if (of_property_read_string(node, "riscv,misaligned-access-performance", &misaligned)) {
->> >
->> > I think this wants a "!" in front :-) .
->> >
->> > of_property_read_string() returns 0 on success, so running this
->> > results in a nullptr right now.
->>
->> Thanks.  I'd not gotten around to actually running this so I bet it's
->> broken in a bunch of ways.  Did you try it out?  I was really hoping to
->> find some time to get at least the simple stuff in for this cycle, but
->> too many things keep coming up.
->
-> I ran the code today, so bumped into the "!" issue.
-> I'm not yet "using" it, but that will come in the next days.
->
-> And no worries about that time-thingy, your series already provides
-> a nice pointer for the general direction to with things, so that is helpful
-> in its own right.
+On Mon, Nov 28, 2022 at 11:26:21AM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> 
+> Only carry the actual values for the funct3, funct4, etc instruction
+> fields without directly including the shift to the target position.
 
-I'm still worried about the release, as it's the last one before the 
-glibc release and we'll need hooks there too.
+"Only carry the actual values..." didn't really make sense to me until I
+actually looked at the diff. I'm not sure what "better" wording to
+suggest though... "Rather than defining funct3 (...) etc instruction
+fields, pre-shifted to their target positions, define the values
+themselves."
 
-> I will simply report any brokeness I find when it happens ;-) .
+Is that better? I don't know, but at least I didn't say "I hate this"
+without trying to help :)
 
-Awesome, thanks!
+> Instead use macros to move the values to their target positions
+> when needed.
+> 
+> This at the same time also reduces the use of magic numbers,
+> one would need a spec manual to understand.
 
->
->
-> Heiko
+I'm always down to avoid having to read a spec :)
+
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/parse_asm.h | 100 +++++++++++++++++------------
+>  1 file changed, 59 insertions(+), 41 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+> index c52b8ae02cfe..e3f87da108f4 100644
+> --- a/arch/riscv/include/asm/parse_asm.h
+> +++ b/arch/riscv/include/asm/parse_asm.h
+> @@ -5,6 +5,15 @@
+>  
+>  #include <linux/bits.h>
+>  
+> +#define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
+> +#define RV_INSN_FUNCT3_OPOFF	12
+> +#define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
+> +#define RV_INSN_OPCODE_OPOFF	0
+> +#define RV_INSN_FUNCT12_OPOFF	20
+> +
+> +#define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
+> +#define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
+> +
+>  /* The bit field of immediate value in I-type instruction */
+>  #define RV_I_IMM_SIGN_OPOFF	31
+>  #define RV_I_IMM_11_0_OPOFF	20
+> @@ -84,6 +93,15 @@
+>  #define RVC_B_IMM_2_1_MASK	GENMASK(1, 0)
+>  #define RVC_B_IMM_5_MASK	GENMASK(0, 0)
+>  
+> +#define RVC_INSN_FUNCT4_MASK	GENMASK(15, 12)
+> +#define RVC_INSN_FUNCT4_OPOFF	12
+> +#define RVC_INSN_FUNCT3_MASK	GENMASK(15, 13)
+> +#define RVC_INSN_FUNCT3_OPOFF	13
+> +#define RVC_INSN_J_RS2_MASK	GENMASK(6, 2)
+
+Since I won't feel comfortable reviewing this without checking the
+specs, I did and god is Table 1.1 in the v1.7 compressed spec
+horrifically formatted. The numbers aren't even consistently spaced.
+My poor OCD! I thought they made these things with adoc or LaTeX...
+
+> +#define RVC_INSN_OPCODE_MASK	GENMASK(1, 0)
+> +#define RVC_ENCODE_FUNCT3(f_)	(RVC_FUNCT3_##f_ << RVC_INSN_FUNCT3_OPOFF)
+> +#define RVC_ENCODE_FUNCT4(f_)	(RVC_FUNCT4_##f_ << RVC_INSN_FUNCT4_OPOFF)
+> +
+>  /* The register offset in RVC op=C0 instruction */
+>  #define RVC_C0_RS1_OPOFF	7
+>  #define RVC_C0_RS2_OPOFF	2
+> @@ -113,52 +131,52 @@
+>  /* parts of funct3 code for I, M, A extension*/
+>  #define RVG_FUNCT3_JALR		0x0
+>  #define RVG_FUNCT3_BEQ		0x0
+> -#define RVG_FUNCT3_BNE		0x1000
+> -#define RVG_FUNCT3_BLT		0x4000
+> -#define RVG_FUNCT3_BGE		0x5000
+> -#define RVG_FUNCT3_BLTU		0x6000
+> -#define RVG_FUNCT3_BGEU		0x7000
+> +#define RVG_FUNCT3_BNE		0x1
+> +#define RVG_FUNCT3_BLT		0x4
+> +#define RVG_FUNCT3_BGE		0x5
+> +#define RVG_FUNCT3_BLTU		0x6
+> +#define RVG_FUNCT3_BGEU		0x7
+>  
+>  /* parts of funct3 code for C extension*/
+> -#define RVC_FUNCT3_C_BEQZ	0xc000
+> -#define RVC_FUNCT3_C_BNEZ	0xe000
+> -#define RVC_FUNCT3_C_J		0xa000
+> -#define RVC_FUNCT3_C_JAL	0x2000
+> -#define RVC_FUNCT4_C_JR		0x8000
+> -#define RVC_FUNCT4_C_JALR	0xf000
+> +#define RVC_FUNCT3_C_BEQZ	0x6
+> +#define RVC_FUNCT3_C_BNEZ	0x7
+> +#define RVC_FUNCT3_C_J		0x5
+> +#define RVC_FUNCT3_C_JAL	0x1
+> +#define RVC_FUNCT4_C_JR		0x8
+> +#define RVC_FUNCT4_C_JALR	0x9
+>  
+> -#define RVG_FUNCT12_SRET	0x10200000
+> +#define RVG_FUNCT12_SRET	0x102
+
+>  
+> -#define RVG_MATCH_JALR		(RVG_FUNCT3_JALR | RVG_OPCODE_JALR)
+> +#define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
+>  #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
+> -#define RVG_MATCH_BEQ		(RVG_FUNCT3_BEQ | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BNE		(RVG_FUNCT3_BNE | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BLT		(RVG_FUNCT3_BLT | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BGE		(RVG_FUNCT3_BGE | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BLTU		(RVG_FUNCT3_BLTU | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BGEU		(RVG_FUNCT3_BGEU | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_SRET		(RVG_FUNCT12_SRET | RVG_OPCODE_SYSTEM)
+> -#define RVC_MATCH_C_BEQZ	(RVC_FUNCT3_C_BEQZ | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_BNEZ	(RVC_FUNCT3_C_BNEZ | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_J		(RVC_FUNCT3_C_J | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_JAL		(RVC_FUNCT3_C_JAL | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_JR		(RVC_FUNCT4_C_JR | RVC_OPCODE_C2)
+> -#define RVC_MATCH_C_JALR	(RVC_FUNCT4_C_JALR | RVC_OPCODE_C2)
+> -
+> -#define RVG_MASK_JALR		0x707f
+> -#define RVG_MASK_JAL		0x7f
+> -#define RVC_MASK_C_JALR		0xf07f
+> -#define RVC_MASK_C_JR		0xf07f
+> -#define RVC_MASK_C_JAL		0xe003
+> -#define RVC_MASK_C_J		0xe003
+> -#define RVG_MASK_BEQ		0x707f
+> -#define RVG_MASK_BNE		0x707f
+> -#define RVG_MASK_BLT		0x707f
+> -#define RVG_MASK_BGE		0x707f
+> -#define RVG_MASK_BLTU		0x707f
+> -#define RVG_MASK_BGEU		0x707f
+> -#define RVC_MASK_C_BEQZ		0xe003
+> -#define RVC_MASK_C_BNEZ		0xe003
+> +#define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BNE		(RV_ENCODE_FUNCT3(BNE) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BLT		(RV_ENCODE_FUNCT3(BLT) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BGE		(RV_ENCODE_FUNCT3(BGE) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BLTU		(RV_ENCODE_FUNCT3(BLTU) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
+> +#define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_JAL		(RVC_ENCODE_FUNCT3(C_JAL) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_JR		(RVC_ENCODE_FUNCT4(C_JR) | RVC_OPCODE_C2)
+> +#define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
+> +
+> +#define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JALR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JAL		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_J		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BEQ		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BNE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BLT		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BGE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BLTU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BGEU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_BEQZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_BNEZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+>  #define RVG_MASK_SRET		0xffffffff
+>  
+>  #define __INSN_LENGTH_MASK	_UL(0x3)
+
+My eyes got tired near the end of this, but I had a good through and
+spot checked against the values in the spec docs and all came up good
+for me. I definitely like the cases where you manage to avoid using
+defines that'd require an RE effort to figure out what the actual fields
+are.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
 
 _______________________________________________
 linux-riscv mailing list
