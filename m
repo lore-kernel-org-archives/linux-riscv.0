@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B64C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C5EC4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ESKkAciZ9GrsVzYQiqiWBrZj5zinMNbHihUvQR6Kon8=; b=OlOdhg0oiBcIEj
-	SnibR0hxcTR9ZurfWlq3/ZoREdsqszDws4tdlndgoKLJawJLFalM7fJTNthC5+legGeaIGe3sxM/H
-	8mB5NMlVbcRR/aqN7SXyICPh9aWDG5ZPOKRN0uSea6DFgWcu5pyW10O3S6lhvfBNSfEYKLnCbR1wG
-	2ItFF3xi9pQA1v/WIrZOIOpmSjl+9CPuMvUndAxgj/rUFJEmjVL/YzwW8mLz4aXB0ZwfX2OpwzYkU
-	3swTWiP/wLI1Xurp5IA6lX/Uzs6uQTdVPs6yjRI8cPwEkPOTehOPcqsXyLmNTa0or3TjSXv8e4HXx
-	gajXOB8CKHbi3jz2fFmA==;
+	List-Owner; bh=DPgxN4TvA1gS0zfIhYGAx+sTakhlMY0q2DVKfNtGRtY=; b=BkY/scqxhFKCy6
+	AErQMeff7pKfzBjsuxRwDXwDa3q75njJq4lYrZ/hsUrW35V8SSrihdoMS0cF42uTsmSzVnUihOnir
+	rDf2S9DySTWaMhCM+yx+zPSXWCZ9tBx5pmYX2ADvL4yKqxyoH1sZOus4Odk88RUuhuNEsrdfZ/srF
+	wHcOPhYf2ry6RxC+CCwdV2RGWfbZAMHe/Tq8FZ4xtgjRm9teuM1TaQLWtxv+trFZZ8bQETJwyPmzB
+	8FcmwjP3VSpDrMVAkEzsfYIWJeodx4x0rBcYCPFoIe+AOKyF9ZkkfRRZY/OAT6rCWs27Z7kc4eFyh
+	SS2b+6LhvsGkl5GEIyZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0f-0032Z3-Ak; Wed, 30 Nov 2022 22:56:57 +0000
+	id 1p0W0v-0032jt-Eh; Wed, 30 Nov 2022 22:57:13 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0N-0032R8-Qb
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:46 +0000
+	id 1p0W0q-0032gd-W7
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:57:11 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p0W0J-0005PW-7Y; Wed, 30 Nov 2022 23:56:35 +0100
+	id 1p0W0O-0005PW-Ma; Wed, 30 Nov 2022 23:56:40 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -42,18 +42,17 @@ Cc: christoph.muellner@vrull.eu,
 	emil.renner.berthing@canonical.com,
 	ardb@kernel.org,
 	linux-efi@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 02/14] RISC-V: add prefix to all constants/macros in parse_asm.h
-Date: Wed, 30 Nov 2022 23:56:02 +0100
-Message-Id: <20221130225614.1594256-3-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH v3 14/14] RISC-V: add zbb support to string functions
+Date: Wed, 30 Nov 2022 23:56:14 +0100
+Message-Id: <20221130225614.1594256-15-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221130225614.1594256-1-heiko@sntech.de>
 References: <20221130225614.1594256-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_145640_132761_F40F1A32 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20221130_145709_357458_BF389CC6 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,352 +71,595 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Some of the constants and macros already have suitable RV_, RVG_ or
-RVC_ prefixes.
+Add handling for ZBB extension and add support for using it as a
+variant for optimized string functions.
 
-Extend this to the rest of the file as well, as we want to use these
-things in a broader scope soon.
+Support for the Zbb-str-variants is limited to the GNU-assembler
+for now, as LLVM has not yet aquired the functionality to
+selectively change the arch option in assembler code.
+This is still under review at
+    https://reviews.llvm.org/D123515
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Co-developed-by: Christoph Muellner <christoph.muellner@vrull.eu>
+Signed-off-by: Christoph Muellner <christoph.muellner@vrull.eu>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/parse_asm.h | 194 ++++++++++++++---------------
- arch/riscv/kernel/kgdb.c           |  40 +++---
- 2 files changed, 117 insertions(+), 117 deletions(-)
+ arch/riscv/Kconfig                   |  24 ++++++
+ arch/riscv/include/asm/errata_list.h |   3 +-
+ arch/riscv/include/asm/hwcap.h       |   1 +
+ arch/riscv/include/asm/string.h      |  29 +++++--
+ arch/riscv/kernel/cpu.c              |   1 +
+ arch/riscv/kernel/cpufeature.c       |  18 +++++
+ arch/riscv/lib/Makefile              |   3 +
+ arch/riscv/lib/strcmp_zbb.S          |  96 ++++++++++++++++++++++
+ arch/riscv/lib/strlen_zbb.S          | 115 +++++++++++++++++++++++++++
+ arch/riscv/lib/strncmp_zbb.S         | 112 ++++++++++++++++++++++++++
+ 10 files changed, 395 insertions(+), 7 deletions(-)
+ create mode 100644 arch/riscv/lib/strcmp_zbb.S
+ create mode 100644 arch/riscv/lib/strlen_zbb.S
+ create mode 100644 arch/riscv/lib/strncmp_zbb.S
 
-diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
-index 7fee806805c1..ea51542e0c65 100644
---- a/arch/riscv/include/asm/parse_asm.h
-+++ b/arch/riscv/include/asm/parse_asm.h
-@@ -6,37 +6,37 @@
- #include <linux/bits.h>
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index fa78595a6089..5703c44da5f9 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -411,6 +411,30 @@ config RISCV_ISA_SVPBMT
  
- /* The bit field of immediate value in I-type instruction */
--#define I_IMM_SIGN_OPOFF	31
--#define I_IMM_11_0_OPOFF	20
--#define I_IMM_SIGN_OFF		12
--#define I_IMM_11_0_OFF		0
--#define I_IMM_11_0_MASK		GENMASK(11, 0)
-+#define RV_I_IMM_SIGN_OPOFF	31
-+#define RV_I_IMM_11_0_OPOFF	20
-+#define RV_I_IMM_SIGN_OFF	12
-+#define RV_I_IMM_11_0_OFF	0
-+#define RV_I_IMM_11_0_MASK	GENMASK(11, 0)
+ 	   If you don't know what to do here, say Y.
  
- /* The bit field of immediate value in J-type instruction */
--#define J_IMM_SIGN_OPOFF	31
--#define J_IMM_10_1_OPOFF	21
--#define J_IMM_11_OPOFF		20
--#define J_IMM_19_12_OPOFF	12
--#define J_IMM_SIGN_OFF		20
--#define J_IMM_10_1_OFF		1
--#define J_IMM_11_OFF		11
--#define J_IMM_19_12_OFF		12
--#define J_IMM_10_1_MASK		GENMASK(9, 0)
--#define J_IMM_11_MASK		GENMASK(0, 0)
--#define J_IMM_19_12_MASK	GENMASK(7, 0)
-+#define RV_J_IMM_SIGN_OPOFF	31
-+#define RV_J_IMM_10_1_OPOFF	21
-+#define RV_J_IMM_11_OPOFF	20
-+#define RV_J_IMM_19_12_OPOFF	12
-+#define RV_J_IMM_SIGN_OFF	20
-+#define RV_J_IMM_10_1_OFF	1
-+#define RV_J_IMM_11_OFF		11
-+#define RV_J_IMM_19_12_OFF	12
-+#define RV_J_IMM_10_1_MASK	GENMASK(9, 0)
-+#define RV_J_IMM_11_MASK	GENMASK(0, 0)
-+#define RV_J_IMM_19_12_MASK	GENMASK(7, 0)
- 
- /* The bit field of immediate value in B-type instruction */
--#define B_IMM_SIGN_OPOFF	31
--#define B_IMM_10_5_OPOFF	25
--#define B_IMM_4_1_OPOFF		8
--#define B_IMM_11_OPOFF		7
--#define B_IMM_SIGN_OFF		12
--#define B_IMM_10_5_OFF		5
--#define B_IMM_4_1_OFF		1
--#define B_IMM_11_OFF		11
--#define B_IMM_10_5_MASK		GENMASK(5, 0)
--#define B_IMM_4_1_MASK		GENMASK(3, 0)
--#define B_IMM_11_MASK		GENMASK(0, 0)
-+#define RV_B_IMM_SIGN_OPOFF	31
-+#define RV_B_IMM_10_5_OPOFF	25
-+#define RV_B_IMM_4_1_OPOFF	8
-+#define RV_B_IMM_11_OPOFF	7
-+#define RV_B_IMM_SIGN_OFF	12
-+#define RV_B_IMM_10_5_OFF	5
-+#define RV_B_IMM_4_1_OFF	1
-+#define RV_B_IMM_11_OFF		11
-+#define RV_B_IMM_10_5_MASK	GENMASK(5, 0)
-+#define RV_B_IMM_4_1_MASK	GENMASK(3, 0)
-+#define RV_B_IMM_11_MASK	GENMASK(0, 0)
- 
- /* The register offset in RVG instruction */
- #define RVG_RS1_OPOFF		15
-@@ -100,71 +100,71 @@
- #define RVC_C2_RD_OPOFF		7
- 
- /* parts of opcode for RVG*/
--#define OPCODE_BRANCH		0x63
--#define OPCODE_JALR		0x67
--#define OPCODE_JAL		0x6f
--#define OPCODE_SYSTEM		0x73
-+#define RVG_OPCODE_BRANCH	0x63
-+#define RVG_OPCODE_JALR		0x67
-+#define RVG_OPCODE_JAL		0x6f
-+#define RVG_OPCODE_SYSTEM	0x73
- 
- /* parts of opcode for RVC*/
--#define OPCODE_C_0		0x0
--#define OPCODE_C_1		0x1
--#define OPCODE_C_2		0x2
-+#define RVC_OPCODE_C0		0x0
-+#define RVC_OPCODE_C1		0x1
-+#define RVC_OPCODE_C2		0x2
- 
- /* parts of funct3 code for I, M, A extension*/
--#define FUNCT3_JALR		0x0
--#define FUNCT3_BEQ		0x0
--#define FUNCT3_BNE		0x1000
--#define FUNCT3_BLT		0x4000
--#define FUNCT3_BGE		0x5000
--#define FUNCT3_BLTU		0x6000
--#define FUNCT3_BGEU		0x7000
-+#define RVG_FUNCT3_JALR		0x0
-+#define RVG_FUNCT3_BEQ		0x0
-+#define RVG_FUNCT3_BNE		0x1000
-+#define RVG_FUNCT3_BLT		0x4000
-+#define RVG_FUNCT3_BGE		0x5000
-+#define RVG_FUNCT3_BLTU		0x6000
-+#define RVG_FUNCT3_BGEU		0x7000
- 
- /* parts of funct3 code for C extension*/
--#define FUNCT3_C_BEQZ		0xc000
--#define FUNCT3_C_BNEZ		0xe000
--#define FUNCT3_C_J		0xa000
--#define FUNCT3_C_JAL		0x2000
--#define FUNCT4_C_JR		0x8000
--#define FUNCT4_C_JALR		0x9000
--
--#define FUNCT12_SRET		0x10200000
--
--#define MATCH_JALR		(FUNCT3_JALR | OPCODE_JALR)
--#define MATCH_JAL		(OPCODE_JAL)
--#define MATCH_BEQ		(FUNCT3_BEQ | OPCODE_BRANCH)
--#define MATCH_BNE		(FUNCT3_BNE | OPCODE_BRANCH)
--#define MATCH_BLT		(FUNCT3_BLT | OPCODE_BRANCH)
--#define MATCH_BGE		(FUNCT3_BGE | OPCODE_BRANCH)
--#define MATCH_BLTU		(FUNCT3_BLTU | OPCODE_BRANCH)
--#define MATCH_BGEU		(FUNCT3_BGEU | OPCODE_BRANCH)
--#define MATCH_SRET		(FUNCT12_SRET | OPCODE_SYSTEM)
--#define MATCH_C_BEQZ		(FUNCT3_C_BEQZ | OPCODE_C_1)
--#define MATCH_C_BNEZ		(FUNCT3_C_BNEZ | OPCODE_C_1)
--#define MATCH_C_J		(FUNCT3_C_J | OPCODE_C_1)
--#define MATCH_C_JAL		(FUNCT3_C_JAL | OPCODE_C_1)
--#define MATCH_C_JR		(FUNCT4_C_JR | OPCODE_C_2)
--#define MATCH_C_JALR		(FUNCT4_C_JALR | OPCODE_C_2)
--
--#define MASK_JALR		0x707f
--#define MASK_JAL		0x7f
--#define MASK_C_JALR		0xf07f
--#define MASK_C_JR		0xf07f
--#define MASK_C_JAL		0xe003
--#define MASK_C_J		0xe003
--#define MASK_BEQ		0x707f
--#define MASK_BNE		0x707f
--#define MASK_BLT		0x707f
--#define MASK_BGE		0x707f
--#define MASK_BLTU		0x707f
--#define MASK_BGEU		0x707f
--#define MASK_C_BEQZ		0xe003
--#define MASK_C_BNEZ		0xe003
--#define MASK_SRET		0xffffffff
-+#define RVC_FUNCT3_C_BEQZ	0xc000
-+#define RVC_FUNCT3_C_BNEZ	0xe000
-+#define RVC_FUNCT3_C_J		0xa000
-+#define RVC_FUNCT3_C_JAL	0x2000
-+#define RVC_FUNCT4_C_JR		0x8000
-+#define RVC_FUNCT4_C_JALR	0x9000
++config TOOLCHAIN_HAS_ZBB
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
++	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
++	depends on AS_IS_GNU
 +
-+#define RVG_FUNCT12_SRET	0x10200000
++config RISCV_ISA_ZBB
++	bool "Zbb extension support for bit manipulation instructions"
++	depends on TOOLCHAIN_HAS_ZBB
++	depends on !XIP_KERNEL && MMU
++	select RISCV_ALTERNATIVE
++	default y
++	help
++	   Adds support to dynamically detect the presence of the ZBB
++	   extension (basic bit manipulation) and enable its usage.
 +
-+#define RVG_MATCH_JALR		(RVG_FUNCT3_JALR | RVG_OPCODE_JALR)
-+#define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
-+#define RVG_MATCH_BEQ		(RVG_FUNCT3_BEQ | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_BNE		(RVG_FUNCT3_BNE | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_BLT		(RVG_FUNCT3_BLT | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_BGE		(RVG_FUNCT3_BGE | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_BLTU		(RVG_FUNCT3_BLTU | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_BGEU		(RVG_FUNCT3_BGEU | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_SRET		(RVG_FUNCT12_SRET | RVG_OPCODE_SYSTEM)
-+#define RVC_MATCH_C_BEQZ	(RVC_FUNCT3_C_BEQZ | RVC_OPCODE_C1)
-+#define RVC_MATCH_C_BNEZ	(RVC_FUNCT3_C_BNEZ | RVC_OPCODE_C1)
-+#define RVC_MATCH_C_J		(RVC_FUNCT3_C_J | RVC_OPCODE_C1)
-+#define RVC_MATCH_C_JAL		(RVC_FUNCT3_C_JAL | RVC_OPCODE_C1)
-+#define RVC_MATCH_C_JR		(RVC_FUNCT4_C_JR | RVC_OPCODE_C2)
-+#define RVC_MATCH_C_JALR	(RVC_FUNCT4_C_JALR | RVC_OPCODE_C2)
++	   The Zbb extension provides instructions to accelerate a number
++	   of bit-specific operations (count bit population, sign extending,
++	   bitrotation, etc).
 +
-+#define RVG_MASK_JALR		0x707f
-+#define RVG_MASK_JAL		0x7f
-+#define RVC_MASK_C_JALR		0xf07f
-+#define RVC_MASK_C_JR		0xf07f
-+#define RVC_MASK_C_JAL		0xe003
-+#define RVC_MASK_C_J		0xe003
-+#define RVG_MASK_BEQ		0x707f
-+#define RVG_MASK_BNE		0x707f
-+#define RVG_MASK_BLT		0x707f
-+#define RVG_MASK_BGE		0x707f
-+#define RVG_MASK_BLTU		0x707f
-+#define RVG_MASK_BGEU		0x707f
-+#define RVC_MASK_C_BEQZ		0xe003
-+#define RVC_MASK_C_BNEZ		0xe003
-+#define RVG_MASK_SRET		0xffffffff
++	   If you don't know what to do here, say Y.
++
+ config TOOLCHAIN_HAS_ZICBOM
+ 	bool
+ 	default y
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 19a771085781..e0a49b9b7627 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -22,7 +22,8 @@
  
- #define __INSN_LENGTH_MASK	_UL(0x3)
- #define __INSN_LENGTH_GE_32	_UL(0x3)
- #define __INSN_OPCODE_MASK	_UL(0x7F)
--#define __INSN_BRANCH_OPCODE	_UL(OPCODE_BRANCH)
-+#define __INSN_BRANCH_OPCODE	_UL(RVG_OPCODE_BRANCH)
+ #define	CPUFEATURE_SVPBMT 0
+ #define	CPUFEATURE_ZICBOM 1
+-#define	CPUFEATURE_NUMBER 2
++#define	CPUFEATURE_ZBB 2
++#define	CPUFEATURE_NUMBER 3
  
- /* Define a series of is_XXX_insn functions to check if the value INSN
-  * is an instance of instruction XXX.
-@@ -180,26 +180,26 @@ static inline bool is_ ## INSN_NAME ## _insn(long insn) \
- #define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
- #define RVC_X(X, s, mask) RV_X(X, s, mask)
+ #ifdef __ASSEMBLY__
  
--#define EXTRACT_JTYPE_IMM(x) \
-+#define RV_EXTRACT_JTYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
--	(RV_X(x_, J_IMM_10_1_OPOFF, J_IMM_10_1_MASK) << J_IMM_10_1_OFF) | \
--	(RV_X(x_, J_IMM_11_OPOFF, J_IMM_11_MASK) << J_IMM_11_OFF) | \
--	(RV_X(x_, J_IMM_19_12_OPOFF, J_IMM_19_12_MASK) << J_IMM_19_12_OFF) | \
--	(RV_IMM_SIGN(x_) << J_IMM_SIGN_OFF); })
-+	(RV_X(x_, RV_J_IMM_10_1_OPOFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OFF) | \
-+	(RV_X(x_, RV_J_IMM_11_OPOFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OFF) | \
-+	(RV_X(x_, RV_J_IMM_19_12_OPOFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OFF) | \
-+	(RV_IMM_SIGN(x_) << RV_J_IMM_SIGN_OFF); })
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index b22525290073..ac5555fd9788 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -59,6 +59,7 @@ enum riscv_isa_ext_id {
+ 	RISCV_ISA_EXT_ZIHINTPAUSE,
+ 	RISCV_ISA_EXT_SSTC,
+ 	RISCV_ISA_EXT_SVINVAL,
++	RISCV_ISA_EXT_ZBB,
+ 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+ };
  
--#define EXTRACT_ITYPE_IMM(x) \
-+#define RV_EXTRACT_ITYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
--	(RV_X(x_, I_IMM_11_0_OPOFF, I_IMM_11_0_MASK)) | \
--	(RV_IMM_SIGN(x_) << I_IMM_SIGN_OFF); })
-+	(RV_X(x_, RV_I_IMM_11_0_OPOFF, RV_I_IMM_11_0_MASK)) | \
-+	(RV_IMM_SIGN(x_) << RV_I_IMM_SIGN_OFF); })
+diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+index b98481d2d154..806c402c874e 100644
+--- a/arch/riscv/include/asm/string.h
++++ b/arch/riscv/include/asm/string.h
+@@ -6,6 +6,8 @@
+ #ifndef _ASM_RISCV_STRING_H
+ #define _ASM_RISCV_STRING_H
  
--#define EXTRACT_BTYPE_IMM(x) \
-+#define RV_EXTRACT_BTYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
--	(RV_X(x_, B_IMM_4_1_OPOFF, B_IMM_4_1_MASK) << B_IMM_4_1_OFF) | \
--	(RV_X(x_, B_IMM_10_5_OPOFF, B_IMM_10_5_MASK) << B_IMM_10_5_OFF) | \
--	(RV_X(x_, B_IMM_11_OPOFF, B_IMM_11_MASK) << B_IMM_11_OFF) | \
--	(RV_IMM_SIGN(x_) << B_IMM_SIGN_OFF); })
-+	(RV_X(x_, RV_B_IMM_4_1_OPOFF, RV_B_IMM_4_1_MASK) << RV_B_IMM_4_1_OFF) | \
-+	(RV_X(x_, RV_B_IMM_10_5_OPOFF, RV_B_IMM_10_5_MASK) << RV_B_IMM_10_5_OFF) | \
-+	(RV_X(x_, RV_B_IMM_11_OPOFF, RV_B_IMM_11_MASK) << RV_B_IMM_11_OFF) | \
-+	(RV_IMM_SIGN(x_) << RV_B_IMM_SIGN_OFF); })
++#include <asm/alternative-macros.h>
++#include <asm/errata_list.h>
+ #include <linux/types.h>
+ #include <linux/linkage.h>
  
--#define EXTRACT_RVC_J_IMM(x) \
-+#define RVC_EXTRACT_JTYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
- 	(RVC_X(x_, RVC_J_IMM_3_1_OPOFF, RVC_J_IMM_3_1_MASK) << RVC_J_IMM_3_1_OFF) | \
- 	(RVC_X(x_, RVC_J_IMM_4_OPOFF, RVC_J_IMM_4_MASK) << RVC_J_IMM_4_OFF) | \
-@@ -210,7 +210,7 @@ static inline bool is_ ## INSN_NAME ## _insn(long insn) \
- 	(RVC_X(x_, RVC_J_IMM_10_OPOFF, RVC_J_IMM_10_MASK) << RVC_J_IMM_10_OFF) | \
- 	(RVC_IMM_SIGN(x_) << RVC_J_IMM_SIGN_OFF); })
+@@ -21,6 +23,7 @@ extern asmlinkage void *__memmove(void *, const void *, size_t);
  
--#define EXTRACT_RVC_B_IMM(x) \
-+#define RVC_EXTRACT_BTYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
- 	(RVC_X(x_, RVC_B_IMM_2_1_OPOFF, RVC_B_IMM_2_1_MASK) << RVC_B_IMM_2_1_OFF) | \
- 	(RVC_X(x_, RVC_B_IMM_4_3_OPOFF, RVC_B_IMM_4_3_MASK) << RVC_B_IMM_4_3_OFF) | \
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 963ed7edcff2..137c6d870d58 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -29,20 +29,20 @@ DECLARE_INSN(c_jal, MATCH_C_JAL, MASK_C_JAL)
- #else
- #define is_c_jal_insn(opcode) 0
- #endif
--DECLARE_INSN(jalr, MATCH_JALR, MASK_JALR)
--DECLARE_INSN(jal, MATCH_JAL, MASK_JAL)
--DECLARE_INSN(c_jr, MATCH_C_JR, MASK_C_JR)
--DECLARE_INSN(c_jalr, MATCH_C_JALR, MASK_C_JALR)
--DECLARE_INSN(c_j, MATCH_C_J, MASK_C_J)
--DECLARE_INSN(beq, MATCH_BEQ, MASK_BEQ)
--DECLARE_INSN(bne, MATCH_BNE, MASK_BNE)
--DECLARE_INSN(blt, MATCH_BLT, MASK_BLT)
--DECLARE_INSN(bge, MATCH_BGE, MASK_BGE)
--DECLARE_INSN(bltu, MATCH_BLTU, MASK_BLTU)
--DECLARE_INSN(bgeu, MATCH_BGEU, MASK_BGEU)
--DECLARE_INSN(c_beqz, MATCH_C_BEQZ, MASK_C_BEQZ)
--DECLARE_INSN(c_bnez, MATCH_C_BNEZ, MASK_C_BNEZ)
--DECLARE_INSN(sret, MATCH_SRET, MASK_SRET)
-+DECLARE_INSN(jalr, RVG_MATCH_JALR, RVG_MASK_JALR)
-+DECLARE_INSN(jal, RVG_MATCH_JAL, RVG_MASK_JAL)
-+DECLARE_INSN(c_jr, RVC_MATCH_C_JR, RVC_MASK_C_JR)
-+DECLARE_INSN(c_jalr, RVC_MATCH_C_JALR, RVC_MASK_C_JALR)
-+DECLARE_INSN(c_j, RVC_MATCH_C_J, RVC_MASK_C_J)
-+DECLARE_INSN(beq, RVG_MATCH_BEQ, RVG_MASK_BEQ)
-+DECLARE_INSN(bne, RVG_MATCH_BNE, RVG_MASK_BNE)
-+DECLARE_INSN(blt, RVG_MATCH_BLT, RVG_MASK_BLT)
-+DECLARE_INSN(bge, RVG_MATCH_BGE, RVG_MASK_BGE)
-+DECLARE_INSN(bltu, RVG_MATCH_BLTU, RVG_MASK_BLTU)
-+DECLARE_INSN(bgeu, RVG_MATCH_BGEU, RVG_MASK_BGEU)
-+DECLARE_INSN(c_beqz, RVC_MATCH_C_BEQZ, RVC_MASK_C_BEQZ)
-+DECLARE_INSN(c_bnez, RVC_MATCH_C_BNEZ, RVC_MASK_C_BNEZ)
-+DECLARE_INSN(sret, RVG_MATCH_SRET, RVG_MASK_SRET)
+ #define __HAVE_ARCH_STRCMP
+ extern asmlinkage int __strcmp_generic(const char *cs, const char *ct);
++extern asmlinkage int __strcmp_zbb(const char *cs, const char *ct);
  
- static int decode_register_index(unsigned long opcode, int offset)
+ static inline int strcmp(const char *cs, const char *ct)
  {
-@@ -69,19 +69,19 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
- 			rs1_num = decode_register_index(op_code, RVC_C2_RS1_OPOFF);
- 			*next_addr = regs_ptr[rs1_num];
- 		} else if (is_c_j_insn(op_code) || is_c_jal_insn(op_code)) {
--			*next_addr = EXTRACT_RVC_J_IMM(op_code) + pc;
-+			*next_addr = RVC_EXTRACT_JTYPE_IMM(op_code) + pc;
- 		} else if (is_c_beqz_insn(op_code)) {
- 			rs1_num = decode_register_index_short(op_code,
- 							      RVC_C1_RS1_OPOFF);
- 			if (!rs1_num || regs_ptr[rs1_num] == 0)
--				*next_addr = EXTRACT_RVC_B_IMM(op_code) + pc;
-+				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
- 			else
- 				*next_addr = pc + 2;
- 		} else if (is_c_bnez_insn(op_code)) {
- 			rs1_num =
- 			    decode_register_index_short(op_code, RVC_C1_RS1_OPOFF);
- 			if (rs1_num && regs_ptr[rs1_num] != 0)
--				*next_addr = EXTRACT_RVC_B_IMM(op_code) + pc;
-+				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
- 			else
- 				*next_addr = pc + 2;
- 		} else {
-@@ -90,7 +90,7 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
- 	} else {
- 		if ((op_code & __INSN_OPCODE_MASK) == __INSN_BRANCH_OPCODE) {
- 			bool result = false;
--			long imm = EXTRACT_BTYPE_IMM(op_code);
-+			long imm = RV_EXTRACT_BTYPE_IMM(op_code);
- 			unsigned long rs1_val = 0, rs2_val = 0;
+@@ -31,10 +34,14 @@ static inline int strcmp(const char *cs, const char *ct)
+ 	register const char *a1 asm("a1") = ct;
+ 	register int a0_out asm("a0");
  
- 			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
-@@ -121,12 +121,12 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
- 			else
- 				*next_addr = pc + 4;
- 		} else if (is_jal_insn(op_code)) {
--			*next_addr = EXTRACT_JTYPE_IMM(op_code) + pc;
-+			*next_addr = RV_EXTRACT_JTYPE_IMM(op_code) + pc;
- 		} else if (is_jalr_insn(op_code)) {
- 			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
- 			if (rs1_num)
- 				*next_addr = ((unsigned long *)regs)[rs1_num];
--			*next_addr += EXTRACT_ITYPE_IMM(op_code);
-+			*next_addr += RV_EXTRACT_ITYPE_IMM(op_code);
- 		} else if (is_sret_insn(op_code)) {
- 			*next_addr = pc;
- 		} else {
+-	asm volatile("call __strcmp_generic\n\t"
++	asm volatile(
++		ALTERNATIVE(
++			"call __strcmp_generic\n\t",
++			"call __strcmp_zbb\n\t",
++			0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
+ 		: "=r"(a0_out)
+ 		: "r"(a0), "r"(a1)
+-		: "ra", "t0", "t1", "t2");
++		: "ra", "t0", "t1", "t2", "t3", "t4", "t5");
+ 
+ 	return a0_out;
+ #endif
+@@ -43,6 +50,8 @@ static inline int strcmp(const char *cs, const char *ct)
+ #define __HAVE_ARCH_STRNCMP
+ extern asmlinkage int __strncmp_generic(const char *cs,
+ 					const char *ct, size_t count);
++extern asmlinkage int __strncmp_zbb(const char *cs,
++				    const char *ct, size_t count);
+ 
+ static inline int strncmp(const char *cs, const char *ct, size_t count)
+ {
+@@ -54,10 +63,14 @@ static inline int strncmp(const char *cs, const char *ct, size_t count)
+ 	register size_t a2 asm("a2") = count;
+ 	register int a0_out asm("a0");
+ 
+-	asm volatile("call __strncmp_generic\n\t"
++	asm volatile(
++		ALTERNATIVE(
++			"call __strncmp_generic\n\t",
++			"call __strncmp_zbb\n\t",
++			0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
+ 		: "=r"(a0_out)
+ 		: "r"(a0), "r"(a1), "r"(a2)
+-		: "ra", "t0", "t1", "t2");
++		: "ra", "t0", "t1", "t2", "t3", "t4", "t5", "t6");
+ 
+ 	return a0_out;
+ #endif
+@@ -65,6 +78,7 @@ static inline int strncmp(const char *cs, const char *ct, size_t count)
+ 
+ #define __HAVE_ARCH_STRLEN
+ extern asmlinkage __kernel_size_t __strlen_generic(const char *);
++extern asmlinkage __kernel_size_t __strlen_zbb(const char *);
+ 
+ static inline __kernel_size_t strlen(const char *s)
+ {
+@@ -75,10 +89,13 @@ static inline __kernel_size_t strlen(const char *s)
+ 	register int a0_out asm("a0");
+ 
+ 	asm volatile(
+-		"call __strlen_generic\n\t"
++		ALTERNATIVE(
++			"call __strlen_generic\n\t",
++			"call __strlen_zbb\n\t",
++			0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
+ 		: "=r"(a0_out)
+ 		: "r"(a0)
+-		: "ra", "t0", "t1");
++		: "ra", "t0", "t1", "t2", "t3");
+ 
+ 	return a0_out;
+ #endif
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 852ecccd8920..e93e098f34fe 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -138,6 +138,7 @@ device_initcall(riscv_cpuinfo_init);
+  *    extensions by an underscore.
+  */
+ static struct riscv_isa_ext_data isa_ext_arr[] = {
++	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index ba62a4ff5ccd..2ec60794293f 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
+ 				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
+ 				set_bit(*ext - 'a', this_isa);
+ 			} else {
++				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+ 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+@@ -278,6 +279,20 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+ 	return true;
+ }
+ 
++static bool __init_or_module cpufeature_probe_zbb(unsigned int stage)
++{
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZBB))
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return false;
++
++	if (!riscv_isa_extension_available(NULL, ZBB))
++		return false;
++
++	return true;
++}
++
+ /*
+  * Probe presence of individual extensions.
+  *
+@@ -295,6 +310,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+ 	if (cpufeature_probe_zicbom(stage))
+ 		cpu_req_feature |= BIT(CPUFEATURE_ZICBOM);
+ 
++	if (cpufeature_probe_zbb(stage))
++		cpu_req_feature |= BIT(CPUFEATURE_ZBB);
++
+ 	return cpu_req_feature;
+ }
+ 
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 6c74b0bedd60..b632483f851c 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -4,8 +4,11 @@ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= memmove.o
+ lib-y			+= strcmp.o
++lib-$(CONFIG_RISCV_ISA_ZBB) += strcmp_zbb.o
+ lib-y			+= strlen.o
++lib-$(CONFIG_RISCV_ISA_ZBB) += strlen_zbb.o
+ lib-y			+= strncmp.o
++lib-$(CONFIG_RISCV_ISA_ZBB) += strncmp_zbb.o
+ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ 
+diff --git a/arch/riscv/lib/strcmp_zbb.S b/arch/riscv/lib/strcmp_zbb.S
+new file mode 100644
+index 000000000000..654f17dabd67
+--- /dev/null
++++ b/arch/riscv/lib/strcmp_zbb.S
+@@ -0,0 +1,96 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2022 VRULL GmbH
++ * Author: Christoph Muellner <christoph.muellner@vrull.eu>
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm-generic/export.h>
++
++#define src1		a0
++#define result		a0
++#define src2		t5
++#define data1		t0
++#define data2		t1
++#define align		t2
++#define data1_orcb	t3
++#define m1		t4
++
++.option push
++.option arch,+zbb
++
++/* int __strcmp_zbb(const char *cs, const char *ct) */
++ENTRY(__strcmp_zbb)
++	/*
++	 * Returns
++	 *   a0 - comparison result, value like strcmp
++	 *
++	 * Parameters
++	 *   a0 - string1
++	 *   a1 - string2
++	 *
++	 * Clobbers
++	 *   t0, t1, t2, t3, t4, t5
++	 */
++	mv	src2, a1
++
++	or	align, src1, src2
++	li	m1, -1
++	and	align, align, SZREG-1
++	bnez	align, 3f
++
++	/* Main loop for aligned string.  */
++	.p2align 3
++1:
++	REG_L	data1, 0(src1)
++	REG_L	data2, 0(src2)
++	orc.b	data1_orcb, data1
++	bne	data1_orcb, m1, 2f
++	addi	src1, src1, SZREG
++	addi	src2, src2, SZREG
++	beq	data1, data2, 1b
++
++	/*
++	 * Words don't match, and no null byte in the first
++	 * word. Get bytes in big-endian order and compare.
++	 */
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	data1, data1
++	rev8	data2, data2
++#endif
++
++	/* Synthesize (data1 >= data2) ? 1 : -1 in a branchless sequence. */
++	sltu	result, data1, data2
++	neg	result, result
++	ori	result, result, 1
++	ret
++
++2:
++	/*
++	 * Found a null byte.
++	 * If words don't match, fall back to simple loop.
++	 */
++	bne	data1, data2, 3f
++
++	/* Otherwise, strings are equal. */
++	li	result, 0
++	ret
++
++	/* Simple loop for misaligned strings. */
++	.p2align 3
++3:
++	lbu	data1, 0(src1)
++	lbu	data2, 0(src2)
++	addi	src1, src1, 1
++	addi	src2, src2, 1
++	bne	data1, data2, 4f
++	bnez	data1, 3b
++
++4:
++	sub	result, data1, data2
++	ret
++END(__strcmp_zbb)
++EXPORT_SYMBOL(__strcmp_zbb)
++
++.option pop
+diff --git a/arch/riscv/lib/strlen_zbb.S b/arch/riscv/lib/strlen_zbb.S
+new file mode 100644
+index 000000000000..49a396567819
+--- /dev/null
++++ b/arch/riscv/lib/strlen_zbb.S
+@@ -0,0 +1,115 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2022 VRULL GmbH
++ * Author: Christoph Muellner <christoph.muellner@vrull.eu>
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm-generic/export.h>
++
++#define src		a0
++#define result		a0
++#define addr		t0
++#define data		t1
++#define offset		t2
++#define offset_bits	t2
++#define valid_bytes	t3
++#define m1		t3
++
++#ifdef CONFIG_CPU_BIG_ENDIAN
++# define CZ	clz
++# define SHIFT	sll
++#else
++# define CZ	ctz
++# define SHIFT	srl
++#endif
++
++.option push
++.option arch,+zbb
++
++/* int __strlen_zbb(const char *s) */
++ENTRY(__strlen_zbb)
++	/*
++	 * Returns
++	 *   a0 - string length
++	 *
++	 * Parameters
++	 *   a0 - String to measure
++	 *
++	 * Clobbers
++	 *   t0, t1, t2, t3
++	 */
++
++	/* Number of irrelevant bytes in the first word. */
++	andi	offset, src, SZREG-1
++
++	/* Align pointer. */
++	andi	addr, src, -SZREG
++
++	li	valid_bytes, SZREG
++	sub	valid_bytes, valid_bytes, offset
++	slli	offset_bits, offset, RISCV_LGPTR
++
++	/* Get the first word.  */
++	REG_L	data, 0(addr)
++
++	/*
++	 * Shift away the partial data we loaded to remove the irrelevant bytes
++	 * preceding the string with the effect of adding NUL bytes at the
++	 * end of the string.
++	 */
++	SHIFT	data, data, offset_bits
++
++	/* Convert non-NUL into 0xff and NUL into 0x00. */
++	orc.b	data, data
++
++	/* Convert non-NUL into 0x00 and NUL into 0xff. */
++	not	data, data
++
++	/*
++	 * Search for the first set bit (corresponding to a NUL byte in the
++	 * original chunk).
++	 */
++	CZ	data, data
++
++	/*
++	 * The first chunk is special: commpare against the number
++	 * of valid bytes in this chunk.
++	 */
++	srli	result, data, 3
++	bgtu	valid_bytes, result, 3f
++
++	/* Prepare for the word comparison loop. */
++	addi	offset, addr, SZREG
++	li	m1, -1
++
++	/*
++	 * Our critical loop is 4 instructions and processes data in
++	 * 4 byte or 8 byte chunks.
++	 */
++	.p2align 3
++1:
++	REG_L	data, SZREG(addr)
++	addi	addr, addr, SZREG
++	orc.b	data, data
++	beq	data, m1, 1b
++2:
++	not	data, data
++	CZ	data, data
++
++	/* Get number of processed words.  */
++	sub	offset, addr, offset
++
++	/* Add number of characters in the first word.  */
++	add	result, result, offset
++	srli	data, data, 3
++
++	/* Add number of characters in the last word.  */
++	add	result, result, data
++3:
++	ret
++END(__strlen_zbb)
++EXPORT_SYMBOL(__strlen_zbb)
++
++.option pop
+diff --git a/arch/riscv/lib/strncmp_zbb.S b/arch/riscv/lib/strncmp_zbb.S
+new file mode 100644
+index 000000000000..0cd4b84b7d27
+--- /dev/null
++++ b/arch/riscv/lib/strncmp_zbb.S
+@@ -0,0 +1,112 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) 2022 VRULL GmbH
++ * Author: Christoph Muellner <christoph.muellner@vrull.eu>
++ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm-generic/export.h>
++
++#define src1		a0
++#define result		a0
++#define src2		t6
++#define len		a2
++#define data1		t0
++#define data2		t1
++#define align		t2
++#define data1_orcb	t3
++#define limit		t4
++#define m1		t5
++
++.option push
++.option arch,+zbb
++
++/* int __strncmp_zbb(const char *cs, const char *ct, size_t count) */
++ENTRY(__strncmp_zbb)
++	/*
++	 * Returns
++	 *   a0 - comparison result, like strncmp
++	 *
++	 * Parameters
++	 *   a0 - string1
++	 *   a1 - string2
++	 *   a2 - number of characters to compare
++	 *
++	 * Clobbers
++	 *   t0, t1, t2, t3, t4, t5, t6
++	 */
++	mv	src2, a1
++
++	or	align, src1, src2
++	li	m1, -1
++	and	align, align, SZREG-1
++	add	limit, src1, len
++	bnez	align, 4f
++
++	/* Adjust limit for fast-path.  */
++	addi	limit, limit, -SZREG
++
++	/* Main loop for aligned string.  */
++	.p2align 3
++1:
++	bgt	src1, limit, 3f
++	REG_L	data1, 0(src1)
++	REG_L	data2, 0(src2)
++	orc.b	data1_orcb, data1
++	bne	data1_orcb, m1, 2f
++	addi	src1, src1, SZREG
++	addi	src2, src2, SZREG
++	beq	data1, data2, 1b
++
++	/*
++	 * Words don't match, and no null byte in the first
++	 * word. Get bytes in big-endian order and compare.
++	 */
++#ifndef CONFIG_CPU_BIG_ENDIAN
++	rev8	data1, data1
++	rev8	data2, data2
++#endif
++
++	/* Synthesize (data1 >= data2) ? 1 : -1 in a branchless sequence.  */
++	sltu	result, data1, data2
++	neg	result, result
++	ori	result, result, 1
++	ret
++
++2:
++	/*
++	 * Found a null byte.
++	 * If words don't match, fall back to simple loop.
++	 */
++	bne	data1, data2, 3f
++
++	/* Otherwise, strings are equal.  */
++	li	result, 0
++	ret
++
++	/* Simple loop for misaligned strings.  */
++3:
++	/* Restore limit for slow-path.  */
++	addi	limit, limit, SZREG
++	.p2align 3
++4:
++	bge	src1, limit, 6f
++	lbu	data1, 0(src1)
++	lbu	data2, 0(src2)
++	addi	src1, src1, 1
++	addi	src2, src2, 1
++	bne	data1, data2, 5f
++	bnez	data1, 4b
++
++5:
++	sub	result, data1, data2
++	ret
++
++6:
++	li	result, 0
++	ret
++END(__strncmp_zbb)
++EXPORT_SYMBOL(__strncmp_zbb)
++
++.option pop
 -- 
 2.35.1
 
