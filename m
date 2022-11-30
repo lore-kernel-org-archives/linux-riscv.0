@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674B3C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DDDC352A1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IWBi2Zw7+QDsScoyD2oBqhx9FscdNePuMf4YsrD8YO0=; b=O3TP2LakVEZrjt
-	BHB4CewP3su8rMAQ24MxYBHrDUxAj3YpH2UZlKlK//dPx7xCI8zUIux26W99ebQtbIzqryrdMXbvJ
-	4vAKXVGxR37Zln9Gt6icLXuNGEAXnFiZ4aNC7aP84Y/XDfYskdCwrZJBci8QUu5iOBs56alvERrH7
-	MBGIZuEmmJAfTQ5GTxsj72rJsjUE8+AWh+TgIgIKuxblRhLlcJCnn8lhNrRAsriH+zPn4A/sixttY
-	rVczQqWGBSWlQGJugMGDCatpsoF/j+RV3OrCjp+bhzDLP9lLIhkoCZvOP4JtbrytRBV7elgUXvx9z
-	FRyoVIonuktxHxHjg+dw==;
+	List-Owner; bh=fSa+zr5ZT1SNGMmmfbPyWia6Eg8AYcyf1sIri9W5Ahc=; b=WggDj4bU5yyNQH
+	OKXjmfyOghjdTV2cuykwAHmCd1vMedHgEeGQWShtF2UIRW81nWbCeOSIuVcrbYqJANdWuX+hR2uDN
+	sPTvNTImWWGO8utQv+EJywu4fLXRPbzNnrAz3S5YyMJEgcvNHiWQzk+tk+Wnf8WkBJt+sPBSmqrD9
+	Fzk4vc8YTAkvc/PzuF4tdhioLAcccZ0W8M1IxFQeOl8k4/SKoxA03u2/mDCtAQ7O524WPOpqfGQG8
+	1lr+d6+MCwrYdATx72MzdHsBKB51jY5nh9FHj6ncUOk2nFLuGU2NtOIJzD0GYDyWEsSfgYDgydjcJ
+	rPw1V68biIw7fgewH5uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Wjg-003KZJ-Mf; Wed, 30 Nov 2022 23:43:28 +0000
+	id 1p0Wjo-003KcL-VD; Wed, 30 Nov 2022 23:43:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WUQ-003E7h-AF
-	for linux-riscv@bombadil.infradead.org; Wed, 30 Nov 2022 23:27:42 +0000
+	id 1p0WUR-003E7h-QQ
+	for linux-riscv@bombadil.infradead.org; Wed, 30 Nov 2022 23:27:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dHU3XdySL+sqLW+/LrYmZDKEHUg9NLktQjaTwPQsVog=; b=ZvDBwDtlYlretYTO/kIodip3Bi
-	7TJbybbb7QruL0+o/Klh/LatEzrtGo17XQxVo4LfY7BaXhInjW2GMYYEdA7y03VZyYbl/vKVrPHar
-	F0cwwdnJndv6+evLdNaRhj1YoWoVLYB4xVsHNIA/js4LOHZZwcHRVPaB8cIhJ1xzENWYACzH/xNd6
-	CNlg3BnrA9AMrCgyv4J+gtCVjQfCRmRNYM8Dbmb0kO5bg5D6wQImGck3oABr6SH3WafTikSIbQoF6
-	qVkmddrhQkIT7ktM8Lkxti5UWhp9aqyvXKU7l9ngOkEf616G4ovEcIK+eURyo9EKLanVpVVSdCVsY
-	/NZ4KbeQ==;
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	bh=pe1Kkjvkgy8PDlwU67QIc0+aecYuhy5E1AiDnDSceyU=; b=mER3BZdFc8lsosnDZgwUsusRdD
+	fwQ0OvaF6qMHXdKnHeoD6vGk4jJcu1ZvSQUw6wL8SWT8wRRQvQxcJvJ9ntvGxKd6zjN3ydARyVtwq
+	iBAAWIgwgpeUTDzHdRpTyzf3yxDxl8bacW/JdnIWUhg/fhWDw6ll1mVnFth62jvsLlHZlTg7LUC+B
+	EqhLqC8dUP5s6kMDlDkWPq7WHj4zGUOY6oX3Lsxz3K1imQlDg/bdiJg4H5sDnzqk1akHSOYk8drOq
+	K9EIdmRgI+ZPnbdx53OjZGuMNbfKDus6s5JkPtyhEXwhK0gL+3IZkswy5yS2JnJ1Ka7DqIbVlqzjw
+	03I0bD+Q==;
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WE1-006BIT-2b
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:10:51 +0000
-Received: by mail-pf1-x449.google.com with SMTP id 81-20020a621654000000b00574d1e98f04so236271pfw.0
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:10:42 -0800 (PST)
+	id 1p0WEC-006BKG-1E
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:10:58 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id j21-20020a63fc15000000b00476d6932baeso49054pgi.23
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:10:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=dHU3XdySL+sqLW+/LrYmZDKEHUg9NLktQjaTwPQsVog=;
-        b=c7btJG8Vz8oky7wiaNPxy35uhrDeANgOVQezTibSlYx2PbLSsMoH8mDkHjvWv43r2I
-         DOyGFxiN/wlU13wd54TlpFEXVNRhIPVkrbT8VpB5+R7A+NORau1uqiIuKdNp1l9ZxS3q
-         63CVt28/ps3LWgQLgldTdPmii2k6nYJPIndkTp9NkSDs8QnJA4J1ix03atRul1JJ3BJo
-         V4dVc1X9caFKy+lQSJ06QfkENtsRL2kJnSrgxeyZLCJnwJ/oKQ1fSFF4sK0sqmL7zSo3
-         SfI9db7qU+AzVLeBiqxZmQO+74EumASU/wum9bD/2lVaCR/4JTt9XngR5ZgsGJrmLu4R
-         AyMQ==
+        bh=pe1Kkjvkgy8PDlwU67QIc0+aecYuhy5E1AiDnDSceyU=;
+        b=PtfTeuxltMAWC2r28YkEpC42/mHVqlVK9cbH6+HjFFnh8l3fnLdSvP/QyQcZjiH0fJ
+         bAAP0a8yCSDYKaUdaH21SBJdNohuMejKBiChzsMvrmU4O6PwxgsyB11gpo8HZ1qpOnNj
+         0KjvQaXNCIfI/gT8JFhhVnnRkflSvNYyY4jp8svnC7Lan9kSJyrM/U9WEp+pXRwL/qXE
+         QPH/u84NCMboZU39GSXi9Lj4fcmoi1xI+xbEkS68VCcV+znlZLd7AdaPCKmQ9tBL0Okt
+         aG5KOLnbOknW0mumwkbW75rjZaylsDPJeJ0+up/D0vzJ/h6wHyc7pmAOmpfzYxQCQRg1
+         XCJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dHU3XdySL+sqLW+/LrYmZDKEHUg9NLktQjaTwPQsVog=;
-        b=j6LwCWPfBjURZYBXVEzxMuL6/Poy52uXv0ubUfvb0Pl7U47m6e/omQxWCJYmsAfJoL
-         7HPt38hDFdVDd41hgFYd0KeATtaFVN392BT+dj1w5hMGZsWeL7xgfth/Dy8ALvQRhdfj
-         o5PgK7T2R921tUQK8T0m7Qu3VGVJ+qEN0OBkVM6vB+NjJ0A2WT3TRf/oZ94S7PHWavxG
-         JGRBD1J/yQapKZyQsAliAQ5X14PlfhrCjA/cAmAKR5RzZqE6Jkl1ScZ16V+BGXWo2hbu
-         BXmUbFK9kF62A1donhlyjJND4uL5HEwIGOgCa9OyTNhzgwwTkmH+/SoYacg5xOWJSkap
-         3N8w==
-X-Gm-Message-State: ANoB5pmPYZIxDjlWhwkcOaTmeM1ils9s+QDcoC88gJyqevV5BWgXCPPc
-	XF/nypS6SVq+J/7bld/z8J7up98zi4Y=
-X-Google-Smtp-Source: AA0mqf7lZJJIAb/z3d8ghyEmf3T+skYhpBDPK5HurVPIO9Y/yo5JSkPk3YpIVuNzGNu9rTBuuswE8IOM/i8=
+        bh=pe1Kkjvkgy8PDlwU67QIc0+aecYuhy5E1AiDnDSceyU=;
+        b=3TUh5IF+D8rIG66IrpfSHLX1W7jxK8wbDs8Bv1sn4k9hi3739VqZ87+ioMWE6ex4Xa
+         EnZOtnznKhEvWzWi8S1hA/vwH+e3uzcgxj1GAyugsWIzrUUebE2EW7FNfBrCtMkA+m0A
+         KoE4BmGxTJJgY9QopgRWPzAeW3Ovm1TclVjx/kNWYSKKibxCQ8ApKfHVcgnRZG+QwyMs
+         MZw3NIqrmwWZZCP68MqPaBnWRObcO18TEWuzAfq58kf7wRkFe0/S4ZrApylqbXFTO2KE
+         lDknBP/Fc+Yh6hQuGw+zukotpWG7Lb3uvUMA7pkvRG+SPn4T16manoV7KCcBvp9Qgm2H
+         fmmQ==
+X-Gm-Message-State: ANoB5pno2ETkpXoRJ7tEGTgoJNtY0X7DPS3gW4dmlD6dNEKDOZN4cUqI
+	afR6C8NphDiviM3wyGPjOLs5iJXp1z8=
+X-Google-Smtp-Source: AA0mqf4jOwpuCSGbn98bo3vks+P0Y1utEHPDSunPwfv+lom3uyEWpWcpvAjoSiednnXdmVtMG3ik4xfUbWU=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:903:515:b0:189:90d4:3c03 with SMTP id
- jn21-20020a170903051500b0018990d43c03mr15127383plb.45.1669849841483; Wed, 30
- Nov 2022 15:10:41 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:09:21 +0000
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:2c87:b0:562:e790:dfe0 with SMTP id
+ ef7-20020a056a002c8700b00562e790dfe0mr65114033pfb.16.1669849853870; Wed, 30
+ Nov 2022 15:10:53 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:09:28 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-38-seanjc@google.com>
-Subject: [PATCH v2 37/50] KVM: VMX: Shuffle support checks and hardware
- enabling code around
+Message-ID: <20221130230934.1014142-45-seanjc@google.com>
+Subject: [PATCH v2 44/50] KVM: Drop kvm_count_lock and instead protect
+ kvm_usage_count with kvm_lock
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -102,8 +102,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_231045_672510_7F9F77EA 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20221130_231056_567861_FED12BBB 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,258 +121,196 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reorder code in vmx.c so that the VMX support check helpers reside above
-the hardware enabling helpers, which will allow KVM to perform support
-checks during hardware enabling (in a future patch).
+From: Isaku Yamahata <isaku.yamahata@intel.com>
 
-No functional change intended.
+Drop kvm_count_lock and instead protect kvm_usage_count with kvm_lock now
+that KVM hooks CPU hotplug during the ONLINE phase, which can sleep.
+Previously, KVM hooked the STARTING phase, which is not allowed to sleep
+and thus could not take kvm_lock (a mutex).  This effectively allows the
+task that's initiating hardware enabling/disabling to preempted and/or
+migrated.
 
+Note, the Documentation/virt/kvm/locking.rst statement that kvm_count_lock
+is "raw" because hardware enabling/disabling needs to be atomic with
+respect to migration is wrong on multiple fronts.  First, while regular
+spinlocks can be preempted, the task holding the lock cannot be migrated.
+Second, preventing migration is not required.  on_each_cpu() disables
+preemption, which ensures that cpus_hardware_enabled correctly reflects
+hardware state.  The task may be preempted/migrated between bumping
+kvm_usage_count and invoking on_each_cpu(), but that's perfectly ok as
+kvm_usage_count is still protected, e.g. other tasks that call
+hardware_enable_all() will be blocked until the preempted/migrated owner
+exits its critical section.
+
+KVM does have lockless accesses to kvm_usage_count in the suspend/resume
+flows, but those are safe because all tasks must be frozen prior to
+suspending CPUs, and a task cannot be frozen while it holds one or more
+locks (userspace tasks are frozen via a fake signal).
+
+Preemption doesn't need to be explicitly disabled in the hotplug path.
+The hotplug thread is pinned to the CPU that's being hotplugged, and KVM
+only cares about having a stable CPU, i.e. to ensure hardware is enabled
+on the correct CPU.  Lockep, i.e. check_preemption_disabled(), plays nice
+with this state too, as is_percpu_thread() is true for the hotplug thread.
+
+Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/vmx.c | 216 ++++++++++++++++++++---------------------
- 1 file changed, 108 insertions(+), 108 deletions(-)
+ Documentation/virt/kvm/locking.rst | 19 ++++++++--------
+ virt/kvm/kvm_main.c                | 36 ++++++++++++++++++++----------
+ 2 files changed, 34 insertions(+), 21 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 23b64bf4bfcf..2a8a6e481c76 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -2485,79 +2485,6 @@ static void vmx_cache_reg(struct kvm_vcpu *vcpu, enum kvm_reg reg)
+diff --git a/Documentation/virt/kvm/locking.rst b/Documentation/virt/kvm/locking.rst
+index 132a9e5436e5..cd570e565522 100644
+--- a/Documentation/virt/kvm/locking.rst
++++ b/Documentation/virt/kvm/locking.rst
+@@ -9,6 +9,8 @@ KVM Lock Overview
+ 
+ The acquisition orders for mutexes are as follows:
+ 
++- cpus_read_lock() is taken outside kvm_lock
++
+ - kvm->lock is taken outside vcpu->mutex
+ 
+ - kvm->lock is taken outside kvm->slots_lock and kvm->irq_lock
+@@ -216,15 +218,10 @@ time it will be set using the Dirty tracking mechanism described above.
+ :Type:		mutex
+ :Arch:		any
+ :Protects:	- vm_list
+-
+-``kvm_count_lock``
+-^^^^^^^^^^^^^^^^^^
+-
+-:Type:		raw_spinlock_t
+-:Arch:		any
+-:Protects:	- hardware virtualization enable/disable
+-:Comment:	'raw' because hardware enabling/disabling must be atomic /wrt
+-		migration.
++		- kvm_usage_count
++		- hardware virtualization enable/disable
++:Comment:	KVM also disables CPU hotplug via cpus_read_lock() during
++		enable/disable.
+ 
+ ``kvm->mn_invalidate_lock``
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+@@ -288,3 +285,7 @@ time it will be set using the Dirty tracking mechanism described above.
+ :Type:		mutex
+ :Arch:		x86
+ :Protects:	loading a vendor module (kvm_amd or kvm_intel)
++:Comment:	Exists because using kvm_lock leads to deadlock.  cpu_hotplug_lock is
++    taken outside of kvm_lock, e.g. in KVM's CPU online/offline callbacks, and
++    many operations need to take cpu_hotplug_lock when loading a vendor module,
++    e.g. updating static calls.
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index a46d61e9c053..6a8fb53b32f0 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -100,7 +100,6 @@ EXPORT_SYMBOL_GPL(halt_poll_ns_shrink);
+  */
+ 
+ DEFINE_MUTEX(kvm_lock);
+-static DEFINE_RAW_SPINLOCK(kvm_count_lock);
+ LIST_HEAD(vm_list);
+ 
+ static cpumask_var_t cpus_hardware_enabled;
+@@ -5054,17 +5053,18 @@ static int kvm_online_cpu(unsigned int cpu)
+ 	 * be enabled. Otherwise running VMs would encounter unrecoverable
+ 	 * errors when scheduled to this CPU.
+ 	 */
+-	raw_spin_lock(&kvm_count_lock);
++	mutex_lock(&kvm_lock);
+ 	if (kvm_usage_count) {
+ 		WARN_ON_ONCE(atomic_read(&hardware_enable_failed));
+ 
+ 		hardware_enable_nolock(NULL);
++
+ 		if (atomic_read(&hardware_enable_failed)) {
+ 			atomic_set(&hardware_enable_failed, 0);
+ 			ret = -EIO;
+ 		}
  	}
+-	raw_spin_unlock(&kvm_count_lock);
++	mutex_unlock(&kvm_lock);
+ 	return ret;
  }
  
--static int kvm_cpu_vmxon(u64 vmxon_pointer)
--{
--	u64 msr;
--
--	cr4_set_bits(X86_CR4_VMXE);
--
--	asm_volatile_goto("1: vmxon %[vmxon_pointer]\n\t"
--			  _ASM_EXTABLE(1b, %l[fault])
--			  : : [vmxon_pointer] "m"(vmxon_pointer)
--			  : : fault);
--	return 0;
--
--fault:
--	WARN_ONCE(1, "VMXON faulted, MSR_IA32_FEAT_CTL (0x3a) = 0x%llx\n",
--		  rdmsrl_safe(MSR_IA32_FEAT_CTL, &msr) ? 0xdeadbeef : msr);
--	cr4_clear_bits(X86_CR4_VMXE);
--
--	return -EFAULT;
--}
--
--static int vmx_hardware_enable(void)
--{
--	int cpu = raw_smp_processor_id();
--	u64 phys_addr = __pa(per_cpu(vmxarea, cpu));
--	int r;
--
--	if (cr4_read_shadow() & X86_CR4_VMXE)
--		return -EBUSY;
--
--	/*
--	 * This can happen if we hot-added a CPU but failed to allocate
--	 * VP assist page for it.
--	 */
--	if (static_branch_unlikely(&enable_evmcs) &&
--	    !hv_get_vp_assist_page(cpu))
--		return -EFAULT;
--
--	intel_pt_handle_vmx(1);
--
--	r = kvm_cpu_vmxon(phys_addr);
--	if (r) {
--		intel_pt_handle_vmx(0);
--		return r;
--	}
--
--	if (enable_ept)
--		ept_sync_global();
--
--	return 0;
--}
--
--static void vmclear_local_loaded_vmcss(void)
--{
--	int cpu = raw_smp_processor_id();
--	struct loaded_vmcs *v, *n;
--
--	list_for_each_entry_safe(v, n, &per_cpu(loaded_vmcss_on_cpu, cpu),
--				 loaded_vmcss_on_cpu_link)
--		__loaded_vmcs_clear(v);
--}
--
--static void vmx_hardware_disable(void)
--{
--	vmclear_local_loaded_vmcss();
--
--	if (cpu_vmxoff())
--		kvm_spurious_fault();
--
--	hv_reset_evmcs();
--
--	intel_pt_handle_vmx(0);
--}
--
- /*
-  * There is no X86_FEATURE for SGX yet, but anyway we need to query CPUID
-  * directly instead of going through cpu_has(), to ensure KVM is trapping
-@@ -2783,6 +2710,114 @@ static __init int setup_vmcs_config(struct vmcs_config *vmcs_conf,
+@@ -5080,10 +5080,10 @@ static void hardware_disable_nolock(void *junk)
+ 
+ static int kvm_offline_cpu(unsigned int cpu)
+ {
+-	raw_spin_lock(&kvm_count_lock);
++	mutex_lock(&kvm_lock);
+ 	if (kvm_usage_count)
+ 		hardware_disable_nolock(NULL);
+-	raw_spin_unlock(&kvm_count_lock);
++	mutex_unlock(&kvm_lock);
  	return 0;
  }
  
-+static bool __init kvm_is_vmx_supported(void)
-+{
-+	if (!cpu_has_vmx()) {
-+		pr_err("CPU doesn't support VMX\n");
-+		return false;
-+	}
-+
-+	if (!this_cpu_has(X86_FEATURE_MSR_IA32_FEAT_CTL) ||
-+	    !this_cpu_has(X86_FEATURE_VMX)) {
-+		pr_err("VMX not enabled (by BIOS) in MSR_IA32_FEAT_CTL\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static int __init vmx_check_processor_compat(void)
-+{
-+	struct vmcs_config vmcs_conf;
-+	struct vmx_capability vmx_cap;
-+
-+	if (!kvm_is_vmx_supported())
-+		return -EIO;
-+
-+	if (setup_vmcs_config(&vmcs_conf, &vmx_cap) < 0)
-+		return -EIO;
-+	if (nested)
-+		nested_vmx_setup_ctls_msrs(&vmcs_conf, vmx_cap.ept);
-+	if (memcmp(&vmcs_config, &vmcs_conf, sizeof(struct vmcs_config)) != 0) {
-+		pr_err("CPU %d feature inconsistency!\n", smp_processor_id());
-+		return -EIO;
-+	}
-+	return 0;
-+}
-+
-+static int kvm_cpu_vmxon(u64 vmxon_pointer)
-+{
-+	u64 msr;
-+
-+	cr4_set_bits(X86_CR4_VMXE);
-+
-+	asm_volatile_goto("1: vmxon %[vmxon_pointer]\n\t"
-+			  _ASM_EXTABLE(1b, %l[fault])
-+			  : : [vmxon_pointer] "m"(vmxon_pointer)
-+			  : : fault);
-+	return 0;
-+
-+fault:
-+	WARN_ONCE(1, "VMXON faulted, MSR_IA32_FEAT_CTL (0x3a) = 0x%llx\n",
-+		  rdmsrl_safe(MSR_IA32_FEAT_CTL, &msr) ? 0xdeadbeef : msr);
-+	cr4_clear_bits(X86_CR4_VMXE);
-+
-+	return -EFAULT;
-+}
-+
-+static int vmx_hardware_enable(void)
-+{
-+	int cpu = raw_smp_processor_id();
-+	u64 phys_addr = __pa(per_cpu(vmxarea, cpu));
-+	int r;
-+
-+	if (cr4_read_shadow() & X86_CR4_VMXE)
-+		return -EBUSY;
-+
+@@ -5099,9 +5099,9 @@ static void hardware_disable_all_nolock(void)
+ static void hardware_disable_all(void)
+ {
+ 	cpus_read_lock();
+-	raw_spin_lock(&kvm_count_lock);
++	mutex_lock(&kvm_lock);
+ 	hardware_disable_all_nolock();
+-	raw_spin_unlock(&kvm_count_lock);
++	mutex_unlock(&kvm_lock);
+ 	cpus_read_unlock();
+ }
+ 
+@@ -5118,7 +5118,7 @@ static int hardware_enable_all(void)
+ 	 * enable hardware multiple times.
+ 	 */
+ 	cpus_read_lock();
+-	raw_spin_lock(&kvm_count_lock);
++	mutex_lock(&kvm_lock);
+ 
+ 	kvm_usage_count++;
+ 	if (kvm_usage_count == 1) {
+@@ -5131,7 +5131,7 @@ static int hardware_enable_all(void)
+ 		}
+ 	}
+ 
+-	raw_spin_unlock(&kvm_count_lock);
++	mutex_unlock(&kvm_lock);
+ 	cpus_read_unlock();
+ 
+ 	return r;
+@@ -5737,6 +5737,17 @@ static void kvm_init_debug(void)
+ 
+ static int kvm_suspend(void)
+ {
 +	/*
-+	 * This can happen if we hot-added a CPU but failed to allocate
-+	 * VP assist page for it.
++	 * Secondary CPUs and CPU hotplug are disabled across the suspend/resume
++	 * callbacks, i.e. no need to acquire kvm_lock to ensure the usage count
++	 * is stable.  Assert that kvm_lock is not held to ensure the system
++	 * isn't suspended while KVM is enabling hardware.  Hardware enabling
++	 * can be preempted, but the task cannot be frozen until it has dropped
++	 * all locks (userspace tasks are frozen via a fake signal).
 +	 */
-+	if (static_branch_unlikely(&enable_evmcs) &&
-+	    !hv_get_vp_assist_page(cpu))
-+		return -EFAULT;
++	lockdep_assert_not_held(&kvm_lock);
++	lockdep_assert_irqs_disabled();
 +
-+	intel_pt_handle_vmx(1);
-+
-+	r = kvm_cpu_vmxon(phys_addr);
-+	if (r) {
-+		intel_pt_handle_vmx(0);
-+		return r;
-+	}
-+
-+	if (enable_ept)
-+		ept_sync_global();
-+
-+	return 0;
-+}
-+
-+static void vmclear_local_loaded_vmcss(void)
-+{
-+	int cpu = raw_smp_processor_id();
-+	struct loaded_vmcs *v, *n;
-+
-+	list_for_each_entry_safe(v, n, &per_cpu(loaded_vmcss_on_cpu, cpu),
-+				 loaded_vmcss_on_cpu_link)
-+		__loaded_vmcs_clear(v);
-+}
-+
-+static void vmx_hardware_disable(void)
-+{
-+	vmclear_local_loaded_vmcss();
-+
-+	if (cpu_vmxoff())
-+		kvm_spurious_fault();
-+
-+	hv_reset_evmcs();
-+
-+	intel_pt_handle_vmx(0);
-+}
-+
- struct vmcs *alloc_vmcs_cpu(bool shadow, int cpu, gfp_t flags)
- {
- 	int node = cpu_to_node(cpu);
-@@ -7468,41 +7503,6 @@ static int vmx_vm_init(struct kvm *kvm)
+ 	if (kvm_usage_count)
+ 		hardware_disable_nolock(NULL);
  	return 0;
+@@ -5744,10 +5755,11 @@ static int kvm_suspend(void)
+ 
+ static void kvm_resume(void)
+ {
+-	if (kvm_usage_count) {
+-		lockdep_assert_not_held(&kvm_count_lock);
++	lockdep_assert_not_held(&kvm_lock);
++	lockdep_assert_irqs_disabled();
++
++	if (kvm_usage_count)
+ 		hardware_enable_nolock(NULL);
+-	}
  }
  
--static bool __init kvm_is_vmx_supported(void)
--{
--	if (!cpu_has_vmx()) {
--		pr_err("CPU doesn't support VMX\n");
--		return false;
--	}
--
--	if (!this_cpu_has(X86_FEATURE_MSR_IA32_FEAT_CTL) ||
--	    !this_cpu_has(X86_FEATURE_VMX)) {
--		pr_err("VMX not enabled (by BIOS) in MSR_IA32_FEAT_CTL\n");
--		return false;
--	}
--
--	return true;
--}
--
--static int __init vmx_check_processor_compat(void)
--{
--	struct vmcs_config vmcs_conf;
--	struct vmx_capability vmx_cap;
--
--	if (!kvm_is_vmx_supported())
--		return -EIO;
--
--	if (setup_vmcs_config(&vmcs_conf, &vmx_cap) < 0)
--		return -EIO;
--	if (nested)
--		nested_vmx_setup_ctls_msrs(&vmcs_conf, vmx_cap.ept);
--	if (memcmp(&vmcs_config, &vmcs_conf, sizeof(struct vmcs_config)) != 0) {
--		pr_err("CPU %d feature inconsistency!\n", smp_processor_id());
--		return -EIO;
--	}
--	return 0;
--}
--
- static u8 vmx_get_mt_mask(struct kvm_vcpu *vcpu, gfn_t gfn, bool is_mmio)
- {
- 	u8 cache;
+ static struct syscore_ops kvm_syscore_ops = {
 -- 
 2.38.1.584.g0f3c55d4c2-goog
 
