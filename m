@@ -4,44 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AB7C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 21:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA83C4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 21:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3ebYh02qXQdj/dajPIjVyRIGBtfsx+Of77EA2/wJVAE=; b=wtVibF+5Z6nZgi
-	wloLOW2z+2UCTEIbeSzgqV2ar+33tHlTjZtqSvU4nG7Jzq1Hnqxryavim+RpUJY0wEpfGIA2MpYOh
-	RrTB33cZpIpYkvf/JNzxcFHp1UwtVstGf7PPkvH+iNUwX+34tgYIyE57rtc1TNiUla3vfc7Yplgmc
-	V6LC/sJP3qMCzbycoIYe97ubZ+FlzD0worM19KWSLrqvrgqK+eyuW0yCll/KUOfopsF5NsOozESik
-	+vbG555xdwDJA6FpfqahD9M1/3ilAEa6a1ymeUM57hHARopgaL8++bpeWrl/zi1C5CV8hkWa9kvMB
-	e+VEaZpTyGNfQvNXnV+Q==;
+	List-Owner; bh=fniztT7XYT9V+H0azz5tFiz90lHY1dCD5S8/7MwGx18=; b=obViBF0Oc5UzXr
+	JRqIb/DUIkhPxF9GFGs5AZI7fHZjr6HilGNp6qvTW3e9Dxed9wZzw7zGk7EmWEmLcdo1Ot0MHN3g0
+	BExgaJyez0MdweuqiKEBKd8ngHtGD7DYIT9JTkvWsk6b+d/tuYJIYmHrxUzp4t2YS9GUT4UeSQiPC
+	32cjegx3JWsDP0dw+z34Tb5KeL6cYs7Jattna8nuEkuZhdCZ1gMp+NmX9nmP0WLFpxOK7JfUwwjpS
+	weh4nWudKyP1Al5ailJqa9us+grXi8I1iZ8RLVpWsosWoWkDeK0Bwa4AunAjnSFOpNl+u/CAFNZXQ
+	cVD0diiKe9m/J3L1alcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Ud3-002p3k-O2; Wed, 30 Nov 2022 21:28:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p0Uy6-002tXS-Uf; Wed, 30 Nov 2022 21:50:14 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Ud0-002p0l-7j
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 21:28:28 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p0Uct-0004zf-Ph; Wed, 30 Nov 2022 22:28:19 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
-Subject: Re: [PATCH v2 13/13] RISC-V: add zbb support to string functions
-Date: Wed, 30 Nov 2022 22:28:19 +0100
-Message-ID: <24615393.6Emhk5qWAg@diego>
-In-Reply-To: <Y4ePiTIwJJfx9qS4@spud>
-References: <20221128102632.435174-1-heiko@sntech.de> <20221128102632.435174-14-heiko@sntech.de> <Y4ePiTIwJJfx9qS4@spud>
-MIME-Version: 1.0
+	id 1p0Uxu-002tUa-GX; Wed, 30 Nov 2022 21:50:04 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
+	by mailout.west.internal (Postfix) with ESMTP id 0F467320094F;
+	Wed, 30 Nov 2022 16:49:52 -0500 (EST)
+Received: from imap51 ([10.202.2.101])
+  by compute6.internal (MEProxy); Wed, 30 Nov 2022 16:49:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1669844992; x=1669931392; bh=wX9irGcUbl
+	Xc4RqeTgp4fnnU07GYdQWcxMiKg/SvwkU=; b=fYP7D2uDlDvE8/Ds6VeE/7Js1t
+	bQFViWjZyp6L1w5ntvcYnOcilhM10S3q+BNI1JWhdoIwvpWjZlWAOworhoWcVC2+
+	8evG3Ri+9YaIU5U9QPfzxxLZv9wL1auCHYE9/jJWKEEm6JcDVYM9dpVXV47DXJb3
+	sNe+s8hoXA7EwOX+vH6kgRgJAsMP3YNc0+OzJnCHwNNew7Ck3FSHU+BEbmmAXqsp
+	UufeNGRBPTOyxyQcufueB/l3uuigsAy0KC4FyJwg7DzMKElSkXUQ2K6c7qSvbnrn
+	ngWxB5GElmPps4W52sfKfcG/b58vwh54QnZ42F8I9CO6rncEFs2Q2XWj4b8g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1669844992; x=1669931392; bh=wX9irGcUblXc4RqeTgp4fnnU07GY
+	dQWcxMiKg/SvwkU=; b=LAaMgeKHxDISnihMHN5JzfsPU/S073/o2JnSspeGe+5c
+	gvEoMGdMjeDlUm//JERDpnVz3KrA32Pf04rq+wVo2H/NL7GCHRF9Axf672OvY/zg
+	CqxBqSCadZ5oZnRryunTZf+VZYN50zsuKHr7w2+0aBP19Kqpt5zImOq2qCV5DLRB
+	RZiVt43z4EFtj5A7UP7t1sFiI2cXyvoaqofTrRE0UOUzgnS3rNCSplrRlCQUtzCx
+	JmpMPbaTaksHqTNArpFMHArbo1LQoXjnU5ijTrq9Wjd925hE4IpfKndQGbMHCUJy
+	dOznD9JmmTcbsYrAnMcqUnfVj5zL+7ThHqHwp+ejtA==
+X-ME-Sender: <xms:_8-HYxmp-_ZaWfU5EVYBM0XPygw6gQuSYzh3odRSxPjKPwe8lSLG_g>
+    <xme:_8-HY82RFRwOo7I1sXZjOpFP8uVh_qY3FBNPbwEt58oL_FZKl5tKfYLvMD8R8X4Sf
+    86f1wqnLGKfyohi-p0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrtdefgdduhedvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:_8-HY3qaiXy8wIy2OuRAjh--jtlSPfQqTADfp7VrLDcA0Cp9Y2VzdQ>
+    <xmx:_8-HYxnOuyA-4BOEGwKLSRJK06g9oqFSPuKvVKZdBzdd_nYeRmdsHg>
+    <xmx:_8-HY_36cJSstcsQ1L2lDJ9tqJVuaaTT9WDPjSLiRP_HA2mj0gALzQ>
+    <xmx:ANCHY4dUQeAv_Y2f9f1ZgRo7GBQRvD6LpXfyzmE_bPQCFCm1TMCm1w>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 5EF4DB60086; Wed, 30 Nov 2022 16:49:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-1115-g8b801eadce-fm-20221102.001-g8b801ead
+Mime-Version: 1.0
+Message-Id: <7fcafe92-35d9-4a83-b00d-7816fdb43139@app.fastmail.com>
+In-Reply-To: <mhng-f034544d-5b0a-47c5-8e45-3dbcefc0aaaa@palmer-ri-x1c9a>
+References: <mhng-f034544d-5b0a-47c5-8e45-3dbcefc0aaaa@palmer-ri-x1c9a>
+Date: Wed, 30 Nov 2022 22:49:31 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Palmer Dabbelt" <palmer@dabbelt.com>, "Conor Dooley" <conor@kernel.org>,
+ "Will Deacon" <will@kernel.org>, "Marc Zyngier" <maz@kernel.org>
+Cc: ajones@ventanamicro.com, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Samuel Holland" <samuel@sholland.org>, "Chen-Yu Tsai" <wens@csie.org>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, "Rob Herring" <robh+dt@kernel.org>,
+ "Jisheng Zhang" <jszhang@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "Andre Przywara" <andre.przywara@arm.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Anup Patel" <apatel@ventanamicro.com>,
+ "Atish Patra" <atishp@rivosinc.com>, christianshewitt@gmail.com,
+ "Conor.Dooley" <conor.dooley@microchip.com>, guoren <guoren@kernel.org>,
+ heinrich.schuchardt@canonical.com,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>, stano.jakubek@gmail.com
+Subject: Re: [PATCH v2 12/12] riscv: defconfig: Enable the Allwinner D1 platform and
+ drivers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_132826_374303_FCE2B5A3 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20221130_135003_058313_BDEB0B04 
+X-CRM114-Status: GOOD (  28.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,85 +113,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 30. November 2022, 18:14:49 CET schrieb Conor Dooley:
-> On Mon, Nov 28, 2022 at 11:26:32AM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > Add handling for ZBB extension and add support for using it as a
-> > variant for optimized string functions.
-> > 
-> > Co-developed-by: Christoph Muellner <christoph.muellner@vrull.eu>
-> > Signed-off-by: Christoph Muellner <christoph.muellner@vrull.eu>
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> > +config TOOLCHAIN_HAS_ZBB
-> > +	bool
-> > +	default y
-> > +	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbb)
-> > +	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbb)
-> > +	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
-> > +
-> > +config RISCV_ISA_ZBB
-> > +	bool "Zbb extension support for bit manipulation instructions"
-> > +	depends on TOOLCHAIN_HAS_ZBB
-> > +	depends on !XIP_KERNEL && MMU
-> > +	select RISCV_ALTERNATIVE
-> > +	default y
-> > +	help
-> > +	   Adds support to dynamically detect the presence of the ZBB
-> > +	   extension (basic bit manipulation) and enable its usage.
-> > +
-> > +	   The Zbb extension provides instructions to accelerate a number
-> > +	   of bit-specific operations (count bit population, sign extending,
-> > +	   bitrotation, etc).
-> > +
-> > +	   If you don't know what to do here, say Y.
-> 
-> /stuff/linux/arch/riscv/lib/strncmp_zbb.S:23:9: warning: unknown option, expected 'push', 'pop', 'rvc', 'norvc', 'relax' or 'norelax'
-> .option arch,+zbb
->         ^
-> /stuff/linux/arch/riscv/lib/strncmp_zbb.S:56:2: error: instruction requires the following: 'Zbb' (Basic Bit-Manipulation) or 'Zbp' (Permutation 'Zb' Instructions)
->  orc.b t3, t0
->  ^
-> /stuff/linux/arch/riscv/lib/strncmp_zbb.S:67:2: error: instruction requires the following: 'Zbb' (Basic Bit-Manipulation) or 'Zbp' (Permutation 'Zb' Instructions) or 'Zbkb' (Bitmanip instructions for Cryptography)
->  rev8 t0, t0
->  ^
-> /stuff/linux/arch/riscv/lib/strncmp_zbb.S:68:2: error: instruction requires the following: 'Zbb' (Basic Bit-Manipulation) or 'Zbp' (Permutation 'Zb' Instructions) or 'Zbkb' (Bitmanip instructions for Cryptography)
->  rev8 t1, t1
->  ^
-> make[4]: *** [/stuff/linux/scripts/Makefile.build:382: arch/riscv/lib/strncmp_zbb.o] Error 1
-> 
-> So there's something wrong in 13/13 somewhere, but the failure itself is
-> a bit odd? At least, at odds with your support stuff here.
+On Wed, Nov 30, 2022, at 21:24, Palmer Dabbelt wrote:
+> On Mon, 28 Nov 2022 22:54:18 PST (-0800), Conor Dooley wrote:
+>>
+>> idk, defconfig to me is not about you or I, it's about A Developer that gets an SBC or a devkit and their experience.
+>> Or alternatively, someone's CI ;)
+>> I'd like to put everything in, but I recall that being shot down, that's all.
+>
+> The whole "who is defconfig for" discussion always ends up kind of 
+> vague, but IIUC it's generally aimed at kernel hackers as opposed to end 
+> users -- so it's not meant to be a disto config, that's why we have 
+> things like the debug options turned on.  I tend to think of it as a "if 
+> a patch submitter is going to test only one config, then what do I want 
+> in it?" and let that determine what goes in defconfig.
+>
+> IMO having defconfig contain the drivers necessary to boot every common 
+> dev board as =y, and having =m for anything else on those boards also 
+> seem reasonable.  That will make the transition from vendor/distro 
+> kernels to upstream a bit smoother, which is always good.  I guess 
+> there's some slight build time and image size issues, but aside from 
+> some very small systems that shouldn't be too bad for kernel developers 
+> -- and if we really end up with another popular system with 6MiB of RAM 
+> we can just stick another tiny defconfig in there for it.
+>
+> I actually don't use modules when doing kernel development because I 
+> find it easier to track things when they're packed into a single binary, 
+> but I don't think it's necessary to steer everyone that way.
+>
+> Adding some of the Arm folks here, in case they have thoughts.  The best 
+> bet is probably to try and do something similar, though my worry is that 
+> the answer is something like "target standard platforms" and we don't 
+> have any.
 
+I think this is handled very inconsistently across architectures. On
+32-bit arm, we used to have a board specific defconfig for each machine,
+but of course that never scaled to the number of supported machines.
 
-Thanks to google I now know that llvm doesn't support the arch
-directive yet [0]. The rest is of course just fallout, because of the
-not-enabled zbb support.
+The important defconfig files we have these days are the arm64
+one, and on arm32 we have the ones that are mutually incompatible,
+in particular one for armv7 and one for armv5, each enabling as
+many machines as possible, plus usually one per SoC vendor that
+is more specialized.
 
-That review over there also seems to be going slowly, so I guess for
-the time being I need way stricter depends, limiting this to binutils.
+If you want to formalize it a bit more than this,  I would recommend
+having more fragments, e.g. one for typical debugging options,
+one for things that are needed to boot both Fedora and Debian
+userland, etc.
 
-
-[0] https://reviews.llvm.org/D123515
-
-
-> CONFIG_CC_VERSION_TEXT="ClangBuiltLinux clang version 15.0.4 (5c68a1cb123161b54b72ce90e7975d95a8eaf2a4)"
-> CONFIG_CC_IS_CLANG=y
-> CONFIG_CLANG_VERSION=150004
-> CONFIG_AS_IS_LLVM=y
-> CONFIG_AS_VERSION=150004
-> CONFIG_LD_IS_LLD=y
-> CONFIG_LLD_VERSION=150004
-> 
-> Thanks,
-> Conor.
-> 
-> 
-
-
-
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
