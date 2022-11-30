@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E03C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E344C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O9+8Jlr0AvP+X9QxAxXvg88vnBjf34Z0PbuYwkzKQEk=; b=eY20YQZipW5VJ5
-	XaZ9KRVdVfy56NYMl9wdZbKqmVSLvuEaPEHJbNInNiMxoxAT1g+5MB3jpvKrOZki9YUBN/54CqUAT
-	FrvkWeR9jKBtC3TlbsrYIVFK5398VDwCBIsFMQ61hVALYggd47SXuoHtBrgWMcqjvTNYyS69XeLct
-	VVXVIM1XO+/3yoKnhJTpRh3kuIuKSkuK/N9BrpbXXkLA1XXbaKwqWVxKVitM/S0sLwf51S+4Q1M4M
-	kZgpgsrBrOYKqxkgAIVvwu9JjQiqboempDTg8/hvNjqOh05bDf1MRsgKgU7laIKveRle74XwkXurs
-	H1b6pYQJZ2MP7Q8754sA==;
+	List-Owner; bh=9asYQZN1nnzzgeYalBUsXBlqUZwTKvxAch/D67vpSb0=; b=xaoxHUYSPbt8jk
+	ClD/cgSsKb2/nMMmKDgCB+JoZv6GaIoQd8rZUvHHO1Bfyu6jIRw7EfYMJsH0H44/DbAvOtb6Db6UL
+	nJXziBCcFdm4IBaDRcEg864E0cCNlPhA0aeu8r6LdEvi3guJOqVdbebBG9oVQPBROyORnGw53bZ86
+	Vis4PnUTZqIZKvl/g2F/QKdXBNe06B20XYD+U8aiAv0QEVrCACygKdLDMo9xopq09jb+gcg+fJnEh
+	jqs9TkVGRKOyDHojrflHcf8ZiNMs9w3e46CXFiYwhS0/Mgx019QP8/Mp50jP8x+WYTYRPwN41OSEm
+	XHwLERktd4iITaTTolrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0L3y-00FirO-VO; Wed, 30 Nov 2022 11:15:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1p0LFu-00Fo5T-S0; Wed, 30 Nov 2022 11:27:58 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0L3u-00FinY-He
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:15:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669806934; x=1701342934;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=h8e+dDcveIhXtv4l23Jh2CJfpqVLFmQPAuoBcBH7Hyk=;
-  b=zjLgsil6nP+zO6vF1RIYjCqU54FdWx4oPtNVI6BRK2BG+eGKCVCsrAtj
-   3reC7T+3apuxQUfbFZXISxHXgJuUklMAjbzSILpVibHjd5eC4Exnio8lN
-   Z9siuI5tVg9svQBhkzqiM0p/fgv6v3VTOtg8kDuK3Tyq/uoXr69mRgDx9
-   43szZtl+DKVaT+zxhdQK80x1PLizBgBor/74D9qExI3cYqqprZYSOYnQ6
-   Gs98v6sY1eKyyaCw7/Y5AgpBz2X8BnfbBP7/CqSGKKoyGP1jp18yxaqRY
-   BeH9NwoTKVhWnxydSvJtE7vnAgRX0eYUPg33DEwsBSzlsyI2vxfN8LHEB
-   w==;
-X-IronPort-AV: E=Sophos;i="5.96,206,1665471600"; 
-   d="scan'208";a="189334692"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Nov 2022 04:15:31 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 30 Nov 2022 04:15:30 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 30 Nov 2022 04:15:29 -0700
-Date: Wed, 30 Nov 2022 11:15:10 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-CC: Conor Dooley <conor@kernel.org>, Thierry Reding
-	<thierry.reding@gmail.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <Y4c7PpgzAi+HPrET@wendy>
-References: <20221110093512.333881-1-conor.dooley@microchip.com>
- <20221110093512.333881-2-conor.dooley@microchip.com>
- <20221117164950.cssukd63fywzuwua@pengutronix.de>
- <Y3Zxkt3OSPQc46Q2@spud>
- <20221117210433.n5j7upqqksld42mu@pengutronix.de>
- <Y3avobkvYK3ydKTS@spud>
- <Y3uZY5mt/ZIWk3sS@wendy>
- <Y4coL74qQX80TNaT@wendy>
- <20221130103755.lhil2jaw3oufr2sf@pengutronix.de>
+	id 1p0LFn-00FnzF-7X
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:27:52 +0000
+Received: by mail-ej1-x636.google.com with SMTP id fy37so40501224ejc.11
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 03:27:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=U5KBQ3Z+4x6ln3C2lBlqgjHkWXs25a9COtm4hp4w3WY=;
+        b=jeYyYFIgyK2ruFr6JE3tTe6iU2LchkZocNMktt7Dygmi6BiNUc07WTrdZbOE3MsiI2
+         ep5Zy/oIaPEDu5zJHBBiDVSYrBDBkBaqlwYB2akzGLBX5LC1sOG0/8Q51aSPDKRVM3P1
+         fMN7vUKS2NhthOOBF9IyNW0Uerp/7bLeYuX4EaWTWhBb7JnF/ALXsBC4oMEXirvJ6XPK
+         oWywH7FBNQ15olXb/jFZZiiS1RdLFJUrnw0fLGuqiIYsC5exRjmxVs50ePQ/IJYsAcEM
+         LX9BUmGCvEU4Ou6Ha4qf5koc63XBIwT+Wgs5M2D6+yMB28GULXq0kGAN3vcDVg1mO1Z4
+         v3FA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=U5KBQ3Z+4x6ln3C2lBlqgjHkWXs25a9COtm4hp4w3WY=;
+        b=GV7kEJDdZtCX9FvNL1enhf29CdOklW1tyjXAGTR44H8zjdsnz2vrDbEQH+55F+6gRP
+         PPaqnbgiZlM5cZ6p38XAVa/yUGUiBv8xWcAIqSDQeEyvKGydhxLmtc0UORZhT1Bh2cty
+         hwz0jSX25Tih8Wd1EKY2Zb+J3q6nZ+VoZj0v/q1dYNAoVc7p0GDpijpwiNTTf8bBRUDM
+         yywuOctj4AGaWhtrUJwxtgHQUEg/bpB1cBggwhnc7bThlGQORMOnJUcGj4RhSHrm1mrB
+         ZUjxSRegT1DRQRJM4glpJbr5fINZIBZdpw5xGhJccwY9SHttDnB0ofQjyIzM+Xos/ro9
+         Zazg==
+X-Gm-Message-State: ANoB5pkxs7DfDh8pHE/YjhkR77eiLoxcV0QnBZRbJgMxp2hEiBb+Cyqw
+	Pw/9l7O97uDiGoYVUrDZR0cokg==
+X-Google-Smtp-Source: AA0mqf6dewyc0DdpyRKNXfXEhV3/Z0+y26UTMrqjUldu1nSiZkqi967p5c0zfpfBuq2dKCNM6dmLZA==
+X-Received: by 2002:a17:907:3907:b0:7ae:37a8:9b5c with SMTP id so7-20020a170907390700b007ae37a89b5cmr35548096ejc.241.1669807666812;
+        Wed, 30 Nov 2022 03:27:46 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id g2-20020a170906198200b007bd1ef2cccasm547639ejd.48.2022.11.30.03.27.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Nov 2022 03:27:46 -0800 (PST)
+Date: Wed, 30 Nov 2022 12:27:44 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	prabhakar.csengg@gmail.com
+Subject: Re: [PATCH v2 3/4] riscv: alternatives: Drop the underscores from
+ the assembly macro names
+Message-ID: <20221130112744.mqteregnxf24w7tb@kamzik>
+References: <20221129150053.50464-1-ajones@ventanamicro.com>
+ <20221129150053.50464-4-ajones@ventanamicro.com>
+ <4168918.X9hSmTKtgW@diego>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221130103755.lhil2jaw3oufr2sf@pengutronix.de>
+In-Reply-To: <4168918.X9hSmTKtgW@diego>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_031534_742902_0DE4D6DA 
-X-CRM114-Status: GOOD (  28.95  )
+X-CRM114-CacheID: sfid-20221130_032751_302500_88F51CC6 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,68 +98,134 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 11:37:55AM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello Conor,
+On Wed, Nov 30, 2022 at 11:06:27AM +0100, Heiko St=FCbner wrote:
+> Am Dienstag, 29. November 2022, 16:00:52 CET schrieb Andrew Jones:
+> > The underscores aren't needed because there isn't anything already
+> > named without them and the _CFG extension. This is a bit of a cleanup
+> > by itself, but the real motivation is for a coming patch which would
+> > otherwise need to add two more underscores to these macro names,
+> > i.e. ____ALTERNATIVE_CFG, and that'd be gross.
+> > =
 
-> > > get_state() returns void though, is it valid behaviour to wait for the
-> > > timeout there?
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > =
 
-> There was an approach to change that, see
-> https://lore.kernel.org/linux-pwm/20220916151506.298488-1-u.kleine-koenig=
-@pengutronix.de
+> Hmm, I would assume the "_" are there to mark those as
+> "internal / don't use". So with removing the underscores
+> you loose that marking.
+
+Yeah, that's usually the case, but here we also have ALT_ENTRY and
+ALT_NEW_CONTENT macros which are also internal, but don't have
+leading-underscore names.
+
 > =
 
-> I need to send a v2.
-
-Ahh, yeah. That looks like a better idea. I'd much rather be able to
-return an actual error.
-
-> > > I had a check in the core code and found some places where the call in
-> > > looks like:
-> > > 	struct pwm_state s1, s2; =
-
-> > > 	chip->ops->get_state(chip, pwm, &s1);
-> > > In this case, exiting early would leave us with a completely wrong
-> > > idead of the state, if it was to time out.
-> > > =
-
-> > > Either way, it seems like either way we would be misleading the caller
-> > > of get_state() - perhaps the way around that is to do the wait & then
-> > > just carry on with get_state()?
-> > > In that scenario, you'd get the new settings where possible and the o=
-ld ones
-> > > otherwise.
-> > > Returning if the timeout is hit would give you the new settings where=
- possible
-> > > & otherwise you'd get whatever was passed to get_state().
-> > > I'm not really sure which of those two situations would be preferred?
-> =
-
-> Hmm, .get_state should not return the old state. We really want
-> .get_state to return an error code. Maybe postpone that question until
-> we have that?
-
-If get_state() can return an error, there's no need for the question I
-think. I'd rather return what's in the shadow registers *and* on the bus
-or an error than an inconsistent state.
-
-I'll send a v(N+1) based on the non-void get_state() at some point
-soon-ish.
-
-> > Apologies for bumping this, I was wondering if any thoughts on the
-> > above? I'm not sure which is the lesser evil here (or if I have
-> > misunderstood something).
-> =
-
-> That's fine. I'm sorry to be not more responsive. This development cycle
-> is somehow crazy and there are so many open mails in my inbox ... :-\
-
-Oh nw about that at all. I feel bad pinging stuff since I know everyone
-is busy.
+> It works though, so
+> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
 Thanks,
-Conor.
+drew
+
+> =
+
+> But I'll leave the judgement on its viability to others.
+> =
+
+> Heiko
+> =
+
+> > ---
+> >  arch/riscv/include/asm/alternative-macros.h | 20 ++++++++++----------
+> >  1 file changed, 10 insertions(+), 10 deletions(-)
+> > =
+
+> > diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/i=
+nclude/asm/alternative-macros.h
+> > index 7cc2b587c5c4..9ea95331a280 100644
+> > --- a/arch/riscv/include/asm/alternative-macros.h
+> > +++ b/arch/riscv/include/asm/alternative-macros.h
+> > @@ -33,7 +33,7 @@
+> >  	.endif
+> >  .endm
+> >  =
+
+> > -.macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
+> > +.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
+> >  886 :
+> >  	.option push
+> >  	.option norvc
+> > @@ -45,11 +45,11 @@
+> >  .endm
+> >  =
+
+> >  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)=
+ \
+> > -	__ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONF=
+IG_k)
+> > +	ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG=
+_k)
+> >  =
+
+> > -.macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, e=
+nable_1, \
+> > -				  new_c_2, vendor_id_2, errata_id_2, enable_2
+> > -	__ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enab=
+le_1
+> > +.macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, ena=
+ble_1,	\
+> > +				new_c_2, vendor_id_2, errata_id_2, enable_2
+> > +	ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable=
+_1
+> >  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+> >  .endm
+> >  =
+
+> > @@ -57,9 +57,9 @@
+> >  					CONFIG_k_1,			\
+> >  				  new_c_2, vendor_id_2, errata_id_2,	\
+> >  					CONFIG_k_2)			\
+> > -	__ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> > +	ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
+> >  					IS_ENABLED(CONFIG_k_1),		\
+> > -				   new_c_2, vendor_id_2, errata_id_2,	\
+> > +				 new_c_2, vendor_id_2, errata_id_2,	\
+> >  					IS_ENABLED(CONFIG_k_2)
+> >  =
+
+> >  #else /* !__ASSEMBLY__ */
+> > @@ -126,15 +126,15 @@
+> >  #else /* CONFIG_RISCV_ALTERNATIVE */
+> >  #ifdef __ASSEMBLY__
+> >  =
+
+> > -.macro __ALTERNATIVE_CFG old_c
+> > +.macro ALTERNATIVE_CFG old_c
+> >  	\old_c
+> >  .endm
+> >  =
+
+> >  #define _ALTERNATIVE_CFG(old_c, ...)	\
+> > -	__ALTERNATIVE_CFG old_c
+> > +	ALTERNATIVE_CFG old_c
+> >  =
+
+> >  #define _ALTERNATIVE_CFG_2(old_c, ...)	\
+> > -	__ALTERNATIVE_CFG old_c
+> > +	ALTERNATIVE_CFG old_c
+> >  =
+
+> >  #else /* !__ASSEMBLY__ */
+> >  =
+
+> > =
+
+> =
+
+> =
+
+> =
+
+> =
 
 
 _______________________________________________
