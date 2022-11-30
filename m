@@ -4,99 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DA83C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 21:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AB4C4708E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fniztT7XYT9V+H0azz5tFiz90lHY1dCD5S8/7MwGx18=; b=obViBF0Oc5UzXr
-	JRqIb/DUIkhPxF9GFGs5AZI7fHZjr6HilGNp6qvTW3e9Dxed9wZzw7zGk7EmWEmLcdo1Ot0MHN3g0
-	BExgaJyez0MdweuqiKEBKd8ngHtGD7DYIT9JTkvWsk6b+d/tuYJIYmHrxUzp4t2YS9GUT4UeSQiPC
-	32cjegx3JWsDP0dw+z34Tb5KeL6cYs7Jattna8nuEkuZhdCZ1gMp+NmX9nmP0WLFpxOK7JfUwwjpS
-	weh4nWudKyP1Al5ailJqa9us+grXi8I1iZ8RLVpWsosWoWkDeK0Bwa4AunAjnSFOpNl+u/CAFNZXQ
-	cVD0diiKe9m/J3L1alcA==;
+	List-Owner; bh=CbEl9ANJsqwmXGgBQIzano9GkxK3EhJVaqL5DYjS5BA=; b=W0u4TKOlabjWYV
+	TidEYXnPUg6bNJaqDxoMciTb6XdBMrnO71+nRMQKFBPtFFuh53rxX1hwuu+T8pU+Dzebufa8mDDut
+	gaRUfoOghruRHspgkmXRGey20uMWGCg1jQoGmtemZPUwIWW/81Dm16j3vtg5x5X94SIogxU6qXKJZ
+	10dy35AGG2NHDOAaBavjGDXlGskNS3pdGRUeGfrT54H5+CC/QfQnKWnOtOMMTWj866l0+vdLeplS0
+	CaKjt7UENPyjRuZSJFqRFEYsD18x3VPxwhd3na5gEP5uADk/VA9Bpb41z4O4NxMd6Kb0w0VSDuGj1
+	zdevkR55VypsZR93YHRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Uy6-002tXS-Uf; Wed, 30 Nov 2022 21:50:14 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1p0W0T-0032Uk-G0; Wed, 30 Nov 2022 22:56:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Uxu-002tUa-GX; Wed, 30 Nov 2022 21:50:04 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.47])
-	by mailout.west.internal (Postfix) with ESMTP id 0F467320094F;
-	Wed, 30 Nov 2022 16:49:52 -0500 (EST)
-Received: from imap51 ([10.202.2.101])
-  by compute6.internal (MEProxy); Wed, 30 Nov 2022 16:49:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm1; t=1669844992; x=1669931392; bh=wX9irGcUbl
-	Xc4RqeTgp4fnnU07GYdQWcxMiKg/SvwkU=; b=fYP7D2uDlDvE8/Ds6VeE/7Js1t
-	bQFViWjZyp6L1w5ntvcYnOcilhM10S3q+BNI1JWhdoIwvpWjZlWAOworhoWcVC2+
-	8evG3Ri+9YaIU5U9QPfzxxLZv9wL1auCHYE9/jJWKEEm6JcDVYM9dpVXV47DXJb3
-	sNe+s8hoXA7EwOX+vH6kgRgJAsMP3YNc0+OzJnCHwNNew7Ck3FSHU+BEbmmAXqsp
-	UufeNGRBPTOyxyQcufueB/l3uuigsAy0KC4FyJwg7DzMKElSkXUQ2K6c7qSvbnrn
-	ngWxB5GElmPps4W52sfKfcG/b58vwh54QnZ42F8I9CO6rncEFs2Q2XWj4b8g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1669844992; x=1669931392; bh=wX9irGcUblXc4RqeTgp4fnnU07GY
-	dQWcxMiKg/SvwkU=; b=LAaMgeKHxDISnihMHN5JzfsPU/S073/o2JnSspeGe+5c
-	gvEoMGdMjeDlUm//JERDpnVz3KrA32Pf04rq+wVo2H/NL7GCHRF9Axf672OvY/zg
-	CqxBqSCadZ5oZnRryunTZf+VZYN50zsuKHr7w2+0aBP19Kqpt5zImOq2qCV5DLRB
-	RZiVt43z4EFtj5A7UP7t1sFiI2cXyvoaqofTrRE0UOUzgnS3rNCSplrRlCQUtzCx
-	JmpMPbaTaksHqTNArpFMHArbo1LQoXjnU5ijTrq9Wjd925hE4IpfKndQGbMHCUJy
-	dOznD9JmmTcbsYrAnMcqUnfVj5zL+7ThHqHwp+ejtA==
-X-ME-Sender: <xms:_8-HYxmp-_ZaWfU5EVYBM0XPygw6gQuSYzh3odRSxPjKPwe8lSLG_g>
-    <xme:_8-HY82RFRwOo7I1sXZjOpFP8uVh_qY3FBNPbwEt58oL_FZKl5tKfYLvMD8R8X4Sf
-    86f1wqnLGKfyohi-p0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrtdefgdduhedvucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
-    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
-    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
-    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
-    hrnhgusegrrhhnuggsrdguvg
-X-ME-Proxy: <xmx:_8-HY3qaiXy8wIy2OuRAjh--jtlSPfQqTADfp7VrLDcA0Cp9Y2VzdQ>
-    <xmx:_8-HYxnOuyA-4BOEGwKLSRJK06g9oqFSPuKvVKZdBzdd_nYeRmdsHg>
-    <xmx:_8-HY_36cJSstcsQ1L2lDJ9tqJVuaaTT9WDPjSLiRP_HA2mj0gALzQ>
-    <xmx:ANCHY4dUQeAv_Y2f9f1ZgRo7GBQRvD6LpXfyzmE_bPQCFCm1TMCm1w>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 5EF4DB60086; Wed, 30 Nov 2022 16:49:51 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.7.0-alpha0-1115-g8b801eadce-fm-20221102.001-g8b801ead
-Mime-Version: 1.0
-Message-Id: <7fcafe92-35d9-4a83-b00d-7816fdb43139@app.fastmail.com>
-In-Reply-To: <mhng-f034544d-5b0a-47c5-8e45-3dbcefc0aaaa@palmer-ri-x1c9a>
-References: <mhng-f034544d-5b0a-47c5-8e45-3dbcefc0aaaa@palmer-ri-x1c9a>
-Date: Wed, 30 Nov 2022 22:49:31 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Palmer Dabbelt" <palmer@dabbelt.com>, "Conor Dooley" <conor@kernel.org>,
- "Will Deacon" <will@kernel.org>, "Marc Zyngier" <maz@kernel.org>
-Cc: ajones@ventanamicro.com, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Samuel Holland" <samuel@sholland.org>, "Chen-Yu Tsai" <wens@csie.org>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- krzysztof.kozlowski+dt@linaro.org, "Rob Herring" <robh+dt@kernel.org>,
- "Jisheng Zhang" <jszhang@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, "Andre Przywara" <andre.przywara@arm.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Anup Patel" <apatel@ventanamicro.com>,
- "Atish Patra" <atishp@rivosinc.com>, christianshewitt@gmail.com,
- "Conor.Dooley" <conor.dooley@microchip.com>, guoren <guoren@kernel.org>,
- heinrich.schuchardt@canonical.com,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>, stano.jakubek@gmail.com
-Subject: Re: [PATCH v2 12/12] riscv: defconfig: Enable the Allwinner D1 platform and
- drivers
+	id 1p0W0N-0032RM-QV
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:41 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1p0W0L-0005PW-Hi; Wed, 30 Nov 2022 23:56:37 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com
+Cc: christoph.muellner@vrull.eu,
+	prabhakar.csengg@gmail.com,
+	conor@kernel.org,
+	philipp.tomsich@vrull.eu,
+	ajones@ventanamicro.com,
+	heiko@sntech.de,
+	emil.renner.berthing@canonical.com,
+	ardb@kernel.org,
+	linux-efi@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 07/14] RISC-V: rename parse_asm.h to insn.h
+Date: Wed, 30 Nov 2022 23:56:07 +0100
+Message-Id: <20221130225614.1594256-8-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221130225614.1594256-1-heiko@sntech.de>
+References: <20221130225614.1594256-1-heiko@sntech.de>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_135003_058313_BDEB0B04 
-X-CRM114-Status: GOOD (  28.05  )
+X-CRM114-CacheID: sfid-20221130_145639_937138_A3FF5B50 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,54 +70,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022, at 21:24, Palmer Dabbelt wrote:
-> On Mon, 28 Nov 2022 22:54:18 PST (-0800), Conor Dooley wrote:
->>
->> idk, defconfig to me is not about you or I, it's about A Developer that gets an SBC or a devkit and their experience.
->> Or alternatively, someone's CI ;)
->> I'd like to put everything in, but I recall that being shot down, that's all.
->
-> The whole "who is defconfig for" discussion always ends up kind of 
-> vague, but IIUC it's generally aimed at kernel hackers as opposed to end 
-> users -- so it's not meant to be a disto config, that's why we have 
-> things like the debug options turned on.  I tend to think of it as a "if 
-> a patch submitter is going to test only one config, then what do I want 
-> in it?" and let that determine what goes in defconfig.
->
-> IMO having defconfig contain the drivers necessary to boot every common 
-> dev board as =y, and having =m for anything else on those boards also 
-> seem reasonable.  That will make the transition from vendor/distro 
-> kernels to upstream a bit smoother, which is always good.  I guess 
-> there's some slight build time and image size issues, but aside from 
-> some very small systems that shouldn't be too bad for kernel developers 
-> -- and if we really end up with another popular system with 6MiB of RAM 
-> we can just stick another tiny defconfig in there for it.
->
-> I actually don't use modules when doing kernel development because I 
-> find it easier to track things when they're packed into a single binary, 
-> but I don't think it's necessary to steer everyone that way.
->
-> Adding some of the Arm folks here, in case they have thoughts.  The best 
-> bet is probably to try and do something similar, though my worry is that 
-> the answer is something like "target standard platforms" and we don't 
-> have any.
+From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-I think this is handled very inconsistently across architectures. On
-32-bit arm, we used to have a board specific defconfig for each machine,
-but of course that never scaled to the number of supported machines.
+The current parse_asm header should become a more centralized place
+for everything concerning parsing and constructing instructions.
 
-The important defconfig files we have these days are the arm64
-one, and on arm32 we have the ones that are mutually incompatible,
-in particular one for armv7 and one for armv5, each enabling as
-many machines as possible, plus usually one per SoC vendor that
-is more specialized.
+We already have a header insn-def.h similar to aarch64, so rename
+parse_asm.h to insn.h (again similar to aarch64) to show that it's
+meant for more than simple instruction parsing.
 
-If you want to formalize it a bit more than this,  I would recommend
-having more fragments, e.g. one for typical debugging options,
-one for things that are needed to boot both Fedora and Debian
-userland, etc.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/{parse_asm.h => insn.h} | 0
+ arch/riscv/kernel/kgdb.c                       | 2 +-
+ arch/riscv/kernel/probes/simulate-insn.h       | 2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ rename arch/riscv/include/asm/{parse_asm.h => insn.h} (100%)
 
-      Arnd
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/insn.h
+similarity index 100%
+rename from arch/riscv/include/asm/parse_asm.h
+rename to arch/riscv/include/asm/insn.h
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 61237aeb493c..2e0266ae6bd7 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -11,7 +11,7 @@
+ #include <linux/string.h>
+ #include <asm/cacheflush.h>
+ #include <asm/gdb_xml.h>
+-#include <asm/parse_asm.h>
++#include <asm/insn.h>
+ 
+ enum {
+ 	NOT_KGDB_BREAK = 0,
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 29fb16cd335c..a19aaa0feb44 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -3,7 +3,7 @@
+ #ifndef _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
+ #define _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
+ 
+-#include <asm/parse_asm.h>
++#include <asm/insn.h>
+ 
+ #define RISCV_INSN_REJECTED(name, code)					\
+ 	do {								\
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
