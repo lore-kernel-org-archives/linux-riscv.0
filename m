@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F97C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 18:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EECC4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 18:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DlKCj/dZCQlTOI+eWtNHby+D98rIx0uRhfFx0bMTCSo=; b=A5afFXyt2AiUTs
-	CzXb46PuOf6J6tRiILHWNGgniEx903nV6/WbDWQEKHZQg8827exncASeFRiHmVrbaM5HiQv/dWuul
-	ViPnpqNxO4Sl9MguNl1YW/xifglvOuIYiM7RMcgkTJElwsZf8euoyjIrO4bfPz+tYJ5jngUlyKykU
-	8x9zcoKzJTmcqoRcrk5MJZ9d5W06hRit2DXavEiMLjm4q0T+P32Ast6gSMB77aIDkasSK8kjw9xeV
-	Ig5VKPsamBl8RvQMXqGJ0Zo98mETRB34r3HwnVauB2JwxV43Itp8zS+9+Jq8nekLODcpZSyD3sb+0
-	dLR9RjVrtHCNs3e3q7Jw==;
+	List-Owner; bh=dXZdTodaIpnG+ptvpr9GL2X1iA3iwPtUfdFmEm5zAec=; b=Ibn1b1Pgom61Vt
+	/SoY9UywGRZjVN0bWTF9SMAY3Kn6OpyBFfMs89BpYuV3HwsOAiQWMU8dqJkj4ba71SOhlLiJwgf+X
+	ksG8zhIEn2LwqLGAFQn24U97uU1MNB2bebhLz92dkMSBE6ntQ0uUBJJs8o3MJO/LPhXQPKS61RCLc
+	wUO5qtUSENf9qKMg22L/ac/rtnlu/p3i+elFkLS7RdgvjqfR5qseCdbir508sFmOgQuAaKi3ZGXft
+	QUpI/+NbDmRuUJyA94Px00KRISIG9gm531YAs3uHIl1URZ/9zzkYl8OMNrGHq3d+mIiniwgfrGopH
+	+dClRW68gt4cYEy6HCRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0RaT-001SRD-OV; Wed, 30 Nov 2022 18:13:37 +0000
-Received: from mail-oa1-f42.google.com ([209.85.160.42])
+	id 1p0RbY-001T21-Mg; Wed, 30 Nov 2022 18:14:44 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0RaQ-001SNP-91
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 18:13:35 +0000
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-14263779059so22002777fac.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 10:13:32 -0800 (PST)
+	id 1p0RbV-001Sz6-Cb
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 18:14:43 +0000
+Received: by mail-ed1-x535.google.com with SMTP id b8so25140395edf.11
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 10:14:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=j7K3QQjgetcF0dnn3oVBs1JgDTRJdaG+fBSNdtFt0EA=;
+        b=Lk7DM7XhMtPu5Cq9CE5ZDFKoOKUT6mHLWd98yCqFse4aDUwytBmZ4YTHSrCY9SDbbV
+         5GNe6VYUHia592/EGt6Aw2Ms/Nxx3i5XDODt6qHqTKfiJASGf0U8v7V3b77aTTCid0f4
+         RsmsbiaDAMdUiAib7vvpXjCVipj88D6c2kLSoCUojsh+N81VU5hiI/shxf2QxrE/GOBT
+         giA87QJP1iqm3bte6q7Tk1AjMyo6uw15OD0B1KZpRBFHKStnGmF6TqrXmPzUnvL61AJu
+         5uOjwp1O6iWjUgy7P+fzoUDCeGeLGLp54c8jYTrrL8j+n0jV7Hbl+4a0o6aM7yNPeUOV
+         loog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lhAn2x63WZZ68iA2xviSqQVQpPqaz48S48picAsw7I0=;
-        b=MxnbqH9ImVpm2Omcdngqqsskh1AGO/tv3fUpRKzlHP34X1m6dQF3tGEIXNDHUIvTxl
-         c+lEXdequRnVV/7cg0e40i4pU9zakn4SWxpFfey+XRORcwyrM6Oi6FT8k0APK0COxtFI
-         gv15NVewiQxQEK9FhwON5DjyUfCujaxLtWsHf+qza9NbEM6btFna1eilEx3f+u6Qf8Wz
-         bhOoWjRFB/1Lwg7zVIjxHRFleANv7neXxkFYrs6QdN7OvidplVyzsjSdWC/y8VRnEoH5
-         2vA9WVoVy3bvJxHLSEBbDCOQggeKXpPtWqTAybW/afnGca6cns1Vw9XCDjTUbzaUsnSF
-         JljA==
-X-Gm-Message-State: ANoB5pmoKZAV6mDggUy7b+LD1iHMyU0Hbe8YaYWZN7cMLrCVOwakmVTH
-	he0xSYD97KZyKBxBEz77jg==
-X-Google-Smtp-Source: AA0mqf6raFDKZhDuGHQdIUhYEFvXW5J36XxEkr5d0/apxVs4KAL5KdUum5LGSusaNhZUvpkRMlSBgw==
-X-Received: by 2002:a05:6870:f110:b0:13b:7793:444c with SMTP id k16-20020a056870f11000b0013b7793444cmr35151635oac.59.1669832011901;
-        Wed, 30 Nov 2022 10:13:31 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id v13-20020a4aaecd000000b0049fd5c02d25sm990051oon.12.2022.11.30.10.13.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Nov 2022 10:13:31 -0800 (PST)
-Received: (nullmailer pid 2552194 invoked by uid 1000);
-	Wed, 30 Nov 2022 18:13:30 -0000
-Date: Wed, 30 Nov 2022 12:13:30 -0600
-From: Rob Herring <robh@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/3] dt-bindings: timer: sifive,clint: add compatible for
- OpenC906
-Message-ID: <20221130181330.GA2544489-robh@kernel.org>
-References: <20221121041757.418645-1-uwu@icenowy.me>
- <20221121041757.418645-3-uwu@icenowy.me>
- <98005150-83a7-5439-0db1-d93d459c3809@linaro.org>
- <b924d37d716fa8b1fd93102b1d51fac221f43d59.camel@icenowy.me>
- <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
- <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j7K3QQjgetcF0dnn3oVBs1JgDTRJdaG+fBSNdtFt0EA=;
+        b=EIZ9I7cBVmozRM58FwhKWwpcuFG9VNo7WAntQDLu+Rby+bK8WrUMEAZ83eWLFcFWBj
+         V2oqs8RTA0VJXso4sbZ8Cxa6KrzZSvKrfq/D9+GbNB5JWFKTB9vbkavWIaCVhGhyqKhk
+         PsjNsiWDwIER58H6UxjuFcXscaswfqt5tSSclYfNzJsQegfeBLS2ieELpHodE3aC+5uc
+         yrRa+4nr/m6DIfKLObuWhCmPBKFlALbnccSOR8p5v5ycagAlBE06uwnRKt372Sui72hp
+         BI2JOuQg4Tw+Zk7LRudx6peoe7t/WzrU7V6vIjYHJN1Hwr1WmJmlNPogimwP5nU3pd8o
+         XX0g==
+X-Gm-Message-State: ANoB5pm6QevAVt7TqlAuLRa+tnmU2zbWUoDNcaAF1ECSC/iRqwQc1Qjt
+	nfYx/ASl9Uwe/bUTtXPzK1FPfrRcsm4/B5/r1IPFaA==
+X-Google-Smtp-Source: AA0mqf7dSb+Z4b+LNnNwU5LI2sxm66euhhg+3LH4pqNP+jRZVqBiw6TiJLwXhAFe/JBpYXUuzfFQVZtiJYwGge/i5ss=
+X-Received: by 2002:aa7:c859:0:b0:461:17e9:4ea3 with SMTP id
+ g25-20020aa7c859000000b0046117e94ea3mr56716157edt.49.1669832078541; Wed, 30
+ Nov 2022 10:14:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
+References: <20221129142449.886518-1-apatel@ventanamicro.com>
+ <20221129142449.886518-5-apatel@ventanamicro.com> <86bkoomn4h.wl-maz@kernel.org>
+ <CAAhSdy0T1G7=XVSmtYxONtfk+5-XYnv3qWyFL2Nnp-MS3aQroA@mail.gmail.com> <87o7sotj62.wl-maz@kernel.org>
+In-Reply-To: <87o7sotj62.wl-maz@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 30 Nov 2022 23:44:27 +0530
+Message-ID: <CAAhSdy0s_GN798C_CQO_D2ewUVQnJ8PSb1SZd429q9MzG8xVoQ@mail.gmail.com>
+Subject: Re: [PATCH v13 4/7] RISC-V: Treat IPIs as normal Linux IRQs
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_101334_396057_ED2080CB 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20221130_101441_682618_76748B9E 
+X-CRM114-Status: GOOD (  35.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +85,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgMjIsIDIwMjIgYXQgMDM6NDE6MjdQTSArMDgwMCwgSWNlbm93eSBaaGVuZyB3
-cm90ZToKPiAKPiAKPiDkuo4gMjAyMuW5tDEx5pyIMjLml6UgR01UKzA4OjAwIOS4i+WNiDM6MzU6
-NDgsIEtyenlzenRvZiBLb3psb3dza2kgPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4g
-5YaZ5YiwOgo+ID5PbiAyMi8xMS8yMDIyIDA4OjE4LCBJY2Vub3d5IFpoZW5nIHdyb3RlOgo+ID4+
-IOWcqCAyMDIyLTExLTIx5pif5pyf5LiA55qEIDExOjA2ICswMTAw77yMS3J6eXN6dG9mIEtvemxv
-d3NraeWGmemBk++8mgo+ID4+PiBPbiAyMS8xMS8yMDIyIDA1OjE3LCBJY2Vub3d5IFpoZW5nIHdy
-b3RlOgo+ID4+Pj4gVC1IZWFkIE9wZW5DOTA2IGlzIGEgb3Blbi1zb3VyY2UtbGljZW5zZWQgZml4
-ZWQtY29uZmlndXJhdGlvbiBvZgo+ID4+Pj4gQzkwNiwKPiA+Pj4+IHdoaWNoIGlzIG5vdyBwdWJs
-aWMgYW5kIGFibGUgdG8gYmUgaW50ZWdyYXRlZC4KPiA+Pj4+Cj4gPj4+PiBBZGQgYSBjb21wYXRp
-YmxlIGZvciB0aGUgQ0xJTlQgc2hpcHBlZCBhcyBwYXJ0IG9mIE9wZW5DOTA2LCB3aGljaAo+ID4+
-Pj4gc2hvdWxkCj4gPj4+PiBqdXN0IGJlIG9yZGluYXJ5IEM5eHggQ0xJTlQuCj4gPj4+Pgo+ID4+
-Pj4gU2lnbmVkLW9mZi1ieTogSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3kubWU+Cj4gPj4+PiAt
-LS0KPiA+Pj4+IMKgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2
-ZSxjbGludC55YW1sIHwgMSArCj4gPj4+PiDCoDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigr
-KQo+ID4+Pj4KPiA+Pj4+IGRpZmYgLS1naXQKPiA+Pj4+IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
-cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1sCj4gPj4+PiBiL0RvY3VtZW50YXRp
-b24vZGV2aWNldHJlZS9iaW5kaW5ncy90aW1lci9zaWZpdmUsY2xpbnQueWFtbAo+ID4+Pj4gaW5k
-ZXggYWFkYTY5NTcyMTZjLi44NjcwM2U5OTVlMzEgMTAwNjQ0Cj4gPj4+PiAtLS0gYS9Eb2N1bWVu
-dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiA+Pj4+
-ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy90aW1lci9zaWZpdmUsY2xp
-bnQueWFtbAo+ID4+Pj4gQEAgLTM1LDYgKzM1LDcgQEAgcHJvcGVydGllczoKPiA+Pj4+IMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IHNpZml2ZSxjbGludDAKPiA+Pj4+IMKgwqDCoMKgwqDC
-oCAtIGl0ZW1zOgo+ID4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVtOgo+ID4+Pj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gdGhlYWQsb3BlbmM5MDYtY2xpbnQKPiA+Pj4+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBhbGx3aW5uZXIsc3VuMjBpLWQxLWNsaW50Cj4g
-Pj4+Cj4gPj4+IEFkZCBlbnRyaWVzIHNvcnRlZCBhbHBoYWJldGljYWxseS4gVGhpcyBzaG91bGQg
-YmUgc3F1YXNoZWQgd2l0aAo+ID4+PiBwcmV2aW91cwo+ID4+PiBwYXRjaC4KPiA+PiAKPiA+PiBJ
-IG1ha2UgaXQgYSBzZXBlcmF0ZWQgcGF0Y2ggYmVjYXVzZSBJIHRoaW5rIGl0J3MgYSBxdWVzdGlv
-bmFibGUKPiA+PiBhcHByb2FjaC4KPiA+PiAKPiA+PiBJZiB5b3UgdGhpbmsgaXQncyBva2F5LCBJ
-IHdpbGwganVzdCBzcXVhc2ggaXQgYW5kIHB1dCBpdCBhcyB0aGUgc2Vjb25kCj4gPj4gcGF0Y2gg
-aW4gdGhlIG5leHQgaXRlcmF0aW9uLCB3aXRoIGFkZGluZyBvcGVuYzkwNi1wbGljIGFzIHRoZSBm
-aXJzdAo+ID4+IG9uZS4KPiA+Cj4gPldoYXQgaXMgYSBxdWVzdGlvbmFibGUgYXBwcm9hY2g/IFdo
-eSBjb21taXQgbXNnIGlzIG5vdCBzYXlpbmcgdGhpcz8KPiAKPiBBaCBJIG1lbnRpb25lZCBpdCBp
-biB0aGUgY292ZXIgbGV0dGVyLiBUaGUgcHJvYmxlbSBpcyBqdXN0IEkgZG91YnQgd2hldGhlcgo+
-IGJpbmRpbmcgc3RyaW5ncyBmb3Igc2luZ2xlIFNvQ3MgYXJlIG5lY2Vzc2FyeS4KClRoZXkgYXJl
-LgoKVW5sZXNzIGFsbCB0aGUgcXVpcmtzL2J1Z3MvZmVhdHVyZXMgYXJlIHNvbWVob3cgZ3VhcmFu
-dGVlZCB0byBiZSBleGFjdGx5IAp0aGUgc2FtZSBhcyBvdGhlciBTb0NzIHNoYXJpbmcgdGhlIHNh
-bWUgY29tcGF0aWJsZSBzdHJpbmcsIG9yIHRoZXJlIGlzIAphbm90aGVyIG1lY2hhbmlzbSB0byBp
-ZGVudGlmeSB0aGUgZXhhY3QgdmVyc2lvbiAoZS5nLiBhIHZlcnNpb24gCnJlZ2lzdGVyKS4KClJv
-YgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, Nov 30, 2022 at 11:32 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 30 Nov 2022 17:14:09 +0000,
+> Anup Patel <anup@brainfault.org> wrote:
+> >
+> > On Wed, Nov 30, 2022 at 9:48 PM Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Tue, 29 Nov 2022 14:24:46 +0000,
+> > > Anup Patel <apatel@ventanamicro.com> wrote:
+> > > >
+> > > > Currently, the RISC-V kernel provides arch specific hooks (i.e.
+> > > > struct riscv_ipi_ops) to register IPI handling methods. The stats
+> > > > gathering of IPIs is also arch specific in the RISC-V kernel.
+> > > >
+> > > > Other architectures (such as ARM, ARM64, and MIPS) have moved away
+> > > > from custom arch specific IPI handling methods. Currently, these
+> > > > architectures have Linux irqchip drivers providing a range of Linux
+> > > > IRQ numbers to be used as IPIs and IPI triggering is done using
+> > > > generic IPI APIs. This approach allows architectures to treat IPIs
+> > > > as normal Linux IRQs and IPI stats gathering is done by the generic
+> > > > Linux IRQ subsystem.
+> > > >
+> > > > We extend the RISC-V IPI handling as-per above approach so that arch
+> > > > specific IPI handling methods (struct riscv_ipi_ops) can be removed
+> > > > and the IPI handling is done through the Linux IRQ subsystem.
+> > > >
+> > > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > > > ---
+> > > >  arch/riscv/Kconfig                |   2 +
+> > > >  arch/riscv/include/asm/sbi.h      |  10 +-
+> > > >  arch/riscv/include/asm/smp.h      |  35 ++++---
+> > > >  arch/riscv/kernel/Makefile        |   1 +
+> > > >  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+> > > >  arch/riscv/kernel/irq.c           |   3 +-
+> > > >  arch/riscv/kernel/sbi-ipi.c       |  81 ++++++++++++++++
+> > > >  arch/riscv/kernel/sbi.c           | 106 +++-----------------
+> > > >  arch/riscv/kernel/smp.c           | 155 +++++++++++++++---------------
+> > > >  arch/riscv/kernel/smpboot.c       |   5 +-
+> > > >  drivers/clocksource/timer-clint.c |  65 ++++++++++---
+> > > >  drivers/irqchip/Kconfig           |   1 +
+> > > >  drivers/irqchip/irq-riscv-intc.c  |  55 +++++------
+> > > >  13 files changed, 287 insertions(+), 235 deletions(-)
+> > > >  create mode 100644 arch/riscv/kernel/sbi-ipi.c
+> > > >
+> > >
+> > > [...]
+> > >
+> > > > diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
+> > > > new file mode 100644
+> > > > index 000000000000..6466706b03a7
+> > > > --- /dev/null
+> > > > +++ b/arch/riscv/kernel/sbi-ipi.c
+> > > > @@ -0,0 +1,81 @@
+> > > > +// SPDX-License-Identifier: GPL-2.0-only
+> > > > +/*
+> > > > + * Multiplex several IPIs over a single HW IPI.
+> > > > + *
+> > > > + * Copyright (c) 2022 Ventana Micro Systems Inc.
+> > > > + */
+> > > > +
+> > > > +#define pr_fmt(fmt) "riscv: " fmt
+> > > > +#include <linux/cpu.h>
+> > > > +#include <linux/init.h>
+> > > > +#include <linux/irq.h>
+> > > > +#include <linux/irqdomain.h>
+> > > > +#include <linux/percpu.h>
+> > > > +#include <asm/sbi.h>
+> > > > +
+> > > > +static int sbi_ipi_virq;
+> > > > +static DEFINE_PER_CPU_READ_MOSTLY(int, sbi_ipi_dummy_dev);
+> > > > +
+> > > > +static irqreturn_t sbi_ipi_handle(int irq, void *dev_id)
+> > > > +{
+> > > > +     csr_clear(CSR_IP, IE_SIE);
+> > > > +     ipi_mux_process();
+> > > > +     return IRQ_HANDLED;
+> > >
+> > > Urgh... I really wish I hadn't seen this. This requires a chained
+> > > handler. You had it before, and yet you dropped it. Why?
+> > >
+> > > Either you call ipi_mux_process() from your root interrupt controller,
+> > > or you implement a chained handler. But not this.
+> > >
+> > > Same thing about the clint stuff.
+> >
+> > We had chained handler all along but there is problem (which
+> > was pointed to us) in using chained handler because the parent
+> > RISC-V INTC irqchip driver does not have irq_eoi() so the
+> > chained_irq_enter() and chained_irq_exit() will do the interrupt
+> > mask/unmask dance which seems unnecessary.
+> >
+> > Is there a better way to avoid the interrupt mask/unmask dance ?
+>
+> Well, you could have an IPI-specific irqchip, with an empty EOI
+> callback. Or something. But not *that*.
+
+Is it okay to add an empty irq_eoi() in drivers/irqchip/irq-riscv-intc.c with
+detailed comments since this driver uses handle_percpu_devid_irq()
+flow ?
+
+>
+> And next time you change something of that importance, add it to your
+> change log.
+
+Sure, will do.
+
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
+
+Regards,
+Anup
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
