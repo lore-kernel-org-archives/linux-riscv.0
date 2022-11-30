@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30E4C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 02:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0113AC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 02:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XQ3fM+9FZ7+e0ewFFYX9bZEGxqQaN83OhexW8NZMJH0=; b=bxRvU1hoXMu5DC
-	lueCdcd994F7LZNcSnphxk/Aq8nxuWC1PTJsG86p84yJQbELibuVO+92e6/i9lE9/jPATs77Ak0cc
-	lCzIPOxQZGKJC0JiZM+g/haPrb5Hwyg1pM0/tMprXa7MCFDYqEnUOucwfKZ4KD0/QGXBEyjE/s4zg
-	1ecK65dmSlHAYnOQhUPo21mMbsiS42E3tty0P43nMyuXTOlYUaaOrMhLhE24nOmKlbiRztwDINjwz
-	6Wtz3Rc+R244fxlP13JQpdAQBM2Jl57R2bykCSd4WnZfHEwv8rrsm0w3ayagEeBnv2CTqPbYHTX4g
-	YGWEy6xUn2i2/81ALp2A==;
+	List-Owner; bh=0yeCb/EN3g3tyi1l2te8SfcaZQ6IiRLLW27XMm1t5+Y=; b=G1RZYsKf//QAxM
+	vBEYGfrDNo6cf2biuWWFyY6zApQILvWhWiij2Wiqb8d3fUBkHZpN6App1Ae0rcTCHUMaHVusQNBl9
+	NpoYX9tFtDIKDkY+jVT6qrK7Mjwfcc6TvORApnHvV1216AMuXECHwuVZ+XZizsn8MKIgWJPVQ7hmZ
+	woWz9CDCwcuSnN/0+OHIQpHHL0grQcYOuh4XC7tK8MFKpL7inDFT3x5Br2mhLLfMJJIYtYWxUCO4u
+	9ORFtMu1w+adx58CfDR9Tob/D5jsCJciBBihRpL4N2LscPpRRvpSrsylyPFQBLUU/yOI2lZvpGQ4K
+	w27+8Vx8GEUHrBoCbw+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Cwy-00CDRS-VL; Wed, 30 Nov 2022 02:35:52 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1p0D9C-00CIHT-Em; Wed, 30 Nov 2022 02:48:30 +0000
+Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Cwu-00CDOp-CM
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 02:35:49 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id cm20so678032pjb.1
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 18:35:47 -0800 (PST)
+	id 1p0D9A-00CIDz-6Z
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 02:48:29 +0000
+Received: by mail-oi1-x22f.google.com with SMTP id m204so17426252oib.6
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 18:48:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WK41owb8xQar3YPAMlOv6Q9IlVxICe86b2kCZ83CjmI=;
-        b=NYaY1njFT+Iv04FROrsPA9asr8bF0H1T04E0ghH8zlytybXdGXaucom+/NQFSJL3iN
-         efDS5zB46j0rOji8pcj485H1bPAwEnbMedmSqSEmf9B0wOaK9y7b1cF2ad77M3muEnbi
-         qstWPWEJs/VJ5jCtWTtcb7YUXNolbQ28uZPsHenqV73ygMFTNij1XXA1rKcB0p91dDSg
-         +bpgfhsHSzWV1Tyhw4e43BlxsTlU2cGT7GoXFBSE8FPrEOI9hkNdf7a2KEI+vkMrrO1l
-         AJvx8bfKnp+cn/ARJvoFo0ELvjUsXydRIUgT9uh8J5GQOc3rLSUsST/k+m1AtfbnbM4a
-         FzgA==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=keXd344sIL2Axw294Ojzkf8vMy22zfN9agu+NIErakc=;
+        b=q4h7YuMITHQxrW7ZuaQ5CLlmfdNHlj7tkZnyFGRJ79wAUoewwbZndW8+BaQ1gcu1gh
+         QsH6IyUquRSagctknw2PpehMpel5+mogcX84p1/1PRCOf3jR1pYc9f11tkxUTaz3nJw2
+         pc6+03jI0dOCB3402JK509Hhc0Fyb7567c1aZKMMIcvY9UHcYNENo+U1XiyL7AwGH75K
+         5JbbUvYujwKmDW8F+uZWgxl20X2uVTTdwOTrhqjZly1FTHwcOUc3mgzOnj5CdbFqWDQr
+         9tgvEKKwVXArDfeRCAm90yy9nFztRVXwMKTyDun3H7+7s8syW3Sn+ALJBH6mYifPNzye
+         oO2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WK41owb8xQar3YPAMlOv6Q9IlVxICe86b2kCZ83CjmI=;
-        b=rU4e8mktFdTSN0dip/fpT24WvpHSw8NQhZuhNGKmc3UX5ts/4+CmbUk5vLpRLfkVtC
-         +Lod/U3YNtNfKiU0QnPrS7SjO2HSPq7LX+HbabdnX+/DWKAI6Sb6rEXuWsvYPFI+U3lx
-         VP3LRsbZK9bdGhPUBTBRY1wkYgv+knnlkREWhoui3Gy6LeKpayD7cZKLec9PM+RoSvcw
-         5Sw28bAvVpqOPydnbpRXlrqnoMJcLDtff40nHBllrjmiY3dXbUi11XK5vKomQjynlFnZ
-         NGLFSHkB4qWLBTXzqPRC7dyW9vsGBme8DNWVgCVak7qeHf/XCRLZ7eI989vbI4fmVE/K
-         UbHg==
-X-Gm-Message-State: ANoB5plkzazLlke3tB6r+bbyDGAKJRBXFnK3bs4XffRmM8FSseHgIMzu
-	WF6qgDN0Jyy+cn0Jug8Alr2x0g==
-X-Google-Smtp-Source: AA0mqf5bUTnWIeZUMTYfWzcYyQ2Ayw75862olJovnwQkgFAZMu4TKHAv/LhckeZcuq6IEBmsNETSfA==
-X-Received: by 2002:a17:903:120c:b0:188:fc5f:84f3 with SMTP id l12-20020a170903120c00b00188fc5f84f3mr51970782plh.2.1669775747099;
-        Tue, 29 Nov 2022 18:35:47 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id v11-20020a63464b000000b00476b165ff8bsm15069pgk.57.2022.11.29.18.35.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 18:35:46 -0800 (PST)
-Subject: [PATCH 2/2] RISC-V: Add some comments about the shadow and overflow stacks
-Date: Tue, 29 Nov 2022 18:35:15 -0800
-Message-Id: <20221130023515.20217-2-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20221130023515.20217-1-palmer@rivosinc.com>
-References: <20221130023515.20217-1-palmer@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=keXd344sIL2Axw294Ojzkf8vMy22zfN9agu+NIErakc=;
+        b=L7AEi7pLD03kX63Qa/J7LFqbr04U9FcKPJJiNt/K0SmXjx6hM2DjocI6wkq16C1V+q
+         C9O9jV5mVKpAfX+bOkblBmxSDUxHE3v4bSVT75MeJyo0TYYLmZiUTYY7XHseYFLZO5vK
+         0eEgg0G/gCoqpHRZdiqgDxNLWyI2/reZ9bsGZu2lQlx+B2ZrrTCjq0wV14htd6P8a/b1
+         aUEZyU/Su3Fj5vCHHSYrr/bfpBPwZKKZLYDLZ6ld3GVOPumnkIfaeDzCCR0UipCIKHCo
+         vj7zPKwCEeX63cn30tWN4UOC6TqC3WUCC9t3Dc7B8PQqtCM7u9jg2BTZRxYCKJ+QEyPm
+         8UFQ==
+X-Gm-Message-State: ANoB5pmC3awurFAYsFqm7QqIMn1xGHRC61uWIR7AJ0TY1bjO5IsVMDsN
+	KAk2/B1a7m0MB0HZ8UbA9aeQ/BwMw9lJh0Q1DVE=
+X-Google-Smtp-Source: AA0mqf4XDuK51ylnQ1qDeOE5aq2PPrJbmFP2lmvGRlVb9l0st8hTdzUCZJMG5GqoHJsxhY2CSjXDfkK+7/IKWCIili4=
+X-Received: by 2002:a05:6808:1c1:b0:34f:d32d:cad5 with SMTP id
+ x1-20020a05680801c100b0034fd32dcad5mr30266295oic.262.1669776500901; Tue, 29
+ Nov 2022 18:48:20 -0800 (PST)
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: jszhang@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
+References: <20221130023515.20217-1-palmer@rivosinc.com>
+In-Reply-To: <20221130023515.20217-1-palmer@rivosinc.com>
+From: Khem Raj <raj.khem@gmail.com>
+Date: Tue, 29 Nov 2022 18:47:55 -0800
+Message-ID: <CAMKF1srMj5aH4_+iwbFuu+AEgyyz85y+UPEszUGeQ7U=u19R3Q@mail.gmail.com>
+Subject: Re: [PATCH 1/2] RISC-V: Align the shadow stack
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: jszhang@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_183548_434291_F2C174DA 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20221129_184828_286557_03DC86DC 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +85,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It took me a while to page all this back in when trying to review the
-recent spin_shadow_stack, so I figured I'd just write up some comments.
+Hi Palmer
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/kernel/traps.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
+On Tue, Nov 29, 2022 at 6:36 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> The standard RISC-V ABIs all require 16-byte stack alignment.  We're
+> only calling that one function on the shadow stack so I doubt it'd
+> result in a real issue, but might as well keep this lined up.
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index acdfcacd7e57..336d4aadadb1 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -200,18 +200,18 @@ void __init trap_init(void)
- }
- 
- #ifdef CONFIG_VMAP_STACK
-+/*
-+ * Extra stack space that allows us to provide panic messages when the kernel
-+ * has overflowed its stack.
-+ */
- static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
- 		overflow_stack)__aligned(16);
- /*
-- * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-- * to get per-cpu overflow stack(get_overflow_stack).
-+ * A temporary stack for use by handle_kernel_stack_overflow.  This is used so
-+ * we can call into C code to get the per-hart overflow stack.  Usage of this
-+ * stack must be protected by spin_shadow_stack.
-  */
- long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
--asmlinkage unsigned long get_overflow_stack(void)
--{
--	return (unsigned long)this_cpu_ptr(overflow_stack) +
--		OVERFLOW_STACK_SIZE;
--}
- 
- /*
-  * A pseudo spinlock to protect the shadow stack from being used by multiple
-@@ -222,6 +222,12 @@ asmlinkage unsigned long get_overflow_stack(void)
-  */
- unsigned long spin_shadow_stack;
- 
-+asmlinkage unsigned long get_overflow_stack(void)
-+{
-+	return (unsigned long)this_cpu_ptr(overflow_stack) +
-+		OVERFLOW_STACK_SIZE;
-+}
-+
- asmlinkage void handle_bad_stack(struct pt_regs *regs)
- {
- 	unsigned long tsk_stk = (unsigned long)current->stack;
--- 
-2.38.1
+Is 16-byte alignment required on rv32 as well ?
 
+>
+> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+>  arch/riscv/kernel/traps.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index be54ccea8c47..acdfcacd7e57 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -206,7 +206,7 @@ static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+>   * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+>   * to get per-cpu overflow stack(get_overflow_stack).
+>   */
+> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+> +long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
+>  asmlinkage unsigned long get_overflow_stack(void)
+>  {
+>         return (unsigned long)this_cpu_ptr(overflow_stack) +
+> --
+> 2.38.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
