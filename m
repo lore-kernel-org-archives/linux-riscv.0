@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F38EC4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33985C4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WYOUFQMv7DlLNxK7HMuXYc6abEBa222EwWJIu+OU8ik=; b=jXHiiIoAFduW1C
-	xwYeM+SFIINd9lOQAfvFH2car2dDnoPcA1i0PUWE3Xexv9VCGQ5DNu5NYlNWtpLw6zEKEHRtlajNV
-	WvGfSRxMNVZD6ionK6uk2wrxmPmpv+7uB27/wKAq2vMyqamgXyVAROIuXUJr9us3cLKd00nujzvBd
-	QKQpQmtnFCxrVnV+kVme0xhi5JRPMO1x5oQ1ME/FC6Ow+t5dcS3H7Yr8h91eUOqVJRPBuuQS31GIg
-	5QYaTLpSQ0KwelNYMtaHkDW3+D5QoMbf5YAxxmW+3DDoADW/8BzaHbxXF9PWPn+j6fU+8Yg2+5gil
-	ufSKji9G4mnafrJmm0lw==;
+	List-Owner; bh=2fLW8Eyl3Hf/YGwNruFcd9/qKnB7mwcay9OCaYXnf2g=; b=xnfQV8pW94Mnx+
+	gtoPmTmITTCB8GCqUG7fzaUKKRP5C6qdFfYyIfbE63uVqkQUOStSdxhOfgKk8oOUNUFII/Y9T1avc
+	n8lCZnhK8oX8CU/0od+Gv2qQN+l8t0MsvoQi+mVzmGH0UiXczy0XV540ZTJyikmHBs9f0xfOCh+v9
+	KgG98ywFIGBJKMF916Uioxo9NEP/ILYOMDQko23gtlRIjRPFgEUhfHujxYdsQZ+rpjTuzfrJzq+IJ
+	xW0GQZi/UGn/SM2Bpp9zdcQK8HxoBVM0QvYj+Qi601MhmstJIciHEPM+3VOmHzj9VC0I8rFV3jBAt
+	QH6rLRUjYqc4twdUbEVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Wbi-003Gyf-4b; Wed, 30 Nov 2022 23:35:14 +0000
-Received: from mail-vs1-xe49.google.com ([2607:f8b0:4864:20::e49])
+	id 1p0Wbv-003H4k-9t; Wed, 30 Nov 2022 23:35:27 +0000
+Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WLG-003AEx-Jt
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:18:15 +0000
-Received: by mail-vs1-xe49.google.com with SMTP id j8-20020a67ef08000000b003b08119d0bfso7097017vsr.18
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:18:13 -0800 (PST)
+	id 1p0WLO-003AHn-Rw
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:18:24 +0000
+Received: by mail-oi1-x24a.google.com with SMTP id bj30-20020a056808199e00b0035a0734664bso128868oib.8
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:18:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=X0tmq9TjsMbdzf016NYPEZWLDrtJgEerkZwlPByjvHs=;
-        b=ffiAil8tYfi3nQXQblraVPD6jbdbOOCVG7uQkkKJrYkDL25R/TkQAeFRDogqa/QMMv
-         6wZOWt9R/eeSPWTlpWV3IYmrtl04WJOPJAhS7DhGuKTgLTJnehBcyBsLWlgRsCVFi/Ix
-         ksxZjkBOqqqo9hOr9qKhrYgS8WLlfTE4UM6Vkkhhf880kZVvVEdvLhl4X0FaFYBb/6vC
-         1lACz1AHExA2AbJQILx7vCyuTDoL44EAFEV/X6CifJwvfMkGg0ai47n8Yg94c4IO+cHQ
-         jlRTeSXfVKpq0j3GPFNIBJZpOCvznvIZyM5DfqXmXJnRlhyCma48IFWCHmjS0A3NCAbs
-         hdMw==
+        bh=9siMTxNa3uAP5fZIzNGfC6XHHMwgiKNlJBnmhPRbPro=;
+        b=ChW1Nps965Qp18Q6+pUQJ9HaZg+bsuoNAPERVx5vtZW0btHu7mssz1zq2swGpNBnOO
+         xeSdi4iwUV2bHGTbxVVeaFbSd7hDQi+GikXoUOMA+ds3pfZUeA7jrH6W4f5P6c5pwr9B
+         U3XVYRZQ7E6Yrhd7CzlvGARnYPdmscwvfkiQmHkzv9OBvomDdeXYt/xK1+qhaSsZxp4N
+         N9NxXX+4yvTNEHy1B6JV5V2Zu6j+0V3rnH/CXLtu/bfRs93WfDHZOPYCsGgSMQHV2o0D
+         eDMkxgUR8PhMKsVPRy8wQRrlE6YEWvcusAVfquXtz1XnSeeHga0XG3gUzph6fBCETn2R
+         dxhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=X0tmq9TjsMbdzf016NYPEZWLDrtJgEerkZwlPByjvHs=;
-        b=4uP8kCoK/gOIj6RU92t2NY5G3hEXAaJV/q+FUFmZ3X9INlRDcJ9qGir+BUSzsk4kti
-         M33iWgr28ucjtOz2OvWioJvJKcl7tP2y+UQWxhSM20lihEBdelOwx9Me/I36tKpLena+
-         r0wgjs8CaRT81L6tFMiU1mCaSGB2IB0+sH/qc300mqFornLJhBQJA5WASyTy1+o1BSKI
-         gWbMzVF+IrqrQzX//1Le2/s7fzjget3Ukc2ecP0FYQgUrDKDl8MY6n48RMxZybRYNusH
-         Ms56AT7xH+4m1eJQOgbkDR7xc7rifNZd03uGuepqL+G7hdn30m6OP8fHpwiQetsvFh2u
-         2aHQ==
-X-Gm-Message-State: ANoB5pnXJr+Eb4ho36xRrX/1VAUfAvVaOffx0oQx1pyOBn4B6lPcGagw
-	hkjq0t63dEUKu/B4ny4ixc6O+bi/XeQ=
-X-Google-Smtp-Source: AA0mqf4tYdOmumtBwzOsj2b757evhXiqjnmJBxVweHABwP7YhX6XXp+28OecLtWsiEbLYyMEiAceUWRYidE=
+        bh=9siMTxNa3uAP5fZIzNGfC6XHHMwgiKNlJBnmhPRbPro=;
+        b=S7LeUaoUIuHG6T2aiA9Y3DZeyozEWgBqnrWzzj0OEs/nr1NrPQyReip3GUX9McsZJy
+         Ye9QvaEnrJHD9MY+TpoEIQGr+9Ri1U4Jg8i/FDevGhhLegnAUY8vpdzfMwuwVyucNco7
+         t8NCZ7uMABeHa/82DPkCrkzEhNcvA8zZO4qUqE4qhKOJuZFu809g+zbJFzrynJZGMd43
+         NqeYrWn0BRGLw3bOtfspMIV1FsSk8+9uH4pokEhPf72lXNxj9QYBim0FGveS2sj0MOlo
+         s0y5Q6Yxt7+jkIyucnZP5J2LIxWw935WTQiMjs+JB96whJSx/zVGi28hFdMmFImn9b9p
+         EVKQ==
+X-Gm-Message-State: ANoB5pnsdeJ2xCFXK8vPtIDbvltz3cngggsx+ZsDo8B3z2sg9mLj30uF
+	s0nTapbtYtLm20KlgksdT/wEovw8pWw=
+X-Google-Smtp-Source: AA0mqf6VC0HWkGfsmW3gbMncl1EgCwyuCiATzAwaZawtYWdw9a793FC2Aun76Ue7cKpeYcZGTN4fYSLmS4k=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:aa7:8487:0:b0:56c:3bb4:28a8 with SMTP id
- u7-20020aa78487000000b0056c3bb428a8mr44633084pfn.83.1669849852226; Wed, 30
- Nov 2022 15:10:52 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:09:27 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:90a:43a4:b0:219:1d0a:34a6 with SMTP id
+ r33-20020a17090a43a400b002191d0a34a6mr2520763pjg.1.1669849843212; Wed, 30 Nov
+ 2022 15:10:43 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:09:22 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-44-seanjc@google.com>
-Subject: [PATCH v2 43/50] KVM: Ensure CPU is stable during low level hardware enable/disable
+Message-ID: <20221130230934.1014142-39-seanjc@google.com>
+Subject: [PATCH v2 38/50] KVM: SVM: Check for SVM support in CPU compatibility checks
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -87,8 +87,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_151814_677811_85B8CC56 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20221130_151822_973271_95C3BB62 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +106,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the non-raw smp_processor_id() in the low hardware enable/disable
-helpers as KVM absolutely relies on the CPU being stable, e.g. KVM would
-end up with incorrect state if the task were migrated between accessing
-cpus_hardware_enabled and actually enabling/disabling hardware.
+Check that SVM is supported and enabled in the processor compatibility
+checks.  SVM already checks for support during hardware enabling,
+i.e. this doesn't really add new functionality.  The net effect is that
+KVM will refuse to load if a CPU doesn't have SVM fully enabled, as
+opposed to failing KVM_CREATE_VM.
+
+Opportunistically move svm_check_processor_compat() up in svm.c so that
+it can be invoked during hardware enabling in a future patch.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/kvm_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/x86/kvm/svm/svm.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index d985b24c423b..a46d61e9c053 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5028,7 +5028,7 @@ static struct miscdevice kvm_dev = {
+diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
+index 49ccef9fae81..9f94efcb9aa6 100644
+--- a/arch/x86/kvm/svm/svm.c
++++ b/arch/x86/kvm/svm/svm.c
+@@ -543,6 +543,14 @@ static bool kvm_is_svm_supported(void)
+ 	return true;
+ }
  
- static void hardware_enable_nolock(void *junk)
++static int __init svm_check_processor_compat(void)
++{
++	if (!kvm_is_svm_supported())
++		return -EIO;
++
++	return 0;
++}
++
+ void __svm_write_tsc_multiplier(u64 multiplier)
  {
--	int cpu = raw_smp_processor_id();
-+	int cpu = smp_processor_id();
- 	int r;
+ 	preempt_disable();
+@@ -4087,11 +4095,6 @@ svm_patch_hypercall(struct kvm_vcpu *vcpu, unsigned char *hypercall)
+ 	hypercall[2] = 0xd9;
+ }
  
- 	if (cpumask_test_cpu(cpu, cpus_hardware_enabled))
-@@ -5070,7 +5070,7 @@ static int kvm_online_cpu(unsigned int cpu)
- 
- static void hardware_disable_nolock(void *junk)
- {
--	int cpu = raw_smp_processor_id();
-+	int cpu = smp_processor_id();
- 
- 	if (!cpumask_test_cpu(cpu, cpus_hardware_enabled))
- 		return;
+-static int __init svm_check_processor_compat(void)
+-{
+-	return 0;
+-}
+-
+ /*
+  * The kvm parameter can be NULL (module initialization, or invocation before
+  * VM creation). Be sure to check the kvm parameter before using it.
 -- 
 2.38.1.584.g0f3c55d4c2-goog
 
