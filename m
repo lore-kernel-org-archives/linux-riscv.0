@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7205C4321E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7EFC47089
 	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:57:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nQXAb89CgZaQ2JD05AkP4yCiAOPJR+EzrYuTBpZBiwc=; b=dPclsMCJqXWX8s
-	AAtDWJ55wqgIBjFSHdWqrZWOLa5FVXk2sWeGA0SFefEQmWOX0CWfT/gA2eXhheXhPhOpHCvhq7oj7
-	kbq/4XLJjteTa+6XoHp6bk7yPyFKmjQVqtI3qzlHEqgN+oBSFVNNSkuRZXz1IJuyyWr6ZgK8YBHUG
-	ccXB0I9acXxR3fzStqVvS9HaJhamd9U67/bu3RuVmUZKsFJBKvyLtVn3YsZEPI6902fI8qDssHGx/
-	qZa+D3qnfpbq8fJF8sHF0sjkWteoGshAxecY80vERFWmiTtTDdAMrsjfw9wO1c/7piiX/G9zA1C6b
-	lLtIfiJMVno22F3/QJhg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+EfQ7CS4/uoXTdtTQZj/l+erWB4iIrDmZjtgjaGImbY=; b=l5arhC9E9FL9ZO
+	wLHl7AQYNQGmc4csx4x5IaGD/ze5uQMoYB/wbHSTu9KVWw7DzyOELWJ4yslHDqsI5Fvb41mCCalKT
+	9pnyFjChn2j0Zgmp9UNq21uB6P5zI+zq4R1mf3Nm9+h0IkUgVcxeV06B6a13OIHK2kSRSn9bONBgY
+	c7lxwnw0kq+Cgg+d/AQeFwpLMWmgeftFslVUxQf8cvgr5YkKpNR+2pj7SLxg5/Q9Us6D2u1X/QldV
+	L1TnxjgG18elxEfILOLOIkWWXwgpoMzludMS+rs4p5zwsrRbMs3dInUSYskUkUz5Y2MSgZLr19kej
+	u/ybory0OOdxgf5YtICw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0R-0032UC-8v; Wed, 30 Nov 2022 22:56:43 +0000
+	id 1p0W0c-0032Xm-CW; Wed, 30 Nov 2022 22:56:54 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0N-0032RE-QX
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:41 +0000
+	id 1p0W0N-0032R2-QY
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:44 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p0W0K-0005PW-Kh; Wed, 30 Nov 2022 23:56:36 +0100
+	id 1p0W0I-0005PW-Bs; Wed, 30 Nov 2022 23:56:34 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -42,18 +42,15 @@ Cc: christoph.muellner@vrull.eu,
 	emil.renner.berthing@canonical.com,
 	ardb@kernel.org,
 	linux-efi@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 05/14] RISC-V: add auipc elements to parse_asm header
-Date: Wed, 30 Nov 2022 23:56:05 +0100
-Message-Id: <20221130225614.1594256-6-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH v3 0/14] Zbb string optimizations and call support in alternatives
+Date: Wed, 30 Nov 2022 23:56:00 +0100
+Message-Id: <20221130225614.1594256-1-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20221130225614.1594256-1-heiko@sntech.de>
-References: <20221130225614.1594256-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_145639_942427_1C6C8B47 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20221130_145640_048333_6678D85F 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,48 +69,118 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Instruction parsing should not be done in individual code, but instead
-supported by central
+The Zbb extension can be used to make string functions run a lot
+faster.
 
-Right now kgdb and kprobes parse instructions and at least kprobes (and
-the upcoming auipc+jalr alternative fixer-function) need the the auipc
-instruction.
+To allow There are essentially two problems to solve:
+- making it possible for str* functions to replace what they do
+  in a performant way
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
----
- arch/riscv/include/asm/parse_asm.h | 3 +++
- 1 file changed, 3 insertions(+)
+  This is done by inlining the core functions and then
+  using alternatives to call the actual variant.
 
-diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
-index e8303250f598..28742eb19034 100644
---- a/arch/riscv/include/asm/parse_asm.h
-+++ b/arch/riscv/include/asm/parse_asm.h
-@@ -118,6 +118,7 @@
- #define RVC_C2_RD_OPOFF		7
- 
- /* parts of opcode for RVG*/
-+#define RVG_OPCODE_AUIPC	0x17
- #define RVG_OPCODE_BRANCH	0x63
- #define RVG_OPCODE_JALR		0x67
- #define RVG_OPCODE_JAL		0x6f
-@@ -149,6 +150,7 @@
- #define RVG_FUNCT12_EBREAK	0x1
- #define RVG_FUNCT12_SRET	0x102
- 
-+#define RVG_MATCH_AUIPC		(RVG_OPCODE_AUIPC)
- #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
- #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
- #define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
-@@ -167,6 +169,7 @@
- #define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
- #define RVC_MATCH_C_EBREAK	(RVC_ENCODE_FUNCT4(C_EBREAK) | RVC_OPCODE_C2)
- 
-+#define RVG_MASK_AUIPC		(RV_INSN_OPCODE_MASK)
- #define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
- #define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
- #define RVC_MASK_C_JALR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
+  This of course will need a more intelligent selection mechanism
+  down the road when more variants may exist using different
+  available extensions.
+
+- actually allowing calls in alternatives
+  Function calls use auipc + jalr to reach those 32bit relative
+  addresses but when they're compiled the offset will be wrong
+  as alternatives live in a different section. So when the patch
+  gets applied the address will point to the wrong location.
+
+  So similar to arm64 the target addresses need to be updated.
+
+  This is probably also helpful for other things needing more
+  complex code in alternatives.
+
+
+In my half-scientific test-case of running the functions in question
+on a 95 character string in a loop of 10000 iterations, the Zbb
+variants shave off around 2/3 of the original runtime.
+
+
+For v2 I got into some sort of cleanup spree for the general instruction
+parsing that already existed. A number of places do their own
+instruction parsing and I tried consolidating some of them.
+
+Noteable, the kvm parts still do, but I had to stop somewhere :-)
+
+The series is based on v6.1-rc7 right now.
+
+changes since v2:
+- add patch fixing the c.jalr funct4 value
+- reword some commit messages
+- fix position of auipc addition patch (earlier)
+- fix compile errors from patch-reordering gone wrong
+  (worked at the end of v2, but compiling individual patches
+   caused issues) - patches are now tested individually
+- limit Zbb variants for GNU as for now
+  (LLVM support for .option arch is still under review)
+- prevent str-functions from getting optimized to builtin-variants
+
+changes since v1:
+- a number of generalizations/cleanups for instruction parsing
+- use accessor function to access instructions (Emil)
+- actually patch the correct location when having more than one
+  instruction in an alternative block
+- string function cleanups (comments etc) (Conor)
+- move zbb extension above s* extensions in cpu.c lists
+
+changes since rfc:
+- make Zbb code actually work
+- drop some unneeded patches
+- a lot of cleanups
+
+Heiko Stuebner (14):
+  RISC-V: fix funct4 definition for c.jalr in parse_asm.h
+  RISC-V: add prefix to all constants/macros in parse_asm.h
+  RISC-V: detach funct-values from their offset
+  RISC-V: add ebreak instructions to definitions
+  RISC-V: add auipc elements to parse_asm header
+  RISC-V: Move riscv_insn_is_* macros into a common header
+  RISC-V: rename parse_asm.h to insn.h
+  RISC-V: kprobes: use central defined funct3 constants
+  RISC-V: add U-type imm parsing to insn.h header
+  RISC-V: add rd reg parsing to insn.h header
+  RISC-V: fix auipc-jalr addresses in patched alternatives
+  efi/riscv: libstub: mark when compiling libstub
+  RISC-V: add infrastructure to allow different str* implementations
+  RISC-V: add zbb support to string functions
+
+ arch/riscv/Kconfig                       |  24 ++
+ arch/riscv/Makefile                      |   3 +
+ arch/riscv/include/asm/alternative.h     |   3 +
+ arch/riscv/include/asm/errata_list.h     |   3 +-
+ arch/riscv/include/asm/hwcap.h           |   1 +
+ arch/riscv/include/asm/insn.h            | 292 +++++++++++++++++++++++
+ arch/riscv/include/asm/parse_asm.h       | 219 -----------------
+ arch/riscv/include/asm/string.h          |  83 +++++++
+ arch/riscv/kernel/alternative.c          |  72 ++++++
+ arch/riscv/kernel/cpu.c                  |   1 +
+ arch/riscv/kernel/cpufeature.c           |  29 ++-
+ arch/riscv/kernel/image-vars.h           |   6 +-
+ arch/riscv/kernel/kgdb.c                 |  63 ++---
+ arch/riscv/kernel/probes/simulate-insn.c |  19 +-
+ arch/riscv/kernel/probes/simulate-insn.h |  26 +-
+ arch/riscv/lib/Makefile                  |   6 +
+ arch/riscv/lib/strcmp.S                  |  38 +++
+ arch/riscv/lib/strcmp_zbb.S              |  96 ++++++++
+ arch/riscv/lib/strlen.S                  |  29 +++
+ arch/riscv/lib/strlen_zbb.S              | 115 +++++++++
+ arch/riscv/lib/strncmp.S                 |  41 ++++
+ arch/riscv/lib/strncmp_zbb.S             | 112 +++++++++
+ drivers/firmware/efi/libstub/Makefile    |   2 +-
+ 23 files changed, 982 insertions(+), 301 deletions(-)
+ create mode 100644 arch/riscv/include/asm/insn.h
+ delete mode 100644 arch/riscv/include/asm/parse_asm.h
+ create mode 100644 arch/riscv/lib/strcmp.S
+ create mode 100644 arch/riscv/lib/strcmp_zbb.S
+ create mode 100644 arch/riscv/lib/strlen.S
+ create mode 100644 arch/riscv/lib/strlen_zbb.S
+ create mode 100644 arch/riscv/lib/strncmp.S
+ create mode 100644 arch/riscv/lib/strncmp_zbb.S
+
 -- 
 2.35.1
 
