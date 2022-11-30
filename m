@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68AA2C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 05:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F10FBC4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 05:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=esQN3CYuaCro9VPHq8CyTq+lC1Te8Akois4JYqOHdSk=; b=FKZsUygsIGcW2c
-	py4Ib+sKqTGe+MnElytqOCsTOM7jMycKi6Qbf/m5mCbdeLUzq9+307S2SHi/udnecCEj9y0oKA4fi
-	gtwxskcDAdc4TfqveCwDwEWGmlpDPIrWWB2dIbfGAEG6JmzJQRmLrtXoE/SWaz/kpmariQX+ssL0n
-	yykFtkoAbvXbEWKQaL/ChzzDsm3yKJv1Jjs1a0mC+Jszv8m5UgjB5y0g9hq54gNH94XLfpasnZZf3
-	G1MgObmkagROvwbO5SOxmVwjiRX8UJUgKeCqC6yMJDy0VurYVmSTXmC4530SjlA6LEq2cx/7rDkqz
-	H9GWMMpsrdXqMR9yt3iw==;
+	List-Owner; bh=VrEKXfMlDxAezRXUQD9uj8aiz088o76tdx3lXgTIPk4=; b=fRH+4u4OVREI3a
+	93iBIWmAaOhHfMdXdaZIPh3DAzGZJj9nprJGdXYCVRi69tKHms+ZvFiVh5mr1KsUJb3Em4X/e8qIn
+	qTruFq4DX2Evfq93gBX5Du3NMeGBa8P1/NUwJVap6yuIHAV0/ywMYp/WhAoK/0alPkGBQrJ+A85A7
+	N/ZOcXLFXhQmcSnjCm4t07bbXnaOY6BADiXaJwwhSXcQNTrG1tI18fWDss99qkA9Vk0dyeKuKwY3R
+	lxrHHHAPQEHRrz17tliRC2qejRp7M08LMEMXUKIzrEg3ff24SAgdBf/3UZfLYSXIBaLR6cQPxARgA
+	ynQNGWRhs2g1NUbf0/Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0G1k-00DaRe-6P; Wed, 30 Nov 2022 05:53:00 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
+	id 1p0G1n-00DaTt-KG; Wed, 30 Nov 2022 05:53:03 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0G1e-00DaMN-T7
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 05:52:59 +0000
+	id 1p0G1f-00DaG6-SF
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 05:53:01 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id AE2B024E1E2;
-	Wed, 30 Nov 2022 13:52:38 +0800 (CST)
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id CB09124E1D1;
+	Wed, 30 Nov 2022 13:52:30 +0800 (CST)
 Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 30 Nov
- 2022 13:52:38 +0800
+ 2022 13:52:30 +0800
 Received: from ubuntu.localdomain (202.188.176.82) by EXMBX068.cuchost.com
  (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 30 Nov
- 2022 13:52:34 +0800
+ 2022 13:52:24 +0800
 From: Jia Jie Ho <jiajie.ho@starfivetech.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -43,9 +43,9 @@ To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
 CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Jia Jie Ho
 	<jiajie.ho@starfivetech.com>
-Subject: [PATCH 4/6] crypto: starfive - Add Public Key algo support
-Date: Wed, 30 Nov 2022 13:52:12 +0800
-Message-ID: <20221130055214.2416888-5-jiajie.ho@starfivetech.com>
+Subject: [PATCH 2/6] crypto: starfive - Add hash and HMAC support
+Date: Wed, 30 Nov 2022 13:52:10 +0800
+Message-ID: <20221130055214.2416888-3-jiajie.ho@starfivetech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
 References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
@@ -55,8 +55,8 @@ X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
  (172.16.6.68)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_215255_453373_0C04AB0B 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20221129_215256_544066_1E5D0E6F 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,945 +73,1417 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adding RSA enc/dec and sign/verify feature for
-Starfive crypto driver.
+Adding hash function and HMAC support for SHA-2 family
+and SM3 to Starfive crypto hardware driver.
 
 Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
 Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
 ---
- drivers/crypto/starfive/Makefile        |   2 +-
- drivers/crypto/starfive/starfive-cryp.c |  19 +-
- drivers/crypto/starfive/starfive-pka.c  | 683 ++++++++++++++++++++++++
- drivers/crypto/starfive/starfive-regs.h |  65 +++
- drivers/crypto/starfive/starfive-str.h  |  35 ++
- 5 files changed, 802 insertions(+), 2 deletions(-)
- create mode 100644 drivers/crypto/starfive/starfive-pka.c
+ drivers/crypto/starfive/Makefile        |    2 +-
+ drivers/crypto/starfive/starfive-cryp.c |   22 +
+ drivers/crypto/starfive/starfive-hash.c | 1152 +++++++++++++++++++++++
+ drivers/crypto/starfive/starfive-regs.h |   45 +
+ drivers/crypto/starfive/starfive-str.h  |   52 +-
+ 5 files changed, 1271 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/crypto/starfive/starfive-hash.c
 
 diff --git a/drivers/crypto/starfive/Makefile b/drivers/crypto/starfive/Makefile
-index 4958b1f6812c..d44e28063965 100644
+index 5a84f808a671..437b8f036038 100644
 --- a/drivers/crypto/starfive/Makefile
 +++ b/drivers/crypto/starfive/Makefile
 @@ -1,4 +1,4 @@
  # SPDX-License-Identifier: GPL-2.0
  
  obj-$(CONFIG_CRYPTO_DEV_STARFIVE) += starfive-crypto.o
--starfive-crypto-objs := starfive-cryp.o starfive-hash.o starfive-aes.o
-+starfive-crypto-objs := starfive-cryp.o starfive-hash.o starfive-aes.o starfive-pka.o
+-starfive-crypto-objs := starfive-cryp.o
++starfive-crypto-objs := starfive-cryp.o starfive-hash.o
 diff --git a/drivers/crypto/starfive/starfive-cryp.c b/drivers/crypto/starfive/starfive-cryp.c
-index 452bd1ab4f04..a9c7f39b5547 100644
+index 574f9e8f4cc1..9f77cae758ac 100644
 --- a/drivers/crypto/starfive/starfive-cryp.c
 +++ b/drivers/crypto/starfive/starfive-cryp.c
-@@ -175,6 +175,12 @@ static int starfive_cryp_probe(struct platform_device *pdev)
- 		goto err_aes_data;
- 	}
+@@ -109,6 +109,8 @@ static int starfive_cryp_probe(struct platform_device *pdev)
+ 	if (!sdev)
+ 		return -ENOMEM;
  
-+	sdev->pka_data = (void *)__get_free_pages(GFP_KERNEL | GFP_DMA32, pages);
-+	if (!sdev->pka_data) {
-+		dev_err(sdev->dev, "Can't allocate pka buffer pages when unaligned\n");
-+		goto err_pka_data;
++	mutex_init(&sdev->lock);
++
+ 	sdev->dev = dev;
+ 
+ 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "secreg");
+@@ -117,6 +119,7 @@ static int starfive_cryp_probe(struct platform_device *pdev)
+ 	if (IS_ERR(sdev->io_base))
+ 		return PTR_ERR(sdev->io_base);
+ 
++	sdev->io_phys_base = res->start;
+ 	sdev->use_side_channel_mitigation =
+ 		device_property_read_bool(dev, "enable-side-channel-mitigation");
+ 	sdev->use_dma = device_property_read_bool(dev, "enable-dma");
+@@ -160,6 +163,12 @@ static int starfive_cryp_probe(struct platform_device *pdev)
+ 
+ 	pages = get_order(STARFIVE_MSG_BUFFER_SIZE);
+ 
++	sdev->hash_data = (void *)__get_free_pages(GFP_KERNEL | GFP_DMA32, pages);
++	if (!sdev->hash_data) {
++		dev_err(sdev->dev, "Can't allocate hash buffer pages when unaligned\n");
++		goto err_hash_data;
 +	}
 +
  	sdev->pages_count = pages >> 1;
  	sdev->data_buf_len = STARFIVE_MSG_BUFFER_SIZE >> 1;
  
-@@ -197,10 +203,16 @@ static int starfive_cryp_probe(struct platform_device *pdev)
+@@ -174,13 +183,21 @@ static int starfive_cryp_probe(struct platform_device *pdev)
  	if (ret)
- 		goto err_algs_aes;
+ 		goto err_engine_start;
  
-+	ret = starfive_pka_register_algs();
++	ret = starfive_hash_register_algs();
 +	if (ret)
-+		goto err_algs_pka;
++		goto err_algs_hash;
 +
  	dev_info(dev, "Crypto engine started\n");
  
  	return 0;
  
-+err_algs_pka:
-+	starfive_aes_unregister_algs();
- err_algs_aes:
- 	starfive_hash_unregister_algs();
- err_algs_hash:
-@@ -208,6 +220,8 @@ static int starfive_cryp_probe(struct platform_device *pdev)
++err_algs_hash:
++	crypto_engine_stop(sdev->engine);
  err_engine_start:
  	crypto_engine_exit(sdev->engine);
  err_engine:
-+	free_pages((unsigned long)sdev->pka_data, pages);
-+err_pka_data:
- 	free_pages((unsigned long)sdev->aes_data, pages);
- err_aes_data:
- 	free_pages((unsigned long)sdev->hash_data, pages);
-@@ -230,6 +244,7 @@ static int starfive_cryp_remove(struct platform_device *pdev)
++	free_pages((unsigned long)sdev->hash_data, pages);
++err_hash_data:
+ 	starfive_dma_cleanup(sdev);
+ err_dma_init:
+ 	spin_lock(&dev_list.lock);
+@@ -197,11 +214,16 @@ static int starfive_cryp_remove(struct platform_device *pdev)
+ 	if (!sdev)
+ 		return -ENODEV;
  
- 	starfive_hash_unregister_algs();
- 	starfive_aes_unregister_algs();
-+	starfive_pka_unregister_algs();
- 
++	starfive_hash_unregister_algs();
++
  	crypto_engine_stop(sdev->engine);
  	crypto_engine_exit(sdev->engine);
-@@ -238,8 +253,10 @@ static int starfive_cryp_remove(struct platform_device *pdev)
  
- 	free_pages((unsigned long)sdev->hash_data, sdev->pages_count);
- 	free_pages((unsigned long)sdev->aes_data, sdev->pages_count);
--	sdev->hash_data = NULL;
-+	free_pages((unsigned long)sdev->pka_data, sdev->pages_count);
- 	sdev->aes_data = NULL;
+ 	starfive_dma_cleanup(sdev);
+ 
++	free_pages((unsigned long)sdev->hash_data, sdev->pages_count);
 +	sdev->hash_data = NULL;
-+	sdev->pka_data = NULL;
- 
++
  	spin_lock(&dev_list.lock);
  	list_del(&sdev->list);
-diff --git a/drivers/crypto/starfive/starfive-pka.c b/drivers/crypto/starfive/starfive-pka.c
+ 	spin_unlock(&dev_list.lock);
+diff --git a/drivers/crypto/starfive/starfive-hash.c b/drivers/crypto/starfive/starfive-hash.c
 new file mode 100644
-index 000000000000..e845f2545a9a
+index 000000000000..c85dec784df9
 --- /dev/null
-+++ b/drivers/crypto/starfive/starfive-pka.c
-@@ -0,0 +1,683 @@
++++ b/drivers/crypto/starfive/starfive-hash.c
+@@ -0,0 +1,1152 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * StarFive Public Key Algo acceleration driver
++ * Hash function and HMAC support for StarFive driver
 + *
 + * Copyright (c) 2022 StarFive Technology
++ *
 + */
 +
++#include <linux/clk.h>
 +#include <linux/crypto.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
 +#include <linux/dma-direct.h>
 +#include <linux/interrupt.h>
-+#include <linux/iopoll.h>
 +#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
++#include <linux/iopoll.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/reset.h>
++#include <linux/amba/pl080.h>
 +
++#include <crypto/hash.h>
 +#include <crypto/scatterwalk.h>
++#include <crypto/internal/hash.h>
 +
 +#include "starfive-str.h"
 +
-+#define STARFIVE_RSA_KEYSZ_LEN			(2048 >> 2)
-+#define STARFIVE_RSA_KEY_SIZE			(STARFIVE_RSA_KEYSZ_LEN * 3)
-+#define STARFIVE_RSA_MAX_KEYSZ			256
++#define HASH_OP_UPDATE			1
++#define HASH_OP_FINAL			2
 +
-+static inline int starfive_pka_wait_done(struct starfive_sec_ctx *ctx)
++#define HASH_FLAGS_INIT			BIT(0)
++#define HASH_FLAGS_FINAL		BIT(1)
++#define HASH_FLAGS_FINUP		BIT(2)
++
++#define STARFIVE_MAX_ALIGN_SIZE		SHA512_BLOCK_SIZE
++
++#define STARFIVE_HASH_BUFLEN		8192
++#define STARFIVE_HASH_THRES		2048
++
++static inline int starfive_hash_wait_hmac_done(struct starfive_sec_ctx *ctx)
 +{
 +	struct starfive_sec_dev *sdev = ctx->sdev;
 +	u32 status;
 +
-+	return readl_relaxed_poll_timeout(sdev->io_base + STARFIVE_PKA_CASR_OFFSET, status,
-+					  (status & STARFIVE_PKA_DONE_FLAGS), 10, 100000);
++	return readl_relaxed_poll_timeout(sdev->io_base + STARFIVE_HASH_SHACSR, status,
++			(status & STARFIVE_HASH_HMAC_DONE), 10, 100000);
 +}
 +
-+static void starfive_rsa_free_key(struct starfive_rsa_key *key)
-+{
-+	if (key->d)
-+		kfree_sensitive(key->d);
-+	if (key->e)
-+		kfree_sensitive(key->e);
-+	if (key->n)
-+		kfree_sensitive(key->n);
-+	memset(key, 0, sizeof(*key));
-+}
-+
-+static unsigned int starfive_rsa_get_nbit(u8 *pa, u32 snum, int key_sz)
-+{
-+	u32 i;
-+	u8 value;
-+
-+	i = snum >> 3;
-+
-+	value = pa[key_sz - i - 1];
-+	value >>= snum & 0x7;
-+	value &= 0x1;
-+
-+	return value;
-+}
-+
-+static int starfive_rsa_domain_transfer(struct starfive_sec_ctx *ctx,
-+					u32 *result, u32 *opa, u8 domain,
-+					u32 *mod, int bit_len)
++static inline int starfive_hash_wait_busy(struct starfive_sec_ctx *ctx)
 +{
 +	struct starfive_sec_dev *sdev = ctx->sdev;
-+	struct starfive_sec_request_ctx *rctx = ctx->rctx;
-+	unsigned int *info;
-+	int loop;
-+	u8 opsize;
-+	u32 temp;
++	u32 status;
 +
-+	opsize = (bit_len - 1) >> 5;
-+	rctx->csr.pka.v = 0;
-+	starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
++	return readl_relaxed_poll_timeout(sdev->io_base + STARFIVE_HASH_SHACSR, status,
++			!(status & STARFIVE_HASH_BUSY), 10, 100000);
++}
 +
-+	info = (unsigned int *)mod;
-+	for (loop = 0; loop <= opsize; loop++)
-+		starfive_sec_write(sdev, STARFIVE_PKA_CANR_OFFSET + loop * 4, info[opsize - loop]);
++static inline int starfive_hash_wait_key_done(struct starfive_sec_ctx *ctx)
++{
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	u32 status;
 +
-+	if (domain != 0) {
-+		rctx->csr.pka.v = 0;
-+		rctx->csr.pka.cln_done = 1;
-+		rctx->csr.pka.opsize = opsize;
-+		rctx->csr.pka.exposize = opsize;
-+		rctx->csr.pka.cmd = CRYPTO_CMD_PRE;
-+		rctx->csr.pka.start = 1;
-+		rctx->csr.pka.not_r2 = 1;
-+		starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
++	return readl_relaxed_poll_timeout(sdev->io_base + STARFIVE_HASH_SHACSR, status,
++			(status & STARFIVE_HASH_KEY_DONE), 10, 100000);
++}
 +
-+		starfive_pka_wait_done(ctx);
++static int starfive_get_hash_size(struct starfive_sec_ctx *ctx)
++{
++	unsigned int hashsize;
 +
-+		info = (unsigned int *)opa;
-+		for (loop = 0; loop <= opsize; loop++)
-+			starfive_sec_write(sdev, STARFIVE_PKA_CAAR_OFFSET + loop * 4,
-+					   info[opsize - loop]);
-+
-+		starfive_sec_write(sdev, STARFIVE_PKA_CAER_OFFSET, 0x1000000);
-+
-+		for (loop = 1; loop <= opsize; loop++)
-+			starfive_sec_write(sdev, STARFIVE_PKA_CAER_OFFSET + loop * 4, 0);
-+
-+		rctx->csr.pka.v = 0;
-+		rctx->csr.pka.cln_done = 1;
-+		rctx->csr.pka.opsize = opsize;
-+		rctx->csr.pka.exposize = opsize;
-+		rctx->csr.pka.cmd = CRYPTO_CMD_AERN;
-+		rctx->csr.pka.start = 1;
-+		starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
-+
-+		starfive_pka_wait_done(ctx);
-+	} else {
-+		rctx->csr.pka.v = 0;
-+		rctx->csr.pka.cln_done = 1;
-+		rctx->csr.pka.opsize = opsize;
-+		rctx->csr.pka.exposize = opsize;
-+		rctx->csr.pka.cmd = CRYPTO_CMD_PRE;
-+		rctx->csr.pka.start = 1;
-+		rctx->csr.pka.pre_expf = 1;
-+		starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
-+
-+		starfive_pka_wait_done(ctx);
-+
-+		info = (unsigned int *)opa;
-+		for (loop = 0; loop <= opsize; loop++)
-+			starfive_sec_write(sdev, STARFIVE_PKA_CAER_OFFSET + loop * 4,
-+					   info[opsize - loop]);
-+
-+		rctx->csr.pka.v = 0;
-+		rctx->csr.pka.cln_done = 1;
-+		rctx->csr.pka.opsize = opsize;
-+		rctx->csr.pka.exposize = opsize;
-+		rctx->csr.pka.cmd = CRYPTO_CMD_ARN;
-+		rctx->csr.pka.start = 1;
-+		starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
-+
-+		starfive_pka_wait_done(ctx);
++	switch (ctx->hash_mode & STARFIVE_HASH_MODE_MASK) {
++	case STARFIVE_HASH_SHA224:
++		hashsize = SHA224_DIGEST_SIZE;
++		break;
++	case STARFIVE_HASH_SHA256:
++		hashsize = SHA256_DIGEST_SIZE;
++		break;
++	case STARFIVE_HASH_SHA384:
++		hashsize = SHA384_DIGEST_SIZE;
++		break;
++	case STARFIVE_HASH_SHA512:
++		hashsize = SHA512_DIGEST_SIZE;
++		break;
++	case STARFIVE_HASH_SM3:
++		hashsize = SM3_DIGEST_SIZE;
++		break;
++	default:
++		return 0;
 +	}
 +
-+	for (loop = 0; loop <= opsize; loop++) {
-+		temp = starfive_sec_read(sdev, STARFIVE_PKA_CAAR_OFFSET + 0x4 * loop);
-+		result[opsize - loop] = temp;
++	return hashsize;
++}
++
++static void starfive_hash_start(struct starfive_sec_ctx *ctx, int flags)
++{
++	struct starfive_sec_request_ctx *rctx = ctx->rctx;
++	struct starfive_sec_dev *sdev = ctx->sdev;
++
++	rctx->csr.hash.v = starfive_sec_read(sdev, STARFIVE_HASH_SHACSR);
++	rctx->csr.hash.firstb = 0;
++
++	if (flags)
++		rctx->csr.hash.final = 1;
++
++	starfive_sec_write(sdev, STARFIVE_HASH_SHACSR, rctx->csr.hash.v);
++}
++
++static int starfive_hash_hmac_key(struct starfive_sec_ctx *ctx)
++{
++	struct starfive_sec_request_ctx *rctx = ctx->rctx;
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	int klen = ctx->keylen, loop;
++	unsigned int *key = (unsigned int *)ctx->key;
++	unsigned char *cl;
++
++	starfive_sec_write(sdev, STARFIVE_HASH_SHAWKLEN, ctx->keylen);
++
++	rctx->csr.hash.hmac = !!(ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS);
++	rctx->csr.hash.key_flag = 1;
++
++	starfive_sec_write(sdev, STARFIVE_HASH_SHACSR, rctx->csr.hash.v);
++
++	for (loop = 0; loop < klen / sizeof(unsigned int); loop++, key++)
++		starfive_sec_write(sdev, STARFIVE_HASH_SHAWKR, *key);
++
++	if (klen & 0x3) {
++		cl = (unsigned char *)key;
++		for (loop = 0; loop < (klen & 0x3); loop++, cl++)
++			starfive_sec_writeb(sdev, STARFIVE_HASH_SHAWKR, *cl);
++	}
++
++	if (starfive_hash_wait_key_done(ctx)) {
++		dev_err(sdev->dev, " starfive_hash_wait_key_done error\n");
++		return -ETIMEDOUT;
 +	}
 +
 +	return 0;
 +}
 +
-+static int starfive_rsa_cpu_powm(struct starfive_sec_ctx *ctx, u32 *result,
-+				 u8 *de, u32 *n, int key_sz)
++static void starfive_hash_dma_callback(void *param)
 +{
-+	struct starfive_sec_dev *sdev = ctx->sdev;
++	struct starfive_sec_dev *sdev = param;
++
++	complete(&sdev->sec_comp_m);
++}
++
++static int starfive_hash_xmit_dma(struct starfive_sec_ctx *ctx, int flags)
++{
 +	struct starfive_sec_request_ctx *rctx = ctx->rctx;
-+	struct starfive_rsa_key *key = &ctx->rsa_key;
-+	u32 initial;
-+	int opsize, mlen, bs, loop;
-+	unsigned int *mta;
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	struct dma_async_tx_descriptor	*in_desc;
++	dma_cookie_t cookie;
++	union  starfive_alg_cr alg_cr;
++	int total_len;
++	int ret;
 +
-+	opsize = (key_sz - 1) >> 2;
-+	initial = 1;
++	if (!rctx->bufcnt)
++		return 0;
 +
-+	mta = kmalloc(key_sz, GFP_KERNEL);
-+	if (!mta)
-+		return -ENOMEM;
++	ctx->hash_len_total += rctx->bufcnt;
 +
-+	starfive_rsa_domain_transfer(ctx, mta, sdev->pka_data, 0, n, key_sz << 3);
++	total_len = rctx->bufcnt;
 +
-+	for (loop = 0; loop <= opsize; loop++)
-+		starfive_sec_write(sdev, STARFIVE_PKA_CANR_OFFSET + loop * 4,
-+				   n[opsize - loop]);
++	starfive_sec_write(sdev, STARFIVE_DMA_IN_LEN_OFFSET, rctx->bufcnt);
 +
-+	rctx->csr.pka.v = 0;
-+	rctx->csr.pka.cln_done = 1;
-+	rctx->csr.pka.opsize = opsize;
-+	rctx->csr.pka.exposize = opsize;
-+	rctx->csr.pka.cmd = CRYPTO_CMD_PRE;
-+	rctx->csr.pka.not_r2 = 1;
-+	rctx->csr.pka.start = 1;
++	total_len = (total_len & 0x3) ? (((total_len >> 2) + 1) << 2) : total_len;
 +
-+	starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
++	memset(sdev->hash_data + rctx->bufcnt, 0, total_len - rctx->bufcnt);
 +
-+	starfive_pka_wait_done(ctx);
++	alg_cr.v = 0;
++	alg_cr.start = 1;
++	alg_cr.hash_dma_en = 1;
++	starfive_sec_write(sdev, STARFIVE_ALG_CR_OFFSET, alg_cr.v);
 +
-+	for (loop = 0; loop <= opsize; loop++)
-+		starfive_sec_write(sdev, STARFIVE_PKA_CAER_OFFSET + loop * 4,
-+				   mta[opsize - loop]);
++	sg_init_table(&ctx->sg[0], 1);
++	sg_set_buf(&ctx->sg[0], sdev->hash_data, total_len);
++	sg_dma_address(&ctx->sg[0]) = phys_to_dma(sdev->dev, (unsigned long long)(sdev->hash_data));
++	sg_dma_len(&ctx->sg[0]) = total_len;
 +
-+	for (loop = key->bitlen; loop > 0; loop--) {
-+		if (initial) {
-+			for (bs = 0; bs <= opsize; bs++)
-+				result[bs] = mta[bs];
++	ret = dma_map_sg(sdev->dev, &ctx->sg[0], 1, DMA_TO_DEVICE);
++	if (!ret) {
++		dev_err(sdev->dev, "dma_map_sg() error\n");
++		return -EINVAL;
++	}
 +
-+			initial = 0;
-+		} else {
-+			mlen = starfive_rsa_get_nbit(de, loop - 1, key_sz);
++	sdev->cfg_in.direction = DMA_MEM_TO_DEV;
++	sdev->cfg_in.src_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
++	sdev->cfg_in.dst_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
++	sdev->cfg_in.src_maxburst = sdev->dma_maxburst;
++	sdev->cfg_in.dst_maxburst = sdev->dma_maxburst;
++	sdev->cfg_in.dst_addr = sdev->io_phys_base + STARFIVE_ALG_FIFO_OFFSET;
 +
-+			rctx->csr.pka.v = 0;
-+			rctx->csr.pka.cln_done = 1;
-+			rctx->csr.pka.opsize = opsize;
-+			rctx->csr.pka.exposize = opsize;
-+			rctx->csr.pka.cmd = CRYPTO_CMD_AARN;
-+			rctx->csr.pka.start = 1;
++	dmaengine_slave_config(sdev->sec_xm_m, &sdev->cfg_in);
 +
-+			starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
-+			starfive_pka_wait_done(ctx);
++	in_desc = dmaengine_prep_slave_sg(sdev->sec_xm_m, &ctx->sg[0],
++					  1, DMA_MEM_TO_DEV,
++					  DMA_PREP_INTERRUPT  |  DMA_CTRL_ACK);
++	if (!in_desc)
++		return -EINVAL;
 +
-+			if (mlen) {
-+				rctx->csr.pka.v = 0;
-+				rctx->csr.pka.cln_done = 1;
-+				rctx->csr.pka.opsize = opsize;
-+				rctx->csr.pka.exposize = opsize;
-+				rctx->csr.pka.cmd = CRYPTO_CMD_AERN;
-+				rctx->csr.pka.start = 1;
++	reinit_completion(&sdev->sec_comp_m);
 +
-+				starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET,
-+						   rctx->csr.pka.v);
-+				starfive_pka_wait_done(ctx);
++	in_desc->callback = starfive_hash_dma_callback;
++	in_desc->callback_param = sdev;
++
++	cookie = dmaengine_submit(in_desc);
++	dma_async_issue_pending(sdev->sec_xm_m);
++
++	if (!wait_for_completion_timeout(&sdev->sec_comp_m,
++					 msecs_to_jiffies(10000))) {
++		dev_err(sdev->dev, "wait_for_completion_timeout error, cookie = %x\n",
++			dma_async_is_tx_complete(sdev->sec_xm_p, cookie,
++						 NULL, NULL));
++	}
++
++	dma_unmap_sg(sdev->dev, &ctx->sg[0], 1, DMA_TO_DEVICE);
++
++	alg_cr.v = 0;
++	alg_cr.clear = 1;
++	starfive_sec_write(sdev, STARFIVE_ALG_CR_OFFSET, alg_cr.v);
++
++	return 0;
++}
++
++static int starfive_hash_xmit_cpu(struct starfive_sec_ctx *ctx, int flags)
++{
++	struct starfive_sec_request_ctx *rctx = ctx->rctx;
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	int total_len, mlen, loop;
++	unsigned int  *buffer;
++	unsigned char *cl;
++
++	if (!rctx->bufcnt)
++		return 0;
++
++	ctx->hash_len_total += rctx->bufcnt;
++
++	total_len = rctx->bufcnt;
++	mlen = total_len / sizeof(u32);
++	buffer = (unsigned int *)ctx->buffer;
++
++	for (loop = 0; loop < mlen; loop++, buffer++) {
++		starfive_sec_write(sdev, STARFIVE_HASH_SHAWDR, *buffer);
++		udelay(2);
++	}
++
++	if (total_len & 0x3) {
++		cl = (unsigned char *)buffer;
++		for (loop = 0; loop < (total_len & 0x3); loop++, cl++) {
++			starfive_sec_writeb(sdev, STARFIVE_HASH_SHAWDR, *cl);
++			udelay(2);
++		}
++	}
++
++	return 0;
++}
++
++static void starfive_hash_append_sg(struct starfive_sec_request_ctx *rctx)
++{
++	struct starfive_sec_ctx *ctx = rctx->ctx;
++	size_t count;
++
++	while ((rctx->bufcnt < rctx->buflen) && rctx->total) {
++		count = min(rctx->in_sg->length - rctx->offset, rctx->total);
++		count = min(count, rctx->buflen - rctx->bufcnt);
++
++		if (count <= 0) {
++			if (rctx->in_sg->length == 0 && !sg_is_last(rctx->in_sg)) {
++				rctx->in_sg = sg_next(rctx->in_sg);
++				continue;
++			} else {
++				break;
 +			}
 +		}
-+	}
 +
-+	for (loop = 0; loop <= opsize; loop++) {
-+		unsigned int temp;
++		scatterwalk_map_and_copy(ctx->buffer + rctx->bufcnt, rctx->in_sg,
++					 rctx->offset, count, 0);
 +
-+		temp = starfive_sec_read(sdev, STARFIVE_PKA_CAAR_OFFSET + 0x4 * loop);
-+		result[opsize - loop] = temp;
-+	}
++		rctx->bufcnt += count;
++		rctx->offset += count;
++		rctx->total -= count;
 +
-+	kfree(mta);
-+
-+	return starfive_rsa_domain_transfer(ctx, result, result, 1, n, key_sz << 3);
-+}
-+
-+static int starfive_rsa_powm(struct starfive_sec_ctx *ctx, u8 *result,
-+			     u8 *de, u8 *n, int key_sz)
-+{
-+	return starfive_rsa_cpu_powm(ctx, (u32 *)result, de, (u32 *)n, key_sz);
-+}
-+
-+static int starfive_rsa_get_from_sg(struct starfive_sec_request_ctx *rctx,
-+				    size_t offset, size_t count, size_t data_offset)
-+{
-+	size_t of, ct, index;
-+	struct scatterlist	*sg = rctx->in_sg;
-+
-+	of = offset;
-+	ct = count;
-+
-+	while (sg->length <= of) {
-+		of -= sg->length;
-+
-+		if (!sg_is_last(sg)) {
-+			sg = sg_next(sg);
-+			continue;
-+		} else {
-+			return -EBADE;
++		if (rctx->offset == rctx->in_sg->length) {
++			rctx->in_sg = sg_next(rctx->in_sg);
++			if (rctx->in_sg)
++				rctx->offset = 0;
++			else
++				rctx->total = 0;
 +		}
 +	}
-+
-+	index = data_offset;
-+	while (ct > 0) {
-+		if (sg->length - of >= ct) {
-+			scatterwalk_map_and_copy(rctx->sdev->pka_data + index, sg,
-+						 of, ct, 0);
-+			index = index + ct;
-+			return index - data_offset;
-+		}
-+
-+		scatterwalk_map_and_copy(rctx->sdev->pka_data + index,
-+					 sg, of, sg->length - of, 0);
-+		index += sg->length - of;
-+		ct = ct - (sg->length - of);
-+
-+		of = 0;
-+
-+		if (!sg_is_last(sg))
-+			sg = sg_next(sg);
-+		else
-+			return -EBADE;
-+	}
-+
-+	return index - data_offset;
 +}
 +
-+static int starfive_rsa_enc_core(struct starfive_sec_ctx *ctx, int enc)
++static int starfive_hash_xmit(struct starfive_sec_ctx *ctx, int flags)
 +{
-+	struct starfive_sec_dev *sdev = ctx->sdev;
 +	struct starfive_sec_request_ctx *rctx = ctx->rctx;
-+	struct starfive_rsa_key *key = &ctx->rsa_key;
-+	size_t data_len, total, count, data_offset;
-+	int ret = 0;
-+	unsigned int *info;
-+	int loop;
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	int ret;
 +
-+	rctx->csr.pka.v = 0;
-+	rctx->csr.pka.reset = 1;
-+	starfive_sec_write(sdev, STARFIVE_PKA_CACR_OFFSET, rctx->csr.pka.v);
++	rctx->csr.hash.v = 0;
++	rctx->csr.hash.reset = 1;
++	starfive_sec_write(sdev, STARFIVE_HASH_SHACSR, rctx->csr.hash.v);
 +
-+	if (starfive_pka_wait_done(ctx))
-+		dev_dbg(sdev->dev, "this is debug for lophyel pka_casr = %x %s %s %d\n",
-+			starfive_sec_read(sdev, STARFIVE_PKA_CASR_OFFSET),
-+			__FILE__, __func__, __LINE__);
++	if (starfive_hash_wait_busy(ctx)) {
++		dev_err(sdev->dev, "Error resetting engine.\n");
++		return -ETIMEDOUT;
++	}
 +
-+	rctx->offset = 0;
-+	total = 0;
++	rctx->csr.hash.v = 0;
++	rctx->csr.hash.mode = ctx->hash_mode & STARFIVE_HASH_MODE_MASK;
 +
-+	while (total < rctx->total_in) {
-+		count = min(sdev->data_buf_len, rctx->total_in);
-+		count = min(count, key->key_sz);
-+		memset(sdev->pka_data, 0, key->key_sz);
-+		data_offset = key->key_sz - count;
-+
-+		data_len = starfive_rsa_get_from_sg(rctx, rctx->offset, count, data_offset);
-+		if (data_len < 0)
-+			return data_len;
-+		if (data_len != count)
-+			return -EINVAL;
-+
-+		if (enc) {
-+			key->bitlen = key->e_bitlen;
-+			ret = starfive_rsa_powm(ctx, sdev->pka_data + STARFIVE_RSA_KEYSZ_LEN,
-+						key->e, key->n, key->key_sz);
-+		} else {
-+			key->bitlen = key->d_bitlen;
-+			ret = starfive_rsa_powm(ctx, sdev->pka_data + STARFIVE_RSA_KEYSZ_LEN,
-+						key->d, key->n, key->key_sz);
-+		}
-+
++	if (ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS) {
++		ret = starfive_hash_hmac_key(ctx);
 +		if (ret)
 +			return ret;
-+
-+		info = (unsigned int *)(sdev->pka_data + STARFIVE_RSA_KEYSZ_LEN);
-+		for (loop = 0; loop < key->key_sz >> 2; loop++)
-+			dev_dbg(sdev->dev, "result[%d] = %x\n", loop, info[loop]);
-+
-+		sg_copy_buffer(rctx->out_sg, sg_nents(rctx->out_sg),
-+			       sdev->pka_data + STARFIVE_RSA_KEYSZ_LEN,
-+			       key->key_sz, rctx->offset, 0);
-+
-+		rctx->offset += data_len;
-+		total += data_len;
++	} else {
++		rctx->csr.hash.start = 1;
++		rctx->csr.hash.firstb = 1;
++		starfive_sec_write(sdev, STARFIVE_HASH_SHACSR, rctx->csr.hash.v);
 +	}
 +
-+	return ret;
-+}
-+
-+static int starfive_rsa_enc(struct akcipher_request *req)
-+{
-+	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
-+	struct starfive_rsa_key *key = &ctx->rsa_key;
-+	struct starfive_sec_request_ctx *rctx = akcipher_request_ctx(req);
-+	int ret = 0;
-+
-+	if (key->key_sz > STARFIVE_RSA_MAX_KEYSZ) {
-+		akcipher_request_set_tfm(req, ctx->fallback.akcipher);
-+		ret = crypto_akcipher_encrypt(req);
-+		akcipher_request_set_tfm(req, tfm);
-+		return ret;
-+	}
-+
-+	if (unlikely(!key->n || !key->e))
-+		return -EINVAL;
-+
-+	if (req->dst_len < key->key_sz) {
-+		req->dst_len = key->key_sz;
-+		dev_err(ctx->sdev->dev, "Output buffer length less than parameter n\n");
-+		return -EOVERFLOW;
-+	}
-+
-+	mutex_lock(&ctx->sdev->lock);
-+
-+	rctx->in_sg = req->src;
-+	rctx->out_sg = req->dst;
-+	rctx->sdev = ctx->sdev;
-+	ctx->rctx = rctx;
-+	rctx->total_in = req->src_len;
-+	rctx->total_out = req->dst_len;
-+
-+	ret = starfive_rsa_enc_core(ctx, 1);
-+
-+	mutex_unlock(&ctx->sdev->lock);
-+
-+	return ret;
-+}
-+
-+static int starfive_rsa_dec(struct akcipher_request *req)
-+{
-+	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
-+	struct starfive_rsa_key *key = &ctx->rsa_key;
-+	struct starfive_sec_request_ctx *rctx = akcipher_request_ctx(req);
-+	int ret = 0;
-+
-+	if (key->key_sz > STARFIVE_RSA_MAX_KEYSZ) {
-+		akcipher_request_set_tfm(req, ctx->fallback.akcipher);
-+		ret = crypto_akcipher_decrypt(req);
-+		akcipher_request_set_tfm(req, tfm);
-+		return ret;
-+	}
-+
-+	if (unlikely(!key->n || !key->d))
-+		return -EINVAL;
-+
-+	if (req->dst_len < key->key_sz) {
-+		req->dst_len = key->key_sz;
-+		dev_err(ctx->sdev->dev, "Output buffer length less than parameter n\n");
-+		return -EOVERFLOW;
-+	}
-+
-+	mutex_lock(&ctx->sdev->lock);
-+
-+	rctx->in_sg = req->src;
-+	rctx->out_sg = req->dst;
-+	rctx->sdev = ctx->sdev;
-+	ctx->rctx = rctx;
-+	rctx->total_in = req->src_len;
-+	rctx->total_out = req->dst_len;
-+
-+	ret = starfive_rsa_enc_core(ctx, 0);
-+
-+	mutex_unlock(&ctx->sdev->lock);
-+
-+	return ret;
-+}
-+
-+static unsigned long starfive_rsa_check_keysz(unsigned int len)
-+{
-+	unsigned int bitslen = len << 3;
-+
-+	if (bitslen & 0x1f)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static int starfive_rsa_set_n(struct starfive_rsa_key *rsa_key,
-+			      const char *value, size_t vlen)
-+{
-+	const char *ptr = value;
-+	int ret;
-+
-+	while (!*ptr && vlen) {
-+		ptr++;
-+		vlen--;
-+	}
-+	rsa_key->key_sz = vlen;
-+
-+	/* invalid key size provided */
-+	ret = starfive_rsa_check_keysz(rsa_key->key_sz);
-+	if (ret)
-+		return ret;
-+
-+	ret = -ENOMEM;
-+	rsa_key->n = kmemdup(ptr, rsa_key->key_sz, GFP_KERNEL);
-+	if (!rsa_key->n)
-+		goto err;
-+
-+	return 0;
-+ err:
-+	rsa_key->key_sz = 0;
-+	rsa_key->n = NULL;
-+	starfive_rsa_free_key(rsa_key);
-+	return ret;
-+}
-+
-+static int starfive_rsa_set_e(struct starfive_rsa_key *rsa_key,
-+			      const char *value, size_t vlen)
-+{
-+	const char *ptr = value;
-+	unsigned char pt;
-+	int loop;
-+
-+	while (!*ptr && vlen) {
-+		ptr++;
-+		vlen--;
-+	}
-+	pt = *ptr;
-+
-+	if (!rsa_key->key_sz || !vlen || vlen > rsa_key->key_sz) {
-+		rsa_key->e = NULL;
-+		return -EINVAL;
-+	}
-+
-+	rsa_key->e = kzalloc(rsa_key->key_sz, GFP_KERNEL);
-+	if (!rsa_key->e)
-+		return -ENOMEM;
-+
-+	for (loop = 8; loop > 0; loop--) {
-+		if (pt >> (loop - 1))
-+			break;
-+	}
-+
-+	rsa_key->e_bitlen = (vlen - 1) * 8 + loop;
-+
-+	memcpy(rsa_key->e + (rsa_key->key_sz - vlen), ptr, vlen);
-+
-+	return 0;
-+}
-+
-+static int starfive_rsa_set_d(struct starfive_rsa_key *rsa_key,
-+			      const char *value, size_t vlen)
-+{
-+	const char *ptr = value;
-+	unsigned char pt;
-+	int loop;
-+	int ret;
-+
-+	while (!*ptr && vlen) {
-+		ptr++;
-+		vlen--;
-+	}
-+	pt = *ptr;
-+
-+	ret = -EINVAL;
-+	if (!rsa_key->key_sz || !vlen || vlen > rsa_key->key_sz)
-+		goto err;
-+
-+	ret = -ENOMEM;
-+	rsa_key->d = kzalloc(rsa_key->key_sz, GFP_KERNEL);
-+	if (!rsa_key->d)
-+		goto err;
-+
-+	for (loop = 8; loop > 0; loop--) {
-+		pr_debug("this is debug for lophyel loop = %d pt >> (loop - 1) = %x value[%d] = %x %s %s %d\n",
-+			 loop, pt >> (loop - 1), loop, value[loop], __FILE__, __func__, __LINE__);
-+		if (pt >> (loop - 1))
-+			break;
-+	}
-+
-+	rsa_key->d_bitlen = (vlen - 1) * 8 + loop;
-+
-+	memcpy(rsa_key->d + (rsa_key->key_sz - vlen), ptr, vlen);
-+
-+	return 0;
-+ err:
-+	rsa_key->d = NULL;
-+	return ret;
-+}
-+
-+static int starfive_rsa_setkey(struct crypto_akcipher *tfm, const void *key,
-+			       unsigned int keylen, bool private)
-+{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
-+	struct rsa_key raw_key = {NULL};
-+	struct starfive_rsa_key *rsa_key = &ctx->rsa_key;
-+	int ret;
-+
-+	starfive_rsa_free_key(rsa_key);
-+
-+	if (private)
-+		ret = rsa_parse_priv_key(&raw_key, key, keylen);
++	if (ctx->sdev->use_dma)
++		ret = starfive_hash_xmit_dma(ctx, flags);
 +	else
-+		ret = rsa_parse_pub_key(&raw_key, key, keylen);
-+	if (ret < 0)
-+		goto err;
++		ret = starfive_hash_xmit_cpu(ctx, flags);
 +
-+	ret = starfive_rsa_set_n(rsa_key, raw_key.n, raw_key.n_sz);
-+	if (ret < 0)
++	if (ret)
 +		return ret;
 +
-+	ret = starfive_rsa_set_e(rsa_key, raw_key.e, raw_key.e_sz);
-+	if (ret < 0)
-+		goto err;
++	rctx->flags |= HASH_FLAGS_FINAL;
++	starfive_hash_start(ctx, flags);
 +
-+	if (private) {
-+		ret = starfive_rsa_set_d(rsa_key, raw_key.d, raw_key.d_sz);
-+		if (ret < 0)
-+			goto err;
++	if (starfive_hash_wait_busy(ctx)) {
++		dev_err(sdev->dev, "Timeout waiting for hash completion\n");
++		return -ETIMEDOUT;
 +	}
 +
-+	if (!rsa_key->n || !rsa_key->e) {
-+		/* invalid key provided */
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+	if (private && !rsa_key->d) {
-+		/* invalid private key provided */
-+		ret = -EINVAL;
-+		goto err;
-+	}
++	if (ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS)
++		if (starfive_hash_wait_hmac_done(ctx)) {
++			dev_err(sdev->dev, "Timeout waiting for hmac completion\n");
++			return -ETIMEDOUT;
++		}
 +
 +	return 0;
-+ err:
-+	starfive_rsa_free_key(rsa_key);
++}
++
++static int starfive_hash_update_req(struct starfive_sec_ctx *ctx)
++{
++	struct starfive_sec_request_ctx *rctx = ctx->rctx;
++	int ret, final;
++
++	final = (rctx->flags & HASH_FLAGS_FINUP);
++
++	while ((rctx->total >= rctx->buflen) ||
++	       (rctx->bufcnt + rctx->total >= rctx->buflen)) {
++		starfive_hash_append_sg(rctx);
++		ret = starfive_hash_xmit(ctx, 0);
++		rctx->bufcnt = 0;
++	}
++
++	starfive_hash_append_sg(rctx);
++
++	if (final) {
++		ret = starfive_hash_xmit(ctx, (rctx->flags & HASH_FLAGS_FINUP));
++		rctx->bufcnt = 0;
++	}
++
 +	return ret;
 +}
 +
-+static int starfive_rsa_set_pub_key(struct crypto_akcipher *tfm, const void *key,
-+				    unsigned int keylen)
++static int starfive_hash_final_req(struct starfive_sec_ctx *ctx)
 +{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
++	struct ahash_request *req = ctx->rctx->req.hreq;
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
 +	int ret;
 +
-+	ret = crypto_akcipher_set_pub_key(ctx->fallback.akcipher, key, keylen);
++	ret = starfive_hash_xmit(ctx, 1);
++	rctx->bufcnt = 0;
++
++	return ret;
++}
++
++static int starfive_hash_out_cpu(struct ahash_request *req)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_ctx *ctx = rctx->ctx;
++	int count, *data;
++	int mlen;
++
++	if (!req->result)
++		return 0;
++
++	mlen = starfive_get_hash_size(ctx) / sizeof(u32);
++	data = (u32 *)req->result;
++
++	for (count = 0; count < mlen; count++)
++		data[count] = starfive_sec_read(ctx->sdev, STARFIVE_HASH_SHARDR);
++
++	return 0;
++}
++
++static int starfive_hash_copy_hash(struct ahash_request *req)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_ctx *ctx = rctx->ctx;
++	int hashsize;
++	int ret;
++
++	hashsize = starfive_get_hash_size(ctx);
++
++	ret = starfive_hash_out_cpu(req);
++
 +	if (ret)
 +		return ret;
 +
-+	return starfive_rsa_setkey(tfm, key, keylen, false);
++	memcpy(rctx->hash_digest_mid, req->result, hashsize);
++	rctx->hash_digest_len = hashsize;
++
++	return ret;
 +}
 +
-+static int starfive_rsa_set_priv_key(struct crypto_akcipher *tfm, const void *key,
-+				     unsigned int keylen)
++static void starfive_hash_finish_req(struct ahash_request *req, int err)
 +{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
-+	int ret;
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_dev *sdev = rctx->sdev;
 +
-+	ret = crypto_akcipher_set_priv_key(ctx->fallback.akcipher, key, keylen);
-+	if (ret)
-+		return ret;
++	if (!err && (HASH_FLAGS_FINAL & rctx->flags)) {
++		err = starfive_hash_copy_hash(req);
++		rctx->flags &= ~(HASH_FLAGS_FINAL |
++				 HASH_FLAGS_INIT);
++	}
 +
-+	return starfive_rsa_setkey(tfm, key, keylen, true);
++	crypto_finalize_hash_request(sdev->engine, req, err);
 +}
 +
-+static unsigned int starfive_rsa_max_size(struct crypto_akcipher *tfm)
++static int starfive_hash_prepare_req(struct crypto_engine *engine, void *areq)
 +{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
++	struct ahash_request *req = container_of(areq, struct ahash_request,
++						 base);
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(crypto_ahash_reqtfm(req));
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	struct starfive_sec_request_ctx *rctx;
 +
-+	/* For key sizes > 2Kb, use software tfm */
-+	if (ctx->rsa_key.key_sz > STARFIVE_RSA_MAX_KEYSZ)
-+		return crypto_akcipher_maxsize(ctx->fallback.akcipher);
++	if (!sdev)
++		return -ENODEV;
 +
-+	return ctx->rsa_key.key_sz;
++	rctx = ahash_request_ctx(req);
++
++	rctx->req.hreq = req;
++
++	return 0;
 +}
 +
-+/* Per session pkc's driver context creation function */
-+static int starfive_rsa_init_tfm(struct crypto_akcipher *tfm)
++static int starfive_hash_one_request(struct crypto_engine *engine, void *areq)
 +{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
++	struct ahash_request *req = container_of(areq, struct ahash_request,
++						 base);
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(crypto_ahash_reqtfm(req));
++	struct starfive_sec_dev *sdev = ctx->sdev;
++	struct starfive_sec_request_ctx *rctx;
++	int err = 0;
 +
-+	ctx->fallback.akcipher = crypto_alloc_akcipher("rsa-generic", 0, 0);
-+	if (IS_ERR(ctx->fallback.akcipher))
-+		return PTR_ERR(ctx->fallback.akcipher);
++	if (!sdev)
++		return -ENODEV;
++
++	rctx = ahash_request_ctx(req);
++
++	mutex_lock(&ctx->sdev->lock);
++
++	if (rctx->op == HASH_OP_UPDATE)
++		err = starfive_hash_update_req(ctx);
++	else if (rctx->op == HASH_OP_FINAL)
++		err = starfive_hash_final_req(ctx);
++
++	if (err != -EINPROGRESS)
++	/* done task will not finish it, so do it here */
++		starfive_hash_finish_req(req, err);
++
++	mutex_unlock(&ctx->sdev->lock);
++
++	return 0;
++}
++
++static int starfive_hash_handle_queue(struct starfive_sec_dev *sdev,
++				      struct ahash_request *req)
++{
++	return crypto_transfer_hash_request_to_engine(sdev->engine, req);
++}
++
++static int starfive_hash_enqueue(struct ahash_request *req, unsigned int op)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_ctx *ctx = crypto_tfm_ctx(req->base.tfm);
++	struct starfive_sec_dev *sdev = ctx->sdev;
++
++	rctx->op = op;
++
++	return starfive_hash_handle_queue(sdev, req);
++}
++
++static int starfive_hash_init(struct ahash_request *req)
++{
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_dev *sdev = ctx->sdev;
++
++	memset(rctx, 0, sizeof(struct starfive_sec_request_ctx));
++
++	rctx->sdev = sdev;
++	rctx->ctx = ctx;
++	rctx->req.hreq = req;
++	rctx->bufcnt = 0;
++
++	rctx->total = 0;
++	rctx->offset = 0;
++	rctx->bufcnt = 0;
++	rctx->buflen = STARFIVE_HASH_BUFLEN;
++
++	memset(ctx->buffer, 0, STARFIVE_HASH_BUFLEN);
++
++	ctx->rctx = rctx;
++
++	dev_dbg(sdev->dev, "%s Flags %lx\n", __func__, rctx->flags);
++
++	return 0;
++}
++
++static int starfive_hash_update(struct ahash_request *req)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++
++	if (!req->nbytes)
++		return 0;
++
++	rctx->total = req->nbytes;
++	rctx->in_sg = req->src;
++	rctx->offset = 0;
++
++	if ((rctx->bufcnt + rctx->total < rctx->buflen)) {
++		starfive_hash_append_sg(rctx);
++		return 0;
++	}
++
++	return starfive_hash_enqueue(req, HASH_OP_UPDATE);
++}
++
++static int starfive_hash_final(struct ahash_request *req)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	struct starfive_sec_ctx *ctx = crypto_tfm_ctx(req->base.tfm);
++
++	rctx->flags |= HASH_FLAGS_FINUP;
++
++	if (ctx->fallback_available && rctx->bufcnt < STARFIVE_HASH_THRES) {
++		if (ctx->hash_mode & STARFIVE_HASH_HMAC_FLAGS)
++			crypto_shash_setkey(ctx->fallback.shash, ctx->key,
++					    ctx->keylen);
++
++		return crypto_shash_tfm_digest(ctx->fallback.shash, ctx->buffer,
++					       rctx->bufcnt, req->result);
++	}
++
++	return starfive_hash_enqueue(req, HASH_OP_FINAL);
++}
++
++static int starfive_hash_finup(struct ahash_request *req)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++	int err1, err2;
++	int nents;
++
++	nents = sg_nents_for_len(req->src, req->nbytes);
++
++	rctx->flags |= HASH_FLAGS_FINUP;
++
++	err1 = starfive_hash_update(req);
++
++	if (err1 == -EINPROGRESS || err1 == -EBUSY)
++		return err1;
++
++	/*
++	 * final() has to be always called to cleanup resources
++	 * even if update() failed, except EINPROGRESS
++	 */
++	err2 = starfive_hash_final(req);
++
++	return err1 ?: err2;
++}
++
++static int starfive_hash_digest(struct ahash_request *req)
++{
++	return starfive_hash_init(req) ?: starfive_hash_finup(req);
++}
++
++static int starfive_hash_export(struct ahash_request *req, void *out)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++
++	memcpy(out, rctx, sizeof(*rctx));
++
++	return 0;
++}
++
++static int starfive_hash_import(struct ahash_request *req, const void *in)
++{
++	struct starfive_sec_request_ctx *rctx = ahash_request_ctx(req);
++
++	memcpy(rctx, in, sizeof(*rctx));
++
++	return 0;
++}
++
++static int starfive_hash_cra_init_algs(struct crypto_tfm *tfm,
++				       const char *algs_hmac_name,
++				       unsigned int mode)
++{
++	struct starfive_sec_ctx *ctx = crypto_tfm_ctx(tfm);
++	const char *alg_name = crypto_tfm_alg_name(tfm);
 +
 +	ctx->sdev = starfive_sec_find_dev(ctx);
-+	if (!ctx->sdev) {
-+		crypto_free_akcipher(ctx->fallback.akcipher);
-+		return -ENODEV;
-+	}
 +
-+	akcipher_set_reqsize(tfm, sizeof(struct starfive_sec_request_ctx));
++	if (!ctx->sdev)
++		return -ENODEV;
++
++	ctx->fallback_available = true;
++	ctx->fallback.shash = crypto_alloc_shash(alg_name, 0,
++						 CRYPTO_ALG_NEED_FALLBACK);
++
++	if (IS_ERR(ctx->fallback.shash))
++		ctx->fallback_available = false;
++
++	crypto_ahash_set_reqsize(__crypto_ahash_cast(tfm),
++				 sizeof(struct starfive_sec_request_ctx));
++
++	ctx->keylen   = 0;
++	ctx->hash_mode = mode;
++	ctx->hash_len_total = 0;
++	ctx->buffer = ctx->sdev->hash_data;
++
++	if (algs_hmac_name)
++		ctx->hash_mode |= STARFIVE_HASH_HMAC_FLAGS;
++
++	ctx->enginectx.op.do_one_request = starfive_hash_one_request;
++	ctx->enginectx.op.prepare_request = starfive_hash_prepare_req;
++	ctx->enginectx.op.unprepare_request = NULL;
 +
 +	return 0;
 +}
 +
-+/* Per session pkc's driver context cleanup function */
-+static void starfive_rsa_exit_tfm(struct crypto_akcipher *tfm)
++static void starfive_hash_cra_exit(struct crypto_tfm *tfm)
 +{
-+	struct starfive_sec_ctx *ctx = akcipher_tfm_ctx(tfm);
-+	struct starfive_rsa_key *key = (struct starfive_rsa_key *)&ctx->rsa_key;
++	struct starfive_sec_ctx *ctx = crypto_tfm_ctx(tfm);
 +
-+	crypto_free_akcipher(ctx->fallback.akcipher);
-+	starfive_rsa_free_key(key);
++	crypto_free_shash(ctx->fallback.shash);
++
++	ctx->fallback.shash = NULL;
++	ctx->enginectx.op.do_one_request = NULL;
++	ctx->enginectx.op.prepare_request = NULL;
++	ctx->enginectx.op.unprepare_request = NULL;
 +}
 +
-+static struct akcipher_alg starfive_rsa = {
-+	.encrypt = starfive_rsa_enc,
-+	.decrypt = starfive_rsa_dec,
-+	.sign = starfive_rsa_dec,
-+	.verify = starfive_rsa_enc,
-+	.set_pub_key = starfive_rsa_set_pub_key,
-+	.set_priv_key = starfive_rsa_set_priv_key,
-+	.max_size = starfive_rsa_max_size,
-+	.init = starfive_rsa_init_tfm,
-+	.exit = starfive_rsa_exit_tfm,
-+	.reqsize = sizeof(struct starfive_sec_request_ctx),
-+	.base = {
-+		.cra_name = "rsa",
-+		.cra_driver_name = "starfive-rsa",
-+		.cra_flags = CRYPTO_ALG_TYPE_AKCIPHER |
-+			     CRYPTO_ALG_ASYNC |
-+			     CRYPTO_ALG_NEED_FALLBACK,
-+		.cra_priority = 3000,
-+		.cra_module = THIS_MODULE,
-+		.cra_ctxsize = sizeof(struct starfive_sec_ctx),
-+	},
++static int starfive_hash_long_setkey(struct starfive_sec_ctx *ctx,
++				     const u8 *key, unsigned int keylen,
++				     const char *alg_name)
++{
++	struct crypto_wait wait;
++	struct ahash_request *req;
++	struct scatterlist sg;
++	struct crypto_ahash *ahash_tfm;
++	u8 *buf;
++	int ret;
++
++	ahash_tfm = crypto_alloc_ahash(alg_name, 0, 0);
++	if (IS_ERR(ahash_tfm))
++		return PTR_ERR(ahash_tfm);
++
++	req = ahash_request_alloc(ahash_tfm, GFP_KERNEL);
++	if (!req) {
++		ret = -ENOMEM;
++		goto err_free_ahash;
++	}
++
++	crypto_init_wait(&wait);
++	ahash_request_set_callback(req, CRYPTO_TFM_REQ_MAY_BACKLOG,
++				   crypto_req_done, &wait);
++	crypto_ahash_clear_flags(ahash_tfm, ~0);
++
++	buf = kzalloc(keylen + STARFIVE_MAX_ALIGN_SIZE, GFP_KERNEL);
++	if (!buf) {
++		ret = -ENOMEM;
++		goto err_free_req;
++	}
++
++	memcpy(buf, key, keylen);
++	sg_init_one(&sg, buf, keylen);
++	ahash_request_set_crypt(req, &sg, ctx->key, keylen);
++
++	ret = crypto_wait_req(crypto_ahash_digest(req), &wait);
++
++err_free_req:
++	ahash_request_free(req);
++err_free_ahash:
++	crypto_free_ahash(ahash_tfm);
++	return ret;
++}
++
++static int starfive_hash224_setkey(struct crypto_ahash *tfm,
++				   const u8 *key, unsigned int keylen)
++{
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	unsigned int digestsize = crypto_ahash_digestsize(tfm);
++	unsigned int blocksize;
++	int ret = 0;
++
++	blocksize = crypto_tfm_alg_blocksize(crypto_ahash_tfm(tfm));
++
++	if (keylen <= blocksize) {
++		memcpy(ctx->key, key, keylen);
++		ctx->keylen = keylen;
++	} else {
++		ctx->keylen = digestsize;
++		ret = starfive_hash_long_setkey(ctx, key, keylen, "starfive-sha224");
++	}
++
++	return ret;
++}
++
++static int starfive_hash256_setkey(struct crypto_ahash *tfm,
++				   const u8 *key, unsigned int keylen)
++{
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	unsigned int digestsize = crypto_ahash_digestsize(tfm);
++	unsigned int blocksize;
++	int ret = 0;
++
++	blocksize = crypto_tfm_alg_blocksize(crypto_ahash_tfm(tfm));
++
++	if (keylen <= blocksize) {
++		memcpy(ctx->key, key, keylen);
++		ctx->keylen = keylen;
++	} else {
++		ctx->keylen = digestsize;
++		ret = starfive_hash_long_setkey(ctx, key, keylen, "starfive-sha256");
++	}
++
++	return ret;
++}
++
++static int starfive_hash384_setkey(struct crypto_ahash *tfm,
++				   const u8 *key, unsigned int keylen)
++{
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	unsigned int digestsize = crypto_ahash_digestsize(tfm);
++	unsigned int blocksize;
++	int ret = 0;
++
++	blocksize = crypto_tfm_alg_blocksize(crypto_ahash_tfm(tfm));
++
++	if (keylen <= blocksize) {
++		memcpy(ctx->key, key, keylen);
++		ctx->keylen = keylen;
++	} else {
++		ctx->keylen = digestsize;
++		ret = starfive_hash_long_setkey(ctx, key, keylen, "starfive-sha384");
++	}
++
++	return ret;
++}
++
++static int starfive_hash512_setkey(struct crypto_ahash *tfm,
++				   const u8 *key, unsigned int keylen)
++{
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	unsigned int digestsize = crypto_ahash_digestsize(tfm);
++	unsigned int blocksize;
++	int ret = 0;
++
++	blocksize = crypto_tfm_alg_blocksize(crypto_ahash_tfm(tfm));
++
++	if (keylen <= blocksize) {
++		memcpy(ctx->key, key, keylen);
++		ctx->keylen = keylen;
++	} else {
++		ctx->keylen = digestsize;
++		ret = starfive_hash_long_setkey(ctx, key, keylen, "starfive-sha512");
++	}
++
++	return ret;
++}
++
++static int starfive_sm3_setkey(struct crypto_ahash *tfm,
++			       const u8 *key, unsigned int keylen)
++{
++	struct starfive_sec_ctx *ctx = crypto_ahash_ctx(tfm);
++	unsigned int digestsize = crypto_ahash_digestsize(tfm);
++	unsigned int blocksize;
++	int ret = 0;
++
++	blocksize = crypto_tfm_alg_blocksize(crypto_ahash_tfm(tfm));
++
++	if (keylen <= blocksize) {
++		memcpy(ctx->key, key, keylen);
++		ctx->keylen = keylen;
++	} else {
++		ctx->keylen = digestsize;
++		ret = starfive_hash_long_setkey(ctx, key, keylen, "starfive-sm3");
++	}
++
++	return ret;
++}
++
++static int starfive_hash_cra_sha224_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, NULL, STARFIVE_HASH_SHA224);
++}
++
++static int starfive_hash_cra_sha256_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, NULL, STARFIVE_HASH_SHA256);
++}
++
++static int starfive_hash_cra_sha384_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, NULL, STARFIVE_HASH_SHA384);
++}
++
++static int starfive_hash_cra_sha512_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, NULL, STARFIVE_HASH_SHA512);
++}
++
++static int starfive_hash_cra_sm3_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, NULL, STARFIVE_HASH_SM3);
++}
++
++static int starfive_hash_cra_hmac_sha224_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, "sha224", STARFIVE_HASH_SHA224);
++}
++
++static int starfive_hash_cra_hmac_sha256_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, "sha256", STARFIVE_HASH_SHA256);
++}
++
++static int starfive_hash_cra_hmac_sha384_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, "sha384", STARFIVE_HASH_SHA384);
++}
++
++static int starfive_hash_cra_hmac_sha512_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, "sha512", STARFIVE_HASH_SHA512);
++}
++
++static int starfive_hash_cra_hmac_sm3_init(struct crypto_tfm *tfm)
++{
++	return starfive_hash_cra_init_algs(tfm, "sm3", STARFIVE_HASH_SM3);
++}
++
++static struct ahash_alg algs_sha2_sm3[] = {
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA224_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "sha224",
++			.cra_driver_name	= "starfive-sha224",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA224_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_sha224_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.setkey   = starfive_hash224_setkey,
++	.halg = {
++		.digestsize = SHA224_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "hmac(sha224)",
++			.cra_driver_name	= "starfive-hmac-sha224",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA224_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_hmac_sha224_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA256_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "sha256",
++			.cra_driver_name	= "starfive-sha256",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA256_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_sha256_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.setkey   = starfive_hash256_setkey,
++	.halg = {
++		.digestsize = SHA256_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "hmac(sha256)",
++			.cra_driver_name	= "starfive-hmac-sha256",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA256_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_hmac_sha256_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA384_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "sha384",
++			.cra_driver_name	= "starfive-sha384",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA384_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_sha384_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.setkey   = starfive_hash384_setkey,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA384_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "hmac(sha384)",
++			.cra_driver_name	= "starfive-hmac-sha384",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA384_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_hmac_sha384_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA512_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "sha512",
++			.cra_driver_name	= "starfive-sha512",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH,
++			.cra_blocksize		= SHA512_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_sha512_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.setkey   = starfive_hash512_setkey,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SHA512_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "hmac(sha512)",
++			.cra_driver_name	= "starfive-hmac-sha512",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SHA512_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_hmac_sha512_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init     = starfive_hash_init,
++	.update   = starfive_hash_update,
++	.final    = starfive_hash_final,
++	.finup    = starfive_hash_finup,
++	.digest   = starfive_hash_digest,
++	.export   = starfive_hash_export,
++	.import   = starfive_hash_import,
++	.halg = {
++		.digestsize = SM3_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "sm3",
++			.cra_driver_name	= "starfive-sm3",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SM3_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_sm3_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
++{
++	.init		= starfive_hash_init,
++	.update		= starfive_hash_update,
++	.final		= starfive_hash_final,
++	.finup		= starfive_hash_finup,
++	.digest		= starfive_hash_digest,
++	.setkey		= starfive_sm3_setkey,
++	.export		= starfive_hash_export,
++	.import		= starfive_hash_import,
++	.halg = {
++		.digestsize = SM3_DIGEST_SIZE,
++		.statesize  = sizeof(struct starfive_sec_request_ctx),
++		.base = {
++			.cra_name		= "hmac(sm3)",
++			.cra_driver_name	= "starfive-hmac-sm3",
++			.cra_priority		= 200,
++			.cra_flags		= CRYPTO_ALG_ASYNC |
++						  CRYPTO_ALG_TYPE_AHASH |
++						  CRYPTO_ALG_NEED_FALLBACK,
++			.cra_blocksize		= SM3_BLOCK_SIZE,
++			.cra_ctxsize		= sizeof(struct starfive_sec_ctx),
++			.cra_alignmask		= 3,
++			.cra_init		= starfive_hash_cra_hmac_sm3_init,
++			.cra_exit		= starfive_hash_cra_exit,
++			.cra_module		= THIS_MODULE,
++		}
++	}
++},
 +};
 +
-+int starfive_pka_register_algs(void)
++int starfive_hash_register_algs(void)
 +{
-+	return crypto_register_akcipher(&starfive_rsa);
++	int ret = 0;
++
++	ret = crypto_register_ahashes(algs_sha2_sm3, ARRAY_SIZE(algs_sha2_sm3));
++
++	return ret;
 +}
 +
-+void starfive_pka_unregister_algs(void)
++void starfive_hash_unregister_algs(void)
 +{
-+	crypto_unregister_akcipher(&starfive_rsa);
++	crypto_unregister_ahashes(algs_sha2_sm3, ARRAY_SIZE(algs_sha2_sm3));
 +}
 diff --git a/drivers/crypto/starfive/starfive-regs.h b/drivers/crypto/starfive/starfive-regs.h
-index c53b0303fb66..af3967c37a12 100644
+index 0d680cb1f502..3f5e8881b3c0 100644
 --- a/drivers/crypto/starfive/starfive-regs.h
 +++ b/drivers/crypto/starfive/starfive-regs.h
-@@ -11,6 +11,7 @@
+@@ -9,6 +9,8 @@
+ #define STARFIVE_DMA_IN_LEN_OFFSET		0x10
+ #define STARFIVE_DMA_OUT_LEN_OFFSET		0x14
  
- #define STARFIVE_AES_REGS_OFFSET		0x100
- #define STARFIVE_HASH_REGS_OFFSET		0x300
-+#define STARFIVE_PKA_REGS_OFFSET		0x400
- 
++#define STARFIVE_HASH_REGS_OFFSET		0x300
++
  union starfive_alg_cr {
  	u32 v;
-@@ -26,6 +27,70 @@ union starfive_alg_cr {
+ 	struct {
+@@ -23,4 +25,47 @@ union starfive_alg_cr {
  	};
  };
  
-+#define STARFIVE_PKA_CACR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x0)
-+#define STARFIVE_PKA_CASR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x4)
-+#define STARFIVE_PKA_CAAR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x8)
-+#define STARFIVE_PKA_CAER_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x108)
-+#define STARFIVE_PKA_CANR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x208)
-+#define STARFIVE_PKA_CAAFR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x308)
-+#define STARFIVE_PKA_CAEFR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x30c)
-+#define STARFIVE_PKA_CANFR_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x310)
-+#define STARFIVE_FIFO_COUNTER_OFFSET		(STARFIVE_PKA_REGS_OFFSET + 0x314)
++#define STARFIVE_HASH_SHACSR			(STARFIVE_HASH_REGS_OFFSET + 0x0)
++#define STARFIVE_HASH_SHAWDR			(STARFIVE_HASH_REGS_OFFSET + 0x4)
++#define STARFIVE_HASH_SHARDR			(STARFIVE_HASH_REGS_OFFSET + 0x8)
++#define STARFIVE_HASH_SHAWSR			(STARFIVE_HASH_REGS_OFFSET + 0xC)
++#define STARFIVE_HASH_SHAWLEN3			(STARFIVE_HASH_REGS_OFFSET + 0x10)
++#define STARFIVE_HASH_SHAWLEN2			(STARFIVE_HASH_REGS_OFFSET + 0x14)
++#define STARFIVE_HASH_SHAWLEN1			(STARFIVE_HASH_REGS_OFFSET + 0x18)
++#define STARFIVE_HASH_SHAWLEN0			(STARFIVE_HASH_REGS_OFFSET + 0x1C)
++#define STARFIVE_HASH_SHAWKR			(STARFIVE_HASH_REGS_OFFSET + 0x20)
++#define STARFIVE_HASH_SHAWKLEN			(STARFIVE_HASH_REGS_OFFSET + 0x24)
 +
-+/* R^2 mod N and N0' */
-+#define CRYPTO_CMD_PRE				0x0
-+/* (A + A) mod N, ==> A */
-+#define CRYPTO_CMD_AAN				0x1
-+/* A ^ E mod N   ==> A */
-+#define CRYPTO_CMD_AMEN				0x2
-+/* A + E mod N   ==> A */
-+#define CRYPTO_CMD_AAEN				0x3
-+/* A - E mod N   ==> A */
-+#define CRYPTO_CMD_ADEN				0x4
-+/* A * R mod N   ==> A */
-+#define CRYPTO_CMD_ARN				0x5
-+/* A * E * R mod N ==> A */
-+#define CRYPTO_CMD_AERN				0x6
-+/* A * A * R mod N ==> A */
-+#define CRYPTO_CMD_AARN				0x7
-+/* ECC2P      ==> A */
-+#define CRYPTO_CMD_ECC2P			0x8
-+/* ECCPQ      ==> A */
-+#define CRYPTO_CMD_ECCPQ			0x9
-+
-+union starfive_pka_cacr {
++union starfive_hash_csr {
 +	u32 v;
 +	struct {
 +		u32 start			:1;
-+		u32 reset                       :1;
-+		u32 ie                          :1;
-+		u32 rsvd_0                      :1;
-+		u32 fifo_mode                   :1;
-+		u32 not_r2                      :1;
-+		u32 ecc_sub                     :1;
-+		u32 pre_expf                    :1;
-+		u32 cmd                         :4;
-+		u32 rsvd_1                      :1;
-+		u32 ctrl_dummy                  :1;
-+		u32 ctrl_false                  :1;
-+		u32 cln_done                    :1;
-+		u32 opsize                      :6;
-+		u32 rsvd_2                      :2;
-+		u32 exposize                    :6;
-+		u32 rsvd_3                      :1;
-+		u32 bigendian                   :1;
++		u32 reset			:1;
++		u32 rsvd_0			:1;
++		u32 firstb			:1;
++#define STARFIVE_HASH_SM3			0x0
++#define STARFIVE_HASH_SHA224			0x3
++#define STARFIVE_HASH_SHA256			0x4
++#define STARFIVE_HASH_SHA384			0x5
++#define STARFIVE_HASH_SHA512			0x6
++#define STARFIVE_HASH_MODE_MASK			0x7
++		u32 mode			:3;
++		u32 rsvd_1			:1;
++		u32 final			:1;
++		u32 rsvd_2			:2;
++#define STARFIVE_HASH_HMAC_FLAGS		0x800
++		u32 hmac			:1;
++		u32 rsvd_3			:1;
++#define STARFIVE_HASH_KEY_DONE			BIT(13)
++		u32 key_done			:1;
++		u32 key_flag			:1;
++#define STARFIVE_HASH_HMAC_DONE			BIT(15)
++		u32 hmac_done			:1;
++#define STARFIVE_HASH_BUSY			BIT(16)
++		u32 busy			:1;
++		u32 hashdone			:1;
++		u32 rsvd_4			:14;
 +	};
 +};
 +
-+union starfive_pka_casr {
-+	u32 v;
-+	struct {
-+#define STARFIVE_PKA_DONE_FLAGS			BIT(0)
-+		u32 done                        :1;
-+		u32 rsvd_0                      :31;
-+	};
-+};
-+
- #define STARFIVE_AES_AESDIO0R			(STARFIVE_AES_REGS_OFFSET + 0x0)
- #define STARFIVE_AES_KEY0			(STARFIVE_AES_REGS_OFFSET + 0x4)
- #define STARFIVE_AES_KEY1			(STARFIVE_AES_REGS_OFFSET + 0x8)
+ #endif
 diff --git a/drivers/crypto/starfive/starfive-str.h b/drivers/crypto/starfive/starfive-str.h
-index 396529a9a8f1..13e6bf637a34 100644
+index 4ba3c56f0573..a6fed48a0b19 100644
 --- a/drivers/crypto/starfive/starfive-str.h
 +++ b/drivers/crypto/starfive/starfive-str.h
-@@ -10,6 +10,8 @@
+@@ -7,16 +7,29 @@
+ #include <linux/dmaengine.h>
+ 
  #include <crypto/engine.h>
- #include <crypto/sha2.h>
- #include <crypto/sm3.h>
-+#include <crypto/internal/akcipher.h>
-+#include <crypto/internal/rsa.h>
++#include <crypto/sha2.h>
++#include <crypto/sm3.h>
  
  #include "starfive-regs.h"
  
-@@ -19,6 +21,31 @@
- #define STARFIVE_AES_IV_LEN			AES_BLOCK_SIZE
- #define STARFIVE_AES_CTR_LEN			AES_BLOCK_SIZE
+ #define STARFIVE_MSG_BUFFER_SIZE		SZ_16K
++#define MAX_KEY_SIZE				SHA512_BLOCK_SIZE
  
-+struct starfive_rsa_key {
-+	u8					*n;
-+	u8					*e;
-+	u8					*d;
-+	u8					*p;
-+	u8					*q;
-+	u8					*dp;
-+	u8					*dq;
-+	u8					*qinv;
-+	u8					*rinv;
-+	u8					*rinv_p;
-+	u8					*rinv_q;
-+	u8					*mp;
-+	u8					*rsqr;
-+	u8					*rsqr_p;
-+	u8					*rsqr_q;
-+	u8					*pmp;
-+	u8					*qmp;
-+	int					e_bitlen;
-+	int					d_bitlen;
-+	int					bitlen;
-+	size_t					key_sz;
-+	bool					crt_mode;
-+};
-+
  struct starfive_sec_ctx {
  	struct crypto_engine_ctx		enginectx;
  	struct starfive_sec_dev			*sdev;
-@@ -28,9 +55,12 @@ struct starfive_sec_ctx {
- 	int					keylen;
- 	struct scatterlist			sg[2];
- 	size_t					hash_len_total;
-+	size_t					rsa_key_sz;
-+	struct starfive_rsa_key			rsa_key;
+-
++	struct starfive_sec_request_ctx		*rctx;
++	unsigned int				hash_mode;
++	u8					key[MAX_KEY_SIZE];
++	int					keylen;
++	struct scatterlist			sg[2];
++	size_t					hash_len_total;
  	u8					*buffer;
++
++	union {
++		struct crypto_shash		*shash;
++	} fallback;
++	bool                                    fallback_available;
+ };
  
- 	union {
-+		struct crypto_akcipher		*akcipher;
- 		struct crypto_aead		*aead;
- 		struct crypto_shash		*shash;
- 	} fallback;
-@@ -49,6 +79,7 @@ struct starfive_sec_dev {
+ struct starfive_sec_dev {
+@@ -29,6 +42,7 @@ struct starfive_sec_dev {
+ 
+ 	void __iomem				*io_base;
  	phys_addr_t				io_phys_base;
- 	void					*aes_data;
- 	void					*hash_data;
-+	void					*pka_data;
++	void					*hash_data;
  
  	size_t					data_buf_len;
  	int					pages_count;
-@@ -88,6 +119,7 @@ struct starfive_sec_request_ctx {
- 	union {
- 		union starfive_aes_csr		aes;
- 		union starfive_hash_csr		hash;
-+		union starfive_pka_cacr		pka;
- 	} csr;
+@@ -41,12 +55,45 @@ struct starfive_sec_dev {
+ 	struct dma_slave_config			cfg_out;
+ 	struct completion			sec_comp_m;
+ 	struct completion			sec_comp_p;
++	/* To synchronize concurrent request from different
++	 * crypto module accessing the hardware engine.
++	 */
++	struct mutex				lock;
  
- 	struct scatterlist			*in_sg;
-@@ -156,4 +188,7 @@ void starfive_hash_unregister_algs(void);
- int starfive_aes_register_algs(void);
- void starfive_aes_unregister_algs(void);
+ 	struct crypto_engine			*engine;
  
-+int starfive_pka_register_algs(void);
-+void starfive_pka_unregister_algs(void);
+ 	union starfive_alg_cr			alg_cr;
+ };
+ 
++struct starfive_sec_request_ctx {
++	struct starfive_sec_ctx			*ctx;
++	struct starfive_sec_dev			*sdev;
++
++	union {
++		struct ahash_request		*hreq;
++	} req;
++#define STARFIVE_AHASH_REQ			0
++	unsigned int				req_type;
++
++	union {
++		union starfive_hash_csr		hash;
++	} csr;
++
++	struct scatterlist			*in_sg;
++
++	unsigned long				flags;
++	unsigned long				op;
++
++	size_t					bufcnt;
++	size_t					buflen;
++	size_t					total;
++	size_t					offset;
++	size_t					data_offset;
++
++	unsigned int				hash_digest_len;
++	u8 hash_digest_mid[SHA512_DIGEST_SIZE]__aligned(sizeof(u32));
++};
++
+ static inline u32 starfive_sec_read(struct starfive_sec_dev *sdev, u32 offset)
+ {
+ 	return __raw_readl(sdev->io_base + offset);
+@@ -71,4 +118,7 @@ static inline void starfive_sec_writeb(struct starfive_sec_dev *sdev,
+ 
+ struct starfive_sec_dev *starfive_sec_find_dev(struct starfive_sec_ctx *ctx);
+ 
++int starfive_hash_register_algs(void);
++void starfive_hash_unregister_algs(void);
 +
  #endif
 -- 
