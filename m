@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7EFC47089
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C33C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 22:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+EfQ7CS4/uoXTdtTQZj/l+erWB4iIrDmZjtgjaGImbY=; b=l5arhC9E9FL9ZO
-	wLHl7AQYNQGmc4csx4x5IaGD/ze5uQMoYB/wbHSTu9KVWw7DzyOELWJ4yslHDqsI5Fvb41mCCalKT
-	9pnyFjChn2j0Zgmp9UNq21uB6P5zI+zq4R1mf3Nm9+h0IkUgVcxeV06B6a13OIHK2kSRSn9bONBgY
-	c7lxwnw0kq+Cgg+d/AQeFwpLMWmgeftFslVUxQf8cvgr5YkKpNR+2pj7SLxg5/Q9Us6D2u1X/QldV
-	L1TnxjgG18elxEfILOLOIkWWXwgpoMzludMS+rs4p5zwsrRbMs3dInUSYskUkUz5Y2MSgZLr19kej
-	u/ybory0OOdxgf5YtICw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a4WQB5aYpmf1ZR6oxEf5UysRn6SVzB/RX6Bb/OZrDj4=; b=0fQk3qiVVp/iWi
+	Vs8AmwDJ8Ost1z6fzq4njeZwcy7UCdbQN6HKTHlfydJuOK55QM+ImnkRW+AnePDwvPD6ERF40YPGx
+	oHiiRbxNVL44HpEKZyOKE0rdSg/RKhfKwfBf+Efp9rkEGADliMBKaMEnfSc7kK8DYUukmpQ6mV2T6
+	mdD6HgU5+gHsaekkv+9V8GtG2xmw4Z91Cwqtbub43IBUI54lc20cXS1JCc6zszqdyPWU4LNyOmyT9
+	JloH3p2snxiZTfLL+QkiflFvSqYy2z/oGxek6vGhaYJdLH0szVW98J//z6zLcAANREzbzDL67tBWq
+	cugU2JskqvXNenXswHbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0c-0032Xm-CW; Wed, 30 Nov 2022 22:56:54 +0000
+	id 1p0W0d-0032YN-MY; Wed, 30 Nov 2022 22:56:55 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0W0N-0032R2-QY
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:44 +0000
+	id 1p0W0N-0032RF-QZ
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 22:56:45 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p0W0I-0005PW-Bs; Wed, 30 Nov 2022 23:56:34 +0100
+	id 1p0W0L-0005PW-3H; Wed, 30 Nov 2022 23:56:37 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -42,15 +42,18 @@ Cc: christoph.muellner@vrull.eu,
 	emil.renner.berthing@canonical.com,
 	ardb@kernel.org,
 	linux-efi@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v3 0/14] Zbb string optimizations and call support in alternatives
-Date: Wed, 30 Nov 2022 23:56:00 +0100
-Message-Id: <20221130225614.1594256-1-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 06/14] RISC-V: Move riscv_insn_is_* macros into a common header
+Date: Wed, 30 Nov 2022 23:56:06 +0100
+Message-Id: <20221130225614.1594256-7-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20221130225614.1594256-1-heiko@sntech.de>
+References: <20221130225614.1594256-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_145640_048333_6678D85F 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20221130_145640_133270_55C376F9 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,118 +72,222 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-The Zbb extension can be used to make string functions run a lot
-faster.
+Right now the riscv kernel has (at least) two independent sets
+of functions to check if an encoded instruction is of a specific
+type. One in kgdb and one kprobes simulate-insn code.
 
-To allow There are essentially two problems to solve:
-- making it possible for str* functions to replace what they do
-  in a performant way
+More parts of the kernel will probably need this in the future,
+so instead of allowing this duplication to go on further,
+move macros that do the function declaration in a common header,
+similar to at least aarch64.
 
-  This is done by inlining the core functions and then
-  using alternatives to call the actual variant.
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+---
+ arch/riscv/include/asm/parse_asm.h       | 42 ++++++++++++++++----
+ arch/riscv/kernel/kgdb.c                 | 49 ++++++++----------------
+ arch/riscv/kernel/probes/simulate-insn.h | 26 +++----------
+ 3 files changed, 55 insertions(+), 62 deletions(-)
 
-  This of course will need a more intelligent selection mechanism
-  down the road when more variants may exist using different
-  available extensions.
-
-- actually allowing calls in alternatives
-  Function calls use auipc + jalr to reach those 32bit relative
-  addresses but when they're compiled the offset will be wrong
-  as alternatives live in a different section. So when the patch
-  gets applied the address will point to the wrong location.
-
-  So similar to arm64 the target addresses need to be updated.
-
-  This is probably also helpful for other things needing more
-  complex code in alternatives.
-
-
-In my half-scientific test-case of running the functions in question
-on a 95 character string in a loop of 10000 iterations, the Zbb
-variants shave off around 2/3 of the original runtime.
-
-
-For v2 I got into some sort of cleanup spree for the general instruction
-parsing that already existed. A number of places do their own
-instruction parsing and I tried consolidating some of them.
-
-Noteable, the kvm parts still do, but I had to stop somewhere :-)
-
-The series is based on v6.1-rc7 right now.
-
-changes since v2:
-- add patch fixing the c.jalr funct4 value
-- reword some commit messages
-- fix position of auipc addition patch (earlier)
-- fix compile errors from patch-reordering gone wrong
-  (worked at the end of v2, but compiling individual patches
-   caused issues) - patches are now tested individually
-- limit Zbb variants for GNU as for now
-  (LLVM support for .option arch is still under review)
-- prevent str-functions from getting optimized to builtin-variants
-
-changes since v1:
-- a number of generalizations/cleanups for instruction parsing
-- use accessor function to access instructions (Emil)
-- actually patch the correct location when having more than one
-  instruction in an alternative block
-- string function cleanups (comments etc) (Conor)
-- move zbb extension above s* extensions in cpu.c lists
-
-changes since rfc:
-- make Zbb code actually work
-- drop some unneeded patches
-- a lot of cleanups
-
-Heiko Stuebner (14):
-  RISC-V: fix funct4 definition for c.jalr in parse_asm.h
-  RISC-V: add prefix to all constants/macros in parse_asm.h
-  RISC-V: detach funct-values from their offset
-  RISC-V: add ebreak instructions to definitions
-  RISC-V: add auipc elements to parse_asm header
-  RISC-V: Move riscv_insn_is_* macros into a common header
-  RISC-V: rename parse_asm.h to insn.h
-  RISC-V: kprobes: use central defined funct3 constants
-  RISC-V: add U-type imm parsing to insn.h header
-  RISC-V: add rd reg parsing to insn.h header
-  RISC-V: fix auipc-jalr addresses in patched alternatives
-  efi/riscv: libstub: mark when compiling libstub
-  RISC-V: add infrastructure to allow different str* implementations
-  RISC-V: add zbb support to string functions
-
- arch/riscv/Kconfig                       |  24 ++
- arch/riscv/Makefile                      |   3 +
- arch/riscv/include/asm/alternative.h     |   3 +
- arch/riscv/include/asm/errata_list.h     |   3 +-
- arch/riscv/include/asm/hwcap.h           |   1 +
- arch/riscv/include/asm/insn.h            | 292 +++++++++++++++++++++++
- arch/riscv/include/asm/parse_asm.h       | 219 -----------------
- arch/riscv/include/asm/string.h          |  83 +++++++
- arch/riscv/kernel/alternative.c          |  72 ++++++
- arch/riscv/kernel/cpu.c                  |   1 +
- arch/riscv/kernel/cpufeature.c           |  29 ++-
- arch/riscv/kernel/image-vars.h           |   6 +-
- arch/riscv/kernel/kgdb.c                 |  63 ++---
- arch/riscv/kernel/probes/simulate-insn.c |  19 +-
- arch/riscv/kernel/probes/simulate-insn.h |  26 +-
- arch/riscv/lib/Makefile                  |   6 +
- arch/riscv/lib/strcmp.S                  |  38 +++
- arch/riscv/lib/strcmp_zbb.S              |  96 ++++++++
- arch/riscv/lib/strlen.S                  |  29 +++
- arch/riscv/lib/strlen_zbb.S              | 115 +++++++++
- arch/riscv/lib/strncmp.S                 |  41 ++++
- arch/riscv/lib/strncmp_zbb.S             | 112 +++++++++
- drivers/firmware/efi/libstub/Makefile    |   2 +-
- 23 files changed, 982 insertions(+), 301 deletions(-)
- create mode 100644 arch/riscv/include/asm/insn.h
- delete mode 100644 arch/riscv/include/asm/parse_asm.h
- create mode 100644 arch/riscv/lib/strcmp.S
- create mode 100644 arch/riscv/lib/strcmp_zbb.S
- create mode 100644 arch/riscv/lib/strlen.S
- create mode 100644 arch/riscv/lib/strlen_zbb.S
- create mode 100644 arch/riscv/lib/strncmp.S
- create mode 100644 arch/riscv/lib/strncmp_zbb.S
-
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+index 28742eb19034..50c899cf4de5 100644
+--- a/arch/riscv/include/asm/parse_asm.h
++++ b/arch/riscv/include/asm/parse_asm.h
+@@ -193,13 +193,41 @@
+ #define __INSN_OPCODE_MASK	_UL(0x7F)
+ #define __INSN_BRANCH_OPCODE	_UL(RVG_OPCODE_BRANCH)
+ 
+-/* Define a series of is_XXX_insn functions to check if the value INSN
+- * is an instance of instruction XXX.
+- */
+-#define DECLARE_INSN(INSN_NAME, INSN_MATCH, INSN_MASK) \
+-static inline bool is_ ## INSN_NAME ## _insn(long insn) \
+-{ \
+-	return (insn & (INSN_MASK)) == (INSN_MATCH); \
++#define __RISCV_INSN_FUNCS(name, mask, val)				\
++static __always_inline bool riscv_insn_is_##name(u32 code)		\
++{									\
++	BUILD_BUG_ON(~(mask) & (val));					\
++	return (code & (mask)) == (val);				\
++}									\
++
++#if __riscv_xlen == 32
++/* C.JAL is an RV32C-only instruction */
++__RISCV_INSN_FUNCS(c_jal, RVC_MASK_C_JAL, RVC_MATCH_C_JAL)
++#else
++#define riscv_insn_is_c_jal(opcode) 0
++#endif
++__RISCV_INSN_FUNCS(auipc, RVG_MASK_AUIPC, RVG_MATCH_AUIPC)
++__RISCV_INSN_FUNCS(jalr, RVG_MASK_JALR, RVG_MATCH_JALR)
++__RISCV_INSN_FUNCS(jal, RVG_MASK_JAL, RVG_MATCH_JAL)
++__RISCV_INSN_FUNCS(c_jr, RVC_MASK_C_JR, RVC_MATCH_C_JR)
++__RISCV_INSN_FUNCS(c_jalr, RVC_MASK_C_JALR, RVC_MATCH_C_JALR)
++__RISCV_INSN_FUNCS(c_j, RVC_MASK_C_J, RVC_MATCH_C_J)
++__RISCV_INSN_FUNCS(beq, RVG_MASK_BEQ, RVG_MATCH_BEQ)
++__RISCV_INSN_FUNCS(bne, RVG_MASK_BNE, RVG_MATCH_BNE)
++__RISCV_INSN_FUNCS(blt, RVG_MASK_BLT, RVG_MATCH_BLT)
++__RISCV_INSN_FUNCS(bge, RVG_MASK_BGE, RVG_MATCH_BGE)
++__RISCV_INSN_FUNCS(bltu, RVG_MASK_BLTU, RVG_MATCH_BLTU)
++__RISCV_INSN_FUNCS(bgeu, RVG_MASK_BGEU, RVG_MATCH_BGEU)
++__RISCV_INSN_FUNCS(c_beqz, RVC_MASK_C_BEQZ, RVC_MATCH_C_BEQZ)
++__RISCV_INSN_FUNCS(c_bnez, RVC_MASK_C_BNEZ, RVC_MATCH_C_BNEZ)
++__RISCV_INSN_FUNCS(c_ebreak, RVC_MASK_C_EBREAK, RVC_MATCH_C_EBREAK)
++__RISCV_INSN_FUNCS(ebreak, RVG_MASK_EBREAK, RVG_MATCH_EBREAK)
++__RISCV_INSN_FUNCS(sret, RVG_MASK_SRET, RVG_MATCH_SRET)
++
++/* special case to catch _any_ branch instruction */
++static __always_inline bool riscv_insn_is_branch(u32 code)
++{
++	return (code & RV_INSN_OPCODE_MASK) == RVG_OPCODE_BRANCH;
+ }
+ 
+ #define RV_IMM_SIGN(x) (-(((x) >> 31) & 1))
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 137c6d870d58..61237aeb493c 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -23,27 +23,6 @@ enum {
+ static unsigned long stepped_address;
+ static unsigned int stepped_opcode;
+ 
+-#if __riscv_xlen == 32
+-/* C.JAL is an RV32C-only instruction */
+-DECLARE_INSN(c_jal, MATCH_C_JAL, MASK_C_JAL)
+-#else
+-#define is_c_jal_insn(opcode) 0
+-#endif
+-DECLARE_INSN(jalr, RVG_MATCH_JALR, RVG_MASK_JALR)
+-DECLARE_INSN(jal, RVG_MATCH_JAL, RVG_MASK_JAL)
+-DECLARE_INSN(c_jr, RVC_MATCH_C_JR, RVC_MASK_C_JR)
+-DECLARE_INSN(c_jalr, RVC_MATCH_C_JALR, RVC_MASK_C_JALR)
+-DECLARE_INSN(c_j, RVC_MATCH_C_J, RVC_MASK_C_J)
+-DECLARE_INSN(beq, RVG_MATCH_BEQ, RVG_MASK_BEQ)
+-DECLARE_INSN(bne, RVG_MATCH_BNE, RVG_MASK_BNE)
+-DECLARE_INSN(blt, RVG_MATCH_BLT, RVG_MASK_BLT)
+-DECLARE_INSN(bge, RVG_MATCH_BGE, RVG_MASK_BGE)
+-DECLARE_INSN(bltu, RVG_MATCH_BLTU, RVG_MASK_BLTU)
+-DECLARE_INSN(bgeu, RVG_MATCH_BGEU, RVG_MASK_BGEU)
+-DECLARE_INSN(c_beqz, RVC_MATCH_C_BEQZ, RVC_MASK_C_BEQZ)
+-DECLARE_INSN(c_bnez, RVC_MATCH_C_BNEZ, RVC_MASK_C_BNEZ)
+-DECLARE_INSN(sret, RVG_MATCH_SRET, RVG_MASK_SRET)
+-
+ static int decode_register_index(unsigned long opcode, int offset)
+ {
+ 	return (opcode >> offset) & 0x1F;
+@@ -65,19 +44,21 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 	if (get_kernel_nofault(op_code, (void *)pc))
+ 		return -EINVAL;
+ 	if ((op_code & __INSN_LENGTH_MASK) != __INSN_LENGTH_GE_32) {
+-		if (is_c_jalr_insn(op_code) || is_c_jr_insn(op_code)) {
++		if (riscv_insn_is_c_jalr(op_code) ||
++		    riscv_insn_is_c_jr(op_code)) {
+ 			rs1_num = decode_register_index(op_code, RVC_C2_RS1_OPOFF);
+ 			*next_addr = regs_ptr[rs1_num];
+-		} else if (is_c_j_insn(op_code) || is_c_jal_insn(op_code)) {
++		} else if (riscv_insn_is_c_j(op_code) ||
++			   riscv_insn_is_c_jal(op_code)) {
+ 			*next_addr = RVC_EXTRACT_JTYPE_IMM(op_code) + pc;
+-		} else if (is_c_beqz_insn(op_code)) {
++		} else if (riscv_insn_is_c_beqz(op_code)) {
+ 			rs1_num = decode_register_index_short(op_code,
+ 							      RVC_C1_RS1_OPOFF);
+ 			if (!rs1_num || regs_ptr[rs1_num] == 0)
+ 				*next_addr = RVC_EXTRACT_BTYPE_IMM(op_code) + pc;
+ 			else
+ 				*next_addr = pc + 2;
+-		} else if (is_c_bnez_insn(op_code)) {
++		} else if (riscv_insn_is_c_bnez(op_code)) {
+ 			rs1_num =
+ 			    decode_register_index_short(op_code, RVC_C1_RS1_OPOFF);
+ 			if (rs1_num && regs_ptr[rs1_num] != 0)
+@@ -100,34 +81,34 @@ static int get_step_address(struct pt_regs *regs, unsigned long *next_addr)
+ 			if (rs2_num)
+ 				rs2_val = regs_ptr[rs2_num];
+ 
+-			if (is_beq_insn(op_code))
++			if (riscv_insn_is_beq(op_code))
+ 				result = (rs1_val == rs2_val) ? true : false;
+-			else if (is_bne_insn(op_code))
++			else if (riscv_insn_is_bne(op_code))
+ 				result = (rs1_val != rs2_val) ? true : false;
+-			else if (is_blt_insn(op_code))
++			else if (riscv_insn_is_blt(op_code))
+ 				result =
+ 				    ((long)rs1_val <
+ 				     (long)rs2_val) ? true : false;
+-			else if (is_bge_insn(op_code))
++			else if (riscv_insn_is_bge(op_code))
+ 				result =
+ 				    ((long)rs1_val >=
+ 				     (long)rs2_val) ? true : false;
+-			else if (is_bltu_insn(op_code))
++			else if (riscv_insn_is_bltu(op_code))
+ 				result = (rs1_val < rs2_val) ? true : false;
+-			else if (is_bgeu_insn(op_code))
++			else if (riscv_insn_is_bgeu(op_code))
+ 				result = (rs1_val >= rs2_val) ? true : false;
+ 			if (result)
+ 				*next_addr = imm + pc;
+ 			else
+ 				*next_addr = pc + 4;
+-		} else if (is_jal_insn(op_code)) {
++		} else if (riscv_insn_is_jal(op_code)) {
+ 			*next_addr = RV_EXTRACT_JTYPE_IMM(op_code) + pc;
+-		} else if (is_jalr_insn(op_code)) {
++		} else if (riscv_insn_is_jalr(op_code)) {
+ 			rs1_num = decode_register_index(op_code, RVG_RS1_OPOFF);
+ 			if (rs1_num)
+ 				*next_addr = ((unsigned long *)regs)[rs1_num];
+ 			*next_addr += RV_EXTRACT_ITYPE_IMM(op_code);
+-		} else if (is_sret_insn(op_code)) {
++		} else if (riscv_insn_is_sret(op_code)) {
+ 			*next_addr = pc;
+ 		} else {
+ 			*next_addr = pc + 4;
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index cb6ff7dccb92..29fb16cd335c 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -3,14 +3,7 @@
+ #ifndef _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
+ #define _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
+ 
+-#define __RISCV_INSN_FUNCS(name, mask, val)				\
+-static __always_inline bool riscv_insn_is_##name(probe_opcode_t code)	\
+-{									\
+-	BUILD_BUG_ON(~(mask) & (val));					\
+-	return (code & (mask)) == (val);				\
+-}									\
+-bool simulate_##name(u32 opcode, unsigned long addr,			\
+-		     struct pt_regs *regs)
++#include <asm/parse_asm.h>
+ 
+ #define RISCV_INSN_REJECTED(name, code)					\
+ 	do {								\
+@@ -30,18 +23,9 @@ __RISCV_INSN_FUNCS(fence,	0x7f, 0x0f);
+ 		}							\
+ 	} while (0)
+ 
+-__RISCV_INSN_FUNCS(c_j,		0xe003, 0xa001);
+-__RISCV_INSN_FUNCS(c_jr,	0xf007, 0x8002);
+-__RISCV_INSN_FUNCS(c_jal,	0xe003, 0x2001);
+-__RISCV_INSN_FUNCS(c_jalr,	0xf007, 0x9002);
+-__RISCV_INSN_FUNCS(c_beqz,	0xe003, 0xc001);
+-__RISCV_INSN_FUNCS(c_bnez,	0xe003, 0xe001);
+-__RISCV_INSN_FUNCS(c_ebreak,	0xffff, 0x9002);
+-
+-__RISCV_INSN_FUNCS(auipc,	0x7f, 0x17);
+-__RISCV_INSN_FUNCS(branch,	0x7f, 0x63);
+-
+-__RISCV_INSN_FUNCS(jal,		0x7f, 0x6f);
+-__RISCV_INSN_FUNCS(jalr,	0x707f, 0x67);
++bool simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_jal(u32 opcode, unsigned long addr, struct pt_regs *regs);
++bool simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *regs);
+ 
+ #endif /* _RISCV_KERNEL_PROBES_SIMULATE_INSN_H */
 -- 
 2.35.1
 
