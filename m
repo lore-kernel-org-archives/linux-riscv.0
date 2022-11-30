@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A962C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C89C4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:23:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nuwwbnOETHZxwwwo5G1M9o9kw1bS2gKbwvQSbYcBKfE=; b=0ju0iduRJkDUWQ
-	kzXxvXa3BQS5lD7diC/7Sa0yrPxP/tSLNp+LihMQHRdhqbTCuqBIM6fkBBYJ1IIVpl825KlapE75f
-	7KjO1l9ohGpvW6XldtE3DDSR6W4zUVaBgdkyf4XFiDjbXDzRp/1Z1AtgY9AGyLZ3tdBNg4VP7R0xK
-	Num2rdP5AU94IMpeVi0m18RMp6aM2We5eoPWdZYGLrmKTV+9yJYW1CBxEz05LM1mmhpZLmwqXljYu
-	JMhur4A47i2QVpBrAYPpkeLwf6o8Dkbxa/Sf7WNiAdVaQaskJXKY6BZROM4TqCTGNU7xT2qShlVXh
-	2gTP181hJnZ4iH0ONuAg==;
+	List-Owner; bh=Z+9EVxJh3OknOCaM6yY/12NpVF33Qshgvy9DRxmQjVk=; b=xQQ5FRaAc6m5xc
+	0KrOMBVtWn4esYzHjS8n7Ei6zXKaXWOVqgluLzU8rqFAtv0cVfWDRJybACFxqvrxiFEa6/TVm7BTV
+	IxzkhURvJPtYwavzQZlWWymvRb7bctu20M97Ep1dey9KZyCLV83vfRnw+TbPWj4uiAzmo5nvFpOrU
+	H6aiQ53Dp4npfQT1WDmSJO5UB2k4dw80xntcSaUolQiM35iyGEMp0I5o1CZnVgvZ1v1HKCZCzVFC3
+	15/c8K59D/TVnIT3+yEOPy3qZtIoX0dJrxPpmzfThTiq7Ia4ttO/s2LnLdW1LYe6EnoA7wiaw6odU
+	o2LwfxH3T/GAVIbBALOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WQ3-003CCp-VB; Wed, 30 Nov 2022 23:23:12 +0000
-Received: from mail-qt1-x849.google.com ([2607:f8b0:4864:20::849])
+	id 1p0WQT-003CO8-Tg; Wed, 30 Nov 2022 23:23:38 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WIu-00395L-Po
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:15:56 +0000
-Received: by mail-qt1-x849.google.com with SMTP id s14-20020a05622a1a8e00b00397eacd9c1aso32572827qtc.21
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:15:44 -0800 (PST)
+	id 1p0WJM-0039Km-53
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:16:17 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-3bd1ff8fadfso134948867b3.18
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:16:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=DDPlKttPz95bIPigIbsZnvNedazYOn7GaaeDonhS6tI=;
-        b=Z6nLxfTzgTUuiwpAG8cvYQa+dN+u8gdYDmvalMupYvTiyNB08ya32PPN3JMi5MQ+zn
-         CKFON4bHGY9uO+OU5rvKypZLm5hBqJSLnUUDK1HFwnV5UgI7QftrXIwrcqqGD/J7JfqE
-         CFBmidj59C7V6og88vcOwpoym4GNhD2bRgcqaNBUXoe/misowqQibWZd3vr8QsfUhhwX
-         i4uWK4yeRp3DB4lRFiuIJyrUfchRtOmsamHvLHwY72jxQuWnDEt5quvvWruAYj+4E7Dq
-         3qk+oHrWcenEcx4E4wlD8i3c5crP7WSMTS/kUAiUvOcd3cx88naWVp5yOAiefRxYVySU
-         2z9A==
+        bh=Ajf/v6plBmBpvMRb25eu7yZbuYHVVa1MLg3BBW1ApnM=;
+        b=Q7q/5TXzNDPohOMoxUDiD0nnqEk1FoSW4RF/EEt8HMYjM52gPxj46PgYF/68/eUC70
+         R52IpECaCvp222vr9xTL7j44GbL8VsDvPS5HArvcL4xJanWkN6UNBVlmOIcOzEnjqYoe
+         h8mvG1+Ri644iv9eVrF8AA62rM3of5sqQn2h8l1NJ4Hp9LBXQlFjVGfCJ0M8iuidAG/g
+         r3QoWBzS8+6cQpNc7qHKOescERK5wH+DxZ5oURQjRLgPy9Nq0G8eKIEZQN5DdxTswpJO
+         dO7YdMWEfCe6tuDQ8/4qvPOOW5vLDHcu9lY8BtQx5KXbThVrpdnPftQhmMi0Ij7DKBRT
+         iKQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DDPlKttPz95bIPigIbsZnvNedazYOn7GaaeDonhS6tI=;
-        b=vzsY4BxN90cxMZqNwr9gNvR1BV2fS0BLqLpkVFN5ik2ADqGlzFjaTz3vMQ2W6sYJ/8
-         Cb6zyFa81Vt8XezkjvaGeAYmewo7/kKJBgEuCn8/RF93L+MaZk7eevoH2z7sPC9FCh4b
-         tW2I8Pb60CMjasiE1x4/AINox4mGaw23zFFmIyj7LEPE9KjREHcrVfcGiKtb9VagtlJU
-         J0fsg7/Bx7qLCfKTpVF7RzCBTtokI71YaahUs35Ub7K3x/+YtH4RQZjbgr/JCFzcFxfa
-         mFO2Oa8mQeR35L2/3m6dQMJPjpOdR1oHISKXnj8mMrsj8LJvaLRRRdolIHcvryr/BovD
-         bQtQ==
-X-Gm-Message-State: ANoB5pkk+es+b/GNi/7Ymgzd3kzKRrhPtQVLj8b3fytQiIl6958glL5G
-	WT4xdt0RIlPIiLqSTOS1sKEs86KYibU=
-X-Google-Smtp-Source: AA0mqf5zruXq4Znt6GWyW9YI72qBn8AYfe7bpB45wh6N7oxAIVQAewpSb0tYUlF1SUbzH3yBDOmCkMMzIcM=
+        bh=Ajf/v6plBmBpvMRb25eu7yZbuYHVVa1MLg3BBW1ApnM=;
+        b=OvCIXb6qdczUliUBqDxW1shqA7y335LfpITe1LOWPpq8v24kzvnXSp8HxeYMMYctvY
+         1TvmlRXHjh0de8YCzOygjXMw1Rix0z3dKSWHMthyl1TazjDWiNZAJYcio3MxfZ7+8+Xt
+         RCN0GTYtZp+n5usaTbvAkoRoomMLavm6AnI6xICPcqrIbFBW3tc6iM9IYa+lFzRDljJd
+         Bo42931NPDc2YonzXkp0erxVfSeJuJq6VRH7W9pMTuRhnPHHj50hBXNjYiy5bne233jd
+         paJQRPCAn3Djy7sO7ysnyQP9mEdOqG+rHgqLi4ZKhWnY8fkuyikxg9H+I3lJyMIiS8tY
+         UIfw==
+X-Gm-Message-State: ANoB5pkoysvHfM94/Mkf6aHrN3SvaxbmV8TqC1KRl+4vU1kXn6pXJ7KC
+	gpgsmiUoCNmJT+KfiAAW2PpZKJ0vCu8=
+X-Google-Smtp-Source: AA0mqf6Y4D7Qf+J2WKP5H4v6O2gU4VSt61bmL1SListQ4TvwmtEqTFXL/Zt8AS/4xR6esIpeSKRCzrkbQ9o=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:b691:b0:17e:fb19:63ba with SMTP id
- c17-20020a170902b69100b0017efb1963bamr47034838pls.160.1669849802860; Wed, 30
- Nov 2022 15:10:02 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:08:59 +0000
+ (user=seanjc job=sendgmr) by 2002:a25:8401:0:b0:6f1:4590:92b9 with SMTP id
+ u1-20020a258401000000b006f1459092b9mr33613349ybk.430.1669849822483; Wed, 30
+ Nov 2022 15:10:22 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:09:10 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-16-seanjc@google.com>
-Subject: [PATCH v2 15/50] KVM: x86: Serialize vendor module initialization
- (hardware setup)
+Message-ID: <20221130230934.1014142-27-seanjc@google.com>
+Subject: [PATCH v2 26/50] KVM: PPC: Move processor compatibility check to
+ module init
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -88,8 +88,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_151548_860229_96B0C0CC 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20221130_151616_220944_A07D1A05 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,174 +107,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Acquire a new mutex, vendor_module_lock, in kvm_x86_vendor_init() while
-doing hardware setup to ensure that concurrent calls are fully serialized.
-KVM rejects attempts to load vendor modules if a different module has
-already been loaded, but doesn't handle the case where multiple vendor
-modules are loaded at the same time, and module_init() doesn't run under
-the global module_mutex.
+Move KVM PPC's compatibility checks to their respective module_init()
+hooks, there's no need to wait until KVM's common compat check, nor is
+there a need to perform the check on every CPU (provided by common KVM's
+hook), as the compatibility checks operate on global data.
 
-Note, in practice, this is likely a benign bug as no platform exists that
-supports both SVM and VMX, i.e. barring a weird VM setup, one of the
-vendor modules is guaranteed to fail a support check before modifying
-common KVM state.
+  arch/powerpc/include/asm/cputable.h: extern struct cpu_spec *cur_cpu_spec;
+  arch/powerpc/kvm/book3s.c: return 0
+  arch/powerpc/kvm/e500.c: strcmp(cur_cpu_spec->cpu_name, "e500v2")
+  arch/powerpc/kvm/e500mc.c: strcmp(cur_cpu_spec->cpu_name, "e500mc")
+                             strcmp(cur_cpu_spec->cpu_name, "e5500")
+                             strcmp(cur_cpu_spec->cpu_name, "e6500")
 
-Alternatively, KVM could perform an atomic CMPXCHG on .hardware_enable,
-but that comes with its own ugliness as it would require setting
-.hardware_enable before success is guaranteed, e.g. attempting to load
-the "wrong" could result in spurious failure to load the "right" module.
-
-Introduce a new mutex as using kvm_lock is extremely deadlock prone due
-to kvm_lock being taken under cpus_write_lock(), and in the future, under
-under cpus_read_lock().  Any operation that takes cpus_read_lock() while
-holding kvm_lock would potentially deadlock, e.g. kvm_timer_init() takes
-cpus_read_lock() to register a callback.  In theory, KVM could avoid
-such problematic paths, i.e. do less setup under kvm_lock, but avoiding
-all calls to cpus_read_lock() is subtly difficult and thus fragile.  E.g.
-updating static calls also acquires cpus_read_lock().
-
-Inverting the lock ordering, i.e. always taking kvm_lock outside
-cpus_read_lock(), is not a viable option as kvm_lock is taken in various
-callbacks that may be invoked under cpus_read_lock(), e.g. x86's
-kvmclock_cpufreq_notifier().
-
-The lockdep splat below is dependent on future patches to take
-cpus_read_lock() in hardware_enable_all(), but as above, deadlock is
-already is already possible.
-
-  ======================================================
-  WARNING: possible circular locking dependency detected
-  6.0.0-smp--7ec93244f194-init2 #27 Tainted: G           O
-  ------------------------------------------------------
-  stable/251833 is trying to acquire lock:
-  ffffffffc097ea28 (kvm_lock){+.+.}-{3:3}, at: hardware_enable_all+0x1f/0xc0 [kvm]
-
-               but task is already holding lock:
-  ffffffffa2456828 (cpu_hotplug_lock){++++}-{0:0}, at: hardware_enable_all+0xf/0xc0 [kvm]
-
-               which lock already depends on the new lock.
-
-               the existing dependency chain (in reverse order) is:
-
-               -> #1 (cpu_hotplug_lock){++++}-{0:0}:
-         cpus_read_lock+0x2a/0xa0
-         __cpuhp_setup_state+0x2b/0x60
-         __kvm_x86_vendor_init+0x16a/0x1870 [kvm]
-         kvm_x86_vendor_init+0x23/0x40 [kvm]
-         0xffffffffc0a4d02b
-         do_one_initcall+0x110/0x200
-         do_init_module+0x4f/0x250
-         load_module+0x1730/0x18f0
-         __se_sys_finit_module+0xca/0x100
-         __x64_sys_finit_module+0x1d/0x20
-         do_syscall_64+0x3d/0x80
-         entry_SYSCALL_64_after_hwframe+0x63/0xcd
-
-               -> #0 (kvm_lock){+.+.}-{3:3}:
-         __lock_acquire+0x16f4/0x30d0
-         lock_acquire+0xb2/0x190
-         __mutex_lock+0x98/0x6f0
-         mutex_lock_nested+0x1b/0x20
-         hardware_enable_all+0x1f/0xc0 [kvm]
-         kvm_dev_ioctl+0x45e/0x930 [kvm]
-         __se_sys_ioctl+0x77/0xc0
-         __x64_sys_ioctl+0x1d/0x20
-         do_syscall_64+0x3d/0x80
-         entry_SYSCALL_64_after_hwframe+0x63/0xcd
-
-               other info that might help us debug this:
-
-   Possible unsafe locking scenario:
-
-         CPU0                    CPU1
-         ----                    ----
-    lock(cpu_hotplug_lock);
-                                 lock(kvm_lock);
-                                 lock(cpu_hotplug_lock);
-    lock(kvm_lock);
-
-                *** DEADLOCK ***
-
-  1 lock held by stable/251833:
-   #0: ffffffffa2456828 (cpu_hotplug_lock){++++}-{0:0}, at: hardware_enable_all+0xf/0xc0 [kvm]
-
+Cc: Fabiano Rosas <farosas@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- Documentation/virt/kvm/locking.rst |  6 ++++++
- arch/x86/kvm/x86.c                 | 18 ++++++++++++++++--
- 2 files changed, 22 insertions(+), 2 deletions(-)
+ arch/powerpc/include/asm/kvm_ppc.h |  1 -
+ arch/powerpc/kvm/book3s.c          | 10 ----------
+ arch/powerpc/kvm/e500.c            |  4 ++--
+ arch/powerpc/kvm/e500mc.c          |  4 ++++
+ arch/powerpc/kvm/powerpc.c         |  2 +-
+ 5 files changed, 7 insertions(+), 14 deletions(-)
 
-diff --git a/Documentation/virt/kvm/locking.rst b/Documentation/virt/kvm/locking.rst
-index 845a561629f1..132a9e5436e5 100644
---- a/Documentation/virt/kvm/locking.rst
-+++ b/Documentation/virt/kvm/locking.rst
-@@ -282,3 +282,9 @@ time it will be set using the Dirty tracking mechanism described above.
- 		wakeup notification event since external interrupts from the
- 		assigned devices happens, we will find the vCPU on the list to
- 		wakeup.
-+
-+``vendor_module_lock``
-+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-+:Type:		mutex
-+:Arch:		x86
-+:Protects:	loading a vendor module (kvm_amd or kvm_intel)
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index b33932fca36e..45184ca89317 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -128,6 +128,7 @@ static int kvm_vcpu_do_singlestep(struct kvm_vcpu *vcpu);
- static int __set_sregs2(struct kvm_vcpu *vcpu, struct kvm_sregs2 *sregs2);
- static void __get_sregs2(struct kvm_vcpu *vcpu, struct kvm_sregs2 *sregs2);
+diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+index bfacf12784dd..51a1824b0a16 100644
+--- a/arch/powerpc/include/asm/kvm_ppc.h
++++ b/arch/powerpc/include/asm/kvm_ppc.h
+@@ -118,7 +118,6 @@ extern int kvmppc_xlate(struct kvm_vcpu *vcpu, ulong eaddr,
+ extern int kvmppc_core_vcpu_create(struct kvm_vcpu *vcpu);
+ extern void kvmppc_core_vcpu_free(struct kvm_vcpu *vcpu);
+ extern int kvmppc_core_vcpu_setup(struct kvm_vcpu *vcpu);
+-extern int kvmppc_core_check_processor_compat(void);
+ extern int kvmppc_core_vcpu_translate(struct kvm_vcpu *vcpu,
+                                       struct kvm_translation *tr);
  
-+static DEFINE_MUTEX(vendor_module_lock);
- struct kvm_x86_ops kvm_x86_ops __read_mostly;
- 
- #define KVM_X86_OP(func)					     \
-@@ -9286,7 +9287,7 @@ void kvm_arch_exit(void)
- 
+diff --git a/arch/powerpc/kvm/book3s.c b/arch/powerpc/kvm/book3s.c
+index 6d525285dbe8..87283a0e33d8 100644
+--- a/arch/powerpc/kvm/book3s.c
++++ b/arch/powerpc/kvm/book3s.c
+@@ -999,16 +999,6 @@ int kvmppc_h_logical_ci_store(struct kvm_vcpu *vcpu)
  }
+ EXPORT_SYMBOL_GPL(kvmppc_h_logical_ci_store);
  
--int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
-+static int __kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+-int kvmppc_core_check_processor_compat(void)
+-{
+-	/*
+-	 * We always return 0 for book3s. We check
+-	 * for compatibility while loading the HV
+-	 * or PR module
+-	 */
+-	return 0;
+-}
+-
+ int kvmppc_book3s_hcall_implemented(struct kvm *kvm, unsigned long hcall)
  {
- 	u64 host_pat;
+ 	return kvm->arch.kvm_ops->hcall_implemented(hcall);
+diff --git a/arch/powerpc/kvm/e500.c b/arch/powerpc/kvm/e500.c
+index c8b2b4478545..0ea61190ec04 100644
+--- a/arch/powerpc/kvm/e500.c
++++ b/arch/powerpc/kvm/e500.c
+@@ -314,7 +314,7 @@ static void kvmppc_core_vcpu_put_e500(struct kvm_vcpu *vcpu)
+ 	kvmppc_booke_vcpu_put(vcpu);
+ }
+ 
+-int kvmppc_core_check_processor_compat(void)
++static int kvmppc_e500_check_processor_compat(void)
+ {
  	int r;
-@@ -9419,6 +9420,17 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
- 	kmem_cache_destroy(x86_emulator_cache);
- 	return r;
- }
-+
-+int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
-+{
-+	int r;
-+
-+	mutex_lock(&vendor_module_lock);
-+	r = __kvm_x86_vendor_init(ops);
-+	mutex_unlock(&vendor_module_lock);
-+
-+	return r;
-+}
- EXPORT_SYMBOL_GPL(kvm_x86_vendor_init);
  
- void kvm_x86_vendor_exit(void)
-@@ -9441,7 +9453,6 @@ void kvm_x86_vendor_exit(void)
- 	cancel_work_sync(&pvclock_gtod_work);
- #endif
- 	static_call(kvm_x86_hardware_unsetup)();
--	kvm_x86_ops.hardware_enable = NULL;
- 	kvm_mmu_vendor_module_exit();
- 	free_percpu(user_return_msrs);
- 	kmem_cache_destroy(x86_emulator_cache);
-@@ -9449,6 +9460,9 @@ void kvm_x86_vendor_exit(void)
- 	static_key_deferred_flush(&kvm_xen_enabled);
- 	WARN_ON(static_branch_unlikely(&kvm_xen_enabled.key));
- #endif
-+	mutex_lock(&vendor_module_lock);
-+	kvm_x86_ops.hardware_enable = NULL;
-+	mutex_unlock(&vendor_module_lock);
- }
- EXPORT_SYMBOL_GPL(kvm_x86_vendor_exit);
+@@ -507,7 +507,7 @@ static int __init kvmppc_e500_init(void)
+ 	unsigned long handler_len;
+ 	unsigned long max_ivor = 0;
  
+-	r = kvmppc_core_check_processor_compat();
++	r = kvmppc_e500_check_processor_compat();
+ 	if (r)
+ 		goto err_out;
+ 
+diff --git a/arch/powerpc/kvm/e500mc.c b/arch/powerpc/kvm/e500mc.c
+index 57e0ad6a2ca3..795667f7ebf0 100644
+--- a/arch/powerpc/kvm/e500mc.c
++++ b/arch/powerpc/kvm/e500mc.c
+@@ -388,6 +388,10 @@ static int __init kvmppc_e500mc_init(void)
+ {
+ 	int r;
+ 
++	r = kvmppc_e500mc_check_processor_compat();
++	if (r)
++		return kvmppc_e500mc;
++
+ 	r = kvmppc_booke_init();
+ 	if (r)
+ 		goto err_out;
+diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
+index 5faf69421f13..d44b85ba8cef 100644
+--- a/arch/powerpc/kvm/powerpc.c
++++ b/arch/powerpc/kvm/powerpc.c
+@@ -442,7 +442,7 @@ int kvm_arch_hardware_enable(void)
+ 
+ int kvm_arch_check_processor_compat(void *opaque)
+ {
+-	return kvmppc_core_check_processor_compat();
++	return 0;
+ }
+ 
+ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
 -- 
 2.38.1.584.g0f3c55d4c2-goog
 
