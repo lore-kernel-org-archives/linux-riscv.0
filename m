@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D521CC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC80DC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1CsXWp7wxyMCBc65n7vYIRqq6BKqhVFMwOw7ws6VsQg=; b=D+APgF9WtkJixQ
-	uY0/ziM2PlMhkjBiEAhtKGp0wT2hcvSekvOFcBg+9Q2wRoqSdfOz6ZTdZls7cwm8cPgsdF+RvPyhQ
-	x21/CZR4nV1X1A0wUe3cJ4J4DJyy99tdA5WWjEL3eSWrCrGguf3LCmN/jsXAZVty/6PdkRf/VH8FE
-	q0z7txw5QCzheOgyS7a/V4NMi3DmOXHP8I34Qc4UiDt/v/5g6xeIwA4oUARgKZJW8a4TkncMQLEdO
-	8cadkL48xkqimpykZG5LbFsC0k1vPHZCP/N1DfpQcBRJNOJEzTVJzjudNtVfnRz1JGJYaQ5Ug6x6U
-	jnTE/WP/llACyo5XL4JQ==;
+	List-Owner; bh=CIm6NHKENXzfb9q35L4ooSg0NT/UPdil607wtdRpkos=; b=i6kEYZXt7l4DSe
+	ZNgOUXGnUS84YRtTLiXU/yyC+jIsdZT/z6vKal+m+U4jcLJm1Me2pm9SJFy4DxiJ4057e6MM1x4U7
+	uWaeRTBdLyDXm4tFz4DpYU5UVcHWA89DdfY+uJh7LyhriguaVaVfyNHzY5ynMGh1kK6aH3Rx4uQ9e
+	zdLxVcThAlULxJ/73tnrhcNFVhAmU0YGkUl/EU0C8JwoHN4J8xKMpiNWpmjB0Km0DO70Fm1QvbS9e
+	NOXEltA/h0RBWEDT5O0FL+NOIel9xyNjt77iBK7yVZYQ0LJnEEInu1OLuRnHNfLM15wFGhk1jVIuG
+	GRr69eLa3+JqbymCiUWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0LL9-00Fpvc-Es; Wed, 30 Nov 2022 11:33:23 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1p0LPw-00Frv0-AS; Wed, 30 Nov 2022 11:38:20 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0LL6-00FprC-30
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:33:22 +0000
-Received: by mail-ej1-x629.google.com with SMTP id td2so26489072ejc.5
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 03:33:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SRKVtL8Vnp/NjQ0+Ol1LbLwshz8jD/8ClYbnisG9Iiw=;
-        b=KYwJEzc7Stl9vu5Agrl6dD29YAvSP75W/Y1fhiwOjq5of3IMz4W67gBlvG+5wM2M0Y
-         rpSdPvx9nJfnc8W8GLIpTfwA8BxAxpuKW8VWtxR6+dRMJ/j9/0QWHP6fIpenA0gMe6Uy
-         rDGN85/XZDM0NEsd803oiIJR6tfjcJz7FhTQyQK44Kttr8EP9b8DN5EY/6yAR1xkzQNk
-         tgsouz4VvlVU3t3qgFt01Uc1NxnzwWKDEv7dHwHoP/bGm+4Z57MHkhXVjqenqLbwV2rV
-         C9hKkY3AzzksLQFpl0fGFety3WZN3EZ6WC9kvu9aB1wzEFMiUa2lWtpyvrWvWF24Zj15
-         VjmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SRKVtL8Vnp/NjQ0+Ol1LbLwshz8jD/8ClYbnisG9Iiw=;
-        b=7EnKewZNeReJ08u9a5dN0qWQj4RLlDgQCKD5kKQI9u23UbUtpmerCgyR7xdSzaV1+w
-         bPJlf3XcEvnj40HA6wOLkx2BlyS/PsRf9N8MjZr4+CvlPAxGmrr+7rBSK3bMJHaoBrCK
-         ISjCF8afwizZ+q1IqBQgNf13ROuuk+i288g9d2aw1LJigDoUD3KaMSA11ZfqKjeml9/k
-         nVU4u9NZvwqyySxWd7BPxj6MGTKyrx/hd+yruuhL6pw5pE80ColdTQWeJ0TdinDq7h8C
-         M8foks3fLuI+GerR9E748Ck/3H2PV3Yy9Zl4LZmbV9qiwTd8qup/catrBtORvnPn3A16
-         jLOw==
-X-Gm-Message-State: ANoB5plcA5U9D+GiviYYNK+rMp97EgK9TnD6GPv+TjQ/WQlMsCYmxfF6
-	0GoUmf4ndzqAYXn9Vm3hDtbPKA==
-X-Google-Smtp-Source: AA0mqf7BrqaWlqgvfuUMa9ZKkvdy9WUIYZxAHmSIaOlIiK8962ZK7NXJLTobzsVxxdE9HqwNvqGFJw==
-X-Received: by 2002:a17:907:a04c:b0:7c0:98e5:f886 with SMTP id gz12-20020a170907a04c00b007c098e5f886mr3172837ejc.516.1669807996440;
-        Wed, 30 Nov 2022 03:33:16 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id 10-20020a170906200a00b007ae243c3f05sm522915ejo.189.2022.11.30.03.33.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Nov 2022 03:33:16 -0800 (PST)
-Date: Wed, 30 Nov 2022 12:33:14 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor.Dooley@microchip.com
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, heiko@sntech.de,
-	apatel@ventanamicro.com, atishp@rivosinc.com
-Subject: Re: [PATCH v3 3/3] RISC-V: Ensure Zicbom has a valid block size
-Message-ID: <20221130113314.jagmoosmx5ktwt6t@kamzik>
-References: <20221129143447.49714-1-ajones@ventanamicro.com>
- <20221129143447.49714-4-ajones@ventanamicro.com>
- <Y4ZhT3R34cE35a0K@spud>
- <3c64b508-a629-0c34-1119-e854b1968a2f@microchip.com>
+	id 1p0LPt-00Frt6-SV
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:38:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7650BB81AEF;
+	Wed, 30 Nov 2022 11:38:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0CE6C433C1;
+	Wed, 30 Nov 2022 11:38:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669808294;
+	bh=5bEYlFEyZKCYZEyNNJPRBWYDQP0ERj+j46soRPrLxVs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=dYTi4FNxDiF0nqG0Fg2vbGzAGx/ebqcpdavkWjmErzAeMgb6Dl9RLE1jKWnI1fHGg
+	 Cvbxb6NbVUL239BT6qpgAZ1vIcICYUW2GKqpKsXiTVSvZWoB+toUy+MwLym5aVTWk7
+	 wFzDKjGt3rx/ZyVO/PlyPAhztE5YQ924dKxm2qz0RcvJN4CwXbwsSiYNFKoHcbUbhJ
+	 WXhetBwYCHdC+DdQH6qPtQ+FWgqhwscNcwT2TTo7O3nXoynM8kbTz4+q3rQtOrum4A
+	 coTd+zd4EXZC1Oi9jPc2ymUD3vWrIywn44pX9bnzUl3fGwGzmWTr2jMlLDhc6LHpi/
+	 f+Z4r4BZuJlVQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, bpf@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai
+ Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>, KP Singh
+ <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>, Hao Luo
+ <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Pu Lehui <pulehui@huawei.com>, Pu Lehui
+ <pulehui@huaweicloud.com>
+Subject: Re: [PATCH bpf] riscv, bpf: Emit fixed-length imm64 for
+ BPF_PSEUDO_FUNC
+In-Reply-To: <20221130033806.2967822-1-pulehui@huaweicloud.com>
+References: <20221130033806.2967822-1-pulehui@huaweicloud.com>
+Date: Wed, 30 Nov 2022 12:38:11 +0100
+Message-ID: <87h6yg1xlo.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3c64b508-a629-0c34-1119-e854b1968a2f@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_033320_158491_79A907E4 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20221130_033818_255324_DE453A28 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,104 +75,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 09:46:20AM +0000, Conor.Dooley@microchip.com wrote:
-> On 29/11/2022 19:45, Conor Dooley wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > Hey Drew,
-> > 
-> > On Tue, Nov 29, 2022 at 03:34:47PM +0100, Andrew Jones wrote:
-> >> When a DT puts zicbom in the isa string, but does not provide a block
-> >> size, ALT_CMO_OP() will attempt to do cache operations on address
-> >> zero since the start address will be ANDed with zero. We can't simply
-> >> BUG() in riscv_init_cbom_blocksize() when we fail to find a block
-> >> size because the failure will happen before logging works, leaving
-> >> users to scratch their heads as to why the boot hung. Instead, ensure
-> >> Zicbom is disabled and output an error which will hopefully alert
-> >> people that the DT needs to be fixed. While at it, add a check that
-> >> the block size is a power-of-2 too.
-> >>
-> >> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> >> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > 
-> > This seems to be failing on nommu :/ I've got host machines issues so I
-> > could not reproduce it for you lcoally and paste an actual log, but if
-> > you build rv64_nommu_virt_defconfig I think you should be able to
-> > reproduce.
-> 
-> The actual error is:
-> riscv64-unknown-linux-gnu-ld: arch/riscv/kernel/cpufeature.o: in function `.L0 ':
-> cpufeature.c:(.text.unlikely+0x8): undefined reference to `riscv_cbom_block_size'
-
-Thanks Conor,
-
-I'll try to get this fixed and send a v4 ASAP.
-
-drew
-
-> 
-> 
-> > 
-> > Thanks,
-> > Conor.
-> > 
-> >> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> >> ---
-> >>   arch/riscv/kernel/cpufeature.c | 13 +++++++++++++
-> >>   1 file changed, 13 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> >> index 220be7222129..93e45560af30 100644
-> >> --- a/arch/riscv/kernel/cpufeature.c
-> >> +++ b/arch/riscv/kernel/cpufeature.c
-> >> @@ -9,6 +9,7 @@
-> >>   #include <linux/bitmap.h>
-> >>   #include <linux/ctype.h>
-> >>   #include <linux/libfdt.h>
-> >> +#include <linux/log2.h>
-> >>   #include <linux/module.h>
-> >>   #include <linux/of.h>
-> >>   #include <asm/alternative.h>
-> >> @@ -70,6 +71,18 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
-> >>
-> >>   static bool riscv_isa_extension_check(int id)
-> >>   {
-> >> +     switch (id) {
-> >> +     case RISCV_ISA_EXT_ZICBOM:
-> >> +             if (!riscv_cbom_block_size) {
-> >> +                     pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
-> >> +                     return false;
-> >> +             } else if (!is_power_of_2(riscv_cbom_block_size)) {
-> >> +                     pr_err("cbom-block-size present, but is not a power-of-2\n");
-> >> +                     return false;
-> >> +             }
-> >> +             return true;
-> >> +     }
-> >> +
-> >>        return true;
-> >>   }
-> >>
-> >> --
-> >> 2.38.1
-> >>
-> >>
-> >> _______________________________________________
-> >> linux-riscv mailing list
-> >> linux-riscv@lists.infradead.org
-> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBGb3IgQlBGX1BTRVVET19GVU5DIGluc3RydWN0
+aW9uLCB2ZXJpZmllciB3aWxsIHJlZmlsbCBpbW0gd2l0aAo+IGNvcnJlY3QgYWRkcmVzc2VzIG9m
+IGJwZl9jYWxscyBhbmQgdGhlbiBydW4gbGFzdCBwYXNzIG9mIEpJVC4KPiBTaW5jZSB0aGUgZW1p
+dF9pbW0gb2YgUlY2NCBpcyB2YXJpYWJsZS1sZW5ndGgsIHdoaWNoIHdpbGwgZW1pdAo+IGFwcHJv
+cHJpYXRlIGxlbmd0aCBpbnN0cnVjdGlvbnMgYWNjb3Jyb2RpbmcgdG8gdGhlIGltbSwgaXQgbWF5
+Cj4gYnJva2UgY3R4LT5vZmZzZXQsIGFuZCBsZWFkIHRvIHVucHJlZGljdGFibGUgcHJvYmxlbSwg
+c3VjaCBhcwo+IGluYWNjdXJhdGUganVtcC4gU28gbGV0J3MgZml4IGl0IHdpdGggZml4ZWQtbGVu
+Z3RoIGltbTY0IGluc25zLgoKQWgsIG5pY2Ugb25lISBTbywgdGhlIHRoZSBpbnZhcmlhbnQgZG9l
+c24ndCBob2xkICh0aGUgaW1hZ2UgZ3JvdyBpbiB0aGUKbGFzdCBwYXNzKS4KCj4gRml4ZXM6IDY5
+YzA4N2JhNjIyNSAoImJwZjogQWRkIGJwZl9mb3JfZWFjaF9tYXBfZWxlbSgpIGhlbHBlciIpCgpU
+aGlzIGlzIG9kZD8gVGhpcyBjYW4ndCBiZSB0aGUgcmlnaHQgRml4ZXMtdGFnLi4uCgo+IFNpZ25l
+ZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4gLS0tCj4gIGFyY2gvcmlz
+Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMgfCAzMSArKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KystCj4gIDEgZmlsZSBjaGFuZ2VkLCAzMCBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4K
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyBiL2FyY2gvcmlz
+Y3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPiBpbmRleCBlYjk5ZGY0MWZhMzMuLmY5ODRkNWZhMDE0
+YiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXA2NC5jCj4gKysrIGIv
+YXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IEBAIC0xMzksNiArMTM5LDMwIEBAIHN0
+YXRpYyBib29sIGluX2F1aXBjX2phbHJfcmFuZ2UoczY0IHZhbCkKPiAgCQl2YWwgPCAoKDFMIDw8
+IDMxKSAtICgxTCA8PCAxMSkpOwo+ICB9Cj4gIAo+ICsvKiBFbWl0IGZpeGVkLWxlbmd0aCBpbnN0
+cnVjdGlvbnMgZm9yIDMyLWJpdCBpbW0gKi8KPiArc3RhdGljIHZvaWQgZW1pdF9maXhlZF9pbW0z
+Mih1OCByZCwgczMyIHZhbCwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gK3sKPiArCXMz
+MiB1cHBlciA9ICh2YWwgKyAoMVUgPDwgMTEpKSA+PiAxMjsKPiArCXMzMiBsb3dlciA9ICgodmFs
+ICYgMHhmZmYpIDw8IDIwKSA+PiAyMDsKPiArCj4gKwllbWl0KHJ2X2x1aShyZCwgdXBwZXIpLCBj
+dHgpOwo+ICsJZW1pdChydl9hZGRpKHJkLCByZCwgbG93ZXIpLCBjdHgpOwo+ICt9Cj4gKwo+ICsv
+KiBFbWl0IGZpeGVkLWxlbmd0aCBpbnN0cnVjdGlvbnMgZm9yIDY0LWJpdCBpbW0gKi8KPiArc3Rh
+dGljIHZvaWQgZW1pdF9maXhlZF9pbW02NCh1OCByZCwgczY0IHZhbCwgc3RydWN0IHJ2X2ppdF9j
+b250ZXh0ICpjdHgpCj4gK3sKPiArCS8qIENvbXBlbnNhdGlvbiBmb3Igc2lnbi1leHRlbnNpb24g
+b2YgcnZfYWRkaSAqLwo+ICsJczMyIGltbV9oaSA9ICh2YWwgKyAoMVUgPDwgMzEpKSA+PiAzMjsK
+PiArCXMzMiBpbW1fbG8gPSB2YWw7Cj4gKwo+ICsJZW1pdF9maXhlZF9pbW0zMihyZCwgaW1tX2hp
+LCBjdHgpOwo+ICsJZW1pdF9maXhlZF9pbW0zMihSVl9SRUdfVDEsIGltbV9sbywgY3R4KTsKPiAr
+CWVtaXQocnZfc2xsaShyZCwgcmQsIDMyKSwgY3R4KTsKPiArCWVtaXQocnZfYWRkKHJkLCByZCwg
+UlZfUkVHX1QxKSwgY3R4KTsKPiArfQoKSG1tLCB3aWxsIHRoaXMgcmVhbGx5IGJlIGZpeGVkPyBX
+ZSBjYW4gZW5kIHVwIHdpdGggY29tcHJlc3NlZAppbnN0cnVjdGlvbnMsIHdoaWNoIGNhbiB0aGVu
+IGJlIGEgbm9uLWNvbXByZXNzZWQgaW4gdGhlIGxhc3QgcGFzcywgYW5kCndlIGhhdmUgdGhlIHNh
+bWUgcHJvYmxlbT8KClRoZSByYW5nZSBvZiB2YWxpZCBhZGRyZXNzIGZvciBSVjY0IChzdjM5IHRv
+IHN2NTcpIGFyZQoweGZmZmZmZmZmMDAwMDAwMDAgdG8gMHhmZmZmZmZmZmZmZmZmZmZmLCBzbyBJ
+IHRoaW5rIHdlIGNhbiBkbyBiZXR0ZXIKdGhhbiA2IGluc24sIG5vPyBNeSBndXQgZmVlbGluZyAo
+SSBuZWVkIHRvIHRpbmtlciBhIGJpdCkgaXMgdGhhdCA0CnNob3VsZCBiZSBzdWZmaWNpZW50LgoK
+Tm90ZSB0aGF0IHdvcnN0IGNhc2UgZm9yIGEgaW1tNjQgbG9hZCBhcmUgOCBpbnN0cnVjdGlvbnMs
+IGJ1dCB0aGlzIGlzCm5vdCB0aGUgZ2VuZXJhbCBjYXNlLgoKCkJqw7ZybgoKX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
+aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
