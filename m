@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BDDC4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33797C47089
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9PPnkeQrDNFFTrFEcgv02tQ1lT3VrOCmc8scYoR5QrM=; b=FGKgJ5EDKOQhwV
-	vKylOhmYfM5GRRwhe6aoqORe119GnCsacMOROEqo4r3S3QDcmJ0Jh98HXx5AfgKGFKA8cjvxv11ye
-	a1uBcGFgeg7WyXvbaVw/FWW21kglI8GQxOE7COHvOtj8BAblR6vkwLxQ8eJFQzkv6O2Hotb33OBKE
-	WofJM8x0DSArfusOzGkmwd4kwwY5xWSNLQGzATfIWTaM8qas680HiBOmrsVItu+cIpyFFKjwUE3oE
-	VgoSW+dx5YRM/h0Y7N+Bh9QkE5Qbb26iO9r6dmZOupp3yr8nCzoVM29SLfJIKHYU9CpvENv17P7pa
-	ol7L8MXWffTUWGb2RDWg==;
+	List-Owner; bh=jgR0W9cH8mAFIZ8D/bvKI+JNQT3TXHF2ZgygVYcJEBM=; b=DeOcJFIZQq+8Nq
+	0a02/dCep35LdLa2/+Kb8A1QxjzS/rATXHIjPbjTLeA2uaXAPC8i4n/yn1JKbaomQEawyyNMrQHMY
+	zctQQk0XmVaxRsMHegpVlGhyLFwhDas3wR44Z7x0cXNVtnkbid6vkfLYcq1iGl+3C3MtHYVxs47kV
+	qoxCucYEyIk+T+//M5+94nQU+wIqIYXQwgo8cU1VMN1aVlzVZaw1L+OkuD83E5Dk+LjgFLPra1Xfe
+	RGVlvoIv8VndLrBRVeXhqvW8zvQ+lM7YVOiK3W2kMYWmObP9Gl8F2QnlftJoku1y1d4Rt4a0YTtFL
+	udJXYTzoBe8LhX7IfQ9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0XDy-003Z0S-Hf; Thu, 01 Dec 2022 00:14:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p0XEz-003ZqW-Et; Thu, 01 Dec 2022 00:15:49 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0X1q-003SZl-54
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 00:02:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 88CA561E5B;
-	Thu,  1 Dec 2022 00:02:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EF49C433D6;
-	Thu,  1 Dec 2022 00:02:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669852932;
-	bh=lFbpQju0LYAyA4JDJno4ubTWIcXTZRKwPLUuIF23GHE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TRUuHyatpNvvg14Os7laEijCKTdhxazYDqmEZp4j2Ol4Zva+dLGutnqpc7c/UKeFj
-	 nqzasadYW67rWBfKdlm9GOzJN3YPy/d525nw9UZHsbecBQFGsDO5GrdHhB5yn8gjEM
-	 gTEyAfdpzOhYgjixn2L1DJf8vLcNR4fPuokQR9qTX6lgoaZ+4VVYj5Sw5BN/ErgM1h
-	 PLsjkMM916TT8e/chaNAO1UpcH9EV/ztc9Cod5GRn92WX+yLjaPf+fGUca/D0MbvYj
-	 WNebNy1RhgzprWDk/gLXmTnpH9mBnDZlLCgbtjW0X8JDavsuSb9/VBtWcFzSA8rRvH
-	 5R3vqIQsvLCtA==
-Message-ID: <81679d42-7800-3f77-eac8-d7d942e3065f@kernel.org>
-Date: Thu, 1 Dec 2022 00:02:08 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Subject: Re: [PATCH v3 0/14] Zbb string optimizations and call support in
- alternatives
-To: Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com
-Cc: christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
- conor@kernel.org, philipp.tomsich@vrull.eu, ajones@ventanamicro.com,
- emil.renner.berthing@canonical.com, ardb@kernel.org,
- linux-efi@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>
-References: <20221130225614.1594256-1-heiko@sntech.de>
-Content-Language: en-US
-From: Conor Dooley <conor@kernel.org>
-In-Reply-To: <20221130225614.1594256-1-heiko@sntech.de>
+	id 1p0WD3-00365W-30
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:09:47 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id my9-20020a17090b4c8900b002130d29fd7cso3779747pjb.7
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=kawSfeiAQQiBaQdAeCS12WX5tLp3dBMfNzsm6MZMVDM=;
+        b=FuPyDk5HrtCF5qsfcl43lYyhvkgSpcbbsM90YW/3vO3HUB6l7+MBsntxd3/q8gIxoj
+         rdKuy8tsa4qXKw46UszgYe7A8/TdMyQmeCoF+YYW9dIEj0dViDiBTtgxBOSRXDRa96/f
+         KliWaD9EYRQHMZlNfki4Q8T7/+zZVlwydZoPGCadpemWGxJB7IFN8q6Q93mpMbE0d+Tv
+         Gf+jRZICWLnpxC3g1kbOTurVfxPkN8C+UYy/6R3UIEQErk2k3Er1Jkq5UmKt+OcBkjXI
+         DwaZ1o75hI5oxdTAgGbi6NECIv+ulAm+Z4MzH2VhP/t3nIxcOzScSD0PtVDNJOMhMUZG
+         LZUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kawSfeiAQQiBaQdAeCS12WX5tLp3dBMfNzsm6MZMVDM=;
+        b=2aY9S78rsIaWmRfoATp5Je+U96Mv2d3mIDAruIPAB2+pQl8cfjnrV/HmYvQWPMK57t
+         wniXlUK+GQU0eWsMV0BQHEOJ911Rm6/eqQD8nkcJURdBfKw4JOrONZwhKXegm1jdmGTV
+         GSeH2vkrcmFg0SmLyTYl0QANw+icaWdkxoCfxgaHkC5c7Tfq2B2Eq9w/nNTIDphCsQr6
+         F5zJ95cGIKaIELujU9YGGbHuOT8qARDJH1cqnAzz4EqA1WnmPUA/FO8E46Goj7nV7kxq
+         V3sK50/Yow9Ws2xkkgQK/62baFB18koOzGNhmAqXlvnq/dU1RdRKdezKYN4eKhvSt+xP
+         0HmA==
+X-Gm-Message-State: ANoB5pknwAQtrn0x/4EOcuKi+xkAO/66n7e4RHJLbaxIFiIHfQPNEv1a
+	69MX59W8/6pNMZsz+npQxWNEleIPNyU=
+X-Google-Smtp-Source: AA0mqf6wj4HWNV+5cP60rIX6ofADo44xPOiR/JXYf/UmKFCdE5+oZoM8ajSF5PuZFF+kh92E+ZGoi4VvFjg=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a62:82c7:0:b0:575:398:468c with SMTP id
+ w190-20020a6282c7000000b005750398468cmr21072041pfd.23.1669849782508; Wed, 30
+ Nov 2022 15:09:42 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:08:47 +0000
+In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20221130230934.1014142-1-seanjc@google.com>
+X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
+Message-ID: <20221130230934.1014142-4-seanjc@google.com>
+Subject: [PATCH v2 03/50] KVM: Allocate cpus_hardware_enabled after arch
+ hardware setup
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Matthew Rosato <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, 
+	Sean Christopherson <seanjc@google.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, 
+	David Woodhouse <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Yuan Yao <yuan.yao@intel.com>, 
+	Cornelia Huck <cohuck@redhat.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	"=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?=" <philmd@linaro.org>, Fabiano Rosas <farosas@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
+	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_160214_332106_84FCB04F 
-X-CRM114-Status: GOOD (  34.97  )
+X-CRM114-CacheID: sfid-20221130_150945_174676_75150A94 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,152 +101,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/11/2022 22:56, Heiko Stuebner wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> The Zbb extension can be used to make string functions run a lot
-> faster.
-> 
-> To allow There are essentially two problems to solve:
-> - making it possible for str* functions to replace what they do
->   in a performant way
-> 
->   This is done by inlining the core functions and then
->   using alternatives to call the actual variant.
-> 
->   This of course will need a more intelligent selection mechanism
->   down the road when more variants may exist using different
->   available extensions.
-> 
-> - actually allowing calls in alternatives
->   Function calls use auipc + jalr to reach those 32bit relative
->   addresses but when they're compiled the offset will be wrong
->   as alternatives live in a different section. So when the patch
->   gets applied the address will point to the wrong location.
-> 
->   So similar to arm64 the target addresses need to be updated.
-> 
->   This is probably also helpful for other things needing more
->   complex code in alternatives.
-> 
-> 
-> In my half-scientific test-case of running the functions in question
-> on a 95 character string in a loop of 10000 iterations, the Zbb
-> variants shave off around 2/3 of the original runtime.
-> 
-> 
-> For v2 I got into some sort of cleanup spree for the general instruction
-> parsing that already existed. A number of places do their own
-> instruction parsing and I tried consolidating some of them.
-> 
-> Noteable, the kvm parts still do, but I had to stop somewhere :-)
-> 
-> The series is based on v6.1-rc7 right now.
-> 
-> changes since v2:
-> - add patch fixing the c.jalr funct4 value
-> - reword some commit messages
-> - fix position of auipc addition patch (earlier)
-> - fix compile errors from patch-reordering gone wrong
->   (worked at the end of v2, but compiling individual patches
->    caused issues) - patches are now tested individually
-> - limit Zbb variants for GNU as for now
->   (LLVM support for .option arch is still under review)
+Allocate cpus_hardware_enabled after arch hardware setup so that arch
+"init" and "hardware setup" are called back-to-back and thus can be
+combined in a future patch.  cpus_hardware_enabled is never used before
+kvm_create_vm(), i.e. doesn't have a dependency with hardware setup and
+only needs to be allocated before /dev/kvm is exposed to userspace.
 
-Still no good on that front chief:
-ld.lld: error: undefined symbol: __strlen_generic
->>> referenced by ctype.c
->>>               arch/riscv/purgatory/purgatory.ro:(strlcpy)
->>> referenced by ctype.c
->>>               arch/riscv/purgatory/purgatory.ro:(strlcat)
->>> referenced by ctype.c
->>>               arch/riscv/purgatory/purgatory.ro:(strlcat)
->>> referenced 3 more times
-make[5]: *** [/stuff/linux/arch/riscv/purgatory/Makefile:85: arch/riscv/purgatory/purgatory.chk] Error 1
-make[5]: Target 'arch/riscv/purgatory/' not remade because of errors.
-make[4]: *** [/stuff/linux/scripts/Makefile.build:500: arch/riscv/purgatory] Error 2
+Free the object before the arch hooks are invoked to maintain symmetry,
+and so that arch code can move away from the hooks without having to
+worry about ordering changes.
 
-allmodconfig, same toolchain as before.
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Yuan Yao <yuan.yao@intel.com>
+---
+ virt/kvm/kvm_main.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-> - prevent str-functions from getting optimized to builtin-variants
-> 
-> changes since v1:
-> - a number of generalizations/cleanups for instruction parsing
-> - use accessor function to access instructions (Emil)
-> - actually patch the correct location when having more than one
->   instruction in an alternative block
-> - string function cleanups (comments etc) (Conor)
-> - move zbb extension above s* extensions in cpu.c lists
-> 
-> changes since rfc:
-> - make Zbb code actually work
-> - drop some unneeded patches
-> - a lot of cleanups
-> 
-> Heiko Stuebner (14):
->   RISC-V: fix funct4 definition for c.jalr in parse_asm.h
->   RISC-V: add prefix to all constants/macros in parse_asm.h
->   RISC-V: detach funct-values from their offset
->   RISC-V: add ebreak instructions to definitions
->   RISC-V: add auipc elements to parse_asm header
->   RISC-V: Move riscv_insn_is_* macros into a common header
->   RISC-V: rename parse_asm.h to insn.h
->   RISC-V: kprobes: use central defined funct3 constants
->   RISC-V: add U-type imm parsing to insn.h header
->   RISC-V: add rd reg parsing to insn.h header
->   RISC-V: fix auipc-jalr addresses in patched alternatives
->   efi/riscv: libstub: mark when compiling libstub
->   RISC-V: add infrastructure to allow different str* implementations
->   RISC-V: add zbb support to string functions
-> 
->  arch/riscv/Kconfig                       |  24 ++
->  arch/riscv/Makefile                      |   3 +
->  arch/riscv/include/asm/alternative.h     |   3 +
->  arch/riscv/include/asm/errata_list.h     |   3 +-
->  arch/riscv/include/asm/hwcap.h           |   1 +
->  arch/riscv/include/asm/insn.h            | 292 +++++++++++++++++++++++
->  arch/riscv/include/asm/parse_asm.h       | 219 -----------------
->  arch/riscv/include/asm/string.h          |  83 +++++++
->  arch/riscv/kernel/alternative.c          |  72 ++++++
->  arch/riscv/kernel/cpu.c                  |   1 +
->  arch/riscv/kernel/cpufeature.c           |  29 ++-
->  arch/riscv/kernel/image-vars.h           |   6 +-
->  arch/riscv/kernel/kgdb.c                 |  63 ++---
->  arch/riscv/kernel/probes/simulate-insn.c |  19 +-
->  arch/riscv/kernel/probes/simulate-insn.h |  26 +-
->  arch/riscv/lib/Makefile                  |   6 +
->  arch/riscv/lib/strcmp.S                  |  38 +++
->  arch/riscv/lib/strcmp_zbb.S              |  96 ++++++++
->  arch/riscv/lib/strlen.S                  |  29 +++
->  arch/riscv/lib/strlen_zbb.S              | 115 +++++++++
->  arch/riscv/lib/strncmp.S                 |  41 ++++
->  arch/riscv/lib/strncmp_zbb.S             | 112 +++++++++
->  drivers/firmware/efi/libstub/Makefile    |   2 +-
->  23 files changed, 982 insertions(+), 301 deletions(-)
->  create mode 100644 arch/riscv/include/asm/insn.h
->  delete mode 100644 arch/riscv/include/asm/parse_asm.h
->  create mode 100644 arch/riscv/lib/strcmp.S
->  create mode 100644 arch/riscv/lib/strcmp_zbb.S
->  create mode 100644 arch/riscv/lib/strlen.S
->  create mode 100644 arch/riscv/lib/strlen_zbb.S
->  create mode 100644 arch/riscv/lib/strncmp.S
->  create mode 100644 arch/riscv/lib/strncmp_zbb.S
-> 
-> --
-> 2.35.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 43e2e4f38151..ded88ad6c2d8 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -5862,15 +5862,15 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	if (r)
+ 		return r;
+ 
++	r = kvm_arch_hardware_setup(opaque);
++	if (r < 0)
++		goto err_hw_setup;
++
+ 	if (!zalloc_cpumask_var(&cpus_hardware_enabled, GFP_KERNEL)) {
+ 		r = -ENOMEM;
+ 		goto err_hw_enabled;
+ 	}
+ 
+-	r = kvm_arch_hardware_setup(opaque);
+-	if (r < 0)
+-		goto out_free_1;
+-
+ 	c.ret = &r;
+ 	c.opaque = opaque;
+ 	for_each_online_cpu(cpu) {
+@@ -5956,10 +5956,10 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
+ 	unregister_reboot_notifier(&kvm_reboot_notifier);
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
+ out_free_2:
+-	kvm_arch_hardware_unsetup();
+-out_free_1:
+ 	free_cpumask_var(cpus_hardware_enabled);
+ err_hw_enabled:
++	kvm_arch_hardware_unsetup();
++err_hw_setup:
+ 	kvm_arch_exit();
+ 	return r;
+ }
+@@ -5986,9 +5986,9 @@ void kvm_exit(void)
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
+ 	on_each_cpu(hardware_disable_nolock, NULL, 1);
+ 	kvm_irqfd_exit();
++	free_cpumask_var(cpus_hardware_enabled);
+ 	kvm_arch_hardware_unsetup();
+ 	kvm_arch_exit();
+-	free_cpumask_var(cpus_hardware_enabled);
+ 	kvm_vfio_ops_exit();
+ }
+ EXPORT_SYMBOL_GPL(kvm_exit);
+-- 
+2.38.1.584.g0f3c55d4c2-goog
 
 
 _______________________________________________
