@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820ECC47088
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CBEC4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 23:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M6zIn6xoB4SmtepYTj8dKhWNASr4YauTfoscrANdagc=; b=zNH8MT7zCFVNRq
-	sX7zXcLLuz+nqW2RMPDgHc21us1TEkYyGTccUiQpl4qkq7J1XTi+/rcYAWNi4i5bIEJdYF+hViYCv
-	NOkT1LU61bDTqq82/TApzna3wFy+RrlYlsKnYpgBXteRu16PIIZgNrnk11vIcJtHSWSJZ0viRH7Ef
-	HlUs8rtwU+09H+DGHpH+lp8+Mt634av6MDxMPrslXUhFpxKxPOjyhrGuChPyalY94Kjp2+3FPMB/Y
-	X2OHpuwIBK9a9OAcr+zBVwVWi+D/IykCl4mYa/Rb3H4JrX/V5OLVU81urcuHf50TIaZgu4TFol2GY
-	Q+Vug4fFI3PHNDxduJPg==;
+	List-Owner; bh=50NgpWeWGLQcnZlBeBpuXSz5E9MeoCMYNEAk/WbnklI=; b=Js2qmdPx0xv90r
+	LxTuq+NHAGMBEXoWQft14ovR1fG4oTVaWcKhhwgkrTcf6p8HobZvMnMyCqC2/jpWok1KOwV7pqwi3
+	swv0qRADp+I6r2ZQslFkp4M6vO51I8t9JkBXLpcG+hf4vFjcSVYSOB9SgiNdtd2BalbKcPXE6OVkj
+	Xoqs5l2OXDOjtJBqT0lPoM1EYEJiZUj5xquvScckLvXFWGUMxqzsSfbKZuigNpW8AWpDJ+/OuFmxF
+	ZcGLJj9jI7bvkdSUkb6tpDn8JGPD0kit9EDtEYRCO9MCupJ8OKV1fwy2owHHfwaCXmSxtoD9qjKKA
+	Enu5h4CJeYfELcKQxMBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WDj-0036XN-A0; Wed, 30 Nov 2022 23:10:27 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1p0WEO-0036zB-W0; Wed, 30 Nov 2022 23:11:09 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WD1-00363e-4M
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:09:46 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id x21-20020a62fb15000000b0057451601be4so153344pfm.19
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:41 -0800 (PST)
+	id 1p0WDZ-0036Q4-VD
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:10:19 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id c10-20020a17090aa60a00b00212e91df6acso165916pjq.5
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:10:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=lSEuQC4fsPjkdtnYDeQfd/vZVTy0qc8mLVWrI2CwrIE=;
-        b=LMXa1KavlLIPKm1O338OzmSfdiHcECfTdj20rMtDEH+lfDJSFJhQMyyiEeUk04KyjS
-         THAs8aeulvKYPo7lA32gfVqJl/QX3PY7ib8sgaj4Pvo4cfNxQJm28NxV50VxtM37FuZv
-         u7SNAeiI+m8cgjrUiBg7wJxoPwHMZLyx4z5zzJVAdYB5b5TVKiOE8DQmTOE93UnjR0x6
-         v7KwZrdqHiBTUALLLRFcXHQn6LhnWmgLoZpbAdwuKZKQCHk46qBwUS9Afdts0dNnMgCD
-         yr/YhWMvzdjaadccrilOoEPdqxhs6lMrLM/VgTXUhLW1qaCXkx2eJvsLyG4zepJOJSSK
-         eycA==
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2E/ZNfNVjTWUDx7EclAA9RDMNJ28SDYbq0FBSTNkEW0=;
+        b=YOeUjr5k1nRXALq3v0KKdNU/RoNOZHvdJ287PzEh8mewFol14vSXSy8/3fYRK98ogf
+         DM6/FhXti4G1BKHQNvzjRV1tWyFhTyxYu+zxNSNi9IlHcolXKLZsPssVX0dsnM50iavV
+         x2ODcftM6fP7S5M9f/kxN+kBZaYtyIW+z4R08Rc0Nfjpphi6e+XsI1tHwJnKWXkQaHpN
+         Fvd9/AR9wQma2szpaVgVzc80G2d6HwNcimfP60MChrBcVuLXdfKe+wSSxLqRYu4pvEyL
+         hD29cSFZ9nNlD/40iFEC/0Ct0+nb0Drk9Ewou2J1g8F1lSQpSFp12LOPbSOpy+zVepWe
+         HB6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lSEuQC4fsPjkdtnYDeQfd/vZVTy0qc8mLVWrI2CwrIE=;
-        b=yr8Yr+cM4q/cx4tgP1rV6+3BN3cUX+BnJl38uycmXE4Nq20BsqnbWA4+QhhxWeeIzO
-         IqX0NGhgVFjxkAYhLHEzvuCKiHNo4itEKG5lDCmHPa0xLw/5HrspZqc+1FIICasipASg
-         j7gqc+BE2kmOl8qlJ4444H8oM8tD4U0Ct3nLUHaqUL69Xr/bd7KXFx2yHi70SuddWP95
-         y/FwVCJ6HUsNQnHxBjSnRJN1rFKEAHelR1Pe0i3pq9ZbW5zBq28DZuKq1RByW13vmHwP
-         kkEsvzehHKD7IOFTT5hN4iVV+ESSI8v00SqWxroxMay8kk36+/8cDsope8DHKK0GDwBO
-         0mYA==
-X-Gm-Message-State: ANoB5pnO7a+X42td4I/rrX0UpklFTPYhfvGBRSV/P3VUc2ETWYf925Tx
-	3ul/IHPfxs6fL/+NzyCLznDS6E8vVkI=
-X-Google-Smtp-Source: AA0mqf5/wgDP/8zZO17OyVNcvbHpUQjMB4GbOO0uy/0pkoSTXNKOuo3YYJAOzIWIiFtrZoAfFu+zlI3eWn8=
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:reply-to:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2E/ZNfNVjTWUDx7EclAA9RDMNJ28SDYbq0FBSTNkEW0=;
+        b=LYiaIHvjNuqLMUZtIsGwAwbQLATDm9TQX1FVUp0r4i/JvdQNm2V1l6ZWdxE0S0x88V
+         VDwUPJwNgds+CMhuP3vwMmYe8mL5bkCth7RG5L+QEd+fQuhCDe0roz18gnRokcjIPgYE
+         ew4G68EHMD1TLrpNGxcyEUV5T4UT3MPLBjYEE4L6E+3+3Ntu/zIqXFOqGt5u/S+keGnc
+         JvSbpii8GW4vTwCGYtDmPBprKYC43o63eX13oazNJiiIAO+xomYDLyWMJrGzx5/lx2m1
+         0bDaFrkol3aIe6r02IORtyaSY1SpT6RyQ/8o1LCcL79oxoq8Vie0M8ZrNhokNHGO/a5H
+         s0Lw==
+X-Gm-Message-State: ANoB5pn2tnU206KU9887ieXh7UQcwWq0zopcO8ipQFUsX2MBBY5cUC/Y
+	1tXSf65X+co35ADPp1wbNmQ0oOoscgs=
+X-Google-Smtp-Source: AA0mqf6fouTIX68sTKIWP0zUhpW+UmWGK5D4PKuHk4dF0PG0spJwJY42lnPZuN8WAPveTbTZZSc8FEJYBlE=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a62:1586:0:b0:575:f08b:7a9f with SMTP id
- 128-20020a621586000000b00575f08b7a9fmr3765310pfv.60.1669849780652; Wed, 30
- Nov 2022 15:09:40 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:08:46 +0000
+ (user=seanjc job=sendgmr) by 2002:a62:6045:0:b0:575:f66b:75a9 with SMTP id
+ u66-20020a626045000000b00575f66b75a9mr3406091pfb.2.1669849816681; Wed, 30 Nov
+ 2022 15:10:16 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:09:07 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-3-seanjc@google.com>
-Subject: [PATCH v2 02/50] KVM: Initialize IRQ FD after arch hardware setup
+Message-ID: <20221130230934.1014142-24-seanjc@google.com>
+Subject: [PATCH v2 23/50] KVM: MIPS: Register die notifier prior to kvm_init()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -87,8 +88,9 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_150943_179340_B015C373 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20221130_151018_067736_0FDB0384 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,126 +103,30 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move initialization of KVM's IRQ FD workqueue below arch hardware setup
-as a step towards consolidating arch "init" and "hardware setup", and
-eventually towards dropping the hooks entirely.  There is no dependency
-on the workqueue being created before hardware setup, the workqueue is
-used only when destroying VMs, i.e. only needs to be created before
-/dev/kvm is exposed to userspace.
-
-Move the destruction of the workqueue before the arch hooks to maintain
-symmetry, and so that arch code can move away from the hooks without
-having to worry about ordering changes.
-
-Reword the comment about kvm_irqfd_init() needing to come after
-kvm_arch_init() to call out that kvm_arch_init() must come before common
-KVM does _anything_, as x86 very subtly relies on that behavior to deal
-with multiple calls to kvm_init(), e.g. if userspace attempts to load
-kvm_amd.ko and kvm_intel.ko.  Tag the code with a FIXME, as x86's subtle
-requirement is gross, and invoking an arch callback as the very first
-action in a helper that is called only from arch code is silly.
-
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- virt/kvm/kvm_main.c | 37 ++++++++++++++++++-------------------
- 1 file changed, 18 insertions(+), 19 deletions(-)
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index b60abb03606b..43e2e4f38151 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5852,24 +5852,19 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	int r;
- 	int cpu;
- 
-+	/*
-+	 * FIXME: Get rid of kvm_arch_init(), vendor code should call arch code
-+	 * directly.  Note, kvm_arch_init() _must_ be called before anything
-+	 * else as x86 relies on checks buried in kvm_arch_init() to guard
-+	 * against multiple calls to kvm_init().
-+	 */
- 	r = kvm_arch_init(opaque);
- 	if (r)
--		goto out_fail;
--
--	/*
--	 * kvm_arch_init makes sure there's at most one caller
--	 * for architectures that support multiple implementations,
--	 * like intel and amd on x86.
--	 * kvm_arch_init must be called before kvm_irqfd_init to avoid creating
--	 * conflicts in case kvm is already setup for another implementation.
--	 */
--	r = kvm_irqfd_init();
--	if (r)
--		goto out_irqfd;
-+		return r;
- 
- 	if (!zalloc_cpumask_var(&cpus_hardware_enabled, GFP_KERNEL)) {
- 		r = -ENOMEM;
--		goto out_free_0;
-+		goto err_hw_enabled;
- 	}
- 
- 	r = kvm_arch_hardware_setup(opaque);
-@@ -5913,9 +5908,13 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 		}
- 	}
- 
-+	r = kvm_irqfd_init();
-+	if (r)
-+		goto err_irqfd;
-+
- 	r = kvm_async_pf_init();
- 	if (r)
--		goto out_free_4;
-+		goto err_async_pf;
- 
- 	kvm_chardev_ops.owner = module;
- 
-@@ -5946,6 +5945,9 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	kvm_vfio_ops_exit();
- err_vfio:
- 	kvm_async_pf_deinit();
-+err_async_pf:
-+	kvm_irqfd_exit();
-+err_irqfd:
- out_free_4:
- 	for_each_possible_cpu(cpu)
- 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
-@@ -5957,11 +5959,8 @@ int kvm_init(void *opaque, unsigned vcpu_size, unsigned vcpu_align,
- 	kvm_arch_hardware_unsetup();
- out_free_1:
- 	free_cpumask_var(cpus_hardware_enabled);
--out_free_0:
--	kvm_irqfd_exit();
--out_irqfd:
-+err_hw_enabled:
- 	kvm_arch_exit();
--out_fail:
- 	return r;
- }
- EXPORT_SYMBOL_GPL(kvm_init);
-@@ -5986,9 +5985,9 @@ void kvm_exit(void)
- 	unregister_reboot_notifier(&kvm_reboot_notifier);
- 	cpuhp_remove_state_nocalls(CPUHP_AP_KVM_STARTING);
- 	on_each_cpu(hardware_disable_nolock, NULL, 1);
-+	kvm_irqfd_exit();
- 	kvm_arch_hardware_unsetup();
- 	kvm_arch_exit();
--	kvm_irqfd_exit();
- 	free_cpumask_var(cpus_hardware_enabled);
- 	kvm_vfio_ops_exit();
- }
--- 
-2.38.1.584.g0f3c55d4c2-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2FsbCBrdm1faW5pdCgpIG9ubHkgYWZ0ZXIgX2FsbF8gc2V0dXAgaXMgY29tcGxldGUsIGFzIGt2
+bV9pbml0KCkgZXhwb3NlcwovZGV2L2t2bSB0byB1c2Vyc3BhY2UgYW5kIHRodXMgYWxsb3dzIHVz
+ZXJzcGFjZSB0byBjcmVhdGUgVk1zIChhbmQgY2FsbApvdGhlciBpb2N0bHMpLgoKU2lnbmVkLW9m
+Zi1ieTogU2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+ClJldmlld2VkLWJ5
+OiBQaGlsaXBwZSBNYXRoaWV1LURhdWTDqSA8cGhpbG1kQGxpbmFyby5vcmc+Ci0tLQogYXJjaC9t
+aXBzL2t2bS9taXBzLmMgfCA5ICsrKysrLS0tLQogMSBmaWxlIGNoYW5nZWQsIDUgaW5zZXJ0aW9u
+cygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL21pcHMva3ZtL21pcHMuYyBi
+L2FyY2gvbWlwcy9rdm0vbWlwcy5jCmluZGV4IDc1NjgxMjgxZTJkZi4uYWU3YTI0MzQyZmRmIDEw
+MDY0NAotLS0gYS9hcmNoL21pcHMva3ZtL21pcHMuYworKysgYi9hcmNoL21pcHMva3ZtL21pcHMu
+YwpAQCAtMTY0MCwxNiArMTY0MCwxNyBAQCBzdGF0aWMgaW50IF9faW5pdCBrdm1fbWlwc19pbml0
+KHZvaWQpCiAJaWYgKHJldCkKIAkJcmV0dXJuIHJldDsKIAotCXJldCA9IGt2bV9pbml0KE5VTEws
+IHNpemVvZihzdHJ1Y3Qga3ZtX3ZjcHUpLCAwLCBUSElTX01PRFVMRSk7Ci0KLQlpZiAocmV0KQot
+CQlyZXR1cm4gcmV0OwogCiAJaWYgKGJvb3RfY3B1X3R5cGUoKSA9PSBDUFVfTE9PTkdTT042NCkK
+IAkJa3ZtX3ByaW9yaXR5X3RvX2lycSA9IGt2bV9sb29uZ3NvbjNfcHJpb3JpdHlfdG9faXJxOwog
+CiAJcmVnaXN0ZXJfZGllX25vdGlmaWVyKCZrdm1fbWlwc19jc3JfZGllX25vdGlmaWVyKTsKIAor
+CXJldCA9IGt2bV9pbml0KE5VTEwsIHNpemVvZihzdHJ1Y3Qga3ZtX3ZjcHUpLCAwLCBUSElTX01P
+RFVMRSk7CisJaWYgKHJldCkgeworCQl1bnJlZ2lzdGVyX2RpZV9ub3RpZmllcigma3ZtX21pcHNf
+Y3NyX2RpZV9ub3RpZmllcik7CisJCXJldHVybiByZXQ7CisJfQogCXJldHVybiAwOwogfQogCi0t
+IAoyLjM4LjEuNTg0LmcwZjNjNTVkNGMyLWdvb2cKCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
