@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80199C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 07:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F157EC4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 07:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A6M4cxlOJ+lbqsMWrGG4GgzRIFfbZJ0A/ZkmoBRV6+w=; b=Y83YrcPltaUqvO
-	8rbkKIFrA2u9GJMHCRE3PGBW5i22xFfqELNGXB6gSWMlPAS6iNXjA8E2J8oEpJDPwU6tsumoPXQFS
-	KGXKvV8Ft+xN+jXlaEVMRSfFyjiPDqg2+Nd8SvY79AxBNJV1lM95TEnp4jd/97kioGf2hdWG9xN1F
-	dN041xNptc84jNuQ4SkPKEzJ3PDm1XZTA4gcdIEbzH3bAzpL6uSFk5+v52RrtLV45y2Ni1WxoZQk4
-	WKbcTsVLUlJT5LGGuQrfLxSAxxTVgmHKS81X6LQvr+BIpBdC4omHoUNOM9s+mi17zkQbH0HZQf16/
-	UdYSEiRvUJUxZ0ATVarQ==;
+	List-Owner; bh=XzFdAaoDChbg5W4dlZrgCqSUyWQrWMqoVFIrFYF3aqU=; b=VPD/Dz+h+mgSwZ
+	l3/QarfKQ59VwDHYUOHLU90g8o13VZNxOCVU0S7H+A64PzuG6H8s6WjyAcL88GBlW0D6Crum+2gCU
+	hkH6WSERNr7cIyj2LguqlRSK75Es6Ez9I6HjKBi2yCYZoWW+vHTq/syQQ9H6K+PJAyCvAHerYp48V
+	kDOXnyfuaEh94hYxNHeEgkh7js3bPTHCgSCGGjjk+vGEzcGYY+4+09y7kpHms2f5TOQDXERj4tu37
+	bvdYaUhpOxEVBwrJqdAcf67nfmuqhTyRDhH0hKp1TSzlFLyZOkLAMVyGANL7uAuLZW37hILdGDnJQ
+	rqw3xYydxj7QEzG96etQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0HQw-00E64g-Eu; Wed, 30 Nov 2022 07:23:06 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p0HTO-00E7Gn-6Q; Wed, 30 Nov 2022 07:25:38 +0000
+Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0HQs-00E621-W6
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 07:23:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8EFDDB8199C
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 07:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACCDFC4347C
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 07:22:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669792979;
-	bh=l8TG0zDhu2CtfxNlo3/zXzaH7ZIK0gStVku6u+BPku4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LTp7lFL1uBRZI7S3tOANwcYEZwp0WoQj3LT9RPG0sgVQLz4ZP6akLMOXzpiZ5xvji
-	 /ABbXWcD5ppaarzrPr4BCdAfTsWrqE+4k6SzYVQy+GDaIGjIeD4OJZxiXTL7ViiwjB
-	 6gVa2/JzN0vso1FXhvZ5kj43NNZqRtzJiOJm2+tOtes+5RHWil2JCTHKy0NJNkOuM2
-	 K1ExdELjpUiejxLn+w/+z8BE9RDYu+cgidFw86G4+Q6cUu01dMPOh7a0ST+6PiZt/G
-	 nvlCR9H9WwKFtkUqM3msKFe8WGicuQ7DgAhsFsEQo6WcYZ0R13S3dFuJoAg3ip13Eb
-	 nTg1QjxNwI0dw==
-Received: by mail-ej1-f49.google.com with SMTP id vp12so37921624ejc.8
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 23:22:59 -0800 (PST)
-X-Gm-Message-State: ANoB5pk8R5bldgXiMioeTOEZCklkM1iv1bfv7xBONqwH1i88J89YdQXx
-	Jc6pQckJa+BHA/Iz2otdwHHllaOWFqwv6rqm9no=
-X-Google-Smtp-Source: AA0mqf49bMbZfOFPJ53XdR+Xd3Pu2yDNAwaf+OSHZXIyf8yZNlV4ZZsWp/eqX8qI99PoUS2/j/0pUXpnWhRcE62O46I=
-X-Received: by 2002:a17:906:99d3:b0:78d:c7fd:f755 with SMTP id
- s19-20020a17090699d300b0078dc7fdf755mr36020981ejn.702.1669792977892; Tue, 29
- Nov 2022 23:22:57 -0800 (PST)
+	id 1p0HTK-00E7Ei-GE
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 07:25:35 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.west.internal (Postfix) with ESMTP id BF5F332008FE;
+	Wed, 30 Nov 2022 02:25:32 -0500 (EST)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute3.internal (MEProxy); Wed, 30 Nov 2022 02:25:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1669793132; x=
+	1669879532; bh=7jCQGR0xy6Fkh672DFHxOw50RlZJiRPWysOecK1wOw8=; b=k
+	aMSJfphW6+/085SOqXaR1v5j3gYqHdwXRO3UWXeqKm0sI22YTLVg1zZxu4q8Mian
+	NBoZ/YmBEuYu2d4eisUFlVx0ZOmJXhhwaoYIsgp/99BwYb+Vor9m2Ffi7Hk/r4U9
+	SxtngMe+h013xAkljyl+0ovCGZkZ42y9MCss/iUzxd1YRPpSM7XgIvbdUcuHwrOV
+	r4f/Lr3ZWBDr+w8vTMU3H8z/islNut8v8E6jntzUqh403U4PDeF6Sxes74y4V9R+
+	wFueQVLNh+sc7iZ58oQwE8mhNH1VMx54n8KzhYPV9s+bzaYWb2lTUf8TyS5Mg85x
+	DUVu7mTp8vE0OYfXcNInw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1669793132; x=
+	1669879532; bh=7jCQGR0xy6Fkh672DFHxOw50RlZJiRPWysOecK1wOw8=; b=Z
+	f7Fw9YpciDY0tKXZmMdllDr3lTxLjh1f3gANVehv7WIvTk0Oo7rcD0IfFVjOSodP
+	1rgPCzcif5rQGPtDoP/ZDlLKUPQe0C19R/CM4SuLiQWLVeCu/dyI2lN0ebpJXYpZ
+	Xd8JxtOd5yg8pDVin3Nc3SDlni8baJtffS0mRmLgJGXMicKfaZwyMjVFCUBGk65q
+	gZH3guPITWL/0BY9nXmied32Yky3J4/l3AMsHerwCPcrsd4npfrUPrl8PqjxPSQg
+	FmXMGn6A/GdXKAiMiFhSWsabm93o+YY6SsaKlwmMXi0q3LoWx4IEYn9n1+osL306
+	L8g/SUdzpuLqgHDyR7pHg==
+X-ME-Sender: <xms:awWHYwtXr7G608ybY4KEM1S8_Pp4UiYRiF89zHNbX-jVt9DE_qy8cA>
+    <xme:awWHY9cN9j8EWtukGNQGjF-tiwVdR9x3q090LNeq8pGhqsuUjFYbzVn6kcI19G8WR
+    8CvXHNtu9g5IlwEvA>
+X-ME-Received: <xmr:awWHY7xmx3dP7lnpCvcaqk-hhIZN8MuwqaIDOKTzNmoaMNfG-51lsB36Ut1Sun3rLOG3VEDdcTEyHKWeElTfTtXiodkVDIU3EzTYaD1y6bzocP_lHVtD7auPxg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrtddvgddutdekucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeekjeelleefiedthfdtgfekgeehudefudeugeffvdfhudekleel
+    fedtteejhedutdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:awWHYzMSZyjHp1FBAhPdwa80yMTvWE6Du6GfryRjoCm1WOsYavgIxg>
+    <xmx:awWHYw9WhAsKWrDpe-CWa42Vjk4Yc7Sq9Y5CL4ykausET5npobLEFw>
+    <xmx:awWHY7W6ZKVwOu7qM_AhZrj71OI2rt6It3KQKRwkhvA933xTLraHng>
+    <xmx:bAWHY7WCfNQvf4xaRNoPuUVmmKkIR9MO97xIw9rQ_b1I7AJ-WSn9uA>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 30 Nov 2022 02:25:31 -0500 (EST)
+Message-ID: <91d7eebd-7433-c06d-6d14-a01d11af9df9@sholland.org>
+Date: Wed, 30 Nov 2022 01:25:30 -0600
 MIME-Version: 1.0
-References: <20221128154506.2691-1-suagrfillet@gmail.com> <CAAYs2=iYn8sLQB8oh+RzTKd2VKs8MXOLX6Mwpamx5gdVVN6mkA@mail.gmail.com>
-In-Reply-To: <CAAYs2=iYn8sLQB8oh+RzTKd2VKs8MXOLX6Mwpamx5gdVVN6mkA@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 30 Nov 2022 15:22:46 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQKgqs4zePmW00Nd1PAUk76ZCRfyfPFzigQn3Pg0-=SEQ@mail.gmail.com>
-Message-ID: <CAJF2gTQKgqs4zePmW00Nd1PAUk76ZCRfyfPFzigQn3Pg0-=SEQ@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv/ftrace: select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-To: Song Shuai <suagrfillet@gmail.com>
-Cc: paul.walmsley@sifive.com, wangkefeng.wang@huawei.com, 
-	juerg.haefliger@canonical.com, anshuman.khandual@arm.com, 
-	alexandre.ghiti@canonical.com, conor.dooley@microchip.com, 
-	atishp@atishpatra.org, heiko@sntech.de, palmer@dabbelt.com, 
-	apatel@ventanamicro.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux ppc64le; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.3
+Subject: Re: [PATCH v2 7/9] riscv: dts: bouffalolab: add Sipeed M1s SoM and
+ Dock devicetree
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>
+References: <20221127132448.4034-1-jszhang@kernel.org>
+ <20221127132448.4034-8-jszhang@kernel.org>
+From: Samuel Holland <samuel@sholland.org>
+In-Reply-To: <20221127132448.4034-8-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_232303_341084_4C9220F9 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20221129_232534_601061_EEA2DD75 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +109,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgMjksIDIwMjIgYXQgODowNSBQTSBTb25nIFNodWFpIDxzdWFncmZpbGxldEBn
-bWFpbC5jb20+IHdyb3RlOgo+Cj4gU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPiDk
-uo4yMDIy5bm0MTHmnIgyOOaXpeWRqOS4gCAxNTo0NeWGmemBk++8mgo+ID4KPiA+IEZyb206IFNv
-bmcgU2h1YWkgPHN1YWdyZmlsbGV0QGdtYWlsLmNvbT4KPiA+Cj4gPiBJbiBSSVNDLVYsIC1mcGF0
-Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5IG9wdGlvbiBpcyB1c2VkIHRvIHN1cHBvcnQKPiA+IGR5bmFt
-aWMgZnRyYWNlIGluIHRoaXMgY29tbWl0IGFmYzc2YjhiODAxMSAoInJpc2N2OiBVc2luZwo+ID4g
-UEFUQ0hBQkxFX0ZVTkNUSU9OX0VOVFJZIGluc3RlYWQgb2YgTUNPVU5UIikuIFNvIHJlY29yZG1j
-b3VudAo+ID4gZG9uJ3QgaGF2ZSB0byBiZSBjYWxsZWQgdG8gY3JlYXRlIHRoZSBfX21jb3VudF9s
-b2Mgc2VjdGlvbiBiZWZvcmUKPiA+IHRoZSB2bWxpbnV4IGxpbmtpbmcuCj4gPgo+ID4gSGVyZSBz
-ZWxlY3RzIEZUUkFDRV9NQ09VTlRfVVNFX1BBVENIQUJMRV9GVU5DVElPTl9FTlRSWSB0byB0ZWxs
-Cj4gPiBNYWtlZmlsZSBub3QgdG8gcnVuIHJlY29yZG1jb3VudC4KPiA+Cj4gPiBMaW5rOiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi9DQUFZczI9ajNFYWs5dlU2eGJBdzB6UHVv
-aDAwcmg4djVDMlUzZmVQa29rWkZpYldzMmdAbWFpbC5nbWFpbC5jb20vVC8jdAo+ID4gU2lnbmVk
-LW9mZi1ieTogU29uZyBTaHVhaSA8c3VhZ3JmaWxsZXRAZ21haWwuY29tPgo+ID4gVGVzdGVkLWJ5
-OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiBUaGlzIHBhdGNoIGhhcyBjb25mbGljdHMg
-d2l0aCB0aGUgY29tbWl0ICgicmlzY3Y6IGZ0cmFjZTogQWRkCj4gRFlOQU1JQ19GVFJBQ0VfV0lU
-SF9ESVJFQ1RfQ0FMTFMKPiBzdXBwb3J0IikgYW5kIGl0cyBuZXh0IGNvbW1pdCBpbiB0aGlzIGZp
-bGUuCj4KPiBIb3cgYWJvdXQgcmVwb3N0aW5nIHRoaXMgcGF0Y2ggYmFzZWQgb24gdGhlIGFib3Zl
-IGNvbW1pdHMgYW5kIGZvbGRpbmcKPiBpdCBpbnRvIHRoZSB2NSB2ZXJzaW9uPwpPa2F5LCBpdCdz
-IHRoZSBwcm9wZXIgcmVhc29uIHRvIG1lcmdlIHRoZW0uIFRoeCEKCj4KPiBIZXJlIHBhc3RlcyB0
-aGUgbGluayBmb3IgeW91ciBjb252ZW5pZW5jZS4KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9s
-aW51eC1yaXNjdi8yMDIyMTEyOTAzMzIzMC4yNTU5NDctNy1ndW9yZW5Aa2VybmVsLm9yZy9ULyN1
-Cj4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDEgKwo+ID4gIDEgZmlsZSBjaGFu
-Z2VkLCAxIGluc2VydGlvbigrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25m
-aWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+IGluZGV4IGZhNzg1OTVhNjA4OS4uYWZjNTIwYTQ1
-ZGVkIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gPiArKysgYi9hcmNoL3Jp
-c2N2L0tjb25maWcKPiA+IEBAIC0yNzcsNiArMjc3LDcgQEAgY29uZmlnIEFSQ0hfUlY2NEkKPiA+
-ICAgICAgICAgc2VsZWN0IEhBVkVfRFlOQU1JQ19GVFJBQ0UgaWYgIVhJUF9LRVJORUwgJiYgTU1V
-ICYmICQoY2Mtb3B0aW9uLC1mcGF0Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5PTgpCj4gPiAgICAgICAg
-IHNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNFX1dJVEhfUkVHUyBpZiBIQVZFX0RZTkFNSUNfRlRS
-QUNFCj4gPiAgICAgICAgIHNlbGVjdCBIQVZFX0ZUUkFDRV9NQ09VTlRfUkVDT1JEIGlmICFYSVBf
-S0VSTkVMCj4gPiArICAgICAgIHNlbGVjdCBGVFJBQ0VfTUNPVU5UX1VTRV9QQVRDSEFCTEVfRlVO
-Q1RJT05fRU5UUlkgaWYgRFlOQU1JQ19GVFJBQ0UKPiA+ICAgICAgICAgc2VsZWN0IEhBVkVfRlVO
-Q1RJT05fR1JBUEhfVFJBQ0VSCj4gPiAgICAgICAgIHNlbGVjdCBIQVZFX0ZVTkNUSU9OX1RSQUNF
-UiBpZiAhWElQX0tFUk5FTAo+ID4gICAgICAgICBzZWxlY3QgU1dJT1RMQiBpZiBNTVUKPiA+IC0t
-Cj4gPiAyLjM0LjEKPiA+Cj4KPgo+IC0tCj4gVGhhbmtzLAo+IFNvbmcKCgoKLS0gCkJlc3QgUmVn
-YXJkcwogR3VvIFJlbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On 11/27/22 07:24, Jisheng Zhang wrote:
+> Sipeed manufactures a M1s system-on-module and dock board, add basic
+> support for them.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/boot/dts/Makefile                  |  1 +
+>  arch/riscv/boot/dts/bouffalolab/Makefile      |  2 ++
+>  .../dts/bouffalolab/bl808-sipeed-m1s-dock.dts | 25 +++++++++++++++++++
+>  .../dts/bouffalolab/bl808-sipeed-m1s.dtsi     | 21 ++++++++++++++++
+>  4 files changed, 49 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/Makefile
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> 
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index ff174996cdfd..b525467152b2 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,4 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +subdir-y += bouffalolab
+>  subdir-y += sifive
+>  subdir-y += starfive
+>  subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
+> diff --git a/arch/riscv/boot/dts/bouffalolab/Makefile b/arch/riscv/boot/dts/bouffalolab/Makefile
+> new file mode 100644
+> index 000000000000..5419964e892d
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_SOC_BOUFFALOLAB) += bl808-sipeed-m1s-dock.dtb
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> new file mode 100644
+> index 000000000000..c6b4894a7b88
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+> @@ -0,0 +1,25 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> +/*
+> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "bl808-sipeed-m1s.dtsi"
+> +
+> +/ {
+> +	model = "Sipeed M1s Dock";
+> +	compatible = "sipeed,m1s-dock", "sipeed,m1s", "bouffalolab,bl808";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:2000000n8";
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	status = "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> new file mode 100644
+> index 000000000000..5026de768534
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+> @@ -0,0 +1,21 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> +/*
+> + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "bl808.dtsi"
+> +
+> +/ {
+> +	compatible = "sipeed,m1s", "bouffalolab,bl808";
+> +
+> +	memory@50000000 {
+> +		device_type = "memory";
+> +		reg = <0x50000000 0x04000000>;
+> +	};
+
+The PSRAM is part of the BL808, so this should go in the SoC .dtsi file.
+(Unless I'm missing something and there are BL808 variants with
+different amounts of memory. The PSRAM init code in the SDK does size
+detection, so I suppose it is possible.)
+
+Regards,
+Samuel
+
+> +};
+> +
+> +&xtal {
+> +	clock-frequency = <40000000>;
+> +};
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
