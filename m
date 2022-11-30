@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E98C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 15:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7105C4321E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 15:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lc8B2kcCQbhRWo9VcAMvc9mHdFhbu/epxgfn0sYluM0=; b=wGuGKaMnQAJPfL
-	CHIq0Nc+4l1T7BnP0ZGI341dmUfzKH/hWasiV3MhCuSI2uM9bUVma6iqBgASD9HLh1wDco9HUPoHY
-	m5oAr7vJQpBVU7X/CaG9O72mpw5YRDRPrKiw7w1i9FdZz//FylfWv0DR5NvD+Xr/24RjGn3id38jZ
-	BQtOIUm7xymBwfetejZB1qKavxddK8je3mv3lhL3vD7ZhFouTDMYbzxTRm1G0FgQwskUiYenAYZya
-	Hv1DviWUtpXUtj6vouqkVYAcoWJw19ZqGIzNtMOORXIQT3zo0JFU/8bxKy8zY2xKZpW6iGZwL8PG6
-	dYAC7WvyC4fYRG7L7Wbw==;
+	List-Owner; bh=E9xUMRqbAgsYpPQjCL6xd7moCn//qO388+wO6Ry14RU=; b=d1YhUfq0gC2zCb
+	DBsoe5Ox4CU3XRDRt1wr//JZoSa2k3gBjg0M6uG4AEKEU32cjnyBw6qpK544bznc9cA6QGvB5lMZY
+	rHdvOCdzXfhmDBVabYjc+YLCnrEZW8ZLAfxnsAAxk0N5GrIX8zpHdQ+6U5W8IAchK1Ixdjpc+2U5G
+	oRp+QD9jBL986dycA8RiUlWKrvcwCmU9hn0Ab/3cKDh8gZpuj4so3Uask9HR/JXxMp3WC+pL+IRzA
+	ck2xZPf9IcK/9V+iWRQtQvoZCj6Hq+zV9NWy0mF5UC558q2w7im99Qcn2AqQ+E6vTlw/268LqnDQ6
+	NWPGD01PfTHtRgR0D4/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0PRG-000AVd-Vu; Wed, 30 Nov 2022 15:55:59 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1p0PRv-000BNq-1e; Wed, 30 Nov 2022 15:56:39 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0PRC-000AOd-JO
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 15:55:56 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1669823748;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2KHy07QWrTX+1D9UzkoPb3Qm8ZT2RgqyB31qSopRt+I=;
-	b=rhoDJ2/E9Fver/OeYrAtrubBBoQ8IUPrGQqV7czmlkmQ6puXksOACic9LjosjaJFNr1iJN
-	InijpJpxUUiz/0IpYVXEs6dlLYEjR2umgM3H99nNJ2OUkKNYb3bIVK1JPW34BsVG30Q3kK
-	C2unfDM/bv5QVCOCkk9oCJJuc7dJex1ldhPb94Noc9RC7pDsxv76SmzPOejIumEeKsbEdJ
-	DsapN8Tc7gOwtbL+t+q6c9m5r6DiGjzBLRcEptCmngLPPOzvC8KtJ5oJG/GHZPyZIDZOeH
-	odbAoebgS9S6AiHWmcfgzZOI/LtkZlm+U9M83pWeaXzAP83rAMij2xx1M187Tw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1669823748;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2KHy07QWrTX+1D9UzkoPb3Qm8ZT2RgqyB31qSopRt+I=;
-	b=5DHbn8BCk3NSvj8IleFcJJWueUI6gaWiVaVhR6EmJHyWfCy5yZCJX1ug2mueOkTuuER/U/
-	8tPnhf91HqIsG9BA==
-To: Samuel Holland <samuel@sholland.org>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] genirq: Add support for oneshot-safe threaded EOIs
-In-Reply-To: <20221126234134.32660-3-samuel@sholland.org>
-References: <20221126234134.32660-1-samuel@sholland.org>
- <20221126234134.32660-3-samuel@sholland.org>
-Date: Wed, 30 Nov 2022 16:55:47 +0100
-Message-ID: <877czctp18.ffs@tglx>
+	id 1p0PRq-000BC3-NC
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 15:56:38 +0000
+Received: by mail-ej1-x630.google.com with SMTP id n21so42379053ejb.9
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 07:56:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LjXJYB7hCGcThjRCbrJ5g/OHo65uAJNzUXUxOIMl6/g=;
+        b=TB4kc/oiAhq63CaYuMUxTQBaUafSxPNfvozkDroNfLffzj39lTHsPIXsmRbCmbmanZ
+         qGS8hdpeOnKygSFi+QQ5toCok3x0R1+c1so0AaZAA3kJ9t2g6XWwJZs4PPeUgsaYrIqQ
+         UCiuNk8hgEoOCIYWbHBwtdJOOa1ZUuf3G+cpXpM+51CNSYNwW8FSGjSa7FxzSfNx5xUR
+         Hbp2Ks06oAEeDrTh+ftl1azKl2eY9g6+HTTMfPwrshGrRRA64FZUJ/qcf1a+SPNvOFbg
+         unK5m6iAB+VX36ZQCTXSQU0zuqLKXhAxBBgXq4phDHUbEqfT0NQe0bpkj60+PigD2uK0
+         RNCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LjXJYB7hCGcThjRCbrJ5g/OHo65uAJNzUXUxOIMl6/g=;
+        b=PxEWZm6hyaoahIuNoxc/1qqx55RGibB8UzBvrZbJ/5iamAPm2Dh+cJBz1nyQ0z5pXR
+         7KrVvEru0GBKlOPGmpiSovKaWnHXWiRsU5lJrCLuXj/wmragytTitAX1QGUxZMoP7Hy1
+         BIylEPcOk1OeKS1ddQhkfJv8Tx8dTiYwkbEo0LuDUPP0KHVcEsFF8U9/8eA0s9lVtoHl
+         Zx6DN1o3UKBsv3trkQd6YPf6JuI1E0+KD1CFAn+9Ea1r5ZYvqLaAr2RNL9DvtC2uJU2p
+         YrUO+alnKH7psTO2XWUkTBbZFfaMyl794g6E2RuUwpXmQXqRh0SR12hibzoag78RizLU
+         CAbA==
+X-Gm-Message-State: ANoB5pl4vK0iq0rVH2UYEmPLhCvuXoeGSQCYshVngRz0v6FuDZ0F9WXj
+	fRpOJyq4ZH+SGqkf6Em1S8VAKA==
+X-Google-Smtp-Source: AA0mqf7C+rmE5qxu8NELnG9mklyOm04C5LtW/7gcWjbPruS+4F1qbvF4Ls1O+zmNyFYpjJC72fwlmw==
+X-Received: by 2002:a17:906:fcd0:b0:7ad:b8c0:3057 with SMTP id qx16-20020a170906fcd000b007adb8c03057mr53116215ejb.440.1669823793264;
+        Wed, 30 Nov 2022 07:56:33 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id c5-20020a1709060fc500b007ae10525550sm791199ejk.47.2022.11.30.07.56.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Nov 2022 07:56:32 -0800 (PST)
+Date: Wed, 30 Nov 2022 16:56:31 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
+	conor@kernel.org, philipp.tomsich@vrull.eu,
+	emil.renner.berthing@canonical.com,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v2 07/13] RISC-V: add auipc elements to parse_asm header
+Message-ID: <20221130155631.62srybfzlq5hxell@kamzik>
+References: <20221128102632.435174-1-heiko@sntech.de>
+ <20221128102632.435174-8-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221128102632.435174-8-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_075554_994092_FDAEB813 
-X-CRM114-Status: GOOD (  31.60  )
+X-CRM114-CacheID: sfid-20221130_075634_782368_A75A2536 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,224 +93,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Samuel!
+On Mon, Nov 28, 2022 at 11:26:26AM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> 
+> We will want to use the opcode parsing outside kdb as well and need
+> at least the auipc element there.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/insn.h | 4 ++++
+>  1 file changed, 4 insertions(+)
 
-On Sat, Nov 26 2022 at 17:41, Samuel Holland wrote:
-> For irqchips such as the SiFive PLIC with a claim/EOI flow, each IRQ is
-> implicitly masked during the claim operation and unmasked after the EOI.
-> By delaying the EOI until after the thread runs, we can support threaded
-> IRQs without any explicit mask/unmask operations.
->
-> irqchips can declare this capability using the combination of flags
-> IRQCHIP_ONESHOT_SAFE | IRQCHIP_EOI_THREADED.
->
-> In this case, we still set IRQF_ONESHOT and thus action->thread_mask, so
-> we know based on desc->threads_oneshot when to send the EOI. However, we
-> do not set IRQS_ONESHOT, so we skip the actual mask/unmask operations.
-
-Lots of 'we' here.
-
-https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#changelog
-
-> diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
-> index 672bad021a1f..7a4b3fa85da0 100644
-> --- a/kernel/irq/chip.c
-> +++ b/kernel/irq/chip.c
-> @@ -446,7 +446,9 @@ void unmask_threaded_irq(struct irq_desc *desc)
->  	if (chip->flags & IRQCHIP_EOI_THREADED)
->  		chip->irq_eoi(&desc->irq_data);
->  
-> -	unmask_irq(desc);
-> +	if (!irqd_irq_disabled(&desc->irq_data) &&
-> +	    (desc->istate & IRQS_ONESHOT))
-> +		unmask_irq(desc);
->
->  /*
-> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-> index 40fe7806cc8c..b9edb66428cd 100644
-> --- a/kernel/irq/manage.c
-> +++ b/kernel/irq/manage.c
-> @@ -1074,9 +1074,10 @@ static int irq_wait_for_interrupt(struct irqaction *action)
->  static void irq_finalize_oneshot(struct irq_desc *desc,
->  				 struct irqaction *action)
->  {
-> -	if (!(desc->istate & IRQS_ONESHOT) ||
-> +	if (!(action->flags & IRQF_ONESHOT) ||
->  	    action->handler == irq_forced_secondary_handler)
->  		return;
-> +
->  again:
->  	chip_bus_lock(desc);
->  	raw_spin_lock_irq(&desc->lock);
-> @@ -1112,8 +1113,7 @@ static void irq_finalize_oneshot(struct irq_desc *desc,
->  
->  	desc->threads_oneshot &= ~action->thread_mask;
->  
-> -	if (!desc->threads_oneshot && !irqd_irq_disabled(&desc->irq_data) &&
-
-Same undocumented change vs. disabled and EOI. It might not matter, but
-if something like this is changed, then it has to be done in a separate
-commit with a very good explanation why this is correct and not silently
-burried into a hodgepodge of other changes.
-
-> -	    irqd_irq_masked(&desc->irq_data))
-> +	if (!desc->threads_oneshot)
->  		unmask_threaded_irq(desc);
->  
->  out_unlock:
-> @@ -1565,8 +1565,12 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
->  	 * MSI based interrupts are per se one shot safe. Check the
->  	 * chip flags, so we can avoid the unmask dance at the end of
->  	 * the threaded handler for those.
-> +	 *
-> +	 * If IRQCHIP_EOI_THREADED is also set, we do an EOI dance
-> +	 * instead of a mask/unmask dance.
->  	 */
-> -	if (desc->irq_data.chip->flags & IRQCHIP_ONESHOT_SAFE)
-> +	if (desc->irq_data.chip->flags & IRQCHIP_ONESHOT_SAFE &&
-> +	    !(desc->irq_data.chip->flags & IRQCHIP_EOI_THREADED))
-
-This flag combination makes my head spin. 
-
->  		new->flags &= ~IRQF_ONESHOT;
->  
->  	/*
-> @@ -1755,7 +1759,8 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
->  		if (noirqdebug)
->  			irq_settings_set_no_debug(desc);
->  
-> -		if (new->flags & IRQF_ONESHOT)
-> +		if (new->flags & IRQF_ONESHOT &&
-> +		    !(desc->irq_data.chip->flags & IRQCHIP_ONESHOT_SAFE))
->  			desc->istate |= IRQS_ONESHOT;
-
-And I really detest the resulting action to desc inconsistency:
-
-> -	if (!(desc->istate & IRQS_ONESHOT) ||
-> +	if (!(action->flags & IRQF_ONESHOT) ||
-
-It's clever, but completely non-obvious.
-
-So let's take a step back. You want to defer the EOI to the point where
-the threaded handler finishes, but you dont want the mask/unmask
-mechanism which is attached to IRQS_ONESHOT.
-
-So instead of playing games with IRQS_ONESHOT and IRQF_ONESHOT and
-creating something which cannot even be remotely followed, why not
-having explicit and understandable flags for theses cases.
-
-Something like the incomplete, uncompiled below. You get the idea,
-right?
-
-Thanks,
-
-        tglx
----
---- a/kernel/irq/chip.c
-+++ b/kernel/irq/chip.c
-@@ -656,23 +656,27 @@ void handle_level_irq(struct irq_desc *d
- }
- EXPORT_SYMBOL_GPL(handle_level_irq);
- 
-+static inline cond_mask_eoi_irq(struct irq_desc *desc)
-+{
-+	if (desc->istate & IRQS_UNMASK_EOI_THREAD)
-+		mask_irq(desc);
-+}
-+
- static void cond_unmask_eoi_irq(struct irq_desc *desc, struct irq_chip *chip)
- {
--	if (!(desc->istate & IRQS_ONESHOT)) {
--		chip->irq_eoi(&desc->irq_data);
--		return;
--	}
--	/*
--	 * We need to unmask in the following cases:
--	 * - Oneshot irq which did not wake the thread (caused by a
--	 *   spurious interrupt or a primary handler handling it
--	 *   completely).
--	 */
--	if (!irqd_irq_disabled(&desc->irq_data) &&
--	    irqd_irq_masked(&desc->irq_data) && !desc->threads_oneshot) {
--		chip->irq_eoi(&desc->irq_data);
--		unmask_irq(desc);
--	} else if (!(chip->flags & IRQCHIP_EOI_THREADED)) {
-+	if (desc->istate & IRQS_UNMASK_EOI_THREAD) {
-+		/*
-+		 * We need to EOI and unmask when the primary handler
-+		 * did not wake the thread due to a spurious interrupt or
-+		 * the primary handler handling the interrupt completely.
-+		 */
-+		if (!irqd_irq_disabled(&desc->irq_data) &&
-+		    irqd_irq_masked(&desc->irq_data) &&
-+		    !desc->threads_oneshot) {
-+			chip->irq_eoi(&desc->irq_data);
-+			unmask_irq(desc);
-+		}
-+	} else if (!(desc->istate & IRQS_EOI_THREAD) || !desc->threads_oneshot) {
- 		chip->irq_eoi(&desc->irq_data);
- 	}
- }
-@@ -708,8 +712,7 @@ void handle_fasteoi_irq(struct irq_desc
- 	}
- 
- 	kstat_incr_irqs_this_cpu(desc);
--	if (desc->istate & IRQS_ONESHOT)
--		mask_irq(desc);
-+	cond_mask_eoi_irq(desc);
- 
- 	handle_irq_event(desc);
- 
-@@ -1219,8 +1222,7 @@ void handle_fasteoi_ack_irq(struct irq_d
- 	}
- 
- 	kstat_incr_irqs_this_cpu(desc);
--	if (desc->istate & IRQS_ONESHOT)
--		mask_irq(desc);
-+	cond_mask_eoi_irq(desc);
- 
- 	/* Start handling the irq */
- 	desc->irq_data.chip->irq_ack(&desc->irq_data);
-@@ -1266,16 +1268,14 @@ void handle_fasteoi_mask_irq(struct irq_
- 	 */
- 	if (unlikely(!desc->action || irqd_irq_disabled(&desc->irq_data))) {
- 		desc->istate |= IRQS_PENDING;
--		mask_irq(desc);
- 		goto out;
- 	}
- 
- 	kstat_incr_irqs_this_cpu(desc);
--	if (desc->istate & IRQS_ONESHOT)
--		mask_irq(desc);
- 
- 	handle_irq_event(desc);
- 
-+	/* Needs more fixes ... */
- 	cond_unmask_eoi_irq(desc, chip);
- 
- 	raw_spin_unlock(&desc->lock);
---- a/kernel/irq/internals.h
-+++ b/kernel/irq/internals.h
-@@ -53,6 +53,8 @@ enum {
-  * IRQS_SUSPENDED		- irq is suspended
-  * IRQS_NMI			- irq line is used to deliver NMIs
-  * IRQS_SYSFS			- descriptor has been added to sysfs
-+ * IRQS_UNMASK_EOI_THREAD	- EOI and unmask is deferred to the threaded handler
-+ * IRQS_EOI_THREAD		- EOI is deferred to the threaded handler
-  */
- enum {
- 	IRQS_AUTODETECT		= 0x00000001,
-@@ -66,6 +68,8 @@ enum {
- 	IRQS_TIMINGS		= 0x00001000,
- 	IRQS_NMI		= 0x00002000,
- 	IRQS_SYSFS		= 0x00004000,
-+	IRQS_UNMASK_EOI_THREAD	= 0x00008000,
-+	IRQS_EOI_THREAD		= 0x00010000,
- };
- 
- #include "debug.h"
-
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
