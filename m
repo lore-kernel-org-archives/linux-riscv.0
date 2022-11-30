@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2E2C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 13:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07767C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 13:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LfGP65X3FUhGUCaDXVBkI42Jw9hmZy1O3eyG5C0U0NU=; b=3ZHvEtUYjc5evE
-	pr2ecX3S7Kc878ZuRjDTTEvNl26cr7jeKA4zoZqNzh1VH4lQU2l+S3vGknVywKX41NJIcJpGaiDZe
-	ssqFFdba2L0dIr1siD/LIaE7Hp55gNZzG2JELQmxA+3GD25hcu+BrClORYs9N28KWsSwGBptC0s2D
-	5nhNk7+yg1ZKuy2xxA25KdDP3O0GseeZGSMHI0PQYpGOMsTUyFkStHnJB1yQF/N4pQJAvf1VuAVSj
-	kNioC2VM3bJ+2hGcbj5XM5Rx/HmbY27iOZak6XjfdbULzVg+CKqnkCOtGbA0/ONmMEe2L/mSfTsUw
-	OnSPL/AkGywgvPerbRBg==;
+	List-Owner; bh=PKg3MEFooHLtrWWM6FkRUt7MzaDWUWpx+27nc4klU9I=; b=HKKlbfh3vNwj3U
+	D3NG5TBUu24bl/X6+JiBFWa5H/9At4AAdGWl1mMMy3eWy8ugqi9dC3bLmodE9Rf3b74YgvBqU8Sn/
+	lB/ZV8dazA+bwK6ugazancDTxo4LU3iOBUjRPCLopNqhnfy0vHpSEeLcpFHjTbyVtZsa36kPilOC7
+	biuzcjDZj2F6Bl09WCM9ruDtBqJr+uj4hj2YnKZFAkwOndzaGFALJ7US7xH/Z2MaeyeUn+rY/3d+Y
+	EZ25Axbmjf55n8AmU08V5tJcPJc4crPoQEgdNhiECybCBcQqhFFBP6GdPk4I1996+YcDOvLoFxuw9
+	K4rNcoNneSlyyq8SXxAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0N4U-00GSnQ-D0; Wed, 30 Nov 2022 13:24:18 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1p0N4l-00GSvP-DK; Wed, 30 Nov 2022 13:24:35 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0N1D-00GRHD-UG
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 13:20:57 +0000
-Received: by mail-lj1-x233.google.com with SMTP id d3so20862500ljl.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 05:20:55 -0800 (PST)
+	id 1p0N1v-00GRhF-R5
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 13:21:41 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id c1so26900182lfi.7
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 05:21:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=j775fJtYiZtYgtZzcf7tx8CpBZLSxoSp8X/AC+Ipfjc=;
-        b=AxMlx/VP3GmRPGBR91nj1J9zAtFpgsH/BossKJyGfj413DjN7jCtzPujQyxQo6utQZ
-         6A2Rhwn2E34gEfwz+Jn4JS4xNilxbPz4p9JfF6WrFvwxWXqiOO2e7Roo5IcIds+X5Ck1
-         XZQFM03zkwyxLdZgEZFxSDcoPkCCS1TcjtnC+JvCQDrALBxw123GzCJi9Og14IZFeHZh
-         Dt5U4lzEhiTvP7l/I5CDhq09K+qlnRE/pmPXx5MhzpH2eTElu9Aosdxc2Wz89NQHPpZJ
-         5P81tbm90OPsPa21xQ7n8YuIxgw5HoTdRVcWQ2U6iawFlspHE7jspaxpI8HTlYPwQGkB
-         pdpg==
+        bh=EX67p13z8d9r6utOQ3HspL4ZQU3w0yz+MFaOvH14Afg=;
+        b=HbKbsmDaHQCbziDgajKR80oOYPdVMbLximh6GWVUvz9kqlJroCPovLR5nuOjq9/uep
+         asR8yhq+pOBgRnaYu8Wr4kGSbOInPEYT/bbLLi1cB1nVZdlYzrlolleMsVY4so9dqY+d
+         /02g1se7UbNg75PTLaDlhbPCKMtYwsnhXotrZxfehQ1WUakUR+LFiQcYNzKtrXxPh4kA
+         +ojt+Nx4Vr6KMaNw1zjihVUH8pe5FDP+fbDVWjj7BAv/dcfHMQG0XSWjMXVv5Vfxtu/f
+         MG0PntjAYJvFBVFZk8LneLNgpLQUzYxCdIgD4KuigtuYdSSrIPRUqOy0eWNVXVGqt+/7
+         +b6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=j775fJtYiZtYgtZzcf7tx8CpBZLSxoSp8X/AC+Ipfjc=;
-        b=P/oxnc64v3k6OzLhuzK2PKrVruXEUx2DZ6vTvqBF9zLzjC4j9w7Da3Rf5x5XrL8jdG
-         0vw0YwSgmBfblcL/Hp+Wq8nbq5KJUaQ114nzBsd3gzLMPHrnif7r8fgNUCAshEndG5Fy
-         Om/CjUJ1+JSHgtf0Qeg9S37tAq9zdkJ/nWV0je9IGiiqDse9FvucYM4qjoGDM2KtdIvJ
-         Bs4F15CoOBi1pjv/7alQow9XdoeK9ZWqjhUBhYXYK2oITqPIZfqhGBACoZUXpDzUcwDc
-         m3BI02rnE5UY2DHHWRU6f4Cs3uGvlpiyYHh9O9mJdojEUQpyd/CglZCY5wfOl4YW+/h2
-         kfmg==
-X-Gm-Message-State: ANoB5pl0fbRcc3lFrHostZacb9XWwfV3Fkj2dryGv9thFfazMd6X6XQm
-	YbD+modz62F3f3h01Mjj/q18xA==
-X-Google-Smtp-Source: AA0mqf4Wdt0K6czlFiXdA0enEjqbC7cGLCeCdGkYedrL2PAR0uAWoNRStPZvBTjW3+msDrN/LcSOeA==
-X-Received: by 2002:a2e:9ec9:0:b0:279:c19f:a6d with SMTP id h9-20020a2e9ec9000000b00279c19f0a6dmr1518980ljk.37.1669814453832;
-        Wed, 30 Nov 2022 05:20:53 -0800 (PST)
+        bh=EX67p13z8d9r6utOQ3HspL4ZQU3w0yz+MFaOvH14Afg=;
+        b=rr2hRXo8QR7LnRcb+lZvIcsQO+hYrdwVhZZibiKlmOuYDWRg776GhHG5KTA7IOhih4
+         QY/Y1QbA0unHNWfjkHYDsobUqw2VSSIPj//W+M7CtvX+piU7KEUDKuKdWVih7PPsCuae
+         +213j+IX/pwYoSoI6+aw/e2c1HMyFbbfzEXUoHz2UwDYmENwmSkBuVtiW5pqkox/Vo8r
+         U17FLFq9RsU/rNFj7MiSw+5kPXKOMGoPWzksrck9aEhWrIYVCwdK0AI8xe5NHnwEcQj7
+         0Yk5KbszdhB+20ZUd3qzr5PryX/dcrDWcZfWvPxCbGV9B6BVm1AFgIH2dkIm9MSVtuIP
+         VuBw==
+X-Gm-Message-State: ANoB5pllnHNFy4LM6+xOTZw7+kV2RmgalUnqfWvvB1E+mRYwtl7ZGbMq
+	eJ3bnMPBV09UmgirrUbZYE5BAA==
+X-Google-Smtp-Source: AA0mqf52Qf97WPzBKIa/waiBz5xTnEwwOQKDvYKrFoZ8Q2Q4fftU8TGRyTNB6VsgW04a9KygsWryTg==
+X-Received: by 2002:a05:6512:32cf:b0:4af:e82f:6013 with SMTP id f15-20020a05651232cf00b004afe82f6013mr17826256lfg.36.1669814497889;
+        Wed, 30 Nov 2022 05:21:37 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id r7-20020ac25f87000000b004971a83f839sm258676lfe.39.2022.11.30.05.20.52
+        by smtp.gmail.com with ESMTPSA id b8-20020a05651c032800b002770e6c620bsm125999ljp.106.2022.11.30.05.21.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Nov 2022 05:20:53 -0800 (PST)
-Message-ID: <8a8f502e-e0ed-d638-0b56-74edcbca2134@linaro.org>
-Date: Wed, 30 Nov 2022 14:20:52 +0100
+        Wed, 30 Nov 2022 05:21:37 -0800 (PST)
+Message-ID: <6de013d9-f2ab-a2d8-1022-2474c037c737@linaro.org>
+Date: Wed, 30 Nov 2022 14:21:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.0
-Subject: Re: [PATCH 5/6] dt-bindings: crypto: Add bindings for Starfive crypto
- driver
+Subject: Re: [PATCH 6/6] riscv: dts: starfive: Add crypto and DMA node for
+ VisionFive 2
 Content-Language: en-US
 To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
  Herbert Xu <herbert@gondor.apana.org.au>,
@@ -75,12 +75,12 @@ To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
 Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
- <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
+ <20221130055214.2416888-7-jiajie.ho@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
+In-Reply-To: <20221130055214.2416888-7-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_052056_049994_17D80788 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20221130_052139_934835_0293684B 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,158 +98,52 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30/11/2022 06:52, Jia Jie Ho wrote:
-> Add documentation to describe Starfive crypto
-> driver bindings.
-
-Please wrap commit message according to Linux coding style / submission
-process:
-https://elixir.bootlin.com/linux/v5.18-rc4/source/Documentation/process/submitting-patches.rst#L586
-
-
-Subject: drop second, redundant "bindings".
-
-
+> Adding StarFive crypto IP and DMA controller node
+> to VisionFive 2 SoC.
 > 
 > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
 > Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
 > ---
->  .../bindings/crypto/starfive-crypto.yaml      | 109 ++++++++++++++++++
->  1 file changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
+>  .../jh7110-starfive-visionfive-v2.dts         |  8 +++++
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      | 36 +++++++++++++++++++
+>  2 files changed, 44 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml b/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
-> new file mode 100644
-> index 000000000000..6b852f774c32
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
-
-Filename based on compatible, so starfive,jh7110-crypto.yaml
-
-> @@ -0,0 +1,109 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/crypto/starfive-crypto.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+> index 450e920236a5..da2aa4d597f3 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+> @@ -115,3 +115,11 @@ &tdm_ext {
+>  &mclk_ext {
+>  	clock-frequency = <49152000>;
+>  };
 > +
-> +title: StarFive Crypto Controller Device Tree Bindings
-
-Drop "Device Tree Bindings"
-
+> +&sec_dma {
+> +	status = "okay";
+> +};
 > +
-> +maintainers:
-> +  - Jia Jie Ho <jiajie.ho@starfivetech.com>
-> +  - William Qiu <william.qiu@starfivetech.com>
+> +&crypto {
+> +	status = "okay";
+> +};
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> index 4ac159d79d66..745a5650882c 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> @@ -455,5 +455,41 @@ uart5: serial@12020000 {
+>  			reg-shift = <2>;
+>  			status = "disabled";
+>  		};
 > +
-> +properties:
-> +  compatible:
-> +    const: starfive,jh7110-crypto
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  reg-names:
-> +    items:
-> +      - const: secreg
+> +		sec_dma: sec_dma@16008000 {
 
-Why do you need reg-names for one entry?
+Node names should be generic.
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-> +
-> +  clocks:
-> +    items:
-> +      - description: Hardware reference clock
-> +      - description: AHB reference clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sec_hclk
-> +      - const: sec_ahb
+No underscores in node names.
 
-sec seems redundant, so just "ahb". The first clock then "hclk" or "ref"?
+Does not look like you tested the DTS against bindings. Please run `make
+dtbs_check` (see Documentation/devicetree/bindings/writing-schema.rst
+for instructions).
 
-> +
-> +  interrupts:
-> +    items:
-> +      - description: Interrupt pin for algo completion
-> +      - description: Interrupt pin for DMA transfer completion
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: secirq
-> +      - const: dmairq
-
-Drop "irq" from both.
-
-> +
-> +  resets:
-> +    items:
-> +      - description: STG domain reset line
-> +
-> +  reset-names:
-> +    items:
-> +      - const: sec_hre
-
-Drop "sec". Why do you need the names for one entry?
-
-> +
-> +  enable-side-channel-mitigation:
-> +    description: Enable side-channel-mitigation feature for AES module.
-> +        Enabling this feature will affect the speed performance of
-> +        crypto engine.
-> +    type: boolean
-
-Why exactly this is a hardware (DT) property, not runtime?
-
-> +
-> +  enable-dma:
-> +    description: Enable data transfer using dedicated DMA controller.
-> +    type: boolean
-
-Usually the presence of dmas indicates whether to use or not to use DMA.
-Do you expect a case where DMA channels are provided by you don't want
-DMA? Explain such case and describe why it is a hardware/system
-integration property.
-
-> +
-> +  dmas:
-> +    items:
-> +      - description: TX DMA channel
-> +      - description: RX DMA channel
-> +
-> +  dma-names:
-> +    items:
-> +      - const: sec_m
-
-tx
-
-> +      - const: sec_p
-
-rx
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/starfive-jh7110.h>
-> +    #include <dt-bindings/reset/starfive-jh7110.h>
-> +
-> +    soc {
-> +            #address-cells = <2>;
-> +            #size-cells = <2>;
-
-Use 4 spaces for example indentation.
-
-> +
 
 Best regards,
 Krzysztof
