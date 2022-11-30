@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72A9C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 03:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F08C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 03:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IY1NJZ/Wjvl/5thW6tmNtbJD/l/xiT2O1JzVlvWy3Zk=; b=vVxytuG04PCFEm
-	t4M0XmEevJwqiK+pMAJFR5bzCE+OOj/5eI73B1HXJBKgc1l924tN0dbXwQrmgQ0hXw0YTfLiKoM6T
-	t7rUm8EGsNLNbyGOs2boIAe20y4bkHEJPnhe4p3XMpDk9AeTse+GS1cs+0BG8s5tD+/Je0cRpC4+6
-	rznqEDRTAy7yADOkeFcKGWnuqqL7oGuRHg9TLZ9gC4z3/e7hdz+cubxW8h9yHwsexaYYukbNZPzOq
-	OUL+1QIVF4FgVkXS8p3nWb6bs+NmeMYrK3Sd2yamL75YMcBD5FuhKQUQaZK7xpPj5q4q6chuIy101
-	4dIoaUtxENJWW4v2RdQw==;
+	List-Owner; bh=kVub7DHn+ZBFLSgqTDEeeRQZ0RHVUeZO7RAxGQX3XiM=; b=T1HzRQXxp+YRsA
+	SrfyQ/Rj68RqDmoIDA0Kd3tlinP7Xm4ezId9kRnLez9GmrUOuBWtx2ki6IbN/fhDwdVlKDbZpSV7V
+	b5glKeIuknO0c7bjF0erazGn5oeXoiPT+TsedJbpbTPrl7vGSKqESuy+WY1mDeoH3Jt4EGDCtu/sK
+	MEi1dn4Rgel9T12bvnzOsqY1uymQ1VDi6PI1CbMYbBwxNYuhAW5ryH3YBf1x0AqcRIeTeVnj/YpsW
+	oXJSWXwpgGRrT/nhxdmQP/IKdJ04yfQB0snNaFZh4NblU20kRniMMhfFFh6XscmeDxiYQapF8JliQ
+	wOJKfuIc3Un5Sugj+hfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0E0g-00CfOO-H6; Wed, 30 Nov 2022 03:43:46 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p0E0r-00CfYI-CR; Wed, 30 Nov 2022 03:43:57 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0E0Z-00CfIa-4Q
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 03:43:42 +0000
+	id 1p0E0m-00CfQk-3x
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 03:43:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8D6EDB80B57;
-	Wed, 30 Nov 2022 03:43:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AF4CC43144;
-	Wed, 30 Nov 2022 03:43:27 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 0A4B4CE17AD;
+	Wed, 30 Nov 2022 03:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEB9C433D6;
+	Wed, 30 Nov 2022 03:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669779816;
-	bh=inDVdeT+ApeWD+kZ8zmtn7/x7HfuwyxUYXSgh89qx40=;
+	s=k20201202; t=1669779825;
+	bh=lnoKu28Fc9fEyibwcuIO3LwBsdtybFxiOBpzcEMK9/I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hw9dzSoYXan7tBBKjH/jMIyD6MJfG+La81RhVxyJThw8hErpoJrwssMNxll3vD6k+
-	 /kxJrSbo7Dn3JTIKz/q72Xsa1LB2RQkiBQvOUSwgD2VsGAfpLdMrG3Symfcm2jehai
-	 CVPPfItzilXALtrs3VbLqN6LpgOP1w4W4KAekRLXKN3n/GfzqtziAV1Qezt6BXWcxY
-	 LzC3FnhOnPvwtbzLuhL1eYDFAh5BcaE5TM8P7o8ZlvB6xqohAuzFMyDsnRn5WeCNRQ
-	 3Y7usFGD3Lmv5YymJr+4+4EqNaf1dv5x3GyIzrOw9Q29llB6v7C+pKop2BSIjhr9Dz
-	 z9HBoo3kos4Fw==
+	b=C87B5dL2USumUlkcea4T+WHtUwUPBI7DadEe/HbMQYsoYp1OvMXectEjCfyMye5Hv
+	 b1nbWU0HOC9asmo32ux7z6+0tY2ETmsljMeGC0w2CgN9pJRwOtNQ3u8PDCCkJCJHy6
+	 P0t4acjHlJFCmDQ5FGzECFV1WSuCsCNoo055gBxosGLMO6M7WEBwNWIzRhCU9x0xWk
+	 rIMheOnadphxptAm8icMZoVCXK/wYZ9pyXDXK7cmcihBZZaE/TXAI8NgbcQq2KzhBq
+	 CL8zfjOaBn8R+iVDWIRevX0avPkXdRwlYfuKJE3lYpIt0WKldxdnbGNZi7IqBZwa7q
+	 WOquzcKvYllvQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	guoren@kernel.org,
@@ -70,16 +70,16 @@ To: arnd@arndb.de,
 Cc: linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH -next V9 12/14] riscv: remove extra level wrappers of trace_hardirqs_{on,off}
-Date: Tue, 29 Nov 2022 22:40:57 -0500
-Message-Id: <20221130034059.826599-13-guoren@kernel.org>
+Subject: [PATCH -next V9 13/14] riscv: consolidate ret_from_kernel_thread into ret_from_fork
+Date: Tue, 29 Nov 2022 22:40:58 -0500
+Message-Id: <20221130034059.826599-14-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221130034059.826599-1-guoren@kernel.org>
 References: <20221130034059.826599-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_194339_556905_62AB6F91 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20221129_194352_560017_64EBE9CE 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,86 +98,87 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Since riscv is converted to generic entry, there's no need for the
-extra wrappers of trace_hardirqs_{on,off}.
-
-Tested with llvm + irqsoff.
+The ret_from_kernel_thread() behaves similarly with ret_from_fork(),
+the only difference is whether call the fn(arg) or not, this can be
+achieved by testing fn is NULL or not, I.E s0 is 0 or not. Many
+architectures have done the same thing, it make entry.S more clean.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Reviewed-by: Guo Ren <guoren@kernel.org>
 Tested-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/kernel/Makefile    |  2 --
- arch/riscv/kernel/trace_irq.c | 27 ---------------------------
- arch/riscv/kernel/trace_irq.h | 11 -----------
- 3 files changed, 40 deletions(-)
- delete mode 100644 arch/riscv/kernel/trace_irq.c
- delete mode 100644 arch/riscv/kernel/trace_irq.h
+ arch/riscv/kernel/entry.S   | 12 +++---------
+ arch/riscv/kernel/process.c |  5 ++---
+ 2 files changed, 5 insertions(+), 12 deletions(-)
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index ab333cb792fd..d3b7779f774c 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -69,8 +69,6 @@ obj-$(CONFIG_CPU_PM)		+= suspend_entry.o suspend.o
- obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index b1babad5f829..d4c061f7fbfa 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -132,7 +132,6 @@ END(handle_exception)
+  * caller list:
+  *  - handle_exception
+  *  - ret_from_fork
+- *  - ret_from_kernel_thread
+  */
+ ENTRY(ret_from_exception)
+ 	REG_L s0, PT_STATUS(sp)
+@@ -326,20 +325,15 @@ END(handle_kernel_stack_overflow)
  
--obj-$(CONFIG_TRACE_IRQFLAGS)	+= trace_irq.o
+ ENTRY(ret_from_fork)
+ 	call schedule_tail
+-	move a0, sp /* pt_regs */
+-	la ra, ret_from_exception
+-	tail syscall_exit_to_user_mode
+-ENDPROC(ret_from_fork)
 -
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
- obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
- obj-$(CONFIG_RISCV_SBI)		+= sbi.o
-diff --git a/arch/riscv/kernel/trace_irq.c b/arch/riscv/kernel/trace_irq.c
-deleted file mode 100644
-index 095ac976d7da..000000000000
---- a/arch/riscv/kernel/trace_irq.c
-+++ /dev/null
-@@ -1,27 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-- */
--
--#include <linux/irqflags.h>
--#include <linux/kprobes.h>
--#include "trace_irq.h"
--
--/*
-- * trace_hardirqs_on/off require the caller to setup frame pointer properly.
-- * Otherwise, CALLER_ADDR1 might trigger an pagging exception in kernel.
-- * Here we add one extra level so they can be safely called by low
-- * level entry code which $fp is used for other purpose.
-- */
--
--void __trace_hardirqs_on(void)
--{
--	trace_hardirqs_on();
--}
--NOKPROBE_SYMBOL(__trace_hardirqs_on);
--
--void __trace_hardirqs_off(void)
--{
--	trace_hardirqs_off();
--}
--NOKPROBE_SYMBOL(__trace_hardirqs_off);
-diff --git a/arch/riscv/kernel/trace_irq.h b/arch/riscv/kernel/trace_irq.h
-deleted file mode 100644
-index 99fe67377e5e..000000000000
---- a/arch/riscv/kernel/trace_irq.h
-+++ /dev/null
-@@ -1,11 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * Copyright (C) 2022 Changbin Du <changbin.du@gmail.com>
-- */
--#ifndef __TRACE_IRQ_H
--#define __TRACE_IRQ_H
--
--void __trace_hardirqs_on(void);
--void __trace_hardirqs_off(void);
--
--#endif /* __TRACE_IRQ_H */
+-ENTRY(ret_from_kernel_thread)
+-	call schedule_tail
++	beqz s0, 1f	/* not from kernel thread */
+ 	/* Call fn(arg) */
+ 	move a0, s1
+ 	jalr s0
++1:
+ 	move a0, sp /* pt_regs */
+ 	la ra, ret_from_exception
+ 	tail syscall_exit_to_user_mode
+-ENDPROC(ret_from_kernel_thread)
++ENDPROC(ret_from_fork)
+ 
+ 
+ /*
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index b0c63e8e867e..5108c76a14dd 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -34,7 +34,6 @@ EXPORT_SYMBOL(__stack_chk_guard);
+ #endif
+ 
+ extern asmlinkage void ret_from_fork(void);
+-extern asmlinkage void ret_from_kernel_thread(void);
+ 
+ void arch_cpu_idle(void)
+ {
+@@ -172,7 +171,6 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		/* Supervisor/Machine, irqs on: */
+ 		childregs->status = SR_PP | SR_PIE;
+ 
+-		p->thread.ra = (unsigned long)ret_from_kernel_thread;
+ 		p->thread.s[0] = (unsigned long)args->fn;
+ 		p->thread.s[1] = (unsigned long)args->fn_arg;
+ 	} else {
+@@ -182,8 +180,9 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		if (clone_flags & CLONE_SETTLS)
+ 			childregs->tp = tls;
+ 		childregs->a0 = 0; /* Return value of fork() */
+-		p->thread.ra = (unsigned long)ret_from_fork;
++		p->thread.s[0] = 0;
+ 	}
++	p->thread.ra = (unsigned long)ret_from_fork;
+ 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+ 	return 0;
+ }
 -- 
 2.36.1
 
