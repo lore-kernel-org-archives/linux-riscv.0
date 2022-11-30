@@ -4,162 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A088CC4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 12:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1B9C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 13:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bzV8ia2DPm5UXsxwuYUDdiIWyLtKYESNitl/qlJrvoQ=; b=3UklQzCOisfnhR
-	u+coVHwR+8u7hChhhzQPyDcHkzPL8bSdgdB+YzNeTaLKLjnA/P+8RWe8rwyDvRpd0ldynlR54xoFN
-	AoHUdi2+D4nm2LF3s/KnqsVxx0iaOypUar/4Fzh+JiuF48PRym3M2mdrsFs0iPXckvne198vtDmUP
-	meMCnlGiGncaKug042TMRpNeXJ0fUzt0W9zQoN3cCp4fvKPUfzVnsNvAlNeNlJUOqPgu8c1YCqJZ4
-	iRgKx1X+5eEGS0adibkJfQ0igNZMOUPw/wTyBUHTPKZDxdT1BIryOEm/AsGbUnLGrA+NjK+qpNOHA
-	f7EAqbo9Cb/JKma9wINw==;
+	List-Owner; bh=jLCJKsc9HUJAyaAs/ItcOgcHxbBxU0rMG5hmsrDXv7U=; b=YOfgi9nJ+M7TzT
+	tzboH4hv+8jV3oXaYqSTg+ZqAzv9bzocMxpLzqpXT412Nzd6+4OgaUtivz0m0OHm1X3uneo+KIrmt
+	P45vbstYUnSYv+PHKYJve2G67KY9Ik47HM+3Bg7mbNNyxNy2jNpNsJLvmnMDhpPLZacMapb1sTVI9
+	T14AOOj9hu8FM8ytLcWghZ7BFVmmJLfK0/Ik6Ir6nZVsjjWoCf+WkSjXqznmhD2PyBuK1pGCEcCji
+	Z6iyVdYACLMqiKtcBn0nJ6wYNUbprenj3SemnIAZsDwFo/v+DTFKPt5K6gFVFWcpxv25PgZVgoJEc
+	34/orNkK03DKxnAER9sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0MUg-00GFxz-AQ; Wed, 30 Nov 2022 12:47:18 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1p0N0f-00GQwJ-UW; Wed, 30 Nov 2022 13:20:21 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0MUc-00GFvo-80
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 12:47:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669812435; x=1701348435;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=7QuG9NWnIPHjp/GeTm2wDjFAagAzYKFtvacaiti+tPo=;
-  b=Kvq8X2il7pQbpk6UmOkJ5IVk/mAe3snlczUQlFTlht6ElZpjx3JpLDxa
-   UCfmHiKJQCL5oc5ddDHrYP6zgHytcOGyBwtu1VZq0LxKsIZ0vpDkjIdix
-   kGViJvnsz+1GR2d2yGPeN3cTtmnetAgQCCxgizkYEeD7kkR43VUWgcbXV
-   QwKFPrhqHv+2xs+VPPkiQF5MchbDa3UEYne8ECLRPDVpBUsMuq7yWYvuX
-   w7mzYyQrYQ55GRPrnv5uqOcHQjJkQDpsbkLCh5mHUt3npFRuqodsf0LnI
-   asjtWg4+trq0uqUQf/CopRc7RvBC9G02L4VA7p2jn8RIg7BcqCRR8rdin
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.96,206,1665471600"; 
-   d="scan'208";a="185857584"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Nov 2022 05:47:07 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 30 Nov 2022 05:47:05 -0700
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Wed, 30 Nov 2022 05:47:05 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=oP0LMn0yeKR21Lt8679YHjV/FD5IvWJhW7PiYJTRdQGHy5RyA4BJXZtv6UB2ye1eZ0KscjPU3ytx5PEJ70vV5MGbwF1ut9b7oaI60emfwWpQ/8f4ILVFTD21fEXteXHgutu7oz0QWywwdfu2bdbo1DZ1FE+kmSuv/1l4qn+ZvC0XTabIm896K0CCVEgbRGcziOYTXekanFSZ97kbRb/rWRasf1rzFbpMYlXA7gbebsTofgKMYP0Xkl/UgNj2xbYeUJ81LFMZIssKvDSvveKll1c1MprlCUrZxdOQqBHj1PnckmcPpwJ/Ki3EmwRMVzgc31yajViZYTNpq6eqsn7CsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7QuG9NWnIPHjp/GeTm2wDjFAagAzYKFtvacaiti+tPo=;
- b=DGvMjdWCoX4gOWLFW0AA5KLZmi7VpdTwlIzq8ffzct8z77f4Ueu6eMMzE2BgD+D/ZEDhm3Ozr9UmFp2Ai4sL7RKyHe5O64h8SYtMn8EcGvWZTBM992YLNZodyZgyHlesVghh6/tm9YBYqmEg7klc57GdYLmpoFks6SWBIrEq3akTLV7qxuAQfYz+/oSt9Tny7A/foLs/Zpy41kxWBbMJQDrXU0Mv2ouqOfgRZe0EQmOZjdId4vhoUNnNoa2pojtoHlpPV3S+af92fKzqM7n4wOsepbzpcJUYPbPXAMjlB9AM/w93UPKbShyGFZIH6tCVCb+8UjmZ1ES58bed37NN+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1p0MwD-00GOuM-Ca
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 13:15:47 +0000
+Received: by mail-lj1-x234.google.com with SMTP id a19so5078299ljk.0
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 05:15:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7QuG9NWnIPHjp/GeTm2wDjFAagAzYKFtvacaiti+tPo=;
- b=cqRlYmNvYji9rqABJqrGm4efSKoXPxNNRRSwmQZHTZ45lcG3juPnEmvmpnaiVO5/asZLpFpCIAobhAv5ilXVTinzPaaC8MpuMRKocSm2m4LOjLsnhvzyDPPBzR1c57GTDMfrf99OFa/dnKmHsPVs4d9x0fmYQKx5Pa1eZ0d+8Fc=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by CO1PR11MB4963.namprd11.prod.outlook.com (2603:10b6:303:91::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5857.23; Wed, 30 Nov
- 2022 12:47:03 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::f79d:bb4a:e2a1:7bb6]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::f79d:bb4a:e2a1:7bb6%5]) with mapi id 15.20.5857.023; Wed, 30 Nov 2022
- 12:47:03 +0000
-From: <Conor.Dooley@microchip.com>
-To: <ajones@ventanamicro.com>
-CC: <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
-	<heiko@sntech.de>, <apatel@ventanamicro.com>, <atishp@rivosinc.com>
-Subject: Re: [PATCH v3 3/3] RISC-V: Ensure Zicbom has a valid block size
-Thread-Topic: [PATCH v3 3/3] RISC-V: Ensure Zicbom has a valid block size
-Thread-Index: AQHZA//L8KTmIEGzV0+hnjNXgPsPPK5WTjmAgADq5wCAAB3xAIAADnkAgAAGEgA=
-Date: Wed, 30 Nov 2022 12:47:03 +0000
-Message-ID: <fe2ecb8e-ac35-54e5-0169-a26ec281cb95@microchip.com>
-References: <20221129143447.49714-1-ajones@ventanamicro.com>
- <20221129143447.49714-4-ajones@ventanamicro.com> <Y4ZhT3R34cE35a0K@spud>
- <3c64b508-a629-0c34-1119-e854b1968a2f@microchip.com>
- <20221130113314.jagmoosmx5ktwt6t@kamzik>
- <20221130122502.52w45qvxu73acfrf@kamzik>
-In-Reply-To: <20221130122502.52w45qvxu73acfrf@kamzik>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB5154:EE_|CO1PR11MB4963:EE_
-x-ms-office365-filtering-correlation-id: 17e374c2-3997-4997-7567-08dad2d0fb4f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: L8FFf/KyWbQbD5oSd04Bb4SK6ZApO45n3ebYYTPj5moWfiGD2nvXNhaoSqrgBLY9a3bZbc7U9sPJ1RTgdftCXdxilXeYYm+pskwXRJ+D3b+P4bpf65WHBvzlw3l0WE2+n289UVt+3WfOUEiIQC5lYk94U9J2h/1iHriXtIJd4WNO7LesZQ67WVjKUhYuztolKQryRY9d1QwcBzUMHFFxqug/CzpqZTu9XXKhFQETK/xH/D3Pgt2WW3xgIvQUnnrEoOUvD7WSxiuyLHLa9BGj6PugkE6lxXnxFyZ3wppgzNjuagvGfZ4HefVb7lWQafdzhCWxo/p9qiSREd+llKPWj5VFs8T2qKfpqiDOBpxVnp6aAta05kN7oQ9HoCti85zfO71yyAzX1SBxl0D7bPEeCC62hJHYz0L06tLF7NlNb+cdHzHgOGZu6ZY+U5strKasGiQpBkYaEQRRAwWgIx0zn3m0lIKe7wUOMZiWjYexLKnJG5HeyVqLMUL6JzsxQM3/+r2ll2ZqTvke3Me583gRk8ew7v6NvL7F5A2u258KdiguMhVDbvbcIurrgeesrZmA4reovG8BFkuGqCMqdufAQ9hYDpdKT2I03LNhD+nxwrZhhYcrmLkURyZNAPN6clbCpVpteGL25jacTb3bX2V6bGLVuL1LrJFFFAfweWW0O/ppEkToN+0ATgRpjCCUOcQd8fRV3ZOk+YdoYp9TN8TktKtnHA85LEmD9CWYHG3KP2YZzFTPTKh8THev0Aut+2/s2dP3ol7nQ9kfY4ln5L1CO0fyWQlp29TDu4v1x2iK+O4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(346002)(396003)(376002)(39860400002)(366004)(136003)(451199015)(5660300002)(41300700001)(54906003)(2616005)(6916009)(26005)(6512007)(316002)(76116006)(66556008)(66446008)(8676002)(36756003)(66946007)(4326008)(66476007)(122000001)(38100700002)(38070700005)(8936002)(64756008)(91956017)(2906002)(186003)(83380400001)(86362001)(6506007)(6486002)(31696002)(966005)(71200400001)(478600001)(53546011)(31686004)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cjFxTTFNeWlMNHpJeVJFV1cwbEVJVk50S1BOWmR3NFlEWU1CVm41VWFjcGs1?=
- =?utf-8?B?UW9CdjJISGJjMXdzSFlHSlZSeDQzS01FdTBQNVprb2RPVy9XNkdSNi92ZDZi?=
- =?utf-8?B?SjJWRFlvL3JEOEpRaWdKYnlXUElBenlLQ0FoVVY3ZXhpT0I3ZE9sMnkxQzI2?=
- =?utf-8?B?eUpzU3F2ZVRocHlybVdYSGwxNXNBdityQlRvcHcycUNGTGhCeEpBWnA4RDdz?=
- =?utf-8?B?NmJTU3QxU25MSEZYSVh4d2U0MFJaK0UxRnVoMmNKbjZUUkI5RVdncTJGNU1i?=
- =?utf-8?B?bE9sRXYvQ3dIdGVDa2Fja0FYNDk3YjdMZWNUbm5BM0NTd0VHdk5kbWJxNktp?=
- =?utf-8?B?eE5uVVNIbW1TNUpNcjJxNU4yZmV6MkoxTlBwdWZWOVl5cmRoUi8zK2NVR09T?=
- =?utf-8?B?OWR2NHhIeVZjU1NIaTdUS3NVV0U3cjVyakdKU1F5cWtMdFNKbnZwTFF4eUE2?=
- =?utf-8?B?QnVrT1hmLzkrMzhHc1kxRTU5R0NselRiczg5Z1ZnK2g1NU1mWllzaWJSL2d2?=
- =?utf-8?B?b1RRSElKM1pidVRwY1lJVFBaVjV2ODJLNkNZbm9KZENOaDVhMGJqNUJraENY?=
- =?utf-8?B?ZmF0SisxTHJOWEtsNzVXYWh5c0ZHUnpUWFVObEMwb1VOQ3oyUzRMRkhNaTBt?=
- =?utf-8?B?UmY4YUZqemNGK2pXU01rYUZnbWs1TXI4SkhJMGNUNWRaTVB4aVdPSUFLZDBv?=
- =?utf-8?B?eGJVSXI1VjB4SmtaSEp1Y0dvWjNGQjJoT0R4L0Z1S3hVTU92WU5aSGFWM3ln?=
- =?utf-8?B?b21LUzkyZzNzMmw2c05sTkRjdm9LbEp0S2ZTbllQb2VVVE0zWUpQVmtCSVlp?=
- =?utf-8?B?WVdHNUJ0VUFreEJXUGVtMkZ0cGJNb1M0MnlnWkVTUzJ0WlpTcy9YYWI5Z2d2?=
- =?utf-8?B?dHVBV2NBWVViTm5NS1NieElHWjBwU2YxY29zMk1yeXNiLzdjU2RhNTgySWUr?=
- =?utf-8?B?OXVmRm9hZ3NTOWZ2eEltblJzVnVHTVppVHRydFIwZXV2ZzFianBMcDFVcW1P?=
- =?utf-8?B?TnlOL01JcTR0ZHVxbDlTdkxUNmx3UW5wWkxRT3dyWnZvdHlxc2hmYVZrZWcv?=
- =?utf-8?B?bHVVVmFWL042NG5wUkUzV3pRYnJYak9TSTdIallUWmI4V1ByeGJrYjBxYnhZ?=
- =?utf-8?B?OWtYN1RqSDZPcTFiY1Uxa2k3ZVU0ODE2UTVDRUFGaWE3M25LRyt6SnNqajdm?=
- =?utf-8?B?ZTd6d2djdzI5djV5cWQrZ2wvUVhCc0FFWEhSL1ZqQ0dWbHBXeDNGVDNLNlAv?=
- =?utf-8?B?bktCcVdYMXhXMmxreEs1R01nUHN4ZkN1MmxBTWZoaVZzQk9GMW5DeUNFSW1K?=
- =?utf-8?B?aTJPWXN4MTVsNjdTcG5FOG1QT3VyK2twRk0xMjZ0cjM5ajhVNmQ4encvbmlD?=
- =?utf-8?B?cGYyc1ZTdFBnT2FnbGxIb3dUemRHd1FKcjR1Mi9BMmorSGRrV3JBY2FGc1lY?=
- =?utf-8?B?d2kwOUdta0Y5enZ0NzFKWkx1NG9zSkdXdURGMUZUa3NkSzBVb1ZLZERiMUdR?=
- =?utf-8?B?WFhjRk1ESmRaRGFhdzluemg3N29oaXRmclZDQlZiUmwyazgrRkdtVHVIYmRl?=
- =?utf-8?B?cVB1bDZpcWhQRERiU21va1JFRUxTNE15L2pzNng3cmIwVzEvUjJJZUJ3elJO?=
- =?utf-8?B?dEJHS2ZtUXNhVGZPdlBnRU5ENE9naDJ3NFNMNWNGL29hS1pacDJaamx5djVw?=
- =?utf-8?B?WEFjbFNjY0oyQzM3L2w0bmlCVkNHdEx1MnhOcFBQbDB5eHdJYlhHdi9aM0hs?=
- =?utf-8?B?SUhmMHlaOUUxVmhqdnh0bFlHV1MrY1VHcW54MDhTdHRXNXVjU1F6VzhUaTRH?=
- =?utf-8?B?TFpvNThaUXEzTnJUTGRKOUFkWUd0Y3hRK2Q0eG13N0IzQ2MrZjhYOEZlakto?=
- =?utf-8?B?Y1Bsa3hEYWpDRWgwdWtaMEJadC9NMWJHZ01PSHF2NnFJS3EyMnk4UjlRZVMx?=
- =?utf-8?B?Y1NlRE54OXBuSFk1ekdLcEw5Z3dwNFJhS2M4SDBTMnUwYkJqYzlzbUxlZGFG?=
- =?utf-8?B?RkhyVnJ5T0sxNzQxa3ExQ3NhK09lc2dITFJzOGNmRDBJa0FENENBS2xnTEwy?=
- =?utf-8?B?ZWVreU8zSWM1bkdvMTRtYmQ2TmgvdW9mZUNaUjdsQjFaUFB1aGZRekJnQ1JM?=
- =?utf-8?Q?AJ6E6YoGEPgaweX2+o4P0qkBn?=
-Content-ID: <F60AA5F3BB04184791B56DAABFBCEC3D@namprd11.prod.outlook.com>
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b9RJJvSXTQMT1an5CIXkme+jgVFu+5jDbx7yYrLYEMo=;
+        b=T8siylcYJhFzeVW2Pa2yjr65ggsHkA6sR8MOoOuFYqW9+NslqOxhLbGzAb8jniSst5
+         +e53xZ0k782syQimCkdvl8jqZ4fvOotIQzEzX0s2gvIPTOz2nu4lRgXglg9Zs8vxN6FM
+         99IRE3Jt/q5hHWDKEAsmqEaF12sM3httNNYWZnYyfuzX2dUSofZp4X5OJq1Fco67JoBQ
+         2R6dMQskN/Azcq/YMkP1UiLVsQGQEY9+v+PrwsQ8zlIPB3VzzErx7Nc/lHNmuSBtx6lj
+         zVaCtCBGsJjNc1nIivkH3CFnC11baTo7kDHXZvMcSRg3jcr42lx8eIIOl/+NgMvAjTuh
+         PZYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b9RJJvSXTQMT1an5CIXkme+jgVFu+5jDbx7yYrLYEMo=;
+        b=kDmXrjduqcqNpGD5GA20cP1j740+QuYp40cvOpU658wSeenX1fxuuEUbPgDoZedNyx
+         ApU7MCnH0xMWVklV0R2PDT7mf9BPATU+afpyvW+sQQOn9aa9MYBfsNW3UKHxkwud7FQ3
+         zL1FLC5o9e3AB8U5N9Dfc9fmBegvwmd32/sLS1Kru2ShTCDknNNTKOvFxix1MA1ZZhm1
+         a7ct6R14o1govkeuporzlPqEGQeEPJ9/5GaM0hAza+2txF39hRKLjp4DPS21qG0926qc
+         ArKhoOXtztoH7eN9k528bPHN8XtWGNrZCe1yAPnZ8whmo7OSv73jZeOl9Z2Ef4M21Dyr
+         +zoA==
+X-Gm-Message-State: ANoB5pnOm5E5FrhbTKDZ7narPc6C2z0NIOeFll/H+SD+1wMLsd/RZzxh
+	VtiGRseXKX8MdrHSuaKj0uZjPw==
+X-Google-Smtp-Source: AA0mqf6GUKd3RLZFRiiBYCHpapXpYrRHHSq+GvhYwBckvIrdhVico0tU25zsxMjNNeg1EiVFnRRXBw==
+X-Received: by 2002:a2e:9d10:0:b0:26d:ecd9:aec2 with SMTP id t16-20020a2e9d10000000b0026decd9aec2mr20221064lji.80.1669814142762;
+        Wed, 30 Nov 2022 05:15:42 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id i16-20020a2ea370000000b002793dd2b36dsm128423ljn.126.2022.11.30.05.15.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Nov 2022 05:15:42 -0800 (PST)
+Message-ID: <aafb1c32-bc00-2db2-edbd-aa4771f33ac7@linaro.org>
+Date: Wed, 30 Nov 2022 14:15:41 +0100
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17e374c2-3997-4997-7567-08dad2d0fb4f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Nov 2022 12:47:03.7197
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ui9wew1mrbOO0Uan5kIbCd+ZHv3f8XAAwhJ9dDKbOX0N4eDMawk7editRQwxfQlmM1InO+DghTkm1A7TZjP20HiDVqojEm8zTTPDSFUgbSQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4963
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH 1/6] crypto: starfive - Add StarFive crypto engine support
+Content-Language: en-US
+To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S . Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+ <20221130055214.2416888-2-jiajie.ho@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221130055214.2416888-2-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_044714_686931_4EB7112E 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20221130_051545_517334_7748D9A6 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,111 +96,356 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/11/2022 12:25, Andrew Jones wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+On 30/11/2022 06:52, Jia Jie Ho wrote:
+> Adding device probe and DMA init for StarFive
+> hardware crypto engine.
 > 
-> On Wed, Nov 30, 2022 at 12:33:14PM +0100, Andrew Jones wrote:
->> On Wed, Nov 30, 2022 at 09:46:20AM +0000, Conor.Dooley@microchip.com wrote:
->>> On 29/11/2022 19:45, Conor Dooley wrote:
->>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>>>
->>>> Hey Drew,
->>>>
->>>> On Tue, Nov 29, 2022 at 03:34:47PM +0100, Andrew Jones wrote:
->>>>> When a DT puts zicbom in the isa string, but does not provide a block
->>>>> size, ALT_CMO_OP() will attempt to do cache operations on address
->>>>> zero since the start address will be ANDed with zero. We can't simply
->>>>> BUG() in riscv_init_cbom_blocksize() when we fail to find a block
->>>>> size because the failure will happen before logging works, leaving
->>>>> users to scratch their heads as to why the boot hung. Instead, ensure
->>>>> Zicbom is disabled and output an error which will hopefully alert
->>>>> people that the DT needs to be fixed. While at it, add a check that
->>>>> the block size is a power-of-2 too.
->>>>>
->>>>> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
->>>>> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->>>>
->>>> This seems to be failing on nommu :/ I've got host machines issues so I
->>>> could not reproduce it for you lcoally and paste an actual log, but if
->>>> you build rv64_nommu_virt_defconfig I think you should be able to
-> 
-> You mean a 64-bit build with 'nommu_virt_defconfig', right? There isn't a
-> 'rv64_nommu_virt_defconfig' that I know of.
-> 
->>>> reproduce.
->>>
->>> The actual error is:
->>> riscv64-unknown-linux-gnu-ld: arch/riscv/kernel/cpufeature.o: in function `.L0 ':
->>> cpufeature.c:(.text.unlikely+0x8): undefined reference to `riscv_cbom_block_size'
->>
-> 
-> I can't reproduce this. The following commands work fine for me
-> 
->   $ make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- O=build nommu_virt_defconfig
->   $ make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- O=build -j$(nproc)
-> 
-> And llvm also works
-> 
->   $ make ARCH=riscv LLVM=1 O=build-llvm nommu_virt_defconfig
->   $ make ARCH=riscv LLVM=1 O=build-llvm -j$(nproc)
-> 
-> Additionally, I can't see how riscv_cbom_block_size wouldn't be defined.
-> It's exported from arch/riscv/mm/cacheflush.c, which is always built,
-> and no ifdefery wraps it.
+> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+> ---
 
-The base commit matters here, it picked riscv/for-next as the base for
-this series. I guess this depends on some stuff that's in fixes only?
 
->>>>> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
->>>>> ---
->>>>>    arch/riscv/kernel/cpufeature.c | 13 +++++++++++++
->>>>>    1 file changed, 13 insertions(+)
->>>>>
->>>>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->>>>> index 220be7222129..93e45560af30 100644
->>>>> --- a/arch/riscv/kernel/cpufeature.c
->>>>> +++ b/arch/riscv/kernel/cpufeature.c
->>>>> @@ -9,6 +9,7 @@
->>>>>    #include <linux/bitmap.h>
->>>>>    #include <linux/ctype.h>
->>>>>    #include <linux/libfdt.h>
->>>>> +#include <linux/log2.h>
->>>>>    #include <linux/module.h>
->>>>>    #include <linux/of.h>
->>>>>    #include <asm/alternative.h>
->>>>> @@ -70,6 +71,18 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
->>>>>
->>>>>    static bool riscv_isa_extension_check(int id)
->>>>>    {
->>>>> +     switch (id) {
->>>>> +     case RISCV_ISA_EXT_ZICBOM:
->>>>> +             if (!riscv_cbom_block_size) {
->>>>> +                     pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
->>>>> +                     return false;
->>>>> +             } else if (!is_power_of_2(riscv_cbom_block_size)) {
->>>>> +                     pr_err("cbom-block-size present, but is not a power-of-2\n");
->>>>> +                     return false;
->>>>> +             }
->>>>> +             return true;
->>>>> +     }
->>>>> +
->>>>>         return true;
->>>>>    }
->>>>>
->>>>> --
->>>>> 2.38.1
->>>>>
->>>>>
->>>>> _______________________________________________
->>>>> linux-riscv mailing list
->>>>> linux-riscv@lists.infradead.org
->>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>>>
->>>> _______________________________________________
->>>> linux-riscv mailing list
->>>> linux-riscv@lists.infradead.org
->>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>>
+> +
+> +static const struct of_device_id starfive_dt_ids[] = {
+> +	{ .compatible = "starfive,jh7110-crypto", .data = NULL},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, starfive_dt_ids);
+
+Keep your table close to its usage, just like in many other drivers.
+
+> +
+> +static int starfive_dma_init(struct starfive_sec_dev *sdev)
+> +{
+> +	dma_cap_mask_t mask;
+> +	int err;
+> +
+> +	sdev->sec_xm_m = NULL;
+> +	sdev->sec_xm_p = NULL;
+> +
+> +	dma_cap_zero(mask);
+> +	dma_cap_set(DMA_SLAVE, mask);
+> +
+> +	sdev->sec_xm_m = dma_request_chan(sdev->dev, "sec_m");
+> +	if (IS_ERR(sdev->sec_xm_m)) {
+> +		dev_err(sdev->dev, "sec_m dma channel request failed.\n");
+
+return dev_err_probe
+
+> +		return PTR_ERR(sdev->sec_xm_m);
+> +	}
+> +
+> +	sdev->sec_xm_p = dma_request_chan(sdev->dev, "sec_p");
+> +	if (IS_ERR(sdev->sec_xm_p)) {
+> +		dev_err(sdev->dev, "sec_p dma channel request failed.\n");
+
+dev_err_probe
+
+> +		goto err_dma_out;
+> +	}
+> +
+> +	init_completion(&sdev->sec_comp_m);
+> +	init_completion(&sdev->sec_comp_p);
+> +
+> +	return 0;
+> +
+> +err_dma_out:
+> +	dma_release_channel(sdev->sec_xm_m);
+
+I don't think you tested it. Not even built with proper tools liek
+smatch, sparse, W=1. Where do you set err?
+
+> +
+> +	return err;
+> +}
+> +
+> +static void starfive_dma_cleanup(struct starfive_sec_dev *sdev)
+> +{
+> +	dma_release_channel(sdev->sec_xm_p);
+> +	dma_release_channel(sdev->sec_xm_m);
+> +}
+> +
+> +static int starfive_cryp_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct starfive_sec_dev *sdev;
+> +	struct resource *res;
+> +	int pages = 0;
+> +	int ret;
+> +
+> +	sdev = devm_kzalloc(dev, sizeof(*sdev), GFP_KERNEL);
+> +	if (!sdev)
+> +		return -ENOMEM;
+> +
+> +	sdev->dev = dev;
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "secreg");
+> +	sdev->io_base = devm_ioremap_resource(dev, res);
+
+I think there is a wrapper for both calls...
+
+> +
+> +	if (IS_ERR(sdev->io_base))
+> +		return PTR_ERR(sdev->io_base);
+> +
+> +	sdev->use_side_channel_mitigation =
+> +		device_property_read_bool(dev, "enable-side-channel-mitigation");
+> +	sdev->use_dma = device_property_read_bool(dev, "enable-dma");
+> +	sdev->dma_maxburst = 32;
+> +
+> +	sdev->sec_hclk = devm_clk_get(dev, "sec_hclk");
+> +	if (IS_ERR(sdev->sec_hclk)) {
+> +		dev_err(dev, "Failed to get sec_hclk.\n");
+> +		return PTR_ERR(sdev->sec_hclk);
+
+return dev_err_probe
+
+> +	}
+> +
+> +	sdev->sec_ahb = devm_clk_get(dev, "sec_ahb");
+> +	if (IS_ERR(sdev->sec_ahb)) {
+> +		dev_err(dev, "Failed to get sec_ahb.\n");
+> +		return PTR_ERR(sdev->sec_ahb);
+
+return dev_err_probe
+
+> +	}
+> +
+> +	sdev->rst_hresetn = devm_reset_control_get_shared(sdev->dev, "sec_hre");
+> +	if (IS_ERR(sdev->rst_hresetn)) {
+> +		dev_err(sdev->dev, "Failed to get sec_hre.\n");
+> +		return PTR_ERR(sdev->rst_hresetn);
+
+return dev_err_probe
+
+> +	}
+> +
+> +	clk_prepare_enable(sdev->sec_hclk);
+> +	clk_prepare_enable(sdev->sec_ahb);
+> +	reset_control_deassert(sdev->rst_hresetn);
+> +
+> +	platform_set_drvdata(pdev, sdev);
+> +
+> +	spin_lock(&dev_list.lock);
+> +	list_add(&sdev->list, &dev_list.dev_list);
+> +	spin_unlock(&dev_list.lock);
+> +
+> +	if (sdev->use_dma) {
+> +		ret = starfive_dma_init(sdev);
+> +		if (ret) {
+> +			dev_err(dev, "Failed to initialize DMA channel.\n");
+> +			goto err_dma_init;
+> +		}
+> +	}
+> +
+> +	pages = get_order(STARFIVE_MSG_BUFFER_SIZE);
+> +
+> +	sdev->pages_count = pages >> 1;
+> +	sdev->data_buf_len = STARFIVE_MSG_BUFFER_SIZE >> 1;
+> +
+> +	/* Initialize crypto engine */
+> +	sdev->engine = crypto_engine_alloc_init(dev, 1);
+> +	if (!sdev->engine) {
+> +		ret = -ENOMEM;
+> +		goto err_engine;
+> +	}
+> +
+> +	ret = crypto_engine_start(sdev->engine);
+> +	if (ret)
+> +		goto err_engine_start;
+> +
+> +	dev_info(dev, "Crypto engine started\n");
+
+Drop silly probe success messages.
+
+> +
+> +	return 0;
+> +
+> +err_engine_start:
+> +	crypto_engine_exit(sdev->engine);
+> +err_engine:
+> +	starfive_dma_cleanup(sdev);
+> +err_dma_init:
+> +	spin_lock(&dev_list.lock);
+> +	list_del(&sdev->list);
+> +	spin_unlock(&dev_list.lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static int starfive_cryp_remove(struct platform_device *pdev)
+> +{
+> +	struct starfive_sec_dev *sdev = platform_get_drvdata(pdev);
+> +
+> +	if (!sdev)
+> +		return -ENODEV;
+> +
+> +	crypto_engine_stop(sdev->engine);
+> +	crypto_engine_exit(sdev->engine);
+> +
+> +	starfive_dma_cleanup(sdev);
+> +
+> +	spin_lock(&dev_list.lock);
+> +	list_del(&sdev->list);
+> +	spin_unlock(&dev_list.lock);
+> +
+> +	clk_disable_unprepare(sdev->sec_hclk);
+> +	clk_disable_unprepare(sdev->sec_ahb);
+> +	reset_control_assert(sdev->rst_hresetn);
+> +
+> +	return 0;
+> +}
+> +
+> +#ifdef CONFIG_PM
+> +static int starfive_cryp_runtime_suspend(struct device *dev)
+> +{
+> +	struct starfive_sec_dev *sdev = dev_get_drvdata(dev);
+> +
+> +	clk_disable_unprepare(sdev->sec_ahb);
+> +	clk_disable_unprepare(sdev->sec_hclk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int starfive_cryp_runtime_resume(struct device *dev)
+> +{
+> +	struct starfive_sec_dev *sdev = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(sdev->sec_ahb);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "Failed to prepare_enable sec_ahb clock\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = clk_prepare_enable(sdev->sec_hclk);
+> +	if (ret) {
+> +		dev_err(sdev->dev, "Failed to prepare_enable sec_hclk clock\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +#endif
+> +
+> +static const struct dev_pm_ops starfive_cryp_pm_ops = {
+> +	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+> +				pm_runtime_force_resume)
+> +	SET_RUNTIME_PM_OPS(starfive_cryp_runtime_suspend,
+> +			   starfive_cryp_runtime_resume, NULL)
+> +};
+> +
+> +static struct platform_driver starfive_cryp_driver = {
+> +	.probe  = starfive_cryp_probe,
+> +	.remove = starfive_cryp_remove,
+> +	.driver = {
+> +		.name           = DRIVER_NAME,
+> +		.pm		= &starfive_cryp_pm_ops,
+> +		.of_match_table = starfive_dt_ids,
+> +	},
+> +};
+> +
+> +module_platform_driver(starfive_cryp_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("StarFive hardware crypto acceleration");
+> diff --git a/drivers/crypto/starfive/starfive-regs.h b/drivers/crypto/starfive/starfive-regs.h
+> new file mode 100644
+> index 000000000000..0d680cb1f502
+> --- /dev/null
+> +++ b/drivers/crypto/starfive/starfive-regs.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __STARFIVE_REGS_H__
+> +#define __STARFIVE_REGS_H__
+> +
+> +#define STARFIVE_ALG_CR_OFFSET			0x0
+> +#define STARFIVE_ALG_FIFO_OFFSET		0x4
+> +#define STARFIVE_IE_MASK_OFFSET			0x8
+> +#define STARFIVE_IE_FLAG_OFFSET			0xc
+> +#define STARFIVE_DMA_IN_LEN_OFFSET		0x10
+> +#define STARFIVE_DMA_OUT_LEN_OFFSET		0x14
+> +
+> +union starfive_alg_cr {
+> +	u32 v;
+> +	struct {
+> +		u32 start			:1;
+> +		u32 aes_dma_en			:1;
+> +		u32 rsvd_0			:1;
+> +		u32 hash_dma_en			:1;
+> +		u32 alg_done			:1;
+> +		u32 rsvd_1			:3;
+> +		u32 clear			:1;
+> +		u32 rsvd_2			:23;
+> +	};
+> +};
+> +
+> +#endif
+> diff --git a/drivers/crypto/starfive/starfive-str.h b/drivers/crypto/starfive/starfive-str.h
+> new file mode 100644
+> index 000000000000..4ba3c56f0573
+> --- /dev/null
+> +++ b/drivers/crypto/starfive/starfive-str.h
+> @@ -0,0 +1,74 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __STARFIVE_STR_H__
+> +#define __STARFIVE_STR_H__
+> +
+> +#include <linux/delay.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/dmaengine.h>
+> +
+> +#include <crypto/engine.h>
+> +
+> +#include "starfive-regs.h"
+> +
+> +#define STARFIVE_MSG_BUFFER_SIZE		SZ_16K
+> +
+> +struct starfive_sec_ctx {
+> +	struct crypto_engine_ctx		enginectx;
+> +	struct starfive_sec_dev			*sdev;
+> +
+> +	u8					*buffer;
+> +};
+> +
+> +struct starfive_sec_dev {
+> +	struct list_head			list;
+> +	struct device				*dev;
+> +
+> +	struct clk				*sec_hclk;
+> +	struct clk				*sec_ahb;
+> +	struct reset_control			*rst_hresetn;
+> +
+> +	void __iomem				*io_base;
+> +	phys_addr_t				io_phys_base;
+> +
+> +	size_t					data_buf_len;
+> +	int					pages_count;
+> +	u32					use_side_channel_mitigation;
+> +	u32					use_dma;
+> +	u32					dma_maxburst;
+> +	struct dma_chan				*sec_xm_m;
+> +	struct dma_chan				*sec_xm_p;
+> +	struct dma_slave_config			cfg_in;
+> +	struct dma_slave_config			cfg_out;
+> +	struct completion			sec_comp_m;
+> +	struct completion			sec_comp_p;
+> +
+> +	struct crypto_engine			*engine;
+> +
+> +	union starfive_alg_cr			alg_cr;
+> +};
+> +
+> +static inline u32 starfive_sec_read(struct starfive_sec_dev *sdev, u32 offset)
+> +{
+> +	return __raw_readl(sdev->io_base + offset);
+
+I don't think these read/write wrappers help anyhow...
+
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
