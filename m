@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18E13C4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F73C4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZcX/hAexT9p7IcbbR3hOmsbOEyS/bOiaVxw2KoAkiLM=; b=KdmBjpNzx9KFKI
-	WClcLFaax7Gugcl/BQYCopCZ7Cl1vz3bxiRy9iie7rgdVhrG0JADfE4dHpR7T0EUsxNex0gmm4fUu
-	Oj6IQh1UvgZ0Bi6PEFKegvhSW36FQTx/gAGHvf2Wih96FM3e1FLe9dic2c5kqiRNc9SyI6vZUT44n
-	HYZGja241p493dbl2tROdxYeAF9+wQ3hxEK7CViL4E7Ghy5Y6HPeTLN2lPoz8/9huK9S33FOyCGkz
-	0yEpH5neFBrYZMzJTG2PV/kfY9+0iPdRgkFPCHDb478GrcDrAkKYQN/wjmoEoWwBEsxWdp/VU/Irf
-	NnOTgOubvbTh3gcNKU2Q==;
+	List-Owner; bh=g3n6gfVS3hJ89Ro0MQ4ACln4R7FulcsgmOvD2Ozbh5U=; b=1h6n7urQPhc0ey
+	rcWBcy85wIqel5vI+7GoPJmYb0yaNWBVrGB88SSpcvnkguysj3Nhy8jK/vM8uSeApFH0EU2MAOuvk
+	yHLLimUDdh7EPOVwr0VFfNDLydX7DKUIRDeLjVNXa0419ON/5JxJSAUs5X74Yx7mRKN5XhsMVMSb4
+	P/S3pls79/chlB244gPk5JCA506fCTz4k3OD14QULS65WJjy6uVb/OmGdGwcTZQZqfeIQU65u12od
+	FkKpwZLT8gM6p4feD+QIvN5oqzPf7pMth31DaURUz1LH7OduxrFYBI9uAdcINzXosVeQj2oTHU4L+
+	ktcIZ4TI4KQOTvOlJGyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0X5c-003UMX-Cw; Thu, 01 Dec 2022 00:06:08 +0000
+	id 1p0X6x-003Uvr-2R; Thu, 01 Dec 2022 00:07:31 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Wbf-003Gqn-Ux
-	for linux-riscv@bombadil.infradead.org; Wed, 30 Nov 2022 23:35:12 +0000
+	id 1p0Wbk-003Gqn-8E
+	for linux-riscv@bombadil.infradead.org; Wed, 30 Nov 2022 23:35:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7yWYfpXTDQbZLx47MbNcDj0N66CBaR6qG+PnY/I15CM=; b=fDdN6LzKBaVJANCW+1oHCF09cc
-	+ZfiuDnHS19OF3i1xLDOT80GTiRieycI2jHoMdHitkQYX+y43uIMSWRM3uMjqG8a2lg00qQI3d4gF
-	Ww2NfixQ7004j3DEj6i71P41JNHu9NrZ+M24jPnRWdeoY7JZiM4UYT1fk4y+GpXw2gAy8u7CtDKqz
-	By2+WQ8xo2LKCN/UW88vZt4YJY3nrhf00V+Z60DZDOB5hpUM3MZwM0Scd0QMewLNZoGwjc5XYRU/C
-	x1+SFo7Sz3aSccpeYak2iL+XRZgbTxUxXVGiKg+hEdAO0qU/Qg83S7fsmPY75unF5gqp42TScEKkO
-	XjfhtL7Q==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	bh=GJ+yfhkspt7ZNo22OgQpawec1Ei4RCTiEbe5vknIrT0=; b=beMqsTk0nhwVs4DtrPTK0SfbDW
+	u33UxJbS5t1N6zYFFKBvBLRTqudP/sZyo02tcHXq9CLQqWNRfQCFbgSXa3aiq897prpx7rmy5fXPm
+	S4zsEqWEmsYX5CIwZJhk3v4rwLqM3/ZzIYY+4+4MRmSh1QFQZOkopVoV8+bKizeCL3dZZ8osPT0U4
+	BDzQw2ZtjWydkpB3OHWfdKrGhtGbLYiEWK+wLVWwdW9eNCHWahnhZ3fIe3YqxvyQFsMi8nAJ0R18M
+	OEPMIt1lXDYOAlDhm7Vi/f0Ubq/g6WqNSvpiRgJ/9yDBJSc+XNAYNB1lNJcflSCa6VtpKhv7S7q4S
+	z/ScvuEA==;
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WDP-00FPoG-9R
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:10:11 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id n9-20020a17090a2bc900b0021010dca313so159197pje.7
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:59 -0800 (PST)
+	id 1p0WDN-00FPmV-NP
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:10:08 +0000
+Received: by mail-pf1-x449.google.com with SMTP id x11-20020a056a000bcb00b0056c6ec11eefso169267pfu.14
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=7yWYfpXTDQbZLx47MbNcDj0N66CBaR6qG+PnY/I15CM=;
-        b=bT3dL2RNgcw1MpeUO77l7FsTfdHMpEPlJatekk/DzFXJMm693HavywTCaGv6OqR75P
-         CEGSx4lH9Jtd0fa2semdatuM2+6/GtUmIUJQimOKEXQM8pMgCWT8njsrI/UOhbCPveML
-         q4zrbtboaVnIfVEgvLRQEAam2V+r4+zAGV7lL18Zl2LduEOPaMTpPlFnw/B6EsrXnukj
-         2pbaAxvJ9zg/7eNsW555x3IFXEMVva/FgAmoY74Di0SuLoDCFLXDc3bBoL6HnnnAq35N
-         reo1l2pMb3FCDaYjA4+6K/LTtV98kIt8jz3I1oCTyDyB/5twL2Ezyrmfizfy7s3Xbw19
-         DN3w==
+        bh=GJ+yfhkspt7ZNo22OgQpawec1Ei4RCTiEbe5vknIrT0=;
+        b=B3425sD5ssEx57pTtG98b8HpTdxzwssCBDuFcB0njTKI/XsYVhIlUT7t8VxfTZyCaj
+         rNNcjy7ZkLO7sRu1croI6V17oM3JUWZ66KJz3dPOFnS6ZNXt9vF/ufrGiEJRrVh1rawx
+         jBIyIycJ1nYQ/Tln+uKRdhBxUMbn2zrY+g01yeSgTRVjheiz5bWBhhhmJyUaJsAkE6GE
+         dL6EhA0QNU/VHGk45s0/jNhjn17XdiiiF1JWKkMNdSlcYBJTXiZUBYEqCsiTUua4xdbH
+         Vsh2/Hg502nb0uGz/tvW1rhibXANnp+7b1r3Lx8wxi+xiH/bRTNX1OQgA8zn4Jd+xIMD
+         ResQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7yWYfpXTDQbZLx47MbNcDj0N66CBaR6qG+PnY/I15CM=;
-        b=3AIcxI05h3DrqN7FkutWB9r9CfAScEEUc8Ztpp+Ht4MWGIv0HuymZUrZYpa7r2oolA
-         3Nz0uVJcA5C/D/+qZY/Ad4YEv+nb4HwUa8J0DDDz90cGSJV/cZNQE64mLstNnJtK3NMq
-         uLZAzzyr7j2sRTcp532rdIaLQrFqCiq9S/PuEAObIoJjuEyz5zeRp8ADSLrZM2UzCoth
-         Q6rRfg96xOXWO9GJsfyWq62LghvD787rXPAO1iEHqV+iLn/NDSBwWHtOxIWamcWNQgK/
-         J/KUUu0ebquXrPq/dpvWr/W+4W6osz4XUrQ/8wyYHXJt4ky9OIbA8oNLvoEfkY+L+NzI
-         grSw==
-X-Gm-Message-State: ANoB5pkoxbFPACGx5/gtTIrYWt+RalSbQN6fx4AyoX36C6ai8A7ltQps
-	ewmHfZBDjc/hP0NGwItV5NmftqNyceY=
-X-Google-Smtp-Source: AA0mqf63J5CYVyPrHNleGtfRjvZIjPjkTqLR79wPGUIq9AORVm0CVLKuvvqzhbFB0T9FDbVeahYix13Gv4o=
+        bh=GJ+yfhkspt7ZNo22OgQpawec1Ei4RCTiEbe5vknIrT0=;
+        b=lhND7JTUlc7s+St2ZimjmQfTMwocA9/IL5xZd21AjrPWcnN8w03qZbtys4BLppEF6Y
+         NC+Jw1pM4WtNzTnGV+6USvNpxgZ8e+5Y0HiXNUkpNZsxH2twTxeSoCe89Az/b+CxHACf
+         uxzLjPYvK8Vil6y6cw0nZKe0/XUKUoorxaWWvS1GGHVwf8JXwQMurzS85O/EEnOjs0KB
+         JIc2nipfogZVmUNc80gpxj5xFtnRrwp6s+Kwprby9UtCcoSNQXD3fgSNqJDdzQZ4mjQC
+         gFttvlxAU+mbp1Dgjz1tcg4QQrFTXWfGJ2gG7F7QB42BcDYziHStfsaGYTiqBiV/PhKu
+         mBaA==
+X-Gm-Message-State: ANoB5plsKY7baDIW6sS1YhjC4FitO5KjgPBZ+mP/TlXcH8JH2cEqqIus
+	DWZjhUGcTrjm27ginESvsEVJgo18h8k=
+X-Google-Smtp-Source: AA0mqf7QiNOgWP00XAD7anVxRZ3dDrQeLQqiZYyRJhfOxzgfK7hENIJxdqXXKq1jBfur3SWcS0zGNy7/Bfo=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a17:902:ee55:b0:176:a16a:417d with SMTP id
- 21-20020a170902ee5500b00176a16a417dmr47218439plo.46.1669849797761; Wed, 30
- Nov 2022 15:09:57 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:08:56 +0000
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:27ab:b0:56c:71a4:efe with SMTP id
+ bd43-20020a056a0027ab00b0056c71a40efemr48704277pfb.84.1669849794774; Wed, 30
+ Nov 2022 15:09:54 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:08:54 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-13-seanjc@google.com>
-Subject: [PATCH v2 12/50] KVM: VMX: Move Hyper-V eVMCS initialization to helper
+Message-ID: <20221130230934.1014142-11-seanjc@google.com>
+Subject: [PATCH v2 10/50] KVM: VMX: Reset eVMCS controls in VP assist page
+ during hardware disabling
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -101,8 +102,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_231007_380941_0F684BC5 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20221130_231006_169862_0B522517 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,124 +121,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move Hyper-V's eVMCS initialization to a dedicated helper to clean up
-vmx_init(), and add a comment to call out that the Hyper-V init code
-doesn't need to be unwound if vmx_init() ultimately fails.
+Reset the eVMCS controls in the per-CPU VP assist page during hardware
+disabling instead of waiting until kvm-intel's module exit.  The controls
+are activated if and only if KVM creates a VM, i.e. don't need to be
+reset if hardware is never enabled.
 
-No functional change intended.
+Doing the reset during hardware disabling will naturally fix a potential
+NULL pointer deref bug once KVM disables CPU hotplug while enabling and
+disabling hardware (which is necessary to fix a variety of bugs).  If the
+kernel is running as the root partition, the VP assist page is unmapped
+during CPU hot unplug, and so KVM's clearing of the eVMCS controls needs
+to occur with CPU hot(un)plug disabled, otherwise KVM could attempt to
+write to a CPU's VP assist page after it's unmapped.
 
+Reported-by: Vitaly Kuznetsov <vkuznets@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/vmx.c | 73 +++++++++++++++++++++++++-----------------
- 1 file changed, 43 insertions(+), 30 deletions(-)
+ arch/x86/kvm/vmx/vmx.c | 50 +++++++++++++++++++++++++-----------------
+ 1 file changed, 30 insertions(+), 20 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index c0de7160700b..b8bf95b9710d 100644
+index cea8c07f5229..d85d175dca70 100644
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
-@@ -523,6 +523,8 @@ static inline void vmx_segment_cache_clear(struct vcpu_vmx *vmx)
- static unsigned long host_idt_base;
- 
- #if IS_ENABLED(CONFIG_HYPERV)
-+static struct kvm_x86_ops vmx_x86_ops __initdata;
-+
- static bool __read_mostly enlightened_vmcs = true;
- module_param(enlightened_vmcs, bool, 0444);
- 
-@@ -551,6 +553,43 @@ static int hv_enable_l2_tlb_flush(struct kvm_vcpu *vcpu)
+@@ -551,6 +551,33 @@ static int hv_enable_l2_tlb_flush(struct kvm_vcpu *vcpu)
  	return 0;
  }
  
-+static __init void hv_init_evmcs(void)
++static void hv_reset_evmcs(void)
 +{
-+	int cpu;
++	struct hv_vp_assist_page *vp_ap;
 +
-+	if (!enlightened_vmcs)
++	if (!static_branch_unlikely(&enable_evmcs))
 +		return;
 +
 +	/*
-+	 * Enlightened VMCS usage should be recommended and the host needs
-+	 * to support eVMCS v1 or above.
++	 * KVM should enable eVMCS if and only if all CPUs have a VP assist
++	 * page, and should reject CPU onlining if eVMCS is enabled the CPU
++	 * doesn't have a VP assist page allocated.
 +	 */
-+	if (ms_hyperv.hints & HV_X64_ENLIGHTENED_VMCS_RECOMMENDED &&
-+	    (ms_hyperv.nested_features & HV_X64_ENLIGHTENED_VMCS_VERSION) >=
-+	     KVM_EVMCS_VERSION) {
++	vp_ap = hv_get_vp_assist_page(smp_processor_id());
++	if (WARN_ON_ONCE(!vp_ap))
++		return;
 +
-+		/* Check that we have assist pages on all online CPUs */
-+		for_each_online_cpu(cpu) {
-+			if (!hv_get_vp_assist_page(cpu)) {
-+				enlightened_vmcs = false;
-+				break;
-+			}
-+		}
-+
-+		if (enlightened_vmcs) {
-+			pr_info("KVM: vmx: using Hyper-V Enlightened VMCS\n");
-+			static_branch_enable(&enable_evmcs);
-+		}
-+
-+		if (ms_hyperv.nested_features & HV_X64_NESTED_DIRECT_FLUSH)
-+			vmx_x86_ops.enable_l2_tlb_flush
-+				= hv_enable_l2_tlb_flush;
-+
-+	} else {
-+		enlightened_vmcs = false;
-+	}
++	/*
++	 * Reset everything to support using non-enlightened VMCS access later
++	 * (e.g. when we reload the module with enlightened_vmcs=0)
++	 */
++	vp_ap->nested_control.features.directhypercall = 0;
++	vp_ap->current_nested_vmcs = 0;
++	vp_ap->enlighten_vmentry = 0;
 +}
 +
- static void hv_reset_evmcs(void)
- {
- 	struct hv_vp_assist_page *vp_ap;
-@@ -577,6 +616,7 @@ static void hv_reset_evmcs(void)
- }
- 
- #else /* IS_ENABLED(CONFIG_HYPERV) */
-+static void hv_init_evmcs(void) {}
- static void hv_reset_evmcs(void) {}
++#else /* IS_ENABLED(CONFIG_HYPERV) */
++static void hv_reset_evmcs(void) {}
  #endif /* IS_ENABLED(CONFIG_HYPERV) */
  
-@@ -8500,38 +8540,11 @@ static int __init vmx_init(void)
- {
- 	int r, cpu;
+ /*
+@@ -2496,6 +2523,8 @@ static void vmx_hardware_disable(void)
+ 	if (cpu_vmxoff())
+ 		kvm_spurious_fault();
  
--#if IS_ENABLED(CONFIG_HYPERV)
- 	/*
--	 * Enlightened VMCS usage should be recommended and the host needs
--	 * to support eVMCS v1 or above. We can also disable eVMCS support
--	 * with module parameter.
-+	 * Note, hv_init_evmcs() touches only VMX knobs, i.e. there's nothing
-+	 * to unwind if a later step fails.
- 	 */
--	if (enlightened_vmcs &&
--	    ms_hyperv.hints & HV_X64_ENLIGHTENED_VMCS_RECOMMENDED &&
--	    (ms_hyperv.nested_features & HV_X64_ENLIGHTENED_VMCS_VERSION) >=
--	    KVM_EVMCS_VERSION) {
--
--		/* Check that we have assist pages on all online CPUs */
++	hv_reset_evmcs();
++
+ 	intel_pt_handle_vmx(0);
+ }
+ 
+@@ -8462,27 +8491,8 @@ static void vmx_exit(void)
+ 	kvm_exit();
+ 
+ #if IS_ENABLED(CONFIG_HYPERV)
+-	if (static_branch_unlikely(&enable_evmcs)) {
+-		int cpu;
+-		struct hv_vp_assist_page *vp_ap;
+-		/*
+-		 * Reset everything to support using non-enlightened VMCS
+-		 * access later (e.g. when we reload the module with
+-		 * enlightened_vmcs=0)
+-		 */
 -		for_each_online_cpu(cpu) {
--			if (!hv_get_vp_assist_page(cpu)) {
--				enlightened_vmcs = false;
--				break;
--			}
+-			vp_ap =	hv_get_vp_assist_page(cpu);
+-
+-			if (!vp_ap)
+-				continue;
+-
+-			vp_ap->nested_control.features.directhypercall = 0;
+-			vp_ap->current_nested_vmcs = 0;
+-			vp_ap->enlighten_vmentry = 0;
 -		}
 -
--		if (enlightened_vmcs) {
--			pr_info("KVM: vmx: using Hyper-V Enlightened VMCS\n");
--			static_branch_enable(&enable_evmcs);
--		}
--
--		if (ms_hyperv.nested_features & HV_X64_NESTED_DIRECT_FLUSH)
--			vmx_x86_ops.enable_l2_tlb_flush
--				= hv_enable_l2_tlb_flush;
--
--	} else {
--		enlightened_vmcs = false;
++	if (static_branch_unlikely(&enable_evmcs))
+ 		static_branch_disable(&enable_evmcs);
 -	}
--#endif
-+	hv_init_evmcs();
+ #endif
+ 	vmx_cleanup_l1d_flush();
  
- 	r = kvm_init(&vmx_init_ops, sizeof(struct vcpu_vmx),
- 		     __alignof__(struct vcpu_vmx), THIS_MODULE);
 -- 
 2.38.1.584.g0f3c55d4c2-goog
 
