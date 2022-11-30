@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1B9C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 13:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2E2C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 13:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jLCJKsc9HUJAyaAs/ItcOgcHxbBxU0rMG5hmsrDXv7U=; b=YOfgi9nJ+M7TzT
-	tzboH4hv+8jV3oXaYqSTg+ZqAzv9bzocMxpLzqpXT412Nzd6+4OgaUtivz0m0OHm1X3uneo+KIrmt
-	P45vbstYUnSYv+PHKYJve2G67KY9Ik47HM+3Bg7mbNNyxNy2jNpNsJLvmnMDhpPLZacMapb1sTVI9
-	T14AOOj9hu8FM8ytLcWghZ7BFVmmJLfK0/Ik6Ir6nZVsjjWoCf+WkSjXqznmhD2PyBuK1pGCEcCji
-	Z6iyVdYACLMqiKtcBn0nJ6wYNUbprenj3SemnIAZsDwFo/v+DTFKPt5K6gFVFWcpxv25PgZVgoJEc
-	34/orNkK03DKxnAER9sQ==;
+	List-Owner; bh=LfGP65X3FUhGUCaDXVBkI42Jw9hmZy1O3eyG5C0U0NU=; b=3ZHvEtUYjc5evE
+	pr2ecX3S7Kc878ZuRjDTTEvNl26cr7jeKA4zoZqNzh1VH4lQU2l+S3vGknVywKX41NJIcJpGaiDZe
+	ssqFFdba2L0dIr1siD/LIaE7Hp55gNZzG2JELQmxA+3GD25hcu+BrClORYs9N28KWsSwGBptC0s2D
+	5nhNk7+yg1ZKuy2xxA25KdDP3O0GseeZGSMHI0PQYpGOMsTUyFkStHnJB1yQF/N4pQJAvf1VuAVSj
+	kNioC2VM3bJ+2hGcbj5XM5Rx/HmbY27iOZak6XjfdbULzVg+CKqnkCOtGbA0/ONmMEe2L/mSfTsUw
+	OnSPL/AkGywgvPerbRBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0N0f-00GQwJ-UW; Wed, 30 Nov 2022 13:20:21 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1p0N4U-00GSnQ-D0; Wed, 30 Nov 2022 13:24:18 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0MwD-00GOuM-Ca
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 13:15:47 +0000
-Received: by mail-lj1-x234.google.com with SMTP id a19so5078299ljk.0
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 05:15:44 -0800 (PST)
+	id 1p0N1D-00GRHD-UG
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 13:20:57 +0000
+Received: by mail-lj1-x233.google.com with SMTP id d3so20862500ljl.1
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 05:20:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=b9RJJvSXTQMT1an5CIXkme+jgVFu+5jDbx7yYrLYEMo=;
-        b=T8siylcYJhFzeVW2Pa2yjr65ggsHkA6sR8MOoOuFYqW9+NslqOxhLbGzAb8jniSst5
-         +e53xZ0k782syQimCkdvl8jqZ4fvOotIQzEzX0s2gvIPTOz2nu4lRgXglg9Zs8vxN6FM
-         99IRE3Jt/q5hHWDKEAsmqEaF12sM3httNNYWZnYyfuzX2dUSofZp4X5OJq1Fco67JoBQ
-         2R6dMQskN/Azcq/YMkP1UiLVsQGQEY9+v+PrwsQ8zlIPB3VzzErx7Nc/lHNmuSBtx6lj
-         zVaCtCBGsJjNc1nIivkH3CFnC11baTo7kDHXZvMcSRg3jcr42lx8eIIOl/+NgMvAjTuh
-         PZYg==
+        bh=j775fJtYiZtYgtZzcf7tx8CpBZLSxoSp8X/AC+Ipfjc=;
+        b=AxMlx/VP3GmRPGBR91nj1J9zAtFpgsH/BossKJyGfj413DjN7jCtzPujQyxQo6utQZ
+         6A2Rhwn2E34gEfwz+Jn4JS4xNilxbPz4p9JfF6WrFvwxWXqiOO2e7Roo5IcIds+X5Ck1
+         XZQFM03zkwyxLdZgEZFxSDcoPkCCS1TcjtnC+JvCQDrALBxw123GzCJi9Og14IZFeHZh
+         Dt5U4lzEhiTvP7l/I5CDhq09K+qlnRE/pmPXx5MhzpH2eTElu9Aosdxc2Wz89NQHPpZJ
+         5P81tbm90OPsPa21xQ7n8YuIxgw5HoTdRVcWQ2U6iawFlspHE7jspaxpI8HTlYPwQGkB
+         pdpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b9RJJvSXTQMT1an5CIXkme+jgVFu+5jDbx7yYrLYEMo=;
-        b=kDmXrjduqcqNpGD5GA20cP1j740+QuYp40cvOpU658wSeenX1fxuuEUbPgDoZedNyx
-         ApU7MCnH0xMWVklV0R2PDT7mf9BPATU+afpyvW+sQQOn9aa9MYBfsNW3UKHxkwud7FQ3
-         zL1FLC5o9e3AB8U5N9Dfc9fmBegvwmd32/sLS1Kru2ShTCDknNNTKOvFxix1MA1ZZhm1
-         a7ct6R14o1govkeuporzlPqEGQeEPJ9/5GaM0hAza+2txF39hRKLjp4DPS21qG0926qc
-         ArKhoOXtztoH7eN9k528bPHN8XtWGNrZCe1yAPnZ8whmo7OSv73jZeOl9Z2Ef4M21Dyr
-         +zoA==
-X-Gm-Message-State: ANoB5pnOm5E5FrhbTKDZ7narPc6C2z0NIOeFll/H+SD+1wMLsd/RZzxh
-	VtiGRseXKX8MdrHSuaKj0uZjPw==
-X-Google-Smtp-Source: AA0mqf6GUKd3RLZFRiiBYCHpapXpYrRHHSq+GvhYwBckvIrdhVico0tU25zsxMjNNeg1EiVFnRRXBw==
-X-Received: by 2002:a2e:9d10:0:b0:26d:ecd9:aec2 with SMTP id t16-20020a2e9d10000000b0026decd9aec2mr20221064lji.80.1669814142762;
-        Wed, 30 Nov 2022 05:15:42 -0800 (PST)
+        bh=j775fJtYiZtYgtZzcf7tx8CpBZLSxoSp8X/AC+Ipfjc=;
+        b=P/oxnc64v3k6OzLhuzK2PKrVruXEUx2DZ6vTvqBF9zLzjC4j9w7Da3Rf5x5XrL8jdG
+         0vw0YwSgmBfblcL/Hp+Wq8nbq5KJUaQ114nzBsd3gzLMPHrnif7r8fgNUCAshEndG5Fy
+         Om/CjUJ1+JSHgtf0Qeg9S37tAq9zdkJ/nWV0je9IGiiqDse9FvucYM4qjoGDM2KtdIvJ
+         Bs4F15CoOBi1pjv/7alQow9XdoeK9ZWqjhUBhYXYK2oITqPIZfqhGBACoZUXpDzUcwDc
+         m3BI02rnE5UY2DHHWRU6f4Cs3uGvlpiyYHh9O9mJdojEUQpyd/CglZCY5wfOl4YW+/h2
+         kfmg==
+X-Gm-Message-State: ANoB5pl0fbRcc3lFrHostZacb9XWwfV3Fkj2dryGv9thFfazMd6X6XQm
+	YbD+modz62F3f3h01Mjj/q18xA==
+X-Google-Smtp-Source: AA0mqf4Wdt0K6czlFiXdA0enEjqbC7cGLCeCdGkYedrL2PAR0uAWoNRStPZvBTjW3+msDrN/LcSOeA==
+X-Received: by 2002:a2e:9ec9:0:b0:279:c19f:a6d with SMTP id h9-20020a2e9ec9000000b00279c19f0a6dmr1518980ljk.37.1669814453832;
+        Wed, 30 Nov 2022 05:20:53 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id i16-20020a2ea370000000b002793dd2b36dsm128423ljn.126.2022.11.30.05.15.41
+        by smtp.gmail.com with ESMTPSA id r7-20020ac25f87000000b004971a83f839sm258676lfe.39.2022.11.30.05.20.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Nov 2022 05:15:42 -0800 (PST)
-Message-ID: <aafb1c32-bc00-2db2-edbd-aa4771f33ac7@linaro.org>
-Date: Wed, 30 Nov 2022 14:15:41 +0100
+        Wed, 30 Nov 2022 05:20:53 -0800 (PST)
+Message-ID: <8a8f502e-e0ed-d638-0b56-74edcbca2134@linaro.org>
+Date: Wed, 30 Nov 2022 14:20:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.0
-Subject: Re: [PATCH 1/6] crypto: starfive - Add StarFive crypto engine support
+Subject: Re: [PATCH 5/6] dt-bindings: crypto: Add bindings for Starfive crypto
+ driver
 Content-Language: en-US
 To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
  Herbert Xu <herbert@gondor.apana.org.au>,
@@ -74,12 +75,12 @@ To: Jia Jie Ho <jiajie.ho@starfivetech.com>,
 Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
- <20221130055214.2416888-2-jiajie.ho@starfivetech.com>
+ <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221130055214.2416888-2-jiajie.ho@starfivetech.com>
+In-Reply-To: <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_051545_517334_7748D9A6 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20221130_052056_049994_17D80788 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,351 +98,158 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30/11/2022 06:52, Jia Jie Ho wrote:
-> Adding device probe and DMA init for StarFive
-> hardware crypto engine.
+> Add documentation to describe Starfive crypto
+> driver bindings.
+
+Please wrap commit message according to Linux coding style / submission
+process:
+https://elixir.bootlin.com/linux/v5.18-rc4/source/Documentation/process/submitting-patches.rst#L586
+
+
+Subject: drop second, redundant "bindings".
+
+
 > 
 > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
 > Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
 > ---
-
-
-> +
-> +static const struct of_device_id starfive_dt_ids[] = {
-> +	{ .compatible = "starfive,jh7110-crypto", .data = NULL},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_dt_ids);
-
-Keep your table close to its usage, just like in many other drivers.
-
-> +
-> +static int starfive_dma_init(struct starfive_sec_dev *sdev)
-> +{
-> +	dma_cap_mask_t mask;
-> +	int err;
-> +
-> +	sdev->sec_xm_m = NULL;
-> +	sdev->sec_xm_p = NULL;
-> +
-> +	dma_cap_zero(mask);
-> +	dma_cap_set(DMA_SLAVE, mask);
-> +
-> +	sdev->sec_xm_m = dma_request_chan(sdev->dev, "sec_m");
-> +	if (IS_ERR(sdev->sec_xm_m)) {
-> +		dev_err(sdev->dev, "sec_m dma channel request failed.\n");
-
-return dev_err_probe
-
-> +		return PTR_ERR(sdev->sec_xm_m);
-> +	}
-> +
-> +	sdev->sec_xm_p = dma_request_chan(sdev->dev, "sec_p");
-> +	if (IS_ERR(sdev->sec_xm_p)) {
-> +		dev_err(sdev->dev, "sec_p dma channel request failed.\n");
-
-dev_err_probe
-
-> +		goto err_dma_out;
-> +	}
-> +
-> +	init_completion(&sdev->sec_comp_m);
-> +	init_completion(&sdev->sec_comp_p);
-> +
-> +	return 0;
-> +
-> +err_dma_out:
-> +	dma_release_channel(sdev->sec_xm_m);
-
-I don't think you tested it. Not even built with proper tools liek
-smatch, sparse, W=1. Where do you set err?
-
-> +
-> +	return err;
-> +}
-> +
-> +static void starfive_dma_cleanup(struct starfive_sec_dev *sdev)
-> +{
-> +	dma_release_channel(sdev->sec_xm_p);
-> +	dma_release_channel(sdev->sec_xm_m);
-> +}
-> +
-> +static int starfive_cryp_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct starfive_sec_dev *sdev;
-> +	struct resource *res;
-> +	int pages = 0;
-> +	int ret;
-> +
-> +	sdev = devm_kzalloc(dev, sizeof(*sdev), GFP_KERNEL);
-> +	if (!sdev)
-> +		return -ENOMEM;
-> +
-> +	sdev->dev = dev;
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "secreg");
-> +	sdev->io_base = devm_ioremap_resource(dev, res);
-
-I think there is a wrapper for both calls...
-
-> +
-> +	if (IS_ERR(sdev->io_base))
-> +		return PTR_ERR(sdev->io_base);
-> +
-> +	sdev->use_side_channel_mitigation =
-> +		device_property_read_bool(dev, "enable-side-channel-mitigation");
-> +	sdev->use_dma = device_property_read_bool(dev, "enable-dma");
-> +	sdev->dma_maxburst = 32;
-> +
-> +	sdev->sec_hclk = devm_clk_get(dev, "sec_hclk");
-> +	if (IS_ERR(sdev->sec_hclk)) {
-> +		dev_err(dev, "Failed to get sec_hclk.\n");
-> +		return PTR_ERR(sdev->sec_hclk);
-
-return dev_err_probe
-
-> +	}
-> +
-> +	sdev->sec_ahb = devm_clk_get(dev, "sec_ahb");
-> +	if (IS_ERR(sdev->sec_ahb)) {
-> +		dev_err(dev, "Failed to get sec_ahb.\n");
-> +		return PTR_ERR(sdev->sec_ahb);
-
-return dev_err_probe
-
-> +	}
-> +
-> +	sdev->rst_hresetn = devm_reset_control_get_shared(sdev->dev, "sec_hre");
-> +	if (IS_ERR(sdev->rst_hresetn)) {
-> +		dev_err(sdev->dev, "Failed to get sec_hre.\n");
-> +		return PTR_ERR(sdev->rst_hresetn);
-
-return dev_err_probe
-
-> +	}
-> +
-> +	clk_prepare_enable(sdev->sec_hclk);
-> +	clk_prepare_enable(sdev->sec_ahb);
-> +	reset_control_deassert(sdev->rst_hresetn);
-> +
-> +	platform_set_drvdata(pdev, sdev);
-> +
-> +	spin_lock(&dev_list.lock);
-> +	list_add(&sdev->list, &dev_list.dev_list);
-> +	spin_unlock(&dev_list.lock);
-> +
-> +	if (sdev->use_dma) {
-> +		ret = starfive_dma_init(sdev);
-> +		if (ret) {
-> +			dev_err(dev, "Failed to initialize DMA channel.\n");
-> +			goto err_dma_init;
-> +		}
-> +	}
-> +
-> +	pages = get_order(STARFIVE_MSG_BUFFER_SIZE);
-> +
-> +	sdev->pages_count = pages >> 1;
-> +	sdev->data_buf_len = STARFIVE_MSG_BUFFER_SIZE >> 1;
-> +
-> +	/* Initialize crypto engine */
-> +	sdev->engine = crypto_engine_alloc_init(dev, 1);
-> +	if (!sdev->engine) {
-> +		ret = -ENOMEM;
-> +		goto err_engine;
-> +	}
-> +
-> +	ret = crypto_engine_start(sdev->engine);
-> +	if (ret)
-> +		goto err_engine_start;
-> +
-> +	dev_info(dev, "Crypto engine started\n");
-
-Drop silly probe success messages.
-
-> +
-> +	return 0;
-> +
-> +err_engine_start:
-> +	crypto_engine_exit(sdev->engine);
-> +err_engine:
-> +	starfive_dma_cleanup(sdev);
-> +err_dma_init:
-> +	spin_lock(&dev_list.lock);
-> +	list_del(&sdev->list);
-> +	spin_unlock(&dev_list.lock);
-> +
-> +	return ret;
-> +}
-> +
-> +static int starfive_cryp_remove(struct platform_device *pdev)
-> +{
-> +	struct starfive_sec_dev *sdev = platform_get_drvdata(pdev);
-> +
-> +	if (!sdev)
-> +		return -ENODEV;
-> +
-> +	crypto_engine_stop(sdev->engine);
-> +	crypto_engine_exit(sdev->engine);
-> +
-> +	starfive_dma_cleanup(sdev);
-> +
-> +	spin_lock(&dev_list.lock);
-> +	list_del(&sdev->list);
-> +	spin_unlock(&dev_list.lock);
-> +
-> +	clk_disable_unprepare(sdev->sec_hclk);
-> +	clk_disable_unprepare(sdev->sec_ahb);
-> +	reset_control_assert(sdev->rst_hresetn);
-> +
-> +	return 0;
-> +}
-> +
-> +#ifdef CONFIG_PM
-> +static int starfive_cryp_runtime_suspend(struct device *dev)
-> +{
-> +	struct starfive_sec_dev *sdev = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(sdev->sec_ahb);
-> +	clk_disable_unprepare(sdev->sec_hclk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_cryp_runtime_resume(struct device *dev)
-> +{
-> +	struct starfive_sec_dev *sdev = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(sdev->sec_ahb);
-> +	if (ret) {
-> +		dev_err(sdev->dev, "Failed to prepare_enable sec_ahb clock\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = clk_prepare_enable(sdev->sec_hclk);
-> +	if (ret) {
-> +		dev_err(sdev->dev, "Failed to prepare_enable sec_hclk clock\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +#endif
-> +
-> +static const struct dev_pm_ops starfive_cryp_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> +				pm_runtime_force_resume)
-> +	SET_RUNTIME_PM_OPS(starfive_cryp_runtime_suspend,
-> +			   starfive_cryp_runtime_resume, NULL)
-> +};
-> +
-> +static struct platform_driver starfive_cryp_driver = {
-> +	.probe  = starfive_cryp_probe,
-> +	.remove = starfive_cryp_remove,
-> +	.driver = {
-> +		.name           = DRIVER_NAME,
-> +		.pm		= &starfive_cryp_pm_ops,
-> +		.of_match_table = starfive_dt_ids,
-> +	},
-> +};
-> +
-> +module_platform_driver(starfive_cryp_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("StarFive hardware crypto acceleration");
-> diff --git a/drivers/crypto/starfive/starfive-regs.h b/drivers/crypto/starfive/starfive-regs.h
+>  .../bindings/crypto/starfive-crypto.yaml      | 109 ++++++++++++++++++
+>  1 file changed, 109 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml b/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
 > new file mode 100644
-> index 000000000000..0d680cb1f502
+> index 000000000000..6b852f774c32
 > --- /dev/null
-> +++ b/drivers/crypto/starfive/starfive-regs.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __STARFIVE_REGS_H__
-> +#define __STARFIVE_REGS_H__
-> +
-> +#define STARFIVE_ALG_CR_OFFSET			0x0
-> +#define STARFIVE_ALG_FIFO_OFFSET		0x4
-> +#define STARFIVE_IE_MASK_OFFSET			0x8
-> +#define STARFIVE_IE_FLAG_OFFSET			0xc
-> +#define STARFIVE_DMA_IN_LEN_OFFSET		0x10
-> +#define STARFIVE_DMA_OUT_LEN_OFFSET		0x14
-> +
-> +union starfive_alg_cr {
-> +	u32 v;
-> +	struct {
-> +		u32 start			:1;
-> +		u32 aes_dma_en			:1;
-> +		u32 rsvd_0			:1;
-> +		u32 hash_dma_en			:1;
-> +		u32 alg_done			:1;
-> +		u32 rsvd_1			:3;
-> +		u32 clear			:1;
-> +		u32 rsvd_2			:23;
-> +	};
-> +};
-> +
-> +#endif
-> diff --git a/drivers/crypto/starfive/starfive-str.h b/drivers/crypto/starfive/starfive-str.h
-> new file mode 100644
-> index 000000000000..4ba3c56f0573
-> --- /dev/null
-> +++ b/drivers/crypto/starfive/starfive-str.h
-> @@ -0,0 +1,74 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __STARFIVE_STR_H__
-> +#define __STARFIVE_STR_H__
-> +
-> +#include <linux/delay.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/dmaengine.h>
-> +
-> +#include <crypto/engine.h>
-> +
-> +#include "starfive-regs.h"
-> +
-> +#define STARFIVE_MSG_BUFFER_SIZE		SZ_16K
-> +
-> +struct starfive_sec_ctx {
-> +	struct crypto_engine_ctx		enginectx;
-> +	struct starfive_sec_dev			*sdev;
-> +
-> +	u8					*buffer;
-> +};
-> +
-> +struct starfive_sec_dev {
-> +	struct list_head			list;
-> +	struct device				*dev;
-> +
-> +	struct clk				*sec_hclk;
-> +	struct clk				*sec_ahb;
-> +	struct reset_control			*rst_hresetn;
-> +
-> +	void __iomem				*io_base;
-> +	phys_addr_t				io_phys_base;
-> +
-> +	size_t					data_buf_len;
-> +	int					pages_count;
-> +	u32					use_side_channel_mitigation;
-> +	u32					use_dma;
-> +	u32					dma_maxburst;
-> +	struct dma_chan				*sec_xm_m;
-> +	struct dma_chan				*sec_xm_p;
-> +	struct dma_slave_config			cfg_in;
-> +	struct dma_slave_config			cfg_out;
-> +	struct completion			sec_comp_m;
-> +	struct completion			sec_comp_p;
-> +
-> +	struct crypto_engine			*engine;
-> +
-> +	union starfive_alg_cr			alg_cr;
-> +};
-> +
-> +static inline u32 starfive_sec_read(struct starfive_sec_dev *sdev, u32 offset)
-> +{
-> +	return __raw_readl(sdev->io_base + offset);
+> +++ b/Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
 
-I don't think these read/write wrappers help anyhow...
+Filename based on compatible, so starfive,jh7110-crypto.yaml
 
+> @@ -0,0 +1,109 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/crypto/starfive-crypto.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive Crypto Controller Device Tree Bindings
+
+Drop "Device Tree Bindings"
+
+> +
+> +maintainers:
+> +  - Jia Jie Ho <jiajie.ho@starfivetech.com>
+> +  - William Qiu <william.qiu@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-crypto
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  reg-names:
+> +    items:
+> +      - const: secreg
+
+Why do you need reg-names for one entry?
+
+> +
+> +  clocks:
+> +    items:
+> +      - description: Hardware reference clock
+> +      - description: AHB reference clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sec_hclk
+> +      - const: sec_ahb
+
+sec seems redundant, so just "ahb". The first clock then "hclk" or "ref"?
+
+> +
+> +  interrupts:
+> +    items:
+> +      - description: Interrupt pin for algo completion
+> +      - description: Interrupt pin for DMA transfer completion
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: secirq
+> +      - const: dmairq
+
+Drop "irq" from both.
+
+> +
+> +  resets:
+> +    items:
+> +      - description: STG domain reset line
+> +
+> +  reset-names:
+> +    items:
+> +      - const: sec_hre
+
+Drop "sec". Why do you need the names for one entry?
+
+> +
+> +  enable-side-channel-mitigation:
+> +    description: Enable side-channel-mitigation feature for AES module.
+> +        Enabling this feature will affect the speed performance of
+> +        crypto engine.
+> +    type: boolean
+
+Why exactly this is a hardware (DT) property, not runtime?
+
+> +
+> +  enable-dma:
+> +    description: Enable data transfer using dedicated DMA controller.
+> +    type: boolean
+
+Usually the presence of dmas indicates whether to use or not to use DMA.
+Do you expect a case where DMA channels are provided by you don't want
+DMA? Explain such case and describe why it is a hardware/system
+integration property.
+
+> +
+> +  dmas:
+> +    items:
+> +      - description: TX DMA channel
+> +      - description: RX DMA channel
+> +
+> +  dma-names:
+> +    items:
+> +      - const: sec_m
+
+tx
+
+> +      - const: sec_p
+
+rx
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/starfive-jh7110.h>
+> +    #include <dt-bindings/reset/starfive-jh7110.h>
+> +
+> +    soc {
+> +            #address-cells = <2>;
+> +            #size-cells = <2>;
+
+Use 4 spaces for example indentation.
+
+> +
 
 Best regards,
 Krzysztof
