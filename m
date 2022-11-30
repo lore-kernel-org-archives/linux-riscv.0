@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5039BC4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 03:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62C2C4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 03:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=J5A1w3tNe2vzYuVg455JPa11d3S4/mytlmi4+8gzrjE=; b=l0iwp7Fn4MncpTGJAaAn3K/3Gs
-	y9ZsLwILcWgENhFw64lvoF7pv1sjfcLdjW8yZkZK1EJ29xzoyTgFziZI7dRiVWCF2tWnOGieZwTa8
-	RywlgXM1CrbMSIe9vDeNhITzlvA1kHMNP4lEX1yHmRIoX7QdvVHDUCVp33SAFonzQ7t8T4jfudkHm
-	eJkl3yRPGnksPRHhUhRblo4qJUAN/kQXen285ih3bqlAFCXTT16vKZKDx8DD0stqTwqStwt+Snrwv
-	DtBIPl2zG4Knvnd0sQr3CX58emwuFqXaxCJjstYUExYygu7kZzAt0p0bkV5Zsqceimnzblgx4RHW8
-	8S0TmDCw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xtJ3SscD0a/E/KSwukRGlnynIyadNrjoRM3Dy2RAYDs=; b=279c86ILYlv4ta
+	e3cLBE6JpVIwija2pjzeABR5EZTZx3vz//NkWvXdYLjCcEKwweCG95VIFp45HJvUhwWUMrattUIWn
+	SOjCCDWfDxm79TQEMas+1sQicGZrANeFi8mWvYBVr+0bDhYLLqZeDAKxtpSr8yiWI9MAI35s5Tt1o
+	MaK4SxVt9YOTVbL4iOUw9a8/843YQxu8pUIWm0I7uMoCGvGA2rbjKBDUC5+gm6MB82oYA2NWYKcBY
+	w6K4l9gtVMUSqCMUv91lpj2nsZdWgSejuAcyLqJ/bPtgxEad/FEqg62klajGQPULf7NdKkNlzBDQQ
+	5LwR0T6IsPt9D3Zsub+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0DKt-00CNYW-7D; Wed, 30 Nov 2022 03:00:35 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1p0Duy-00Cbxp-2A; Wed, 30 Nov 2022 03:37:52 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0DKq-00CNX8-P9
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 03:00:34 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id g10so15334520plo.11
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 19:00:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+UTTKtw9h/uDbm2sJVfPVsezkUtjRi/h4SZI/iHnG9Y=;
-        b=k8lZtI/9upV1XjKYxj6UK1eTBLZPJiWF8ENyjv+QbEmsPmmQpquoHC7g8okx1kKPSt
-         mQjm6DM42IDKuL6H/+eyk2r5qa5kUwjsgCHGJrYVNSMnG9oJNnba3UywSf9LybkTImG5
-         hT1Ha5Xj86XyySxPYQCUGL8E2aepf74J1kp34+yUiX7lHgjjikglWYXIuzh/agr1AGDG
-         cdyWNV3WLjWaPD/Le7vUFBw+TDVGujDmgKOITjkIezWsglloj2WtWt5cl0VWSIIKTou4
-         enUwlbAG01JqIIWExb2MszQEfqHcnoLwuVZlRCBTcD8U/Kf80nYUCM0dnJ/AWDDzaG9P
-         hy9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+UTTKtw9h/uDbm2sJVfPVsezkUtjRi/h4SZI/iHnG9Y=;
-        b=tkQjN/dBlR/LthgZjkDU1ADNM4ONkr7M3GCkO1DlAyJwF/dq1nhhpebjzv6+rdEn8a
-         1MScKMUuEzsKJGIh7QyOQZ5k8ES4EfW2pO2719M9tTwQAA6MKagalmL9gHWGnrNB/DxL
-         QegkYc8F6UOQwV90Nufl8WpTqe/LjYE1wKuCGQokwI5wZPTeF7rQHS3HU8oe10iKlbOo
-         k1WSqRjdvR6U5njvYp47tPunvTa2KeQRPEFHFWw8Nh6plhcPyFF8LRIVqwnZKM5T7YFw
-         K6E/VJWkZ1iTCjAucPLmK+Zkd6gTb2IYCUVk89gstg6pEfQr1AWCDebjmPu1iq3cM9u6
-         hW1Q==
-X-Gm-Message-State: ANoB5pklv00CNYtY8A9PYZ8UW1+Q/FE9D+HsE/HIUMjmWd/JcrP6fnbX
-	goaHmdksuTE0iZWWJgFKqqNadRxS2RkcgA==
-X-Google-Smtp-Source: AA0mqf7aaJe0L4LvowJ1ooGBcGu5N74WM1WKdlGm9HYpnPv86VmcYosD/uucvwnEBzXbnPsu5kdMcw==
-X-Received: by 2002:a17:902:70c9:b0:176:a0cc:5eff with SMTP id l9-20020a17090270c900b00176a0cc5effmr49371814plt.128.1669777231878;
-        Tue, 29 Nov 2022 19:00:31 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id q14-20020a170902eb8e00b0018685aaf41dsm55167plg.18.2022.11.29.19.00.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Nov 2022 19:00:31 -0800 (PST)
-Date: Tue, 29 Nov 2022 19:00:31 -0800 (PST)
-X-Google-Original-Date: Tue, 29 Nov 2022 19:00:23 PST (-0800)
-Subject: Re: [PATCH 1/2] RISC-V: Align the shadow stack
-In-Reply-To: <CAMKF1sryF=inn0B=n=cZi7ZmRcWh3cAtR4uq9DYJfVpD_zOpVA@mail.gmail.com>
-CC: jszhang@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Khem Raj <raj.khem@gmail.com>
-Message-ID: <mhng-5a2b0379-88e4-43be-8d47-1f019aed05e0@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1p0Duu-00Cbnu-4i
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 03:37:50 +0000
+Received: from mail02.huawei.com (unknown [172.30.67.169])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4NMPz34vGWz4f3lXM
+	for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 11:37:19 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.67.175.61])
+	by APP2 (Coremail) with SMTP id Syh0CgBHXrnyz4ZjLguABQ--.10963S2;
+	Wed, 30 Nov 2022 11:37:22 +0800 (CST)
+From: Pu Lehui <pulehui@huaweicloud.com>
+To: bpf@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@google.com>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Pu Lehui <pulehui@huawei.com>,
+	Pu Lehui <pulehui@huaweicloud.com>
+Subject: [PATCH bpf] riscv, bpf: Emit fixed-length imm64 for BPF_PSEUDO_FUNC
+Date: Wed, 30 Nov 2022 11:38:06 +0800
+Message-Id: <20221130033806.2967822-1-pulehui@huaweicloud.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+X-CM-TRANSID: Syh0CgBHXrnyz4ZjLguABQ--.10963S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFy5AFyxuryDur4UCF1DAwb_yoW8tFy5pr
+	WUKr4fCFZ2qr1S9rnxtr1rXr15CF40qFsIgry3Way5Ga12qrsF93WDKw4Yka98ZFy8Gr15
+	XFyUKF9xua4Dt3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvF14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrJr0_WFyUJwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
+	fUF0eHDUUUU
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_190032_845494_8A3CDBE6 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20221129_193748_602673_0FFD0F80 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +91,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Nov 2022 18:56:48 PST (-0800), Khem Raj wrote:
-> On Tue, Nov 29, 2022 at 6:50 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> On Tue, 29 Nov 2022 18:47:55 PST (-0800), Khem Raj wrote:
->> > Hi Palmer
->> >
->> > On Tue, Nov 29, 2022 at 6:36 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->> >>
->> >> The standard RISC-V ABIs all require 16-byte stack alignment.  We're
->> >> only calling that one function on the shadow stack so I doubt it'd
->> >> result in a real issue, but might as well keep this lined up.
->> >
->> > Is 16-byte alignment required on rv32 as well ?
->>
->> For the standard ABIs that's the case, it's so the Q extension can spill
->> without aligning the stack.  There's also at least a proposed embedded
->> ABI that has just XLEN (32-bit on rv32) alignment, as the bigger stack
->> alignment has an impact on some use cases.
->
-> Thanks, so in this case 16byte will be valid for both rv64/rv32 here.
+From: Pu Lehui <pulehui@huawei.com>
 
-Yes, though the long-alignment wouldn't break anything because we don't 
-have Q support and we're just calling that one function -- it's not like 
-the compiler is actively checking for 16-byte alignment or anything, 
-it's just assuming it.
+For BPF_PSEUDO_FUNC instruction, verifier will refill imm with
+correct addresses of bpf_calls and then run last pass of JIT.
+Since the emit_imm of RV64 is variable-length, which will emit
+appropriate length instructions accorroding to the imm, it may
+broke ctx->offset, and lead to unpredictable problem, such as
+inaccurate jump. So let's fix it with fixed-length imm64 insns.
 
-Still best to keep things to the spec where we can, though.
+Fixes: 69c087ba6225 ("bpf: Add bpf_for_each_map_elem() helper")
+Signed-off-by: Pu Lehui <pulehui@huawei.com>
+---
+ arch/riscv/net/bpf_jit_comp64.c | 31 ++++++++++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
 
->> >> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
->> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> >> ---
->> >>  arch/riscv/kernel/traps.c | 2 +-
->> >>  1 file changed, 1 insertion(+), 1 deletion(-)
->> >>
->> >> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->> >> index be54ccea8c47..acdfcacd7e57 100644
->> >> --- a/arch/riscv/kernel/traps.c
->> >> +++ b/arch/riscv/kernel/traps.c
->> >> @@ -206,7 +206,7 @@ static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
->> >>   * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
->> >>   * to get per-cpu overflow stack(get_overflow_stack).
->> >>   */
->> >> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
->> >> +long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
->> >>  asmlinkage unsigned long get_overflow_stack(void)
->> >>  {
->> >>         return (unsigned long)this_cpu_ptr(overflow_stack) +
->> >> --
->> >> 2.38.1
->> >>
->> >>
->> >> _______________________________________________
->> >> linux-riscv mailing list
->> >> linux-riscv@lists.infradead.org
->> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index eb99df41fa33..f984d5fa014b 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -139,6 +139,30 @@ static bool in_auipc_jalr_range(s64 val)
+ 		val < ((1L << 31) - (1L << 11));
+ }
+ 
++/* Emit fixed-length instructions for 32-bit imm */
++static void emit_fixed_imm32(u8 rd, s32 val, struct rv_jit_context *ctx)
++{
++	s32 upper = (val + (1U << 11)) >> 12;
++	s32 lower = ((val & 0xfff) << 20) >> 20;
++
++	emit(rv_lui(rd, upper), ctx);
++	emit(rv_addi(rd, rd, lower), ctx);
++}
++
++/* Emit fixed-length instructions for 64-bit imm */
++static void emit_fixed_imm64(u8 rd, s64 val, struct rv_jit_context *ctx)
++{
++	/* Compensation for sign-extension of rv_addi */
++	s32 imm_hi = (val + (1U << 31)) >> 32;
++	s32 imm_lo = val;
++
++	emit_fixed_imm32(rd, imm_hi, ctx);
++	emit_fixed_imm32(RV_REG_T1, imm_lo, ctx);
++	emit(rv_slli(rd, rd, 32), ctx);
++	emit(rv_add(rd, rd, RV_REG_T1), ctx);
++}
++
++/* Emit variable-length instructions for 32-bit and 64-bit imm */
+ static void emit_imm(u8 rd, s64 val, struct rv_jit_context *ctx)
+ {
+ 	/* Note that the immediate from the add is sign-extended,
+@@ -1053,7 +1077,12 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		u64 imm64;
+ 
+ 		imm64 = (u64)insn1.imm << 32 | (u32)imm;
+-		emit_imm(rd, imm64, ctx);
++		if (bpf_pseudo_func(insn))
++			/* fixed-length insns for extra jit pass */
++			emit_fixed_imm64(rd, imm64, ctx);
++		else
++			emit_imm(rd, imm64, ctx);
++
+ 		return 1;
+ 	}
+ 
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
