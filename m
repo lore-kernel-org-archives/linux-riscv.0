@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC133C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 16:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80081C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 16:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5SI323ehoRvudqz3TvseAMq741CtFty4jhHatjhkGik=; b=feYatS3fB3tUkP
-	pMcGk0MXcK8c32NUNRNtOJCcP6CvBGHpmVzYijIKTYudgXKfy0zo74FiUW1rDNBDuUN4VDta/Y/ex
-	YAuqC0tH4Zf48FI7vbZ+kbVgwutXf0yKbJlKO5rMe/IBLYp0y8TlDz2zPocgFpoulKt2cyJ5gGTj3
-	LbuOipWeoOalYzJGioatrEeUhPlYJuFhHY9uEbxeoGp6MCXJv6+KKiqeXTuxY7jjxSm0H0qucXkeZ
-	Y9a2VsQ4XNrOkeMmg8Qfpn6sgXce9Bzz58/X4ppVh1y/KgFOwMlqvguCW7K6biITsCIJnhkCPloZv
-	ERYcuP9o9KISJFnprXwg==;
+	List-Owner; bh=yS5s/IoDYIpqkLkaeu9LQlXEoJyiLvvfsb/suOd5R0U=; b=Dpg2lA7m96O1Lr
+	PVwF42UdCpTwYP2d4JHtAgqvIz9kLVfWhifKt/VFuunlCIZ3aF3s8s8Iv1R6ft4b1ctK/u5Y02qZU
+	EyX19qXivmtJ+gN+O5A2K+lJKTq6AK60EvjAh8ul1Nu2glaqjp19gKxNs1gwTYQvyykrH1jsn5UfR
+	OrW4H5crnasnwBqqgfTH7Q2U8BDqn3k8BDm/tzkl9wVnO26/G8li/TrWu3guomVsnCVuHizGgC8AG
+	mUHWzl3+zhVdVCqmmsMQrXo9uUYG6VclPtJlvGh/Rn8s/Rco4/9N7TfBzO2RV6zRE1ozNsuu0WWLb
+	WQ741BTxsIBasd0mSCLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Pgz-000KgO-3E; Wed, 30 Nov 2022 16:12:13 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1p0Pnc-000Nlp-1s; Wed, 30 Nov 2022 16:19:04 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Pgv-000KdU-Ru
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 16:12:11 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id m19so23490831edj.8
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 08:12:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zoShQ67l+QfvAIgoGtCOn+uIbXUSrT2FaEuvPUmtKQE=;
-        b=alOh1LZxCFL2IpfUB8271bwYaP5GZ+sj6zZ5Ku906djE/ac7vaGyrWotZTeMiagUSV
-         kRnpVTNFlqUNwI5Vcr6e/QW2NWQV9zinUOQDRlSGIwUVTc+YHGlBf/BNO0aMsE1c0+WM
-         UQhJWxFWwDSsUbPI+dFdo54qEmdEmCkQeB0CKM9VbN5OsI3NYpgUwI7OWuiOy7Q1mD97
-         tirTKasnYAuX+PT/kChJd2JYkNZbSFxjbalP6vvA7ml7Tx30QWeIZ2GyIq5Nda4sUz3s
-         NLkKM5lRlDeQrHEk8JYqFqGYA1CMcd4a0UxygVZAf8yDGTW33F36J6UKM3AGDciBTo47
-         SaRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zoShQ67l+QfvAIgoGtCOn+uIbXUSrT2FaEuvPUmtKQE=;
-        b=vdHqQM+1T4MnW3TcdwlaRTsQnPXpXmrjaB1vIEDNWBAJdOh2cepM9lGwkBMx01a9M4
-         mvA47zATfJ9K24GCHR9DKnOJ6r6nu2iFD5DqMxZ9EsNUqWl7vlOSWGoUSYc/NLH+fnac
-         YjAsqOoeFs/llek0hfkUJFsRAyQUfKknTKCeHFfIxiTNiKi2Ni+VKhvx6M/OeCuKGtLF
-         7b4fwrcFjqp+SoQWDoH2UfDlSMIX2CtSFs0ENp3HxTZsCl7cYByFgCtCKAwmbUtHZXCW
-         b1ksKZ2GVKHW3p2BLCpIn5Kmkw/ZVA5c5TYO5wHnIq0IYDW9Pyq22vGlH3VrfffDRVgD
-         lbAw==
-X-Gm-Message-State: ANoB5pnbETESKeds8hvfalbrpPVX7iBEELJciwa2lLgUIPcrgyfvTIa0
-	QV1fs8S9R4BEke+Ii5RyARRl1A==
-X-Google-Smtp-Source: AA0mqf6IqqStFqEo62mGs5aAgtGf4ZSSi+Pf71ArdgOACPeViy7Z+57/jGnMhMZrTLDIZal2iIHW9g==
-X-Received: by 2002:aa7:d659:0:b0:46b:1687:2e5d with SMTP id v25-20020aa7d659000000b0046b16872e5dmr15381442edr.136.1669824726930;
-        Wed, 30 Nov 2022 08:12:06 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id r9-20020a1709061ba900b007aec1b39478sm782861ejg.188.2022.11.30.08.12.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Nov 2022 08:12:06 -0800 (PST)
-Date: Wed, 30 Nov 2022 17:12:05 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
-	conor@kernel.org, philipp.tomsich@vrull.eu,
-	emil.renner.berthing@canonical.com,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: Re: [PATCH v2 09/13] RISC-V: add rd reg parsing to parse_asm header
-Message-ID: <20221130161205.uo5f5q7ezkbbjnqe@kamzik>
-References: <20221128102632.435174-1-heiko@sntech.de>
- <20221128102632.435174-10-heiko@sntech.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221128102632.435174-10-heiko@sntech.de>
+	id 1p0PnY-000Nj6-H3
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 16:19:02 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 1EAA8B81A79;
+	Wed, 30 Nov 2022 16:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF3D3C433C1;
+	Wed, 30 Nov 2022 16:18:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669825137;
+	bh=6finBBhB41rftQpLaBk5vk/KMUvYxNjc4FlI2SQgK4o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iIsVl68CpjNQALNiIfuVDhoRoZnkBMZY2gLRT5+yI+bUDBV5tGBYU7MD0JItgEICT
+	 byzsKlJGX6jbzbvI9WVlpTwglKvj4V6BJxVOfd/09LC7VEd4c1yew97L2VNagSKHoS
+	 XHCczQMqRuM5fZOECJeUESLXdb6MEXUra8B1ZYOm3liQl28Stq0Oiu+eLUlzna0GMJ
+	 7t3QSjuSIMJXuypCCQA2Grr9+mzAb1e4O9avFcGaV6Lv1I23ZPAPAL27qSiJI4xg/k
+	 hbGqOCsUGRwJfo35hrIyozyMZ72XA8y/3hYE7y7eKGejdNKOPSfq5y8zDX6rpa8cRz
+	 U7XrP6rdd/ktg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1p0PnS-009cnr-Hp;
+	Wed, 30 Nov 2022 16:18:54 +0000
+Date: Wed, 30 Nov 2022 16:18:54 +0000
+Message-ID: <86bkoomn4h.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 4/7] RISC-V: Treat IPIs as normal Linux IRQs
+In-Reply-To: <20221129142449.886518-5-apatel@ventanamicro.com>
+References: <20221129142449.886518-1-apatel@ventanamicro.com>
+	<20221129142449.886518-5-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_081209_918547_2C4B6B06 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20221130_081900_881118_B2F22504 
+X-CRM114-Status: GOOD (  25.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,19 +92,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 28, 2022 at 11:26:28AM +0100, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Tue, 29 Nov 2022 14:24:46 +0000,
+Anup Patel <apatel@ventanamicro.com> wrote:
 > 
-> Add a macro to allow parsing of the rd register from an instruction.
+> Currently, the RISC-V kernel provides arch specific hooks (i.e.
+> struct riscv_ipi_ops) to register IPI handling methods. The stats
+> gathering of IPIs is also arch specific in the RISC-V kernel.
 > 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> Other architectures (such as ARM, ARM64, and MIPS) have moved away
+> from custom arch specific IPI handling methods. Currently, these
+> architectures have Linux irqchip drivers providing a range of Linux
+> IRQ numbers to be used as IPIs and IPI triggering is done using
+> generic IPI APIs. This approach allows architectures to treat IPIs
+> as normal Linux IRQs and IPI stats gathering is done by the generic
+> Linux IRQ subsystem.
+> 
+> We extend the RISC-V IPI handling as-per above approach so that arch
+> specific IPI handling methods (struct riscv_ipi_ops) can be removed
+> and the IPI handling is done through the Linux IRQ subsystem.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  arch/riscv/include/asm/insn.h | 5 +++++
->  1 file changed, 5 insertions(+)
+>  arch/riscv/Kconfig                |   2 +
+>  arch/riscv/include/asm/sbi.h      |  10 +-
+>  arch/riscv/include/asm/smp.h      |  35 ++++---
+>  arch/riscv/kernel/Makefile        |   1 +
+>  arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+>  arch/riscv/kernel/irq.c           |   3 +-
+>  arch/riscv/kernel/sbi-ipi.c       |  81 ++++++++++++++++
+>  arch/riscv/kernel/sbi.c           | 106 +++-----------------
+>  arch/riscv/kernel/smp.c           | 155 +++++++++++++++---------------
+>  arch/riscv/kernel/smpboot.c       |   5 +-
+>  drivers/clocksource/timer-clint.c |  65 ++++++++++---
+>  drivers/irqchip/Kconfig           |   1 +
+>  drivers/irqchip/irq-riscv-intc.c  |  55 +++++------
+>  13 files changed, 287 insertions(+), 235 deletions(-)
+>  create mode 100644 arch/riscv/kernel/sbi-ipi.c
+>
 
-With Conor's $SUBJECT correction,
+[...]
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> diff --git a/arch/riscv/kernel/sbi-ipi.c b/arch/riscv/kernel/sbi-ipi.c
+> new file mode 100644
+> index 000000000000..6466706b03a7
+> --- /dev/null
+> +++ b/arch/riscv/kernel/sbi-ipi.c
+> @@ -0,0 +1,81 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Multiplex several IPIs over a single HW IPI.
+> + *
+> + * Copyright (c) 2022 Ventana Micro Systems Inc.
+> + */
+> +
+> +#define pr_fmt(fmt) "riscv: " fmt
+> +#include <linux/cpu.h>
+> +#include <linux/init.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/percpu.h>
+> +#include <asm/sbi.h>
+> +
+> +static int sbi_ipi_virq;
+> +static DEFINE_PER_CPU_READ_MOSTLY(int, sbi_ipi_dummy_dev);
+> +
+> +static irqreturn_t sbi_ipi_handle(int irq, void *dev_id)
+> +{
+> +	csr_clear(CSR_IP, IE_SIE);
+> +	ipi_mux_process();
+> +	return IRQ_HANDLED;
+
+Urgh... I really wish I hadn't seen this. This requires a chained
+handler. You had it before, and yet you dropped it. Why?
+
+Either you call ipi_mux_process() from your root interrupt controller,
+or you implement a chained handler. But not this.
+
+Same thing about the clint stuff.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
