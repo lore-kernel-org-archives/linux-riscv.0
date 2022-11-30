@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D27C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 02:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C6FC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 02:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=KfEbkXMCOYNrys3pEj1KJaymef+TQtbhl6/CKiVoDFc=; b=0tR6B32tvzbzGy599yxjYZpFAr
-	DOdHfiPaOd8ybyrU2tcxUEutiR2nBEvvQuVi8+hUmCfei0ybcD/tIT5gFRzs0EWnZVMwVOgy3dutS
-	S79bbV27nq+gVTYeR1OWwlIiudJymc2l3asK8VltzHvU7RVEwltpsOBnlIc8jAzQ5Feb5pTSIR5bj
-	K0CpL55ZJm2KOWOli8/GmTGwQ4o+6xHe77CgqTMgJXKYrNqt2GZh8xkoD65PlW6MPtaUPuksRoK1A
-	Q4NnNZdu76EBMepm5OQbJRxkj5nc6V6j7UuTsEf7hC4+jgsmdz8IQ+IU95P8WIFM1oAlueDx8bxhz
-	uVg+13VA==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yBc/75G9oOgVbWIyHsDT3rZ/jhRU/Cu5H7DeQcC/IdI=; b=BDPYn5dutmPe7N
+	QQM2LJ3WsG3z9xOql0YzZMd2N365ooPs8uTvJ3lByrixp0G9b/fGE8KqlnhVmbWzgFI4DYdaLMJSV
+	hSw5Un/8VbNggw/7nZS/7krN8EFosezcrSAX2Mt91x6glsR4aXtoh6pJAsNy+km3UPmhFbMs4TMK+
+	3Vi/XccE+q4YVomLZODlUJlDk1Amz8jFQeMKaqopO44MHE7vpJ8jZ5sO72vXmeDZ0ZXp6UcMqv9/k
+	fHYbJDkKA1VzwF380+TtoQQ+ZZIxG8pph6QM57qs8fOB/WoKbuvqKVb5lWB3A7nf4RvtipKAGMrgt
+	BixM6fIiYiGadta9qDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0Clb-00C8V6-AM; Wed, 30 Nov 2022 02:24:07 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1p0CqS-00CAgc-Hx; Wed, 30 Nov 2022 02:29:08 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0ClN-00C8P3-UL; Wed, 30 Nov 2022 02:23:56 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.53])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4NMNFY6J5yzqSpv;
-	Wed, 30 Nov 2022 10:19:45 +0800 (CST)
-Received: from [10.67.102.169] (10.67.102.169) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Wed, 30 Nov 2022 10:23:47 +0800
-CC: <yangyicong@hisilicon.com>, <linux-mm@kvack.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <anshuman.khandual@arm.com>,
-	<linux-doc@vger.kernel.org>, <corbet@lwn.net>, <peterz@infradead.org>,
-	<arnd@arndb.de>, <punit.agrawal@bytedance.com>,
-	<linux-kernel@vger.kernel.org>, <darren@os.amperecomputing.com>,
-	<huzhanyuan@oppo.com>, <lipeifeng@oppo.com>, <zhangshiming@oppo.com>,
-	<guojian@oppo.com>, <realmz6@gmail.com>, <linux-mips@vger.kernel.org>,
-	<openrisc@lists.librecores.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>, Barry Song
-	<21cnbao@gmail.com>, <wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, Anshuman Khandual <khandual@linux.vnet.ibm.com>,
-	Barry Song <baohua@kernel.org>
-Subject: Re: [PATCH v7 1/2] mm/tlbbatch: Introduce
- arch_tlbbatch_should_defer()
-To: Andrew Morton <akpm@linux-foundation.org>
-References: <20221117082648.47526-1-yangyicong@huawei.com>
- <20221117082648.47526-2-yangyicong@huawei.com>
- <20221129152306.54b6d439e2a0ca7ece1d1afa@linux-foundation.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <9999b87d-5f7e-275b-d99f-b51ef19361eb@huawei.com>
-Date: Wed, 30 Nov 2022 10:23:47 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1p0CqP-00CAd6-9c
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 02:29:07 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id b13-20020a17090a5a0d00b0021906102d05so565951pjd.5
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 18:29:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc:subject:date:message-id:reply-to;
+        bh=gi2uEo4iaZLZVK/wFCJO91dGFuOd6zHilYY5g4w8jXE=;
+        b=aUkhALw5FZWUswh6W0OKLKG/PwAdMiQfPz8JlPvDUwuQRWoP2iqoCnoCuaP0b6FLjd
+         z9pJyDQwNTNkR2DYc/QW1TFA+STq2guziXD++tNbePuCdZzOmhhCvSdjiipRqA7Y5SbJ
+         ZWiLnrXtOvxxwxQdOaIzRYEJ/FD7t+CIavlnh4p/m/GeCIU4ya5d12XiROmAxNbr8tx8
+         CN1ZFNB0iFUvxDxobsRKFcYITV1e6aspAHpFu5DmT90FjB+9Yl3FvQTOMfyEWsOuVT1V
+         fWvN4hRifrmQ41cyG5FlurfDj8h3JZnoTq+pnqXaVOlckim4NO8kl9pP0EAN13dZbI9F
+         iPiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gi2uEo4iaZLZVK/wFCJO91dGFuOd6zHilYY5g4w8jXE=;
+        b=FwDzqKWwLA1UOAOQKnUs1CuqjzdEQlyavdHSu8Y7CH327ZWDcHfFVzNeoZTzXlRWGx
+         5oRYCoDtB4Fsmv0fefLkXQzY2Y+4eYANKppmsb/9VlE73cBCyNJY7mEySwqK7RPZQmFe
+         NHP1x+fgPotKgFR+8yFfnxygX6AGctTEQuecFXXQanbU0anaWTFQnGW/2JtOM9sYIKCu
+         h9cTpDhXMbeYWSeFRjYLt+anu95sHTFphTZ8IJFT5yDuzQxFdMDaH8efbjv5az8GvTLN
+         VptTAO5VzIHTWsfLbO5OykDvZpGQ1LsaSUdglp0zI4Bnjsjs/ACqzORtkbd0RW7o/0Ir
+         mUpQ==
+X-Gm-Message-State: ANoB5pm/kzOqZshS9ouCczrWEXk3lIhqcILwE2O//PBsc7KOqa51CAG8
+	zIaYN+ED610hakBWwCsilH4MTg==
+X-Google-Smtp-Source: AA0mqf71uUGWF1g6dJ/2iwnyLEvslimAagc1jwlrS97pQyhcX+j/bfxmFnS1On0YvTACfZSnAX9WHw==
+X-Received: by 2002:a17:902:9307:b0:189:9284:2140 with SMTP id bc7-20020a170902930700b0018992842140mr9828829plb.111.1669775342931;
+        Tue, 29 Nov 2022 18:29:02 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id p22-20020a170902a41600b001869b988d93sm11496627plq.187.2022.11.29.18.29.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Nov 2022 18:29:02 -0800 (PST)
+Subject: [PATCH v4] riscv: fix race when vmap stack overflow
+Date: Tue, 29 Nov 2022 18:24:43 -0800
+Message-Id: <20221130022442.18358-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.38.1
 MIME-Version: 1.0
-In-Reply-To: <20221129152306.54b6d439e2a0ca7ece1d1afa@linux-foundation.org>
-X-Originating-IP: [10.67.102.169]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: jszhang@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_182354_352414_1B4E292A 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20221129_182905_580388_F78FAE46 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,97 +87,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/30 7:23, Andrew Morton wrote:
-> On Thu, 17 Nov 2022 16:26:47 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
-> 
->> From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
->>
->> The entire scheme of deferred TLB flush in reclaim path rests on the
->> fact that the cost to refill TLB entries is less than flushing out
->> individual entries by sending IPI to remote CPUs. But architecture
->> can have different ways to evaluate that. Hence apart from checking
->> TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
->> architecture specific.
->>
->> ...
->>
->> --- a/arch/x86/include/asm/tlbflush.h
->> +++ b/arch/x86/include/asm/tlbflush.h
->> @@ -240,6 +240,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
->>  	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
->>  }
->>  
->> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->> +{
->> +	bool should_defer = false;
->> +
->> +	/* If remote CPUs need to be flushed then defer batch the flush */
->> +	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
->> +		should_defer = true;
->> +	put_cpu();
->> +
->> +	return should_defer;
->> +}
->> +
->>  static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
->>  {
->>  	/*
->> diff --git a/mm/rmap.c b/mm/rmap.c
->> index 2ec925e5fa6a..a9ab10bc0144 100644
->> --- a/mm/rmap.c
->> +++ b/mm/rmap.c
->> @@ -685,17 +685,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
->>   */
->>  static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
->>  {
->> -	bool should_defer = false;
->> -
->>  	if (!(flags & TTU_BATCH_FLUSH))
->>  		return false;
->>  
->> -	/* If remote CPUs need to be flushed then defer batch the flush */
->> -	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
->> -		should_defer = true;
->> -	put_cpu();
->> -
->> -	return should_defer;
->> +	return arch_tlbbatch_should_defer(mm);
->>  }
-> 
-> I think this conversion could have been done better.
-> 
-> should_defer_flush() is compiled if
-> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH.  So the patch implicitly
-> assumes that only x86 implements
-> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH.  Presently true, but what
-> happens if sparc (for example) wants to set
-> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH?  Now sparc needs its private
-> version of arch_tlbbatch_should_defer(), even if that is identical to
-> x86's.
-> 
+From: Jisheng Zhang <jszhang@kernel.org>
 
-The current logic is if architecture want to enable batched TLB flush, they
-need to implement their own version of arch_tlbbatch_should_defer() (for the
-hint to defer the TLB flush) and arch_tlbbatch_add_mm() (for pending TLB flush)
-and select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH. That's what we do in Patch 2/2 for
-enabling this on arm64.
+Currently, when detecting vmap stack overflow, riscv firstly switches
+to the so called shadow stack, then use this shadow stack to call the
+get_overflow_stack() to get the overflow stack. However, there's
+a race here if two or more harts use the same shadow stack at the same
+time.
 
-Since it is architecture specific, we must rely on the architecture to implement
-these two functions. Only select the ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER is not
-enough.
+To solve this race, we introduce spin_shadow_stack atomic var, which
+will be swap between its own address and 0 in atomic way, when the
+var is set, it means the shadow_stack is being used; when the var
+is cleared, it means the shadow_stack isn't being used.
 
-> Wouldn't it be better to make should_defer_flush() a __weak
-> function in rmap.c, or a static inline inside #ifndef
-> ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER, or whatever technique best fits?
-> 
+Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Suggested-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/r/20221030124517.2370-1-jszhang@kernel.org
+[Palmer: Add AQ to the swap, and also some comments.]
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+Sorry to just re-spin this one without any warning, but I'd read patch a
+few times and every time I'd managed to convice myself there was a much
+simpler way of doing this.  By the time I'd figured out why that's not
+the case it seemed faster to just write the comments.
 
-When ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER is not selected, should_defer_flush()
-is implemented to only return false. I think this match what you want already.
+I've stashed this, right on top of the offending commit, at
+palmer/riscv-fix_vmap_stack.
 
-Thanks.
+Since v3:
+ - Add AQ to the swap.
+ - Add a bunch of comments.
 
+Since v2:
+ - use REG_AMOSWAP
+ - add comment to the purpose of smp_store_release()
 
+Since v1:
+ - use smp_store_release directly
+ - use unsigned int instead of atomic_t
+---
+ arch/riscv/include/asm/asm.h |  1 +
+ arch/riscv/kernel/entry.S    | 13 +++++++++++++
+ arch/riscv/kernel/traps.c    | 18 ++++++++++++++++++
+ 3 files changed, 32 insertions(+)
 
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index 618d7c5af1a2..e15a1c9f1cf8 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -23,6 +23,7 @@
+ #define REG_L		__REG_SEL(ld, lw)
+ #define REG_S		__REG_SEL(sd, sw)
+ #define REG_SC		__REG_SEL(sc.d, sc.w)
++#define REG_AMOSWAP_AQ	__REG_SEL(amoswap.d.aq, amoswap.w.aq)
+ #define REG_ASM		__REG_SEL(.dword, .word)
+ #define SZREG		__REG_SEL(8, 4)
+ #define LGREG		__REG_SEL(3, 2)
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 98f502654edd..5fdb6ba09600 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -387,6 +387,19 @@ handle_syscall_trace_exit:
+ 
+ #ifdef CONFIG_VMAP_STACK
+ handle_kernel_stack_overflow:
++	/*
++	 * Takes the psuedo-spinlock for the shadow stack, in case multiple
++	 * harts are concurrently overflowing their kernel stacks.  We could
++	 * store any value here, but since we're overflowing the kernel stack
++	 * already we only have SP to use as a scratch register.  So we just
++	 * swap in the address of the spinlock, as that's definately non-zero.
++	 *
++	 * Pairs with a store_release in handle_bad_stack().
++	 */
++1:	la sp, spin_shadow_stack
++	REG_AMOSWAP_AQ sp, sp, (sp)
++	bnez sp, 1b
++
+ 	la sp, shadow_stack
+ 	addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
+ 
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index bb6a450f0ecc..be54ccea8c47 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -213,11 +213,29 @@ asmlinkage unsigned long get_overflow_stack(void)
+ 		OVERFLOW_STACK_SIZE;
+ }
+ 
++/*
++ * A pseudo spinlock to protect the shadow stack from being used by multiple
++ * harts concurrently.  This isn't a real spinlock because the lock side must
++ * be taken without a valid stack and only a single register, it's only taken
++ * while in the process of panicing anyway so the performance and error
++ * checking a proper spinlock gives us doesn't matter.
++ */
++unsigned long spin_shadow_stack;
++
+ asmlinkage void handle_bad_stack(struct pt_regs *regs)
+ {
+ 	unsigned long tsk_stk = (unsigned long)current->stack;
+ 	unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
+ 
++	/*
++	 * We're done with the shadow stack by this point, as we're on the
++	 * overflow stack.  Tell any other concurrent overflowing harts that
++	 * they can proceed with panicing by releasing the pseudo-spinlock.
++	 *
++	 * This pairs with an amoswap.aq in handle_kernel_stack_overflow.
++	 */
++	smp_store_release(&spin_shadow_stack, 0);
++
+ 	console_verbose();
+ 
+ 	pr_emerg("Insufficient stack space to handle exception!\n");
+-- 
+2.38.1
 
 
 _______________________________________________
