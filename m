@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E344C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D521CC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 11:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9asYQZN1nnzzgeYalBUsXBlqUZwTKvxAch/D67vpSb0=; b=xaoxHUYSPbt8jk
-	ClD/cgSsKb2/nMMmKDgCB+JoZv6GaIoQd8rZUvHHO1Bfyu6jIRw7EfYMJsH0H44/DbAvOtb6Db6UL
-	nJXziBCcFdm4IBaDRcEg864E0cCNlPhA0aeu8r6LdEvi3guJOqVdbebBG9oVQPBROyORnGw53bZ86
-	Vis4PnUTZqIZKvl/g2F/QKdXBNe06B20XYD+U8aiAv0QEVrCACygKdLDMo9xopq09jb+gcg+fJnEh
-	jqs9TkVGRKOyDHojrflHcf8ZiNMs9w3e46CXFiYwhS0/Mgx019QP8/Mp50jP8x+WYTYRPwN41OSEm
-	XHwLERktd4iITaTTolrg==;
+	List-Owner; bh=1CsXWp7wxyMCBc65n7vYIRqq6BKqhVFMwOw7ws6VsQg=; b=D+APgF9WtkJixQ
+	uY0/ziM2PlMhkjBiEAhtKGp0wT2hcvSekvOFcBg+9Q2wRoqSdfOz6ZTdZls7cwm8cPgsdF+RvPyhQ
+	x21/CZR4nV1X1A0wUe3cJ4J4DJyy99tdA5WWjEL3eSWrCrGguf3LCmN/jsXAZVty/6PdkRf/VH8FE
+	q0z7txw5QCzheOgyS7a/V4NMi3DmOXHP8I34Qc4UiDt/v/5g6xeIwA4oUARgKZJW8a4TkncMQLEdO
+	8cadkL48xkqimpykZG5LbFsC0k1vPHZCP/N1DfpQcBRJNOJEzTVJzjudNtVfnRz1JGJYaQ5Ug6x6U
+	jnTE/WP/llACyo5XL4JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0LFu-00Fo5T-S0; Wed, 30 Nov 2022 11:27:58 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1p0LL9-00Fpvc-Es; Wed, 30 Nov 2022 11:33:23 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0LFn-00FnzF-7X
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:27:52 +0000
-Received: by mail-ej1-x636.google.com with SMTP id fy37so40501224ejc.11
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 03:27:48 -0800 (PST)
+	id 1p0LL6-00FprC-30
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 11:33:22 +0000
+Received: by mail-ej1-x629.google.com with SMTP id td2so26489072ejc.5
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 03:33:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=U5KBQ3Z+4x6ln3C2lBlqgjHkWXs25a9COtm4hp4w3WY=;
-        b=jeYyYFIgyK2ruFr6JE3tTe6iU2LchkZocNMktt7Dygmi6BiNUc07WTrdZbOE3MsiI2
-         ep5Zy/oIaPEDu5zJHBBiDVSYrBDBkBaqlwYB2akzGLBX5LC1sOG0/8Q51aSPDKRVM3P1
-         fMN7vUKS2NhthOOBF9IyNW0Uerp/7bLeYuX4EaWTWhBb7JnF/ALXsBC4oMEXirvJ6XPK
-         oWywH7FBNQ15olXb/jFZZiiS1RdLFJUrnw0fLGuqiIYsC5exRjmxVs50ePQ/IJYsAcEM
-         LX9BUmGCvEU4Ou6Ha4qf5koc63XBIwT+Wgs5M2D6+yMB28GULXq0kGAN3vcDVg1mO1Z4
-         v3FA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SRKVtL8Vnp/NjQ0+Ol1LbLwshz8jD/8ClYbnisG9Iiw=;
+        b=KYwJEzc7Stl9vu5Agrl6dD29YAvSP75W/Y1fhiwOjq5of3IMz4W67gBlvG+5wM2M0Y
+         rpSdPvx9nJfnc8W8GLIpTfwA8BxAxpuKW8VWtxR6+dRMJ/j9/0QWHP6fIpenA0gMe6Uy
+         rDGN85/XZDM0NEsd803oiIJR6tfjcJz7FhTQyQK44Kttr8EP9b8DN5EY/6yAR1xkzQNk
+         tgsouz4VvlVU3t3qgFt01Uc1NxnzwWKDEv7dHwHoP/bGm+4Z57MHkhXVjqenqLbwV2rV
+         C9hKkY3AzzksLQFpl0fGFety3WZN3EZ6WC9kvu9aB1wzEFMiUa2lWtpyvrWvWF24Zj15
+         VjmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=U5KBQ3Z+4x6ln3C2lBlqgjHkWXs25a9COtm4hp4w3WY=;
-        b=GV7kEJDdZtCX9FvNL1enhf29CdOklW1tyjXAGTR44H8zjdsnz2vrDbEQH+55F+6gRP
-         PPaqnbgiZlM5cZ6p38XAVa/yUGUiBv8xWcAIqSDQeEyvKGydhxLmtc0UORZhT1Bh2cty
-         hwz0jSX25Tih8Wd1EKY2Zb+J3q6nZ+VoZj0v/q1dYNAoVc7p0GDpijpwiNTTf8bBRUDM
-         yywuOctj4AGaWhtrUJwxtgHQUEg/bpB1cBggwhnc7bThlGQORMOnJUcGj4RhSHrm1mrB
-         ZUjxSRegT1DRQRJM4glpJbr5fINZIBZdpw5xGhJccwY9SHttDnB0ofQjyIzM+Xos/ro9
-         Zazg==
-X-Gm-Message-State: ANoB5pkxs7DfDh8pHE/YjhkR77eiLoxcV0QnBZRbJgMxp2hEiBb+Cyqw
-	Pw/9l7O97uDiGoYVUrDZR0cokg==
-X-Google-Smtp-Source: AA0mqf6dewyc0DdpyRKNXfXEhV3/Z0+y26UTMrqjUldu1nSiZkqi967p5c0zfpfBuq2dKCNM6dmLZA==
-X-Received: by 2002:a17:907:3907:b0:7ae:37a8:9b5c with SMTP id so7-20020a170907390700b007ae37a89b5cmr35548096ejc.241.1669807666812;
-        Wed, 30 Nov 2022 03:27:46 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SRKVtL8Vnp/NjQ0+Ol1LbLwshz8jD/8ClYbnisG9Iiw=;
+        b=7EnKewZNeReJ08u9a5dN0qWQj4RLlDgQCKD5kKQI9u23UbUtpmerCgyR7xdSzaV1+w
+         bPJlf3XcEvnj40HA6wOLkx2BlyS/PsRf9N8MjZr4+CvlPAxGmrr+7rBSK3bMJHaoBrCK
+         ISjCF8afwizZ+q1IqBQgNf13ROuuk+i288g9d2aw1LJigDoUD3KaMSA11ZfqKjeml9/k
+         nVU4u9NZvwqyySxWd7BPxj6MGTKyrx/hd+yruuhL6pw5pE80ColdTQWeJ0TdinDq7h8C
+         M8foks3fLuI+GerR9E748Ck/3H2PV3Yy9Zl4LZmbV9qiwTd8qup/catrBtORvnPn3A16
+         jLOw==
+X-Gm-Message-State: ANoB5plcA5U9D+GiviYYNK+rMp97EgK9TnD6GPv+TjQ/WQlMsCYmxfF6
+	0GoUmf4ndzqAYXn9Vm3hDtbPKA==
+X-Google-Smtp-Source: AA0mqf7BrqaWlqgvfuUMa9ZKkvdy9WUIYZxAHmSIaOlIiK8962ZK7NXJLTobzsVxxdE9HqwNvqGFJw==
+X-Received: by 2002:a17:907:a04c:b0:7c0:98e5:f886 with SMTP id gz12-20020a170907a04c00b007c098e5f886mr3172837ejc.516.1669807996440;
+        Wed, 30 Nov 2022 03:33:16 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id g2-20020a170906198200b007bd1ef2cccasm547639ejd.48.2022.11.30.03.27.46
+        by smtp.gmail.com with ESMTPSA id 10-20020a170906200a00b007ae243c3f05sm522915ejo.189.2022.11.30.03.33.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Nov 2022 03:27:46 -0800 (PST)
-Date: Wed, 30 Nov 2022 12:27:44 +0100
+        Wed, 30 Nov 2022 03:33:16 -0800 (PST)
+Date: Wed, 30 Nov 2022 12:33:14 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	prabhakar.csengg@gmail.com
-Subject: Re: [PATCH v2 3/4] riscv: alternatives: Drop the underscores from
- the assembly macro names
-Message-ID: <20221130112744.mqteregnxf24w7tb@kamzik>
-References: <20221129150053.50464-1-ajones@ventanamicro.com>
- <20221129150053.50464-4-ajones@ventanamicro.com>
- <4168918.X9hSmTKtgW@diego>
+To: Conor.Dooley@microchip.com
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, heiko@sntech.de,
+	apatel@ventanamicro.com, atishp@rivosinc.com
+Subject: Re: [PATCH v3 3/3] RISC-V: Ensure Zicbom has a valid block size
+Message-ID: <20221130113314.jagmoosmx5ktwt6t@kamzik>
+References: <20221129143447.49714-1-ajones@ventanamicro.com>
+ <20221129143447.49714-4-ajones@ventanamicro.com>
+ <Y4ZhT3R34cE35a0K@spud>
+ <3c64b508-a629-0c34-1119-e854b1968a2f@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <4168918.X9hSmTKtgW@diego>
+In-Reply-To: <3c64b508-a629-0c34-1119-e854b1968a2f@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_032751_302500_88F51CC6 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20221130_033320_158491_79A907E4 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,140 +88,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 11:06:27AM +0100, Heiko St=FCbner wrote:
-> Am Dienstag, 29. November 2022, 16:00:52 CET schrieb Andrew Jones:
-> > The underscores aren't needed because there isn't anything already
-> > named without them and the _CFG extension. This is a bit of a cleanup
-> > by itself, but the real motivation is for a coming patch which would
-> > otherwise need to add two more underscores to these macro names,
-> > i.e. ____ALTERNATIVE_CFG, and that'd be gross.
-> > =
+On Wed, Nov 30, 2022 at 09:46:20AM +0000, Conor.Dooley@microchip.com wrote:
+> On 29/11/2022 19:45, Conor Dooley wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > Hey Drew,
+> > 
+> > On Tue, Nov 29, 2022 at 03:34:47PM +0100, Andrew Jones wrote:
+> >> When a DT puts zicbom in the isa string, but does not provide a block
+> >> size, ALT_CMO_OP() will attempt to do cache operations on address
+> >> zero since the start address will be ANDed with zero. We can't simply
+> >> BUG() in riscv_init_cbom_blocksize() when we fail to find a block
+> >> size because the failure will happen before logging works, leaving
+> >> users to scratch their heads as to why the boot hung. Instead, ensure
+> >> Zicbom is disabled and output an error which will hopefully alert
+> >> people that the DT needs to be fixed. While at it, add a check that
+> >> the block size is a power-of-2 too.
+> >>
+> >> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> >> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > 
+> > This seems to be failing on nommu :/ I've got host machines issues so I
+> > could not reproduce it for you lcoally and paste an actual log, but if
+> > you build rv64_nommu_virt_defconfig I think you should be able to
+> > reproduce.
+> 
+> The actual error is:
+> riscv64-unknown-linux-gnu-ld: arch/riscv/kernel/cpufeature.o: in function `.L0 ':
+> cpufeature.c:(.text.unlikely+0x8): undefined reference to `riscv_cbom_block_size'
 
-> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> =
+Thanks Conor,
 
-> Hmm, I would assume the "_" are there to mark those as
-> "internal / don't use". So with removing the underscores
-> you loose that marking.
+I'll try to get this fixed and send a v4 ASAP.
 
-Yeah, that's usually the case, but here we also have ALT_ENTRY and
-ALT_NEW_CONTENT macros which are also internal, but don't have
-leading-underscore names.
-
-> =
-
-> It works though, so
-> Tested-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-
-Thanks,
 drew
 
-> =
-
-> But I'll leave the judgement on its viability to others.
-> =
-
-> Heiko
-> =
-
-> > ---
-> >  arch/riscv/include/asm/alternative-macros.h | 20 ++++++++++----------
-> >  1 file changed, 10 insertions(+), 10 deletions(-)
-> > =
-
-> > diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/i=
-nclude/asm/alternative-macros.h
-> > index 7cc2b587c5c4..9ea95331a280 100644
-> > --- a/arch/riscv/include/asm/alternative-macros.h
-> > +++ b/arch/riscv/include/asm/alternative-macros.h
-> > @@ -33,7 +33,7 @@
-> >  	.endif
-> >  .endm
-> >  =
-
-> > -.macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
-> > +.macro ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
-> >  886 :
-> >  	.option push
-> >  	.option norvc
-> > @@ -45,11 +45,11 @@
-> >  .endm
-> >  =
-
-> >  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)=
- \
-> > -	__ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONF=
-IG_k)
-> > +	ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG=
-_k)
-> >  =
-
-> > -.macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, e=
-nable_1, \
-> > -				  new_c_2, vendor_id_2, errata_id_2, enable_2
-> > -	__ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enab=
-le_1
-> > +.macro ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, ena=
-ble_1,	\
-> > +				new_c_2, vendor_id_2, errata_id_2, enable_2
-> > +	ALTERNATIVE_CFG \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable=
-_1
-> >  	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
-> >  .endm
-> >  =
-
-> > @@ -57,9 +57,9 @@
-> >  					CONFIG_k_1,			\
-> >  				  new_c_2, vendor_id_2, errata_id_2,	\
-> >  					CONFIG_k_2)			\
-> > -	__ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
-> > +	ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,	\
-> >  					IS_ENABLED(CONFIG_k_1),		\
-> > -				   new_c_2, vendor_id_2, errata_id_2,	\
-> > +				 new_c_2, vendor_id_2, errata_id_2,	\
-> >  					IS_ENABLED(CONFIG_k_2)
-> >  =
-
-> >  #else /* !__ASSEMBLY__ */
-> > @@ -126,15 +126,15 @@
-> >  #else /* CONFIG_RISCV_ALTERNATIVE */
-> >  #ifdef __ASSEMBLY__
-> >  =
-
-> > -.macro __ALTERNATIVE_CFG old_c
-> > +.macro ALTERNATIVE_CFG old_c
-> >  	\old_c
-> >  .endm
-> >  =
-
-> >  #define _ALTERNATIVE_CFG(old_c, ...)	\
-> > -	__ALTERNATIVE_CFG old_c
-> > +	ALTERNATIVE_CFG old_c
-> >  =
-
-> >  #define _ALTERNATIVE_CFG_2(old_c, ...)	\
-> > -	__ALTERNATIVE_CFG old_c
-> > +	ALTERNATIVE_CFG old_c
-> >  =
-
-> >  #else /* !__ASSEMBLY__ */
-> >  =
-
-> > =
-
-> =
-
-> =
-
-> =
-
-> =
-
+> 
+> 
+> > 
+> > Thanks,
+> > Conor.
+> > 
+> >> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> >> ---
+> >>   arch/riscv/kernel/cpufeature.c | 13 +++++++++++++
+> >>   1 file changed, 13 insertions(+)
+> >>
+> >> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> >> index 220be7222129..93e45560af30 100644
+> >> --- a/arch/riscv/kernel/cpufeature.c
+> >> +++ b/arch/riscv/kernel/cpufeature.c
+> >> @@ -9,6 +9,7 @@
+> >>   #include <linux/bitmap.h>
+> >>   #include <linux/ctype.h>
+> >>   #include <linux/libfdt.h>
+> >> +#include <linux/log2.h>
+> >>   #include <linux/module.h>
+> >>   #include <linux/of.h>
+> >>   #include <asm/alternative.h>
+> >> @@ -70,6 +71,18 @@ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+> >>
+> >>   static bool riscv_isa_extension_check(int id)
+> >>   {
+> >> +     switch (id) {
+> >> +     case RISCV_ISA_EXT_ZICBOM:
+> >> +             if (!riscv_cbom_block_size) {
+> >> +                     pr_err("Zicbom detected in ISA string, but no cbom-block-size found\n");
+> >> +                     return false;
+> >> +             } else if (!is_power_of_2(riscv_cbom_block_size)) {
+> >> +                     pr_err("cbom-block-size present, but is not a power-of-2\n");
+> >> +                     return false;
+> >> +             }
+> >> +             return true;
+> >> +     }
+> >> +
+> >>        return true;
+> >>   }
+> >>
+> >> --
+> >> 2.38.1
+> >>
+> >>
+> >> _______________________________________________
+> >> linux-riscv mailing list
+> >> linux-riscv@lists.infradead.org
+> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
 _______________________________________________
 linux-riscv mailing list
