@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1F4C4167B
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 02:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5039BC4167B
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 03:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ojY7iwZRaRfM5sUUD6wJ+HDkMSHTTJ3OrhlNdt8yO1c=; b=USQ6WFOtT0xL/A
-	0P8Yo7xdTe1lASj+EXFo1hWHvNZY/Y/XtRCr3g6chNnLPeVAm09iMAGNPIi9Mj0Qvj2KUQmECh5eK
-	i2FG4ClnZdZ3qKBLlKpT7lLv0x9Wb+1RH2O6oQ2Wl/fl8BAHWkn3eHz4ni9dDk5SVZ9ebO6+8USnP
-	Z8lu3Y1DI9ttIDMA3ex0cMIFQEPLceS8hzRS36ZGxNxy/Cb/U4liMRHRlxKeu4an3F7/IlTMp3oe4
-	Av/lKr8zK7mTXhVxfbtDNTcStAx502IYcPL0N6rfxR1ozG+C2ign+j79TVF0KG3ClKnkdM6Hs9Cd+
-	c+rdljvG81PRRiFvrDhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=J5A1w3tNe2vzYuVg455JPa11d3S4/mytlmi4+8gzrjE=; b=l0iwp7Fn4MncpTGJAaAn3K/3Gs
+	y9ZsLwILcWgENhFw64lvoF7pv1sjfcLdjW8yZkZK1EJ29xzoyTgFziZI7dRiVWCF2tWnOGieZwTa8
+	RywlgXM1CrbMSIe9vDeNhITzlvA1kHMNP4lEX1yHmRIoX7QdvVHDUCVp33SAFonzQ7t8T4jfudkHm
+	eJkl3yRPGnksPRHhUhRblo4qJUAN/kQXen285ih3bqlAFCXTT16vKZKDx8DD0stqTwqStwt+Snrwv
+	DtBIPl2zG4Knvnd0sQr3CX58emwuFqXaxCJjstYUExYygu7kZzAt0p0bkV5Zsqceimnzblgx4RHW8
+	8S0TmDCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0DIY-00CMEA-H6; Wed, 30 Nov 2022 02:58:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0DIJ-00CM76-Ui; Wed, 30 Nov 2022 02:57:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04F80D6E;
-	Tue, 29 Nov 2022 18:57:59 -0800 (PST)
-Received: from [10.162.43.8] (unknown [10.162.43.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F4943F67D;
-	Tue, 29 Nov 2022 18:57:43 -0800 (PST)
-Message-ID: <dd01a9d2-4b9b-8edc-1195-40a3624f9a8a@arm.com>
-Date: Wed, 30 Nov 2022 08:27:40 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.2
-Subject: Re: [PATCH v7 1/2] mm/tlbbatch: Introduce
- arch_tlbbatch_should_defer()
-Content-Language: en-US
-To: Yicong Yang <yangyicong@huawei.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: yangyicong@hisilicon.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org,
- corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
- punit.agrawal@bytedance.com, linux-kernel@vger.kernel.org,
- darren@os.amperecomputing.com, huzhanyuan@oppo.com, lipeifeng@oppo.com,
- zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, Barry Song <21cnbao@gmail.com>,
- wangkefeng.wang@huawei.com, xhao@linux.alibaba.com,
- prime.zeng@hisilicon.com, Anshuman Khandual <khandual@linux.vnet.ibm.com>,
- Barry Song <baohua@kernel.org>
-References: <20221117082648.47526-1-yangyicong@huawei.com>
- <20221117082648.47526-2-yangyicong@huawei.com>
- <20221129152306.54b6d439e2a0ca7ece1d1afa@linux-foundation.org>
- <9999b87d-5f7e-275b-d99f-b51ef19361eb@huawei.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <9999b87d-5f7e-275b-d99f-b51ef19361eb@huawei.com>
+	id 1p0DKt-00CNYW-7D; Wed, 30 Nov 2022 03:00:35 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0DKq-00CNX8-P9
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 03:00:34 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id g10so15334520plo.11
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Nov 2022 19:00:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+UTTKtw9h/uDbm2sJVfPVsezkUtjRi/h4SZI/iHnG9Y=;
+        b=k8lZtI/9upV1XjKYxj6UK1eTBLZPJiWF8ENyjv+QbEmsPmmQpquoHC7g8okx1kKPSt
+         mQjm6DM42IDKuL6H/+eyk2r5qa5kUwjsgCHGJrYVNSMnG9oJNnba3UywSf9LybkTImG5
+         hT1Ha5Xj86XyySxPYQCUGL8E2aepf74J1kp34+yUiX7lHgjjikglWYXIuzh/agr1AGDG
+         cdyWNV3WLjWaPD/Le7vUFBw+TDVGujDmgKOITjkIezWsglloj2WtWt5cl0VWSIIKTou4
+         enUwlbAG01JqIIWExb2MszQEfqHcnoLwuVZlRCBTcD8U/Kf80nYUCM0dnJ/AWDDzaG9P
+         hy9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+UTTKtw9h/uDbm2sJVfPVsezkUtjRi/h4SZI/iHnG9Y=;
+        b=tkQjN/dBlR/LthgZjkDU1ADNM4ONkr7M3GCkO1DlAyJwF/dq1nhhpebjzv6+rdEn8a
+         1MScKMUuEzsKJGIh7QyOQZ5k8ES4EfW2pO2719M9tTwQAA6MKagalmL9gHWGnrNB/DxL
+         QegkYc8F6UOQwV90Nufl8WpTqe/LjYE1wKuCGQokwI5wZPTeF7rQHS3HU8oe10iKlbOo
+         k1WSqRjdvR6U5njvYp47tPunvTa2KeQRPEFHFWw8Nh6plhcPyFF8LRIVqwnZKM5T7YFw
+         K6E/VJWkZ1iTCjAucPLmK+Zkd6gTb2IYCUVk89gstg6pEfQr1AWCDebjmPu1iq3cM9u6
+         hW1Q==
+X-Gm-Message-State: ANoB5pklv00CNYtY8A9PYZ8UW1+Q/FE9D+HsE/HIUMjmWd/JcrP6fnbX
+	goaHmdksuTE0iZWWJgFKqqNadRxS2RkcgA==
+X-Google-Smtp-Source: AA0mqf7aaJe0L4LvowJ1ooGBcGu5N74WM1WKdlGm9HYpnPv86VmcYosD/uucvwnEBzXbnPsu5kdMcw==
+X-Received: by 2002:a17:902:70c9:b0:176:a0cc:5eff with SMTP id l9-20020a17090270c900b00176a0cc5effmr49371814plt.128.1669777231878;
+        Tue, 29 Nov 2022 19:00:31 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id q14-20020a170902eb8e00b0018685aaf41dsm55167plg.18.2022.11.29.19.00.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Nov 2022 19:00:31 -0800 (PST)
+Date: Tue, 29 Nov 2022 19:00:31 -0800 (PST)
+X-Google-Original-Date: Tue, 29 Nov 2022 19:00:23 PST (-0800)
+Subject: Re: [PATCH 1/2] RISC-V: Align the shadow stack
+In-Reply-To: <CAMKF1sryF=inn0B=n=cZi7ZmRcWh3cAtR4uq9DYJfVpD_zOpVA@mail.gmail.com>
+CC: jszhang@kernel.org, guoren@kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Khem Raj <raj.khem@gmail.com>
+Message-ID: <mhng-5a2b0379-88e4-43be-8d47-1f019aed05e0@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221129_185756_115879_40E34AF0 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20221129_190032_845494_8A3CDBE6 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,105 +84,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, 29 Nov 2022 18:56:48 PST (-0800), Khem Raj wrote:
+> On Tue, Nov 29, 2022 at 6:50 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>>
+>> On Tue, 29 Nov 2022 18:47:55 PST (-0800), Khem Raj wrote:
+>> > Hi Palmer
+>> >
+>> > On Tue, Nov 29, 2022 at 6:36 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>> >>
+>> >> The standard RISC-V ABIs all require 16-byte stack alignment.  We're
+>> >> only calling that one function on the shadow stack so I doubt it'd
+>> >> result in a real issue, but might as well keep this lined up.
+>> >
+>> > Is 16-byte alignment required on rv32 as well ?
+>>
+>> For the standard ABIs that's the case, it's so the Q extension can spill
+>> without aligning the stack.  There's also at least a proposed embedded
+>> ABI that has just XLEN (32-bit on rv32) alignment, as the bigger stack
+>> alignment has an impact on some use cases.
+>
+> Thanks, so in this case 16byte will be valid for both rv64/rv32 here.
 
+Yes, though the long-alignment wouldn't break anything because we don't 
+have Q support and we're just calling that one function -- it's not like 
+the compiler is actively checking for 16-byte alignment or anything, 
+it's just assuming it.
 
-On 11/30/22 07:53, Yicong Yang wrote:
-> On 2022/11/30 7:23, Andrew Morton wrote:
->> On Thu, 17 Nov 2022 16:26:47 +0800 Yicong Yang <yangyicong@huawei.com> wrote:
->>
->>> From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
->>>
->>> The entire scheme of deferred TLB flush in reclaim path rests on the
->>> fact that the cost to refill TLB entries is less than flushing out
->>> individual entries by sending IPI to remote CPUs. But architecture
->>> can have different ways to evaluate that. Hence apart from checking
->>> TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
->>> architecture specific.
->>>
->>> ...
->>>
->>> --- a/arch/x86/include/asm/tlbflush.h
->>> +++ b/arch/x86/include/asm/tlbflush.h
->>> @@ -240,6 +240,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
->>>  	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
->>>  }
->>>  
->>> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->>> +{
->>> +	bool should_defer = false;
->>> +
->>> +	/* If remote CPUs need to be flushed then defer batch the flush */
->>> +	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
->>> +		should_defer = true;
->>> +	put_cpu();
->>> +
->>> +	return should_defer;
->>> +}
->>> +
->>>  static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
->>>  {
->>>  	/*
->>> diff --git a/mm/rmap.c b/mm/rmap.c
->>> index 2ec925e5fa6a..a9ab10bc0144 100644
->>> --- a/mm/rmap.c
->>> +++ b/mm/rmap.c
->>> @@ -685,17 +685,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
->>>   */
->>>  static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
->>>  {
->>> -	bool should_defer = false;
->>> -
->>>  	if (!(flags & TTU_BATCH_FLUSH))
->>>  		return false;
->>>  
->>> -	/* If remote CPUs need to be flushed then defer batch the flush */
->>> -	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
->>> -		should_defer = true;
->>> -	put_cpu();
->>> -
->>> -	return should_defer;
->>> +	return arch_tlbbatch_should_defer(mm);
->>>  }
->>
->> I think this conversion could have been done better.
->>
->> should_defer_flush() is compiled if
->> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH.  So the patch implicitly
->> assumes that only x86 implements
->> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH.  Presently true, but what
->> happens if sparc (for example) wants to set
->> CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH?  Now sparc needs its private
->> version of arch_tlbbatch_should_defer(), even if that is identical to
->> x86's.
->>
-> 
-> The current logic is if architecture want to enable batched TLB flush, they
-> need to implement their own version of arch_tlbbatch_should_defer() (for the
-> hint to defer the TLB flush) and arch_tlbbatch_add_mm() (for pending TLB flush)
-> and select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH. That's what we do in Patch 2/2 for
-> enabling this on arm64.
-> 
-> Since it is architecture specific, we must rely on the architecture to implement
-> these two functions. Only select the ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER is not
-> enough.
-> 
->> Wouldn't it be better to make should_defer_flush() a __weak
->> function in rmap.c, or a static inline inside #ifndef
->> ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER, or whatever technique best fits?
->>
-> 
-> When ARCH_HAS_ARCH_TLBBATCH_SHOULD_DEFER is not selected, should_defer_flush()
-> is implemented to only return false. I think this match what you want already.
+Still best to keep things to the spec where we can, though.
 
-Right, platform needs to provide both the helpers arch_tlbbatch_should_defer() and
-arch_tlbbatch_add_mm() before ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH can be selected.
-Otherwise there is a fallback should_defer_flush() definition which always return
-negative when ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH is not selected.
+>> >> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
+>> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> >> ---
+>> >>  arch/riscv/kernel/traps.c | 2 +-
+>> >>  1 file changed, 1 insertion(+), 1 deletion(-)
+>> >>
+>> >> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> >> index be54ccea8c47..acdfcacd7e57 100644
+>> >> --- a/arch/riscv/kernel/traps.c
+>> >> +++ b/arch/riscv/kernel/traps.c
+>> >> @@ -206,7 +206,7 @@ static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+>> >>   * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+>> >>   * to get per-cpu overflow stack(get_overflow_stack).
+>> >>   */
+>> >> -long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)];
+>> >> +long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
+>> >>  asmlinkage unsigned long get_overflow_stack(void)
+>> >>  {
+>> >>         return (unsigned long)this_cpu_ptr(overflow_stack) +
+>> >> --
+>> >> 2.38.1
+>> >>
+>> >>
+>> >> _______________________________________________
+>> >> linux-riscv mailing list
+>> >> linux-riscv@lists.infradead.org
+>> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
