@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FAF9C4321E
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 16:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEB2C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 17:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mdhVlds21mlt7ZST+a2zNWSyuI7YTxLD1OslkkaXwfA=; b=A+P4kLdao7bwjqa8edzpUNQaqO
-	UDykBa8SOYFOcdQGgVHz2bhZEnuoyGZ+bVPYiudPNEpC0D/QI8ai04QfSMqQUEJgM2LayhykfyYJY
-	BjZMVBgcUd0rx+jMjKMiyaQkU3qP5IKsmEP0nacu1jL4MDsRvaXiQsSmpIrHinCXY7ma64vNIDTNN
-	tRd6beZsDMakf83bN43A2n+73cLQ9BHAnqjzMXYNKh2PZrWrVgJXTQLQ1asrCYq7Zl/B5nmnvi1+4
-	AmbxpR0QyKRgN177nyKUK2rnvn+RFLArSSjCqIlxQm04nFjOSEODoyOGn45R9m8u+gH02MBFxlQRS
-	imC5IhrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n/jcsyYjOESzA6egPFHUstNHIBQ1vM5vEeG24XDeL7A=; b=HQcqF1NW8HI7F8
+	k0ftDEgStatZprTjRP6W4z+rb9nGnf2j8YNt1A1Wm3xwSk3vV2yPP5LUbO3Pcft4ynfcI6WtKugUX
+	0whhC5XcvOvjHGnr1fmIeSm/Xh/+LbV2EUkCVAqruupRV5qsAZbWsZtKTgf3NS2JPIoYZyqvPqyBb
+	lcQgUKkSN2ieBL1RjQeGxgegyzAghHOZHWXPDgLoK+3wFNHK//vTRS2qOfeXV2Vdfiqp8UBsWh26W
+	uedD8VGXJQqrZ1MbDUMAG4kUyjmWaYxVAI5zCGqVKCCQ+6Vo1N/8xe8ywfcNSqoz5Ya7KwE2UD3O7
+	ATDWv5Y+61XfLMIZNY4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0QNZ-000hKy-1T; Wed, 30 Nov 2022 16:56:13 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1p0QUi-000mYl-QA; Wed, 30 Nov 2022 17:03:36 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0QMB-000gRG-5N
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 16:54:49 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id o5-20020a17090a678500b00218cd5a21c9so2773842pjj.4
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 08:54:44 -0800 (PST)
+	id 1p0QUT-000mQk-Mo
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 17:03:23 +0000
+Received: by mail-ej1-x631.google.com with SMTP id n21so42857104ejb.9
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 09:03:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ANjMZAC+UVlc4xlhh9ouU1Q5ZftFpTXUZxrwqOK5jUA=;
-        b=7Q3xMFFUgY9TBO52plAUw2tADB7mj9cL5TwfCqlI1UEkzggxjIQbvQ/9/1kQkiRPSu
-         B0vcZuytkwjv8Yuf1Gh7Qeue2zLuVQ83P5VzezJqUlGHMdBm74w4Lm8yXnoK26Rx3swP
-         VucaKmbXXUFCP1qfa3NQ5/Mh0scri+k3ns82F40PiHqOJQTRZ2ojXpiHE7NBsXxGlQOS
-         aknmHT0dz+bDqmHAOevVKdD6aw6Pvw+i6kxDbmmQwFwJbvkW0RM0le0dlProTPCPIhLh
-         84RBhdefk6qwq0L9C9Z2FkDNijY1WNQuOSr1NGrozG1GCiFAP0ZlaSVbPOpwo3t1IvMs
-         74sw==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NYMMG0Xx78ci4rSGafg1aeshdWrMZWJAaUMKgBBaQfE=;
+        b=DbnaczQgP2VrIkHihS0MpCnlYRHv+RYEnBbS+N7MSHdXWjZnojAbmCZPLQUg5ZEsI2
+         ojl6YTACqG3+fMtXxKsIH8ucWc4prE0JxoqQh+VNjo14vQy/O9zUufyp9SJErPb6buBT
+         m+Xa21SnYvaFbleMngbhCSMI5Osj8qdHOUcmIuWthBA/tVMJ+dcq7RThmp1PUbaz9h/j
+         VP/se8gAUYFY1Fd7ApWJ6vj1TkMLajsDtKslTNUW8syVVNGg/nbrYtFxEYqa5tD841Mr
+         qBRIUnTUrma7j54foglKvBQOjh403kzbKPRJdqz4xPiccM3wV/PhCVm3n9Nz9W1FXLbP
+         gwyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ANjMZAC+UVlc4xlhh9ouU1Q5ZftFpTXUZxrwqOK5jUA=;
-        b=LMBhUrJrfTBCn0cjt7GUSmPH75uVhjmzm/PEhOPuJ17qGWGwuF6Ic08zxka1yesg1M
-         XKZYBYeUh21vh4br0pk0AZ+6I/uN4j5+lT24O3RvYRCn1ZZopq6Uz3go52bWoPZsXacq
-         JjpmXoZ+A8CbrnUq4KEe8zPivh6zTwGx4NHPaWlcIYLco7JO94+FO5YdyGkOTvpXjki6
-         fm7GumBVfPx2APdxeFb9WaDHJE9Z7XyNMnEnPwwk7R6+7EOttE72sFoKDtLKJoGQR3fl
-         7KJ1CBtbhSs+R38n0iEzglURjkhHbkAl5MHrGPs6d8J8ecW6WfZjyOLkHlgOEZGPxs2Q
-         XrxQ==
-X-Gm-Message-State: ANoB5pnQhXhBKUq/zERXM5mtknZU7FF7JLuvw3UQtso36efXKmzRbKdK
-	QLwoxaTNeIpvV6bapLaa13VTxLL8/iSTjg==
-X-Google-Smtp-Source: AA0mqf6iOHGYwJeTaqFNoD+6LG/bquEgcI2HiLvk3VIdZaNS9spQJ+90fiZtEaKZVqIGYPMBBudCUw==
-X-Received: by 2002:a17:90a:bb16:b0:200:2d7f:18c2 with SMTP id u22-20020a17090abb1600b002002d7f18c2mr65895870pjr.106.1669827284041;
-        Wed, 30 Nov 2022 08:54:44 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id jf1-20020a170903268100b00186b7443082sm1712991plb.195.2022.11.30.08.54.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Nov 2022 08:54:43 -0800 (PST)
-Date: Wed, 30 Nov 2022 08:54:43 -0800 (PST)
-X-Google-Original-Date: Wed, 30 Nov 2022 08:54:39 PST (-0800)
-Subject: Re: [PATCH v4] riscv: fix race when vmap stack overflow
-In-Reply-To: <CAJF2gTQ0xuJo6uzB+8SudZOFiZ2_o1sLB=Hn5XuCw6g2tXUtkQ@mail.gmail.com>
-CC: jszhang@kernel.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: guoren@kernel.org, Andrea Parri <andrea@rivosinc.com>
-Message-ID: <mhng-72408cf8-cbde-489b-9042-379b5aa8624f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NYMMG0Xx78ci4rSGafg1aeshdWrMZWJAaUMKgBBaQfE=;
+        b=wvAuXO/rsSHCJD6dMQpdeXVzZPurgVEnIPQ4fR6si0ToLIA3ybzDmvfBoj6qFjne0G
+         Yw9y0OEZYjY7UKovJR1f7QKW1gR5Ax1zgMwyqOsOboB3td6HqkK1HbH0VNlGFm7X9d0t
+         IzfZ6PvzinUV4vMWBSd8r4TSU+qL0abBxbLdgMlJ9+rOEI5ojcc2F88Q96EqLmACTLjx
+         7xrAyI9qBLmsWKNKQ1ZvuQ1xXBmdnwp48utncBhrZfg6YgRclRDSNIK81Uy4f1feW9q+
+         em9qJUpsgyCvy28GDge3j2xluuY4gnT2lIp+P/DSuPj0NYfxyy0g7Ql+A+6BQTqqXpIM
+         Vm3g==
+X-Gm-Message-State: ANoB5pnNv1z3hlEQXYbcSX24qVYgxk0yuBjSan1H68CB+StAObk//n0b
+	d+m//JnSqKh22m8xVf6s27CDYQapzaSJCltg2ThKsQ==
+X-Google-Smtp-Source: AA0mqf6EyA7YtrTBcFZJK174OkTrsKWiLmYM0e6dIjaTX3tgPfsjUx3jdGQ2rw5PNYzp8U3ztlRdTrtIgLPscTc5gbU=
+X-Received: by 2002:a17:906:ae99:b0:7c0:82d8:243a with SMTP id
+ md25-20020a170906ae9900b007c082d8243amr8545786ejb.230.1669827796637; Wed, 30
+ Nov 2022 09:03:16 -0800 (PST)
+MIME-Version: 1.0
+References: <20221129142449.886518-1-apatel@ventanamicro.com>
+ <20221129142449.886518-4-apatel@ventanamicro.com> <86cz94mrc4.wl-maz@kernel.org>
+In-Reply-To: <86cz94mrc4.wl-maz@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 30 Nov 2022 22:33:05 +0530
+Message-ID: <CAAhSdy150BemP2YR2gf6yNMiJiD+os8VHkvyx7Nnqrqaz1+xjA@mail.gmail.com>
+Subject: Re: [PATCH v13 3/7] genirq: Add mechanism to multiplex a single HW IPI
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_085447_462915_8D5CB8A6 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20221130_090321_974345_A58C2A58 
+X-CRM114-Status: GOOD (  28.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,142 +84,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Nov 2022 23:15:40 PST (-0800), guoren@kernel.org wrote:
-> The comment becomes better. Thx.
+On Wed, Nov 30, 2022 at 8:17 PM Marc Zyngier <maz@kernel.org> wrote:
 >
-> On Wed, Nov 30, 2022 at 10:29 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> From: Jisheng Zhang <jszhang@kernel.org>
->>
->> Currently, when detecting vmap stack overflow, riscv firstly switches
->> to the so called shadow stack, then use this shadow stack to call the
->> get_overflow_stack() to get the overflow stack. However, there's
->> a race here if two or more harts use the same shadow stack at the same
->> time.
->>
->> To solve this race, we introduce spin_shadow_stack atomic var, which
->> will be swap between its own address and 0 in atomic way, when the
->> var is set, it means the shadow_stack is being used; when the var
->> is cleared, it means the shadow_stack isn't being used.
->>
->> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
->> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->> Suggested-by: Guo Ren <guoren@kernel.org>
->> Reviewed-by: Guo Ren <guoren@kernel.org>
->> Link: https://lore.kernel.org/r/20221030124517.2370-1-jszhang@kernel.org
->> [Palmer: Add AQ to the swap, and also some comments.]
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->> Sorry to just re-spin this one without any warning, but I'd read patch a
->> few times and every time I'd managed to convice myself there was a much
->> simpler way of doing this.  By the time I'd figured out why that's not
->> the case it seemed faster to just write the comments.
->>
->> I've stashed this, right on top of the offending commit, at
->> palmer/riscv-fix_vmap_stack.
->>
->> Since v3:
->>  - Add AQ to the swap.
->>  - Add a bunch of comments.
->>
->> Since v2:
->>  - use REG_AMOSWAP
->>  - add comment to the purpose of smp_store_release()
->>
->> Since v1:
->>  - use smp_store_release directly
->>  - use unsigned int instead of atomic_t
->> ---
->>  arch/riscv/include/asm/asm.h |  1 +
->>  arch/riscv/kernel/entry.S    | 13 +++++++++++++
->>  arch/riscv/kernel/traps.c    | 18 ++++++++++++++++++
->>  3 files changed, 32 insertions(+)
->>
->> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
->> index 618d7c5af1a2..e15a1c9f1cf8 100644
->> --- a/arch/riscv/include/asm/asm.h
->> +++ b/arch/riscv/include/asm/asm.h
->> @@ -23,6 +23,7 @@
->>  #define REG_L          __REG_SEL(ld, lw)
->>  #define REG_S          __REG_SEL(sd, sw)
->>  #define REG_SC         __REG_SEL(sc.d, sc.w)
->> +#define REG_AMOSWAP_AQ __REG_SEL(amoswap.d.aq, amoswap.w.aq)
-> Below is the reason why I use the relax version here:
-> https://lore.kernel.org/all/CAJF2gTRAEX_jQ_w5H05dyafZzHq+P5j05TJ=C+v+OL__GQam4A@mail.gmail.com/T/#u
+> On Tue, 29 Nov 2022 14:24:45 +0000,
+> Anup Patel <apatel@ventanamicro.com> wrote:
+> >
+> > All RISC-V platforms have a single HW IPI provided by the INTC local
+> > interrupt controller. The HW method to trigger INTC IPI can be through
+> > external irqchip (e.g. RISC-V AIA), through platform specific device
+> > (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+> >
+> > To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
+> > mechanism which help us create multiple virtual IPIs using a single
+> > HW IPI. This generic IPI multiplexing is inspired from the Apple AIC
+> > irqchip driver and it is shared by various RISC-V irqchip drivers.
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  include/linux/irq.h  |   3 +
+> >  kernel/irq/Kconfig   |   5 ++
+> >  kernel/irq/Makefile  |   1 +
+> >  kernel/irq/ipi-mux.c | 193 +++++++++++++++++++++++++++++++++++++++++++
+> >  4 files changed, 202 insertions(+)
+> >  create mode 100644 kernel/irq/ipi-mux.c
+>
+> [...]
+>
+> This is finally starting to look acceptable. My only changes are:
+>
+> diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
+> index 626c564233e9..1a6ba19b736c 100644
+> --- a/kernel/irq/ipi-mux.c
+> +++ b/kernel/irq/ipi-mux.c
+> @@ -69,6 +69,12 @@ static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+>                  */
+>                 smp_mb__after_atomic();
+>
+> +               /*
+> +                * The flag writes must complete before the physical IPI is
+> +                * issued to another CPU. This is implied by the control
+> +                * dependency on the result of atomic_read() below, which is
+> +                * itself already ordered after the vIPI flag write.
+> +                */
+>                 if (!(pending & ibit) && (atomic_read(&icpu->enable) & ibit))
+>                         ipi_mux_send(cpu);
+>         }
+> @@ -160,7 +166,7 @@ int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu))
+>                 goto fail_free_cpu;
+>         }
+>
+> -       domain = irq_domain_create_simple(fwnode, nr_ipi, 0,
+> +       domain = irq_domain_create_linear(fwnode, nr_ipi,
+>                                           &ipi_mux_domain_ops, NULL);
+>         if (!domain) {
+>                 pr_err("unable to add IPI Mux domain\n");
+>
+> The first hunk preserve an important piece of information about how
+> delicate the ordering is, while the second only allocates the irqdesc
+> structures as needed, not upfront.
+>
+> I'll shortly go over the rest of the irqchip code and can apply the
+> above myself if there is nothing more to fix.
+>
+> I've also converted the AIC driver over to this[1], and nothing broke
+> so far...
+>
+>         M.
+>
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=irq/ipi-mux
 
-Sorry, I hadn't seen that one.  Adding Andrea.  IMO the acquire/release 
-pair is necessary here, with just relaxed the stack stores inside the 
-lock could show up on the next hart trying to use the stack.
+Thanks Marc, I will include your changes in the next patch revision.
 
->>  #define REG_ASM                __REG_SEL(.dword, .word)
->>  #define SZREG          __REG_SEL(8, 4)
->>  #define LGREG          __REG_SEL(3, 2)
->> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
->> index 98f502654edd..5fdb6ba09600 100644
->> --- a/arch/riscv/kernel/entry.S
->> +++ b/arch/riscv/kernel/entry.S
->> @@ -387,6 +387,19 @@ handle_syscall_trace_exit:
->>
->>  #ifdef CONFIG_VMAP_STACK
->>  handle_kernel_stack_overflow:
->> +       /*
->> +        * Takes the psuedo-spinlock for the shadow stack, in case multiple
->> +        * harts are concurrently overflowing their kernel stacks.  We could
->> +        * store any value here, but since we're overflowing the kernel stack
->> +        * already we only have SP to use as a scratch register.  So we just
->> +        * swap in the address of the spinlock, as that's definately non-zero.
->> +        *
->> +        * Pairs with a store_release in handle_bad_stack().
->> +        */
->> +1:     la sp, spin_shadow_stack
->> +       REG_AMOSWAP_AQ sp, sp, (sp)
->> +       bnez sp, 1b
->> +
->>         la sp, shadow_stack
->>         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
->>
->> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->> index bb6a450f0ecc..be54ccea8c47 100644
->> --- a/arch/riscv/kernel/traps.c
->> +++ b/arch/riscv/kernel/traps.c
->> @@ -213,11 +213,29 @@ asmlinkage unsigned long get_overflow_stack(void)
->>                 OVERFLOW_STACK_SIZE;
->>  }
->>
->> +/*
->> + * A pseudo spinlock to protect the shadow stack from being used by multiple
->> + * harts concurrently.  This isn't a real spinlock because the lock side must
->> + * be taken without a valid stack and only a single register, it's only taken
->> + * while in the process of panicing anyway so the performance and error
->> + * checking a proper spinlock gives us doesn't matter.
->> + */
->> +unsigned long spin_shadow_stack;
->> +
->>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->>  {
->>         unsigned long tsk_stk = (unsigned long)current->stack;
->>         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
->>
->> +       /*
->> +        * We're done with the shadow stack by this point, as we're on the
->> +        * overflow stack.  Tell any other concurrent overflowing harts that
->> +        * they can proceed with panicing by releasing the pseudo-spinlock.
->> +        *
->> +        * This pairs with an amoswap.aq in handle_kernel_stack_overflow.
->> +        */
->> +       smp_store_release(&spin_shadow_stack, 0);
->> +
->>         console_verbose();
->>
->>         pr_emerg("Insufficient stack space to handle exception!\n");
->> --
->> 2.38.1
->>
+>
+> --
+> Without deviation from the norm, progress is not possible.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
