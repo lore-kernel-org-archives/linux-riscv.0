@@ -4,44 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DB1C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 14:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87105C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 14:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ph9KW9Pzzp2r2iz+qOGXQ1DoUIYF/clPFDS07mNbg4w=; b=OwAb7lCFAHYtvj
-	1i3sQcjj2M4Lh56tgvmjAwtRv4IVC2do7SoBlk5xO01aaCUvQ8qYT6nJzROEx7nq1CkFtXi95amkp
-	7C4IJleBZRy3fryShXs/rU64+vEFozbCj+3TD1AYPFcVc3/We5JZD2vN4CQYYk00+7QSNXHXeM+in
-	3JerNM+7+JJaLtDkSsy97diADLCMs3fxlN49kubNV1/SZMLTD1smUQCx5QjZ4iccAS2x1M2TnnlHS
-	kHRqpo+5txL97t6vNJdY1C/R087LUyl+RiG2pYskHFzQTQ7RqP5rtNPdCPtOv8HOZ0ViC2CYzKPxK
-	QEeJuf3zFv0xhZPogBDA==;
+	List-Owner; bh=2Aq4J2Z85p3+pZtxtHOkmLozHnrAWtvbwNtma5lXg5w=; b=mgw23GBB6u9UZG
+	QNDTgLjCNVg0Sd6H+QIsJIIv3uPJ4zK1hbh2h/6ffEySWS6HJATt590dXqyJ4RMHa7w41Urp+blcI
+	qY/jJbB6FhBbPLxcuNeFAp32Oz5JUg/PZgBl6z/vbmi+OTs2hgd17sv4ObiQUHtkqlJPtFL8fSlrI
+	ELgua9A8JSeHinNBrQ3Zp5w49v6Z+89Wvkj93jsDtXy94VLOtRyIwPLYR+DT9sN59J2+d1Ead1xxv
+	AsPuMx+jbhOjLUe3rF7b4ZUD6F2pcssVso+8ypLPkfAE9/NDijn1yLb9DmHBXSct8jogIB8i/BfZN
+	rcUXV1H9fkthKkj96M1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0OJO-00H13y-HY; Wed, 30 Nov 2022 14:43:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p0ONW-00H3Vc-U2; Wed, 30 Nov 2022 14:48:02 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0OJL-00H124-GQ
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 14:43:44 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p0OJJ-0002bh-3i; Wed, 30 Nov 2022 15:43:41 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com
-Subject: Re: [PATCH v2 07/13] RISC-V: add auipc elements to parse_asm header
-Date: Wed, 30 Nov 2022 15:43:40 +0100
-Message-ID: <4939709.aeNJFYEL58@diego>
-In-Reply-To: <Y4aXbBGT346eo/qG@spud>
-References: <20221128102632.435174-1-heiko@sntech.de> <20221128102632.435174-8-heiko@sntech.de> <Y4aXbBGT346eo/qG@spud>
-MIME-Version: 1.0
+	id 1p0ONU-00H3U8-1p
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 14:48:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C622761C39;
+	Wed, 30 Nov 2022 14:47:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3557EC433D6;
+	Wed, 30 Nov 2022 14:47:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669819678;
+	bh=BW3glwJdAgcquisZ858SN49s35yyYqpIA+9FpdjY5iM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ALxY+CFYvAbplLO+Hx/N4O3NpzbvaySvk0nfAT4kVUupPtk8eiIJEPauPSRiKSQYQ
+	 jaEuk3EQLF7HMDsTLopSF/oBX0cD0uebGk6BERbAQRvCQBVyuguvV0yeCzr9KfHjYs
+	 h6ZIWPf+1uJ6M5GpIRIHtPCODP2CxLD4vg0xAucrg0jwvJKz/SUOxsyllejrWpHkE0
+	 Lw1/lk8/UqU2nETjhIp7rghqczNwpgCxVw2uOWK8+ps5NivouB7uph1TlyA7hD+9MZ
+	 rPO59hBKCZYd8624e85H14YKrtM3oU/BQPxLKWRc416Vv+xzLGoreojgr2Gxmf68qu
+	 4M81D54/BGyfw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1p0ONP-009bnX-Qd;
+	Wed, 30 Nov 2022 14:47:56 +0000
+Date: Wed, 30 Nov 2022 14:47:55 +0000
+Message-ID: <86cz94mrc4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v13 3/7] genirq: Add mechanism to multiplex a single HW IPI
+In-Reply-To: <20221129142449.886518-4-apatel@ventanamicro.com>
+References: <20221129142449.886518-1-apatel@ventanamicro.com>
+	<20221129142449.886518-4-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_064343_591044_419ABF6F 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20221130_064800_214832_EEBF99C0 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,32 +92,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 30. November 2022, 00:36:12 CET schrieb Conor Dooley:
-> On Mon, Nov 28, 2022 at 11:26:26AM +0100, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > RISC-V: add auipc elements to parse_asm header 
+On Tue, 29 Nov 2022 14:24:45 +0000,
+Anup Patel <apatel@ventanamicro.com> wrote:
 > 
-> This header is no longer called parse_asm ;)
-
-With this commit moving more in front, the naming fits again ;-)
-
-
-> > +__RISCV_INSN_FUNCS(auipc, RVG_MASK_AUIPC, RVG_MATCH_AUIPC)
-> >  __RISCV_INSN_FUNCS(jalr, RVG_MASK_JALR, RVG_MATCH_JALR)
-> >  __RISCV_INSN_FUNCS(jal, RVG_MASK_JAL, RVG_MATCH_JAL)
-> >  __RISCV_INSN_FUNCS(c_jr, RVC_MASK_C_JR, RVC_MATCH_C_JR)
+> All RISC-V platforms have a single HW IPI provided by the INTC local
+> interrupt controller. The HW method to trigger INTC IPI can be through
+> external irqchip (e.g. RISC-V AIA), through platform specific device
+> (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
 > 
-> This fixes the build error that's been lingering for a few patches, so
-> please re-order things so as not to break bisection :)
+> To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
+> mechanism which help us create multiple virtual IPIs using a single
+> HW IPI. This generic IPI multiplexing is inspired from the Apple AIC
+> irqchip driver and it is shared by various RISC-V irqchip drivers.
 > 
-> With the nits above fixed & assuming that this survives as its own
-> commit:
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  include/linux/irq.h  |   3 +
+>  kernel/irq/Kconfig   |   5 ++
+>  kernel/irq/Makefile  |   1 +
+>  kernel/irq/ipi-mux.c | 193 +++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 202 insertions(+)
+>  create mode 100644 kernel/irq/ipi-mux.c
 
-I've moved it more in front now and reworded the commit message
-a bit.
+[...]
 
+This is finally starting to look acceptable. My only changes are:
 
+diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
+index 626c564233e9..1a6ba19b736c 100644
+--- a/kernel/irq/ipi-mux.c
++++ b/kernel/irq/ipi-mux.c
+@@ -69,6 +69,12 @@ static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+ 		 */
+ 		smp_mb__after_atomic();
+ 
++		/*
++		 * The flag writes must complete before the physical IPI is
++		 * issued to another CPU. This is implied by the control
++		 * dependency on the result of atomic_read() below, which is
++		 * itself already ordered after the vIPI flag write.
++		 */
+ 		if (!(pending & ibit) && (atomic_read(&icpu->enable) & ibit))
+ 			ipi_mux_send(cpu);
+ 	}
+@@ -160,7 +166,7 @@ int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu))
+ 		goto fail_free_cpu;
+ 	}
+ 
+-	domain = irq_domain_create_simple(fwnode, nr_ipi, 0,
++	domain = irq_domain_create_linear(fwnode, nr_ipi,
+ 					  &ipi_mux_domain_ops, NULL);
+ 	if (!domain) {
+ 		pr_err("unable to add IPI Mux domain\n");
+
+The first hunk preserve an important piece of information about how
+delicate the ordering is, while the second only allocates the irqdesc
+structures as needed, not upfront.
+
+I'll shortly go over the rest of the irqchip code and can apply the
+above myself if there is nothing more to fix.
+
+I've also converted the AIC driver over to this[1], and nothing broke
+so far...
+
+	M.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=irq/ipi-mux
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
