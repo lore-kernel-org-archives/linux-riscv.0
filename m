@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2980CC4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA4CC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 00:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cqVT6BaDmRZgK2xE8yvcAGr57SMvfngG261t0YiN+Ls=; b=xx9X1KnGfo7NW2
-	qfAwiM7Dx2SHnn84W7cz5rmI/z3wpRkInuB8cMHLs0eaUDyqEwx7wIuSBn2mI4tAJpSQj/WB28lVy
-	7/5xt3tyGUMdM1y02thPg/1b87yjzm/ADZC+FmzkeJEHuNvzvq6tg5zHb5y/QjpiaQ47qxca19ld1
-	gkpWwsf3ziv3WQwn0uBCyWMdDN84RWkRWKEdZoWg8JpsO4RdZbRMel6YFs7DxFqMYbGQNXaeDgN3T
-	vD0w0y8JL66bzOGGwbd6IJcj9UcElplNF3cQSUAVFYXLAm4S3XXJ5FxYlNxWqmOROKz8+pa0HkXvG
-	fUfvcSJC/dWNALL7IIWw==;
+	List-Owner; bh=ZSCaVJJjnvaWKjCLODRAag+Cwj05Dojd1/7BYMSxEYs=; b=nMqd56Pclh6yOF
+	lOobdDRmhA4Shb74y1cZpcGrD7nSfKr++Hw3h84O0y8yTaYDCwl+mJ+qIvAI1R/g0oCNc/sBbIE61
+	oYh819yYYOp0jTAHEKGpD7whckNxa6E/VSF07WCN7nzTJaFuxk8Fsq76LxBHemuOu3KkLaVKEEvrQ
+	nOAPrworiOxcO8iQ7RtTJVKHCur9Ku2fIXa0RXwxgiylU+620MyBMLTZ2RR5LdmjQo7A+5Y9cFv79
+	fBQlLAIAp58h4wCEImIUGJuVxtuNS/Mp4prWuzX+yslv95F6yhlRS4jEFwkly+tQmcaF3a2IrwVJB
+	0QmaIYzqGmwqp6UQMl2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0XFE-003ZxZ-Gf; Thu, 01 Dec 2022 00:16:04 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1p0XGF-003aOm-07; Thu, 01 Dec 2022 00:17:07 +0000
+Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0WDF-00365W-KG
+	id 1p0WDJ-0036F3-1P
+	for linux-riscv@bombadil.infradead.org; Wed, 30 Nov 2022 23:10:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4d3Yt8bltpBTGQfRvysGuV0Qwes6q1E1oAAkIYt6v1U=; b=PC6gUNsVX1nJ9pkkZArF/LpRU9
+	cZXjy0agYAG0wrddNgSlw73WslO68D808MO6PzslMf83i2SShu8QksZVytavGGB4Q9E5vuiGgUYfg
+	OVo5/wt2s/W+/ca4/wuOl+AdBK8Jx+I6hBfFm0FGXrlsbHXfs95ys1Kbz7aXQd4AwpmFzxGRhRKeN
+	LAgsPiw0iYJ1BTMZd+5oz2vgC4h6vcxckYeieqsbkTUIek/xeW6JdyCcbAEQa+uQC83eCHtbwNL9i
+	CubpWXoUnnZIIp+dd44KOi4xZyuMMMOPmwmIJ4rwolQfiw8OM4ys8F4aL1a5JbwEHNMcqi6Gc0V+u
+	cCrydX3w==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0WDB-006B6X-7m
 	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 23:09:58 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id my9-20020a17090b4c8900b002130d29fd7cso3780243pjb.7
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:56 -0800 (PST)
+Received: by mail-pj1-x1049.google.com with SMTP id on5-20020a17090b1d0500b0021821a07953so3790664pjb.4
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 15:09:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=uhI8yDhdR7lIAaqvku/gdFE7HWy6VU8JNAGQp8QsO6I=;
-        b=JGKTwFHTr3zFyFeRyDhx800NTwE8fbKBoChRZ4rCsQDcOc/eGjPbGsVDNkCwWmSHdn
-         4zWsAcy02h7DG9I7KIrR/3G3ynUAl5zHFprvqWawNYq0ujuz0rj9xQPN87hRttEvJWya
-         MaZkpYk6hJDhRKiSggxmfSLSCGk6wAycOhmze7v3vnTNsBJM82DsGnT9K7gXXth5q453
-         GXnW0gnhFQMQ7rKcFFJUmj9xHXOE1CyUnZYbsfJ9eekI1f6DwJJHgA0YwjDavFZGHgxi
-         PIdF3Xw7u6ZSs+rqvW6sJFzKLF1Mn/CCKFnzXLHVYU5aHYTg5a9RqdAAC/8bhq/W34bo
-         HRWw==
+        bh=4d3Yt8bltpBTGQfRvysGuV0Qwes6q1E1oAAkIYt6v1U=;
+        b=R2EUvQh/d5tOiXan3raQzQlRv7gR1ONI/pTsvNFLPNlIvb1HQkPh0aZeDhUMSwPjU6
+         WmKXxIVdA8mWbdpdJ9mQWSFS0GaxhUMED8VA7z9aivgbFGgRyi5KO45SYxDJSk//Lrmi
+         TvHQq/KXHoU6IG02YXxnz+VoMPrjzvItFwl89sStfSe8vLDomvkTbOfZZylixHCAfv3w
+         Jgwxv2s/jYVL/cbZz1XyHU/++UQYcJaWUXGIWbWEnIOtbM+sQTznmLBg+6U7bpNOdsk9
+         JFaEVxGzY3mhCDrcWoTbsIO4wRxo80HsCG5wPORw/u3RxuNka0IHsD1GSswNFX6QovYX
+         0b5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uhI8yDhdR7lIAaqvku/gdFE7HWy6VU8JNAGQp8QsO6I=;
-        b=QVCqvhhyQqCevh5j8sZpWH2o9T2JUeTdsMsG7abHhbuPfEfz+OCgwfXaphUo5S38V2
-         0lSbTt/6I6iioM1wxPofLfuNTBiBn33XhKWXvI3pDj/a9hQ3GbY05z/ik4AKaGIAs1em
-         aVIVYUDP2jUU2eegPXC2PAQbi5LCwkQYifnEIjvkucWvqJhe491QnDDAb6P23p07cYfu
-         vbLHkIuDxfwL0O/pa2xEL3qXBFzb2NVWCzRN0nZd5Zm3ttLpnBbmfH2a4R1cumvruZY4
-         j1w/fUNP7STZPKj0tWaHK0kQZx5LzolYkZ/etS510g4+5SFoiKu0GgFTU9CX5J0sgTI4
-         rijg==
-X-Gm-Message-State: ANoB5pkF8iaczNz0Ux++S0+2jt6Y71eD9YDXWbMuHPW2t7yd3YbaCXro
-	qu2ywmLLbos3wcSnGw33pS6lXSzHV5g=
-X-Google-Smtp-Source: AA0mqf4UbHeO/7xp9TeaJC3lcd9wjoTeVcRzR2/roKzeL1N7msdBGBxph7L3Wcu7JbcPwh3sZzXNOI19OJg=
+        bh=4d3Yt8bltpBTGQfRvysGuV0Qwes6q1E1oAAkIYt6v1U=;
+        b=xTPbwHr99BupsGCVUxX7Izkv5t5zqTuYwWzCWoubAplDzHJDxq2bOp4tFOMkc8jHA9
+         UmnIbrhT0kSdxbs54ciG9hgoEJYP+3uQeb+jVRRYVgJSfA4g4pgJVNSAtkYuQUG50L89
+         8A/jifFXlVURuiluRN3dgtnJ3nB6KwwE8I0a/3sev1UmtbPC43vu68G6frNsq39V1vUO
+         FGuyoOBqHoGdV5CEZ90pcOfwSoSBVMO6rGmiGLSrgOHN90BSYFsLhwDdrarH5VbvYSSE
+         RQXesNH2NbLGUtc7f9py/WEEcWwN/9TVGXfsbMceMmox38HCC4B4DXmVVx3JROx/tItA
+         HCuA==
+X-Gm-Message-State: ANoB5pnPghutWpVgmaUpjCNQ593OCKXUQT/dWePQu4IrqFGBmwaHlQD1
+	zyFbAQ36o8bsp2BGtxM8mthi1p/F5BE=
+X-Google-Smtp-Source: AA0mqf6cW2WJ5WC9E3zUsYjnyVQVpmP5HVamx7IIHapO1XeJ3XE2sYBO0ex7mjdiJNAJDhKt2nf1vvfpKec=
 X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a62:3084:0:b0:56d:dd2a:c494 with SMTP id
- w126-20020a623084000000b0056ddd2ac494mr44472082pfw.76.1669849796263; Wed, 30
- Nov 2022 15:09:56 -0800 (PST)
-Date: Wed, 30 Nov 2022 23:08:55 +0000
+ (user=seanjc job=sendgmr) by 2002:a17:902:d58d:b0:188:ff21:e76b with SMTP id
+ k13-20020a170902d58d00b00188ff21e76bmr9022156plh.60.1669849786225; Wed, 30
+ Nov 2022 15:09:46 -0800 (PST)
+Date: Wed, 30 Nov 2022 23:08:49 +0000
 In-Reply-To: <20221130230934.1014142-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20221130230934.1014142-1-seanjc@google.com>
 X-Mailer: git-send-email 2.38.1.584.g0f3c55d4c2-goog
-Message-ID: <20221130230934.1014142-12-seanjc@google.com>
-Subject: [PATCH v2 11/50] KVM: VMX: Don't bother disabling eVMCS static key on
- module exit
+Message-ID: <20221130230934.1014142-6-seanjc@google.com>
+Subject: [PATCH v2 05/50] KVM: s390: Unwind kvm_arch_init() piece-by-piece()
+ if a step fails
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Huacai Chen <chenhuacai@kernel.org>, 
@@ -88,9 +102,8 @@ Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.co
 	Michael Ellerman <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>, 
 	Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_150957_704726_88E079A9 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221130_230956_380593_1FE0A7EB 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +121,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't disable the eVMCS static key on module exit, kvm_intel.ko owns the
-key so there can't possibly be users after the kvm_intel.ko is unloaded,
-at least not without much bigger issues.
+In preparation for folding kvm_arch_hardware_setup() into kvm_arch_init(),
+unwind initialization one step at a time instead of simply calling
+kvm_arch_exit().  Using kvm_arch_exit() regardless of which initialization
+step failed relies on all affected state playing nice with being undone
+even if said state wasn't first setup.  That holds true for state that is
+currently configured by kvm_arch_init(), but not for state that's handled
+by kvm_arch_hardware_setup(), e.g. calling gmap_unregister_pte_notifier()
+without first registering a notifier would result in list corruption due
+to attempting to delete an entry that was never added to the list.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
+Reviewed-by: Eric Farman <farman@linux.ibm.com>
 ---
- arch/x86/kvm/vmx/vmx.c | 4 ----
- 1 file changed, 4 deletions(-)
+ arch/s390/kvm/kvm-s390.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index d85d175dca70..c0de7160700b 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -8490,10 +8490,6 @@ static void vmx_exit(void)
+diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
+index e4890e04b210..221481a09742 100644
+--- a/arch/s390/kvm/kvm-s390.c
++++ b/arch/s390/kvm/kvm-s390.c
+@@ -498,11 +498,11 @@ int kvm_arch_init(void *opaque)
  
- 	kvm_exit();
+ 	kvm_s390_dbf_uv = debug_register("kvm-uv", 32, 1, 7 * sizeof(long));
+ 	if (!kvm_s390_dbf_uv)
+-		goto out;
++		goto err_kvm_uv;
  
--#if IS_ENABLED(CONFIG_HYPERV)
--	if (static_branch_unlikely(&enable_evmcs))
--		static_branch_disable(&enable_evmcs);
--#endif
- 	vmx_cleanup_l1d_flush();
+ 	if (debug_register_view(kvm_s390_dbf, &debug_sprintf_view) ||
+ 	    debug_register_view(kvm_s390_dbf_uv, &debug_sprintf_view))
+-		goto out;
++		goto err_debug_view;
  
- 	allow_smaller_maxphyaddr = false;
+ 	kvm_s390_cpu_feat_init();
+ 
+@@ -510,25 +510,32 @@ int kvm_arch_init(void *opaque)
+ 	rc = kvm_register_device_ops(&kvm_flic_ops, KVM_DEV_TYPE_FLIC);
+ 	if (rc) {
+ 		pr_err("A FLIC registration call failed with rc=%d\n", rc);
+-		goto out;
++		goto err_flic;
+ 	}
+ 
+ 	if (IS_ENABLED(CONFIG_VFIO_PCI_ZDEV_KVM)) {
+ 		rc = kvm_s390_pci_init();
+ 		if (rc) {
+ 			pr_err("Unable to allocate AIFT for PCI\n");
+-			goto out;
++			goto err_pci;
+ 		}
+ 	}
+ 
+ 	rc = kvm_s390_gib_init(GAL_ISC);
+ 	if (rc)
+-		goto out;
++		goto err_gib;
+ 
+ 	return 0;
+ 
+-out:
+-	kvm_arch_exit();
++err_gib:
++	if (IS_ENABLED(CONFIG_VFIO_PCI_ZDEV_KVM))
++		kvm_s390_pci_exit();
++err_pci:
++err_flic:
++err_debug_view:
++	debug_unregister(kvm_s390_dbf_uv);
++err_kvm_uv:
++	debug_unregister(kvm_s390_dbf);
+ 	return rc;
+ }
+ 
 -- 
 2.38.1.584.g0f3c55d4c2-goog
 
