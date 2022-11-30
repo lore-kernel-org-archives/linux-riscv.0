@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602C7C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 14:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00BD1C4332F
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Nov 2022 14:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3L7dvD0p1Z4fFa+ju1GQbxC54RV4eYKtlnghgWsSDMo=; b=LnS6l09lzyBJBD
-	AzwBIK5lGxf/p6Sw5cqM4JMUlHJ84IeqlKLeOLncex7rF/YnPi0x8sEAdTvaUzD0wHTdH4c17jGpO
-	Vxm1aVPvqzCziJf4Je4kV03+trWEvx0gW+TkYW9WSoy7NYBtTzaNKQnYuyFJGTb2DRZQMiCoGzJQM
-	MwXNjRkYh6L9sGuCwIodDQtiRvJHS6F1AISDbKKnOou47MRltCLrVQxma90kjpmk+xtDxVX2p4e2c
-	EVLC+YBuyDWAfXdH8GeaKQY1mgw4nwAJBvyJYs2Q5ulKYccDyTKUjaVZVFOKX0PlHEfPRFi6q7/pv
-	sQ0shMyg7clmQVHUAV1Q==;
+	List-Owner; bh=29dmzGzLFrlNT6B2hVbGBlEXbCoAGHAsNlcnCa3oKz8=; b=R2lq6gu8BgLC6M
+	qW3bYNud8dUJL71fOdhC4XV4vayMqcJB/vbV5UeZZeQQenjAZfypIjyjGi7JNQogQnCUrqryCNt+T
+	Bk7CgmNtaLjC0VnQNe9SBISvZlx01L8w8S8o3TNP6O7Nw5sldkvz8ehZSz7y8WwBbe4egj/lGacX8
+	cu8/aGALFfgCYBsTg4TguOKne7tnteBeyhMAbci7HLprSe69CK/+LDK1Il2A7e4gZSBvkaPRPrZgf
+	i18PUpxhjsajQtvo/kRVkVhJg9l6FSL0CEzDi90d6Saw2HZn3tzJc8urUohwjh0MeqNLgFf30B4Oq
+	gcaFXqlPkebjqksRwXWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0ONx-00H3oQ-1A; Wed, 30 Nov 2022 14:48:29 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1p0ORQ-00H5oa-Bw; Wed, 30 Nov 2022 14:52:04 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0ONu-00H3eH-UO
-	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 14:48:28 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1669819699;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ysb9nF7W7aBl+zloPQlgaS76S2jwLQXf+/wIbHzkL2s=;
-	b=XpIyPYchmWSgiG870br6Rr+E4xnpbB/61RTG50j7xs4sSOWyx8VUdXson8QV6vh2ZpWMuQ
-	BZEMYc/p9N0Q0tSsTonvSPnaHIf2aWBB5+cAcEcuCI6+HVRiinLqDa3IrrDdndyOD+G3Hr
-	Z6sM5rpFOEr9L1YcG11yjaSFORrZLqEwGLoHlqyRhr+IUveLr0N5sYvM5Y719pf4b3Ok7h
-	/C0dDnmTcKDeYwgPwb1KR73iQ95pH4Cdv6XfjSaoTmG1OjrZHqbGh1+cDTjDVfb3R/3BDk
-	A35C9XsX7NZiWCXdNnA1vviL+H365iJtI8VmtbpuPW5Tn7FCd41iyz6Mj6S2zQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1669819699;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ysb9nF7W7aBl+zloPQlgaS76S2jwLQXf+/wIbHzkL2s=;
-	b=VR3a3G9cPiYAbCKymrWGiegBry122LXuvcA9Z2nHl9QZdvcIn8YIEze+UtGvD+ADar1uDX
-	BDCgBiqqjw00cmCA==
-To: Samuel Holland <samuel@sholland.org>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, Samuel Holland <samuel@sholland.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] genirq: Simplify cond_unmask_eoi_irq()
-In-Reply-To: <20221126234134.32660-2-samuel@sholland.org>
-References: <20221126234134.32660-1-samuel@sholland.org>
- <20221126234134.32660-2-samuel@sholland.org>
-Date: Wed, 30 Nov 2022 15:48:18 +0100
-Message-ID: <87edtkts5p.ffs@tglx>
+	id 1p0ORN-00H5eO-40
+	for linux-riscv@lists.infradead.org; Wed, 30 Nov 2022 14:52:02 +0000
+Received: by mail-ed1-x536.google.com with SMTP id s5so24330801edc.12
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 06:51:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=idoO300UeY772+woOz7ghVdThdLjPNFwqTdXYUWOHDI=;
+        b=R88bFw6KgLSKxkoF9Da9sY2nLLsM0B4FLlDHADJi0+nFVmEO+upmUo7RWlJmcikfn9
+         /QrGlFCEqkG0nalqrRys+DQk4DXT4nGDcwQKmosXz2jYBc2rTQucFQ73zMvfocbIHVBM
+         I0hF7fusAafvPh6nTTS1aAURsqRVLR1oqWaIO4K8h3ag8nfG4oqnot2wGOfGznM/pKUp
+         1Z4B37VwnpVcY7ToLABeASWP/exwOmZjjPwS9Glrw1xMiVq/c/oHhrIgMaVg5Kz6pzC/
+         QFQSd8Tqo5xMA++aS8hEWAP5G2BTzdCy3Wp2QBijBxJFeU5NfrOFbJISxBXZsXCQYBnx
+         1gHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=idoO300UeY772+woOz7ghVdThdLjPNFwqTdXYUWOHDI=;
+        b=tdjJ5oE0RNpNZcj8ZKKSgaRlIReI8Hb855SO8GIwZrigojCOEyBf5BkOBcD8JGrjgx
+         v69dHL7dry96nDHyuKZbdSSlqE9XrFzPIZhhFhPH1zMQpjzLklIKBE79FBIuZ17Qn76T
+         kXJnfnnqILGjRFnSJESiOJ20xMu+aXFCxGpIH4J8FWYbX92CepNEi/mFSbXzxeQy8IYt
+         xUMKK80vFI1O+TeMDoIqeX33z9EdD5Ru2tgHk77zdg8J2MGg5XgFY0qIis2D/9Mk5CUO
+         SMvbFEBzjcTyes60Daj4dcym3fQx2KNWOFP3vIjbEgEjWRVB3HcidT/9u2UPH1+An30g
+         Ws7w==
+X-Gm-Message-State: ANoB5pmJ7MrmmiXnKrGDfSv300J5VA564qF2vLTytz3Dzc13qTENWq6i
+	PoafRZI0a7rky2PNkH8u6uSb2w==
+X-Google-Smtp-Source: AA0mqf52muysc6bhpetOV3Ymd9vNlU5Zr4oJf8kV+ctuJolp7CXZnY/w5nbBdt7eJsgFaY/xVCPm9A==
+X-Received: by 2002:a05:6402:48d:b0:461:c3d9:c6a3 with SMTP id k13-20020a056402048d00b00461c3d9c6a3mr38658690edv.154.1669819909647;
+        Wed, 30 Nov 2022 06:51:49 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
+        by smtp.gmail.com with ESMTPSA id 14-20020a170906318e00b007aed2057ea1sm708788ejy.167.2022.11.30.06.51.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Nov 2022 06:51:49 -0800 (PST)
+Date: Wed, 30 Nov 2022 15:51:47 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
+	conor@kernel.org, philipp.tomsich@vrull.eu,
+	emil.renner.berthing@canonical.com,
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: Re: [PATCH v2 02/13] RISC-V: detach funct-values from their offset
+Message-ID: <20221130145147.gmuwxvkh4irq36fk@kamzik>
+References: <20221128102632.435174-1-heiko@sntech.de>
+ <20221128102632.435174-3-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221128102632.435174-3-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_064827_143447_611500E9 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20221130_065201_211525_A5EF013C 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +93,165 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Samuel!
-
-On Sat, Nov 26 2022 at 17:41, Samuel Holland wrote:
-
-> This function calls .irq_eoi in three places, making the logic hard to
-> follow. Rearrange the function so that .irq_eoi is called only once.
->
-> The only time .irq_eoi is not called is when all three if checks fail,
-> so return early in that case. threads_oneshot can only be nonzero if
-> IRQS_ONESHOT is set, so the IRQS_ONESHOT check can be omitted there.
->
-> The IRQS_ONESHOT condition from the first if statement must then be
-> copied to the unmask_irq() condition.
->
-> Furthermore, if IRQS_ONESHOT is set, mask_irq() must have been called
-> in the parent function, so the irqd_irq_masked() check is redundant.
-
-Not really convinced that all this is functionaly equivalent.
-
->  static void cond_unmask_eoi_irq(struct irq_desc *desc, struct irq_chip *chip)
->  {
-> -	if (!(desc->istate & IRQS_ONESHOT)) {
-> -		chip->irq_eoi(&desc->irq_data);
-> +	/*
-> +	 * Do not send an EOI if the thread will do it later in
-> +	 * unmask_threaded_irq().
-> +	 */
-> +	if ((chip->flags & IRQCHIP_EOI_THREADED) && desc->threads_oneshot)
->  		return;
-> -	}
+On Mon, Nov 28, 2022 at 11:26:21AM +0100, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> 
+> Only carry the actual values for the funct3, funct4, etc instruction
+> fields without directly including the shift to the target position.
+> 
+> Instead use macros to move the values to their target positions
+> when needed.
+> 
+> This at the same time also reduces the use of magic numbers,
+> one would need a spec manual to understand.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/parse_asm.h | 100 +++++++++++++++++------------
+>  1 file changed, 59 insertions(+), 41 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+> index c52b8ae02cfe..e3f87da108f4 100644
+> --- a/arch/riscv/include/asm/parse_asm.h
+> +++ b/arch/riscv/include/asm/parse_asm.h
+> @@ -5,6 +5,15 @@
+>  
+>  #include <linux/bits.h>
+>  
+> +#define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
+> +#define RV_INSN_FUNCT3_OPOFF	12
+> +#define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
+> +#define RV_INSN_OPCODE_OPOFF	0
+> +#define RV_INSN_FUNCT12_OPOFF	20
 > +
-> +	chip->irq_eoi(&desc->irq_data);
-
-This now issues EOI when the interrupt is in disabled state, which was
-not done before. That's probably a non-issue, but clearly a undocumented
-change.
-
+> +#define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
+> +#define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
 > +
->  	/*
->  	 * We need to unmask in the following cases:
->  	 * - Oneshot irq which did not wake the thread (caused by a
-> @@ -669,12 +674,8 @@ static void cond_unmask_eoi_irq(struct irq_desc *desc, struct irq_chip *chip)
->  	 *   completely).
->  	 */
->  	if (!irqd_irq_disabled(&desc->irq_data) &&
-> -	    irqd_irq_masked(&desc->irq_data) && !desc->threads_oneshot) {
-> -		chip->irq_eoi(&desc->irq_data);
-> +	    (desc->istate & IRQS_ONESHOT) && !desc->threads_oneshot)
->  		unmask_irq(desc);
+>  /* The bit field of immediate value in I-type instruction */
+>  #define RV_I_IMM_SIGN_OPOFF	31
+>  #define RV_I_IMM_11_0_OPOFF	20
+> @@ -84,6 +93,15 @@
+>  #define RVC_B_IMM_2_1_MASK	GENMASK(1, 0)
+>  #define RVC_B_IMM_5_MASK	GENMASK(0, 0)
+>  
+> +#define RVC_INSN_FUNCT4_MASK	GENMASK(15, 12)
+> +#define RVC_INSN_FUNCT4_OPOFF	12
+> +#define RVC_INSN_FUNCT3_MASK	GENMASK(15, 13)
+> +#define RVC_INSN_FUNCT3_OPOFF	13
+> +#define RVC_INSN_J_RS2_MASK	GENMASK(6, 2)
+> +#define RVC_INSN_OPCODE_MASK	GENMASK(1, 0)
+> +#define RVC_ENCODE_FUNCT3(f_)	(RVC_FUNCT3_##f_ << RVC_INSN_FUNCT3_OPOFF)
+> +#define RVC_ENCODE_FUNCT4(f_)	(RVC_FUNCT4_##f_ << RVC_INSN_FUNCT4_OPOFF)
+> +
+>  /* The register offset in RVC op=C0 instruction */
+>  #define RVC_C0_RS1_OPOFF	7
+>  #define RVC_C0_RS2_OPOFF	2
+> @@ -113,52 +131,52 @@
+>  /* parts of funct3 code for I, M, A extension*/
+>  #define RVG_FUNCT3_JALR		0x0
+>  #define RVG_FUNCT3_BEQ		0x0
+> -#define RVG_FUNCT3_BNE		0x1000
+> -#define RVG_FUNCT3_BLT		0x4000
+> -#define RVG_FUNCT3_BGE		0x5000
+> -#define RVG_FUNCT3_BLTU		0x6000
+> -#define RVG_FUNCT3_BGEU		0x7000
+> +#define RVG_FUNCT3_BNE		0x1
+> +#define RVG_FUNCT3_BLT		0x4
+> +#define RVG_FUNCT3_BGE		0x5
+> +#define RVG_FUNCT3_BLTU		0x6
+> +#define RVG_FUNCT3_BGEU		0x7
+>  
+>  /* parts of funct3 code for C extension*/
+> -#define RVC_FUNCT3_C_BEQZ	0xc000
+> -#define RVC_FUNCT3_C_BNEZ	0xe000
+> -#define RVC_FUNCT3_C_J		0xa000
+> -#define RVC_FUNCT3_C_JAL	0x2000
+> -#define RVC_FUNCT4_C_JR		0x8000
+> -#define RVC_FUNCT4_C_JALR	0xf000
+                                ^^ this looks wrong
 
-This breaks the mask logic of handle_fasteoi_mask_irq() for an interrupt
-which does not have IRQS_ONESHOT set.
+> +#define RVC_FUNCT3_C_BEQZ	0x6
+> +#define RVC_FUNCT3_C_BNEZ	0x7
+> +#define RVC_FUNCT3_C_J		0x5
+> +#define RVC_FUNCT3_C_JAL	0x1
+> +#define RVC_FUNCT4_C_JR		0x8
+> +#define RVC_FUNCT4_C_JALR	0x9
+                                ^^ and this looks right,
+				   but we should fix that with a separate
+				   patch
 
-So no, it's not the same and it even breaks stuff.
+>  
+> -#define RVG_FUNCT12_SRET	0x10200000
+> +#define RVG_FUNCT12_SRET	0x102
+>  
+> -#define RVG_MATCH_JALR		(RVG_FUNCT3_JALR | RVG_OPCODE_JALR)
+> +#define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
+>  #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
+> -#define RVG_MATCH_BEQ		(RVG_FUNCT3_BEQ | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BNE		(RVG_FUNCT3_BNE | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BLT		(RVG_FUNCT3_BLT | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BGE		(RVG_FUNCT3_BGE | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BLTU		(RVG_FUNCT3_BLTU | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_BGEU		(RVG_FUNCT3_BGEU | RVG_OPCODE_BRANCH)
+> -#define RVG_MATCH_SRET		(RVG_FUNCT12_SRET | RVG_OPCODE_SYSTEM)
+> -#define RVC_MATCH_C_BEQZ	(RVC_FUNCT3_C_BEQZ | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_BNEZ	(RVC_FUNCT3_C_BNEZ | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_J		(RVC_FUNCT3_C_J | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_JAL		(RVC_FUNCT3_C_JAL | RVC_OPCODE_C1)
+> -#define RVC_MATCH_C_JR		(RVC_FUNCT4_C_JR | RVC_OPCODE_C2)
+> -#define RVC_MATCH_C_JALR	(RVC_FUNCT4_C_JALR | RVC_OPCODE_C2)
+> -
+> -#define RVG_MASK_JALR		0x707f
+> -#define RVG_MASK_JAL		0x7f
+> -#define RVC_MASK_C_JALR		0xf07f
+> -#define RVC_MASK_C_JR		0xf07f
+> -#define RVC_MASK_C_JAL		0xe003
+> -#define RVC_MASK_C_J		0xe003
+> -#define RVG_MASK_BEQ		0x707f
+> -#define RVG_MASK_BNE		0x707f
+> -#define RVG_MASK_BLT		0x707f
+> -#define RVG_MASK_BGE		0x707f
+> -#define RVG_MASK_BLTU		0x707f
+> -#define RVG_MASK_BGEU		0x707f
+> -#define RVC_MASK_C_BEQZ		0xe003
+> -#define RVC_MASK_C_BNEZ		0xe003
+> +#define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BNE		(RV_ENCODE_FUNCT3(BNE) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BLT		(RV_ENCODE_FUNCT3(BLT) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BGE		(RV_ENCODE_FUNCT3(BGE) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BLTU		(RV_ENCODE_FUNCT3(BLTU) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
+> +#define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
+> +#define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_JAL		(RVC_ENCODE_FUNCT3(C_JAL) | RVC_OPCODE_C1)
+> +#define RVC_MATCH_C_JR		(RVC_ENCODE_FUNCT4(C_JR) | RVC_OPCODE_C2)
+> +#define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
+> +
+> +#define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JALR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_JAL		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_J		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BEQ		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BNE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BLT		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BGE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BLTU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVG_MASK_BGEU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_BEQZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+> +#define RVC_MASK_C_BNEZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+>  #define RVG_MASK_SRET		0xffffffff
+>  
+>  #define __INSN_LENGTH_MASK	_UL(0x3)
+> -- 
+> 2.35.1
+>
 
 Thanks,
-
-        tglx
+drew
 
 _______________________________________________
 linux-riscv mailing list
