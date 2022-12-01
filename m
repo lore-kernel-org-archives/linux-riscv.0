@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E5AC43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC81C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uifZFAjv+MiUIu73umgQkGngbUAmtgASx1LpZYA0hiA=; b=BMJhL7lj5hKgn/
-	1zJK9klToXb0MP36HGenMXG4O08F9CwLdG1Sg1VUutMWrXWIsPSqCkXXuJ4mY/EsULqqrDew2pg/7
-	blFJ5AK0q8ueWG69I8+NZPJ/koXD6dx98obEHDRtRAzJTM9/XZudhFW0NKm0bFbtxLWYcFrPbILAd
-	difs6KTIFuFn7Pn6oQwLW3lToZig6tbvYVS76wkzFNrY7AvUHisqP0xQ7i53vT/V6i7S3h+FMXubC
-	7rNw9Pkf1tVa02JcgwD8zRyv1Si8twup6aUCeczHKqcPr4rLqCoYFIwZ79UrgNoknwsCwPThrT0fa
-	W6wO1hbCvPzxYkTigdPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BFlWl4W9nRnJGgH+MHS5N56/9x+vUnNPQ/OfeTb5l7c=; b=c2sx9899/s3y7orUR0F1veXOD5
+	2hRVHYJMaGGNzs9jRJPFVFuvyoMhuOI7bRNT0aRIW3G0ipf0b6hBPLzFmPoqC48sdQip2BP9aYyG4
+	biVCdhq2NtzKH+YdgrAsVRCUJOUEJvhhtY2y1jh1NiBJplNzL6Yae9P4hlsIBTFFcJpymFrAgqdB/
+	K6PYsJvGrGHNBqNoQueKC1Cno6t/1o8B7Mb/w6sdSITu693eCCdJScpFdb6SITMze/oDkofl1P0BQ
+	ltm+v7BpvMVpO9pVRZj9nziykV+k64f/dkDBjhJj45a2uj6Ez3QJ5KF2esI4DFH/TBi3iE58/0/hv
+	vB0Jm5Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jRf-007eT5-52; Thu, 01 Dec 2022 13:17:43 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p0jTq-007exG-RR; Thu, 01 Dec 2022 13:19:58 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jRb-007eR7-B0
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:17:41 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 153C0B81F1D
-	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 13:17:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0E2CC433D6
-	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 13:17:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669900655;
-	bh=UjKLLEsIwR07HcG33HnbQVlpUJCO7pqDak6jWKKW6IE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MVGr9tzOx7orMLDymZc+/k0D1jXfB1JrmVjNHLdzcgjmsFgxG0YuwnuBo1jDmiTR0
-	 VJ4HLUKcWioo3ZjlyIG8T+gApHsIIO5z4VTkVxDPC4pfu9VcTge060dKJprBfeKkMW
-	 tViGnRJM8S2ozBj7typhEi5kBdkBFa20tApyyMGFCZPZcmhmE8MABNwd73x1uUETaS
-	 pGccITwJ2QyvlA3aj7IdaKSwM4NzpaOpTQkIK+SNUq/88v5qRUg6SB+gkom1sOPkq5
-	 +bSK5y8/Efk1VC6EPCS3O+IMLOPEsgAtu4LJcDMUr9v10XSIZyNGDO95yjoTtgKsmq
-	 AW3zAbOhYbiFg==
-Received: by mail-ej1-f53.google.com with SMTP id ud5so4145542ejc.4
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 05:17:35 -0800 (PST)
-X-Gm-Message-State: ANoB5pn4Hy3FeoXpmaBouUzuxTxUTfQg3o+dAhzdv3Aw5jL6zWxN4YG9
-	ULgi5BphuDQ+XydTJdKX3a/pbakv3C2DhD/utMA=
-X-Google-Smtp-Source: AA0mqf4kyO5hcP35ZuA9HU7kZNC7BjGnYjUnpkgAIT8BA+YaJi4wPl89S+iUN/ZQmwZI/X5JzT7vDVHIT8ugHL5V6v4=
-X-Received: by 2002:a17:906:ee2:b0:78d:3f96:b7aa with SMTP id
- x2-20020a1709060ee200b0078d3f96b7aamr41475089eji.74.1669900654008; Thu, 01
- Dec 2022 05:17:34 -0800 (PST)
+	id 1p0jTY-007esM-PX
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:19:45 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p0jT6-0005zw-Lz; Thu, 01 Dec 2022 14:19:12 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p0jT1-001alJ-Sp; Thu, 01 Dec 2022 14:19:08 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p0jT1-001ng9-TI; Thu, 01 Dec 2022 14:19:07 +0100
+Date: Thu, 1 Dec 2022 14:19:07 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	dri-devel@lists.freedesktop.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Satya Priya <quic_c_skakit@quicinc.com>,
+	Pavel Machek <pavel@ucw.cz>, Guenter Roeck <groeck@chromium.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	Fabio Estevam <festevam@gmail.com>, linux-riscv@lists.infradead.org,
+	linux-leds@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>,
+	chrome-platform@lists.linux.dev,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Sean Anderson <sean.anderson@seco.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Michal Simek <michal.simek@xilinx.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Hammer Hsieh <hammerh0314@gmail.com>,
+	linux-rockchip@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
+	Matthias Kaehlcke <mka@chromium.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Orson Zhai <orsonzhai@gmail.com>, linux-sunxi@lists.linux.dev,
+	linux-pwm@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ray Jui <rjui@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Stephen Boyd <swboyd@chromium.org>, linux-gpio@vger.kernel.org,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-amlogic@lists.infradead.org,
+	Benson Leung <bleung@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Scott Branden <sbranden@broadcom.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Michael Walle <michael@walle.cc>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>
+Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
+Message-ID: <20221201131907.bmrenldnua7uaeab@pengutronix.de>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+ <Y4iL9xf5bJM5pyeR@wendy>
 MIME-Version: 1.0
-References: <20221130023515.20217-1-palmer@rivosinc.com> <20221130023515.20217-2-palmer@rivosinc.com>
-In-Reply-To: <20221130023515.20217-2-palmer@rivosinc.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 1 Dec 2022 21:17:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS2A=C0Epf5NqgpE8ZWX-EXHLt5SwD0HmB3kzoLj1N3Bw@mail.gmail.com>
-Message-ID: <CAJF2gTS2A=C0Epf5NqgpE8ZWX-EXHLt5SwD0HmB3kzoLj1N3Bw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] RISC-V: Add some comments about the shadow and
- overflow stacks
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: jszhang@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+In-Reply-To: <Y4iL9xf5bJM5pyeR@wendy>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_051739_715504_44BE344A 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20221201_051940_838556_5321ED09 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +116,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6107128723774326819=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 10:35 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->
-> It took me a while to page all this back in when trying to review the
-> recent spin_shadow_stack, so I figured I'd just write up some comments.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  arch/riscv/kernel/traps.c | 20 +++++++++++++-------
->  1 file changed, 13 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index acdfcacd7e57..336d4aadadb1 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -200,18 +200,18 @@ void __init trap_init(void)
->  }
->
->  #ifdef CONFIG_VMAP_STACK
-> +/*
-> + * Extra stack space that allows us to provide panic messages when the kernel
-> + * has overflowed its stack.
-> + */
->  static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
->                 overflow_stack)__aligned(16);
->  /*
-> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
-> - * to get per-cpu overflow stack(get_overflow_stack).
-> + * A temporary stack for use by handle_kernel_stack_overflow.  This is used so
-> + * we can call into C code to get the per-hart overflow stack.  Usage of this
-> + * stack must be protected by spin_shadow_stack.
-Reviewed-by: Guo Ren <guoren@kernel.org>
 
->   */
->  long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
-> -asmlinkage unsigned long get_overflow_stack(void)
-> -{
-> -       return (unsigned long)this_cpu_ptr(overflow_stack) +
-> -               OVERFLOW_STACK_SIZE;
-> -}
->
->  /*
->   * A pseudo spinlock to protect the shadow stack from being used by multiple
-> @@ -222,6 +222,12 @@ asmlinkage unsigned long get_overflow_stack(void)
->   */
->  unsigned long spin_shadow_stack;
->
-> +asmlinkage unsigned long get_overflow_stack(void)
-> +{
-> +       return (unsigned long)this_cpu_ptr(overflow_stack) +
-> +               OVERFLOW_STACK_SIZE;
-> +}
-> +
->  asmlinkage void handle_bad_stack(struct pt_regs *regs)
->  {
->         unsigned long tsk_stk = (unsigned long)current->stack;
-> --
-> 2.38.1
->
+--===============6107128723774326819==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="twdnam2bj5te67tc"
+Content-Disposition: inline
 
 
--- 
-Best Regards
- Guo Ren
+--twdnam2bj5te67tc
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Conor,
+
+On Thu, Dec 01, 2022 at 11:11:51AM +0000, Conor Dooley wrote:
+> TL;DR, I quite like the ability to return an error and not mislead the
+> caller.
+
+Is this an Ack?
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--twdnam2bj5te67tc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOIqcgACgkQwfwUeK3K
+7Am3+gf9HQlrVI1DS5daIvtH5ajPj10gQCf7wUVcwdDqDzHuJW7mEQVvG1vEEaVC
+1sZxg13cFekIRhMzVMDj6JMG7MCuBqT0KWFDrstMLC2g7ot2+xZ6iJXXJL/3AQSm
+pf/UiOQYYN7VXn0Wpf8L2FkfFuTglAuZE6bLdE2t1/+pQnp9oR81aoPWJgZ8vhax
+WOkQYiH16UpgLNbhu7dV4133nkA6dfsSG+DrZjPy9vDdjCyDXUpxPnldpcHu+KCh
+zRNQ9gX0bYT60vQejp9169VriwhcHhts0uT6AnSYVw/MzYrwx/pJu9bdq+iq86Uc
+bMsdCWzzY9XerANJF7JdTMcJrfah8w==
+=luMq
+-----END PGP SIGNATURE-----
+
+--twdnam2bj5te67tc--
+
+
+--===============6107128723774326819==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6107128723774326819==--
+
