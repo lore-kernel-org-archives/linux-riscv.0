@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B913EC4708C
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF40C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YXBeIkP05PiB/IEN0XLiKihF9NzEJtovqjslkbWS060=; b=CvCqIXOV9GuGi2
-	ps6DXC6pI1uZ17wSDYRA5rp452XkdJrkEbujeXgOk9vhLDFDjlj/GDdZ3RwiJMmiysEDvcC20AHwr
-	f6mdwR8yZr2Oub7FwbGvQ0g9T1iZZEh1vRzWH346DhU7PB9AatidIIB6YUgwWnEHoXVP3/vz6GcPo
-	8xTOMIH83Ou+eOoTsoZ0e3KvE7jCgLmY4AhE0GP+I+J0JNcqolxjYOY22wLaJ5bKcGtEoYHlHFneR
-	y4hVQzMSHeIqLL8s6XN0H3sD0OdLIcyJeqqVxI5KTBgAl2HVjL3eZOZNzW6U+o1vE6nH05mPtcRNX
-	GMhvau7jkRgd3/w8+u0A==;
+	List-Owner; bh=QwnhTxwAC4a1N/ZPQXoG1pV6/xjYZmT2OcIAKt9n81Y=; b=t2/SK90bURu+LU
+	Trt2j9KvmwxuVMaRaQPwzI5aR51+P+lJUKGhvKIM4UMqgthATWafs5HtsDsKe7Rb/JfxRrN6pCjaO
+	6f5gvQ269NWDWAFywi8qIZAw9g0KGTMiX5pDbKgsAXn4hP+QQkYdyz3hWvRM9tEen6VNPOzZYNKKu
+	JG7dVoL/gtAMxEsZOBUBHO8ZcfhD552W1M6nhJps8yEm+sOsJbs6ssHDbYii6HN55eMzBB7/s54sv
+	epj8G9EVJCavlngiqU1kz/pNq1aGwYGn2M7TYE8q8gvyH3QqL7THpg4Z5ud25wIudItnUYYKSIEWn
+	cnf+AP/odunWgeluGGpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0htf-0076U7-CK; Thu, 01 Dec 2022 11:38:31 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1p0hwy-0077Q3-7W; Thu, 01 Dec 2022 11:41:56 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0htc-0076Sz-KC
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:38:30 +0000
-Received: by mail-ej1-x632.google.com with SMTP id bj12so3462147ejb.13
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 03:38:26 -0800 (PST)
+	id 1p0hwu-0077OE-TZ
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:41:54 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id f13so2070619lfa.6
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 03:41:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=RmSe80HfKK7FckDSEcPQpoVUBo07goAUQO5ufP8u+m8=;
-        b=gto4jEQ8rmQKpmOUaItlz1cLcGWBm97vuDDJShfFQGtq6ux/d2J517vmppUvppK1Hd
-         qvD18tM9yHEh/h1ZhFLK6Hfi8r+63OeBX3sow55Iqwy7WBBNrel9LaXpIXMbAxYiGQXj
-         fLGvSq7YHKE0xhVwtfXZZAN0oREYSqDD7SgKt7k5Hu3EtzTdr6KdWwO6YhPc3hNSp8Bv
-         BXByjyqfZOc2CnjvFEZfcTTknnXZNt9MdxG4YdLNwwy24fCTMGmBnMiW9Ewe/fLq/KMa
-         AcPP4jMk7ZklXk+7taX/4TfxhkP3gLEYAE1dt5P6pophujeaDdKEI6w1LEE7Fo2Z1PKu
-         3Qxw==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=0UiAnxiG5gru9IeukT0uPFqmufGik114HWN4x39w6FA=;
+        b=zopg1txRN5QgqaXfvugj89RD4LqFxqoqVjHWRsqgKB0npSUazcU7D9c2uZ9eF+aBjn
+         YF6qfci1wHSt4AFzDdaT6TP9OhQ3Mdaza3DpmSV5hpIUekk3KR80oodi3SN9yWI5tGS6
+         BuQ4A1vklebhvhifCHCdZnMSoSeCWvFM/Ob8qdlXPxy4zsG7kk5g+VQP3o6YbOTvD/iZ
+         2WoTXkrwVdgV3weLjEU6HWVghtCCvmbFUyO94sTViyHwjHW1koa5iH6wuV0IKiROfrwq
+         tf+I6a/cjSMNzM9dEX7KO+nfOz8/O/3aZxCS+RhXktnqnxBEzb01V5YJ95RsD8VHUo5a
+         Jrug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RmSe80HfKK7FckDSEcPQpoVUBo07goAUQO5ufP8u+m8=;
-        b=q3yjIOk9NiQzFJoOjsHRTX+OyHVFiY5j9D7BXcBqUEjzOtCnL5nXF18nFeDlyodgL4
-         NgLh0mNJ6v23gZcDXVBbqkVQv/EgbIVoo4yZ6JZmd1cipgaor9nxrUcGzNWFveT7eYie
-         wHNbGFe2DSC9OmzfgmzTfckPDqUpJgXjW/TpDpxNKRCeE2obW9QxzcJjs0+qNikivrwY
-         jmyn9cMssShUwfxQTiHokF2lXL8+rGmHV61kjnAih2RZ6qQpEB0BKp+Sm28Xs2kFIH3a
-         07YnRMtQDqE9Nnv/NT/r99Q7XWRgCefccsLM9tsAxMtlRUVzCZTH3AoZ+fAnTLGwAKSr
-         lbDw==
-X-Gm-Message-State: ANoB5pm4aZGB3j6SwaN7/T62rWMuqxa+4meUkHiRn/+bSRE9nJupQ9Yr
-	ewm7lX6kzrE7R20MVT/Ksf9daljb1pDLBA==
-X-Google-Smtp-Source: AA0mqf7txX1rh2Brl7EAEXMEplhAfLo8/oa9Ruzkyri1NSVBhprWiTA/sHJhLhSoiGiC8woxCpicMQ==
-X-Received: by 2002:a17:906:3109:b0:7a0:b505:cae5 with SMTP id 9-20020a170906310900b007a0b505cae5mr56576723ejx.648.1669894705512;
-        Thu, 01 Dec 2022 03:38:25 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id o3-20020a170906768300b007b27fc3a1ffsm1670182ejm.121.2022.12.01.03.38.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 03:38:25 -0800 (PST)
-Date: Thu, 1 Dec 2022 12:38:24 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu,
-	corbet@lwn.net, guoren@kernel.org, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v1 2/3] RISC-V: resort all extensions in consistent orders
-Message-ID: <20221201113824.hcjijn3z45g2vohv@kamzik>
-References: <20221130234125.2722364-1-conor@kernel.org>
- <20221130234125.2722364-3-conor@kernel.org>
- <20221201090041.525op4sateq5wq4y@kamzik>
- <46873028.fMDQidcC6G@diego>
+        bh=0UiAnxiG5gru9IeukT0uPFqmufGik114HWN4x39w6FA=;
+        b=PDLfqr2O5th/pNuuAHeUcIyDkERbzuu/yfcK45KPmpfyuDZTBheU2lIgsm1X+5KduM
+         l92sbXVnpyDhiM0o3D10YBeCQBX052BEie7nW88ZMl34KAUF4s7rSg3rtyzuIVpeprM0
+         1XB1F2puW2J2GXeo33rTHn/c6ub5m5QZYfyrMubDAP2OWwi0mnPzLcWYBHeMiZk7NO6k
+         ZqLeio5sAcWrg+NYCsKToeKCV8umySRIvU32g19IUugg3l5GFPnobM4TCnymIy2m6/T4
+         YXXUmg+0lcB7jTZYwgQT+NWnvhqlwyRDFfyfA1La5p001KireScsGIv4PpZUOd/qLNl1
+         tiKQ==
+X-Gm-Message-State: ANoB5pnjUUP+zmT60/FnyNpWFj4NZT99L+mFKqinSKbd5CE09gz2TE4d
+	3o22BthD+wMzy5/qyplYy6gllQ==
+X-Google-Smtp-Source: AA0mqf5NJwSDFJVZ4ee0obiZShaUI/uPkLiEO75TR/uSDPOAHIZkEPvJJ1JC3LaLkJUeMh2M4XFoqQ==
+X-Received: by 2002:a05:6512:a83:b0:4aa:f944:f7ec with SMTP id m3-20020a0565120a8300b004aaf944f7ecmr17809472lfu.467.1669894910308;
+        Thu, 01 Dec 2022 03:41:50 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id w10-20020a05651234ca00b0048a8c907fe9sm612837lfr.167.2022.12.01.03.41.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Dec 2022 03:41:47 -0800 (PST)
+Message-ID: <a1d8197e-33fa-e853-ab73-81b167ec45ec@linaro.org>
+Date: Thu, 1 Dec 2022 12:41:45 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <46873028.fMDQidcC6G@diego>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v2 5/9] dt-bindings: riscv: Add bouffalolab bl808 board
+ compatibles
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Conor Dooley <conor@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
+References: <20221127132448.4034-1-jszhang@kernel.org>
+ <20221127132448.4034-6-jszhang@kernel.org>
+ <60991459-945f-35db-f26a-fb27824728ad@linaro.org> <Y4iMrKjLAHpkCygo@wendy>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <Y4iMrKjLAHpkCygo@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_033828_698971_FE61DA49 
-X-CRM114-Status: GOOD (  31.32  )
+X-CRM114-CacheID: sfid-20221201_034152_983597_DE0351C7 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,131 +98,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 01, 2022 at 11:47:04AM +0100, Heiko St=FCbner wrote:
-> Am Donnerstag, 1. Dezember 2022, 10:00:41 CET schrieb Andrew Jones:
-> > On Wed, Nov 30, 2022 at 11:41:25PM +0000, Conor Dooley wrote:
-> > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > =
+On 01/12/2022 12:14, Conor Dooley wrote:
+> Hey Krzysztof,
+> 
+> On Thu, Dec 01, 2022 at 12:05:04PM +0100, Krzysztof Kozlowski wrote:
+>> On 27/11/2022 14:24, Jisheng Zhang wrote:
+>>> Several SoMs and boards are available that feature the Bouffalolab
+>>> bl808 SoC. Document the compatible strings.
+>>>
+>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>> ---
+>>>  .../bindings/riscv/bouffalolab.yaml           | 34 +++++++++++++++++++
+>>>  1 file changed, 34 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/riscv/bouffalolab.yaml b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+>>> new file mode 100644
+>>> index 000000000000..91ca9dbdc798
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+>>> @@ -0,0 +1,34 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/riscv/bouffalolab.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Bouffalo Lab Technology SoC-based boards
+>>> +
+>>> +maintainers:
+>>> +  - Jisheng Zhang <jszhang@kernel.org>
+>>> +
+>>> +description:
+>>> +  Bouffalo Lab Technology SoC-based boards
+>>> +
+>>> +properties:
+>>> +  $nodename:
+>>> +    const: '/'
+>>> +  compatible:
+>>> +    oneOf:
+>>> +      - description: Sipeed M1s SoM:
+>>> +        items:
+>>> +          - const: sipeed,m1s
+>>> +          - const: bouffalolab,bl808
+>>
+>> I don't think that SoM is usable alone. It always needs a carrier, so
+>> drop this entry.
+> 
+> For my own information, if a SoM is not capable of functioning without a
+> carrier there is no merit in it having a compatible?
+> Does this also apply if there are multiple possible carriers from
+> different vendors?
 
-> > > Ordering between each and every list of extensions is wildly
-> > > inconsistent. Per discussion on the lists pick the following policy:
-> > > =
+Compatible makes sense anyway. There will be different boards using this
+SoM (not only carriers, but final products) and they all will have
+common piece - the SoM. It's the same for other SoM designs (e.g. for iMX).
 
-> > > - The array defining order in /proc/cpuinfo follows a narrow
-> > >   interpretation of the ISA specifications, described in a comment
-> > >   immediately presiding it.
-> > > =
+Best regards,
+Krzysztof
 
-> > > - All other lists of extensions are sorted alphabetically.
-> > > =
-
-> > > This will hopefully allow for easier review & future additions, and
-> > > reduce conflicts between patchsets as the number of extensions grows.
-> > > =
-
-> > > Link: https://lore.kernel.org/all/20221129144742.2935581-2-conor.dool=
-ey@microchip.com/
-> > > Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> > > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > > ---
-> > > I could not decide between adding an alphabetical comment to each
-> > > alphabetical site or not. I did it anyway. Scream if you hate it!
-> > > =
-
-> > > I also moved a static branch thingy in this version, but that should =
-not
-> > > matter, right? riightt?
-> > =
-
-> > riiighttt. And it goes away with [1] anyway.
-> > =
-
-> > [1] https://lore.kernel.org/all/20221006070818.3616-1-jszhang@kernel.or=
-g/
-> =
-
-> I'm not sure what became of that series since mid october, though noting
-> that tightly coupling the patching to extensions alone might cause issues=
- [2]
-> which some of the "features" like fast-unaligned access, that are not dir=
-ectly
-> bound to a isa-extension but to an implementation detail
-> =
-
-> [2] https://lore.kernel.org/all/1991071.yIU609i1g2@phil/
-
-Jisheng said he'd send a refresh soon. Hopefully your comments will be
-taken into consideration. It seems like we need both the concepts of
-cpufeatures and extensions. Where many times a cpufeature directly maps
-to an extension, but not always. Or, we could shoehorn the non-extension
-cpufeatures into the extension framework by calling them "derived
-extensions" or something.
-
-> =
-
-> =
-
-> > =
-
-> > > ---
-> > >  arch/riscv/include/asm/hwcap.h | 12 +++++++-----
-> > >  arch/riscv/kernel/cpu.c        |  4 ++--
-> > >  arch/riscv/kernel/cpufeature.c |  6 ++++--
-> > >  3 files changed, 13 insertions(+), 9 deletions(-)
-> > > =
-
-> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
-hwcap.h
-> > > index b22525290073..ce522aad641a 100644
-> > > --- a/arch/riscv/include/asm/hwcap.h
-> > > +++ b/arch/riscv/include/asm/hwcap.h
-> > > @@ -51,14 +51,15 @@ extern unsigned long elf_hwcap;
-> > >   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-> > >   * extensions while all the multi-letter extensions should define th=
-e next
-> > >   * available logical extension id.
-> > > + * Entries are sorted alphabetically.
-> > >   */
-> > >  enum riscv_isa_ext_id {
-> > >  	RISCV_ISA_EXT_SSCOFPMF =3D RISCV_ISA_EXT_BASE,
-> > > +	RISCV_ISA_EXT_SSTC,
-> > > +	RISCV_ISA_EXT_SVINVAL,
-> > >  	RISCV_ISA_EXT_SVPBMT,
-> > >  	RISCV_ISA_EXT_ZICBOM,
-> > >  	RISCV_ISA_EXT_ZIHINTPAUSE,
-> > > -	RISCV_ISA_EXT_SSTC,
-> > > -	RISCV_ISA_EXT_SVINVAL,
-> > >  	RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> > >  };
-> > =
-
-> > Unrelated to this patch, but every time I look at this enum I want to p=
-ost
-> > the diff below, but I haven't bothered, because this enum also goes away
-> > with [1].
-> > =
-
-> > @@ -59,8 +59,9 @@ enum riscv_isa_ext_id {
-> >         RISCV_ISA_EXT_ZIHINTPAUSE,
-> >         RISCV_ISA_EXT_SSTC,
-> >         RISCV_ISA_EXT_SVINVAL,
-> > -       RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> > +       RISCV_ISA_EXT_ID_MAX
-> >  };
-> > +static_assert(RISCV_ISA_EXT_ID_MAX <=3D RISCV_ISA_EXT_MAX);
-> =
-
-> that sounds like a very reasonable idea ... what's keeping you? :-)
-
-Posted :-)
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
