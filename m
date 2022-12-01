@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2259CC4708D
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 09:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165B8C47088
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 09:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hPdf4EfKg5Nmt3Bfwhhzr4kG6Ongg5bEHYCZtUSzMfo=; b=x6GhUkiOK5oR6a
-	2D7PVJGfhh8AwG8E1AIry2Ge0E75iwDIV8mqr+TFqMdDW1rv4lQ/1ZMQGNm9Q75RfsAFOa5ue7rNf
-	PYUjuJjBAyqOd3sqwxgXPUVTDPNBGva+CrA5vvbeSIVnGwAP6LGSGvAFvaQxcC1A6I285Gy18GErl
-	FNOhVG8VovVgzx+K1KlOZrnXCUb6YelebnKYCSoWVqSspmapmLyKrs8w2SvhNAiJZcF8INYSYIGE/
-	MQDQBfA5Mn6cKpMo0g/LBTikpXoSNuxGqLJ3orMg9FoLo187AcGVgPOMjGF1atRMrC3CQqyQHgK2T
-	/q+5NxG4LBWkH/kw8vqA==;
+	List-Owner; bh=K3jrJEakjDCtjEvQ9o6KAN3xCq5qrU3oP1yZUP+T6JA=; b=a2XUajgLT2V5C9
+	lL2VqRW1esL15NdQjQIEeWMGfY+YfcUnUkjCyUptYlzMWniu90Ln1woxjbMAj1W3HlRJeoOWHR2a+
+	4OtLo9+Az0XZZAssIYqLSTLyqs1duCjyb62MWzBPg62kgl/CBPOoGgaSI+Pq3QVf2zJC2ZKuYJo1s
+	2khxmCx8lTRTCcWNx1vuLYoBaoQVhotFM9UtHJdC0nWwCY9r+Uth/VxzZStVj9099NaieXrgBmxOD
+	eHIxLthx5XoQTMCLan0N2H9EBKywQdI/u+rNNHfotaHmQyUyJN6QmDIGs9NuN5lJovsrrvPYXoUEe
+	MYUBsNxt0rwc30EPUTjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0fey-006FKN-Ss; Thu, 01 Dec 2022 09:15:12 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1p0fqy-006Lto-T8; Thu, 01 Dec 2022 09:27:36 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0feg-006FCI-FQ
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 09:14:56 +0000
-Received: by mail-ed1-x532.google.com with SMTP id s5so1454695edc.12
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 01:14:51 -0800 (PST)
+	id 1p0fqw-006Lqf-Hh
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 09:27:35 +0000
+Received: by mail-lf1-x136.google.com with SMTP id g12so1587753lfh.3
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 01:27:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GZ+kWHZHwj+iACmb2u6Cu3JDoLA7ZyuXRVYodkgg1Bg=;
-        b=gZmWK1FtAjVvJJ5FWTShzqLnADCXlyqM1RNaOW7Y2Fef+Lrz50KogMzXhYmJKgguEn
-         fJYVwvYfdNhPv4hMbO7Tfe6j8hG+4xY7hVw+EY5VDz+j6eXx+OD8CnbChs6ZWNuEXL5j
-         yS7ClHhuOlplJOt2lbo9uRJUJk6k+C7t+t5DK5FyL2kqI+lPFgN1LLRcJNoDjJONXegE
-         90P450GiGm2bZbqTITkfRiK8585fo6fv+SyIm23aYQBdEQ8KyqvN8RtdeOeDQGpniqo4
-         CpCtuJ9vKfdPp51EG8Lqj55JknIFTVdRI5RcES4TE3w8NgZr+Wg3Kcc9sIs3vKxUUSQL
-         /Rbg==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MkZOQIDhzz/ZdyYHDjJhV18ycZ3HPCl9kL7HnUmPXkQ=;
+        b=Le4uia54Oxpjs04IgYxInqhcUM1oreQs7cvQXaRwmX077/HQJuZEu3jMGfVNQpJgNE
+         Onb/6iYKVkPVgX1O9QlqLwMSALb6UP2BLG4RJ0MpzoFBbTaXp16BFyI/xAzzTDJCO54u
+         p8wG0PhdHHVsNDZsKJMP4JghIrx4VBq30/bfQvOELY2/Uqy1uNBJlLasLcC5vADjF3LK
+         0WjBC9tgxvhMIvOB3h4wirI458DoFsPvk3YSTsjlWHYIAZgUUg+/yCyAFAwNNpQY5GNA
+         YA8K9uUiyI0uNihy8NPgPKdrB5jYqZuOmIM24eZXwb1ZZW38aODbHowKkt+w2wFAzz6B
+         BHZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GZ+kWHZHwj+iACmb2u6Cu3JDoLA7ZyuXRVYodkgg1Bg=;
-        b=5H6RqYK4MSExeiVfZFTc15UfW+QppZdsIYz8inMW5dsm6Zoi56h2IoBiF+rWPxKJkh
-         nVnCR0KXa+2HBxfa5sK6t5guVGKMtta/ca//UeX5j4M9SPlZyqzcjSu/wbxGG0jNzfqJ
-         zVsxtXyl9QGKGgcmB/9FUoMNWaO7mmurdz9ox4ARO3dcysa793uEcKb5UP5aZTE5lh0c
-         JCyFCfYlWkiXtsrddVZpLGnD19r58aWrs/i76deLNXhS0ky7lVUF63QQpWnTnuasYTkN
-         vDilChPufkTVwRX5723RTgqkVQchLeMO3T5yC96g0VBqyNV5D3nS741CMh0zKSzq+Ex7
-         wifg==
-X-Gm-Message-State: ANoB5pkzsWDYZ1eF91q7QCcyi8kH96/QZogadQtA2jsU6c/sVKpiujNm
-	ip1OC8lkixjPzxJ5qHyz6swa+Q==
-X-Google-Smtp-Source: AA0mqf70unPfwc4AqZklJ4TK7P8phujtuTUWFR4aVjNeYQN4uWVpaaiuo2HgNhD5LaSrEbZsol3YIQ==
-X-Received: by 2002:a05:6402:505:b0:46b:aa:856a with SMTP id m5-20020a056402050500b0046b00aa856amr20078382edv.171.1669886090590;
-        Thu, 01 Dec 2022 01:14:50 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id k2-20020a17090632c200b0078db18d7972sm1511405ejk.117.2022.12.01.01.14.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 01:14:50 -0800 (PST)
-Date: Thu, 1 Dec 2022 10:14:49 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>, aou@eecs.berkeley.edu,
-	corbet@lwn.net, guoren@kernel.org, heiko@sntech.de,
-	paul.walmsley@sifive.com, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v1 3/3] Documentation: riscv: add a section about ISA
- string ordering in /proc/cpuinfo
-Message-ID: <20221201091449.q5zyfb2ubsnh6slt@kamzik>
-References: <20221130234125.2722364-1-conor@kernel.org>
- <20221130234125.2722364-4-conor@kernel.org>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MkZOQIDhzz/ZdyYHDjJhV18ycZ3HPCl9kL7HnUmPXkQ=;
+        b=oiISnWyQ9PieGXIsx/hoEDsM3cAen71qMKd/sHGDx1+i8e5mAdsUG5GS1ha4PSSiny
+         i7SpOs9QPCTSvGCELr9Wbyq3rjC3ZlaMpKLJjGsiTfgLR4vBoJ6z1E1+bAo54ApbVkpD
+         EODQddNjKHc+R/sAY+5dpoYEQL1yrrUU2rj3AzRWODD7C2MTYNiv5PDOJKK+wfQWIXHM
+         d02gpKmxZ5hXPTN4hxXFcj9ZS8F39+NmTk40t8Z0P+srF61LfY+ZMytdreSyZWOPhHks
+         u39pEITqduPeOLo7iCshc9p50rVuCRKcCU9A7InK66MOz+iAdRkUAoEkp2HKWkp9ZLU6
+         mBUQ==
+X-Gm-Message-State: ANoB5plg4q7BOlr4SH3w2p1Y6Bz/sFCRDjb6p8zBLflXNvvuA52ZsG8F
+	xQkHvCbSBu5KJbaWTw6ce/HGcg==
+X-Google-Smtp-Source: AA0mqf77KMFzjUsPmsFTBJD399USjthemEkZFhPHTyRnqjwDfIM4he7MzkqgIlD6tJlChwLNCC/jKQ==
+X-Received: by 2002:a19:6b1a:0:b0:4b4:3313:feaf with SMTP id d26-20020a196b1a000000b004b43313feafmr21542327lfa.365.1669886849819;
+        Thu, 01 Dec 2022 01:27:29 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id a25-20020a056512201900b004b4e9580b1asm589093lfb.66.2022.12.01.01.27.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Dec 2022 01:27:28 -0800 (PST)
+Message-ID: <2886dd64-435d-1cdb-168d-5851c37dc538@linaro.org>
+Date: Thu, 1 Dec 2022 10:27:26 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221130234125.2722364-4-conor@kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH 5/6] dt-bindings: crypto: Add bindings for Starfive crypto
+ driver
+Content-Language: en-US
+To: JiaJie Ho <jiajie.ho@starfivetech.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S . Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+ <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
+ <8a8f502e-e0ed-d638-0b56-74edcbca2134@linaro.org>
+ <aa388c8c99b74436ad556aeb47a5c60a@EXMBX068.cuchost.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <aa388c8c99b74436ad556aeb47a5c60a@EXMBX068.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_011454_577865_8E4AACF4 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20221201_012734_673205_F7B1D12C 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,97 +102,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 11:41:26PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On 01/12/2022 10:01, JiaJie Ho wrote:
+
+>>> +
+>>> +  enable-side-channel-mitigation:
+>>> +    description: Enable side-channel-mitigation feature for AES module.
+>>> +        Enabling this feature will affect the speed performance of
+>>> +        crypto engine.
+>>> +    type: boolean
+>>
+>> Why exactly this is a hardware (DT) property, not runtime?
+>>
 > 
-> The RISC-V specs are permissive in what they allow as the ISA string,
-> but how we output this to userspace in /proc/cpuinfo is quasi uAPI.
+> This is a hardware setting provided in StarFive crypto engine only.
+> The crypto API doesn't control this setting during runtime and leaving this always on will impact speed performance.
+> So, I added this property to allow user to control this in dtb.
 
-uABI
+Devicetree should not describe policies, so without justification it
+does not look like hardware property. Drop.
 
-> 
-> Formalise this as part of the uAPI, by documenting the list of rules
 
-uABI
+Best regards,
+Krzysztof
 
-> we use at this point in time.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> I've not "tested" these docs. The NIPA-esque pwbot should go and
-> test it AFAICT. If it doesn't, I'll go add that.
-> ---
->  Documentation/riscv/uabi.rst | 42 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
-> 
-> diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
-> index 21a82cfb6c4d..bc3c8ced644b 100644
-> --- a/Documentation/riscv/uabi.rst
-> +++ b/Documentation/riscv/uabi.rst
-> @@ -3,4 +3,46 @@
->  RISC-V Linux User ABI
->  =====================
->  
-> +Misaligned accesses
-> +-------------------
-> +
->  Misaligned accesses are supported in userspace, but they may perform poorly.
-> +
-> +ISA string ordering in /proc/cpuinfo
-> +------------------------------------
-> +
-> +The canonical order of ISA extension names in the ISA string is defined in
-> +chapter 27 of the unprivileged specification.
-> +The specification uses vague wording, such as should, when it comes to
-> +ordering, so for our purposes the following rules apply:
-> +
-> +#. Single-letter extensions come first, in "canonical order", so
-> +   "IMAFDQLCBKJTPVH".
-> +
-> +#. All multi-letter extensions will be separated from other multi-letter
-> +   extensions by an underscore.
-> +
-> +#. Additional standard extensions (starting with 'Z') will be sorted after
-> +   single-letter extensions and before any higher-privileged extensions.
-> +
-> +#. The first letter following the 'Z' conventionally indicates the most
-> +   closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-> +   If multiple 'Z' extensions are named, they should be ordered first by
-> +   category, then alphabetically within a category.
-> +
-> +#. Standard supervisor-level extensions (starting with 'S') will be listed
-> +   after standard unprivileged extensions.  If multiple
-
-nit: Seems like a short line, at what character are we required to wrap at
-in this file?
-
-> +   supervisor-level extensions are listed, they will be ordered
-> +   alphabetically.
-> +
-> +#. Standard machine-level extensions (starting with 'Zxm') will be listed
-> +   after any lower-privileged, standard extensions.  If multiple
-> +   machine-level extensions are listed, they will be ordered
-> +   alphabetically.
-> +
-> +#. Non-standard extensions (starts with 'X') will be listed after all
-> +   standard extensions.
-> +
-> +An example string following the order is:
-> +   rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> +
-> -- 
-> 2.38.1
->
-
-If this uABI hasn't "shipped" yet, giving us the freedom to discuss it
-more, then I'd prefer we don't publish this (which looks like "shipping"
-it) until we're 100% sure that this is the uABI we want.
-
-(I feel like if we can still change the order in proc, as the previous
-patch did, then we haven't yet shipped it.)
-
-Thanks,
-drew
 
 _______________________________________________
 linux-riscv mailing list
