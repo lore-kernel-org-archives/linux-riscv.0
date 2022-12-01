@@ -4,85 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7D9C43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 15:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AD73C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 15:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Xem0OW5rMKYG7ayhLTyWUu3Bi4cy/J7+O4pE7paKce0=; b=FYqXWS6BlMczC9
-	cSiV34l8KhR86S3e45zldjUNEwQ5JawOc1FCkZPdevN3AFQFQfPbNJ6zvOljziFW0iF8CA2Bodnjw
-	3bPJLLusa0l469lsou5Py6LwKcUbDMWKVOQiEvYQLrrv19AvOdK3MPDxuYR6mNrfQxsbu03hwTB+m
-	7tQUTeLVu+29PObU459im+rb6ioLu7bD+u/PXUmoSGSfAkMSfcIa/Jt61qwH/svauh3T3UFUHysMJ
-	8xy5MoiPoIl3YFW8Gt8RJB5KjuV3Qjf1RmFTpvxY+hVndBjjkpfW3nyyQ8kaR7jpthqoRbfogEyeP
-	lMLEQ14VFgEK9I7Z6ZEA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yKh+8EJbX3PGEX1NBszzFCd4ZN6PBKVcGXL9h124NgU=; b=HO+mKfCdD0Ngc4
+	a8Yh7D0UXJLvH/2JK1iITVkv+1qRTV71V7+bGgh/xT3l9GHNMRrhhuJQcQnYNSjoGxE3qKHDfYbt1
+	aQfn4hpS8k396HL4ea99FbxxiEGvHIJAsJgbWzyJA6O+XmUaCRvy0xFAwmk1Yqk5CDQW7FXn+MdId
+	OH1oHgHDKQJp0DMvQ0GJRg63QLRd6pVTYE2eElEVSZ9v5SlAmuk/5xQitQ5xwXSsWaRC7j/u7abfU
+	Aq8JHmpoGCAHE7jlpXad0Ixkz96D8GYE0VDAFuNjGbFpn3bGcWC/6e4Pv/DCCs5T+ZRINkOIHkjnx
+	fctg6sx2xGfb2zmE8eHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0lGJ-0089Co-1D; Thu, 01 Dec 2022 15:14:07 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1p0lOr-008Bg6-9C; Thu, 01 Dec 2022 15:22:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0lGF-0089B1-R1
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 15:14:05 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id c15so2114214pfb.13
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 07:14:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/er6mpZXuoOXiwjII93qCAD0DwhwK6TrNP8twH3ex9c=;
-        b=Wh42ilCrtHogvmaFxBSyOZkt9nk1GMDPGzbrMCvJqS4LX9nGXWV3BTsxxgqqX4pNDW
-         pzZzVVkViYwtb3woFOL2sBIEQ+xa3ceXjzFC77TfjktFqbm8tjMuyDWjs2DHyrtFKSZX
-         esfCXo1cepoNbyjO0//ov0aSQradFf0ofVzZpSjkP7Ft+cWCcJGanQJQuZ/9DCTQQeT+
-         YdULKrVNJYFTrPeWP9Bh/YEIg7Kd4sFE/zTVECh5GbQZ5ZjQM/jEU7FOJYWJ6fB2vKlv
-         i3RluPWBAC7jx9ZuPMtYgRF5wHnCs/iD5pRboq/U8la8UIKoSiQWUclbYNEhOF8XqjGj
-         yASA==
+	id 1p0lOo-008Bd1-Nq
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 15:22:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1669908172;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0uolOOp7yoOC/673O4rWJ2SQim3eJ9tGJUopqkFhibc=;
+	b=B+Uzk/aU+G0kyeVnZME32d4YN4l7sLEVdy7VP6JuIJVqdFtpi6L4u9AR4foUS4yhJn04ji
+	IbCpdEjCFiv/Ox5p9ri3H0diiVKuINuS06MGQTlm7eAeA92w2eMUUp1TObuZXodswa8hnv
+	xYmqwHPcu0DVGFsFXIzPOza1/s2AbEU=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
+ us-mta-349--JZEZbCOOACgCmKlAJHwRw-1; Thu, 01 Dec 2022 10:22:51 -0500
+X-MC-Unique: -JZEZbCOOACgCmKlAJHwRw-1
+Received: by mail-wr1-f71.google.com with SMTP id t12-20020adfa2cc000000b0022adcbb248bso509852wra.1
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 07:22:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/er6mpZXuoOXiwjII93qCAD0DwhwK6TrNP8twH3ex9c=;
-        b=tK24qLk1bRMy8U57LFXnD4YynS67enQFPF5K+6MKP/1mIk/yAaubzzlxj4CaIKPue0
-         ouU6y3S2iXhz5yezWhctReOFaPN9uRQ6Dn7tLVaDHot4LagARloWeiaJDVPVOLvioodt
-         j0udeZqAXvsrckznTvdyItBNhieJpeTxcMBekYGVR0bB+qi9ObZWFhBVyZfziTdz/RQk
-         G2J4fV228SBxioZO6T9qQqIbWgXZpX7UNNOmOSOxByn4uulMpSuUgKbHL3Xe2WoFG0Sf
-         7Bdg32Jdcz90CCOcUTnGUdCUt1c1M5lAUzAUx2N5t8A9Q3ghx4kE+8lhpAdTDzrt8Nps
-         +pwQ==
-X-Gm-Message-State: ANoB5plfS+aYUeEXCEhS2c9BPHoLtX7dflhzEBYCj+PXOTLx9NsnOLVU
-	1tkoQLk8N+xeLdvjfo9blzg=
-X-Google-Smtp-Source: AA0mqf4wg1LApXKzAVVBhTOwJDdWKh84yT8AM7iTreutx1Uu7x2S5xSi20wRnhDAkZVcxljrbKbMaw==
-X-Received: by 2002:a63:6742:0:b0:478:538a:8d1b with SMTP id b63-20020a636742000000b00478538a8d1bmr9700251pgc.140.1669907639530;
-        Thu, 01 Dec 2022 07:13:59 -0800 (PST)
-Received: from localhost.localdomain ([112.2.230.25])
-        by smtp.gmail.com with ESMTPSA id z32-20020a17090a6d2300b002190eabb890sm4996174pjj.25.2022.12.01.07.13.54
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=0uolOOp7yoOC/673O4rWJ2SQim3eJ9tGJUopqkFhibc=;
+        b=JIIXSclDaagMW84BqroX34PcJPs+F+s3ZYNNl1dimoZSTrp6mNJ/rrTSos9hJqVbE0
+         CuidO9gEFKR/PblZXZDFLEssGY+DHOpdL+wskUA/z9iSREOhtWIXw2/TO/92+BHCIGOW
+         jGXxHRuq6QzVwIbsZjfc0rXYmXBYpm4IUqCwro9SlSbzmwcsSk4iuLBjQq0ErXV0Bu8q
+         KeBMM9LP5RiGpRtcCkZloVYrAQILpEPDfIeYoWid2JkHnhRQKrWWc4HbGwgqQNQA6Lqn
+         Vwcv6gsZZ73f7qrT/aEqBTR7XS6aCS9JEbuAQjAicPyTDLNNwU+sbJ9C+HPDNmSLLloq
+         DzCw==
+X-Gm-Message-State: ANoB5plyRiQctnVFI8Q70IGSOGfnVuMnfL2wmAb8YaFgtgyxKKcJGx/G
+	vfoa+CZlQCzyLu7v75PpsyVjBms7iqzsnpF+MxvHWne0uAjwyr5OLzVAn/66BoIDGQNlZy/E0u0
+	N4YnhyB65zfWQ4jYlHC/BO7eY6ZPb
+X-Received: by 2002:adf:f54e:0:b0:242:1534:7b57 with SMTP id j14-20020adff54e000000b0024215347b57mr14035647wrp.404.1669908170128;
+        Thu, 01 Dec 2022 07:22:50 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf4+3YusiSWHR13O3MACnIQbSphop/g7AmmIFME21D1fv2+5ZYUMJJrVIeLUQmj0nQTJeAmHuA==
+X-Received: by 2002:adf:f54e:0:b0:242:1534:7b57 with SMTP id j14-20020adff54e000000b0024215347b57mr14035606wrp.404.1669908169821;
+        Thu, 01 Dec 2022 07:22:49 -0800 (PST)
+Received: from ovpn-194-141.brq.redhat.com (nat-2.ign.cz. [91.219.240.2])
+        by smtp.gmail.com with ESMTPSA id j11-20020a05600c190b00b003b47e75b401sm10593279wmq.37.2022.12.01.07.22.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 07:13:59 -0800 (PST)
-From: Song Shuai <suagrfillet@gmail.com>
-To: guoren@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	apatel@ventanamicro.com,
-	atishp@atishpatra.org,
-	heiko@sntech.de,
-	anshuman.khandual@arm.com,
-	suagrfillet@gmail.com,
-	liaochang1@huawei.com,
-	juerg.haefliger@canonical.com,
-	wangkefeng.wang@huawei.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] riscv : select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-Date: Thu,  1 Dec 2022 23:13:36 +0800
-Message-Id: <20221201151336.8044-1-suagrfillet@gmail.com>
-X-Mailer: git-send-email 2.20.1
+        Thu, 01 Dec 2022 07:22:49 -0800 (PST)
+From: Vitaly Kuznetsov <vkuznets@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Atish Patra
+ <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, Yuan Yao
+ <yuan.yao@intel.com>, Cornelia Huck <cohuck@redhat.com>, Isaku Yamahata
+ <isaku.yamahata@intel.com>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?=
+ <philmd@linaro.org>,
+ Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao
+ <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Paolo Bonzini
+ <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, Matthew Rosato
+ <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, Sean
+ Christopherson <seanjc@google.com>, David Woodhouse <dwmw2@infradead.org>,
+ Paul Durrant <paul@xen.org>
+Subject: Re: [PATCH v2 12/50] KVM: VMX: Move Hyper-V eVMCS initialization to
+ helper
+In-Reply-To: <20221130230934.1014142-13-seanjc@google.com>
+References: <20221130230934.1014142-1-seanjc@google.com>
+ <20221130230934.1014142-13-seanjc@google.com>
+Date: Thu, 01 Dec 2022 16:22:45 +0100
+Message-ID: <87k03bf8sa.fsf@ovpn-194-141.brq.redhat.com>
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_071403_928162_5E2BFB26 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221201_072254_883895_7EC3F101 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,37 +120,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In RISC-V, -fpatchable-function-entry option is used to support
-dynamic ftrace in this commit afc76b8b8011 ("riscv: Using
-PATCHABLE_FUNCTION_ENTRY instead of MCOUNT"). So recordmcount
-don't have to be called to create the __mcount_loc section before
-the vmlinux linking.
+Sean Christopherson <seanjc@google.com> writes:
 
-Here selects FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY to tell
-Makefile not to run recordmcount.
+> Move Hyper-V's eVMCS initialization to a dedicated helper to clean up
+> vmx_init(), and add a comment to call out that the Hyper-V init code
+> doesn't need to be unwound if vmx_init() ultimately fails.
+>
+> No functional change intended.
+>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/vmx.c | 73 +++++++++++++++++++++++++-----------------
+>  1 file changed, 43 insertions(+), 30 deletions(-)
+>
+> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+> index c0de7160700b..b8bf95b9710d 100644
+> --- a/arch/x86/kvm/vmx/vmx.c
+> +++ b/arch/x86/kvm/vmx/vmx.c
+> @@ -523,6 +523,8 @@ static inline void vmx_segment_cache_clear(struct vcpu_vmx *vmx)
+>  static unsigned long host_idt_base;
+>  
+>  #if IS_ENABLED(CONFIG_HYPERV)
+> +static struct kvm_x86_ops vmx_x86_ops __initdata;
+> +
+>  static bool __read_mostly enlightened_vmcs = true;
+>  module_param(enlightened_vmcs, bool, 0444);
+>  
+> @@ -551,6 +553,43 @@ static int hv_enable_l2_tlb_flush(struct kvm_vcpu *vcpu)
+>  	return 0;
+>  }
+>  
+> +static __init void hv_init_evmcs(void)
+> +{
+> +	int cpu;
+> +
+> +	if (!enlightened_vmcs)
+> +		return;
+> +
+> +	/*
+> +	 * Enlightened VMCS usage should be recommended and the host needs
+> +	 * to support eVMCS v1 or above.
+> +	 */
+> +	if (ms_hyperv.hints & HV_X64_ENLIGHTENED_VMCS_RECOMMENDED &&
+> +	    (ms_hyperv.nested_features & HV_X64_ENLIGHTENED_VMCS_VERSION) >=
+> +	     KVM_EVMCS_VERSION) {
+> +
+> +		/* Check that we have assist pages on all online CPUs */
+> +		for_each_online_cpu(cpu) {
+> +			if (!hv_get_vp_assist_page(cpu)) {
+> +				enlightened_vmcs = false;
+> +				break;
+> +			}
+> +		}
+> +
+> +		if (enlightened_vmcs) {
+> +			pr_info("KVM: vmx: using Hyper-V Enlightened VMCS\n");
+> +			static_branch_enable(&enable_evmcs);
+> +		}
+> +
+> +		if (ms_hyperv.nested_features & HV_X64_NESTED_DIRECT_FLUSH)
+> +			vmx_x86_ops.enable_l2_tlb_flush
+> +				= hv_enable_l2_tlb_flush;
+> +
+> +	} else {
+> +		enlightened_vmcs = false;
+> +	}
+> +}
+> +
+>  static void hv_reset_evmcs(void)
+>  {
+>  	struct hv_vp_assist_page *vp_ap;
+> @@ -577,6 +616,7 @@ static void hv_reset_evmcs(void)
+>  }
+>  
+>  #else /* IS_ENABLED(CONFIG_HYPERV) */
+> +static void hv_init_evmcs(void) {}
+>  static void hv_reset_evmcs(void) {}
+>  #endif /* IS_ENABLED(CONFIG_HYPERV) */
+>  
+> @@ -8500,38 +8540,11 @@ static int __init vmx_init(void)
+>  {
+>  	int r, cpu;
+>  
+> -#if IS_ENABLED(CONFIG_HYPERV)
+>  	/*
+> -	 * Enlightened VMCS usage should be recommended and the host needs
+> -	 * to support eVMCS v1 or above. We can also disable eVMCS support
+> -	 * with module parameter.
+> +	 * Note, hv_init_evmcs() touches only VMX knobs, i.e. there's nothing
+> +	 * to unwind if a later step fails.
+>  	 */
+> -	if (enlightened_vmcs &&
+> -	    ms_hyperv.hints & HV_X64_ENLIGHTENED_VMCS_RECOMMENDED &&
+> -	    (ms_hyperv.nested_features & HV_X64_ENLIGHTENED_VMCS_VERSION) >=
+> -	    KVM_EVMCS_VERSION) {
+> -
+> -		/* Check that we have assist pages on all online CPUs */
+> -		for_each_online_cpu(cpu) {
+> -			if (!hv_get_vp_assist_page(cpu)) {
+> -				enlightened_vmcs = false;
+> -				break;
+> -			}
+> -		}
+> -
+> -		if (enlightened_vmcs) {
+> -			pr_info("KVM: vmx: using Hyper-V Enlightened VMCS\n");
+> -			static_branch_enable(&enable_evmcs);
+> -		}
+> -
+> -		if (ms_hyperv.nested_features & HV_X64_NESTED_DIRECT_FLUSH)
+> -			vmx_x86_ops.enable_l2_tlb_flush
+> -				= hv_enable_l2_tlb_flush;
+> -
+> -	} else {
+> -		enlightened_vmcs = false;
+> -	}
+> -#endif
+> +	hv_init_evmcs();
+>  
+>  	r = kvm_init(&vmx_init_ops, sizeof(struct vcpu_vmx),
+>  		     __alignof__(struct vcpu_vmx), THIS_MODULE);
 
-Link_v1: https://lore.kernel.org/linux-riscv/CAAYs2=j3Eak9vU6xbAw0zPuoh00rh8v5C2U3fePkokZFibWs2g@mail.gmail.com/T/#t
-Link_v2: https://lore.kernel.org/linux-riscv/CAAYs2=iYn8sLQB8oh+RzTKd2VKs8MXOLX6Mwpamx5gdVVN6mkA@mail.gmail.com/T/#m62138d7a76664798d00051818a438a601eff4cf1
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Tested-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Vitaly Kuznetsov <vkuznets@redhat.com>
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 572973103d73..c19cddb8feb9 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -277,6 +277,7 @@ config ARCH_RV64I
- 	select 64BIT
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
-+	select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if DYNAMIC_FTRACE
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 	select HAVE_SAMPLE_FTRACE_DIRECT
 -- 
-2.20.1
+Vitaly
 
 
 _______________________________________________
