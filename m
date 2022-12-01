@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E97C43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625E4C4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l7DuCvl7uuZOJXrwRTNHAPsrlwB8gyX+f7cBSSMfBxY=; b=jLgfQD2ZkR5XMj
-	1WAAziXyuoUWTsM5bethbbmrHMSP9z3I4TZkmgNy8BBxejoYdv1eEzfbHB0tAHqdlrqaQSwpJMZr6
-	kUcmSJbf94zfifbA6+C15LG4xwPZ3zi2fqaUMOJddVz2dOxiS9ljB4xVqYx5RODIbP63zX8u0vqRX
-	UmIN1D/6iHon2wDWmImbAhjhllkEi8IkJeYpr1ytgSaJfssfMq2UrhxZxqomsW3qUpFw7rCUsrPrs
-	/IruLuFAakkKvaJgnb+Fv5+Lx6aJOFGSy4JZmxpwMRnBegHZISqoHyodnWKWdEbxZxTY+ulWfBrnA
-	rGm8HmYZL40SL7lrj1yg==;
+	List-Owner; bh=utb7nAMiabjA406iDrmbzdRnku18xRU75wvfnG+gsRA=; b=YrVRAPWBxSIR5A
+	qD0XiKmZ9DxE+MH6Oie+O6RxAC2sWqRuFv3//V5dS2OK5aC0+nnDk1JvUDc9r5YXipWFivrfWJRBg
+	22Vq47jXfY9k3wZJTjEhglT4Qfvmy952D1G9OQQM9OZVONYBGWAr+BLQRvMpuLpLDBFTCOQUQejHM
+	his4SVEiMQpcfb2PPcWOmYfcgiT1TollXrjX2zgDhdHlz183fxM3lgMkwPVu/S43atZH7fwKAKcFR
+	CFk3qtXh2XyqhIc3tObGTEhOLayKgqVo/zABC4qIajSkAqJ7HWwZ5KJ8d8QLNPTMLWbGEXF2QLBPB
+	4rsJWxDRQLDwPtmzJz6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0hNT-006vA9-G0; Thu, 01 Dec 2022 11:05:15 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1p0hUc-006yfS-9q; Thu, 01 Dec 2022 11:12:38 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0hNN-006v6g-SK
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:05:14 +0000
-Received: by mail-lf1-x130.google.com with SMTP id f21so1048292lfm.9
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 03:05:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XJ+12nfyyTkgnpRxkhSczeW684U0Z3MyPpVBPUH63N4=;
-        b=Pq3N/E3XVx4A+B6KaT7zATRc1xex4JEnlIeXASyXQwFiVfrDUYfA3LvfpILF8VzKpV
-         nLihd5WxJLL6XeWFqCxhGGtuZCFRsDFq2VYSgQQoWxwZBwtVCHzYqRoLEoVXfBE5pBvW
-         iy0kgt5+lptF0dQuw5bvFrVMZVIc+yVF7MLcUz9u/FB7DpoGBFGXGnZQmGv8Exw9Tl83
-         H6u0kpC0Bs0Vspxe2O4AedRQhUGkKY4fq6F50gee2r/bUQ7X0kWm4Fle8VZHS4vm8zpk
-         B2cYeN9tDPwGNV/gmu3GFRSHSB1EyJo1s6WCJMPwx/MKKAiur1dFrSLa69D5fAL18pAu
-         m6mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XJ+12nfyyTkgnpRxkhSczeW684U0Z3MyPpVBPUH63N4=;
-        b=Hj7c6Clg6M323kFVKJuQ022hJ6pLa3ENrk7omOWsinUIU6dM+wmn1LzUVUGs2crwKO
-         aPduebMTdlvAXI3DIUv1uhATOhqgdheQwxwsAo3w677kc7Lu18Nv/sppBLyjo6qsMH15
-         Jk/WEdzmMX/CglvG0XwLHURUjEu69c6E0Aoxw+HeP6FwJBQ4UFDbNko2+OzdtvbVaJwd
-         xcQRnt81sgwyJz0nEyeCY40qjv73VBLciBTokeyjt7WlatC+J4QETeWBj1anr+JfT9we
-         owy2134sZoFG479XPt0V86XK/yjWXU8CAC4PxNDQ6wtNMhH5ls0NxY+DKlKVUQGQD6Lz
-         f6rQ==
-X-Gm-Message-State: ANoB5pmltxMoDUQSVc1gE6ZAvyujC8ebHlpVFcmnc9ek5q2CJDR7YLkD
-	uog+7pS27mECzqkfizWQ8JgZ2Q==
-X-Google-Smtp-Source: AA0mqf5bNGiLehJjFTNkoSES7AUznPLQmpDmBmFmia/T8Abr14CJG2m8TfKNIbFLa5VW4x8mY6YbsQ==
-X-Received: by 2002:a05:6512:258a:b0:4a2:27f0:46a5 with SMTP id bf10-20020a056512258a00b004a227f046a5mr18154806lfb.611.1669892706811;
-        Thu, 01 Dec 2022 03:05:06 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id cf17-20020a056512281100b00492f0f66956sm611237lfb.284.2022.12.01.03.05.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Dec 2022 03:05:06 -0800 (PST)
-Message-ID: <60991459-945f-35db-f26a-fb27824728ad@linaro.org>
-Date: Thu, 1 Dec 2022 12:05:04 +0100
+	id 1p0hUS-006yYM-Bw; Thu, 01 Dec 2022 11:12:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669893148; x=1701429148;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=oqwp1prmygFipaS7+KydzauQtsm23Yws4T/2+sBogyI=;
+  b=riUR8tErQKZFZIyCxW8RmecrzsRsQUlVi1qxefFltVZYsFJliNRovVAQ
+   MNvuyhl5LcQ9AX5w7ZoSxSxuxYVXGZn1eLp3ezNMpJGdhcaP85GGuqSOS
+   i/hYBw/4AHv9ixTclMTVwoajd10EjQxA1zd86Bw5GHKiwDPEYfYDP4ssI
+   Ozk0t3tr4V7lz4XJwcIrOygoDGz/XFbFyX8tS0a4UkjxmjediSEF8tWnQ
+   VOIhEf3/URMek9i4IBaWfQWq1eP/E+FHZW1SvQeKuifyifL4V6eqUO/0q
+   NULMKVK8t3FNTFfV6m+TGdqXZYtfkHdkLoM7ovNAITULzl9zp3PRp3g+A
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,209,1665471600"; 
+   d="scan'208";a="202161679"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Dec 2022 04:12:19 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 1 Dec 2022 04:12:19 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Thu, 1 Dec 2022 04:12:10 -0700
+Date: Thu, 1 Dec 2022 11:11:51 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+CC: Thierry Reding <thierry.reding@gmail.com>, Linus Walleij
+	<linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Douglas
+ Anderson" <dianders@chromium.org>, Pavel Machek <pavel@ucw.cz>, Claudiu
+ Beznea <claudiu.beznea@microchip.com>, Nicolas Ferre
+	<nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>, Ray Jui <rjui@broadcom.com>, Scott Branden
+	<sbranden@broadcom.com>, "Broadcom internal kernel review list"
+	<bcm-kernel-feedback-list@broadcom.com>, Benson Leung <bleung@chromium.org>,
+	Guenter Roeck <groeck@chromium.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "NXP Linux Team"
+	<linux-imx@nxp.com>, Kevin Hilman <khilman@baylibre.com>, "Jerome Brunet"
+	<jbrunet@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, Florian Fainelli <f.fainelli@gmail.com>, "Heiko
+ Stuebner" <heiko@sntech.de>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Michael Walle <michael@walle.cc>,
+	"Orson Zhai" <orsonzhai@gmail.com>, Baolin Wang
+	<baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Hammer
+ Hsieh <hammerh0314@gmail.com>, Nobuhiro Iwamatsu
+	<nobuhiro1.iwamatsu@toshiba.co.jp>, Sean Anderson <sean.anderson@seco.com>,
+	Michal Simek <michal.simek@xilinx.com>, Bjorn Andersson
+	<andersson@kernel.org>, Stephen Boyd <swboyd@chromium.org>, Matthias Kaehlcke
+	<mka@chromium.org>, Satya Priya <quic_c_skakit@quicinc.com>,
+	<linux-pwm@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-leds@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <chrome-platform@lists.linux.dev>,
+	<linux-amlogic@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-rpi-kernel@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>
+Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
+Message-ID: <Y4iL9xf5bJM5pyeR@wendy>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.0
-Subject: Re: [PATCH v2 5/9] dt-bindings: riscv: Add bouffalolab bl808 board
- compatibles
-Content-Language: en-US
-To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
- Conor Dooley <conor@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
-References: <20221127132448.4034-1-jszhang@kernel.org>
- <20221127132448.4034-6-jszhang@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221127132448.4034-6-jszhang@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_030509_992839_8D17F5DB 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20221201_031228_456121_2E5A5586 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,61 +108,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2022 14:24, Jisheng Zhang wrote:
-> Several SoMs and boards are available that feature the Bouffalolab
-> bl808 SoC. Document the compatible strings.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  .../bindings/riscv/bouffalolab.yaml           | 34 +++++++++++++++++++
->  1 file changed, 34 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/bouffalolab.yaml b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> new file mode 100644
-> index 000000000000..91ca9dbdc798
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> @@ -0,0 +1,34 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/bouffalolab.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Bouffalo Lab Technology SoC-based boards
-> +
-> +maintainers:
-> +  - Jisheng Zhang <jszhang@kernel.org>
-> +
-> +description:
-> +  Bouffalo Lab Technology SoC-based boards
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - description: Sipeed M1s SoM:
-> +        items:
-> +          - const: sipeed,m1s
-> +          - const: bouffalolab,bl808
+Hey Uwe!
 
-I don't think that SoM is usable alone. It always needs a carrier, so
-drop this entry.
+On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
+> Hello,
+> =
 
-Please run `make dt_binding_check` (see
-Documentation/devicetree/bindings/writing-schema.rst for instructions).
+> I forgot about this series and was remembered when I talked to Conor
+> Dooley about how .get_state() should behave in an error case.
 
+In the context of "my" driver, get_state() the proposal was to fail with
+-ETIMEDOUT rather than block a caller, potentially, for seconds or
+report a potentially "random" state.
 
+Specifically, values writen to the registers that control the PWM duty
+cycle are not visible to the cpu until the changes have propagated to
+the waveform at the start of a new period.
+The timeout would occur if the bit that signifies that the "shadow
+registers" contain a value which has not yet propagated. This bit is
+per PWM "controller" and not per PWM channel.
 
-Best regards,
-Krzysztof
+Returning from apply() without waiting, possibly for seconds, for the
+writes to become visible could cause get_state() to see anything between
+the new and old states, inclusive!
+
+If anyone cares at all, the discussion is here:
+https://lore.kernel.org/linux-pwm/20221110093512.333881-1-conor.dooley@micr=
+ochip.com/T/#m800eeabad29067940a5684e54106fd0bb7261944
+
+> In v1 Thierry had the concern:
+> =
+
+> | That raises the question about what to do in these cases. If we return
+> | an error, that could potentially throw off consumers. So perhaps the
+> | closest would be to return a disabled PWM?
+> | Or perhaps it'd be up to the
+> | consumer to provide some fallback configuration for invalidly configured
+> | or unconfigured PWMs.
+> =
+
+> .get_state() is only called in pwm_device_request on a pwm_state that a
+> consumer might see. Before my series a consumer might have seen a
+> partial modified pwm_state (because .get_state() might have modified
+> .period, then stumbled and returned silently). The last patch ensures
+> that this partial modification isn't given out to the consumer. Instead
+> they now see the same as if .get_state wasn't implemented at all.
+
+Getting the same thing as if get_state() did not exist seems
+preferable to me in this context than "lying" and pretending that a PWM
+is disabled or potentially inconsistent reports from get_state() that I
+mentioned above.
+
+TL;DR, I quite like the ability to return an error and not mislead the
+caller.
+
+Thanks for sending a v2 of this so quickly :)
+Conor.
 
 
 _______________________________________________
