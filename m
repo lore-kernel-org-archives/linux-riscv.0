@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F361C47088
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 19:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCD8C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 19:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8nLMHSWcEfKIy88NMsKs1yGWuU7Bs8s9bkJOLtliFhs=; b=GEhYyXK0qwWecn
-	P2N4fX410CxmlPQqLS0mxjRsfNhTiHqfo4k48YaA8dxYnXZ1PfSOdGXzrzE+YlYmOCbS27SraLj8E
-	fhWejyT6E8jCWjqpFFCkW5xw7hNf6dQ7kBNvDRE11DngeQDeA29malK/emjplZxWUDEfT9GPUKdsv
-	aM8DHBYZYzGhvaFzlWqNdnPhaD1KbBEZArvmxeQgTXxowdkPVe6l/OAeddD42S1t5wE8l2C86nWP1
-	B6UxWBPfzo2K3bzDVyit2Mr86dnt99Zen3NvzTPJtD0eqOThIDAtL1ZjlKtyDg54wVogpKXV4D5BR
-	sr7/eSE0WcQkhdQmoAcg==;
+	List-Owner; bh=4HwHP5gRRa1Hg9m4XQKTfk7TOhai5FliBK7XtxMEyZ0=; b=O+tHVCAulwVYVQ
+	E3La/nmhY+0nygzbiJ+6UqhudLcM0uLj73ul5uiBX2susN7ISzcNDtzT2+3NMGLnE8TgvsQ6ugBI6
+	i3ztKtvpx9807GcEpNgISV5YL2T1vjCBBZdS8t1y5uDN78nIjyVesoIZRtiD5BXs/SSngASoeOaCY
+	IjxZ+xEKMq9ziBigxNt9zGQWRpSCj6YSv969yC1TD4SD7UB1qgCQtfGcaTG4ZpkZjeGOv4/IL+2el
+	tkuUxhW54P7VgzEY69/WVOE8Vgre2Fj+eolLMOY3ZxpPcBhReImUCsXPMc/5QOwt2vrmP/66jnyy/
+	H01FmQO7JUG8SIfAV6MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0pP1-00ATRq-Qe; Thu, 01 Dec 2022 19:39:23 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1p0pWA-00AdKl-Oa; Thu, 01 Dec 2022 19:46:46 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0pKl-00AN8E-6a
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 19:35:02 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id r26so3696039edc.10
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 11:34:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nwb0JxDESDs5mtnW7GSBzDyyT2uzkUh2LxNi22Fshms=;
-        b=joecMB3ipKXz2RuhKpefAX3tzaiSPtlNTyz7YvTkMRl+aIwcqplDkPON0gZjI79ANQ
-         jBDLjVq0t/7cz3S3dUML9lfct/BLP24Wrmh1p5yJnM4YnOkrAalVh7bcLfcI7oIvkRCd
-         6qpRm6gcmmP6YMvBQe/83vXxjkeMgsDOJYb8rxhuWj42AJlOTNF6g4TCUqmJu1w+Aykb
-         /Z+amgnpzHOj91lLcmzAqr9N6vYKac/ozQel+QJK/Z12kOZZ9Jxc8nOXbzyZG+RpB1pm
-         T0NMlTlVgwQ23lqzP7HbMOlNJQjZ3eDWezkVF09zrlD5L0RnJ9p7MrvXxdJvmpincfa5
-         IfBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nwb0JxDESDs5mtnW7GSBzDyyT2uzkUh2LxNi22Fshms=;
-        b=QeNlsQkNotVwFOh/fZARSn71gVk86sR1iNeTfGPPsDCiyZ3jm29Pfdzb8v5JNEDgzx
-         FvsRXBYiuIyWMqHyF5+QNQo166ZadfZxhjyAxYFLmj+nFSPPsQpfNFlchUDzlIKxShnw
-         WfHmHnd0LgDZAvqF/naP/R9OrWruAqHbUMYGWSA7BuYqqkjfEMsOkXIcL8cPQFnNesD9
-         +LujlD96KBm8LSs5pfUhWPNZCLaR2wIGUPpvR6NswPpSd4/cphiZLc65OU4Ko6/pJhXg
-         O65LdYLzoU7yYin7XrpedJdUx020P+mVKsFkItdJUrNbfUC6yUrKXSR55s/lSvtfH9Pb
-         rrsA==
-X-Gm-Message-State: ANoB5pkMl7xbIpueDKicqWmuuffMdCxzosWDh0KhOdPR+SosHMqEVG7s
-	H+ajfpQzJ7bzqTaieyAZ6Hrhew==
-X-Google-Smtp-Source: AA0mqf4pNR+JAwtiOHM56a2ETbcekn87d0qG8g4MgC5pBWwzXk1cR0DD7D0wjGx4WwxpAmL/8pzSrg==
-X-Received: by 2002:a05:6402:e0d:b0:466:4168:6ea7 with SMTP id h13-20020a0564020e0d00b0046641686ea7mr1391730edh.273.1669923297084;
-        Thu, 01 Dec 2022 11:34:57 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id a20-20020a17090680d400b007c081cf2d25sm2094018ejx.204.2022.12.01.11.34.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 11:34:56 -0800 (PST)
-Date: Thu, 1 Dec 2022 20:34:55 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
-	conor@kernel.org, philipp.tomsich@vrull.eu,
-	emil.renner.berthing@canonical.com, ardb@kernel.org,
-	linux-efi@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
-Message-ID: <20221201193455.2hr6mwm6sa6vnd3w@kamzik>
-References: <20221130225614.1594256-1-heiko@sntech.de>
- <20221130225614.1594256-13-heiko@sntech.de>
+	id 1p0pS7-00AXoV-2S
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 19:42:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=qHbGOUcw32092wDitkDdj/NcFV0kIbthIjQW9oIXmWU=; b=lebdUAMMbR6wv/+txOdgsXeA7U
+	4TR4n6bN4En6BtjDtifGT/jC4Jvz8O/7se6Fv58sfVBmNfYQLzdVlJTvj/tAtIdY+MiIOFdxZLNK+
+	OdCqIrxJgG0DHIieV12z+1GboXk0JEpAlwBuqjZYtTtiuRGlpBE065kNMCnr/lfBK5Rk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1p0pS3-0045jA-0Z; Thu, 01 Dec 2022 20:42:31 +0100
+Date: Thu, 1 Dec 2022 20:42:30 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Conor Dooley <conor@kernel.org>
+Cc: Yanhong Wang <yanhong.wang@starfivetech.com>,
+	linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Peter Geis <pgwipeout@gmail.com>
+Subject: Re: [PATCH v1 7/7] riscv: dts: starfive: visionfive-v2: Add phy
+ delay_chain configuration
+Message-ID: <Y4kDppmVnL3BV44Z@lunn.ch>
+References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
+ <20221201090242.2381-8-yanhong.wang@starfivetech.com>
+ <Y4jpDvXo/uj9ygLR@spud>
+ <Y4kAyAhBseNmmDo8@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221130225614.1594256-13-heiko@sntech.de>
+In-Reply-To: <Y4kAyAhBseNmmDo8@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_113459_282795_631E3C00 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20221201_114235_156168_83F8B5DA 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +80,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 11:56:12PM +0100, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+On Thu, Dec 01, 2022 at 07:30:16PM +0000, Conor Dooley wrote:
+> On Thu, Dec 01, 2022 at 05:49:08PM +0000, Conor Dooley wrote:
+> > On Thu, Dec 01, 2022 at 05:02:42PM +0800, Yanhong Wang wrote:
+> > > riscv: dts: starfive: visionfive-v2: Add phy delay_chain configuration
+> > > 
+> > > Add phy delay_chain configuration to support motorcomm phy driver for
+> > > StarFive VisionFive 2 board.
 > 
-> We may want to runtime-optimize some core functions (str*, mem*),
-> but not have this leak into libstub and cause build issues.
-> Instead libstub, for the short while it's running, should just use
-> the generic implementation.
-> 
-> So, to be able to determine whether functions, that are used both in
-> libstub and the main kernel, are getting compiled as part of libstub or
-> not, add a compile-flag we can check via #ifdef.
-> 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> ---
->  drivers/firmware/efi/libstub/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index ef5045a53ce0..777d1ab059e3 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
->  				   -fno-builtin -fpic \
->  				   $(call cc-option,-mno-single-pic-base)
->  cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> -				   -fpic
-> +				   -fpic -DRISCV_EFISTUB
->  cflags-$(CONFIG_LOONGARCH)	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
->  				   -fpie
->  
-> -- 
-> 2.35.1
->
+> nit: please re-word this commit next time around to actually say what
+> you're doing here. I didn't notice it initially, but this patch is doing
+> a lot more than adding `delay_chain` configuration. To my dwmac unaware
+> brain, there's nothing hits for that term outside of the changelog :(
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Hi Conor
+
+I suspect once we see the documentation of the binding, it will get
+rejected and implemented differently. So i would not worry too much
+about this at the moment.
+
+      Andrew
 
 _______________________________________________
 linux-riscv mailing list
