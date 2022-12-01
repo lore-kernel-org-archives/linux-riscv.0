@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6038FC352A1
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 01:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4254FC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 01:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zJ3sRErapZ/k1loEJCyLyHxQZxmtQOBEjgr0OPmmtkY=; b=QqF0eA945hPk8g
-	f/6Rpu1uYTzjuz8GgyRP1jX0nkaXvnkG+HwS11ccfNeuxkE0kVPpyVoiotw64d7UXI0ivVnbr6xJk
-	1ee8AMQllhQFhaCJqb+i1KYpKSrhoDwe/5CZKqciPGFAOVRALVOlBVfKdCEdQA23e9pAUSYK5U0VB
-	tevtBdlQYgN258bdFAG4lzaBwiR/qzWDVXSI5QuRahE1dpvtO7Ja7vc0/gUQdZoG9BatcnIT5hRLj
-	fIn+JXxYUCem4yKoXJpTn0GH6Eiw11w4fWpc0XMJD165R2r992Ht+pDZ1Dqf9+ca7I3vHFbZ0SxdV
-	W1EorIb7uGgdXJhBxcAQ==;
+	List-Owner; bh=ZLKz8BbwnvMDf03OhNDKbvSBdHYrWOpeTzvBjv+0Yz0=; b=xyZaJo3YOLJDIr
+	IpTfw/w+8ow67bxy7VDb0uLsInsI1Ozo2BBNe/ainWSdeMj4u6SqKtJ8DDFOJkoJjk8m8Ja/gx3mv
+	wy+/7QRB8UVEKrSumicsDTffq+5JElY2mPbdLvck4PrcUTSIoscpp9EqEFWltvTzSTSzMXDIDVsDz
+	00L+VjS+kdbmgITYVDr1/nCDu6gAULh3m0VhESATwDz0xhTRSK/vlOw/X96lN2wvMS5hZ0uZUQhx+
+	DA+TS7imGRPGwCNlaU+NjVi0E226ZUDuXqx5MgeK2BAXgQEzCQK9m/nSRygGEX+9qE3whY/MDSIaQ
+	2wysjf4aK5OuOQAgVhyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0YCf-003lJF-4J; Thu, 01 Dec 2022 01:17:29 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p0YCv-003lM7-HM; Thu, 01 Dec 2022 01:17:45 +0000
+Received: from out30-57.freemail.mail.aliyun.com ([115.124.30.57])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0YCb-003lID-As
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 01:17:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id C1601B81DA0
-	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 01:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C0A6C433B5
-	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 01:17:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669857442;
-	bh=myVISEgQPICcTtw6geOyGVidGo/WDYOXviUTQMLOP4c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cXNoJu2IJJDpi/bwzWorZpPEtXSV8+OWvz6fjFv3yMg5eVPYZYSNK34kFuF0Fd6t9
-	 f3hM74tktNh2XbjyxnFF6h6bNbFtmmvxvcxZ8DYri50ThnNct1wO1WO4Md36UfpMJN
-	 /NdIM4oFeIK5xWwewozQNt3uTLsXCPsAI2UddA/MquvwmcCK2ntr8uxkiGXDKh+AA1
-	 0Hu/vf1AJ8fDBXOzQEF7MzoZxEhDroSdJ32rcsDIh8ckTE9GtU/WvMI1FQEb5bFVpv
-	 3GP8yVH5+LRjUXr70BK29S+eYdTakjMFeNiGdsgrPtTwprNhTCDLIqvVWNM2x+mmQy
-	 KuItm3QwO+pdw==
-Received: by mail-ed1-f52.google.com with SMTP id b8so372063edf.11
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Nov 2022 17:17:21 -0800 (PST)
-X-Gm-Message-State: ANoB5pm0CMeaxTv8E8+2qHzNqIXa0EleDvMZtb4UX5HM5GHx15UplA1B
-	nR+2OEqpIi2Hj+mr4flC6Cx/fXSJYzkzND3LMLU=
-X-Google-Smtp-Source: AA0mqf6qW/O6MuNLq8Q3suQDIZ7MTPFUAbg0n/ut2l1kl8azfaMDA47Aj9YIvCarSXlRTn/0Tl1SYUL1HCja5jIvabE=
-X-Received: by 2002:aa7:d912:0:b0:46b:2b37:ffa9 with SMTP id
- a18-20020aa7d912000000b0046b2b37ffa9mr15191818edr.79.1669857439770; Wed, 30
- Nov 2022 17:17:19 -0800 (PST)
+	id 1p0YCp-003lJf-R1; Thu, 01 Dec 2022 01:17:42 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R251e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=baolin.wang@linux.alibaba.com;NM=1;PH=DS;RN=57;SR=0;TI=SMTPD_---0VW5-8b9_1669857445;
+Received: from 30.97.48.64(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0VW5-8b9_1669857445)
+          by smtp.aliyun-inc.com;
+          Thu, 01 Dec 2022 09:17:29 +0800
+Message-ID: <a7e61ce5-b5e6-384a-3c89-ebde63340678@linux.alibaba.com>
+Date: Thu, 1 Dec 2022 09:17:30 +0800
 MIME-Version: 1.0
-References: <CAJF2gTQ0xuJo6uzB+8SudZOFiZ2_o1sLB=Hn5XuCw6g2tXUtkQ@mail.gmail.com>
- <mhng-72408cf8-cbde-489b-9042-379b5aa8624f@palmer-ri-x1c9>
-In-Reply-To: <mhng-72408cf8-cbde-489b-9042-379b5aa8624f@palmer-ri-x1c9>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 1 Dec 2022 09:17:07 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ2=Ew76-=93WKAiLJzw+Wp4v7g=yyeeVZ5M5q88YsRLg@mail.gmail.com>
-Message-ID: <CAJF2gTQ2=Ew76-=93WKAiLJzw+Wp4v7g=yyeeVZ5M5q88YsRLg@mail.gmail.com>
-Subject: Re: [PATCH v4] riscv: fix race when vmap stack overflow
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Andrea Parri <andrea@rivosinc.com>, jszhang@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v2 01/11] pwm: Make .get_state() callback return an error
+ code
+To: =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
+ Thierry Reding <thierry.reding@gmail.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Douglas Anderson <dianders@chromium.org>,
+ Pavel Machek <pavel@ucw.cz>, Claudiu Beznea <claudiu.beznea@microchip.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Benson Leung <bleung@chromium.org>,
+ Guenter Roeck <groeck@chromium.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Michael Walle <michael@walle.cc>,
+ Orson Zhai <orsonzhai@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai
+ <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Hammer Hsieh <hammerh0314@gmail.com>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+ Sean Anderson <sean.anderson@seco.com>,
+ Michal Simek <michal.simek@xilinx.com>,
+ Bjorn Andersson <andersson@kernel.org>, Stephen Boyd <swboyd@chromium.org>,
+ Matthias Kaehlcke <mka@chromium.org>, Satya Priya
+ <quic_c_skakit@quicinc.com>, linux-pwm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+ <20221130152148.2769768-2-u.kleine-koenig@pengutronix.de>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <20221130152148.2769768-2-u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_171725_693529_8C60CBAE 
-X-CRM114-Status: GOOD (  37.75  )
+X-CRM114-CacheID: sfid-20221130_171740_087966_543CE07A 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,155 +92,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 1, 2022 at 12:54 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->
-> On Tue, 29 Nov 2022 23:15:40 PST (-0800), guoren@kernel.org wrote:
-> > The comment becomes better. Thx.
-> >
-> > On Wed, Nov 30, 2022 at 10:29 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
-> >>
-> >> From: Jisheng Zhang <jszhang@kernel.org>
-> >>
-> >> Currently, when detecting vmap stack overflow, riscv firstly switches
-> >> to the so called shadow stack, then use this shadow stack to call the
-> >> get_overflow_stack() to get the overflow stack. However, there's
-> >> a race here if two or more harts use the same shadow stack at the same
-> >> time.
-> >>
-> >> To solve this race, we introduce spin_shadow_stack atomic var, which
-> >> will be swap between its own address and 0 in atomic way, when the
-> >> var is set, it means the shadow_stack is being used; when the var
-> >> is cleared, it means the shadow_stack isn't being used.
-> >>
-> >> Fixes: 31da94c25aea ("riscv: add VMAP_STACK overflow detection")
-> >> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> >> Suggested-by: Guo Ren <guoren@kernel.org>
-> >> Reviewed-by: Guo Ren <guoren@kernel.org>
-> >> Link: https://lore.kernel.org/r/20221030124517.2370-1-jszhang@kernel.org
-> >> [Palmer: Add AQ to the swap, and also some comments.]
-> >> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> >> ---
-> >> Sorry to just re-spin this one without any warning, but I'd read patch a
-> >> few times and every time I'd managed to convice myself there was a much
-> >> simpler way of doing this.  By the time I'd figured out why that's not
-> >> the case it seemed faster to just write the comments.
-> >>
-> >> I've stashed this, right on top of the offending commit, at
-> >> palmer/riscv-fix_vmap_stack.
-> >>
-> >> Since v3:
-> >>  - Add AQ to the swap.
-> >>  - Add a bunch of comments.
-> >>
-> >> Since v2:
-> >>  - use REG_AMOSWAP
-> >>  - add comment to the purpose of smp_store_release()
-> >>
-> >> Since v1:
-> >>  - use smp_store_release directly
-> >>  - use unsigned int instead of atomic_t
-> >> ---
-> >>  arch/riscv/include/asm/asm.h |  1 +
-> >>  arch/riscv/kernel/entry.S    | 13 +++++++++++++
-> >>  arch/riscv/kernel/traps.c    | 18 ++++++++++++++++++
-> >>  3 files changed, 32 insertions(+)
-> >>
-> >> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-> >> index 618d7c5af1a2..e15a1c9f1cf8 100644
-> >> --- a/arch/riscv/include/asm/asm.h
-> >> +++ b/arch/riscv/include/asm/asm.h
-> >> @@ -23,6 +23,7 @@
-> >>  #define REG_L          __REG_SEL(ld, lw)
-> >>  #define REG_S          __REG_SEL(sd, sw)
-> >>  #define REG_SC         __REG_SEL(sc.d, sc.w)
-> >> +#define REG_AMOSWAP_AQ __REG_SEL(amoswap.d.aq, amoswap.w.aq)
-> > Below is the reason why I use the relax version here:
-> > https://lore.kernel.org/all/CAJF2gTRAEX_jQ_w5H05dyafZzHq+P5j05TJ=C+v+OL__GQam4A@mail.gmail.com/T/#u
->
-> Sorry, I hadn't seen that one.  Adding Andrea.  IMO the acquire/release
-> pair is necessary here, with just relaxed the stack stores inside the
-> lock could show up on the next hart trying to use the stack.
-Don't worry about relaxing amoswap, sp could give WAR & WAW
-dependency. You could add acquire here, just for appearance.
-
->
-> >>  #define REG_ASM                __REG_SEL(.dword, .word)
-> >>  #define SZREG          __REG_SEL(8, 4)
-> >>  #define LGREG          __REG_SEL(3, 2)
-> >> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> >> index 98f502654edd..5fdb6ba09600 100644
-> >> --- a/arch/riscv/kernel/entry.S
-> >> +++ b/arch/riscv/kernel/entry.S
-> >> @@ -387,6 +387,19 @@ handle_syscall_trace_exit:
-> >>
-> >>  #ifdef CONFIG_VMAP_STACK
-> >>  handle_kernel_stack_overflow:
-> >> +       /*
-> >> +        * Takes the psuedo-spinlock for the shadow stack, in case multiple
-> >> +        * harts are concurrently overflowing their kernel stacks.  We could
-> >> +        * store any value here, but since we're overflowing the kernel stack
-> >> +        * already we only have SP to use as a scratch register.  So we just
-> >> +        * swap in the address of the spinlock, as that's definately non-zero.
-> >> +        *
-> >> +        * Pairs with a store_release in handle_bad_stack().
-> >> +        */
-> >> +1:     la sp, spin_shadow_stack
-> >> +       REG_AMOSWAP_AQ sp, sp, (sp)
-> >> +       bnez sp, 1b
-> >> +
-> >>         la sp, shadow_stack
-> >>         addi sp, sp, SHADOW_OVERFLOW_STACK_SIZE
-> >>
-> >> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> >> index bb6a450f0ecc..be54ccea8c47 100644
-> >> --- a/arch/riscv/kernel/traps.c
-> >> +++ b/arch/riscv/kernel/traps.c
-> >> @@ -213,11 +213,29 @@ asmlinkage unsigned long get_overflow_stack(void)
-> >>                 OVERFLOW_STACK_SIZE;
-> >>  }
-> >>
-> >> +/*
-> >> + * A pseudo spinlock to protect the shadow stack from being used by multiple
-> >> + * harts concurrently.  This isn't a real spinlock because the lock side must
-> >> + * be taken without a valid stack and only a single register, it's only taken
-> >> + * while in the process of panicing anyway so the performance and error
-> >> + * checking a proper spinlock gives us doesn't matter.
-> >> + */
-> >> +unsigned long spin_shadow_stack;
-> >> +
-> >>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
-> >>  {
-> >>         unsigned long tsk_stk = (unsigned long)current->stack;
-> >>         unsigned long ovf_stk = (unsigned long)this_cpu_ptr(overflow_stack);
-> >>
-> >> +       /*
-> >> +        * We're done with the shadow stack by this point, as we're on the
-> >> +        * overflow stack.  Tell any other concurrent overflowing harts that
-> >> +        * they can proceed with panicing by releasing the pseudo-spinlock.
-> >> +        *
-> >> +        * This pairs with an amoswap.aq in handle_kernel_stack_overflow.
-> >> +        */
-> >> +       smp_store_release(&spin_shadow_stack, 0);
-> >> +
-> >>         console_verbose();
-> >>
-> >>         pr_emerg("Insufficient stack space to handle exception!\n");
-> >> --
-> >> 2.38.1
-> >>
-
-
-
--- 
-Best Regards
- Guo Ren
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxMS8zMC8yMDIyIDExOjIxIFBNLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9wd20vcHdtLXNwcmQuYyBiL2RyaXZlcnMvcHdtL3B3bS1zcHJkLmMK
+PiBpbmRleCA3MDA0ZjU1YmJmMTEuLmJkYThiYzVhZjk3NiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJz
+L3B3bS9wd20tc3ByZC5jCj4gKysrIGIvZHJpdmVycy9wd20vcHdtLXNwcmQuYwo+IEBAIC02NSw4
+ICs2NSw4IEBAIHN0YXRpYyB2b2lkIHNwcmRfcHdtX3dyaXRlKHN0cnVjdCBzcHJkX3B3bV9jaGlw
+ICpzcGMsIHUzMiBod2lkLAo+ICAgCXdyaXRlbF9yZWxheGVkKHZhbCwgc3BjLT5iYXNlICsgb2Zm
+c2V0KTsKPiAgIH0KPiAgIAo+IC1zdGF0aWMgdm9pZCBzcHJkX3B3bV9nZXRfc3RhdGUoc3RydWN0
+IHB3bV9jaGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLAo+IC0JCQkgICAgICAgc3Ry
+dWN0IHB3bV9zdGF0ZSAqc3RhdGUpCj4gK3N0YXRpYyBpbnQgc3ByZF9wd21fZ2V0X3N0YXRlKHN0
+cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZpY2UgKnB3bSwKPiArCQkJICAgICAg
+c3RydWN0IHB3bV9zdGF0ZSAqc3RhdGUpCj4gICB7Cj4gICAJc3RydWN0IHNwcmRfcHdtX2NoaXAg
+KnNwYyA9Cj4gICAJCWNvbnRhaW5lcl9vZihjaGlwLCBzdHJ1Y3Qgc3ByZF9wd21fY2hpcCwgY2hp
+cCk7Cj4gQEAgLTgzLDcgKzgzLDcgQEAgc3RhdGljIHZvaWQgc3ByZF9wd21fZ2V0X3N0YXRlKHN0
+cnVjdCBwd21fY2hpcCAqY2hpcCwgc3RydWN0IHB3bV9kZXZpY2UgKnB3bSwKPiAgIAlpZiAocmV0
+KSB7Cj4gICAJCWRldl9lcnIoc3BjLT5kZXYsICJmYWlsZWQgdG8gZW5hYmxlIHB3bSV1IGNsb2Nr
+c1xuIiwKPiAgIAkJCXB3bS0+aHdwd20pOwo+IC0JCXJldHVybjsKPiArCQlyZXR1cm4gMDsKPiAg
+IAl9Cj4gICAKPiAgIAl2YWwgPSBzcHJkX3B3bV9yZWFkKHNwYywgcHdtLT5od3B3bSwgU1BSRF9Q
+V01fRU5BQkxFKTsKPiBAQCAtMTEzLDYgKzExMyw4IEBAIHN0YXRpYyB2b2lkIHNwcmRfcHdtX2dl
+dF9zdGF0ZShzdHJ1Y3QgcHdtX2NoaXAgKmNoaXAsIHN0cnVjdCBwd21fZGV2aWNlICpwd20sCj4g
+ICAJLyogRGlzYWJsZSBQV00gY2xvY2tzIGlmIHRoZSBQV00gY2hhbm5lbCBpcyBub3QgaW4gZW5h
+YmxlIHN0YXRlLiAqLwo+ICAgCWlmICghc3RhdGUtPmVuYWJsZWQpCj4gICAJCWNsa19idWxrX2Rp
+c2FibGVfdW5wcmVwYXJlKFNQUkRfUFdNX0NITl9DTEtTX05VTSwgY2huLT5jbGtzKTsKPiArCj4g
+KwlyZXR1cm4gMDsKPiAgIH0KPiAgIAo+ICAgc3RhdGljIGludCBzcHJkX3B3bV9jb25maWcoc3Ry
+dWN0IHNwcmRfcHdtX2NoaXAgKnNwYywgc3RydWN0IHB3bV9kZXZpY2UgKnB3bSwKCkZvciBzcHJk
+IHB3bSBwYXJ0czoKUmV2aWV3ZWQtYnk6IEJhb2xpbiBXYW5nIDxiYW9saW4ud2FuZ0BsaW51eC5h
+bGliYWJhLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
