@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81589C47088
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3105FC43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d4ByKc+Ndl9XiZpSvUUuxLxCB0Jp6tjD3xr9phu/ako=; b=dw5X0h0GbyuI5f
-	HbUUAuI1SnWbpNybeD5oTRWN8kP9pfbHveXWRY+cqQ6egfGYOY3EsTKzVuiKw6465GZjL6wFpDQR5
-	63rSgxfKOWKUov1/juTE7gACzzaj470UZykKy/T8SR0Rf35yYS9OSirD1heD0EAwnkDs4Z+wm94Gg
-	nvXfzAJtPqJD2/XBvH/xuhFJjMD4BGqnD4pSYegk2mSmURSiaEdxOWipeaKIimVERVefrvdYIrsU8
-	SY9R4CRV/4teE89v4WJj/ADI0jkZdUzPLhTnhV6ym7QlejrEz7XWpUgEUhkhFkUfMMs/sbE23xibi
-	2DFb2GDTCppju9ZIe9Jg==;
+	List-Owner; bh=5/z4ZfdRO3B1SFqqjJprhm/vuX8WnnmaSd1rDdIMEZs=; b=HFC5e5bOIHjnpX
+	h+enTX26wMuqk3svMG0zHnnbFvd6Mc8VvQGfcg9zEOJ9sfEEAa/nIos1KwDaKwF8eYu9Gga6xzS16
+	0HDSrGnZE6yZMEhp100LxK/Z+sbhK6JlsBUjs8NqwI9LpLuaBouJaXcao4bLQuTEFxrvr7ZNhRXX3
+	JvJLrGkmbZUw0IQ9oOUnn0aqqNHHtoV4iN0MlI2NRD9tN4U5BYniqsAnp+urim1IxHYIiPluo7U27
+	1bSTgmMIxxRIF9jRKlU//7v5EoXHQWfo3Gx0SCSTMy1Gqjscfen18iu+sGPpVsrwzFEcL0TJvCuxC
+	GahzYIWybLxCZ6DTwm1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jHp-007aFN-N2; Thu, 01 Dec 2022 13:07:33 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1p0jHt-007aJK-MI; Thu, 01 Dec 2022 13:07:37 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jCT-007Sme-Qz
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:02:03 +0000
-Received: by mail-pf1-x434.google.com with SMTP id w2so259036pfq.12
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 05:01:59 -0800 (PST)
+	id 1p0jCf-007T80-GI
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:02:15 +0000
+Received: by mail-pl1-x631.google.com with SMTP id y4so1593162plb.2
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 05:02:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H/HSAfRl6AKxOrRE0JEbET+E+vFKUld6EeEf9bI00fs=;
-        b=M7PuHzfiXSfdhv0tm5LFBjVrBaVMI6DaaQ7Pc1uxzJVMLBAyABGYiO5pQqYxxsmJ2n
-         XNUAH13NrjW9a+kf3t4YDoPX3/rFi/kXQe7L0okkTG8+czurk83pgzP49XJWCKscppDf
-         HovR99A/JULd09rk4CnMEUIJOxaGhDt+hhRSlizgrGZnXfI3V9wQYL6sCBTG0KAEKXh4
-         mnUGjsJmtPdmLh6G3OFyP2Z3xvXGFS6spLq4+3laUTbxkcA7KFFj/pSZPNelgA285wYr
-         WJg9yp9GPUTVl8jjSJE9Gr+t8KD8IwqEV91z7TIigC997aLDoMSnVY3gafQFmY7o5II5
-         GUIg==
+        bh=PXYoHLXQCavco5NNh0sXuOKKVYR0blfrb+/AP/qt1J8=;
+        b=MnvoQLxLNgbmo5IrRyEZjSpPAnvgKpvqlr+05gHoAOA2OLdGYdmcd82NT1Okx4BBqe
+         ZuWBFm76SwXdW/NrCFeBrIPE1tlBj/GTu4GC6NYQkBVm4cmfcnSy1kRyR4mjFYARy51r
+         YsG1Q2LkkHMwGwdC1AoeXKfVQs5ttxQ13h8QbyYrgO2EV6KKkw+hqlWMoEGivgpo2616
+         egjYvKCSNZKQ8vqfVAPunkGNQFu8v2GPZf2r3xBv5aWrKBC9tbKOl0FTHaGGwpK5q4OD
+         8ywuY1yApdHN7EKl3eANRphgi6ZQh1nBw8HCoy/f9xgXKPXQyt7MKjeGQPTbPB30dDet
+         mhHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H/HSAfRl6AKxOrRE0JEbET+E+vFKUld6EeEf9bI00fs=;
-        b=GMR7PqRBaPttnNxz2uug2vbwykoL6GroFsNDjQDZ5KUP1tpjJh+Z764aClU48P4Job
-         7TZzBlhMlw9SyzNsETVNZEr/9is3HpQjut65D0QVyIrUGXNA5OQt31yRlPjVQCkujUin
-         Et+rBBn1CWb6roCFKJ1d1aoBpIGn98UNNj30dOZVinQ/vBWScXYuitloBdS/7p0vgpkJ
-         14lRunZSfv0iR3wrphACUw31pELrXpN14MlD+NrcZDAQQETJKzWTabgVzN2OwvWpb9DK
-         PmC/MzgHjP1JEIhvD+nRnZUgh6GIMIdUVj/9bfA1eElttvlHa/m1tJ8EUzMcX+CorQvb
-         sXhA==
-X-Gm-Message-State: ANoB5plJWc9fxM/wgioVC0xjNPFjltBMeE58P1rUE/6ApNbhKOYXE6IR
-	MCoZlq+TTggtDMiub67co6mkWA==
-X-Google-Smtp-Source: AA0mqf5D3j9ipSlTSkY/Z59EA1lVTCN3KjTMIgNrwJggjGP6V2hfzJ4Y8nrjZYOEfOtw1ApWaJN7og==
-X-Received: by 2002:a63:dc04:0:b0:46f:1262:8df7 with SMTP id s4-20020a63dc04000000b0046f12628df7mr51214679pgg.39.1669899719123;
-        Thu, 01 Dec 2022 05:01:59 -0800 (PST)
+        bh=PXYoHLXQCavco5NNh0sXuOKKVYR0blfrb+/AP/qt1J8=;
+        b=lwXIMjR1LfZ9m4tVbgilwe5ywEpG9rzjd2QQ39XId5yRM1+KnUtmUtNY64o2mcxFnf
+         RpQbCTQsCLo+r1t3zlHY/DU4jZ+WzWOV+5pjuuxng6NmDhaDakN4Bx7DJBZQYwZ/RkWm
+         4UrhZOOqRoitNPgaVXOBmjFfMZLri56S82xvzfoIaYxRWqjcgzFydk2spZioa6rwwC7C
+         LdtDv1EOH8RlPUgEt/+zIoEs/DQpAKGkxRZOjDqIOkq77bc/B4jMTbOpTi5X8ayB3JNN
+         awNGgf0kmkpij0ThwtpMnWkzoNastPHb4iqs8vvcqCYz6FjMBrIaTWWNiwrLrQCjcckU
+         6bEg==
+X-Gm-Message-State: ANoB5pmMWeMRaJNw3KouUMzpHXzoYyD0bjRqL28yPIccpQlPxqe6GE4W
+	9zgXCiIEsnPG/2PVACnKaIH91A==
+X-Google-Smtp-Source: AA0mqf6ZGTSHskxR4iL2VVwLEp1XFjtgHEhzkdgxM1JnnHG6QN09+9ukNapPt7gWKZtAL9W+rTIGEw==
+X-Received: by 2002:a17:902:aa06:b0:183:7f67:25d7 with SMTP id be6-20020a170902aa0600b001837f6725d7mr47783541plb.164.1669899732741;
+        Thu, 01 Dec 2022 05:02:12 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([171.76.81.69])
-        by smtp.gmail.com with ESMTPSA id l4-20020a17090a384400b00212c27abcaesm4855856pjf.17.2022.12.01.05.01.55
+        by smtp.gmail.com with ESMTPSA id l4-20020a17090a384400b00212c27abcaesm4855856pjf.17.2022.12.01.05.02.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 05:01:58 -0800 (PST)
+        Thu, 01 Dec 2022 05:02:12 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,17 +71,18 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v14 3/8] genirq: Add mechanism to multiplex a single HW IPI
-Date: Thu,  1 Dec 2022 18:31:30 +0530
-Message-Id: <20221201130135.1115380-4-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v14 6/8] RISC-V: Use IPIs for remote TLB flush when possible
+Date: Thu,  1 Dec 2022 18:31:33 +0530
+Message-Id: <20221201130135.1115380-7-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221201130135.1115380-1-apatel@ventanamicro.com>
 References: <20221201130135.1115380-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_050201_916418_72D8E931 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20221201_050213_628265_B6682470 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,272 +99,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All RISC-V platforms have a single HW IPI provided by the INTC local
-interrupt controller. The HW method to trigger INTC IPI can be through
-external irqchip (e.g. RISC-V AIA), through platform specific device
-(e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+If we have specialized interrupt controller (such as AIA IMSIC) which
+allows supervisor mode to directly inject IPIs without any assistance
+from M-mode or HS-mode then using such specialized interrupt controller,
+we can do remote TLB flushes directly from supervisor mode instead of
+using the SBI RFENCE calls.
 
-To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
-mechanism which help us create multiple virtual IPIs using a single
-HW IPI. This generic IPI multiplexing is inspired from the Apple AIC
-irqchip driver and it is shared by various RISC-V irqchip drivers.
+This patch extends remote TLB flush functions to use supervisor mode
+IPIs whenever direct supervisor mode IPIs.are supported by interrupt
+controller.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 ---
- include/linux/irq.h  |   3 +
- kernel/irq/Kconfig   |   5 ++
- kernel/irq/Makefile  |   1 +
- kernel/irq/ipi-mux.c | 199 +++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 208 insertions(+)
- create mode 100644 kernel/irq/ipi-mux.c
+ arch/riscv/mm/tlbflush.c | 93 +++++++++++++++++++++++++++++++++-------
+ 1 file changed, 78 insertions(+), 15 deletions(-)
 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index c3eb89606c2b..b1b28affb32a 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -1266,6 +1266,9 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
- int ipi_send_single(unsigned int virq, unsigned int cpu);
- int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 37ed760d007c..27a7db8eb2c4 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -23,14 +23,62 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
+ 			: "memory");
+ }
  
-+void ipi_mux_process(void);
-+int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu));
++static inline void local_flush_tlb_range(unsigned long start,
++		unsigned long size, unsigned long stride)
++{
++	if (size <= stride)
++		local_flush_tlb_page(start);
++	else
++		local_flush_tlb_all();
++}
 +
- #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
- /*
-  * Registers a generic IRQ handling function as the top-level IRQ handler in
-diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
-index db3d174c53d4..df17dbc54b02 100644
---- a/kernel/irq/Kconfig
-+++ b/kernel/irq/Kconfig
-@@ -86,6 +86,11 @@ config GENERIC_IRQ_IPI
- 	depends on SMP
- 	select IRQ_DOMAIN_HIERARCHY
++static inline void local_flush_tlb_range_asid(unsigned long start,
++		unsigned long size, unsigned long stride, unsigned long asid)
++{
++	if (size <= stride)
++		local_flush_tlb_page_asid(start, asid);
++	else
++		local_flush_tlb_all_asid(asid);
++}
++
++static void __ipi_flush_tlb_all(void *info)
++{
++	local_flush_tlb_all();
++}
++
+ void flush_tlb_all(void)
+ {
+-	sbi_remote_sfence_vma(NULL, 0, -1);
++	if (riscv_use_ipi_for_rfence())
++		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
++	else
++		sbi_remote_sfence_vma(NULL, 0, -1);
++}
++
++struct flush_tlb_range_data {
++	unsigned long asid;
++	unsigned long start;
++	unsigned long size;
++	unsigned long stride;
++};
++
++static void __ipi_flush_tlb_range_asid(void *info)
++{
++	struct flush_tlb_range_data *d = info;
++
++	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
++}
++
++static void __ipi_flush_tlb_range(void *info)
++{
++	struct flush_tlb_range_data *d = info;
++
++	local_flush_tlb_range(d->start, d->size, d->stride);
+ }
  
-+# Generic IRQ IPI Mux support
-+config GENERIC_IRQ_IPI_MUX
-+	bool
-+	depends on SMP
-+
- # Generic MSI interrupt support
- config GENERIC_MSI_IRQ
- 	bool
-diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
-index b4f53717d143..f19d3080bf11 100644
---- a/kernel/irq/Makefile
-+++ b/kernel/irq/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_GENERIC_IRQ_MIGRATION) += cpuhotplug.o
- obj-$(CONFIG_PM_SLEEP) += pm.o
- obj-$(CONFIG_GENERIC_MSI_IRQ) += msi.o
- obj-$(CONFIG_GENERIC_IRQ_IPI) += ipi.o
-+obj-$(CONFIG_GENERIC_IRQ_IPI_MUX) += ipi-mux.o
- obj-$(CONFIG_SMP) += affinity.o
- obj-$(CONFIG_GENERIC_IRQ_DEBUGFS) += debugfs.o
- obj-$(CONFIG_GENERIC_IRQ_MATRIX_ALLOCATOR) += matrix.o
-diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
-new file mode 100644
-index 000000000000..1a6ba19b736c
---- /dev/null
-+++ b/kernel/irq/ipi-mux.c
-@@ -0,0 +1,199 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Multiplex several virtual IPIs over a single HW IPI.
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ * Copyright (c) 2022 Ventana Micro Systems Inc.
-+ */
-+
-+#define pr_fmt(fmt) "ipi-mux: " fmt
-+#include <linux/cpu.h>
-+#include <linux/init.h>
-+#include <linux/irq.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/jump_label.h>
-+#include <linux/percpu.h>
-+#include <linux/smp.h>
-+
-+struct ipi_mux_cpu {
-+	atomic_t			enable;
-+	atomic_t			bits;
-+};
-+
-+static struct ipi_mux_cpu __percpu *ipi_mux_pcpu;
-+static struct irq_domain *ipi_mux_domain;
-+static void (*ipi_mux_send)(unsigned int cpu);
-+
-+static void ipi_mux_mask(struct irq_data *d)
-+{
-+	struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
-+
-+	atomic_andnot(BIT(irqd_to_hwirq(d)), &icpu->enable);
-+}
-+
-+static void ipi_mux_unmask(struct irq_data *d)
-+{
-+	u32 ibit = BIT(irqd_to_hwirq(d));
-+	struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
-+
-+	atomic_or(ibit, &icpu->enable);
-+
-+	/*
-+	 * The atomic_or() above must complete before the atomic_read()
-+	 * below to avoid racing ipi_mux_send_mask().
-+	 */
-+	smp_mb__after_atomic();
-+
-+	/* If a pending IPI was unmasked, raise a parent IPI immediately. */
-+	if (atomic_read(&icpu->bits) & ibit)
-+		ipi_mux_send(smp_processor_id());
-+}
-+
-+static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
-+{
-+	u32 ibit = BIT(irqd_to_hwirq(d));
-+	struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
-+	unsigned long pending;
-+	int cpu;
-+
-+	for_each_cpu(cpu, mask) {
-+		icpu = per_cpu_ptr(ipi_mux_pcpu, cpu);
-+		pending = atomic_fetch_or_release(ibit, &icpu->bits);
-+
-+		/*
-+		 * The atomic_fetch_or_release() above must complete
-+		 * before the atomic_read() below to avoid racing with
-+		 * ipi_mux_unmask().
-+		 */
-+		smp_mb__after_atomic();
-+
-+		/*
-+		 * The flag writes must complete before the physical IPI is
-+		 * issued to another CPU. This is implied by the control
-+		 * dependency on the result of atomic_read() below, which is
-+		 * itself already ordered after the vIPI flag write.
-+		 */
-+		if (!(pending & ibit) && (atomic_read(&icpu->enable) & ibit))
-+			ipi_mux_send(cpu);
-+	}
-+}
-+
-+static const struct irq_chip ipi_mux_chip = {
-+	.name		= "IPI Mux",
-+	.irq_mask	= ipi_mux_mask,
-+	.irq_unmask	= ipi_mux_unmask,
-+	.ipi_send_mask	= ipi_mux_send_mask,
-+};
-+
-+static int ipi_mux_domain_alloc(struct irq_domain *d, unsigned int virq,
-+				unsigned int nr_irqs, void *arg)
-+{
-+	int i;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		irq_set_percpu_devid(virq + i);
-+		irq_domain_set_info(d, virq + i, i, &ipi_mux_chip, NULL,
-+				    handle_percpu_devid_irq, NULL, NULL);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops ipi_mux_domain_ops = {
-+	.alloc		= ipi_mux_domain_alloc,
-+	.free		= irq_domain_free_irqs_top,
-+};
-+
-+/**
-+ * ipi_mux_process - Process multiplexed virtual IPIs
-+ */
-+void ipi_mux_process(void)
-+{
-+	struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
-+	irq_hw_number_t hwirq;
-+	unsigned long ipis;
-+	unsigned int en;
-+
-+	/*
-+	 * Reading enable mask does not need to be ordered as long as
-+	 * this function called from interrupt handler because only
-+	 * the CPU itself can change it's own enable mask.
-+	 */
-+	en = atomic_read(&icpu->enable);
-+
-+	/*
-+	 * Clear the IPIs we are about to handle. This pairs with the
-+	 * atomic_fetch_or_release() in ipi_mux_send_mask().
-+	 */
-+	ipis = atomic_fetch_andnot(en, &icpu->bits) & en;
-+
-+	for_each_set_bit(hwirq, &ipis, BITS_PER_TYPE(int))
-+		generic_handle_domain_irq(ipi_mux_domain, hwirq);
-+}
-+
-+/**
-+ * ipi_mux_create - Create virtual IPIs multiplexed on top of a single
-+ * parent IPI.
-+ * @nr_ipi:		number of virtual IPIs to create. This should
-+ *			be <= BITS_PER_TYPE(int)
-+ * @mux_send:		callback to trigger parent IPI for a particular CPU
-+ *
-+ * Returns first virq of the newly created virtual IPIs upon success
-+ * or <=0 upon failure
-+ */
-+int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu))
-+{
-+	struct fwnode_handle *fwnode;
-+	struct irq_domain *domain;
-+	int rc;
-+
-+	if (ipi_mux_domain)
-+		return -EEXIST;
-+
-+	if (BITS_PER_TYPE(int) < nr_ipi || !mux_send)
-+		return -EINVAL;
-+
-+	ipi_mux_pcpu = alloc_percpu(typeof(*ipi_mux_pcpu));
-+	if (!ipi_mux_pcpu)
-+		return -ENOMEM;
-+
-+	fwnode = irq_domain_alloc_named_fwnode("IPI-Mux");
-+	if (!fwnode) {
-+		pr_err("unable to create IPI Mux fwnode\n");
-+		rc = -ENOMEM;
-+		goto fail_free_cpu;
-+	}
-+
-+	domain = irq_domain_create_linear(fwnode, nr_ipi,
-+					  &ipi_mux_domain_ops, NULL);
-+	if (!domain) {
-+		pr_err("unable to add IPI Mux domain\n");
-+		rc = -ENOMEM;
-+		goto fail_free_fwnode;
-+	}
-+
-+	domain->flags |= IRQ_DOMAIN_FLAG_IPI_SINGLE;
-+	irq_domain_update_bus_token(domain, DOMAIN_BUS_IPI);
-+
-+	rc = __irq_domain_alloc_irqs(domain, -1, nr_ipi,
-+				     NUMA_NO_NODE, NULL, false, NULL);
-+	if (rc <= 0) {
-+		pr_err("unable to alloc IRQs from IPI Mux domain\n");
-+		goto fail_free_domain;
-+	}
-+
-+	ipi_mux_domain = domain;
-+	ipi_mux_send = mux_send;
-+
-+	return rc;
-+
-+fail_free_domain:
-+	irq_domain_remove(domain);
-+fail_free_fwnode:
-+	irq_domain_free_fwnode(fwnode);
-+fail_free_cpu:
-+	free_percpu(ipi_mux_pcpu);
-+	return rc;
-+}
+-static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
+-				  unsigned long size, unsigned long stride)
++static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
++			      unsigned long size, unsigned long stride)
+ {
++	struct flush_tlb_range_data ftd;
+ 	struct cpumask *cmask = mm_cpumask(mm);
+ 	unsigned int cpuid;
+ 	bool broadcast;
+@@ -45,19 +93,34 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
+ 		unsigned long asid = atomic_long_read(&mm->context.id);
+ 
+ 		if (broadcast) {
+-			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
+-		} else if (size <= stride) {
+-			local_flush_tlb_page_asid(start, asid);
++			if (riscv_use_ipi_for_rfence()) {
++				ftd.asid = asid;
++				ftd.start = start;
++				ftd.size = size;
++				ftd.stride = stride;
++				on_each_cpu_mask(cmask,
++						 __ipi_flush_tlb_range_asid,
++						 &ftd, 1);
++			} else
++				sbi_remote_sfence_vma_asid(cmask,
++							   start, size, asid);
+ 		} else {
+-			local_flush_tlb_all_asid(asid);
++			local_flush_tlb_range_asid(start, size, stride, asid);
+ 		}
+ 	} else {
+ 		if (broadcast) {
+-			sbi_remote_sfence_vma(cmask, start, size);
+-		} else if (size <= stride) {
+-			local_flush_tlb_page(start);
++			if (riscv_use_ipi_for_rfence()) {
++				ftd.asid = 0;
++				ftd.start = start;
++				ftd.size = size;
++				ftd.stride = stride;
++				on_each_cpu_mask(cmask,
++						 __ipi_flush_tlb_range,
++						 &ftd, 1);
++			} else
++				sbi_remote_sfence_vma(cmask, start, size);
+ 		} else {
+-			local_flush_tlb_all();
++			local_flush_tlb_range(start, size, stride);
+ 		}
+ 	}
+ 
+@@ -66,23 +129,23 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
+ 
+ void flush_tlb_mm(struct mm_struct *mm)
+ {
+-	__sbi_tlb_flush_range(mm, 0, -1, PAGE_SIZE);
++	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
+ {
+-	__sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
++	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
+ }
+ 
+ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 		     unsigned long end)
+ {
+-	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PAGE_SIZE);
++	__flush_tlb_range(vma->vm_mm, start, end - start, PAGE_SIZE);
+ }
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
+ 			unsigned long end)
+ {
+-	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
++	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
+ }
+ #endif
 -- 
 2.34.1
 
