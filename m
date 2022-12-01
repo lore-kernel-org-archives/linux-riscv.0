@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B7DEC43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 19:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F361C47088
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 19:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ccdR7EhIVEN0CLKus3lYaO/dLojdavBR1w4L0SaTDQ=; b=Km5Lwztuo11uoj
-	RWog9JF7jo67ao7CcjcwoVDWORaRVvi6a5ZD10KefSWJAGomsQrAGNSFQU+vSZmyDXRkbgG2m2Inf
-	MCyoqVx4+CAvIWbLIp/RXh2Luc7y/0404oxLJ7xdaqfbZdHGi8yv6lXi5roTLZZx3YPB+yLwVfQEA
-	htI2B3Ss5/seB65PI6H4h7B5Az9DjTgCnQCPIVv1zuu0iOBXNjQCtrJJ+0ngyRB6EydyFWA4PqsDk
-	EGrWT5BH0LYblGmYPFqGxJGJ5tiVj+uqxwDyQ/Zh2bCaaUl0ROF5QZhahBItBH/MtHFf5igTogBco
-	n4PgwnE2yd5NlNOB9s4A==;
+	List-Owner; bh=8nLMHSWcEfKIy88NMsKs1yGWuU7Bs8s9bkJOLtliFhs=; b=GEhYyXK0qwWecn
+	P2N4fX410CxmlPQqLS0mxjRsfNhTiHqfo4k48YaA8dxYnXZ1PfSOdGXzrzE+YlYmOCbS27SraLj8E
+	fhWejyT6E8jCWjqpFFCkW5xw7hNf6dQ7kBNvDRE11DngeQDeA29malK/emjplZxWUDEfT9GPUKdsv
+	aM8DHBYZYzGhvaFzlWqNdnPhaD1KbBEZArvmxeQgTXxowdkPVe6l/OAeddD42S1t5wE8l2C86nWP1
+	B6UxWBPfzo2K3bzDVyit2Mr86dnt99Zen3NvzTPJtD0eqOThIDAtL1ZjlKtyDg54wVogpKXV4D5BR
+	sr7/eSE0WcQkhdQmoAcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0pOy-00ATNM-N0; Thu, 01 Dec 2022 19:39:20 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1p0pP1-00ATRq-Qe; Thu, 01 Dec 2022 19:39:23 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0pJm-00ALgz-QL
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 19:34:00 +0000
-Received: by mail-ed1-x531.google.com with SMTP id d20so3814026edn.0
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 11:33:57 -0800 (PST)
+	id 1p0pKl-00AN8E-6a
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 19:35:02 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id r26so3696039edc.10
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 11:34:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vJeVMWjMdeUD/fv0X+iIoNOgAa8aslZkgiHk2581/Vg=;
-        b=Lp2aSn3VG3dW/3ODe2xKTTTN7WYcyGhD9HnM0Y7PBgv0TDyyR2A+hTN/C5Wxcb869l
-         BwtkBPQTUsdiA92BkXZIS/IP94Ba/QN6ADFjAdaU4TB9Nkoi8sKkjFIt5OsIt+wL0zV6
-         09BSMimOlGRFJisJsNYMOytrmi+/wUAkYOJlOndtG+SmHZyILGrLHJZQKd1glDKN6iQV
-         LS2T8P+dngVfeYy32KShIc+45yhyrpvBUlPNRODFEI0tKSVxupF9GrpWx29xR5jHR7sf
-         1JJqb+f0VooAFqoJaRVg0MDt0GGhao28juhQHF/QWbbPgjQ9kphW5mIq3dgWjwwGe8Hr
-         /33A==
+        bh=Nwb0JxDESDs5mtnW7GSBzDyyT2uzkUh2LxNi22Fshms=;
+        b=joecMB3ipKXz2RuhKpefAX3tzaiSPtlNTyz7YvTkMRl+aIwcqplDkPON0gZjI79ANQ
+         jBDLjVq0t/7cz3S3dUML9lfct/BLP24Wrmh1p5yJnM4YnOkrAalVh7bcLfcI7oIvkRCd
+         6qpRm6gcmmP6YMvBQe/83vXxjkeMgsDOJYb8rxhuWj42AJlOTNF6g4TCUqmJu1w+Aykb
+         /Z+amgnpzHOj91lLcmzAqr9N6vYKac/ozQel+QJK/Z12kOZZ9Jxc8nOXbzyZG+RpB1pm
+         T0NMlTlVgwQ23lqzP7HbMOlNJQjZ3eDWezkVF09zrlD5L0RnJ9p7MrvXxdJvmpincfa5
+         IfBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vJeVMWjMdeUD/fv0X+iIoNOgAa8aslZkgiHk2581/Vg=;
-        b=kx95QReMLwYLFIT6lnJE4YcE+xjoPFC3jfdmEbZ5MQBeuf/DOZB3AdogVaFZEJRmdf
-         qAw+WGc/rtQawW6vsgynftFOmadkPoZyhre3KCmoodQjnL361b7CI+4Qs8+/AVJ82xXb
-         mlcJcJZiwmdQu052HusaaOvAJnLCSe+I0z1DuVHX8rlz5kSuIsr8PdqPIh9w8Thg9THr
-         huyESGl4CQSLHEMQMSc1MHB8bt8XvPFYXkNhyfmxljc2Eaf/ZnnTxnCJKM/SjgEGBEEk
-         X2Sez/+lzSZt+ta1hwRr+ztl5UD6r3nAwUieYABUf2xIZn7xXC2kU5nrZd885hZutUSs
-         IL9Q==
-X-Gm-Message-State: ANoB5pn2JISdDROTE/C0GQoIg0SDbb1IOaK8QcvCYvq0ZTegOAMg25Pl
-	6v2J09pcLJRECEUDBYbbWLCpgg==
-X-Google-Smtp-Source: AA0mqf4NphVnM3DoB0W1K9rNiifJKo8d0q9xuXb1RePJKEk/uZOw0wEgNUJxNP12yRbryiEMFWPt4g==
-X-Received: by 2002:a50:fc11:0:b0:45a:1bfa:98bf with SMTP id i17-20020a50fc11000000b0045a1bfa98bfmr61456952edr.413.1669923236423;
-        Thu, 01 Dec 2022 11:33:56 -0800 (PST)
+        bh=Nwb0JxDESDs5mtnW7GSBzDyyT2uzkUh2LxNi22Fshms=;
+        b=QeNlsQkNotVwFOh/fZARSn71gVk86sR1iNeTfGPPsDCiyZ3jm29Pfdzb8v5JNEDgzx
+         FvsRXBYiuIyWMqHyF5+QNQo166ZadfZxhjyAxYFLmj+nFSPPsQpfNFlchUDzlIKxShnw
+         WfHmHnd0LgDZAvqF/naP/R9OrWruAqHbUMYGWSA7BuYqqkjfEMsOkXIcL8cPQFnNesD9
+         +LujlD96KBm8LSs5pfUhWPNZCLaR2wIGUPpvR6NswPpSd4/cphiZLc65OU4Ko6/pJhXg
+         O65LdYLzoU7yYin7XrpedJdUx020P+mVKsFkItdJUrNbfUC6yUrKXSR55s/lSvtfH9Pb
+         rrsA==
+X-Gm-Message-State: ANoB5pkMl7xbIpueDKicqWmuuffMdCxzosWDh0KhOdPR+SosHMqEVG7s
+	H+ajfpQzJ7bzqTaieyAZ6Hrhew==
+X-Google-Smtp-Source: AA0mqf4pNR+JAwtiOHM56a2ETbcekn87d0qG8g4MgC5pBWwzXk1cR0DD7D0wjGx4WwxpAmL/8pzSrg==
+X-Received: by 2002:a05:6402:e0d:b0:466:4168:6ea7 with SMTP id h13-20020a0564020e0d00b0046641686ea7mr1391730edh.273.1669923297084;
+        Thu, 01 Dec 2022 11:34:57 -0800 (PST)
 Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id op4-20020a170906bce400b0078df3b4464fsm2165966ejb.19.2022.12.01.11.33.55
+        by smtp.gmail.com with ESMTPSA id a20-20020a17090680d400b007c081cf2d25sm2094018ejx.204.2022.12.01.11.34.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 11:33:55 -0800 (PST)
-Date: Thu, 1 Dec 2022 20:33:53 +0100
+        Thu, 01 Dec 2022 11:34:56 -0800 (PST)
+Date: Thu, 1 Dec 2022 20:34:55 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
@@ -68,17 +68,16 @@ Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
 	emil.renner.berthing@canonical.com, ardb@kernel.org,
 	linux-efi@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 11/14] RISC-V: fix auipc-jalr addresses in patched
- alternatives
-Message-ID: <20221201193353.7rtpqrkk7ws34e3k@kamzik>
+Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
+Message-ID: <20221201193455.2hr6mwm6sa6vnd3w@kamzik>
 References: <20221130225614.1594256-1-heiko@sntech.de>
- <20221130225614.1594256-12-heiko@sntech.de>
+ <20221130225614.1594256-13-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221130225614.1594256-12-heiko@sntech.de>
+In-Reply-To: <20221130225614.1594256-13-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_113358_896635_8C217DF2 
-X-CRM114-Status: GOOD (  39.10  )
+X-CRM114-CacheID: sfid-20221201_113459_282795_631E3C00 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,224 +94,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 11:56:11PM +0100, Heiko Stuebner wrote:
+On Wed, Nov 30, 2022 at 11:56:12PM +0100, Heiko Stuebner wrote:
 > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > 
-> Alternatives live in a different section, so addresses used by call
-> functions will point to wrong locations after the patch got applied.
+> We may want to runtime-optimize some core functions (str*, mem*),
+> but not have this leak into libstub and cause build issues.
+> Instead libstub, for the short while it's running, should just use
+> the generic implementation.
 > 
-> Similar to arm64, adjust the location to consider that offset.
+> So, to be able to determine whether functions, that are used both in
+> libstub and the main kernel, are getting compiled as part of libstub or
+> not, add a compile-flag we can check via #ifdef.
 > 
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > ---
->  arch/riscv/include/asm/alternative.h |  3 ++
->  arch/riscv/kernel/alternative.c      | 72 ++++++++++++++++++++++++++++
->  arch/riscv/kernel/cpufeature.c       | 11 ++++-
->  3 files changed, 84 insertions(+), 2 deletions(-)
+>  drivers/firmware/efi/libstub/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-> index 6511dd73e812..c58ec3cc4bc3 100644
-> --- a/arch/riscv/include/asm/alternative.h
-> +++ b/arch/riscv/include/asm/alternative.h
-> @@ -27,6 +27,9 @@ void __init apply_boot_alternatives(void);
->  void __init apply_early_boot_alternatives(void);
->  void apply_module_alternatives(void *start, size_t length);
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index ef5045a53ce0..777d1ab059e3 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+>  				   -fno-builtin -fpic \
+>  				   $(call cc-option,-mno-single-pic-base)
+>  cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> -				   -fpic
+> +				   -fpic -DRISCV_EFISTUB
+>  cflags-$(CONFIG_LOONGARCH)	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+>  				   -fpie
 >  
-> +void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
-> +				      int patch_offset);
-> +
->  struct alt_entry {
->  	void *old_ptr;		 /* address of original instruciton or data  */
->  	void *alt_ptr;		 /* address of replacement instruction or data */
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> index a7d26a00beea..292cc42dc3be 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -15,6 +15,8 @@
->  #include <asm/vendorid_list.h>
->  #include <asm/sbi.h>
->  #include <asm/csr.h>
-> +#include <asm/insn.h>
-> +#include <asm/patch.h>
->  
->  struct cpu_manufacturer_info_t {
->  	unsigned long vendor_id;
-> @@ -53,6 +55,76 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
->  	}
->  }
->  
-> +static unsigned int riscv_instruction_at(void *p, unsigned int offset)
-
-How about explicitly returning a u32?
-
-> +{
-> +	u16 *parcel = p + (offset * sizeof(u32));
-
-nit: I realize this is just a helper function, but I think a cleaner
-interface would require the caller do this math, or at least the offset
-scaling, since only the caller knows it's necessary. And, the call to
-patch_text_nosync() requires all the math, so it'd be consistent for
-riscv_instruction_at() to only take a pointer too.
-
-> +
-> +	return (unsigned int)parcel[0] | (unsigned int)parcel[1] << 16;
-> +}
-> +
-> +static inline bool riscv_insn_is_auipc_jalr(u32 insn1, u32 insn2)
-> +{
-> +	return riscv_insn_is_auipc(insn1) && riscv_insn_is_jalr(insn2);
-> +}
-> +
-> +#define JALR_SIGN_MASK		BIT(RV_I_IMM_SIGN_OPOFF - RV_I_IMM_11_0_OPOFF)
-
-We know I-type IMM is 11 bits, so we could just define this as BIT(11).
-
-> +#define AUIPC_PAD		(0x00001000)
-> +
-> +#define to_jalr_imm(value)						\
-> +	((value & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF)
-
-Should put () around the macro argument, (value)
-
-> +
-> +#define to_auipc_imm(value)						\
-> +	((value & JALR_SIGN_MASK) ?					\
-> +	((value & RV_U_IMM_31_12_MASK) + AUIPC_PAD) :	\
-> +	(value & RV_U_IMM_31_12_MASK))
-
-I know RV_U_IMM_31_12_OPOFF is 0, but it looks odd not shifting
-RV_U_IMM_31_12_MASK when we do shift RV_I_IMM_11_0_MASK.
-
-So, it looks like to_auipc_imm() is doing
-
-   offset[31:12] + ((value & BIT(11)) ? (1 << 12) : 0)
-
-but the spec says the auipc part of the 'call' pseudoinstruction should be
-
-   offset[31:12] + offset[11]
- 
-which I think would be written as
-
- ((((value) & RV_U_IMM_31_12_MASK) << RV_U_IMM_31_12_OPOFF) + ((value) & BIT(11)))
-
-or what am I missing?
-
-> +
-> +void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
-> +				      int patch_offset)
-> +{
-> +	int num_instr = len / sizeof(u32);
-> +	unsigned int call[2];
-> +	int i;
-> +	int imm;
-> +	u32 rd1;
-> +
-> +	/*
-> +	 * stop one instruction before the end, as we're checking
-> +	 * for auipc + jalr
-> +	 */
-> +	for (i = 0; i < num_instr - 1; i++) {
-
-If we change riscv_instruction_at() to just take a pointer then we can do
-the math in the for() and actually just use pointer arithmetic.
-
-        uint32_t *p = alt_ptr;
-        for (i = 0; i < num_instr - 1; i++, p++) {
-
-> +		u32 inst1 = riscv_instruction_at(alt_ptr, i);
-                                                 p
-> +		u32 inst2 = riscv_instruction_at(alt_ptr, i + 1);
-                                                 p + 1
-> +
-> +		if (!riscv_insn_is_auipc_jalr(inst1, inst2))
-> +			continue;
-> +
-> +		/* call will use ra register */
-> +		rd1 = RV_EXTRACT_RD_REG(inst1);
-> +		if (rd1 != 1)
-> +			continue;
-
-nit: rd1 is only used once, how about
-
- if (RV_EXTRACT_RD_REG(inst1) != 1)
-
-> +
-> +		/* get and adjust new target address */
-> +		imm = RV_EXTRACT_UTYPE_IMM(inst1);
-
-Based on my understanding of a auipc part of the 'call', it seems we
-should be subtracting BIT(11) here. And, since RV_EXTRACT_* does sign-
-extension for I-type, then I'm not sure we should use it. So,
-
-        imm = (inst2 >> RV_I_IMM_11_0_OPOFF) & RV_I_IMM_11_0_MASK;
-	imm += ((inst1 >> RV_U_IMM_31_12_OPOFF) & RV_U_IMM_31_12_MASK) - (imm & BIT(11));
-
-> +		imm += RV_EXTRACT_ITYPE_IMM(inst2);
-> +		imm -= patch_offset;
-> +
-> +		/* pick the original auipc + jalr */
-> +		call[0] = inst1;
-> +		call[1] = inst2;
-> +
-> +		/* drop the old IMMs */
-> +		call[0] &= ~(RV_U_IMM_31_12_MASK);
-
-Same comment as above about RV_U_IMM_31_12_OPOFF. IMO, this would be more
-consistent with the shift, even though it's zero.
-
-                call[0] &= ~(RV_U_IMM_31_12_MASK << RV_U_IMM_31_12_OPOFF);
-
-> +		call[1] &= ~(RV_I_IMM_11_0_MASK << RV_I_IMM_11_0_OPOFF);
-> +
-> +		/* add the adapted IMMs */
-> +		call[0] |= to_auipc_imm(imm);
-
-As pointed out above, I'm not sure about to_auipc_imm().
-
-> +		call[1] |= to_jalr_imm(imm);
-> +
-> +		/* patch the call place again */
-> +		patch_text_nosync(alt_ptr + i * sizeof(u32), call, 8);
-                                  ^                                ^
-				  p		       sizeof(u32) * 2
-> +	}
-> +}
-> +
->  /*
->   * This is called very early in the boot process (directly after we run
->   * a feature detect on the boot CPU). No need to worry about other CPUs
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 694267d1fe81..ba62a4ff5ccd 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -316,8 +316,15 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
->  		}
->  
->  		tmp = (1U << alt->errata_id);
-> -		if (cpu_req_feature & tmp)
-> -			patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
-> +		if (cpu_req_feature & tmp) {
-> +			/* do the basic patching */
-> +			patch_text_nosync(alt->old_ptr, alt->alt_ptr,
-> +					  alt->alt_len);
-
-nit: I'd leave this line long and only have one wrap in the line below
-
-> +
-> +			riscv_alternative_fix_auipc_jalr(alt->old_ptr,
-> +							 alt->alt_len,
-> +							 alt->old_ptr - alt->alt_ptr);
-> +		}
->  	}
->  }
->  #endif
 > -- 
 > 2.35.1
 >
 
-Thanks,
-drew
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
