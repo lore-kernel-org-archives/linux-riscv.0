@@ -4,76 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE15C43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E14BC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ck1aV9F7TUmtlOl2G5SLIuUxrAd6My9Lzb5moZyvIic=; b=svv0KAvl04Hvix
-	tTBN/Y66gUhpZVQDMv815WPeavdNGBM67S7uwVsC8ueuNDzAGCZVQRPoJeBHcwi/CuDQ11Csel2Cf
-	N9eW3SeNUX8KqDK6/s6guWVOdWqF5bKnkbGlpm4OuJcnubellJZkxmMfHLNGXi8Sa6I8n6XGdubmc
-	afh8Uc1SNLVBgEVpPSfNqvzE+adhA7iTvjCCfVsHQ1IwnkQREjfVKUwfT/23ggWGyjdHNXdFN5VGg
-	NIFPTdG8GYiqcmkRlAaW/PkTJLSivh64dDIgITOcTaKzSUt3qiIoYthbNfsJi3v3mMxfverqAxFqP
-	kwjQrlfTeM6MJ04Pz/Mg==;
+	List-Owner; bh=jNt1ul4RU6ZVCQfQSc68QWc1YurZCVjRetScfpF2ohc=; b=SScvPRoLoCY5wG
+	SUQxrNMJ+/JwkI8BbCrk0RYO/ElfQ6+92RWZw2RttFLw5IuC2U8nnt/mo7TP8NnQvRcd1AulY55/B
+	oPXalv1W0MbZSpjwMZOCv2v64hJD/ad7LUxDzc13B86lGq7hHFK/XWupyLZpQvyxGJEgPfPH8X3L/
+	dhi70UcVKSv3Cuihv1Vh3lN0AnBr6YMkFqS83Kg2HEdw2tV3V1pUxtYZSLCQ927Dpr1J+65YHlKJz
+	jEZENrjgbB1+8928Jg/oNnPnyMslVSoL4KtkP1FoqEwtI6lqWbVAJKqdYn/o/Frc+8kIDEeha+yyo
+	w/P1yDO2/sfBzTCEtPcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0hXP-00701U-17; Thu, 01 Dec 2022 11:15:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1p0hm2-0074pO-Ux; Thu, 01 Dec 2022 11:30:38 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0hX8-006ztY-My
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:15:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1669893315; x=1701429315;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rM+K1icdCaFKZCqOFV+QNCG9qeXYbf+NhJP0kyV2GKQ=;
-  b=vxWBNehwxImCCblXDxK/ZXQ3R4taU74wFJ6dAoK94ptBidqPBsjclLQL
-   5S9UhORHOqF+pGYESXvb4KIGc+EB9GmxIPjbE4bIqT4WEcI7ABdPommhY
-   Ax7Cwt7rVLOtiiMiimNUlHjO+5r5WPOdquojDlG3dQ9AJ6bAD2z38k/7D
-   PXOMWLwyuKrQLKikR8mLEPPjS9rscfq0ykmefq6mLXNDA5pEnqrWamB/s
-   uzzXdH/X7VHopEBmR4vp9MBKlCrZBgRFnaD1CrvJyuStsH60K4SrJSiCn
-   ED3favSXDGh9s5rTryIlT2aM0gk6Fi4QbgSkkZJJxJoX8PikH5v98z7rV
-   A==;
-X-IronPort-AV: E=Sophos;i="5.96,209,1665471600"; 
-   d="scan'208";a="191275759"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Dec 2022 04:15:14 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 1 Dec 2022 04:15:13 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 1 Dec 2022 04:15:10 -0700
-Date: Thu, 1 Dec 2022 11:14:52 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Ilpo =?iso-8859-1?Q?J=E4rvinen?=
-	<ilpo.jarvinen@linux.intel.com>, <linux-riscv@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-serial@vger.kernel.org>
-Subject: Re: [PATCH v2 5/9] dt-bindings: riscv: Add bouffalolab bl808 board
- compatibles
-Message-ID: <Y4iMrKjLAHpkCygo@wendy>
-References: <20221127132448.4034-1-jszhang@kernel.org>
- <20221127132448.4034-6-jszhang@kernel.org>
- <60991459-945f-35db-f26a-fb27824728ad@linaro.org>
+	id 1p0hm0-0074oe-FV
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:30:37 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id n21so3445161ejb.9
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 03:30:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hy0z9fn6yutvc+dvThk/Y1SdzeHn9pxlN9/eh5uO3cs=;
+        b=YkIRhmkvgKI5VeByBYmm1jWJDDZCuPl51QhLM+LBFmLqimdlWo+pj+K+fPMT+zPB0F
+         AMa8LRhqkrmuqzMZRiLjbwdeseLHv66UO7WSVX6vd9Tnttvwc9+vd9GREUtc8R3Y1kaM
+         j/a84exSdT20BTPXJRti561tqcGWWyMI7oQxb/xrq++ienrgX3hoF1tsCa+fRtElpg5G
+         a3F0Qu2FLENR/gzMY0IQyTfBWdD7Fl439e4rIMO+X9WvViIIDIRVcpyISqZJ2GBRs6GA
+         Ns+gcbiqFopKXHlwt3rW8MXX1HwtL0dQ5byHH+v3+zD2nhNGRMGcvrBJ4rOPWOyUQjbm
+         xlyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hy0z9fn6yutvc+dvThk/Y1SdzeHn9pxlN9/eh5uO3cs=;
+        b=YmaXXHmvMwoVyz9nA9yDOnGHV9xFZmfxid0rr4P1jvgDKtT7mLjbEXT8uz1W/v6I7j
+         F/C+fKbikz+or9xK8wAIFLCYbbP8LpBZYEZaWOni978qUu23jT60FlzI9B39w/Nlp/tM
+         yCs5FB94k1FHNMGmwWkIaOABrTFea26/uz0anMzrBsOyvU0pMn91bOBazQG4Zyznk/SX
+         YbMXBniulsgIKdXsOSA/3v4NEZcPhc7EtV06ptRZo37Z9/66HvezhNxFt06CAqO1p7gU
+         bKeaRHpR0p1nXdSLliXkBIpKoRX3V/50Hvasxkl6sPsEVmUdIbtDmRke/N9hCH/QDGxg
+         enxw==
+X-Gm-Message-State: ANoB5pkwHKRZnsdevLKABU5esiDQE48kUW9m2ev5BdTdLdlqKrcaQQ2f
+	mvo888ildT3PbB7xuwdR2xduqqdakHGPmGSpQTs=
+X-Google-Smtp-Source: AA0mqf7/0JyuhpFTobymLKciVFxPGTz54M/o8dTWiasg+0bDb9chiSoyVVDommRlVqB41SoDJUohNZGrny6505ZBHmM=
+X-Received: by 2002:a17:906:79c4:b0:778:e3e2:8311 with SMTP id
+ m4-20020a17090679c400b00778e3e28311mr42171491ejo.342.1669894234898; Thu, 01
+ Dec 2022 03:30:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <60991459-945f-35db-f26a-fb27824728ad@linaro.org>
+References: <20221124172207.153718-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221124172207.153718-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <bf8e33fd-a752-d5d5-859e-14302d069f2d@sholland.org> <CA+V-a8sz4i_wenTyA5tVTVB8dQWLmuXCf3CGYOPC+C07GJ8WTw@mail.gmail.com>
+ <565e1861-7052-9bd3-e7ba-e590bd91cf20@sholland.org>
+In-Reply-To: <565e1861-7052-9bd3-e7ba-e590bd91cf20@sholland.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Thu, 1 Dec 2022 11:30:08 +0000
+Message-ID: <CA+V-a8uuAqrtVEB1GqFicQjRvkPGpG5788oNSzCp1LNyoUNmXQ@mail.gmail.com>
+Subject: Re: [PATCH v4 7/7] soc: renesas: Add L2 cache management for RZ/Five SoC
+To: Samuel Holland <samuel@sholland.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_031514_833566_10E1B1D6 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20221201_033036_540420_32D47158 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +98,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Krzysztof,
+Hi Samuel,
 
-On Thu, Dec 01, 2022 at 12:05:04PM +0100, Krzysztof Kozlowski wrote:
-> On 27/11/2022 14:24, Jisheng Zhang wrote:
-> > Several SoMs and boards are available that feature the Bouffalolab
-> > bl808 SoC. Document the compatible strings.
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  .../bindings/riscv/bouffalolab.yaml           | 34 +++++++++++++++++++
-> >  1 file changed, 34 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > 
-> > diff --git a/Documentation/devicetree/bindings/riscv/bouffalolab.yaml b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > new file mode 100644
-> > index 000000000000..91ca9dbdc798
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/riscv/bouffalolab.yaml
-> > @@ -0,0 +1,34 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/riscv/bouffalolab.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Bouffalo Lab Technology SoC-based boards
-> > +
-> > +maintainers:
-> > +  - Jisheng Zhang <jszhang@kernel.org>
-> > +
-> > +description:
-> > +  Bouffalo Lab Technology SoC-based boards
-> > +
-> > +properties:
-> > +  $nodename:
-> > +    const: '/'
-> > +  compatible:
-> > +    oneOf:
-> > +      - description: Sipeed M1s SoM:
-> > +        items:
-> > +          - const: sipeed,m1s
-> > +          - const: bouffalolab,bl808
-> 
-> I don't think that SoM is usable alone. It always needs a carrier, so
-> drop this entry.
+On Tue, Nov 29, 2022 at 5:58 AM Samuel Holland <samuel@sholland.org> wrote:
+>
+> On 11/26/22 15:09, Lad, Prabhakar wrote:
+> >>> +     if (!ax45mp_priv->l2c_base) {
+> >>> +             ret = -ENOMEM;
+> >>> +             goto l2c_err;
+> >>> +     }
+> >>> +
+> >>> +     ret = ax45mp_configure_l2_cache(np);
+> >>> +     if (ret)
+> >>> +             goto l2c_err;
+> >>> +
+> >>> +     ret = ax45mp_configure_pma_regions(np);
+> >>> +     if (ret)
+> >>> +             goto l2c_err;
+> >>> +
+> >>> +     static_branch_disable(&ax45mp_l2c_configured);
+> >>
+> >> Instead of enabling this before the probe function, and disabling it
+> >> afterward, just enable it once here, in the success case. Then you can
+> >> drop the !ax45mp_priv check in the functions above.
+> >>
+> > I think I had tried it but static_branch_unlikely() was always returning true.
+>
+> You use DEFINE_STATIC_KEY_FALSE above, so static_branch_unlikely()
+> should return false until you call static_branch_enable().
+>
+OK, got that.
 
-For my own information, if a SoM is not capable of functioning without a
-carrier there is no merit in it having a compatible?
-Does this also apply if there are multiple possible carriers from
-different vendors?
+> >> And none of the functions would get called anyway if the alternative is
+> >> not applied. I suppose it's not possible to do some of this probe logic
+> >> in the alternative check function?
+> >>
+> > you mean to check in the vendor errata patch function to see if this
+> > driver has probed?
+>
+> I meant to do the equivalent of:
+>
+> +     ax45mp_priv->ucctl_ok = ax45mp_cpu_cache_controlable();
+> +     ax45mp_priv->l2cache_enabled = ax45mp_cpu_l2c_ctl_status() &
+> AX45MP_L2_CACHE_CTL_CEN_MASK;
+>
+> in the errata function, since that decides if the cache maintenance
+> functions actually do anything. But ax45mp_cpu_l2c_ctl_status() gets the
+> MMIO address from the DT, and trying to do that from the errata function
+> could get ugly, so maybe it is not a good suggestion.
+>
+Actually I did think about this and the best approach is to do it in
+errata only as you suggested. So here's my approach for dropping the
+above checks is to introduce vendor specific SBI EXT
+(RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND) which will check both the above
+conditions and only apply the errata on success and hence avoid the
+"if" checks every time in the sync operation.
 
-Thanks,
-Conor.
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
