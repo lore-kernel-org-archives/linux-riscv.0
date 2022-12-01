@@ -4,44 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D942C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 22:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE3EC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 23:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0w25XD13mj6cmQVms1GZmZ3bIzOGXzpyvIEN6phdEb4=; b=fFL3137NDQQBbH
-	9d+aJl+5oMVNZvoE7YlR0innIhzdK5BA2wJqmnpmERo9y0vy6SHETSKK9YeIWItCOZU8OAvP68OkD
-	mnB0awvhvy4xkwg8f92Enf4kPSt5u2h5PpLs26BsMMSw++PLCZi+/vGwgt7rzHCpyYURqr3mnn0fZ
-	aHfLxQBpDPfMgPmXn2/hj83HsLSa5rZVEeTMmhXy6jx+sXPKLjlJRXUYCQsbWNaOdibVcQ1bRgq7+
-	rLbGiK6xyzF8V1K2t7kLcYkDgzvZK1s5NPI7KOjup9F18w/dbzprfU/47MoOgDylNgDKxRvPAmnEE
-	2/wb52+X/WdGarQ8Z04w==;
+	List-Owner; bh=mOs4YBpeKtGtoUaYJPrr4LbgkWxIoR6gEz7M0bGpobE=; b=rKcb+QmmKyKPhF
+	0uCeDau/JoUb4+c1FMGouNfIxMjCfauA6DZ2jswqSg7GGBKfmRa13w74tZ+ulxuCHWks6iH+oDzpw
+	gME+W7ui1m5Y2QzxOcguY0un7aC391tQW/82GO0UkcB2/su905hMuSHEQ80euYCmXeG3Tse+0s7b6
+	l2VgK4gOjbnWeXPAxWhf8zB0K5/KJLS56SXP6b+IXj4y1v/uL0eNJXfHUb8hbBZ9Lw3uddjqCKunT
+	prATx4xp01fIkGkku13kjUqUuZAZDtLUpoktye0x1GCdnSX9SnnliWoBfPfNwRQhg32hsWFO52nc/
+	OkU4Dc34X2wq6QSKM+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0sRR-00BRsZ-2H; Thu, 01 Dec 2022 22:54:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p0swF-00Bf1j-OW; Thu, 01 Dec 2022 23:25:55 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0sDL-00BPxf-3p
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 22:39:32 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p0sDF-0004Fj-8b; Thu, 01 Dec 2022 23:39:25 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Andrew Jones <ajones@ventanamicro.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, philipp.tomsich@vrull.eu, emil.renner.berthing@canonical.com, linux-efi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
-Date: Thu, 01 Dec 2022 23:39:22 +0100
-Message-ID: <4822525.e9J7NaK4W3@diego>
-In-Reply-To: <CAMj1kXG=zM0EFFPn8MBWFurk=oSRPqwdd6CP1dudQC+JXV36Og@mail.gmail.com>
-References: <20221130225614.1594256-1-heiko@sntech.de> <20221201193455.2hr6mwm6sa6vnd3w@kamzik> <CAMj1kXG=zM0EFFPn8MBWFurk=oSRPqwdd6CP1dudQC+JXV36Og@mail.gmail.com>
+	id 1p0sMj-00BR3T-43
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 22:49:14 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id q15so2196433pja.0
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 14:49:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mKF7ACqUicTgwRFQrz4oBsMFvmn+mRrenbI3VwK9VtA=;
+        b=Lo1VVBU0quIBqwSjUL/IX6jsQ3Rcbq3kNXFx1b09LmjnR9bQqqs8Qnjl452IWYkBSY
+         P1KTyvwrHEdLgoshrms0r4SI8z1ngo83OqCHRxrURyBE+yArcM+Cs5TCeq44GobVkF0m
+         IuDj+iWRP2zVVwjI1HJslgwJO64iafu01Owc+4A3/mvkEjyzFr8iFAR19fNs0LBLJTf3
+         Kg1ZIMc5fZ0ipGhmHdhLOXnD8uVTRyQX02DQttBjsyjAKjRvEJFav2gCuZ5FSQ6cpVhK
+         zD3GLCkmoDFgDHZV7t7XBqH0jElTPRdTcydGeJqtHoccQFH5HqfiAwKx6tg04wXmDFCc
+         QADQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mKF7ACqUicTgwRFQrz4oBsMFvmn+mRrenbI3VwK9VtA=;
+        b=trQMybY7SabNoR2DzhBzK3qqfURNw70A+2cZChoyjubJ7zMp2xiJX3JHCyQ+J+ZKTG
+         efAh+GXzSB5pUYIhAcm3Di2fWZ/vYgXhovyjHe9XMrRTu++AjuOyD6jiJPBtfqOB2UiG
+         3J4ZCNIRc+HBbkT9yiOPvqN4I5y5VCrS6qG2zKpFCAf6T4DZJ5+S5bppNX4xqKtWHbiu
+         NvmfPd7y+dsFWIwGoXzYIijXu5QcDDdHq8b0hOceMMFm/F4xC9AazATwh3Xvrgz1TfVD
+         omdJNzr2taSnjxboFYi5KyUioTwF/xk2b6a7fxv2ES+VchnOZX75wdYsNqDl0di2vdrX
+         RTrA==
+X-Gm-Message-State: ANoB5pms4mhEuDsHX19lahmfgug0XcKyvjo9/ORxmGEKBNkYk0dfVNWh
+	0x3ATLEA3IOi1OrPyRBUcA79DA==
+X-Google-Smtp-Source: AA0mqf4Wt8uYV/bEa16p+0WrrISPwxZH3fHAX4g+Oh8a2UKzOEMh4LEyPBB3ZTgiAtA3/myS/mdVQA==
+X-Received: by 2002:a17:903:32ce:b0:189:a0eb:4a26 with SMTP id i14-20020a17090332ce00b00189a0eb4a26mr13829305plr.162.1669934951343;
+        Thu, 01 Dec 2022 14:49:11 -0800 (PST)
+Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
+        by smtp.gmail.com with ESMTPSA id c73-20020a624e4c000000b0056bc742d21esm3854175pfb.176.2022.12.01.14.49.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Dec 2022 14:49:10 -0800 (PST)
+Date: Thu, 1 Dec 2022 22:49:06 +0000
+From: Sean Christopherson <seanjc@google.com>
+To: Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Eric Farman <farman@linux.ibm.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	David Woodhouse <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Yuan Yao <yuan.yao@intel.com>,
+	Cornelia Huck <cohuck@redhat.com>,
+	Isaku Yamahata <isaku.yamahata@intel.com>,
+	Fabiano Rosas <farosas@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v2 21/50] KVM: MIPS: Hardcode callbacks to hardware
+ virtualization extensions
+Message-ID: <Y4kvYlCbhj87rceF@google.com>
+References: <20221130230934.1014142-1-seanjc@google.com>
+ <20221130230934.1014142-22-seanjc@google.com>
+ <beb697c2-dfad-780e-4638-76b229f28731@linaro.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <beb697c2-dfad-780e-4638-76b229f28731@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_143931_186300_B578A6CB 
-X-CRM114-Status: GOOD (  35.20  )
+X-CRM114-CacheID: sfid-20221201_144913_190798_646974DD 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,121 +117,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+On Thu, Dec 01, 2022, Philippe Mathieu-Daud=E9 wrote:
+> On 1/12/22 00:09, Sean Christopherson wrote:
+> > Now that KVM no longer supports trap-and-emulate (see commit 45c7e8af4a=
+5e
+> > "MIPS: Remove KVM_TE support"), hardcode the MIPS callbacks to the
+> > virtualization callbacks.
+> > =
 
-Am Donnerstag, 1. Dezember 2022, 21:57:00 CET schrieb Ard Biesheuvel:
-> On Thu, 1 Dec 2022 at 20:35, Andrew Jones <ajones@ventanamicro.com> wrote:
-> >
-> > On Wed, Nov 30, 2022 at 11:56:12PM +0100, Heiko Stuebner wrote:
-> > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > >
-> > > We may want to runtime-optimize some core functions (str*, mem*),
-> > > but not have this leak into libstub and cause build issues.
-> > > Instead libstub, for the short while it's running, should just use
-> > > the generic implementation.
-> > >
-> > > So, to be able to determine whether functions, that are used both in
-> > > libstub and the main kernel, are getting compiled as part of libstub or
-> > > not, add a compile-flag we can check via #ifdef.
-> > >
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> 
-> I think it would be better to update arch/riscv/kernel/image-vars.h so
-> that only these generic implementations are exposed to the stub in the
-> first place.
+> > Harcoding the callbacks eliminates the technically-unnecessary check on
+> > non-NULL kvm_mips_callbacks in kvm_arch_init().  MIPS has never support=
+ed
+> > multiple in-tree modules, i.e. barring an out-of-tree module, where
+> > copying and renaming kvm.ko counts as "out-of-tree", KVM could never
+> > encounter a non-NULL set of callbacks during module init.
+> > =
 
-The relevant code is in patch13 + patch14.
+> > The callback check is also subtly broken, as it is not thread safe,
+> > i.e. if there were multiple modules, loading both concurrently would
+> > create a race between checking and setting kvm_mips_callbacks.
+> > =
 
-To provide more context, the actual str* function we want to run is
-determined at runtime. This is due to a all the possible extensions
-(present and future) a riscv core can or cannot support, which in turn
-blooms into a plethora of possible implementations for them.
+> > Given that out-of-tree shenanigans are not the kernel's responsibility,
+> > hardcode the callbacks to simplify the code.
+> > =
 
-Of course we want to have a unified kernel image, so we check on boot
-for available extensions and patch the call to the actual best function
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >   arch/mips/include/asm/kvm_host.h |  2 +-
+> >   arch/mips/kvm/Makefile           |  2 +-
+> >   arch/mips/kvm/callback.c         | 14 --------------
+> >   arch/mips/kvm/mips.c             |  9 ++-------
+> >   arch/mips/kvm/vz.c               |  7 ++++---
+> >   5 files changed, 8 insertions(+), 26 deletions(-)
+> >   delete mode 100644 arch/mips/kvm/callback.c
+> > =
 
-The introduction in the mentioned patches is still simple with a
-generic + bitmanipulation variant, but that is more to keep the changes
-somewhat manageable and there are already more variants on the horizon.
+> > diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/k=
+vm_host.h
+> > index 28f0ba97db71..2803c9c21ef9 100644
+> > --- a/arch/mips/include/asm/kvm_host.h
+> > +++ b/arch/mips/include/asm/kvm_host.h
+> > @@ -758,7 +758,7 @@ struct kvm_mips_callbacks {
+> >   	void (*vcpu_reenter)(struct kvm_vcpu *vcpu);
+> >   };
+> >   extern struct kvm_mips_callbacks *kvm_mips_callbacks;
+> =
 
-So the actual strlen and friends is just an inline function with a call to
-the actual function, which gets patched via alternatives.
+> IIUC we could even constify this pointer.
 
-So this looks then like:
+Good point.  Protecting the pointer itself is a bit gross, but it is a nice
+stopgap until the callbacks are gone.  I'll fold this in.  Thanks!
 
---------- 8< ---------
-static inline int strcmp(const char *cs, const char *ct)
-{
-#if defined(RISCV_EFISTUB) || defined(RISCV_PURGATORY)
-        return __strcmp_generic(cs, ct);
-#else
-        register const char *a0 asm("a0") = cs;
-        register const char *a1 asm("a1") = ct;
-        register int a0_out asm("a0");
-
-        asm volatile(
-                ALTERNATIVE(
-                        "call __strcmp_generic\n\t",
-                        "call __strcmp_zbb\n\t",
-                        0, CPUFEATURE_ZBB, CONFIG_RISCV_ISA_ZBB)
-                : "=r"(a0_out)
-                : "r"(a0), "r"(a1)
-                : "ra", "t0", "t1", "t2", "t3", "t4", "t5");
-
-        return a0_out;
-#endif
-}
---------- 8< ---------
-
-When that gets pulled into libstub without that separation, libstub ends up
-with references to __strcmp_generic and __strcmp_zbb.
-
-Of course the zbb variant would never get used, but still would also need
-to be present in libstub and image-vars.h just to make the build happy.
-
-And for every additional variant this would also mean adding more to
-unused code to libstub and image-vars.h, hence I came up with the flag
-to mark when code gets to be part of libstub.
-
-
-Heiko
-
-
-
-> 
-> > > ---
-> > >  drivers/firmware/efi/libstub/Makefile | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> > > index ef5045a53ce0..777d1ab059e3 100644
-> > > --- a/drivers/firmware/efi/libstub/Makefile
-> > > +++ b/drivers/firmware/efi/libstub/Makefile
-> > > @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)                := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> > >                                  -fno-builtin -fpic \
-> > >                                  $(call cc-option,-mno-single-pic-base)
-> > >  cflags-$(CONFIG_RISCV)               := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> > > -                                -fpic
-> > > +                                -fpic -DRISCV_EFISTUB
-> > >  cflags-$(CONFIG_LOONGARCH)   := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
-> > >                                  -fpie
-> > >
-> > > --
-> > > 2.35.1
-> > >
-> >
-> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> 
-
-
-
-
+  extern const struct kvm_mips_callbacks * const kvm_mips_callbacks;
 
 _______________________________________________
 linux-riscv mailing list
