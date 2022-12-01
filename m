@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D5BC43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3DDC43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 14:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KCfPDZfG+unCT0TryIEM5TGi3at+g8rUnm9rQao6QkY=; b=PcFv5SFP4Edju2
-	8P4PVLp4lGUZxk5zMhdZCDDcEGlX69K+Xblx4wOYPdFbzl7NdujZ2Kfg17s/Ar75qRsuidiX0hoCa
-	thkpT91HykE9Gver2FV49LJZ7MlkrlGCfKsAB8szghjm7910KI5DnMSG1O54G+DIktod2RbO+lu69
-	oLcBA7klz9HRVhCVSNnpPkVvVvUtxJ3lWwtAb+KSsv21aZulL+ouP6i0IuRgkWkQ6FZQiFg8pJc0g
-	WRXK4/IMtiRY7pvU3ootp5dcZ3vA2qqRoCOemkdfJGqOLf7qeADfgbh6frtIL3tTww47/cfSOQjQ1
-	WTfS2eWG7w0di6VECE/w==;
+	List-Owner; bh=SDzY051JSpj2TNTfFhj29xt0onokA3u7jWPEO88tllk=; b=qaDqKc6TPC9Lf5
+	fwn1bxrzuGH/HdnkOJFbJxBbzvE6/zmFXum+MpjIM5P5gQIw1HuV411bxcGDwEitZDFvTgCNw416c
+	u5O2+QAYvIU/M3LEbqZaGK4PHnW8tQuykRGXjB0MaCRARxNDUfbF0Ld/H1cw9curMSHs20aueGv/L
+	uFEDFdHJMAoE7nasZgO2em3GzauWp2xnlH/sbEc+dg1gWsEcZNb6AWyTjdZhl38N6npGn+VQV7elF
+	1HddIvMMNFgzPNjeKCUDvJzLPPsw1txEQtYGG6M1p6p+WoAg/voUFkq6G7PwvcyAP1+jQFWNoPrL9
+	YzHx9mx2tzWuyDLTbRcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0k0I-007nQU-6u; Thu, 01 Dec 2022 13:53:30 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0k0C-007nOP-2n
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:53:28 +0000
-Received: by mail-wr1-x432.google.com with SMTP id y16so2828127wrm.2
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 05:53:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bgLh6uMMR0Rcr9C+nyDLv9c+8u2wrvtTYa0+ThJna9I=;
-        b=bmeNS2iEKjeqg6unQ+LJECbDmv0XQqeKqaACNC+HASzyAlGgmwAIi+IyPgR5TQy2Vm
-         NKjpmkgZMPqWZdpaF0oqQrrcwqYrmQQPkcwE3JL1XH1rHQLcgECF7o6fz9wFLWkdCGEM
-         y19q5D5ob+B6Q0p0SNy4JjQViJIShBPxcMLj9FC1HZsa6kYJM/k770E94SQ6RWRXBGbe
-         dTBGarcCH9bDXHSGYNz/jUkT2OuX5WZUG9T6VGw8tZJAA6cHqbtFVXmon2eUWuwWOTMy
-         JVIl5O0xYviC0vXwrGsyghXQcMnCS4OnEy88xxdHA2rM5ZTszL23U5etmCO/MItuC8JB
-         hwBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bgLh6uMMR0Rcr9C+nyDLv9c+8u2wrvtTYa0+ThJna9I=;
-        b=Rp1WGgTFQk24dQofNtREQ1RV/kHzevQz3M+iTvkSodX9/GYS/X0eMhFrNpBp0K50IV
-         WzPY+kB9CbSYUAjeS0e6jMhHdt6d4TFLp1Q+WpbFs+DlibGWqLD08Nl0GQEDODsXsRbU
-         58XnCU762w2g2R+J/DDhJAe4QnmBXlGj0RmaQDsk3r5jj9DHc0ieCr/PFQDJZ/PX8bwD
-         zkWWKtgprHUbPAEmCejDN8ZXxw7917dhdRKzo9/rnk0WfhZRvP/pd91/If2UCn+qXJKJ
-         aBIA2wUAsZgzOC/pMhOyuIhHjdNZEsqjlvIn5figzjWtPdR5rq5ThSHalKfYI/OCmr++
-         SgDQ==
-X-Gm-Message-State: ANoB5pnyXYdAMWJzlYgRWCu4MT0iPXzCJuj/GuAXzw+sT+qcYm8KAugd
-	yp9GiFdWWgjaaE1UQzprBshKhw==
-X-Google-Smtp-Source: AA0mqf7uWenO+LbmKE9LuMiukYmFeUw50rRJmRTVFYoCgTjjVHaNFb5qH68Z/YfC8l8bquXihHFdHw==
-X-Received: by 2002:a5d:6503:0:b0:22e:35e8:382d with SMTP id x3-20020a5d6503000000b0022e35e8382dmr41094490wru.475.1669902800271;
-        Thu, 01 Dec 2022 05:53:20 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (lfbn-gre-1-201-46.w90-112.abo.wanadoo.fr. [90.112.163.46])
-        by smtp.gmail.com with ESMTPSA id t17-20020a05600c199100b003c7087f6c9asm9589361wmq.32.2022.12.01.05.53.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 05:53:19 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH 1/1] riscv: Fix P4D_SHIFT definition for 3-level page table mode
-Date: Thu,  1 Dec 2022 14:51:28 +0100
-Message-Id: <20221201135128.1482189-2-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20221201135128.1482189-1-alexghiti@rivosinc.com>
-References: <20221201135128.1482189-1-alexghiti@rivosinc.com>
+	id 1p0kNP-007rzQ-LD; Thu, 01 Dec 2022 14:17:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0kNK-007rxH-Eu; Thu, 01 Dec 2022 14:17:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BED1D6E;
+	Thu,  1 Dec 2022 06:17:23 -0800 (PST)
+Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0F8B3F73D;
+	Thu,  1 Dec 2022 06:17:09 -0800 (PST)
+Date: Thu, 1 Dec 2022 14:17:07 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@pengutronix.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Heiko Stuebner
+ <heiko@sntech.de>, Linus Walleij <linus.walleij@linaro.org>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org,
+ Douglas Anderson <dianders@chromium.org>, Conor Dooley
+ <conor.dooley@microchip.com>, Thierry Reding <thierry.reding@gmail.com>,
+ Satya Priya <quic_c_skakit@quicinc.com>, Pavel Machek <pavel@ucw.cz>,
+ Guenter Roeck <groeck@chromium.org>, Nobuhiro Iwamatsu
+ <nobuhiro1.iwamatsu@toshiba.co.jp>, Fabio Estevam <festevam@gmail.com>,
+ linux-riscv@lists.infradead.org, linux-leds@vger.kernel.org, Jerome Brunet
+ <jbrunet@baylibre.com>, chrome-platform@lists.linux.dev, Florian Fainelli
+ <f.fainelli@gmail.com>, Samuel Holland <samuel@sholland.org>, Sean Anderson
+ <sean.anderson@seco.com>, Kevin Hilman <khilman@baylibre.com>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Michal Simek <michal.simek@xilinx.com>,
+ linux-stm32@st-md-mailman.stormreply.com, Hammer Hsieh
+ <hammerh0314@gmail.com>, linux-rockchip@lists.infradead.org, Chen-Yu Tsai
+ <wens@csie.org>, Matthias Kaehlcke <mka@chromium.org>, Broadcom internal
+ kernel review list <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team
+ <linux-imx@nxp.com>, Orson Zhai <orsonzhai@gmail.com>,
+ linux-sunxi@lists.linux.dev, linux-pwm@vger.kernel.org, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>, Ray Jui <rjui@broadcom.com>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Stephen Boyd <swboyd@chromium.org>,
+ linux-gpio@vger.kernel.org, Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ linux-amlogic@lists.infradead.org, Benson Leung <bleung@chromium.org>,
+ linux-arm-kernel@lists.infradead.org, Scott Branden
+ <sbranden@broadcom.com>, Bjorn Andersson <andersson@kernel.org>, Nicolas
+ Ferre <nicolas.ferre@microchip.com>, Michael Walle <michael@walle.cc>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Chunyan Zhang <zhang.lyra@gmail.com>, Shawn Guo
+ <shawnguo@kernel.org>, Claudiu Beznea <claudiu.beznea@microchip.com>
+Subject: Re: [PATCH v2 01/11] pwm: Make .get_state() callback return an
+ error code
+Message-ID: <20221201141707.28af0d1d@donnerap.cambridge.arm.com>
+In-Reply-To: <20221201131604.beq4l22d42tjy6dm@pengutronix.de>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+	<20221130152148.2769768-2-u.kleine-koenig@pengutronix.de>
+	<20221201102252.52ace284@donnerap.cambridge.arm.com>
+	<20221201131604.beq4l22d42tjy6dm@pengutronix.de>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_055324_127197_C8A54DB9 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20221201_061718_612865_8F54E3AB 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +91,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V kernels support 3,4,5-level page tables at runtime by folding
-upper levels.
-
-In case of a 3-level page table, PGDIR is folded into P4D which in turn
-is folded into PUD: PGDIR_SHIFT value is correctly set to the same value
-as PUD_SHIFT, but P4D_SHIFT is not, then any use of P4D_SHIFT will access
-invalid address bits (all set to 1).
-
-Fix this by dynamically defining P4D_SHIFT value, like we already do for
-PGDIR_SHIFT.
-
-Fixes: d10efa21a937 ("riscv: mm: Control p4d's folding by pgtable_l5_enabled")
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/pgtable-64.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index dc42375c2357..42a042c0e13e 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -25,7 +25,11 @@ extern bool pgtable_l5_enabled;
- #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
- 
- /* p4d is folded into pgd in case of 4-level page table */
--#define P4D_SHIFT      39
-+#define P4D_SHIFT_L3   30
-+#define P4D_SHIFT_L4   39
-+#define P4D_SHIFT_L5   39
-+#define P4D_SHIFT      (pgtable_l5_enabled ? P4D_SHIFT_L5 : \
-+		(pgtable_l4_enabled ? P4D_SHIFT_L4 : P4D_SHIFT_L3))
- #define P4D_SIZE       (_AC(1, UL) << P4D_SHIFT)
- #define P4D_MASK       (~(P4D_SIZE - 1))
- 
--- 
-2.37.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAxIERlYyAyMDIyIDE0OjE2OjA0ICswMTAwClV3ZSBLbGVpbmUtS8O2bmlnIDx1Lmts
+ZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+IHdyb3RlOgoKSGkgVXdlLAoKPiBIZWxsbyBBbmRy
+ZSwKPiAKPiBPbiBUaHUsIERlYyAwMSwgMjAyMiBhdCAxMDoyMjo1MkFNICswMDAwLCBBbmRyZSBQ
+cnp5d2FyYSB3cm90ZToKPiA+IEp1c3Qgb25lIGNvbW1lbnQ6IEkgZG9uJ3Qgc2VlIGEgc3VueGkg
+c3BlY2lmaWMgcGF0Y2ggbGF0ZXIgaW4gdGhlIHNlcmllcywKPiA+IHRob3VnaCBpdCBzZWVtcyB3
+ZSBoYXZlIGF0IGxlYXN0IG9uZSBlcnJvciBlcnJvciBleGl0IChzZWUgcHJlc2NhbGVyID09IDAK
+PiA+IGFib3ZlKS4gUGx1cyBwb3RlbnRpYWxseSBhbm90aGVyIGV4aXQgaWYgY2xrX2dldF9yYXRl
+KCkgKGF0IHRoZSB2ZXJ5Cj4gPiBiZWdpbm5pbmcpIGZhaWxzLgo+ID4gU2hhbGwgSSBzZW5kIGEg
+cGF0Y2ggZm9yIHRoYXQ/ICAKPiAKPiBUaGF0IHdvdWxkIHdlIHZlcnkgd2VsY29tZS4gSSBtZW50
+aW9uZWQgdGhhdCBzaG9ydGx5IGluIHRoZSBjb3Zlcgo+IGxldHRlciwgSSB3YXNuJ3QgZW50aXJl
+bHkgc3VyZSBob3cgdG8gaGFuZGxlIHRoYXQgcHJlc2NhbGVyID0gMCBjYXNlLgoKQWggcmlnaHQs
+IHNvcnJ5LCBJIG1pc3NlZCB0aGF0LgpTbyB0aGUgQWxsd2lubmVyIG1hbnVhbCBzb21laG93IG1h
+cmtzIHRob3NlIHByZXNjYWxlciBlbmNvZGluZ3MgYXMgcmVzZXJ2ZWQKb3IgaW52YWxpZCAoaXQn
+cyBqdXN0IGEgIi8iIGluIHRoZXJlKSwgYW5kIHdlIG5ldmVyIHNldCB0aG9zZSB2YWx1ZXMgaW4g
+dGhlCmRyaXZlciAodGhlcmUgaXMgYW4gZXhwbGljaXQgY2hlY2spLiBTbyBpdCBjb3VsZCBvbmx5
+IGJlIGEgbGVmdG92ZXIgZnJvbQpmaXJtd2FyZS9ib290bG9hZGVyLCBvciBzb21lb25lIHBva2lu
+ZyBhdCB0aGlzIHJlZ2lzdGVyIGJlaGluZCBvdXIgYmFjay4KSSBhbSB0ZW1wdGVkIHRvIGp1c3Qg
+cmV0dXJuIHNvbWUgLUVJTlZBTC4gQXMgdGhlIGN1cnJlbnQgY29kZSBzdGFuZHMsIHdlCmRvbid0
+IG1hbmlwdWxhdGUgYW55IHN0YXRlIGZsYWdzIGJlZm9yZSB0aGF0IGNoZWNrLCBzbyBpdCBkb2Vz
+bid0CnJlYWxseSBtYXR0ZXIsIGJ1dCB3b3VsZCBiZSBiZXN0IHByYWN0aXNlLCBhdCBsZWFzdC4K
+CkNoZWVycywKQW5kcmUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
