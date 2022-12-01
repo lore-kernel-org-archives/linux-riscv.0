@@ -4,106 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE1EC4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 15:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03B1C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 16:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T7q6svNcYtbbVimnf+yWWK568IPyLqcsW2mzv+xgoHM=; b=all2JFH8r6rtqB
-	DaRAHT893synZYG5GoUP+dbn8ORTIhbowjtszgyc4PKlarm3t7SozeC74x4BnoTuKahGgianWqYcE
-	ihwgt7+qe3FDao66zhyf4xDcWkdF6meBEhwGFVMgScrW2GoEM8dXUkuoC9bEPDGJSB4WjyJrYe2i+
-	0KKlgfsrrGHf6ISC3b2oW4XZQbeKHeD3SesDXjYWCkmaksZEyJt/ZT01Y9Lyf56CefdykY2f2UgCQ
-	3Od0aSTJw71UBLL2euQObjNbjALzWjpLtVaesrys75HanFvny5e270uPfz25ltao/D/O84rhtZDPN
-	ohXkgifPTTfxCdxfdt/w==;
+	List-Owner; bh=sPFWEU9KND9chj3SX9DpOfAE8O5yXwzcyzNYXMTIyEM=; b=DVaUJ7JXJS57A5
+	Nrgqm8ylyvNM0/4Nt/h3dd1apx1K7HPPG/dzQme4JsPdbGuuRLR2JFz7lgAyYguAg5QQaJoMrjOJz
+	13bIvQGJeQ2oFCU6GnwkorCcEEc1iRovtt6HXsr29QAFzbyzD9bD1a+hFBWXN8Yi9VsWk2cLb/YNo
+	h9YA5stvUDkCad5mO2ka2B3Qo156rdN4JEYYngRxEp+7GTOnnw7zbpQ50/PH/pL3sFYT4R6pT84KD
+	9zq0rw6r800hvOMvd+6ITQpIKhFpUmpAn0P+KelIj3sDIrzQrDMT0goXAdwRv6LU0cMnD6UruKsrv
+	r6CYA6AU/QnUsDaBFb+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0liQ-008JEi-O3; Thu, 01 Dec 2022 15:43:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1p0m4s-008ROn-Ee; Thu, 01 Dec 2022 16:06:22 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0liL-008JAo-Pl
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 15:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1669909384;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uICPaEENN8EB00poBiDynBWP9unBSRZ6Eo0ZeloiILw=;
-	b=ShDSpJFN0QDtH03IzK5wfnlyUH76O3c7dsbxoFK+KF0E2RVlEAR3LFhECLAXd86gw9UQ/X
-	3FrWrq7UepVYdRDfFbakv+ciRtEt2VkXedgY1ubBB3Thq6PYJfP/roq+NZqQvA1N2Tkfx1
-	mPSxDMX7PJPfke0HISThbxAYOMGvlMc=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-218-YmBplWFuN1mFxLZ2mugWxw-1; Thu, 01 Dec 2022 10:43:03 -0500
-X-MC-Unique: YmBplWFuN1mFxLZ2mugWxw-1
-Received: by mail-wr1-f72.google.com with SMTP id k1-20020adfb341000000b0024215e0f486so532169wrd.21
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 07:43:03 -0800 (PST)
+	id 1p0m4o-008RNn-VD
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 16:06:21 +0000
+Received: by mail-ej1-x631.google.com with SMTP id td2so5311767ejc.5
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 08:06:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qYBwCxPIEcs552vI5UUgZomjgzDegtvXtPee6cS3tDA=;
+        b=fdFARI3cqK84YH3bkQCGvztt5qIJXxdPXyik0OrZivYlSt/afoDQ2jDWxsbkRLAlBi
+         oGYJ/dZDPYOHFEv1feoBUbskALUEd7ZmqiwLazsDIugtGmNSuAwpHWthtmgbralE4A7B
+         zf2JwVte3yBVEvYDRv7TvbOj8/0DpMjWvttzV+d1l8D1mpz7dDai0ktRukUrTRqgMtrm
+         /g6ed+eiMRPwqzmDhsjAghhSPvE+YGa+9tZuV8kNt1frs5SG4CZpjxR5PmDvbXadDMqt
+         Ar6yrLho5Zm2Kuxp6e1l3JuhSGdkQVPJRvhNG+wzg0sa0PXNbN6mRR9ongoL1GLiZXBz
+         Ge/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uICPaEENN8EB00poBiDynBWP9unBSRZ6Eo0ZeloiILw=;
-        b=dJFKHBPQNt8+U7nWgxRveT2ICblDQ1ONgXZAFWYskMW9POfgPflekLThgojTSTbPng
-         fjj+r+Dsx2li09h5qkhlEjgtQDfE405BFUc0pWjUcdjvqJ5WciCHfRVKXxjHddF9cV6s
-         gAWYnXLOpfIHvpxDhRjKVsmAu69mIFEvgjB7HNr6AUENz2GF936fSWQws0TanjmqdhpR
-         AJs+Zzxg5uXomgb3JlaRUl2mL39Jm1XgJoxv/9DBpodkftoHtCISEZj2FNgQY5lIupE8
-         4jZKuRWwr/FYo/OWClTIQtfu2KsViak1H6tJJYIdzwe5K1nqoVxgJESM/lkaxRyx0v/b
-         5EVg==
-X-Gm-Message-State: ANoB5plHJJVEfmshAqYWayucKmz5JNGH4256yFfce98eDwFKZDfBjp2S
-	OMsFWIj3VL9bB1QRypN8b4B+Qt5OUVCSrAmaJlsy58HEW6y1LHzsflwyqhSQE3ZHXnaBeS244mw
-	4Y07CiNWXI4BLtYcEUUKFbr1IjllP
-X-Received: by 2002:adf:ecd2:0:b0:236:6fd9:9efa with SMTP id s18-20020adfecd2000000b002366fd99efamr39370644wro.101.1669909382061;
-        Thu, 01 Dec 2022 07:43:02 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf4imAxqHpsHzf4lwMnv25YvuYKadYTHsioCJaPqnZlFtnFG20xMn8tkXOhL/ZrHUpQYnEbeIQ==
-X-Received: by 2002:adf:ecd2:0:b0:236:6fd9:9efa with SMTP id s18-20020adfecd2000000b002366fd99efamr39370625wro.101.1669909381800;
-        Thu, 01 Dec 2022 07:43:01 -0800 (PST)
-Received: from ovpn-194-141.brq.redhat.com (nat-2.ign.cz. [91.219.240.2])
-        by smtp.gmail.com with ESMTPSA id bg28-20020a05600c3c9c00b003cfa3a12660sm9307122wmb.1.2022.12.01.07.42.59
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qYBwCxPIEcs552vI5UUgZomjgzDegtvXtPee6cS3tDA=;
+        b=7R5m49tmX/EwJ0fF0U6pGrM9RxRA9I5EI3pvia8zbw92L9UvU5RQr8wPhPexyQYwwX
+         BRT9XxHi4n3kL6RqZI4lGdYIS/o/uQ4gwb5nl7UGvH09Hbhx+naDYvCzltkRgAmDoyv1
+         9O6df02eEF+x7Pg+NXFQnHzaxiXT/11WI97AiF/DFU0x71Ow3aJ85rygKPG+yuXvqrhE
+         Kd6t8FoKYTrY5B06KGe/8Xb5cCDNAL0dGI5hW6nwZZ0NNX20hoTvxenb8KW2K/7eUlIo
+         7K20hjbgyBUOFwqj5Cm+RbIAo92p0leb7xhb4xtqUz2LjSKHiML7DfcQai6cvHMDwMSQ
+         /KaA==
+X-Gm-Message-State: ANoB5pmolghcitwzCPsNkvzc63Ij+y99qHHO4oUSgIeN/Fw+GF96eg+L
+	0enE8PzaZWSce9VtLbmbLfeUXMDNWYJSPw==
+X-Google-Smtp-Source: AA0mqf73kSy7zxJKs8vJDXnMeacKA8ZPYPCMycCkgVxlECM3LzBFAWydeFjzSlP5qOHO4hJxmmbhBQ==
+X-Received: by 2002:a17:906:6d7:b0:781:951:2fb with SMTP id v23-20020a17090606d700b00781095102fbmr56834635ejb.64.1669910776395;
+        Thu, 01 Dec 2022 08:06:16 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id gf16-20020a170906e21000b007815ca7ae57sm1903807ejb.212.2022.12.01.08.06.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 07:43:00 -0800 (PST)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Atish Patra
- <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, Yuan Yao
- <yuan.yao@intel.com>, Cornelia Huck <cohuck@redhat.com>, Isaku Yamahata
- <isaku.yamahata@intel.com>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?=
- <philmd@linaro.org>,
- Fabiano Rosas <farosas@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Kai Huang <kai.huang@intel.com>, Chao Gao
- <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>, Paolo Bonzini
- <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Aleksandar Markovic
- <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>, Matthew Rosato
- <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, Sean
- Christopherson <seanjc@google.com>, David Woodhouse <dwmw2@infradead.org>,
- Paul Durrant <paul@xen.org>
-Subject: Re: [PATCH v2 10/50] KVM: VMX: Reset eVMCS controls in VP assist
- page during hardware disabling
-In-Reply-To: <20221130230934.1014142-11-seanjc@google.com>
-References: <20221130230934.1014142-1-seanjc@google.com>
- <20221130230934.1014142-11-seanjc@google.com>
-Date: Thu, 01 Dec 2022 16:42:58 +0100
-Message-ID: <87h6yff7ul.fsf@ovpn-194-141.brq.redhat.com>
+        Thu, 01 Dec 2022 08:06:16 -0800 (PST)
+Date: Thu, 1 Dec 2022 17:06:14 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 0/5] RISC-V Hardware Probing User Interface
+Message-ID: <20221201160614.xpomlqq2fzpzfmcm@kamzik>
+References: <20221013163551.6775-1-palmer@rivosinc.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20221013163551.6775-1-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_074305_944791_CD5BFC89 
-X-CRM114-Status: GOOD (  29.66  )
+X-CRM114-CacheID: sfid-20221201_080619_028296_609FED5F 
+X-CRM114-Status: GOOD (  38.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,122 +88,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+On Thu, Oct 13, 2022 at 09:35:46AM -0700, Palmer Dabbelt wrote:
+> These are very much up for discussion, as it's a pretty big new user
+> interface and it's quite a bit different from how we've historically
+> done things: this isn't just providing an ISA string to userspace, this
+> has its own format for providing information to userspace.
+> 
+> There's been a bunch of off-list discussions about this, including at
+> Plumbers.  The original plan was to do something involving providing an
+> ISA string to userspace, but ISA strings just aren't sufficient for a
+> stable ABI any more: in order to parse an ISA string users need the
+> version of the specifications that the string is written to, the version
+> of each extension (sometimes at a finer granularity than the RISC-V
+> releases/versions encode), and the expected use case for the ISA string
+> (ie, is it a U-mode or M-mode string).  That's a lot of complexity to
+> try and keep ABI compatible and it's probably going to continue to grow,
+> as even if there's no more complexity in the specifications we'll have
+> to deal with the various ISA string parsing oddities that end up all
+> over userspace.
+> 
+> Instead this patch set takes a very different approach and provides a se
+> of key/value pairs that encode various bits about the system.  The big
+> advantage here is that we can clearly define what these mean so we can
+> ensure ABI stability, but it also allows us to encode information that's
+> unlikely to ever appear in an ISA string (see the misaligned access
+> performance, for example).  The resulting interface looks a lot like
+> what arm64 and x86 do, and will hopefully fit well into something like
+> ACPI in the future.
+> 
+> The actual user interface is a syscall.  I'm not really sure that's the
+> right way to go about this, but it makes for flexible prototying.
+> Various other approaches have been talked about like making HWCAP2 a
+> pointer, having a VDSO routine, or exposing this via sysfs. 
 
-> Reset the eVMCS controls in the per-CPU VP assist page during hardware
-> disabling instead of waiting until kvm-intel's module exit.  The controls
-> are activated if and only if KVM creates a VM, i.e. don't need to be
-> reset if hardware is never enabled.
->
-> Doing the reset during hardware disabling will naturally fix a potential
-> NULL pointer deref bug once KVM disables CPU hotplug while enabling and
-> disabling hardware (which is necessary to fix a variety of bugs).  If the
-> kernel is running as the root partition, the VP assist page is unmapped
-> during CPU hot unplug, and so KVM's clearing of the eVMCS controls needs
-> to occur with CPU hot(un)plug disabled, otherwise KVM could attempt to
-> write to a CPU's VP assist page after it's unmapped.
->
-> Reported-by: Vitaly Kuznetsov <vkuznets@redhat.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/vmx.c | 50 +++++++++++++++++++++++++-----------------
->  1 file changed, 30 insertions(+), 20 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index cea8c07f5229..d85d175dca70 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -551,6 +551,33 @@ static int hv_enable_l2_tlb_flush(struct kvm_vcpu *vcpu)
->  	return 0;
->  }
->  
-> +static void hv_reset_evmcs(void)
-> +{
-> +	struct hv_vp_assist_page *vp_ap;
-> +
-> +	if (!static_branch_unlikely(&enable_evmcs))
-> +		return;
-> +
-> +	/*
-> +	 * KVM should enable eVMCS if and only if all CPUs have a VP assist
-> +	 * page, and should reject CPU onlining if eVMCS is enabled the CPU
-> +	 * doesn't have a VP assist page allocated.
-> +	 */
-> +	vp_ap = hv_get_vp_assist_page(smp_processor_id());
-> +	if (WARN_ON_ONCE(!vp_ap))
-> +		return;
-> +
+Hi Palmer,
 
-In case my understanding is correct, this may actually get triggered
-for Hyper-V root partition: vmx_hardware_disable() gets called from
-kvm_dying_cpu() which has its own CPUHP_AP_KVM_STARTING stage. VP page
-unmapping happens in hv_cpu_die() which uses generic CPUHP_AP_ONLINE_DYN
-(happens first on CPU oflining AFAIR). I believe we need to introduce a
-new CPUHP_AP_HYPERV_STARTING stage and put it before
-CPUHP_AP_KVM_STARTING so it happens after it upon offlining.
+To throw my two cents into the penny jar, I'd vote for sysfs. It handles
+the heterogeneous CPU case since cpu feature nodes can be hung off each
+cpu node. It also avoids yet another encoding. If we enumerate extensions
+and their properties then we need to maintain that enumeration in both
+the kernel space and userspace. If, OTOH, we use sysfs node names for
+the encoding, then, when we match the spec naming exactly, e.g.
 
-The issue is likely theoretical as Hyper-V root partition is a very
-special case, I'm not sure whether KVM is used there and whether CPU
-offlining is possible. In any case, WARN_ON_ONCE() is much better than
-NULL pointer dereference we have now :-)
+ .../features/zicbom
+ .../features/zihintpause
+ .../features/sscofpmf
 
-> +	/*
-> +	 * Reset everything to support using non-enlightened VMCS access later
-> +	 * (e.g. when we reload the module with enlightened_vmcs=0)
-> +	 */
-> +	vp_ap->nested_control.features.directhypercall = 0;
-> +	vp_ap->current_nested_vmcs = 0;
-> +	vp_ap->enlighten_vmentry = 0;
-> +}
-> +
-> +#else /* IS_ENABLED(CONFIG_HYPERV) */
-> +static void hv_reset_evmcs(void) {}
->  #endif /* IS_ENABLED(CONFIG_HYPERV) */
->  
->  /*
-> @@ -2496,6 +2523,8 @@ static void vmx_hardware_disable(void)
->  	if (cpu_vmxoff())
->  		kvm_spurious_fault();
->  
-> +	hv_reset_evmcs();
-> +
->  	intel_pt_handle_vmx(0);
->  }
->  
-> @@ -8462,27 +8491,8 @@ static void vmx_exit(void)
->  	kvm_exit();
->  
->  #if IS_ENABLED(CONFIG_HYPERV)
-> -	if (static_branch_unlikely(&enable_evmcs)) {
-> -		int cpu;
-> -		struct hv_vp_assist_page *vp_ap;
-> -		/*
-> -		 * Reset everything to support using non-enlightened VMCS
-> -		 * access later (e.g. when we reload the module with
-> -		 * enlightened_vmcs=0)
-> -		 */
-> -		for_each_online_cpu(cpu) {
-> -			vp_ap =	hv_get_vp_assist_page(cpu);
-> -
-> -			if (!vp_ap)
-> -				continue;
-> -
-> -			vp_ap->nested_control.features.directhypercall = 0;
-> -			vp_ap->current_nested_vmcs = 0;
-> -			vp_ap->enlighten_vmentry = 0;
-> -		}
-> -
-> +	if (static_branch_unlikely(&enable_evmcs))
->  		static_branch_disable(&enable_evmcs);
-> -	}
->  #endif
->  	vmx_cleanup_l1d_flush();
+userspace can look for features by name. Userspace libraries can even
+lead the kernel in development, since the encoding (the spec name) is
+already agreed.
 
-Reviewed-by: Vitaly Kuznetsov <vkuznets@redhat.com>
+Properties of extensions are just sub-nodes, some with standard names,
+like
 
--- 
-Vitaly
+ .../features/zicbom/major
+ .../features/zicbom/minor
 
+and others, which are cpu feature specific, like
+
+ .../features/zicbom/block_size
+
+I used 'features' in the above examples for the node name, rather than
+'isa', since not all features map to isa extensions, but it should be
+possible to fit non-isa features into the same framework.
+
+Thanks,
+drew
+
+
+> Those seem
+> like generally reasonable approaches, but I've yet to figure out a way
+> to get the general case working without a syscall as that's the only way
+> I've come up with to deal with the heterogenous CPU case.  Happy to hear
+> if someone has a better idea, though, as I don't really want to add a
+> syscall if we can avoid it.
+> 
+> I threw this together during the conferences so I would be surprised if
+> it's not broken, but I figured it'd be best to just get something on the
+> lists sooner rather that later.  Happy to have someone go fix my code,
+> but the new uABI is really going to be the tricky bit here.  There's
+> some test code included, but I haven't even booted a kernel with these
+> patches so YMMV.
+> 
+> These are also up at kernel.org/palmer/linux/riscv-hwprobe-v1 in case
+> that's easier for folks.
+> 
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
