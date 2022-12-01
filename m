@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39DA9C43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 03:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9167C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 05:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=INRORGLE2z1MAjVKdTCNhYGwgO5/4cl/CKKMN8HomCI=; b=udQSV2Ft+RI9EY
-	J1d8D2pM05ZboBEqRqx4PM6WY3Eqtf1vNQKB3N084kG/rVKeYaG89AWEwhjOeqsYOXabJgX0jq3Ra
-	XF3GpEuD88NhN0XGIK3FMi+uHRLmTWqbu2s0QWaOWSN3ldOOu4LRmuTr0StUA+WFphcq6YDo1eqI/
-	/S9jsvzm3CNWLYEc2DAO3NQxW2wFPw619jW3vY4O6AEeUIOqwsYmXi1JGqq/0aApNS1PGEqTiEGyO
-	+NTSh4qKgQx4jVj49FkPsQpxTTo8OQYEjbs/h36sHQ/QaCkG05dgyqFH9E918M4Tk+QiXpZPL0LBx
-	FDpYMde96xN1degrPvYA==;
+	List-Owner; bh=NvKLUKyPvw1NdjB8yHuY/lKr3aAwv0NNdYdBATii6kM=; b=psmazeWus/SwPQ
+	urtS/6HMgKeEHnyOA56UHvDUWszPvPTNVzYqD2Q1RIIG3E45Vya5JpYIZlCAbwxqrVI5gIRAcCuqu
+	PU+QXGyUbNsMM5ijlXAOuHGNQKTdpW0j3KMdm9OLAOjVty2dMmmnOh1A+0BRRIR0bd+831fz60dWs
+	/nZTMz+XpMMUWHCcH7OatK/za6+yr2My62WH5QT/ukBHeABwYRRf92bxXViPZHqViV2AqURkR5Nqh
+	e+qGxAO2zfH+CEBrfLEgt2AIlPrKj4MFOaY5xDQA1ZkhLnzDmh1vIFT50q7KPRzDOYqm3gIPD/4LG
+	URr/6deRqzvfDdiJ0Dlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0ah5-004Pzh-Q2; Thu, 01 Dec 2022 03:57:03 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0ah1-004PuN-69
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 03:57:03 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 7A30524E13A;
-	Thu,  1 Dec 2022 11:56:28 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Dec
- 2022 11:56:28 +0800
-Received: from [192.168.125.96] (113.72.147.18) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Dec
- 2022 11:56:28 +0800
-Message-ID: <e0cf51d3-ba58-36a7-5c70-1d070e5fb12a@starfivetech.com>
-Date: Thu, 1 Dec 2022 11:56:27 +0800
+	id 1p0c1E-004r2C-BR; Thu, 01 Dec 2022 05:21:56 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0c12-004qxX-Sa; Thu, 01 Dec 2022 05:21:46 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4NN4Dq6Zmxz4x1V;
+	Thu,  1 Dec 2022 16:21:31 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1669872096;
+	bh=N0orzYmQiDoqaJ7NYGjlM3UnNxlX/cknbPTGfPB6WFM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=J5OxG6kIMoR1klHiq+pJUaSgDwQrXyp2IQVExgmmPNs6d5M2zalc/rFARJpzB6LCF
+	 mIrvgM+Yk6zmcYrbL1HL6byl4gygucjhaR6xhicDvgiER8ov5k6cvGvblLKfkLL79G
+	 Qr4K7TgrY7ozLHH4Rz1BcWO+Y6BxcTIrY8j51NIdM6oHGO3QrlQNIe919bNypOKqe4
+	 YHuJsYYV/nFeRurQTMfOCln/DE+Mz3BkBkR/vDvI86w1ePXtODUCbkiSWEC3PK7pVj
+	 7hgwt5pYqLFahDmf67Gs9PQJ8p24LtR4/LQuAP00TNjl2lawnoAD2XkoV81D7xf9C5
+	 T4FWO6qMAX8YQ==
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
+ <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Aleksandar Markovic
+ <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, Matthew Rosato
+ <mjrosato@linux.ibm.com>, Eric Farman <farman@linux.ibm.com>, Sean
+ Christopherson <seanjc@google.com>, Vitaly Kuznetsov
+ <vkuznets@redhat.com>, David Woodhouse <dwmw2@infradead.org>, Paul Durrant
+ <paul@xen.org>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Atish Patra
+ <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, Yuan Yao
+ <yuan.yao@intel.com>, Cornelia Huck <cohuck@redhat.com>, Isaku Yamahata
+ <isaku.yamahata@intel.com>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?=
+ <philmd@linaro.org>,
+ Fabiano Rosas <farosas@linux.ibm.com>, Kai Huang <kai.huang@intel.com>,
+ Chao Gao <chao.gao@intel.com>, Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH v2 26/50] KVM: PPC: Move processor compatibility check
+ to module init
+In-Reply-To: <20221130230934.1014142-27-seanjc@google.com>
+References: <20221130230934.1014142-1-seanjc@google.com>
+ <20221130230934.1014142-27-seanjc@google.com>
+Date: Thu, 01 Dec 2022 16:21:31 +1100
+Message-ID: <87cz93snqc.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.2
-Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>
-CC: Conor Dooley <conor@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, "Rafael J . Wysocki"
-	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20221118133216.17037-1-walker.chen@starfivetech.com>
- <20221118133216.17037-4-walker.chen@starfivetech.com> <Y3giSQ0YccyY2tVk@spud>
- <95b05ac3-31a9-50dc-8eeb-eb3a9f883a6b@starfivetech.com>
- <Y4CkVnmdEhCsyckH@wendy>
-From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <Y4CkVnmdEhCsyckH@wendy>
-X-Originating-IP: [113.72.147.18]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_195659_669484_D1FCF41B 
-X-CRM114-Status: GOOD (  58.95  )
+X-CRM114-CacheID: sfid-20221130_212145_276530_FC5B763A 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,304 +89,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/11/25 19:17, Conor Dooley wrote:
-> On Fri, Nov 25, 2022 at 06:04:59PM +0800, Walker Chen wrote:
->> On 2022/11/19 8:24, Conor Dooley wrote:
->> > On Fri, Nov 18, 2022 at 09:32:15PM +0800, Walker Chen wrote:
-> 
->> >> +void starfive_pmu_hw_event_turn_off(u32 mask)
->> >> +{
->> >> +	pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
->> >> +}
->> >> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
->> > 
->> > Where are the users for these exports? Also, should they be exported as
->> > GPL?
->> > 
->> > Either way, what is the point of the extra layer of abstraction here
->> > around the writel()?
->> 
->> The two export functions are only prepared for GPU module. But accordint to
->>  the latest information, it seems that there is no open source plan for GPU. 
->> So the two functions will be drop in next version of patch.
-> 
-> That's a shame!
-
-Need to comply with certain commercial terms.
-
-> 
->> >> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
->> >> +{
->> >> +	struct starfive_pmu *pmu = pmd->power;
->> >> +
->> >> +	if (!pmd->mask) {
->> >> +		*is_on = false;
->> >> +		return -EINVAL;
->> >> +	}
->> >> +
->> >> +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
->> > 
->> > Is there a specific reason that you are using the __raw variants here
->> > (and elsewhere) in the driver?
->> 
->> Will use unified function '__raw_readl' and '__raw_writel'
-> 
-> No no, I want to know *why* you are using the __raw accessors here. My
-> understanding was that __raw variants are unbarriered & unordered with
-> respect to other io accesses.
-> 
-> I do notice that the bcm driver you mentioned uses the __raw variants,
-> but only __raw variants - whereas you use readl() which is ordered and
-> barriered & __raw_readl().
-> 
-> Is there a reason why you would not use readl() or readl_relaxed()?
-
-Your question led me to deeply understand the usage of these io accessors.
-__raw_readl / __raw_writel denotes native byte order, no memory barrier.
-readl / writel do guarantee the byte order with barrier, ensure that previous writes are done.
-Seem that non-raw accessors are more safe.
-
-> 
->> >> +
->> >> +	return 0;
->> >> +}
->> >> +
->> >> +static int starfive_pmu_set_state(struct starfive_power_dev *pmd, bool on)
->> >> +{
->> >> +	struct starfive_pmu *pmu = pmd->power;
->> >> +	unsigned long flags;
->> >> +	uint32_t val;
->> >> +	uint32_t mode;
->> >> +	uint32_t encourage_lo;
->> >> +	uint32_t encourage_hi;
->> >> +	bool is_on;
->> >> +	int ret;
->> >> +
->> >> +	if (!pmd->mask)
->> >> +		return -EINVAL;
->> >> +
->> >> +	if (is_on == on) {
->> >> +		dev_info(pmu->pdev, "pm domain [%s] is already %sable status.\n",
->> >> +				pmd->genpd.name, on ? "en" : "dis");
->> > 
->> > Am I missing something here: you've just declared is_on, so it must be
->> > false & therefore this check is all a little pointless? The check just
->> > becomes if (false == on) which I don't think is what you're going for
->> > here? Or did I miss something obvious?
->> 
->> Sorry, indeed I missed several lines of code. It should be witten like this:
->> 	ret = jh71xx_pmu_get_state(pmd, &is_on);
->>         if (ret) {
->>                 dev_dbg(pmu->pdev, "unable to get current state for %s\n",
->>                         pmd->genpd.name);
->>                 return ret;
->>         }
-> 
-> Heh, this looks more sane :)
-> 
->> 
->>         if (is_on == on) {
->>                 dev_dbg(pmu->pdev, "pm domain [%s] is already %sable status.\n",
->>                         pmd->genpd.name, on ? "en" : "dis");
->>                 return 0;
->>         }
->> 
->> > 
->> >> +		return 0;
->> >> +	}
->> >> +
->> >> +	spin_lock_irqsave(&pmu->lock, flags);
->> >> +
->> >> +	if (on) {
->> >> +		mode = SW_TURN_ON_POWER_MODE;
->> >> +		encourage_lo = SW_MODE_ENCOURAGE_EN_LO;
->> >> +		encourage_hi = SW_MODE_ENCOURAGE_EN_HI;
->> >> +	} else {
->> >> +		mode = SW_TURN_OFF_POWER_MODE;
->> >> +		encourage_lo = SW_MODE_ENCOURAGE_DIS_LO;
->> >> +		encourage_hi = SW_MODE_ENCOURAGE_DIS_HI;
->> >> +	}
->> >> +
->> >> +	__raw_writel(pmd->mask, pmu->base + mode);
->> >> +
->> >> +	/* write SW_ENCOURAGE to make the configuration take effect */
->> >> +	__raw_writel(SW_MODE_ENCOURAGE_ON, pmu->base + SW_ENCOURAGE);
->> > 
->> > Is register "sticky"? IOW, could you set it in probe and leave this mode
->> > always on? Or does it need to be set every time you want to use this
->> > feature?
->> 
->> These power domain registers need to be set by other module according to the
->> specific situation. 
->> For example some power domains should be turned off via System PM mechanism
->> when system goes to sleep, 
->> and then they are turned on when system resume.
-> 
-> I was just wondering if SW_MODE_ENCOURAGE_ON would retain it's value
-> during operation or if it had to be written every time. It's fine if
-> that's not the case.
-
-Writing SW_MODE_ENCOURAGE_ON (0xFF) to SW_ENCOURAGE register, the purpose is to reset the 
-state machine which is going to parse instruction sequence. It has to be written every time. 
-
-> 
->> >> +	__raw_writel(encourage_lo, pmu->base + SW_ENCOURAGE);
->> >> +	__raw_writel(encourage_hi, pmu->base + SW_ENCOURAGE);
->> >> +
->> >> +	spin_unlock_irqrestore(&pmu->lock, flags);
->> >> +
->> >> +	if (on) {
->> >> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
->> >> +						val & pmd->mask, DELAY_US,
->> >> +						TIMEOUT_US);
->> >> +		if (ret) {
->> >> +			dev_err(pmu->pdev, "%s: failed to power on\n", pmd->genpd.name);
->> >> +			return -ETIMEDOUT;
->> >> +		}
->> >> +	} else {
->> >> +		ret = readl_poll_timeout_atomic(pmu->base + CURR_POWER_MODE, val,
->> >> +						!(val & pmd->mask), DELAY_US,
->> >> +						TIMEOUT_US);
->> > 
->> > Could you not just decide the 3rd arg outside of the readl_poll..() and
->> > save on duplicating the wait logic here?
->> 
->> Seems that the readl_poll..() can only be called in two cases 
->> because the CURR_POWER_MODE register is read to val and then operation with mask every time.
->> 
-> 
-> I'm sorry, I completely forgot that read*_poll..() actually not actually
-> a function. Please ignore this comment!
-> 
->> >> +static int starfive_pmu_probe(struct platform_device *pdev)
->> >> +{
->> >> +	struct device *dev = &pdev->dev;
->> >> +	struct device_node *np = dev->of_node;
->> >> +	const struct starfive_pmu_data *entry, *table;
->> >> +	struct starfive_pmu *pmu;
->> >> +	unsigned int i;
->> >> +	uint8_t max_bit = 0;
->> >> +	int ret;
->> >> +
->> >> +	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
->> >> +	if (!pmu)
->> >> +		return -ENOMEM;
->> >> +
->> >> +	pmu_base = pmu->base = devm_platform_ioremap_resource(pdev, 0);
->> >> +	if (IS_ERR(pmu->base))
->> >> +		return PTR_ERR(pmu->base);
->> >> +
->> >> +	/* initialize pmu interrupt  */
->> >> +	pmu->irq = platform_get_irq(pdev, 0);
->> >> +	if (pmu->irq < 0)
->> >> +		return pmu->irq;
->> >> +
->> >> +	ret = devm_request_irq(dev, pmu->irq, starfive_pmu_interrupt,
->> >> +			       0, pdev->name, pmu);
->> >> +	if (ret)
->> >> +		dev_err(dev, "request irq failed.\n");
->> >> +
->> >> +	table = of_device_get_match_data(dev);
->> >> +	if (!table)
->> >> +		return -EINVAL;
->> >> +
->> >> +	pmu->pdev = dev;
->> >> +	pmu->genpd_data.num_domains = 0;
->> >> +	i = 0;
->> >> +	for (entry = table; entry->name; entry++) {
->> >> +		max_bit = max(max_bit, entry->bit);
->> >> +		i++;
->> >> +	}
->> > 
->> > This looks like something that could be replaced by the functions in
->> > linux/list.h, no? Same below.
->> 
->> Nowadays other platforms on linux mainline mostly write in this way or write like this: 
->> 	for (i = 0; i < num; i++) {
->> 		...
->> 		pm_genpd_init(&pmd[i]->genpd, NULL, !is_on);
->> 	}
-> 
-> That's not what this specific bit of code is doing though, right? You're
-> walking jh7110_power_domains to find the highest bit. I was looking at what
-> some other drivers do, and took a look at drivers/soc/qcom/rpmhpd.c
-> where they know the size of this struct at compile time & so can do
-> store the number of power domains in the match data. If you did that,
-> you could use a loop like the one other platforms use.
-> 
->> >> +	if (!pmu->genpd)
->> >> +		return -ENOMEM;
->> >> +
->> >> +	pmu->genpd_data.domains = pmu->genpd;
->> >> +
->> >> +	i = 0;
->> >> +	for (entry = table; entry->name; entry++) {
-> 
-> And it's the same here. By now, you should know how many power domains
-> you have, no?
-> 
-> Anyways, as I said before I don't know much about this power domain
-> stuff, it's just that these two loops seem odd.
-
-About the usage of loop, I took a look at other platforms like drivers/soc/qcom/rpmhpd.c,
-maybe that way is simpler and easier to understand. I will try to change to that looping in next version.
-
-> 
->> >> +		struct starfive_power_dev *pmd = &pmu->dev[i];
->> >> +		bool is_on;
->> >> +
->> >> +		pmd->power = pmu;
->> >> +		pmd->mask = BIT(entry->bit);
->> >> +		pmd->genpd.name = entry->name;
->> >> +		pmd->genpd.flags = entry->flags;
->> >> +
->> >> +		ret = starfive_pmu_get_state(pmd, &is_on);
->> >> +		if (ret)
->> >> +			dev_warn(dev, "unable to get current state for %s\n",
->> >> +				 pmd->genpd.name);
-> 
->> >> +static const struct starfive_pmu_data jh7110_power_domains[] = {
->> > 
->> > Is this driver jh7110 only or actually jh71XX? Have you just started out
->> > by implementing one SoC both intend to support both?
->> 
->> JH7110 is our first SoC, probably the next generation of SoC jh7120 still
->> use this controller driver.
->> Maybe now the naming for JH71XX is not very suitable.
-> 
-> Right. My question was more about if this supported the JH7100 too, but
-> I saw from your answer to Emil that it won't. I don't have a preference
-> as to whether you call it jh71xx or jh7110, I'll leave that up to
-> yourselves and Emil. This particular struct should still be called
-> `jh7110_power_domains` though since it is particular to this SoC, no
-> matter what you end up calling the file etc.
-
-Emil has gave me a good suggestion.
-
-> 
->> > I don't know /jack/ about power domain stuff, so I can barely review
->> > this at all sadly.
-> 
->> Thank you for taking the time to review the code, you helped me a lot.
->> Thank you so much.
-> 
-> No worries, looking forward to getting my board :)
-> 
-Have you purchased a VisionFive 2 board online?  Do you need the shopping link ? 
-https://forum.rvspace.org/t/how-to-purchase-visionfive-2/665
-
-Best Regards,
-Walker Chen
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U2VhbiBDaHJpc3RvcGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+IHdyaXRlczoKPiBNb3ZlIEtW
+TSBQUEMncyBjb21wYXRpYmlsaXR5IGNoZWNrcyB0byB0aGVpciByZXNwZWN0aXZlIG1vZHVsZV9p
+bml0KCkKPiBob29rcywgdGhlcmUncyBubyBuZWVkIHRvIHdhaXQgdW50aWwgS1ZNJ3MgY29tbW9u
+IGNvbXBhdCBjaGVjaywgbm9yIGlzCj4gdGhlcmUgYSBuZWVkIHRvIHBlcmZvcm0gdGhlIGNoZWNr
+IG9uIGV2ZXJ5IENQVSAocHJvdmlkZWQgYnkgY29tbW9uIEtWTSdzCj4gaG9vayksIGFzIHRoZSBj
+b21wYXRpYmlsaXR5IGNoZWNrcyBvcGVyYXRlIG9uIGdsb2JhbCBkYXRhLgo+Cj4gICBhcmNoL3Bv
+d2VycGMvaW5jbHVkZS9hc20vY3B1dGFibGUuaDogZXh0ZXJuIHN0cnVjdCBjcHVfc3BlYyAqY3Vy
+X2NwdV9zcGVjOwo+ICAgYXJjaC9wb3dlcnBjL2t2bS9ib29rM3MuYzogcmV0dXJuIDAKPiAgIGFy
+Y2gvcG93ZXJwYy9rdm0vZTUwMC5jOiBzdHJjbXAoY3VyX2NwdV9zcGVjLT5jcHVfbmFtZSwgImU1
+MDB2MiIpCj4gICBhcmNoL3Bvd2VycGMva3ZtL2U1MDBtYy5jOiBzdHJjbXAoY3VyX2NwdV9zcGVj
+LT5jcHVfbmFtZSwgImU1MDBtYyIpCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJj
+bXAoY3VyX2NwdV9zcGVjLT5jcHVfbmFtZSwgImU1NTAwIikKPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHN0cmNtcChjdXJfY3B1X3NwZWMtPmNwdV9uYW1lLCAiZTY1MDAiKQoKSSdtIG5v
+dCBzdXJlIHRoYXQgb3V0cHV0IGlzIHJlYWxseSB1c2VmdWwgaW4gdGhlIGNoYW5nZSBsb2cgdW5s
+ZXNzIHlvdQpleHBsYWluIG1vcmUgYWJvdXQgd2hhdCBpdCBpcy4KCj4gZGlmZiAtLWdpdCBhL2Fy
+Y2gvcG93ZXJwYy9rdm0vZTUwMG1jLmMgYi9hcmNoL3Bvd2VycGMva3ZtL2U1MDBtYy5jCj4gaW5k
+ZXggNTdlMGFkNmEyY2EzLi43OTU2NjdmN2ViZjAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9wb3dlcnBj
+L2t2bS9lNTAwbWMuYwo+ICsrKyBiL2FyY2gvcG93ZXJwYy9rdm0vZTUwMG1jLmMKPiBAQCAtMzg4
+LDYgKzM4OCwxMCBAQCBzdGF0aWMgaW50IF9faW5pdCBrdm1wcGNfZTUwMG1jX2luaXQodm9pZCkK
+PiAgewo+ICAJaW50IHI7Cj4gIAo+ICsJciA9IGt2bXBwY19lNTAwbWNfY2hlY2tfcHJvY2Vzc29y
+X2NvbXBhdCgpOwo+ICsJaWYgKHIpCj4gKwkJcmV0dXJuIGt2bXBwY19lNTAwbWM7CiAKVGhpcyBk
+b2Vzbid0IGJ1aWxkOgoKbGludXgvYXJjaC9wb3dlcnBjL2t2bS9lNTAwbWMuYzogSW4gZnVuY3Rp
+b24g4oCYa3ZtcHBjX2U1MDBtY19pbml04oCZOgpsaW51eC9hcmNoL3Bvd2VycGMva3ZtL2U1MDBt
+Yy5jOjM5MToxMzogZXJyb3I6IGltcGxpY2l0IGRlY2xhcmF0aW9uIG9mIGZ1bmN0aW9uIOKAmGt2
+bXBwY19lNTAwbWNfY2hlY2tfcHJvY2Vzc29yX2NvbXBhdOKAmTsgZGlkIHlvdSBtZWFuIOKAmGt2
+bXBwY19jb3JlX2NoZWNrX3Byb2Nlc3Nvcl9jb21wYXTigJk/IFstV2Vycm9yPWltcGxpY2l0LWZ1
+bmN0aW9uLWRlY2xhcmF0aW9uXQogIDM5MSB8ICAgICAgICAgciA9IGt2bXBwY19lNTAwbWNfY2hl
+Y2tfcHJvY2Vzc29yX2NvbXBhdCgpOwogICAgICB8ICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fgogICAgICB8ICAgICAgICAgICAgIGt2bXBwY19jb3JlX2No
+ZWNrX3Byb2Nlc3Nvcl9jb21wYXQKbGludXgvYXJjaC9wb3dlcnBjL2t2bS9lNTAwbWMuYzozOTM6
+MjQ6IGVycm9yOiDigJhrdm1wcGNfZTUwMG1j4oCZIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBpbiB0
+aGlzIGZ1bmN0aW9uKTsgZGlkIHlvdSBtZWFuIOKAmGt2bV9vcHNfZTUwMG1j4oCZPwogIDM5MyB8
+ICAgICAgICAgICAgICAgICByZXR1cm4ga3ZtcHBjX2U1MDBtYzsKICAgICAgfCAgICAgICAgICAg
+ICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn4KICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAg
+IGt2bV9vcHNfZTUwMG1jCmxpbnV4L2FyY2gvcG93ZXJwYy9rdm0vZTUwMG1jLmM6MzkzOjI0OiBu
+b3RlOiBlYWNoIHVuZGVjbGFyZWQgaWRlbnRpZmllciBpcyByZXBvcnRlZCBvbmx5IG9uY2UgZm9y
+IGVhY2ggZnVuY3Rpb24gaXQgYXBwZWFycyBpbgoKCkl0IG5lZWRzIHRoZSBkZWx0YSBiZWxvdyB0
+byBjb21waWxlLgoKV2l0aCB0aGF0OgoKQWNrZWQtYnk6IE1pY2hhZWwgRWxsZXJtYW4gPG1wZUBl
+bGxlcm1hbi5pZC5hdT4gKHBvd2VycGMpCgpjaGVlcnMKCgpkaWZmIC0tZ2l0IGEvYXJjaC9wb3dl
+cnBjL2t2bS9lNTAwbWMuYyBiL2FyY2gvcG93ZXJwYy9rdm0vZTUwMG1jLmMKaW5kZXggNzk1NjY3
+ZjdlYmYwLi40NTY0YWEyN2VkY2YgMTAwNjQ0Ci0tLSBhL2FyY2gvcG93ZXJwYy9rdm0vZTUwMG1j
+LmMKKysrIGIvYXJjaC9wb3dlcnBjL2t2bS9lNTAwbWMuYwpAQCAtMTY4LDcgKzE2OCw3IEBAIHN0
+YXRpYyB2b2lkIGt2bXBwY19jb3JlX3ZjcHVfcHV0X2U1MDBtYyhzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
+cHUpCiAJa3ZtcHBjX2Jvb2tlX3ZjcHVfcHV0KHZjcHUpOwogfQogCi1pbnQga3ZtcHBjX2NvcmVf
+Y2hlY2tfcHJvY2Vzc29yX2NvbXBhdCh2b2lkKQoraW50IGt2bXBwY19lNTAwbWNfY2hlY2tfcHJv
+Y2Vzc29yX2NvbXBhdCh2b2lkKQogewogCWludCByOwogCkBAIC0zOTAsNyArMzkwLDcgQEAgc3Rh
+dGljIGludCBfX2luaXQga3ZtcHBjX2U1MDBtY19pbml0KHZvaWQpCiAKIAlyID0ga3ZtcHBjX2U1
+MDBtY19jaGVja19wcm9jZXNzb3JfY29tcGF0KCk7CiAJaWYgKHIpCi0JCXJldHVybiBrdm1wcGNf
+ZTUwMG1jOworCQlnb3RvIGVycl9vdXQ7CiAKIAlyID0ga3ZtcHBjX2Jvb2tlX2luaXQoKTsKIAlp
+ZiAocikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
