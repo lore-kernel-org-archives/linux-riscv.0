@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E566BC43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 12:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB17C4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 12:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xCawDiKw78p2dwEovjnD6+adYdBqJm0VyQ7lB2eqig4=; b=uV2NTblNSvtyE5
-	iOi4cM4jyONMP2QVBaZOdr1Z5ZpR3mwyFR/AkXh/O9fSqeFYrM5C9xzgGrTQ3kpqVOMx3eAT7lHVE
-	VInfP/dlRiJ/Ed/cqWWHh33xb9MX0+5Sl7p1PLK2KaHWsuuKjK7W50KDHJasU7uEyYBFqV6Qv3MGR
-	/RAFvHMR5SXf6wBsUS13UTCVQTImVrdkuil9gkxWDg1v15oTZjeVHtmbml7X1W15o6eId6SZq0i2z
-	kqVmYONwmhq7oFIKZOuAbOXB9H1P5znlWwSQPIF+jiiyf0hVXtMqU96/hJWeM/W6kedtg+jN4mqWE
-	iNjP1KZeJK7N/FgTvNRQ==;
+	List-Owner; bh=OpG8SN4nNeRHPjMXgZseyBExzhl6vDB3OKyUf+TxNCg=; b=OMQxbA5j/cYy/i
+	6l/2LQ1fLeJJfdzIiQnY4hwc65YBreassZYtSN/cH/mBjmzFcvQZQMPH0IdCl6JyiA9S2PrBa9Y0Q
+	4f94++7jRxtp2GVGcEopm1icnjGtUeAv1z1RkK0lo3oBxZRtgBgkjFo3HMgtCButrFaA5fIeGYd4x
+	3JJvyrBqh8huGiLbxiwoQTPhzda0D3XnQmCddHvM6ivXlgi5zm2FmOpdr88SXkxVm9G6slvEniX/s
+	4TB9SO2Mgd81jvuT32ni3ufQop3PeyfFrPZfQ4aE/dFJT03huOsYC/b2nwkU1fpy2FFFQtTVGLvPU
+	UafoD5mlmuOBIfcft0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0irY-007LSv-4Z; Thu, 01 Dec 2022 12:40:24 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1p0irZ-007LTn-M9; Thu, 01 Dec 2022 12:40:25 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0irT-007LPn-S9
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 12:40:22 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id r18so1541315pgr.12
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 04:40:15 -0800 (PST)
+	id 1p0irT-007LOz-Iy
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 12:40:23 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 136so1579060pga.1
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 04:40:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/r4i7sehCVhu19Bc2ExDkPBptLSYwHn3imI/AjglwqI=;
-        b=OKQFS1fCAeQkV/0BNjOSr7tN8zS4n/0V4wWf0AdMi8e09DAYc5IWzQHuZFK+kY/X4q
-         NfjDOkQniMQzz2gFQw6cvEbkDkeHBgfS+5X4pMOedV75WW287m71fxe9Qt5521/zXhOi
-         Ax3g9QtPEZav+7oAtHeWY3wpXnYqbr5M+2fQcCP/WHIIBpzYpqbRFMvBxSGnR1rdmVvE
-         EdbGLwmJDnxzDBFfD5xVNOYib/ISLYRbXp165p8ouwG+v5FMreh3lXCtix6bZYUWpYP8
-         8meR84QiDKcmKcvGdsoM6/xFApw3pO+orToFQ0/yXCPLpnI7cYVN35aO5cnlZf57dTpL
-         ZVxA==
+        bh=iMerckrhZTm3FZ8D21RolrP9vW5vY1yytNXMfvZLbSs=;
+        b=EW5N4fofLG283DGbnT+a/zHyAd4+0YOIWw6FGWlEpchFEMUJzLqhZWhWABAWelWgmp
+         tYxkMY+aOjTkvgYbcPfiocKATHcS4FrKB9hHvgGE0qojBUvWf549A1krIqY3kTKEkQUt
+         qBCFDeFj/9xscbLvW3OKFoVDxvmOSMe2vsQSrPEb+sikXyxGMCzD+eyP8SiY8DP5H88C
+         aghhCxchlMILuAzqq0/vxFOIK7KUzgwIYWlErfBS5HM012J0kQSo8C/6OCx2xlYJvQLh
+         SkpVTk52AuEe/ntV8JBSkQ01QQRqe38fI5aNMZk7pb+mXZcYuQuzK61yGSDiGUncfFke
+         H+sQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/r4i7sehCVhu19Bc2ExDkPBptLSYwHn3imI/AjglwqI=;
-        b=AyuK5SzQev+SDtgspulxltEkRkHcs1o9CnXlBY/v4e/MUILtp9UBsI5w/Hx+NH7nPH
-         lVGgcuk5RxUBZg8nhyQXplC6Gv6jRtGuPVMBeocbwO/rOxZTtqqVwpdBGBma0zR2HBZh
-         6uc1a04STpMMklCWla0g6FV++LtKFviMG8++PrW2he37NxxorrDHoOI9CyXJhCh1S7iL
-         WM2UVex+fASMqAhRN3FMkDGxA8lfjeRqBmAio6qI/o8PjrkWnB9nkfk4nItzKNIsHekl
-         GSrn61qq+FxRyxMURiuvyk4xKKOUHoDUzj49k9L2mqREK9rZ4NQa+mSFcdliWhupGqgu
-         MdSw==
-X-Gm-Message-State: ANoB5pnspdLROeIHMOWpu8SnS8poLD/ot2iuehHIibh4JQ4hDOa4r7Ik
-	kln3tbihyfxzMigQuXLtxHHwkw==
-X-Google-Smtp-Source: AA0mqf4MumqWh9DWmlxp8wyZXkYw3o+T4+BNm+mqToROFXbEHsHF/JZa7gEnrjZmBT61BjEXq2BgwQ==
-X-Received: by 2002:a63:f406:0:b0:477:cc1f:204 with SMTP id g6-20020a63f406000000b00477cc1f0204mr32700538pgi.592.1669898414932;
-        Thu, 01 Dec 2022 04:40:14 -0800 (PST)
+        bh=iMerckrhZTm3FZ8D21RolrP9vW5vY1yytNXMfvZLbSs=;
+        b=NLLaL792gr9lq7y0O0ZZkaLM0FoL8Qul1mTpaGnLqBg77ZGwCqLPATR2H4WK8eLY+G
+         YWNQxGX2WCrXlV/sox5ubW6Yv0o0vkV6g1T4Pwm2VzjdSlVk3ARF5L6yzoePECqfgBnT
+         X8QEfwmep9HqMR/gRzkgfEW9Dhlpp6lN7gt6wPy/w/o5351p2PNl7aMtpyY1+cJdrJ4y
+         /o77YyKft5bVvjRXGkE7YJzYdoHZhExwNcphvzUtn1IDB+4QFu5JpBWI4gy1KZYuoMqL
+         BFMuvnBfziUgrDC+F94l9ITlNICfRNonNO7nKk+rAVSKRtk6oz5t7aQmq7SSiZ/Qmtnf
+         lFAA==
+X-Gm-Message-State: ANoB5pk1CHvfQyhJon3h1PGmCLMYvekJkcoskjy8ByT5fqkEnLc3pNbZ
+	QZfeRjPAo2OzJsVntyoivELilA==
+X-Google-Smtp-Source: AA0mqf782l4m814ZaZs0CFvnLfiiFisNyRXUDu+bIqwsD0IywGmhZJf0DMxA/y+agEoh/mh+ymv4Yg==
+X-Received: by 2002:a05:6a00:10cd:b0:572:5c03:f7ad with SMTP id d13-20020a056a0010cd00b005725c03f7admr67744766pfu.17.1669898409211;
+        Thu, 01 Dec 2022 04:40:09 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([171.76.81.69])
-        by smtp.gmail.com with ESMTPSA id b65-20020a62cf44000000b0056f0753390csm3246981pfg.96.2022.12.01.04.40.09
+        by smtp.gmail.com with ESMTPSA id b65-20020a62cf44000000b0056f0753390csm3246981pfg.96.2022.12.01.04.40.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 04:40:14 -0800 (PST)
+        Thu, 01 Dec 2022 04:40:08 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -75,18 +75,17 @@ Cc: Andrew Jones <ajones@ventanamicro.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: [PATCH v5 2/3] dt-bindings: timer: Add bindings for the RISC-V timer device
-Date: Thu,  1 Dec 2022 18:09:53 +0530
-Message-Id: <20221201123954.1111603-3-apatel@ventanamicro.com>
+Subject: [PATCH v5 1/3] RISC-V: time: initialize hrtimer based broadcast clock event device
+Date: Thu,  1 Dec 2022 18:09:52 +0530
+Message-Id: <20221201123954.1111603-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20221201123954.1111603-1-apatel@ventanamicro.com>
 References: <20221201123954.1111603-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_044019_928107_254AB654 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20221201_044019_648047_56EE6BBD 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +102,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add DT bindings for a separate RISC-V timer DT node which can
-be used to describe implementation specific behaviour (such as
-timer interrupt not triggered during non-retentive suspend).
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Similarly to commit 022eb8ae8b5e ("ARM: 8938/1: kernel: initialize
+broadcast hrtimer based clock event device"), RISC-V needs to initiate
+hrtimer based broadcast clock event device before C3STOP can be used.
+Otherwise, the introduction of C3STOP for the RISC-V arch timer in
+commit 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped
+during CPU suspend") leaves us without any broadcast timer registered.
+This prevents the kernel from entering oneshot mode, which breaks timer
+behaviour, for example clock_nanosleep().
+
+A test app that sleeps each cpu for 6, 5, 4, 3 ms respectively, HZ=250
+& C3STOP enabled, the sleep times are rounded up to the next jiffy:
+== CPU: 1 ==      == CPU: 2 ==      == CPU: 3 ==      == CPU: 4 ==
+Mean: 7.974992    Mean: 7.976534    Mean: 7.962591    Mean: 3.952179
+Std Dev: 0.154374 Std Dev: 0.156082 Std Dev: 0.171018 Std Dev: 0.076193
+Hi: 9.472000      Hi: 10.495000     Hi: 8.864000      Hi: 4.736000
+Lo: 6.087000      Lo: 6.380000      Lo: 4.872000      Lo: 3.403000
+Samples: 521      Samples: 521      Samples: 521      Samples: 521
+
+Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
+Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
+Suggested-by: Samuel Holland <samuel@sholland.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Samuel Holland <samuel@sholland.org>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
- 1 file changed, 52 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
+ arch/riscv/kernel/time.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/riscv,timer.yaml b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
-new file mode 100644
-index 000000000000..38d67e1a5a79
---- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/riscv,timer.yaml
-@@ -0,0 +1,52 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/timer/riscv,timer.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 8217b0f67c6c..1cf21db4fcc7 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/of_clk.h>
++#include <linux/clockchips.h>
+ #include <linux/clocksource.h>
+ #include <linux/delay.h>
+ #include <asm/sbi.h>
+@@ -29,6 +30,8 @@ void __init time_init(void)
+ 
+ 	of_clk_init(NULL);
+ 	timer_probe();
 +
-+title: RISC-V timer
-+
-+maintainers:
-+  - Anup Patel <anup@brainfault.org>
-+
-+description: |+
-+  RISC-V platforms always have a RISC-V timer device for the supervisor-mode
-+  based on the time CSR defined by the RISC-V privileged specification. The
-+  timer interrupts of this device are configured using the RISC-V SBI Time
-+  extension or the RISC-V Sstc extension.
-+
-+  The clock frequency of RISC-V timer device is specified via the
-+  "timebase-frequency" DT property of "/cpus" DT node which is described
-+  in Documentation/devicetree/bindings/riscv/cpus.yaml
-+
-+properties:
-+  compatible:
-+    enum:
-+      - riscv,timer
-+
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 4096   # Should be enough?
-+
-+  riscv,timer-cannot-wake-cpu:
-+    type: boolean
-+    description:
-+      If present, the timer interrupt cannot wake up the CPU from one or
-+      more suspend/idle states.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - interrupts-extended
-+
-+examples:
-+  - |
-+    timer {
-+      compatible = "riscv,timer";
-+      interrupts-extended = <&cpu1intc 5>,
-+                            <&cpu2intc 5>,
-+                            <&cpu3intc 5>,
-+                            <&cpu4intc 5>;
-+    };
-+...
++	tick_setup_hrtimer_broadcast();
+ }
+ 
+ void clocksource_arch_init(struct clocksource *cs)
 -- 
 2.34.1
 
