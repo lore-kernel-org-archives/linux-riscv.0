@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A3DC47088
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 20:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BDCC4321E
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 21:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jz/XnFsrrWY+U0+lwasvYDss36xeM/6RlwRavmiwD2Y=; b=aKoPixtES42SPE
-	W9AbDbs3H2kaPeSUG6bSuybmHLBtyLUOCMN6V3hbCpYmukfCx9BUxrkdQ3DVYquHx7ytg4z+52jfV
-	smsEW0NKX4F2cXKPJ50nqV5eWROU8X1WUPGG4BCMrJIJYtUYEGsT9TVpAVoB4xS9uU+roEcN0pQbF
-	uf4o9yK3FL8RLLaCroourmWc9orEJramEz9lNNljT0BC7PtMv+qnoOhCmEAOkur9A08gjm7sJKwyT
-	NP1sk4wmxbGWiSgYEduqmqJwKw/16T4duTYNHGInmrpwOyZ3DXGjPo2Pz2okrfCpxefQ1aOH1TVPC
-	mshQYj/6NuQH4y4+PfWg==;
+	List-Owner; bh=nX6D1kK55q4jRUh47HWxuidvvwNzQWhm0hqT4ydHH4U=; b=YjFXKwg8Hzxa0I
+	d4jACcABPYRV/31khXHJChyda5BfSA0Pv7oBccUXLoleCikmR7Jb3d7k3t75Kmrmh/a6a4TeRZ9wW
+	xWgJ+n2rS7oMZnyPAtveSoJbZ6NW6848O00idzZGx3O+kaO2Qfhq5AM1ijBPV9WLwqHxTcPty2cCv
+	WQPydDEAQaTQBz7P2YwHN0/fNU4sK+o124GHBPEGqOQiDG9CbpxXZGPpEPL/F/PpYVgTcc+4RSIN+
+	ZQt7hQkS3jM5JovFxsPqcop5e4rBqi+9u0rWiksxLEiI+4CJXw7l78YnIMyNaMIxIVMMWcHQ1KhH4
+	i66L+xNfzdvm1m6ZGAWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0q1K-00Alkv-FC; Thu, 01 Dec 2022 20:18:58 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1p0qgv-00B4xO-Uo; Thu, 01 Dec 2022 21:01:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0pxW-00AkZw-75
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 20:15:04 +0000
-Received: by mail-ej1-x630.google.com with SMTP id bj12so6838070ejb.13
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 12:15:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9rF1NBHq0ws7kSXVYhBS+x8P8oRVpTPLaBAUEFTH9TU=;
-        b=NPkH1QUNG1gGoFux5lB6w0pjuTKq9L4+bXq0y1Z/jKx0vYcxbAdUbPYk8Nl3WV87qW
-         0eLoQyMhgvv5Cj7s/tkekjt73EbzuTE4+1EVjYhObbav/mL3QsCAYWnOMverqaFLqb4Q
-         /9Yqpv8eHlnr8Qzu6Sck/7lfYo2wfjnyGTqXyI8ltABvrtfQwym955lcxIzmS+wug/05
-         khGKMeRBSCl82Ahy5G7eQZ0m/R9gKf1usbWnU+FoU3TI0b1mIkNrUuzpiEViTGrvnPEI
-         hf89gJZLsrQp9Qh8oHr5A2jyj5yR+rqyDxRhT81bZdf9ypAs49eoB1Dx7/gqV1B0ieTZ
-         tutg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9rF1NBHq0ws7kSXVYhBS+x8P8oRVpTPLaBAUEFTH9TU=;
-        b=C1mt4eF9ssAz87vmsFIGUd3asSTVTbKwb/2Zyb72XW0RkO9R2QZhkKT4mIXWUSwHlR
-         634Yx0FuUFkGqUi6PZwiI6uuerZF+MQ1tT65oLKQlcVHsXGDa/vn5r2DMDggzsJ5EPIX
-         yNs8/5U4n9qoQnvEg6gC8vDK83h9rKjEhzcVHgINBkf2TWc3bnE9y4Xr85c/ivv8e1Pd
-         91YxYErM/qvgQxj4L4PJfXYNidZTudsOYP9J/C/UW6ASWISEkDicJ93LxoKV7YGQgOIT
-         A5i40V8B6uQRboG2/ykQilJC/JzirfW4RkVM58RSE1xXsj1WVxQ7WKLCNS8z1lnJ0/+R
-         Eviw==
-X-Gm-Message-State: ANoB5pmShSWES7UmLzn4JD3cjti0jRmRdHpDzulUhVs9WDIm91+1szzt
-	JMRe7cS6YKWuzQ/Fo+zGhlLicg==
-X-Google-Smtp-Source: AA0mqf7SaOX9ybqiK/iTGk8JaGFuCGpQaDY9S0JuAbi+O6nB2sREmIXrwV8v6okdwkS7xQ3wAuv+mQ==
-X-Received: by 2002:a17:907:9951:b0:7b2:7e7a:11c1 with SMTP id kl17-20020a170907995100b007b27e7a11c1mr41214691ejc.684.1669925700036;
-        Thu, 01 Dec 2022 12:15:00 -0800 (PST)
-Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
-        by smtp.gmail.com with ESMTPSA id q2-20020a17090676c200b00770812e2394sm2127407ejn.160.2022.12.01.12.14.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 12:14:59 -0800 (PST)
-Date: Thu, 1 Dec 2022 21:14:57 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
-	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com,
-	conor@kernel.org, philipp.tomsich@vrull.eu,
-	emil.renner.berthing@canonical.com, ardb@kernel.org,
-	linux-efi@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 13/14] RISC-V: add infrastructure to allow different
- str* implementations
-Message-ID: <20221201201457.azddav22awamxsru@kamzik>
-References: <20221130225614.1594256-1-heiko@sntech.de>
- <20221130225614.1594256-14-heiko@sntech.de>
- <20221201200739.t5bnm5kjnopeyygd@kamzik>
+	id 1p0qcP-00B4RC-5R
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 20:57:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1D63262123
+	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 20:57:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A31BDC43149
+	for <linux-riscv@lists.infradead.org>; Thu,  1 Dec 2022 20:57:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669928233;
+	bh=fdrJ15WDKSBx3YB1MakWvP0kCrIB8zpank2IGVDBUI4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=AWUsJlemRllHnB3KbfYBFan7MowqWGBBzZXfshK50w7NfgU8DbH0i5URYIiA8i4li
+	 GBUHSuMbeF3CoaT6OuX5j6oPgqzYbAa/mwWgJUV1gWr1qn9pDtFcODeJKzmf8ZyH4y
+	 Z+z3JndoNbtogS6pfY3Fyl2L/Hd/rs/27letywm4FVrVRK6ziqXPEP1vx34e1upKXp
+	 mxZEMect0GromyYeJZOF/2zhuyduh+oNMYqxKtFAdPDwzKvtfdD8O7hVAWvlFNd3jj
+	 x6E72ApwWEejybOeqWXhZw3qwRw6IBDRohe6AxHKCqbAYRU4OgHLN8q+YqRmdWZteY
+	 b6z6C2+Vm9P0g==
+Received: by mail-lf1-f51.google.com with SMTP id be13so4407464lfb.4
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 12:57:13 -0800 (PST)
+X-Gm-Message-State: ANoB5pkuGM3aikEuX9HzhYDb1x26m0ZDWIC7YzeE/3GiXSKmIa4J3VAX
+	CuKDHYzjf+la7piI7cAkS3czQwlvpMmBfW6xnRw=
+X-Google-Smtp-Source: AA0mqf4aRybCNgkYFiWCi2CJQd3OPiCCr15y3XRLfWcWG+1KjPdzD46/6PygpsQciMdDVS+ncbsST+gLVrEqsm5wvZ0=
+X-Received: by 2002:a05:6512:15a8:b0:4a6:3ed2:3717 with SMTP id
+ bp40-20020a05651215a800b004a63ed23717mr18342342lfb.637.1669928231609; Thu, 01
+ Dec 2022 12:57:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221201200739.t5bnm5kjnopeyygd@kamzik>
+References: <20221130225614.1594256-1-heiko@sntech.de> <20221130225614.1594256-13-heiko@sntech.de>
+ <20221201193455.2hr6mwm6sa6vnd3w@kamzik>
+In-Reply-To: <20221201193455.2hr6mwm6sa6vnd3w@kamzik>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 1 Dec 2022 21:57:00 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXG=zM0EFFPn8MBWFurk=oSRPqwdd6CP1dudQC+JXV36Og@mail.gmail.com>
+Message-ID: <CAMj1kXG=zM0EFFPn8MBWFurk=oSRPqwdd6CP1dudQC+JXV36Og@mail.gmail.com>
+Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, conor@kernel.org, 
+	philipp.tomsich@vrull.eu, emil.renner.berthing@canonical.com, 
+	linux-efi@vger.kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_121502_286889_BDCE8B32 
-X-CRM114-Status: GOOD (  33.52  )
+X-CRM114-CacheID: sfid-20221201_125717_318129_91702A8D 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,314 +84,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 01, 2022 at 09:07:41PM +0100, Andrew Jones wrote:
-> On Wed, Nov 30, 2022 at 11:56:13PM +0100, Heiko Stuebner wrote:
+On Thu, 1 Dec 2022 at 20:35, Andrew Jones <ajones@ventanamicro.com> wrote:
+>
+> On Wed, Nov 30, 2022 at 11:56:12PM +0100, Heiko Stuebner wrote:
 > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> > 
-> > Depending on supported extensions on specific RISC-V cores,
-> > optimized str* functions might make sense.
-> > 
-> > This adds basic infrastructure to allow patching the function calls
-> > via alternatives later on.
-> > 
-> > The main idea is to have the core str* functions be inline functions
-> > which then call the most optimized variant and this call then be
-> > replaced via alternatives.
-> > 
-> > The big advantage is that we don't need additional calls.
-> > Though we need to duplicate the generic functions as the main code
-> > expects either itself or the architecture to provide the str* functions.
-> 
-> That's a bummer, but at least the duplicated functions are simple.
-> 
-> > 
-> > The added *_generic functions are done in assembler (taken from
-> > disassembling the main-kernel functions for now) to allow us to control
-> > the used registers.
-> > 
+> >
+> > We may want to runtime-optimize some core functions (str*, mem*),
+> > but not have this leak into libstub and cause build issues.
+> > Instead libstub, for the short while it's running, should just use
+> > the generic implementation.
+> >
+> > So, to be able to determine whether functions, that are used both in
+> > libstub and the main kernel, are getting compiled as part of libstub or
+> > not, add a compile-flag we can check via #ifdef.
+> >
 > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+
+I think it would be better to update arch/riscv/kernel/image-vars.h so
+that only these generic implementations are exposed to the stub in the
+first place.
+
 > > ---
-> >  arch/riscv/Makefile             |  3 ++
-> >  arch/riscv/include/asm/string.h | 66 +++++++++++++++++++++++++++++++++
-> >  arch/riscv/kernel/image-vars.h  |  6 +--
-> >  arch/riscv/lib/Makefile         |  3 ++
-> >  arch/riscv/lib/strcmp.S         | 38 +++++++++++++++++++
-> >  arch/riscv/lib/strlen.S         | 29 +++++++++++++++
-> >  arch/riscv/lib/strncmp.S        | 41 ++++++++++++++++++++
-> >  7 files changed, 183 insertions(+), 3 deletions(-)
-> >  create mode 100644 arch/riscv/lib/strcmp.S
-> >  create mode 100644 arch/riscv/lib/strlen.S
-> >  create mode 100644 arch/riscv/lib/strncmp.S
-> > 
-> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > index 0d13b597cb55..581e4370c2a6 100644
-> > --- a/arch/riscv/Makefile
-> > +++ b/arch/riscv/Makefile
-> > @@ -80,6 +80,9 @@ ifeq ($(CONFIG_PERF_EVENTS),y)
-> >          KBUILD_CFLAGS += -fno-omit-frame-pointer
-> >  endif
-> >  
-> > +# strchr is special case, as gcc might want to call its own strlen from there
-> > +KBUILD_CFLAGS += -fno-builtin-strlen -fno-builtin-strcmp -fno-builtin-strncmp -fno-builtin-strchr
-> > +
-> >  KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
-> >  KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
-> >  
-> > diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
-> > index 909049366555..b98481d2d154 100644
-> > --- a/arch/riscv/include/asm/string.h
-> > +++ b/arch/riscv/include/asm/string.h
-> > @@ -18,6 +18,72 @@ extern asmlinkage void *__memcpy(void *, const void *, size_t);
-> >  #define __HAVE_ARCH_MEMMOVE
-> >  extern asmlinkage void *memmove(void *, const void *, size_t);
-> >  extern asmlinkage void *__memmove(void *, const void *, size_t);
-> > +
-> > +#define __HAVE_ARCH_STRCMP
-> > +extern asmlinkage int __strcmp_generic(const char *cs, const char *ct);
-> > +
-> > +static inline int strcmp(const char *cs, const char *ct)
-> > +{
-> > +#ifdef RISCV_EFISTUB
-> > +	return __strcmp_generic(cs, ct);
-> > +#else
-> > +	register const char *a0 asm("a0") = cs;
-> > +	register const char *a1 asm("a1") = ct;
-> > +	register int a0_out asm("a0");
-> > +
-> > +	asm volatile("call __strcmp_generic\n\t"
-> > +		: "=r"(a0_out)
-> > +		: "r"(a0), "r"(a1)
-> > +		: "ra", "t0", "t1", "t2");
-
-Don't we need "memory" in all these clobber lists?
-
-Thanks,
-drew
-
-> > +
-> > +	return a0_out;
-> > +#endif
-> > +}
-> > +
-> > +#define __HAVE_ARCH_STRNCMP
-> > +extern asmlinkage int __strncmp_generic(const char *cs,
-> > +					const char *ct, size_t count);
-> > +
-> > +static inline int strncmp(const char *cs, const char *ct, size_t count)
-> > +{
-> > +#ifdef RISCV_EFISTUB
-> > +	return __strncmp_generic(cs, ct, count);
-> > +#else
-> > +	register const char *a0 asm("a0") = cs;
-> > +	register const char *a1 asm("a1") = ct;
-> > +	register size_t a2 asm("a2") = count;
-> > +	register int a0_out asm("a0");
-> > +
-> > +	asm volatile("call __strncmp_generic\n\t"
-> > +		: "=r"(a0_out)
-> > +		: "r"(a0), "r"(a1), "r"(a2)
-> > +		: "ra", "t0", "t1", "t2");
-> > +
-> > +	return a0_out;
-> > +#endif
-> > +}
-> > +
-> > +#define __HAVE_ARCH_STRLEN
-> > +extern asmlinkage __kernel_size_t __strlen_generic(const char *);
-> > +
-> > +static inline __kernel_size_t strlen(const char *s)
-> > +{
-> > +#ifdef RISCV_EFISTUB
-> > +	return __strlen_generic(s);
-> > +#else
-> > +	register const char *a0 asm("a0") = s;
-> > +	register int a0_out asm("a0");
-> > +
-> > +	asm volatile(
-> > +		"call __strlen_generic\n\t"
-> > +		: "=r"(a0_out)
-> > +		: "r"(a0)
-> > +		: "ra", "t0", "t1");
-> > +
-> > +	return a0_out;
-> > +#endif
-> > +}
-> > +
-> >  /* For those files which don't want to check by kasan. */
-> >  #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
-> >  #define memcpy(dst, src, len) __memcpy(dst, src, len)
-> > diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
-> > index d6e5f739905e..2f270b9fde63 100644
-> > --- a/arch/riscv/kernel/image-vars.h
-> > +++ b/arch/riscv/kernel/image-vars.h
-> > @@ -25,10 +25,10 @@
-> >   */
-> >  __efistub_memcmp		= memcmp;
-> >  __efistub_memchr		= memchr;
-> > -__efistub_strlen		= strlen;
-> > +__efistub___strlen_generic	= __strlen_generic;
-> >  __efistub_strnlen		= strnlen;
-> > -__efistub_strcmp		= strcmp;
-> > -__efistub_strncmp		= strncmp;
-> > +__efistub___strcmp_generic	= __strcmp_generic;
-> > +__efistub___strncmp_generic	= __strncmp_generic;
-> >  __efistub_strrchr		= strrchr;
-> >  
-> >  __efistub__start		= _start;
-> > diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> > index 25d5c9664e57..6c74b0bedd60 100644
-> > --- a/arch/riscv/lib/Makefile
-> > +++ b/arch/riscv/lib/Makefile
-> > @@ -3,6 +3,9 @@ lib-y			+= delay.o
-> >  lib-y			+= memcpy.o
-> >  lib-y			+= memset.o
-> >  lib-y			+= memmove.o
-> > +lib-y			+= strcmp.o
-> > +lib-y			+= strlen.o
-> > +lib-y			+= strncmp.o
-> 
-> Can't we just create a single string.S file?
-> 
-> >  lib-$(CONFIG_MMU)	+= uaccess.o
-> >  lib-$(CONFIG_64BIT)	+= tishift.o
-> >  
-> > diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
-> > new file mode 100644
-> > index 000000000000..f4b7f4e806f0
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strcmp.S
-> > @@ -0,0 +1,38 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int __strcmp_generic(const char *cs, const char *ct) */
-> > +ENTRY(__strcmp_generic)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, value like strcmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2
-> > +	 */
-> > +	mv	t2, a1
-> > +1:
-> > +	lbu	t1, 0(a0)
-> > +	lbu	t0, 0(a1)
-> > +	addi	a0, a0, 1
-> > +	addi	a1, a1, 1
-> > +	beq	t1, t0, 3f
-> > +	li	a0, 1
-> > +	bgeu	t1, t0, 2f
-> > +	li	a0, -1
-> > +2:
-> > +	mv	a1, t2
-> > +	ret
-> > +3:
-> > +	bnez	t1, 1b
-> > +	li	a0, 0
-> > +	j	2b
-> > +END(__strcmp_generic)
-> > +EXPORT_SYMBOL(__strcmp_generic)
-> > diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
-> > new file mode 100644
-> > index 000000000000..e0e7440ac724
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strlen.S
-> > @@ -0,0 +1,29 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int __strlen_generic(const char *s) */
-> > +ENTRY(__strlen_generic)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - string length
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - String to measure
-> > +	 *
-> > +	 * Clobbers:
-> > +	 *   t0, t1
-> > +	 */
-> > +	mv	t1, a0
-> > +1:
-> > +	lbu	t0, 0(t1)
-> > +	bnez	t0, 2f
-> > +	sub	a0, t1, a0
-> > +	ret
-> > +2:
-> > +	addi	t1, t1, 1
-> > +	j	1b
-> > +END(__strlen_generic)
-> > +EXPORT_SYMBOL(__strlen_generic)
-> > diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
-> > new file mode 100644
-> > index 000000000000..7e116d942265
-> > --- /dev/null
-> > +++ b/arch/riscv/lib/strncmp.S
-> > @@ -0,0 +1,41 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#include <linux/linkage.h>
-> > +#include <asm/asm.h>
-> > +#include <asm-generic/export.h>
-> > +
-> > +/* int __strncmp_generic(const char *cs, const char *ct, size_t count) */
-> > +ENTRY(__strncmp_generic)
-> > +	/*
-> > +	 * Returns
-> > +	 *   a0 - comparison result, value like strncmp
-> > +	 *
-> > +	 * Parameters
-> > +	 *   a0 - string1
-> > +	 *   a1 - string2
-> > +	 *   a2 - number of characters to compare
-> > +	 *
-> > +	 * Clobbers
-> > +	 *   t0, t1, t2
-> > +	 */
-> > +	li	t0, 0
-> > +1:
-> > +	beq	a2, t0, 4f
-> > +	add	t1, a0, t0
-> > +	add	t2, a1, t0
-> > +	lbu	t1, 0(t1)
-> > +	lbu	t2, 0(t2)
-> > +	beq	t1, t2, 3f
-> > +	li	a0, 1
-> > +	bgeu	t1, t2, 2f
-> > +	li	a0, -1
-> > +2:
-> > +	ret
-> > +3:
-> > +	addi	t0, t0, 1
-> > +	bnez	t1, 1b
-> > +4:
-> > +	li	a0, 0
-> > +	j	2b
-> > +END(__strncmp_generic)
-> > +EXPORT_SYMBOL(__strncmp_generic)
-> > -- 
+> >  drivers/firmware/efi/libstub/Makefile | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> > index ef5045a53ce0..777d1ab059e3 100644
+> > --- a/drivers/firmware/efi/libstub/Makefile
+> > +++ b/drivers/firmware/efi/libstub/Makefile
+> > @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)                := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> >                                  -fno-builtin -fpic \
+> >                                  $(call cc-option,-mno-single-pic-base)
+> >  cflags-$(CONFIG_RISCV)               := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> > -                                -fpic
+> > +                                -fpic -DRISCV_EFISTUB
+> >  cflags-$(CONFIG_LOONGARCH)   := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> >                                  -fpie
+> >
+> > --
 > > 2.35.1
 > >
-> 
-> Besides the consolidation of functions to one file request,
-> 
+>
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> 
-> Thanks,
-> drew
 
 _______________________________________________
 linux-riscv mailing list
