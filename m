@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A059C4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 16:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89675C47088
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 16:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FQ5fg74CQi9j8Ue5aftGNRuyCQNywfvs5mG3OODCuQs=; b=ds4ze0tPaCKucm
-	BasZ9j9eCCQmXXt9cI+KeEpaf57NI6QY1gYdCrUzygN14h0Cm0P+VPDnM8Yu8RJPXPGBy6GCTFqN7
-	VL3c59pekAefU/fHqtaBjSqIWnZg7BGiDAUJC5Ega2rs2QCpxf/ZxcV5NZ0F6Cww32Yy3uv7AKZGA
-	vCCSFLxqAcErHFNzyEmavHwIbn6tgicSQjxQAqPaOAz66MIbm8FsJb9AJ6kcljUHLRv6+31WTKlgX
-	tiJ7qH5W4o+ibwHpA/Tdxi+A71Kvsa6nDjkHiYb4jTnSicfIISZVxzRalJREkWUnAPRWOUBdYr2Sa
-	XFHdXcat+b9o/ndAlwdA==;
+	List-Owner; bh=we7JUF/cFmLRelYtLBHDFeajqOtAZuUEJCV7dyS+3RU=; b=Sr1LlrgI3MZnmg
+	cR9guCgwA6HLFx+hoj2thvMkjGc4i616TdNa6FxuG2yi357yGG7hoLm85T5PQyyEBA1BYYk4xqlc/
+	hkUHVbry6sUN7TsESDOaQBRLqkBtHNKmOIaQSF/eHaK6Zea+3G+WgQ/mzl/hS0khJSFGc6lv+F+I0
+	er3NLB9kZjPtxkDzEYOw7UotQUNh3QYtNY4KtUtIu3M/wpbQwYCLWDw3ps5QFYwNRNk2WMwbbdenz
+	toQ6idr6jmF/nCtfT2fT25F8HbD8qvOoWsuKQcCStUa1XaJQ/HXzVwBFvNAQ24805Rr3IXm7STcMt
+	8+pngsCBzE85asPH+vYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0mJG-008WLg-Vx; Thu, 01 Dec 2022 16:21:15 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1p0mTc-008ZfX-RJ; Thu, 01 Dec 2022 16:31:56 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0mJD-008WIH-9P
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 16:21:12 +0000
-Received: by mail-lf1-x129.google.com with SMTP id p8so3221399lfu.11
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 08:21:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iegIkb4fipqnzTjEHK3Rzo5fetpTzelf4+OZ20EGaxQ=;
-        b=VbvXhlxH6TipiO2qGi6mtKXCZ0FlWYWE3s3cOvx/seesTXZpq1sMLXDxBph+NPebj3
-         kAOJB4fyBKMl/6/rkR4wjztOUc9WMVU7DkTPlbI/5XE+y8XpZzqP0rR03EgQpTMtEZfm
-         UUv9z6659u9OUywCheoHC6K9pQwLRo8Nl4sGnGmW88JrNTvIKC//5ieGG6NQGyplmQSD
-         fy5kGfrSnT+Nm1JuQPgTsLUF7NLUPVRzU7RxF45iuz8drQZazBFvXle5mGMUSqUNZhye
-         V59Br0xY2ZJ2Ws2c3lvArQPzH3aRtBb1ZMKDBWk7WOogGVz1S4FCGaYPpdDXTZw1lemm
-         Nr3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iegIkb4fipqnzTjEHK3Rzo5fetpTzelf4+OZ20EGaxQ=;
-        b=a6tvDemc6AO442FmR35Ew3jILVL9KUkqK1Q/uP9L4PbLRzvPyla+vcqMgruaijTCRP
-         soQdWUu7qibK+/OuPH3ux7BWtgU3imeeoLhPU0q/BZPEnf8o4DkynMLwrw/1fCre92Jk
-         yAWQZaxGaBNFfsGFncBgmoXj4qyeuypvSrHq5jrs8kwx1MseNkyw5ZKOOtGoQJoV+Y9u
-         uoEPwTMO8zxqkVXoTozbPirpT/w20wl2/E5WQgqSy1MJpzJCIAzljZ643V90yneAkdgl
-         84tb7Vj/0h6wEh5JbldGsLh5PXoG9BDzwLqQ5JsywRfPNSu3CYVPjCeNk/vyro7yzfrB
-         Nbow==
-X-Gm-Message-State: ANoB5pmuwsEsLzjwJltIefnEXSGIRr3L/6KvLeoFcFNWG5WZq1DOEyZ8
-	AWPRAmTJaD929z7/lrAZrnuB0g==
-X-Google-Smtp-Source: AA0mqf6hzJAldb7QB0+TmhU70sfyI9ugpbVn1aL8hGBP0zumhEwBHDgD4o5f2wa/of7dOVE7+YARug==
-X-Received: by 2002:a05:6512:34d0:b0:4a8:ebec:7140 with SMTP id w16-20020a05651234d000b004a8ebec7140mr22563341lfr.150.1669911667556;
-        Thu, 01 Dec 2022 08:21:07 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id c24-20020a056512075800b004a01105eea2sm690936lfs.150.2022.12.01.08.21.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 Dec 2022 08:21:05 -0800 (PST)
-Message-ID: <36565cc1-3c48-0fa8-f98b-414a7ac8f5bf@linaro.org>
-Date: Thu, 1 Dec 2022 17:21:04 +0100
+	id 1p0mTa-008Zca-57
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 16:31:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 2447AB81F8B;
+	Thu,  1 Dec 2022 16:31:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C491C433C1;
+	Thu,  1 Dec 2022 16:31:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669912309;
+	bh=d2Jl/HzZ3cLunjfqczW81B/ARLzmlgq+fe3WizaptYg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cPQQHIu6HSPXnXx/X0EOrt8jWH0GSCTDEfAB+V/QrFJmzcy2qPp7VwQozOnBxn8+Y
+	 8oSoev4dJE4sdMU7zkLBtqmE+tAA1CXaw50/mJjmIfmPJp1OqfdN5ix/K/kHXizG+m
+	 RIKm9cXSghKS5FnbVOqwdw2rlkb1E8uKNnNxJkxKjohmCr1OFPFTdpafPKLlZE3jWj
+	 u6oUl4DYSh19YGRvB6PUmOzFVFyoKGIeZYOEi3fEGNDy4KsXhQ6zYq22qqYxJF6+VX
+	 mBA04NX0NP61E83hUFCgNv2223N6+yJg4ot0u4fCaeedU65UpTpCBQjtykdVsKE+05
+	 DHYExtHSggaQQ==
+Date: Fri, 2 Dec 2022 00:21:55 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: guoren@kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] RISC-V: Add some comments about the shadow and
+ overflow stacks
+Message-ID: <Y4jUo09vh7PudmXW@xhacker>
+References: <20221130023515.20217-1-palmer@rivosinc.com>
+ <20221130023515.20217-2-palmer@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.0
-Subject: Re: [PATCH v1 3/7] dt-bindings: net: Add bindings for StarFive dwmac
-Content-Language: en-US
-To: Yanhong Wang <yanhong.wang@starfivetech.com>,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-4-yanhong.wang@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221201090242.2381-4-yanhong.wang@starfivetech.com>
+Content-Disposition: inline
+In-Reply-To: <20221130023515.20217-2-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_082111_375740_8DFC7503 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20221201_083154_378851_E7B92A8C 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,125 +74,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/12/2022 10:02, Yanhong Wang wrote:
-> Add bindings for the StarFive dwmac module on the StarFive RISC-V SoCs.
-
-Subject: drop second, redundant "bindings".
-
+On Tue, Nov 29, 2022 at 06:35:15PM -0800, Palmer Dabbelt wrote:
+> It took me a while to page all this back in when trying to review the
+> recent spin_shadow_stack, so I figured I'd just write up some comments.
 > 
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+Reviewed-by: Jisheng Zhang <jszhang@kernel.org>
+
 > ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  .../bindings/net/starfive,dwmac-plat.yaml     | 106 ++++++++++++++++++
->  MAINTAINERS                                   |   5 +
->  3 files changed, 112 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
+>  arch/riscv/kernel/traps.c | 20 +++++++++++++-------
+>  1 file changed, 13 insertions(+), 7 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index d8779d3de3d6..13c5928d7170 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -33,6 +33,7 @@ select:
->            - snps,dwmac-5.20
->            - snps,dwxgmac
->            - snps,dwxgmac-2.10
-> +          - starfive,dwmac
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index acdfcacd7e57..336d4aadadb1 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -200,18 +200,18 @@ void __init trap_init(void)
+>  }
 >  
->            # Deprecated
->            - st,spear600-gmac
-> diff --git a/Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml b/Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
-> new file mode 100644
-> index 000000000000..561cf2a713ab
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
-
-Filename should base on compatible.
-
-> @@ -0,0 +1,106 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2022 StarFive Technology Co., Ltd.
-> +%YAML 1.2
-> +---
-> +$id: "http://devicetree.org/schemas/net/dwmac-starfive.yaml#"
-
-Does not look like you tested the bindings. Please run `make
-dt_binding_check` (see
-Documentation/devicetree/bindings/writing-schema.rst for instructions).
-
-> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-
-Drop quotes from both lines.
-
+>  #ifdef CONFIG_VMAP_STACK
+> +/*
+> + * Extra stack space that allows us to provide panic messages when the kernel
+> + * has overflowed its stack.
+> + */
+>  static DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)],
+>  		overflow_stack)__aligned(16);
+>  /*
+> - * shadow stack, handled_ kernel_ stack_ overflow(in kernel/entry.S) is used
+> - * to get per-cpu overflow stack(get_overflow_stack).
+> + * A temporary stack for use by handle_kernel_stack_overflow.  This is used so
+> + * we can call into C code to get the per-hart overflow stack.  Usage of this
+> + * stack must be protected by spin_shadow_stack.
+>   */
+>  long shadow_stack[SHADOW_OVERFLOW_STACK_SIZE/sizeof(long)] __aligned(16);
+> -asmlinkage unsigned long get_overflow_stack(void)
+> -{
+> -	return (unsigned long)this_cpu_ptr(overflow_stack) +
+> -		OVERFLOW_STACK_SIZE;
+> -}
+>  
+>  /*
+>   * A pseudo spinlock to protect the shadow stack from being used by multiple
+> @@ -222,6 +222,12 @@ asmlinkage unsigned long get_overflow_stack(void)
+>   */
+>  unsigned long spin_shadow_stack;
+>  
+> +asmlinkage unsigned long get_overflow_stack(void)
+> +{
+> +	return (unsigned long)this_cpu_ptr(overflow_stack) +
+> +		OVERFLOW_STACK_SIZE;
+> +}
 > +
-> +title: StarFive DWMAC glue layer
-> +
-> +maintainers:
-> +  - Yanhong Wang <yanhong.wang@starfivetech.com>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - starfive,dwmac
-> +  required:
-> +    - compatible
-> +
-> +allOf:
-> +  - $ref: "snps,dwmac.yaml#"
-
-Drop quotes.
-
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-
-Drop oneOf. You do not have more cases here.
-
-> +      - items:
-> +          - enum:
-> +               - starfive,dwmac
-
-Wrong indentation.... kind of expected since you did not test the bindings.
-
-> +          - const: snps,dwmac-5.20
-> +
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
-> +      - description: GMAC AHB clock
-> +      - description: PTP clock
-> +      - description: TX clock
-> +      - description: GTXC clock
-> +      - description: GTX clock
-> +
-> +  clock-names:
-> +    contains:
-> +      enum:
-> +        - stmmaceth
-> +        - pclk
-> +        - ptp_ref
-> +        - tx
-> +        - gtxc
-> +        - gtx
-
-Names should be specific and with fixed order, just like clocks are.
-
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +
-> +unevaluatedProperties: false
-> +
-
-Best regards,
-Krzysztof
-
+>  asmlinkage void handle_bad_stack(struct pt_regs *regs)
+>  {
+>  	unsigned long tsk_stk = (unsigned long)current->stack;
+> -- 
+> 2.38.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
