@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EEDC43217
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 06:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E026BC43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 06:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qZ/1yZXZ2ZmUDZq0WILz7obyeYBFeaz/D5/afugEGko=; b=ni7TJ8HxWkboYH
-	vQ6Os3gVDOGZPfFJ31W3aMqXT+7M87TxxIJlTRyH31hQw+lWPEOdHbRnvHfK4CqtJxF5halh3b5KI
-	R4ZXyziO8RV7q+Vgyv0AOszrG7Ijr4lkdxxIQGmZcLqQahvL1TyuRF7F8q8pTp8O43QWiG2bV8dpj
-	puPmSrgFQDhDZvyrcwDLNdSwNU/dIYE+9eKbPjW7nhfeJRQvWNAAC1k8ysfNYAU/VN/63Gn1sdOMf
-	g1fy+HUEkmvIfOxnuRZUBCoING+vUU4w5pOEvkvPweKGf/P6NdTjG9NTA4LvEADna7ADF2R38S17o
-	XCpxbdl9IytVPPOkpOAg==;
+	List-Owner; bh=FXj8H6/9iOPpdLiIzFqDWv/MskFsct9igxKnzHjM9p4=; b=UR4oyGye4sw5Uz
+	yuDqxeBe9WOGluM1YaYwQVn7gg86/upBB25CsZVr+5it7NJUxVLICM0DDv1bOBzKPZUd0z2KsBBKd
+	xGEztAdvsPkgDt/u2sMUkv5YJpua1cvbtbKjBk1ZNWN7OLmLClrJRuSDEvvZtqJUgzt4ZAJAFjbOs
+	BSFGemksjJZ5tNz4p05/Ct0zB5BJJ/0WEb66G58mneu09DqmEK5J4X2FJTNOsqq4DGffOyL/iHHsR
+	Z331vwabIyQ3rP5rvMXXyEERIaoXu+DsMSIn6PMmXznS+E5YuB1oKUSx34kTEzZE+BEaN3hI04IsA
+	0nqNBAjyFHGFFDUkFw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0cu8-005Ajb-3K; Thu, 01 Dec 2022 06:18:40 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0cu2-005AV7-Sg
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 06:18:37 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id A77A424E1C7;
-	Thu,  1 Dec 2022 14:17:26 +0800 (CST)
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Dec
- 2022 14:17:26 +0800
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX161.cuchost.com
- (172.16.6.71) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 1 Dec
- 2022 14:17:26 +0800
-Received: from EXMBX068.cuchost.com ([fe80::c4da:cbc4:bb39:ca7e]) by
- EXMBX068.cuchost.com ([fe80::c4da:cbc4:bb39:ca7e%16]) with mapi id
- 15.00.1497.044; Thu, 1 Dec 2022 14:17:26 +0800
-From: JiaJie Ho <jiajie.ho@starfivetech.com>
-To: "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>
-CC: "robh+dt@kernel.org" <robh+dt@kernel.org>, "herbert@gondor.apana.org.au"
-	<herbert@gondor.apana.org.au>, "linux-crypto@vger.kernel.org"
-	<linux-crypto@vger.kernel.org>, "kernel@esmil.dk" <kernel@esmil.dk>,
-	"davem@davemloft.net" <davem@davemloft.net>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "krzysztof.kozlowski+dt@linaro.org"
-	<krzysztof.kozlowski+dt@linaro.org>
-Subject: RE: [PATCH 6/6] riscv: dts: starfive: Add crypto and DMA node for
- VisionFive 2
-Thread-Topic: [PATCH 6/6] riscv: dts: starfive: Add crypto and DMA node for
- VisionFive 2
-Thread-Index: AQHZBH/4vZHP2U3n+EalaiuTkXOjPK5WreUAgAHaqdA=
-Date: Thu, 1 Dec 2022 06:17:26 +0000
-Message-ID: <4ddddceba3dc437daca27374dd2f6fd7@EXMBX068.cuchost.com>
-References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
- <20221130055214.2416888-7-jiajie.ho@starfivetech.com>
- <1673ef8b-179e-3b03-b3f8-8d347c70d8c3@microchip.com>
-In-Reply-To: <1673ef8b-179e-3b03-b3f8-8d347c70d8c3@microchip.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
+	id 1p0cww-005C9x-Gw; Thu, 01 Dec 2022 06:21:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0cwt-005C7f-4s
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 06:21:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6122261E9C;
+	Thu,  1 Dec 2022 06:21:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC4F8C433D6;
+	Thu,  1 Dec 2022 06:21:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669875689;
+	bh=1TShYY6JkDucSJo1cjYSsWtnGpEz8gTWzbxvY/gsAVc=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=Nmr6EadOg/rHV11uZ4icZPKLjWkG9u5exEWuXjcet49ziPi6lKPVIKjGUOYp6CcWx
+	 Y12Z/NwkhsvhLIEHSbtm15Y2RB65kw6eZsRUaz2Phq9LxaG7FxUh1g9l8+F7qBS+HD
+	 CGeOtlLQauyAR3MBwsA3p8GfaCD9Z9dbk/yh4BUovT3UVpuVYIqfDFshlSc0Qsgaat
+	 xX1b8CE466ljiqmJHjjcrMiKQTkwBAH9gx4pQ3hDXQLOp5daBTG65U9wqGD+K0uJkf
+	 MbDMzGCSBHmedPkE/bR2v0ikovVSHk5K7DiOGBkIqQXcHADL1iSgVygFDQE1SThq5o
+	 Rv80Q+9vzjyTA==
+Date: Thu, 01 Dec 2022 06:21:25 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Walker Chen <walker.chen@starfivetech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+CC: linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/4] soc: starfive: Add StarFive JH71XX pmu driver
+User-Agent: K-9 Mail for Android
+In-Reply-To: <e0cf51d3-ba58-36a7-5c70-1d070e5fb12a@starfivetech.com>
+References: <20221118133216.17037-1-walker.chen@starfivetech.com> <20221118133216.17037-4-walker.chen@starfivetech.com> <Y3giSQ0YccyY2tVk@spud> <95b05ac3-31a9-50dc-8eeb-eb3a9f883a6b@starfivetech.com> <Y4CkVnmdEhCsyckH@wendy> <e0cf51d3-ba58-36a7-5c70-1d070e5fb12a@starfivetech.com>
+Message-ID: <42D09618-DB39-4A8B-9327-4C6CC9DA2000@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221130_221835_380989_1BCC1E95 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20221130_222131_317262_D13A29B0 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,137 +75,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hey Walker,
+
+Apologies for my formatting here. 
+
+On 1 December 2022 03:56:27 GMT, Walker Chen <walker.chen@starfivetech.com> wrote:
+>On 2022/11/25 19:17, Conor Dooley wrote:
+>> On Fri, Nov 25, 2022 at 06:04:59PM +0800, Walker Chen wrote:
+>>> On 2022/11/19 8:24, Conor Dooley wrote:
+>>> > On Fri, Nov 18, 2022 at 09:32:15PM +0800, Walker Chen wrote:
+>> 
+>>> >> +void starfive_pmu_hw_event_turn_off(u32 mask)
+>>> >> +{
+>>> >> +	pmu_writel(mask, HW_EVENT_TURN_OFF_MASK);
+>>> >> +}
+>>> >> +EXPORT_SYMBOL(starfive_pmu_hw_event_turn_off);
+>>> > 
+>>> > Where are the users for these exports? Also, should they be exported as
+>>> > GPL?
+>>> > 
+>>> > Either way, what is the point of the extra layer of abstraction here
+>>> > around the writel()?
+>>> 
+>>> The two export functions are only prepared for GPU module. But accordint to
+>>>  the latest information, it seems that there is no open source plan for GPU. 
+>>> So the two functions will be drop in next version of patch.
+>> 
+>> That's a shame!
+>
+>Need to comply with certain commercial terms.
+>
+>> 
+>>> >> +static int starfive_pmu_get_state(struct starfive_power_dev *pmd, bool *is_on)
+>>> >> +{
+>>> >> +	struct starfive_pmu *pmu = pmd->power;
+>>> >> +
+>>> >> +	if (!pmd->mask) {
+>>> >> +		*is_on = false;
+>>> >> +		return -EINVAL;
+>>> >> +	}
+>>> >> +
+>>> >> +	*is_on = __raw_readl(pmu->base + CURR_POWER_MODE) & pmd->mask;
+>>> > 
+>>> > Is there a specific reason that you are using the __raw variants here
+>>> > (and elsewhere) in the driver?
+>>> 
+>>> Will use unified function '__raw_readl' and '__raw_writel'
+>> 
+>> No no, I want to know *why* you are using the __raw accessors here. My
+>> understanding was that __raw variants are unbarriered & unordered with
+>> respect to other io accesses.
+>> 
+>> I do notice that the bcm driver you mentioned uses the __raw variants,
+>> but only __raw variants - whereas you use readl() which is ordered and
+>> barriered & __raw_readl().
+>> 
+>> Is there a reason why you would not use readl() or readl_relaxed()?
+>
+>Your question led me to deeply understand the usage of these io accessors.
+>__raw_readl / __raw_writel denotes native byte order, no memory barrier.
+>readl / writel do guarantee the byte order with barrier, ensure that previous writes are done.
+>Seem that non-raw accessors are more safe.
+
+Yeah, if there's no good reason to use these "raw"  versions then please use readl/readl_relaxed.
 
 
-> -----Original Message-----
-> From: Conor.Dooley@microchip.com <Conor.Dooley@microchip.com>
-> Sent: Wednesday, November 30, 2022 5:31 PM
-> To: JiaJie Ho <jiajie.ho@starfivetech.com>
-> Cc: robh+dt@kernel.org; herbert@gondor.apana.org.au; linux-
-> crypto@vger.kernel.org; kernel@esmil.dk; davem@davemloft.net;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
-> riscv@lists.infradead.org; krzysztof.kozlowski+dt@linaro.org
-> Subject: Re: [PATCH 6/6] riscv: dts: starfive: Add crypto and DMA node for
-> VisionFive 2
-> 
-> Hey Jia Jie Ho,
-> 
-> On 30/11/2022 05:52, Jia Jie Ho wrote:
-> > [You don't often get email from jiajie.ho@starfivetech.com. Learn why
-> > this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know
-> > the content is safe
-> >
-> > Adding StarFive crypto IP and DMA controller node to VisionFive 2 SoC.
-> >
-> > Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
-> > Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
-> 
-> Out of curiosity, what was Huan Feng's contribution to this patch?
-> Did they co-develop it, or is there some other reason?
-> 
-Hi Conor, 
-Yes, Huan Feng co-developed this driver.
+>> No worries, looking forward to getting my board :)
+>> 
+>Have you purchased a VisionFive 2 board online?  
 
-> > ---
-> >   .../jh7110-starfive-visionfive-v2.dts         |  8 +++++
-> >   arch/riscv/boot/dts/starfive/jh7110.dtsi      | 36 +++++++++++++++++++
-> 
-> I figure Emil will likely see anyway, but whenever you get actual review
-> comments and send a v2 - please don't drop people that get_maintainer.pl
-> tells you are responsible for the code in question.
-> 
-I will include everyone involved when sending the new patch series.
-
-> >   2 files changed, 44 insertions(+)
-> >
-> > diff --git
-> > a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> > b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> > index 450e920236a5..da2aa4d597f3 100644
-> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
-> > @@ -115,3 +115,11 @@ &tdm_ext {
-> >   &mclk_ext {
-> >          clock-frequency = <49152000>;
-> >   };
-> > +
-> > +&sec_dma {
-> > +       status = "okay";
-> > +};
-> > +
-> > +&crypto {
-> > +       status = "okay";
-> > +};
-> 
-> In what scenario would you not want to have these enabled?
-> 
-> Thanks,
-> Conor.
-> 
-These drivers are always enabled. 
-Is everything ok with the dts node entries?
-Thank you for spending time reviewing and providing suggestions for this patch.
-
-Regards,
-Jia Jie
-
-> > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > index 4ac159d79d66..745a5650882c 100644
-> > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> > @@ -455,5 +455,41 @@ uart5: serial@12020000 {
-> >                          reg-shift = <2>;
-> >                          status = "disabled";
-> >                  };
-> > +
-> > +               sec_dma: sec_dma@16008000 {
-> > +                       compatible = "arm,pl080", "arm,primecell";
-> > +                       arm,primecell-periphid = <0x00041080>;
-> > +                       reg = <0x0 0x16008000 0x0 0x4000>;
-> > +                       reg-names = "sec_dma";
-> > +                       interrupts = <29>;
-> > +                       clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
-> > +                                <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
-> > +                       clock-names = "sec_hclk","apb_pclk";
-> > +                       resets = <&stgcrg JH7110_STGRST_SEC_TOP_HRESETN>;
-> > +                       reset-names = "sec_hre";
-> > +                       lli-bus-interface-ahb1;
-> > +                       mem-bus-interface-ahb1;
-> > +                       memcpy-burst-size = <256>;
-> > +                       memcpy-bus-width = <32>;
-> > +                       #dma-cells = <2>;
-> > +                       status = "disabled";
-> > +               };
-> > +
-> > +               crypto: crypto@16000000 {
-> > +                       compatible = "starfive,jh7110-crypto";
-> > +                       reg = <0x0 0x16000000 0x0 0x4000>;
-> > +                       reg-names = "secreg";
-> > +                       clocks = <&stgcrg JH7110_STGCLK_SEC_HCLK>,
-> > +                                <&stgcrg JH7110_STGCLK_SEC_MISCAHB>;
-> > +                       clock-names = "sec_hclk","sec_ahb";
-> > +                       resets = <&stgcrg JH7110_STGRST_SEC_TOP_HRESETN>;
-> > +                       reset-names = "sec_hre";
-> > +                       enable-side-channel-mitigation;
-> > +                       enable-dma;
-> > +                       dmas = <&sec_dma 1 2>,
-> > +                              <&sec_dma 0 2>;
-> > +                       dma-names = "sec_m","sec_p";
-> > +                       status = "disabled";
-> > +               };
-> >          };
-> >   };
-> > --
-> > 2.25.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+I have :)
 
 _______________________________________________
 linux-riscv mailing list
