@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08515C47088
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE86C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 13:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Subject:Message-Id:References:
-	In-Reply-To:Cc:To:From:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h2fe+/3UO8y0AMCnkXHzE25Ol9bFpIZCSb9kO+Rj+3I=; b=oyCJLkjPCh7vkH
-	2eiGJhSlKttyfj+7YFfzEmGgfTQuivCI6y3I1nUeotwaQIpS4v+VX4GfTTgdvqbpAGYrWDXwiwdDs
-	ztudhpya9BLagWiuF3y1uOJ7lwoTUSltRmwP31NvSbIQZ8o6op0IQDXcCOBJtJ4tMORrTMxVXZ1w3
-	oxWchCNPRKvq983bopz8Hhxy6V5ArXdx6Id3uF9s3il9UrQ+jCm0EmIJ2j0k5JSNI9yA8lYo7oR9L
-	jGOjbhwkT1rloPSBU0k3ZAnIP/NdHChYjjH7cG6H+XzSMWfQQr2TJaf6ydHBuL7Xs2tBoNR/70toi
-	qhif3hHOM/Ghoc1aZaSg==;
+	List-Owner; bh=czsd1bRAqpdVWY09qfIJxY7QR10OfG59EOGO4ptiFic=; b=diGspPIh8QOMs/
+	7/ESoVPAg0UrqT0DKZLnXNuSwHSosMf1+PERhsxg7rtD0DO2bgI7nqadLOtOZRgE73DqFbY2fp+r1
+	QrLvdx5T227JjftJ/RsJEG/wqQ6HSgxfDPAcRPIvgnhqgPTLcc3F1Ac2yuJcMKUOdbgGtQfBGqwlK
+	ON9fNRbdXuJJHUUyDmSUQTSQzriI82FUba42fl99SFTrxKTyVrXeL5ag53ijTU59eJk32+SVybrhj
+	evV+gGx0zGKmYYwGZRfgMQKG20kthitLfXtXPU0WPJhBBIQ2ek8AONDA1ziZF3t9K3UZNkr2+/V+J
+	iKW6ZgfWxOv/7zqL4sxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jjx-007jD1-Mz; Thu, 01 Dec 2022 13:36:37 +0000
-Received: from mail-oa1-f41.google.com ([209.85.160.41])
+	id 1p0jyt-007n7D-Nh; Thu, 01 Dec 2022 13:52:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0jju-007jAu-Ng
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:36:36 +0000
-Received: by mail-oa1-f41.google.com with SMTP id 586e51a60fabf-143ffc8c2b2so2171592fac.2
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 05:36:32 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=date:subject:message-id:references:in-reply-to:cc:to:from
-         :mime-version:content-transfer-encoding:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=1K37iH9iyFVta8stQEbIxav/5AtugtdvdeJC9IDIXZQ=;
-        b=LB3TMWHC1Q/ODI/Lz0hIJqMIbvi3AoDBMwZeYS3zXnnhralfS/Kw/VoY0DW7S2cAi6
-         O6zDnPo1Ov6pw7gx5kbNGyfGUUSPXID7A0cT8A+ygPadZf83qn2nFdmTv7dnSrbdxnzI
-         0WXNSzwPZXLmFZL+sMvtxNuMqgde4mv2Q6GoKesv7BxEuwgSkkYbPe/IUj0RKIQcTR6i
-         SyPjkPFDFgZvDZfssXeqey9GIlt7RjTu8koMLpW8D1g1CLmxeKSEzkyS/j951aGz006S
-         YbGpWUjP5tOP3AehUTFVQbfBSw7p0aj83WQckSfsxcaMdubk2BxjJn3c77AtSI8HJKTH
-         97Mw==
-X-Gm-Message-State: ANoB5pkfq3eCIgOxUnyQjOdR14E2Qs3xAN96SK92owQ1M+B50dgUYzKO
-	6fSpXrEzMoGOs7poY/BEnA==
-X-Google-Smtp-Source: AA0mqf7RpOe69UtxOJCyqspnx7PZpkYhph5UqVYXm2bLG4LGpD1UvyszRA+XWaFW+lK0FJ4kI4of6A==
-X-Received: by 2002:a05:6870:7b89:b0:13c:e644:d7a9 with SMTP id jf9-20020a0568707b8900b0013ce644d7a9mr38397974oab.148.1669901792169;
-        Thu, 01 Dec 2022 05:36:32 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id d7-20020a9d5e07000000b0066c3ca7b12csm2059192oti.61.2022.12.01.05.36.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 05:36:31 -0800 (PST)
-Received: (nullmailer pid 486292 invoked by uid 1000);
-	Thu, 01 Dec 2022 13:36:29 -0000
+	id 1p0jyq-007n5O-9g
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 13:52:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1669902721; x=1701438721;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=bav08OV3LsnmXxf0ohUY0Zv4EUZl+WnAgOolhM8CEvc=;
+  b=sirPEEvwg1JAcqt5pAQV+0V64HcCTTwklJIRqhdOX5l0jhDm22KWg6F8
+   SWYtHs+EXkhXjgl8bWNcak8wA/T3dhmU/WLwCWk+8JSi4VnS8R6ZUxE9+
+   k3BeA/wutpY8+Se28OauL/AS5B8V1xCngmrOApRorKWJENUmK4DAFQEpX
+   bWMknS9MY2MLIRAFanQITXvWYZelPz59qij4gx9BJ5D9Q5pmRct1mIMbP
+   /RRxd5C0GVAORHrFXRECw8Y/GDgk3ZoZYpD8dTAdM3IWhwR2ruwhg9Wn4
+   vny1mPWVK6TYBmhJg3tA5OFugltZm+1Ivg2gMZsj3Jyhqo/SEvDy3xUcY
+   g==;
+X-IronPort-AV: E=Sophos;i="5.96,209,1665471600"; 
+   d="scan'208";a="186069167"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Dec 2022 06:51:54 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 1 Dec 2022 06:51:52 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Thu, 1 Dec 2022 06:51:50 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Jonathan Corbet <corbet@lwn.net>, Palmer Dabbelt <palmer@dabbelt.com>
+CC: Conor Dooley <conor.dooley@microchip.com>, <linux-doc@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] Documentation: riscv: note that counter access is part of the uABI
+Date: Thu, 1 Dec 2022 13:51:10 +0000
+Message-ID: <20221201135110.3855965-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <Y4XvnHIPw8ZuBZEk@wendy>
+References: <Y4XvnHIPw8ZuBZEk@wendy>
 MIME-Version: 1.0
-From: Rob Herring <robh@kernel.org>
-To: Yanhong Wang <yanhong.wang@starfivetech.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Peter Geis <pgwipeout@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, linux-riscv@lists.infradead.org, "David S . Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, Heiner Kallweit <hkallweit1@gmail.com>, Richard Cochran <richardcochran@gmail.com>
-In-Reply-To: <20221201090242.2381-4-yanhong.wang@starfivetech.com>
-References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-4-yanhong.wang@starfivetech.com>
-Message-Id: <166990139276.476262.15116409959152660279.robh@kernel.org>
-Subject: Re: [PATCH v1 3/7] dt-bindings: net: Add bindings for StarFive dwmac
-Date: Thu, 01 Dec 2022 07:36:29 -0600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_053634_841045_410C5C65 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20221201_055200_420266_87808341 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,52 +80,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Commit 5a5294fbe020 ("RISC-V: Re-enable counter access from userspace")
+fixed userspace access to CYCLE, TIME & INSTRET counters and left a nice
+comment in-place about why they must not be restricted. Since we now
+have a uABI doc in RISC-V land, add a section documenting it.
 
-On Thu, 01 Dec 2022 17:02:38 +0800, Yanhong Wang wrote:
-> Add bindings for the StarFive dwmac module on the StarFive RISC-V SoCs.
-> 
-> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
-> ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  .../bindings/net/starfive,dwmac-plat.yaml     | 106 ++++++++++++++++++
->  MAINTAINERS                                   |   5 +
->  3 files changed, 112 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
-> 
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Based on an, as yet, unsent v2 of my other uABI changes. I don't expect
+it to be applicable, just getting a patch into patchwork while I don't
+forget about this.
+---
+ Documentation/riscv/uabi.rst | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
+index 8d2651e42fda..638ddce56700 100644
+--- a/Documentation/riscv/uabi.rst
++++ b/Documentation/riscv/uabi.rst
+@@ -3,6 +3,13 @@
+ RISC-V Linux User ABI
+ =====================
+ 
++Counter access
++--------------
++
++Access to the CYCLE, TIME and INSTRET counters, now controlled by the SBI PMU
++extension, were part of the ISA when the uABI was frozen & so remain accessible
++from userspace.
++
+ ISA string ordering in /proc/cpuinfo
+ ------------------------------------
+ 
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml:30:16: [warning] wrong indentation: expected 14 but found 15 (indentation)
-
-dtschema/dtc warnings/errors:
-./Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml: $id: relative path/filename doesn't match actual path or filename
-	expected: http://devicetree.org/schemas/net/starfive,dwmac-plat.yaml#
-Documentation/devicetree/bindings/net/starfive,dwmac-plat.example.dts:21:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No such file or directory
-   21 |         #include <dt-bindings/clock/starfive-jh7110.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[1]: *** [scripts/Makefile.lib:406: Documentation/devicetree/bindings/net/starfive,dwmac-plat.example.dtb] Error 1
-make[1]: *** Waiting for unfinished jobs....
-make: *** [Makefile:1492: dt_binding_check] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221201090242.2381-4-yanhong.wang@starfivetech.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+base-commit: 13ee7ef407cfcf63f4f047460ac5bb6ba5a3447d
+prerequisite-patch-id: d17a9ffb6fcf99eb683728da98cd50e18cd28fe8
+prerequisite-patch-id: 0df4127e3f4a0c02a235fea00bcb69cd94fabb38
+prerequisite-patch-id: 171724b870ba212b714ebbded480269accd83733
+-- 
+2.38.1
 
 
 _______________________________________________
