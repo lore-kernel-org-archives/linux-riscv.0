@@ -4,44 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B445C4321E
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 10:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C053C43217
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Dec 2022 11:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lg6yPDOn2DmkCAvmFd2QZblgaDv1zduB7Eb+vl2b+gw=; b=HMg6XYPeXl27Tk
-	0BNmYm376Z6n9WFxgiKLdpN8zl3bcDdHkUl+z08OHRXo98SWQLMwvgexuENX+bdPFpecNmY1jrLhN
-	f/cm5PLKvAp2LgB9vOCwEwSn6rtfhC3FgnryChYd39H1TU+yeHB2EbhLRzfTrs1Tt4CbBQW3ord1i
-	CZtkGI44EeA2dxcwcYNWdyYkaDBat5XfHHcNkgX3vc6hojWVyEDDkCA5qGkxBnJAphyrNBdt/lQ6L
-	CvqibAfo3g3kK20mnuHmMPlhcqzQ5qIJmoMlA6Q5zEMp21j68SzbKVu8wnussPXaeAC2K60SJ17tP
-	UV23JRmYrwJh3RFPDeYQ==;
+	List-Owner; bh=/Y4hDt1eiE/wO5XSJwGufzDm7G9LrrTvfJQrdVemxfI=; b=LULBWIkfjBCzdu
+	88f+l2Qv0GUeL8WOOh63vHt3DY1SUBkUAI9Tr9YGJ7F7broxYxbEN9iVRGSjs3gsk3t4fVtYHSEWe
+	uaEM1NNQKU4idEWD8tMCV4Ve0764u2/Y6mGz/Wdmu0gdvjm2gxpVwBl/nOiwYdoZYh57iAknexOxD
+	29dOFjcAL1xKML0Njo7OsyHXC2n91g7mTaAupY6NVl3zHEhvn7AP13FviArrONi3JQwe9LVkOkjtg
+	vZIDJiCAGQdI+7Ipkyfl3Ij2PT1dd2xS54Kv95hNua4sSNfbOLAqwMK586RI6o+kx74ti6lw2MGjZ
+	DlOxDbmi2TQiGkifNcng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0h7K-006pu0-N3; Thu, 01 Dec 2022 10:48:34 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p0hKg-006uEx-UB; Thu, 01 Dec 2022 11:02:22 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0h7G-006psT-VZ
-	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 10:48:33 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p0h7F-0000rr-68; Thu, 01 Dec 2022 11:48:29 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com, aou@eecs.berkeley.edu, conor@kernel.org, corbet@lwn.net, guoren@kernel.org, paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v1 2/3] RISC-V: resort all extensions in consistent orders
-Date: Thu, 01 Dec 2022 11:48:28 +0100
-Message-ID: <113066935.nniJfEyVGO@diego>
-In-Reply-To: <20221130234125.2722364-3-conor@kernel.org>
-References: <20221130234125.2722364-1-conor@kernel.org> <20221130234125.2722364-3-conor@kernel.org>
+	id 1p0hKd-006uD2-Qj
+	for linux-riscv@lists.infradead.org; Thu, 01 Dec 2022 11:02:21 +0000
+Received: by mail-lj1-x235.google.com with SMTP id l8so1425051ljh.13
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 03:02:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RWN6d6ee3y7/gjA+RJaHwoAowMMQDgGlpGi4abXfpxU=;
+        b=QHFcARpSCZeUlqpgZgIeJB5KzhvZ8mnlgrz6maNkmtHJup7gSx3/GtBWGeriFWj/5t
+         5XHsCymS45E+Zl/W2hNAFoZ2YLEcgZVXQTIKKJdRprABj+ODZuac7fWd+tVQNcIzy/le
+         f9Jm1F3ApVr2Z8OH24Z/2/r/opM7g4rlOvFY0lwkwzxn5oIyT1vnJVbLK8fVN4K5Z4Wr
+         qPF5T3orMBvs6M0B/VDSFzz6rI4aahXbN08pn6GB0ZRm3P5Z8iEH42svHTjTlrvxth74
+         BJaOuUl/OGRDD8U9DHQ4Wi1sLsxYCMEAwOigFUng1ELR76awP/ehWOjEuWwpiP+XthAd
+         mhYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RWN6d6ee3y7/gjA+RJaHwoAowMMQDgGlpGi4abXfpxU=;
+        b=CGJjQBNpiPcH5k5i37MEC/w8si7dlgKRSPrPv57wHy1rW9ZS0RuB77N39bqJ4S0jzm
+         jQTjY9dZI8NFFk4GgNJ/JzCZAM7ap7COxx245SZArgk7iAaGNXmro9uc2ByvC+gsIJhH
+         dAAiTCmVN9G2XzGXiuZOZef83zo4YqAKcB5BJYXGF8OtL8FLKztt/1+jxHvg3QFDAjZP
+         acSnKmNtScBhgf8gOOCdyEep9uN+UQAyg05wVUIwQOtdoRhyVeXNqYMSUi1kCmlBoCDb
+         2TIYlBIVkmfRhIPUYhkU/Ol18fuWcXtFH4bGURaNlDWgODz8kADY+M76vRmIDxyB85cC
+         8ovg==
+X-Gm-Message-State: ANoB5pnaFZYyzlqBWWMuq0jTpGziytgs/Y4hQfwGaQU/Rbsbp7wafuJb
+	1fAbLv++fFyen6/lAn5y53zcZQ==
+X-Google-Smtp-Source: AA0mqf5O6CJ+qn9YMzGPkZe6b8n6HzYvx5cIKBxDov12bCrrfFFonZ0myxPBBsvAVAmhoKC3veX63w==
+X-Received: by 2002:a2e:9b17:0:b0:279:cd10:a511 with SMTP id u23-20020a2e9b17000000b00279cd10a511mr1599538lji.502.1669892523528;
+        Thu, 01 Dec 2022 03:02:03 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id g3-20020ac25383000000b00492dba3c85asm606438lfh.220.2022.12.01.03.02.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Dec 2022 03:02:02 -0800 (PST)
+Message-ID: <fb13f339-79c5-96a1-ba4d-bf09da0b6ebd@linaro.org>
+Date: Thu, 1 Dec 2022 12:02:00 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v2 1/9] dt-bindings: serial: add documentation for
+ Bouffalolab UART Driver
+Content-Language: en-US
+To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh+dt@kernel.org>,
+ Conor Dooley <conor@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=c3=a4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org
+References: <20221127132448.4034-1-jszhang@kernel.org>
+ <20221127132448.4034-2-jszhang@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221127132448.4034-2-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_024831_036970_8FAF5E91 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20221201_030219_897989_5ADA35AF 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,27 +101,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 1. Dezember 2022, 00:41:25 CET schrieb Conor Dooley:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On 27/11/2022 14:24, Jisheng Zhang wrote:
+> Add bindings doc for Bouffalolab UART Driver
 > 
-> Ordering between each and every list of extensions is wildly
-> inconsistent. Per discussion on the lists pick the following policy:
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  .../bindings/serial/bouffalolab,uart.yaml     | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/serial/bouffalolab,uart.yaml
 > 
-> - The array defining order in /proc/cpuinfo follows a narrow
->   interpretation of the ISA specifications, described in a comment
->   immediately presiding it.
-> 
-> - All other lists of extensions are sorted alphabetically.
-> 
-> This will hopefully allow for easier review & future additions, and
-> reduce conflicts between patchsets as the number of extensions grows.
-> 
-> Link: https://lore.kernel.org/all/20221129144742.2935581-2-conor.dooley@microchip.com/
-> Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> diff --git a/Documentation/devicetree/bindings/serial/bouffalolab,uart.yaml b/Documentation/devicetree/bindings/serial/bouffalolab,uart.yaml
+> new file mode 100644
+> index 000000000000..a8293444ca31
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/serial/bouffalolab,uart.yaml
 
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+Name the file matching compatible, so bouffalolab,bl808-uart.yaml
 
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/serial/bouffalolab,uart.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Bouffalolab UART Controller
+> +
+> +maintainers:
+> +  - Jisheng Zhang <jszhang@kernel.org>
+> +
+> +allOf:
+> +  - $ref: serial.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: bouffalolab,bl808-uart
+
+Rob's comments from v1 are applicable. Either fix or respond to them.
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+
+Best regards,
+Krzysztof
 
 
 _______________________________________________
