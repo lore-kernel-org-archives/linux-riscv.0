@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D08C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 16:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523CAC4321E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 16:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jvn4NeG+aVV4297kCu5k8zVBh2K5rai21TTY6yBuSnU=; b=0HrKlmIN4JkxE+
-	L+2euQBctItHCjyEuSQIKD+deKgcBNqXouGhkJLFpClmCziZWW0O+PdF+N6QAJIZdGWc8Nwksiike
-	9Uh/MLioAnc8/sVrp3Ooc4Utfi7C1HuSy9E+pJID8J7gU1IemXHmPjHX0FC23NQl4mF1iJf+zIziG
-	+I85CiNYcmdh3pWJ1rueS22PQPyYxHloQLSTBSxW3QamiaohWSDAfgLqHzwWhwTnejTr54qHfEOAN
-	iVh7EM+PYcxKbNJyyUBxKEbHy7LRB9odiyTTxMTiSagoCqL51Nic26WBSdVpAe5G2/in7i65eZhy7
-	XjzI5kydQy3YuRTr2Bpw==;
+	List-Owner; bh=XivEv02dlYbkuNXgfFJOn7hIFWAJdNzMwL0usczAl3Y=; b=WXLGo/4MOabpfm
+	PjAsQYcjUVR+rMdY/PxZViUJ+sCJH36FtNqNT9/xG0nGRCt/SF7ueiRlef/uU6Yg/O1hZJq7iwopk
+	W4v77V/T0swW5NwnTtQY7ZmaT3aKBNaqmNvs+ZErffDXHejzNDzBDst7OnCz3ADYGNvOfnGSKj/ix
+	yPMEg4t74HM4QFg3ktA+Ovlf83LAdUAvaFNb3n0TOUWiIzpe+UyNgA8CbJlGeNR40NR37zii+5AEd
+	RZ7Iu6tWAUccLLfC4O7vKlQNGEVK5VS2jS09T0eVYINoVSf+286FQP6qAqd7IQVk8zvV3zjpAstw7
+	I5bZrLWPYr5DocfAlECw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p18Z5-00HKo8-Pk; Fri, 02 Dec 2022 16:07:03 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1p18ah-00HLyX-Bo; Fri, 02 Dec 2022 16:08:43 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p18WQ-00HIiC-05
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 16:04:21 +0000
-Received: by mail-pl1-x634.google.com with SMTP id jn7so4993242plb.13
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 08:04:14 -0800 (PST)
+	id 1p18aC-00HLTA-Cd
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 16:08:19 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id x66so5316084pfx.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 08:08:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=b2GsRYGpugbtZSHFD2RurCZ4JW4xZuzTsOfxXrCkfT8=;
-        b=NpcRjd8PL93RDmu18EFPPR+cTZLP3kvCDAEAva9wUQzgEtv6dhPvDs1R9Q9+h2mN7N
-         H42dGaT+sl8xeMuYK2rfUD+midQutKuG+T3MUl21HeEIW4MolVpdsUIo9SmBbkggNx39
-         8eN3yXePSJelVozj19wEaq9z6VDhzvEr0ForIWyEXE5qa5rozQa3WxAYewh7SubIBKmO
-         02PPePyseXuLiMMtCMvFiCLdBEv6hZUEsP/WY2KPh2svytXFAqt8tvoUSmd0DdfZmIR5
-         sLez1JP4ikgagdRRPh2k9RbfsucGTq+KVdolkDHLvc/Uk58Zr0iw+nxpff3e47GDmBB4
-         X4Mw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LMdFvNSIKdTJxppFI5JflU3ZXHxkZjSJ4fG5U4tk7Tk=;
+        b=kw0qyCOMp2u+ojev0wrASw/lF7r9rOnRJHqLy08FIIr+f+qpPtSFohe59bJmaOi/rJ
+         xcGzBwmHctfDCuY/HsZstsw01nTTKqB9D0ItsIVCZBuDkF6U4LFd8/XxyiMZ9HQQBawu
+         5Br6kbHRMEkmhVdkrdlpAnXBg7aXr8x1ngEkT987D0vDq9wJ1LYSA7pyGWl0PB6S36YX
+         Ye0BXjX/JFQwCFB0idj1kNjBh1WOFf2yIueArh18nn+f3Kk6RhG95XRHvHGlIJTCnyAw
+         T+Hf0HOA9lpO63L3167YfTmLHua9wbiTHz1XwCqkS0us3SdkuoK9a/bX1aNd1tZdIG9m
+         GSrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b2GsRYGpugbtZSHFD2RurCZ4JW4xZuzTsOfxXrCkfT8=;
-        b=QJUhMM4pGQxaFNPPLULskRFs6qzuTNSDzCpCzkC3+AmWxJHuSRy/8E0gCnc+brbqRB
-         vTVqUgK0Bn3KvKeCJiJPvHbPTPXm7Qbif+WXhUOQF0pvx89HlsYIQMk+6wqE4bU/j1UE
-         ADKU7Dv4u9sZCG6536+W3IJSGPkzz6OZmBYhx92yezMs63dGfDHQsRp73Ah4fupVh2ou
-         KeG/wtPoIcQvPcqoXBnsuOhbqO9CslsCwoRTuWy1iZpIqzwAdc73cOVlRRg8nmtfsfPr
-         NInk/Ssht1s48R0V+uk51jmre7yzZ7QD6yFXrs6yBwkDeW3p9eY9ZE7Nggd7DlFVLrJh
-         E6tQ==
-X-Gm-Message-State: ANoB5pn7QJ9k6MHWD6ST3qNuxRdMTRs3I7y9NdmXS7jVlqujNAHfu8lH
-	x3oOFg/9Oocw7/mAgwJliEgErg==
-X-Google-Smtp-Source: AA0mqf7w0TN/IsoZof5JEkNGBQ8Yd2Zjjhh4wCVFAlaPO07IGqPcQWl6OiCMwNp3DG6Q8B9rQJAiYA==
-X-Received: by 2002:a17:90a:9a98:b0:219:2f90:4fb3 with SMTP id e24-20020a17090a9a9800b002192f904fb3mr28837193pjp.109.1669997053879;
-        Fri, 02 Dec 2022 08:04:13 -0800 (PST)
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LMdFvNSIKdTJxppFI5JflU3ZXHxkZjSJ4fG5U4tk7Tk=;
+        b=xr8J4J0LBh6+xPmShXEU/IhoTJXgwpHUCVmjTC5KFpKmoJvU9WC9rqACVcETgTpIOv
+         Q4YODEaZ3o4dGcJ0qhOteRmqYOinTSOqgz6Tl0QFyc5fLSena3FIvD64IN3N0ZR2uinS
+         KGWAGWlrAdMszenuD+Q76rKWARVuVceKg4XxHsy1Fs3gaoRNRZYJ5ABE7EppP8huD4T9
+         Qrq7WDYvznWYtIwusBFT+1BlyQYzKkPsenZ00CDWbOOw/+J0EQxwaqxXa+mlzvFjgBgw
+         /iIs7Nv2PPYz99DsuZrHTju/If48RaDSe2G+l0z6F1zZqsAf8BLkurVLAaTHKFd923Qi
+         vvTw==
+X-Gm-Message-State: ANoB5pkyplEsHaRknxPo0l46JFra3sxoZJGmc6jBS8DEeuGwUiP84Eav
+	c7ygW/UkzmE2rHYAKBWIsNXCAA==
+X-Google-Smtp-Source: AA0mqf5a5KU+HXt1yCJ0zhlFtswkW2r0VasQIXpEBIwwE2hKQw/T3gXBywz5nj+1M/Ux52wSBF1P1g==
+X-Received: by 2002:a63:495e:0:b0:470:75a1:c6d7 with SMTP id y30-20020a63495e000000b0047075a1c6d7mr47336241pgk.120.1669997286584;
+        Fri, 02 Dec 2022 08:08:06 -0800 (PST)
 Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id q42-20020a17090a1b2d00b00219752c8ea5sm3349337pjq.37.2022.12.02.08.04.12
+        by smtp.gmail.com with ESMTPSA id w23-20020a1709026f1700b00189667acf19sm5714233plk.95.2022.12.02.08.08.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 08:04:13 -0800 (PST)
-Date: Fri, 2 Dec 2022 16:04:09 +0000
+        Fri, 02 Dec 2022 08:08:06 -0800 (PST)
+Date: Fri, 2 Dec 2022 16:08:02 +0000
 From: Sean Christopherson <seanjc@google.com>
 To: "Huang, Kai" <kai.huang@intel.com>
 Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
@@ -103,18 +102,18 @@ Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
 	"atishp@atishpatra.org" <atishp@atishpatra.org>,
 	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
 	"Gao, Chao" <chao.gao@intel.com>
-Subject: Re: [PATCH v2 40/50] KVM: x86: Do compatibility checks when onlining
- CPU
-Message-ID: <Y4oh+XsbifA2BSj9@google.com>
+Subject: Re: [PATCH v2 41/50] KVM: Rename and move CPUHP_AP_KVM_STARTING to
+ ONLINE section
+Message-ID: <Y4oi4oRk7jsCqYJO@google.com>
 References: <20221130230934.1014142-1-seanjc@google.com>
- <20221130230934.1014142-41-seanjc@google.com>
- <cf755389c21c73e8367d8162cabc83629d3f9a74.camel@intel.com>
+ <20221130230934.1014142-42-seanjc@google.com>
+ <c74c88ba6a17da2d36e2d340ce22af127bda8383.camel@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cf755389c21c73e8367d8162cabc83629d3f9a74.camel@intel.com>
+In-Reply-To: <c74c88ba6a17da2d36e2d340ce22af127bda8383.camel@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_080418_140399_28CD1F63 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20221202_080812_526902_02DB551A 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,61 +125,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, Dec 02, 2022, Huang, Kai wrote:
 > On Wed, 2022-11-30 at 23:09 +0000, Sean Christopherson wrote:
-> > --- a/arch/x86/kvm/x86.c
-> > +++ b/arch/x86/kvm/x86.c
-> > @@ -11967,6 +11967,11 @@ int kvm_arch_hardware_enable(void)
-> > =A0	bool stable, backwards_tsc =3D false;
-> > =A0
-> > =A0	kvm_user_return_msr_cpu_online();
-> > +
-> > +	ret =3D kvm_x86_check_processor_compatibility();
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > =A0	ret =3D static_call(kvm_x86_hardware_enable)();
-> > =A0	if (ret !=3D 0)
-> > =A0		return ret;
-> =
+> > From: Chao Gao <chao.gao@intel.com>
+> > 
+> ...
+> 
+> > 
+> > Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+> > Signed-off-by: Chao Gao <chao.gao@intel.com>
+> > Signed-off-by: Isaku Yamahata <isaku.yamahata@intel.com>
+> 
+> Perhaps I am wrong, but I have memory that if someone has SoB but isn't the
+> original author should also have a Co-developed-by?
 
-> Thinking more, AFAICT, kvm_x86_vendor_init() so far still does the compat=
-ibility
-> check on all online cpus.  Since now kvm_arch_hardware_enable() also does=
- the
-> compatibility check, IIUC the compatibility check will be done twice -- o=
-ne in
-> kvm_x86_vendor_init() and one in hardware_enable_all() when creating the =
-first
-> VM.
-> =
+This is the case where a patched is passed along as-is, e.g. same as when
+maintainers apply a patch.  Isaku posted Chao's patch, and then I came along and
+grabbed the patch that Isaku posted.  I could go back and grab Chao's patch
+directly, but Yuan's review was provided for the version Isaku posted, so I
+grabbed that version.
 
-> Do you think it's still worth to do compatibility check in vm_x86_vendor_=
-init()?
-> =
-
-> The behaviour difference should be "KVM module fail to load" vs "failing =
-to
-> create the first VM" IIUC.  I don't know whether the former is better tha=
-n the
-> better, but it seems duplicated compatibility checking isn't needed?
-
-It's not strictly needed, but I think it's worth keeping.  The duplicate ch=
-ecking
-annoys me too, and I considered removing it multiple times when creating th=
-is
-series.  But, if there is a hardware incompatibility for whatever reason, f=
-ailing
-to load and thus not instantiating /dev/kvm is friendlier to userspace, e.g.
-userspace can immediately flag the platform as potentially flaky, whereas
-detecting the likely hardware issue when VM creation fails would essentialy=
- require
-scraping the kernel logs.
+> > Reviewed-by: Yuan Yao <yuan.yao@intel.com>
+> > [sean: drop WARN that IRQs are disabled]
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> 
 
 _______________________________________________
 linux-riscv mailing list
