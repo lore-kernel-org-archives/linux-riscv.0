@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C85AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 07:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717FFC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 08:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DI1fBzjjY0mPX6HEcyPvGsFmmjEm3AIoyM7KNaA6KsQ=; b=BeV9NIn1TjXnoe
-	ek/kpndunMoorMioScxMrdyPNOMugt1Of/Q5ip4CuQbrWNa7VDgx06csYCAYPnkThi6TUJI1q1Fq0
-	T94cGz/z4RAttq3DLZNxJM7pjy42JZXYLDkq6EDryLLWsXbbxEOJ1r7ftO48Kpw4ndutUl3sRSwnl
-	c3z0St5KHkow49sY9kyto5dK9srUX4RjM1JAcqNUE7kVOsury9pNg/tyQke1d9k/QYDkoEIxmuK+k
-	GPmKonHB30U7pYdzRdGOADekAmY8sB8LOPyKCucWXaanWUCDQ8AP6XNviYoYsop7H1QKs9fFnAwFa
-	55WGM/FgnO6A4hA8UW8A==;
+	List-Owner; bh=f6lrpOitVBqS0ICv8xswoDaQMWKNp35gz3+E90HLJ34=; b=fUDpjWj5g9tL1/
+	yYV3EE1gzbVaukr5VEwjdnW6QJwVAR+YqXzvXuFxDEAEt5G5R9iwZpf+cFVWPY8PrU2t8FlGx7TxV
+	eTmeShUWQ4tqwMeT/j6ESYdd4ys86u/PsPhjwMWg8fGOZ/ZQiQiTv22nAi1qREmEDRgPvU4rugxcL
+	bjm/IhY2OOQ0o+IoSIt9D9sa8Mb7KDOx/vrBOU9xjoCU+LFobG1MyTbiZU3MVooFe/JhptLlMq/Bh
+	Bn7qEH3UA4vHw9+7t2K4twBc4Sd3lhb2nw9NHvLG4Cmtqp66UgGJR1koFbYpYDvo54ncLqTeA4EyZ
+	th5G4Wi7Ssx6L3x1IFxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p10I6-00E6DL-Ad; Fri, 02 Dec 2022 07:16:58 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p10I3-00E68K-E3
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 07:16:56 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 1C61624E15C;
-	Fri,  2 Dec 2022 15:16:32 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Dec
- 2022 15:16:32 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Dec
- 2022 15:16:30 +0800
-Message-ID: <1d3f1334-b6bf-57cb-7f7e-48e3c08a5560@starfivetech.com>
-Date: Fri, 2 Dec 2022 15:16:29 +0800
+	id 1p10zA-00EKRW-6b; Fri, 02 Dec 2022 08:01:28 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p10z8-00EKOx-36
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 08:01:27 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id p36so1874266lfa.12
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 00:01:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=myxyATfyN+1auJfJuG3H5dbd93oQNnjh+ve1JpPtApU=;
+        b=jY7HCGbEyRP9FdG8tKLmzbtJXZI8Axu41H2Vys9oMDnirag9oo7VWLM4TwWa9iI9dM
+         lVb+H7GoEdDbnTqp/nILHCyel8iTyJ88R0P5t8KkFda0CFrc4knMHL7/4hTe6OZ85OCE
+         8MERBbP3ttRPfE3YXR48lY8XR/E21hCyyHRJJuCEUjo/Lwglp7Jc95d8sJc60fWqEDra
+         dJnnmoYYkBGxGGbbM5OPL+gcLn0o1X6d6GhfHtxlXDnMJwo5SACyWEkcejWhihkb3fUr
+         FpbS97VBffF5cZR5YK6sa0xrZetZbPAfkeAvNpRhWxWg5gGD2gSQyz51HM0Uv0gDrL03
+         /ULw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=myxyATfyN+1auJfJuG3H5dbd93oQNnjh+ve1JpPtApU=;
+        b=XjgPC8MnpN9ggDOOU/GYBWs3UWYKHgTlxDVTU1gUiVVCiwSQBQBTtvPRWxYAmcxmAk
+         zpH8vMrvyZc9j4cr58dcSx/Pxme57D1w35tLpudja1r1dhTGV2YvOw2djEtFi8LQ+Zd1
+         WWRZssLDdMkfnhqMG3+A0K7yLSLdSUuTJj1FMXrhFVcGgcrMbL9oj/eBqbyVPR+VP86W
+         qy74fPWnUSVbSrk1kwI1ekxryGoobTcV+3oGQSQPuSQTAS6bV+nWR8GZ0yBHsnZH5Q74
+         XkGc2KWJricUibOzCEcqXRaoF56e5f7FubV2qeucR+TYJy5EK///X/43PseO+hzEb1Ot
+         THgQ==
+X-Gm-Message-State: ANoB5pnygLr6gzUUnANdPbdXBRIZx09FRFL7jhAOhyh9VoKjPJN0YS7f
+	wUCB/IYZuOq8Idy3c3YOJ7XR+Q==
+X-Google-Smtp-Source: AA0mqf6kG9n38g0CPH5KhVFXIHW7Ha126mJzbmxKhe6FZ82LqLmbRbd47TptGcuSA0OZG9yXslUBSQ==
+X-Received: by 2002:a05:6512:3e0c:b0:4a9:bdb3:9db8 with SMTP id i12-20020a0565123e0c00b004a9bdb39db8mr27055157lfv.643.1669968081531;
+        Fri, 02 Dec 2022 00:01:21 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id b13-20020a0565120b8d00b004b373f61a60sm940253lfv.96.2022.12.02.00.01.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Dec 2022 00:01:19 -0800 (PST)
+Message-ID: <3a9ef360-73c3-cf26-3eca-4903b9a04ea3@linaro.org>
+Date: Fri, 2 Dec 2022 09:01:18 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v1 3/7] dt-bindings: net: Add bindings for StarFive dwmac
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v1 1/7] dt-bindings: net: snps,dwmac: Add compatible
+ string for dwmac-5.20 version.
+To: yanhong wang <yanhong.wang@starfivetech.com>,
+ linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
 References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-4-yanhong.wang@starfivetech.com>
- <36565cc1-3c48-0fa8-f98b-414a7ac8f5bf@linaro.org> <Y4jl6awCMFgZsQGC@spud>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <Y4jl6awCMFgZsQGC@spud>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS065.cuchost.com (172.16.6.25) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
+ <20221201090242.2381-2-yanhong.wang@starfivetech.com>
+ <277f9665-e691-b0ad-e6ef-e11acddc2006@linaro.org>
+ <22123903-ee95-a82e-d792-01417ceb63b1@starfivetech.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <22123903-ee95-a82e-d792-01417ceb63b1@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_231655_768246_84053815 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20221202_000126_205388_7605B73C 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +104,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2022/12/2 1:35, Conor Dooley wrote:
-> On Thu, Dec 01, 2022 at 05:21:04PM +0100, Krzysztof Kozlowski wrote:
+On 02/12/2022 03:53, yanhong wang wrote:
+> 
+> 
+> On 2022/12/2 0:18, Krzysztof Kozlowski wrote:
 >> On 01/12/2022 10:02, Yanhong Wang wrote:
->> > Add bindings for the StarFive dwmac module on the StarFive RISC-V SoCs.
->> 
->> Subject: drop second, redundant "bindings".
->> 
->> > 
->> > Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> > ---
->> >  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->> > +properties:
->> > +  compatible:
->> > +    oneOf:
->> 
->> Drop oneOf. You do not have more cases here.
->> 
->> > +      - items:
->> > +          - enum:
->> > +               - starfive,dwmac
->> 
->> Wrong indentation.... kind of expected since you did not test the bindings.
->> 
->> > +          - const: snps,dwmac-5.20
+>>> Add dwmac-5.20 version to snps.dwmac.yaml
+>>
+>> Drop full stop from subject and add it here instead.
+>>
 > 
-> Disclaimer: no familiarity with the version info with DW stuff
+> Will update in the next version.
 > 
-> Is it a bit foolish to call this binding "starfive,dwmac"? Could there
-> not be another StarFive SoC in the future that uses another DW mac IP
-> version & this would be better off as "starfive,jh7110-dwmac" or similar?
+>>>
+>>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>>
+>> Two people contributed this one single line?
+>>
 > 
+> Emil made this patch and I submitted it.
 
-The StarFive JH8100 SoC in the future that uses the same mac IP version, so call this binding "starfive,dwmac".
+If Emil made this patch, then your From field is incorrect.
 
-> Thanks,
-> Conor.
-> 
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
