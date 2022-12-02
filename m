@@ -4,116 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8C8C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 16:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377C8C4321E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 16:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0nWPNfIppnq7woXEqb3qYsC7WdfBhriv+Kpk4s8bSmw=; b=LDWyZM0bAnUjAa
-	ST2zSQnJ5sC5hpEjBB5jx/agV2SJgSPgNH54Cb/7GDhWnYoMGdSI5LZZnxUSlZvhlzT7cd6AesZoW
-	kzEWgBPEJ8B8bpQtgQF1jpM6dj9Bn0jpyGdF5TzFdnvknVSFpcCAz6oBRS53gvilKGaL7AwDWM7ev
-	K9QlT+11JwBFDxZVH8EL+jijdo7iPjR4XQ71PLeH73csnZfaRhFa4brl4TSJYtWu6MXe0H4swbCyW
-	ZBa7fu9ifwLBjSGIOagxPzGCQoskRVQMTKFyEtofvI3oJx9bH6/lqpiqRzK2WzH9C2NUCIP+tNQlz
-	Up5e8gyaIcbPrZQXeGUg==;
+	List-Owner; bh=pIVJnxITv4lDvxWPKCEbdCzeSduzioLL2WBeennIzAk=; b=YUO88nPluiBXqq
+	gU4cTKlJtFZoD24MToNLwcEc/ggebWaM5g+KRB1IeAe9biob2bvjwVM9nWoZ1dJDqwPgqJWnu3YJ/
+	Nour4uoWRY3EjrqdzCJ3BeQydppznx6m3WCR53L48X5tevKueylmSK2Ao37V+/rTKC9nsCxBM1OVa
+	h0lHWHmvLuYpcDBY9JORqJq+WYjkKiMkIWq7NeQRBbULSvCZ9XHDDnOCcXXNV1WMqhYzZ4hlYvQPA
+	ZLFDKFkfJJyfFxh8uYwZ8fr6k8GbJU1pOoR98Y7LpRHdxmXuM+0oZoDkiuA7WBc8FL5humu7Kf//n
+	ffZ8E906ZiUbuvnPFfgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p18wx-00HZ5Z-6R; Fri, 02 Dec 2022 16:31:43 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1p192h-0000pA-Lo; Fri, 02 Dec 2022 16:37:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p18wg-00HYvH-7D
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 16:31:30 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 62so4764716pgb.13
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 08:31:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RsaZyzKJOuyFVoAfYZw39HCTNem7JcJUeEd5tgG0e8Y=;
-        b=JuBGytq8t5tr5SVnzdgiUWfOnnv3YoaxJ/EPOkhREUxf0Lu7Q36UoNdircCDscdJe1
-         Ne3pPvJP46804SbaTNQC7CD0nyOf+6DUf7RttT6MnjeqYf2tKeLulPmMzXN6C0vzpI5a
-         kmqZ1b2nEnQBpLkucgI+K9CNuj0M6idXU9Z/tpGiUmJvFfSAKZUEJ0tYDDD5QTm1XgZh
-         KUg4c1fCmmWL1AfPqQe/Q+7M8gt59bLLwzR5wrgb2mkyqnFKW9rqK8zn1jiKosWg6tGN
-         xvGvpF7x1Z6otoY0Ddi4ibaMdJj9vaSCpFDZW9nFUZDm9ecAOG+G1OAJWfl9eXVsVqrU
-         2Qew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RsaZyzKJOuyFVoAfYZw39HCTNem7JcJUeEd5tgG0e8Y=;
-        b=y7cGZq2LAlRwK4jYDh6sn10A1QViw5C2u23o+yC9in3yxGupzg3E2XY8mL8vML59yW
-         5FlHF7D4K+7Jcoh7QCxej3dW9tVLFzh0FqsYqx/zXR8IPJZyPVgay4bCjofeTZ9dz5aa
-         NM+KW4w510J/dYjSLZ7g/spVLk32euSyzFm+ACUASx7YoVJQJ29rVXywBu3u8CNbHHx9
-         Wpqp6xDEmfioYA5X7Lra9XtMnAz11pcd8WeotBi1ryOX1hsLNET8Q7W6dU4gE2H2LVzy
-         TXYxARq1LUw9r8qo7yv6WEmtmQUjfdc7LihM73ftESdrDRpJPjLTak+NEYed+wUfCStS
-         atCQ==
-X-Gm-Message-State: ANoB5pkokaBYNogwQUW9TjdQeV/7PktMDRAhNmpVDdPq2kHhD2qSsMdZ
-	WaG+SFAHhKLEHijP67NT/p6/aA==
-X-Google-Smtp-Source: AA0mqf5YDkgE2z83Sno75+zaFki0bhnK0sTw98u0yDu/SzUnzr69GggIhlhUBJVYlhlyDIQeZ9Y6nA==
-X-Received: by 2002:a65:5601:0:b0:43c:4eef:bac7 with SMTP id l1-20020a655601000000b0043c4eefbac7mr46619641pgs.356.1669998682344;
-        Fri, 02 Dec 2022 08:31:22 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id g204-20020a6252d5000000b005756a67e227sm5438977pfb.90.2022.12.02.08.31.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 08:31:21 -0800 (PST)
-Date: Fri, 2 Dec 2022 16:31:18 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: "Huang, Kai" <kai.huang@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"frankja@linux.ibm.com" <frankja@linux.ibm.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"farman@linux.ibm.com" <farman@linux.ibm.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"pbonzini@redhat.com" <pbonzini@redhat.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"aleksandar.qemu.devel@gmail.com" <aleksandar.qemu.devel@gmail.com>,
-	"imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>,
-	"paul@xen.org" <paul@xen.org>,
-	"mjrosato@linux.ibm.com" <mjrosato@linux.ibm.com>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"cohuck@redhat.com" <cohuck@redhat.com>,
-	"farosas@linux.ibm.com" <farosas@linux.ibm.com>,
-	"david@redhat.com" <david@redhat.com>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"Yao, Yuan" <yuan.yao@intel.com>,
-	"alexandru.elisei@arm.com" <alexandru.elisei@arm.com>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"Yamahata, Isaku" <isaku.yamahata@intel.com>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"philmd@linaro.org" <philmd@linaro.org>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"Gao, Chao" <chao.gao@intel.com>
-Subject: Re: [PATCH v2 42/50] KVM: Disable CPU hotplug during hardware
- enabling/disabling
-Message-ID: <Y4ooVrDTkscy68vg@google.com>
-References: <20221130230934.1014142-1-seanjc@google.com>
- <20221130230934.1014142-43-seanjc@google.com>
- <8b1053781e859aa95a08c10b0e8a06912a2b42a2.camel@intel.com>
+	id 1p192Y-0000lw-Nb
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 16:37:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 302F16234B
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Dec 2022 16:37:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74AC7C4314B
+	for <linux-riscv@lists.infradead.org>; Fri,  2 Dec 2022 16:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1669999049;
+	bh=EvJJMDT2Lq9pPqMsw0zk5dy2vuzQb62lx5KfT70us/0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZZolye9g9cXNPBfD/6CR7XzvyGpcNzWhbXQTX9PJizhF5AxoqHjtioLxMsY54gcCv
+	 D3Fuw2v0UGgWU83YkfOHZapX5zUjPkx5t7YA6jlP86kBkU07BzflPCgi+BP+oaGOAn
+	 aJd9CVsRQwxq52T9rJCQiuEtYk6fZsM99T/wLQseCrNoYy6Se7VkCTYLWT5/ilFEF2
+	 0PWE8eXKsht3/oaEP/P0sxt6g3RrXP0iPLy/i1ivzQmECuUF5emXZ+swPvsRW9oHub
+	 tneS4nxN/zoLHs9kjln/u0sk6UE87e6V8B+Fev8NdxFbEXigjInVy7TlMeFWsscfXU
+	 JOZe2YLKAH3Vw==
+Received: by mail-lj1-f170.google.com with SMTP id r8so5982116ljn.8
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 08:37:29 -0800 (PST)
+X-Gm-Message-State: ANoB5pliuyDpwubQl2fKzTDYng5KcmLrXFnMN4Mkcbo9hqeuL/l2N1PG
+	2zvKoSzvHdJAc0znMfuTKvm4TjO6ue1NnVgysLs=
+X-Google-Smtp-Source: AA0mqf4cP5vb+93NiI7bo/ZZvh3IXG/Angm4270zBWJmIi4Rjhoz7ku+a9UJTL6u9/quHp9vK7vWlRhjTjhEhM8Np5E=
+X-Received: by 2002:a05:651c:1603:b0:26d:d603:8df2 with SMTP id
+ f3-20020a05651c160300b0026dd6038df2mr21120504ljq.189.1669999047497; Fri, 02
+ Dec 2022 08:37:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8b1053781e859aa95a08c10b0e8a06912a2b42a2.camel@intel.com>
+References: <20221130225614.1594256-1-heiko@sntech.de> <20221201193455.2hr6mwm6sa6vnd3w@kamzik>
+ <CAMj1kXG=zM0EFFPn8MBWFurk=oSRPqwdd6CP1dudQC+JXV36Og@mail.gmail.com> <4822525.e9J7NaK4W3@diego>
+In-Reply-To: <4822525.e9J7NaK4W3@diego>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 2 Dec 2022 17:37:16 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGBSLf4ppjA5_F4Ork+ZJ45Sk0w6SnPc3eDcWbTMkj3SQ@mail.gmail.com>
+Message-ID: <CAMj1kXGBSLf4ppjA5_F4Ork+ZJ45Sk0w6SnPc3eDcWbTMkj3SQ@mail.gmail.com>
+Subject: Re: [PATCH v3 12/14] efi/riscv: libstub: mark when compiling libstub
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, 
+	conor@kernel.org, philipp.tomsich@vrull.eu, 
+	emil.renner.berthing@canonical.com, linux-efi@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_083126_338484_B9A6FC5E 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20221202_083730_870878_AEA06469 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,123 +79,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 02, 2022, Huang, Kai wrote:
-> On Wed, 2022-11-30 at 23:09 +0000, Sean Christopherson wrote:
-> > From: Chao Gao <chao.gao@intel.com>
-> > 
-> > Disable CPU hotplug when enabling/disabling hardware to prevent the
-> > corner case where if the following sequence occurs:
-> > 
-> >   1. A hotplugged CPU marks itself online in cpu_online_mask
-> >   2. The hotplugged CPU enables interrupt before invoking KVM's ONLINE
-> >      callback
-> >   3  hardware_{en,dis}able_all() is invoked on another CPU
-> > 
-> > the hotplugged CPU will be included in on_each_cpu() and thus get sent
-> > through hardware_{en,dis}able_nolock() before kvm_online_cpu() is called.
-> 
-> Should we explicitly call out what is the consequence of such case, otherwise
-> it's hard to tell whether this truly is an issue?
->
-> IIUC, since now the compatibility check has already been moved to
-> kvm_arch_hardware_enable(), the consequence is hardware_enable_all() will fail
-> if the now online cpu isn't compatible, which will results in failing to create
-> the first VM.  This isn't ideal since the incompatible cpu should be rejected to
-> go online instead.
-
-Actually, in that specific scenario, KVM should not reject the CPU.  E.g. if KVM
-is autoloaded (common with systemd and/or qemu-kvm installed), but not used by
-userspace, then KVM is overstepping by rejecting the incompatible CPU since the
-user likely cares more about onlining a CPU than they do about KVM.
-
-> > KVM currently fudges around this race by keeping track of which CPUs have
-> > done hardware enabling (see commit 1b6c016818a5 "KVM: Keep track of which
-> > cpus have virtualization enabled"), but that's an inefficient, convoluted,
-> > and hacky solution.
-
-...
-
-> > +	/*
-> > +	 * Compatibility checks are done when loading KVM and when enabling
-> > +	 * hardware, e.g. during CPU hotplug, to ensure all online CPUs are
-> > +	 * compatible, i.e. KVM should never perform a compatibility check on
-> > +	 * an offline CPU.
-> > +	 */
-> > +	WARN_ON(!cpu_online(cpu));
-> 
-> IMHO this chunk logically should belong to previous patch.  IIUC disabling CPU
-> hotplug during hardware_enable_all() doesn't have relationship to this WARN().
-
-Hmm, yeah, I agree.  I'll move it.
-
-> >  static int hardware_enable_all(void)
-> >  {
-> >  	int r = 0;
-> >  
-> > +	/*
-> > +	 * When onlining a CPU, cpu_online_mask is set before kvm_online_cpu()
-> > +	 * is called, and so on_each_cpu() between them includes the CPU that
-> > +	 * is being onlined.  As a result, hardware_enable_nolock() may get
-> > +	 * invoked before kvm_online_cpu(), which also enables hardware if the
-> > +	 * usage count is non-zero.  Disable CPU hotplug to avoid attempting to
-> > +	 * enable hardware multiple times.
-> 
-> It won't enable hardware multiple times, right?  Since hardware_enable_nolock()
-> has below check:
-> 
->         if (cpumask_test_cpu(cpu, cpus_hardware_enabled))                      
->                 return;                                                        
->                                                                                                                                                    
->         cpumask_set_cpu(cpu, cpus_hardware_enabled);     
-> 
-> IIUC the only issue is the one that I replied in the changelog.
-> 
-> Or perhaps I am missing something?
-
-You're not missing anything in terms of code.  What the comment means by "attempting"
-in this case is calling hardware_enable_nolock().  As called out in the changelog,
-guarding against this race with cpus_hardware_enabled is a hack, i.e. KVM should
-not have to rely on a per-CPU flag.
-
- : KVM currently fudges around this race by keeping track of which CPUs have
- : done hardware enabling (see commit 1b6c016818a5 "KVM: Keep track of which
- : cpus have virtualization enabled"), but that's an inefficient, convoluted,
- : and hacky solution.
-
-I actually considered removing the per-CPU flag, but decided not to because it's
-simpler to blast
-
-	on_each_cpu(hardware_disable_nolock, ...)
-
-in kvm_reboot() and if enabling hardware fails on one or more CPUs, and taking a
-#UD on VMXOFF in the latter case is really unnecessary, i.e. the flag is nice to
-have for other reasons.
-
-That said, after this patch, KVM should be able to WARN in the enable path.  I'll
-test that and do a more thorough audit; unless I'm missing something, I'll add a
-patch to do:
-
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index b8c6bfb46066..ee896fa2f196 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -5027,7 +5027,7 @@ static int kvm_usage_count;
- 
- static int __hardware_enable_nolock(void)
- {
--       if (__this_cpu_read(hardware_enabled))
-+       if (WARN_ON_ONCE(__this_cpu_read(hardware_enabled)))
-                return 0;
- 
-        if (kvm_arch_hardware_enable()) {
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAxIERlYyAyMDIyIGF0IDIzOjM5LCBIZWlrbyBTdMO8Ym5lciA8aGVpa29Ac250ZWNo
+LmRlPiB3cm90ZToKPgo+IEhpIEFyZCwKPgo+IEFtIERvbm5lcnN0YWcsIDEuIERlemVtYmVyIDIw
+MjIsIDIxOjU3OjAwIENFVCBzY2hyaWViIEFyZCBCaWVzaGV1dmVsOgo+ID4gT24gVGh1LCAxIERl
+YyAyMDIyIGF0IDIwOjM1LCBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3
+cm90ZToKPiA+ID4KPiA+ID4gT24gV2VkLCBOb3YgMzAsIDIwMjIgYXQgMTE6NTY6MTJQTSArMDEw
+MCwgSGVpa28gU3R1ZWJuZXIgd3JvdGU6Cj4gPiA+ID4gRnJvbTogSGVpa28gU3R1ZWJuZXIgPGhl
+aWtvLnN0dWVibmVyQHZydWxsLmV1Pgo+ID4gPiA+Cj4gPiA+ID4gV2UgbWF5IHdhbnQgdG8gcnVu
+dGltZS1vcHRpbWl6ZSBzb21lIGNvcmUgZnVuY3Rpb25zIChzdHIqLCBtZW0qKSwKPiA+ID4gPiBi
+dXQgbm90IGhhdmUgdGhpcyBsZWFrIGludG8gbGlic3R1YiBhbmQgY2F1c2UgYnVpbGQgaXNzdWVz
+Lgo+ID4gPiA+IEluc3RlYWQgbGlic3R1YiwgZm9yIHRoZSBzaG9ydCB3aGlsZSBpdCdzIHJ1bm5p
+bmcsIHNob3VsZCBqdXN0IHVzZQo+ID4gPiA+IHRoZSBnZW5lcmljIGltcGxlbWVudGF0aW9uLgo+
+ID4gPiA+Cj4gPiA+ID4gU28sIHRvIGJlIGFibGUgdG8gZGV0ZXJtaW5lIHdoZXRoZXIgZnVuY3Rp
+b25zLCB0aGF0IGFyZSB1c2VkIGJvdGggaW4KPiA+ID4gPiBsaWJzdHViIGFuZCB0aGUgbWFpbiBr
+ZXJuZWwsIGFyZSBnZXR0aW5nIGNvbXBpbGVkIGFzIHBhcnQgb2YgbGlic3R1YiBvcgo+ID4gPiA+
+IG5vdCwgYWRkIGEgY29tcGlsZS1mbGFnIHdlIGNhbiBjaGVjayB2aWEgI2lmZGVmLgo+ID4gPiA+
+Cj4gPiA+ID4gUmV2aWV3ZWQtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hp
+cC5jb20+Cj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvLnN0dWVi
+bmVyQHZydWxsLmV1Pgo+ID4KPiA+IEkgdGhpbmsgaXQgd291bGQgYmUgYmV0dGVyIHRvIHVwZGF0
+ZSBhcmNoL3Jpc2N2L2tlcm5lbC9pbWFnZS12YXJzLmggc28KPiA+IHRoYXQgb25seSB0aGVzZSBn
+ZW5lcmljIGltcGxlbWVudGF0aW9ucyBhcmUgZXhwb3NlZCB0byB0aGUgc3R1YiBpbiB0aGUKPiA+
+IGZpcnN0IHBsYWNlLgo+CgpBY3R1YWxseSwgYWxsIHJlZmVyZW5jZXMgdG8gc3RyaW5nIGFuZCBt
+ZW1vcnkgZnVuY3Rpb25zIGFyZSBnb2luZyBhd2F5CmZyb20gdGhlIHN0dWIuIFRoaXMgaXMgYWxy
+ZWFkeSBpbiAtbmV4dC4KCkVGSSBub3cgaGFzIHpib290IHN1cHBvcnQsIHdoaWNoIG1lYW5zIHlv
+dSBjYW4gY3JlYXRlIGEgRUZJIGJvb3RhYmxlCmtlcm5lbCBpbWFnZSB0aGF0IGNhcnJpZXMgdGhl
+IGFjdHVhbCBrZXJuZWwgaW4gY29tcHJlc3NlZCBmb3JtIHJhdGhlcgp0aGFuIGFzIGEgaHlicmlk
+IEVGSS9iYXJlIG1ldGFsIGltYWdlLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
