@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB64C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 02:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B57C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 02:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aohTTRuIO0fuVVw8wmdRs9YbkYTry7iqTuY0uexBnOc=; b=vIXq/NKhp7oEpt
-	o9Djpk4wsd8BWHyT1wz7cv3Zz0esf19Y8Ke+WXPNxnaxwD+WuI1Gd2Qkhy5IwTlf+HENp9ZckvaJe
-	KCyEE2nSoiE8b3QJl9WxnmkkUHFJGO3aUc/C6/ZlL7H8fuwimK/KwEmWLWnJFUq8mKai2k5cSVa+C
-	vl6LRKknGE6sXfDjPwTpR/WIAIau0oOr3W1vn5h4dITGxwWM9AL1PXqTvN9uQukspaxyGmEWhEgvZ
-	e5b+ZXbKfmMG7p1/jyVu1V2LL+ESocdBuuKMDNGUrc/9aMiIWZuufb5Kfug2siieTxvnwYCFFaEZR
-	nCDeCYpvTWMs2nkWfAvw==;
+	List-Owner; bh=elmY/s4t54BgRjH6xYlHLazQ7brIpui8u9VFtfH5PTY=; b=PTcvGahDLv4mEb
+	zOyyTDEhGTTbhGOvt+KhtCs3XhDOqDkh7liWD0+ip8RCcmhcEbXoIKpSQCEL3vJ9hxqPW37AvfOSV
+	uhi4QTKb0kSLvZeJfjYtitZmGnuMjOF1NluiNAwmSZafl72f66Mb0EZojyv66hZtcmwyGnitr6xUM
+	mPG9lFdIN+bhUA863/8xBGwRX1tegqoroJSJI0JSLRr6eMYZEI3cZzQ1NqrgwofMhrEn2LbSOu5dl
+	P9AzASGA/qBBoGSZtPUMICR0q9KbBv37H35lNvE8Tn92m5iynWTWZ40276QGfPXjTuoxlvyYYPLSs
+	MjGgEyH/ZdACXtPPoNfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0vUD-00CV17-05; Fri, 02 Dec 2022 02:09:09 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1p0vZC-00CWk6-PY; Fri, 02 Dec 2022 02:14:18 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0vU9-00CUzi-TD
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 02:09:07 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1669946944;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=chh0G08/xLk5pzy1L0Ry5SpkFEB3qVhaXDAsS5cW5fs=;
-	b=L0E7sVyXw6Jblb0n5un5BreQdt4t9bg+f6AbFVIwch5tO/p7/v/6ezmKLmT+d0U7IIXZX/
-	YlAgyNIpBX7wL5RuPYhq3r17HBE4V/2WMiOEm2ux+QUFGqsXHevHU5fO1iB5N5ieUJhAkE
-	ZQd3hk+wmotVsMxBsqpZwocbPbR90jaz3dVjR24pYwOGG3+Cr3Zkd3xkmGmbUaQXbapxhW
-	bRyPfurZkZ/mjwGxDXVkq6cBDF5NAfSE4BaiZ3ypdhh/LVXAwzifTXapMBxyAgds6DxpdI
-	HiMvuPGCu7yKRJ5X1CgoACn7mnXUtGkBhX6/lMqoHTffsC6OqFPWtGJVQtfF1g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1669946944;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=chh0G08/xLk5pzy1L0Ry5SpkFEB3qVhaXDAsS5cW5fs=;
-	b=Lwd+x2kzC4/ZmsV/t8MGhzJYxEo68p+5PgJlbQB65r9+GRtwHW0l3RjbRPJiu+Bo6gYCi8
-	cEfMNp0XEBWYvtCw==
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Marc Zyngier <maz@kernel.org>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>, Alistair
- Francis <Alistair.Francis@wdc.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v14 3/8] genirq: Add mechanism to multiplex a single HW IPI
-In-Reply-To: <CAK9=C2WN57hHUz=3SDruyWPdAobn+QP8uGwugjPAobeFG7dBkw@mail.gmail.com>
-References: <20221201130135.1115380-1-apatel@ventanamicro.com>
- <20221201130135.1115380-4-apatel@ventanamicro.com> <87v8mvqbvq.ffs@tglx>
- <CAK9=C2WN57hHUz=3SDruyWPdAobn+QP8uGwugjPAobeFG7dBkw@mail.gmail.com>
-Date: Fri, 02 Dec 2022 03:09:03 +0100
-Message-ID: <87h6yer1z4.ffs@tglx>
+	id 1p0vZA-00CWj9-9t
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 02:14:17 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 136so3258524pga.1
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 18:14:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NNVoFsm0p2fmF+8XIvCyUUB0uikNlFRO7bl1K7LYxsY=;
+        b=EjXyetsIzJRIHvrJOub61wyRzOouXl+GPsP+Cnagu+T+FFqE0vn5Zx7VFx2oAiFYdH
+         mCjw+v23+XVU+vi4oBlsfH34JCdgq3nevhoaSs9hllsACh1GlDyvDhROawwyQ3sDSFZe
+         b9xyfXKoQ3+0q6eRqENvAncZaAlBuHJGqwf39Z9qR0bsVT5Y4vdwayOaNmEqQ18gGau0
+         kCk+wBr0aB+4cKu2RdNRbZAKLezJZ5EFiXZ7O/eoxsXCGB1f5+nUEAEMiIMbZ//4zTfd
+         J2Cq8YQS0i6AKYDAJkaM4PvGnKuhDza2gcrFsp+4NJIrso0Ec3DUw/bhzJs7Pf7RuyVb
+         Ftcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NNVoFsm0p2fmF+8XIvCyUUB0uikNlFRO7bl1K7LYxsY=;
+        b=ipH07RTS/CQJhqp0/VJpy8+nj+5R66Bi30BM9w8f734xIPtby4yXGxfWg6TEPW6OUD
+         obNkOTipy5StrxRfTc/na8w0HMdNsoEcDN2lihfr5V3e/hzVEIpCql6QAn2fyJkh/KFa
+         5/u5ITkUCH/U/5N0Hc4mdIfjjTpiiJCETF97fRbmaD1KAzFQnxTxZ2dwsEZVo+3a3wt1
+         iHRd3wWcPqA/0eWe1Zu5xDb0oBL7CFmPwQ25mvoWC6nMjiTHanvfH2gmxuvRBtQclyhm
+         s7AL0FzBncX4u0M3cgcuqZUGn/QYOgPLfaPLkIFeQ8f6gBmDm48WKRf8/glvo5XeBb6x
+         IGmg==
+X-Gm-Message-State: ANoB5pkIbAgmYZ77FW4/ysNrtCd3ctF8w6DBOyhlzuOIRTU4WIT1khz8
+	t5rsspU3uquGIiwEBGq/ZTk=
+X-Google-Smtp-Source: AA0mqf6gz6A13yBGX1W5VBbvMdl3XinEw0aSx1UfmvWSa8VCPJeNADCW+6HFko9k7cS44X/8S1hbTA==
+X-Received: by 2002:a05:6a02:108:b0:46b:3acb:77ab with SMTP id bg8-20020a056a02010800b0046b3acb77abmr42945327pgb.359.1669947254276;
+        Thu, 01 Dec 2022 18:14:14 -0800 (PST)
+Received: from [192.168.43.80] (subs03-180-214-233-26.three.co.id. [180.214.233.26])
+        by smtp.gmail.com with ESMTPSA id e9-20020aa79809000000b0057507bbd704sm3911674pfl.5.2022.12.01.18.14.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 Dec 2022 18:14:13 -0800 (PST)
+Message-ID: <66b3fd78-31bc-c435-ccc8-c8682b3cacee@gmail.com>
+Date: Fri, 2 Dec 2022 09:14:08 +0700
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v1 3/3] Documentation: riscv: add a section about ISA
+ string ordering in /proc/cpuinfo
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, ajones@ventanamicro.com,
+ aou@eecs.berkeley.edu, corbet@lwn.net, guoren@kernel.org, heiko@sntech.de,
+ paul.walmsley@sifive.com, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20221130234125.2722364-1-conor@kernel.org>
+ <20221130234125.2722364-4-conor@kernel.org> <Y4gZ/KZz9rdYj/0r@debian.me>
+ <Y4hjIWHTuYcf90ja@wendy>
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+In-Reply-To: <Y4hjIWHTuYcf90ja@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_180906_108129_19D7649E 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20221201_181416_376083_45A68402 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,37 +98,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Anup!
-
-On Thu, Dec 01 2022 at 23:30, Anup Patel wrote:
-> On Thu, Dec 1, 2022 at 10:50 PM Thomas Gleixner <tglx@linutronix.de> wrote:
->> > irqchip driver and it is shared by various RISC-V irqchip drivers.
+On 12/1/22 15:17, Conor Dooley wrote:
+> On Thu, Dec 01, 2022 at 10:05:32AM +0700, Bagas Sanjaya wrote:
+>> On Wed, Nov 30, 2022 at 11:41:26PM +0000, Conor Dooley wrote:
+>>> +#. Single-letter extensions come first, in "canonical order", so
+>>> +   "IMAFDQLCBKJTPVH".
 >>
->> Sure, but now we have two copies of this. One in the Apple AIC and one
->> here. The obvious thing to do is:
+>> "..., that is ... ."
+> 
+> Hmm, that reads strangely to me. s/that/which/.
+> 
+
+OK.
+
 >>
->>    1) Provide generic infrastructure
+>>> +#. The first letter following the 'Z' conventionally indicates the most
+>>> +   closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+>>> +   If multiple 'Z' extensions are named, they should be ordered first by
+>>> +   category, then alphabetically within a category.
+>>> +
 >>
->>    2) Convert AIC to use it
->
-> Mark Z already has a converted version of AIC driver.
-> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log/?h=irq/ipi-mux
+>> Did you mean "most closely related alphabetical extension category in
+>> canonical order"?
+> 
+> I am not 100% sure what you are suggesting a replacement of here. I
+> think I may reword this as:
+>   For additional standard extensions, the first letter following the 'Z'
+>   conventionally indicates the most closely related alphabetical
+>   extension category. If multiple 'Z' extensions are named, they will
+>   be ordered first by category, in canonical order as listed above, then
+>   alphabetically within a category.
+> 
 
-You are submitting generic infrastructure which is supposed to go
-through the relevant maintainer tree and not be funneled through some
-riscv branch.
+That LGTM.
 
-So obviously this very maintainer asks the predictable question and also
-wants to see the Acked/Tested-by of the folks who maintain apple-AIC.
+>>> +An example string following the order is:
+>>> +   rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
+>>> +
+>>  
+>> IMO literal code block should be better fit for the example above,
+>> rather than definition list:
+> 
+> Uh, sure? I'm not sure what impact that has on the output, but I can
+> switch to a pre-formatted block.
+> 
 
-How is that supposed to work without integrating this patch into your
-series and without having the apple-AIC folks on cc?
+Something like ``foo``?
 
-You did not start kernel development as of yesterday, right?
+Thanks.
 
-Thanks,
+-- 
+An old man doll... just what I always wanted! - Clara
 
-        tglx
 
 _______________________________________________
 linux-riscv mailing list
