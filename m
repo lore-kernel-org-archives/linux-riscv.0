@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817F2C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 15:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B942C47088
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 15:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IOzjYhiOZ1GzoAH29HYmaZlZ0rchiSXvVaCF86bcNSg=; b=iywTW6hjf3RAwb
-	Il6wytgl8VUbPS09I75cXGaGRO6ZDvqIQD+iXOyKETWdbJ8vpQgLAcepsJRCDEJVjSt24UJ6ByX0G
-	3YFxsCA/bfc+oOFMfPWd05fg5AKw8HyUO1rr45DDkABngek9G3T133FG6CO61T6Nt61TUan4GjSgT
-	3IDxpWgqhvlFF/4UNEWLvSTE4U/66v89aPxul9OBoloTsDsRB2PbN6WZgqV49uhdMVT/Ag8VpaGjR
-	zD31XyJnwEiZsp6P4sOofMUK1kEVRy5p/JxSaWMyg2wtg1kOPdqkP47934vzcBs8O4b1ujt2ciKga
-	ylVnD2Esr6kiZafakwqA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tJnEMqaUV2zAQoE3UgqP4uBlykfoxoT2X+1SQlxWXQ0=; b=oH5GgWQIPfaG0c
+	aC9t7RhCHC4QU6EeAh7UazTEJDKl9B10MF+7nFdt4zq0XwZDkuUwhPn+MD2WgYamxBM66k8uAMMxw
+	GPnDbph81+/3Z4sIIJurJ2mR0rHDJXovoq12mjuMMD0XYHm9tOFKoiDZ2LTjjwjYjjWGWO+Z4vLCl
+	CJQ2IumlGr0ITa1JU7Fu1xtWASvF4AR2A60Z5nQUsS4Trk1HJ7Gpkx2RTdxXpRibMGdBtkHZrzfRt
+	NqEUchRlXB5URCCTs/4TCszgKUrMkPl93pgzQrefdhvefgwMeo/as3DwiQC4CWd+OcrqkW30Nigr6
+	N9BX5PQ+kKbbwiXA8qpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p17eD-00H01D-9a; Fri, 02 Dec 2022 15:08:17 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1p18RW-00HEwa-6M; Fri, 02 Dec 2022 15:59:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p17e8-00GzyJ-Ig
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 15:08:15 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-12c8312131fso5870202fac.4
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 07:08:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=m3lcRifTXi35bJpfB4wV3rU8ZAWGWLYgqHVfTxaBJHw=;
-        b=Pd7MqMIXBxNZJZ7pwKJQkbAtEc0CPOS8fUO+OmyPVRs7JcrwYlgT/3i4eWMe6X92Ac
-         w7bUnG/kbuwB8qNnb/15aY8ntyCSfzPFa5LxP9NQ8sP3Ij1D/vSaAmCb/6r4Nr4S+kXk
-         qJWVMzuGi9vwIudp39yghufTYdk6QO0K+mjCYtOvepHb6cZ+y9fEpIZ9doI3HrukjpM5
-         /8YsypJL4ujyie1/IGJ68199HhmfemgWi74G99ZDM4NxMBkzBQS9+eRa0IT4+jhmJQ6d
-         Ged5uqWRNuq0hr9cElzpY68H2FeLBiJM41StYVKUkvR6O5PkyWLmFQ6vHzF+GNHFkXuS
-         BFDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:sender
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=m3lcRifTXi35bJpfB4wV3rU8ZAWGWLYgqHVfTxaBJHw=;
-        b=RVvtuI/eXUHXahgKGYT0Pwn7FUJBi9w6QOoih1kJKFYAsFuErGN/up2V4tQXpdsHRX
-         qXYAz5AVLqg4i9vvho0Ed1CFF7EvbypNRQt+Gq7/1Z492mPsOARSABQIi7mooj0qPREa
-         Rq0FagUzeQ0LNmLMHM6MUxtnjfdy/oh8bDCKYzPbrXdyaZFjWjw6imsP4yvzMk4xVl7Y
-         gEMKSd+tcE8Z2rCCC+cHJSUpZMzEsdERnT5ngd/+90BxwdtL/kgxd7d31vf9xO81R/z2
-         ZkkXxAgH9MtUzz3FewFURvcU7823KLuX9o1R+/0SZew6TXIyF+YCQvnhPvmOUHwpVebT
-         Kyng==
-X-Gm-Message-State: ANoB5plHJYy8ny9ZUOhJ2hA6rUzx65Vxa/+HCCzDQYpXE2PjMHslKy0Y
-	QMDZo5b3GDpYKwLxlQT8PBg=
-X-Google-Smtp-Source: AA0mqf4QXpNkdmOywEtZVN8AXe2uQrMb76WRibuh/tkeX8ln+VKla+PijojiDGVRpSOIJQ4p+iJd/g==
-X-Received: by 2002:a05:6871:4703:b0:142:81e3:e9b5 with SMTP id py3-20020a056871470300b0014281e3e9b5mr32654918oab.26.1669993690145;
-        Fri, 02 Dec 2022 07:08:10 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id w64-20020aca6243000000b0035ba52d0efasm3138086oib.52.2022.12.02.07.08.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Dec 2022 07:08:09 -0800 (PST)
-Message-ID: <89587e87-c4f2-da05-ccbd-336bbe93d44c@roeck-us.net>
-Date: Fri, 2 Dec 2022 07:08:07 -0800
+	id 1p18RF-00HEiA-MY
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 15:59:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1669996733;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=B+hXh5P61A2DdBxK6OLw+4jPvT0r9cthvTrIhcW2QOA=;
+	b=V5EvK5la88P0Vw5L9npruJd3zjFlCQYiESb38SrZ/Fl4Eq+ORERbxxQ0Z7JFFZapejU49M
+	Wtbr2THtrH8iXGA9BmLddTIDGM0M3Ak28xYAY2t+3SV8X85Mudy9hxt8H9XB0wOb96TkBm
+	sDO61h1w2euzOQV70lpGLMyL11mfDmU=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-411-aad4T597M-uqDalSOOGakQ-1; Fri, 02 Dec 2022 10:58:50 -0500
+X-MC-Unique: aad4T597M-uqDalSOOGakQ-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com [10.11.54.4])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 471C8800B23;
+	Fri,  2 Dec 2022 15:58:48 +0000 (UTC)
+Received: from vschneid.remote.csb (unknown [10.33.36.77])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 437932028CE4;
+	Fri,  2 Dec 2022 15:58:42 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-xtensa@linux-xtensa.org,
+	x86@kernel.org
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Guo Ren <guoren@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: [PATCH v3 0/8] Generic IPI sending tracepoint
+Date: Fri,  2 Dec 2022 15:58:09 +0000
+Message-Id: <20221202155817.2102944-1-vschneid@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.4.2
-Content-Language: en-US
-To: "xingu.wu" <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org,
- Wim Van Sebroeck <wim@linux-watchdog.org>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
-References: <20221202093943.149674-1-xingyu.wu@starfivetech.com>
- <20221202093943.149674-3-xingyu.wu@starfivetech.com>
-From: Guenter Roeck <linux@roeck-us.net>
-Subject: Re: [PATCH v1 2/3] drivers: watchdog: Add StarFive Watchdog driver
-In-Reply-To: <20221202093943.149674-3-xingyu.wu@starfivetech.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_070812_713084_D693FBC7 
-X-CRM114-Status: GOOD (  35.68  )
+X-CRM114-CacheID: sfid-20221202_075857_820846_265FDADD 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,999 +104,184 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/2/22 01:39, xingu.wu wrote:
-> From: Xingyu Wu <xingyu.wu@starfivetech.com>
-> 
-> Add watchdog driver for the StarFive JH7110 SoC.
-> 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->   MAINTAINERS                     |   7 +
->   drivers/watchdog/Kconfig        |  11 +
->   drivers/watchdog/Makefile       |   3 +
->   drivers/watchdog/starfive-wdt.c | 854 ++++++++++++++++++++++++++++++++
->   4 files changed, 875 insertions(+)
->   create mode 100644 drivers/watchdog/starfive-wdt.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a70c1d0f303e..133214dd2f60 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -19623,6 +19623,13 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
->   F:	drivers/reset/starfive/
->   F:	include/dt-bindings/reset/starfive*
->   
-> +STARFIVE WATCHDOG DRIVER
-> +M:	Xingyu Wu <xingyu.wu@starfivetech.com>
-> +M:	Samin Guo <samin.guo@starfivetech.com>
-> +S:	Supported
-> +F:	Documentation/devicetree/bindings/watchdog/starfive*
-> +F:	drivers/watchdog/starfive-wdt.c
-> +
->   STATIC BRANCH/CALL
->   M:	Peter Zijlstra <peterz@infradead.org>
->   M:	Josh Poimboeuf <jpoimboe@kernel.org>
-> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
-> index b64bc49c7f30..658fc9fef4fa 100644
-> --- a/drivers/watchdog/Kconfig
-> +++ b/drivers/watchdog/Kconfig
-> @@ -2082,6 +2082,17 @@ config UML_WATCHDOG
->   	tristate "UML watchdog"
->   	depends on UML || COMPILE_TEST
->   
-> +# RISCV Architecture
-> +
-> +config STARFIVE_WATCHDOG
-> +	tristate "StarFive Watchdog support"
-> +	depends on RISCV
-> +	select WATCHDOG_CORE
-> +	default SOC_STARFIVE
-> +	help
-> +	  Say Y here to support the StarFive watchdog. This driver can also
-> +	  be built as a module if choose M.
-> +
->   #
->   # ISA-based Watchdog Cards
->   #
-> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
-> index d41e5f830ae7..9c22f1a43d5c 100644
-> --- a/drivers/watchdog/Makefile
-> +++ b/drivers/watchdog/Makefile
-> @@ -210,6 +210,9 @@ obj-$(CONFIG_WATCHDOG_SUN4V)		+= sun4v_wdt.o
->   # Xen
->   obj-$(CONFIG_XEN_WDT) += xen_wdt.o
->   
-> +# RISCV Architecture
-> +obj-$(CONFIG_STARFIVE_WATCHDOG) += starfive-wdt.o
-> +
->   # Architecture Independent
->   obj-$(CONFIG_BD957XMUF_WATCHDOG) += bd9576_wdt.o
->   obj-$(CONFIG_DA9052_WATCHDOG) += da9052_wdt.o
-> diff --git a/drivers/watchdog/starfive-wdt.c b/drivers/watchdog/starfive-wdt.c
-> new file mode 100644
-> index 000000000000..dcb6e693ba6c
-> --- /dev/null
-> +++ b/drivers/watchdog/starfive-wdt.c
-> @@ -0,0 +1,854 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Starfive Watchdog driver
-> + *
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/moduleparam.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/reset.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/slab.h>
-> +#include <linux/timer.h>
-> +#include <linux/types.h>
-> +#include <linux/uaccess.h>
-> +#include <linux/watchdog.h>
-> +
-> +/* JH7110 WatchDog register define */
-> +#define STARFIVE_WDT_JH7110_LOAD	0x000	/* RW: Watchdog load register */
-> +#define STARFIVE_WDT_JH7110_VALUE	0x004	/* RO: The current value for the watchdog counter */
-> +#define STARFIVE_WDT_JH7110_CONTROL	0x008	/*
-> +						 * RW: [0]: reset enable;
-> +						 * [1]: int enable/wdt enable/reload counter;
-> +						 * [31:2]: res.
-> +						 */
-> +#define STARFIVE_WDT_JH7110_INTCLR	0x00c	/* WO: clear intterupt && reload the counter */
-> +#define STARFIVE_WDT_JH7110_RIS		0x010	/* RO: Raw interrupt status from the counter */
-> +#define STARFIVE_WDT_JH7110_IMS		0x014	/* RO: Enabled interrupt status from the counter */
-> +#define STARFIVE_WDT_JH7110_LOCK	0xc00	/*
-> +						 * RO: Enable write access to all other registers
-> +						 * by writing 0x1ACCE551.
-> +						 */
-> +#define STARFIVE_WDT_JH7110_ITCR	0xf00	/*
-> +						 * RW: When set HIGH,
-> +						 * places the Watchdog into integraeion test mode.\\intetration
+Background
+==========
 
-> +						 */
-> +#define STARFIVE_WDT_JH7110_ITOP	0xf04	/*
-> +						 * WO: [0] WDOGRES value Integration Test Mode.
-> +						 * Value output on WDOGRES when in
-> +						 * Integration Test Mode.
-> +						 * [1] Integration Test WDOGINT value.
-> +						 * Value output on WDOGINT when in
-> +						 * Integration Test Mode.
-> +						 */
-> +
-> +#define STARFIVE_WDT_JH7110_UNLOCK_KEY		0x1acce551
-> +#define STARFIVE_WDT_JH7110_RESEN_SHIFT		1
-> +#define STARFIVE_WDT_JH7110_EN_SHIFT		0
-> +#define STARFIVE_WDT_JH7110_INT_EN_SHIFT	STARFIVE_WDT_JH7110_EN_SHIFT
-> +
-> +/* WDOGCONTROL */
-> +#define STARFIVE_WDT_INT_EN	0x0
-> +#define STARFIVE_WDT_INT_DIS	BIT(0)
-> +#define STARFIVE_WDT_RESET_EN	0x1
-> +
-> +/* WDOGLOCK */
-> +#define STARFIVE_WDT_LOCKED	BIT(0)
-> +
-> +#define STARFIVE_WDT_INTCLR	0x1
-> +#define STARFIVE_WDT_ENABLE	0x1
-> +#define STARFIVE_WDT_ATBOOT	0x0
-> +#define STARFIVE_WDT_MAXCNT	0xffffffff
-> +
-> +#define STARFIVE_WDT_DEFAULT_TIME	(15)
-> +#define STARFIVE_WDT_DELAY_US		0
-> +#define STARFIVE_WDT_TIMEOUT_US		10000
-> +
-> +static bool nowayout = WATCHDOG_NOWAYOUT;
-> +static int tmr_margin;
-> +static int tmr_atboot = STARFIVE_WDT_ATBOOT;
-> +static int soft_noboot;
-> +
-> +module_param(tmr_margin, int, 0);
-> +module_param(tmr_atboot, int, 0);
-> +module_param(nowayout, bool, 0);
-> +module_param(soft_noboot, int, 0);
-> +
-> +MODULE_PARM_DESC(tmr_margin, "Watchdog tmr_margin in seconds. (default="
-> +		 __MODULE_STRING(STARFIVE_WDT_DEFAULT_TIME) ")");
-> +MODULE_PARM_DESC(tmr_atboot,
-> +		 "Watchdog is started at boot time if set to 1, default="
-> +		 __MODULE_STRING(STARFIVE_WDT_ATBOOT));
-> +MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
-> +		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
-> +MODULE_PARM_DESC(soft_noboot,
-> +		 "Watchdog action, set to 1 to ignore reboots, 0 to reboot (default 0)");
-> +
-> +struct starfive_wdt_variant_t {
-> +	u32 unlock_key;
-> +	u8 enrst_shift;
-> +	u8 en_shift;
-> +	u8 intclr_check;
-> +	u8 intclr_ava_shift;
-> +};
-> +
-> +struct starfive_wdt_variant {
-> +	u32 control;
-> +	u32 load;
-> +	u32 enable;
-> +	u32 reload;
-> +	u32 value;
-> +	u32 int_clr;
-> +	u32 int_mask;
-> +	u32 unlock;
-> +	u32 enter_irq_status;
-> +	struct starfive_wdt_variant_t *variant;
-> +};
-> +
-> +struct starfive_wdt {
-> +	u64 freq;
+Detecting IPI *reception* is relatively easy, e.g. using
+trace_irq_handler_{entry,exit} or even just function-trace
+flush_smp_call_function_queue() for SMP calls.  
 
-clk_get_rate() returns unsigned long. Why would u64 be needed here ?
+Figuring out their *origin*, is trickier as there is no generic tracepoint tied
+to e.g. smp_call_function():
 
-> +	struct device *dev;
-> +	struct watchdog_device wdt_device;
-> +	struct clk *core_clk;
-> +	struct clk *apb_clk;
-> +	struct reset_control *rsts;
-> +	const struct starfive_wdt_variant *drv_data;
-> +	u32 count;	/*count of timeout*/
-> +	u32 reload;	/*restore the count*/
-> +	void __iomem *base;
-> +	spinlock_t lock;	/* spinlock for register handling */
-> +
-> +	int irq;
-> +};
-> +
-> +#ifdef CONFIG_OF
-> +static struct starfive_wdt_variant_t jh7110_variant = {
-> +	.unlock_key = STARFIVE_WDT_JH7110_UNLOCK_KEY,
-> +	.enrst_shift = STARFIVE_WDT_JH7110_RESEN_SHIFT,
-> +	.en_shift = STARFIVE_WDT_JH7110_EN_SHIFT,
-> +};
-> +
-> +static const struct starfive_wdt_variant drv_data_jh7110 = {
-> +	.control = STARFIVE_WDT_JH7110_CONTROL,
-> +	.load = STARFIVE_WDT_JH7110_LOAD,
-> +	.enable = STARFIVE_WDT_JH7110_CONTROL,
-> +	.value = STARFIVE_WDT_JH7110_VALUE,
-> +	.int_clr = STARFIVE_WDT_JH7110_INTCLR,
-> +	.unlock = STARFIVE_WDT_JH7110_LOCK,
-> +	.enter_irq_status = STARFIVE_WDT_JH7110_IMS,
-> +	.variant = &jh7110_variant,
-> +};
-> +
+o AFAIA x86 has no tracepoint tied to sending IPIs, only receiving them
+  (cf. trace_call_function{_single}_entry()).
+o arm/arm64 do have trace_ipi_raise(), which gives us the target cpus but also a
+  mostly useless string (smp_calls will all be "Function call interrupts").
+o Other architectures don't seem to have any IPI-sending related tracepoint.  
 
-If there is no specific reason for all that complexity, drop it and introduce
-it if/when necessary.
+I believe one reason those tracepoints used by arm/arm64 ended up as they were
+is because these archs used to handle IPIs differently from regular interrupts
+(the IRQ driver would directly invoke an IPI-handling routine), which meant they 
+never showed up in trace_irq_handler_{entry, exit}. The trace_ipi_{entry,exit}
+tracepoints gave a way to trace IPI reception but those have become redundant as
+of: 
 
-> +static const struct of_device_id starfive_wdt_match[] = {
-> +	{ .compatible = "starfive,jh7110-wdt", .data = &drv_data_jh7110 },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, starfive_wdt_match);
-> +#endif
-> +
-> +static const struct platform_device_id starfive_wdt_ids[] = {
-> +	{
-> +		.name = "starfive-wdt",
-> +		.driver_data = (unsigned long)&drv_data_jh7110,
-> +	},
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(platform, starfive_wdt_ids);
-> +
-> +static int starfive_wdt_get_clock_rate(struct starfive_wdt *wdt)
-> +{
-> +	int ret;
-> +	u32 freq;
-> +
-> +	if (!IS_ERR(wdt->core_clk)) {
-> +		wdt->freq = clk_get_rate(wdt->core_clk);
-> +		return 0;
-> +	}
-> +	dev_dbg(wdt->dev, "get rate failed, need clock-frequency define in dts.\n");
-> +
-> +	/* Next we try to get clock-frequency from dts.*/
-> +	ret = of_property_read_u32(wdt->dev->of_node, "clock-frequency", &freq);
-> +	if (!ret) {
-> +		wdt->freq = (u64)freq;
+      56afcd3dbd19 ("ARM: Allow IPIs to be handled as normal interrupts")
+      d3afc7f12987 ("arm64: Allow IPIs to be handled as normal interrupts")
 
-Unnecessary typecast.
+which gave IPIs a "proper" handler function used through
+generic_handle_domain_irq(), which makes them show up via
+trace_irq_handler_{entry, exit}.
 
-> +		return 0;
-> +	}
-> +	dev_err(wdt->dev, "get clock-frequency failed\n");
-> +
-> +	return -ENOENT;
-> +}
+Changing stuff up
+=================
 
-I have never seen this kind of code before. Why would it be needed ?
+Per the above, it would make sense to reshuffle trace_ipi_raise() and move it
+into generic code. This also came up during Daniel's talk on Osnoise at the CPU
+isolation MC of LPC 2022 [1]. 
 
-> +
-> +static int starfive_wdt_enable_clock(struct starfive_wdt *wdt)
-> +{
-> +	int ret = 0;
-> +
-> +	wdt->apb_clk = devm_clk_get(wdt->dev, "apb_clk");
-> +	if (!IS_ERR(wdt->apb_clk)) {
-> +		ret = clk_prepare_enable(wdt->apb_clk);
-> +		if (ret) {
-> +			dev_err(wdt->dev, "failed to enable apb_clk.\n");
-> +			goto err;
-> +		}
-> +	} else {
-> +		dev_err(wdt->dev, "failed to get apb_clk.\n");
-> +		ret = PTR_ERR(wdt->apb_clk);
-> +		goto err;
-> +	}
+Now, to be useful, such a tracepoint needs to export:
+o targeted CPU(s)
+o calling context
 
-Why not use devm_clk_get_enabled() ?
+The only way to get the calling context with trace_ipi_raise() is to trigger a
+stack dump, e.g. $(trace-cmd -e ipi* -T echo 42).
 
-> +
-> +	wdt->core_clk = devm_clk_get(wdt->dev, "core_clk");
-> +	if (!IS_ERR(wdt->core_clk)) {
-> +		ret = clk_prepare_enable(wdt->core_clk);
-> +		if (ret) {
-> +			dev_err(wdt->dev, "failed to enable core_clk.\n");
-> +			goto err;
-> +		}
-> +	} else {
-> +		dev_err(wdt->dev, "failed to get core_clk.\n");
-> +		ret = PTR_ERR(wdt->core_clk);
-> +		goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	return ret;
+This is instead introducing a new tracepoint which exports the relevant context
+(callsite, and requested callback for when the callsite isn't helpful), and is
+usable by all architectures as it sits in generic code. 
 
-Unnecessary. Return directly.
+Another thing worth mentioning is that depending on the callsite, the _RET_IP_
+fed to the tracepoint is not always useful - generic_exec_single() doesn't tell
+you much about the actual callback being sent via IPI, which is why the new
+tracepoint also has a @callback argument.
 
-> +}
-> +
-> +static int starfive_wdt_reset_init(struct starfive_wdt *wdt)
-> +{
-> +	int ret = 0;
-> +
-> +	wdt->rsts = devm_reset_control_array_get_exclusive(wdt->dev);
-> +	if (!IS_ERR(wdt->rsts)) {
-> +		ret = reset_control_deassert(wdt->rsts);
-> +		if (ret) {
-> +			dev_err(wdt->dev, "failed to deassert rsts.\n");
-> +			goto err;
-> +		}
-> +	} else {
-> +		dev_err(wdt->dev, "failed to get rsts error.\n");
+Patches
+=======
 
-failed ... error is redundant. Drop "errror".
+o Patch 1 is included for convenience and will be merged independently. FYI I
+  have libtraceevent patches [2] to improve the 
+  pretty-printing of cpumasks using the new type, which look like:
+  <...>-3322  [021]   560.402583: ipi_send_cpumask:     cpumask=14,17,21 callsite=on_each_cpu_cond_mask+0x40 callback=flush_tlb_func+0x0
+  <...>-187   [010]   562.590584: ipi_send_cpumask:     cpumask=0-23 callsite=on_each_cpu_cond_mask+0x40 callback=do_sync_core+0x0
 
-> +		ret = PTR_ERR(wdt->rsts);
-> +		goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	return ret;
+o Patches 2-6 spread out the tracepoint across relevant sites.
+  Patch 6 ends up sprinkling lots of #include <trace/events/ipi.h> which I'm not
+  the biggest fan of, but is the least horrible solution I've been able to come
+  up with so far.
+  
+o Patch 8 is trying to be smart about tracing the callback associated with the
+  IPI.
 
-Unnecessary. Return directly.
+This results in having IPI trace events for:
 
-> +}
-> +
-> +static u32 starfive_wdt_ticks_to_sec(struct starfive_wdt *wdt, u32 ticks)
-> +{
-> +	return DIV_ROUND_CLOSEST(ticks, wdt->freq);
-> +}
-> +
-> +/*
-> + * Write unlock-key to unlock. Write other value to lock. When lock bit is 1,
-> + * external accesses to other watchdog registers are ignored.
-> + */
-> +static int starfive_wdt_is_locked(struct starfive_wdt *wdt)
+o smp_call_function*()
+o smp_send_reschedule()
+o irq_work_queue*()
+o standalone uses of __smp_call_single_queue()
 
-bool ?
+This is incomplete, just looking at arm64 there's more IPI types that aren't
+covered: 
 
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->unlock);
-> +	return !!(val & STARFIVE_WDT_LOCKED);
-> +}
-> +
-> +static void starfive_wdt_unlock(struct starfive_wdt *wdt)
-> +{
-> +	if (starfive_wdt_is_locked(wdt))
-> +		writel(wdt->drv_data->variant->unlock_key,
-> +		       wdt->base + wdt->drv_data->unlock);
-> +}
-> +
-> +static void starfive_wdt_lock(struct starfive_wdt *wdt)
-> +{
-> +	if (!starfive_wdt_is_locked(wdt))
-> +		writel(~wdt->drv_data->variant->unlock_key,
-> +		       wdt->base + wdt->drv_data->unlock);
-> +}
-> +
-> +/* enable watchdog interrupt */
-> +static inline void starfive_wdt_int_enable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	if (wdt->drv_data->int_mask) {
-> +		val = readl(wdt->base + wdt->drv_data->int_mask);
-> +		val &= ~STARFIVE_WDT_INT_DIS;
-> +		writel(val, wdt->base + wdt->drv_data->int_mask);
-> +	}
-> +}
-> +
-> +/* disable watchdog interrupt */
-> +static inline void starfive_wdt_int_disable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	if (wdt->drv_data->int_mask) {
-> +		val = readl(wdt->base + wdt->drv_data->int_mask);
-> +		val |= STARFIVE_WDT_INT_DIS;
-> +		writel(val, wdt->base + wdt->drv_data->int_mask);
-> +	}
-> +}
-> +
-> +/* enable watchdog interrupt to reset */
-> +static void starfive_wdt_enable_reset(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->control);
-> +	val |= STARFIVE_WDT_RESET_EN << wdt->drv_data->variant->enrst_shift;
-> +	writel(val, wdt->base + wdt->drv_data->control);
-> +}
-> +
-> +/* disable watchdog interrupt to reset */
-> +static void starfive_wdt_disable_reset(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->control);
-> +	val &= ~(STARFIVE_WDT_RESET_EN << wdt->drv_data->variant->enrst_shift);
-> +	writel(val, wdt->base + wdt->drv_data->control);
-> +}
-> +
-> +/* interrupt status whether has been raised from the counter */
-> +static bool starfive_wdt_raise_irq_status(struct starfive_wdt *wdt)
-> +{
-> +	return !!readl(wdt->base + wdt->drv_data->enter_irq_status);
-> +}
-> +
-> +static void starfive_wdt_int_clr(struct starfive_wdt *wdt)
-> +{
-> +	void __iomem *addr;
-> +	u8 clr_check;
-> +	u8 clr_ava_shift;
-> +	u32 value;
-> +	int ret = 0;
-> +
-> +	addr = wdt->base + wdt->drv_data->int_clr;
-> +	clr_ava_shift = wdt->drv_data->variant->intclr_ava_shift;
-> +	clr_check = wdt->drv_data->variant->intclr_check;
-> +	if (clr_check) {
-> +		/* waiting interrupt can be to clearing */
-> +		value = readl(addr);
-> +		ret = readl_poll_timeout_atomic(addr, value,
-> +						!(value & BIT(clr_ava_shift)),
-> +						STARFIVE_WDT_DELAY_US, STARFIVE_WDT_TIMEOUT_US);
-> +	}
-> +
-> +	if (!ret)
-> +		writel(STARFIVE_WDT_INTCLR, addr);
-> +
-> +	if (starfive_wdt_raise_irq_status(wdt))
-> +		enable_irq(wdt->irq);
-> +}
-> +
-> +static inline void starfive_wdt_set_count(struct starfive_wdt *wdt, u32 val)
-> +{
-> +	writel(val, wdt->base + wdt->drv_data->load);
-> +}
-> +
-> +static inline u32 starfive_wdt_get_count(struct starfive_wdt *wdt)
-> +{
-> +	return readl(wdt->base + wdt->drv_data->value);
-> +}
-> +
-> +static inline void starfive_wdt_enable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->enable);
-> +	val |= STARFIVE_WDT_ENABLE << wdt->drv_data->variant->en_shift;
-> +	writel(val, wdt->base + wdt->drv_data->enable);
-> +}
-> +
-> +static inline void starfive_wdt_disable(struct starfive_wdt *wdt)
-> +{
-> +	u32 val;
-> +
-> +	val = readl(wdt->base + wdt->drv_data->enable);
-> +	val &= ~(STARFIVE_WDT_ENABLE << wdt->drv_data->variant->en_shift);
-> +	writel(val, wdt->base + wdt->drv_data->enable);
-> +}
-> +
-> +static inline void starfive_wdt_set_relod_count(struct starfive_wdt *wdt, u32 count)
-> +{
-> +	writel(count, wdt->base + wdt->drv_data->load);
-> +	if (wdt->drv_data->reload)
-> +		writel(0x1, wdt->base + wdt->drv_data->reload);
-> +	else
-> +		/* jh7110 need enable controller to reload counter */
-> +		starfive_wdt_enable(wdt);
-> +}
-> +
-> +static void starfive_wdt_mask_and_disable_reset(struct starfive_wdt *wdt, bool mask)
-> +{
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	if (mask)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +}
-> +
-> +static unsigned int starfive_wdt_max_timeout(struct starfive_wdt *wdt)
-> +{
-> +	return DIV_ROUND_UP(STARFIVE_WDT_MAXCNT, wdt->freq) - 1;
-> +}
-> +
-> +static unsigned int starfive_wdt_get_timeleft(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +	u32 count;
-> +	u32 irq_status;
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	/*
-> +	 * Because set half count value,
-> +	 * timeleft value should add the count value before first timeout.
-> +	 */
-> +	irq_status = starfive_wdt_raise_irq_status(wdt) ? 1 : 0;
-> +	count = starfive_wdt_get_count(wdt) + (1 - irq_status) * wdt->count;
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return starfive_wdt_ticks_to_sec(wdt, count);
-> +}
-> +
-> +static int starfive_wdt_keepalive(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_set_relod_count(wdt, wdt->count);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static irqreturn_t starfive_wdt_interrupt_handler(int irq, void *data)
-> +{
-> +	/*
-> +	 * We don't clear the IRQ status. It's supposed to be done by the
-> +	 * following ping operations.
-> +	 */
-> +	struct platform_device *pdev = data;
-> +	struct starfive_wdt *wdt = platform_get_drvdata(pdev);
-> +
-> +	/* Disable the IRQ and avoid re-entry interrupt. */
-> +	disable_irq_nosync(wdt->irq);
-> +
-> +	return IRQ_HANDLED;
-> +}
+  IPI_CPU_STOP,
+  IPI_CPU_CRASH_STOP,
+  IPI_TIMER,
+  IPI_WAKEUP,
 
-What is the purpose of this interrupt ? It doesn't add any value
-as implemented.
+... But it feels like a good starting point.
 
-> +
-> +static int starfive_wdt_stop(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_int_disable(wdt);
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_pm_stop(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	starfive_wdt_stop(wdd);
-> +	pm_runtime_put(wdt->dev);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_start(struct watchdog_device *wdd)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	pm_runtime_get_sync(wdt->dev);
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	if (soft_noboot)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_set_count(wdt, wdt->count);
-> +	starfive_wdt_int_enable(wdt);
-> +	starfive_wdt_enable(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_restart(struct watchdog_device *wdd, unsigned long action,
-> +				void *data)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	spin_lock(&wdt->lock);
-> +	starfive_wdt_unlock(wdt);
-> +	/* disable watchdog, to be safe */
-> +	starfive_wdt_disable(wdt);
-> +
-> +	if (soft_noboot)
-> +		starfive_wdt_disable_reset(wdt);
-> +	else
-> +		starfive_wdt_enable_reset(wdt);
-> +
-> +	/* put initial values into count and data */
-> +	starfive_wdt_set_count(wdt, wdt->count);
+Links
+=====
 
-This is supposed to reset the system. Why write wdt->count
-instead of 0 or 1 ?
+[1]: https://youtu.be/5gT57y4OzBM?t=14234
+[2]: https://lore.kernel.org/all/20221116144154.3662923-1-vschneid@redhat.com/
 
-> +
-> +	/* set the watchdog to go and reset... */
-> +	starfive_wdt_int_clr(wdt);
-> +	starfive_wdt_int_enable(wdt);
-> +	starfive_wdt_enable(wdt);
-> +
-> +	starfive_wdt_lock(wdt);
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_set_timeout(struct watchdog_device *wdd,
-> +				    unsigned int timeout)
-> +{
-> +	struct starfive_wdt *wdt = watchdog_get_drvdata(wdd);
-> +
-> +	unsigned long freq = wdt->freq;
-> +	unsigned int count;
-> +
-> +	spin_lock(&wdt->lock);
-> +
-> +	if (timeout < 1)
-> +		return -EINVAL;
+Revisions
+=========
 
-Can not happen if configured properly, ie if min_timeout is set *which it is).
+v2 -> v3
+++++++++
 
-> +
-> +	/*
-> +	 * This watchdog takes twice timeouts to reset.
-> +	 * In order to reduce time to reset, should set half count value.
-> +	 */
-> +	count = timeout * freq / 2;
-> +
-> +	if (count > STARFIVE_WDT_MAXCNT) {
-> +		dev_warn(wdt->dev, "timeout %d too big,use the MAX-timeout set.\n",
-> +			 timeout);
-> +		timeout = starfive_wdt_max_timeout(wdt);
-> +		count = timeout * freq;
-> +	}
-> +
-> +	dev_info(wdt->dev, "Heartbeat: timeout=%d, count/2=%d (%08x)\n",
-> +		 timeout, count, count);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +	starfive_wdt_disable(wdt);
-> +	starfive_wdt_set_relod_count(wdt, count);
-> +	starfive_wdt_enable(wdt);
-> +	starfive_wdt_lock(wdt);
-> +
-> +	wdt->count = count;
-> +	wdd->timeout = timeout;
-> +
-> +	spin_unlock(&wdt->lock);
-> +
-> +	return 0;
-> +}
-> +
-> +#define OPTIONS (WDIOF_SETTIMEOUT | WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE)
-> +
-> +static const struct watchdog_info starfive_wdt_ident = {
-> +	.options = OPTIONS,
-> +	.firmware_version = 0,
-> +	.identity = "StarFive Watchdog",
-> +};
-> +
-> +static const struct watchdog_ops starfive_wdt_ops = {
-> +	.owner = THIS_MODULE,
-> +	.start = starfive_wdt_start,
-> +	.stop = starfive_wdt_pm_stop,
-> +	.ping = starfive_wdt_keepalive,
-> +	.set_timeout = starfive_wdt_set_timeout,
-> +	.restart = starfive_wdt_restart,
-> +	.get_timeleft = starfive_wdt_get_timeleft,
-> +};
-> +
-> +static const struct watchdog_device starfive_wdd = {
-> +	.info = &starfive_wdt_ident,
-> +	.ops = &starfive_wdt_ops,
-> +	.timeout = STARFIVE_WDT_DEFAULT_TIME,
-> +};
-> +
-> +static inline const struct starfive_wdt_variant *
-> +starfive_wdt_get_drv_data(struct platform_device *pdev)
-> +{
-> +	const struct starfive_wdt_variant *variant;
-> +
-> +	variant = of_device_get_match_data(&pdev->dev);
-> +	if (!variant) {
-> +		/* Device matched by platform_device_id */
-> +		variant = (struct starfive_wdt_variant *)
-> +			   platform_get_device_id(pdev)->driver_data;
-> +	}
-> +
-> +	return variant;
-> +}
-> +
-> +static int starfive_wdt_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct starfive_wdt *wdt;
-> +	int started = 0;
-> +	int ret;
-> +
-> +	pm_runtime_enable(dev);
-> +
-> +	wdt = devm_kzalloc(dev, sizeof(*wdt), GFP_KERNEL);
-> +	if (!wdt)
-> +		return -ENOMEM;
-> +
-> +	wdt->dev = dev;
-> +	spin_lock_init(&wdt->lock);
-> +	wdt->wdt_device = starfive_wdd;
-> +
-> +	wdt->drv_data = starfive_wdt_get_drv_data(pdev);
-> +
-> +	wdt->irq = platform_get_irq(pdev, 0);
-> +	if (wdt->irq < 0) {
-> +		dev_err(dev, "can not find irq.\n");
-> +		return wdt->irq;
-> +	}
-> +
-> +	/* get the memory region for the watchdog timer */
-> +	wdt->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(wdt->base)) {
-> +		ret = PTR_ERR(wdt->base);
-> +		goto err;
-> +	}
-> +
-> +	ret = starfive_wdt_enable_clock(wdt);
-> +	if (ret)
-> +		goto err;
-> +
-> +	starfive_wdt_get_clock_rate(wdt);
-> +
+o Dropped the generic export of smp_send_reschedule(), turned it into a macro
+  and a bunch of imports
+o Dropped the send_call_function_single_ipi() macro madness, split it into sched
+  and smp bits using some of Peter's suggestions
 
-This can fail, leaving the clock rate uninitialized.
+v1 -> v2
+++++++++
 
-> +	ret = starfive_wdt_reset_init(wdt);
-> +	if (ret)
-> +		goto err;
-> +
-> +	wdt->wdt_device.min_timeout = 1;
-> +	wdt->wdt_device.max_timeout = starfive_wdt_max_timeout(wdt);
-> +
-> +	watchdog_set_drvdata(&wdt->wdt_device, wdt);
-> +
-> +	/*
-> +	 * see if we can actually set the requested timer margin,
-> +	 * and if not, try the default value.
-> +	 */
-> +	watchdog_init_timeout(&wdt->wdt_device, tmr_margin, dev);
-> +
-> +	ret = starfive_wdt_set_timeout(&wdt->wdt_device,
-> +				       wdt->wdt_device.timeout);
-> +	if (ret) {
-> +		dev_err(dev, "tmr_margin value out of range, default %d used\n",
-> +			STARFIVE_WDT_DEFAULT_TIME);
-> +		starfive_wdt_set_timeout(&wdt->wdt_device,
-> +					 STARFIVE_WDT_DEFAULT_TIME);
-> +	}
-> +
-> +	ret = devm_request_irq(dev, wdt->irq, starfive_wdt_interrupt_handler, 0,
-> +			       pdev->name, pdev);
-> +	if (ret != 0) {
-> +		dev_err(dev, "failed to install irq (%d)\n", ret);
-> +		goto err;
-> +	}
-> +
+o Ditched single-CPU tracepoint
+o Changed tracepoint signature to include callback
+o Changed tracepoint callsite field to void *; the parameter is still UL to save
+  up on casts due to using _RET_IP_.
+o Fixed linking failures due to not exporting smp_send_reschedule()
 
-That interrupt seems pointless.
+Steven Rostedt (Google) (1):
+  tracing: Add __cpumask to denote a trace event field that is a
+    cpumask_t
 
-> +	watchdog_set_nowayout(&wdt->wdt_device, nowayout);
-> +	watchdog_set_restart_priority(&wdt->wdt_device, 128);
-> +
-> +	wdt->wdt_device.parent = dev;
-> +
-> +	ret = watchdog_register_device(&wdt->wdt_device);
-> +	if (ret)
-> +		goto err;
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, false);
-> +
-> +	if (tmr_atboot && started == 0) {
-> +		starfive_wdt_start(&wdt->wdt_device);
-> +	} else if (!tmr_atboot) {
-> +		/*
-> +		 *if we're not enabling the watchdog, then ensure it is
-> +		 * disabled if it has been left running from the bootloader
-> +		 * or other source.
-> +		 */
-> +		starfive_wdt_stop(&wdt->wdt_device);
-> +	}
+Valentin Schneider (7):
+  trace: Add trace_ipi_send_cpumask()
+  sched, smp: Trace IPIs sent via send_call_function_single_ipi()
+  smp: Trace IPIs sent via arch_send_call_function_ipi_mask()
+  irq_work: Trace self-IPIs sent via arch_irq_work_raise()
+  treewide: Trace IPIs sent via smp_send_reschedule()
+  smp: reword smp call IPI comment
+  sched, smp: Trace smp callback causing an IPI
 
-This should be done before registering the watdhdog, and the watchdog core
-should be informed if the watchdog is running.
+ arch/alpha/kernel/smp.c                      |  2 +-
+ arch/arc/kernel/smp.c                        |  2 +-
+ arch/arm/kernel/smp.c                        |  5 +-
+ arch/arm/mach-actions/platsmp.c              |  2 +
+ arch/arm64/kernel/smp.c                      |  3 +-
+ arch/csky/kernel/smp.c                       |  2 +-
+ arch/hexagon/kernel/smp.c                    |  2 +-
+ arch/ia64/kernel/smp.c                       |  4 +-
+ arch/loongarch/include/asm/smp.h             |  2 +-
+ arch/mips/include/asm/smp.h                  |  2 +-
+ arch/mips/kernel/rtlx-cmp.c                  |  2 +
+ arch/openrisc/kernel/smp.c                   |  2 +-
+ arch/parisc/kernel/smp.c                     |  4 +-
+ arch/powerpc/kernel/smp.c                    |  6 +-
+ arch/powerpc/kvm/book3s_hv.c                 |  3 +
+ arch/powerpc/platforms/powernv/subcore.c     |  2 +
+ arch/riscv/kernel/smp.c                      |  4 +-
+ arch/s390/kernel/smp.c                       |  2 +-
+ arch/sh/kernel/smp.c                         |  2 +-
+ arch/sparc/kernel/smp_32.c                   |  2 +-
+ arch/sparc/kernel/smp_64.c                   |  2 +-
+ arch/x86/include/asm/smp.h                   |  2 +-
+ arch/x86/kvm/svm/svm.c                       |  4 +
+ arch/x86/kvm/x86.c                           |  2 +
+ arch/xtensa/kernel/smp.c                     |  2 +-
+ include/linux/smp.h                          |  8 +-
+ include/trace/bpf_probe.h                    |  6 ++
+ include/trace/events/ipi.h                   | 22 ++++++
+ include/trace/perf.h                         |  6 ++
+ include/trace/stages/stage1_struct_define.h  |  6 ++
+ include/trace/stages/stage2_data_offsets.h   |  6 ++
+ include/trace/stages/stage3_trace_output.h   |  6 ++
+ include/trace/stages/stage4_event_fields.h   |  6 ++
+ include/trace/stages/stage5_get_offsets.h    |  6 ++
+ include/trace/stages/stage6_event_callback.h | 20 +++++
+ include/trace/stages/stage7_class_define.h   |  2 +
+ kernel/irq_work.c                            | 14 +++-
+ kernel/sched/core.c                          | 19 +++--
+ kernel/sched/smp.h                           |  2 +-
+ kernel/smp.c                                 | 78 ++++++++++++++++----
+ samples/trace_events/trace-events-sample.c   |  2 +-
+ samples/trace_events/trace-events-sample.h   | 34 +++++++--
+ virt/kvm/kvm_main.c                          |  1 +
+ 43 files changed, 250 insertions(+), 61 deletions(-)
 
-> +
-> +#ifdef CONFIG_PM
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +#endif
-> +
-> +	platform_set_drvdata(pdev, wdt);
-> +
-> +	return 0;
-> +
-> +err:
-> +	return ret;
-
-This is never acceptable. Return directly.
-
-> +}
-> +
-> +static int starfive_wdt_remove(struct platform_device *dev)
-> +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
-> +	watchdog_unregister_device(&wdt->wdt_device);
-> +
-> +	clk_disable_unprepare(wdt->core_clk);
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +	pm_runtime_disable(wdt->dev);
-
-This is potentially unbalanced. I would suggest to use
-watchdog_stop_on_unregister().
-
-> +
-> +	return 0;
-> +}
-> +
-> +static void starfive_wdt_shutdown(struct platform_device *dev)
-> +{
-> +	struct starfive_wdt *wdt = platform_get_drvdata(dev);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
-> +
-> +	starfive_wdt_pm_stop(&wdt->wdt_device);
-
-Use watchdog_stop_on_reboot().
-
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP
-> +static int starfive_wdt_suspend(struct device *dev)
-> +{
-> +	int ret;
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	/* Save watchdog state, and turn it off. */
-> +	wdt->reload = starfive_wdt_get_count(wdt);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, true);
-> +
-> +	/* Note that WTCNT doesn't need to be saved. */
-> +	starfive_wdt_stop(&wdt->wdt_device);
-> +	pm_runtime_force_suspend(dev);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_resume(struct device *dev)
-> +{
-> +	int ret;
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	starfive_wdt_unlock(wdt);
-> +
-> +	pm_runtime_force_resume(dev);
-> +
-> +	/* Restore watchdog state. */
-> +	starfive_wdt_set_relod_count(wdt, wdt->reload);
-> +
-> +	starfive_wdt_restart(&wdt->wdt_device, 0, NULL);
-> +
-> +	starfive_wdt_mask_and_disable_reset(wdt, false);
-> +
-> +	starfive_wdt_lock(wdt);
-> +
-> +	return 0;
-> +}
-> +#endif /* CONFIG_PM_SLEEP */
-> +
-> +#ifdef CONFIG_PM
-> +static int starfive_wdt_runtime_suspend(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(wdt->apb_clk);
-> +	clk_disable_unprepare(wdt->core_clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int starfive_wdt_runtime_resume(struct device *dev)
-> +{
-> +	struct starfive_wdt *wdt = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(wdt->apb_clk);
-> +	if (ret) {
-> +		dev_err(wdt->dev, "failed to enable apb_clk.\n");
-> +		goto err;
-> +	}
-> +
-> +	ret = clk_prepare_enable(wdt->core_clk);
-> +	if (ret) {
-> +		dev_err(wdt->dev, "failed to enable core_clk.\n");
-> +		goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	return ret;
-> +}
-> +#endif /* CONFIG_PM */
-> +
-> +static const struct dev_pm_ops starfive_wdt_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(starfive_wdt_runtime_suspend, starfive_wdt_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(starfive_wdt_suspend, starfive_wdt_resume)
-> +};
-> +
-> +static struct platform_driver starfive_wdt_driver = {
-> +	.probe		= starfive_wdt_probe,
-> +	.remove		= starfive_wdt_remove,
-> +	.shutdown	= starfive_wdt_shutdown,
-> +	.id_table	= starfive_wdt_ids,
-> +	.driver		= {
-> +		.name	= "starfive-wdt",
-> +		.pm	= &starfive_wdt_pm_ops,
-> +		.of_match_table = of_match_ptr(starfive_wdt_match),
-> +	},
-> +};
-> +
-> +module_platform_driver(starfive_wdt_driver);
-> +
-> +MODULE_AUTHOR("Xingyu Wu <xingyu.wu@starfivetech.com>");
-> +MODULE_AUTHOR("Samin Guo <samin.guo@starfivetech.com>");
-> +MODULE_DESCRIPTION("StarFive Watchdog Device Driver");
-> +MODULE_LICENSE("GPL v2");
+--
+2.31.1
 
 
 _______________________________________________
