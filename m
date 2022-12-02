@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E474FC47088
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 18:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01634C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 19:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KtZG0psTMXk/9FxNK9MUpVygX6/7h15Gb8VpSLR181E=; b=AdsV9nC0/PD6p+
-	PDRi1YFbGSGsU9SP1RJSvGiSVq0w0PFINFrZJ2KrLQMNVhHpB8mA2n9iiuo7L3F5TgDNe3FMcdrfU
-	nO0mnqxGhjwJI5gSOpjpvNWGBhdkosYx7Jy5bEKLm2izyApprJiDKMs1vsyawILfisiP/ePvbHbcY
-	9IlNEZAhwkIOsae1Ka7NW4Rve7F0gM6FUBgQsnk87rONHUWfq8roerhx+vxIvIfV4l4LCErbY4vbc
-	DsVL6wR1jzWSbxdiwwH00t8mXSjpbi5P6kd5T9vms78904lM0q930y7eSGZsRxIQqOE5Tn18CF/tb
-	WqMHXw+/AFt4kaGCCf9w==;
+	List-Owner; bh=5e3VEel8haDLtqjDJCmHirFh/525UDuJqIHRi84rsbU=; b=WLrT8hjmZoiu7p
+	FddFix0TRlzlYCz3HYJqHsd8V8uUtxo+VzUljrtIeLamiBO56YRtMT81dc+MiMQC+lkAuhHLuyqmL
+	ynmZNE8c9NyqKmVTlItGm1TFXKTY/rJ62uJdzb2ZRwdzpF/j+k7Ws5YrTT7U8Sa3FzDuv0ddn7hEk
+	7cr68fuATX8YEV6tY9q5km4IsuruTo2ORQ8PcaG5q8qOg8kMe9QfTrRCqbEJdRWxZlWuW6S3pEU6G
+	HJjw4X9lKUo/YnyT353uAxofyuqAcgPx0MCb27fViP+lKyQvx+aC8heK3/5VrNQg9n17cA+XYGkA2
+	AaGzH5ljGdRLhISBX1mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1B8a-000lcA-NY; Fri, 02 Dec 2022 18:51:52 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1p1BGs-000qCi-LX; Fri, 02 Dec 2022 19:00:26 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1B8X-000lah-Ds
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 18:51:50 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id k2-20020a17090a4c8200b002187cce2f92so9123956pjh.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 10:51:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8NkylfJHLCaUWC39XJgY9uFoItTR1wh957VtzWUPeic=;
-        b=M/k18vAPdtcWltp9pDSiYbad8lgtQr1R0YKRX2jnH3cxPxm6ocwcuKfwdg5XVcELJv
-         JlLfNvS/nvrOspX8TJQRaRngl/Wwm/s3Nwx5ejOXOPah+lsH7W4OsTAN7bfGo4uGJy8V
-         7yZBDfOkyYp5+nl4M3Ag2mqSi0qPm3n9AfDQfvquiX9DkVIJijd8gExWROMYbOdRW+b9
-         BmHchqiTvRyQ/9AqSPcijGDWJgKXhi0/dpw53/HTqQwObaijYy49kgHQ9FyRgpX+hCK0
-         X13GyrUK0IVNmd/UUK+3P4N42QM9ouB6HNo2nkKwmcd5JvhV1C+Xp67C9qiFLv+XIoyr
-         MWMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8NkylfJHLCaUWC39XJgY9uFoItTR1wh957VtzWUPeic=;
-        b=Wffzw2G4GRJvXg3UOLAg8J2U49gmPgAujoaePix/BzStvw+It6rIay981wZEXDlvsC
-         nXGnQ4tNDsUY1icWDi5VSoq3HEw6g97trxzCQrT9FbK8nRFuxqq/qctTfR9XwarJpxvU
-         RDkMc8oQEBmFtCpu+p2uKFxNWcFUPEGN/ofa/qHyn6W4DPokWwGmkP+S8JRFcUiKGGVh
-         F70irCrngLSDjhdq2xsSJ2NQftJPo5C8kj5V9z6ujTkm3Eix15BHdnF2DgKouAYYMdho
-         xRmoKYtCkW3cMOiJ2YSYu0y8UG+XLwSWeE/A4qu0q0CJ6FULqgvKwrNM212NpClRaNDB
-         walQ==
-X-Gm-Message-State: ANoB5pnxIlAvSGsodxmz7gcoUTs6oytl+DXfoz2CcrlVumV7TMHIW+t8
-	E07jgfDMSSEllI7ggs1G9VKxpQ==
-X-Google-Smtp-Source: AA0mqf6JP8q5rl1k1s+siCcxvzud6ws7QpC/qtRAoo3H6tpms2/dGJP2mzE2MwC1SLB59/zBx+IvDw==
-X-Received: by 2002:a17:902:7793:b0:189:24b3:c86 with SMTP id o19-20020a170902779300b0018924b30c86mr54056810pll.84.1670007107784;
-        Fri, 02 Dec 2022 10:51:47 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id a14-20020a170902ecce00b00186b1bfbe79sm5937381plh.66.2022.12.02.10.51.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 10:51:47 -0800 (PST)
-In-Reply-To: <20221118011714.70877-9-hal.feng@starfivetech.com>
-References: <20221118011714.70877-1-hal.feng@starfivetech.com> <20221118011714.70877-9-hal.feng@starfivetech.com>
-Subject: Re: [PATCH v2 8/8] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
-Message-Id: <167000658679.29055.15185601584520551755.b4-ty@rivosinc.com>
-Date: Fri, 02 Dec 2022 10:43:06 -0800
+	id 1p1BGm-000q9r-G6
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 19:00:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id CADB1B82237;
+	Fri,  2 Dec 2022 19:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 67320C433B5;
+	Fri,  2 Dec 2022 19:00:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670007617;
+	bh=If0m8v1brmMDcVp3BHUNVEs197Sy9gAdV8ES1Njbxbs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=rJh7egSiMtfUfFIs91xYk+l3hKxnd1GXELQk1R9dC1GQQphG4vVtfKCcCUQr2+kN1
+	 dMgZ5UmA+bZ/XyK+5Q51yIuBxfG72EcOkwyRR8aY3611VZQW9T8PAvrTGsZcDr/+Um
+	 E/Wc025NTyytX6J++VFok3M54wX7UE9+WYrU6K5TEPPtqWuSASJFhRvGvdYf3fEOoT
+	 uDWwI4SBJxOUK0tiAmJzi0MIT0egfjjAAknm84lswIhVoVJSD8/1fllCa6SXvMBp9Y
+	 NocHDIKg4f1kFtMU7wz9IlasEga19MqPrQK3C+dU6oYsXVbsaYegNZuoAlyMMSz4KR
+	 tSTGVE4GGTH4g==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 480C2E21EEF;
+	Fri,  2 Dec 2022 19:00:17 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-  linux-kernel@vger.kernel.org, Ben Dooks <ben.dooks@sifive.com>, Michael Turquette <mturquette@baylibre.com>,
-  Rob Herring <robh+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor@kernel.org>,
-  Thomas Gleixner <tglx@linutronix.de>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Zabel <p.zabel@pengutronix.de>,
-  Paul Walmsley <paul.walmsley@sifive.com>, Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-  Emil Renner Berthing <emil.renner.berthing@canonical.com>, Marc Zyngier <maz@kernel.org>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v2 0/8] Basic device tree support for StarFive JH7110 RISC-V
+ SoC
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167000761729.13669.16471163583440376052.git-patchwork-notify@kernel.org>
+Date: Fri, 02 Dec 2022 19:00:17 +0000
+References: <20221118011714.70877-1-hal.feng@starfivetech.com>
+In-Reply-To: <20221118011714.70877-1-hal.feng@starfivetech.com>
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ conor@kernel.org, palmer@dabbelt.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu, ben.dooks@sifive.com, tglx@linutronix.de,
+ maz@kernel.org, sboyd@kernel.org, mturquette@baylibre.com,
+ p.zabel@pengutronix.de, linus.walleij@linaro.org,
+ emil.renner.berthing@canonical.com, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_105149_481259_AB86BA41 
-X-CRM114-Status: UNSURE (   6.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221202_110020_757964_7CCAB569 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,20 +80,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Nov 2022 09:17:14 +0800, Hal Feng wrote:
-> Add CONFIG_SERIAL_8250_DW=y, which is a necessary option for
-> StarFive JH7110 and JH7100 SoCs to boot with serial ports.
+Hello:
+
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Fri, 18 Nov 2022 09:17:06 +0800 you wrote:
+> The original patch series "Basic StarFive JH7110 RISC-V SoC support" [1]
+> is split into 3 patch series. They respectively add basic clock&reset,
+> pinctrl and device tree support for StarFive JH7110 SoC. These patch
+> series are independent, but the Visionfive2 board can boot up successfully
+> only if all these patches series applied. This one adds basic device
+> tree support. This patch series is pulled out from the patch 1~6 and
+> patch 27~30 of v1 [1]. You can simply get or review the patches at the
+> link [2].
 > 
-> 
+> [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [v2,1/8] dt-bindings: riscv: Add StarFive JH7110 SoC and VisionFive2 board
+    (no matching commit)
+  - [v2,2/8] dt-bindings: timer: Add StarFive JH7110 clint
+    (no matching commit)
+  - [v2,3/8] dt-bindings: interrupt-controller: Add StarFive JH7110 plic
+    (no matching commit)
+  - [v2,4/8] dt-bindings: sifive,ccache0: Support StarFive JH7110 SoC
+    (no matching commit)
+  - [v2,5/8] soc: sifive: ccache: Add StarFive JH7110 support
+    (no matching commit)
+  - [v2,6/8] riscv: dts: starfive: Add initial StarFive JH7110 device tree
+    (no matching commit)
+  - [v2,7/8] riscv: dts: starfive: Add StarFive JH7110 VisionFive2 board device tree
+    (no matching commit)
+  - [v2,8/8] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
+    https://git.kernel.org/riscv/c/6925ba3d9b8c
 
-[8/8] RISC-V: defconfig: Enable CONFIG_SERIAL_8250_DW
-      https://git.kernel.org/palmer/c/6925ba3d9b8c
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
