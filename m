@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E338C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 17:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA2FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 17:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=JSJictKQnyAcAVxic0dDMrb6xfIbavO+7zJs0qh4Uzo=; b=cRjfBhpXv9KKkaHZSdrMh4AAUp
-	iSqR6m0QgpNTfFMpdzTWH1bUlxWpIxaWjHEbncfVtvgi0B+0FsUOW4mw29sHUE0Yuhxnby21O3cKs
-	hqxkqdjt0G122l2YAodkIjaQvMFx/uuJoJTAMushrNSChLYqDd6jvW+NT7J6JlAABZ77FVPLvKpvW
-	2RTln+80E8818vcGeMOpSg5UhGep0pyB03lcHfHQEEwzAS18Ji2K2QGJKj7pK7f8tnlsyPMucYGn+
-	NcGb5zTFogrsnsI5p4xafw+uIlLbmZTXDd4Gt/joI7VNfp3X7T0T/HAY1Y2O+7fuz8Q2Li/UddNvQ
-	3jLdMSow==;
+	bh=YOxVYMXkJmO7TrwLYzCgzbGQeBavMdZfb/GrcjKAlqk=; b=DMnaTZsapbKMfmuJbRwV2yb4Ei
+	kquFolVHS4KczKMsPRSNg4YnjdDnhVlNAuiKdz5UqvC97jtOMO0ncfK1EFKjd6gmo1cmPF2YGDKYM
+	0L5s9/nEEgISszYMkAwG1SB7kcUEK2LjdcP2SjVOpQFf/A+c7ssqgxBHo1TpyQt2BI3lJeQjhoth7
+	GXQRwSzfXo92/+Pj0OZ69Nw2I6Z/89BHtY+USUUEVfRwUAqS3m+Uh4EVT6PoZaLnk25pkrGCrMmo1
+	MA8PzqAh7WvdSCR9WRXW5f7QRfeacznXdB6NQLE6L3n/tRcbUdF8+rel6KbL9J7TRFi6xlxX495oO
+	nIYq0+VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1AEO-000SGD-UC; Fri, 02 Dec 2022 17:53:48 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1p1AFS-000SWM-Q4; Fri, 02 Dec 2022 17:54:54 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1AEL-000SDl-U8
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 17:53:47 +0000
-Received: by mail-pl1-x630.google.com with SMTP id y17so5298047plp.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 09:53:40 -0800 (PST)
+	id 1p1AFP-000SUl-VC
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 17:54:53 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id o5-20020a17090a678500b00218cd5a21c9so5801165pjj.4
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 09:54:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9ZvJzDorQtOwNqLa1HHYVuO6backFKSVBd3ruJxRA2A=;
-        b=eQnZOvNRY11eiZD6GVvQZwn1takWYswEZO6mnHfFnI3IOwcIiD6Zx+pagggcuTggyE
-         KI2v9qhiuLOtxUaSbh05X+3u3ZJeuy2KPUw24QAEHeemgwvBVYSNg7VIrTgM/9CZF7Mh
-         qIGRAfb52QV9/EArXB3WfOf73n/Zj+mT+acVF8xXToHtE9sTGamB58BUDzFZvKKrcrQs
-         N82x9nRGEqlbGZDDayglBKpHk1Ju0LRifyISFL7XGTuJ4VTQZxgsAckVsHg9WKJDAtXL
-         l1P2Bi6HAp3c1vtRk7yGNxdUdXKhF7PSfRXpRsPFM+uN9qkQfh86kWUV6Q3Nt+kAw8ul
-         RFAw==
+        bh=p1XzRn925Fp44O0w9G4cuwC3UNLrpIUG0nEwGRZQ/YU=;
+        b=ERYRng/+2McDbTloeXnaVcbmZ19evhdUD98unc3RFkNiKkugoSGQlyyxPeMsjND8ub
+         HeSzwVpd082dYV2tWVPad7nLVJrWTpkJw+g+McKgDwhlq78ELe3ui38zomaQNEDcWKv4
+         qOTVAdq9+zlgKtcPcSMzJwLMLquS0wSSdMIgTjaI53pwm4n0LJ5zv4DhvQ8wYz0K0fDJ
+         FuHKr6n6Pq0WuqSfPFxMuJSkj+zYEYiGAQy1tQNsOcxvib/qcjMMNoUDFJ/oKSDIaWdQ
+         HMRfIzWSRnOLJvV1f4Iug0xOWkHS5yVc2HLbdvwHQVzsF2JYX8DGEgYZXWKQvj4zGhy/
+         xlfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9ZvJzDorQtOwNqLa1HHYVuO6backFKSVBd3ruJxRA2A=;
-        b=gWRG8It9UbmRMf/j65Yt/FbM833ysI/9ba2HNlMF+AtXW5m2vzid+ojNjqzJTWALod
-         N2N7IB9GyRQrKM95B158PGaHwsTNqDChVRsWtnfv66OOwsogsSBWJ2HoBQl8BsTngP2L
-         rz1f+1+za8t6j/ymBzXv42X/zp5+/kDEheN3hAlvPnSazcEIR97QJwJdTWJaQiLQrn15
-         RSKo2sXANNDn1vWJdFmtZQVNWGoi6hQaZjwaucf+DWzOp7G6pLXM/HggeIWaqb8tGzC8
-         eaUehaoSn7unIDMubG4RMS37/q7JizhnrQtzvIhkyOuZIyjjRorVDO5JVsEH5BHL89O1
-         zgMQ==
-X-Gm-Message-State: ANoB5pl5cN0vPBzGU24Hn7jf88mAvYPLI2lD10C7wRDdY2j0aQa7fwwD
-	UZ40VFkmJZOxPQhSTFSHbtx8bw==
-X-Google-Smtp-Source: AA0mqf5X/TeHx5A5xtNnIKw6jgBgvRIH82EYzaYQxx+YmUJkhxCg9UKytVs/q/xMiH6X+7zxecaK0w==
-X-Received: by 2002:a17:90a:ca85:b0:219:88aa:d3d1 with SMTP id y5-20020a17090aca8500b0021988aad3d1mr4968286pjt.135.1670003619663;
-        Fri, 02 Dec 2022 09:53:39 -0800 (PST)
+        bh=p1XzRn925Fp44O0w9G4cuwC3UNLrpIUG0nEwGRZQ/YU=;
+        b=u7EAOUiN3qP3Ucd1o9KGUeIxE2sZ11RtdgEjLcCG7S4Eh1KLppcWGgSIbmJIkLVxsx
+         3SffoyuospN0po877JKCYKgjV+64CNy2rF6xoCblb/e448PzhSQ9TXuy5PLK/49V3Jwi
+         bKxNIDkFVVBdeilyA1fnB4poiV3rj1H9W1NUtECPYeIj+g5Ifd/QSc+Q2dLZxBk1Nnth
+         XKQl1u8EPMNtrxlATv1cVeYRrXEOaFTKgcLvzKBET1Uxpw7v4w+T+8EMl1kuVbPLWlH5
+         wee0Wo5BKDC4HlPzsRqOVErSXzUDYtKciw2hJ3Auyr0o6b1/ZNu7cHG3NH6GsMXIZwQW
+         wV3A==
+X-Gm-Message-State: ANoB5pmIhT8hiD7pz0NV4s4u4AmVYMLauaGDgRrURUwl454MpyCa/TEP
+	KxG+lfec/a8Tw12tQfx7lyfe1Q==
+X-Google-Smtp-Source: AA0mqf76Z+L8vqIbTmVFjgnSj6R8n7eFo6mnFYtbdrFJbnUCXUjtrZiNr2NDlKMaN48VVG2YVV9Pyw==
+X-Received: by 2002:a17:90a:3d41:b0:213:d34:a80b with SMTP id o1-20020a17090a3d4100b002130d34a80bmr77669655pjf.74.1670003688186;
+        Fri, 02 Dec 2022 09:54:48 -0800 (PST)
 Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id w15-20020aa7954f000000b0056283e2bdbdsm5391440pfq.138.2022.12.02.09.53.39
+        by smtp.gmail.com with ESMTPSA id i8-20020a170902c94800b00172fad607b3sm5864137pla.207.2022.12.02.09.54.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 09:53:39 -0800 (PST)
-Date: Fri, 02 Dec 2022 09:53:39 -0800 (PST)
-X-Google-Original-Date: Fri, 02 Dec 2022 09:53:24 PST (-0800)
-Subject: Re: [PATCH 6/9] RISC-V: Export sbi_get_mvendorid() and friends
-In-Reply-To: <20221128161424.608889-7-apatel@ventanamicro.com>
-CC: pbonzini@redhat.com, atishp@atishpatra.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
-  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  apatel@ventanamicro.com
+        Fri, 02 Dec 2022 09:54:47 -0800 (PST)
+Date: Fri, 02 Dec 2022 09:54:47 -0800 (PST)
+X-Google-Original-Date: Fri, 02 Dec 2022 09:54:38 PST (-0800)
+Subject: Re: [PATCH v2 0/9] riscv: add Bouffalolab bl808 support
+In-Reply-To: <20221127132448.4034-1-jszhang@kernel.org>
+CC: robh+dt@kernel.org, Conor Dooley <conor@kernel.org>,
+  krzysztof.kozlowski+dt@linaro.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  Greg KH <gregkh@linuxfoundation.org>, jirislaby@kernel.org, ilpo.jarvinen@linux.intel.com,
+  linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+  linux-serial@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-365b9851-cb0a-4e2c-9cf4-4eca9623cf04@palmer-ri-x1c9a>
+To: jszhang@kernel.org
+Message-ID: <mhng-0a879461-fb57-4547-887f-35ac0dc0ea1a@palmer-ri-x1c9a>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_095345_976313_6EDF7553 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20221202_095452_024527_05E76562 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +92,62 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Nov 2022 08:14:21 PST (-0800), apatel@ventanamicro.com wrote:
-> The sbi_get_mvendorid(), sbi_get_marchid(), and sbi_get_mimpid()
-> can be used by KVM module so let us export these functions.
+On Sun, 27 Nov 2022 05:24:39 PST (-0800), jszhang@kernel.org wrote:
+> This series adds Bouffalolab uart driver and basic devicetrees for
+> Bouffalolab bl808 SoC and Sipeed M1s dock board.
 >
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/kernel/sbi.c | 3 +++
->  1 file changed, 3 insertions(+)
+> It's too late for v6.2-rc1, but I hope I can catch up the v6.3-rc1
+> window.
 >
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 775d3322b422..5c87db8fdff2 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -627,16 +627,19 @@ long sbi_get_mvendorid(void)
->  {
->  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
->  }
-> +EXPORT_SYMBOL_GPL(sbi_get_mvendorid);
+> I think I have addressed all review comments to v1, correct me if I
+> missed anything.
 >
->  long sbi_get_marchid(void)
->  {
->  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
->  }
-> +EXPORT_SYMBOL_GPL(sbi_get_marchid);
+> PS: this series assumes the "thead,c906" riscv cpu binding patch is
+> merged(I see Conor has picked up it).
 >
->  long sbi_get_mimpid(void)
->  {
->  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
->  }
-> +EXPORT_SYMBOL_GPL(sbi_get_mimpid);
+> Since v1:
+>   - use FIELD_PREP and FIELD_GET macro
+>   - rewrite bflb_uart_tx_chars()
+>   - add vendor prefix for bouffalolab
+>   - add dt binding for bl808 compatibles
+>   - enable SOC_BOUFFALOLAB in defconfig
+>   - collect Reviewed-by tag
+>   - modify commit-msg as suggested
 >
->  static void sbi_send_cpumask_ipi(const struct cpumask *target)
->  {
+> Jisheng Zhang (9):
+>   dt-bindings: serial: add documentation for Bouffalolab UART Driver
+>   serial: bflb_uart: add Bouffalolab UART Driver
+>   riscv: add the Bouffalolab SoC family Kconfig option
+>   dt-bindings: vendor-prefixes: add bouffalolab
+>   dt-bindings: riscv: Add bouffalolab bl808 board compatibles
+>   riscv: dts: bouffalolab: add the bl808 SoC base device tree
+>   riscv: dts: bouffalolab: add Sipeed M1s SoM and Dock devicetree
+>   MAINTAINERS: riscv: add entry for Bouffalolab SoC
+>   riscv: defconfig: enable BOUFFALOLAB SoC
+>
+>  .../bindings/riscv/bouffalolab.yaml           |  34 +
+>  .../bindings/serial/bouffalolab,uart.yaml     |  47 ++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  MAINTAINERS                                   |   9 +
+>  arch/riscv/Kconfig.socs                       |   6 +
+>  arch/riscv/boot/dts/Makefile                  |   1 +
+>  arch/riscv/boot/dts/bouffalolab/Makefile      |   2 +
+>  .../dts/bouffalolab/bl808-sipeed-m1s-dock.dts |  25 +
+>  .../dts/bouffalolab/bl808-sipeed-m1s.dtsi     |  21 +
+>  arch/riscv/boot/dts/bouffalolab/bl808.dtsi    |  74 +++
+>  arch/riscv/configs/defconfig                  |   1 +
+>  drivers/tty/serial/Kconfig                    |  18 +
+>  drivers/tty/serial/Makefile                   |   1 +
+>  drivers/tty/serial/bflb_uart.c                | 610 ++++++++++++++++++
+>  include/uapi/linux/serial_core.h              |   3 +
+>  15 files changed, 854 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/bouffalolab.yaml
+>  create mode 100644 Documentation/devicetree/bindings/serial/bouffalolab,uart.yaml
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/Makefile
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s-dock.dts
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808-sipeed-m1s.dtsi
+>  create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+>  create mode 100644 drivers/tty/serial/bflb_uart.c
 
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
