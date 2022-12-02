@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91543C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 00:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508DAC4321E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 02:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QAmrLUy1hl/45AzkdzHvSoE2ZL2r4CuaQfgmCJUopcc=; b=3wWrryrOMFuaHh
-	Z0kTxgB/N/Cek6mE/Oqr9Fg/Yz3DA+Q90LFxv44b8eSJzVYFTcLqro03tOqSDeCAZFjkK8wiTSZ10
-	KjNWbe152BV8rhrmOOLEX8A+XAN+MXz3q6b13LrmsMjYYahSciIb9GJTC4Z5LRv9tnBKMUtdlUc2y
-	Xalz6IgqC4RRlZ7KHk3IKjLFgGcOjyjFxp1Be9apyHgyWhq5wzqhTdJivfrH3w6TT1c/0JRZRrXwa
-	bsJA3dhRjDpSBJ64TjMIxYoTuBgaBuQLRWz/nvYGdvLfbBAXkjszuKNPLX+2/eTNYjsI4crJS7fDt
-	TidniF8J5SxJJOo9d++A==;
+	List-Owner; bh=x1kMEeZvMIwfuw7mL/+Yb/pPQ05mmR37WclJZpzE1n8=; b=htY+aawP2knc/Q
+	XWifXEEG177w7DpTLp8t9NW1oKtp8PCbALMPLw5cevpKMswF+Ebux4JmHeBLdNz6aVXZ6Od8t9pcS
+	1wQEnFcuwejm2sgybj30ybosoeYGrLnJ5agdA7A+aiAaL/luiZdN26gIAG1aw6g5H6AveYmL3Vb32
+	l552xg4MPrxvSN1iclLQy3ypjlG2xmwp0rrUX6A+QC/e9qqqI4Y/6sKHL6Xz7yqnoXjffvyXia45l
+	ZSF7YJMKPBA/dUSDDklQN+Ag5RlpRhdv1vBG4F3oEElCJMbD62X2hsmNpxKo9lDXQFOvo6POkY6XX
+	czwcITODAs0ztGxO0rjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0tZB-00Bwfv-Sz; Fri, 02 Dec 2022 00:06:09 +0000
-Received: from mail-oa1-f49.google.com ([209.85.160.49])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p0tZ8-00BwfG-Mb
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 00:06:07 +0000
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-1443a16b71cso515246fac.13
-        for <linux-riscv@lists.infradead.org>; Thu, 01 Dec 2022 16:06:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nkJj63AQ5n6QH7dnwOSIpJeyXYTYjMm/XE9Let7JGVs=;
-        b=DmU22NtkUxiEQNB0q3VhK5AhMRqu2w1d+A95uOHOJc/SbNkRlkk/1p0k7RdClrvovX
-         rqLe94EAqvHb5D75GtiSdoNEa6o6tUhoGAC/jIQ+ixUhnxhNvAgYiAi2Ezn2+lkwFbbr
-         hewvvNlMfc7StjcgZVSZUt1+0i6eO22sFkeuggwdqXmeDWjad3kg+9MoZ0pItn7jCLTR
-         rsahFnBjLf8BNPMN+RWRI6xxDFUtz16jc9Hg+AevThwK7REfmzDcEmSAWyLngjQQIhuH
-         cJaOYiBNkoEdv0ZUpOV79FXU3tGldOHhP6VhpAPP8bn3EDptg/vQk2EHZSAhr3e/+FsR
-         pvHw==
-X-Gm-Message-State: ANoB5pkXOszc7i35Fud2j+4G/uFtdOAD+GNGwU39yK440zP/mnsnLuUy
-	AFV4+nkbFJGM8s0mqG88MQ==
-X-Google-Smtp-Source: AA0mqf4VIEUj6jNd9sHSBBaDfI/rBkBpivN4B3re+ALowYnCuyPWtggrj0DPpMOsTfKLvOuiEY0RSQ==
-X-Received: by 2002:a05:6871:4684:b0:141:c076:de4c with SMTP id ni4-20020a056871468400b00141c076de4cmr42017933oab.248.1669939564797;
-        Thu, 01 Dec 2022 16:06:04 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id 76-20020a9d0852000000b0066e3cebb7a7sm2681131oty.78.2022.12.01.16.06.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 Dec 2022 16:06:04 -0800 (PST)
-Received: (nullmailer pid 1730725 invoked by uid 1000);
-	Fri, 02 Dec 2022 00:06:03 -0000
-Date: Thu, 1 Dec 2022 18:06:03 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>, Samuel Holland <samuel@sholland.org>, Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v5 3/3] clocksource: timer-riscv: Set
- CLOCK_EVT_FEAT_C3STOP based on DT
-Message-ID: <20221202000603.GA1720201-robh@kernel.org>
-References: <20221201123954.1111603-1-apatel@ventanamicro.com>
- <20221201123954.1111603-4-apatel@ventanamicro.com>
+	id 1p0vRe-00CU0N-Ti; Fri, 02 Dec 2022 02:06:30 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p0vRa-00CTuI-Tf
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 02:06:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id EDA2524E059;
+	Fri,  2 Dec 2022 10:05:51 +0800 (CST)
+Received: from EXMBX172.cuchost.com (172.16.6.92) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Dec
+ 2022 10:05:52 +0800
+Received: from [192.168.125.106] (113.72.147.18) by EXMBX172.cuchost.com
+ (172.16.6.92) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 2 Dec
+ 2022 10:05:51 +0800
+Message-ID: <fd1ca52a-8f2f-0c3a-aefd-3fac380ecdf2@starfivetech.com>
+Date: Fri, 2 Dec 2022 10:06:32 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221201123954.1111603-4-apatel@ventanamicro.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.3.2
+Subject: Re: [PATCH v2 09/14] dt-bindings: clock: Add StarFive JH7110 system
+ clock and reset generator
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+CC: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, Conor Dooley <conor@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Emil Renner Berthing
+	<emil.renner.berthing@canonical.com>, <linux-kernel@vger.kernel.org>
+References: <20221118010627.70576-1-hal.feng@starfivetech.com>
+ <20221118010627.70576-10-hal.feng@starfivetech.com>
+ <1d62f95f-0edc-afd4-abb4-37fadc0b6a47@linaro.org>
+ <72b3d10e-5a8e-ed42-6808-f53773913422@starfivetech.com>
+ <768c2add-4c1f-0b36-5709-dbcdd560f504@starfivetech.com>
+ <1fb1474b-ec13-e83a-973e-bd9e9a86cb44@linaro.org>
+ <98d1bac7-8af5-f481-59b2-d58ca4c228ee@starfivetech.com>
+ <9183bac6-121e-0027-a88b-d77d5c9a077e@linaro.org>
+ <e954511b-e74a-2c3a-95ec-d33c938b146f@starfivetech.com>
+ <4e94c635-4cbb-449e-24af-f6fee47fb45e@linaro.org>
+From: Hal Feng <hal.feng@starfivetech.com>
+In-Reply-To: <4e94c635-4cbb-449e-24af-f6fee47fb45e@linaro.org>
+X-Originating-IP: [113.72.147.18]
+X-ClientProxiedBy: EXCAS063.cuchost.com (172.16.6.23) To EXMBX172.cuchost.com
+ (172.16.6.92)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221201_160606_755198_4D6A05FA 
-X-CRM114-Status: GOOD (  22.99  )
+X-CRM114-CacheID: sfid-20221201_180627_279281_85865BF8 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +87,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 01, 2022 at 06:09:54PM +0530, Anup Patel wrote:
-> We should set CLOCK_EVT_FEAT_C3STOP for a clock_event_device only
-> when riscv,timer-cannot-wake-cpu DT property is present in the RISC-V
-> timer DT node.
+On Thu, 1 Dec 2022 11:21:04 +0100, Krzysztof Kozlowski wrote:
+> On 30/11/2022 19:05, Hal Feng wrote:
+>> On Wed, 30 Nov 2022 16:19:06 +0100, Krzysztof Kozlowski wrote:
+>>> On 30/11/2022 16:12, Hal Feng wrote:
+>>>> On Wed, 30 Nov 2022 12:48:30 +0100, Krzysztof Kozlowski wrote:
+>>>>> On 30/11/2022 10:47, Hal Feng wrote:
+>>>>>> On Fri, 25 Nov 2022 14:41:12 +0800, Hal Feng wrote:
+>>>>>>> On Mon, 21 Nov 2022 09:47:08 +0100, Krzysztof Kozlowski wrote:
+>>>>>>>> On 18/11/2022 02:06, Hal Feng wrote:
+>>>>>>>>> From: Emil Renner Berthing <kernel@esmil.dk>
+>>>>>>>>>
+>>>>>>>>> Add bindings for the system clock and reset generator (SYSCRG) on the
+>>>>>>>>> JH7110 RISC-V SoC by StarFive Ltd.
+>>>>>>>>>
+>>>>>>>>> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+>>>>>>>>> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+>>>>>>>>
+>>>>>>>> Binding headers are coming with the file bringing bindings for the
+>>>>>>>> device, so you need to squash patches.
+>>>>>>>
+>>>>>>> As we discussed in patch 7, could I merge patch 7, 8, 9, 10 and add the
+>>>>>>> following files in one commit?
+>>>>>>>
+>>>>>>> include/dt-bindings/clock/starfive,jh7110-crg.h
+>>>>>>> include/dt-bindings/reset/starfive,jh7110-crg.h
+>>>>>>> Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>>>>>>> Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml
+>>>>>>
+>>>>>> Hi, Krzysztof,
+>>>>>>
+>>>>>> Could you please give me some suggestions?
+>>>>>
+>>>>> You can keep aon and sys split. First add one of them with their own
+>>>>> headers. Then add second with their own defines.
+>>>>
+>>>> You mean split patch 7 and patch 8 into sys part and aon part
+>>>> respectively? There are totally five regions (sys/aon/stg/isp/vout)
+>>>> for clocks and resets in JH7110. If we do that, there will be 5
+>>>> headers for JH7110 in either clock or reset directory finally. Is
+>>>> that OK if there are too many headers for just one SoC?
+>>>
+>>>
+>>> Sorry, I lost the track of what patches you have. The comment was -
+>>> bindings include both the doc and headers. You want to split some, some
+>>> merge, sorry, no clue. I did not propose splitting headers...
+>> 
+>> It's ok. The problem was that the header
+>> 
+>> include/dt-bindings/clock/starfive,jh7110-crg.h
+>> 
+>> was used in both
+>> 
+>> Documentation/devicetree/bindings/clock/starfive,jh7110-syscrg.yaml
+>> 
+>> and
+>> 
+>> Documentation/devicetree/bindings/clock/starfive,jh7110-aoncrg.yaml.
+>> 
+>> The same for include/dt-bindings/reset/starfive,jh7110-crg.h.
+>> So should I add these four files in one patch?
 > 
-> This way CLOCK_EVT_FEAT_C3STOP feature is set for clock_event_device
-> based on RISC-V platform capabilities rather than having it set for
-> all RISC-V platforms.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  drivers/clocksource/timer-riscv.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 969a552da8d2..1b4b36df5484 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -28,6 +28,7 @@
->  #include <asm/timex.h>
->  
->  static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> +static bool riscv_timer_cannot_wake_cpu;
->  
->  static int riscv_clock_next_event(unsigned long delta,
->  		struct clock_event_device *ce)
-> @@ -51,7 +52,7 @@ static int riscv_clock_next_event(unsigned long delta,
->  static unsigned int riscv_clock_event_irq;
->  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
->  	.name			= "riscv_timer_clockevent",
-> -	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-> +	.features		= CLOCK_EVT_FEAT_ONESHOT,
+> No. I think I wrote proposed flow of patches:
+> 1. syscrg bindings with header
+> 2. aoncrg bindings with changes to header
 
-A platform that depended on CLOCK_EVT_FEAT_C3STOP being set will break 
-with this change because its existing DT will not have the new property.
+Great. Got it. Thanks a lot!
 
-It needs to be the other way around which would effectively be the 
-existing 'always-on' property. 
+Best regards,
+Hal
 
->  	.rating			= 100,
->  	.set_next_event		= riscv_clock_next_event,
->  };
-> @@ -85,6 +86,8 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
->  
->  	ce->cpumask = cpumask_of(cpu);
->  	ce->irq = riscv_clock_event_irq;
-> +	if (riscv_timer_cannot_wake_cpu)
-> +		ce->features |= CLOCK_EVT_FEAT_C3STOP;
->  	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
->  
->  	enable_percpu_irq(riscv_clock_event_irq,
-> @@ -139,6 +142,13 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->  	if (cpuid != smp_processor_id())
->  		return 0;
->  
-> +	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
-> +	if (child) {
-> +		riscv_timer_cannot_wake_cpu = of_property_read_bool(child,
-> +					"riscv,timer-cannot-wake-cpu");
-> +		of_node_put(child);
-> +	}
-> +
->  	domain = NULL;
->  	child = of_get_compatible_child(n, "riscv,cpu-intc");
->  	if (!child) {
-> -- 
-> 2.34.1
 > 
-> 
+> Why do you need to merge anything?
+
 
 _______________________________________________
 linux-riscv mailing list
