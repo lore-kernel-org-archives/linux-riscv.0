@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E293BC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 10:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3C4C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 10:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BrI+Rt3Ouu5aMaAsNQAhOXb7LGvHjmts8/5OLVwXWAc=; b=2Sqt+wXSLamr8r
-	1fbedNuzdJceVxntlMibgVxH4IhFCnTmUAUVpEce9XmiD4ZAj/KX42Qr/yxyhOAFcG3KzQQancDqR
-	+SJepYEk/avumFbL3yCrAVhuR9hSrzRt4+/DBB6Zlnwb0m6GJP8t/dMTm7VbqzOAYwI5fuxmpFaWb
-	PKWVBEk+QMpzSPZ02EUlw106rgCG704Gfxotl11S0kfgoifTmJ6L5cG2Lg9g2v3oxNAYxJ93bptfO
-	BopscZyJRtu7U7X7d4tjqEoHxoTICoiF5VIxOH4z6Dx0pR8CyYgHmCN8D2bnfMIzMM21pk0p2L8eZ
-	gZ/OEh3b9yJFpH9qZKgw==;
+	List-Owner; bh=Xw4kpY0H+lCcV/ayvORt+sfzspAsRp7JlimYrYbGvvg=; b=TgDN/vP8076G3B
+	03rTeDfvos0vLaAuCOgeWaq5oDD94Yin3+cB32ogS1PEKrJLdZKwpdUIZPt+Bho7g5rcQGOUwawtT
+	01uEnT3Sn0KShQdMHrLB24WUYkOxJ9mfN/QIcjzh3fK6Zuam2OIKdGFItNpnub+EoOMv9ifXbQUcm
+	SAforeIVXhWqzD8jzi5AV7iGXoHZb/9/mmSuMrAetL5MN29/z9SLKM/V6ioSg9bagu3BfQGafJLAz
+	n2envjN9sCb8Bdd4WgNpDVKCHlY6E+48waticxkCocVbGYuN1kudws/s4/9Q7NYAkph1IHCSgXOOh
+	VRSSC6VXp/nHDRXPRuvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p13aT-00Fhwb-2M; Fri, 02 Dec 2022 10:48:09 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1p13fF-00Fkcd-UB; Fri, 02 Dec 2022 10:53:05 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p13aQ-00FhuJ-93
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 10:48:07 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id bn5so4990714ljb.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 02:48:04 -0800 (PST)
+	id 1p13fC-00FkZw-G8
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 10:53:04 +0000
+Received: by mail-lj1-x233.google.com with SMTP id b9so4993485ljr.5
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 02:53:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=rtYcu6/3CQ2S7j8h20Y4A6KAn9ZcSJMr/CDNrzIstnQ=;
-        b=Hk/Li4JaaBWRgFd1nMX7JJDu1fjwBX3sjpsJWIwGzephlDPZiA0DG3oR/1IBdlJBHc
-         3AxVGQowYtusxWTTcYll8wjfvwMUH+Pisxon83SbDwMiR1j0832B0FuJdXxqwKp8ls7M
-         cfjBZqWHag+V8EfW4d9kx9ISJkAmvjVyyfZm3aUl6uCUSn/tHCBnXPCUTv7GhIo6+iWh
-         5D//Aw/6VB1mJLZcF1CJrdCa1Dk0L1Ag1msAFjRoWBlbe1izqBRxWvgF4bcS/aAhEj6a
-         LVUh65SvjG4TxbSxxKaibmPilM/mfxDn+3KjIbDBxVAubnNkqurweUq80+qLwe4CEMU2
-         foWg==
+        bh=ozG/UpJ3bPaswuvxlA6GlaGwfzIvrdrSod17QPiF3RU=;
+        b=VnRfxu9nNzzswT8wEXi/i183yZLJRDzC4A1K/Fiw/h2bpk3Sw8aOKG7jTN62zP4qJk
+         orl6/lzBhRZ9GCycb806ntQgMFusHnDXYp8YNnYu72LcScqY0/ycnzDJfmarUJA35rjd
+         o+UsA3ICCh89hAioEY5k7YQ8dAQsy4Oocqs46VFNEZNBdCDtz1BDMJtte9QpYpXEScRS
+         rpvuuHQ47yCpXaboEhGzSEt3xZIHgXUlhslFK1jy2sNWUiFUyOew8e0Emwq59QKG236Y
+         VkNClbkGA0sP43zbSRdGjkEPyAYIv+5+N/fpuUA25N+1UaGQUGDFPDv7m2ASEymVG/Z/
+         YScw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rtYcu6/3CQ2S7j8h20Y4A6KAn9ZcSJMr/CDNrzIstnQ=;
-        b=TLh+5jVZ2frogjyh/tDsorN1lyNg/kCxwQJGE3T/4+awHoDPAYVA1nC0cvZZbzsFv3
-         U6xdJSsrecO//raevaLgd1DAhLgg9h6nX02RGiiqcBKTbr+HwZe1TTeTK0P8msuc9wjk
-         OfJHqKDQaO6VTI8YtV7KaglIhpP/bZ05WWyE8o7U8FxH2bkl/h7yqkLsdicf6eJ8qVc1
-         trI1QMJDHBGuR8dE89KY4dK81HgVO+8gk73OGmumVabvSYD6sU31XJJlKYSXhfSHyMRq
-         Ndp5cJqOAGCzhIFvGFW3mKrkhGfWdxTM/2ld6pFmjTuuTv+ow9IoktQbmIOSVj+h1JYj
-         DD3g==
-X-Gm-Message-State: ANoB5plPFEwpbkn+54DEYVglv7o2THK/RNALL8S6YIc4VKAyE71Bq2f8
-	NLCMDjD0cWIvpamCj1rZI5kJRQ==
-X-Google-Smtp-Source: AA0mqf5kICRVgIlw6pQmSQRYTPuyrEjRpC1cLcHLMJHCp2kVwoaY5Hrz+SdFZjavsjSxLsCYIrXicg==
-X-Received: by 2002:a2e:be07:0:b0:26c:6dce:ce59 with SMTP id z7-20020a2ebe07000000b0026c6dcece59mr17660429ljq.130.1669978083449;
-        Fri, 02 Dec 2022 02:48:03 -0800 (PST)
+        bh=ozG/UpJ3bPaswuvxlA6GlaGwfzIvrdrSod17QPiF3RU=;
+        b=fZyZw4V/Y+mgtztDsNUgp0xLUh7OtfsDP+Uq1vGYxBUZv32XGiBbzQE5Dl4f4J/w0f
+         Sc4/RUQnLrQRg6hKfKu3kD5Awixd43Z8S/DDEceUe3e11ZKGO8XygD+sEIbBXP3OTuGt
+         oLOt+kt2fhjVrq/IH+tTI389ZIVv1SRgHeb6yjnA7D2cA2pGRcIFMIWZG6RXMUiQaVM5
+         iEFkKFJ4uY42jhBy1dQ5IrHICZ0/uyxmm4f8hQJMcQ755sqUMyq2ncftAUt0dL4TI8FZ
+         NQtthwQ17nky0waoYamSWTlRZQT9Gp9xW6BrPoKBCOaaVQD98UQoUsEN1u9Pfydmr4fL
+         ek5g==
+X-Gm-Message-State: ANoB5pkDpKQpnOzaS+BeqgM8EpAQnPNbLDokGbueC3e+XV7r0ccd2Snw
+	9KhDRDZOKVYF0hbjw+aJPTLm/A==
+X-Google-Smtp-Source: AA0mqf5UDZibFF2eJbCdKm3k1Hn0SM83w0I9K8FzTMHa2/oIUf03uj7BBCTGwnQAjufz6lEHSgSo5w==
+X-Received: by 2002:a2e:a263:0:b0:276:be89:5616 with SMTP id k3-20020a2ea263000000b00276be895616mr15253849ljm.347.1669978380884;
+        Fri, 02 Dec 2022 02:53:00 -0800 (PST)
 Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id b26-20020a2e895a000000b00279e0b8bae7sm92593ljk.65.2022.12.02.02.48.02
+        by smtp.gmail.com with ESMTPSA id u8-20020a05651c130800b0026fb5525ee4sm588660lja.116.2022.12.02.02.52.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Dec 2022 02:48:03 -0800 (PST)
-Message-ID: <66e66749-cc0f-f147-2648-03b52f95cca5@linaro.org>
-Date: Fri, 2 Dec 2022 11:48:01 +0100
+        Fri, 02 Dec 2022 02:53:00 -0800 (PST)
+Message-ID: <624cba7f-1be9-7100-91d7-f9232c855d9f@linaro.org>
+Date: Fri, 2 Dec 2022 11:52:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.0
-Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: jh7110: Add watchdog node
+Subject: Re: [PATCH v1 3/7] dt-bindings: net: Add bindings for StarFive dwmac
 Content-Language: en-US
-To: "xingu.wu" <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
-Cc: Rob Herring <robh+dt@kernel.org>,
+To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Yanhong Wang <yanhong.wang@starfivetech.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
-References: <20221202093943.149674-1-xingyu.wu@starfivetech.com>
- <20221202093943.149674-4-xingyu.wu@starfivetech.com>
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Peter Geis <pgwipeout@gmail.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-riscv@lists.infradead.org, "David S . Miller" <davem@davemloft.net>,
+ devicetree@vger.kernel.org, Heiner Kallweit <hkallweit1@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>
+References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
+ <20221201090242.2381-4-yanhong.wang@starfivetech.com>
+ <166990139276.476262.15116409959152660279.robh@kernel.org>
+ <Y4jaQ4snp6x1oU6k@spud>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221202093943.149674-4-xingyu.wu@starfivetech.com>
+In-Reply-To: <Y4jaQ4snp6x1oU6k@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_024806_357726_5ADD5AFB 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20221202_025302_582141_73E955D0 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +103,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2022 10:39, xingu.wu wrote:
-> From: Xingyu Wu <xingyu.wu@starfivetech.com>
+On 01/12/2022 17:45, Conor Dooley wrote:
+> Hey Yanhong,
 > 
-> This adds the watchdog node for the Starfive JH7110 SoC.
-
-Do not use "This commit/patch".
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
+> On Thu, Dec 01, 2022 at 07:36:29AM -0600, Rob Herring wrote:
+>>
+>> On Thu, 01 Dec 2022 17:02:38 +0800, Yanhong Wang wrote:
+>>> Add bindings for the StarFive dwmac module on the StarFive RISC-V SoCs.
+>>>
+>>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>>> ---
+>>>  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+>>>  .../bindings/net/starfive,dwmac-plat.yaml     | 106 ++++++++++++++++++
+>>>  MAINTAINERS                                   |   5 +
+>>>  3 files changed, 112 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
+>>>
+>>
+>> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+>> on your patch (DT_CHECKER_FLAGS is new in v5.13):
+>>
+>> yamllint warnings/errors:
+>> ./Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml:30:16: [warning] wrong indentation: expected 14 but found 15 (indentation)
+>>
+>> dtschema/dtc warnings/errors:
+>> ./Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml: $id: relative path/filename doesn't match actual path or filename
+>> 	expected: http://devicetree.org/schemas/net/starfive,dwmac-plat.yaml#
+>> Documentation/devicetree/bindings/net/starfive,dwmac-plat.example.dts:21:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No such file or directory
+>>    21 |         #include <dt-bindings/clock/starfive-jh7110.h>
 > 
-> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+> Perhaps, rather than putting a long list of "prerequisite-patch-id" in
+> your cover letters etc, you drop the need for headers from your bindings
+> entirely? Otherwise, you need to wait for the clock bindings to be applied
+> before any of your other peripherals etc can have drivers/bindings upstream.
 > 
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> index c22e8f1d2640..22f5a37d691e 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -433,5 +433,19 @@ uart5: serial@12020000 {
->  			reg-shift = <2>;
->  			status = "disabled";
->  		};
-> +
-> +		wdog: watchdog@13070000 {
-> +			compatible = "starfive,jh7110-wdt";
-> +			reg = <0x0 0x13070000 0x0 0x10000>;
-> +			interrupts = <68>;
-> +			clocks = <&syscrg JH7110_SYSCLK_WDT_CORE>,
-> +				 <&syscrg JH7110_SYSCLK_WDT_APB>;
-> +			clock-names = "core_clk", "apb_clk";
-> +			resets = <&syscrg JH7110_SYSRST_WDT_APB>,
-> +				 <&syscrg JH7110_SYSRST_WDT_CORE>;
-> +			reset-names = "rst_apb", "rst_core";
-> +			timeout-sec = <15>;
-> +			status = "okay";
+> AFAIU, and Rob/Krzk please correct me, the example in a dt-binding
+> really is an *example* and there's no requirement for it to match the
+> jh7110 dts exactly. Because of that you can drop the header & just do
+> something like `clocks = <&clk 7>, <&clk 77>;` etc and the example is
+> still valid. Same goes for all of the other driver patchsets for new
+> StarFive stuff, like the pmu or crypto, that also have dt-bindings.
+> 
+> The only person who has to worry then about dependencies is me when I
+> apply the .dts patches :)
 
-Why? okay is by default
+It's nice when example looks good and matching final DTS, but that's not
+a requirement. Pretty often clocks/resets/domains are mocked for the
+example.
 
 Best regards,
 Krzysztof
