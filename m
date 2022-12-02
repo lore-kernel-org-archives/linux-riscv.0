@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43283C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 11:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7402C4321E
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 11:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oi40db6vMmdQGXBLA3zY4Q9jr8vr0fisF2a4bYZhcTo=; b=0qnUM/RRfn/zA+Rbni+M0OOSW8
-	viARpxCYZMxuLRE07OS4MG21smjXNPif9OWXnlsPAGdoe78hzYU8w2KQXFnSZxUPbBTzfdoqWyM89
-	+ucLAgiwH5ul2bazFV1y7avg5BKU8fjwx/kPIiWAglWBGvjKwgOrtTIJtKrQgYkNlGuvuF/ZCC9+y
-	nSJMDFDVDVw2sC6G5sRpVD2Hns2oXFU2SI9ZKQ0xz4Z7pbdnnL2F3R993hPxU7flmpyQ5IYnLdc49
-	YhMB2+S0Nvux6vRLSz1tuZWD/gcTL5JbOk6KfFVZfFyasnXtPfjaIVjP2pVDnSDbuiNhrT6uFB9ic
-	+SpadKlQ==;
+	bh=YUVh2wBd0/beNs7lL8Ab2KBqBK3Cm9je4eaOM5iRSVg=; b=Xb56YVBASEGQe0+uBrOUAHoCOR
+	uWRfkPKpo+F/KBxRhq8XLxtFtNMrNSa2vwNSP6A/41CFI0nZDMMlIMQ1XlZEW8ucdGSP+XDUZ/Yoe
+	yX0lCmIo4VjERxGOlVUy6fIBbECtXn3Lu999LgQw9PPB5nL69BdPPuhv96n8q4sl56fAe7aiYY7ug
+	M84KtaAvk2VK5+gUeClxqXDX3x48HXD93TLs2bxbpg0jqrxY3guZYXqE1aDiUp9Jn+Tkkt4r77RIX
+	QbRJryQP90cuzbJ3CLMisz8EoGeHQ74sqBBBLVrpZHtIGHfx/ooE0yhOT3pIbXwY5FR6UAKsEXuDT
+	CsX+pQvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p14Mb-00G2qD-W9; Fri, 02 Dec 2022 11:37:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p14c8-00G6vA-Tt; Fri, 02 Dec 2022 11:53:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p14MY-00G2oW-Tq
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 11:37:52 +0000
+	id 1p14b9-00G6Mp-DS
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 11:52:57 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 3D5C1B82142;
-	Fri,  2 Dec 2022 11:37:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7995EC433D6;
-	Fri,  2 Dec 2022 11:37:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EE23F62270;
+	Fri,  2 Dec 2022 11:52:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61877C43142;
+	Fri,  2 Dec 2022 11:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669981067;
-	bh=YewXzhIS8GyLTLE7PPwddgjQzKBIgxmttnLpVTqiblg=;
+	s=k20201202; t=1669981974;
+	bh=PZq+p3+mZ5CA5LSGjT4C1sy5wKo/uHXO/ytYhvNgZyo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cm++C5xa4tPbx5jWoaJN6Z8Gn8yBsULaVlvS9EenvDLj3tBu1qotBlqgpFc1GbYle
-	 8p1RuOv+rUsLEpqOeE3OWHEA+9HqG4WI1jl7i8K5FTv0ljpjFH1un8Y2ZxIVxawpsy
-	 oQaESvOXmVR3Vasytk9X1A0sZuejOt2fwx1nW6E/4yng19flUEsE5TCJQMkhvYxcAZ
-	 TPVy7LvI/8NIHoZ7OrlSuFZXx5UCQpEgTAMj+xow5Kf42PHu6w0eC5rKA7WFI70dYR
-	 ArknVmEAjSyjamVj8pp1S04Sn7EvIOrbrBircUFpB18pmVtSadfEfGGsYGtTZG3TRO
-	 pxhBKT4qH59CQ==
-Date: Fri, 2 Dec 2022 11:37:42 +0000
+	b=D+c2XpFoLIX6n2QZAlPpqKiu0ytYu9yhocUP0t5eIL0S3MF6+OKEju12U1b0DFu9T
+	 +Pf8ZLijnb5MiTdzapb7Vy4S4LAaokJ4WQqedxRL/pHS0Ml5VeZ8oJmNqJF02eTncv
+	 8A1DT11Xkh6dFhcnrrv34th01vojldE/vmI+QaWAS1ygoEanzvvkojMPeFtruI1whw
+	 SqQzQFaFnsMYZgb2Tjr38SlI71sbOhSN1UG4HSrUoMSwuZT1C2KL+EcYXSBPsBLFCx
+	 HRec77Ym4OrBLVK5cYoP9abLE2UWBoBal/itViHrtLaIL0DMoV2/rXx28+a3JJ4q4c
+	 N6AGKXJE4mORg==
+Date: Fri, 2 Dec 2022 11:52:48 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Bagas Sanjaya <bagasdotme@gmail.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
+To: "xingu.wu" <xingyu.wu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-watchdog@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org, ajones@ventanamicro.com,
-	aou@eecs.berkeley.edu, corbet@lwn.net, guoren@kernel.org,
-	heiko@sntech.de, paul.walmsley@sifive.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v1 3/3] Documentation: riscv: add a section about ISA
- string ordering in /proc/cpuinfo
-Message-ID: <Y4njhrGft++1rVRj@spud>
-References: <20221130234125.2722364-1-conor@kernel.org>
- <20221130234125.2722364-4-conor@kernel.org>
- <Y4gZ/KZz9rdYj/0r@debian.me>
- <Y4hjIWHTuYcf90ja@wendy>
- <66b3fd78-31bc-c435-ccc8-c8682b3cacee@gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Samin Guo <samin.guo@starfivetech.com>,
+	linux-kernel@vger.kernel.org, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v1 0/3] Add watchdog driver for StarFive RISC-V SoCs
+Message-ID: <Y4nnEMxaV4MrAOYw@spud>
+References: <20221202093943.149674-1-xingyu.wu@starfivetech.com>
 MIME-Version: 1.0
-In-Reply-To: <66b3fd78-31bc-c435-ccc8-c8682b3cacee@gmail.com>
+In-Reply-To: <20221202093943.149674-1-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_033751_285879_E265053F 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20221202_035255_555429_F042E8E0 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,93 +76,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2233784000508795524=="
+Content-Type: multipart/mixed; boundary="===============6091606054378211874=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2233784000508795524==
+--===============6091606054378211874==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Q5Y2pBB/5VxqMAhM"
+	protocol="application/pgp-signature"; boundary="aYP1wpDAsWoGLu8Q"
 Content-Disposition: inline
 
 
---Q5Y2pBB/5VxqMAhM
+--aYP1wpDAsWoGLu8Q
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Dec 02, 2022 at 09:14:08AM +0700, Bagas Sanjaya wrote:
-> On 12/1/22 15:17, Conor Dooley wrote:
-> > On Thu, Dec 01, 2022 at 10:05:32AM +0700, Bagas Sanjaya wrote:
-> >> On Wed, Nov 30, 2022 at 11:41:26PM +0000, Conor Dooley wrote:
-> >>> +#. Single-letter extensions come first, in "canonical order", so
-> >>> +   "IMAFDQLCBKJTPVH".
-> >>
-> >> "..., that is ... ."
-> >=20
-> > Hmm, that reads strangely to me. s/that/which/.
-> >=20
->=20
-> OK.
->=20
-> >>
-> >>> +#. The first letter following the 'Z' conventionally indicates the m=
-ost
-> >>> +   closely related alphabetical extension category, IMAFDQLCBKJTPVH.
-> >>> +   If multiple 'Z' extensions are named, they should be ordered firs=
-t by
-> >>> +   category, then alphabetically within a category.
-> >>> +
-> >>
-> >> Did you mean "most closely related alphabetical extension category in
-> >> canonical order"?
-> >=20
-> > I am not 100% sure what you are suggesting a replacement of here. I
-> > think I may reword this as:
-> >   For additional standard extensions, the first letter following the 'Z'
-> >   conventionally indicates the most closely related alphabetical
-> >   extension category. If multiple 'Z' extensions are named, they will
-> >   be ordered first by category, in canonical order as listed above, then
-> >   alphabetically within a category.
-> >=20
->=20
-> That LGTM.
->=20
-> >>> +An example string following the order is:
-> >>> +   rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
-> >>> +
-> >> =20
-> >> IMO literal code block should be better fit for the example above,
-> >> rather than definition list:
-> >=20
-> > Uh, sure? I'm not sure what impact that has on the output, but I can
-> > switch to a pre-formatted block.
-> >=20
->=20
-> Something like ``foo``?
+Hello!
 
-Not posting a v2 for another few days, but this is what I currently
-have:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/tree/Docume=
-ntation/riscv/uabi.rst?h=3Driscv-uabi_docs
++CC Hal Feng
 
+On Fri, Dec 02, 2022 at 05:39:40PM +0800, xingu.wu wrote:
+> This patch serises are to add watchdog driver for the StarFive RISC-V SoCs
+> such as JH7110. The first patch adds docunmentation to describe device
+> tree bindings. The subsequent patch adds watchdog driver and support
+> JH7110 SoC. The last patch adds device node about watchdog to JH7110
+> dts.
+>=20
+> The watchdog driver has been tested on the VisionFive 2 boards which
+> equip with JH7110 SoC and works normally.
+>=20
+> This patchset should be applied after the patchset [1], [2], [3]:
+> [1] https://lore.kernel.org/all/20221118010627.70576-1-hal.feng@starfivet=
+ech.com/
+> [2] https://lore.kernel.org/all/20221118011108.70715-1-hal.feng@starfivet=
+ech.com/
+> [3] https://lore.kernel.org/all/20221118011714.70877-1-hal.feng@starfivet=
+ech.com/
 
---Q5Y2pBB/5VxqMAhM
+You say "patchset" but that's not really the case. Realistically, only
+one patch here has a real dependency on the above AFAICT.
+How about for v2, whenever you send that, in your dt-bindings you drop
+the uses of dt-bindings/*/starfive-jh7110.h & instead put the numbers?
+Same goes, IMO, for ~all the jh7110 dt-bindings, see here:
+https://lore.kernel.org/all/624cba7f-1be9-7100-91d7-f9232c855d9f@linaro.org/
+
+Then the only person that has to care about prerequisite patches is then
+me for the dt patch and you will not have the driver itself delayed
+until the clock bindings are merged?
+
+Perhaps Guenter likes having the defines, but my opinion would be get as
+much as possible that does not have real dependencies on the clock &
+reset bindings capable of being merged in isolation.
+
+Thanks,
+Conor.
+
+>=20
+> Xingyu Wu (3):
+>   dt-bindings: watchdog: Add watchdog for StarFive
+>   drivers: watchdog: Add StarFive Watchdog driver
+>   riscv: dts: starfive: jh7110: Add watchdog node
+>=20
+>  .../bindings/watchdog/starfive,wdt.yaml       |  77 ++
+>  MAINTAINERS                                   |   7 +
+>  arch/riscv/boot/dts/starfive/jh7110.dtsi      |  14 +
+>  drivers/watchdog/Kconfig                      |  11 +
+>  drivers/watchdog/Makefile                     |   3 +
+>  drivers/watchdog/starfive-wdt.c               | 854 ++++++++++++++++++
+>  6 files changed, 966 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/watchdog/starfive,w=
+dt.yaml
+>  create mode 100644 drivers/watchdog/starfive-wdt.c
+>=20
+>=20
+> base-commit: 094226ad94f471a9f19e8f8e7140a09c2625abaa
+> prerequisite-patch-id: 6b1b43a55b9773bec61ab6c1bbaa54dccbac0837
+> prerequisite-patch-id: 09c98554df52d17ba5fd604125f8cdd62cbe80d1
+> prerequisite-patch-id: 29fe0b0c19b6f0cd31114ee9fe17fe9732047f33
+> prerequisite-patch-id: c59d9908de90e09ba2b9a81aadbf9fb9f00c8f04
+> prerequisite-patch-id: 94ac03d518993921bcfc9cc9f58d7da0c3528b51
+> prerequisite-patch-id: 694f7400375f5b85581fc1821e427334507826f2
+> prerequisite-patch-id: 699d49c4439dadb4b7cf900857f027d050cd6093
+> prerequisite-patch-id: 40d773f5a19912f731ee5fd4739ed2e3c2157b07
+> prerequisite-patch-id: 2bc3fd6df5dda116efe882045863d6c88aa81b3a
+> prerequisite-patch-id: 735e62255c75801bdc4c0b4107850bce821ff7f5
+> prerequisite-patch-id: b2a923b922e661fa6085185f33c1f1e733db9110
+> prerequisite-patch-id: b2bbc28354075432f059344eba5a127a653475cf
+> prerequisite-patch-id: 70eab7b7eee728afcd90e40f6743d1356f6d81ab
+> prerequisite-patch-id: 6276b2a23818c65ff2ad3d65b562615690cffee9
+> prerequisite-patch-id: d834ece14ffb525b8c3e661e78736692f33fca9b
+> prerequisite-patch-id: 4c17a3ce4dae9b788795d915bf775630f5c43c53
+> prerequisite-patch-id: dabb913fd478e97593e45c23fee4be9fd807f851
+> prerequisite-patch-id: 22fa141f7f0f80a5d619e9f3f4cf161ad06f108e
+> prerequisite-patch-id: f306819c257ea73aff8e06b17b5731053cdddfc8
+> prerequisite-patch-id: 536114f0732646095ef5302a165672b3290d4c75
+> prerequisite-patch-id: 258ea5f9b8bf41b6981345dcc81795f25865d38f
+> prerequisite-patch-id: 8b6f2c9660c0ac0ee4e73e4c21aca8e6b75e81b9
+> prerequisite-patch-id: e09e995700a814a763aa304ad3881a7222acf556
+> prerequisite-patch-id: 05803238293fcc90c8e83018a1103c41133a816c
+> prerequisite-patch-id: d074c7ffa2917a9f754d5801e3f67bc980f9de4c
+> prerequisite-patch-id: ef23fdf3466b3c713b3826e8545c8dd2bc6cc9d7
+> prerequisite-patch-id: d5da3475c6a3588e11a1678feb565bdd459b548e
+> --=20
+> 2.25.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--aYP1wpDAsWoGLu8Q
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY4njhgAKCRB4tDGHoIJi
-0nG3AQDN11twX+XbGwoN9/XYbdJzgY33yW3WXUGANYI/mtCVIwEA91AUTZo73nDi
-o+yCNCSVVUcFUSw6gPxGDo39EVTHCwQ=
-=8KH2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY4nnEAAKCRB4tDGHoIJi
+0sVOAP42SUceOGUyY5serjoTK5qY2ZeadXk/pvujUI1DmAf52gD/ewzQXNgYPJi/
+ZbJmVKHgkkxmgfBPVx/e4/jQoT10lwo=
+=O9ut
 -----END PGP SIGNATURE-----
 
---Q5Y2pBB/5VxqMAhM--
+--aYP1wpDAsWoGLu8Q--
 
 
---===============2233784000508795524==
+--===============6091606054378211874==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -172,5 +212,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2233784000508795524==--
+--===============6091606054378211874==--
 
