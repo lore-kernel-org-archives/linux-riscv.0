@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C486C4321E
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 17:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E338C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 17:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gURs9ZSwPV8xniLUMAwjbCGUBkJc3JJt++g2TztHyBQ=; b=4gK+90QLUuE+Ze
-	Aj88CNluwJeFMVPhRzqh8dP07cKy52LPymgc+XCPq8+TXWnxrb0pt1p5xrRXSmOB8qM1S1Z0ogUaH
-	vfRw4bFUrf1vzvXFCjttsfs2Fxlmv1dIWwiMzi4GaiykRYdkZGebCMIA+vUqX6D6O/OB2yTwl+660
-	oSymm0cRFUCeNNDo3ZXBIZ+bW73bCpjGGrZ8RFEOC7MEvEo3CKpXER1WSywC0x2pdTsYtnOo5hfz6
-	bbowINh2oG+IPWvoDi6/JjKx42YDzmMBTwpqUWgo6K506H59Ou0fmF9wPd3C1a4oZK3jaRxa2Kf+8
-	hZO42bmYV9y4esOy0eew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=JSJictKQnyAcAVxic0dDMrb6xfIbavO+7zJs0qh4Uzo=; b=cRjfBhpXv9KKkaHZSdrMh4AAUp
+	iSqR6m0QgpNTfFMpdzTWH1bUlxWpIxaWjHEbncfVtvgi0B+0FsUOW4mw29sHUE0Yuhxnby21O3cKs
+	hqxkqdjt0G122l2YAodkIjaQvMFx/uuJoJTAMushrNSChLYqDd6jvW+NT7J6JlAABZ77FVPLvKpvW
+	2RTln+80E8818vcGeMOpSg5UhGep0pyB03lcHfHQEEwzAS18Ji2K2QGJKj7pK7f8tnlsyPMucYGn+
+	NcGb5zTFogrsnsI5p4xafw+uIlLbmZTXDd4Gt/joI7VNfp3X7T0T/HAY1Y2O+7fuz8Q2Li/UddNvQ
+	3jLdMSow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p19XL-000FtJ-9L; Fri, 02 Dec 2022 17:09:19 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1p1AEO-000SGD-UC; Fri, 02 Dec 2022 17:53:48 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p19XH-000FqF-O2
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 17:09:17 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 136so4884769pga.1
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 09:09:13 -0800 (PST)
+	id 1p1AEL-000SDl-U8
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 17:53:47 +0000
+Received: by mail-pl1-x630.google.com with SMTP id y17so5298047plp.3
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 09:53:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JbEpNpUzseZTQupf42Rj1IKHfu3QLHpqGxrYsl/wNeI=;
-        b=mI5cA7a7Sg4TXS0Q5VfJBHIQvZ1ELh7hKpc8t0/8ipN5qOI6hp/FHLxfcP/hVRDl7P
-         uQyB/HYT89CTdt+HkzoUetTK9gKWusrqfNO79ltDCsyA23omDi8YKC3AmYlXhZlQxuAu
-         /fEsFl8gLO0PEgvinbnVwi8rBO9Ba+PbMnoy/k8tK2glpCxr5G6SvJ4hJpMuWvPZpVH5
-         E3VosW0P14YRG2cOzOzTYkSP/FAXH8pgRonht5k8KDdk6x7ljewzNaK9uMvCc2qXdgH4
-         zFi3S0RkARbtcDqxxZLnk46HSHdSS8V7JBcWI+/tQFwsfSW1THHtNRdqNchAAYIFnQ7v
-         IP1w==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9ZvJzDorQtOwNqLa1HHYVuO6backFKSVBd3ruJxRA2A=;
+        b=eQnZOvNRY11eiZD6GVvQZwn1takWYswEZO6mnHfFnI3IOwcIiD6Zx+pagggcuTggyE
+         KI2v9qhiuLOtxUaSbh05X+3u3ZJeuy2KPUw24QAEHeemgwvBVYSNg7VIrTgM/9CZF7Mh
+         qIGRAfb52QV9/EArXB3WfOf73n/Zj+mT+acVF8xXToHtE9sTGamB58BUDzFZvKKrcrQs
+         N82x9nRGEqlbGZDDayglBKpHk1Ju0LRifyISFL7XGTuJ4VTQZxgsAckVsHg9WKJDAtXL
+         l1P2Bi6HAp3c1vtRk7yGNxdUdXKhF7PSfRXpRsPFM+uN9qkQfh86kWUV6Q3Nt+kAw8ul
+         RFAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JbEpNpUzseZTQupf42Rj1IKHfu3QLHpqGxrYsl/wNeI=;
-        b=z/+XmfI8iV1Rmfo5mVXFWd/t1mPkbijHsRBXhOP9PTRpgf05Bx6CG41FxHDHNR5/JZ
-         od83Yw9oUvajfDuc7CAXM7psUkvJHOBV3OMfkzZnyQK9te14GzUY7JSdUo9XWuL2jUP4
-         buYNz0vTg3S6TNi0cksqxERjR7TzZxpNDi48LIaMisRuYJ1GPpPBVJSyNCFdyjOLq1jJ
-         u2+1pc/SQy9DjqAzB7Uew2Y7F32PrkGmg6v8QAikz5QZTvQT3HFpnsFxqDMioQsrUx6d
-         s45SJSWDWKNj+kh7Gk4fC13FTTR8pz34qxqGFwdBUZrGQsrOGVPHjj2G2f7nI8YzEDHi
-         4fxA==
-X-Gm-Message-State: ANoB5pmN4EU/LZJWey/oKPIi7i9mmStwE18Zdx6+Q31+X37C+/8FNK+y
-	tHHvvjh1J0hoGSM/bL1bAVjCRewBH3ZpDaRM
-X-Google-Smtp-Source: AA0mqf4kl0zvfaDO4FTtGaa5lHreKmD7cstYdlvhz+MAO6zO8v0H85mFV60iIiabONC9Ox4WnKDcAA==
-X-Received: by 2002:a63:ed0b:0:b0:477:9319:eb4f with SMTP id d11-20020a63ed0b000000b004779319eb4fmr47408147pgi.257.1670000953165;
-        Fri, 02 Dec 2022 09:09:13 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id z18-20020a170903019200b0018853416bbcsm5879737plg.7.2022.12.02.09.09.12
+        bh=9ZvJzDorQtOwNqLa1HHYVuO6backFKSVBd3ruJxRA2A=;
+        b=gWRG8It9UbmRMf/j65Yt/FbM833ysI/9ba2HNlMF+AtXW5m2vzid+ojNjqzJTWALod
+         N2N7IB9GyRQrKM95B158PGaHwsTNqDChVRsWtnfv66OOwsogsSBWJ2HoBQl8BsTngP2L
+         rz1f+1+za8t6j/ymBzXv42X/zp5+/kDEheN3hAlvPnSazcEIR97QJwJdTWJaQiLQrn15
+         RSKo2sXANNDn1vWJdFmtZQVNWGoi6hQaZjwaucf+DWzOp7G6pLXM/HggeIWaqb8tGzC8
+         eaUehaoSn7unIDMubG4RMS37/q7JizhnrQtzvIhkyOuZIyjjRorVDO5JVsEH5BHL89O1
+         zgMQ==
+X-Gm-Message-State: ANoB5pl5cN0vPBzGU24Hn7jf88mAvYPLI2lD10C7wRDdY2j0aQa7fwwD
+	UZ40VFkmJZOxPQhSTFSHbtx8bw==
+X-Google-Smtp-Source: AA0mqf5X/TeHx5A5xtNnIKw6jgBgvRIH82EYzaYQxx+YmUJkhxCg9UKytVs/q/xMiH6X+7zxecaK0w==
+X-Received: by 2002:a17:90a:ca85:b0:219:88aa:d3d1 with SMTP id y5-20020a17090aca8500b0021988aad3d1mr4968286pjt.135.1670003619663;
+        Fri, 02 Dec 2022 09:53:39 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id w15-20020aa7954f000000b0056283e2bdbdsm5391440pfq.138.2022.12.02.09.53.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 09:09:12 -0800 (PST)
-Date: Fri, 2 Dec 2022 17:09:09 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>, Guo Ren <guoren@kernel.org>,
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC  8/9] RISC-V: KVM: Implement perf support
-Message-ID: <Y4oxNbQwOldICdnw@google.com>
-References: <20220718170205.2972215-1-atishp@rivosinc.com>
- <20220718170205.2972215-9-atishp@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220718170205.2972215-9-atishp@rivosinc.com>
+        Fri, 02 Dec 2022 09:53:39 -0800 (PST)
+Date: Fri, 02 Dec 2022 09:53:39 -0800 (PST)
+X-Google-Original-Date: Fri, 02 Dec 2022 09:53:24 PST (-0800)
+Subject: Re: [PATCH 6/9] RISC-V: Export sbi_get_mvendorid() and friends
+In-Reply-To: <20221128161424.608889-7-apatel@ventanamicro.com>
+CC: pbonzini@redhat.com, atishp@atishpatra.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
+  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  apatel@ventanamicro.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: apatel@ventanamicro.com
+Message-ID: <mhng-365b9851-cb0a-4e2c-9cf4-4eca9623cf04@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_090915_794439_786B8782 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221202_095345_976313_6EDF7553 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,21 +86,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 18, 2022, Atish Patra wrote:
-> RISC-V SBI PMU & Sscofpmf ISA extension allows supporting perf in
-> the virtualization enviornment as well. KVM implementation
-> relies on SBI PMU extension for most of the part while traps
-> & emulates the CSRs read for counter access.
+On Mon, 28 Nov 2022 08:14:21 PST (-0800), apatel@ventanamicro.com wrote:
+> The sbi_get_mvendorid(), sbi_get_marchid(), and sbi_get_mimpid()
+> can be used by KVM module so let us export these functions.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/kernel/sbi.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 775d3322b422..5c87db8fdff2 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -627,16 +627,19 @@ long sbi_get_mvendorid(void)
+>  {
+>  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+>  }
+> +EXPORT_SYMBOL_GPL(sbi_get_mvendorid);
+>
+>  long sbi_get_marchid(void)
+>  {
+>  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
+>  }
+> +EXPORT_SYMBOL_GPL(sbi_get_marchid);
+>
+>  long sbi_get_mimpid(void)
+>  {
+>  	return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+>  }
+> +EXPORT_SYMBOL_GPL(sbi_get_mimpid);
+>
+>  static void sbi_send_cpumask_ipi(const struct cpumask *target)
+>  {
 
-For the benefit of non-RISCV people, the changelog (and documentation?) should
-explain why RISC-V doesn't need to tap into kvm_register_perf_callbacks().
-Presumably there's something in the "RISC-V SBI PMU & Sscofpmf ISA extension" spec
-that allows hardware to differentiate between events that are for guest vs. host?
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
