@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9539C47088
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 10:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F07C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 10:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nnUoibR8g9gVPa7eC9ks/vFHTgQ6B7bOQu6S5Jna4tA=; b=UfU0t29Ukduh/RP2aIXqjf5WaZ
-	obOF6UXYJwkBJr+fQo/h4K2hxSw2NnzGOhK221N6lTvusnNOXy94fICIfdOBCxdHgCpeOEurhMMlQ
-	fpV5oQlDjUfzkKeZNtazNCGoKoQtXbkMaE4Pu/t+cQ3gei5TYnntuJdcG6+Vqn31/Dnp8vz6/B4wf
-	6cuGFk+CJ+oCa5APwOY0u6dx2AMkGyYWB3kD4xmch1Q5Hj2NuOjWRrY+cW2EtI/bkwb9bZK9EHRng
-	/gen8iQcyP1MyyVZ/lyIi9KKSlW0qEDT3JpyqyvZHVvBzFIEEjqfpXa1FShK0ZAyZlpvwuUN4lUqn
-	37f6BuRw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M8V11yE8/z4Qcl47njz2J+LbcuLAXpNjND6VkTGXqOs=; b=rNf8gt8EXjWS4w
+	5Xw4sHvvbN9zqhxqqyzIyrwGyGGZpQ6R0kUOG6z6ZzRSVcp1PRMUck2iQzO82OURd3ioZwMp4iWbo
+	bjjpsYndo8S73ZhbXY2L+yVVEJVhIM2fvg02V3m6RGvlOltCDoOqMyLRywttMsDDdPPgaODRibi4G
+	++mZzmmeoxKTmcF/7RRzj1NvOCilx0auodZgXoNPuwS/RNbydnumT1vb02YBJCmGFswzHgA3NdNGo
+	LZXlVnGHdFQj/+QKjBLNARFSjS1RTz653hELsDovX+NHb17Q9qch4BKgy5fufH144/pdc/Tggy5me
+	XY/2r/iGkHIvMSSYgHjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p13P0-00FWfn-Ay; Fri, 02 Dec 2022 10:36:18 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p13ZS-00FhV7-U7; Fri, 02 Dec 2022 10:47:06 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p13Ox-00FWUh-2J
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 10:36:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 284B9B82128;
-	Fri,  2 Dec 2022 10:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72D5C433C1;
-	Fri,  2 Dec 2022 10:36:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1669977371;
-	bh=u9zLYk7vA/kTb5Kq1zNPxADSlsc2alVjhwgeDfmJoMU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ok8fH+bq/Eiv4pC2HdLs0UVS2mOCugVu78sGcGjF25532cN+cWHap90cyktOzGfpn
-	 shP5EseMzXI/7xbwQetUs0BXDSiouRoTuFto7W97oH9RAVdahZQgDi/gyh6mv4LW3d
-	 TeasbSv4VXmcaaeL7+A85vq7KlNAYfYbCR/1JekDavH+DVRkOm7mHzWdm38UxG7TYW
-	 kqAbekddJdp2anSGAAvYkr+lqEdaIASqLVPofP1eXOlw6GoKq1hcWz0NhFrYEacVMu
-	 re3QPDFM9UsNf2pRsoRNbuKHcJfAXXI3SXmJHvlmub8T6ie61hxAgD8UtLFphZfw2e
-	 5ipm1lNXOetbQ==
-Date: Fri, 2 Dec 2022 10:36:07 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Jianwen Jiang <jiangjianwen@uniontech.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alexandre.ghiti@canonical.com, geert@linux-m68k.org,
-	panqinglin2020@iscas.ac.cn, arnd@arndb.de,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH]     Implement ioremap_prot support (v2)
-Message-ID: <Y4nVF9sDckD6cNug@spud>
-References: <20221202083356.169176-1-jiangjianwen@uniontech.com>
+	id 1p13ZP-00FhTA-Mp
+	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 10:47:05 +0000
+Received: by mail-lf1-x132.google.com with SMTP id d6so6780933lfs.10
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 02:47:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9Vtg1LtCfjtyNCzyBNU5YXITjkmZBt3+mmKj+CQPVVc=;
+        b=UD3RDKAs3ew754ylVfIQCZ/no50brGFS4qCHmlg5qAuU5YJ45sQ9/DYEWipoJDUrsd
+         8oFBWNEhCsEvrcJOao509FHXeaRMLuWw5NWqR7TIY246o9UH4Q2SKQ+sK0hZYuZaFyYg
+         XvTC2EHgY2NCB2+3Ovm5X+nF5pVBG69Cae63PobFnrLZBz7j6cHixXmFnhP55uLTiRt8
+         UuXSCxnod/z2W+YT9S2M3LIpLk5jf3SaHjURYTzrpfJOZeGKFI+dpxFgbu26BKq+ODhK
+         sYpsQU5mmVscmZ1pcPNSa+B8auqVN0HyyNBTosair3SGOq8wt47vDWbvAeDDdRb5zgSm
+         BYKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Vtg1LtCfjtyNCzyBNU5YXITjkmZBt3+mmKj+CQPVVc=;
+        b=N41rKdOsWydFGc8qCNd8bgDRBVlVkM6Eesv0v8BvEpxc02/ap+dTNMmVMCxZBDwfcw
+         wxqmGE3bBzO6YAqTOoipAaJYKk8HAwyhBfT9ITojf8KZVKIt5qOB7spq1/E8JPZnMk6N
+         kCJbhvWTK36EpWjorQjIZNdRkA5xRbXhdbeQEOsOS5Kqrx8KfPwQOhhm8WxjvisXeF3i
+         apkH9E/EZN4n9aO+2wWewRFj/pGwGGqTs1iIGXSsojaAwFtUanfV+sVaHNNc9MQupR+6
+         gNq8TTyLA2KaOW6s8yVPs03wdTQ1P5n/acZkM3O1q6UuJ4BZBNhAFuq8YPkOf0WqRSYO
+         qMoA==
+X-Gm-Message-State: ANoB5pkPmlIGHp5vQY7S0GVQ2zifNlpf10dF9+mvFHvTLR6Kc2iwti1y
+	dMdfoNFdhcEKU0vrIfzZwQhDWA==
+X-Google-Smtp-Source: AA0mqf6gr/P7/w7zGPP1KlPQazaqNcuOmcl9Iu9U5TcIblGgOCA0ThAsves7sYSTqYRGj0mj2QSL+A==
+X-Received: by 2002:ac2:4c27:0:b0:4a2:4df9:4cab with SMTP id u7-20020ac24c27000000b004a24df94cabmr24215355lfq.56.1669978021914;
+        Fri, 02 Dec 2022 02:47:01 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id bk37-20020a05651c23a500b002770eafaafbsm596033ljb.99.2022.12.02.02.47.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Dec 2022 02:47:01 -0800 (PST)
+Message-ID: <cb8deb55-902a-0058-4764-a5f391f8de6d@linaro.org>
+Date: Fri, 2 Dec 2022 11:46:59 +0100
 MIME-Version: 1.0
-In-Reply-To: <20221202083356.169176-1-jiangjianwen@uniontech.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.0
+Subject: Re: [PATCH v1 1/3] dt-bindings: watchdog: Add watchdog for StarFive
+Content-Language: en-US
+To: "xingu.wu" <xingyu.wu@starfivetech.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Samin Guo <samin.guo@starfivetech.com>, linux-kernel@vger.kernel.org
+References: <20221202093943.149674-1-xingyu.wu@starfivetech.com>
+ <20221202093943.149674-2-xingyu.wu@starfivetech.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221202093943.149674-2-xingyu.wu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_023615_430924_8189E1C1 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20221202_024703_801948_8315C5A9 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,134 +94,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8946277119860083235=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8946277119860083235==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="gmfZS0+76u997J9s"
-Content-Disposition: inline
-
-
---gmfZS0+76u997J9s
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello!
-
-On Fri, Dec 02, 2022 at 04:33:56PM +0800, Jianwen Jiang wrote:a
-> [PATCH]     Implement ioremap_prot support (v2)
-
-Some process bits.. Please put the v2 inside the leading [], git
-format-patch will do this for you with the `-v N` arg. Also, please add
-a subsytem prefix to the $subject & drop the leading spaces.
-
->     Feature ioremap_prot only needs an implementation of pte_pgprot on ri=
-scv.
-
-There's also no need to tab this stuff in
-
->     That macro is similar to the same one on platform loongarch, mips and=
- sh.
->     We just need:
->     1. replace _PFN_MASK with _PAGE_PFN_MASK in pte_gpprot;
->     2. add "select HAVE_IOREMAP_PROT" into arch/riscv/Kconfig;
->     3. add "depends on MMU" into drivers/fpga/Kconfig to fix the building=
- error "undefined reference to generic_access_phys".
->=20
->     Signed-off-by: Jianwen Jiang <jiangjianwen@uniontech.com>
-
-And this line should not be tabbed in.
-
+On 02/12/2022 10:39, xingu.wu wrote:
+> From: Xingyu Wu <xingyu.wu@starfivetech.com>
+> 
+> Add bindings to describe the watchdog for the StarFive SoCs.
+> 
+> Signed-off-by: Xingyu Wu <xingyu.wu@starfivetech.com>
 > ---
->  arch/riscv/Kconfig            | 1 +
->  arch/riscv/include/asm/page.h | 2 ++
->  drivers/fpga/Kconfig          | 1 +
+>  .../bindings/watchdog/starfive,wdt.yaml       | 77 +++++++++++++++++++
+>  1 file changed, 77 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/watchdog/starfive,wdt.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/watchdog/starfive,wdt.yaml b/Documentation/devicetree/bindings/watchdog/starfive,wdt.yaml
+> new file mode 100644
+> index 000000000000..ece3e80153a0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/watchdog/starfive,wdt.yaml
 
-This needs to go as a separate patch to the FPGA subsystem, with the
-FPGA maintainers in to/cc.
+Filename should be based on compatible. You do not allow here any other
+models... If you intent and you are 100% sure you will grow with new
+models, make it maybe a family-based name.
 
->  3 files changed, 4 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index fa78595a6089..5ed2c7361040 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -95,6 +95,7 @@ config RISCV
->  	select HAVE_FUNCTION_ERROR_INJECTION
->  	select HAVE_GCC_PLUGINS
->  	select HAVE_GENERIC_VDSO if MMU && 64BIT
-> +	select HAVE_IOREMAP_PROT
->  	select HAVE_IRQ_TIME_ACCOUNTING
->  	select HAVE_KPROBES if !XIP_KERNEL
->  	select HAVE_KPROBES_ON_FTRACE if !XIP_KERNEL
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index ac70b0fd9a9a..cb08a4911d60 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -84,6 +84,8 @@ typedef struct page *pgtable_t;
->  #define __pgd(x)	((pgd_t) { (x) })
->  #define __pgprot(x)	((pgprot_t) { (x) })
-> =20
-> +#define pte_pgprot(x)  __pgprot(pte_val(x) & ~_PAGE_PFN_MASK)
+
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/watchdog/starfive,wdt.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  #ifdef CONFIG_64BIT
->  #define PTE_FMT "%016lx"
->  #else
-> diff --git a/drivers/fpga/Kconfig b/drivers/fpga/Kconfig
-> index bbe0a7cabb75..0493272b8bff 100644
-> --- a/drivers/fpga/Kconfig
-> +++ b/drivers/fpga/Kconfig
-> @@ -5,6 +5,7 @@
-> =20
->  menuconfig FPGA
->  	tristate "FPGA Configuration Framework"
-> +	depends on MMU
+> +title: StarFive Watchdog
+> +
+> +allOf:
+> +  - $ref: "watchdog.yaml#"
 
-How come no other arch needs this dependancy?
+Drop quotes.
 
-Thanks,
-Conor.
+> +
+> +maintainers:
+> +  - Samin Guo <samin.guo@starfivetech.com>
+> +  - Xingyu Wu <xingyu.wu@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-wdt
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Core clock
+> +      - description: APB clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core_clk
 
->  	help
->  	  Say Y here if you want support for configuring FPGAs from the
->  	  kernel.  The FPGA framework adds an FPGA manager class and FPGA
-> --=20
-> 2.37.3.446.gd42b38dfb5
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Drop _clk
 
---gmfZS0+76u997J9s
-Content-Type: application/pgp-signature; name="signature.asc"
+> +      - const: apb_clk
 
------BEGIN PGP SIGNATURE-----
+Drop _clk
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY4nU/wAKCRB4tDGHoIJi
-0kLIAP9gBXK7W9/psSR7aTqxJQA/JTHtVdBDvLVPq6lGnbMJbwEAyz9CvgP9Dy6Q
-wzHLDIGRjwyJ9gUBl3eHRb9xpgDjDw8=
-=IWmN
------END PGP SIGNATURE-----
+> +
+> +  resets:
+> +    items:
+> +      - description: APB reset
+> +      - description: Core reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: rst_apb
 
---gmfZS0+76u997J9s--
+Drop rst_
 
+> +      - const: rst_core
 
---===============8946277119860083235==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Ditto
+
+> +
+> +  timeout-sec: true
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - timeout-sec
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/starfive-jh7110.h>
+> +    #include <dt-bindings/reset/starfive-jh7110.h>
+> +
+> +    watchdog@13070000 {
+> +            compatible = "starfive,jh7110-wdt";
+
+Use 4 spaces for example indentation.
+
+> +            reg = <0x13070000 0x10000>;
+> +            interrupts = <68>;
+> +            clocks = <&syscrg_clk JH7110_SYSCLK_WDT_CORE>,
+> +                     <&syscrg_clk JH7110_SYSCLK_WDT_APB>;
+> +            clock-names = "core_clk", "apb_clk";
+> +            resets = <&syscrg_rst JH7110_SYSRST_WDT_APB>,
+> +                     <&syscrg_rst JH7110_SYSRST_WDT_CORE>;
+> +            reset-names = "rst_apb", "rst_core";
+> +            timeout-sec = <15>;
+> +    };
+> +
+
+Drop trailing line.
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8946277119860083235==--
-
