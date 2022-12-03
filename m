@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A0AC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Dec 2022 21:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B4CC4321E
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Dec 2022 00:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=00PlUjp0JXtJNWwqVTBt7Hho5yp0f3Mitb1T8/CBZLY=; b=MIVyfs6ezaz5ki
-	XkHUudIx4JwVKI9FBy0SrExKxGoSiGT6i3Nu/kGGvDMeYqaqyAA5f5eg8yBC944frBJwilJsqnQF5
-	sbgj9yXsff+s+6LG8FtYwWcpCk48U7KS/UzGbl3WwzD5Dq467bdPXbUD6VKmcBOFmvUjwVvLWOQgC
-	AohSshZH+8R7N5iMmtG8r0GG/u8tf0o3PoMXg1R18luKD67x2b5ktLlxvXpSElImebpOyzG72XAMV
-	Z9sjpkGm0U2t8hKoCBI8yGyIh/JvLduBkdsf6Jt5bDlltJdDxGuaygnxPbquGyKGKEJtK5I7WgFsk
-	xtxQKlXMUBeIRjjcv9tg==;
+	List-Owner; bh=ESmAt73cT1TfxBQHK8SO3w3oUiyeoObyr/sXBk3z7hM=; b=xuQ2fvd/IYLhKi
+	hTy2aHQ8UNnInxf8+FOIb6nmr23aeiDaEEj4JgGJPH61O25Uk2S0dCOGPjwBSo8bZRvsSgUC7UJWg
+	/60mcOFmz9lMif9rfTICToxeDSfOBQ1nr085zEjsnUWj/gYSF+olkwy6uW1jWKyUyP62qPmtaGwPy
+	rivdSNjVcyK5czg+lNaJGfiNOIw8YmK+97q/cddO0iDJFulIATNJYSfMSmoHo1NYvsnIPkektq7os
+	DBsU0x2doGvjgmVewvnikki3yeKksSep1gV++aMHv6clnsD7h5n/HbFcAY9D6w4cEql5XRWXgNiEJ
+	Rs9l8vqCA/bTqgXL8pcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1DXX-001MGC-36; Fri, 02 Dec 2022 21:25:47 +0000
+	id 1p1G79-001mMX-Me; Sat, 03 Dec 2022 00:10:43 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1DXU-001MFO-1h
-	for linux-riscv@lists.infradead.org; Fri, 02 Dec 2022 21:25:45 +0000
+	id 1p1G77-001mLx-2d
+	for linux-riscv@lists.infradead.org; Sat, 03 Dec 2022 00:10:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5998DB822B9;
-	Fri,  2 Dec 2022 21:25:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 04DE9C433B5;
-	Fri,  2 Dec 2022 21:25:40 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9CA38B82306;
+	Sat,  3 Dec 2022 00:10:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6A012C433C1;
+	Sat,  3 Dec 2022 00:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670016340;
-	bh=ZSNmLjAEQTy4eBPjv6LPuyzN7BpFgsze+bz+aijm7bU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=oC6oulAVFXlo1KgpkTuEdT1+fVqew0hfcsRBuD11uLPEgGslFSqLa1Lcvspf6KShu
-	 E/yaqnJD2OPc5alOucAYpYSS+HAh1ZFKG7DBoe0l8X0lNZdaar6uaUwIXGWYxDxg0R
-	 2WfmLW17eyDtca/Brnys7riUu4kNLf/SUPDk+LCmC7ZutwGPDu98fMJfVEqAgJzkhH
-	 HwUU+Y7t8Bgop284Rh9ySPm0yvf3aIpPCba1YOAVJZG92S4efKtXeFLLeUav6xhKiW
-	 vADjcBN5gDN3Q4c5q+6CdnviNoUak6wUclzP4DTsf4MToJwYFd73l4rQTBBMeOgKsM
-	 6hQ7BLpcPZsRw==
+	s=k20201202; t=1670026237;
+	bh=UoY0yL+gTdz7KbbVWhh7PwyPSxsEMr3LBk1X+Lcsp9o=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=gkjK0P/KQx4EFlGtAziXzbWtTof6dTryM3kOJO3UqWpMn4FADe1Qh3Brgb3kVMe2z
+	 h4JVR8gFIc1IWIgMeAYhHS+SCuhP5Tu+PrSbmvVwqyfUjtm3Y9enEZFjJZXxPzopNt
+	 yPMuJ5qU02Oi1/CA3cMZJ4UmjNOVIFqzFapilK1pjXQ96tJiSP2mGiUwsLyL8+7qA+
+	 AaNAZfClQ0SXy0cz4IcPbJS5sCDUAm9Tw01k6K0GRzU7pIVDXUQng9P6lJiVNWs6Fb
+	 +hTCELrEK58aiY/LS3B3lnkk1eM5d00ErmPH92ysm7i/VUlatNUQd84/J1vcBSa8d2
+	 Ic5pMiTw6U9Qw==
 Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id D74B4E21EEF;
-	Fri,  2 Dec 2022 21:25:39 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH -next 0/2]riscv/mm: two modifications on hugepage
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id:  <167001633987.19139.13919979874169762631.git-patchwork-notify@kernel.org>
-Date: Fri, 02 Dec 2022 21:25:39 +0000
-References: <20221024094725.3054311-1-tongtiangen@huawei.com>
-In-Reply-To: <20221024094725.3054311-1-tongtiangen@huawei.com>
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- wangkefeng.wang@huawei.com, guohanjun@huawei.com
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 56D22C395F5;
+	Sat,  3 Dec 2022 00:10:37 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.1-rc8
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-ade5e352-1239-4324-aab5-e2fb6a575c25@palmer-ri-x1c9a>
+References: <mhng-ade5e352-1239-4324-aab5-e2fb6a575c25@palmer-ri-x1c9a>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-ade5e352-1239-4324-aab5-e2fb6a575c25@palmer-ri-x1c9a>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-rc8
+X-PR-Tracked-Commit-Id: 39cefc5f6cd25d555e0455b24810e9aff365b8d6
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 0e15c3c75a28b10bac7b3ad7627fd6b458623283
+Message-Id: <167002623735.23477.14131709914366367868.pr-tracker-bot@kernel.org>
+Date: Sat, 03 Dec 2022 00:10:37 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_132544_275478_D3B10C45 
-X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-CacheID: sfid-20221202_161041_289522_7BFF8D61 
+X-CRM114-Status: UNSURE (   4.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,38 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+The pull request you sent on Fri, 02 Dec 2022 08:53:14 -0800 (PST):
 
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.1-rc8
 
-On Mon, 24 Oct 2022 09:47:23 +0000 you wrote:
-> Tong Tiangen (2):
->   riscv/mm: hugepage's PG_dcache_clean flag is only set in head page
->   riscv/mm: add arch hook arch_clear_hugepage_flags
-> 
->  arch/riscv/include/asm/cacheflush.h | 7 +++++++
->  arch/riscv/include/asm/hugetlb.h    | 6 ++++++
->  arch/riscv/mm/cacheflush.c          | 7 +++++++
->  3 files changed, 20 insertions(+)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/0e15c3c75a28b10bac7b3ad7627fd6b458623283
 
-Here is the summary with links:
-  - [-next,1/2] riscv/mm: hugepage's PG_dcache_clean flag is only set in head page
-    https://git.kernel.org/riscv/c/d33deda095d3
-  - [-next,2/2] riscv/mm: add arch hook arch_clear_hugepage_flags
-    https://git.kernel.org/riscv/c/d8bf77a1dc30
+Thank you!
 
-You are awesome, thank you!
 -- 
 Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
