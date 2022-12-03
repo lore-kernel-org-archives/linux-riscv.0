@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183B9C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Dec 2022 06:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 080FAC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Dec 2022 07:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSWONn2yhK2Cf/mwEKKJTsjQy7xrjYzIdpZjDo4luz4=; b=m5QojCWjpFuEkX
-	/eZQyDL+VlGofUxp/th0md9mwtI+Cb6acEENAGN8TJwzyv3u6nYtxUEoRtMQ3d9Jyh7Xe9NtyNyrD
-	XAhVSp8B+TLx6jplawughsmUZz68/FIxtd2reuswA4B3iHdkiR/QAziU2WuMwMFKvqDtizbAM9USo
-	X++KBXKw3noZOp8wdxlO7dT0mG+KaB3K1iGorgjo7HNBJcni4+R+TLY2F1J+wsXXhDmHJ5DRRA26Y
-	AqLQQNsX+IsRtF/uDkhAb3BuNDZsm/HPkWiMP3KHwr4Ou4/JE79suoW73yuYCg7SitwPubpHHF2np
-	MOSjKwX3SFttM2acA7aQ==;
+	List-Owner; bh=1dvKHZGREkbk7jxSgc+Culx1OA/AOcPBw8O3n5O1TgQ=; b=GF8dDyQI/LN53y
+	GejfSj7cYiclWNzu7jvL9L6VlfCFt/xTLLl9D2yiRPYroSdnIsbYqcz4LkM9NjnYkBXJ09Z8697Vc
+	c7puuRRP4czVVOvTz+c3XVHOXuW9IBfJI78jwk3+hkxZELX0MqnyhjXv8OauqO/fvVHPev2OvuXMI
+	xAytUAs2il85tpgTWkFLyYFKeWDxixg3f3qzXQkGTBu0D7Ut6AWMl4+xn/t2w1j9VjOkMKvexf6Wh
+	bEGRDhws/OGIf/PJ4hncAS/rOUBvles2NHKT5o8H+3nz48t4FNW3yTyKtjIet9jIIJItfLL+JHMIs
+	7c/FOwTUkTCcNz6Y1BKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1MJL-002e4c-WB; Sat, 03 Dec 2022 06:47:44 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1p1NLE-002niV-1C; Sat, 03 Dec 2022 07:53:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1MJI-002e0K-4H
-	for linux-riscv@lists.infradead.org; Sat, 03 Dec 2022 06:47:41 +0000
-Received: by mail-pl1-x629.google.com with SMTP id s7so6550609plk.5
-        for <linux-riscv@lists.infradead.org>; Fri, 02 Dec 2022 22:47:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3+y5lNDUnw4uQBrajobLH9mJrPY1sMzOJOF/tF/7n3g=;
-        b=ATt6rq5dOTA8oWxpEJCQqPS1kcIRpCjbuC+ESsUaESQuQw5ldHrGr5re1LLhoQZsOm
-         wvZMeYAC4vCciqOguGuMlVN/kIRqM7ivwi7QQ3CQ+R06EuxxnfznKals6Mj4kQ0D6ohx
-         ijvgrIMP5Y1skdHnfanyVaE0fMLSfjLudifJtGSz/0Z94l8UngRaH9YVguYVclfDpWap
-         Vn+B3ASFTLAadqoMz53aPRFfqsmvPDlL4Gbv10ZajdnaEDigqZ4cM5BGevwdSMZE+IPP
-         ZSpCpTLp9+kSXZeetwWRon7zFPAMayKKZoDgGajwboWELYYRzedc2oqOc3qOtyPshcyz
-         hXqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3+y5lNDUnw4uQBrajobLH9mJrPY1sMzOJOF/tF/7n3g=;
-        b=UvE1aRGQ+LLy0c9NWWB2xwaAflGshAsesae1H1bhcqJn+jUUYLg+bJhYokDX8gNkV1
-         NJGq8rNriOB7gg35pDNu8Ht6VSYQRxdXBowRIsz8+GgsrFfXUBAZHD18fDVBPHAtywj1
-         dELvWrUCoi/qyQRIa9/6RKUlqcNyoPtr5ezh4gHo3RDPbuW2V/49OV/4jyWA4MV6pmTX
-         2u38V9JnVrPnVDgPl70mHI9Te4QXuPA/mcBRz+lad83sO/svf23IUSBrfZSwnejz23r0
-         xSs3okctfVzJyXFFkFUsiuIMnfZbkTM+eb4xuVEBUy0T6xyuNq2jFMsUeJxhK52YtRnt
-         EljA==
-X-Gm-Message-State: ANoB5pn7vfsYkNS4UGBKj6I+ZJ7lPNmPmq3a8iyXaE47WLlVIMVcgjis
-	N/eqn8flK0kcBAMuuP8Kc5TKNg==
-X-Google-Smtp-Source: AA0mqf781B6PjmzZj9tFyg3PitYH5rgYx7rEfiA9nYItVnbShX8E1YMGaVw5XcMVFp/W8qePYyjN0A==
-X-Received: by 2002:a17:902:cacb:b0:189:c19a:2ccf with SMTP id y11-20020a170902cacb00b00189c19a2ccfmr4412743pld.91.1670050057037;
-        Fri, 02 Dec 2022 22:47:37 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.165.210])
-        by smtp.gmail.com with ESMTPSA id t17-20020aa79471000000b00575c8242849sm6102091pfq.69.2022.12.02.22.47.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Dec 2022 22:47:36 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Hector Martin <marcan@marcan.st>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Atish Patra <atishp@atishpatra.org>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev
-Subject: [PATCH v15 9/9] irqchip/apple-aic: Move over to core ipi-mux
-Date: Sat,  3 Dec 2022 12:16:29 +0530
-Message-Id: <20221203064629.1601299-10-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221203064629.1601299-1-apatel@ventanamicro.com>
-References: <20221203064629.1601299-1-apatel@ventanamicro.com>
+	id 1p1NL9-002nhP-5h; Sat, 03 Dec 2022 07:53:40 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A11CF60110;
+	Sat,  3 Dec 2022 07:53:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013ACC433D6;
+	Sat,  3 Dec 2022 07:53:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670054016;
+	bh=v+fh+f5UA4ZMllDwmHzwUHLTYaB/xEbSJdsmYPmGyc8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Nak2BiuBVIBjFil7xWnOsIfDvMuVuJBsI472Ldeg2GUE7pcB1ArCRx7eg17HRgeYH
+	 0TGSX+xJK4awCHCe6gQSEX3j2UzrqNjRi+WQZCbGMK3fJhdTW5ZetIv07E21tMha2U
+	 6UDJKKUbjpDogCTeeBe8mjjKIulcgFe7rBucQyDR7ceVA5CzibAJIqRJEq5CkW7O4Z
+	 Re4JncxHC1G5WYvVoKHbleoOJmX1zGPA+LmjSHM93CvBr6hg4Qk1NyBMXJZjsmG09/
+	 pSt2yVCi6kyx2OrYWxRfzSX9vOcVVUy5isUUhh3UORRTsNcZPSZX0ATi7CElgwvdVO
+	 NHxKWR4GUo3YQ==
+Received: by mail-ej1-f49.google.com with SMTP id fc4so9480751ejc.12;
+        Fri, 02 Dec 2022 23:53:35 -0800 (PST)
+X-Gm-Message-State: ANoB5pmQwrs0RAGmIQw4X7jWPzaAqELaFBOHA2Exyg1XRhH+IOyy58JE
+	DrfCT2CnEDIDQE+/EuYY1a011QDR6WOMSlA+ZKo=
+X-Google-Smtp-Source: AA0mqf5v7PsMXkly2t9Dyuk1Ofpw2XwAbMWTqS1nzBeDCH1bbzqPn4lCENo9DXWjvMuC+kBTe4Amiepcel2hKDVj6Iw=
+X-Received: by 2002:a17:906:99d3:b0:78d:c7fd:f755 with SMTP id
+ s19-20020a17090699d300b0078dc7fdf755mr6375844ejn.702.1670054014194; Fri, 02
+ Dec 2022 23:53:34 -0800 (PST)
 MIME-Version: 1.0
+References: <20221026144208.373504-1-xianting.tian@linux.alibaba.com> <167002857934.4256.16584443879212253129.b4-ty@rivosinc.com>
+In-Reply-To: <167002857934.4256.16584443879212253129.b4-ty@rivosinc.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 3 Dec 2022 15:53:21 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRYwiPUTZWgWHTS5_k4mJsY9ZivbY+PCRfEDpANKNHXTA@mail.gmail.com>
+Message-ID: <CAJF2gTRYwiPUTZWgWHTS5_k4mJsY9ZivbY+PCRfEDpANKNHXTA@mail.gmail.com>
+Subject: Re: [PATCH V5 0/2] Support VMCOREINFO export for RISCV64
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: mick@ics.forth.gr, corbet@lwn.net, alexandre.ghiti@canonical.com, 
+	vgoyal@redhat.com, bhe@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, bagasdotme@gmail.com, dyoung@redhat.com, 
+	Palmer Dabbelt <palmer@dabbelt.com>, heiko@sntech.de, 
+	Xianting Tian <xianting.tian@linux.alibaba.com>, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, hschauhan@nulltrace.org, yixun.lan@gmail.com, 
+	kexec@lists.infradead.org, heinrich.schuchardt@canonical.com, 
+	linux-doc@vger.kernel.org, crash-utility@redhat.com, 
+	linux-kernel@vger.kernel.org, k-hagio-ab@nec.com, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221202_224740_235350_CAE43280 
-X-CRM114-Status: GOOD (  27.23  )
+X-CRM114-CacheID: sfid-20221202_235339_291114_DEAD896F 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,246 +87,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+Hi Palmer,
 
-Now that the complexity of the AIC IPI mux has been copied into
-the core code for the benefit of the riscv architecture,
-shrink the AIC driver by the same amount by using that infrastructure.
+Here are another two fix-up patches of kdump for the crash tool.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/Kconfig         |   1 +
- drivers/irqchip/irq-apple-aic.c | 161 ++------------------------------
- 2 files changed, 9 insertions(+), 153 deletions(-)
+https://lore.kernel.org/linux-riscv/20221020141603.2856206-3-guoren@kernel.org/
+https://lore.kernel.org/linux-riscv/20221020141603.2856206-2-guoren@kernel.org/
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 131379aa8424..0fd452b49ed9 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -675,6 +675,7 @@ config APPLE_AIC
- 	bool "Apple Interrupt Controller (AIC)"
- 	depends on ARM64
- 	depends on ARCH_APPLE || COMPILE_TEST
-+	select GENERIC_IRQ_IPI_MUX
- 	help
- 	  Support for the Apple Interrupt Controller found on Apple Silicon SoCs,
- 	  such as the M1.
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index 1c2813ad8bbe..1fa81fcff788 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -292,7 +292,6 @@ struct aic_irq_chip {
- 	void __iomem *base;
- 	void __iomem *event;
- 	struct irq_domain *hw_domain;
--	struct irq_domain *ipi_domain;
- 	struct {
- 		cpumask_t aff;
- 	} *fiq_aff[AIC_NR_FIQ];
-@@ -307,9 +306,6 @@ struct aic_irq_chip {
- 
- static DEFINE_PER_CPU(uint32_t, aic_fiq_unmasked);
- 
--static DEFINE_PER_CPU(atomic_t, aic_vipi_flag);
--static DEFINE_PER_CPU(atomic_t, aic_vipi_enable);
--
- static struct aic_irq_chip *aic_irqc;
- 
- static void aic_handle_ipi(struct pt_regs *regs);
-@@ -751,98 +747,8 @@ static void aic_ipi_send_fast(int cpu)
- 	isb();
- }
- 
--static void aic_ipi_mask(struct irq_data *d)
--{
--	u32 irq_bit = BIT(irqd_to_hwirq(d));
--
--	/* No specific ordering requirements needed here. */
--	atomic_andnot(irq_bit, this_cpu_ptr(&aic_vipi_enable));
--}
--
--static void aic_ipi_unmask(struct irq_data *d)
--{
--	struct aic_irq_chip *ic = irq_data_get_irq_chip_data(d);
--	u32 irq_bit = BIT(irqd_to_hwirq(d));
--
--	atomic_or(irq_bit, this_cpu_ptr(&aic_vipi_enable));
--
--	/*
--	 * The atomic_or() above must complete before the atomic_read()
--	 * below to avoid racing aic_ipi_send_mask().
--	 */
--	smp_mb__after_atomic();
--
--	/*
--	 * If a pending vIPI was unmasked, raise a HW IPI to ourselves.
--	 * No barriers needed here since this is a self-IPI.
--	 */
--	if (atomic_read(this_cpu_ptr(&aic_vipi_flag)) & irq_bit) {
--		if (static_branch_likely(&use_fast_ipi))
--			aic_ipi_send_fast(smp_processor_id());
--		else
--			aic_ic_write(ic, AIC_IPI_SEND, AIC_IPI_SEND_CPU(smp_processor_id()));
--	}
--}
--
--static void aic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
--{
--	struct aic_irq_chip *ic = irq_data_get_irq_chip_data(d);
--	u32 irq_bit = BIT(irqd_to_hwirq(d));
--	u32 send = 0;
--	int cpu;
--	unsigned long pending;
--
--	for_each_cpu(cpu, mask) {
--		/*
--		 * This sequence is the mirror of the one in aic_ipi_unmask();
--		 * see the comment there. Additionally, release semantics
--		 * ensure that the vIPI flag set is ordered after any shared
--		 * memory accesses that precede it. This therefore also pairs
--		 * with the atomic_fetch_andnot in aic_handle_ipi().
--		 */
--		pending = atomic_fetch_or_release(irq_bit, per_cpu_ptr(&aic_vipi_flag, cpu));
--
--		/*
--		 * The atomic_fetch_or_release() above must complete before the
--		 * atomic_read() below to avoid racing aic_ipi_unmask().
--		 */
--		smp_mb__after_atomic();
--
--		if (!(pending & irq_bit) &&
--		    (atomic_read(per_cpu_ptr(&aic_vipi_enable, cpu)) & irq_bit)) {
--			if (static_branch_likely(&use_fast_ipi))
--				aic_ipi_send_fast(cpu);
--			else
--				send |= AIC_IPI_SEND_CPU(cpu);
--		}
--	}
--
--	/*
--	 * The flag writes must complete before the physical IPI is issued
--	 * to another CPU. This is implied by the control dependency on
--	 * the result of atomic_read_acquire() above, which is itself
--	 * already ordered after the vIPI flag write.
--	 */
--	if (send)
--		aic_ic_write(ic, AIC_IPI_SEND, send);
--}
--
--static struct irq_chip ipi_chip = {
--	.name = "AIC-IPI",
--	.irq_mask = aic_ipi_mask,
--	.irq_unmask = aic_ipi_unmask,
--	.ipi_send_mask = aic_ipi_send_mask,
--};
--
--/*
-- * IPI IRQ domain
-- */
--
- static void aic_handle_ipi(struct pt_regs *regs)
- {
--	int i;
--	unsigned long enabled, firing;
--
- 	/*
- 	 * Ack the IPI. We need to order this after the AIC event read, but
- 	 * that is enforced by normal MMIO ordering guarantees.
-@@ -857,27 +763,7 @@ static void aic_handle_ipi(struct pt_regs *regs)
- 		aic_ic_write(aic_irqc, AIC_IPI_ACK, AIC_IPI_OTHER);
- 	}
- 
--	/*
--	 * The mask read does not need to be ordered. Only we can change
--	 * our own mask anyway, so no races are possible here, as long as
--	 * we are properly in the interrupt handler (which is covered by
--	 * the barrier that is part of the top-level AIC handler's readl()).
--	 */
--	enabled = atomic_read(this_cpu_ptr(&aic_vipi_enable));
--
--	/*
--	 * Clear the IPIs we are about to handle. This pairs with the
--	 * atomic_fetch_or_release() in aic_ipi_send_mask(), and needs to be
--	 * ordered after the aic_ic_write() above (to avoid dropping vIPIs) and
--	 * before IPI handling code (to avoid races handling vIPIs before they
--	 * are signaled). The former is taken care of by the release semantics
--	 * of the write portion, while the latter is taken care of by the
--	 * acquire semantics of the read portion.
--	 */
--	firing = atomic_fetch_andnot(enabled, this_cpu_ptr(&aic_vipi_flag)) & enabled;
--
--	for_each_set_bit(i, &firing, AIC_NR_SWIPI)
--		generic_handle_domain_irq(aic_irqc->ipi_domain, i);
-+	ipi_mux_process();
- 
- 	/*
- 	 * No ordering needed here; at worst this just changes the timing of
-@@ -887,55 +773,24 @@ static void aic_handle_ipi(struct pt_regs *regs)
- 		aic_ic_write(aic_irqc, AIC_IPI_MASK_CLR, AIC_IPI_OTHER);
- }
- 
--static int aic_ipi_alloc(struct irq_domain *d, unsigned int virq,
--			 unsigned int nr_irqs, void *args)
-+static void aic_ipi_send_single(unsigned int cpu)
- {
--	int i;
--
--	for (i = 0; i < nr_irqs; i++) {
--		irq_set_percpu_devid(virq + i);
--		irq_domain_set_info(d, virq + i, i, &ipi_chip, d->host_data,
--				    handle_percpu_devid_irq, NULL, NULL);
--	}
--
--	return 0;
--}
--
--static void aic_ipi_free(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs)
--{
--	/* Not freeing IPIs */
-+	if (static_branch_likely(&use_fast_ipi))
-+		aic_ipi_send_fast(cpu);
-+	else
-+		aic_ic_write(aic_irqc, AIC_IPI_SEND, AIC_IPI_SEND_CPU(cpu));
- }
- 
--static const struct irq_domain_ops aic_ipi_domain_ops = {
--	.alloc = aic_ipi_alloc,
--	.free = aic_ipi_free,
--};
--
- static int __init aic_init_smp(struct aic_irq_chip *irqc, struct device_node *node)
- {
--	struct irq_domain *ipi_domain;
- 	int base_ipi;
- 
--	ipi_domain = irq_domain_create_linear(irqc->hw_domain->fwnode, AIC_NR_SWIPI,
--					      &aic_ipi_domain_ops, irqc);
--	if (WARN_ON(!ipi_domain))
--		return -ENODEV;
--
--	ipi_domain->flags |= IRQ_DOMAIN_FLAG_IPI_SINGLE;
--	irq_domain_update_bus_token(ipi_domain, DOMAIN_BUS_IPI);
--
--	base_ipi = __irq_domain_alloc_irqs(ipi_domain, -1, AIC_NR_SWIPI,
--					   NUMA_NO_NODE, NULL, false, NULL);
--
--	if (WARN_ON(!base_ipi)) {
--		irq_domain_remove(ipi_domain);
-+	base_ipi = ipi_mux_create(AIC_NR_SWIPI, aic_ipi_send_single);
-+	if (WARN_ON(base_ipi <= 0))
- 		return -ENODEV;
--	}
- 
- 	set_smp_ipi_range(base_ipi, AIC_NR_SWIPI);
- 
--	irqc->ipi_domain = ipi_domain;
--
- 	return 0;
- }
- 
+On Sat, Dec 3, 2022 at 8:56 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>
+> On Wed, 26 Oct 2022 22:42:06 +0800, Xianting Tian wrote:
+> > As disscussed in below patch set, the patch of 'describe VMCOREINFO export in Documentation'
+> > need to update according to Bagas's comments.
+> > https://lore.kernel.org/linux-riscv/22AAF52E-8CC8-4D11-99CB-88DE4D113444@kernel.org/
+> >
+> > As others patches in above patch set already applied, so this patch set only contains below two
+> > patches.
+> >
+> > [...]
+>
+> Applied, thanks!
+>
+> [1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
+>       https://git.kernel.org/palmer/c/649d6b1019a2
+> [2/2] Documentation: kdump: describe VMCOREINFO export for RISCV64
+>       https://git.kernel.org/palmer/c/c5b4216929eb
+>
+> Best regards,
+> --
+> Palmer Dabbelt <palmer@rivosinc.com>
+
+
+
 -- 
-2.34.1
-
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
