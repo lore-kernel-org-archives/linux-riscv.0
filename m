@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A27C4321E
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 18:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F31C4321E
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 18:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tx36ddAdhjdteLIowm4+lOnQgrMggXVYaCRNhMDaTN0=; b=M+dybOwWt+zrUb
-	Cj6PXzOtdbvAtqVedtzBvqAkUAFDLICNSm4h0gU4vJr4Hf338CcNA1GRQK6/Ld3t6IY6wmvx78xWz
-	OtR9XclCzjsERsHokDAEezdTZoPCEM7nKfYbhDO3Xg1x3pPGJdHph+mK0FlhmMtw0eTQiccfTKF+2
-	DOkea64lLbH+PoajadzwlEdcpZv15D6hjNK20z5JF2ercB8lZvbkyDf4O+jWPCjUid6Z3Qxahnpkw
-	tABhO/ypd721vMxORE5R3W2jMKF5F3q7AiYsyBr1JxJVyhp6dZirgJbm3ZKf66Fiox/DZaa0n/VuS
-	0PowaLHkS7PNds0FSxRg==;
+	List-Owner; bh=1yzNDHFgw7kVGPWgdAduZcIdLNdHtsJetG8i7JY9vfs=; b=uVEuoroAelJCgZ
+	jsNWriAUyKWfZJCxyCb9mATp+osQGC/DGkj6NMqNEncURwHNwrnVc7I7aHXV1kl/DhigobluutOzm
+	aCEW1GDDllqzIrMVhudJdMPjeSl/RraRXW3QMo16wN/r/IdldYH0McBLTTaHfyjkWxV6h3wRnXLRl
+	gwzqb/15gpSgBEFNPqSNybIy0vTdL0Z82J8rrL1N+5dUHWxocKiN1Ng4f7QXyrXTYKeemTKcfGpGB
+	ss+rBxlm/ELk4CRd436uBimo/kWdjZKSqOEb+5gVa2bWmiCQ38Ke9ag8iVFxvct1jFWYTAE3okemh
+	xKQb4cAsV8WdUkEEjd5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1tI1-00A7tn-I7; Sun, 04 Dec 2022 18:00:33 +0000
+	id 1p1tI6-00A7y5-DJ; Sun, 04 Dec 2022 18:00:38 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1tEa-00A6ic-Ek; Sun, 04 Dec 2022 17:57:01 +0000
+	id 1p1tEd-00A6jm-1Q; Sun, 04 Dec 2022 17:57:04 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D8C5660EE0;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id A175060EB7;
+	Sun,  4 Dec 2022 17:57:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B88B1C433C1;
 	Sun,  4 Dec 2022 17:56:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD8EC43470;
-	Sun,  4 Dec 2022 17:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670176619;
-	bh=u5VhYmq8yWH9O8+BoW4qRUe99SmFaRTC5wB7Se/uBJw=;
+	s=k20201202; t=1670176622;
+	bh=qOV0A82uSGScKXzZE+xjnxD5QH+BqBXG94TMk6hBrFA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QpYNHilCA78Drqked9tH88Z2nzF/SNRZ+5pLsnrohFdVnwFtu9bdnJSV0FtaAjI1a
-	 PSjEyjWDHSUFHy1ZNJl1NK5fT1Dhde5Ksxg6GX1w4lv0PEXz5V5ei0maXQ2AczJ8VK
-	 1fUKovAKk1yaTBUYWKpfphDLSQ/EcjAypQw+bPjx7BzRKN3DKc5m0dJFmJFJx4U2o1
-	 mNel4heiGwd54dMFQWIYve0yacnLxTTmgRTCe1t+t446rn5L4AK4I6PxuiWN+O5RSj
-	 iuRPG7SrGqujbaILYtf6njMHGQFRUWsAkZ/yMG7X+3eKJ5diDVVKnQa+/dVdFxIGr1
-	 sUplS2CbdsU1A==
+	b=Qei5qnSYgp6jPx00+NjGmGdMA6LmMOzfkJZVAhQBA6SEjChCX79an5V3M4Qg0XoRp
+	 Z9xlnjgoQtJUBG1+40BwZEpfPZXNNjPwYBJ4D+O15zsvUMxu7k/Vavi0Tclyl5nwgz
+	 GIyj9w3Z+PYgDxyI0EdlF37fjD6YaceD01cn7psahs+S1ZfFv/BoNz0ymKyK4kw6pQ
+	 gc5441t5xL4/IRdmOWgBHOt3Lq6fOlujQrg7Ye4kVAvPZ0fXxb3svKCHJTjP8cop7c
+	 7awyHZNGbktkmIymvPtyRHLflRYdhmQQgazbjslMNcFml6ApxOsu8u352lOkVX0eVn
+	 Vm9y0yOx3EYeA==
 From: Jisheng Zhang <jszhang@kernel.org>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -53,16 +53,17 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org
-Subject: [PATCH v2 11/13] riscv: cpu_relax: switch to riscv_has_extension_likely()
-Date: Mon,  5 Dec 2022 01:46:30 +0800
-Message-Id: <20221204174632.3677-12-jszhang@kernel.org>
+Subject: [PATCH v2 12/13] riscv: KVM: Switch has_svinval() to riscv_has_extension_unlikely()
+Date: Mon,  5 Dec 2022 01:46:31 +0800
+Message-Id: <20221204174632.3677-13-jszhang@kernel.org>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20221204174632.3677-1-jszhang@kernel.org>
 References: <20221204174632.3677-1-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_095700_546794_275D9E7C 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20221204_095703_136741_1793B2F8 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +80,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch cpu_relax() from statich branch to the new helper
-riscv_has_extension_likely()
+From: Andrew Jones <ajones@ventanamicro.com>
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Switch has_svinval() from static branch to the new helper
+riscv_has_extension_unlikely().
+
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- arch/riscv/include/asm/vdso/processor.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kvm/tlb.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
-index fa70cfe507aa..edf0e25e43d1 100644
---- a/arch/riscv/include/asm/vdso/processor.h
-+++ b/arch/riscv/include/asm/vdso/processor.h
-@@ -10,7 +10,7 @@
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index 309d79b3e5cd..aa3da18ad873 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -15,8 +15,7 @@
+ #include <asm/hwcap.h>
+ #include <asm/insn-def.h>
  
- static inline void cpu_relax(void)
- {
--	if (!static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_ZIHINTPAUSE])) {
-+	if (!riscv_has_extension_likely(RISCV_ISA_EXT_ZIHINTPAUSE)) {
- #ifdef __riscv_muldiv
- 		int dummy;
- 		/* In lieu of a halt instruction, induce a long-latency stall. */
+-#define has_svinval()	\
+-	static_branch_unlikely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_SVINVAL])
++#define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
+ 
+ void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
+ 					  gpa_t gpa, gpa_t gpsz,
 -- 
 2.37.2
 
