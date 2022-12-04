@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CF0C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 23:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3431C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 23:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4nyU98gYc4e5C6eyX1xR+klrINWdLpz4AMJdyzFnwQ=; b=xWCYIYB+s5BgzCNDZt7RzCzMV8
-	SQxXOKk6vLcmmfC1gs6kyUYpGPiPRD+hbCsCzq/vw1kgR4WNRfPUlpDsJkq+n/4HUHoOxBfyamHza
-	4W23nGipt71vVUfuxJD9XicmqRihRKXwyOhXsA84YHz+HKHcSOCUdBJT4H9aT8Lm3YijOIz5JzkhM
-	BCtdLlNAWbVZPIiWCKuqUTsxbbAbYsN2g8Ti9jGY20aYaeQKoB+K0f0MzBYEaw0e45OyWeqiiJBOT
-	+J7MKsj41xsRMYzKjJ9fglTVnGHVvCvvgXCynez+dIwEjdtbP2OhOq7iv8Uhepb/H5vQ3n3b/NsAM
-	u4fLLCIw==;
+	bh=txfXI0OhkD8VX+s5rpteIMuGhGyVUyW5FQEFbymDKMs=; b=wxefIliXyYmOArk/4yf+Syd2GJ
+	b8Ahy/0fagx4AkZSYFPOGwLA2IwQT4ZucEMGPJq3u28wVMgpfPc4etECFvifrK+5sJFnKDO8xcVev
+	jGYlQMqpvbSUfj4VXQuSPCqRGCQK7ebZdI2tIavp7TUG8uQ3rkmxH0+SGAaN4o5SK1s18P9ftnPjG
+	bM0pEWJ2CbNdnbr6+HMjia1T22WnQSyomkyOqT7H9qBw7GA3552iEreNd5TPRBifRiPbQnktp49Of
+	k2zTENRbrI7ezyyvk7RjQafJe6TG9rTfGYIxX58JUQ7NEVMy6N2bi3qQJzLCxoXeVbpeE5zHb31PY
+	1SZ3UyFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1yVE-00BgRY-NB; Sun, 04 Dec 2022 23:34:32 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p1ydv-00BiJH-6J; Sun, 04 Dec 2022 23:43:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1yVB-00BgO9-Rd
-	for linux-riscv@lists.infradead.org; Sun, 04 Dec 2022 23:34:31 +0000
+	id 1p1ydr-00BiII-Om
+	for linux-riscv@lists.infradead.org; Sun, 04 Dec 2022 23:43:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 00285B80AC0;
-	Sun,  4 Dec 2022 23:34:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19EE3C433C1;
-	Sun,  4 Dec 2022 23:34:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 166BE60F22;
+	Sun,  4 Dec 2022 23:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D4E2C433C1;
+	Sun,  4 Dec 2022 23:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670196863;
-	bh=0cK0lUJ9KkiCl80pkQTKTOocwELvWyVAqXmQVTnv1c0=;
+	s=k20201202; t=1670197406;
+	bh=e8lcvA/l7oxDnrim3J5FGBNlXm6BJxcdxOGUGtxs6+Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lovS8maHB9ktQb+Ww5yw81rPcCZRXSE1XC/6VM5+f/JzRlywQpDbXevjsTf3XGvwo
-	 hscWSSHlMxx3ebYCbnH326mOeJsoC5YYQGGFW6Ht9lcNBlPL24prA8E9YlkLl0+iXS
-	 gT7b/JylxCuJNt1lrjulIfpbqQbDa8QczvHB3edaPIrjidCAFPcARr2CadVdz3r0S9
-	 gA6chTikmaPXADK1iQkCKLL6y6E5g3Csy8L2MmjmnSKtZKyAcXC6nAplTg1PCwNide
-	 61gS7CsPom3Y5PON4htb0C6MeaLRDxBTApvUrtVGdJQwIChLQAb1g1+of2ruMJFfSA
-	 5pm8SjNmeoAgg==
-Date: Sun, 4 Dec 2022 23:34:17 +0000
+	b=GzhgCtQPYszq1w125z1UuCDvOvAaI/DZAp+ydf+2a2ZhS+5njBm3EJ40EyaraVgY4
+	 FS6M8OCGVoWwQiRzL/wkWAubs23LTYT5NGheUfXIU7QBME0OAwnW3f55F3JAw0jhHX
+	 sLGcXhMDXMOovYY7W871stR8jdxcBrZ8G1q60YQK7cZ0mOdi58wUN5VTsnn6+7tl74
+	 fezsGN1ULo8XVnpdZBKX1q3JQtkAvZB+UBynXHSmDdXg529bLYMxgPBDk19Y17yyiY
+	 n1I0FzsmEs1FnWoDuQew9jlMO+jiIcaVluyWZ1EUN2icS6OCiMzOS1K3LGGnuHmQ8i
+	 BnwXlsvGTtqGw==
+Date: Sun, 4 Dec 2022 23:43:21 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh@kernel.org>,
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH v5 3/3] clocksource: timer-riscv: Set
- CLOCK_EVT_FEAT_C3STOP based on DT
-Message-ID: <Y40ueQiTZK6hi7RS@spud>
-References: <20221201123954.1111603-1-apatel@ventanamicro.com>
- <20221201123954.1111603-4-apatel@ventanamicro.com>
- <20221202000603.GA1720201-robh@kernel.org>
- <CAK9=C2VbM+CP0Y9Xx-SM9O4TFrQmOKvVWy-u5mxdPxrhacK4JQ@mail.gmail.com>
+	Andrew Bresticker <abrestic@rivosinc.com>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: Re: [PATCH RFC v2 1/3] riscv: add support for hardware
+ breakpoints/watchpoints
+Message-ID: <Y40wmUcqMQWQLBsI@spud>
+References: <20221203215535.208948-1-geomatsi@gmail.com>
+ <20221203215535.208948-2-geomatsi@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <CAK9=C2VbM+CP0Y9Xx-SM9O4TFrQmOKvVWy-u5mxdPxrhacK4JQ@mail.gmail.com>
+In-Reply-To: <20221203215535.208948-2-geomatsi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_153430_219179_90B4FD77 
-X-CRM114-Status: GOOD (  35.75  )
+X-CRM114-CacheID: sfid-20221204_154327_866583_0513784B 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +73,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5829973216697282200=="
+Content-Type: multipart/mixed; boundary="===============4508879659887632717=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5829973216697282200==
+--===============4508879659887632717==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="HlfaDJpKZhs96dAp"
+	protocol="application/pgp-signature"; boundary="uMjV2SnuoiE65GZo"
 Content-Disposition: inline
 
 
---HlfaDJpKZhs96dAp
+--uMjV2SnuoiE65GZo
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Rob, Anup, Prabhakar,
-
-On Fri, Dec 02, 2022 at 12:03:05PM +0530, Anup Patel wrote:
-> On Fri, Dec 2, 2022 at 5:36 AM Rob Herring <robh@kernel.org> wrote:
-> >
-> > On Thu, Dec 01, 2022 at 06:09:54PM +0530, Anup Patel wrote:
-> > > We should set CLOCK_EVT_FEAT_C3STOP for a clock_event_device only
-> > > when riscv,timer-cannot-wake-cpu DT property is present in the RISC-V
-> > > timer DT node.
-> > >
-> > > This way CLOCK_EVT_FEAT_C3STOP feature is set for clock_event_device
-> > > based on RISC-V platform capabilities rather than having it set for
-> > > all RISC-V platforms.
-> > >
-> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > ---
-> > >  drivers/clocksource/timer-riscv.c | 12 +++++++++++-
-> > >  1 file changed, 11 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/=
-timer-riscv.c
-> > > index 969a552da8d2..1b4b36df5484 100644
-> > > --- a/drivers/clocksource/timer-riscv.c
-> > > +++ b/drivers/clocksource/timer-riscv.c
-> > > @@ -28,6 +28,7 @@
-> > >  #include <asm/timex.h>
-> > >
-> > >  static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> > > +static bool riscv_timer_cannot_wake_cpu;
-> > >
-> > >  static int riscv_clock_next_event(unsigned long delta,
-> > >               struct clock_event_device *ce)
-> > > @@ -51,7 +52,7 @@ static int riscv_clock_next_event(unsigned long del=
-ta,
-> > >  static unsigned int riscv_clock_event_irq;
-> > >  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) =
-=3D {
-> > >       .name                   =3D "riscv_timer_clockevent",
-> > > -     .features               =3D CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_=
-FEAT_C3STOP,
-> > > +     .features               =3D CLOCK_EVT_FEAT_ONESHOT,
-> >
-> > A platform that depended on CLOCK_EVT_FEAT_C3STOP being set will break
-> > with this change because its existing DT will not have the new property.
-> >
-> > It needs to be the other way around which would effectively be the
-> > existing 'always-on' property.
+On Sun, Dec 04, 2022 at 12:55:33AM +0300, Sergey Matyukevich wrote:
+> From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 >=20
-> There are no RISC-V platforms using C3STOP. The patch which
-> added C3STOP has been reverted.
-> (Refer, https://lore.kernel.org/lkml/a218ebf8-0fba-168d-6598-c970bbff5faf=
-@sholland.org/T/)
+> RISC-V backend for hw-breakpoint framework is built on top of SBI Debug
+> Trigger extension. Architecture specific hooks are implemented as kernel
+> wrappers around ecalls to SBI functions. This patch implements only a
+> minimal set of hooks required to support user-space debug via ptrace.
 >=20
-> I just need to rebase this patch upon the C3STOP revert patch.
+> Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 2a0ef738695e..ef41d60a5ed3 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -31,6 +31,9 @@ enum sbi_ext_id {
+>  	SBI_EXT_SRST =3D 0x53525354,
+>  	SBI_EXT_PMU =3D 0x504D55,
+> =20
+> +	/* Experimental: Debug Trigger Extension */
+> +	SBI_EXT_DBTR =3D 0x44425452,
+> +
+>  	/* Experimentals extensions must lie within this range */
+>  	SBI_EXT_EXPERIMENTAL_START =3D 0x08000000,
+>  	SBI_EXT_EXPERIMENTAL_END =3D 0x08FFFFFF,
 
-I guess you could say that the C3STOP addition was done spec-ulatively*,
-as the platform that actually exhibits that behaviour does not use the
-riscv-timer & its maintainer acked the revert (allwinner d1 family).
+This is an RFC for something I know nothing about, so was just scrolling
+mindlessly... This caught my eye as odd - There's an explicit comment
+about the range for experimental stuff but you've not used it? I guess
+there must be some reason for that?
 
-*The spec does not make any guarantees about whether events arrive
-during suspend, only the behaviour *if* they arrive.
-
-Switching the property to "always-on" would require retrofitting that
-property to every other existing platform (and therefore regressing some
-behaviour there, no?).
-
-Most of the existing platforms are "toys" or demo platforms though, so
-it would not, I guess, be the end of the world to do so. Doubly so since
-none of them actually implement any sleep states that making it an
-"always-on" property.
-
-I've said since the start that defaulting to C3STOP is the "safer" thing
-to do, and although we disagreed on this last time Anup, I think the
-better outcome of someone missing a DT property is inaccessible sleep
-states rather than going into sleep states they cannot get out of.
-
-For PolarFire SoC, which I guess is one of the few "commerical"
-platforms, I'd be willing to accept retrofitting, since we have not yet
-implemented such sleep states yet.
-
-Maybe Prabhakar knows whether the RZ/Five has either a) implemented
-sleep states and b) which side of the "timer events arrive in suspend"
-divide their platform lies on.
-I'm particular interested here since that is not a SiFive core complex.
-
-I would like to get DT maintainer approval of an approach here soon-ish
-so that we can something sorted for the jh7110 stuff and for the
-bouffalolabs SoC - the latter of which may very well be in the "no
-events in suspend" camp as it also uses thead stuff.
-
-Sorry for kinda rowing back on my previous acceptance of the approach,
-but I am really between two minds on this.
-
-Thanks,
+Confused,
 Conor.
 
 
---HlfaDJpKZhs96dAp
+--uMjV2SnuoiE65GZo
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY40uVQAKCRB4tDGHoIJi
-0iXwAQDvaIbyKF4NJU9VaT5Lh4McyjHE+Y8vdOlJksMvF+Hc1AEA60gVnGIV8CWe
-iMzMzE7jeqmjP23QMLt5HftoInManQg=
-=ydQx
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY40wmQAKCRB4tDGHoIJi
+0p/FAP46KqMJj6R9BTzZwIRwNPeVc8agmyBqGWfMHkYoVNXm5QD/TwUq0t9YfU4I
+r1JI/fZrDBXWkqJ8n2xUAnTvN/DgVg0=
+=wQBm
 -----END PGP SIGNATURE-----
 
---HlfaDJpKZhs96dAp--
+--uMjV2SnuoiE65GZo--
 
 
---===============5829973216697282200==
+--===============4508879659887632717==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -222,5 +147,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5829973216697282200==--
+--===============4508879659887632717==--
 
