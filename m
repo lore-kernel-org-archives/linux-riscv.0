@@ -4,65 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D20C4321E
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 18:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A09C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Dec 2022 21:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vw6rxFXkvb7KkrFCt5YheC3l6E1NZ2XkeLL0XLS6bvc=; b=B5ZZofSvZfGWkr
-	SDZhH3fkZBWp9COv/KVjFHgbyv7WVRlR4hnfzGnapaBnsDoY5jAhp846UicqodHLnYl/9GlaFwtBJ
-	Lz2OdWr+rNJ1q6Rt2xzdVCyj28vzgKI9yUg5VnSsu/cvPO43fI3arh51yc1CrVRgoD1J7l1FrNz+T
-	o+jXz7oGBqL1wPtDVNgHo+7bpMZizOHM0vmdzbQeI3+4IPx825FJBvr7nmaj7HEZXiF+wE6ejm8pd
-	Ui98Zl9zJSTuvgmjI2NgmKj+ggHnUOHkS6x/ggiNo933o7agraL1TOuF2ub2qORhbZU1BGb9zJLCn
-	58Et3CLyfsc3iFLH6ZAA==;
+	List-Owner; bh=5NOIXxP4GhYUhR8SovpEgKsBPM+aOvheYclD0MPMHa8=; b=wfRj4OUQrnzaJ0
+	eZUlpcHUzMNdNHS0OHcLEG+N2de651jl6d1vVauE+kO/bAifVXC6gW6VGF9Oa8Q92/tGKuOD0WMjy
+	CXLryyG6WJq8k5faAICH1ueeOkLpjdCvj02pnVMvuegJqvpu6jJxthjQP5XHH3gualJwZ1frvntII
+	eUo/JSSfEoM/5Vpf40iNS3pgviV0ppz4b7Ug7oS1b7UWyfBEdpDovmaRHogM5JZ53pPMSMYgjyAx6
+	HfNDT0MuNz9CLeIvTU0xFcW8XYqSKzMKSb/NqcJ46rIeZj18+BSOh648Ttp52cWQ3r41bfqxRLUAA
+	8WsUxjypPnwRsGeiRwdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1tIE-00A85L-EW; Sun, 04 Dec 2022 18:00:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1p1wuM-00BRq9-Jm; Sun, 04 Dec 2022 21:52:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1tEf-00A6kq-TB; Sun, 04 Dec 2022 17:57:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 6B81960EE0;
-	Sun,  4 Dec 2022 17:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 820BEC433D7;
-	Sun,  4 Dec 2022 17:57:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670176624;
-	bh=JXzPxvFpWQXfBP14y0JZvUn34ik1sRVmrtRbscUXSzk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E7uERDpLmA51CeeeqseZ7VOvhDxV/BnNb89BObR8vFxipu3a7G9ACLphKz1DSAfE0
-	 p55xdOiTuLzvwda+mzn/a25lku6qOXof1nFy4S7V/1oI+E6R0qHi2B+8MpRivnagjU
-	 Ts4Jpc9lFdfNi93iAXEmcq16W9C5FXQMsKfUDDoCRQjqxBVS4pEpZBKqHTB7zQK8ci
-	 DGPBKFKBhnCUe+GOuWkZASE600znmEI5XDrJppmIa6TSXx2teSFTut+vvis/DzalYp
-	 hTNgyi7QO2Eyx3nPSmyCHH9zuddIWgo0L1LoN6mnPHnnjBE7UoaVWB70ArhcgLhFkH
-	 wBq14VfW2mEZQ==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v2 13/13] riscv: remove riscv_isa_ext_keys[] array and related usage
-Date: Mon,  5 Dec 2022 01:46:32 +0800
-Message-Id: <20221204174632.3677-14-jszhang@kernel.org>
-X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20221204174632.3677-1-jszhang@kernel.org>
-References: <20221204174632.3677-1-jszhang@kernel.org>
+	id 1p1wuK-00BRnR-0y; Sun, 04 Dec 2022 21:52:21 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1p1wu6-0006zx-3Y; Sun, 04 Dec 2022 22:52:06 +0100
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 02/13] riscv: move riscv_noncoherent_supported() out of ZICBOM probe
+Date: Sun, 04 Dec 2022 22:52:03 +0100
+Message-ID: <5629547.DvuYhMxLoT@diego>
+In-Reply-To: <20221204174632.3677-3-jszhang@kernel.org>
+References: <20221204174632.3677-1-jszhang@kernel.org> <20221204174632.3677-3-jszhang@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_095706_060575_961EA986 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20221204_135220_095499_D70536A6 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +57,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All users have switched to riscv_has_extension_*, removed unused
-definitions, vars and related setting code.
+Am Sonntag, 4. Dezember 2022, 18:46:21 CET schrieb Jisheng Zhang:
+> It's a bit weird to call riscv_noncoherent_supported() each time when
+> insmoding a module. Move the calling out of feature patch func.
+> 
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  arch/riscv/kernel/cpufeature.c | 1 -
+>  arch/riscv/kernel/setup.c      | 2 ++
+>  2 files changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index c743f0adc794..364d1fe86bea 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -274,7 +274,6 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+>  	if (!riscv_isa_extension_available(NULL, ZICBOM))
+>  		return false;
+>  
+> -	riscv_noncoherent_supported();
+>  	return true;
+>  }
+>  
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 86acd690d529..6eea40bf8c6b 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -300,6 +300,8 @@ void __init setup_arch(char **cmdline_p)
+>  	riscv_init_cbom_blocksize();
+>  	riscv_fill_hwcap();
+>  	apply_boot_alternatives();
+> +	if (riscv_isa_extension_available(NULL, ZICBOM))
+> +		riscv_noncoherent_supported();
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/riscv/include/asm/hwcap.h | 30 ------------------------------
- arch/riscv/kernel/cpufeature.c |  9 ---------
- 2 files changed, 39 deletions(-)
+hmm, this changes the behaviour slightly. In the probe function there
+is the
+	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
+		return false;
+at the top, so with this change the second WARN_TAINT in arch_setup_dma_ops
+will behave differently
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index e2d3f6df7701..be00a4337578 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -60,18 +60,6 @@ enum {
- 
- extern unsigned long elf_hwcap;
- 
--/*
-- * This enum represents the logical ID for each RISC-V ISA extension static
-- * keys. We can use static key to optimize code path if some ISA extensions
-- * are available.
-- */
--enum riscv_isa_ext_key {
--	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
--	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
--	RISCV_ISA_EXT_KEY_SVINVAL,
--	RISCV_ISA_EXT_KEY_MAX,
--};
--
- struct riscv_isa_ext_data {
- 	/* Name of the extension displayed to userspace via /proc/cpuinfo */
- 	char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-@@ -79,24 +67,6 @@ struct riscv_isa_ext_data {
- 	unsigned int isa_ext_id;
- };
- 
--extern struct static_key_false riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_MAX];
--
--static __always_inline int riscv_isa_ext2key(int num)
--{
--	switch (num) {
--	case RISCV_ISA_EXT_f:
--		return RISCV_ISA_EXT_KEY_FPU;
--	case RISCV_ISA_EXT_d:
--		return RISCV_ISA_EXT_KEY_FPU;
--	case RISCV_ISA_EXT_ZIHINTPAUSE:
--		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
--	case RISCV_ISA_EXT_SVINVAL:
--		return RISCV_ISA_EXT_KEY_SVINVAL;
--	default:
--		return -EINVAL;
--	}
--}
--
- static __always_inline bool
- riscv_has_extension_likely(const unsigned long ext)
- {
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index adeac90b1d8e..3240a2915bf1 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -28,9 +28,6 @@ unsigned long elf_hwcap __read_mostly;
- /* Host ISA bitmap */
- static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
- 
--DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
--EXPORT_SYMBOL(riscv_isa_ext_keys);
--
- /**
-  * riscv_isa_extension_base() - Get base extension word
-  *
-@@ -243,12 +240,6 @@ void __init riscv_fill_hwcap(void)
- 		if (elf_hwcap & BIT_MASK(i))
- 			print_str[j++] = (char)('a' + i);
- 	pr_info("riscv: ELF capabilities %s\n", print_str);
--
--	for_each_set_bit(i, riscv_isa, RISCV_ISA_EXT_MAX) {
--		j = riscv_isa_ext2key(i);
--		if (j >= 0)
--			static_branch_enable(&riscv_isa_ext_keys[j]);
--	}
- }
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
--- 
-2.37.2
+Heiko
+
+
 
 
 _______________________________________________
