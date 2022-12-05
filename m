@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A02C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB48C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 19:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucm2pDcf0yZwUPd17SQz/8lzNjX4gJgPUMKL4DvycGo=; b=boTxvJ31UR99mT0Z09y62DtkpR
-	ePWwO1x6wY0ldr6GolxWZ4viA2H/MKLPsCU12iywFzOXmxngSzLFL47U05UBEI0j5endlc7ZTe2qs
-	70szbA2oFOIFPfoTZ7HyAYyf2/NRgA9PZYfuX2oFLn3TXn5o0K6FbsxtZ605YK7NxDqHcmV325fIJ
-	ZEOEbr6DHqye9y8chjNLJ5gwoCNNT3DAsS0X+aq17l835qQuQxXjMczDKi0Npr0BBnQSWDa1jHDup
-	H8S5WiIisc6zH4scSVXX8mhZP+5a4wPFuoiz90DP28/x5eiZ7LXT/qJqD8jxtfYx70cF1/bRStWyE
-	3H2NolAg==;
+	bh=crn4j1zUYaWknOqLeoNPJrkDD8TfBtTksQcaJxiXUxo=; b=x2kpxzyRgcDNsscel8s37p87gJ
+	gIsY6vIUR2o6U2+TqPBNbJFdt76s4bhm+GAPnRV7LUA6rgJcQPTS66togNfJWHG+akS6OyOKr/oRF
+	O7zG0bA926gxWHZPysv4Em8ej06WDvbmPI+ENm3cgDP9qO6pvy5vpR+p1fRJcJnwzSNSGrQ9fqCal
+	Oz32lJmD27rFbcLnWhsEb4InLCZvWCuh/fdjMz2C0o+umYNX7YtrerZVUlVe6QCezOpWgdVBJxPre
+	YP60q+YQwcr8QXl+H9JraZkIKpzS0GSWUODE/zcw1cZ+qShKg8rsoLhTaonmIX4pAji4vnDykgfKs
+	nR6xv6Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2GbP-008pAg-Bh; Mon, 05 Dec 2022 18:54:07 +0000
+	id 1p2GqQ-0098cU-Sf; Mon, 05 Dec 2022 19:09:38 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2GbH-008p3k-KQ; Mon, 05 Dec 2022 18:54:01 +0000
+	id 1p2GqN-0098ZO-UP; Mon, 05 Dec 2022 19:09:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EB666612FA;
-	Mon,  5 Dec 2022 18:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002C8C433C1;
-	Mon,  5 Dec 2022 18:53:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6E664612ED;
+	Mon,  5 Dec 2022 19:09:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9F5C433C1;
+	Mon,  5 Dec 2022 19:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670266438;
-	bh=dDkwloYPqTSZ4SPvf12m0QEAckEY0pJcFUlkg7vk9bw=;
+	s=k20201202; t=1670267374;
+	bh=6ugKg8XgFTkNG84QNFHtzuPWco24KqBv6OpdEDRioF0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dVE9deyV41By2ecKZTxyNR/vJluvD+S+wrV47jbjfV8izTa4gMYXx7zIVwLauOsyN
-	 IHLVw3h9kHqr4SHZB2URR7iU/abT0V9/hd34vcLM74k2roTRA22lvJmObJDJzHA6g4
-	 3qfgroGFhn4D/LIfrc4+DUSofA80f3hgJFeS1jVSc4v9m4CXqPaB9j72EGyto04aBz
-	 ylV3HyuobxbU0IcwC/x0l6GGOO/8PRYpDdYDfX9oeu3z6eORZ+phGKIFZiK+5kbTG2
-	 sc+yFdW1qyVq8CMgqZxRBGS7YJg67BmjczpwnszScQFrOdJr7Lpw/qIvcdRu+LQ0OM
-	 fytLkls7jOHsg==
-Date: Mon, 5 Dec 2022 18:53:53 +0000
+	b=FQ6ZDMbocsys8DvrxnXnZS67TgJYhZkYERnmdFOeolKoOj8ggiPZUAs/0ZD+Ql78i
+	 +77/x2EExotYgU3SpDgxtbTIeL1jKBPu8BmdHv0HbBfc4Aa5c4EQ1jCciEdlSx2Nfy
+	 kzvuJkVM6iVjtUrBO7KwGFXQc/CInJWMWtViYk7STVfM+VtHPxlQyxP1QpkGLTPZT0
+	 MhCbWkxud8JmjP0lk1ny1l2XQFZT/+Kf5WfExvxFMyjH0Gc2gE0IjTwQDwI0lytl8g
+	 IvLhQWnpJRfuDGyqB9Y5veYtY1lHqtXKYlKi+LKEW6Zroj69Gxl6C5xd4P37gHxhPP
+	 aPnxC2j5REpDw==
+Date: Mon, 5 Dec 2022 19:09:29 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,16 +52,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 04/13] riscv: hwcap: make ISA extension ids can be
- used in asm
-Message-ID: <Y44+QWJfaa7haS/5@spud>
+Subject: Re: [PATCH v2 03/13] riscv: cpufeature: detect
+ RISCV_ALTERNATIVES_EARLY_BOOT earlier
+Message-ID: <Y45B6eB0BQTSZMEa@spud>
 References: <20221204174632.3677-1-jszhang@kernel.org>
- <20221204174632.3677-5-jszhang@kernel.org>
+ <20221204174632.3677-4-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20221204174632.3677-5-jszhang@kernel.org>
+In-Reply-To: <20221204174632.3677-4-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_105359_791523_1A050A9E 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20221205_110936_042637_9A3BAE3B 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,141 +73,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5991058787352407325=="
+Content-Type: multipart/mixed; boundary="===============2684160307752995112=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5991058787352407325==
+--===============2684160307752995112==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="SoXKSTu70JicbV71"
+	protocol="application/pgp-signature"; boundary="ROJIk5MPQ3MQ0MkM"
 Content-Disposition: inline
 
 
---SoXKSTu70JicbV71
+--ROJIk5MPQ3MQ0MkM
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Jisheng,
-
-On Mon, Dec 05, 2022 at 01:46:23AM +0800, Jisheng Zhang wrote:
-> We will make use of ISA extension in asm files, so make the multi-letter
-> RISC-V ISA extension IDs macros rather than enums and move them and
-> those base ISA extension IDs to suitable place.
-
-Which base ISA extension IDs? Changelog should match the patch contents,
-and it's a little unclear here since the base ISA extension IDs are
-visible here but in the context not the diff.
-
+On Mon, Dec 05, 2022 at 01:46:22AM +0800, Jisheng Zhang wrote:
+> Now, the riscv_cpufeature_patch_func() do nothing in the stage of
+> RISCV_ALTERNATIVES_EARLY_BOOT. We can move the detection of "early
+> boot" stage earlier.
 >=20
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/hwcap.h | 43 ++++++++++++++++------------------
->  1 file changed, 20 insertions(+), 23 deletions(-)
->=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index b22525290073..996884986fea 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -12,20 +12,6 @@
->  #include <linux/bits.h>
->  #include <uapi/asm/hwcap.h>
-> =20
-> -#ifndef __ASSEMBLY__
-> -#include <linux/jump_label.h>
-> -/*
-> - * This yields a mask that user programs can use to figure out what
-> - * instruction set this cpu supports.
-> - */
-> -#define ELF_HWCAP		(elf_hwcap)
-> -
-> -enum {
-> -	CAP_HWCAP =3D 1,
-> -};
-> -
-> -extern unsigned long elf_hwcap;
-> -
->  #define RISCV_ISA_EXT_a		('a' - 'a')
->  #define RISCV_ISA_EXT_c		('c' - 'a')
->  #define RISCV_ISA_EXT_d		('d' - 'a')
-> @@ -46,22 +32,33 @@ extern unsigned long elf_hwcap;
->  #define RISCV_ISA_EXT_BASE 26
-> =20
->  /*
-> - * This enum represent the logical ID for each multi-letter RISC-V ISA e=
-xtension.
-> + * These macros represent the logical ID for each multi-letter RISC-V IS=
-A extension.
->   * The logical ID should start from RISCV_ISA_EXT_BASE and must not exce=
-ed
->   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
->   * extensions while all the multi-letter extensions should define the ne=
-xt
->   * available logical extension id.
->   */
-> -enum riscv_isa_ext_id {
-> -	RISCV_ISA_EXT_SSCOFPMF =3D RISCV_ISA_EXT_BASE,
-> -	RISCV_ISA_EXT_SVPBMT,
-> -	RISCV_ISA_EXT_ZICBOM,
-> -	RISCV_ISA_EXT_ZIHINTPAUSE,
-> -	RISCV_ISA_EXT_SSTC,
-> -	RISCV_ISA_EXT_SVINVAL,
-> -	RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
-> +#define RISCV_ISA_EXT_SSCOFPMF		26
-> +#define RISCV_ISA_EXT_SVPBMT		27
-> +#define RISCV_ISA_EXT_ZICBOM		28
-> +#define RISCV_ISA_EXT_ZIHINTPAUSE	29
-> +#define RISCV_ISA_EXT_SSTC		30
-> +#define RISCV_ISA_EXT_SVINVAL		31
+> In following patch, we will make riscv_cpufeature_patch_func() scans
+> all ISA extensions.
 
-Could you re-order these alphabetically when you move them please?
+I'm not 100% on the motivation here. Let me try and regurgitate the
+changelog in a way that makes more sense to me and maybe you can confirm
+it.
+
+Currently riscv_cpufeature_patch_func() does nothing at the
+RISCV_ALTERNATIVES_EARLY_BOOT stage.
+Add a check to detect whether we are in this stage and exit early.
+This will allow us to use riscv_cpufeature_patch_func() for scanning of
+all ISA extensions.
+
+Would that be a correct summary?
 
 Thanks,
 Conor.
 
-> +
-> +#ifndef __ASSEMBLY__
-> +#include <linux/jump_label.h>
-> +/*
-> + * This yields a mask that user programs can use to figure out what
-> + * instruction set this cpu supports.
-> + */
-> +#define ELF_HWCAP		(elf_hwcap)
-> +
-> +enum {
-> +	CAP_HWCAP =3D 1,
->  };
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/riscv/kernel/cpufeature.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
+e.c
+> index 364d1fe86bea..a4d2af67e05c 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -305,6 +305,9 @@ void __init_or_module riscv_cpufeature_patch_func(str=
+uct alt_entry *begin,
+>  	struct alt_entry *alt;
+>  	u32 tmp;
 > =20
-> +extern unsigned long elf_hwcap;
+> +	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+> +		return;
 > +
->  /*
->   * This enum represents the logical ID for each RISC-V ISA extension sta=
-tic
->   * keys. We can use static key to optimize code path if some ISA extensi=
-ons
+>  	for (alt =3D begin; alt < end; alt++) {
+>  		if (alt->vendor_id !=3D 0)
+>  			continue;
 > --=20
 > 2.37.2
 >=20
 
---SoXKSTu70JicbV71
+--ROJIk5MPQ3MQ0MkM
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY44+QQAKCRB4tDGHoIJi
-0lI5AQCQU4Yulx3aPJ/8VwGzte0KU1wRgZkLQgu+/cIrvg4iygEArz2COMO1jpcT
-yHkDw3opFZX0/12MgPrroFAUZCOdQQw=
-=Ph2m
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY45B6QAKCRB4tDGHoIJi
+0gcWAQCiQMg5Wozpr0WVgdCehOiu3NTihv2RvGoWtlhZoCEB0QEAs910IJMPlZ99
+OxKW1kxlggOReEGh+AHf4JDbq+k4VA0=
+=f2RF
 -----END PGP SIGNATURE-----
 
---SoXKSTu70JicbV71--
+--ROJIk5MPQ3MQ0MkM--
 
 
---===============5991058787352407325==
+--===============2684160307752995112==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -218,5 +165,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5991058787352407325==--
+--===============2684160307752995112==--
 
