@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCF7C4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 05:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8EDC4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 07:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tfO0iDmZ7ZhXVOYMCaSfRzqy8DezU8A5Q9ctdOROPyY=; b=xvZofUp1Nxr328
-	lUHZOlCouVCzHqR/NWa1HQmzFwVF02pqY6fk00xpCmF4SK+OR1EzwAjamiNrQWQRMiBdYrzXtVvEy
-	GuHPb08C7foN53A4ePspbtTP7ZS8sfHooH/a7UJ+U6dtoXq9nISckgKdLQOFhg80k4c0tdQe+R1kX
-	YRl24oVKi4ux1LKpblZxUl2MSDqEIopbxlrmTiYQZf8qELx29Bj5h9VwRtl9g2bcoaJbZz1jmHcT4
-	iKfamr8Mic9v9TSTQMzDa1ZsbIDLObhn3h+UpY0vpNZ95EghKfbr0oVEd+lpn3CkKcB7D+lQh6QnQ
-	N34WrRI1wvuCvuFt1bqg==;
+	List-Owner; bh=VScZ4spOcCIZlinteKJoP7ptPyEMA3QnywzYEGnc7/Y=; b=k3PmR8Pnelf8X2
+	icYTW1DUjZkFZWD0HY6awaT4xHlj7IVWU3LoVP6UrH9XRIkojcjo+wyGR7hHUmZ8B+gBLueUJ8sbT
+	8LByuDTSooIl4p0IR+BE0jVv3RvTY8sTIH5WI7TK7VQtbsxwTk+yvdOvUiASv5kszh9RE/jitkDUZ
+	GfTNGr4vXxWbnCVLQtN4BAVeyrbpbpKBjL06MpIKsKepX3KMhvpJchWaoPN27J16kanvw32lpUZXA
+	h6JLRoq6AMuQZgy/AK5hd8MnIXdXTOS/FOHTyhVVor842/HFS422Mj2aKYNDiFwB4/cxK+XYi5cM/
+	dXPJAHSSr3ZriqOlq+Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p23bQ-00E7Gu-M0; Mon, 05 Dec 2022 05:01:16 +0000
-Received: from bg4.exmail.qq.com ([43.154.221.58])
+	id 1p25h2-00FS5A-2n; Mon, 05 Dec 2022 07:15:12 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p23bM-00E7DD-L0
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 05:01:15 +0000
-X-QQ-mid: bizesmtp83t1670216444t8l5fgul
-Received: from ubuntu.. ( [111.196.135.79])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 05 Dec 2022 13:00:43 +0800 (CST)
-X-QQ-SSF: 01200000000000B0B000000A0000000
-X-QQ-FEAT: TOO/YuwAHLNsU0I0UDkDXj1aiAPrDdXJhTuoCy6bPBDajHhPYPR1SwPcUNi48
-	hVXep8OiNbPn4Zn65lGbchtJpLbNMBKVt+/em4uIyB4L7sQbYMUfE7CUn9mcORqFxtY4yH9
-	Pdbu0xJVtlJUDBlhdjVnsgQsMXlw6aMZZj1nWdAAAAnlbCPOdPdxuuxBjKq2nPbfgaUEKVn
-	tcSwlg8PCcS2y8pxeMIUpy1LDDgFbvdVRvHxvRmOeL6kirMgkgPgMpgTarbL89YrIGQ6i4t
-	FUPHHXnk6/lhDKO7bpsacw+R8P71ag10HUVeqA9MiwnXaO2TnX1DErGFITGucKpnQpyEYBs
-	fV2OBqVArNAc34+qgyT4i0jG4Vsytk4Fx/QW+JhUcOCur0iq+w=
-X-QQ-GoodBg: 0
-From: Bin Meng <bmeng@tinylab.org>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Subject: [PATCH 2/2] serial: Rename earlycon semihost driver
-Date: Mon,  5 Dec 2022 13:00:38 +0800
-Message-Id: <20221205050038.195746-2-bmeng@tinylab.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221205050038.195746-1-bmeng@tinylab.org>
-References: <20221205050038.195746-1-bmeng@tinylab.org>
+	id 1p25gy-00FRuN-Sp
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 07:15:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id 96D0C425EA;
+	Mon,  5 Dec 2022 07:14:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1670224501; bh=hVJZFwKCPTntcp35N/eazjq7Urb5u5fINx8mvznpmTU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Eeb/UNa5pYjDLE+moAUp4d24r2sjPTT0HZp2+I3O3pKkiRqqTYmPYTA0Vox2qWpbP
+	 /GzxOwq0TrPbBj46swXE9AATZ44ElOX4ad7PS0YKRd+ethiiBXEBDHXybmDYYbcYNZ
+	 C+zAi4gjwSL/zfokZzi0XgGpeRturFoEhGTO1lwY8BItxJZJHY11cne99LbDk9X1iN
+	 8/K0pUkt+gUEiTbQSRFYtL9MfOAoDKxbo+E0Rn/f6E+NLzs9j7dbhJPBH1MJLRnbz0
+	 a/CZ6ihB5uNkieuT7aBcKcIOcHdZ8oEYBsgsbQ6HefXY79fEEhHK24EfaGbLivhki6
+	 81ReHw8P8WWQA==
+Message-ID: <18abbb1b-ec5e-11c6-ab16-b523f329064e@marcan.st>
+Date: Mon, 5 Dec 2022 16:14:54 +0900
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr3
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v15 9/9] irqchip/apple-aic: Move over to core ipi-mux
+Content-Language: en-US
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
+ <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+References: <20221203064629.1601299-1-apatel@ventanamicro.com>
+ <20221203064629.1601299-10-apatel@ventanamicro.com>
+From: Hector Martin <marcan@marcan.st>
+In-Reply-To: <20221203064629.1601299-10-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_210113_009828_5278D47A 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20221204_231509_559321_A054B463 
+X-CRM114-Status: GOOD (  37.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,67 +80,251 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that earlycon semihost driver works on RISC-V too, let's use a
-much more generic name for the driver.
+On 03/12/2022 15.46, Anup Patel wrote:
+> From: Marc Zyngier <maz@kernel.org>
+> 
+> Now that the complexity of the AIC IPI mux has been copied into
+> the core code for the benefit of the riscv architecture,
+> shrink the AIC driver by the same amount by using that infrastructure.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/irqchip/Kconfig         |   1 +
+>  drivers/irqchip/irq-apple-aic.c | 161 ++------------------------------
+>  2 files changed, 9 insertions(+), 153 deletions(-)
+> 
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index 131379aa8424..0fd452b49ed9 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -675,6 +675,7 @@ config APPLE_AIC
+>  	bool "Apple Interrupt Controller (AIC)"
+>  	depends on ARM64
+>  	depends on ARCH_APPLE || COMPILE_TEST
+> +	select GENERIC_IRQ_IPI_MUX
+>  	help
+>  	  Support for the Apple Interrupt Controller found on Apple Silicon SoCs,
+>  	  such as the M1.
+> diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+> index 1c2813ad8bbe..1fa81fcff788 100644
+> --- a/drivers/irqchip/irq-apple-aic.c
+> +++ b/drivers/irqchip/irq-apple-aic.c
+> @@ -292,7 +292,6 @@ struct aic_irq_chip {
+>  	void __iomem *base;
+>  	void __iomem *event;
+>  	struct irq_domain *hw_domain;
+> -	struct irq_domain *ipi_domain;
+>  	struct {
+>  		cpumask_t aff;
+>  	} *fiq_aff[AIC_NR_FIQ];
+> @@ -307,9 +306,6 @@ struct aic_irq_chip {
+>  
+>  static DEFINE_PER_CPU(uint32_t, aic_fiq_unmasked);
+>  
+> -static DEFINE_PER_CPU(atomic_t, aic_vipi_flag);
+> -static DEFINE_PER_CPU(atomic_t, aic_vipi_enable);
+> -
+>  static struct aic_irq_chip *aic_irqc;
+>  
+>  static void aic_handle_ipi(struct pt_regs *regs);
+> @@ -751,98 +747,8 @@ static void aic_ipi_send_fast(int cpu)
+>  	isb();
+>  }
+>  
+> -static void aic_ipi_mask(struct irq_data *d)
+> -{
+> -	u32 irq_bit = BIT(irqd_to_hwirq(d));
+> -
+> -	/* No specific ordering requirements needed here. */
+> -	atomic_andnot(irq_bit, this_cpu_ptr(&aic_vipi_enable));
+> -}
+> -
+> -static void aic_ipi_unmask(struct irq_data *d)
+> -{
+> -	struct aic_irq_chip *ic = irq_data_get_irq_chip_data(d);
+> -	u32 irq_bit = BIT(irqd_to_hwirq(d));
+> -
+> -	atomic_or(irq_bit, this_cpu_ptr(&aic_vipi_enable));
+> -
+> -	/*
+> -	 * The atomic_or() above must complete before the atomic_read()
+> -	 * below to avoid racing aic_ipi_send_mask().
+> -	 */
+> -	smp_mb__after_atomic();
+> -
+> -	/*
+> -	 * If a pending vIPI was unmasked, raise a HW IPI to ourselves.
+> -	 * No barriers needed here since this is a self-IPI.
+> -	 */
+> -	if (atomic_read(this_cpu_ptr(&aic_vipi_flag)) & irq_bit) {
+> -		if (static_branch_likely(&use_fast_ipi))
+> -			aic_ipi_send_fast(smp_processor_id());
+> -		else
+> -			aic_ic_write(ic, AIC_IPI_SEND, AIC_IPI_SEND_CPU(smp_processor_id()));
+> -	}
+> -}
+> -
+> -static void aic_ipi_send_mask(struct irq_data *d, const struct cpumask *mask)
+> -{
+> -	struct aic_irq_chip *ic = irq_data_get_irq_chip_data(d);
+> -	u32 irq_bit = BIT(irqd_to_hwirq(d));
+> -	u32 send = 0;
+> -	int cpu;
+> -	unsigned long pending;
+> -
+> -	for_each_cpu(cpu, mask) {
+> -		/*
+> -		 * This sequence is the mirror of the one in aic_ipi_unmask();
+> -		 * see the comment there. Additionally, release semantics
+> -		 * ensure that the vIPI flag set is ordered after any shared
+> -		 * memory accesses that precede it. This therefore also pairs
+> -		 * with the atomic_fetch_andnot in aic_handle_ipi().
+> -		 */
+> -		pending = atomic_fetch_or_release(irq_bit, per_cpu_ptr(&aic_vipi_flag, cpu));
+> -
+> -		/*
+> -		 * The atomic_fetch_or_release() above must complete before the
+> -		 * atomic_read() below to avoid racing aic_ipi_unmask().
+> -		 */
+> -		smp_mb__after_atomic();
+> -
+> -		if (!(pending & irq_bit) &&
+> -		    (atomic_read(per_cpu_ptr(&aic_vipi_enable, cpu)) & irq_bit)) {
+> -			if (static_branch_likely(&use_fast_ipi))
+> -				aic_ipi_send_fast(cpu);
+> -			else
+> -				send |= AIC_IPI_SEND_CPU(cpu);
+> -		}
+> -	}
+> -
+> -	/*
+> -	 * The flag writes must complete before the physical IPI is issued
+> -	 * to another CPU. This is implied by the control dependency on
+> -	 * the result of atomic_read_acquire() above, which is itself
+> -	 * already ordered after the vIPI flag write.
+> -	 */
+> -	if (send)
+> -		aic_ic_write(ic, AIC_IPI_SEND, send);
+> -}
+> -
+> -static struct irq_chip ipi_chip = {
+> -	.name = "AIC-IPI",
+> -	.irq_mask = aic_ipi_mask,
+> -	.irq_unmask = aic_ipi_unmask,
+> -	.ipi_send_mask = aic_ipi_send_mask,
+> -};
+> -
+> -/*
+> - * IPI IRQ domain
+> - */
+> -
+>  static void aic_handle_ipi(struct pt_regs *regs)
+>  {
+> -	int i;
+> -	unsigned long enabled, firing;
+> -
+>  	/*
+>  	 * Ack the IPI. We need to order this after the AIC event read, but
+>  	 * that is enforced by normal MMIO ordering guarantees.
+> @@ -857,27 +763,7 @@ static void aic_handle_ipi(struct pt_regs *regs)
+>  		aic_ic_write(aic_irqc, AIC_IPI_ACK, AIC_IPI_OTHER);
+>  	}
+>  
+> -	/*
+> -	 * The mask read does not need to be ordered. Only we can change
+> -	 * our own mask anyway, so no races are possible here, as long as
+> -	 * we are properly in the interrupt handler (which is covered by
+> -	 * the barrier that is part of the top-level AIC handler's readl()).
+> -	 */
+> -	enabled = atomic_read(this_cpu_ptr(&aic_vipi_enable));
+> -
+> -	/*
+> -	 * Clear the IPIs we are about to handle. This pairs with the
+> -	 * atomic_fetch_or_release() in aic_ipi_send_mask(), and needs to be
+> -	 * ordered after the aic_ic_write() above (to avoid dropping vIPIs) and
+> -	 * before IPI handling code (to avoid races handling vIPIs before they
+> -	 * are signaled). The former is taken care of by the release semantics
+> -	 * of the write portion, while the latter is taken care of by the
+> -	 * acquire semantics of the read portion.
+> -	 */
+> -	firing = atomic_fetch_andnot(enabled, this_cpu_ptr(&aic_vipi_flag)) & enabled;
+> -
+> -	for_each_set_bit(i, &firing, AIC_NR_SWIPI)
+> -		generic_handle_domain_irq(aic_irqc->ipi_domain, i);
+> +	ipi_mux_process();
+>  
+>  	/*
+>  	 * No ordering needed here; at worst this just changes the timing of
+> @@ -887,55 +773,24 @@ static void aic_handle_ipi(struct pt_regs *regs)
+>  		aic_ic_write(aic_irqc, AIC_IPI_MASK_CLR, AIC_IPI_OTHER);
+>  }
+>  
+> -static int aic_ipi_alloc(struct irq_domain *d, unsigned int virq,
+> -			 unsigned int nr_irqs, void *args)
+> +static void aic_ipi_send_single(unsigned int cpu)
+>  {
+> -	int i;
+> -
+> -	for (i = 0; i < nr_irqs; i++) {
+> -		irq_set_percpu_devid(virq + i);
+> -		irq_domain_set_info(d, virq + i, i, &ipi_chip, d->host_data,
+> -				    handle_percpu_devid_irq, NULL, NULL);
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+> -static void aic_ipi_free(struct irq_domain *d, unsigned int virq, unsigned int nr_irqs)
+> -{
+> -	/* Not freeing IPIs */
+> +	if (static_branch_likely(&use_fast_ipi))
+> +		aic_ipi_send_fast(cpu);
+> +	else
+> +		aic_ic_write(aic_irqc, AIC_IPI_SEND, AIC_IPI_SEND_CPU(cpu));
+>  }
+>  
+> -static const struct irq_domain_ops aic_ipi_domain_ops = {
+> -	.alloc = aic_ipi_alloc,
+> -	.free = aic_ipi_free,
+> -};
+> -
+>  static int __init aic_init_smp(struct aic_irq_chip *irqc, struct device_node *node)
+>  {
+> -	struct irq_domain *ipi_domain;
+>  	int base_ipi;
+>  
+> -	ipi_domain = irq_domain_create_linear(irqc->hw_domain->fwnode, AIC_NR_SWIPI,
+> -					      &aic_ipi_domain_ops, irqc);
+> -	if (WARN_ON(!ipi_domain))
+> -		return -ENODEV;
+> -
+> -	ipi_domain->flags |= IRQ_DOMAIN_FLAG_IPI_SINGLE;
+> -	irq_domain_update_bus_token(ipi_domain, DOMAIN_BUS_IPI);
+> -
+> -	base_ipi = __irq_domain_alloc_irqs(ipi_domain, -1, AIC_NR_SWIPI,
+> -					   NUMA_NO_NODE, NULL, false, NULL);
+> -
+> -	if (WARN_ON(!base_ipi)) {
+> -		irq_domain_remove(ipi_domain);
+> +	base_ipi = ipi_mux_create(AIC_NR_SWIPI, aic_ipi_send_single);
+> +	if (WARN_ON(base_ipi <= 0))
+>  		return -ENODEV;
+> -	}
+>  
+>  	set_smp_ipi_range(base_ipi, AIC_NR_SWIPI);
+>  
+> -	irqc->ipi_domain = ipi_domain;
+> -
+>  	return 0;
+>  }
+>  
 
-Signed-off-by: Bin Meng <bmeng@tinylab.org>
+Reviewed-by: Hector Martin <marcan@marcan.st>
+Tested-by: Hector Martin <marcan@marcan.st>
 
----
+Smoke tested on t8112, nothing exploded :)
 
- drivers/tty/serial/Kconfig                           | 12 ++++++------
- drivers/tty/serial/Makefile                          |  2 +-
- .../{earlycon-arm-semihost.c => earlycon-semihost.c} |  0
- 3 files changed, 7 insertions(+), 7 deletions(-)
- rename drivers/tty/serial/{earlycon-arm-semihost.c => earlycon-semihost.c} (100%)
-
-diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
-index e94d1265151c..a3779472edf6 100644
---- a/drivers/tty/serial/Kconfig
-+++ b/drivers/tty/serial/Kconfig
-@@ -73,17 +73,17 @@ config SERIAL_AMBA_PL011_CONSOLE
- 	  your boot loader (lilo or loadlin) about how to pass options to the
- 	  kernel at boot time.)
- 
--config SERIAL_EARLYCON_ARM_SEMIHOST
--	bool "Early console using ARM semihosting"
-+config SERIAL_EARLYCON_SEMIHOST
-+	bool "Early console using Arm compatible semihosting"
- 	depends on ARM64 || ARM || RISCV
- 	select SERIAL_CORE
- 	select SERIAL_CORE_CONSOLE
- 	select SERIAL_EARLYCON
- 	help
--	  Support for early debug console using ARM semihosting. This enables
--	  the console before standard serial driver is probed. This is enabled
--	  with "earlycon=smh" on the kernel command line. The console is
--	  enabled when early_param is processed.
-+	  Support for early debug console using Arm compatible semihosting.
-+	  This enables the console before standard serial driver is probed.
-+	  This is enabled with "earlycon=smh" on the kernel command line.
-+	  The console is enabled when early_param is processed.
- 
- config SERIAL_EARLYCON_RISCV_SBI
- 	bool "Early console using RISC-V SBI"
-diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-index 238a9557b487..cd9afd9e3018 100644
---- a/drivers/tty/serial/Makefile
-+++ b/drivers/tty/serial/Makefile
-@@ -6,7 +6,7 @@
- obj-$(CONFIG_SERIAL_CORE) += serial_core.o
- 
- obj-$(CONFIG_SERIAL_EARLYCON) += earlycon.o
--obj-$(CONFIG_SERIAL_EARLYCON_ARM_SEMIHOST) += earlycon-arm-semihost.o
-+obj-$(CONFIG_SERIAL_EARLYCON_SEMIHOST) += earlycon-semihost.o
- obj-$(CONFIG_SERIAL_EARLYCON_RISCV_SBI) += earlycon-riscv-sbi.o
- 
- # These Sparc drivers have to appear before others such as 8250
-diff --git a/drivers/tty/serial/earlycon-arm-semihost.c b/drivers/tty/serial/earlycon-semihost.c
-similarity index 100%
-rename from drivers/tty/serial/earlycon-arm-semihost.c
-rename to drivers/tty/serial/earlycon-semihost.c
--- 
-2.34.1
-
+- Hector
 
 _______________________________________________
 linux-riscv mailing list
