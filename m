@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D632FC47089
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 14:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8D6C47088
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 14:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tUbgvbFq32WdhlOYDHOcgrkKrqgTpK4RJCYCQrV6M+M=; b=hMGvAvCR9McW2h
-	50iuqX9Ykx0i7ep2pe2jjPK55QfIOf4BYKCtBsusuCuS2GSZFx9bxr4SeXxCAbPFcPkklvsG8XgUv
-	TjYFWG0uKaJiYxWo9sd4AaO3UnDp61V3nvjPkXvPqW6wZcDEQuTs83TdvZ8Lq5OlEPmSRAqF1S49K
-	Cuhji8L3BJTnwvBMed+/q7B24UBePE0lSsw4ZYhG2VuxcnZNHysbMZyeOg2E+6vQPIFUaytTxXFrR
-	YHLcHYlpB09hOc0Gos1f2LHumCrP9fVYPmTlSTi0+xxJSPyaHxYU8CoD/JXSvwUlHpKNChFXojJm7
-	7PXMYX8rpmOjQMxih7sA==;
+	List-Owner; bh=HCv7igZ2/dd+GcJWZrDWAZ1OQJIJ2hccF0JEAIPkYwU=; b=Ue2oIkj1mv50Hp
+	ucC5H3sN6714Vze3Bp1JtD69YD0FH6daaMh6bcv9pyO8j2Bj8rqYjavZ9hcld9KvUOXAoxO6Gq3dO
+	VrVToQs4RHyey9bqjCM6REEsHhkDGXcVc8xGkacF+Qd/2b7fo80cLUBjxFv1yENHtrkruvfwnU5eI
+	eTLwPgkG+qW7kLs7NznkIJGimvz7uXC9cbs8E3BLcI/4+P/AIYB8ZruDwS0RYUur55D6Se1piOXKM
+	IAP/7SF2XGVjULYsdQcEwoeGG0af8kvNZ1aoHNEGQbGJP0uxOtX8C7fHKO0QP88d43LWSWLd090b0
+	ZZEnaTEFDiZ4wZYRg6Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Cjg-004C2G-TN; Mon, 05 Dec 2022 14:46:24 +0000
+	id 1p2Cji-004C36-L8; Mon, 05 Dec 2022 14:46:26 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Cjc-004BuU-W8
+	id 1p2Cjc-004Bqf-W7
 	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 14:46:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1670251580; x=1701787580;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=mR+tA9ajFYArrwEF7cxAJbYpdeZOV3FQATUmv3J86uc=;
-  b=uZ/V4DZHi5OMuwCLOuwcqXyLmtm/XjKFnCCuLVf88YGlXlSt7tYc4QDw
-   WppaCruC7i8vGy1b+cGx6s7MnTlpm9yx770JrHKapOJ4Kw6A1BEgGYnK7
-   4DNN1Pi71j++DKkoPV4OSFOi8aAdIIDj+wCjAVaLLmmuobtrlkPKZyct8
-   Xu+C2G+UXciMplRImNxIO7j0XfuzwNKFpxIC2RBzg9M5ZQGxtX/3UrBOS
-   t/M8f3xdKQ4u1iSqU7Mu3iufv8kb4E9kIYojtyYF3h9YLZwEI83Ohe858
-   srJYoFao8pgH0P5yDfi5rCkzi9BCkQ5H3uludRep3JiTPYCVALUSagcry
+  bh=/A732PXUzOa5QEDZseaW4QKYJ4f5uZaINwwbpO826ps=;
+  b=chre1jnIITo7PhLcj4OZ2TN242L2dedL0BZRQaQSHt3fyTJRv5v8aDhe
+   k2ccZBqGzscEd3MayzyyCs+ZTjcQsro7bdfrjmzhjLF3Jf+Qyy/LmecLi
+   LCU6URRLu3CygGCVOkjlvgR+xzij/AauP0w/CSZF2zfhsqjg8LO4/xzEq
+   rkImSiCIQtTWQmUNBvuvqPy9gJsZkjYtaeeBpVhxM78HyS+Lv9RdXDAvG
+   KwVU4kQ4O+Ynn4aEboW+wQn0WCawJbfZpR9OrMdsYTmBMrsMt8eybZWyk
+   QD5UietXi2S+872qeiVe4c8Q1bzaRYksHR8Ifwmr38XAEChByFG6bUadE
    w==;
 X-IronPort-AV: E=Sophos;i="5.96,219,1665471600"; 
-   d="scan'208";a="202640935"
+   d="scan'208";a="202640917"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Dec 2022 07:46:17 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Dec 2022 07:46:15 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 5 Dec 2022 07:46:17 -0700
+ 15.1.2507.12; Mon, 5 Dec 2022 07:46:14 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Mon, 5 Dec 2022 07:46:15 -0700
+ Transport; Mon, 5 Dec 2022 07:46:12 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>
 CC: Conor Dooley <conor.dooley@microchip.com>, <ajones@ventanamicro.com>,
 	<aou@eecs.berkeley.edu>, <conor@kernel.org>, <corbet@lwn.net>,
 	<guoren@kernel.org>, <heiko@sntech.de>, <paul.walmsley@sifive.com>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, Heiko Stuebner
-	<heiko.stuebner@vrull.eu>
-Subject: [PATCH v2 2/3] RISC-V: resort all extensions in consistent orders
-Date: Mon, 5 Dec 2022 14:45:25 +0000
-Message-ID: <20221205144525.2148448-3-conor.dooley@microchip.com>
+	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>
+Subject: [PATCH v2 1/3] RISC-V: clarify ISA string ordering rules in cpu.c
+Date: Mon, 5 Dec 2022 14:45:24 +0000
+Message-ID: <20221205144525.2148448-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.38.1
 In-Reply-To: <20221205144525.2148448-1-conor.dooley@microchip.com>
 References: <20221205144525.2148448-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_064621_065443_7A0B2D17 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20221205_064621_072444_5747E0E3 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,125 +81,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ordering between each and every list of extensions is wildly
-inconsistent. Per discussion on the lists pick the following policy:
+While the current list of rules may have been accurate when created
+it now lacks some clarity in the face of isa-manual updates. Instead of
+trying to continuously align this rule-set with the one in the
+specifications, change the role of this comment.
 
-- The array defining order in /proc/cpuinfo follows a narrow
-  interpretation of the ISA specifications, described in a comment
-  immediately presiding it.
+This particular comment is important, as the array it "decorates"
+defines the order in which the ISA string appears to userspace in
+/proc/cpuinfo.
 
-- All other lists of extensions are sorted alphabetically.
+Re-jig and strengthen the wording to provide contributors with a set
+order in which to add entries & note why this particular struct needs
+more attention than others.
 
-This will hopefully allow for easier review & future additions, and
-reduce conflicts between patchsets as the number of extensions grows.
+While in the area, add some whitespace and tweak some wording for
+readability's sake.
 
-Link: https://lore.kernel.org/all/20221129144742.2935581-2-conor.dooley@microchip.com/
 Suggested-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/include/asm/hwcap.h | 12 +++++++-----
- arch/riscv/kernel/cpu.c        |  4 ++--
- arch/riscv/kernel/cpufeature.c |  6 ++++--
- 3 files changed, 13 insertions(+), 9 deletions(-)
+ arch/riscv/kernel/cpu.c | 49 ++++++++++++++++++++++++++++++-----------
+ 1 file changed, 36 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index b22525290073..ce522aad641a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -51,14 +51,15 @@ extern unsigned long elf_hwcap;
-  * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-  * extensions while all the multi-letter extensions should define the next
-  * available logical extension id.
-+ * Entries are sorted alphabetically.
-  */
- enum riscv_isa_ext_id {
- 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-+	RISCV_ISA_EXT_SSTC,
-+	RISCV_ISA_EXT_SVINVAL,
- 	RISCV_ISA_EXT_SVPBMT,
- 	RISCV_ISA_EXT_ZICBOM,
- 	RISCV_ISA_EXT_ZIHINTPAUSE,
--	RISCV_ISA_EXT_SSTC,
--	RISCV_ISA_EXT_SVINVAL,
- 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
- 
-@@ -66,11 +67,12 @@ enum riscv_isa_ext_id {
-  * This enum represents the logical ID for each RISC-V ISA extension static
-  * keys. We can use static key to optimize code path if some ISA extensions
-  * are available.
-+ * Entries are sorted alphabetically.
-  */
- enum riscv_isa_ext_key {
- 	RISCV_ISA_EXT_KEY_FPU,		/* For 'F' and 'D' */
--	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
- 	RISCV_ISA_EXT_KEY_SVINVAL,
-+	RISCV_ISA_EXT_KEY_ZIHINTPAUSE,
- 	RISCV_ISA_EXT_KEY_MAX,
- };
- 
-@@ -90,10 +92,10 @@ static __always_inline int riscv_isa_ext2key(int num)
- 		return RISCV_ISA_EXT_KEY_FPU;
- 	case RISCV_ISA_EXT_d:
- 		return RISCV_ISA_EXT_KEY_FPU;
--	case RISCV_ISA_EXT_ZIHINTPAUSE:
--		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
- 	case RISCV_ISA_EXT_SVINVAL:
- 		return RISCV_ISA_EXT_KEY_SVINVAL;
-+	case RISCV_ISA_EXT_ZIHINTPAUSE:
-+		return RISCV_ISA_EXT_KEY_ZIHINTPAUSE;
- 	default:
- 		return -EINVAL;
- 	}
 diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index db8b16ad9342..0bf1c7f663fc 100644
+index 1b9a5a66e55a..db8b16ad9342 100644
 --- a/arch/riscv/kernel/cpu.c
 +++ b/arch/riscv/kernel/cpu.c
-@@ -185,12 +185,12 @@ arch_initcall(riscv_cpuinfo_init);
-  * New entries to this struct should follow the ordering rules described above.
+@@ -144,22 +144,45 @@ arch_initcall(riscv_cpuinfo_init);
+ 		.uprop = #UPROP,				\
+ 		.isa_ext_id = EXTID,				\
+ 	}
++
+ /*
+- * Here are the ordering rules of extension naming defined by RISC-V
+- * specification :
+- * 1. All extensions should be separated from other multi-letter extensions
+- *    by an underscore.
+- * 2. The first letter following the 'Z' conventionally indicates the most
++ * The canonical order of ISA extension names in the ISA string is defined in
++ * chapter 27 of the unprivileged specification.
++ *
++ * Ordinarily, for in-kernel data structures, this order is unimportant but
++ * isa_ext_arr defines the order of the ISA string in /proc/cpuinfo.
++ *
++ * The specification uses vague wording, such as should, when it comes to
++ * ordering, so for our purposes the following rules apply:
++ *
++ * 1. All multi-letter extensions must be separated from other extensions by an
++ *    underscore.
++ *
++ * 2. Additional standard extensions (starting with 'Z') must be sorted after
++ *    single-letter extensions and before any higher-privileged extensions.
++
++ * 3. The first letter following the 'Z' conventionally indicates the most
+  *    closely related alphabetical extension category, IMAFDQLCBKJTPVH.
+- *    If multiple 'Z' extensions are named, they should be ordered first
+- *    by category, then alphabetically within a category.
+- * 3. Standard supervisor-level extensions (starts with 'S') should be
+- *    listed after standard unprivileged extensions.  If multiple
+- *    supervisor-level extensions are listed, they should be ordered
++ *    If multiple 'Z' extensions are named, they must be ordered first by
++ *    category, then alphabetically within a category.
++ *
++ * 3. Standard supervisor-level extensions (starting with 'S') must be listed
++ *    after standard unprivileged extensions.  If multiple supervisor-level
++ *    extensions are listed, they must be ordered alphabetically.
++ *
++ * 4. Standard machine-level extensions (starting with 'Zxm') must be listed
++ *    after any lower-privileged, standard extensions.  If multiple
++ *    machine-level extensions are listed, they must be ordered
+  *    alphabetically.
+- * 4. Non-standard extensions (starts with 'X') must be listed after all
+- *    standard extensions. They must be separated from other multi-letter
+- *    extensions by an underscore.
++ *
++ * 5. Non-standard extensions (starting with 'X') must be listed after all
++ *    standard extensions. If multiple non-standard extensions are listed, they
++ *    must be ordered alphabetically.
++ *
++ * An example string following the order is:
++ *    rv64imadc_zifoo_zigoo_zafoo_sbar_scar_zxmbaz_xqux_xrux
++ *
++ * New entries to this struct should follow the ordering rules described above.
   */
  static struct riscv_isa_ext_data isa_ext_arr[] = {
-+	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
-+	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
--	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
--	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
- 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
- };
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 694267d1fe81..8a76a6ce70cf 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -199,12 +199,13 @@ void __init riscv_fill_hwcap(void)
- 				this_hwcap |= isa2hwcap[(unsigned char)(*ext)];
- 				set_bit(*ext - 'a', this_isa);
- 			} else {
-+				/* sorted alphabetically */
- 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-+				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-+				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
- 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
- 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
- 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
--				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
--				SET_ISA_EXT_MAP("svinval", RISCV_ISA_EXT_SVINVAL);
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
-@@ -284,6 +285,7 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
-  * This code may also be executed before kernel relocation, so we cannot use
-  * addresses generated by the address-of operator as they won't be valid in
-  * this context.
-+ * Tests, unless otherwise required, are to be added in alphabetical order.
-  */
- static u32 __init_or_module cpufeature_probe(unsigned int stage)
- {
 -- 
 2.38.1
 
