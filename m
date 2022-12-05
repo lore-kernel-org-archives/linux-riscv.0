@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3995AC4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 07:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D967C4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 07:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xIH/AwjJe08hrADPQL6kCPtPyVpjA1rOfafEm7oVHk0=; b=Vz2W8YUpY3bwdt
-	TIEQ3HI1uh5UiNO8qP3xtg7ITF3xzMJkNXEC5cdIQGACmB68L4e4YQZeM0gBmbYC15GFSRi733TQ9
-	Wxs3z2YtJfk8KpR7G0DC0PrMhr4fq/uwrQnECRjZNSKeeIXv2rN6rDk9evyMO8Fm39bi44hV3xIQl
-	IL6UfTWu7bIDLVL/ad/5RE6R++DO6q09VobhWjUw1oAyyTkeiZvJDGYWYBkTGNglGIZHwKYa7ZBvD
-	FBX4/nvyNIRx/TWhO65QmkgDntiMcHdIz7dTYW+jr1pfx9YxMHb/8TFF+zvfPZEr9IIiLPQMXZdH3
-	lubEdNrWJCgm3xQkPmYw==;
+	List-Owner; bh=quEP4U2fCg6DMY0rhOXQE79gFiBxj3IrS5oUOfub1cE=; b=M+fDa4GDP46vDY
+	UBuJxxXNNSHhJPWZPhNQ4YYjH4kJ8YLyqA1wsg4R52yOl1vTJFOre+lESkZJrM2HjYLsOd3ySY78H
+	RDgq325ZHWbg4uEcceHL1XXqR6eLrim3OJ0SVEZt0CB0KDBbcJbQkPemG+/APunMB2e5AfUwnQncG
+	xHE6IsORGCx3WeYuXVj25Ey8xX57bTKVBg4qSVm2fQ/fDv/9m92FWaP1NmI9WgcWuO+UKdhep2q1K
+	/p9K2+R71UvUExXN5cpIGyhJVKlklLaB1fAgpOdIA4ogmFwIJ7QgvsUHw9+XZNRaV6EE5bw8nxizo
+	3haW+GuP5c35MTG16l0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p25om-00FXfZ-Q7; Mon, 05 Dec 2022 07:23:12 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1p25ox-00FXja-MP; Mon, 05 Dec 2022 07:23:23 +0000
+Received: from marcansoft.com ([212.63.210.85] helo=mail.marcansoft.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p25oj-00FXdp-93
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 07:23:10 +0000
-Received: by mail-lj1-x231.google.com with SMTP id a19so12557455ljk.0
-        for <linux-riscv@lists.infradead.org>; Sun, 04 Dec 2022 23:23:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=P3yE5QioYLPBdRrheVQTeMKHmEb+i0C+Uxq8lZYH3bI=;
-        b=hzLBzBCj/UTbf0W32P0cXQWBb9OToirON8fO2yjbciQEZmAyEJtzkOKWClJCBoGSXZ
-         NazQEwwhj7x2OSE63q9Gu0S4nNQoAwRDJVPDxjMI/Ma0kCILMEjg8qERnfSigkfXkTFe
-         L63okalmpzjNwmywAB4I2xPlYx1mfbN8OSLO1S2nydo9A5tBbr5pDIyuRxKY6kXHaycC
-         sE2B79qAeTOdn1Sm55lHeYqo67S2vAgamr8Z4Hq9TiH5SBgLegX23fPT+yhD1/TFVvW+
-         dYeDpbw5lnFNeDBF0cOdbgRIqkDq0PdnDuQ4z8RkArG+9K1xXe0d1IUH0ZVSIM01oxRw
-         sRrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P3yE5QioYLPBdRrheVQTeMKHmEb+i0C+Uxq8lZYH3bI=;
-        b=vYO4zn3GZQqG+OX8GFL46ZpdjdYKzGkHXs0bw0N4qR6ZzklYvLXRpbegz4ZNBwtSrp
-         D1E2dU7svLh9HWp23YnRO7+/OQkzir0ipTJTg0kwVIF7sQGFc6jx+sKbXqZF2xDW4MxC
-         6yfUxkyBMcivnvC3jv+Ds1CAgzvud57F2UeZg8ObaOEuFSG57lLzZ/Dy5jeyNiXIyG1h
-         mZWHoOaJStYFj8HmwmMTREy7q3ir2nKXba+1WisL0B5jecJ+WHlJe4P1wEMRb+Fw3+eT
-         KFZGZm2HmbT/kyACkDdvVPafkoR+tKYeTAgsidNv/O23ViH2FxqfQ8Dyg3Pkrtdy8kDi
-         gebw==
-X-Gm-Message-State: ANoB5pmM+F+XUxXHbf5/ioWcJdWxS4BNoeZzabTmpxFT4LpQx6jzrsCK
-	7qT89O9oFNS8ntHhJoZ68wo=
-X-Google-Smtp-Source: AA0mqf5+CieE6QDHh85+9Q/epKhfM7CeYJKsYqEo98af3XXlgBCqgnPuQvE2zewUADVd0YWy+71Dlg==
-X-Received: by 2002:a2e:b88f:0:b0:277:f46:617b with SMTP id r15-20020a2eb88f000000b002770f46617bmr24206778ljp.221.1670224985808;
-        Sun, 04 Dec 2022 23:23:05 -0800 (PST)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id m6-20020ac24286000000b004b501497b6fsm2018851lfh.148.2022.12.04.23.23.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Dec 2022 23:23:04 -0800 (PST)
-Date: Mon, 5 Dec 2022 10:23:04 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Andrew Bresticker <abrestic@rivosinc.com>,
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-Subject: Re: [PATCH RFC v2 1/3] riscv: add support for hardware
- breakpoints/watchpoints
-Message-ID: <Y42cWLG9+EU+Ew9B@curiosity>
-References: <20221203215535.208948-1-geomatsi@gmail.com>
- <20221203215535.208948-2-geomatsi@gmail.com>
- <Y40wmUcqMQWQLBsI@spud>
+	id 1p25ov-00FXi5-2Y
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 07:23:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: marcan@marcan.st)
+	by mail.marcansoft.com (Postfix) with ESMTPSA id DD0664260B;
+	Mon,  5 Dec 2022 07:23:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=marcan.st; s=default;
+	t=1670224994; bh=h+UiLRi0HrBaW4Acn5ZL5HH6vRNTHq7sTp7ruAUzaT8=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=mg2aAuXG2q2GH7gmakmzyQOF6333uTCXpEbaNEDvwM5MKwjQBhOjXy6G6y6W2C/V6
+	 Mx9QRH4x1YmKFPmtEwDRPV4dRGlrb+5NiXspxWKd1VAubbVtHi2l2whowDDdebooUA
+	 IFewudJFv0t2taoZGEnpLkhWgxKtaP3WgQJzN+ekJMQLAtvj3mj8yMsEzlYGbWDAHs
+	 2J4hn80tzAXg89RSo0TnYAPFy0bDPmR+ysou/cw8i+TTXlZdKC7+i5ht4yIaP93AVA
+	 MZOdeKioK243y1ca7qI5Qv69zfCCWb5PUXnRdK1IWz/ILbqFdlEB3wuDBif8m2h72f
+	 6A3THIRMvl7lg==
+Message-ID: <975cdec2-3b0b-0557-5040-b483638c4007@marcan.st>
+Date: Mon, 5 Dec 2022 16:23:07 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Y40wmUcqMQWQLBsI@spud>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v15 9/9] irqchip/apple-aic: Move over to core ipi-mux
+Content-Language: en-US
+From: Hector Martin <marcan@marcan.st>
+To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig
+ <alyssa@rosenzweig.io>, Atish Patra <atishp@atishpatra.org>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Anup Patel
+ <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+References: <20221203064629.1601299-1-apatel@ventanamicro.com>
+ <20221203064629.1601299-10-apatel@ventanamicro.com>
+ <18abbb1b-ec5e-11c6-ab16-b523f329064e@marcan.st>
+In-Reply-To: <18abbb1b-ec5e-11c6-ab16-b523f329064e@marcan.st>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_232309_364384_58519D59 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20221204_232321_287573_B2B6FC88 
+X-CRM114-Status: UNSURE (   5.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,42 +82,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > RISC-V backend for hw-breakpoint framework is built on top of SBI Debug
-> > Trigger extension. Architecture specific hooks are implemented as kernel
-> > wrappers around ecalls to SBI functions. This patch implements only a
-> > minimal set of hooks required to support user-space debug via ptrace.
-> > 
-> > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 2a0ef738695e..ef41d60a5ed3 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -31,6 +31,9 @@ enum sbi_ext_id {
-> >  	SBI_EXT_SRST = 0x53525354,
-> >  	SBI_EXT_PMU = 0x504D55,
-> >  
-> > +	/* Experimental: Debug Trigger Extension */
-> > +	SBI_EXT_DBTR = 0x44425452,
-> > +
-> >  	/* Experimentals extensions must lie within this range */
-> >  	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
-> >  	SBI_EXT_EXPERIMENTAL_END = 0x08FFFFFF,
+On 05/12/2022 16.14, Hector Martin wrote:
+> On 03/12/2022 15.46, Anup Patel wrote:
+>> From: Marc Zyngier <maz@kernel.org>
+<snip>
 > 
-> This is an RFC for something I know nothing about, so was just scrolling
-> mindlessly... This caught my eye as odd - There's an explicit comment
-> about the range for experimental stuff but you've not used it? I guess
-> there must be some reason for that?
+> Reviewed-by: Hector Martin <marcan@marcan.st>
+> Tested-by: Hector Martin <marcan@marcan.st>
+> 
+> Smoke tested on t8112, nothing exploded :)
+> 
+> - Hector
 
-IIUC it is not so experimental. This SBI extension accompanies the debug
-spec v1.0 (frozen but not yet ratified). So sooner or later is going
-to become a part of SBI spec.
+Come to think of it, rather than r-b, that (and #3) ought to be:
 
-I am using EID suggested in the draft v4 for this extension
-posted at lists.riscv.org tech-debug mailing list, see:
-https://lists.riscv.org/g/tech-debug/topic/92375492
+Acked-by: Hector Martin <marcan@marcan.st>
 
-Regards,
-Sergey
+- Hector
 
 _______________________________________________
 linux-riscv mailing list
