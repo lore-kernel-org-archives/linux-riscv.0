@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AAAC4708D
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 10:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FD9C4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 10:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gc7XcMUHW45G1f+OB+tH3d7okDjNCnJsQUuh/U1S+0c=; b=j4Mwbmv0wBzvdH1OWUemkC1fHO
-	IMXieSZTcmCvNXn9sPLmBotbN7hs6lEg4ckkaVTQXKt6Vfw+FtEY4EchrZOzhPsPiIpLUlxGeclqj
-	3dG3j2SK6SaVZKYuT5EWRmCVTNB5D0YJPLIJzgf43I4yriH4YnsNghX2bAmr1m54M9JikHw+7tSy9
-	lIFffZGS+gUi9WRyBeX7fRkwVoOOoY18Nc7zZA2Dnt4Fhsa0PksOcBadYSRxLBUn4DlNkLKCXonaa
-	KmeTzjvXMr6+iWGM4A6NepbAkkRFCuy6xXqrDR9b8TxWxT7ZNAV6BdqYXHs6QhHeGHOjSBIOWR5kg
-	+b7HDBKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=arqnTqdCLbaFIHhmapWdnB4xXK+eevIGzv5IiL7MwS8=; b=hKb5MjSrxBCkFK
+	Tx0N5Y2yeeM675rrG13Dd6Ysh86sNwm8cv4hdYsvIu2CLNKXS0c8SnIbUgUhk/tRzuxXhOX+LHZst
+	g9qUBA9dKUWPMKPERZ/1A0+cBqevSfXGSUOCpOo0oH9WpcHllPM9Ef4rFALnlTATI+pevX8FL8GAg
+	Z/a+4NBVC32LPqsvg1gX33bTsYrbP0k+SQ9J9ZKefqZFP3J8+ANm6WLjmR295w/1/olfuykuWzeOv
+	XVOEosob9YEIHfztgNTQaeEu7jZ5TrALXIGGkrwNspa9KBlmHSOiFWw9Ume/Nyfy58ffvxWh/33le
+	pAt8cNsxNx74JOIUwkcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p28qV-000q9l-PI; Mon, 05 Dec 2022 10:37:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1p292F-001B8I-NX; Mon, 05 Dec 2022 10:49:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p28qS-000puD-OA
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 10:37:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1670236629; x=1701772629;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jYfx+B+UAYkydHRZ5isoOVyDSGssXGO6Y1vwW6SpTNk=;
-  b=LWpJ9ypkmiyCv4Zh/MQPGhx8gKgxmbr5DOou5HvA6kES40rxFEPPHBbJ
-   cecIKdJu1S4rEvvksNbVpTiXiEZUX+/F1f5lpcT1rb6MLclux+PSuNrXB
-   R56nGQyyP5KEKE5HLUDUGo+uwnhLauZ0xdGou99CsZxWJcFQQIWbbZm1T
-   qt0XGsgNCRBhVwIZ9KRtE8JJWriufkwMD57xogA41oz2+jbSJ4QyBXNys
-   mvjspZ+Zxfz5FiBCtw691MdHOlmz4Zwdtd0CJIyE6yLHCbTKRVmkEI88m
-   O18zbbkx+h1QSRStIvQluUDvj/kfZ1HMehyddKxHnI8sf4lDwSTstfrmF
-   g==;
-X-IronPort-AV: E=Sophos;i="5.96,219,1665471600"; 
-   d="asc'?scan'208";a="191713849"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Dec 2022 03:37:01 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 5 Dec 2022 03:37:00 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 5 Dec 2022 03:36:58 -0700
-Date: Mon, 5 Dec 2022 10:36:39 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Icenowy Zheng <uwu@icenowy.me>
-CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski@linaro.org>, Marc Zyngier <maz@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel
- Lezcano <daniel.lezcano@linaro.org>, Jisheng Zhang <jszhang@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 2/3] dt-bindings: timer: sifive,clint: add compatible for
- OpenC906
-Message-ID: <Y43Jt3YOSbFyh954@wendy>
-References: <20221121041757.418645-1-uwu@icenowy.me>
- <20221121041757.418645-3-uwu@icenowy.me>
- <98005150-83a7-5439-0db1-d93d459c3809@linaro.org>
- <b924d37d716fa8b1fd93102b1d51fac221f43d59.camel@icenowy.me>
- <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
- <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
- <20221130181330.GA2544489-robh@kernel.org>
- <Y4j+Gpptk3NAFBNV@spud>
- <4ad56fa249a30167844abcedac53d198606511d8.camel@icenowy.me>
+	id 1p292A-001B4d-FP
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 10:49:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BE86360C5C;
+	Mon,  5 Dec 2022 10:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6BCCC433D6;
+	Mon,  5 Dec 2022 10:49:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670237353;
+	bh=TM/r0k5u2Pt27z45OlKDLTYpA4Gk6ZH5Ef+T3t89ykk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Ti/4YSEDFaEqaGcI7l/+n+Qk5FdH8M8W/Jj6RMEljTcdEmrrWR98uFpjDzg0Xcu1U
+	 BW5UgAChKM6rXv1Quq6kw/hbl+y5f4GF1D9h63WlOeMtiavJFNeBEJJYiLGH5RGokn
+	 uzEcYDaVp/Z6xFP7BDs7MyTwZmuSrhyoKZ0Fn0JnRMeAo8XiKzFRPuWAiGSJF+RuUC
+	 NH4ddmq1MdWbIbGwQHH6nLB0ZF6O3QN0nk/HUaZn0Pa4691idOiWwAUIzGYUnHnLvc
+	 u3B94j9Bb7mOIVZQ6MtdNfy3kxOPkEDH8QrbAi/CAXeTEFC82GrYasvC2QgdOIym6H
+	 ngMl6Uk0GYpbA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: guoren@kernel.org, arnd@arndb.de, guoren@kernel.org,
+ palmer@rivosinc.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, conor.dooley@microchip.com, heiko@sntech.de,
+ jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org,
+ chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com,
+ zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com,
+ chenzhongjin@huawei.com, greentime.hu@sifive.com, andy.chiu@sifive.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH -next V8 06/14] riscv: convert to generic entry
+In-Reply-To: <20221103075047.1634923-7-guoren@kernel.org>
+References: <20221103075047.1634923-1-guoren@kernel.org>
+ <20221103075047.1634923-7-guoren@kernel.org>
+Date: Mon, 05 Dec 2022 11:49:10 +0100
+Message-ID: <874jua9lcp.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-In-Reply-To: <4ad56fa249a30167844abcedac53d198606511d8.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_023708_822077_28B9337F 
-X-CRM114-Status: GOOD (  37.92  )
+X-CRM114-CacheID: sfid-20221205_024914_625267_CF197AF6 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,165 +74,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5038676314869122440=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============5038676314869122440==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="CSc7m2POAGcYksfe"
-Content-Disposition: inline
-
---CSc7m2POAGcYksfe
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Dec 02, 2022 at 02:12:54PM +0800, Icenowy Zheng wrote:
-> =E5=9C=A8 2022-12-01=E6=98=9F=E6=9C=9F=E5=9B=9B=E7=9A=84 19:18 +0000=EF=
-=BC=8CConor Dooley=E5=86=99=E9=81=93=EF=BC=9A
-> > On Wed, Nov 30, 2022 at 12:13:30PM -0600, Rob Herring wrote:
-> > > On Tue, Nov 22, 2022 at 03:41:27PM +0800, Icenowy Zheng wrote:
-> > > >=20
-> > > >=20
-> > > > =E4=BA=8E 2022=E5=B9=B411=E6=9C=8822=E6=97=A5 GMT+08:00 =E4=B8=8B=
-=E5=8D=883:35:48, Krzysztof Kozlowski
-> > > > <krzysztof.kozlowski@linaro.org> =E5=86=99=E5=88=B0:
-> > > > > On 22/11/2022 08:18, Icenowy Zheng wrote:
-> > > > > > =E5=9C=A8 2022-11-21=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 11:06 =
-+0100=EF=BC=8CKrzysztof Kozlowski=E5=86=99=E9=81=93=EF=BC=9A
-> > > > > > > On 21/11/2022 05:17, Icenowy Zheng wrote:
-> > > > > > > > T-Head OpenC906 is a open-source-licensed fixed-
-> > > > > > > > configuration of
-> > > > > > > > C906,
-> > > > > > > > which is now public and able to be integrated.
-> > > > > > > >=20
-> > > > > > > > Add a compatible for the CLINT shipped as part of
-> > > > > > > > OpenC906, which
-> > > > > > > > should
-> > > > > > > > just be ordinary C9xx CLINT.
-> > > > > > > >=20
-> > > > > > > > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
-> > > > > > > > ---
-> > > > > > > > =C2=A0Documentation/devicetree/bindings/timer/sifive,clint.=
-yam
-> > > > > > > > l | 1 +
-> > > > > > > > =C2=A01 file changed, 1 insertion(+)
-> > > > > > > >=20
-> > > > > > > > diff --git
-> > > > > > > > a/Documentation/devicetree/bindings/timer/sifive,clint.ya
-> > > > > > > > ml
-> > > > > > > > b/Documentation/devicetree/bindings/timer/sifive,clint.ya
-> > > > > > > > ml
-> > > > > > > > index aada6957216c..86703e995e31 100644
-> > > > > > > > ---
-> > > > > > > > a/Documentation/devicetree/bindings/timer/sifive,clint.ya
-> > > > > > > > ml
-> > > > > > > > +++
-> > > > > > > > b/Documentation/devicetree/bindings/timer/sifive,clint.ya
-> > > > > > > > ml
-> > > > > > > > @@ -35,6 +35,7 @@ properties:
-> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 - const: sifive,clint0
-> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 - enum:
-> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 - thead,openc906-clint
-> > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 - allwinner,sun20i-d1-clint
-> > > > > > >=20
-> > > > > > > Add entries sorted alphabetically. This should be squashed
-> > > > > > > with
-> > > > > > > previous
-> > > > > > > patch.
-> > > > > >=20
-> > > > > > I make it a seperated patch because I think it's a
-> > > > > > questionable
-> > > > > > approach.
-> > > > > >=20
-> > > > > > If you think it's okay, I will just squash it and put it as
-> > > > > > the second
-> > > > > > patch in the next iteration, with adding openc906-plic as the
-> > > > > > first
-> > > > > > one.
-> > > > >=20
-> > > > > What is a questionable approach? Why commit msg is not saying
-> > > > > this?
-> > > >=20
-> > > > Ah I mentioned it in the cover letter. The problem is just I
-> > > > doubt whether
-> > > > binding strings for single SoCs are necessary.
-> > >=20
-> > > They are.
-> > >=20
-> > > Unless all the quirks/bugs/features are somehow guaranteed to be
-> > > exactly=20
-> > > the same as other SoCs sharing the same compatible string, or there
-> > > is=20
-> > > another mechanism to identify the exact version (e.g. a version=20
-> > > register).
-> >=20
-> > Icenowy,
-> >=20
-> > Having thought about this a little - are we not *more* likely to see
-> > bug/quirk disparity between implementations of the OpenC906 stuff by
-> > the very nature of being an open-source IP?
->=20
-> It's an open-source edition of a specific version of the commercial IP,
-> a fixed configuration.
->=20
-> In addition, maybe we can just retrieve the version infomation via a T-
-> Head custom CPU configuration register, mcpuid. Despite the
-> implementation of this register is weird -- it contains 7 different
-> read-only values, with the most significant nibble behaving as an
-> index.
-
-You lot all know the situation here a lot more than I do...
-I don't think "letting" people use the bare "thead,c900-foo" makes much
-sense as it gives us no chance to deal with quirks down the line.
-I don't think that using "thead,openc906-clint", "thead,c900-clint"
-makes all that much sense either, in case someone does something wacky
-with the open-source version of the core.
-
-That leaves us with either:
-"vendor,soc-clint", "thead,openc906-clint", "thead,c900-clint"
-or:
-"vendor,soc-clint", "thead,c900-clint"
-right?
-
-The first one seems like possibly the better option as you'd kinda
-expect that, in a perfect word, all of the open-source IP
-implementations would share quirks etc?
-
-Thanks,
-Conor.
-
-
---CSc7m2POAGcYksfe
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY43JtwAKCRB4tDGHoIJi
-0toiAP0Wp6WtOkNedxf/lHQRpp41vBitePX07cxy201boMcEOAD/Wp9iYknpe+Ir
-SYzdybJGmgh0saRrntCdz76LUhf4vAw=
-=Nmh2
------END PGP SIGNATURE-----
-
---CSc7m2POAGcYksfe--
-
-
---===============5038676314869122440==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5038676314869122440==--
-
+Z3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgoKPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXgu
+YWxpYmFiYS5jb20+Cj4KPiBUaGlzIHBhdGNoIGNvbnZlcnRzIHJpc2N2IHRvIHVzZSB0aGUgZ2Vu
+ZXJpYyBlbnRyeSBpbmZyYXN0cnVjdHVyZSBmcm9tCj4ga2VybmVsL2VudHJ5LyouIFRoZSBnZW5l
+cmljIGVudHJ5IG1ha2VzIG1haW50YWluZXJzJyB3b3JrIGVhc2llciBhbmQKPiBjb2RlcyBtb3Jl
+IGVsZWdhbnQuIEhlcmUgYXJlIHRoZSBjaGFuZ2VzIHRoYW4gYmVmb3JlOgo+Cj4gIC0gTW9yZSBj
+bGVhciBlbnRyeS5TIHdpdGggaGFuZGxlX2V4Y2VwdGlvbiBhbmQgcmV0X2Zyb21fZXhjZXB0aW9u
+Cj4gIC0gR2V0IHJpZCBvZiBjb21wbGV4IGN1c3RvbSBzaWduYWwgaW1wbGVtZW50YXRpb24KPiAg
+LSBNb3JlIHJlYWRhYmxlIHN5c2NhbGwgcHJvY2VkdXJlCj4gIC0gTGl0dGxlIG1vZGlmaWNhdGlv
+biBvbiByZXRfZnJvbV9mb3JrICYgcmV0X2Zyb21fa2VybmVsX3RocmVhZAo+ICAtIFdyYXAgd2l0
+aCBpcnFlbnRyeV9lbnRlci9leGl0IGFuZCBzeXNjYWxsX2VudGVyL2V4aXRfZnJvbV91c2VyX21v
+ZGUKPiAgLSBVc2UgdGhlIHN0YW5kYXJkIHByZWVtcHRpb24gY29kZSBpbnN0ZWFkIG9mIGN1c3Rv
+bQo+Cj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+IFN1Z2dlc3RlZC1i
+eTogSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAa2VybmVsLm9yZz4KPiBUZXN0ZWQtYnk6IFlpcGVu
+ZyBab3UgPHpvdXlpcGVuZ0BodWF3ZWkuY29tPgo+IC0tLQoKWy4uLl0KCj4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3Yva2VybmVsL3N5c19yaXNjdi5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX3Jp
+c2N2LmMKPiBpbmRleCA1ZDNmMmZiZWIzM2MuLmM4NmQwZWFmZGY2YSAxMDA2NDQKPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9zeXNfcmlzY3YuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5
+c19yaXNjdi5jCj4gQEAgLTUsOCArNSwxMCBAQAo+ICAgKiBDb3B5cmlnaHQgKEMpIDIwMTcgU2lG
+aXZlCj4gICAqLwo+ICAKPiArI2luY2x1ZGUgPGxpbnV4L2VudHJ5LWNvbW1vbi5oPgo+ICAjaW5j
+bHVkZSA8bGludXgvc3lzY2FsbHMuaD4KPiAgI2luY2x1ZGUgPGFzbS91bmlzdGQuaD4KPiArI2lu
+Y2x1ZGUgPGFzbS9zeXNjYWxsLmg+Cj4gICNpbmNsdWRlIDxhc20vY2FjaGVmbHVzaC5oPgo+ICAj
+aW5jbHVkZSA8YXNtLWdlbmVyaWMvbW1hbi1jb21tb24uaD4KPiAgCj4gQEAgLTY5LDMgKzcxLDI4
+IEBAIFNZU0NBTExfREVGSU5FMyhyaXNjdl9mbHVzaF9pY2FjaGUsIHVpbnRwdHJfdCwgc3RhcnQs
+IHVpbnRwdHJfdCwgZW5kLAo+ICAKPiAgCXJldHVybiAwOwo+ICB9Cj4gKwo+ICt0eXBlZGVmIGxv
+bmcgKCpzeXNjYWxsX3QpKHVsb25nLCB1bG9uZywgdWxvbmcsIHVsb25nLCB1bG9uZywgdWxvbmcs
+IHVsb25nKTsKPiArCj4gK2FzbWxpbmthZ2Ugdm9pZCBkb19zeXNfZWNhbGxfdShzdHJ1Y3QgcHRf
+cmVncyAqcmVncykKPiArewo+ICsJc3lzY2FsbF90IHN5c2NhbGw7Cj4gKwl1bG9uZyBuciA9IHJl
+Z3MtPmE3Owo+ICsKPiArCXJlZ3MtPmVwYyArPSA0Owo+ICsJcmVncy0+b3JpZ19hMCA9IHJlZ3Mt
+PmEwOwo+ICsJcmVncy0+YTAgPSAtRU5PU1lTOwo+ICsKPiArCW5yID0gc3lzY2FsbF9lbnRlcl9m
+cm9tX3VzZXJfbW9kZShyZWdzLCBucik7Cj4gKyNpZmRlZiBDT05GSUdfQ09NUEFUCj4gKwlpZiAo
+KHJlZ3MtPnN0YXR1cyAmIFNSX1VYTCkgPT0gU1JfVVhMXzMyKQo+ICsJCXN5c2NhbGwgPSBjb21w
+YXRfc3lzX2NhbGxfdGFibGVbbnJdOwo+ICsJZWxzZQo+ICsjZW5kaWYKPiArCQlzeXNjYWxsID0g
+c3lzX2NhbGxfdGFibGVbbnJdOwo+ICsKPiArCWlmIChuciA8IE5SX3N5c2NhbGxzKQo+ICsJCXJl
+Z3MtPmEwID0gc3lzY2FsbChyZWdzLT5vcmlnX2EwLCByZWdzLT5hMSwgcmVncy0+YTIsCj4gKwkJ
+CQkgICByZWdzLT5hMywgcmVncy0+YTQsIHJlZ3MtPmE1LAo+ICAJcmVncy0+YTYpOwoKTm93IHRo
+YXQgd2UncmUgZG9pbmcgdGhlICJwdF9yZWdzIHRvIGNhbGwiIGRhbmNlLCBpdCB3b3VsZCBtYWtl
+IHNlbnNlIHRvCmludHJvZHVjZSBhIHN5c2NhbGwgd3JhcHBlciAobGlrZSB4ODYgYW5kIGFybTY0
+KSBmb3IgcmlzY3YsIHNvIHRoYXQgd2UKZG9uJ3QgbmVlZCB0byB1bndyYXAgYWxsIHJlZ3MgZm9y
+IGFsbCBzeXNjYWxscyAoU2VlIF9fTUFQKCkgaW4KaW5jbHVkZS9saW51eC9zeXNjYWxscy5oKS4g
+VGhhdCB3b3VsZCBiZSBhbiBvcHRpbWl6YXRpb24sIHNvIGl0IGNvdWxkIGJlCmRvbmUgYXMgYSBm
+b2xsb3ctdXAsIGFuZCBub3QgcGFydCBvZiB0aGUgc2VyaWVzLgoKCkJqw7ZybgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
