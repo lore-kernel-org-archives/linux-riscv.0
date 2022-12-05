@@ -4,108 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1224AC4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 21:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E41C636F9
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 22:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yI4MJnrWxajggLA43VTLElrn4osZFZAJmUUUv5zsidg=; b=az2ELu7rsMan5/
-	2AvBsRIPzYXORnZ5rB2Ek/rUQawijYce108oRa1bewCdUSYqg+GDHiBgVnZoGXV7pnEmAah5O00rQ
-	9xhyvn60cVi+cThW5ydgB2U/YOyE8QgNtNbN74oDNXsNTLkWwL/7mryJgsVhaJsfbWexvDAAgy3SA
-	YGNV0rRjzbz24u8C60r1qGhOsaQIDINQy9gJmV3YlgtAHMT9B8AJFZRcF+OqyiVSXalaq8/QeC/Ij
-	aFP5o0QHcyCwthq+i7MDy3ZC/nU8vO1jyrYzkQS2jjqU3gf+ZgmJpvOuKt/gMEHoNlqGe1xgxkB8a
-	2gk2PL18C+8tAj398/QQ==;
+	List-Owner; bh=0pN9F1r5WfJyK+bXVnkcdON1e4TpmihvP1Y46C8QR20=; b=BGp7VpVWIVJffI
+	/85Ia+vwASLKo8FqJZNqCSIQPwK879SIxaUopGbmSap6UgiDSjf5J7SEY/aYygzy/Zi++6BoalC7D
+	gl82FC1FD32SgLfhRY9f2mhdRoeXFCmiWNR7DLQXkwogQnVr9EQYxadHpMDxSuMWDJ38RFtY7TsIQ
+	KcaW61vTkRBl7SV2eR1uKnOMFm94kQ94Jn3DHczyyqFt+Dxxdo/DTp/11gNaWemJPA+wKSwCkhbp+
+	SUdLgZZJyvOQA1afz2AvrUmcBZsvtShtHOTntBLzeq2B9XGpdXbYnTPYFb9S8KKPHjFTzP4gaYvzm
+	BibXBirNx8rNc4QRx9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Ilr-00AdiL-S5; Mon, 05 Dec 2022 21:13:03 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1p2JZb-00B4ax-Rd; Mon, 05 Dec 2022 22:04:27 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Ile-00AdZX-KQ
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 21:12:52 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d82so3886964pfd.11
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 13:12:44 -0800 (PST)
+	id 1p2JZY-00B4Vb-5X
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 22:04:26 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id n21so1771505ejb.9
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 14:04:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9BS9+Fk77r2sqEaU7XwhOF5T7uvKSgLeTZbiEXUGcMo=;
-        b=Ujio/I//LxFB/K3sVL9gmNsGJ2wTNbSjKjPUCByX11FEgdEzOgOqiXg/gRqfeGF7s+
-         BRBVYIHZsjiCW+mopZZqJtOFx8R72OQ+lxd1rMhvvBVaCHky62qMT42W7ann/KH4QVEi
-         7RDo5VhBRC8pzm08UnWL1v8bR/cRgCAMAHzAeJOZ77ZAJGj5jTiVT2fPdcmD7+sDDe5A
-         MCK85CoektbMIOfXCT03EXGqxDh77jznAXbuGFlYRgsEHGnbyTN0uldNNg+81eLCMpdy
-         485zxEh+YV7agkZEO9zh/Zlc6/uD1mmvMxm2NZPEwpELq6RwwxuABQO2pRIN5lh3pL9X
-         0pWA==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=s9lc01aCxQTSJwdx7RUodm3mRi7nxix9tLqZdF2sFQo=;
+        b=aONPpMB54y9faDQtvFnc8RfGe22FaOc9EcPYO6fH7m77YVH34zckI4t5zwJFj2LPRn
+         Wkef5GGEyBWRC7xgGNpgQnmwZDF2SV92UI4D6e7b+RJUE1vAX0IxZG+LgpP/x8o9BXXg
+         nUOwE/IbaYsl/mFyI2fEa/IGMYruiQ0JMSEC7pcUSspfqAg9/lpQ7y34sTgCHQIMJp7V
+         kXmzmqkireW08op7Lbio2kEZk5kpdURtD0VVwmV7LQz5JJEY8ALGnE9DAKIY0/G1VQXB
+         9BbDhI4C13tyVy1WCti4TlRQj/6RxdmBkStRc/GQalqTQh59k4xCpBKaWEdVNN4kyu4u
+         w0bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9BS9+Fk77r2sqEaU7XwhOF5T7uvKSgLeTZbiEXUGcMo=;
-        b=48zoHv7iUxgVFPlXmZBnlxRSiSEN4Wq9pFJQpEZJcGC9aHOGVKlsMquI3iIm1NPSUB
-         2Tjefirjddco9Z+X8zMJXWR2tGGLYD1Kmlvk8LI3dss7soVx5fYpQcxfPs1ovR6aNZLk
-         XvJMUYbG5o9fXBjGK87V+q8nlefqQzrkV9IpfRpnrCXgqiUce0VVXJqaDRpzXe4meHuG
-         UJEXgRBd3HXIx8Am/A25Lh8WmgigGzWNvrYtp6YirknGX/uA5gmecpUje95g0K2fd9XX
-         cIFjQ5T83FEw4iekrFPkMg57dY1ylXifLthdEmwfL4aThjhwqxHR7SJerX+xFLIrkxm/
-         bmtg==
-X-Gm-Message-State: ANoB5pk/6EkHdgYakz25+yYMJif1yBjmhpr4TOT7dF2qVYq3TXuZrAo9
-	2WNvvqXiXmXfXfhrzaeHeWKAsQ==
-X-Google-Smtp-Source: AA0mqf7NtaiQFi9maqoCvGoM6sFH0HgJLUnKLXrzCG7pSHOZoyGtCDF0ZU4oxE1QMNHHmHHaqhNDEw==
-X-Received: by 2002:aa7:91d6:0:b0:574:c543:f804 with SMTP id z22-20020aa791d6000000b00574c543f804mr49454104pfa.51.1670274763510;
-        Mon, 05 Dec 2022 13:12:43 -0800 (PST)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id nn6-20020a17090b38c600b00219f8eb271fsm131413pjb.5.2022.12.05.13.12.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Dec 2022 13:12:43 -0800 (PST)
-Date: Mon, 5 Dec 2022 21:12:39 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Isaku Yamahata <isaku.yamahata@gmail.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Eric Farman <farman@linux.ibm.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	David Woodhouse <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Yuan Yao <yuan.yao@intel.com>,
-	Cornelia Huck <cohuck@redhat.com>,
-	Isaku Yamahata <isaku.yamahata@intel.com>,
-	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>,
-	Fabiano Rosas <farosas@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Kai Huang <kai.huang@intel.com>, Chao Gao <chao.gao@intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH v2 31/50] KVM: x86: Do CPU compatibility checks in x86
- code
-Message-ID: <Y45ex/CyTY7jYa5D@google.com>
-References: <20221130230934.1014142-1-seanjc@google.com>
- <20221130230934.1014142-32-seanjc@google.com>
- <20221205205246.GA3630770@ls.amr.corp.intel.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=s9lc01aCxQTSJwdx7RUodm3mRi7nxix9tLqZdF2sFQo=;
+        b=q5ittd64OkUIUfIRylrsM24SqauS5+NpV8mYkCwFyoTzdqAaXUnPmdGSMzuik9EWA7
+         HbMWnUw8kOy3nOjNK7J+aGIXbbH8t5fBf2TxBnfeClnvFPHgair7aRCk5otQeap843bt
+         Zpz349kahLV62JnoG+1OvDvfCZlkR0MvyZVatXaswOOxdA0jCj8lRK695kdCrQMsrN5n
+         +1P4KIAfbUGwa51A0resj+znxgXclfTyZw+kKh2/+FPjsk0lTmgxgTYNQmHN+MDu1J0d
+         w13UP8nM0rhsELDhvuq9VQlXKRd5qEWrUqLFWO7K2XnPZodVga/2D3LJbuUKTGUS0Dbl
+         WbJA==
+X-Gm-Message-State: ANoB5pkQltxWZhFt3z+k2bJCeoT0gCAC6abHBh68L3C57MySSuXmI763
+	YP8mv2cKmdzdqDRGhxIHyOamk3ratn2fp6GjpqtYcw==
+X-Google-Smtp-Source: AA0mqf6pvPdZ4FTJxIRInbmyU3P5Gysoxv0jzItR7ncFVPN8Th1XmEH6dUBNagCD4TWu62MM3uaWessrJIPBqKHoXeo=
+X-Received: by 2002:a17:906:a198:b0:7b4:bc42:3b44 with SMTP id
+ s24-20020a170906a19800b007b4bc423b44mr64679643ejy.101.1670277860575; Mon, 05
+ Dec 2022 14:04:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221205205246.GA3630770@ls.amr.corp.intel.com>
+References: <20221203215535.208948-1-geomatsi@gmail.com> <20221203215535.208948-4-geomatsi@gmail.com>
+ <CALE4mHrrxTJaQ5YYZamS9GmNhGopiUA3jk5+iw1XAn=8=XT=fg@mail.gmail.com> <Y45TuQUQiDsH2cJ1@curiosity>
+In-Reply-To: <Y45TuQUQiDsH2cJ1@curiosity>
+From: Andrew Bresticker <abrestic@rivosinc.com>
+Date: Mon, 5 Dec 2022 17:04:09 -0500
+Message-ID: <CALE4mHpf8obcfiWEvstBMycTWYur0JoNeAYMNn5r=q-gdb6ZXQ@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 3/3] riscv: hw-breakpoints: add more trigger controls
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_131250_717949_1522B25F 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20221205_140424_458740_31898905 
+X-CRM114-Status: GOOD (  30.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,43 +89,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 05, 2022, Isaku Yamahata wrote:
-> On Wed, Nov 30, 2022 at 11:09:15PM +0000,
-> > index 66f16458aa97..3571bc968cf8 100644
-> > --- a/arch/x86/kvm/x86.c
-> > +++ b/arch/x86/kvm/x86.c
-> > @@ -9277,10 +9277,36 @@ static inline void kvm_ops_update(struct kvm_x86_init_ops *ops)
-> >  	kvm_pmu_ops_update(ops->pmu_ops);
-> >  }
-> >  
-> > +struct kvm_cpu_compat_check {
-> > +	struct kvm_x86_init_ops *ops;
-> > +	int *ret;
-> 
-> minor nitpick: just int ret. I don't see the necessity of the pointer.
-> Anyway overall it looks good to me.
+On Mon, Dec 5, 2022 at 3:25 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+>
+> Hi Andrew,
+>
+>
+> > Hi Sergey,
+> >
+> > On Sat, Dec 3, 2022 at 4:55 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+> > >
+> > > From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> > >
+> > > RISC-V SBI Debug Trigger extension proposal defines multiple functions
+> > > to control debug triggers. The pair of install/uninstall functions was
+> > > enough to implement ptrace interface for user-space debug. This patch
+> > > implements kernel wrappers for start/update/stop SBI functions. The
+> > > intended users of these control wrappers are kgdb and kernel modules
+> > > that make use of kernel-wide hardware breakpoints and watchpoints.
+> > >
+> > > Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> >
+> > <snip>
+> >
+> > > diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
+> > > index 5bb3b55cd464..afc59f8e034e 100644
+> > > --- a/arch/riscv/include/asm/hw_breakpoint.h
+> > > +++ b/arch/riscv/include/asm/hw_breakpoint.h
+> > > @@ -137,6 +137,9 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
+> > >  int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
+> > >                                     unsigned long val, void *data);
+> > >
+> > > +void arch_enable_hw_breakpoint(struct perf_event *bp);
+> > > +void arch_update_hw_breakpoint(struct perf_event *bp);
+> > > +void arch_disable_hw_breakpoint(struct perf_event *bp);
+> > >  int arch_install_hw_breakpoint(struct perf_event *bp);
+> > >  void arch_uninstall_hw_breakpoint(struct perf_event *bp);
+> > >  void hw_breakpoint_pmu_read(struct perf_event *bp);
+> > > @@ -153,5 +156,17 @@ static inline void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
+> > >  {
+> > >  }
+> > >
+> > > +void arch_enable_hw_breakpoint(struct perf_event *bp)
+> > > +{
+> > > +}
+> > > +
+> > > +void arch_update_hw_breakpoint(struct perf_event *bp)
+> > > +{
+> > > +}
+> > > +
+> > > +void arch_disable_hw_breakpoint(struct perf_event *bp)
+> > > +{
+> > > +}
+> >
+> > I don't see any references to {enable,update,disable}_hw_breakpoint in
+> > common kernel code, nor do any other architectures define these
+> > functions. Who are the intended users? Do we even need them for kgdb
+> > on RISC-V?
+>
+> SBI Debug Trigger extension proposal defines more functions than just
+> install/uninstall required for ptrace hw-breakpoints API. So this patch
+> is an attempt to expose some additional SBI features to the rest of the
+> kernel.
 
-...
+Got it. IMHO it's generally best not to add dead code unless a user
+for it is imminent. It's harder to review something if you don't know
+exactly how it'll be used.
 
-> > @@ -9360,6 +9386,14 @@ static int __kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
-> >  	if (r != 0)
-> >  		goto out_mmu_exit;
-> >  
-> > +	c.ret = &r;
-> > +	c.ops = ops;
-> > +	for_each_online_cpu(cpu) {
-> > +		smp_call_function_single(cpu, kvm_x86_check_cpu_compat, &c, 1);
-> > +		if (r < 0)
-> 
-> Here it can be "c.ret < 0".
+> For instance, I have been using these stop/update/start functions for
+> managing kernel-wide hw-breakpoints when experimenting with a sample
+> module from samples/hw_breakpoint. It can be convenient to modify a
+> breakpoint or watchpoint when it fires, e.g. to perform single-step
+> before proceeding execution. Full-fledged unregister/register cycle is
+> not suitable for this task. And this is where disable/update/enable
+> sequence can help.
+>
+> I haven't yet tried to implement hw-breakpoint support in RISC-V kgdb,
+> so I don't know for sure if these custom calls are needed there.
+>
+> > > diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
+> > > index 8eddf512cd03..ca7df02830c2 100644
+> > > --- a/arch/riscv/kernel/hw_breakpoint.c
+> > > +++ b/arch/riscv/kernel/hw_breakpoint.c
+> > > @@ -2,6 +2,7 @@
+> > >
+> > >  #include <linux/hw_breakpoint.h>
+> > >  #include <linux/perf_event.h>
+> > > +#include <linux/spinlock.h>
+> > >  #include <linux/percpu.h>
+> > >  #include <linux/kdebug.h>
+> > >
+> > > @@ -9,6 +10,8 @@
+> > >
+> > >  /* bps/wps currently set on each debug trigger for each cpu */
+> > >  static DEFINE_PER_CPU(struct perf_event *, bp_per_reg[HBP_NUM_MAX]);
+> > > +static DEFINE_PER_CPU(unsigned long, msg_lock_flags);
+> > > +static DEFINE_PER_CPU(raw_spinlock_t, msg_lock);
+> >
+> > I'm not sure I understand the point of this per-CPU spinlock. Just
+> > disable preemption (and interrupts, if necessary).
+> >
+> > Also, arch_{install,uninstall}_hw_breakpoint are already expected to
+> > be called from atomic context; is the intention here that they be
+> > callable from outside atomic context?
+>
+> These additional locsk are not needed for install/uninstall pair due to
+> the reason that you mentioned: those calls are called by kernel event
+> core in atomic context with ctx->lock held. These locks are needed only
+> to make sure that new 'arch_update_hw_breakpoint' function can use the
+> same message buffers as install/uninstall.
 
-No, because the below goto leads to "return r", i.e. "c.ret" needs to be propagated
-to "r".  That's why the code does the admittedly funky "int *ret" thing.
+Sure, but you can achieve the same by disabling preemption. No need
+for an actual spinlock.
 
-FWIW, this gets cleanup in the end.  "struct kvm_cpu_compat_check" goes away and
-"&r" is passed directly to kvm_x86_check_cpu_compat.
+-Andrew
 
-> > +			goto out_hardware_unsetup;
+>
+> Regards,
+> Sergey
 
 _______________________________________________
 linux-riscv mailing list
