@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BC3C4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 10:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3465EC4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 10:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7bV9mk4FqZC8hoHdFldP0WvQQBTETBx1+pujpvw1yc=; b=fUZgmm+q37Y3J/jaH9lTilED/N
-	Dg+d9n99plcZV1ve4oG1st8pROncpH+eZ5AuIB4OVz7N/xb6xUg3XiRI+pZxamAvKxuwOJmUWij4A
-	Lul5Zx+64hrlJN25+grKsuhErmTOg9UHi2WcoOn1qnS4j/1Op4SYwL8BdJMriyE1R8Qh/gwt6uLVL
-	FlP2agdGf4Yhy7Csp2bY14WZcX8oO/+mXjKgF9kVODrCBEZD6btbfJt4fqqpMe3lzmdhiDnrAHPAo
-	pQpMuwmT1KiLdWjb4TfYTmRnHC/MMsOlGzYpCNLgkFEA5WouTPllkydMZJ+xFgdUJGjo6ydtuWo55
-	U2/nFEWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wp/OyMUzTsLCAvZ8Suu0lArZ4s2S4qDr6Me6mgHBzqc=; b=PRGgKZ4aKbvjzJ
+	OJeTkIHDCQM934jV8l8lZAwSZapcD10+bvGclx8qFX4bCEps6XlnQc33SywkUHbkKS6FCHRbX/44u
+	ndq1Jo1NDoqwR5n/1WTrG0CRSiWKRHNyu6MdLpm5o/6b77kTbc28PDywJ0o0Lhp7XBCMoVnjkcG2w
+	LTH7PZsMr/kxRXyVVRxIiH7ivtJ170yjcme4UtVO97avDdxGAHH0hiz47k0jrWfgX1YDzpgpkTzib
+	kp5AXaA9zjci4YbPN66cZzc6NIQ9Ln8NVmKmb/5G+e9gIzml2zUSXnMAaBbI1DmAGgBvTzNXfS/4R
+	moNDCIqwDmfsWnSOfJkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p28jo-000gXU-7X; Mon, 05 Dec 2022 10:30:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1p28ms-000jED-6c; Mon, 05 Dec 2022 10:33:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p28jj-000gLp-Va
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 10:30:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1670236211; x=1701772211;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bupgB8+dQa6kyDr72Pv4zxzXEVg6/MGHJZw4SDOkbhY=;
-  b=EuFnDZl13BWYHucgIXBptzNyjVM+BisfGlnYmWbw8AdkayjkRDQHnAit
-   vSa8kDEaJSabkPXjZaRhVvBA/qSr9ZlHA/+g7AMc6Q5oMhJQlH/BIhI5M
-   ZCkaAOUGD3E0RjURyigzz7JuJ0PW4DgYROsiRCzC/jM+nVWTqXtG83JDZ
-   HVWFsJlRqVjdU1p4Vd9JcHJfq+/VNrGhf+iTKi6C6YycGWIDERRjoaa7C
-   V/+bdBLYzLN2hBMjmABVKwj0g0qmoeXgN339yxvve+p6oi0OVSIIn8d3d
-   ygk3S0R9TKMnynPzvQNu0O6fdKU8btOdVUo3WD2oalGHyQZuckNXkzAKO
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.96,219,1665471600"; 
-   d="asc'?scan'208";a="190034863"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Dec 2022 03:30:06 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 5 Dec 2022 03:30:05 -0700
-Received: from wendy (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 5 Dec 2022 03:30:03 -0700
-Date: Mon, 5 Dec 2022 10:29:43 +0000
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Icenowy Zheng <uwu@icenowy.me>, Samuel Holland <samuel@sholland.org>,
-	Jisheng Zhang <jszhang@kernel.org>
-CC: Samuel Holland <samuel@sholland.org>, Jisheng Zhang <jszhang@kernel.org>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-serial@vger.kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Ilpo =?iso-8859-1?Q?J=E4rvinen?=
-	<ilpo.jarvinen@linux.intel.com>
-Subject: Re: [PATCH v2 6/9] riscv: dts: bouffalolab: add the bl808 SoC base
- device tree
-Message-ID: <Y43IF/MpM9kX2gD6@wendy>
-References: <20221127132448.4034-1-jszhang@kernel.org>
- <20221127132448.4034-7-jszhang@kernel.org>
- <d4d8998f-288c-3ff6-141d-02814f8e35d0@sholland.org>
- <04abc8d6d8a9200e593f3f667a31ea0d3674c64b.camel@icenowy.me>
-MIME-Version: 1.0
-In-Reply-To: <04abc8d6d8a9200e593f3f667a31ea0d3674c64b.camel@icenowy.me>
+	id 1p28mp-000j9q-4Z
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 10:33:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6E9F660695;
+	Mon,  5 Dec 2022 10:33:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4CC3C433D6;
+	Mon,  5 Dec 2022 10:33:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670236401;
+	bh=u9XNbhuW7y3ZHOHe/ymMnVXErFBb7ENPHhBSXK1wjuE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GunDkzPfxfF6mE+5il7y2z9pN81wOId+Z9Y/jot6J/r84E5lhepoAi1xTBv8cGz1G
+	 /Ji2UOiLK6cbaZJnN6qycdzdBblP5AVZf7jAIWP2bUAcrypH+4jOSiffZLhZBTuXGY
+	 3t3P6WHGsi+vXD5Mh5JjrOEV46/C2hkw8GznZqFdK31G3nVCSocwemP4aT2zsW5seF
+	 eVZ+bNOaPWr47kL+4PbDFAEWhwClneXW63BHD4nOFgwidOltJtUThrwlYFr62S3mfl
+	 EIxCH+7HudUZity+/jM7zhpxp2JsxSJpHGFvC6xdZlwqDhVKRBou594lqvQZpmJun+
+	 84pnqEGQOR2hQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1p28ml-00AXx8-4K;
+	Mon, 05 Dec 2022 10:33:19 +0000
+Date: Mon, 05 Dec 2022 10:33:18 +0000
+Message-ID: <864juam975.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev
+Subject: Re: [PATCH v15 3/9] genirq: Add mechanism to multiplex a single HW IPI
+In-Reply-To: <CAK9=C2WBm8fxQeD+=n7vGb=aPSW_kk=0qpgKRi4sXEFdV+w_pw@mail.gmail.com>
+References: <20221203064629.1601299-1-apatel@ventanamicro.com>
+	<20221203064629.1601299-4-apatel@ventanamicro.com>
+	<87dc326b-a12c-7377-ff37-6008795598e5@marcan.st>
+	<CAK9=C2WBm8fxQeD+=n7vGb=aPSW_kk=0qpgKRi4sXEFdV+w_pw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, marcan@marcan.st, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, sven@svenpeter.dev, alyssa@rosenzweig.io, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_023012_189598_5780C646 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20221205_023323_285768_C2B1FA93 
+X-CRM114-Status: GOOD (  58.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,277 +93,341 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4159024383990077915=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============4159024383990077915==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="U2PfE6iLzEQxY5EZ"
-Content-Disposition: inline
-
---U2PfE6iLzEQxY5EZ
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Dec 05, 2022 at 04:17:59PM +0800, Icenowy Zheng wrote:
-> =E5=9C=A8 2022-11-30=E6=98=9F=E6=9C=9F=E4=B8=89=E7=9A=84 01:21 -0600=EF=
-=BC=8CSamuel Holland=E5=86=99=E9=81=93=EF=BC=9A
-> > On 11/27/22 07:24, Jisheng Zhang wrote:
-> > > Add a baisc dtsi for the bouffalolab bl808 SoC.
-> > >=20
-> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+On Mon, 05 Dec 2022 08:46:59 +0000,
+Anup Patel <apatel@ventanamicro.com> wrote:
+> 
+> On Mon, Dec 5, 2022 at 12:50 PM Hector Martin <marcan@marcan.st> wrote:
+> >
+> > On 03/12/2022 15.46, Anup Patel wrote:
+> > > All RISC-V platforms have a single HW IPI provided by the INTC local
+> > > interrupt controller. The HW method to trigger INTC IPI can be through
+> > > external irqchip (e.g. RISC-V AIA), through platform specific device
+> > > (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+> > >
+> > > To support multiple IPIs on RISC-V, add a generic IPI multiplexing
+> > > mechanism which help us create multiple virtual IPIs using a single
+> > > HW IPI. This generic IPI multiplexing is inspired by the Apple AIC
+> > > irqchip driver and it is shared by various RISC-V irqchip drivers.
+> > >
+> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > > > ---
-> > > =C2=A0arch/riscv/boot/dts/bouffalolab/bl808.dtsi | 74
-> > > ++++++++++++++++++++++
-> > > =C2=A01 file changed, 74 insertions(+)
-> > > =C2=A0create mode 100644 arch/riscv/boot/dts/bouffalolab/bl808.dtsi
-> > >=20
-> > > diff --git a/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
-> > > b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
+> > >  include/linux/irq.h  |   3 +
+> > >  kernel/irq/Kconfig   |   5 ++
+> > >  kernel/irq/Makefile  |   1 +
+> > >  kernel/irq/ipi-mux.c | 207 +++++++++++++++++++++++++++++++++++++++++++
+> > >  4 files changed, 216 insertions(+)
+> > >  create mode 100644 kernel/irq/ipi-mux.c
+> > >
+> > > diff --git a/include/linux/irq.h b/include/linux/irq.h
+> > > index c3eb89606c2b..b1b28affb32a 100644
+> > > --- a/include/linux/irq.h
+> > > +++ b/include/linux/irq.h
+> > > @@ -1266,6 +1266,9 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
+> > >  int ipi_send_single(unsigned int virq, unsigned int cpu);
+> > >  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+> > >
+> > > +void ipi_mux_process(void);
+> > > +int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu));
+> > > +
+> > >  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
+> > >  /*
+> > >   * Registers a generic IRQ handling function as the top-level IRQ handler in
+> > > diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+> > > index db3d174c53d4..df17dbc54b02 100644
+> > > --- a/kernel/irq/Kconfig
+> > > +++ b/kernel/irq/Kconfig
+> > > @@ -86,6 +86,11 @@ config GENERIC_IRQ_IPI
+> > >       depends on SMP
+> > >       select IRQ_DOMAIN_HIERARCHY
+> > >
+> > > +# Generic IRQ IPI Mux support
+> > > +config GENERIC_IRQ_IPI_MUX
+> > > +     bool
+> > > +     depends on SMP
+> > > +
+> > >  # Generic MSI interrupt support
+> > >  config GENERIC_MSI_IRQ
+> > >       bool
+> > > diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+> > > index b4f53717d143..f19d3080bf11 100644
+> > > --- a/kernel/irq/Makefile
+> > > +++ b/kernel/irq/Makefile
+> > > @@ -15,6 +15,7 @@ obj-$(CONFIG_GENERIC_IRQ_MIGRATION) += cpuhotplug.o
+> > >  obj-$(CONFIG_PM_SLEEP) += pm.o
+> > >  obj-$(CONFIG_GENERIC_MSI_IRQ) += msi.o
+> > >  obj-$(CONFIG_GENERIC_IRQ_IPI) += ipi.o
+> > > +obj-$(CONFIG_GENERIC_IRQ_IPI_MUX) += ipi-mux.o
+> > >  obj-$(CONFIG_SMP) += affinity.o
+> > >  obj-$(CONFIG_GENERIC_IRQ_DEBUGFS) += debugfs.o
+> > >  obj-$(CONFIG_GENERIC_IRQ_MATRIX_ALLOCATOR) += matrix.o
+> > > diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
 > > > new file mode 100644
-> > > index 000000000000..f4b170ccc32e
+> > > index 000000000000..3a403c3a785d
 > > > --- /dev/null
-> > > +++ b/arch/riscv/boot/dts/bouffalolab/bl808.dtsi
-> > > @@ -0,0 +1,74 @@
-> > > +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+> > > +++ b/kernel/irq/ipi-mux.c
+> > > @@ -0,0 +1,207 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-or-later
 > > > +/*
-> > > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> > > + * Multiplex several virtual IPIs over a single HW IPI.
+> > > + *
+> > > + * Copyright The Asahi Linux Contributors
+> > > + * Copyright (c) 2022 Ventana Micro Systems Inc.
 > > > + */
 > > > +
-> > > +#include <dt-bindings/interrupt-controller/irq.h>
+> > > +#define pr_fmt(fmt) "ipi-mux: " fmt
+> > > +#include <linux/cpu.h>
+> > > +#include <linux/init.h>
+> > > +#include <linux/irq.h>
+> > > +#include <linux/irqchip.h>
+> > > +#include <linux/irqchip/chained_irq.h>
+> > > +#include <linux/irqdomain.h>
+> > > +#include <linux/jump_label.h>
+> > > +#include <linux/percpu.h>
+> > > +#include <linux/smp.h>
 > > > +
-> > > +/ {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "bouffalola=
-b,bl808";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <1>;
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0cpus {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0timebase-frequency =3D <1000000>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <0>;
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0cpu0: cpu@0 {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0com=
-patible =3D "thead,c906", "riscv";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0dev=
-ice_type =3D "cpu";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg=
- =3D <0>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0d-c=
-ache-block-size =3D <64>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0d-c=
-ache-sets =3D <256>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0d-c=
-ache-size =3D <32768>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0i-c=
-ache-block-size =3D <64>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0i-c=
-ache-sets =3D <128>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0i-c=
-ache-size =3D <32768>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0mmu=
--type =3D "riscv,sv39";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ris=
-cv,isa =3D "rv64imafdc";
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0cpu=
-0_intc: interrupt-controller {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "riscv,cpu-intc=
-";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0interrupt-controller;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <0>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#interrupt-cells =3D <1>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0xtal: xtal-clk {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "fixed-clock";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0#clock-cells =3D <0>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0/* This value must be overridden by the board */
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0clock-frequency =3D <0>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0soc {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0compatible =3D "simple-bus";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0ranges;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0interrupt-parent =3D <&plic>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0dma-noncoherent;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0#address-cells =3D <1>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0#size-cells =3D <1>;
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0uart0: serial@30002000 {
-> >=20
-> > It's unfortunate that the SDK/documentation calls this peripheral
-> > both
-> > UART0 and UART3. I don't know if we can/should put the "M0" and "D0"
-> > bus
-> > peripherals in the same DT; it seems like most of the "M0"
-> > peripherals
-> > are not accessible from the C906. But if we did, this would conflict
-> > with the other UART0.
->=20
-> They're accessible but their interrupts are not, and I think this is
-> called d0_uart or uart3, but not uart0 at all.
->=20
-> >=20
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0com=
-patible =3D "bouffalolab,bl808-uart";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg=
- =3D <0x30002000 0x1000>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0int=
-errupts =3D <20 IRQ_TYPE_LEVEL_HIGH>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0clo=
-cks =3D <&xtal>;
-> >=20
-> > There's a clock controller with a mux and a gate between the crystal
-> > and the UART. I'm not sure what the policy is about adding "fake"
-> > suppliers before the real supplier has a binding defined.
-> >=20
-> > Unfortunately, Bouffalolab threw everything and the kitchen sink into
-> > the GLB register space, so that complicates defining the binding for
-> > the clock/reset controller part.
-
-I think it depends on how backwards/forwards compatible it's going to
-be? If new kernel + old DT works then that's all that's "required",
-right? Old kernel + new DT isn't going to work, but that's not required
-AFAIU.
-
-> >=20
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0sta=
-tus =3D "disabled";
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0plic: interrupt-controller@e0000000 {
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0com=
-patible =3D "thead,c900-plic";
->=20
-> Using a single c900-plic here needs more discussion, I think.
-
-Yah. Per the discussion on [1], I think I'd rather we avoided the single
-c900-plic. Either a SoC-specific value, or "something" involving the
-"openplic" naming is needed here.
-
-Thanks,
-Conor.
-
-1 - https://lore.kernel.org/linux-riscv/20221121041757.418645-3-uwu@icenowy=
-=2Eme/
-
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg=
- =3D <0xe0000000 0x4000000>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0int=
-errupts-extended =3D <&cpu0_intc
-> > > 0xffffffff>,
-> >=20
-> > The C906 PLIC has an M-mode context, so 0xffffffff is not correct.
-> > This
-> > should reference the M-mode external interrupt.
-> >=20
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <&cpu0_intc 9>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0int=
-errupt-controller;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#ad=
-dress-cells =3D <0>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0#in=
-terrupt-cells =3D <2>;
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ris=
-cv,ndev =3D <64>;
-> >=20
-> > The SDK/documentation lists IRQ numbers up to BL808_IRQ_PDS =3D=3D 82, =
-so
-> > this value should be at least that.
-> >=20
-> > Regards,
-> > Samuel
-> >=20
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0};
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0};
+> > > +struct ipi_mux_cpu {
+> > > +     atomic_t                        enable;
+> > > +     atomic_t                        bits;
 > > > +};
+> > > +
+> > > +static struct ipi_mux_cpu __percpu *ipi_mux_pcpu;
+> > > +static struct irq_domain *ipi_mux_domain;
+> > > +static void (*ipi_mux_send)(unsigned int cpu);
+> > > +
+> > > +static void ipi_mux_mask(struct irq_data *d)
+> > > +{
+> > > +     struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
+> > > +
+> > > +     atomic_andnot(BIT(irqd_to_hwirq(d)), &icpu->enable);
+> > > +}
+> > > +
+> > > +static void ipi_mux_unmask(struct irq_data *d)
+> > > +{
+> > > +     struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
+> > > +     u32 ibit = BIT(irqd_to_hwirq(d));
+> > > +
+> > > +     atomic_or(ibit, &icpu->enable);
+> > > +
+> > > +     /*
+> > > +      * The atomic_or() above must complete before the atomic_read()
+> > > +      * below to avoid racing ipi_mux_send_mask().
+> > > +      */
+> > > +     smp_mb__after_atomic();
+> > > +
+> > > +     /* If a pending IPI was unmasked, raise a parent IPI immediately. */
+> > > +     if (atomic_read(&icpu->bits) & ibit)
+> > > +             ipi_mux_send(smp_processor_id());
+> > > +}
+> > > +
+> > > +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+> > > +{
+> > > +     struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
+> > > +     u32 ibit = BIT(irqd_to_hwirq(d));
+> > > +     unsigned long pending;
+> > > +     int cpu;
+> > > +
+> > > +     for_each_cpu(cpu, mask) {
+> > > +             icpu = per_cpu_ptr(ipi_mux_pcpu, cpu);
+> > > +
+> > > +             /*
+> > > +              * This sequence is the mirror of the one in ipi_mux_unmask();
+> > > +              * see the comment there. Additionally, release semantics
+> > > +              * ensure that the vIPI flag set is ordered after any shared
+> > > +              * memory accesses that precede it. This therefore also pairs
+> > > +              * with the atomic_fetch_andnot in ipi_mux_process().
+> > > +              */
+> > > +             pending = atomic_fetch_or_release(ibit, &icpu->bits);
+> > > +
+> > > +             /*
+> > > +              * The atomic_fetch_or_release() above must complete
+> > > +              * before the atomic_read() below to avoid racing with
+> > > +              * ipi_mux_unmask().
+> > > +              */
+> > > +             smp_mb__after_atomic();
+> > > +
+> > > +             /*
+> > > +              * The flag writes must complete before the physical IPI is
+> > > +              * issued to another CPU. This is implied by the control
+> > > +              * dependency on the result of atomic_read() below, which is
+> > > +              * itself already ordered after the vIPI flag write.
+> > > +              */
+> > > +             if (!(pending & ibit) && (atomic_read(&icpu->enable) & ibit))
+> > > +                     ipi_mux_send(cpu);
+> > > +     }
+> > > +}
+> > > +
+> > > +static const struct irq_chip ipi_mux_chip = {
+> > > +     .name           = "IPI Mux",
+> > > +     .irq_mask       = ipi_mux_mask,
+> > > +     .irq_unmask     = ipi_mux_unmask,
+> > > +     .ipi_send_mask  = ipi_mux_send_mask,
+> > > +};
+> > > +
+> > > +static int ipi_mux_domain_alloc(struct irq_domain *d, unsigned int virq,
+> > > +                             unsigned int nr_irqs, void *arg)
+> > > +{
+> > > +     int i;
+> > > +
+> > > +     for (i = 0; i < nr_irqs; i++) {
+> > > +             irq_set_percpu_devid(virq + i);
+> > > +             irq_domain_set_info(d, virq + i, i, &ipi_mux_chip, NULL,
+> > > +                                 handle_percpu_devid_irq, NULL, NULL);
+> > > +     }
+> > > +
+> > > +     return 0;
+> > > +}
+> > > +
+> > > +static const struct irq_domain_ops ipi_mux_domain_ops = {
+> > > +     .alloc          = ipi_mux_domain_alloc,
+> > > +     .free           = irq_domain_free_irqs_top,
+> > > +};
+> > > +
+> > > +/**
+> > > + * ipi_mux_process - Process multiplexed virtual IPIs
+> > > + */
+> > > +void ipi_mux_process(void)
+> > > +{
+> > > +     struct ipi_mux_cpu *icpu = this_cpu_ptr(ipi_mux_pcpu);
+> > > +     irq_hw_number_t hwirq;
+> > > +     unsigned long ipis;
+> > > +     unsigned int en;
+> > > +
+> > > +     /*
+> > > +      * Reading enable mask does not need to be ordered as long as
+> > > +      * this function is called from interrupt handler because only
+> > > +      * the CPU itself can change it's own enable mask.
+> > > +      */
+> > > +     en = atomic_read(&icpu->enable);
+> > > +
+> > > +     /*
+> > > +      * Clear the IPIs we are about to handle. This pairs with the
+> > > +      * atomic_fetch_or_release() in ipi_mux_send_mask().
+> > > +      */
+> > > +     ipis = atomic_fetch_andnot(en, &icpu->bits) & en;
+> > > +
+> > > +     for_each_set_bit(hwirq, &ipis, BITS_PER_TYPE(int))
+> > > +             generic_handle_domain_irq(ipi_mux_domain, hwirq);
+> > > +}
+> > > +
+> > > +/**
+> > > + * ipi_mux_create - Create virtual IPIs multiplexed on top of a single
+> > > + * parent IPI.
+> > > + * @nr_ipi:          number of virtual IPIs to create. This should
+> > > + *                   be <= BITS_PER_TYPE(int)
+> > > + * @mux_send:                callback to trigger parent IPI for a particular CPU
+> > > + *
+> > > + * Returns first virq of the newly created virtual IPIs upon success
+> > > + * or <=0 upon failure
+> > > + */
+> > > +int ipi_mux_create(unsigned int nr_ipi, void (*mux_send)(unsigned int cpu))
+> > > +{
+> > > +     struct fwnode_handle *fwnode;
+> > > +     struct irq_domain *domain;
+> > > +     int rc;
+> > > +
+> > > +     if (ipi_mux_domain)
+> > > +             return -EEXIST;
+> > > +
+> > > +     if (BITS_PER_TYPE(int) < nr_ipi || !mux_send)
+> > > +             return -EINVAL;
+> > > +
+> > > +     ipi_mux_pcpu = alloc_percpu(typeof(*ipi_mux_pcpu));
+> > > +     if (!ipi_mux_pcpu)
+> > > +             return -ENOMEM;
+> > > +
+> > > +     fwnode = irq_domain_alloc_named_fwnode("IPI-Mux");
+> > > +     if (!fwnode) {
+> > > +             pr_err("unable to create IPI Mux fwnode\n");
+> > > +             rc = -ENOMEM;
+> > > +             goto fail_free_cpu;
+> > > +     }
+> > > +
+> > > +     domain = irq_domain_create_linear(fwnode, nr_ipi,
+> > > +                                       &ipi_mux_domain_ops, NULL);
+> > > +     if (!domain) {
+> > > +             pr_err("unable to add IPI Mux domain\n");
+> > > +             rc = -ENOMEM;
+> > > +             goto fail_free_fwnode;
+> > > +     }
+> > > +
+> > > +     domain->flags |= IRQ_DOMAIN_FLAG_IPI_SINGLE;
+> > > +     irq_domain_update_bus_token(domain, DOMAIN_BUS_IPI);
+> > > +
+> > > +     rc = __irq_domain_alloc_irqs(domain, -1, nr_ipi,
+> > > +                                  NUMA_NO_NODE, NULL, false, NULL);
+> > > +     if (rc <= 0) {
+> > > +             pr_err("unable to alloc IRQs from IPI Mux domain\n");
+> > > +             goto fail_free_domain;
+> > > +     }
+> > > +
+> > > +     ipi_mux_domain = domain;
+> > > +     ipi_mux_send = mux_send;
+> > > +
+> > > +     return rc;
+> > > +
+> > > +fail_free_domain:
+> > > +     irq_domain_remove(domain);
+> > > +fail_free_fwnode:
+> > > +     irq_domain_free_fwnode(fwnode);
+> > > +fail_free_cpu:
+> > > +     free_percpu(ipi_mux_pcpu);
+> > > +     return rc;
+> > > +}
+> >
+> > Reviewed-by: Hector Martin <marcan@marcan.st>
+> > Tested-by: Hector Martin <marcan@marcan.st>
+> >
+> > I was actually surprised this wasn't already a solved problem when I
+> > first had to write this code. Glad RISC-V found it useful :)
 
+There are a few other potential customers for this code, such as
+openrisc (see drivers/irqchip/irq-ompic.c as a scary example).
 
---U2PfE6iLzEQxY5EZ
-Content-Type: application/pgp-signature; name="signature.asc"
+> >
+> > Note: we agonized over the memory ordering here quite a bit when this
+> > was first written, and all that was viewed through the lens of the ARM64
+> > memory model. You might want to do a similarly thorough review from a
+> > RISC-V perspective to make sure it isn't relying on any ARMisms (or that
+> > RISC-V isn't failing to meet the underlying Linux model - we already ran
+> > into a core kernel bitop issue once for ARM too!).
+> >
+> 
+> Thanks, your work is certainly useful to the RISC-V. We already have
+> three RISC-V irqchip drivers (SBI IPI, CLINT,and IMSIC) which benefit
+> from this code. The RISC-V IMSIC driver was recently submitted on
+> LKML whereas the other two are already used on existing platforms.
+> 
+> Regarding memory-model, RISC-V platforms by default have weak
+> memory ordering (same as ARM). We also have optional TSO extension
+> but currently there are no platforms implementing it.
 
------BEGIN PGP SIGNATURE-----
+Weak doesn't mean similar. See Power for an example of "weak but
+different".
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY43IFwAKCRB4tDGHoIJi
-0jHqAP9sHKFru08Vy/LyY7BmPVOf/Q2x6tbCB1xx6sCi1t5fYQEAmj/nvnnKvgiu
-BImLWQ5XZFH6PkXyQU9IeMGGHtaV/Qs=
-=0waD
------END PGP SIGNATURE-----
+> 
+> Regarding atomics used in this patch, there is only one difference
+> in atomic_fetch_or_release() where RISC-V implements it as
+> __atomic_release_fence() plus atomic_fetch_or_relaxed().
 
---U2PfE6iLzEQxY5EZ--
+But the point here is that we're using the Linux memory model, not the
+arm64 one. Both architectures are free to implement it as they want,
+as long as the implementation is not weaker than what the kernel
+requires.
 
+I'm sure we'll find issues along the way, but the more common code we
+have around this, the better.
 
---===============4159024383990077915==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4159024383990077915==--
-
