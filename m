@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91899C4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 09:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6447CC4708D
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 09:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1luWkaOQTbBl2eyOXseK+I86Fc5M1mDRDC9sIOCHEoE=; b=F7eggMyP5qQ9oa
-	WO7mgDkP7vTI1V9DVp35YvrMRbeebQCCl9GyHMIW+l6IbQm2/asvpb0LHdLPNVk01NbFZrM8aCSGT
-	Lfwd6WQ5d+8WpADzAFNow6n7DnMKPDDqAbgEnhScUHF2x0CBZImL90tZoS/a1yDUD68L9ErnekcL0
-	hi611sdLEkr/Jur6BPc33k7qUk+hi/w+YSJsAHbkCckoclYotHVWCDFMF+fUKrsr02TJcmG7Jqhz0
-	FdeDdATm3cKG+Q99PTE9YG5tqSttUdB+vtzfZeXO+BnkHy+in+1NPfHWUDQFS5lx8yNsYovPMmJ3x
-	qK2XfnHXJQpzfCDY9Dqg==;
+	List-Owner; bh=SrK9316fM4JExVsPzuZZkJFyXULBR0sWcZwdLdLapuQ=; b=xcUMYgBO3ONbam
+	iQrTnNWsb0w94OR4jUM2wOruhSl1poNUHlAf9Gl/gNAymYYtpTjW2wbGC4ENT/9N47B+WsfqE+coi
+	WPzfJ8OW4mvZPKq8WWtxqgH/APxQ/1tn9IcUMOhkH5qizuVneoWiGLU3xhhZWxu1+jKWRKzeow7tx
+	jM6/trMR+GbrAZ2BWsXPh3U0lL+AFfi6M9TXO0nrECrrzT8nuiIuk3kpO30b5PBH700Axxhob4KND
+	x9g8ONWHymkVTK07Eky+9ddPWDRKucueOoVxlH21Zl2qfLqfSi0cQsVYVXaheRlZcDxKoDfbe7m7S
+	l48Thi98kXuuDpSDoaDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p27XT-00GtiB-A9; Mon, 05 Dec 2022 09:13:27 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p27Xg-00GtoD-Qh; Mon, 05 Dec 2022 09:13:40 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p27XR-00GtgE-2c
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 09:13:26 +0000
+	id 1p27Xd-00GtmA-SK
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 09:13:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 7DB21B80D9C;
-	Mon,  5 Dec 2022 09:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A280EC433C1;
-	Mon,  5 Dec 2022 09:13:21 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 8AE43B80D8A;
+	Mon,  5 Dec 2022 09:13:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA70AC433C1;
+	Mon,  5 Dec 2022 09:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670231602;
-	bh=BxyB9UbcH7VMa4LZtCngzzb08+kauzvcdH5JV40PM6o=;
+	s=k20201202; t=1670231615;
+	bh=ggVmgdZ2s5j3TLZVKMkeQhvmxbiWFWAWsgD6rDz4n+k=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=Ewk8yMS+YVNKhle2v6S8qXC/9kE/yOPobcpuNGnGZ+I7WFAZeGrxiQJEtzX3wI8sr
-	 8g9/fNnprw5Rg47kBQIUPWlxKZ4H/0/4AjVEsaV9zuVes49nYheTc7KBpLOk38zodQ
-	 izkG4nJobxvVEDRfvjatgUMwDD5+Mu4dp6a3aUHDRDbalaqSBmfMTsb9xMIhMoVIf9
-	 Nganxkt67B8I+SY5Gp4az3B5Kx55WJ7bAG+7vEH/DifQRdZanypMH2jBHAnHHdVe31
-	 MqSZesfugHGzQL8U4EdI/D+p51iB/0w2++1jGLcxfFWUiAJMmoSXuAkBIvxOEMftQ7
-	 eUzKJUJo58eBg==
+	b=ph7ywJxoRhu/Dl+2LXiBI2gfN9ERiT4GpoHROYh3cBmY/Au4Jcr/7jmmrNPfRgBh2
+	 m7bqOGHrvLxqPGzENsDIm9yLa5TC5A1d2vdDKcvhY4zbc1xhkJ8HAA4p2TD1K9GgFN
+	 5IVLwmlKBDU9XBdpha/8ggXIyKNNCZiiAyySNirq6+AOn4Ye5pjF+oUfuUFOjfmFb5
+	 NO+HFIFbpWUnlMj2sTGbB3NQOSHcNSJplGqFD6QHfpcDxi+3y+TPPZfljc672vZa/s
+	 ynH0pEJ4Zv2GSzfLCOP+xarY+tt64hylG6gdn1hPbED71SwugZTN6I5ds6p7WgewPw
+	 1WTt+6a2ov0Eg==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: guoren@kernel.org, arnd@arndb.de, guoren@kernel.org,
  palmer@rivosinc.com, tglx@linutronix.de, peterz@infradead.org,
@@ -54,16 +54,17 @@ To: guoren@kernel.org, arnd@arndb.de, guoren@kernel.org,
 Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
  kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH -next V8 02/14] riscv: elf_kexec: Fixup compile warning
-In-Reply-To: <20221103075047.1634923-3-guoren@kernel.org>
+Subject: Re: [PATCH -next V8 03/14] riscv: compat_syscall_table: Fixup
+ compile warning
+In-Reply-To: <20221103075047.1634923-4-guoren@kernel.org>
 References: <20221103075047.1634923-1-guoren@kernel.org>
- <20221103075047.1634923-3-guoren@kernel.org>
-Date: Mon, 05 Dec 2022 10:13:19 +0100
-Message-ID: <87iliq9psg.fsf@all.your.base.are.belong.to.us>
+ <20221103075047.1634923-4-guoren@kernel.org>
+Date: Mon, 05 Dec 2022 10:13:32 +0100
+Message-ID: <87h6ya9ps3.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_011325_307397_B3DA934A 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20221205_011338_083621_DA3D9AF4 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +85,38 @@ guoren@kernel.org writes:
 
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> If CRYTPO or CRYPTO_SHA256 or KEXE_FILE is not enabled, then:
+> ../arch/riscv/kernel/compat_syscall_table.c:12:41: warning: initialized
+> field overwritten [-Woverride-init]
+>    12 | #define __SYSCALL(nr, call)      [nr] = (call),
+>       |                                         ^
+> ../include/uapi/asm-generic/unistd.h:567:1: note: in expansion of macro
+> '__SYSCALL'
+>   567 | __SYSCALL(__NR_semget, sys_semget)
 >
-> COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1
-> O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/
->
-> ../arch/riscv/kernel/elf_kexec.c: In function 'elf_kexec_load':
-> ../arch/riscv/kernel/elf_kexec.c:185:23: warning: variable
-> 'kernel_start' set but not used [-Wunused-but-set-variable]
->   185 |         unsigned long kernel_start;
->       |                       ^~~~~~~~~~~~
->
-> Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+> Fixes: 59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > Signed-off-by: Guo Ren <guoren@kernel.org>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 > Reported-by: kernel test robot <lkp@intel.com>
 > ---
->  arch/riscv/kernel/elf_kexec.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/kernel/Makefile | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
-> index 0cb94992c15b..4b9264340b78 100644
-> --- a/arch/riscv/kernel/elf_kexec.c
-> +++ b/arch/riscv/kernel/elf_kexec.c
-> @@ -198,7 +198,7 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
->  	if (ret)
->  		goto out;
->  	kernel_start = image->start;
-> -	pr_notice("The entry point of kernel at 0x%lx\n", image->start);
-> +	pr_notice("The entry point of kernel at 0x%lx\n", kernel_start);
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index db6e4b1294ba..ab333cb792fd 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -9,6 +9,7 @@ CFLAGS_REMOVE_patch.o	= $(CC_FLAGS_FTRACE)
+>  CFLAGS_REMOVE_sbi.o	= $(CC_FLAGS_FTRACE)
+>  endif
+>  CFLAGS_syscall_table.o	+= $(call cc-option,-Wno-override-init,)
+> +CFLAGS_compat_syscall_table.o += $(call cc-option,-Wno-override-init,)
+>  
+>  ifdef CONFIG_KEXEC
+>  AFLAGS_kexec_relocate.o := -mcmodel=medany $(call cc-option,-mno-relax)
 
-This patch shouldn't be part of the generic entry series. It's just a
-generic fix! Please have this as a separate patch.
-
+Like patch 2, this is just a generic fix! Please have this as a separate
+patch, and not part of the series.
 
 _______________________________________________
 linux-riscv mailing list
