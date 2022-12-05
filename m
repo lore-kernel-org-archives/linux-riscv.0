@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8DDC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:14:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8733EC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qy9vWuqzXBw3C6twoz1ESshTFJ9dSaIXFQL9fXFWxvc=; b=R97Z5rDBQLzP7WXRVNF/+vB42d
-	7jgZSQP/Cd7LA0d/9X31xD5Jkm4IArKKlcUh6qIM0mq3QJcuEh9ZL0o0DY5bL+hDy5/dCYbBBkTKN
-	igss1BMogwJdotWA4ayCjLinJzUAGXETwJC8AtNtd78fb3Xi8o9xlV4Hu4rweG1TrqzpAu/gCky/B
-	mk/lAjcotCBX2GuJ7Us0tjV52/nBwMIrGjmANGr655hSMeGrH3gbrSmV7uKb7MUbkI8KHp8U/StaS
-	Msuxk8AbCpXQvEvULihQga6ingTisWMuaDe6NbpDoBMgUI0omhvK1tUNF3FScIey+2HKODqteR5us
-	C6YytbgA==;
+	bh=qBLDFoIOxaHWyBtEI3AxyoA1LvZv0qlv2LtWWTqVgpI=; b=AtSj6s06SLLNiYToAEvltGsq77
+	w3O7d9EiM/eA1MS4w4qJCnQu7kiCtZ7C1H+YjOBfhmcDL/FG0hVHdAD3c3O9tkHDhPOLV/bzJ74Z/
+	WLtH+fSPSf+hxVWaXSW1pUi3vM1ISuBC+uOENh3hcjCIaSMMoYucYIrrs5NJvgZdo7U0QnrZV8qcl
+	18jY/LOH/LjEaIs8wL1s8Ht41ONC++mbSUkAtQ9HB+CcopZ/PFmh42MWMgkytwed2VjDyWHASE8X0
+	jAkKKyDyw5K1b/HPaFhNa8GkoeMHJUQIqEduLtvNzQu8SUo64HNi0qwt0rz3ys8GxwUBaP6Ja6Eev
+	7M/Odb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Fyj-008Hb8-G8; Mon, 05 Dec 2022 18:14:09 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1p2GKk-008SUN-Kb; Mon, 05 Dec 2022 18:36:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Fyg-008HD5-Iy
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 18:14:08 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1p2FyS-0002ph-5Y; Mon, 05 Dec 2022 19:13:52 +0100
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1p2FyO-002Wur-Ea; Mon, 05 Dec 2022 19:13:49 +0100
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1p2FyO-002qP9-DL; Mon, 05 Dec 2022 19:13:48 +0100
-Date: Mon, 5 Dec 2022 19:13:48 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20221205181348.3bvugpjr7xgf6uk5@pengutronix.de>
-References: <20221117164950.cssukd63fywzuwua@pengutronix.de>
- <Y3Zxkt3OSPQc46Q2@spud>
- <20221117210433.n5j7upqqksld42mu@pengutronix.de>
- <Y3avobkvYK3ydKTS@spud>
- <Y3uZY5mt/ZIWk3sS@wendy>
- <Y4coL74qQX80TNaT@wendy>
- <20221130103755.lhil2jaw3oufr2sf@pengutronix.de>
- <Y44Mk2nGu1Zeq7QQ@wendy>
- <20221205160328.wn4rcs6uxuuaxftd@pengutronix.de>
- <Y44mxp9Wr/aEdaxE@spud>
+	id 1p2GKh-008STf-I4; Mon, 05 Dec 2022 18:36:53 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CBC73612F1;
+	Mon,  5 Dec 2022 18:36:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B86C433D6;
+	Mon,  5 Dec 2022 18:36:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670265410;
+	bh=OQdvaLSoaiBbTTeKD827k+4rYmwOJ9xbFSL1aPRYkUc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G+9IUmmxBh5gC369f8/d/uPzj6Zkb+7CI3SvLvLo7xJHLH0rBA21oTgkmVrPWOViT
+	 rBQy1UaWCVNWSCxSCPIsD0emZrqBpxiBVLv3QYarlQaYthhWsUkj1x0WCRTHeM1Wfd
+	 D0BEi6k9iFMCNmtqzN+bd0wndTufsRWdRrd+1yJH5Pi6xCLbUzOyki2MUBtjCK7BUr
+	 IuOqXY0BT0velhXHVw2msD1Iuf4jDJ6hh8LttPHoxVnbAFFmpw4gENyBZV41CNb2R7
+	 QTOchzLUTlY/Hb/Wpq7nlC/ShzOBLStlp9KyP7Mfe+ERAYA69bfrwQFjsiL4r2KrG5
+	 uU05A4S2JhIYg==
+Date: Mon, 5 Dec 2022 18:36:45 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 01/13] riscv: fix jal offsets in patched alternatives
+Message-ID: <Y446PdlUPGw5iB71@spud>
+References: <20221204174632.3677-1-jszhang@kernel.org>
+ <20221204174632.3677-2-jszhang@kernel.org>
+ <4764569.GXAFRqVoOG@diego>
+ <Y44Q/B6THtP38eyL@xhacker>
 MIME-Version: 1.0
-In-Reply-To: <Y44mxp9Wr/aEdaxE@spud>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <Y44Q/B6THtP38eyL@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_101406_649006_0EAD7E98 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20221205_103651_707952_AE1B8117 
+X-CRM114-Status: GOOD (  36.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +74,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5774159625454902698=="
+Content-Type: multipart/mixed; boundary="===============7174005380734787945=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5774159625454902698==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kjxhhs4q4yv2cfmm"
+--===============7174005380734787945==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ygsvAbVCNFXeErrf"
 Content-Disposition: inline
 
 
---kjxhhs4q4yv2cfmm
+--ygsvAbVCNFXeErrf
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hello Conor,
+Heiko, Jisheng,
 
-On Mon, Dec 05, 2022 at 05:13:42PM +0000, Conor Dooley wrote:
-> Figured I was better off doing something quickly & asking rather than
-> polishing only to find out it was disliked ;)
-
-:-)
-
-> >  - in .apply() check the current time, add the current period and store
-> >    the result to ddata->updatetimestamp
-> >  - in .get_state do:
-> >      if (current_time >=3D ddata->updatetimestamp)
-> >        process fine
-> >      else:
-> >        timeout (or wait until ddata->updatetimestamp?)
+On Mon, Dec 05, 2022 at 11:40:44PM +0800, Jisheng Zhang wrote:
+> On Mon, Dec 05, 2022 at 04:31:08PM +0100, Heiko St=FCbner wrote:
+> > Am Sonntag, 4. Dezember 2022, 18:46:20 CET schrieb Jisheng Zhang:
+> > > Alternatives live in a different section, so offsets used by jal
+> > > instruction will point to wrong locations after the patch got applied.
+> > >=20
+> > > Similar to arm64, adjust the location to consider that offset.
+> > >=20
+> > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > ---
+> > >  arch/riscv/include/asm/alternative.h |  2 ++
+> > >  arch/riscv/kernel/alternative.c      | 38 ++++++++++++++++++++++++++=
+++
+> > >  arch/riscv/kernel/cpufeature.c       |  3 +++
+> > >  3 files changed, 43 insertions(+)
+> > >=20
+> > > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/includ=
+e/asm/alternative.h
+> > > index c58ec3cc4bc3..33eae9541684 100644
+> > > --- a/arch/riscv/include/asm/alternative.h
+> > > +++ b/arch/riscv/include/asm/alternative.h
+> > > @@ -29,6 +29,8 @@ void apply_module_alternatives(void *start, size_t =
+length);
+> > > =20
+> > >  void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int le=
+n,
+> > >  				      int patch_offset);
+> > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > > +			       int patch_offset);
+> > > =20
+> > >  struct alt_entry {
+> > >  	void *old_ptr;		 /* address of original instruciton or data  */
+> > > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alte=
+rnative.c
+> > > index 292cc42dc3be..9d88375624b5 100644
+> > > --- a/arch/riscv/kernel/alternative.c
+> > > +++ b/arch/riscv/kernel/alternative.c
+> > > @@ -125,6 +125,44 @@ void riscv_alternative_fix_auipc_jalr(void *alt_=
+ptr, unsigned int len,
+> > >  	}
+> > >  }
+> > > =20
+> > > +#define to_jal_imm(value)						\
+> > > +	(((value & (RV_J_IMM_10_1_MASK << RV_J_IMM_10_1_OFF)) << RV_I_IMM_1=
+1_0_OPOFF) | \
+> > > +	 ((value & (RV_J_IMM_11_MASK << RV_J_IMM_11_OFF)) << RV_J_IMM_11_OP=
+OFF) | \
+> > > +	 ((value & (RV_J_IMM_19_12_OPOFF << RV_J_IMM_19_12_OFF)) << RV_J_IM=
+M_19_12_OPOFF) | \
+> > > +	 ((value & (1 << RV_J_IMM_SIGN_OFF)) << RV_J_IMM_SIGN_OPOFF))
+> > > +
+> > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > > +			       int patch_offset)
+> > > +{
 > >=20
-> > Actually I'd prefer to wait instead of -ETIMEOUT.
+> > I think we might want to unfiy this into a common function like
+> >=20
+> > 	riscv_alternative_fix_offsets(...)
+> >=20
+> > so that we only run through the code block once
+> >=20
+> > 	for (i =3D 0; i < num_instr; i++) {
+> > 		if (riscv_insn_is_auipc_jalr(inst1, inst2)) {
+> > 			riscv_alternative_fix_auipc_jalr(...)
+> > 			continue;
+> > 		}
+> >=20
+> > 		if (riscv_insn_is_jal(inst)) {
+> > 			riscv_alternative_fix_jal(...)
+> > 			continue;
+> > 		}
+> > 	}
+> >=20
+> > This would also remove the need from calling multiple functions
+> > after patching alternatives.
 >=20
-> Prefer to wait in get_state() or in both it & apply()?
+> Yesterday, I also wanted to unify the two instruction fix into
+> one. But that would need to roll back the
+> riscv_alternative_fix_auipc_jalr() to your v1 version. And IMHO,
+> it's better if you can split the Zbb string optimizations series
+> into two: one for alternative improvements, another for Zbb. Then
+> we may get the alternative improvements and this inst extension
+> series merged in v6.2-rc1.
 
-Prefer to wait where it's necessary ...
+Heiko, perhaps you can correct me here:
 
-> Depending on how far away updatetimestamp is, would we still not want to
-> time out if it is going to be a long time, no?
+Last Wednesday you & Palmer agreed that it was too late in the cycle to
+apply any of the stuff touching alternatives?
+If I do recall correctly, gives plenty of time to sort out any
+interdependent changes here.
 
-I'd prefer a slow but right value over a quick error.
+Could easily be misremembering, wouldn't be the first time!
 
-The sun4i driver has in its .apply():
+Thanks,
+Conor.
 
-        /* We need a full period to elapse before disabling the channel. */
-        delay_us =3D DIV_ROUND_UP_ULL(cstate.period, NSEC_PER_USEC);
-        if ((delay_us / 500) > MAX_UDELAY_MS)
-                msleep(delay_us / 1000 + 1);
-        else
-                usleep_range(delay_us, delay_us * 2);
+> > > +	int num_instr =3D len / sizeof(u32);
+> > > +	unsigned int call;
+> > > +	int i;
+> > > +	int imm;
+> > > +
+> > > +	for (i =3D 0; i < num_instr; i++) {
+> > > +		u32 inst =3D riscv_instruction_at(alt_ptr, i);
+> > > +
+> > > +		if (!riscv_insn_is_jal(inst))
+> > > +			continue;
+> > > +
+> > > +		/* get and adjust new target address */
+> > > +		imm =3D RV_EXTRACT_JTYPE_IMM(inst);
+> > > +		imm -=3D patch_offset;
+> > > +
+> > > +		/* pick the original jal */
+> > > +		call =3D inst;
+> > > +
+> > > +		/* drop the old IMMs, all jal imm bits sit at 31:12 */
+> > > +		call &=3D ~GENMASK(31, 12);
+> > > +
+> > > +		/* add the adapted IMMs */
+> > > +		call |=3D to_jal_imm(imm);
+> > > +
+> > > +		/* patch the call place again */
+> > > +		patch_text_nosync(alt_ptr + i * sizeof(u32), &call, 4);
+> > > +	}
+> > > +}
+> > > +
+> > >  /*
+> > >   * This is called very early in the boot process (directly after we =
+run
+> > >   * a feature detect on the boot CPU). No need to worry about other C=
+PUs
+> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
+ature.c
+> > > index ba62a4ff5ccd..c743f0adc794 100644
+> > > --- a/arch/riscv/kernel/cpufeature.c
+> > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > @@ -324,6 +324,9 @@ void __init_or_module riscv_cpufeature_patch_func=
+(struct alt_entry *begin,
+> > >  			riscv_alternative_fix_auipc_jalr(alt->old_ptr,
+> > >  							 alt->alt_len,
+> > >  							 alt->old_ptr - alt->alt_ptr);
+> > > +			riscv_alternative_fix_jal(alt->old_ptr,
+> > > +						  alt->alt_len,
+> > > +						  alt->old_ptr - alt->alt_ptr);
+> > >  		}
+> > >  	}
+> > >  }
+> > >=20
+> >=20
+> >=20
+> >=20
+> >=20
 
-so it's at least not new in general to have a waiting time in O(period).
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---kjxhhs4q4yv2cfmm
+--ygsvAbVCNFXeErrf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOONNkACgkQwfwUeK3K
-7AmE2wgAk2sWVpLdReSy1pSzeYCZ6ioUVHCTzslq0tljPK15BnT/FAMYPMhSozRS
-I6ZEmm3iRyJ4TiOgFbUVYIpNIe4UUvrAA8kfQ5zViM3mKKL9zXdpRXaG+cQPwl+p
-RM8KE2Yzd9wJWFCwx951zMBGxCfIqj2I06vCnBbi2rbBUzZbMy5dzFiyw/IKaMiv
-u8ylSqijubQSOQQ7gsZbp2MqpZO2ZH1IAdFyCslAeIoIUo6I9UnGLJS0fYG6fmLX
-2iMjTiml+SfLnob6YfDQiwTLv+WOOVPhDwmx0f/FCeugOftF5jyJyVIy+TJ9EB9m
-/c9nw3rglCUesb6zI6guMd7nlr5ZqQ==
-=OBsk
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY446PQAKCRB4tDGHoIJi
+0ldEAPwJgljT3AEEEsnqENoQ+sR344tG9T7LxDrQkdoYyWpvjgEAuK3E28qSwJLI
+qWSBSkWndIm2Tg+iQ+ibDY6yCGsg5w4=
+=2L1g
 -----END PGP SIGNATURE-----
 
---kjxhhs4q4yv2cfmm--
+--ygsvAbVCNFXeErrf--
 
 
---===============5774159625454902698==
+--===============7174005380734787945==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +269,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============5774159625454902698==--
+--===============7174005380734787945==--
 
