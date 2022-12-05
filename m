@@ -4,43 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9936EC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A02C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1cyPJ42ogi3BpDTDaWzttKs05WVvRCXOzjrk6tVDPnI=; b=lPwAarrV94dozN
-	+I5wv+FrcP/OBTjSHthGzmYPc6eVja3FNXODmNkcRNAnLXuiXKPWI2VYFaBIkkbdsfKYc9daYWgel
-	xEiR3c6RIkh9+P+wR6K7LJ1hWK2IYW5dL146Nea/gApwdFCYvzFAtnzrJ7vtZHo5zh5w5iaaB0MGk
-	CeHnHJtr0Zu2ZWQpa2DZCJwt0+0EsLWF6SuPUsRILsrzgpSX2GLIJcB2GHEkiL5ivjfWumQuAlOTw
-	fn2RaOMoh2tX6zURA1oPNvbSlAzA3eE/8oBlZmeSaScCbwXdjQ4kuuXOoYwsB32FrQKq1KQ8ub4TD
-	e0W518wiFLY43BWrbCsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ucm2pDcf0yZwUPd17SQz/8lzNjX4gJgPUMKL4DvycGo=; b=boTxvJ31UR99mT0Z09y62DtkpR
+	ePWwO1x6wY0ldr6GolxWZ4viA2H/MKLPsCU12iywFzOXmxngSzLFL47U05UBEI0j5endlc7ZTe2qs
+	70szbA2oFOIFPfoTZ7HyAYyf2/NRgA9PZYfuX2oFLn3TXn5o0K6FbsxtZ605YK7NxDqHcmV325fIJ
+	ZEOEbr6DHqye9y8chjNLJ5gwoCNNT3DAsS0X+aq17l835qQuQxXjMczDKi0Npr0BBnQSWDa1jHDup
+	H8S5WiIisc6zH4scSVXX8mhZP+5a4wPFuoiz90DP28/x5eiZ7LXT/qJqD8jxtfYx70cF1/bRStWyE
+	3H2NolAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2GWh-008jEl-P7; Mon, 05 Dec 2022 18:49:15 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1p2GbP-008pAg-Bh; Mon, 05 Dec 2022 18:54:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2GWe-008j2c-Vn; Mon, 05 Dec 2022 18:49:14 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1p2GWV-0005nw-0L; Mon, 05 Dec 2022 19:49:03 +0100
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Jisheng Zhang <jszhang@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 01/13] riscv: fix jal offsets in patched alternatives
-Date: Mon, 05 Dec 2022 19:49:01 +0100
-Message-ID: <10190559.nUPlyArG6x@diego>
-In-Reply-To: <Y446PdlUPGw5iB71@spud>
-References: <20221204174632.3677-1-jszhang@kernel.org> <Y44Q/B6THtP38eyL@xhacker> <Y446PdlUPGw5iB71@spud>
+	id 1p2GbH-008p3k-KQ; Mon, 05 Dec 2022 18:54:01 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EB666612FA;
+	Mon,  5 Dec 2022 18:53:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 002C8C433C1;
+	Mon,  5 Dec 2022 18:53:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670266438;
+	bh=dDkwloYPqTSZ4SPvf12m0QEAckEY0pJcFUlkg7vk9bw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dVE9deyV41By2ecKZTxyNR/vJluvD+S+wrV47jbjfV8izTa4gMYXx7zIVwLauOsyN
+	 IHLVw3h9kHqr4SHZB2URR7iU/abT0V9/hd34vcLM74k2roTRA22lvJmObJDJzHA6g4
+	 3qfgroGFhn4D/LIfrc4+DUSofA80f3hgJFeS1jVSc4v9m4CXqPaB9j72EGyto04aBz
+	 ylV3HyuobxbU0IcwC/x0l6GGOO/8PRYpDdYDfX9oeu3z6eORZ+phGKIFZiK+5kbTG2
+	 sc+yFdW1qyVq8CMgqZxRBGS7YJg67BmjczpwnszScQFrOdJr7Lpw/qIvcdRu+LQ0OM
+	 fytLkls7jOHsg==
+Date: Mon, 5 Dec 2022 18:53:53 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 04/13] riscv: hwcap: make ISA extension ids can be
+ used in asm
+Message-ID: <Y44+QWJfaa7haS/5@spud>
+References: <20221204174632.3677-1-jszhang@kernel.org>
+ <20221204174632.3677-5-jszhang@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20221204174632.3677-5-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_104913_051651_17D973E4 
-X-CRM114-Status: GOOD (  35.30  )
+X-CRM114-CacheID: sfid-20221205_105359_791523_1A050A9E 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -52,161 +73,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============5991058787352407325=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 5. Dezember 2022, 19:36:45 CET schrieb Conor Dooley:
-> Heiko, Jisheng,
-> =
 
-> On Mon, Dec 05, 2022 at 11:40:44PM +0800, Jisheng Zhang wrote:
-> > On Mon, Dec 05, 2022 at 04:31:08PM +0100, Heiko St=FCbner wrote:
-> > > Am Sonntag, 4. Dezember 2022, 18:46:20 CET schrieb Jisheng Zhang:
-> > > > Alternatives live in a different section, so offsets used by jal
-> > > > instruction will point to wrong locations after the patch got appli=
-ed.
-> > > > =
-
-> > > > Similar to arm64, adjust the location to consider that offset.
-> > > > =
-
-> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > ---
-> > > >  arch/riscv/include/asm/alternative.h |  2 ++
-> > > >  arch/riscv/kernel/alternative.c      | 38 ++++++++++++++++++++++++=
-++++
-> > > >  arch/riscv/kernel/cpufeature.c       |  3 +++
-> > > >  3 files changed, 43 insertions(+)
-> > > > =
-
-> > > > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/incl=
-ude/asm/alternative.h
-> > > > index c58ec3cc4bc3..33eae9541684 100644
-> > > > --- a/arch/riscv/include/asm/alternative.h
-> > > > +++ b/arch/riscv/include/asm/alternative.h
-> > > > @@ -29,6 +29,8 @@ void apply_module_alternatives(void *start, size_=
-t length);
-> > > >  =
-
-> > > >  void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int =
-len,
-> > > >  				      int patch_offset);
-> > > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
-> > > > +			       int patch_offset);
-> > > >  =
-
-> > > >  struct alt_entry {
-> > > >  	void *old_ptr;		 /* address of original instruciton or data  */
-> > > > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/al=
-ternative.c
-> > > > index 292cc42dc3be..9d88375624b5 100644
-> > > > --- a/arch/riscv/kernel/alternative.c
-> > > > +++ b/arch/riscv/kernel/alternative.c
-> > > > @@ -125,6 +125,44 @@ void riscv_alternative_fix_auipc_jalr(void *al=
-t_ptr, unsigned int len,
-> > > >  	}
-> > > >  }
-> > > >  =
-
-> > > > +#define to_jal_imm(value)						\
-> > > > +	(((value & (RV_J_IMM_10_1_MASK << RV_J_IMM_10_1_OFF)) << RV_I_IMM=
-_11_0_OPOFF) | \
-> > > > +	 ((value & (RV_J_IMM_11_MASK << RV_J_IMM_11_OFF)) << RV_J_IMM_11_=
-OPOFF) | \
-> > > > +	 ((value & (RV_J_IMM_19_12_OPOFF << RV_J_IMM_19_12_OFF)) << RV_J_=
-IMM_19_12_OPOFF) | \
-> > > > +	 ((value & (1 << RV_J_IMM_SIGN_OFF)) << RV_J_IMM_SIGN_OPOFF))
-> > > > +
-> > > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
-> > > > +			       int patch_offset)
-> > > > +{
-> > > =
-
-> > > I think we might want to unfiy this into a common function like
-> > > =
-
-> > > 	riscv_alternative_fix_offsets(...)
-> > > =
-
-> > > so that we only run through the code block once
-> > > =
-
-> > > 	for (i =3D 0; i < num_instr; i++) {
-> > > 		if (riscv_insn_is_auipc_jalr(inst1, inst2)) {
-> > > 			riscv_alternative_fix_auipc_jalr(...)
-> > > 			continue;
-> > > 		}
-> > > =
-
-> > > 		if (riscv_insn_is_jal(inst)) {
-> > > 			riscv_alternative_fix_jal(...)
-> > > 			continue;
-> > > 		}
-> > > 	}
-> > > =
-
-> > > This would also remove the need from calling multiple functions
-> > > after patching alternatives.
-> > =
-
-> > Yesterday, I also wanted to unify the two instruction fix into
-> > one. But that would need to roll back the
-> > riscv_alternative_fix_auipc_jalr() to your v1 version. And IMHO,
-> > it's better if you can split the Zbb string optimizations series
-> > into two: one for alternative improvements, another for Zbb. Then
-> > we may get the alternative improvements and this inst extension
-> > series merged in v6.2-rc1.
-> =
-
-> Heiko, perhaps you can correct me here:
-> =
-
-> Last Wednesday you & Palmer agreed that it was too late in the cycle to
-> apply any of the stuff touching alternatives?
-> If I do recall correctly, gives plenty of time to sort out any
-> interdependent changes here.
-> =
-
-> Could easily be misremembering, wouldn't be the first time!
-
-You slightly misremembered, but are still correct with the above ;-) .
-
-I.e. what we talked about was stuff for fixes for 6.1-rc, were Palmers
-wisely wanted to limit additions to really easy fixes for the remaining
-last rc, to not upset any existing boards.
-
-But you are still correct that we also shouldn't target the 6.2 merge window
-anymore :-) .
-
-We're after -rc8 now (which is in itself uncommon) and in his -rc7
-announcement [0], Linus stated
-
-"[...] the usual rule is that things that I get sent for the
-merge window should have been all ready _before_ the merge window
-opened. But with the merge window happening largely during the holiday
-season, I'll just be enforcing that pretty strictly."
-
-That means new stuff should be reviewed and in linux-next _way before_ the
-merge window opens next weekend. Taking into account that people need
-to review stuff (and maybe the series needing another round), I really don't
-see this happening this week and everything else will get us shouted at
-from atop a christmas tree ;-) .
-
-That's the reason most maintainer-trees stop accepting stuff after -rc7
+--===============5991058787352407325==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="SoXKSTu70JicbV71"
+Content-Disposition: inline
 
 
-Heiko
+--SoXKSTu70JicbV71
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey Jisheng,
+
+On Mon, Dec 05, 2022 at 01:46:23AM +0800, Jisheng Zhang wrote:
+> We will make use of ISA extension in asm files, so make the multi-letter
+> RISC-V ISA extension IDs macros rather than enums and move them and
+> those base ISA extension IDs to suitable place.
+
+Which base ISA extension IDs? Changelog should match the patch contents,
+and it's a little unclear here since the base ISA extension IDs are
+visible here but in the context not the diff.
+
+>=20
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/hwcap.h | 43 ++++++++++++++++------------------
+>  1 file changed, 20 insertions(+), 23 deletions(-)
+>=20
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
+p.h
+> index b22525290073..996884986fea 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -12,20 +12,6 @@
+>  #include <linux/bits.h>
+>  #include <uapi/asm/hwcap.h>
+> =20
+> -#ifndef __ASSEMBLY__
+> -#include <linux/jump_label.h>
+> -/*
+> - * This yields a mask that user programs can use to figure out what
+> - * instruction set this cpu supports.
+> - */
+> -#define ELF_HWCAP		(elf_hwcap)
+> -
+> -enum {
+> -	CAP_HWCAP =3D 1,
+> -};
+> -
+> -extern unsigned long elf_hwcap;
+> -
+>  #define RISCV_ISA_EXT_a		('a' - 'a')
+>  #define RISCV_ISA_EXT_c		('c' - 'a')
+>  #define RISCV_ISA_EXT_d		('d' - 'a')
+> @@ -46,22 +32,33 @@ extern unsigned long elf_hwcap;
+>  #define RISCV_ISA_EXT_BASE 26
+> =20
+>  /*
+> - * This enum represent the logical ID for each multi-letter RISC-V ISA e=
+xtension.
+> + * These macros represent the logical ID for each multi-letter RISC-V IS=
+A extension.
+>   * The logical ID should start from RISCV_ISA_EXT_BASE and must not exce=
+ed
+>   * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
+>   * extensions while all the multi-letter extensions should define the ne=
+xt
+>   * available logical extension id.
+>   */
+> -enum riscv_isa_ext_id {
+> -	RISCV_ISA_EXT_SSCOFPMF =3D RISCV_ISA_EXT_BASE,
+> -	RISCV_ISA_EXT_SVPBMT,
+> -	RISCV_ISA_EXT_ZICBOM,
+> -	RISCV_ISA_EXT_ZIHINTPAUSE,
+> -	RISCV_ISA_EXT_SSTC,
+> -	RISCV_ISA_EXT_SVINVAL,
+> -	RISCV_ISA_EXT_ID_MAX =3D RISCV_ISA_EXT_MAX,
+> +#define RISCV_ISA_EXT_SSCOFPMF		26
+> +#define RISCV_ISA_EXT_SVPBMT		27
+> +#define RISCV_ISA_EXT_ZICBOM		28
+> +#define RISCV_ISA_EXT_ZIHINTPAUSE	29
+> +#define RISCV_ISA_EXT_SSTC		30
+> +#define RISCV_ISA_EXT_SVINVAL		31
+
+Could you re-order these alphabetically when you move them please?
+
+Thanks,
+Conor.
+
+> +
+> +#ifndef __ASSEMBLY__
+> +#include <linux/jump_label.h>
+> +/*
+> + * This yields a mask that user programs can use to figure out what
+> + * instruction set this cpu supports.
+> + */
+> +#define ELF_HWCAP		(elf_hwcap)
+> +
+> +enum {
+> +	CAP_HWCAP =3D 1,
+>  };
+> =20
+> +extern unsigned long elf_hwcap;
+> +
+>  /*
+>   * This enum represents the logical ID for each RISC-V ISA extension sta=
+tic
+>   * keys. We can use static key to optimize code path if some ISA extensi=
+ons
+> --=20
+> 2.37.2
+>=20
+
+--SoXKSTu70JicbV71
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY44+QQAKCRB4tDGHoIJi
+0lI5AQCQU4Yulx3aPJ/8VwGzte0KU1wRgZkLQgu+/cIrvg4iygEArz2COMO1jpcT
+yHkDw3opFZX0/12MgPrroFAUZCOdQQw=
+=Ph2m
+-----END PGP SIGNATURE-----
+
+--SoXKSTu70JicbV71--
 
 
-[0] https://lkml.org/lkml/2022/11/27/278
-
-
-
-
+--===============5991058787352407325==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5991058787352407325==--
+
