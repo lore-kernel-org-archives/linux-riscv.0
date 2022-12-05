@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01F4C47089
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 17:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA559C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 17:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nISNrtgaWI9yyWBM0GPmnHTsRYOlrVcN6PB9bvB0KxM=; b=X3pAgnbw82P9dm
-	WLpRD8r95haXuNI7QlDrN+qznr7+zZ1xDpQnQMM9k/svaMum/2OCbBCE5Er2C5csPoR3cQ4ZnheDN
-	sJUQAz6sufRQpFNZ3iojk/LQO9ZborQYZEga7N/Fx4xAaN/fOPkkjZUgfQuBIsHdFOPBXX+835Y8/
-	7GhLhxWseAyrdk2IYXR1tPsMUL93p4NtlteMyQIWdHwtgfN4Klg8dfttkHAbxv+Ek0y9tnl4/cey+
-	R7wUMxj7g94CTk1rk/6a7ih6s0+CajlnZWe2N/kV4Qk0EtRGnqGyt3NMgzqHn+aYAkeska53GOIG4
-	O2cf3uEzhCqhMV2J/DMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nw5kFmmVkF+bbJF3l2ItzUawoYEz7E+ikh7sd9T6TqE=; b=zv7zQHanPVZhI4
+	AjzQcW7CbbD2KBlS9AxxH34wn4CA/LqxTJ7vqZL1O2afiMWrquW2mZWUI6pT91oIx/3iES/lQj+e1
+	px00Ig7PGYgYzYpE48MzZl70NW0oEZzCFTFLZ1wZr/lqipVnXHDD+KCLkvTtAcklLJKwq8nmEQspU
+	At/LEsmX6UZxOpAkHl0KDQneTYXlq60xKhHsmbCq97EKpuIc7o4/CQgePqWhzzbMcu21U6iY+4Mhx
+	u7s51A9zaMO3xfGbwRFG10fCTSEuc5Tfm4Wgwx2HNtKEH8nPuigwqhCIllOIBXTT7OJQ7jeqeLQB7
+	RWQjPMwskrtD9/DQOXHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2FXE-007hsW-Q0; Mon, 05 Dec 2022 17:45:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p2FXK-007i7k-B7; Mon, 05 Dec 2022 17:45:50 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2FXC-007hog-0b
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 17:45:43 +0000
+	id 1p2FXG-007htI-PH
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 17:45:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9B444612A5;
+	by ams.source.kernel.org (Postfix) with ESMTPS id 68CA4B811B8;
+	Mon,  5 Dec 2022 17:45:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5B7C433D6;
 	Mon,  5 Dec 2022 17:45:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CAEBC433C1;
-	Mon,  5 Dec 2022 17:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670262341;
-	bh=HO07O/dwEDuJ+b3MFU4z+ov/xFQe3b4wprxsPB4rHdg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=JJnLXbPBpH8GZdzC+OwUEkp8WOan84oXpWZ3bj6Ss3lY77irpIXpE+xL3aLwt2ao5
-	 iyBs75jNgsqBFnEmI5SSpR7sMOie3IDLtY936bMf8SRvC8WeFOsVPX2Z2+AJ+I2sYo
-	 NDJfWtbwn8NuHRrow5GcSRT1Absh3ufIcqjP9jXPL9FhnLKtVAfYvnkl3pyaHb+VjD
-	 95Yz+pVzR3gmuiiEhKgNeC/nM/PdsGSKy8pKAjIJQEMssPUQgML3jxEGn6mA7hPclv
-	 wSJYoyIuHIsFTAlRrCVYPfbEoljUzCLkXj6USEudD4Es+SQpHL24BjnlfNCGC6mWzr
-	 R7tAHJWnrPLeQ==
+	s=k20201202; t=1670262344;
+	bh=FJ2eLc+/uvQtLvi0RqLWMq8XBxp4zHfWRfsPOxpEs+c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dytuqIlUealQUxdTAhY+8ZYE3V8rGSp7iu1KElSnR/Y24IhoesCGKp/+Rt3hrFTBn
+	 7fYb4N87KzfwacJim7ecefII2dS9AMKznszp+2sSVfarUSjESNVzoOP+Y4aWqiCOHh
+	 ak8NCsL1daSs+lQvLQssAlTpe7cOb6y94b3nFozwvdXS/VKPJxkIltqyne+/KQKmju
+	 TMiLeDxbWtidxR7d08bziajaZq+BxfhXkxYrUcKkviuBrleUngoHGy6ThieD3vx8c1
+	 ZxVYpnnoucHPxS0Vd+hnJBc7tXxOepQYLfmhMl2cRIBahpcpCHA8ULXIZM7uLzVrd/
+	 3gHBTekRuCkog==
 From: Conor Dooley <conor@kernel.org>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
@@ -57,14 +57,16 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Guo Ren <guoren@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] riscv,isa fixups
-Date: Mon,  5 Dec 2022 17:44:58 +0000
-Message-Id: <20221205174459.60195-1-conor@kernel.org>
+Subject: [PATCH v3 1/2] dt-bindings: riscv: fix underscore requirement for multi-letter extensions
+Date: Mon,  5 Dec 2022 17:44:59 +0000
+Message-Id: <20221205174459.60195-2-conor@kernel.org>
 X-Mailer: git-send-email 2.38.1
+In-Reply-To: <20221205174459.60195-1-conor@kernel.org>
+References: <20221205174459.60195-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_094542_113804_4A152404 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20221205_094546_999758_A6D19D34 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +85,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-I noticed ~today~ while looking at the isa manual that I had not
-accounted for another couple of edge cases with my regex. As before, I
-think attempting to validate the canonical order for multiletter stuff
-makes no sense - but we should totally try to avoid false-positives for
-combinations that are known to be valid.
+The RISC-V ISA Manual allows the first multi-letter extension to avoid
+a leading underscore. Underscores are only required between multi-letter
+extensions.
 
-All I've changed for v2 was collecting tags & adding in the missing
-commit reference that Heiko pointed out.
+The dt-binding does not validate that a multi-letter extension is
+canonically ordered, as that'd need an even worse regex than is here,
+but it should not fail validation for valid ISA strings.
 
-v3 fixes an issue Jess spotted - it's *any* multi-letter extension that
-can come immediately after the single-letter ones, not just ones
-starting with Z.
+Allow the first multi-letter extension to appear immediately after
+the single-letter extensions.
 
-@Palmer, either you can take this once the DT folks have ACKed it if you
-like, or I will take onto some v6.2-rcN fixes branch. I don't think that
-there is any urgency :)
-
-Thanks,
-Conor.
-
-CC: Jessica Clarke <jrtc27@jrtc27.com>
-CC: Conor Dooley <conor@kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>
-CC: Heiko Stuebner <heiko@sntech.de>
-CC: Andrew Jones <ajones@ventanamicro.com>
-CC: Guo Ren <guoren@kernel.org>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
-
-Conor Dooley (2):
-  dt-bindings: riscv: fix underscore requirement for multi-letter
-    extensions
-  dt-bindings: riscv: fix single letter canonical order
-
+Link: https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-unpriv-pdf-from-asciidoc-15112022 # Chapter 29.5
+Fixes: 299824e68bd0 ("dt-bindings: riscv: add new riscv,isa strings for emulators")
+Acked-by: Guo Ren <guoren@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
  Documentation/devicetree/bindings/riscv/cpus.yaml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 90a7cabf58fe..97659bb71811 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -80,7 +80,7 @@ properties:
+       insensitive, letters in the riscv,isa string must be all
+       lowercase to simplify parsing.
+     $ref: "/schemas/types.yaml#/definitions/string"
+-    pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
++    pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:[hsxz](?:[a-z])+)?(?:_[hsxz](?:[a-z])+)*$
+ 
+   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
+   timebase-frequency: false
 -- 
 2.38.1
 
