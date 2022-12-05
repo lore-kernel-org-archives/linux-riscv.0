@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF8C8C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 16:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8659BC4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 16:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+YyFpuaPr7fnkhRqIu5I9AVdZc42y1XppRdp8dvUFA=; b=iUYfFPIPHyhbSn
-	gsISymksWua7oFrEY2RaeRsaIEGDyTb8CJAjwEd55Dw2VghjorMKhsKQkXVZ42v0HW3qwv0035UGA
-	2JKCISxQGuWzMDx3il3LJZthkwXC+wZ+e584SNVwjPrdZkmyYsNZ81ZCMv5mcYGB1A/0EKyJAh1oF
-	Vp9TjK5l3AF82kXbgkOHsIP8ppsq+JZhzQmorWBXMKBz3PZrh14YWKNSD/knHJDLVTPJUKKfuj4Me
-	S6GY32ikyt+XfbjXMZjtbypIqguw8mUIE0G4fIBdcYyA+LAng4WeuWHkZklQJU2uQwE3Anjw1KB9G
-	ZX/5/+P1bTje58CJB8gg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k3bcrTQmlib9EyRgaOLk0PfPItPlQ1AQ95Hpt44IbKg=; b=UjJNgpzB/lt8KVzrIeWunh6dts
+	AxZR4XvLshK0MU/m1SqV1ZOsEW0RQ82W0V4Bh1GgMTTFxJ3xa1RNSj2ZnkAW+PHyhKRGd6ximuRkR
+	JPRbXBCqfC9Xn6Hxk0OngowbJGIBLPtEO43d9MB361POWEUDy1MEDk2ppp5jcGi/JA/wPvNwS1G0p
+	DFWSv1zgcB8Rzcfptj+Mp2IU41cCWV6yWiRZto9DOcbqFN6u8sywNLJ7mpwxLbn8qTAOM/Rurenl3
+	hqbN18GdxSCQs3mB9C2zRA6v7SvUAvULlAhByAXB0lyAm9q8sf5vF3zitZT2URYwaWu3cOPcj8v6O
+	YvQEDiog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Dt4-005rnJ-72; Mon, 05 Dec 2022 16:00:10 +0000
-Received: from sender4-op-o16.zoho.com ([136.143.188.16])
+	id 1p2Dwe-0064ah-KI; Mon, 05 Dec 2022 16:03:52 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Dsy-005rRe-Cx
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 16:00:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1670255995; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=X7jn62/jMmkCOkK8ufWo0TMcd7RRQ7I9K7spYpLbdiOsmgvJmT1B6e3WyLi2EDUTeQskiuns5dIiA7X6gukJE5+tQGArrA/SsxJZBF71byI+/ojLJE6kgRJKyUffW19+ezDRE2rRI/IXg/i0LGdvx/v1aKLEFcJ97Etx0pdEfVI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1670255995; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
-	bh=0jeaGZv0Hzfrv7zLGvcbO/z3eedPimr2SDOTRFy+Dug=; 
-	b=AshApFAwZWnxA/hs0EyF5hJe9b/vhgHB2PCKcVN+VLhpXKr6Irx6uIOVqcu3rf0kuTcHs0dy1zcVzfLZdBFmyluxxj50b7kBLmejSfbQGclbTkQeSd51TPqgYYBGyxHr2FMeCOduww/2ye0I9f4hdwzN/Nh5mAGbijJS4O1q8tw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1670255995;
-	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=0jeaGZv0Hzfrv7zLGvcbO/z3eedPimr2SDOTRFy+Dug=;
-	b=HsVtg30HP1bgTr/VwFkPcUOGhzTVVu1cQK71xcZm/3/VHcW5QampWsuleBa27Yl2
-	WYDJH5Efmi1FNDq6ODJoeDX53NQkpZmP/PHqdT71UHUrp/qhKN9gomD16Kl351x+wB2
-	Nm5Rcm9fN491Sz7diMbSQaVJawn6iWG70/WmYPz8=
-Received: from edelgard.fodlan.icenowy.me (120.85.99.143 [120.85.99.143]) by mx.zohomail.com
-	with SMTPS id 1670255993421842.6596337900735; Mon, 5 Dec 2022 07:59:53 -0800 (PST)
-Message-ID: <879345cd8609cddccbf7bcf230923139af320b17.camel@icenowy.me>
-Subject: Re: [PATCH 2/3] dt-bindings: timer: sifive,clint: add compatible
- for OpenC906
-From: Icenowy Zheng <uwu@icenowy.me>
+	id 1p2Dwb-0063oP-M0
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 16:03:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2DwJ-0001gk-7V; Mon, 05 Dec 2022 17:03:31 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2DwH-002VOo-9V; Mon, 05 Dec 2022 17:03:30 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2DwG-002pBF-Tw; Mon, 05 Dec 2022 17:03:28 +0100
+Date: Mon, 5 Dec 2022 17:03:28 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Marc Zyngier
- <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,  Paul Walmsley
- <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Jisheng Zhang <jszhang@kernel.org>, Samuel Holland <samuel@sholland.org>, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-Date: Mon, 05 Dec 2022 23:59:44 +0800
-In-Reply-To: <Y44IoC765yztZ6VF@wendy>
-References: <20221121041757.418645-3-uwu@icenowy.me>
-	 <98005150-83a7-5439-0db1-d93d459c3809@linaro.org>
-	 <b924d37d716fa8b1fd93102b1d51fac221f43d59.camel@icenowy.me>
-	 <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
-	 <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
-	 <20221130181330.GA2544489-robh@kernel.org> <Y4j+Gpptk3NAFBNV@spud>
-	 <4ad56fa249a30167844abcedac53d198606511d8.camel@icenowy.me>
-	 <Y43Jt3YOSbFyh954@wendy>
-	 <75a3ef9a175b16c46b57b2829ecbe4f97737de8a.camel@icenowy.me>
-	 <Y44IoC765yztZ6VF@wendy>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+Cc: Conor Dooley <conor@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20221205160328.wn4rcs6uxuuaxftd@pengutronix.de>
+References: <20221110093512.333881-1-conor.dooley@microchip.com>
+ <20221110093512.333881-2-conor.dooley@microchip.com>
+ <20221117164950.cssukd63fywzuwua@pengutronix.de>
+ <Y3Zxkt3OSPQc46Q2@spud>
+ <20221117210433.n5j7upqqksld42mu@pengutronix.de>
+ <Y3avobkvYK3ydKTS@spud>
+ <Y3uZY5mt/ZIWk3sS@wendy>
+ <Y4coL74qQX80TNaT@wendy>
+ <20221130103755.lhil2jaw3oufr2sf@pengutronix.de>
+ <Y44Mk2nGu1Zeq7QQ@wendy>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+In-Reply-To: <Y44Mk2nGu1Zeq7QQ@wendy>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_080004_542713_FAA30D3F 
-X-CRM114-Status: GOOD (  24.90  )
+X-CRM114-CacheID: sfid-20221205_080349_753661_D434CDB5 
+X-CRM114-Status: GOOD (  26.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +77,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6646274351453662167=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjItMTItMDXmmJ/mnJ/kuIDnmoQgMTU6MDUgKzAwMDDvvIxDb25vciBEb29sZXnlhpnp
-gZPvvJoKPiBPbiBNb24sIERlYyAwNSwgMjAyMiBhdCAwNzowMzoxN1BNICswODAwLCBJY2Vub3d5
-IFpoZW5nIHdyb3RlOgo+ID4g5ZyoIDIwMjItMTItMDXmmJ/mnJ/kuIDnmoQgMTA6MzYgKzAwMDDv
-vIxDb25vciBEb29sZXnlhpnpgZPvvJoKPiAKPiA+ID4gWW91IGxvdCBhbGwga25vdyB0aGUgc2l0
-dWF0aW9uIGhlcmUgYSBsb3QgbW9yZSB0aGFuIEkgZG8uLi4KPiA+ID4gSSBkb24ndCB0aGluayAi
-bGV0dGluZyIgcGVvcGxlIHVzZSB0aGUgYmFyZSAidGhlYWQsYzkwMC1mb28iCj4gPiA+IG1ha2Vz
-Cj4gPiA+IG11Y2gKPiA+ID4gc2Vuc2UgYXMgaXQgZ2l2ZXMgdXMgbm8gY2hhbmNlIHRvIGRlYWwg
-d2l0aCBxdWlya3MgZG93biB0aGUgbGluZS4KPiA+IAo+ID4gV2VsbCwgYWZ0ZXIgcmVjaGVja2lu
-ZyB0aGUgbWFudWFsLCBJIGZvdW5kIGl0IHBvc3NpYmxlIHRvIGhhbmRsZQo+ID4gcXVpcmtzCj4g
-PiAtLSBULUhlYWQgaGFzIGEgY3VzdG9tICJtY3B1aWQiIENTUiAoQCBSSVNDLVYgQ1NSIDB4RkMw
-KSwgd2hpY2ggY2FuCj4gPiBiZQo+ID4gdXNlZCB0byByZXRyaWV2ZSBzb21lIGlkZW50aWZpY2F0
-aW9uIGluZm8gb2YgdGhlIGNvcmUsIGluY2x1ZGluZwo+ID4gaXRzCj4gPiBtb2RlbCBJRCwgdmVy
-c2lvbiwgZXRjOyBhbmQgdGhlIFQtSGVhZCBQTElDL0NMSU5UIGFyZSBwYXJ0IG9mIHRoZWlyCj4g
-PiBDOTA2IFNvQyBkZXNpZ24gdGhhdCB0aGVyZSdzIGFub3RoZXIgIm1hcGJhZGRyIiBDU1IgdGhh
-dCBjb3VsZCBiZQo+ID4gdXNlZAo+ID4gdG8gcmV0cmlldmUgdGhlIGJhc2UgYWRkcmVzcyBvZiB0
-aGVtLgo+ID4gCj4gPiBTbyBJIHRoaW5rIGl0IG9rYXkgdG8ganVzdCB1c2UgInRoZWFkLGM5MDAt
-Y2xpbnQiIGhlcmUsIGFuZCB3aGVuCj4gPiBuZWNlc3NhcnksIHRyeSB0byByZXRyaWV2ZSBtY3B1
-aWQgZm9yIGRlYWxpbmcgd2l0aCBxdWlya3MuCj4gCj4gSSdtIG5vdCBzdXBlciBzdXJlIEkgZm9s
-bG93LiBXaGF0J3MgdGhlIHJlbGV2YW5jZSBvZiAibWFwYmFkZHIiIGhlcmU/Cj4gV2UndmUgZ290
-IGEgcmVnIHByb3BlcnR5LCBzbyBJIGRvbid0IHRoaW5rIHdlIG5lZWQgIm1hcGJhZGRyIj8KClll
-cywgaXQncyBub3QgcmVsZXZhbnQgdG8gdXMgaGVyZSwgaXQncyBvbmx5IHRvIHByb3ZlIHRoYXQg
-UExJQy9DTElOVAppcyBwYXJ0IG9mIEM5MDYgIkNvcmUgQ29tcGxleCIuCgo+IAo+IEZvciAibWNw
-dWlkIiwgY2FuIHlvdSBiZSBzdXJlIHRoYXQgaW1wbGVtZW50ZXJzIHdpbGwgbm90IG9taXQgc2V0
-dGluZwo+IHRoYXQgdmFsdWUgdG8gc29tZXRoaW5nIHVuaXF1ZT8gSSdkIGJlIGhhcHBpZXIgaWYg
-d2Ugd2VyZSBvdmVybHkKPiBjbGVhcgo+IG5vdyByYXRoZXIgdGhhbiBoYXZlIHNvbWUgaGVhZGFj
-aGVzIGxhdGVyLiBIYXZlIEkgbWlzc2VkIHNvbWV0aGluZz8KClRoZXNlIHZhbHVlcyBhcmUgc2V0
-IGJ5IFQtSGVhZCBpbnN0ZWFkIG9mIGluZGl2aWR1YWwgU29DIGltcGxlbWVudGVycwphcyBhIENQ
-VSBDU1IsIGFuZCBpdCdzIG5vdCBmb3IgdW5pcXVlbmVzcywgYnV0IGl0J3MgZm9yIGlkZW50aWZp
-Y2F0aW9uCm9mIHRoZSBDUFUgY29yZSByZXZpc2lvbiAodGh1cyB0aGUgUExJQy9DTElOVCB0aGF0
-IGNvbWUgd2l0aCBpdCkuCgo+IAo+ID4gPiBJIGRvbid0IHRoaW5rIHRoYXQgdXNpbmcgInRoZWFk
-LG9wZW5jOTA2LWNsaW50IiwgInRoZWFkLGM5MDAtCj4gPiA+IGNsaW50Igo+ID4gPiBtYWtlcyBh
-bGwgdGhhdCBtdWNoIHNlbnNlIGVpdGhlciwgaW4gY2FzZSBzb21lb25lIGRvZXMgc29tZXRoaW5n
-Cj4gPiA+IHdhY2t5Cj4gPiA+IHdpdGggdGhlIG9wZW4tc291cmNlIHZlcnNpb24gb2YgdGhlIGNv
-cmUuCj4gPiA+IAo+ID4gPiBUaGF0IGxlYXZlcyB1cyB3aXRoIGVpdGhlcjoKPiA+ID4gInZlbmRv
-cixzb2MtY2xpbnQiLCAidGhlYWQsb3BlbmM5MDYtY2xpbnQiLCAidGhlYWQsYzkwMC1jbGludCIK
-PiA+ID4gb3I6Cj4gPiA+ICJ2ZW5kb3Isc29jLWNsaW50IiwgInRoZWFkLGM5MDAtY2xpbnQiCj4g
-PiA+IHJpZ2h0Pwo+ID4gPiAKPiA+ID4gVGhlIGZpcnN0IG9uZSBzZWVtcyBsaWtlIHBvc3NpYmx5
-IHRoZSBiZXR0ZXIgb3B0aW9uIGFzIHlvdSdkCj4gPiA+IGtpbmRhCj4gPiA+IGV4cGVjdCB0aGF0
-LCBpbiBhIHBlcmZlY3Qgd29yZCwgYWxsIG9mIHRoZSBvcGVuLXNvdXJjZSBJUAo+ID4gPiBpbXBs
-ZW1lbnRhdGlvbnMgd291bGQgc2hhcmUgcXVpcmtzIGV0Yz8KPiAKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============6646274351453662167==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4zwxtzrofb5skakh"
+Content-Disposition: inline
+
+
+--4zwxtzrofb5skakh
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Conor,
+
+On Mon, Dec 05, 2022 at 03:21:55PM +0000, Conor Dooley wrote:
+> I came into work today thinking that I could just rebase on top of your
+> patchset and send out a v13, but that was unfortunately not the case :/
+>=20
+> So uh, it turns out that I was wrong about the behaviour of the
+> sync_update register's bit.
+> It turns out that that bit holds it's value until the IP block is reset,
+> and /does not/ get cleared at the start of the next period.
+> I'm really not sure how it worked when I tested the other week [0], so I
+> spent the first half of the day trying to figure out what on earth had
+> happened to my FPGA image. I must've picked the wrong image when I went
+> to test it the other week that had the wrong configuration somehow.
+>=20
+> As a result, I've gone and hacked up another way of transferring the
+> burden of waiting - setting a timer for the period, backed by a
+> completion. get_state() and apply() now both check for the completion
+> and time out otherwise. I'm half tempted to tack RFC back onto the
+> series as I have not really messed with timers at all before and may
+> have done something off the wall.
+>=20
+> I pushed it out (see [1] in case you'd like to look) so that the bots
+> can have a play with it, since it'll be a few weeks before I'll have a
+> chance to properly test that I've broken nothing with this.
+
+I didn't look, but I'm convinced you don't need a timer. Something like
+the following should work, shouldn't it?:
+
+ - in .apply() check the current time, add the current period and store
+   the result to ddata->updatetimestamp
+ - in .get_state do:
+     if (current_time >=3D ddata->updatetimestamp)
+       process fine
+     else:
+       timeout (or wait until ddata->updatetimestamp?)
+
+Actually I'd prefer to wait instead of -ETIMEOUT.
+=20
+Best regards
+Uwe
+
+
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--4zwxtzrofb5skakh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOOFk0ACgkQwfwUeK3K
+7Am4Lgf/fv9edPfJKrkZU9qkFGEmRFODwJ7+JvDFuOvR0sZmDxn9JIDIn5kLQNoD
+4WDDJM8i8PQvzDBlSy4wJ+hn9Gm9D6F9WgIRRHTmcc5RdN/csoM/cmFkbNonmZZC
+lOaEbX1I02orVuen7mkBzWrwM5WBOsCm3Vmn0oaNeXFlnM2GXlR2zjKFoa5aEC9l
+qjQ63WX6Jcp7KBMlfRxOuOUhykFYosE+zEPoTFz7nI4uL4w1QhSyINk8SDkNzcDH
+c0/X2ATGj9hmZTOatujovzWVAZEPNeqd4j51+0+lU+jHlUgcxm0gvgZVy7HE4keR
+r5gqCh0sz0azMsfDjKtaMz8qLd7V/A==
+=3pIO
+-----END PGP SIGNATURE-----
+
+--4zwxtzrofb5skakh--
+
+
+--===============6646274351453662167==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6646274351453662167==--
+
