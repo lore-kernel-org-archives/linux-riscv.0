@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B18DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 00:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65501C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 00:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a75yx6TOPBwTuxC+Igr9nqcfEhgLG/1UhV6ANokKWhI=; b=4SuZgRjVzKxmaq
-	vtBVMy6dAVv+/5mjdwPtpQTvBr/o+22JSUUgXUbL/IFXVEA08mPkgYaQrvSslIqgt4pq0fNmqs0Zm
-	8wh3OY0i30QtF/NAiGRSMuFrgIA/4nIzY0d/nZuq6URaWu+Q2ZYmUqcpeIhfZQUtHG8uQ9RqsnCRm
-	vKeUXwhuzfW3Z/+VSXX2WdMRdy/eUGCqti7bY/+UqB2a4jhkcrGDlBryRdvR5/6NFP5pfci/8GMxt
-	Aj+wxoqKBKvQTjzzdVQS8YajPO2PpvClri5dcEcuMGtsCuZy6uo56JBQ9ZKoy6EYv4lyCNX0QwDsj
-	3mZCKr9acu6FeNgw3Sxw==;
+	List-Owner; bh=dR40E1xQxWBTwj56mi9dTaCjS4GEnc4ySLaMrKjlCUY=; b=Ew9OiKe6hwCiqI
+	6XMW/7xGR+sB4fjQhpEB6zsSXNkCSd444ZsKTL3pj5dru8tFMIGDEeLQEdU0E4l53hr37a5j4nAUQ
+	cwzwfuv+EiVCcfC7xmjvRgcnWP/WGbrxQY+ZHEK9eBzeOcxTjwupKxqz8DJI0hb5gafxUn1utYxEV
+	4ucUs78rK0+CKXqdnshH0QSRCHZtPmJlWWqF1fYMlfY7DjVa0n+OG8D0gDnpO8epH8oWdIdQ1I39B
+	IJ74vUtgVWRnZp3QmazfVeWSmJQQkWIxJKo4Skp07i/V5Iu1rMBCA8sXqzUCLy7fyHg+jMrbdLp04
+	ExF/VrErDYexXoIfQZOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1z4F-00BpKM-Iy; Mon, 05 Dec 2022 00:10:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1p1ziI-00C6W0-F5; Mon, 05 Dec 2022 00:52:06 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p1z4C-00BpIH-89
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 00:10:41 +0000
+	id 1p1ziC-00C6OR-LW; Mon, 05 Dec 2022 00:52:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8475760F2D;
-	Mon,  5 Dec 2022 00:10:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26D05C433D7;
-	Mon,  5 Dec 2022 00:10:37 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7BD6BB80D18;
+	Mon,  5 Dec 2022 00:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B812C4314C;
+	Mon,  5 Dec 2022 00:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670199038;
-	bh=wHwBkSo7+9OsXeSnyzm3ampLGK0mAtM78dM7PJjSBzA=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=LYVLlfwQlNqL4IrP/fLTZ3aY/WveKlAsLqqhxuFI9pBkv+61ywlfdBNMfEMI9et2f
-	 thECXDLwAUFxfeeVM8QUEWgp7TBGxEtSu5VlmPcK+J60pVhutgNhTlH7p8UBnE9jL0
-	 8X/2rQRT2w9Zvb+FeyUc2vBdRx4qP182YKwbzfhWLUI37EPceVJP8CYXp5PSZ/S6Ot
-	 ZrVHhapPO83mb1NbCEtQgjoKxhc3/EF4Xo1vmN6QZXLu+zdKgWFWxFMQw+DBlVk4Gc
-	 FF/sP7sHmrgqSCOEICFxjr6Nkk+MmIRkCoVRyhcUR9/XALh3NdyB+FgAouCnRPCGH6
-	 dF0ChJteyChfw==
-Date: Mon, 05 Dec 2022 00:10:34 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-CC: Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@atishpatra.org>,
- Samuel Holland <samuel@sholland.org>,
- Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_1/3=5D_RISC-V=3A_time=3A_initialize?= =?US-ASCII?Q?_hrtimer_based_broadcast_clock_event_device?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20221201123954.1111603-2-apatel@ventanamicro.com>
-References: <20221201123954.1111603-1-apatel@ventanamicro.com> <20221201123954.1111603-2-apatel@ventanamicro.com>
-Message-ID: <04CBEBD4-3EDC-4FA0-BB11-DDD6B710C60C@kernel.org>
+	s=k20201202; t=1670201515;
+	bh=l44pb7mUIUK15oRZckiprYtdZirKKvG8zNOWtWJBzIk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tyqHry40rvujWmDPhrzeFjKlRE7LLahcW2sd4dwo7CViCYTT4TyxYVum3NT/wdqGm
+	 Eun8qTqzAhgvgFD379hdNuaEU2ucvqS41jpQu2xIkGWvrNQf6hGubiS1xpTNSrvsGy
+	 Ivmy00pzrLrElHRx9PMVJ9ohiaOcX1Vo12EzL7UGkHixVI0ZMbHW0+rETzNuSTxFqV
+	 9T+pa3sWOjz9wBUylTztLOTGOty1jqgTGMNlI35A+pJpvtRyyr1Wp53Kxi1s0NE720
+	 yHrW+EBP5ZL4egfyVnAlEbXdJDyPBXQskt7k7gj8cKz1hi4PvhqkDfuPcX0Sd8Wthn
+	 jV7VuaV/GASHw==
+Received: by mail-ed1-f41.google.com with SMTP id m19so13679643edj.8;
+        Sun, 04 Dec 2022 16:51:55 -0800 (PST)
+X-Gm-Message-State: ANoB5pnacCX1Tk4wFda3mrvhz2D0Ya5s0rb529lsF4IjrpmNEvxwq4dU
+	9y7pJKW7eCHq/8rQcCy0m3hsTDMkSYOdgTHB7Ag=
+X-Google-Smtp-Source: AA0mqf4j+c9zIha5tJ1qNtrUItSDyixzJtN8CWHQjUyG7+lnrXKwBFEU1PSquSArSe7HNKx3+k7xmgW1o2vOzPThIt4=
+X-Received: by 2002:a05:6402:1117:b0:46b:6da7:e8a9 with SMTP id
+ u23-20020a056402111700b0046b6da7e8a9mr24298753edv.401.1670201513115; Sun, 04
+ Dec 2022 16:51:53 -0800 (PST)
 MIME-Version: 1.0
+References: <20221204174632.3677-1-jszhang@kernel.org> <20221204174632.3677-10-jszhang@kernel.org>
+In-Reply-To: <20221204174632.3677-10-jszhang@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 5 Dec 2022 08:51:41 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRxm7LJFtups5fexJ5ishm9_j3e+yzfKv3nTtQqUtXPtA@mail.gmail.com>
+Message-ID: <CAJF2gTRxm7LJFtups5fexJ5ishm9_j3e+yzfKv3nTtQqUtXPtA@mail.gmail.com>
+Subject: Re: [PATCH v2 09/13] riscv: switch to relative alternative entries
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221204_161040_417671_E8E78367 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20221204_165201_028820_8CCEF2C0 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,67 +83,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1 December 2022 12:39:52 GMT, Anup Patel <apatel@ventanamicro.com> wrote:
->From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Dec 5, 2022 at 1:57 AM Jisheng Zhang <jszhang@kernel.org> wrote:
 >
->Similarly to commit 022eb8ae8b5e ("ARM: 8938/1: kernel: initialize
->broadcast hrtimer based clock event device"), RISC-V needs to initiate
->hrtimer based broadcast clock event device before C3STOP can be used.
->Otherwise, the introduction of C3STOP for the RISC-V arch timer in
->commit 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped
->during CPU suspend") leaves us without any broadcast timer registered.
->This prevents the kernel from entering oneshot mode, which breaks timer
->behaviour, for example clock_nanosleep().
+> Instead of using absolute addresses for both the old instrucions and
+> the alternative instructions, use offsets relative to the alt_entry
+> values. So we can not only cut the size of the alternative entry, but
+> also meet the prerequisite for patching alternatives in the vDSO,
+> since absolute alternative entries are subject to dynamic relocation,
+> which is incompatible with the vDSO building.
 >
->A test app that sleeps each cpu for 6, 5, 4, 3 ms respectively, HZ=250
->& C3STOP enabled, the sleep times are rounded up to the next jiffy:
->== CPU: 1 ==      == CPU: 2 ==      == CPU: 3 ==      == CPU: 4 ==
->Mean: 7.974992    Mean: 7.976534    Mean: 7.962591    Mean: 3.952179
->Std Dev: 0.154374 Std Dev: 0.156082 Std Dev: 0.171018 Std Dev: 0.076193
->Hi: 9.472000      Hi: 10.495000     Hi: 8.864000      Hi: 4.736000
->Lo: 6.087000      Lo: 6.380000      Lo: 4.872000      Lo: 3.403000
->Samples: 521      Samples: 521      Samples: 521      Samples: 521
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>  arch/riscv/errata/sifive/errata.c           |  4 +++-
+>  arch/riscv/errata/thead/errata.c            | 11 ++++++++---
+>  arch/riscv/include/asm/alternative-macros.h | 20 ++++++++++----------
+>  arch/riscv/include/asm/alternative.h        | 12 ++++++------
+>  arch/riscv/kernel/cpufeature.c              | 13 ++++++-------
+>  5 files changed, 33 insertions(+), 27 deletions(-)
 >
->Link: https://lore.kernel.org/linux-riscv/YzYTNQRxLr7Q9JR0@spud/
->Fixes: 232ccac1bd9b ("clocksource/drivers/riscv: Events are stopped during CPU suspend")
->Suggested-by: Samuel Holland <samuel@sholland.org>
->Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->Reviewed-by: Samuel Holland <samuel@sholland.org>
->Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-Huh, thought I replied already but I just have forgotten to...
-Since you've added this patch to your series,  it needs your SoB appended.
-
-Thanks,
-Conor.
-
->---
-> arch/riscv/kernel/time.c | 3 +++
-> 1 file changed, 3 insertions(+)
+> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+> index 1031038423e7..0e537cdfd324 100644
+> --- a/arch/riscv/errata/sifive/errata.c
+> +++ b/arch/riscv/errata/sifive/errata.c
+> @@ -107,7 +107,9 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
 >
->diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
->index 8217b0f67c6c..1cf21db4fcc7 100644
->--- a/arch/riscv/kernel/time.c
->+++ b/arch/riscv/kernel/time.c
->@@ -5,6 +5,7 @@
->  */
-> 
-> #include <linux/of_clk.h>
->+#include <linux/clockchips.h>
-> #include <linux/clocksource.h>
-> #include <linux/delay.h>
-> #include <asm/sbi.h>
->@@ -29,6 +30,8 @@ void __init time_init(void)
-> 
-> 	of_clk_init(NULL);
-> 	timer_probe();
->+
->+	tick_setup_hrtimer_broadcast();
-> }
-> 
-> void clocksource_arch_init(struct clocksource *cs)
+>                 tmp = (1U << alt->errata_id);
+>                 if (cpu_req_errata & tmp) {
+> -                       patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> +                       patch_text_nosync((void *)&alt->old_offset + alt->old_offset,
+> +                                         (void *)&alt->alt_offset + alt->alt_offset,
+ (void *)&alt->alt_offset + alt->alt_offset. ??!!
+
+> +                                         alt->alt_len);
+>                         cpu_apply_errata |= tmp;
+>                 }
+>         }
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 21546937db39..2a6e335b5a32 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -68,6 +68,7 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
+>         struct alt_entry *alt;
+>         u32 cpu_req_errata = thead_errata_probe(stage, archid, impid);
+>         u32 tmp;
+> +       void *oldptr, *updptr;
+>
+>         for (alt = begin; alt < end; alt++) {
+>                 if (alt->vendor_id != THEAD_VENDOR_ID)
+> @@ -77,12 +78,16 @@ void __init_or_module thead_errata_patch_func(struct alt_entry *begin, struct al
+>
+>                 tmp = (1U << alt->errata_id);
+>                 if (cpu_req_errata & tmp) {
+> +                       oldptr = (void *)&alt->old_offset + alt->old_offset;
+> +                       updptr = (void *)&alt->alt_offset + alt->alt_offset;
+> +
+>                         /* On vm-alternatives, the mmu isn't running yet */
+>                         if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> -                               memcpy((void *)__pa_symbol(alt->old_ptr),
+> -                                      (void *)__pa_symbol(alt->alt_ptr), alt->alt_len);
+> +                               memcpy((void *)__pa_symbol(oldptr),
+> +                                      (void *)__pa_symbol(updptr),
+> +                                      alt->alt_len);
+>                         else
+> -                               patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> +                               patch_text_nosync(oldptr, updptr, alt->alt_len);
+>                 }
+>         }
+>
+> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+> index ec2f3f1b836f..dd40727bc859 100644
+> --- a/arch/riscv/include/asm/alternative-macros.h
+> +++ b/arch/riscv/include/asm/alternative-macros.h
+> @@ -7,11 +7,11 @@
+>  #ifdef __ASSEMBLY__
+>
+>  .macro ALT_ENTRY oldptr newptr vendor_id errata_id new_len
+> -       RISCV_PTR \oldptr
+> -       RISCV_PTR \newptr
+> -       REG_ASM \vendor_id
+> -       REG_ASM \new_len
+> -       .word   \errata_id
+> +       .long \oldptr - .
+> +       .long \newptr - .
+> +       .short \vendor_id
+> +       .short \new_len
+> +       .long \errata_id
+>  .endm
+>
+>  .macro ALT_NEW_CONTENT vendor_id, errata_id, enable = 1, new_c : vararg
+> @@ -75,11 +75,11 @@
+>  #include <linux/stringify.h>
+>
+>  #define ALT_ENTRY(oldptr, newptr, vendor_id, errata_id, newlen)                \
+> -       RISCV_PTR " " oldptr "\n"                                       \
+> -       RISCV_PTR " " newptr "\n"                                       \
+> -       REG_ASM " " vendor_id "\n"                                      \
+> -       REG_ASM " " newlen "\n"                                         \
+> -       ".word " errata_id "\n"
+> +       ".long  ((" oldptr ") - .) \n"                                  \
+> +       ".long  ((" newptr ") - .) \n"                                  \
+> +       ".short " vendor_id "\n"                                        \
+> +       ".short " newlen "\n"                                           \
+> +       ".long  " errata_id "\n"
+>
+>  #define ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)           \
+>         ".if " __stringify(enable) " == 1\n"                            \
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> index 33eae9541684..3baf32e05b46 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -33,12 +33,12 @@ void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+>                                int patch_offset);
+>
+>  struct alt_entry {
+> -       void *old_ptr;           /* address of original instruciton or data  */
+> -       void *alt_ptr;           /* address of replacement instruction or data */
+> -       unsigned long vendor_id; /* cpu vendor id */
+> -       unsigned long alt_len;   /* The replacement size */
+> -       unsigned int errata_id;  /* The errata id */
+> -} __packed;
+> +       s32 old_offset;         /* offset to original instruciton or data  */
+> +       s32 alt_offset;         /* offset to replacement instruction or data */
+> +       u16 vendor_id;          /* cpu vendor id */
+> +       u16 alt_len;            /* The replacement size */
+> +       u32 errata_id;          /* The errata id */
+> +};
+>
+>  struct errata_checkfunc_id {
+>         unsigned long vendor_id;
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 6244be5cd94a..adeac90b1d8e 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -257,6 +257,7 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+>                                                   unsigned int stage)
+>  {
+>         struct alt_entry *alt;
+> +       void *oldptr, *updptr;
+>
+>         if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+>                 return;
+> @@ -270,17 +271,15 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+>                         continue;
+>                 }
+>
+> +               oldptr = (void *)&alt->old_offset + alt->old_offset;
+> +               updptr = (void *)&alt->alt_offset + alt->alt_offset;
+>                 if (!__riscv_isa_extension_available(NULL, alt->errata_id))
+>                         continue;
+>
+>                 /* do the basic patching */
+> -               patch_text_nosync(alt->old_ptr, alt->alt_ptr, alt->alt_len);
+> -               riscv_alternative_fix_auipc_jalr(alt->old_ptr,
+> -                                                alt->alt_len,
+> -                                                alt->old_ptr - alt->alt_ptr);
+> -               riscv_alternative_fix_jal(alt->old_ptr,
+> -                                         alt->alt_len,
+> -                                         alt->old_ptr - alt->alt_ptr);
+> +               patch_text_nosync(oldptr, updptr, alt->alt_len);
+> +               riscv_alternative_fix_auipc_jalr(oldptr, alt->alt_len, oldptr - updptr);
+> +               riscv_alternative_fix_jal(oldptr, alt->alt_len, oldptr - updptr);
+>         }
+>  }
+>  #endif
+> --
+> 2.37.2
+>
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
