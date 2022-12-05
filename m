@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52C0C4708E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 22:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9E8C4708C
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 22:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSUWl9bMzl8yuKHoTfgZu5hIpffroZJPK2jJ9qNEqow=; b=EJrlPfLtu79UuX9Ws8mel3fRU6
-	5HixeDELxeK7Kv48owOEXGzK/mfgr7MhYjU7RMAOn2LKYvS+ZXuxCHDHgYB/UuE6KtuNNmuHbobJL
-	Fv38XVv6kD+AZeuY/S47pFJVaC6SAv643t1uwc12OILNIxBG9+IzCKtF9g0txBbY8fhNDUL5rBpta
-	nyjxoGgf4jZHYsh4m8WT0ZTgLJzYsoT26b8wxd/x3Uf69YRq0PGR8tcWJjQ+wwgD3B6AZOIpgQuP6
-	OR0cxnnOnc5Uo1QmxqqnDNHHqzXEXeHuRC4em/szSvjC2ulnxCTIEwYvKCzFFu5xcILefTJzgd1JH
-	ASjQ+O9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZdutF809GD9TZnb+b4cL9THhjppPgy4OGkEFjrmPXrU=; b=0UNhoEHaQF2XSD
+	d2SeC6M7YiENkCbSMS41zDjkLpklv4PUgd8l9DkH4Gy+0BuMYBktb3OnM3K7aQsNetHr7RIo7MivZ
+	slEiOGjBqfNmQqTBwxpJ6GqHJYBXXgMD+IdIIUvaS+IplobG4IDd/E5+B4kKCcHRV7Jp2IyFClA2u
+	bw/gnVPqJr8H7xMIoPB44MdutKxgNeaNxQTXWct8SdbxYOwa54BW6oz7eQyEAk9I3CB4EbM5xNEba
+	P8ehV5Yg44sBfsV60R1dmOX9lPQbP3S7bZTr3tcx66LnKA25jD7AhSZ4ZW0k5B0hSpo5dHGq33CtF
+	eZI53vRAIjg+bdJCSE8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2JzA-00BJ1W-3t; Mon, 05 Dec 2022 22:30:52 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1p2K8N-00BOlp-8D; Mon, 05 Dec 2022 22:40:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Jz2-00BIs2-D0; Mon, 05 Dec 2022 22:30:46 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 73F5F1C09F4; Mon,  5 Dec 2022 23:30:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1670279436;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0beeeN3x4oja6CoA48n0dgddbavIjL+s5ouQp7TTWtU=;
-	b=Glfr3eDW908ut8l8ZtyxnivFsAwFhKrd91OZ8Hn4B5DsYqkFacSwVHpMdO+0ZJbEke3io+
-	rZJ6H6RfHZXL+x1iQ654lTF809RKZz+X/69jMIvQbgjOVGWGx/4uVo747OBUmRhyZzWmxv
-	I6Gh8EjJUSygmU/FfosMXAkJOwmFGvg=
-Date: Mon, 5 Dec 2022 23:30:35 +0100
-From: Pavel Machek <pavel@ucw.cz>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Douglas Anderson <dianders@chromium.org>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Michael Walle <michael@walle.cc>, Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
-	Hammer Hsieh <hammerh0314@gmail.com>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	Sean Anderson <sean.anderson@seco.com>,
-	Michal Simek <michal.simek@xilinx.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Matthias Kaehlcke <mka@chromium.org>,
-	Satya Priya <quic_c_skakit@quicinc.com>, linux-pwm@vger.kernel.org,
-	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 01/11] pwm: Make .get_state() callback return an error
- code
-Message-ID: <Y45xC/Gwhrr+fctN@duo.ucw.cz>
-References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
- <20221130152148.2769768-2-u.kleine-koenig@pengutronix.de>
+	id 1p2K8I-00BOhj-Su; Mon, 05 Dec 2022 22:40:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id AB5BAB8159E;
+	Mon,  5 Dec 2022 22:40:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 628D0C433D7;
+	Mon,  5 Dec 2022 22:40:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670280015;
+	bh=GJt2tQnd1Xeds2lIE0ThsvUpUJvK+iSYvNujEq1ftUg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ULBvvhhRvzK9LCZR4X9G0JzAec6adclarvUv/8MLd/rjJzfztFmatqkSoyCgJRuGL
+	 SIi2UK/GRQW9t8WokcK0Wbd/p6AR/cWPn6gAJ/y/7DH3i/mgoJrCHkjRFzYxmKmB/w
+	 urjm3vyEWuL0YxU22XjqgwZ8BQwiq1LLYpB0BAj8JCNtD+BFmfnv0vxsBtBH3k1HIz
+	 f827gvGp4Ryr9gJcPyQCW1UTXJKG8feJj92SF3hbOXoKgJqyhKEVUa7oI7DaSEKDPS
+	 UZrryZGmvAdqq1qEpKzICkzKLZHie3ShizgtkK5hXETBgPIi2e3XdkbiekmcQtO78A
+	 pH653pZlFQXyQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 47B59C395E5;
+	Mon,  5 Dec 2022 22:40:15 +0000 (UTC)
 MIME-Version: 1.0
-In-Reply-To: <20221130152148.2769768-2-u.kleine-koenig@pengutronix.de>
+Subject: Re: [PATCH 1/2] RISC-V: kexec: Fix memory leak of fdt buffer
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167028001528.27830.840137402099225328.git-patchwork-notify@kernel.org>
+Date: Mon, 05 Dec 2022 22:40:15 +0000
+References: <20221104095658.141222-1-lihuafei1@huawei.com>
+In-Reply-To: <20221104095658.141222-1-lihuafei1@huawei.com>
+To: Li Huafei <lihuafei1@huawei.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, lizhengyu3@huawei.com,
+ liaochang1@huawei.com, u.kleine-koenig@pengutronix.de, rdunlap@infradead.org,
+ linux-kernel@vger.kernel.org, kexec@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_143045_076527_22FDF8DA 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20221205_144019_087739_C6C908FA 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,162 +71,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8392825162719518798=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
---===============8392825162719518798==
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="ZBm0pYJnT4srarSL"
-Content-Disposition: inline
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
+On Fri, 4 Nov 2022 17:56:57 +0800 you wrote:
+> This is reported by kmemleak detector:
+> 
+> unreferenced object 0xff60000082864000 (size 9588):
+>   comm "kexec", pid 146, jiffies 4294900634 (age 64.788s)
+>   hex dump (first 32 bytes):
+>     d0 0d fe ed 00 00 12 ed 00 00 00 48 00 00 11 40  ...........H...@
+>     00 00 00 28 00 00 00 11 00 00 00 02 00 00 00 00  ...(............
+>   backtrace:
+>     [<00000000f95b17c4>] kmemleak_alloc+0x34/0x3e
+>     [<00000000b9ec8e3e>] kmalloc_order+0x9c/0xc4
+>     [<00000000a95cf02e>] kmalloc_order_trace+0x34/0xb6
+>     [<00000000f01e68b4>] __kmalloc+0x5c2/0x62a
+>     [<000000002bd497b2>] kvmalloc_node+0x66/0xd6
+>     [<00000000906542fa>] of_kexec_alloc_and_setup_fdt+0xa6/0x6ea
+>     [<00000000e1166bde>] elf_kexec_load+0x206/0x4ec
+>     [<0000000036548e09>] kexec_image_load_default+0x40/0x4c
+>     [<0000000079fbe1b4>] sys_kexec_file_load+0x1c4/0x322
+>     [<0000000040c62c03>] ret_from_syscall+0x0/0x2
+> 
+> [...]
 
---ZBm0pYJnT4srarSL
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Here is the summary with links:
+  - [1/2] RISC-V: kexec: Fix memory leak of fdt buffer
+    https://git.kernel.org/riscv/c/96df59b1ae23
+  - [2/2] RISC-V: kexec: Fix memory leak of elf header buffer
+    https://git.kernel.org/riscv/c/cbc32023ddbd
 
-Hi!
-
-> .get_state() might fail in some cases. To make it possible that a driver
-> signals such a failure change the prototype of .get_state() to return an
-> error code.
->=20
-> This patch was created using coccinelle and the following semantic patch:
->=20
-> @p1@
-> identifier getstatefunc;
-> identifier driver;
-> @@
->  struct pwm_ops driver =3D {
->         ...,
->         .get_state =3D getstatefunc
->         ,...
->  };
->=20
-> @p2@
-> identifier p1.getstatefunc;
-> identifier chip, pwm, state;
-> @@
-> -void
-> +int
->  getstatefunc(struct pwm_chip *chip, struct pwm_device *pwm, struct pwm_s=
-tate *state)
->  {
->    ...
-> -  return;
-> +  return 0;
->    ...
->  }
->=20
-> plus the actual change of the prototype in include/linux/pwm.h (plus some
-> manual fixing of indentions and empty lines).
->=20
-> So for now all drivers return success unconditionally. They are adapted
-> in the following patches to make the changes easier reviewable.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-
-LED part:
-
-Acked-by: Pavel Machek <pavel@ucw.cz>
-
-Best regards,
-							Pavel
-
->  static const struct pwm_ops ti_sn_pwm_ops =3D {
-> diff --git a/drivers/leds/rgb/leds-qcom-lpg.c b/drivers/leds/rgb/leds-qco=
-m-lpg.c
-> index 02f51cc61837..741cc2fd817d 100644
-> --- a/drivers/leds/rgb/leds-qcom-lpg.c
-> +++ b/drivers/leds/rgb/leds-qcom-lpg.c
-> @@ -968,8 +968,8 @@ static int lpg_pwm_apply(struct pwm_chip *chip, struc=
-t pwm_device *pwm,
->  	return ret;
->  }
-> =20
-> -static void lpg_pwm_get_state(struct pwm_chip *chip, struct pwm_device *=
-pwm,
-> -			      struct pwm_state *state)
-> +static int lpg_pwm_get_state(struct pwm_chip *chip, struct pwm_device *p=
-wm,
-> +			     struct pwm_state *state)
->  {
->  	struct lpg *lpg =3D container_of(chip, struct lpg, pwm);
->  	struct lpg_channel *chan =3D &lpg->channels[pwm->hwpwm];
-> @@ -982,20 +982,20 @@ static void lpg_pwm_get_state(struct pwm_chip *chip=
-, struct pwm_device *pwm,
-> =20
->  	ret =3D regmap_read(lpg->map, chan->base + LPG_SIZE_CLK_REG, &val);
->  	if (ret)
-> -		return;
-> +		return 0;
-> =20
->  	refclk =3D lpg_clk_rates[val & PWM_CLK_SELECT_MASK];
->  	if (refclk) {
->  		ret =3D regmap_read(lpg->map, chan->base + LPG_PREDIV_CLK_REG, &val);
->  		if (ret)
-> -			return;
-> +			return 0;
-> =20
->  		pre_div =3D lpg_pre_divs[FIELD_GET(PWM_FREQ_PRE_DIV_MASK, val)];
->  		m =3D FIELD_GET(PWM_FREQ_EXP_MASK, val);
-> =20
->  		ret =3D regmap_bulk_read(lpg->map, chan->base + PWM_VALUE_REG, &pwm_va=
-lue, sizeof(pwm_value));
->  		if (ret)
-> -			return;
-> +			return 0;
-> =20
->  		state->period =3D DIV_ROUND_UP_ULL((u64)NSEC_PER_SEC * LPG_RESOLUTION =
-* pre_div * (1 << m), refclk);
->  		state->duty_cycle =3D DIV_ROUND_UP_ULL((u64)NSEC_PER_SEC * pwm_value *=
- pre_div * (1 << m), refclk);
-> @@ -1006,13 +1006,15 @@ static void lpg_pwm_get_state(struct pwm_chip *ch=
-ip, struct pwm_device *pwm,
-> =20
->  	ret =3D regmap_read(lpg->map, chan->base + PWM_ENABLE_CONTROL_REG, &val=
-);
->  	if (ret)
-> -		return;
-> +		return 0;
-> =20
->  	state->enabled =3D FIELD_GET(LPG_ENABLE_CONTROL_OUTPUT, val);
->  	state->polarity =3D PWM_POLARITY_NORMAL;
-> =20
->  	if (state->duty_cycle > state->period)
->  		state->duty_cycle =3D state->period;
-> +
-> +	return 0;
->  }
-
---=20
-People of Russia, stop Putin before his war on Ukraine escalates.
-
---ZBm0pYJnT4srarSL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCY45xCwAKCRAw5/Bqldv6
-8qEdAKCcIFDwtp8cJpPtW1EpTb0IJOYYKwCdGtyKdQYCFKVLwV+BGw7lryK0MC8=
-=gb+Q
------END PGP SIGNATURE-----
-
---ZBm0pYJnT4srarSL--
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
---===============8392825162719518798==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8392825162719518798==--
-
