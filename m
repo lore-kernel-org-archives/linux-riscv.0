@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83C2C4321E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C8DDC4332F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 18:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uww2nPuxwxZqB/PZWucRndL0uJ+8JZsEgcyulLPU0T4=; b=ubwaXDB1wPfq1A
-	BFY1hQ4P9h0S60sTPyDFH4qzFFPfaz3gvel1m4xM4BQQvyCfFtGjpJxYerlCT6vvcbQartpju2Pek
-	As+P9lHJXbXMTWeMC6PvQBtg72t8fB48Afbhu1BbFJAzGMJx2vDogKlQ6wKppXnGzwea3Gu3xTpKF
-	OtEN1e5kGqN3cTLi+kiqOGD/5HdRRpI//sz62YiLpiQNOyLcmrCG3oAtQ0MvkeYTvVHBov38xGlRK
-	xNao5uCWcGdVv7EAekSbCk9ekXM8PYZcxtTr1sMkhs3GQYHEVjGlX3Sm8QfiMEJGtFbeU1pm/ta+F
-	I1Xsxd11GCZ6xF1YsPuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qy9vWuqzXBw3C6twoz1ESshTFJ9dSaIXFQL9fXFWxvc=; b=R97Z5rDBQLzP7WXRVNF/+vB42d
+	7jgZSQP/Cd7LA0d/9X31xD5Jkm4IArKKlcUh6qIM0mq3QJcuEh9ZL0o0DY5bL+hDy5/dCYbBBkTKN
+	igss1BMogwJdotWA4ayCjLinJzUAGXETwJC8AtNtd78fb3Xi8o9xlV4Hu4rweG1TrqzpAu/gCky/B
+	mk/lAjcotCBX2GuJ7Us0tjV52/nBwMIrGjmANGr655hSMeGrH3gbrSmV7uKb7MUbkI8KHp8U/StaS
+	Msuxk8AbCpXQvEvULihQga6ingTisWMuaDe6NbpDoBMgUI0omhvK1tUNF3FScIey+2HKODqteR5us
+	C6YytbgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Flk-00823h-S4; Mon, 05 Dec 2022 18:00:44 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1p2Fyj-008Hb8-G8; Mon, 05 Dec 2022 18:14:09 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Flh-0081xR-BM
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 18:00:43 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id t17so457604eju.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 10:00:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OTxU34tkj39G1aWSGFb5j48Mzj7TOWDGiuSjGzpbZz0=;
-        b=KG9AuH9GKNntYdmBy35gI24xW/mhiKXzpeCgjhzPh+kg1+HEuQXd0gX1AYLfLqY+o8
-         AdrD4JpDbfX8pSBGWzFRoOm+8vSpySjLhRXESACOwFbRm1EZkMH7kUaD6r+vRgW07Aj5
-         rhcenk+NMO+aajnw2DDG3e1sH+hgj23t5jrvIlMioyrUAji4QP31aobbnD+JKMUBX4XL
-         igKdTrY4/51bWd4Wzpts6lFfErmGXNkZk+ySRwCFr3pjQkgMAU7GIYNDGFosgZy9r85i
-         exsWJZn1Pa4LenAk0POacBKL0JPX9tdhuriUmLot9Ohlx9syLdnNuWIWz+cPHDhUg7JS
-         cboA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OTxU34tkj39G1aWSGFb5j48Mzj7TOWDGiuSjGzpbZz0=;
-        b=AW4S7EM/T1fVmeMD3ykd4Vyeop7z4vcMUugnxfSUiDJeEJGU2uHjFkvQ44j7L3lk03
-         UAI8Um8hfJQPrWl6Vk+41Mb71i9UoVEFs+zMmSLCvu3CA0B0yyrsZmw6TdvdrB6U1CeK
-         wKknJoMdZ289tECUAbCWo9EWkM+t3DmOMBoOYB1yuYy/ml0MNZ3e/K2EMedHohaH07gQ
-         6gArtroPDwh7FLHJQghsrgzAXxnVEedQHWvNkFjJJFx+qI0yAHwJI843lvAmq8V2xAHG
-         ttXlk29g7rzRVldQOl5PcehLSZMrGWtDEFVZUzf11W2JAfGSpIiFioJ/+WGlZTt3x5kf
-         YUuQ==
-X-Gm-Message-State: ANoB5pm9AnevmOWQQoKxiigeWvCZXG9DSW3PY+PFUk4CZChZAp8kcaK+
-	w4GCsujNj6Pd2H/3X6jBslfz3eyrdFF4R/cRcCGgKg==
-X-Google-Smtp-Source: AA0mqf6jGm6nEQQBAFFzNRAYYTbSbuaQ8l8GIB85YR3v2N0Tp1qS7z/vIkl1kDQBEnux2yayFRdRmfpV+/tg69zv6Gs=
-X-Received: by 2002:a17:906:6782:b0:7ad:7d50:dec2 with SMTP id
- q2-20020a170906678200b007ad7d50dec2mr73437273ejp.37.1670263236237; Mon, 05
- Dec 2022 10:00:36 -0800 (PST)
+	id 1p2Fyg-008HD5-Iy
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 18:14:08 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2FyS-0002ph-5Y; Mon, 05 Dec 2022 19:13:52 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2FyO-002Wur-Ea; Mon, 05 Dec 2022 19:13:49 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p2FyO-002qP9-DL; Mon, 05 Dec 2022 19:13:48 +0100
+Date: Mon, 5 Dec 2022 19:13:48 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <20221205181348.3bvugpjr7xgf6uk5@pengutronix.de>
+References: <20221117164950.cssukd63fywzuwua@pengutronix.de>
+ <Y3Zxkt3OSPQc46Q2@spud>
+ <20221117210433.n5j7upqqksld42mu@pengutronix.de>
+ <Y3avobkvYK3ydKTS@spud>
+ <Y3uZY5mt/ZIWk3sS@wendy>
+ <Y4coL74qQX80TNaT@wendy>
+ <20221130103755.lhil2jaw3oufr2sf@pengutronix.de>
+ <Y44Mk2nGu1Zeq7QQ@wendy>
+ <20221205160328.wn4rcs6uxuuaxftd@pengutronix.de>
+ <Y44mxp9Wr/aEdaxE@spud>
 MIME-Version: 1.0
-References: <20221203215535.208948-1-geomatsi@gmail.com> <20221203215535.208948-4-geomatsi@gmail.com>
-In-Reply-To: <20221203215535.208948-4-geomatsi@gmail.com>
-From: Andrew Bresticker <abrestic@rivosinc.com>
-Date: Mon, 5 Dec 2022 13:00:25 -0500
-Message-ID: <CALE4mHrrxTJaQ5YYZamS9GmNhGopiUA3jk5+iw1XAn=8=XT=fg@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 3/3] riscv: hw-breakpoints: add more trigger controls
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+In-Reply-To: <Y44mxp9Wr/aEdaxE@spud>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_100041_648096_B82089EB 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20221205_101406_649006_0EAD7E98 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,262 +77,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5774159625454902698=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sergey,
 
-On Sat, Dec 3, 2022 at 4:55 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
->
-> From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
->
-> RISC-V SBI Debug Trigger extension proposal defines multiple functions
-> to control debug triggers. The pair of install/uninstall functions was
-> enough to implement ptrace interface for user-space debug. This patch
-> implements kernel wrappers for start/update/stop SBI functions. The
-> intended users of these control wrappers are kgdb and kernel modules
-> that make use of kernel-wide hardware breakpoints and watchpoints.
->
-> Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+--===============5774159625454902698==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kjxhhs4q4yv2cfmm"
+Content-Disposition: inline
 
-<snip>
 
-> diff --git a/arch/riscv/include/asm/hw_breakpoint.h b/arch/riscv/include/asm/hw_breakpoint.h
-> index 5bb3b55cd464..afc59f8e034e 100644
-> --- a/arch/riscv/include/asm/hw_breakpoint.h
-> +++ b/arch/riscv/include/asm/hw_breakpoint.h
-> @@ -137,6 +137,9 @@ int hw_breakpoint_arch_parse(struct perf_event *bp,
->  int hw_breakpoint_exceptions_notify(struct notifier_block *unused,
->                                     unsigned long val, void *data);
->
-> +void arch_enable_hw_breakpoint(struct perf_event *bp);
-> +void arch_update_hw_breakpoint(struct perf_event *bp);
-> +void arch_disable_hw_breakpoint(struct perf_event *bp);
->  int arch_install_hw_breakpoint(struct perf_event *bp);
->  void arch_uninstall_hw_breakpoint(struct perf_event *bp);
->  void hw_breakpoint_pmu_read(struct perf_event *bp);
-> @@ -153,5 +156,17 @@ static inline void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
->  {
->  }
->
-> +void arch_enable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
-> +
-> +void arch_update_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
-> +
-> +void arch_disable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +}
+--kjxhhs4q4yv2cfmm
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I don't see any references to {enable,update,disable}_hw_breakpoint in
-common kernel code, nor do any other architectures define these
-functions. Who are the intended users? Do we even need them for kgdb
-on RISC-V?
+Hello Conor,
 
-> diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
-> index 8eddf512cd03..ca7df02830c2 100644
-> --- a/arch/riscv/kernel/hw_breakpoint.c
-> +++ b/arch/riscv/kernel/hw_breakpoint.c
-> @@ -2,6 +2,7 @@
->
->  #include <linux/hw_breakpoint.h>
->  #include <linux/perf_event.h>
-> +#include <linux/spinlock.h>
->  #include <linux/percpu.h>
->  #include <linux/kdebug.h>
->
-> @@ -9,6 +10,8 @@
->
->  /* bps/wps currently set on each debug trigger for each cpu */
->  static DEFINE_PER_CPU(struct perf_event *, bp_per_reg[HBP_NUM_MAX]);
-> +static DEFINE_PER_CPU(unsigned long, msg_lock_flags);
-> +static DEFINE_PER_CPU(raw_spinlock_t, msg_lock);
+On Mon, Dec 05, 2022 at 05:13:42PM +0000, Conor Dooley wrote:
+> Figured I was better off doing something quickly & asking rather than
+> polishing only to find out it was disliked ;)
 
-I'm not sure I understand the point of this per-CPU spinlock. Just
-disable preemption (and interrupts, if necessary).
+:-)
 
-Also, arch_{install,uninstall}_hw_breakpoint are already expected to
-be called from atomic context; is the intention here that they be
-callable from outside atomic context?
+> >  - in .apply() check the current time, add the current period and store
+> >    the result to ddata->updatetimestamp
+> >  - in .get_state do:
+> >      if (current_time >=3D ddata->updatetimestamp)
+> >        process fine
+> >      else:
+> >        timeout (or wait until ddata->updatetimestamp?)
+> >=20
+> > Actually I'd prefer to wait instead of -ETIMEOUT.
+>=20
+> Prefer to wait in get_state() or in both it & apply()?
 
--Andrew
+Prefer to wait where it's necessary ...
 
->
->  static struct sbi_dbtr_data_msg __percpu *sbi_xmit;
->  static struct sbi_dbtr_id_msg __percpu *sbi_recv;
-> @@ -318,6 +321,10 @@ int arch_install_hw_breakpoint(struct perf_event *bp)
->         struct perf_event **slot;
->         unsigned long idx;
->         struct sbiret ret;
-> +       int err = 0;
-> +
-> +       raw_spin_lock_irqsave(this_cpu_ptr(&msg_lock),
-> +                         *this_cpu_ptr(&msg_lock_flags));
->
->         xmit->tdata1 = cpu_to_lle(info->trig_data1.value);
->         xmit->tdata2 = cpu_to_lle(info->trig_data2);
-> @@ -328,25 +335,31 @@ int arch_install_hw_breakpoint(struct perf_event *bp)
->                         0, 0, 0);
->         if (ret.error) {
->                 pr_warn("%s: failed to install trigger\n", __func__);
-> -               return -EIO;
-> +               err = -EIO;
-> +               goto done;
->         }
->
->         idx = lle_to_cpu(recv->idx);
->
->         if (idx >= dbtr_total_num) {
->                 pr_warn("%s: invalid trigger index %lu\n", __func__, idx);
-> -               return -EINVAL;
-> +               err = -EINVAL;
-> +               goto done;
->         }
->
->         slot = this_cpu_ptr(&bp_per_reg[idx]);
->         if (*slot) {
->                 pr_warn("%s: slot %lu is in use\n", __func__, idx);
-> -               return -EBUSY;
-> +               err = -EBUSY;
-> +               goto done;
->         }
->
->         *slot = bp;
->
-> -       return 0;
-> +done:
-> +       raw_spin_unlock_irqrestore(this_cpu_ptr(&msg_lock),
-> +                              *this_cpu_ptr(&msg_lock_flags));
-> +       return err;
->  }
->
->  /* atomic: counter->ctx->lock is held */
-> @@ -375,6 +388,96 @@ void arch_uninstall_hw_breakpoint(struct perf_event *bp)
->                 pr_warn("%s: failed to uninstall trigger %d\n", __func__, i);
->  }
->
-> +void arch_enable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               struct perf_event **slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_ENABLE,
-> +                       i, 1, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to install trigger %d\n", __func__, i);
-> +               return;
-> +       }
-> +}
-> +EXPORT_SYMBOL_GPL(arch_enable_hw_breakpoint);
-> +
-> +void arch_update_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct arch_hw_breakpoint *info = counter_arch_bp(bp);
-> +       struct sbi_dbtr_data_msg *xmit = this_cpu_ptr(sbi_xmit);
-> +       struct perf_event **slot;
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       raw_spin_lock_irqsave(this_cpu_ptr(&msg_lock),
-> +                         *this_cpu_ptr(&msg_lock_flags));
-> +
-> +       xmit->tdata1 = cpu_to_lle(info->trig_data1.value);
-> +       xmit->tdata2 = cpu_to_lle(info->trig_data2);
-> +       xmit->tdata3 = cpu_to_lle(info->trig_data3);
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_UPDATE,
-> +                       i, 1, __pa(xmit) >> 4,
-> +                       0, 0, 0);
-> +       if (ret.error)
-> +               pr_warn("%s: failed to update trigger %d\n", __func__, i);
-> +
-> +       raw_spin_unlock_irqrestore(this_cpu_ptr(&msg_lock),
-> +                              *this_cpu_ptr(&msg_lock_flags));
-> +}
-> +EXPORT_SYMBOL_GPL(arch_update_hw_breakpoint);
-> +
-> +void arch_disable_hw_breakpoint(struct perf_event *bp)
-> +{
-> +       struct sbiret ret;
-> +       int i;
-> +
-> +       for (i = 0; i < dbtr_total_num; i++) {
-> +               struct perf_event **slot = this_cpu_ptr(&bp_per_reg[i]);
-> +
-> +               if (*slot == bp)
-> +                       break;
-> +       }
-> +
-> +       if (i == dbtr_total_num) {
-> +               pr_warn("%s: unknown breakpoint\n", __func__);
-> +               return;
-> +       }
-> +
-> +       ret = sbi_ecall(SBI_EXT_DBTR, SBI_EXT_DBTR_TRIGGER_DISABLE,
-> +                       i, 1, 0, 0, 0, 0);
-> +       if (ret.error) {
-> +               pr_warn("%s: failed to uninstall trigger %d\n", __func__, i);
-> +               return;
-> +       }
-> +}
-> +EXPORT_SYMBOL_GPL(arch_disable_hw_breakpoint);
-> +
->  void hw_breakpoint_pmu_read(struct perf_event *bp)
->  {
->  }
-> @@ -406,6 +509,8 @@ void flush_ptrace_hw_breakpoint(struct task_struct *tsk)
->
->  static int __init arch_hw_breakpoint_init(void)
->  {
-> +       unsigned int cpu;
-> +
->         sbi_xmit = __alloc_percpu(sizeof(*sbi_xmit), SZ_16);
->         if (!sbi_xmit) {
->                 pr_warn("failed to allocate SBI xmit message buffer\n");
-> @@ -418,6 +523,9 @@ static int __init arch_hw_breakpoint_init(void)
->                 return -ENOMEM;
->         }
->
-> +       for_each_possible_cpu(cpu)
-> +               raw_spin_lock_init(&per_cpu(msg_lock, cpu));
-> +
->         if (!dbtr_init)
->                 arch_hw_breakpoint_init_sbi();
->
-> --
-> 2.38.1
->
+> Depending on how far away updatetimestamp is, would we still not want to
+> time out if it is going to be a long time, no?
+
+I'd prefer a slow but right value over a quick error.
+
+The sun4i driver has in its .apply():
+
+        /* We need a full period to elapse before disabling the channel. */
+        delay_us =3D DIV_ROUND_UP_ULL(cstate.period, NSEC_PER_USEC);
+        if ((delay_us / 500) > MAX_UDELAY_MS)
+                msleep(delay_us / 1000 + 1);
+        else
+                usleep_range(delay_us, delay_us * 2);
+
+so it's at least not new in general to have a waiting time in O(period).
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--kjxhhs4q4yv2cfmm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOONNkACgkQwfwUeK3K
+7AmE2wgAk2sWVpLdReSy1pSzeYCZ6ioUVHCTzslq0tljPK15BnT/FAMYPMhSozRS
+I6ZEmm3iRyJ4TiOgFbUVYIpNIe4UUvrAA8kfQ5zViM3mKKL9zXdpRXaG+cQPwl+p
+RM8KE2Yzd9wJWFCwx951zMBGxCfIqj2I06vCnBbi2rbBUzZbMy5dzFiyw/IKaMiv
+u8ylSqijubQSOQQ7gsZbp2MqpZO2ZH1IAdFyCslAeIoIUo6I9UnGLJS0fYG6fmLX
+2iMjTiml+SfLnob6YfDQiwTLv+WOOVPhDwmx0f/FCeugOftF5jyJyVIy+TJ9EB9m
+/c9nw3rglCUesb6zI6guMd7nlr5ZqQ==
+=OBsk
+-----END PGP SIGNATURE-----
+
+--kjxhhs4q4yv2cfmm--
+
+
+--===============5774159625454902698==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5774159625454902698==--
+
