@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BC2C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 16:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F76C47089
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 16:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lTVaZkB9HULJW7dZYZ/29g+Ku3i/EvoKPRLJowVe32E=; b=X/YxEDQtPZMsIU
-	Dz55zDtLH9wen36cZEVcrR93jvgGzFft+16OEY5wxn4YiYSSQ0sRpmQwGmxJbFvD6tEgeCoCXERt0
-	2mme9ZvivK4LtafFmRtlbQSwp1ftcsJxNdtmMr9ajAu4hrR88Hp+FQbjo0M4Tax+KatdY+m9U5yXc
-	wYAnIlGKmNbBKR6MCCK71gefhUBF9npAG45NAi0JZhPuRFKZ5Shkf6eql4iKQLA1tmE0UB7DWaZME
-	yCX0phQbavPGF1A7x49OXq/dEwwQIU9VzR3i5l1Do5hTyTI3YPVIFtimoPHMX21PQ3TQhJU0DwFfB
-	fsPVwq7uQYmUhNOnby5A==;
+	List-Owner; bh=h4J3GrKIurEIO1VyAxNla1LbsvyszWc9tBpnmQ3NUIM=; b=mRoRYUUHRo83OA
+	DOoeY2JsYbTpVh7XIr2sMZGgvKeaue/nI9ybY3R4uyP8awCHu3KgrDuo6QLZV3Pm/6dsvZ9ngebMs
+	3sAjYX3Yl2TCuze8g1hBuZikHoSAYWcSb6V0DLgMWXLnZhuK+uOgE8b4ZeYXi5cWmEEHHEmMLPTP1
+	wWGkuncmmDha/ICJif9b1EfsZE+HPQ9gvWVA9A5ItabiwT0vzFe6Ds/KrkHEL7iQjnPCckO5ZER84
+	Uhd4SkWPGQbVTSRGbsRejPtJTndbgux8twDIA6oufqPoFHD8hlNybIi+ZOi/L3nB1YtLjqNSNmU7d
+	CnZDtJSS3E3mPpTcA+qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2E9P-006QxI-13; Mon, 05 Dec 2022 16:17:03 +0000
-Received: from mail-oi1-f174.google.com ([209.85.167.174])
+	id 1p2EhR-006wDR-7R; Mon, 05 Dec 2022 16:52:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2E9M-006Qwj-4m
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 16:17:01 +0000
-Received: by mail-oi1-f174.google.com with SMTP id n205so13591510oib.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 08:16:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fq8qop3jPkeA6VnrIjkfepKATgLQISCUs8QA0r6gq7E=;
-        b=IP63yY2LzIBDp5CR0g6LXkd8LFyQibXvU4TZ+IvXV03UZoNiAsu3j6XNwG4YwQShTS
-         bUkY51NBv0QMh0FNr1K48J70sQZM601egubl3SJBOgiOv6hhBiw5qE5+C2tcvyM6H1sV
-         Uotvqtz6e2Z8rJIE6LLfKkEWolTyBcAzhPPIaYUjdg6C/yZpNRYDLNz5IAVjjwfUNc52
-         eMpwS8cKuun4oxTdVQT01Rj4syj/BiBkf14C1rdqluj4Ub8MwUhDcmb+JPIX8xJSDL95
-         0Q6o4noC15KCrNfrwV/dJ/TLK8Q3cAQi6Ra4sAOvt9IZoik8CnJb8URo9Rn0Im0ILAOq
-         p6JQ==
-X-Gm-Message-State: ANoB5pltyuWJP9luatr6dJQ31t0qYQv/n6vripqJ793ZhKc+WT3C4Eu8
-	DFKrXPYYKkY5D29LNIhy+A==
-X-Google-Smtp-Source: AA0mqf4uYnMAjuj0jxyIUx3V6HeMwLgXhtP4Zbbv1j1uRbFBkTgANaoMqamQQIiABgzwN2s+FH+o/w==
-X-Received: by 2002:a05:6808:114:b0:35b:d0ba:1447 with SMTP id b20-20020a056808011400b0035bd0ba1447mr12049841oie.93.1670257018090;
-        Mon, 05 Dec 2022 08:16:58 -0800 (PST)
-Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id q13-20020a056808200d00b0035b4b6d1bbfsm7309649oiw.28.2022.12.05.08.16.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Dec 2022 08:16:57 -0800 (PST)
-Received: (nullmailer pid 1980008 invoked by uid 1000);
-	Mon, 05 Dec 2022 16:16:56 -0000
-Date: Mon, 5 Dec 2022 10:16:56 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, Samuel Holland <samuel@sholland.org>, linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, Rob Herring <robh+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org, Daniel Lezcano <daniel.lezcano@linaro.org>, Palmer Dabbelt <palmer@rivosinc.com>, Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v5 2/3] dt-bindings: timer: Add bindings for the RISC-V
- timer device
-Message-ID: <167025701595.1979605.16523500992587130634.robh@kernel.org>
-References: <20221201123954.1111603-1-apatel@ventanamicro.com>
- <20221201123954.1111603-3-apatel@ventanamicro.com>
+	id 1p2EhN-006w7E-Gk; Mon, 05 Dec 2022 16:52:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0C381611FB;
+	Mon,  5 Dec 2022 16:52:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20FE4C433C1;
+	Mon,  5 Dec 2022 16:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670259128;
+	bh=z206kRNGIXiQi/EhT74kSsNhf2J44/YoxKH1hy07zdk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CwYmsL0bwPai3AbTFP00DnwviFa2kbW9Tz8D7XTgzmMWD7hiMPRdyn7ZLAiOMBRfs
+	 aqqJ72gvKtzXhnno3lc6nUQGgIQl6pZRmGYXRZDVjk9grRVugSqzyu0PMYt3mmPf3m
+	 Ps9tK+ZVtQ8ZR5r5+nFJNqCA+GJvwUqKVt/vcaJ1CQdRwV4gNChEaPSEKOy93TExqa
+	 w7CJ04kSNt1GtLhNYEahH1dc+F4ERdr57GOPXKr69A15sd+rXeWl72kTGaM8Ocazjy
+	 mbJdfA1G2slcqiTcNSUU5hni5B4DVL7WjTby9tenHz4JrPq59RBuVzG97FBtCAZ3ym
+	 H0pX/5PTEAKEw==
+Date: Tue, 6 Dec 2022 00:42:11 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 01/13] riscv: fix jal offsets in patched alternatives
+Message-ID: <Y44fY5tCC1hHDfcw@xhacker>
+References: <20221204174632.3677-1-jszhang@kernel.org>
+ <20221204174632.3677-2-jszhang@kernel.org>
+ <20221205145710.xzb4prrc44gv7mwm@kamzik>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221201123954.1111603-3-apatel@ventanamicro.com>
+In-Reply-To: <20221205145710.xzb4prrc44gv7mwm@kamzik>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_081700_199641_DA8BB8F0 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221205_085209_652145_7E3533FB 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +78,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 01 Dec 2022 18:09:53 +0530, Anup Patel wrote:
-> We add DT bindings for a separate RISC-V timer DT node which can
-> be used to describe implementation specific behaviour (such as
-> timer interrupt not triggered during non-retentive suspend).
+On Mon, Dec 05, 2022 at 03:57:10PM +0100, Andrew Jones wrote:
+> On Mon, Dec 05, 2022 at 01:46:20AM +0800, Jisheng Zhang wrote:
+> > Alternatives live in a different section, so offsets used by jal
+> > instruction will point to wrong locations after the patch got applied.
+> > 
+> > Similar to arm64, adjust the location to consider that offset.
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/include/asm/alternative.h |  2 ++
+> >  arch/riscv/kernel/alternative.c      | 38 ++++++++++++++++++++++++++++
+> >  arch/riscv/kernel/cpufeature.c       |  3 +++
+> >  3 files changed, 43 insertions(+)
+> > 
+> > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> > index c58ec3cc4bc3..33eae9541684 100644
+> > --- a/arch/riscv/include/asm/alternative.h
+> > +++ b/arch/riscv/include/asm/alternative.h
+> > @@ -29,6 +29,8 @@ void apply_module_alternatives(void *start, size_t length);
+> >  
+> >  void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
+> >  				      int patch_offset);
+> > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > +			       int patch_offset);
+> >  
+> >  struct alt_entry {
+> >  	void *old_ptr;		 /* address of original instruciton or data  */
+> > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> > index 292cc42dc3be..9d88375624b5 100644
+> > --- a/arch/riscv/kernel/alternative.c
+> > +++ b/arch/riscv/kernel/alternative.c
+> > @@ -125,6 +125,44 @@ void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
+> >  	}
+> >  }
+> >  
+> > +#define to_jal_imm(value)						\
+> > +	(((value & (RV_J_IMM_10_1_MASK << RV_J_IMM_10_1_OFF)) << RV_I_IMM_11_0_OPOFF) | \
+>                                                                  ^ RV_J_IMM_10_1_OPOFF
 > 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  .../bindings/timer/riscv,timer.yaml           | 52 +++++++++++++++++++
->  1 file changed, 52 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/timer/riscv,timer.yaml
-> 
+> > +	 ((value & (RV_J_IMM_11_MASK << RV_J_IMM_11_OFF)) << RV_J_IMM_11_OPOFF) | \
+> > +	 ((value & (RV_J_IMM_19_12_OPOFF << RV_J_IMM_19_12_OFF)) << RV_J_IMM_19_12_OPOFF) | \
+> > +	 ((value & (1 << RV_J_IMM_SIGN_OFF)) << RV_J_IMM_SIGN_OPOFF))
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Hi all,
+
+I believe there's bug in the to_jal_imm() macro implementation, the
+correct one should be like this:
+
+#define to_jal_imm(value)                                               \
+        ((RV_X(value, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) | \
+        (RV_X(value, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) | \
+        (RV_X(value, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) | \
+        (RV_X(value, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF))
+
+Will fix it in next version.
+
+Thanks
+> 
+> Should put () around value
+> 
+> > +
+> > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > +			       int patch_offset)
+> > +{
+> > +	int num_instr = len / sizeof(u32);
+> > +	unsigned int call;
+> > +	int i;
+> > +	int imm;
+> > +
+> > +	for (i = 0; i < num_instr; i++) {
+> > +		u32 inst = riscv_instruction_at(alt_ptr, i);
+> > +
+> > +		if (!riscv_insn_is_jal(inst))
+> > +			continue;
+> > +
+> > +		/* get and adjust new target address */
+> > +		imm = RV_EXTRACT_JTYPE_IMM(inst);
+> > +		imm -= patch_offset;
+> > +
+> > +		/* pick the original jal */
+> > +		call = inst;
+> > +
+> > +		/* drop the old IMMs, all jal imm bits sit at 31:12 */
+> > +		call &= ~GENMASK(31, 12);
+> 
+> It'd be nice if this had a define.
+> 
+> > +
+> > +		/* add the adapted IMMs */
+> > +		call |= to_jal_imm(imm);
+> > +
+> > +		/* patch the call place again */
+> > +		patch_text_nosync(alt_ptr + i * sizeof(u32), &call, 4);
+> > +	}
+> > +}
+> > +
+> >  /*
+> >   * This is called very early in the boot process (directly after we run
+> >   * a feature detect on the boot CPU). No need to worry about other CPUs
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index ba62a4ff5ccd..c743f0adc794 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -324,6 +324,9 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> >  			riscv_alternative_fix_auipc_jalr(alt->old_ptr,
+> >  							 alt->alt_len,
+> >  							 alt->old_ptr - alt->alt_ptr);
+> > +			riscv_alternative_fix_jal(alt->old_ptr,
+> > +						  alt->alt_len,
+> > +						  alt->old_ptr - alt->alt_ptr);
+> >  		}
+> >  	}
+> >  }
+> > -- 
+> > 2.37.2
+> >
+> 
+> Thanks,
+> drew
 
 _______________________________________________
 linux-riscv mailing list
