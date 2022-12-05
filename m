@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C33EBC47089
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 14:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DC0C4321E
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Dec 2022 15:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9eQiukUIbFlvdSRZLiT6SNc5M3h7yX8U2sFNih/P0LA=; b=KqtwZnA5xcFK25
-	CT+7oMx6GNZO20P5SsuGqr8y/Uxyugys4WPEd0dk3ZWDaFW5WZRmphurkduUbWHdk7XqjiZ1WpCIZ
-	KtKtwPCbhq7IJGqqvh8FoGoIf68Tcwq5xoyaaq0yCBb85CYtnWXxW5QnZY7fVZ2Zf6tgmPuqIgGvg
-	RMVoSBHtCeUBcPPoGQ2Lh1cO+wABEO3JKrKlkXERjBcKFExruv5vBs+ZQuW1Npnd6MCK1Q5Mjl9MW
-	aiSgWRgo59CHgSihzcbKpYyLbxHFcO1+pMCirv9o+8XknmFKfv12vI39pX6YF6dwR0AC1XLVSeuuj
-	6ZFiztJrit/eJCEmXcow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U45/cBY37UI5JQTe0foQk+gjN9oLBqLbg4rORk6+LV4=; b=h1IhrLcQvVEk/xNrSaGjsFpciU
+	oFhNFN3b+UO6GVIiiDzHMvVjmgupUXhZ0yYwmBK+aZOS/FxMBoCCF0K8WN1p9qc8gMZ2fyDdKfDY/
+	BSrq4zfv/t0GZR5TJF1XGV8vryDHyt9C1rS5yhainnII0l7rS0bs2S4Rp8mxoacbh6O4m3Nd1Jn/G
+	lCv5b7Zy8xZK27PRzLo0inKA15/H5gHtppFfrKPa8xztcGi8om85WzchvkfRkl2x0zF+rPMn7MPPq
+	/2thMVOikTiC0gfVYeVZT5HN+uQAgQWmZYB/5oqZKcBu1LVLMvFCxAxVg5HlMMSVNhmUMQo+kftK9
+	xxJ/n2cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2CuC-004LpF-Nf; Mon, 05 Dec 2022 14:57:16 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1p2D29-004UXT-RK; Mon, 05 Dec 2022 15:05:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Cu9-004Lg7-SP
-	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 14:57:15 +0000
-Received: by mail-ej1-x629.google.com with SMTP id vp12so28439553ejc.8
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 06:57:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/YavQRn8ABNnl6VLXMYcIqKWjcCYjTfj3xzmJuUcqTc=;
-        b=bHkTvgpAVQT205acFfyNmm1rOtDvyKoT0fEnfw3WP4KnXTzCnwSOalRlsqnWkr2D6n
-         YceU4iZ3HR4uOrb/DqUtQkDpgBxSA236XsCjo6IG1n4k7PR1+g9yTIevGx+O1H7G2YuG
-         bBV/nB6s7FsazZnXq1wngyGmw9eIgjL6++jHhz6iwVQq/+0PixDk/7NpJg0aGTbe67il
-         CZiWHSCPQA1oAEpvwZ2JaoO0lajrqbZj5Vs43Xrg90TqF58w5WNpnjMXCnF9kH+XMMK2
-         /Qx7FTqAcYs30IaHEFtWliEtZxmjth3Pi8j4RbxFw4eQxKDfe3+iuc2WGcHxa32Nfb1b
-         Qceg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/YavQRn8ABNnl6VLXMYcIqKWjcCYjTfj3xzmJuUcqTc=;
-        b=KjSmla36wy7CupRgORRBnN2EdJMc9UQC7h9ygejHLIxrK8s0k/YxBdZbIs59MazKNC
-         lhlJkpA3uag1s3EV0Zxd1ij23/MdEuK/ls6Uu952trYG6rCgSZ8LozXtZ7zWMynJJwxk
-         FoWUDt+eYVuMJ0cYRfN3ONfcyk0jwvraf9RaXhbM9Tu0EUy1tlam+4yHiYKZF5hBcps8
-         FRPQfIJ2NB7W+Ghsi8pcuE+0OyKfCuklUAvOM++9SeElwoY+54G0Px4z6gyWs31KsDjY
-         PEQ5nFgKKB8dT8BzeWbplAninlVRjbJFqPyqOrcQbD7l9A4U0WnycN+VgtsopjFAr2Oo
-         IzOg==
-X-Gm-Message-State: ANoB5plQYn2q0BCFFaRTUkM9KlTpDjxIMw5TtJc+K81zbHFxdVCnz0cR
-	go5Biv6kI29ZUvJF5EmLPmm85tGJSEEar+Ov
-X-Google-Smtp-Source: AA0mqf4Qe5/y8pAKeMPpbuflQ6QNpod32NOLuouIvb3mtnoBiuFhmp9x7E1KYexhFn8/9rItbper9w==
-X-Received: by 2002:a17:906:a0d7:b0:7b2:7af0:c231 with SMTP id bh23-20020a170906a0d700b007b27af0c231mr27245234ejb.240.1670252231113;
-        Mon, 05 Dec 2022 06:57:11 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-748-2a9a-a2a6-1362.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:748:2a9a:a2a6:1362])
-        by smtp.gmail.com with ESMTPSA id kw26-20020a170907771a00b00783f32d7eaesm6264724ejc.164.2022.12.05.06.57.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Dec 2022 06:57:10 -0800 (PST)
-Date: Mon, 5 Dec 2022 15:57:10 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 01/13] riscv: fix jal offsets in patched alternatives
-Message-ID: <20221205145710.xzb4prrc44gv7mwm@kamzik>
-References: <20221204174632.3677-1-jszhang@kernel.org>
- <20221204174632.3677-2-jszhang@kernel.org>
+	id 1p2D27-004UWr-9P
+	for linux-riscv@lists.infradead.org; Mon, 05 Dec 2022 15:05:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1670252727; x=1701788727;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zw8dxdg3m3R6zFIw4o03xsSd7j/WCHa3WWnrIy6K6ew=;
+  b=Gd3iPEJ+rp+iYuikWZuRuDjnNT+9bghbFBdLew8aF0Q5LQZ5siTvkFNn
+   qCR6W57mcNrn51OyNwCfPwdGzbW1WL0LrjxtUZWDOuUOUCfzYA/N6ZRw/
+   KfqPw4v8MHMCMsGyOVcFD2ZtzWFAt2ta0VF2iv9sTXhxsthCKQTQN/Sgk
+   HJtCLCTEynmuKO4rOPgazLwIvCSTSGXVZa0WYqky9FLa/IQTiu/sabiPM
+   1JpZ1H5h5yPXLGXmCSlmdX/REvGfcYl/VFgecBBZuBKXJNcFsIPK72eYo
+   VAMKh4IS+sLrXdqlnUn90k47zdbyrQ9Mx9xaKwyWU3qmKAvdEdUet9XHp
+   A==;
+X-IronPort-AV: E=Sophos;i="5.96,219,1665471600"; 
+   d="asc'?scan'208";a="202643683"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Dec 2022 08:05:26 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 5 Dec 2022 08:05:25 -0700
+Received: from wendy (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Mon, 5 Dec 2022 08:05:23 -0700
+Date: Mon, 5 Dec 2022 15:05:04 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Icenowy Zheng <uwu@icenowy.me>
+CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>, Marc Zyngier <maz@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel
+ Lezcano <daniel.lezcano@linaro.org>, Jisheng Zhang <jszhang@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 2/3] dt-bindings: timer: sifive,clint: add compatible for
+ OpenC906
+Message-ID: <Y44IoC765yztZ6VF@wendy>
+References: <20221121041757.418645-3-uwu@icenowy.me>
+ <98005150-83a7-5439-0db1-d93d459c3809@linaro.org>
+ <b924d37d716fa8b1fd93102b1d51fac221f43d59.camel@icenowy.me>
+ <d0f3ce4f-5676-f5e1-f04f-dd069679b2d3@linaro.org>
+ <81C2234E-C92D-4F78-8295-7C6DD0A9BBC4@icenowy.me>
+ <20221130181330.GA2544489-robh@kernel.org>
+ <Y4j+Gpptk3NAFBNV@spud>
+ <4ad56fa249a30167844abcedac53d198606511d8.camel@icenowy.me>
+ <Y43Jt3YOSbFyh954@wendy>
+ <75a3ef9a175b16c46b57b2829ecbe4f97737de8a.camel@icenowy.me>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221204174632.3677-2-jszhang@kernel.org>
+In-Reply-To: <75a3ef9a175b16c46b57b2829ecbe4f97737de8a.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_065713_939323_9B3D789B 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20221205_070527_358088_30017C8F 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,116 +89,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9033061023047260393=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 05, 2022 at 01:46:20AM +0800, Jisheng Zhang wrote:
-> Alternatives live in a different section, so offsets used by jal
-> instruction will point to wrong locations after the patch got applied.
-> 
-> Similar to arm64, adjust the location to consider that offset.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/include/asm/alternative.h |  2 ++
->  arch/riscv/kernel/alternative.c      | 38 ++++++++++++++++++++++++++++
->  arch/riscv/kernel/cpufeature.c       |  3 +++
->  3 files changed, 43 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-> index c58ec3cc4bc3..33eae9541684 100644
-> --- a/arch/riscv/include/asm/alternative.h
-> +++ b/arch/riscv/include/asm/alternative.h
-> @@ -29,6 +29,8 @@ void apply_module_alternatives(void *start, size_t length);
->  
->  void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
->  				      int patch_offset);
-> +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
-> +			       int patch_offset);
->  
->  struct alt_entry {
->  	void *old_ptr;		 /* address of original instruciton or data  */
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> index 292cc42dc3be..9d88375624b5 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -125,6 +125,44 @@ void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
->  	}
->  }
->  
-> +#define to_jal_imm(value)						\
-> +	(((value & (RV_J_IMM_10_1_MASK << RV_J_IMM_10_1_OFF)) << RV_I_IMM_11_0_OPOFF) | \
-                                                                 ^ RV_J_IMM_10_1_OPOFF
+--===============9033061023047260393==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dsnIWWXsziWEFZwU"
+Content-Disposition: inline
 
-> +	 ((value & (RV_J_IMM_11_MASK << RV_J_IMM_11_OFF)) << RV_J_IMM_11_OPOFF) | \
-> +	 ((value & (RV_J_IMM_19_12_OPOFF << RV_J_IMM_19_12_OFF)) << RV_J_IMM_19_12_OPOFF) | \
-> +	 ((value & (1 << RV_J_IMM_SIGN_OFF)) << RV_J_IMM_SIGN_OPOFF))
+--dsnIWWXsziWEFZwU
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Should put () around value
+On Mon, Dec 05, 2022 at 07:03:17PM +0800, Icenowy Zheng wrote:
+> =E5=9C=A8 2022-12-05=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 10:36 +0000=EF=
+=BC=8CConor Dooley=E5=86=99=E9=81=93=EF=BC=9A
 
-> +
-> +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
-> +			       int patch_offset)
-> +{
-> +	int num_instr = len / sizeof(u32);
-> +	unsigned int call;
-> +	int i;
-> +	int imm;
-> +
-> +	for (i = 0; i < num_instr; i++) {
-> +		u32 inst = riscv_instruction_at(alt_ptr, i);
-> +
-> +		if (!riscv_insn_is_jal(inst))
-> +			continue;
-> +
-> +		/* get and adjust new target address */
-> +		imm = RV_EXTRACT_JTYPE_IMM(inst);
-> +		imm -= patch_offset;
-> +
-> +		/* pick the original jal */
-> +		call = inst;
-> +
-> +		/* drop the old IMMs, all jal imm bits sit at 31:12 */
-> +		call &= ~GENMASK(31, 12);
+> > You lot all know the situation here a lot more than I do...
+> > I don't think "letting" people use the bare "thead,c900-foo" makes
+> > much
+> > sense as it gives us no chance to deal with quirks down the line.
+>=20
+> Well, after rechecking the manual, I found it possible to handle quirks
+> -- T-Head has a custom "mcpuid" CSR (@ RISC-V CSR 0xFC0), which can be
+> used to retrieve some identification info of the core, including its
+> model ID, version, etc; and the T-Head PLIC/CLINT are part of their
+> C906 SoC design that there's another "mapbaddr" CSR that could be used
+> to retrieve the base address of them.
+>=20
+> So I think it okay to just use "thead,c900-clint" here, and when
+> necessary, try to retrieve mcpuid for dealing with quirks.
 
-It'd be nice if this had a define.
+I'm not super sure I follow. What's the relevance of "mapbaddr" here?
+We've got a reg property, so I don't think we need "mapbaddr"?
 
-> +
-> +		/* add the adapted IMMs */
-> +		call |= to_jal_imm(imm);
-> +
-> +		/* patch the call place again */
-> +		patch_text_nosync(alt_ptr + i * sizeof(u32), &call, 4);
-> +	}
-> +}
-> +
->  /*
->   * This is called very early in the boot process (directly after we run
->   * a feature detect on the boot CPU). No need to worry about other CPUs
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index ba62a4ff5ccd..c743f0adc794 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -324,6 +324,9 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
->  			riscv_alternative_fix_auipc_jalr(alt->old_ptr,
->  							 alt->alt_len,
->  							 alt->old_ptr - alt->alt_ptr);
-> +			riscv_alternative_fix_jal(alt->old_ptr,
-> +						  alt->alt_len,
-> +						  alt->old_ptr - alt->alt_ptr);
->  		}
->  	}
->  }
-> -- 
-> 2.37.2
->
+For "mcpuid", can you be sure that implementers will not omit setting
+that value to something unique? I'd be happier if we were overly clear
+now rather than have some headaches later. Have I missed something?
 
-Thanks,
-drew
+> > I don't think that using "thead,openc906-clint", "thead,c900-clint"
+> > makes all that much sense either, in case someone does something
+> > wacky
+> > with the open-source version of the core.
+> >=20
+> > That leaves us with either:
+> > "vendor,soc-clint", "thead,openc906-clint", "thead,c900-clint"
+> > or:
+> > "vendor,soc-clint", "thead,c900-clint"
+> > right?
+> >=20
+> > The first one seems like possibly the better option as you'd kinda
+> > expect that, in a perfect word, all of the open-source IP
+> > implementations would share quirks etc?
+
+
+--dsnIWWXsziWEFZwU
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY44IoAAKCRB4tDGHoIJi
+0kD4AQCR4eYQLgineg6X0LMoB3wJa2iav+5X+jNESvGVfuIctQEArogX3y1vXKA/
+Car1Dd1C4S5kljZMxWlathZkKWQrVgY=
+=Ozbn
+-----END PGP SIGNATURE-----
+
+--dsnIWWXsziWEFZwU--
+
+
+--===============9033061023047260393==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9033061023047260393==--
+
