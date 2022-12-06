@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E8FC3A5A7
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 20:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0303FC352A1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 20:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpqFLQDuLLS9zGgxpEH+vGpv32NRdtpMZfoaUPfJB+c=; b=bEPhb/PU+9IaorQIm2oSldBlEv
-	eClWptRhf+5m4YT5K7VKaSGLGF44UUmnUKnsHGoikXRjdjY6lh3zt6Qxu9Q5/b+LASGbDep06GTpZ
-	rsLud18jCCA9ezWFbpaPvzK49wCT0wZNWNNBUej/WaHloHtBxz8qd8aijZjVJplqK6Z/30kEy5sqL
-	/ubjg9d3+0jrYvJdhBw9XDBlHGYihRZNvu667jymw/ykTP7trsGxHZA74+eGRc8U7FFLxK8ML71eu
-	u7AhDfBjXw6AOOUm1lO7ORNvkrD3UJdDhup4G2038QfvVJopcpd/OSwnLdfcqy6s79AQHZVtnR+pd
-	qvff1vzg==;
+	bh=Td00aLGdI8aABHm+TOhYE53zJb1DNySWqFZL9hWmSn0=; b=A/5QpETjgnMKd38RmkSfkqAOUG
+	pAUO2vLbiydyfD35c708IajExXjItCqpVqdJT6YogNRm0NMLh3TuxlaBLyVp0c8qa0M7CCLZm+s1w
+	PaNKGl8sroBAnf1av16/kylp8T9g5i7r2+JcyzeOEUCMrKYfEJyea67g3DM5YgEPI3F4Vqq46CzSG
+	Yias4sTdVuCwdcn/bD+25YR+JUEYYzz/GiFrWCOrN4Vx8P7lUdu8LKc4j5XDFNRzvH+uWFI9QScbz
+	kOZmyHC1pagtxIidjK2V2ZWU8GulRWdW9k0ENfLp4vbSRlPISJ99UbJ1nyfkbwRagYV5YTlG5ti9q
+	e4fV9NUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2eVb-001wFp-Vv; Tue, 06 Dec 2022 20:25:44 +0000
+	id 1p2eno-002CE4-FH; Tue, 06 Dec 2022 20:44:32 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2eVY-001wED-27; Tue, 06 Dec 2022 20:25:41 +0000
+	id 1p2enl-002CAp-8i; Tue, 06 Dec 2022 20:44:30 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7D73761851;
-	Tue,  6 Dec 2022 20:25:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8399EC433D6;
-	Tue,  6 Dec 2022 20:25:36 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9B368618B4;
+	Tue,  6 Dec 2022 20:44:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D78DC433D6;
+	Tue,  6 Dec 2022 20:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670358338;
-	bh=NiR96ZKIvW7IpMispdHsgp2vT3FznbdvWds2IP2JVJs=;
+	s=k20201202; t=1670359468;
+	bh=VyFPKDskm09hB3DBPKUEg9fDFjmHc83whLCSf6+IOc8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SQJ0xRSfGyt/EXVAtU8bHfgHspMYXuVOvWLqR/ovxSWRsgZHSw5L8LCDroazamMym
-	 IHqNu1g6g/kyotibAwUMred1WrpsoMAPImQGefc4DYXrOdrgw8fAawTSWGq0h4Wi9r
-	 CMd3P8V+cdPsG7LVmtibwhza1R6ReLm7VZi5lNEg1NvKCnDv6U8CL8CDYxXC+s4uDl
-	 I+AzxmxLGbGjRqSd9NdLpll15a8EqeSxZY34uM+aUlm8HP9tNFF67zu4a9huKBMsx0
-	 pqtLaO/fthDy4dCwev8aF6IvXXrUoub6FDpGwpuFOmpSeEWGVyQ1NY7YIsWaeNMF+i
-	 eTcj/cpdlspZA==
-Date: Tue, 6 Dec 2022 20:25:34 +0000
+	b=IqE4P1ST/kOEAMpHGncY2mQC42fpXvtPwi7fEW4ygWIoFXRBQwuTgi+T4Oj1cPt5U
+	 PcjNwTHqkBmsHx/9f43E+84ht/2lDZommmLHFk+mU3z1b9QLM7RJQOx6kV11zhvH3r
+	 P5nikwVYyFulq41FCiW40m3CjFGxVG9GoTFMzcCPWle7Ea+HjyVFxQrp4HhjtxEwi/
+	 +0uNRruA6Qk6w9CyFMhuXtIQyt0LHEe/dVvePp/0v4RJtT3kfWGs3eidwAFiA38Uv5
+	 cG6SSrO4TkMC9CGupB9JjNKVwRsNOqoTu+l8T9neSqXAK5HoiDJgMvjSnEO23A++f9
+	 txRPoFxC8sExw==
+Date: Tue, 6 Dec 2022 20:44:23 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -52,16 +52,15 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 06/13] riscv: introduce
- riscv_has_extension_[un]likely()
-Message-ID: <Y4+lPiF7CpJJjmWR@spud>
+Subject: Re: [PATCH v2 08/13] riscv: module: move find_section to module.h
+Message-ID: <Y4+pp6XEu3GSWCiE@spud>
 References: <20221204174632.3677-1-jszhang@kernel.org>
- <20221204174632.3677-7-jszhang@kernel.org>
+ <20221204174632.3677-9-jszhang@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20221204174632.3677-7-jszhang@kernel.org>
+In-Reply-To: <20221204174632.3677-9-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221206_122540_204520_6416ED9D 
-X-CRM114-Status: GOOD (  26.83  )
+X-CRM114-CacheID: sfid-20221206_124429_404047_B23501AB 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,165 +72,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7021008576093569416=="
+Content-Type: multipart/mixed; boundary="===============0542170590475855789=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============7021008576093569416==
+--===============0542170590475855789==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="bxEn+e9TeJ7KX+1L"
+	protocol="application/pgp-signature"; boundary="Kfeymfl++SYTH9yC"
 Content-Disposition: inline
 
 
---bxEn+e9TeJ7KX+1L
+--Kfeymfl++SYTH9yC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hey Jisheng,
+On Mon, Dec 05, 2022 at 01:46:27AM +0800, Jisheng Zhang wrote:
+> Move it to the header so that the implementation can be shared
+> by the alternatives code.
 
-Just a couple really minor bits here...
+I'm not a super big fan of these perfunctory commit messages.
+Maybe I'm being a bit ornery, but a few words about why the alternatives
+could benefit from this would be nice. Also, s/it/find_section()/ please.
 
-On Mon, Dec 05, 2022 at 01:46:25AM +0800, Jisheng Zhang wrote:
-> Generally, riscv ISA extensions are fixed for any specific hardware
-> platform, that's to say, the hart features won't change any more
+How about:
+> Move find_section() to module.h so that the implementation can be shared
+> by the alternatives code. This will allow us to use alternatives in
+> the vdso.
 
-s/that's to say, the hart/so a hart's/
-s/any more//
 
-> after booting, this chacteristic make it straightforward to use
-
-"booting. This characteristic makes it"
-
-> static branch to check one specific ISA extension is supported or not
-
-"a static branch to check if a"
-
-> to optimize performance.
->=20
-> However, some ISA extensions such as SVPBMT and ZICBOM are handled
-> via. the alternative sequences.
->=20
-> Basically, for ease of maintenance, we prefer to use static branches
-> in C code, but recently, Samuel found that the static branch usage in
-> cpu_relax() breaks building with CONFIG_CC_OPTIMIZE_FOR_SIZE[1]. As
-> Samuel pointed out, "Having a static branch in cpu_relax() is
-> problematic because that function is widely inlined, including in some
-> quite complex functions like in the VDSO. A quick measurement shows
-> this static branch is responsible by itself for around 40% of the jump
-> table."
->=20
-> Samuel's findings pointed out one of a few downsides of static branches
-> usage in C code to handle ISA extensions detected at boot time:
-> static branch's metadata in the __jump_table section, which is not
-> discarded after ISA extensions are finalized, wastes some space.
->=20
-> I want to try to solve the issue for all possible dynamic handling of
-> ISA extensions at boot time. Inspired by Mark[2], this patch introduces
-> riscv_has_extension_*() helpers, which work like static branches but
-> are patched using alternatives, thus the metadata can be freed after
-> patching.
->=20
-> [1]https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@shol=
-land.org/
-> [2]https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mark=
-=2Erutland@arm.com/
-
-Can you make these into Link: tags please (and drop the line between the
-and the SoB)? So:
-
-Link: https://lore.kernel.org/linux-riscv/20220922060958.44203-1-samuel@sho=
-lland.org/ [1]
-Link: https://lore.kernel.org/linux-arm-kernel/20220912162210.3626215-8-mar=
-k.rutland@arm.com/ [2]
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/module.h | 15 +++++++++++++++
+>  arch/riscv/kernel/module.c      | 15 ---------------
 
-Changes themselves look grand, no comments there :)
+Silly question maybe, but is module.h the right place to put this?
+But I have nothing better to suggest, and I hate bikeshedding stuff when
+I have no suggestion to make.
 
-Thanks!
+Rationale behind the movement seems grand to me though, so I suppose:
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks,
 Conor.
 
-> ---
->  arch/riscv/include/asm/hwcap.h | 37 ++++++++++++++++++++++++++++++++++
->  1 file changed, 37 insertions(+)
+>  2 files changed, 15 insertions(+), 15 deletions(-)
 >=20
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index 996884986fea..e2d3f6df7701 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -8,6 +8,7 @@
->  #ifndef _ASM_RISCV_HWCAP_H
->  #define _ASM_RISCV_HWCAP_H
+> diff --git a/arch/riscv/include/asm/module.h b/arch/riscv/include/asm/mod=
+ule.h
+> index 76aa96a9fc08..78722a79fc59 100644
+> --- a/arch/riscv/include/asm/module.h
+> +++ b/arch/riscv/include/asm/module.h
+> @@ -111,4 +111,19 @@ static inline struct plt_entry *get_plt_entry(unsign=
+ed long val,
 > =20
-> +#include <asm/alternative-macros.h>
->  #include <asm/errno.h>
->  #include <linux/bits.h>
->  #include <uapi/asm/hwcap.h>
-> @@ -96,6 +97,42 @@ static __always_inline int riscv_isa_ext2key(int num)
->  	}
+>  #endif /* CONFIG_MODULE_SECTIONS */
+> =20
+> +static inline const Elf_Shdr *find_section(const Elf_Ehdr *hdr,
+> +					   const Elf_Shdr *sechdrs,
+> +					   const char *name)
+> +{
+> +	const Elf_Shdr *s, *se;
+> +	const char *secstrs =3D (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offse=
+t;
+> +
+> +	for (s =3D sechdrs, se =3D sechdrs + hdr->e_shnum; s < se; s++) {
+> +		if (strcmp(name, secstrs + s->sh_name) =3D=3D 0)
+> +			return s;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+>  #endif /* _ASM_RISCV_MODULE_H */
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 91fe16bfaa07..76f4b9c2ec5b 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -429,21 +429,6 @@ void *module_alloc(unsigned long size)
 >  }
+>  #endif
 > =20
-> +static __always_inline bool
-> +riscv_has_extension_likely(const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_EXT_MAX");
-> +
-> +	asm_volatile_goto(
-> +	ALTERNATIVE("j	%l[l_no]", "nop", 0, %[ext], 1)
-> +	:
-> +	: [ext] "i" (ext)
-> +	:
-> +	: l_no);
-> +
-> +	return true;
-> +l_no:
-> +	return false;
-> +}
-> +
-> +static __always_inline bool
-> +riscv_has_extension_unlikely(const unsigned long ext)
-> +{
-> +	compiletime_assert(ext < RISCV_ISA_EXT_MAX,
-> +			   "ext must be < RISCV_ISA_EXT_MAX");
-> +
-> +	asm_volatile_goto(
-> +	ALTERNATIVE("nop", "j	%l[l_yes]", 0, %[ext], 1)
-> +	:
-> +	: [ext] "i" (ext)
-> +	:
-> +	: l_yes);
-> +
-> +	return false;
-> +l_yes:
-> +	return true;
-> +}
-> +
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
-> =20
->  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
+> -static const Elf_Shdr *find_section(const Elf_Ehdr *hdr,
+> -				    const Elf_Shdr *sechdrs,
+> -				    const char *name)
+> -{
+> -	const Elf_Shdr *s, *se;
+> -	const char *secstrs =3D (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offse=
+t;
+> -
+> -	for (s =3D sechdrs, se =3D sechdrs + hdr->e_shnum; s < se; s++) {
+> -		if (strcmp(name, secstrs + s->sh_name) =3D=3D 0)
+> -			return s;
+> -	}
+> -
+> -	return NULL;
+> -}
+> -
+>  int module_finalize(const Elf_Ehdr *hdr,
+>  		    const Elf_Shdr *sechdrs,
+>  		    struct module *me)
 > --=20
 > 2.37.2
 >=20
 
---bxEn+e9TeJ7KX+1L
+--Kfeymfl++SYTH9yC
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY4+lPQAKCRB4tDGHoIJi
-0ioQAP4w8r5FQ0ejEXDGcp8UvPntHNhPculcXC9z8LBnhOgVggEAzzZHQlX1lhJN
-t6WlREfcRjs9PY31RoG5eskhVoUzrg4=
-=bz9l
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY4+ppwAKCRB4tDGHoIJi
+0vdPAPwMCMePiLIxdM2S19748MS5S9G5teWeIfVGdq6nal4HMQD/a2JizR3i5tUB
+H5BxI52RGgMvF963Rr0R5Ftrp24+yQw=
+=/QTm
 -----END PGP SIGNATURE-----
 
---bxEn+e9TeJ7KX+1L--
+--Kfeymfl++SYTH9yC--
 
 
---===============7021008576093569416==
+--===============0542170590475855789==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -242,5 +202,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7021008576093569416==--
+--===============0542170590475855789==--
 
