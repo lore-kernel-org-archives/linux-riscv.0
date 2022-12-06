@@ -4,73 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC0AC352A1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 14:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799BDC352A1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 14:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1npMpcUMFwUxNggLx/Yy6OBxpBdKjk17351FGZgeRhU=; b=1ij7BJ6sdaf0QQ
-	8vMzcwiDJT69dD3JaWfvIc1k8p1J+rHcVYQczFD2EUXH7VAckB+tr8+xjGEoXJmODHwHS7fYxPLMK
-	ELn3izVFLcA55qK+95wV1GNZpLmZQf48ftupltAX1SHsaoVydOsk5d8C6qOBGejI9+79bJrGFr7zd
-	mz04DdxlNM834XfO8B+1ViV1Bbu74zYE7PWIrvshJ8DdXgqE6C+nAFcNJOutsZ3bdIjc0Xgj1tVHJ
-	wX5FRdCrDdugTKg+xeGSdi4jZvHDg8DKMNVOMT/NwuxtqW+AAEaq8qq5yi4j23yS6SCA81i9ExYzx
-	bagYqJc2MOd98dDhxQOA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fPqwKrWdkCGlQ7OLOrTvDRyXaErq7a+HM1dMAsNAPLs=; b=0zIVfvmLZGcEZ6
+	PtS7xr7s0Sv3afgdrR/w/nyxXOuLZMlxB5wHEdnuuTkLekLYqcUHNfkU75KXuSwRmJwruXdRVix92
+	4kVX87AaBQoLJYRvlXBfjVnz3sjATnq6XMB3iA1bigoj9k+4OghGuGgnnsnJCYSoyC7pTF+EhVx3Z
+	rLWvQkX4QOgWMPlNKQyaikR3ZoJyuospPcIq5bnj3PgociF9uOJ8CdHsZcN3ivktSJdSgeHsSrxPU
+	puNNrml+wUVI4NqC/fiEfirb2bmrr66XQNerHzAZlYo6FDuwmB20A5kQXah8MH172wbcGGeDZCkGl
+	XLspJPhcpww72wOawAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Yqy-00AYEt-Hh; Tue, 06 Dec 2022 14:23:24 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1p2ZEq-00BgfH-4S; Tue, 06 Dec 2022 14:48:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Yqv-00AY2M-UP
-	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 14:23:23 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id n1so17393224ljg.3
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Dec 2022 06:23:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=sT1QGkgmhBkSpHiyhRuKPI4cqNjm9QnBwa8ft8tm2b4=;
-        b=l+v/q+gX2uTMHA9ZkYaAEAOtqVZdgJNwEosrM3dkEf7jw4tHyTliypQOHtJCtyU/H9
-         W7Rb7+6szCYzuywkLj8Zzm8bXfov7G34xh+DWePoSoe3mUbB9RTRgb4Eoe8P5za4HhYo
-         dqM6Rl8x97B2IcqV6Bbti5ExuCNlqSZ8XCLIBcuNfbACL6rR0FzgrSP3QuLtkaV1X83p
-         WDR8LXEIKzHxXYaMLxwysL+5yuFzANOq60Tmx256kIMgIGLGL+c3zdZhTjoEc6bXyMzb
-         mTf2P51kB/RnI5TnC6bBnUbYBNumrfqdbQAc+5FEo9sqIrbg9zjykdwwm5+wVohhP2yH
-         79Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sT1QGkgmhBkSpHiyhRuKPI4cqNjm9QnBwa8ft8tm2b4=;
-        b=4h+bmigaj50HFehfnq1dOmyoc4WWryvH6QrmpieuK8SY0HT5sI+C24vt7bi7Cm2yzb
-         7KdDtPAC5UTa2zJDlXH/i9/eEi9OaT+phlTMJRvJHw7+j6lJIodwOLYU4JS2Y43ZgRJp
-         K/o4i3kcyDUI3lMi/PzkboHxnVIiXJR7jUYdyoufrG9zWgxQWDt03jqckDM4Vsvpe/D4
-         +M9bYUtJX4/MfuVtQedpahOX6JUnhhUFjzWf2dpz/PxfZce5nvska5HAiPCzyx8dlx0Z
-         sq+217fg9nUuxUZC7kvIkLxpb8cwo7G+NWxvSDeQ6IMUog8gz5GYF80kLNCZ3ERt4tvJ
-         AN9A==
-X-Gm-Message-State: ANoB5pkx5vg6IlVyQqgHmzK7ei8jfN6GCyL6CX98JJKhiNj2Fu3O7DAr
-	yOxyW3s44RBUeAgIDr7gFIVYbPfBLZ0vXbUUo7g=
-X-Google-Smtp-Source: AA0mqf48L7a4pxzGkZLU939Pac44paZk+6TCPskq0MapimEioj6zash50V+a81kf7aJotA75z78shCuZOCge67gFClo=
-X-Received: by 2002:a2e:a22f:0:b0:27a:d4:f94f with SMTP id i15-20020a2ea22f000000b0027a00d4f94fmr2544512ljm.499.1670336596229;
- Tue, 06 Dec 2022 06:23:16 -0800 (PST)
+	id 1p2ZEm-00BgdY-GR
+	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 14:48:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1670338079;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=iUuXMOHVf03Vb0qMF+Y5euIKjDZHBS53BDQPdht/P5M=;
+	b=JzF1BFCXrs090Cy3I08q9Xzn67hr6Win3sKz4MFPclP3k6RtfEx7aQYKeu6rjtVakc5gT5
+	2soU6O+zQlFW6+/TlUbXHYuWOdtWoMJZ8rn4hJSsUCEs0DVrguN68QgeRVgRdVEWiwmGgK
+	xJQGDGqrOxgXn5SN6/gZNDgFaiHSwJQ=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-335-3aNaSZDWPJGBU0cwaoxK0w-1; Tue, 06 Dec 2022 09:47:56 -0500
+X-MC-Unique: 3aNaSZDWPJGBU0cwaoxK0w-1
+Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id D08958027F5;
+	Tue,  6 Dec 2022 14:47:53 +0000 (UTC)
+Received: from t480s.redhat.com (unknown [10.39.193.173])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 6E89C492B04;
+	Tue,  6 Dec 2022 14:47:33 +0000 (UTC)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Hugh Dickins <hughd@google.com>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Yang Shi <shy828301@gmail.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Nadav Amit <namit@vmware.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Peter Xu <peterx@redhat.com>,
+	linux-mm@kvack.org,
+	x86@kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-xtensa@linux-xtensa.org,
+	David Hildenbrand <david@redhat.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Chris Zankel <chris@zankel.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Greg Ungerer <gerg@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Richard Weinberger <richard@nod.at>,
+	Rich Felker <dalias@libc.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vineet Gupta <vgupta@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>
+Subject: [PATCH mm-unstable RFC 00/26] mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all architectures with swap PTEs
+Date: Tue,  6 Dec 2022 15:47:04 +0100
+Message-Id: <20221206144730.163732-1-david@redhat.com>
 MIME-Version: 1.0
-References: <20221205050038.195746-1-bmeng@tinylab.org> <b3aff238-c473-e587-dd04-cc5ef4517722@kernel.org>
-In-Reply-To: <b3aff238-c473-e587-dd04-cc5ef4517722@kernel.org>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Tue, 6 Dec 2022 22:23:04 +0800
-Message-ID: <CAEUhbmVBLLppJdnw5CUiD+Vpj1jaGQ7FTZGVr4xT0_LaA7qSjQ@mail.gmail.com>
-Subject: Re: [PATCH 1/2] serial: Adapt Arm semihosting earlycon driver to RISC-V
-To: Jiri Slaby <jirislaby@kernel.org>
-Cc: Bin Meng <bmeng@tinylab.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+X-Scanned-By: MIMEDefang 3.1 on 10.11.54.10
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221206_062321_997267_3A9708BA 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221206_064800_632050_EF584B43 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +143,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 6, 2022 at 2:47 PM Jiri Slaby <jirislaby@kernel.org> wrote:
->
-> On 05. 12. 22, 6:00, Bin Meng wrote:
-> ...
-> > --- a/drivers/tty/serial/earlycon-arm-semihost.c
-> > +++ b/drivers/tty/serial/earlycon-arm-semihost.c
-> ...
-> > @@ -23,7 +27,18 @@
-> >    */
-> >   static void smh_putc(struct uart_port *port, unsigned char c)
-> >   {
-> > -#ifdef CONFIG_ARM64
-> > +#if defined(CONFIG_RISCV)
-> > +     asm volatile("addi    a1, %0, 0\n"
-> > +                  "addi    a0, zero, 3\n"
-> > +                  ".balign 16\n"
-> > +                  ".option push\n"
-> > +                  ".option norvc\n"
-> > +                  "slli    zero, zero, 0x1f\n"
-> > +                  "ebreak\n"
-> > +                  "srai    zero, zero, 0x7\n"
-> > +                  ".option pop\n"
-> > +                  : : "r" (&c) : "a0", "a1", "memory");
-> > +#elif defined(CONFIG_ARM64)
-> >       asm volatile("mov  x1, %0\n"
-> >                    "mov  x0, #3\n"
-> >                    "hlt  0xf000\n"
->
-> Hmm, can we implement all those smh_putc() variants in respective
-> arch/*/include/semihost.h instead?
->
+This is the follow-up on [1]:
+	[PATCH v2 0/8] mm: COW fixes part 3: reliable GUP R/W FOLL_GET of
+	anonymous pages
 
-I think so. Will do in v2.
+After we implemented __HAVE_ARCH_PTE_SWP_EXCLUSIVE on most prominent
+enterprise architectures, implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE on all
+remaining architectures that support swap PTEs.
 
-Regards,
-Bin
+This makes sure that exclusive anonymous pages will stay exclusive, even
+after they were swapped out -- for example, making GUP R/W FOLL_GET of
+anonymous pages reliable. Details can be found in [1].
+
+This primarily fixes remaining known O_DIRECT memory corruptions that can
+happen on concurrent swapout, whereby we can lose DMA reads to a page
+(modifying the user page by writing to it).
+
+To verify, there are two test cases (requiring swap space, obviously):
+(1) The O_DIRECT+swapout test case [2] from Andrea. This test case tries
+    triggering a race condition.
+(2) My vmsplice() test case [3] that tries to detect if the exclusive
+    marker was lost during swapout, not relying on a race condition.
+
+
+For example, on 32bit x86 (with and without PAE), my test case fails
+without these patches:
+	$ ./test_swp_exclusive
+	FAIL: page was replaced during COW
+But succeeds with these patches:
+	$ ./test_swp_exclusive 
+	PASS: page was not replaced during COW
+
+
+Why implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE for all architectures, even
+the ones where swap support might be in a questionable state? This is the
+first step towards removing "readable_exclusive" migration entries, and
+instead using pte_swp_exclusive() also with (readable) migration entries
+instead (as suggested by Peter). The only missing piece for that is
+supporting pmd_swp_exclusive() on relevant architectures with THP
+migration support.
+
+As all relevant architectures now implement __HAVE_ARCH_PTE_SWP_EXCLUSIVE,,
+we can drop __HAVE_ARCH_PTE_SWP_EXCLUSIVE in the last patch.
+
+
+RFC because some of the swap PTE layouts are really tricky and I really
+need some feedback related to deciphering these layouts and "using yet
+unused PTE bits in swap PTEs". I tried cross-compiling all relevant setups
+(phew, I might only miss some power/nohash variants), but only tested on
+x86 so far.
+
+CCing arch maintainers only on this cover letter and on the respective
+patch(es).
+
+
+[1] https://lkml.kernel.org/r/20220329164329.208407-1-david@redhat.com
+[2] https://gitlab.com/aarcange/kernel-testcases-for-v5.11/-/blob/main/page_count_do_wp_page-swap.c
+[3] https://gitlab.com/davidhildenbrand/scratchspace/-/blob/main/test_swp_exclusive.c
+
+David Hildenbrand (26):
+  mm/debug_vm_pgtable: more pte_swp_exclusive() sanity checks
+  alpha/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  arc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  arm/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  csky/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  hexagon/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  ia64/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  loongarch/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  m68k/mm: remove dummy __swp definitions for nommu
+  m68k/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  microblaze/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  mips/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  nios2/mm: refactor swap PTE layout
+  nios2/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  openrisc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  parisc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  powerpc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 32bit book3s
+  powerpc/nohash/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  riscv/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  sh/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  sparc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 32bit
+  sparc/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE on 64bit
+  um/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  x86/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE also on 32bit
+  xtensa/mm: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+  mm: remove __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+
+ arch/alpha/include/asm/pgtable.h              | 40 ++++++++-
+ arch/arc/include/asm/pgtable-bits-arcv2.h     | 26 +++++-
+ arch/arm/include/asm/pgtable-2level.h         |  3 +
+ arch/arm/include/asm/pgtable-3level.h         |  3 +
+ arch/arm/include/asm/pgtable.h                | 34 ++++++--
+ arch/arm64/include/asm/pgtable.h              |  1 -
+ arch/csky/abiv1/inc/abi/pgtable-bits.h        | 13 ++-
+ arch/csky/abiv2/inc/abi/pgtable-bits.h        | 19 ++--
+ arch/csky/include/asm/pgtable.h               | 17 ++++
+ arch/hexagon/include/asm/pgtable.h            | 36 ++++++--
+ arch/ia64/include/asm/pgtable.h               | 31 ++++++-
+ arch/loongarch/include/asm/pgtable-bits.h     |  4 +
+ arch/loongarch/include/asm/pgtable.h          | 38 +++++++-
+ arch/m68k/include/asm/mcf_pgtable.h           | 35 +++++++-
+ arch/m68k/include/asm/motorola_pgtable.h      | 37 +++++++-
+ arch/m68k/include/asm/pgtable_no.h            |  6 --
+ arch/m68k/include/asm/sun3_pgtable.h          | 38 +++++++-
+ arch/microblaze/include/asm/pgtable.h         | 44 +++++++---
+ arch/mips/include/asm/pgtable-32.h            | 86 ++++++++++++++++---
+ arch/mips/include/asm/pgtable-64.h            | 23 ++++-
+ arch/mips/include/asm/pgtable.h               | 35 ++++++++
+ arch/nios2/include/asm/pgtable-bits.h         |  3 +
+ arch/nios2/include/asm/pgtable.h              | 37 ++++++--
+ arch/openrisc/include/asm/pgtable.h           | 40 +++++++--
+ arch/parisc/include/asm/pgtable.h             | 40 ++++++++-
+ arch/powerpc/include/asm/book3s/32/pgtable.h  | 37 ++++++--
+ arch/powerpc/include/asm/book3s/64/pgtable.h  |  1 -
+ arch/powerpc/include/asm/nohash/32/pgtable.h  | 22 +++--
+ arch/powerpc/include/asm/nohash/32/pte-40x.h  |  6 +-
+ arch/powerpc/include/asm/nohash/32/pte-44x.h  | 18 +---
+ arch/powerpc/include/asm/nohash/32/pte-85xx.h |  4 +-
+ arch/powerpc/include/asm/nohash/64/pgtable.h  | 24 +++++-
+ arch/powerpc/include/asm/nohash/pgtable.h     | 15 ++++
+ arch/powerpc/include/asm/nohash/pte-e500.h    |  1 -
+ arch/riscv/include/asm/pgtable-bits.h         |  3 +
+ arch/riscv/include/asm/pgtable.h              | 28 ++++--
+ arch/s390/include/asm/pgtable.h               |  1 -
+ arch/sh/include/asm/pgtable_32.h              | 53 +++++++++---
+ arch/sparc/include/asm/pgtable_32.h           | 26 +++++-
+ arch/sparc/include/asm/pgtable_64.h           | 37 +++++++-
+ arch/sparc/include/asm/pgtsrmmu.h             | 14 +--
+ arch/um/include/asm/pgtable.h                 | 36 +++++++-
+ arch/x86/include/asm/pgtable-2level.h         | 26 ++++--
+ arch/x86/include/asm/pgtable-3level.h         | 26 +++++-
+ arch/x86/include/asm/pgtable.h                |  3 -
+ arch/xtensa/include/asm/pgtable.h             | 31 +++++--
+ include/linux/pgtable.h                       | 29 -------
+ mm/debug_vm_pgtable.c                         | 25 +++++-
+ mm/memory.c                                   |  4 -
+ mm/rmap.c                                     | 11 ---
+ 50 files changed, 943 insertions(+), 227 deletions(-)
+
+-- 
+2.38.1
+
 
 _______________________________________________
 linux-riscv mailing list
