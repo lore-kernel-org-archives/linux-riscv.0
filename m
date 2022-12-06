@@ -4,75 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6F5C352A1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 04:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274CEC352A1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 05:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oFZbo5q9ZIs9EPFbz/o632Rwd9OwTr5d0LfI8VBd+zQ=; b=HSK7O/rOfJjpoP
-	yHMUbGUcPF8jc/MbWArW/kXIt7ft4wm5aIWZhI8jCYRphUH5x8VUUkgl956JqgonrGyyTjTsvnWbB
-	yN8Wd+uT8pa/D7V/CcO2Mw7MtwrWzhJlob43yzdc9r2klV7qZQSrJDg8nKQUvYNBpHWaf4Rr6RtER
-	/V8fYlUF06JMz0aoADfjWAZXvj5V815Vlw3aET0BuAwjsdZcyX4MTM3gs7u9tJNs3hkiQiQ8j71oT
-	AnwDjexgdhsIcMajdDg5ePAEDdhh/6Q/K4J3pYH6wMSrIsGwSVwysxPsEvlpxOECFpPLKjbn6FMka
-	UYOiukR8XJXYgaqaU/rg==;
+	List-Owner; bh=yLOXLHlgUU5HKkwrpzoLHcpjwbhC6ztVPhskbcRV/iM=; b=KHz1udu0zqlHiO
+	w3ifKP/2nL3qY0xI/U7af6aLYWKfMQ+MlRtoD3ToqePGbqWkdy22t49gF4a3HUqJ6p6dwyDTN64Dx
+	cte8a7N++BLLiGwzHjnBy/hOSE/3DU7zuU6VwfOA6e+D/EYzGm4hx/N9bnD1M5OrntVt68Ho7bcxw
+	+rxoWPQY+bBLk1sI9SDnBAAhJxhNc1gjOnWXz+c4nEMJRUY7VIBD5qrrv/6fBWdg7vyXWgGE9TqOi
+	bbRADiqDzxA1aRdW4K1QMjjmfJJumqWpWklqTdaU38DnuYVb3jAEvCbsh4k3Vg+0mvNsS0cjeagxR
+	fh7nOlCKPC6Zo1JecNUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Pln-000Ef8-6a; Tue, 06 Dec 2022 04:41:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p2QqO-001Yiy-FO; Tue, 06 Dec 2022 05:50:16 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2Plk-000EPZ-BJ
-	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 04:41:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 244586154E
-	for <linux-riscv@lists.infradead.org>; Tue,  6 Dec 2022 04:41:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6706C43149
-	for <linux-riscv@lists.infradead.org>; Tue,  6 Dec 2022 04:41:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670301680;
-	bh=CDi3F0YVIiQYZgfK8bLLmzIPGqtLt6inzEmlZ6Doajc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=phdmyBu2AMK0GuM/x7DhbD6rF9+EtZ1698DONdfwzMNnBLj9CKA2M/bQSaYncOzSG
-	 o9MYZ2hu2fWIAuIMbQkansUR2ed8GOI4bjS4jAfSCXaURAeuBra9d6OmAvmj2gKA0b
-	 c2LjXI24O9vJhHBu8Fd+dsp4R9XuRBnzXtyLQNSiaU6XCIn8R3dijTmkAI/VCLAyS5
-	 JO43dj8jPuZ1vZe6NHxq2JY/oFSfCeDgr2w68aCrPuJPRN5BW0x2t1YogckA5xw+IA
-	 2z9QbypmivV9iXLYCCPWvMmg/3bjROUwOBkg9aeT70WdQ2b10BW/lPieVDFe7Jl6JZ
-	 CHA4vupfUkWiA==
-Received: by mail-ed1-f47.google.com with SMTP id c17so10122923edj.13
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 20:41:20 -0800 (PST)
-X-Gm-Message-State: ANoB5plQbaHnFM73lH5J1dqHLzpK/E9m68yAb4VPql5Kyr1sJEVTVuJB
-	qCkkPUt6XFzAB2EJnVMC8Vmd4IgHCLbZXQVSvrs=
-X-Google-Smtp-Source: AA0mqf4ch/b78ULRR94neIazv0nnRnB3t7URjN2prrntaPmGs+FOXh9jatMztYw4hLNzF3ljnWjF7Mo1NzmnxKn7/zU=
-X-Received: by 2002:a05:6402:289d:b0:46c:2460:cdf with SMTP id
- eg29-20020a056402289d00b0046c24600cdfmr15398312edb.103.1670301679047; Mon, 05
- Dec 2022 20:41:19 -0800 (PST)
+	id 1p2QqK-001YbN-OP
+	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 05:50:15 +0000
+Received: by mail-ej1-x635.google.com with SMTP id qk9so3655037ejc.3
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Dec 2022 21:50:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=c6IAX5g6ledgAGKMBe/QiPZH1nxVzHQk9dCLqZzUwt0=;
+        b=PhSiFZVKOV80QGWnFhG4fhkEk4eKKXZ7LDW1qO7BVRMCpBAo3CUlllTeAr+MmTGicX
+         4HQjpCRJjRNTNL3aVGFIUjAY/PpSqxk/u4MJcEt/UM5eBjjVz1BBsDbAr2EMOpbkC/On
+         RczpIwbU6WsLJZFHDaiw7EpIfBhz/IPIry3hsVkdS5fi/TRjuf3Jsk6tBlG3phZ3540y
+         NZz2kIUBpk0VdPzoNyOnYb0GEfvBxktphGqEVpqXY2Glrfn6tuydvP6jF0BQba1LWmZu
+         RHiHrLMXk50dqwFEK4LQSr8bpd/2BcIblKvq2W6NpzvOVqQoiJPKz7HkrLUhMWoK7hpu
+         4eVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c6IAX5g6ledgAGKMBe/QiPZH1nxVzHQk9dCLqZzUwt0=;
+        b=SDuR5FNmYAVe9nqxTyDWvID0DRIbpvUqFq6FWomC+O2d6hZkYKlq72B9Nk0QMRG0Ku
+         SAz+9zkhavbcKn+maFfcv0zLdie/hajCJo3BPkoaSV+fHuNMd5dtppe3z0luBZ0XwBP8
+         dzuRBj1WIhGJLJiURqKl04a/EkKI9MU+7iKNlmTEuWY5ne6l4LbRZw/9vkFXonepUUxF
+         Cdp9+Z6Vs20CpFwJJbTgsvgeXmvryv8O42l08S1t3bt/MFei8d6vpyFC4YJtbaQLOyBn
+         nhIj+wIrXwbV+3aMPNha0i4VfR6mtobIo5uPjhyi7UgsCjzQd6ll2elyEQspYnKTDdgK
+         YX5w==
+X-Gm-Message-State: ANoB5pkVUPxwPDC/FqXZEkNCnfzHaqJVWMNgxow1zOxkpDarxj/q14Ck
+	dHr+IKphHNzrL0obdmR5blriUQ==
+X-Google-Smtp-Source: AA0mqf42zHplnnTX3EhWv3vS1EQcNMrEq3dkE0SS95uGttl1Xz5Njr7HJyTo75V4/pgIPyTnxhnnXg==
+X-Received: by 2002:a17:906:6bd4:b0:7c0:e23e:bbd6 with SMTP id t20-20020a1709066bd400b007c0e23ebbd6mr8906329ejs.551.1670305809017;
+        Mon, 05 Dec 2022 21:50:09 -0800 (PST)
+Received: from localhost (cst2-173-16.cust.vodafone.cz. [31.30.173.16])
+        by smtp.gmail.com with ESMTPSA id og40-20020a1709071de800b007c0d6b34d54sm3609973ejc.129.2022.12.05.21.50.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Dec 2022 21:50:08 -0800 (PST)
+Date: Tue, 6 Dec 2022 06:50:07 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 01/13] riscv: fix jal offsets in patched alternatives
+Message-ID: <20221206055007.cvc4zfworla3fwwr@kamzik>
+References: <20221204174632.3677-1-jszhang@kernel.org>
+ <20221204174632.3677-2-jszhang@kernel.org>
+ <20221205145710.xzb4prrc44gv7mwm@kamzik>
+ <Y44fY5tCC1hHDfcw@xhacker>
+ <Y44hL3l8Uqg+JgWI@xhacker>
 MIME-Version: 1.0
-References: <20221103075047.1634923-1-guoren@kernel.org> <20221103075047.1634923-5-guoren@kernel.org>
- <87bkoi9otu.fsf@all.your.base.are.belong.to.us>
-In-Reply-To: <87bkoi9otu.fsf@all.your.base.are.belong.to.us>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 6 Dec 2022 12:41:07 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRqnuYVHKoB_7GCK_JwvUK0gYUs9eOAzXL-CKWQ-AuO+Q@mail.gmail.com>
-Message-ID: <CAJF2gTRqnuYVHKoB_7GCK_JwvUK0gYUs9eOAzXL-CKWQ-AuO+Q@mail.gmail.com>
-Subject: Re: [PATCH -next V8 04/14] riscv: ptrace: Remove duplicate operation
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, 
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
-	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com, 
-	zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com, 
-	chenzhongjin@huawei.com, greentime.hu@sifive.com, andy.chiu@sifive.com, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>, 
-	Oleg Nesterov <oleg@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <Y44hL3l8Uqg+JgWI@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221205_204124_471046_54B1CD3A 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20221205_215012_867018_16B0DE15 
+X-CRM114-Status: GOOD (  37.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +93,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgNSwgMjAyMiBhdCA1OjM0IFBNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gZ3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgo+Cj4gPiBGcm9tOiBH
-dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gVGhlIFRJRl9TWVNDQUxM
-X1RSQUNFIGlzIGNvbnRyb2xsZWQgYnkgYSBjb21tb24gY29kZSwgc2VlCj4gPiBrZXJuZWwvcHRy
-YWNlLmMgYW5kIGluY2x1ZGUvbGludXgvdGhyZWFkLmguCj4KPiAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBeXl4gdGhyZWFkX2luZm8uaAo+ID4KPiA+IGNsZWFyX3Rhc2tfc3lz
-Y2FsbF93b3JrKGNoaWxkLCBTWVNDQUxMX1RSQUNFKTsKPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBH
-dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8g
-UmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+IFJldmlld2VkLWJ5OiBPbGVnIE5lc3Rlcm92IDxv
-bGVnQHJlZGhhdC5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wdHJhY2UuYyB8
-IDEgLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGRlbGV0aW9uKC0pCj4gPgo+ID4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNl
-LmMKPiA+IGluZGV4IDJhZTgyODBhZTQ3NS4uNDRmNGIxY2EzMTVkIDEwMDY0NAo+ID4gLS0tIGEv
-YXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3B0
-cmFjZS5jCj4gPiBAQCAtMjEyLDcgKzIxMiw2IEBAIHVuc2lnbmVkIGxvbmcgcmVnc19nZXRfa2Vy
-bmVsX3N0YWNrX250aChzdHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWduZWQgaW50IG4pCj4gPgo+
-ID4gIHZvaWQgcHRyYWNlX2Rpc2FibGUoc3RydWN0IHRhc2tfc3RydWN0ICpjaGlsZCkKPiA+ICB7
-Cj4gPiAtICAgICBjbGVhcl90c2tfdGhyZWFkX2ZsYWcoY2hpbGQsIFRJRl9TWVNDQUxMX1RSQUNF
-KTsKPiA+ICB9Cj4gPgo+ID4gIGxvbmcgYXJjaF9wdHJhY2Uoc3RydWN0IHRhc2tfc3RydWN0ICpj
-aGlsZCwgbG9uZyByZXF1ZXN0LAo+Cj4gVGhpcyBwYXRjaCBpcyBhbHNvIG5vdCBuZWNjZXNhcnkg
-Zm9yIHRoZSBzZXJpZXMsIGJ1dCBzaG91bGQgYmUgYQo+IHNlcGFyYXRlIGNsZWFudXAuCk1heWJl
-IEkgd291bGQgZGVwcmVjYXRlIHRoaXMgcGF0Y2ggYmVjYXVzZSB0aGUgZ2VuZXJpYyBlbnRyeSB3
-b3VsZApkZWxldGUgdGhlIHdob2xlIHB0cmFjZV9kaXNhYmxlKCkuCgoKCi0tIApCZXN0IFJlZ2Fy
-ZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Tue, Dec 06, 2022 at 12:49:51AM +0800, Jisheng Zhang wrote:
+> On Tue, Dec 06, 2022 at 12:42:16AM +0800, Jisheng Zhang wrote:
+> > On Mon, Dec 05, 2022 at 03:57:10PM +0100, Andrew Jones wrote:
+> > > On Mon, Dec 05, 2022 at 01:46:20AM +0800, Jisheng Zhang wrote:
+> > > > Alternatives live in a different section, so offsets used by jal
+> > > > instruction will point to wrong locations after the patch got applied.
+> > > > 
+> > > > Similar to arm64, adjust the location to consider that offset.
+> > > > 
+> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > ---
+> > > >  arch/riscv/include/asm/alternative.h |  2 ++
+> > > >  arch/riscv/kernel/alternative.c      | 38 ++++++++++++++++++++++++++++
+> > > >  arch/riscv/kernel/cpufeature.c       |  3 +++
+> > > >  3 files changed, 43 insertions(+)
+> > > > 
+> > > > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> > > > index c58ec3cc4bc3..33eae9541684 100644
+> > > > --- a/arch/riscv/include/asm/alternative.h
+> > > > +++ b/arch/riscv/include/asm/alternative.h
+> > > > @@ -29,6 +29,8 @@ void apply_module_alternatives(void *start, size_t length);
+> > > >  
+> > > >  void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
+> > > >  				      int patch_offset);
+> > > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > > > +			       int patch_offset);
+> > > >  
+> > > >  struct alt_entry {
+> > > >  	void *old_ptr;		 /* address of original instruciton or data  */
+> > > > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> > > > index 292cc42dc3be..9d88375624b5 100644
+> > > > --- a/arch/riscv/kernel/alternative.c
+> > > > +++ b/arch/riscv/kernel/alternative.c
+> > > > @@ -125,6 +125,44 @@ void riscv_alternative_fix_auipc_jalr(void *alt_ptr, unsigned int len,
+> > > >  	}
+> > > >  }
+> > > >  
+> > > > +#define to_jal_imm(value)						\
+> > > > +	(((value & (RV_J_IMM_10_1_MASK << RV_J_IMM_10_1_OFF)) << RV_I_IMM_11_0_OPOFF) | \
+> > >                                                                  ^ RV_J_IMM_10_1_OPOFF
+> > > 
+> > > > +	 ((value & (RV_J_IMM_11_MASK << RV_J_IMM_11_OFF)) << RV_J_IMM_11_OPOFF) | \
+> > > > +	 ((value & (RV_J_IMM_19_12_OPOFF << RV_J_IMM_19_12_OFF)) << RV_J_IMM_19_12_OPOFF) | \
+> > > > +	 ((value & (1 << RV_J_IMM_SIGN_OFF)) << RV_J_IMM_SIGN_OPOFF))
+> > 
+> > Hi all,
+> > 
+> > I believe there's bug in the to_jal_imm() macro implementation, the
+> > correct one should be like this:
+> > 
+> > #define to_jal_imm(value)                                               \
+> >         ((RV_X(value, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) | \
+> >         (RV_X(value, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) | \
+> >         (RV_X(value, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) | \
+> >         (RV_X(value, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF))
+> 
+> And I just tested to_jal_imm() vs RV_EXTRACT_JTYPE_IMM(), they match perfectly.
+> E.g:
+> RV_EXTRACT_JTYPE_IMM(to_jal_imm(imm)) == imm is alway true when imm is a jal
+> valid offset.
+
+I think we should define deposit() functions for each type, as well as the
+extract() functions, (and I'd prefer we use static inlines to macros to
+get some type checking). See [1] for my proposal.
+
+[1] https://lore.kernel.org/all/20221205145323.l2dro6dt7muumqpn@kamzik/
+
+Thanks,
+drew
+
+> 
+> > 
+> > Will fix it in next version.
+> > 
+> > Thanks
+> > > 
+> > > Should put () around value
+> > > 
+> > > > +
+> > > > +void riscv_alternative_fix_jal(void *alt_ptr, unsigned int len,
+> > > > +			       int patch_offset)
+> > > > +{
+> > > > +	int num_instr = len / sizeof(u32);
+> > > > +	unsigned int call;
+> > > > +	int i;
+> > > > +	int imm;
+> > > > +
+> > > > +	for (i = 0; i < num_instr; i++) {
+> > > > +		u32 inst = riscv_instruction_at(alt_ptr, i);
+> > > > +
+> > > > +		if (!riscv_insn_is_jal(inst))
+> > > > +			continue;
+> > > > +
+> > > > +		/* get and adjust new target address */
+> > > > +		imm = RV_EXTRACT_JTYPE_IMM(inst);
+> > > > +		imm -= patch_offset;
+> > > > +
+> > > > +		/* pick the original jal */
+> > > > +		call = inst;
+> > > > +
+> > > > +		/* drop the old IMMs, all jal imm bits sit at 31:12 */
+> > > > +		call &= ~GENMASK(31, 12);
+> > > 
+> > > It'd be nice if this had a define.
+> > > 
+> > > > +
+> > > > +		/* add the adapted IMMs */
+> > > > +		call |= to_jal_imm(imm);
+> > > > +
+> > > > +		/* patch the call place again */
+> > > > +		patch_text_nosync(alt_ptr + i * sizeof(u32), &call, 4);
+> > > > +	}
+> > > > +}
+> > > > +
+> > > >  /*
+> > > >   * This is called very early in the boot process (directly after we run
+> > > >   * a feature detect on the boot CPU). No need to worry about other CPUs
+> > > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > > > index ba62a4ff5ccd..c743f0adc794 100644
+> > > > --- a/arch/riscv/kernel/cpufeature.c
+> > > > +++ b/arch/riscv/kernel/cpufeature.c
+> > > > @@ -324,6 +324,9 @@ void __init_or_module riscv_cpufeature_patch_func(struct alt_entry *begin,
+> > > >  			riscv_alternative_fix_auipc_jalr(alt->old_ptr,
+> > > >  							 alt->alt_len,
+> > > >  							 alt->old_ptr - alt->alt_ptr);
+> > > > +			riscv_alternative_fix_jal(alt->old_ptr,
+> > > > +						  alt->alt_len,
+> > > > +						  alt->old_ptr - alt->alt_ptr);
+> > > >  		}
+> > > >  	}
+> > > >  }
+> > > > -- 
+> > > > 2.37.2
+> > > >
+> > > 
+> > > Thanks,
+> > > drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
