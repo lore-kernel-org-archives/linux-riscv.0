@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE77EC47090
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 08:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737DFC3A5A7
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Dec 2022 08:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=13pEwT7VmPgpbj/HZt9T4Oblyq5LwVzbEY6hUK1hJR0=; b=0rt7ZsrDnrEhYm
-	kyv10BBZ+T8jBZQTUMLMcv5Pj3TBRqiXbBX2W7txT5hOGXUtIVe8loH32pqXSxiwqBDRj2PIO6OR0
-	WBXfoPMH2y1FXuYYIQPpMy+VJjweZam/AbDDlqWyVV74iVITi8VfYoqKDW7vE4kfxc9NhE8cNIohy
-	v4yEPW47icUrHBULWLIb4LWM1QhXT/zN8/ApdMx62Vbb6uqrhTytTffY3DhIXXXkHVESu6SXbSQv5
-	8n2Cf7o+OCfFAqnHbdeIhQZr0hVC2ZrUZY8e5U56LHFLY/Dgi/mRcTKlS/z2LTtiAuajem68L5aFl
-	4fogFGZaisCY8X6B7nlQ==;
+	List-Owner; bh=hVO0nLYEW0Q+9vcX809KOjYy1vRe5VOKPPfCuRDNOiw=; b=Q2EYAKXHbf6UMF
+	GCibyf49DVdLG/LRBVXU+7Oskfd5YXpXjGcwLrIQ0vIz7+Ejx36Eha5FpTYvzksR44NWzHB45CyXH
+	bVSeFUv3J8FuzgyLCQMfP4mQ7K6tQQGld0sZtDJhQQm0jXz4yDxFeeJrj9NJHPd+o3fAj/WTxr1iy
+	YV2gS4QUhJQgH0yWxuM1wxMTOnSbno8d5Ufcz4vw4RRncHZwcLEOrfjjt8eOjofRWnc9gjGrp1J5H
+	syw1OmdYeC7rauwPAgYgfZqgEG4zrzHxoKj7TgXbzyj5PwpNzVfCgsraY18OrEHH2mUjg+biJ2hDm
+	rwSZKSgYVV317FNctIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2T7s-004aZ6-2k; Tue, 06 Dec 2022 08:16:28 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1p2THD-004nZa-DQ; Tue, 06 Dec 2022 08:26:07 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2T7o-004aNc-6B
-	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 08:16:27 +0000
-Received: from mail02.huawei.com (unknown [172.30.67.153])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTP id 4NRCt62sD3z4f3knY
-	for <linux-riscv@lists.infradead.org>; Tue,  6 Dec 2022 16:16:14 +0800 (CST)
-Received: from [10.67.109.184] (unknown [10.67.109.184])
-	by APP4 (Coremail) with SMTP id gCh0CgCXutdP+o5jHLL8Bg--.18286S2;
-	Tue, 06 Dec 2022 16:16:16 +0800 (CST)
-Message-ID: <0620000f-4d06-de15-09d9-24b5b0c47410@huaweicloud.com>
-Date: Tue, 6 Dec 2022 16:16:15 +0800
+	id 1p2THA-004nUw-Pv
+	for linux-riscv@lists.infradead.org; Tue, 06 Dec 2022 08:26:06 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id z4so16377766ljq.6
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Dec 2022 00:26:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OkMxJjoW8X4kUNC+47c7765KzpRNV4xbB6ThuqIXaYA=;
+        b=g7x6H4cWlQJYECi+8ttT+RfB1nYdfNW9EGfg3yL2ZSCKJzsrTlP9H+YuWwotc2pTyW
+         shOdEKTrbkHbyrusr8EHbTlAkluPeftoC4Uzu44f7DI/6kwPn6sU1zafHnA24XvFX49O
+         ClEDTzTODxK5PYAIErwbkN/pc0HIs+EIh02NhHO8XKNyMlmz5ZMxiC92dQ7Klpr38FcL
+         HdnAg+WZZfFU4uki65XSz+HL4vc411PpfBLYLUHlGkWM+SYuONwyD0ggxZd6S3GdU4Aw
+         Wc+MhpH4G9cxIG04n/C0Y9DVTrW4ydlDCrLLXFyEcJwHgpHrZxn/fQcEP7R39qY6M6fR
+         0vZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OkMxJjoW8X4kUNC+47c7765KzpRNV4xbB6ThuqIXaYA=;
+        b=UaEiUt3Nqr+vrHBBDbOyBjpd2qb8YQupPc7erdFsul4bp4AJx26VlIG5aW1R7ZqieG
+         wpXmiAus+E6SlHb0SVkKEAtcyZ7hgIU6bvri7VR9fbtLM8p8q4x1IQEPfA84FJMNLQvZ
+         a7mjNG9X3rjqouRKnmx524Cpg+Lsl58kiwX8IY/zu1CR4OLvTATP5lLSHNngX4qp4z7L
+         +ppdmKhTLGRtYPslE0hCHe0DvOmuJjq+KI8hl6nTSniMhmGhg/GWvXjJYMSOqlLLX1nx
+         pu02xgw0qucfcokoJCsGk4BhE0Te1ts9yRMXfJUWUcd09Ev8rG5rT8b9z9n2Hx3cUhhe
+         ZiXA==
+X-Gm-Message-State: ANoB5pnJitrrYjDQaNiV9PbRMUsrKNbesOFyj5jqhICnwLxyd3tB60nz
+	jlQbii4s+pt0803C3A8CYPaKXg==
+X-Google-Smtp-Source: AA0mqf5hJt4mcZkr+hduYVC1h4gFFiYEe5e/seICQH3DF+vHQDg04AGpXBwDBxE+G5FcRm2BXk2Vwg==
+X-Received: by 2002:a2e:b8c3:0:b0:277:2e91:e9d6 with SMTP id s3-20020a2eb8c3000000b002772e91e9d6mr22193667ljp.372.1670315162821;
+        Tue, 06 Dec 2022 00:26:02 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id s8-20020a056512214800b004b4823f02b0sm2411927lfr.152.2022.12.06.00.26.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Dec 2022 00:26:02 -0800 (PST)
+Message-ID: <0a2056f9-0126-4dd7-55fa-930ce61e2e81@linaro.org>
+Date: Tue, 6 Dec 2022 09:26:01 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.3.0
-Subject: Re: [PATCH bpf v2] riscv, bpf: Emit fixed-length instructions for
- BPF_PSEUDO_FUNC
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH 5/6] dt-bindings: crypto: Add bindings for Starfive crypto
+ driver
 Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@google.com>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Pu Lehui <pulehui@huawei.com>
-References: <20221202094837.3872444-1-pulehui@huaweicloud.com>
- <87y1rq848x.fsf@all.your.base.are.belong.to.us>
- <0ade59ea-6863-4d68-607c-22e4b9405a0d@huaweicloud.com>
- <87359t3r0h.fsf@all.your.base.are.belong.to.us>
-From: Pu Lehui <pulehui@huaweicloud.com>
-In-Reply-To: <87359t3r0h.fsf@all.your.base.are.belong.to.us>
-X-CM-TRANSID: gCh0CgCXutdP+o5jHLL8Bg--.18286S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWw15Gw1DXrWkZFW7GrWxJFb_yoW5ZF13pF
-	W5Krn3Cayvqr4IvFnrtw15tF4Yyr1vvayIk345G34vkanFqFyIkF1DKw4Ykas5ZrW8Kr17
-	JF4q9r4ak390yaDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvIb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
-	e2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxV
-	Aqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a
-	6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6x
-	kF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvEx4A2jsIE
-	14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf
-	9x07UZ18PUUUUU=
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
-X-CFilter-Loop: Reflected
+To: JiaJie Ho <jiajie.ho@starfivetech.com>, Rob Herring <robh@kernel.org>
+Cc: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Rob Herring <robh+dt@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "David S . Miller" <davem@davemloft.net>
+References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+ <20221130055214.2416888-6-jiajie.ho@starfivetech.com>
+ <166981596611.1846501.537832446745968339.robh@kernel.org>
+ <14a3facb1fe642cba0048f2f2d0eb2e9@EXMBX068.cuchost.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <14a3facb1fe642cba0048f2f2d0eb2e9@EXMBX068.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221206_001624_633018_492F71E2 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20221206_002604_890155_7116C092 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,71 +96,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMDIyLzEyLzYgMTU6NTUsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gUHUgTGVodWkgPHB1
-bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cj4gCj4+IFNvcnJ5IGZvciByZXBseWluZyBz
-byBsYXRlLiBGb3IgQlBGX1BTRVVET19GVU5DIGluc3RydWN0aW9uLCB2ZXJpZmllcgo+PiB3aWxs
-IHNldCBpbnNuWzBdLmltbSBhbmQgaW5zblsxXS5pbW0gdG8gMSB0aGF0IG1ha2UgYWRkciB0byAw
-eDEwMDAwMDAwMQo+PiBiZWZvcmUgZXh0cmEgcGFzcywgYW5kIGFsc28gY3R4LT5pbnNucyBpcyBO
-VUxMIGluIGl0ZXJhdGlvbiBzdGFnZSwgYWxsCj4+IG9mIHRoZXNlIG1ha2Ugb2ZmIG91dCBvZiBy
-YW5nZSBvZiBBVUlQQy1BRERJIHJhbmdlLCBhbmQgcmV0dXJuIGZhaWxlZC4KPj4gV2UgY291bGQg
-YWRkIHNvbWUgc3BlY2lhbCBoYW5kbGluZyBhdCBkaWZmZXJlbnQgc3RhZ2VzLCBidXQgdGhhdCBz
-ZWVtcyBhCj4+IGxpdHRsZSB3ZWlyZC4gQnkgdGhlIHdheSwgSSBkbyBub3QgcmVhbGx5IGxpa2Ug
-ZW1pdF9hZGRyIGZ1bmN0aW9uIHdpdGgKPj4gcmV0dXJuIHZhbHVlLgo+IAo+IE15IHJhdGlvbmFs
-IGlzIHRoYXQgKmlmKiBmb3Igc29tZSByZWFzb24gdGhlIGppdCBpcyBwYXNzZWQgYW4gYWRkcmVz
-cwo+IHRoYXQgYXVpcGMvYWRkaSBjYW4ndCByZXByZXNlbnQsIHdlJ2QgbGlrZSB0byBjYXRjaCB0
-aGF0IGFuZCBub3QgZW1pdAo+IGJyb2tlbiBjb2RlLgo+IAo+PiBXaGlsZSBhIHByb3BlciBhZGRy
-ZXNzIGlzIGF0IGxlYXN0IDJCIGFsaWdubWVudCwgYW5kIHRoZSB2YWxpZCBhZGRyZXNzCj4+IGlz
-IGZyb20gMHhmZmZmZmZmZjAwMDAwMDAwIHRvIDB4ZmZmZmZmZmZmZmZmZmZmZiwgd2UgY2FuIG1h
-a2UgYWRkcmVzcwo+PiBzaGlmZWQgMSBwbGFjZSB0byByaWdodCwgYW5kIGFkZHIgPj4gMSB3aWxs
-IGFsd2F5cyBpbiB0aGUgcmFuZ2Ugb2YKPj4gQVVJUEMtQURESSByYW5nZS4gV2UgY2FuIGdldCBy
-aWQgb2YgdGhlIHJhbmdlIGRldGVjdGlvbi4gVGhlCj4+IGltcGxlbWVudGF0aW9uIGlzIGFzIGZv
-bGxvd3M6Cj4+Cj4+IHN0YXRpYyB2b2lkIGVtaXRfYWRkcih1OCByZCwgdTY0IGFkZHIsIHN0cnVj
-dCBydl9qaXRfY29udGV4dCAqY3R4KQo+PiB7Cj4+ICAgICAgICAgICAgczY0IGltbSA9IGFkZHIg
-Pj4gMTsKPj4gICAgICAgICAgICBzNjQgdXBwZXIgPSAoaW1tICsgKDEgPDwgMTEpKSA+PiAxMjsK
-Pj4gICAgICAgICAgICBzNjQgbG93ZXIgPSBpbW0gJiAweGZmZjsKPj4KPj4gICAgICAgICAgICBl
-bWl0KHJ2X2x1aShyZCwgdXBwZXIpLCBjdHgpOwo+PiAgICAgICAgICAgIGVtaXQocnZfYWRkaShy
-ZCwgcmQsIGxvd2VyKSwgY3R4KTsKPj4gICAgICAgICAgICBlbWl0KHJ2X3NsbGkocmQsIHJkLCAx
-KSwgY3R4KTsKPj4gfQo+Pgo+PiBXaGF0IGRvIHlvdSB0aGluaz8KPiAKPiBUaGF0J3MgYSBjb2Rl
-IGdlbmVyYXRpb24gcGVuYWx0eSwgaW5zdGVhZCBvZiBjYXRjaGluZyBpdCBhdCBjb2RlCj4gZ2Vu
-LiBEb24ndCBsaWtlISA6LSkgSSBtdWNoIHByZWZlciB0aGUgYXVpcGMvYWRkaSB2ZXJzaW9uLgo+
-IAo+IFdoYXQgZG8geW91IHRoaW5rIGFib3V0IHRoZSBkaWZmIChvbi10b3Agb2YgeW91ciB3b3Jr
-KSBiZWxvdz8KPiAKPiAtLTg8LS0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2pp
-dF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPiBpbmRleCBhYTk0
-MTBlZWY3N2MuLjdhY2FmMjhjYjNiZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L25ldC9icGZf
-aml0X2NvbXA2NC5jCj4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IEBA
-IC0xMzcsMTUgKzEzNywyMSBAQCBzdGF0aWMgYm9vbCBpbl9hdWlwY19qYWxyX3JhbmdlKHM2NCB2
-YWwpCj4gICB9Cj4gICAKPiAgIC8qIEVtaXQgZml4ZWQtbGVuZ3RoIGluc3RydWN0aW9ucyBmb3Ig
-YWRkcmVzcyAqLwo+IC1zdGF0aWMgdm9pZCBlbWl0X2FkZHIodTggcmQsIHU2NCBhZGRyLCBzdHJ1
-Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiArc3RhdGljIGludCBlbWl0X2FkZHIodTggcmQsIHU2
-NCBhZGRyLCBib29sIGV4dHJhX3Bhc3MsIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ICAg
-ewo+ICAgCXU2NCBpcCA9ICh1NjQpKGN0eC0+aW5zbnMgKyBjdHgtPm5pbnNucyk7Cj4gICAJczY0
-IG9mZiA9IGFkZHIgLSBpcDsKPiAgIAlzNjQgdXBwZXIgPSAob2ZmICsgKDEgPDwgMTEpKSA+PiAx
-MjsKPiAgIAlzNjQgbG93ZXIgPSAoKG9mZiAmIDB4ZmZmKSA8PCA1MikgPj4gNTI7Cj4gICAKPiAr
-CWlmIChleHRyYV9wYXNzICYmICFpbl9hdWlwY19qYWxyX3JhbmdlKG9mZikpIHsKPiArCQlwcl9l
-cnIoImJwZi1qaXQ6IHRhcmdldCBvZmZzZXQgMHglbGx4IGlzIG91dCBvZiByYW5nZVxuIiwgb2Zm
-KTsKPiArCQlyZXR1cm4gLUVSQU5HRTsKPiArCX0KPiArCj4gICAJZW1pdChydl9hdWlwYyhyZCwg
-dXBwZXIpLCBjdHgpOwo+ICAgCWVtaXQocnZfYWRkaShyZCwgcmQsIGxvd2VyKSwgY3R4KTsKPiAr
-CXJldHVybiAwOwo+ICAgfQo+ICAgCj4gICAvKiBFbWl0IHZhcmlhYmxlLWxlbmd0aCBpbnN0cnVj
-dGlvbnMgZm9yIDMyLWJpdCBhbmQgNjQtYml0IGltbSAqLwo+IEBAIC0xMDYxLDEzICsxMDY3LDE3
-IEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2luc24gKmluc24sIHN0
-cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+ICAgCXsKPiAgIAkJc3RydWN0IGJwZl9pbnNuIGlu
-c24xID0gaW5zblsxXTsKPiAgIAkJdTY0IGltbTY0Owo+ICsJCWludCByZXQ7Cj4gICAKPiAgIAkJ
-aW1tNjQgPSAodTY0KWluc24xLmltbSA8PCAzMiB8ICh1MzIpaW1tOwo+IC0JCWlmIChicGZfcHNl
-dWRvX2Z1bmMoaW5zbikpCj4gKwkJaWYgKGJwZl9wc2V1ZG9fZnVuYyhpbnNuKSkgewo+ICAgCQkJ
-LyogZml4ZWQtbGVuZ3RoIGluc25zIGZvciBleHRyYSBqaXQgcGFzcyAqLwo+IC0JCQllbWl0X2Fk
-ZHIocmQsIGltbTY0LCBjdHgpOwo+IC0JCWVsc2UKPiArCQkJcmV0ID0gZW1pdF9hZGRyKHJkLCBp
-bW02NCwgZXh0cmFfcGFzcywgY3R4KTsKPiArCQkJaWYgKHJldCkKPiArCQkJCXJldHVybiByZXQ7
-Cj4gKwkJfSBlbHNlIHsKPiAgIAkJCWVtaXRfaW1tKHJkLCBpbW02NCwgY3R4KTsKPiArCQl9Cj4g
-ICAKPiAgIAkJcmV0dXJuIDE7Cj4gICAJfQo+IAo+IC0tODwtLQo+IAo+IFdvdWxkbid0IHRoYXQg
-d29yaz8KPiAKCkl0IGRlZmluaXRlbHkgd29ya3MuIEJ1dCBhdWlwYythZGRpIG1heSBiZSBzb21l
-IGhvbGVzLCB3aGlsZSAKbHVpK2FkZGkrc2xsaSBzdXBwb3J0IGFsbCB0aGUgYWRkcmVzcyBvZiBr
-ZXJuZWwgYW5kIG1vZHVsZS4gQW5kIHRoaXMgCm1pZ2h0IGJlIGhlbHAgZm9yIHRoZSBmdXR1cmUg
-ZmVhdHVyZSBwb3J0aW5nLgoKPiAKPiBCasO2cm4KCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 06/12/2022 04:48, JiaJie Ho wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Rob Herring <robh@kernel.org>
+>> Sent: Wednesday, November 30, 2022 9:48 PM
+>> To: JiaJie Ho <jiajie.ho@starfivetech.com>
+>> Cc: linux-crypto@vger.kernel.org; linux-riscv@lists.infradead.org; Rob
+>> Herring <robh+dt@kernel.org>; Herbert Xu
+>> <herbert@gondor.apana.org.au>; Krzysztof Kozlowski
+>> <krzysztof.kozlowski+dt@linaro.org>; linux-kernel@vger.kernel.org;
+>> devicetree@vger.kernel.org; David S . Miller <davem@davemloft.net>
+>> Subject: Re: [PATCH 5/6] dt-bindings: crypto: Add bindings for Starfive crypto
+>> driver
+>>
+>>
+>> On Wed, 30 Nov 2022 13:52:13 +0800, Jia Jie Ho wrote:
+>>> Add documentation to describe Starfive crypto driver bindings.
+>>>
+>>> Signed-off-by: Jia Jie Ho <jiajie.ho@starfivetech.com>
+>>> Signed-off-by: Huan Feng <huan.feng@starfivetech.com>
+>>> ---
+>>>  .../bindings/crypto/starfive-crypto.yaml      | 109 ++++++++++++++++++
+>>>  1 file changed, 109 insertions(+)
+>>>  create mode 100644
+>>> Documentation/devicetree/bindings/crypto/starfive-crypto.yaml
+>>>
+>>
+>> My bot found errors running 'make DT_CHECKER_FLAGS=-m
+>> dt_binding_check'
+>> on your patch (DT_CHECKER_FLAGS is new in v5.13):
+>>
+>> yamllint warnings/errors:
+>>
+>> dtschema/dtc warnings/errors:
+>> Documentation/devicetree/bindings/crypto/starfive-
+>> crypto.example.dts:21:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No
+>> such file or directory
+>>    21 |         #include <dt-bindings/clock/starfive-jh7110.h>
+>>       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> compilation terminated.
+>> make[1]: *** [scripts/Makefile.lib:406:
+>> Documentation/devicetree/bindings/crypto/starfive-crypto.example.dtb]
+>> Error 1
+>> make[1]: *** Waiting for unfinished jobs....
+>> make: *** [Makefile:1492: dt_binding_check] Error 2
+>>
+>> doc reference errors (make refcheckdocs):
+>>
+>> See https://patchwork.ozlabs.org/project/devicetree-
+>> bindings/patch/20221130055214.2416888-6-jiajie.ho@starfivetech.com
+>>
+>> The base for the series is generally the latest rc1. A different dependency
+>> should be noted in *this* patch.
+>>
+> 
+> Hi Rob Herring,
+> 
+> The #include in example have dependencies on the following patches:
+> https://patchwork.kernel.org/project/linux-riscv/cover/20221118010627.70576-1-hal.feng@starfivetech.com/
+> https://patchwork.kernel.org/project/linux-riscv/cover/20221118011714.70877-1-hal.feng@starfivetech.com/
+> I've noted them in the cover letter.
+> How do I add them in this patch?
+
+You cannot. Testing bot does not take dependencies, so it did not have
+above clock IDs. This also should point your attention that if crypto
+maintainers pick up this patch, they also won't have the clock IDs so
+their tree will have such failure as well.
+
+You can wait with your patch till dependency hits mainline or you can
+just replace clock IDs with numbers and drop the header (and later you
+can correct the example if needed... or leave it as is).
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
