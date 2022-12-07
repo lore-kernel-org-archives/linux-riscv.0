@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF47C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 14:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D52C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 15:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZpOds+JHCpCxvqfvSshUT/FhL6//IXduxuyM0bm8MA=; b=TvZzjaRXcLxZ0yPaIiznQLA0ge
-	g8ScdsXMHn8WWj2wNYM+kqVv9BsUXt1NiZzVxLyvTXBqqzpw0xgrongJME1T1t4v/YJims2rllXEa
-	CNrtsJqM9HMI2taBfOO1iBEPzOoNeHkP9pLUvLFXHln4FM9QUVKzyiRRyyXE5qqyW7Etj634k12GL
-	Wnhk2hII2Hx0UL64M/bmI0uZh79kWzPvo8ca3/ngN+n6dFwLE6mFB4PYSTT3YU5q0nSgM71gqI0KU
-	oPiRUOMGFlYwHENPOfgOQaJBgJZGrkL1yy1t5k7/sRSle6SXvVIFsZ0B8DL4yaT5sIXDc312TEwKv
-	2zutuNug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=giK2bFgSnr3ZQv4i6U1ihYlSrRD/tjxaNgK+COiWaD8=; b=usPHyboOFA8T3e
+	UPXwmBDdb7/BuwhqnQbi65B9INmIbDMIGEG3tRVgLb5Wl4ll2MgyTysdujOBsuru+KBkapuYZdlRW
+	LRGoXmZvs+r8FppqcB2tg7GS5p9qQtXqp6dvHdEw/h/N6KarHecMZuh35FPray8Pqa+P8PczUnxuR
+	NH8Ya5wULWODlMwzmL3e3ctJPeij1aIUPBQCW9e3n26EhgI5FCkAVyFtoHhs/qubFfp3xzE0Ti7hD
+	vIJapAwemy6K4V+StNFDrSem2sYRoEf7SreciKcfPiVi9xVaMXLicrHr+q8/47rcxMVL6cLR6SV6R
+	9j9oWyT8mtFugP9f9dBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2vgz-005FbB-Eo; Wed, 07 Dec 2022 14:46:37 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p2w6j-005e3l-OL; Wed, 07 Dec 2022 15:13:13 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2vgw-005FXX-1A
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 14:46:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5C14EB81B03;
-	Wed,  7 Dec 2022 14:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6633C433D6;
-	Wed,  7 Dec 2022 14:46:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670424391;
-	bh=PsHVnbFBEihPB3NBp0BJWow6YIbcbhY3sBbqiwuA9vk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UmnmuFc6Pc5jVPVWs++s8HNLuJr3H+pXoLfMKq1+RnAXtq+pQnOq0itFQnt5SxDuQ
-	 /KnltwAjDN8CGYC9ul7XN9vUL1syO9N5TQzW6TwemshAv5CjlMJ9UIqkqKDWrQj7lE
-	 bHjHqqIUgzSKPTR3u/U35anGRXj8CImhRp556r1pMoNerMEXgPycV1JCvkfZaqau5m
-	 1XXQZzZrlxwsRMHgV5dx1dHANcS9OU1AtGBD4TE5T332op40O1SKc+c+M+7K07rZ63
-	 /zh+5zrGg3ciYLNCXC9tp9HieLezwx/KQsrDn3/JmBj0DwIrroTk2vXZFlwWQg4Ddj
-	 gjpEhPEv62sMw==
-Date: Wed, 7 Dec 2022 14:46:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>,
-	William Qiu <william.qiu@starfivetech.com>
-Cc: William Qiu <william.qiu@starfivetech.com>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	linux-mmc@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, devicetree@vger.kernel.org
+	id 1p2w6h-005e0v-28
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 15:13:12 +0000
+Received: by mail-lf1-x130.google.com with SMTP id p36so24817981lfa.12
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 07:13:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EwuV0n2FcadO46u8mq+gLHcFjCqs4mgvgde47beSgFk=;
+        b=ZvS9jSQhUfL8WcXq/TxjyksIXloX15Ag5b6M8G03A1zo4+dvHKYj8t3a8r40mu0zUD
+         M2UVP7NtSB1bzo/jAucazJWb/W/54+/U+mC//YqsA4AmlQQgsTPeaF2bp/Q2fzsI6OGT
+         imkn5Y7HbXYKqZf1tA1kLjtpHdJIjCJx0GR9ufvTcuUfWjPhtUsrAOAgjoC70cQ37dZ/
+         Wa3Yk2L8Z1SS5cojk6pU9smxwWQ4hJi5nEVC96MZgjOzjP4wegHIg4v1q1KuNEkEu59Y
+         66Pb14vJxPITtwp8AGoKMUfUE7+wLmUIaLW+5uIIxpzwIoroodtdFUuONVOwugpDCrol
+         xmLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EwuV0n2FcadO46u8mq+gLHcFjCqs4mgvgde47beSgFk=;
+        b=salODiqGsdfE50AEfalDqU6Cvjvw881VAfIA7G8Y4P68oUoKiXuGlSOifFPICCtbKi
+         kHx2iu0qZXIHQooxJFkxSt8ZP2uCIBw5k3KSZ3JI6lM90Lh/MowoxplDymmq8sQcYuWo
+         vmLZd0pT4ILEV9dzMaGRrLFNT297rMWFKLTGDvO0MX8NeK0pVYQPFMCQCSq+KNb5QNxj
+         9/JclHEcs3xHlLHVhNQQJ343YQbU58lNI5fb9sELh5/GGYi990pJIgjVFqOuaeyJR/To
+         1nx1Z1GgtS2Uic7xGhmKm5490tyQqk2Vwx0nIyyFPuRznZ+sUADmd70guIQsRlDnzJs0
+         YIoA==
+X-Gm-Message-State: ANoB5pk+qrnFMx4M3J36smp30wL/JTScOnrT4Mjcao+iu7SOAcG21/ij
+	as0AExViwlD8njHHX77e2a733A==
+X-Google-Smtp-Source: AA0mqf7H/u1TTdUDubpP4RFHzJ+Z6dInp9jhB+5+WVPVTc4JVsGKqJfFgAD2IAyI7TXnhs+eSOZW8A==
+X-Received: by 2002:a05:6512:3454:b0:4b5:8240:5bcb with SMTP id j20-20020a056512345400b004b582405bcbmr3082136lfr.388.1670425987664;
+        Wed, 07 Dec 2022 07:13:07 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id bi27-20020a0565120e9b00b004aac23e0dd6sm2893718lfb.29.2022.12.07.07.13.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Dec 2022 07:13:07 -0800 (PST)
+Message-ID: <d7ecbbbf-5d6b-3254-b645-dbea369447ae@linaro.org>
+Date: Wed, 7 Dec 2022 16:13:05 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
 Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Add bindings for StarFive
-Message-ID: <Y5CnQlYTZJrJNjCf@spud>
+Content-Language: en-US
+To: William Qiu <william.qiu@starfivetech.com>,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-mmc@vger.kernel.org
+Cc: Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Jaehoon Chung <jh80.chung@samsung.com>, Ulf Hansson
+ <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
 References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
  <20221207131731.1291517-2-william.qiu@starfivetech.com>
- <167042222472.2111911.2050446708831690640.robh@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <167042222472.2111911.2050446708831690640.robh@kernel.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20221207131731.1291517-2-william.qiu@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_064634_399776_1D012182 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20221207_071311_149809_9B9682E9 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,113 +92,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5451241298996012415=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 07/12/2022 14:17, William Qiu wrote:
+> Add documentation to describe StarFive
+> designware mobile storage host controller driver.
+> 
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+> ---
+>  .../bindings/mmc/starfive,jh7110-sdio.yaml    | 71 +++++++++++++++++++
+>  1 file changed, 71 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
+> new file mode 100644
+> index 000000000000..4f27ef3cf4f3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
+> @@ -0,0 +1,71 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mmc/starfive,jh7110-sdio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: StarFive Designware Mobile Storage Host Controller
+> +
+> +description:
+> +  StarFive uses the Synopsys designware mobile storage host controller
+> +  to interface a SoC with storage medium such as eMMC or SD/MMC cards.
+> +
+> +allOf:
+> +  - $ref: "synopsys-dw-mshc-common.yaml#"
 
---===============5451241298996012415==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="15iFjk02Kxw946r4"
-Content-Disposition: inline
+Drop quotes
 
+> +
+> +maintainers:
+> +  - William Qiu <william.qiu@starfivetech.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: starfive,jh7110-sdio
 
---15iFjk02Kxw946r4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Why do you call it sdio if the interface is for mmc as well?
 
-On Wed, Dec 07, 2022 at 08:19:49AM -0600, Rob Herring wrote:
->=20
-> On Wed, 07 Dec 2022 21:17:29 +0800, William Qiu wrote:
-> > Add documentation to describe StarFive
-> > designware mobile storage host controller driver.
-> >=20
-> > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
-> > ---
-> >  .../bindings/mmc/starfive,jh7110-sdio.yaml    | 71 +++++++++++++++++++
-> >  1 file changed, 71 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh71=
-10-sdio.yaml
-> >=20
->=20
-> My bot found errors running 'make DT_CHECKER_FLAGS=3D-m dt_binding_check'
-> on your patch (DT_CHECKER_FLAGS is new in v5.13):
->=20
-> yamllint warnings/errors:
->=20
-> dtschema/dtc warnings/errors:
-> Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.example.dts:21=
-:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No such file or dire=
-ctory
->    21 |         #include <dt-bindings/clock/starfive-jh7110.h>
->       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 1
+> +    items:
+> +      - description: biu clock
+> +      - description: ciu clock
 
-Hello William,
-As with the other bindings that StarFive has sent out recently,
-including this header in the example creates a dependency on the
-clock/reset stuff being merged prior to the drivers for unrelated
-subsytems.
-To avoid that, you can drop the headers & definitions from these
-*examples* & use the numbers themselves instead.
+I don't think the card interface clock is optional... are you sure you
+have designs working without it? No clock line at all getting to the memory?
 
-That way, the only thing that depends on the clock binding headers is
-the DeviceTree patch & the driver can be merged once it is ready.
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    items:
+> +      - const: biu
+> +      - const: ciu
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  starfive,sys-syscon:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    description:
+> +      The desired number of times that the host execute tuning when needed.
 
-Thanks,
-Conor.
+That's not matching the property name. Missing number of items... this
+is anyway confusing. Why number of tuning tries is a property of DT?
 
-> compilation terminated.
-> make[1]: *** [scripts/Makefile.lib:406: Documentation/devicetree/bindings=
-/mmc/starfive,jh7110-sdio.example.dtb] Error 1
-> make[1]: *** Waiting for unfinished jobs....
-> make: *** [Makefile:1492: dt_binding_check] Error 2
->=20
-> doc reference errors (make refcheckdocs):
->=20
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/202212=
-07131731.1291517-2-william.qiu@starfivetech.com
->=20
-> The base for the series is generally the latest rc1. A different dependen=
-cy
-> should be noted in *this* patch.
->=20
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
->=20
-> pip3 install dtschema --upgrade
->=20
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your sch=
-ema.
->=20
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/starfive-jh7110.h>
+> +    #include <dt-bindings/reset/starfive-jh7110.h>
+> +    mmc@16010000 {
+> +            compatible = "starfive,jh7110-sdio";
 
---15iFjk02Kxw946r4
-Content-Type: application/pgp-signature; name="signature.asc"
+Use 4 spaces for example indentation.
 
------BEGIN PGP SIGNATURE-----
+> +            reg = <0x16010000 0x10000>;
+> +            clocks = <&syscrg JH7110_SYSCLK_SDIO0_AHB>,
+> +                 <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY5CnJwAKCRB4tDGHoIJi
-0jqRAQCsSx3Ke20VhxNk/Ydi4ewyUPQPytJ6yzxj4xk9pgAeMgD+LIlTVnmUzECN
-HBRjjc8AbZ9qq7SwsftQ/3nu/ACeQAI=
-=JKRg
------END PGP SIGNATURE-----
+Align with previous <
 
---15iFjk02Kxw946r4--
+Best regards,
+Krzysztof
 
-
---===============5451241298996012415==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5451241298996012415==--
-
