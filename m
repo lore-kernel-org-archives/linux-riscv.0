@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B49CC352A1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 08:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F94C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 08:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D3QRbqtbHMcppG7Pzj458tkybUyPM5GrFfC4c0ECDFk=; b=GorkK00BDe9maY
-	Hbtwdx+yTXIqMXX5mNWaFvDMB86Z0qq2+8HLy1vyUsMj6OfZqMRbFFNHPfeh0OdB6lNFhNcLVvBhW
-	l6rTzBuQOeloFRnDAzfKhgveO/LdXV1ZgXomTAXoHV+gZdvBhkLtv80RTLHe0wxLeRwIpVkAi/B2l
-	tsMICvqH1dcfLUcrPcNUQ+Q6h9dlys73tGY7iDoZTD+zNrI+1wEOlX7KtwM5DfjjR1ZCEyqA3jj8d
-	OG88PxIzJ5MJDe8CoSKz02Ou3J35iNcoITmIsoJAK4fupZYCZQpe7b7lYRBIz7rHV1lhU8zjU0YW2
-	i3AxF38CpYdf5L2ewjsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TyOX3kyYdJwTpIGmt8R2rNzSHLw9KKn10VlZe+HZv64=; b=3u39EhKhl1fPydMP6sb9FqTzFR
+	R0F7UQLiUKvzU9WsXtA4h+td2av7kLpeKIQa2/auyC0nKyeNbYD8hbTt5JhoqChVNUMmwPReilQeA
+	wQ417C45LaP9FaCwtJWaq3TeZqKnoO7VW6Rz3mLuL7M8afP4h6Ih+Z2Ask1oYhpVt/SHCY/UZsNFf
+	LD37A5t0Ju/4dLHvnen7djO32aTPMyxIJbXEu2eJwFdyFxRvtKsk7GcIKznHc2GJsJmgebzzShyJ+
+	PjmyXHcWkIct0co229dueF5KZPIHOlZ2B+JBM3EUIx9QUqPbIekp0h9L5QT6rCtJQwhHbUzfMnxRz
+	4wmn2NAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2pRc-00Efl9-2t; Wed, 07 Dec 2022 08:06:20 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1p2pTt-00Eihz-Ds; Wed, 07 Dec 2022 08:08:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2pRZ-00Efao-C9
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 08:06:18 +0000
-Received: by mail-pg1-x532.google.com with SMTP id f3so15613872pgc.2
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 00:06:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=XdquHQi7NeKqSxeiFjUW2fxeM63S3wYNudDJTs5ka/I=;
-        b=YnPCekdO7ZQMvJqfjISrBXD80eTFgn3TeTnSB9m7M6/qkkywTQOiSOYVaI3LvG4rjR
-         SQ7nP30BxTBvoGvsRkE96FqHrc6c+vOCy0hdIlqpsLK4XTiheIKvr8idt+8cA/wcRr+I
-         A6LIcSPv/RjOSIzZdbdqP0lXy5HziiVzaFVTM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XdquHQi7NeKqSxeiFjUW2fxeM63S3wYNudDJTs5ka/I=;
-        b=PVTLWpqUFvvE7sb9YJNFsbZFv3MYG+t7XUA1sJcJY+5KwKJt/8BjESW1d3kVAPQV9o
-         YxpYcYSYvtfIBU8KUS20Ifka4fcDwFo6c1ewgV0hBEqz2D47OxHFD/7tNgVLaXXE2y/+
-         0vL94/tP9GCbyhZzCKrWgR2H56mHzrjhjA+EEpyi9JhDLAzpGjm1TyEz/FKVD09opBky
-         aILWMEOgvqlzCDPN87Gx3OylHmIYS5KRPu1kCLZFa/v+6g/lvNXLkD3eLbcerLCYK5ZF
-         vhnCdx5obh0AYDR4BftDJdd9J21LxSUqkpTgM3GCvydMBNRItOc+A0mpkqnnDtHLnCeD
-         +f8Q==
-X-Gm-Message-State: ANoB5pmGQrl5iE4FM9rBZOO1E6gnNuRlY2JXQTr3NKFcF/orWAJ0O9lO
-	ePMCTF3aoFICErqEsJomM1/BtETGl2HhZhcG3vRT
-X-Google-Smtp-Source: AA0mqf5Lro0H1geKEW2uRGz1U6KauRanORdt4Xposn2GDms+sPYKmCK12zz5gK2GHbeiYIDgRl5JzfsE9dMxd38ouvw=
-X-Received: by 2002:a62:3841:0:b0:577:22cb:1f16 with SMTP id
- f62-20020a623841000000b0057722cb1f16mr9614270pfa.24.1670400375616; Wed, 07
- Dec 2022 00:06:15 -0800 (PST)
+	id 1p2pTp-00Eidr-P0; Wed, 07 Dec 2022 08:08:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7E2EA60A51;
+	Wed,  7 Dec 2022 08:08:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CAACC433B5;
+	Wed,  7 Dec 2022 08:08:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670400515;
+	bh=dh0NHFxS6FH0MAIpFjCQ0xsK44R9nD77S1vwGB4tbXY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u2Z0XGwzU5rhxZ47IGdJC4cZ5SWxwZd2PAfrFapRuH0ECUlff0pUfQyCPposur7v+
+	 ZkZCSIu8ispQ0Gt6qmlEHBThxzZyqIfBj+q1qqa+fg+vi93Sz72X1c2RkBa2GIp61O
+	 RKrtBMKBn643EiWuVW4W4rEa9Z5Fe6cLZKyuQSPlG9RQhhmodr5vP1OAHcpsEV0Wm1
+	 G13PZv4TTkqVcXJjY/MPOCeVICt3C20fnrJjxTuiBHlcLpOROHCt1i44s0TZ1cx/FJ
+	 BwqQI0tRqdUkWErUJ0G0AmVuNF5aOjMxFID+QV2v0vU/yFjxR5e3vq8tdOsnAI/Wwh
+	 ScGJZMPNlng/A==
+Date: Wed, 7 Dec 2022 08:08:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>, mick@ics.forth.gr,
+	corbet@lwn.net, alexandre.ghiti@canonical.com, vgoyal@redhat.com,
+	bhe@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>, bagasdotme@gmail.com,
+	dyoung@redhat.com, Palmer Dabbelt <palmer@dabbelt.com>,
+	heiko@sntech.de, anup@brainfault.org, aou@eecs.berkeley.edu,
+	hschauhan@nulltrace.org, yixun.lan@gmail.com,
+	kexec@lists.infradead.org, heinrich.schuchardt@canonical.com,
+	linux-doc@vger.kernel.org, crash-utility@redhat.com,
+	linux-kernel@vger.kernel.org, k-hagio-ab@nec.com,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH V5 0/2] Support VMCOREINFO export for RISCV64
+Message-ID: <Y5BJ/EeBTEJK2QLF@spud>
+References: <20221026144208.373504-1-xianting.tian@linux.alibaba.com>
+ <167002857934.4256.16584443879212253129.b4-ty@rivosinc.com>
+ <Y4/KoiFhdvRBDdzH@spud>
+ <CAJF2gTQX6361ME9UkOykvUEQifqioLMqovbfpqugkk174pKqfA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20220718170205.2972215-1-atishp@rivosinc.com> <20220718170205.2972215-9-atishp@rivosinc.com>
- <Y4oxNbQwOldICdnw@google.com>
-In-Reply-To: <Y4oxNbQwOldICdnw@google.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 7 Dec 2022 00:06:04 -0800
-Message-ID: <CAOnJCU+Eo7do0Rd+S4RBOMYpY+sG8ODqpkqA-Cii92bO-cG5+Q@mail.gmail.com>
-Subject: Re: [RFC 8/9] RISC-V: KVM: Implement perf support
-To: Sean Christopherson <seanjc@google.com>
-Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Guo Ren <guoren@kernel.org>, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Will Deacon <will@kernel.org>
+In-Reply-To: <CAJF2gTQX6361ME9UkOykvUEQifqioLMqovbfpqugkk174pKqfA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_000617_472497_B41F2F4B 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20221207_000837_928296_3B3D3C8C 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,48 +78,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1741557498727707891=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 2, 2022 at 9:09 AM Sean Christopherson <seanjc@google.com> wrote:
->
-> On Mon, Jul 18, 2022, Atish Patra wrote:
-> > RISC-V SBI PMU & Sscofpmf ISA extension allows supporting perf in
-> > the virtualization enviornment as well. KVM implementation
-> > relies on SBI PMU extension for most of the part while traps
-> > & emulates the CSRs read for counter access.
->
-> For the benefit of non-RISCV people, the changelog (and documentation?) should
-> explain why RISC-V doesn't need to tap into kvm_register_perf_callbacks().
 
-As per my understanding, kvm_register_perf_callbacks is only useful
-during event sampling for guests. Please let me know if I missed
-something.
-This series doesn't support sampling and guest counter overflow
-interrupt yet.  That's why kvm_register_perf_callbacks support is
-missing.
-I will add kvm_register_perf_callbacks in the next revision along with
-interrupt support.
+--===============1741557498727707891==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="kTp0eC94p1NhUqFh"
+Content-Disposition: inline
 
-> Presumably there's something in the "RISC-V SBI PMU & Sscofpmf ISA extension" spec
-> that allows hardware to differentiate between events that are for guest vs. host?
 
-Not directly. The Sscofpmf extension does have privilege mode specific
-filtering bits[1] i.e. VSINH and VUINH which will indicate if the
-events are specific to guest.
-But that is only true if the hypervisor has enabled those bits. As I
-said above, RISC-V do need to tap into kvm_register_perf_callbacks as
-well.
+--kTp0eC94p1NhUqFh
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[1] https://drive.google.com/file/d/171j4jFjIkKdj5LWcExphq4xG_2sihbfd/edit
+On Wed, Dec 07, 2022 at 11:34:57AM +0800, Guo Ren wrote:
+> On Wed, Dec 7, 2022 at 7:05 AM Conor Dooley <conor@kernel.org> wrote:
+> >
+> > Hey Palmer, Xianting,
+> >
+> > On Fri, Dec 02, 2022 at 04:49:39PM -0800, Palmer Dabbelt wrote:
+> > > On Wed, 26 Oct 2022 22:42:06 +0800, Xianting Tian wrote:
+> > > > As disscussed in below patch set, the patch of 'describe VMCOREINFO=
+ export in Documentation'
+> > > > need to update according to Bagas's comments.
+> > > > https://lore.kernel.org/linux-riscv/22AAF52E-8CC8-4D11-99CB-88DE4D1=
+13444@kernel.org/
+> > > >
+> > > > As others patches in above patch set already applied, so this patch=
+ set only contains below two
+> > > > patches.
+> > > >
+> > > > [...]
+> > >
+> > > Applied, thanks!
+> > >
+> > > [1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
+> > >       https://git.kernel.org/palmer/c/649d6b1019a2
+> >
+> > So this patch seems to be causing issues for the nommu build:
+> > https://lore.kernel.org/oe-kbuild-all/202212062250.tR0otHcz-lkp@intel.c=
+om/
+> >
+> > I had a bit of a poke at trying to see if there were some headers we
+> > could pull in before actually checking the .config only to see:
+> > # CONFIG_MMU is not set
+> >
+> > Do we have to wrap the whole thing in a `#ifdef CONFIG_MMU` to fix
+> > compilation here?
+> The problem does not belong to the patch.
+>=20
+> Could I send a fixup patch? like this?
 
--- 
-Regards,
-Atish
+That seems like a sane dependancy, but did you build that config?
+This doesn't fix the problem for me :/
+
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index ef8d66de5f38..d8c07999426c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -512,6 +512,7 @@ config ARCH_HAS_KEXEC_PURGATORY
+>=20
+>  config CRASH_DUMP
+>         bool "Build kdump crash kernel"
+> +       depends on KEXEC
+>         help
+>           Generate crash dump after being started by kexec. This should
+>           be normally only set in special crash dump kernels which are
+>=20
+> >
+> > Thanks,
+> > Conor.
+> >
+>=20
+>=20
+> --=20
+> Best Regards
+>  Guo Ren
+
+--kTp0eC94p1NhUqFh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY5BJ8gAKCRB4tDGHoIJi
+0ubRAPoCBXcQ4wIxwjTftwrdbA4d0c0vUsTpCiuxvofCAdWZkQD9FBTHcyzfFOqY
+ZAI3YncP+u9hP81Ipg8Mzi7iCHql9gk=
+=PuCV
+-----END PGP SIGNATURE-----
+
+--kTp0eC94p1NhUqFh--
+
+
+--===============1741557498727707891==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1741557498727707891==--
+
