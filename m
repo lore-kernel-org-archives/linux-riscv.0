@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A94D2C47089
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3EAC352A1
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 18:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YVPPljnCfgP7fn2M9F98f/nGhEx9PxE/alw2PxUE/WY=; b=GiOpGh4COWzAj3
-	2rNOuzYzTOqxGCSD3qEz3ZpXjjkJsxJ21dM9jVsDOlJ/kaKyuRH2e+FC8f/ynQ0e+BQNdaV/FyzKB
-	uv997vBPS//Ed3LEf8U4j7MGfu2hyGYs377uKnNlurS2hK11smnoEDS2rBnPEmxvKIrWuhNEIBCT9
-	8HAkjbdp+UaSm0MNfDLH6bC+rFp25MbY9bjTilL+CjTG1SB3BSIT8z41wDjr5ovvxpNKtGULd2fMo
-	9/I9jfyEKu6egB6U/LMfEehDTiVRoxa1agd3w2yweZ2N0VxvDC4H+XRA4YtcLknACIH0KekLt/2Z0
-	zBbq59lq7ai6mAR2vFuQ==;
+	List-Owner; bh=zZUdBEP1W76h6x2bjmNiUnIdc2JDV7WyrPtb+xy6ikU=; b=LI4BoO/gRKZV57
+	feL4b0x8XfF/FAw6qH6+U83gP7rT0vSvH/Z4yYBtuB8l2eIhgA8AqiweEExOXUmYpIHWgGwnLc1Gg
+	vB9ZSODZA11RlMd4GD10rXDaBC0VuES5ysAoCsyeSnOMSqAxCso+pcrh8g9ixydtj7UzuVuxk8hBc
+	/ZLL+Fp0EZHYMiQstYYfEA4X6BRG62RsE8ugKOE7ihm9VElIxJtxTUXXrng201t4BBxdwDLXTHUaj
+	Aglox4KWa/0FF0/D5Y2UCYzR+PKKzjopOsv5YjGG4BqUjwJXU/9VlrvhmZrk7nhNDMJBvD1DGzpTI
+	r+stVQgfgy1toPhZvmyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqP-0080Gc-RP; Wed, 07 Dec 2022 18:08:33 +0000
+	id 1p2yqR-0080Ho-5U; Wed, 07 Dec 2022 18:08:35 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqJ-007zy6-W1
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 18:08:29 +0000
+	id 1p2yqJ-007zxz-WD
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 18:08:31 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p2yqH-0004lz-5z; Wed, 07 Dec 2022 19:08:25 +0100
+	id 1p2yqF-0004lz-Us; Wed, 07 Dec 2022 19:08:24 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -41,19 +41,17 @@ Cc: christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	emil.renner.berthing@canonical.com,
 	jszhang@kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 04/12] RISC-V: add ebreak instructions to definitions
-Date: Wed,  7 Dec 2022 19:08:13 +0100
-Message-Id: <20221207180821.2479987-5-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@vrull.eu>
+Subject: [PATCH v4 01/12] RISC-V: fix funct4 definition for c.jalr in parse_asm.h
+Date: Wed,  7 Dec 2022 19:08:10 +0100
+Message-Id: <20221207180821.2479987-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221207180821.2479987-1-heiko@sntech.de>
 References: <20221207180821.2479987-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_100828_146700_E3091972 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221207_100828_169363_8159B909 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +70,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-kprobes need to match ebreak instructions, so add the necessary
-data to enable us to centralize that functionality.
+The opcode definition for c.jalr is
+    c.jalr c_rs1_n0  1..0=2 15..13=4 12=1 6..2=0
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+This means funct4 consisting of bit [15:12] is 1001b, so the value is 0x9.
+
+Fixes: edde5584c7ab ("riscv: Add SW single-step support for KDB")
+Reported-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/parse_asm.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/include/asm/parse_asm.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
-index e3f87da108f4..e8303250f598 100644
+index f36368de839f..7fee806805c1 100644
 --- a/arch/riscv/include/asm/parse_asm.h
 +++ b/arch/riscv/include/asm/parse_asm.h
-@@ -144,7 +144,9 @@
- #define RVC_FUNCT3_C_JAL	0x1
- #define RVC_FUNCT4_C_JR		0x8
- #define RVC_FUNCT4_C_JALR	0x9
-+#define RVC_FUNCT4_C_EBREAK	0x9
+@@ -125,7 +125,7 @@
+ #define FUNCT3_C_J		0xa000
+ #define FUNCT3_C_JAL		0x2000
+ #define FUNCT4_C_JR		0x8000
+-#define FUNCT4_C_JALR		0xf000
++#define FUNCT4_C_JALR		0x9000
  
-+#define RVG_FUNCT12_EBREAK	0x1
- #define RVG_FUNCT12_SRET	0x102
+ #define FUNCT12_SRET		0x10200000
  
- #define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
-@@ -155,6 +157,7 @@
- #define RVG_MATCH_BGE		(RV_ENCODE_FUNCT3(BGE) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BLTU		(RV_ENCODE_FUNCT3(BLTU) | RVG_OPCODE_BRANCH)
- #define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
-+#define RVG_MATCH_EBREAK	(RV_ENCODE_FUNCT12(EBREAK) | RVG_OPCODE_SYSTEM)
- #define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
- #define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
-@@ -162,6 +165,7 @@
- #define RVC_MATCH_C_JAL		(RVC_ENCODE_FUNCT3(C_JAL) | RVC_OPCODE_C1)
- #define RVC_MATCH_C_JR		(RVC_ENCODE_FUNCT4(C_JR) | RVC_OPCODE_C2)
- #define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
-+#define RVC_MATCH_C_EBREAK	(RVC_ENCODE_FUNCT4(C_EBREAK) | RVC_OPCODE_C2)
- 
- #define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
- #define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
-@@ -177,6 +181,8 @@
- #define RVG_MASK_BGEU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
- #define RVC_MASK_C_BEQZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
- #define RVC_MASK_C_BNEZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
-+#define RVC_MASK_C_EBREAK	0xffff
-+#define RVG_MASK_EBREAK		0xffffffff
- #define RVG_MASK_SRET		0xffffffff
- 
- #define __INSN_LENGTH_MASK	_UL(0x3)
 -- 
 2.35.1
 
