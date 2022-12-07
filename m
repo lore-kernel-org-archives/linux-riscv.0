@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416F6C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 16:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F02C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 16:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/dYcwkwGEMQMoe98B0D+D8pzZLQVqdvR4kZTrUScbU=; b=xr26PG5TYgFT97XALtU7Rm4TFg
-	+zzwjY8oeGWLq2+GVDQn8IKbAIjo3Az1HZRGEeGfmaBdESAj/Fl0gg/c/1KFtOtNm8qjZNfBX9t2U
-	8PNOD2E1gwXN7Ed7QAQMi6oRnOOnOoUIljZJrOGppksxkAd9iheJw4OCGSKgqd+ZceSl8pvv9611a
-	8oSFOvkvLjiNVuEZy4yQBf1M1J5/ICnA1sc4IXpmNNQMtSWz3u2ImvJV4HHf548XoIp1M34zj/yTG
-	V5I2TB2ZiTkD9wbbsshSUSLLon1raTbPlHQuUE5agRurrlAOsw2KagHCBNn+tr+XcQjWeWJP/2vsi
-	CPd4Ratg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s6vp8RoOFD+dVIV4WAbyyH2LyUAgzZ+7mEUllOZm3MM=; b=ZfsaYmn/J606rh
+	knHVOROVsSSxGPHv1Y4mPW/rVCsHl38ECmZcNgOdKE0EeUd2hVdAGhygtH2psbHJQYJjmDDh7glA/
+	P7XNaXTcVhW3D2GY0T5Cwiz5+5cIbKUEfheQofsNWZSHntkvfOPruKvMQCf1jDp2ks+6DhVi2QuHW
+	PazGrF7Iji+FxQVxBNNaFUJa+csyLOOQXv33griu7/R7UmbgtvJRjhljGUm/smby0k04DXJ6a/AeD
+	thbOU44xkWUf1oK4ZO3Y7mQTucfGonsluS97kGVr9/88AULsCRD/f+TnK2Ct15Efwhmwdi+eatsK9
+	j4D5YgkMeUylOrvDZs1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2xSv-006orz-QY; Wed, 07 Dec 2022 16:40:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p2xjK-007253-8g; Wed, 07 Dec 2022 16:57:10 +0000
+Received: from mail-oa1-f45.google.com ([209.85.160.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2xSt-006ooe-Pt
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 16:40:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 290FD617CB;
-	Wed,  7 Dec 2022 16:40:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68A02C433C1;
-	Wed,  7 Dec 2022 16:40:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670431210;
-	bh=g5fGGrWSIRqwNSexjwtqPOCti3BgIlEU85pKTBf8T0g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Oo5QBkISEd5C93re2xC0MAd5GbmcJS0EQqCFX92m+ZL2Nnj+W+l6Aa8NisLDN8s2+
-	 T/59VugOVhDKZk6+JfIq19yMgs9W72I7zpqEoVvLjqhwYaGveEsjBalrCI/i9FYgpi
-	 GRSSZt4wnoHmFdjJya2qZ2v6WPaiqIAOgtedaL1X6wHhznVa3upGa5A4T7yrYIH67B
-	 E4KovPtFNabXUFMrqkNctQza7wTDUZlfNqI0Y0kN7wBNdJAqcQgul/ISBt0ja9HSUx
-	 24oqNM/bS5VlKbyeAGSVDrOv390/2jSLOD5C3VBU1dHcR9zdD6AcLhueUri6w+Obo/
-	 RZQPBhowOylmw==
-Date: Wed, 7 Dec 2022 16:40:05 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bin Meng <bmeng@tinylab.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH v2 2/3] riscv: Implement semihost.h for earlycon semihost
- driver
-Message-ID: <Y5DB5c7O4oAMkTa/@spud>
-References: <20221207135352.592556-1-bmeng@tinylab.org>
- <20221207135352.592556-2-bmeng@tinylab.org>
+	id 1p2xjG-00721X-Hu
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 16:57:07 +0000
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-12c8312131fso22014179fac.4
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 08:57:03 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wjsoTXGri8JLvJW2T8GIZAWKirugVS34hV+s8paAZjM=;
+        b=QQNi/cJxn98/DH/Kd1WT7rSFpUb3DL/imkk21L6nWGD/g8eqYEs4rolSYQGfSE8Wrp
+         SXm44k4nOwTwmIN463+C2SkjhTkIW292Wkp5AAxbjGtgL56HfcsLgTngsIDwkioe18+j
+         u2F/wsE/vgccA8ybJFzBdKhLoYsl2HvDAzDaJ2AAxJV1MEaUxuzo0U+rkp52XTwjRGnb
+         jnE/0vCUS4miADDOX78JFkjjOC7+l1bF//7l2IJeg15LCL8+j/Ld1pyMRzi/ugxIqAw3
+         7wauyPtzoVr0guG7W/UunVyanWoLXr2RXGQzVGGFNtNQxzPwXe3+g3OO5SW5wvFno1fN
+         FR8w==
+X-Gm-Message-State: ANoB5pmXf6kZ8qbtT8tDRm4JqUzpbq9k6F62Cn6yulGc2sTXVJk1G/5X
+	8eg1S1Vm07ZgkkeAuQf9aw==
+X-Google-Smtp-Source: AA0mqf7VORNFgWUjiYSUyWALvb0Vfyh3rcM9Jxf+M/TQedidfiv9ZxymKnscFUHhOk0EfWqVdzqw4g==
+X-Received: by 2002:a05:6870:e99f:b0:142:d085:c1cc with SMTP id r31-20020a056870e99f00b00142d085c1ccmr44003737oao.29.1670432223084;
+        Wed, 07 Dec 2022 08:57:03 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id n25-20020a9d6f19000000b00660e833baddsm10495609otq.29.2022.12.07.08.57.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 Dec 2022 08:57:02 -0800 (PST)
+Received: (nullmailer pid 2401862 invoked by uid 1000);
+	Wed, 07 Dec 2022 16:57:02 -0000
+Date: Wed, 7 Dec 2022 10:57:02 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: vendor-prefixes: sort entries alphabetically
+Message-ID: <20221207165702.GA2396480-robh@kernel.org>
+References: <20221202110536.22230-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-In-Reply-To: <20221207135352.592556-2-bmeng@tinylab.org>
+Content-Disposition: inline
+In-Reply-To: <20221202110536.22230-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_084011_898741_4C6676AE 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20221207_085706_618029_1717C9AC 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +75,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4654530229974192025=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 02, 2022 at 12:05:36PM +0100, Krzysztof Kozlowski wrote:
+> Sort entries alphabetically.  This was a semi manual job with help of:
+> 
+>   cat Documentation/devicetree/bindings/vendor-prefixes.yaml | grep '":' > old
+>   cat old | sort > new
+>   diff -ubB old new
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> 
+> ---
+> 
+> Patch rebased on next-20221201 therefore might not apply cleanly to
+> Rob's tree. Probably should be taken after the 6.2-rc1.
 
---===============4654530229974192025==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="P16++YdENF2wGyvg"
-Content-Disposition: inline
+Indeed. I'll pick this up with the other treewide cleanups planned for 
+the merge window.
 
-
---P16++YdENF2wGyvg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-Two tiny nits for whenever other comments require a v3.
-
-On Wed, Dec 07, 2022 at 09:53:51PM +0800, Bin Meng wrote:
-> Per RISC-V semihosting spec [1], implement semihost.h for the existing
-> Arm semihosting earlycon driver to work on RISC-V.
->=20
-> [1] https://github.com/riscv/riscv-semihosting-spec/blob/main/riscv-semih=
-osting-spec.adoc
-
-Could you please use regular Link: tags? Also, for a multi-patch series
-please send a cover letter :)
-
-Thanks,
-Conor.
-
-
---P16++YdENF2wGyvg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY5DB5QAKCRB4tDGHoIJi
-0pZKAQCwhsweZT35rE6Qa9nOrzhd5VKjCEPMMwbXWCfug86MmAEAmCRVZoYRpUvE
-E1k+9d6yojCvx8N+tjKoPiR/Bzb88w4=
-=64rp
------END PGP SIGNATURE-----
-
---P16++YdENF2wGyvg--
-
-
---===============4654530229974192025==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4654530229974192025==--
-
