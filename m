@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7939C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 11:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADBBC4708E
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 13:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tGNs7xpbh3DuGHbVKB9TYovNvb0og4FrdeENCtdrYzk=; b=ZbvV4grMvg8WIBGk5JkPV5C2MO
-	6QKa6qjKc47dZ434ZbcH12o8tXfcjNEO12rRpHFw5Qxg19vEe0vBUg5pO3H/a1a8hTGiTSp4Tzvag
-	/cebHnnuLSH5fRlkEWjJTmEBfZp1UDg7qz56tL0rRcDL4OgK9YqfEqPpSwEo855tb7gCIKPW7hwWq
-	1Tpdebpo7USLQLJ/ZMvkfLcSDs1in3GYpF1RSU+b+xeCE3hgUiDO8WuEPQfdwgrGV+6JM8up0W7A9
-	lrBONDzYbSbEKjjFPt574rpoFvjn8S0d9tjKoT9F+g/k+l8c5ODjf0Z9FuDgiytBg7Rkv6YZeF0P3
-	d5qCjGrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zK2E3USZkmIadYuwvu00nbai/Tq+e8iZEdaXPiT7Hr4=; b=qWYbw4axjJW2zy
+	S1HlEo+Bb13eKBHfSVo7jrHpSFrSJxTSAGHMRFokcAS2NVnCV3P3e8mrs8sAla+4IO69zqJARJnhs
+	0IYyBDxP+0n7GxlC2/k3Nbiyq0r2zAJib4rDH2DWqN6Z0mdfqa3ZsU/8b2VfGkg0baL8zUiOIF7B2
+	ehf7fSAHws8oU6cPKvxGdtzyhMpAX7NswyR9qb11kiaSNylFvO27QClIFWPT9xyfdRVS0OISuIr+z
+	5Nf06ztcfLLNYO8PDuMFhRM16TpXOBaBjaxkYuq8EAu0fMHdUKPG1F+sMJYsj+jFpVuImm4Sg8eGE
+	3BAo4gzI9LVLQQhEaP6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2sg1-000uX7-HW; Wed, 07 Dec 2022 11:33:25 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p2uGj-003Dnp-Dd; Wed, 07 Dec 2022 13:15:25 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2sfy-000uN6-6I
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 11:33:23 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1p2uGe-003DWz-JZ
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 13:15:23 +0000
+Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com [209.85.128.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id DA870B81D6D;
-	Wed,  7 Dec 2022 11:33:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 258F9C433D7;
-	Wed,  7 Dec 2022 11:33:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670412799;
-	bh=3iUZUuHkcIvwtOgND+IUFfeLoZ05Y/NDVmrMzsGnk6k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ceUfHsLwXidT2LV0zG8VgVjdgYF4UGdMFkvTuXrhlY0aeDko6+bV9FLQBG8LWBLy7
-	 cmg2RaLjmQ/rvewb1fYfc4F7hRB5ToX7sXDEWyKnn2eYkOur76Pp0rgzAPQK2Txa1h
-	 aXKDsv+IGMQV/A2xrTcSbl/i6tmss4V9t6Zruzww/xfcXpNHlEpZ96jZbgdtFi0IPm
-	 oAfZqyTIwGcQ0DovBu3IHwpp0ZQ09nOv+/9iLL+XN6KX8K8o8VMeyCZ54b4ElXDa9Y
-	 E/W6HpQ/Bj1jxdDIbPOC5KRwwXqsJMeljL8jmgHI9DhNquqvbdMAeSXG0pPxI5KyLD
-	 GbpYPCdOWr4Rw==
-Date: Wed, 7 Dec 2022 11:33:14 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: timer: sifive,clint: add comaptibles
- for T-Head's C9xx
-Message-ID: <Y5B5+vUjYxepn53g@spud>
-References: <20221121041757.418645-1-uwu@icenowy.me>
- <20221121041757.418645-2-uwu@icenowy.me>
- <34fe4161718e395f5e9890f9358a25f697af9e24.camel@icenowy.me>
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id CD23D4195D
+	for <linux-riscv@lists.infradead.org>; Wed,  7 Dec 2022 13:15:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1670418911;
+	bh=DmuuK3sor/04zv/036FZHSxekt6dCz2Eb+h+gCZ54ek=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=Ia/YJmy8apfMPNWAup7lYWrRrOPJoJZOHwIMLaSskfagVOr6YdNp2pUsdSr7WSmQy
+	 uHJY0rS6nWRgSPRkc5VCp/f+QZqGhFL/sP2q6LLaPlOVf3ZqLd6Yf5guAU4qJVuNJy
+	 hkpjy7n0MyHj/LtN1d+qOBDuJVK2AWMFgbW8hDWxl/fXwOLh0ibHsWUb+qUOE7K0Bq
+	 9aZdiuvZZDukIYlwlR5BSbVv28cSclvmWbm/+ystaICfX6+q1/AdtDN296+25vlaO6
+	 RUni8C1azr2a78MjfUfV9G2xgQ2VNoZSM/zk3lbgG7qBhP+BDkZgw7Hzaykjl27v4s
+	 Zpw4BkS83d0kg==
+Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-3fe3bedbb16so13951457b3.15
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 05:15:11 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DmuuK3sor/04zv/036FZHSxekt6dCz2Eb+h+gCZ54ek=;
+        b=iXmsfwp1I3pF3sX2gaTiKRSrLWcIoGcFqSRfuoxYTQhp7sGE9s/GSqP4W3nGHD1cd6
+         V4dbhxiz9PTLiWqASFAFryxUY/eBJZirDWLOdfrJRnYKFkYy+Ts8rTRVkI0ReZEBO+Rn
+         LFs2hQENnMS4xLwrAYNIrC97NPcnitr/8bfFUBBQVdXHyGUZqCepMN5gfkIZTHCtBVkm
+         Ta/qryJlXwlQMrgmxM5P4TsF4KbJZV/THJL5waCh2q3YXFvZMwxA+iG/2trhfUEKoBNM
+         R/1DLwPqx8BgeOrxXMHzZk8LeQp7F1B/5JT6nm7GiKS0f6q5s6NuscxaG/wkHmLPLfp+
+         4Uzw==
+X-Gm-Message-State: ANoB5pkWSbTsHfLljaR4OsPdxKm3QHql19DlId69P7qyRrP8PVAqlUHB
+	3OBKOyx6KIwl8Oy42MBfTnTJOnA+23xR9zOJAx9AnDOkIbKB40M+peJl4TpfABCka8lR/+oPoKZ
+	E2nV6ARL8ijCuoQoJBXwBAuqSdZY0N4EzCxdgsXArPo3RclTcbPJoTlqM4TRrXQ==
+X-Received: by 2002:a25:d24b:0:b0:6f1:e822:14e8 with SMTP id j72-20020a25d24b000000b006f1e82214e8mr55407394ybg.467.1670418910776;
+        Wed, 07 Dec 2022 05:15:10 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf40BznsnaH8tL0lAbj3/H3G88+mVHAnBhAF4jWp9c0wUnyEfjN6LLYs3cLERRvvJKwkhWDxYkzkcUZasK/7lK8=
+X-Received: by 2002:a25:d24b:0:b0:6f1:e822:14e8 with SMTP id
+ j72-20020a25d24b000000b006f1e82214e8mr55407372ybg.467.1670418910456; Wed, 07
+ Dec 2022 05:15:10 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <34fe4161718e395f5e9890f9358a25f697af9e24.camel@icenowy.me>
+References: <20221118011108.70715-1-hal.feng@starfivetech.com> <20221118011108.70715-2-hal.feng@starfivetech.com>
+In-Reply-To: <20221118011108.70715-2-hal.feng@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 7 Dec 2022 14:14:53 +0100
+Message-ID: <CAJM55Z_8PL3m_AntWLDYj9s0-xwH0h2kqNm0vBBfAkPvj06wJA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: pinctrl: Add StarFive JH7110 pinctrl definitions
+To: Hal Feng <hal.feng@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_033322_571895_2C8B9950 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20221207_051520_963525_10AA0328 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,120 +93,470 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2533688763945180291=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 18 Nov 2022 at 02:11, Hal Feng <hal.feng@starfivetech.com> wrote:
+>
+> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+>
+> Add pinctrl definitions for StarFive JH7110 SoC.
+>
+> Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
+> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  .../pinctrl/pinctrl-starfive-jh7110.h         | 427 ++++++++++++++++++
+>  1 file changed, 427 insertions(+)
+>  create mode 100644 include/dt-bindings/pinctrl/pinctrl-starfive-jh7110.h
+>
+> diff --git a/include/dt-bindings/pinctrl/pinctrl-starfive-jh7110.h b/include/dt-bindings/pinctrl/pinctrl-starfive-jh7110.h
+> new file mode 100644
+> index 000000000000..fb02345caa27
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/pinctrl-starfive-jh7110.h
+> @@ -0,0 +1,427 @@
+> +/* SPDX-License-Identifier: GPL-2.0 OR MIT */
+> +/*
+> + * Copyright (C) 2022 Emil Renner Berthing <kernel@esmil.dk>
+> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_PINCTRL_STARFIVE_JH7110_H__
+> +#define __DT_BINDINGS_PINCTRL_STARFIVE_JH7110_H__
+> +
+> +/*
+> + * mux bits:
+> + *  | 31 - 24 | 23 - 16 | 15 - 10 |  9 - 8   |  7 - 0  |
+> + *  |  din    |  dout   |  doen   | function | gpio nr |
+> + *
+> + * dout:     output signal
+> + * doen:     output enable signal
+> + * din:      optional input signal, 0xff = none
+> + * function:
+> + * gpio nr:  gpio number, 0 - 63
+> + */
+> +#define GPIOMUX(n, dout, doen, din) ( \
+> +               (((din)  & 0xff) << 24) | \
+> +               (((dout) & 0xff) << 16) | \
+> +               (((doen) & 0x3f) << 10) | \
+> +               ((n) & 0x3f))
+> +
+> +#define PINMUX(n, func) ((1 << 10) | (((func) & 0x3) << 8) | ((n) & 0xff))
+> +
+> +/* sys_iomux pin */
+> +#define        PAD_GPIO0        0
+> +#define        PAD_GPIO1        1
+> +#define        PAD_GPIO2        2
+> +#define        PAD_GPIO3        3
+> +#define        PAD_GPIO4        4
+> +#define        PAD_GPIO5        5
+> +#define        PAD_GPIO6        6
+> +#define        PAD_GPIO7        7
+> +#define        PAD_GPIO8        8
+> +#define        PAD_GPIO9        9
+> +#define        PAD_GPIO10      10
+> +#define        PAD_GPIO11      11
+> +#define        PAD_GPIO12      12
+> +#define        PAD_GPIO13      13
+> +#define        PAD_GPIO14      14
+> +#define        PAD_GPIO15      15
+> +#define        PAD_GPIO16      16
+> +#define        PAD_GPIO17      17
+> +#define        PAD_GPIO18      18
+> +#define        PAD_GPIO19      19
+> +#define        PAD_GPIO20      20
+> +#define        PAD_GPIO21      21
+> +#define        PAD_GPIO22      22
+> +#define        PAD_GPIO23      23
+> +#define        PAD_GPIO24      24
+> +#define        PAD_GPIO25      25
+> +#define        PAD_GPIO26      26
+> +#define        PAD_GPIO27      27
+> +#define        PAD_GPIO28      28
+> +#define        PAD_GPIO29      29
+> +#define        PAD_GPIO30      30
+> +#define        PAD_GPIO31      31
+> +#define        PAD_GPIO32      32
+> +#define        PAD_GPIO33      33
+> +#define        PAD_GPIO34      34
+> +#define        PAD_GPIO35      35
+> +#define        PAD_GPIO36      36
+> +#define        PAD_GPIO37      37
+> +#define        PAD_GPIO38      38
+> +#define        PAD_GPIO39      39
+> +#define        PAD_GPIO40      40
+> +#define        PAD_GPIO41      41
+> +#define        PAD_GPIO42      42
+> +#define        PAD_GPIO43      43
+> +#define        PAD_GPIO44      44
+> +#define        PAD_GPIO45      45
+> +#define        PAD_GPIO46      46
+> +#define        PAD_GPIO47      47
+> +#define        PAD_GPIO48      48
+> +#define        PAD_GPIO49      49
+> +#define        PAD_GPIO50      50
+> +#define        PAD_GPIO51      51
+> +#define        PAD_GPIO52      52
+> +#define        PAD_GPIO53      53
+> +#define        PAD_GPIO54      54
+> +#define        PAD_GPIO55      55
+> +#define        PAD_GPIO56      56
+> +#define        PAD_GPIO57      57
+> +#define        PAD_GPIO58      58
+> +#define        PAD_GPIO59      59
+> +#define        PAD_GPIO60      60
+> +#define        PAD_GPIO61      61
+> +#define        PAD_GPIO62      62
+> +#define        PAD_GPIO63      63
+> +#define        PAD_SD0_CLK     64
+> +#define        PAD_SD0_CMD     65
+> +#define        PAD_SD0_DATA0   66
+> +#define        PAD_SD0_DATA1   67
+> +#define        PAD_SD0_DATA2   68
+> +#define        PAD_SD0_DATA3   69
+> +#define        PAD_SD0_DATA4   70
+> +#define        PAD_SD0_DATA5   71
+> +#define        PAD_SD0_DATA6   72
+> +#define        PAD_SD0_DATA7   73
+> +#define        PAD_SD0_STRB    74
+> +#define        PAD_GMAC1_MDC   75
+> +#define        PAD_GMAC1_MDIO  76
+> +#define        PAD_GMAC1_RXD0  77
+> +#define        PAD_GMAC1_RXD1  78
+> +#define        PAD_GMAC1_RXD2  79
+> +#define        PAD_GMAC1_RXD3  80
+> +#define        PAD_GMAC1_RXDV  81
+> +#define        PAD_GMAC1_RXC   82
+> +#define        PAD_GMAC1_TXD0  83
+> +#define        PAD_GMAC1_TXD1  84
+> +#define        PAD_GMAC1_TXD2  85
+> +#define        PAD_GMAC1_TXD3  86
+> +#define        PAD_GMAC1_TXEN  87
+> +#define        PAD_GMAC1_TXC   88
+> +#define        PAD_QSPI_SCLK   89
+> +#define        PAD_QSPI_CS0    90
+> +#define        PAD_QSPI_DATA0  91
+> +#define        PAD_QSPI_DATA1  92
+> +#define        PAD_QSPI_DATA2  93
+> +#define        PAD_QSPI_DATA3  94
+> +
+> +/* aon_iomux pin */
+> +#define        PAD_TESTEN      0
+> +#define        PAD_RGPIO0      1
+> +#define        PAD_RGPIO1      2
+> +#define        PAD_RGPIO2      3
+> +#define        PAD_RGPIO3      4
+> +#define        PAD_RSTN        5
+> +#define        PAD_GMAC0_MDC   6
+> +#define        PAD_GMAC0_MDIO  7
+> +#define        PAD_GMAC0_RXD0  8
+> +#define        PAD_GMAC0_RXD1  9
+> +#define        PAD_GMAC0_RXD2  10
+> +#define        PAD_GMAC0_RXD3  11
+> +#define        PAD_GMAC0_RXDV  12
+> +#define        PAD_GMAC0_RXC   13
+> +#define        PAD_GMAC0_TXD0  14
+> +#define        PAD_GMAC0_TXD1  15
+> +#define        PAD_GMAC0_TXD2  16
+> +#define        PAD_GMAC0_TXD3  17
+> +#define        PAD_GMAC0_TXEN  18
+> +#define        PAD_GMAC0_TXC   19
+> +
+> +/* sys_iomux dout */
+> +#define GPOUT_LOW                                0
+> +#define GPOUT_HIGH                               1
+> +#define GPOUT_SYS_WAVE511_UART_TX                2
+> +#define GPOUT_SYS_CAN0_STBY                      3
+> +#define GPOUT_SYS_CAN0_TST_NEXT_BIT              4
+> +#define GPOUT_SYS_CAN0_TST_SAMPLE_POINT                  5
+> +#define GPOUT_SYS_CAN0_TXD                       6
+> +#define GPOUT_SYS_USB_DRIVE_VBUS                 7
+> +#define GPOUT_SYS_QSPI_CS1                       8
+> +#define GPOUT_SYS_SPDIF                                  9
+> +#define GPOUT_SYS_HDMI_CEC_SDA                  10
+> +#define GPOUT_SYS_HDMI_DDC_SCL                  11
+> +#define GPOUT_SYS_HDMI_DDC_SDA                  12
+> +#define GPOUT_SYS_WATCHDOG                      13
+> +#define GPOUT_SYS_I2C0_CLK                      14
+> +#define GPOUT_SYS_I2C0_DATA                     15
+> +#define GPOUT_SYS_SDIO0_BACK_END_POWER          16
+> +#define GPOUT_SYS_SDIO0_CARD_POWER_EN           17
+> +#define GPOUT_SYS_SDIO0_CCMD_OD_PULLUP_EN       18
+> +#define GPOUT_SYS_SDIO0_RST                     19
+> +#define GPOUT_SYS_UART0_TX                      20
+> +#define GPOUT_SYS_HIFI4_JTAG_TDO                21
+> +#define GPOUT_SYS_JTAG_TDO                      22
+> +#define GPOUT_SYS_PDM_MCLK                      23
+> +#define GPOUT_SYS_PWM_CHANNEL0                  24
+> +#define GPOUT_SYS_PWM_CHANNEL1                  25
+> +#define GPOUT_SYS_PWM_CHANNEL2                  26
+> +#define GPOUT_SYS_PWM_CHANNEL3                  27
+> +#define GPOUT_SYS_PWMDAC_LEFT                   28
+> +#define GPOUT_SYS_PWMDAC_RIGHT                  29
+> +#define GPOUT_SYS_SPI0_CLK                      30
+> +#define GPOUT_SYS_SPI0_FSS                      31
+> +#define GPOUT_SYS_SPI0_TXD                      32
+> +#define GPOUT_SYS_GMAC_PHYCLK                   33
+> +#define GPOUT_SYS_I2SRX_BCLK                    34
+> +#define GPOUT_SYS_I2SRX_LRCK                    35
+> +#define GPOUT_SYS_I2STX0_BCLK                   36
+> +#define GPOUT_SYS_I2STX0_LRCK                   37
+> +#define GPOUT_SYS_MCLK                          38
+> +#define GPOUT_SYS_TDM_CLK                       39
+> +#define GPOUT_SYS_TDM_SYNC                      40
+> +#define GPOUT_SYS_TDM_TXD                       41
+> +#define GPOUT_SYS_TRACE_DATA0                   42
+> +#define GPOUT_SYS_TRACE_DATA1                   43
+> +#define GPOUT_SYS_TRACE_DATA2                   44
+> +#define GPOUT_SYS_TRACE_DATA3                   45
+> +#define GPOUT_SYS_TRACE_REF                     46
+> +#define GPOUT_SYS_CAN1_STBY                     47
+> +#define GPOUT_SYS_CAN1_TST_NEXT_BIT             48
+> +#define GPOUT_SYS_CAN1_TST_SAMPLE_POINT                 49
+> +#define GPOUT_SYS_CAN1_TXD                      50
+> +#define GPOUT_SYS_I2C1_CLK                      51
+> +#define GPOUT_SYS_I2C1_DATA                     52
+> +#define GPOUT_SYS_SDIO1_BACK_END_POWER          53
+> +#define GPOUT_SYS_SDIO1_CARD_POWER_EN           54
+> +#define GPOUT_SYS_SDIO1_CLK                     55
+> +#define GPOUT_SYS_SDIO1_CMD_OD_PULLUP_EN        56
+> +#define GPOUT_SYS_SDIO1_CMD                     57
+> +#define GPOUT_SYS_SDIO1_DATA0                   58
+> +#define GPOUT_SYS_SDIO1_DATA1                   59
+> +#define GPOUT_SYS_SDIO1_DATA2                   60
+> +#define GPOUT_SYS_SDIO1_DATA3                   61
+> +#define GPOUT_SYS_SDIO1_DATA4                   63
+> +#define GPOUT_SYS_SDIO1_DATA5                   63
+> +#define GPOUT_SYS_SDIO1_DATA6                   64
+> +#define GPOUT_SYS_SDIO1_DATA7                   65
+> +#define GPOUT_SYS_SDIO1_RST                     66
+> +#define GPOUT_SYS_UART1_RTS                     67
+> +#define GPOUT_SYS_UART1_TX                      68
+> +#define GPOUT_SYS_I2STX1_SDO0                   69
+> +#define GPOUT_SYS_I2STX1_SDO1                   70
+> +#define GPOUT_SYS_I2STX1_SDO2                   71
+> +#define GPOUT_SYS_I2STX1_SDO3                   72
+> +#define GPOUT_SYS_SPI1_CLK                      73
+> +#define GPOUT_SYS_SPI1_FSS                      74
+> +#define GPOUT_SYS_SPI1_TXD                      75
+> +#define GPOUT_SYS_I2C2_CLK                      76
+> +#define GPOUT_SYS_I2C2_DATA                     77
+> +#define GPOUT_SYS_UART2_RTS                     78
+> +#define GPOUT_SYS_UART2_TX                      79
+> +#define GPOUT_SYS_SPI2_CLK                      80
+> +#define GPOUT_SYS_SPI2_FSS                      81
+> +#define GPOUT_SYS_SPI2_TXD                      82
+> +#define GPOUT_SYS_I2C3_CLK                      83
+> +#define GPOUT_SYS_I2C3_DATA                     84
+> +#define GPOUT_SYS_UART3_TX                      85
+> +#define GPOUT_SYS_SPI3_CLK                      86
+> +#define GPOUT_SYS_SPI3_FSS                      87
+> +#define GPOUT_SYS_SPI3_TXD                      88
+> +#define GPOUT_SYS_I2C4_CLK                      89
+> +#define GPOUT_SYS_I2C4_DATA                     90
+> +#define GPOUT_SYS_UART4_RTS                     91
+> +#define GPOUT_SYS_UART4_TX                      92
+> +#define GPOUT_SYS_SPI4_CLK                      93
+> +#define GPOUT_SYS_SPI4_FSS                      94
+> +#define GPOUT_SYS_SPI4_TXD                      95
+> +#define GPOUT_SYS_I2C5_CLK                      96
+> +#define GPOUT_SYS_I2C5_DATA                     97
+> +#define GPOUT_SYS_UART5_RTS                     98
+> +#define GPOUT_SYS_UART5_TX                      99
+> +#define GPOUT_SYS_SPI5_CLK                     100
+> +#define GPOUT_SYS_SPI5_FSS                     101
+> +#define GPOUT_SYS_SPI5_TXD                     102
+> +#define GPOUT_SYS_I2C6_CLK                     103
+> +#define GPOUT_SYS_I2C6_DATA                    104
+> +#define GPOUT_SYS_SPI6_CLK                     105
+> +#define GPOUT_SYS_SPI6_FSS                     106
+> +#define GPOUT_SYS_SPI6_TXD                     107
+> +
+> +/* aon_iomux dout */
+> +#define GPOUT_AON_CLK_32K_OUT                  2
+> +#define GPOUT_AON_PTC0_PWM4                    3
+> +#define GPOUT_AON_PTC0_PWM5                    4
+> +#define GPOUT_AON_PTC0_PWM6                    5
+> +#define GPOUT_AON_PTC0_PWM7                    6
+> +#define GPOUT_AON_CLK_GCLK0                    7
+> +#define GPOUT_AON_CLK_GCLK1                    8
+> +#define GPOUT_AON_CLK_GCLK2                    9
+> +
+> +/* sys_iomux doen */
+> +#define GPOEN_ENABLE                            0
+> +#define GPOEN_DISABLE                           1
+> +#define GPOEN_SYS_HDMI_CEC_SDA                  2
+> +#define GPOEN_SYS_HDMI_DDC_SCL                  3
+> +#define GPOEN_SYS_HDMI_DDC_SDA                  4
+> +#define GPOEN_SYS_I2C0_CLK                      5
+> +#define GPOEN_SYS_I2C0_DATA                     6
+> +#define GPOEN_SYS_HIFI4_JTAG_TDO                7
+> +#define GPOEN_SYS_JTAG_TDO                      8
+> +#define GPOEN_SYS_PWM0_CHANNEL0                         9
+> +#define GPOEN_SYS_PWM0_CHANNEL1                        10
+> +#define GPOEN_SYS_PWM0_CHANNEL2                        11
+> +#define GPOEN_SYS_PWM0_CHANNEL3                        12
+> +#define GPOEN_SYS_SPI0_NSSPCTL                 13
+> +#define GPOEN_SYS_SPI0_NSSP                    14
+> +#define GPOEN_SYS_TDM_SYNC                     15
+> +#define GPOEN_SYS_TDM_TXD                      16
+> +#define GPOEN_SYS_I2C1_CLK                     17
+> +#define GPOEN_SYS_I2C1_DATA                    18
+> +#define GPOEN_SYS_SDIO1_CMD                    19
+> +#define GPOEN_SYS_SDIO1_DATA0                  20
+> +#define GPOEN_SYS_SDIO1_DATA1                  21
+> +#define GPOEN_SYS_SDIO1_DATA2                  22
+> +#define GPOEN_SYS_SDIO1_DATA3                  23
+> +#define GPOEN_SYS_SDIO1_DATA4                  24
+> +#define GPOEN_SYS_SDIO1_DATA5                  25
+> +#define GPOEN_SYS_SDIO1_DATA6                  26
+> +#define GPOEN_SYS_SDIO1_DATA7                  27
+> +#define GPOEN_SYS_SPI1_NSSPCTL                 28
+> +#define GPOEN_SYS_SPI1_NSSP                    29
+> +#define GPOEN_SYS_I2C2_CLK                     30
+> +#define GPOEN_SYS_I2C2_DATA                    31
+> +#define GPOEN_SYS_SPI2_NSSPCTL                 32
+> +#define GPOEN_SYS_SPI2_NSSP                    33
+> +#define GPOEN_SYS_I2C3_CLK                     34
+> +#define GPOEN_SYS_I2C3_DATA                    35
+> +#define GPOEN_SYS_SPI3_NSSPCTL                 36
+> +#define GPOEN_SYS_SPI3_NSSP                    37
+> +#define GPOEN_SYS_I2C4_CLK                     38
+> +#define GPOEN_SYS_I2C4_DATA                    39
+> +#define GPOEN_SYS_SPI4_NSSPCTL                 40
+> +#define GPOEN_SYS_SPI4_NSSP                    41
+> +#define GPOEN_SYS_I2C5_CLK                     42
+> +#define GPOEN_SYS_I2C5_DATA                    43
+> +#define GPOEN_SYS_SPI5_NSSPCTL                 44
+> +#define GPOEN_SYS_SPI5_NSSP                    45
+> +#define GPOEN_SYS_I2C6_CLK                     46
+> +#define GPOEN_SYS_I2C6_DATA                    47
+> +#define GPOEN_SYS_SPI6_NSSPCTL                 48
+> +#define GPOEN_SYS_SPI6_NSSP                    49
+> +
+> +/* aon_iomux doen */
+> +#define GPOEN_AON_PTC0_OE_N_4                  2
+> +#define GPOEN_AON_PTC0_OE_N_5                  3
+> +#define GPOEN_AON_PTC0_OE_N_6                  4
+> +#define GPOEN_AON_PTC0_OE_N_7                  5
+> +
+> +/* sys_iomux gin */
+> +#define GPI_NONE                               255
+> +
+> +#define GPI_SYS_WAVE511_UART_RX                         0
+> +#define GPI_SYS_CAN0_RXD                        1
+> +#define GPI_SYS_USB_OVERCURRENT                         2
+> +#define GPI_SYS_SPDIF                           3
+> +#define GPI_SYS_JTAG_RST                        4
+> +#define GPI_SYS_HDMI_CEC_SDA                    5
+> +#define GPI_SYS_HDMI_DDC_SCL                    6
+> +#define GPI_SYS_HDMI_DDC_SDA                    7
+> +#define GPI_SYS_HDMI_HPD                        8
+> +#define GPI_SYS_I2C0_CLK                        9
+> +#define GPI_SYS_I2C0_DATA                      10
+> +#define GPI_SYS_SDIO0_CD                       11
+> +#define GPI_SYS_SDIO0_INT                      12
+> +#define GPI_SYS_SDIO0_WP                       13
+> +#define GPI_SYS_UART0_RX                       14
+> +#define GPI_SYS_HIFI4_JTAG_TCK                 15
+> +#define GPI_SYS_HIFI4_JTAG_TDI                 16
+> +#define GPI_SYS_HIFI4_JTAG_TMS                 17
+> +#define GPI_SYS_HIFI4_JTAG_RST                 18
+> +#define GPI_SYS_JTAG_TDI                       19
+> +#define GPI_SYS_JTAG_TMS                       20
+> +#define GPI_SYS_PDM_DMIC0                      21
+> +#define GPI_SYS_PDM_DMIC1                      22
+> +#define GPI_SYS_I2SRX_SDIN0                    23
+> +#define GPI_SYS_I2SRX_SDIN1                    24
+> +#define GPI_SYS_I2SRX_SDIN2                    25
+> +#define GPI_SYS_SPI0_CLK                       26
+> +#define GPI_SYS_SPI0_FSS                       27
+> +#define GPI_SYS_SPI0_RXD                       28
+> +#define GPI_SYS_JTAG_TCK                       29
+> +#define GPI_SYS_MCLK_EXT                       30
+> +#define GPI_SYS_I2SRX_BCLK                     31
+> +#define GPI_SYS_I2SRX_LRCK                     32
+> +#define GPI_SYS_I2STX0_BCLK                    33
+> +#define GPI_SYS_I2STX0_LRCK                    34
+> +#define GPI_SYS_TDM_CLK                                35
+> +#define GPI_SYS_TDM_RXD                                36
+> +#define GPI_SYS_TDM_SYNC                       37
+> +#define GPI_SYS_CAN1_RXD                       38
+> +#define GPI_SYS_I2C1_CLK                       39
+> +#define GPI_SYS_I2C1_DATA                      40
+> +#define GPI_SYS_SDIO1_CD                       41
+> +#define GPI_SYS_SDIO1_INT                      42
+> +#define GPI_SYS_SDIO1_WP                       43
+> +#define GPI_SYS_SDIO1_CMD                      44
+> +#define GPI_SYS_SDIO1_DATA0                    45
+> +#define GPI_SYS_SDIO1_DATA1                    46
+> +#define GPI_SYS_SDIO1_DATA2                    47
+> +#define GPI_SYS_SDIO1_DATA3                    48
+> +#define GPI_SYS_SDIO1_DATA4                    49
+> +#define GPI_SYS_SDIO1_DATA5                    50
+> +#define GPI_SYS_SDIO1_DATA6                    51
+> +#define GPI_SYS_SDIO1_DATA7                    52
+> +#define GPI_SYS_SDIO1_STRB                     53
+> +#define GPI_SYS_UART1_CTS                      54
+> +#define GPI_SYS_UART1_RX                       55
+> +#define GPI_SYS_SPI1_CLK                       56
+> +#define GPI_SYS_SPI1_FSS                       57
+> +#define GPI_SYS_SPI1_RXD                       58
+> +#define GPI_SYS_I2C2_CLK                       59
+> +#define GPI_SYS_I2C2_DATA                      60
+> +#define GPI_SYS_UART2_CTS                      61
+> +#define GPI_SYS_UART2_RX                       62
+> +#define GPI_SYS_SPI2_CLK                       63
+> +#define GPI_SYS_SPI2_FSS                       64
+> +#define GPI_SYS_SPI2_RXD                       65
+> +#define GPI_SYS_I2C3_CLK                       66
+> +#define GPI_SYS_I2C3_DATA                      67
+> +#define GPI_SYS_UART3_RX                       68
+> +#define GPI_SYS_SPI3_CLK                       69
+> +#define GPI_SYS_SPI3_FSS                       70
+> +#define GPI_SYS_SPI3_RXD                       71
+> +#define GPI_SYS_I2C4_CLK                       72
+> +#define GPI_SYS_I2C4_DATA                      73
+> +#define GPI_SYS_UART4_CTS                      74
+> +#define GPI_SYS_UART4_RX                       75
+> +#define GPI_SYS_SPI4_CLK                       76
+> +#define GPI_SYS_SPI4_FSS                       77
+> +#define GPI_SYS_SPI4_RXD                       78
+> +#define GPI_SYS_I2C5_CLK                       79
+> +#define GPI_SYS_I2C5_DATA                      80
+> +#define GPI_SYS_UART5_CTS                      81
+> +#define GPI_SYS_UART5_RX                       82
+> +#define GPI_SYS_SPI5_CLK                       83
+> +#define GPI_SYS_SPI5_FSS                       84
+> +#define GPI_SYS_SPI5_RXD                       85
+> +#define GPI_SYS_I2C6_CLK                       86
+> +#define GPI_SYS_I2C6_DATA                      87
+> +#define GPI_SYS_SPI6_CLK                       88
+> +#define GPI_SYS_SPI6_FSS                       89
+> +#define GPI_SYS_SPI6_RXD                       90
 
---===============2533688763945180291==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JWqOn8OBCdKsE8RV"
-Content-Disposition: inline
+You seem to have removed the comments documenting what these lines are
+called in the documentation. Please don't do that. The names in the
+documentation are overly long for macro names, but these comments are
+really helpful to map the macro names back to the name used in the
+docs.
 
-
---JWqOn8OBCdKsE8RV
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Dec 07, 2022 at 06:47:26PM +0800, Icenowy Zheng wrote:
-> =E5=9C=A8 2022-11-21=E6=98=9F=E6=9C=9F=E4=B8=80=E7=9A=84 12:17 +0800=EF=
-=BC=8CIcenowy Zheng=E5=86=99=E9=81=93=EF=BC=9A
-> > T-Head C906/C910 CLINT is not compliant to SiFive ones (and even not
-> > compliant to the newcoming ACLINT spec) because of lack of mtime
-> > register.
-> >=20
-> > Add a compatible string formatted like the C9xx-specific PLIC
-> > compatible, and do not allow a SiFive one as fallback because they're
-> > not really compliant.
-> >=20
-> > Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
->=20
-> Hi, could this patch be picked ASAP? Becuase it will be used then in
-> further OpenSBI patches to enable proper operation of T-Head timer.
->=20
-> I know the following 2 patches are in doubt and further rework for them
-> are needed.
-
-Since it's me that's asking the questions about the other patches, but
-have no comments about this particular one:
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-HTH Icenowy!
-
-> > ---
-> > =C2=A0Documentation/devicetree/bindings/timer/sifive,clint.yaml | 8
-> > ++++++++
-> > =C2=A01 file changed, 8 insertions(+)
-> >=20
-> > diff --git
-> > a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > index bbad24165837..aada6957216c 100644
-> > --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > @@ -20,6 +20,10 @@ description:
-> > =C2=A0=C2=A0 property of "/cpus" DT node. The "timebase-frequency" DT p=
-roperty
-> > is
-> > =C2=A0=C2=A0 described in Documentation/devicetree/bindings/riscv/cpus.=
-yaml
-> > =C2=A0
-> > +=C2=A0 T-Head C906/C910 CPU cores include an implementation of CLINT t=
-oo,
-> > however
-> > +=C2=A0 their implementation lacks a memory-mapped MTIME register, thus
-> > not
-> > +=C2=A0 compatible with SiFive ones.
-> > +
-> > =C2=A0properties:
-> > =C2=A0=C2=A0 compatible:
-> > =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
-> > @@ -29,6 +33,10 @@ properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 - starfive,jh7100-clint
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 - canaan,k210-clint
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: s=
-ifive,clint0
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 - allwinner,sun20i-d1-clint
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: thead,=
-c900-clint
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: s=
-ifive,clint0
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: r=
-iscv,clint0
->=20
->=20
-
---JWqOn8OBCdKsE8RV
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCY5B59wAKCRB4tDGHoIJi
-0l5EAP0d8+bmSdQwOL1zh+4ekUZkbwUid4O2E8SRuJ//7ZbjjAD/cbWLeF0c/mVr
-WKzBDTFx9jlc7gXrewlZxdymFvnXZwQ=
-=5Qqt
------END PGP SIGNATURE-----
-
---JWqOn8OBCdKsE8RV--
-
-
---===============2533688763945180291==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> +/* aon_iomux gin */
+> +#define GPI_AON_PMU_GPIO_WAKEUP_0              0
+> +#define GPI_AON_PMU_GPIO_WAKEUP_1              1
+> +#define GPI_AON_PMU_GPIO_WAKEUP_2              2
+> +#define GPI_AON_PMU_GPIO_WAKEUP_3              3
+> +
+> +#endif
+> --
+> 2.38.1
+>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2533688763945180291==--
-
