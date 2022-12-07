@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3EAC352A1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C646EC4708D
 	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 18:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,24 +12,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zZUdBEP1W76h6x2bjmNiUnIdc2JDV7WyrPtb+xy6ikU=; b=LI4BoO/gRKZV57
-	feL4b0x8XfF/FAw6qH6+U83gP7rT0vSvH/Z4yYBtuB8l2eIhgA8AqiweEExOXUmYpIHWgGwnLc1Gg
-	vB9ZSODZA11RlMd4GD10rXDaBC0VuES5ysAoCsyeSnOMSqAxCso+pcrh8g9ixydtj7UzuVuxk8hBc
-	/ZLL+Fp0EZHYMiQstYYfEA4X6BRG62RsE8ugKOE7ihm9VElIxJtxTUXXrng201t4BBxdwDLXTHUaj
-	Aglox4KWa/0FF0/D5Y2UCYzR+PKKzjopOsv5YjGG4BqUjwJXU/9VlrvhmZrk7nhNDMJBvD1DGzpTI
-	r+stVQgfgy1toPhZvmyQ==;
+	List-Owner; bh=CbEl9ANJsqwmXGgBQIzano9GkxK3EhJVaqL5DYjS5BA=; b=CUPLHsckSfwBO7
+	0CXIfRz++4CzDWAMtYu6CrsNsv5IkDGbIPphBuVfmodZc/D3FZ92fKRkaycTn8PG1rH+1V5J5JE2O
+	pdk7Udi6Gs+LA9lplFqtIqmwRRTQKgbIBBupEPdH6ViUHwMvry5iB4/59+dTZsK+Bz1Snfk0gO2gW
+	ej3Zr+sUmySZm7/oi6pIHHcRICdUC3mHY/0JVnRCpYmnPgPUaoQqT57LWQ6nibr/bMZsNgRM78/9i
+	ZQd3rSWTZ8qBlqUQVZMZvFeNSypO7f6vfWuWaCR6XfguCWs79lIjKgg8VpLIGiDXoSx9js/rFbVRE
+	eWP07av1yOPLQRo6bVlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqR-0080Ho-5U; Wed, 07 Dec 2022 18:08:35 +0000
+	id 1p2yqS-0080K9-Gj; Wed, 07 Dec 2022 18:08:36 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqJ-007zxz-WD
+	id 1p2yqJ-007zzp-WC
 	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 18:08:31 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p2yqF-0004lz-Us; Wed, 07 Dec 2022 19:08:24 +0100
+	id 1p2yqI-0004lz-E8; Wed, 07 Dec 2022 19:08:26 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -41,17 +41,18 @@ Cc: christoph.muellner@vrull.eu,
 	heiko@sntech.de,
 	emil.renner.berthing@canonical.com,
 	jszhang@kernel.org,
-	Heiko Stuebner <heiko.stuebner@vrull.eu>
-Subject: [PATCH v4 01/12] RISC-V: fix funct4 definition for c.jalr in parse_asm.h
-Date: Wed,  7 Dec 2022 19:08:10 +0100
-Message-Id: <20221207180821.2479987-2-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@vrull.eu>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 07/12] RISC-V: rename parse_asm.h to insn.h
+Date: Wed,  7 Dec 2022 19:08:16 +0100
+Message-Id: <20221207180821.2479987-8-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221207180821.2479987-1-heiko@sntech.de>
 References: <20221207180821.2479987-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_100828_169363_8159B909 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20221207_100828_197384_CC2E6D1C 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,32 +71,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-The opcode definition for c.jalr is
-    c.jalr c_rs1_n0  1..0=2 15..13=4 12=1 6..2=0
+The current parse_asm header should become a more centralized place
+for everything concerning parsing and constructing instructions.
 
-This means funct4 consisting of bit [15:12] is 1001b, so the value is 0x9.
+We already have a header insn-def.h similar to aarch64, so rename
+parse_asm.h to insn.h (again similar to aarch64) to show that it's
+meant for more than simple instruction parsing.
 
-Fixes: edde5584c7ab ("riscv: Add SW single-step support for KDB")
-Reported-by: Andrew Jones <ajones@ventanamicro.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/include/asm/parse_asm.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/{parse_asm.h => insn.h} | 0
+ arch/riscv/kernel/kgdb.c                       | 2 +-
+ arch/riscv/kernel/probes/simulate-insn.h       | 2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ rename arch/riscv/include/asm/{parse_asm.h => insn.h} (100%)
 
-diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
-index f36368de839f..7fee806805c1 100644
---- a/arch/riscv/include/asm/parse_asm.h
-+++ b/arch/riscv/include/asm/parse_asm.h
-@@ -125,7 +125,7 @@
- #define FUNCT3_C_J		0xa000
- #define FUNCT3_C_JAL		0x2000
- #define FUNCT4_C_JR		0x8000
--#define FUNCT4_C_JALR		0xf000
-+#define FUNCT4_C_JALR		0x9000
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/insn.h
+similarity index 100%
+rename from arch/riscv/include/asm/parse_asm.h
+rename to arch/riscv/include/asm/insn.h
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 61237aeb493c..2e0266ae6bd7 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -11,7 +11,7 @@
+ #include <linux/string.h>
+ #include <asm/cacheflush.h>
+ #include <asm/gdb_xml.h>
+-#include <asm/parse_asm.h>
++#include <asm/insn.h>
  
- #define FUNCT12_SRET		0x10200000
+ enum {
+ 	NOT_KGDB_BREAK = 0,
+diff --git a/arch/riscv/kernel/probes/simulate-insn.h b/arch/riscv/kernel/probes/simulate-insn.h
+index 29fb16cd335c..a19aaa0feb44 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.h
++++ b/arch/riscv/kernel/probes/simulate-insn.h
+@@ -3,7 +3,7 @@
+ #ifndef _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
+ #define _RISCV_KERNEL_PROBES_SIMULATE_INSN_H
  
+-#include <asm/parse_asm.h>
++#include <asm/insn.h>
+ 
+ #define RISCV_INSN_REJECTED(name, code)					\
+ 	do {								\
 -- 
 2.35.1
 
