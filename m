@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE49C47089
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 18:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70C9C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 18:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pFG/v/wis1pp8z+JB2dYfc0x/QrvyB3ORM2/6/J2oCo=; b=bTzyp9dpSwebHM
-	eCRRNzJBorKeopyRenur7Ev3kR/a6RRpFtr/LYNWOj/qUWSiBbpynfjRTWj98EEUzu7IMHo3BdxbQ
-	e1RY7IzpMwYeZryXXYhwlBp0e4h5Kre2Qb1EFrfWckBFkn1Ak6BLiZVEMb6o0Yxf+wjmsATGgjwRk
-	CBZJLDhTccKYJVxa2wsHJmMosHWgIdeF+Ylt9dq1jKpf54rMsUvf6Y6qn0/Ah6tz42bw3WxoTejOT
-	9OcV4PWYLqaE4CIcDM8tA0lhbzLyCaFyD5KlteDuouExNpv/vMW6HiTqGcqgPa7YsUHHqSLxIDhQ9
-	kbgqxh1Xber1SWa+jmow==;
+	List-Owner; bh=kFjeOFuHAYgBetGpPfncZNANethaQ95Fmswc5bXVqGI=; b=jn1cj+NlI4PvBH
+	CtLK4K2KULWDlhPQb8ITLr4ig2BhBnuGgxDvMRzFe0WD3PLsh9qt4262tQBqX2DkYfJ3quwA8U1mk
+	TZhYDS88XLJ6VtgM/SwT3W9UhciKJfyPRp8Ff7WvrRAJTU617n/+LfweiHX2/5nETaY8gU18JO7MJ
+	JXd2NaHtUxjDEkTm2ryRXDDi3t0LKf6ok7E831weMmlOPdQwXoRGzS90SKF7OI+ikOTPet1oNmhR+
+	xDYxT5u+U/jNx+C9uqp9v1EgfDGiTVijSCB1hd3Cwf748GAHhvG1GPm4lwdDoJRnKDSwdOsV4/osj
+	JTWRcznjp+2lDLSvMuTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqW-0080QC-4i; Wed, 07 Dec 2022 18:08:40 +0000
+	id 1p2yqg-0080T9-15; Wed, 07 Dec 2022 18:08:50 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2yqK-008011-8z
+	id 1p2yqJ-007zy4-WA
 	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 18:08:31 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p2yqI-0004lz-Sw; Wed, 07 Dec 2022 19:08:26 +0100
+	id 1p2yqG-0004lz-OO; Wed, 07 Dec 2022 19:08:24 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: linux-riscv@lists.infradead.org,
 	palmer@dabbelt.com
@@ -43,17 +43,16 @@ Cc: christoph.muellner@vrull.eu,
 	jszhang@kernel.org,
 	Heiko Stuebner <heiko.stuebner@vrull.eu>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 08/12] RISC-V: kprobes: use central defined funct3 constants
-Date: Wed,  7 Dec 2022 19:08:17 +0100
-Message-Id: <20221207180821.2479987-9-heiko@sntech.de>
+Subject: [PATCH v4 03/12] RISC-V: detach funct-values from their offset
+Date: Wed,  7 Dec 2022 19:08:12 +0100
+Message-Id: <20221207180821.2479987-4-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20221207180821.2479987-1-heiko@sntech.de>
 References: <20221207180821.2479987-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_100828_374385_6DAE796F 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221207_100828_169610_27630128 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,63 +71,153 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 
-Don't redefine values that are already available in the central header
-asm/insn.h . Use the values from there instead.
+Rather than defining funct3, funct4, etc values pre-shifted to their
+target-position in an instruction, define the values themselves and
+only shift them where needed.
+
+This allows using these funct-values in other places as well, for example
+when decoding functions.
+
+At the same time also reduces the use of magic numbers, one would need
+a spec manual to understand.
 
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 ---
- arch/riscv/kernel/probes/simulate-insn.c | 19 ++++++-------------
- 1 file changed, 6 insertions(+), 13 deletions(-)
+ arch/riscv/include/asm/parse_asm.h | 100 +++++++++++++++++------------
+ 1 file changed, 59 insertions(+), 41 deletions(-)
 
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index d73e96f6ed7c..330afe9331a8 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -136,13 +136,6 @@ bool __kprobes simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *re
- #define branch_offset(opcode) \
- 	sign_extend32((branch_imm(opcode)), 12)
+diff --git a/arch/riscv/include/asm/parse_asm.h b/arch/riscv/include/asm/parse_asm.h
+index ea51542e0c65..e3f87da108f4 100644
+--- a/arch/riscv/include/asm/parse_asm.h
++++ b/arch/riscv/include/asm/parse_asm.h
+@@ -5,6 +5,15 @@
  
--#define BRANCH_BEQ	0x0
--#define BRANCH_BNE	0x1
--#define BRANCH_BLT	0x4
--#define BRANCH_BGE	0x5
--#define BRANCH_BLTU	0x6
--#define BRANCH_BGEU	0x7
+ #include <linux/bits.h>
+ 
++#define RV_INSN_FUNCT3_MASK	GENMASK(14, 12)
++#define RV_INSN_FUNCT3_OPOFF	12
++#define RV_INSN_OPCODE_MASK	GENMASK(6, 0)
++#define RV_INSN_OPCODE_OPOFF	0
++#define RV_INSN_FUNCT12_OPOFF	20
++
++#define RV_ENCODE_FUNCT3(f_)	(RVG_FUNCT3_##f_ << RV_INSN_FUNCT3_OPOFF)
++#define RV_ENCODE_FUNCT12(f_)	(RVG_FUNCT12_##f_ << RV_INSN_FUNCT12_OPOFF)
++
+ /* The bit field of immediate value in I-type instruction */
+ #define RV_I_IMM_SIGN_OPOFF	31
+ #define RV_I_IMM_11_0_OPOFF	20
+@@ -84,6 +93,15 @@
+ #define RVC_B_IMM_2_1_MASK	GENMASK(1, 0)
+ #define RVC_B_IMM_5_MASK	GENMASK(0, 0)
+ 
++#define RVC_INSN_FUNCT4_MASK	GENMASK(15, 12)
++#define RVC_INSN_FUNCT4_OPOFF	12
++#define RVC_INSN_FUNCT3_MASK	GENMASK(15, 13)
++#define RVC_INSN_FUNCT3_OPOFF	13
++#define RVC_INSN_J_RS2_MASK	GENMASK(6, 2)
++#define RVC_INSN_OPCODE_MASK	GENMASK(1, 0)
++#define RVC_ENCODE_FUNCT3(f_)	(RVC_FUNCT3_##f_ << RVC_INSN_FUNCT3_OPOFF)
++#define RVC_ENCODE_FUNCT4(f_)	(RVC_FUNCT4_##f_ << RVC_INSN_FUNCT4_OPOFF)
++
+ /* The register offset in RVC op=C0 instruction */
+ #define RVC_C0_RS1_OPOFF	7
+ #define RVC_C0_RS2_OPOFF	2
+@@ -113,52 +131,52 @@
+ /* parts of funct3 code for I, M, A extension*/
+ #define RVG_FUNCT3_JALR		0x0
+ #define RVG_FUNCT3_BEQ		0x0
+-#define RVG_FUNCT3_BNE		0x1000
+-#define RVG_FUNCT3_BLT		0x4000
+-#define RVG_FUNCT3_BGE		0x5000
+-#define RVG_FUNCT3_BLTU		0x6000
+-#define RVG_FUNCT3_BGEU		0x7000
++#define RVG_FUNCT3_BNE		0x1
++#define RVG_FUNCT3_BLT		0x4
++#define RVG_FUNCT3_BGE		0x5
++#define RVG_FUNCT3_BLTU		0x6
++#define RVG_FUNCT3_BGEU		0x7
+ 
+ /* parts of funct3 code for C extension*/
+-#define RVC_FUNCT3_C_BEQZ	0xc000
+-#define RVC_FUNCT3_C_BNEZ	0xe000
+-#define RVC_FUNCT3_C_J		0xa000
+-#define RVC_FUNCT3_C_JAL	0x2000
+-#define RVC_FUNCT4_C_JR		0x8000
+-#define RVC_FUNCT4_C_JALR	0x9000
++#define RVC_FUNCT3_C_BEQZ	0x6
++#define RVC_FUNCT3_C_BNEZ	0x7
++#define RVC_FUNCT3_C_J		0x5
++#define RVC_FUNCT3_C_JAL	0x1
++#define RVC_FUNCT4_C_JR		0x8
++#define RVC_FUNCT4_C_JALR	0x9
+ 
+-#define RVG_FUNCT12_SRET	0x10200000
++#define RVG_FUNCT12_SRET	0x102
+ 
+-#define RVG_MATCH_JALR		(RVG_FUNCT3_JALR | RVG_OPCODE_JALR)
++#define RVG_MATCH_JALR		(RV_ENCODE_FUNCT3(JALR) | RVG_OPCODE_JALR)
+ #define RVG_MATCH_JAL		(RVG_OPCODE_JAL)
+-#define RVG_MATCH_BEQ		(RVG_FUNCT3_BEQ | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_BNE		(RVG_FUNCT3_BNE | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_BLT		(RVG_FUNCT3_BLT | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_BGE		(RVG_FUNCT3_BGE | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_BLTU		(RVG_FUNCT3_BLTU | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_BGEU		(RVG_FUNCT3_BGEU | RVG_OPCODE_BRANCH)
+-#define RVG_MATCH_SRET		(RVG_FUNCT12_SRET | RVG_OPCODE_SYSTEM)
+-#define RVC_MATCH_C_BEQZ	(RVC_FUNCT3_C_BEQZ | RVC_OPCODE_C1)
+-#define RVC_MATCH_C_BNEZ	(RVC_FUNCT3_C_BNEZ | RVC_OPCODE_C1)
+-#define RVC_MATCH_C_J		(RVC_FUNCT3_C_J | RVC_OPCODE_C1)
+-#define RVC_MATCH_C_JAL		(RVC_FUNCT3_C_JAL | RVC_OPCODE_C1)
+-#define RVC_MATCH_C_JR		(RVC_FUNCT4_C_JR | RVC_OPCODE_C2)
+-#define RVC_MATCH_C_JALR	(RVC_FUNCT4_C_JALR | RVC_OPCODE_C2)
 -
- bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *regs)
- {
- 	/*
-@@ -169,22 +162,22 @@ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *r
+-#define RVG_MASK_JALR		0x707f
+-#define RVG_MASK_JAL		0x7f
+-#define RVC_MASK_C_JALR		0xf07f
+-#define RVC_MASK_C_JR		0xf07f
+-#define RVC_MASK_C_JAL		0xe003
+-#define RVC_MASK_C_J		0xe003
+-#define RVG_MASK_BEQ		0x707f
+-#define RVG_MASK_BNE		0x707f
+-#define RVG_MASK_BLT		0x707f
+-#define RVG_MASK_BGE		0x707f
+-#define RVG_MASK_BLTU		0x707f
+-#define RVG_MASK_BGEU		0x707f
+-#define RVC_MASK_C_BEQZ		0xe003
+-#define RVC_MASK_C_BNEZ		0xe003
++#define RVG_MATCH_BEQ		(RV_ENCODE_FUNCT3(BEQ) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BNE		(RV_ENCODE_FUNCT3(BNE) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BLT		(RV_ENCODE_FUNCT3(BLT) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BGE		(RV_ENCODE_FUNCT3(BGE) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BLTU		(RV_ENCODE_FUNCT3(BLTU) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_BGEU		(RV_ENCODE_FUNCT3(BGEU) | RVG_OPCODE_BRANCH)
++#define RVG_MATCH_SRET		(RV_ENCODE_FUNCT12(SRET) | RVG_OPCODE_SYSTEM)
++#define RVC_MATCH_C_BEQZ	(RVC_ENCODE_FUNCT3(C_BEQZ) | RVC_OPCODE_C1)
++#define RVC_MATCH_C_BNEZ	(RVC_ENCODE_FUNCT3(C_BNEZ) | RVC_OPCODE_C1)
++#define RVC_MATCH_C_J		(RVC_ENCODE_FUNCT3(C_J) | RVC_OPCODE_C1)
++#define RVC_MATCH_C_JAL		(RVC_ENCODE_FUNCT3(C_JAL) | RVC_OPCODE_C1)
++#define RVC_MATCH_C_JR		(RVC_ENCODE_FUNCT4(C_JR) | RVC_OPCODE_C2)
++#define RVC_MATCH_C_JALR	(RVC_ENCODE_FUNCT4(C_JALR) | RVC_OPCODE_C2)
++
++#define RVG_MASK_JALR		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_JAL		(RV_INSN_OPCODE_MASK)
++#define RVC_MASK_C_JALR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
++#define RVC_MASK_C_JR		(RVC_INSN_FUNCT4_MASK | RVC_INSN_J_RS2_MASK | RVC_INSN_OPCODE_MASK)
++#define RVC_MASK_C_JAL		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
++#define RVC_MASK_C_J		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
++#define RVG_MASK_BEQ		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_BNE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_BLT		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_BGE		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_BLTU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVG_MASK_BGEU		(RV_INSN_FUNCT3_MASK | RV_INSN_OPCODE_MASK)
++#define RVC_MASK_C_BEQZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
++#define RVC_MASK_C_BNEZ		(RVC_INSN_FUNCT3_MASK | RVC_INSN_OPCODE_MASK)
+ #define RVG_MASK_SRET		0xffffffff
  
- 	offset_tmp = branch_offset(opcode);
- 	switch (branch_funct3(opcode)) {
--	case BRANCH_BEQ:
-+	case RVG_FUNCT3_BEQ:
- 		offset = (rs1_val == rs2_val) ? offset_tmp : 4;
- 		break;
--	case BRANCH_BNE:
-+	case RVG_FUNCT3_BNE:
- 		offset = (rs1_val != rs2_val) ? offset_tmp : 4;
- 		break;
--	case BRANCH_BLT:
-+	case RVG_FUNCT3_BLT:
- 		offset = ((long)rs1_val < (long)rs2_val) ? offset_tmp : 4;
- 		break;
--	case BRANCH_BGE:
-+	case RVG_FUNCT3_BGE:
- 		offset = ((long)rs1_val >= (long)rs2_val) ? offset_tmp : 4;
- 		break;
--	case BRANCH_BLTU:
-+	case RVG_FUNCT3_BLTU:
- 		offset = (rs1_val < rs2_val) ? offset_tmp : 4;
- 		break;
--	case BRANCH_BGEU:
-+	case RVG_FUNCT3_BGEU:
- 		offset = (rs1_val >= rs2_val) ? offset_tmp : 4;
- 		break;
- 	default:
+ #define __INSN_LENGTH_MASK	_UL(0x3)
 -- 
 2.35.1
 
