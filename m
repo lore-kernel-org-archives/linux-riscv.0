@@ -4,59 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB43C352A1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 13:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E86C352A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 13:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tb7t9Y6dXZWtsFxGGpFU96MjZxAMToHz7ABG/JOLSg4=; b=J+71/RrnS5rJhL
-	EWwYnpYkasByRDF+MYnIuHaaZlJoimKGEBgl/aLeqZJHOd09sp52ouou+YQrzrVcXzalXcyZRymwS
-	qkpuLbXi0opmViW7fmmcVbKku42yjPaJN53Ywl6Ai5CUBXjXOuDVaaWdOQtxAacLVVdxDyU+R0S8H
-	RCC6SqdG/TB0+XVbkhwX19oJXCgOcKIQRyPJtS/jiboiSuDiVZThEZPW4cOTi+rLkbdiMBT5U9h7/
-	yFzkY70X5Uh/Mr1EYr4pgwLzw3l+ytty4t756WYc/h/sR8pQFW+mkzp7Y3E3OIBFi6Nj1qtUieQoV
-	bBUAt4ESFsMb8G0EHiMw==;
+	List-Owner; bh=LgwSuaXMGX1Ygx1beaGdEbiuXKKMT60ujLdlfPSDfC4=; b=R407yYvbt41DVq
+	verqryDrDbnv9/KHsR6119Nc/Ua5QbZE0+rAjSjj9kYAH+6IUramyu813CWk9Y3inNMEbFHfvRYlt
+	smYABveyeoqvpxXh0zG2dLI9QjawlgjhPbSSg3/glgxiJWMac7jg0vnZutUYh95RK545bQlSN50UY
+	SGd8T5cu8e0td17kWXBIiylKFCKmSi98rmGfXQC1tIPya1C0f+d1PTlZHpeXegTeJe9A9kHVrurm0
+	vE3c0lWoc9neWugeg4KAqnlJLGVzyKijXQp3jkGlNzBpvKKpUt4D3xMF7jGamDKRDXNBLLRD4igHe
+	XPPQCj1BSR82vG6LZxfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2uJk-003Hx0-40; Wed, 07 Dec 2022 13:18:32 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p2uJg-003GZn-Mq
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 13:18:30 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 4AA2D24E2B0;
-	Wed,  7 Dec 2022 21:17:34 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Wed, 7 Dec
- 2022 21:17:34 +0800
-Received: from williamqiu-virtual-machine.starfivetech.com (171.223.208.138)
- by EXMBX068.cuchost.com (172.16.6.68) with Microsoft SMTP Server (TLS) id
- 15.0.1497.42; Wed, 7 Dec 2022 21:17:33 +0800
-From: William Qiu <william.qiu@starfivetech.com>
-To: <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, William Qiu
-	<william.qiu@starfivetech.com>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
-Date: Wed, 7 Dec 2022 21:17:30 +0800
-Message-ID: <20221207131731.1291517-3-william.qiu@starfivetech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20221207131731.1291517-1-william.qiu@starfivetech.com>
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
+	id 1p2uKA-003IVt-4F; Wed, 07 Dec 2022 13:18:58 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p2uK5-003IL1-LM
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 13:18:55 +0000
+Received: from mail-yb1-f200.google.com (mail-yb1-f200.google.com [209.85.219.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id A7E2F3F11B
+	for <linux-riscv@lists.infradead.org>; Wed,  7 Dec 2022 13:18:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1670419129;
+	bh=TJPCP4AbYzmGzRRwQknWvZ7ec7wLffR2M+z5Bb6OJxQ=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=lM9+uRKFOl3/Jc/pJh2y8reppEdWHW2YQ6C6KOQmrbnK7e4daXuiuj3szFS0oQkXU
+	 lTPzE5wIT7YZh3RZCcfglMzFOVLbMD20n3E9rr87l/eJZ4BkrM0NYAi6VqW9RPiv/u
+	 HQ7TTyOkLZF88L8ZBnIhv0ww5Y731Z1z4s0geyjsYO5CVMUaczVcq7wQhZnFlMUgan
+	 J7SfaUI6tNTpARrOl0OTj8IZQTK74OQyXUNbj42L4k8CM0Hc7PrCDofIrtWt7uWP5R
+	 vabXEWBdXC6yec1MfjwrALrBlwpJ1PC4gAxWBIcwftdinJ7kel+XQELjN0jrMDv1VB
+	 Tn19bjxjjNHaA==
+Received: by mail-yb1-f200.google.com with SMTP id e11-20020a25e70b000000b006f9ae0996f2so19238863ybh.23
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 05:18:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TJPCP4AbYzmGzRRwQknWvZ7ec7wLffR2M+z5Bb6OJxQ=;
+        b=FDoZBLaMzASSYE2ESvH6JRi1z5kkWkggaZrR8OrlgHaGYMcgCEm9FezoJjpbQDoyk6
+         py7noY10LRgOCnUtDqz9FCZl0kOdP0yWLBygbYRgbNDVqLZEYPGXC6gElmBkPcvVmRmx
+         fYJdyrXXtTuLIXkEcI1CK9WayeLiXOIPG26174b/W/DU4GwZjMBiGDySI4b/rSuPzwq8
+         1vkw/1UKslw4NGLfb1S3OcVTpbspHcfdHbiPXv8N4921IRxrJrCjdhhDgFE/ONYCoa7G
+         DwYVLz6b+mVehYTy4yLeI3to4jIJJM5upz7tTfwogwceArZJIVF0QQve8U/43kolKOSm
+         oCBA==
+X-Gm-Message-State: ANoB5pl7BYy/Ij1VSo2W2WrjCeXuwXwmxDvu32GQSxu3Pq0WHv/xxQ0L
+	5Uo5FKtCGv4k3uj3Pp6LWZTXjilZPAM1614sVEYa6M5F/7CVLZ4CdJtP7AOMW/frXB628zHn2Ju
+	7pW1Kia7J/tLQMNdpZbbjJ9VCR3vBp557CcbQEQm0SHAPUj+zq1E/nih+iZ6VvA==
+X-Received: by 2002:a25:cacc:0:b0:703:7a54:1eb4 with SMTP id a195-20020a25cacc000000b007037a541eb4mr6402940ybg.92.1670419128747;
+        Wed, 07 Dec 2022 05:18:48 -0800 (PST)
+X-Google-Smtp-Source: AA0mqf4Ct0zcjhvO/lIYRqtfmC2g6qD1HFP4oBj9GYyJSZASF1KApk+xbXqqU8oZ8UVDSlhwK1eLfQPHOy1Noi9MuAA=
+X-Received: by 2002:a25:cacc:0:b0:703:7a54:1eb4 with SMTP id
+ a195-20020a25cacc000000b007037a541eb4mr6402917ybg.92.1670419128448; Wed, 07
+ Dec 2022 05:18:48 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX068.cuchost.com
- (172.16.6.68)
-X-YovoleRuleAgent: yovoleflag
+References: <20221118011108.70715-1-hal.feng@starfivetech.com>
+ <20221118011108.70715-3-hal.feng@starfivetech.com> <468b06ea-e314-ce51-7fe5-12b83032a382@linaro.org>
+ <2a2cc5c9-650b-d2c8-f547-a2aadf5c7af4@starfivetech.com>
+In-Reply-To: <2a2cc5c9-650b-d2c8-f547-a2aadf5c7af4@starfivetech.com>
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Date: Wed, 7 Dec 2022 14:18:31 +0100
+Message-ID: <CAJM55Z9h2eiVEYf4OEmj8C8OZS5SAe=TR1t5v6wMELKUTzi9pA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] dt-bindings: pinctrl: Add StarFive JH7110 sys pinctrl
+To: Jianlong Huang <jianlong.huang@starfivetech.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Hal Feng <hal.feng@starfivetech.com>, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_051829_198859_4E5A1AFC 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20221207_051853_902790_E6DA3C78 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,273 +100,251 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add sdio/emmc driver support for StarFive JH7110 soc.
+On Mon, 28 Nov 2022 at 02:04, Jianlong Huang
+<jianlong.huang@starfivetech.com> wrote:
+>
+> On 2022/11/21 16:43, Krzysztof Kozlowski wrote:
+> > On 18/11/2022 02:11, Hal Feng wrote:
+> >> From: Jianlong Huang <jianlong.huang@starfivetech.com>
+> >>
+> >> Add pinctrl bindings for StarFive JH7110 SoC sys pinctrl controller.
+> >>
+> >> Signed-off-by: Jianlong Huang <jianlong.huang@starfivetech.com>
+> >> Signed-off-by: Hal Feng <hal.feng@starfivetech.com>
+> >> ---
+> >>  .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 165 ++++++++++++++++++
+> >>  1 file changed, 165 insertions(+)
+> >>  create mode 100644 Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+> >> new file mode 100644
+> >> index 000000000000..79623f884a9c
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/pinctrl/starfive,jh7110-sys-pinctrl.yaml
+> >> @@ -0,0 +1,165 @@
+> >> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/pinctrl/starfive,jh7110-sys-pinctrl.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: StarFive JH7110 Sys Pin Controller
+> >> +
+> >> +description: |
+> >> +  Bindings for the JH7110 RISC-V SoC from StarFive Technology Ltd.
+> >> +
+> >> +  Out of the SoC's many pins only the ones named PAD_GPIO0 to PAD_GPIO63
+> >> +  can be multiplexed and have configurable bias, drive strength,
+> >> +  schmitt trigger etc.
+> >> +  Some peripherals have their I/O go through the 64 "GPIOs". This also
+> >> +  includes a number of other UARTs, I2Cs, SPIs, PWMs etc.
+> >> +  All these peripherals are connected to all 64 GPIOs such that
+> >> +  any GPIO can be set up to be controlled by any of the peripherals.
+> >> +
+> >> +maintainers:
+> >> +  - Jianlong Huang <jianlong.huang@starfivetech.com>
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    const: starfive,jh7110-sys-pinctrl
+> >> +
+> >> +  reg:
+> >> +    maxItems: 1
+> >> +
+> >> +  reg-names:
+> >> +    items:
+> >> +      - const: control
+> >
+> > Why reg-names for one entry? Perhaps just drop it.
+>
+> Will fix, drop it.
+>
+> >
+> >> +
+> >> +  clocks:
+> >> +    maxItems: 1
+> >> +
+> >> +  resets:
+> >> +    maxItems: 1
+> >> +
+> >> +  gpio-controller: true
+> >> +
+> >> +  "#gpio-cells":
+> >> +    const: 2
+> >> +
+> >> +  interrupts:
+> >> +    maxItems: 1
+> >> +    description: The GPIO parent interrupt.
+> >
+> > Drop description, it's obvious.
+>
+> Will fix, drop it.
+>
+> >
+> >> +
+> >> +  interrupt-controller: true
+> >> +
+> >> +  "#interrupt-cells":
+> >> +    const: 2
+> >> +
+> >> +required:
+> >> +  - compatible
+> >> +  - reg
+> >> +  - reg-names
+> >> +  - clocks
+> >> +  - gpio-controller
+> >> +  - "#gpio-cells"
+> >> +  - interrupts
+> >> +  - interrupt-controller
+> >> +  - "#interrupt-cells"
+> >> +
+> >> +patternProperties:
+> >> +  '-[0-9]+$':
+> >
+> > Keep consistent quotes, either ' or "
+> >
+> > How do you differentiate hogs? The pattern is a bit unspecific.
+>
+> Will fix.
+> Keep consisitent quotes, use '
+>
+> >
+> >> +    type: object
+> >> +    patternProperties:
+> >> +      '-pins$':
+> >> +        type: object
+> >> +        description: |
+> >> +          A pinctrl node should contain at least one subnode representing the
+> >> +          pinctrl groups available on the machine. Each subnode will list the
+> >> +          pins it needs, and how they should be configured, with regard to
+> >> +          muxer configuration, system signal configuration, pin groups for
+> >> +          vin/vout module, pin voltage, mux functions for output, mux functions
+> >> +          for output enable, mux functions for input.
+> >> +
+> >> +        properties:
+> >> +          pinmux:
+> >> +            description: |
+> >> +              The list of GPIOs and their mux settings that properties in the
+> >> +              node apply to. This should be set using the GPIOMUX macro.
+> >> +            $ref: "/schemas/pinctrl/pinmux-node.yaml#/properties/pinmux"
+> >
+> > Drop quotes.
+>
+> Will fix, drop quotes.
+>
+> >
+> >> +
+> >> +          bias-disable: true
+> >> +
+> >> +          bias-pull-up:
+> >> +            type: boolean
+> >> +
+> >> +          bias-pull-down:
+> >> +            type: boolean
+> >> +
+> >> +          drive-strength:
+> >> +            enum: [ 2, 4, 8, 12 ]
+> >> +
+> >> +          input-enable: true
+> >> +
+> >> +          input-disable: true
+> >> +
+> >> +          input-schmitt-enable: true
+> >> +
+> >> +          input-schmitt-disable: true
+> >> +
+> >> +          slew-rate:
+> >> +            maximum: 1
+> >> +
+> >> +        additionalProperties: false
+> >> +
+> >> +    additionalProperties: false
+> >> +
+> >> +additionalProperties: false
+> >> +
+> >> +examples:
+> >> +  - |
+> >> +    #include <dt-bindings/clock/starfive-jh7110.h>
+> >> +    #include <dt-bindings/reset/starfive-jh7110.h>
+> >> +    #include <dt-bindings/pinctrl/pinctrl-starfive-jh7110.h>
+> >> +
+> >> +        soc {
+> >
+> > Use 4 spaces for example indentation.
+>
+> Will fix.
+>
+> >
+> >> +                #address-cells = <2>;
+> >> +                #size-cells = <2>;
 
-Signed-off-by: William Qiu <william.qiu@starfivetech.com>
----
- MAINTAINERS                        |   6 +
- drivers/mmc/host/Kconfig           |  10 ++
- drivers/mmc/host/Makefile          |   1 +
- drivers/mmc/host/dw_mmc-starfive.c | 197 +++++++++++++++++++++++++++++
- 4 files changed, 214 insertions(+)
- create mode 100644 drivers/mmc/host/dw_mmc-starfive.c
+You can also drop these to lines..
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a70c1d0f303e..2b46ef07f5dc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19623,6 +19623,12 @@ F:	Documentation/devicetree/bindings/reset/starfive,jh7100-reset.yaml
- F:	drivers/reset/starfive/
- F:	include/dt-bindings/reset/starfive*
- 
-+STARFIVE JH7110 MMC/SD/SDIO DRIVER
-+M:	William Qiu <william.qiu@starfivetech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/mmc/starfive*
-+F:	drivers/mmc/dw_mmc-starfive.c
-+
- STATIC BRANCH/CALL
- M:	Peter Zijlstra <peterz@infradead.org>
- M:	Josh Poimboeuf <jpoimboe@kernel.org>
-diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-index fb1062a6394c..b87262503403 100644
---- a/drivers/mmc/host/Kconfig
-+++ b/drivers/mmc/host/Kconfig
-@@ -871,6 +871,16 @@ config MMC_DW_ROCKCHIP
- 	  Synopsys DesignWare Memory Card Interface driver. Select this option
- 	  for platforms based on RK3066, RK3188 and RK3288 SoC's.
- 
-+config MMC_DW_STARFIVE
-+	tristate "StarFive specific extensions for Synopsys DW Memory Card Interface"
-+	depends on SOC_STARFIVE
-+	depends on MMC_DW
-+	select MMC_DW_PLTFM
-+	help
-+	  This selects support for StarFive JH7110 SoC specific extensions to the
-+	  Synopsys DesignWare Memory Card Interface driver. Select this option
-+	  for platforms based on StarFive JH7110 SoC.
-+
- config MMC_SH_MMCIF
- 	tristate "SuperH Internal MMCIF support"
- 	depends on SUPERH || ARCH_RENESAS || COMPILE_TEST
-diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-index 4e4ceb32c4b4..32c0e5564b9a 100644
---- a/drivers/mmc/host/Makefile
-+++ b/drivers/mmc/host/Makefile
-@@ -56,6 +56,7 @@ obj-$(CONFIG_MMC_DW_HI3798CV200) += dw_mmc-hi3798cv200.o
- obj-$(CONFIG_MMC_DW_K3)		+= dw_mmc-k3.o
- obj-$(CONFIG_MMC_DW_PCI)	+= dw_mmc-pci.o
- obj-$(CONFIG_MMC_DW_ROCKCHIP)	+= dw_mmc-rockchip.o
-+obj-$(CONFIG_MMC_DW_STARFIVE)	+= dw_mmc-starfive.o
- obj-$(CONFIG_MMC_SH_MMCIF)	+= sh_mmcif.o
- obj-$(CONFIG_MMC_JZ4740)	+= jz4740_mmc.o
- obj-$(CONFIG_MMC_VUB300)	+= vub300.o
-diff --git a/drivers/mmc/host/dw_mmc-starfive.c b/drivers/mmc/host/dw_mmc-starfive.c
-new file mode 100644
-index 000000000000..b2e6a0b6abf9
---- /dev/null
-+++ b/drivers/mmc/host/dw_mmc-starfive.c
-@@ -0,0 +1,197 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * StarFive Designware Mobile Storage Host Controller Driver
-+ *
-+ * Copyright (c) 2022 StarFive Technology Co., Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/gpio.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/mmc/host.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+
-+
-+#include "dw_mmc.h"
-+#include "dw_mmc-pltfm.h"
-+
-+#define ALL_INT_CLR		0x1ffff
-+#define MAX_DELAY_CHAIN		32
-+
-+struct starfive_priv {
-+	struct device *dev;
-+	struct regmap *reg_syscon;
-+	u32 syscon_offset;
-+	u32 syscon_shift;
-+	u32 syscon_mask;
-+};
-+
-+static unsigned long dw_mci_starfive_caps[] = {
-+	MMC_CAP_CMD23,
-+	MMC_CAP_CMD23,
-+	MMC_CAP_CMD23
-+};
-+
-+static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
-+{
-+	int ret;
-+	unsigned int clock;
-+
-+	if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
-+		clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
-+		ret = clk_set_rate(host->ciu_clk, clock);
-+		if (ret)
-+			dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
-+		host->bus_hz = clk_get_rate(host->ciu_clk);
-+	} else {
-+		dev_dbg(host->dev, "Using the internal divider\n");
-+	}
-+}
-+
-+static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
-+					     u32 opcode)
-+{
-+	static const int grade  = MAX_DELAY_CHAIN;
-+	struct dw_mci *host = slot->host;
-+	struct starfive_priv *priv = host->priv;
-+	int raise_point = -1, fall_point = -1;
-+	int err, prev_err = -1;
-+	int found = 0;
-+	int i;
-+	u32 regval;
-+
-+	for (i = 0; i < grade; i++) {
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		err = mmc_send_tuning(slot->mmc, opcode, NULL);
-+		if (!err)
-+			found = 1;
-+
-+		if (i > 0) {
-+			if (err && !prev_err)
-+				fall_point = i - 1;
-+			if (!err && prev_err)
-+				raise_point = i;
-+		}
-+
-+		if (raise_point != -1 && fall_point != -1)
-+			goto tuning_out;
-+
-+		prev_err = err;
-+		err = 0;
-+	}
-+
-+tuning_out:
-+	if (found) {
-+		if (raise_point == -1)
-+			raise_point = 0;
-+		if (fall_point == -1)
-+			fall_point = grade - 1;
-+		if (fall_point < raise_point) {
-+			if ((raise_point + fall_point) >
-+			    (grade - 1))
-+				i = fall_point / 2;
-+			else
-+				i = (raise_point + grade - 1) / 2;
-+		} else {
-+			i = (raise_point + fall_point) / 2;
-+		}
-+
-+		regval = i << priv->syscon_shift;
-+		err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
-+						priv->syscon_mask, regval);
-+		if (err)
-+			return err;
-+		mci_writel(host, RINTSTS, ALL_INT_CLR);
-+
-+		dev_dbg(host->dev, "Found valid delay chain! use it [delay=%d]\n", i);
-+	} else {
-+		dev_err(host->dev, "No valid delay chain! use default\n");
-+		err = -EINVAL;
-+	}
-+
-+	mci_writel(host, RINTSTS, ALL_INT_CLR);
-+	return err;
-+}
-+
-+static int dw_mci_starfive_parse_dt(struct dw_mci *host)
-+{
-+	struct of_phandle_args args;
-+	struct starfive_priv *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(host->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
-+						"starfive,sys-syscon", 3, 0, &args);
-+	if (ret) {
-+		dev_err(host->dev, "Failed to parse starfive,sys-syscon\n");
-+		return -EINVAL;
-+	}
-+
-+	priv->reg_syscon = syscon_node_to_regmap(args.np);
-+	of_node_put(args.np);
-+	if (IS_ERR(priv->reg_syscon))
-+		return PTR_ERR(priv->reg_syscon);
-+
-+	priv->syscon_offset = args.args[0];
-+	priv->syscon_shift  = args.args[1];
-+	priv->syscon_mask   = args.args[2];
-+
-+	host->priv = priv;
-+
-+	return 0;
-+}
-+
-+static const struct dw_mci_drv_data starfive_data = {
-+	.caps = dw_mci_starfive_caps,
-+	.num_caps = ARRAY_SIZE(dw_mci_starfive_caps),
-+	.set_ios = dw_mci_starfive_set_ios,
-+	.parse_dt = dw_mci_starfive_parse_dt,
-+	.execute_tuning = dw_mci_starfive_execute_tuning,
-+};
-+
-+static const struct of_device_id dw_mci_starfive_match[] = {
-+	{ .compatible = "starfive,jh7110-sdio",
-+		.data = &starfive_data },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, dw_mci_starfive_match);
-+
-+static int dw_mci_starfive_probe(struct platform_device *pdev)
-+{
-+	return dw_mci_pltfm_register(pdev, &starfive_data);
-+}
-+
-+static int dw_mci_starfive_remove(struct platform_device *pdev)
-+{
-+	return dw_mci_pltfm_remove(pdev);
-+}
-+
-+static struct platform_driver dw_mci_starfive_driver = {
-+	.probe = dw_mci_starfive_probe,
-+	.remove = dw_mci_starfive_remove,
-+	.driver = {
-+		.name = "dwmmc_starfive",
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.of_match_table = dw_mci_starfive_match,
-+	},
-+};
-+module_platform_driver(dw_mci_starfive_driver);
-+
-+MODULE_DESCRIPTION("StarFive JH7110 Specific DW-MSHC Driver Extension");
-+MODULE_LICENSE("GPL");
-+MODULE_ALIAS("platform:dwmmc_starfive");
--- 
-2.34.1
+> >> +
+> >> +                gpio: gpio@13040000 {
+> >> +                        compatible = "starfive,jh7110-sys-pinctrl";
+> >> +                        reg = <0x0 0x13040000 0x0 0x10000>;
 
+..and then just make this
+reg = <0x13040000 0x10000>;
+
+> >> +                        reg-names = "control";
+> >> +                        clocks = <&syscrg_clk JH7110_SYSCLK_IOMUX>;
+> >> +                        resets = <&syscrg_rst JH7110_SYSRST_IOMUX>;
+> >> +                        interrupts = <86>;
+> >> +                        interrupt-controller;
+> >> +                        #interrupt-cells = <2>;
+> >> +                        #gpio-cells = <2>;
+> >> +                        gpio-controller;
+> >> +                        status = "okay";
+> >
+> > No status in examples.
+>
+> Will fix, drop it.
+>
+> >
+> >> +
+> >> +                        uart0_pins: uart0-0 {
+> >> +                                tx-pins {
+> >> +                                        pinmux = <GPIOMUX(5, GPOUT_SYS_UART0_TX, GPOEN_ENABLE, GPI_NONE)>;
+> >> +                                        bias-disable;
+> >> +                                        drive-strength = <12>;
+> >> +                                        input-disable;
+> >> +                                        input-schmitt-disable;
+> >> +                                        slew-rate = <0>;
+> >> +                                };
+> >> +
+> >> +                                rx-pins {
+> >> +                                        pinmux = <GPIOMUX(6, GPOUT_LOW, GPOEN_DISABLE, GPI_SYS_UART0_RX)>;
+> >> +                                        bias-pull-up;
+> >> +                                        drive-strength = <2>;
+> >> +                                        input-enable;
+> >> +                                        input-schmitt-enable;
+> >> +                                        slew-rate = <0>;
+> >> +                                };
+> >> +                        };
+> >> +                };
+> >> +
+> >> +                uart0 {
+> >> +                        pinctrl-names = "default";
+> >> +                        pinctrl-0 = <&uart0_pins>;
+> >> +                        status = "okay";
+> >
+> > Drop this node, useless.
+>
+> Will fix, drop this node.
+>
+> >
+> >> +                };
+> >> +        };
+> >> +
+> >> +...
+> >
+>
+> Best regards,
+> Jianlong Huang
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
