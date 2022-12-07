@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1DE7C63705
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 22:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65789C63708
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Dec 2022 22:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g0UQi2MWDAOWlEYzO6opnqVQcw8VmfJA/JVY6yJ88v4=; b=tB1LkKujN+c/D7
-	4hjY+2z9wYLiKjWer+enRY4bmmRjefjF5Do1AByPqSKwLNIdFWXMhVpYvK+07EeVDOGR6Zi/zD18R
-	OqLExwAUrmNs19Hdpsj3sSpsbYForGXNqXF8ZlO3VAl2Wx11d1TD7HOPB87Tpl5BOLtprg3beHbKK
-	PyvRK6NiFr45mQpNVx4tZfC23arCTluaSqnZlX5SzCpictNssBm9IrMO17WAHzdCsB7hwi8gY3fWC
-	X1ihi4gTWN2Y1NqdyBKaECctfCPD6G5LlneEsUWISF8ZC63WiwzRH3cAn98tAorcKVKA0mVaqhaz2
-	FE5LweDFPdBr6ZCj35hw==;
+	List-Owner; bh=GVO8NXHwKvs3zji4b5x4Rve8ZKrPHjGOU+LKcKdshWk=; b=W2S+LvVoJRRZB+
+	QHq+J8qqhIkzVnR6B8KjMLrhDiQCXellsMqedVEXQFvJpBeHKC4+oRMzbRCqxpZrjc/OoQ7TVS9dA
+	+P8kEpfd4xPvq2VjrHshOOhzhbG68ud74qHD/MA88GA/McCTjNDV44ZIejPsknHZ57/IR4fgLdj/S
+	kCfkuY9wB9of7Z0FV7P4sLnOSVnQDFRxQ2LaRaaGZ7BuKYkHmD7qEnZ/tgaTW2tDCxHN4/V+uJQES
+	lC8Uwi0Azc7d2ScQzg2WgoRAItvNifCEz2vHCyhfU5QAcqBIY2tILlWl0+2SLh+Ti2G16MSVMEwOh
+	m2gk8MBSuvIx52Q8zcAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p332p-00EN0R-Na; Wed, 07 Dec 2022 22:37:39 +0000
+	id 1p3387-00EUYh-0e; Wed, 07 Dec 2022 22:43:07 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p332m-00EMpA-U7
-	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 22:37:38 +0000
+	id 1p3383-00EUU6-Rv
+	for linux-riscv@lists.infradead.org; Wed, 07 Dec 2022 22:43:05 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1p332i-0006NF-HA; Wed, 07 Dec 2022 23:37:32 +0100
+	id 1p3382-0006Pi-8s; Wed, 07 Dec 2022 23:43:02 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: Conor Dooley <conor@kernel.org>
 Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, christoph.muellner@vrull.eu, prabhakar.csengg@gmail.com, philipp.tomsich@vrull.eu, ajones@ventanamicro.com, emil.renner.berthing@canonical.com, jszhang@kernel.org
-Subject: Re: [PATCH v4 12/12] RISC-V: fix auipc-jalr addresses in patched alternatives
-Date: Wed, 07 Dec 2022 23:37:30 +0100
-Message-ID: <4261102.ElGaqSPkdT@phil>
-In-Reply-To: <Y5D8CHkJZGmQKxdh@spud>
-References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-13-heiko@sntech.de> <Y5D8CHkJZGmQKxdh@spud>
+Subject: Re: [PATCH v4 11/12] RISC-V: add helpers for handling immediates in U-type and I-type pairs
+Date: Wed, 07 Dec 2022 23:43:00 +0100
+Message-ID: <15153852.uLZWGnKmhe@phil>
+In-Reply-To: <Y5DyiwZkx3SvQVGc@spud>
+References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-12-heiko@sntech.de> <Y5DyiwZkx3SvQVGc@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_143737_010183_A33AF327 
-X-CRM114-Status: GOOD (  43.28  )
+X-CRM114-CacheID: sfid-20221207_144303_948087_51F6BC31 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,160 +58,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 7. Dezember 2022, 21:48:08 CET schrieb Conor Dooley:
-> On Wed, Dec 07, 2022 at 07:08:21PM +0100, Heiko Stuebner wrote:
+Am Mittwoch, 7. Dezember 2022, 21:07:39 CET schrieb Conor Dooley:
+> On Wed, Dec 07, 2022 at 07:08:20PM +0100, Heiko Stuebner wrote:
 > > From: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > > 
-> > Alternatives live in a different section, so addresses used by call
-> > functions will point to wrong locations after the patch got applied.
+> > Used together U-type and I-type instructions can for example be used to
+> > generate bigger jumps (i.e. in auipc+jalr pairs) by splitting the value
+> > into an upper immediate (i.e. auipc) and a 12bit immediate (i.e. jalr).
 > > 
-> > Similar to arm64, adjust the location to consider that offset.
+> > Due to both immediates being considered signed this creates some corner
+> > cases, so add some helper to prevent this from getting duplicated in
+> > different places.
 > > 
 > > Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
 > > ---
-> >  arch/riscv/include/asm/alternative.h |  3 ++
-> >  arch/riscv/kernel/alternative.c      | 56 ++++++++++++++++++++++++++++
-> >  arch/riscv/kernel/cpufeature.c       |  5 ++-
-> >  3 files changed, 63 insertions(+), 1 deletion(-)
+> >  arch/riscv/include/asm/insn.h | 47 +++++++++++++++++++++++++++++++++++
+> >  1 file changed, 47 insertions(+)
 > > 
-> > diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-> > index 6511dd73e812..1bd4027d34ca 100644
-> > --- a/arch/riscv/include/asm/alternative.h
-> > +++ b/arch/riscv/include/asm/alternative.h
-> > @@ -27,6 +27,9 @@ void __init apply_boot_alternatives(void);
-> >  void __init apply_early_boot_alternatives(void);
-> >  void apply_module_alternatives(void *start, size_t length);
-> >  
-> > +void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-> > +				   int patch_offset);
+> > diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> > index 2a23890b4577..bb1e6120a560 100644
+> > --- a/arch/riscv/include/asm/insn.h
+> > +++ b/arch/riscv/include/asm/insn.h
+> > @@ -290,3 +290,50 @@ static __always_inline bool riscv_insn_is_branch(u32 code)
+> >  	(RVC_X(x_, RVC_B_IMM_5_OPOFF, RVC_B_IMM_5_MASK) << RVC_B_IMM_5_OFF) | \
+> >  	(RVC_X(x_, RVC_B_IMM_7_6_OPOFF, RVC_B_IMM_7_6_MASK) << RVC_B_IMM_7_6_OFF) | \
+> >  	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
 > > +
-> >  struct alt_entry {
-> >  	void *old_ptr;		 /* address of original instruciton or data  */
-> >  	void *alt_ptr;		 /* address of replacement instruction or data */
-> > diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> > index a7d26a00beea..c29e198ed9df 100644
-> > --- a/arch/riscv/kernel/alternative.c
-> > +++ b/arch/riscv/kernel/alternative.c
-> > @@ -15,6 +15,8 @@
-> >  #include <asm/vendorid_list.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/csr.h>
-> > +#include <asm/insn.h>
-> > +#include <asm/patch.h>
-> >  
-> >  struct cpu_manufacturer_info_t {
-> >  	unsigned long vendor_id;
-> > @@ -53,6 +55,60 @@ static void __init_or_module riscv_fill_cpu_mfr_info(struct cpu_manufacturer_inf
-> >  	}
-> >  }
-> >  
-> > +static u32 riscv_instruction_at(void *p)
+> > +/*
+> > + * Put together one immediate from a U-type and I-type instruction pair.
+> > + *
+> > + * The U-type contains an upper immediate, meaning bits[31:12] with [11:0]
+> > + * being zero, while the I-type contains a 12bit immediate.
+> > + * Combined these can encode larger 32bit values and are used for example
+> > + * in auipc + jalr pairs to allow larger jumps.
+> > + *
+> > + * @utype_insn: instruction containing the upper immediate
+> > + * @itype_insn: instruction
+> > + * Return: combined immediate
+> > + */
+> > +static inline s32 riscv_insn_extract_utype_itype_imm(u32 utype_insn, u32 itype_insn)
 > > +{
-> > +	u16 *parcel = p;
-> > +
-> > +	return (unsigned int)parcel[0] | (unsigned int)parcel[1] << 16;
-> 
-> I feel bad for not mentioning this before - can we replace this magic 16
-> with something self documenting?
-> 
-> > +}
-> > +
-> > +static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 insn1, u32 insn2, int patch_offset)
-> > +{
-> > +	/* pick the original auipc + jalr */
-> > +	u32 call[2] = { insn1, insn2 };
 > > +	s32 imm;
 > > +
-> > +	/* get and adjust new target address */
-> > +	imm = riscv_insn_extract_utype_itype_imm(insn1, insn2);
-> > +	imm -= patch_offset;
+> > +	imm = RV_EXTRACT_UTYPE_IMM(utype_insn);
+> > +	imm += RV_EXTRACT_ITYPE_IMM(itype_insn);
 > > +
-> > +	/* update instructions */
-> > +	riscv_insn_insert_utype_itype_imm(call, imm);
-> > +
-> > +	/* patch the call place again */
-> > +	patch_text_nosync(ptr, call, sizeof(u32) * 2);
+> > +	return imm;
 > > +}
-> 
-> Obv. I have not left R-b tags on stuff without trying to understand
-> what's going on, but from a lay-observer point of view, I think these
-> function names & flow does a good job of explaining some of the black
-> magic in this neck of the woods.
-> 
 > > +
-> > +void riscv_alternative_fix_offsets(void *alt_ptr, unsigned int len,
-> > +				      int patch_offset)
+> > +/*
+> > + * Update a set of two instructions (U-type + I-type) with an immediate value.
+> > + *
+> > + * Used for example in auipc+jalrs pairs the U-type instructions contains
+> > + * a 20bit upper immediate representing bits[31:12], while the I-type
+> > + * instruction contains a 12bit immediate representing bits[11:0].
+> > + *
+> > + * This also takes into account that both separate immediates are
+> > + * considered as signed values, so if the I-type immediate becomes
+> > + * negative (BIT(11) set) the U-type part gets adjusted.
+> > + *
+> > + * @insn: pointer to a set of two instructions
+> > + * @imm: the immediate to insert into the two instructions
+> > + */
+> > +static inline void riscv_insn_insert_utype_itype_imm(u32 *insn, s32 imm)
 > > +{
-> > +	int num_instr = len / sizeof(u32);
-> 
-> instr...
-> 
-> > +	int i;
+> > +	/* drop possible old IMM values */
+> > +	insn[0] &= ~(RV_U_IMM_31_12_MASK);
+> > +	insn[1] &= ~(RV_I_IMM_11_0_MASK << RV_I_IMM_11_0_OPOFF);
 > > +
-> > +	/*
-> > +	 * stop one instruction before the end, as we're checking
-> > +	 * for auipc + jalr
-> > +	 */
-> > +	for (i = 0; i < num_instr; i++) {
-> > +		u32 inst = riscv_instruction_at(alt_ptr + i * sizeof(u32));
+> > +	/* add the adapted IMMs */
+> > +	insn[0] |= ((imm & RV_U_IMM_31_12_MASK) + ((imm & BIT(11)) << 1));
+> > +	insn[1] |= ((imm & RV_I_IMM_11_0_MASK) << RV_I_IMM_11_0_OPOFF);
 > 
-> ...inst...
-> 
-> > +
-> > +		/* may be the start of an auipc + jalr pair */
-> > +		if (riscv_insn_is_auipc(inst) && i < num_instr - 1) {
-> 
-> ...insn.
-> 
-> Is there a reason for that?
+> If you send a v5, could you drop the extra ()s around some of these?
 
-I guess more of a generational issue - with the code spanning
-too much time :-)
+will do
 
-So poll question, what would be preferred?
-I think I remember seeing all of them somewhere, so I'm unsure what
-to standardize on.
-
-> 
-> Also, I've gotten myself slightly confused about the loop. You "stop one
-> instruction before the end" but the main loop goes from 0 -> num_instr.
-> The inner loop then checks for i < num_instr - 1. What am I missing that
-> prevents the outer loop from stopping at num_instr - 1 instead?
-
-The idea with this is to allow a
-	if(riscv_insn_is_jal(inst))
-		riscv_alternative_fix_jal(...)
-
-etc, and everything else is a single instruction so needs one more
-loop iteration, only for auipc+jalr do we want to stop one earlier.
-
-So to get this alternatives_fix_offsets() main entry point I
-made the loop do the one iteration more again.
-
-
-> > +			u32 inst2 = riscv_instruction_at(alt_ptr + (i + 1) * sizeof(u32));
-> > +
-> > +			if (!riscv_insn_is_jalr(inst2))
-> > +				continue;
-> > +
-> > +			/* call will use ra register */
-> 
-> Super minor, but "call will use ra register" is a little unclear. As
-> written, it makes perfect sense when you've been staring at this code,
-> but not so much if you're passing through.. How about:
-> /* if this instruction pair is a call, it will use the ra register */
-
-sure :-)
-
-> 
-> > +			if (RV_EXTRACT_RD_REG(inst) != 1)
-> > +				continue;
-> >
-> 
-> All minor stuff though, so you can re-add my R-b either way:
+> Otherwise:
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> I do like the comments a lot :) Saves going off to read specs...
 
-thanks :-)
+That was the intention with the big comments :-) .
+
+And self-preservation ... Once my mind does a cache-flush of these things,
+I don't want to have to dig through things to re-understand this again.
+
 
 Heiko
 
