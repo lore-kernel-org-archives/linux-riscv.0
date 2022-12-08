@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A71F3C4708E
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 01:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A0FC4708D
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 02:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O9fchpv7yM0lsx3XdUj8vx8IaESd+92137SQybB4oS0=; b=rP8257++FZRsh5
-	p3lLKnUsffT3HBGP+wZ1xxh9Y1D3wf2QHKovwjPEmQ9e60dgUysBJRoKfkyESqTdHVdqssR0i0NrC
-	5YIXKyMKjBJlfXuFTwr6auIA/I6ySm5LqgwGtqKFQcBV6ppajKjomSrbAdY9ExRuSomwv3+gWoG+q
-	EA1uP0RZ96j0SKy+fB2+5AvIq1yjLXN/v397aPJDPpEKQ9nORwKlRLW7MPxpDyb2C9L0CFsbZH9l4
-	kDE/RfnuHIBuc0la/t16loxHoCmUC5uo1VLFYk8Ing967NCMRdrMrdC5v1bcjQ/2hczPIABlDUnxa
-	gDvitwzKnrZclLRh22RA==;
+	List-Owner; bh=ytE5FjW3vC715icN2ZTbV86+o/IXg01VU4rEciLiH8g=; b=Vp+Fm4pi22X5r4
+	U8DPGvvgTkJBk8KCLJiWyaQms6i6nCRG1CzokYgaxXg+/yDnh5YUJLdywlpDSjaIyxdD87vUjSRvQ
+	ddQwoi85E9HEK/Yc4GfNYDYWaVCMfcKPd214r6U7jB7wsG07flL4/ZEx0HBaAqtZS1/kNBQsvSBSU
+	1MhpN5K38I279zJjfAHiVuwyVGA3vR/A9oFt0d9+btvtLQ+7kLc3Nrd8zjRs23grTCO+WZBZYpuxv
+	+GXoPRpGljA3Xgc7Wti2hIxcbo6yD3ejSZKNAIO9qYScuGatGy6I7BqCvmhi09RQWuBP3IAPug1BQ
+	zZpgqaNuo592GodmT1ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p35ww-00HVMm-Qp; Thu, 08 Dec 2022 01:43:46 +0000
-Received: from conssluserg-01.nifty.com ([210.131.2.80])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p35wt-00HVHO-LM
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 01:43:45 +0000
-Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com [209.85.210.52]) (authenticated)
-	by conssluserg-01.nifty.com with ESMTP id 2B81hOkp017419
-	for <linux-riscv@lists.infradead.org>; Thu, 8 Dec 2022 10:43:25 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 2B81hOkp017419
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
-	s=dec2015msa; t=1670463805;
-	bh=k3I8on4gq36IvbTZWeLET12jxubwa9OOg1ZKsIOl2ss=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mtOo8T0cq1jDd6kIRWnpp0UdEGEL2YahHo5hb57KLXkHKlw8MIhG/J1CiPCd6uPFd
-	 KKpT1X4bdoAnRLZXhc9q8WChe3TyVckcHUCuiN/uu+KE4MPcRKvWhMrzjkaYjf+6s8
-	 IWkC8+NobGSN3dDvY4HESmxF7kgvUZJRCtoKi0bzL35t6jeGAn3CTMqAV14BCNeiFX
-	 JNGvjTlqlXbxWxIGWZS7Hh9kGRDaKqmhczCH/0m0lPLHW/ugIrYX0aQV/k6EkxJtwA
-	 FI03uKGiOTh7uoplKlf7YGo8xaMqTiCt06gFAxnztMsh5U5dF7v3xWrHV2JPTW6jvw
-	 ol6jaKsi8Yu7w==
-X-Nifty-SrcIP: [209.85.210.52]
-Received: by mail-ot1-f52.google.com with SMTP id p24-20020a0568301d5800b0066e6dc09be5so76232oth.8
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Dec 2022 17:43:25 -0800 (PST)
-X-Gm-Message-State: ANoB5plPz3zAY2ArM3UuOa88Yor/ia3r1/MKcgVHYrh4FksP2p066dM8
-	9hJ988sZ36C/dW72YV3s1CWI0FOaxcXD5+10jxI=
-X-Google-Smtp-Source: AA0mqf5rlckUeBOxtlV5cmoxR9u+G4SHU30UtcO5gXpDSCqFhD98tHV3D02NMhFgMRT7jBugEMm4fqq68XFQrqTt1ME=
-X-Received: by 2002:a9d:282:0:b0:66c:794e:f8c6 with SMTP id
- 2-20020a9d0282000000b0066c794ef8c6mr47413478otl.343.1670463804040; Wed, 07
- Dec 2022 17:43:24 -0800 (PST)
+	id 1p36ZK-000Dzk-2w; Thu, 08 Dec 2022 02:23:26 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p36ZF-000DpJ-Bh
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 02:23:24 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E6BBB24E17E;
+	Thu,  8 Dec 2022 10:22:45 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
+ 2022 10:22:45 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
+ (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
+ 2022 10:22:44 +0800
+Message-ID: <82b08671-3119-98ab-dc19-21f1d5119a84@starfivetech.com>
+Date: Thu, 8 Dec 2022 10:22:43 +0800
 MIME-Version: 1.0
-References: <20221123151828.509565-1-masahiroy@kernel.org>
-In-Reply-To: <20221123151828.509565-1-masahiroy@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 8 Dec 2022 10:42:47 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATBBHJR_46HUvZ61zTgt_U4t3BmwTTyHwKjgz8JkFquYg@mail.gmail.com>
-Message-ID: <CAK7LNATBBHJR_46HUvZ61zTgt_U4t3BmwTTyHwKjgz8JkFquYg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] kbuild: add test-{le,ge,lt,gt} macros
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nicolas Schier <nicolas@fjasle.eu>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Tom Rix <trix@redhat.com>,
-        linux-riscv@lists.infradead.org, llvm@lists.linux.dev, x86@kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v1 5/7] net: stmmac: Add StarFive dwmac supoort
+Content-Language: en-US
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
+ <20221201090242.2381-6-yanhong.wang@starfivetech.com>
+ <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX173.cuchost.com
+ (172.16.6.93)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_174344_194872_567841A8 
-X-CRM114-Status: GOOD (  27.80  )
+X-CRM114-CacheID: sfid-20221207_182321_772698_A0E34C46 
+X-CRM114-Status: GOOD (  30.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,154 +80,267 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 24, 2022 at 12:19 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> Because GNU Make is only able to handle strings, it is very hard to
-> perform arighmetic in Makefiles.
 
 
+On 2022/12/7 22:16, Emil Renner Berthing wrote:
+> Hi Yanhong,
+> 
+> Thanks for submitting this. Again please don't change the author of
+> the commits you cherry-picked from my tree. This is why we have the
+> Co-developed-by: tag so you can mark that you added or in this case
+> removed code.
 
+This commit is not cherry-picked from your tree.
 
+> I'd hoped you would still include the support for the JH7100 though.
+> 
 
-I terribly missed that GNU Make 4.4
-introduced the $(intcmp ...) function.
+If necessary, would include the support for the JH7100 in the next version.
 
-https://www.gnu.org/software/make/manual/make.html#Conditional-Functions
+> Also you seem to have changed the name of some of the functions.
+> Please at least keep the prefix consistent if you do that. Now it's a
+> mix of dwmac_starfive_, starfive_eth_ and starfive_eth_plat.
+> 
+> On Thu, 1 Dec 2022 at 10:07, Yanhong Wang <yanhong.wang@starfivetech.com> wrote:
+>>
+>> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
+>>
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> ---
+>>  MAINTAINERS                                   |   1 +
+>>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+>>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+>>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 147 ++++++++++++++++++
+>>  4 files changed, 160 insertions(+)
+>>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 7eaaec8d3b96..36cb00cf860b 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -19610,6 +19610,7 @@ STARFIVE DWMAC GLUE LAYER
+>>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
+>>  S:     Maintained
+>>  F:     Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
+>> +F:     drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>>
+>>  STARFIVE PINCTRL DRIVER
+>>  M:     Emil Renner Berthing <kernel@esmil.dk>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> index 31ff35174034..1e29cd3770b9 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
+>> @@ -235,6 +235,17 @@ config DWMAC_INTEL_PLAT
+>>           the stmmac device driver. This driver is used for the Intel Keem Bay
+>>           SoC.
+>>
+>> +config DWMAC_STARFIVE_PLAT
+> 
+> Why did you add the _PLAT suffix? None of the other SoC wrappers have this..
 
+The _PLAT suffix definition reference the other SoC,such as DWMAC_INTEL_PLAT.
 
-I am thinking if we can do better by using it.
+> 
+>> +       tristate "StarFive dwmac support"
+>> +       depends on OF && COMMON_CLK
+>> +       depends on STMMAC_ETH
+>> +       default SOC_STARFIVE
+>> +       help
+>> +         Support for ethernet controllers on StarFive RISC-V SoCs
+>> +
+>> +         This selects the StarFive platform specific glue layer support for
+>> +         the stmmac device driver. This driver is used for StarFive RISC-V SoCs.
+>> +
+>>  config DWMAC_VISCONTI
+>>         tristate "Toshiba Visconti DWMAC support"
+>>         default ARCH_VISCONTI
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> index d4e12e9ace4f..a63ab0ab5071 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
+>> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
+>>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
+>>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
+>>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
+>> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
+>>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
+>>  stmmac-platform-objs:= stmmac_platform.o
+>>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>> new file mode 100644
+>> index 000000000000..8fbf584d4e19
+>> --- /dev/null
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
+>> @@ -0,0 +1,147 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +/*
+>> + * StarFive DWMAC platform driver
+>> + *
+>> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
+> 
+> Hmm.. where did my copyright go?
+> 
+>> + *
+>> + */
+>> +
+>> +#include <linux/of_device.h>
+>> +#include "stmmac_platform.h"
+>> +
+>> +struct starfive_dwmac {
+>> +       struct device *dev;
+>> +       struct clk *clk_tx;
+>> +       struct clk *clk_gtx;
+>> +       struct clk *clk_gtxc;
+>> +};
+>> +
+>> +static void starfive_eth_fix_mac_speed(void *priv, unsigned int speed)
+>> +{
+>> +       struct starfive_dwmac *dwmac = priv;
+>> +       unsigned long rate;
+>> +       int err;
+>> +
+>> +       switch (speed) {
+>> +       case SPEED_1000:
+>> +               rate = 125000000;
+>> +               break;
+>> +       case SPEED_100:
+>> +               rate = 25000000;
+>> +               break;
+>> +       case SPEED_10:
+>> +               rate = 2500000;
+>> +               break;
+>> +       default:
+>> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
+>> +               return;
+>> +       }
+>> +
+>> +       err = clk_set_rate(dwmac->clk_gtx, rate);
+>> +       if (err)
+>> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+>> +}
+>> +
+>> +static void dwmac_starfive_clk_disable(void *clk)
+>> +{
+>> +       clk_disable_unprepare(clk);
+>> +}
+>> +
+>> +static int starfive_eth_plat_probe(struct platform_device *pdev)
+>> +{
+>> +       struct plat_stmmacenet_data *plat_dat;
+>> +       struct stmmac_resources stmmac_res;
+>> +       struct starfive_dwmac *dwmac;
+>> +       int err;
+>> +
+>> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
+>> +       if (IS_ERR(plat_dat)) {
+>> +               dev_err(&pdev->dev, "dt configuration failed\n");
+>> +               return PTR_ERR(plat_dat);
+>> +       }
+>> +
+>> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+>> +       if (!dwmac)
+>> +               return -ENOMEM;
+>> +
+>> +       dwmac->clk_tx = devm_clk_get(&pdev->dev, "tx");
+>> +       if (IS_ERR(dwmac->clk_tx))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+>> +                                               "error getting tx clock\n");
+>> +
+>> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
+>> +                             dwmac->clk_tx);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       err = clk_prepare_enable(dwmac->clk_tx);
+>> +       if (err)
+>> +               return dev_err_probe(&pdev->dev, err, "error enabling tx clock\n");
+>> +
+>> +       dwmac->clk_gtx = devm_clk_get(&pdev->dev, "gtx");
+>> +       if (IS_ERR(dwmac->clk_gtx))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
+>> +                                               "error getting gtx clock\n");
+>> +
+>> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
+>> +                             dwmac->clk_gtx);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       err = clk_prepare_enable(dwmac->clk_gtx);
+>> +       if (err)
+>> +               return dev_err_probe(&pdev->dev, err, "error enabling gtx clock\n");
+> 
+> I think the 3 calls above can be simplified to devm_clk_get_enabled().
 
+I'll simplify it to devm_ clk_ get_ enabled() in the next version.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
->
-> When we compare two integers, we invokes shell. One example is in the
-> top Makefile:
->
->   ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
->
-> This is more expensive than using built-in functions since it forks a
-> process.
->
-> If we know the two have the same number of digits, we can do better.
->
-> This commit adds four macros, test-le, test-ge, test-lt, test-gt.
->
-> $(call test-lt, A, B) is evaluated to 'y' if A is less than B, or
-> empty otherwise. This will replace $(call shell test A -lt B).
->
-> Again, the limitation is that A and B must have the same number of
-> digits because these macros are based on $(sort ) function.
->
->   $(call test-lt, 1, 9)    -->  y        (Works!)
->   $(call test-lt, 10, 9)   -->  y        (Not work...)
->
-> To make the latter work, you need to add '0' prefix to align the number
-> of digits:
->
->   $(call test-lt, 10, 09)  -->  empty    (Works!)
->
-> Actually, we can live with this limitation in many places. As for the
-> example above, we know $(CONFIG_LLD_VERSION) is 6-digits because the
-> minimal supported version of LLVM is 11.0.0.
->
-> So, the shell invocation can be replaced with more efficient code:
->
->   ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
->
-> Of course, this assumption will break when LLVM 100 is released, but it
-> will be far in the future.
->
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
->
-> (no changes since v1)
->
->  Makefile               |  2 +-
->  arch/riscv/Makefile    |  2 +-
->  arch/x86/Makefile      |  2 +-
->  scripts/Kbuild.include | 10 ++++++++++
->  4 files changed, 13 insertions(+), 3 deletions(-)
->
-> diff --git a/Makefile b/Makefile
-> index 6f846b1f2618..eb80332f7b51 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -986,7 +986,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
->  # Check for frame size exceeding threshold during prolog/epilog insertion
->  # when using lld < 13.0.0.
->  ifneq ($(CONFIG_FRAME_WARN),0)
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
->  KBUILD_LDFLAGS += -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
->  endif
->  endif
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 0d13b597cb55..faf2c2177094 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -37,7 +37,7 @@ else
->  endif
->
->  ifeq ($(CONFIG_LD_IS_LLD),y)
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
->         KBUILD_CFLAGS += -mno-relax
->         KBUILD_AFLAGS += -mno-relax
->  ifndef CONFIG_AS_IS_LLVM
-> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-> index 415a5d138de4..e72c7a49cd59 100644
-> --- a/arch/x86/Makefile
-> +++ b/arch/x86/Makefile
-> @@ -211,7 +211,7 @@ endif
->  KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
->
->  ifdef CONFIG_LTO_CLANG
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
->  KBUILD_LDFLAGS += -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
->  endif
->  endif
-> diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-> index cbe28744637b..9996f34327cb 100644
-> --- a/scripts/Kbuild.include
-> +++ b/scripts/Kbuild.include
-> @@ -11,6 +11,16 @@ space   := $(empty) $(empty)
->  space_escape := _-_SPACE_-_
->  pound := \#
->
-> +###
-> +# Comparison macros.
-> +# Usage: $(call test-le, A, B)
-> +# works like shell's "test A -le B", but A and B must have the same number of
-> +# digits since it is just ASCII sort.
-> +test-le = $(if $(filter $1, $(firstword $(sort $1 $2))),y)
-> +test-ge = $(call test-le, $2, $1)
-> +test-lt = $(if $(filter-out $2, $(firstword $(sort $1 $2))),y)
-> +test-gt = $(call test-lt, $2, $1)
-> +
->  ###
->  # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
->  dot-target = $(dir $@).$(notdir $@)
-> --
-> 2.34.1
->
-
-
--- 
-Best Regards
-Masahiro Yamada
+> 
+>> +       dwmac->clk_gtxc = devm_clk_get(&pdev->dev, "gtxc");
+>> +       if (IS_ERR(dwmac->clk_gtxc))
+>> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
+>> +                                               "error getting gtxc clock\n");
+>> +
+>> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
+>> +                             dwmac->clk_gtxc);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       err = clk_prepare_enable(dwmac->clk_gtxc);
+>> +       if (err)
+>> +               return dev_err_probe(&pdev->dev, err, "error enabling gtxc clock\n");
+> 
+> Same here.
+> 
+>> +
+>> +       dwmac->dev = &pdev->dev;
+>> +       plat_dat->fix_mac_speed = starfive_eth_fix_mac_speed;
+>> +       plat_dat->init = NULL;
+>> +       plat_dat->bsp_priv = dwmac;
+>> +       plat_dat->dma_cfg->dche = true;
+>> +
+>> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+>> +       if (err) {
+>> +               stmmac_remove_config_dt(pdev, plat_dat);
+>> +               return err;
+>> +       }
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static const struct of_device_id starfive_eth_plat_match[] = {
+>> +       {.compatible = "starfive,dwmac"},
+>> +       { }
+>> +};
+>> +
+>> +static struct platform_driver starfive_eth_plat_driver = {
+>> +       .probe  = starfive_eth_plat_probe,
+>> +       .remove = stmmac_pltfr_remove,
+>> +       .driver = {
+>> +               .name = "starfive-eth-plat",
+>> +               .pm = &stmmac_pltfr_pm_ops,
+>> +               .of_match_table = starfive_eth_plat_match,
+>> +       },
+>> +};
+>> +
+>> +module_platform_driver(starfive_eth_plat_driver);
+>> +
+>> +MODULE_LICENSE("GPL");
+>> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
+> 
+> Here you also seem to have removed me.
+> 
+>> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
+>> --
+>> 2.17.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
