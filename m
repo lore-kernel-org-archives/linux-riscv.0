@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE3CC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381BEC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=W3N3yVDJG4TtKeeRobU/tuNaS3XjUTs6XhrburpIlO0=; b=d1sgu6gS2KiCqq89rUH2ZLe9FL
-	8Zzk4Qe9/VtIkzIiLBv6LjSwBCtGrg21RWeuAtZVRvoxRrta50BX+W9jo3phAqOjsGBl4RFXL3O9R
-	WCgbQFVp9untfgjSNKOeb/YkPJbvOCQ5jhZ/6304fspqU+6J36SQG9C+BHJ2iRjGpGARxIKa8x7ME
-	Xad9gqgyeIR0I/+MUmU3DkG1cbRwwnhZYQTIqeKpoR7pIpicVFtNQcH2eAGUzsm0E0NI31L355Cmh
-	1IbacqP1z1wy86ovx6aPJBdojYz6NHe3jvxf7nzf9R5TEsv3KXzeS/Hecsz8Q06clVfQJbNHlNAGB
-	zWU+ZEoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=qfob/EvLSZQizk8NH4bTrnCKERWd/y35+y6vSXUoRm8=; b=dmVckDmxEuTMxkT3R25GRyelE1
+	Sokw+8pPWKw6L1YOmduu5wMSsuPZwEcIlTGt7/pA7j0giPL2PgeO4OEc7w28ID27q3mO0nO/AoWSD
+	IA7wm96Q+L0PsCfSDtbAr94wJe3nslBb88nWqwdxE1FySn1irnyYkpGrqZHTrNcJybyLHaDK3tsL4
+	H6m0wBXCNjmeTbX0NqwyKgtr1pKDmzKLvTyuepM7b/yhkQzuJcvOIEAPMJiFBnvu6DM/eUCuNUp6A
+	qjIwn/f0S8IF3KAfzyoDdwJH+PZUcGg6viRfDAC8hSOcKKnI156TMVeNKSLWL8MjkcRgj1SYoTY9R
+	2MIGussA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3MB0-008zqF-J2; Thu, 08 Dec 2022 19:03:22 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1p3Mkh-009tJR-3J; Thu, 08 Dec 2022 19:40:15 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3MAw-008zbd-P5
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:03:21 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id jl24so2421848plb.8
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:03:16 -0800 (PST)
+	id 1p3MkK-009ssI-8p
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:55 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-3d0465d32deso25015737b3.20
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GJirtvpfmZs6MdvQ6r4d0enX5SIcriclNMIRiWoyO5M=;
-        b=A7gYTfEh9InrMuqY0KmRKCn9zsZyp5mYG0N/oCXTAFB+tcru1Hm4Ze36mTnuI+G+Iv
-         DrHwB0LXVh+4u/CS3nsGGb7YWSONGwBy31SemY1tOWajeD8TcInDMhDzYNyBFJj1uH5n
-         onXkw5L1kQBh5oE21aAaDkIZsJ8KLqBHxG+Ha0dcMfEgw9w+a5Lc+kc7v84LM0DxLSQG
-         gAwB0hk0tWcoGiXVcyS4kXWqVcGd5i8OWYoISM49RTBJZo5fco21IzURvuFNxOCzMa2T
-         QScwttmwOC5+e/dO6MK/tK+3I/Vu66lMaNtHfB7vDPrSjCAVjWlrm5OA9hpweS9AU8Cr
-         pryg==
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4kZ8qvn0xSGEDmN1BULNYrOl9BfWlHWgwc5Hcokigkg=;
+        b=EZdYCeKRzwTZI0V7uIlvSkGrs4qHYIezoRhReYtQLA0czf3gVL/1TNq7yKqDrl8GTn
+         oQz0Z7XBBQH/yEQMO1SGLwncbAgZKGbmAOjFD34HdUxLfAxVVglbdugT3hkL39u2KBaC
+         zXXOHY89LcKvSnZnJXUb8dDzrzFe4X7e3xR+WnsmfduMxTHD82PxDk3bNR9/eVBZSZCJ
+         9KSr/LExzaCvHBnmGNmO5FnVmhBkHRZqq/6nuGCySvf95RTgk84Zq8NxZx5p92YocoN3
+         edBU29eHd/xnGcG9xhXPifzW3E7yu6pOK5Yi9gnxeJFRaCY91DpX/jIM8sH3OWbKiQbv
+         X7yQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GJirtvpfmZs6MdvQ6r4d0enX5SIcriclNMIRiWoyO5M=;
-        b=o0IKAo4RT6bgEE5i1CAKOJuJfjWqszG2t8EVRG2t44P7pUdlaR3iobuRyB3Kuuicwq
-         jLRaAZMRvY1xFp0QiR0rRnRDUrxoE5OvgQjLagEtII6lQGcTu5nIWOLEO5WsO9+C3Pcx
-         +pMpyLNmCAYset2jtJtnaPROfZmGWTdTYg0W93lcQ92MXUjlBgjAl7aKeNLXlI2xqd4R
-         Gxdu1LxD8fIlIBLYDh79welEtBJHeNnlD+D2GEgi7pdeg6htGLNKvG3THywhkT7ev4+z
-         +Uvo9KDJAATa247jT0PJMP4uR1dpgtc27o2rLS5n2WupkVjncxGyM1x9QxjAYc7VYWz+
-         ZWWA==
-X-Gm-Message-State: ANoB5pnjGpTbkuNzgXM6hCmKU9s1sOUy8x/wX68ggVn0fFTJbWZWktxU
-	nwbeuKdkFPwNuglDIndIX/LbGQ==
-X-Google-Smtp-Source: AA0mqf5QMq87FnL4g2q+WDSYPbfjMneCKJNrX3zLUbFXZiNdWqDw4Dbx4PVhSddTA4mmPt+Ufi7y2A==
-X-Received: by 2002:a17:90b:710:b0:20a:2547:907 with SMTP id s16-20020a17090b071000b0020a25470907mr110487259pjz.37.1670526195845;
-        Thu, 08 Dec 2022 11:03:15 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id x10-20020aa7940a000000b005775c52dbc4sm4188910pfo.167.2022.12.08.11.03.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Dec 2022 11:03:15 -0800 (PST)
-Date: Thu, 08 Dec 2022 11:03:15 -0800 (PST)
-X-Google-Original-Date: Thu, 08 Dec 2022 11:03:02 PST (-0800)
-Subject: Re: [RFC PATCH v2 2/2] riscv: mm: use svinval instructions instead of sfence.vma
-In-Reply-To: <20220424090216.21887-3-mchitale@ventanamicro.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  mchitale@ventanamicro.com, atishp@atishpatra.org, anup@brainfault.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mchitale@ventanamicro.com
-Message-ID: <mhng-e412fcd3-7d5f-4c13-97d5-311b00e59b3f@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4kZ8qvn0xSGEDmN1BULNYrOl9BfWlHWgwc5Hcokigkg=;
+        b=NmnerKkikFQvr0TQ00SPXzggqazm2L1HPSQLi7mMQI71L3WGwsYO5rdUmsTlMFBun/
+         FS1LLyII+EzbBWbCGKEcYy9WCkrdYJSkIq5TufJjxunZi+sM0IW1WLqyPIWKwY3SsX98
+         sZDz0WN8sHbn7XeVJlxQSkN5sjtrxbLBTdefnOLqutQIrZlylbHNeNsNTQA9tBFQT6wZ
+         nwOuNwsvWdHYDhWQUq3hHejERDEkNFIiSmiwCAMUU4ImFlZ70MipYhDaavY5zentndPj
+         Vkl8fU/gtlxhUXeDuJKQBbp1bk0x/4f9tqzfZFVXl4tWOBLYF6LED28Wnq3MApcL1vGa
+         Jw7w==
+X-Gm-Message-State: ANoB5pl9Whk7arWFOlodvMQvGrfqsQbrnHik4yXtdv9RE2kLfO9PXrN+
+	3NjedzcBTvGtAU03PgqMKVQYu0TQxQ1Tkg==
+X-Google-Smtp-Source: AA0mqf7VJDwYeOhSUwL8eiN/HYDWJI0TjJovtybda2o797oyUV7aBV39Tw6SLnFjKIqdIxSPeuhwuLTwG1fExA==
+X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
+ (user=dmatlack job=sendgmr) by 2002:a25:dfc3:0:b0:6f3:2748:7469 with SMTP id
+ w186-20020a25dfc3000000b006f327487469mr53271438ybg.564.1670528390734; Thu, 08
+ Dec 2022 11:39:50 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:46 -0800
+In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
+Mime-Version: 1.0
+References: <20221208193857.4090582-1-dmatlack@google.com>
+X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
+Message-ID: <20221208193857.4090582-27-dmatlack@google.com>
+Subject: [RFC PATCH 26/37] KVM: Move page table cache to struct kvm_vcpu
+From: David Matlack <dmatlack@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Sean Christopherson <seanjc@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Matlack <dmatlack@google.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Nadav Amit <namit@vmware.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	"Liam R. Howlett" <Liam.Howlett@Oracle.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Yu Zhao <yuzhao@google.com>, Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>, 
+	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>, 
+	Krish Sadhukhan <krish.sadhukhan@oracle.com>, Ricardo Koller <ricarkol@google.com>, 
+	Jing Zhang <jingzhangos@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
+	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_110319_104759_5CD660EC 
-X-CRM114-Status: GOOD (  36.09  )
+X-CRM114-CacheID: sfid-20221208_113952_319937_C9FCDD8C 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,255 +98,256 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 Apr 2022 02:02:16 PDT (-0700), mchitale@ventanamicro.com wrote:
-> When svinval is supported the local_flush_tlb_page*
-> functions would prefer to use the following sequence
-> to optimize the tlb flushes instead of a simple sfence.vma:
->
-> sfence.w.inval
-> svinval.vma
->   .
->   .
-> svinval.vma
-> sfence.inval.ir
->
-> The maximum number of consecutive svinval.vma instructions
-> that can be executed in local_flush_tlb_page* functions is
-> limited to PTRS_PER_PTE. This is required to avoid soft
-> lockups and the approach is similar to that used in arm64.
->
-> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-> ---
->  arch/riscv/include/asm/tlbflush.h |  12 ++++
->  arch/riscv/kernel/setup.c         |   1 +
->  arch/riscv/mm/tlbflush.c          | 116 ++++++++++++++++++++++++++++--
->  3 files changed, 123 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index 801019381dea..b535467c99f0 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -22,6 +22,18 @@ static inline void local_flush_tlb_page(unsigned long addr)
->  {
->  	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
->  }
-> +
-> +void riscv_tlbflush_init(void);
-> +void __riscv_sfence_w_inval(void);
-> +void __riscv_sfence_inval_ir(void);
-> +void __riscv_sinval_vma(unsigned long addr);
-> +void __riscv_sinval_vma_asid(unsigned long addr, unsigned long asid);
-> +
-> +/* Check if we can use sinval for tlb flush */
-> +DECLARE_STATIC_KEY_FALSE(riscv_flush_tlb_svinval);
-> +#define riscv_use_flush_tlb_svinval() \
-> +	static_branch_unlikely(&riscv_flush_tlb_svinval)
-> +
->  #else /* CONFIG_MMU */
->  #define local_flush_tlb_all()			do { } while (0)
->  #define local_flush_tlb_page(addr)		do { } while (0)
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 834eb652a7b9..13de04259de9 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -295,6 +295,7 @@ void __init setup_arch(char **cmdline_p)
->  #endif
->
->  	riscv_fill_hwcap();
-> +	riscv_tlbflush_init();
->  }
->
->  static int __init topology_init(void)
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index 27a7db8eb2c4..800953f9121e 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -1,11 +1,14 @@
->  // SPDX-License-Identifier: GPL-2.0
->
-> +#define pr_fmt(fmt) "riscv: " fmt
->  #include <linux/mm.h>
->  #include <linux/smp.h>
->  #include <linux/sched.h>
->  #include <asm/sbi.h>
->  #include <asm/mmu_context.h>
->
-> +static unsigned long tlb_flush_all_threshold __read_mostly = PTRS_PER_PTE;
-> +
->  static inline void local_flush_tlb_all_asid(unsigned long asid)
->  {
->  	__asm__ __volatile__ ("sfence.vma x0, %0"
-> @@ -23,22 +26,110 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
->  			: "memory");
->  }
->
-> +static inline void riscv_sfence_inval_ir(void)
-> +{
-> +	/*
-> +	 * SFENCE.INVAL.IR
-> +	 * 0001100 00001 00000 000 00000 1110011
-> +	 */
-> +	asm volatile (".word 0x18100073" ::: "memory");
-> +}
-> +
-> +static inline void riscv_sfence_w_inval(void)
-> +{
-> +	/*
-> +	 * SFENCE.W.INVAL
-> +	 * 0001100 00000 00000 000 00000 1110011
-> +	 */
-> +	asm volatile (".word 0x18000073" ::: "memory");
-> +}
-> +
-> +static inline void riscv_sinval_vma_asid(unsigned long vma, unsigned long asid)
-> +{
-> +	/*
-> +	 * rs1 = a0 (VMA)
-> +	 * rs2 = a1 (asid)
-> +	 * SINVAL.VMA a0, a1
-> +	 * 0001011 01011 01010 000 00000 1110011
-> +	 */
-> +	asm volatile ("srli a0, %0, 2\n"
-> +			"add a1, %1, zero\n"
-> +			".word 0x16B50073\n"
-> +			:: "r" (vma), "r" (asid)
-> +			: "a0", "a1", "memory");
-> +}
-> +
-> +static inline void riscv_sinval_vma(unsigned long vma)
-> +{
-> +	/*
-> +	 * rs1 = a0 (VMA)
-> +	 * rs2 = 0
-> +	 * SINVAL.VMA a0
-> +	 * 0001011 00000 01010 000 00000 1110011
-> +	 */
-> +	asm volatile ("srli a0, %0, 2\n"
-> +			".word 0x16050073\n"
-> +			:: "r" (vma) : "a0", "memory");
-> +}
-> +
->  static inline void local_flush_tlb_range(unsigned long start,
->  		unsigned long size, unsigned long stride)
->  {
-> -	if (size <= stride)
-> -		local_flush_tlb_page(start);
-> -	else
-> +	if ((size / stride) <= tlb_flush_all_threshold) {
-> +		if (riscv_use_flush_tlb_svinval()) {
-> +			riscv_sfence_w_inval();
-> +			while (size) {
-> +				riscv_sinval_vma(start);
-> +				start += stride;
-> +				if (size > stride)
-> +					size -= stride;
-> +				else
-> +					size = 0;
-> +			}
-> +			riscv_sfence_inval_ir();
-> +		} else {
-> +			while (size) {
-> +				local_flush_tlb_page(start);
-> +				start += stride;
-> +				if (size > stride)
-> +					size -= stride;
-> +				else
-> +					size = 0;
-> +			}
-> +		}
-> +	} else {
->  		local_flush_tlb_all();
-> +	}
->  }
->
->  static inline void local_flush_tlb_range_asid(unsigned long start,
->  		unsigned long size, unsigned long stride, unsigned long asid)
->  {
-> -	if (size <= stride)
-> -		local_flush_tlb_page_asid(start, asid);
-> -	else
-> +	if ((size / stride) <= tlb_flush_all_threshold) {
-> +		if (riscv_use_flush_tlb_svinval()) {
-> +			riscv_sfence_w_inval();
-> +			while (size) {
-> +				riscv_sinval_vma_asid(start, asid);
-> +				start += stride;
-> +				if (size > stride)
-> +					size -= stride;
-> +				else
-> +					size = 0;
-> +			}
-> +			riscv_sfence_inval_ir();
-> +		} else {
-> +			while (size) {
-> +				local_flush_tlb_page_asid(start, asid);
-> +				start += stride;
-> +				if (size > stride)
-> +					size -= stride;
-> +				else
-> +					size = 0;
-> +			}
-> +		}
-> +	} else {
->  		local_flush_tlb_all_asid(asid);
-> +	}
+Add a kvm_mmu_memory_cache to struct kvm_vcpu for allocating pages for
+page tables, replacing existing architecture-specific page table caches.
 
-Sorry to dig up an old post, but svinval came up and I started looking 
-at this again.
+Purposely do not make management of this cache architecture-neutral
+though to reduce churn and since not all architectures configure it the
+same way (MIPS does not set __GFP_ZERO.)
 
-There's some other issues with the code, but at a higher level it's not 
-really clear this is a useful thing to do: splitting up sfence.vma makes 
-sense, but if there's no operations between the sfence.w.inval and 
-sinval.vma (or sinval.vma and sfence.inval.ir) then we're not giving the 
-HW anything else to do concurrently with the flushes and thus I don't 
-see how this would improve performance -- if anything we're just 
-emitting more instructions to do the samething, which would be bad for 
-performance.
+This eliminates a dependency of the TDP MMU on an architecture-specific
+field, which will be used in a future commit to move the TDP MMU to
+common code.
 
-So I think if we're going to use these we really need to also split up 
-the TLB flush operations, so we can give something for the HW to do 
-currently with the flushing.  That's be a pretty big change to our TLB 
-model, though: essentially we're going from two phases (write the page 
-tables, then flush) to at least three phases (write the page tables, 
-start the flush, finish the flush) or even four (if we want to insert 
-work between both sfence.w.inval->sinval.vma and 
-sinval.vma->sfence.inval.ir).
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ arch/arm64/include/asm/kvm_host.h | 3 ---
+ arch/arm64/kvm/arm.c              | 4 ++--
+ arch/arm64/kvm/mmu.c              | 2 +-
+ arch/mips/include/asm/kvm_host.h  | 3 ---
+ arch/mips/kvm/mmu.c               | 4 ++--
+ arch/riscv/include/asm/kvm_host.h | 3 ---
+ arch/riscv/kvm/mmu.c              | 2 +-
+ arch/riscv/kvm/vcpu.c             | 4 ++--
+ arch/x86/include/asm/kvm_host.h   | 1 -
+ arch/x86/kvm/mmu/mmu.c            | 8 ++++----
+ arch/x86/kvm/mmu/tdp_mmu.c        | 2 +-
+ include/linux/kvm_host.h          | 5 +++++
+ 12 files changed, 18 insertions(+), 23 deletions(-)
 
-Not sure if I'm just misunderstanding the performance characteristics, 
-though.   Maybe I'm over-thinking things and sfence.vma is heavy-weight 
-enough that implementations are flushing the pipeline for even the 
-page-based flavors and thus sfence.vma-based loops are very slow?
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 001c8abe87fc..da519d6c09a5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -473,9 +473,6 @@ struct kvm_vcpu_arch {
+ 	/* vcpu power state */
+ 	struct kvm_mp_state mp_state;
+ 
+-	/* Cache some mmu pages needed inside spinlock regions */
+-	struct kvm_mmu_memory_cache mmu_page_cache;
+-
+ 	/* Target CPU and feature flags */
+ 	int target;
+ 	DECLARE_BITMAP(features, KVM_VCPU_MAX_FEATURES);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9c5573bc4614..0e0d4c4f79a2 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -340,7 +340,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.target = -1;
+ 	bitmap_zero(vcpu->arch.features, KVM_VCPU_MAX_FEATURES);
+ 
+-	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
++	vcpu->mmu_page_table_cache.gfp_zero = __GFP_ZERO;
+ 
+ 	/*
+ 	 * Default value for the FP state, will be overloaded at load
+@@ -375,7 +375,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	if (vcpu_has_run_once(vcpu) && unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 		static_branch_dec(&userspace_irqchip_in_use);
+ 
+-	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
++	kvm_mmu_free_memory_cache(&vcpu->mmu_page_table_cache);
+ 	kvm_timer_vcpu_terminate(vcpu);
+ 	kvm_pmu_vcpu_destroy(vcpu);
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 31d7fa4c7c14..d431c5cdb26a 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1196,7 +1196,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	bool device = false;
+ 	unsigned long mmu_seq;
+ 	struct kvm *kvm = vcpu->kvm;
+-	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
++	struct kvm_mmu_memory_cache *memcache = &vcpu->mmu_page_table_cache;
+ 	struct vm_area_struct *vma;
+ 	short vma_shift;
+ 	gfn_t gfn;
+diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
+index 5cedb28e8a40..b7f276331583 100644
+--- a/arch/mips/include/asm/kvm_host.h
++++ b/arch/mips/include/asm/kvm_host.h
+@@ -344,9 +344,6 @@ struct kvm_vcpu_arch {
+ 	/* Bitmask of pending exceptions to be cleared */
+ 	unsigned long pending_exceptions_clr;
+ 
+-	/* Cache some mmu pages needed inside spinlock regions */
+-	struct kvm_mmu_memory_cache mmu_page_cache;
+-
+ 	/* vcpu's vzguestid is different on each host cpu in an smp system */
+ 	u32 vzguestid[NR_CPUS];
+ 
+diff --git a/arch/mips/kvm/mmu.c b/arch/mips/kvm/mmu.c
+index 74cd64a24d05..638f728d0bbe 100644
+--- a/arch/mips/kvm/mmu.c
++++ b/arch/mips/kvm/mmu.c
+@@ -27,7 +27,7 @@
+ 
+ void kvm_mmu_free_memory_caches(struct kvm_vcpu *vcpu)
+ {
+-	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
++	kvm_mmu_free_memory_cache(&vcpu->mmu_page_table_cache);
+ }
+ 
+ /**
+@@ -589,7 +589,7 @@ static int kvm_mips_map_page(struct kvm_vcpu *vcpu, unsigned long gpa,
+ 			     pte_t *out_entry, pte_t *out_buddy)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+-	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
++	struct kvm_mmu_memory_cache *memcache = &vcpu->mmu_page_table_cache;
+ 	gfn_t gfn = gpa >> PAGE_SHIFT;
+ 	int srcu_idx, err;
+ 	kvm_pfn_t pfn;
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index dbbf43d52623..82e5d80347cc 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -219,9 +219,6 @@ struct kvm_vcpu_arch {
+ 	/* SBI context */
+ 	struct kvm_sbi_context sbi_context;
+ 
+-	/* Cache pages needed to program page tables with spinlock held */
+-	struct kvm_mmu_memory_cache mmu_page_cache;
+-
+ 	/* VCPU power-off state */
+ 	bool power_off;
+ 
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index 3620ecac2fa1..a8281a65cb3d 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -625,7 +625,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
+ 	gfn_t gfn = gpa >> PAGE_SHIFT;
+ 	struct vm_area_struct *vma;
+ 	struct kvm *kvm = vcpu->kvm;
+-	struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
++	struct kvm_mmu_memory_cache *pcache = &vcpu->mmu_page_table_cache;
+ 	bool logging = (memslot->dirty_bitmap &&
+ 			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
+ 	unsigned long vma_pagesize, mmu_seq;
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 71ebbc4821f0..9a1001ada936 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -160,7 +160,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+ 
+ 	/* Mark this VCPU never ran */
+ 	vcpu->arch.ran_atleast_once = false;
+-	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
++	vcpu->mmu_page_table_cache.gfp_zero = __GFP_ZERO;
+ 	bitmap_zero(vcpu->arch.isa, RISCV_ISA_EXT_MAX);
+ 
+ 	/* Setup ISA features available to VCPU */
+@@ -211,7 +211,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
+ 	kvm_riscv_vcpu_timer_deinit(vcpu);
+ 
+ 	/* Free unused pages pre-allocated for G-stage page table mappings */
+-	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_cache);
++	kvm_mmu_free_memory_cache(&vcpu->mmu_page_table_cache);
+ }
+ 
+ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index 95c731028452..8cac8ec29324 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -714,7 +714,6 @@ struct kvm_vcpu_arch {
+ 	struct kvm_mmu *walk_mmu;
+ 
+ 	struct kvm_mmu_memory_cache mmu_pte_list_desc_cache;
+-	struct kvm_mmu_memory_cache mmu_shadow_page_cache;
+ 	struct kvm_mmu_memory_cache mmu_shadowed_info_cache;
+ 	struct kvm_mmu_memory_cache mmu_page_header_cache;
+ 
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index aea7df3c2dcb..a845e9141ad4 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -664,7 +664,7 @@ static int mmu_topup_memory_caches(struct kvm_vcpu *vcpu, bool maybe_indirect)
+ 				       1 + PT64_ROOT_MAX_LEVEL + PTE_PREFETCH_NUM);
+ 	if (r)
+ 		return r;
+-	r = kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_shadow_page_cache,
++	r = kvm_mmu_topup_memory_cache(&vcpu->mmu_page_table_cache,
+ 				       PT64_ROOT_MAX_LEVEL);
+ 	if (r)
+ 		return r;
+@@ -681,7 +681,7 @@ static int mmu_topup_memory_caches(struct kvm_vcpu *vcpu, bool maybe_indirect)
+ static void mmu_free_memory_caches(struct kvm_vcpu *vcpu)
+ {
+ 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_pte_list_desc_cache);
+-	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_shadow_page_cache);
++	kvm_mmu_free_memory_cache(&vcpu->mmu_page_table_cache);
+ 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_shadowed_info_cache);
+ 	kvm_mmu_free_memory_cache(&vcpu->arch.mmu_page_header_cache);
+ }
+@@ -2218,7 +2218,7 @@ static struct kvm_mmu_page *kvm_mmu_get_shadow_page(struct kvm_vcpu *vcpu,
+ {
+ 	struct shadow_page_caches caches = {
+ 		.page_header_cache = &vcpu->arch.mmu_page_header_cache,
+-		.shadow_page_cache = &vcpu->arch.mmu_shadow_page_cache,
++		.shadow_page_cache = &vcpu->mmu_page_table_cache,
+ 		.shadowed_info_cache = &vcpu->arch.mmu_shadowed_info_cache,
+ 	};
+ 
+@@ -5920,7 +5920,7 @@ int kvm_mmu_create(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.mmu_page_header_cache.kmem_cache = mmu_page_header_cache;
+ 	vcpu->arch.mmu_page_header_cache.gfp_zero = __GFP_ZERO;
+ 
+-	vcpu->arch.mmu_shadow_page_cache.gfp_zero = __GFP_ZERO;
++	vcpu->mmu_page_table_cache.gfp_zero = __GFP_ZERO;
+ 
+ 	vcpu->arch.mmu = &vcpu->arch.root_mmu;
+ 	vcpu->arch.walk_mmu = &vcpu->arch.root_mmu;
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index c5d1c9010d21..922815407b7e 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -264,7 +264,7 @@ static struct kvm_mmu_page *tdp_mmu_alloc_sp(struct kvm_vcpu *vcpu)
+ 	struct kvm_mmu_page *sp;
+ 
+ 	sp = kvm_mmu_memory_cache_alloc(&vcpu->arch.mmu_page_header_cache);
+-	sp->spt = kvm_mmu_memory_cache_alloc(&vcpu->arch.mmu_shadow_page_cache);
++	sp->spt = kvm_mmu_memory_cache_alloc(&vcpu->mmu_page_table_cache);
+ 
+ 	return sp;
+ }
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 242eaed55320..0a9baa493760 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -387,6 +387,11 @@ struct kvm_vcpu {
+ 	 */
+ 	struct kvm_memory_slot *last_used_slot;
+ 	u64 last_used_slot_gen;
++
++#ifdef KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE
++	/* Cache used to allocate pages for use as page tables. */
++	struct kvm_mmu_memory_cache mmu_page_table_cache;
++#endif
+ };
+ 
+ /*
+-- 
+2.39.0.rc1.256.g54fd8350bd-goog
 
-Do you have any benchmarks for the Svinval bits here (which are mixed in 
-with some non-global flushing, that's a different optimization that 
-needs to be split out)?
-
-
->  }
->
->  static void __ipi_flush_tlb_all(void *info)
-> @@ -149,3 +240,16 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
->  }
->  #endif
-> +
-> +DEFINE_STATIC_KEY_FALSE(riscv_flush_tlb_svinval);
-> +EXPORT_SYMBOL_GPL(riscv_flush_tlb_svinval);
-> +
-> +void riscv_tlbflush_init(void)
-> +{
-> +	if (riscv_isa_extension_available(NULL, SVINVAL)) {
-> +		pr_info("Svinval extension supported\n");
-> +		static_branch_enable(&riscv_flush_tlb_svinval);
-> +	} else {
-> +		static_branch_disable(&riscv_flush_tlb_svinval);
-> +	}
-> +}
 
 _______________________________________________
 linux-riscv mailing list
