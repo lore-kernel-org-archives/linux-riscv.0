@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE484C001B2
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBF4C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=VfxX1F0zYBlu2y2eL+/A9CYBcKhAFHiwUxJzAwRO39A=; b=qNYQpzALUrPsRDn8XmMd1xGShf
-	YQbM5TocIhh7PjnEiiVWf8KEDM4CIEpKM/rTzf7qfeHSt7+TNzJ5UFDkSDFO0VwNf5VfuQOjcZznF
-	56HNN7vCuQ7xHtl3uc54yPNJiFW3KaA4trC5vnFEjnFeY3+ff3Zz2hm5BI+NIPftuxD+CxF6hDQD3
-	yiJgYZhpubqSuNjD2KcthXcC7z/qEDyII9Fl6QNXS7v5OmnqGz5cb0JebpFaJE7emQyJXyJAmyful
-	mnzFM1F28nQBp9rz1nMu8MrW6YLmx3op27gXLctC2fkgj0wN3XnHyfnGWu8wvrZE+FIdITmUl00HM
-	ZwNnPgpw==;
+	bh=hBmwNG3eBBhbTPyRAYcU99NyxgnZEVZ3Y11oPouGJa0=; b=ukL7qZ0sAAiAWpZzbGONlglcJ0
+	s1QyY91FWsLDmefqzCZtGrynFu1dN8AicDa0RDLXs7Zpl51hS5OZBi2K6sZuQy/W3BgEcVo/62KdF
+	PhStoZtOX9GW2nTwk6d0NrJ2eDhW6+n5M+zwIROXk2LGt1TJEi+yoQzY2FP9KbagWWWfEhWmF9qdk
+	a5mnsg2HZM5e6UJiVkW6zMqx5NYOmRL+ni47qvh/HaUwMFdm5mpaESLET7SogKUaYlaxdtLQcymM4
+	/Spr5p/zBWqO7AklF798Ti2lqub0O7z/Xx4YCck2KsI2hebgqzDQ63mH0OGiyKPO1FTwT2MqNXowg
+	tOaxJsWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Nf6-00ApVD-Fs; Thu, 08 Dec 2022 20:38:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1p3NpD-00AwgF-Rf; Thu, 08 Dec 2022 20:48:59 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3NV7-00AgYd-Dy
-	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 20:28:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HLrD3t5bH+2UVRBzeB4pMLD/le/gTmNW425ksyvCqFk=; b=lmk2QjAudRlwK6zgKYVKxHoCFe
-	PuWB+pcY/E7Ije223Hh6YgO4dRQxsQ3IkME+FmWC6mrKeP3NbU+EcVkT7zO876TO2qantELQrZt3E
-	1ufid9Ea0HBeUC9fNsU374K6GQ2/7M6BqAyjQlUk3/pjYHDQhODRafiG1xK8gj7VtCx4jFo5tWmUJ
-	yiEV/ZfCVMyEUFFPAULPxIzMga0ujuAbMCZMDxVCmWukN1DloG7qTc9Qc/bzeRnBJZBq1GMWA7mA1
-	p7c9RAg8++q3TXMlBLknxazeBlbnFx0nLWi7AAllMJ/mRJr+bj6k+M4J8D91aLfKcWzy8FiF7wOPY
-	ej+rzFxw==;
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
-	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mjl-008Zlv-RO
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:21 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id k7-20020a256f07000000b006cbcc030bc8so2527084ybc.18
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:15 -0800 (PST)
+	id 1p3Mjg-009rIJ-6g
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:13 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id ot18-20020a17090b3b5200b00219c3543529so5254985pjb.1
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HLrD3t5bH+2UVRBzeB4pMLD/le/gTmNW425ksyvCqFk=;
-        b=Gz2UiZJQ4DZMvEnArLUIALIGxYLRWiZ17+uUATC7JW/9U1+U3CD+XxyUp4xTCXYyqm
-         DDneOFTbuWB1kx+t4q0UHmlcS5n+bBhngCf182KgN6PPTjRQsSMq1oAQexRSMgVG39ZD
-         WhmvaX0yvy8NFr4Zie7hieP7Qf0Cd9sbZbC0FQq7beeBSoCGOAI0ayUDbpD1ZJxACp3Y
-         RsidsgionOp80YxgC6DQ4znzyHHQNpvrHQge9fW5yLMBKr5BHx+VLpdd/WsaXsD3cms0
-         3Ph9MeTQfZs+riAoOSxWCz4/93fX3jbybIXAJwuXHBDPPpC+reEQ9lxn1c7vmVVnZgpl
-         TQhA==
+        bh=zB9oiH2BRr4yMBo3wf45SO3Nck80VorbJdVA47iblXM=;
+        b=g9cixz5ghWNJL3K+TodNMkBqI/oQhLTOr97M7M2/XpZEkjrmI3nr8w2JGkmRiCYvFp
+         oCqkxLLopMMEof8X6INg95QudTyolVDU+RZhaURZt8OAHqkW63+Kglxtq76sXMR3UwFq
+         TH0D0M7upbnITs3QBeHc4oBh6Bot1NKIQBOUihmvyAsu3jIi5z0OXboG4BlLnZQDvrbN
+         irbKiodu/sENkvb3heU4imTZch1oJk77UygEm5fQ1B7wZYOkf7/kSwfDOcxQWmBFS0gg
+         yWvbjdMM2Sl2l6GeuSkr5btl/7w76Xe8GfrXo/KlMP5jfkzzRUjzb+ofPgAfWivKb76C
+         TC7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HLrD3t5bH+2UVRBzeB4pMLD/le/gTmNW425ksyvCqFk=;
-        b=Dww0lsAZh74C9Ym0gg9ETcVVuIs5aWeB7WUptFn8sF/c2LiqCHeXmiqOjVn/9TzBne
-         V5VxLFKr197UDquf5TPD5/JpkV3goheJVUMspsDj7Fh+Qhk5NrRzEn/Qg+S//TMrLL7f
-         9mIfa0yZz3rtNS2qTsfnVLSDaLvaLoQ3rpkTf3oo5a+sofqwLRtz378t8PMDRBK+6VIP
-         l2o4JEuzfQGCxxpfwan7+pyMOl3lrw3giSaXQIeG0IiooU0dnJNkFGMQ1Hz+A8IEgVwl
-         GfPkbPd0iqy/WANWoD6sWjwBAvpbDYX1pgx85PyqBc5H5yuV3KH3j0S0w7g283ibqLpr
-         Q2FA==
-X-Gm-Message-State: ANoB5pmATrC00qur075xuq6w5e0sjtOoaQrCB+hpzprm1cUIcQOfxEO+
-	OGS2G2pK9VQ/iEGZ1N2Cz0XZTpu04De/bA==
-X-Google-Smtp-Source: AA0mqf7CjJBroe1GU5lusLDR6DJkiCylX/dWdqQ1e2UjuKyXk5ZPZTZv3qlpbJO/f2YNw2OZIgu/a4kIbkSpkQ==
+        bh=zB9oiH2BRr4yMBo3wf45SO3Nck80VorbJdVA47iblXM=;
+        b=aMgqy3JYSS3LceRQ5raimwbY8LK6WBvjpY2TjT3t3bOGeqcp/j5Re3S6e9NONJe5OR
+         FvXdMJ+fG7zlvUpVBB4cdU7iXt53y5THZD5LK9dccoxPV7Qglev/+CrLNCq/VGSsE0je
+         d1Dl4ipzqmCS9qZEZOInIUJsBzBRJel0W78/ft5dOEyFRQnau98kPRDM/XQA2qTSeoBy
+         vOdCghecs5N2YJS9TFk+uvSf/XjqLEKR7E0TBrKD2Z1fYgvzmb5avnWOU6wc1WmeSzEo
+         /zzVn8N+AZI0Jyd3HESR6Z0z/K4OiFuK/nBK2Lv25+4oFef7w5YOh2i/sVIVf1zHKkyq
+         lWsQ==
+X-Gm-Message-State: ANoB5pl1UaSwQLSFqO8+6OR/jyrG16TOLQQuEUMvovMATJliVnhZc1Iq
+	tnYq08WqDXizNip52hge2Z9Rifz2hfDgMg==
+X-Google-Smtp-Source: AA0mqf4iTqxLqkeKUJGKBK2vDw/TcOMUrCzACSliwb1y6sicvyYssf60rgU2Phn8zeoC+EETXrN69Yd24770KA==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:2184:0:b0:6ea:e952:4d4a with SMTP id
- h126-20020a252184000000b006eae9524d4amr80656342ybh.120.1670528354217; Thu, 08
- Dec 2022 11:39:14 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:24 -0800
+ (user=dmatlack job=sendgmr) by 2002:a17:90b:33c8:b0:219:94b2:2004 with SMTP
+ id lk8-20020a17090b33c800b0021994b22004mr28273120pjb.215.1670528349120; Thu,
+ 08 Dec 2022 11:39:09 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:21 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-5-dmatlack@google.com>
-Subject: [RFC PATCH 04/37] KVM: x86/mmu: Invert sp->tdp_mmu_page to sp->shadow_mmu_page
+Message-ID: <20221208193857.4090582-2-dmatlack@google.com>
+Subject: [RFC PATCH 01/37] KVM: x86/mmu: Store the address space ID directly
+ in kvm_mmu_page_role
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -99,8 +86,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_193917_966803_122EA4B5 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20221208_113912_274677_052F3416 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,82 +104,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Invert the meaning of sp->tdp_mmu_page and rename it accordingly. This
-allows the TDP MMU code to not care about this field, which will be used
-in a subsequent commit to move the TDP MMU to common code.
-
-No functional change intended.
+Rename kvm_mmu_page_role.smm with kvm_mmu_page_role.as_id and use it
+directly as the address space ID throughout the KVM MMU code. This
+eliminates a needless level of indirection, kvm_mmu_role_as_id(), and
+prepares for making kvm_mmu_page_role architecture-neutral.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/kvm/mmu/mmu.c          | 1 +
- arch/x86/kvm/mmu/mmu_internal.h | 2 +-
- arch/x86/kvm/mmu/tdp_mmu.c      | 3 ---
- arch/x86/kvm/mmu/tdp_mmu.h      | 5 ++++-
- 4 files changed, 6 insertions(+), 5 deletions(-)
+ arch/x86/include/asm/kvm_host.h |  4 ++--
+ arch/x86/kvm/mmu/mmu.c          |  6 +++---
+ arch/x86/kvm/mmu/mmu_internal.h | 10 ----------
+ arch/x86/kvm/mmu/tdp_iter.c     |  2 +-
+ arch/x86/kvm/mmu/tdp_mmu.c      | 12 ++++++------
+ 5 files changed, 12 insertions(+), 22 deletions(-)
 
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index aa4eb8cfcd7e..0a819d40131a 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -348,7 +348,7 @@ union kvm_mmu_page_role {
+ 		 * simple shift.  While there is room, give it a whole
+ 		 * byte so it is also faster to load it from memory.
+ 		 */
+-		unsigned smm:8;
++		unsigned as_id:8;
+ 	};
+ };
+ 
+@@ -2056,7 +2056,7 @@ enum {
+ # define __KVM_VCPU_MULTIPLE_ADDRESS_SPACE
+ # define KVM_ADDRESS_SPACE_NUM 2
+ # define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
+-# define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
++# define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).as_id)
+ #else
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
+ #endif
 diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 355548603960..f7668a32721d 100644
+index 4d188f056933..f375b719f565 100644
 --- a/arch/x86/kvm/mmu/mmu.c
 +++ b/arch/x86/kvm/mmu/mmu.c
-@@ -2180,6 +2180,7 @@ static struct kvm_mmu_page *kvm_mmu_alloc_shadow_page(struct kvm *kvm,
+@@ -5056,7 +5056,7 @@ kvm_calc_cpu_role(struct kvm_vcpu *vcpu, const struct kvm_mmu_role_regs *regs)
+ 	union kvm_cpu_role role = {0};
  
- 	sp->gfn = gfn;
- 	sp->role = role;
-+	sp->shadow_mmu_page = true;
- 	hlist_add_head(&sp->hash_link, sp_list);
- 	if (sp_has_gptes(sp))
- 		account_shadowed(kvm, sp);
+ 	role.base.access = ACC_ALL;
+-	role.base.smm = is_smm(vcpu);
++	role.base.as_id = is_smm(vcpu);
+ 	role.base.guest_mode = is_guest_mode(vcpu);
+ 	role.ext.valid = 1;
+ 
+@@ -5112,7 +5112,7 @@ kvm_calc_tdp_mmu_root_page_role(struct kvm_vcpu *vcpu,
+ 	role.access = ACC_ALL;
+ 	role.cr0_wp = true;
+ 	role.efer_nx = true;
+-	role.smm = cpu_role.base.smm;
++	role.as_id = cpu_role.base.as_id;
+ 	role.guest_mode = cpu_role.base.guest_mode;
+ 	role.ad_disabled = !kvm_ad_enabled();
+ 	role.level = kvm_mmu_get_tdp_level(vcpu);
+@@ -5233,7 +5233,7 @@ kvm_calc_shadow_ept_root_page_role(struct kvm_vcpu *vcpu, bool accessed_dirty,
+ 
+ 	/*
+ 	 * KVM does not support SMM transfer monitors, and consequently does not
+-	 * support the "entry to SMM" control either.  role.base.smm is always 0.
++	 * support the "entry to SMM" control either.  role.base.as_id is always 0.
+ 	 */
+ 	WARN_ON_ONCE(is_smm(vcpu));
+ 	role.base.level = level;
 diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-index e32379c5b1ad..c1a379fba24d 100644
+index ac00bfbf32f6..5427f65117b4 100644
 --- a/arch/x86/kvm/mmu/mmu_internal.h
 +++ b/arch/x86/kvm/mmu/mmu_internal.h
-@@ -52,7 +52,7 @@ struct kvm_mmu_page {
- 	struct list_head link;
- 	struct hlist_node hash_link;
+@@ -133,16 +133,6 @@ struct kvm_mmu_page {
  
--	bool tdp_mmu_page;
-+	bool shadow_mmu_page;
- 	bool unsync;
- 	u8 mmu_valid_gen;
+ extern struct kmem_cache *mmu_page_header_cache;
  
+-static inline int kvm_mmu_role_as_id(union kvm_mmu_page_role role)
+-{
+-	return role.smm ? 1 : 0;
+-}
+-
+-static inline int kvm_mmu_page_as_id(struct kvm_mmu_page *sp)
+-{
+-	return kvm_mmu_role_as_id(sp->role);
+-}
+-
+ static inline bool kvm_mmu_page_ad_need_write_protect(struct kvm_mmu_page *sp)
+ {
+ 	/*
+diff --git a/arch/x86/kvm/mmu/tdp_iter.c b/arch/x86/kvm/mmu/tdp_iter.c
+index 39b48e7d7d1a..4a7d58bf81c4 100644
+--- a/arch/x86/kvm/mmu/tdp_iter.c
++++ b/arch/x86/kvm/mmu/tdp_iter.c
+@@ -52,7 +52,7 @@ void tdp_iter_start(struct tdp_iter *iter, struct kvm_mmu_page *root,
+ 	iter->root_level = root_level;
+ 	iter->min_level = min_level;
+ 	iter->pt_path[iter->root_level - 1] = (tdp_ptep_t)root->spt;
+-	iter->as_id = kvm_mmu_page_as_id(root);
++	iter->as_id = root->role.as_id;
+ 
+ 	tdp_iter_restart(iter);
+ }
 diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 7ccac1aa8df6..fc0b87ceb1ea 100644
+index 764f7c87286f..7ccac1aa8df6 100644
 --- a/arch/x86/kvm/mmu/tdp_mmu.c
 +++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -133,8 +133,6 @@ void kvm_tdp_mmu_put_root(struct kvm *kvm, struct kvm_mmu_page *root,
- 	if (!refcount_dec_and_test(&root->tdp_mmu_root_count))
- 		return;
+@@ -237,7 +237,7 @@ static struct kvm_mmu_page *tdp_mmu_next_root(struct kvm *kvm,
+ 	     _root;								\
+ 	     _root = tdp_mmu_next_root(_kvm, _root, _shared, _only_valid))	\
+ 		if (kvm_lockdep_assert_mmu_lock_held(_kvm, _shared) &&		\
+-		    kvm_mmu_page_as_id(_root) != _as_id) {			\
++		    _root->role.as_id != _as_id) {			\
+ 		} else
  
--	WARN_ON(!is_tdp_mmu_page(root));
--
- 	/*
- 	 * The root now has refcount=0.  It is valid, but readers already
- 	 * cannot acquire a reference to it because kvm_tdp_mmu_get_root()
-@@ -279,7 +277,6 @@ static void tdp_mmu_init_sp(struct kvm_mmu_page *sp, tdp_ptep_t sptep,
- 	sp->role = role;
- 	sp->gfn = gfn;
- 	sp->ptep = sptep;
--	sp->tdp_mmu_page = true;
+ #define for_each_valid_tdp_mmu_root_yield_safe(_kvm, _root, _as_id, _shared)	\
+@@ -256,7 +256,7 @@ static struct kvm_mmu_page *tdp_mmu_next_root(struct kvm *kvm,
+ #define for_each_tdp_mmu_root(_kvm, _root, _as_id)			\
+ 	list_for_each_entry(_root, &_kvm->arch.tdp_mmu_roots, link)	\
+ 		if (kvm_lockdep_assert_mmu_lock_held(_kvm, false) &&	\
+-		    kvm_mmu_page_as_id(_root) != _as_id) {		\
++		    _root->role.as_id != _as_id) {		\
+ 		} else
  
- 	trace_kvm_mmu_get_page(sp, true);
- }
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.h b/arch/x86/kvm/mmu/tdp_mmu.h
-index 0a63b1afabd3..18d3719f14ea 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.h
-+++ b/arch/x86/kvm/mmu/tdp_mmu.h
-@@ -71,7 +71,10 @@ u64 *kvm_tdp_mmu_fast_pf_get_last_sptep(struct kvm_vcpu *vcpu, u64 addr,
- 					u64 *spte);
+ static struct kvm_mmu_page *tdp_mmu_alloc_sp(struct kvm_vcpu *vcpu)
+@@ -310,7 +310,7 @@ hpa_t kvm_tdp_mmu_get_vcpu_root_hpa(struct kvm_vcpu *vcpu)
+ 	 * Check for an existing root before allocating a new one.  Note, the
+ 	 * role check prevents consuming an invalid root.
+ 	 */
+-	for_each_tdp_mmu_root(kvm, root, kvm_mmu_role_as_id(role)) {
++	for_each_tdp_mmu_root(kvm, root, role.as_id) {
+ 		if (root->role.word == role.word &&
+ 		    kvm_tdp_mmu_get_root(root))
+ 			goto out;
+@@ -496,8 +496,8 @@ static void handle_removed_pt(struct kvm *kvm, tdp_ptep_t pt, bool shared)
+ 			old_spte = kvm_tdp_mmu_write_spte(sptep, old_spte,
+ 							  REMOVED_SPTE, level);
+ 		}
+-		handle_changed_spte(kvm, kvm_mmu_page_as_id(sp), gfn,
+-				    old_spte, REMOVED_SPTE, level, shared);
++		handle_changed_spte(kvm, sp->role.as_id, gfn, old_spte,
++				    REMOVED_SPTE, level, shared);
+ 	}
  
- #ifdef CONFIG_X86_64
--static inline bool is_tdp_mmu_page(struct kvm_mmu_page *sp) { return sp->tdp_mmu_page; }
-+static inline bool is_tdp_mmu_page(struct kvm_mmu_page *sp)
-+{
-+	return !sp->shadow_mmu_page;
-+}
- #else
- static inline bool is_tdp_mmu_page(struct kvm_mmu_page *sp) { return false; }
- #endif
+ 	call_rcu(&sp->rcu_head, tdp_mmu_free_sp_rcu_callback);
+@@ -923,7 +923,7 @@ bool kvm_tdp_mmu_zap_sp(struct kvm *kvm, struct kvm_mmu_page *sp)
+ 	if (WARN_ON_ONCE(!is_shadow_present_pte(old_spte)))
+ 		return false;
+ 
+-	__tdp_mmu_set_spte(kvm, kvm_mmu_page_as_id(sp), sp->ptep, old_spte, 0,
++	__tdp_mmu_set_spte(kvm, sp->role.as_id, sp->ptep, old_spte, 0,
+ 			   sp->gfn, sp->role.level + 1, true, true);
+ 
+ 	return true;
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
