@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E44C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381F0C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=5l19Du8hFgVXvwivoOvo0qHWBKGYI+GDrs8ts1nuyzA=; b=3GG+03Lo55ZQAmy/XEpVNYUpHP
-	8SLS2ly0/xN86tYmXtXk9GEiRfS783BE5EtbYaXbM76YBP1XGaPrXauOMVWdcN/jxtkUgvNEu09bx
-	pMC9HGhQ6/spcWvqjbtP1aJwKxxAxq3On8YQGeVhkx3Wjcrb7BDtNnOBF7X49+foMt71XUWp8oUs/
-	i2H/z+CqhIepzIsgKx8HV5zyDitxn9pwM1MQAUK2MapvXir7HM9bBaR5ZJI/WwEyfxw3szMMtCQx0
-	/9K2vtGClL9XSlJDDuejFEJB3OBhQZf4hrgajzrSm7jnOEd67GAWFlvrfBp6wQ/lPq73Mm0J2rqAa
-	I0EW97pA==;
+	bh=rlPcFb/2mqkcjpFyp2hfdtIItdJdtFTyssULb5z1s/w=; b=VsaFwerJef0uQG8xW4Zk4b4WlJ
+	rteAolyGAw08aOruyTh3Q14vnybmD1j/VPjr7LWNFdIurJUlZGU2LrgfJrAybD+G7JU02ZT1iB4Xt
+	uAHQvB1p5vEPuwrdIYz2KobEbHuum0FOYShNS/SxR34aKi13FiXosX5WvwuXFKVMKpavfvEWjn+w0
+	kMkku3cQGuO7XAs8x/cBMoFJPbr1i+g6QJcIGnKSoegYbog3Asfz79olrOphgRP6Hv5DTGrMW4gVf
+	tdmjVJA0GTTpC6bGKonOCc6sdOqsrcavCUed+iAVyugJnjq2fRd8kS1dNp2RUsutu2rE/8F4QbSWF
+	HGtAHoDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3NvP-00B1kb-1Q; Thu, 08 Dec 2022 20:55:23 +0000
+	id 1p3Nva-00B1sm-CW; Thu, 08 Dec 2022 20:55:34 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mjy-009rhD-EC
-	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 19:39:30 +0000
+	id 1p3Mjz-009rhD-4D
+	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 19:39:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=t0ynoo+Uz1ultq2qpj0iPRG1UdPG676PKtdcuskxKiY=; b=uVkHwtPb/xeFeMmWV9H4NEuzaA
-	ixhMjxDtQAfqKvhdTGvurrJHPGt9WCyPTa08mA3siOjO4a9fgx4Dd+a5GxsMMP250tEgJ9KPiskmy
-	+PGA7ALVKje/fm3OjpDx7az+uO9euw6iw2ncVmmOrrEkI5YRlPXGYRQbKHtFuIppMRuxfhVkFbAQ5
-	we1kBA12flBfMVpXgQTSmQWIjzN8C0a6FLho1RkuX1gJGIzlCPzeXRFLgDR5r3Ci6b7HEpxxCgLek
-	ghuOY7isPdpEbOVJOjAFYnh6an5Nkqs1vRXSUeRhAYrvGguqVj6eoJlP5V5ZHPUIXwNZgaE6lW63n
-	hZ2CNrQQ==;
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=; b=AfAwUJaTcXn+/0Akuff+TkVju3
+	5k9VZL4PZuQH/8ZaJikDadD8txkKqw3MogOIaSetn/Q4p9FbDdXdbMD2PmPk3UIXvYKh8qzUcuxfs
+	gYTQIFTKdEhyZD587k4URoNqw0htKaoPJKmCKnE3UjkRVumItM2NORt2I6mCDdPpmHZQWBgXI+RIA
+	G4SI7V/rko/phrRrz5sXADpkPEAGrwmT8j6ZDNoPHAH4g1Sy8LFKC/Jipxmfq5xi0XQHkLNTyDXsw
+	u1O9n012lhEe0KB594FEILlqDi9atvbcatlRvijHfufH2Ox9miKswrnwzRmOTHFTkVVgamzesXgC/
+	YLnIjNQQ==;
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mk1-007Fx9-DS
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:37 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-3d3769a8103so25002757b3.17
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:25 -0800 (PST)
+	id 1p3Mk4-007Fx5-4p
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:38 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id y6-20020a25b9c6000000b006c1c6161716so2533460ybj.8
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=t0ynoo+Uz1ultq2qpj0iPRG1UdPG676PKtdcuskxKiY=;
-        b=U/vI9QqzlbcTVC94lbC1Vrl6wBTC4LSs8DK3cgCJS7aC6iT0NxkmeEA5mouoQXsBlB
-         vRU1x2abo/B9HETsCE7T+2uriY4e0DO9aw6SG9ZXjTC7jV7baLhj28FmDQSoS1lWt/dS
-         aglK4JsVpRNMuLPnpCysVcKOhpwpbnhqhgrQ9LDiIljFUfpf7nwLbkc5FSMZSWYhnXdi
-         MJ1roetxxbRQNhMi2za2ifa3KJiSBK2dpnAPDcQ4ijs0KwT/UZusgTWxfPedLyDZasMk
-         tEtglRM3wp0uQ6g5dcpXBb+41uZKtCjOAyCLdSN4q65o/P03ZN5Xi6fo2Cv6qPFtX41I
-         0IdA==
+        bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=;
+        b=X27Fj8NMQTMpgpQSLD6fEhoU4fVXBG4FfQvE4hDE+MTeWoJhGcT5LpYCDXh1D+/w82
+         hPv1oB7AV9ecGMFLuN13hRpFiRPBuJVO9vanqpaNAxBJ4jir+35FDyU9qXPhlEpW7coO
+         /8u9arxvokXqrqKeLqz9h601trg+4wcye67rx9tVyN1axVtupBSnJ7E5BSc5oEBXMlHO
+         KSROKMtQE8+C88/p6gUIBi3yv6webYqOh7OUiLmP0ZCWyP2DF2whWsSz/1NabrWwZBVJ
+         X38Wy5/22Z5LwdqIzNX3mhOM6a0liS8P2HZHtMcipS0tuORgcla3kymZxvCrrppA0ZTX
+         8LTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t0ynoo+Uz1ultq2qpj0iPRG1UdPG676PKtdcuskxKiY=;
-        b=UwNIuZjSXvPP/kvYfLSLAQ8qdry/yzU271JPWXULKuPgYeM3v8iDBlVlFf+lXGI0C2
-         vPcOkZPPwOTDNoEIT7T65WvfZk9d4artLhUpzmHQZW6pXRBA9uMxhJSk2hJXQbDTTAzx
-         nWDPEA+jaJY8oaK35uKd0XhL7mo7V0hORNF9qPVA+LlbiNALTQ995Dd4TzOv6mvxeTUI
-         Ko+reWNThakDYia5j1NQ+ANisQTWhMI7pvzSZcVVqGJ9/lwH9NhcRq3RLCXj919O779s
-         plcZT2dVJ9kKLT2MMqf3DvSHC5J4VcUVOhlge8uyFODK139uSMjPW4NvERVmmGCx3DoJ
-         U6jA==
-X-Gm-Message-State: ANoB5pluIpfTjwlaGwiif8N7G2y2moiLdIV2gM6RUQVxcaKwvG3xP8HN
-	K0Yv3IywBOKo2ScG8v/6FN1JuDwsgstO8Q==
-X-Google-Smtp-Source: AA0mqf6OihMD/jRMNDsQCgTO9v71+W6lhbU6PuqI9O7PgDgRQqnZbXFvZf6gCEBh5Edo3Jt/baNcknprN6F5eA==
+        bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=;
+        b=GLiPF3ML3yaeaYcb7P0YZMCTHC1p8Fent6PqsumiURu0IN1aHZT4KQp+aFDXgmieKO
+         wVkDN2+eBYCBbv+EOTzLNAtvf7PK+ECW1e4BFExam27fzdQYBuBeoQf2PNrd2ng5VfH6
+         4t6Ff/kgivgGOV4+Lg7XHG0D/edJ470a/QX0vU6el1FEvb05E9u1+S3cB2eKzbndfiXy
+         cOdCYlhTI8tXpngmH40v+Xx5KDp4M1iEdw5Zeq/HeyjA3XPydAc7AxX2LO6rMj3PUTnI
+         Dcp2LBHsjioLz/xSpUySTpzu8Kr9QZtc+ozbuATpDSqk8lh+Qy/4zhXvwjz66zqTzY/V
+         8mzg==
+X-Gm-Message-State: ANoB5plUmd0boHkDb0zEhK3un7bKDUX42qlpl1xALHpVCnx6BUSi5YWg
+	QXJKFrEqAz8bxufAQ0R36cryDBy7sf8czA==
+X-Google-Smtp-Source: AA0mqf6nQ3bCSMPTn17mxc4GCVurLewt/EOjnyHvTIs/ImZGe4frb7eZXMD/Hm3cZq91ON4VNM6eRlaJXvRssg==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a05:690c:f85:b0:408:babe:aa8c with SMTP
- id df5-20020a05690c0f8500b00408babeaa8cmr23477ywb.181.1670528363671; Thu, 08
- Dec 2022 11:39:23 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:30 -0800
+ (user=dmatlack job=sendgmr) by 2002:a25:d807:0:b0:6f4:1c40:273a with SMTP id
+ p7-20020a25d807000000b006f41c40273amr52016342ybg.622.1670528361862; Thu, 08
+ Dec 2022 11:39:21 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:29 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-11-dmatlack@google.com>
-Subject: [RFC PATCH 10/37] KVM: MMU: Move struct kvm_page_fault to common code
+Message-ID: <20221208193857.4090582-10-dmatlack@google.com>
+Subject: [RFC PATCH 09/37] KVM: Move page size stats into common code
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -99,8 +99,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_193933_498303_A2ADC1B5 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20221208_193936_235017_CF21AFC8 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,407 +117,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move struct kvm_page_fault to common code. This will be used in a future
-commit to move the TDP MMU to common code.
+Move the page size stats into common code. This will be used in a future
+commit to move the TDP MMU, which populates these stats, into common
+code. Architectures can also start populating these stats if they wish,
+and export different stats depending on the page size.
 
-No functional change intended.
+Continue to only expose these stats on x86, since that's currently the
+only architecture that populates them.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/include/asm/kvm/mmu_types.h | 20 +++++++
- arch/x86/kvm/mmu/mmu.c               | 19 +++----
- arch/x86/kvm/mmu/mmu_internal.h      | 79 ++++++----------------------
- arch/x86/kvm/mmu/mmutrace.h          |  2 +-
- arch/x86/kvm/mmu/paging_tmpl.h       | 14 ++---
- arch/x86/kvm/mmu/tdp_mmu.c           |  6 +--
- include/kvm/mmu_types.h              | 44 ++++++++++++++++
- 7 files changed, 100 insertions(+), 84 deletions(-)
+ arch/x86/include/asm/kvm_host.h | 8 --------
+ arch/x86/kvm/mmu.h              | 5 -----
+ arch/x86/kvm/x86.c              | 6 +++---
+ include/linux/kvm_host.h        | 5 +++++
+ include/linux/kvm_types.h       | 9 +++++++++
+ 5 files changed, 17 insertions(+), 16 deletions(-)
 
-diff --git a/arch/x86/include/asm/kvm/mmu_types.h b/arch/x86/include/asm/kvm/mmu_types.h
-index affcb520b482..59d1be85f4b7 100644
---- a/arch/x86/include/asm/kvm/mmu_types.h
-+++ b/arch/x86/include/asm/kvm/mmu_types.h
-@@ -5,6 +5,7 @@
- #include <linux/bitmap.h>
- #include <linux/list.h>
- #include <linux/types.h>
-+#include <linux/kvm_types.h>
- 
- /*
-  * This is a subset of the overall kvm_cpu_role to minimize the size of
-@@ -115,4 +116,23 @@ struct kvm_mmu_page_arch {
- 	atomic_t write_flooding_count;
- };
- 
-+struct kvm_page_fault_arch {
-+	const u32 error_code;
-+
-+	/* x86-specific error code bits */
-+	const bool present;
-+	const bool rsvd;
-+	const bool user;
-+
-+	/* Derived from mmu and global state.  */
-+	const bool is_tdp;
-+	const bool nx_huge_page_workaround_enabled;
-+
-+	/*
-+	 * Whether a >4KB mapping can be created or is forbidden due to NX
-+	 * hugepages.
-+	 */
-+	bool huge_page_disallowed;
-+};
-+
- #endif /* !__ASM_KVM_MMU_TYPES_H */
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index e47f35878ab5..0593d4a60139 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -3092,7 +3092,8 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	struct kvm_memory_slot *slot = fault->slot;
- 	kvm_pfn_t mask;
- 
--	fault->huge_page_disallowed = fault->exec && fault->nx_huge_page_workaround_enabled;
-+	fault->arch.huge_page_disallowed =
-+		fault->exec && fault->arch.nx_huge_page_workaround_enabled;
- 
- 	if (unlikely(fault->max_level == PG_LEVEL_4K))
- 		return;
-@@ -3109,7 +3110,7 @@ void kvm_mmu_hugepage_adjust(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	 */
- 	fault->req_level = kvm_mmu_max_mapping_level(vcpu->kvm, slot,
- 						     fault->gfn, fault->max_level);
--	if (fault->req_level == PG_LEVEL_4K || fault->huge_page_disallowed)
-+	if (fault->req_level == PG_LEVEL_4K || fault->arch.huge_page_disallowed)
- 		return;
- 
- 	/*
-@@ -3158,7 +3159,7 @@ static int direct_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		 * We cannot overwrite existing page tables with an NX
- 		 * large page, as the leaf could be executable.
- 		 */
--		if (fault->nx_huge_page_workaround_enabled)
-+		if (fault->arch.nx_huge_page_workaround_enabled)
- 			disallowed_hugepage_adjust(fault, *it.sptep, it.level);
- 
- 		base_gfn = fault->gfn & ~(KVM_PAGES_PER_HPAGE(it.level) - 1);
-@@ -3170,7 +3171,7 @@ static int direct_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 			continue;
- 
- 		link_shadow_page(vcpu, it.sptep, sp);
--		if (fault->huge_page_disallowed)
-+		if (fault->arch.huge_page_disallowed)
- 			account_nx_huge_page(vcpu->kvm, sp,
- 					     fault->req_level >= it.level);
- 	}
-@@ -3221,7 +3222,7 @@ static int kvm_handle_noslot_fault(struct kvm_vcpu *vcpu,
- 				   struct kvm_page_fault *fault,
- 				   unsigned int access)
- {
--	gva_t gva = fault->is_tdp ? 0 : fault->addr;
-+	gva_t gva = fault->arch.is_tdp ? 0 : fault->addr;
- 
- 	vcpu_cache_mmio_info(vcpu, gva, fault->gfn,
- 			     access & shadow_mmio_access_mask);
-@@ -3255,7 +3256,7 @@ static bool page_fault_can_be_fast(struct kvm_page_fault *fault)
- 	 * generation number.  Refreshing the MMIO generation needs to go down
- 	 * the slow path.  Note, EPT Misconfigs do NOT set the PRESENT flag!
- 	 */
--	if (fault->rsvd)
-+	if (fault->arch.rsvd)
- 		return false;
- 
- 	/*
-@@ -3273,7 +3274,7 @@ static bool page_fault_can_be_fast(struct kvm_page_fault *fault)
- 	 *    SPTE is MMU-writable (determined later), the fault can be fixed
- 	 *    by setting the Writable bit, which can be done out of mmu_lock.
- 	 */
--	if (!fault->present)
-+	if (!fault->arch.present)
- 		return !kvm_ad_enabled();
- 
- 	/*
-@@ -4119,10 +4120,10 @@ static int handle_mmio_page_fault(struct kvm_vcpu *vcpu, u64 addr, bool direct)
- static bool page_fault_handle_page_track(struct kvm_vcpu *vcpu,
- 					 struct kvm_page_fault *fault)
- {
--	if (unlikely(fault->rsvd))
-+	if (unlikely(fault->arch.rsvd))
- 		return false;
- 
--	if (!fault->present || !fault->write)
-+	if (!fault->arch.present || !fault->write)
- 		return false;
- 
- 	/*
-diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
-index af2ae4887e35..4abb80a3bd01 100644
---- a/arch/x86/kvm/mmu/mmu_internal.h
-+++ b/arch/x86/kvm/mmu/mmu_internal.h
-@@ -77,60 +77,6 @@ static inline bool is_nx_huge_page_enabled(struct kvm *kvm)
- 	return READ_ONCE(nx_huge_pages) && !kvm->arch.disable_nx_huge_pages;
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index f5743a652e10..9cf8f956bac3 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -1363,14 +1363,6 @@ struct kvm_vm_stat {
+ 	u64 mmu_recycled;
+ 	u64 mmu_cache_miss;
+ 	u64 mmu_unsync;
+-	union {
+-		struct {
+-			atomic64_t pages_4k;
+-			atomic64_t pages_2m;
+-			atomic64_t pages_1g;
+-		};
+-		atomic64_t pages[KVM_NR_PAGE_SIZES];
+-	};
+ 	u64 nx_lpage_splits;
+ 	u64 max_mmu_page_hash_collisions;
+ 	u64 max_mmu_rmap_size;
+diff --git a/arch/x86/kvm/mmu.h b/arch/x86/kvm/mmu.h
+index 168c46fd8dd1..ec662108d2eb 100644
+--- a/arch/x86/kvm/mmu.h
++++ b/arch/x86/kvm/mmu.h
+@@ -261,11 +261,6 @@ kvm_mmu_slot_lpages(struct kvm_memory_slot *slot, int level)
+ 	return __kvm_mmu_slot_lpages(slot, slot->npages, level);
  }
  
--struct kvm_page_fault {
--	/* arguments to kvm_mmu_do_page_fault.  */
--	const gpa_t addr;
--	const u32 error_code;
--	const bool prefetch;
+-static inline void kvm_update_page_stats(struct kvm *kvm, int level, int count)
+-{
+-	atomic64_add(count, &kvm->stat.pages[level - 1]);
+-}
 -
--	/* Derived from error_code.  */
--	const bool exec;
--	const bool write;
--	const bool present;
--	const bool rsvd;
--	const bool user;
--
--	/* Derived from mmu and global state.  */
--	const bool is_tdp;
--	const bool nx_huge_page_workaround_enabled;
--
--	/*
--	 * Whether a >4KB mapping can be created or is forbidden due to NX
--	 * hugepages.
--	 */
--	bool huge_page_disallowed;
--
--	/*
--	 * Maximum page size that can be created for this fault; input to
--	 * FNAME(fetch), direct_map() and kvm_tdp_mmu_map().
--	 */
--	u8 max_level;
--
--	/*
--	 * Page size that can be created based on the max_level and the
--	 * page size used by the host mapping.
--	 */
--	u8 req_level;
--
--	/*
--	 * Page size that will be created based on the req_level and
--	 * huge_page_disallowed.
--	 */
--	u8 goal_level;
--
--	/* Shifted addr, or result of guest page table walk if addr is a gva.  */
--	gfn_t gfn;
--
--	/* The memslot containing gfn. May be NULL. */
--	struct kvm_memory_slot *slot;
--
--	/* Outputs of kvm_faultin_pfn.  */
--	unsigned long mmu_seq;
--	kvm_pfn_t pfn;
--	hva_t hva;
--	bool map_writable;
--};
--
- int kvm_tdp_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault);
+ gpa_t translate_nested_gpa(struct kvm_vcpu *vcpu, gpa_t gpa, u64 access,
+ 			   struct x86_exception *exception);
  
- /*
-@@ -164,22 +110,27 @@ enum {
- static inline int kvm_mmu_do_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
- 					u32 err, bool prefetch)
- {
-+	bool is_tdp = likely(vcpu->arch.mmu->page_fault == kvm_tdp_page_fault);
- 	struct kvm_page_fault fault = {
- 		.addr = cr2_or_gpa,
--		.error_code = err,
--		.exec = err & PFERR_FETCH_MASK,
--		.write = err & PFERR_WRITE_MASK,
--		.present = err & PFERR_PRESENT_MASK,
--		.rsvd = err & PFERR_RSVD_MASK,
--		.user = err & PFERR_USER_MASK,
- 		.prefetch = prefetch,
--		.is_tdp = likely(vcpu->arch.mmu->page_fault == kvm_tdp_page_fault),
--		.nx_huge_page_workaround_enabled =
--			is_nx_huge_page_enabled(vcpu->kvm),
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 2bfe060768fc..517c8ed33542 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -231,6 +231,9 @@ EXPORT_SYMBOL_GPL(host_xss);
+ 
+ const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	KVM_GENERIC_VM_STATS(),
++	STATS_DESC_ICOUNTER(VM_GENERIC, pages_4k),
++	STATS_DESC_ICOUNTER(VM_GENERIC, pages_2m),
++	STATS_DESC_ICOUNTER(VM_GENERIC, pages_1g),
+ 	STATS_DESC_COUNTER(VM, mmu_shadow_zapped),
+ 	STATS_DESC_COUNTER(VM, mmu_pte_write),
+ 	STATS_DESC_COUNTER(VM, mmu_pde_zapped),
+@@ -238,9 +241,6 @@ const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
+ 	STATS_DESC_COUNTER(VM, mmu_recycled),
+ 	STATS_DESC_COUNTER(VM, mmu_cache_miss),
+ 	STATS_DESC_ICOUNTER(VM, mmu_unsync),
+-	STATS_DESC_ICOUNTER(VM, pages_4k),
+-	STATS_DESC_ICOUNTER(VM, pages_2m),
+-	STATS_DESC_ICOUNTER(VM, pages_1g),
+ 	STATS_DESC_ICOUNTER(VM, nx_lpage_splits),
+ 	STATS_DESC_PCOUNTER(VM, max_mmu_rmap_size),
+ 	STATS_DESC_PCOUNTER(VM, max_mmu_page_hash_collisions)
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index f16c4689322b..22ecb7ce4d31 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -2280,4 +2280,9 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
+ /* Max number of entries allowed for each kvm dirty ring */
+ #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
+ 
++static inline void kvm_update_page_stats(struct kvm *kvm, int level, int count)
++{
++	atomic64_add(count, &kvm->stat.generic.pages[level - 1]);
++}
 +
-+		.write = err & PFERR_WRITE_MASK,
-+		.exec = err & PFERR_FETCH_MASK,
+ #endif
+diff --git a/include/linux/kvm_types.h b/include/linux/kvm_types.h
+index 76de36e56cdf..59cf958d69df 100644
+--- a/include/linux/kvm_types.h
++++ b/include/linux/kvm_types.h
+@@ -20,6 +20,7 @@ enum kvm_mr_change;
  
- 		.max_level = KVM_MAX_HUGEPAGE_LEVEL,
- 		.req_level = PG_LEVEL_4K,
- 		.goal_level = PG_LEVEL_4K,
-+
-+		.arch = {
-+			.error_code = err,
-+			.present = err & PFERR_PRESENT_MASK,
-+			.rsvd = err & PFERR_RSVD_MASK,
-+			.user = err & PFERR_USER_MASK,
-+			.is_tdp = is_tdp,
-+			.nx_huge_page_workaround_enabled =
-+				is_nx_huge_page_enabled(vcpu->kvm),
-+		},
- 	};
- 	int r;
+ #include <linux/bits.h>
+ #include <linux/mutex.h>
++#include <linux/pgtable.h>
+ #include <linux/types.h>
+ #include <linux/spinlock_types.h>
  
-@@ -196,7 +147,7 @@ static inline int kvm_mmu_do_page_fault(struct kvm_vcpu *vcpu, gpa_t cr2_or_gpa,
- 	if (!prefetch)
- 		vcpu->stat.pf_taken++;
- 
--	if (IS_ENABLED(CONFIG_RETPOLINE) && fault.is_tdp)
-+	if (IS_ENABLED(CONFIG_RETPOLINE) && fault.arch.is_tdp)
- 		r = kvm_tdp_page_fault(vcpu, &fault);
- 	else
- 		r = vcpu->arch.mmu->page_fault(vcpu, &fault);
-diff --git a/arch/x86/kvm/mmu/mmutrace.h b/arch/x86/kvm/mmu/mmutrace.h
-index 335f26dabdf3..b01767acf073 100644
---- a/arch/x86/kvm/mmu/mmutrace.h
-+++ b/arch/x86/kvm/mmu/mmutrace.h
-@@ -270,7 +270,7 @@ TRACE_EVENT(
- 	TP_fast_assign(
- 		__entry->vcpu_id = vcpu->vcpu_id;
- 		__entry->cr2_or_gpa = fault->addr;
--		__entry->error_code = fault->error_code;
-+		__entry->error_code = fault->arch.error_code;
- 		__entry->sptep = sptep;
- 		__entry->old_spte = old_spte;
- 		__entry->new_spte = *sptep;
-diff --git a/arch/x86/kvm/mmu/paging_tmpl.h b/arch/x86/kvm/mmu/paging_tmpl.h
-index 18bb92b70a01..daf9c7731edc 100644
---- a/arch/x86/kvm/mmu/paging_tmpl.h
-+++ b/arch/x86/kvm/mmu/paging_tmpl.h
-@@ -698,7 +698,7 @@ static int FNAME(fetch)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault,
- 		 * We cannot overwrite existing page tables with an NX
- 		 * large page, as the leaf could be executable.
- 		 */
--		if (fault->nx_huge_page_workaround_enabled)
-+		if (fault->arch.nx_huge_page_workaround_enabled)
- 			disallowed_hugepage_adjust(fault, *it.sptep, it.level);
- 
- 		base_gfn = fault->gfn & ~(KVM_PAGES_PER_HPAGE(it.level) - 1);
-@@ -713,7 +713,7 @@ static int FNAME(fetch)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault,
- 			continue;
- 
- 		link_shadow_page(vcpu, it.sptep, sp);
--		if (fault->huge_page_disallowed)
-+		if (fault->arch.huge_page_disallowed)
- 			account_nx_huge_page(vcpu->kvm, sp,
- 					     fault->req_level >= it.level);
- 	}
-@@ -793,8 +793,8 @@ static int FNAME(page_fault)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	int r;
- 	bool is_self_change_mapping;
- 
--	pgprintk("%s: addr %lx err %x\n", __func__, fault->addr, fault->error_code);
--	WARN_ON_ONCE(fault->is_tdp);
-+	pgprintk("%s: addr %lx err %x\n", __func__, fault->addr, fault->arch.error_code);
-+	WARN_ON_ONCE(fault->arch.is_tdp);
- 
- 	/*
- 	 * Look up the guest pte for the faulting address.
-@@ -802,7 +802,7 @@ static int FNAME(page_fault)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	 * The bit needs to be cleared before walking guest page tables.
- 	 */
- 	r = FNAME(walk_addr)(&walker, vcpu, fault->addr,
--			     fault->error_code & ~PFERR_RSVD_MASK);
-+			     fault->arch.error_code & ~PFERR_RSVD_MASK);
- 
- 	/*
- 	 * The page is not mapped by the guest.  Let the guest handle it.
-@@ -830,7 +830,7 @@ static int FNAME(page_fault)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	vcpu->arch.write_fault_to_shadow_pgtable = false;
- 
- 	is_self_change_mapping = FNAME(is_self_change_mapping)(vcpu,
--	      &walker, fault->user, &vcpu->arch.write_fault_to_shadow_pgtable);
-+	      &walker, fault->arch.user, &vcpu->arch.write_fault_to_shadow_pgtable);
- 
- 	if (is_self_change_mapping)
- 		fault->max_level = PG_LEVEL_4K;
-@@ -846,7 +846,7 @@ static int FNAME(page_fault)(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
- 	 * we will cache the incorrect access into mmio spte.
- 	 */
- 	if (fault->write && !(walker.pte_access & ACC_WRITE_MASK) &&
--	    !is_cr0_wp(vcpu->arch.mmu) && !fault->user && fault->slot) {
-+	    !is_cr0_wp(vcpu->arch.mmu) && !fault->arch.user && fault->slot) {
- 		walker.pte_access |= ACC_WRITE_MASK;
- 		walker.pte_access &= ~ACC_USER_MASK;
- 
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 66231c7ed31e..4940413d3767 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -1156,7 +1156,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 	tdp_mmu_for_each_pte(iter, mmu, fault->gfn, fault->gfn + 1) {
- 		int r;
- 
--		if (fault->nx_huge_page_workaround_enabled)
-+		if (fault->arch.nx_huge_page_workaround_enabled)
- 			disallowed_hugepage_adjust(fault, iter.old_spte, iter.level);
- 
- 		if (iter.level == fault->goal_level)
-@@ -1181,7 +1181,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 		sp = tdp_mmu_alloc_sp(vcpu);
- 		tdp_mmu_init_child_sp(sp, &iter);
- 
--		sp->arch.nx_huge_page_disallowed = fault->huge_page_disallowed;
-+		sp->arch.nx_huge_page_disallowed = fault->arch.huge_page_disallowed;
- 
- 		if (is_shadow_present_pte(iter.old_spte))
- 			r = tdp_mmu_split_huge_page(kvm, &iter, sp, true);
-@@ -1197,7 +1197,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 			goto retry;
- 		}
- 
--		if (fault->huge_page_disallowed &&
-+		if (fault->arch.huge_page_disallowed &&
- 		    fault->req_level >= iter.level) {
- 			spin_lock(&kvm->arch.tdp_mmu_pages_lock);
- 			track_possible_nx_huge_page(kvm, sp);
-diff --git a/include/kvm/mmu_types.h b/include/kvm/mmu_types.h
-index a9da33d4baa8..9f0ca920bf68 100644
---- a/include/kvm/mmu_types.h
-+++ b/include/kvm/mmu_types.h
-@@ -66,4 +66,48 @@ struct kvm_mmu_page {
- 	struct kvm_mmu_page_arch arch;
+@@ -105,6 +106,14 @@ struct kvm_mmu_memory_cache {
+ struct kvm_vm_stat_generic {
+ 	u64 remote_tlb_flush;
+ 	u64 remote_tlb_flush_requests;
++	union {
++		struct {
++			atomic64_t pages_4k;
++			atomic64_t pages_2m;
++			atomic64_t pages_1g;
++		};
++		atomic64_t pages[PG_LEVEL_NUM - 1];
++	};
  };
  
-+struct kvm_page_fault {
-+	/* The raw faulting address. */
-+	const gpa_t addr;
-+
-+	/* Whether the fault was synthesized to prefetch a mapping. */
-+	const bool prefetch;
-+
-+	/* Information about the cause of the fault. */
-+	const bool write;
-+	const bool exec;
-+
-+	/* Shifted addr, or result of guest page table walk if shadow paging. */
-+	gfn_t gfn;
-+
-+	/* The memslot that contains @gfn. May be NULL. */
-+	struct kvm_memory_slot *slot;
-+
-+	/* Maximum page size that can be created for this fault. */
-+	u8 max_level;
-+
-+	/*
-+	 * Page size that can be created based on the max_level and the page
-+	 * size used by the host mapping.
-+	 */
-+	u8 req_level;
-+
-+	/* Final page size that will be created. */
-+	u8 goal_level;
-+
-+	/*
-+	 * The value of kvm->mmu_invalidate_seq before fetching the host
-+	 * mapping. Used to verify that the host mapping has not changed
-+	 * after grabbing the MMU lock.
-+	 */
-+	unsigned long mmu_seq;
-+
-+	/* Information about the host mapping. */
-+	kvm_pfn_t pfn;
-+	hva_t hva;
-+	bool map_writable;
-+
-+	struct kvm_page_fault_arch arch;
-+};
-+
- #endif /* !__KVM_MMU_TYPES_H */
+ struct kvm_vcpu_stat_generic {
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
