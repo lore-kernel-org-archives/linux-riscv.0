@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9D2C3A5A7
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 08:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764BFC3A5A7
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 08:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T7wVW9HT0KZUwIrbph5f4VSE4a3qg+NrlNRzMJBqPP8=; b=XJIC524bGq2vyy
-	ExkYhVpLVqTgz5a48aV+HXd5tGmi2Cj/BzUkqAC1HgTSpPCbFgFoFe7xYlwYuh3muNQc/ONrk3+RK
-	k1SV22O3bL/PC/F0BS2de7L6iinF9yb32fK8zWlqHr5aGwsdHxiwD1jU58RF+Gu5YH0scBW9bmHpH
-	F59rweNAcahEnGSXY5I468sAgk3NrFzxj8CUIuckisql1cWgzYLXOeZJhgVQn6zHPr2+cKHsdopx9
-	FizIKv01w07QbjYAD7NODh7kolX6C0vzSGB6iZ9YrweT9dZsBkEklbRM13Q3jDvoYKiYDw+WkZMeE
-	pdHRoXR8wwDQRLCf4r9A==;
+	List-Owner; bh=7vS5T9HRPneiBHUCUTCZT+naRHOEirfAwXjby/0Pqvo=; b=FruhGW9KDkm62W
+	wxHZWF/elE/UodOO6Xd0r27JM04jaVA77kxLI+RoLEztJ8vWUtqHvNGZVQRXFa0R2VfDg+Ybs0+Mn
+	MJU51x8EqsXpdlKAlTj8sz1HQoxLRfdZVy+F5dcyIXHcKbBcswQFRI60g+FZMoi+W36LZcfgkJCJn
+	v4EXDQwTKHqGoq5asDV77RdZ5AP20ga7Y/zrqRHUsG3H0FPYa+njkVPNf1mn2T4Dysq2FWXbdzVJw
+	M0Wpn5SKddfltIcZICYdABa1d5pLFRFsdIdKbFB4SHxmmWvecvQ5KR9BZYkdBIF2VUz3GEer7sFZj
+	RpMYVrbEQU9vVaslEyfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3CQM-00A60G-7R; Thu, 08 Dec 2022 08:38:34 +0000
+	id 1p3CYp-00AInv-Gr; Thu, 08 Dec 2022 08:47:19 +0000
 Received: from fd01.gateway.ufhost.com ([61.152.239.71])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3CQI-00A5VQ-HN
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 08:38:32 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	id 1p3CWM-00AFPq-VS
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 08:44:50 +0000
+Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id ED42C24DEBC;
-	Thu,  8 Dec 2022 16:38:06 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
- 2022 16:38:07 +0800
+	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 27C2824DFD7;
+	Thu,  8 Dec 2022 16:44:23 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
+ (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
+ 2022 16:44:23 +0800
 Received: from [192.168.120.55] (171.223.208.138) by EXMBX068.cuchost.com
  (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
- 2022 16:38:05 +0800
-Message-ID: <39916671-8ab1-4f39-1d9b-a66ebedfc772@starfivetech.com>
-Date: Thu, 8 Dec 2022 16:38:05 +0800
+ 2022 16:44:22 +0800
+Message-ID: <b0dfc269-e06e-4f4d-7695-55c8522d6137@starfivetech.com>
+Date: Thu, 8 Dec 2022 16:44:21 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.1
 Subject: Re: [PATCH v1 1/3] dt-bindings: mmc: Add bindings for StarFive
 Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, <linux-mmc@vger.kernel.org>, Rob Herring
-	<robh+dt@kernel.org>, <linux-riscv@lists.infradead.org>, Jaehoon Chung
-	<jh80.chung@samsung.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	<devicetree@vger.kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>
+CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, <linux-kernel@vger.kernel.org>
 References: <20221207131731.1291517-1-william.qiu@starfivetech.com>
  <20221207131731.1291517-2-william.qiu@starfivetech.com>
- <167042222472.2111911.2050446708831690640.robh@kernel.org>
- <Y5CnQlYTZJrJNjCf@spud>
+ <d7ecbbbf-5d6b-3254-b645-dbea369447ae@linaro.org>
 From: William Qiu <william.qiu@starfivetech.com>
-In-Reply-To: <Y5CnQlYTZJrJNjCf@spud>
+In-Reply-To: <d7ecbbbf-5d6b-3254-b645-dbea369447ae@linaro.org>
 X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
+X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX068.cuchost.com
  (172.16.6.68)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_003830_888897_487F185A 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20221208_004447_358228_A4734728 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +79,132 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2022/12/7 22:46, Conor Dooley wrote:
-> On Wed, Dec 07, 2022 at 08:19:49AM -0600, Rob Herring wrote:
+On 2022/12/7 23:13, Krzysztof Kozlowski wrote:
+> On 07/12/2022 14:17, William Qiu wrote:
+>> Add documentation to describe StarFive
+>> designware mobile storage host controller driver.
 >> 
->> On Wed, 07 Dec 2022 21:17:29 +0800, William Qiu wrote:
->> > Add documentation to describe StarFive
->> > designware mobile storage host controller driver.
->> > 
->> > Signed-off-by: William Qiu <william.qiu@starfivetech.com>
->> > ---
->> >  .../bindings/mmc/starfive,jh7110-sdio.yaml    | 71 +++++++++++++++++++
->> >  1 file changed, 71 insertions(+)
->> >  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
->> > 
+>> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
+>> ---
+>>  .../bindings/mmc/starfive,jh7110-sdio.yaml    | 71 +++++++++++++++++++
+>>  1 file changed, 71 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
 >> 
->> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
->> on your patch (DT_CHECKER_FLAGS is new in v5.13):
->> 
->> yamllint warnings/errors:
->> 
->> dtschema/dtc warnings/errors:
->> Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.example.dts:21:18: fatal error: dt-bindings/clock/starfive-jh7110.h: No such file or directory
->>    21 |         #include <dt-bindings/clock/starfive-jh7110.h>
->>       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> diff --git a/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml b/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
+>> new file mode 100644
+>> index 000000000000..4f27ef3cf4f3
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.yaml
+>> @@ -0,0 +1,71 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/mmc/starfive,jh7110-sdio.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: StarFive Designware Mobile Storage Host Controller
+>> +
+>> +description:
+>> +  StarFive uses the Synopsys designware mobile storage host controller
+>> +  to interface a SoC with storage medium such as eMMC or SD/MMC cards.
+>> +
+>> +allOf:
+>> +  - $ref: "synopsys-dw-mshc-common.yaml#"
 > 
-> Hello William,
-> As with the other bindings that StarFive has sent out recently,
-> including this header in the example creates a dependency on the
-> clock/reset stuff being merged prior to the drivers for unrelated
-> subsytems.
-> To avoid that, you can drop the headers & definitions from these
-> *examples* & use the numbers themselves instead.
+> Drop quotes
 > 
-> That way, the only thing that depends on the clock binding headers is
-> the DeviceTree patch & the driver can be merged once it is ready.
-> 
-> Thanks,
-> Conor.
-> 
-Hi Conor,
 
-Thank you for your suggestion. I will take it and fix it.
+Will fix.
+
+>> +
+>> +maintainers:
+>> +  - William Qiu <william.qiu@starfivetech.com>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: starfive,jh7110-sdio
+> 
+> Why do you call it sdio if the interface is for mmc as well?
+> 
+
+Will update compatible.
+
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    minItems: 1
+>> +    items:
+>> +      - description: biu clock
+>> +      - description: ciu clock
+> 
+> I don't think the card interface clock is optional... are you sure you
+> have designs working without it? No clock line at all getting to the memory?
+> 
+
+Will fix.
+
+>> +
+>> +  clock-names:
+>> +    minItems: 1
+>> +    items:
+>> +      - const: biu
+>> +      - const: ciu
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  starfive,sys-syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +    description:
+>> +      The desired number of times that the host execute tuning when needed.
+> 
+> That's not matching the property name. Missing number of items... this
+> is anyway confusing. Why number of tuning tries is a property of DT?
+> 
+
+Will update the description.
+
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - interrupts
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/starfive-jh7110.h>
+>> +    #include <dt-bindings/reset/starfive-jh7110.h>
+>> +    mmc@16010000 {
+>> +            compatible = "starfive,jh7110-sdio";
+> 
+> Use 4 spaces for example indentation.
+> 
+
+I'll fix the indentation.
+
+>> +            reg = <0x16010000 0x10000>;
+>> +            clocks = <&syscrg JH7110_SYSCLK_SDIO0_AHB>,
+>> +                 <&syscrg JH7110_SYSCLK_SDIO0_SDCARD>;
+> 
+> Align with previous <
+> 
+
+I will fix.
+
+Thank you for taking time to review and provide helpful comments for this patch.
 
 Best regards,
 William Qiu
 
->> compilation terminated.
->> make[1]: *** [scripts/Makefile.lib:406: Documentation/devicetree/bindings/mmc/starfive,jh7110-sdio.example.dtb] Error 1
->> make[1]: *** Waiting for unfinished jobs....
->> make: *** [Makefile:1492: dt_binding_check] Error 2
->> 
->> doc reference errors (make refcheckdocs):
->> 
->> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221207131731.1291517-2-william.qiu@starfivetech.com
->> 
->> The base for the series is generally the latest rc1. A different dependency
->> should be noted in *this* patch.
->> 
->> If you already ran 'make dt_binding_check' and didn't see the above
->> error(s), then make sure 'yamllint' is installed and dt-schema is up to
->> date:
->> 
->> pip3 install dtschema --upgrade
->> 
->> Please check and re-submit after running the above command yourself. Note
->> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
->> your schema. However, it must be unset to test all examples with your schema.
->> 
+> Best regards,
+> Krzysztof
+> 
 
 _______________________________________________
 linux-riscv mailing list
