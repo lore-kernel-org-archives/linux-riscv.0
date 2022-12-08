@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5792C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE637C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=QS82EtgV22+4zs1vxaH9M8K3+eaYOZ9nRdazNDh52Xo=; b=xXf
-	rCdoU2Juza3CqWr/YV6YTHA2I/sDKJr+ENT0mCIaHhfF3McQVnwMTxP0hdDvZ5Mhh2LGQbnuTPXdZ
-	9+ZxFsu968HQZLCM2xNCqGdopULyIT+HcUDMwlRHLP79kjdDGDfFhs+/3eBMQr7LMuVMl6grua0rC
-	5SbZ+QE0ssTYPwF1GbulwHL/YoLgmYvTu6vJaOfdSpqxQNzRGpv24RQiPvotLMXfNKAgHUhcU+SDB
-	d83Ls/zFo4tubK0vIzQ9Aq9q9Y1fV6z5p2cxbB6r+o+1iWATg5w6ytNKUIQWxKdY3iIovw46El+ne
-	ALcRnvwiIXHkPYWH7nXB4p2TNH20UOQ==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=N+DhgknRwlYxMTLi2poFDw0/51+kNHm5IyMBHbCbw6c=; b=qxU9gPCnNH0xZ/WJlQcURMp6HX
+	44HPRpucSGl9lRkr7iCeP5POIJMxJXPsq5zh/2JKMcYKvzjq858iCbjERtka+CoGul+bFhMI1GYpj
+	1CT4VxKao9kc3kJDUUEAWQ8fgj/z9zjNBt1fei4GpXv6d8m12TBHTx2hgcmOg9AIu/f2zr6Yrnt9g
+	BltVpX6HjTBRXAGdq8IfXWGH4476b/+DPlVT+NQ6tm+2MxdVmoOsZIQc38mVRB87nqxf3XDhqpcYN
+	ADRh3BsUhb+7UQVlT0So5Tedo5Ry1HJmlfVnUToRy6F3Y/u+nrGDWt555DFcU/LMAadRmNr0WY9Bh
+	sK0wUU6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Nq5-00AxLL-TW; Thu, 08 Dec 2022 20:49:53 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1p3NqD-00AxTn-NM; Thu, 08 Dec 2022 20:50:02 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mjg-009rG3-QH
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:17 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 84-20020a630257000000b00477f88d334eso1617286pgc.11
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:10 -0800 (PST)
+	id 1p3Mjj-009rOF-0h
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:19 +0000
+Received: by mail-pf1-x449.google.com with SMTP id bd20-20020a056a00279400b0057340fe1658so1744902pfb.6
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ujLJi7i8azU+eMc6VTcefpCoupmEeGtA9YqNEcSBses=;
-        b=cuzmQGCEldboJ2SHxjhYx+JlxduEJQcra1UJYiUT5ADduRS09xHWw7K4TJw1Q5jPem
-         KcWULiMtAf8RENHwaDz48Nz4wc0mOadnuYaM+NOwk+AV1c8kwUmctYnQ1GnTujQjYANW
-         UoERo9J18Ky3VKEwjcmPruTKMisazad9CVywJ25nL03PajUQw2Wf2MDEk0IdfkLBeD3J
-         G9AegsGcNrXObaDNrAuD1hyo4QJk9gcGNZ+ZlJPS+Q1U4EWY0km2jMLYRnIMLWiuNk9v
-         XjNoj3Jn+65wwAb2AkKPDDUs6bFJD/MvpR3zoNtTlr/HOQWjVuK/lQxa9oM9gzRO/VDs
-         xAPA==
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zPqhilQnjSVH+DKsiF3UuxsA3mWYraWvqkpSQiCn4mk=;
+        b=iEvz84VootOQzL2fuUOye77ff0RBTUJwBPc/nCp9n7wqfMIJewYjnWs+e+UV8BdMIw
+         elYqajuLHReDubNQsxzeD4LQOafn7i58BjesdxlcK+vzw+x1HQo9F7VP57LAnqtKoesr
+         UywCJYsjvD0BlUoCSDFWtr6dHwgWaW3JtPzOAkFIkkT8WGiWMzZ2oAHhyStfBm7eJSsS
+         38EqRrqfu/Bb+ppVcaHkYCPUXH92lKxDVFDbgcDFRtoe1sRIy80NzBB22C9JYr71mn8T
+         A1Ozw0Mgmaj7KonevqN/mmVI3ivsgF7FtLFAmhFybNP5PHPBvBWnlJEVJf0pakv7c2rW
+         r4Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ujLJi7i8azU+eMc6VTcefpCoupmEeGtA9YqNEcSBses=;
-        b=PFtXJoPtOogpLNWN2HT+uJ0El2TcCwHc1Ju4GKcV+gYPlSVZNLhAz2Rp4TpJGuI2kb
-         xLTmyac7iBXPoZ1EhVmCD1nrRkF6KO/1tke2f8LC0t35YXJ3E44sFh0iqta2+LAJhBM1
-         T7TBMXtn3eR8sqhQBBS4leomGzzmPPn3+LDPCWLnNCcopvTLTh6+vlyiBWTtBHW5Ol5X
-         DBE0KcgIWRhQkJVP56LsDrfjKqdneDDpPuj5J5nWtrSXVqlskPteOqqE7UgkuH5iuneR
-         KoTGJEn85TlZPAooz83waEHN12o04JYrmCo7wBnQiaR9FQjQvVejV6skpkTIyZjTVMng
-         uj5w==
-X-Gm-Message-State: ANoB5pkRDHVleplZswFYIn8z2RGBe3yVYTEKkvWB9vf7Vq97Tv3LT71f
-	SRoMDVPJltw5Ewyw0JKfMDYfrJQcgC356Q==
-X-Google-Smtp-Source: AA0mqf7+VfQEHkQMkf8id2SowUe4yQgqt5tzohe0c2eiYcS+MDqzUzJHDLrfnnlooA+chsGoATzx5vrJ+8ydUg==
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zPqhilQnjSVH+DKsiF3UuxsA3mWYraWvqkpSQiCn4mk=;
+        b=8G1e8tby/y1xl8NbGmx5UhBAu+0roWon6kQK7f7I/a5LddwuIxlu44PBPqGxzlsP6P
+         q/HLSD4Xxl4EJ2V3DNG5aZzNt9CdGB5NSy8BdFoGLHShQkd47JFsQFHnt+NV56iVjkf5
+         xLIl44bVCPh2zVVy1mwRNRz8KVMxKe1XIYlOcUIMztnzaLv213KqJebXnnBghoP5fOT5
+         k430AXi0YyAHzE44uvotRujbRK4HPUYKYPFo1zKUm18c/JNEWXFoUIMmL6ekwY84Igkf
+         bCNveVfrzaeiKCKXldxvkjFCMvxN/H5LXbXasN6zDNWAw8aXQLsAVhZEri4wBCfZyEwp
+         PAwA==
+X-Gm-Message-State: ANoB5plf9cDNez6pF4DFFfdEbpB4FFSNf/rS91G3qySkzr8msBrjdKjR
+	3dYfMsWLfQwhvfI1yQSZhSXfqV+oznwrMw==
+X-Google-Smtp-Source: AA0mqf7eM5A3bS0eYMJF7BGmyZN+evZ/sdXM528vLtaTteWzbjmMBYJhb583jjAiLFnL4yHJF6g542RYvvvpWw==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a17:90b:f89:b0:219:5b3b:2b9f with SMTP id
- ft9-20020a17090b0f8900b002195b3b2b9fmr4096840pjb.2.1670528346939; Thu, 08 Dec
- 2022 11:39:06 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:20 -0800
+ (user=dmatlack job=sendgmr) by 2002:a05:6a00:1623:b0:577:4baf:f412 with SMTP
+ id e3-20020a056a00162300b005774baff412mr10161002pfc.77.1670528352538; Thu, 08
+ Dec 2022 11:39:12 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:23 -0800
+In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
+References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-1-dmatlack@google.com>
-Subject: [RFC PATCH 00/37] KVM: Refactor the KVM/x86 TDP MMU into common code
+Message-ID: <20221208193857.4090582-4-dmatlack@google.com>
+Subject: [RFC PATCH 03/37] KVM: MMU: Move tdp_ptep_t into common code
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -82,8 +85,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_113912_865612_50074152 
-X-CRM114-Status: GOOD (  27.78  )
+X-CRM114-CacheID: sfid-20221208_113915_086290_C254C484 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,222 +103,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-[ mm folks: You are being cc'd since this series includes a mm patch
-  ("mm: Introduce architecture-neutral PG_LEVEL macros"), but general
-  feedback is also welcome. I imagine there are a lot of lessons KVM can
-  learn from mm about sharing page table code across architectures. ]
+Move the definition of tdp_ptep_t into kvm/mmu_types.h so it can be used
+from common code in future commits.
 
-Hello,
+No functional changed intended.
 
-This series refactors the KVM/x86 "TDP MMU" into common code. This is
-the first step toward sharing TDP (aka Stage-2) page table management
-code across architectures that support KVM. For more background on this
-effort please see my talk from KVM Forum 2022 "Exploring an
-architecture-neutral MMU":
+Signed-off-by: David Matlack <dmatlack@google.com>
+---
+ arch/x86/kvm/mmu/mmu_internal.h | 2 --
+ include/kvm/mmu_types.h         | 2 ++
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-  https://youtu.be/IBhW34fCFi0
-
-By the end of this series, 90% of the TDP MMU code is in common directories
-(virt/kvm/mmu/ and include/kvm/). The only pieces that remaing in
-arch/x86 are code that deals with constructing/inspecting/modifying PTEs
-and arch hooks to implement NX Huge Pages (a mitigation for an
-Intel-specific vulnerability).
-
-Before:
-
-  180 arch/x86/kvm/mmu/tdp_iter.c
-  118 arch/x86/kvm/mmu/tdp_iter.h
- 1917 arch/x86/kvm/mmu/tdp_mmu.c
-   98 arch/x86/kvm/mmu/tdp_mmu.h
- ----
- 2313 total
-
-After:
-
-  178 virt/kvm/mmu/tdp_iter.c
- 1867 virt/kvm/mmu/tdp_mmu.c
-  117 include/kvm/tdp_iter.h
-   78 include/kvm/tdp_mmu.h
-   39 include/kvm/tdp_pgtable.h
- ----
-  184 arch/x86/kvm/mmu/tdp_pgtable.c
-   76 arch/x86/include/asm/kvm/tdp_pgtable.h
- ----
- 2539 total
-
-This series is very much an RFC, but it does build (I tested x86_64 and
-ARM64) and pass basic testing (KVM selftests and kvm-unit-tests on
-x86_64), so it is entirely functional aside from any bugs.
-
-The main areas I would like feedback are:
-
- - NX Huge Pages support in the TDP MMU requires 5 arch hooks in
-   the common code, which IMO makes the NX Huge Pages implementation
-   harder to read. The alternative is to move the NX Huge Pages
-   implementation into common code, including the fields in struct
-   kvm_mmu_page and kvm_page_fault, which would increase memory usage
-   a tiny bit (for non-x86 architectures) and pollute the common code
-   with an x86-specific security mitigation. Ideas on better ways to
-   handle this would be appreciated.
-
- - struct kvm_mmu_page increased by 64 bytes because the separation of
-   arch and common state eliminated the ability to use unions to
-   optimize the size of the struct. There's two things we can do to
-   reduce the size of the struct back down: (1) dynamically allocated
-   root-specific fields only for root page tables and (2) dynamically
-   allocate Shadow MMU state in kvm_mmu_page_arch only for Shadow MMU
-   pages. This should actually be a net *reduction* the size of
-   kvm_mmu_page relative today for most pages, but I have not
-   implemented it.
-
-   Note that an alternative approach I implemented avoided this problem
-   by creating an entirely separate struct for the common TDP MMU (e.g.
-   struct tdp_mmu_page). This however had a lot of downsides that I
-   don't think make it a good solution. Notably, it complicated a ton of
-   existing code in arch/x86/kvm/mmu/mmu.c (e.g. anything that touches
-   vcpu->arch.mmu->root and kvm_recover_nx_huge_pages()) and created a
-   new runtime failure mode in to_shadow_page().
-
- - Naming. This series does not change the names of any existing code.
-   So all the KVM/x86 Shadow MMU-style terminology like
-   "shadow_page"/"sp"/"spte" persists. Should we keep that style in
-   common code or move toward something less shadow-paging-specific?
-   e.g. "page_table"/"pt"/"pte". Also do we want to keep "TDP" or switch
-   to something more familiar across architectures (e.g. ARM and RISC-V
-   both use "Stage-2")?
-
-Additionally, there are some warts to be aware of. For these I think
-they can be addressed in future series, since they only really matter
-once we are ready to enable the common TDP MMU on a non-x86
-architecture.
-
- - Tracepoints. For now the common MMU continues to use the x86
-   tracepoints code and they are just stubbed (no-ops) for other
-   architectures.
-
- - tdp_mmu_max_mapping_level() and tdp_mmu_max_gfn_exclusive() are
-   currently arch hooks but they can probably be made common code at
-   some point.
-
-Lastly, I still need to verify that there are no negative performance
-impacts of the changes in this series. My main concern is the new
-tdp_pte_*() functions adds overhead from not being able to be inlined.
-
-This series applies on top of kvm/queue commit 89b239585965 ("KVM:
-x86/mmu: Pivot on "TDP MMU enabled" when handling direct page faults"),
-since there are several recent series in kvm/queue that affect this
-refactor. A revert of 0c2a04128f50 ("KVM: x86: remove unnecessary
-exports") is also needed since it breaks the build on x86 (unrelated to
-this refactor).
-
-Thanks.
-
-P.S. Looking to the future... This is just the first step toward
-building a common TDP MMU for KVM. After this, We are looking at adding
-KUnit testing to the common TDP MMU as a way to offset the risk of
-sharing more code across architectures, and then targeting RISC-V as the
-first non-x86 architecture to use the common TDP MMU. If any RISC-V
-developer is interested in working on the port, please reach out.
-
-David Matlack (36):
-  KVM: x86/mmu: Store the address space ID directly in kvm_mmu_page_role
-  KVM: MMU: Move struct kvm_mmu_page_role into common code
-  KVM: MMU: Move tdp_ptep_t into common code
-  KVM: x86/mmu: Invert sp->tdp_mmu_page to sp->shadow_mmu_page
-  KVM: x86/mmu: Unify TDP MMU and Shadow MMU root refcounts
-  KVM: MMU: Move struct kvm_mmu_page to common code
-  mm: Introduce architecture-neutral PG_LEVEL macros
-  KVM: Move page size stats into common code
-  KVM: MMU: Move struct kvm_page_fault to common code
-  KVM: MMU: Move RET_PF_* into common code
-  KVM: x86/mmu: Use PG_LEVEL_{PTE,PMD,PUD} in the TDP MMU
-  KVM: MMU: Move sptep_to_sp() to common code
-  KVM: MMU: Introduce common macros for TDP page tables
-  KVM: x86/mmu: Add a common API for inspecting/modifying TDP PTEs
-  KVM: x86/mmu: Abstract away TDP MMU root lookup
-  KVM: Move struct kvm_gfn_range to kvm_types.h
-  KVM: x86/mmu: Add common API for creating TDP PTEs
-  KVM: x86/mmu: Add arch hooks for NX Huge Pages
-  KVM: x86/mmu: Abstract away computing the max mapping level
-  KVM: Introduce CONFIG_HAVE_TDP_MMU
-  KVM: x86: Select HAVE_TDP_MMU if X86_64
-  KVM: MMU: Move VM-level TDP MMU state to struct kvm
-  KVM: x86/mmu: Move kvm_mmu_hugepage_adjust() up to fault handler
-  KVM: x86/mmu: Pass root role to kvm_tdp_mmu_get_vcpu_root_hpa()
-  KVM: Move page table cache to struct kvm_vcpu
-  KVM: MMU: Move mmu_page_header_cache to common code
-  KVM: MMU: Stub out tracepoints on non-x86 architectures
-  KVM: x86/mmu: Collapse kvm_flush_remote_tlbs_with_{range,address}()
-    together
-  KVM: x86/mmu: Rename kvm_flush_remote_tlbs_with_address()
-  KVM: x86/MMU: Use gfn_t in kvm_flush_remote_tlbs_range()
-  KVM: Allow range-based TLB invalidation from common code
-  KVM: Move kvm_arch_flush_remote_tlbs_memslot() to common code
-  KVM: MMU: Move the TDP iterator to common code
-  KVM: x86/mmu: Move tdp_mmu_max_gfn_exclusive() to tdp_pgtable.c
-  KVM: x86/mmu: Move is_tdp_mmu_page() to mmu_internal.h
-  KVM: MMU: Move the TDP MMU to common code
-
-Jing Zhang (1):
-  KVM: selftests: Stop assuming stats are contiguous in
-    kvm_binary_stats_test
-
- MAINTAINERS                                   |   6 +-
- arch/arm64/include/asm/kvm_host.h             |   3 -
- arch/arm64/kvm/arm.c                          |  10 +-
- arch/arm64/kvm/mmu.c                          |   2 +-
- arch/mips/include/asm/kvm_host.h              |   3 -
- arch/mips/kvm/mips.c                          |  10 +-
- arch/mips/kvm/mmu.c                           |   4 +-
- arch/riscv/include/asm/kvm_host.h             |   3 -
- arch/riscv/kvm/mmu.c                          |   8 +-
- arch/riscv/kvm/vcpu.c                         |   4 +-
- arch/x86/include/asm/kvm/mmu_types.h          | 138 ++++++
- arch/x86/include/asm/kvm/tdp_pgtable.h        |  73 ++++
- arch/x86/include/asm/kvm_host.h               | 122 +-----
- arch/x86/include/asm/pgtable_types.h          |  12 +-
- arch/x86/kvm/Kconfig                          |   1 +
- arch/x86/kvm/Makefile                         |   2 +-
- arch/x86/kvm/mmu.h                            |   5 -
- arch/x86/kvm/mmu/mmu.c                        | 409 +++++++++--------
- arch/x86/kvm/mmu/mmu_internal.h               | 221 ++--------
- arch/x86/kvm/mmu/mmutrace.h                   |  20 +-
- arch/x86/kvm/mmu/paging_tmpl.h                |  48 +-
- arch/x86/kvm/mmu/spte.c                       |   7 +-
- arch/x86/kvm/mmu/spte.h                       |  38 +-
- arch/x86/kvm/mmu/tdp_pgtable.c                | 183 ++++++++
- arch/x86/kvm/x86.c                            |  16 +-
- include/kvm/mmu.h                             |  21 +
- include/kvm/mmu_types.h                       | 179 ++++++++
- include/kvm/mmutrace.h                        |  17 +
- {arch/x86/kvm/mmu => include/kvm}/tdp_iter.h  |  19 +-
- {arch/x86/kvm/mmu => include/kvm}/tdp_mmu.h   |  17 +-
- include/kvm/tdp_pgtable.h                     |  39 ++
- include/linux/kvm_host.h                      |  36 +-
- include/linux/kvm_types.h                     |  17 +
- include/linux/mm_types.h                      |   9 +
- .../selftests/kvm/kvm_binary_stats_test.c     |  11 +-
- virt/kvm/Kconfig                              |   3 +
- virt/kvm/Makefile.kvm                         |   3 +
- virt/kvm/kvm_main.c                           |  27 +-
- {arch/x86 => virt}/kvm/mmu/tdp_iter.c         |  24 +-
- {arch/x86 => virt}/kvm/mmu/tdp_mmu.c          | 412 ++++++++----------
- 40 files changed, 1245 insertions(+), 937 deletions(-)
- create mode 100644 arch/x86/include/asm/kvm/mmu_types.h
- create mode 100644 arch/x86/include/asm/kvm/tdp_pgtable.h
- create mode 100644 arch/x86/kvm/mmu/tdp_pgtable.c
- create mode 100644 include/kvm/mmu.h
- create mode 100644 include/kvm/mmu_types.h
- create mode 100644 include/kvm/mmutrace.h
- rename {arch/x86/kvm/mmu => include/kvm}/tdp_iter.h (90%)
- rename {arch/x86/kvm/mmu => include/kvm}/tdp_mmu.h (87%)
- create mode 100644 include/kvm/tdp_pgtable.h
- rename {arch/x86 => virt}/kvm/mmu/tdp_iter.c (89%)
- rename {arch/x86 => virt}/kvm/mmu/tdp_mmu.c (84%)
-
-
-base-commit: 89b2395859651113375101bb07cd6340b1ba3637
-prerequisite-patch-id: 19dc9f47392d43a9a86c0e4f3ce1f13b62004eeb
+diff --git a/arch/x86/kvm/mmu/mmu_internal.h b/arch/x86/kvm/mmu/mmu_internal.h
+index c19a80fdeb8d..e32379c5b1ad 100644
+--- a/arch/x86/kvm/mmu/mmu_internal.h
++++ b/arch/x86/kvm/mmu/mmu_internal.h
+@@ -44,8 +44,6 @@ extern bool dbg;
+ #define INVALID_PAE_ROOT	0
+ #define IS_VALID_PAE_ROOT(x)	(!!(x))
+ 
+-typedef u64 __rcu *tdp_ptep_t;
+-
+ struct kvm_mmu_page {
+ 	/*
+ 	 * Note, "link" through "spt" fit in a single 64 byte cache line on
+diff --git a/include/kvm/mmu_types.h b/include/kvm/mmu_types.h
+index 3f35a924e031..14099956fdac 100644
+--- a/include/kvm/mmu_types.h
++++ b/include/kvm/mmu_types.h
+@@ -34,4 +34,6 @@ union kvm_mmu_page_role {
+ 
+ static_assert(sizeof(union kvm_mmu_page_role) == sizeof_field(union kvm_mmu_page_role, word));
+ 
++typedef u64 __rcu *tdp_ptep_t;
++
+ #endif /* !__KVM_MMU_TYPES_H */
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
