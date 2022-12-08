@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A7BC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82185C001B2
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,57 +13,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=WX74SFVJKNr1tBE6eN5AGPvOwLq+3oBeZfMhsRmXr5I=; b=nXslPr0em31zHY7scZN0qdanMy
-	BxwXg5T6lrM63KO1wQ904T3nJsp54t+LOshXx8gOliZ96czX/VdNHZhelB4gKdfbvCiRWXHFvpTR5
-	Hi5oXuAUgCgxQbOF0T60ylvOYO3tQvCSOayQUavhQaPqDYKnMmXgff+nOqu8rtQ5wN/5ROlVcRHol
-	B6yonZji0G3n6HLpeeu8SqKNEnv7E0gZIETa7L3dnbjd2KwsSshf1IVLx0SC6GFznriPcZIQjCexA
-	M5kO1DexAbzlHemA1TjXXwkydiwIism1PGGSbPrpswE7TcXC8tK9yjzxMWBClwY5M4U+RWQhXpdds
-	aS6YLe5g==;
+	bh=pcrx/EmqR5Z0kONuHXOKt0fDV//IUWmnIVZNwQ/GKGQ=; b=GHWa9V1eL8HD0HUMGwbZYADBmY
+	E9RhljcqerTQySuWI6vz+bapR+B8tDMNyU+J3VaVqic7KsydkFsPbjv0SWeGILe/SODAjeR+qa/i4
+	RePKX59v7sxBNabhcCy4PlNK/yLX19I7cxSZ8KyHcvopX4VAQjGFO7aeh9a8Iz5389C68s2dt91LM
+	gVVTNBuYEcOz0d97adeh83RCe8SxtCI4cETqJaxOioZiwRw5zW1PFkOjhtPgDwAcI98d94vCjxa+O
+	FcJkSmL26450t3Wse1K/pCyq0D6h+304VWM7k1oo4/uzHRPZvDdgJ9xSwSR2Y7uKi7F+x6gJKg6Em
+	3j/0eiQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mpy-00A0jU-0C; Thu, 08 Dec 2022 19:45:42 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1p3MqB-00A0xG-Ul; Thu, 08 Dec 2022 19:45:56 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mpu-00A0ds-KB
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:45:40 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-14459615659so1077213fac.1
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:45:36 -0800 (PST)
+	id 1p3Mq5-00A0pg-PU
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:45:51 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id i19-20020a253b13000000b0070358cca7f7so2523250yba.9
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:45:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XBAoBS5l4frpeZWkoJY/UpoQSbDyst8wBhQ9eKXZWXc=;
-        b=nlEUPxR6NdyPJq+SxFDJtYRvDL+tSADMT14c6WeSKQQEUdTazqiEtfTEk+SgwjuGEq
-         FmaRagIrALcak/FA6XBnlNgJ1op1uF68f9N8DQlFMf5Lg2V/XHFSd+dxvK4sOLW7bEkP
-         RGyMlm7idURAZy4kLXqSJMwKdSUs8Pvjw42c4F3o6sWDVgr7R6EWxFOWpXNGMLR+X4qI
-         871FbXvdNcwcg/9Wsr6QYxmjjpELz0YhLIMlRDhO3bl+KizlZ1eAChWn2q1SbXmr+KvW
-         0p6sqHH9DhxqHphJvurk7B3DlzGH0FBewCHxofIksuZgZ1LvKdA0uEEqGlD800vqy01i
-         +GHg==
+        bh=PeJRMD1iiEfAcW0wse8YvMRXDysx/LxLCpDqGqOGbOE=;
+        b=it3ha/1H2vQVcMvrwLK2XI6kFW9SfZwdQ0HxxUSc3Ag107nHhiqTSUqlouPQ69hlpA
+         gVlMznc/cXRCFulmlBil4kKdWgDSAUCR93SntgLaDJWCpUTB7FzwaETswPW9lX1yNG07
+         0tWWOwYFihDwyLqkpiOMrsIryZ3SjYTTI8b4R1X9oFZnj7/UyRLh3XP6ECDzERPz2C+i
+         B3prUkRr3KEH0wVuRrtyBo09IY2F7MxhaUoLo7LOK5D3eYUuVBFYj36vL7P7ZiNQEA7c
+         1QUJk9A2erTf8dkQPtJhbcBzs55NBkUNAK3ruLZHLQeHsz23ls2YGKCDBr5v8J7edZjj
+         uhPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XBAoBS5l4frpeZWkoJY/UpoQSbDyst8wBhQ9eKXZWXc=;
-        b=30oE1QGW0ZnxqIl0DczUwgpn9YViPAJOd/tho6nsOcz9xP5paz5IJKOd5VsfWOqo+O
-         4XG3fbqJpD7IagfzK+0L3CkbVC3PxHBz9c9lWM+Dw8GEAdVzxHhs7yQg+QnBKxtGGOvG
-         bQgsunSKibh9S9gCHmJrkHURTJ+LQFO6FXG6CcIYt7UDvn6bLcceLQPni42sx+verleu
-         xDtO4oJEj8O6OtMWzRi366jbQGu0/CJcL3kFtnz5PMWDojlHgG4ct5vneOdzi3e8Xsfl
-         +U6jbgSaxgAaL4y3NqpMjA+d0vyWIpnArLi57RodFF8s2fMx6ItIgzc8XDPbqKfxdHWF
-         sq7g==
-X-Gm-Message-State: ANoB5pknZ1ePOuncKvJeqVLA6Iroizpv4oTvB2kyF4rBS8dJqC72Bv1t
-	jZcGTgAFNlDtuxB8YYXSfaCH0w17GOH8Mg==
-X-Google-Smtp-Source: AA0mqf5xyrJDk8LkqxteQO3uKW9sySGhyFdSCZp1IMvsR62i1Fel4cZTd1/kwLAP2Vd6/CjzjTgnduujan+3NQ==
+        bh=PeJRMD1iiEfAcW0wse8YvMRXDysx/LxLCpDqGqOGbOE=;
+        b=1/OkZMyKr3cjRtLvKeL7IXDA2ROupAFAnq7UbUN6R3V0ZtiT2CD4jKY6lYLxYXCzNN
+         98gvL+OAm7GZfrStlVkBlK+jr85I0xc2bHLgndInZ42nGaeL9HW6b15k4QueQ+YutFGu
+         m7lXO7lskhsGMO7o67pIR+eLbov2cCk3aU6apZ6J5wfZPxJ7RxfE4WBx9GJGdre8E4yv
+         uIiHTHnqCN1ab0pjb9kHcYQmfKOQXBJ24NdqlyDm+EayiA32q/EnalhkVG9bYr1ZYZ0h
+         tKUWBq5LTU2sw6lrqsvvN8RsJvXJhKuYB2ztcq7KCHkJjLPXr2za2bU/sPMj+ZKUYeyi
+         K/Ag==
+X-Gm-Message-State: ANoB5pl38bBuovzIvp0eDYMP949nMb18B3T8lXfCzJQJf23su7JV/17m
+	Bc17PRcqTz+GCWUX6YmhOjtyLPlgDmS27A==
+X-Google-Smtp-Source: AA0mqf42i4HuA7nX3hyDm6T4qhjEe3EzuwVfCeNTiMqXBDpZ0EVA3TMnNfFvR5iVyImke8GmCkOtSd5OsKu+oA==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:d34d:0:b0:6fa:7b0a:3eed with SMTP id
- e74-20020a25d34d000000b006fa7b0a3eedmr35292093ybf.83.1670528393951; Thu, 08
- Dec 2022 11:39:53 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:48 -0800
+ (user=dmatlack job=sendgmr) by 2002:a25:6602:0:b0:6f9:890c:6468 with SMTP id
+ a2-20020a256602000000b006f9890c6468mr39021311ybc.610.1670528389040; Thu, 08
+ Dec 2022 11:39:49 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:45 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-29-dmatlack@google.com>
-Subject: [RFC PATCH 28/37] KVM: MMU: Stub out tracepoints on non-x86 architectures
+Message-ID: <20221208193857.4090582-26-dmatlack@google.com>
+Subject: [RFC PATCH 25/37] KVM: x86/mmu: Pass root role to kvm_tdp_mmu_get_vcpu_root_hpa()
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -85,8 +85,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_114538_703855_46616CAA 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20221208_114549_857613_8946EED3 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,59 +103,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Create stub tracepoints outside of x86. The KVM MMU tracepoints can be
-moved to common code, but will be deferred to a future commit.
+Pass the root role from the caller rather than grabbing it from
+vcpu->arch.mmu. This will enable the TDP MMU to be moved to common code
+in a future commit by removing a dependency on vcpu->arch.
 
 No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/kvm/mmu/tdp_mmu.c |  2 +-
- include/kvm/mmutrace.h     | 17 +++++++++++++++++
- 2 files changed, 18 insertions(+), 1 deletion(-)
- create mode 100644 include/kvm/mmutrace.h
+ arch/x86/kvm/mmu/mmu.c     | 2 +-
+ arch/x86/kvm/mmu/tdp_mmu.c | 4 ++--
+ arch/x86/kvm/mmu/tdp_mmu.h | 3 ++-
+ 3 files changed, 5 insertions(+), 4 deletions(-)
 
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 9307608ae975..aea7df3c2dcb 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -3612,7 +3612,7 @@ static int mmu_alloc_direct_roots(struct kvm_vcpu *vcpu)
+ 		goto out_unlock;
+ 
+ 	if (tdp_mmu_enabled) {
+-		root = kvm_tdp_mmu_get_vcpu_root_hpa(vcpu);
++		root = kvm_tdp_mmu_get_vcpu_root_hpa(vcpu, mmu->root_role);
+ 		mmu->root.hpa = root;
+ 	} else if (shadow_root_level >= PT64_ROOT_4LEVEL) {
+ 		root = mmu_alloc_root(vcpu, 0, 0, shadow_root_level);
 diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 891877a6fb78..72746b645e99 100644
+index e6708829714c..c5d1c9010d21 100644
 --- a/arch/x86/kvm/mmu/tdp_mmu.c
 +++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -2,12 +2,12 @@
+@@ -301,9 +301,9 @@ static void tdp_mmu_init_child_sp(struct kvm_mmu_page *child_sp,
+ 	tdp_mmu_init_sp(child_sp, iter->sptep, iter->gfn, role);
+ }
  
- #include "mmu.h"
- #include "mmu_internal.h"
--#include "mmutrace.h"
- #include "tdp_iter.h"
- #include "tdp_mmu.h"
- #include "spte.h"
+-hpa_t kvm_tdp_mmu_get_vcpu_root_hpa(struct kvm_vcpu *vcpu)
++hpa_t kvm_tdp_mmu_get_vcpu_root_hpa(struct kvm_vcpu *vcpu,
++				    union kvm_mmu_page_role role)
+ {
+-	union kvm_mmu_page_role role = vcpu->arch.mmu->root_role;
+ 	struct kvm *kvm = vcpu->kvm;
+ 	struct kvm_mmu_page *root;
  
- #include <kvm/tdp_pgtable.h>
-+#include <kvm/mmutrace.h>
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.h b/arch/x86/kvm/mmu/tdp_mmu.h
+index e6a929089715..897608be7f75 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.h
++++ b/arch/x86/kvm/mmu/tdp_mmu.h
+@@ -10,7 +10,8 @@
+ int kvm_mmu_init_tdp_mmu(struct kvm *kvm);
+ void kvm_mmu_uninit_tdp_mmu(struct kvm *kvm);
  
- #include <asm/cmpxchg.h>
- #include <trace/events/kvm.h>
-diff --git a/include/kvm/mmutrace.h b/include/kvm/mmutrace.h
-new file mode 100644
-index 000000000000..e95a3cb47479
---- /dev/null
-+++ b/include/kvm/mmutrace.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#if !defined(_TRACE_KVM_MMUTRACE_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_KVM_MMUTRACE_H
-+
-+#ifdef CONFIG_X86
-+#include "../../arch/x86/kvm/mmu/mmutrace.h"
-+#else
-+#define trace_mark_mmio_spte(...)		do {} while (0)
-+#define trace_kvm_mmu_get_page(...)		do {} while (0)
-+#define trace_kvm_mmu_prepare_zap_page(...)	do {} while (0)
-+#define trace_kvm_mmu_set_spte(...)		do {} while (0)
-+#define trace_kvm_mmu_spte_requested(...)	do {} while (0)
-+#define trace_kvm_mmu_split_huge_page(...)	do {} while (0)
-+#define trace_kvm_tdp_mmu_spte_changed(...)	do {} while (0)
-+#endif
-+
-+#endif /* _TRACE_KVM_MMUTRACE_H */
+-hpa_t kvm_tdp_mmu_get_vcpu_root_hpa(struct kvm_vcpu *vcpu);
++hpa_t kvm_tdp_mmu_get_vcpu_root_hpa(struct kvm_vcpu *vcpu,
++				    union kvm_mmu_page_role role);
+ 
+ __must_check static inline bool kvm_tdp_mmu_get_root(struct kvm_mmu_page *root)
+ {
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
