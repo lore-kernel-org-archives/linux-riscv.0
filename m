@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A0FC4708D
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 02:23:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F455C63703
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 02:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ytE5FjW3vC715icN2ZTbV86+o/IXg01VU4rEciLiH8g=; b=Vp+Fm4pi22X5r4
-	U8DPGvvgTkJBk8KCLJiWyaQms6i6nCRG1CzokYgaxXg+/yDnh5YUJLdywlpDSjaIyxdD87vUjSRvQ
-	ddQwoi85E9HEK/Yc4GfNYDYWaVCMfcKPd214r6U7jB7wsG07flL4/ZEx0HBaAqtZS1/kNBQsvSBSU
-	1MhpN5K38I279zJjfAHiVuwyVGA3vR/A9oFt0d9+btvtLQ+7kLc3Nrd8zjRs23grTCO+WZBZYpuxv
-	+GXoPRpGljA3Xgc7Wti2hIxcbo6yD3ejSZKNAIO9qYScuGatGy6I7BqCvmhi09RQWuBP3IAPug1BQ
-	zZpgqaNuo592GodmT1ow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=E6vRfIE5VAcQSn36pS3TR09S+dVdUigO7ZoavsRBCgc=; b=2rJHywXUnZEvaZ
+	O2nqFqHThLXAxFl5jN/s1Lpp30uP+0UkDsH55O7z4K7DRXNaFOnZsGPCx+rO35eha10QRANYBeZTB
+	GW37Dc4FFgW4QQJdrPbFWizivjkvGZfUXYByavI6+IJ/EQPiwKHVyjO3JVilgQa3VbKF4ZWuqotYG
+	KJrRhwn2dQgTy3/6ASBkdVnTGtkgmvcxOGuvrd5rf53XHezaug8GbuUFaUz6ukSDA8NjMJq3ujE6I
+	qOxn6aBB5GsAAuTzaLdQzcIybGcDCRYCTTMlLygeiQFn8THzVUSeOUAoPFeL5XuRHIuInF3YLSC3Y
+	Zrs+MCHv94lQBkwM42Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p36ZK-000Dzk-2w; Thu, 08 Dec 2022 02:23:26 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p36ZF-000DpJ-Bh
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 02:23:24 +0000
-Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E6BBB24E17E;
-	Thu,  8 Dec 2022 10:22:45 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX165.cuchost.com
- (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
- 2022 10:22:45 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
- 2022 10:22:44 +0800
-Message-ID: <82b08671-3119-98ab-dc19-21f1d5119a84@starfivetech.com>
-Date: Thu, 8 Dec 2022 10:22:43 +0800
+	id 1p377M-000c0I-67; Thu, 08 Dec 2022 02:58:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p377J-000byB-4k
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 02:58:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 2978761D42;
+	Thu,  8 Dec 2022 02:58:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 932DCC433D6;
+	Thu,  8 Dec 2022 02:58:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670468311;
+	bh=JYI9Hp7dZ1odjyTYgEDjXz5LxZRLSGS8C11zX3fnTbw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=H4dCayKJk4UGlnA9I92kWW6FoA4xDJOH3BLcuTFJQBMA3f9SV/D2aA07vhab609Po
+	 QW5IGcpFYMSnvH8i8BAZuxkf7sHbPca7qyZ61Hwu9RWFD9XU6t2pwliNA8Jr23S2EO
+	 eFVOqlQFcyAgc3Eb23L621zHnqCA6fF5ViGZTyvqN72Y5MS5d4tv1RC0fwH2BpPKxW
+	 oKbz8kbd7rFbc5urzbfU2juS5FjDYEIuIj8oiv50XcpsmmX7kTHMtQ0a55kimNxOdS
+	 dAAfKzoEXeX7lkMj//bYiAGzTARVJfG5QV/XrzkP0YCJx9Ks5rx+BlDRYQ9EknaHu3
+	 PT2skIDj/uv5g==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	guoren@kernel.org,
+	palmer@rivosinc.com,
+	tglx@linutronix.de,
+	peterz@infradead.org,
+	luto@kernel.org,
+	conor.dooley@microchip.com,
+	heiko@sntech.de,
+	jszhang@kernel.org,
+	lazyparser@gmail.com,
+	falcon@tinylab.org,
+	chenhuacai@kernel.org,
+	apatel@ventanamicro.com,
+	atishp@atishpatra.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	mark.rutland@arm.com,
+	zouyipeng@huawei.com,
+	bigeasy@linutronix.de,
+	David.Laight@aculab.com,
+	chenzhongjin@huawei.com,
+	greentime.hu@sifive.com,
+	andy.chiu@sifive.com,
+	ben@decadent.org.uk,
+	bjorn@kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH -next V10 00/10] riscv: Add GENERIC_ENTRY support and related features
+Date: Wed,  7 Dec 2022 21:58:06 -0500
+Message-Id: <20221208025816.138712-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v1 5/7] net: stmmac: Add StarFive dwmac supoort
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-6-yanhong.wang@starfivetech.com>
- <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS066.cuchost.com (172.16.6.26) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221207_182321_772698_A0E34C46 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20221207_185833_305908_20D1894F 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,267 +96,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Guo Ren <guoren@linux.alibaba.com>
 
+The patches convert riscv to use the generic entry infrastructure from
+kernel/entry/*. Additionally, add independent irq stacks (IRQ_STACKS)
+for percpu to prevent kernel stack overflows. Add generic_entry based
+STACKLEAK support. Some optimization for entry.S with new .macro and
+merge ret_from_kernel_thread into ret_from_fork.
 
-On 2022/12/7 22:16, Emil Renner Berthing wrote:
-> Hi Yanhong,
-> 
-> Thanks for submitting this. Again please don't change the author of
-> the commits you cherry-picked from my tree. This is why we have the
-> Co-developed-by: tag so you can mark that you added or in this case
-> removed code.
+The 1,2 are the preparation of generic entry. 3~7 are the main part
+of generic entry. 8~10 are separate-irq-stack optimizations based on
+generic entry.
 
-This commit is not cherry-picked from your tree.
+All tested with rv64, rv32, rv64 + 32rootfs, all are passed.
 
-> I'd hoped you would still include the support for the JH7100 though.
-> 
+You can directly try it with:
+[1] https://github.com/guoren83/linux/tree/generic_entry_v10
 
-If necessary, would include the support for the JH7100 in the next version.
+Any reviews and tests are helpful.
 
-> Also you seem to have changed the name of some of the functions.
-> Please at least keep the prefix consistent if you do that. Now it's a
-> mix of dwmac_starfive_, starfive_eth_ and starfive_eth_plat.
-> 
-> On Thu, 1 Dec 2022 at 10:07, Yanhong Wang <yanhong.wang@starfivetech.com> wrote:
->>
->> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
->>
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> ---
->>  MAINTAINERS                                   |   1 +
->>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 147 ++++++++++++++++++
->>  4 files changed, 160 insertions(+)
->>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 7eaaec8d3b96..36cb00cf860b 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -19610,6 +19610,7 @@ STARFIVE DWMAC GLUE LAYER
->>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
->>  S:     Maintained
->>  F:     Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
->> +F:     drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->>
->>  STARFIVE PINCTRL DRIVER
->>  M:     Emil Renner Berthing <kernel@esmil.dk>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> index 31ff35174034..1e29cd3770b9 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> @@ -235,6 +235,17 @@ config DWMAC_INTEL_PLAT
->>           the stmmac device driver. This driver is used for the Intel Keem Bay
->>           SoC.
->>
->> +config DWMAC_STARFIVE_PLAT
-> 
-> Why did you add the _PLAT suffix? None of the other SoC wrappers have this..
+v10:
+ - Rebase on palmer/for-next branch (20221208)
+ - Remove unrelated patches from the series (Suggested-by: Bjorn)
+ - Fixup Typos. 
 
-The _PLAT suffix definition reference the other SoC,such as DWMAC_INTEL_PLAT.
+v9:
+https://lore.kernel.org/linux-riscv/20221130034059.826599-1-guoren@kernel.org/
+ - Fixup NR_syscalls check (by Ben Hutchings)
+ - Add Tested-by: Jisheng Zhang
 
-> 
->> +       tristate "StarFive dwmac support"
->> +       depends on OF && COMMON_CLK
->> +       depends on STMMAC_ETH
->> +       default SOC_STARFIVE
->> +       help
->> +         Support for ethernet controllers on StarFive RISC-V SoCs
->> +
->> +         This selects the StarFive platform specific glue layer support for
->> +         the stmmac device driver. This driver is used for StarFive RISC-V SoCs.
->> +
->>  config DWMAC_VISCONTI
->>         tristate "Toshiba Visconti DWMAC support"
->>         default ARCH_VISCONTI
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> index d4e12e9ace4f..a63ab0ab5071 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
->>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
->>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
->>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
->> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
->>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
->>  stmmac-platform-objs:= stmmac_platform.o
->>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> new file mode 100644
->> index 000000000000..8fbf584d4e19
->> --- /dev/null
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> @@ -0,0 +1,147 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * StarFive DWMAC platform driver
->> + *
->> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
-> 
-> Hmm.. where did my copyright go?
-> 
->> + *
->> + */
->> +
->> +#include <linux/of_device.h>
->> +#include "stmmac_platform.h"
->> +
->> +struct starfive_dwmac {
->> +       struct device *dev;
->> +       struct clk *clk_tx;
->> +       struct clk *clk_gtx;
->> +       struct clk *clk_gtxc;
->> +};
->> +
->> +static void starfive_eth_fix_mac_speed(void *priv, unsigned int speed)
->> +{
->> +       struct starfive_dwmac *dwmac = priv;
->> +       unsigned long rate;
->> +       int err;
->> +
->> +       switch (speed) {
->> +       case SPEED_1000:
->> +               rate = 125000000;
->> +               break;
->> +       case SPEED_100:
->> +               rate = 25000000;
->> +               break;
->> +       case SPEED_10:
->> +               rate = 2500000;
->> +               break;
->> +       default:
->> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
->> +               return;
->> +       }
->> +
->> +       err = clk_set_rate(dwmac->clk_gtx, rate);
->> +       if (err)
->> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
->> +}
->> +
->> +static void dwmac_starfive_clk_disable(void *clk)
->> +{
->> +       clk_disable_unprepare(clk);
->> +}
->> +
->> +static int starfive_eth_plat_probe(struct platform_device *pdev)
->> +{
->> +       struct plat_stmmacenet_data *plat_dat;
->> +       struct stmmac_resources stmmac_res;
->> +       struct starfive_dwmac *dwmac;
->> +       int err;
->> +
->> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
->> +       if (err)
->> +               return err;
->> +
->> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
->> +       if (IS_ERR(plat_dat)) {
->> +               dev_err(&pdev->dev, "dt configuration failed\n");
->> +               return PTR_ERR(plat_dat);
->> +       }
->> +
->> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->> +       if (!dwmac)
->> +               return -ENOMEM;
->> +
->> +       dwmac->clk_tx = devm_clk_get(&pdev->dev, "tx");
->> +       if (IS_ERR(dwmac->clk_tx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
->> +                                               "error getting tx clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_tx);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_tx);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling tx clock\n");
->> +
->> +       dwmac->clk_gtx = devm_clk_get(&pdev->dev, "gtx");
->> +       if (IS_ERR(dwmac->clk_gtx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
->> +                                               "error getting gtx clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_gtx);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_gtx);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling gtx clock\n");
-> 
-> I think the 3 calls above can be simplified to devm_clk_get_enabled().
+v8:
+https://lore.kernel.org/linux-riscv/20221103075047.1634923-1-guoren@kernel.org/
+ - Rebase on palmer/for-next branch (20221102)
+ - Add save/restore_from_x5_to_x31 .macro (JishengZhang)
+ - Consolidate ret_from_kernel_thread into ret_from_fork (JishengZhang)
+ - Optimize __noinstr_section comment (JiangshanLai)
 
-I'll simplify it to devm_ clk_ get_ enabled() in the next version.
+v7:
+https://lore.kernel.org/linux-riscv/20221015114702.3489989-1-guoren@kernel.org/
+ - Fixup regs_irqs_disabled with SR_PIE
+ - Optimize stackleak_erase -> stackleak_erase_on_task_stack (Thx Mark
+   Rutland)
+ - Add BUG_ON(!irqs_disabled()) in trap handlers
+ - Using regs_irqs_disabled in __do_page_fault
+ - Remove unnecessary irq disable in ret_from_exception and add comment
 
-> 
->> +       dwmac->clk_gtxc = devm_clk_get(&pdev->dev, "gtxc");
->> +       if (IS_ERR(dwmac->clk_gtxc))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
->> +                                               "error getting gtxc clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_gtxc);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_gtxc);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling gtxc clock\n");
-> 
-> Same here.
-> 
->> +
->> +       dwmac->dev = &pdev->dev;
->> +       plat_dat->fix_mac_speed = starfive_eth_fix_mac_speed;
->> +       plat_dat->init = NULL;
->> +       plat_dat->bsp_priv = dwmac;
->> +       plat_dat->dma_cfg->dche = true;
->> +
->> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
->> +       if (err) {
->> +               stmmac_remove_config_dt(pdev, plat_dat);
->> +               return err;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct of_device_id starfive_eth_plat_match[] = {
->> +       {.compatible = "starfive,dwmac"},
->> +       { }
->> +};
->> +
->> +static struct platform_driver starfive_eth_plat_driver = {
->> +       .probe  = starfive_eth_plat_probe,
->> +       .remove = stmmac_pltfr_remove,
->> +       .driver = {
->> +               .name = "starfive-eth-plat",
->> +               .pm = &stmmac_pltfr_pm_ops,
->> +               .of_match_table = starfive_eth_plat_match,
->> +       },
->> +};
->> +
->> +module_platform_driver(starfive_eth_plat_driver);
->> +
->> +MODULE_LICENSE("GPL");
->> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
-> 
-> Here you also seem to have removed me.
-> 
->> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
->> --
->> 2.17.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+v6:
+https://lore.kernel.org/linux-riscv/20221002012451.2351127-1-guoren@kernel.org/
+ - Use THEAD_SIZE_ORDER for thread size adjustment in kconfig (Thx Arnd)
+ - Move call_on_stack to inline style (Thx Peter Zijlstra)
+ - Fixup fp chain broken (Thx Chen Zhongjin)
+ - Remove common entry modification, and fixup page_fault entry (Thx
+   Peter Zijlstra)
+ - Treat some traps as nmi entry (Thx Peter Zijlstra)
+
+v5:
+https://lore.kernel.org/linux-riscv/20220918155246.1203293-1-guoren@kernel.org/
+ - Add riscv own stackleak patch instead of generic entry modification
+   (by Mark Rutland)
+ - Add EXPERT dependency for THREAD_SIZE (by Arnd)
+ - Add EXPERT dependency for IRQ_STACK (by Sebastian, David Laight)
+ - Corrected __trap_section (by Peter Zijlstra)
+ - Add Tested-by (Yipeng Zou)
+ - Use CONFIG_SOFTIRQ_ON_OWN_STACK replace "#ifndef CONFIG_PREEMPT_RT"
+ - Fixup systrace_enter compile error
+ - Fixup exit_to_user_mode_prepare preempt_disable warning
+
+V4:
+https://lore.kernel.org/linux-riscv/20220908022506.1275799-1-guoren@kernel.org/
+ - Fixup entry.S with "la" bug (by Conor.Dooley)
+ - Fixup missing noinstr bug (by Peter Zijlstra)
+
+V3:
+https://lore.kernel.org/linux-riscv/20220906035423.634617-1-guoren@kernel.org/
+ - Fixup CONFIG_COMPAT=n compile error
+ - Add THREAD_SIZE_ORDER config
+ - Optimize elf_kexec.c warning fixup
+ - Add static to irq_stack_ptr definition
+
+V2:
+https://lore.kernel.org/linux-riscv/20220904072637.8619-1-guoren@kernel.org/
+ - Fixup compile error by include "riscv: ptrace: Remove duplicate
+   operation"
+ - Fixup compile warning
+   Reported-by: kernel test robot <lkp@intel.com>
+ - Add test repo link in cover letter
+
+V1:
+https://lore.kernel.org/linux-riscv/20220903163808.1954131-1-guoren@kernel.org/
+
+Guo Ren (6):
+  riscv: ptrace: Remove duplicate operation
+  riscv: entry: Add noinstr to prevent instrumentation inserted
+  riscv: entry: Convert to generic entry
+  riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+  riscv: stack: Support HAVE_SOFTIRQ_ON_OWN_STACK
+  riscv: stack: Add config of thread stack size
+
+Jisheng Zhang (3):
+  riscv: entry: Remove extra level wrappers of trace_hardirqs_{on,off}
+  riscv: entry: Consolidate ret_from_kernel_thread into ret_from_fork
+  riscv: entry: Consolidate general regs saving/restoring
+
+Lai Jiangshan (1):
+  compiler_types.h: Add __noinstr_section() for noinstr
+
+ arch/riscv/Kconfig                    |  20 ++
+ arch/riscv/include/asm/asm.h          |  63 +++++
+ arch/riscv/include/asm/csr.h          |   1 -
+ arch/riscv/include/asm/entry-common.h |   8 +
+ arch/riscv/include/asm/ptrace.h       |  10 +-
+ arch/riscv/include/asm/stacktrace.h   |   5 +
+ arch/riscv/include/asm/syscall.h      |   6 +
+ arch/riscv/include/asm/thread_info.h  |  27 +--
+ arch/riscv/include/asm/vmap_stack.h   |  28 +++
+ arch/riscv/kernel/Makefile            |   2 -
+ arch/riscv/kernel/entry.S             | 325 +++-----------------------
+ arch/riscv/kernel/irq.c               | 110 +++++++++
+ arch/riscv/kernel/mcount-dyn.S        |  56 +----
+ arch/riscv/kernel/process.c           |   5 +-
+ arch/riscv/kernel/ptrace.c            |  44 ----
+ arch/riscv/kernel/signal.c            |  21 +-
+ arch/riscv/kernel/sys_riscv.c         |  29 +++
+ arch/riscv/kernel/trace_irq.c         |  27 ---
+ arch/riscv/kernel/trace_irq.h         |  11 -
+ arch/riscv/kernel/traps.c             |  74 ++++--
+ arch/riscv/mm/fault.c                 |  16 +-
+ include/linux/compiler_types.h        |  15 +-
+ 22 files changed, 402 insertions(+), 501 deletions(-)
+ create mode 100644 arch/riscv/include/asm/entry-common.h
+ create mode 100644 arch/riscv/include/asm/vmap_stack.h
+ delete mode 100644 arch/riscv/kernel/trace_irq.c
+ delete mode 100644 arch/riscv/kernel/trace_irq.h
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
