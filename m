@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621DCC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F4FC001B2
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,71 +13,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=ZAhGIjIAq3fAGJnVQXvjniyTYTwUBorIf5XtkNCKfMQ=; b=eFFaUF9AYKs3i3gV34FPMY4L3+
-	YTRFPfl0Yjasbw1ULgf1UgmG1IV198lFaaeABg+WMeskw7hWfSrE36mb31+WZR5cWbiU4ZbVO3UyF
-	rCicIyRDRZ32FrF6q8AVZczizPkgRNsFY7aVkA9miqOy2upBVkkCCuVb5+hHG2ppe2rpZOcmsjvzU
-	AxxLk6We0rdET9HZXd4gfxEvn2TwuGBJDlRmV7ndNCFuEHX4oRkpsoXFJXRQXG+BmpaJjKZ7uAkpf
-	LbAf8PslvmgAIXq/3cuZwGII8MBZYh5IGqCTflxsa5x0P5ggvCxcypukFV90ITLBVyWfKDbNTH+x4
-	kpcNTcXQ==;
+	bh=6QlG8I4ZiOE+F6HODazx+2eEiuaHOTgNF0vjswqwanE=; b=YR8BUkkVGukQNSbTIKW1gn1FFj
+	RlSrNCW2CIM55uLC0s2wN7Fdkw3BmZ7hbuiZWDpPTEvSqbKYb3SCL+HTOPJEzF0oM2/PVvqvMesCS
+	rLwo7fH5Vt/BVJQEQ0LIkGJcX2+2SvBTa6n6xHxzjK4BHIP+NVByjYBGcPJZretJnYz8HyKbVmKWt
+	mtMJxCttIubz7y49Hd0FUODyLgFfyQpRxvUWLjbjgBSKFB8Zzo8T5jyQkoW8EtltQclXU6y+SCxkg
+	R/HK8wVZUVcsuggjieqpBfuLCnjoBJE7u8M2VzF/m0566YDN5hULRaB89Bure3SaXiO539srPx7WS
+	0/0IMxqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3NUh-00AghC-GT; Thu, 08 Dec 2022 20:27:47 +0000
+	id 1p3NUj-00Aglc-CD; Thu, 08 Dec 2022 20:27:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3NUg-00AgYd-6d
-	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 20:27:46 +0000
+	id 1p3NUg-00AgYd-Ud
+	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 20:27:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yTAZyHH91Hz9k7OZtf9gLdlJIIrZMhdblzaFwMket5k=; b=ohdKWnP7Ti2lPActsUdTAi3SQ9
-	2SGS4IwZk8MeiDgesizUu/CQykZOgHVWIxrQ7CZxW8cgqe2u6G1qgTJdbt6psR3TWBzmSsw9nHxle
-	O/W/opl+2bsntFPXtF4BkH5vtBRTnRIbCG3JWyyLxcCb3AbRmnEfsxj7oFm+wX5u7UC1KxSJCXz6G
-	FrsvqM5g8SQ4xrh9B4GuUBCKleoOcOd8+fwdr3ICi0KH9h7P/JeTfxpnysy9vb3jl7icPnFMBRAmo
-	e+n08T4qVlvnVoelhJpFg2Gf260W7baVAyIu1HMmc4W1k0aPlzImqePtHjkqhRLo+neMIkeuo6I36
-	LYToTdWQ==;
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	bh=z1OT4qzC8agmu6kAkGnJ2Z35e3wCX96lD5z5dcXDmZ8=; b=ULLbRCVRIF3j6prrUEgai2iFV7
+	Noc60IyJFZb0M9xSEURA4oPoYNDrtwJY8kBWZoxrB/wvB6SrMJ/WrJB4lMU/TduXA74CNbX8kuufz
+	XpLaR5Wa6LuwSH9Lm8VMkj4qns2wBhK4Sy60BPXlou9ea+YKJIeH+I2rOoFQtWG6xcGr7sT+2cMew
+	LEfKFOsyMkS7uhCMboTndit9g4egfnmkmCMKhzkWVBp6/X8DSsx1mi0qxIrKCJ4kzwHEvLQK1gd28
+	6YfuMTSnbW9a0BI7Kr6G2VyWzTqwmZ9xG1Sn8ocYIfNT2cvQwm6tWTp1IC1mgnuH1nZv/weuEApYs
+	wmjeO9Bg==;
+Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
 	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mjo-008ZoH-Qi
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:25 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-3b0af5bcbd3so25222337b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:20 -0800 (PST)
+	id 1p3MqV-008a2Y-Dh
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:46:17 +0000
+Received: by mail-ot1-x349.google.com with SMTP id bx9-20020a056830600900b0066debed5e7dso1227301otb.10
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:46:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yTAZyHH91Hz9k7OZtf9gLdlJIIrZMhdblzaFwMket5k=;
-        b=GOQt4+sFqigGxf6Aa3fTvktBe1mjQiluGE/Jj6vv/IvtdV7LliPzUDKCSdDx4Qr+HY
-         SefezSHoN8FcvlmM5v70XQPk/EyYEeJUQTBJUq5h/NPog1UINNQReWUqbVEFjNE5psNx
-         aagqyJsONr1NaCPx7WLFrSAq/6+YU9H0nX9KZhJN95FCQM9/NOhRMdNzFnOuadNLctYN
-         G+xWcIxFKNvCVcBGdVMIWulIdzku3X8ojhuncsVZJ/7ZuOiqyWG7OUDtS4/fr9vosjH0
-         V6V8OE7BSYaG+WEMOpz2hhgLOVkbabsraMBHq3XN+o9hqQFkHr8FyeB1wUdGuE+kwW+d
-         bbVQ==
+        bh=z1OT4qzC8agmu6kAkGnJ2Z35e3wCX96lD5z5dcXDmZ8=;
+        b=mYob1xjdrgICrvdwJ/y+dLEYrXUw8yHkANGFMt6kNW2zwoh86yOA5IqdKm5On/HK71
+         rCr+r9ZI6b6AUTyVpRLi2HPUhb4KBRes2A7dYxEjzKSFKujmjFxrPF/BYUNv2Dy6Czkl
+         f0L60qH/T+Z7MgC6YZCM/qFdYGB6ww2JwcmxKxWSiQbNX520z0l4UVo1vs6DH+jCVtRB
+         Ica965ONYXFaPKJ0DJgySM/ZwSZbyoeXM3nEtFV/eijoma5iS8BYP7SnArJIeoWtwwAs
+         /dEWQtSRXEmOgV2EdezDQjp58v5mEPq257Ptg1IsS9acpYvYjSy/WRIyS1Ye2wh2Jdug
+         JTKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yTAZyHH91Hz9k7OZtf9gLdlJIIrZMhdblzaFwMket5k=;
-        b=6HuyO8JbybM2wf246Smxzjoy6X5HhJd/SrkL91GaM7gpmMTBwYgo2Si4yG3C1BZtlu
-         5cuex1lav56s5K+Bw0IzmfhOACeDJehOG6Byks/6ZNABqiEpPDN+BT38e9Zkst1hDXz9
-         8kHuaSQHrX8ek/2g2tgAVLNvymIL/rAo2Fgon+wlsN0wugcIQvPfalTJ9CqxJcC828HO
-         HbSu98EP4xs74pOLRLqjre090d6RbgtJfgN+6XlEFIpx0n/HzQmeiabSxqDNwJCvsuFj
-         schgx2SCa40aqj46yhFGLMm6ZstebiH3zfXOEXOCZ4tCiP1lJ/B1RcprY+MrvgcuyE80
-         sA/A==
-X-Gm-Message-State: ANoB5pmtiswZT1SGcm+KdirErOPD1D0UI9pJOl2ubC7RzG+Qs5KxEl5F
-	Z1uhIKK04Kw7rewsPLQspZ58bSsABmCdVw==
-X-Google-Smtp-Source: AA0mqf4+9oetgR3uKpdfVrPGzq2N3r/JU0sb91m8xpA2HrSBGD0IqxC3Vg4zr/dJJfrFDGejU78ci1LRJL+iRw==
+        bh=z1OT4qzC8agmu6kAkGnJ2Z35e3wCX96lD5z5dcXDmZ8=;
+        b=dy3ws/LNStxYOYHq537Llin+yxNpdNBcWhQn5yIDWcl2AJ4mnKIpkl+IH22CinlZ4B
+         XzMkaX1iyGY5KMr19oIxdC8fGbswc7ho2rwfTYe1GkRhozG9fE5YnbbRBwjS1h334SK1
+         1AQ6g21a2QGkrnWUAEu+8JxGh7wYNs6pGFhY5pUW8Igoe4ShnmoFv82psBQdQbcnOnH4
+         J0yuvuG2pYE6N3moGDDHcG+heTUYR4rrukjPPhdwNFUc4LfpA0/9DPo7crwAgW0c8JZy
+         q2Xi0R4bzhYS3ulgNvDssatT4BvQcyLkSPVDV+I9e7Ti7Nt5Cl4czdGoSxHTUNDQeTGR
+         MDbQ==
+X-Gm-Message-State: ANoB5pm22reH7b1tz+KYsMms3Km7+nTKwwzYBGQspWjpCJFcbRv1y9Ag
+	eXQU80GtQGf9AcrN0Upicf4CP791qmGr3g==
+X-Google-Smtp-Source: AA0mqf4wDINWYdyDuh5bcErKdq4AXe0SreaRGxGTgiHfTgQy11e7AFp7261AXIzWuvopVOIy1EidXNtJ/FLxDQ==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:9f85:0:b0:700:f93d:c7cd with SMTP id
- u5-20020a259f85000000b00700f93dc7cdmr16638924ybq.166.1670528358851; Thu, 08
- Dec 2022 11:39:18 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:27 -0800
+ (user=dmatlack job=sendgmr) by 2002:a17:90a:a78c:b0:219:ef00:9ffe with SMTP
+ id f12-20020a17090aa78c00b00219ef009ffemr14658083pjq.106.1670528378506; Thu,
+ 08 Dec 2022 11:39:38 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:39 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-8-dmatlack@google.com>
-Subject: [RFC PATCH 07/37] mm: Introduce architecture-neutral PG_LEVEL macros
+Message-ID: <20221208193857.4090582-20-dmatlack@google.com>
+Subject: [RFC PATCH 19/37] KVM: x86/mmu: Add arch hooks for NX Huge Pages
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -99,9 +99,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_193921_004971_013B4A1A 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221208_194615_569696_F3976D30 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,59 +117,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce architecture-neutral versions of the x86 macros PG_LEVEL_4K,
-PG_LEVEL_2M, etc. The x86 macros are used extensively by KVM/x86's page
-table management code. Introducing architecture-neutral version of these
-macros paves the way for porting KVM/x86's page table management code to
-architecture-neutral code.
+Abstract away the handling for NX Huge Pages down to arch-specific
+hooks. This will be used in a future commit to move the TDP MMU to
+common code despite NX Huge Pages, which is x86-specific.
+
+NX Huge Pages is by far the most disruptive feature in terms of needing
+the most arch hooks in the TDP MMU.
+
+No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/include/asm/pgtable_types.h | 12 ++++--------
- include/linux/mm_types.h             |  9 +++++++++
- 2 files changed, 13 insertions(+), 8 deletions(-)
+ arch/x86/kvm/mmu/tdp_mmu.c     | 57 +++++++++++++++++++---------------
+ arch/x86/kvm/mmu/tdp_pgtable.c | 52 +++++++++++++++++++++++++++++++
+ 2 files changed, 84 insertions(+), 25 deletions(-)
 
-diff --git a/arch/x86/include/asm/pgtable_types.h b/arch/x86/include/asm/pgtable_types.h
-index aa174fed3a71..bdf41325f089 100644
---- a/arch/x86/include/asm/pgtable_types.h
-+++ b/arch/x86/include/asm/pgtable_types.h
-@@ -518,14 +518,10 @@ extern void native_pagetable_init(void);
- struct seq_file;
- extern void arch_report_meminfo(struct seq_file *m);
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index 0172b0e44817..7670fbd8e72d 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -269,17 +269,21 @@ static struct kvm_mmu_page *tdp_mmu_alloc_sp(struct kvm_vcpu *vcpu)
+ 	return sp;
+ }
  
--enum pg_level {
--	PG_LEVEL_NONE,
--	PG_LEVEL_4K,
--	PG_LEVEL_2M,
--	PG_LEVEL_1G,
--	PG_LEVEL_512G,
--	PG_LEVEL_NUM
--};
-+#define PG_LEVEL_4K	PG_LEVEL_PTE
-+#define PG_LEVEL_2M	PG_LEVEL_PMD
-+#define PG_LEVEL_1G	PG_LEVEL_PUD
-+#define PG_LEVEL_512G	PG_LEVEL_P4D
- 
- #ifdef CONFIG_PROC_FS
- extern void update_page_count(int level, unsigned long pages);
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 500e536796ca..0445d0673afe 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -1003,4 +1003,13 @@ enum fault_flag {
- 
- typedef unsigned int __bitwise zap_flags_t;
- 
-+enum pg_level {
-+	PG_LEVEL_NONE,
-+	PG_LEVEL_PTE,
-+	PG_LEVEL_PMD,
-+	PG_LEVEL_PUD,
-+	PG_LEVEL_P4D,
-+	PG_LEVEL_NUM
-+};
++__weak void tdp_mmu_arch_init_sp(struct kvm_mmu_page *sp)
++{
++}
 +
- #endif /* _LINUX_MM_TYPES_H */
+ static void tdp_mmu_init_sp(struct kvm_mmu_page *sp, tdp_ptep_t sptep,
+ 			    gfn_t gfn, union kvm_mmu_page_role role)
+ {
+-	INIT_LIST_HEAD(&sp->arch.possible_nx_huge_page_link);
+-
+ 	set_page_private(virt_to_page(sp->spt), (unsigned long)sp);
+ 
+ 	sp->role = role;
+ 	sp->gfn = gfn;
+ 	sp->ptep = sptep;
+ 
++	tdp_mmu_arch_init_sp(sp);
++
+ 	trace_kvm_mmu_get_page(sp, true);
+ }
+ 
+@@ -373,6 +377,11 @@ static void tdp_unaccount_mmu_page(struct kvm *kvm, struct kvm_mmu_page *sp)
+ 	atomic64_dec(&kvm->arch.tdp_mmu_pages);
+ }
+ 
++__weak void tdp_mmu_arch_unlink_sp(struct kvm *kvm, struct kvm_mmu_page *sp,
++				   bool shared)
++{
++}
++
+ /**
+  * tdp_mmu_unlink_sp() - Remove a shadow page from the list of used pages
+  *
+@@ -386,20 +395,7 @@ static void tdp_mmu_unlink_sp(struct kvm *kvm, struct kvm_mmu_page *sp,
+ 			      bool shared)
+ {
+ 	tdp_unaccount_mmu_page(kvm, sp);
+-
+-	if (!sp->arch.nx_huge_page_disallowed)
+-		return;
+-
+-	if (shared)
+-		spin_lock(&kvm->arch.tdp_mmu_pages_lock);
+-	else
+-		lockdep_assert_held_write(&kvm->mmu_lock);
+-
+-	sp->arch.nx_huge_page_disallowed = false;
+-	untrack_possible_nx_huge_page(kvm, sp);
+-
+-	if (shared)
+-		spin_unlock(&kvm->arch.tdp_mmu_pages_lock);
++	tdp_mmu_arch_unlink_sp(kvm, sp, shared);
+ }
+ 
+ /**
+@@ -1129,6 +1125,23 @@ static int tdp_mmu_link_sp(struct kvm *kvm, struct tdp_iter *iter,
+ 	return 0;
+ }
+ 
++__weak void tdp_mmu_arch_adjust_map_level(struct kvm_page_fault *fault,
++					  struct tdp_iter *iter)
++{
++}
++
++__weak void tdp_mmu_arch_pre_link_sp(struct kvm *kvm,
++				     struct kvm_mmu_page *sp,
++				     struct kvm_page_fault *fault)
++{
++}
++
++__weak void tdp_mmu_arch_post_link_sp(struct kvm *kvm,
++				      struct kvm_mmu_page *sp,
++				      struct kvm_page_fault *fault)
++{
++}
++
+ static int tdp_mmu_split_huge_page(struct kvm *kvm, struct tdp_iter *iter,
+ 				   struct kvm_mmu_page *sp, bool shared);
+ 
+@@ -1153,8 +1166,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	for_each_tdp_pte(iter, root, fault->gfn, fault->gfn + 1) {
+ 		int r;
+ 
+-		if (fault->arch.nx_huge_page_workaround_enabled)
+-			disallowed_hugepage_adjust(fault, iter.old_spte, iter.level);
++		tdp_mmu_arch_adjust_map_level(fault, &iter);
+ 
+ 		if (iter.level == fault->goal_level)
+ 			break;
+@@ -1178,7 +1190,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 		sp = tdp_mmu_alloc_sp(vcpu);
+ 		tdp_mmu_init_child_sp(sp, &iter);
+ 
+-		sp->arch.nx_huge_page_disallowed = fault->arch.huge_page_disallowed;
++		tdp_mmu_arch_pre_link_sp(kvm, sp, fault);
+ 
+ 		if (tdp_pte_is_present(iter.old_spte))
+ 			r = tdp_mmu_split_huge_page(kvm, &iter, sp, true);
+@@ -1194,12 +1206,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 			goto retry;
+ 		}
+ 
+-		if (fault->arch.huge_page_disallowed &&
+-		    fault->req_level >= iter.level) {
+-			spin_lock(&kvm->arch.tdp_mmu_pages_lock);
+-			track_possible_nx_huge_page(kvm, sp);
+-			spin_unlock(&kvm->arch.tdp_mmu_pages_lock);
+-		}
++		tdp_mmu_arch_post_link_sp(kvm, sp, fault);
+ 	}
+ 
+ 	/*
+diff --git a/arch/x86/kvm/mmu/tdp_pgtable.c b/arch/x86/kvm/mmu/tdp_pgtable.c
+index e036ba0c6bee..b07ed99b4ab1 100644
+--- a/arch/x86/kvm/mmu/tdp_pgtable.c
++++ b/arch/x86/kvm/mmu/tdp_pgtable.c
+@@ -111,3 +111,55 @@ u64 tdp_mmu_make_huge_page_split_pte(struct kvm *kvm, u64 huge_spte,
+ {
+ 	return make_huge_page_split_spte(kvm, huge_spte, sp->role, index);
+ }
++
++void tdp_mmu_arch_adjust_map_level(struct kvm_page_fault *fault,
++				   struct tdp_iter *iter)
++{
++	if (fault->arch.nx_huge_page_workaround_enabled)
++		disallowed_hugepage_adjust(fault, iter->old_spte, iter->level);
++}
++
++void tdp_mmu_arch_init_sp(struct kvm_mmu_page *sp)
++{
++	INIT_LIST_HEAD(&sp->arch.possible_nx_huge_page_link);
++}
++
++void tdp_mmu_arch_pre_link_sp(struct kvm *kvm,
++			      struct kvm_mmu_page *sp,
++			      struct kvm_page_fault *fault)
++{
++	sp->arch.nx_huge_page_disallowed = fault->arch.huge_page_disallowed;
++}
++
++void tdp_mmu_arch_post_link_sp(struct kvm *kvm,
++			       struct kvm_mmu_page *sp,
++			       struct kvm_page_fault *fault)
++{
++	if (!fault->arch.huge_page_disallowed)
++		return;
++
++	if (fault->req_level < sp->role.level)
++		return;
++
++	spin_lock(&kvm->arch.tdp_mmu_pages_lock);
++	track_possible_nx_huge_page(kvm, sp);
++	spin_unlock(&kvm->arch.tdp_mmu_pages_lock);
++}
++
++void tdp_mmu_arch_unlink_sp(struct kvm *kvm, struct kvm_mmu_page *sp,
++			    bool shared)
++{
++	if (!sp->arch.nx_huge_page_disallowed)
++		return;
++
++	if (shared)
++		spin_lock(&kvm->arch.tdp_mmu_pages_lock);
++	else
++		lockdep_assert_held_write(&kvm->mmu_lock);
++
++	sp->arch.nx_huge_page_disallowed = false;
++	untrack_possible_nx_huge_page(kvm, sp);
++
++	if (shared)
++		spin_unlock(&kvm->arch.tdp_mmu_pages_lock);
++}
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
