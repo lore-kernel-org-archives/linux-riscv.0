@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F6EC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812E7C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,58 +13,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=uh3yoEA15oMl00A9RMYjouy3O3mMzsorrPbH9FeERjY=; b=RO/EpnnoIU8ax0+KGXBQzyY0qT
-	givwJZKq9sQSbJvunGuJz3JOssTqD/mLpkqvNP9pkz6zBP+CxsQSMCZxByezBGvqOBwUXV1crYhGw
-	dSmWtr+lxX9VwMxkqdcnJsTqOCV3EwTYLdNXosltKLtAANg1Pe0igCSfQ9ecEq265bBAtIY5OZx91
-	XUuQ1QsU7go2/JP3ZlCWlCWMIfkxU6ldTS2yR4JovFFGUbAz+iPjin6397wdD0Z5IAAneFtz6fJHy
-	bveJsw+E0k+cdVoSTkGtBP+kZKmeKt+FaJfhRBr8761U4bAbtPdlgjYa6NdSQ5mkB0Xz1ATM3Q6E3
-	gd5BNzOA==;
+	bh=MjlISX5BaHxbqS037DGutioUjdnplQ5wIgagunfIkzQ=; b=NhX8AdkLfisoGb/IhR4kkzYmwa
+	uL9m1I1hZsryEHAXUQTmDi09lKBlTR5dXNI4RbOd3wnal8ddJndykjaXoDynE1OKtVEor1RYDY08W
+	XOeqwDs6otaLm7zuU1kC3v3jWcvgFCWq/kWx9hE0CFhYZw9CvjYbzYW+BY6aNxxE+cOnLyNSjG2Ex
+	al/5w7YM94lIP8RA5jjsp6itWNab6e5oV2I5c9D1mOdiESBVs1tG6Ttnz/+IBrS39gQDiLdgTxaxh
+	n0ms1vGHIG6XO0liErKmnwQwEPQJwRpVH9g945k2H5fiPkmVwxKcy98K+++tWnHZw8ifQYRmRXkDM
+	Pw6isqIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mqs-00A1XN-6A; Thu, 08 Dec 2022 19:46:38 +0000
+	id 1p3Mt1-00A36D-TQ; Thu, 08 Dec 2022 19:48:52 +0000
 Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3MqU-00A1By-62
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:46:17 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id a12-20020a05680804cc00b0035b9a1d20ecso1075858oie.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:46:11 -0800 (PST)
+	id 1p3Mqm-00A1S8-Qk
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:46:34 +0000
+Received: by mail-oi1-x24a.google.com with SMTP id o17-20020a0568080bd100b0035e30a861f7so1080116oik.14
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:46:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CaDXua+LFbRv3ei+U1Fgv/kax6A2A04L4lM62rMK90Q=;
-        b=FQRVJBa4KRKObP8S3n7w3f2m+Bcx87+PQgURkRJCXrk7m4BdVxUrIfCvxY3dvCxGvX
-         DFNpL9OiA6gV3a7OA6rX48DXADwjzhjgTFiSwWT9yA/sZdiwLepPrDM/Dmol5FJsTFtd
-         1z4mxGJZs7yrfwU4FQjUHnKK5PWmnwdRAprtxH5S0Ua5f0HoeWKVyWfSamiqMLNdnacf
-         wBp7G+B2Y+E/qsY0zWkyQWEjRsad/cIklCbMqtgv/ZnA3GI3slUIM7MR6Z7bKiBB5z6N
-         n2PV1n0iU9J6gxAvFUL2pGUf26H+n9zVjk4Eh4mosAVvSNZBvAGEZTWWsWyjSDwLmgGs
-         n+cg==
+        bh=1a1z/b3owkRfttdiEuiESfzblYsje7V7GrYJ8kI0Po8=;
+        b=F0XYX+U7NiHCkK7bsbIKwHt4xn5xSLrANWygs7k8NFHbu1R2R/rmJKDDnvUWdIHP92
+         Ly2IYp0NOWTwXh63NaBMZcPqgDrfFaYYlcINvpDuRoegsyJJVoxOj7s7XDFnwq4W8GTC
+         f+4upgVNo5G4bbwSbrkVhi3YHBvy4jYzsDFUG9wwYOpDkZx7UBWzJoj2myxNLvIdqZ4W
+         pfI5REShGLM7+b3RergwOgWIMIsTPACWYsmBoNyo8t79eVgzWxxkGk1mGWxh5mVT27dB
+         xSUuXJrP+ASrLLbWhs1/6bZw6Zgr2IKK/y+UkG+xQAvodbxK4QFJj/l93proPVAsOFHJ
+         1lsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CaDXua+LFbRv3ei+U1Fgv/kax6A2A04L4lM62rMK90Q=;
-        b=CMbmWkBLrOO+NTI0pYkiyQAESg6owQxvXE8KcTK19cW9hdQqUTIZhe370FbzPJ5Y6b
-         CNaizPrz8UP/r1Gl1CG8/cs+iFfLcSa+TTmYrfoLEQjOomBWMSlyI/M7kBn7q1/hsGmG
-         rw2b6f7kmqkhYU+2ge3fgZh57xzeNv8XJR++79VgoufvsskLXd0dH/IWlPwymVIVkXwp
-         F3e8incPLxDiZWjE5jLRuOglnlR2VrChszi2u3Sc6a56ClVG6ML9SPBlRTentJ9zxATK
-         1ntPnue4Vmq/RBCStRfCekiVvJlL9c9WtJm0Bm5AsTbM7LbhLhse/hnGdDwhL2uz/QF0
-         EcQw==
-X-Gm-Message-State: ANoB5pmkWDpWtZoZO8m78O4xiOcPkzrVA2zsqpsplAZdzUtPB1xleZrZ
-	x2dbFO642awbYPE+OFftiwDeV8NXa1OTPQ==
-X-Google-Smtp-Source: AA0mqf5XxSPsh1gElJLISTCH8jBxKw2l85vxM5vFZMR7VtMxrzDAz9u8B+smh4G6eaCc3YG8CKpqOh9t0eSRDA==
+        bh=1a1z/b3owkRfttdiEuiESfzblYsje7V7GrYJ8kI0Po8=;
+        b=1fbGW4gLNQySA8Xp4ClVwcLx8j4qYJuhwptjUx5p0Mn3SLssCJtpFNPVmjmLLM+U0L
+         nhEmE8xz/z77osgsc5RTQAPd2ISZckGaoXe/1XOzs50XXYcQgCYh9KIo9OPOYpIQh5tW
+         GH8WEPfcfWppemepKZwqWpMKRzIdcbN++42jaicvzDX/ay1JSwprzLgnG7F+swmUfRyz
+         7CauhjVlaHqMTUol3LxA83knVs0kEjteWyU7u3dxBPaSKrl3ECSMtfNtLrcfFc1gsTOR
+         FQoUnTTxjlOI1sbiPId2P4hen39X7pi2JitBODGKFpa90p2fArlbwOOS+Nvf+sJMk0XR
+         VXCQ==
+X-Gm-Message-State: ANoB5pk/B5usja5ZT+xvGs5Y3gqaS5dQKyHWQSYNy7m2txGnwzCHS6X3
+	glJzoK+kPmaH8+SKdKx5HimJashknBzDNg==
+X-Google-Smtp-Source: AA0mqf5kngnEG6TtWra1+xFIY37aBRwogffq20uJpUzBVyAWsE1WUGsuHoa/DzL+7L0/Sgg0ER4DuRQldLsQMw==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a05:690c:b18:b0:388:7d2:587b with SMTP id
- cj24-20020a05690c0b1800b0038807d2587bmr8897906ywb.416.1670528380375; Thu, 08
- Dec 2022 11:39:40 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:40 -0800
+ (user=dmatlack job=sendgmr) by 2002:a17:90b:1997:b0:219:8ee5:a226 with SMTP
+ id mv23-20020a17090b199700b002198ee5a226mr29019577pjb.13.1670528387307; Thu,
+ 08 Dec 2022 11:39:47 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:44 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-21-dmatlack@google.com>
-Subject: [RFC PATCH 20/37] KVM: x86/mmu: Abstract away computing the max
- mapping level
+Message-ID: <20221208193857.4090582-25-dmatlack@google.com>
+Subject: [RFC PATCH 24/37] KVM: x86/mmu: Move kvm_mmu_hugepage_adjust() up to
+ fault handler
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -86,8 +86,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_114614_250939_E684A9DB 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20221208_114632_898933_55B1D273 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,74 +104,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Abstract away kvm_mmu_max_mapping_level(), which is an x86-specific
-function for computing the max level that a given GFN can be mapped in
-KVM's page tables. This will be used in a future commit to enable moving
-the TDP MMU to common code.
+Move the call to kvm_mmu_hugepage_adjust() up to the fault handler
+rather than calling it from kvm_tdp_mmu_map(). Also make the same change
+to direct_map() for consistency. This reduces the TDP MMU's dependency
+on an x86-specific function, so that it can be moved into common code.
 
-Provide a default implementation for non-x86 architectures that just
-returns the max level. This will result in more zapping than necessary
-when disabling dirty logging (i.e. less than optimal performance) but no
-correctness issues.
+No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/kvm/mmu/tdp_mmu.c     | 14 ++++++++++----
- arch/x86/kvm/mmu/tdp_pgtable.c |  7 +++++++
- 2 files changed, 17 insertions(+), 4 deletions(-)
+ arch/x86/kvm/mmu/mmu.c     | 6 ++++--
+ arch/x86/kvm/mmu/tdp_mmu.c | 2 --
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 0593d4a60139..9307608ae975 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -3151,8 +3151,6 @@ static int direct_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	int ret;
+ 	gfn_t base_gfn = fault->gfn;
+ 
+-	kvm_mmu_hugepage_adjust(vcpu, fault);
+-
+ 	trace_kvm_mmu_spte_requested(fault);
+ 	for_each_shadow_entry(vcpu, fault->addr, it) {
+ 		/*
+@@ -4330,6 +4328,8 @@ static int direct_page_fault(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault
+ 	if (r)
+ 		goto out_unlock;
+ 
++	kvm_mmu_hugepage_adjust(vcpu, fault);
++
+ 	r = direct_map(vcpu, fault);
+ 
+ out_unlock:
+@@ -4408,6 +4408,8 @@ static int kvm_tdp_mmu_page_fault(struct kvm_vcpu *vcpu,
+ 	if (is_page_fault_stale(vcpu, fault))
+ 		goto out_unlock;
+ 
++	kvm_mmu_hugepage_adjust(vcpu, fault);
++
+ 	r = kvm_tdp_mmu_map(vcpu, fault);
+ 
+ out_unlock:
 diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 7670fbd8e72d..24d1dbd0a1ec 100644
+index b997f84c0ea7..e6708829714c 100644
 --- a/arch/x86/kvm/mmu/tdp_mmu.c
 +++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -1696,6 +1696,13 @@ void kvm_tdp_mmu_clear_dirty_pt_masked(struct kvm *kvm,
- 		clear_dirty_pt_masked(kvm, root, gfn, mask, wrprot);
- }
+@@ -1157,8 +1157,6 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ 	struct kvm_mmu_page *sp;
+ 	int ret = RET_PF_RETRY;
  
-+__weak int tdp_mmu_max_mapping_level(struct kvm *kvm,
-+				     const struct kvm_memory_slot *slot,
-+				     struct tdp_iter *iter)
-+{
-+	return TDP_MAX_HUGEPAGE_LEVEL;
-+}
-+
- static void zap_collapsible_spte_range(struct kvm *kvm,
- 				       struct kvm_mmu_page *root,
- 				       const struct kvm_memory_slot *slot)
-@@ -1727,15 +1734,14 @@ static void zap_collapsible_spte_range(struct kvm *kvm,
- 		/*
- 		 * If iter.gfn resides outside of the slot, i.e. the page for
- 		 * the current level overlaps but is not contained by the slot,
--		 * then the SPTE can't be made huge.  More importantly, trying
--		 * to query that info from slot->arch.lpage_info will cause an
-+		 * then the SPTE can't be made huge. On x86, trying to query
-+		 * that info from slot->arch.lpage_info will cause an
- 		 * out-of-bounds access.
- 		 */
- 		if (iter.gfn < start || iter.gfn >= end)
- 			continue;
+-	kvm_mmu_hugepage_adjust(vcpu, fault);
+-
+ 	trace_kvm_mmu_spte_requested(fault);
  
--		max_mapping_level = kvm_mmu_max_mapping_level(kvm, slot,
--							      iter.gfn, PG_LEVEL_NUM);
-+		max_mapping_level = tdp_mmu_max_mapping_level(kvm, slot, &iter);
- 		if (max_mapping_level < iter.level)
- 			continue;
- 
-diff --git a/arch/x86/kvm/mmu/tdp_pgtable.c b/arch/x86/kvm/mmu/tdp_pgtable.c
-index b07ed99b4ab1..840d063c45b8 100644
---- a/arch/x86/kvm/mmu/tdp_pgtable.c
-+++ b/arch/x86/kvm/mmu/tdp_pgtable.c
-@@ -163,3 +163,10 @@ void tdp_mmu_arch_unlink_sp(struct kvm *kvm, struct kvm_mmu_page *sp,
- 	if (shared)
- 		spin_unlock(&kvm->arch.tdp_mmu_pages_lock);
- }
-+
-+int tdp_mmu_max_mapping_level(struct kvm *kvm,
-+			      const struct kvm_memory_slot *slot,
-+			      struct tdp_iter *iter)
-+{
-+	return kvm_mmu_max_mapping_level(kvm, slot, iter->gfn, PG_LEVEL_NUM);
-+}
+ 	rcu_read_lock();
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
