@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B940C3A5A7
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E26C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UfQl3ISJROfin3dN4OLBhM2NQNjJP1/8ywyl4NE/UAs=; b=txN6aG+E6zv/mL
-	RPgHG+8EsQQMpZCahJtmkEjy35e+Ug2tbom9CZnLca/6DsYBiq06leI6gTQKnJCu4w4aqicYr9Rls
-	14Dovh4AlgI6X3Oezk4INZ/cxFOiataGWgv1Rboo+xX6zHw+F4okDB/VsWI7JLA7a6K9ltaRBon9k
-	H/EMH8QEK2inQg/MbVzKm/K0hYrdk/xzBvZ/rBjPgLVH0kdN7b8C9cL7+uRIRGe5Zg5vgeD//ZZey
-	wSbBo6Ae7/AalnyzogO2BXpi8qGZYVQCiP6qbErmzIX37QxlsMlsCR5p34U2pIjhTsTlyY78mjjNV
-	uCOK9/tLP8jxJ/PkbZgw==;
+	List-Owner; bh=ZVLxVF806U6ddkyDz5kXmmBc/nuGo3QfiPxurD+3tX4=; b=hMZCHGYxosVcvs
+	VuckgjGzwsZ+Ia8nDPk7IBD5E42Q+ds14GpyUkUWFqtpmGFXXpa1XOzUWcgMD6B3y2aqDKXSmHaVU
+	4q/XoTm22lDz1vtWqN0vmzVVn1OzfV2YEEL5+p11DSWVqQeV3O6espIK6eOQmVI+kFt4oLEiAM4Y0
+	V7af3zu4V90HpC8Rw+MYKkjIvjQWWLmY3pEJr3w6ymqV4R3iLMFpGxxR+KUgXBqJmqma0i+fOVP5F
+	wuMWJnd7rduaaP8jI2lhNh/k7cUBGsryAiOZ+OpzQN1flL5vLV1T1gLBvAIY6OBUtpNGXUwZUw490
+	4wPWSpo7hSxoX3/nncTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3DGR-00AvnC-17; Thu, 08 Dec 2022 09:32:23 +0000
+	id 1p3DGf-00Aw1P-4z; Thu, 08 Dec 2022 09:32:37 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Cy4-00AhTb-Ab
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:13:26 +0000
+	id 1p3CyE-00AhcD-QW
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:13:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 991B961E2E;
-	Thu,  8 Dec 2022 09:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B4CC433D6;
-	Thu,  8 Dec 2022 09:13:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 57F8E61DE4;
+	Thu,  8 Dec 2022 09:13:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FB98C43141;
+	Thu,  8 Dec 2022 09:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670490803;
-	bh=LvDWkebzqIcj6lyYVhxG3SUkKIDjdF9n3kVqbRNzao8=;
+	s=k20201202; t=1670490813;
+	bh=B6FxSk4X9pKIvuXe5yA3kz+O/YWVNvbkW5A9f2Tl9E0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=acXozCW9PE1mJgO3ARK0tsitM5DkvFMJmxl74UkKWlOBuS9VFSudBkixn/kAeDCf1
-	 vnPdqyBVP/Kr2G34Sp67YrT7x/p6OG1R7fJvUj6DBi4RFupJLm7Ac7ZysAvGgAsEai
-	 oCEyxrjIb3/haw2Ujtw/1CjE6/NInkKCu7T31IUilrcLCXSP00e0Qc/yS6v6pgIG0u
-	 sxhFvypWZEiMp+bl568LR4kGfUBnU9Fif3yBgg5VnLQBGgkZKZD6rSSeDR8wjj950P
-	 vBEWgAIHH2AF2KhyCUJtYcyxTM1HYbRu3d9z1pkoTSETO6bCE32qF0WiNqSWg9Dgut
-	 0I3e9PNwY1vQw==
+	b=gu6gJHU22l+upk9FkcNlwRrQwSRMNL7s8ehvOIk+WKCoj2gm4jOxrEh56mim1yk6e
+	 r+tNPW36EvYZ8vTYKTUhzXcXOF3uHWdQN6inH08tIVWK6QgJyQU5BubShnIlbnkqKm
+	 ZdTot8La0jV+Fsz3zKhl0lVjFyNzLDq+VvxvvsSZs2Lj4BMLi9sher0opqmdmVCFct
+	 lsJYt+uxIBJIq93JChfiF9Z76+Xr7G8kIg2r4WWfg+FQ/MvNa9PtkfTx67lsIVa983
+	 cgSX6GKhljQNSlZtvoBkN7pjLPxbt+9Sw74l05G+sxdzb5wxTKGT35Nwa6+iWIJkDt
+	 ig+MVu+7DbQvA==
 From: guoren@kernel.org
 To: anup@brainfault.org,
 	paul.walmsley@sifive.com,
@@ -58,16 +58,17 @@ To: anup@brainfault.org,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next V5 5/7] riscv: ftrace: Make ftrace_caller call ftrace_graph_func
-Date: Thu,  8 Dec 2022 04:12:42 -0500
-Message-Id: <20221208091244.203407-6-guoren@kernel.org>
+Subject: [PATCH -next V5 7/7] samples: ftrace: Add riscv support for SAMPLE_FTRACE_DIRECT[_MULTI]
+Date: Thu,  8 Dec 2022 04:12:44 -0500
+Message-Id: <20221208091244.203407-8-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20221208091244.203407-1-guoren@kernel.org>
 References: <20221208091244.203407-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_011324_506102_D35C9C8F 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20221208_011334_981101_95929165 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,239 +87,216 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Song Shuai <suagrfillet@gmail.com>
 
-In order to make the function graph use ftrace directly, ftrace_caller
-should be adjusted to save the necessary regs against the pt_regs layout
-so it can call ftrace_graph_func reasonably.
-
-SAVE_ALL now saves all the regs according to the pt_regs struct. Here
-supersedes SAVE_ALL by SAVE_ABI_REGS which has an extra option to allow
-saving only the necessary ABI-related regs for ftrace_caller.
-
-ftrace_caller and ftrace_regs_caller save their regs with the respective
-option of SAVE_ABI_REGS, then call the tracing function, especially
-graph_ops's ftrace_graph_func. So the ftrace_graph_[regs]_call labels
-aren't needed anymore if FTRACE_WITH_REGS is defined.
-
-As the previous patch described, the ftrace_caller remains with its
-ftrace_graph_call if FTRACE_WITH_REGS isn't defined,
-
-For convenience, the original argument setup for the tracing function in
-ftrace_[regs]_caller is separated as PREPARE_ARGS.
+select HAVE_SAMPLE_FTRACE_DIRECT and HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+for ARCH_RV64I in arch/riscv/Kconfig. And add riscv asm code for
+the ftrace-direct*.c files in samples/ftrace/.
 
 Signed-off-by: Song Shuai <suagrfillet@gmail.com>
 Tested-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/kernel/mcount-dyn.S | 142 ++++++++++++++++++++++++---------
- 1 file changed, 104 insertions(+), 38 deletions(-)
+ samples/ftrace/ftrace-direct-modify.c       | 33 ++++++++++++++++++
+ samples/ftrace/ftrace-direct-multi-modify.c | 37 +++++++++++++++++++++
+ samples/ftrace/ftrace-direct-multi.c        | 22 ++++++++++++
+ samples/ftrace/ftrace-direct-too.c          | 26 +++++++++++++++
+ samples/ftrace/ftrace-direct.c              | 22 ++++++++++++
+ 5 files changed, 140 insertions(+)
 
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 64bc79816f5e..466c6ef217b1 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -57,19 +57,52 @@
- 	.endm
+diff --git a/samples/ftrace/ftrace-direct-modify.c b/samples/ftrace/ftrace-direct-modify.c
+index 39146fa83e20..5788cbc8b247 100644
+--- a/samples/ftrace/ftrace-direct-modify.c
++++ b/samples/ftrace/ftrace-direct-modify.c
+@@ -22,6 +22,39 @@ extern void my_tramp2(void *);
  
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
--	.macro SAVE_ALL
-+
-+/**
-+* SAVE_ABI_REGS - save regs against the pt_regs struct
-+*
-+* @all: tell if saving all the regs
-+*
-+* If all is set, all the regs will be saved, otherwise only ABI
-+* related regs (a0-a7,epc,ra and optional s0) will be saved.
-+*
-+* After the stack is established,
-+*
-+* 0(sp) stores the PC of the traced function which can be accessed
-+* by &(fregs)->regs->epc in tracing function. Note that the real
-+* function entry address should be computed with -FENTRY_RA_OFFSET.
-+*
-+* 8(sp) stores the function return address (i.e. parent IP) that
-+* can be accessed by &(fregs)->regs->ra in tracing function.
-+*
-+* The other regs are saved at the respective localtion and accessed
-+* by the respective pt_regs member.
-+*
-+* Here is the layout of stack for your reference.
-+*
-+* PT_SIZE_ON_STACK  ->  +++++++++
-+*                       + ..... +
-+*                       + t3-t6 +
-+*                       + s2-s11+
-+*                       + a0-a7 + --++++-> ftrace_caller saved
-+*                       + s1    +   +
-+*                       + s0    + --+
-+*                       + t0-t2 +   +
-+*                       + tp    +   +
-+*                       + gp    +   +
-+*                       + sp    +   +
-+*                       + ra    + --+ // parent IP
-+*               sp  ->  + epc   + --+ // PC
-+*                       +++++++++
-+**/
-+	.macro SAVE_ABI_REGS, all=0
- 	addi	sp, sp, -PT_SIZE_ON_STACK
+ static unsigned long my_ip = (unsigned long)schedule;
  
- 	REG_S t0,  PT_EPC(sp)
- 	REG_S x1,  PT_RA(sp)
--	REG_S x2,  PT_SP(sp)
--	REG_S x3,  PT_GP(sp)
--	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
++#ifdef CONFIG_RISCV
 +
-+	// always save the ABI regs
++asm ("	.pushsection    .text, \"ax\", @progbits\n"
++"	.type		my_tramp1, @function\n"
++"	.globl		my_tramp1\n"
++"   my_tramp1:\n"
++"	addi sp,sp,-16\n"
++"	sd   t0,0(sp)\n"
++"	sd   ra,8(sp)\n"
++"	call my_direct_func1\n"
++"	ld   t0,0(sp)\n"
++"	ld   ra,8(sp)\n"
++"	addi sp,sp,16\n"
++"	jr t0\n"
++"	.size		my_tramp1, .-my_tramp1\n"
 +
- 	REG_S x10, PT_A0(sp)
- 	REG_S x11, PT_A1(sp)
- 	REG_S x12, PT_A2(sp)
-@@ -78,6 +111,18 @@
- 	REG_S x15, PT_A5(sp)
- 	REG_S x16, PT_A6(sp)
- 	REG_S x17, PT_A7(sp)
++"	.type		my_tramp2, @function\n"
++"	.globl		my_tramp2\n"
++"   my_tramp2:\n"
++"	addi sp,sp,-16\n"
++"	sd   t0,0(sp)\n"
++"	sd   ra,8(sp)\n"
++"	call my_direct_func2\n"
++"	ld   t0,0(sp)\n"
++"	ld   ra,8(sp)\n"
++"	addi sp,sp,16\n"
++"	jr t0\n"
++"	.size		my_tramp2, .-my_tramp2\n"
++"	.popsection\n"
++);
 +
-+	// save the leftover regs
++#endif /* CONFIG_RISCV */
 +
-+	.if \all == 1
-+	REG_S x2,  PT_SP(sp)
-+	REG_S x3,  PT_GP(sp)
-+	REG_S x4,  PT_TP(sp)
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
- 	REG_S x18, PT_S2(sp)
- 	REG_S x19, PT_S3(sp)
- 	REG_S x20, PT_S4(sp)
-@@ -92,19 +137,19 @@
- 	REG_S x29, PT_T4(sp)
- 	REG_S x30, PT_T5(sp)
- 	REG_S x31, PT_T6(sp)
-+
-+	// save s0 if FP_TEST defined
-+
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_S x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	.endm
+ #ifdef CONFIG_X86_64
  
--	.macro RESTORE_ALL
-+	.macro RESTORE_ABI_REGS, all=0
- 	REG_L t0,  PT_EPC(sp)
- 	REG_L x1,  PT_RA(sp)
--	REG_L x2,  PT_SP(sp)
--	REG_L x3,  PT_GP(sp)
--	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
- 	REG_L x10, PT_A0(sp)
- 	REG_L x11, PT_A1(sp)
- 	REG_L x12, PT_A2(sp)
-@@ -113,6 +158,16 @@
- 	REG_L x15, PT_A5(sp)
- 	REG_L x16, PT_A6(sp)
- 	REG_L x17, PT_A7(sp)
+ #include <asm/ibt.h>
+diff --git a/samples/ftrace/ftrace-direct-multi-modify.c b/samples/ftrace/ftrace-direct-multi-modify.c
+index 65aa94d96f4e..43e02d39c652 100644
+--- a/samples/ftrace/ftrace-direct-multi-modify.c
++++ b/samples/ftrace/ftrace-direct-multi-modify.c
+@@ -20,6 +20,43 @@ void my_direct_func2(unsigned long ip)
+ extern void my_tramp1(void *);
+ extern void my_tramp2(void *);
+ 
++#ifdef CONFIG_RISCV
 +
-+	.if \all == 1
-+	REG_L x2,  PT_SP(sp)
-+	REG_L x3,  PT_GP(sp)
-+	REG_L x4,  PT_TP(sp)
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
- 	REG_L x18, PT_S2(sp)
- 	REG_L x19, PT_S3(sp)
- 	REG_L x20, PT_S4(sp)
-@@ -128,10 +183,25 @@
- 	REG_L x30, PT_T5(sp)
- 	REG_L x31, PT_T6(sp)
- 
-+	.else
-+#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
-+	REG_L x8,  PT_S0(sp)
-+#endif
-+	.endif
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	.endm
++asm ("	.pushsection    .text, \"ax\", @progbits\n"
++"	.type		my_tramp1, @function\n"
++"	.globl		my_tramp1\n"
++"   my_tramp1:\n"
++"       addi sp,sp,-24\n"
++"       sd   a0,0(sp)\n"
++"       sd   t0,8(sp)\n"
++"       sd   ra,16(sp)\n"
++"       call my_direct_func1\n"
++"       ld   a0,0(sp)\n"
++"       ld   t0,8(sp)\n"
++"       ld   ra,16(sp)\n"
++"       addi sp,sp,24\n"
++"	jr t0\n"
++"	.size		my_tramp1, .-my_tramp1\n"
 +
-+	.macro PREPARE_ARGS
-+	addi	a0, t0, -FENTRY_RA_OFFSET	// ip
-+	la	a1, function_trace_op
-+	REG_L	a2, 0(a1)			// op
-+	REG_L	a1, PT_RA(sp)			// parent_ip
-+	mv	a3, sp				// fregs
-+	.endm
++"	.type		my_tramp2, @function\n"
++"	.globl		my_tramp2\n"
++"   my_tramp2:\n"
++"       addi sp,sp,-24\n"
++"       sd   a0,0(sp)\n"
++"       sd   t0,8(sp)\n"
++"       sd   ra,16(sp)\n"
++"       call my_direct_func2\n"
++"       ld   a0,0(sp)\n"
++"       ld   t0,8(sp)\n"
++"       ld   ra,16(sp)\n"
++"       addi sp,sp,24\n"
++"	jr t0\n"
++"	.size		my_tramp2, .-my_tramp2\n"
++"	.popsection\n"
++);
 +
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
-+#ifndef CONFIG_DYNAMIC_FTRACE_WITH_REGS
- ENTRY(ftrace_caller)
- 	SAVE_ABI
- 
-@@ -160,33 +230,29 @@ ftrace_graph_call:
- 	jr t0
- ENDPROC(ftrace_caller)
- 
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
-+#else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- ENTRY(ftrace_regs_caller)
--	SAVE_ALL
--
--	addi	a0, t0, -FENTRY_RA_OFFSET
--	la	a1, function_trace_op
--	REG_L	a2, 0(a1)
--	REG_L	a1, PT_RA(sp)
--	mv	a3, sp
-+	SAVE_ABI_REGS 1
-+	PREPARE_ARGS
- 
- ftrace_regs_call:
- 	.global ftrace_regs_call
- 	call	ftrace_stub
- 
--#ifdef CONFIG_FUNCTION_GRAPH_TRACER
--	addi	a0, sp, PT_RA
--	REG_L	a1, PT_T0(sp)
--	addi	a1, a1, -FENTRY_RA_OFFSET
--#ifdef HAVE_FUNCTION_GRAPH_FP_TEST
--	mv	a2, s0
--#endif
--ftrace_graph_regs_call:
--	.global ftrace_graph_regs_call
--	call	ftrace_stub
--#endif
- 
--	RESTORE_ALL
-+	RESTORE_ABI_REGS 1
- 	jr t0
- ENDPROC(ftrace_regs_caller)
++#endif /* CONFIG_RISCV */
 +
-+ENTRY(ftrace_caller)
-+	SAVE_ABI_REGS 0
-+	PREPARE_ARGS
+ #ifdef CONFIG_X86_64
+ 
+ #include <asm/ibt.h>
+diff --git a/samples/ftrace/ftrace-direct-multi.c b/samples/ftrace/ftrace-direct-multi.c
+index 41ded7c615c7..df91339d3095 100644
+--- a/samples/ftrace/ftrace-direct-multi.c
++++ b/samples/ftrace/ftrace-direct-multi.c
+@@ -15,6 +15,28 @@ void my_direct_func(unsigned long ip)
+ 
+ extern void my_tramp(void *);
+ 
++#ifdef CONFIG_RISCV
 +
-+ftrace_call:
-+	.global ftrace_call
-+	call	ftrace_stub
++asm ("       .pushsection    .text, \"ax\", @progbits\n"
++"       .type           my_tramp, @function\n"
++"       .globl          my_tramp\n"
++"   my_tramp:\n"
++"       addi sp,sp,-24\n"
++"       sd   a0,0(sp)\n"
++"       sd   t0,8(sp)\n"
++"       sd   ra,16(sp)\n"
++"       call my_direct_func\n"
++"       ld   a0,0(sp)\n"
++"       ld   t0,8(sp)\n"
++"       ld   ra,16(sp)\n"
++"       addi sp,sp,24\n"
++"       jr t0\n"
++"       .size           my_tramp, .-my_tramp\n"
++"       .popsection\n"
++);
 +
-+	RESTORE_ABI_REGS 0
-+	jr t0
-+ENDPROC(ftrace_caller)
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
++#endif /* CONFIG_RISCV */
++
+ #ifdef CONFIG_X86_64
+ 
+ #include <asm/ibt.h>
+diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
+index 6690468c5cc2..fe3b8c4f3336 100644
+--- a/samples/ftrace/ftrace-direct-too.c
++++ b/samples/ftrace/ftrace-direct-too.c
+@@ -17,6 +17,32 @@ void my_direct_func(struct vm_area_struct *vma,
+ 
+ extern void my_tramp(void *);
+ 
++#ifdef CONFIG_RISCV
++
++asm ("       .pushsection    .text, \"ax\", @progbits\n"
++"       .type           my_tramp, @function\n"
++"       .globl          my_tramp\n"
++"   my_tramp:\n"
++"       addi sp,sp,-40\n"
++"       sd   a0,0(sp)\n"
++"       sd   a1,8(sp)\n"
++"       sd   a2,16(sp)\n"
++"       sd   t0,24(sp)\n"
++"       sd   ra,32(sp)\n"
++"       call my_direct_func\n"
++"       ld   a0,0(sp)\n"
++"       ld   a1,8(sp)\n"
++"       ld   a2,16(sp)\n"
++"       ld   t0,24(sp)\n"
++"       ld   ra,32(sp)\n"
++"       addi sp,sp,40\n"
++"       jr t0\n"
++"       .size           my_tramp, .-my_tramp\n"
++"       .popsection\n"
++);
++
++#endif /* CONFIG_RISCV */
++
+ #ifdef CONFIG_X86_64
+ 
+ #include <asm/ibt.h>
+diff --git a/samples/ftrace/ftrace-direct.c b/samples/ftrace/ftrace-direct.c
+index e8f1e440b9b8..0784024b6653 100644
+--- a/samples/ftrace/ftrace-direct.c
++++ b/samples/ftrace/ftrace-direct.c
+@@ -14,6 +14,28 @@ void my_direct_func(struct task_struct *p)
+ 
+ extern void my_tramp(void *);
+ 
++#ifdef CONFIG_RISCV
++
++asm ("       .pushsection    .text, \"ax\", @progbits\n"
++"       .type           my_tramp, @function\n"
++"       .globl          my_tramp\n"
++"   my_tramp:\n"
++"       addi sp,sp,-24\n"
++"       sd   a0,0(sp)\n"
++"       sd   t0,8(sp)\n"
++"       sd   ra,16(sp)\n"
++"       call my_direct_func\n"
++"       ld   a0,0(sp)\n"
++"       ld   t0,8(sp)\n"
++"       ld   ra,16(sp)\n"
++"       addi sp,sp,24\n"
++"       jr t0\n"
++"       .size           my_tramp, .-my_tramp\n"
++"       .popsection\n"
++);
++
++#endif /* CONFIG_RISCV */
++
+ #ifdef CONFIG_X86_64
+ 
+ #include <asm/ibt.h>
 -- 
 2.36.1
 
