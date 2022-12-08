@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6706AC001B2
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 21:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF8DC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 23:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OVlZ39p8q8LsWH84p+p/2Iq+iLx5mjVwwvUVbBR5nQI=; b=s/ANX+2z4hE6c0
-	FsjsqGk+N8O0vKL7lg9o1OXPHeJfszE68ieQ0UUHkNYPG/tokyjqcRWDMsFFvIhGOOR5WQGwLND99
-	qxtfIjbaXBo2FyHZbvDEiuw/q8ysdQz9tj75iEROJ4UFhCuaSVphvdYbNGpy/tz/p3+cmNqGYfmu5
-	EVJHiCV6QScQVwbhaRzMQ6UWr4n/YZXV4hnSGW6LfT0CnmNnMOtFDOCiWPeX67pp+nJakNmaknlBR
-	Ucbbq32Z7ZfWJylNotRNWVA675RwHo4api/ZXvJIzfb2iGDh6+ic3SyQkTNYhjm8aNU8bap6Nydhi
-	51xJSnp01wYPNYEcmEKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Xt6KgZ+e1vts3lpcGtX/OBoNzFDyPXOwcrrqcPtipw0=; b=BJXShNomQk2hbRAVVDAVVdgUjQ
+	U1KlvNoVcD7r/7VNxTyA0TkRWngUHQ8MMFMa9YXufvzuEdfAi7W4biTrcKm2DQLptac9NhxT0Bi9H
+	XXCxjIjJc2B/TdV5NRS6fijO6u2Me2XKIY5G0c+1SggiBqRBCzud576zEdWETYKBmzkYa8nTYS4ti
+	QArghVeH0APl437cd8sOgGrcSlq7pitOiW4kLCkFHlQLCAD394sHMu9tPCXToWvRhht+fZyMKMf1i
+	N9MPlvTUm6qYdc/KZDB4SH7/7/cMeejXZn7YjkluyCNTwW5jdBXttkR32hO9VL/I9+tI/aZBE8cJ+
+	K3L0xvPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3OEn-00BVPn-Gk; Thu, 08 Dec 2022 21:15:25 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1p3QLH-00F8bR-52; Thu, 08 Dec 2022 23:30:15 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3OEk-00BVFK-Ri
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 21:15:24 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-3f15a6f72d0so29080447b3.1
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 13:15:19 -0800 (PST)
+	id 1p3QLD-00F8Vh-JA
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 23:30:13 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id 140so2486419pfz.6
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 15:30:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=RxLb6c3pV8MZQYOARt7wFYg4IvcTRaFrHi+WtxF8Db4=;
-        b=lzDTGWDELDro1riwKG0siQz477cfqDaZbigVvRWIM9kyY1Y2ZaJm/6ScdYxqWk9A4w
-         uRmTBk+AqMNB04d/2u8RFSfjO/sZaLnK/+RSu1G1PCfoRN/7l4y3s1OgBF7gG+tEAHtg
-         glOHd1mrJtx3STLEzzYRw3xMVS32DpaFeEoFKQ6boob1WvMYQ6BVxDhPiyNUzW4YQ+Ar
-         ntAI80HJc7iAx3daDrBeh9b9JJcM4FeHPiNNaUOOHs81KxK3kgoRompSSYsDBFxlqiXD
-         jceM7dEHfsFCreLJOAxonQfz708upMPU89xbrmpPaV01mo6mWZo/qUFR1s3aj6zTZTtS
-         2ptA==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9xjcdkPHdm6uKkgcgf2wZxDGHKg/K8iOgm6bCXEn/oQ=;
+        b=rb5booq/HHdSewBCekfBW2j8iIo4ZxuYd7rba/kPyLbrSTVQ/N+gk8E8V90ISLagt8
+         43UERn2GsQVbsvToJftGQMxF01nC8iLFbvTjt2YthHiu3RCEHoga3QFwA29gjNEdUxDa
+         JFFyD2YYXauV+1tjc6UoWjtZWR8TKqzSiFae91cjyhBF3c2XgraZTyxU8MNxGRVpy8kr
+         2u2QrGtPwQTk9tZamvfsyPStS/ootU8voYx9kWfrBxHa7aQZ3z+oUTSA4tyuI5pdBXVK
+         jyKSEEbm07aXR9ii2qXKosDYfcc6OfcSkmTHMYWf49aGsqjXQ2fDRZYQkWLEvLIqu2y/
+         qtUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RxLb6c3pV8MZQYOARt7wFYg4IvcTRaFrHi+WtxF8Db4=;
-        b=r5zH8COR1MQ5Itgbj1amQVOBSyCM5hfDPOzo4jyjhWqNnyJP6aUT/7ESQ+EIOQfZhn
-         rqyL8YCmAQheue4hFpGc8D/4eRs/CYbE+ALWs1bJqE9p0Ay33y8OtDBujM+llfU7Ex2M
-         mN58twRYEJ7IikixQinktfSJbmJOu0CHo3Bn9xu+O7/SrqtlfAwxG6YEQLLeitc8uoCn
-         Md5P0nMpZeyrL9FbgOVJ3ybCu+t6Ukm8Dt8pYLlBGVEHrWxCxtorRVFBpZrkKMQRHygk
-         xIbYEKw71fVVBcmlWLcEx3Ud1fmlUVMruIIT9TAsvocUHNBYuS87S159B7vVTrYa0Af5
-         L1vA==
-X-Gm-Message-State: ANoB5pmlo38TbUc/mGmCuHyN+5oEpr0vzUWHQvdEsBRTkKLHeZknvYr0
-	fIwU3lUt1rIbAe8/scN70XjZN7Ny+90CTTVLIQYqgQ==
-X-Google-Smtp-Source: AA0mqf5TMIaMGikCivHSN8QB/ySrGFpStI9jdjJ5wqz3y8/sxy4rK7Alc1fze08qJAV5K9Tf5G1tnU9ey8KciS44t3Q=
-X-Received: by 2002:a81:5d8:0:b0:3f5:b69c:387 with SMTP id 207-20020a8105d8000000b003f5b69c0387mr10437422ywf.359.1670534118538;
- Thu, 08 Dec 2022 13:15:18 -0800 (PST)
-MIME-Version: 1.0
-References: <20221207131731.1291517-1-william.qiu@starfivetech.com> <20221207131731.1291517-4-william.qiu@starfivetech.com>
-In-Reply-To: <20221207131731.1291517-4-william.qiu@starfivetech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 8 Dec 2022 22:15:07 +0100
-Message-ID: <CACRpkdbjaiDhPcVH115w25oxseWrz=Yb-ugkmCOiqhRDmDZj5A@mail.gmail.com>
-Subject: Re: [PATCH v1 3/3] riscv: dts: starfive: Add mmc node
-To: William Qiu <william.qiu@starfivetech.com>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9xjcdkPHdm6uKkgcgf2wZxDGHKg/K8iOgm6bCXEn/oQ=;
+        b=HqnPRWeViuGFwJv9yb6UHDoULJW2D1uzaqA+m8M0ntJkJRqozr2qyhtUuCisbfPKzd
+         dc10bww31S8I6w9Zp4k/SqnIw4o91DtuAaxQ1Ixe8Uc5TSuKElx60iP4n0iw31YLqD78
+         Oq+pe76NpLiVxA9UDRMreLqfSip3pgTxnWhwK6C51gdxnpi4CriVvO4RzzjBHt5x7a1n
+         RR55myX/74GU56wluobQXrnpy2EMlW600gCSZQnLmGGsIDyrmEDG+ltQM+w3zfMWdB3y
+         PRJ+ALOPfbhRzuNr+0GjcPjczKFniO2S32HBdxjl2u36eRrW0GyAUqHLx0NobnjyAzaN
+         o/Qw==
+X-Gm-Message-State: ANoB5pm5VeZ6ya5/02Kdb2CaqKUeK6a8bm5xNy6NTh/uZihiGj8wiOmX
+	hOe9rcdVEEP0porLAfjDpR+IQHfYlIvSVh+2
+X-Google-Smtp-Source: AA0mqf4jlf5nNpHTGQ5fF5ipKRiwgNSh829jsjgr+RN3u82vvhuvmYKHy6QyXAd4yoda9cNA1qDUYw==
+X-Received: by 2002:aa7:9555:0:b0:576:c9a1:ec35 with SMTP id w21-20020aa79555000000b00576c9a1ec35mr4679501pfq.17.1670542208857;
+        Thu, 08 Dec 2022 15:30:08 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id c2-20020aa79522000000b00575acb243besm52081pfp.1.2022.12.08.15.30.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Dec 2022 15:30:08 -0800 (PST)
+Date: Thu, 08 Dec 2022 15:30:08 -0800 (PST)
+X-Google-Original-Date: Thu, 08 Dec 2022 15:29:52 PST (-0800)
+Subject: Re: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application crash
+In-Reply-To: <Y3fxsWPLPlKGfMBj@curiosity>
+CC: guoren@kernel.org, anup@brainfault.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  Conor Dooley <conor.dooley@microchip.com>, heiko@sntech.de, philipp.tomsich@vrull.eu, alex@ghiti.fr,
+  Christoph Hellwig <hch@lst.de>, ajones@ventanamicro.com, gary@garyguo.net, jszhang@kernel.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, guoren@linux.alibaba.com,
+  apatel@ventanamicro.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: geomatsi@gmail.com
+Message-ID: <mhng-1d55338a-53a1-42eb-bf5c-91655fde2734@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_131522_917311_DBD8998D 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221208_153011_873239_139973F2 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +87,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi William,
+On Fri, 18 Nov 2022 12:57:21 PST (-0800), geomatsi@gmail.com wrote:
+> Hi Guo Ren,
+>
+>
+>> After use_asid_allocator is enabled, the userspace application will
+>> crash by stale TLB entries. Because only using cpumask_clear_cpu without
+>> local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
+>> Then set_mm_asid would cause the user space application to get a stale
+>> value by stale TLB entry, but set_mm_noasid is okay.
+>
+> ... [snip]
+>
+>> +	/*
+>> +	 * The mm_cpumask indicates which harts' TLBs contain the virtual
+>> +	 * address mapping of the mm. Compared to noasid, using asid
+>> +	 * can't guarantee that stale TLB entries are invalidated because
+>> +	 * the asid mechanism wouldn't flush TLB for every switch_mm for
+>> +	 * performance. So when using asid, keep all CPUs footmarks in
+>> +	 * cpumask() until mm reset.
+>> +	 */
+>> +	cpumask_set_cpu(cpu, mm_cpumask(next));
+>> +	if (static_branch_unlikely(&use_asid_allocator)) {
+>> +		set_mm_asid(next, cpu);
+>> +	} else {
+>> +		cpumask_clear_cpu(cpu, mm_cpumask(prev));
+>> +		set_mm_noasid(next);
+>> +	}
+>>  }
+>
+> I observe similar user-space crashes on my SMP systems with enabled ASID.
+> My attempt to fix the issue was a bit different, see the following patch:
+>
+> https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@gmail.com/
+>
+> In brief, the idea was borrowed from flush_icache_mm handling:
+> - keep track of CPUs not running the task
+> - perform per-ASID TLB flush on such CPUs only if the task is switched there
 
-thanks for your patch!
+That way looks better to me: leaking hartids in the ASID allocator might 
+make the crashes go away, but it's just going to end up trending towards 
+flushing everything and that doesn't seem like the right long-term 
+solution.
 
-On Wed, Dec 7, 2022 at 2:17 PM William Qiu <william.qiu@starfivetech.com> wrote:
+So I've got that one on for-next, sorry I missed it before.
 
-> +                       starfive,sys-syscon = <&sys_syscon 0x14 0x1a 0x7c000000>;
-(...)
-> +                       starfive,sys-syscon = <&sys_syscon 0x9c 0x1 0x3e>;
+Thanks!
 
-These are registster offsets and shifts. Don't define such stuff in your device
-tree, use #defines in the code and just provide the phandle.
-
-Yours,
-Linus Walleij
+>
+> Your patch also works fine in my tests fixing those crashes. I have a
+> question though, regarding removed cpumask_clear_cpu. How CPUs no more
+> running the task are removed from its mm_cpumask ? If they are not
+> removed, then flush_tlb_mm/flush_tlb_page will broadcast unnecessary
+> TLB flushes to those CPUs when ASID is enabled.
+>
+> Regards,
+> Sergey
 
 _______________________________________________
 linux-riscv mailing list
