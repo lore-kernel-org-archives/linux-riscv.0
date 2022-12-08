@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65429C3A5A7
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15072C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TuhpLKIScNyjD1Kb7WsRARaZ/igYC8TkiTA/KTDY1SA=; b=Thrm9wexp1rlEd
-	lrB02fnAXB1S6cZt+KLEBFwgUTDP7YOUB55gcD1Pd6dmOkfunr0KYzsqzzb3E1dg12vUDXUscE37F
-	ok6tRkh7/Db/z8odTAD2skHjqulcnvnGCJwoC8KJZuxqhgnY6f8dotZcH5TGyyVRVbRH17/qfdqiR
-	dPIV40uP3hN0GmEOWk3z8bU0uzxDnQi2HD+agejOWy1WQS9UVkw76N8Wj3UQwF46E5tmgb6pftdps
-	6uHtFZbeSObzuMWHuvy0l7ELgpWWMDGt/dGQahrshZluRW5U6+xwP91EYs25dE10Q+B27iRBaYhlZ
-	XsmNG0IwTJ9NJ1elhrpw==;
+	List-Owner; bh=xyP+X5QTOePQ0jQLxeOjWcV4K22fOo/98nHv7uH8Ofg=; b=CTR6o0zCmA5GRN
+	+dOdFlLRz8Wj+LHP4/jss6mqT8UhEZVQuns36AZ2EA+jXgBWyX6GsXWrarUpXAIs+bjOCbkUVP2k2
+	ZWeQFxPvaKVvIH4pIA5pfU5SPxIGX6uIBLJvJ4Ad/STFEyB23DO7WWzjEf2y/qbh2hWzK+gtsv8T8
+	u/URhmXeWey0aozwAlXgJu6LDtnrMEeifuok4v58jF4TdIfcW7jRNd1Uk3gQnGz4wRx1SzNw1nBDz
+	DmNILoSyeO3Jj6Ksp6OXoX/+miK9nEU7qbt5KVRDb1k5T4PNdrrVP6kV79CIJPMuKOCUYJYWUHqeA
+	lepedeF7gSAHI40FBerQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3DGr-00AwCj-Bp; Thu, 08 Dec 2022 09:32:49 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1p3DOb-00B4Iy-N7; Thu, 08 Dec 2022 09:40:49 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3CyG-00AhbV-W8
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:13:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 1D657CE1CCB;
-	Thu,  8 Dec 2022 09:13:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABC4BC433D7;
-	Thu,  8 Dec 2022 09:13:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670490808;
-	bh=Hoa73aObPSEr61V8BwDonlIEMV1d/+kTPm058MPAXik=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EtVDJ6CaX6ctRP741+6lxXmpiYZzF+TjRp/KjIR/NTIPSan1748KoJvVQCmiWMXY0
-	 e010ogz2UcFmMfCXiTglHK7NPH58QN18V7FIQvURFhrXEZb8NKK41DkZUDQhOtSflp
-	 8Saqrk47n0qh4NhjfE+QF46g4zz5vimKvRjxGgPP4oC8TpVZ6qjvqhbWPdlZD0q2Km
-	 /tadawL9XzCt4/7U6gp+2FUufjsq4cr+Y72wTPSJLIaQkWV43tSTucyqP2gUOAv7Yg
-	 /Z7EydYfjCyccTqzYtrgCAlq28yeeMlHzzD9im2BJONHI47nmB2DLlf8Gnn4blQfNU
-	 dtVECA5OaLihw==
-From: guoren@kernel.org
-To: anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	jolsa@redhat.com,
-	bp@suse.de,
-	jpoimboe@kernel.org,
-	suagrfillet@gmail.com,
-	andy.chiu@sifive.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH -next V5 6/7] riscv: ftrace: Add DYNAMIC_FTRACE_WITH_DIRECT_CALLS support
-Date: Thu,  8 Dec 2022 04:12:43 -0500
-Message-Id: <20221208091244.203407-7-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221208091244.203407-1-guoren@kernel.org>
-References: <20221208091244.203407-1-guoren@kernel.org>
+	id 1p3DCO-00As7L-PN
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:28:14 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id d6so1123137lfs.10
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 01:28:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jvonNZ8hzOsUtXfMS5jsK8oAXaTdy0VRFUTiOadKcQc=;
+        b=h0SV4jEnf3LUyPMrtB7fSs0oyXBjNYnC+wPkJTrEpAUXeX5sXQrly2h9pmV/BaIy6R
+         wtqelKyna1vNSa6KpgOzVcTBveTYzc2S67lbmsqmihry8Rub1uAALhMl94mCc+8wYSRJ
+         TGMPDgtWtHtj+W7XZmvrbtxNjfh3A6iZ3Js7OJm47H9nJGn70bbwRnzdForlH+YFf6vZ
+         uMGjvfiNmEKFuHLplsEo4aYd310onrCycBoGJB2C0dzRwqMPSWFQOLNyKPxj3A/tnnJa
+         bwBNmh/BRjTXp6nA+hctAfSA6i37FFHqmeT1ZdXh+9ukwlTZwr1T+PdKCqQfXNMV9fF1
+         uCTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jvonNZ8hzOsUtXfMS5jsK8oAXaTdy0VRFUTiOadKcQc=;
+        b=e6hBWRykhuC9xI1+RIzLR9X6oRrMJ5og7M4PHlZAzZ37bn77F6PZFBx6pL5LJQhtTi
+         KV0VtX5S4SKYGP0kEDfJPzz8SgvWlbwLo6XyKlLZBqHmDQWQRRPRNbqgAK8oLSB7D288
+         X5qrVCsPsO5vWzDdVmmCdnYa5KiduClQAASjbzHPbVm/YPke4Z0FE5bR/JzNuYiDKxl3
+         WnT+a+Z4HyC9yLODwmcSutrdN5kouD+c76MsQlDKfMKbMhkLdzvyk2XOFQ9JK/kzADP1
+         N4kIQ2BbCMdcemAA7JnAn1b7CvWjGIy8wvoAITtzTjiTloLILKIJhS/duRy0NczDfKFN
+         RXUQ==
+X-Gm-Message-State: ANoB5plNDZIk7TYfgoJQiQBk8VApuf/3Tx48W+VDdL78AbMimq4nkyU6
+	hukfSXzKInh2iQPRruhIxQHFmw==
+X-Google-Smtp-Source: AA0mqf7TNvjfjrF7HrYj9ZQKhyCHR8PdEUqzTgbholw8jlR+OE7FkmeYXQJ4FF00PhAzDPAROjzt2Q==
+X-Received: by 2002:a19:760b:0:b0:4b5:67d8:e3c2 with SMTP id c11-20020a19760b000000b004b567d8e3c2mr6935849lff.166.1670491688911;
+        Thu, 08 Dec 2022 01:28:08 -0800 (PST)
+Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
+        by smtp.gmail.com with ESMTPSA id b24-20020ac25638000000b004b57bbaef87sm532100lff.224.2022.12.08.01.28.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Dec 2022 01:28:08 -0800 (PST)
+Message-ID: <9c7066e4-fa3f-3dda-b939-04dfdaf73242@linaro.org>
+Date: Thu, 8 Dec 2022 10:28:07 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH 0/6] crypto: starfive: Add driver for cryptographic engine
+Content-Language: en-US
+To: JiaJie Ho <jiajie.ho@starfivetech.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S . Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+ <e1e9f1d19982493b89ae63f51e00a3bb@EXMBX068.cuchost.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <e1e9f1d19982493b89ae63f51e00a3bb@EXMBX068.cuchost.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_011337_422523_B025A0C5 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20221208_012812_906807_B1F89EA1 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,86 +98,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Song Shuai <suagrfillet@gmail.com>
+On 08/12/2022 10:09, JiaJie Ho wrote:
+>>
+>> The driver has been tested with crypto selftest and additional test.
+>>
+>> This patch series depends on the following patches:
+>> https://patchwork.kernel.org/project/linux-
+>> riscv/cover/20221118010627.70576-1-hal.feng@starfivetech.com/
+>> https://patchwork.kernel.org/project/linux-
+>> riscv/cover/20221118011714.70877-1-hal.feng@starfivetech.com/
+>>
+>> Jia Jie Ho (6):
+>>   crypto: starfive - Add StarFive crypto engine support
+>>   crypto: starfive - Add hash and HMAC support
+>>   crypto: starfive - Add AES skcipher and aead support
+>>   crypto: starfive - Add Public Key algo support
+>>   dt-bindings: crypto: Add bindings for Starfive crypto driver
+>>   riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+>>
+> 
+> Hi Herbert/David,
+> 
+> Could you please help to review and provide comments on this patch series?
+> Thank you in advance.
 
-This patch adds DYNAMIC_FTRACE_WITH_DIRECT_CALLS support for RISC-V.
+You received some comments so the expectation is to send a v2.
 
-select the DYNAMIC_FTRACE_WITH_DIRECT_CALLS to provide the
-register_ftrace_direct[_multi] interfaces allowing users to register
-the customed trampoline (direct_caller) as the mcount for one or
-more target functions. And modify_ftrace_direct[_multi] are also
-provided for modifying direct_caller.
-
-To make the direct_caller and the other ftrace hooks (eg. function/fgraph
-tracer, k[ret]probes) co-exist, a temporary register is nominated to
-store the address of direct_caller in ftrace_regs_caller. After the
-setting of the address direct_caller by direct_ops->func and the
-RESTORE_REGS in ftrace_regs_caller, direct_caller will be jumped to
-by the `jr` inst.
-
-Signed-off-by: Song Shuai <suagrfillet@gmail.com>
-Tested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/Kconfig              | 1 +
- arch/riscv/include/asm/ftrace.h | 6 ++++++
- arch/riscv/kernel/mcount-dyn.S  | 4 ++++
- 3 files changed, 11 insertions(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index da59182cb5f1..27c2bc613ecd 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -133,6 +133,7 @@ config RISCV
- 	select UACCESS_MEMCPY if !MMU
- 	select ZONE_DMA32 if 64BIT
- 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
-+	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
- 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
- 	select HAVE_FUNCTION_GRAPH_TRACER
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 84f856a3286e..4539f10fea56 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -114,6 +114,12 @@ struct ftrace_regs;
- void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
- 		       struct ftrace_ops *op, struct ftrace_regs *fregs);
- #define ftrace_graph_func ftrace_graph_func
-+
-+static inline void arch_ftrace_set_direct_caller(struct pt_regs *regs, unsigned long addr)
-+{
-+		regs->t1 = addr;
-+}
-+
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- 
- #endif /* __ASSEMBLY__ */
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index 466c6ef217b1..fef7c460f991 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -232,6 +232,7 @@ ENDPROC(ftrace_caller)
- 
- #else /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
- ENTRY(ftrace_regs_caller)
-+	move	t1, zero
- 	SAVE_ABI_REGS 1
- 	PREPARE_ARGS
- 
-@@ -241,7 +242,10 @@ ftrace_regs_call:
- 
- 
- 	RESTORE_ABI_REGS 1
-+	bnez	t1,.Ldirect
- 	jr t0
-+.Ldirect:
-+	jr t1
- ENDPROC(ftrace_regs_caller)
- 
- ENTRY(ftrace_caller)
--- 
-2.36.1
+Best regards,
+Krzysztof
 
 
 _______________________________________________
