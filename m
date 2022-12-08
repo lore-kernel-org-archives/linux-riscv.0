@@ -4,103 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381F0C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 20:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1241AC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 21:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=rlPcFb/2mqkcjpFyp2hfdtIItdJdtFTyssULb5z1s/w=; b=VsaFwerJef0uQG8xW4Zk4b4WlJ
-	rteAolyGAw08aOruyTh3Q14vnybmD1j/VPjr7LWNFdIurJUlZGU2LrgfJrAybD+G7JU02ZT1iB4Xt
-	uAHQvB1p5vEPuwrdIYz2KobEbHuum0FOYShNS/SxR34aKi13FiXosX5WvwuXFKVMKpavfvEWjn+w0
-	kMkku3cQGuO7XAs8x/cBMoFJPbr1i+g6QJcIGnKSoegYbog3Asfz79olrOphgRP6Hv5DTGrMW4gVf
-	tdmjVJA0GTTpC6bGKonOCc6sdOqsrcavCUed+iAVyugJnjq2fRd8kS1dNp2RUsutu2rE/8F4QbSWF
-	HGtAHoDA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DO5PHs/5rbu6w2w9M84HuTJwt2LsMdmuitKKKG7iqRI=; b=T30Bp/OCQcCM5b
+	fqjLofREJu6324KnmHmaRACISH1Pv1Q48PZGYI20FkMAR2t8div0r4566PWwsIKta8g9CrcdAo6Dj
+	hhHHXIPy7v24B5fvkHf9UmwHEJe25uegxxSIdGx7nOFazKD7wewExNd6QmfItjR31eCL01bSqNS3L
+	Zf2HDxZjQn3eaQyF7TlMafsgoL8j1Www6hma5sqSP8+0fm4DFRNGr+YxM0kPHNOeQqAAz3QCfQktL
+	csHDkmJz/K8M36TF8ooKPyCEGBdndZM0F7CBuZjHmNWs0em+Kc66vf9zacHCtxzGazmbcT0NuzoCW
+	ksbVkGrYoojHQqPc6JcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Nva-00B1sm-CW; Thu, 08 Dec 2022 20:55:34 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1p3O9X-00BM8v-1m; Thu, 08 Dec 2022 21:09:59 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mjz-009rhD-4D
-	for linux-riscv@bombadil.infradead.org; Thu, 08 Dec 2022 19:39:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=; b=AfAwUJaTcXn+/0Akuff+TkVju3
-	5k9VZL4PZuQH/8ZaJikDadD8txkKqw3MogOIaSetn/Q4p9FbDdXdbMD2PmPk3UIXvYKh8qzUcuxfs
-	gYTQIFTKdEhyZD587k4URoNqw0htKaoPJKmCKnE3UjkRVumItM2NORt2I6mCDdPpmHZQWBgXI+RIA
-	G4SI7V/rko/phrRrz5sXADpkPEAGrwmT8j6ZDNoPHAH4g1Sy8LFKC/Jipxmfq5xi0XQHkLNTyDXsw
-	u1O9n012lhEe0KB594FEILlqDi9atvbcatlRvijHfufH2Ox9miKswrnwzRmOTHFTkVVgamzesXgC/
-	YLnIjNQQ==;
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
-	by casper.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mk4-007Fx5-4p
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:39:38 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id y6-20020a25b9c6000000b006c1c6161716so2533460ybj.8
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:39:24 -0800 (PST)
+	id 1p3O9S-00BM2k-R7
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 21:09:56 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-3bf4ade3364so28964097b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 13:09:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=;
-        b=X27Fj8NMQTMpgpQSLD6fEhoU4fVXBG4FfQvE4hDE+MTeWoJhGcT5LpYCDXh1D+/w82
-         hPv1oB7AV9ecGMFLuN13hRpFiRPBuJVO9vanqpaNAxBJ4jir+35FDyU9qXPhlEpW7coO
-         /8u9arxvokXqrqKeLqz9h601trg+4wcye67rx9tVyN1axVtupBSnJ7E5BSc5oEBXMlHO
-         KSROKMtQE8+C88/p6gUIBi3yv6webYqOh7OUiLmP0ZCWyP2DF2whWsSz/1NabrWwZBVJ
-         X38Wy5/22Z5LwdqIzNX3mhOM6a0liS8P2HZHtMcipS0tuORgcla3kymZxvCrrppA0ZTX
-         8LTA==
+        d=linaro.org; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iJ6E6svhr3Q9wlTRWWrDf/qx2NsbOqycebzI7mskdFw=;
+        b=Z8pJ9F1fNoTt6wr2R3agJ1j8IoMsavCjIm8FuFUB9qW8/TbA8qwb10IAhyIJrjlP87
+         85og4tS9dZHzpaS7/bmhX2G67S6Y9biDCYSIjosf43ZlJzGlsdJNJNR5X4PKP+Plxpw9
+         vqlPpZ9zxFMdnLI6IRCGTkWrtKhKneRxpBDOiZhNpPG9EOt4O+YSPdRVZegE2alo6ykJ
+         G9Y7SoKFg+3g7XZalmm/EPxfqpzvtTvwuV+lNn10PgDfVFCzEf3n7cxG9jNyu8Bg2WDb
+         t6Hsc7ZgG4M75xvfNns0tBi/PeN93xKZ+lCw+UUl6NcoJMDRztdwQQrr6vlyRIqZjDgc
+         Tojg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxpbJTUNlMZJd8tslVgq3JHdSPdfNWxn0UnaVUQQc0A=;
-        b=GLiPF3ML3yaeaYcb7P0YZMCTHC1p8Fent6PqsumiURu0IN1aHZT4KQp+aFDXgmieKO
-         wVkDN2+eBYCBbv+EOTzLNAtvf7PK+ECW1e4BFExam27fzdQYBuBeoQf2PNrd2ng5VfH6
-         4t6Ff/kgivgGOV4+Lg7XHG0D/edJ470a/QX0vU6el1FEvb05E9u1+S3cB2eKzbndfiXy
-         cOdCYlhTI8tXpngmH40v+Xx5KDp4M1iEdw5Zeq/HeyjA3XPydAc7AxX2LO6rMj3PUTnI
-         Dcp2LBHsjioLz/xSpUySTpzu8Kr9QZtc+ozbuATpDSqk8lh+Qy/4zhXvwjz66zqTzY/V
-         8mzg==
-X-Gm-Message-State: ANoB5plUmd0boHkDb0zEhK3un7bKDUX42qlpl1xALHpVCnx6BUSi5YWg
-	QXJKFrEqAz8bxufAQ0R36cryDBy7sf8czA==
-X-Google-Smtp-Source: AA0mqf6nQ3bCSMPTn17mxc4GCVurLewt/EOjnyHvTIs/ImZGe4frb7eZXMD/Hm3cZq91ON4VNM6eRlaJXvRssg==
-X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:d807:0:b0:6f4:1c40:273a with SMTP id
- p7-20020a25d807000000b006f41c40273amr52016342ybg.622.1670528361862; Thu, 08
- Dec 2022 11:39:21 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:29 -0800
-In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
-Mime-Version: 1.0
-References: <20221208193857.4090582-1-dmatlack@google.com>
-X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-10-dmatlack@google.com>
-Subject: [RFC PATCH 09/37] KVM: Move page size stats into common code
-From: David Matlack <dmatlack@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sean Christopherson <seanjc@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Matlack <dmatlack@google.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Nadav Amit <namit@vmware.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	"Liam R. Howlett" <Liam.Howlett@Oracle.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Yu Zhao <yuzhao@google.com>, Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>, 
-	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>, 
-	Krish Sadhukhan <krish.sadhukhan@oracle.com>, Ricardo Koller <ricarkol@google.com>, 
-	Jing Zhang <jingzhangos@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iJ6E6svhr3Q9wlTRWWrDf/qx2NsbOqycebzI7mskdFw=;
+        b=e+s70eBPeL5wR6FxYM/j3QcoX1eygfF3tccl5DbdH64yYgvT3aXl42mqI+KK4TBRkj
+         UNw9g5Vi0cnpn5hN4wmrRSi2wnLEXQqI/wmdjXwvbGYlPwKbYRDCqU+U6UU/y5PUzKRd
+         eCPxlTOLpKuTemyh5+XpB9sernSG7InFzJ2j1P6Eh3iKTnYM0Hp/uMlGb9aw3UwfmTmb
+         AVpro/xQI64LLVmrinq9pwl6wHxEGClKpmhTU188+jEDa75sAbsj3kYyraJAOUdky4sK
+         5Zz5xWwYo/mLuAzq3+YgsaPBtURBLSSd6fiRNgyNpyJmJYDDMZ2scsOT8CCCRU5XVM0D
+         nMzA==
+X-Gm-Message-State: ANoB5pmIyU2RrTOTFPugK9WzBJFMpixqT3jNfX2OTm78nquq8KpEsMD/
+	6dcxhdZpM7JUa/Zk/1/XRSQtyuewhvPsNxSf8XXlb+siVeGpCA==
+X-Google-Smtp-Source: AA0mqf7wM+vhfNUXF2apxC1BoRxFZo/2/n5ITP7l/6K6fqs2HZ/zDYG89M4aSLZQVOeczE40uEyiE1EM+Uc6bc615LQ=
+X-Received: by 2002:a81:7853:0:b0:392:b19b:47e9 with SMTP id
+ t80-20020a817853000000b00392b19b47e9mr9753950ywc.252.1670533793365; Thu, 08
+ Dec 2022 13:09:53 -0800 (PST)
+MIME-Version: 1.0
+References: <20221207131731.1291517-1-william.qiu@starfivetech.com> <20221207131731.1291517-3-william.qiu@starfivetech.com>
+In-Reply-To: <20221207131731.1291517-3-william.qiu@starfivetech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 8 Dec 2022 22:09:38 +0100
+Message-ID: <CACRpkdYP7MokLdRtxX9w7p80c=wHDHsoTYWrU53CnpsZ7o6aGg@mail.gmail.com>
+Subject: Re: [PATCH v1 2/3] mmc: starfive: Add sdio/emmc driver support
+To: William Qiu <william.qiu@starfivetech.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Jaehoon Chung <jh80.chung@samsung.com>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_193936_235017_CF21AFC8 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20221208_130954_971762_B0165513 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,126 +87,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the page size stats into common code. This will be used in a future
-commit to move the TDP MMU, which populates these stats, into common
-code. Architectures can also start populating these stats if they wish,
-and export different stats depending on the page size.
+Hi William,
 
-Continue to only expose these stats on x86, since that's currently the
-only architecture that populates them.
+thanks for your patch!
 
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- arch/x86/include/asm/kvm_host.h | 8 --------
- arch/x86/kvm/mmu.h              | 5 -----
- arch/x86/kvm/x86.c              | 6 +++---
- include/linux/kvm_host.h        | 5 +++++
- include/linux/kvm_types.h       | 9 +++++++++
- 5 files changed, 17 insertions(+), 16 deletions(-)
+On Wed, Dec 7, 2022 at 2:17 PM William Qiu <william.qiu@starfivetech.com> wrote:
 
-diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
-index f5743a652e10..9cf8f956bac3 100644
---- a/arch/x86/include/asm/kvm_host.h
-+++ b/arch/x86/include/asm/kvm_host.h
-@@ -1363,14 +1363,6 @@ struct kvm_vm_stat {
- 	u64 mmu_recycled;
- 	u64 mmu_cache_miss;
- 	u64 mmu_unsync;
--	union {
--		struct {
--			atomic64_t pages_4k;
--			atomic64_t pages_2m;
--			atomic64_t pages_1g;
--		};
--		atomic64_t pages[KVM_NR_PAGE_SIZES];
--	};
- 	u64 nx_lpage_splits;
- 	u64 max_mmu_page_hash_collisions;
- 	u64 max_mmu_rmap_size;
-diff --git a/arch/x86/kvm/mmu.h b/arch/x86/kvm/mmu.h
-index 168c46fd8dd1..ec662108d2eb 100644
---- a/arch/x86/kvm/mmu.h
-+++ b/arch/x86/kvm/mmu.h
-@@ -261,11 +261,6 @@ kvm_mmu_slot_lpages(struct kvm_memory_slot *slot, int level)
- 	return __kvm_mmu_slot_lpages(slot, slot->npages, level);
- }
- 
--static inline void kvm_update_page_stats(struct kvm *kvm, int level, int count)
--{
--	atomic64_add(count, &kvm->stat.pages[level - 1]);
--}
--
- gpa_t translate_nested_gpa(struct kvm_vcpu *vcpu, gpa_t gpa, u64 access,
- 			   struct x86_exception *exception);
- 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 2bfe060768fc..517c8ed33542 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -231,6 +231,9 @@ EXPORT_SYMBOL_GPL(host_xss);
- 
- const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
- 	KVM_GENERIC_VM_STATS(),
-+	STATS_DESC_ICOUNTER(VM_GENERIC, pages_4k),
-+	STATS_DESC_ICOUNTER(VM_GENERIC, pages_2m),
-+	STATS_DESC_ICOUNTER(VM_GENERIC, pages_1g),
- 	STATS_DESC_COUNTER(VM, mmu_shadow_zapped),
- 	STATS_DESC_COUNTER(VM, mmu_pte_write),
- 	STATS_DESC_COUNTER(VM, mmu_pde_zapped),
-@@ -238,9 +241,6 @@ const struct _kvm_stats_desc kvm_vm_stats_desc[] = {
- 	STATS_DESC_COUNTER(VM, mmu_recycled),
- 	STATS_DESC_COUNTER(VM, mmu_cache_miss),
- 	STATS_DESC_ICOUNTER(VM, mmu_unsync),
--	STATS_DESC_ICOUNTER(VM, pages_4k),
--	STATS_DESC_ICOUNTER(VM, pages_2m),
--	STATS_DESC_ICOUNTER(VM, pages_1g),
- 	STATS_DESC_ICOUNTER(VM, nx_lpage_splits),
- 	STATS_DESC_PCOUNTER(VM, max_mmu_rmap_size),
- 	STATS_DESC_PCOUNTER(VM, max_mmu_page_hash_collisions)
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index f16c4689322b..22ecb7ce4d31 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2280,4 +2280,9 @@ static inline void kvm_account_pgtable_pages(void *virt, int nr)
- /* Max number of entries allowed for each kvm dirty ring */
- #define  KVM_DIRTY_RING_MAX_ENTRIES  65536
- 
-+static inline void kvm_update_page_stats(struct kvm *kvm, int level, int count)
-+{
-+	atomic64_add(count, &kvm->stat.generic.pages[level - 1]);
-+}
-+
- #endif
-diff --git a/include/linux/kvm_types.h b/include/linux/kvm_types.h
-index 76de36e56cdf..59cf958d69df 100644
---- a/include/linux/kvm_types.h
-+++ b/include/linux/kvm_types.h
-@@ -20,6 +20,7 @@ enum kvm_mr_change;
- 
- #include <linux/bits.h>
- #include <linux/mutex.h>
-+#include <linux/pgtable.h>
- #include <linux/types.h>
- #include <linux/spinlock_types.h>
- 
-@@ -105,6 +106,14 @@ struct kvm_mmu_memory_cache {
- struct kvm_vm_stat_generic {
- 	u64 remote_tlb_flush;
- 	u64 remote_tlb_flush_requests;
-+	union {
-+		struct {
-+			atomic64_t pages_4k;
-+			atomic64_t pages_2m;
-+			atomic64_t pages_1g;
-+		};
-+		atomic64_t pages[PG_LEVEL_NUM - 1];
-+	};
- };
- 
- struct kvm_vcpu_stat_generic {
--- 
-2.39.0.rc1.256.g54fd8350bd-goog
+> Add sdio/emmc driver support for StarFive JH7110 soc.
+>
+> Signed-off-by: William Qiu <william.qiu@starfivetech.com>
 
+(...)
+> +#include <linux/gpio.h>
+
+Never include this legacy header in new code. Also: you don't use it.
+
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/mmc/host.h>
+> +#include <linux/module.h>
+> +#include <linux/of_address.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+
+You're not using this include either.
+
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+
+Or this.
+
+> +#define ALL_INT_CLR            0x1ffff
+> +#define MAX_DELAY_CHAIN                32
+> +
+> +struct starfive_priv {
+> +       struct device *dev;
+> +       struct regmap *reg_syscon;
+> +       u32 syscon_offset;
+> +       u32 syscon_shift;
+> +       u32 syscon_mask;
+> +};
+> +
+> +static unsigned long dw_mci_starfive_caps[] = {
+> +       MMC_CAP_CMD23,
+> +       MMC_CAP_CMD23,
+> +       MMC_CAP_CMD23
+> +};
+> +
+> +static void dw_mci_starfive_set_ios(struct dw_mci *host, struct mmc_ios *ios)
+> +{
+> +       int ret;
+> +       unsigned int clock;
+> +
+> +       if (ios->timing == MMC_TIMING_MMC_DDR52 || ios->timing == MMC_TIMING_UHS_DDR50) {
+> +               clock = (ios->clock > 50000000 && ios->clock <= 52000000) ? 100000000 : ios->clock;
+> +               ret = clk_set_rate(host->ciu_clk, clock);
+> +               if (ret)
+> +                       dev_dbg(host->dev, "Use an external frequency divider %uHz\n", ios->clock);
+> +               host->bus_hz = clk_get_rate(host->ciu_clk);
+> +       } else {
+> +               dev_dbg(host->dev, "Using the internal divider\n");
+> +       }
+> +}
+> +
+> +static int dw_mci_starfive_execute_tuning(struct dw_mci_slot *slot,
+> +                                            u32 opcode)
+> +{
+> +       static const int grade  = MAX_DELAY_CHAIN;
+> +       struct dw_mci *host = slot->host;
+> +       struct starfive_priv *priv = host->priv;
+> +       int raise_point = -1, fall_point = -1;
+> +       int err, prev_err = -1;
+
+I don't like these default-init to -1. Can you just skip it and assign it
+where it makes most sense instead?
+
+> +       int found = 0;
+
+This looks like a bool.
+
+> +       int i;
+> +       u32 regval;
+> +
+> +       for (i = 0; i < grade; i++) {
+> +               regval = i << priv->syscon_shift;
+> +               err = regmap_update_bits(priv->reg_syscon, priv->syscon_offset,
+> +                                               priv->syscon_mask, regval);
+> +               if (err)
+> +                       return err;
+> +               mci_writel(host, RINTSTS, ALL_INT_CLR);
+> +
+> +               err = mmc_send_tuning(slot->mmc, opcode, NULL);
+> +               if (!err)
+> +                       found = 1;
+> +
+> +               if (i > 0) {
+> +                       if (err && !prev_err)
+> +                               fall_point = i - 1;
+> +                       if (!err && prev_err)
+> +                               raise_point = i;
+> +               }
+> +
+> +               if (raise_point != -1 && fall_point != -1)
+> +                       goto tuning_out;
+
+There are just these raise point (shouldn't this be "rise_point" in proper
+english?) and fall point, this misses some comments explaining what is
+going on, the code is not intuitively eviden. Rise and fall of *what* for
+example.
+
+> +
+> +               prev_err = err;
+> +               err = 0;
+> +       }
+> +
+> +tuning_out:
+> +       if (found) {
+> +               if (raise_point == -1)
+> +                       raise_point = 0;
+> +               if (fall_point == -1)
+> +                       fall_point = grade - 1;
+> +               if (fall_point < raise_point) {
+> +                       if ((raise_point + fall_point) >
+> +                           (grade - 1))
+> +                               i = fall_point / 2;
+> +                       else
+> +                               i = (raise_point + grade - 1) / 2;
+> +               } else {
+> +                       i = (raise_point + fall_point) / 2;
+> +               }
+
+Likewise here, explain what grade is, refer to the eMMC spec if necessary.
+
+(...)
+> +       ret = of_parse_phandle_with_fixed_args(host->dev->of_node,
+> +                                               "starfive,sys-syscon", 3, 0, &args);
+> +       if (ret) {
+> +               dev_err(host->dev, "Failed to parse starfive,sys-syscon\n");
+> +               return -EINVAL;
+> +       }
+> +
+> +       priv->reg_syscon = syscon_node_to_regmap(args.np);
+> +       of_node_put(args.np);
+> +       if (IS_ERR(priv->reg_syscon))
+> +               return PTR_ERR(priv->reg_syscon);
+> +
+> +       priv->syscon_offset = args.args[0];
+> +       priv->syscon_shift  = args.args[1];
+> +       priv->syscon_mask   = args.args[2];
+
+Why should these three things be in the device tree instead of being derived
+from the compatible-string or just plain hard-coded as #defines?
+I don't get it.
+
+> +static int dw_mci_starfive_probe(struct platform_device *pdev)
+> +{
+> +       return dw_mci_pltfm_register(pdev, &starfive_data);
+> +}
+> +
+> +static int dw_mci_starfive_remove(struct platform_device *pdev)
+> +{
+> +       return dw_mci_pltfm_remove(pdev);
+> +}
+
+Can't you just assign dw_mci_pltfm_remove() to .remove?
+
+Other than these things, the driver looks good!
+
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
