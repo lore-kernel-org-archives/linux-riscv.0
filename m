@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D5FC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F2BC4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,57 +13,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=wW5/XDqb46C+aGv+wkMnIRYCTRFrsfao7Bnxe+zvbZM=; b=Xfch81SF+XTqhoep0IO92TnOzs
-	amd73um6ZSw9SK3MqBTxddOrr1I8kXo9OJc5oWFAwF0pn5/PQfmnAynDKVcXQRs2j5IEVbQ47yaj/
-	8824ZGy9C6HCFxB+1vvw7nxdPtgQw1UWBLhJpSAP5c/SSpPOQZoI4Kos29VUK0bcvnv80x8mzyWzu
-	9d0SHmlMrf79TylN9E3b59uxuAWK6wWhyIwtUaXKNGpE62SLE9ktW7yX5GYfJ5i3Dn1cDiBVReo3Z
-	4XMozE4dYQqto1nSiA+sYvuUT7O/c/5u4L2ItubIyvfN3lROLZoSHsDVzHLQbZdcvmCrr4OBusMyE
-	2s8/7xzQ==;
+	bh=YXeQizjCxC4BGnKii0J3aM43OM4MsC0ccquVZGbz1PM=; b=xS1y7SbYwlCLMWCy6LBB1N7+A2
+	HzDHBYhAyUj4IIVQiuF/6eWSx2GREgwLkXiQIdXbGH3zTJ/F1CHLgmS1eutakpQikwOepRIGUr0K/
+	egs3/ad2xFGdgWIbMkOcAYmcrGZ0VBH04qEQHsA/GwUA4/GOuG8ogtZSBRZouPaSBDoOZ4cRbsdfI
+	r1cxXoJk8phSkG3rN285Z+J0JOMlUuDcqL7fh97rtyXVjq4yX2Jtso1BsZxzrhrkJhGeiAT6qcocp
+	zi3CRDJa+O2q1fZ9NaDB5mMNSgvC3qlYellm8Bj126CMsP2pCkd4SqEoXiENYrwWMqSpYl95Elq/H
+	KTdSIJrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3MvB-00A4Sy-0k; Thu, 08 Dec 2022 19:51:05 +0000
+	id 1p3MvK-00A4aT-Lg; Thu, 08 Dec 2022 19:51:14 +0000
 Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mrp-00A2DQ-2x
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:47:38 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id b17-20020a25b851000000b006e32b877068so2566176ybm.16
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:47:36 -0800 (PST)
+	id 1p3Mrr-00A2FC-IN
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:47:40 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id f11-20020a5b01cb000000b0070374b66537so2562149ybp.14
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:47:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pg1Nq3rulqWxdtA2fJcZW38Nt6WCEHzRUfCCpYS2KV0=;
-        b=aDqf6pXxZybLQuV+ns7MyujXZ7TaXxPsXCkY1cBCTnm7Z1Pk34Q2WxafDnw6pX7BHN
-         lhEXYUvCnQrmxi67UqIabYRYVsFr1VmRYMnDgU/nCVe0vfpF9o0e/pk5kPNnjxwaoCkb
-         6UzjVRaqPFUO0UrFxoxAA1OT7EuOIecZ2ihew0iHfezGa4aHmagqVFYtCzqCsOXcoWMG
-         1BSI0f3h3n0sV4Xz4NHwLOJuYaVAHIAoL3P08pyo0Lb7cFRQm3wK50yoCvEQji2rKMPw
-         TJvkYFZnHosx8g6qnVV89WiLKgj9ZlDUDj9dOxU8qckP9jmYepoaBePV4tvKaqieAvx3
-         Iqsg==
+        bh=ZDFxAZ/PI9aKYqwedjkDPDUn0PCD9WUxHYy13eGAWTI=;
+        b=UW5TQakihQ1Rj8oX0fHh6ol3yHICPRAUjId2fBE9HBOx4Z4cfwRHCzOFro0DVog5Py
+         z1d9aYSN4fRQh+yVjk9c6erIMnvGY+3XCA5eND2mJd3lmcs6ZMcic9/HWoIHmoYD+B1m
+         XjqLDiAn+QBJHnf0vzOfnGkxZlkIa53ilOScS8egg7kyZLK+h2NKejyWCaVjbbt+sR5R
+         IhfagMv7s1KO30A1KDYGC5ziILrcoD8HH6N1IH5+EVj3HMWjpbtHUPdv5fpd7dQKJ+67
+         MzWuFb+b2SqNDBq56KYHPAYiPt7QBIFy/9sPV8aGa7CXG5RzY4NELQedDkJBW9qr9WbA
+         evPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pg1Nq3rulqWxdtA2fJcZW38Nt6WCEHzRUfCCpYS2KV0=;
-        b=2RbM84Nd/PCY5m9wHKHJplHOIdUx8Mdd4KCdCIvU9pdOPnRYsAqAka+3VR9H+FTHQm
-         zObixtqcqrgJPVQCV1LkXQNUOx+ps3BvJMV+mqfXnXMHxwFwQ2ndfTzRaZmDMcEwHUd5
-         Im6FuyT4ApRflNRqgUqf0p8KyMdH4zlmxyGmtTb/wcwNZR1NDp53+2apk0v2pQdLaViZ
-         /j//J3hpOWH/ABMIIh4JLTnwqAZB/ZZ9fHt08A4uJSxucFT0V1H+Zlu0WwHDVDu6aUi8
-         A+nuPStYnCv1QAntGzQ8iP3Btn3thGS1TpzUJIr4zoAkZx++b/Ev+JngHw6NklfA/C49
-         kZMQ==
-X-Gm-Message-State: ANoB5pnpvMY0t7rCNSwIRUhH1lFIv8JKgUQX6aOfjFT3t/8U71KUEl1u
-	g01nYdTDm8pmah8UCm1CO8PhDGu9DsrmNg==
-X-Google-Smtp-Source: AA0mqf7iyktvhKElr4AnSOjLzx6ehM+nhpfhEwE2rLq/JpjuQYZLUjwLo76vc17Zh1ckOWCNKP3vo6QzYulWTQ==
+        bh=ZDFxAZ/PI9aKYqwedjkDPDUn0PCD9WUxHYy13eGAWTI=;
+        b=GvVHCvIA0fuuJIPmMGlXwjlQduZz1KxIwKRy0VAVDtmZ2FyS/EkNdpy0o5mP5xg+bA
+         EYIiiSywDcKTJtqkuTG0mTFEnKwpolY4J6VTrfkiwv2j3SjTiYi4Vmq9V2OgZxNcCCWz
+         9eO5DTxmpObr0r2shcF9axLQNAQDgECkcBZNe5Lmh98OUGNVlQYx/qccysFam4adZare
+         foIFYv1C7+1+Z8QeeQSrP68S2VyHvqSJxIJfNF/PGgnQ/qWLo9Blywx43jfBMIH6Uyu4
+         GaMwTxMya/tj2zVIo3hMuYY8CozVJY6tEXZW26WOu8Cht83seSbVnWI75/lIHIsXY0bv
+         4Ksg==
+X-Gm-Message-State: ANoB5pnIO4CokW/nhZzKpwEkFESB/EYz7/LuXbErz5fwZ07EwlqRdbvk
+	JDdw1hejEJHm6b3AiYf0g8jCs4DbgZ6S9w==
+X-Google-Smtp-Source: AA0mqf4h5P1c4eLdLR7BQ8qrkqY9isQdWdfvRcIECxB1d810mucDHdG6W99tV9EeqSL89xl1lTy+w8pwh40XXQ==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:25cf:0:b0:704:9d40:ecce with SMTP id
- l198-20020a2525cf000000b007049d40eccemr9539756ybl.316.1670528373481; Thu, 08
- Dec 2022 11:39:33 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:36 -0800
+ (user=dmatlack job=sendgmr) by 2002:a25:6a89:0:b0:6dd:989f:2af4 with SMTP id
+ f131-20020a256a89000000b006dd989f2af4mr92028743ybc.38.1670528406445; Thu, 08
+ Dec 2022 11:40:06 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:55 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-17-dmatlack@google.com>
-Subject: [RFC PATCH 16/37] KVM: x86/mmu: Abstract away TDP MMU root lookup
+Message-ID: <20221208193857.4090582-36-dmatlack@google.com>
+Subject: [RFC PATCH 35/37] KVM: x86/mmu: Move tdp_mmu_max_gfn_exclusive() to tdp_pgtable.c
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -85,8 +85,8 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_114737_194856_6B045F84 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20221208_114739_648684_FAE587DA 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,112 +103,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Abstract the code that looks up the TDP MMU root from vcpu->arch.mmu
-behind a function, tdp_mmu_root(). This will be used in a future commit
-to allow the TDP MMU to be moved to common code, where vcpu->arch.mmu
-cannot be accessed directly.
+Move tdp_mmu_max_gfn_exclusive() to tdp_pgtable.c since it currently
+relies on the x86-specific kvm_mmu_max_gfn() function. This can be
+improved in the future by implementing a common API for calculating the
+max GFN.
+
+No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/include/asm/kvm/tdp_pgtable.h |  2 ++
- arch/x86/kvm/mmu/tdp_mmu.c             | 17 +++++++----------
- arch/x86/kvm/mmu/tdp_pgtable.c         |  5 +++++
- 3 files changed, 14 insertions(+), 10 deletions(-)
+ arch/x86/include/asm/kvm/tdp_pgtable.h |  3 +++
+ arch/x86/kvm/mmu/tdp_mmu.c             | 11 -----------
+ arch/x86/kvm/mmu/tdp_pgtable.c         | 11 +++++++++++
+ 3 files changed, 14 insertions(+), 11 deletions(-)
 
 diff --git a/arch/x86/include/asm/kvm/tdp_pgtable.h b/arch/x86/include/asm/kvm/tdp_pgtable.h
-index cebc4bc44b49..c5c4e4cab24a 100644
+index ff2691ced38b..c1047fcf1a91 100644
 --- a/arch/x86/include/asm/kvm/tdp_pgtable.h
 +++ b/arch/x86/include/asm/kvm/tdp_pgtable.h
-@@ -5,6 +5,8 @@
- #include <linux/types.h>
- #include <linux/kvm_types.h>
- 
-+struct kvm_mmu_page *tdp_mmu_root(struct kvm_vcpu *vcpu);
+@@ -67,4 +67,7 @@ u64 tdp_mmu_make_changed_pte_notifier_pte(struct tdp_iter *iter,
+ 					  struct kvm_gfn_range *range);
+ u64 tdp_mmu_make_huge_page_split_pte(struct kvm *kvm, u64 huge_spte,
+ 				     struct kvm_mmu_page *sp, int index);
 +
- /*
-  * Use a semi-arbitrary value that doesn't set RWX bits, i.e. is not-present on
-  * both AMD and Intel CPUs, and doesn't set PFN bits, i.e. doesn't create a L1TF
++gfn_t tdp_mmu_max_gfn_exclusive(void);
++
+ #endif /* !__ASM_KVM_TDP_PGTABLE_H */
 diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index fea42bbac984..8155a9e79203 100644
+index c035c051161c..c950d688afea 100644
 --- a/arch/x86/kvm/mmu/tdp_mmu.c
 +++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -788,9 +788,6 @@ static inline void tdp_mmu_set_spte_no_dirty_log(struct kvm *kvm,
- 			continue;					\
- 		else
+@@ -828,17 +828,6 @@ static inline bool __must_check tdp_mmu_iter_cond_resched(struct kvm *kvm,
+ 	return iter->yielded;
+ }
  
--#define tdp_mmu_for_each_pte(_iter, _mmu, _start, _end)		\
--	for_each_tdp_pte(_iter, to_shadow_page(_mmu->root.hpa), _start, _end)
+-static inline gfn_t tdp_mmu_max_gfn_exclusive(void)
+-{
+-	/*
+-	 * Bound TDP MMU walks at host.MAXPHYADDR.  KVM disallows memslots with
+-	 * a gpa range that would exceed the max gfn, and KVM does not create
+-	 * MMIO SPTEs for "impossible" gfns, instead sending such accesses down
+-	 * the slow emulation path every time.
+-	 */
+-	return kvm_mmu_max_gfn() + 1;
+-}
 -
- /*
-  * Yield if the MMU lock is contended or this thread needs to return control
-  * to the scheduler.
-@@ -1145,7 +1142,7 @@ static int tdp_mmu_split_huge_page(struct kvm *kvm, struct tdp_iter *iter,
-  */
- int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
+ static void __tdp_mmu_zap_root(struct kvm *kvm, struct kvm_mmu_page *root,
+ 			       bool shared, int zap_level)
  {
--	struct kvm_mmu *mmu = vcpu->arch.mmu;
-+	struct kvm_mmu_page *root = tdp_mmu_root(vcpu);
- 	struct kvm *kvm = vcpu->kvm;
- 	struct tdp_iter iter;
- 	struct kvm_mmu_page *sp;
-@@ -1157,7 +1154,7 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
- 
- 	rcu_read_lock();
- 
--	tdp_mmu_for_each_pte(iter, mmu, fault->gfn, fault->gfn + 1) {
-+	for_each_tdp_pte(iter, root, fault->gfn, fault->gfn + 1) {
- 		int r;
- 
- 		if (fault->arch.nx_huge_page_workaround_enabled)
-@@ -1826,14 +1823,14 @@ bool kvm_tdp_mmu_write_protect_gfn(struct kvm *kvm,
- int kvm_tdp_mmu_get_walk(struct kvm_vcpu *vcpu, u64 addr, u64 *sptes,
- 			 int *root_level)
- {
-+	struct kvm_mmu_page *root = tdp_mmu_root(vcpu);
- 	struct tdp_iter iter;
--	struct kvm_mmu *mmu = vcpu->arch.mmu;
- 	gfn_t gfn = addr >> PAGE_SHIFT;
- 	int leaf = -1;
- 
--	*root_level = vcpu->arch.mmu->root_role.level;
-+	*root_level = root->role.level;
- 
--	tdp_mmu_for_each_pte(iter, mmu, gfn, gfn + 1) {
-+	for_each_tdp_pte(iter, root, gfn, gfn + 1) {
- 		leaf = iter.level;
- 		sptes[leaf] = iter.old_spte;
- 	}
-@@ -1855,12 +1852,12 @@ int kvm_tdp_mmu_get_walk(struct kvm_vcpu *vcpu, u64 addr, u64 *sptes,
- u64 *kvm_tdp_mmu_fast_pf_get_last_sptep(struct kvm_vcpu *vcpu, u64 addr,
- 					u64 *spte)
- {
-+	struct kvm_mmu_page *root = tdp_mmu_root(vcpu);
- 	struct tdp_iter iter;
--	struct kvm_mmu *mmu = vcpu->arch.mmu;
- 	gfn_t gfn = addr >> PAGE_SHIFT;
- 	tdp_ptep_t sptep = NULL;
- 
--	tdp_mmu_for_each_pte(iter, mmu, gfn, gfn + 1) {
-+	for_each_tdp_pte(iter, root, gfn, gfn + 1) {
- 		*spte = iter.old_spte;
- 		sptep = iter.sptep;
- 	}
 diff --git a/arch/x86/kvm/mmu/tdp_pgtable.c b/arch/x86/kvm/mmu/tdp_pgtable.c
-index cf3b692d8e21..97cc900e8818 100644
+index fb40abdb9234..4e747956d6ee 100644
 --- a/arch/x86/kvm/mmu/tdp_pgtable.c
 +++ b/arch/x86/kvm/mmu/tdp_pgtable.c
-@@ -13,6 +13,11 @@ static_assert(TDP_PTE_WRITABLE_MASK == PT_WRITABLE_MASK);
- static_assert(TDP_PTE_HUGE_PAGE_MASK == PT_PAGE_SIZE_MASK);
- static_assert(TDP_PTE_PRESENT_MASK == SPTE_MMU_PRESENT_MASK);
- 
-+struct kvm_mmu_page *tdp_mmu_root(struct kvm_vcpu *vcpu)
-+{
-+	return to_shadow_page(vcpu->arch.mmu->root.hpa);
-+}
-+
- bool tdp_pte_is_accessed(u64 pte)
+@@ -170,3 +170,14 @@ int tdp_mmu_max_mapping_level(struct kvm *kvm,
  {
- 	return is_accessed_spte(pte);
+ 	return kvm_mmu_max_mapping_level(kvm, slot, iter->gfn, PG_LEVEL_NUM);
+ }
++
++gfn_t tdp_mmu_max_gfn_exclusive(void)
++{
++	/*
++	 * Bound TDP MMU walks at host.MAXPHYADDR.  KVM disallows memslots with
++	 * a gpa range that would exceed the max gfn, and KVM does not create
++	 * MMIO SPTEs for "impossible" gfns, instead sending such accesses down
++	 * the slow emulation path every time.
++	 */
++	return kvm_mmu_max_gfn() + 1;
++}
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
