@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25438C4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC59C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 19:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,57 +13,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=+eb2PlZaE0QgglB8WWX1+oD4KCjyPjdAkeC8LZ+BjD4=; b=Ed2Pae6tMPHfgilt7qsYuOV4q8
-	2hGCX8kTynlQCQYNW82CPJ5OFK9IntUlc8Q7ccnz+qisdmMIhUFJqVdmwBDlEdBAQlYn+UuA9bf66
-	e6vEbOtWWKhfdY9ijlXC572IpyjEyup+VxGYMjLdeFcewIdho14jSpVIhexqNVd1up+nb0fx8bkkc
-	2G8V8v/xQnXC/t9dXi0hu11EaZr3q8+1A6nNrg6SvK3o25zFGm183TGcNnlOKMSPa6G7UFC+8qIqZ
-	Um5wMEvFjiHJeP3QnkC5pQhXvvooSijIgZ5A+JXyrPvmP4zVIw6G5x711gLCT3wuwm+H5tfU/eq6V
-	X7FkknZw==;
+	bh=Fb1NA39+o0BOJ6kbxOQYYT81MpqvUoF+2SHQ9dHjOa8=; b=46nc3DAwR8qhlWExl+dVC50KAC
+	Qy0a23qwXOO6D2k+HohyzxEhAflG6R9Icc+JaEDA66YbC2zS4rHZwM46rjGf4a0RBJhsdn06rrt5C
+	P+H5jsnUPNB1vVKPQ3dAAYsNdHZElyoAfC0/+B8A2xseKGUq1ppIkHX9lc6In92XYIuHL0hsHNINM
+	rvKEwkQ42RPLBiAxC+2M2FLiZUevnlneJfSwGtUJMgJc7gNHUxET5oIEY3LMnhVCaLUuUPBZ0uS/2
+	PeRT2YS0puG/VdpW8XVYPvHedLp+DPvOdjMwDsDUzfDwtS2GY0Ekzz5cuLhNJCDZCyXgsUhpJzHDt
+	GrVW1Iaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3MvU-00A4hS-SC; Thu, 08 Dec 2022 19:51:24 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1p3Mvg-00A4rc-8c; Thu, 08 Dec 2022 19:51:36 +0000
+Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Mrz-00A2MJ-W6
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:47:49 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id i19-20020a253b13000000b0070358cca7f7so2528257yba.9
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:47:47 -0800 (PST)
+	id 1p3Ms7-00A2SK-SR
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 19:47:57 +0000
+Received: by mail-oi1-x249.google.com with SMTP id bd24-20020a056808221800b0035b94fc144aso1080648oib.5
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 11:47:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=T0+hU8k+RyCmVBvBo6qJA+pYHpeWz4BnzaTdktBKy2A=;
-        b=j2HX3lJ7u8ucEzkeGBQfuBx9Yb7N2Qy9oTH39ulAVDzwqd+G0fIW4WjnRqotxR/RTx
-         o/pna9eXTXuMdJmAYL1UVpM36PkT4GZM2h0bpfrNAurm7bBa7yOIol4vLsYL261GeqzA
-         3HOdEsZ41tJib1TeC34Adynr+Edi81xeW1SDkV4CdXiQGoTOGOVJ4WxSxzRqIQRX0/iB
-         RSZpalWLzZZk3q25mDyKyCcOP/lgTKFRKvpNiWk49MLHspz7m3Pd9fzp8sxVKQa7WFIV
-         Cq+v/eIrOgIUSWXVgUqA7VpSfMfnDwSrS/lkhXxrcLWaE6ZViWl/62plvpN2oVhZ91U+
-         +4vQ==
+        bh=LgQMdy+BRV6etzCdcak09K9MMPBRYTlG1+oihaFX4ek=;
+        b=HTWjIigcZ7WZjOnOg61QHaCTfbHLyHGvpSvV9l8zZQ5K6Grf0VUcQH9XdDcrgQ0qnO
+         1QAcwSASOHpForiZANO2+68V5a8rNealSQ0apW5C0hOTyqLw/F+VPLY3asRhXgPKSuVc
+         ATHZcBO/0vYL56E/Ir829fUHKApmsLZ4Axd/FvOUVfKwdR9J0BHthDhp0OlK+DWkEs9G
+         8DbJlx/DyawOHuuPdY5BhEZwMd2ETb8lHyA5mmcw6iiBiq+/CMkbN4u0OnU/XPiCWYAg
+         4c1jbNQi9nK7+jDlMHAK9qxmS0z+lVbXn90csRVgjpeYpmndVSm5rYF7D0TXl9GZ2RVc
+         4lEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T0+hU8k+RyCmVBvBo6qJA+pYHpeWz4BnzaTdktBKy2A=;
-        b=ElYDSrh4dEjnCYNNDPRc0/8cq4gclwOE4FZmJqOrah+u9feYWRNE8QcWdJ0pgfbs7O
-         bkAqNmR5tKJZXzVeOfN1DgAmkMreHjoojlSQuo/phIb5o4p5Yxs/MJXhQktEy/vTFsrC
-         SjWAhyQT6Ia1wqEr0Qy3pAsREXw1JgnbK4mrRdX32cvHk8c9Wq7DjQTPxT7NENIbJbFJ
-         0LsknH8TMHDVq6DH4qLypNdvrTcbV4MIJjxn7BLRyMTIr44kE4KfPOfWeusO7GofwxVD
-         NF9Zm1aaioEXdeJegDkMnfJFyP7bR9BbGZ3/Clm9BoJFMlyZPI2lquRFJJ92Xx5NRJJm
-         9Ckw==
-X-Gm-Message-State: ANoB5pkSUa8PFe1MuOKNssAEKq9fm9pWZSWX6d9lPQ6532RZ4RSlK9RR
-	MaP5vhg/1ViimmaavOnkLAv0yDCZsSLyaA==
-X-Google-Smtp-Source: AA0mqf4KN0ToQ1wmZzmflZp36b4L5Nl4FpG0VJHdW80YwtBlwu869ju+Ri2dl6OmwZR+dYAtfRM+xdMRlNvXFw==
+        bh=LgQMdy+BRV6etzCdcak09K9MMPBRYTlG1+oihaFX4ek=;
+        b=a2kU6kHXbm1N0u8Y98p731r30qFq7qUDhAY0VTI1+G2zssXT1VNuTI2NK/8p+d/68x
+         HmZU2h3xXBgBwxjXeDnCfBTob9eTRqWnjtXza8GRDQPiT9SWEQpNE8ya1sDEZucYtmBs
+         iPNuqkopVBtKPa9o0S6gttjtDwQ6OA9WHvVBE68jRWPCR6NJZepP3ADtwAowYq9mcKrb
+         pIAYUqROeU3FyrYH0X6n5ob5NzlVUFfese259PR40vnHAObsuDQA7chvw6JiT/fZegLk
+         N62qHZceeU0TM2bH2AcCd5hi/VKZ9za3WnXm6MwqBKPsXbDAxUNd1jtZvo+tyjv8i0Au
+         ylUg==
+X-Gm-Message-State: ANoB5pnQdXqoLLug6ML17O3AjSrJGhUyqGvdZ8CcKDSOog09OWHvR44S
+	YeIJrjRhjJ+29JWVeaIewcx6jUiisE98tA==
+X-Google-Smtp-Source: AA0mqf6s5jpCYuu3sADTa5hiPGsaDUIFXQc5seS/2ekXFn3zxyf2G6r6oJqYRkkShhh/Mij7t3AhSFvHIH2QTg==
 X-Received: from dmatlack-n2d-128.c.googlers.com ([fda3:e722:ac3:cc00:20:ed76:c0a8:1309])
- (user=dmatlack job=sendgmr) by 2002:a25:6994:0:b0:6f3:c535:4ea3 with SMTP id
- e142-20020a256994000000b006f3c5354ea3mr55731660ybc.498.1670528366862; Thu, 08
- Dec 2022 11:39:26 -0800 (PST)
-Date: Thu,  8 Dec 2022 11:38:32 -0800
+ (user=dmatlack job=sendgmr) by 2002:a17:90b:11d6:b0:219:ce92:17a1 with SMTP
+ id gv22-20020a17090b11d600b00219ce9217a1mr20111973pjb.235.1670528383766; Thu,
+ 08 Dec 2022 11:39:43 -0800 (PST)
+Date: Thu,  8 Dec 2022 11:38:42 -0800
 In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
 Mime-Version: 1.0
 References: <20221208193857.4090582-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
-Message-ID: <20221208193857.4090582-13-dmatlack@google.com>
-Subject: [RFC PATCH 12/37] KVM: x86/mmu: Use PG_LEVEL_{PTE,PMD,PUD} in the TDP MMU
+Message-ID: <20221208193857.4090582-23-dmatlack@google.com>
+Subject: [RFC PATCH 22/37] KVM: x86: Select HAVE_TDP_MMU if X86_64
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
 Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
@@ -85,8 +85,9 @@ Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
 	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_114748_039943_A3E637E3 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20221208_114755_948035_EE0D9C37 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,101 +104,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use PG_LEVEL_{PTE,PMD,PUD} in the TDP MMU instead of the x86-specific
-PG_LEVEL_{4K,2M,1G} aliases. This prepares for moving the TDP MMU to
-common code, where not all architectures will have 4K PAGE_SIZE.
+In preparation for moving the TDP MMU implementation into virt/kvm/
+guarded behind HAVE_TDP_MMU, ensure that HAVE_TDP_MMU is selected in
+X86_64 builds that enable KVM. This matches the existing behavior of the
+TDP MMU in x86.
 
 No functional change intended.
 
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- arch/x86/kvm/mmu/tdp_iter.h |  2 +-
- arch/x86/kvm/mmu/tdp_mmu.c  | 16 ++++++++--------
- 2 files changed, 9 insertions(+), 9 deletions(-)
+ arch/x86/kvm/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/x86/kvm/mmu/tdp_iter.h b/arch/x86/kvm/mmu/tdp_iter.h
-index f0af385c56e0..892c078aab58 100644
---- a/arch/x86/kvm/mmu/tdp_iter.h
-+++ b/arch/x86/kvm/mmu/tdp_iter.h
-@@ -106,7 +106,7 @@ struct tdp_iter {
- 	     tdp_iter_next(&iter))
- 
- #define for_each_tdp_pte(iter, root, start, end) \
--	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_4K, start, end)
-+	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_PTE, start, end)
- 
- tdp_ptep_t spte_to_child_pt(u64 pte, int level);
- 
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 4940413d3767..bce0566f2d94 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -347,7 +347,7 @@ static void handle_changed_spte_dirty_log(struct kvm *kvm, int as_id, gfn_t gfn,
- 	bool pfn_changed;
- 	struct kvm_memory_slot *slot;
- 
--	if (level > PG_LEVEL_4K)
-+	if (level > PG_LEVEL_PTE)
- 		return;
- 
- 	pfn_changed = spte_to_pfn(old_spte) != spte_to_pfn(new_spte);
-@@ -526,7 +526,7 @@ static void __handle_changed_spte(struct kvm *kvm, int as_id, gfn_t gfn,
- 	bool pfn_changed = spte_to_pfn(old_spte) != spte_to_pfn(new_spte);
- 
- 	WARN_ON(level > PT64_ROOT_MAX_LEVEL);
--	WARN_ON(level < PG_LEVEL_4K);
-+	WARN_ON(level < PG_LEVEL_PTE);
- 	WARN_ON(gfn & (KVM_PAGES_PER_HPAGE(level) - 1));
- 
- 	/*
-@@ -897,9 +897,9 @@ static void tdp_mmu_zap_root(struct kvm *kvm, struct kvm_mmu_page *root,
- 	 * inducing a stall to allow in-place replacement with a 1gb hugepage.
- 	 *
- 	 * Because zapping a SP recurses on its children, stepping down to
--	 * PG_LEVEL_4K in the iterator itself is unnecessary.
-+	 * PG_LEVEL_PTE in the iterator itself is unnecessary.
- 	 */
--	__tdp_mmu_zap_root(kvm, root, shared, PG_LEVEL_1G);
-+	__tdp_mmu_zap_root(kvm, root, shared, PG_LEVEL_PUD);
- 	__tdp_mmu_zap_root(kvm, root, shared, root->role.level);
- 
- 	rcu_read_unlock();
-@@ -944,7 +944,7 @@ static bool tdp_mmu_zap_leafs(struct kvm *kvm, struct kvm_mmu_page *root,
- 
- 	rcu_read_lock();
- 
--	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_4K, start, end) {
-+	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_PTE, start, end) {
- 		if (can_yield &&
- 		    tdp_mmu_iter_cond_resched(kvm, &iter, flush, false)) {
- 			flush = false;
-@@ -1303,7 +1303,7 @@ static bool set_spte_gfn(struct kvm *kvm, struct tdp_iter *iter,
- 	/* Huge pages aren't expected to be modified without first being zapped. */
- 	WARN_ON(pte_huge(range->pte) || range->start + 1 != range->end);
- 
--	if (iter->level != PG_LEVEL_4K ||
-+	if (iter->level != PG_LEVEL_PTE ||
- 	    !is_shadow_present_pte(iter->old_spte))
- 		return false;
- 
-@@ -1672,7 +1672,7 @@ static void clear_dirty_pt_masked(struct kvm *kvm, struct kvm_mmu_page *root,
- 		if (!mask)
- 			break;
- 
--		if (iter.level > PG_LEVEL_4K ||
-+		if (iter.level > PG_LEVEL_PTE ||
- 		    !(mask & (1UL << (iter.gfn - gfn))))
- 			continue;
- 
-@@ -1726,7 +1726,7 @@ static void zap_collapsible_spte_range(struct kvm *kvm,
- 
- 	rcu_read_lock();
- 
--	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_2M, start, end) {
-+	for_each_tdp_pte_min_level(iter, root, PG_LEVEL_PMD, start, end) {
- retry:
- 		if (tdp_mmu_iter_cond_resched(kvm, &iter, false, true))
- 			continue;
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index fbeaa9ddef59..849185d5020d 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -49,6 +49,7 @@ config KVM
+ 	select SRCU
+ 	select INTERVAL_TREE
+ 	select HAVE_KVM_PM_NOTIFIER if PM
++	select HAVE_TDP_MMU if X86_64
+ 	help
+ 	  Support hosting fully virtualized guest machines using hardware
+ 	  virtualization extensions.  You will need a fairly recent
 -- 
 2.39.0.rc1.256.g54fd8350bd-goog
 
