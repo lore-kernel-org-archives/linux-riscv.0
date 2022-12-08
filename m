@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 558CFC4332F
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A986C63705
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:27:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g2jziivpWj6GbU6OKLyPlEjse7FlwihoVJWCRBd7lZo=; b=UBljlmOitXuwB2
-	Xn43yTy3O4zM0DcMdvglLoZx3rKltUw0y4tGmKqfj2iwBwvhjV2PYv5MtJxFlZYlicKTaPdF7r2Oe
-	PzNK6UNZOOLNp+qWyY4d+99WC+ZEd8N+a44zZkHCnS1TKe8k0XuHAAvKPFPclSagD3P0N6PuAWwzw
-	E1nUrbKowAt+ZdHj41vyWXA7up5tFzwOOwKS2V968mjAZtaf3khRrm00/HGlXEiazM2mmD83ludeq
-	SN8QKd55AwTFp2azOymx95e9pQncAjGd6tZwx4ExpekwB5Sb8F5ISAgRzhLOinIdDpV4Sp2/1bgwx
-	Gb/198JT/kRiFcsYipIg==;
+	List-Owner; bh=T8T8OsXInoTH6cU1CNlYHgYw53B8H9LgjorUt5rmqSI=; b=r+SaHp6dnD4eVe
+	pOlTNcRBrZ1PA4YcUrP+FCKUB0I8MTWL3MparEfBNdYG31+PmnVSp+gprWFH7EBTU65UCDubbQRet
+	Iu6UWvx52I2Y9b/2SpxkjjvAnIE2+fWSWH12Xe7namcn/HTxLF3vBr+rza//H+nW1PtQKfQIzTu+L
+	K5/PfVfXwbGZ9VSHw38YU1N8xL+JlbZ4ikQ6Fs5m/GKdlYEF3NO4xIyudEZFKUqkF/0pO1GwIQ/3s
+	mISHlRwUBoToGD+fTz1YMefN/3TsEBXJ3EQB12v5PSQbDG1PUAQJG6Xo4CFV8MsQom7AKZxnsfEbP
+	2uIbmeH8np+omwSdXREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3D5I-00Am9Z-L7; Thu, 08 Dec 2022 09:20:52 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3Cob-00AYHE-7z
-	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:03:38 +0000
-Received: by mail-lj1-x235.google.com with SMTP id a7so845759ljq.12
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 01:03:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zEvaXwfwqSzOoHW10MEDPIfbZ9OLutRaMA8i2YGQwvI=;
-        b=aIkzLftuSRZKtfnIFiekFOrwTJsxp/QyAB/6XfYm9E8xgXWpK5EanAZgNkhW46QHHf
-         VVM1iI9wQ0q75uDJ+M/wrVlDiTmDzgioer1m8oPZGz9FHyBD1cvbO7sHWsvcHkLUdfdN
-         WpOdRHA+UlcX/Xy92NaFlZhaTN/0LcNyTX4OF5gQ0ZJ+tYanQLuZG8NJWT9N+fkA8upT
-         NFjAO5+Mi3XvZ57qdoZOQzTM5Geq4b/F3RXVV+fBoYWy5JeHfNi83fM50q7jZ67Fs+Z8
-         LQ0FiJHYcmB6rUYz46nUZJJPPDZ7az9LSvOEgIohRWsndh5RCrsybkYz8LaZ5pl6dc7H
-         tUHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zEvaXwfwqSzOoHW10MEDPIfbZ9OLutRaMA8i2YGQwvI=;
-        b=TttQ3BXhQXbP0DCFrokq12Kf8jFdJFYYpGOR4O4mfQblCFSvDM+C0/GpQumtWzuTVd
-         7qy4Hfv07nA+Zb9iUE9Elk1qrmA5RTBnxPbA6/07oWOXEwC6CRNp5fO6QDF8aq7GdPaY
-         mUaajkFB0czt6nMU/G3/fNcRLf1anXsj+saP5yy0Gjro6yDjANXU/gOI4D6RhvQIyU4+
-         uPzHRE/ZZQppjvi8R+LLPltiKHksdKogkz7eZx1o1/GJ7t1S9+i/Iu5zJ0oEZAxcIVEP
-         /eO3GGpK/zv/DkY7z+2RiqbTkWObLnXp3zrqQM4lLoD4OF1qm2+TCKr+vRAiOp8siIaQ
-         1JIA==
-X-Gm-Message-State: ANoB5pme4F9xJffsJR7jQOCvMu8E0htZWpMWJUiQrl/gxF6rqzMsufGE
-	wLn4yHW2AVogb3/TFzecoSVvDw==
-X-Google-Smtp-Source: AA0mqf6O33YWpaLk6sFSSTi+41ETMZdxHV8vPSwu4LnLTcj1qhWk9Zs4fkhnpaXAEDKpj5+y+hfk4g==
-X-Received: by 2002:a2e:a804:0:b0:277:81ff:c2c7 with SMTP id l4-20020a2ea804000000b0027781ffc2c7mr27471475ljq.23.1670490214614;
-        Thu, 08 Dec 2022 01:03:34 -0800 (PST)
-Received: from [192.168.0.20] (088156142067.dynamic-2-waw-k-3-2-0.vectranet.pl. [88.156.142.67])
-        by smtp.gmail.com with ESMTPSA id b26-20020a2e895a000000b00279e0b8bae7sm1689484ljk.65.2022.12.08.01.03.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Dec 2022 01:03:34 -0800 (PST)
-Message-ID: <ac374e10-fb5b-c56c-7c76-b131446533fe@linaro.org>
-Date: Thu, 8 Dec 2022 10:03:33 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [RESEND PATCH v2 1/3] dt-bindings: power: Add starfive,jh71xx-pmu
+	id 1p3DBP-00ArAX-Mg; Thu, 08 Dec 2022 09:27:11 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p3Cv0-00AeZm-2c
+	for linux-riscv@lists.infradead.org; Thu, 08 Dec 2022 09:10:16 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id 0CB9A24DFD7;
+	Thu,  8 Dec 2022 17:09:47 +0800 (CST)
+Received: from EXMBX062.cuchost.com (172.16.6.62) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
+ 2022 17:09:47 +0800
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX062.cuchost.com
+ (172.16.6.62) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Thu, 8 Dec
+ 2022 17:09:46 +0800
+Received: from EXMBX068.cuchost.com ([fe80::c4da:cbc4:bb39:ca7e]) by
+ EXMBX068.cuchost.com ([fe80::c4da:cbc4:bb39:ca7e%16]) with mapi id
+ 15.00.1497.044; Thu, 8 Dec 2022 17:09:46 +0800
+From: JiaJie Ho <jiajie.ho@starfivetech.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>
+CC: "linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: RE: [PATCH 0/6] crypto: starfive: Add driver for cryptographic engine
+Thread-Topic: [PATCH 0/6] crypto: starfive: Add driver for cryptographic
+ engine
+Thread-Index: AQHZBH/pPWRKQfsetk2izJkM4PGjPq5jvsYw
+Date: Thu, 8 Dec 2022 09:09:46 +0000
+Message-ID: <e1e9f1d19982493b89ae63f51e00a3bb@EXMBX068.cuchost.com>
+References: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+In-Reply-To: <20221130055214.2416888-1-jiajie.ho@starfivetech.com>
+Accept-Language: en-US
 Content-Language: en-US
-To: Walker Chen <walker.chen@starfivetech.com>,
- linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>, linux-kernel@vger.kernel.org
-References: <20221208084523.9733-1-walker.chen@starfivetech.com>
- <20221208084523.9733-2-walker.chen@starfivetech.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20221208084523.9733-2-walker.chen@starfivetech.com>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_010337_355338_607AC5C7 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20221208_011014_511824_14BF4384 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +82,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/12/2022 09:45, Walker Chen wrote:
-> Add bindings for Power Management Unit (PMU) on the StarFive JH71XX SoC.
+
+
+> -----Original Message-----
+> From: JiaJie Ho <jiajie.ho@starfivetech.com>
+> Sent: Wednesday, November 30, 2022 1:52 PM
+> To: Herbert Xu <herbert@gondor.apana.org.au>; David S . Miller
+> <davem@davemloft.net>; Rob Herring <robh+dt@kernel.org>; Krzysztof
+> Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+> Cc: linux-crypto@vger.kernel.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org; JiaJie Ho
+> <jiajie.ho@starfivetech.com>
+> Subject: [PATCH 0/6] crypto: starfive: Add driver for cryptographic engine
 > 
-> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+> This patch series adds kernel driver support for Starfive crypto engine.
+> The engine supports hardware acceleration for HMAC/hash functions, AES
+> block cipher operations and RSA. The first patch adds basic driver for device
+> probe and DMA init. The subsequent patches adds supported crypto
+> primitives to the driver which include hash functions, AES and RSA. Patch 5
+> adds documentation to describe device tree bindings and the last patch adds
+> device node to VisionFive 2 dts.
+> 
+> The driver has been tested with crypto selftest and additional test.
+> 
+> This patch series depends on the following patches:
+> https://patchwork.kernel.org/project/linux-
+> riscv/cover/20221118010627.70576-1-hal.feng@starfivetech.com/
+> https://patchwork.kernel.org/project/linux-
+> riscv/cover/20221118011714.70877-1-hal.feng@starfivetech.com/
+> 
+> Jia Jie Ho (6):
+>   crypto: starfive - Add StarFive crypto engine support
+>   crypto: starfive - Add hash and HMAC support
+>   crypto: starfive - Add AES skcipher and aead support
+>   crypto: starfive - Add Public Key algo support
+>   dt-bindings: crypto: Add bindings for Starfive crypto driver
+>   riscv: dts: starfive: Add crypto and DMA node for VisionFive 2
+> 
 
+Hi Herbert/David,
 
-
-> +    };
-> diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt-bindings/power/starfive,jh7110-pmu.h
-> new file mode 100644
-> index 000000000000..73c6a79a2181
-> --- /dev/null
-> +++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-
-Why different license than the bindings? MIT is pretty compatible, but
-if it does not matter for you, keep same licenses as bindings.
-
-> +/*
-> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
-> + * Author: Walker Chen <walker.chen@starfivetech.com>
-> + */
-> +#ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
-> +#define __DT_BINDINGS_POWER_JH7110_POWER_H__
-> +
-> +#define JH7110_PD_SYSTOP	0
-> +#define JH7110_PD_CPU		1
-> +#define JH7110_PD_GPUA		2
-> +#define JH7110_PD_VDEC		3
-> +#define JH7110_PD_VOUT		4
-> +#define JH7110_PD_ISP		5
-> +#define JH7110_PD_VENC		6
-> +
-> +#endif
+Could you please help to review and provide comments on this patch series?
+Thank you in advance.
 
 Best regards,
-Krzysztof
+Jia Jie 
+
 
 
 _______________________________________________
