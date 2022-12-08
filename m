@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424DDC3A5A7
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8459C4332F
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Dec 2022 09:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U3vjSkOJl0pixR51f3Nwa3HiQvNBNE1wmOOf0uJ4Dv4=; b=1gzXAso4HNada9
-	FpHuPWqvoNhgMNXb9YbMypms49oeAsX6G+ikpSSo1LqtK5Cw3BxyfI9oltWZNea6zhusc1P+nREXs
-	BA4qrIQtKs6n3/1lQ8B0/hAPUDpa14CD3GRvx6zV63qdvSkBOSEdxsyJ5Z5LxbH7C5q9cKoualRr8
-	i/JvH8TmnswDT6fOKITehynAiaCrEChXfECsVjP3y6gsZm+BMw8y/D08D9xMZt3iT0sSY16z5/NLF
-	X7jvRx6EGUjCo/zEbY8TbmPsro4RipRcLY+ywtaTdnx5Fsjk3kUaw+Uin3QGrhlFCUuJBzxtq6xMb
-	3Rjd7Pq5KqwXQ+kHEBpA==;
+	List-Owner; bh=RoetDQFZRvJxYszQ5B4Z6H8fm0HBBYJaX4qmNlBqEgA=; b=1+mcR9xlu0b9jy
+	Yt6EUImuQ//WCn2m4LHNjuYLzjwIApz+j/YbYXjB21QsmisQzmvJIly931M4kZPvj48VpZAG2pucT
+	Lzu3p2molIW122TRyiyvNKBnW79HRikYN90QGjr1tCJ/rYRhxG+uxCEHA1XV96/rON7CksCADmKVc
+	o3GhRRh/uJlZJ0bb3F6Jwx7UE0Z9qZl7kKPUuXeg+0iypnJmr5LwfThanfZqRev9yao8Ul6Io6Ff8
+	Xe7N1mq6crx1UKT1DuRuaYcDUk6QBVDmy2BTNNHkWeuelCPg7OfPre70DO2/WuRgnd3bSNf+k576V
+	lzIOqHfJSny+LhScc1Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3D09-00AjBg-5m; Thu, 08 Dec 2022 09:15:33 +0000
+	id 1p3D0J-00AjKq-Tp; Thu, 08 Dec 2022 09:15:44 +0000
 Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3CoA-00AXqq-H7; Thu, 08 Dec 2022 09:03:13 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 531D432002E2;
-	Thu,  8 Dec 2022 04:03:08 -0500 (EST)
+	id 1p3CoD-00AXtG-Q4; Thu, 08 Dec 2022 09:03:15 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.west.internal (Postfix) with ESMTP id C61D03200941;
+	Thu,  8 Dec 2022 04:03:11 -0500 (EST)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute5.internal (MEProxy); Thu, 08 Dec 2022 04:03:09 -0500
+  by compute4.internal (MEProxy); Thu, 08 Dec 2022 04:03:13 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1670490187; x=1670576587; bh=XA
-	UUj025hjaAz/jQ9EC9wA+kfkKhAh5I8DBGwmHbusE=; b=zULGPY2rWtaZCXIOsr
-	fRCBAj6UzKteHeOJp14PC8nVALarHBKRyzYShL/Ptmik4Z6ba1YN1KiV6kyjsEil
-	m4MYs7XrxCVNLY9nNDPBKtmqwdocMNizJ4ZdYMxy1IDSCqk8Jaulfb2tyyt0vC7Y
-	sjZn7GjbdtchPZ4fY+ZpnVF6ysGrHcJqhtt12gY8FzMlY6kAMD+K48C0Q4O0BM+V
-	EJ6XFwcASRHVxz2tLDLvf3pK3fZgD1tPEixYW5tqZ5AWdw5aAVowv9VdRwCWgZcJ
-	l+V8rpANll8Nag7/y9kjnmwIipL3A50/YKr3tXYRjNpwm60NbyUhzbdMtt9dPz5M
-	jYtg==
+	:subject:subject:to:to; s=fm3; t=1670490191; x=1670576591; bh=41
+	whx7KvqBEB58RKMRO0vKW/I8/pBktkjuNKvdJjsMY=; b=D07jKE3mBpu66M9o6Y
+	D6FNE96890r4QWccxhVeiKdol9QC99WqoQ7ALAcFdAm4quykmvYTlpTLCAsJ04J8
+	LHdHzsFN87nQBLjoBRFf+Vt695zTRnNscCr903m1GoZZJUl8OglkpnwBdhl5C9jw
+	s8qyPMeQB9HxZPvjukGUqHUzoMtgicD2BsTCXQlv6aVPGSF1xYcC9CT4hXvTZAF/
+	4ikr2KBrXKiUkxD+7xx1M9JvfJrYvDlhclRyUVKpLH5rIf4ARsczo/9ibvxV4JM2
+	zE9JwaWW2JPOevIlGAYrPZO31g0ZAXq7H1KCIKFAupuiWXnt1kLCGGDVxr3KtKF4
+	dzHA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1670490187; x=1670576587; bh=XAUUj025hjaAz
-	/jQ9EC9wA+kfkKhAh5I8DBGwmHbusE=; b=dgIA3c4fgwpGqqLlM3KgIVydoDHDU
-	LDGw7UIkUS7GQlNPRwiiAb2GwhkyEPMjA/cmsmP7c3K0ERGRGoZzgInhB/PX6Bpl
-	AS9e5gZsBYGuRZ/B/e0+blt4vtmdBce78wE6ICqQYWZ/84HqfVokdxNDIVfjqTJN
-	G7KydcU/oPIbwD1rdk8LI9p8o5oYTa4baoAE1k9evInhco2ztm8U5Hj8/dfNfqbO
-	DsIWxIF32kJIS00X9LJLbvTkfbIN0Y/Hnfzfm9zgKkwCTbtszWxwSAezMs9LGHQQ
-	2ZwnVEHWEsa1UzckzR9usCHIG48f1Ta98XnOaZ6/gPwB23M5q31ATMw1g==
-X-ME-Sender: <xms:S6iRY2WJYcuvCMJRNlTdo-IKsk0se483sIbdr6rq2OLPky-Uv4Bj_w>
-    <xme:S6iRYylaCsHnvaXdSEIUsvQYOcbBR83OKqL5DuUL65s83oQ5h38Pp9NQhN2Pg4lng
-    syXR6RPpTLc01iNVg>
-X-ME-Received: <xmr:S6iRY6aRlSHkJQ-DX90rHKke0GBv1R5MnE39zoTzDCb-OCXem3yzHBlf4Uq_EIR-nKQQwJRwhHutw3E3aruOgbrW62kDEx-7PbzcDDZ8406ybpahDbGYxw7T37zjcNmt9a8MGg>
+	:x-sasl-enc; s=fm2; t=1670490191; x=1670576591; bh=41whx7KvqBEB5
+	8RKMRO0vKW/I8/pBktkjuNKvdJjsMY=; b=lnGrIKM2LTavJkr4PwkqBzaFDSrpg
+	GMo29gIRkgPcyq8VTweDmnBKO4/xhYzCyx2oFGToEeWft4VzLgeEC5Hqnxy749AK
+	jU4cCJZz7t7ywf9qJUc3IkTrRqjvcK7IOnB6zddOvbzHKtTXjNEFLxvuo9Raqh09
+	8qvcFc5tK31DqBna4AAL4jKH+HkbeikTdDF/KtNE8poBAuNLScBdNNRv8hWIY3OO
+	13e+gRPKqO5DX7ztWxZ04TrbxHWsF8nYVxcQCwse3efbL28p82pQVGncQFixFBhh
+	2ilM/7q9t+sr8pnNRgRlo1WioLhu4USn5RKhNLrdVh4D4h5CyCT8mitwA==
+X-ME-Sender: <xms:T6iRY7TE6ROXDguVs8_q6GYFexOARxR2-VzZJYLkqzMPSzP6ZGZJqA>
+    <xme:T6iRY8yUKDfTeXEa0t-7hGLJ6zJedG_HrBfOTBX37kci111HBKear4PVsNHd3km_V
+    wRF4qkd5Lo-eT6jcA>
+X-ME-Received: <xmr:T6iRYw37Zv3TEp6von-z2zDT1k6-Z_Cc5_3ttLXqMGag1bJmIqrIeP3glyMIPX6EXHPJyL-NJypIHtAFCo7ICExw2aHKQ4klUBhSosryRhHtSncn0f0ZTo7CGsvl_IAAwyg60A>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvddtucetufdoteggodetrfdotffvucfrrh
     hofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgenuceurghi
     lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
@@ -64,13 +64,13 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvhedrvddtucetufdoteggodetrfdotf
     htvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefgudefiedt
     veetnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehmrghilhhfrhhomhepsh
     grmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:S6iRY9WTdSsoyS9SuJfzLOtXjTeaQ-XWuKU3t69yo0yX_by098y0sw>
-    <xmx:S6iRYwkUgV7lVbJzbiSPZzz8rQQsZkW8Ctoqvrfnf2JzbbhppksgSQ>
-    <xmx:S6iRYyc6KPx2lO4Jo1eQ9hvfomr6gUYCN4sZ2vignT8PpC16GpFLQQ>
-    <xmx:S6iRY0lcCLCR5MXEgFLPt07gLUobdVQIljQeADPBJGPjxzjVCJDijg>
+X-ME-Proxy: <xmx:T6iRY7D-RWVMAoMJB9DvYjaD6X18r14wZFzjEBM1f-p6H6K2H2FU0Q>
+    <xmx:T6iRY0hVI6imum2pLPs6GV1hGQlOPvZe3Jn1kGLsqA0bNQ-cI2J6pg>
+    <xmx:T6iRY_qb8OTSwEWRb6TjF5l6AEHmFonnyKon4SF7TBMMLwlk2a0i9Q>
+    <xmx:T6iRYwwvz2-U9wIXEf94Yh8lgLGzUMCdl7BF-U6Nflmdo40ocyrejA>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 8 Dec 2022 04:03:06 -0500 (EST)
+ 8 Dec 2022 04:03:10 -0500 (EST)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -89,16 +89,16 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Samuel Holland <samuel@sholland.org>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH v3 08/12] riscv: dts: allwinner: Add MangoPi MQ Pro devicetree
-Date: Thu,  8 Dec 2022 03:02:33 -0600
-Message-Id: <20221208090237.20572-9-samuel@sholland.org>
+Subject: [PATCH v3 09/12] riscv: dts: allwinner: Add Dongshan Nezha STU devicetree
+Date: Thu,  8 Dec 2022 03:02:34 -0600
+Message-Id: <20221208090237.20572-10-samuel@sholland.org>
 X-Mailer: git-send-email 2.37.4
 In-Reply-To: <20221208090237.20572-1-samuel@sholland.org>
 References: <20221208090237.20572-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_010311_025484_16F6B1C1 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20221208_010313_999662_5E279082 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,13 +115,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MangoPi MQ Pro is a tiny SBC with a layout compatible to the
-Raspberry Pi Zero. It includes the Allwinner D1 SoC, 512M or 1G of DDR3,
-and an RTL8723DS-based WiFi/Bluetooth module.
+The 100ask Dongshan Nezha STU is a system-on-module that can be used
+standalone or with a carrier board. The SoM provides gigabit Ethernet,
+HDMI, a USB peripheral port, and WiFi/Bluetooth via an RTL8723DS chip.
 
-The board also exposes GPIO Port E via a connector on the end of the
-board, which can support either a camera or an RMII Ethernet PHY. The
-additional regulators supply that connector.
+The "DIY" carrier board exposes almost every pin from the D1 SoC to 0.1"
+headers, but contains no digital circuitry, so it does not have its own
+devicetree.
 
 Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
@@ -131,34 +131,28 @@ Signed-off-by: Samuel Holland <samuel@sholland.org>
 
 Changes in v3:
  - Drop mmc alias
- - Change LED_FUNCTION_BACKLIGHT to LED_FUNCTION_STATUS (the backlight
-   regulator is disconnected by default, so this is a standalone LED)
-
-Changes in v2:
- - Added LED (GPIO shared between onboard LED and backlight regulator)
 
  arch/riscv/boot/dts/allwinner/Makefile        |   1 +
- .../allwinner/sun20i-d1-mangopi-mq-pro.dts    | 142 ++++++++++++++++++
- 2 files changed, 143 insertions(+)
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts
+ .../sun20i-d1-dongshan-nezha-stu.dts          | 117 ++++++++++++++++++
+ 2 files changed, 118 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
 
 diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts/allwinner/Makefile
-index f1c70b9dc9bf..2ed586fafaea 100644
+index 2ed586fafaea..87f70b1af6b4 100644
 --- a/arch/riscv/boot/dts/allwinner/Makefile
 +++ b/arch/riscv/boot/dts/allwinner/Makefile
-@@ -3,5 +3,6 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-480p.dtb
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-dongshan-nezha-stu.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-480p.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-720p.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-dock.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-mangopi-mq-pro.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-nezha.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1s-mangopi-mq.dtb
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
 new file mode 100644
-index 000000000000..f2e07043afb3
+index 000000000000..8785de3c9224
 --- /dev/null
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts
-@@ -0,0 +1,142 @@
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
+@@ -0,0 +1,117 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
 +// Copyright (C) 2022 Samuel Holland <samuel@sholland.org>
 +
@@ -171,11 +165,11 @@ index 000000000000..f2e07043afb3
 +#include "sun20i-common-regulators.dtsi"
 +
 +/ {
-+	model = "MangoPi MQ Pro";
-+	compatible = "widora,mangopi-mq-pro", "allwinner,sun20i-d1";
++	model = "Dongshan Nezha STU";
++	compatible = "100ask,dongshan-nezha-stu", "allwinner,sun20i-d1";
 +
 +	aliases {
-+		ethernet0 = &rtl8723ds;
++		ethernet0 = &emac;
 +		serial0 = &uart0;
 +	};
 +
@@ -187,39 +181,32 @@ index 000000000000..f2e07043afb3
 +		compatible = "gpio-leds";
 +
 +		led-0 {
-+			color = <LED_COLOR_ID_BLUE>;
++			color = <LED_COLOR_ID_GREEN>;
 +			function = LED_FUNCTION_STATUS;
-+			gpios = <&pio 3 18 GPIO_ACTIVE_HIGH>; /* PD18 */
++			gpios = <&pio 2 1 GPIO_ACTIVE_HIGH>; /* PC1 */
 +		};
 +	};
 +
-+	reg_avdd2v8: avdd2v8 {
++	reg_usbvbus: usbvbus {
 +		compatible = "regulator-fixed";
-+		regulator-name = "avdd2v8";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&reg_vcc_3v3>;
++		regulator-name = "usbvbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&pio 3 19 GPIO_ACTIVE_HIGH>; /* PD19 */
++		enable-active-high;
++		vin-supply = <&reg_vcc>;
 +	};
 +
-+	reg_dvdd: dvdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dvdd";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		vin-supply = <&reg_vcc_3v3>;
-+	};
-+
++	/*
++	 * This regulator is PWM-controlled, but the PWM controller is not
++	 * yet supported, so fix the regulator to its default voltage.
++	 */
 +	reg_vdd_cpu: vdd-cpu {
 +		compatible = "regulator-fixed";
 +		regulator-name = "vdd-cpu";
 +		regulator-min-microvolt = <1100000>;
 +		regulator-max-microvolt = <1100000>;
 +		vin-supply = <&reg_vcc>;
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&pio 6 17 GPIO_ACTIVE_LOW>; /* PG17 */
 +	};
 +};
 +
@@ -231,13 +218,29 @@ index 000000000000..f2e07043afb3
 +	clock-frequency = <24000000>;
 +};
 +
-+&ehci1 {
++&ehci0 {
 +	status = "okay";
 +};
 +
++&emac {
++	pinctrl-0 = <&rgmii_pe_pins>;
++	pinctrl-names = "default";
++	phy-handle = <&ext_rgmii_phy>;
++	phy-mode = "rgmii-id";
++	phy-supply = <&reg_vcc_3v3>;
++	status = "okay";
++};
++
++&mdio {
++	ext_rgmii_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
++	};
++};
++
 +&mmc0 {
++	broken-cd;
 +	bus-width = <4>;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_HIGH>; /* PF6 */
 +	disable-wp;
 +	vmmc-supply = <&reg_vcc_3v3>;
 +	vqmmc-supply = <&reg_vcc_3v3>;
@@ -246,30 +249,8 @@ index 000000000000..f2e07043afb3
 +	status = "okay";
 +};
 +
-+&mmc1 {
-+	bus-width = <4>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	non-removable;
-+	vmmc-supply = <&reg_vcc_3v3>;
-+	vqmmc-supply = <&reg_vcc_3v3>;
-+	pinctrl-0 = <&mmc1_pins>;
-+	pinctrl-names = "default";
++&ohci0 {
 +	status = "okay";
-+
-+	rtl8723ds: wifi@1 {
-+		reg = <1>;
-+		interrupt-parent = <&pio>;
-+		interrupts = <6 10 IRQ_TYPE_LEVEL_LOW>; /* PG10 */
-+		interrupt-names = "host-wake";
-+	};
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pe-supply = <&reg_avdd2v8>;
 +};
 +
 +&uart0 {
@@ -278,27 +259,15 @@ index 000000000000..f2e07043afb3
 +	status = "okay";
 +};
 +
-+&uart1 {
-+	uart-has-rtscts;
-+	pinctrl-0 = <&uart1_pg6_pins>, <&uart1_pg8_rts_cts_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "realtek,rtl8723ds-bt";
-+		device-wake-gpios = <&pio 6 18 GPIO_ACTIVE_HIGH>; /* PG18 */
-+		enable-gpios = <&pio 6 15 GPIO_ACTIVE_HIGH>; /* PG15 */
-+		host-wake-gpios = <&pio 6 14 GPIO_ACTIVE_HIGH>; /* PG14 */
-+	};
-+};
-+
 +&usb_otg {
-+	dr_mode = "peripheral";
++	dr_mode = "otg";
 +	status = "okay";
 +};
 +
 +&usbphy {
-+	usb1_vbus-supply = <&reg_vcc>;
++	usb0_id_det-gpios = <&pio 3 21 GPIO_ACTIVE_HIGH>; /* PD21 */
++	usb0_vbus_det-gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
++	usb0_vbus-supply = <&reg_usbvbus>;
 +	status = "okay";
 +};
 -- 
