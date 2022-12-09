@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FB1C001B2
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56848C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=BLd8wfidedi+UbBDZfz8tqvvKSg2vLGXN/b1AFACtBQ=; b=Kop7syQ0y0ZP24HgGFlyAxu67R
-	27g1oo7pyG69TA7+aMbVa1RWsDHh280teFjH2NBow63/14d/XoDXgi57kXlyzcpdx3r4jvKxyZgED
-	6QqHrSTEQmuIbTBQcotUKUyScJ2o3YzMYiXhp8zpAEfIlNxmDQ4RvpXxHXMudmK6EWhss3WM8coT1
-	+Szn4rJu+aA9sDcUfRzSgFekQNaeaQmLCbPv1jkdRjrePxH/WkvyUSbrOf0f4bdN56haxFETNAAz7
-	n0ly4dWQt6UQv8swzV0aJvFglcn4fPr1m+p26/DhqYQuJsbitBs0n84t1bJVrynXGsiGwLO9n0bLs
-	hUA982Ng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2eLN7ILmJ5iuVAgqPECA4YChyu0gS0UKsav/G0geo7M=; b=Y55wKBH7xuqWzs
+	L9eYkpXeszHG3VCskuCM5ybIOUzgP/kMKvv60hM8fB8awsRAopcn38db6FlI1XFggMZV+lVIY0u3W
+	KWlWQ+pyIF6HuAQpAZJqoffekv31euJcMBhkTrQxPSF05nebZM0Lksvx8i6yDk1N+PB/RRhkdRQdm
+	Ji/uTz/YJwb6BWLvQldYJQO07T0KRZuP375SUn5HWUei+XPGB9/o0Yy8ZlW4sz+4YZeg0Ow0dRHi+
+	HamGvsUIU/9lWa4RzMzoBa3s+ipgXxjinYVDadjanuHQv1QJQ9DbKz92r67dXtSvvmSSyAH6CjznG
+	NHx3JU0txdMNT6dz3Jrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3S89-00HZig-DY; Fri, 09 Dec 2022 01:24:49 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3S7Z-00HZ36-JG
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:24:18 +0000
-Received: by mail-pl1-x630.google.com with SMTP id s7so3306690plk.5
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 17:24:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tz7/c/S2bGL3JTpjy3sYti4VzazclRNAfcMOHVpG1Bw=;
-        b=S0N7VpnML01I1L6SW5KOI9DKu1LS3c6R0Et4r9F7A6PRsDs94yntO1CATXIuDiKFZ4
-         1sOCVDYtNF6bYYs/nUNfWEHfevc+Pb0VPw8vKF1EfWtD2wAmWtuVfD/S14wKvKRjJs5V
-         92FQGFCRvRnKfLTk/0niX+hbGFwII4uggFmPl/bP6gDRjwP2l4iGvIK0Duf7S07mHzTR
-         fWlaTS4phVldfR+KVs0zfOEEJZr23gKA92YIeYOQ3twvizc2w/Rs9wyEHKzE+7FOcD8g
-         pk2blLS8G/qHJCqUbjBLEWFa/qZgSmfjYEjBYcFbl6A+s2yhudwWHRykm5mGF21cxBJl
-         rZpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tz7/c/S2bGL3JTpjy3sYti4VzazclRNAfcMOHVpG1Bw=;
-        b=qy5vXVSduw40Vw0pvSGojjGrkKwJCWBxSfNMgPK8aXOprYCZXQ6Ztne01Li/pTuzWH
-         KjPGcLM4CgzSKVJSaX5aFdH6TKRz4UZzj9VTRbydbYjOYk1bYNY3vKaJ25GB+CfPeK/9
-         bm7WbiCG9q30fGV58p2wLT6TYhMYNJ59ESLOUr7OC/zSKAmFxZgwy/Mejt+AkbBOAGMp
-         98EJ3NIsuDO06Nh23eGgH8cvVFvMBh3JI/4l32DskXrzuz32Uco+YGlGDTYKGMa31isE
-         bW4jd+sraXme/UOGGPVMZl8ChySLfHxtDMihQkjZSfTj2GYOE5p2yeNH0UEZqP8z7Kt4
-         JPpA==
-X-Gm-Message-State: ANoB5plB9rXgNid928dowMTjn3NqS7DzELQNtdHmvNNbv8g/r7SD1qoC
-	wQbJqBlaSLjmSKbz9wOLR0AJdw==
-X-Google-Smtp-Source: AA0mqf5JV626aJGkuzlbbs77P4VoHR85hIo7nQXghzW7EcenLGVsWYy6WzOo5qfwkw0gro4BSmwSWw==
-X-Received: by 2002:a17:902:ec92:b0:189:cbf6:9534 with SMTP id x18-20020a170902ec9200b00189cbf69534mr5222889plg.0.1670549051231;
-        Thu, 08 Dec 2022 17:24:11 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id b6-20020a170903228600b00188f6cbd950sm55290plh.226.2022.12.08.17.24.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Dec 2022 17:24:10 -0800 (PST)
-Date: Thu, 08 Dec 2022 17:24:10 -0800 (PST)
-X-Google-Original-Date: Thu, 08 Dec 2022 16:12:01 PST (-0800)
-Subject: Re: [PATCH v1 3/7] RISC-V: kbuild: convert all use of SOC_FOO to ARCH_FOO
-In-Reply-To: <Y3xmZd9wqj7wGcCy@infradead.org>
-CC: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-  Conor Dooley <conor.dooley@microchip.com>, Christoph Hellwig <hch@infradead.org>, damien.lemoal@opensource.wdc.com,
-  emil.renner.berthing@canonical.com, geert@linux-m68k.org, heiko@sntech.de, samuel@sholland.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Christoph Hellwig <hch@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-  linux-arm-kernel@lists.infradead.org, soc@kernel.org, catalin.marinas@arm.com, Will Deacon <will@kernel.org>
-Message-ID: <mhng-c7b813c3-e38b-4c31-bf13-3c8dfd8ec711@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1p3SBy-0002Yk-NV; Fri, 09 Dec 2022 01:28:46 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p3SBu-0002Ky-Sy
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:28:44 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0C79924E1FF;
+	Fri,  9 Dec 2022 09:28:13 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
+ 2022 09:28:13 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
+ (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
+ 2022 09:28:11 +0800
+Message-ID: <a2c6ff79-2d47-d0a1-d59a-716a1d212808@starfivetech.com>
+Date: Fri, 9 Dec 2022 09:28:06 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v1 7/7] riscv: dts: starfive: visionfive-v2: Add phy
+ delay_chain configuration
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
+ <20221201090242.2381-8-yanhong.wang@starfivetech.com> <Y4jpDvXo/uj9ygLR@spud>
+ <Y4kAyAhBseNmmDo8@spud>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <Y4kAyAhBseNmmDo8@spud>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
+ (172.16.6.93)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_172413_748080_BB992F03 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20221208_172843_328285_05E70391 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +76,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Nov 2022 22:04:21 PST (-0800), Christoph Hellwig wrote:
-> On Mon, Nov 21, 2022 at 10:14:11PM +0000, Conor Dooley wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> Convert all non user visible use of SOC_FOO symbols to their ARCH_FOO
->> variants. The canaan DTs are an outlier in that they're gated at the
->> directory and the file level. Drop the directory level gating while we
->> are swapping the symbol names over.
->
->
-> I still very much disagree with this.  ARCH_FOO for something that
-> is not a Linux architecture is a really really bad idea.  We need to
-> fix arm and not convert riscv, which got this right.
 
-Makes sense, though I guess I'd argue that SOC is also a wrong name (but 
-at least it doesn't conflict with the ARCH_* symbols that already 
-exist).  That'll touch a bunch of trees, adding the Arm folks to see if 
-they're on board.
 
-I don't care a ton either way, my only opinion here is that RISC-V and 
-Arm should use the same scheme.  If the Arm folks want to move over to 
-SOC_* that works for me, and has the advantage of being  no work on my 
-end ;)
+On 2022/12/2 3:30, Conor Dooley wrote:
+> On Thu, Dec 01, 2022 at 05:49:08PM +0000, Conor Dooley wrote:
+>> On Thu, Dec 01, 2022 at 05:02:42PM +0800, Yanhong Wang wrote:
+>> > riscv: dts: starfive: visionfive-v2: Add phy delay_chain configuration
+>> > 
+>> > Add phy delay_chain configuration to support motorcomm phy driver for
+>> > StarFive VisionFive 2 board.
+> 
+> nit: please re-word this commit next time around to actually say what
+> you're doing here. I didn't notice it initially, but this patch is doing
+> a lot more than adding `delay_chain` configuration. To my dwmac unaware
+> brain, there's nothing hits for that term outside of the changelog :(
+> 
+
+I will re-word the commit message and add another dt-binding to describe the details that such as "rxc_dly_en","tx_inverted_10" etc.
+
+> Thanks,
+> Conor.
+> 
+>> > 
+>> > Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> > ---
+>> >  .../jh7110-starfive-visionfive-v2.dts         | 46 +++++++++++++++++++
+>> >  1 file changed, 46 insertions(+)
+>> > 
+>> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> > index c8946cf3a268..2868ef4c74ef 100644
+>> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> > @@ -15,6 +15,8 @@
+>> >  
+>> >  	aliases {
+>> >  		serial0 = &uart0;
+>> > +		ethernet0=&gmac0;
+>> > +		ethernet1=&gmac1;
+>> 
+>> Please match the whitespace usage of the existing entry.
+>> 
+>> >  	};
+>> >  
+>> >  	chosen {
+>> > @@ -114,3 +116,47 @@
+>> >  	pinctrl-0 = <&uart0_pins>;
+>> >  	status = "okay";
+>> >  };
+>> > +
+>> > +&gmac0 {
+>> > +	status = "okay";
+>> > +	#address-cells = <1>;
+>> > +	#size-cells = <0>;
+>> > +	phy-handle = <&phy0>;
+>> > +	status = "okay";
+>> > +	mdio0 {
+>> 
+>> A line of whitespace before the child nodes too please :)
+>> 
+>> > +		#address-cells = <1>;
+>> > +		#size-cells = <0>;
+>> > +		compatible = "snps,dwmac-mdio";
+>> > +		phy0: ethernet-phy@0 {
+>> > +			reg = <0>;
+>> > +			rxc_dly_en = <1>;
+>> > +			tx_delay_sel_fe = <5>;
+>> > +			tx_delay_sel = <0xa>;
+>> > +			tx_inverted_10 = <0x1>;
+>> > +			tx_inverted_100 = <0x1>;
+>> > +			tx_inverted_1000 = <0x1>;
+>> > +		};
+>> > +	};
+>> > +};
+>> > +
+>> > +&gmac1 {
+>> > +	status = "okay";
+>> > +	#address-cells = <1>;
+>> > +	#size-cells = <0>;
+>> > +	phy-handle = <&phy1>;
+>> > +	status = "okay";
+>> > +	mdio1 {
+>> > +		#address-cells = <1>;
+>> > +		#size-cells = <0>;
+>> > +		compatible = "snps,dwmac-mdio";
+>> > +		phy1: ethernet-phy@1 {
+>> > +			reg = <1>;
+>> > +			tx_delay_sel_fe = <5>;
+>> > +			tx_delay_sel = <0>;
+>> > +			rxc_dly_en = <0>;
+>> > +			tx_inverted_10 = <0x1>;
+>> > +			tx_inverted_100 = <0x1>;
+>> > +			tx_inverted_1000 = <0x0>;
+>> > +		};
+>> > +	};
+>> > +};
+>> > -- 
+>> > 2.17.1
+>> > 
 
 _______________________________________________
 linux-riscv mailing list
