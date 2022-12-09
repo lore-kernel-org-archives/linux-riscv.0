@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A00C4332F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAB6C001B2
 	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5lAslsddVc3rzRWX2+v+FajTO+9FyW5WFnfy7YPBIy8=; b=jxRBS0HpOWLncw
-	jYNeTdxfYA/v0YYUASr8v9ut+zozE7YlVwhU8iVELU6uUwQ9qvbgLlpuRWfjhhlWyeCu4cL5xveqy
-	scXKpESrwaqsakBVBprOQ4kuEKJoRKSC8Zb/Sc240yD7w2WsFkdo6R+qgMkFNIcWsmoEEVJq5Ywvb
-	BIE+2hiodP8UlNG1aFBhpBbWRkrseW4L1yZ6wekqhw9rLB1ulYvpb2XLr0bD4TjsUKF58SJs22It5
-	Mlqf9PtYUoaj3lZaid1XQ/T1nE01NdjOqZinL9F3zd0eWVRjevzXdaqx/7cnLTChFgmBvOm+HIj6j
-	ewgXWk8BdQoCzPQDVgjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=yNhaVxnTTholtvK0VIPvW3XReFiKJJRNm9FuQ7cHT+8=; b=aKP2l+MYRPtRVndM8iFABDgq4B
+	89ISKAreFtUAz6kS3sgrTEVD0Sz3NH1BZlgIJKXoXHd/ge/2ySC1mfnw4+0W7ESJVYpGhkG6TzKOc
+	PJA7N/s2XtEUuKYzw4F5ObHxshDQu0aIwuwVxihkq/SEDt2mzqOhuhNQld7hAtHPCFO5ICLzv4vPF
+	f2k+Z86P85f7Y/mrVxw2pRnKF28Jc6FbBX69TGG3tplL5VldXnbz2oG3ZouoCxny3bcRyCKyt5YzS
+	q7melQR+J2k3O4T0eefgW5pnmheS6EMuZm/WhIjAsRpgq6LvtuY6lSmm8++bT73sA4erJPyxAbJRB
+	t1UnUtTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3S7c-00HZ8i-Qw; Fri, 09 Dec 2022 01:24:16 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1p3S7f-00HZB4-Ja; Fri, 09 Dec 2022 01:24:19 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3S7X-00HYzA-9q
+	id 1p3S7W-00HYy9-K0
 	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:24:12 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id v13-20020a17090a6b0d00b00219c3be9830so3360610pjj.4
+Received: by mail-pj1-x102f.google.com with SMTP id u15-20020a17090a3fcf00b002191825cf02so3378485pjm.2
         for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 17:24:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Sh3DpSD9hmFO/dex/jVh6bGRV5N5LUyE3oOlwg3aL5M=;
-        b=Vm9r2YID3VAMHXS/hHE3pBlUDKFPjeQGp0ma3v7DGNWTWfecsle7RiBJnsoyyTCaI1
-         /S3/0e2AncyK7bMpvzKZu0DEHJSdULB3B42HD874t2XMinAOYPT18MjNp8rNaf+9TFbV
-         0YmIJGCceR20pHAQ1rlszLJcFj9L6JCENtuGuaH6P26Ibs4D7K9eIGHtjR4ZFObewKVy
-         6J1YUxR1HtyRcqPfBr+ff12TaMecaZSrPUvZcRD9hvWw2IID+2Fn+q9VTykkxJI/kajh
-         AEI4SMa4FOSQi/6Zy13i5ItmjT8oJgZlCzvqWtnbQPchDsyrILtcMLBHJVv2/l6gC2mM
-         WatA==
+        bh=QcLY3kF7o4hp9Qm1EsWYqsV0AQOWk7tTMzl2ItbJXk4=;
+        b=5HX7yT/A0U+g8ikCK14qiGBl1bzNva9kVvv9IxG6fTvmOv9zZ6GlISswYgT0w0lJlz
+         j4aBo0N2ADp5CM97l/xCjYVkAEDAVjh5yP4+ggYNhIdS6avNhA6IOIx5L2+cMho6bOp0
+         1dCn9kroPQAaWjZK+QvxD6zWKGwidxpEf8nP7lXNPZ1VJs+6/FglepJLUXy33oZYU9Kd
+         PDPaktK8epSW7AbnSOxBqat09ogNg/gApB+KAQspGmThHIxWPwnSAVekv8K1wfQRQSlw
+         qlS6nfK8TK+r/fYjwYxrdyD9WNxuMIhknrf+34QxGGHUQnBHwMtVVEY1AdHbVST4ygFs
+         fEbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Sh3DpSD9hmFO/dex/jVh6bGRV5N5LUyE3oOlwg3aL5M=;
-        b=1ITP4z157kOluC4D/38OFGYPEHFldC1wiFRXCqbHz3sa2ajnYyB4O2M+pB/ERpF679
-         EiTEy/scjlHUJbEgQdAU643xdrHaSCfSrKi9J1TQ2gGe+BZ45GozeXWIJKh4UomJraST
-         j1+eqBE4rz5xTI9uKEXd5roG2M457aakH+itxeX++Gbf7O7XEwMH0MpGCgvZKPSOA77x
-         n3OW9F5ZGfYLgUEo1pbdKJRBPKCrmLwmRLv7mp48+KK1mvr9Y9lHGyExrDt/piptHQ0u
-         FNh/iyRDHgvdvErjy7190APbX+07Kp1ncf3T60aTPSU6p6TN1CagVoW+AA4UWb3AA+BB
-         eVYQ==
-X-Gm-Message-State: ANoB5plLTgJAGd8/5LzK/kkhKryvPnW1cdCKMYt4sjQywCtKJ4Jbbq2s
-	CA+UVk6r6xV8INXe7DxgOcHHmA==
-X-Google-Smtp-Source: AA0mqf6NyW7czNvsIhY95K1Jdc/lOdQ5a/byVZNbMGPNGmzYiRe+hryvEd5tjIxIxLKK82dEP+06bg==
-X-Received: by 2002:a05:6a20:d044:b0:a9:167:1788 with SMTP id hv4-20020a056a20d04400b000a901671788mr4645650pzb.19.1670549048337;
-        Thu, 08 Dec 2022 17:24:08 -0800 (PST)
-Received: from localhost ([50.221.140.188])
-        by smtp.gmail.com with ESMTPSA id r36-20020a17090a43a700b00218fba260e2sm194151pjg.43.2022.12.08.17.24.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QcLY3kF7o4hp9Qm1EsWYqsV0AQOWk7tTMzl2ItbJXk4=;
+        b=f4HWRuzVDoapYPQjht4IqlsXiFS4ILicljmKdCIACU+u7SUFt9qw270T1rp9gEPFgo
+         EuojKks+gXm1B3liPycAKcL66dH0CF7oUa8/9vUAldBKBAgStCAmlRq5shGXxC4hwgbD
+         qOTIL3Vx45wwp0qYYmeyQ6BKGuWy0Bvf3CL/SmZtf8O4+1HtZ1QRH4TQyD6YkwiJDZQA
+         KwqcBrUEp2KCcHm6fMhA8QDRp1bT8W9qYXn66xVmfnJ0qTU1765bq77aCf3exMExP4wm
+         7LNQGFCQfjvnpRTL9PVAcpYlW/W5r48ratfzjBpbkZD5mLNJYI5nI6n5pxUuJmpzvV3y
+         FzJA==
+X-Gm-Message-State: ANoB5pngnAZz/iuM/1tm1byQkLYTcWm1TFUkzKwm9jdO33UO9Rh+x5u7
+	8aK+EB4YResL9/n7C/c8DkM6Bw==
+X-Google-Smtp-Source: AA0mqf42jnsETLESWtq3xZbsIv62t0abUoTLyjT2n+G+ZH+A3DcMQB11MhsEMWwuOMNZZFTvlI4K/w==
+X-Received: by 2002:a17:902:db01:b0:188:77a7:ea9 with SMTP id m1-20020a170902db0100b0018877a70ea9mr5977202plx.55.1670549047399;
         Thu, 08 Dec 2022 17:24:07 -0800 (PST)
-In-Reply-To: <20221118104300.85016-1-conor@kernel.org>
-References: <20221118104300.85016-1-conor@kernel.org>
-Subject: Re: [PATCH v2 0/3] RISC-V interrupt controller select cleanup
-Message-Id: <167054390671.12029.6021322479982022289.b4-ty@rivosinc.com>
-Date: Thu, 08 Dec 2022 15:58:26 -0800
-MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
-  Thomas Gleixner <tglx@linutronix.de>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>,
-  linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>,
-  Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id q6-20020a170902dac600b00189a50d2a3esm53782plx.241.2022.12.08.17.24.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Dec 2022 17:24:06 -0800 (PST)
+Date: Thu, 08 Dec 2022 17:24:06 -0800 (PST)
+X-Google-Original-Date: Thu, 08 Dec 2022 15:51:11 PST (-0800)
+Subject: Re: [PATCH v5] scripts/gdb: add lx_current support for riscv
+In-Reply-To: <20221115221051.1871569-1-debug@rivosinc.com>
+CC: Conor Dooley <conor.dooley@microchip.com>, ajones@ventanamicro.com,
+  aou@eecs.berkeley.edu, debug@rivosinc.com, jan.kiszka@siemens.com, kbingham@kernel.org,
+  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: debug@rivosinc.com
+Message-ID: <mhng-bdcd75a5-e6d6-4090-8292-a32eb46e4464@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_172411_382033_2DC9A058 
-X-CRM114-Status: UNSURE (   7.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221208_172410_871410_CBCD9EB0 
+X-CRM114-Status: GOOD (  29.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +85,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Nov 2022 10:42:58 +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Hey Marc, Anup, Palmer,
-> 
-> Submitted a patch yesterday defaulting the SiFive PLIC driver to
-> enabled [0], and in the ensuing conversation Marc suggested just doing a
-> select at the arch level and dropping the user selectability completely.
-> 
-> [...]
+On Tue, 15 Nov 2022 14:10:51 PST (-0800), debug@rivosinc.com wrote:
+> csr_sscratch CSR holds current task_struct address when hart is in
+> user space. Trap handler on entry spills csr_sscratch into "tp" (x2)
+> register and zeroes out csr_sscratch CSR. Trap handler on exit reloads
+> "tp" with expected user mode value and place current task_struct address
+> again in csr_sscratch CSR.
+>
+> This patch assumes "tp" is pointing to task_struct. If value in
+> csr_sscratch is numerically greater than "tp" then it assumes csr_sscratch
+> is correct address of current task_struct. This logic holds when
+>    - hart is in user space, "tp" will be less than csr_sscratch.
+>    - hart is in kernel space but not in trap handler, "tp" will be more
+>      than csr_sscratch (csr_sscratch being equal to 0).
+>    - hart is executing trap handler
+>        - "tp" is still pointing to user mode but csr_sscratch contains
+>           ptr to task_struct. Thus numerically higher.
+>        - "tp" is  pointing to task_struct but csr_sscratch now contains
+>           either 0 or numerically smaller value (transiently holds
+>           user mode tp)
+>
+> Patch also adds new cached type "ulong" in scripts/gdb/linux/utils.py
+>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+>
+> ---
+> Since patch has changed a little bit from v1 and I didn't include
+> changelog earlier, here it is.
+>
+> v1 --> v2:
+>  - added logic to locate task_struct irrespective of priv
+>  - made locating task_struct agnostic to bitness(32 vs 64).
+>  - added caching of ulong type in scripts/gdb/linux/utils.py
+>  - added more descriptive commit message
+>
+> v2 --> v3:
+>  - amended commit message and source line to fit column width
+>
+> v3 --> v4:
+>  - amended commit message and remove whitespace in source
+>  - added Reviewed-by for reviewers
+>
+> v4 --> v5:
+>  - changing the order of changelog and sign off/review tags in commit
+> ---
+> ---
+>  scripts/gdb/linux/cpus.py  | 15 +++++++++++++++
+>  scripts/gdb/linux/utils.py |  5 +++++
+>  2 files changed, 20 insertions(+)
+>
+> diff --git a/scripts/gdb/linux/cpus.py b/scripts/gdb/linux/cpus.py
+> index 15fc4626d236..14c22f82449b 100644
+> --- a/scripts/gdb/linux/cpus.py
+> +++ b/scripts/gdb/linux/cpus.py
+> @@ -173,6 +173,21 @@ def get_current_task(cpu):
+>           else:
+>               raise gdb.GdbError("Sorry, obtaining the current task is not allowed "
+>                                  "while running in userspace(EL0)")
+> +    elif utils.is_target_arch("riscv"):
+> +         current_tp = gdb.parse_and_eval("$tp")
+> +         scratch_reg = gdb.parse_and_eval("$sscratch")
+> +
+> +         # by default tp points to current task
+> +         current_task = current_tp.cast(task_ptr_type)
+> +
+> +         # scratch register is set 0 in trap handler after entering kernel.
+> +         # When hart is in user mode, scratch register is pointing to task_struct.
+> +         # and tp is used by user mode. So when scratch register holds larger value
+> +         # (negative address as ulong is larger value) than tp, then use scratch register.
+> +         if (scratch_reg.cast(utils.get_ulong_type()) > current_tp.cast(utils.get_ulong_type())):
+> +             current_task = scratch_reg.cast(task_ptr_type)
+> +
+> +         return current_task.dereference()
+>      else:
+>          raise gdb.GdbError("Sorry, obtaining the current task is not yet "
+>                             "supported with this arch")
+> diff --git a/scripts/gdb/linux/utils.py b/scripts/gdb/linux/utils.py
+> index 1553f68716cc..ddaf3089170d 100644
+> --- a/scripts/gdb/linux/utils.py
+> +++ b/scripts/gdb/linux/utils.py
+> @@ -35,12 +35,17 @@ class CachedType:
+>
+>
+>  long_type = CachedType("long")
+> +ulong_type = CachedType("ulong")
+>  atomic_long_type = CachedType("atomic_long_t")
+>
+>  def get_long_type():
+>      global long_type
+>      return long_type.get_type()
+>
+> +def get_ulong_type():
+> +    global ulong_type
+> +    return ulong_type.get_type()
+> +
+>  def offset_of(typeobj, field):
+>      element = gdb.Value(0).cast(typeobj)
+>      return int(str(element[field].address).split()[0], 16)
 
-Applied, thanks!
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-[1/3] irqchip/sifive-plic: remove user selectability of SIFIVE_PLIC
-      https://git.kernel.org/palmer/c/fdb1742aff43
-[2/3] irqchip/riscv-intc: remove user selectability of RISCV_INTC
-      https://git.kernel.org/palmer/c/d8fb13070c3c
-[3/3] RISC-V: stop selecting SIFIVE_PLIC at the SoC level
-      https://git.kernel.org/palmer/c/bf3d7b1d8499
-
-Best regards,
--- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
