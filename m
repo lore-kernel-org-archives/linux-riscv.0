@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0368CC4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 03:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A30C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 04:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6hwIjTXiqaw4gm2VXfxZ0+6U1fV4yZTNmTS485uQ9/o=; b=R3UxjJJVDwwYEj
-	3s2/zMne1bEAJwbP58ulXXOkzdCV8GzvOH0WuFGFdSymm+Ujh9yht6d7CeSWGSQWtGYtd7O87Y/mK
-	z/IzItYWQZOw7xGVQHzHlYMh+4Wng8nYWcVA4kduMh2Mb7saXvR9PDWjIm/hZaRiY9qGY2QztBXVy
-	lvNrnc0WGS5jQovrLzTKJmIUcPss2GBwDCliwwAPNhOpvmGxXAMxkqnOU6y97NJL9hh69D3GXFtE0
-	hGn4TNpZ8yaMMmvZltNhDQxs1cPTBkJQHh2SSp7lPzkhpYsyazsthX/5iHCTFAS5LUchzJXVtY0KG
-	4YRrPgHyFQTE4kf9RF1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=dN44pZ/dKGE/8VtSr3BZZGus+zTDdy+Z/BI1nC0EA1E=; b=maGlVpGIXLmjx9wxqwwE+etL8s
+	thnulg5DPNarzPXG+Jqej8mlECapCV34klLYp68PeptAl8ZHfp9gvpmChU3Jv0D1VNWlZWWtHO1Cc
+	4xAoWCohLR9CXE1KXXDjn03nhzTRpqo95SzPXAqYUc6Gqwfjsu4zZUfYYz3a+K9xCqH9QYJQKgkpn
+	92UJRk+qDjauBc2iM2cQKCRGCxL4mYSZYwwdvb6p7eAaNuOS6MbeL4Tzmgq+UJlma4bp14s2Ua08d
+	bWTfmrBQfmLJC/Ym2KjeOdfPA8IVIxQJCsuY6BW8UO777i5Dh9ZRMUbX0SadfiN7EJqg6t3CJ9EzW
+	qck216rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3TrO-001uWQ-Gc; Fri, 09 Dec 2022 03:15:38 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p3V4W-003RWi-Pv; Fri, 09 Dec 2022 04:33:16 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3TrL-001uQS-Nf
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 03:15:37 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 42C606211E
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Dec 2022 03:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E1AC433D2
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Dec 2022 03:15:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670555732;
-	bh=LQSXaM6jsUeRyu1fvBXbONXa1UuWroih+AhdrvfCeec=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QUMSvhCkZAq7GpU4cBUgA6ZRI0mgaipm9QMkkIzlRiJcdLKUhIBocuhAF4y0nIn1f
-	 0kEE8pqQt9MvRoX3vqi14DrPZqaHrEEaNgm9+PQ7nNTXibX4rRaaNFWrbrxKNTYRYc
-	 I5qDFpFX3xMxVgy1+hzSvGUzrzpqEITFq72U+fr6Sjo8fHCsHJZoCYnjGPUb0mpPYj
-	 RLillCzUxNjdgG/Zvic56PWMeRlmO6tcC1X1593PXOnVO/LOlQ7hW7RDWXmfBCjy3T
-	 /XcW+nj46WOmeCKKr8TXAbt7Qk2lVJ48u5iAfunMXat0LWlgtCAza8RRyh9n0MhndW
-	 fNe0Gs9gyGDlg==
-Received: by mail-ed1-f53.google.com with SMTP id r26so1436261edc.10
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 19:15:32 -0800 (PST)
-X-Gm-Message-State: ANoB5pmlPUwvc3tFJZzLWlKLmLEWK1j6iaRtIF32pH646/UPnXmnT2iu
-	HhXd1jOW5QEbfgjOyr8/FGlQTVMqCRFKbyEZJVg=
-X-Google-Smtp-Source: AA0mqf7EgxO76n65NAOGalkbWRlByFjxkTcPrf2dAK+qri5Wie6OqTWRGnIxP6H8/22GUzFxjMdBiUhWDuC1LJ65z0w=
-X-Received: by 2002:aa7:c046:0:b0:461:54f0:f7dc with SMTP id
- k6-20020aa7c046000000b0046154f0f7dcmr84312488edo.117.1670555730907; Thu, 08
- Dec 2022 19:15:30 -0800 (PST)
-MIME-Version: 1.0
-References: <Y3fxsWPLPlKGfMBj@curiosity> <mhng-1d55338a-53a1-42eb-bf5c-91655fde2734@palmer-ri-x1c9a>
- <CAJF2gTQqF8GG77SKm9MpJC28DQebHsjuSoD_+FRRV0GcKpQFCg@mail.gmail.com>
-In-Reply-To: <CAJF2gTQqF8GG77SKm9MpJC28DQebHsjuSoD_+FRRV0GcKpQFCg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 9 Dec 2022 11:15:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQzVabqr4GSaqXzTLXGriUj4iVLMYDt_iYuv8_YApo+Fw@mail.gmail.com>
-Message-ID: <CAJF2gTQzVabqr4GSaqXzTLXGriUj4iVLMYDt_iYuv8_YApo+Fw@mail.gmail.com>
-Subject: Re: [PATCH V3] riscv: asid: Fixup stale TLB entry cause application crash
-To: Palmer Dabbelt <palmer@rivosinc.com>, geomatsi@gmail.com, philipp.tomsich@vrull.eu, 
-	Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org
-Cc: Conor Dooley <conor.dooley@microchip.com>, heiko@sntech.de, alex@ghiti.fr, 
-	Christoph Hellwig <hch@lst.de>, ajones@ventanamicro.com, gary@garyguo.net, jszhang@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	guoren@linux.alibaba.com, apatel@ventanamicro.com
+	id 1p3V4T-003RMz-OT
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 04:33:15 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id fa4-20020a17090af0c400b002198d1328a0so7484846pjb.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 20:33:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8V2911JbsQ7q3MV8ByLBMvoup/1u6ZZgGLRpPzpF/E8=;
+        b=tD9/OuaQk4Ny5ftlapIHalH7LY+UdxT5DNVq73qwQk5brpKADBpSV9VBVZOrdrU7xS
+         jFYq052qCafhdRHVC/bdhkALtxcuHOOH4BEpTNI66zXOXYxyZbqg6kxKdhXeXo4nGBza
+         5raDi1jiqsQ2OAWGNFkv8XlefPj1uC0aaWRqbqYnuABo/HjzH+yfNp/qVKmpqkN8Uk9L
+         1jFrGeZRQQm3n+1vkzjJxQHzxx9nTNlMKkY0QL8t/OPY/2B3lTzZRNUV5HS+9OMTCEO9
+         1bgrkOd/X4V6rKK8IF5TqW3xRVzi6tBpzp4i+FDIcjZDj/1mxWREQIOM5UTRTd2emXnf
+         eEgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8V2911JbsQ7q3MV8ByLBMvoup/1u6ZZgGLRpPzpF/E8=;
+        b=VQ0DAP9cQdOoQ22o3CA3hAsd3SWz3EjlxpFNqHPb+0pHtNIEPnHbRLMpy58YZChOB2
+         rs0/2Si4h/5NacH474DF9kjPnN+S2T9exsgQ7oVaRfDpa/fdk0L178W6gXONhEU50K2m
+         WPbL6Mp70Op/SrbtM5+qjSBp5JD5bbp9ybEWH3iKAhtsEWGukzu5aIsIQLlx9VZopv6a
+         Hs8Ug+1d8DcIqbfdwo9RhbyD/RjTvSMwj3Wg/Lk4pZsl0c1bnLECJxJV6pApRIU1ftJF
+         S6QmS/EFgnyaIWt4pzKXdeSkysptL/hMNEiTuvVYhHc61l4vH4vs4lFGWydpVEKRCi93
+         GZIw==
+X-Gm-Message-State: ANoB5plQFu1iK9pcXcMMEQv7ehIicweri4x+VbZt9LMod78CrpuNtptx
+	P2vOhUR7rO2Mo2Zul+f9SMvfNQ==
+X-Google-Smtp-Source: AA0mqf53l7n1lwXWo6ELFRoXqPMMWNSKJ4uBBIpg0VM28LtzLEoabSx/gaDvmcRZcN05Lor9GtpL0A==
+X-Received: by 2002:a05:6a20:e68f:b0:9d:efbf:48d7 with SMTP id mz15-20020a056a20e68f00b0009defbf48d7mr6076987pzb.27.1670560390227;
+        Thu, 08 Dec 2022 20:33:10 -0800 (PST)
+Received: from localhost ([50.221.140.188])
+        by smtp.gmail.com with ESMTPSA id g26-20020aa79f1a000000b0056bbeaa82b9sm296387pfr.113.2022.12.08.20.33.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Dec 2022 20:33:09 -0800 (PST)
+Date: Thu, 08 Dec 2022 20:33:09 -0800 (PST)
+X-Google-Original-Date: Thu, 08 Dec 2022 20:32:57 PST (-0800)
+Subject: Re: [PATCH 6/9] RISC-V: Export sbi_get_mvendorid() and friends
+In-Reply-To: <CAOnJCUJ6b5=e=k19q0Q51Gptgw_QSr_989cN8q0xoBN+yq=Mmw@mail.gmail.com>
+CC: apatel@ventanamicro.com, pbonzini@redhat.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, ajones@ventanamicro.com, anup@brainfault.org, kvm@vger.kernel.org,
+  kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: atishp@atishpatra.org
+Message-ID: <mhng-1fa7f552-95e4-4299-ab83-52001eab8b30@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_191535_893786_7D4A580A 
-X-CRM114-Status: GOOD (  40.06  )
+X-CRM114-CacheID: sfid-20221208_203314_054311_CE2ACB52 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,140 +85,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 9, 2022 at 11:13 AM Guo Ren <guoren@kernel.org> wrote:
+On Mon, 28 Nov 2022 13:07:27 PST (-0800), atishp@atishpatra.org wrote:
+> On Mon, Nov 28, 2022 at 8:14 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>>
+>> The sbi_get_mvendorid(), sbi_get_marchid(), and sbi_get_mimpid()
+>> can be used by KVM module so let us export these functions.
+>>
+>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+>> ---
+>>  arch/riscv/kernel/sbi.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+>> index 775d3322b422..5c87db8fdff2 100644
+>> --- a/arch/riscv/kernel/sbi.c
+>> +++ b/arch/riscv/kernel/sbi.c
+>> @@ -627,16 +627,19 @@ long sbi_get_mvendorid(void)
+>>  {
+>>         return __sbi_base_ecall(SBI_EXT_BASE_GET_MVENDORID);
+>>  }
+>> +EXPORT_SYMBOL_GPL(sbi_get_mvendorid);
+>>
+>>  long sbi_get_marchid(void)
+>>  {
+>>         return __sbi_base_ecall(SBI_EXT_BASE_GET_MARCHID);
+>>  }
+>> +EXPORT_SYMBOL_GPL(sbi_get_marchid);
+>>
+>>  long sbi_get_mimpid(void)
+>>  {
+>>         return __sbi_base_ecall(SBI_EXT_BASE_GET_MIMPID);
+>>  }
+>> +EXPORT_SYMBOL_GPL(sbi_get_mimpid);
+>>
+>>  static void sbi_send_cpumask_ipi(const struct cpumask *target)
+>>  {
+>> --
+>> 2.34.1
+>>
 >
-> On Fri, Dec 9, 2022 at 7:30 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
-> >
-> > On Fri, 18 Nov 2022 12:57:21 PST (-0800), geomatsi@gmail.com wrote:
-> > > Hi Guo Ren,
-> > >
-> > >
-> > >> After use_asid_allocator is enabled, the userspace application will
-> > >> crash by stale TLB entries. Because only using cpumask_clear_cpu without
-> > >> local_flush_tlb_all couldn't guarantee CPU's TLB entries were fresh.
-> > >> Then set_mm_asid would cause the user space application to get a stale
-> > >> value by stale TLB entry, but set_mm_noasid is okay.
-> > >
-> > > ... [snip]
-> > >
-> > >> +    /*
-> > >> +     * The mm_cpumask indicates which harts' TLBs contain the virtual
-> > >> +     * address mapping of the mm. Compared to noasid, using asid
-> > >> +     * can't guarantee that stale TLB entries are invalidated because
-> > >> +     * the asid mechanism wouldn't flush TLB for every switch_mm for
-> > >> +     * performance. So when using asid, keep all CPUs footmarks in
-> > >> +     * cpumask() until mm reset.
-> > >> +     */
-> > >> +    cpumask_set_cpu(cpu, mm_cpumask(next));
-> > >> +    if (static_branch_unlikely(&use_asid_allocator)) {
-> > >> +            set_mm_asid(next, cpu);
-> > >> +    } else {
-> > >> +            cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> > >> +            set_mm_noasid(next);
-> > >> +    }
-> > >>  }
-> > >
-> > > I observe similar user-space crashes on my SMP systems with enabled ASID.
-> > > My attempt to fix the issue was a bit different, see the following patch:
-> > >
-> > > https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@gmail.com/
-> > >
-> > > In brief, the idea was borrowed from flush_icache_mm handling:
-> > > - keep track of CPUs not running the task
-> > > - perform per-ASID TLB flush on such CPUs only if the task is switched there
-> >
-> > That way looks better to me: leaking hartids in the ASID allocator might
-> > make the crashes go away, but it's just going to end up trending towards
-> > flushing everything and that doesn't seem like the right long-term
-> > solution.
-> The penalty in switch_mm is too heavy!!!
->  - If the system has multiple NUMA nodes, it will cause switch_mm_fast
-> flush unnecessary harts.
->  - If flush_range is just 1 entry, it would case flush_tlb_all_asid.
->
-> switch_mm_fast:
->         csr_write(CSR_SATP, virt_to_pfn(mm->pgd) |
->                   ((cntx & asid_mask) << SATP_ASID_SHIFT) |
->                   satp_mode);
->
->         if (need_flush_tlb)
->                 local_flush_tlb_all();
-> +#ifdef CONFIG_SMP
-> +        else {
-> +                cpumask_t *mask = &mm->context.tlb_stale_mask;+
-> +
-> +               if (cpumask_test_cpu(cpu, mask)) {
-> +                        cpumask_clear_cpu(cpu, mask);
-> +                        local_flush_tlb_all_asid(cntx & asid_mask);
-> // penalty in switch_mm fast path
-> +                }
-> +        }
-> +#endif
->
-> And See:
->  static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
->                                   unsigned long size, unsigned long stride)
->  {
-> +       struct cpumask *pmask = &mm->context.tlb_stale_mask;
->         struct cpumask *cmask = mm_cpumask(mm);
->         unsigned int cpuid;
->         bool broadcast;
-> @@ -44,6 +29,15 @@ static void __sbi_tlb_flush_range(struct mm_struct
-> *mm, unsigned long start,
->         if (static_branch_unlikely(&use_asid_allocator)) {
->                 unsigned long asid = atomic_long_read(&mm->context.id);
->
-> +               /*
-> +                * TLB will be immediately flushed on harts concurrently
-> +                * executing this MM context. TLB flush on other harts
-> +                * is deferred until this MM context migrates there.
-> +                */
-> +               cpumask_setall(pmask);
->                  ^^^^^^^^^^^^^^^^^^^^^^^ It would flush all harts for
-> all NUMA nodes!!! Most of them deferred to switch_mm_fast. The penalty
-> contains unnecessary harts!
-> +               cpumask_clear_cpu(cpuid, pmask);
-> +               cpumask_andnot(pmask, pmask, cmask);
->
-> Please reconsider a bit, and make a smart decision. Just penalty the
-> harts who touched the mm, not all. And only flush the whole TLB when
-                                                           ^^^^ ^^^^ Don't
-> some entries are needed.
->
-> The __sbi_tlb_flush_range is the slow path; keeping the fast path
-> performance is worth more than improving a slow one.
->
-> >
-> > So I've got that one on for-next, sorry I missed it before.
-> >
-> > Thanks!
-> >
-> > >
-> > > Your patch also works fine in my tests fixing those crashes. I have a
-> > > question though, regarding removed cpumask_clear_cpu. How CPUs no more
-> > > running the task are removed from its mm_cpumask ? If they are not
-> > > removed, then flush_tlb_mm/flush_tlb_page will broadcast unnecessary
-> > > TLB flushes to those CPUs when ASID is enabled.
-> > >
-> > > Regards,
-> > > Sergey
->
->
->
-> --
-> Best Regards
->  Guo Ren
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
-
-
--- 
-Best Regards
- Guo Ren
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
