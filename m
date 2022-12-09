@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF971C10F1E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC52C4167B
 	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 15:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wE6gUMec/QDtAq3Sw3/3YnwMNBZs9H6O8sIKsCYS9RM=; b=J+JO1GO+gtqZ32
-	vziJHtQTTL6MEVuv7FOi6FnxSzQiVQWUZ2TTawJsC33zzcZSp1zYPsLyJne4NmA7hKwyYXPIxKCcs
-	5+rrm+HOTFBel5ONFyyvFrJ6p0zMlv+OKmnPtnceVw1e7gJuUucw1K/r7hZxSjG6MZ7zRX1CohMW1
-	VNZiYBKQ3tLA7h3/P8ELF8hg126VZ50Fx7UcATT+Neii8+B9nzgmUfZMrKUycyDl6QqaNTXn/2/t3
-	SM6z7o7XoxNcMyTCM/YvtjFzbh33IY4h83ActM+1pZM5BZK82poqSYzBCaGEPkyVLtrtDx8kQPb5d
-	hSAKw7NuWLA1aB/WQowg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w5Cl8uo2coY+GvsrENr0D5lvfX6NDcuco/WZrzBBqWA=; b=duMOYLLsxQWpjb
+	nBlS2Jb6MI7Nw9IkRDJGUEteeERDcUNkg2COPW3bOaz3nPaWng0KZnDV+o1vuYICBiThWCTibBYmi
+	EEO9ZeLXrEvujVNTBw7geDha4bCgVfNGaVaN8mcIMkJ6uhSIab1nBq6QBSIQRotpbqsZlwIuejWYa
+	nXLO28UWi37j+ErglYOcK2q2Nw0Ba5xoF27X4Ww/rwKPNuya0gChn94V+x5rNAk0tNFnij9X64T6u
+	F+Hj0iyFI1QQ/kNB4LctEkNH0GXRDVew9KH/dQ972GtCIVJvO1wioJskc3E3dQuqm4EcWDYYWfdgA
+	aXDC9MDLJZQ7s50d+JHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3ewM-008nPu-Qq; Fri, 09 Dec 2022 15:05:30 +0000
-Received: from bg4.exmail.qq.com ([43.155.65.254])
+	id 1p3ewQ-008nWd-R1; Fri, 09 Dec 2022 15:05:34 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3ew0-008n6L-7E; Fri, 09 Dec 2022 15:05:11 +0000
-X-QQ-mid: bizesmtp89t1670598279tf8ekbj4
+	id 1p3ew6-008nC7-LI
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 15:05:17 +0000
+X-QQ-mid: bizesmtp89t1670598288tzek7vk3
 Received: from ubuntu.. ( [111.196.135.79])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 09 Dec 2022 23:04:37 +0800 (CST)
+	id ; Fri, 09 Dec 2022 23:04:47 +0800 (CST)
 X-QQ-SSF: 01200000002000B0C000B00A0000000
-X-QQ-FEAT: 7bD38UErqBMse/wQvkTTMEyob1uRl85oGpxpBEZmiEMslPZLCL+kkKP6NtbX2
-	gPc0PSkUeyw56O8ET95uXwx6vMo+BhrnioINwoXo4H2tTnglrQ/7WRNrtlQxK7ZQxSzw4ba
-	ZeYLrpHEC9pG4k7/gbKQgezfWTytqnhFV+jA16UgOb0XV+eGbyAAhyEZQ7gB/3fFm0ivwFx
-	bdP+CFTqDOLadz2kycFslFhdoxQFI4FDYuWQVzMVw3ReGwgKnFOt8f3+eihWRjuFqXfIje2
-	KdVb9RsMmhoL4ikneZlRSDmfernerWgzDol1vR6cutPf4eSN8cTqRMCFNRjhWwlE0OvFo4z
-	hbLJM6xeg60PoRG+FB96PPSALEiAg==
+X-QQ-FEAT: ILHsT53NKPjG5kfsWPlb/E4DO94OjvdDf9wn6ttYvvCNpDY9/TDM9Ur27ag7K
+	a+Ax5aohk1b980KZ412GaxQBoChRTv+AMSpc0cjPxse+3RraLnlsCU639j5CVj+BPHJJori
+	Vbt2DGkCowbiBYA8NLOLGZJx6Z4e+EsHC6q48OfHeGuT3aDyUXYLgD5QC9lojnGNJv5HnnM
+	kx7xPEIQBZTjAEoA3RfLlTZr/mtVCE+AO/IG0Kgu7uyUxaFrmX+6fDEebWyg5ObPm4nKRfs
+	4sjlFW1iSHbVdyKJ+YuUNwEmbLfyVO/HuUj/iS7HnGCJuh+m8uyEXkwmL1/sKtrr5peQ3iT
+	v2BAZ+mqbzzGar3pYaRaxGHVuiPBILmUZyoUiia
 X-QQ-GoodBg: 0
 From: Bin Meng <bmeng@tinylab.org>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-serial@vger.kernel.org
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 0/3] serial: Add RISC-V support to the earlycon semihost driver
-Date: Fri,  9 Dec 2022 23:04:34 +0800
-Message-Id: <20221209150437.795918-1-bmeng@tinylab.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Subject: [PATCH v3 3/3] serial: Rename earlycon semihost driver
+Date: Fri,  9 Dec 2022 23:04:37 +0800
+Message-Id: <20221209150437.795918-4-bmeng@tinylab.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20221209150437.795918-1-bmeng@tinylab.org>
+References: <20221209150437.795918-1-bmeng@tinylab.org>
 MIME-Version: 1.0
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtp:tinylab.org:qybglogicsvr:qybglogicsvr3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221209_070508_587027_8FB13651 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221209_070515_042407_BCB65FD1 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +71,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Now that earlycon semihost driver works on RISC-V too, let's use a
+much more generic name for the driver.
 
-RISC-V semihosting spec [1] is built on top of the existing Arm one;
-we can add RISC-V earlycon semihost driver easily.
+Signed-off-by: Bin Meng <bmeng@tinylab.org>
 
-This series refactors the existing driver a little bit, to move smh_putc()
-variants in respective arch's semihost.h, then we can implement RISC-V's
-version in the riscv arch directory.
+---
 
-Link: https://github.com/riscv/riscv-semihosting-spec/blob/main/riscv-semihosting-spec.adoc [1]
+(no changes since v1)
 
-Changes in v3:
-- add #ifdef in the header to prevent from multiple inclusion
-- add forward-declare struct uart_port
-- add a Link tag in the commit message
+ drivers/tty/serial/Kconfig                           | 12 ++++++------
+ drivers/tty/serial/Makefile                          |  2 +-
+ .../{earlycon-arm-semihost.c => earlycon-semihost.c} |  0
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+ rename drivers/tty/serial/{earlycon-arm-semihost.c => earlycon-semihost.c} (100%)
 
-Changes in v2:
-- new patch: "serial: earlycon-arm-semihost: Move smh_putc() variants in respective arch's semihost.h"
-- Move the RISC-V implementation to semihost.h
-
-Bin Meng (3):
-  serial: earlycon-arm-semihost: Move smh_putc() variants in respective
-    arch's semihost.h
-  riscv: Implement semihost.h for earlycon semihost driver
-  serial: Rename earlycon semihost driver
-
- arch/arm/include/asm/semihost.h               | 30 +++++++++++++++++++
- arch/arm64/include/asm/semihost.h             | 24 +++++++++++++++
- arch/riscv/include/asm/semihost.h             | 26 ++++++++++++++++
- drivers/tty/serial/Kconfig                    | 14 ++++-----
- drivers/tty/serial/Makefile                   |  2 +-
- ...con-arm-semihost.c => earlycon-semihost.c} | 25 +---------------
- 6 files changed, 89 insertions(+), 32 deletions(-)
- create mode 100644 arch/arm/include/asm/semihost.h
- create mode 100644 arch/arm64/include/asm/semihost.h
- create mode 100644 arch/riscv/include/asm/semihost.h
- rename drivers/tty/serial/{earlycon-arm-semihost.c => earlycon-semihost.c} (57%)
-
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index e94d1265151c..a3779472edf6 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -73,17 +73,17 @@ config SERIAL_AMBA_PL011_CONSOLE
+ 	  your boot loader (lilo or loadlin) about how to pass options to the
+ 	  kernel at boot time.)
+ 
+-config SERIAL_EARLYCON_ARM_SEMIHOST
+-	bool "Early console using ARM semihosting"
++config SERIAL_EARLYCON_SEMIHOST
++	bool "Early console using Arm compatible semihosting"
+ 	depends on ARM64 || ARM || RISCV
+ 	select SERIAL_CORE
+ 	select SERIAL_CORE_CONSOLE
+ 	select SERIAL_EARLYCON
+ 	help
+-	  Support for early debug console using ARM semihosting. This enables
+-	  the console before standard serial driver is probed. This is enabled
+-	  with "earlycon=smh" on the kernel command line. The console is
+-	  enabled when early_param is processed.
++	  Support for early debug console using Arm compatible semihosting.
++	  This enables the console before standard serial driver is probed.
++	  This is enabled with "earlycon=smh" on the kernel command line.
++	  The console is enabled when early_param is processed.
+ 
+ config SERIAL_EARLYCON_RISCV_SBI
+ 	bool "Early console using RISC-V SBI"
+diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
+index 238a9557b487..cd9afd9e3018 100644
+--- a/drivers/tty/serial/Makefile
++++ b/drivers/tty/serial/Makefile
+@@ -6,7 +6,7 @@
+ obj-$(CONFIG_SERIAL_CORE) += serial_core.o
+ 
+ obj-$(CONFIG_SERIAL_EARLYCON) += earlycon.o
+-obj-$(CONFIG_SERIAL_EARLYCON_ARM_SEMIHOST) += earlycon-arm-semihost.o
++obj-$(CONFIG_SERIAL_EARLYCON_SEMIHOST) += earlycon-semihost.o
+ obj-$(CONFIG_SERIAL_EARLYCON_RISCV_SBI) += earlycon-riscv-sbi.o
+ 
+ # These Sparc drivers have to appear before others such as 8250
+diff --git a/drivers/tty/serial/earlycon-arm-semihost.c b/drivers/tty/serial/earlycon-semihost.c
+similarity index 100%
+rename from drivers/tty/serial/earlycon-arm-semihost.c
+rename to drivers/tty/serial/earlycon-semihost.c
 -- 
 2.34.1
 
