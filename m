@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D08C4167B
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 02:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCD1C4167B
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 02:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mHssgd5SrGfL/HxdzbAgCDbLPLfaFQo+WlH2Bn/LRYA=; b=R6OPPUQVRPcloj
-	CIsLDmLUH7hJmgII8jVAXbIExhh7yV6+hxJ04tmBt2g8w33dtB0m+Q3vWPJFCXVi1IZwwt3TwV6eC
-	F7ffkrjdKehvoQ57oBNdiMCrJWrTnir/EdlF1nrKBCvp8unPUqJDL1MMtu36TgptkD7VKnFvcG447
-	2D3wMf1By3HdOQijOvIjXF/XVJpeBk9fAt+/I8ra6Zsk3D27zdteMekeBZDD0z7zTEWyWlPUDxjWu
-	KItn/Ea1VcLu2SBPkXXHZSy2fOBBx6xEX1Ppq/e+ZV+KVg9ySHvRDJx2D1RFECmgYgg4Obno/afpb
-	ypX67RX0rfOgYXkNLYag==;
+	List-Owner; bh=iUzfNt6RTcwp7OKZW9UBWiBZayH6WQyG9dHGOQYFP5s=; b=kh5h7H1QYXHs2/
+	YAcm9GM0xQDbP511n7+v/58D6vrKdPmhJxB2IKVxmdOxSwhQFqF02dGDTMs+UG6Qqj8khaihxeb5O
+	me9dK+j2IjGSJsH4x6gvWIj8tWawK5eujfU3kDIP2L1+Ynh6VI7ZAHGbeqb8lOD1t/s33boLsCQFd
+	Zz9SFrLnzsJdzMqZJaSajoFCtS5Klm8+q1qR3G0OhIWE0oRffFFdH0mxbfycFgKgQodYrtxTzJrGW
+	EM5I60fvxOHYCYEe3WLQE9yXXoQaP7qGLfuJM4yyVuD/HWO256Pyodn3irxFckibGKuAmoXwQNnMD
+	pkva7keOF9UAsaOcxEAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3SkG-000fOA-Qy; Fri, 09 Dec 2022 02:04:12 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3SkC-000fB0-85
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 02:04:11 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 3644024E1CE;
-	Fri,  9 Dec 2022 10:03:45 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
- 2022 10:03:45 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
- 2022 10:03:43 +0800
-Message-ID: <42da7b33-d3eb-b546-f262-b4485213c028@starfivetech.com>
-Date: Fri, 9 Dec 2022 10:03:43 +0800
+	id 1p3Smj-000i4G-E1; Fri, 09 Dec 2022 02:06:45 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p3Smf-000hxo-Mg
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 02:06:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 09EA3B826F7
+	for <linux-riscv@lists.infradead.org>; Fri,  9 Dec 2022 02:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DC07C43444
+	for <linux-riscv@lists.infradead.org>; Fri,  9 Dec 2022 02:06:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670551597;
+	bh=5QpixbtmNzWooQk3ElYjvEVW/qRgv7IG6Byv+Fza6hc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Sv9DLJvRVAr0NLNQO7JLSaxU6jFy3foTYOWUJnEZBkwDsLGIH8ZSF1IJ/L9NQuiPK
+	 VYO0eXMt9a/MhlVbr4frHHkMfHYBfL7KpaiPmVsEG27K6yzz+z7vNrMueR72aJnsh/
+	 ASsmlopsmAqemP43YMgGsvdduiHzxfHb9KmT+zQMhS7V1WMJxq+HD6mQjP639w0Ws8
+	 U3x5SUXd/VqoNH4sGc6rHiT/hHX/OoG7BvWK4IXWdg1UinUFQzEUmhKCUje9DbmvB3
+	 JDUEPXHLyqIKlg84MRVv1PGe5XL+VJKv36zrc2aU2G505eA93xEn8UHmPiKTctQbdZ
+	 tGeD3xUH/+4UQ==
+Received: by mail-ej1-f42.google.com with SMTP id vp12so8278126ejc.8
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Dec 2022 18:06:37 -0800 (PST)
+X-Gm-Message-State: ANoB5pnIHTW97htWNKcDwj1NSRI2BrLipCCNpOAi2ZBRKa+NWjFnlseO
+	hKAJKiJ4XIOcOPb7VnOPw5+yj23LH8ce7rxzMb4=
+X-Google-Smtp-Source: AA0mqf5gJhnOM9o8qbAYa9mC3Jv/2/bwd5oaEafkiJmsSNYg6KcPO+/xD3U0aU3vRpjBmvWRO0Gk5SwsBu4+/irBfHg=
+X-Received: by 2002:a17:906:ee2:b0:78d:3f96:b7aa with SMTP id
+ x2-20020a1709060ee200b0078d3f96b7aamr64217621eji.74.1670551595573; Thu, 08
+ Dec 2022 18:06:35 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v1 5/7] net: stmmac: Add StarFive dwmac supoort
-Content-Language: en-US
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-6-yanhong.wang@starfivetech.com>
- <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <CAJM55Z9bdpxLsKOM8UhE=b5Z2uPzL227N1-x6d8AuvkZHRajqA@mail.gmail.com>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS061.cuchost.com (172.16.6.21) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
+References: <20221208025816.138712-1-guoren@kernel.org> <20221208025816.138712-9-guoren@kernel.org>
+ <87pmcuw6f5.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <87pmcuw6f5.fsf@all.your.base.are.belong.to.us>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 9 Dec 2022 10:06:23 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQzANzhQCWcfEWvTUVQexePBmS2S=doYte9CrFTy5cYcg@mail.gmail.com>
+Message-ID: <CAJF2gTQzANzhQCWcfEWvTUVQexePBmS2S=doYte9CrFTy5cYcg@mail.gmail.com>
+Subject: Re: [PATCH -next V10 08/10] riscv: stack: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, 
+	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
+	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
+	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com, 
+	zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com, 
+	chenzhongjin@huawei.com, greentime.hu@sifive.com, andy.chiu@sifive.com, 
+	ben@decadent.org.uk, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_180408_761047_D561CB76 
-X-CRM114-Status: GOOD (  30.87  )
+X-CRM114-CacheID: sfid-20221208_180642_067721_BB1E8EC0 
+X-CRM114-Status: GOOD (  35.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,271 +83,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2022/12/7 22:16, Emil Renner Berthing wrote:
-> Hi Yanhong,
-> 
-> Thanks for submitting this. Again please don't change the author of
-> the commits you cherry-picked from my tree. This is why we have the
-> Co-developed-by: tag so you can mark that you added or in this case
-> removed code.
-> I'd hoped you would still include the support for the JH7100 though.
->
-
-Hi Emil,
-
-  Thank you for your suggestion. If the dwmac-starfive-plat driver supports JH7100 and JH7110, the dt-binding calls "starfive,jh71x0-dwmac.yaml", is this ok?
-
- 
-> Also you seem to have changed the name of some of the functions.
-> Please at least keep the prefix consistent if you do that. Now it's a
-> mix of dwmac_starfive_, starfive_eth_ and starfive_eth_plat.
-> 
-
-I will named all the functions with starfive_eth_plat prefix in the next version.
-
-> On Thu, 1 Dec 2022 at 10:07, Yanhong Wang <yanhong.wang@starfivetech.com> wrote:
->>
->> This adds StarFive dwmac driver support on the StarFive JH7110 SoCs.
->>
->> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> ---
->>  MAINTAINERS                                   |   1 +
->>  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
->>  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
->>  .../stmicro/stmmac/dwmac-starfive-plat.c      | 147 ++++++++++++++++++
->>  4 files changed, 160 insertions(+)
->>  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 7eaaec8d3b96..36cb00cf860b 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -19610,6 +19610,7 @@ STARFIVE DWMAC GLUE LAYER
->>  M:     Yanhong Wang <yanhong.wang@starfivetech.com>
->>  S:     Maintained
->>  F:     Documentation/devicetree/bindings/net/starfive,dwmac-plat.yaml
->> +F:     drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->>
->>  STARFIVE PINCTRL DRIVER
->>  M:     Emil Renner Berthing <kernel@esmil.dk>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> index 31ff35174034..1e29cd3770b9 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
->> @@ -235,6 +235,17 @@ config DWMAC_INTEL_PLAT
->>           the stmmac device driver. This driver is used for the Intel Keem Bay
->>           SoC.
->>
->> +config DWMAC_STARFIVE_PLAT
-> 
-> Why did you add the _PLAT suffix? None of the other SoC wrappers have this..
-> 
->> +       tristate "StarFive dwmac support"
->> +       depends on OF && COMMON_CLK
->> +       depends on STMMAC_ETH
->> +       default SOC_STARFIVE
->> +       help
->> +         Support for ethernet controllers on StarFive RISC-V SoCs
->> +
->> +         This selects the StarFive platform specific glue layer support for
->> +         the stmmac device driver. This driver is used for StarFive RISC-V SoCs.
->> +
->>  config DWMAC_VISCONTI
->>         tristate "Toshiba Visconti DWMAC support"
->>         default ARCH_VISCONTI
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/Makefile b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> index d4e12e9ace4f..a63ab0ab5071 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/Makefile
->> +++ b/drivers/net/ethernet/stmicro/stmmac/Makefile
->> @@ -31,6 +31,7 @@ obj-$(CONFIG_DWMAC_DWC_QOS_ETH)       += dwmac-dwc-qos-eth.o
->>  obj-$(CONFIG_DWMAC_INTEL_PLAT) += dwmac-intel-plat.o
->>  obj-$(CONFIG_DWMAC_GENERIC)    += dwmac-generic.o
->>  obj-$(CONFIG_DWMAC_IMX8)       += dwmac-imx.o
->> +obj-$(CONFIG_DWMAC_STARFIVE_PLAT)      += dwmac-starfive-plat.o
->>  obj-$(CONFIG_DWMAC_VISCONTI)   += dwmac-visconti.o
->>  stmmac-platform-objs:= stmmac_platform.o
->>  dwmac-altr-socfpga-objs := altr_tse_pcs.o dwmac-socfpga.o
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> new file mode 100644
->> index 000000000000..8fbf584d4e19
->> --- /dev/null
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive-plat.c
->> @@ -0,0 +1,147 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +/*
->> + * StarFive DWMAC platform driver
->> + *
->> + * Copyright(C) 2022 StarFive Technology Co., Ltd.
-> 
-> Hmm.. where did my copyright go?
-> 
->> + *
->> + */
->> +
->> +#include <linux/of_device.h>
->> +#include "stmmac_platform.h"
->> +
->> +struct starfive_dwmac {
->> +       struct device *dev;
->> +       struct clk *clk_tx;
->> +       struct clk *clk_gtx;
->> +       struct clk *clk_gtxc;
->> +};
->> +
->> +static void starfive_eth_fix_mac_speed(void *priv, unsigned int speed)
->> +{
->> +       struct starfive_dwmac *dwmac = priv;
->> +       unsigned long rate;
->> +       int err;
->> +
->> +       switch (speed) {
->> +       case SPEED_1000:
->> +               rate = 125000000;
->> +               break;
->> +       case SPEED_100:
->> +               rate = 25000000;
->> +               break;
->> +       case SPEED_10:
->> +               rate = 2500000;
->> +               break;
->> +       default:
->> +               dev_err(dwmac->dev, "invalid speed %u\n", speed);
->> +               return;
->> +       }
->> +
->> +       err = clk_set_rate(dwmac->clk_gtx, rate);
->> +       if (err)
->> +               dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
->> +}
->> +
->> +static void dwmac_starfive_clk_disable(void *clk)
->> +{
->> +       clk_disable_unprepare(clk);
->> +}
->> +
->> +static int starfive_eth_plat_probe(struct platform_device *pdev)
->> +{
->> +       struct plat_stmmacenet_data *plat_dat;
->> +       struct stmmac_resources stmmac_res;
->> +       struct starfive_dwmac *dwmac;
->> +       int err;
->> +
->> +       err = stmmac_get_platform_resources(pdev, &stmmac_res);
->> +       if (err)
->> +               return err;
->> +
->> +       plat_dat = stmmac_probe_config_dt(pdev, stmmac_res.mac);
->> +       if (IS_ERR(plat_dat)) {
->> +               dev_err(&pdev->dev, "dt configuration failed\n");
->> +               return PTR_ERR(plat_dat);
->> +       }
->> +
->> +       dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->> +       if (!dwmac)
->> +               return -ENOMEM;
->> +
->> +       dwmac->clk_tx = devm_clk_get(&pdev->dev, "tx");
->> +       if (IS_ERR(dwmac->clk_tx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
->> +                                               "error getting tx clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_tx);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_tx);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling tx clock\n");
->> +
->> +       dwmac->clk_gtx = devm_clk_get(&pdev->dev, "gtx");
->> +       if (IS_ERR(dwmac->clk_gtx))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtx),
->> +                                               "error getting gtx clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_gtx);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_gtx);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling gtx clock\n");
-> 
-> I think the 3 calls above can be simplified to devm_clk_get_enabled().
-> 
->> +       dwmac->clk_gtxc = devm_clk_get(&pdev->dev, "gtxc");
->> +       if (IS_ERR(dwmac->clk_gtxc))
->> +               return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_gtxc),
->> +                                               "error getting gtxc clock\n");
->> +
->> +       err = devm_add_action(&pdev->dev, dwmac_starfive_clk_disable,
->> +                             dwmac->clk_gtxc);
->> +       if (err)
->> +               return err;
->> +
->> +       err = clk_prepare_enable(dwmac->clk_gtxc);
->> +       if (err)
->> +               return dev_err_probe(&pdev->dev, err, "error enabling gtxc clock\n");
-> 
-> Same here.
-> 
->> +
->> +       dwmac->dev = &pdev->dev;
->> +       plat_dat->fix_mac_speed = starfive_eth_fix_mac_speed;
->> +       plat_dat->init = NULL;
->> +       plat_dat->bsp_priv = dwmac;
->> +       plat_dat->dma_cfg->dche = true;
->> +
->> +       err = stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
->> +       if (err) {
->> +               stmmac_remove_config_dt(pdev, plat_dat);
->> +               return err;
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct of_device_id starfive_eth_plat_match[] = {
->> +       {.compatible = "starfive,dwmac"},
->> +       { }
->> +};
->> +
->> +static struct platform_driver starfive_eth_plat_driver = {
->> +       .probe  = starfive_eth_plat_probe,
->> +       .remove = stmmac_pltfr_remove,
->> +       .driver = {
->> +               .name = "starfive-eth-plat",
->> +               .pm = &stmmac_pltfr_pm_ops,
->> +               .of_match_table = starfive_eth_plat_match,
->> +       },
->> +};
->> +
->> +module_platform_driver(starfive_eth_plat_driver);
->> +
->> +MODULE_LICENSE("GPL");
->> +MODULE_DESCRIPTION("StarFive DWMAC platform driver");
-> 
-> Here you also seem to have removed me.
-> 
->> +MODULE_AUTHOR("Yanhong Wang <yanhong.wang@starfivetech.com>");
->> --
->> 2.17.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBEZWMgOCwgMjAyMiBhdCA2OjEyIFBNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5l
+bC5vcmc+IHdyb3RlOgo+Cj4gZ3VvcmVuQGtlcm5lbC5vcmcgd3JpdGVzOgo+Cj4gPiBGcm9tOiBH
+dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gQWRkIGluZGVwZW5kZW50
+IGlycSBzdGFja3MgZm9yIHBlcmNwdSB0byBwcmV2ZW50IGtlcm5lbCBzdGFjayBvdmVyZmxvd3Mu
+Cj4gPiBJdCBpcyBhbHNvIGNvbXBhdGlibGUgd2l0aCBWTUFQX1NUQUNLIGJ5IGltcGxlbWVudGlu
+Zwo+ID4gYXJjaF9hbGxvY192bWFwX3N0YWNrLiAgTWFueSBhcmNoaXRlY3R1cmVzIGhhdmUgc3Vw
+cG9ydGVkCj4gPiBIQVZFX0lSUV9FWElUX09OX0lSUV9TVEFDSywgcmlzY3Ygc2hvdWxkIGZvbGxv
+dyB1cC4KPiA+Cj4KPiBJIHN0aWxsIHdvdWxkIGxpa2UgdG8gc2VlIHRoaXMgYXMgYSBzZXBhcmF0
+ZSBzZXJpZXMsIGFuZCB0aGF0IHRoZQo+IGdlbmVyaWMgZW50cnkgc2VyaWVzIGVuZGVkIHdpdGgg
+dGhlIHByZXZpb3VzIHBhdGNoLiBJdCdzIGFscmVhZHkgYSBsb3QKPiBvZiBtb3ZpbmcgcGllY2Vz
+IGluIHRoaXMgc2VyaWVzLiBOb3cgYWRkIHN0YWNrIGNoYW5nZXM/IElzIHRoaXMgcmVhbGx5Cj4g
+cmVxdWlyZWQgZm9yIGdlbmVyaWMgZW50cnkgc3VwcG9ydD8KT2theSwgTGV0IHRoZSBnZW5lcmlj
+IGVudHJ5IG1lcmdlIGZpcnN0LgoKPgo+IFNvbWUgY29tbWVudHMgYmVsb3cuCj4KPiA+IFRlc3Rl
+ZC1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+ID4gU2lnbmVkLW9mZi1i
+eTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTog
+R3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2L0tjb25m
+aWcgICAgICAgICAgICAgICAgICAgfCAgOCArKysrCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS90aHJlYWRfaW5mby5oIHwgIDIgKwo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdm1hcF9z
+dGFjay5oICB8IDI4ICsrKysrKysrKysrKwo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2lycS5jICAg
+ICAgICAgICAgICB8IDY2ICsrKysrKysrKysrKysrKysrKysrKysrKysrKy0KPiA+ICA0IGZpbGVz
+IGNoYW5nZWQsIDEwMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4gIGNyZWF0ZSBt
+b2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3ZtYXBfc3RhY2suaAo+ID4KPiA+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+IGlu
+ZGV4IDUxOGU4NTIzZDQxZC4uMGE5ZDRiZGMwMzM4IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNj
+di9LY29uZmlnCj4gPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiA+IEBAIC00NDYsNiArNDQ2
+LDE0IEBAIGNvbmZpZyBGUFUKPiA+Cj4gPiAgICAgICAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQg
+dG8gZG8gaGVyZSwgc2F5IFkuCj4gPgo+ID4gK2NvbmZpZyBJUlFfU1RBQ0tTCj4gPiArICAgICBi
+b29sICJJbmRlcGVuZGVudCBpcnEgc3RhY2tzIiBpZiBFWFBFUlQKPiA+ICsgICAgIGRlZmF1bHQg
+eQo+ID4gKyAgICAgc2VsZWN0IEhBVkVfSVJRX0VYSVRfT05fSVJRX1NUQUNLCj4gPiArICAgICBo
+ZWxwCj4gPiArICAgICAgIEFkZCBpbmRlcGVuZGVudCBpcnEgc3RhY2tzIGZvciBwZXJjcHUgdG8g
+cHJldmVudCBrZXJuZWwgc3RhY2sgb3ZlcmZsb3dzLgo+ID4gKyAgICAgICBXZSBtYXkgc2F2ZSBz
+b21lIG1lbW9yeSBmb290cHJpbnQgYnkgZGlzYWJsaW5nIElSUV9TVEFDS1MuCj4gPiArCj4KPiBP
+dGhlciBhcmNocyB1c2VzIENPTkZJR19JUlFTVEFDS1MuIExldCdzIHVzZSB0aGF0IGZvciByaXNj
+diBhcyB3ZWxsLCBhbmQKPiBhbHNvIHVzZSB0aGUgc2FtZSBLY29uZmlnIHdvcmRpbmcgYXMgdGhl
+IG90aGVyIGFyY2hzLgpPa2F5Cgo+Cj4gPiAgZW5kbWVudSAjICJQbGF0Zm9ybSB0eXBlIgo+ID4K
+PiA+ICBtZW51ICJLZXJuZWwgZmVhdHVyZXMiCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS90aHJlYWRfaW5mby5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aHJlYWRf
+aW5mby5oCj4gPiBpbmRleCA3ZGU0ZmI5NmYwYjUuLjA0M2RhOGNjYzdlNiAxMDA2NDQKPiA+IC0t
+LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaAo+ID4gKysrIGIvYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS90aHJlYWRfaW5mby5oCj4gPiBAQCAtNDAsNiArNDAsOCBAQAo+ID4g
+ICNkZWZpbmUgT1ZFUkZMT1dfU1RBQ0tfU0laRSAgICAgU1pfNEsKPiA+ICAjZGVmaW5lIFNIQURP
+V19PVkVSRkxPV19TVEFDS19TSVpFICgxMDI0KQo+ID4KPiA+ICsjZGVmaW5lIElSUV9TVEFDS19T
+SVpFICAgICAgICAgICAgICAgVEhSRUFEX1NJWkUKPiA+ICsKPiA+ICAjaWZuZGVmIF9fQVNTRU1C
+TFlfXwo+ID4KPiA+ICBleHRlcm4gbG9uZyBzaGFkb3dfc3RhY2tbU0hBRE9XX09WRVJGTE9XX1NU
+QUNLX1NJWkUgLyBzaXplb2YobG9uZyldOwo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
+bHVkZS9hc20vdm1hcF9zdGFjay5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92bWFwX3N0YWNr
+LmgKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjNmYmY0
+ODFhYmY0Zgo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS92bWFwX3N0YWNrLmgKPiA+IEBAIC0wLDAgKzEsMjggQEAKPiA+ICsvKiBTUERYLUxpY2Vuc2Ut
+SWRlbnRpZmllcjogR1BMLTIuMCAqLwo+ID4gKy8vIENvcGllZCBmcm9tIGFyY2gvYXJtNjQvaW5j
+bHVkZS9hc20vdm1hcF9zdGFjay5oLgo+ID4gKyNpZm5kZWYgX0FTTV9SSVNDVl9WTUFQX1NUQUNL
+X0gKPiA+ICsjZGVmaW5lIF9BU01fUklTQ1ZfVk1BUF9TVEFDS19ICj4gPiArCj4gPiArI2luY2x1
+ZGUgPGxpbnV4L2J1Zy5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9nZnAuaD4KPiA+ICsjaW5jbHVk
+ZSA8bGludXgva2NvbmZpZy5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC92bWFsbG9jLmg+Cj4gPiAr
+I2luY2x1ZGUgPGxpbnV4L3BndGFibGUuaD4KPiA+ICsjaW5jbHVkZSA8YXNtL3RocmVhZF9pbmZv
+Lmg+Cj4gPiArCj4gPiArLyoKPiA+ICsgKiBUbyBlbnN1cmUgdGhhdCBWTUFQJ2Qgc3RhY2sgb3Zl
+cmZsb3cgZGV0ZWN0aW9uIHdvcmtzIGNvcnJlY3RseSwgYWxsIFZNQVAnZAo+ID4gKyAqIHN0YWNr
+cyBuZWVkIHRvIGhhdmUgdGhlIHNhbWUgYWxpZ25tZW50Lgo+ID4gKyAqLwo+ID4gK3N0YXRpYyBp
+bmxpbmUgdW5zaWduZWQgbG9uZyAqYXJjaF9hbGxvY192bWFwX3N0YWNrKHNpemVfdCBzdGFja19z
+aXplLCBpbnQgbm9kZSkKPiA+ICt7Cj4gPiArICAgICB2b2lkICpwOwo+ID4gKwo+ID4gKyAgICAg
+QlVJTERfQlVHX09OKCFJU19FTkFCTEVEKENPTkZJR19WTUFQX1NUQUNLKSk7Cj4gPiArCj4gPiAr
+ICAgICBwID0gX192bWFsbG9jX25vZGUoc3RhY2tfc2l6ZSwgVEhSRUFEX0FMSUdOLCBUSFJFQURJ
+TkZPX0dGUCwgbm9kZSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICBfX2J1aWx0aW5fcmV0dXJu
+X2FkZHJlc3MoMCkpOwo+ID4gKyAgICAgcmV0dXJuIGthc2FuX3Jlc2V0X3RhZyhwKTsKPiA+ICt9
+Cj4gPiArCj4gPiArI2VuZGlmIC8qIF9BU01fUklTQ1ZfVk1BUF9TVEFDS19IICovCj4gPiBkaWZm
+IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9pcnEu
+Ywo+ID4gaW5kZXggMjRjMmUxYmQ3NTZhLi41ZDc3ZjY5MmIxOTggMTAwNjQ0Cj4gPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9pcnEuYwo+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvaXJxLmMK
+PiA+IEBAIC0xMCw2ICsxMCwzNyBAQAo+ID4gICNpbmNsdWRlIDxsaW51eC9pcnFjaGlwLmg+Cj4g
+PiAgI2luY2x1ZGUgPGxpbnV4L3NlcV9maWxlLmg+Cj4gPiAgI2luY2x1ZGUgPGFzbS9zbXAuaD4K
+PiA+ICsjaW5jbHVkZSA8YXNtL3ZtYXBfc3RhY2suaD4KPiA+ICsKPiA+ICsjaWZkZWYgQ09ORklH
+X0lSUV9TVEFDS1MKPiA+ICtzdGF0aWMgREVGSU5FX1BFUl9DUFUodWxvbmcgKiwgaXJxX3N0YWNr
+X3B0cik7Cj4gPiArCj4gPiArI2lmZGVmIENPTkZJR19WTUFQX1NUQUNLCj4gPiArc3RhdGljIHZv
+aWQgaW5pdF9pcnFfc3RhY2tzKHZvaWQpCj4gPiArewo+ID4gKyAgICAgaW50IGNwdTsKPiA+ICsg
+ICAgIHVsb25nICpwOwo+ID4gKwo+ID4gKyAgICAgZm9yX2VhY2hfcG9zc2libGVfY3B1KGNwdSkg
+ewo+ID4gKyAgICAgICAgICAgICBwID0gYXJjaF9hbGxvY192bWFwX3N0YWNrKElSUV9TVEFDS19T
+SVpFLCBjcHVfdG9fbm9kZShjcHUpKTsKPiA+ICsgICAgICAgICAgICAgcGVyX2NwdShpcnFfc3Rh
+Y2tfcHRyLCBjcHUpID0gcDsKPiA+ICsgICAgIH0KPiA+ICt9Cj4gPiArI2Vsc2UKPiA+ICsvKiBp
+cnEgc3RhY2sgb25seSBuZWVkcyB0byBiZSAxNiBieXRlIGFsaWduZWQgLSBub3QgSVJRX1NUQUNL
+X1NJWkUgYWxpZ25lZC4gKi8KPiA+ICtERUZJTkVfUEVSX0NQVV9BTElHTkVEKHVsb25nIFtJUlFf
+U1RBQ0tfU0laRS9zaXplb2YodWxvbmcpXSwgaXJxX3N0YWNrKTsKPiA+ICsKPiA+ICtzdGF0aWMg
+dm9pZCBpbml0X2lycV9zdGFja3Modm9pZCkKPiA+ICt7Cj4gPiArICAgICBpbnQgY3B1Owo+ID4g
+Kwo+ID4gKyAgICAgZm9yX2VhY2hfcG9zc2libGVfY3B1KGNwdSkKPiA+ICsgICAgICAgICAgICAg
+cGVyX2NwdShpcnFfc3RhY2tfcHRyLCBjcHUpID0gcGVyX2NwdShpcnFfc3RhY2ssIGNwdSk7Cj4g
+PiArfQo+ID4gKyNlbmRpZiAvKiBDT05GSUdfVk1BUF9TVEFDSyAqLwo+ID4gKyNlbHNlCj4gPiAr
+c3RhdGljIHZvaWQgaW5pdF9pcnFfc3RhY2tzKHZvaWQpIHt9Cj4gPiArI2VuZGlmIC8qIENPTkZJ
+R19JUlFfU1RBQ0tTICovCj4gPgo+ID4gIGludCBhcmNoX3Nob3dfaW50ZXJydXB0cyhzdHJ1Y3Qg
+c2VxX2ZpbGUgKnAsIGludCBwcmVjKQo+ID4gIHsKPiA+IEBAIC0xOSwyMSArNTAsNTIgQEAgaW50
+IGFyY2hfc2hvd19pbnRlcnJ1cHRzKHN0cnVjdCBzZXFfZmlsZSAqcCwgaW50IHByZWMpCj4gPgo+
+ID4gIHZvaWQgX19pbml0IGluaXRfSVJRKHZvaWQpCj4gPiAgewo+ID4gKyAgICAgaW5pdF9pcnFf
+c3RhY2tzKCk7Cj4gPiAgICAgICBpcnFjaGlwX2luaXQoKTsKPiA+ICAgICAgIGlmICghaGFuZGxl
+X2FyY2hfaXJxKQo+ID4gICAgICAgICAgICAgICBwYW5pYygiTm8gaW50ZXJydXB0IGNvbnRyb2xs
+ZXIgZm91bmQuIik7Cj4gPiAgfQo+ID4KPiA+IC1hc21saW5rYWdlIHZvaWQgbm9pbnN0ciBkb19y
+aXNjdl9pcnEoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gPiArc3RhdGljIHZvaWQgbm9pbnN0ciBo
+YW5kbGVfcmlzY3ZfaXJxKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gIHsKPiA+ICAgICAgIHN0
+cnVjdCBwdF9yZWdzICpvbGRfcmVnczsKPiA+IC0gICAgIGlycWVudHJ5X3N0YXRlX3Qgc3RhdGUg
+PSBpcnFlbnRyeV9lbnRlcihyZWdzKTsKPiA+Cj4gPiAgICAgICBpcnFfZW50ZXJfcmN1KCk7Cj4g
+PiAgICAgICBvbGRfcmVncyA9IHNldF9pcnFfcmVncyhyZWdzKTsKPiA+ICAgICAgIGhhbmRsZV9h
+cmNoX2lycShyZWdzKTsKPiA+ICAgICAgIHNldF9pcnFfcmVncyhvbGRfcmVncyk7Cj4gPiAgICAg
+ICBpcnFfZXhpdF9yY3UoKTsKPiA+ICt9Cj4gPiArCj4gPiArYXNtbGlua2FnZSB2b2lkIG5vaW5z
+dHIgZG9fcmlzY3ZfaXJxKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gK3sKPiA+ICsgICAgIGly
+cWVudHJ5X3N0YXRlX3Qgc3RhdGUgPSBpcnFlbnRyeV9lbnRlcihyZWdzKTsKPiA+ICsjaWZkZWYg
+Q09ORklHX0lSUV9TVEFDS1MKPiA+ICsgICAgIGlmIChvbl90aHJlYWRfc3RhY2soKSkgewo+ID4g
+KyAgICAgICAgICAgICB1bG9uZyAqc3AgPSBwZXJfY3B1KGlycV9zdGFja19wdHIsIHNtcF9wcm9j
+ZXNzb3JfaWQoKSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKyBJ
+UlFfU1RBQ0tfU0laRS9zaXplb2YodWxvbmcpOwo+ID4gKyAgICAgICAgICAgICBfX2FzbV9fIF9f
+dm9sYXRpbGUoCj4gPiArICAgICAgICAgICAgICJhZGRpICAgc3AsIHNwLCAtIlJJU0NWX1NaUFRS
+ICAiXG4iCj4gPiArICAgICAgICAgICAgIFJFR19TIiAgcmEsIChzcCkgICAgICAgICAgICAgICAg
+XG4iCj4gPiArICAgICAgICAgICAgICJhZGRpICAgc3AsIHNwLCAtIlJJU0NWX1NaUFRSICAiXG4i
+Cj4gPiArICAgICAgICAgICAgIFJFR19TIiAgczAsIChzcCkgICAgICAgICAgICAgICAgXG4iCj4g
+PiArICAgICAgICAgICAgICJhZGRpICAgczAsIHNwLCAyKiJSSVNDVl9TWlBUUiAiXG4iCj4gPiAr
+ICAgICAgICAgICAgICJtb3ZlICAgc3AsICVbc3BdICAgICAgICAgICAgICAgXG4iCj4gPiArICAg
+ICAgICAgICAgICJtb3ZlICAgYTAsICVbcmVnc10gICAgICAgICAgICAgXG4iCj4gPiArICAgICAg
+ICAgICAgICJjYWxsICAgaGFuZGxlX3Jpc2N2X2lycSAgICAgICAgXG4iCj4gPiArICAgICAgICAg
+ICAgICJhZGRpICAgc3AsIHMwLCAtMioiUklTQ1ZfU1pQVFIiXG4iCj4gPiArICAgICAgICAgICAg
+IFJFR19MIiAgczAsIChzcCkgICAgICAgICAgICAgICAgXG4iCj4gPiArICAgICAgICAgICAgICJh
+ZGRpICAgc3AsIHNwLCAiUklTQ1ZfU1pQVFIgICAiXG4iCj4gPiArICAgICAgICAgICAgIFJFR19M
+IiAgcmEsIChzcCkgICAgICAgICAgICAgICAgXG4iCj4gPiArICAgICAgICAgICAgICJhZGRpICAg
+c3AsIHNwLCAiUklTQ1ZfU1pQVFIgICAiXG4iCj4gPiArICAgICAgICAgICAgIDoKPiA+ICsgICAg
+ICAgICAgICAgOiBbc3BdICJyIiAoc3ApLCBbcmVnc10gInIiIChyZWdzKQo+ID4gKyAgICAgICAg
+ICAgICA6ICJhMCIsICJhMSIsICJhMiIsICJhMyIsICJhNCIsICJhNSIsICJhNiIsICJhNyIsCj4g
+PiArICAgICAgICAgICAgICAgInQwIiwgInQxIiwgInQyIiwgInQzIiwgInQ0IiwgInQ1IiwgInQ2
+IiwKPiA+ICsgICAgICAgICAgICAgICAibWVtb3J5Iik7Cj4KPiBUaGlzIHdob2xlIGFzc2VtYmx5
+IHRoaW5nIHdpbGwgYmUgQyZQIGluIGxhdGVyIGNvbW1pdHMuIENhbiB3ZSBwbGVhc2UgZG8KPiBz
+b21ldGhpbmcgbGlrZSB4ODYgZG9lcyBoZXJlIChjYWxsX29uX3N0YWNrIC0tCj4gYXJjaC94ODYv
+aW5jbHVkZS9hc20vaXJxX3N0YWNrLmgpLCB3aGljaCB3aWxsIGh1cnQgb3VyIGV5ZXMgYSBiaXQg
+bGVzcywKPiBhbmQgbWFrZSBpdCBtb3JlIG1haW50YWluYWJsZT8KT2theS4KCj4KPgo+IEJqw7Zy
+bgoKCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
