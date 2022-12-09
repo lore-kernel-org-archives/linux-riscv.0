@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 291CDC10F1B
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 19:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FF3C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 19:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ynu7YPJVziO0C4Urq9WJlPMAk5H3zuCxj4WhTj3TdqI=; b=yFUH4m4ZAL2hYl
-	VxVZgAVMrD6FyXGfYO013ljnqfEvCGC6dMad5QOPN+VfFJoC2pC52xxOy1OPApnHJqe4PUkLGs5Jb
-	s/0/gIL9UWaKulNeh2uSlo8j9RdFlv2wdWghsJB/cBVQS2vYj4JT41ekMWZbow2v8NK2Ab1wZOJpp
-	eXJ3jElogcvbwoWSBlS+/7LCO1cJ+4DtrzcYerpb4fol2jRK8ugesqeGIWPeQ4FSnQpIaxj83T1bM
-	CV44O3SLAIYTajaXiORE4Yo46fxMl+N9IFOD/OWf2jCXShhRBGv8Ma697pFDQCjclxvY4mNH/DUMY
-	s8NdGMd/HuvrHLJTbWSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=VOW+wZoQTzR+PTxkOG2ohCnA1ysIrkhPAVeGHvpg6ko=; b=YHrPWelcxDFRjOevN9Z51RN7Az
+	McN6a8Bo3bIqF0H9qyozaXUPmSKn9mxjwJgHG3sKvnchJUuD4Q6WcXMc5lScgJaafLS9Ybxx71Ohy
+	01QT7N7Cd8vHNvS0WG7kXNUJaDGyxAwejgXC4sVwMnEM6NDdz20zuuWeJfEO38tLoAqaLH8Qm7Sqz
+	ZwRe13NRXmje8dIeNzsr7MkkpFSSvc2dRPqNDZkXimaKN2jRNXJyLjE4bZyHVN9oztPULI47Xlhe4
+	KhFlYoMn9rSKyr9ssHk1R9SJB/nfLR9lLFQtENIxrA4E8WEtXNbUg6J88NroC0q+3Ydu0/V41tk/M
+	vQeefcww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3iid-00AaRv-0j; Fri, 09 Dec 2022 19:07:35 +0000
-Received: from out2.migadu.com ([188.165.223.204])
+	id 1p3ipZ-00AfAR-9X; Fri, 09 Dec 2022 19:14:45 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3iiQ-00AaHB-AR; Fri, 09 Dec 2022 19:07:25 +0000
-Date: Fri, 9 Dec 2022 19:07:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1670612838;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oWmH4e1mGrQaOKoXcB+GepAJzEfWN1IWTXh/7cR74Ow=;
-	b=AswdAfd5Q+mOjP5g961Yuon0PbYZHfxSUDlGJ+/buNi7IHM9bd6ULaRiGOzBuN6ci0izSW
-	B5EIV4JzGif6x12auQAsZB3J+bcstx7A9s7T7t3T4uADc2KhM2k8w4j4zr2MLJSJNCfruM
-	B8PoL86EPm1zOzsehSZsoQ31jqDCN7U=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: David Matlack <dmatlack@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sean Christopherson <seanjc@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Nadav Amit <namit@vmware.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Yu Zhao <yuzhao@google.com>,
-	Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>,
-	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>,
-	Krish Sadhukhan <krish.sadhukhan@oracle.com>,
-	Ricardo Koller <ricarkol@google.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvmarm@lists.cs.columbia.edu, linux-mips@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [RFC PATCH 00/37] KVM: Refactor the KVM/x86 TDP MMU into common
- code
-Message-ID: <Y5OHVzBSHPmAq2FO@google.com>
-References: <20221208193857.4090582-1-dmatlack@google.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221208193857.4090582-1-dmatlack@google.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1p3ipV-00Af7P-5k
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 19:14:43 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id fy4so5462510pjb.0
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Dec 2022 11:14:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6UB0YOGyychK/2QqsDbt3+Ytc2kYn0bzS2eLbN1tkGw=;
+        b=k9OnBKq1FrKRkzxdBmOluPdfXgUk+ZttA1oRPSB0k7hL/PgYajzWyOCKC3omah3Hpz
+         wsPxlKZhgtVvn0Mxg4lLheqOQHILrvkbyToqsRtttAQzMDQIpYQs8G4XqXE6hKf+l7Dj
+         0MBwTjeK5FPHjDp7HX3wszEuJ9fRCCoQ9Pi8EZ6NZEjpMCVh681h2jPwTPdzS5By61Hq
+         bOxhGMf4F1eNvvfv9zzWbzv9xjqLhxmirSjqOiOBbxPr47QV+X0rA38OF1+wntPtLRd+
+         ISyXkgxMufrh60ATQzHo+7zflriYtrs+vUf/oGb9BuaCQtYQJ05nVdHF5FQUFi4pjlaX
+         1nDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6UB0YOGyychK/2QqsDbt3+Ytc2kYn0bzS2eLbN1tkGw=;
+        b=BiyC3nzlb+8PFQ3GpDal81TwHHcJWihBpaKDwEKdvNek9FAJbE2RJVyPFcqNiQGyti
+         sKCDwo2dv9nyHLe97G+jTeZtCj4dQntAQrDQ2YFTKxORx86PpY4ormYqzWDf/qgG+rPN
+         PwFMyTcHJABpZaqF4C5p0zwLf0DkLFMe3BGhk925s9mdX4eCeFkOeStKuEFJSmo6NqJx
+         XbpCVTQQE49U2J/6h14ng39X6oLXb4TiGOoF4SOYBA4+npayIrnUJWV5ilcLPnBDatdv
+         IVX/3FvuC+3gCijBB6i9W9JJ9g+fsbJ7+ZjrXjIDfu9ijqOAmf5pU49vLBRy3TJOEQeA
+         R2Kw==
+X-Gm-Message-State: ANoB5pncXMiM+LTjD/8za527svY1KMt9ZXDuJlpKYhobySLSUFT71eVc
+	M9KPmuQ5otj91SqLuTuxdlzNBw==
+X-Google-Smtp-Source: AA0mqf79ax/sypRX+Pt/dn9MwObJdpQ/HTx0JxroKJSRPDqpuaoKM3EM2YzwhZiK6awwCfm0O2FR3A==
+X-Received: by 2002:a17:902:a70e:b0:185:4421:7300 with SMTP id w14-20020a170902a70e00b0018544217300mr6830199plq.69.1670613279485;
+        Fri, 09 Dec 2022 11:14:39 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id t17-20020a170902e85100b001871acf245csm1681062plg.37.2022.12.09.11.14.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 Dec 2022 11:14:39 -0800 (PST)
+Date: Fri, 09 Dec 2022 11:14:39 -0800 (PST)
+X-Google-Original-Date: Fri, 09 Dec 2022 11:04:46 PST (-0800)
+Subject: Re: [PATCH v3 1/2] soc: microchip: mpfs: handle failed system service requests
+In-Reply-To: <20221123175652.327859-2-conor@kernel.org>
+CC: Conor Dooley <conor.dooley@microchip.com>, jassisinghbrar@gmail.com,
+  daire.mcnamara@microchip.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor Dooley <conor@kernel.org>
+Message-ID: <mhng-fc50aea2-a2ff-4d2e-a906-0892ee40ca2f@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221209_110723_711548_5A2CDC43 
-X-CRM114-Status: GOOD (  35.59  )
+X-CRM114-CacheID: sfid-20221209_111441_245130_35E720E3 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,125 +84,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 08, 2022 at 11:38:20AM -0800, David Matlack wrote:
-> [ mm folks: You are being cc'd since this series includes a mm patch
->   ("mm: Introduce architecture-neutral PG_LEVEL macros"), but general
->   feedback is also welcome. I imagine there are a lot of lessons KVM can
->   learn from mm about sharing page table code across architectures. ]
-> 
-> Hello,
-> 
-> This series refactors the KVM/x86 "TDP MMU" into common code. This is
-> the first step toward sharing TDP (aka Stage-2) page table management
-> code across architectures that support KVM. For more background on this
-> effort please see my talk from KVM Forum 2022 "Exploring an
-> architecture-neutral MMU":
-> 
->   https://youtu.be/IBhW34fCFi0
-> 
-> By the end of this series, 90% of the TDP MMU code is in common directories
-> (virt/kvm/mmu/ and include/kvm/). The only pieces that remaing in
-> arch/x86 are code that deals with constructing/inspecting/modifying PTEs
-> and arch hooks to implement NX Huge Pages (a mitigation for an
-> Intel-specific vulnerability).
-> 
-> Before:
-> 
->   180 arch/x86/kvm/mmu/tdp_iter.c
->   118 arch/x86/kvm/mmu/tdp_iter.h
->  1917 arch/x86/kvm/mmu/tdp_mmu.c
->    98 arch/x86/kvm/mmu/tdp_mmu.h
->  ----
->  2313 total
-> 
-> After:
-> 
->   178 virt/kvm/mmu/tdp_iter.c
->  1867 virt/kvm/mmu/tdp_mmu.c
->   117 include/kvm/tdp_iter.h
->    78 include/kvm/tdp_mmu.h
->    39 include/kvm/tdp_pgtable.h
->  ----
->   184 arch/x86/kvm/mmu/tdp_pgtable.c
->    76 arch/x86/include/asm/kvm/tdp_pgtable.h
->  ----
->  2539 total
-> 
-> This series is very much an RFC, but it does build (I tested x86_64 and
-> ARM64) and pass basic testing (KVM selftests and kvm-unit-tests on
-> x86_64), so it is entirely functional aside from any bugs.
-> 
-> The main areas I would like feedback are:
-> 
->  - NX Huge Pages support in the TDP MMU requires 5 arch hooks in
->    the common code, which IMO makes the NX Huge Pages implementation
->    harder to read. The alternative is to move the NX Huge Pages
->    implementation into common code, including the fields in struct
->    kvm_mmu_page and kvm_page_fault, which would increase memory usage
->    a tiny bit (for non-x86 architectures) and pollute the common code
->    with an x86-specific security mitigation. Ideas on better ways to
->    handle this would be appreciated.
-> 
->  - struct kvm_mmu_page increased by 64 bytes because the separation of
->    arch and common state eliminated the ability to use unions to
->    optimize the size of the struct. There's two things we can do to
->    reduce the size of the struct back down: (1) dynamically allocated
->    root-specific fields only for root page tables and (2) dynamically
->    allocate Shadow MMU state in kvm_mmu_page_arch only for Shadow MMU
->    pages. This should actually be a net *reduction* the size of
->    kvm_mmu_page relative today for most pages, but I have not
->    implemented it.
-> 
->    Note that an alternative approach I implemented avoided this problem
->    by creating an entirely separate struct for the common TDP MMU (e.g.
->    struct tdp_mmu_page). This however had a lot of downsides that I
->    don't think make it a good solution. Notably, it complicated a ton of
->    existing code in arch/x86/kvm/mmu/mmu.c (e.g. anything that touches
->    vcpu->arch.mmu->root and kvm_recover_nx_huge_pages()) and created a
->    new runtime failure mode in to_shadow_page().
-> 
->  - Naming. This series does not change the names of any existing code.
->    So all the KVM/x86 Shadow MMU-style terminology like
->    "shadow_page"/"sp"/"spte" persists. Should we keep that style in
->    common code or move toward something less shadow-paging-specific?
->    e.g. "page_table"/"pt"/"pte".
+On Wed, 23 Nov 2022 09:56:51 PST (-0800), Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> If a service request fails, a non-zero, per-service error code will be
+> set. Since the individual service drivers may wish to handle things
+> differently, there's little point trying to do anything intelligent in
+> the system controller driver. Let the caller know that things went wrong
+> & leave the details of handling the error to it.
+>
+> Fixes: d0054a470c33 ("soc: add microchip polarfire soc system controller")
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/soc/microchip/mpfs-sys-controller.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/soc/microchip/mpfs-sys-controller.c b/drivers/soc/microchip/mpfs-sys-controller.c
+> index 6e20207b5756..539fc24b397d 100644
+> --- a/drivers/soc/microchip/mpfs-sys-controller.c
+> +++ b/drivers/soc/microchip/mpfs-sys-controller.c
+> @@ -52,6 +52,12 @@ int mpfs_blocking_transaction(struct mpfs_sys_controller *sys_controller, struct
+>
+>  	mutex_unlock(&transaction_lock);
+>
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (msg->response->resp_status)
+> +		ret = -EIO;
+> +
+>  	return ret;
+>  }
+>  EXPORT_SYMBOL(mpfs_blocking_transaction);
 
-I would strongly be in favor of discarding the shadow paging residue if
-x86 folks are willing to part ways with it :)
-
->    Also do we want to keep "TDP" or switch
->    to something more familiar across architectures (e.g. ARM and RISC-V
->    both use "Stage-2")?
-
-As it relates to guest memory management I don't see much of an issue
-with it, TBH. It is sufficiently arch-generic and gets the point across.
-
-Beyond that I think it really depends on the scope of the common code.
-
-To replace the arm64 table walkers we will need to use it for stage-1
-tables. I'm only hand-waving at the cover letter and need to do more
-reading, but is it possible to accomplish some division:
-
- - A set of generic table walkers that implement common operations, like
-   map and unmap. Names and types at this layer wouldn't be
-   virt-specific.
-
- - Memory management for KVM guests that uses the table walker library,
-   which we can probably still call the TDP MMU.
-
-Certainly this doesn't need to be addressed in the first series, as the x86
-surgery is enough on its own. Nonetheless, it is probably worthwhile to
-get the conversation started about how this code can actually be used by
-the other arches.
-
---
-Thanks,
-Oliver
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 
 _______________________________________________
 linux-riscv mailing list
