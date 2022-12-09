@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99669C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 22:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC97FC4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 22:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Date:Message-Id
-	:Subject:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3XRDn2NQU+y+T27/fi1umGMioA5H+3xScxstTH+AAc8=; b=nD6G67a06jP3ZG
-	EKQXXphCery44WF53e89nsNIxONNa7R2ht6R8rmZsVnz5Lhm3nQYdRGCuRbzCQJ4Pk49ppqVqEeoi
-	gG2eWllWiYA3kapiN6lj/E4LsESzSJg9/+QjbRNLnUtrpswa4mVpZteCW1ljVU1SIHOYI/1JL5kDe
-	tU0oiaoaAUpQBSj9YxTb/es6WONabgcXrPeSNgRNsryvKmW3E3uZ95CijrP2DzhrD4w9wQ016seQt
-	J8KXMbvGPHgXZRMQnFDSt9LFgzdTOJWjAva9uYGbfi6tDItO/VKAUOYaMRYxKw7NHpNZCyvbzCE3z
-	bY2B9ErCtsUmjX434RTg==;
+	List-Owner; bh=UWLmSdH0Cg5Eki/dvwaesJT01d3GKI/p/pLoJ5MpPIg=; b=bdf8EHBxtgh9Gm
+	GKBOhSrIy/THMnLvoBJ44zQraMeMT7nu5470IdU0xWPqMD/uB2h9+MigPSGY/JlwqspBccRUAdDZ3
+	USVdgelQnr+zHc6SkosMvR2H4PNLzuicuOmJG3ufRfyNqsMkBxfnBA/i5JwHvuFtcgdYRnzqv1Lmn
+	NmY8Vxu1v5JyZ7d7fV592CvutVSRdeLMI22XdMDU0wPrG7Ku7BBex9c7TTpm7fsJX/LDlLG6lr1/c
+	BGpI6igXSeYURYC2DP/WssMQung1S2VI1wQ2hXCpEBwuXY/n144EL522idaguWLQDsAX4spOSmGXS
+	DoagPbfJgseetL4CBnDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3lkr-00Bplt-76; Fri, 09 Dec 2022 22:22:05 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1p3lst-00BsJS-0O; Fri, 09 Dec 2022 22:30:23 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3lko-00BpkL-3p
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 22:22:03 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 62so4443842pgb.13
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Dec 2022 14:21:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=17FnP6NuN4raoUSRE2YUiZ5vUPR0p2ye05+ytN654ic=;
-        b=F4UHwZiTlPkAo7AvWcSNI4HQUOZhXAQtuRzVJdWRD3KavGlFTli2nqZQjpBwzS9Tv4
-         ppJxPpDy3UlxCMNCKZ48/hBsc6UyWSJD5qUf7D0wO22zmauBuUdRRxTLbUlVsbpDySql
-         XuVyOGqSryZ27lmPWMNwy+fJE8ikCSGEZSHtFyHZFw+0zYawuVjy7gnevx5t3/5F/N25
-         8i4mNBnZ7O0AfkUbLJL8hXf3+H31K6C6YneCh2Fxzh/16ZKBjufch8xr2TeylpszV0Hh
-         6OLF7PV+Mnn3SVaLUy/Wckb+zy+JTbytqvFrNXBduRxRYr893J1d1eE3JxLeBla/N4oU
-         67Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:date:message-id
-         :subject:references:in-reply-to:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=17FnP6NuN4raoUSRE2YUiZ5vUPR0p2ye05+ytN654ic=;
-        b=rJBieGhfsO1N74g714Q4HfQ2vnItmge60MXeP1oPWyB7jSTMlrKNz4Yf0VqzucL+Gu
-         F89XMmdy1uoLhG7YtM5ic8xMB9eug46Z+lGArrZZV0UriguektaT7w5Lf3VpcOdTivuX
-         LPk6jD4GwlW2wc3KIBzVeZ/MBAL3hjO31U7JzPhyYrBvz2lLu9dCfLuQo5i2BDY7+9Tl
-         y99SCqe0PT8/EczY2g7kXgSZTK3vr3CJLuevPRZQl+/E5IeeyCP3kMojXA2Si/EH+ZOd
-         LcM/VDlk0gMxee6boAbQmT77k/AIFyT5nS62YT4wpsawvToL6pe53ux3YoyHMG1K7ZhX
-         AZOA==
-X-Gm-Message-State: ANoB5pnZ0dd/nlB3AktytyZ4oI48fhA9fKdW4gWQjt25hF4XBbLGr122
-	pjDKEVgB+VlWDGVXWWos75mw4A==
-X-Google-Smtp-Source: AA0mqf6uLRDqMB34PJyc3akalpJi05dLI0+PT7S+ktCXKIu6lW9xAm/R5lkdpc7wnnEweG9/QvVGww==
-X-Received: by 2002:a05:6a00:26c1:b0:578:101e:ddec with SMTP id p1-20020a056a0026c100b00578101eddecmr2222026pfw.11.1670624517964;
-        Fri, 09 Dec 2022 14:21:57 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id y15-20020aa79aef000000b005769b244c2fsm1677037pfp.40.2022.12.09.14.21.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 Dec 2022 14:21:57 -0800 (PST)
-In-Reply-To: <20221128023643.329091-1-panqinglin2020@iscas.ac.cn>
-References: <20221128023643.329091-1-panqinglin2020@iscas.ac.cn>
-Subject: Re: [PATCH RESEND v1] riscv: mm: call best_map_size many times during linear-mapping
-Message-Id: <167062285116.3097.1605819842791838196.b4-ty@rivosinc.com>
-Date: Fri, 09 Dec 2022 13:54:11 -0800
+	id 1p3lsq-00BsIi-DQ
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 22:30:22 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id C8796B8293B;
+	Fri,  9 Dec 2022 22:30:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 87D86C433EF;
+	Fri,  9 Dec 2022 22:30:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670625017;
+	bh=2Xh3vCqZ1odxCvK5f9bCXkVfiGq9OG7oTrnj9h9MJEk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=WFKSmr0DqkqXPQ5+tX7/mAXoa61kdGa/lY47cUU2Hajc/Rly8hkpOnJQrC5SLd7iH
+	 9XbnqdwTOKxCjHQREAzNbjhgMuY4d5QMHXXYckncCIvyZWZFbKYP7jWe1sWuLVOSwJ
+	 Swy5evR4dQFfnCKoijEd22YDQD46XF7hgNhzyc7TMYm1/L5Igu+geOjFGgPUgVrp/d
+	 H2y6eKaWJNqvi7p82f26Rzjx92Mqe7rYbz3AYQiNxOLkuL8c5oA4NMl4TBrjtcZn/4
+	 3ne7Yeq0y14yVH460HFTIO/0By5equX/52q2lb6MQFQqKaPlR8Mq5X11GChVWOg4Tn
+	 2QrRvybyVuA3g==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 72AEEC41612;
+	Fri,  9 Dec 2022 22:30:17 +0000 (UTC)
 MIME-Version: 1.0
-X-Mailer: b4 0.11.0-dev-e660e
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: panqinglin2020@iscas.ac.cn, linux-riscv@lists.infradead.org,
-  Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v3 0/3] RISC-V: Ensure Zicbom has a valid block size
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167062501746.3088.13063280790225807236.git-patchwork-notify@kernel.org>
+Date: Fri, 09 Dec 2022 22:30:17 +0000
+References: <20221129143447.49714-1-ajones@ventanamicro.com>
+In-Reply-To: <20221129143447.49714-1-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, conor.dooley@microchip.com,
+ heiko@sntech.de, apatel@ventanamicro.com, atishp@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221209_142202_171972_695BC2AA 
-X-CRM114-Status: UNSURE (   5.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221209_143020_617390_15E2E211 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,24 +75,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Nov 2022 10:36:43 +0800, panqinglin2020@iscas.ac.cn wrote:
-> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> Modify the best_map_size function to give map_size many times instead
-> of only once, so a memory region can be mapped by both PMD_SIZE and
-> PAGE_SIZE.
-> 
+Hello:
+
+This series was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Tue, 29 Nov 2022 15:34:44 +0100 you wrote:
+> When a DT puts zicbom in the isa string, but does not provide a block
+> size, ALT_CMO_OP() will attempt to do cache operations on address
+> zero since the start address will be ANDed with zero. We can't simply
+> BUG() in riscv_init_cbom_blocksize() when we fail to find a block
+> size because the failure will happen before logging works, leaving
+> users to scratch their heads as to why the boot hung. Instead, ensure
+> Zicbom is disabled and output an error which will hopefully alert
+> people that the DT needs to be fixed. While at it, add a check that
+> the block size is a power-of-2 too.
 > 
 > [...]
 
-Applied, thanks!
+Here is the summary with links:
+  - [v3,1/3] RISC-V: Improve use of isa2hwcap[]
+    https://git.kernel.org/riscv/c/78eda777d2f1
+  - [v3,2/3] RISC-V: Introduce riscv_isa_extension_check
+    https://git.kernel.org/riscv/c/132cfeb2b7fd
+  - [v3,3/3] RISC-V: Ensure Zicbom has a valid block size
+    https://git.kernel.org/riscv/c/68dc0718407d
 
-[1/1] riscv: mm: call best_map_size many times during linear-mapping
-      https://git.kernel.org/palmer/c/6ff8ca3f93d3
-
-Best regards,
+You are awesome, thank you!
 -- 
-Palmer Dabbelt <palmer@rivosinc.com>
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
