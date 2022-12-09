@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56848C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476C8C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2eLN7ILmJ5iuVAgqPECA4YChyu0gS0UKsav/G0geo7M=; b=Y55wKBH7xuqWzs
-	L9eYkpXeszHG3VCskuCM5ybIOUzgP/kMKvv60hM8fB8awsRAopcn38db6FlI1XFggMZV+lVIY0u3W
-	KWlWQ+pyIF6HuAQpAZJqoffekv31euJcMBhkTrQxPSF05nebZM0Lksvx8i6yDk1N+PB/RRhkdRQdm
-	Ji/uTz/YJwb6BWLvQldYJQO07T0KRZuP375SUn5HWUei+XPGB9/o0Yy8ZlW4sz+4YZeg0Ow0dRHi+
-	HamGvsUIU/9lWa4RzMzoBa3s+ipgXxjinYVDadjanuHQv1QJQ9DbKz92r67dXtSvvmSSyAH6CjznG
-	NHx3JU0txdMNT6dz3Jrw==;
+	List-Owner; bh=Vnc4mbcsH8/tP5iQRn5u+f03KVyrhtVYlcrGY0VNY14=; b=IblgIvCth+4mcH
+	CAgI0Y3HFIsNstLSWX9Fs4u8iRR/xVynX/2OaOAKfS36rdMPgtViE9/Iz3x4hMOLC4kHT4m9H+IfC
+	6xo+YFoLED5LDzoPmsDu9PAGuDISYH1N2h64ALiYYtWn72f/gibqehEqikj0R9Q3kB4TeXY3iNToe
+	BuTs8Ot8+7zy1lYuDYeBNN0ChRnurAkdP9QSw8OJLg5+IkTNI6hLfOqw0r+HIiSngOpxGvJqxaiDN
+	3aUJlU+peedbgRYhXqqG5/bLfxANqg2n6u/HYp3nIQoRGPSQIab1SKAdStGFokGxE8337yhVDazCJ
+	+dL6Gh2q3SgdhUETs1mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3SBy-0002Yk-NV; Fri, 09 Dec 2022 01:28:46 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3SBu-0002Ky-Sy
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:28:44 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 0C79924E1FF;
-	Fri,  9 Dec 2022 09:28:13 +0800 (CST)
-Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
- 2022 09:28:13 +0800
-Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
- (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
- 2022 09:28:11 +0800
-Message-ID: <a2c6ff79-2d47-d0a1-d59a-716a1d212808@starfivetech.com>
-Date: Fri, 9 Dec 2022 09:28:06 +0800
+	id 1p3SDX-00040r-8c; Fri, 09 Dec 2022 01:30:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p3SDU-0003x9-B5
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:30:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8AC6762103;
+	Fri,  9 Dec 2022 01:30:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DD258C433F0;
+	Fri,  9 Dec 2022 01:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670549418;
+	bh=K0icfcWXctigWWVx3ADmDqvIRURr0H+ejPlG7fwXulw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=ruR/saYEQ8/sPSnWWkoEOfCTVZRKvI7UT3oxl7qE/KCFfL675z/I9DZLWPElyaqSo
+	 UcjcNVkmpu7+Sh5cZ4KTQRKqrj10o4EWzpo9F9NfMet8ctPlqrOoPOtrCZ95UO59Ak
+	 Am91RkFkb4JjYRVWUoFLGzHwkM03iCcNKmUUxMHQWf6QlBiV0A1G0ZFu8WtaRNvz4p
+	 etOwD62wCCSd+LAa0dxZQ/SvlsV8v53ZZN088Je+c+OX5KgsboOY0qg0NhRdIfyy2Y
+	 P3ZQDww4T9xifw5rP4F79u3PsCUjj0Z3SCDguSi+OzqdQWmgkKi30rjNuCh7JSZkBF
+	 Sa7d0uw2psQqA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id C3468E1B4D8;
+	Fri,  9 Dec 2022 01:30:18 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v1 7/7] riscv: dts: starfive: visionfive-v2: Add phy
- delay_chain configuration
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
-	<robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
-	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
-References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
- <20221201090242.2381-8-yanhong.wang@starfivetech.com> <Y4jpDvXo/uj9ygLR@spud>
- <Y4kAyAhBseNmmDo8@spud>
-From: yanhong wang <yanhong.wang@starfivetech.com>
-In-Reply-To: <Y4kAyAhBseNmmDo8@spud>
-X-Originating-IP: [171.223.208.138]
-X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
- (172.16.6.93)
-X-YovoleRuleAgent: yovoleflag
+Subject: Re: [PATCH] riscv: boot: add zstd support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167054941879.3046.3791891123009116103.git-patchwork-notify@kernel.org>
+Date: Fri, 09 Dec 2022 01:30:18 +0000
+References: <20221123150257.3108-1-jszhang@kernel.org>
+In-Reply-To: <20221123150257.3108-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, terrelln@fb.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_172843_328285_05E70391 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20221208_173020_458278_F9BC9186 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,103 +76,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On 2022/12/2 3:30, Conor Dooley wrote:
-> On Thu, Dec 01, 2022 at 05:49:08PM +0000, Conor Dooley wrote:
->> On Thu, Dec 01, 2022 at 05:02:42PM +0800, Yanhong Wang wrote:
->> > riscv: dts: starfive: visionfive-v2: Add phy delay_chain configuration
->> > 
->> > Add phy delay_chain configuration to support motorcomm phy driver for
->> > StarFive VisionFive 2 board.
+On Wed, 23 Nov 2022 23:02:57 +0800 you wrote:
+> Support build the zstd compressed Image.zst. Similar as other
+> compressed formats, the Image.zst is not self-decompressing and
+> the bootloader still needs to handle decompression before
+> launching the kernel image.
 > 
-> nit: please re-word this commit next time around to actually say what
-> you're doing here. I didn't notice it initially, but this patch is doing
-> a lot more than adding `delay_chain` configuration. To my dwmac unaware
-> brain, there's nothing hits for that term outside of the changelog :(
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > 
+> [...]
 
-I will re-word the commit message and add another dt-binding to describe the details that such as "rxc_dly_en","tx_inverted_10" etc.
+Here is the summary with links:
+  - riscv: boot: add zstd support
+    https://git.kernel.org/riscv/c/de59b6ed0618
 
-> Thanks,
-> Conor.
-> 
->> > 
->> > Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
->> > ---
->> >  .../jh7110-starfive-visionfive-v2.dts         | 46 +++++++++++++++++++
->> >  1 file changed, 46 insertions(+)
->> > 
->> > diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> > index c8946cf3a268..2868ef4c74ef 100644
->> > --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> > +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
->> > @@ -15,6 +15,8 @@
->> >  
->> >  	aliases {
->> >  		serial0 = &uart0;
->> > +		ethernet0=&gmac0;
->> > +		ethernet1=&gmac1;
->> 
->> Please match the whitespace usage of the existing entry.
->> 
->> >  	};
->> >  
->> >  	chosen {
->> > @@ -114,3 +116,47 @@
->> >  	pinctrl-0 = <&uart0_pins>;
->> >  	status = "okay";
->> >  };
->> > +
->> > +&gmac0 {
->> > +	status = "okay";
->> > +	#address-cells = <1>;
->> > +	#size-cells = <0>;
->> > +	phy-handle = <&phy0>;
->> > +	status = "okay";
->> > +	mdio0 {
->> 
->> A line of whitespace before the child nodes too please :)
->> 
->> > +		#address-cells = <1>;
->> > +		#size-cells = <0>;
->> > +		compatible = "snps,dwmac-mdio";
->> > +		phy0: ethernet-phy@0 {
->> > +			reg = <0>;
->> > +			rxc_dly_en = <1>;
->> > +			tx_delay_sel_fe = <5>;
->> > +			tx_delay_sel = <0xa>;
->> > +			tx_inverted_10 = <0x1>;
->> > +			tx_inverted_100 = <0x1>;
->> > +			tx_inverted_1000 = <0x1>;
->> > +		};
->> > +	};
->> > +};
->> > +
->> > +&gmac1 {
->> > +	status = "okay";
->> > +	#address-cells = <1>;
->> > +	#size-cells = <0>;
->> > +	phy-handle = <&phy1>;
->> > +	status = "okay";
->> > +	mdio1 {
->> > +		#address-cells = <1>;
->> > +		#size-cells = <0>;
->> > +		compatible = "snps,dwmac-mdio";
->> > +		phy1: ethernet-phy@1 {
->> > +			reg = <1>;
->> > +			tx_delay_sel_fe = <5>;
->> > +			tx_delay_sel = <0>;
->> > +			rxc_dly_en = <0>;
->> > +			tx_inverted_10 = <0x1>;
->> > +			tx_inverted_100 = <0x1>;
->> > +			tx_inverted_1000 = <0x0>;
->> > +		};
->> > +	};
->> > +};
->> > -- 
->> > 2.17.1
->> > 
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
 _______________________________________________
 linux-riscv mailing list
