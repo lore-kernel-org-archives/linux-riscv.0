@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43016C4332F
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78366C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 01:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=do/1V0Frb7ADtMft4q2jHSEQ9FpFerh1a3TSKNUW9SA=; b=tqB+laMOUDeWKK
-	wIjQYHJsBLbz9Ci1WHXjZLElWxs7JxvvYSxCPsoFPHPCVgXqDiYB7OYmU77h3dFIlzksxVji/8HPz
-	+7aEoRqmldIQHswvalx3vawKWk7TnrGZKvhStf8WaqzGmBwmPTyxHkldwDDHrc3P+eZKmjL2qg2/p
-	U5nDTjGykTqZfOG8KohnH3QvQNRqpxqqdv6j2asT3BZQMczSo/9CLc8y8AUzyFTmDGwn1rdcIuyrL
-	Cv57Qd6J8JVY3z3dxNPmj4KN9xR3s4+smVq1LbXm1VhoL03vm952WzIenFdetImkAN5msdI2yC7PZ
-	fnx//iVOm+qhUTZ+u/eQ==;
+	List-Owner; bh=SOpmRR8/nibFPcCA5uW47Eaj+lIgS1DVScqq3D+jrVI=; b=q+BAbMpTFUnPuT
+	p2t0WEx2ztfoZIkb/sBnR+HDsaHrlqaJYG+EscgkgPANkTK6JNuVfqq2c5TEj0m1yDVQfF9TdK3ys
+	G1FSJcFaGqDWvMBjaob6pC1FCSi0OY0KAnBaotwelor31T9QEXpaytC7fVtO3ohUS6ZZkT77JROh7
+	lf4Vp7XA1eP5Yx5Zth6p13Kht5Rcq1YiVWS/7UTJ/fegCl7i5Rn1sAhHyPEN/UdWyo4DtBY5Ww+s9
+	cO1fxTj0RgvI7sK1YykfGD7Ry0N/LFAryZZY/53o2vbs3PjrZNm3OLyCVT8IAVTzKOyYUeCM107eU
+	btgFakduuKgSrYF/GAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3RwF-00HMsB-Ve; Fri, 09 Dec 2022 01:12:31 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3RwD-00HMlF-MB
-	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:12:31 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id CD06DCE277A;
-	Fri,  9 Dec 2022 01:12:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F9FC433F2;
-	Fri,  9 Dec 2022 01:12:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670548342;
-	bh=Q37W1vLJUGba/GKJcAqRPtnLC0ooux4QhJ6D99IJvhs=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ZI661ixsVRMEo2OEh2JptvfA43/sySTL9PIV5OGjqqz8AXWluQyKtbzcL7VzvqpA6
-	 tDzRF+77RWwnHY1u2wgaGEAze1zzKKeVs/I+dPCp6t8UU/uEUnkuCMVEE6aRwU6YnQ
-	 mLnNQxauxZhpj817bP0+qn9KlAzxQRNWqW95ZkGuKPiUVpuqoE0jxJqsz7hxxDxKFg
-	 DhGyx1E5dviHdq1EW9Ct5XCg/6U0sHJ5sOQhksFy9Y98gAa0m1/QhibqTW5q6E5oGG
-	 YwgUuAMVlJ171/Y8Bf925ON8M1wRd3QC/eyUBtWXiXdgMIzisI8pIR04JBNF8Ho0xP
-	 gQgjYVhBy15tQ==
+	id 1p3S42-00HVSf-OW; Fri, 09 Dec 2022 01:20:34 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p3S3u-00HV8w-Jt
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 01:20:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id DB57824E041;
+	Fri,  9 Dec 2022 09:19:53 +0800 (CST)
+Received: from EXMBX173.cuchost.com (172.16.6.93) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
+ 2022 09:19:51 +0800
+Received: from [192.168.120.49] (171.223.208.138) by EXMBX173.cuchost.com
+ (172.16.6.93) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Fri, 9 Dec
+ 2022 09:19:49 +0800
+Message-ID: <ed2f5df6-66c4-26b4-b650-48a128760965@starfivetech.com>
+Date: Fri, 9 Dec 2022 09:19:48 +0800
 MIME-Version: 1.0
-In-Reply-To: <20221123161921.81195-1-conor@kernel.org>
-References: <20221123161921.81195-1-conor@kernel.org>
-Subject: Re: [PATCH] clk: microchip: enable the MPFS clk driver by default if SOC_MICROCHIP_POLARFIRE
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, Michael Turquette <mturquette@baylibre.com>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-To: Claudiu Beznea <claudiu.beznea@microchip.com>, Conor Dooley <conor@kernel.org>
-Date: Thu, 08 Dec 2022 17:12:19 -0800
-User-Agent: alot/0.10
-Message-Id: <20221209011222.04F9FC433F2@smtp.kernel.org>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.5.1
+Subject: Re: [PATCH v1 7/7] riscv: dts: starfive: visionfive-v2: Add phy
+ delay_chain configuration
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David S .
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Emil Renner Berthing <kernel@esmil.dk>,
+	Richard Cochran <richardcochran@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>, Peter Geis <pgwipeout@gmail.com>
+References: <20221201090242.2381-1-yanhong.wang@starfivetech.com>
+ <20221201090242.2381-8-yanhong.wang@starfivetech.com> <Y4jpDvXo/uj9ygLR@spud>
+From: yanhong wang <yanhong.wang@starfivetech.com>
+In-Reply-To: <Y4jpDvXo/uj9ygLR@spud>
+X-Originating-IP: [171.223.208.138]
+X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX173.cuchost.com
+ (172.16.6.93)
+X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221208_171229_921838_47B11677 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221208_172026_956957_26E21B67 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,21 +80,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Conor Dooley (2022-11-23 08:19:22)
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> With the intent of removing driver selects from Kconfig.socs in
-> arch/riscv, essential drivers that were being selected there could
-> instead by enabled by defaulting them to the value of the SoC's Kconfig
-> symbol.
-> 
-> Do so here & drop the depend on RISC-V - the SOC_ symbols are only
-> defined there anyway.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
 
-Applied to clk-next
+
+On 2022/12/2 1:49, Conor Dooley wrote:
+> On Thu, Dec 01, 2022 at 05:02:42PM +0800, Yanhong Wang wrote:
+>> Add phy delay_chain configuration to support motorcomm phy driver for
+>> StarFive VisionFive 2 board.
+>> 
+>> Signed-off-by: Yanhong Wang <yanhong.wang@starfivetech.com>
+>> ---
+>>  .../jh7110-starfive-visionfive-v2.dts         | 46 +++++++++++++++++++
+>>  1 file changed, 46 insertions(+)
+>> 
+>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> index c8946cf3a268..2868ef4c74ef 100644
+>> --- a/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> +++ b/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-v2.dts
+>> @@ -15,6 +15,8 @@
+>>  
+>>  	aliases {
+>>  		serial0 = &uart0;
+>> +		ethernet0=&gmac0;
+>> +		ethernet1=&gmac1;
+> 
+> Please match the whitespace usage of the existing entry.
+> 
+
+Will fix in the next version.
+
+>>  	};
+>>  
+>>  	chosen {
+>> @@ -114,3 +116,47 @@
+>>  	pinctrl-0 = <&uart0_pins>;
+>>  	status = "okay";
+>>  };
+>> +
+>> +&gmac0 {
+>> +	status = "okay";
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +	phy-handle = <&phy0>;
+>> +	status = "okay";
+>> +	mdio0 {
+> 
+> A line of whitespace before the child nodes too please :)
+> 
+
+Will fix.
+
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +		compatible = "snps,dwmac-mdio";
+>> +		phy0: ethernet-phy@0 {
+>> +			reg = <0>;
+>> +			rxc_dly_en = <1>;
+>> +			tx_delay_sel_fe = <5>;
+>> +			tx_delay_sel = <0xa>;
+>> +			tx_inverted_10 = <0x1>;
+>> +			tx_inverted_100 = <0x1>;
+>> +			tx_inverted_1000 = <0x1>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&gmac1 {
+>> +	status = "okay";
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +	phy-handle = <&phy1>;
+>> +	status = "okay";
+>> +	mdio1 {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +		compatible = "snps,dwmac-mdio";
+>> +		phy1: ethernet-phy@1 {
+>> +			reg = <1>;
+>> +			tx_delay_sel_fe = <5>;
+>> +			tx_delay_sel = <0>;
+>> +			rxc_dly_en = <0>;
+>> +			tx_inverted_10 = <0x1>;
+>> +			tx_inverted_100 = <0x1>;
+>> +			tx_inverted_1000 = <0x0>;
+>> +		};
+>> +	};
+>> +};
+>> -- 
+>> 2.17.1
+>> 
 
 _______________________________________________
 linux-riscv mailing list
