@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F12C04FDE
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 21:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA83C4332F
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Dec 2022 22:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/3q3bj8E3yQKV1Rz6UFVj8dq//EiDAzj+2mC+xIH/5c=; b=LhnJ4pKiT8VXIZ
-	Iuok6Oj57rnK6yYnXLpvWL+3HL7MwVnupRQzHYHCqzDYu8GIKt8OThnDP6Fu9IrF3ZVHictyQ1Fwb
-	E1f9v1nNI9PFbzsRMefKfDGUwDYomBJbbXBU+7y6shQt0/VRNzzzXejDSx7EzKsghGc757GdpKGvS
-	HlNYKVa+B2768Rz9+1QfIXvbqRipiRQeGMHIoVcKwPNpgxNpSm22SkwVc/sIRFIcSLjCSVwC3PyGK
-	Hko+KfByjfynUwwCiDhGMUI4paXg7JlYxcWkPTTew0pgszG0fsaWxYupGw3i6trINLqCLuBpt/oaR
-	JaCKAYuZID2uXVuIZRNQ==;
+	List-Owner; bh=hHccFU6qRmknwtpZMCT6/e1IrgK0mDciB4KTLy4gmvw=; b=Qc2bTsPIm1rLE3
+	7l8q0qwTIOXFCDU1Ll82jjKUajNSMf9Z1rTKwllyeg2f5QcaJPugKcd+3jx8nOlInkbKoIAmIMjN8
+	44zy3PMFK1HQWcNABWyN58FMwYpYaJoZa4FAnmLcJEKOl2SMYfn1h5WMDhiM5g6RKT5YsH/tWJUrz
+	KFNSTdX3yp1pBPM2trhWIwRl3IfZ3xnIoR0vYrxAZo7Mc28qJip7P8LUkzH0iMcgrAmh63jkzjUYq
+	Xxq4ap9euIV5jmxgqtkNNe0b8gGxdUgYsxSvNQF6Q/cWSt1pFkovWJhsNCI810TQYkkW7K2Ykmakx
+	EfOMzr3ORG8S3hgpEBAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3lED-00BdsF-7D; Fri, 09 Dec 2022 21:48:21 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1p3lPp-00Bikf-7O; Fri, 09 Dec 2022 22:00:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3lDx-00BdmO-UW; Fri, 09 Dec 2022 21:48:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1670622485; x=1702158485;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=VyW/tMWJvyoCTirAlG73DmAZL480LWhJqZ6Zbp5E2tY=;
-  b=DmlaXKDMGmHZ8VfjaykFiCcvjSXpnC9MYB9zSdjhgZxqwj9fHjEgcY+X
-   7pJ9tCwxNtWR1tJ+BzzmR0JHM/Ht4SqWmzWJZ05piJT7+hLqOojaJulVA
-   gfCHrlrMo6HgQ2a5K+pmK3V4aDn2YsgoyjtRwztktKI4KdW1pbchz8zuQ
-   BFCSQnE8VHLHYR9M/3zsLhDp9SAKbgFoS1XSe6dpYjlY6XP4vsJIxzmkK
-   K7nrZAU9WnJ9XU/CYIZN7UE0ejfqH7rCgO7Qqsq453oiByW5RXx15Wg6q
-   SJEavGZqN2MGzlt23iD1Wf8mOobyvpjfqzi0w0ILOQU4sBf7VEi6xhnvW
-   w==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10556"; a="319415096"
-X-IronPort-AV: E=Sophos;i="5.96,232,1665471600"; 
-   d="scan'208";a="319415096"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Dec 2022 13:48:01 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10556"; a="821856456"
-X-IronPort-AV: E=Sophos;i="5.96,232,1665471600"; 
-   d="scan'208";a="821856456"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga005.jf.intel.com with ESMTP; 09 Dec 2022 13:47:57 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1p3lDn-007CW5-0p;
-	Fri, 09 Dec 2022 23:47:55 +0200
-Date: Fri, 9 Dec 2022 23:47:54 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>, linux-pwm@vger.kernel.org,
-	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
-Message-ID: <Y5OtCjQOQjjltGPa@smile.fi.intel.com>
-References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+	id 1p3lPm-00Bij7-9h
+	for linux-riscv@lists.infradead.org; Fri, 09 Dec 2022 22:00:19 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id CA59A62359;
+	Fri,  9 Dec 2022 22:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2BD99C433EF;
+	Fri,  9 Dec 2022 22:00:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670623216;
+	bh=bP2lQNjJ8BFsWpuSnHB6vWQfpr4uHJu7gA5wCHQ8/WM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=fQozgtC6TTLHGTHnvQdF+X3ilqq7twxyQhSkjIx4bCSK4SxJLBAI7iILTxoca2o99
+	 9xVB9SzKF0q4SWqUrWffRD1A40oI5XmV5GaozfmmIlzBiK0/coc+YOwm5EIIjPxgWP
+	 Sq385J3+YqGV7kFxkFRpOgUQfd/W2+f7CoufIHW+Ki2bu70W/zzMwAKhsFb0iCcCJ6
+	 B9g2np+JzilqEE/KcNiJUyJAl44kGdBgOfeQSP/Z8u8M1gcA0Ot032rnXujqM+Sru6
+	 dX/rjn+IL70qmWAFEKt2Ld0kIZNH2jYaxwPN/x5vWEORObOJF0ldjFynh+E0bCBmkM
+	 wfgMsnG+0wJEA==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 113BBE1B4D9;
+	Fri,  9 Dec 2022 22:00:16 +0000 (UTC)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Subject: Re: [PATCH RESEND v1] riscv: mm: call best_map_size many times during
+ linear-mapping
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id:  <167062321606.20606.12182083440436811475.git-patchwork-notify@kernel.org>
+Date: Fri, 09 Dec 2022 22:00:16 +0000
+References: <20221128023643.329091-1-panqinglin2020@iscas.ac.cn>
+In-Reply-To: <20221128023643.329091-1-panqinglin2020@iscas.ac.cn>
+To: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ ajones@ventanamicro.com, alexghiti@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221209_134806_174527_5D94EC4F 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20221209_140018_419085_7A3A9A74 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +71,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
-> Hello,
-> =
+Hello:
 
-> I forgot about this series and was remembered when I talked to Conor
-> Dooley about how .get_state() should behave in an error case.
-> =
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-> Compared to (implicit) v1, sent with Message-Id: 20220916151506.298488-1-=
-u.kleine-koenig@pengutronix.de
-> I changed:
-> =
+On Mon, 28 Nov 2022 10:36:43 +0800 you wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> Modify the best_map_size function to give map_size many times instead
+> of only once, so a memory region can be mapped by both PMD_SIZE and
+> PAGE_SIZE.
+> 
+> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> 
+> [...]
 
->  - Patch #1 which does the prototype change now just adds "return 0" to
->    all implementations and so gets simpler and doesn't change behaviour.
->    The adaptions to the different .get_state() implementations are split
->    out into individual patches to ease review.
->  - One minor inconsistency fixed in "pwm: Handle .get_state() failures"
->    that I noticed while looking into this patch.
->  - I skipped changing sun4i.c as I don't know how to handle the error
->    there. Someone might want to have a look. (That's not ideal, but it's
->    not worse than the same issue before this series.)
-> =
+Here is the summary with links:
+  - [RESEND,v1] riscv: mm: call best_map_size many times during linear-mapping
+    https://git.kernel.org/riscv/c/6ff8ca3f93d3
 
-> In v1 Thierry had the concern:
-> =
-
-> | That raises the question about what to do in these cases. If we return
-> | an error, that could potentially throw off consumers. So perhaps the
-> | closest would be to return a disabled PWM? Or perhaps it'd be up to the
-> | consumer to provide some fallback configuration for invalidly configured
-> | or unconfigured PWMs.
-> =
-
-> .get_state() is only called in pwm_device_request on a pwm_state that a
-> consumer might see. Before my series a consumer might have seen a
-> partial modified pwm_state (because .get_state() might have modified
-> .period, then stumbled and returned silently). The last patch ensures
-> that this partial modification isn't given out to the consumer. Instead
-> they now see the same as if .get_state wasn't implemented at all.
-
-I'm wondering why we didn't see a compiler warning about mistyped function
-prototypes in some drivers.
-
-P.S. The series is good thing to do, thank you.
-
--- =
-
-With Best Regards,
-Andy Shevchenko
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
