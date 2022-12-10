@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EADC10F1B
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 17:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0824C4167B
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 20:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WZvt7j185uwdXqR4lT+suGp59JP+wJwOeRxieP7DcqM=; b=wU5MS8UJBscJK5
-	Tdbd06foNnzCg9VRYDsVWZRjicoIBZ9rIA9JACPaflO8YzNiDhsAOEIOoy/rRBU5SwommUep1PlGV
-	+ZqgWb/g1Tcq8X/3NO+l0YWN5wtj/UO1CMzTTzcQqo9yJohnuaQmehQiUvtmal/NyZkYAJtMkustY
-	rP4AdV1oTCnXilgxhjsp8CuXR3A3BFMfaz49cjjzKTYyGqdLWpAPFXl31pJvl5lQvA24QpW/xnSIj
-	LoiPUPTvTGhZASX7I6dqS70qDl7pJhsaOcMGrDlYAI/u2SstMmBQIj0gEc3zXifNMfnaom7vBAtG0
-	XE74GgiSUR90fQ/npKSQ==;
+	List-Owner; bh=hmi0oGrOmk329UjqERiiEv8sXJQeuCfQmHR7UyBe3YI=; b=2Z0qpGpa/oSKMl
+	KDJklGW96+VPdi9DffFhvreI0kHq/OsbCoa2154I1gvvg726UDYtDVE1ySoFdw8hVsyi2QDj1SZ8Q
+	uIBySWUsCH3NFV/1QlYP1HB1GXHL7XSyxpCVB8d0wbPsb05/S3bUYT5NjUrGWetoRllolFLCMVA1w
+	qcIez4jtC3hP2N72msOGEUKsSP87Wh2pg99Dj87HB2lG3k7O9oK7EaZpgXP38rv0IhJIlWJjRj6ay
+	4EEXTIf2p1Pjh6aCkWsOBg0ogEfelBfXnnukemtqKA1hvIJ6f7nr21uxsM2f+6K7NKNmX3NX/Sage
+	R+MKOV489xixORpW78Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p43Pe-0032na-MA; Sat, 10 Dec 2022 17:13:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1p46uh-005Liq-7o; Sat, 10 Dec 2022 20:57:39 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p43Pb-0032jm-Ad
-	for linux-riscv@lists.infradead.org; Sat, 10 Dec 2022 17:13:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B0B8C60C74;
-	Sat, 10 Dec 2022 17:13:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0639C433F1;
-	Sat, 10 Dec 2022 17:13:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670692398;
-	bh=JHvThdNgKIHzoGCcsgvMd3BAMO4TKvIdVERoyC3G8ZQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kkJbE8D4RiZs6qZ1T3/vfV5k7uYiYhcdqAY8sdlmqYV6MO1ut9H6qhcsrNiPKaKZ1
-	 84ugLxueU/5r/Jy1Hw1D8TndfiRGhez4oTWEVvNpaVEvCzxtG238KUTjDa5oA+o8m7
-	 M7B2dIMveV6YnVuuW03MA4CVpsZFnKOdP3I0OQDkBOI2rl1i/afEtnWeayss/i4B6W
-	 7iHEmWAMWIO/04tEFL/p1BnJrC+4Xb3heoe/fECXShGha3Y0ZJ1Wcm6k6ywQGEGGMa
-	 i/Yho8MQqi23HsRPNc+6hm42ZK1fKDRKcj2v6ie6uE2ZeVW2hwx8T/7RH6Oxolb/h6
-	 iooXO2xU7qE2w==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	guoren@kernel.org,
-	palmer@rivosinc.com,
-	tglx@linutronix.de,
-	peterz@infradead.org,
-	luto@kernel.org,
-	conor.dooley@microchip.com,
-	heiko@sntech.de,
-	jszhang@kernel.org,
-	lazyparser@gmail.com,
-	falcon@tinylab.org,
-	chenhuacai@kernel.org,
-	apatel@ventanamicro.com,
-	atishp@atishpatra.org,
-	paul.walmsley@sifive.com,
-	mark.rutland@arm.com,
-	greentime.hu@sifive.com,
-	andy.chiu@sifive.com,
-	ben@decadent.org.uk,
-	bjorn@kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH -next V11 7/7] riscv: entry: Consolidate general regs saving/restoring
-Date: Sat, 10 Dec 2022 12:11:41 -0500
-Message-Id: <20221210171141.1120123-8-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221210171141.1120123-1-guoren@kernel.org>
-References: <20221210171141.1120123-1-guoren@kernel.org>
+	id 1p46uT-005LaT-0L; Sat, 10 Dec 2022 20:57:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1670705845; x=1702241845;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=8tRXcUKxGagfde91ZdUSDF88p8/b8+3NQn8nn2kaumc=;
+  b=Z8FRauK1i0+pKl0yATc+E/NGcYNXoq/grKMGZ8aBNhcj2zQBZviMwQvM
+   JKTKkydjjrfdd88qIDhnFhVWVD6hX38j3rzs3dvmQRFNEvpUbds5gNfHv
+   QVoSZ/MC8o/OOOEYRXDl6/PYdXxqqcyJKpADPlHEvs40Z2ioban1YAGOp
+   QLuYd0SApjC2GQ8k1H9kKgfUf06LbHlziSQ1WNXpANEyxupG23qcznL7s
+   ME80wd5FoowGzUAyWZgwH6UNrnXM25SvbjOHS8+yjqM7G7rQwsBc7YnZq
+   lomfMZNbAAvmVC3CRS3ByThlCbc82bwu/kh1l5VLRNo3RZZFMPVrugfzx
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10557"; a="315286168"
+X-IronPort-AV: E=Sophos;i="5.96,235,1665471600"; 
+   d="scan'208";a="315286168"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2022 12:57:23 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10557"; a="678489946"
+X-IronPort-AV: E=Sophos;i="5.96,234,1665471600"; 
+   d="scan'208";a="678489946"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga008.jf.intel.com with ESMTP; 10 Dec 2022 12:57:18 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1p46uK-007g2g-33;
+	Sat, 10 Dec 2022 22:57:16 +0200
+Date: Sat, 10 Dec 2022 22:57:16 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>, linux-pwm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
+Message-ID: <Y5TyrO5maz5VYic3@smile.fi.intel.com>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+ <Y5OtCjQOQjjltGPa@smile.fi.intel.com>
+ <20221210091833.vdfir63nq4kpj5cm@pengutronix.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20221210091833.vdfir63nq4kpj5cm@pengutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_091319_555489_DBEAB87D 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221210_125725_103248_1B20FD6E 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,294 +87,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+On Sat, Dec 10, 2022 at 10:18:33AM +0100, Uwe Kleine-K=F6nig wrote:
+> On Fri, Dec 09, 2022 at 11:47:54PM +0200, Andy Shevchenko wrote:
+> > On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
 
-Consolidate the saving/restoring GPs(except zero, ra, sp, gp and
-tp) into save_from_x5_to_x31/restore_from_x5_to_x31 macros.
+...
 
-No functional change intended.
+> > I'm wondering why we didn't see a compiler warning about mistyped funct=
+ion
+> > prototypes in some drivers.
+> =
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Tested-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/include/asm/asm.h   | 63 +++++++++++++++++++++++++
- arch/riscv/kernel/entry.S      | 84 ++--------------------------------
- arch/riscv/kernel/mcount-dyn.S | 56 +----------------------
- 3 files changed, 68 insertions(+), 135 deletions(-)
+> I don't understand where you expected a warning. Care to elaborate?
 
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 1b471ff73178..bf5247aa317d 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -68,6 +68,7 @@
- #endif
- 
- #ifdef __ASSEMBLY__
-+#include <asm/asm-offsets.h>
- 
- /* Common assembly source macros */
- 
-@@ -80,6 +81,68 @@
- 	.endr
- .endm
- 
-+	/* save all GPs except zero, ra, sp, gp and tp */
-+	.macro save_from_x5_to_x31
-+	REG_S x5,  PT_T0(sp)
-+	REG_S x6,  PT_T1(sp)
-+	REG_S x7,  PT_T2(sp)
-+	REG_S x8,  PT_S0(sp)
-+	REG_S x9,  PT_S1(sp)
-+	REG_S x10, PT_A0(sp)
-+	REG_S x11, PT_A1(sp)
-+	REG_S x12, PT_A2(sp)
-+	REG_S x13, PT_A3(sp)
-+	REG_S x14, PT_A4(sp)
-+	REG_S x15, PT_A5(sp)
-+	REG_S x16, PT_A6(sp)
-+	REG_S x17, PT_A7(sp)
-+	REG_S x18, PT_S2(sp)
-+	REG_S x19, PT_S3(sp)
-+	REG_S x20, PT_S4(sp)
-+	REG_S x21, PT_S5(sp)
-+	REG_S x22, PT_S6(sp)
-+	REG_S x23, PT_S7(sp)
-+	REG_S x24, PT_S8(sp)
-+	REG_S x25, PT_S9(sp)
-+	REG_S x26, PT_S10(sp)
-+	REG_S x27, PT_S11(sp)
-+	REG_S x28, PT_T3(sp)
-+	REG_S x29, PT_T4(sp)
-+	REG_S x30, PT_T5(sp)
-+	REG_S x31, PT_T6(sp)
-+	.endm
-+
-+	/* restore all GPs except zero, ra, sp, gp and tp */
-+	.macro restore_from_x5_to_x31
-+	REG_L x5,  PT_T0(sp)
-+	REG_L x6,  PT_T1(sp)
-+	REG_L x7,  PT_T2(sp)
-+	REG_L x8,  PT_S0(sp)
-+	REG_L x9,  PT_S1(sp)
-+	REG_L x10, PT_A0(sp)
-+	REG_L x11, PT_A1(sp)
-+	REG_L x12, PT_A2(sp)
-+	REG_L x13, PT_A3(sp)
-+	REG_L x14, PT_A4(sp)
-+	REG_L x15, PT_A5(sp)
-+	REG_L x16, PT_A6(sp)
-+	REG_L x17, PT_A7(sp)
-+	REG_L x18, PT_S2(sp)
-+	REG_L x19, PT_S3(sp)
-+	REG_L x20, PT_S4(sp)
-+	REG_L x21, PT_S5(sp)
-+	REG_L x22, PT_S6(sp)
-+	REG_L x23, PT_S7(sp)
-+	REG_L x24, PT_S8(sp)
-+	REG_L x25, PT_S9(sp)
-+	REG_L x26, PT_S10(sp)
-+	REG_L x27, PT_S11(sp)
-+	REG_L x28, PT_T3(sp)
-+	REG_L x29, PT_T4(sp)
-+	REG_L x30, PT_T5(sp)
-+	REG_L x31, PT_T6(sp)
-+	.endm
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_ASM_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 3c3c040424c6..54eec281871d 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -41,33 +41,7 @@ _save_context:
- 	addi sp, sp, -(PT_SIZE_ON_STACK)
- 	REG_S x1,  PT_RA(sp)
- 	REG_S x3,  PT_GP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_from_x5_to_x31
- 
- 	/*
- 	 * Disable user-mode memory access as it should only be set in the
-@@ -183,33 +157,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- 	REG_L x1,  PT_RA(sp)
- 	REG_L x3,  PT_GP(sp)
- 	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
--	REG_L x10, PT_A0(sp)
--	REG_L x11, PT_A1(sp)
--	REG_L x12, PT_A2(sp)
--	REG_L x13, PT_A3(sp)
--	REG_L x14, PT_A4(sp)
--	REG_L x15, PT_A5(sp)
--	REG_L x16, PT_A6(sp)
--	REG_L x17, PT_A7(sp)
--	REG_L x18, PT_S2(sp)
--	REG_L x19, PT_S3(sp)
--	REG_L x20, PT_S4(sp)
--	REG_L x21, PT_S5(sp)
--	REG_L x22, PT_S6(sp)
--	REG_L x23, PT_S7(sp)
--	REG_L x24, PT_S8(sp)
--	REG_L x25, PT_S9(sp)
--	REG_L x26, PT_S10(sp)
--	REG_L x27, PT_S11(sp)
--	REG_L x28, PT_T3(sp)
--	REG_L x29, PT_T4(sp)
--	REG_L x30, PT_T5(sp)
--	REG_L x31, PT_T6(sp)
-+	restore_from_x5_to_x31
- 
- 	REG_L x2,  PT_SP(sp)
- 
-@@ -275,33 +223,7 @@ restore_caller_reg:
- 	//save context to overflow stack
- 	REG_S x1,  PT_RA(sp)
- 	REG_S x3,  PT_GP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_from_x5_to_x31
- 
- 	REG_L s0, TASK_TI_KERNEL_SP(tp)
- 	csrr s1, CSR_STATUS
-diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-index d171eca623b6..040d098279a9 100644
---- a/arch/riscv/kernel/mcount-dyn.S
-+++ b/arch/riscv/kernel/mcount-dyn.S
-@@ -70,33 +70,7 @@
- 	REG_S x2,  PT_SP(sp)
- 	REG_S x3,  PT_GP(sp)
- 	REG_S x4,  PT_TP(sp)
--	REG_S x5,  PT_T0(sp)
--	REG_S x6,  PT_T1(sp)
--	REG_S x7,  PT_T2(sp)
--	REG_S x8,  PT_S0(sp)
--	REG_S x9,  PT_S1(sp)
--	REG_S x10, PT_A0(sp)
--	REG_S x11, PT_A1(sp)
--	REG_S x12, PT_A2(sp)
--	REG_S x13, PT_A3(sp)
--	REG_S x14, PT_A4(sp)
--	REG_S x15, PT_A5(sp)
--	REG_S x16, PT_A6(sp)
--	REG_S x17, PT_A7(sp)
--	REG_S x18, PT_S2(sp)
--	REG_S x19, PT_S3(sp)
--	REG_S x20, PT_S4(sp)
--	REG_S x21, PT_S5(sp)
--	REG_S x22, PT_S6(sp)
--	REG_S x23, PT_S7(sp)
--	REG_S x24, PT_S8(sp)
--	REG_S x25, PT_S9(sp)
--	REG_S x26, PT_S10(sp)
--	REG_S x27, PT_S11(sp)
--	REG_S x28, PT_T3(sp)
--	REG_S x29, PT_T4(sp)
--	REG_S x30, PT_T5(sp)
--	REG_S x31, PT_T6(sp)
-+	save_from_x5_to_x31
- 	.endm
- 
- 	.macro RESTORE_ALL
-@@ -108,33 +82,7 @@
- 	REG_L x2,  PT_SP(sp)
- 	REG_L x3,  PT_GP(sp)
- 	REG_L x4,  PT_TP(sp)
--	REG_L x5,  PT_T0(sp)
--	REG_L x6,  PT_T1(sp)
--	REG_L x7,  PT_T2(sp)
--	REG_L x8,  PT_S0(sp)
--	REG_L x9,  PT_S1(sp)
--	REG_L x10, PT_A0(sp)
--	REG_L x11, PT_A1(sp)
--	REG_L x12, PT_A2(sp)
--	REG_L x13, PT_A3(sp)
--	REG_L x14, PT_A4(sp)
--	REG_L x15, PT_A5(sp)
--	REG_L x16, PT_A6(sp)
--	REG_L x17, PT_A7(sp)
--	REG_L x18, PT_S2(sp)
--	REG_L x19, PT_S3(sp)
--	REG_L x20, PT_S4(sp)
--	REG_L x21, PT_S5(sp)
--	REG_L x22, PT_S6(sp)
--	REG_L x23, PT_S7(sp)
--	REG_L x24, PT_S8(sp)
--	REG_L x25, PT_S9(sp)
--	REG_L x26, PT_S10(sp)
--	REG_L x27, PT_S11(sp)
--	REG_L x28, PT_T3(sp)
--	REG_L x29, PT_T4(sp)
--	REG_L x30, PT_T5(sp)
--	REG_L x31, PT_T6(sp)
-+	restore_from_x5_to_x31
- 
- 	addi	sp, sp, PT_SIZE_ON_STACK
- 	addi	sp, sp, SZREG
--- 
-2.36.1
+intel-lpss.c has the prototype that returns an int. IIRC it was like this
+before your patches. Now the above wondering passage...
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
