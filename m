@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDB8C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 10:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251BEC10F1B
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 10:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ct8uMQUnhLca6spjTynk5DhY00pfwtl0D79Ad1AXjd0=; b=UzbB7MPVaJzWO7
-	1XIkaLcWAY2NipdlAPQOWAkNTCluUQB4u4teUP3RnALHWirsbu7NYfeweT9jFS3JmiGFg9qu15Cty
-	P1J1hoqMLPxe4PGuhazbmsfyNAjk4mR3q0O3uEb+dsxx7TxBRkmNaP/910NHLoSxYHhBZUh4J/Pc+
-	uH1mo2QapCdxvtzK6g6D/ZQ+egwVdUQXOg0s7VK3laaWhDpmA7svVm7piHUMa3vzt4Gd5iu0f+QQ/
-	HhBL6/3NuACRR8G2GqxfdtZ90fz0nCryZlCEqzA60gcQxyjqWy90ZcH03NqvJRz67OiGjCJRYDsQd
-	wY6rkb2MZoh+oOsZaMkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z9nKxkZcfzMlaWESh5TVHKL/6VzT0iHrPFrkpNTgUMg=; b=VJzrokQrmtEJOP
+	Uk1+aS4yJ4BtmxcCR5N3rVFF+DS363NFJt0YFQUo9r29OZEtJqoKWUUw6hBB+oefCXjPNjW00VA4n
+	AWbo6EMdntERIIUUX3Fug0RcOEsy7QtSBDfDadO5XZ9aTv+geQPDTXP5XQj+SP5Eb8wWYAmVFDQYh
+	Gq4bBDhUz6Nv0tAhpP8SR2LVNV9ABUXRvPbLbniPV9AZHhKud1ktWj8Lqe4tc7F/hvD5GpaFUXtec
+	jNGfY8JrGHi0cL0+t4rhVCEUIW8UBU5B8MyY8PMgH0PsIGJbbOFAUZIsBvKnzdShvDz6Hk1kcP69V
+	ZQjab3MVamdb2kTvAwkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3wnq-00G9Ij-HM; Sat, 10 Dec 2022 10:09:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1p3wnn-00G9Gb-Vx; Sat, 10 Dec 2022 10:09:52 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p3wnj-00G9Cd-Mc
+	id 1p3wnj-00G9BT-M0
 	for linux-riscv@lists.infradead.org; Sat, 10 Dec 2022 10:09:49 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 73ADEB828C8;
-	Sat, 10 Dec 2022 10:09:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D155FC433F1;
-	Sat, 10 Dec 2022 10:09:40 +0000 (UTC)
+	by sin.source.kernel.org (Postfix) with ESMTPS id D806BCE091F;
+	Sat, 10 Dec 2022 10:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86AFDC433EF;
+	Sat, 10 Dec 2022 10:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670666984;
-	bh=K/60DtPvcZdUEbYVaryyiSYpmJ4q6k25bcoqeghcm6Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=c1gonYSltysNYBdWo1OiUPJAX6nQDNh2VBFXTKSWFvM4XLcSZWi9uw4vkUCo33oHp
-	 5ZwvePgedJRPeibXPM0DauEBUHlHvkKFI1hkkSiaoA4CI8NYysWcKH0GeIzNJzMH0K
-	 eehfNuQZYYOYTqErRq0nT6cIuz/rX7499UcL5Pj+t5WNJngiN+R4ZPAvpEpWWaWZla
-	 Rpimacv6DCkQwRj/sAXAJi9linKUxlj0lBc90p56MGv2xWgZREJX/UbY3YlYobrN7u
-	 5HG5IF2K70DLgBga9GBvDLq/WLcwif82wrH8b8mCXyuTmFrC8aAKyZvSITaCVzKR8I
-	 kZDPj/QyGxU0Q==
+	s=k20201202; t=1670666980;
+	bh=1e2h9zWuPvDzwbS9hi7jKUTtgujclYOSSbW661pCXiI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=F2WFGkX+L68hGFT8r0tbzCbbKPi1IbeTDR5vTXt8Nl5/vISzWc7CGR5/8b5XdsIvD
+	 P+U6QojelTpZGb91ZdDPgEvO1H1YtNYfNBiPdfA0p0WA6MVat5FW34nsACGCCooqRj
+	 mNq2+VlNygT6Buns3kgPLj2MS95YzUC8zpelRY0OOdTyub43ueTg/TATsLJ7G8uTQc
+	 J/jiGSaaXJVf1NXSNDsgR0lnXHz3npDaYq+cSe+alx7Lq47liDw3y2/oXtSfn0XFYs
+	 LHPS4XL/fHYM/cMukTzwYRCNX/i9g4M6EpebCGnT+rC8OFwmGuhYP/5ql9C/iZ2OW6
+	 K0UKhGSl4TNyw==
 From: guoren@kernel.org
 To: palmer@rivosinc.com,
 	conor.Dooley@microchip.com,
@@ -53,17 +53,17 @@ To: palmer@rivosinc.com,
 	rostedt@goodmis.org,
 	jrtc27@jrtc27.com
 Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH -next V2 1/2] riscv: jump_label: Fixup unaligned arch_static_branch function
-Date: Sat, 10 Dec 2022 05:09:26 -0500
-Message-Id: <20221210100927.835145-2-guoren@kernel.org>
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH -next V2 0/2] riscv: jump_label: Fixup & Optimization
+Date: Sat, 10 Dec 2022 05:09:25 -0500
+Message-Id: <20221210100927.835145-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20221210100927.835145-1-guoren@kernel.org>
-References: <20221210100927.835145-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_020947_930325_A1F9F224 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20221210_020947_959546_89863B38 
+X-CRM114-Status: UNSURE (   5.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +80,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andy.chiu@sifive.com>
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Runtime code patching must be done at a naturally aligned address, or we
-may execute on a partial instruction.
+Patch 1 is the fixup patch should be merged into stable-tree.
+Patch 2 is the for-next patch.
 
-We have encountered problems traced back to static jump functions during
-the test. We switched the tracer randomly for every 1~5 seconds on a
-dual-core QEMU setup and found the kernel sucking at a static branch
-where it jumps to itself.
+The series is based on riscv for-next-20221210.
 
-The reason is that the static branch was 2-byte but not 4-byte aligned.
-Then, the kernel would patch the instruction, either J or NOP, with two
-half-word stores if the machine does not have efficient unaligned
-accesses. Thus, moments exist where half of the NOP mixes with the other
-half of the J when transitioning the branch. In our particular case, on
-a little-endian machine, the upper half of the NOP was mixed with the
-lower part of the J when enabling the branch, resulting in a jump that
-jumped to itself. Conversely, it would result in a HINT instruction when
-disabling the branch, but it might not be observable.
+Andy Chiu (1):
+  riscv: jump_label: Fixup unaligned arch_static_branch function
 
-ARM64 does not have this problem since all instructions must be 4-byte
-aligned.
+Guo Ren (1):
+  riscv: jump_label: Using c.j for CONFIG_RISCV_ISA_C
 
-Fixes: ebc00dde8a97 ("riscv: Add jump-label implementation")
-Link: https://lore.kernel.org/linux-riscv/20220913094252.3555240-6-andy.chiu@sifive.com/
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/include/asm/jump_label.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/asm/jump_label.h | 14 ++++++++++++--
+ arch/riscv/kernel/jump_label.c      | 30 +++++++++++++++++++++++++++--
+ 2 files changed, 40 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-index 38af2ec7b9bf..729991e8f782 100644
---- a/arch/riscv/include/asm/jump_label.h
-+++ b/arch/riscv/include/asm/jump_label.h
-@@ -18,6 +18,7 @@ static __always_inline bool arch_static_branch(struct static_key *key,
- 					       bool branch)
- {
- 	asm_volatile_goto(
-+		"	.align		2			\n\t"
- 		"	.option push				\n\t"
- 		"	.option norelax				\n\t"
- 		"	.option norvc				\n\t"
-@@ -39,6 +40,7 @@ static __always_inline bool arch_static_branch_jump(struct static_key *key,
- 						    bool branch)
- {
- 	asm_volatile_goto(
-+		"	.align		2			\n\t"
- 		"	.option push				\n\t"
- 		"	.option norelax				\n\t"
- 		"	.option norvc				\n\t"
 -- 
 2.36.1
 
