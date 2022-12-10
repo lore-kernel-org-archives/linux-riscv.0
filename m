@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294B8C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 22:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1CDC4332F
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 22:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X0TiPs7U5NtIFK7NjK4+mduFS9FsIr3BvWdf3coS3hs=; b=qrnJklemHQSCd9
-	IkTpHTfhM/aVcEtvNcJu32Q5lEcrBuXuFFKuOupMjBm51R4hkojYj3GWrgfXMXWYqPrseTBv05ZXF
-	xsJfmUdM6bhLy0pdQZ/KOrYyQSP7lSlNSP5y94k2+HEr9nbcr74ypOCS8pAy+OjQkfzBpqdwC9Fn6
-	LEm8Ty/yreT39Vy6iOFA5c60eg1iwRdPXEA//zja7IiXvnXaIoJOvg4ZKFLlH/zHjPtZwNa33jYSQ
-	Cxc4t0ELzuVE2DSThiqQJClGXD12+lPalrvTTXFpU8VMLl9FO1FQXHK6Zt4FUprNBlEqOfbgMiNGX
-	6Vz5pnLEJff+I4CaBzaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nymJR5A5VvejwYgfgFKHJ6/Udyvxy7EMyA0qqMfXJ/A=; b=0r0JKgflUGPddVt5IQCnk6JmWz
+	EgaWIX95fAKbsibjoFMvMobCPaJG8JBarIBHkMo/tZP1vbxr10B5vlBbRi7e8zFlY6GtMm2hj1WUZ
+	VmUQIIqBNU5Y18mYWwnX6pC6K/PA9ZTbJKvgtGK8LFdY9S3Nycioe2cb7MOilbXTuuZXGhX/GxU2n
+	3vqXadWJfktQEyysICT0butm+L1YOZ/8D4Wr04dfDBceRmz4hyVhobQcKqz77XiERNdYTBHKPWRJI
+	Fnb0UO5LXOqAziGgPKainNibCCB+DJ2c2ROg59/ZXYs71YhEuwg4s1WtS4sKGFiJpWxRYiZE92Rr0
+	gbsNtWQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p489k-006Foi-07; Sat, 10 Dec 2022 22:17:16 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1p48YT-007NJz-Pl; Sat, 10 Dec 2022 22:42:49 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p489f-006FhR-Vz
-	for linux-riscv@lists.infradead.org; Sat, 10 Dec 2022 22:17:13 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id a16so7862086edb.9
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Dec 2022 14:17:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=LkvxYJidst0R+A5LSErDuxTbyVHaZMmV9GPj7HhWy4k=;
-        b=m+Rh+GVonvWaI1jVYpd4Y4DNwGXmMDeBdb5gOMIzJWz5AiKZHbZeluQdJu32GP67yt
-         vkpEkt1iKtzCeKkBS3woadSTiMXT09o+vudNZ3m0iXVt/TXMDBPTUaNPK1vapSUkZGya
-         HQ577H6ACFXklIovd7XxMKjiAh+PD2FmneoMx9YqayVTeOwJrCtGfINvdcF8MNWtvs54
-         CkeAevnEvRrsnlyH8r1OIkDLSyN5W8CSw+7yWaTvJ2NICfeFfV/DP/gmfQCaS9wwuq/U
-         mx1GUCvRoC2fKaK7SHxfcuybk6Ib3r73mJjVQZCa1jcXUHtL7UQTCEOfwQ/xFuszbtqh
-         mgyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LkvxYJidst0R+A5LSErDuxTbyVHaZMmV9GPj7HhWy4k=;
-        b=Rg6mmroFGE9cQjJhN4dvREbdEpA8N5eq6MAsuusE0M8WARdnxYSYgr5v45aw9boBdt
-         nSrtScJnKf5XgX5BqMD0PiUwm8azE6ZKj0NeStPF2HoH1GSxP7SWH2Y7v5Tw85y9MCRK
-         42Egpf7eEfpIkYvJKuQUxmELU0YHVsN4t1KQDR2XOoPOlNta1XDCaqfuboEQz2oBJ2ie
-         BTao1HDml9Z5/QnPmCvgZpxtGTTVL5ft9WHpaJJgehhmN0xcUfH5j7cG1rgJD0f4uZDA
-         ZN4ir1DbaxhLWCBIUM7LtnHQgwWmGSQvFwHaTE47ohL4kLuY6gf5Jl3bafFdkAwJMsk4
-         UxCQ==
-X-Gm-Message-State: ANoB5pkmR+6uvtM1/BSvd5PV36wP8u0O2ItQBwqmki2yv/5+dJLCmUvy
-	eA7YOBm2hKdrkyh+UxcIgoXXd29vgs7dzSwHXNo=
-X-Google-Smtp-Source: AA0mqf4q0TbIR1OlRrc3J4pJD8Mqs83Xl2msVMdIs36MozZvMXWNnafRsqaWgWTTK9t620OScdvM6D3ZYKB5w36AZLY=
-X-Received: by 2002:a50:ed10:0:b0:46c:226e:6ec8 with SMTP id
- j16-20020a50ed10000000b0046c226e6ec8mr24250591eds.319.1670710626966; Sat, 10
- Dec 2022 14:17:06 -0800 (PST)
+	id 1p48YC-007Lty-4w
+	for linux-riscv@lists.infradead.org; Sat, 10 Dec 2022 22:42:34 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p48Xi-0008S6-Bo; Sat, 10 Dec 2022 23:42:02 +0100
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p48Xe-003fjR-2X; Sat, 10 Dec 2022 23:41:58 +0100
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1p48Xe-0046bD-4d; Sat, 10 Dec 2022 23:41:58 +0100
+Date: Sat, 10 Dec 2022 23:41:54 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>, linux-pwm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
+Message-ID: <20221210224154.733cd5qnrkpexq22@pengutronix.de>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+ <Y5OtCjQOQjjltGPa@smile.fi.intel.com>
+ <20221210091833.vdfir63nq4kpj5cm@pengutronix.de>
+ <Y5TyrO5maz5VYic3@smile.fi.intel.com>
 MIME-Version: 1.0
-References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-4-heiko@sntech.de>
-In-Reply-To: <20221207180821.2479987-4-heiko@sntech.de>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Sat, 10 Dec 2022 22:16:40 +0000
-Message-ID: <CA+V-a8v4JDNC7yAi_DJB1ZCJXfA3XMwDocm2BNFN8MhwdV3hbQ@mail.gmail.com>
-Subject: Re: [PATCH v4 03/12] RISC-V: detach funct-values from their offset
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
-	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
-	jszhang@kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
-	Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <Y5TyrO5maz5VYic3@smile.fi.intel.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_141712_129141_016FFA5F 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20221210_144232_420503_6B48FB91 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +75,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8790438050292817281=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 7, 2022 at 6:08 PM Heiko Stuebner <heiko@sntech.de> wrote:
->
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
->
-> Rather than defining funct3, funct4, etc values pre-shifted to their
-> target-position in an instruction, define the values themselves and
-> only shift them where needed.
->
-> This allows using these funct-values in other places as well, for example
-> when decoding functions.
->
-> At the same time also reduces the use of magic numbers, one would need
-> a spec manual to understand.
->
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> ---
->  arch/riscv/include/asm/parse_asm.h | 100 +++++++++++++++++------------
->  1 file changed, 59 insertions(+), 41 deletions(-)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Cheers,
-Prabhakar
+--===============8790438050292817281==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7qhswmbpkvtzgvtu"
+Content-Disposition: inline
+
+
+--7qhswmbpkvtzgvtu
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Andy,
+
+On Sat, Dec 10, 2022 at 10:57:16PM +0200, Andy Shevchenko wrote:
+> On Sat, Dec 10, 2022 at 10:18:33AM +0100, Uwe Kleine-K=F6nig wrote:
+> > On Fri, Dec 09, 2022 at 11:47:54PM +0200, Andy Shevchenko wrote:
+> > > On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
+>=20
+> ...
+>=20
+> > > I'm wondering why we didn't see a compiler warning about mistyped fun=
+ction
+> > > prototypes in some drivers.
+> >=20
+> > I don't understand where you expected a warning. Care to elaborate?
+>=20
+> intel-lpss.c has the prototype that returns an int. IIRC it was like this
+
+Do you mean drivers/mfd/intel-lpss.c? That one doesn't implement a PWM?!
+
+And drivers/pwm/pwm-lpss.c is adapted by this series.
+
+One of us is confused ...
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--7qhswmbpkvtzgvtu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmOVCy8ACgkQwfwUeK3K
+7Amqbgf7B9CvBJP4sV+MCHwNOkar+hN65y/IFZl8+KJEQzokHbdag/I7vBvxqm0q
+cOWhTR13j1UZBW5bl06bB5K03JJLpAqFVemlvCMxww0G9e7f5gJ+UkkFy64Wg5eN
+S9IGKBbgBZqZIpEpYNRSatcmsUacaV1aKHKYrOkgrkFno+a3jk9SGNUtdwvLyvwW
+6rpJPqUEOQo4dqB3YPj/VZL13P7B92K3qIsBu0lxz20qstp5wjIpMF1Gsky+6Sf+
+WgVSbrTrTjMwtDpEfb9/ZMXWohTWu0FeaTliafQxjCiNCIgmejFgLEdmalOZ4NXx
+gh5E3k8VT1fe4RAogpC5ofieweL1YA==
+=ikaL
+-----END PGP SIGNATURE-----
+
+--7qhswmbpkvtzgvtu--
+
+
+--===============8790438050292817281==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8790438050292817281==--
+
