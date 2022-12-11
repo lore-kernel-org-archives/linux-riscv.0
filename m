@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C587CC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 06:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFB0C4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 10:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=e1Hsn4fWmReYGN0QLwS2YV4OACYjgJVBjyu/lOnjhxE=; b=Kp/woFV4ZtsnI0FJkrlceXIBdU
-	ECEP/TfchgaJoVSc0kZ/KvKhESELwlThxtSJ852mZnkSdvqwrAPB6xGxhYYl1jCTYBeC8fZvN3k65
-	qHe88MZ28UUElErl35BqDTp8pH5X8WJBYtY+THky/j39cbD+CoAudu/TrE83Pf5isuKRvgwsh5ijy
-	TTzS+jlGUIhfIQqNIsVxFCc+EzGwwhtac++bKEhIGxHVr0vGXNf/braW3VDvwKceCZF6V68cfN1+a
-	nAJuHBOp9oznZancRKUPBQqX2hTNXg8gHVCksI+VAlbkfj9msYHOuA1p1faaZLvvY1HKK+CsRip2Y
-	baZC+1nQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eVMezoYZ7OAudZRrBeIQzeJ95Psa8CKtqMyslmN6N7g=; b=G9IgJ98R1Un8Cb
+	sIU10GRIDPadN51C5CONX1+4EvOPsCk3DdY40gUuLwaDFJRjBbRGHBmHO6EOsM4gMly3NCFWwuNzM
+	59JDMVSCYPGnzh2lCuo73OjRfo9ZIqChl4lgF/nBp7HJM4ORnq4NQEcqNjPXPVLZB8mPqBvI6NROV
+	tX44MsbvXngqM0IUx+qpA+zqwjGxZqwUI8zndfgHuwSx8RB0rZ6PHwp3XdHonOlpP9kdtuCMTvJa6
+	sG6M56yTfilkLoFR68MuNTWoVkPXk/uX+cXIGDNHwFRw4V7pJ71gcrqsMMiGNCLkBnbvuTfdJiEGF
+	64Un5/kpSSOCI0gRWFeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4Ff6-00De6P-01; Sun, 11 Dec 2022 06:18:08 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1p4JyI-00GTot-Rb; Sun, 11 Dec 2022 10:54:14 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4Ff1-00De31-PZ
-	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 06:18:06 +0000
-Received: by mail-pf1-x433.google.com with SMTP id k79so6463874pfd.7
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Dec 2022 22:18:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aRXGqW6LKv+O98IDnEbymxxSgNQqMDjFc6OS+Rapwyo=;
-        b=jlLNrLrdlC6Ecqqm+duNB6r/VLLI9i+rg6zI7FY8RNEjZIJBfF1U9gFEmI7akl9gwY
-         Dw+ZskgYryRjOPYOl13S7bkNEfZWWOdadwNi3o4gUM85vJJ04Z1M5qyodZ9o3jXI4FiN
-         unHA8vniPyWa5MrQWbHTToX+nQqV7CwLNN0ePFb8ueganhqAUjHYm0xsJOxC0cNz9JXX
-         Vbhl56WQU5C3APOi0h9uuWf4E0HU306tY4wX5EMe2lxCSeecf38oLXGCPwbPON9bik9A
-         +G06ZrSA9fPc8iwUuFvUD0M+jDQsyjigAuazhy/U1x3HankaoqTXYGFaBip6xMniWUig
-         v1Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aRXGqW6LKv+O98IDnEbymxxSgNQqMDjFc6OS+Rapwyo=;
-        b=pRNGH9yjluxkUjuZtHKrVGwxiUOW9gWca3L4Vi5d9yQEWPEdbHsEMgTwL4k6TKngki
-         B7ped00swH1ws4F3Zvb+/RcBWxIhV001GxiGTsl0T+hNb0cqaQSQJJxyk1NVjwyBamF4
-         oZCOHeuCVvnkakt9Wvzkz/6Qc2HrDDv4uyWdDabOZMhLPDSQOKi1MYVP3z0Mz8nzEchI
-         f5QDsVnH9ZgyMVREgYR6XCEapU1ksZcccGGu1piL17tSWTjBDMGiD/q0QeXR3PTBad+0
-         88E01tR/rF7fdAqPN5LDPWxS6jC+2XrtJ9VlaJyI2GeWKJj+xzojvx/yTD88IhSSiDu/
-         R6cg==
-X-Gm-Message-State: ANoB5pnCqP8CVCFT9JUYlHXG8Jrvp81U6laL+D57P6nBDgPNmBKyIbl7
-	EZIusN9ZOPLxXdW7vxRZJsK4Uzqw/ddIiV5m
-X-Google-Smtp-Source: AA0mqf5xXR0ca7y5CYmWfIv0Y64a0lOCnPAdEr3gwQpQ1dspMK+bvpmbbDCkg+BOKaSisa6eTE/ILA==
-X-Received: by 2002:a05:6a00:194a:b0:56b:e6b9:9338 with SMTP id s10-20020a056a00194a00b0056be6b99338mr15304446pfk.12.1670739479777;
-        Sat, 10 Dec 2022 22:17:59 -0800 (PST)
-Received: from localhost ([135.180.226.51])
-        by smtp.gmail.com with ESMTPSA id w29-20020aa7955d000000b0054ee4b632dasm3501432pfq.169.2022.12.10.22.17.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 10 Dec 2022 22:17:58 -0800 (PST)
-Date: Sat, 10 Dec 2022 22:17:58 -0800 (PST)
-X-Google-Original-Date: Sat, 10 Dec 2022 22:17:17 PST (-0800)
-Subject: Re: [PATCH] riscv: increase boot command line size to 1K
-In-Reply-To: <Y4JpmEoKOBIbaVLi@righiandr-XPS-13-7390>
-CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-  emil.renner.berthing@canonical.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: andrea.righi@canonical.com
-Message-ID: <mhng-453c777d-2bda-4b15-914b-aeacc4551ff1@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1p4Jy7-00GTfB-7j
+	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 10:54:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 1C094B80975;
+	Sun, 11 Dec 2022 10:54:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FA19C433EF;
+	Sun, 11 Dec 2022 10:53:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670756038;
+	bh=XkNMpwy/87CeF1FK5TaclU8fX8nQmPRMYKk9Fu8hnbc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z1WVdgDq1VgFdgHzq9axxDp01F5qZry0NZRQwQ17tY1qqTlXYGdpuqudSiz/utboX
+	 B+u80X8zLbADRo0+0cTfgq3CCwh2IAGizL+bEO2w2Ct5i6krEQX9O/1gYNf21V4X4e
+	 rQxOrxIQ/r+FsHOd+gtT5QizAvu5sObNyaS4cojujZ2Yc5SAOhoMdgMW8c+zs6Xij6
+	 TBTlKesLgf0nyIgC0FzwprNHHjCSN4XG1N80ltB/bwLxnOJl3n79el4SJhqLwEKdEQ
+	 N9VowYbVSmoH+x58p9H2yzz1LSJpZ0snjT1mu063AZLunVBtpAABeXJqm/rM0FHKc9
+	 qVaXC0af/2ZCQ==
+Date: Sun, 11 Dec 2022 18:43:58 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com,
+	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
+ pgtable_l4_enabled
+Message-ID: <Y5W0bv8Y/zCc+Fco@xhacker>
+References: <20220821140918.3613-1-jszhang@kernel.org>
+ <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
+ <Yz6T4EYKKns7OIVE@xhacker>
+ <Y0GJDqLXFU81UdfW@xhacker>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Y0GJDqLXFU81UdfW@xhacker>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_221804_050306_58225649 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20221211_025407_576287_828C9472 
+X-CRM114-Status: GOOD (  39.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +74,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Nov 2022 11:31:36 PST (-0800), andrea.righi@canonical.com wrote:
-> On Sat, Nov 26, 2022 at 07:25:01PM +0000, Conor Dooley wrote:
->> On Sat, Nov 26, 2022 at 08:18:43PM +0100, Andrea Righi wrote:
->> > On Sat, Nov 26, 2022 at 06:46:05PM +0000, Conor Dooley wrote:
->> > > Hey Andrea,
->> > >
->> > > On Fri, Nov 25, 2022 at 02:37:13PM +0100, Andrea Righi wrote:
->> > > > Kernel parameters string is limited to 512 characters on riscv (using
->> > > > the default from include/uapi/asm-generic/setup.h).
->> > > >
->> > > > In some testing environments (e.g., qemu with long kernel parameters
->> > > > string) we may exceed this limit, triggering errors like the following:
->> > > >
->> > > > [    3.331893] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
->> > > > [    3.332625] CPU: 2 PID: 1 Comm: sh Not tainted 6.1.0-rc6-kc #1
->> > > > [    3.333233] Hardware name: riscv-virtio,qemu (DT)
->> > > > [    3.333550] Call Trace:
->> > > > [    3.333736] [<ffffffff800062b6>] dump_backtrace+0x1c/0x24
->> > > > [    3.334053] [<ffffffff806e8f54>] show_stack+0x2c/0x38
->> > > > [    3.334260] [<ffffffff806f2d06>] dump_stack_lvl+0x5a/0x7c
->> > > > [    3.334483] [<ffffffff806f2d3c>] dump_stack+0x14/0x1c
->> > > > [    3.334687] [<ffffffff806e92fa>] panic+0x116/0x2d0
->> > > > [    3.334878] [<ffffffff8001b0aa>] do_exit+0x80a/0x810
->> > > > [    3.335079] [<ffffffff8001b1d0>] do_group_exit+0x24/0x70
->> > > > [    3.335287] [<ffffffff8001b234>] __wake_up_parent+0x0/0x20
->> > > > [    3.335502] [<ffffffff80003cee>] ret_from_syscall+0x0/0x2
->> > > > [    3.335857] SMP: stopping secondary CPUs
->> > > > [    3.337561] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000 ]---
->> > > >
->> > > > It seems reasonable enough to increase the default command line size to
->> > > > 1024, like arm, to prevent issues like the one reported above.
->> > >
->> > > error: arch/riscv/include/uapi/asm/setup.h: missing "WITH Linux-syscall-note" for SPDX-License-Identifier
->> > >
->> > > Unfortunately this does not build :/
->> > >
->> > > Thanks,
->> > > Conor.
->> >
->> > Oh I see, because it's uapi it needs "WITH Linux-syscall-note",
->> > wondering why I can't reproduce this failure...
->>
->> tuxmake --wrapper ccache --target-arch riscv --directory . \
->> 	--environment=KBUILD_BUILD_TIMESTAMP=@1621270510 \
->> 	--environment=KBUILD_BUILD_USER=tuxmake --environment=KBUILD_BUILD_HOST=tuxmake \
->> 	-o $tmpdir --toolchain llvm -z none -k rv32_defconfig
->>
->> (copy paste from a script)
->> That's what caught it initially & I think should be reproduce able. My
->> own standard build script also runs all of the HDRINST stuff if they've
->> changed since the last time a given toolchain was used so it reproduces
->> locally for me too.
->
-> Ah! I'm pretty sure it's HDRINST, I'm just doing make, cross-compiling
-> the kernel, and running it directly from the build directory with a
-> custom script (that is basically a wrapper to qemu), so I don't need to
-> actually install anything. That's why I didn't catch the error.
->
-> Thanks for sharing that, I'll make sure to test also a proper install
-> next time. :)
->
-> -Andrea
->
->>
->> > Anyway, as pointed out by Alexandre, there was already a previous
->> > discussion about this topic:
->> > https://lore.kernel.org/lkml/CACT4Y+YYAfTafFk7DE0B=qQFgkPXS7492AhBdY_CP1WdB8CGfA@mail.gmail.com/T/
->> >
->> > Hopefully this change will be addressed there (and the patch land in
->> > -next at least), otherwise I'll post a v2.
+On Sat, Oct 08, 2022 at 10:28:35PM +0800, Jisheng Zhang wrote:
+> On Thu, Oct 06, 2022 at 04:37:57PM +0800, Jisheng Zhang wrote:
+> > On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
+> > > On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
+> > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> > > > boot, so static key can be used to solve the performance issue[1].
+> > > > 
+> > > > An unified way static key was introduced in [2], but it only targets
+> > > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
+> > > > as isa extension, so the unified solution isn't used for
+> > > > pgtable_l4[l5]_enabled now.
+> > > > 
+> > > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+> > > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
+> > > > 
+> > > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+> > > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
+> > > > 
+> > > > Since v5:
+> > > >  - Use DECLARE_STATIC_KEY_FALSE
+> > > > 
+> > > > Since v4:
+> > > >  - rebased on v5.19-rcN
+> > > >  - collect Reviewed-by tags
+> > > >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
+> > > >    riscv_finalise_pgtable_lx() after sparse_init()
+> > > > 
+> > > > Since v3:
+> > > >  - fix W=1 call to undeclared function 'static_branch_likely' error
+> > > > 
+> > > > Since v2:
+> > > >  - move the W=1 warning fix to a separate patch
+> > > >  - move the unified way to use static key to a new patch series.
+> > > > 
+> > > > Since v1:
+> > > >  - Add a W=1 warning fix
+> > > >  - Fix W=1 error
+> > > >  - Based on v5.18-rcN, since SV57 support is added, so convert
+> > > >    pgtable_l5_enabled as well.
+> > > > 
+> > > > 
+> > > > Jisheng Zhang (2):
+> > > >   riscv: move sbi_init() earlier before jump_label_init()
+> > > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+> > > > 
+> > > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+> > > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
+> > > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+> > > >  arch/riscv/include/asm/pgtable.h    |  5 +--
+> > > >  arch/riscv/kernel/cpu.c             |  4 +-
+> > > >  arch/riscv/kernel/setup.c           |  2 +-
+> > > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+> > > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
+> > > >  8 files changed, 104 insertions(+), 66 deletions(-)
+> > > 
+> > > Sorry for being slow here, but it looks like this still causes some early
+> > > boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
+> > > see from the latency I'm still a bit buried right now so I'm not sure when
+> > > I'll have a chance to take more of a look.
+> > 
+> > Hi Palmer,
+> > 
+> > Before V4, there is a bug which can cause kernel panic when SPARSEMEM
+> > is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
+> > after sparse_init(). And I just tested the riscv-pgtable_static_key
+> > branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
+> > I'm not sure what happened. Could you please send me your kernel
+> > config file? I want to fix any issue which can block this series being
+> > merged in 6.1-rc1.
+> 
+> Hi Palmer,
+> 
+> I know you are busy ;) Do you have time to send me your test kernel
+> config file so that I can reproduce the "early boot hang"?
+> 
+> Thanks
 
-I posted a new version of the asm-generic changes here: 
-https://lore.kernel.org/r/20221211061358.28035-1-palmer@rivosinc.com/
+Hi Palmer,
 
+I think the early boot hangs maybe the same as the one which has been
+fixed by commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in
+kasan_init"). Will you give this series another try for v6.2-rc1? If
+the boot hang can still be reproduced, could you please send me your
+.config file?
 
->>
->> Yup, I noticed that thread - in fact I was going to link it yesterday
->> before I saw Alex already had ;)
->>
->> Thanks,
->> Conor.
+Thanks in advance
 
 _______________________________________________
 linux-riscv mailing list
