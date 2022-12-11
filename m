@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E5EC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 13:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A2CC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 17:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GjlCjNOHT+gWAhgm0Q8MLNvYt35laldhcQ+C8peKn+0=; b=m+GwFRf5TsJTWJ
-	LXFZnbM34mgZqDmnKgGDjv+sIeoLuyGwjCkUkh06cl/pOGHFUEKZpZEuEpORhInDaoU8e4KwHMyLx
-	zkah/+NDekWAaHfrpxQVlIAMXTTFymBvMGaDE+2LrpFOOMA/95298oFaYL6XIlREljm6Qc87CW2ZS
-	YmYX3rFxEJGCWtQsAE3BFerzy0iTrL3LY+9McNxwmQTV0LlrODTMBXUiusTX0Ne/LudwjnKuM71a3
-	2uzGiMH50N2xu02lCyTor7UeE01u3gyj3dRxF7Pa+0ccB2TYmDF8y0e7vHmzPcaRDRnjNzZJx5gaw
-	74kGNked11jYVVim8bNg==;
+	List-Owner; bh=guvl1IJHYnLuB3MoP+MwjEXSzh8lSpS8GBZgxGxpJFo=; b=wP6K9qkWD0hDiq
+	ngh/0YWt25z9Mw7Dw3WDxa6GPXqZdwDdUp8ysVAkMAKS9UYldHWTwpgefSWSFGAt3MUEG9GIRGWWN
+	kmouC/0ZXjyMonmEbN74m1LIHlAf2XXVYJHyiQI33nmKsO2k4I9EiRMK0nOA/pktmy0e1dws/62AC
+	+8iCGEAFMyWFEWMo00x3DgMdgja9i8vQVyK/H3XR+9nQi5oBOX4SfM0MKs345xCwega4pFSIM4IPk
+	DLVOh5rkB9BABMVIjcGGW1/X2UzwECqYUVmbRiLDduPpSSE6718M9JTtVFPfiIkL4iWuth32ErTu8
+	g0UKOiAVTcFCdXxV4uuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4MQy-000lr9-54; Sun, 11 Dec 2022 13:32:00 +0000
-Received: from mga09.intel.com ([134.134.136.24])
+	id 1p4QCP-002fNz-QG; Sun, 11 Dec 2022 17:33:13 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4MQZ-000lWC-U2; Sun, 11 Dec 2022 13:31:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1670765495; x=1702301495;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=mzHG/pVGmg236g4ocCottXwf/Vck+AOplcQMPTkzoug=;
-  b=MNc7YmhZ6X9At/PueJnc3JuWtS43xq9KTKOfp1I/qJANVCPXFxux4iSc
-   DaPOfD9Rd+c//t8M5gQPDJsx/0QXvLuCCVAagsPg+CkaFvWQU49kD1zim
-   lJQ7Y5brrDN2vNWQyAV7nEBURwfxmXatCQBYoQs/UTUs76k8d0x/oujsf
-   KY26WZV12DUB7zzC1kMVbYrvlLVn1nwaplo7DbVq+u9Ay0hbnB7Dk65qH
-   uZfFAkQiJBf0zGd4CCOWIoqUczDBKacWjkmVzXAg1KD19cxDr/ykkeF43
-   Y9K0VrFmpoyja/z0yXWYMWdZJPka4V8LxkSXwYJgz6kdZ5BQYBX6er48j
-   w==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10558"; a="318847053"
-X-IronPort-AV: E=Sophos;i="5.96,236,1665471600"; 
-   d="scan'208";a="318847053"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2022 05:31:32 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=McAfee;i="6500,9779,10558"; a="678628772"
-X-IronPort-AV: E=Sophos;i="5.96,236,1665471600"; 
-   d="scan'208";a="678628772"
-Received: from smile.fi.intel.com ([10.237.72.54])
-  by orsmga008.jf.intel.com with ESMTP; 11 Dec 2022 05:31:28 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.96)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1p4MQQ-0080Nz-0b;
-	Sun, 11 Dec 2022 15:31:26 +0200
-Date: Sun, 11 Dec 2022 15:31:25 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
-Cc: Thierry Reding <thierry.reding@gmail.com>, linux-pwm@vger.kernel.org,
-	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
-Message-ID: <Y5XbrWTicuTxPLwN@smile.fi.intel.com>
-References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
- <Y5OtCjQOQjjltGPa@smile.fi.intel.com>
- <20221210091833.vdfir63nq4kpj5cm@pengutronix.de>
- <Y5TyrO5maz5VYic3@smile.fi.intel.com>
- <20221210224154.733cd5qnrkpexq22@pengutronix.de>
+	id 1p4QCL-002fKd-NH
+	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 17:33:12 +0000
+Received: by mail-ej1-x635.google.com with SMTP id gh17so22682298ejb.6
+        for <linux-riscv@lists.infradead.org>; Sun, 11 Dec 2022 09:33:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=phh9Ymx6zEUI1lCpV3p9G/RK6ZdaDxOAaURubd7iyY8=;
+        b=kxyKrBtVmqFCaP3UgxbveZft8uOKSeM2b6maFLtPvnp38oKUkNubenCivkrfHVQzsN
+         rz43uC+vxwDDU+m6PraqsE4d53HGMFvYQPUGJI5FA8TWpZV2vVzRrQSKHI9KU/0zWTuH
+         BVxSAVfCnvwK+SP96qU4FPuwyqcfzaDBtRgH8+dJugKrkQEinZzgCDY53XrCZzsLXO2N
+         cpZrSC0RljKtQrqfpTBtut+EVsd7vas0iBwbJOsyNafByKC0iw/X7L8j9UIuNlkxe5Wd
+         LCXDXsmMa6z0YaL2D3JsVNdd//1ck1PK0EVj3aTO1WUDyNR01aFvmr8NEZW/jG8dqJWN
+         3LLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=phh9Ymx6zEUI1lCpV3p9G/RK6ZdaDxOAaURubd7iyY8=;
+        b=kGcDqNazO3xpC3oyD8D2dj9k17euAkaL/ipUlA/SZcnGI18iLCHzwx2YwTA7J9TNX3
+         UOSh/O/4ClVw4HCAKappJZHOUdnnOfjhlpPcc2rLhM0WfFB/GXolmwDuVVUTv7u0f3q5
+         27hftr/2wBn56iOJbZ6B4aPaV/0osQMup4ZuCFRV0iJZT/QmORK2kqBNAJ8DnLv8/S8q
+         6BBNT4KAjmtXIYwNQEIuFAQz1+xt8Hj8CNsT7EkYIUjwid4Xdl/zAAwZRtj7GRsP6LNq
+         g9CTM+11uPh/aG1I1qiJB4kiAxs62bcRcRIACw+E7oOoMjMBj870vliR8DUgX04sLPrJ
+         GGcw==
+X-Gm-Message-State: ANoB5plISkSwWI0QFE4IPSe+YHqTbn97gOZOP6IJQNZYgHwQxEd5ZOlI
+	O4B1sqdHn3XJrub75Rqieh3wFFJ0VMVaexF9i7w=
+X-Google-Smtp-Source: AA0mqf5IN59A1bISgwB9idtCmZrCe8jCXy9hk6ziDtRdMpRVT8GW2/5RkSdJlaqZyOG3nksj0VsbhuvpAzN7tFqZtZQ=
+X-Received: by 2002:a17:906:9615:b0:7c0:f459:a0e4 with SMTP id
+ s21-20020a170906961500b007c0f459a0e4mr14337419ejx.155.1670779987097; Sun, 11
+ Dec 2022 09:33:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20221210224154.733cd5qnrkpexq22@pengutronix.de>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-7-heiko@sntech.de>
+In-Reply-To: <20221207180821.2479987-7-heiko@sntech.de>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Sun, 11 Dec 2022 17:32:40 +0000
+Message-ID: <CA+V-a8vE-bmK_y1duMNfzSBFBr6ejF1GGLnW98Hh6q6JcouMqw@mail.gmail.com>
+Subject: Re: [PATCH v4 06/12] RISC-V: Move riscv_insn_is_* macros into a
+ common header
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
+	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
+	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
+	jszhang@kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221211_053137_217025_A1EA3463 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20221211_093309_808494_416EE1D8 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +84,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 10, 2022 at 11:41:54PM +0100, Uwe Kleine-K=F6nig wrote:
-> On Sat, Dec 10, 2022 at 10:57:16PM +0200, Andy Shevchenko wrote:
-> > On Sat, Dec 10, 2022 at 10:18:33AM +0100, Uwe Kleine-K=F6nig wrote:
-> > > On Fri, Dec 09, 2022 at 11:47:54PM +0200, Andy Shevchenko wrote:
-> > > > On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
+On Wed, Dec 7, 2022 at 6:08 PM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
+>
+> Right now the riscv kernel has (at least) two independent sets
+> of functions to check if an encoded instruction is of a specific
+> type. One in kgdb and one kprobes simulate-insn code.
+>
+> More parts of the kernel will probably need this in the future,
+> so instead of allowing this duplication to go on further,
+> move macros that do the function declaration in a common header,
+> similar to at least aarch64.
+>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
+> ---
+>  arch/riscv/include/asm/parse_asm.h       | 42 ++++++++++++++++----
+>  arch/riscv/kernel/kgdb.c                 | 49 ++++++++----------------
+>  arch/riscv/kernel/probes/simulate-insn.h | 26 +++----------
+>  3 files changed, 55 insertions(+), 62 deletions(-)
+>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-...
-
-> > > > I'm wondering why we didn't see a compiler warning about mistyped f=
-unction
-> > > > prototypes in some drivers.
-> > > =
-
-> > > I don't understand where you expected a warning. Care to elaborate?
-> > =
-
-> > intel-lpss.c has the prototype that returns an int. IIRC it was like th=
-is
-> =
-
-> Do you mean drivers/mfd/intel-lpss.c? That one doesn't implement a PWM?!
-
-Nope, I meant pwm-lpss.c.
-
-> And drivers/pwm/pwm-lpss.c is adapted by this series.
-
-That's what I didn't see how.
-
-> One of us is confused ...
-
-Yes, because when I have checked the branch based on Linux Next I already s=
-aw
-that get_state() returns a code and I wasn't aware that the series is alrea=
-dy
-there.
-
--- =
-
-With Best Regards,
-Andy Shevchenko
-
-
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
