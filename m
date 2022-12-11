@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC27C4332F
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Dec 2022 23:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB6BC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 02:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dB7VH688VzXyKvPfHAErowbEGChcGlE4LaJ1EISy2Gg=; b=e4XhiEdzXnBZC1
-	CMmqu2HduE0ePHcO1zVSvv+C46ChRCGwR05VE1CpCsgB1+c9Br6HJEQru8WU0jgVoX5cs2A0BVzeB
-	GytwIB2bzYSKJqDh0cwFoC73Wam6V5jMRGQJsq0+tdSMNV+tWk03ITUVEy2X8oNyu7ZFU5AlDWIVh
-	MvFxN/wyJkl/tKx+l8+RQ29GzZy7x19rWsaJVl4vRQEwxknb5ROw5M3DPibB3s5JROnOEdt6TKdG/
-	kAi9SRYGzOMFerWjZYFtvte68Xpedoe43pZ4wDPE+s9irPNUHPJbNArrP0Icn5z/6ebRFqtTbC/6w
-	J+CjH2fmQT2Hu9Xtp3Dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=C720SQWCymMzPE8FWZXuAaxpZzFlMEOFfCsGrW40vzo=; b=Ry4cPj+eO3Ukx8
+	H/4xU5fsSwBEkvtP4SY4bF5v7oQitb2jxZr8ekQYQXzhbcnCPAbrxfsv6trhM2rA/L/9SNwYxDzA9
+	WtLEI1eE7dndDhmwV1AoSCh6Rp8D8aC2HJFVJcHg6fR+keBBSaF8PBzOwWWIr21CMAem+F9yuqXkW
+	y5Px7IQOaw7gNNGwkDNr/jWc0Zz5gifWv8Q5tomWhtjmCG++NME7ILV+TV0kSyr70RIslXK9wnhe6
+	jFbYbVkGZ2XTYNzEiZSidJ4lpJ++8OaxEv13cjiRpZSPXTvirud1gq0ffw3hmZcOY7F8iaNJjs7jf
+	l3rK129t7aba4KBRCLaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p49Go-008wER-Io; Sat, 10 Dec 2022 23:28:38 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1p4CNE-00Am3u-Dc; Sun, 11 Dec 2022 02:47:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p49Gl-008wCe-Bb
-	for linux-riscv@lists.infradead.org; Sat, 10 Dec 2022 23:28:36 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id n20so19689230ejh.0
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Dec 2022 15:28:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=trpeZv72095wwUqKwP4o7T8LU1lKq/4pmNvWWyWBASw=;
-        b=Ep+kQ+nDG49XGD7JGEEnhqt4zm2Qz3jKjV8l3yqE6YtOL3oqig+uiqWIDWDm916GUN
-         63EWFt2IdJt3u9brq3OVAhDNbsPoLIipVDSnLCTmKU0GYyBnHRIj3//n4+E/0VFgg25b
-         aeBQhIfADyZXijYCyH3DP0JEGAQ2g4Cb8CxUi/jOYLLvv9AxJyegb3OCz8PGm52P27Wo
-         pN42eGP2nI6qxguGHvFxqPG8RuhtrQ8cI1yl+z1uZ0NeLgFQSdRh/ynEMRmSJ6SpzPP9
-         Vjmo9jyELYoX6/0XZBcbbLKi+t3UOKr/iSkQQiCydw9WgSizIhohBDAdz+JQNRRLyHOk
-         wW+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=trpeZv72095wwUqKwP4o7T8LU1lKq/4pmNvWWyWBASw=;
-        b=4/wS7olDkvUyRkv+fi0wTql3l4WiPigrL5Ef2dmG6CSU0OHWTvnjUXLJgGgvVqS/kV
-         +434XGDXN1JBiEUyjEgfuC7SGGsObPi0C0S8O32GtCt3bmiWQsJCU3WdUzKIvlNmUurM
-         7LnkR57oPH7IkaSlSlYYHpAEol/dX2KDe3tz3N3EhqIlMoNVitWvrApR48+1urUTjXHE
-         lF5tDD7ADeZumQJGQ2Y3KVUX0NRXx/bP6rwgdSd9fuCpKdC8Axx92eZ2sQnRnLB9VVHd
-         VyGzHqdR+VHpkGUAcHYJwUfrElUIOFTXGwWWd3Ry2TNPWVVAMh1OzsZmBebUSvkU14dK
-         6B7w==
-X-Gm-Message-State: ANoB5pmWk7HnzeYJRUiTfxGwU+h3TpvxYDH5xMaOx+2vShNdxPftIahc
-	xoCF02pVPQMHWQ0051gsq5PNkmGNWVMIHl4oDTs=
-X-Google-Smtp-Source: AA0mqf4w15xtjIO2VQBU+bhJJQL+pxsYHI+2A6Gd35YM++EIqHsuhqZcs1FLWJ9FEqnygXHwXskz/Fv2F68gqIod4EE=
-X-Received: by 2002:a17:906:2793:b0:7c1:174f:d69 with SMTP id
- j19-20020a170906279300b007c1174f0d69mr8029097ejc.447.1670714913325; Sat, 10
- Dec 2022 15:28:33 -0800 (PST)
+	id 1p4CN9-00AlyW-RJ
+	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 02:47:26 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 26E5360C55;
+	Sun, 11 Dec 2022 02:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8B0CC433D2;
+	Sun, 11 Dec 2022 02:47:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670726831;
+	bh=a85+YHrkUTxTxO4/UXl+D9uSuSdZ9mM7ecjBPKZ65EE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FEfOlQhlGESTUpVvnRkhqPGlEuKXXeyr2VLqvxnoFZ+g8EgEsita1hF9RMyAGPUu5
+	 73Ej4ZZJ2/F+iZjXDUyCczg7FW06Eh3zZkhRmaZhxECzADJL75P5tF+nhdy/LZBEX4
+	 ZXdl5pGJxevAAXxwFTwvrh68owCZ5/qYR6rKQFDnG9U7OH9ufrc+1L2g5g2gJy10gy
+	 J8kquE4kqm9kU6C7m9jWVTYkuwShYFfzd+Ub18OCXbdA3sBUaVvZKF2lwHsdOvVNxy
+	 DHR5uW2yMW0VEnFw+kFVclSiHr5mRjdHWoaow4CNBMbIW06lJCOiRF4ujII8oHUmP/
+	 OgqfCO1ytvbSA==
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Rix <trix@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev,
+	x86@kernel.org
+Subject: [PATCH] kbuild: add test-{ge,gt,le,lt} macros
+Date: Sun, 11 Dec 2022 11:46:47 +0900
+Message-Id: <20221211024647.2614394-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20221207180821.2479987-1-heiko@sntech.de> <20221207180821.2479987-6-heiko@sntech.de>
-In-Reply-To: <20221207180821.2479987-6-heiko@sntech.de>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Sat, 10 Dec 2022 23:28:07 +0000
-Message-ID: <CA+V-a8smo1rTMJxa7zHQsRwG_Zo+4YBDB8ZJzMSBUWQy+7=-7g@mail.gmail.com>
-Subject: Re: [PATCH v4 05/12] RISC-V: add auipc elements to parse_asm header
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, 
-	christoph.muellner@vrull.eu, conor@kernel.org, philipp.tomsich@vrull.eu, 
-	ajones@ventanamicro.com, emil.renner.berthing@canonical.com, 
-	jszhang@kernel.org, Heiko Stuebner <heiko.stuebner@vrull.eu>, 
-	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_152835_431591_244C7A9C 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20221210_184724_800672_9418A219 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +86,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 7, 2022 at 6:08 PM Heiko Stuebner <heiko@sntech.de> wrote:
->
-> From: Heiko Stuebner <heiko.stuebner@vrull.eu>
->
-> Instruction parsing should not be done in individual code, but instead
-> supported by central
->
-> Right now kgdb and kprobes parse instructions and at least kprobes (and
-> the upcoming auipc+jalr alternative fixer-function) need the auipc
-> instruction.
->
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@vrull.eu>
-> ---
->  arch/riscv/include/asm/parse_asm.h | 3 +++
->  1 file changed, 3 insertions(+)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+GNU Make 4.4 introduced $(intcmp ...), which is useful to compare two
+integers without forking a new process.
 
-Cheers,
-Prabhakar
+Add test-{ge,gt,le,lt} macros, which work more efficiently with GNU
+Make >= 4.4. For older Make versions, they fall back to the 'test'
+shell command.
+
+The first two parameters to $(intcmp ...) must not be empty. To avoid
+the syntax error, I appended '0' to them. Fortunately, '00' is treated
+as '0'. This is needed because CONFIG options may expand to an empty
+string when the kernel configuration is not included.
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
+---
+
+Changes in v3:
+  - Use $(intcmp ...) instead of playing with $(sort ...)
+
+ Makefile                  |  2 +-
+ arch/riscv/Makefile       |  2 +-
+ arch/x86/Makefile         |  2 +-
+ scripts/Kbuild.include    | 16 ++++++++++++++++
+ scripts/Makefile.compiler |  4 ++--
+ 5 files changed, 21 insertions(+), 5 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index fbd9ff4a61e7..8801cac4d3d5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -993,7 +993,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
+ # Check for frame size exceeding threshold during prolog/epilog insertion
+ # when using lld < 13.0.0.
+ ifneq ($(CONFIG_FRAME_WARN),0)
+-ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
++ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
+ KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
+ endif
+ endif
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 0d13b597cb55..faf2c2177094 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -37,7 +37,7 @@ else
+ endif
+ 
+ ifeq ($(CONFIG_LD_IS_LLD),y)
+-ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
++ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
+ 	KBUILD_CFLAGS += -mno-relax
+ 	KBUILD_AFLAGS += -mno-relax
+ ifndef CONFIG_AS_IS_LLVM
+diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+index 415a5d138de4..e72c7a49cd59 100644
+--- a/arch/x86/Makefile
++++ b/arch/x86/Makefile
+@@ -211,7 +211,7 @@ endif
+ KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
+ 
+ ifdef CONFIG_LTO_CLANG
+-ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
++ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
+ KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
+ endif
+ endif
+diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
+index cbe28744637b..5019bc1e38e4 100644
+--- a/scripts/Kbuild.include
++++ b/scripts/Kbuild.include
+@@ -11,6 +11,22 @@ space   := $(empty) $(empty)
+ space_escape := _-_SPACE_-_
+ pound := \#
+ 
++###
++# Comparison macros.
++# Usage: $(call test-lt, $(CONFIG_LLD_VERSION), 150000)
++#
++# Use $(intcmp ...) if supported. (Make >= 4.4)
++# Otherwise, fall back to the 'test' shell command.
++ifeq ($(intcmp 1,0,,,y),y)
++test-le = $(intcmp $(strip $1)0, $(strip $2)0,y,y,)
++test-lt = $(intcmp $(strip $1)0, $(strip $2)0,y,,)
++else
++test-le = $(shell test $(strip $1)0 -le $(strip $2)0 && echo y)
++test-lt = $(shell test $(strip $1)0 -lt $(strip $2)0 && echo y)
++endif
++test-ge = $(call test-le, $2, $1)
++test-gt = $(call test-lt, $2, $1)
++
+ ###
+ # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
+ dot-target = $(dir $@).$(notdir $@)
+diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
+index 20d353dcabfb..3d8adfd34af1 100644
+--- a/scripts/Makefile.compiler
++++ b/scripts/Makefile.compiler
+@@ -63,11 +63,11 @@ cc-disable-warning = $(call try-run,\
+ 
+ # gcc-min-version
+ # Usage: cflags-$(call gcc-min-version, 70100) += -foo
+-gcc-min-version = $(shell [ $(CONFIG_GCC_VERSION)0 -ge $(1)0 ] && echo y)
++gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
+ 
+ # clang-min-version
+ # Usage: cflags-$(call clang-min-version, 110000) += -foo
+-clang-min-version = $(shell [ $(CONFIG_CLANG_VERSION)0 -ge $(1)0 ] && echo y)
++clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
+ 
+ # ld-option
+ # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
