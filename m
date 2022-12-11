@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFB0C4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 10:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E5EC4332F
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 13:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVMezoYZ7OAudZRrBeIQzeJ95Psa8CKtqMyslmN6N7g=; b=G9IgJ98R1Un8Cb
-	sIU10GRIDPadN51C5CONX1+4EvOPsCk3DdY40gUuLwaDFJRjBbRGHBmHO6EOsM4gMly3NCFWwuNzM
-	59JDMVSCYPGnzh2lCuo73OjRfo9ZIqChl4lgF/nBp7HJM4ORnq4NQEcqNjPXPVLZB8mPqBvI6NROV
-	tX44MsbvXngqM0IUx+qpA+zqwjGxZqwUI8zndfgHuwSx8RB0rZ6PHwp3XdHonOlpP9kdtuCMTvJa6
-	sG6M56yTfilkLoFR68MuNTWoVkPXk/uX+cXIGDNHwFRw4V7pJ71gcrqsMMiGNCLkBnbvuTfdJiEGF
-	64Un5/kpSSOCI0gRWFeQ==;
+	List-Owner; bh=GjlCjNOHT+gWAhgm0Q8MLNvYt35laldhcQ+C8peKn+0=; b=m+GwFRf5TsJTWJ
+	LXFZnbM34mgZqDmnKgGDjv+sIeoLuyGwjCkUkh06cl/pOGHFUEKZpZEuEpORhInDaoU8e4KwHMyLx
+	zkah/+NDekWAaHfrpxQVlIAMXTTFymBvMGaDE+2LrpFOOMA/95298oFaYL6XIlREljm6Qc87CW2ZS
+	YmYX3rFxEJGCWtQsAE3BFerzy0iTrL3LY+9McNxwmQTV0LlrODTMBXUiusTX0Ne/LudwjnKuM71a3
+	2uzGiMH50N2xu02lCyTor7UeE01u3gyj3dRxF7Pa+0ccB2TYmDF8y0e7vHmzPcaRDRnjNzZJx5gaw
+	74kGNked11jYVVim8bNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4JyI-00GTot-Rb; Sun, 11 Dec 2022 10:54:14 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1p4MQy-000lr9-54; Sun, 11 Dec 2022 13:32:00 +0000
+Received: from mga09.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4Jy7-00GTfB-7j
-	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 10:54:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1C094B80975;
-	Sun, 11 Dec 2022 10:54:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FA19C433EF;
-	Sun, 11 Dec 2022 10:53:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670756038;
-	bh=XkNMpwy/87CeF1FK5TaclU8fX8nQmPRMYKk9Fu8hnbc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z1WVdgDq1VgFdgHzq9axxDp01F5qZry0NZRQwQ17tY1qqTlXYGdpuqudSiz/utboX
-	 B+u80X8zLbADRo0+0cTfgq3CCwh2IAGizL+bEO2w2Ct5i6krEQX9O/1gYNf21V4X4e
-	 rQxOrxIQ/r+FsHOd+gtT5QizAvu5sObNyaS4cojujZ2Yc5SAOhoMdgMW8c+zs6Xij6
-	 TBTlKesLgf0nyIgC0FzwprNHHjCSN4XG1N80ltB/bwLxnOJl3n79el4SJhqLwEKdEQ
-	 N9VowYbVSmoH+x58p9H2yzz1LSJpZ0snjT1mu063AZLunVBtpAABeXJqm/rM0FHKc9
-	 qVaXC0af/2ZCQ==
-Date: Sun, 11 Dec 2022 18:43:58 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com,
-	alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v6 RESEND 0/2] use static key to optimize
- pgtable_l4_enabled
-Message-ID: <Y5W0bv8Y/zCc+Fco@xhacker>
-References: <20220821140918.3613-1-jszhang@kernel.org>
- <mhng-30c89107-c103-4363-b4af-7778d9512622@palmer-ri-x1c9>
- <Yz6T4EYKKns7OIVE@xhacker>
- <Y0GJDqLXFU81UdfW@xhacker>
+	id 1p4MQZ-000lWC-U2; Sun, 11 Dec 2022 13:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1670765495; x=1702301495;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=mzHG/pVGmg236g4ocCottXwf/Vck+AOplcQMPTkzoug=;
+  b=MNc7YmhZ6X9At/PueJnc3JuWtS43xq9KTKOfp1I/qJANVCPXFxux4iSc
+   DaPOfD9Rd+c//t8M5gQPDJsx/0QXvLuCCVAagsPg+CkaFvWQU49kD1zim
+   lJQ7Y5brrDN2vNWQyAV7nEBURwfxmXatCQBYoQs/UTUs76k8d0x/oujsf
+   KY26WZV12DUB7zzC1kMVbYrvlLVn1nwaplo7DbVq+u9Ay0hbnB7Dk65qH
+   uZfFAkQiJBf0zGd4CCOWIoqUczDBKacWjkmVzXAg1KD19cxDr/ykkeF43
+   Y9K0VrFmpoyja/z0yXWYMWdZJPka4V8LxkSXwYJgz6kdZ5BQYBX6er48j
+   w==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10558"; a="318847053"
+X-IronPort-AV: E=Sophos;i="5.96,236,1665471600"; 
+   d="scan'208";a="318847053"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Dec 2022 05:31:32 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=McAfee;i="6500,9779,10558"; a="678628772"
+X-IronPort-AV: E=Sophos;i="5.96,236,1665471600"; 
+   d="scan'208";a="678628772"
+Received: from smile.fi.intel.com ([10.237.72.54])
+  by orsmga008.jf.intel.com with ESMTP; 11 Dec 2022 05:31:28 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.96)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1p4MQQ-0080Nz-0b;
+	Sun, 11 Dec 2022 15:31:26 +0200
+Date: Sun, 11 Dec 2022 15:31:25 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: Thierry Reding <thierry.reding@gmail.com>, linux-pwm@vger.kernel.org,
+	linux-gpio@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v2 00/11] pwm: Allow .get_state to fail
+Message-ID: <Y5XbrWTicuTxPLwN@smile.fi.intel.com>
+References: <20221130152148.2769768-1-u.kleine-koenig@pengutronix.de>
+ <Y5OtCjQOQjjltGPa@smile.fi.intel.com>
+ <20221210091833.vdfir63nq4kpj5cm@pengutronix.de>
+ <Y5TyrO5maz5VYic3@smile.fi.intel.com>
+ <20221210224154.733cd5qnrkpexq22@pengutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Y0GJDqLXFU81UdfW@xhacker>
+In-Reply-To: <20221210224154.733cd5qnrkpexq22@pengutronix.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221211_025407_576287_828C9472 
-X-CRM114-Status: GOOD (  39.89  )
+X-CRM114-CacheID: sfid-20221211_053137_217025_A1EA3463 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +89,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 08, 2022 at 10:28:35PM +0800, Jisheng Zhang wrote:
-> On Thu, Oct 06, 2022 at 04:37:57PM +0800, Jisheng Zhang wrote:
-> > On Wed, Oct 05, 2022 at 06:05:28PM -0700, Palmer Dabbelt wrote:
-> > > On Sun, 21 Aug 2022 07:09:16 PDT (-0700), jszhang@kernel.org wrote:
-> > > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> > > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> > > > boot, so static key can be used to solve the performance issue[1].
-> > > > 
-> > > > An unified way static key was introduced in [2], but it only targets
-> > > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> > > > as isa extension, so the unified solution isn't used for
-> > > > pgtable_l4[l5]_enabled now.
-> > > > 
-> > > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> > > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
-> > > > 
-> > > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> > > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
-> > > > 
-> > > > Since v5:
-> > > >  - Use DECLARE_STATIC_KEY_FALSE
-> > > > 
-> > > > Since v4:
-> > > >  - rebased on v5.19-rcN
-> > > >  - collect Reviewed-by tags
-> > > >  - Fix kernel panic issue if SPARSEMEM is enabled by moving the
-> > > >    riscv_finalise_pgtable_lx() after sparse_init()
-> > > > 
-> > > > Since v3:
-> > > >  - fix W=1 call to undeclared function 'static_branch_likely' error
-> > > > 
-> > > > Since v2:
-> > > >  - move the W=1 warning fix to a separate patch
-> > > >  - move the unified way to use static key to a new patch series.
-> > > > 
-> > > > Since v1:
-> > > >  - Add a W=1 warning fix
-> > > >  - Fix W=1 error
-> > > >  - Based on v5.18-rcN, since SV57 support is added, so convert
-> > > >    pgtable_l5_enabled as well.
-> > > > 
-> > > > 
-> > > > Jisheng Zhang (2):
-> > > >   riscv: move sbi_init() earlier before jump_label_init()
-> > > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
-> > > > 
-> > > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
-> > > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
-> > > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
-> > > >  arch/riscv/include/asm/pgtable.h    |  5 +--
-> > > >  arch/riscv/kernel/cpu.c             |  4 +-
-> > > >  arch/riscv/kernel/setup.c           |  2 +-
-> > > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
-> > > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
-> > > >  8 files changed, 104 insertions(+), 66 deletions(-)
-> > > 
-> > > Sorry for being slow here, but it looks like this still causes some early
-> > > boot hangs.  Specifically kasan+sparsemem is failing.  As you can probably
-> > > see from the latency I'm still a bit buried right now so I'm not sure when
-> > > I'll have a chance to take more of a look.
-> > 
-> > Hi Palmer,
-> > 
-> > Before V4, there is a bug which can cause kernel panic when SPARSEMEM
-> > is enabled, V4 have fixed it by moving the riscv_finalise_pgtable_lx()
-> > after sparse_init(). And I just tested the riscv-pgtable_static_key
-> > branch in your tree, enabling KASAN and SPARSEMEM, system booted fine.
-> > I'm not sure what happened. Could you please send me your kernel
-> > config file? I want to fix any issue which can block this series being
-> > merged in 6.1-rc1.
-> 
-> Hi Palmer,
-> 
-> I know you are busy ;) Do you have time to send me your test kernel
-> config file so that I can reproduce the "early boot hang"?
-> 
-> Thanks
+On Sat, Dec 10, 2022 at 11:41:54PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Sat, Dec 10, 2022 at 10:57:16PM +0200, Andy Shevchenko wrote:
+> > On Sat, Dec 10, 2022 at 10:18:33AM +0100, Uwe Kleine-K=F6nig wrote:
+> > > On Fri, Dec 09, 2022 at 11:47:54PM +0200, Andy Shevchenko wrote:
+> > > > On Wed, Nov 30, 2022 at 04:21:37PM +0100, Uwe Kleine-K=F6nig wrote:
 
-Hi Palmer,
+...
 
-I think the early boot hangs maybe the same as the one which has been
-fixed by commit 9f2ac64d6ca6 ("riscv: mm: add missing memcpy in
-kasan_init"). Will you give this series another try for v6.2-rc1? If
-the boot hang can still be reproduced, could you please send me your
-.config file?
+> > > > I'm wondering why we didn't see a compiler warning about mistyped f=
+unction
+> > > > prototypes in some drivers.
+> > > =
 
-Thanks in advance
+> > > I don't understand where you expected a warning. Care to elaborate?
+> > =
+
+> > intel-lpss.c has the prototype that returns an int. IIRC it was like th=
+is
+> =
+
+> Do you mean drivers/mfd/intel-lpss.c? That one doesn't implement a PWM?!
+
+Nope, I meant pwm-lpss.c.
+
+> And drivers/pwm/pwm-lpss.c is adapted by this series.
+
+That's what I didn't see how.
+
+> One of us is confused ...
+
+Yes, because when I have checked the branch based on Linux Next I already s=
+aw
+that get_state() returns a code and I wasn't aware that the series is alrea=
+dy
+there.
+
+-- =
+
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
