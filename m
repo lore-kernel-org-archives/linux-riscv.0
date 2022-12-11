@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB6BC4332F
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 02:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C587CC4167B
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Dec 2022 06:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=C720SQWCymMzPE8FWZXuAaxpZzFlMEOFfCsGrW40vzo=; b=Ry4cPj+eO3Ukx8
-	H/4xU5fsSwBEkvtP4SY4bF5v7oQitb2jxZr8ekQYQXzhbcnCPAbrxfsv6trhM2rA/L/9SNwYxDzA9
-	WtLEI1eE7dndDhmwV1AoSCh6Rp8D8aC2HJFVJcHg6fR+keBBSaF8PBzOwWWIr21CMAem+F9yuqXkW
-	y5Px7IQOaw7gNNGwkDNr/jWc0Zz5gifWv8Q5tomWhtjmCG++NME7ILV+TV0kSyr70RIslXK9wnhe6
-	jFbYbVkGZ2XTYNzEiZSidJ4lpJ++8OaxEv13cjiRpZSPXTvirud1gq0ffw3hmZcOY7F8iaNJjs7jf
-	l3rK129t7aba4KBRCLaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=e1Hsn4fWmReYGN0QLwS2YV4OACYjgJVBjyu/lOnjhxE=; b=Kp/woFV4ZtsnI0FJkrlceXIBdU
+	ECEP/TfchgaJoVSc0kZ/KvKhESELwlThxtSJ852mZnkSdvqwrAPB6xGxhYYl1jCTYBeC8fZvN3k65
+	qHe88MZ28UUElErl35BqDTp8pH5X8WJBYtY+THky/j39cbD+CoAudu/TrE83Pf5isuKRvgwsh5ijy
+	TTzS+jlGUIhfIQqNIsVxFCc+EzGwwhtac++bKEhIGxHVr0vGXNf/braW3VDvwKceCZF6V68cfN1+a
+	nAJuHBOp9oznZancRKUPBQqX2hTNXg8gHVCksI+VAlbkfj9msYHOuA1p1faaZLvvY1HKK+CsRip2Y
+	baZC+1nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4CNE-00Am3u-Dc; Sun, 11 Dec 2022 02:47:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p4Ff6-00De6P-01; Sun, 11 Dec 2022 06:18:08 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4CN9-00AlyW-RJ
-	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 02:47:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 26E5360C55;
-	Sun, 11 Dec 2022 02:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8B0CC433D2;
-	Sun, 11 Dec 2022 02:47:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670726831;
-	bh=a85+YHrkUTxTxO4/UXl+D9uSuSdZ9mM7ecjBPKZ65EE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=FEfOlQhlGESTUpVvnRkhqPGlEuKXXeyr2VLqvxnoFZ+g8EgEsita1hF9RMyAGPUu5
-	 73Ej4ZZJ2/F+iZjXDUyCczg7FW06Eh3zZkhRmaZhxECzADJL75P5tF+nhdy/LZBEX4
-	 ZXdl5pGJxevAAXxwFTwvrh68owCZ5/qYR6rKQFDnG9U7OH9ufrc+1L2g5g2gJy10gy
-	 J8kquE4kqm9kU6C7m9jWVTYkuwShYFfzd+Ub18OCXbdA3sBUaVvZKF2lwHsdOvVNxy
-	 DHR5uW2yMW0VEnFw+kFVclSiHr5mRjdHWoaow4CNBMbIW06lJCOiRF4ujII8oHUmP/
-	 OgqfCO1ytvbSA==
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Rix <trix@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev,
-	x86@kernel.org
-Subject: [PATCH] kbuild: add test-{ge,gt,le,lt} macros
-Date: Sun, 11 Dec 2022 11:46:47 +0900
-Message-Id: <20221211024647.2614394-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	id 1p4Ff1-00De31-PZ
+	for linux-riscv@lists.infradead.org; Sun, 11 Dec 2022 06:18:06 +0000
+Received: by mail-pf1-x433.google.com with SMTP id k79so6463874pfd.7
+        for <linux-riscv@lists.infradead.org>; Sat, 10 Dec 2022 22:18:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aRXGqW6LKv+O98IDnEbymxxSgNQqMDjFc6OS+Rapwyo=;
+        b=jlLNrLrdlC6Ecqqm+duNB6r/VLLI9i+rg6zI7FY8RNEjZIJBfF1U9gFEmI7akl9gwY
+         Dw+ZskgYryRjOPYOl13S7bkNEfZWWOdadwNi3o4gUM85vJJ04Z1M5qyodZ9o3jXI4FiN
+         unHA8vniPyWa5MrQWbHTToX+nQqV7CwLNN0ePFb8ueganhqAUjHYm0xsJOxC0cNz9JXX
+         Vbhl56WQU5C3APOi0h9uuWf4E0HU306tY4wX5EMe2lxCSeecf38oLXGCPwbPON9bik9A
+         +G06ZrSA9fPc8iwUuFvUD0M+jDQsyjigAuazhy/U1x3HankaoqTXYGFaBip6xMniWUig
+         v1Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aRXGqW6LKv+O98IDnEbymxxSgNQqMDjFc6OS+Rapwyo=;
+        b=pRNGH9yjluxkUjuZtHKrVGwxiUOW9gWca3L4Vi5d9yQEWPEdbHsEMgTwL4k6TKngki
+         B7ped00swH1ws4F3Zvb+/RcBWxIhV001GxiGTsl0T+hNb0cqaQSQJJxyk1NVjwyBamF4
+         oZCOHeuCVvnkakt9Wvzkz/6Qc2HrDDv4uyWdDabOZMhLPDSQOKi1MYVP3z0Mz8nzEchI
+         f5QDsVnH9ZgyMVREgYR6XCEapU1ksZcccGGu1piL17tSWTjBDMGiD/q0QeXR3PTBad+0
+         88E01tR/rF7fdAqPN5LDPWxS6jC+2XrtJ9VlaJyI2GeWKJj+xzojvx/yTD88IhSSiDu/
+         R6cg==
+X-Gm-Message-State: ANoB5pnCqP8CVCFT9JUYlHXG8Jrvp81U6laL+D57P6nBDgPNmBKyIbl7
+	EZIusN9ZOPLxXdW7vxRZJsK4Uzqw/ddIiV5m
+X-Google-Smtp-Source: AA0mqf5xXR0ca7y5CYmWfIv0Y64a0lOCnPAdEr3gwQpQ1dspMK+bvpmbbDCkg+BOKaSisa6eTE/ILA==
+X-Received: by 2002:a05:6a00:194a:b0:56b:e6b9:9338 with SMTP id s10-20020a056a00194a00b0056be6b99338mr15304446pfk.12.1670739479777;
+        Sat, 10 Dec 2022 22:17:59 -0800 (PST)
+Received: from localhost ([135.180.226.51])
+        by smtp.gmail.com with ESMTPSA id w29-20020aa7955d000000b0054ee4b632dasm3501432pfq.169.2022.12.10.22.17.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 10 Dec 2022 22:17:58 -0800 (PST)
+Date: Sat, 10 Dec 2022 22:17:58 -0800 (PST)
+X-Google-Original-Date: Sat, 10 Dec 2022 22:17:17 PST (-0800)
+Subject: Re: [PATCH] riscv: increase boot command line size to 1K
+In-Reply-To: <Y4JpmEoKOBIbaVLi@righiandr-XPS-13-7390>
+CC: Conor Dooley <conor@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+  emil.renner.berthing@canonical.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: andrea.righi@canonical.com
+Message-ID: <mhng-453c777d-2bda-4b15-914b-aeacc4551ff1@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221210_184724_800672_9418A219 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20221210_221804_050306_58225649 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +84,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-GNU Make 4.4 introduced $(intcmp ...), which is useful to compare two
-integers without forking a new process.
+On Sat, 26 Nov 2022 11:31:36 PST (-0800), andrea.righi@canonical.com wrote:
+> On Sat, Nov 26, 2022 at 07:25:01PM +0000, Conor Dooley wrote:
+>> On Sat, Nov 26, 2022 at 08:18:43PM +0100, Andrea Righi wrote:
+>> > On Sat, Nov 26, 2022 at 06:46:05PM +0000, Conor Dooley wrote:
+>> > > Hey Andrea,
+>> > >
+>> > > On Fri, Nov 25, 2022 at 02:37:13PM +0100, Andrea Righi wrote:
+>> > > > Kernel parameters string is limited to 512 characters on riscv (using
+>> > > > the default from include/uapi/asm-generic/setup.h).
+>> > > >
+>> > > > In some testing environments (e.g., qemu with long kernel parameters
+>> > > > string) we may exceed this limit, triggering errors like the following:
+>> > > >
+>> > > > [    3.331893] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
+>> > > > [    3.332625] CPU: 2 PID: 1 Comm: sh Not tainted 6.1.0-rc6-kc #1
+>> > > > [    3.333233] Hardware name: riscv-virtio,qemu (DT)
+>> > > > [    3.333550] Call Trace:
+>> > > > [    3.333736] [<ffffffff800062b6>] dump_backtrace+0x1c/0x24
+>> > > > [    3.334053] [<ffffffff806e8f54>] show_stack+0x2c/0x38
+>> > > > [    3.334260] [<ffffffff806f2d06>] dump_stack_lvl+0x5a/0x7c
+>> > > > [    3.334483] [<ffffffff806f2d3c>] dump_stack+0x14/0x1c
+>> > > > [    3.334687] [<ffffffff806e92fa>] panic+0x116/0x2d0
+>> > > > [    3.334878] [<ffffffff8001b0aa>] do_exit+0x80a/0x810
+>> > > > [    3.335079] [<ffffffff8001b1d0>] do_group_exit+0x24/0x70
+>> > > > [    3.335287] [<ffffffff8001b234>] __wake_up_parent+0x0/0x20
+>> > > > [    3.335502] [<ffffffff80003cee>] ret_from_syscall+0x0/0x2
+>> > > > [    3.335857] SMP: stopping secondary CPUs
+>> > > > [    3.337561] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000 ]---
+>> > > >
+>> > > > It seems reasonable enough to increase the default command line size to
+>> > > > 1024, like arm, to prevent issues like the one reported above.
+>> > >
+>> > > error: arch/riscv/include/uapi/asm/setup.h: missing "WITH Linux-syscall-note" for SPDX-License-Identifier
+>> > >
+>> > > Unfortunately this does not build :/
+>> > >
+>> > > Thanks,
+>> > > Conor.
+>> >
+>> > Oh I see, because it's uapi it needs "WITH Linux-syscall-note",
+>> > wondering why I can't reproduce this failure...
+>>
+>> tuxmake --wrapper ccache --target-arch riscv --directory . \
+>> 	--environment=KBUILD_BUILD_TIMESTAMP=@1621270510 \
+>> 	--environment=KBUILD_BUILD_USER=tuxmake --environment=KBUILD_BUILD_HOST=tuxmake \
+>> 	-o $tmpdir --toolchain llvm -z none -k rv32_defconfig
+>>
+>> (copy paste from a script)
+>> That's what caught it initially & I think should be reproduce able. My
+>> own standard build script also runs all of the HDRINST stuff if they've
+>> changed since the last time a given toolchain was used so it reproduces
+>> locally for me too.
+>
+> Ah! I'm pretty sure it's HDRINST, I'm just doing make, cross-compiling
+> the kernel, and running it directly from the build directory with a
+> custom script (that is basically a wrapper to qemu), so I don't need to
+> actually install anything. That's why I didn't catch the error.
+>
+> Thanks for sharing that, I'll make sure to test also a proper install
+> next time. :)
+>
+> -Andrea
+>
+>>
+>> > Anyway, as pointed out by Alexandre, there was already a previous
+>> > discussion about this topic:
+>> > https://lore.kernel.org/lkml/CACT4Y+YYAfTafFk7DE0B=qQFgkPXS7492AhBdY_CP1WdB8CGfA@mail.gmail.com/T/
+>> >
+>> > Hopefully this change will be addressed there (and the patch land in
+>> > -next at least), otherwise I'll post a v2.
 
-Add test-{ge,gt,le,lt} macros, which work more efficiently with GNU
-Make >= 4.4. For older Make versions, they fall back to the 'test'
-shell command.
+I posted a new version of the asm-generic changes here: 
+https://lore.kernel.org/r/20221211061358.28035-1-palmer@rivosinc.com/
 
-The first two parameters to $(intcmp ...) must not be empty. To avoid
-the syntax error, I appended '0' to them. Fortunately, '00' is treated
-as '0'. This is needed because CONFIG options may expand to an empty
-string when the kernel configuration is not included.
 
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
----
-
-Changes in v3:
-  - Use $(intcmp ...) instead of playing with $(sort ...)
-
- Makefile                  |  2 +-
- arch/riscv/Makefile       |  2 +-
- arch/x86/Makefile         |  2 +-
- scripts/Kbuild.include    | 16 ++++++++++++++++
- scripts/Makefile.compiler |  4 ++--
- 5 files changed, 21 insertions(+), 5 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index fbd9ff4a61e7..8801cac4d3d5 100644
---- a/Makefile
-+++ b/Makefile
-@@ -993,7 +993,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
- # Check for frame size exceeding threshold during prolog/epilog insertion
- # when using lld < 13.0.0.
- ifneq ($(CONFIG_FRAME_WARN),0)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
- endif
- endif
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 0d13b597cb55..faf2c2177094 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -37,7 +37,7 @@ else
- endif
- 
- ifeq ($(CONFIG_LD_IS_LLD),y)
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
- 	KBUILD_CFLAGS += -mno-relax
- 	KBUILD_AFLAGS += -mno-relax
- ifndef CONFIG_AS_IS_LLVM
-diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-index 415a5d138de4..e72c7a49cd59 100644
---- a/arch/x86/Makefile
-+++ b/arch/x86/Makefile
-@@ -211,7 +211,7 @@ endif
- KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
- 
- ifdef CONFIG_LTO_CLANG
--ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-+ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
- KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
- endif
- endif
-diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-index cbe28744637b..5019bc1e38e4 100644
---- a/scripts/Kbuild.include
-+++ b/scripts/Kbuild.include
-@@ -11,6 +11,22 @@ space   := $(empty) $(empty)
- space_escape := _-_SPACE_-_
- pound := \#
- 
-+###
-+# Comparison macros.
-+# Usage: $(call test-lt, $(CONFIG_LLD_VERSION), 150000)
-+#
-+# Use $(intcmp ...) if supported. (Make >= 4.4)
-+# Otherwise, fall back to the 'test' shell command.
-+ifeq ($(intcmp 1,0,,,y),y)
-+test-le = $(intcmp $(strip $1)0, $(strip $2)0,y,y,)
-+test-lt = $(intcmp $(strip $1)0, $(strip $2)0,y,,)
-+else
-+test-le = $(shell test $(strip $1)0 -le $(strip $2)0 && echo y)
-+test-lt = $(shell test $(strip $1)0 -lt $(strip $2)0 && echo y)
-+endif
-+test-ge = $(call test-le, $2, $1)
-+test-gt = $(call test-lt, $2, $1)
-+
- ###
- # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
- dot-target = $(dir $@).$(notdir $@)
-diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-index 20d353dcabfb..3d8adfd34af1 100644
---- a/scripts/Makefile.compiler
-+++ b/scripts/Makefile.compiler
-@@ -63,11 +63,11 @@ cc-disable-warning = $(call try-run,\
- 
- # gcc-min-version
- # Usage: cflags-$(call gcc-min-version, 70100) += -foo
--gcc-min-version = $(shell [ $(CONFIG_GCC_VERSION)0 -ge $(1)0 ] && echo y)
-+gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
- 
- # clang-min-version
- # Usage: cflags-$(call clang-min-version, 110000) += -foo
--clang-min-version = $(shell [ $(CONFIG_CLANG_VERSION)0 -ge $(1)0 ] && echo y)
-+clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
- 
- # ld-option
- # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
--- 
-2.34.1
-
+>>
+>> Yup, I noticed that thread - in fact I was going to link it yesterday
+>> before I saw Alex already had ;)
+>>
+>> Thanks,
+>> Conor.
 
 _______________________________________________
 linux-riscv mailing list
