@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29453C04FDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33D6EC2D0CB
 	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 11:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nmfZ5Ezg4MEiRNDRjRpg4n8tPzIFsspUMtkharND5A0=; b=ks47Lin4vdndDJ
-	XcmdeF0tgZUHfLNBUsiLbmY0Nl9sLqceGf3SNGnMth9f04pMH17WqGO11rRJZOE47MN+Ce5rhGnmT
-	OffSoVEYnihLnA+0NaR8naCl4LAZLUoUm1yCO1TfJ2xO86POI7Be8EGz9UQ/0f+flzcaGieVv6qLl
-	hpgdE9C9jGoRT1U79QDB9QflWU0s63TaxJAbejqGAH6lVVMf2Df8/EZNdqPMgwUz7TUy6Yfw0XVSK
-	+QDynDGAnLytgs3+NYLbSLVtupvjtKK/NlHFuAdC73Mc6l87LWMNP1/qo64F/ejHvgS0WYN/aR6zj
-	rl8oQlwoif9LKRpFCV9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ql306FtdfYKae6TDEAphX87d5zh0Qyp23VJULdqHTow=; b=VQEMdtcpgu0X44
+	+TlT4NIvUhvSsNrrDsuPPAbAfKU3FcST5pc3HVFomsZeZxeykUfhoMaBz3G0530p5bp3A2aUgup/f
+	uJjCLUgP84E+eIL9QkjcCoJa9FDiqW4sts/g56MkwifrGrmF2WgPSx8/WHwAj/2FaU9OKyzHVD8dA
+	2Om5ubZuoS7bpkXx8dFO+Mp43UWqaVR0IihfFk8CZ4eUo8JPHFhiQzNJbqTVmFBuzPcVSGrgmwplm
+	qEBwx9r2ShEQ3eSgUj5YTYoOvHBIMVWkqELkpusjM7cAvujLTO8OFwrzXtjdzWEFWfnOKqke5tY9l
+	agmB5hkFBw9wupJJgMZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4hPF-00ExK0-VD; Mon, 12 Dec 2022 11:55:38 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1p4hPE-00ExIY-0D; Mon, 12 Dec 2022 11:55:36 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4hPB-00ExBT-Gx
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 11:55:35 +0000
-Received: by mail-wm1-x336.google.com with SMTP id p13-20020a05600c468d00b003cf8859ed1bso4915833wmo.1
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:55:32 -0800 (PST)
+	id 1p4hPB-00Ex98-1V
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 11:55:34 +0000
+Received: by mail-wm1-x335.google.com with SMTP id p13-20020a05600c468d00b003cf8859ed1bso4915820wmo.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:55:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WpXOFyKc/JZvQOWHQWc0AJS8A/69Ui8DKNz8njSVnfU=;
-        b=BJ0Dsjc/SFk5h+zyozkC2I4LnZ37r72za6ZXGBwb7D1To2ZeM1nYZW2wsXUMBJYio0
-         9homQsaxjhwiwUhxzP8KE2uzxGw5O9e4OEaHc23dKcqN3QDZ3b1RypX523NtbTssg/YI
-         aY6ZHSZNKbzbs58UdBwvr5TMENriTjcjLTor/MD/otq+Goe63ci4c71cQUjZpqWbvjUC
-         mZLEmw/tuooCxGDmrDL7p32eX7U4DeY+pIW9sk+GT7x8V2yZCH41vUX8zqds1aseOAaf
-         UbCC22tz3LtgBwzlaiw/x78gfnk8JnGI4ALNgAGhpjJEuyxrYNFvRpV6R9QuVjJR5zPG
-         Lh4Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5Y2ETDY9kzpY5Fe4txiNeWBSSB7VK4LZqJFu+sI6h0Y=;
+        b=gH70gzNKB033u3DNcf3ld6m0ZiprKou8HSdTDvCU/JiGyxFca4JszxlB/f8f4lLRBW
+         RQIwl/76kQd/rmS31fLm8s1xOeuidDqBtVdvC0/UgqoI5fTaWHZg1LsCQHXCOHhtGMR1
+         RoXTMgEr8ynKXwjr7XZUTrbZTCqAaVw+jfcJ2jul2Awriu4oB+IAUYi9shqju8tKfTPF
+         spCmAsT4EbelV0aajBfWNRQQ+V1Qh0q1r+VYLK93JA/mRKgUgBOUI6Q9QQIb5/TGQ2oK
+         7+R4RC/Gav/Xhk37MJirl6pQf08yZEbnYf3XICat7eQxHdGOlmAs8H0FaNSkETbuDMZo
+         7CBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WpXOFyKc/JZvQOWHQWc0AJS8A/69Ui8DKNz8njSVnfU=;
-        b=mGBoqYSzpBOu70nDodiztIapuQxWJHunsAGSBnM/tOSjPZ+kTT0tPbe9p+hvzhvZgh
-         FieJ/8zif81DZg0c/7S7e69bOAQTYreDkdxXdS7UVN8opCfb6/qhb9eS2dUSYPbA1iGf
-         j/KWQ8R+MULliXgMVDvqy2UcHm0np933gRU3peQbwibcJWwG/ypTibT3iA8d5an5q436
-         r8QJBqSnFWIx/zM/kGwe6pQ7eBxsEt2PfldEKYoPhDldIVBFaaDAH4BMKSSoNq7gI+Co
-         +G3qftKNEMiLVqEhDZN+2Ww68WqR9sSow3STjYARz/X2hb0gffgVle9Qnm33jsjdlO5P
-         QAag==
-X-Gm-Message-State: ANoB5pl4/49IafmUtoUdLfnFhKj2aVn0PRZCzQEBOLpAH5iBhwlE1InW
-	mMtPGrVuGeUeH0/ZCTRQj3A=
-X-Google-Smtp-Source: AA0mqf7qYn9J61IyJLyX4K5SxOQpe03ZYZQLW5WHgLCT7YNjAC0PhK9oniKbi712c+6s3Y3Nju7v1Q==
-X-Received: by 2002:a1c:cc1a:0:b0:3cf:5583:8b3f with SMTP id h26-20020a1ccc1a000000b003cf55838b3fmr12615303wmb.20.1670846130885;
-        Mon, 12 Dec 2022 03:55:30 -0800 (PST)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5Y2ETDY9kzpY5Fe4txiNeWBSSB7VK4LZqJFu+sI6h0Y=;
+        b=R4uiTpekWpIgaOEtxjFDQ5VWFj3dwK60aK7u2EKayVmOGaIZPJHJ7f48TLWgrLLzfL
+         qZ49qAPMHTYD4yEW8/uj5iR1kp89zdxFxWgljXidTXpiy0QT0VN2rXpzYVgqC6rXAS+9
+         q6LR9+PALVibwUmY2+ECAxbZ3vS3G4Py4AVAouLEYRK8KjrzjoXTLB8ZeRu4diMlnVtJ
+         /S/wiwWVDDjWxVtKG052tY0Wx5YD5YiimkaJ7WSHm5boLI5BOUtrriBXR5XWumb/iYRk
+         HIWHsvQCyHffFkTaJ9RxQkoneRMOAaT3coj0hKR7VVr4fZpMAjJlYRUGWlEPvcEBMghB
+         wxgw==
+X-Gm-Message-State: ANoB5pmiU2ZsP6LVwlNCGay6zmXWp81QWP1UikGo0QR6cG7EBifDlwG3
+	ehzsAOd8Gz6/lfIEKopwJ7w=
+X-Google-Smtp-Source: AA0mqf4z6LGIMgMOwSo+HXWPSSjbbH379O4giBDXbmd430wDE24OXOwqIQtSUbCkKitytybI+04Fcw==
+X-Received: by 2002:a05:600c:601c:b0:3cf:fc0b:3359 with SMTP id az28-20020a05600c601c00b003cffc0b3359mr12361319wmb.0.1670846129561;
+        Mon, 12 Dec 2022 03:55:29 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:1484:ef11:b25c:4612])
-        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b003b4cba4ef71sm9793820wmq.41.2022.12.12.03.55.29
+        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b003b4cba4ef71sm9793820wmq.41.2022.12.12.03.55.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Dec 2022 03:55:30 -0800 (PST)
+        Mon, 12 Dec 2022 03:55:28 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -86,16 +85,14 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v5 1/6] riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
-Date: Mon, 12 Dec 2022 11:55:00 +0000
-Message-Id: <20221212115505.36770-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v5 0/6] AX45MP: Add support to non-coherent DMA
+Date: Mon, 12 Dec 2022 11:54:59 +0000
+Message-Id: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_035533_586140_C8A061E7 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20221212_035533_138138_616CD5C2 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,113 +111,143 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Introduce ALTERNATIVE_3() macro.
+Hi All,
 
-A vendor wants to replace an old_content, but another vendor has used
-ALTERNATIVE_2() to patch its customized content at the same location.
-In this case, this vendor can use macro ALTERNATIVE_3() and then replace
-ALTERNATIVE_2() with ALTERNATIVE_3() to append its customized content.
+On the Andes AX45MP core, cache coherency is a specification option so it
+may not be supported. In this case DMA will fail. To get around with this
+issue this patch series does the below:
 
-While at it update comment above ALTERNATIVE_2() macro and make it generic
-so that the comment holds good for any new addition of ALTERNATIVE_X()
-macros.
+1] Andes alternative ports is implemented as errata which checks if the IOCP
+is missing and only then applies to CMO errata. One vendor specific SBI EXT
+(RZFIVE_SBI_EXT_IOCP_SW_WORKAROUND) is implemented as part of errata. If we could
+access the DTB in errata I can get rid of this EXT ID from OpenSBI. Is there any
+approach we can access the DTB in patch callback?
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-v4->v5
-* Rebased the patch on top of Andrew's series (now in Palmers for next-branch)
-* Updated comment for ALTERNATIVE_x() as suggested by Heiko
+Below are the configs which Andes port provides (and are selected by RZ/Five):
+      - ERRATA_ANDES
+      - ERRATA_ANDES_CMO
+
+2] Andes AX45MP core has a Programmable Physical Memory Attributes (PMA)
+block that allows dynamic adjustment of memory attributes in the runtime.
+It contains a configurable amount of PMA entries implemented as CSR
+registers to control the attributes of memory locations in interest.
+OpenSBI configures the PMA regions as required and creates a reserve memory
+node and propagates it to the higher boot stack.
+
+An RFC patch for OpenSBI is posted here:
+https://patchwork.ozlabs.org/project/opensbi/patch/20221212094421.14556-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+    reserved-memory {
+        #address-cells = <2>;
+        #size-cells = <2>;
+        ranges;
+
+        pma_resv0@58000000 {
+            compatible = "shared-dma-pool";
+            reg = <0x0 0x58000000 0x0 0x08000000>;
+            no-map;
+            linux,dma-default;
+        };
+    };
+
+The above shared DMA pool gets appended to Linux DTB so the DMA memory
+requests go through this region.
+
+3] We provide callbacks to synchronize specific content between memory and
+cache.
+
+        - arch_sync_dma_for_device()
+        - arch_sync_dma_for_cpu()
+
+4] RZ/Five SoC selects the below configs
+        - AX45MP_L2_CACHE
+        - DMA_GLOBAL_POOL
+        - ERRATA_ANDES
+        - ERRATA_ANDES_CMO
+
+OpenSBI implementation patches can be found here:
+1] https://patchwork.ozlabs.org/project/opensbi/cover/20221210103011.7814-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+2]https://patchwork.ozlabs.org/project/opensbi/patch/20221212094421.14556-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Note,
+- This series requires testing on Cores with zibcom and T-Head SoCs
+- Ive used GCC 12.2.0 for compilation (tested with allmodconfig)
+- Tested all the IP blocks on RZ/Five which use DMA
+- Series is dependant on https://patchwork.kernel.org/project/linux-riscv/cover/20221207180821.2479987-1-heiko@sntech.de/
+
+v4 -> v5
+* Rebased ALTERNATIVE_3() macro on top of Andrew's patches
+* Rebased the changes on top of Heiko's alternative call patches
+* Dropped configuring the PMA from Linux
+* Dropped configuring the L2 cache from Linux and dropped the binding for same
+* Now using runtime patching mechanism instead of compile time config
 
 RFC v3 -> v4
-* New patch
----
- arch/riscv/include/asm/alternative-macros.h | 46 ++++++++++++++++++---
- 1 file changed, 41 insertions(+), 5 deletions(-)
+* Implemented ALTERNATIVE_3() macro 
+* Now using runtime patching mechanism instead of compile time config
+* Added Andes CMO as and errata
+* Fixed comments pointed by Geert
 
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 7226e2462584..a5b4691520da 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -50,8 +50,17 @@
- 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
- .endm
- 
-+.macro ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+				new_c_2, vendor_id_2, errata_id_2, enable_2,	\
-+				new_c_3, vendor_id_3, errata_id_3, enable_3
-+       ALTERNATIVE_CFG_2 \old_c, \new_c_1, \vendor_id_1, \errata_id_1, \enable_1,	\
-+                                 \new_c_2, \vendor_id_2, \errata_id_2, \enable_2
-+       ALT_NEW_CONTENT \vendor_id_3, \errata_id_3, \enable_3, \new_c_3
-+.endm
-+
- #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
- #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
-+#define __ALTERNATIVE_CFG_3(...)	ALTERNATIVE_CFG_3 __VA_ARGS__
- 
- #else /* !__ASSEMBLY__ */
- 
-@@ -98,6 +107,13 @@
- 	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1)	\
- 	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
- 
-+#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+				   new_c_2, vendor_id_2, errata_id_2, enable_2,	\
-+				   new_c_3, vendor_id_3, errata_id_3, enable_3)	\
-+	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, enable_1,	\
-+                                   new_c_2, vendor_id_2, errata_id_2, enable_2)	\
-+	ALT_NEW_CONTENT(vendor_id_3, errata_id_3, enable_3, new_c_3)
-+
- #endif /* __ASSEMBLY__ */
- 
- #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k)	\
-@@ -108,6 +124,13 @@
- 	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
- 				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2))
- 
-+#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				  new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-+				  new_c_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-+	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1),	\
-+				   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2),	\
-+				   new_c_3, vendor_id_3, errata_id_3, IS_ENABLED(CONFIG_k_3))
-+
- #else /* CONFIG_RISCV_ALTERNATIVE */
- #ifdef __ASSEMBLY__
- 
-@@ -152,15 +175,28 @@
- 	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG_k)
- 
- /*
-- * A vendor wants to replace an old_content, but another vendor has used
-- * ALTERNATIVE() to patch its customized content at the same location. In
-- * this case, this vendor can create a new macro ALTERNATIVE_2() based
-- * on the following sample code and then replace ALTERNATIVE() with
-- * ALTERNATIVE_2() to append its customized content.
-+ * ALTERNATIVE_x macros allow providing multiple replacement options
-+ * for an ALTERNATIVE code section. This is helpful if multiple
-+ * implementation variants for the same functionality exist for
-+ * different cpu cores.
-+ *
-+ * Usage:
-+ *   ALTERNATIVE_x(old_content,
-+ *      new_content1, vendor_id1, errata_id1, CONFIG_k1,
-+ *      new_content2, vendor_id2, errata_id2, CONFIG_k2,
-+ *      ...
-+ *      new_contentx, vendor_idx, errata_idx, CONFIG_kx)
-  */
- #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
- 				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)		\
- 	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
- 					new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
- 
-+#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,		\
-+				   new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2,		\
-+				   new_content_3, vendor_id_3, errata_id_3, CONFIG_k_3)		\
-+       _ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1,	\
-+                                       new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2,	\
-+                                       new_content_3, vendor_id_3, errata_id_3, CONFIG_k_3)
-+
- #endif
+RFC v2-> RFC v3
+* Fixed review comments pointed by Conor
+* Move DT binding into cache folder
+* Fixed DT binding check issue
+* Added andestech,ax45mp-cache.h header file
+* Now passing the flags for the PMA setup as part of andestech,pma-regions
+  property.
+* Added andestech,inst/data-prefetch and andestech,tag/data-ram-ctl
+  properties to configure the L2 cache.
+* Registered the cache driver as platform driver
+
+RFC v1-> RFC v2
+* Moved out the code from arc/riscv to drivers/soc/renesas
+* Now handling the PMA setup as part of the L2 cache
+* Now making use of dma-noncoherent.c instead SoC specific implementation.
+* Dropped arch_dma_alloc() and arch_dma_free()
+* Switched to RISCV_DMA_NONCOHERENT
+* Included DT binding doc
+
+RFC v2: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20221003223222.448551-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+RFC v1: https://patchwork.kernel.org/project/linux-renesas-soc/cover/20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+
+Cheers,
+Prabhakar
+
+Lad Prabhakar (6):
+  riscv: asm: alternative-macros: Introduce ALTERNATIVE_3() macro
+  riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+  riscv: errata: Add Andes alternative ports
+  riscv: mm: dma-noncoherent: Pass direction and operation to
+    ALT_CMO_OP()
+  dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation
+    for L2 cache controller
+  soc: renesas: Add L2 cache management for RZ/Five SoC
+
+ .../cache/andestech,ax45mp-cache.yaml         |  81 ++++++
+ arch/riscv/Kconfig.erratas                    |  22 ++
+ arch/riscv/errata/Makefile                    |   1 +
+ arch/riscv/errata/andes/Makefile              |   1 +
+ arch/riscv/errata/andes/errata.c              |  93 +++++++
+ arch/riscv/include/asm/alternative-macros.h   |  46 +++-
+ arch/riscv/include/asm/alternative.h          |   3 +
+ arch/riscv/include/asm/cacheflush.h           |  12 +
+ arch/riscv/include/asm/errata_list.h          |  41 ++-
+ arch/riscv/include/asm/vendorid_list.h        |   1 +
+ arch/riscv/kernel/alternative.c               |   5 +
+ arch/riscv/mm/dma-noncoherent.c               |  15 +-
+ drivers/soc/renesas/Kconfig                   |   6 +
+ drivers/soc/renesas/Makefile                  |   2 +
+ drivers/soc/renesas/rzfive/Kconfig            |   6 +
+ drivers/soc/renesas/rzfive/Makefile           |   3 +
+ drivers/soc/renesas/rzfive/ax45mp_cache.c     | 256 ++++++++++++++++++
+ 17 files changed, 576 insertions(+), 18 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+ create mode 100644 arch/riscv/errata/andes/Makefile
+ create mode 100644 arch/riscv/errata/andes/errata.c
+ create mode 100644 drivers/soc/renesas/rzfive/Kconfig
+ create mode 100644 drivers/soc/renesas/rzfive/Makefile
+ create mode 100644 drivers/soc/renesas/rzfive/ax45mp_cache.c
+
 -- 
 2.25.1
 
