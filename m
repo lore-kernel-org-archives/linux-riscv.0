@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24556C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 17:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB006C4708E
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 17:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JvmzlKCFMF7BecFBidoQKS0SsZ2neSfWncGzFATRv3g=; b=hLxt7fDHo8nMLv
-	LAdCwizU930z09mXzuAbbxjAVRP55dx8G2UHM0eh/gLNPcyr0f2KOGhDAQUhAuiEepSBKR9OEkW/h
-	mwRGgyYRWoScKhLYRQH56I8SmQrrIni5Bio3AZL8pmNfaOYtU8Q6ttcz+8xmh/LLw6SYeLwMfaI74
-	GBmm47Lyh6JJFPEcyZboaoZWAbql8ivt3dHwmrizELkqzdmNOgXFESaEMkfe01LQXN6FhBBxbfz18
-	3sIDvjX8nh/gHGnO7qdAOLby+exypT83M9szh/R/ShmkW0wEW7DVOqnYg18khbojqfYd71hGqY9pD
-	mU1k2wwJSq0MOnTFo4fw==;
+	List-Owner; bh=eQJak4pCuKJb085yCpmtnqXeJXB46PII5RPjTJyb3I4=; b=BfcGSobJnSDwYc
+	C9ss8egigTzSFPLLTyez/rkt9OEqJ75pkBkB7kcTf/lA6zeE18nWtdB+8T9xkX8+zmr/MvsELn/Se
+	tpx35Yaje01wbZXoiyfDBkVglquIuY7WxqSLMc4YL1xeBDLmbJeTQce9XeDZ/h8bfxXc7ouJyVRAl
+	ndnPT1kAhEkihhdss5Gog4+6qXz60fWc/L6l+LeNo6PRUF3pS+geMNTkiyQ1MHCJQxA/O/35tDmSu
+	jA4Fwvzw4uSfX9t8w+KLIokHCrY1e4nCc5dDjYrn+G84PRenFNWOZo1Nxp1Jmj0riMKNm1EndsbNi
+	h3GFGLjZmFYavhfG9tJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4mIe-002WY4-VW; Mon, 12 Dec 2022 17:09:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1p4mbO-002kEt-6L; Mon, 12 Dec 2022 17:28:30 +0000
+Received: from mail-oa1-f48.google.com ([209.85.160.48])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4mIc-002WWK-2a
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 17:09:07 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C84AF61171;
-	Mon, 12 Dec 2022 17:09:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 405F3C433D2;
-	Mon, 12 Dec 2022 17:09:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670864942;
-	bh=1uKfvnIvXPkzGzWXkQgGgIJ5yMv67egrw2dgfVsZ474=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cmppyl/5WEObf5KqFxBOjavCQzX8Zu9SN7lAK0FSXhGAEkrD5dWHIgbd5y5/z17nN
-	 gK7ghVxaw+lm07Zo1aPMOEJzBXzzr4XBeNJJeT+YjoGmSvYr5w0PcwKiejiMP3BttZ
-	 7ftYlYnueTG2NrR23roHuBwql6+122FWR1/bqIVL+WYta0E71tO0pxTNGFMMtO1kYu
-	 CkRRm4gzssxZUxyO+sfdsGz4awMdh56uGwh94jvj4a2TW9ZOL/zPMKBRw1gw5J9wZX
-	 P1SCViCnibdb0w5Y/qlyrc5nAMNUQ2FdgNiALTq5hUsZiIpLznXkGQ/8fT/bEqDYKs
-	 1fZfa413i0yIw==
-Date: Mon, 12 Dec 2022 10:08:59 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Tom Rix <trix@redhat.com>,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	x86@kernel.org
-Subject: Re: [PATCH] kbuild: add test-{ge,gt,le,lt} macros
-Message-ID: <Y5dgK2D4TP35PkKg@dev-arch.thelio-3990X>
-References: <20221211024647.2614394-1-masahiroy@kernel.org>
+	id 1p4mbL-002k9A-4s
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 17:28:28 +0000
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-1433ef3b61fso9208126fac.10
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 09:28:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fIZU7lLd7LTeyCvnIo5M5LnCfVrp3nfTga9aSk80knY=;
+        b=CCgMMftqeuBcaKm0iiGXR5fKwWcGs5g+KW64rxNLAFrG9OLZFMUBFEkFCvdAfKLcbK
+         aw5rvmzqfu3SfB6rN9oeAYuhFef7D4WDCaXTYDeA6NCN1W0LpPuPvNgXDirKB3jzTGR/
+         3n+9LFLIVXo3QxxU1ZrpRRTaLymEX2DnNIg6sI2NAFgobmCQJX5FoZ9cn/+H3L0q7T0t
+         lxLYV1XvnIUCCAQqaU0n4vPB/e4Iy9Hi85+1/e261iEuc850i+LUspI26GitGVk3tyO/
+         6k8tGOvEfro621Qjq0Y2mEfUqOfsk5ZDwORo5VfftQ7JTRxwbu560MHBjZCuHumxY234
+         rxvA==
+X-Gm-Message-State: ANoB5pkQ3ZjNHixQ3ZF3mrXu9SkClnahDmA2KwzVub/5+UeiqBv2Fviu
+	sXtDwrRPVrqbvhJSTp2EGQPLEcL9xw==
+X-Google-Smtp-Source: AA0mqf5osDHOzY5qrYDmnlHr4QDPnXNRcjhNYUoh8aFQJ3z+OABKLxdD1DQ1N/bzxBYuK3TqgsdPug==
+X-Received: by 2002:a05:6870:a79d:b0:13d:9fdd:dc0f with SMTP id x29-20020a056870a79d00b0013d9fdddc0fmr9495469oao.7.1670866104139;
+        Mon, 12 Dec 2022 09:28:24 -0800 (PST)
+Received: from robh_at_kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id r7-20020a056870e8c700b0014435b51ef7sm163994oan.30.2022.12.12.09.28.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Dec 2022 09:28:23 -0800 (PST)
+Received: (nullmailer pid 1167733 invoked by uid 1000);
+	Mon, 12 Dec 2022 17:28:22 -0000
+Date: Mon, 12 Dec 2022 11:28:22 -0600
+From: Rob Herring <robh@kernel.org>
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Samuel Holland <samuel@sholland.org>, linux-renesas-soc@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>, Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Paul Walmsley <paul.walmsley@sifive.com>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Andrew Jones <ajones@ventanamicro.com>, Guo Ren <guoren@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH v5 5/6] dt-bindings: cache: r9a07g043f-l2-cache: Add DT
+ binding documentation for L2 cache controller
+Message-ID: <167086610192.1167675.3784027898209853936.robh@kernel.org>
+References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20221212115505.36770-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20221211024647.2614394-1-masahiroy@kernel.org>
+In-Reply-To: <20221212115505.36770-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_090906_236939_B78F2E48 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20221212_092827_209694_446A6B53 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,123 +81,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 11, 2022 at 11:46:47AM +0900, Masahiro Yamada wrote:
-> GNU Make 4.4 introduced $(intcmp ...), which is useful to compare two
-> integers without forking a new process.
-> 
-> Add test-{ge,gt,le,lt} macros, which work more efficiently with GNU
-> Make >= 4.4. For older Make versions, they fall back to the 'test'
-> shell command.
-> 
-> The first two parameters to $(intcmp ...) must not be empty. To avoid
-> the syntax error, I appended '0' to them. Fortunately, '00' is treated
-> as '0'. This is needed because CONFIG options may expand to an empty
-> string when the kernel configuration is not included.
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-
+On Mon, 12 Dec 2022 11:55:04 +0000, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
+> 
+> The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+> Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+> describes the L2 cache block.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > ---
+> v4 -> v5
+> * Dropped L2 cache configuration properties
+> * Dropped PMA configuration properties
+> * Ordered the required list to match the properties list
 > 
-> Changes in v3:
->   - Use $(intcmp ...) instead of playing with $(sort ...)
+> RFC v3 -> v4
+> * Dropped l2 cache configuration parameters
+> * s/larger/large
+> * Added minItems/maxItems for andestech,pma-regions
+> ---
+>  .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+>  1 file changed, 81 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
 > 
->  Makefile                  |  2 +-
->  arch/riscv/Makefile       |  2 +-
->  arch/x86/Makefile         |  2 +-
->  scripts/Kbuild.include    | 16 ++++++++++++++++
->  scripts/Makefile.compiler |  4 ++--
->  5 files changed, 21 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index fbd9ff4a61e7..8801cac4d3d5 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -993,7 +993,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
->  # Check for frame size exceeding threshold during prolog/epilog insertion
->  # when using lld < 13.0.0.
->  ifneq ($(CONFIG_FRAME_WARN),0)
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
->  KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
->  endif
->  endif
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 0d13b597cb55..faf2c2177094 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -37,7 +37,7 @@ else
->  endif
->  
->  ifeq ($(CONFIG_LD_IS_LLD),y)
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
->  	KBUILD_CFLAGS += -mno-relax
->  	KBUILD_AFLAGS += -mno-relax
->  ifndef CONFIG_AS_IS_LLVM
-> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
-> index 415a5d138de4..e72c7a49cd59 100644
-> --- a/arch/x86/Makefile
-> +++ b/arch/x86/Makefile
-> @@ -211,7 +211,7 @@ endif
->  KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
->  
->  ifdef CONFIG_LTO_CLANG
-> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
-> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
->  KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
->  endif
->  endif
-> diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-> index cbe28744637b..5019bc1e38e4 100644
-> --- a/scripts/Kbuild.include
-> +++ b/scripts/Kbuild.include
-> @@ -11,6 +11,22 @@ space   := $(empty) $(empty)
->  space_escape := _-_SPACE_-_
->  pound := \#
->  
-> +###
-> +# Comparison macros.
-> +# Usage: $(call test-lt, $(CONFIG_LLD_VERSION), 150000)
-> +#
-> +# Use $(intcmp ...) if supported. (Make >= 4.4)
-> +# Otherwise, fall back to the 'test' shell command.
-> +ifeq ($(intcmp 1,0,,,y),y)
-> +test-le = $(intcmp $(strip $1)0, $(strip $2)0,y,y,)
-> +test-lt = $(intcmp $(strip $1)0, $(strip $2)0,y,,)
-> +else
-> +test-le = $(shell test $(strip $1)0 -le $(strip $2)0 && echo y)
-> +test-lt = $(shell test $(strip $1)0 -lt $(strip $2)0 && echo y)
-> +endif
-> +test-ge = $(call test-le, $2, $1)
-> +test-gt = $(call test-lt, $2, $1)
-> +
->  ###
->  # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
->  dot-target = $(dir $@).$(notdir $@)
-> diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-> index 20d353dcabfb..3d8adfd34af1 100644
-> --- a/scripts/Makefile.compiler
-> +++ b/scripts/Makefile.compiler
-> @@ -63,11 +63,11 @@ cc-disable-warning = $(call try-run,\
->  
->  # gcc-min-version
->  # Usage: cflags-$(call gcc-min-version, 70100) += -foo
-> -gcc-min-version = $(shell [ $(CONFIG_GCC_VERSION)0 -ge $(1)0 ] && echo y)
-> +gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
->  
->  # clang-min-version
->  # Usage: cflags-$(call clang-min-version, 110000) += -foo
-> -clang-min-version = $(shell [ $(CONFIG_CLANG_VERSION)0 -ge $(1)0 ] && echo y)
-> +clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
->  
->  # ld-option
->  # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
-> -- 
-> 2.34.1
-> 
+
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
