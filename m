@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7009C00145
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 14:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4046C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 15:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nBcyoA5o9qQgG39WyTyOrp6sQF0WVK72/xWTUVzN+8I=; b=iPvWmnMA4CjAlX
-	Br5l4I2ZViyQvJdbwavXTzOR7jcrlEECY87HhsAZPG7eguAy/CECGoXlgGGEDd0sGpc+Y8ioI2Sw3
-	ZekoxuhRtzCqynMcHJBusDn4ENj7Fdt9LJoKVRv5cbWsv/nyHKxVBmuUbId7UiSKA7qHFUR4srU/a
-	4rP/N033rm9LlKZr/hU/bvZM6Wrr9JiFgkcOmusPU+nO4/xDiCHr0fQB0PqDjKc8WtnNJgOSMZe/I
-	rjwtq4FAdiYFJW/YOBdihwBlyJ5ytkK7ZnmJLCdw0zLH5aXC7tD2koma3wKmzCTWPuj9+bNDXTm4z
-	3atv0zWhETeDkWzNhRHw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V4BAiaSY6m37d2ifLxks+rlVFnM1I8BMO2M2lRzxcQQ=; b=3jhMdXVeVlTPbe
+	nf2XFRB1HKGl6H5D20ExLuIt87TRGCd12SpcV1wgZGQikLff5IVOQTDdhnXfzJQthjl2VOdXXkQ7c
+	WSsGLnZOPoDWQAO3y8thBfbq5BLzB3dqlOrD545kPxb78wyVQxvfpnpXcX1PLZMl0640eGjDgCv+I
+	7O9WF6wRBPhSTQExtVRsoyQJtfIf5xgfEJv66r/ejrGz/qD88Kzgz/jZT7xlyFO8xT2BfjrBW5eg9
+	Zcbe+oD5ytKKTnoAxNQl8jW52JUGzyVdwfDpHNTZZNX8H1zjXfLQlR0s0fmv33m+Yysnhj+spWP+5
+	z7EU4S5YBMVxv38JyCrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4jpq-00HXRy-HQ; Mon, 12 Dec 2022 14:31:14 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1p4kmT-001DTB-Ex; Mon, 12 Dec 2022 15:31:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4jpl-00HXLk-7L
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 14:31:12 +0000
-Received: by mail-wr1-x435.google.com with SMTP id q7so12272655wrr.8
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 06:31:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9bjSaY0dKPU8rRmLG4CBmPCq2fIXi0xyi4TtR3RdYl0=;
-        b=Mn9j3vPjJawT1NzX8GEXtEEehu7HPVzgFDXBPpGcJscM2WIuoB0+59SYDB/Wanl0XO
-         XYBbZl+iXE4I7+LiPLWTqcSidC20qLv4zqT9xbd0Ut7XfUCujklQ/MZKI8qHfLZkMfCD
-         t52g0IA+6gRU+p0ngE49sE3KgSF6sUeresTThc20MiHMzT7K+PrYMhtQqVtQ2mZOVkuV
-         3E/m5ZKuQoBXfOmymwAFP94Nj/E32q67jh87RAWSV8FO37y7PvR9nGqpkc8aWsdy4UWM
-         bJyeZPoUHCKMeHNBQpODGOkkG3+jTVHvzbqv0t8IAtnS6fbpZ/Gqk+10hPP9otUmXplS
-         mNRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9bjSaY0dKPU8rRmLG4CBmPCq2fIXi0xyi4TtR3RdYl0=;
-        b=ie1By1UkAwkrHGV9/wuUDEyTJF2kQ0HsVZx6+1JIl+qEzf3TmAruEtIGJgKbaNC2cW
-         8H2dCqY5395JT7gRip5jMJZA/R4MPHaVrkgp3G/540HGRzNPpiAUYDHqYQBw6Y9HXfkQ
-         4fmYrAezSrXllWqrzt8383TsrQxgaeppc5kJOYpsqLjtu/rBP+ZJJkeG/1oPTRP99gl2
-         TgPAS/FfyQjUFSTw1R2pvtZb8Txv7wf48NH+gfl4e5klb4AlrvLxqrEGPA32H434lm01
-         IdaFwxEQxSDJZx2alDZhs5LDdJ8Ysp6VTklFR3BF2Y1cJrnKqgcOO8mBix4pjp1Ec7fz
-         u7jA==
-X-Gm-Message-State: ANoB5pk2KloPI76VnuAR5jXogs4ywVp8+m2WBvnZcdw8uoeCs1Ym8kE7
-	OneWuUfgr447E17KusyXPO44Sg==
-X-Google-Smtp-Source: AA0mqf6is7skwt1eIjtz1whXl+4EWNYW5O1NDnvHFCNOSEPzPBtn7Ez4dHtMxelDNz8/S15bfCZtkw==
-X-Received: by 2002:a05:6000:1f1c:b0:24f:dbcd:7714 with SMTP id bv28-20020a0560001f1c00b0024fdbcd7714mr2115792wrb.50.1670855464551;
-        Mon, 12 Dec 2022 06:31:04 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com (lfbn-gre-1-201-46.w90-112.abo.wanadoo.fr. [90.112.163.46])
-        by smtp.gmail.com with ESMTPSA id l11-20020a5d526b000000b002422202fa7fsm8978069wrc.39.2022.12.12.06.31.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Dec 2022 06:31:04 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Frank Rowand <frowand.list@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2] riscv: Use PUD/P4D/PGD pages for the linear mapping
-Date: Mon, 12 Dec 2022 15:31:02 +0100
-Message-Id: <20221212143102.175065-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.37.2
+	id 1p4kmQ-001DRY-6Y
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 15:31:47 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E193460AB0;
+	Mon, 12 Dec 2022 15:31:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA88CC433D2;
+	Mon, 12 Dec 2022 15:31:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1670859104;
+	bh=LGTDnYxBg9eysLN7OOJxfD3B53BIGfwpGXnUlfr6wak=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kDm7uU0dlJ43C/A5FT3EW4FfV20bzGiIHOtUks/5Z5R8x7YozXLTyaNkS1lvH2G+H
+	 x12Ps0r0J3BtQaXzVsS9TR4mkQuHLu7v8mRrHIKUrVPIAbDDWM6HUiK86s9Z6cLiqO
+	 khhIh2bGDshjEFrw+PE2eUW6jKxiQWFRHLVbOCzBAGSe2pnCh5lKlvFYIE0U60hxNH
+	 04Ik88zPydTbty7ah8HPpKrD+m95EkI7pFUOBpUzyMDk8l/aVgAyRjk7OMEsUXK6do
+	 UozyoJKpcnsWMRDJuyHa5O7N983skzLZed+hhmQSTKzrXU0I9oLsaPoJR0c8JNH2XY
+	 Nl3Ae0WNilNdQ==
+Date: Mon, 12 Dec 2022 23:21:45 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH] riscv: vdso: remove hardcoded 0x800 .text section
+ start addr
+Message-ID: <Y5dHCVyCfg7qc3Mb@xhacker>
+References: <Y3+XmWazrB0RURfI@xhacker>
+ <mhng-599fbea8-24d0-4d59-896f-7ce09eb6c1c6@palmer-ri-x1c9>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-599fbea8-24d0-4d59-896f-7ce09eb6c1c6@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_063109_499271_A543A482 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20221212_073146_384609_25F6941E 
+X-CRM114-Status: GOOD (  39.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,193 +75,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During the early page table creation, we used to set the mapping for
-PAGE_OFFSET to the kernel load address: but the kernel load address is
-always offseted by PMD_SIZE which makes it impossible to use PUD/P4D/PGD
-pages as this physical address is not aligned on PUD/P4D/PGD size (whereas
-PAGE_OFFSET is).
+On Fri, Dec 09, 2022 at 11:02:18AM -0800, Palmer Dabbelt wrote:
+> On Thu, 24 Nov 2022 08:11:05 PST (-0800), jszhang@kernel.org wrote:
+> > On Thu, Nov 24, 2022 at 11:32:55AM +0100, Andrew Jones wrote:
+> > > On Thu, Nov 24, 2022 at 12:18:05AM +0800, Jisheng Zhang wrote:
+> > > > It seems the hardcoded 0x800 isn't necessary, but removing it brings a
+> > > 
+> > > s/, but/and/
+> > > 
+> > > > small vdso.so and aligns with other architectures.
+> > > 
+> > > This commit message didn't really satisfy my desire to understand why
+> > > the comment and '. = 0x800' were there in the first place and if its safe
+> > > to remove now, so I tried to do some of my own digging. I found
+> > > 
+> > > commit 5b9304933730 ("x86 vDSO: generate vdso-syms.lds")
+> > > commit f6b46ebf904f ("x86 vDSO: new layout")
+> > > 
+> > > which removes the comment and hard coding for x86 by changing the vdso
+> > > Makefile. Then looking at
+> > > 
+> > > commit 9031fefde6f2 ("arm64: VDSO support")
+> > > 
+> > > we see that it starts with the new Makefile approach and doesn't bother
+> > > with the hard coding from the start. As riscv also started with the new
+> > > Makefile approach it also could have dropped the hard coding from the
+> > > start (I guess).
+> > > 
+> > > >
+> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > > > ---
+> > > >  arch/riscv/kernel/vdso/vdso.lds.S | 8 +-------
+> > > >  1 file changed, 1 insertion(+), 7 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+> > > > index 150b1a572e61..7be7e618d59c 100644
+> > > > --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> > > > +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> > > > @@ -31,13 +31,7 @@ SECTIONS
+> > > >
+> > > >  	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
+> > > >
+> > > > -	/*
+> > > > -	 * This linker script is used both with -r and with -shared.
+> > > > -	 * For the layouts to match, we need to skip more than enough
+> > > > -	 * space for the dynamic symbol table, etc. If this amount is
+> > > > -	 * insufficient, ld -shared will error; simply increase it here.
+> > > > -	 */
+> > > > -	. = 0x800;
+> > > > +	. = ALIGN(4);
+> > > 
+> > > I realize 4 is used here now because I questioned the 16, but after doing
+> > > my digging I think a larger alignment may be better. Loading the text may
+> > > be done with 8 byte or larger reads, so having the section aligned to a
+> > > larger size would be better reading it. We might as well use 16, like
+> > > arm64 does, and like you had before?
+> > > 
+> > > Also, having enough separation between data and text seems to be
+> > > important for cache reasons, based on the comment in
+> > > ./arch/x86/entry/vdso/vdso-layout.lds.S and other vdso history.
+> > > Maybe we should move .note, .eh_frame_hdr, and .eh_frame below
+> > > .rodata like x86 has it?
+> > > 
+> > 
+> > Thank you so much for pointing out the two commits and above
+> > separation, new version will be sent out soon.
+> 
+> Not sure if I missed the v2?  I can't find one.
 
-But actually we don't have to establish this mapping (ie set va_pa_offset)
-that early in the boot process because:
+When I want to sent a v2, I just knew that patches after rc7 won't
+be merged for next rc1. Sorry for not being earlier. Will send out
+v2 once new developement window is reopen.
 
-- first, setup_vm installs a temporary kernel mapping and among other
-  things, discovers the system memory,
-- then, setup_vm_final creates the final kernel mapping and takes
-  advantage of the discovered system memory to create the linear
-  mapping.
-
-During the first phase, we don't know the start of the system memory and
-then until the second phase is finished, we can't use the linear mapping at
-all and phys_to_virt/virt_to_phys translations must not be used because it
-would result in a different translation from the 'real' one once the final
-mapping is installed.
-
-So here we simply delay the initialization of va_pa_offset to after the
-system memory discovery. But to make sure noone uses the linear mapping
-before, we add some guard in the DEBUG_VIRTUAL config.
-
-Finally we can use PUD/P4D/PGD hugepages when possible, which will result
-in a better TLB utilization.
-
-Note that we rely on the firmware to protect itself using PMP.
-
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
-
-v2:
-- Add a comment on why RISCV64 does not need to set initrd_start/end that
-  early in the boot process, as asked by Rob
-
-Note that this patch is rebased on top of:
-[PATCH v1 1/1] riscv: mm: call best_map_size many times during linear-mapping
-
- arch/riscv/include/asm/page.h | 16 ++++++++++++++++
- arch/riscv/mm/init.c          | 25 +++++++++++++++++++------
- arch/riscv/mm/physaddr.c      | 16 ++++++++++++++++
- drivers/of/fdt.c              |  7 ++++++-
- 4 files changed, 57 insertions(+), 7 deletions(-)
-
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index ac70b0fd9a9a..f3af526a149f 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -90,6 +90,14 @@ typedef struct page *pgtable_t;
- #define PTE_FMT "%08lx"
- #endif
- 
-+#ifdef CONFIG_64BIT
-+/*
-+ * We override this value as its generic definition uses __pa too early in
-+ * the boot process (before kernel_map.va_pa_offset is set).
-+ */
-+#define MIN_MEMBLOCK_ADDR      0
-+#endif
-+
- #ifdef CONFIG_MMU
- extern unsigned long riscv_pfn_base;
- #define ARCH_PFN_OFFSET		(riscv_pfn_base)
-@@ -122,7 +130,11 @@ extern phys_addr_t phys_ram_base;
- #define is_linear_mapping(x)	\
- 	((x) >= PAGE_OFFSET && (!IS_ENABLED(CONFIG_64BIT) || (x) < PAGE_OFFSET + KERN_VIRT_SIZE))
- 
-+#ifndef CONFIG_DEBUG_VIRTUAL
- #define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + kernel_map.va_pa_offset))
-+#else
-+void *linear_mapping_pa_to_va(unsigned long x);
-+#endif
- #define kernel_mapping_pa_to_va(y)	({						\
- 	unsigned long _y = y;								\
- 	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < phys_ram_base) ?					\
-@@ -131,7 +143,11 @@ extern phys_addr_t phys_ram_base;
- 	})
- #define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
- 
-+#ifndef CONFIG_DEBUG_VIRTUAL
- #define linear_mapping_va_to_pa(x)	((unsigned long)(x) - kernel_map.va_pa_offset)
-+#else
-+phys_addr_t linear_mapping_va_to_pa(unsigned long x);
-+#endif
- #define kernel_mapping_va_to_pa(y) ({						\
- 	unsigned long _y = y;							\
- 	(IS_ENABLED(CONFIG_XIP_KERNEL) && _y < kernel_map.virt_addr + XIP_OFFSET) ?	\
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 1b76d3fe4e26..58bcf395efdc 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -213,6 +213,14 @@ static void __init setup_bootmem(void)
- 	phys_ram_end = memblock_end_of_DRAM();
- 	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
- 		phys_ram_base = memblock_start_of_DRAM();
-+
-+	/*
-+	 * Any use of __va/__pa before this point is wrong as we did not know the
-+	 * start of DRAM before.
-+	 */
-+	kernel_map.va_pa_offset = PAGE_OFFSET - phys_ram_base;
-+	riscv_pfn_base = PFN_DOWN(phys_ram_base);
-+
- 	/*
- 	 * memblock allocator is not aware of the fact that last 4K bytes of
- 	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-@@ -672,9 +680,16 @@ void __init create_pgd_mapping(pgd_t *pgdp,
- 
- static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- {
--	/* Upgrade to PMD_SIZE mappings whenever possible */
--	base &= PMD_SIZE - 1;
--	if (!base && size >= PMD_SIZE)
-+	if (!(base & (PGDIR_SIZE - 1)) && size >= PGDIR_SIZE)
-+		return PGDIR_SIZE;
-+
-+	if (!(base & (P4D_SIZE - 1)) && size >= P4D_SIZE)
-+		return P4D_SIZE;
-+
-+	if (!(base & (PUD_SIZE - 1)) && size >= PUD_SIZE)
-+		return PUD_SIZE;
-+
-+	if (!(base & (PMD_SIZE - 1)) && size >= PMD_SIZE)
- 		return PMD_SIZE;
- 
- 	return PAGE_SIZE;
-@@ -983,11 +998,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	set_satp_mode();
- #endif
- 
--	kernel_map.va_pa_offset = PAGE_OFFSET - kernel_map.phys_addr;
-+	kernel_map.va_pa_offset = 0UL;
- 	kernel_map.va_kernel_pa_offset = kernel_map.virt_addr - kernel_map.phys_addr;
- 
--	riscv_pfn_base = PFN_DOWN(kernel_map.phys_addr);
--
- 	/*
- 	 * The default maximal physical memory size is KERN_VIRT_SIZE for 32-bit
- 	 * kernel, whereas for 64-bit kernel, the end of the virtual address
-diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-index 19cf25a74ee2..5ae4bd166e25 100644
---- a/arch/riscv/mm/physaddr.c
-+++ b/arch/riscv/mm/physaddr.c
-@@ -33,3 +33,19 @@ phys_addr_t __phys_addr_symbol(unsigned long x)
- 	return __va_to_pa_nodebug(x);
- }
- EXPORT_SYMBOL(__phys_addr_symbol);
-+
-+phys_addr_t linear_mapping_va_to_pa(unsigned long x)
-+{
-+	BUG_ON(!kernel_map.va_pa_offset);
-+
-+	return ((unsigned long)(x) - kernel_map.va_pa_offset);
-+}
-+EXPORT_SYMBOL(linear_mapping_va_to_pa);
-+
-+void *linear_mapping_pa_to_va(unsigned long x)
-+{
-+	BUG_ON(!kernel_map.va_pa_offset);
-+
-+	return ((void *)((unsigned long)(x) + kernel_map.va_pa_offset));
-+}
-+EXPORT_SYMBOL(linear_mapping_pa_to_va);
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index 7b571a631639..012554445054 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -895,8 +895,13 @@ static void __early_init_dt_declare_initrd(unsigned long start,
- 	 * enabled since __va() is called too early. ARM64 does make use
- 	 * of phys_initrd_start/phys_initrd_size so we can skip this
- 	 * conversion.
-+	 * On RISCV64, the usage of __va() before the linear mapping exists
-+	 * is wrong and RISCV64 rightly calls reserve_initrd_mem after it is
-+	 * available where it actually resets the translation that is done
-+	 * here and re-computes it.
- 	 */
--	if (!IS_ENABLED(CONFIG_ARM64)) {
-+	if (!IS_ENABLED(CONFIG_ARM64) &&
-+	    !(IS_ENABLED(CONFIG_RISCV) && IS_ENABLED(CONFIG_64BIT))) {
- 		initrd_start = (unsigned long)__va(start);
- 		initrd_end = (unsigned long)__va(end);
- 		initrd_below_start_ok = 1;
--- 
-2.37.2
-
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
