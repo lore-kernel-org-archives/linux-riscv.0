@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F8CC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 11:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E838C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 11:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Buj5NswBYjd96hF6YOhvmJWU9Zog+QOn9MZPAPCkwIc=; b=G0M6WlJzNg3uSI
-	tDlx5iDA1j4188EeOL8AgfvXYylMurOcekshoWYumhEVU5Q4SrDzjplaRBtHtR//VYJdODYAqPLp1
-	7SgWp+k/OSTmyW8lgqX8YAfsBDIgr9LSCu5UTICW8GUfJ26nUE/jNqMw1JEMjsGTww8oYZhPEpMff
-	zpQK6+/ddyeXGYZVy+MZevgX2vwGvwIChNJFrY8s0fjPRtnhVYR+m9/07tvrA/MeVSm0XrAGQkueV
-	j8qNHx9NhVB85zUBU5juxSt+RF89ajOPhAKOu5/q25nAbBVWmcQ42STKu85xPetg4XMbAsapBT4oK
-	6zFULhTjzIZEMSBKZnCw==;
+	List-Owner; bh=DeUv5NdO+analSq8O3HwderwYgSQbzdpIQgu0lMvX0g=; b=olqrzkUdYj3ksg
+	v9SsEIwMKywagdvlpuiyw/I0W/C0DvVTwOdsyD4nTB61iaAni0scFtFIo3wzDldTwk8UHZH/JQsp1
+	cUqB/Il10n85eaIMi3KjYi16+M5fMFI1Sk9pxbLtcJgSBRUPExS4Qt9ch9Xkgpdec3lenKWk9klcM
+	SeRHYkZpviomw+yJrt06EsCX+0USqaNGC02QOyGwL/VHF9+GPo6b65M6oWjKcDhnxXo9qu6BlxtOM
+	+RcmgRwseTOLhI3v9egfnqFTN6cINswm3PGrVzMX8lehwIrUc8XWOJNFxstl8IQ/eVr9Ap6C5y4L8
+	5WGU6hpTvVEgUDsV7vJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4hPL-00ExPf-22; Mon, 12 Dec 2022 11:55:43 +0000
+	id 1p4hPM-00ExT0-UG; Mon, 12 Dec 2022 11:55:44 +0000
 Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4hPF-00ExHU-B2
+	id 1p4hPF-00ExIf-B3
 	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 11:55:39 +0000
-Received: by mail-wm1-x332.google.com with SMTP id h8-20020a1c2108000000b003d1efd60b65so4942770wmh.0
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:55:35 -0800 (PST)
+Received: by mail-wm1-x332.google.com with SMTP id n9-20020a05600c3b8900b003d0944dba41so4885804wms.4
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:55:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/owj4dKvul9yQPdKIbLIisU85z4JvHjwmNbR5T/KcKc=;
-        b=m828u87ePEdiN6J0F0mBLEBYWQ0Duzd4VUVie1oA/kVzMdFM5unYTFiCddppiMFcDn
-         dSgkjg/l30yaUj6ts2pAfz2D7RTl4oq2svJ05PYyCYnssrAzspJOkkJ4DidtjPgeuhcS
-         2SBE080Y51l9DSmX+0WhfqXNvZrXtYJL/TkHDfaZgDVIFtiwG5MxyroYSkvhKMLUMxv0
-         NclaF1MrZZWqZGM3/28eiwwyPcjWMIAY9MrtQwXNBy6axByFDkFcDXuCwa/qH2NC1xs6
-         UpNSOwShbRfSCvcCPCFubU5k0Ra4YWD1evBMgOeYHatCk0tqwl1oV11KVXu8mcP284Y5
-         8mZw==
+        bh=xMnDqWizR4FpCmRwJEB60n4DmHPdDgLyTkUCJJGhsBc=;
+        b=ekjhveVKUOXmrpDRVx1U++KV4+I6LVh+mv2oU0ILpEI/JUSBcR3FIjKmKCppU+5iBJ
+         xK+LTMJG8C299lND/hwdbP495q1EqwLgR8UQT3l4S12e0rQxSJldDNigeyKOa2Bj45Kv
+         wWK5g+ICrCw7Su/J0A+e6PWfAOHHjKrc22Sp7sMMn4Wszj7+wRGdEjm6iuaDWxsBalcG
+         s4nrWlNaMLNB2QYkedZHuo8wawn0Hh0wuNa04sD9HekIn3PcMyvjtsWV37eepkLGkWl7
+         G6thjZHV87Q0snUUxlYUlKeGN3Lbk9xgBbFmuU9BQ6HMzrK1KXTPpThmGGT56ZKGYk2V
+         0Qtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=/owj4dKvul9yQPdKIbLIisU85z4JvHjwmNbR5T/KcKc=;
-        b=3F5opem2Nx0tG2l1wS6hdOKjb/CPG0L3UIQND0T/3E4Jv3Rv9o/w23jt4pBVWiADxc
-         /VbVFGrTJ2yVLb43hZgUQGzS0s0K3jdPEugeJlf54xz4Opb/X1+i84E47BmjTDGyh9lc
-         Evvk4O4jM+RcdSfDciJZYeBNvEexxXIQVDJ5Hpv4qX9I3UhEc5GebgV2N+bxrOViaPBI
-         Rc1i8mtotYekmo6h9dQ0X4siRyIEkXyGBmDoNhNMl5nMc5lRp1zy2X7YERpjqsM1m3O1
-         5wNmvVC9MZxMyxbOO+Ohojt7q8+7dJ88djF+sEc5YxeQhZU1x+EovAtRg4BqX3JaWowU
-         18kw==
-X-Gm-Message-State: ANoB5pnSF3F/Y28T+oYFFexEwDhycyRYpxCWGMFWA9JbKlIrkTM3nJIA
-	66qHX9vd8pPBYekhlQAvcu0=
-X-Google-Smtp-Source: AA0mqf58jNIo9idrf0Z9GJcddQ8a7UCnMqj4fEx86F9b1wIZEemPVkIctQIAaPOTSDSqVqSSPFlaeg==
-X-Received: by 2002:a05:600c:3501:b0:3cf:8e6f:e02e with SMTP id h1-20020a05600c350100b003cf8e6fe02emr12477935wmq.3.1670846134509;
-        Mon, 12 Dec 2022 03:55:34 -0800 (PST)
+        bh=xMnDqWizR4FpCmRwJEB60n4DmHPdDgLyTkUCJJGhsBc=;
+        b=0Wf+d9gNwuE39kFpIsgLs345iY68sxBGJ+iNZuFe259npFrFy9GccapbPZ7FJW1PG/
+         +fd+4CxmrgNqyk64lwcrDXw6zAGTMcV/9IeKhpcAmidGDHmpQCGI2ZxpxXmmsgoDMLss
+         tX8pL5r8aDkzYdgIL369n+EpfDkjb67W/hpGze3G69J9NP91B9D9ytHSk6z3XEJxJNN8
+         qjTVjUIKbTHDxZIfjvhw47TCqwU443PONH+g9Upk2wbBkghU+HGpJvVVyi0s1mguQVgq
+         Uh923R45o25ncIxvXAjvlPjiaY3+Uyd4oxNR1NAafUpi9TNDxNr4deou1wByknSJ8qnn
+         N/IA==
+X-Gm-Message-State: ANoB5plY0WnfgehW98OMU+kZ7DQKI/0oXFZeHIUfmgEljnTQ4qHyq4B+
+	lie1om6wRrpU/K1BGRvyHuE=
+X-Google-Smtp-Source: AA0mqf7lwibhel2vWgKerQ1bnJf9NSlcLw/Qbxd9R83TYmyHVzVWOZKevuphmFrVubfBi/3+/ePz6A==
+X-Received: by 2002:a1c:4c0f:0:b0:3d2:139e:f64f with SMTP id z15-20020a1c4c0f000000b003d2139ef64fmr8338067wmf.40.1670846135746;
+        Mon, 12 Dec 2022 03:55:35 -0800 (PST)
 Received: from prasmi.home ([2a00:23c8:2501:c701:1484:ef11:b25c:4612])
-        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b003b4cba4ef71sm9793820wmq.41.2022.12.12.03.55.33
+        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b003b4cba4ef71sm9793820wmq.41.2022.12.12.03.55.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Dec 2022 03:55:33 -0800 (PST)
+        Mon, 12 Dec 2022 03:55:35 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -86,16 +86,16 @@ Cc: Jisheng Zhang <jszhang@kernel.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v5 4/6] riscv: mm: dma-noncoherent: Pass direction and operation to ALT_CMO_OP()
-Date: Mon, 12 Dec 2022 11:55:03 +0000
-Message-Id: <20221212115505.36770-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v5 5/6] dt-bindings: cache: r9a07g043f-l2-cache: Add DT binding documentation for L2 cache controller
+Date: Mon, 12 Dec 2022 11:55:04 +0000
+Message-Id: <20221212115505.36770-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_035537_418475_8BD5C153 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20221212_035537_427389_81BCDB9F 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,112 +114,115 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Pass direction and operation to ALT_CMO_OP() macro.
+Add DT binding documentation for L2 cache controller found on RZ/Five SoC.
 
-Vendors might want to perform different operations based on the direction
-and callbacks (arch_sync_dma_for_device/arch_sync_dma_for_cpu/
-arch_dma_prep_coherent) so to handle such cases pass the direction and
-operation to ALT_CMO_OP() macro. This is in preparation for adding errata
-for the Andes CPU core.
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. The AX45MP core has an L2 cache controller, this patch
+describes the L2 cache block.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 ---
 v4 -> v5
-* Updated commit message.
+* Dropped L2 cache configuration properties
+* Dropped PMA configuration properties
+* Ordered the required list to match the properties list
 
 RFC v3 -> v4
-* New patch
+* Dropped l2 cache configuration parameters
+* s/larger/large
+* Added minItems/maxItems for andestech,pma-regions
 ---
- arch/riscv/include/asm/cacheflush.h  |  4 ++++
- arch/riscv/include/asm/errata_list.h |  8 ++++++--
- arch/riscv/mm/dma-noncoherent.c      | 15 ++++++++++-----
- 3 files changed, 20 insertions(+), 7 deletions(-)
+ .../cache/andestech,ax45mp-cache.yaml         | 81 +++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
 
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 03e3b95ae6da..e22019668b9e 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -8,6 +8,10 @@
- 
- #include <linux/mm.h>
- 
-+#define NON_COHERENT_SYNC_DMA_FOR_DEVICE	0
-+#define NON_COHERENT_SYNC_DMA_FOR_CPU		1
-+#define NON_COHERENT_DMA_PREP			2
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+new file mode 100644
+index 000000000000..9f0be4835ad7
+--- /dev/null
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright (C) 2022 Renesas Electronics Corp.
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/cache/andestech,ax45mp-cache.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- static inline void local_flush_icache_all(void)
- {
- 	asm volatile ("fence.i" ::: "memory");
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 2ba7e6e74540..48e899a8e7a9 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -124,7 +124,7 @@ asm volatile(ALTERNATIVE(						\
- #define THEAD_flush_A0	".long 0x0275000b"
- #define THEAD_SYNC_S	".long 0x0190000b"
- 
--#define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
-+#define ALT_CMO_OP(_op, _start, _size, _cachesize, _dir, _ops)		\
- asm volatile(ALTERNATIVE_2(						\
- 	__nops(6),							\
- 	"mv a0, %1\n\t"							\
-@@ -146,7 +146,11 @@ asm volatile(ALTERNATIVE_2(						\
- 			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
- 	: : "r"(_cachesize),						\
- 	    "r"((unsigned long)(_start) & ~((_cachesize) - 1UL)),	\
--	    "r"((unsigned long)(_start) + (_size))			\
-+	    "r"((unsigned long)(_start) + (_size)),			\
-+	    "r"((unsigned long)(_start)),				\
-+	    "r"((unsigned long)(_size)),				\
-+	    "r"((unsigned long)(_dir)),					\
-+	    "r"((unsigned long)(_ops))					\
- 	: "a0")
- 
- #define THEAD_C9XX_RV_IRQ_PMU			17
-diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-index d919efab6eba..e2b82034f504 100644
---- a/arch/riscv/mm/dma-noncoherent.c
-+++ b/arch/riscv/mm/dma-noncoherent.c
-@@ -19,13 +19,16 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
- 
- 	switch (dir) {
- 	case DMA_TO_DEVICE:
--		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-+		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size,
-+			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
- 		break;
- 	case DMA_FROM_DEVICE:
--		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-+		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size,
-+			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
- 		break;
- 	case DMA_BIDIRECTIONAL:
--		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
-+		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size,
-+			   dir, NON_COHERENT_SYNC_DMA_FOR_DEVICE);
- 		break;
- 	default:
- 		break;
-@@ -42,7 +45,8 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
- 		break;
- 	case DMA_FROM_DEVICE:
- 	case DMA_BIDIRECTIONAL:
--		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
-+		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size,
-+			   dir, NON_COHERENT_SYNC_DMA_FOR_CPU);
- 		break;
- 	default:
- 		break;
-@@ -53,7 +57,8 @@ void arch_dma_prep_coherent(struct page *page, size_t size)
- {
- 	void *flush_addr = page_address(page);
- 
--	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size);
-+	ALT_CMO_OP(flush, flush_addr, size, riscv_cbom_block_size,
-+		   0, NON_COHERENT_DMA_PREP);
- }
- 
- void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
++title: Andestech AX45MP L2 Cache Controller
++
++maintainers:
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++
++description:
++  A level-2 cache (L2C) is used to improve the system performance by providing
++  a large amount of cache line entries and reasonable access delays. The L2C
++  is shared between cores, and a non-inclusive non-exclusive policy is used.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - andestech,ax45mp-cache
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: andestech,ax45mp-cache
++      - const: cache
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  cache-line-size:
++    const: 64
++
++  cache-level:
++    const: 2
++
++  cache-sets:
++    const: 1024
++
++  cache-size:
++    enum: [131072, 262144, 524288, 1048576, 2097152]
++
++  cache-unified: true
++
++  next-level-cache: true
++
++additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - cache-line-size
++  - cache-level
++  - cache-sets
++  - cache-size
++  - cache-unified
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    cache-controller@2010000 {
++        compatible = "andestech,ax45mp-cache", "cache";
++        reg = <0x13400000 0x100000>;
++        interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
++        cache-line-size = <64>;
++        cache-level = <2>;
++        cache-sets = <1024>;
++        cache-size = <262144>;
++        cache-unified;
++    };
 -- 
 2.25.1
 
