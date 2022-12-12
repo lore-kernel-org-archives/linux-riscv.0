@@ -4,81 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE3DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 11:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D921C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 11:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TtZnja+jV4See3NOPpqRsrJYIRu2po5QHW4YI0+Huoo=; b=lhdE1jTkZejEMy
-	7ldAyNDR+D9gWosC9SR1JmRkIsH36zSWXbTf5q+XtNr7EUkJ0rYJMl4Y5E92vxdNBNk0z45VTi1Ez
-	+A4cfCM2Ddew18smQvFjlqEnRQoFDZq7xgH8n45pGy6tGZj5QrF1r7ddKJww8nxotm+osCeJHTEaU
-	FWCS1UCAQPZ74TJt0cyFAT1WhG2fN1wupYAO24Gpl+8Jlg+Fp/UmPIGOVbQ7EX4umZOlqbR1pwhDu
-	Y6JSv6MBspRXbfhY6og6Aq0pEdDtGM4PtDkLwaVX9a/JGBsovlI/useiGk215h+cp7S9Gm0ccGr3p
-	d+qbLW9nfNwLRQN3uX4A==;
+	List-Owner; bh=UloF7ICdSKEwiu4M0+JQ/zxX2Rw6YueidHBQkXT4t00=; b=sHfjTxqh+BQVBA
+	TXDZYnZPkAyFYlFP5qlHL07Elkgp5SJNPDWTuuCyDH+sMwqERRMHNoSc0a/o/0vafeWNj7vaFgtQR
+	x0HB4bya5ICwEOYeHVNyFuj0V4xkASAu+nPfsc0u1ZcqVVhlYaR0feJ8MPvEznnOqV6K8PxCLKHzx
+	1azGeNPDC4Qng+MkwlyxSPyArZgx5IC7tzqQLBJj7XH9ocANsCKZBDlUvKzsMcJFkij7pIBvFLTry
+	mnjhosKHiLDF6ms1uOx0CS4K1T+YK5rgFlLKB+s0mlHqKQWbDwbSDj6YOBs413OAwlQJ5QGTRv5OY
+	qEJCPbxuVNQ0wAPg9PAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4h9k-00Ea32-7O; Mon, 12 Dec 2022 11:39:36 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1p4hPH-00ExLk-PN; Mon, 12 Dec 2022 11:55:39 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4h6g-00EZUF-6E
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 11:36:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1670844984;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h3nGaS/BzxpoZBgzJ/A6+CxjyYDCWWuPh4Q+FvFOKgE=;
-	b=dPQscaic1ZyenPsAjzIpk5tc5c2BY2SAqj8eQogHx15iD31pyCKtPKmooBijzShYxI0tMF
-	9QUpdpfYULO14RmIdgoVU4Bx4GHXbKSWdjcMGj7kw8Rpp/W2t6O6Rje8M21a2CN02Mq7Ax
-	qqhRQ0+TKp2ZQiQOO87Tl+ju2du1a0Q=
-Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com
- [209.85.222.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_128_GCM_SHA256) id
- us-mta-581-qELcspnANkuQCAh8-AjbzQ-1; Mon, 12 Dec 2022 06:36:23 -0500
-X-MC-Unique: qELcspnANkuQCAh8-AjbzQ-1
-Received: by mail-ua1-f69.google.com with SMTP id y40-20020a9f326b000000b0041919bac03fso5177220uad.13
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:36:23 -0800 (PST)
+	id 1p4hPC-00ExFd-AP
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 11:55:36 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id i4-20020a1c3b04000000b003d21f02fbaaso68423wma.4
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 03:55:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ORVxgTEs6JpzOw6GBN9FhxtQ86wPto0+KjD/hzl5+jc=;
+        b=FhUIaooykKXtLBANwPAkCAIuxGKX2dKoYk3gCD5ZA0y3/EFZdEdTjn8HhzvpzthRg6
+         qN9LHky8jlcgciO/gPa79iLFZWkW/aoXcW9Yx+eZ1c97tTNaKV9ZHl9hw+dtlEp+S1u1
+         NN/RncC3w3ETjog4XIgSCNpoNJjLzfTNnzqPog3hTycCYsbfL++b4+ub5hPmqJDOW/r3
+         2WDmyDff9uSuRzrn5JJ7P4AMqs5pElbIR6FRRPODehzq/8yFM4sOTfgxZvDZpGLBeIQ8
+         gIvOH4P4BXdIMTNaC4op/XgEyf8V4tfFUOdFCXrce4LPlT2Khb6VpklTLtLEBSBDE6Hf
+         PkUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h3nGaS/BzxpoZBgzJ/A6+CxjyYDCWWuPh4Q+FvFOKgE=;
-        b=SUNPupd2T16xnv/kvgt33fk6KGOaLcx8C625OVfLnhj+VMzZuqa2Bve8nNBlfHUf7s
-         CtbfevaUlWDSnKgS7AwA3oHgrTsvo/aUUtao1HtXPQH6KiRIPVTET1VdtIORUULC4ekh
-         3LZY75su+cDHpH9N2vwguXpFP5UsGsW9aJYh9J1AgQTedXzoxW3U0urQn3z6gf2QoLnd
-         A9KqGJ1+I6EhidOdSgL0KzfSQqWHNpm3czJGuw2e3ykffG9WL+Yw9j86cp/T9B/45oI+
-         a4PTBQ5lS7CE+xoQFxkc7KBXr5Amz2HpgIKMzcpMJtN5fHEr2WAXh1hj4HIO+cqZ/PxU
-         gQCg==
-X-Gm-Message-State: ANoB5pn53BfTqqDhhtgpodtsv4Q0rYvkYs7MFpNeOckV0mTO3y7jmuzm
-	3KOg1hSm1ClLJcgyNz5++dVYl5FQU00y7E6eMSx213iolaUDsNEvXP7Gvx2MsVA2fyhP5/wLWkG
-	vk5RV0apPEPHMw+AM88vdntQHkvhHQUXjJY+Ed9cSWOBJ
-X-Received: by 2002:a67:ee95:0:b0:3aa:2354:b5d2 with SMTP id n21-20020a67ee95000000b003aa2354b5d2mr46725191vsp.16.1670844982490;
-        Mon, 12 Dec 2022 03:36:22 -0800 (PST)
-X-Google-Smtp-Source: AA0mqf6L0suCBdpdKZTeXJrqwx+cD9dUWlWKYgmOdFJG5Nxuva9VVcEzWcg9/sxtke4bVoRcGFHv6zO88PrSQMOiXvU=
-X-Received: by 2002:a67:ee95:0:b0:3aa:2354:b5d2 with SMTP id
- n21-20020a67ee95000000b003aa2354b5d2mr46725186vsp.16.1670844982153; Mon, 12
- Dec 2022 03:36:22 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ORVxgTEs6JpzOw6GBN9FhxtQ86wPto0+KjD/hzl5+jc=;
+        b=jtQMrKnZ5w0fKUj073iP8aoF7mryQBnW+YEePHJbJXdOn9kKs1UCbMvmHd//ubvdkw
+         6pBRrQdhE2U49WOlQwWSgRDfbg2JQ5jTpBd4osXcNVlAzwgd6FaVSd//AYuuBm9tDwqS
+         YnusmM6j2vlxg8wNRAckGS3heFMht0y8y1KHGOj+bAdxShwhhffnjDQlLmq35UPUR8S3
+         M0NhvAvrC2P7ACEzK+f1Cek2zSEmjmoJTrFCfwfaE8NXIF34iZDjHZkfTSjM0zM5+RTv
+         oWgj2+tbdcmVZwETnyVMpUeSf14EiWQsQg+oMSwWG3AunJHTZmCW+FsOTQEoP8ED/I3C
+         +dVA==
+X-Gm-Message-State: ANoB5pn85trhHRcv/eYoq85l++RdIGGjHupkCY4qz4k+Pnpi2iRodh+w
+	YKtDpaGb7cgP6iHVbcOHbFA=
+X-Google-Smtp-Source: AA0mqf55PhJ6NtCNpEMUlsz4dl16CkPXK2qmYSKBVunL6TyfYUkcG/BLYguDKslRg3csPq/Cl6K6mQ==
+X-Received: by 2002:a05:600c:3c96:b0:3cf:8d51:1622 with SMTP id bg22-20020a05600c3c9600b003cf8d511622mr12247840wmb.1.1670846132114;
+        Mon, 12 Dec 2022 03:55:32 -0800 (PST)
+Received: from prasmi.home ([2a00:23c8:2501:c701:1484:ef11:b25c:4612])
+        by smtp.gmail.com with ESMTPSA id j7-20020a05600c190700b003b4cba4ef71sm9793820wmq.41.2022.12.12.03.55.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Dec 2022 03:55:31 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Guo Ren <guoren@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Jisheng Zhang <jszhang@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v5 2/6] riscv: asm: vendorid_list: Add Andes Technology to the vendors list
+Date: Mon, 12 Dec 2022 11:55:01 +0000
+Message-Id: <20221212115505.36770-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20221212115505.36770-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
-References: <CAAhSdy0qihfFCXTV-QUjP-5XiQQqBC4_sP-swx77k6PC3uTmmw@mail.gmail.com>
-In-Reply-To: <CAAhSdy0qihfFCXTV-QUjP-5XiQQqBC4_sP-swx77k6PC3uTmmw@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Mon, 12 Dec 2022 12:36:11 +0100
-Message-ID: <CABgObfZ7Ar-t5m0+p=H1h0_bk-dJ5rYSVRCo6ZP5Wa0Qva2sLQ@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 6.2
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
-	KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_033626_698194_13930921 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20221212_035534_377176_1FFD2466 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,119 +113,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 7, 2022 at 11:33 AM Anup Patel <anup@brainfault.org> wrote:
->
-> Hi Paolo,
->
-> We have the following KVM RISC-V changes for 6.2:
-> 1) Allow unloading KVM module
-> 2) Allow KVM user-space to set mvendorid, marchid, and mimpid
-> 3) Several fixes and cleanups
->
-> Please pull.
->
-> Regards,
-> Anup
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hmm, I looked at them more closely and I noticed something weird in
-the author date:
+Add Andes Technology to the vendors list.
 
-git log --format='%an %ad %s' origin/master..6ebbdecff6ae
-Anup Patel Wed Dec 7 09:17:49 2022 +0530 RISC-V: KVM: Add ONE_REG
-interface for mvendorid, marchid, and mimpid
-Anup Patel Wed Dec 7 09:17:43 2022 +0530 RISC-V: KVM: Save mvendorid,
-marchid, and mimpid when creating VCPU
-Anup Patel Wed Dec 7 09:17:38 2022 +0530 RISC-V: Export
-sbi_get_mvendorid() and friends
-Anup Patel Wed Dec 7 09:17:27 2022 +0530 RISC-V: KVM: Move sbi related
-struct and functions to kvm_vcpu_sbi.h
-Anup Patel Wed Dec 7 09:17:19 2022 +0530 RISC-V: KVM: Use switch-case
-in kvm_riscv_vcpu_set/get_reg()
-Anup Patel Wed Dec 7 09:17:12 2022 +0530 RISC-V: KVM: Remove redundant
-includes of asm/csr.h
-Anup Patel Wed Dec 7 09:17:05 2022 +0530 RISC-V: KVM: Remove redundant
-includes of asm/kvm_vcpu_timer.h
-Anup Patel Wed Dec 7 09:16:51 2022 +0530 RISC-V: KVM: Fix reg_val
-check in kvm_riscv_vcpu_set_reg_config()
-Christophe JAILLET Wed Dec 7 09:16:39 2022 +0530 RISC-V: KVM: Simplify
-kvm_arch_prepare_memory_region()
-Anup Patel Wed Dec 7 09:16:21 2022 +0530 RISC-V: KVM: Exit run-loop
-immediately if xfer_to_guest fails
-Bo Liu Wed Dec 7 09:16:11 2022 +0530 RISC-V: KVM: use vma_lookup()
-instead of find_vma_intersection()
-XiakaiPan Wed Dec 7 09:16:02 2022 +0530 RISC-V: KVM: Add exit logic to main.c
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
+v4 -> v5
+* Included RB tags
 
-Something in your workflow has eaten the actual date when these were
-posted to the mailing list.
+RFC v3 -> v4
+* New patch
+---
+ arch/riscv/include/asm/vendorid_list.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-For example, https://lore.kernel.org/lkml/CAAhSdy0t1XGTENidgNQkQ5m5emZOes+-2RXTPLEJ0tEZXuX2hA@mail.gmail.com/t/
-shows Bo Liu's patch as being sent on November 1st.
-
-Please keep the author information from the mailing list messages, and
-also please try to update the KVM/RISC-V tree as soon as patches are
-ready and tested, i.e. earlier than the week before the merge window.
-(Seeing '6.1-rc8' as the base for the pull request is often a sign of
-something wrong with the workflow; see
-
-It's a small set of changes, so I'm going to defer this pull request
-to the second week of the merge window.
-
-Paolo
-
-> The following changes since commit 76dcd734eca23168cb008912c0f69ff408905235:
->
->   Linux 6.1-rc8 (2022-12-04 14:48:12 -0800)
->
-> are available in the Git repository at:
->
->   https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.2-1
->
-> for you to fetch changes up to 6ebbdecff6ae00557a52539287b681641f4f0d33:
->
->   RISC-V: KVM: Add ONE_REG interface for mvendorid, marchid, and
-> mimpid (2022-12-07 09:17:49 +0530)
->
-> ----------------------------------------------------------------
-> KVM/riscv changes for 6.2
->
-> - Allow unloading KVM module
-> - Allow KVM user-space to set mvendorid, marchid, and mimpid
-> - Several fixes and cleanups
->
-> ----------------------------------------------------------------
-> Anup Patel (9):
->       RISC-V: KVM: Exit run-loop immediately if xfer_to_guest fails
->       RISC-V: KVM: Fix reg_val check in kvm_riscv_vcpu_set_reg_config()
->       RISC-V: KVM: Remove redundant includes of asm/kvm_vcpu_timer.h
->       RISC-V: KVM: Remove redundant includes of asm/csr.h
->       RISC-V: KVM: Use switch-case in kvm_riscv_vcpu_set/get_reg()
->       RISC-V: KVM: Move sbi related struct and functions to kvm_vcpu_sbi.h
->       RISC-V: Export sbi_get_mvendorid() and friends
->       RISC-V: KVM: Save mvendorid, marchid, and mimpid when creating VCPU
->       RISC-V: KVM: Add ONE_REG interface for mvendorid, marchid, and mimpid
->
-> Bo Liu (1):
->       RISC-V: KVM: use vma_lookup() instead of find_vma_intersection()
->
-> Christophe JAILLET (1):
->       RISC-V: KVM: Simplify kvm_arch_prepare_memory_region()
->
-> XiakaiPan (1):
->       RISC-V: KVM: Add exit logic to main.c
->
->  arch/riscv/include/asm/kvm_host.h     | 16 +++----
->  arch/riscv/include/asm/kvm_vcpu_sbi.h |  6 +++
->  arch/riscv/include/uapi/asm/kvm.h     |  3 ++
->  arch/riscv/kernel/sbi.c               |  3 ++
->  arch/riscv/kvm/main.c                 |  6 +++
->  arch/riscv/kvm/mmu.c                  |  6 +--
->  arch/riscv/kvm/vcpu.c                 | 85 ++++++++++++++++++++++++++---------
->  arch/riscv/kvm/vcpu_sbi_base.c        | 13 +++---
->  arch/riscv/kvm/vcpu_sbi_hsm.c         |  1 -
->  arch/riscv/kvm/vcpu_sbi_replace.c     |  1 -
->  arch/riscv/kvm/vcpu_sbi_v01.c         |  1 -
->  11 files changed, 97 insertions(+), 44 deletions(-)
->
+diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
+index cb89af3f0704..e55407ace0c3 100644
+--- a/arch/riscv/include/asm/vendorid_list.h
++++ b/arch/riscv/include/asm/vendorid_list.h
+@@ -5,6 +5,7 @@
+ #ifndef ASM_VENDOR_LIST_H
+ #define ASM_VENDOR_LIST_H
+ 
++#define ANDESTECH_VENDOR_ID	0x31e
+ #define SIFIVE_VENDOR_ID	0x489
+ #define THEAD_VENDOR_ID		0x5b7
+ 
+-- 
+2.25.1
 
 
 _______________________________________________
