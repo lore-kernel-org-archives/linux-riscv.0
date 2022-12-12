@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4046C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 15:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24556C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 17:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V4BAiaSY6m37d2ifLxks+rlVFnM1I8BMO2M2lRzxcQQ=; b=3jhMdXVeVlTPbe
-	nf2XFRB1HKGl6H5D20ExLuIt87TRGCd12SpcV1wgZGQikLff5IVOQTDdhnXfzJQthjl2VOdXXkQ7c
-	WSsGLnZOPoDWQAO3y8thBfbq5BLzB3dqlOrD545kPxb78wyVQxvfpnpXcX1PLZMl0640eGjDgCv+I
-	7O9WF6wRBPhSTQExtVRsoyQJtfIf5xgfEJv66r/ejrGz/qD88Kzgz/jZT7xlyFO8xT2BfjrBW5eg9
-	Zcbe+oD5ytKKTnoAxNQl8jW52JUGzyVdwfDpHNTZZNX8H1zjXfLQlR0s0fmv33m+Yysnhj+spWP+5
-	z7EU4S5YBMVxv38JyCrw==;
+	List-Owner; bh=JvmzlKCFMF7BecFBidoQKS0SsZ2neSfWncGzFATRv3g=; b=hLxt7fDHo8nMLv
+	LAdCwizU930z09mXzuAbbxjAVRP55dx8G2UHM0eh/gLNPcyr0f2KOGhDAQUhAuiEepSBKR9OEkW/h
+	mwRGgyYRWoScKhLYRQH56I8SmQrrIni5Bio3AZL8pmNfaOYtU8Q6ttcz+8xmh/LLw6SYeLwMfaI74
+	GBmm47Lyh6JJFPEcyZboaoZWAbql8ivt3dHwmrizELkqzdmNOgXFESaEMkfe01LQXN6FhBBxbfz18
+	3sIDvjX8nh/gHGnO7qdAOLby+exypT83M9szh/R/ShmkW0wEW7DVOqnYg18khbojqfYd71hGqY9pD
+	mU1k2wwJSq0MOnTFo4fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4kmT-001DTB-Ex; Mon, 12 Dec 2022 15:31:49 +0000
+	id 1p4mIe-002WY4-VW; Mon, 12 Dec 2022 17:09:09 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4kmQ-001DRY-6Y
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 15:31:47 +0000
+	id 1p4mIc-002WWK-2a
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 17:09:07 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id E193460AB0;
-	Mon, 12 Dec 2022 15:31:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA88CC433D2;
-	Mon, 12 Dec 2022 15:31:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C84AF61171;
+	Mon, 12 Dec 2022 17:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 405F3C433D2;
+	Mon, 12 Dec 2022 17:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1670859104;
-	bh=LGTDnYxBg9eysLN7OOJxfD3B53BIGfwpGXnUlfr6wak=;
+	s=k20201202; t=1670864942;
+	bh=1uKfvnIvXPkzGzWXkQgGgIJ5yMv67egrw2dgfVsZ474=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kDm7uU0dlJ43C/A5FT3EW4FfV20bzGiIHOtUks/5Z5R8x7YozXLTyaNkS1lvH2G+H
-	 x12Ps0r0J3BtQaXzVsS9TR4mkQuHLu7v8mRrHIKUrVPIAbDDWM6HUiK86s9Z6cLiqO
-	 khhIh2bGDshjEFrw+PE2eUW6jKxiQWFRHLVbOCzBAGSe2pnCh5lKlvFYIE0U60hxNH
-	 04Ik88zPydTbty7ah8HPpKrD+m95EkI7pFUOBpUzyMDk8l/aVgAyRjk7OMEsUXK6do
-	 UozyoJKpcnsWMRDJuyHa5O7N983skzLZed+hhmQSTKzrXU0I9oLsaPoJR0c8JNH2XY
-	 Nl3Ae0WNilNdQ==
-Date: Mon, 12 Dec 2022 23:21:45 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: ajones@ventanamicro.com, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] riscv: vdso: remove hardcoded 0x800 .text section
- start addr
-Message-ID: <Y5dHCVyCfg7qc3Mb@xhacker>
-References: <Y3+XmWazrB0RURfI@xhacker>
- <mhng-599fbea8-24d0-4d59-896f-7ce09eb6c1c6@palmer-ri-x1c9>
+	b=cmppyl/5WEObf5KqFxBOjavCQzX8Zu9SN7lAK0FSXhGAEkrD5dWHIgbd5y5/z17nN
+	 gK7ghVxaw+lm07Zo1aPMOEJzBXzzr4XBeNJJeT+YjoGmSvYr5w0PcwKiejiMP3BttZ
+	 7ftYlYnueTG2NrR23roHuBwql6+122FWR1/bqIVL+WYta0E71tO0pxTNGFMMtO1kYu
+	 CkRRm4gzssxZUxyO+sfdsGz4awMdh56uGwh94jvj4a2TW9ZOL/zPMKBRw1gw5J9wZX
+	 P1SCViCnibdb0w5Y/qlyrc5nAMNUQ2FdgNiALTq5hUsZiIpLznXkGQ/8fT/bEqDYKs
+	 1fZfa413i0yIw==
+Date: Mon, 12 Dec 2022 10:08:59 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Tom Rix <trix@redhat.com>,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	x86@kernel.org
+Subject: Re: [PATCH] kbuild: add test-{ge,gt,le,lt} macros
+Message-ID: <Y5dgK2D4TP35PkKg@dev-arch.thelio-3990X>
+References: <20221211024647.2614394-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-599fbea8-24d0-4d59-896f-7ce09eb6c1c6@palmer-ri-x1c9>
+In-Reply-To: <20221211024647.2614394-1-masahiroy@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_073146_384609_25F6941E 
-X-CRM114-Status: GOOD (  39.46  )
+X-CRM114-CacheID: sfid-20221212_090906_236939_B78F2E48 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +82,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 09, 2022 at 11:02:18AM -0800, Palmer Dabbelt wrote:
-> On Thu, 24 Nov 2022 08:11:05 PST (-0800), jszhang@kernel.org wrote:
-> > On Thu, Nov 24, 2022 at 11:32:55AM +0100, Andrew Jones wrote:
-> > > On Thu, Nov 24, 2022 at 12:18:05AM +0800, Jisheng Zhang wrote:
-> > > > It seems the hardcoded 0x800 isn't necessary, but removing it brings a
-> > > 
-> > > s/, but/and/
-> > > 
-> > > > small vdso.so and aligns with other architectures.
-> > > 
-> > > This commit message didn't really satisfy my desire to understand why
-> > > the comment and '. = 0x800' were there in the first place and if its safe
-> > > to remove now, so I tried to do some of my own digging. I found
-> > > 
-> > > commit 5b9304933730 ("x86 vDSO: generate vdso-syms.lds")
-> > > commit f6b46ebf904f ("x86 vDSO: new layout")
-> > > 
-> > > which removes the comment and hard coding for x86 by changing the vdso
-> > > Makefile. Then looking at
-> > > 
-> > > commit 9031fefde6f2 ("arm64: VDSO support")
-> > > 
-> > > we see that it starts with the new Makefile approach and doesn't bother
-> > > with the hard coding from the start. As riscv also started with the new
-> > > Makefile approach it also could have dropped the hard coding from the
-> > > start (I guess).
-> > > 
-> > > >
-> > > > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > > > ---
-> > > >  arch/riscv/kernel/vdso/vdso.lds.S | 8 +-------
-> > > >  1 file changed, 1 insertion(+), 7 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-> > > > index 150b1a572e61..7be7e618d59c 100644
-> > > > --- a/arch/riscv/kernel/vdso/vdso.lds.S
-> > > > +++ b/arch/riscv/kernel/vdso/vdso.lds.S
-> > > > @@ -31,13 +31,7 @@ SECTIONS
-> > > >
-> > > >  	.rodata		: { *(.rodata .rodata.* .gnu.linkonce.r.*) }
-> > > >
-> > > > -	/*
-> > > > -	 * This linker script is used both with -r and with -shared.
-> > > > -	 * For the layouts to match, we need to skip more than enough
-> > > > -	 * space for the dynamic symbol table, etc. If this amount is
-> > > > -	 * insufficient, ld -shared will error; simply increase it here.
-> > > > -	 */
-> > > > -	. = 0x800;
-> > > > +	. = ALIGN(4);
-> > > 
-> > > I realize 4 is used here now because I questioned the 16, but after doing
-> > > my digging I think a larger alignment may be better. Loading the text may
-> > > be done with 8 byte or larger reads, so having the section aligned to a
-> > > larger size would be better reading it. We might as well use 16, like
-> > > arm64 does, and like you had before?
-> > > 
-> > > Also, having enough separation between data and text seems to be
-> > > important for cache reasons, based on the comment in
-> > > ./arch/x86/entry/vdso/vdso-layout.lds.S and other vdso history.
-> > > Maybe we should move .note, .eh_frame_hdr, and .eh_frame below
-> > > .rodata like x86 has it?
-> > > 
-> > 
-> > Thank you so much for pointing out the two commits and above
-> > separation, new version will be sent out soon.
+On Sun, Dec 11, 2022 at 11:46:47AM +0900, Masahiro Yamada wrote:
+> GNU Make 4.4 introduced $(intcmp ...), which is useful to compare two
+> integers without forking a new process.
 > 
-> Not sure if I missed the v2?  I can't find one.
+> Add test-{ge,gt,le,lt} macros, which work more efficiently with GNU
+> Make >= 4.4. For older Make versions, they fall back to the 'test'
+> shell command.
+> 
+> The first two parameters to $(intcmp ...) must not be empty. To avoid
+> the syntax error, I appended '0' to them. Fortunately, '00' is treated
+> as '0'. This is needed because CONFIG options may expand to an empty
+> string when the kernel configuration is not included.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
 
-When I want to sent a v2, I just knew that patches after rc7 won't
-be merged for next rc1. Sorry for not being earlier. Will send out
-v2 once new developement window is reopen.
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-Thanks
+> ---
+> 
+> Changes in v3:
+>   - Use $(intcmp ...) instead of playing with $(sort ...)
+> 
+>  Makefile                  |  2 +-
+>  arch/riscv/Makefile       |  2 +-
+>  arch/x86/Makefile         |  2 +-
+>  scripts/Kbuild.include    | 16 ++++++++++++++++
+>  scripts/Makefile.compiler |  4 ++--
+>  5 files changed, 21 insertions(+), 5 deletions(-)
+> 
+> diff --git a/Makefile b/Makefile
+> index fbd9ff4a61e7..8801cac4d3d5 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -993,7 +993,7 @@ KBUILD_LDFLAGS += -mllvm -import-instr-limit=5
+>  # Check for frame size exceeding threshold during prolog/epilog insertion
+>  # when using lld < 13.0.0.
+>  ifneq ($(CONFIG_FRAME_WARN),0)
+> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
+> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
+>  KBUILD_LDFLAGS	+= -plugin-opt=-warn-stack-size=$(CONFIG_FRAME_WARN)
+>  endif
+>  endif
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 0d13b597cb55..faf2c2177094 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -37,7 +37,7 @@ else
+>  endif
+>  
+>  ifeq ($(CONFIG_LD_IS_LLD),y)
+> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
+> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 150000),y)
+>  	KBUILD_CFLAGS += -mno-relax
+>  	KBUILD_AFLAGS += -mno-relax
+>  ifndef CONFIG_AS_IS_LLVM
+> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+> index 415a5d138de4..e72c7a49cd59 100644
+> --- a/arch/x86/Makefile
+> +++ b/arch/x86/Makefile
+> @@ -211,7 +211,7 @@ endif
+>  KBUILD_LDFLAGS += -m elf_$(UTS_MACHINE)
+>  
+>  ifdef CONFIG_LTO_CLANG
+> -ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
+> +ifeq ($(call test-lt, $(CONFIG_LLD_VERSION), 130000),y)
+>  KBUILD_LDFLAGS	+= -plugin-opt=-stack-alignment=$(if $(CONFIG_X86_32),4,8)
+>  endif
+>  endif
+> diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
+> index cbe28744637b..5019bc1e38e4 100644
+> --- a/scripts/Kbuild.include
+> +++ b/scripts/Kbuild.include
+> @@ -11,6 +11,22 @@ space   := $(empty) $(empty)
+>  space_escape := _-_SPACE_-_
+>  pound := \#
+>  
+> +###
+> +# Comparison macros.
+> +# Usage: $(call test-lt, $(CONFIG_LLD_VERSION), 150000)
+> +#
+> +# Use $(intcmp ...) if supported. (Make >= 4.4)
+> +# Otherwise, fall back to the 'test' shell command.
+> +ifeq ($(intcmp 1,0,,,y),y)
+> +test-le = $(intcmp $(strip $1)0, $(strip $2)0,y,y,)
+> +test-lt = $(intcmp $(strip $1)0, $(strip $2)0,y,,)
+> +else
+> +test-le = $(shell test $(strip $1)0 -le $(strip $2)0 && echo y)
+> +test-lt = $(shell test $(strip $1)0 -lt $(strip $2)0 && echo y)
+> +endif
+> +test-ge = $(call test-le, $2, $1)
+> +test-gt = $(call test-lt, $2, $1)
+> +
+>  ###
+>  # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
+>  dot-target = $(dir $@).$(notdir $@)
+> diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
+> index 20d353dcabfb..3d8adfd34af1 100644
+> --- a/scripts/Makefile.compiler
+> +++ b/scripts/Makefile.compiler
+> @@ -63,11 +63,11 @@ cc-disable-warning = $(call try-run,\
+>  
+>  # gcc-min-version
+>  # Usage: cflags-$(call gcc-min-version, 70100) += -foo
+> -gcc-min-version = $(shell [ $(CONFIG_GCC_VERSION)0 -ge $(1)0 ] && echo y)
+> +gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
+>  
+>  # clang-min-version
+>  # Usage: cflags-$(call clang-min-version, 110000) += -foo
+> -clang-min-version = $(shell [ $(CONFIG_CLANG_VERSION)0 -ge $(1)0 ] && echo y)
+> +clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
+>  
+>  # ld-option
+>  # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
+> -- 
+> 2.34.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
