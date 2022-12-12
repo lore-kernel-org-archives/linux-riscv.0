@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78FC0C4332F
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 03:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD63C4332F
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Dec 2022 06:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r7jI7OpwNbeLbXIoo3y88n+tqJ8WXlxosr6KI++8WWk=; b=Jjmn9w8ydr0hcn
-	Pp9jpz9zo7bblMh8C0QSeJ18oKfeR0V6NthRtxNQmHhScKhft9/dosy/3QGKrTn/aDbRd4Tng+Z4g
-	cFEQBiKsJ9Qu1z7l+XqDq/OwjULZPXYydnOUfp0Li0p8w+BUTqSQCIdY79D5UxxDbI8JgDccfGBc3
-	WOIZyHBtQaB390bYbW9dnBWIcKessqWEoi/iSwOlcvyUjdCF9hGYBFhMw6e7zi2ckDSqnJl07T8nQ
-	1HjOK9wETwGtZVhEhqULFt0ph22MALqWw64jN97q1H/SPtnWAWLHI9np7j+H4Si+bIwzjF55e4Irh
-	LoNRgDH4SUPRb678xxBw==;
+	List-Owner; bh=iLh95STofbl84rXisydSq1WOSETa1/CjG8eFIHdrMmU=; b=JwcKeAopiUr8sI
+	OUiN9juwk5ZlIWFTcvKXh4xj8fFZB7JzO+1l9p8qmpGR7+6WQN3PMNR8Gt90prLHU3v6l3NbzIT6j
+	vYePY+KUinNx6eF886pKbl+FoNV9ixrpG4Gj17EmL8sqWVw9lomU7xOj/siR4v59TopSCgBwYIGlw
+	XiVWwPA2F1O6KPJIY5eDT8xeCh7i80GxrfduWz/eklqJ4x7RXSrVoFrc64+J/Dh3Mz+/eSmeer/HZ
+	0qnUPCLJGT7VTMnenUmG2BZlMHNIOmXOTfpngThcbIzGoqd+jRYjX0abWovC0CmzMjkJIziOomLXF
+	PnDtqt6vo71NySYDC+ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4ZMR-0074li-0t; Mon, 12 Dec 2022 03:20:11 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	id 1p4cOX-008rKn-6N; Mon, 12 Dec 2022 06:34:33 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4ZMM-0074cy-Hr
-	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 03:20:08 +0000
+	id 1p4cOF-008qzl-FH
+	for linux-riscv@lists.infradead.org; Mon, 12 Dec 2022 06:34:18 +0000
 Received: from EXMBX165.cuchost.com (unknown [175.102.18.54])
 	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
 	(Client CN "EXMBX165", Issuer "EXMBX165" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id C95EF24E115;
-	Mon, 12 Dec 2022 11:19:40 +0800 (CST)
+	by ex01.ufhost.com (Postfix) with ESMTP id EF65C24E1D3;
+	Mon, 12 Dec 2022 14:33:49 +0800 (CST)
 Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX165.cuchost.com
  (172.16.6.75) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 12 Dec
- 2022 11:19:40 +0800
+ 2022 14:33:49 +0800
 Received: from [192.168.125.96] (113.72.147.126) by EXMBX068.cuchost.com
  (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.42; Mon, 12 Dec
- 2022 11:19:40 +0800
-Message-ID: <c45b1c4c-1e7d-ff08-a07e-0752630339bc@starfivetech.com>
-Date: Mon, 12 Dec 2022 11:19:39 +0800
+ 2022 14:33:49 +0800
+Message-ID: <bdda8e37-b6a1-1293-4af8-f0a254d37a2a@starfivetech.com>
+Date: Mon, 12 Dec 2022 14:33:48 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
  Thunderbird/102.5.1
 Subject: Re: [RESEND PATCH v2 1/3] dt-bindings: power: Add starfive,jh71xx-pmu
 Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	<linux-riscv@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-CC: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Emil Renner Berthing
-	<emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
-	<rafael@kernel.org>, <linux-kernel@vger.kernel.org>
+To: Rob Herring <robh@kernel.org>
+CC: <linux-riscv@lists.infradead.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, <linux-pm@vger.kernel.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Rob Herring <robh+dt@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Emil Renner
+ Berthing" <emil.renner.berthing@canonical.com>, "Rafael J . Wysocki"
+	<rafael@kernel.org>
 References: <20221208084523.9733-1-walker.chen@starfivetech.com>
  <20221208084523.9733-2-walker.chen@starfivetech.com>
- <ac374e10-fb5b-c56c-7c76-b131446533fe@linaro.org>
+ <167050594063.531467.3185697679617153248.robh@kernel.org>
 From: Walker Chen <walker.chen@starfivetech.com>
-In-Reply-To: <ac374e10-fb5b-c56c-7c76-b131446533fe@linaro.org>
+In-Reply-To: <167050594063.531467.3185697679617153248.robh@kernel.org>
 X-Originating-IP: [113.72.147.126]
 X-ClientProxiedBy: EXCAS064.cuchost.com (172.16.6.24) To EXMBX068.cuchost.com
  (172.16.6.68)
 X-YovoleRuleAgent: yovoleflag
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221211_192006_971333_47007AD3 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20221211_223415_937718_F2875A7B 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +78,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/12/8 17:03, Krzysztof Kozlowski wrote:
-> On 08/12/2022 09:45, Walker Chen wrote:
+On 2022/12/8 21:31, Rob Herring wrote:
+> 
+> On Thu, 08 Dec 2022 16:45:21 +0800, Walker Chen wrote:
 >> Add bindings for Power Management Unit (PMU) on the StarFive JH71XX SoC.
 >> 
 >> Signed-off-by: Walker Chen <walker.chen@starfivetech.com>
+>> ---
+>>  .../bindings/power/starfive,jh71xx-pmu.yaml   | 45 +++++++++++++++++++
+>>  .../dt-bindings/power/starfive,jh7110-pmu.h   | 17 +++++++
+>>  2 files changed, 62 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/power/starfive,jh71xx-pmu.yaml
+>>  create mode 100644 include/dt-bindings/power/starfive,jh7110-pmu.h
+>> 
 > 
+> My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+> on your patch (DT_CHECKER_FLAGS is new in v5.13):
 > 
+> yamllint warnings/errors:
+> ./Documentation/devicetree/bindings/power/starfive,jh71xx-pmu.yaml:18:7: [warning] wrong indentation: expected 4 but found 6 (indentation)
 > 
->> +    };
->> diff --git a/include/dt-bindings/power/starfive,jh7110-pmu.h b/include/dt-bindings/power/starfive,jh7110-pmu.h
->> new file mode 100644
->> index 000000000000..73c6a79a2181
->> --- /dev/null
->> +++ b/include/dt-bindings/power/starfive,jh7110-pmu.h
->> @@ -0,0 +1,17 @@
->> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/starfive,jh71xx-pmu.yaml: properties:compatible: [{'enum': ['starfive,jh7110-pmu']}] is not of type 'object', 'boolean'
+> 	from schema $id: http://json-schema.org/draft-07/schema#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/starfive,jh71xx-pmu.yaml: ignoring, error in schema: properties: compatible
+> Documentation/devicetree/bindings/power/starfive,jh71xx-pmu.example.dtb:0:0: /example-0/power-controller@17030000: failed to match any schema with compatible: ['starfive,jh7110-pmu']
 > 
-> Why different license than the bindings? MIT is pretty compatible, but
-> if it does not matter for you, keep same licenses as bindings.
+> doc reference errors (make refcheckdocs):
+> 
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20221208084523.9733-2-walker.chen@starfivetech.com
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
 
-MIT should be the least restrictive license. But it seems that BSD is more used and more safe.
-So both of them will be used same licenses in next version. Thanks.
+Please forgive my mistake, I forgot to make dt_binding_check for .yaml file. 
+Now there is no complain after syntax and indentation are fixed.
+Thank you for your comment.
 
-> 
->> +/*
->> + * Copyright (C) 2022 StarFive Technology Co., Ltd.
->> + * Author: Walker Chen <walker.chen@starfivetech.com>
->> + */
->> +#ifndef __DT_BINDINGS_POWER_JH7110_POWER_H__
->> +#define __DT_BINDINGS_POWER_JH7110_POWER_H__
->> +
->> +#define JH7110_PD_SYSTOP	0
->> +#define JH7110_PD_CPU		1
->> +#define JH7110_PD_GPUA		2
->> +#define JH7110_PD_VDEC		3
->> +#define JH7110_PD_VOUT		4
->> +#define JH7110_PD_ISP		5
->> +#define JH7110_PD_VENC		6
->> +
->> +#endif
-> 
-> Best regards,
-> Krzysztof
-> 
+Best regards,
+Walker Chen
 
 
 _______________________________________________
