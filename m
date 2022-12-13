@@ -4,114 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E728FC00145
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97437C4332F
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jvbx9jHIT2c5+GMmkgBZQbANZ3xpZKWNxYA8QAJjLAE=; b=YShoqUdyi1NYwL
-	W8lgoEierTdcxsuHMMSsjU8b6RhhIHghlgLaphVcpE9X/mmcOWOySoO6Twf5WHaDofBUCyoQaDVB9
-	A1n6cecISN6h2MUZHlTgGTIm93w7erihJSSvwenbSoAjw0grkt8W+rXryth2E9aEoDKaohs4CTdma
-	5f0UwnBPAUmBxCi44WeRn4Iw0eD82nsbo1Dy3g6cZUcaOz77GnclaL0jmBEDh32pN0Mdffyqzn1vF
-	0uGhUUY6udK6DJL0bFisYgp/I9Ge1GMihzSMd3STWDic9wlLHlepanWtzZZuliTnnt3mBYXH2tJtv
-	ugcqcJYBvzdrLpF/7prw==;
+	List-Owner; bh=x7jnZ60BKIgFvFTYM6xKByks68p7sqIX7eChPO1tfCQ=; b=WVw9lHdenL6GdD
+	f1Y1m/5mh8NbJCZ6oTWf7RgEh7WXp/iZOcbK3H0RU3oEKR6+rq9KErNjWNsjFG479gDtykGOCO0Z+
+	jon0zIog1alVjaspf2UzIDU7Ajf9ed7/XDXxi4Xb4iDK80QThv+ZyFPX7izUeGkPqfo2kNfoZZtkL
+	LPObM+3Rbf9AQLzauhRkn+h+QqHYTRxU5cfmRhFsSxCISr2Wtyx2qU23RyFE8MD7isW4p7XjOir/N
+	j6qLB+Eo2Z0G8dNAWwd18w4Qk4+il5IJm33mXKAfkfHzpjJ5mFaFjJm6zeCquJXu8ly/EhddEJVwE
+	5XDgs4W7BPSxIUQ2OCTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4twd-008snO-4S; Tue, 13 Dec 2022 01:18:55 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1p4u5D-008umz-VL; Tue, 13 Dec 2022 01:27:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4twU-008sO2-Nv
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 01:18:48 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d3so13945695plr.10
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 17:18:41 -0800 (PST)
+	id 1p4u5C-008umi-MX
+	for linux-riscv@bombadil.infradead.org; Tue, 13 Dec 2022 01:27:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=cl2hz2Xl0INQZgi0/FdsZaZQh2aAYVKtm1GOrQ0BNuA=; b=Iclve46rmpOUIPUu4X4Zy6+68f
+	uRfmicK9pWsltUkmG2QN0lkhFQbFOEE8pdOfpHgAG3RDjQez++Ky4ms0JwrvZCeHxBdY6d+QWM8qZ
+	0W5yBiL2UbME79pQ/QqsThnuGEFBcFiYOsS8+Tz/sbbr8G2N08V000Svgb6yq9XYJXWiUg8wzrOhh
+	X6HVJQK9pLmDAs+ZgLh4SKLBAIGRlWIvMrW4OdvZkEjOpvYsJFNMNUi6QPqikIr40RkT6SwsAYbtO
+	2PRr//rpiYXDBAnU0Bhm6nuS5+Q68v+auTxQOM+87PusM5SG7RH0nb3ucMyFXvGKTng5NVSIc8c9+
+	2NZfJA0g==;
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1p4syw-009w6R-My
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 00:17:18 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id a5-20020a25af05000000b006e450a5e507so15037115ybh.22
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 16:17:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=65IDnHecXM4GAPku5HHW6zoqaWMBpSe6UVEVil1rUW8=;
-        b=aCbTEC5zVQHMxXGUQTyU3DWgykcdtGQYX+TMVnYfhhivfYDwUdEI2A+rvhEs/NwsaF
-         DBS7EUg/X3QUOeZSsBrnvtkOTybUx0UgHQfTJ3hA35ipZDaXqrdLdH18As7YVMN94+FU
-         E0ZAjnBtiWq0DWCLJTMY1LLhx6oaO6nTa/LCKJnCfj9cvh92FEO+h9Fh1uCxf/eAl6iw
-         7hyDu3aUhJ3UKrfyvsiyjGIexzmF9DmyPzjASetqH/jMJK8TS5INlchOlJfnBagkkznK
-         3XYQb4be1caEftz1e2fA0GEffMBeGMtYKiW3GQDIe6ihjILD9JWzVjZUmCWBKLdW3ozR
-         bQkw==
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=cl2hz2Xl0INQZgi0/FdsZaZQh2aAYVKtm1GOrQ0BNuA=;
+        b=qtuKL0chntBw8WmvJab1K7kXx56vDxcM9Lz3Ed1k66okiPfskMIfRbRPhkpYl+zGcP
+         mkp5v4Xa7xKSkNVTIU5I70auAIKnC0QeyzQFPgSFF7WWS+tDOctc4tDRG/YuUfhAOX4B
+         t8ijgFRQsDMni3C+Sb2bEyRHhRoH07jF7n9YtSS4rtkdGTPQ9kigYoTmO1aL/fn/jywD
+         tNkEscjQPz0T4cqIQReHVuDH+sIuUu9AxFpVApk///ScvT5q9609eMJOQx/F3P0B5FVO
+         7yKU4XPqBRk3J8E/xxsYrzOoSaTZobfNQITHw9pavl02O+kx8NUkPc5JhtHd2UP0Zuz7
+         2pbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=65IDnHecXM4GAPku5HHW6zoqaWMBpSe6UVEVil1rUW8=;
-        b=68BlidXO6c6ZPKXi5ZUcZlRHLFSP6lmaobODNLfqi/EeyWC06EYGyYzG9LQaqVdVcO
-         IHwmeLnm65abQmyTx8VYJWACIeyQWesGN8xExbeCUfACrJUIJkIv0pd8QOGzlFCTtXBL
-         FBByYa8RGq6RKkZeHtO2Smlu3+qi8Uyzr/5kec+4zkG7D4lPMknUYz/fbXFlzXTU9Zys
-         oHbmoS5LYlmZQPcuEqPSfY5FgICbX7n29ey9Oyd5+c74e3O9YiqKmqEcJQWWqSIijE36
-         w28Omt3WSevLRn7I9iWLtJQCjuKSDZsGIfQJvrZ3+I4c+pA/+cf/Cj/+T26C09mE6fxZ
-         rFBA==
-X-Gm-Message-State: ANoB5plgNVT0LKyNubEQwsb7GmIReIQJXhwJ+yZm60p8cosvLoxLK5C5
-	PWxvwg3nhMnXGva+ucWGto7IGQ==
-X-Google-Smtp-Source: AA0mqf5INLD3H26KoHZlGz+PIVih+odmnj70wLNIiESaeaUKfnuuF7xa7n6FGQnW8NJxdar9YAD0/g==
-X-Received: by 2002:a05:6a20:2d21:b0:a4:9691:6e9 with SMTP id g33-20020a056a202d2100b000a4969106e9mr23637142pzl.1.1670894320396;
-        Mon, 12 Dec 2022 17:18:40 -0800 (PST)
-Received: from google.com (223.103.125.34.bc.googleusercontent.com. [34.125.103.223])
-        by smtp.gmail.com with ESMTPSA id r14-20020a63a54e000000b00460ea630c1bsm5762650pgu.46.2022.12.12.17.18.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Dec 2022 17:18:40 -0800 (PST)
-Date: Mon, 12 Dec 2022 17:18:35 -0800
-From: David Matlack <dmatlack@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Sean Christopherson <seanjc@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	"Yang, Weijiang" <weijiang.yang@intel.com>,
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	"Amit, Nadav" <namit@vmware.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>, Yu Zhao <yuzhao@google.com>,
-	Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>,
-	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>,
-	Krish Sadhukhan <krish.sadhukhan@oracle.com>,
-	Ricardo Koller <ricarkol@google.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [RFC PATCH 01/37] KVM: x86/mmu: Store the address space ID
- directly in kvm_mmu_page_role
-Message-ID: <Y5fS69mLXlV+cQlg@google.com>
-References: <20221208193857.4090582-1-dmatlack@google.com>
- <20221208193857.4090582-2-dmatlack@google.com>
- <22fe2332-497e-fe30-0155-e026b0eded97@intel.com>
- <Y5NvYmxpy6BPkmpW@google.com>
- <CALzav=eju4LYyX=ufNneSww+5sraYJ8cfQSi4LTOHfHWmddX9A@mail.gmail.com>
- <Y5dnWgJ0ine55/hN@google.com>
- <01cb4882-7a06-176f-7d55-f80cca300ffd@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <01cb4882-7a06-176f-7d55-f80cca300ffd@redhat.com>
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cl2hz2Xl0INQZgi0/FdsZaZQh2aAYVKtm1GOrQ0BNuA=;
+        b=hP5s9ZXX8YwVtibu/zQ/mmJeisG8jXL4otG9TGCXJsgKlm4yRTEnci/uTM84urk4yw
+         grf6eEw2E5No+C2MWhrKFdcXzKnMgbLCpJzU9Ns5rwG9H2foD8719xo7rtgoizF621cm
+         DX2zhPDpqP/pU8ERYW+CcsO8bzaQzK5Uelad6ep34YNJle30/EzNDxdRNpVNUx4wfrnd
+         ZgEvU+bzN4ZJDsl5MIPgkg5dUzf2pCBG6Xd8K2b/B9bQ58NRe3m9RBfX4WvBZXfoKWmo
+         P/vXu5m0xewjSWqXhGZ3Ffn8fJ18tloqP7OUVawZKEDAYIwMz0YXznWMCb/qgl9WJ+Dz
+         g6MQ==
+X-Gm-Message-State: ANoB5pl3M710vIu/jSrZ1lLCZOv7JOFa78bk+Sv0kjpmYx0kFU4JgDZD
+	RhMwRDFSfcICnP/F0rcvuXyP6zjLQgU=
+X-Google-Smtp-Source: AA0mqf5PAbtMk1FlbJUnxb446gjQZtpZQwbl0k154cV60HQy1+WGqGPPTBe02uIxBcfNlX5eyXkFbuPBOrQ=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a25:3303:0:b0:6f0:be3f:26f0 with SMTP id
+ z3-20020a253303000000b006f0be3f26f0mr67005598ybz.512.1670890632080; Mon, 12
+ Dec 2022 16:17:12 -0800 (PST)
+Date: Tue, 13 Dec 2022 00:16:48 +0000
+In-Reply-To: <20221213001653.3852042-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20221213001653.3852042-1-seanjc@google.com>
+X-Mailer: git-send-email 2.39.0.rc1.256.g54fd8350bd-goog
+Message-ID: <20221213001653.3852042-10-seanjc@google.com>
+Subject: [PATCH 09/14] KVM: selftests: Explicitly disable builtins for mem*() overrides
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tom Rix <trix@redhat.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Ricardo Koller <ricarkol@google.com>, 
+	Sean Christopherson <seanjc@google.com>, Aaron Lewis <aaronlewis@google.com>, 
+	Raghavendra Rao Ananta <rananta@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_171846_805678_525F2321 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20221213_001714_920108_EAE261C9 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +106,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 12, 2022 at 11:50:29PM +0100, Paolo Bonzini wrote:
-> On 12/12/22 18:39, Sean Christopherson wrote:
-> > > The notion of address spaces is already existing architecture-neutral
-> > > concept in KVM (e.g. see uses of KVM_ADDRESS_SPACE_NUM in
-> > > virt/kvm/kvm_main.c), although SMM is the only use-case I'm aware of.
-> > 
-> > Yes, SMM is currently the only use-case.
-> 
-> It's possible that in the future Hyper-V VTLs will also have per-level
-> protections.  It wouldn't use as_id, but it would likely be recorded in the
-> upper byte of the role.
-> 
-> I'm not sure if Microsoft intends to port those to ARM as well.
-> 
-> > My preference would be to leave .smm in x86's page role
-> 
-> What about defining a byte of arch_role and a macro to build it?
+Explicitly disable the compiler's builtin memcmp(), memcpy(), and
+memset().  Because only lib/string_override.c is built with -ffreestanding,
+the compiler reserves the right to do what it wants and can try to link the
+non-freestanding code to its own crud.
 
-Both would work. I went with as_id in the common role since that's how
-it's encoded in kvm_memory_slot and because, not matter what, the TDP
-MMU still has to handle multiple address spaces. i.e. Even if we hide
-SMM away in the role, the TDP MMU still has to access it with some
-wrapper e.g.  kvm_mmu_page_as_id() (that would just return 0 outside of
-x86). From that perspective, just having as_id directly in the common
-role seemed like the cleanest option.
+  /usr/bin/x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libc.a(memcmp.o): in function `memcmp_ifunc':
+  (.text+0x0): multiple definition of `memcmp'; tools/testing/selftests/kvm/lib/string_override.o:
+  tools/testing/selftests/kvm/lib/string_override.c:15: first defined here
+  clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
-The only way to truly shield the TDP MMU from SMM would be to disallow
-it. e.g. Disable the TDP MMU if defined(CONFIG_KVM_SMM), or something
-similar. But I don't know enough about how KVM SMM support is used to
-say if that's even worth entertaining.
+Fixes: 6b6f71484bf4 ("KVM: selftests: Implement memcmp(), memcpy(), and memset() for guest use")
+Reported-by: Aaron Lewis <aaronlewis@google.com>
+Reported-by: Raghavendra Rao Ananta <rananta@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ tools/testing/selftests/kvm/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+index a6050dcc381a..6594ed51eeea 100644
+--- a/tools/testing/selftests/kvm/Makefile
++++ b/tools/testing/selftests/kvm/Makefile
+@@ -191,6 +191,7 @@ else
+ LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
+ endif
+ CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
++	-fno-builtin-memcmp -fno-builtin-memcpy -fno-builtin-memset \
+ 	-fno-stack-protector -fno-PIE -I$(LINUX_TOOL_INCLUDE) \
+ 	-I$(LINUX_TOOL_ARCH_INCLUDE) -I$(LINUX_HDR_PATH) -Iinclude \
+ 	-I$(<D) -Iinclude/$(ARCH_DIR) -I ../rseq -I.. $(EXTRA_CFLAGS) \
+-- 
+2.39.0.rc1.256.g54fd8350bd-goog
+
 
 _______________________________________________
 linux-riscv mailing list
