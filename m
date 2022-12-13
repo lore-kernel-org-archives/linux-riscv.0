@@ -4,89 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71734C4332F
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6984BC10F1D
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Dec 2022 01:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G7QcI95nr4dBPXhzBHwzG52SDjdm65WSOjlluQ7S7qM=; b=CBiquT4LJBhtKb
-	UzJA6IWHH3JUHed6R0sh4dkPYrF0MMTxgBuCApR7Suy4j8fGRPTm0WTo80+zW9GiTsVUCrUZLkKD7
-	h7T57lSkd+T83gECf2xBdM9QRui45IB5dWYj9dkUDeo7paY6A90hrUTIsY8NMXU8u6RJ5pkcvYIqf
-	eauTYdiZA/inpTzC+KfkEsHYWJP3kOuMDvodJSvRrIF//B2rpdgEANWo9hlx6UBMoLpVsjZA97O+B
-	FHm/5yVL3qQqKLh75rENm0IrnM36aXvoxhTediynvjHjQNT79OTh7U1V2ftQYfPS4AeJsIaETNhqz
-	26ReA2VZWUrHwvpxrKFQ==;
+	List-Owner; bh=YA4GK6GlhktsJvVTXiwh/kolRoUKHMGYzp5H3qdawdA=; b=Yuk7hO00gvzJuQ
+	7+wWiZyeBsfk4NYY8IxnBosTYv9OVNHjkJ+Hr8Zymjb6NFhsSqf6nIWu10WUf6rKsjy+wInJ0VYp9
+	ur+z1qFinVepIAaQARbjqv4asIvYMY6lyPwlli19jZvse+e5YX9bSNrHF27VXWq0SqoQW9v7W9DcR
+	/ucdnafkBpDoFhyGknvpWtC0XSMeqLcI7xf0vDw/0Z2JZ2ay4p8edGMtj0z1wmADbv79UgjIMdn48
+	/8HxMM6fOCnAp8C7z9HNlcAL9nncbqz57+2cpQLSdxo7isd3s1RKT6Ym/K5htwPxeJRRhX9WUyHW5
+	kX9Dc6RgztFpqo9Mtliw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4tkg-008eM4-Vc; Tue, 13 Dec 2022 01:06:35 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1p4tpD-008jY9-UV; Tue, 13 Dec 2022 01:11:15 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1p4tkd-008eIU-OS
-	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 01:06:33 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-40b40ff39f1so134395147b3.10
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 17:06:30 -0800 (PST)
+	id 1p4tp9-008jV8-RD
+	for linux-riscv@lists.infradead.org; Tue, 13 Dec 2022 01:11:14 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d3so13929956plr.10
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Dec 2022 17:11:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=pv4WCEHXWY+FV1YUq8UNcPDkKm6bq2JSRGE//Kj9vf8=;
-        b=nHZzxj7Q780CVpKNF5gPN9HC44/Nc5HxGgyb1Juqwj1LdHZaoEfIug7PLPSpIoG2yv
-         bmGt6M4gEviMg/4oleu94/zXTiZWfGijEovvaEHGgA7Eev1ScUr3lmzTjd64Mi03kCxs
-         PbGxjVHqOnyt6ZPcxJwRG/wcbDAMZUx3Xl4SiOpcV0axmJA2GnEXju4M06z4rBwHhhEb
-         yE957qAZ7PBaas2oZC443pTFXpt0xmYGnt5zUCk7Qk2H1quPnvfsIn/n2xF6RlLVxEn/
-         7qsqOx/N1UaziUkHy3R+gnhN/7hTYyhLpEA7pfvyzNtgwB54yoGqLe9EO7E5FBPlJUQ0
-         OJlA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hinRxz3gZAj3ZK/aMCsc0q1wjnPrltO2NY/c3Ugkfq0=;
+        b=BNMWSdc+G8UMrGiE9cfwTCPOtvSd4SGR5xx9j3KogRRggicjQJNSWnM6KzvI+ruZLT
+         Z5/+c4GRAmzfjVgnsKmZRqnzwxy3jUi/VmUYCAee+psZ2RDnJgcc1z+MUbcUtpmBqhIZ
+         n2Xll8zjiyxpmJ3nyLDrFyGmzI72Dw1KgllTInw6mNRJPlPPq+xSIjWfB9YG8CN/8PRG
+         r3MG2HeXYjSqtpUEiCGlGf9/Jk4XWxaXIBwinsPc1K0QooX+vTYegu4v2wV32ww/FxE5
+         7U3ovhcjmqh4WLC5088r7J3ACzaSHYWslRMcTvYMNLnN6V4ac7AvMNHAI+noZZdCx3Mm
+         2p7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pv4WCEHXWY+FV1YUq8UNcPDkKm6bq2JSRGE//Kj9vf8=;
-        b=gXzkGGKbgVgxyqe96XL8EtaycxMuQdR6P1Nq0uy71c1nqUMW3V0OdvrIx+OGORNYeo
-         f+oGK5tR0yYmG3e7dFjRGZ2WEqeij29ubxx3D+jG6TEcEbIr82O2LpvMt0a9EhI3pE0C
-         8YBkWdeobYXWhLNwxOqGvyClwtcCPd9PMwXwZV5WdfWx26Ev0FaE55ayJcmleNhGMpWi
-         7RuKjs5SP4z4Lqg9tFnnlajp2F6da0DiKNeIWRf47k+QHvMhtQt5VzXJ7NMl2m/2XyQK
-         gIt/s/4SGMc78lKg2OMKiu/+q21e3zu1FjNeB4C/69CA5W91gb0oGg2Yxtv21q5x88Hw
-         5e/w==
-X-Gm-Message-State: ANoB5pnJxyn4qH6JeDsydtD05vNAAhIvTVYls8jj0yNxrnAHCvPULMi9
-	NMbOPAcSE31bbNs+y/bMCoCsahr9C6E9XZPdF55Edg==
-X-Google-Smtp-Source: AA0mqf6UC/AYrRSJ+MEPYQjgdOAUYa1qq71cF4IZc0dJwhxjGVc2rf3hOO63DAbZlhHX9B51ehBcsSfwU5FzFAQu4JA=
-X-Received: by 2002:a81:4d6:0:b0:402:7be6:f265 with SMTP id
- 205-20020a8104d6000000b004027be6f265mr4263609ywe.188.1670893589689; Mon, 12
- Dec 2022 17:06:29 -0800 (PST)
-MIME-Version: 1.0
-References: <20221208193857.4090582-1-dmatlack@google.com> <20221208193857.4090582-3-dmatlack@google.com>
- <48f4df00-8ef6-042f-c9ae-4023c4f70058@redhat.com>
-In-Reply-To: <48f4df00-8ef6-042f-c9ae-4023c4f70058@redhat.com>
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hinRxz3gZAj3ZK/aMCsc0q1wjnPrltO2NY/c3Ugkfq0=;
+        b=CR3At5zi/OmXEvncS69yv73zIBPqU/f7/D6yVkhMyc9MSuK4Ciu4FuLfQwz7v4/nZC
+         p/mskVu/4P5CjhVnMnepbl/LWGDXbnVS3YDgHYUZ1UE+kr610KjJMCs7u1nHQeqNJgle
+         FBNqm4A5jdnqwSMULuXbk3roQmYa16sqzt5ykOCe7zjkf6BDBNalDkzpeR3Vrdts8V7i
+         RJ78hJknvEi9k4S74gsaez5RCDGgEPvPOV+AtGhvz9iphX5EX07wI+S+qtk3vRefNHCx
+         MTTKUkQ3sK2AfgQ/LYrbUQIo8AQ9woVBKGHERUzZuOn1vIas96dXGg2BBD7EpTVzQPfj
+         gWUw==
+X-Gm-Message-State: ANoB5pmIirvYuot7/+QXsBNIxXVZWAC1BNbNS7Xo0qZN/S7UIrTorwO5
+	+06spS03g/AsG/iAHNoj7Y0uFA==
+X-Google-Smtp-Source: AA0mqf4K7zeWWztu3csfWQBbFCCVxqGsIhKZt6mbUg55HAzsJAXNVoEUxec6VV36cFbnYl7q+RITOA==
+X-Received: by 2002:a17:902:7001:b0:189:a208:d130 with SMTP id y1-20020a170902700100b00189a208d130mr18915329plk.31.1670893867860;
+        Mon, 12 Dec 2022 17:11:07 -0800 (PST)
+Received: from google.com (223.103.125.34.bc.googleusercontent.com. [34.125.103.223])
+        by smtp.gmail.com with ESMTPSA id l11-20020a170903120b00b0017f72a430adsm7043661plh.71.2022.12.12.17.11.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Dec 2022 17:11:07 -0800 (PST)
+Date: Mon, 12 Dec 2022 17:11:02 -0800
 From: David Matlack <dmatlack@google.com>
-Date: Mon, 12 Dec 2022 17:06:03 -0800
-Message-ID: <CALzav=crvFwCo50N5QOFD5FstrR9wJ=FmQAkYDHaKzQuatCNfw@mail.gmail.com>
-Subject: Re: [RFC PATCH 02/37] KVM: MMU: Move struct kvm_mmu_page_role into
- common code
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
-	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Sean Christopherson <seanjc@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Nadav Amit <namit@vmware.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Yu Zhao <yuzhao@google.com>, Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>, 
-	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>, 
-	Krish Sadhukhan <krish.sadhukhan@oracle.com>, Ricardo Koller <ricarkol@google.com>, 
-	Jing Zhang <jingzhangos@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvmarm@lists.cs.columbia.edu, 
-	linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Sean Christopherson <seanjc@google.com>,
+	"Yang, Weijiang" <weijiang.yang@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Aleksandar Markovic <aleksandar.qemu.devel@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	"Amit, Nadav" <namit@vmware.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Peter Xu <peterx@redhat.com>, xu xin <cgel.zte@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Yu Zhao <yuzhao@google.com>,
+	Colin Cross <ccross@google.com>, Hugh Dickins <hughd@google.com>,
+	Ben Gardon <bgardon@google.com>, Mingwei Zhang <mizhang@google.com>,
+	Krish Sadhukhan <krish.sadhukhan@oracle.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvmarm@lists.cs.columbia.edu" <kvmarm@lists.cs.columbia.edu>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [RFC PATCH 01/37] KVM: x86/mmu: Store the address space ID
+ directly in kvm_mmu_page_role
+Message-ID: <Y5fRJr34/BnsE+Dv@google.com>
+References: <20221208193857.4090582-1-dmatlack@google.com>
+ <20221208193857.4090582-2-dmatlack@google.com>
+ <22fe2332-497e-fe30-0155-e026b0eded97@intel.com>
+ <Y5NvYmxpy6BPkmpW@google.com>
+ <CALzav=eju4LYyX=ufNneSww+5sraYJ8cfQSi4LTOHfHWmddX9A@mail.gmail.com>
+ <Y5dnWgJ0ine55/hN@google.com>
+ <Y5dwQEJHNiTPE+jz@google.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Y5dwQEJHNiTPE+jz@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20221212_170631_819746_933EFF97 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20221212_171111_942205_F8954A65 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +128,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 12, 2022 at 3:11 PM Paolo Bonzini <pbonzini@redhat.com> wrote:
->
-> On 12/8/22 20:38, David Matlack wrote:
-> > +/*
-> > + * kvm_mmu_page_role tracks the properties of a shadow page (where shadow page
-> > + * also includes TDP pages) to determine whether or not a page can be used in
-> > + * the given MMU context.
-> > + */
-> > +union kvm_mmu_page_role {
-> > +     u32 word;
-> > +     struct {
-> > +             struct {
-> > +                     /* The address space ID mapped by the page. */
-> > +                     u16 as_id:8;
-> > +
-> > +                     /* The level of the page in the page table hierarchy. */
-> > +                     u16 level:4;
-> > +
-> > +                     /* Whether the page is invalid, i.e. pending destruction. */
-> > +                     u16 invalid:1;
-> > +             };
-> > +
-> > +             /* Architecture-specific properties. */
-> > +             struct kvm_mmu_page_role_arch arch;
-> > +     };
-> > +};
-> > +
->
-> Have you considered adding a tdp_mmu:1 field to the arch-independent
-> part?  I think that as long as _that_ field is the same, there's no need
-> to have any overlap between TDP MMU and shadow MMU roles.
->
-> I'm not even sure if the x86 TDP MMU needs _any_ other role bit.  It
-> needs of course the above three, and it also needs "direct" but it is
-> used exactly to mean "is this a TDP MMU page".  So we could have
->
-> union {
->         struct {
->                 u32 tdp_mmu:1;
->                 u32 invalid:1;
->                 u32 :6;
->                 u32 level:8;
->                 u32 arch:8;
->                 u32 :8;
->         } tdp;
->         /* the first field must be "u32 tdp_mmu:1;" */
->         struct kvm_mmu_page_role_arch shadow;
+On Mon, Dec 12, 2022 at 06:17:36PM +0000, Oliver Upton wrote:
+> On Mon, Dec 12, 2022 at 05:39:38PM +0000, Sean Christopherson wrote:
+> > On Fri, Dec 09, 2022, David Matlack wrote:
+> > > On Fri, Dec 9, 2022 at 9:25 AM Oliver Upton <oliver.upton@linux.dev> wrote:
+> > My preference would be to leave .smm in x86's page role.  IMO, defining multiple
+> > address spaces to support SMM emulation was a mistake that should be contained to
+> > SMM, i.e. should never be used for any other feature.  And with CONFIG_KVM_SMM,
+> > even x86 can opt out.
+> 
+> +1
+> 
+> I don't think something is architecture-neutral by virtue of it existing
+> in virt/kvm/*.
 
-We could but then that prevents having common fields between the
-Shadow MMU and TDP MMU. For example, make_spte() and
-make_huge_page_split_spte() use sp->role.level regardless of TDP or
-Shadow MMU, and is_obsolete_sp() uses sp->role.invalid. Plus then you
-need the `arch:8` byte for SMM.
+Put another way, just because something exists in virt/kvm/* doesn't
+mean it is used (or will be useful) to more than one architecture.
+Totally agree.  In this case, there never turned out to be any other
+usecases for memslot address spaces.
 
-It's possible to make it work, but I don't see what the benefit would be.
+As for role.arch.smm vs role.as_id, I'll post my response on the other
+thread with Paolo. Juggling these threads is hard.
 
 _______________________________________________
 linux-riscv mailing list
